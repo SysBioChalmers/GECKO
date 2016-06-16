@@ -1,0 +1,30 @@
+ENTRY       YOR312C           CDS       T00005
+NAME        RPL20B, RPL18A1
+DEFINITION  ribosomal 60S subunit protein L20B
+ORTHOLOGY   K02882  large subunit ribosomal protein L18Ae
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03010  Ribosome
+CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+POSITION    XV:complement(join(900250..900767,901194))
+MOTIF       Pfam: Ribosomal_L18ae
+DBLINKS     NCBI-GI: 154200011
+            NCBI-GeneID: 854489
+            SGD: S000005839
+            MIPS: YOR312C
+            UniProt: P0CX23 P0CX24
+STRUCTURE   PDB: 3U5E 3U5I 4BYN 4BYU 4B6A
+AASEQ       172
+            MAHFKEYQVIGRRLPTESVPEPKLFRMRIFASNEVIAKSRYWYFLQKLHKVKKASGEIVS
+            INQINEAHPTKVKNFGVWVRYDSRSGTHNMYKEIRDVSRVAAVETLYQDMAARHRARFRS
+            IHILKVAEIEKTADVKRQYVKQFLTKDLKFPLPHRVQKSTKTFSYKRPSTFY
+NTSEQ       519
+            atggctcatttcaaagaataccaagtcattggtcgtcgtttaccaactgaatccgttcca
+            gaaccaaagttgttcagaatgagaatttttgcttcaaatgaagtcatcgccaagtctcgt
+            tactggtatttcttgcaaaaattgcacaaggttaagaaggcttctggtgaaattgtttcc
+            atcaaccaaatcaacgaagctcacccaaccaaggtcaagaacttcggtgtttgggttaga
+            tacgattccagatctggtactcacaacatgtacaaggaaatcagagacgtatccagagtt
+            gctgccgtcgaaaccttataccaagacatggctgctagacacagagctagatttagatct
+            attcacatcttgaaggttgctgaaattgaaaagactgctgatgtcaagagacaatacgtc
+            aagcaattcttgaccaaggatttaaaattcccattacctcacagagtccaaaaatctacc
+            aagactttctcttacaagagaccatcaaccttctactaa
+///

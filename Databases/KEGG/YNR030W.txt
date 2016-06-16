@@ -1,0 +1,59 @@
+ENTRY       YNR030W           CDS       T00005
+NAME        ALG12, ECM39
+DEFINITION  dolichyl-P-Man:Man(7)GlcNAc(2)-PP-dolichol alpha-1,6-mannosyltransferase (EC:2.4.1.260)
+ORTHOLOGY   K03847  alpha-1,6-mannosyltransferase [EC:2.4.1.260]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00510  N-Glycan biosynthesis
+            sce00513  Various types of N-glycan biosynthesis
+            sce01100  Metabolic pathways
+MODULE      sce_M00055  N-glycan precursor biosynthesis
+CLASS       Metabolism; Glycan biosynthesis and metabolism; N-Glycan biosynthesis [PATH:sce00510]
+            Metabolism; Glycan biosynthesis and metabolism; Various types of N-glycan biosynthesis [PATH:sce00513]
+POSITION    XIV:678799..680454
+MOTIF       Pfam: Glyco_transf_22
+DBLINKS     NCBI-GI: 6324357
+            NCBI-GeneID: 855764
+            SGD: S000005313
+            MIPS: YNR030W
+            UniProt: P53730
+AASEQ       551
+            MRWSVLDTVLLTVISFHLIQAPFTKVEESFNIQAIHDILTYSVFDISQYDHLKFPGVVPR
+            TFVGAVIIAMLSRPYLYLSSLIQTSRPTSIDVQLVVRGIVGLTNGLSFIYLKNCLQDMFD
+            EITEKKKEENEDKDIYIYDSAGTWFLLFLIGSFHLMFYSTRTLPNFVMTLPLTNVALGWV
+            LLGRYNAAIFLSALVAIVFRLEVSALSAGIALFSVIFKKISLFDAIKFGIFGLGLGSAIS
+            ITVDSYFWQEWCLPEVDGFLFNVVAGYASKWGVEPVTAYFTHYLRMMFMPPTVLLLNYFG
+            YKLAPAKLKIVSLASLFHIIVLSFQPHKEWRFIIYAVPSIMLLGATGAAHLWENMKVKKI
+            TNVLCLAILPLSIMTSFFISMAFLYISRMNYPGGEALTSFNDMIVEKNITNATVHISIPP
+            CMTGVTLFGELNYGVYGINYDKTENTTLLQEMWPSFDFLITHEPTASQLPFENKTTNHWE
+            LVNTTKMFTGFDPTYIKNFVFQERVNVLSLLKQIIFDKTPTVFLKELTANSIVKSDVFFT
+            YKRIKQDEKTD
+NTSEQ       1656
+            atgcgttggtctgtccttgatacagtgctattgaccgtgatttcctttcatctaatccaa
+            gctccattcaccaaggtggaagagagttttaatattcaagccattcatgatattttaacc
+            tacagcgtatttgatatctcccaatatgaccacttgaaatttcctggagtagtccctaga
+            acattcgttggtgctgtgattattgcaatgctttcgagaccttatctttacttgagttct
+            ttgatccaaacttccaggcctacgtctatagatgttcaattggtcgttagggggattgtt
+            ggcctcaccaatgggctttcttttatctatttaaagaattgtttgcaagatatgtttgat
+            gaaatcactgaaaagaaaaaggaagaaaatgaagacaaggatatatacatttacgatagc
+            gctggtacatggtttcttttatttttaattggcagtttccacctcatgttctacagcact
+            aggactctgcctaattttgtcatgactctgcctctaaccaacgtcgcattggggtgggtt
+            ttattgggtcgttataatgcagctatattcctatctgcgctcgtggcaattgtatttaga
+            ctggaagtgtcagctctcagtgctggtattgctctatttagcgtcatcttcaagaagatt
+            tctttattcgatgctatcaaattcggtatctttggcttgggacttggttccgccatcagt
+            atcaccgttgattcatatttctggcaagaatggtgtctacctgaggtagatggtttcttg
+            ttcaacgtggttgcgggttacgcttccaagtggggtgtggagccagttactgcttatttc
+            acgcattacttgagaatgatgtttatgccaccaactgttttactattgaattacttcggc
+            tataaattagcacctgcaaaattaaaaattgtctcactagcatctcttttccacattatc
+            gtcttatcctttcaacctcacaaagaatggagattcatcatctacgctgttccatctatc
+            atgttgctaggtgccacaggagcagcacatctatgggagaatatgaaagtaaaaaagatt
+            accaatgttttatgtttggctatattgcccttatctataatgacctcctttttcatttca
+            atggcgttcttgtatatatcaagaatgaattatccaggcggcgaggctttaacttctttt
+            aatgacatgattgtggaaaaaaatattacaaacgctacagttcatatcagcatacctcct
+            tgcatgacaggtgtcactttatttggtgaattgaactacggtgtgtacggcatcaattac
+            gataagactgaaaatacgactttactgcaggaaatgtggccctcctttgatttcttgatc
+            acccacgagccaaccgcctctcaattgccattcgagaataagactaccaaccattgggag
+            ctagttaacacaacaaagatgtttactggatttgacccaacctacattaagaactttgtt
+            ttccaagagagagtgaatgttttgtctctactcaaacagatcattttcgacaagacccct
+            accgtttttttgaaagaattgacggccaattcgattgttaaaagcgatgtcttcttcacc
+            tataagagaatcaaacaagatgaaaaaactgattga
+///

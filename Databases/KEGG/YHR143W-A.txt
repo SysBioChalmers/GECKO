@@ -1,0 +1,41 @@
+ENTRY       YHR143W-A         CDS       T00005
+NAME        RPC10, RPB12
+DEFINITION  Rpc10p
+ORTHOLOGY   K03009  DNA-directed RNA polymerases I, II, and III subunit RPABC4
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00230  Purine metabolism
+            sce00240  Pyrimidine metabolism
+            sce01100  Metabolic pathways
+            sce03020  RNA polymerase
+MODULE      sce_M00180  RNA polymerase II, eukaryotes
+            sce_M00181  RNA polymerase III, eukaryotes
+            sce_M00182  RNA polymerase I, eukaryotes
+CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
+            Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
+            Genetic Information Processing; Transcription; RNA polymerase [PATH:sce03020]
+POSITION    VIII:387233..387445
+MOTIF       Pfam: DNA_RNApol_7kD Prok-RING_1 DZR HypA UPF0547 NCD3G C1_1 DUF2318 FYVE_2 zinc-ribbons_6 OrfB_Zn_ribbon Herpes_UL33 Ribosomal_L40e
+DBLINKS     NCBI-GI: 6321937
+            NCBI-GeneID: 856547
+            SGD: S000001185
+            MIPS: YHR143W-A
+            UniProt: P40422
+STRUCTURE   PDB: 1TWF 4C2M 3CQZ 1K83 1I50 3S14 2NVQ 4C3I 3RZO 1TWC 3S1N
+                 1I3Q 3S1M 4BY7 3M3Y 3S1R 3S2D 3S17 3HOU 1TWA 3S16 4C3H
+                 4BXX 3S1Q 3S2H 3S15 3RZD 3PO2 3PO3 1TWG 1I6H 4C3J 2NVT
+                 3GTL 4BBR 4A93 4A3D 4A3E 3HOY 2VUM 2YU9 2NVY 1TWH 2E2I
+                 3GTJ 4A3B 4A3C 4A3F 4A3G 4A3K 3HOV 2E2J 1R9T 3M4O 4BY1
+                 4BBS 4A3L 3HOW 2NVX 1SFO 3HOX 3HOZ 4A3J 3I4M 3GTG 4A3I
+                 3K7A 3GTK 3GTM 3GTQ 2R92 2R7Z 2B63 1Y1V 1WCM 1PQV 3FKI
+                 4A3M 3I4N 3GTP 2E2H 3H3V 3GTO 2R93 1Y1W 1Y1Y 1NIK 2B8K
+                 1NT9 1R9S 3QT1 3K1F 2NVZ 1Y77 1R5U 4BXZ 3J1N 2JA5 2JA6
+                 2JA7 2JA8
+AASEQ       70
+            MSREGFQIPTNLDAAAAGTSQARTATLKYICAECSSKLSLSRTDAVRCKDCGHRILLKAR
+            TKRLVQFEAR
+NTSEQ       213
+            atgtctcgcgaagggttccagattccaacaaatttagacgccgcagctgcaggtacttct
+            caagctagaacggcaactttgaagtatatttgtgctgaatgttctagtaaattatcttta
+            tccagaactgatgcagtccgttgtaaggactgtggtcatagaatcctgttgaaggctagg
+            actaagagattggttcaatttgaagctagatga
+///

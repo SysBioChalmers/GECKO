@@ -1,0 +1,58 @@
+ENTRY       YOR067C           CDS       T00005
+NAME        ALG8, YOR29-18
+DEFINITION  dolichyl-P-Glc:Glc1Man(9)GlcNAc(2)-PP-dolichol alpha-1,3-glucosyltransferase (EC:2.4.1.265)
+ORTHOLOGY   K03849  alpha-1,3-glucosyltransferase [EC:2.4.1.265]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00510  N-Glycan biosynthesis
+            sce01100  Metabolic pathways
+MODULE      sce_M00055  N-glycan precursor biosynthesis
+CLASS       Metabolism; Glycan biosynthesis and metabolism; N-Glycan biosynthesis [PATH:sce00510]
+POSITION    XV:complement(451729..453462)
+MOTIF       Pfam: Alg6_Alg8
+DBLINKS     NCBI-GI: 6324641
+            NCBI-GeneID: 854233
+            SGD: S000005593
+            MIPS: YOR067C
+            UniProt: P40351
+AASEQ       577
+            MKGDRSRQNMAVTKKAKLKKNDEPKKVLKTAATEKGEGSKRYSLWNFWISTLFLKLLLIP
+            DYFSTDFDVHRNWLAITNKLPISEWYYEHTSQWTLDYPPFFAYFEWFLSQFVPKSVRDDG
+            CLDIVEIGKFGLPTIVFQRLTVIFSEILLFVILQIYINTTKLSERSQSFVVASSIVLSPG
+            FLIIDHIHFQYNGFLFAILIGSIVAAKNKRYILCAVLYTTAICFKHIFLYLAPCYFVFLL
+            RAYVLNVNNFKFKSYKDFLFLIRWANLLKLATVVVGIFTICFLPFAHQMPQVLSRLFPFS
+            RGLTHAYWAPNFWALYSFMDKILTTVMLKLPYVHTFATKFIKPPLIPQNIKEINERLAAN
+            NNGSKGLVQDVFFVILPQIPPKLTFILTIFYQVLAVLPLLFDPSFKRFVGSLTLCGLASF
+            LFGWHVHEKAIMLVIIPFTFLVGFDRRLLVPFMLVASAGYVSLYPLLYKGQDFFIKTLYT
+            YVWCIIYFAAFRKTTKISSSVERRIFFLDRLALTYIFSLLPIVTVLQILDEVKWRYSFLQ
+            KFEFLGLMIYSVYCSLGIISSWFALSWLYNFDELLWQ
+NTSEQ       1734
+            atgaaaggtgatcgttcgaggcaaaatatggctgtgacaaagaaggcaaagttaaaaaaa
+            aatgacgagccaaaaaaggttttgaagactgccgcgaccgaaaaaggtgagggatccaag
+            cgctactccttatggaatttctggataagcacattgtttttaaaattactattgattcct
+            gactacttcagtacagattttgacgttcatagaaattggctggcaatcaccaataaattg
+            cccatcagcgaatggtattatgagcacactagtcaatggacattggattatccgccattt
+            tttgcttattttgaatggtttttatcgcaatttgttcctaaatctgtacgtgatgacggt
+            tgtttggatatagtggagatcggaaagttcggtttgccaacaatcgttttccaacgactc
+            actgtcatcttcagcgaaattcttctatttgtcatccttcaaatatacattaatactaca
+            aagctaagtgaaagatctcaaagttttgtggttgcttctagcattgtactatcacccggg
+            tttttaataatagatcacattcacttccaatataatggttttctttttgcgattctaata
+            ggctccattgtcgccgccaagaataagagatacatcttgtgcgctgttctgtatactaca
+            gccatatgtttcaagcatatatttttatatttggcgccatgttatttcgtgtttttattg
+            agagcatacgttctcaatgtcaacaatttcaagtttaaaagttacaaagattttttgttc
+            ctgataagatgggcaaatcttttgaagttggctaccgttgttgttggaattttcactatt
+            tgtttccttccatttgctcatcaaatgccgcaagtgttgagcaggttattcccattctca
+            agaggactgacgcatgcatattgggcaccaaatttctgggcgttgtattcttttatggat
+            aaaatactcactacggtaatgttgaaattaccgtacgtccacacttttgctacaaaattt
+            attaaacctcctctgatccctcagaatatcaaggaaattaatgaaaggctcgcggcaaac
+            aacaatggaagtaaaggtctagttcaagacgtattttttgttattctccctcaaattcct
+            ccaaaattaacgtttattttgacgatattttaccaggtcttagcagtacttccacttttg
+            tttgatccatcgttcaaaagatttgttggctcgttgactctctgtgggttggcatcgttt
+            ttgttcgggtggcatgtgcatgagaaagctataatgctagtcatcattccgttcacattt
+            cttgttggatttgatcgtcgtcttttggtaccgtttatgttagttgcctcagctggttat
+            gtttccttgtatcctcttctgtacaaaggccaagattttttcattaaaacattatacact
+            tatgtttggtgtataatttattttgccgcttttagaaaaactacgaagatttcttcaagt
+            gtagaaagaagaatctttttcttggataggttggcattaacgtacatcttttcattgtta
+            ccaatcgtcaccgtattacaaatattggatgaagtcaagtggagatattcatttttgcaa
+            aaatttgaattcttaggattaatgatatatagtgtctattgttcattaggtataatcagc
+            tcgtggtttgccttatcgtggttatataattttgacgaattactatggcagtga
+///

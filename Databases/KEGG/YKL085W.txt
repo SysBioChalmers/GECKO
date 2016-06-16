@@ -1,0 +1,53 @@
+ENTRY       YKL085W           CDS       T00005
+NAME        MDH1
+DEFINITION  malate dehydrogenase MDH1 (EC:1.1.1.37)
+ORTHOLOGY   K00026  malate dehydrogenase [EC:1.1.1.37]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00020  Citrate cycle (TCA cycle)
+            sce00270  Cysteine and methionine metabolism
+            sce00620  Pyruvate metabolism
+            sce00630  Glyoxylate and dicarboxylate metabolism
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01200  Carbon metabolism
+MODULE      sce_M00009  Citrate cycle (TCA cycle, Krebs cycle)
+            sce_M00011  Citrate cycle, second carbon oxidation, 2-oxoglutarate => oxaloacetate
+            sce_M00012  Glyoxylate cycle
+CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
+            Metabolism; Carbohydrate metabolism; Citrate cycle (TCA cycle) [PATH:sce00020]
+            Metabolism; Carbohydrate metabolism; Pyruvate metabolism [PATH:sce00620]
+            Metabolism; Carbohydrate metabolism; Glyoxylate and dicarboxylate metabolism [PATH:sce00630]
+            Metabolism; Amino acid metabolism; Cysteine and methionine metabolism [PATH:sce00270]
+POSITION    XI:279123..280127
+MOTIF       Pfam: Ldh_1_C Ldh_1_N 3Beta_HSD
+DBLINKS     NCBI-GI: 6322765
+            NCBI-GeneID: 853777
+            SGD: S000001568
+            MIPS: YKL085W
+            UniProt: P17505
+AASEQ       334
+            MLSRVAKRAFSSTVANPYKVTVLGAGGGIGQPLSLLLKLNHKVTDLRLYDLKGAKGVATD
+            LSHIPTNSVVKGFTPEEPDGLNNALKDTDMVLIPAGVPRKPGMTRDDLFAINASIVRDLA
+            AATAESAPNAAILVISNPVNSTVPIVAQVLKNKGVYNPKKLFGVTTLDSIRAARFISEVE
+            NTDPTQERVNVIGGHSGITIIPLISQTNHKLMSDDKRHELIHRIQFGGDEVVKAKNGAGS
+            ATLSMAHAGAKFANAVLSGFKGERDVIEPSFVDSPLFKSEGIEFFASPVTLGPDGIEKIH
+            PIGELSSEEEEMLQKCKETLKKNIEKGVNFVASK
+NTSEQ       1005
+            atgttgtcaagagtagctaaacgtgcgttttcctctacagttgccaacccttataaagtg
+            actgttttgggtgcaggcggtggtattggacaaccattgtctttgcttctaaagcttaac
+            cataaagtcacggacttaagactgtacgacctaaagggcgcaaaaggtgttgccaccgat
+            ttgtctcatattccaacaaactccgtggtcaaggggtttactccagaagagccagacgga
+            ttgaacaacgctttaaaggacacagacatggttttaattcctgctggtgtgcccagaaag
+            cctggtatgacacgtgatgacttgttcgccatcaacgcaagcatcgttcgcgatttggca
+            gcagcaaccgccgaatccgctcccaatgctgccattctggtcatttccaacccagtcaat
+            tctaccgttccaattgtcgcccaagtcttgaaaaacaagggtgtttacaacccaaagaaa
+            ttgttcggtgtgactaccttggactctattagagccgccagattcatctcagaagtcgag
+            aacaccgatccaactcaggaaagggttaacgtcatcggtggacattctggtattaccatc
+            atcccattgatttcgcaaacaaaccataagttgatgtctgatgacaagagacacgaattg
+            attcacagaatacagtttggtggtgacgaagtcgtcaaagcaaagaatggtgctggctct
+            gctacgttgtcaatggcccatgctggtgctaaattcgctaacgctgttttgtccggtttc
+            aaaggcgaaagagacgtcatcgagccttccttcgtggactctcccttgttcaaatccgaa
+            ggcatcgaattctttgcatctccggtcactttgggcccagatggtattgaaaagatccat
+            ccaataggtgagttatcttcagaagaagaagaaatgctacaaaaatgtaaagaaaccttg
+            aagaagaatatcgaaaagggtgtcaactttgttgctagtaaatag
+///

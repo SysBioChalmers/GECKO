@@ -1,0 +1,72 @@
+ENTRY       YER144C           CDS       T00005
+NAME        UBP5
+DEFINITION  Ubp5p (EC:3.4.19.12 3.1.2.15)
+ORTHOLOGY   K11839  ubiquitin carboxyl-terminal hydrolase 8 [EC:3.1.2.15]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04144  Endocytosis
+CLASS       Cellular Processes; Transport and catabolism; Endocytosis [PATH:sce04144]
+POSITION    V:complement(457806..460223)
+MOTIF       Pfam: UCH UCH_1 Rhodanese
+DBLINKS     NCBI-GI: 398364885
+            NCBI-GeneID: 856887
+            SGD: S000000946
+            MIPS: YER144C
+            UniProt: P39944
+AASEQ       805
+            MGSEQALSEVVESAKERFGRLRHLVQKFLDDDDVPQECLPLLQECAEIWSSYVDACQDIT
+            MQAPKEDANRLSKGFLRLNETAFLYYMIVYTLLEDTLPRLKEFSSNKDQNVRNLYGERIQ
+            LLHNDPNIERIRNVIENYPKFIQLQTIEPGKLSSMLHFHGDALLLIDVRPRSEFVRAHIK
+            CKNIICIDPASFKDSFTDQQIESVSLITSPHSDITFFSNRDKFKFIILYTDTQLHNNFQQ
+            RQTRILAKILSQNSVIKPLSGTKILILENGFSNWVKLGGAYQSSVSETAHLTSSSSTPAF
+            GSPQVPTGLFNQKSLSPNKDKSMPMVSMNTQPLLTTVQRPQLPLYYSDLPIIPQPSPNRN
+            SPTVQKFSPHPPTTLSKLNTPSTIQNKANTVERISPDIRAAQAHAYLPPASNVFSPRIPP
+            LPQQNLSSSRQTILNNSQVLDLDLIVGLENIGNCCYMNCILQCLVGTHDLVRMFLDNTYL
+            NFINFDSSRGSKGLLAKNFAILVNNMHRHGAFTPPNVRTIPVQTIQFKKICGHINPMYSD
+            SMQQDCQEFCQFLLDGLHEDLNQNGSKKHLKQLSDEEERMREKMSIRKASALEWERFLLT
+            DFSAIIDLFQGQYASRLQCQVCEHTSTTYQTFSVLSVPVPRVKTCNILDCFREFTKCERL
+            GVDEQWSCPKCLKKQPSTKQLKITRLPKKLIINLKRFDNQMNKNNVFVQYPYSLDLTPYW
+            ARDFNHEAIVNEDIPTRGQVPPFRYRLYGVACHSGSLYGGHYTSYVYKGPKKGWYFFDDS
+            LYRPITFSTEFITPSAYVLFYERIF
+NTSEQ       2418
+            atgggctcagaacaagccttaagtgaggttgtcgaatctgctaaagagcggttcggcagg
+            cttaggcatttagttcagaagtttcttgatgatgacgacgtgccacaagagtgtctgcct
+            ttgctccaagaatgcgcagaaatatggtctagttatgtggacgcatgccaggatataacc
+            atgcaggcccctaaagaagatgcaaaccggttgtcaaaggggtttctccgattgaatgaa
+            acagcttttttatattacatgatcgtatatacgctcttggaggatactctaccaagacta
+            aaggaattttcgagcaacaaggaccagaatgttagaaatttgtacggggagagaatccag
+            cttttgcataatgacccaaatattgagcggattcgaaatgtcattgaaaattaccctaaa
+            tttatacagttgcaaactatagagcctggaaaattaagttcaatgttgcattttcatggt
+            gacgctctcttgcttatcgatgtacggcccaggtctgaattcgttagggcccatatcaaa
+            tgcaaaaacattatatgcatcgatcctgcctcatttaaggattcttttacagaccaacaa
+            attgaaagtgtctctttgatcacttcgccgcactcagatatcactttcttttcaaatcga
+            gacaagttcaagttcattattttatatactgacactcaattgcataataatttccagcaa
+            aggcaaactcgcatccttgcgaagattctttcccaaaattcagtaattaaaccgctgagt
+            gggacgaaaatactcattttggaaaatgggttctcaaactgggttaaattaggtggggcg
+            tatcaatcatctgtcagtgaaacagcgcatcttacatcctcgtcttcaacgccagctttt
+            ggtagtccgcaagtcccaacaggcttgttcaatcagaaatctctatctccaaataaagat
+            aagagtatgccgatggtatccatgaatacgcagcctttgctaacaacggtgcaaaggcct
+            caattacccttatactattcagatttgcccattataccgcaaccaagccccaacagaaat
+            tctcccaccgttcaaaaatttagtccacatccaccaaccactctctcaaaactcaataca
+            ccctcgaccattcaaaataaagcaaacactgtggaaagaatatcgccagatatccgcgct
+            gcacaagcccatgcctatttgccccctgcatcgaatgtattctcgccacgtattccgcct
+            ttaccacaacagaacttgtcttcgtcgaggcagaccatcctaaacaactcacaagtgctt
+            gatctagatcttatagtaggattggaaaatataggtaactgttgttatatgaactgtata
+            cttcaatgtttggtgggaacacacgatttggttcgaatgtttttggataacacatatctg
+            aattttattaattttgatagttcaagaggttctaaggggttgctagctaaaaatttcgcc
+            atcttggtcaataatatgcacagacacggtgcattcacacctcctaacgtaagaacgata
+            ccagttcagactattcagtttaaaaaaatttgcggccatatcaaccccatgtatagtgat
+            tcaatgcagcaagattgtcaagaattttgtcaatttttgcttgatggcttgcacgaggat
+            ttgaaccaaaacggcagcaaaaagcatcttaaacagttatcagatgaggaagaacgaatg
+            agagaaaaaatgtccatacgcaaagctagtgctctcgagtgggaaagatttttgcttacc
+            gacttcagtgcgataattgaccttttccaaggacagtacgcatctaggctacaatgtcaa
+            gtttgtgaacatacctccacaacttaccaaacattctctgttctttctgttcctgtccca
+            cgcgttaaaacttgtaacatattagactgtttccgggaattcaccaaatgcgaaaggtta
+            ggtgtcgatgaacaatggtcatgtcctaaatgcttaaaaaagcagccttccactaaacaa
+            ctgaagattactagattgcctaagaaactaattattaatttgaaacgatttgacaatcaa
+            atgaataagaataatgtgtttgtccaatatccttactccttagatcttacaccatattgg
+            gcgagagattttaatcatgaagctattgttaatgaggacattcctaccaggggccaagta
+            ccaccatttagatacagactgtatggggttgcatgtcattcggggagtttgtatggggga
+            cactatacttcatacgtttataagggaccaaaaaaaggttggtattttttcgatgactcg
+            ctttatcgtcctataacgtttagtactgaatttatcacacccagtgcatatgttttattt
+            tacgaaagaattttttga
+///

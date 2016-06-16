@@ -1,0 +1,51 @@
+ENTRY       YER003C           CDS       T00005
+NAME        PMI40
+DEFINITION  mannose-6-phosphate isomerase PMI40 (EC:5.3.1.8)
+ORTHOLOGY   K01809  mannose-6-phosphate isomerase [EC:5.3.1.8]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00051  Fructose and mannose metabolism
+            sce00520  Amino sugar and nucleotide sugar metabolism
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+CLASS       Metabolism; Carbohydrate metabolism; Fructose and mannose metabolism [PATH:sce00051]
+            Metabolism; Carbohydrate metabolism; Amino sugar and nucleotide sugar metabolism [PATH:sce00520]
+POSITION    V:complement(join(157736..158994,159088..159118))
+MOTIF       Pfam: PMI_typeI AraC_binding AraC_binding_2
+DBLINKS     NCBI-GI: 6320839
+            NCBI-GeneID: 856720
+            SGD: S000000805
+            MIPS: YER003C
+            UniProt: P29952
+AASEQ       429
+            MSNKLFRLDAGYQQYDWGKIGSSSAVAQFAAHSDPSVQIEQDKPYAELWMGTHSKMPSYN
+            HESKESLRDIISKNPSAMLGKDIIDKFHATNELPFLFKVLSIEKVLSIQAHPDKALGKIL
+            HAQDPKNYPDDNHKPEMAIAVTDFEGFCGFKPLQEIADELKRIPELRNIVGEETSRNFIE
+            NIQPSAQKGSPEDEQNKKLLQAVFSRVMNASDDKIKIQARSLVERSKNSPSDFNKPDLPE
+            LIQRLNKQFPDDVGLFCGCLLLNHCRLNAGEAIFLRAKDPHAYISGDIMECMAASDNVVR
+            AGFTPKFKDVKNLVSMLTYTYDPVEKQKMQPLKFDRSSGNGKSVLYNPPIEEFAVLETTF
+            DEKLGQRHFEGVDGPSILITTKGNGYIKADGQKLKAEPGFVFFIAPHLPVDLEAEDEAFT
+            TYRAFVEPN
+NTSEQ       1290
+            atgtccaacaagctgttcaggttagatgcaggctaccaacaatacgactggggtaaaatc
+            ggctcttcttcagctgtcgctcaatttgctgcccattctgacccctctgttcaaattgaa
+            caagataaaccatatgcagagttatggatgggtacccacagcaagatgccttcctacaac
+            catgagtctaaggaatccctgagagatatcatctccaagaacccctctgccatgttaggt
+            aaggacattattgataagttccacgccacaaatgaattgcccttccttttcaaagttttg
+            tccattgaaaaagtcttgtctattcaagcacatcccgacaaagccttgggtaaaatattg
+            cacgctcaagatcctaagaactatcctgatgataatcacaaacctgaaatggccatcgct
+            gtgactgactttgaaggtttctgcgggttcaaacctttgcaagagattgcagatgaattg
+            aaacgtattcctgaattacgcaacattgttggtgaagaaacttccaggaattttattgag
+            aacattcaaccttctgctcagaaaggttccccagaagatgagcaaaacaaaaagctattg
+            caagctgttttcagcagggtcatgaacgcttcggatgacaaaatcaagattcaagctcgc
+            tccttggtcgaaagatcaaagaattctccatcagactttaacaaacctgatttaccagaa
+            ttaattcaaagactgaataaacagttccctgatgacgtgggtttgttttgtggatgttta
+            ttgttgaatcactgcagattgaatgctggtgaagccatctttttaagagctaaggatcct
+            cacgcctatataagcggtgatattatggaatgtatggctgcttctgacaacgtagttaga
+            gcaggcttcactccaaaattcaaggatgttaaaaacttggtctccatgttaacctataca
+            tatgatcctgtggaaaagcaaaaaatgcagcctttaaagttcgacaggtcctctggtaac
+            ggtaagtcagttttatataaccctccaatcgaagaatttgctgtattggagactactttt
+            gatgagaaacttggtcaaaggcattttgaaggtgttgatggtccaagtatcttaatcact
+            acaaaaggtaatggttacattaaagcagatggccaaaaattgaaagctgaacccggtttt
+            gtctttttcatcgctccacatttgcctgttgatttggaagctgaagatgaggcgtttact
+            acctatagagcctttgtggaaccaaattag
+///

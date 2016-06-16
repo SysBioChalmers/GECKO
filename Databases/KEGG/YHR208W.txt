@@ -1,0 +1,56 @@
+ENTRY       YHR208W           CDS       T00005
+NAME        BAT1, ECA39, TWT1
+DEFINITION  branched-chain-amino-acid transaminase BAT1 (EC:2.6.1.42)
+ORTHOLOGY   K00826  branched-chain amino acid aminotransferase [EC:2.6.1.42]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00280  Valine, leucine and isoleucine degradation
+            sce00290  Valine, leucine and isoleucine biosynthesis
+            sce00770  Pantothenate and CoA biosynthesis
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01210  2-Oxocarboxylic acid metabolism
+            sce01230  Biosynthesis of amino acids
+MODULE      sce_M00019  Valine/isoleucine biosynthesis, pyruvate => valine / 2-oxobutanoate => isoleucine
+            sce_M00570  Isoleucine biosynthesis, threonine => 2-oxobutanoate => isoleucine
+CLASS       Metabolism; Overview; 2-Oxocarboxylic acid metabolism [PATH:sce01210]
+            Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
+            Metabolism; Amino acid metabolism; Valine, leucine and isoleucine degradation [PATH:sce00280]
+            Metabolism; Amino acid metabolism; Valine, leucine and isoleucine biosynthesis [PATH:sce00290]
+            Metabolism; Metabolism of cofactors and vitamins; Pantothenate and CoA biosynthesis [PATH:sce00770]
+POSITION    VIII:517532..518713
+MOTIF       Pfam: Aminotran_4
+DBLINKS     NCBI-GI: 398365103
+            NCBI-GeneID: 856615
+            SGD: S000001251
+            MIPS: YHR208W
+            UniProt: P38891
+AASEQ       393
+            MLQRHSLKLGKFSIRTLATGAPLDASKLKITRNPNPSKPRPNEELVFGQTFTDHMLTIPW
+            SAKEGWGTPHIKPYGNLSLDPSACVFHYAFELFEGLKAYRTPQNTITMFRPDKNMARMNK
+            SAARICLPTFESEELIKLTGKLIEQDKHLVPQGNGYSLYIRPTMIGTSKGLGVGTPSEAL
+            LYVITSPVGPYYKTGFKAVRLEATDYATRAWPGGVGDKKLGANYAPCILPQLQAAKRGYQ
+            QNLWLFGPEKNITEVGTMNVFFVFLNKVTGKKELVTAPLDGTILEGVTRDSVLTLARDKL
+            DPQEWDINERYYTITEVATRAKQGELLEAFGSGTAAVVSPIKEIGWNNEDIHVPLLPGEQ
+            CGALTKQVAQWIADIQYGRVNYGNWSKTVADLN
+NTSEQ       1182
+            atgttgcagagacattccttgaagttggggaaattctccatcagaacactcgctactggt
+            gccccattagatgcatccaaactaaaaattactagaaacccaaatccatccaagccaaga
+            ccaaatgaagaattagtgttcggccagacattcaccgatcatatgttgaccattccttgg
+            tcagccaaagaagggtggggcactccacacatcaagccttacggtaatctttctcttgac
+            ccatctgcttgtgtattccattatgcatttgaattatttgaaggtttgaaagcctacaga
+            actcctcaaaatactatcaccatgttccgtccggataagaacatggcccgtatgaacaag
+            tctgccgctagaatttgtttgccaactttcgaatctgaagaattgatcaaacttaccggg
+            aaattgatcgaacaagataaacacttggttcctcaaggtaatggttactcattatacatc
+            agaccaacaatgattggtacatccaagggtttaggtgttggcactccctccgaggctctt
+            ctttatgttattacttctccagtcggtccttattataagactggtttcaaagccgtacgt
+            cttgaagcaacagactatgctacaagagcttggccaggtggtgttggcgacaaaaaattg
+            ggtgctaactatgccccatgcatcttacctcaactacaagctgccaaaagagggtaccaa
+            caaaatctatggttgttcggcccagaaaagaacatcactgaggttggtactatgaacgtg
+            ttcttcgttttcctcaacaaagtcactggcaagaaggaattggttaccgctccattagat
+            ggtaccattttagaaggtgttaccagagactctgttttaacattggctcgtgacaaacta
+            gatcctcaagaatgggacatcaacgagcgttattacactattactgaagtcgccactaga
+            gcaaaacaaggtgaactattagaagccttcggttctggtactgctgctgtcgtttcacct
+            atcaaggaaattggctggaacaacgaagatattcatgttccactattgcctggtgaacaa
+            tgtggtgcattgaccaagcaagttgctcaatggattgctgatatccaatacggtagagtc
+            aattatggtaactggtcaaaaactgttgccgacttgaactaa
+///

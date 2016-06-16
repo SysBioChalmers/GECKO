@@ -1,0 +1,34 @@
+ENTRY       YDL008W           CDS       T00005
+NAME        APC11
+DEFINITION  anaphase promoting complex subunit 11 (EC:6.3.2.-)
+ORTHOLOGY   K03358  anaphase-promoting complex subunit 11
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04111  Cell cycle - yeast
+            sce04113  Meiosis - yeast
+            sce04120  Ubiquitin mediated proteolysis
+MODULE      sce_M00389  APC/C complex
+CLASS       Genetic Information Processing; Folding, sorting and degradation; Ubiquitin mediated proteolysis [PATH:sce04120]
+            Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
+            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+POSITION    IV:433497..433994
+MOTIF       Pfam: zf-Apc11 zf-rbx1 zf-RING_2 zf-RING_5 zf-C3HC4_2 CpXC zf-C3HC4 zf-RING_4 zf-HC5HC2H_2
+DBLINKS     NCBI-GI: 398364869
+            NCBI-GeneID: 851554
+            SGD: S000002166
+            MIPS: YDL008W
+            UniProt: Q12157
+AASEQ       165
+            MKVKINEVHSVFAWSWHIPSTSDEDAANNDPIGNDEDEDVCGICRASYNGTCPSCKFPGD
+            QCPLVIGLCHHNFHDHCIYRWLDTPTSKGLCPMCRQTFQLQKGLAINDAHVQKFVEIVSR
+            RREEMIEEGVAEEFVDFDEPIRQNTDNPIGRQQVDTILDEDFLLR
+NTSEQ       498
+            atgaaagttaaaataaacgaagtgcacagtgtgtttgcttggtcatggcacatccctagc
+            acatctgatgaggacgcagccaataacgatccaattggcaatgatgaagacgaggatgtc
+            tgtggtatctgtcgtgccagttataacggtacctgtccaagctgtaaatttccaggcgat
+            caatgccctttagtgattgggctatgtcatcataacttccatgatcattgtatataccgt
+            tggcttgatacaccaacctcaaaaggactgtgtccgatgtgtaggcaaactttccagcta
+            cagaagggtctagcaattaatgacgctcatgtccaaaagttcgttgaaatagtttcaaga
+            agaagagaagaaatgatagaggagggcgtcgcagaagagtttgtggactttgatgaacca
+            ataaggcaaaacaccgataacccaatcggtagacagcaagttgataccatcctggacgaa
+            gactttttgttacgataa
+///

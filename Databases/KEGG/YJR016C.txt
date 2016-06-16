@@ -1,0 +1,67 @@
+ENTRY       YJR016C           CDS       T00005
+NAME        ILV3
+DEFINITION  dihydroxy-acid dehydratase ILV3 (EC:4.2.1.9)
+ORTHOLOGY   K01687  dihydroxy-acid dehydratase [EC:4.2.1.9]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00290  Valine, leucine and isoleucine biosynthesis
+            sce00770  Pantothenate and CoA biosynthesis
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01210  2-Oxocarboxylic acid metabolism
+            sce01230  Biosynthesis of amino acids
+MODULE      sce_M00019  Valine/isoleucine biosynthesis, pyruvate => valine / 2-oxobutanoate => isoleucine
+            sce_M00570  Isoleucine biosynthesis, threonine => 2-oxobutanoate => isoleucine
+CLASS       Metabolism; Overview; 2-Oxocarboxylic acid metabolism [PATH:sce01210]
+            Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
+            Metabolism; Amino acid metabolism; Valine, leucine and isoleucine biosynthesis [PATH:sce00290]
+            Metabolism; Metabolism of cofactors and vitamins; Pantothenate and CoA biosynthesis [PATH:sce00770]
+POSITION    X:complement(464451..466208)
+MOTIF       Pfam: ILVD_EDD
+DBLINKS     NCBI-GI: 6322476
+            NCBI-GeneID: 853473
+            SGD: S000003777
+            MIPS: YJR016C
+            UniProt: P39522
+AASEQ       585
+            MGLLTKVATSRQFSTTRCVAKKLNKYSYIITEPKGQGASQAMLYATGFKKEDFKKPQVGV
+            GSCWWSGNPCNMHLLDLNNRCSQSIEKAGLKAMQFNTIGVSDGISMGTKGMRYSLQSREI
+            IADSFETIMMAQHYDANIAIPSCDKNMPGVMMAMGRHNRPSIMVYGGTILPGHPTCGSSK
+            ISKNIDIVSAFQSYGEYISKQFTEEEREDVVEHACPGPGSCGGMYTANTMASAAEVLGLT
+            IPNSSSFPAVSKEKLAECDNIGEYIKKTMELGILPRDILTKEAFENAITYVVATGGSTNA
+            VLHLVAVAHSAGVKLSPDDFQRISDTTPLIGDFKPSGKYVMADLINVGGTQSVIKYLYEN
+            NMLHGNTMTVTGDTLAERAKKAPSLPEGQEIIKPLSHPIKANGHLQILYGSLAPGGAVGK
+            ITGKEGTYFKGRARVFEEEGAFIEALERGEIKKGEKTVVVIRYEGPRGAPGMPEMLKPSS
+            ALMGYGLGKDVALLTDGRFSGGSHGFLIGHIVPEAAEGGPIGLVRDGDEIIIDADNNKID
+            LLVSDKEMAQRKQSWVAPPPRYTRGTLSKYAKLVSNASNGCVLDA
+NTSEQ       1758
+            atgggcttgttaacgaaagttgctacatctagacaattctctacaacgagatgcgttgca
+            aagaagctcaacaagtactcgtatatcatcactgaacctaagggccaaggtgcgtcccag
+            gccatgctttatgccaccggtttcaagaaggaagatttcaagaagcctcaagtcggggtt
+            ggttcctgttggtggtccggtaacccatgtaacatgcatctattggacttgaataacaga
+            tgttctcaatccattgaaaaagcgggtttgaaagctatgcagttcaacaccatcggtgtt
+            tcagacggtatctctatgggtactaaaggtatgagatactcgttacaaagtagagaaatc
+            attgcagactcctttgaaaccatcatgatggcacaacactacgatgctaacatcgccatc
+            ccatcatgtgacaaaaacatgcccggtgtcatgatggccatgggtagacataacagacct
+            tccatcatggtatatggtggtactatcttgcccggtcatccaacatgtggttcttcgaag
+            atctctaaaaacatcgatatcgtctctgcgttccaatcctacggtgaatatatttccaag
+            caattcactgaagaagaaagagaagatgttgtggaacatgcatgcccaggtcctggttct
+            tgtggtggtatgtatactgccaacacaatggcttctgccgctgaagtgctaggtttgacc
+            attccaaactcctcttccttcccagccgtttccaaggagaagttagctgagtgtgacaac
+            attggtgaatacatcaagaagacaatggaattgggtattttacctcgtgatatcctcaca
+            aaagaggcttttgaaaacgccattacttatgtcgttgcaaccggtgggtccactaatgct
+            gttttgcatttggtggctgttgctcactctgcgggtgtcaagttgtcaccagatgatttc
+            caaagaatcagtgatactacaccattgatcggtgacttcaaaccttctggtaaatacgtc
+            atggccgatttgattaacgttggtggtacccaatctgtgattaagtatctatatgaaaac
+            aacatgttgcacggtaacacaatgactgttaccggtgacactttggcagaacgtgcaaag
+            aaagcaccaagcctacctgaaggacaagagattattaagccactctcccacccaatcaag
+            gccaacggtcacttgcaaattctgtacggttcattggcaccaggtggagctgtgggtaaa
+            attaccggtaaggaaggtacttacttcaagggtagagcacgtgtgttcgaagaggaaggt
+            gcctttattgaagccttggaaagaggtgaaatcaagaagggtgaaaaaaccgttgttgtt
+            atcagatatgaaggtccaagaggtgcaccaggtatgcctgaaatgctaaagccttcctct
+            gctctgatgggttacggtttgggtaaagatgttgcattgttgactgatggtagattctct
+            ggtggttctcacgggttcttaatcggccacattgttcccgaagccgctgaaggtggtcct
+            atcgggttggtcagagacggcgatgagattatcattgatgctgataataacaagattgac
+            ctattagtctctgataaggaaatggctcaacgtaaacaaagttgggttgcacctccacct
+            cgttacacaagaggtactctatccaagtatgctaagttggtttccaacgcttccaacggt
+            tgtgttttagatgcttga
+///

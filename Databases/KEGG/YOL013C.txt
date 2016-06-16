@@ -1,0 +1,57 @@
+ENTRY       YOL013C           CDS       T00005
+NAME        HRD1, DER3
+DEFINITION  E3 ubiquitin-protein ligase HRD1 (EC:6.3.2.-)
+ORTHOLOGY   K10601  E3 ubiquitin-protein ligase synoviolin [EC:6.3.2.19]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04120  Ubiquitin mediated proteolysis
+            sce04141  Protein processing in endoplasmic reticulum
+CLASS       Genetic Information Processing; Folding, sorting and degradation; Protein processing in endoplasmic reticulum [PATH:sce04141]
+            Genetic Information Processing; Folding, sorting and degradation; Ubiquitin mediated proteolysis [PATH:sce04120]
+POSITION    XV:complement(301380..303035)
+MOTIF       Pfam: zf-RING_2 zf-rbx1 zf-RING_5 zf-C3HC4_3 zf-C3HC4_2 zf-C3HC4 zf-RING_UBOX zf-Apc11 zf-C3HC4_4 Prok-RING_4 RR_TM4-6 zf-P11
+DBLINKS     NCBI-GI: 6324561
+            NCBI-GeneID: 854149
+            SGD: S000005373
+            MIPS: YOL013C
+            UniProt: Q08109
+AASEQ       551
+            MVPENRRKQLAIFVVVTYLLTFYCVYSATKTSVSFLQVTLKLNEGFNLMVLSIFILLNST
+            LLWQLLTKLLFGELRLIEHEHIFERLPFTIINTLFMSSLFHERYFFTVAFFGLLLLYLKV
+            FHWILKDRLEALLQSINDSTTMKTLIFSRFSFNLVLLAVVDYQIITRCISSIYTNQKSDI
+            ESTSLYLIQVMEFTMLLIDLLNLFLQTCLNFWEFYRSQQSLSNENNHIVHGDPTDENTVE
+            SDQSQPVLNDDDDDDDDDRQFTGLEGKFMYEKAIDVFTRFLKTALHLSMLIPFRMPMMLL
+            KDVVWDILALYQSGTSLWKIWRNNKQLDDTLVTVTVEQLQNSANDDNICIICMDELIHSP
+            NQQTWKNKNKKPKRLPCGHILHLSCLKNWMERSQTCPICRLPVFDEKGNVVQTTFTSNSD
+            ITTQTTVTDSTGIATDQQGFANEVDLLPTRTTSPDIRIVPTQNIDTLAMRTRSTSTPSPT
+            WYTFPLHKTGDNSVGSSRSAYEFLITNSDEKENGIPVKLTIENHEVNSLHGDGGEQIAKK
+            IVIPDKFIQHI
+NTSEQ       1656
+            atggtgccagaaaatagaaggaaacagttggcaatttttgtagttgtcacatatttgctc
+            acattttattgcgtgtattcagccaccaagacaagcgtttcctttttgcaagtaacactg
+            aagctaaatgaaggcttcaatctaatggttttgtcgatattcatcttattaaattctacc
+            ttactatggcaactcctaacgaaactattatttggtgaactgaggcttattgagcatgag
+            cacatttttgaaaggttaccatttaccattataaacaccttgtttatgtcctcactgttc
+            cacgaacggtattttttcacagtggcattttttggactattactactctatctgaaagtt
+            ttccattggattttaaaggataggctggaggccttattacagtcaataaatgattccacc
+            acaatgaaaacccttatctttagtagattctcatttaacctcgtactattggcggttgta
+            gactaccagataataacacgatgcatctcctccatatatacaaaccaaaagagtgatatt
+            gaatccacatccctttacctgatacaagtaatggagtttaccatgcttttgattgatttg
+            ctaaatttattcctacagacttgtttgaatttctgggaattttatcgctcacaacaaagt
+            ctgtctaatgagaacaaccatattgtccatggcgatcctacagatgaaaacacggttgag
+            tctgatcaatctcagccagtgctgaatgacgacgacgatgacgacgatgatgatagacaa
+            tttaccggcctggagggtaaattcatgtatgaaaaagcaattgacgtattcacaagattc
+            ttaaaaacggcacttcatttgtctatgctaataccatttaggatgcctatgatgcttttg
+            aaagatgtggtgtgggatatcttggcactatatcaaagtggcacaagtttgtggaaaatc
+            tggagaaataacaaacagctcgacgacactcttgtcactgtcaccgtagaacagctacaa
+            aattctgcaaatgatgacaatatttgtatcatttgtatggatgagttaatacattctcca
+            aaccagcagacgtggaagaataaaaacaagaaacccaaaaggttaccttgtggccacata
+            cttcatttgtcgtgtttaaagaattggatggaacgttctcagacttgtcctatttgtaga
+            ttgcctgtctttgatgaaaaaggtaatgttgtgcaaacgactttcacttccaatagtgat
+            atcacgacacagaccaccgtaacagatagcactgggatagcgacagatcaacaaggtttc
+            gcaaacgaagtagatctacttcccacaagaacaacttcccctgatataaggatagtgcct
+            actcaaaatatagacacattagcaatgagaacaaggtcaacctctacaccatctcctacg
+            tggtatacgttcccattacataaaactggtgataattctgttgggtcaagccgatcagcc
+            tacgaatttttgatcacaaattcagatgagaaagaaaatggtattcctgtcaaattaaca
+            atagaaaatcacgaagtaaattctctgcatggagacgggggcgagcaaattgccaagaaa
+            attgtcataccagataaatttatccagcatatctag
+///

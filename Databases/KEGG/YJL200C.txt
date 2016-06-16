@@ -1,0 +1,77 @@
+ENTRY       YJL200C           CDS       T00005
+NAME        ACO2
+DEFINITION  aconitate hydratase ACO2 (EC:4.2.1.3)
+ORTHOLOGY   K17450  homoaconitase [EC:4.2.1.-]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00300  Lysine biosynthesis
+            sce01210  2-Oxocarboxylic acid metabolism
+            sce01230  Biosynthesis of amino acids
+MODULE      sce_M00030  Lysine biosynthesis, AAA pathway, 2-oxoglutarate => 2-aminoadipate => lysine
+            sce_M00433  Lysine biosynthesis, 2-oxoglutarate => 2-oxoadipate
+CLASS       Metabolism; Overview; 2-Oxocarboxylic acid metabolism [PATH:sce01210]
+            Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
+            Metabolism; Amino acid metabolism; Lysine biosynthesis [PATH:sce00300]
+POSITION    X:complement(56444..58813)
+MOTIF       Pfam: Aconitase Aconitase_C DUF521
+DBLINKS     NCBI-GI: 6322261
+            NCBI-GeneID: 853230
+            SGD: S000003736
+            MIPS: YJL200C
+            UniProt: P39533
+AASEQ       789
+            MLSSANRFYIKRHLATHANMFPSVSKNFQTKVPPYAKLLTNLDKIKQITNNAPLTLAEKI
+            LYSHLCDPEESITSSDLSTIRGNKYLKLNPDRVAMQDASAQMALLQFMTTGLNQTSVPAS
+            IHCDHLIVGKDGETKDLPSSIATNQEVFDFLESCAKRYGIQFWGPGSGIIHQIVLENFSA
+            PGLMMLGTDSHTPNAGGLGAIAIGVGGADAVDALTGTPWELKAPKILGVKLTGKLNGWST
+            PKDVITKLAGLLTVRGGTGYIVEYFGEGVSTLSCTGMATICNMGAEIGATTSTFPYQEAH
+            KRYLQATNRAEVAEAADVALNKFNFLRADKDAQYDKVIEIDLSAIEPHVNGPFTPDLSTP
+            ISQYAEKSLKENWPQKVSAGLIGSCTNSSYQDMSRVVDLVKQASKAGLKPRIPFFVTPGS
+            EQIRATLERDGIIDIFQENGAKVLANACGPCIGQWNREDVSKTSKETNTIFTSFNRNFRA
+            RNDGNRNTMNFLTSPEIVTAMSYSGDAQFNPLTDSIKLPNGKDFKFQPPKGDELPKRGFE
+            HGRDKFYPEMDPKPDSNVEIKVDPNSDRLQLLEPFKPWNGKELKTNVLLKVEGKCTTDHI
+            SAAGVWLKYKGHLENISYNTLIGAQNKETGEVNKAYDLDGTEYDIPGLMMKWKSDGRPWT
+            VIAEHNYGEGSAREHAALSPRFLGGEILLVKSFARIHETNLKKQGVLPLTFANESDYDKI
+            SSGDVLETLNLVDMIAKDGNNGGEIDVKITKPNGESFTIKAKHTMSKDQIDFFKAGSAIN
+            YIGNIRRNE
+NTSEQ       2370
+            atgctatcttcagctaataggttttatataaagaggcatttggcaacacatgccaatatg
+            ttcccctctgtatctaaaaattttcaaacaaaagtgccaccttatgcaaaacttttgacc
+            aacctagacaagattaaacaaataacaaacaatgctccattgacactagcagaaaaaatt
+            ttatactcgcatctttgcgatcctgaagaatcgattacttcttctgatctgtccaccatc
+            cgtggtaataaatacttgaagctaaacccagaccgtgtagctatgcaggacgcttctgcc
+            caaatggcgcttctacaattcatgaccaccggtctaaatcaaacatctgtcccagcatcc
+            atacattgtgatcatttaattgtaggtaaggacggtgaaactaaagatttaccctcttcc
+            atagctaccaaccaagaagttttcgatttcttggagagttgcgcaaagagatatggaatt
+            caattctggggcccaggttctggtatcattcaccagattgttttggaaaatttctcagct
+            ccaggtctaatgatgctaggtactgattcccatacaccaaatgcaggcggtctgggagct
+            attgccatcggggttggtggtgcggatgcagttgatgccctcacaggcactccatgggaa
+            ttaaaagcaccaaaaattttaggtgttaaattgaccggaaagttaaacggatggtccact
+            cctaaagatgtaatcacaaagctcgctggtttactaactgtcagaggtggtactggttat
+            atcgtcgagtacttcggcgaaggtgtatccactctatcttgcacaggtatggcaaccatc
+            tgtaatatgggagctgaaatcggtgctacaacgtcaactttcccttaccaagaagctcac
+            aagcgttatttgcaagcaactaatagagcagaggtcgctgaagcagctgatgttgcttta
+            aacaagtttaacttcttaagagccgacaaagatgctcaatacgataaagttattgaaatt
+            gacttatccgcaattgaacctcacgttaatggtccatttacaccagacctttcaacccca
+            atatctcaatatgccgaaaaaagtttgaaggaaaactggccccaaaaagttagcgctggt
+            ttgattggatcatgtaccaattcatcttatcaagacatgagtcgtgttgtcgacttggtc
+            aagcaagcttccaaagccggcttgaaaccacgtatccccttctttgtcacccctggttca
+            gaacaaattagagctaccttggaaagagatggaatcatcgatattttccaagaaaatggt
+            gccaaagttttagcaaatgcatgcggcccttgtatcggacaatggaatagggaagatgtc
+            tcgaaaacatcaaaagaaacgaacactatttttacatcattcaatagaaatttcagagct
+            agaaacgatggtaataggaatacaatgaatttcttaacatccccagaaatagtaacagcg
+            atgagttattctggagatgctcagttcaatccgctaactgactcaattaaattgccaaat
+            gggaaggatttcaaattccaaccaccaaagggtgatgagttaccaaaaagaggatttgaa
+            cacggtagagacaaattttatcctgaaatggatccaaagccagatagcaatgtagagatt
+            aaggtagaccctaattctgatcgtttgcaattattagagccattcaaaccttggaacggg
+            aaggaattgaagacaaacgtgcttttgaaagttgaaggtaaatgtacaacagatcatatt
+            tccgctgcgggcgtctggttgaaatataaaggccatctagaaaacatttcttacaataca
+            ttgattggtgcacaaaacaaagaaaccggtgaagtcaacaaggcttatgaccttgacgga
+            actgaatatgatattcctggtttgatgatgaaatggaaatcagacggtagaccatggacc
+            gtgatagcggaacataactatggtgaaggttccgcaagagagcatgctgctttgtcacca
+            agatttttaggcggagagattcttttagttaagtcttttgcaagaattcatgagacaaac
+            ttgaagaaacaaggtgtgttgccattgacttttgccaacgaatctgactatgataaaata
+            tcaagcggagatgttttagaaacgttgaacctagttgacatgattgctaaggatggtaat
+            aacggtggtgaaattgatgttaaaattactaaaccaaacggtgaatcgttcaccatcaag
+            gcaaaacatactatgtctaaagatcaaatcgattttttcaaagctggttcagcaatcaat
+            tatattggtaatatacgaagaaacgaataa
+///

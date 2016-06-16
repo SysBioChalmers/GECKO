@@ -1,0 +1,44 @@
+ENTRY       YAL015C           CDS       T00005
+NAME        NTG1, FUN33, ogg2, SCR1
+DEFINITION  bifunctional N-glycosylase/AP lyase NTG1
+ORTHOLOGY   K10773  endonuclease III [EC:4.2.99.18]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03410  Base excision repair
+CLASS       Genetic Information Processing; Replication and repair; Base excision repair [PATH:sce03410]
+POSITION    I:complement(126903..128102)
+MOTIF       Pfam: HhH-GPD HHH HHH_5
+DBLINKS     NCBI-GI: 6319304
+            NCBI-GeneID: 851218
+            SGD: S000000013
+            MIPS: YAL015C
+            UniProt: P31378
+AASEQ       399
+            MQKISKYSSMAILRKRPLVKTETGPESELLPEKRTKIKQEEVVPQPVDIDWVKSLPNKQY
+            FEWIVVRNGNVPNRWATPLDPSILVTPASTKVPYKFQETYARMRVLRSKILAPVDIIGGS
+            SIPVTVASKCGISKEQISPRDYRLQVLLGVMLSSQTKDEVTAMAMLNIMRYCIDELHSEE
+            GMTLEAVLQINETKLDELIHSVGFHTRKAKYILSTCKILQDQFSSDVPATINELLGLPGV
+            GPKMAYLTLQKAWGKIEGICVDVHVDRLTKLWKWVDAQKCKTPDQTRTQLQNWLPKGLWT
+            EINGLLVGFGQIITKSRNLGDMLQFLPPDDPRSSLDWDLQSQLYKEIQQNIMSYPKWVKY
+            LEGKRELNVEAEINVKHEEKTVEETMVKLENDISVKVED
+NTSEQ       1200
+            atgcaaaagatcagtaaatactcatctatggcaattctgaggaaaagaccgctggtaaag
+            actgaaactgggccagaatcagaactcctaccggagaaaaggaccaaaatcaaacaagaa
+            gaggttgtccctcaacccgtggatatcgactgggttaaatcgctgccaaataagcagtac
+            ttcgaatggattgtggttagaaacggcaatgtgcccaacaggtgggccacaccattggac
+            ccctcgatccttgtcactccggcctcgacgaaagtcccttacaagtttcaagaaacatac
+            gctagaatgcgagtactgagatctaagattctagcccccgtcgatataattggtggatca
+            tccattcctgtaacggttgcctctaagtgtggtatctcgaaagagcagatatcaccgagg
+            gactacagattacaggtccttcttggggtgatgctatcatcgcaaacaaaagatgaagtt
+            accgcaatggcaatgcttaacataatgcggtattgtatagacgaactgcacagcgaagaa
+            ggtatgacattagaggccgttttacaaatcaatgagaccaaattagacgaattgattcat
+            tcagttgggttccacacaaggaaggccaagtatattttgtcaacctgcaaaatccttcaa
+            gatcagttttcgagtgatgttccagctacgattaatgagctattgggcctgcccggtgta
+            gggcccaaaatggcttatctaacattacaaaaggcatggggcaagattgaaggtatctgc
+            gttgacgttcacgtggatagattgaccaagctttggaaatgggtagatgcgcagaaatgc
+            aagactccagatcagacaagaactcaattacaaaattggctgcctaaggggctttggaca
+            gaaataaatgggttgctggttggatttggacaaataatcactaaatcgaggaaccttggt
+            gacatgttacaattcttgccaccggatgatcccagaagctccttagattgggatttgcag
+            tctcaattgtacaaggaaatccagcaaaatatcatgagttatccaaagtgggtgaaatac
+            ctggaaggaaaacgtgaactgaacgtggaggcggaaatcaatgttaaacacgaggagaaa
+            acagttgaagaaactatggtcaaactggaaaatgatatttctgttaaagtagaggactaa
+///

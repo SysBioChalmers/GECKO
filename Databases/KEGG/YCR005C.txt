@@ -1,0 +1,62 @@
+ENTRY       YCR005C           CDS       T00005
+NAME        CIT2
+DEFINITION  citrate (Si)-synthase CIT2 (EC:2.3.3.1)
+ORTHOLOGY   K01647  citrate synthase [EC:2.3.3.1]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00020  Citrate cycle (TCA cycle)
+            sce00630  Glyoxylate and dicarboxylate metabolism
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01200  Carbon metabolism
+            sce01210  2-Oxocarboxylic acid metabolism
+            sce01230  Biosynthesis of amino acids
+MODULE      sce_M00009  Citrate cycle (TCA cycle, Krebs cycle)
+            sce_M00010  Citrate cycle, first carbon oxidation, oxaloacetate => 2-oxoglutarate
+            sce_M00012  Glyoxylate cycle
+CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
+            Metabolism; Overview; 2-Oxocarboxylic acid metabolism [PATH:sce01210]
+            Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
+            Metabolism; Carbohydrate metabolism; Citrate cycle (TCA cycle) [PATH:sce00020]
+            Metabolism; Carbohydrate metabolism; Glyoxylate and dicarboxylate metabolism [PATH:sce00630]
+POSITION    III:complement(120946..122328)
+MOTIF       Pfam: Citrate_synt
+DBLINKS     NCBI-GI: 6319850
+            NCBI-GeneID: 850361
+            SGD: S000000598
+            MIPS: YCR005C
+            UniProt: P08679
+AASEQ       460
+            MTVPYLNSNRNVASYLQSNSSQEKTLKERFSEIYPIHAQDVRQFVKEHGKTKISDVLLEQ
+            VYGGMRGIPGSVWEGSVLDPEDGIRFRGRTIADIQKDLPKAKGSSQPLPEALFWLLLTGE
+            VPTQAQVENLSADLMSRSELPSHVVQLLDNLPKDLHPMAQFSIAVTALESESKFAKAYAQ
+            GISKQDYWSYTFEDSLDLLGKLPVIAAKIYRNVFKDGKMGEVDPNADYAKNLVNLIGSKD
+            EDFVDLMRLYLTIHSDHEGGNVSAHTSHLVGSALSSPYLSLASGLNGLAGPLHGRANQEV
+            LEWLFALKEEVNDDYSKDTIEKYLWDTLNSGRVIPGYGHAVLRKTDPRYMAQRKFAMDHF
+            PDYELFKLVSSIYEVAPGVLTEHGKTKNPWPNVDAHSGVLLQYYGLKESSFYTVLFGVSR
+            AFGILAQLITDRAIGASIERPKSYSTEKYKELVKNIESKL
+NTSEQ       1383
+            atgacagttccttatctaaattcaaacagaaatgttgcatcatatttacaatcaaattca
+            agccaagaaaagactctaaaagagagatttagcgaaatctaccccatccatgctcaagat
+            gtaaggcaattcgttaaagagcatggcaaaactaaaattagcgatgttctattagaacag
+            gtatatggtggtatgagaggtattccagggagcgtatgggaaggttccgttttggaccca
+            gaagacggtattcgtttcagaggtcgtacgatcgccgacattcaaaaggacctgcccaag
+            gcaaaaggaagctcacaaccactaccagaagctctcttttggttattgctaactggcgag
+            gttccaactcaagcgcaagttgaaaacttatcagctgatctaatgtcaagatcggaacta
+            cctagtcatgtcgttcaacttttggataatttaccaaaggacttacacccaatggctcaa
+            ttctctattgctgtaactgccttggaaagcgagtcaaagtttgctaaggcttatgctcaa
+            ggaatttccaagcaagattattggagttatacttttgaagattcactagacttgctgggt
+            aaattgccagttattgcagctaaaatttatcgtaatgtattcaaagatggcaaaatgggt
+            gaagtggacccaaatgccgattatgctaaaaatctggtcaacttgattggttctaaggat
+            gaagatttcgtggacttgatgagactttatttaaccattcattcggatcacgaaggtggt
+            aatgtatctgcacatacatcccatcttgtgggctcagcactatcatcaccttatctgtcc
+            cttgcatcaggtttgaacgggttggctggcccacttcatgggcgtgctaatcaagaagta
+            ctagaatggttatttgcacttaaagaagaggtaaatgatgactactctaaagatacgatc
+            gaaaaatatttatgggatactctaaactcaggaagagtcattcccggttatggtcatgct
+            gtgctaaggaaaactgatcctcgttatatggctcagcgtaagtttgccatggaccatttt
+            ccagattatgaattattcaagttagtttcatcaatatacgaggtagcacctggcgtattg
+            actgaacatggtaaaaccaaaaatccatggccaaatgtagatgctcactctggtgtctta
+            ttacaatattatggactaaaagaatcttctttctataccgttttatttggcgtttcaagg
+            gcatttggtattcttgctcaattgatcactgatagggccatcggtgcttccattgaaagg
+            ccaaagtcctattctactgagaaatacaaggaattggtcaaaaacattgaaagcaaacta
+            tag
+///

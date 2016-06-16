@@ -1,0 +1,69 @@
+ENTRY       YPL028W           CDS       T00005
+NAME        ERG10, LPB3, TSM0115
+DEFINITION  acetyl-CoA C-acetyltransferase (EC:2.3.1.9)
+ORTHOLOGY   K00626  acetyl-CoA C-acetyltransferase [EC:2.3.1.9]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00071  Fatty acid degradation
+            sce00072  Synthesis and degradation of ketone bodies
+            sce00280  Valine, leucine and isoleucine degradation
+            sce00310  Lysine degradation
+            sce00380  Tryptophan metabolism
+            sce00620  Pyruvate metabolism
+            sce00630  Glyoxylate and dicarboxylate metabolism
+            sce00640  Propanoate metabolism
+            sce00650  Butanoate metabolism
+            sce00900  Terpenoid backbone biosynthesis
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01200  Carbon metabolism
+            sce01212  Fatty acid metabolism
+MODULE      sce_M00095  C5 isoprenoid biosynthesis, mevalonate pathway
+CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
+            Metabolism; Overview; Fatty acid metabolism [PATH:sce01212]
+            Metabolism; Carbohydrate metabolism; Pyruvate metabolism [PATH:sce00620]
+            Metabolism; Carbohydrate metabolism; Glyoxylate and dicarboxylate metabolism [PATH:sce00630]
+            Metabolism; Carbohydrate metabolism; Propanoate metabolism [PATH:sce00640]
+            Metabolism; Carbohydrate metabolism; Butanoate metabolism [PATH:sce00650]
+            Metabolism; Lipid metabolism; Fatty acid degradation [PATH:sce00071]
+            Metabolism; Lipid metabolism; Synthesis and degradation of ketone bodies [PATH:sce00072]
+            Metabolism; Amino acid metabolism; Valine, leucine and isoleucine degradation [PATH:sce00280]
+            Metabolism; Amino acid metabolism; Lysine degradation [PATH:sce00310]
+            Metabolism; Amino acid metabolism; Tryptophan metabolism [PATH:sce00380]
+            Metabolism; Metabolism of terpenoids and polyketides; Terpenoid backbone biosynthesis [PATH:sce00900]
+POSITION    XVI:498096..499292
+MOTIF       Pfam: Thiolase_N Thiolase_C ketoacyl-synt
+DBLINKS     NCBI-GI: 6325229
+            NCBI-GeneID: 856079
+            SGD: S000005949
+            MIPS: YPL028W
+            UniProt: P41338
+AASEQ       398
+            MSQNVYIVSTARTPIGSFQGSLSSKTAVELGAVALKGALAKVPELDASKDFDEIIFGNVL
+            SANLGQAPARQVALAAGLSNHIVASTVNKVCASAMKAIILGAQSIKCGNADVVVAGGCES
+            MTNAPYYMPAARAGAKFGQTVLVDGVERDGLNDAYDGLAMGVHAEKCARDWDITREQQDN
+            FAIESYQKSQKSQKEGKFDNEIVPVTIKGFRGKPDTQVTKDEEPARLHVEKLRSARTVFQ
+            KENGTVTAANASPINDGAAAVILVSEKVLKEKNLKPLAIIKGWGEAAHQPADFTWAPSLA
+            VPKALKHAGIEDINSVDYFEFNEAFSVVGLVNTKILKLDPSKVNVYGGAVALGHPLGCSG
+            ARVVVTLLSILQQEGGKIGVAAICNGGGGASSIVIEKI
+NTSEQ       1197
+            atgtctcagaacgtttacattgtatcgactgccagaaccccaattggttcattccagggt
+            tctctatcctccaagacagcagtggaattgggtgctgttgctttaaaaggcgccttggct
+            aaggttccagaattggatgcatccaaggattttgacgaaattatttttggtaacgttctt
+            tctgccaatttgggccaagctccggccagacaagttgctttggctgccggtttgagtaat
+            catatcgttgcaagcacagttaacaaggtctgtgcatccgctatgaaggcaatcattttg
+            ggtgctcaatccatcaaatgtggtaatgctgatgttgtcgtagctggtggttgtgaatct
+            atgactaacgcaccatactacatgccagcagcccgtgcgggtgccaaatttggccaaact
+            gttcttgttgatggtgtcgaaagagatgggttgaacgatgcgtacgatggtctagccatg
+            ggtgtacacgcagaaaagtgtgcccgtgattgggatattactagagaacaacaagacaat
+            tttgccatcgaatcctaccaaaaatctcaaaaatctcaaaaggaaggtaaattcgacaat
+            gaaattgtacctgttaccattaagggatttagaggtaagcctgatactcaagtcacgaag
+            gacgaggaacctgctagattacacgttgaaaaattgagatctgcaaggactgttttccaa
+            aaagaaaacggtactgttactgccgctaacgcttctccaatcaacgatggtgctgcagcc
+            gtcatcttggtttccgaaaaagttttgaaggaaaagaatttgaagcctttggctattatc
+            aaaggttggggtgaggccgctcatcaaccagctgattttacatgggctccatctcttgca
+            gttccaaaggctttgaaacatgctggcatcgaagacatcaattctgttgattactttgaa
+            ttcaatgaagccttttcggttgtcggtttggtgaacactaagattttgaagctagaccca
+            tctaaggttaatgtatatggtggtgctgttgctctaggtcacccattgggttgttctggt
+            gctagagtggttgttacactgctatccatcttacagcaagaaggaggtaagatcggtgtt
+            gccgccatttgtaatggtggtggtggtgcttcctctattgtcattgaaaagatatga
+///

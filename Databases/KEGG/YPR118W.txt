@@ -1,0 +1,48 @@
+ENTRY       YPR118W           CDS       T00005
+NAME        MRI1
+DEFINITION  S-methyl-5-thioribose-1-phosphate isomerase MRI1 (EC:5.3.1.23)
+ORTHOLOGY   K08963  methylthioribose-1-phosphate isomerase [EC:5.3.1.23]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00270  Cysteine and methionine metabolism
+            sce01100  Metabolic pathways
+MODULE      sce_M00034  Methionine salvage pathway
+CLASS       Metabolism; Amino acid metabolism; Cysteine and methionine metabolism [PATH:sce00270]
+POSITION    XVI:767752..768987
+MOTIF       Pfam: IF-2B
+DBLINKS     NCBI-GI: 6325375
+            NCBI-GeneID: 856234
+            SGD: S000006322
+            MIPS: YPR118W
+            UniProt: Q06489
+STRUCTURE   PDB: 1W2W
+AASEQ       411
+            MSLEAIVFDRSEPENVSVKVLDQLLLPYTTKYVPIHTIDDGYSVIKSMQVRGAPAIAIVG
+            SLSVLTEVQLIKHNPTSDVATLYSLVNWESTKTVLNKRLDFLLSSRPTAVNLSNSLVEIK
+            NILKSSSDLKAFDGSLYNYVCELIDEDLANNMKMGDNGAKYLIDVLQKDGFKDEFAVLTI
+            CNTGSLATSGYGTALGVIRSLWKDSLAKTDKADSGLDNEKCPRMGHVFPLETRPYNQGSR
+            LTAYELVYDKIPSTLITDSSIAYRIRTSPIPIKAAFVGADRIVRNGDTANKIGTLQLAVI
+            CKQFGIKFFVVAPKTTIDNVTETGDDIIVEERNPEEFKVVTGTVINPENGSLILNESGEP
+            ITGKVGIAPLEINVWNPAFDITPHELIDGIITEEGVFTKNSSGEFQLESLF
+NTSEQ       1236
+            atgtcgttggaagccatcgtctttgatagatcggagccagaaaatgtttcggtaaaggta
+            cttgatcaattacttttaccatatactactaaatacgttccaattcacacaattgatgat
+            gggtactcagtcatcaaaagtatgcaggtgagaggtgccccggcaattgcaattgtgggt
+            tcgttatctgttttgactgaggtacaattaataaaacacaacccaacttctgatgttgct
+            acgctgtattctttagttaactgggaatctacaaaaacagtgctaaataagaggctagat
+            ttccttttgagtagtagacccacagccgttaatttatcaaattctcttgtagagataaag
+            aacatactgaaatcctcaagtgacctaaaggcttttgacggtagtttatataattacgtc
+            tgtgaattgatagatgaggatttggcgaataacatgaaaatgggtgataatggagctaag
+            tatttgattgacgtgttacaaaaggacggtttcaaggacgaatttgccgttctgacgatt
+            tgtaatactggatccttagcaacctctggatatggcacggctttaggtgttatccgttct
+            ttgtggaaggattcacttgctaaaaccgacaaggcagactcgggattggacaatgaaaaa
+            tgcccgaggatgggccatgtcttcccactggaaactagaccttataatcaagggtcaagg
+            ctaacagcatacgagctagtttatgataagattccatcaactttaattactgatagttcc
+            atcgcgtatagaattagaactagtccaattccaatcaaagcagcatttgttggagctgat
+            agaattgttcgtaatggggatacagcaaataaaattggtactttacaacttgctgtaatt
+            tgtaagcagttcggaattaagttttttgtagtagctcccaaaacaactatcgataatgta
+            accgaaactggcgatgacattattgtggaagaacgtaaccctgaggaattcaaggttgtt
+            actggtacagtaattaatcctgaaaatggttccttgatattgaatgagtcaggagagcca
+            atcactggaaaggtcggtattgcccctcttgaaatcaatgtctggaatccagccttcgac
+            attactccacatgagcttattgacggaattatcacagaagaaggtgtatttaccaaaaat
+            tccagtggtgaatttcaactggaaagccttttctag
+///

@@ -1,0 +1,35 @@
+ENTRY       YHR026W           CDS       T00005
+NAME        VMA16, PPA1
+DEFINITION  Vma16p (EC:3.6.3.14)
+ORTHOLOGY   K03661  V-type H+-transporting ATPase 21kDa proteolipid subunit [EC:3.6.3.14]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00190  Oxidative phosphorylation
+            sce01100  Metabolic pathways
+            sce04145  Phagosome
+CLASS       Metabolism; Energy metabolism; Oxidative phosphorylation [PATH:sce00190]
+            Cellular Processes; Transport and catabolism; Phagosome [PATH:sce04145]
+POSITION    VIII:160844..161485
+MOTIF       Pfam: ATP-synt_C
+DBLINKS     NCBI-GI: 6321815
+            NCBI-GeneID: 856421
+            SGD: S000001068
+            MIPS: YHR026W
+            UniProt: P23968
+AASEQ       213
+            MNKESKDDDMSLGKFSFSHFLYYLVLIVVIVYGLYKLFTGHGSDINFGKFLLRTSPYMWA
+            NLGIALCVGLSVVGAAWGIFITGSSMIGAGVRAPRITTKNLISIIFCEVVAIYGLIIAIV
+            FSSKLTVATAENMYSKSNLYTGYSLFWAGITVGASNLICGIAVGITGATAAISDAADSAL
+            FVKILVIEIFGSILGLLGLIVGLLMAGKASEFQ
+NTSEQ       642
+            atgaacaaggaatctaaagatgatgatatgtccttggggaagttttccttctcccacttc
+            ctatattacttggtgctaatagtagtaatagtgtacggtttgtacaagcttttcactgga
+            catggatccgacattaatttcgggaagttcttgttaaggacatccccttatatgtgggcc
+            aatcttggtattgccctttgtgtaggcttaagtgtcgtgggggcagcatggggtattttc
+            attactggttcatccatgattggtgccggtgtgcgtgctccaaggattaccaccaagaat
+            ttaatttccattattttctgtgaagtggttgccatttacggtctgattattgccattgtc
+            ttttcttcgaaattgactgtggctactgctgagaacatgtactcgaaatcaaacctgtac
+            actggttattctcttttctgggcaggtatcactgtcggtgcttccaatttgatttgtggt
+            atcgctgtcggtatcaccggtgcgactgctgccatttccgatgctgctgattccgcattg
+            tttgttaaaattttggtcattgaaattttcgggtccattttaggtttattaggtttgatt
+            gttggtttattgatggccggtaaagcttctgaatttcagtaa
+///

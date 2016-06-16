@@ -1,0 +1,49 @@
+ENTRY       YLR180W           CDS       T00005
+NAME        SAM1, ETH10
+DEFINITION  methionine adenosyltransferase SAM1 (EC:2.5.1.6)
+ORTHOLOGY   K00789  S-adenosylmethionine synthetase [EC:2.5.1.6]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00270  Cysteine and methionine metabolism
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01230  Biosynthesis of amino acids
+MODULE      sce_M00034  Methionine salvage pathway
+CLASS       Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
+            Metabolism; Amino acid metabolism; Cysteine and methionine metabolism [PATH:sce00270]
+POSITION    XII:515262..516410
+MOTIF       Pfam: S-AdoMet_synt_C S-AdoMet_synt_M S-AdoMet_synt_N
+DBLINKS     NCBI-GI: 6323209
+            NCBI-GeneID: 850877
+            SGD: S000004170
+            MIPS: YLR180W
+            UniProt: P10659
+AASEQ       382
+            MAGTFLFTSESVGEGHPDKICDQVSDAILDACLAEDPHSKVACETAAKTGMIMVFGEITT
+            KAQLDYQKIVRDTIKKIGYDDSAKGFDYKTCNVLVAIEQQSPDIAQGVHEEKDLEDIGAG
+            DQGIMFGYATDETPEGLPLTILLAHKLNMAMADARRDGSLAWLRPDTKTQVTVEYKDDHG
+            RWVPQRIDTVVVSAQHADEITTEDLRAQLKSEIIEKVIPRDMLDENTKYFIQPSGRFVIG
+            GPQGDAGLTGRKIIVDAYGGASSVGGGAFSGKDYSKVDRSAAYAARWVAKSLVAAGLCKR
+            VQVQFSYAIGIAEPLSLHVDTYGTATKSDEEIIDIISKNFDLRPGVLVKELDLARPIYLP
+            TASYGHFTNQEYPWEKPKTLKF
+NTSEQ       1149
+            atggccggtacatttttattcacttctgaatccgttggtgaaggtcacccagataagatc
+            tgtgaccaagtttccgacgccatcttggacgcttgtttagccgaggaccctcactccaaa
+            gttgcgtgtgaaaccgcggcaaagactggtatgattatggtctttggtgaaattactacc
+            aaggcacagttggattaccaaaaaatcgtcagagacaccatcaagaagattggttacgat
+            gattccgccaagggtttcgactataagacctgtaacgtccttgtcgccattgagcaacaa
+            tctccagatatcgcccaaggtgtccacgaggagaaggatttggaagacatcggtgccggt
+            gaccaaggtatcatgtttggttacgccacagatgaaactccagagggtttgcctttgact
+            attcttttggctcataaactaaacatggccatggctgacgcgagaagagatggctcttta
+            gcgtggttgagaccagacaccaagactcaagtcaccgtcgaatacaaggatgaccacggt
+            agatgggttccacaaagaatcgacaccgtcgtcgtctccgctcaacatgctgacgaaatc
+            acgaccgaggacttaagagcgcaactaaagtccgagatcattgaaaaagtcatcccaaga
+            gacatgttggacgaaaacaccaaatactttatccaaccttccggtagattcgtcatcggt
+            ggtcctcaaggtgacgctggtttgaccggtagaaagatcatcgtcgacgcttacggtggt
+            gcctcatccgtcggtggtggtgccttctccggtaaggactactctaaggttgatcgttct
+            gccgcttatgccgctagatgggttgccaagtccctagttgccgctggtttatgtaagaga
+            gttcaagttcaattttcttatgccatcggtattgcggaaccattgtccttgcacgttgac
+            acctatggtactgcgaccaagtctgacgaagaaattatcgacattatcagcaagaacttt
+            gacttgagacctggtgtattggtcaaggagttggacttagctagaccaatctacttgcca
+            accgcttcttatggccatttcacaaaccaagaatacccatgggaaaagcctaagactttg
+            aagttctaa
+///

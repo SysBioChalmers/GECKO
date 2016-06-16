@@ -1,0 +1,46 @@
+ENTRY       YHL003C           CDS       T00005
+NAME        LAG1
+DEFINITION  sphingosine N-acyltransferase LAG1 (EC:2.3.1.24)
+ORTHOLOGY   K04709  Acyl-CoA-dependent ceramide synthase [EC:2.3.1.24]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00600  Sphingolipid metabolism
+            sce01100  Metabolic pathways
+CLASS       Metabolism; Lipid metabolism; Sphingolipid metabolism [PATH:sce00600]
+POSITION    VIII:complement(100648..101883)
+MOTIF       Pfam: TRAM_LAG1_CLN8 TRAM1
+DBLINKS     NCBI-GI: 6321784
+            NCBI-GeneID: 856386
+            SGD: S000000995
+            MIPS: YHL003C
+            UniProt: P38703
+AASEQ       411
+            MTSATDKSIDRLVVNAKTRRRNSSVGKIDLGDTVPGFAAMPESAASKNEAKKRMKALTGD
+            SKKDSDLLWKVWFSYREMNYRHSWLTPFFILVCVYSAYFLSGNRTESNPLHMFVAISYQV
+            DGTDSYAKGIKDLSFVFFYMIFFTFLREFLMDVVIRPFTVYLNVTSEHRQKRMLEQMYAI
+            FYCGVSGPFGLYIMYHSDLWLFKTKPMYRTYPVITNPFLFKIFYLGQAAFWAQQACVLVL
+            QLEKPRKDYKELVFHHIVTLLLIWSSYVFHFTKMGLAIYITMDVSDFFLSLSKTLNYLNS
+            VFTPFVFGLFVFFWIYLRHVVNIRILWSVLTEFRHEGNYVLNFATQQYKCWISLPIVFVL
+            IAALQLVNLYWLFLILRILYRLIWQGIQKDERSDSDSDESAENEESKEKCE
+NTSEQ       1236
+            atgacatcagctacggacaaatctatcgataggttagttgttaatgcaaaaacaagaaga
+            cgaaactcttccgtgggtaaaattgatttaggtgatacagttcctggctttgcagccatg
+            cctgaaagtgctgcctctaaaaatgaggccaaaaaaaggatgaaagccttgactggtgac
+            tctaaaaaggatagtgacctactgtggaaggtttggttttcatatagagaaatgaattac
+            cgtcatagttggttgacaccattcttcatacttgtatgcgtgtatagcgcgtacttttta
+            tctgggaatagaacagaatcaaacccgctgcacatgttcgtagccatatcatatcaagtt
+            gatggcacagactcatatgcaaaaggtatcaaagatttgagttttgtgtttttctacatg
+            attttcttcacatttttacgtgagtttttgatggatgttgtaattcgaccattcacggta
+            tacctaaatgttacttccgagcatcgtcaaaagcgtatgctagaacaaatgtatgccata
+            ttttattgcggagtttcagggccctttggtctttatattatgtaccatagtgatttgtgg
+            ttgttcaagacaaaaccaatgtacagaacatatcctgttataaccaatccgttcttgttt
+            aagatattttacttgggtcaagcggcattttgggcgcaacaggcttgtgttcttgttcta
+            caattagaaaagccaagaaaggattacaaggaattggtttttcatcacattgtgacatta
+            ttattaatttggtcatcatatgttttccattttaccaaaatgggattggctatctatatt
+            actatggatgtgtcagattttttcctttctttgtctaagacattaaactatctgaattct
+            gtatttactccctttgtgttcggcttgttcgtgttcttttggatctatctgcgccatgtc
+            gtgaatatcagaatattatggtcagtcttaacagaattccgtcatgaaggtaattatgtg
+            ttgaattttgccacacaacaatacaaatgttggatttcgttgccaattgtatttgtacta
+            attgctgcgttacaattagttaacctgtattggctgtttttaattcttagaatcttgtac
+            agattgatatggcaaggtatccaaaaggacgaaagaagtgacagtgattctgatgagagc
+            gctgaaaatgaagaatctaaggaaaagtgtgaataa
+///

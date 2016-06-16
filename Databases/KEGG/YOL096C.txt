@@ -1,0 +1,41 @@
+ENTRY       YOL096C           CDS       T00005
+NAME        COQ3
+DEFINITION  hexaprenyldihydroxybenzoate methyltransferase (EC:2.1.1.64 2.1.1.222 2.1.1.114)
+ORTHOLOGY   K00591  hexaprenyldihydroxybenzoate methyltransferase [EC:2.1.1.114]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00130  Ubiquinone and other terpenoid-quinone biosynthesis
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+CLASS       Metabolism; Metabolism of cofactors and vitamins; Ubiquinone and other terpenoid-quinone biosynthesis [PATH:sce00130]
+POSITION    XV:complement(138107..139045)
+MOTIF       Pfam: Methyltransf_23 Methyltransf_18 Methyltransf_31 Methyltransf_11 Methyltransf_12 Methyltransf_25 CMAS MTS PrmA NodS MetW Methyltransf_26 Methyltransf_32 DREV Ubie_methyltran RrnaAD PCMT
+DBLINKS     NCBI-GI: 37362692
+            NCBI-GeneID: 854057
+            SGD: S000005456
+            MIPS: YOL096C
+            UniProt: P27680
+AASEQ       312
+            MLLRSRFLKVIHVRKQLSACSRFAIQTQTRCKSTDASEDEVKHFQELAPTWWDTDGSQRI
+            LHKMNLTRLDFVQRTVRNQVKIQNPEIFVPGFNYKEFLPEYVCDNIQREMQESIETNLDK
+            RPEVSVLDVGCGGGILSESLARLKWVKNVQGIDLTRDCIMVAKEHAKKDPMLEGKINYEC
+            KALEDVTGQFDIITCMEMLEHVDMPSEILRHCWSRLNPEKGILFLSTINRDLISWFTTIF
+            MGENVLKIVPKGTHHLSKYINSKEILAWFNDNYSGQFRLLDLKGTMYLPYQGWVEHDCSD
+            VGNYFMAIQRLN
+NTSEQ       939
+            atgttgttaagatctagatttttgaaggttattcatgtgaggaaacaattgagcgcctgt
+            tcaagatttgcaattcaaacacaaacgagatgtaagagcacagatgcttctgaagatgaa
+            gtgaagcatttccaggagctagcccctacttggtgggatacagacggatcacaaagaatt
+            ctacacaaaatgaatctaactaggttagattttgtgcagaggactgtgaggaaccaggtt
+            aaaattcagaatcctgaaatatttgtccctggatttaattacaaggagtttctaccagaa
+            tacgtctgcgacaatattcagcgggaaatgcaggaaagcatagagactaatctagataag
+            aggccagaagtgagcgtcttggatgttggatgcggtggtggcattttgagtgaatcgctc
+            gcgagactaaaatgggtgaagaatgttcaagggatcgatctgactcgcgattgtatcatg
+            gtagcaaaagagcatgccaagaaagaccccatgctggagggaaagataaattatgagtgc
+            aaggctctggaggatgttactggacaatttgatattatcacctgtatggaaatgctagag
+            cacgtggatatgcctagtgaaattttaaggcattgttggtcgaggttaaatcccgaaaaa
+            ggtatactctttttaagtactataaacagagatctcatctcatggtttactacaattttt
+            atgggtgaaaacgtcttgaagatcgtcccaaagggtactcatcatttgagcaaatacata
+            aactcaaaggaaatccttgcctggttcaatgacaactacagtggccaatttcgcttgttg
+            gatctcaaggggaccatgtacctcccatatcaagggtgggttgagcacgattgttccgat
+            gtcggtaattattttatggctattcagagactgaattga
+///

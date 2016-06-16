@@ -1,0 +1,59 @@
+ENTRY       YGR019W           CDS       T00005
+NAME        UGA1
+DEFINITION  4-aminobutyrate transaminase (EC:2.6.1.19)
+ORTHOLOGY   K13524  4-aminobutyrate aminotransferase / (S)-3-amino-2-methylpropionate transaminase [EC:2.6.1.19 2.6.1.22]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00250  Alanine, aspartate and glutamate metabolism
+            sce00280  Valine, leucine and isoleucine degradation
+            sce00410  beta-Alanine metabolism
+            sce00640  Propanoate metabolism
+            sce00650  Butanoate metabolism
+            sce01100  Metabolic pathways
+MODULE      sce_M00027  GABA (gamma-Aminobutyrate) shunt
+CLASS       Metabolism; Carbohydrate metabolism; Propanoate metabolism [PATH:sce00640]
+            Metabolism; Carbohydrate metabolism; Butanoate metabolism [PATH:sce00650]
+            Metabolism; Amino acid metabolism; Alanine, aspartate and glutamate metabolism [PATH:sce00250]
+            Metabolism; Amino acid metabolism; Valine, leucine and isoleucine degradation [PATH:sce00280]
+            Metabolism; Metabolism of other amino acids; beta-Alanine metabolism [PATH:sce00410]
+POSITION    VII:525229..526644
+MOTIF       Pfam: Aminotran_3
+DBLINKS     NCBI-GI: 398365139
+            NCBI-GeneID: 852902
+            SGD: S000003251
+            MIPS: YGR019W
+            UniProt: P17649
+AASEQ       471
+            MSICEQYYPEEPTKPTVKTESIPGPESQKQLKELGEVFDTRPAYFLADYEKSLGNYITDV
+            DGNTYLDLYAQISSIALGYNNPALIKAAQSPEMIRALVDRPALGNFPSKDLDKILKQILK
+            SAPKGQDHVWSGLSGADANELAFKAAFIYYRAKQRGYDADFSEKENLSVMDNDAPGAPHL
+            AVLSFKRAFHGRLFASGSTTCSKPIHKLDFPAFHWPHAEYPSYQYPLDENSDANRKEDDH
+            CLAIVEELIKTWSIPVAALIIEPIQSEGGDNHASKYFLQKLRDITLKYNVVYIIDEVQTG
+            VGATGKLWCHEYADIQPPVDLVTFSKKFQSAGYFFHDPKFIPNKPYRQFNTWCGEPARMI
+            IAGAIGQEISDKKLTEQCSRVGDYLFKKLEGLQKKYPENFQNLRGKGRGTFIAWDLPTGE
+            KRDLLLKKLKLNGCNVGGCAVHAVRLRPSLTFEEKHADIFIEALAKSVNEL
+NTSEQ       1416
+            atgtctatttgtgaacaatactacccagaagagccaaccaaaccaactgttaagaccgag
+            tccattcctggtcctgaatcccagaagcagttaaaggaactgggtgaagtttttgacaca
+            agaccagcatattttttggctgattatgagaaatctttaggtaactatatcactgatgtg
+            gatgggaacacatatttggatttgtatgcccaaatctcttcaattgcacttggttataac
+            aaccctgctttgatcaaggcagcacaatcaccagaaatgatccgtgctttggtcgaccgt
+            cctgccttaggtaacttcccatctaaggatttagacaagatattgaagcaaatattgaaa
+            tctgcgccaaagggtcaagatcacgtctggtcagggctttccggtgcagatgccaatgaa
+            ttagcgttcaaggctgcctttatttattaccgtgccaaacaaaggggctatgatgccgat
+            ttttctgaaaaggaaaacttgtctgtcatggacaatgacgcccctggcgcccctcatctt
+            gccgtactatcgttcaagagagcgttccacggtagattgtttgcctccggttccacaact
+            tgttctaaaccaattcacaagttggatttcccagccttccactggcctcatgctgagtat
+            ccatcttaccaatacccattagatgaaaattctgatgcaaaccgtaaagaggatgaccat
+            tgcttggccattgttgaagaattaatcaaaacctggtctattccagttgctgccttaatc
+            atcgaaccaattcaatctgagggaggtgataaccacgcttctaagtatttcttacaaaag
+            ctaagagacattaccttgaagtataacgttgtctacatcatagatgaagtgcaaacaggt
+            gtcggagccaccggtaagctatggtgtcatgagtacgccgatattcaaccacctgtggat
+            ttagtgaccttttccaagaaattccaaagtgcaggatatttcttccacgaccctaaattc
+            attccaaacaaaccatacagacaattcaacacatggtgtggtgaacctgcaagaatgatc
+            attgcaggtgccattggacaggaaatctccgacaagaagttgactgaacaatgttcaaga
+            gtaggtgattatttgttcaagaaattggagggtttgcagaagaaataccctgaaaacttt
+            caaaacttgagaggtaaaggaagaggcacattcattgcctgggatttgcctactggtgag
+            aagagagacttactattgaagaaattgaagttgaatggttgcaacgttggtggatgtgca
+            gtccatgcagtgagattaagaccttcattaacattcgaggagaagcatgctgatatcttt
+            attgaagcattagccaaatcagttaatgaattatga
+///

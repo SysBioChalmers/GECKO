@@ -1,0 +1,37 @@
+ENTRY       YOR332W           CDS       T00005
+NAME        VMA4
+DEFINITION  Vma4p (EC:3.6.3.14)
+ORTHOLOGY   K02150  V-type H+-transporting ATPase subunit E [EC:3.6.3.14]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00190  Oxidative phosphorylation
+            sce01100  Metabolic pathways
+            sce04145  Phagosome
+CLASS       Metabolism; Energy metabolism; Oxidative phosphorylation [PATH:sce00190]
+            Cellular Processes; Transport and catabolism; Phagosome [PATH:sce04145]
+POSITION    XV:943656..944357
+MOTIF       Pfam: vATP-synt_E Phlebovirus_NSM UPF0556
+DBLINKS     NCBI-GI: 398366277
+            NCBI-GeneID: 854509
+            SGD: S000005859
+            MIPS: YOR332W
+            UniProt: P22203
+STRUCTURE   PDB: 4EFA 4DL0 2KZ9
+AASEQ       233
+            MSSAITALTPNQVNDELNKMQAFIRKEAEEKAKEIQLKADQEYEIEKTNIVRNETNNIDG
+            NFKSKLKKAMLSQQITKSTIANKMRLKVLSAREQSLDGIFEETKEKLSGIANNRDEYKPI
+            LQSLIVEALLKLLEPKAIVKALERDVDLIESMKDDIMREYGEKAQRAPLEEIVISNDYLN
+            KDLVSGGVVVSNASDKIEINNTLEERLKLLSEEALPAIRLELYGPSKTRKFFD
+NTSEQ       702
+            atgtcctccgctattactgctttgacaccaaaccaagtgaacgatgaattgaacaagatg
+            caagctttcatcagaaaggaagctgaagaaaaagcgaaggaaatccaattgaaggctgac
+            caagagtacgaaatcgagaagaccaacatcgtaagaaatgaaaccaacaacattgacggc
+            aacttcaagagcaagttgaagaaggccatgctttcgcaacagattactaagtcaacgata
+            gcaaacaaaatgaggttgaaggttctttctgctcgtgaacagtcgctagacgggatattc
+            gaggaaaccaaggaaaagttgtcaggaattgccaacaaccgggacgagtacaagcccatt
+            ttgcaatcattgatcgtggaggcacttttgaagttgttggaacctaaggcgattgtcaag
+            gctcttgaaagagacgtcgatttaatcgagtcgatgaaggacgacattatgcgtgagtat
+            ggggaaaaggcccagcgcgcaccattggaagagattgttatctccaatgattacttgaac
+            aaagaccttgtttccggcggtgttgtggtctccaatgcatcagacaagattgaaattaac
+            aacactttggaggaaagattgaaattgttaagtgaagaggcattgcccgccatcagattg
+            gaattgtatggtccttccaagacaagaaagttctttgattga
+///

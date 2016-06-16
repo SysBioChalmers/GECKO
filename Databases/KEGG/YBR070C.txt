@@ -1,0 +1,37 @@
+ENTRY       YBR070C           CDS       T00005
+NAME        ALG14
+DEFINITION  N-acetylglucosaminyldiphosphodolichol N-acetylglucosaminyltransferase anchoring subunit ALG14
+ORTHOLOGY   K07441  beta-1,4-N-acetylglucosaminyltransferase [EC:2.4.1.141]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00510  N-Glycan biosynthesis
+            sce00513  Various types of N-glycan biosynthesis
+            sce01100  Metabolic pathways
+MODULE      sce_M00055  N-glycan precursor biosynthesis
+CLASS       Metabolism; Glycan biosynthesis and metabolism; N-Glycan biosynthesis [PATH:sce00510]
+            Metabolism; Glycan biosynthesis and metabolism; Various types of N-glycan biosynthesis [PATH:sce00513]
+POSITION    II:complement(379221..379934)
+MOTIF       Pfam: Alg14
+DBLINKS     NCBI-GI: 6319544
+            NCBI-GeneID: 852362
+            SGD: S000000274
+            MIPS: YBR070C
+            UniProt: P38242
+AASEQ       237
+            MKTAYLASLVLIVSTAYVIRLIAILPFFHTQAGTEKDTKDGVNLLKIRKSSKKPLKIFVF
+            LGSGGHTGEMIRLLENYQDLLLGKSIVYLGYSDEASRQRFAHFIKKFGHCKVKYYEFMKA
+            REVKATLLQSVKTIIGTLVQSFVHVVRIRFAMCGSPHLFLLNGPGTCCIISFWLKIMELL
+            LPLLGSSHIVYVESLARINTPSLTGKILYWVVDEFIVQWQELRDNYLPRSKWFGILV
+NTSEQ       714
+            atgaaaacggcctacttggcgtcattggtgctcatcgtatcgacagcatatgttattagg
+            ttgatagcgattctgccttttttccacactcaagcaggtacagaaaaggatacgaaagat
+            ggagttaacctactgaaaatacgaaaatcgtcaaagaaaccgctcaagatttttgtattc
+            ttaggatcgggaggtcatactggtgaaatgatccgtcttctagaaaattaccaggatctt
+            ttactgggtaagtcgattgtgtacttgggttattctgatgaggcttccaggcaaagattc
+            gcccactttataaaaaaatttggtcattgcaaagtaaaatactatgaattcatgaaagct
+            agggaagttaaagcgactctcctacaaagtgtaaagaccatcattggaacgttggtacaa
+            tcttttgtgcacgtggttagaatcagatttgctatgtgtggttcccctcatctgttttta
+            ttgaatgggcctggaacatgctgtataatatccttttggttgaaaattatggaacttctt
+            ttgcccctgttgggttcctcccatatagtttatgtagaatcgctggcaaggattaatact
+            cctagtctgaccggaaaaatattatattgggtagtggatgaattcattgtccagtggcaa
+            gaattgagggacaattatttaccaagatccaagtggttcggcatccttgtttaa
+///

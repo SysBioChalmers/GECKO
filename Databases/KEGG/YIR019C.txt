@@ -1,0 +1,110 @@
+ENTRY       YIR019C           CDS       T00005
+NAME        FLO11, MUC1, STA4
+DEFINITION  Flo11p
+ORTHOLOGY   K01178  glucoamylase [EC:3.2.1.3]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00500  Starch and sucrose metabolism
+            sce01100  Metabolic pathways
+CLASS       Metabolism; Carbohydrate metabolism; Starch and sucrose metabolism [PATH:sce00500]
+POSITION    IX:complement(389572..393675)
+MOTIF       Pfam: Flo11
+DBLINKS     NCBI-GI: 398364641
+            NCBI-GeneID: 854836
+            SGD: S000001458
+            MIPS: YIR019C
+            UniProt: P08640
+AASEQ       1367
+            MQRPFLLAYLVLSLLFNSALGFPTALVPRGSSEGTSCNSIVNGCPNLDFNWHMDQQNIMQ
+            YTLDVTSVSWVQDNTYQITIHVKGKENIDLKYLWSLKIIGVTGPKGTVQLYGYNENTYLI
+            DNPTDFTATFEVYATQDVNSCQVWMPNFQIQFEYLQGSAAQYASSWQWGTTSFDLSTGCN
+            NYDNQGHSQTDFPGFYWNIDCDNNCGGTKSSTTTSSTSESSTTTSSTSESSTTTSSTSES
+            STTTSSTSESSTSSSTTAPATPTTTSCTKEKPTPPTTTSCTKEKPTPPHHDTTPCTKKKT
+            TTSKTCTKKTTTPVPTPSSSTTESSSAPVPTPSSSTTESSSAPVTSSTTESSSAPVPTPS
+            SSTTESSSAPVTSSTTESSSAPVTSSTTESSSAPVPTPSSSTTESSSAPVTSSTTESSSA
+            PVTSSTTESSSAPVTSSTTESSSAPVTSSTTESSSAPVPTPSSSTTESSSAPVTSSTTES
+            SSAPVPTPSSSTTESSSAPVTSSTTESSSAPVPTPSSSTTESSSAPAPTPSSSTTESSSA
+            PVTSSTTESSSAPVPTPSSSTTESSSTPVTSSTTESSSAPVPTPSSSTTESSSAPVPTPS
+            SSTTESSSAPAPTPSSSTTESSSAPVTSSTTESSSAPVPTPSSSTTESSSAPVPTPSSST
+            TESSSAPVPTPSSSTTESSSAPVTSSTTESSSAPVTSSTTESSSAPVPTPSSSTTESSSA
+            PVPTPSSSTTESSSAPVPTPSSSTTESSSAPVTSSTTESSSAPVPTPSSSTTESSSAPVP
+            TPSSSTTESSSAPVPTPSSSTTESSVAPVPTPSSSSNITSSAPSSTPFSSSTESSSVPVP
+            TPSSSTTESSSAPVSSSTTESSVAPVPTPSSSSNITSSAPSSIPFSSTTESFSTGTTVTP
+            SSSKYPGSQTETSVSSTTETTIVPTKTTTSVTTPSTTTITTTVCSTGTNSAGETTSGCSP
+            KTVTTTVPTTTTTSVTTSSTTTITTTVCSTGTNSAGETTSGCSPKTITTTVPCSTSPSET
+            ASESTTTSPTTPVTTVVSTTVVTTEYSTSTKPGGEITTTFVTKNIPTTYLTTIAPTPSVT
+            TVTNFTPTTITTTVCSTGTNSAGETTSGCSPKTVTTTVPCSTGTGEYTTEATTLVTTAVT
+            TTVVTTESSTGTNSAGKTTTGYTTKSVPTTYVTTLAPSAPVTPATNAVPTTITTTECSAA
+            TNAAGETTSVCSAKTIVSSASAGENTAPSATTPVTTAIPTTVITTESSVGTNSAGETTTG
+            YTTKSIPTTYITTLIPGSNGAKNYETVATATNPISIKTTSQLATTASASSVAPVVTSPSL
+            TGPLQSASGSAVATYSVPSISSTYQGAANIKVLGNFMWLLLALPVVF
+NTSEQ       4104
+            atgcaaagaccatttctactcgcttatttggtcctttcgcttctatttaactcggctttg
+            ggttttccaactgcactagttccaagaggatcctccgaaggaactagctgtaattctatc
+            gttaatggctgtcccaacttagacttcaattggcacatggaccagcaaaatatcatgcag
+            tatactttggatgtgacttccgtttcttgggttcaagacaacacataccaaatcactatt
+            catgtcaaaggtaaagaaaatattgacctgaagtatctatggtctttgaaaatcattggt
+            gtcactggtccaaaaggtaccgtccaactatacggttacaacgaaaatacctatttgatt
+            gacaacccaactgatttcacagccacttttgaagtttatgccacacaagatgtcaacagc
+            tgtcaggtgtggatgcctaacttccaaattcaattcgagtatttgcaaggtagtgccgct
+            caatatgcaagctcctggcaatggggaactacatcttttgatttgtctactggttgtaac
+            aactatgacaatcaaggccactctcaaacggatttcccaggcttctattggaacatagat
+            tgtgacaataattgtggcggtacgaagtcatctaccactacatctagcacttccgagtca
+            tctaccactacatctagcacttccgagtcatctaccactacatctagcacttccgagtca
+            tctaccactacatctagcacttccgagtcatctacatcatcatcaaccaccgctcctgct
+            acaccaaccactacctcatgcactaaggaaaagcctacacccccaaccactacctcatgc
+            acaaaggaaaagcctacacctcctcatcacgacaccactccatgtacaaagaagaaaact
+            accacatctaagacatgcactaagaagactactactccagtaccaaccccatcaagctct
+            actactgaaagttcttctgctccagtaccaactccatccagctctactactgaaagctct
+            tctgctccagtaaccagctctaccactgaaagctcttctgctccagtaccaaccccatca
+            agctctactactgaaagctcttctgctccagtaaccagctctaccactgaaagctcttct
+            gctccagtaaccagctctaccactgaaagctcttctgctccagtaccaactccatccagc
+            tctactactgaaagctcttctgctccagtaaccagctctaccactgaaagctcttctgct
+            ccagtaaccagctctaccactgaaagctcttctgctccagtaaccagctctaccactgaa
+            agctcttctgctccagtaaccagctctaccactgaaagctcttctgctccagtaccaact
+            ccatccagctctactactgaaagctcttctgctccagtaaccagctctaccactgaaagc
+            tcttctgctccagtaccaactccatccagctctactactgaaagctcttctgctccagta
+            accagctctaccactgaaagctcttctgctccagtaccaactccatccagctctactact
+            gaaagctcttctgctccagctccaaccccatcaagctccaccactgaaagctcttctgct
+            ccagtaaccagctctaccactgaaagctcttctgctccagtaccaactccatccagctct
+            actactgaaagctcttctactccagtaaccagctccaccactgaaagctcttctgctcca
+            gtgccaactccatcaagctctactactgaaagctcttctgctccagtaccaactccatca
+            agctctactactgaaagctcttctgctccagctccaaccccatcaagctctactactgaa
+            agctcttctgctccagtaaccagctctaccactgaaagctcttctgctccagtaccaact
+            ccatccagctctactactgaaagctcttctgctccagtaccaaccccatccagctctact
+            actgaaagctcttctgctccagtaccaactccatccagctctactactgaaagctcttct
+            gctccagtaaccagctctaccactgaaagctcttctgctccagtaaccagctctaccact
+            gaaagctcttctgctccagtaccaactccatccagctctactactgaaagctcttctgct
+            ccagtaccaactccatccagctctactactgaaagctcttctgctccagtaccaactcca
+            tccagctctactactgaaagctcttctgctccagtaaccagctctaccactgaaagctct
+            tctgctccagtaccaactccatccagctctactactgaaagctcttctgctccagtgcca
+            actccatccagctctactaccgaaagctcttctgctccagtaccaaccccatcaagctct
+            actactgaaagctctgtagcaccagtaccaaccccatcttcctctagcaacatcacttcc
+            tccgctccatcttcaaccccattcagctctagcactgaaagctcttctgttccagtacca
+            accccatcaagctctactactgaaagctcttctgctccagtatccagctccaccactgaa
+            agctctgtagcaccagtaccaaccccatcttcctctagcaacatcacttcctccgctcca
+            tcttcaattccattcagctctactactgaaagcttttctactggcactactgtcactcca
+            tcatcatccaaataccctggcagtcaaacagaaacctctgtttcttctacaaccgaaact
+            accattgttccaactaaaactacgacttctgtcactacaccatcaacaaccactattacc
+            actacggtttgctctacaggaacaaactctgccggtgaaactacctctggatgctctcca
+            aagaccgttacaactactgttccaactacaactacgacttctgtcactacatcatcaaca
+            accactattactactacagtttgctctacaggaacaaactctgccggtgaaactacctct
+            ggatgctctccaaagaccattacaactactgttccatgttcaaccagtccaagcgaaacc
+            gcctcggaatcaacaaccacttcacctaccacacctgtaactacagttgtctcaaccacc
+            gtcgttactactgagtattctactagtacaaaaccaggtggtgaaattacaactacattt
+            gtcaccaaaaacattccaaccacttacctaaccacaattgctccaactccatcagtcact
+            acggttaccaatttcaccccaaccactattactactacggtttgctctacaggtacaaac
+            tctgccggtgaaactacctctggatgctctccaaagactgtcacaaccactgttccttgt
+            tcaactggtactggcgaatacactactgaagctaccacccttgttacaacagctgtcaca
+            accaccgttgttaccactgaatcctctacgggtactaactccgctggtaagacgacaact
+            ggttacacaacaaagtctgtaccaaccacctatgtaaccactttggctccaagtgcacca
+            gtaactcctgccactaatgccgtaccaactacaataaccactactgaatgttctgctgct
+            acaaacgctgccggtgaaactacatctgtatgctctgctaagactatcgtaagttctgca
+            agcgcaggcgaaaacactgcaccttcggctaccacccctgtcacgacggctattccaacc
+            acagttattaccactgagtcatctgttggtactaactccgctggcgaaacaacaactggt
+            tacacaaccaagtccatcccaaccacttacataaccactttgattccaggttcaaatggt
+            gccaagaattacgaaactgtggccacagcaaccaaccctatttcaatcaagactacatcc
+            caactagctacaacagcttctgcttctagcgtggctcccgttgtcacatctccatctcta
+            actggtccactacaatctgcttctggttctgcagtcgctacatactctgttccttctatc
+            tcgagtacttaccaaggtgctgctaatatcaaggttcttggaaactttatgtggttgcta
+            ctcgctcttccagttgtattctaa
+///

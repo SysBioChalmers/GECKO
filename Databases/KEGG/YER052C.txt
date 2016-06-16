@@ -1,0 +1,64 @@
+ENTRY       YER052C           CDS       T00005
+NAME        HOM3, BOR1, SIL4, THR3
+DEFINITION  aspartate kinase (EC:2.7.2.4)
+ORTHOLOGY   K00928  aspartate kinase [EC:2.7.2.4]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00260  Glycine, serine and threonine metabolism
+            sce00270  Cysteine and methionine metabolism
+            sce00300  Lysine biosynthesis
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01210  2-Oxocarboxylic acid metabolism
+            sce01230  Biosynthesis of amino acids
+MODULE      sce_M00018  Threonine biosynthesis, aspartate => homoserine => threonine
+CLASS       Metabolism; Overview; 2-Oxocarboxylic acid metabolism [PATH:sce01210]
+            Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
+            Metabolism; Amino acid metabolism; Glycine, serine and threonine metabolism [PATH:sce00260]
+            Metabolism; Amino acid metabolism; Cysteine and methionine metabolism [PATH:sce00270]
+            Metabolism; Amino acid metabolism; Lysine biosynthesis [PATH:sce00300]
+POSITION    V:complement(256375..257958)
+MOTIF       Pfam: AA_kinase ACT ACT_7
+DBLINKS     NCBI-GI: 6320893
+            NCBI-GeneID: 856778
+            SGD: S000000854
+            MIPS: YER052C
+            UniProt: P10869
+AASEQ       527
+            MPMDFQPTSSHSNWVVQKFGGTSVGKFPVQIVDDIVKHYSKPDGPNNNVAVVCSARSSYT
+            KAEGTTSRLLKCCDLASQESEFQDIIEVIRQDHIDNADRFILNPALQAKLVDDTNKELEL
+            VKKYLNASKVLGEVSSRTVDLVMSCGEKLSCLFMTALCNDRGCKAKYVDLSHIVPSDFSA
+            SALDNSFYTFLVQALKEKLAPFVSAKERIVPVFTGFFGLVPTGLLNGVGRGYTDLCAALI
+            AVAVNADELQVWKEVDGIFTADPRKVPEARLLDSVTPEEASELTYYGSEVIHPFTMEQVI
+            RAKIPIRIKNVQNPLGNGTIIYPDNVAKKGESTPPHPPENLSSSFYEKRKRGATAITTKN
+            DIFVINIHSNKKTLSHGFLAQIFTILDKYKLVVDLISTSEVHVSMALPIPDADSLKSLRQ
+            AEEKLRILGSVDITKKLSIVSLVGKHMKQYIGIAGTMFTTLAEEGINIEMISQGANEINI
+            SCVINESDSIKALQCIHAKLLSERTNTSNQFEHAIDERLEQLKRLGI
+NTSEQ       1584
+            atgccaatggatttccaacctacatcaagtcattcgaactgggtcgtgcaaaagttcggt
+            ggtacatctgtcggtaaatttcccgtccaaatagtggatgacattgtgaagcactattct
+            aaacctgacggcccaaacaataatgtcgctgtcgtttgttccgcccgttcttcatacacc
+            aaggctgaaggtaccacttctcgtcttttgaaatgttgtgatttggcttcgcaagaatct
+            gaatttcaagacattatcgaagttatcagacaagaccatatcgataatgccgaccgcttc
+            attctcaatcctgccttgcaagccaagttagtggatgataccaataaagaacttgaactg
+            gtcaagaaatatttaaatgcttcaaaagttttgggtgaagtgagttcacgtacagtagat
+            ctggtgatgtcatgtggtgagaagttgagttgtttgttcatgactgctttatgtaatgac
+            cgtggctgtaaggccaaatatgtggatttgagccacattgttccctctgatttcagtgcc
+            agcgctttggataacagtttctacactttcctggttcaagcattgaaagaaaaattggcc
+            ccctttgtaagtgctaaagagcgtatcgttccagtctttacagggttttttggtttagtt
+            ccaactggtcttctgaatggtgttggtcgtggctataccgatttatgtgccgctttgata
+            gcagttgctgtaaatgctgatgaactacaagtttggaaggaagttgatggtatatttact
+            gctgatcctcgtaaggttcctgaagcacgtttgctagacagtgttactccagaagaagct
+            tctgaattaacatattatggttccgaagttatacatccttttacgatggaacaagttatt
+            agggctaagattcctattagaatcaagaatgttcaaaatccattaggtaacggtaccatt
+            atctacccagataatgtagcaaagaagggtgaatctactccaccacatcctcctgagaac
+            ttatcctcatctttctatgaaaagagaaagagaggtgccactgctatcaccaccaaaaat
+            gacattttcgtcatcaacattcattccaataagaaaaccctatcccatggtttcctagct
+            caaatatttaccatcctggataagtacaagttagtcgtagatttaatatctacttctgaa
+            gttcatgtttcgatggctttgcccattccagatgcagactcattaaaatctctgagacaa
+            gctgaggaaaaattgagaattttaggttctgttgatatcacaaagaagttgtctattgtt
+            tcattagttggtaaacatatgaaacaatacatcggcattgctggtaccatgtttactact
+            cttgctgaagaaggcatcaacattgaaatgatttctcaaggggcaaatgaaataaacata
+            tcctgcgttatcaatgaatctgactccataaaagcgctacaatgtattcatgccaagtta
+            ctaagtgagcggacaaatacttcaaaccaatttgaacatgccattgatgaacgtttagaa
+            caattgaaaagacttggaatttaa
+///

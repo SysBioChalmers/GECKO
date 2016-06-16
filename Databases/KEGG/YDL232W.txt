@@ -1,0 +1,26 @@
+ENTRY       YDL232W           CDS       T00005
+NAME        OST4
+DEFINITION  Ost4p (EC:2.4.99.18)
+ORTHOLOGY   K00730  oligosaccharyl transferase complex subunit OST4
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00510  N-Glycan biosynthesis
+            sce00513  Various types of N-glycan biosynthesis
+            sce01100  Metabolic pathways
+            sce04141  Protein processing in endoplasmic reticulum
+MODULE      sce_M00072  Oligosaccharyltransferase
+CLASS       Metabolism; Glycan biosynthesis and metabolism; N-Glycan biosynthesis [PATH:sce00510]
+            Metabolism; Glycan biosynthesis and metabolism; Various types of N-glycan biosynthesis [PATH:sce00513]
+            Genetic Information Processing; Folding, sorting and degradation; Protein processing in endoplasmic reticulum [PATH:sce04141]
+POSITION    IV:38487..38597
+MOTIF       Pfam: Ost4
+DBLINKS     NCBI-GI: 6319969
+            NCBI-GeneID: 851366
+            SGD: S000002391
+            MIPS: YDL232W
+            UniProt: Q99380
+AASEQ       36
+            MISDEQLNSLAITFGIVMMTLIVIYHAVDSTMSPKN
+NTSEQ       111
+            atgatctctgatgaacagctgaactccttggccatcaccttcggtattgtgatgatgact
+            ttaattgtcatttaccatgctgttgactccaccatgtctcctaagaactaa
+///

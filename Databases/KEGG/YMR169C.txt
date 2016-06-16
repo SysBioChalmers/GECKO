@@ -1,0 +1,61 @@
+ENTRY       YMR169C           CDS       T00005
+NAME        ALD3
+DEFINITION  aldehyde dehydrogenase (NAD(+)) ALD3 (EC:1.2.1.3 1.2.1.5)
+ORTHOLOGY   K00129  aldehyde dehydrogenase (NAD(P)+) [EC:1.2.1.5]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00010  Glycolysis / Gluconeogenesis
+            sce00340  Histidine metabolism
+            sce00350  Tyrosine metabolism
+            sce00360  Phenylalanine metabolism
+            sce00410  beta-Alanine metabolism
+            sce01100  Metabolic pathways
+CLASS       Metabolism; Carbohydrate metabolism; Glycolysis / Gluconeogenesis [PATH:sce00010]
+            Metabolism; Amino acid metabolism; Histidine metabolism [PATH:sce00340]
+            Metabolism; Amino acid metabolism; Tyrosine metabolism [PATH:sce00350]
+            Metabolism; Amino acid metabolism; Phenylalanine metabolism [PATH:sce00360]
+            Metabolism; Metabolism of other amino acids; beta-Alanine metabolism [PATH:sce00410]
+POSITION    XIII:complement(599352..600872)
+MOTIF       Pfam: Aldedh LuxC DUF3294
+DBLINKS     NCBI-GI: 6323821
+            NCBI-GeneID: 855205
+            SGD: S000004779
+            MIPS: YMR169C
+            UniProt: P54114
+AASEQ       506
+            MPTLYTDIEIPQLKISLKQPLGLFINNEFCPSSDGKTIETVNPATGEPITSFQAANEKDV
+            DKAVKAARAAFDNVWSKTSSEQRGIYLSNLLKLIEEEQDTLAALETLDAGKPFHSNAKQD
+            LAQIIELTRYYAGAVDKFNMGETIPLTFNKFAYTLKVPFGVVAQIVPWNYPLAMACRKMQ
+            GALAAGNTVIIKPAENTSLSLLYFATLIKKAGFPPGVVNVIPGYGSVVGKALGTHMDIDK
+            ISFTGSTKVGGSVLEASGQSNLKDITLECGGKSPALVFEDADLDKAIEWVANGIFFNSGQ
+            ICTANSRVYVQSSIYDKFVEKFKETAKKEWDVAGKFDPFDEKCIVGPVISSTQYDRIKSY
+            IERGKKEEKLDMFQTSEFPIGGAKGYFIPPTIFTDVPETSKLLRDEIFGPVVVVSKFTNY
+            DDALKLANDTCYGLASAVFTKDVKKAHMFARDIKAGTVWINQTNQEEAKVPFGGFKMSGI
+            GRESGDTGVDNYLQIKSVHVDLSLDK
+NTSEQ       1521
+            atgcctaccttgtatactgatatcgaaatcccacaattgaaaatctctttaaagcaaccg
+            ctagggttgtttatcaacaatgagttttgtccatcatcagatggaaagaccatcgaaact
+            gtgaacccagctactggcgaaccgataacatccttccaagcagctaacgaaaaggatgta
+            gacaaagctgtgaaagctgccagggctgcttttgataacgtttggtcgaagacatcttct
+            gagcaacgtggtatttatctttcaaacttattaaaacttattgaggaggagcaagacaca
+            cttgccgcattagagactttagacgctggtaagcctttccattccaatgctaaacaagac
+            ttagcccagattatagaacttacaagatactatgcgggggcggtcgacaagttcaatatg
+            ggtgaaaccattccattgacttttaacaagtttgcatatactctaaaagttccttttggc
+            gttgttgctcaaatcgttccatggaattatcctctagctatggcttgtagaaaaatgcaa
+            ggtgccttagcggccggtaacacggttatcatcaaacctgctgaaaatacctctctatct
+            ctactttattttgctactttaattaaaaaagcaggttttccacctggtgttgtcaatgtc
+            attcctggttatggttccgttgtggggaaagctttaggaacccacatggatatcgacaaa
+            atatcttttacgggaagtactaaggttggcggctcagtattggaagcttccggccaatcg
+            aaccttaaggatatcacactagaatgcggtggtaagtctcctgctcttgtatttgaagat
+            gcagaccttgataaggctatagaatgggtagcaaatggtattttttttaattcgggacag
+            atctgcactgcaaactcaagagtttatgttcaaagttcgatctacgacaagtttgttgaa
+            aagtttaaagaaactgcaaagaaggagtgggatgttgcaggaaaatttgatccgtttgat
+            gagaaatgcatcgttggtccagttatatcaagtacacagtatgaccgcatcaaaagttac
+            atagaacgtggtaaaaaggaggaaaagttggacatgttccagacctctgaatttcctatt
+            ggtggagctaaaggctacttcattcccccaaccatcttcactgatgtaccagaaacatct
+            aagttgctgcgtgatgaaatatttggcccggttgtggttgttagcaagttcacaaattat
+            gatgacgctctgaagctggctaatgatacttgctacgggctcgcctctgcggtcttcacc
+            aaagatgtcaagaaagcgcacatgtttgctcgcgatattaaagcaggaactgtttggatc
+            aatcaaaccaatcaagaagaagctaaagttccttttggcggatttaagatgagtggtatt
+            ggtagagaatcaggcgacaccggcgttgataactatttacaaataaaatcagtccatgtg
+            gatctttcattggataaataa
+///

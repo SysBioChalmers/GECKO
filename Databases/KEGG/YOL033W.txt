@@ -1,0 +1,58 @@
+ENTRY       YOL033W           CDS       T00005
+NAME        MSE1
+DEFINITION  glutamate--tRNA ligase MSE1 (EC:6.1.1.17)
+ORTHOLOGY   K01885  glutamyl-tRNA synthetase [EC:6.1.1.17]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00860  Porphyrin and chlorophyll metabolism
+            sce00970  Aminoacyl-tRNA biosynthesis
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+MODULE      sce_M00359  Aminoacyl-tRNA biosynthesis, eukaryotes
+CLASS       Metabolism; Metabolism of cofactors and vitamins; Porphyrin and chlorophyll metabolism [PATH:sce00860]
+            Genetic Information Processing; Translation; Aminoacyl-tRNA biosynthesis [PATH:sce00970]
+POSITION    XV:263475..265085
+MOTIF       Pfam: tRNA-synt_1c
+DBLINKS     NCBI-GI: 6324540
+            NCBI-GeneID: 854124
+            SGD: S000005393
+            MIPS: YOL033W
+            UniProt: P48525
+AASEQ       536
+            MIMLRIPTRSYCSPSKLIKGVGLSPLKKSLLSKKIKEDIHPSLPVRTRFAPSPTGFLHLG
+            SLRTALYNYLLARNTNGQFLLRLEDTDQKRLIEGAEENIYEILKWCNINYDETPIKQSER
+            KLIYDKYVKILLSSGKAYRCFCSKERLNDLRHSAMELKPPSMASYDRCCAHLGEEEIKSK
+            LAQGIPFTVRFKSPERYPTFTDLLHGQINLQPQVNFNDKRYDDLILVKSDKLPTYHLANV
+            VDDHLMGITHVIRGEEWLPSTPKHIALYNAFGWACPKFIHIPLLTTVGDKKLSKRKGDMS
+            ISDLKRQGVLPEALINFCALFGWSPPRDLASKKHECFSMEELETIFNLNGLTKGNAKVDD
+            KKLWFFNKHFLQKRILNPSTLRELVDDIMPSLESIYNTSTISREKVAKILLNCGGSLSRI
+            NDFHDEFYYFFEKPKYNDNDAVTKFLSKNESRHIAHLLKKLGQFQEGTDAQEVESMVETM
+            YYENGFSRKVTYQAMRFALAGCHPGAKIAAMIDILGIKESNKRLSEGLQFLQREKK
+NTSEQ       1611
+            atgatcatgttgagaataccgacacggtcttattgttcaccttcgaagctaataaagggc
+            gtaggtctctcaccattgaagaaatctctgttatccaagaaaataaaggaagatatccat
+            ccttctttacctgttagaactaggtttgcgccttctccaactgggtttttacacttgggg
+            tcactgagaacagccctttacaattacctattagcaagaaacaccaatgggcagtttttg
+            cttcgtttagaagatacagaccagaagaggctaatagagggagcagaagaaaacatctac
+            gagattctgaaatggtgtaacataaactacgatgaaacccctataaagcaaagtgaaagg
+            aaactaatatatgacaaatatgtaaaaatattactatcttctgggaaggcgtatagatgt
+            ttttgttcaaaggagcgattgaacgatttgagacactctgcaatggaattgaaacctcct
+            tcgatggcaagctatgatcgatgttgtgcacacttaggggaggaagaaataaaatctaag
+            ctagcgcaaggtatacctttcactgtgcggtttaaatcgccagaacgatatccaacgttt
+            actgatcttttacatggacaaataaatcttcaaccgcaagtaaactttaacgataaacgg
+            tacgatgaccttatccttgttaagtcggataagttgccaacctatcatctggcaaatgtt
+            gtggatgaccatttgatgggaataacccatgttataagaggtgaggaatggctgccctct
+            actcctaaacatatcgccctatataatgcatttgggtgggcttgcccaaagttcatccac
+            attcccttattgacgacggttggtgataagaaattgagtaaaagaaaaggtgatatgtct
+            atctcggatttaaaaagacagggagttttgccagaagctttgattaacttttgtgcgcta
+            tttggctggtctcctccaagagatctggcttcgaaaaagcatgagtgtttttcaatggag
+            gaattggaaaccatttttaatttgaatggtttgacgaagggaaatgccaaagtcgatgat
+            aaaaaattgtggttcttcaataagcattttttgcaaaaaagaatacttaatccttctaca
+            ttgagggagcttgtcgacgacattatgccttctttagagtccatatataacacatctacc
+            ataagccgtgagaaagtagctaaaattttactgaactgtggtggttctctatcaaggatt
+            aacgattttcatgatgaattttattatttttttgaaaagcccaaatataatgataatgat
+            gctgtcacgaaatttctaagcaagaacgaaagccgccacattgctcacttattgaagaag
+            cttggacagtttcaagagggcaccgatgctcaagaagtcgaatctatggtcgaaacgatg
+            tattatgagaacggtttttctaggaaagtcacgtatcaggcaatgagatttgctcttgcg
+            ggatgtcacccaggtgccaaaatagcagccatgatagatattttgggcatcaaggaaagt
+            aacaaaagattatccgaaggtttacagttcttgcaaagagagaaaaagtaa
+///

@@ -1,0 +1,40 @@
+ENTRY       YPL031C           CDS       T00005
+NAME        PHO85, LDB15
+DEFINITION  Pho85p (EC:2.7.11.22)
+ORTHOLOGY   K06655  negative regulator of the PHO system [EC:2.7.11.22]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04111  Cell cycle - yeast
+CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
+POSITION    XVI:complement(join(492018..492918,493021..493037))
+MOTIF       Pfam: Pkinase Pkinase_Tyr Kinase-like APH Seadorna_VP7 DUF1573
+DBLINKS     NCBI-GI: 6325226
+            NCBI-GeneID: 856076
+            SGD: S000005952
+            MIPS: YPL031C
+            UniProt: P17157
+STRUCTURE   PDB: 4KRD 4KRC 2PMI 2PK9
+AASEQ       305
+            MSSSSQFKQLEKLGNGTYATVYKGLNKTTGVYVALKEVKLDSEEGTPSTAIREISLMKEL
+            KHENIVRLYDVIHTENKLTLVFEFMDNDLKKYMDSRTVGNTPRGLELNLVKYFQWQLLQG
+            LAFCHENKILHRDLKPQNLLINKRGQLKLGDFGLARAFGIPVNTFSSEVVTLWYRAPDVL
+            MGSRTYSTSIDIWSCGCILAEMITGKPLFPGTNDEEQLKLIFDIMGTPNESLWPSVTKLP
+            KYNPNIQQRPPRDLRQVLQPHTKEPLDGNLMDFLHGLLQLNPDMRLSAKQALHHPWFAEY
+            YHHAS
+NTSEQ       918
+            atgtcttcttcttcacaatttaagcagttagaaaagcttggcaatggtacgtatgccaca
+            gtgtacaagggactgaacaaaaccacaggggtatatgttgccctgaaagaggtaaaactg
+            gattcagaggaaggtacaccctctacggccatccgtgagatctccctaatgaaagaattg
+            aaacatgagaacattgttagactttatgacgttattcacacagagaacaagttgactttg
+            gtttttgaattcatggacaacgatttaaagaaatacatggattcccgcaccgtgggcaac
+            acaccaagagggctagaactaaacttggttaaatacttccagtggcaactactgcaaggg
+            ctggccttttgccatgaaaacaagattctccaccgtgatttaaaacctcaaaacctatta
+            atcaacaagagaggccagttgaaattgggtgatttcggtctggcccgtgctttcggtatt
+            ccggtcaacacattttcaagcgaagtcgtaacgttgtggtaccgtgctcctgatgtgcta
+            atgggttctaggacgtactccacatccattgatatatggtcgtgtgggtgcattcttgcg
+            gaaatgataacgggtaagcctttgtttcctggcaccaacgacgaagaacaactgaaattg
+            atcttcgacatcatgggcactcctaatgagtccctatggcccagtgtaacaaagttaccc
+            aaatacaacccaaatatccagcaacgaccaccaagagacctacgtcaagtattgcaacca
+            cacaccaaagaaccgctagacgggaatctcatggatttcttacacggactcttgcaactt
+            aatccggatatgaggctgagcgccaagcaggctctgcatcacccttggtttgcagagtac
+            taccaccacgcttcataa
+///

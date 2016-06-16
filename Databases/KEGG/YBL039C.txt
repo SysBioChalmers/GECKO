@@ -1,0 +1,58 @@
+ENTRY       YBL039C           CDS       T00005
+NAME        URA7
+DEFINITION  CTP synthase URA7 (EC:6.3.4.2)
+ORTHOLOGY   K01937  CTP synthase [EC:6.3.4.2]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00240  Pyrimidine metabolism
+            sce01100  Metabolic pathways
+MODULE      sce_M00052  Pyrimidine ribonucleotide biosynthesis, UMP => UDP/UTP,CDP/CTP
+CLASS       Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
+POSITION    II:complement(143989..145728)
+MOTIF       Pfam: CTP_synth_N GATase Peptidase_C26 CbiA
+DBLINKS     NCBI-GI: 6319432
+            NCBI-GeneID: 852241
+            SGD: S000000135
+            MIPS: YBL039C
+            UniProt: P28274
+AASEQ       579
+            MKYVVVSGGVISGIGKGVLASSTGMLMKTLGLKVTSIKIDPYMNIDAGTMSPLEHGECFV
+            LDDGGETDLDLGNYERYLGVTLTKDHNITTGKIYSHVIAKERKGDYLGKTVQIVPHLTNA
+            IQDWIERVAKIPVDDTGMEPDVCIIELGGTVGDIESAPFVEALRQFQFKVGKENFALIHV
+            SLVPVIHGEQKTKPTQAAIKGLRSLGLVPDMIACRCSETLDKPTIDKIAMFCHVGPEQVV
+            NVHDVNSTYHVPLLLLEQKMIDYLHARLKLDEISLTEEEKQRGLELLSKWKATTGNFDES
+            METVKIALVGKYTNLKDSYLSVIKALEHSSMKCRRKLDIKWVEATDLEPEAQESNKTKFH
+            EAWNMVSTADGILIPGGFGVRGTEGMVLAARWARENHIPFLGVCLGLQIATIEFTRSVLG
+            RKDSHSAEFYPDIDEKNHVVVFMPEIDKETMGGSMRLGLRPTFFQNETEWSQIKKLYGDV
+            SEVHERHRHRYEINPKMVDELENNGLIFVGKDDTGKRCEILELKNHPYYIATQYHPEYTS
+            KVLDPSKPFLGLVAASAGILQDVIEGKYDLEAGENKFNF
+NTSEQ       1740
+            atgaagtacgttgttgtttcaggtggtgtcatttcgggtatcggtaaaggtgttcttgca
+            tcttcaactggtatgctaatgaaaaccctcggtttaaaggttacgtcaattaaaattgac
+            ccttatatgaacattgatgcaggtactatgtctcctttggaacatggtgaatgtttcgtg
+            cttgacgacggtggtgaaacagatttggacttgggtaactacgagagataccttggagtt
+            actttgactaaagatcataacattactactggtaaaatatactcgcacgttattgctaag
+            gaaagaaaaggtgactatttaggcaaaaccgtgcaaattgtccctcatttgaccaacgct
+            atccaagattggattgagcgcgtggccaaaattcctgtagatgacaccggtatggaacca
+            gatgtttgtatcattgaattgggtgggacagttggtgacattgaaagtgctccttttgtg
+            gaggcactaagacaattccaatttaaagttggaaaggaaaattttgccttgatacacgtt
+            tctctagttcctgtcatccacggtgaacaaaaaactaagccaactcaagctgccatcaaa
+            ggtttgaggtctcttggtttagttccagatatgatcgcctgtagatgtagtgaaactttg
+            gataaaccaacaatcgataagattgccatgttttgtcatgtggggcctgaacaggtggtt
+            aacgttcacgatgttaattctacttatcacgtcccattgttgctactggaacaaaagatg
+            attgattacttacacgccagattaaagttagatgaaatatcacttacagaagaagaaaaa
+            caaagaggcctggaattattgtctaaatggaaggccacaacaggtaacttcgatgaatcc
+            atggaaacagtgaagattgctttggttgggaaatacaccaacttgaaagattcttatcta
+            tcagtgataaaagcattggaacattcatccatgaagtgtcgtcgtaagttagacattaaa
+            tgggtggaagctactgatttggaacctgaagcacaagaaagcaacaaaactaaatttcat
+            gaagcatggaacatggtcagtaccgcagacggtatcttaatccccggtggttttggtgtt
+            agaggtactgaaggtatggttttggctgctagatgggctcgtgaaaatcacattccattc
+            ttaggggtttgcctgggtttacaaattgccaccattgaatttacacgtagtgtgttggga
+            agaaaagacagtcattcggcagaattttatccagacattgatgaaaaaaatcacgttgtc
+            gttttcatgcctgaaattgacaaggaaaccatggggggctcaatgagattaggtttgaga
+            ccaacatttttccaaaatgaaactgaatggagtcaaatcaagaagttatacggtgacgtc
+            tccgaagtccatgaaagacaccgtcaccgttacgaaatcaatccaaagatggttgatgaa
+            ttggaaaacaacgggttgatctttgtaggtaaggacgacactggaaagcgttgtgagatt
+            ttggaattaaagaatcacccatactatattgctactcaatatcacccagaatacacatca
+            aaggtcttagatccatccaaaccatttttgggtttagttgctgcttccgctggtatcctt
+            caagatgtcattgaaggtaagtacgatcttgaggccggcgaaaacaaattcaacttttaa
+///

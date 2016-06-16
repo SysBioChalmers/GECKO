@@ -1,0 +1,67 @@
+ENTRY       YAL038W           CDS       T00005
+NAME        CDC19, PYK1
+DEFINITION  pyruvate kinase CDC19 (EC:2.7.1.40)
+ORTHOLOGY   K00873  pyruvate kinase [EC:2.7.1.40]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00010  Glycolysis / Gluconeogenesis
+            sce00230  Purine metabolism
+            sce00620  Pyruvate metabolism
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01200  Carbon metabolism
+            sce01230  Biosynthesis of amino acids
+MODULE      sce_M00001  Glycolysis (Embden-Meyerhof pathway), glucose => pyruvate
+            sce_M00002  Glycolysis, core module involving three-carbon compounds
+            sce_M00049  Adenine ribonucleotide biosynthesis, IMP => ADP,ATP
+            sce_M00050  Guanine ribonucleotide biosynthesis IMP => GDP,GTP
+CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
+            Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
+            Metabolism; Carbohydrate metabolism; Glycolysis / Gluconeogenesis [PATH:sce00010]
+            Metabolism; Carbohydrate metabolism; Pyruvate metabolism [PATH:sce00620]
+            Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
+POSITION    I:71786..73288
+MOTIF       Pfam: PK PK_C HpcH_HpaI
+DBLINKS     NCBI-GI: 6319279
+            NCBI-GeneID: 851193
+            SGD: S000000036
+            MIPS: YAL038W
+            UniProt: P00549
+STRUCTURE   PDB: 1A3W 1A3X
+AASEQ       500
+            MSRLERLTSLNVVAGSDLRRTSIIGTIGPKTNNPETLVALRKAGLNIVRMNFSHGSYEYH
+            KSVIDNARKSEELYPGRPLAIALDTKGPEIRTGTTTNDVDYPIPPNHEMIFTTDDKYAKA
+            CDDKIMYVDYKNITKVISAGRIIYVDDGVLSFQVLEVVDDKTLKVKALNAGKICSHKGVN
+            LPGTDVDLPALSEKDKEDLRFGVKNGVHMVFASFIRTANDVLTIREVLGEQGKDVKIIVK
+            IENQQGVNNFDEILKVTDGVMVARGDLGIEIPAPEVLAVQKKLIAKSNLAGKPVICATQM
+            LESMTYNPRPTRAEVSDVGNAILDGADCVMLSGETAKGNYPINAVTTMAETAVIAEQAIA
+            YLPNYDDMRNCTPKPTSTTETVAASAVAAVFEQKAKAIIVLSTSGTTPRLVSKYRPNCPI
+            ILVTRCPRAARFSHLYRGVFPFVFEKEPVSDWTDDVEARINFGIEKAKEFGILKKGDTYV
+            SIQGFKAGAGHSNTLQVSTV
+NTSEQ       1503
+            atgtctagattagaaagattgacctcattaaacgttgttgctggttctgacttgagaaga
+            acctccatcattggtaccatcggtccaaagaccaacaacccagaaaccttggttgctttg
+            agaaaggctggtttgaacattgtccgtatgaacttctctcacggttcttacgaataccac
+            aagtctgtcattgacaacgccagaaagtccgaagaattgtacccaggtagaccattggcc
+            attgctttggacaccaagggtccagaaatcagaactggtaccaccaccaacgatgttgac
+            tacccaatcccaccaaaccacgaaatgatcttcaccaccgatgacaagtacgctaaggct
+            tgtgacgacaagatcatgtacgttgactacaagaacatcaccaaggtcatctccgctggt
+            agaatcatctacgttgatgatggtgttttgtctttccaagttttggaagtcgttgacgac
+            aagactttgaaggtcaaggctttgaacgccggtaagatctgttcccacaagggtgtcaac
+            ttaccaggtaccgatgtcgatttgccagctttgtctgaaaaggacaaggaagatttgaga
+            ttcggtgtcaagaacggtgtccacatggtcttcgcttctttcatcagaaccgccaacgat
+            gttttgaccatcagagaagtcttgggtgaacaaggtaaggacgtcaagatcattgtcaag
+            attgaaaaccaacaaggtgttaacaacttcgacgaaatcttgaaggtcactgacggtgtt
+            atggttgccagaggtgacttgggtattgaaatcccagccccagaagtcttggctgtccaa
+            aagaaattgattgctaagtctaacttggctggtaagccagttatctgtgctacccaaatg
+            ttggaatccatgacttacaacccaagaccaaccagagctgaagtttccgatgtcggtaac
+            gctatcttggatggtgctgactgtgttatgttgtctggtgaaaccgccaagggtaactac
+            ccaatcaacgccgttaccactatggctgaaaccgctgtcattgctgaacaagctatcgct
+            tacttgccaaactacgatgacatgagaaactgtactccaaagccaacctccaccaccgaa
+            accgtcgctgcctccgctgtcgctgctgttttcgaacaaaaggccaaggctatcattgtc
+            ttgtccacttccggtaccaccccaagattggtttccaagtacagaccaaactgtccaatc
+            atcttggttaccagatgcccaagagctgctagattctctcacttgtacagaggtgtcttc
+            ccattcgttttcgaaaaggaacctgtctctgactggactgatgatgttgaagcccgtatc
+            aacttcggtattgaaaaggctaaggaattcggtatcttgaagaagggtgacacttacgtt
+            tccatccaaggtttcaaggccggtgctggtcactccaacactttgcaagtctctaccgtt
+            taa
+///

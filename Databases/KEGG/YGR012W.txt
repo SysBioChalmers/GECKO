@@ -1,0 +1,50 @@
+ENTRY       YGR012W           CDS       T00005
+DEFINITION  putative cysteine synthase (EC:2.5.1.47)
+ORTHOLOGY   K01738  cysteine synthase A [EC:2.5.1.47]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00270  Cysteine and methionine metabolism
+            sce00920  Sulfur metabolism
+            sce01100  Metabolic pathways
+            sce01200  Carbon metabolism
+            sce01230  Biosynthesis of amino acids
+CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
+            Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
+            Metabolism; Energy metabolism; Sulfur metabolism [PATH:sce00920]
+            Metabolism; Amino acid metabolism; Cysteine and methionine metabolism [PATH:sce00270]
+POSITION    VII:513159..514340
+MOTIF       Pfam: PALP
+DBLINKS     NCBI-GI: 6321449
+            NCBI-GeneID: 852895
+            SGD: S000003244
+            MIPS: YGR012W
+            UniProt: P53206
+AASEQ       393
+            MSCSQNKTSVSLAWRECISIASVLIGAYASYKYYKLFKTRDIPRPKEGVEELIGNTPLVK
+            IRSLTKATGVNIYAKLELCNPAGSAKDRVALNIIKTAEELGELVRGEPGWVFEGTSGSTG
+            ISIAVVCNALGYRAHISLPDDTSLEKLALLESLGATVNKVKPASIVDPNQYVNAAKKACN
+            ELKKSGNGIRAVFADQFENEANWKVHYQTTGPEIAHQTKGNIDAFIAGCGTGGTITGVAK
+            FLKERAKIPCHVVLADPQGSGFYNRVNYGVMYDYVEKEGTRRRHQVDTIVEGIGLNRITH
+            NFHMGEKFIDESIRVNDNQAIRMAKYLSVNDGLFVGSSTAINAVAAIQVAKTLPHGSNIV
+            IIACDSGSRHLSKFWKEAKEIDHDVSLEEVINI
+NTSEQ       1182
+            atgtcctgttctcaaaataagacttctgtcagtctggcctggcgtgaatgcatatccatc
+            gcttccgtcctaattggcgcgtatgcatcatacaaatactataagctgttcaaaacacgc
+            gatattccacgtccaaaagaaggcgttgaagaactcataggaaacactcctctggttaag
+            atcagatctcttaccaaggctactggagttaacatttacgctaagttggagttatgcaac
+            ccagcaggaagtgctaaggatagagtggctttaaacatcataaagacggctgaggaatta
+            ggcgagctcgtcagaggtgaacctggctgggtatttgaaggaacaagtgggtcgactggt
+            atctctatagcagtggtctgtaatgcgttgggttatagggcacacatttctttgcccgat
+            gacacatcgctagaaaaattggcattactagaaagcctcggtgctactgttaataaggtt
+            aagcccgctagtattgtcgatccaaaccaatacgtaaatgccgccaaaaaggcatgtaat
+            gaactaaagaagagtggtaatggaataagagcagtttttgccgatcagttcgaaaacgaa
+            gccaactggaaagtacattaccagaccacaggcccagaaattgcccatcaaactaaggga
+            aatattgacgcattcattgctggctgcggtactggtggcaccataactggtgtggcaaaa
+            ttcttaaaggaaagagcaaagataccttgccatgtcgttctagcggatccacaaggatct
+            ggcttttataatagagtcaactatggcgtgatgtatgactatgtagagaaggaaggtact
+            agaagaaggcatcaagttgacactatcgtagaagggattgggttaaacagaatcactcat
+            aattttcatatgggcgaaaagtttattgatgaatcaatacgagtcaacgataatcaagcc
+            attagaatggcaaaatacctatcggtaaacgacgggctattcgtggggagtagtacagct
+            attaatgcggtagccgctattcaggttgcaaaaacgcttcctcacggctcaaacattgtg
+            attattgcatgcgacagcggttcaagacacctaagtaaattctggaaagaagctaaagaa
+            atcgatcacgacgtgtcattagaagaagtaataaatatctaa
+///

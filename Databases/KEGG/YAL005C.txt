@@ -1,0 +1,65 @@
+ENTRY       YAL005C           CDS       T00005
+NAME        SSA1, YG100
+DEFINITION  Hsp70 family ATPase SSA1
+ORTHOLOGY   K03283  heat shock 70kDa protein 1/8
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03040  Spliceosome
+            sce04141  Protein processing in endoplasmic reticulum
+            sce04144  Endocytosis
+CLASS       Genetic Information Processing; Transcription; Spliceosome [PATH:sce03040]
+            Genetic Information Processing; Folding, sorting and degradation; Protein processing in endoplasmic reticulum [PATH:sce04141]
+            Cellular Processes; Transport and catabolism; Endocytosis [PATH:sce04144]
+POSITION    I:complement(139503..141431)
+MOTIF       Pfam: HSP70 MreB_Mbl DDR FGGY_C Hydantoinase_A
+DBLINKS     NCBI-GI: 144228166
+            NCBI-GeneID: 851259
+            SGD: S000000004
+            MIPS: YAL005C
+            UniProt: P10591
+AASEQ       642
+            MSKAVGIDLGTTYSCVAHFANDRVDIIANDQGNRTTPSFVAFTDTERLIGDAAKNQAAMN
+            PSNTVFDAKRLIGRNFNDPEVQADMKHFPFKLIDVDGKPQIQVEFKGETKNFTPEQISSM
+            VLGKMKETAESYLGAKVNDAVVTVPAYFNDSQRQATKDAGTIAGLNVLRIINEPTAAAIA
+            YGLDKKGKEEHVLIFDLGGGTFDVSLLSIEDGIFEVKATAGDTHLGGEDFDNRLVNHFIQ
+            EFKRKNKKDLSTNQRALRRLRTACERAKRTLSSSAQTSVEIDSLFEGIDFYTSITRARFE
+            ELCADLFRSTLDPVEKVLRDAKLDKSQVDEIVLVGGSTRIPKVQKLVTDYFNGKEPNRSI
+            NPDEAVAYGAAVQAAILTGDESSKTQDLLLLDVAPLSLGIETAGGVMTKLIPRNSTIPTK
+            KSEIFSTYADNQPGVLIQVFEGERAKTKDNNLLGKFELSGIPPAPRGVPQIEVTFDVDSN
+            GILNVSAVEKGTGKSNKITITNDKGRLSKEDIEKMVAEAEKFKEEDEKESQRIASKNQLE
+            SIAYSLKNTISEAGDKLEQADKDTVTKKAEETISWLDSNTTASKEEFDDKLKELQDIANP
+            IMSKLYQAGGAPGGAAGGAPGGFPGGAPPAPEAEGPTVEEVD
+NTSEQ       1929
+            atgtcaaaagctgtcggtattgatttaggtacaacatactcgtgtgttgctcactttgct
+            aatgatcgtgtggacattattgccaacgatcaaggtaacagaaccactccatcttttgtc
+            gctttcactgacactgaaagattgattggtgatgctgctaagaatcaagctgctatgaat
+            ccttcgaataccgttttcgacgctaagcgtttgatcggtagaaacttcaacgacccagaa
+            gtgcaggctgacatgaagcacttcccattcaagttgatcgatgttgacggtaagcctcaa
+            attcaagttgaatttaagggtgaaaccaagaactttaccccagaacaaatctcctccatg
+            gtcttgggtaagatgaaggaaactgccgaatcttacttgggagccaaggtcaatgacgct
+            gtcgtcactgtcccagcttacttcaacgattctcaaagacaagctaccaaggatgctggt
+            accattgctggtttgaatgtcttgcgtattattaacgaacctaccgccgctgccattgct
+            tacggtttggacaagaagggtaaggaagaacacgtcttgattttcgacttgggtggtggt
+            actttcgatgtctctttgttgtccattgaagacggtatctttgaagttaaggccaccgct
+            ggtgacacccatttgggtggtgaagattttgacaacagattggtcaaccacttcatccaa
+            gaattcaagagaaagaacaagaaggacttgtctaccaaccaaagagctttgagaagatta
+            agaaccgcttgtgaaagagccaagagaactttgtcttcctccgctcaaacttccgttgaa
+            attgactctttgttcgaaggtatcgatttctacacttccatcaccagagccagattcgaa
+            gaattgtgtgctgacttgttcagatctactttggacccagttgaaaaggtcttgagagat
+            gctaaattggacaaatctcaagtcgatgaaattgtcttggtcggtggttctaccagaatt
+            ccaaaggtccaaaaattggtcactgactacttcaacggtaaggaaccaaacagatctatc
+            aacccagatgaagctgttgcttacggtgctgctgttcaagctgctattttgactggtgac
+            gaatcttccaagactcaagatctattgttgttggatgtcgctccattatccttgggtatt
+            gaaactgctggtggtgtcatgaccaagttgattccaagaaactctaccattccaacaaag
+            aagtccgagatcttttccacttatgctgataaccaaccaggtgtcttgattcaagtcttt
+            gaaggtgaaagagccaagactaaggacaacaacttgttgggtaagttcgaattgagtggt
+            attccaccagctccaagaggtgtcccacaaattgaagtcactttcgatgtcgactctaac
+            ggtattttgaatgtttccgccgtcgaaaagggtactggtaagtctaacaagatcactatt
+            accaacgacaagggtagattgtccaaggaagatatcgaaaagatggttgctgaagccgaa
+            aaattcaaggaagaagatgaaaaggaatctcaaagaattgcttccaagaaccaattggaa
+            tccattgcttactctttgaagaacaccatttctgaagctggtgacaaattggaacaagct
+            gacaaggacaccgtcaccaagaaggctgaagagactatttcttggttagacagcaacacc
+            actgccagcaaggaagaattcgatgacaagttgaaggagttgcaagacattgccaaccca
+            atcatgtctaagttgtaccaagctggtggtgctccaggtggcgctgcaggtggtgctcca
+            ggcggtttcccaggtggtgctcctccagctccagaggctgaaggtccaaccgttgaagaa
+            gttgattaa
+///

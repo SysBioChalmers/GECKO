@@ -1,0 +1,64 @@
+ENTRY       YNR006W           CDS       T00005
+NAME        VPS27, DID7, GRD11, SSV17, VPL23, VPT27
+DEFINITION  Vps27p
+ORTHOLOGY   K12182  hepatocyte growth factor-regulated tyrosine kinase substrate
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04144  Endocytosis
+            sce04145  Phagosome
+MODULE      sce_M00408  ESCRT-0 complex
+CLASS       Cellular Processes; Transport and catabolism; Endocytosis [PATH:sce04144]
+            Cellular Processes; Transport and catabolism; Phagosome [PATH:sce04145]
+POSITION    XIV:636986..638854
+MOTIF       Pfam: VHS FYVE FYVE_2 UIM zf-AN1
+DBLINKS     NCBI-GI: 398365557
+            NCBI-GeneID: 855739
+            SGD: S000005289
+            MIPS: YNR006W
+            UniProt: P40343
+STRUCTURE   PDB: 1VFY 2PJW 1Q0V
+AASEQ       622
+            MSVSTPSELDALIEQATSESIPNGDLDLPIALEISDVLRSRRVNPKDSMRCIKKRILNTA
+            DNPNTQLSSWKLTNICVKNGGTPFIKEICSREFMDTMEHVILREDSNEELSELVKTILYE
+            LYVAFKNDSQLNYVAKVYDKLISRGIKFPEKLTLSNSPTAMFDSKTPADWIDSDACMICS
+            KKFSLLNRKHHCRSCGGVFCQEHSSNSIPLPDLGIYEPVRVCDSCFEDYDLKRHDDSKKS
+            KKHRHKRKKDRDYSTPEDEEELIRKAIELSLKESRNSASSEPIVPVVESKNEVKRQEIEE
+            EEDPDLKAAIQESLREAEEAKLRSERQKASRQMQPQQPSPQPQPIHSVDLSDEEKDSIYM
+            FASLVEKMKSRPLNEILEDSKLQNLAQRVFASKARLNYALNDKAQKYNTLIEMNGKISEI
+            MNIYDRLLEQQLQSINLSQQYTLPQVPSDPYNYLTENVQNPAESYQTPPLQQLSSHQYKP
+            QQDVSRQQSVKANSSPTTNIDHLKTIDVTPHAQQKPQSHVELAPSDPPYPKEEAEDEGTQ
+            AVQDEESSTQESRERPYPVETENGETSINKRPQGITRYDFPTVPARKFVQPESTVPLPAS
+            SSEIPIKEERPPSPQEELLIEL
+NTSEQ       1869
+            atgtccgttagcacgccaagtgagttagacgcattaatagaacaagccactagtgagagc
+            attcccaacggtgaccttgatctccccatagcgttggaaatttcagatgtgttaagatct
+            agaagggtaaatcccaaagattctatgcgttgtataaagaaaaggattctcaatacggcc
+            gataatccaaatacccaattgtcttcctggaagcttaccaatatatgtgtaaaaaatggt
+            ggaacgccttttattaaggaaatttgttccagagagttcatggataccatggaacatgtc
+            attttaagagaagatagcaacgaagaactttctgagctggtaaagaccatattatatgaa
+            ctatacgtagccttcaaaaatgattcgcaacttaactatgtggcaaaagtttatgataaa
+            ttaatctctcgtggcattaaattccctgaaaagctaacactttccaattctccgactgca
+            atgtttgactcgaagacgcccgcagattggattgattctgatgcttgtatgatttgctcc
+            aaaaagttttctctactaaataggaaacatcactgtcgttcctgtggtggagttttctgc
+            caagaacactcatcaaatagtatacccttacctgatttgggtatatatgagccagtcaga
+            gtatgtgatagctgctttgaagattacgatttgaagagacatgacgacagtaaaaaatct
+            aaaaaacatcgccataaaagaaagaaggacagggactactcaactcctgaggatgaagaa
+            gagctgataaggaaagcaatagaactctccttgaaagaatctagaaatagcgctagtagc
+            gagcctattgtccccgttgtagaatcaaagaatgaggtgaagagacaagaaatagaagaa
+            gaagaagatcctgatttaaaagctgctattcaggaaagcttgagagaagctgaagaagcg
+            aagctacgcagtgagcgtcaaaaagcctctagacagatgcaaccccaacagccatcacct
+            caacctcaacctatccattccgttgatttatctgatgaggagaaagacagcatatacatg
+            tttgcttcacttgtcgaaaaaatgaaatcgaggcccttgaacgaaattttggaagactct
+            aaattacaaaacttggctcaaagagtatttgcttccaaagcaaggttgaattatgcttta
+            aatgataaagctcagaaatacaatactttgatagaaatgaacggcaagatttcggaaatt
+            atgaacatatacgatagattattggagcaacagctacaaagcatcaatttgtctcagcaa
+            tacacacttccacaagtcccttctgatccgtacaattacctaacagaaaatgtgcaaaat
+            ccagcagaaagctatcaaacacctcccctccagcaactatcatctcatcaatacaaacca
+            caacaggatgtctcacgccaacaatcggtaaaagcaaattcatcacctaccactaatatt
+            gatcacttgaaaaccatcgatgtgacaccacacgcacagcaaaagcctcaatcgcacgtt
+            gaacttgcaccttcggacccaccttatccaaaagaagaggccgaagatgaaggaacacag
+            gcagtgcaagatgaggaatcctccacacaagaatcccgcgaaaggccgtatccagtagaa
+            acagagaatggtgaaacttcaataaataaacggcctcaaggcattacacgttacgatttt
+            ccaactgttcctgcacgcaaattcgtccaaccggagtcaactgtaccacttcctgcaagt
+            tcctctgaaattccgatcaaagaggaaaggccgcctagtcctcaagaggaactgctaata
+            gagctttaa
+///

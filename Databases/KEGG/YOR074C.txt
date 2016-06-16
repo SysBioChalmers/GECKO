@@ -1,0 +1,42 @@
+ENTRY       YOR074C           CDS       T00005
+NAME        CDC21, CRT9, TMP1
+DEFINITION  thymidylate synthase (EC:2.1.1.45)
+ORTHOLOGY   K00560  thymidylate synthase [EC:2.1.1.45]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00240  Pyrimidine metabolism
+            sce00670  One carbon pool by folate
+            sce01100  Metabolic pathways
+CLASS       Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
+            Metabolism; Metabolism of cofactors and vitamins; One carbon pool by folate [PATH:sce00670]
+POSITION    XV:complement(466675..467589)
+MOTIF       Pfam: Thymidylat_synt
+DBLINKS     NCBI-GI: 83578104
+            NCBI-GeneID: 854241
+            SGD: S000005600
+            MIPS: YOR074C
+            UniProt: P06785
+AASEQ       304
+            MTMDGKNKEEEQYLDLCKRIIDEGEFRPDRTGTGTLSLFAPPQLRFSLRDDTFPLLTTKK
+            VFTRGIILELLWFLAGDTDANLLSEQGVKIWDGNGSREYLDKMGFKDRKVGDLGPVYGFQ
+            WRHFGAKYKTCDDDYTGQGIDQLKQVIHKLKTNPYDRRIIMSAWNPADFDKMALPPCHIF
+            SQFYVSFPKEGEGSGKPRLSCLLYQRSCDMGLGVPFNIASYALLTRMIAKVVDMEPGEFI
+            HTLGDAHVYKDHIDALKEQITRNPRPFPKLKIKRDVKDIDDFKLTDFEIEDYNPHPRIQM
+            KMSV
+NTSEQ       915
+            atgactatggacggaaaaaacaaagaagaagagcaatatcttgatctatgcaaaagaatc
+            attgatgaaggtgaatttaggccagatagaacaggcactggtacgttgagtctttttgca
+            ccaccccagctgcgttttagtttacgtgatgataccttcccactactaacgaccaagaag
+            gtttttactagaggtatcatacttgaactattgtggtttttggccggtgatacagacgct
+            aacctattgtctgagcaaggtgttaagatttgggacggtaatggatctcgtgaatattta
+            gataagatggggttcaaagataggaaagtaggagatctggggcccgtttacggatttcaa
+            tggaggcattttggtgctaaatacaagacgtgcgatgacgactatactggacaaggtatt
+            gatcaattgaaacaggttatacataaactaaagacaaatccctacgatagaagaatcatt
+            atgagtgcctggaacccagctgattttgacaaaatggctttgccgccatgccatattttt
+            tcacagttctatgtcagtttccccaaagaaggagaaggatccggtaagccccgcctttca
+            tgcttattgtaccaacgttcttgtgatatggggttgggagtaccatttaacattgcatca
+            tatgctttgttgactagaatgattgctaaagttgtcgacatggagccaggtgagttcatt
+            catactttgggggatgcacatgtttataaagaccacattgatgccttgaaagaacaaatc
+            accagaaatccaagaccattcccgaaactaaagattaaaagggacgttaaagacattgat
+            gatttcaagttgacagactttgaaattgaagattataatcctcatccaagaattcaaatg
+            aaaatgagtgtataa
+///

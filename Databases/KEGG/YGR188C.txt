@@ -1,0 +1,90 @@
+ENTRY       YGR188C           CDS       T00005
+NAME        BUB1
+DEFINITION  Bub1p (EC:2.7.11.1)
+ORTHOLOGY   K02178  checkpoint serine/threonine-protein kinase [EC:2.7.11.1]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04111  Cell cycle - yeast
+            sce04113  Meiosis - yeast
+CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
+            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+POSITION    VII:complement(872044..875109)
+MOTIF       Pfam: Mad3_BUB1_I Mad3_BUB1_II Pkinase Pkinase_Tyr
+DBLINKS     NCBI-GI: 398366073
+            NCBI-GeneID: 853100
+            SGD: S000003420
+            MIPS: YGR188C
+            UniProt: P41695
+STRUCTURE   PDB: 3ESL 4BL0
+AASEQ       1021
+            MNLDLGSTVRGYESDKDTFPQSKGVSSSQKEQHSQLNQTKIAYEQRLLNDLEDMDDPLDL
+            FLDYMIWISTSYIEVDSESGQEVLRSTMERCLIYIQDMETYRNDPRFLKIWIWYINLFLS
+            NNFHESENTFKYMFNKGIGTKLSLFYEEFSKLLENAQFFLEAKVLLELGAENNCRPYNRL
+            LRSLSNYEDRLREMNIVENQNSVPDSRERLKGRLIYRTAPFFIRKFLTSSLMTDDKENRA
+            NLNSNVGVGKSAPNVYQDSIVVADFKSETERLNLNSSKQPSNQRLKNGNKKTSIYADQKQ
+            SNNPVYKLINTPGRKPERIVFNFNLIYPENDEEFNTEEILAMIKGLYKVQRRGKKHTEDY
+            TSDKNRKKRKLDVLVERRQDLPSSQPPVVPKSTRIEVFKDDDNPSQSTHHKNTQVQVQTT
+            TSILPLKPVVDGNLAHETPVKPSLTSNASRSPTVTAFSKDAINEVFSMFNQHYSTPGALL
+            DGDDTTTSKFNVFENFTQEFTAKNIEDLTEVKDPKQETVSQQTTSTNETNDRYERLSNSS
+            TRPEKADYMTPIKETTETDVVPIIQTPKEQIRTEDKKSGDNTETQTQLTSTTIQSSPFLT
+            QPEPQAEKLLQTAEHSEKSKEHYPTIIPPFTKIKNQPPVIIENPLSNNLRAKFLSEISPP
+            LFQYNTFYNYNQELKMSSLLKKIHRVSRNENKNPIVDFKKTGDLYCIRGELGEGGYATVY
+            LAESSQGHLRALKVEKPASVWEYYIMSQVEFRLRKSTILKSIINASALHLFLDESYLVLN
+            YASQGTVLDLINLQREKAIDGNGIMDEYLCMFITVELMKVLEKIHEVGIIHGDLKPDNCM
+            IRLEKPGEPLGAHYMRNGEDGWENKGIYLIDFGRSFDMTLLPPGTKFKSNWKADQQDCWE
+            MRAGKPWSYEADYYGLAGVIHSMLFGKFIETIQLQNGRCKLKNPFKRYWKKEIWGVIFDL
+            LLNSGQASNQALPMTEKIVEIRNLIESHLEQHAENHLRNVILSIEEELSHFQYKGKPSRR
+            F
+NTSEQ       3066
+            atgaatttagatttaggttctactgtacgaggctatgaatcagataaagacacatttccg
+            caatcgaaaggcgttagctcatctcaaaaagagcagcatagtcaactgaatcagacaaaa
+            atagcttatgaacagagacttctaaatgatttagaggatatggatgatcctttagatttg
+            tttttagattatatgatatggattagcaccagctatattgaagtagattctgaatcaggt
+            caagaagttctccgaagtacaatggaaagatgcttgatttacatacaagatatggaaacc
+            tataggaacgatcccagatttttaaaaatttggatttggtatataaatttgtttcttagc
+            aacaacttccacgagagtgaaaatacttttaaatatatgtttaacaagggaatcggaaca
+            aagctttcgttattttatgaagagttctccaagctactagaaaatgctcaattttttcta
+            gaagcaaaggtgttattagaactaggggctgaaaacaattgcaggccttacaacagacta
+            ttaaggtcattaagcaattatgaagacagactccgagaaatgaacatcgtagaaaaccag
+            aacagtgtacctgattcaagggaaagattgaagggaaggttaatttatagaacagcacca
+            tttttcattcgtaaatttttaacctcatcattgatgactgatgacaaggaaaatcgtgcg
+            aacctgaactctaatgttggagttggtaagtctgctcctaacgtatatcaagattctata
+            gtggttgctgactttaagtcagaaacagagaggcttaatttgaatagctctaaacagccc
+            tctaaccaacgcttgaagaatggaaataaaaaaacttcaatatatgcagatcaaaagcaa
+            tctaacaatccagtctacaaactaatcaatactccgggacggaaacctgaacggatagtt
+            tttaattttaatctaatatatccagaaaatgatgaggagttcaacaccgaagaaatattg
+            gcaatgattaagggactttacaaggtacagcgcagaggtaagaagcacaccgaagattat
+            acaagtgacaaaaataggaagaaacgtaagctcgatgtgctggtagagagacggcaagac
+            ttaccttcatcacagccacccgttgtccccaaatctacgcgaattgaggtgtttaaagat
+            gacgataatcccagccagagcacacaccataaaaatacacaggtacaagtgcaaacgaca
+            acgtctattttacctttgaagcctgtggttgatggaaacctcgcgcatgagacaccagtg
+            aagccctcactaacatccaacgcttcccgttcacctacagtaacagctttttcaaaagac
+            gctataaatgaggtcttttccatgttcaatcaacattattcaaccccgggtgcgctatta
+            gatggtgatgataccactacaagtaaattcaacgtcttcgaaaattttacccaagaattt
+            acagcaaagaatattgaagatttaactgaagttaaagatcctaaacaagagacggtgtca
+            caacaaactacctcaacaaatgaaaccaacgatcgatatgaaagattgtcgaatagtagc
+            acacggccagaaaaggcagactacatgacgcctataaaagaaactactgaaacagatgtg
+            gtacctataatccagacacctaaggaacaaataaggacagaagataagaaatcgggggat
+            aatacagaaacacaaactcaattaacaagcacaaccattcaaagttctccatttctcaca
+            caacctgaaccacaagcagaaaagcttttacaaactgcagaacattcggaaaagagtaaa
+            gagcattacccaacgatcatacctcccttcactaaaataaaaaatcaaccgcctgtcatt
+            attgaaaacccacttagtaataatttaagagcgaagtttttatccgaaatttcgccccca
+            ttattccaatataacaccttttataactacaaccaagaattgaaaatgagttctctattg
+            aaaaaaatccatagggtatcccgcaacgaaaacaagaacccaattgttgacttcaagaag
+            acgggtgatttatattgtatacgcggagaattaggcgaaggaggttatgccactgtatat
+            ctagcagaatctagtcaaggacatctgcgagcgttgaaagtagaaaaacctgcaagtgta
+            tgggaatattacataatgagccaagtggagtttaggttgaggaagagcacaatattaaag
+            tcaataatcaacgctagtgctttacacttgttccttgatgagagctaccttgttttaaac
+            tacgccagtcaaggtacggtcttggatttaattaatttacaacgggaaaaggcaattgac
+            ggcaacggaataatggatgaatatttgtgcatgtttatcactgtcgagctaatgaaagta
+            cttgaaaagatacatgaagtgggaataatacatggcgatttgaaaccagataactgcatg
+            atcagattagaaaaaccaggcgaacccctgggtgctcattatatgcgcaatggagaggat
+            ggctgggaaaacaagggaatctatttaatagatttcggtagatcatttgatatgacactg
+            ttaccacctggaacgaaattcaaatcaaattggaaggctgatcagcaagattgctgggaa
+            atgcgtgcgggcaagccatggagttatgaagcggattattatggattagcaggcgtcata
+            cattcgatgctttttggaaaattcatagaaacaatccagctgcagaatggacgatgcaaa
+            ttgaagaacccattcaaaaggtattggaaaaaagaaatatggggcgttatatttgattta
+            ctgttaaatagcggtcaagcttccaatcaagctttgccgatgactgaaaagattgttgaa
+            ataaggaatttgatagaaagccatctggaacagcacgcagaaaatcacttaagaaacgta
+            attctaagcattgaagaggagttatcacattttcaatataaggggaaaccgtcaaggaga
+            ttttag
+///

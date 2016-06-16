@@ -1,0 +1,34 @@
+ENTRY       YOL139C           CDS       T00005
+NAME        CDC33, TIF45
+DEFINITION  Cdc33p
+ORTHOLOGY   K03259  translation initiation factor 4E
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03013  RNA transport
+MODULE      sce_M00428  eIF4F complex
+CLASS       Genetic Information Processing; Translation; RNA transport [PATH:sce03013]
+POSITION    XV:complement(60383..61024)
+MOTIF       Pfam: IF4E
+DBLINKS     NCBI-GI: 6324433
+            NCBI-GeneID: 854026
+            SGD: S000005499
+            MIPS: YOL139C
+            UniProt: P07260
+STRUCTURE   PDB: 1RF8 1AP8
+AASEQ       213
+            MSVEEVSKKFEENVSVDDTTATPKTVLSDSAHFDVKHPLNTKWTLWYTKPAVDKSESWSD
+            LLRPVTSFQTVEEFWAIIQNIPEPHELPLKSDYHVFRNDVRPEWEDEANAKGGKWSFQLR
+            GKGADIDELWLRTLLAVIGETIDEDDSQINGVVLSIRKGGNKFALWTKSEDKEPLLRIGG
+            KFKQVLKLTDDGHLEFFPHSSANGRHPQPSITL
+NTSEQ       642
+            atgtccgttgaagaagttagcaagaagtttgaagaaaacgtttcagtcgatgataccaca
+            gctactccaaagactgttttaagtgacagtgctcacttcgatgtcaagcacccattgaac
+            accaaatggactttatggtacacaaagccagccgtcgataaatctgagtcgtggtctgat
+            ctattacgtcccgtcacttcattccaaactgttgaagaattttgggctatcattcaaaat
+            attcctgagccacacgaactaccattgaaatcagattaccacgtcttccgtaatgacgtt
+            agacctgaatgggaagatgaagccaatgctaaaggtggtaaatggtctttccaacttaga
+            ggaaaaggtgctgatattgatgaattatggctaagaactttactagcagttattggtgaa
+            acaattgatgaagacgactcccaaattaacggtgtcgttttaagcattagaaaaggtggt
+            aacaagtttgccttatggactaaatctgaagacaaagaaccactattgagaattggtggt
+            aaattcaagcaagttttaaaattaaccgatgacgggcatttggaattctttccacattcc
+            agtgccaatggtagacaccctcaaccatcaatcaccttgtaa
+///

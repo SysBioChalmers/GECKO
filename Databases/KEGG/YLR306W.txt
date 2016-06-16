@@ -1,0 +1,32 @@
+ENTRY       YLR306W           CDS       T00005
+NAME        UBC12
+DEFINITION  NEDD8-conjugating protein UBC12 (EC:6.3.2.-)
+ORTHOLOGY   K10579  ubiquitin-conjugating enzyme E2 M [EC:6.3.2.19]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04120  Ubiquitin mediated proteolysis
+CLASS       Genetic Information Processing; Folding, sorting and degradation; Ubiquitin mediated proteolysis [PATH:sce04120]
+POSITION    XII:join(744151..744153,744288..744851)
+MOTIF       Pfam: UQ_con
+DBLINKS     NCBI-GI: 6323337
+            NCBI-GeneID: 851015
+            SGD: S000004297
+            MIPS: YLR306W
+            UniProt: P52491
+STRUCTURE   PDB: 3O2U 3TDI
+AASEQ       188
+            MLKLRQLQKKKQKENENSSSIQPNLSAARIRLKRDLDSLDLPPTVTLNVITSPDSADRSQ
+            SPKLEVIVRPDEGYYNYGSINFNLDFNEVYPIEPPKVVCLKKIFHPNIDLKGNVCLNILR
+            EDWSPALDLQSIITGLLFLFLEPNPNDPLNKDAAKLLCEGEKEFAEAVRLTMSGGSIEHV
+            KYDNIVSP
+NTSEQ       567
+            atgttgaaattacgccaattacaaaagaaaaagcaaaaagaaaatgaaaacagcagttct
+            attcagcctaatttatcggcagcaagaattcgtttgaaaagggaccttgattcgctggac
+            ctcccaccaacagtgactttgaatgtaataacatcaccagatagtgcggatagatcacaa
+            tcgccgaaattggaggtaattgttaggcctgatgaaggatattataattatggatctatt
+            aatttcaatttggattttaacgaagtttatccgattgaaccaccaaaagttgtatgtttg
+            aagaagatctttcatccaaatatcgatttaaaggggaacgtttgcctaaatattcttcga
+            gaagactggtcgccagctctagatttgcagagtattataaccgggcttcttttcttgttc
+            ttggagcctaatcccaatgacccgttaaacaaggatgcagcaaagttactgtgtgagggt
+            gagaaagaatttgctgaagctgtgagattgaccatgtctggaggttcaattgaacatgtc
+            aaatatgataacatagtttctccttga
+///

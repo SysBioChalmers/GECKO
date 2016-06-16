@@ -1,0 +1,52 @@
+ENTRY       YBR221C           CDS       T00005
+NAME        PDB1
+DEFINITION  pyruvate dehydrogenase (acetyl-transferring) subunit E1 beta (EC:1.2.4.1)
+ORTHOLOGY   K00162  pyruvate dehydrogenase E1 component subunit beta [EC:1.2.4.1]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00010  Glycolysis / Gluconeogenesis
+            sce00020  Citrate cycle (TCA cycle)
+            sce00620  Pyruvate metabolism
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01200  Carbon metabolism
+MODULE      sce_M00307  Pyruvate oxidation, pyruvate => acetyl-CoA
+CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
+            Metabolism; Carbohydrate metabolism; Glycolysis / Gluconeogenesis [PATH:sce00010]
+            Metabolism; Carbohydrate metabolism; Citrate cycle (TCA cycle) [PATH:sce00020]
+            Metabolism; Carbohydrate metabolism; Pyruvate metabolism [PATH:sce00620]
+POSITION    II:complement(665153..666253)
+MOTIF       Pfam: Transket_pyr Transketolase_C DUF955
+DBLINKS     NCBI-GI: 6319698
+            NCBI-GeneID: 852522
+            SGD: S000000425
+            MIPS: YBR221C
+            UniProt: P32473
+AASEQ       366
+            MFSRLPTSLARNVARRAPTSFVRPSAAAAALRFSSTKTMTVREALNSAMAEELDRDDDVF
+            LIGEEVAQYNGAYKVSKGLLDRFGERRVVDTPITEYGFTGLAVGAALKGLKPIVEFMSFN
+            FSMQAIDHVVNSAAKTHYMSGGTQKCQMVFRGPNGAAVGVGAQHSQDFSPWYGSIPGLKV
+            LVPYSAEDARGLLKAAIRDPNPVVFLENELLYGESFEISEEALSPEFTLPYKAKIEREGT
+            DISIVTYTRNVQFSLEAAEILQKKYGVSAEVINLRSIRPLDTEAIIKTVKKTNHLITVES
+            TFPSFGVGAEIVAQVMESEAFDYLDAPIQRVTGADVPTPYAKELEDFAFPDTPTIVKAVK
+            EVLSIE
+NTSEQ       1101
+            atgttttccagactgccaacatcattggccagaaatgttgcacgtcgtgccccaacttct
+            tttgtaagaccctctgcagcagcagcagcattgagattctcatcaacaaagacgatgacc
+            gtcagagaggccttgaatagtgccatggcggaagaattggaccgtgatgatgatgtcttc
+            cttattggtgaagaagttgcacaatataacggggcttataaggtgtcaaagggtttattg
+            gacaggttcggtgaacgtcgtgtggttgacacacctattaccgaatacgggttcacaggt
+            ttggccgttggtgccgctttgaagggtttgaagccaattgtagagtttatgtcgttcaat
+            ttctctatgcaagctatcgatcatgttgtcaattccgctgcaaagactcactacatgtct
+            ggtggtactcaaaaatgtcaaatggtcttcagaggtcctaatggtgctgcagtgggtgtt
+            ggtgctcaacattcacaggacttttctccttggtacggttccattccagggttaaaggtc
+            cttgtcccttattctgctgaagatgctaggggtttgttaaaggccgccatcagagatcca
+            aaccctgttgtatttttagagaacgaattgttgtacggtgaatcttttgaaatctcagaa
+            gaagctttatcccctgagttcaccttgccatacaaggctaagatcgaaagagaaggtacc
+            gatatttccattgttacgtacacaagaaacgttcagttttctttggaagccgctgaaatt
+            ctacaaaagaaatatggtgtctctgcagaagttatcaacttgcgttctattagaccttta
+            gatactgaagctatcatcaaaactgtcaagaagacaaaccacttgattactgttgaatcc
+            actttcccatcatttggtgttggtgctgaaattgtcgcccaagttatggagtctgaagcc
+            tttgattacttggatgctccaatccaaagagttactggtgccgatgttccaacaccttac
+            gctaaagaattagaagatttcgctttccctgatactccaaccatcgttaaagctgtcaaa
+            gaagtcttgtcaattgaataa
+///

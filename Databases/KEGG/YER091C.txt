@@ -1,0 +1,75 @@
+ENTRY       YER091C           CDS       T00005
+NAME        MET6
+DEFINITION  5-methyltetrahydropteroyltriglutamate-homocysteine S-methyltransferase (EC:2.1.1.14)
+ORTHOLOGY   K00549  5-methyltetrahydropteroyltriglutamate--homocysteine methyltransferase [EC:2.1.1.14]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00270  Cysteine and methionine metabolism
+            sce00450  Selenocompound metabolism
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01230  Biosynthesis of amino acids
+CLASS       Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
+            Metabolism; Amino acid metabolism; Cysteine and methionine metabolism [PATH:sce00270]
+            Metabolism; Metabolism of other amino acids; Selenocompound metabolism [PATH:sce00450]
+POSITION    V:complement(339864..342167)
+MOTIF       Pfam: Meth_synt_2 Meth_synt_1
+DBLINKS     NCBI-GI: 398364593
+            NCBI-GeneID: 856825
+            SGD: S000000893
+            MIPS: YER091C
+            UniProt: P05694
+AASEQ       767
+            MVQSAVLGFPRIGPNRELKKATEGYWNGKITVDELFKVGKDLRTQNWKLQKEAGVDIIPS
+            NDFSFYDQVLDLSLLFNVIPDRYTKYDLSPIDTLFAMGRGLQRKATETEKAVDVTALEMV
+            KWFDSNYHYVRPTFSKTTQFKLNGQKPVDEFLEAKELGIHTRPVLLGPVSYLFLGKADKD
+            SLDLEPLSLLEQLLPLYTEILSKLASAGATEVQIDEPVLVLDLPANAQAAIKKAYTYFGE
+            QSNLPKITLATYFGTVVPNLDAIKGLPVAALHVDFVRAPEQFDEVVAAIGNKQTLSVGIV
+            DGRNIWKNDFKKSSAIVNKAIEKLGADRVVVATSSSLLHTPVDLNNETKLDAEIKGFFSF
+            ATQKLDEVVVITKNVSGQDVAAALEANAKSVESRGKSKFIHDAAVKARVASIDEKMSTRA
+            APFEQRLPEQQKVFNLPLFPTTTIGSFPQTKDIRINRNKFNKGTISAEEYEKFINSEIEK
+            VIRFQEEIGLDVLVHGEPERNDMVQYFGEQINGYAFTVNGWVQSYGSRYVRPPIIVGDLS
+            RPKAMSVKESVYAQSITSKPVKGMLTGPITCLRWSFPRDDVDQKTQAMQLALALRDEVND
+            LEAAGIKVIQVDEPALREGLPLREGTERSAYYTWAAEAFRVATSGVANKTQIHSHFCYSD
+            LDPNHIKALDADVVSIEFSKKDDANYIAEFKNYPNHIGLGLFDIHSPRIPSKDEFIAKIS
+            TILKSYPAEKFWVNPDCGLKTRGWEETRLSLTHMVEAAKYFREQYKN
+NTSEQ       2304
+            atggttcaatctgctgtcttagggttcccaagaatcggtccaaacagagaattaaagaag
+            gccactgaaggttactggaacggtaaaatcactgtcgatgaattattcaaggtcggtaag
+            gatttgagaactcaaaactggaagttgcaaaaggaggctggtgttgatatcatcccatcc
+            aatgacttctccttttacgaccaagttttggatttgtctttgttgttcaatgtcattcca
+            gaccgttacactaagtacgatctatctccaatcgacactttgtttgctatgggtagaggt
+            ttacaaagaaaggccactgaaactgaaaaggctgtcgacgtcactgctttggaaatggtt
+            aaatggttcgactctaactaccattacgttagaccaactttctccaagaccactcaattt
+            aagttgaacggccaaaagccagttgacgaatttttggaagccaaggagttaggtattcat
+            actagacctgtcttgttgggtccagtttcttacttattcttgggtaaggctgacaaggat
+            tctctagatttggaaccattgtccctattggaacaattgttgcctctatacactgaaatc
+            ctatctaaattggcttctgctggtgccactgaagttcaaattgacgaacctgtcttagtt
+            ttggacttgcctgccaacgcccaagccgccattaagaaggcttacacttacttcggtgaa
+            caaagcaatctaccaaagattactttggctacttacttcggtaccgttgtccctaactta
+            gacgccatcaagggcttgccagttgctgccttacacgttgactttgttagagctccagaa
+            caatttgatgaagtcgttgccgccattggtaacaaacaaaccttgtccgttggtattgtt
+            gatggtagaaacatttggaagaatgatttcaagaagtcttccgctatcgttaacaaggct
+            attgaaaagttgggtgctgacagagtcgttgttgccacttcttcttctctattgcacaca
+            ccagttgatttgaacaacgaaaccaagttggacgctgaaatcaagggctttttctctttc
+            gccactcaaaaattggatgaagttgttgtgatcaccaagaacgtttccggtcaagacgtt
+            gctgctgccctagaagctaacgctaaatctgttgaatccagaggtaaatccaagtttatc
+            cacgatgctgccgttaaggccagagttgcctctatcgacgaaaaaatgtctactagagca
+            gctccatttgaacaaagattgcctgaacaacaaaaagtcttcaacttgccattgttccca
+            acaacaactattggttccttccctcaaaccaaggacatcagaattaacagaaacaaattc
+            aacaagggcaccatctctgctgaagaatatgaaaaattcatcaattctgaaattgaaaag
+            gtcatcagattccaagaagaaattggtttggatgtcttagtccacggtgaaccagaaaga
+            aacgatatggttcaatacttcggtgaacaaatcaacggttatgctttcactgttaacggt
+            tgggttcaatcttacggttccagatatgtcagaccaccaattattgttggtgacttgtcc
+            agaccaaaggctatgtccgtcaaggaatctgtttacgctcaatccatcacttctaagcca
+            gtaaagggtatgttgactggtccaattacctgtttgagatggtctttcccaagagacgat
+            gtcgaccaaaaaactcaagctatgcaattagctttggctttgagagatgaagtcaatgat
+            ttggaagctgccggtatcaaggttatccaagttgatgaaccagctttaagagaaggttta
+            ccattgagagaaggtactgagagatctgcttactacacctgggctgccgaagctttcaga
+            gttgctacttctggtgttgctaacaagactcaaatacactctcatttctgttactctgac
+            ttggatccaaaccatatcaaggctttggatgctgatgttgtttccatcgaattctctaag
+            aaggacgatgctaactacattgctgaattcaaaaactatccaaaccacattggtctaggt
+            ttattcgatattcattctccaagaattccatcaaaggatgaatttatcgccaagatttca
+            accatcttgaagagctacccagctgaaaagttctgggttaacccagattgtggtttgaag
+            actagaggctgggaagaaactagattgtctttgactcatatggtcgaagccgccaagtac
+            ttccgtgaacaatacaagaattaa
+///

@@ -1,0 +1,30 @@
+ENTRY       YFL017C           CDS       T00005
+NAME        GNA1, PAT1
+DEFINITION  glucosamine 6-phosphate N-acetyltransferase (EC:2.3.1.4)
+ORTHOLOGY   K00621  glucosamine-phosphate N-acetyltransferase [EC:2.3.1.4]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00520  Amino sugar and nucleotide sugar metabolism
+            sce01110  Biosynthesis of secondary metabolites
+CLASS       Metabolism; Carbohydrate metabolism; Amino sugar and nucleotide sugar metabolism [PATH:sce00520]
+POSITION    VI:complement(103983..104462)
+MOTIF       Pfam: Acetyltransf_1 Acetyltransf_7 Acetyltransf_10 Acetyltransf_9 Acetyltransf_3 Acetyltransf_4 Acetyltransf_CG FR47
+DBLINKS     NCBI-GI: 14318503
+            NCBI-GeneID: 850529
+            SGD: S000001877
+            MIPS: YFL017C
+            UniProt: P43577
+STRUCTURE   PDB: 1I12 1I1D 1I21
+AASEQ       159
+            MSLPDGFYIRRMEEGDLEQVTETLKVLTTVGTITPESFSKLIKYWNEATVWNDNEDKKIM
+            QYNPMVIVDKRTETVAATGNIIIERKIIHELGLCGHIEDIAVNSKYQGQGLGKLLIDQLV
+            TIGFDYGCYKIILDCDEKNVKFYEKCGFSNAGVEMQIRK
+NTSEQ       480
+            atgagcttacccgatggattttatataaggcgaatggaagagggggatttggaacaggtc
+            actgagacgctaaaggttttgaccaccgtgggcactattacccccgaatccttcagcaaa
+            ctcataaaatactggaatgaagccacagtatggaatgataacgaagataaaaaaataatg
+            caatataaccccatggtgattgtggacaagcgcaccgagacggttgccgctacggggaat
+            atcatcatcgaaagaaagatcattcatgaactggggctatgtggccacatcgaggacatt
+            gcagtaaactccaagtatcagggccaaggtttgggcaagctcttgattgatcaattggta
+            actatcggctttgactacggttgttataagattattttagattgcgatgagaaaaatgtc
+            aaattctatgaaaaatgtgggtttagcaacgcaggcgtggaaatgcaaattagaaaatag
+///

@@ -1,0 +1,74 @@
+ENTRY       YDL164C           CDS       T00005
+NAME        CDC9, MMS8
+DEFINITION  DNA ligase (ATP) CDC9 (EC:6.5.1.1)
+ORTHOLOGY   K10747  DNA ligase 1 [EC:6.5.1.1]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03030  DNA replication
+            sce03410  Base excision repair
+            sce03420  Nucleotide excision repair
+            sce03430  Mismatch repair
+CLASS       Genetic Information Processing; Replication and repair; DNA replication [PATH:sce03030]
+            Genetic Information Processing; Replication and repair; Base excision repair [PATH:sce03410]
+            Genetic Information Processing; Replication and repair; Nucleotide excision repair [PATH:sce03420]
+            Genetic Information Processing; Replication and repair; Mismatch repair [PATH:sce03430]
+POSITION    IV:complement(164987..167254)
+MOTIF       Pfam: DNA_ligase_A_M DNA_ligase_A_N DNA_ligase_A_C
+DBLINKS     NCBI-GI: 6320038
+            NCBI-GeneID: 851391
+            SGD: S000002323
+            MIPS: YDL164C
+            UniProt: P04819
+AASEQ       755
+            MRRLLTGCLLSSARPLKSRLPLLMSSSLPSSAGKKPKQATLARFFTSMKNKPTEGTPSPK
+            KSSKHMLEDRMDNVSGEEEYATKKLKQTAVTHTVAAPSSMGSNFSSIPSSAPSSGVADSP
+            QQSQRLVGEVEDALSSNNNDHYSSNIPYSEVCEVFNKIEAISSRLEIIRICSDFFIKIMK
+            QSSKNLIPTTYLFINRLGPDYEAGLELGLGENLLMKTISETCGKSMSQIKLKYKDIGDLG
+            EIAMGARNVQPTMFKPKPLTVGEVFKNLRAIAKTQGKDSQLKKMKLIKRMLTACKGIEAK
+            FLIRSLESKLRIGLAEKTVLISLSKALLLHDENREDSPDKDVPMDVLESAQQKIRDAFCQ
+            VPNYEIVINSCLEHGIMNLDKYCTLRPGIPLKPMLAKPTKAINEVLDRFQGETFTSEYKY
+            DGERAQVHLLNDGTMRIYSRNGENMTERYPEINITDFIQDLDTTKNLILDCEAVAWDKDQ
+            GKILPFQVLSTRKRKDVELNDVKVKVCLFAFDILCYNDERLINKSLKERREYLTKVTKVV
+            PGEFQYATQITTNNLDELQKFLDESVNHSCEGLMVKMLEGPESHYEPSKRSRNWLKLKKD
+            YLEGVGDSLDLCVLGAYYGRGKRTGTYGGFLLGCYNQDTGEFETCCKIGTGFSDEMLQLL
+            HDRLTPTIIDGPKATFVFDSSAEPDVWFEPTTLFEVLTADLSLSPIYKAGSATFDKGVSL
+            RFPRFLRIREDKGVEDATSSDQIVELYENQSHMQN
+NTSEQ       2268
+            atgcgcagattactgaccggttgccttctttcatctgcacgtcccttgaaatcaagattg
+            ccattattgatgtcatcctcattaccttcctctgccggtaagaagcctaaacaagccact
+            ttggctagattcttcacttccatgaaaaataagccaacagaaggtactccttctcccaaa
+            aaatcatccaaacatatgctggaagatagaatggataatgttagtggggaagaggaatac
+            gcgaccaagaaattgaaacagacggctgttacacatactgtagcagctccaagctccatg
+            ggtagcaatttttcttctataccatcatccgctccctcttccggtgttgctgattcaccg
+            caacaatctcagaggttggtaggtgaagttgaagacgccttgagctcaaataataatgat
+            cactattcgtctaatatcccctattctgaagtttgtgaggtttttaacaagattgaggcc
+            atatcttcccgtttagagattataagaatctgttctgatttctttattaagataatgaag
+            caatcgtctaagaacttaatacctacaacataccttttcatcaatagattgggccctgac
+            tacgaagcaggcttggaattaggccttggagaaaatcttcttatgaaaaccataagcgaa
+            acttgcgggaaatccatgagccaaattaaacttaaatacaaggatattggggatttgggt
+            gaaatagcaatgggtgcgagaaatgtccaacccactatgtttaagcccaaacccttgacc
+            gtgggtgaggtcttcaaaaatcttagagctattgctaagactcagggcaaagattcacaa
+            ttaaaaaagatgaagctgatcaagagaatgcttactgcttgcaaaggtatagaggctaag
+            tttttgattagatccctagagtcaaaattgagaatcggtcttgctgaaaagactgtctta
+            atatccctatcgaaggctcttttgctccatgatgaaaatagggaggactctccagacaaa
+            gatgtccccatggatgtgttagaaagtgctcaacaaaagataagagacgcattttgtcaa
+            gtacccaactatgaaattgttataaactcatgcctggaacacggtattatgaatttagat
+            aaatattgtactctaagaccaggaattccattgaaacccatgttagccaagcctaccaag
+            gcaattaatgaagtattggatagatttcaaggcgaaacttttacgtcagaatacaaatac
+            gatggtgaaagggctcaggtgcatttactaaatgatggtacaatgaggatttattccaga
+            aatggcgagaatatgactgagagatatccagaaattaacataacggattttatccaggat
+            ttggatactaccaaaaatttaattctagactgtgaggctgttgcttgggacaaagatcag
+            gggaaaattttgcctttccaggtcttaagtacaaggaaacgtaaagacgtggagctgaat
+            gatgttaaagttaaagtctgtctctttgcatttgatatactttgctacaacgatgaaagg
+            ctgattaataagtcactaaaggaaagaagagaatacttgacgaaggttacaaaagttgtc
+            ccgggagaattccaatacgcgactcagataacaacaaataaccttgatgaacttcaaaaa
+            ttccttgatgagtccgttaatcactcatgcgaaggtttgatggtcaaaatgttggagggc
+            cctgaatcccattatgaaccaagtaaaaggtcaagaaactggttgaaattaaaaaaagat
+            tacttggagggggttggagattcattggatctctgcgtgttgggggcatattatggtaga
+            ggaaaaagaactggtacgtacggtgggttccttctaggatgttacaaccaagacacagga
+            gaatttgaaacttgttgcaagatagggacaggattttcggacgaaatgttgcagcttttg
+            cacgacaggttgaccccgacgatcattgatggaccaaaagccacgtttgttttcgattcg
+            agtgctgagccagatgtatggttcgaacctacgactttgtttgaagttttgactgcagac
+            ctttccctatcgcctatttataaagcaggtagtgcaacttttgataaaggcgtatcctta
+            agatttccaagatttttgcgtataagagaagacaagggcgtagaagatgcaacctcttct
+            gaccagatcgtcgaattgtatgaaaaccaatcccacatgcaaaattag
+///

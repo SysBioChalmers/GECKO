@@ -1,0 +1,39 @@
+ENTRY       YDR328C           CDS       T00005
+NAME        SKP1, MGO1
+DEFINITION  Skp1p
+ORTHOLOGY   K03094  S-phase kinase-associated protein 1
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04111  Cell cycle - yeast
+            sce04120  Ubiquitin mediated proteolysis
+            sce04141  Protein processing in endoplasmic reticulum
+MODULE      sce_M00379  SCF-MET30 complex
+            sce_M00407  SCF-CDC4 complex
+            sce_M00411  SCF-GRR1 complex
+CLASS       Genetic Information Processing; Folding, sorting and degradation; Protein processing in endoplasmic reticulum [PATH:sce04141]
+            Genetic Information Processing; Folding, sorting and degradation; Ubiquitin mediated proteolysis [PATH:sce04120]
+            Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
+POSITION    IV:complement(1125434..1126018)
+MOTIF       Pfam: Skp1 Skp1_POZ DUF4642 GCIP CENP-B_dimeris Ebola_NP DNA_pol_phi
+DBLINKS     NCBI-GI: 398366491
+            NCBI-GeneID: 851928
+            SGD: S000002736
+            MIPS: YDR328C
+            UniProt: P52286
+STRUCTURE   PDB: 3V7D 3MKS 1NEX
+AASEQ       194
+            MVTSNVVLVSGEGERFTVDKKIAERSLLLKNYLNDMHDSNLQNNSDSESDSDSETNHKSK
+            DNNNGDDDDEDDDEIVMPVPNVRSSVLQKVIEWAEHHRDSNFPDEDDDDSRKSAPVDSWD
+            REFLKVDQEMLYEIILAANYLNIKPLLDAGCKVVAEMIRGRSPEEIRRTFNIVNDFTPEE
+            EAAIRRENEWAEDR
+NTSEQ       585
+            atggtgacttctaatgttgtcctagtgagtggtgagggtgaacgattcaccgtagacaag
+            aaaatcgcggagagatccctgctattgaaaaactatctgaacgatatgcatgacagcaac
+            ctacaaaacaactcagattcagaatcagattcagactcggaaacgaaccacaaaagcaaa
+            gacaacaataacggtgacgacgacgatgaggatgacgacgagattgtgatgcccgtgccc
+            aatgttcggtcttccgttttgcagaaggttatcgaatgggccgagcaccacagagactct
+            aacttccctgacgaagatgacgacgattccagaaagagtgctcccgtggactcatgggac
+            agagaattcctgaaagtggaccaagagatgctatacgaaattattctggcggcaaactac
+            ctcaacatcaagcccttgcttgacgctggctgcaaggtggttgctgaaatgatcagggga
+            aggtctcccgaggaaattagaagaacgtttaatatcgtcaacgacttcactccagaggag
+            gaggctgccattaggcgtgaaaatgaatgggctgaagaccgttag
+///

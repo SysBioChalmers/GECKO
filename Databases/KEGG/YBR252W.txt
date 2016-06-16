@@ -1,0 +1,30 @@
+ENTRY       YBR252W           CDS       T00005
+NAME        DUT1
+DEFINITION  bifunctional dITP/dUTP diphosphatase (EC:3.6.1.23)
+ORTHOLOGY   K01520  dUTP pyrophosphatase [EC:3.6.1.23]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00240  Pyrimidine metabolism
+            sce01100  Metabolic pathways
+CLASS       Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
+POSITION    II:722611..723054
+MOTIF       Pfam: dUTPase FtsZ_C
+DBLINKS     NCBI-GI: 398365737
+            NCBI-GeneID: 852554
+            SGD: S000000456
+            MIPS: YBR252W
+            UniProt: P33317
+STRUCTURE   PDB: 3P48 3HHQ 3F4F
+AASEQ       147
+            MTATSDKVLKIQLRSASATVPTKGSATAAGYDIYASQDITIPAMGQGMVSTDISFTVPVG
+            TYGRIAPRSGLAVKNGIQTGAGVVDRDYTGEVKVVLFNHSQRDFAIKKGDRVAQLILEKI
+            VDDAQIVVVDSLEESARGAGGFGSTGN
+NTSEQ       444
+            atgactgctactagcgacaaagtactaaagattcaattgcgctcagcaagcgctactgta
+            cctaccaaaggttctgccactgccgcgggatacgacatttatgcatctcaggatattacc
+            attccggctatgggtcaaggtatggtttccaccgacatatcgttcaccgtacctgttggt
+            acctacggtcgtattgcgccaaggtcaggcctggcagtgaaaaacggtatccaaaccggt
+            gctggtgttgtcgacagagattacaccggtgaagttaaagtagttttattcaatcattca
+            cagagggatttcgcgatcaaaaaaggtgatcgcgtagcccaattgattctggaaaaaatt
+            gtcgatgatgcccagatcgttgttgtagactctctggaagaaagtgcaagaggggccggt
+            ggctttggtagcactggtaactaa
+///

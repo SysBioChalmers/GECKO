@@ -1,0 +1,45 @@
+ENTRY       YOR251C           CDS       T00005
+NAME        TUM1
+DEFINITION  Tum1p (EC:2.8.1.1)
+ORTHOLOGY   K01011  thiosulfate/3-mercaptopyruvate sulfurtransferase [EC:2.8.1.1 2.8.1.2]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00270  Cysteine and methionine metabolism
+            sce00920  Sulfur metabolism
+            sce01100  Metabolic pathways
+            sce04122  Sulfur relay system
+CLASS       Metabolism; Energy metabolism; Sulfur metabolism [PATH:sce00920]
+            Metabolism; Amino acid metabolism; Cysteine and methionine metabolism [PATH:sce00270]
+            Genetic Information Processing; Folding, sorting and degradation; Sulfur relay system [PATH:sce04122]
+POSITION    XV:complement(802550..803464)
+MOTIF       Pfam: Rhodanese
+DBLINKS     NCBI-GI: 398365943
+            NCBI-GeneID: 854425
+            SGD: S000005777
+            MIPS: YOR251C
+            UniProt: Q08686
+STRUCTURE   PDB: 3UTN
+AASEQ       304
+            MPLFDLISPKAFVKLVASEKVHRIVPVDATWYLPSWKLDNKVDFLTKPRIPNSIFFDIDA
+            ISDKKSPYPHMFPTKKVFDDAMSNLGVQKDDILVVYDRVGNFSSPRCAWTLGVMGHPKVY
+            LLNNFNQYREFKYPLDSSKVAAFSPYPKSHYESSESFQDKEIVDYEEMFQLVKSGELAKK
+            FNAFDARSLGRFEGTEPEPRSDIPSGHIPGTQPLPYGSLLDPETKTYPEAGEAIHATLEK
+            ALKDFHCTLDPSKPTICSCGTGVSGVIIKTALELAGVPNVRLYDGSWTEWVLKSGPEWIA
+            ENRD
+NTSEQ       915
+            atgccattatttgatcttatttctccaaaagcgtttgttaagttagtggccagtgagaag
+            gttcatagaatcgttccagttgatgcaacatggtacctacccagttggaagcttgataat
+            aaagtggatttcttgaccaaaccacgtataccaaactccattttctttgatattgatgca
+            atcagtgacaaaaaatcgccctatccacatatgttccctacaaagaaggtttttgacgac
+            gctatgagtaatttaggagttcaaaaagatgatatattagtggtttacgatcgtgttggt
+            aactttagctcccctagatgtgcttggacattaggagtgatgggacatcctaaggtgtac
+            ttactaaataatttcaaccagtacagagagtttaagtaccctctagattcctctaaggtg
+            gcagcgttttcaccctatccaaagagtcattatgagtcctcagaaagtttccaagacaag
+            gagattgtagactatgaggaaatgttccaattggtaaagagtggggaactggctaagaaa
+            ttcaatgctttcgatgcaaggtcgctcggtagattcgaaggtacagaaccagagcctcgt
+            tccgacattccatcggggcatattccaggtacccaaccattaccatatggaagtttactt
+            gatccggagaccaaaacgtacccagaagctggggaggcgatacacgctactttggaaaag
+            gcattgaaagactttcattgcactttggacccaagtaaaccaactatttgctcttgtgga
+            actggcgtttcaggagtcattatcaagacagcattggagctagcaggagttcccaatgtt
+            agattatatgatggatcctggaccgagtgggtcttgaaatccgggcccgagtggattgct
+            gaaaacagagattaa
+///

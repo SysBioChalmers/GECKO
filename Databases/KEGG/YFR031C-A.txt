@@ -1,0 +1,36 @@
+ENTRY       YFR031C-A         CDS       T00005
+NAME        RPL2A, RPL5B
+DEFINITION  ribosomal 60S subunit protein L2A
+ORTHOLOGY   K02938  large subunit ribosomal protein L8e
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03010  Ribosome
+CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+POSITION    VI:complement(join(220507..221267,221415..221418))
+MOTIF       Pfam: Ribosomal_L2_C Ribosomal_L2
+DBLINKS     NCBI-GI: 398364349
+            NCBI-GeneID: 850590
+            SGD: S000002104
+            MIPS: YFR031C-A
+            UniProt: P0CX45 P0CX46
+STRUCTURE   PDB: 3U5E 3U5I 3O58 3O5H 4BYN 4BYU 4B6A 3IZS 1S1I
+AASEQ       254
+            MGRVIRNQRKGAGSIFTSHTRLRQGAAKLRTLDYAERHGYIRGIVKQIVHDSGRGAPLAK
+            VVFRDPYKYRLREEIFIANEGVHTGQFIYAGKKASLNVGNVLPLGSVPEGTIVSNVEEKP
+            GDRGALARASGNYVIIIGHNPDENKTRVRLPSGAKKVISSDARGVIGVIAGGGRVDKPLL
+            KAGRAFHKYRLKRNSWPKTRGVAMNPVDHPHGGGNHQHIGKASTISRGAVSGQKAGLIAA
+            RRTGLLRGSQKTQD
+NTSEQ       765
+            atgggtagagttattcgtaaccaaagaaagggtgctggttctatctttacctcccacacc
+            agattgagacaaggtgctgccaagttgagaactttggattatgctgaacgtcacggttac
+            attcgtggtatcgttaagcaaattgtccacgactccggtagaggtgccccattggccaag
+            gttgtcttccgtgacccatacaagtacagattgcgtgaagaaatctttattgctaacgaa
+            ggtgtccacactggtcaattcatttacgccggtaagaaggcttctttgaacgtcggtaac
+            gtcttgccattgggttctgtcccagaaggtaccattgtctccaacgttgaagaaaagcca
+            ggtgacagaggtgccctagccagagcttccggtaactacgttattatcatcggtcacaac
+            ccagacgaaaacaagactagagtcagattaccatccggtgccaagaaggttatctcttct
+            gatgccagaggtgtcatcggtgtcattgccggtggtggtagagttgacaaaccattgttg
+            aaggctggtcgtgctttccacaagtacagattgaagagaaactcttggccaaagacccgt
+            ggtgttgccatgaatccagttgatcaccctcacggtggtggtaaccatcaacatattggt
+            aaggcttctaccatctctagaggtgctgtttctggtcaaaaggccggtttgattgccgcc
+            agaagaactggtttgttacgtggttctcaaaagacccaagattag
+///

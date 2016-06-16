@@ -1,0 +1,80 @@
+ENTRY       YDL132W           CDS       T00005
+NAME        CDC53
+DEFINITION  cullin CDC53
+ORTHOLOGY   K03347  cullin 1
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04111  Cell cycle - yeast
+            sce04120  Ubiquitin mediated proteolysis
+            sce04141  Protein processing in endoplasmic reticulum
+MODULE      sce_M00379  SCF-MET30 complex
+            sce_M00407  SCF-CDC4 complex
+            sce_M00411  SCF-GRR1 complex
+CLASS       Genetic Information Processing; Folding, sorting and degradation; Protein processing in endoplasmic reticulum [PATH:sce04141]
+            Genetic Information Processing; Folding, sorting and degradation; Ubiquitin mediated proteolysis [PATH:sce04120]
+            Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
+POSITION    IV:224304..226751
+MOTIF       Pfam: Cullin Cullin_Nedd8 Penicillinase_R
+DBLINKS     NCBI-GI: 6320070
+            NCBI-GeneID: 851424
+            SGD: S000002290
+            MIPS: YDL132W
+            UniProt: Q12018
+STRUCTURE   PDB: 3O2P 3O6B
+AASEQ       815
+            MSETLPRSDDLEATWNFIEPGINQILGNEKNQASTSKRVYKILSPTMYMEVYTAIYNYCV
+            NKSRSSGHFSTDSRTGQSTILVGSEIYEKLKNYLKNYILNFKQSNSETFLQFYVKRWKRF
+            TIGAIFLNHAFDYMNRYWVQKERSDGKRHIFDVNTLCLMTWKEVMFDPSKDVLINELLDQ
+            VTLGREGQIIQRSNISTAIKSLVALGIDPQDLKKLNLNVYIQVFEKPFLKKTQEYYTQYT
+            NDYLEKHSVTEYIFEAHEIIKREEKAMTIYWDDHTKKPLSMALNKVLITDHIEKLENEFV
+            VLLDARDIEKITSLYALIRRDFTLIPRMASVFENYVKKTGENEISSLLAMHKHNIMKNEN
+            ANPKKLALMTAHSLSPKDYIKKLLEVHDIFSKIFNESFPDDIPLAKALDNACGAFININE
+            FALPAGSPKSATSKTSEMLAKYSDILLKKATKPEVASDMSDEDIITIFKYLTDKDAFETH
+            YRRLFAKRLIHGTSTSAEDEENIIQRLQAANSMEYTGKITKMFQDIRLSKILEDDFAVAL
+            KNEPDYSKAKYPDLQPFVLAENMWPFSYQEVEFKLPKELVPSHEKLKESYSQKHNGRILK
+            WLWPLCRGELKADIGKPGRMPFNFTVTLFQMAILLLYNDADVLTLENIQEGTSLTIQHIA
+            AAMVPFIKFKLIQQVPPGLDALVKPETQFKLSRPYKALKTNINFASGVKNDILQSLSGGG
+            HDNHGNKLGNKRLTEDERIEKELNTERQIFLEACIVRIMKAKRNLPHTTLVNECIAQSHQ
+            RFNAKVSMVKRAIDSLIQKGYLQRGDDGESYAYLA
+NTSEQ       2448
+            atgtctgagactctgcctagatctgatgatttagaggccacttggaactttatagagcca
+            ggaattaaccaaatactgggtaatgagaaaaaccaagcatccacgtctaagcgagtttac
+            aaaattctttctccaaccatgtatatggaagtctataccgcaatttataactactgtgtg
+            aacaaatcacgctcgtctggacattttagtactgacagtagaactggccaatcaacaatt
+            ttggttggcagtgagatttacgaaaagttaaagaattatttgaagaattacattttaaat
+            tttaagcagtctaattcagagacctttttgcagttttacgtcaagcgctggaaaaggttt
+            acaataggtgccatttttttaaaccatgcattcgattatatgaatagatattgggttcaa
+            aaggaaagaagtgacggcaaaaggcatatttttgatgtaaacaccttgtgcttgatgaca
+            tggaaagaagtcatgtttgatccgagtaaagatgttttaataaacgaattattagaccag
+            gtaaccttgggaagggaggggcaaataattcaaagaagtaatattagcactgccataaag
+            tctttagttgcactaggtatcgatccacaggatttgaaaaagttgaacctaaatgtctac
+            atccaagttttcgaaaagccatttttaaagaagactcaggagtactacacgcaatataca
+            aacgattatttagagaaacactcggtaactgagtatatttttgaagcacatgaaatcatc
+            aaacgtgaggaaaaagcaatgacaatatattgggatgatcatacaaaaaaaccactatcc
+            atggcattaaacaaggtcttgatcacagaccatattgaaaagttggaaaatgagtttgtt
+            gtccttctggatgccagagatattgaaaaaattacttctttgtacgcactaatacgcaga
+            gactttacattaatcccaagaatggcttcagtgtttgaaaattatgttaaaaagacaggt
+            gagaatgaaatttcgagtctactggcaatgcataaacacaatattatgaaaaacgaaaac
+            gcaaaccctaaaaaactagcactaatgacagctcactccctttctcctaaagactatatc
+            aagaaattactggaagtacacgatatattctctaagatttttaatgaaagtttccccgac
+            gacatacctttagctaaagctctagataatgcgtgtggtgctttcatcaacatcaacgag
+            ttcgcattacctgctggatctccaaaaagtgccacctcgaagacttccgagatgctagct
+            aagtacagtgatatactattaaagaaggccaccaaacctgaagtggcaagtgacatgtca
+            gatgaagatattataacaatattcaaatatttgaccgacaaagatgcgttcgaaactcat
+            tatagaagacttttcgccaagcgtttaattcatggcacttcaacatcagcagaagacgaa
+            gaaaatattattcaaaggctgcaagcggcaaatagtatggaatatacaggcaagataact
+            aaaatgtttcaagatattagactttccaagatcttggaagacgattttgctgtcgccctg
+            aagaatgaaccagattactctaaagcaaaatatccagatctacaaccatttgtattggca
+            gaaaatatgtggccattttcataccaagaagttgaatttaagctacccaaggaattggta
+            ccatctcacgaaaaattgaaggagtcatacagccaaaagcataatggtagaatattgaag
+            tggctatggccattatgtcgtggcgaattgaaggcagatattggaaaacccggcaggatg
+            ccgttcaactttacggtaacactgtttcaaatggcaattttgctactatataacgatgct
+            gatgtattaaccttagaaaatattcaagagggcacgagcttaaccattcagcacatcgca
+            gcggcaatggtaccattcatcaaattcaaactgattcaacaggtcccaccagggctagat
+            gctctcgtgaaacctgaaacacaattcaagctatcacgtccttataaggcgcttaagacc
+            aatattaatttcgctagcggagtcaaaaacgacattctgcaatcgctatccggtggaggc
+            cacgataatcacggtaataagttaggaaacaaacgcttgacggaagacgaaagaatagaa
+            aaagaattgaatacagaaaggcagattttcttggaagcttgtattgtgagaataatgaaa
+            gcgaaaagaaatctgccacatacaacattggtcaacgaatgcattgcgcaatcacaccaa
+            aggttcaatgcaaaggtttctatggtcaagagagccatcgatagcttaatacaaaaggga
+            tacctacagaggggagacgatggtgaatcgtatgcttaccttgcttaa
+///

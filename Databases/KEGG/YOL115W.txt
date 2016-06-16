@@ -1,0 +1,59 @@
+ENTRY       YOL115W           CDS       T00005
+NAME        PAP2, TRF4
+DEFINITION  non-canonical poly(A) polymerase PAP2 (EC:2.7.7.-)
+ORTHOLOGY   K03514  DNA polymerase sigma [EC:2.7.7.7]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03018  RNA degradation
+MODULE      sce_M00393  TRAMP complex
+CLASS       Genetic Information Processing; Folding, sorting and degradation; RNA degradation [PATH:sce03018]
+POSITION    XV:101475..103229
+MOTIF       Pfam: NTP_transf_2 PAP_assoc DNA_pol_B_palm RD3
+DBLINKS     NCBI-GI: 6324457
+            NCBI-GeneID: 854034
+            SGD: S000005475
+            MIPS: YOL115W
+            UniProt: P53632
+STRUCTURE   PDB: 3NYB
+AASEQ       584
+            MGAKSVTASSSKKIKNRHNGKVKKSKKIKKVRKPQKSISLNDENEVEILPSRNEQETNKL
+            PKDHVTADGILVLEHKSDDDEGFDVYDGHFDNPTDIPSTTEESKTPSLAVHGDEKDLANN
+            DDFISLSASSEDEQAEQEEEREKQELEIKKEKQKEILNTDYPWILNHDHSKQKEISDWLT
+            FEIKDFVAYISPSREEIEIRNQTISTIREAVKQLWPDADLHVFGSYSTDLYLPGSDIDCV
+            VTSELGGKESRNNLYSLASHLKKKNLATEVEVVAKARVPIIKFVEPHSGIHIDVSFERTN
+            GIEAAKLIREWLDDTPGLRELVLIVKQFLHARRLNNVHTGGLGGFSIICLVFSFLHMHPR
+            IITNEIDPKDNLGVLLIEFFELYGKNFGYDDVALGSSDGYPVYFPKSTWSAIQPIKNPFS
+            LAIQDPGDESNNISRGSFNIRDIKKAFAGAFDLLTNRCFELHSATFKDRLGKSILGNVIK
+            YRGKARDFKDERGLVLNKAIIENENYHKKRSRIIHDEDFAEDTVTSTATATTTDDDYEIT
+            NPPAKKAKIEEKPESEPAKRNSGETYITVSSEDDDEDGYNPYTL
+NTSEQ       1755
+            atgggggcaaagagtgtaacagcctcttcttcaaagaagattaaaaaccggcataatggg
+            aaagtgaaaaagagcaagaaaatcaagaaagtacggaaaccacagaagtctatatccttg
+            aacgacgaaaacgaagtagagattttacctagtcgtaatgagcaagagacaaataaatta
+            cctaaagatcacgtcacggcggatggaattcttgtattagaacataaatctgatgatgat
+            gaaggattcgatgtctacgatggacatttcgataaccctactgatattccctcgactact
+            gaagaaagtaaaacgccttcattagcagtgcacggggatgagaaggatcttgctaacaat
+            gatgattttatctctctttctgctagttctgaggatgagcaagccgaacaggaagaggag
+            agggagaaacaagaattagaaattaaaaaagaaaagcaaaaggaaatccttaatactgat
+            tatccatggattttaaatcatgatcactccaaacagaaagaaatctcggactggctaacc
+            tttgaaatcaaggattttgttgcctatatctcaccaagtcgtgaagaaattgaaattcgt
+            aatcaaaccataagtacaataagagaggctgtcaaacagttatggccagatgctgatttg
+            cacgtgtttggatcatattctaccgatttgtatttgcctggttccgatattgattgcgtg
+            gtaacgagcgaacttggtggtaaggaaagtaggaataacttgtattcgttagcaagccat
+            ttaaaaaaaaaaaatttggcaacagaggttgaagttgtcgccaaagctcgcgttccaatc
+            atcaagtttgttgagccacattcagggatccacatagatgtttcatttgagagaacaaat
+            ggtattgaagcagcaaagcttattagagagtggttggacgatacccccggcctgagagaa
+            ttagtccttatcgtaaaacaattcctacacgcaagaagactaaataatgtgcataccggt
+            ggtcttggtgggtttagtattatatgtcttgtcttttcctttttgcatatgcacccacgt
+            ataataactaacgaaatagatccaaaggacaacttgggtgtgctcctgatagagtttttt
+            gaactttatgggaaaaattttggttatgatgatgttgcactgggatcatcggatggatat
+            ccagtatactttccaaaatcgacatggagtgctattcagcctattaaaaatccattttca
+            ttggccattcaagatccaggtgatgaatcaaataacatcagtcgagggtcctttaacatt
+            cgagatattaaaaaggcatttgctggtgcttttgatctgttgacgaatagatgttttgaa
+            ttacattcagcaacttttaaggatcgattggggaaaagtatattgggaaacgtgatcaaa
+            tatcgtggaaaggcaagagatttcaaggatgaaagaggtctagtactgaataaggctatt
+            attgaaaatgaaaactatcacaagaaacgtagcagaataattcatgatgaagattttgcc
+            gaagatacagttacctccacagccaccgctaccacaacagatgatgattatgaaataacg
+            aacccacctgctaagaaggctaaaatagaagaaaaacctgaaagtgaaccggccaagaga
+            aatagtggagagacatatatcactgtctctagcgaagatgatgatgaagatggatataat
+            ccttataccctttaa
+///

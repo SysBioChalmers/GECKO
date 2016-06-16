@@ -1,0 +1,57 @@
+ENTRY       YER090W           CDS       T00005
+NAME        TRP2
+DEFINITION  anthranilate synthase TRP2 (EC:4.1.3.27)
+ORTHOLOGY   K01657  anthranilate synthase component I [EC:4.1.3.27]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00400  Phenylalanine, tyrosine and tryptophan biosynthesis
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01230  Biosynthesis of amino acids
+MODULE      sce_M00023  Tryptophan biosynthesis, chorismate => tryptophan
+CLASS       Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
+            Metabolism; Amino acid metabolism; Phenylalanine, tyrosine and tryptophan biosynthesis [PATH:sce00400]
+POSITION    V:337949..339472
+MOTIF       Pfam: Chorismate_bind Anth_synt_I_N POR
+DBLINKS     NCBI-GI: 6320935
+            NCBI-GeneID: 856824
+            SGD: S000000892
+            MIPS: YER090W
+            UniProt: P00899
+AASEQ       507
+            MTASIKIQPDIDSLKQLQQQNDDSSINMYPVYAYLPSLDLTPHVAYLKLAQLNNPDRKES
+            FLLESAKTNNELDRYSFIGISPRKTIKTGPTEGIETDPLEILEKEMSTFKVAENVPGLPK
+            LSGGAIGYISYDCVRYFEPKTRRPLKDVLRLPEAYLMLCDTIIAFDNVFQRFQIIHNINT
+            NETSLEEGYQAAAQIITDIVSKLTDDSSPIPYPEQPPIKLNQTFESNVGKEGYENHVSTL
+            KKHIKKGDIIQGVPSQRVARPTSLHPFNIYRHLRTVNPSPYLFYIDCLDFQIIGASPELL
+            CKSDSKNRVITHPIAGTVKRGATTEEDDALADQLRGSLKDRAEHVMLVDLARNDINRICD
+            PLTTSVDKLLTIQKFSHVQHLVSQVSGVLRPEKTRFDAFRSIFPAGTVSGAPKVRAMELI
+            AELEGERRGVYAGAVGHWSYDGKTMDNCIALRTMVYKDGIAYLQAGGGIVYDSDEYDEYV
+            ETMNKMMANHSTIVQAEELWADIVGSA
+NTSEQ       1524
+            atgaccgcttccatcaaaattcaaccggatattgactctctaaagcaattacagcagcaa
+            aatgacgatagttccataaatatgtatcccgtgtatgcgtatttgccatcattggatctg
+            actcctcacgtggcatatctaaaattggcacaattgaacaaccctgatagaaaggaatca
+            tttctgttggaaagtgctaagacaaataatgaattagatcgttattcattcataggtatc
+            tcgccacgcaagaccatcaaaaccggtcctactgaaggcattgaaacagatcctttggaa
+            attttggaaaaggagatgtctacctttaaagtagccgaaaatgttcctggtttaccgaaa
+            ttaagtggtggtgctattggttatatttcttatgactgtgttcgttatttcgagccaaaa
+            acaagaaggcctttgaaagatgtcctaagacttccagaggcatatttaatgctttgtgat
+            accattattgcctttgataatgtttttcagagatttcaaatcattcataacattaatacc
+            aatgaaacttcgttggaggaaggttaccaagctgcagcacaaataatcactgatatcgta
+            tcaaagctaaccgacgattcctcgccaataccatatccagaacaacctcctattaaattg
+            aatcaaacttttgaatcgaatgtgggcaaggaaggttacgaaaatcacgtctccactttg
+            aagaagcatattaagaaaggtgatattattcaaggtgtgccatcgcaaagagtggcaagg
+            ccaacttcgttacatcctttcaatatttacagacatttacgtacagtgaacccatctcct
+            tacctgttttatattgattgtttggatttccaaatcattggtgcatctccagaattgttg
+            tgcaaatcggattccaaaaatagagtcattacccatccaattgctggtactgtcaaacgt
+            ggggctactactgaagaggatgatgctttagcggaccaattacgtggctcgttaaaagac
+            cgtgcagaacatgttatgctggtagatttagcaagaaacgatattaacagaatttgtgac
+            ccattaacaacaagtgtcgataaactgttaactattcaaaaattttctcatgtccaacat
+            ctggtttctcaagtcagcggtgttctccgcccagaaaagacaagatttgatgcattcaga
+            tcgattttccctgcaggtactgtcagtggtgctccaaaggttagagccatggaattgatt
+            gccgaactagaaggagaaaggcgtggggtttatgcaggcgccgtaggtcattggtcatac
+            gacggtaaaacaatggacaattgtatcgctttaaggactatggtctataaagatggcatt
+            gcttacttgcaagctggcggtggtattgtttacgattcagatgagtacgatgaatatgtc
+            gaaaccatgaataaaatgatggccaatcacagtactattgtgcaagcagaagaattgtgg
+            gccgatatcgtaggatcagcttaa
+///

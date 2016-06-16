@@ -1,0 +1,54 @@
+ENTRY       YCL043C           CDS       T00005
+NAME        PDI1, MFP1, TRG1
+DEFINITION  protein disulfide isomerase PDI1 (EC:5.3.4.1)
+ORTHOLOGY   K09580  protein disulfide-isomerase A1 [EC:5.3.4.1]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04141  Protein processing in endoplasmic reticulum
+CLASS       Genetic Information Processing; Folding, sorting and degradation; Protein processing in endoplasmic reticulum [PATH:sce04141]
+POSITION    III:complement(48653..50221)
+MOTIF       Pfam: Thioredoxin Thioredoxin_6 Thioredoxin_2 Thioredoxin_7 Thioredoxin_8 AhpC-TSA Redoxin TraF
+DBLINKS     NCBI-GI: 6319806
+            NCBI-GeneID: 850314
+            SGD: S000000548
+            MIPS: YCL043C
+            UniProt: P17967
+STRUCTURE   PDB: 2B5E 3BOA
+AASEQ       522
+            MKFSAGAVLSWSSLLLASSVFAQQEAVAPEDSAVVKLATDSFNEYIQSHDLVLAEFFAPW
+            CGHCKNMAPEYVKAAETLVEKNITLAQIDCTENQDLCMEHNIPGFPSLKIFKNSDVNNSI
+            DYEGPRTAEAIVQFMIKQSQPAVAVVADLPAYLANETFVTPVIVQSGKIDADFNATFYSM
+            ANKHFNDYDFVSAENADDDFKLSIYLPSAMDEPVVYNGKKADIADADVFEKWLQVEALPY
+            FGEIDGSVFAQYVESGLPLGYLFYNDEEELEEYKPLFTELAKKNRGLMNFVSIDARKFGR
+            HAGNLNMKEQFPLFAIHDMTEDLKYGLPQLSEEAFDELSDKIVLESKAIESLVKDFLKGD
+            ASPIVKSQEIFENQDSSVFQLVGKNHDEIVNDPKKDVLVLYYAPWCGHCKRLAPTYQELA
+            DTYANATSDVLIAKLDHTENDVRGVVIEGYPTIVLYPGGKKSESVVYQGSRSLDSLFDFI
+            KENGHFDVDGKALYEEAQEKAAEEADADAELADEEDAIHDEL
+NTSEQ       1569
+            atgaagttttctgctggtgccgtcctgtcatggtcctccctgctgctcgcctcctctgtt
+            ttcgcccaacaagaggctgtggcccctgaagactccgctgtcgttaagttggccaccgac
+            tccttcaatgagtacattcagtcgcacgacttggtgcttgcggagttttttgctccatgg
+            tgtggccactgtaagaacatggctcctgaatacgttaaagccgccgagactttagttgag
+            aaaaacattaccttggcccagatcgactgtactgaaaaccaggatctgtgtatggaacac
+            aacattccagggttcccaagcttgaagattttcaaaaacagcgatgttaacaactcgatc
+            gattacgagggacctagaactgccgaggccattgtccaattcatgatcaagcaaagccaa
+            ccggctgtcgccgttgttgctgatctaccagcttaccttgctaacgagacttttgtcact
+            ccagttatcgtccaatccggtaagattgacgccgacttcaacgccaccttttactccatg
+            gccaacaaacacttcaacgactacgactttgtctccgctgaaaacgcagacgatgatttc
+            aagctttctatttacttgccctccgccatggacgagcctgtagtatacaacggtaagaaa
+            gccgatatcgctgacgctgatgtttttgaaaaatggttgcaagtggaagccttgccctac
+            tttggtgaaatcgacggttccgttttcgcccaatacgtcgaaagcggtttgcctttgggt
+            tacttattctacaatgacgaggaagaattggaagaatacaagcctctctttaccgagttg
+            gccaaaaagaacagaggtctaatgaactttgttagcatcgatgccagaaaattcggcaga
+            cacgccggcaacttgaacatgaaggaacaattccctctatttgccatccacgacatgact
+            gaagacttgaagtacggtttgcctcaactctctgaagaggcgtttgacgaattgagcgac
+            aagatcgtgttggagtctaaggctattgaatctttggttaaggacttcttgaaaggtgat
+            gcctccccaatcgtgaagtcccaagagatcttcgagaaccaagattcctctgtcttccaa
+            ttggtcggtaagaaccatgacgaaatcgtcaacgacccaaagaaggacgttcttgttttg
+            tactatgccccatggtgtggtcactgtaagagattggccccaacttaccaagaactagct
+            gatacctacgccaacgccacatccgacgttttgattgctaaactagaccacactgaaaac
+            gatgtcagaggcgtcgtaattgaaggttacccaacaatcgtcttatacccaggtggtaag
+            aagtccgaatctgttgtgtaccaaggttcaagatccttggactctttattcgacttcatc
+            aaggaaaacggtcacttcgacgtcgacggtaaggccttgtacgaagaagcccaggaaaaa
+            gctgctgaggaagccgatgctgacgctgaattggctgacgaagaagatgccattcacgat
+            gaattgtaa
+///

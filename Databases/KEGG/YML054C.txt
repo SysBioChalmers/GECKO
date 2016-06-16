@@ -1,0 +1,60 @@
+ENTRY       YML054C           CDS       T00005
+NAME        CYB2, FCB2
+DEFINITION  Cyb2p (EC:1.1.2.3)
+ORTHOLOGY   K00101  L-lactate dehydrogenase (cytochrome) [EC:1.1.2.3]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00620  Pyruvate metabolism
+            sce01100  Metabolic pathways
+CLASS       Metabolism; Carbohydrate metabolism; Pyruvate metabolism [PATH:sce00620]
+POSITION    XIII:complement(165533..167308)
+MOTIF       Pfam: FMN_dh Cyt-b5 Glu_synthase NMO IMPDH
+DBLINKS     NCBI-GI: 6323587
+            NCBI-GeneID: 854950
+            SGD: S000004518
+            MIPS: YML054C
+            UniProt: P00175
+STRUCTURE   PDB: 1KBI 1FCB 1KBJ 1LTD 3KS0 1SZF 1SZG 1QCW 2OZ0 1LDC 1LCO
+                 1SZE
+AASEQ       591
+            MLKYKPLLKISKNCEAAILRASKTRLNTIRAYGSTVPKSKSFEQDSRKRTQSWTALRVGA
+            ILAATSSVAYLNWHNGQIDNEPKLDMNKQKISPAEVAKHNKPDDCWVVINGYVYDLTRFL
+            PNHPGGQDVIKFNAGKDVTAIFEPLHAPNVIDKYIAPEKKLGPLQGSMPPELVCPPYAPG
+            ETKEDIARKEQLKSLLPPLDNIINLYDFEYLASQTLTKQAWAYYSSGANDEVTHRENHNA
+            YHRIFFKPKILVDVRKVDISTDMLGSHVDVPFYVSATALCKLGNPLEGEKDVARGCGQGV
+            TKVPQMISTLASCSPEEIIEAAPSDKQIQWYQLYVNSDRKITDDLVKNVEKLGVKALFVT
+            VDAPSLGQREKDMKLKFSNTKAGPKAMKKTNVEESQGASRALSKFIDPSLTWKDIEELKK
+            KTKLPIVIKGVQRTEDVIKAAEIGVSGVVLSNHGGRQLDFSRAPIEVLAETMPILEQRNL
+            KDKLEVFVDGGVRRGTDVLKALCLGAKGVGLGRPFLYANSCYGRNGVEKAIEILRDEIEM
+            SMRLLGVTSIAELKPDLLDLSTLKARTVGVPNDVLYNEVYEGPTLTEFEDA
+NTSEQ       1776
+            atgctaaaatacaaacctttactaaaaatctcgaagaactgtgaggctgctatcctcaga
+            gcgtctaagactagattgaacacaatccgcgcgtacggttctaccgttccaaaatccaag
+            tcgttcgaacaagactcaagaaaacgcacacagtcatggactgccttgagagtcggtgca
+            attctagccgctactagttccgtggcgtatctaaactggcataatggccaaatagacaac
+            gagccgaaactggatatgaataaacaaaagatttcgcccgctgaagttgccaagcataac
+            aagcccgatgattgttgggttgtgatcaatggttacgtatacgacttaacgcgattccta
+            ccaaatcatccaggtgggcaggatgttatcaagtttaacgccgggaaagatgtcactgct
+            atttttgaaccactacatgctcctaatgtcatcgataagtatatagctcccgagaaaaaa
+            ttgggtccccttcaaggatccatgcctcctgaacttgtctgtcctccttatgctcctggt
+            gaaactaaggaagatatcgctagaaaagaacaactaaaatcgctgctacctcctctagat
+            aatattattaacctttacgactttgaatacttggcctctcaaactttgactaaacaagcg
+            tgggcctactattcctccggtgctaacgacgaagttactcacagagaaaaccataatgct
+            tatcataggatttttttcaaaccaaagatccttgtagatgtacgcaaagtagacatttca
+            actgacatgttgggttctcatgtggatgttcccttctacgtgtctgctacagctttgtgt
+            aaactgggaaaccccttagaaggtgaaaaagatgtcgccagaggttgtggccaaggtgtg
+            acaaaagtcccacaaatgatatctactttggcttcatgttcccctgaggaaattattgaa
+            gcagcaccctctgataaacaaattcaatggtaccaactatatgttaactctgatagaaag
+            atcactgatgatttggttaaaaatgtagaaaagctgggtgtaaaggcattatttgtcact
+            gtggatgctccaagtttaggtcaaagagaaaaagatatgaagctgaaattttccaataca
+            aaggctggtccaaaagcgatgaagaaaactaatgtagaagaatctcaaggtgcttcgaga
+            gcgttatcaaagtttattgacccctctttgacttggaaagatatagaagagttgaagaaa
+            aagacaaaactacctattgttatcaaaggtgttcaacgtaccgaagatgttatcaaagca
+            gcagaaatcggtgtaagtggggtggttctatccaatcatggtggtagacaattagatttt
+            tcaagggctcccattgaagtcctggctgaaaccatgccaatcctggaacaacgtaacttg
+            aaggataagttggaagttttcgtggacggtggtgttcgtcgtggtacagatgtcttgaaa
+            gcgttatgtctaggtgctaaaggtgttggtttgggtagaccattcttgtatgcgaactca
+            tgctatggtcgtaatggtgttgaaaaagccattgaaattttaagagatgaaattgaaatg
+            tctatgagactattaggtgttactagcattgcggaattgaagcctgatcttttagatcta
+            tcaacactaaaggcaagaacagttggagtaccaaacgacgtgctgtataatgaagtttat
+            gagggacctactttaacagaatttgaggatgcatga
+///

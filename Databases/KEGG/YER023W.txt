@@ -1,0 +1,42 @@
+ENTRY       YER023W           CDS       T00005
+NAME        PRO3, ORE2
+DEFINITION  pyrroline-5-carboxylate reductase (EC:1.5.1.2)
+ORTHOLOGY   K00286  pyrroline-5-carboxylate reductase [EC:1.5.1.2]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00330  Arginine and proline metabolism
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01230  Biosynthesis of amino acids
+MODULE      sce_M00015  Proline biosynthesis, glutamate => proline
+CLASS       Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
+            Metabolism; Amino acid metabolism; Arginine and proline metabolism [PATH:sce00330]
+POSITION    V:201076..201936
+MOTIF       Pfam: P5CR_dimer F420_oxidored
+DBLINKS     NCBI-GI: 398364353
+            NCBI-GeneID: 856744
+            SGD: S000000825
+            MIPS: YER023W
+            UniProt: P32263
+AASEQ       286
+            MTYTLAILGCGVMGQALLSAIYNAPKAADETAAAFYPSKIITCNHDEPSAQQVTDLVETF
+            DESPNGIKVESTYGHNVSAVEEASVVLLGTKPFLAEEVLNGVKSVIGGKLLISLAAGWTI
+            DQLSQYTSTVCRVMTNTPAKYGYGCAVVSYSADVSKEQKPLVNELISQVGKYVELPEKNM
+            DAATALVGSGPAFVLLMLESLMESGLKLGIPLQESKECAMKVLEGTVKMVEKSGAHPSVL
+            KHQVCTPGGTTIAGLCVMEEKGVKSGIINGVEEAARVASQLGQKKK
+NTSEQ       861
+            atgacttacacattggcaattttaggctgcggtgttatgggccaagcacttctttccgcc
+            atttataatgctccaaaggcggctgatgaaactgctgctgcattttacccttccaaaatt
+            atcacatgtaaccatgatgaacctagtgcacaacaagttaccgatctagttgagacattc
+            gacgaatctcctaacggtattaaagtcgaaagcacttacggtcacaacgtgagcgctgtc
+            gaagaagcttctgtagttcttcttggtaccaagccatttttggccgaagaagtgttgaat
+            ggtgtgaagagcgtcattgggggaaagctacttatttccctggctgctggctggacaatt
+            gaccaattgagtcaatacactagcactgtttgccgtgttatgacgaacacacctgccaag
+            tacggatatggttgtgcggtggtgtcctactcagctgatgtttccaaagagcaaaagcca
+            ctggtcaacgaattgattagccaagttggtaaatacgttgagcttccagaaaagaacatg
+            gatgctgctacggctttagtcggttcaggccccgcttttgttctcttgatgttagaatcc
+            ttgatggagagtgggttgaaattgggaatcccattacaagagagtaaggagtgtgccatg
+            aaagttctagaaggaacagtgaagatggttgagaaaagcggtgctcatccatccgtttta
+            aagcatcaagtttgcacaccaggtggtacaactattgccgggttgtgcgtaatggaagaa
+            aagggcgtcaagagcggtattatcaatggtgttgaagaggcagcccgtgttgcgtcacaa
+            ttaggccaaaagaagaaatag
+///

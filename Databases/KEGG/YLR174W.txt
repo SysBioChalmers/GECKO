@@ -1,0 +1,59 @@
+ENTRY       YLR174W           CDS       T00005
+NAME        IDP2
+DEFINITION  isocitrate dehydrogenase (NADP(+)) IDP2 (EC:1.1.1.42)
+ORTHOLOGY   K00031  isocitrate dehydrogenase [EC:1.1.1.42]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00020  Citrate cycle (TCA cycle)
+            sce00480  Glutathione metabolism
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01200  Carbon metabolism
+            sce01210  2-Oxocarboxylic acid metabolism
+            sce01230  Biosynthesis of amino acids
+            sce04146  Peroxisome
+MODULE      sce_M00009  Citrate cycle (TCA cycle, Krebs cycle)
+            sce_M00010  Citrate cycle, first carbon oxidation, oxaloacetate => 2-oxoglutarate
+CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
+            Metabolism; Overview; 2-Oxocarboxylic acid metabolism [PATH:sce01210]
+            Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
+            Metabolism; Carbohydrate metabolism; Citrate cycle (TCA cycle) [PATH:sce00020]
+            Metabolism; Metabolism of other amino acids; Glutathione metabolism [PATH:sce00480]
+            Cellular Processes; Transport and catabolism; Peroxisome [PATH:sce04146]
+POSITION    XII:504591..505829
+MOTIF       Pfam: Iso_dh YfmQ
+DBLINKS     NCBI-GI: 6323203
+            NCBI-GeneID: 850871
+            SGD: S000004164
+            MIPS: YLR174W
+            UniProt: P41939
+AASEQ       412
+            MTKIKVANPIVEMDGDEQTRIIWHLIRDKLVLPYLDVDLKYYDLSVEYRDQTNDQVTVDS
+            ATATLKYGVAVKCATITPDEARVEEFHLKKMWKSPNGTIRNILGGTVFREPIIIPRIPRL
+            VPQWEKPIIIGRHAFGDQYKATDVIVPEEGELRLVYKSKSGTHDVDLKVFDYPEHGGVAM
+            MMYNTTDSIEGFAKASFELAIERKLPLYSTTKNTILKKYDGKFKDVFEAMYARSYKEKFE
+            SLGIWYEHRLIDDMVAQMLKSKGGYIIAMKNYDGDVESDIVAQGFGSLGLMTSVLITPDG
+            KTFESEAAHGTVTRHFRQHQQGKETSTNSIASIFAWTRGIIQRGKLDNTPDVVKFGQILE
+            SATVNTVQEDGIMTKDLALILGKSERSAYVTTEEFIDAVESRLKKEFEAAAL
+NTSEQ       1239
+            atgacaaagattaaggtagctaaccccattgtggaaatggacggcgatgagcaaacaaga
+            ataatctggcatttaatcagggacaagttagtcttgccctatcttgacgttgatttgaag
+            tactacgatctttccgtggagtatcgtgaccagactaatgatcaagtaactgtggattct
+            gccaccgcgactttaaagtatggagtagctgtcaaatgcgcgactattacacccgatgag
+            gcaagggtcgaggaatttcatttgaaaaagatgtggaaatctccaaatggtactattaga
+            aacattttgggtggtacagtgttcagagaacctattattatccctagaattccaaggcta
+            gttcctcaatgggagaagcccatcatcattgggagacacgcattcggcgatcagtacaaa
+            gctaccgatgtaatagtccctgaagaaggcgagttgaggcttgtttataaatccaagagc
+            ggaactcatgatgtagatctgaaggtatttgactacccagaacatggtggggttgccatg
+            atgatgtacaacactacagattcgatcgaagggtttgcgaaggcctcctttgaattggcc
+            attgaaaggaagttaccattatattccactactaagaatactattttgaagaagtatgat
+            ggtaaattcaaagatgttttcgaagccatgtatgctagaagttataaagagaagtttgaa
+            tcccttggcatctggtacgagcaccgtttaattgatgatatggtggcccaaatgttgaaa
+            tctaaaggtggatacataattgccatgaaaaattacgacggtgacgtagaatcagatatt
+            gttgcacaaggatttggctccttggggttaatgacatctgtgttgattaccccggacggt
+            aaaacctttgaaagcgaagccgcccacggtacagtaacaagacattttagacagcatcag
+            caaggaaaggagacgtcaacaaattccattgcatcaattttcgcgtggactagaggtatt
+            attcaaaggggtaaacttgataatactccagatgtagttaagttcggccaaatattggaa
+            agcgctacggtaaatacagtgcaagaagatggaatcatgactaaagatttggcgctcatt
+            ctcggtaagtctgaaagatccgcttatgtcactaccgaggagttcattgacgcggtggaa
+            tctagattgaaaaaagagttcgaggcagctgcattgtaa
+///

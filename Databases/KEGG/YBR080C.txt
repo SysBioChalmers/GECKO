@@ -1,0 +1,67 @@
+ENTRY       YBR080C           CDS       T00005
+NAME        SEC18, ANU4
+DEFINITION  Sec18p
+ORTHOLOGY   K06027  vesicle-fusing ATPase [EC:3.6.4.6]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+POSITION    II:complement(398614..400890)
+MOTIF       Pfam: AAA CDC48_N AAA_22 CDC48_2 AAA_17 AAA_19 AAA_16 TIP49 AAA_5 Mg_chelatase AAA_33 AAA_18 AAA_14 IstB_IS21 PhoH RNA_helicase NACHT AAA_2 RuvB_N DUF2075 NB-ARC ABC_tran Sigma54_activat AAA_24 Zeta_toxin KaiC ResIII AAA_10 IPT AAA_3
+DBLINKS     NCBI-GI: 398364665
+            NCBI-GeneID: 852372
+            SGD: S000000284
+            MIPS: YBR080C
+            UniProt: P18759
+STRUCTURE   PDB: 1CR5
+AASEQ       758
+            MFKIPGFGKAAANHTPPDMTNMDTRTRHLKVSNCPNNSYALANVAAVSPNDFPNNIYIII
+            DNLFVFTTRHSNDIPPGTIGFNGNQRTWGGWSLNQDVQAKAFDLFKYSGKQSYLGSIDID
+            ISFRARGKAVSTVFDQDELAKQFVRCYESQIFSPTQYLIMEFQGHFFDLKIRNVQAIDLG
+            DIEPTSAVATGIETKGILTKQTQINFFKGRDGLVNLKSSNSLRPRSNAVIRPDFKFEDLG
+            VGGLDKEFTKIFRRAFASRIFPPSVIEKLGISHVKGLLLYGPPGTGKTLIARKIGTMLNA
+            KEPKIVNGPEILSKYVGSSEENIRNLFKDAEAEYRAKGEESSLHIIIFDELDSVFKQRGS
+            RGDGTGVGDNVVNQLLAKMDGVDQLNNILVIGMTNRKDLIDSALLRPGRFEVQVEIHLPD
+            EKGRLQIFDIQTKKMRENNMMSDDVNLAELAALTKNFSGAEIEGLVKSASSFAINKTVNI
+            GKGATKLNTKDIAKLKVTREDFLNALNDVTPAFGISEEDLKTCVEGGMMLYSERVNSILK
+            NGARYVRQVRESDKSRLVSLLIHGPAGSGKTALAAEIALKSGFPFIRLISPNELSGMSES
+            AKIAYIDNTFRDAYKSPLNILVIDSLETLVDWVPIGPRFSNNILQMLKVALKRKPPQDRR
+            LLIMTTTSAYSVLQQMDILSCFDNEIAVPNMTNLDELNNVMIESNFLDDAGRVKVINELS
+            RSCPNFNVGIKKTLTNIETARHDEDPVNELVELMTQSA
+NTSEQ       2277
+            atgttcaagatacctggttttggaaaagctgctgcaaatcatactccaccagatatgaca
+            aacatggatacccgtacacgccatttaaaggtgtcaaactgtccaaataactcctatgca
+            ctcgcaaacgtagctgctgtctcaccaaatgatttccctaataacatttatattattatc
+            gataatttatttgttttcacaactagacactccaacgacattccaccgggaaccattgga
+            tttaacggtaaccagcgtacctggggtggttggtccctaaatcaagacgtgcaagcaaaa
+            gcatttgatttattcaagtattccggtaagcaatcgtatcttggttcaatagatatagat
+            atctcattcagagctagaggtaaggcggtaagcacggtattcgatcaagatgagttagcc
+            aaacaatttgttcgttgctacgaatctcaaatattttctcccacccagtaccttatcatg
+            gagttccaaggccatttctttgacttaaaaattagaaatgtccaagcaatcgatttgggt
+            gatattgaaccaacctccgctgttgcaactgggatagagacaaagggaattttgacaaaa
+            caaacacaaattaattttttcaaaggaagagatggtttagttaatttgaaatcatcaaat
+            tcattaagaccaagatcaaatgctgtgatcagaccggatttcaagtttgaagatttgggt
+            gtcggtggtttggataaagagtttactaaaattttcagaagagcgtttgcaagtcgaatc
+            tttcctccttcagttatagaaaaactgggtatttctcatgttaaaggtttgctattgtac
+            ggtcctccaggtactggtaagaccttaattgcaagaaagattggtacaatgctgaatgcc
+            aaagagcccaaaatcgtcaatggtccagaaattttgagtaagtacgttggttcttcagaa
+            gaaaacattcgtaatttatttaaggatgcagaagcagaatatagggccaagggtgaggaa
+            tcttccttacatattattattttcgatgagctggattctgttttcaagcagagaggttca
+            agaggtgatggtaccggtgtaggggacaatgtagttaatcaattgttagctaaaatggat
+            ggtgttgatcaattgaataatattttggttattggtatgaccaatcgtaaagatttaata
+            gacagtgctcttttgcgtccaggtagatttgaagtccaagttgaaattcatttacccgat
+            gaaaaaggaagactccaaattttcgacattcagacgaagaaaatgagggaaaataatatg
+            atgagcgacgatgttaacttagctgagttagctgcgttaacaaaaaacttctctggtgct
+            gagattgagggtttagtgaagagtgcaagttcttttgcaatcaacaaaaccgtcaacatc
+            gggaaaggtgccacaaaacttaacactaaagatatagcaaaacttaaagtaacaagagaa
+            gactttttaaatgcactcaacgatgttactcccgcttttgggattagtgaagaagatttg
+            aaaacatgtgtggaaggtggaatgatgctttattccgaacgagttaactcaatattgaag
+            aacggagcccgttacgtccgccaagttcgcgagagtgataaatccaggttagtatctcta
+            ttaatccacggccctgcagggtccggtaaaacagctttagccgctgaaattgctttaaaa
+            tctggattcccattcatcaggttaatttctcccaacgagttgtcaggcatgtcagaaagc
+            gcaaaaattgcctatattgataacactttcagagatgcgtataaatctccactaaacatt
+            cttgttattgattcgttagagactctagttgattgggtaccaattggtccaagattctct
+            aataacattttacaaatgctaaaggttgcattgaagcgtaaacccccacaagaccgtcgt
+            ttattgatcatgactactacatcagcttattcggtacttcaacaaatggatatcttgagt
+            tgcttcgacaatgagatagcagttccaaatatgaccaatttagatgaattgaacaacgtc
+            atgatagaatcaaactttcttgacgatgctggtagagttaaagttattaatgaattatca
+            aggagctgtcctaacttcaatgtcggtattaaaaagaccttgaccaacattgaaaccgca
+            aggcacgatgaagatcccgtgaacgagcttgttgagttgatgacccaatccgcataa
+///

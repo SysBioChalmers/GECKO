@@ -1,0 +1,28 @@
+ENTRY       YDR363W-A         CDS       T00005
+NAME        SEM1, DSS1, HOD1
+DEFINITION  proteasome regulatory particle lid subunit SEM1
+ORTHOLOGY   K10881  26 proteasome complex subunit DSS1
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03050  Proteasome
+            sce03440  Homologous recombination
+MODULE      sce_M00341  Proteasome, 19S regulatory particle (PA700)
+CLASS       Genetic Information Processing; Folding, sorting and degradation; Proteasome [PATH:sce03050]
+            Genetic Information Processing; Replication and repair; Homologous recombination [PATH:sce03440]
+POSITION    IV:1202128..1202397
+MOTIF       Pfam: DSS1_SEM1 Cwf_Cwc_15
+DBLINKS     NCBI-GI: 398366523
+            NCBI-GeneID: 851967
+            SGD: S000007235
+            MIPS: YDR363W-A
+            UniProt: O94742
+STRUCTURE   PDB: 3T5V
+AASEQ       89
+            MSTDVAAAQAQSKIDLTKKKNEEINKKSLEEDDEFEDFPIDTWANGETIKSNAVTQTNIW
+            EENWDDVEVDDDFTNELKAELDRYKRENQ
+NTSEQ       270
+            atgagtacggacgttgctgctgcacaagcccaaagtaaaatagatttaacaaaaaaaaaa
+            aatgaggaaataaataagaagtctctagaggaagacgatgaatttgaagatttccccatt
+            gacacatgggccaatggtgaaacaataaaaagcaatgctgtaacgcaaacaaacatatgg
+            gaagaaaactgggatgatgttgaagttgacgacgatttcaccaatgaattgaaggccgaa
+            ttggatagatacaaacgggaaaatcagtga
+///

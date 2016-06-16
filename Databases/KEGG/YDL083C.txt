@@ -1,0 +1,29 @@
+ENTRY       YDL083C           CDS       T00005
+NAME        RPS16B
+DEFINITION  ribosomal 40S subunit protein S16B
+ORTHOLOGY   K02960  small subunit ribosomal protein S16e
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03010  Ribosome
+CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+POSITION    IV:complement(join(306926..307333,307766..307789))
+MOTIF       Pfam: Ribosomal_S9
+DBLINKS     NCBI-GI: 6320120
+            NCBI-GeneID: 851476
+            SGD: S000002241
+            MIPS: YDL083C
+            UniProt: P0CX51 P0CX52
+STRUCTURE   PDB: 3U5C 3U5G 3O2Z 3O30 4BYL 4BYT 3IZB 1S1H
+AASEQ       143
+            MSAVPSVQTFGKKKSATAVAHVKAGKGLIKVNGSPITLVEPEILRFKVYEPLLLVGLDKF
+            SNIDIRVRVTGGGHVSQVYAIRQAIAKGLVAYHQKYVDEQSKNELKKAFTSYDRTLLIAD
+            SRRPEPKKFGGKGARSRFQKSYR
+NTSEQ       432
+            atgtctgccgtcccaagtgtccaaacttttggtaagaagaaatcagctaccgctgttgcc
+            cacgtcaaggccggtaagggtttgattaaggtcaacggttctccaatcactttggttgaa
+            ccagaaatcctaagattcaaggtctacgaaccattattgttggttggtttggacaagttc
+            tccaacatcgatatcagagttagagtcactggtggtggtcatgtttctcaagtctacgcc
+            atcagacaagctattgctaagggtttagtcgcttaccaccaaaagtacgttgacgaacaa
+            tccaagaacgaattgaagaaggccttcacctcttacgacagaactttgttgatcgctgat
+            tctagaagaccagaaccaaagaaattcggtggtaagggtgctcgttctagattccaaaaa
+            tcttaccgttaa
+///

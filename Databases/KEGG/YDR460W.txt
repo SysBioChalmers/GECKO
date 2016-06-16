@@ -1,0 +1,43 @@
+ENTRY       YDR460W           CDS       T00005
+NAME        TFB3, RIG2
+DEFINITION  Tfb3p
+ORTHOLOGY   K10842  CDK-activating kinase assembly factor MAT1
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03022  Basal transcription factors
+            sce03420  Nucleotide excision repair
+MODULE      sce_M00290  Holo-TFIIH complex
+CLASS       Genetic Information Processing; Transcription; Basal transcription factors [PATH:sce03022]
+            Genetic Information Processing; Replication and repair; Nucleotide excision repair [PATH:sce03420]
+POSITION    IV:1383811..1384776
+MOTIF       Pfam: MAT1 zf-C3HC4_3 zf-C3HC4_2 zf-C3HC4 zf-RING_2 zf-RING_5 HsbA zf-piccolo GvpK Mitovir_RNA_pol zf-RING_UBOX
+DBLINKS     NCBI-GI: 398366615
+            NCBI-GeneID: 852071
+            SGD: S000002868
+            MIPS: YDR460W
+            UniProt: Q03290
+AASEQ       321
+            MLMDEYEENKDMCPICKTDRYLSPDVKFLVNPECYHRICESCVDRIFSLGPAQCPYKGCD
+            KILRKNKFKTQIFDDVEVEKEVDIRKRVFNVFNKTIDDFNGDLVEYNKYLEEVEDIIYKL
+            DHGIDVAKTEEKLRTYEELNKQLIMNNLERSRTEIESFEQRQKFEKEMKLKKRLLERQIE
+            EEERMNKEWTKKEIVNRLSTTTQDINETIEGVKNTVKLKKSSARRKLEELNRVLKNNPYF
+            NSNVNVQNSRLKDAVPFTPFNGDREAHPRFTLKGSVYNDPFIKDLEHRKEFIASGFNTNY
+            AYERVLTEAFMGLGCVISEEL
+NTSEQ       966
+            atgcttatggatgagtatgaggaaaacaaggacatgtgtccgatctgtaagacagatcga
+            tacctttctccggatgtgaaatttttggtgaatcctgaatgctatcacaggatctgtgag
+            tcgtgtgttgatcgaatatttagtctcggtcctgcccagtgtccatataaagggtgtgac
+            aagattcttagaaagaataagttcaagacccaaatattcgatgatgtggaagttgagaaa
+            gaagttgacatcaggaagagagtgttcaatgtgttcaacaaaactatcgatgacttcaat
+            ggtgaccttgtggaatataacaaatatttggaagaggtggaagacattatatacaaacta
+            gatcacgggatcgatgtggctaagaccgaggagaaactacgcacctacgaggaattaaac
+            aagcaactgattatgaataacttggagagaagcagaacagagatagaaagtttcgaacag
+            agacaaaaattcgaaaaggagatgaaattgaagaagcgactgttggaaagacaaatcgaa
+            gaggaggaaagaatgaacaaagagtggacaaagaaagaaatcgtcaaccggttgagtacg
+            accacccaggatatcaatgaaacaatcgaaggcgttaaaaatacggttaaattgaaaaaa
+            tcgtccgctagaaggaaattggaagaactaaatagagttctgaaaaacaatccatatttc
+            aattcaaatgtgaacgtacagaattcgagactcaaagatgctgtaccgttcacgccgttt
+            aacggtgatagagaagcacacccaaggtttacgttgaaaggttcagtatacaatgaccca
+            ttcatcaaagatcttgagcacaggaaagaatttattgcgtctgggttcaacactaattat
+            gcgtacgaaagggtgttgacagaggcatttatgggcttaggatgtgttatatccgaggag
+            ctttaa
+///

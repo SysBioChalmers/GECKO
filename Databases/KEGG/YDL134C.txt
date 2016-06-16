@@ -1,0 +1,47 @@
+ENTRY       YDL134C           CDS       T00005
+NAME        PPH21, PPH1
+DEFINITION  Pph21p (EC:3.1.3.16)
+ORTHOLOGY   K04382  serine/threonine-protein phosphatase 2A catalytic subunit [EC:3.1.3.16]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03015  mRNA surveillance pathway
+            sce04111  Cell cycle - yeast
+            sce04113  Meiosis - yeast
+CLASS       Genetic Information Processing; Translation; mRNA surveillance pathway [PATH:sce03015]
+            Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
+            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+POSITION    IV:complement(219662..220771)
+MOTIF       Pfam: Metallophos
+DBLINKS     NCBI-GI: 6320067
+            NCBI-GeneID: 851421
+            SGD: S000002292
+            MIPS: YDL134C
+            UniProt: P23594
+AASEQ       369
+            MDTDLDVPMQDAVTEQLTPTVSEDMDLNNNSSDNNAEEFSVDDLKPGSSGIADHKSSKPL
+            ELNNTNINQLDQWIEHLSKCEPLSEDDVARLCKMAVDVLQFEENVKPINVPVTICGDVHG
+            QFHDLLELFKIGGPCPDTNYLFMGDYVDRGYYSVETVSYLVAMKVRYPHRITILRGNHES
+            RQITQVYGFYDECLRKYGSANVWKMFTDLFDYFPITALVDNKIFCLHGGLSPMIETIDQV
+            RELNRIQEVPHEGPMCDLLWSDPDDRGGWGISPRGAGFTFGQDVSEQFNHTNDLSLIARA
+            HQLVMEGYAWSHQQNVVTIFSAPNYCYRCGNQAAIMEVDENHNRQFLQYDPSVRPGEPSV
+            SRKTPDYFL
+NTSEQ       1110
+            atggatacagatttagatgtgcctatgcaagatgctgttaccgaacagctgactcccaca
+            gtatctgaagatatggatctcaacaacaattcatcggataataatgcagaagaattctcg
+            gttgatgatttaaaacctggttcctcgggcatagcagatcacaaatcttccaaaccacta
+            gaactgaataacacaaatataaatcagcttgaccaatggattgagcatttgagtaaatgc
+            gagccactatcagaagacgatgtagcacgactatgtaaaatggcggtggacgtgttgcag
+            ttcgaggagaatgttaaaccaattaacgtgcctgttaccatttgtggtgacgtacacggt
+            caattccatgacttgttagaactttttaagattggtggcccttgtcctgacaccaattac
+            cttttcatgggtgattacgtggatagaggatattattctgttgaaactgtatcttaccta
+            gttgccatgaaagtcagatacccacatagaattacgatactgagaggcaatcacgagtct
+            aggcagattacccaagtatacgggttttatgatgaatgtttgagaaagtacggcagtgca
+            aacgtgtggaaaatgttcacagatcttttcgattattttcctataaccgcattagtagat
+            aataaaattttctgtctgcatggaggactttcccccatgatagaaaccatagatcaggtg
+            agagagttgaacagaatacaggaagtgcctcatgaaggtcctatgtgtgaccttctatgg
+            tcagaccctgacgatagaggcggatggggaatcagtcccagaggtgcaggcttcactttt
+            ggacaagatgtcagtgagcaattcaatcacactaatgatctatcactaatagcaagagct
+            caccaattggtaatggaaggctatgcttggtctcaccagcaaaatgttgtcaccattttc
+            agtgctcctaattactgctacagatgtggtaatcaagcagctatcatggaagtggacgag
+            aatcataatagacaattcttacagtacgacccatccgtaagaccaggtgaacctagcgtc
+            agcagaaagacgccagattactttttatga
+///

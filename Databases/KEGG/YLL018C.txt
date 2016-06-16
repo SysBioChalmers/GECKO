@@ -1,0 +1,57 @@
+ENTRY       YLL018C           CDS       T00005
+NAME        DPS1
+DEFINITION  aspartate--tRNA ligase DPS1 (EC:6.1.1.12)
+ORTHOLOGY   K01876  aspartyl-tRNA synthetase [EC:6.1.1.12]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00970  Aminoacyl-tRNA biosynthesis
+MODULE      sce_M00359  Aminoacyl-tRNA biosynthesis, eukaryotes
+CLASS       Genetic Information Processing; Translation; Aminoacyl-tRNA biosynthesis [PATH:sce00970]
+POSITION    XII:complement(109902..111575)
+MOTIF       Pfam: tRNA-synt_2 tRNA_anti-codon NARP1
+DBLINKS     NCBI-GI: 6323011
+            NCBI-GeneID: 850643
+            SGD: S000003941
+            MIPS: YLL018C
+            UniProt: P04802
+STRUCTURE   PDB: 1EOV 1ASY 1ASZ
+AASEQ       557
+            MSQDENIVKAVEESAEPAQVILGEDGKPLSKKALKKLQKEQEKQRKKEERALQLEAEREA
+            REKKAAAEDTAKDNYGKLPLIQSRDSDRTGQKRVKFVDLDEAKDSDKEVLFRARVHNTRQ
+            QGATLAFLTLRQQASLIQGLVKANKEGTISKNMVKWAGSLNLESIVLVRGIVKKVDEPIK
+            SATVQNLEIHITKIYTISETPEALPILLEDASRSEAEAEAAGLPVVNLDTRLDYRVIDLR
+            TVTNQAIFRIQAGVCELFREYLATKKFTEVHTPKLLGAPSEGGSSVFEVTYFKGKAYLAQ
+            SPQFNKQQLIVADFERVYEIGPVFRAENSNTHRHMTEFTGLDMEMAFEEHYHEVLDTLSE
+            LFVFIFSELPKRFAHEIELVRKQYPVEEFKLPKDGKMVRLTYKEGIEMLRAAGKEIGDFE
+            DLSTENEKFLGKLVRDKYDTDFYILDKFPLEIRPFYTMPDPANPKYSNSYDFFMRGEEIL
+            SGAQRIHDHALLQERMKAHGLSPEDPGLKDYCDGFSYGCPPHAGGGIGLERVVMFYLDLK
+            NIRRASLFPRDPKRLRP
+NTSEQ       1674
+            atgtctcaagacgaaaatattgtcaaagctgttgaagaatccgcagaacctgctcaagtt
+            attcttggggaagatggtaagccattgtccaagaaggccttgaagaaattgcagaaagag
+            caagagaaacagagaaagaaggaggaaagagctctccagttggaagctgaaagagaagcc
+            cgtgaaaagaaagccgctgccgaagacaccgcaaaggacaactacggtaagttgccattg
+            atccagtctcgtgactctgacagaactggtcagaagcgtgtcaagtttgttgacttggat
+            gaggctaaggatagcgacaaagaagtcctcttcagggcaagagtccacaacaccagacaa
+            caaggtgcaacattggcctttttaactttaaggcaacaagcttccttgatccaaggtcta
+            gtaaaggccaacaaggaaggtaccatcagcaaaaacatggtcaaatgggctggttcattg
+            aatttggagtccattgtccttgtcagaggtattgtcaagaaggtagatgagccaatcaag
+            tctgctactgtgcaaaacctggaaattcacattaccaagatttataccatttccgagact
+            ccagaagcattgccaatccttttggaagatgcctcccgttccgaagctgaagctgaagct
+            gcaggtttgcccgtggtcaacttggacaccagattagactaccgtgtcattgacttgaga
+            accgtcaccaaccaagctattttcaggattcaagctggtgtttgtgagttgttcagagaa
+            tatttggccacaaagaaatttaccgaagtacacacaccaaaactgttgggtgcaccaagt
+            gaaggtggttccagtgtgtttgaggtgacatacttcaaagggaaggcctacctagctcaa
+            tctccacaatttaacaagcaacaattgattgtggccgactttgaaagagtttacgaaatc
+            gggcctgtgttcagggctgaaaactccaacacccaccgtcacatgaccgagtttactggt
+            ttggacatggaaatggctttcgaagaacattaccacgaagttttggacacgttgagtgag
+            ttgtttgtgtttattttcagtgaattgcccaagagatttgctcatgaaattgagttggta
+            cgtaagcaataccctgttgaagaattcaagttacctaaagatggtaagatggttcgtcta
+            acatacaaagaaggtattgaaatgctaagagctgccggtaaggaaattggtgattttgaa
+            gacttgagtaccgaaaatgaaaagttcttgggtaagttggttcgcgacaaatacgacacc
+            gacttttacatcctagacaagttccccttggagatccgtcccttctacacaatgcccgac
+            ccagccaaccctaagtattctaactcgtatgatttcttcatgaggggtgaagaaatcttg
+            tccggtgcacaacgtatccacgaccatgctctattacaagaaaggatgaaagcccatggt
+            ttgtctcctgaggacccaggtctaaaggactactgtgacggcttcagctatgggtgtcct
+            ccacacgccggtggtggtatcggtttggaaagagttgttatgttctatttggatttgaaa
+            aatatcagaagagcttcattgttcccaagagatccaaagagattaagaccatga
+///

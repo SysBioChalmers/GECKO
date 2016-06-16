@@ -1,0 +1,35 @@
+ENTRY       YKL024C           CDS       T00005
+NAME        URA6, SOC8
+DEFINITION  bifunctional uridylate/adenylate kinase (EC:2.7.4.14)
+ORTHOLOGY   K13800  UMP-CMP kinase [EC:2.7.4.- 2.7.4.14]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00240  Pyrimidine metabolism
+            sce01100  Metabolic pathways
+MODULE      sce_M00052  Pyrimidine ribonucleotide biosynthesis, UMP => UDP/UTP,CDP/CTP
+CLASS       Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
+POSITION    XI:complement(392526..393140)
+MOTIF       Pfam: ADK AAA_18 AAA_17 AAA_33 Thymidylate_kin Zeta_toxin AAA
+DBLINKS     NCBI-GI: 398364671
+            NCBI-GeneID: 853844
+            SGD: S000001507
+            MIPS: YKL024C
+            UniProt: P15700
+STRUCTURE   PDB: 1UKZ 1UKY
+AASEQ       204
+            MTAATTSQPAFSPDQVSVIFVLGGPGAGKGTQCEKLVKDYSFVHLSAGDLLRAEQGRAGS
+            QYGELIKNCIKEGQIVPQEITLALLRNAISDNVKANKHKFLIDGFPRKMDQAISFERDIV
+            ESKFILFFDCPEDIMLERLLERGKTSGRSDDNIESIKKRFNTFKETSMPVIEYFETKSKV
+            VRVRCDRSVEDVYKDVQDAIRDSL
+NTSEQ       615
+            atgacagctgccactacatcacagccagctttctcgcctgaccaagtttccgtgatcttc
+            gttctaggaggacccggtgcaggcaagggtactcagtgtgaaaaactagttaaggactat
+            tcatttgtccatttgtcagccggagaccttctacgtgctgagcagggcagagcaggttcc
+            caatatggggaattgatcaagaactgcatcaaagagggccagattgtccctcaagagatt
+            actttggcgcttttacgcaacgctatttccgataacgtcaaggcgaacaagcataagttc
+            ttaattgacggatttcctaggaagatggatcaagccatttcctttgaaagagacatcgtt
+            gaaagcaaattcatcctgttctttgactgccctgaagatatcatgttagagagactattg
+            gagcgtggcaagaccagtggtagaagcgatgacaacattgagtccattaagaagagattt
+            aacactttcaaggagactagtatgcccgtcatcgagtactttgaaaccaaatcgaaagtc
+            gtccgtgttcgttgcgacagatccgtcgaagatgtgtacaaagacgtccaagacgctatc
+            cgtgatagcttatag
+///

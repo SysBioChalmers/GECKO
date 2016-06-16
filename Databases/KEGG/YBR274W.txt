@@ -1,0 +1,55 @@
+ENTRY       YBR274W           CDS       T00005
+NAME        CHK1
+DEFINITION  Chk1p (EC:2.7.11.1)
+ORTHOLOGY   K02216  serine/threonine-protein kinase Chk1 [EC:2.7.11.1]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04111  Cell cycle - yeast
+            sce04113  Meiosis - yeast
+CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
+            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+POSITION    II:749594..751177
+MOTIF       Pfam: Pkinase Pkinase_Tyr Kinase-like Seadorna_VP7
+DBLINKS     NCBI-GI: 6319751
+            NCBI-GeneID: 852577
+            SGD: S000000478
+            MIPS: YBR274W
+            UniProt: P38147
+AASEQ       527
+            MSLSQVSPLPHIKDVVLGDTVGQGAFACVKNAHLQMDPSIILAVKFIHVPTCKKMGLSDK
+            DITKEVVLQSKCSKHPNVLRLIDCNVSKEYMWIILEMADGGDLFDKIEPDVGVDSDVAQF
+            YFQQLVSAINYLHVECGVAHRDIKPENILLDKNGNLKLADFGLASQFRRKDGTLRVSMDQ
+            RGSPPYMAPEVLYSEEGYYADRTDIWSIGILLFVLLTGQTPWELPSLENEDFVFFIENDG
+            NLNWGPWSKIEFTHLNLLRKILQPDPNKRVTLKALKLHPWVLRRASFSGDDGLCNDPELL
+            AKKLFSHLKVSLSNENYLKFTQDTNSNNRYISTQPIGNELAELEHDSMHFQTVSNTQRAF
+            TSYDSNTNYNSGTGMTQEAKWTQFISYDIAALQFHSDENDCNELVKRHLQFNPNKLTKFY
+            TLQPMDVLLPILEKALNLSQIRVKPDLFANFERLCELLGYDNVFPLIINIKTKSNGGYQL
+            CGSISIIKIEEELKSVGFERKTGDPLEWRRLFKKISTICRDIILIPN
+NTSEQ       1584
+            atgagtctctcgcaggtgtcacctttaccccatatcaaggatgttgttttaggagataca
+            gtaggccaaggcgcattcgcctgcgttaaaaatgctcatcttcaaatggatccctccatt
+            attctagctgttaaattcattcatgttcccacttgcaaaaaaatgggactcagtgacaag
+            gatatcacaaaagaggttgttttgcaatcgaagtgttctaagcatcctaatgttttgaga
+            cttatcgattgtaatgtctctaaagaatatatgtggataattctggagatggcagatggt
+            ggtgatctatttgataagattgagcctgacgttggagttgattccgacgtggcccaattt
+            tactttcaacagctcgttagtgctattaattatctgcatgtagaatgtggagttgctcac
+            agagacatcaagcctgaaaacatcttactcgataagaacggaaatctgaagctagctgat
+            tttgggctcgcctctcaatttaggaggaaagatggtacattacgtgtatccatggatcaa
+            aggggttctccaccctacatggctcctgaagtattatattctgaagagggttattacgca
+            gatcgaacagatatatggtctattggcatcctcttgttcgtattgttgactggtcaaacg
+            ccttgggaattaccttcattagagaacgaagatttcgtcttttttattgaaaatgatgga
+            aatttaaactggggaccctggtcaaagatagaatttactcacttgaacctactccgaaaa
+            attttacaacctgacccaaataagagggtgacattgaaggctttaaagttacatccttgg
+            gtattacgtcgagcttcattttctggggatgatggtctctgtaatgaccctgaactcttg
+            gctaagaaactgttttctcacttaaaagtctcactgagtaacgaaaattatttgaaattc
+            actcaagatacaaactctaataataggtacatttctactcagccaattggtaacgaattg
+            gctgagcttgaacacgactcaatgcatttccagacagtttcgaatacacaacgtgcattt
+            acctcgtatgattcaaatacgaactataatagcggaacaggtatgacacaagaggctaag
+            tggacgcaattcataagctatgatatcgctgccttacagtttcattctgatgaaaatgat
+            tgtaatgaattagtaaaacgacatttacaatttaatccgaataaacttaccaagttctac
+            acgttgcaacctatggatgttttgttaccgattttggagaaagccttgaatttatcacaa
+            attagagtaaaacccgacctttttgcgaattttgaaagattgtgcgaattattgggttat
+            gataacgttttcccacttattataaatattaaaaccaaaagtaatgggggttatcaatta
+            tgcggtagcatttccatcataaagattgaagaagagttgaaaagtgtcggatttgaaaga
+            aaaactggtgatcctttagaatggagaagattgttcaagaaaatttcaactatctgtagg
+            gatattatcctaattcccaactga
+///

@@ -1,0 +1,29 @@
+ENTRY       YKR094C           CDS       T00005
+NAME        RPL40B, CEP52B, UB12, UBI2
+DEFINITION  ubiquitin-ribosomal 60S subunit protein L40B fusion protein
+ORTHOLOGY   K02927  large subunit ribosomal protein L40e
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03010  Ribosome
+CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+POSITION    XI:complement(join(617996..618374,618743..618750))
+MOTIF       Pfam: ubiquitin Ribosomal_L40e Rad60-SLD Ubiquitin_2 Telomere_Sde2 Rad60-SLD_2 DUF2407 DUF2870 Fer2_3
+DBLINKS     NCBI-GI: 398365469
+            NCBI-GeneID: 853969
+            SGD: S000001802
+            MIPS: YKR094C
+            UniProt: P0CH08 P0CH09
+STRUCTURE   PDB: 3OLM 4HCN 3CMM 3U5E 3U5I 4BYN 4BYU 4B6A 3IZS 2L00 2KDI
+                 2JWZ 2JT4 2G3Q 1WR1 1Q0W 1OTR
+AASEQ       128
+            MQIFVKTLTGKTITLEVESSDTIDNVKSKIQDKEGIPPDQQRLIFAGKQLEDGRTLSDYN
+            IQKESTLHLVLRLRGGIIEPSLKALASKYNCDKSVCRKCYARLPPRATNCRKRKCGHTNQ
+            LRPKKKLK
+NTSEQ       387
+            atgcaaatcttcgttaagactttgactggtaagaccatcactttggaagttgaatcttct
+            gacaccattgacaatgtcaagtccaagatccaagacaaggaaggtatcccacctgaccaa
+            caaagattgatctttgctggtaagcaattggaagacggtagaactctatctgactacaac
+            atccaaaaggaatccactttacatttggtcttgagattaagaggtggtatcattgaacca
+            tctttgaaagccttggcttccaaatacaactgtgacaaatctgtttgtcgtaaatgttac
+            gccagattaccaccaagagctaccaactgtagaaagagaaagtgtggtcacaccaaccaa
+            ttgcgtccaaagaagaagttgaaataa
+///

@@ -1,0 +1,61 @@
+ENTRY       YKL035W           CDS       T00005
+NAME        UGP1
+DEFINITION  UTP glucose-1-phosphate uridylyltransferase (EC:2.7.7.9)
+ORTHOLOGY   K00963  UTP--glucose-1-phosphate uridylyltransferase [EC:2.7.7.9]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00040  Pentose and glucuronate interconversions
+            sce00052  Galactose metabolism
+            sce00500  Starch and sucrose metabolism
+            sce00520  Amino sugar and nucleotide sugar metabolism
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+MODULE      sce_M00549  Nucleotide sugar biosynthesis, glucose => UDP-glucose
+CLASS       Metabolism; Carbohydrate metabolism; Pentose and glucuronate interconversions [PATH:sce00040]
+            Metabolism; Carbohydrate metabolism; Galactose metabolism [PATH:sce00052]
+            Metabolism; Carbohydrate metabolism; Starch and sucrose metabolism [PATH:sce00500]
+            Metabolism; Carbohydrate metabolism; Amino sugar and nucleotide sugar metabolism [PATH:sce00520]
+POSITION    XI:369891..371390
+MOTIF       Pfam: UDPGP DUF4301
+DBLINKS     NCBI-GI: 398364619
+            NCBI-GeneID: 853830
+            SGD: S000001518
+            MIPS: YKL035W
+            UniProt: P32861
+STRUCTURE   PDB: 2I5K
+AASEQ       499
+            MSTKKHTKTHSTYAFESNTNSVAASQMRNALNKLADSSKLDDAARAKFENELDSFFTLFR
+            RYLVEKSSRTTLEWDKIKSPNPDEVVKYEIISQQPENVSNLSKLAVLKLNGGLGTSMGCV
+            GPKSVIEVREGNTFLDLSVRQIEYLNRQYDSDVPLLLMNSFNTDKDTEHLIKKYSANRIR
+            IRSFNQSRFPRVYKDSLLPVPTEYDSPLDAWYPPGHGDLFESLHVSGELDALIAQGREIL
+            FVSNGDNLGATVDLKILNHMIETGAEYIMELTDKTRADVKGGTLISYDGQVRLLEVAQVP
+            KEHIDEFKNIRKFTNFNTNNLWINLKAVKRLIESSNLEMEIIPNQKTITRDGHEINVLQL
+            ETACGAAIRHFDGAHGVVVPRSRFLPVKTCSDLLLVKSDLFRLEHGSLKLDPSRFGPNPL
+            IKLGSHFKKVSGFNARIPHIPKIVELDHLTITGNVFLGKDVTLRGTVIIVCSDGHKIDIP
+            NGSILENVVVTGNLQILEH
+NTSEQ       1500
+            atgtccactaagaagcacaccaaaacacattccacttatgcattcgagagcaacacaaac
+            agcgttgctgcctcacaaatgagaaacgccttaaacaagttggcggactctagtaaactt
+            gacgatgctgctcgcgctaagtttgagaacgaactggattcgtttttcacgcttttcagg
+            agatatttggtagagaagtcttctagaaccaccttggaatgggacaagatcaagtctccc
+            aacccggatgaagtggttaagtatgaaattatttctcagcagcccgagaatgtctcaaac
+            ctttccaaattggctgttttgaagttgaacggtgggctgggtacctccatgggctgcgtt
+            ggccctaaatctgttattgaagtgagagagggaaacacctttttggatttgtctgttcgt
+            caaattgaatacttgaacagacagtacgatagcgacgtgccattgttattgatgaattct
+            ttcaacactgacaaggatacggaacacttgattaagaagtattccgctaacagaatcaga
+            atcagatctttcaatcaatccaggttcccaagagtctacaaggattctttattgcctgtc
+            cccaccgaatacgattctccactggatgcttggtatccaccaggtcacggtgatttgttt
+            gaatctttacacgtatctggtgaactggatgccttaattgcccaaggaagagaaatatta
+            tttgtttctaacggtgacaacttgggtgctaccgtcgacttaaaaattttaaaccacatg
+            atcgagactggtgccgaatatataatggaattgactgataagaccagagccgatgttaaa
+            ggtggtactttgatttcttacgatggtcaagtccgtttattggaagtcgcccaagttcca
+            aaagaacacattgacgaattcaaaaatatcagaaagtttaccaacttcaacacgaataac
+            ttatggatcaatctgaaagcagtaaagaggttgatcgaatcgagcaatttggagatggaa
+            atcattccaaaccaaaaaactataacaagagacggtcatgaaattaatgtcttacaatta
+            gaaaccgcttgtggtgctgctatcaggcattttgatggtgctcacggtgttgtcgttcca
+            agatcaagattcttgcctgtcaagacctgttccgatttgttgctggttaaatcagatcta
+            ttccgtctggaacacggttctttgaagttagacccatcccgttttggtccaaacccatta
+            atcaagttgggctcgcatttcaaaaaggtttctggttttaacgcaagaatccctcacatc
+            ccaaaaatcgtcgagctagatcatttgaccatcactggtaacgtctttttaggtaaagat
+            gtcactttgaggggtactgtcatcatcgtttgctccgacggtcataaaatcgatattcca
+            aacggctccatattggaaaatgttgtcgttactggtaatttgcaaatcttggaacattga
+///

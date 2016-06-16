@@ -1,0 +1,76 @@
+ENTRY       YCL030C           CDS       T00005
+NAME        HIS4
+DEFINITION  trifunctional histidinol dehydrogenase/phosphoribosyl-AMP cyclohydrolase/phosphoribosyl-ATP diphosphatase (EC:3.6.1.31 3.5.4.19 1.1.1.23)
+ORTHOLOGY   K14152  phosphoribosyl-ATP pyrophosphohydrolase / phosphoribosyl-AMP cyclohydrolase / histidinol dehydrogenase [EC:3.6.1.31 3.5.4.19 1.1.1.23]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00340  Histidine metabolism
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01230  Biosynthesis of amino acids
+MODULE      sce_M00026  Histidine biosynthesis, PRPP => histidine
+CLASS       Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
+            Metabolism; Amino acid metabolism; Histidine metabolism [PATH:sce00340]
+POSITION    III:complement(65934..68333)
+MOTIF       Pfam: Histidinol_dh PRA-CH PRA-PH
+DBLINKS     NCBI-GI: 10383761
+            NCBI-GeneID: 850327
+            SGD: S000000535
+            MIPS: YCL030C
+            UniProt: P00815
+AASEQ       799
+            MVLPILPLIDDLASWNSKKEYVSLVGQVLLDGSSLSNEEILQFSKEEEVPLVALSLPSGK
+            FSDDEIIAFLNNGVSSLFIASQDAKTAEHLVEQLNVPKERVVVEENGVFSNQFMVKQKFS
+            QDKIVSIKKLSKDMLTKEVLGEVRTDRPDGLYTTLVVDQYERCLGLVYSSKKSIAKAIDL
+            GRGVYYSRSRNEIWIKGETSGNGQKLLQISTDCDSDALKFIVEQENVGFCHLETMSCFGE
+            FKHGLVGLESLLKQRLQDAPEESYTRRLFNDSALLDAKIKEEAEELTEAKGKKELSWEAA
+            DLFYFALAKLVANDVSLKDVENNLNMKHLKVTRRKGDAKPKFVGQPKAEEEKLTGPIHLD
+            VVKASDKVGVQKALSRPIQKTSEIMHLVNPIIENVRDKGNSALLEYTEKFDGVKLSNPVL
+            NAPFPEEYFEGLTEEMKEALDLSIENVRKFHAAQLPTETLEVETQPGVLCSRFPRPIEKV
+            GLYIPGGTAILPSTALMLGVPAQVAQCKEIVFASPPRKSDGKVSPEVVYVAEKVGASKIV
+            LAGGAQAVAAMAYGTETIPKVDKILGPGNQFVTAAKMYVQNDTQALCSIDMPAGPSEVLV
+            IADEDADVDFVASDLLSQAEHGIDSQVILVGVNLSEKKIQEIQDAVHNQALQLPRVDIVR
+            KCIAHSTIVLCDGYEEALEMSNQYAPEHLILQIANANDYVKLVDNAGSVFVGAYTPESCG
+            DYSSGTNHTLPTYGYARQYSGANTATFQKFITAQNITPEGLENIGRAVMCVAKKEGLDGH
+            RNAVKIRMSKLGLIPKDFQ
+NTSEQ       2400
+            atggttttgccgattctaccgttaattgatgatctggcctcatggaatagtaagaaggaa
+            tacgtttcacttgttggtcaggtacttttggatggctcgagcctgagtaatgaagagatt
+            ctccagttctccaaagaggaagaagttccattggtggctttgtccttgccaagtggtaaa
+            ttcagcgatgatgaaatcattgccttcttgaacaacggagtttcttctctgttcattgct
+            agccaagatgctaaaacagccgaacacttggttgaacaattgaatgtaccaaaggagcgt
+            gttgttgtggaagagaacggtgttttctccaatcaattcatggtaaaacaaaaattctcg
+            caagataaaattgtgtccataaagaaattaagcaaggatatgttgaccaaagaagtgctt
+            ggtgaagtacgtacagaccgtcctgacggtttatataccaccctagttgtcgaccaatat
+            gagcgttgtctagggttggtgtattcttcgaagaaatctatagcaaaggccatcgatttg
+            ggtcgtggcgtttattattctcgttctaggaatgaaatctggatcaagggtgaaacttct
+            ggcaatggccaaaagcttttacaaatctctactgactgtgattcggatgccttaaagttt
+            atcgttgaacaagaaaacgttggattttgccacttggagaccatgtcttgctttggtgaa
+            ttcaagcatggtttggtggggctagaatctttactaaaacaaaggctacaggacgctcca
+            gaggaatcttatactagaagactattcaacgactctgcattgttagatgccaagatcaag
+            gaagaagctgaagaactgactgaggcaaagggtaagaaggagctttcttgggaggctgcc
+            gatttgttctactttgcactggccaaattagtggccaacgatgtttcattgaaggacgtc
+            gagaataatctgaatatgaagcatctgaaggttacaagacggaaaggtgatgctaagcca
+            aagtttgttggacaaccaaaggctgaagaagaaaaactgaccggtccaattcacttggac
+            gtggtgaaggcttccgacaaagttggtgtgcagaaggctttgagcagaccaatccaaaag
+            acttctgaaattatgcatttagtcaatccgatcatcgaaaatgttagagacaaaggtaac
+            tctgcccttttggagtacacagaaaagtttgatggtgtaaaattatccaatcctgttctt
+            aatgctccattcccagaagaatactttgaaggtttaaccgaggaaatgaaggaagctttg
+            gacctttcaattgaaaacgtccgcaaattccatgctgctcaattgccaacagagactctt
+            gaagttgaaacccaacctggtgtcttgtgttccagattccctcgtcctattgaaaaagtt
+            ggtttgtatatccctggtggcactgccattttaccaagtactgcattaatgcttggtgtt
+            ccagcacaagttgcccaatgtaaggagattgtgtttgcatctccaccaagaaaatctgat
+            ggtaaagtttcacccgaagttgtttatgtcgcagaaaaagttggcgcttccaagattgtt
+            ctagctggtggtgcccaagccgttgctgctatggcttacgggacagaaactattcctaaa
+            gtggataagatcttgggtccaggtaatcaatttgtgactgccgccaaaatgtatgttcaa
+            aatgacactcaagctctatgttccattgatatgccagctggcccaagtgaagttttggtt
+            attgccgatgaagatgccgatgtggattttgttgcaagtgatttgctatcgcaagctgaa
+            cacggtattgactcccaagttatccttgttggtgttaacttgagcgaaaagaaaattcaa
+            gagattcaagatgctgtccacaatcaagctttacaactgccacgtgtggatattgttcgt
+            aaatgtattgctcacagtacgatcgttctttgtgacggttacgaagaagcccttgaaatg
+            tccaaccaatatgcaccagaacatttgattctacaaatcgccaatgctaacgattatgtt
+            aaattggttgacaatgcagggtccgtatttgtgggtgcttacactccagaatcgtgcggt
+            gactattcaagtggtactaaccatacattaccaacctatggttacgctaggcagtacagt
+            ggtgccaacactgcaaccttccaaaagtttatcactgcccaaaacattacccctgaaggt
+            ttagaaaacatcggtagagctgttatgtgcgttgccaagaaggagggtctagacggtcac
+            agaaacgctgtgaaaatcagaatgagtaagcttgggttgatcccaaaggatttccagtag
+///

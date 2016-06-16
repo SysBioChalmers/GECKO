@@ -1,0 +1,49 @@
+ENTRY       YMR318C           CDS       T00005
+NAME        ADH6, ADHVI
+DEFINITION  Adh6p (EC:1.1.1.2)
+ORTHOLOGY   K00002  alcohol dehydrogenase (NADP+) [EC:1.1.1.2]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00010  Glycolysis / Gluconeogenesis
+            sce00561  Glycerolipid metabolism
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01220  Degradation of aromatic compounds
+CLASS       Metabolism; Overview; Degradation of aromatic compounds [PATH:sce01220]
+            Metabolism; Carbohydrate metabolism; Glycolysis / Gluconeogenesis [PATH:sce00010]
+            Metabolism; Lipid metabolism; Glycerolipid metabolism [PATH:sce00561]
+POSITION    XIII:complement(911061..912143)
+MOTIF       Pfam: ADH_N ADH_zinc_N 2-Hacid_dh_C ADH_zinc_N_2 NAD_binding_2 T2SM_b
+DBLINKS     NCBI-GI: 398366097
+            NCBI-GeneID: 855368
+            SGD: S000004937
+            MIPS: YMR318C
+            UniProt: Q04894
+STRUCTURE   PDB: 1PIW 1PS0 1Q1N
+AASEQ       360
+            MSYPEKFEGIAIQSHEDWKNPKKTKYDPKPFYDHDIDIKIEACGVCGSDIHCAAGHWGNM
+            KMPLVVGHEIVGKVVKLGPKSNSGLKVGQRVGVGAQVFSCLECDRCKNDNEPYCTKFVTT
+            YSQPYEDGYVSQGGYANYVRVHEHFVVPIPENIPSHLAAPLLCGGLTVYSPLVRNGCGPG
+            KKVGIVGLGGIGSMGTLISKAMGAETYVISRSSRKREDAMKMGADHYIATLEEGDWGEKY
+            FDTFDLIVVCASSLTDIDFNIMPKAMKVGGRIVSISIPEQHEMLSLKPYGLKAVSISYSA
+            LGSIKELNQLLKLVSEKDIKIWVETLPVGEAGVHEAFERMEKGDVRYRFTLVGYDKEFSD
+NTSEQ       1083
+            atgtcttatcctgagaaatttgaaggtatcgctattcaatcacacgaagattggaaaaac
+            ccaaagaagacaaagtatgacccaaaaccattttacgatcatgacattgacattaagatc
+            gaagcatgtggtgtctgcggtagtgatattcattgtgcagctggtcattggggcaatatg
+            aagatgccgctagtcgttggtcatgaaatcgttggtaaagttgtcaagctagggcccaag
+            tcaaacagtgggttgaaagtcggtcaacgtgttggtgtaggtgctcaagtcttttcatgc
+            ttggaatgtgaccgttgtaagaatgataatgaaccatactgcaccaagtttgttaccaca
+            tacagtcagccttatgaagacggctatgtgtcgcagggtggctatgcaaactacgtcaga
+            gttcatgaacattttgtggtgcctatcccagagaatattccatcacatttggctgctcca
+            ctattatgtggtggtttgactgtgtactctccattggttcgtaacggttgcggtccaggt
+            aaaaaagttggtatagttggtcttggtggtatcggcagtatgggtacattgatttccaaa
+            gccatgggggcagagacgtatgttatttctcgttcttcgagaaaaagagaagatgcaatg
+            aagatgggcgccgatcactacattgctacattagaagaaggtgattggggtgaaaagtac
+            tttgacaccttcgacctgattgtagtctgtgcttcctcccttaccgacattgacttcaac
+            attatgccaaaggctatgaaggttggtggtagaattgtctcaatctctataccagaacaa
+            cacgaaatgttatcgctaaagccatatggcttaaaggctgtctccatttcttacagtgct
+            ttaggttccatcaaagaattgaaccaactcttgaaattagtctctgaaaaagatatcaaa
+            atttgggtggaaacattacctgttggtgaagccggcgtccatgaagccttcgaaaggatg
+            gaaaagggtgacgttagatatagatttaccttagtcggctacgacaaagaattttcagac
+            tag
+///

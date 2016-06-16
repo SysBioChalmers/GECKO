@@ -1,0 +1,40 @@
+ENTRY       YHR144C           CDS       T00005
+NAME        DCD1
+DEFINITION  Dcd1p (EC:3.5.4.12)
+ORTHOLOGY   K01493  dCMP deaminase [EC:3.5.4.12]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00240  Pyrimidine metabolism
+            sce01100  Metabolic pathways
+CLASS       Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
+POSITION    VIII:complement(387788..388726)
+MOTIF       Pfam: dCMP_cyt_deam_1 DUF2762 Cupredoxin_1 XOO_2897-deam
+DBLINKS     NCBI-GI: 6321938
+            NCBI-GeneID: 856548
+            SGD: S000001187
+            MIPS: YHR144C
+            UniProt: P06773
+AASEQ       312
+            MLIGVSGTKFCGCEDVINMLVDHFHFELLNHLDNPEEILDYATKNYTKNSVIFLEKLSLL
+            EKLEKRPFFVHLSIDAPVTTRVALYRKTTQAESLSLEQIIQAIDQHDFQPEGIKLREKSH
+            LRFKIVNEDRRGRRQSLINNITTQLKILDDKEKQMAPLMRPSWDSYFMKLATLAASRSNC
+            MKRRVGCVIVRECRVIATGYNGTPRHLTNCFNGGCPRCNDGDSRNLHTCLCLHAEENALL
+            EAGRDRVGQNATLYCDTCPCLTCSVKIVQTGISEVVYSQSYRMDEESFKVLKNAGITVRQ
+            FSFTEEPRIVMI
+NTSEQ       939
+            atgttaattggtgtaagtggtacgaaattttgcggatgcgaagatgttattaacatgttg
+            gttgatcattttcattttgaattactcaatcacctagataatccagaggagatattagat
+            tatgctacgaaaaattacacaaaaaattcagttatattcctagaaaaattatcattactg
+            gagaaactggaaaagagaccattttttgttcatctttctatcgacgctcctgtcactaca
+            agggtagcattatacaggaaaacgactcaagcagaaagcttatcattagaacaaataata
+            caagccattgatcaacatgactttcagcctgaaggcatcaaattaagggagaaatcccat
+            ttgagatttaaaatagttaatgaggaccgcagaggaaggagacagagcttgattaataac
+            attaccacacaattaaagattctcgatgacaaagagaaacaaatggctccattaatgagg
+            cctagttgggatagctattttatgaagttagccacactagcagcatctcgttccaattgc
+            atgaaacgtagagttggttgcgtgattgtgagagaatgcagagtgattgctactggctat
+            aatgggactcctcgacatttaacaaattgtttcaatggcggttgcccacgttgcaatgac
+            ggtgattctagaaatctgcacacttgcttatgcttacatgcagaagagaatgcactactg
+            gaagctggcagggatcgtgtaggtcaaaatgcgaccttatactgtgatacttgcccttgc
+            ttaacatgttctgtaaagattgttcaaacaggcatcagtgaagtagtttatagccaaagt
+            tatagaatggacgaggaaagtttcaaggtcttgaagaatgcgggaataaccgtccggcaa
+            ttcagctttacggaagaaccaagaattgtgatgatttaa
+///

@@ -1,0 +1,41 @@
+ENTRY       YLR102C           CDS       T00005
+NAME        APC9
+DEFINITION  anaphase promoting complex subunit 9
+ORTHOLOGY   K03356  anaphase-promoting complex subunit 9
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04111  Cell cycle - yeast
+            sce04113  Meiosis - yeast
+            sce04120  Ubiquitin mediated proteolysis
+MODULE      sce_M00389  APC/C complex
+CLASS       Genetic Information Processing; Folding, sorting and degradation; Ubiquitin mediated proteolysis [PATH:sce04120]
+            Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
+            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+POSITION    XII:complement(342970..343767)
+MOTIF       Pfam: Apc9
+DBLINKS     NCBI-GI: 6323131
+            NCBI-GeneID: 850792
+            SGD: S000004092
+            MIPS: YLR102C
+            UniProt: Q12107
+AASEQ       265
+            MNQNGDKNEGKLFQLPSLPPWKTPRFNKANFNNFTTPLRKRSTRVINDDSMPITGEVLEE
+            RTADDLYGINMDVDEVDYLNTLSHIEEEKQYDYSPFCERNTLRESRIDSFLKAERAAHCL
+            VFHKVGHLDGIDSYRPDIDIMCGEEANKYDSANPEGNGSMLLESVPGCNKEDLERLSRRE
+            FVTNSKPNMRRLDDIINHETNALKSFWNDSGLVNSLQSHHLHEEYLLLQEELKNVYKIKC
+            HDRVPIESLRDKCRRHYSNEDSSFL
+NTSEQ       798
+            atgaaccaaaatggtgataagaacgaaggcaagttgtttcaactaccgtcattgccgccc
+            tggaaaacaccaaggttcaacaaagccaactttaacaattttaccacaccgctacggaaa
+            aggtcgacaagggtaataaatgatgattcgatgcccataacaggcgaagtactagaggag
+            aggactgcagatgatctctatgggataaatatggacgtagacgaagtcgactatctgaat
+            actttgagccacatcgaggaagaaaagcaatacgattattcaccgttttgtgagcgcaat
+            acgctaagggaaagtagaattgacagttttttgaaagccgaaagggcagcacattgtctt
+            gtgtttcataaggtgggccatctagacggcatagacagctatcgacccgatattgacatc
+            atgtgcggcgaagaggctaataaatatgacagtgcgaatccggagggcaatggttcaatg
+            ttgttagagagtgtacctggatgcaacaaagaagacctggagaggttatcaaggcgagaa
+            tttgtaacaaattcgaaacctaatatgagacggttggatgacataataaatcatgaaacg
+            aacgccttaaaaagtttctggaacgactcaggattagtcaattcactccaaagtcatcat
+            ttgcatgaagagtaccttcttttgcaagaagaattaaagaatgtgtacaagattaaatgc
+            catgacagagtgccaatagaaagtctacgcgataagtgcagaagacactatagcaacgag
+            gatagttcgtttctctga
+///

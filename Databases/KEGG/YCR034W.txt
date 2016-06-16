@@ -1,0 +1,47 @@
+ENTRY       YCR034W           CDS       T00005
+NAME        FEN1, ELO2, GNS1, VBM2
+DEFINITION  fatty acid elongase FEN1 (EC:2.3.1.199)
+ORTHOLOGY   K10245  fatty acid elongase 2 [EC:2.3.1.199]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00062  Fatty acid elongation
+            sce01040  Biosynthesis of unsaturated fatty acids
+            sce01110  Biosynthesis of secondary metabolites
+            sce01212  Fatty acid metabolism
+MODULE      sce_M00415  Fatty acid biosynthesis, elongation, endoplasmic reticulum
+CLASS       Metabolism; Overview; Fatty acid metabolism [PATH:sce01212]
+            Metabolism; Lipid metabolism; Fatty acid elongation [PATH:sce00062]
+            Metabolism; Lipid metabolism; Biosynthesis of unsaturated fatty acids [PATH:sce01040]
+POSITION    III:190592..191635
+MOTIF       Pfam: ELO
+DBLINKS     NCBI-GI: 6319882
+            NCBI-GeneID: 850400
+            SGD: S000000630
+            MIPS: YCR034W
+            UniProt: P25358
+AASEQ       347
+            MNSLVTQYAAPLFERYPQLHDYLPTLERPFFNISLWEHFDDVVTRVTNGRFVPSEFQFIA
+            GELPLSTLPPVLYAITAYYVIIFGGRFLLSKSKPFKLNGLFQLHNLVLTSLSLTLLLLMV
+            EQLVPIIVQHGLYFAICNIGAWTQPLVTLYYMNYIVKFIEFIDTFFLVLKHKKLTFLHTY
+            HHGATALLCYTQLMGTTSISWVPISLNLGVHVVMYWYYFLAARGIRVWWKEWVTRFQIIQ
+            FVLDIGFIYFAVYQKAVHLYFPILPHCGDCVGSTTATFAGCAIISSYLVLFISFYINVYK
+            RKGTKTSRVVKRAHGGVAAKVNEYVNVDLKNVPTPSPSPKPQHRRKR
+NTSEQ       1044
+            atgaattcactcgttactcaatatgctgctccgttgttcgagcgttatccccaacttcat
+            gactatttaccaactttggagcgaccattttttaatatttcgttgtgggaacatttcgat
+            gatgtcgtcactcgtgtaactaacggtagatttgttccaagcgaattccaattcattgca
+            ggtgaattaccattaagcactttgccccctgtgctatacgccatcactgcctattacgtt
+            attatttttggtggcaggtttttgttaagtaagtcgaaaccatttaaattaaatggcctt
+            ttccaattgcataatttggttttaacttcactttcattgacgcttttattgcttatggtt
+            gaacaattagtgccaattattgttcagcacgggttatacttcgctatctgtaatattggt
+            gcttggactcaaccgctcgttacattatattacatgaattacattgtcaagtttattgaa
+            tttatagacacctttttcttggtgctaaaacataaaaaattgacatttttgcatacttat
+            caccatggcgctactgccttattatgttacacccaattgatgggcaccacatctatttct
+            tgggtccctatttcattgaaccttggtgttcacgtggttatgtattggtactatttcttg
+            gctgccagaggcatcagggtctggtggaaggaatgggttaccagatttcaaattatccaa
+            tttgttttggatatcggtttcatatattttgctgtctaccaaaaagcagttcacttgtat
+            ttcccaattttgccacattgtggtgactgtgtgggttcaacaactgccacctttgcaggt
+            tgtgccattatttcttcatatttggtactatttatttcattttacattaacgtttataaa
+            cgtaaaggcaccaaaaccagtagagtggtaaagcgtgcccacggcggtgttgccgcaaag
+            gttaatgagtatgttaacgttgacttgaaaaacgttcctactccatctccatcaccaaaa
+            cctcaacacagaagaaaaaggtaa
+///

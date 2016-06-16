@@ -1,0 +1,46 @@
+ENTRY       YLR056W           CDS       T00005
+NAME        ERG3, PSO6, SYR1
+DEFINITION  C-5 sterol desaturase (EC:1.3.3.-)
+ORTHOLOGY   K00227  lathosterol oxidase [EC:1.14.21.6]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00100  Steroid biosynthesis
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+MODULE      sce_M00102  Ergocalciferol biosynthesis
+CLASS       Metabolism; Lipid metabolism; Steroid biosynthesis [PATH:sce00100]
+POSITION    XII:253861..254958
+MOTIF       Pfam: FA_hydroxylase
+DBLINKS     NCBI-GI: 6323085
+            NCBI-GeneID: 850745
+            SGD: S000004046
+            MIPS: YLR056W
+            UniProt: P32353
+AASEQ       365
+            MDLVLEVADHYVLDDLYAKVLPASLAANIPVKWQKLLGLNSGFSNSTILQETLNSKNAVK
+            ECRRFYGQVPFLFDMSTTSFASLLPRSSILREFLSLWVIVTIFGLLLYLFTASLSYVFVF
+            DKSIFNHPRYLKNQMAMEIKLAVSAIPWMSMLTVPWFVMELNGHSKLYMKIDYENHGVRK
+            LIIEYFTFIFFTDCGVYLAHRWLHWPRVYRALHKPHHKWLVCTPFASHSFHPVDGFLQSI
+            SYHIYPLILPLHKVSYLILFTFVNFWTVMIHDGQYLSNNPAVNGTACHTVHHLYFNYNYG
+            QFTTLWDRLGGSYRRPDDSLFDPKLRDAKETWDAQVKEVEHFIKEVEGDDNDRIYENDPN
+            TKKNN
+NTSEQ       1098
+            atggatttggtcttagaagtcgctgaccattatgtcttagacgacttgtacgctaaagtt
+            ctgcccgcttcgttggcagctaatattcctgtcaagtggcagaaattgctagggttgaac
+            agtgggttcagcaattctacgattttgcaggagactttgaactccaagaatgccgtcaaa
+            gaatgtagaaggttctacgggcaggtgccattcctgtttgatatgtcgacgacgtctttt
+            gcatcgctattgcctcgttccagcatcttgagagaattcctctcactatgggttattgtt
+            acgatctttggtttactactttacttattcacggctagtctcagctacgtgtttgtgttt
+            gacaagtcgattttcaaccatcctcgttacttgaaaaaccaaatggcaatggaaatcaag
+            ttggcagtcagtgctatcccatggatgtcgatgttgaccgttccatggtttgttatggaa
+            ttgaacggccattctaaactatacatgaagattgattatgaaaaccacggtgtaaggaag
+            ctcattatcgagtacttcactttcatctttttcactgattgcggtgtgtatttagcgcac
+            agatggttgcattggccaagggtctaccgtgctctgcacaagcctcatcacaagtggctg
+            gtctgcacacctttcgcatctcattctttccatcctgtagacgggtttttgcaatccatc
+            tcgtaccacatctacccattgattctgccattacacaaggtttcttatttgattctgttc
+            acttttgttaacttttggactgttatgattcatgacggtcaatacctatcaaacaatcct
+            gccgtcaacggtactgcctgccacacggttcaccatctatatttcaactacaactacggt
+            caattcaccactctgtgggacagactagggggttcttaccgtagaccagatgactcattg
+            tttgatcctaagttaagagatgctaaggagacctgggacgctcaagttaaggaagttgaa
+            catttcatcaaggaggtcgaaggtgatgataatgatagaatctatgaaaacgacccaaat
+            accaagaagaacaactga
+///

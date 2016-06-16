@@ -1,0 +1,47 @@
+ENTRY       YGR180C           CDS       T00005
+NAME        RNR4, CRT3, PSO3
+DEFINITION  ribonucleotide-diphosphate reductase subunit RNR4 (EC:1.17.4.1)
+ORTHOLOGY   K10808  ribonucleoside-diphosphate reductase subunit M2 [EC:1.17.4.1]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00230  Purine metabolism
+            sce00240  Pyrimidine metabolism
+            sce00480  Glutathione metabolism
+            sce01100  Metabolic pathways
+CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
+            Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
+            Metabolism; Metabolism of other amino acids; Glutathione metabolism [PATH:sce00480]
+POSITION    VII:complement(855264..856301)
+MOTIF       Pfam: Ribonuc_red_sm
+DBLINKS     NCBI-GI: 398366047
+            NCBI-GeneID: 853091
+            SGD: S000003412
+            MIPS: YGR180C
+            UniProt: P49723
+STRUCTURE   PDB: 1JK0 1SMS
+AASEQ       345
+            MEAHNQFLKTFQKERHDMKEAEKDEILLMENSRRFVMFPIKYHEIWAAYKKVEASFWTAE
+            EIELAKDTEDFQKLTDDQKTYIGNLLALSISSDNLVNKYLIENFSAQLQNPEGKSFYGFQ
+            IMMENIYSEVYSMMVDAFFKDPKNIPLFKEIANLPEVKHKAAFIERWISNDDSLYAERLV
+            AFAAKEGIFQAGNYASMFWLTDKKIMPGLAMANRNICRDRGAYTDFSCLLFAHLRTKPNP
+            KIIEKIITEAVEIEKEYYSNSLPVEKFGMDLKSIHTYIEFVADGLLQGFGNEKYYNAVNP
+            FEFMEDVATAGKTTFFEKKVSDYQKASDMSKSATPSKEINFDDDF
+NTSEQ       1038
+            atggaagcacataaccaatttttgaagactttccaaaaagaacgtcatgatatgaaagaa
+            gctgaaaaggatgaaatccttttgatggaaaacagccgtagattcgtgatgttccctatc
+            aaataccacgaaatctgggctgcttacaagaaggttgaagcctctttctggactgcggaa
+            gaaatcgaattggctaaggacactgaagatttccaaaaattgactgatgaccagaagacc
+            tacatcggtaacttgttagccttgtccatttcttctgacaaccttgtcaacaagtacttg
+            atcgaaaacttttctgcccaattgcaaaaccctgaaggtaagagtttctacgggttccag
+            attatgatggaaaacatctactctgaagtttactccatgatggttgatgccttcttcaag
+            gaccctaagaacatccctctattcaaggaaattgccaatttgcctgaagtcaagcataag
+            gctgctttcatcgagagatggatttccaacgatgacagcttgtatgctgaaagactagta
+            gcatttgctgcaaaggaaggtattttccaagctggtaactatgcttctatgttctggttg
+            actgacaaaaagattatgccaggtttagcaatggccaacagaaacatctgtagagacaga
+            ggtgcctacactgacttttcatgcttgctatttgcccatttgagaaccaagccaaacccc
+            aagatcattgaaaaaatcattaccgaagccgtggaaattgaaaaggaatactactcaaac
+            tctttgccagtagaaaaatttggtatggatttgaagagcattcacacctacatagaattt
+            gtcgctgacggtctattacaaggtttcggtaacgaaaaatactacaacgccgtcaaccca
+            ttcgaattcatggaggatgtcgctaccgctggtaagaccaccttctttgaaaagaaggtt
+            tccgactaccaaaaggccagtgacatgtctaagtccgctaccccatccaaggaaattaac
+            tttgatgatgacttctaa
+///

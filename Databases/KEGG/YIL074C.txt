@@ -1,0 +1,57 @@
+ENTRY       YIL074C           CDS       T00005
+NAME        SER33
+DEFINITION  phosphoglycerate dehydrogenase SER33 (EC:1.1.1.95)
+ORTHOLOGY   K00058  D-3-phosphoglycerate dehydrogenase [EC:1.1.1.95]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00260  Glycine, serine and threonine metabolism
+            sce00680  Methane metabolism
+            sce01100  Metabolic pathways
+            sce01200  Carbon metabolism
+            sce01230  Biosynthesis of amino acids
+MODULE      sce_M00020  Serine biosynthesis, glycerate-3P => serine
+CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
+            Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
+            Metabolism; Energy metabolism; Methane metabolism [PATH:sce00680]
+            Metabolism; Amino acid metabolism; Glycine, serine and threonine metabolism [PATH:sce00260]
+POSITION    IX:complement(221081..222490)
+MOTIF       Pfam: 2-Hacid_dh_C 2-Hacid_dh NAD_binding_2 AdoHcyase_NAD Acetyltransf_1 ACT
+DBLINKS     NCBI-GI: 6322116
+            NCBI-GeneID: 854736
+            SGD: S000001336
+            MIPS: YIL074C
+            UniProt: P40510
+AASEQ       469
+            MSYSAADNLQDSFQRAMNFSGSPGAVSTSPTQSFMNTLPRRVSITKQPKALKPFSTGDMN
+            ILLLENVNATAIKIFKDQGYQVEFHKSSLPEDELIEKIKDVHAIGIRSKTRLTEKILQHA
+            RNLVCIGCFCIGTNQVDLKYAASKGIAVFNSPFSNSRSVAELVIGEIISLARQLGDRSIE
+            LHTGTWNKVAARCWEVRGKTLGIIGYGHIGSQLSVLAEAMGLHVLYYDIVTIMALGTARQ
+            VSTLDELLNKSDFVTLHVPATPETEKMLSAPQFAAMKDGAYVINASRGTVVDIPSLIQAV
+            KANKIAGAALDVYPHEPAKNGEGSFNDELNSWTSELVSLPNIILTPHIGGSTEEAQSSIG
+            IEVATALSKYINEGNSVGSVNFPEVSLKSLDYDQENTVRVLYIHRNVPGVLKTVNDILSD
+            HNIEKQFSDSHGEIAYLMADISSVNQSEIKDIYEKLNQTSAKVSIRLLY
+NTSEQ       1410
+            atgtcttattcagctgccgataatttacaagattcattccaacgtgccatgaacttttct
+            ggctctcctggtgcagtctcaacctcaccaactcagtcatttatgaacacactacctcgt
+            cgtgtaagcattacaaagcaaccaaaggctttaaaacctttttctactggtgacatgaat
+            attctactgttggaaaatgtcaatgcaactgcaatcaaaatcttcaaggatcagggttac
+            caagtagagttccacaagtcttctctacctgaggatgaattgattgaaaaaatcaaagac
+            gtacacgctatcggtataagatccaaaactagattgactgaaaaaatactacagcatgcc
+            aggaatctagtttgtattggttgtttttgcataggtaccaatcaagtagacctaaaatat
+            gccgctagtaaaggtattgctgttttcaattcgccattctccaattcaagatccgtagca
+            gaattggtaattggtgagatcattagtttagcaagacaattaggtgatagatccattgaa
+            ctgcatacaggtacatggaataaagtcgctgctaggtgttgggaagtaagaggaaaaact
+            ctcggtattattgggtatggtcacattggttcgcaattatcagttcttgcagaagctatg
+            ggcctgcatgtgctatactatgatatcgtgacaattatggccttaggtactgccagacaa
+            gtttctacattagatgaattgttgaataaatctgattttgtaacactacatgtaccagct
+            actccagaaactgaaaaaatgttatctgctccacaattcgctgctatgaaggacggggct
+            tatgttattaatgcctcaagaggtactgtcgtggacattccatctctgatccaagccgtc
+            aaggccaacaaaattgcaggtgctgctttagatgtttatccacatgaaccagctaagaac
+            ggtgaaggttcatttaacgatgaacttaacagctggacttctgagttggtttcattacca
+            aatataatcctgacaccacatattggtggctctacagaagaagctcaaagttcaatcggt
+            attgaggtggctactgcattgtccaaatacatcaatgaaggtaactctgtcggttctgtg
+            aacttcccagaagtcagtttgaagtctttggactacgatcaagagaacacagtacgtgtc
+            ttgtatattcatcgtaacgttcctggtgttttgaagaccgttaatgatatcttatccgat
+            cataatatcgagaaacagttttctgattctcacggcgagatcgcttatctaatggcagac
+            atctcttctgttaatcaaagtgaaatcaaggatatatatgaaaagttgaaccaaacttct
+            gccaaagtttccatcaggttattatactaa
+///

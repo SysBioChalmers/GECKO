@@ -1,0 +1,34 @@
+ENTRY       YDR248C           CDS       T00005
+DEFINITION  gluconokinase (EC:2.7.1.12)
+ORTHOLOGY   K00851  gluconokinase [EC:2.7.1.12]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00030  Pentose phosphate pathway
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01200  Carbon metabolism
+CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
+            Metabolism; Carbohydrate metabolism; Pentose phosphate pathway [PATH:sce00030]
+POSITION    IV:complement(957758..958339)
+MOTIF       Pfam: AAA_18 APS_kinase AAA_17 SKI AAA_33 Zeta_toxin NB-ARC Guanylate_kin DUF2075 RNA_helicase ABC_tran NACHT DUF258 AAA_14 ArgK AAA_30 T2SE AAA AAA_28 AAA_22 AAA_16 AAA_19
+DBLINKS     NCBI-GI: 6320454
+            NCBI-GeneID: 851835
+            SGD: S000002656
+            MIPS: YDR248C
+            UniProt: Q03786
+AASEQ       193
+            MTEKHKTMGKFKVIVLAGTAGTGKSTIAGELIHEFKDIYPDLKFIEGDDLHPPANVEKMT
+            RGIPLNDDDRWDWLKKVAVESTKAAASTKEHLSIVACSSLKKKYRDLIRHTCPESEFHFI
+            FLYASKIEVLKRLKTRKGHFMKADMMESQFRDLELPDINDETDCDIVPLDFKTFYQIEKD
+            VIQVVKSKVLNIE
+NTSEQ       582
+            atgacagagaaacacaaaactatggggaaatttaaggttattgtattggcaggtactgca
+            ggtacaggaaaatcaaccattgcaggtgaactaatccatgaatttaaagatatatacccg
+            gatttgaaattcatcgaaggtgatgatttacacccgcctgccaacgtagaaaagatgaca
+            agagggattccattaaatgacgacgaccgttgggactggttgaaaaaagttgccgtagaa
+            tctacaaaagctgcagcaagcactaaggagcatttgtcaattgttgcttgctcgagcttg
+            aagaagaaatacagagatttgattaggcacacatgccctgaatcggagttccattttatc
+            tttttgtatgcaagtaaaatagaagttctgaaaaggctcaaaacaaggaagggtcatttc
+            atgaaagctgatatgatggagtctcaattcagggatctggagttaccagacatcaacgac
+            gaaactgactgtgacattgttcccttagatttcaaaacgttttatcaaattgaaaaagat
+            gttatacaggtggtaaaaagtaaagttttgaatattgagtaa
+///

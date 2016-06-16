@@ -1,0 +1,25 @@
+ENTRY       YIL102C-A         CDS       T00005
+DEFINITION  hypothetical protein
+ORTHOLOGY   K09658  dolichyl-phosphate mannosyltransferase polypeptide 2, regulatory subunit
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00510  N-Glycan biosynthesis
+            sce00563  Glycosylphosphatidylinositol(GPI)-anchor biosynthesis
+            sce01100  Metabolic pathways
+CLASS       Metabolism; Glycan biosynthesis and metabolism; N-Glycan biosynthesis [PATH:sce00510]
+            Metabolism; Glycan biosynthesis and metabolism; Glycosylphosphatidylinositol(GPI)-anchor biosynthesis [PATH:sce00563]
+POSITION    IX:complement(173365..173592)
+MOTIF       Pfam: DPM2 RhodobacterPufX
+DBLINKS     NCBI-GI: 82795255
+            NCBI-GeneID: 3799974
+            SGD: S000113587
+            MIPS: YIL102C-A
+            UniProt: Q2V2P5
+AASEQ       75
+            MNRFVIICLLFTYYVIWSLLPIFEIENSNPVVSLLFPISSNVAIFLPIFLLLIGFTLTGS
+            VLGVLLIRSDKKKKV
+NTSEQ       228
+            atgaaccgttttgtaattatttgccttctttttacttattatgtcatatggtcgctcctg
+            cctatcttcgagatcgagaactccaatccagttgtgagtttactcttccccatttctagc
+            aatgttgcaattttcctgcccatcttcttactgttgatcgggtttactttaactggttct
+            gttttaggtgtattgcttatacgcagcgataaaaagaaaaaagtttaa
+///

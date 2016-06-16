@@ -1,0 +1,41 @@
+ENTRY       YNL151C           CDS       T00005
+NAME        RPC31, ACP2, RPC8
+DEFINITION  Rpc31p
+ORTHOLOGY   K03024  DNA-directed RNA polymerase III subunit RPC7
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00230  Purine metabolism
+            sce00240  Pyrimidine metabolism
+            sce01100  Metabolic pathways
+            sce03020  RNA polymerase
+MODULE      sce_M00181  RNA polymerase III, eukaryotes
+CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
+            Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
+            Genetic Information Processing; Transcription; RNA polymerase [PATH:sce03020]
+POSITION    XIV:complement(347766..348521)
+MOTIF       Pfam: RNA_pol_3_Rpc31
+DBLINKS     NCBI-GI: 398364597
+            NCBI-GeneID: 855571
+            SGD: S000005095
+            MIPS: YNL151C
+            UniProt: P17890
+AASEQ       251
+            MSSYRGGSRGGGSNYMSNLPFGLGYGDVGKNHITEFPSIPLPINGPITNKERSLAVKYIN
+            FGKTVKDGPFYTGSMSLIIDQQENSKSGKRKPNIILDEDDTNDGIERYSDKYLKKRKIGI
+            SIDDHPYNLNLFPNELYNVMGINKKKLLAISKFNNADDVFTGTGLQDENIGLSMLAKLKE
+            LAEDVDDASTGDGAAKGSKTGEGEDDDLADDDFEEDEDEEDDDDYNAEKYFNNGDDDDYG
+            DEEDPNEEAAF
+NTSEQ       756
+            atgagttcttataggggcggcagtagaggtggcgggagcaactatatgagcaatctaccc
+            ttcggattaggttatggagatgtaggcaaaaatcatattacggaatttccatccatccca
+            ttgcccatcaatggtcctataacaaataaggaaagatctttagcagtaaagtacatcaat
+            tttggaaagactgttaaagatggcccattttataccggatcaatgagcttgataatagat
+            caacaggaaaacagcaagagcggtaaacgcaaacccaacataatcctagacgaagacgat
+            actaatgatggcattgaaagatattccgataaatatttgaaaaaaaggaaaataggtatt
+            tctattgatgatcatccgtataatttgaacctctttcccaatgaattgtacaatgtaatg
+            gggatcaacaagaaaaaattattggcaatctccaagtttaataatgccgatgatgttttt
+            actggtacaggtttacaagatgaaaacatcggactatccatgctggcaaagttaaaggag
+            ttggcagaagatgtggatgatgcgtcgacgggtgatggggcagcaaaaggaagtaaaaca
+            ggcgaaggagaagatgatgatttggcggatgatgatttcgaagaagatgaagacgaagaa
+            gatgatgatgattataatgctgaaaagtatttcaacaatggtgacgatgatgattacggt
+            gatgaagaggatccaaatgaagaggccgccttttag
+///

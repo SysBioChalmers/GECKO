@@ -1,0 +1,58 @@
+ENTRY       YPL262W           CDS       T00005
+NAME        FUM1
+DEFINITION  fumarase FUM1 (EC:4.2.1.2)
+ORTHOLOGY   K01679  fumarate hydratase, class II [EC:4.2.1.2]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00020  Citrate cycle (TCA cycle)
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01200  Carbon metabolism
+MODULE      sce_M00009  Citrate cycle (TCA cycle, Krebs cycle)
+            sce_M00011  Citrate cycle, second carbon oxidation, 2-oxoglutarate => oxaloacetate
+CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
+            Metabolism; Carbohydrate metabolism; Citrate cycle (TCA cycle) [PATH:sce00020]
+POSITION    XVI:47336..48802
+MOTIF       Pfam: Lyase_1 FumaraseC_C ADH_N
+DBLINKS     NCBI-GI: 6324993
+            NCBI-GeneID: 855866
+            SGD: S000006183
+            MIPS: YPL262W
+            UniProt: P08417
+STRUCTURE   PDB: 1YFM
+AASEQ       488
+            MLRFTNCSCKTFVKSSYKLNIRRMNSSFRTETDAFGEIHVPADKYWGAQTQRSFQNFKIG
+            GARERMPLPLVHAFGVLKKSAAIVNESLGGLDPKISKAIQQAADEVASGKLDDHFPLVVF
+            QTGSGTQSNMNANEVISNRAIEILGGKIGSKQVHPNNHCNQSQSSNDTFPTVMHIAASLQ
+            IQNELIPELTNLKNALEAKSKEFDHIVKIGRTHLQDATPLTLGQEFSGYVQQVENGIQRV
+            AHSLKTLSFLAQGGTAVGTGLNTKPGFDVKIAEQISKETGLKFQTAPNKFEALAAHDAIV
+            ECSGALNTLACSLFKIAQDIRYLGSGPRCGYHELMLPENEPGSSIMPGKVNPTQNEALTQ
+            VCVQVMGNNAAITFAGSQGQFELNVFKPVMIANLLNSIRLITDAAYSFRVHCVEGIKANE
+            PRIHELLTKSLMLVTALNPKIGYDAASKVAKNAHKKGITLKESALELGVLTEKEFDEWVV
+            PEHMLGPK
+NTSEQ       1467
+            atgttgagatttaccaattgtagttgcaagactttcgtaaaatcgtcatataagcttaat
+            ataagaagaatgaactcctcgttcagaactgaaaccgatgcatttggtgagatacacgtg
+            cctgctgataagtactggggtgcccaaactcaaagatcctttcaaaacttcaagattggt
+            ggcgctcgtgaaagaatgccattgcctttggtgcatgcatttggtgttttgaagaaatct
+            gccgcgattgtgaatgagtctctggggggattggatcccaagatctccaaggctattcaa
+            caggccgctgacgaagtggcttctggtaagctagacgaccactttccattggttgttttc
+            caaacgggttccggtacccagtctaacatgaatgctaatgaagttatttccaatcgtgcc
+            attgagatcctaggaggcaagattggatctaaacaagtccatccaaacaatcattgcaac
+            caatctcaatcatccaatgatactttccccactgtcatgcatatcgctgccagtttgcaa
+            attcaaaacgagttgatacctgagttgaccaatttaaagaacgcccttgaagccaaatcc
+            aaggaatttgaccatattgtgaagatcggtagaacacacttgcaagatgccacgcctttg
+            acactaggtcaagagttttccggttacgtgcaacaagttgagaacggtatccaaagagtg
+            gcacattctttgaaaacattgagtttcctggcacaaggtggtactgccgttggtacaggg
+            ttgaacaccaagcccggattcgatgtcaagatagccgagcaaatttccaaagaaactgga
+            ctaaagtttcaaaccgcccctaataagttcgaggctttggctgctcacgacgccattgtc
+            gaatgtagcggtgctctaaacacccttgcttgttctcttttcaaaatagcgcaagatata
+            agatacttagggtccgggccacgttgcggctaccatgaactaatgctgccagagaatgaa
+            ccaggttcctcaatcatgcctggtaaagttaacccaacccaaaacgaggcattgactcaa
+            gtgtgtgtgcaagtcatgggtaacaatgcagctatcacgtttgccggctctcaaggtcaa
+            ttcgagttaaatgtcttcaagccagtcatgatcgccaatctattgaattcgatcaggtta
+            attactgatgccgcatattcatttagagtgcactgtgttgaaggtatcaaagccaatgag
+            cctcgtattcatgagttgttgactaaatctttaatgttagtcaccgctttgaaccctaag
+            atcggttatgatgccgcttccaaggtcgccaagaatgctcataagaagggcattaccttg
+            aaggaaagtgcattggaattgggtgtattgactgaaaaggaatttgatgaatgggttgtt
+            cctgaacacatgctaggtcctaaataa
+///

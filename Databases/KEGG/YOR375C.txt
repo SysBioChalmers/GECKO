@@ -1,0 +1,53 @@
+ENTRY       YOR375C           CDS       T00005
+NAME        GDH1, DHE4, URE1
+DEFINITION  glutamate dehydrogenase (NADP(+)) GDH1 (EC:1.4.1.4)
+ORTHOLOGY   K00262  glutamate dehydrogenase (NADP+) [EC:1.4.1.4]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00250  Alanine, aspartate and glutamate metabolism
+            sce00330  Arginine and proline metabolism
+            sce00910  Nitrogen metabolism
+            sce01100  Metabolic pathways
+CLASS       Metabolism; Energy metabolism; Nitrogen metabolism [PATH:sce00910]
+            Metabolism; Amino acid metabolism; Alanine, aspartate and glutamate metabolism [PATH:sce00250]
+            Metabolism; Amino acid metabolism; Arginine and proline metabolism [PATH:sce00330]
+POSITION    XV:complement(1041678..1043042)
+MOTIF       Pfam: ELFV_dehydrog ELFV_dehydrog_N NAD_binding_7
+DBLINKS     NCBI-GI: 398366421
+            NCBI-GeneID: 854557
+            SGD: S000005902
+            MIPS: YOR375C
+            UniProt: P07262
+AASEQ       454
+            MSEPEFQQAYEEVVSSLEDSTLFEQHPEYRKVLPIVSVPERIIQFRVTWENDKGEQEVAQ
+            GYRVQYNSAKGPYKGGLRFHPSVNLSILKFLGFEQIFKNSLTGLDMGGGKGGLCVDLKGR
+            SNNEIRRICYAFMRELSRHIGQDTDVPAGDIGVGGREIGYLFGAYRSYKNSWEGVLTGKG
+            LNWGGSLIRPEATGYGLVYYTQAMIDYATNGKESFEGKRVTISGSGNVAQYAALKVIELG
+            GTVVSLSDSKGCIISETGITSEQVADISSAKVNFKSLEQIVNEYSTFSENKVQYIAGARP
+            WTHVQKVDIALPCATQNEVSGEEAKALVAQGVKFIAEGSNMGSTPEAIAVFETARSTATG
+            PSEAVWYGPPKAANLGGVAVSGLEMAQNSQRITWTSERVDQELKRIMINCFNECIDYAKK
+            YTKDGKVLPSLVKGANIASFIKVSDAMFDQGDVF
+NTSEQ       1365
+            atgtcagagccagaatttcaacaagcttacgaagaagttgtctcctctttggaagactct
+            actcttttcgaacaacacccagaatacagaaaggttttgccaattgtttctgttccagaa
+            agaatcatacaattcagagtcacctgggaaaatgacaagggtgaacaagaagttgctcaa
+            ggttacagagtgcaatataactccgccaagggtccatacaagggtggtctacgtttccat
+            ccttccgtgaacttgtctatcttgaaattcttgggtttcgaacaaatcttcaagaactcc
+            ttgaccggcctagacatgggtggtggtaaaggtggtctatgtgtggacttgaagggaaga
+            tctaataacgaaatcagaagaatctgttatgctttcatgagagaattgagcagacacatt
+            ggtcaagacactgacgtgccagctggtgatatcggtgttggtggtcgtgaaattggttac
+            ctgttcggtgcttacagatcatacaagaactcctgggaaggtgtcttaaccggtaagggt
+            ttgaactggggtggttctttgatcagaccagaagccactggttacggtttagtttactat
+            actcaagctatgatcgactatgccacaaacggtaaggaatctttcgaaggtaagcgcgtc
+            accatctctggtagtggtaacgttgctcaatacgctgccttgaaggttattgagctaggt
+            ggtactgtcgtttccctatctgactccaagggttgtatcatctctgaaactggtatcacc
+            tccgaacaagtcgctgatatttccagtgctaaggtcaacttcaagtccttggaacaaatc
+            gtcaacgaatactctactttctccgaaaacaaagtgcaatacattgctggtgctcgtcca
+            tggacccacgtccaaaaggtcgacattgctttgccatgtgccacccaaaatgaagtcagc
+            ggtgaagaagccaaggccttggttgctcaaggtgtcaagtttattgccgaaggttccaac
+            atgggttccactccagaagctattgccgtctttgaaactgctcgttccaccgccactgga
+            ccaagcgaagctgtttggtacggtccaccaaaggctgctaacttgggtggtgttgctgtt
+            tctggtttagaaatggcacaaaactctcaaagaatcacatggactagcgaaagagttgac
+            caagagttgaagagaattatgatcaactgtttcaatgaatgtatcgactatgccaagaag
+            tacactaaggacggtaaggtcttgccatctttggtcaaaggtgctaatatcgcaagtttc
+            atcaaggtctctgatgctatgtttgaccaaggtgatgtattttaa
+///

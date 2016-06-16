@@ -1,0 +1,64 @@
+ENTRY       YLR089C           CDS       T00005
+NAME        ALT1
+DEFINITION  alanine transaminase ALT1 (EC:2.6.1.2)
+ORTHOLOGY   K00814  alanine transaminase [EC:2.6.1.2]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00250  Alanine, aspartate and glutamate metabolism
+            sce01100  Metabolic pathways
+            sce01200  Carbon metabolism
+            sce01210  2-Oxocarboxylic acid metabolism
+            sce01230  Biosynthesis of amino acids
+CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
+            Metabolism; Overview; 2-Oxocarboxylic acid metabolism [PATH:sce01210]
+            Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
+            Metabolism; Amino acid metabolism; Alanine, aspartate and glutamate metabolism [PATH:sce00250]
+POSITION    XII:complement(318237..320015)
+MOTIF       Pfam: Aminotran_1_2 Beta_elim_lyase MTD
+DBLINKS     NCBI-GI: 6323118
+            NCBI-GeneID: 850778
+            SGD: S000004079
+            MIPS: YLR089C
+            UniProt: P52893
+AASEQ       592
+            MLSLSAKNHFTVSNSITHVIKSYHIRTLTSSAEKMPHITTPFSTSASSTKLKAFRKVRPV
+            LQRHSSSWIVAQNHRRSLSGQSSLNDLRHLNRFPHHTLKTSNNEFYPAEQLTLEDVNENV
+            LKAKYAVRGAIPMRAEELKAQLEKDPQSLPFDRIINANIGNPQQLQQKPLTYYRQVLSLL
+            QYPELLNQNEQQLVDSKLFKLDAIKRAKSLMEDIGGSVGAYSSSQGVEGIRKSVAEFITK
+            RDEGEISYPEDIFLTAGASAAVNYLLSIFCRGPETGVLIPIPQYPLYTATLALNNSQALP
+            YYLDENSGWSTNPEEIETVVKEAIQNEIKPTVLVVINPGNPTGAVLSPESIAQIFEVAAK
+            YGTVVIADEVYQENIFPGTKFHSMKKILRHLQREHPGKFDNVQLASLHSTSKGVSGECGQ
+            RGGYMELTGFSHEMRQVILKLASISLCPVVTGQALVDLMVRPPVEGEESFESDQAERNSI
+            HEKLITRAMTLYETFNSLEGIECQKPQGAMYLFPKIDLPFKAVQEARHLELTPDEFYCKK
+            LLESTGICTVPGSGFGQEPGTYHLRTTFLAPGLEWIKKWESFHKEFFDQYRD
+NTSEQ       1779
+            atgttatcactgtctgccaaaaatcacttcacagtgagtaattctataactcacgttatt
+            aagtcatatcatataaggactctcacttcaagcgcagaaaaaatgccacatatcactact
+            cctttttctacctcagccagtagtacaaagttaaaagctttcaggaaagttagacccgtc
+            ctacagagacatagctcttcctggattgttgctcaaaatcatagacgttcattatctggt
+            caatcttcgctaaacgacctgcgtcatttgaatcgctttccacaccacacgttgaaaact
+            tcgaataacgagttttatcccgccgaacaattgactttggaagacgtaaatgaaaatgtc
+            ttgaaggctaagtacgccgttagaggtgccatcccaatgagagctgaagaattgaaagct
+            caactggagaaggatcctcaatctctgccatttgacaggattatcaacgccaatattggt
+            aatcctcagcaactacaacagaaacctctgacttactacagacaggtcttgtctctctta
+            caatacccagaactattaaaccaaaacgaacagcagctagttgattcgaaattgtttaaa
+            ctagatgccattaaacgtgcaaagagtttaatggaagatatcggtggttctgttggtgct
+            tactcttcttctcaaggtgtagaaggtataaggaaaagtgtcgctgaatttataacgaag
+            agggacgaaggcgagatatcatacccagaggatattttcctaactgctggtgcatccgca
+            gctgtcaattacttgttatcaattttctgtagagggccagaaacgggtgtcttgattcca
+            attcctcaatatccattatataccgctactctagctttgaacaattctcaagctttacca
+            tactatttagatgagaattcaggttggtcaactaatccagaagaaattgaaactgtcgtc
+            aaagaggctatacagaacgaaatcaaacctacagttctagtggttatcaatccaggtaat
+            cctacaggagctgtcctatcacctgagtctatagctcagatttttgaagtcgcagccaag
+            tacggtacagtagtgatagctgacgaagtttatcaagaaaatatcttcccgggcaccaag
+            ttccattctatgaagaaaattttgagacatttacagagggaacatccaggtaaattcgat
+            aatgttcagctagcttctttgcattcgacttctaagggtgtttctggtgaatgtggtcaa
+            aggggtggctacatggaactcactggattcagccatgagatgagacaagttatcttgaaa
+            ctagcctcgatttcattgtgtcccgttgtcacaggtcaagctttggttgatttgatggtt
+            cgtccaccagtggaaggggaggaatcattcgagtcggaccaagcagaacgtaactccatc
+            catgaaaagttaattacaagagcaatgacactgtatgagacatttaactctttagaaggc
+            attgaatgtcaaaagcctcaaggtgccatgtatttattccctaagatagacttacctttc
+            aaggcagttcaagaagctcgccacttagagttaactccggatgaattttattgtaagaag
+            ttgttagaatctactggcatttgcactgttcccggttctgggtttggtcaagaacctggt
+            acttaccatttaagaacaacatttttggcacctggtctggaatggattaagaaatgggaa
+            agtttccataaagaattttttgaccaataccgtgactga
+///

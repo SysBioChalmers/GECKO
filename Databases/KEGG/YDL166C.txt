@@ -1,0 +1,33 @@
+ENTRY       YDL166C           CDS       T00005
+NAME        FAP7
+DEFINITION  Fap7p (EC:2.7.4.3)
+ORTHOLOGY   K14535  transcription initiation factor TFIID subunit 9 / adenylate kinase [EC:2.7.4.3]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03008  Ribosome biogenesis in eukaryotes
+            sce03022  Basal transcription factors
+CLASS       Genetic Information Processing; Transcription; Basal transcription factors [PATH:sce03022]
+            Genetic Information Processing; Translation; Ribosome biogenesis in eukaryotes [PATH:sce03008]
+POSITION    IV:complement(163449..164042)
+MOTIF       Pfam: AAA_18 AAA_17 RNA_helicase Cytidylate_kin2 KTI12 AAA_33 AAA_22 AAA_14 Thymidylate_kin AAA_28 AAA AAA_16 GvpD Zeta_toxin NTPase_1 MobB Viral_helicase1 DUF815
+DBLINKS     NCBI-GI: 6320035
+            NCBI-GeneID: 851388
+            SGD: S000002325
+            MIPS: YDL166C
+            UniProt: Q12055
+AASEQ       197
+            MEARRYGPNIIVTGTPGCGKSSTCEFLKNKLKDYKYYNISDFAKDNDCFEGYDEGRKSHI
+            VDEDKLLDMLEPLLRQGNSIVDWHVNDVFPERLIDLVVVLRCDNSNLYSRLHARGYHDSK
+            IEENLDAEIMGVVKQDAVESYEPHIVVELQSDTKEDMVSNVSRIVAWEKMWLEQHPDGVT
+            NEYQGPRSDDEDDEDSE
+NTSEQ       594
+            atggaagcaagacggtatggaccgaatatcattgttacaggaacaccaggatgtggcaag
+            tcgtctacgtgtgagtttttaaaaaataaactgaaggattacaaatactataacatttcg
+            gatttcgccaaagataacgactgtttcgaaggatatgatgagggccgtaaatcgcacatt
+            gtcgatgaagacaaactgctggacatgctagagcctcttttgagacagggaaatagtatt
+            gtcgattggcatgtcaatgatgtgttcccagagaggctgattgacttggtggtggtgttg
+            agatgcgataactctaacttgtattcaagattgcatgcaagaggctatcatgactctaag
+            atcgaggaaaacctcgatgccgagattatgggtgtcgtcaaacaggatgccgtggaatca
+            tacgaaccgcacattgtggtagagctacaaagcgatacgaaagaagatatggtatctaac
+            gtatcccgtattgttgcttgggaaaagatgtggttagaacaacatccagatggagtcaca
+            aatgaatatcaagggcctcgtagcgatgacgaagacgatgaagacagtgagtag
+///

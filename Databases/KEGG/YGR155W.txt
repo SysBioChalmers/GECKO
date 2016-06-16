@@ -1,0 +1,58 @@
+ENTRY       YGR155W           CDS       T00005
+NAME        CYS4, NHS5, STR4, VMA41
+DEFINITION  cystathionine beta-synthase CYS4 (EC:4.2.1.22)
+ORTHOLOGY   K01697  cystathionine beta-synthase [EC:4.2.1.22]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00260  Glycine, serine and threonine metabolism
+            sce00270  Cysteine and methionine metabolism
+            sce01100  Metabolic pathways
+            sce01230  Biosynthesis of amino acids
+MODULE      sce_M00338  Cysteine biosynthesis, homocysteine + serine => cysteine
+CLASS       Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
+            Metabolism; Amino acid metabolism; Glycine, serine and threonine metabolism [PATH:sce00260]
+            Metabolism; Amino acid metabolism; Cysteine and methionine metabolism [PATH:sce00270]
+POSITION    VII:798543..800066
+MOTIF       Pfam: PALP CBS
+DBLINKS     NCBI-GI: 398365933
+            NCBI-GeneID: 853059
+            SGD: S000003387
+            MIPS: YGR155W
+            UniProt: P32582
+AASEQ       507
+            MTKSEQQADSRHNVIDLVGNTPLIALKKLPKALGIKPQIYAKLELYNPGGSIKDRIAKSM
+            VEEAEASGRIHPSRSTLIEPTSGNTGIGLALIGAIKGYRTIITLPEKMSNEKVSVLKALG
+            AEIIRTPTAAAWDSPESHIGVAKKLEKEIPGAVILDQYNNMMNPEAHYFGTGREIQRQLE
+            DLNLFDNLRAVVAGAGTGGTISGISKYLKEQNDKIQIVGADPFGSILAQPENLNKTDITD
+            YKVEGIGYDFVPQVLDRKLIDVWYKTDDKPSFKYARQLISNEGVLVGGSSGSAFTAVVKY
+            CEDHPELTEDDVIVAIFPDSIRSYLTKFVDDEWLKKNNLWDDDVLARFDSSKLEASTTKY
+            ADVFGNATVKDLHLKPVVSVKETAKVTDVIKILKDNGFDQLPVLTEDGKLSGLVTLSELL
+            RKLSINNSNNDNTIKGKYLDFKKLNNFNDVSSYNENKSGKKKFIKFDENSKLSDLNRFFE
+            KNSSAVITDGLKPIHIVTKMDLLSYLA
+NTSEQ       1524
+            atgactaaatctgagcagcaagccgattcaagacataacgttatcgacttagttggtaac
+            accccattgatcgcactgaaaaaattgcctaaggctttgggtatcaaaccacaaatttat
+            gctaagctggaactatacaatccaggtggttccatcaaagacagaattgccaagtctatg
+            gtggaagaagctgaagcttccggtagaattcatccttccagatctactctgatcgaacct
+            acttctggtaacaccggtatcggtctagctttaatcggcgccatcaaaggttacagaact
+            atcatcaccttgccggaaaaaatgtctaacgagaaagtttctgtcctaaaggctctgggt
+            gctgaaatcatcagaactccaactgctgctgcctgggattctccagaatcacatattggt
+            gttgctaagaagttggaaaaagagattcctggtgctgttatacttgaccaatataacaat
+            atgatgaacccagaagctcattactttggtactggtcgcgaaatccaaagacagctagaa
+            gacttgaatttatttgataatctacgcgctgttgttgctggtgctggtactggtgggact
+            attagcggtatttccaagtacttgaaagaacagaatgataagatccaaatcgttggtgct
+            gacccattcggttcaattttagcccaacctgaaaacttgaataagactgatatcactgac
+            tacaaagttgagggtattggttatgattttgttcctcaggttttggacagaaaattaatt
+            gatgtttggtataagacagacgacaagccttctttcaaatacgccagacaattgatttct
+            aacgaaggtgtcttggtgggtggttcttccggttctgccttcactgcggttgtgaaatac
+            tgtgaagaccaccctgaactgactgaagatgatgtcattgttgccatattcccagattcc
+            atcaggtcgtacctaaccaaattcgtcgatgacgaatggttgaaaaagaacaatttgtgg
+            gatgatgacgtgttggcccgttttgactcttcaaagctggaggcttcgacgacaaaatac
+            gctgatgtgtttggtaacgctactgtaaaggatcttcacttgaaaccggttgtttccgtt
+            aaggaaaccgctaaggtcactgatgttatcaagatattaaaagacaatggctttgaccaa
+            ttgcctgtgttgactgaagacggcaagttgtctggtttagttactctctctgagcttcta
+            agaaaactatcaatcaataattcaaacaacgacaacactataaagggtaaatacttggac
+            ttcaagaaattaaacaatttcaatgatgtttcctcttacaacgaaaataaatccggtaag
+            aagaagtttattaaattcgatgaaaactcaaagctatctgacttgaatcgtttctttgaa
+            aaaaactcatctgccgttatcactgatggcttgaaaccaatccatatcgttactaagatg
+            gatttactgagctacttagcataa
+///

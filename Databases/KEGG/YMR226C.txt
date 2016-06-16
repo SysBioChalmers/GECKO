@@ -1,0 +1,37 @@
+ENTRY       YMR226C           CDS       T00005
+DEFINITION  oxidoreductase (EC:1.-.-.-)
+ORTHOLOGY   K16066  malonic semialdehyde reductase [EC:1.1.1.-]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00240  Pyrimidine metabolism
+            sce01100  Metabolic pathways
+CLASS       Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
+POSITION    XIII:complement(721593..722396)
+MOTIF       Pfam: adh_short adh_short_C2 KR Eno-Rase_NADH_b Epimerase Saccharop_dh DUF1776 Polysacc_synt_2 NAD_binding_10 UBA_4 MreB_Mbl Shikimate_DH DUF4164
+DBLINKS     NCBI-GI: 6323882
+            NCBI-GeneID: 855266
+            SGD: S000004839
+            MIPS: YMR226C
+            UniProt: Q05016
+STRUCTURE   PDB: 3RKU
+AASEQ       267
+            MSQGRKAAERLAKKTVLITGASAGIGKATALEYLEASNGDMKLILAARRLEKLEELKKTI
+            DQEFPNAKVHVAQLDITQAEKIKPFIENLPQEFKDIDILVNNAGKALGSDRVGQIATEDI
+            QDVFDTNVTALINITQAVLPIFQAKNSGDIVNLGSIAGRDAYPTGSIYCASKFAVGAFTD
+            SLRKELINTKIRVILIAPGLVETEFSLVRYRGNEEQAKNVYKDTTPLMADDVADLIVYAT
+            SRKQNTVIADTLIFPTNQASPHHIFRG
+NTSEQ       804
+            atgtcccaaggtagaaaagctgcagaaagattggctaagaagactgtcctcattacaggt
+            gcatctgctggtattggtaaggcgaccgcattagagtacttggaggcatccaatggtgat
+            atgaaactgatcttggctgctagaagattagaaaagctcgaggaattgaagaagaccatt
+            gatcaagagtttccaaacgcaaaagttcatgtggcccagctggatatcactcaagcagaa
+            aaaatcaagcccttcattgaaaacttgccacaagagttcaaggatattgacattctggtg
+            aacaatgccggaaaggctcttggcagtgaccgtgtgggccagatcgcaacggaggatatc
+            caggacgtgtttgacaccaacgtcacggctttaatcaatatcacacaagctgtactgccc
+            atattccaagccaagaattcaggagatattgtaaatttgggttcaatcgctggcagagac
+            gcatacccaacaggttctatctattgtgcctctaagtttgccgtgggggcgttcactgat
+            agtttgagaaaggagctcatcaacactaaaattagagtcattctaattgcaccagggcta
+            gtcgagactgaattttcactagttagatacagaggtaacgaggaacaagccaagaatgtt
+            tacaaggatactaccccattgatggctgatgacgtggctgatctgatcgtctatgcaact
+            tccagaaaacaaaatactgtaattgcagacactttaatctttccaacaaaccaagcgtca
+            cctcatcatatcttccgtggataa
+///

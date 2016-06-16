@@ -1,0 +1,49 @@
+ENTRY       YKR043C           CDS       T00005
+NAME        SHB17
+DEFINITION  Shb17p (EC:3.1.3.37)
+ORTHOLOGY   K15634  probable phosphoglycerate mutase [EC:5.4.2.12]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00010  Glycolysis / Gluconeogenesis
+            sce00260  Glycine, serine and threonine metabolism
+            sce00680  Methane metabolism
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01200  Carbon metabolism
+            sce01230  Biosynthesis of amino acids
+MODULE      sce_M00001  Glycolysis (Embden-Meyerhof pathway), glucose => pyruvate
+            sce_M00002  Glycolysis, core module involving three-carbon compounds
+CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
+            Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
+            Metabolism; Carbohydrate metabolism; Glycolysis / Gluconeogenesis [PATH:sce00010]
+            Metabolism; Energy metabolism; Methane metabolism [PATH:sce00680]
+            Metabolism; Amino acid metabolism; Glycine, serine and threonine metabolism [PATH:sce00260]
+POSITION    XI:complement(520897..521712)
+MOTIF       Pfam: His_Phos_1 His_Phos_2
+DBLINKS     NCBI-GI: 6322896
+            NCBI-GeneID: 853917
+            SGD: S000001751
+            MIPS: YKR043C
+            UniProt: P36136
+STRUCTURE   PDB: 3F3K 3OI7 3LL4 3LG2
+AASEQ       271
+            MPSLTPRCIIVRHGQTEWSKSGQYTGLTDLPLTPYGEGQMLRTGESVFRNNQFLNPDNIT
+            YIFTSPRLRARQTVDLVLKPLSDEQRAKIRVVVDDDLREWEYGDYEGMLTREIIELRKSR
+            GLDKERPWNIWRDGCENGETTQQIGLRLSRAIARIQNLHRKHQSEGRASDIMVFAHGHAL
+            RYFAAIWFGLGVQKKCETIEEIQNVKSYDDDTVPYVKLESYRHLVDNPCFLLDAGGIGVL
+            SYAHHNIDEPALELAGPFVSPPEEESQHGDV
+NTSEQ       816
+            atgccttcgctaacccccagatgtatcattgtcagacacggtcaaactgaatggtccaag
+            tcaggccagtatactggtttgacagatctaccgttaacgccctacggtgagggccaaatg
+            ttgaggaccggtgagagtgttttccgcaataatcagtttttgaatccagacaacatcact
+            tatatcttcacctctccacgtttgcgtgccaggcaaactgtggatttggttttgaaacca
+            ttaagcgacgagcaaagagctaagatccgtgtggtggtagacgacgacttgcgagagtgg
+            gagtacggtgactacgagggaatgctgactcgagaaatcattgaattgagaaagtcacgc
+            ggtttggacaaggagaggccatggaatatctggagagatgggtgtgagaacggtgagact
+            actcagcaaattgggttgagactttcccgcgctattgccagaatccagaacttgcaccgc
+            aagcaccagagtgagggcagagcatcagacatcatggtctttgcgcacggacatgcattg
+            cgttattttgctgctatttggtttggactgggtgtgcaaaagaagtgtgagacgattgaa
+            gaaattcaaaatgtcaaatcttatgatgacgacacagttccatatgtgaaattggaatct
+            tacagacatttggtagacaatccatgtttcttactggacgccggtgggattggtgttttg
+            tcatacgctcaccacaacattgacgaacctgcattggaattagcaggtccatttgtctca
+            ccaccagaggaggaatcccagcatggcgatgtgtaa
+///

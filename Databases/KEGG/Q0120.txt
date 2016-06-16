@@ -1,0 +1,63 @@
+ENTRY       Q0120             CDS       T00005
+NAME        BI4
+DEFINITION  intron-encoded RNA maturase bI4 (EC:3.1.-.-)
+ORTHOLOGY   K00412  ubiquinol-cytochrome c reductase cytochrome b subunit
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00190  Oxidative phosphorylation
+            sce01100  Metabolic pathways
+MODULE      sce_M00151  Cytochrome bc1 complex respiratory unit
+            sce_M00152  Cytochrome bc1 complex
+CLASS       Metabolism; Energy metabolism; Oxidative phosphorylation [PATH:sce00190]
+POSITION    MT:join(36540..36954,37723..37736,39141..39217,40841..42251)
+MOTIF       Pfam: Cytochrom_B_N_2 LAGLIDADG_1 Cytochrom_B_N LAGLIDADG_3 Hom_end
+DBLINKS     NCBI-GI: 6226532
+            NCBI-GeneID: 854582
+            SGD: S000007273
+            MIPS: Q0120
+            UniProt: P03879
+AASEQ       638
+            MAFRKSNVYLSLVNSYIIDSPQPSSINYWWNMGSLLGLCLVIQIVTGIFMAMHYSSNIEL
+            AFSSVEHIMRDVHNGYILRYLHANGASFFFMVMFMHMAKGLYYGSYRSPRVTLWNVGVII
+            FILTIATAFLGYCCVYGQMSHWGATVITNLFSAIPFVGNDIVSWLWGGFSVSNPTIQRFF
+            ALHYLVPFIIAAMVIMHLMALHIHGSSNPLGITGNLDRIPMHSYFIFKDLVTVFLFMLIL
+            ALFVFYSPNTLGQNMALLLITYVINILCAVCWKSLFIKYQWKIYNKTTYYFIIQNILNTK
+            QLNNFVLKFNWTKQYNKMNIVSDLFNPNRVKYYYKEDNQQVTNMNSSNTHLTSNKKNLLV
+            DTSETTRTTKNKFNYLLNIFNMKKMNQIITKRHYSIYKDSNIRFNQWLAGLIDGDGYFCI
+            TKNKYASCEITVELKDEKMLRQIQDKFGGSVKLRSGVKAIRYRLQNKEGMIKLINAVNGN
+            IRNSKRLVQFNKVCILLNIDFKEPIKLTKDNAWFMGFFDADGTINYYYSGKLKIRPQLTI
+            SVTNKYLHDVEYYREVFGGNIYFDKAKNGYFKWSINNKELHNIFYTYNKSCPSKSNKGKR
+            LFLIDKFYYLYDLLAFKAPHNTALYKAWLKFNEKWNNN
+NTSEQ       1917
+            atggcatttagaaaatcaaatgtgtatttaagtttagtgaatagttatattattgattca
+            ccacaaccatcatcaattaattattgatgaaatatgggttcattattaggtttatgttta
+            gttattcaaattgtaacaggtatttttatggctatgcattattcatctaatattgaatta
+            gctttttcatctgttgaacatattataagagatgtgcataatggttatattttaagatat
+            ttacatgcaaatggtgcatcattcttttttatggtaatgtttatgcatatggctaaaggt
+            ttatattatggttcatatagatcaccaagagtactattatgaaatgtaggtgttattatt
+            ttcattttaactattgctacagcttttttaggttattgttgtgtttatggacagatgtca
+            cattgaggtgcactagttattactaatttattctcagcaattccatttgtaggtaacgat
+            attgtatcttgattatgaggtgggttctcagtatctaaccctctaatccagagattcttt
+            gcgttacattatttagtaccttttatcattgctgcaatggttattatgcatttaatggca
+            ttacatattcatggttcatctaatccattaggtattacaggtaatttagatagaattcca
+            atgcattcatactttatttttaaagatttagtaactgttttcttatttatgttaatttta
+            gcattatttgtattctattcacctaatactttaggtcaaaatatggccttattattaatt
+            acatatgtaattaatattttatgtgctgtatgctggaaatctttatttattaaatatcaa
+            tgaaaaatttataataaaactctatattattttattattcaaaatattttaaatacaaaa
+            caattaaataatttcgtattaaaatttaattgaacaaagcaatataataaaataaatatt
+            gtaagtgatttatttaatcccaatagagtaaaatattattataaagaagataatcagcag
+            gtaaccaatataaattcttctaatactcacttaacgagtaataaaaagaatttattagta
+            gatacttcagagactacacgcacactaaaaaataaatttaattatttattaaatattttt
+            aatataaaaaaaataaatcaaattattcttaaaagacattatagtatttataaagatagt
+            aatattagatttaaccaatgattggccggtttaattgacggagatggttatttttgtatt
+            actaaaaataaatatgcatcttgtgaaattcttgtagaattaaaagatgaaaaaatgtta
+            agacaaatccaagataaatttggtggttctgtaaaattaagatcaggtgttaaggctatt
+            agatatagattacaaaataaagaaggtataattaaattaattaatgccgttaatggtaat
+            attcgtaatagtaaaagattagtacaatttaataaagtatgtattttattaaatatcgat
+            tttaaagaacctattaaattaactaaagataatgcttgatttatagggttctttgatgct
+            gatggtactattaattattattattccggtaaattaaaaattagacctcaattaactatt
+            agcgttacaaataaatatttacatgatgttgaatactatagagaagtatttggtggtaat
+            atttattttgataaagctaaaaatggttattttaaatgatctattaataataaagaatta
+            cataatattttttatctttataataaaagttgtccttctaaatctaataaaggtaaacgt
+            ttatttttaattgataaattttattatttatatgatttattagcttttaaagcacctcat
+            aatactgctttatataaagcttgattaaaatttaatgaaaaatgaaataataattaa
+///

@@ -1,0 +1,60 @@
+ENTRY       YPR006C           CDS       T00005
+NAME        ICL2
+DEFINITION  methylisocitrate lyase ICL2 (EC:4.1.3.30)
+ORTHOLOGY   K01637  isocitrate lyase [EC:4.1.3.1]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00630  Glyoxylate and dicarboxylate metabolism
+            sce01100  Metabolic pathways
+            sce01200  Carbon metabolism
+MODULE      sce_M00012  Glyoxylate cycle
+CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
+            Metabolism; Carbohydrate metabolism; Glyoxylate and dicarboxylate metabolism [PATH:sce00630]
+POSITION    XVI:complement(567269..568996)
+MOTIF       Pfam: ICL PEP_mutase
+DBLINKS     NCBI-GI: 6325263
+            NCBI-GeneID: 856114
+            SGD: S000006210
+            MIPS: YPR006C
+            UniProt: Q12031
+AASEQ       575
+            MITMINNKTFNRKTTGTLKKLVLSSDKSLRRSFNGASSTKDFVFSESSKVEEWWESARFK
+            NISRPYSATDVVKHRGSLPANTSIYPSSYQARKLFNLLEENFKNGTPLHTLGVIDPVQMS
+            QLARCRNIKVAYISGWACSSTLVGSTNEVSPDFGDYPYDTVPNQVERIFKAQQLHDRKAF
+            LEASIKGSTPVDYLKPIIADADMGHGGPTTVMKVAKLFAEKGAAGIHLEDQMVGGKRCGH
+            LSGAVLVPTATHLMRLISTRFQWDIMGTENLVIARTDSCNGKLLSSSSDPRDHEFIRGII
+            RDNVVPWSEKLIEMEDKKIPNSAIADMEKEWYHENELFTFEEALEKQFTASEFESYKEKK
+            EDLMVNKLGRAYLSLREMKLLAQEVTPLKKIIFDWDAPRTKEGYYMFNGCIEAAIRRSLV
+            FAPYSDMIWLETKTPDLEQARSFSRKIHKQLPATKLVYNLSPSFNWSAHGFDDKALKSFV
+            WDLAKEGFTLQLVSLAGLHSDGVSFWELANSFQSDGMKAYVEKVQKREKETNCDIMTHQL
+            WSGAEYVDSLMKVVQNGASSQTLSTSGESFTETQF
+NTSEQ       1728
+            atgattacaatgattaacaacaaaactttcaatagaaaaactacgggaacactgaagaag
+            ctggttttgtcatcagacaagtcactgcgaagatctttcaacggggcaagcagtactaaa
+            gacttcgtgttctcggaatcaagtaaagtagaagaatggtgggaatcagccagatttaag
+            aatatcagtcgtccatactcagctacggatgttgtaaagcatcggggcagccttcctgct
+            aatacttcaatttatccttcatcttatcaagctcgaaagctgttcaacttactagaagag
+            aatttcaagaatggtactccacttcacacgttgggagttatcgatcctgtacaaatgagt
+            cagttggcccgttgcagaaatatcaaagttgcttacatatctggttgggcttgttcttcc
+            acattagttggatctacaaatgaagtatcgccggattttggcgattatccatacgatact
+            gtgccgaatcaagtggagagaatattcaaggcgcagcaattgcacgatcgaaaggctttc
+            ttggaggcctccatcaaaggttctactcctgttgattatttaaaaccaattatcgcggac
+            gcagacatgggtcacggtggcccaacgactgtaatgaaagttgctaagttgtttgcggag
+            aaaggggctgctggtattcatcttgaagatcagatggtgggaggcaaaaggtgtggccat
+            ctaagtggggctgttttggtgcccacagcaacacatcttatgagattgatttccaccagg
+            tttcaatgggatatcatggggacagaaaatttggttattgcaagaacagattcctgtaat
+            ggtaagctgttgagttcaagcagtgatccgagagaccacgaattcattaggggtataata
+            agagataacgtggtgccttggagcgaaaaattgattgagatggaggacaaaaaaattccc
+            aactccgccattgctgacatggaaaaagaatggtaccatgaaaatgagctgtttacattt
+            gaagaggccttagaaaagcagtttacggcaagcgagtttgaaagctataaagaaaagaag
+            gaagaccttatggtaaacaagctgggtagagcatacctaagcttaagagaaatgaaactt
+            ttagctcaagaagtgacaccactaaagaaaattatatttgactgggatgctccgaggacc
+            aaagagggatattacatgtttaacggttgtattgaagcagctattagaagatctttggtg
+            tttgccccatattctgatatgatttggctggaaacgaaaactcctgacctggagcaggca
+            cgctcattttcaagaaaaattcataaacaacttccagctaccaagctagtatataactta
+            tctcctagtttcaattggagcgctcacggctttgatgataaggcattaaaatccttcgta
+            tgggacttggcaaaagaaggcttcacgttgcaactggtttcccttgccggtctgcattca
+            gatggagtatcattctgggaattagccaatagcttccaaagtgacggaatgaaagcatac
+            gtcgaaaaagtgcaaaaacgggaaaaggagactaattgtgatatcatgacacaccagcta
+            tggtctggtgcagaatatgttgattccttaatgaaagttgtccaaaacggtgcttcatcc
+            caaactttaagtacatctggtgagagctttaccgaaacgcaattttga
+///

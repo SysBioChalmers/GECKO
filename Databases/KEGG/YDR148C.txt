@@ -1,0 +1,57 @@
+ENTRY       YDR148C           CDS       T00005
+NAME        KGD2
+DEFINITION  alpha-ketoglutarate dehydrogenase KGD2 (EC:2.3.1.61)
+ORTHOLOGY   K00658  2-oxoglutarate dehydrogenase E2 component (dihydrolipoamide succinyltransferase) [EC:2.3.1.61]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00020  Citrate cycle (TCA cycle)
+            sce00310  Lysine degradation
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01200  Carbon metabolism
+MODULE      sce_M00009  Citrate cycle (TCA cycle, Krebs cycle)
+            sce_M00011  Citrate cycle, second carbon oxidation, 2-oxoglutarate => oxaloacetate
+CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
+            Metabolism; Carbohydrate metabolism; Citrate cycle (TCA cycle) [PATH:sce00020]
+            Metabolism; Amino acid metabolism; Lysine degradation [PATH:sce00310]
+POSITION    IV:complement(753675..755066)
+MOTIF       Pfam: 2-oxoacid_dh Biotin_lipoyl HlyD GCV_H HlyD_3 Biotin_lipoyl_2 RnfC_N DUF2118
+DBLINKS     NCBI-GI: 398365855
+            NCBI-GeneID: 851726
+            SGD: S000002555
+            MIPS: YDR148C
+            UniProt: P19262
+AASEQ       463
+            MLSRATRTAAAKSLVKSKVARNVMAASFVKRHASTSLFKQANKVESLGSIYLSGKKISVA
+            ANPFSITSNRFKSTSIEVPPMAESLTEGSLKEYTKNVGDFIKEDELLATIETDKIDIEVN
+            SPVSGTVTKLNFKPEDTVTVGEELAQVEPGEAPAEGSGESKPEPTEQAEPSQGVAARENS
+            SEETASKKEAAPKKEAAPKKEVTEPKKADQPKKTVSKAQEPPVASNSFTPFPRTETRVKM
+            NRMRLRIAERLKESQNTAASLTTFNEVDMSALMEMRKLYKDEIIKKTGTKFGFMGLFSKA
+            CTLAAKDIPAVNGAIEGDQIVYRDYTDISVAVATPKGLVTPVVRNAESLSVLDIENEIVR
+            LSHKARDGKLTLEDMTGGTFTISNGGVFGSLYGTPIINSPQTAVLGLHGVKERPVTVNGQ
+            IVSRPMMYLALTYDHRLLDGREAVTFLKTVKELIEDPRKMLLW
+NTSEQ       1392
+            atgctttccagagcgacgcgtactgcagctgccaaatccttagtaaaatctaaagtggct
+            agaaatgttatggctgcttctttcgtcaagagacatgcttctacaagtttgttcaaacaa
+            gctaacaaggtcgaatccttaggttcaatatatttatccggcaagaaaatttcagttgcg
+            gcgaatccgttctccataactagcaatcgttttaaatctacctctattgaagttcctccg
+            atggcagagtccctgactgaaggctctttaaaggaatatactaaaaacgttggtgatttt
+            attaaggaggacgagctgttggccactattgagaccgataaaattgatattgaggtcaat
+            tcgccagtatcaggtactgttacgaagctaaatttcaaaccagaggacactgtcactgtt
+            ggtgaggagttagctcaggtcgagcctggtgaagcacctgctgagggttctggagaatct
+            aagccagagcctaccgaacaagcggagccatcgcaaggtgtcgccgcaagggaaaactca
+            agtgaggaaacggcttcaaagaaagaagctgctccaaagaaagaagccgctccaaagaaa
+            gaagttacagaaccaaaaaaggctgatcaaccaaagaagaccgtctctaaggcgcaggaa
+            cccccagtagcctctaactctttcacaccatttccacgtacagaaaccagggtcaaaatg
+            aaccgtatgagattgaggattgccgaaagattaaaagagtctcaaaacactgctgcttcc
+            ttaaccacattcaacgaagttgacatgtcagctttgatggaaatgaggaaactgtataaa
+            gatgagattattaagaagaccggtactaaattcggattcatgggtcttttctccaaagca
+            tgtaccttggccgccaaggatattccagccgtcaatggtgccattgaaggtgaccagatt
+            gtttatcgtgattacacagatatttctgttgctgtggccactccaaagggtttggttacc
+            cccgtcgttcgtaatgcagagtcattgagtgttttagatattgagaacgaaattgttcgc
+            ttgagtcataaagcgcgtgatggcaaattaaccctagaagatatgacgggtggtactttc
+            accatatctaatggtggtgtttttggttcattatacggtactcctatcatcaattcacca
+            caaacagccgtcctaggcttgcatggtgtcaaagagagacctgtcactgttaatggacaa
+            attgtctcaagaccaatgatgtacttggctttgacttatgatcatagattgctagatggt
+            agagaagctgttaccttcttgaagactgttaaagagttgattgaagaccctagaaaaatg
+            ttgttatggtga
+///

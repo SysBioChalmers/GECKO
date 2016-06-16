@@ -1,0 +1,60 @@
+ENTRY       YHR183W           CDS       T00005
+NAME        GND1
+DEFINITION  phosphogluconate dehydrogenase (decarboxylating) GND1 (EC:1.1.1.44)
+ORTHOLOGY   K00033  6-phosphogluconate dehydrogenase [EC:1.1.1.44]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00030  Pentose phosphate pathway
+            sce00480  Glutathione metabolism
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01200  Carbon metabolism
+MODULE      sce_M00004  Pentose phosphate pathway (Pentose phosphate cycle)
+            sce_M00006  Pentose phosphate pathway, oxidative phase, glucose 6P => ribulose 5P
+CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
+            Metabolism; Carbohydrate metabolism; Pentose phosphate pathway [PATH:sce00030]
+            Metabolism; Metabolism of other amino acids; Glutathione metabolism [PATH:sce00480]
+POSITION    VIII:470960..472429
+MOTIF       Pfam: 6PGD NAD_binding_2 NAD_binding_11 F420_oxidored 2-Hacid_dh_C
+DBLINKS     NCBI-GI: 398364913
+            NCBI-GeneID: 856589
+            SGD: S000001226
+            MIPS: YHR183W
+            UniProt: P38720
+STRUCTURE   PDB: 2P4Q
+AASEQ       489
+            MSADFGLIGLAVMGQNLILNAADHGFTVCAYNRTQSKVDHFLANEAKGKSIIGATSIEDF
+            ISKLKRPRKVMLLVKAGAPVDALINQIVPLLEKGDIIIDGGNSHFPDSNRRYEELKKKGI
+            LFVGSGVSGGEEGARYGPSLMPGGSEEAWPHIKNIFQSISAKSDGEPCCEWVGPAGAGHY
+            VKMVHNGIEYGDMQLICEAYDIMKRLGGFTDKEISDVFAKWNNGVLDSFLVEITRDILKF
+            DDVDGKPLVEKIMDTAGQKGTGKWTAINALDLGMPVTLIGEAVFARCLSALKNERIRASK
+            VLPGPEVPKDAVKDREQFVDDLEQALYASKIISYAQGFMLIREAAATYGWKLNNPAIALM
+            WRGGCIIRSVFLGQITKAYREEPDLENLLFNKFFADAVTKAQSGWRKSIALATTYGIPTP
+            AFSTALSFYDGYRSERLPANLLQAQRDYFGAHTFRVLPECASDNLPVDKDIHINWTGHGG
+            NVSSSTYQA
+NTSEQ       1470
+            atgtctgctgatttcggtttgattggtttggccgtcatgggtcaaaatttgatcttgaac
+            gctgctgaccacggtttcactgtttgtgcttacaacagaactcaatccaaggtcgaccat
+            ttcttggccaatgaagctaagggcaaatctatcatcggtgctacttccattgaagatttc
+            atctccaaattgaagagacctagaaaggtcatgcttttggttaaagctggtgctccagtt
+            gacgctttgatcaaccaaatcgtcccacttttggaaaagggtgatattatcatcgatggt
+            ggtaactctcacttcccagattctaatagacgttacgaagaattgaagaagaagggtatt
+            cttttcgttggttctggtgtctccggtggtgaggaaggtgcccgttacggtccatctttg
+            atgccaggtggttctgaagaagcttggccacatattaagaacatcttccaatccatctct
+            gctaaatccgacggtgaaccatgttgcgaatgggttggcccagccggtgctggtcactac
+            gtcaagatggttcacaacggtattgaatacggtgatatgcaattgatttgtgaagcttat
+            gacatcatgaagagattgggtgggtttaccgataaggaaatcagtgacgtttttgccaaa
+            tggaacaatggtgtcttggattccttcttggtcgaaattaccagagatattttgaaattc
+            gacgacgtcgacggtaagccattagttgaaaaaatcatggatactgctggtcaaaagggt
+            actggtaagtggactgccatcaacgccttggatttgggtatgccagttactttgattggt
+            gaagctgtctttgcccgttgtctatctgctttgaagaacgagagaattagagcctccaag
+            gtcttaccaggcccagaagttccaaaagacgccgtcaaggacagagaacaatttgtcgat
+            gatttggaacaagctttgtatgcttccaagattatttcttacgctcaaggtttcatgttg
+            atccgtgaagctgctgctacttatggctggaaactaaacaaccctgccatcgctttgatg
+            tggagaggtggttgtatcattagatctgttttcttgggtcaaatcacaaaggcctacaga
+            gaagaaccagatttggaaaacttgttgttcaacaagttcttcgctgatgccgtcaccaag
+            gctcaatctggttggagaaagtcaattgcgttggctaccacctacggtatcccaacacca
+            gccttttccaccgctttgtctttctacgatgggtacagatctgaaagattgccagccaac
+            ttactacaagctcaacgtgactactttggtgctcacactttcagagtgttgccagaatgt
+            gcttctgacaacttgccagtagacaaggatatccatatcaactggactggccacggtggt
+            aatgtttcttcctctacataccaagcttaa
+///

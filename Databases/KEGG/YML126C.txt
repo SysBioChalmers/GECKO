@@ -1,0 +1,60 @@
+ENTRY       YML126C           CDS       T00005
+NAME        ERG13, HMGS
+DEFINITION  hydroxymethylglutaryl-CoA synthase (EC:2.3.3.10)
+ORTHOLOGY   K01641  hydroxymethylglutaryl-CoA synthase [EC:2.3.3.10]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00072  Synthesis and degradation of ketone bodies
+            sce00280  Valine, leucine and isoleucine degradation
+            sce00650  Butanoate metabolism
+            sce00900  Terpenoid backbone biosynthesis
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+MODULE      sce_M00095  C5 isoprenoid biosynthesis, mevalonate pathway
+CLASS       Metabolism; Carbohydrate metabolism; Butanoate metabolism [PATH:sce00650]
+            Metabolism; Lipid metabolism; Synthesis and degradation of ketone bodies [PATH:sce00072]
+            Metabolism; Amino acid metabolism; Valine, leucine and isoleucine degradation [PATH:sce00280]
+            Metabolism; Metabolism of terpenoids and polyketides; Terpenoid backbone biosynthesis [PATH:sce00900]
+POSITION    XIII:complement(19060..20535)
+MOTIF       Pfam: HMG_CoA_synt_C HMG_CoA_synt_N
+DBLINKS     NCBI-GI: 6323509
+            NCBI-GeneID: 854913
+            SGD: S000004595
+            MIPS: YML126C
+            UniProt: P54839
+AASEQ       491
+            MKLSTKLCWCGIKGRLRPQKQQQLHNTNLQMTELKKQKTAEQKTRPQNVGIKGIQIYIPT
+            QCVNQSELEKFDGVSQGKYTIGLGQTNMSFVNDREDIYSMSLTVLSKLIKSYNIDTNKIG
+            RLEVGTETLIDKSKSVKSVLMQLFGENTDVEGIDTLNACYGGTNALFNSLNWIESNAWDG
+            RDAIVVCGDIAIYDKGAARPTGGAGTVAMWIGPDAPIVFDSVRASYMEHAYDFYKPDFTS
+            EYPYVDGHFSLTCYVKALDQVYKSYSKKAISKGLVSDPAGSDALNVLKYFDYNVFHVPTC
+            KLVTKSYGRLLYNDFRANPQLFPEVDAELATRDYDESLTDKNIEKTFVNVAKPFHKERVA
+            QSLIVPTNTGNMYTASVYAAFASLLNYVGSDDLQGKRVGLFSYGSGLAASLYSCKIVGDV
+            QHIIKELDITNKLAKRITETPKDYEAAIELRENAHLKKNFKPQGSIEHLQSGVYYLTNID
+            DKFRRSYDVKK
+NTSEQ       1476
+            atgaaactctcaactaaactttgttggtgtggtattaaaggaagacttaggccgcaaaag
+            caacaacaattacacaatacaaacttgcaaatgactgaactaaaaaaacaaaagaccgct
+            gaacaaaaaaccagacctcaaaatgtcggtattaaaggtatccaaatttacatcccaact
+            caatgtgtcaaccaatctgagctagagaaatttgatggcgtttctcaaggtaaatacaca
+            attggtctgggccaaaccaacatgtcttttgtcaatgacagagaagatatctactcgatg
+            tccctaactgttttgtctaagttgatcaagagttacaacatcgacaccaacaaaattggt
+            agattagaagtcggtactgaaactctgattgacaagtccaagtctgtcaagtctgtcttg
+            atgcaattgtttggtgaaaacactgacgtcgaaggtattgacacgcttaatgcctgttac
+            ggtggtaccaacgcgttgttcaactctttgaactggattgaatctaacgcatgggatggt
+            agagacgccattgtagtttgcggtgatattgccatctacgataagggtgccgcaagacca
+            accggtggtgccggtactgttgctatgtggatcggtcctgatgctccaattgtatttgac
+            tctgtaagagcttcttacatggaacacgcctacgatttttacaagccagatttcaccagc
+            gaatatccttacgtcgatggtcatttttcattaacttgttacgtcaaggctcttgatcaa
+            gtttacaagagttattccaagaaggctatttctaaagggttggttagcgatcccgctggt
+            tcggatgctttgaacgttttgaaatatttcgactacaacgttttccatgttccaacctgt
+            aaattggtcacaaaatcatacggtagattactatataacgatttcagagccaatcctcaa
+            ttgttcccagaagttgacgccgaattagctactcgcgattatgacgaatctttaaccgat
+            aagaacattgaaaaaacttttgttaatgttgctaagccattccacaaagagagagttgcc
+            caatctttgattgttccaacaaacacaggtaacatgtacaccgcatctgtttatgccgcc
+            tttgcatctctattaaactatgttggatctgacgacttacaaggcaagcgtgttggttta
+            ttttcttacggttccggtttagctgcatctctatattcttgcaaaattgttggtgacgtc
+            caacatattatcaaggaattagatattactaacaaattagccaagagaatcaccgaaact
+            ccaaaggattacgaagctgccatcgaattgagagaaaatgcccatttgaagaagaacttc
+            aaacctcaaggttccattgagcatttgcaaagtggtgtttactacttgaccaacatcgat
+            gacaaatttagaagatcttacgatgttaaaaaataa
+///

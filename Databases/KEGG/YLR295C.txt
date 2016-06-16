@@ -1,0 +1,29 @@
+ENTRY       YLR295C           CDS       T00005
+NAME        ATP14
+DEFINITION  F1F0 ATP synthase subunit H (EC:3.6.3.14)
+ORTHOLOGY   K02141  F-type H+-transporting ATPase subunit h [EC:3.6.3.14]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00190  Oxidative phosphorylation
+            sce01100  Metabolic pathways
+MODULE      sce_M00158  F-type ATPase, eukaryotes
+CLASS       Metabolism; Energy metabolism; Oxidative phosphorylation [PATH:sce00190]
+POSITION    XII:complement(721999..722373)
+MOTIF       Pfam: ATP_sub_h
+DBLINKS     NCBI-GI: 6323326
+            NCBI-GeneID: 851002
+            SGD: S000004286
+            MIPS: YLR295C
+            UniProt: Q12349
+AASEQ       124
+            MFPIASRRILLNASVLPLRLCNRNFTTTRISYNVIQDLYLRELKDTKLAPSTLQDAEGNV
+            KPWNPPQKPNLPELELQGPEALKAYTEQNVETAHVAKESEEGESEPIEEDWLVLDDAEET
+            KESH
+NTSEQ       375
+            atgttccctatcgcttccagaagaatactgctcaatgcttcagttctgccattgagactg
+            tgcaatagaaatttcactaccacaagaatatcctacaacgtcatacaagatttgtatttg
+            agggaactaaaagacaccaaactggctccaagtaccttgcaagatgctgaaggtaatgtt
+            aagccttggaacccaccacaaaaaccaaatctaccagaattggaacttcaaggcccagag
+            gctttaaaggcttacaccgagcaaaatgtagaaactgctcatgttgctaaagagtctgaa
+            gagggtgagtcagagccaattgaagaggattggctagttttggatgatgctgaggaaacc
+            aaagaaagtcattga
+///

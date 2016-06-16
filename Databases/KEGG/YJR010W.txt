@@ -1,0 +1,59 @@
+ENTRY       YJR010W           CDS       T00005
+NAME        MET3
+DEFINITION  sulfate adenylyltransferase (EC:2.7.7.4)
+ORTHOLOGY   K00958  sulfate adenylyltransferase [EC:2.7.7.4]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00230  Purine metabolism
+            sce00450  Selenocompound metabolism
+            sce00920  Sulfur metabolism
+            sce01100  Metabolic pathways
+MODULE      sce_M00176  Assimilatory sulfate reduction, sulfate => H2S
+CLASS       Metabolism; Energy metabolism; Sulfur metabolism [PATH:sce00920]
+            Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
+            Metabolism; Metabolism of other amino acids; Selenocompound metabolism [PATH:sce00450]
+POSITION    X:456239..457774
+MOTIF       Pfam: ATP-sulfurylase PUA_2
+DBLINKS     NCBI-GI: 398364775
+            NCBI-GeneID: 853466
+            SGD: S000003771
+            MIPS: YJR010W
+            UniProt: P08536
+STRUCTURE   PDB: 1R6X 1G8F 1J70 1JEC 1G8G 1JEE 1G8H 1JED
+AASEQ       511
+            MPAPHGGILQDLIARDALKKNELLSEAQSSDILVWNLTPRQLCDIELILNGGFSPLTGFL
+            NENDYSSVVTDSRLADGTLWTIPITLDVDEAFANQIKPDTRIALFQDDEIPIAILTVQDV
+            YKPNKTIEAEKVFRGDPEHPAISYLFNVAGDYYVGGSLEAIQLPQHYDYPGLRKTPAQLR
+            LEFQSRQWDRVVAFQTRNPMHRAHRELTVRAAREANAKVLIHPVVGLTKPGDIDHHTRVR
+            VYQEIIKRYPNGIAFLSLLPLAMRMSGDREAVWHAIIRKNYGASHFIVGRDHAGPGKNSK
+            GVDFYGPYDAQELVESYKHELDIEVVPFRMVTYLPDEDRYAPIDQIDTTKTRTLNISGTE
+            LRRRLRVGGEIPEWFSYPEVVKILRESNPPRPKQGFSIVLGNSLTVSREQLSIALLSTFL
+            QFGGGRYYKIFEHNNKTELLSLIQDFIGSGSGLIIPNQWEDDKDSVVGKQNVYLLDTSSS
+            ADIQLESADEPISHIVQKVVLFLEDNGFFVF
+NTSEQ       1536
+            atgcctgctcctcacggtggtattctacaagacttgattgctagagatgcgttaaagaag
+            aatgaattgttatctgaagcgcaatcttcggacattttagtatggaacttgactcctaga
+            caactatgtgatattgaattgattctaaatggtgggttttctcctctgactgggtttttg
+            aacgaaaacgattactcctctgttgttacagattcgagattagcagacggcacattgtgg
+            accatccctattacattagatgttgatgaagcatttgctaaccaaattaaaccagacaca
+            agaattgcccttttccaagatgatgaaattcctattgctatacttactgtccaggatgtt
+            tacaagccaaacaaaactatcgaagccgaaaaagtcttcagaggtgacccagaacatcca
+            gccattagctatttatttaacgttgccggtgattattacgtcggcggttctttagaagcg
+            attcaattacctcaacattatgactatccaggtttgcgtaagacacctgcccaactaaga
+            cttgaattccaatcaagacaatgggaccgtgtcgtagctttccaaactcgtaatccaatg
+            catagagcccacagggagttgactgtgagagccgccagagaagctaatgctaaggtgctg
+            atccatccagttgttggactaaccaaaccaggtgatatagaccatcacactcgtgttcgt
+            gtctaccaggaaattattaagcgttatcctaatggtattgctttcttatccctgttgcca
+            ttagcaatgagaatgagtggtgatagagaagccgtatggcatgctattattagaaagaat
+            tatggtgcctcccacttcattgttggtagagaccatgcgggcccaggtaagaactccaag
+            ggtgttgatttctacggtccatacgatgctcaagaattggtcgaatcctacaagcatgaa
+            ctggacattgaagttgttccattcagaatggtcacttatttgccagacgaagaccgttat
+            gctccaattgatcaaattgacaccacaaagacgagaaccttgaacatttcaggtacagag
+            ttgagacgccgtttaagagttggtggtgagattcctgaatggttctcatatcctgaagtg
+            gttaaaatcctaagagaatccaacccaccaagaccaaaacaaggtttttcaattgtttta
+            ggtaattcattaaccgtttctcgtgagcaattatccattgctttgttgtcaacattcttg
+            caattcggtggtggcaggtattacaagatctttgaacacaataataagacagagttacta
+            tctttgattcaagatttcattggttctggtagtggactaattattccaaatcaatgggaa
+            gatgacaaggactctgttgttggcaagcaaaacgtttacttattagatacctcaagctca
+            gccgatattcagctagagtcagcggatgaacctatttcacatattgtacaaaaagttgtc
+            ctattcttggaagacaatggcttttttgtattttaa
+///

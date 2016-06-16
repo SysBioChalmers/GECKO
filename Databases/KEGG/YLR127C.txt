@@ -1,0 +1,81 @@
+ENTRY       YLR127C           CDS       T00005
+NAME        APC2, RSI1, TID2
+DEFINITION  anaphase promoting complex subunit 2
+ORTHOLOGY   K03349  anaphase-promoting complex subunit 2
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04111  Cell cycle - yeast
+            sce04113  Meiosis - yeast
+            sce04120  Ubiquitin mediated proteolysis
+MODULE      sce_M00389  APC/C complex
+CLASS       Genetic Information Processing; Folding, sorting and degradation; Ubiquitin mediated proteolysis [PATH:sce04120]
+            Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
+            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+POSITION    XII:complement(395758..398319)
+MOTIF       Pfam: Cullin APC2 FeoC
+DBLINKS     NCBI-GI: 6323156
+            NCBI-GeneID: 850818
+            SGD: S000004117
+            MIPS: YLR127C
+            UniProt: Q12440
+STRUCTURE   PDB: 1LDD
+AASEQ       853
+            MSFQITPTRDLKVITDELQTLSSYIFHTNIVDDLNSLLTWMSPNDAKSNHQLRPPSLRIK
+            NIIKVLFPNNATTSPYSMINTSQANNSIVNEGNTNKELQLQLFSTLKEFYIFQVRYHFFL
+            HFNNINYLKDIQRWENYYEFPLRYVPIFDVNVNDWALELNSLRHYLLNRNIKFKNNLRTR
+            LDKLIMDDDFDLADNLIQWLKSANGSLSSTELIVNALYSKINKFCEDNMSRVWNKRFMIM
+            ETFNKFINQYWSQFSKLVGCPEDDHELTTTVFNCFESNFLRIRTNEIFDICVLAYPDSKV
+            TLLELRKIMKDFKDYTNIVTTFLSDFKKYILNPSVTTVDALLRYVKTIKAFLVLDPTGRC
+            LHSITTFVKPYFQERKHLVNVLLYAMLDLPEEELKEKINFNVDMKALLSLVDTLHDSDIN
+            QDTNITKRDKNKKSPFLWNLKVKGKRELNKDLPIRHAMLYEHILNYYIAWVPEPNDMIPG
+            NIKSSYIKTNLFEVLLDLFESREFFISEFRNLLTDRLFTLKFYTLDEKWTRCLKLIREKI
+            VKFTETSHSNYITNGILGLLETTAPAADADQSNLNSIDVMLWDIKCSEELCRKMHEVAGL
+            DPIIFPKFISLLYWKYNCDTQGSNDLAFHLPIDLERELQKYSDIYSQLKPGRKLQLCKDK
+            GKVEIQLAFKDGRKLVLDVSLEQCSVINQFDSPNDEPICLSLEQLSESLNIAPPRLTHLL
+            DFWIQKGVLLKENGTYSVIEHSEMDFDQAQKTAPMEIENSNYELHNDSEIERKYELTLQR
+            SLPFIEGMLTNLGAMKLHKIHSFLKITVPKDWGYNRITLQQLEGYLNTLADEGRLKYIAN
+            GSYEIVKNGHKNS
+NTSEQ       2562
+            atgtcatttcagattaccccaactcgagatttgaaagttattacagatgagttacaaaca
+            ctttcctcatacatctttcacacaaacatagtcgatgatttgaactctttacttacatgg
+            atgagccctaatgatgccaagagtaaccatcaactacgtcctccaagccttcgtattaag
+            aatatcattaaggttctcttccctaataacgcaaccacatcgccatatagcatgataaac
+            actagtcaggcaaacaattcaatagttaatgagggaaatacaaacaaagagttacaacta
+            caacttttttccacgctcaaagagttttatattttccaggttcgttatcattttttctta
+            cattttaacaacattaattatctaaaagatatccaacgatgggaaaattattacgagttt
+            cctttacgttacgttcctatttttgacgtaaatgtaaacgactgggcacttgaacttaat
+            tctttaagacattatctgttgaatagaaatataaagttcaaaaataatttaagaacaaga
+            ttagacaaattaataatggatgatgatttcgacctggcagacaatttaatccaatggctc
+            aaatctgctaatggttccttatcctctacggaattgatagtcaatgctctttacagcaaa
+            atcaataaattttgtgaagataacatgagtagagtatggaataaaaggtttatgattatg
+            gaaacattcaacaaatttattaatcaatattggtctcagttctctaaattagtcggttgt
+            ccagaggatgatcacgaactgaccactacagttttcaactgttttgagtccaattttctt
+            aggataagaacgaatgaaatctttgatatatgcgttttggcttatcctgattcaaaggtt
+            actttattggaattgaggaaaattatgaaagattttaaagactacacaaatattgtaaca
+            acttttttgtctgatttcaagaaatacattctaaaccccagcgtaactacggtggacgct
+            ttgttgagatatgttaaaactatcaaagcatttttggtcctggatccaacagggagatgc
+            ctacattcaataaccacgtttgttaaaccttactttcaggagcggaagcacttagtaaat
+            gtattgttatacgcaatgttggacttacctgaagaagaactaaaggagaaaattaatttc
+            aatgtagatatgaaggcactgctctcacttgtagacactttgcacgattctgatatcaat
+            caagatacgaacatcaccaaaagggacaagaataaaaaaagcccctttctatggaacctc
+            aaggtgaaaggaaagagggaattgaacaaggacctaccaataagacacgccatgctatac
+            gaacatatactcaattattatatagcttgggtaccagagcctaatgacatgattcccggt
+            aacatcaaatcaagttatattaagacaaatttgtttgaggtgcttttggatctatttgaa
+            tcaagagaatttttcatatcagaatttcgaaatctcttaaccgacagattattcactttg
+            aaattttatacgttggatgaaaaatggacccgatgtttgaaattaataagagaaaaaata
+            gtcaaattcacagaaacaagtcattccaattatataacaaacggtatattaggactccta
+            gaaacaacagcccctgcagcagatgcagaccagtcgaatttgaatagcattgatgttatg
+            ctttgggatataaaatgtagcgaggagctctgccgtaaaatgcatgaagtagccggactg
+            gatcccataatatttccaaaatttatctcactcctctactggaagtacaactgcgataca
+            caaggttctaatgatcttgcatttcatttaccaatagatttagaaagggagctacagaag
+            tattctgatatatactcacagctgaaacctgggcgcaagttacaactatgcaaagataaa
+            ggaaaagtagaaatacaattagctttcaaagatggtaggaaattagtgttagacgtttct
+            ttagaacaatgcagcgtaataaatcagtttgattctccaaatgatgagccaatttgttta
+            tcactagagcagctttctgagtcactaaatattgctcctcccaggctaactcatttgtta
+            gatttctggattcaaaaaggtgtgcttttaaaagaaaatggaacctattccgttattgaa
+            catagcgagatggattttgatcaagcacaaaagaccgccccaatggagattgagaacagt
+            aactatgaactacataacgattctgagatagaaagaaaatatgaattgacacttcaaaga
+            agtctgccattcatcgaaggaatgctgactaatttaggcgcaatgaaacttcataagatc
+            cattcttttttgaaaattaccgtgccaaaagattggggatataaccgaattactcttcaa
+            caattagagggatatttaaacactctggccgatgagggtaggctgaagtacattgccaat
+            ggttcatatgaaatagtgaaaaatgggcataaaaactcatga
+///

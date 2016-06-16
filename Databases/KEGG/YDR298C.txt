@@ -1,0 +1,34 @@
+ENTRY       YDR298C           CDS       T00005
+NAME        ATP5, OSC1
+DEFINITION  F1F0 ATP synthase subunit 5 (EC:3.6.3.14)
+ORTHOLOGY   K02137  F-type H+-transporting ATPase oligomycin sensitivity conferral protein [EC:3.6.3.14]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00190  Oxidative phosphorylation
+            sce01100  Metabolic pathways
+MODULE      sce_M00158  F-type ATPase, eukaryotes
+CLASS       Metabolism; Energy metabolism; Oxidative phosphorylation [PATH:sce00190]
+POSITION    IV:complement(1058176..1058814)
+MOTIF       Pfam: OSCP
+DBLINKS     NCBI-GI: 6320504
+            NCBI-GeneID: 851892
+            SGD: S000002706
+            MIPS: YDR298C
+            UniProt: P09457
+AASEQ       212
+            MFNRVFTRSFASSLRAAASKAAAPPPVRLFGVEGTYATALYQAAAKNSSIDAAFQSLQKV
+            ESTVKKNPKLGHLLLNPALSLKDRNSVIDAIVETHKNLDGYVVNLLKVLSENNRLGCFEK
+            IASDFGVLNDAHNGLLKGTVTSAEPLDPKSFKRIEKALSASKLVGQGKSLKLENVVKPEI
+            KGGLIVELGDKTVDLSISTKIQKLNKVLEDSI
+NTSEQ       639
+            atgtttaatagagtctttaccaggtcatttgcatcaagcttaagagctgctgcttccaaa
+            gctgctgctcccccaccggtgagattgttcggtgttgagggcacttacgcaacagcttta
+            tatcaggccgctgcaaagaactcctctattgatgctgcctttcaatctttgcaaaaagtt
+            gaaagcacagtcaaaaagaatccaaaattaggtcacttattactgaatcctgcattgtca
+            ttgaaggacagaaattctgtcattgatgccatcgtggagactcacaagaatttggatggt
+            tatgtcgttaacctattgaaggttctttccgaaaataacagactgggatgttttgaaaaa
+            attgcgtctgactttggcgttttaaacgatgctcacaacgggttacttaaaggtacagtg
+            actagtgctgaaccattggatcctaaatctttcaagaggattgaaaaagctttgagcgcc
+            tccaaattggtggggcaaggtaaatctttgaagctggaaaacgtggttaagccagagatt
+            aagggtggtttgattgtagaacttggtgacaagactgttgacttaagcatttctacaaag
+            attcaaaaactgaataaggtcttagaggacagcatttaa
+///

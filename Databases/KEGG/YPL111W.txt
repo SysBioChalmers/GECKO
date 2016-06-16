@@ -1,0 +1,45 @@
+ENTRY       YPL111W           CDS       T00005
+NAME        CAR1, LPH15
+DEFINITION  arginase (EC:3.5.3.1)
+ORTHOLOGY   K01476  arginase [EC:3.5.3.1]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00330  Arginine and proline metabolism
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01230  Biosynthesis of amino acids
+MODULE      sce_M00134  Polyamine biosynthesis, arginine => ornithine => putrescine
+CLASS       Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
+            Metabolism; Amino acid metabolism; Arginine and proline metabolism [PATH:sce00330]
+POSITION    XVI:339944..340945
+MOTIF       Pfam: Arginase
+DBLINKS     NCBI-GI: 6325146
+            NCBI-GeneID: 855993
+            SGD: S000006032
+            MIPS: YPL111W
+            UniProt: P00812
+AASEQ       333
+            METGPHYNYYKNRELSIVLAPFSGGQGKLGVEKGPKYMLKHGLQTSIEDLGWSTELEPSM
+            DEAQFVGKLKMEKDSTTGGSSVMIDGVKAKRADLVGEATKLVYNSVSKVVQANRFPLTLG
+            GDHSIAIGTVSAVLDKYPDAGLLWIDAHADINTIESTPSGNLHGCPVSFLMGLNKDVPHC
+            PESLKWVPGNLSPKKIAYIGLRDVDAGEKKILKDLGIAAFSMYHVDKYGINAVIEMAMKA
+            VHPETNGEGPIMCSYDVDGVDPLYIPATGTPVRGGLTLREGLFLVERLAESGNLIALDVV
+            ECNPDLAIHDIHVSNTISAGCAIARCALGETLL
+NTSEQ       1002
+            atggaaacaggacctcattacaactactacaaaaatcgcgaattgtccatcgttctggct
+            ccattcagcggcggtcagggtaagcttggtgtcgagaagggccctaaatacatgcttaag
+            catggtctgcaaacaagcatagaggatttgggctggtctacggaattagagccctcaatg
+            gacgaggcccaatttgtgggaaagttgaaaatggagaaggactccacaactgggggttcc
+            tctgttatgatagacggtgtcaaggctaaaagagcagatttggttggtgaagccaccaag
+            ttggtgtacaactccgtgtcgaaagtggtccaggcgaacagattccccttgaccttgggt
+            ggtgatcattcaatagccattggtactgtatccgcggttttggacaaataccccgatgct
+            ggtcttttatggatagacgcccacgctgatataaacaccatagaaagcaccccctctgga
+            aacttgcacggctgtcccgtgtcattcctaatgggtttgaacaaggatgtcccacattgt
+            cccgagtcgctcaaatgggttccaggcaacttgagcccaaaaaagatcgcgtatattggg
+            ttgagagatgttgatgccggagaaaagaaaatcttgaaagatctgggtatcgccgccttt
+            tccatgtaccacgttgacaaatacggcatcaacgctgtcattgaaatggcaatgaaagcc
+            gtgcacccagaaacaaacggtgaaggtcccattatgtgctcctatgacgtcgatggtgta
+            gacccattatacattcctgctacaggtactccagtgagaggtgggttgaccttgagagaa
+            ggtcttttcttggtggaaagattggccgaatccggtaatttaattgcgctagacgttgtt
+            gaatgtaaccctgatctggctattcatgatatccatgtttcaaacaccatctctgcaggt
+            tgcgccattgcaaggtgtgcattgggtgaaaccttattgtag
+///

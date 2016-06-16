@@ -1,0 +1,50 @@
+ENTRY       YPL175W           CDS       T00005
+NAME        SPT14, CWH6, GPI3
+DEFINITION  Spt14p (EC:2.4.1.198)
+ORTHOLOGY   K03857  phosphatidylinositol glycan, class A [EC:2.4.1.198]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00563  Glycosylphosphatidylinositol(GPI)-anchor biosynthesis
+            sce01100  Metabolic pathways
+MODULE      sce_M00065  GPI-anchor biosynthesis, core oligosaccharide
+CLASS       Metabolism; Glycan biosynthesis and metabolism; Glycosylphosphatidylinositol(GPI)-anchor biosynthesis [PATH:sce00563]
+POSITION    XVI:join(218630..218646,218747..220088)
+MOTIF       Pfam: PIGA Glycos_transf_1 Glyco_transf_4 Glyco_trans_4_4 Glyco_trans_1_4 Glyco_trans_4_2 Glyco_trans_1_2
+DBLINKS     NCBI-GI: 9755344
+            NCBI-GeneID: 855928
+            SGD: S000006096
+            MIPS: YPL175W
+            UniProt: P32363
+AASEQ       452
+            MGFNIAMLCDFFYPQLGGVEFHIYHLSQKLIDLGHSVVIITHAYKDRVGVRHLTNGLKVY
+            HVPFFVIFRETTFPTVFSTFPIIRNILLREQIQIVHSHGSASTFAHEGILHANTMGLRTV
+            FTDHSLYGFNNLTSIWVNKLLTFTLTNIDRVICVSNTCKENMIVRTELSPDIISVIPNAV
+            VSEDFKPRDPTGGTKRKQSRDKIVIVVIGRLFPNKGSDLLTRIIPKVCSSHEDVEFIVAG
+            DGPKFIDFQQMIESHRLQKRVQLLGSVPHEKVRDVLCQGDIYLHASLTEAFGTILVEAAS
+            CNLLIVTTQVGGIPEVLPNEMTVYAEQTSVSDLVQATNKAINIIRSKALDTSSFHDSVSK
+            MYDWMDVAKRTVEIYTNISSTSSADDKDWMKMVANLYKRDGIWAKHLYLLCGIVEYMLFF
+            LLEWLYPRDEIDLAPKWPKKTVSNETKEARET
+NTSEQ       1359
+            atgggcttcaatatagcgatgctgtgcgactttttttatccacagttaggtggagtcgaa
+            ttccatatatatcatttatcgcagaaactaatcgatttgggccattctgtcgtcattata
+            actcacgcttacaaagatcgagtcggcgtacgacatcttaccaacggtctaaaggtctat
+            cacgtaccattttttgtgattttcagagaaaccactttccccactgttttttcaacattt
+            ccaataataaggaatattcttctcagagagcagatccaaattgttcattctcatggtagc
+            gcttccacgttcgctcacgagggaattcttcatgctaatactatgggattgagaactgtg
+            ttcacggaccattcactctacggttttaataacttaacgtcgatttgggtgaataagttg
+            ctaacatttaccttgacaaacatagatcgggttatatgtgtttctaatacatgcaaagaa
+            aatatgattgttagaacagaattaagtcctgatataatctcagtaattcccaacgcagtg
+            gtgagcgaagatttcaaaccaagggatcctactggtggcaccaagagaaaacaaagtagg
+            gataagatagtgatcgtggtcatcggaaggctctttccaaacaaagggtccgatttactt
+            actcgcataattccgaaagtttgttcctcacatgaagatgtcgaatttatagtagcgggc
+            gatggtccaaagttcatagattttcaacaaatgattgaaagtcatagactacaaaaacgt
+            gtgcaactcttaggctctgttccacatgagaaagtcagggatgtattatgtcaaggtgac
+            atatatttacacgctagtttaacagaagcatttggtacaattctagttgaggccgcatct
+            tgtaatttgctaattgtaacgacacaagtcggaggaattcccgaagtgttaccaaatgag
+            atgactgtttatgcagaacagacatccgtttctgaccttgttcaagcaacaaataaagct
+            atcaatatcataagaagtaaagctttggacacttcctcttttcatgatagcgtgtctaaa
+            atgtacgactggatggacgtagccaaaaggacagtagagatatatactaatatatcttct
+            acttcttccgctgatgataaagattggatgaaaatggtagcaaatctttacaaaagagat
+            ggaatctgggctaaacatctttatctgttatgtggaattgtagagtacatgctttttttc
+            ctcttagagtggctataccccagggatgaaatcgatctagctccaaaatggcccaagaaa
+            acagtgtctaacgagacgaaggaagcaagagaaacttaa
+///

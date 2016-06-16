@@ -1,0 +1,31 @@
+ENTRY       YBR244W           CDS       T00005
+NAME        GPX2, AMI1
+DEFINITION  glutathione peroxidase GPX2 (EC:1.11.1.9)
+ORTHOLOGY   K00432  glutathione peroxidase [EC:1.11.1.9]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00480  Glutathione metabolism
+            sce00590  Arachidonic acid metabolism
+CLASS       Metabolism; Lipid metabolism; Arachidonic acid metabolism [PATH:sce00590]
+            Metabolism; Metabolism of other amino acids; Glutathione metabolism [PATH:sce00480]
+POSITION    II:707528..708016
+MOTIF       Pfam: GSHPx Redoxin AhpC-TSA SCO1-SenC
+DBLINKS     NCBI-GI: 398365707
+            NCBI-GeneID: 852546
+            SGD: S000000448
+            MIPS: YBR244W
+            UniProt: P38143
+AASEQ       162
+            MTTSFYDLECKDKKGESFKFDQLKGKVVLIVNVASKCGFTPQYKELEELYKKYQDKGFVI
+            LGFPCNQFGKQEPGSDEQITEFCQLNYGVTFPIMKKIDVNGSNADSVYNYLKSQKAGLLG
+            FKGIKWNFEKFLVDSNGKVVQRFSSLTKPSSLDQEIQSLLSK
+NTSEQ       489
+            atgaccacatctttttatgatttagaatgcaaggacaagaaaggcgaatcttttaagttt
+            gaccaactgaaaggcaaagtagttctcatagttaatgttgcctccaagtgcggcttcacg
+            ccgcagtataaagaattggaagaactatacaaaaaatatcaagataaggggtttgttatt
+            ttggggttcccatgtaatcagttcgggaagcaggaaccgggctctgatgaacaaattacg
+            gaattttgccagttgaattatggcgttacattcccaattatgaagaagattgatgttaac
+            ggaagtaatgctgactctgtctataattatttgaaaagccaaaaagcaggtttactaggt
+            ttcaagggtatcaaatggaattttgaaaagttcttagttgattccaatggtaaggttgtc
+            caaagattttcctccttaacaaaaccatcgtccttggaccaagaaatccaaagcctgtta
+            agtaaatga
+///

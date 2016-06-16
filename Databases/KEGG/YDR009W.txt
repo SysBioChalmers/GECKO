@@ -1,0 +1,59 @@
+ENTRY       YDR009W           CDS       T00005
+NAME        GAL3
+DEFINITION  transcriptional regulator GAL3
+ORTHOLOGY   K00849  galactokinase [EC:2.7.1.6]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00052  Galactose metabolism
+            sce00520  Amino sugar and nucleotide sugar metabolism
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+MODULE      sce_M00554  Nucleotide sugar biosynthesis, galactose => UDP-galactose
+CLASS       Metabolism; Carbohydrate metabolism; Galactose metabolism [PATH:sce00052]
+            Metabolism; Carbohydrate metabolism; Amino sugar and nucleotide sugar metabolism [PATH:sce00520]
+POSITION    IV:463434..464996
+MOTIF       Pfam: GalKase_gal_bdg GHMP_kinases_N GHMP_kinases_C
+DBLINKS     NCBI-GI: 6320212
+            NCBI-GeneID: 851572
+            SGD: S000002416
+            MIPS: YDR009W
+            UniProt: P13045
+STRUCTURE   PDB: 3V5R 3V2U
+AASEQ       520
+            MNTNVPIFSSPVRDLPRSFEQKHLAVVDAFFQTYHVKPDFIARSPGRVNLIGEHIDYCDF
+            SVLPLAIDVDMLCAVKILDEKNPSITLTNADPKFAQRKFDLPLDGSYMAIDPSVSEWSNY
+            FKCGLHVAHSYLKKIAPERFNNTPLVGAQIFCQSDIPTGGGLSSAFTCAAALATIRANMG
+            KNFDISKKDLTRITAVAEHYVGVNNGGMDQATSVYGEEDHALYVEFRPKLKATPFKFPQL
+            KNHEISFVIANTLVKSNKFETAPTNYNLRVIEVTVAANALATRYSVALPSHKDNSNSERG
+            NLRDFMDAYYARYENQAQPWNGDIGTGIERLLKMLQLVEESFSRKKSGFTVHEASTALNC
+            SREEFTRDYLTTFPVRFQVLKLYQRAKHVYSESLRVLKALKMMTSATFHTDEDFFTDFGR
+            LMNESQASCDKLYECSCIETNQICSIALANGSFGSRLTGAGWGGCTIHLVPSGANGNVEQ
+            VRKALIEKFYNVRYPDLTDEELKDAIIVSKPALGTCLYEQ
+NTSEQ       1563
+            atgaatacaaacgttccaatattcagttctccggtcagagatttaccaaggtctttcgaa
+            caaaaacatttagcggttgtagatgcatttttccaaacataccatgtcaaacctgatttt
+            atcgctaggtctcctggcagagtaaatctgattggtgagcatatagattattgcgatttt
+            tcagttttgccattagccattgatgtggatatgctttgcgcagttaaaattttagacgaa
+            aaaaatccatccattaccttaacaaatgcggaccctaaatttgctcagcgaaagtttgat
+            ctgcctttagatggttcctacatggccatagatccgtctgtgtcggaatggtcgaattac
+            tttaaatgcggactacatgtggcacattcatacttgaaaaaaattgctccggaaagattt
+            aataatacacccttagtaggtgcgcagatcttttgccagagcgatattcctactggtggt
+            ggactctcatctgcatttacttgcgcggcagcactagccacaattagagccaatatggga
+            aaaaattttgatatttccaaaaaagacttgacccgcatcacagcggttgctgagcactat
+            gttggagtcaataatggtggtatggatcaagcaacgtctgtttatggggaagaagatcat
+            gctctatacgtagagtttaggccaaaactaaaggccacacctttcaagtttcctcaattg
+            aaaaatcatgaaatcagtttcgtcatcgccaatactcttgtaaagtctaataaattcgaa
+            actgctcctacaaattacaatttaagagtaatagaggtaacagttgctgccaacgccttg
+            gcgaccagatacagcgtggccttaccatctcacaaggacaattctaactcagaaagaggg
+            aatctaagagattttatggatgcttactacgccagatacgaaaaccaagcccaaccatgg
+            aatggagatatcggaactggtattgaacgtttactcaagatgctacaattggtagaagaa
+            tctttctcgaggaaaaagagcggattcactgtacatgaagcctctacggcgctaaactgt
+            tcacgtgaggagttcactagagattacctgacaacttttcccgtccgcttccaagtcttg
+            aaactatatcaaagagctaaacacgtttactccgaatccttaagggtgcttaaggcttta
+            aaaatgatgacaagtgccacttttcacacggacgaagatttctttacagattttggccga
+            ctaatgaatgagtcccaggcctcttgtgataaactttatgaatgttcgtgcatagaaacc
+            aatcaaatatgctcgattgccctagcaaatggttctttcggctcccgtctcactggcgct
+            ggttggggcggttgcactatccaccttgttcctagtggcgctaatgggaacgtggaacag
+            gtacgaaaagcactaatcgaaaaattctacaatgtaagatatccggatctcacagatgaa
+            gaactaaaagacgcaattatagtttcgaagcctgccttgggtacttgtttgtacgaacaa
+            taa
+///

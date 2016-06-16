@@ -1,0 +1,49 @@
+ENTRY       YBR145W           CDS       T00005
+NAME        ADH5
+DEFINITION  alcohol dehydrogenase ADH5 (EC:1.1.1.190 1.1.1.1)
+ORTHOLOGY   K13953  alcohol dehydrogenase, propanol-preferring [EC:1.1.1.1]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00010  Glycolysis / Gluconeogenesis
+            sce00071  Fatty acid degradation
+            sce00350  Tyrosine metabolism
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01220  Degradation of aromatic compounds
+CLASS       Metabolism; Overview; Degradation of aromatic compounds [PATH:sce01220]
+            Metabolism; Carbohydrate metabolism; Glycolysis / Gluconeogenesis [PATH:sce00010]
+            Metabolism; Lipid metabolism; Fatty acid degradation [PATH:sce00071]
+            Metabolism; Amino acid metabolism; Tyrosine metabolism [PATH:sce00350]
+POSITION    II:533762..534817
+MOTIF       Pfam: ADH_N ADH_zinc_N ADH_zinc_N_2 DUF539
+DBLINKS     NCBI-GI: 398365069
+            NCBI-GeneID: 852442
+            SGD: S000000349
+            MIPS: YBR145W
+            UniProt: P38113
+AASEQ       351
+            MPSQVIPEKQKAIVFYETDGKLEYKDVTVPEPKPNEILVHVKYSGVCHSDLHAWHGDWPF
+            QLKFPLIGGHEGAGVVVKLGSNVKGWKVGDFAGIKWLNGTCMSCEYCEVGNESQCPYLDG
+            TGFTHDGTFQEYATADAVQAAHIPPNVNLAEVAPILCAGITVYKALKRANVIPGQWVTIS
+            GACGGLGSLAIQYALAMGYRVIGIDGGNAKRKLFEQLGGEIFIDFTEEKDIVGAIIKATN
+            GGSHGVINVSVSEAAIEASTRYCRPNGTVVLVGMPAHAYCNSDVFNQVVKSISIVGSCVG
+            NRADTREALDFFARGLIKSPIHLAGLSDVPEIFAKMEKGEIVGRYVVETSK
+NTSEQ       1056
+            atgccttcgcaagtcattcctgaaaaacaaaaggctattgtcttttatgagacagatgga
+            aaattggaatataaagacgtcacagttccggaacctaagcctaacgaaattttagtccac
+            gttaaatattctggtgtttgtcatagtgacttgcacgcgtggcacggtgattggccattt
+            caattgaaatttccattaatcggtggtcacgaaggtgctggtgttgttgttaagttggga
+            tctaacgttaagggctggaaagtcggtgattttgcaggtataaaatggttgaatgggact
+            tgcatgtcctgtgaatattgtgaagtaggtaatgaatctcaatgtccttatttggatggt
+            actggcttcacacatgatggtacttttcaagaatacgcaactgccgatgccgttcaagct
+            gcccatattccaccaaacgtcaatcttgctgaagttgccccaatcttgtgtgcaggtatc
+            actgtttataaggcgttgaaaagagccaatgtgataccaggccaatgggtcactatatcc
+            ggtgcatgcggtggcttgggttctctggcaatccaatacgcccttgctatgggttacagg
+            gtcattggtatcgatggtggtaatgccaagcgaaagttatttgaacaattaggcggagaa
+            atattcatcgatttcacggaagaaaaagacattgttggtgctataataaaggccactaat
+            ggcggttctcatggagttattaatgtgtctgtttctgaagcagctatcgaggcttctacg
+            aggtattgtaggcccaatggtactgtcgtcctggttggtatgccagctcatgcttactgc
+            aattccgatgttttcaatcaagttgtaaaatcaatctccatcgttggatcttgtgttgga
+            aatagagctgatacaagggaggctttagatttcttcgccagaggtttgatcaaatctccg
+            atccacttagctggcctatcggatgttcctgaaatttttgcaaagatggagaagggtgaa
+            attgttggtagatatgttgttgagacttctaaatga
+///

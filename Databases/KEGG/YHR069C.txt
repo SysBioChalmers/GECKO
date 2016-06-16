@@ -1,0 +1,44 @@
+ENTRY       YHR069C           CDS       T00005
+NAME        RRP4
+DEFINITION  Rrp4p
+ORTHOLOGY   K03679  exosome complex component RRP4
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03018  RNA degradation
+MODULE      sce_M00390  Exosome, archaea
+            sce_M00391  Exosome, eukaryotes
+CLASS       Genetic Information Processing; Folding, sorting and degradation; RNA degradation [PATH:sce03018]
+POSITION    VIII:complement(233579..234658)
+MOTIF       Pfam: ECR1_N MotA_activ EXOSC1 Dicistro_VP4
+DBLINKS     NCBI-GI: 6321860
+            NCBI-GeneID: 856466
+            SGD: S000001111
+            MIPS: YHR069C
+            UniProt: P38792
+STRUCTURE   PDB: 4IFD
+AASEQ       359
+            MSEVITITKRNGAFQNSSNLSYNNTGISDDENDEEDIYMHDVNSASKSESDSQIVTPGEL
+            VTDDPIWMRGHGTYFLDNMTYSSVAGTVSRVNRLLSVIPLKGRYAPETGDHVVGRIAEVG
+            NKRWKVDIGGKQHAVLMLGSVNLPGGILRRKSESDELQMRSFLKEGDLLNAEVQSLFQDG
+            SASLHTRSLKYGKLRNGMFCQVPSSLIVRAKNHTHNLPGNITVVLGVNGYIWLRKTSQMD
+            LARDTPSANNSSSIKSTGPTGAVSLNPSITRLEEESSWQIYSDENDPSISNNIRQAICRY
+            ANVIKALAFCEIGITQQRIVSAYEASMVYSNVGELIEKNVMESIGSDILTAEKMRGNGN
+NTSEQ       1080
+            atgtccgaagttatcacaattaccaagcggaacggtgccttccaaaattcatctaacctg
+            tcctataacaacacagggatatcagatgatgaaaatgatgaagaagatatctacatgcac
+            gatgttaactcagcttctaaaagtgagtctgattctcaaattgtgacgccaggtgagctg
+            gtcactgatgaccctatctggatgagaggtcacggtacgtattttcttgataatatgacg
+            tattcctctgttgctggtactgtatcccgtgtcaataggctgctatcggtaattccattg
+            aaaggtcgttatgccccagaaactggtgatcacgtcgtagggagaattgctgaagtgggt
+            aacaagagatggaaagtagacattggcggtaagcaacatgcagtacttatgttgggctct
+            gtgaatttaccgggtggtattctaagaagaaaatctgaaagtgatgaactacaaatgaga
+            agcttccttaaggaaggtgacctcctgaatgcagaagttcaatcattatttcaagatggt
+            agtgcctctttacatacaaggtctctaaagtacgggaagttaagaaacgggatgttttgc
+            caagtcccgagttcattaatagtgagagccaagaaccatactcataatttgcccggcaac
+            ataaccgtagttctcggagtcaatggttacatatggttaaggaaaacatctcagatggac
+            ttagcgagggatacgccgtctgcaaataacagttcctcaattaaatcaactggacccact
+            ggtgcggtatcattaaatccctccataacaagactggaagaagagtcttcatggcaaata
+            tattcggatgaaaacgatccttccatatcgaacaacatacgacaagcaatttgccggtat
+            gcgaacgtgatcaaagcgttagcgttctgtgaaataggcattactcaacaacgtatagta
+            agtgcttacgaagctagtatggtttattcaaacgtaggtgaactgattgagaaaaatgta
+            atggaatccataggcagtgacattcttaccgccgaaaaaatgagaggtaacggcaactaa
+///

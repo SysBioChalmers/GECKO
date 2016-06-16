@@ -1,0 +1,68 @@
+ENTRY       YGR199W           CDS       T00005
+NAME        PMT6
+DEFINITION  Pmt6p (EC:2.4.1.109)
+ORTHOLOGY   K00728  dolichyl-phosphate-mannose-protein mannosyltransferase [EC:2.4.1.109]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00514  Other types of O-glycan biosynthesis
+CLASS       Metabolism; Glycan biosynthesis and metabolism; Other types of O-glycan biosynthesis [PATH:sce00514]
+POSITION    VII:897502..899781
+MOTIF       Pfam: PMT MIR
+DBLINKS     NCBI-GI: 6321638
+            NCBI-GeneID: 853113
+            SGD: S000003431
+            MIPS: YGR199W
+            UniProt: P42934
+AASEQ       759
+            MSKAKGTGFSSIDTEDENLRERYVNQPKANASDIQDEQLDCFEQLEEKHRTKKNEEYTAL
+            KILRDVIGPLLLTITSFYLRFQHIDQNNYVVWDEAHFGKFGSYYIKHEYYHDVHPPLGKM
+            LIALSEWMAGFDGQFDFSSNNAYPENVNFKLMRQFNATFGALCTPVAFFTAKWMGFNYFT
+            VYLIATMVTLEHSYIVLSKFILLDSMLLFFSMTTFACMIKLYTLRKQQMTKKWSLWMLLT
+            GLSIGCVCSVKWVGLFITVVVGLYTCIELFLLYCDKELPRIKYYKHWLIRIINLIVIPFL
+            IYLYCFKIHFVLLYKSGTGDSTTNTLFQINLEGTQIEAGPRDVAFGSELTIRSHGLSPNL
+            LHSHIQVYPEGSGQRQITGYGFADSNNVWKFEFSRSSGLELDQNGTLNGKIIPITDGVEV
+            RLSHKNTGSNLHSHDVPSHVSRGNYEVSGYGSQSVGDEKDDWIVEIVKQMDSPNPVYSNE
+            NSTILHPVSTFFRLRHKVLGCYLASTGLTYPAWGFKQAEIVCKDSWSRRDKSTWWNVEDH
+            WNHNLETAEDYVPPKSNFWTDFILTNFAMASSNNALVPDEDKYDSLSSDAWEWPTLHKGL
+            RMCSWAGYITRYYLMGSPFNTWISTVSLIIFPFIILFILYRWRRQTLYLSDDQIWQITIQ
+            GIFPFISWMTHYLPFAMMGRVTYVHHYVPALYFAMLVFGFVLDFTLTRVHWMVKYPIYLS
+            LFGGCIYIYNLFAPICQGMHGDKAEYLPLQWLSTWDIAP
+NTSEQ       2280
+            atgagtaaagccaagggaacgggattttcatcaattgatactgaagatgaaaacttacgc
+            gaacgttatgttaatcaaccaaaagctaatgcctccgatattcaagatgaacaattagat
+            tgctttgagcaactagaagaaaaacataggacaaaaaaaaatgaagaatacactgcgttg
+            aaaattttaagggatgtcataggtccccttttattaactataacttcgttttatctaaga
+            ttccaacatatagatcagaacaattatgttgtctgggatgaggctcattttgggaaattc
+            ggatcatactacatcaaacatgagtactaccacgatgtccaccctccacttggtaaaatg
+            cttattgcattgagcgaatggatggcaggatttgacggtcaatttgacttttcctctaat
+            aatgcatatccggaaaacgtaaactttaaactaatgagacaatttaatgccacatttgga
+            gctctatgtacaccagtagctttctttacagccaaatggatggggttcaattattttact
+            gtttatttgattgctacgatggtaacgttggaacattcatatattgtcctctcaaaattc
+            atattgctagattcaatgctgctttttttctcgatgacgacttttgcctgtatgataaag
+            ttgtatacgttgagaaagcaacaaatgacgaaaaaatggtcgttatggatgttattaact
+            ggtttatctattggttgcgtttgttctgtgaaatgggttggtctttttatcacagttgta
+            gtcggcctctacacatgtatagaactatttttgctctattgtgataaagaattgcctaga
+            ataaaatattacaaacattggcttatcagaatcattaatctgatagtaattccttttctt
+            atctatctctattgcttcaaaattcactttgtgttgttgtacaaatctggcacgggggat
+            tctactacaaatacgttatttcagataaacttggagggaactcagattgaggcgggtcct
+            cgtgatgtagcatttgggtcagagttaaccataaggtcgcatggtttaagcccgaatctg
+            ctgcattcacatattcaagtatacccagaaggctctggacagcgccaaatcactggatat
+            ggattcgcagactctaataatgtttggaagtttgaattttctaggtcttctggattggaa
+            ctagatcagaacgggactttgaatggcaaaataatcccaataacggatggtgtggaagtt
+            cgtctcagccataaaaatacaggatcgaatcttcactcgcatgatgtaccttctcacgtc
+            tctagaggaaattatgaggtttcaggctatgggtcacaaagtgttggcgatgaaaaggat
+            gattggatagtggagattgtgaaacaaatggattcaccaaatcccgtctattctaatgag
+            aattcaactattttacatccagtttctactttcttcaggttgagacacaaagttttaggt
+            tgttacttggcttctactggattgacgtatccagcttggggatttaaacaagctgaaatc
+            gtctgcaaagactcctggagtcgtagggacaaatcgacctggtggaatgtagaagatcac
+            tggaaccacaatttagaaaccgcagaagattacgttccaccaaaatccaatttttggacc
+            gattttattctaactaattttgccatggcctcctctaataacgcgttagtgcctgatgag
+            gataaatatgatagtttatcgtctgatgcatgggaatggccaaccttgcataaagggcta
+            agaatgtgttcatgggcgggatatatcactcgatattacttgatgggatctcccttcaat
+            acatggatttctactgtctccttaatcatcttcccatttattattctttttatattatat
+            cgttggaggagacaaacgctttatctctcagacgatcaaatctggcaaataacgatacag
+            ggtatttttcctttcatttcctggatgacacattatctgccttttgcaatgatggggaga
+            gtgacgtatgtacatcactacgttcccgctttatattttgcaatgcttgttttcggattt
+            gtgcttgatttcactttgacaagagtccattggatggtcaaatatcccatctatttgtca
+            ttgtttggcggatgtatatacatttataatttatttgctccaatatgtcagggtatgcat
+            ggtgataaagcggaatacttacctttgcagtggttatctacttgggatatcgcaccttag
+///

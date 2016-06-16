@@ -1,0 +1,57 @@
+ENTRY       YOR241W           CDS       T00005
+NAME        MET7, MET23
+DEFINITION  tetrahydrofolate synthase (EC:6.3.2.17)
+ORTHOLOGY   K01930  folylpolyglutamate synthase [EC:6.3.2.17]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00790  Folate biosynthesis
+            sce01100  Metabolic pathways
+MODULE      sce_M00126  Tetrahydrofolate biosynthesis, GTP => THF
+CLASS       Metabolism; Metabolism of cofactors and vitamins; Folate biosynthesis [PATH:sce00790]
+POSITION    XV:786995..788641
+MOTIF       Pfam: Mur_ligase_M Mur_ligase_C
+DBLINKS     NCBI-GI: 6324815
+            NCBI-GeneID: 854415
+            SGD: S000005767
+            MIPS: YOR241W
+            UniProt: Q08645
+AASEQ       548
+            MHKGKKNYPNLITSFRMNLKKIILNHDRFSHPERWKTNALLRFTFVYIKFLFDLMIIKNP
+            LRMVGKTYRDAVTALNSLQSNYANIMAIRQTGDRKNTMTLLEMHEWSRRIGYSASDFNKL
+            NIVHITGTKGKGSTAAFTSSILGQYKEQLPRIGLYTSPHLKSVRERIRINGEPISEEKFA
+            KYFFEVWDRLDSTTSSLDKFPHMIPGSKPGYFKFLTLLSFHTFIQEDCKSCVYEVGVGGE
+            LDSTNIIEKPIVCGVTLLGIDHTFMLGDTIEEIAWNKGGIFKSGAPAFTVEKQPPQGLTI
+            LKERAEERKTTLTEVPPFKQLENVKLGIAGEFQKSNASLAVMLASEILHTSNILEEKIKC
+            SSNASIPEKFIIGLQNTKWEGRCQVLEKGKNVWYIDGAHTKDSMVAASTWFRDMVRLSKR
+            KKILLFNQQSRDANALVNNLYSSVSPEITFDDVIFTTNVTWKSGSYSADLVSMNTSQEDV
+            EKLKVQESLVKNWNKIDDNRAKTHVTASIEEANELIETLYDEPADIFVTGSLHLVGGLLV
+            VFDRIDVK
+NTSEQ       1647
+            atgcataaaggaaaaaaaaattaccctaatttgattacttcgtttcggatgaatttgaaa
+            aaaatcatattgaaccatgaccgatttagccatccagaaagatggaaaacaaacgcactc
+            ttaaggttcaccttcgtgtatataaaatttctcttcgacttgatgataatcaaaaatcca
+            ttaaggatggttggaaaaacttatcgagacgctgttactgcgctaaactctttgcagtcc
+            aattatgccaacatcatggctatccgtcaaactggtgatcgtaaaaacactatgacatta
+            ttggaaatgcatgaatggtctcgaagaattggttactctgcatcggatttcaataaatta
+            aatattgttcatatcactggaacaaaaggtaaaggttctactgccgcatttacttcatca
+            attctaggacaatataaagaacaattaccacgtatcgggctatatacgtctccacatctt
+            aagtcagtgagagaaagaataagaataaatggggagccaatttctgaagaaaaatttgcg
+            aagtacttctttgaggtttgggaccgtctagatagtacaacctcttctttggataaattc
+            ccgcacatgatcccgggaagtaagcctggctatttcaagttcctcacattgctttcattt
+            cacacttttatacaagaggactgcaaaagctgtgtctacgaagtcggcgtcggaggtgaa
+            ttggatagcactaatataattgaaaagccaattgtctgcggtgttacactattaggaata
+            gaccatactttcatgcttggtgatactattgaagaaattgcttggaataagggaggaatt
+            ttcaaatctggagcaccagcattcaccgttgagaaacaacctcctcagggattaacaata
+            ttgaaagaaagagctgaggagcgcaaaacaacgctaacagaagtacccccatttaaacag
+            ttggaaaatgtcaagcttggaattgctggcgagtttcaaaaaagtaacgcctcccttgcc
+            gttatgctggcttctgagatcttgcatacgtccaatatattggaggagaagatcaaatgc
+            agttcgaatgcatcgattccagaaaaattcataatcggtctacaaaatactaagtgggaa
+            ggcagatgtcaagtactagaaaagggaaaaaacgtttggtacattgatggtgctcacacc
+            aaagatagtatggtagctgcatcaacatggttcagagatatggttcgattgtcgaagaga
+            aagaagatcttgctcttcaaccaacaaagcagagatgccaacgctcttgtgaataacctg
+            tactcatctgtttcgccagaaataacgttcgatgatgtgatatttactactaatgtcact
+            tggaaatcaggctcatacagcgctgacctcgtttccatgaacacttctcaagaagatgta
+            gaaaaattgaaagtccaggagtcattagtcaagaattggaacaaaatagacgataatcgt
+            gctaaaacgcatgtaacggctagtatagaggaagcaaatgaattgattgaaacgctatac
+            gatgaacctgctgatatatttgtaactggttcattacatcttgttggcggattattggtc
+            gtttttgatagaatagatgtaaagtaa
+///

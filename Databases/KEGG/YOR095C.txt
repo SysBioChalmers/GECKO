@@ -1,0 +1,44 @@
+ENTRY       YOR095C           CDS       T00005
+NAME        RKI1
+DEFINITION  ribose-5-phosphate isomerase RKI1 (EC:5.3.1.6)
+ORTHOLOGY   K01807  ribose 5-phosphate isomerase A [EC:5.3.1.6]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00030  Pentose phosphate pathway
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01200  Carbon metabolism
+            sce01230  Biosynthesis of amino acids
+MODULE      sce_M00004  Pentose phosphate pathway (Pentose phosphate cycle)
+            sce_M00007  Pentose phosphate pathway, non-oxidative phase, fructose 6P => ribose 5P
+CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
+            Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
+            Metabolism; Carbohydrate metabolism; Pentose phosphate pathway [PATH:sce00030]
+POSITION    XV:complement(503552..504328)
+MOTIF       Pfam: Rib_5-P_isom_A DeoRC
+DBLINKS     NCBI-GI: 6324669
+            NCBI-GeneID: 854262
+            SGD: S000005621
+            MIPS: YOR095C
+            UniProt: Q12189
+STRUCTURE   PDB: 1XTZ
+AASEQ       258
+            MAAGVPKIDALESLGNPLEDAKRAAAYRAVDENLKFDDHKIIGIGSGSTVVYVAERIGQY
+            LHDPKFYEVASKFICIPTGFQSRNLILDNKLQLGSIEQYPRIDIAFDGADEVDENLQLIK
+            GGGACLFQEKLVSTSAKTFIVVADSRKKSPKHLGKNWRQGVPIEIVPSSYVRVKNDLLEQ
+            LHAEKVDIRQGGSAKAGPVVTDNNNFIIDADFGEISDPRKLHREIKLLVGVVETGLFIDN
+            ASKAYFGNSDGSVEVTEK
+NTSEQ       777
+            atggctgccggtgtcccaaaaattgatgcgttagaatctttgggcaatcctttggaggat
+            gccaagagagctgcagcatacagagcagttgatgaaaatttaaaatttgatgatcacaaa
+            attattggaattggtagtggtagcacagtggtttatgttgccgaaagaattggacaatat
+            ttgcatgaccctaaattttatgaagtagcgtctaaattcatttgcattccaacaggattc
+            caatcaagaaacttgattttggataacaagttgcaattaggctccattgaacagtatcct
+            cgcattgatatagcgtttgacggtgctgatgaagtggatgagaatttacaattaattaaa
+            ggtggtggtgcttgtctatttcaagaaaaattggttagtactagtgctaaaaccttcatt
+            gtcgttgctgattcaagaaaaaagtcaccaaaacatttaggtaagaactggaggcaaggt
+            gttcccattgaaattgtaccttcctcatacgtgagggtcaagaatgatctattagaacaa
+            ttgcatgctgaaaaagttgacatcagacaaggaggttctgctaaagcaggtcctgttgta
+            actgacaataataacttcattatcgatgcggatttcggtgaaatttccgatccaagaaaa
+            ttgcatagagaaatcaaactgttagtgggcgtggtggaaacaggtttattcatcgacaac
+            gcttcaaaagcctacttcggtaattctgacggtagtgttgaagttaccgaaaagtga
+///

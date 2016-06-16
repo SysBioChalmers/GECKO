@@ -1,0 +1,39 @@
+ENTRY       YBR213W           CDS       T00005
+NAME        MET8
+DEFINITION  bifunctional precorrin-2 dehydrogenase/sirohydrochlorin ferrochelatase MET8 (EC:4.99.1.4 1.3.1.76)
+ORTHOLOGY   K02304  precorrin-2 dehydrogenase / sirohydrochlorin ferrochelatase [EC:1.3.1.76 4.99.1.4]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00860  Porphyrin and chlorophyll metabolism
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+CLASS       Metabolism; Metabolism of cofactors and vitamins; Porphyrin and chlorophyll metabolism [PATH:sce00860]
+POSITION    II:650368..651192
+MOTIF       Pfam: NAD_binding_7 Sirohm_synth_C Sirohm_synth_M Shikimate_DH
+DBLINKS     NCBI-GI: 6319690
+            NCBI-GeneID: 852514
+            SGD: S000000417
+            MIPS: YBR213W
+            UniProt: P15807
+STRUCTURE   PDB: 1KYQ
+AASEQ       274
+            MVKSLQLAHQLKDKKILLIGGGEVGLTRLYKLIPTGCKLTLVSPDLHKSIIPKFGKFIQN
+            EDQPDYREDAKRFINPNWDPTKNEIYEYIRSDFKDEYLDLEDENDAWYIIMTCIPDHPES
+            ARIYHLCKERFGKQQLVNVADKPDLCDFYFGANLEIGDRLQILISTNGLSPRFGALVRDE
+            IRNLFTQMGDLALEDAVVKLGELRRGIRLLAPDDKDVKYRMDWARRCTDLFGIQHCHNID
+            VKRLLDLFKVMFQEQNCSLQFPPRERLLSEYCSS
+NTSEQ       825
+            atggtcaaatcgctacagctagcccatcaattaaaagacaagaaaatactactaatcgga
+            ggcggagaagtcggcttgacaaggttatataagctgatacctacaggttgcaagctgact
+            ttagtatctcctgacctacacaaatccattattccgaagtttggaaaattcatccagaac
+            gaggatcagcccgactacagagaagacgctaaacgctttatcaatccgaactgggacccc
+            acgaagaatgaaatttacgagtacatccgcagtgacttcaaagacgaatacctcgaccta
+            gaagacgagaacgacgcgtggtacataataatgacctgtatacccgaccaccctgaaagc
+            gcaagaatatatcacctttgtaaggaaagattcggtaagcagcagctggtcaatgtggcg
+            gacaaacctgatctctgtgacttttatttcggcgccaacctggagataggagaccgtcta
+            cagattctgatctctaccaacggcctttctccgcgctttggcgctctagtaagagatgag
+            atccgtaacttattcacacaaatgggggatctggcgctggaggacgctgtcgtcaaacta
+            ggtgagctgagaagaggaattaggctgctggcaccagacgacaaggatgtcaagtaccgc
+            atggattgggccagacgctgcacagacctcttcggcattcagcactgccacaacatcgac
+            gtaaaacgtctgctggatcttttcaaggtcatgtttcaagaacagaactgttccttgcag
+            ttccctcccagagaacggttgcttagcgagtactgctcgtcttga
+///

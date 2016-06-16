@@ -1,0 +1,65 @@
+ENTRY       YDL141W           CDS       T00005
+NAME        BPL1, ACC2
+DEFINITION  biotin--[acetyl-CoA-carboxylase] ligase BPL1 (EC:6.3.4.10 6.3.4.9 6.3.4.11 6.3.4.15 6.3.4.-)
+ORTHOLOGY   K01942  biotin--protein ligase [EC:6.3.4.9 6.3.4.10 6.3.4.11 6.3.4.15]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00780  Biotin metabolism
+            sce01100  Metabolic pathways
+CLASS       Metabolism; Metabolism of cofactors and vitamins; Biotin metabolism [PATH:sce00780]
+POSITION    IV:203039..205111
+MOTIF       Pfam: BPL_N BPL_LplA_LipB BPL_C Nitr_red_assoc
+DBLINKS     NCBI-GI: 6320060
+            NCBI-GeneID: 851414
+            SGD: S000002300
+            MIPS: YDL141W
+            UniProt: P48445
+AASEQ       690
+            MNVLVYNGPGTTPGSVKHAVESLRDFLEPYYAVSTVNVKVLQTEPWMSKTSAVVFPGGAD
+            LPYVQACQPIISRLKHFVSKQGGVFIGFCAGGYFGTSRVEFAQGDPTMEVSGSRDLRFFP
+            GTSRGPAYNGFQYNSEAGARAVKLNLPDGSQFSTYFNGGAVFVDADKFDNVEILATYAEH
+            PDVPSSDSGKGQSENPAAVVLCTVGRGKVLLTGPHPEFNVRFMRKSTDKHFLETVVENLK
+            AQEIMRLKFMRTVLTKTGLNCNNDFNYVRAPNLTPLFMASAPNKRNYLQEMENNLAHHGM
+            HANNVELCSELNAETDSFQFYRGYRASYDAASSSLLHKEPDEVPKTVIFPGVDEDIPPFQ
+            YTPNFDMKEYFKYLNVQNTIGSLLLYGEVVTSTSTILNNNKSLLSSIPESTLLHVGTIQV
+            SGRGRGGNTWINPKGVCASTAVVTMPLQSPVTNRNISVVFVQYLSMLAYCKAILSYAPGF
+            SDIPVRIKWPNDLYALSPTYYKRKNLKLVNTGFEHTKLPLGDIEPAYLKISGLLVNTHFI
+            NNKYCLLLGCGINLTSDGPTTSLQTWIDILNEERQQLHLDLLPAIKAEKLQALYMNNLEV
+            ILKQFINYGAAEILPSYYELWLHSNQIVTLPDHGNTQAMITGITEDYGLLIAKELVSGSS
+            TQFTGNVYNLQPDGNTFDIFKSLIAKKVQS
+NTSEQ       2073
+            atgaatgtattagtctataatggcccagggactacgccaggatcagttaagcatgctgtt
+            gaaagtttacgtgactttttggaaccctattacgccgtcagtactgtcaatgttaaggta
+            ttacagacagaaccatggatgtcaaagacctccgctgtagtttttcctggtggtgccgat
+            cttccttacgttcaagcttgtcaacccattatttctcgattgaaacattttgttagcaaa
+            caaggtggtgtctttatcggattttgtgcaggaggttactttggcaccagccgtgtagaa
+            tttgctcaaggtgaccctacaatggaagtatcaggaagcagggatttgcgattctttccg
+            ggaacaagcagaggacctgcgtacaatggatttcagtataacagcgaggccggtgcacgt
+            gcagttaaattgaatcttccagatggctcacagttctcaacttatttcaatggaggagcc
+            gtttttgttgatgcagataaatttgataatgtcgagatcttggccacgtacgcagaacac
+            ccggatgtgccttcttctgactcaggaaaaggtcaaagtgaaaacccagctgctgtagtg
+            ctatgtacggtcggaagaggaaaggttttactcactggaccacaccctgaattcaacgtc
+            cgttttatgaggaaatccacagataagcattttcttgaaaccgttgtggaaaacctgaaa
+            gcacaggaaatcatgaggttgaaatttatgagaacggttcttaccaaaactgggttgaat
+            tgtaataatgacttcaattatgtaagagctccaaatttgacaccactgtttatggctagt
+            gcacctaataagcggaattacttgcaagaaatggaaaacaacttagctcatcatggaatg
+            catgcaaataatgttgaactctgctcagaattaaacgccgaaactgactctttccaattt
+            tatagaggctatagagcctcttacgatgcagcaagttcgtccttgcttcataaagagcca
+            gatgaggttcctaagaccgtaatatttcctggcgtagatgaagatattccaccatttcaa
+            tatacgcccaattttgacatgaaagaatacttcaagtatctgaatgttcaaaacaccata
+            ggttctttacttctatatggtgaagttgttacatcaacgagtaccatattgaataataat
+            aaatccttattaagttcgatccctgaaagcactttacttcacgtgggtactattcaggtt
+            tctgggcgtgggagaggtggtaacacttggattaatcctaaaggtgtttgcgcatcaacg
+            gccgtcgtaacaatgccgcttcaatcgcctgtgactaatcgaaatatatcagttgttttt
+            gtccagtatctttctatgcttgcttactgtaaggcgatactttcgtacgctcctggattt
+            tcagatattcctgttaggatcaaatggcccaatgacctttatgctttgagccccacctac
+            tataagcgtaaaaacttgaaattggttaacaccggttttgagcatacaaagttgccctta
+            ggtgatatcgagcccgcttatcttaagatctctggtttattagttaatacccacttcata
+            aacaataaatattgtttgctacttggctgtggtataaatttgactagtgatggtcctaca
+            acttcattacaaacttggattgatatcctgaatgaagaacgccaacaattacaccttgat
+            ttattgccagcaataaaggcagaaaagctgcaggcactctatatgaataaccttgaggtc
+            atattaaaacagtttattaactacggagctgcggaaatattgccaagttattatgagttg
+            tggttacatagtaaccaaatagtaacattaccagatcacggaaatacgcaagccatgatt
+            actggtatcacggaagactacggtttactgattgcaaaagaattggtaagcggtagttcc
+            actcaatttacaggaaacgtttataatttacagccggacggtaacacttttgatatcttc
+            aagagcttaattgctaaaaaggttcagagttaa
+///

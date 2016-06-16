@@ -1,0 +1,59 @@
+ENTRY       YCR053W           CDS       T00005
+NAME        THR4
+DEFINITION  threonine synthase THR4 (EC:4.2.3.1)
+ORTHOLOGY   K01733  threonine synthase [EC:4.2.3.1]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00260  Glycine, serine and threonine metabolism
+            sce00750  Vitamin B6 metabolism
+            sce01100  Metabolic pathways
+            sce01230  Biosynthesis of amino acids
+MODULE      sce_M00018  Threonine biosynthesis, aspartate => homoserine => threonine
+CLASS       Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
+            Metabolism; Amino acid metabolism; Glycine, serine and threonine metabolism [PATH:sce00260]
+            Metabolism; Metabolism of cofactors and vitamins; Vitamin B6 metabolism [PATH:sce00750]
+POSITION    III:216697..218241
+MOTIF       Pfam: Thr_synth_N PALP
+DBLINKS     NCBI-GI: 6319901
+            NCBI-GeneID: 850420
+            SGD: S000000649
+            MIPS: YCR053W
+            UniProt: P16120
+STRUCTURE   PDB: 1KL7
+AASEQ       514
+            MPNASQVYRSTRSSSPKTISFEEAIIQGLATDGGLFIPPTIPQVDQATLFNDWSKLSFQD
+            LAFAIMRLYIAQEEIPDADLKDLIKRSYSTFRSDEVTPLVQNVTGDKENLHILELFHGPT
+            YAFKDVALQFVGNLFEYFLQRTNANLPEGEKKQITVVGATSGDTGSAAIYGLRGKKDVSV
+            FILYPTGRISPIQEEQMTTVPDENVQTLSVTGTFDNCQDIVKAIFGDKEFNSKHNVGAVN
+            SINWARILAQMTYYFYSFFQATNGKDSKKVKFVVPSGNFGDILAGYFAKKMGLPIEKLAI
+            ATNENDILDRFLKSGLYERSDKVAATLSPAMDILISSNFERLLWYLAREYLANGDDLKAG
+            EIVNNWFQELKTNGKFQVDKSIIEGASKDFTSERVSNEETSETIKKIYESSVNPKHYILD
+            PHTAVGVCATERLIAKDNDKSIQYISLSTAHPAKFADAVNNALSGFSNYSFEKDVLPEEL
+            KKLSTLKKKLKFIERADVELVKNAIEEELAKMKL
+NTSEQ       1545
+            atgcctaacgcttcccaagtttacagatctaccagatccagctctccaaagacaatctct
+            tttgaagaggctatcattcaaggtctggccactgacggtggtcttttcattccaccaact
+            attccacaagtggaccaagccactcttttcaatgattggtcaaagctctccttccaagac
+            ttagcctttgctatcatgagactatacattgcccaagaagagattccagatgctgatcta
+            aaggacttgatcaagagatcttattctactttccgttctgatgaagtcacccccttggtg
+            caaaacgtcactggtgacaaggagaatttgcacattttagaattattccacggtcctacc
+            tacgctttcaaagacgttgctttacaatttgtcggtaatctttttgaatacttcttacaa
+            agaaccaacgccaatttacctgaaggcgagaaaaagcaaatcactgtggtcggtgctact
+            tccggtgacactggttctgcagccatctacggtttaagaggcaaaaaggacgtttccgtt
+            ttcatcttatatccaaccggtagaatttccccaattcaagaagaacaaatgaccaccgtt
+            ccagatgaaaacgtccagactttgtctgttaccggtactttcgacaactgtcaagatatc
+            gtcaaagctattttcggtgacaaagaattcaactctaaacacaacgtcggtgctgttaac
+            tccatcaactgggcaagaatcttggcccaaatgacctattacttttattcattcttccaa
+            gccaccaacggtaaggactccaagaaggtcaagttcgttgtgccaagtgggaacttcggt
+            gatatattggccggttattttgccaagaaaatgggtttgcctattgaaaaactggccatc
+            gctaccaatgaaaacgacattttggacagatttttgaaatctggtctatacgaaagatca
+            gacaaggttgctgctactttatccccagcaatggatatcttaatctcttctaactttgaa
+            agactactatggtacctagctcgtgaatacctagctaatggtgatgatttgaaagccggt
+            gaaatcgtcaacaattggttccaggaattgaagaccaacggtaagttccaagttgacaaa
+            tccatcattgaaggcgcatcaaaggactttacatcagaaagagtttccaatgaagaaaca
+            tctgaaacaatcaagaagatctacgaatcatctgtaaatccaaaacattacatcttagat
+            cctcacacagctgtcggtgtttgcgccacagaaagattgattgcaaaagataatgacaag
+            tccatccaatacatttctctatctaccgctcacccagctaaatttgccgatgctgtaaac
+            aatgcattgtctggattttccaattattcatttgaaaaggatgttttgcctgaggaattg
+            aagaaactatccacattaaagaagaaattaaaattcatcgaaagagctgacgttgaattg
+            gtcaaaaacgctattgaagaagaacttgctaaaatgaaattataa
+///

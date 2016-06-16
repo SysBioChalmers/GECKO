@@ -1,0 +1,47 @@
+ENTRY       YPL050C           CDS       T00005
+NAME        MNN9
+DEFINITION  Mnn9p
+ORTHOLOGY   K05529  mannan polymerase complexes MNN9 subunit [EC:2.4.1.-]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00513  Various types of N-glycan biosynthesis
+            sce01100  Metabolic pathways
+MODULE      sce_M00074  N-glycan biosynthesis, high-mannose type
+CLASS       Metabolism; Glycan biosynthesis and metabolism; Various types of N-glycan biosynthesis [PATH:sce00513]
+POSITION    XVI:complement(460779..461966)
+MOTIF       Pfam: Anp1 Glycos_transf_2
+DBLINKS     NCBI-GI: 6325207
+            NCBI-GeneID: 856057
+            SGD: S000005971
+            MIPS: YPL050C
+            UniProt: P39107
+STRUCTURE   PDB: 3ZF8
+AASEQ       395
+            MSLSLVSYRLRKNPWVNIFLPVLAIFLIYIIFFQRDQSLLGLNGQSISQHKWAHEKENTF
+            YFPFTKKYKMPKYSYKKKSGWLFNDHVEDIIPEGHIAHYDLNKLHSTSEAAVNKEHILIL
+            TPMQTFHQQYWDNLLQLNYPRELIELGFITPRTATGDLALKKLENAIKKVQTDKKTQRFS
+            KITILRQNSQSFDKLMEKERHALDVQKERRAAMALARNELLFSTIGPHTSWVLWLDADII
+            ETPPSLIQDMTKHNKAILAANIYQRFYDEEKKQPSIRPYDFNNWQESDTGLEIASQMGDD
+            EIIVEGYAEIATYRPLMAHFYDANGVPGEEMALDGVGGGCTLVKAEVHRDGAMFPNFPFY
+            HLIETEGFAKMAKRLNYDVFGLPNYLVYHIEEENH
+NTSEQ       1188
+            atgtcactttctcttgtatcgtaccgcctaagaaagaacccgtgggttaacatttttcta
+            cctgttttggccatatttctaatatatataatttttttccagagagatcaatctctgttg
+            ggacttaatggccagtccatttcccaacacaaatgggcacacgaaaaggaaaacacattt
+            tattttcccttcaccaagaaatacaaaatgccaaagtactcttataagaaaaaaagcggc
+            tggttgttcaacgatcacgtggaagatattatcccagaaggtcatattgcacattatgat
+            ttgaacaaattgcactctacgtcagaagcagctgtcaataaggagcatattttgatattg
+            actccaatgcaaacatttcatcaacaatactgggacaatttgctgcagctaaattaccct
+            cgggaattgattgaattggggttcattacaccaagaacagccactggtgacttggcctta
+            aagaaattggagaatgctattaaaaaggttcaaacggacaagaaaactcaaagatttagt
+            aaaattactattttgcgacagaattcccagagttttgataagttgatggagaaggaaaga
+            cacgctttagatgttcaaaaggaaagacgtgcagcaatggctttggcgcgcaatgaatta
+            ctattctccaccataggacctcacacttcttgggtgctgtggctagatgccgatattata
+            gagacaccaccatctttaattcaagacatgaccaaacacaacaaagctatcttagctgca
+            aacatttatcaaagattttacgatgaagagaagaagcaaccatcaatcagaccatacgat
+            ttcaacaactggcaagaaagtgacaccggtttagaaatagcctctcagatgggtgatgac
+            gagattattgtcgagggttatgcagaaattgccacttataggccattaatggctcatttc
+            tacgatgctaatggcgtaccaggtgaagagatggcgctggatggtgttggtggaggctgt
+            actttggtcaaagcagaagttcacagagacggtgccatgttccctaatttcccattttat
+            cacttgattgaaacagaaggttttgctaagatggcgaagagattaaactacgatgtattt
+            ggcttaccaaactatttggtttatcacatagaggaagagaaccattga
+///

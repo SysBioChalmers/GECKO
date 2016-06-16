@@ -1,0 +1,40 @@
+ENTRY       YMR118C           CDS       T00005
+NAME        SHH3
+DEFINITION  protein SHH3
+ORTHOLOGY   K00236  succinate dehydrogenase (ubiquinone) cytochrome b560 subunit
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00020  Citrate cycle (TCA cycle)
+            sce00190  Oxidative phosphorylation
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01200  Carbon metabolism
+MODULE      sce_M00009  Citrate cycle (TCA cycle, Krebs cycle)
+            sce_M00011  Citrate cycle, second carbon oxidation, 2-oxoglutarate => oxaloacetate
+            sce_M00148  Succinate dehydrogenase (ubiquinone)
+CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
+            Metabolism; Carbohydrate metabolism; Citrate cycle (TCA cycle) [PATH:sce00020]
+            Metabolism; Energy metabolism; Oxidative phosphorylation [PATH:sce00190]
+POSITION    XIII:complement(502144..502734)
+MOTIF       Pfam: Sdh_cyt Orbi_NS3
+DBLINKS     NCBI-GI: 6323765
+            NCBI-GeneID: 855145
+            SGD: S000004724
+            MIPS: YMR118C
+            UniProt: Q04487
+AASEQ       196
+            MKATIQRVTSVFGVPRASVFVPRISTPFILHNYISNGRMDLFSKEFHNGRVSKSDLWSSN
+            KEEELLVSQRKKRPISPHLTVYEPEMSWYLSSLHRISGVLLALGFYAFTITLGVTTIMGM
+            DTTFQDLNKWYHEKMPKWSQWVAKGSAAYLFAFHFGNGIRHLIWDMGYELTNRGVIKTGS
+            IVLAGTLVLGTYLLAQ
+NTSEQ       591
+            atgaaagcaaccattcaaagagtaacatctgtatttggagttccccgagcatctgtattc
+            gtgccaagaatcagcacaccatttattttgcataattatatctctaatggcagaatggac
+            cttttttccaaagaattccacaatggccgcgtatccaaatctgatctttggtcaagcaac
+            aaggaagaggagctcttagtatctcaaaggaaaaaaagaccgatctctcctcatttaact
+            gtttacgaacctgaaatgagctggtatctttcctctttacatcgtatatctggcgtttta
+            ctggctcttggattctatgctttcacaattactttgggtgtgacgacaataatgggaatg
+            gatacgacttttcaggatctaaacaagtggtatcacgaaaagatgcctaagtggtcccaa
+            tgggtggccaaaggctctgcagcatatctgtttgcattccattttggtaacggtataagg
+            catctcatctgggatatgggctacgaattgaccaaccgtggggttataaaaaccggatca
+            atcgttttagccggcacactcgtcttaggaacgtatttactggctcagtaa
+///

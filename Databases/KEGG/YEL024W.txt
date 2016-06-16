@@ -1,0 +1,36 @@
+ENTRY       YEL024W           CDS       T00005
+NAME        RIP1
+DEFINITION  ubiquinol--cytochrome-c reductase catalytic subunit RIP1 (EC:1.10.2.2)
+ORTHOLOGY   K00411  ubiquinol-cytochrome c reductase iron-sulfur subunit [EC:1.10.2.2]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00190  Oxidative phosphorylation
+            sce01100  Metabolic pathways
+MODULE      sce_M00151  Cytochrome bc1 complex respiratory unit
+            sce_M00152  Cytochrome bc1 complex
+CLASS       Metabolism; Energy metabolism; Oxidative phosphorylation [PATH:sce00190]
+POSITION    V:107260..107907
+MOTIF       Pfam: UCR_TM Rieske
+DBLINKS     NCBI-GI: 398364263
+            NCBI-GeneID: 856689
+            SGD: S000000750
+            MIPS: YEL024W
+            UniProt: P08067
+STRUCTURE   PDB: 3CX5 2IBZ 1KB9 1EZV 3CXH 1P84 1KYO
+AASEQ       215
+            MLGIRSSVKTCFKPMSLTSKRLISQSLLASKSTYRTPNFDDVLKENNDADKGRSYAYFMV
+            GAMGLLSSAGAKSTVETFISSMTATADVLAMAKVEVNLAAIPLGKNVVVKWQGKPVFIRH
+            RTPHEIQEANSVDMSALKDPQTDADRVKDPQWLIMLGICTHLGCVPIGEAGDFGGWFCPC
+            HGSHYDISGRIRKGPAPLNLEIPAYEFDGDKVIVG
+NTSEQ       648
+            atgttaggaataagatcatctgtcaagacctgcttcaagccaatgtctttaacttccaaa
+            agactgatttctcaatctttgctggctagcaaatccacgtacaggaccccaaattttgat
+            gacgttttaaaggaaaataacgatgctgataaaggccgttcttatgcttactttatggtc
+            ggtgctatgggtcttttgtcatctgcaggtgccaaatcaaccgtagaaacctttatttca
+            tctatgaccgctactgccgatgttttggctatggctaaagttgaagttaatttagcggct
+            atcccattgggtaaaaacgtggttgtcaaatggcaaggtaagcctgtgttcattagacac
+            agaactcctcatgaaattcaggaagccaacagtgtggatatgtccgctttgaaggaccca
+            cagaccgatgctgacagagtcaaagaccctcaatggttaattatgctgggtatttgtact
+            cacttaggttgtgttccaattggtgaagccggtgattttggtggttggttctgtccttgc
+            catggttcacattatgatatttccggtagaatcagaaagggacctgcccccttaaactta
+            gaaattcctgcttatgaattcgatggtgataaggtcattgttggttag
+///

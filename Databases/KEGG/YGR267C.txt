@@ -1,0 +1,37 @@
+ENTRY       YGR267C           CDS       T00005
+NAME        FOL2
+DEFINITION  GTP cyclohydrolase I (EC:3.5.4.16)
+ORTHOLOGY   K01495  GTP cyclohydrolase I [EC:3.5.4.16]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00790  Folate biosynthesis
+            sce01100  Metabolic pathways
+MODULE      sce_M00126  Tetrahydrofolate biosynthesis, GTP => THF
+CLASS       Metabolism; Metabolism of cofactors and vitamins; Folate biosynthesis [PATH:sce00790]
+POSITION    VII:complement(1025004..1025735)
+MOTIF       Pfam: GTP_cyclohydroI QueF
+DBLINKS     NCBI-GI: 6321706
+            NCBI-GeneID: 853183
+            SGD: S000003499
+            MIPS: YGR267C
+            UniProt: P51601
+AASEQ       243
+            MHNIQLVQEIERHETPLNIRPTSPYTLNPPVERDGFSWPSVGTRQRAEETEEEEKERIQR
+            ISGAIKTILTELGEDVNREGLLDTPQRYAKAMLYFTKGYQTNIMDDVIKNAVFEEDHDEM
+            VIVRDIEIYSLCEHHLVPFFGKVHIGYIPNKKVIGLSKLARLAEMYARRLQVQERLTKQI
+            AMALSDILKPLGVAVVMEASHMCMVSRGIQKTGSSTVTSCMLGGFRAHKTREEFLTLLGR
+            RSI
+NTSEQ       732
+            atgcataacatccaattagtgcaagagatagaaagacatgaaaccccgttaaacattaga
+            cctacctctccatacactttaaaccctcctgtcgagagagatgggttttcttggccaagt
+            gtgggtacaagacaacgtgcagaggaaactgaagaggaggaaaaggaacgaattcaacgc
+            atttcaggcgctatcaagacaattttgaccgaactgggtgaagatgtcaacagagaaggt
+            ctactagatactccacaaagatacgctaaagccatgctttatttcactaaaggttaccaa
+            acgaacattatggacgatgtcattaagaatgctgtctttgaagaagatcatgatgaaatg
+            gttattgttcgtgatattgaaatttactcgttatgtgaacatcatttggtgccatttttc
+            ggcaaggttcatatcgggtatataccaaataaaaaagtcatcgggttaagtaagttggcc
+            agattggcagaaatgtatgcgagaaggctccaagttcaagaaagacttacaaagcaaatt
+            gcaatggccctaagtgatattctaaaaccattaggtgtagccgttgttatggaagcttct
+            catatgtgcatggtttcaagaggcattcaaaaaacgggatcttctacggtaacttcttgt
+            atgcttggagggtttagggctcataaaacaagagaagagtttttaactcttttaggaaga
+            agaagtatttga
+///

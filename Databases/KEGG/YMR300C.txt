@@ -1,0 +1,57 @@
+ENTRY       YMR300C           CDS       T00005
+NAME        ADE4
+DEFINITION  amidophosphoribosyltransferase (EC:2.4.2.14)
+ORTHOLOGY   K00764  amidophosphoribosyltransferase [EC:2.4.2.14]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00230  Purine metabolism
+            sce00250  Alanine, aspartate and glutamate metabolism
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+MODULE      sce_M00048  Inosine monophosphate biosynthesis, PRPP + glutamine => IMP
+CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
+            Metabolism; Amino acid metabolism; Alanine, aspartate and glutamate metabolism [PATH:sce00250]
+POSITION    XIII:complement(865559..867091)
+MOTIF       Pfam: GATase_2 GATase_6 Pribosyltran GATase_7 GATase_4
+DBLINKS     NCBI-GI: 6323958
+            NCBI-GeneID: 855346
+            SGD: S000004915
+            MIPS: YMR300C
+            UniProt: P04046
+AASEQ       510
+            MCGILGIVLANQTTPVAPELCDGCIFLQHRGQDAAGIATCGSRGRIYQCKGNGMARDVFT
+            QQRVSGLAGSMGIAHLRYPTAGSSANSEAQPFYVNSPYGINLAHNGNLVNTASLKRYMDE
+            DVHRHINTDSDSELLLNIFAAELEKHNKYRVNNEDVFHALEGVYRLCRGGYACVGLLAGF
+            ALFGFRDPNGIRPLLFGERENPDGTKDYMLASESVVFKAHNFTKYRDLKPGEAVIIPKNC
+            SKGEPEFKQVVPINSYRPDLFEYVYFARPDSVLDGISVYHTRLAMGSKLAENILKQLKPE
+            DIDVVIPVPDTARTCALECANVLGKPYREGFVKNRYVGRTFIMPNQRERVSSVRRKLNPM
+            ESEFKGKKVLIVDDSIVRGTTSKEIVNMAKESGATKVYFASAAPAIRYNHIYGIDLTDTK
+            NLIAYNRTDEEVAEVIGCERVIYQSLEDLIDCCKTDKITKFEDGVFTGNYVTGVEDGYIQ
+            ELEEKRESIANNSSDMKAEVDIGLYNCADY
+NTSEQ       1533
+            atgtgtggtattttaggtattgtattagcaaaccaaaccactccagtagctccggagtta
+            tgtgatggatgcatttttctacaacatcgtggacaagatgcagctggtatagctacctgt
+            ggttctcgtggtagaatctaccaatgtaaaggtaatggtatggctcgtgacgtatttacc
+            caacaacgtgtttccggtcttgctggttccatgggtattgcccacttgagatatcctaca
+            gccgggtcttcggctaattcagaagcgcaaccattttacgtcaatagtccttacggtatt
+            aacttggcacataacggtaacttggtgaatactgcatcattgaagagatatatggatgaa
+            gacgttcatagacatattaacacggacagtgattcggagttactattgaatatttttgct
+            gctgaactggaaaaacataacaagtacagagttaacaatgaagatgttttccacgcgtta
+            gaaggtgtttaccgtttatgccgtggcggttatgcttgcgttggtttacttgccggtttt
+            gcattatttggtttcagagatccaaatggtattaggccattattgttcggtgaaagagaa
+            aatccggacggcactaaggactatatgttagcttcagaaagtgttgttttcaaagctcac
+            aactttactaaatatcgtgacttaaagcctggcgaggcagttatcatccctaagaactgt
+            agcaaaggtgaacctgagttcaaacaagtggttcctattaactcttatagacctgattta
+            tttgaatacgtatatttcgccagaccggacagtgtcttggatggaatatcagtttatcac
+            acaagattggctatgggttctaaattagcggaaaatattctaaagcaactgaagccagaa
+            gatattgatgttgttattcccgtcccagatactgcaagaacatgtgcactagaatgtgct
+            aatgtgttagggaagccttatagagagggctttgttaaaaacagatacgtgggcaggaca
+            tttatcatgccaaaccagagggaaagggtttcttcagtaaggaggaagcttaaccctatg
+            gagtctgaatttaagggtaagaaggttctgatagtggatgattctattgtcagaggtact
+            acttcaaaagagattgttaacatggccaaggaatccggtgcaacaaaggtttacttcgct
+            tcagctgccccagccattcgttacaaccatatttatggtattgacttaacagacacaaag
+            aacttgattgcttataacagaaccgatgaagaagtggcggaagtaatcggttgtgaaaga
+            gtcatttaccaatcattggaagatttgattgattgttgtaaaactgataaaataaccaaa
+            ttcgaagatggtgtatttaccggaaattatgtcactggtgttgaagacggttatattcaa
+            gaattggaagaaaaacgtgaatcgatcgcaaataattcatcagatatgaaggctgaagtc
+            gatatcggattatataattgtgcagattattga
+///

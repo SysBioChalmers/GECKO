@@ -1,0 +1,53 @@
+ENTRY       YPR035W           CDS       T00005
+NAME        GLN1
+DEFINITION  glutamate--ammonia ligase (EC:6.3.1.2)
+ORTHOLOGY   K01915  glutamine synthetase [EC:6.3.1.2]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00250  Alanine, aspartate and glutamate metabolism
+            sce00330  Arginine and proline metabolism
+            sce00630  Glyoxylate and dicarboxylate metabolism
+            sce00910  Nitrogen metabolism
+            sce01100  Metabolic pathways
+            sce01230  Biosynthesis of amino acids
+CLASS       Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
+            Metabolism; Carbohydrate metabolism; Glyoxylate and dicarboxylate metabolism [PATH:sce00630]
+            Metabolism; Energy metabolism; Nitrogen metabolism [PATH:sce00910]
+            Metabolism; Amino acid metabolism; Alanine, aspartate and glutamate metabolism [PATH:sce00250]
+            Metabolism; Amino acid metabolism; Arginine and proline metabolism [PATH:sce00330]
+POSITION    XVI:642208..643320
+MOTIF       Pfam: Gln-synt_C Gln-synt_N
+DBLINKS     NCBI-GI: 330443748
+            NCBI-GeneID: 856147
+            SGD: S000006239
+            MIPS: YPR035W
+            UniProt: P32288
+STRUCTURE   PDB: 3FKY
+AASEQ       370
+            MAEASIEKTQILQKYLELDQRGRIIAEYVWIDGTGNLRSKGRTLKKRITSIDQLPEWNFD
+            GSSTNQAPGHDSDIYLKPVAYYPDPFRRGDNIVVLAACYNNDGTPNKFNHRHEAAKLFAA
+            HKDEEIWFGLEQEYTLFDMYDDVYGWPKGGYPAPQGPYYCGVGAGKVYARDMIEAHYRAC
+            LYAGLEISGINAEVMPSQWEFQVGPCTGIDMGDQLWMARYFLHRVAEEFGIKISFHPKPL
+            KGDWNGAGCHTNVSTKEMRQPGGMKYIEQAIEKLSKRHAEHIKLYGSDNDMRLTGRHETA
+            SMTAFSSGVANRGSSIRIPRSVAKEGYGYFEDRRPASNIDPYLVTGIMCETVCGAIDNAD
+            MTKEFERESS
+NTSEQ       1113
+            atggctgaagcaagcatcgaaaagactcaaattttacaaaaatatctagaactggaccaa
+            agaggtagaataattgccgaatacgtttggatcgatggtactggtaacttacgttccaaa
+            ggtagaactttgaagaagagaatcacatccattgaccaattgccagaatggaacttcgac
+            ggttcttctaccaaccaagcgccaggccacgactctgacatctatttgaaacccgttgct
+            tactacccagatcccttcaggagaggtgacaacattgttgtcttggccgcatgttacaac
+            aatgacggtactccaaacaagttcaaccacagacacgaagctgccaagctatttgctgct
+            cataaggatgaagaaatctggtttggtctagaacaagaatacactctatttgacatgtat
+            gacgatgtttacggatggccaaagggtgggtacccagctccacaaggtccttactactgt
+            ggtgttggtgccggtaaggtttatgccagagacatgatcgaagctcactacagagcttgt
+            ttgtatgccggattagaaatttctggtattaacgctgaagtcatgccatctcaatgggaa
+            ttccaagtcggtccatgtaccggtattgacatgggtgaccaattatggatggccagatac
+            tttttgcacagagtggcagaagagtttggtatcaagatctcattccatccaaagccattg
+            aagggtgactggaacggtgccggttgtcacactaacgtttccaccaaggaaatgagacaa
+            ccaggtggtatgaaatacatcgaacaagccatcgagaagttatccaagagacacgctgaa
+            cacattaagttgtacggtagcgataacgacatgagattaactggtagacatgaaaccgct
+            tccatgactgccttttcttctggtgtcgccaacagaggtagctcaattagaatcccaaga
+            tccgtcgccaaggaaggttacggttactttgaagaccgtagaccagcttccaacatcgac
+            ccatacttggttacaggtatcatgtgtgaaactgtttgcggtgctattgacaatgctgac
+            atgacgaaggaatttgaaagagaatcttcataa
+///

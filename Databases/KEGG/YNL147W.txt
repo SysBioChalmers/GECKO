@@ -1,0 +1,30 @@
+ENTRY       YNL147W           CDS       T00005
+NAME        LSM7
+DEFINITION  Lsm7p
+ORTHOLOGY   K12626  U6 snRNA-associated Sm-like protein LSm7
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03018  RNA degradation
+            sce03040  Spliceosome
+MODULE      sce_M00396  Lsm 2-8 complex
+            sce_M00397  Lsm 1-7 complex
+CLASS       Genetic Information Processing; Transcription; Spliceosome [PATH:sce03040]
+            Genetic Information Processing; Folding, sorting and degradation; RNA degradation [PATH:sce03018]
+POSITION    XIV:join(350940..350957,351054..351383)
+MOTIF       Pfam: LSM
+DBLINKS     NCBI-GI: 158267618
+            NCBI-GeneID: 855575
+            SGD: S000005091
+            MIPS: YNL147W
+            UniProt: P53905
+STRUCTURE   PDB: 4C92 4M7D 4M7A 4M78 4M75 4M77 4C8Q
+AASEQ       115
+            MHQQHSKSENKPQQQRKKFEGPKREAILDLAKYKDSKIRVKLMGGKLVIGVLKGYDQLMN
+            LVLDDTVEYMSNPDDENNTELISKNARKLGLTVIRGTILVSLSSAEGSDVLYMQK
+NTSEQ       348
+            atgcatcagcaacactccaaatcagagaacaaaccacaacagcaaaggaaaaaattcgaa
+            ggccctaaaagagaagctattctggatttagcgaagtataaagattctaaaattcgcgtc
+            aaattaatgggtggtaaattagttataggtgtcctaaaaggctatgatcaactgatgaac
+            ttggtacttgatgatacagtagaatatatgtctaatcctgatgatgaaaacaacactgaa
+            ctgatttctaaaaacgcaagaaagctaggtttgaccgtcataagaggtactattttggtc
+            tctttaagttccgccgaaggttctgatgtactatatatgcaaaaatag
+///

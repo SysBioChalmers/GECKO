@@ -1,0 +1,29 @@
+ENTRY       YML026C           CDS       T00005
+NAME        RPS18B
+DEFINITION  ribosomal 40S subunit protein S18B
+ORTHOLOGY   K02964  small subunit ribosomal protein S18e
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03010  Ribosome
+CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+POSITION    XIII:complement(join(222987..223380,223782..223828))
+MOTIF       Pfam: Ribosomal_S13 FbpA
+DBLINKS     NCBI-GI: 6323615
+            NCBI-GeneID: 854982
+            SGD: S000004488
+            MIPS: YML026C
+            UniProt: P0CX55 P0CX56
+STRUCTURE   PDB: 3U5C 3U5G 3O2Z 3O30 4BYL 4BYT 3IZB 1S1H
+AASEQ       146
+            MSLVVQEQGSFQHILRLLNTNVDGNIKIVYALTTIKGVGRRYSNLVCKKADVDLHKRAGE
+            LTQEELERIVQIMQNPTHYKIPAWFLNRQNDITDGKDYHTLANNVESKLRDDLERLKKIR
+            AHRGIRHFWGLRVRGQHTKTTGRRRA
+NTSEQ       441
+            atgtctttagttgtacaagaacaaggttccttccaacacattttacgtttgttgaacacc
+            aatgtcgatggtaacattaaaattgtttacgctttgaccactattaagggtgttggtcgt
+            cgttactccaacttggtctgtaagaaggctgatgttgatttgcacaagagagctggtgaa
+            ttgacccaagaagaattggaaagaattgtccaaatcatgcaaaacccaactcattacaag
+            atcccagcctggttcttaaaccgtcaaaacgacattactgatggtaaggactaccacact
+            ttggctaacaacgtcgaatccaagttgagagatgacttggaaagattaaagaagatcaga
+            gcccaccgtggtattagacacttctggggtttacgtgttagaggtcaacacaccaagacc
+            actggtagaagaagagcttaa
+///

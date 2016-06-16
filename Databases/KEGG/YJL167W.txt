@@ -1,0 +1,44 @@
+ENTRY       YJL167W           CDS       T00005
+NAME        ERG20, BOT3, FDS1, FPP1
+DEFINITION  bifunctional (2E,6E)-farnesyl diphosphate synthase/dimethylallyltranstransferase (EC:2.5.1.1 2.5.1.10)
+ORTHOLOGY   K00787  farnesyl diphosphate synthase [EC:2.5.1.1 2.5.1.10]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00900  Terpenoid backbone biosynthesis
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+MODULE      sce_M00367  C10-C20 isoprenoid biosynthesis, non-plant eukaryotes
+CLASS       Metabolism; Metabolism of terpenoids and polyketides; Terpenoid backbone biosynthesis [PATH:sce00900]
+POSITION    X:105014..106072
+MOTIF       Pfam: polyprenyl_synt
+DBLINKS     NCBI-GI: 6322294
+            NCBI-GeneID: 853272
+            SGD: S000003703
+            MIPS: YJL167W
+            UniProt: P08524
+AASEQ       352
+            MASEKEIRRERFLNVFPKLVEELNASLLAYGMPKEACDWYAHSLNYNTPGGKLNRGLSVV
+            DTYAILSNKTVEQLGQEEYEKVAILGWCIELLQAYFLVADDMMDKSITRRGQPCWYKVPE
+            VGEIAINDAFMLEAAIYKLLKSHFRNEKYYIDITELFHEVTFQTELGQLMDLITAPEDKV
+            DLSKFSLKKHSFIVTFKTAYYSFYLPVALAMYVAGITDEKDLKQARDVLIPLGEYFQIQD
+            DYLDCFGTPEQIGKIGTDIQDNKCSWVINKALELASAEQRKTLDENYGKKDSVAEAKCKK
+            IFNDLKIEQLYHEYEESIAKDLKAKISQVDESRGFKADVLTAFLNKVYKRSK
+NTSEQ       1059
+            atggcttcagaaaaagaaattaggagagagagattcttgaacgttttccctaaattagta
+            gaggaattgaacgcatcgcttttggcttacggtatgcctaaggaagcatgtgactggtat
+            gcccactcattgaactacaacactccaggcggtaagctaaatagaggtttgtccgttgtg
+            gacacgtatgctattctctccaacaagaccgttgaacaattggggcaagaagaatacgaa
+            aaggttgccattctaggttggtgcattgagttgttgcaggcttacttcttggtcgccgat
+            gatatgatggacaagtccattaccagaagaggccaaccatgttggtacaaggttcctgaa
+            gttggggaaattgccatcaatgacgcattcatgttagaggctgctatctacaagcttttg
+            aaatctcacttcagaaacgaaaaatactacatagatatcaccgaattgttccatgaggtc
+            accttccaaaccgaattgggccaattgatggacttaatcactgcacctgaagacaaagtc
+            gacttgagtaagttctccctaaagaagcactccttcatagttactttcaagactgcttac
+            tattctttctacttgcctgtcgcattggccatgtacgttgccggtatcacggatgaaaag
+            gatttgaaacaagccagagatgtcttgattccattgggtgaatacttccaaattcaagat
+            gactacttagactgcttcggtaccccagaacagatcggtaagatcggtacagatatccaa
+            gataacaaatgttcttgggtaatcaacaaggcattggaacttgcttccgcagaacaaaga
+            aagactttagacgaaaattacggtaagaaggactcagtcgcagaagccaaatgcaaaaag
+            attttcaatgacttgaaaattgaacagctataccacgaatatgaagagtctattgccaag
+            gatttgaaggccaaaatttctcaggtcgatgagtctcgtggcttcaaagctgatgtctta
+            actgcgttcttgaacaaagtttacaagagaagcaaatag
+///

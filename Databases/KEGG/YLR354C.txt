@@ -1,0 +1,48 @@
+ENTRY       YLR354C           CDS       T00005
+NAME        TAL1
+DEFINITION  sedoheptulose-7-phosphate:D-glyceraldehyde-3-phosphate transaldolase TAL1 (EC:2.2.1.2)
+ORTHOLOGY   K00616  transaldolase [EC:2.2.1.2]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00030  Pentose phosphate pathway
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01200  Carbon metabolism
+            sce01230  Biosynthesis of amino acids
+MODULE      sce_M00004  Pentose phosphate pathway (Pentose phosphate cycle)
+            sce_M00007  Pentose phosphate pathway, non-oxidative phase, fructose 6P => ribose 5P
+CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
+            Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
+            Metabolism; Carbohydrate metabolism; Pentose phosphate pathway [PATH:sce00030]
+POSITION    XII:complement(836350..837357)
+MOTIF       Pfam: Transaldolase DUF740 YajC
+DBLINKS     NCBI-GI: 6323386
+            NCBI-GeneID: 851068
+            SGD: S000004346
+            MIPS: YLR354C
+            UniProt: P15019
+AASEQ       335
+            MSEPAQKKQKVANNSLEQLKASGTVVVADTGDFGSIAKFQPQDSTTNPSLILAAAKQPTY
+            AKLIDVAVEYGKKHGKTTEEQVENAVDRLLVEFGKEILKIVPGRVSTEVDARLSFDTQAT
+            IEKARHIIKLFEQEGVSKERVLIKIASTWEGIQAAKELEEKDGIHCNLTLLFSFVQAVAC
+            AEAQVTLISPFVGRILDWYKSSTGKDYKGEADPGVISVKKIYNYYKKYGYKTIVMGASFR
+            STDEIKNLAGVDYLTISPALLDKLMNSTEPFPRVLDPVSAKKEAGDKISYISDESKFRFD
+            LNEDAMATEKLSEGIRKFSADIVTLFDLIEKKVTA
+NTSEQ       1008
+            atgtctgaaccagctcaaaagaaacaaaaggttgctaacaactctctagaacaattgaaa
+            gcctccggcactgtcgttgttgccgacactggtgatttcggctctattgccaagtttcaa
+            cctcaagactccacaactaacccatcattgatcttggctgctgccaagcaaccaacttac
+            gccaagttgatcgatgttgccgtggaatacggtaagaagcatggtaagaccaccgaagaa
+            caagtcgaaaatgctgtggacagattgttagtcgaattcggtaaggagatcttaaagatt
+            gttccaggcagagtctccaccgaagttgatgctagattgtcttttgacactcaagctacc
+            attgaaaaggctagacatatcattaaattgtttgaacaagaaggtgtctccaaggaaaga
+            gtccttattaaaattgcttccacttgggaaggtattcaagctgccaaagaattggaagaa
+            aaggacggtatccactgtaatttgactctattattctccttcgttcaagcagttgcctgt
+            gccgaggcccaagttactttgatttccccatttgttggtagaattctagactggtacaaa
+            tccagcactggtaaagattacaagggtgaagccgacccaggtgttatttccgtcaagaaa
+            atctacaactactacaagaagtacggttacaagactattgttatgggtgcttctttcaga
+            agcactgacgaaatcaaaaacttggctggtgttgactatctaacaatttctccagcttta
+            ttggacaagttgatgaacagtactgaacctttcccaagagttttggaccctgtctccgct
+            aagaaggaagccggcgacaagatttcttacatcagcgacgaatctaaattcagattcgac
+            ttgaatgaagacgctatggccactgaaaaattgtccgaaggtatcagaaaattctctgcc
+            gatattgttactctattcgacttgattgaaaagaaagttaccgcttaa
+///

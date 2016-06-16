@@ -1,0 +1,53 @@
+ENTRY       YCL017C           CDS       T00005
+NAME        NFS1, SPL1
+DEFINITION  Nfs1p (EC:2.8.1.7)
+ORTHOLOGY   K04487  cysteine desulfurase [EC:2.8.1.7]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00730  Thiamine metabolism
+            sce04122  Sulfur relay system
+CLASS       Metabolism; Metabolism of cofactors and vitamins; Thiamine metabolism [PATH:sce00730]
+            Genetic Information Processing; Folding, sorting and degradation; Sulfur relay system [PATH:sce04122]
+POSITION    III:complement(92777..94270)
+MOTIF       Pfam: Aminotran_5 Aminotran_1_2 Beta_elim_lyase DegT_DnrJ_EryC1 Pyridoxal_deC Cys_Met_Meta_PP
+DBLINKS     NCBI-GI: 10383773
+            NCBI-GeneID: 850343
+            SGD: S000000522
+            MIPS: YCL017C
+            UniProt: P25374
+AASEQ       497
+            MLKSTATRSITRLSQVYNVPAATYRACLVSRRFYSPPAAGVKLDDNFSLETHTDIQAAAK
+            AQASARASASGTTPDAVVASGSTAMSHAYQENTGFGTRPIYLDMQATTPTDPRVLDTMLK
+            FYTGLYGNPHSNTHSYGWETNTAVENARAHVAKMINADPKEIIFTSGATESNNMVLKGVP
+            RFYKKTKKHIITTRTEHKCVLEAARAMMKEGFEVTFLNVDDQGLIDLKELEDAIRPDTCL
+            VSVMAVNNEIGVIQPIKEIGAICRKNKIYFHTDAAQAYGKIHIDVNEMNIDLLSISSHKI
+            YGPKGIGAIYVRRRPRVRLEPLLSGGGQERGLRSGTLAPPLVAGFGEAARLMKKEFDNDQ
+            AHIKRLSDKLVKGLLSAEHTTLNGSPDHRYPGCVNVSFAYVEGESLLMALRDIALSSGSA
+            CTSASLEPSYVLHALGKDDALAHSSIRFGIGRFSTEEEVDYVVKAVSDRVKFLRELSPLW
+            EMVQEGIDLNSIKWSGH
+NTSEQ       1494
+            atgttgaaatcaactgctacaagatcgataacaagattatctcaagtttacaacgttcca
+            gcggccacatatagggcttgtttggtaagcaggagattctattcccctcctgcagcaggc
+            gtgaagttagacgacaacttctctctggaaacgcataccgatattcaggctgctgcaaag
+            gcacaggctagtgcccgtgcgagtgcatccggtaccaccccagatgctgtagtagcttct
+            ggtagcactgcaatgagccatgcttatcaagaaaacacaggttttggtactcgtcccata
+            tatcttgacatgcaagccactacaccaacagaccctagggttttggatacgatgttgaag
+            ttttatacgggactttatggtaatcctcattccaacactcactcttacggttgggaaaca
+            aatactgctgtggaaaatgctagagctcacgtagcaaagatgatcaatgccgaccccaag
+            gaaataatattcacttcgggagcgaccgaatctaataatatggttcttaagggtgtccca
+            agattttataagaagactaagaaacacatcatcaccactagaacggaacacaagtgtgtc
+            ttggaagccgcacgggccatgatgaaggagggatttgaagtcactttcctaaatgtggac
+            gatcaaggtcttatcgatttgaaggaattggaagatgccattagaccagatacctgtctc
+            gtctctgtgatggctgtcaataatgaaatcggtgtcattcaacctattaaagaaattggt
+            gcaatttgtagaaagaataagatctactttcatactgacgccgcacaagcctatggtaag
+            attcacattgatgtcaatgaaatgaacattgatttactatcaatttcttctcacaagatt
+            tacggtccaaagggaataggtgccatctatgtaagaaggagaccaagagttagattagaa
+            cctttactatccggtggtggccaagagagaggattgagatctggtactttggccccccca
+            ttggtagcgggatttggtgaagctgcgagattgatgaagaaagaatttgacaacgaccaa
+            gctcacatcaaaagactatccgataaattagtcaaaggtctattatccgctgaacatacc
+            acgttgaacggatctccagatcatcgttatccagggtgtgttaacgtttctttcgcctac
+            gtggaaggagaatctttattgatggcactaagggatatcgcattatcctcgggttcagcc
+            tgtacatctgcttccctagaaccttcttatgttttacatgcgctgggtaaggatgatgca
+            ttagcccattcttccatcagatttggtattggtagatttagtactgaagaggaggtcgac
+            tacgtcgttaaggccgtttctgacagagtaaaattcttgagggaactttcaccattatgg
+            gaaatggttcaagaaggtattgacttaaactccatcaaatggtcaggtcattga
+///

@@ -1,0 +1,41 @@
+ENTRY       YHR046C           CDS       T00005
+NAME        INM1
+DEFINITION  inositol monophosphate 1-phosphatase INM1 (EC:3.1.3.25)
+ORTHOLOGY   K01092  myo-inositol-1(or 4)-monophosphatase [EC:3.1.3.25]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00562  Inositol phosphate metabolism
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce04070  Phosphatidylinositol signaling system
+CLASS       Metabolism; Carbohydrate metabolism; Inositol phosphate metabolism [PATH:sce00562]
+            Environmental Information Processing; Signal transduction; Phosphatidylinositol signaling system [PATH:sce04070]
+POSITION    VIII:complement(197398..198285)
+MOTIF       Pfam: Inositol_P DUF1953
+DBLINKS     NCBI-GI: 6321836
+            NCBI-GeneID: 856442
+            SGD: S000001088
+            MIPS: YHR046C
+            UniProt: P38710
+AASEQ       295
+            MTIDLASIEKFLCELATEKVGPIIKSKSGTQKDYDLKTGSRSVDIVTAIDKQVEKLIWES
+            VKTQYPTFKFIGEESYVKGETVITDDPTFIIDPIDGTTNFVHDFPFSCTSLGLTVNKEPV
+            VGVIYNPHINLLVSASKGNGMRVNNKDYDYKSKLESMGSLILNKSVVALQPGSAREGKNF
+            QTKMATYEKLLSCDYGFVHGFRNLGSSAMTMAYIAMGYLDSYWDGGCYSWDVCAGWCILK
+            EVGGRVVGANPGEWSIDVDNRTYLAVRGTINNESDEQTKYITDFWNCVDGHLKYD
+NTSEQ       888
+            atgaccattgatctagcttctatcgagaaattcctctgtgaactggctactgaaaaagta
+            ggaccaatcatcaaatccaagtccggcactcaaaaggattatgacttgaagactggctcc
+            aggagcgttgatattgtaactgctatcgataaacaggtcgaaaagttaatttgggaatcg
+            gtaaaaacccaatatccaactttcaagtttattggagaggaaagttatgtgaaaggggag
+            accgtgattactgatgatcctacctttattattgatccaattgatgggactacaaacttt
+            gttcatgatttcccatttagctgtacctctcttgggctcacagtaaacaaagagcccgta
+            gtaggcgttatatataatcctcacattaatcttctggtatccgcttctaaaggaaatggg
+            atgagagttaacaacaaggactatgactataaatcaaaattggaatctatgggttctcta
+            atactaaataaatccgtagtggcattacagccaggttccgctagagagggaaagaatttt
+            cagacaaaaatggccacatatgaaaaattactatcatgtgattacggttttgttcatgga
+            ttcagaaatttaggatcatctgcaatgacaatggcatatattgctatggggtaccttgat
+            agttattgggatggtggttgctattcgtgggacgtgtgtgctggatggtgtattttgaaa
+            gaagtgggcggtcgtgtagtaggtgccaatccaggtgaatggagtattgatgtcgacaat
+            aggacatatttggctgtgaggggaacaattaataacgaaagtgacgaacaaacaaaatat
+            atcacagacttttggaactgtgttgatggccatttgaaatatgactga
+///

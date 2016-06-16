@@ -1,0 +1,52 @@
+ENTRY       YNL248C           CDS       T00005
+NAME        RPA49
+DEFINITION  Rpa49p
+ORTHOLOGY   K03005  DNA-directed RNA polymerase I subunit RPA49
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00230  Purine metabolism
+            sce00240  Pyrimidine metabolism
+            sce01100  Metabolic pathways
+            sce03020  RNA polymerase
+MODULE      sce_M00182  RNA polymerase I, eukaryotes
+CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
+            Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
+            Genetic Information Processing; Transcription; RNA polymerase [PATH:sce03020]
+POSITION    XIV:complement(181361..182608)
+MOTIF       Pfam: RNA_pol_I_A49
+DBLINKS     NCBI-GI: 6324081
+            NCBI-GeneID: 855473
+            SGD: S000005192
+            MIPS: YNL248C
+            UniProt: Q01080
+STRUCTURE   PDB: 3NFI 3NFH 4C2M 4C3I 4C3H 4C3J
+AASEQ       415
+            MSVKRSVSEIEIESVQDQPSVAVGSFFKGFRAPSDTTFDLYKKKKSEKDEFVLHGENERL
+            EYEGYTDSSSQASNQYVVGLFNPEKKSIQLYKAPVLVSKVVSKSSKNLRGPKIKSKSDTR
+            PSALRNALGEAFGTKKAKKAIADLERNRIDSDKLTDSAIDIVDSVRTASKDLPTRAQLDE
+            ITSNDRPTPLANIDATDVEQIYPIESIIPKKELQFIRVSSILKEADKEKKLELFPYQNNS
+            KYVAKKLDSLTQPSQMTKLQLLYYLSLLLGVYENRRVNNKTKLLERLNSPPEILVDGILS
+            RFTVIKPGQFGRSKDRSYFIDPQNEDKILCYILAIIMHLDNFIVEITPLAHELNLKPSKV
+            VSLFRVLGAIVKGATVAQAEAFGIPKSTAASYKIATMKVPFKLPEMTRRGRGPRR
+NTSEQ       1248
+            atgtccgtgaaaaggtctgtttctgaaatcgaaattgaaagtgttcaagatcaaccctct
+            gttgccgtgggaagtttcttcaagggcttccgtgctcccagtgacactacgttcgactta
+            tacaaaaaaaagaagtctgaaaaggacgaattcgtattacacggtgaaaacgagagacta
+            gaatacgaaggttatactgattcttcttcccaagcttcgaaccagtatgttgtgggccta
+            tttaatccagaaaagaaaagtattcaactctacaaggctcccgtacttgtttccaaagtt
+            gtatccaagtcaagcaagaatctaaggggtccaaaaataaaaagtaagagtgatactcgt
+            ccatctgctttgagaaatgcgttgggtgaagcgtttggtactaaaaaggctaaaaaagct
+            attgcagatctagaaagaaaccgtattgactctgataagttgactgattctgctattgac
+            attgtggattccgtgagaactgcatctaaggatttaccaactcgggctcaattggatgaa
+            attacttccaacgatagacctactccattagccaatatcgatgccactgatgtagaacaa
+            atttacccaattgaaagtataataccaaagaaggaattacagtttattcgcgtttcatca
+            attctgaaagaagcggataaggaaaagaagttggaattgttcccataccaaaacaattcc
+            aagtatgtggcaaagaaattggactctttgacacaaccttcacaaatgaccaaattacag
+            ctactatactacttatcactattactgggcgtatacgaaaatagacgcgtgaataacaag
+            acgaagttgttagaaaggttgaacagtcctcctgaaatcttggtagatggtatcttaagc
+            agatttaccgtgataaagcctggacagtttggaagatcaaaggatcgctcctatttcatt
+            gacccacaaaatgaagataaaatcttatgctacatcttggcaatcataatgcatttggat
+            aacttcattgttgaaatcacacccttagcacacgaattgaacttgaaaccttccaaagtt
+            gtcagtttgttcagggtacttggtgctattgtcaaaggtgccacagtggctcaagctgag
+            gcttttggcattccaaaaagtactgcagcttcttataaaattgccactatgaaagttcca
+            tttaagctacctgaaatgacaagaagaggaagaggtccaagacgttag
+///

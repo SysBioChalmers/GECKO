@@ -1,0 +1,58 @@
+ENTRY       YDR481C           CDS       T00005
+NAME        PHO8
+DEFINITION  Pho8p (EC:3.1.7.6 3.1.3.1)
+ORTHOLOGY   K01077  alkaline phosphatase [EC:3.1.3.1]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00790  Folate biosynthesis
+            sce01100  Metabolic pathways
+MODULE      sce_M00126  Tetrahydrofolate biosynthesis, GTP => THF
+CLASS       Metabolism; Metabolism of cofactors and vitamins; Folate biosynthesis [PATH:sce00790]
+POSITION    IV:complement(1418550..1420250)
+MOTIF       Pfam: Alk_phosphatase Metalloenzyme
+DBLINKS     NCBI-GI: 398366635
+            NCBI-GeneID: 852092
+            SGD: S000002889
+            MIPS: YDR481C
+            UniProt: P11491
+AASEQ       566
+            MMTHTLPSEQTRLVPGSDSSSRPKKRRISKRSKIIVSTVVCIGLLLVLVQLAFPSSFALR
+            SASHKKKNVIFFVTDGMGPASLSMARSFNQHVNDLPIDDILTLDEHFIGSSRTRSSDSLV
+            TDSAAGATAFACALKSYNGAIGVDPHHRPCGTVLEAAKLAGYLTGLVVTTRITDATPASF
+            SSHVDYRWQEDLIATHQLGEYPLGRVVDLLMGGGRSHFYPQGEKASPYGHHGARKDGRDL
+            IDEAQSNGWQYVGDRKNFDSLLKSHGENVTLPFLGLFADNDIPFEIDRDEKEYPSLKEQV
+            KVALGALEKASNEDKDSNGFFLMVEGSRIDHAGHQNDPASQVREVLAFDEAFQYVLEFAE
+            NSDTETVLVSTSDHETGGLVTSRQVTASYPQYVWYPQVLANATHSGEFLKRKLVDFVHEH
+            KGASSKIENFIKHEILEKDLGIYDYTDSDLETLIHLDDNANAIQDKLNDMVSFRAQIGWT
+            THGHSAVDVNIYAYANKKATWSYVLNNLQGNHENTEVGQFLENFLELNLNEVTDLIRDTK
+            HTSDFDATEIASEVQHYDEYYHELTN
+NTSEQ       1701
+            atgatgactcacacattaccaagcgaacagacacgtcttgttcctggatctgactcgagc
+            tctcgtcctaaaaagagacggatctcgaagagatcaaagataatagtatccactgtggtc
+            tgtattggtttgttgctggttttagtgcaactggcatttccaagcagttttgcattacgt
+            tctgcatcacacaagaagaagaatgtcatattcttcgtgacggatgggatgggacctgcg
+            tctttgtccatggcaagatcattcaaccagcatgttaatgatttacctatagacgacatc
+            ctgacacttgacgagcattttatcgggtcttcgagaacaaggtcctcggactcactagtc
+            actgactcagctgcgggcgccaccgcatttgcatgtgcattaaagagctataatggggcc
+            atcggtgttgatccgcatcacagaccttgtggtacagtgctcgaggcggctaagttagca
+            ggttatctcactgggcttgttgttacgacaagaatcacagatgccactccggcttcattc
+            agttcacatgttgattacagatggcaggaagatcttatcgctacgcaccagttaggcgaa
+            tatcctctggggagagtagtagacttactcatgggtggcggcaggagccatttctaccct
+            caaggcgaaaaggcttctccatatggtcaccacggtgctagaaaagatggaagagattta
+            atcgatgaggctcaatctaatggctggcagtacgtgggtgaccgtaaaaattttgattct
+            ttgttgaaaagccacggtgaaaacgttactttacctttcttgggtctctttgcagataac
+            gacattccttttgaaattgacagagatgaaaaggagtatccttcccttaaggaacaagtc
+            aaggtggctttgggtgccttggaaaaagcttccaatgaggacaaagattctaatgggttt
+            ttcttaatggtggaaggctccagaattgatcatgctggtcaccaaaacgatccagcttcg
+            caggtaagggaggtgttggctttcgatgaagcattccaatacgttttggagtttgctgaa
+            aattccgatacggagactgttttggtctctacgtcggatcatgaaacgggtggtttagtc
+            acttcaagacaagtcactgctagctatcctcagtatgtctggtatccacaggtgctcgcc
+            aacgccacccattcaggtgagtttttgaaaagaaaactagtagattttgttcatgagcat
+            aagggcgcaagcagcaaaatagaaaatttcatcaaacatgagatcctggaaaaagatttg
+            ggtatttacgattacacggatagcgatttagaaacattaattcatttggatgacaacgca
+            aatgctatccaagacaaactgaatgacatggtatcatttagggcccaaattggctggacc
+            acgcatggtcacagcgcagtcgacgtcaacatatatgcatacgccaataagaaagctaca
+            tggtcatatgtcttgaacaatttacaaggcaatcacgaaaatacggaagttggccagttc
+            ttagaaaactttttagaattgaacctgaacgaagtcactgatttgattagggacaccaaa
+            cacacatcagattttgatgctacagaaatagctagtgaagtacaacattatgacgaatac
+            taccatgagttgaccaactga
+///

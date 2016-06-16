@@ -1,0 +1,74 @@
+ENTRY       YGL202W           CDS       T00005
+NAME        ARO8
+DEFINITION  bifunctional 2-aminoadipate transaminase/aromatic-amino-acid:2-oxoglutarate transaminase (EC:2.6.1.39 2.6.1.27 2.6.1.5 2.6.1.57)
+ORTHOLOGY   K00838  aromatic amino acid aminotransferase I [EC:2.6.1.57 2.6.1.27 2.6.1.5]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00130  Ubiquinone and other terpenoid-quinone biosynthesis
+            sce00270  Cysteine and methionine metabolism
+            sce00300  Lysine biosynthesis
+            sce00350  Tyrosine metabolism
+            sce00360  Phenylalanine metabolism
+            sce00380  Tryptophan metabolism
+            sce00400  Phenylalanine, tyrosine and tryptophan biosynthesis
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01210  2-Oxocarboxylic acid metabolism
+            sce01230  Biosynthesis of amino acids
+MODULE      sce_M00024  Phenylalanine biosynthesis, chorismate => phenylalanine
+            sce_M00030  Lysine biosynthesis, AAA pathway, 2-oxoglutarate => 2-aminoadipate => lysine
+            sce_M00034  Methionine salvage pathway
+CLASS       Metabolism; Overview; 2-Oxocarboxylic acid metabolism [PATH:sce01210]
+            Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
+            Metabolism; Amino acid metabolism; Cysteine and methionine metabolism [PATH:sce00270]
+            Metabolism; Amino acid metabolism; Lysine biosynthesis [PATH:sce00300]
+            Metabolism; Amino acid metabolism; Tyrosine metabolism [PATH:sce00350]
+            Metabolism; Amino acid metabolism; Phenylalanine metabolism [PATH:sce00360]
+            Metabolism; Amino acid metabolism; Tryptophan metabolism [PATH:sce00380]
+            Metabolism; Amino acid metabolism; Phenylalanine, tyrosine and tryptophan biosynthesis [PATH:sce00400]
+            Metabolism; Metabolism of cofactors and vitamins; Ubiquinone and other terpenoid-quinone biosynthesis [PATH:sce00130]
+POSITION    VII:116059..117561
+MOTIF       Pfam: Aminotran_1_2 DegT_DnrJ_EryC1 Beta_elim_lyase
+DBLINKS     NCBI-GI: 6321236
+            NCBI-GeneID: 852672
+            SGD: S000003170
+            MIPS: YGL202W
+            UniProt: P53090
+STRUCTURE   PDB: 4JE5
+AASEQ       500
+            MTLPESKDFSYLFSDETNARKPSPLKTCIHLFQDPNIIFLGGGLPLKDYFPWDNLSVDSP
+            KPPFPQGIGAPIDEQNCIKYTVNKDYADKSANPSNDIPLSRALQYGFSAGQPELLNFIRD
+            HTKIIHDLKYKDWDVLATAGNTNAWESTLRVFCNRGDVILVEAHSFSSSLASAEAQGVIT
+            FPVPIDADGIIPEKLAKVMENWTPGAPKPKLLYTIPTGQNPTGTSIADHRKEAIYKIAQK
+            YDFLIVEDEPYYFLQMNPYIKDLKEREKAQSSPKQDHDEFLKSLANTFLSLDTEGRVIRM
+            DSFSKVLAPGTRLGWITGSSKILKPYLSLHEMTIQAPAGFTQVLVNATLSRWGQKGYLDW
+            LLGLRHEYTLKRDCAIDALYKYLPQSDAFVINPPIAGMFFTVNIDASVHPEFKTKYNSDP
+            YQLEQSLYHKVVERGVLVVPGSWFKSEGETEPPQPAESKEVSNPNIIFFRGTYAAVSPEK
+            LTEGLKRLGDTLYEEFGISK
+NTSEQ       1503
+            atgactttacctgaatcaaaagacttttcttacttgttttcggatgaaaccaatgctcgt
+            aaaccatccccattgaaaacctgcatccatcttttccaagatcctaacattatctttttg
+            ggtggtggcctgccattaaaagattatttcccatgggataatctatctgtagattcaccc
+            aagcctccttttccccagggtattggagctccaattgacgagcagaattgcataaaatac
+            accgtcaacaaagattacgctgataaaagtgccaatccttccaacgatattcctttgtca
+            agagctttgcaatacgggttcagtgctggtcaacctgaactattaaacttcattagagat
+            cataccaagattatccacgatttgaagtataaggactgggacgttttagccactgcaggt
+            aacacaaatgcctgggaatctactttaagagtcttttgtaaccgaggtgatgtcatctta
+            gttgaggcacattctttttcctcttcattggcttctgcagaggctcaaggtgtcattacc
+            ttccccgtgccaattgacgctgatggtatcattcctgaaaaattagctaaagtcatggaa
+            aactggacacctggtgctcctaaaccaaagttgttatacactattccaacgggccaaaat
+            ccaactggtacttccattgcagaccatagaaaggaggcaatttacaagatcgctcaaaag
+            tacgacttcctaattgtggaagatgaaccttattatttcttacaaatgaatccctacatc
+            aaagacttgaaggaaagagagaaggcacaaagttctccaaagcaggaccatgacgaattt
+            ttgaagtccttggcaaacactttcctttccttggatacagaaggccgtgttattagaatg
+            gattccttttcaaaagttttggccccagggacaagattgggttggattactggttcatcc
+            aaaatcttgaagccttacttgagtttgcatgaaatgacgattcaagccccagcaggtttt
+            acacaagttttggtcaacgctacgctatccaggtggggtcaaaagggttacttggactgg
+            ttgcttggcctgcgtcatgaatacactttgaaacgtgactgtgccatcgatgccctttac
+            aagtatctaccacaatctgatgctttcgtgatcaatcctccaattgcaggtatgtttttc
+            accgtgaacattgacgcatctgtccaccctgagtttaaaacaaaatacaactcagaccct
+            taccagctagaacagagtctttaccacaaagtggttgaacgtggtgttttagtggttccc
+            ggttcttggttcaagagtgagggtgagacggaacctcctcaacccgctgaatctaaagaa
+            gtcagtaatccaaacataattttcttcagaggtacctatgcagctgtctctcctgagaaa
+            ctgactgaaggtctgaagagattaggtgatactttatacgaagaatttggtatttccaaa
+            tag
+///

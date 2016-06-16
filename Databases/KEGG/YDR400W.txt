@@ -1,0 +1,43 @@
+ENTRY       YDR400W           CDS       T00005
+NAME        URH1
+DEFINITION  trifunctional uridine nucleosidase/nicotinamide riboside hydrolase/nicotinic acid riboside hydrolase (EC:3.2.2.3 3.2.2.-)
+ORTHOLOGY   K01240  uridine nucleosidase [EC:3.2.2.3]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00240  Pyrimidine metabolism
+            sce00760  Nicotinate and nicotinamide metabolism
+CLASS       Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
+            Metabolism; Metabolism of cofactors and vitamins; Nicotinate and nicotinamide metabolism [PATH:sce00760]
+POSITION    IV:1271063..1272085
+MOTIF       Pfam: IU_nuc_hydro tRNA_U5-meth_tr
+DBLINKS     NCBI-GI: 398366565
+            NCBI-GeneID: 852009
+            SGD: S000002808
+            MIPS: YDR400W
+            UniProt: Q04179
+AASEQ       340
+            MTVSKIPIWLDCDPGHDDAIAILLGCFHPAFNLLGISTCFGNAPPENTDYNARSLLTAMG
+            KAQAIPVYKGAQRPWKREPHYAPDIHGISGLDGTSLLPKPTFEARTDKTYIEAIEEAILA
+            NNGEISFVSTGALTTLATVFRCKPYLKKSVKYISIMGGGLHGLGNCNPNLSAEFNVWIDP
+            DAANYIFRDPDVKDKCIVVPLNLTHKAIATYKVNEMIYNEKNNSKLRELFLELFQFFAHT
+            YKDMQGFESGPPIHDPVALMPLLEFYGWDPSSAVGFRYKRMDISCIDDVFNENSGKIIIE
+            KEYPNDSDVGTIIGLDLNIQYFWDQIFEALNRADKMSTIG
+NTSEQ       1023
+            atgactgttagtaaaatacccatatggctagattgtgatcctggtcatgatgatgccata
+            gccattttattaggctgtttccatccagctttcaatcttctaggaatcagcacgtgtttt
+            ggtaacgcaccgccagagaatactgactacaacgcccgttctcttttgactgcgatgggc
+            aaagcacaagcgattccagtttataaaggcgcacagagaccttggaaaagggaacctcat
+            tatgctcctgacattcatggtatatcaggtttagacggcacttctttgctacctaagcca
+            acatttgaggcaagaactgataaaacgtatattgaggccattgaagaggcgattctagct
+            aacaatggagagatatcctttgtgtctactggtgcacttaccacattagcaacagttttt
+            aggtgtaaaccatacctaaaaaaatctgtcaaatatattagcattatggggggtggactc
+            catggtctaggaaactgtaacccaaatctttctgctgaattcaacgtttggattgatcct
+            gacgcagcgaattacatattccgtgatcccgatgtaaaggacaaatgtatagtagttcct
+            ctaaatttaactcacaaggccatagctacttacaaggttaacgaaatgatatacaacgaa
+            aagaataacagcaagttacgagaattgtttttggagctttttcaattttttgctcatacc
+            tacaaggatatgcaaggatttgaatcgggcccacctatacatgatccggtagctttgatg
+            ccgcttttggaattttatgggtgggatccatcgtctgcggttggatttcgctacaagaga
+            atggacatatcctgcattgatgatgttttcaacgaaaactcagggaaaattatcattgaa
+            aaagaatatccaaatgacagtgatgttggtacaataattggtctcgatttgaatatccag
+            tacttttgggatcagatttttgaagcattaaatagagcagacaaaatgtcaacgattgga
+            taa
+///

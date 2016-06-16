@@ -1,0 +1,40 @@
+ENTRY       YER026C           CDS       T00005
+NAME        CHO1, PSS1
+DEFINITION  CDP-diacylglycerol-serine O-phosphatidyltransferase (EC:2.7.8.8)
+ORTHOLOGY   K17103  CDP-diacylglycerol---serine O-phosphatidyltransferase [EC:2.7.8.8]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00260  Glycine, serine and threonine metabolism
+            sce00564  Glycerophospholipid metabolism
+            sce01100  Metabolic pathways
+MODULE      sce_M00093  Phosphatidylethanolamine (PE) biosynthesis, PA => PS => PE
+CLASS       Metabolism; Lipid metabolism; Glycerophospholipid metabolism [PATH:sce00564]
+            Metabolism; Amino acid metabolism; Glycine, serine and threonine metabolism [PATH:sce00260]
+POSITION    V:complement(207644..208474)
+MOTIF       Pfam: CDP-OH_P_transf E1-E2_ATPase
+DBLINKS     NCBI-GI: 398364359
+            NCBI-GeneID: 856748
+            SGD: S000000828
+            MIPS: YER026C
+            UniProt: P08456
+AASEQ       276
+            MVESDEDFAPQEFPHTDTDVIVNEHRDENDGYASDEVGGTLSRRASSIFSINTTPLAPPN
+            ATDIQKFTSDEHHFSMMRNLHMADYITMLNGFSGFYSIVSCLRFTLTGKPHYVQRAHFFI
+            LLGMCFDFLDGRVARLRNRSSLMGQELDSLADLVSFGVAPAAIAFAIGFQTTFDVMILSF
+            FVLCGLARLARFNVTVAQLPKDSSTGKSKYFEGLPMPTTLALVLGMAYCVRKGLIFDNIP
+            FGIFREDQILEFHPIILVFFIHGCGMISKSLKIPKP
+NTSEQ       831
+            atggttgaatcagatgaagatttcgcacctcaagaattcccacacacggacacagacgtt
+            atcgtaaatgaacacagagacgaaaatgacgggtatgcctcagatgaagttggtggcaca
+            ttaagcagaagggcctcaagtatattttctataaatacaactccattggccccccctaat
+            gctactgatatccaaaaatttacaagtgacgaacatcatttcagcatgatgaggaatttg
+            catatggcagattacattactatgctgaatggattttctgggttttactctattgtaagt
+            tgtctgagatttacgcttacaggtaaacctcattacgtccagcgtgcccatttctttatt
+            ttattgggtatgtgtttcgatttccttgacgggagagtagcacgtctgagaaataggtct
+            tccttaatgggtcaagaactggactctttggccgacttggtttcctttggtgtggctccg
+            gctgcaattgcttttgccattggatttcaaactacattcgatgtcatgattttatctttc
+            tttgtcctttgcggcttagcgagattagcaaggtttaatgtcaccgttgctcaattaccc
+            aaagattctagcacaggtaaatctaaatattttgagggattgcctatgccaaccactcta
+            gctttggtgttgggtatggcatattgtgtcagaaagggtttaatttttgataacatccca
+            ttcggcatttttagagaagaccaaatattggaatttcatccaattattctagtatttttt
+            atccatgggtgtggaatgatttcgaagagcttgaaaattccaaagccatag
+///

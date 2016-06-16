@@ -1,0 +1,81 @@
+ENTRY       YIL066C           CDS       T00005
+NAME        RNR3, DIN1, RIR3
+DEFINITION  ribonucleotide-diphosphate reductase subunit RNR3 (EC:1.17.4.1)
+ORTHOLOGY   K10807  ribonucleoside-diphosphate reductase subunit M1 [EC:1.17.4.1]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00230  Purine metabolism
+            sce00240  Pyrimidine metabolism
+            sce00480  Glutathione metabolism
+            sce01100  Metabolic pathways
+CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
+            Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
+            Metabolism; Metabolism of other amino acids; Glutathione metabolism [PATH:sce00480]
+POSITION    IX:complement(238099..240708)
+MOTIF       Pfam: Ribonuc_red_lgC Ribonuc_red_lgN ATP-cone NRDD
+DBLINKS     NCBI-GI: 398364373
+            NCBI-GeneID: 854744
+            SGD: S000001328
+            MIPS: YIL066C
+            UniProt: P21672
+AASEQ       869
+            MYVIKRDGRKEPVQFDKITSRITRLSYGLDPNRIDAVKVTQRIISGVYSGVTTVELDNLA
+            AETCAYMTTVHPDYATLAARIAISNLHKQTTKQFSKVIEDLHDWINPATGKHAPMISDEI
+            YNIVMENKDTLNSAIVYDRDFQYTYFGFKTLERSYLLRLNGEVAERPQHLVMRVALGIHG
+            SDIESVLKTYNLMSLRYFTHASPTLFNAGTPHPQMSSCFLIAMKDDSIEGIYDTLKECAM
+            ISKTAGGVGLHINNIRSTGSYIAGTNGTSNGLIPMIRVFNNTARYVDQGGNKRPGAFALF
+            LEPWHADIFDFVDIRKTHGKEEIRARDLFPALWIPDLFMKRVQEDGPWTLFSPSAAPGLD
+            DVWGDEFEELYTRYEREGRGKTIKAQKLWYAILQAQTETGTPFMVYKDACNRKTNQQNLG
+            TIKSSNLCCEIVEYSSPDETAVCNLASIALPAFVEVSEDGKTASYNFERLHEIAKVITHN
+            LNRVIDRNYYPVPEARNSNMKHRPIALGVQGLADTYMMLRLPFESEEAQTLNKQIFETIY
+            HATLEASCELAQKEGKYSTFEGSPASKGILQFDMWNAKPFGMWDWETLRKDIVKHGLRNS
+            LTMAPMPTASTSQILGYNECFEPVTSNMYSRRVLSGEFQVVNPYLLRDLVDLGIWDDSMK
+            QYLITQNGSIQGLPNVPQELKELYKTVWEISQKTIINMAADRAIYIDQSHSLNLFLQAPS
+            MGKITSMHFYGWKKGLKTGMYYLRTQAASAAIQFTIDQEVADQAATHIASVSELDRPVYV
+            PKGTKFSEQKAASALTESSDNEKDASPVPSEQSSVSSAMSNVKLEDSVAPAVPTETIKED
+            SDEKKCDIYNEKVIACTAPTPEACESCSG
+NTSEQ       2610
+            atgtacgttattaaaagagacggccgcaaagagcccgttcaattcgataaaattacctcc
+            cgtatcacccgtttgtcatacggtttagacccaaaccgtattgatgctgttaaggtaacc
+            caacgtattatttctggtgtgtactccggtgttactaccgttgagctggacaatcttgca
+            gctgaaacatgtgcatacatgaccactgtgcaccctgattatgccactctagccgctaga
+            atcgccatctctaacttacataagcaaaccacaaagcaattctccaaagttattgaggat
+            ttacacgactggattaacccagctactggaaagcatgctcctatgatttcggacgaaatt
+            tacaacattgtcatggaaaacaaagatactttgaactcggccatcgtgtacgatagggat
+            ttccagtatacgtatttcggattcaagacactggagcgttcgtacttgctaagactgaac
+            ggtgaagtggcagaacgtcctcagcatttggtaatgcgtgtggcgctaggtatccatggt
+            agcgatatcgaatctgtgctgaagacttataatttgatgtcgttaagatacttcactcac
+            gcttccccaactttattcaacgctggtacgccacatcctcaaatgtcttcatgtttctta
+            attgccatgaaggatgactctatcgaaggtatttatgatactttgaaagaatgtgctatg
+            atttccaaaactgcaggtggtgttggtcttcatatcaacaacatccgttccacaggttct
+            tatatcgctggtaccaacggtacttcaaacgggttgattcctatgattcgtgttttcaat
+            aatactgcccgttatgtggaccagggtggtaacaagagacctggtgctttcgcccttttc
+            ttggagccatggcatgcagatatcttcgactttgtcgatatcagaaaaacacatggtaag
+            gaagaaattcgtgcaagagatttgttccctgctctatggatccctgatcttttcatgaaa
+            cgtgttcaagaggatgggccttggactttgttttcgcccagtgctgccccaggtttagat
+            gatgtgtggggtgatgaatttgaagaactatatactcgttacgaaagagaaggtcgtggt
+            aaaacaattaaagcccaaaagttgtggtatgccattttgcaagcacagacagaaacaggt
+            acacctttcatggtttataaggacgcatgtaacaggaagacaaaccaacagaacttaggt
+            actatcaaatcatctaatttatgttgtgaaatcgtcgaatattcctccccggatgaaact
+            gcagtttgtaatttagcttctattgccctaccagcattcgttgaggtttcagaagatggt
+            aaaactgcaagctataatttcgagagattacacgagattgctaaagtcattactcacaac
+            ttgaacagagttatcgaccgtaattactatccagttcccgaggctagaaattcaaatatg
+            aagcatagacctattgctcttggtgtccagggtttggccgatacttatatgatgttgcgt
+            ctaccctttgaatcggaagaagctcaaactctaaacaaacaaatcttcgaaactatttac
+            catgctactcttgaagcctcctgtgaattggcccaaaaagaaggtaaatattctactttt
+            gaaggttctccagcttctaagggtattttacaattcgatatgtggaacgctaaaccattt
+            ggcatgtgggattgggaaaccttaagaaaggacattgttaaacatgggttaagaaactct
+            ttgactatggcaccaatgccaaccgcctcaacttcccaaattcttggttataatgaatgc
+            ttcgaaccagtgacctcaaacatgtactctcgtcgtgtcctgtctggtgaattccaagtt
+            gttaatccatatttactacgtgatttagtcgacctgggtatttgggatgatagtatgaaa
+            caatatctaattacacaaaatggttctattcaaggcttaccaaatgtgccacaagaattg
+            aaggaattatacaaaaccgtctgggaaatctctcaaaagaccattatcaatatggctgct
+            gatcgtgccatctacatcgatcagtctcattccttgaatcttttcttgcaagcaccatca
+            atgggtaagattactagtatgcatttctacggttggaagaagggtttaaaaactggtatg
+            tactacttaagaacgcaagccgcctccgctgctattcaatttaccattgatcaagaggtt
+            gccgatcaagccgctacacatattgcttccgtctcagaattggatcgtccagtttatgtt
+            ccaaagggtacaaaattctctgaacaaaaggcggcatctgcgcttaccgaaagctcagat
+            aatgagaaggatgcatctccagttccatccgaacaatcatcggtgtcgagtgccatgtca
+            aatgtgaaattggaagatagtgttgccccagcagttccaacggaaacaataaaagaagat
+            tccgacgagaagaaatgtgacatttacaatgaaaaggtgattgcttgtactgctcctact
+            ccagaagcttgtgagtcatgttccggttga
+///

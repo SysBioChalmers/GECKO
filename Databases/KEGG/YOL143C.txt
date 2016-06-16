@@ -1,0 +1,31 @@
+ENTRY       YOL143C           CDS       T00005
+NAME        RIB4
+DEFINITION  lumazine synthase RIB4 (EC:2.5.1.78)
+ORTHOLOGY   K00794  6,7-dimethyl-8-ribityllumazine synthase [EC:2.5.1.78]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00740  Riboflavin metabolism
+            sce01100  Metabolic pathways
+CLASS       Metabolism; Metabolism of cofactors and vitamins; Riboflavin metabolism [PATH:sce00740]
+POSITION    XV:complement(54595..55104)
+MOTIF       Pfam: DMRL_synthase
+DBLINKS     NCBI-GI: 6324429
+            NCBI-GeneID: 854022
+            SGD: S000005503
+            MIPS: YOL143C
+            UniProt: P50861
+STRUCTURE   PDB: 1EJB
+AASEQ       169
+            MAVKGLGKPDQVYDGSKIRVGIIHARWNRVIIDALVKGAIERMASLGVEENNIIIETVPG
+            SYELPWGTKRFVDRQAKLGKPLDVVIPIGVLIKGSTMHFEYISDSTTHALMNLQEKVDMP
+            VIFGLLTCMTEEQALARAGIDEAHSMHNHGEDWGAAAVEMAVKFGKNAF
+NTSEQ       510
+            atggcagttaaaggattaggcaaaccagatcaagtttatgacggttccaaaatcagggtc
+            ggtatcattcatgcccgttggaaccgtgtcattattgacgctcttgtgaaaggtgctatt
+            gaaagaatggcttcccttggtgtcgaggaaaataacataataattgaaactgttcctgga
+            tcctatgaattaccttgggggacaaaaaggtttgttgacagacaagcgaagttgggaaag
+            ccgctagatgttgtaattcctattggtgtacttatcaaaggtagtacaatgcactttgaa
+            tacatttcagattccaccactcacgcattgatgaacttacaagaaaaagtcgacatgccc
+            gtcatttttggcctcttaacttgcatgactgaagaacaagccctggccagagctggcatc
+            gatgaagcgcactccatgcacaaccatggtgaagattggggtgctgcagcagtggaaatg
+            gctgttaagttcggtaaaaatgctttttga
+///

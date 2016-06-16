@@ -1,0 +1,57 @@
+ENTRY       YFL030W           CDS       T00005
+NAME        AGX1
+DEFINITION  alanine--glyoxylate transaminase (EC:2.6.1.44)
+ORTHOLOGY   K00830  alanine-glyoxylate transaminase / serine-glyoxylate transaminase / serine-pyruvate transaminase [EC:2.6.1.44 2.6.1.45 2.6.1.51]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00250  Alanine, aspartate and glutamate metabolism
+            sce00260  Glycine, serine and threonine metabolism
+            sce00630  Glyoxylate and dicarboxylate metabolism
+            sce00680  Methane metabolism
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01200  Carbon metabolism
+            sce04146  Peroxisome
+CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
+            Metabolism; Carbohydrate metabolism; Glyoxylate and dicarboxylate metabolism [PATH:sce00630]
+            Metabolism; Energy metabolism; Methane metabolism [PATH:sce00680]
+            Metabolism; Amino acid metabolism; Alanine, aspartate and glutamate metabolism [PATH:sce00250]
+            Metabolism; Amino acid metabolism; Glycine, serine and threonine metabolism [PATH:sce00260]
+            Cellular Processes; Transport and catabolism; Peroxisome [PATH:sce04146]
+POSITION    VI:76831..77988
+MOTIF       Pfam: Aminotran_5
+DBLINKS     NCBI-GI: 14318489
+            NCBI-GeneID: 850514
+            SGD: S000001864
+            MIPS: YFL030W
+            UniProt: P43567
+STRUCTURE   PDB: 2BKW
+AASEQ       385
+            MTKSVDTLLIPGPIILSGAVQKALDVPSLGHTSPEFVSIFQRVLKNTRAVFKSAAASKSQ
+            PFVLAGSGTLGWDIFASNFILSKAPNKNVLVVSTGTFSDRFADCLRSYGAQVDVVRPLKI
+            GESVPLELITEKLSQNSYGAVTVTHVDTSTAVLSDLKAISQAIKQTSPETFFVVDAVCSI
+            GCEEFEFDEWGVDFALTASQKAIGAPAGLSISLCSSRFMDYALNDSKNGHVHGYFSSLRR
+            WTPIMENYEAGKGAYFATPPVQLINSLDVALKEILEEGLHKRWDLHREMSDWFKDSLVNG
+            LQLTSVSRYPSNMSAHGLTAVYVADPPDVIAFLKSHGVVIAGGIHKDIGPKYIRIGHMGV
+            TACNKNLPYMKNCFDLIKLALQRKK
+NTSEQ       1158
+            atgactaaatctgtagatacgctgctgatcccaggccccattatcctaagcggagcagtc
+            cagaaggccctggacgttccctctttgggccacacctctcctgagttcgtctctattttt
+            caaagggtgctaaagaacacaagagctgtcttcaaatccgctgctgcctcgaagtctcag
+            ccttttgtgcttgccggctctggtacgttggggtgggacatatttgcctcgaactttatt
+            ctttcgaaggcccccaacaagaacgtgctggtcgtatccactgggacattttctgacagg
+            tttgctgactgtctgcgtagctacggtgcgcaagtagatgttgttaggcccctcaagata
+            ggcgaatcagttcccttagaactgattactgaaaagttgtcgcaaaatagctatggggct
+            gtcacggttacgcacgttgacacttcaacggcagtgctgtccgatctgaaagccatttcg
+            caagcgattaagcagacttcgccggaaacgttcttcgtagtcgatgctgtatgctcgatt
+            ggatgcgaagagtttgaatttgatgaatggggggtggatttcgccttgactgcttcgcaa
+            aaggctattggcgctccagcgggtctttctatctcgctatgcagtagcagattcatggat
+            tatgcactcaacgacagcaaaaatggtcatgtacatgggtatttttcctcgttgagaaga
+            tggacaccaataatggaaaattatgaggctggtaaaggagcttattttgcaaccccaccc
+            gtacaactaattaatagccttgatgtagccttgaaagaaattctcgaagaggggttgcat
+            aagagatgggatttgcaccgtgaaatgagtgattggtttaaagacagtttggttaatggc
+            ttgcaattgacatccgtcagtaggtatccttctaacatgtctgcgcacgggttgacagcc
+            gtatacgtagcagatcctcctgatgtcattgcttttttaaagtcacacggtgtagtcatt
+            gccggaggtattcacaaggacatcggacccaagtatatccgtattggacatatgggtgtg
+            accgcttgcaacaagaatttaccgtacatgaagaactgcttcgacttaataaaactagct
+            cttcagaggaaaaagtga
+///

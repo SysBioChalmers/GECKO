@@ -1,0 +1,64 @@
+ENTRY       YAR035W           CDS       T00005
+NAME        YAT1
+DEFINITION  carnitine O-acetyltransferase YAT1 (EC:2.3.1.7)
+ORTHOLOGY   K00624  carnitine O-acetyltransferase [EC:2.3.1.7]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04146  Peroxisome
+CLASS       Cellular Processes; Transport and catabolism; Peroxisome [PATH:sce04146]
+POSITION    I:190193..192256
+MOTIF       Pfam: Carn_acyltransf
+DBLINKS     NCBI-GI: 6319337
+            NCBI-GeneID: 851285
+            SGD: S000000080
+            MIPS: YAR035W
+            UniProt: P80235
+AASEQ       687
+            MPNLKRLPIPPLQDTLNRYLARVEPLQDERQNRRTRRTVLSAENLDALNTLHERLLEYDA
+            RLAESNPESSYIEQFWYDAYLLYDATVVLNVNPYFQLQDDPTIKDTPETAAQGPYGAHTV
+            QVRRAARLTTSILKFIRQIRHGTLRTDTVRGKTPLSMDQYERLFGSSRIPPGPGEPSCHL
+            QTDATSHHVVAMYRGQFYWFDVLDTRNEPIFATPEQLEWNLYSIIMDAESAGSGSAPFGV
+            FTTESRRVWSNIRDYLFHADDCTNWRNLKLIDSALFVVCLDDVAFAADQQDELTRSMLCG
+            TSTINLDPHQHQPPLNVQTGTCLNRWYDKLQLIVTKNGKAGINFEHTGVDGHTVLRLATD
+            IYTDSILSFARGVTKNVVDIFSDDDGKPSSSSLASAAHSANLITIPRKLEWRTDNFLQSS
+            LHFAETRISDLISQYEFVNLDFSNYGASHIKTVFKCSPDAFVQQVFQVAYFALYGRFETV
+            YEPAMTKAFQNGRTEAIRSVTGQSKLFVKSLLDQDASDATKIQLLHDACTAHSQITRECS
+            QGLGQDRHLYALYCLWNQWYKDKLELPPIFRDKSWTTMQNNVLSTSNCGNPCLKSFGFGP
+            VTANGFGIGYIIRDHSVSVVVSSRHRQTARFASLMEKSLLEIDRIFKRQQARAAKPAART
+            TASANTKSEDMKYLLSGYDYFDVSVSG
+NTSEQ       2064
+            atgccaaacttaaagagactacccatcccgccactgcaggacacgctcaaccgctacctg
+            gcacgcgtggaacccctgcaggacgagcgccaaaaccgccgtacgcgccgcactgtgctc
+            tccgcagaaaacctggacgcattgaacacgctgcacgagcggctgctagaatacgacgca
+            cggctcgcggaaagcaacccagagtcctcatacatcgagcagttctggtatgacgcgtac
+            ttgctatatgatgcaactgtcgttctcaacgtcaacccgtacttccaactgcaggacgac
+            ccaaccatcaaagacacaccagagacggcggcacagggcccctatggcgcacacacggtg
+            caggttcgtcgtgccgcacgactcaccacctctattctcaagttcatccgccagattcgc
+            cacggcacactccgcacagacactgtgcgcggcaaaacgccgctgtcgatggaccagtat
+            gagcggctattcggctccagtagaatccctccgggtcccggcgagccctcttgccacttg
+            caaacagacgccacgtcgcatcacgtggtggcgatgtatcgtggccagttctactggttc
+            gacgtgctggacacacgcaacgagcccatcttcgccaccccagaacaactggagtggaac
+            ctctactcgatcatcatggacgcggaatccgccggaagcggatccgcgccctttggcgtg
+            ttcaccacagagtcgcgccgggtgtggtccaacatcagggactatctgttccatgcggac
+            gactgcaccaactggcgcaatctcaagctgatcgactccgcgctgttcgtggtctgtctc
+            gacgacgtggcgtttgccgccgatcagcaggacgagctcacgcgttcgatgctgtgcggg
+            acttctaccatcaatctcgacccgcaccaacaccagccgccattgaacgtgcagacaggc
+            acctgtctcaaccgctggtacgacaagttacaactgatcgtgaccaagaacggtaaggcg
+            ggcatcaacttcgaacacaccggtgtggacggccacactgtgctgcggctcgccacagac
+            atctacacagactcgatcctgagcttcgcacgcggtgtcaccaagaacgtcgtcgacatc
+            tttagcgacgacgatggaaaaccatcgtcgtcgtcgttggcctcggcggctcactccgcc
+            aacttgatcaccatccctcgtaaactggaatggcgcactgacaatttcctgcaatcgtcg
+            ctgcactttgccgagacgcgcatctcggacttgatctcgcaatacgagtttgttaatctt
+            gacttctccaactacggcgcgtcccatatcaagacagtgttcaagtgctcgccagacgcc
+            ttcgtgcagcaggtgttccaggtcgcatacttcgcgttgtacggtcgcttcgagaccgtg
+            tacgagcctgccatgaccaaggcgttccaaaacggccgcacagaggccatccgctccgtc
+            acgggccaatcgaagctctttgtcaagtcactactggaccaggatgcctcggacgccacc
+            aaaattcagctcttgcacgacgcctgtacggcgcactcgcaaatcacaagggaatgctcc
+            caggggctcggccaggaccgtcacttgtatgcgctctactgcctctggaaccaatggtac
+            aaggacaagttggagctcccacccatcttccgcgacaagtcctggactaccatgcagaac
+            aacgtcttgagcacctccaactgcggtaacccctgcctcaagagcttcgggttcgggcct
+            gtcaccgccaacggcttcggcatcggctacatcatcagagaccactccgtctctgtggtg
+            gtgtcctcaaggcatcgccagactgctcggtttgcgtcgctcatggaaaagtcgctgctg
+            gagatcgaccgcatcttcaaacggcagcaagctcgcgcagcaaaacccgctgccaggacc
+            actgctagcgccaacaccaaatcagaagacatgaaatacctgttgtccggctacgattac
+            ttcgacgtgagcgtgtccggttga
+///

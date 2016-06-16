@@ -1,0 +1,43 @@
+ENTRY       YOR362C           CDS       T00005
+NAME        PRE10
+DEFINITION  proteasome core particle subunit alpha 7 (EC:3.4.25.1)
+ORTHOLOGY   K02727  20S proteasome subunit alpha 7 [EC:3.4.25.1]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03050  Proteasome
+MODULE      sce_M00340  Proteasome, 20S core particle
+CLASS       Genetic Information Processing; Folding, sorting and degradation; Proteasome [PATH:sce03050]
+POSITION    XV:complement(1017880..1018746)
+MOTIF       Pfam: Proteasome Proteasome_A_N
+DBLINKS     NCBI-GI: 6324938
+            NCBI-GeneID: 854544
+            SGD: S000005889
+            MIPS: YOR362C
+            UniProt: P21242
+STRUCTURE   PDB: 1RYP 1G65 3NZJ 1G0U 3GPT 4G4S 3NZW 3HYE 3GPW 4EU2 3MG8
+                 3OEU 3MG6 3D29 3SDI 3MG0 4LQI 4INR 3UN8 3TDD 3SDK 3OKJ
+                 3NZX 3GPJ 3BDM 3MG7 4JSQ 4J70 4GK7 4FZC 3SHJ 3DY4 2FAK
+                 2F16 3DY3 2GPL 3OEV 4JSU 4INT 2ZCY 4FZG 1VSY 3L5Q 3E47
+                 1JD2 4JT0 4INU 3MG4 1FNT 1Z7Q 3UN4 4B4T 4C0V
+AASEQ       288
+            MTSIGTGYDLSNSVFSPDGRNFQVEYAVKAVENGTTSIGIKCNDGVVFAVEKLITSKLLV
+            PQKNVKIQVVDRHIGCVYSGLIPDGRHLVNRGREEAASFKKLYKTPIPIPAFADRLGQYV
+            QAHTLYNSVRPFGVSTIFGGVDKNGAHLYMLEPSGSYWGYKGAATGKGRQSAKAELEKLV
+            DHHPEGLSAREAVKQAAKIIYLAHEDNKEKDFELEISWCSLSETNGLHKFVKGDLLQEAI
+            DFAQKEINGDDDEDEDDSDNVMSSDDENAPVATNANATTDQEGDIHLE
+NTSEQ       867
+            atgacatcaattggtactggttacgatctttccaatagtgttttttcccccgatggtaga
+            aatttccaagtagagtatgccgtcaaagcagtcgaaaacggtaccacatcaatcggtata
+            aagtgtaacgacggtgtagtctttgcagtggaaaagctcattacgtctaaactgctggtc
+            ccacaaaaaaatgtcaagattcaagtcgtagaccgtcacatcggttgcgtttattcaggt
+            ttgattcctgatggtaggcacctggttaatcgtggtcgtgaagaagccgccagcttcaaa
+            aagctgtataaaacgcccattcccattcctgcatttgcagaccgtttaggacaatatgtg
+            caggcgcacactttatacaacagtgttagaccgttcggggtcagtaccatctttggtggt
+            gtagataaaaatggtgctcatctttacatgttggaaccaagtggctcttattggggctac
+            aagggggctgccactgggaaaggtaggcaatctgcgaaggctgaattggaaaaattagtt
+            gaccatcatccagaaggtctttcagcaagagaggccgttaaacaagctgcaaagattatc
+            tatttggcacacgaggataacaaggaaaaggattttgaattggaaataagttggtgttca
+            ctgtcggaaacgaatggtctgcacaagttcgttaagggcgatctgctacaggaagctatc
+            gattttgcccaaaaagaaattaacggcgatgatgacgaggacgaagatgacagtgataac
+            gtcatgtccagtgatgatgaaaatgctccagtggctacgaatgcaaacgctaccactgac
+            caagagggtgatattcacctagaatag
+///

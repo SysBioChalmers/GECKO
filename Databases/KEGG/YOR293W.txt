@@ -1,0 +1,26 @@
+ENTRY       YOR293W           CDS       T00005
+NAME        RPS10A
+DEFINITION  ribosomal 40S subunit protein S10A
+ORTHOLOGY   K02947  small subunit ribosomal protein S10e
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03010  Ribosome
+CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+POSITION    XV:join(867098..867149,867587..867852)
+MOTIF       Pfam: S10_plectin DUF505 tRNA-synt_1c_C YjcQ PadR HTH_45 DUF1975
+DBLINKS     NCBI-GI: 6324867
+            NCBI-GeneID: 854468
+            SGD: S000005819
+            MIPS: YOR293W
+            UniProt: Q08745
+STRUCTURE   PDB: 3U5C 3U5G 4BYL 4BYT
+AASEQ       105
+            MLMPKEDRNKIHQYLFQEGVVVAKKDFNQAKHEEIDTKNLYVIKALQSLTSKGYVKTQFS
+            WQYYYYTLTEEGVEYLREYLNLPEHIVPGTYIQERNPTQRPQRRY
+NTSEQ       318
+            atgttgatgccaaaggaagacagaaacaagatccaccaatacttattccaagaaggtgtt
+            gttgtcgccaagaaggatttcaaccaagccaagcacgaagaaattgacaccaagaacttg
+            tatgtcattaaggctttacaatccttgacttctaagggttacgtcaagactcaattctca
+            tggcaatactactactacaccttgactgaagaaggtgttgaatacttgagagaatacttg
+            aacttgccagaacacattgttccaggtacctacattcaagaaagaaacccaactcaaaga
+            ccacaaagaagatattaa
+///

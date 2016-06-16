@@ -1,0 +1,92 @@
+ENTRY       YPL022W           CDS       T00005
+NAME        RAD1, LPB9
+DEFINITION  Rad1p
+ORTHOLOGY   K10848  DNA excision repair protein ERCC-4 [EC:3.1.-.-]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03420  Nucleotide excision repair
+CLASS       Genetic Information Processing; Replication and repair; Nucleotide excision repair [PATH:sce03420]
+POSITION    XVI:506697..509999
+MOTIF       Pfam: ERCC4
+DBLINKS     NCBI-GI: 6325235
+            NCBI-GeneID: 856085
+            SGD: S000005943
+            MIPS: YPL022W
+            UniProt: P06777
+AASEQ       1100
+            MSQLFYQGDSDDELQEELTRQTTQASQSSKIKNEDEPDDSNHLNEVENEDSKVLDDDAVL
+            YPLIPNEPDDIETSKPNINDIRPVDIQLTLPLPFQQKVVENSLITEDALIIMGKGLGLLD
+            IVANLLHVLATPTSINGQLKRALVLVLNAKPIDNVRIKEALEELSWFSNTGKDDDDTAVE
+            SDDELFERPFNVVTADSLSIEKRRKLYISGGILSITSRILIVDLLSGIVHPNRVTGMLVL
+            NADSLRHNSNESFILEIYRSKNTWGFIKAFSEAPETFVMEFSPLRTKMKELRLKNVLLWP
+            RFRVEVSSCLNATNKTSHNKVIEVKVSLTNSMSQIQFGLMECLKKCIAELSRKNPELALD
+            WWNMENVLDINFIRSIDSVMVPNWHRISYESKQLVKDIRFLRHLLKMLVTSDAVDFFGEI
+            QLSLDANKPSVSRKYSESPWLLVDEAQLVISYAKKRIFYKNEYTLEENPKWEQLIHILHD
+            ISHERMTNHLQGPTLVACSDNLTCLELAKVLNASNKKRGVRQVLLNKLKWYRKQREETKK
+            LVKEVQSQDTFPENATLNVSSTFSKEQVTTKRRRTRGASQVAAVEKLRNAGTNVDMEVVF
+            EDHKLSEEIKKGSGDDLDDGQEENAANDSKIFEIQEQENEILIDDGDAEFDNGELEYVGD
+            LPQHITTHFNKDLWAEHCNEYEYVDRQDEILISTFKSLNDNCSLQEMMPSYIIMFEPDIS
+            FIRQIEVYKAIVKDLQPKVYFMYYGESIEEQSHLTAIKREKDAFTKLIRENANLSHHFET
+            NEDLSHYKNLAERKLKLSKLRKSNTRNAGGQQGFHNLTQDVVIVDTREFNASLPGLLYRY
+            GIRVIPCMLTVGDYVITPDICLERKSISDLIGSLQNNRLANQCKKMLKYYAYPTLLIEFD
+            EGQSFSLEPFSERRNYKNKDISTVHPISSKLSQDEIQLKLAKLVLRFPTLKIIWSSSPLQ
+            TVNIILELKLGREQPDPSNAVILGTNKVRSDFNSTAKGLKDGDNESKFKRLLNVPGVSKI
+            DYFNLRKKIKSFNKLQKLSWNEINELINDEDLTDRIYYFLRTEKEEQEQESTDENLESPG
+            KTTDDNALHDHHNDVPEAPV
+NTSEQ       3303
+            atgtctcagttattttatcagggcgactctgatgatgagctccaggaggaacttacgagg
+            cagacaactcaagcatctcaaagttctaaaattaaaaatgaagatgaacccgacgactcc
+            aatcatcttaatgaggtggaaaatgaagatagcaaagttttagatgacgatgcagtgtta
+            taccctcttatacctaatgagccagatgacatagaaacgtctaagcccaatattaacgat
+            attaggccagttgatattcaattgactttaccattgccgtttcagcaaaaagtggtagag
+            aattcattaattactgaagatgcattaatcataatggggaaaggactaggattgcttgat
+            attgtggccaatttattgcatgttttagctacaccaacatccattaacggacaactaaag
+            cgagcgctcgtcctagtgttgaatgcaaaacctatagataatgtaagaatcaaggaggcc
+            ttagaagagctgtcgtggttctctaatactgggaaggacgacgacgatactgctgtcgag
+            agcgatgatgaactttttgaaaggccttttaacgtagttaccgcggactcgctgagcatt
+            gaaaagagaagaaagctatatatttctggcggaatcttgagcattacttctagaattctc
+            attgtggatctcttatccggcattgttcacccaaatagggttacgggtatgctggtattg
+            aatgcagactcacttcgacataattcgaatgaatcgtttatattagagatttacaggtct
+            aaaaatacttggggttttattaaagccttttctgaagcaccagagacgtttgtcatggaa
+            ttttcacccctcaggacgaaaatgaaagaattacggctaaagaacgttttgctatggccg
+            aggttcagggtagaggtctcttcctgtttgaatgccactaataagacgtcacacaataaa
+            gtcattgaagtcaaggtctccttaacaaattccatgtctcagatacagtttggcttgatg
+            gaatgtttgaaaaaatgtattgctgagttaagcagaaaaaatcctgaactagctctggac
+            tggtggaatatggaaaatgtcctggatataaactttatcaggtcaattgactcggtgatg
+            gtgccgaactggcaccgaatttcttatgaatcaaaacaactggttaaggatataagattc
+            ctacgccaccttttaaagatgctcgtaacttcagacgcagttgacttttttggagagatt
+            caattaagtttggatgccaataaaccgtcagtatcccgaaaatacagcgaatcaccgtgg
+            ctattggtcgatgaggcacaattagtcatatcgtatgcgaagaaaagaatattttacaaa
+            aatgaatatactttagaagaaaatccaaaatgggaacaacttattcatatattacatgat
+            atttcacatgagagaatgaccaatcaccttcaggggcctactttagttgcctgttccgac
+            aaccttacatgtttagaactagcaaaggtcttgaatgcctcaaacaaaaaaagaggagta
+            cgtcaagtgcttctgaataaattgaaatggtacagaaaacagagggaggaaacgaaaaaa
+            ttggtcaaagaagtgcaaagtcaggacacttttccagagaatgcaacattaaatgtaagc
+            tcgacattttccaaagaacaagtgaccacgaaaagaagaaggacaagaggtgcttcacaa
+            gttgcggccgttgaaaagctaaggaatgcaggtaccaatgtagatatggaggtggttttt
+            gaggatcataagttatctgaagaaattaagaagggaagcggtgatgatttggatgacggt
+            caggaagaaaatgccgcaaacgattcaaagatttttgaaatacaagaacaggaaaatgaa
+            atccttatcgatgatggggatgctgaatttgacaacggagaattagagtatgtgggcgac
+            cttccgcagcacatcacaacccatttcaataaggatttatgggcagaacattgcaacgag
+            tatgaatatgttgatcgtcaggacgaaattttaatctctacgtttaaaagtctcaatgac
+            aattgctcattgcaggagatgatgccctcttacattataatgtttgaaccagatatatcg
+            tttatcaggcagattgaagtttataaggccatagtgaaggatttgcaaccaaaagtatac
+            ttcatgtactacggtgaaagtattgaagagcaaagtcatttgactgctatcaagagagag
+            aaagatgctttcacaaagttgattagagagaatgcaaatctgtcccatcactttgaaacg
+            aatgaagatctttctcactacaaaaatttagctgaaaggaagttgaagctttcaaaatta
+            cgaaaatctaataccagaaatgcgggtgggcagcagggattccataatcttactcaggat
+            gtcgtcattgtggatacacgtgagtttaatgcctcattaccaggcttactctaccgatat
+            ggcataagggttattccttgtatgttgacagtcggcgattatgtgataactcctgatatt
+            tgtctcgaaagaaaatcgatttctgacttaattgggtcattacagaataacagattagcc
+            aaccaatgtaaaaaaatgttaaaatactatgcatatccgacactattgattgagtttgat
+            gaaggacagtcgttttctttagaaccttttagtgaacgtagaaattataagaataaagac
+            atatcaactgttcatcctatatcaagcaagttatcccaggatgaaattcagctaaaacta
+            gccaaattagtattgcggtttcccactttaaagattatatggtcttcctcacccctgcaa
+            actgtaaatataatcctagagttgaaattaggacgtgagcaacctgaccctagtaatgca
+            gttatattgggaacgaataaagttagatcggattttaatagcactgcaaagggcctgaag
+            gatggtgataacgagtctaaattcaagagactgttgaatgttcctggagtgtcaaaaatt
+            gattatttcaatctccgcaaaaagatcaagagcttcaataagcttcaaaagctttcatgg
+            aatgagattaatgaacttattaatgacgaagatttgacggatagaatatactacttcttg
+            agaacagaaaaagaagaacaagaacaagagtcaacagatgaaaatcttgaatctcctggt
+            aagaccactgatgataacgctttacatgatcatcataatgatgttcctgaagcacctgtg
+            taa
+///

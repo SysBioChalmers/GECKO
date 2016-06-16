@@ -1,0 +1,60 @@
+ENTRY       YJL216C           CDS       T00005
+NAME        IMA5
+DEFINITION  Ima5p (EC:3.2.1.10 3.2.1.20)
+ORTHOLOGY   K01187  alpha-glucosidase [EC:3.2.1.20]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00052  Galactose metabolism
+            sce00500  Starch and sucrose metabolism
+            sce01100  Metabolic pathways
+CLASS       Metabolism; Carbohydrate metabolism; Galactose metabolism [PATH:sce00052]
+            Metabolism; Carbohydrate metabolism; Starch and sucrose metabolism [PATH:sce00500]
+POSITION    X:complement(24341..26086)
+MOTIF       Pfam: Alpha-amylase hDGE_amylase Alpha-amylase_C
+DBLINKS     NCBI-GI: 6322245
+            NCBI-GeneID: 853214
+            SGD: S000003752
+            MIPS: YJL216C
+            UniProt: P40884
+AASEQ       581
+            MTIIHNPKWWKEATVYQIYPASFKDSNNDGWGDLAGITSKLDYVKELGVDAIWVCPFYDS
+            PQEDMGYDIANYEKVWPRYGTNEDCFQMIEEAHKRGIKVIVDLVINHCSEEHEWFKESRS
+            SKANPKRDWFFWRPPKGYDEKGNPIPPNNWRSFFGGSAWRYDEKTGEFFLHVFALGQPDF
+            NWENEECRKAIYDSSVGYWLRHNVDGFRIDVGSMYSKVEGLPDAPITDPTVPYQKGTEFF
+            INGPRIHEYHKEMHNYMLSQVPEGKEIMTVGEVGIGNEDDFRVYTSAKEGELNMMFNFKH
+            TSVGENPKCKYELIPFTLKDFKLALAESFLFIENTDCWSTIYLENHDQPRSVSRFGSDSP
+            KWREISSKMLATLIISLTGTVFIYQGQELGMPNFKNRKIEQIKCVEGTGTYAAIKRDYGE
+            DSEKMKKFFEALALISRDHGRTPFPWSADEPSAGFSKDAKPWIDMNESFRDGINAEAELK
+            DKNSVFFFWKKALQVRKEHKDILVYGHNFQFIDLDNDKLFMFTKDTDNKKMFAVFNFSSD
+            NTDFSVPDNEASYTMFFGNYANSNGDSRTLQPWEGRLYLLK
+NTSEQ       1746
+            atgacgatcatccataatcctaaatggtggaaagaagccaccgtctaccaaatttatcct
+            gctagtttcaaggactccaacaatgacggatggggtgatttagctgggattacctccaaa
+            cttgactatgtcaaagaattaggtgtcgatgcgatatgggtgtgcccattttatgactct
+            cctcaagaagatatgggttacgatattgccaactatgagaaggtttggccacgttacggt
+            accaatgaggattgtttccaaatgatagaagaagctcataagagaggtatcaaggttatt
+            gttgacctggttatcaaccactgttctgaagagcatgaatggttcaaggagagtagatct
+            tctaaggctaatccaaagcgtgactggtttttctggagacctccaaagggttacgatgag
+            aaaggtaatccaattcctcccaacaattggagatctttctttggtggatctgcttggaga
+            tatgacgaaaaaactggtgagttctttctgcatgtgtttgctcttggccaacctgatttc
+            aattgggaaaatgaagagtgccgtaaagccatttatgactcctcagtgggctattggcta
+            cgtcacaacgttgatggctttcgtattgacgtaggcagcatgtattctaaggttgagggc
+            ctacccgatgctcctatcactgatcctacagttccttaccaaaaaggaactgaatttttc
+            ataaatgggccacgtatccatgagtatcataaagaaatgcataactacatgctctcgcaa
+            gttccagagggtaaagaaatcatgactgttggagaagttggtatcgggaatgaagacgac
+            ttcagagtttataccagtgccaaagaaggagaactaaatatgatgttcaacttcaagcac
+            acctcagtaggtgaaaacccaaaatgcaagtacgaacttattccctttactttaaaagac
+            tttaagctggctcttgctgaaagctttctgtttatcgaaaacacagattgctggtcgacc
+            atctatttggagaatcatgatcaacctcgtagcgtttcgcgttttggctcagattctcct
+            aaatggcgtgagatttcgtccaagatgttggctactctcatcatttcattgactggtact
+            gtttttatctaccaaggacaagaattgggtatgcccaacttcaaaaacagaaaaattgag
+            caaatcaaatgcgttgaaggtactggtacatatgccgccattaaacgtgattatggtgaa
+            gattctgaaaagatgaaaaagttttttgaagcattagctttgatctctagagatcatggg
+            agaacaccattcccatggagtgctgatgagccttctgcaggtttctcgaaggatgccaaa
+            ccatggattgacatgaatgaatcatttagagacggaatcaacgcagaagctgagttaaaa
+            gataaaaactcagtcttctttttctggaaaaaggccttacaagttagaaaggagcacaaa
+            gatatccttgtttatggacataactttcagttcattgatcttgataatgacaagctattc
+            atgtttacaaaggacacagataacaaaaaaatgtttgctgttttcaatttcagtagcgat
+            aatacggacttttcagttcctgataatgaggcctcctacaccatgttttttggcaactat
+            gcaaactcaaatggtgattcccgcaccttgcagccatgggaaggaagactttacttgttg
+            aagtaa
+///

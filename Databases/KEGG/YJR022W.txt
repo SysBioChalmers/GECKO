@@ -1,0 +1,29 @@
+ENTRY       YJR022W           CDS       T00005
+NAME        LSM8
+DEFINITION  Lsm8p
+ORTHOLOGY   K12627  U6 snRNA-associated Sm-like protein LSm8
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03018  RNA degradation
+            sce03040  Spliceosome
+MODULE      sce_M00396  Lsm 2-8 complex
+CLASS       Genetic Information Processing; Transcription; Spliceosome [PATH:sce03040]
+            Genetic Information Processing; Folding, sorting and degradation; RNA degradation [PATH:sce03018]
+POSITION    X:469784..470113
+MOTIF       Pfam: LSM
+DBLINKS     NCBI-GI: 37362670
+            NCBI-GeneID: 853479
+            SGD: S000003783
+            MIPS: YJR022W
+            UniProt: P47093
+STRUCTURE   PDB: 4M7D 4M7A 4M78 4M77
+AASEQ       109
+            MSATLKDYLNKRVVIIKVDGECLIASLNGFDKNTNLFITNVFNRISKEFICKAQLLRGSE
+            IALVGLIDAENDDSLAPIDEKKVPMLKDTKNKIENEHVIWEKVYESKTK
+NTSEQ       330
+            atgtcagccaccttgaaagactacttaaataaaagagttgttataatcaaagttgacggc
+            gaatgcctcatagcaagcctaaacggcttcgacaaaaatactaatctattcataaccaat
+            gttttcaaccgcataagcaaggaattcatctgcaaggcacagttacttcgaggcagcgag
+            attgctcttgttggcctcatagatgcagaaaatgatgacagtctagctcctatagacgaa
+            aagaaggtcccaatgctaaaggacaccaagaataaaatcgaaaatgagcatgtaatatgg
+            gaaaaagtgtacgaatcaaagacaaaataa
+///

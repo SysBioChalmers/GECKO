@@ -1,0 +1,54 @@
+ENTRY       YOL140W           CDS       T00005
+NAME        ARG8
+DEFINITION  acetylornithine transaminase (EC:2.6.1.11)
+ORTHOLOGY   K00818  acetylornithine aminotransferase [EC:2.6.1.11]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00330  Arginine and proline metabolism
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01210  2-Oxocarboxylic acid metabolism
+            sce01230  Biosynthesis of amino acids
+MODULE      sce_M00028  Ornithine biosynthesis, glutamate => ornithine
+CLASS       Metabolism; Overview; 2-Oxocarboxylic acid metabolism [PATH:sce01210]
+            Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
+            Metabolism; Amino acid metabolism; Arginine and proline metabolism [PATH:sce00330]
+POSITION    XV:58759..60030
+MOTIF       Pfam: Aminotran_3 PucR Aminotran_5
+DBLINKS     NCBI-GI: 6324432
+            NCBI-GeneID: 854025
+            SGD: S000005500
+            MIPS: YOL140W
+            UniProt: P18544
+AASEQ       423
+            MFKRYLSSTSSRRFTSILEEKAFQVTTYSRPEDLCITRGKNAKLYDDVNGKEYIDFTAGI
+            AVTALGHANPKVAEILHHQANKLVHSSNLYFTKECLDLSEKIVEKTKQFGGQHDASRVFL
+            CNSGTEANEAALKFAKKHGIMKNPSKQGIVAFENSFHGRTMGALSVTWNSKYRTPFGDLV
+            PHVSFLNLNDEMTKLQSYIETKKDEIAGLIVEPIQGEGGVFPVEVEKLTGLKKICQDNDV
+            IVIHDEIQCGLGRSGKLWAHAYLPSEAHPDIFTSAKALGNGFPIAATIVNEKVNNALRVG
+            DHGTTYGGNPLACSVSNYVLDTIADEAFLKQVSKKSDILQKRLREIQAKYPNQIKTIRGK
+            GLMLGAEFVEPPTEVIKKARELGLLIITAGKSTVRFVPALTIEDELIEEGMDAFEKAIEA
+            VYA
+NTSEQ       1272
+            atgtttaaaagatatttatccagtacgtcatcaagaagatttacaagcattttagaggaa
+            aaggcctttcaagtgaccacttactctagacctgaagatctatgtataactagaggtaaa
+            aatgcaaagctgtatgatgacgtgaatggtaaagaatatatcgatttcaccgcaggtatt
+            gcggtgaccgcattaggccatgcaaatcctaaagtggcagaaattctgcaccatcaggct
+            aacaaactggttcattcctccaacctttacttcactaaggaatgtttggatttaagtgaa
+            aagattgttgaaaagaccaagcaattcggtggtcaacacgacgcctcaagagtattttta
+            tgtaattctggtacggaagcaaatgaagctgctttgaagtttgcaaagaaacatggtata
+            atgaaaaatcctagcaagcaaggcattgttgcatttgagaactcttttcatggccgtact
+            atgggcgctttatctgtcacttggaatagtaaatatagaactccttttggggatttggtt
+            ccccatgtctcattcttaaatttgaatgacgaaatgaccaaactacaaagttatatcgag
+            accaaaaaggacgagattgctggtttaattgtcgagcccatacaaggtgaaggtggggtt
+            tttcccgtagaagttgaaaagctaaccggattgaagaaaatatgtcaagataatgatgtg
+            attgtcattcatgatgaaattcaatgcggtttgggccgttcaggtaaactatgggctcat
+            gcttatttaccaagtgaggctcatccggatatttttacatctgccaaagcattgggaaat
+            ggcttccccatcgctgccaccatcgtcaatgaaaaagttaataatgctttgagagttggt
+            gaccacggcaccacgtatggtggtaatccgctggcctgttctgtaagcaactatgttttg
+            gataccatagcagacgaagcttttttgaaacaagtctctaagaagagtgatatcttacaa
+            aagcgcttgcgcgaaattcaagccaaatatccaaatcaaataaagactatcagaggaaaa
+            ggtttgatgcttggtgctgagttcgtcgaaccacccaccgaggtcatcaaaaaggccaga
+            gaattgggacttttgatcattaccgctggtaagagtaccgttagatttgttcccgcatta
+            acgattgaagacgaactaatcgaagaagggatggatgcttttgaaaaggctattgaagcg
+            gtttacgcttaa
+///

@@ -1,0 +1,59 @@
+ENTRY       YOR128C           CDS       T00005
+NAME        ADE2
+DEFINITION  phosphoribosylaminoimidazole carboxylase ADE2 (EC:4.1.1.21)
+ORTHOLOGY   K11808  phosphoribosylaminoimidazole carboxylase [EC:4.1.1.21]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00230  Purine metabolism
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+MODULE      sce_M00048  Inosine monophosphate biosynthesis, PRPP + glutamine => IMP
+CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
+POSITION    XV:complement(564476..566191)
+MOTIF       Pfam: AIRC ATP-grasp ATP-grasp_4 2-Hacid_dh_C Dala_Dala_lig_C CPSase_L_D2 ATPgrasp_Ter TrkA_N
+DBLINKS     NCBI-GI: 398365279
+            NCBI-GeneID: 854295
+            SGD: S000005654
+            MIPS: YOR128C
+            UniProt: P21264
+AASEQ       571
+            MDSRTVGILGGGQLGRMIVEAANRLNIKTVILDAENSPAKQISNSNDHVNGSFSNPLDIE
+            KLAEKCDVLTIEIEHVDVPTLKNLQVKHPKLKIYPSPETIRLIQDKYIQKEHLIKNGIAV
+            TQSVPVEQASETSLLNVGRDLGFPFVLKSRTLAYDGRGNFVVKNKEMIPEALEVLKDRPL
+            YAEKWAPFTKELAVMIVRSVNGLVFSYPIVETIHKDNICDLCYAPARVPDSVQLKAKLLA
+            ENAIKSFPGCGIFGVEMFYLETGELLINEIAPRPHNSGHYTIDACVTSQFEAHLRSILDL
+            PMPKNFTSFSTITTNAIMLNVLGDKHTKDKELETCERALATPGSSVYLYGKESRPNRKVG
+            HINIIASSMAECEQRLNYITGRTDIPIKISVAQKLDLEAMVKPLVGIIMGSDSDLPVMSA
+            ACAVLKDFGVPFEVTIVSAHRTPHRMSAYAISASKRGIKTIIAGAGGAAHLPGMVAAMTP
+            LPVIGVPVKGSCLDGVDSLHSIVQMPRGVPVATVAINNSTNAALLAVRLLGAYDSSYTTK
+            MEQFLLKQEEEVLVKAQKLETVGYEAYLENK
+NTSEQ       1716
+            atggattctagaacagttggtatattaggagggggacaattgggacgtatgattgttgag
+            gcagcaaacaggctcaacattaagacggtaatactagatgctgaaaattctcctgccaaa
+            caaataagcaactccaatgaccacgttaatggctccttttccaatcctcttgatatcgaa
+            aaactagctgaaaaatgtgatgtgctaacgattgagattgagcatgttgatgttcctaca
+            ctaaagaatcttcaagtaaaacatcccaaattaaaaatttacccttctccagaaacaatc
+            agattgatacaagacaaatatattcaaaaagagcatttaatcaaaaatggtatagcagtt
+            acccaaagtgttcctgtggaacaagccagtgagacgtccctattgaatgttggaagagat
+            ttgggttttccattcgtcttgaagtcgaggactttggcatacgatggaagaggtaacttc
+            gttgtaaagaataaggaaatgattccggaagctttggaagtactgaaggatcgtcctttg
+            tacgccgaaaaatgggcaccatttactaaagaattagcagtcatgattgtgagatctgtt
+            aacggtttagtgttttcttacccaattgtagagactatccacaaggacaatatttgtgac
+            ttatgttatgcgcctgctagagttccggactccgttcaacttaaggcgaagttgttggca
+            gaaaatgcaatcaaatcttttcccggttgtggtatatttggtgtggaaatgttctattta
+            gaaacaggggaattgcttattaacgaaattgccccaaggcctcacaactctggacattat
+            accattgatgcttgcgtcacttctcaatttgaagctcatttgagatcaatattggatttg
+            ccaatgccaaagaatttcacatctttctccaccattacaacgaacgccattatgctaaat
+            gttcttggagacaaacatacaaaagataaagagctagaaacttgcgaaagagcattggcg
+            actccaggttcctcagtgtacttatatggaaaagagtctagacctaacagaaaagtaggt
+            cacataaatattattgcctccagtatggcggaatgtgaacaaaggctgaactacattaca
+            ggtagaactgatattccaatcaaaatctctgtcgctcaaaagttggacttggaagcaatg
+            gtcaaaccattggttggaatcatcatgggatcagactctgacttgccggtaatgtctgcc
+            gcatgtgcggttttaaaagattttggcgttccatttgaagtgacaatagtctctgctcat
+            agaactccacataggatgtcagcatatgctatttccgcaagcaagcgtggaattaaaaca
+            attatcgctggagctggtggggctgctcacttgccaggtatggtggctgcaatgacacca
+            cttcctgtcatcggtgtgcccgtaaaaggttcttgtctagatggagtagattctttacat
+            tcaattgtgcaaatgcctagaggtgttccagtagctaccgtcgctattaataatagtacg
+            aacgctgcgctgttggctgtcagactgcttggcgcttatgattcaagttatacaacgaaa
+            atggaacagtttttattaaagcaagaagaagaagttcttgtcaaagcacaaaagttagaa
+            actgtcggttacgaagcttatctagaaaacaagtaa
+///

@@ -1,0 +1,26 @@
+ENTRY       Q0130             CDS       T00005
+NAME        OLI1, ATP9, OLI3
+DEFINITION  F1F0 ATP synthase subunit 9 (EC:3.6.3.14)
+ORTHOLOGY   K02128  F-type H+-transporting ATPase subunit c [EC:3.6.3.14]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00190  Oxidative phosphorylation
+            sce01100  Metabolic pathways
+MODULE      sce_M00158  F-type ATPase, eukaryotes
+CLASS       Metabolism; Energy metabolism; Oxidative phosphorylation [PATH:sce00190]
+POSITION    MT:46723..46953
+MOTIF       Pfam: ATP-synt_C ABC2_membrane_4
+DBLINKS     NCBI-GI: 6226533
+            NCBI-GeneID: 854584
+            SGD: S000007274
+            MIPS: Q0130
+            UniProt: P61829
+STRUCTURE   PDB: 4F4S 3UD0 3U32 3U2F 3U2Y 2XOK 2WPD 3ZRY 4B2Q
+AASEQ       76
+            MQLVLAAKYIGAGISTIGLLGAGIGIAIVFAALINGVSRNPSIKDTVFPMAILGFALSEA
+            TGLFCLMVSFLLLFGV
+NTSEQ       231
+            atgcaattagtattagcagctaaatatattggagcaggtatctcaacaattggtttatta
+            ggagcaggtattggtattgctatcgtattcgcagctttaattaatggtgtatcaagaaac
+            ccatcaattaaagacctagtattccctatggctattttaggtttcgccttatcagaagct
+            acaggtttattctgtttaatggtttcattcttattattattcggtgtataa
+///

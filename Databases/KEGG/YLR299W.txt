@@ -1,0 +1,69 @@
+ENTRY       YLR299W           CDS       T00005
+NAME        ECM38, CIS2
+DEFINITION  gamma-glutamyltransferase (EC:2.3.2.2 3.4.19.13)
+ORTHOLOGY   K00681  gamma-glutamyltranspeptidase [EC:2.3.2.2]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00430  Taurine and hypotaurine metabolism
+            sce00460  Cyanoamino acid metabolism
+            sce00480  Glutathione metabolism
+            sce00590  Arachidonic acid metabolism
+            sce01100  Metabolic pathways
+CLASS       Metabolism; Lipid metabolism; Arachidonic acid metabolism [PATH:sce00590]
+            Metabolism; Metabolism of other amino acids; Taurine and hypotaurine metabolism [PATH:sce00430]
+            Metabolism; Metabolism of other amino acids; Cyanoamino acid metabolism [PATH:sce00460]
+            Metabolism; Metabolism of other amino acids; Glutathione metabolism [PATH:sce00480]
+POSITION    XII:726069..728051
+MOTIF       Pfam: G_glu_transpept
+DBLINKS     NCBI-GI: 6323330
+            NCBI-GeneID: 851006
+            SGD: S000004290
+            MIPS: YLR299W
+            UniProt: Q05902
+AASEQ       660
+            MLLCNRKVPKTLNTCFILHIFTLLTLGVLVSGMPSKMVSFASQETLQRINNLLRGSANRD
+            VDIIAEYLKKDDDDDGGDKDHHNIDIDPLPRRPSLTPDRQLLKVGLHGAISSDLEVCSNL
+            TINEVLLKFPGSNAADAAVTQALCKGMVNFFNSGIGGGGYVVFSGKDDEDHLSIDFREKA
+            PMDSHKFMFENCSLCSKIGGLAVGVPGELMGLYRLFKERGSGQVDWRDLIEPVAKLGSVG
+            WQIGEALGATLELYEDVFLTLKEDWSFVLNSTHDGVLKEGDWIKRPALSNMLMELAKNGS
+            VAPFYDPDHWIAKSMIDTVAKYNGIMNLQDVSSYDVHVTKPLSMKIRKGANFIPDNDMTV
+            LTSSGSSSGAALLAALRIMDNFQNQEGGDYEKETTYHLLESMKWMASARSRLGDFEGEAL
+            PKHIEEVLDPEWALKAVKSIKRNSQDGNFKTLENWTLYDPAYDINNPHGTAHFSIVDSHG
+            NAVSLTTTINLLFGSLVHDPKTGVIFNNEMDDFAQFNKSNSFELAPSIYNFPEPGKRPLS
+            STAPTIVLSELGIPDLVVGASGGSRITTSVLQTIVRTYWYNMPILETIAYPRIHHQLLPD
+            RIELESFPMIGKAVLSTLKEMGYTMKEVFPKSVVNAIRNVRGEWHAVSDYWRKRGISSVY
+NTSEQ       1983
+            atgctgttgtgtaatagaaaagtccccaagactttaaatacctgttttatactgcatata
+            ttcactctgttaacactgggtgtgttagtgtccggaatgccgtcaaaaatggtatcattc
+            gcctctcaggagactttgcagagaataaataatctccttcgagggtctgccaatcgagat
+            gttgacattattgcagaatatttgaaaaaagacgacgatgatgatggcggcgataaggat
+            caccataacatcgatattgaccctttacctcgccgtcctagtttaacgcctgataggcaa
+            cttctaaaagtcggtttgcatggtgctataagttcagatttagaagtctgtagtaatttg
+            actataaatgaggtactcctgaaatttcccggttctaacgctgcagacgctgcagtaaca
+            caagctctttgtaagggtatggtgaatttttttaatagtgggattggaggtggtggctac
+            gtagttttttctggcaaagacgatgaagatcatctatccattgattttagagaaaaagca
+            cccatggattcacataagttcatgttcgaaaactgctctctatgctcaaaaatagggggt
+            cttgctgtcggtgttccaggtgaattgatgggtctctatcgcctctttaaagaaagaggt
+            agcggccaagttgattggcgtgatctaattgaaccagtcgcaaagctgggaagcgtgggt
+            tggcaaataggcgaagcactcggtgccactttagaactttatgaggatgttttcctgaca
+            ttgaaggaagattggtcgtttgtattgaattctacccatgacggtgttttgaaagaaggc
+            gattggatcaagaggccggcactatctaacatgctaatggaactggctaaaaatggttcc
+            gtggccccattttatgaccccgatcactggattgcaaaatccatgattgatactgtcgca
+            aaatacaatggaataatgaacttgcaggatgtttcatcgtatgatgttcatgttactaaa
+            ccactgtccatgaaaattaggaagggcgccaatttcatccctgataacgatatgaccgta
+            ttaacaagtagcggctcaagttccggggctgcactacttgcggcgttaaggataatggat
+            aatttccagaatcaagaagggggcgattatgaaaaagaaactacctatcatttgcttgaa
+            agcatgaaatggatggcaagcgcaagaagcaggttaggcgattttgaaggcgaagcatta
+            cctaagcatatagaagaggtattggatccagaatgggctttgaaagcagtgaaatcaatc
+            aaaagaaactctcaagacggaaattttaaaactttagaaaactggacgctttatgatccg
+            gcatacgatatcaataacccgcatggaactgcccacttcagtatagtagattcacatggg
+            aatgctgtttccttgacaaccaccatcaacttgttgttcggttccttagtacacgaccca
+            aaaaccggggtgatcttcaataatgaaatggacgatttcgctcaattcaacaaatctaat
+            agttttgaattggcaccctccatatacaactttcccgagcccgggaaaagacccctatca
+            tccactgcacccactattgtgctgtcagaattaggcatcccagacctcgtggtcggcgct
+            tccggcggctcaagaatcactacgagtgttttacaaacaattgtgaggacgtactggtat
+            aacatgcctatattggaaacgatagcctatccacgtatacaccaccagttactgcccgac
+            cgcatagaactggaaagcttccccatgatcggtaaagccgtactaagcactctcaaggaa
+            atgggatatacgatgaaagaagtatttcccaagagcgtagttaatgctatacgcaatgtc
+            aggggagaatggcatgcggtgagtgactattggagaaaaagaggaatctcctccgtatac
+            taa
+///

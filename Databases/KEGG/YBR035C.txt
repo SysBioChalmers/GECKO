@@ -1,0 +1,35 @@
+ENTRY       YBR035C           CDS       T00005
+NAME        PDX3
+DEFINITION  pyridoxamine-phosphate oxidase PDX3 (EC:1.4.3.5)
+ORTHOLOGY   K00275  pyridoxamine 5'-phosphate oxidase [EC:1.4.3.5]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00750  Vitamin B6 metabolism
+            sce01100  Metabolic pathways
+CLASS       Metabolism; Metabolism of cofactors and vitamins; Vitamin B6 metabolism [PATH:sce00750]
+POSITION    II:complement(306269..306955)
+MOTIF       Pfam: PNPOx_C Pyridox_oxidase Pyridox_oxase_2 N6_Mtase
+DBLINKS     NCBI-GI: 6319509
+            NCBI-GeneID: 852323
+            SGD: S000000239
+            MIPS: YBR035C
+            UniProt: P38075
+STRUCTURE   PDB: 1CI0
+AASEQ       228
+            MTKQAEETQKPIIFAPETYQYDKFTLNEKQLTDDPIDLFTKWFNEAKEDPRETLPEAITF
+            SSAELPSGRVSSRILLFKELDHRGFTIYSNWGTSRKAHDIATNPNAAIVFFWKDLQRQVR
+            VEGITEHVNRETSERYFKTRPRGSKIGAWASRQSDVIKNREELDELTQKNTERFKDAEDI
+            PCPDYWGGLRIVPLEIEFWQGRPSRLHDRFVYRRKTENDPWKVVRLAP
+NTSEQ       687
+            atgactaaacaagctgaggagacccaaaagccaatcatatttgctcctgagacgtatcaa
+            tatgataaatttactttgaatgaaaaacaacttactgacgacccaatcgatcttttcacc
+            aaatggttcaacgaagccaaggaagacccaagggaaacgttgccagaagcaattactttt
+            tcatccgcggaactacctagtgggagggtgtcgtccaggattcttctttttaaggagctc
+            gaccatagaggttttactatttattctaactggggaacctctagaaaggctcatgatatt
+            gctaccaacccgaatgcggcaatcgtattcttttggaaggatctgcaaaggcaggtgaga
+            gttgaaggtatcacagagcatgttaacagagaaacttctgaaagatactttaagacgaga
+            cctcgtggatccaagatcggtgcatgggcttcccgccaatcggatgttatcaagaacaga
+            gaagaactagacgagttgacccaaaaaaacaccgaacgtttcaaggatgctgaagacatc
+            ccatgtccagattattggggtggcttgagaatcgttccactggaaattgagttctggcaa
+            ggtagaccctcgagattgcatgatagattcgtttacagaagaaaaacagaaaacgatcca
+            tggaaagtcgttagactagccccatga
+///

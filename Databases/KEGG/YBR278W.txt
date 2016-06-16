@@ -1,0 +1,42 @@
+ENTRY       YBR278W           CDS       T00005
+NAME        DPB3
+DEFINITION  Dpb3p (EC:2.7.7.7)
+ORTHOLOGY   K03506  DNA polymerase epsilon subunit 4 [EC:2.7.7.7]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00230  Purine metabolism
+            sce00240  Pyrimidine metabolism
+            sce01100  Metabolic pathways
+            sce03030  DNA replication
+            sce03410  Base excision repair
+            sce03420  Nucleotide excision repair
+MODULE      sce_M00263  DNA polymerase epsilon complex
+CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
+            Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
+            Genetic Information Processing; Replication and repair; DNA replication [PATH:sce03030]
+            Genetic Information Processing; Replication and repair; Base excision repair [PATH:sce03410]
+            Genetic Information Processing; Replication and repair; Nucleotide excision repair [PATH:sce03420]
+POSITION    II:760294..760899
+MOTIF       Pfam: LEDGF Histone CBFD_NFYB_HMF CobT
+DBLINKS     NCBI-GI: 6319754
+            NCBI-GeneID: 852580
+            SGD: S000000482
+            MIPS: YBR278W
+            UniProt: P27344
+AASEQ       201
+            MSNLVKEKAPVFPISKVKKIAKCDPEYVITSNVAISATAFAAELFVQNLVEESLVLAQLN
+            SKGKTSLRLSLNSIEECVEKRDNFRFLEDAIKQLKKNSALDKKRELNMQPGRSDQEVVIE
+            EPELHEDDGVEEEEEEDEVSEEEEPVHNEELLDDSKDQQNDKSTRSVASLLSRFQYKSAL
+            DVGEHSDSSDIEVDHTKSTDP
+NTSEQ       606
+            atgtccaacttagttaaagaaaaagcacctgtctttcctatatctaaagtaaagaagatt
+            gccaaatgcgaccccgaatacgtaattacatctaatgtagctatatcagcgaccgcattc
+            gctgctgagttatttgtacagaatctcgtcgaagaatcgctggtcttagcacaactgaat
+            tcgaaaggaaagacaagcctacgattaagcctaaattctatagaagaatgtgtcgaaaaa
+            agagataatttcaggtttctagaggatgccattaaacaactgaagaagaatagcgcactc
+            gacaagaagagagaactaaacatgcaaccgggtcggagcgatcaagaggttgttatagaa
+            gagcctgaattgcatgaggatgatggtgtagaggaagaagaagaagaagacgaggtatcc
+            gaagaagaagagcccgtacacaatgaagaacttcttgatgatagtaaagatcaacaaaat
+            gataaatccacgcgcagtgtggcaagcttgctgtcgagattccagtataaatccgcacta
+            gacgtaggagaacactccgactcttctgatatcgaagttgaccatacgaaaagcaccgat
+            ccttag
+///

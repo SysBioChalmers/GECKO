@@ -1,0 +1,42 @@
+ENTRY       YBR039W           CDS       T00005
+NAME        ATP3
+DEFINITION  F1F0 ATP synthase subunit gamma (EC:3.6.3.14)
+ORTHOLOGY   K02136  F-type H+-transporting ATPase subunit gamma [EC:3.6.3.14]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00190  Oxidative phosphorylation
+            sce01100  Metabolic pathways
+MODULE      sce_M00158  F-type ATPase, eukaryotes
+CLASS       Metabolism; Energy metabolism; Oxidative phosphorylation [PATH:sce00190]
+POSITION    II:315575..316510
+MOTIF       Pfam: ATP-synt MecA_N CsrA
+DBLINKS     NCBI-GI: 6319513
+            NCBI-GeneID: 852327
+            SGD: S000000243
+            MIPS: YBR039W
+            UniProt: P38077
+STRUCTURE   PDB: 3ZIA 3OEE 2HLD 3OEH 2XOK 3OE7 3OFN 2WPD 3FKS 3ZRY 4B2Q
+AASEQ       311
+            MLSRIVSNNATRSVMCHQAQVGILYKTNPVRTYATLKEVEMRLKSIKNIEKITKTMKIVA
+            STRLSKAEKAKISAKKMDEAEQLFYKNAETKNLDVEATETGAPKELIVAITSDKGLCGSI
+            HSQLAKAVRRHLNDQPNADIVTIGDKIKMQLLRTHPNNIKLSINGIGKDAPTFQESALIA
+            DKLLSVMKAGTYPKISIFYNDPVSSLSFEPSEKPIFNAKTIEQSPSFGKFEIDTDANVPR
+            DLFEYTLANQMLTAMAQGYAAEISARRNAMDNASKNAGDMINRYSILYNRTRQAVITNEL
+            VDIITGASSLG
+NTSEQ       936
+            atgttgtcaagaattgtatcaaacaatgcaacacgctccgtaatgtgccaccaagcgcaa
+            gtgggtattctttataagactaacccagtgagaacttatgctactttgaaagaagtggaa
+            atgcgtttgaaatctatcaaaaatattgagaagatcacaaaaactatgaagattgttgca
+            tctacaagattgagtaaagctgaaaaggctaaaatttccgcaaagaagatggatgaagca
+            gagcagttgttttacaagaacgccgaaaccaaaaatttggatgttgaggctactgaaaca
+            ggtgctcctaaagagttgattgttgctatcacctctgataaggggttgtgtggttctatc
+            cactctcaattggctaaagctgtgagaagacatttgaatgatcaaccaaacgccgatata
+            gtcactattggtgataaaattaaaatgcagctattgagaacccatcctaacaacattaaa
+            ttgtctattaatggaattggtaaagatgccccaactttccaagaatctgctttgattgcc
+            gataagttattgagtgtcatgaaggccggcacttacccaaagatttccattttctacaat
+            gacccagtgtcttccctatcttttgaaccatctgaaaaaccgatctttaacgccaagacc
+            attgaacaatccccatcattcggcaaatttgagatcgacacggacgcaaacgttccaaga
+            gatttgtttgaatatactttggctaaccaaatgttgacagcaatggctcaaggttatgct
+            gctgaaatttccgccagaagaaacgctatggataacgcttccaagaatgccggtgatatg
+            atcaatcgttactctatcttgtacaacagaacaagacaagctgtcattactaatgaactg
+            gttgatattattactggtgcttcctctttgggatga
+///

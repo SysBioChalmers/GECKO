@@ -1,0 +1,48 @@
+ENTRY       YBR159W           CDS       T00005
+NAME        IFA38
+DEFINITION  ketoreductase (EC:1.1.1.330)
+ORTHOLOGY   K10251  17beta-estradiol 17-dehydrogenase / very-long-chain 3-oxoacyl-CoA reductase [EC:1.1.1.62 1.1.1.330]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00062  Fatty acid elongation
+            sce01040  Biosynthesis of unsaturated fatty acids
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01212  Fatty acid metabolism
+MODULE      sce_M00415  Fatty acid biosynthesis, elongation, endoplasmic reticulum
+CLASS       Metabolism; Overview; Fatty acid metabolism [PATH:sce01212]
+            Metabolism; Lipid metabolism; Fatty acid elongation [PATH:sce00062]
+            Metabolism; Lipid metabolism; Biosynthesis of unsaturated fatty acids [PATH:sce01040]
+POSITION    II:558685..559728
+MOTIF       Pfam: adh_short adh_short_C2 KR NAD_binding_10 Polysacc_synt_2 3HCDH_N NAD_binding_2
+DBLINKS     NCBI-GI: 6319635
+            NCBI-GeneID: 852456
+            SGD: S000000363
+            MIPS: YBR159W
+            UniProt: P38286
+AASEQ       347
+            MTFMQQLQEAGERFRCINGLLWVVFGLGVLKCTTLSLRFLALIFDLFLLPAVNFDKYGAK
+            TGKYCAITGASDGIGKEFARQMAKRGFNLVLISRTQSKLEALQKELEDQHHVVVKILAID
+            IAEDKESNYESIKELCAQLPITVLVNNVGQSHSIPVPFLETEEKELRNIITINNTATLLI
+            TQIIAPKIVETVKAENKKSGTRGLILTMGSFGGLIPTPLLATYSGSKSFLQGWSNSLAGE
+            LSKDAIDVELIISYLVTSSMSKIRRSSLMIPNPQQFVKSTLRSVGRRCGSQERYATMTPY
+            WAHAVYQFVITETFGVYSKIVNSINYSFHKSIRIRALKKAARQVKKE
+NTSEQ       1044
+            atgacttttatgcaacagcttcaagaggctggggaaagatttaggtgtatcaatggtctt
+            ttatgggttgtttttgggcttggtgtcttaaaatgtacaacgttatcacttagattttta
+            gctcttatttttgatctttttttactaccagcagtcaatttcgacaagtatggtgctaaa
+            actggtaaatactgtgctatcactggtgcaagtgacggtattggtaaagaatttgctaga
+            caaatggcgaaacgtggcttcaacttggtattgatctcgagaacgcaatctaaattggag
+            gctttacaaaaagaactagaagatcaacatcatgtcgttgtaaagattctagccattgac
+            attgcggaggataaagaatccaactatgaatccattaaggaattgtgtgcgcagttacca
+            atcaccgttttggtcaataatgttggtcaatcacactccattcctgttccatttttggaa
+            acagaagagaaggagcttagaaatattatcactatcaataacactgctacattattaatt
+            acacaaatcattgcaccaaagattgtggaaactgtgaaagctgaaaacaagaagtcgggt
+            actcgtggtttgatcttaaccatgggctcatttggtggtctgattcccaccccacttttg
+            gctacatacagtggttcgaaatcattcttacaaggttggtctaactctttggctggggaa
+            ttatctaaagatgctatcgatgttgaattaatcatttcatatttggtcactagctcgatg
+            tctaaaatcagaagatcatctttaatgatcccaaatccacaacagtttgtaaaatccact
+            ttaagaagcgttggcagacgctgcggctctcaagaaagatacgctactatgaccccttac
+            tgggcgcacgcagtgtatcaatttgtaattacagagacctttggcgtttactctaagatt
+            gttaactccattaattattccttccataaatctatcagaattagagccttaaaaaaagcc
+            gcaagacaggttaaaaaggaatag
+///

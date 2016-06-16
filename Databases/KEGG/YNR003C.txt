@@ -1,0 +1,45 @@
+ENTRY       YNR003C           CDS       T00005
+NAME        RPC34
+DEFINITION  Rpc34p
+ORTHOLOGY   K03025  DNA-directed RNA polymerase III subunit RPC6
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00230  Purine metabolism
+            sce00240  Pyrimidine metabolism
+            sce01100  Metabolic pathways
+            sce03020  RNA polymerase
+MODULE      sce_M00181  RNA polymerase III, eukaryotes
+CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
+            Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
+            Genetic Information Processing; Transcription; RNA polymerase [PATH:sce03020]
+POSITION    XIV:complement(634344..635297)
+MOTIF       Pfam: RNA_pol_Rpc34 HTH_36 Rrf2 B-block_TFIIIC
+DBLINKS     NCBI-GI: 6324330
+            NCBI-GeneID: 855737
+            SGD: S000005286
+            MIPS: YNR003C
+            UniProt: P32910
+AASEQ       317
+            MSGMIENGLQLSDNAKTLHSQMMSKGIGALFTQQELQKQMGIGSLTDLMSIVQELLDKNL
+            IKLVKQNDELKFQGVLESEAQKKATMSAEEALVYSYIEASGREGIWSKTIKARTNLHQHV
+            VLKCLKSLESQRYVKSVKSVKFPTRKIYMLYSLQPSVDITGGPWFTDGELDIEFINSLLT
+            IVWRFISENTFPNGFKNFENGPKKNVFYAPNVKNYSTTQEILEFITAAQVANVELTPSNI
+            RSLCEVLVYDDKLEKVTHDCYRVTLESILQMNQGEGEPEAGNKALEDEEEFSIFNYFKMF
+            PASKHDKEVVYFDEWTI
+NTSEQ       954
+            atgagtggaatgatagaaaatgggttacagctatcggacaatgctaaaaccttacatagc
+            cagatgatgtcgaaaggaataggcgcattatttacacagcaagaactccaaaaacaaatg
+            ggaatcgggtcgttaacagacttgatgtccattgtacaggaattgctagacaagaacttg
+            atcaaattagtaaaacaaaacgacgaattaaaatttcaaggtgtcttagaatctgaggcg
+            caaaagaaagccaccatgtcggctgaagaggcactggtatattcttatatcgaggctagc
+            ggtagagaagggatatggtccaagactatcaaggcaagaaccaatctccatcagcatgta
+            gttcttaaatgcttgaagagtttagaatcccaaagatacgtgaagagtgttaagagtgta
+            aagtttcccacaaggaaaatctacatgttgtacagcttacaaccctctgtggacatcaca
+            ggaggtccatggttcacagatggagagctggatatagaatttatcaatagtttattgact
+            attgtttggaggttcatatcagagaacaccttccctaatggcttcaagaatttcgaaaat
+            ggacccaaaaaaaacgtcttttatgctccaaacgtaaaaaattactctaccacacaagaa
+            attttggaatttattacagcggcacaagtggccaatgtcgagttaaccccttcaaatatc
+            agatctttgtgtgaagtcttagtgtacgacgacaagctggaaaaagtcacgcatgactgc
+            tatagagtgaccttagagagcattctacaaatgaaccaaggtgagggcgagccggaggca
+            ggtaataaggctttggaggatgaagaagaattttccatctttaactacttcaagatgttt
+            ccggcttcaaaacacgacaaggaagtggtctatttcgatgaatggacaatttga
+///

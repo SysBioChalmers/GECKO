@@ -1,0 +1,61 @@
+ENTRY       YNL117W           CDS       T00005
+NAME        MLS1
+DEFINITION  malate synthase MLS1 (EC:2.3.3.9)
+ORTHOLOGY   K01638  malate synthase [EC:2.3.3.9]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00620  Pyruvate metabolism
+            sce00630  Glyoxylate and dicarboxylate metabolism
+            sce01100  Metabolic pathways
+            sce01200  Carbon metabolism
+MODULE      sce_M00012  Glyoxylate cycle
+CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
+            Metabolism; Carbohydrate metabolism; Pyruvate metabolism [PATH:sce00620]
+            Metabolism; Carbohydrate metabolism; Glyoxylate and dicarboxylate metabolism [PATH:sce00630]
+POSITION    XIV:406358..408022
+MOTIF       Pfam: Malate_synthase HpcH_HpaI
+DBLINKS     NCBI-GI: 6324212
+            NCBI-GeneID: 855606
+            SGD: S000005061
+            MIPS: YNL117W
+            UniProt: P30952
+AASEQ       554
+            MVKVSLDNVKLLVDVDKEPFFKPSSTTVGDILTKDALEFIVLLHRTFNNKRKQLLENRQV
+            VQKKLDSGSYHLDFLPETANIRNDPTWQGPILAPGLINRSTEITGPPLRNMLINALNAPV
+            NTYMTDFEDSASPTWNNMVYGQVNLYDAIRNQIDFDTPRKSYKLNGNVANLPTIIVRPRG
+            WHMVEKHLYVDDEPISASIFDFGLYFYHNAKELIKLGKGPYFYLPKMEHHLEAKLWNDVF
+            CVAQDYIGIPRGTIRATVLIETLPAAFQMEEIIYQLRQHSSGLNCGRWDYIFSTIKRLRN
+            DPNHILPNRNQVTMTSPFMDAYVKRLINTCHRRGVHAMGGMAAQIPIKDDPAANEKAMTK
+            VRNDKIRELTNGHDGSWVAHPALAPICNEVFINMGTPNQIYFIPENVVTAANLLETKIPN
+            GEITTEGIVQNLDIGLQYMEAWLRGSGCVPINNLMEDAATAEVSRCQLYQWVKHGVTLKD
+            TGEKVTPELTEKILKEQVERLSKASPLGDKNKFALAAKYFLPEIRGEKFSEFLTTLLYDE
+            IVSTKATPTDLSKL
+NTSEQ       1665
+            atggttaaggtcagtttggataacgtcaaattactggtggatgttgataaggagcctttc
+            tttaaaccatctagtactacagtgggagatattcttaccaaggatgctctagagttcatt
+            gttcttttacacagaactttcaacaacaagagaaaacaattattggaaaacagacaagtt
+            gttcagaagaaattagactcgggctcctatcatctggatttcctgcctgaaactgcaaat
+            attagaaatgatcccacttggcaaggtccaattttggcaccggggttaattaataggtca
+            acggaaatcacagggcctccattgagaaatatgctgatcaacgctttgaatgctcctgtg
+            aacacctatatgactgattttgaagattcagcttcacctacttggaacaacatggtttac
+            ggtcaagttaatctctacgacgcgatcagaaatcaaatcgattttgacacaccaagaaaa
+            tcgtacaaattgaatggaaatgtggccaacttgcccactattatcgtgagaccccgtggt
+            tggcacatggtggaaaagcacctttatgtagatgatgaaccaatcagcgcttccatcttt
+            gattttggtttatatttctaccataatgccaaagaattaatcaaattgggcaaaggtcct
+            tacttctatttgccaaagatggagcaccacttggaagctaaactatggaacgacgtcttc
+            tgtgtagctcaagattacattgggatcccaaggggtacaatcagagctactgtgttgatt
+            gaaactttgcctgctgctttccaaatggaagagatcatctatcaattaagacaacattct
+            agtgggttgaattgcggacgttgggactatattttctctacaatcaagagattaagaaat
+            gatcctaatcacattttgcccaatagaaatcaagtgactatgacttccccattcatggat
+            gcatacgtgaaaagattaatcaatacctgtcatcggaggggtgttcatgccatgggtggt
+            atggctgcgcaaatccctatcaaagacgacccggcagccaatgaaaaggccatgactaaa
+            gtccgtaatgataagattagagagctgacaaatggacatgatgggtcatgggttgcacac
+            ccagcactggcccctatttgtaatgaagttttcattaatatgggaacaccaaaccaaatc
+            tatttcattcctgaaaacgttgtaacggctgctaatctgctggaaaccaaaattccaaat
+            ggtgagattactaccgagggaattgtacaaaacttggatatcgggttgcagtacatggaa
+            gcttggctcagaggctctggatgtgtgcccatcaacaacttgatggaagacgccgccact
+            gctgaagtgtctcgttgtcaattgtatcaatgggtgaaacacggtgttactctaaaggac
+            acgggagaaaaggtcaccccagaattaaccgaaaagattctaaaagaacaagtggaaaga
+            ctgtctaaggcaagtccattgggtgacaagaacaaattcgcgctggccgctaagtatttc
+            ttgccagaaatcagaggcgagaaattcagtgaatttttgactacattgttgtacgacgaa
+            attgtgtccactaaggcgacgcccactgatttgagcaaattgtga
+///

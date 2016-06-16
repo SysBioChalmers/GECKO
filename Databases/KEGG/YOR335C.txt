@@ -1,0 +1,82 @@
+ENTRY       YOR335C           CDS       T00005
+NAME        ALA1, CDC64
+DEFINITION  alanine--tRNA ligase (EC:6.1.1.7)
+ORTHOLOGY   K01872  alanyl-tRNA synthetase [EC:6.1.1.7]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00970  Aminoacyl-tRNA biosynthesis
+MODULE      sce_M00359  Aminoacyl-tRNA biosynthesis, eukaryotes
+CLASS       Genetic Information Processing; Translation; Aminoacyl-tRNA biosynthesis [PATH:sce00970]
+POSITION    XV:complement(946233..949109)
+MOTIF       Pfam: tRNA-synt_2c tRNA_SAD DHHA1
+DBLINKS     NCBI-GI: 398366285
+            NCBI-GeneID: 854513
+            SGD: S000005862
+            MIPS: YOR335C
+            UniProt: P40825
+AASEQ       958
+            MTIGDKQKWTATNVRNTFLDYFKSKEHKFVKSSPVVPFDDPTLLFANAGMNQYKPIFLGT
+            VDPASDFYTLKRAYNSQKCIRAGGKHNDLEDVGKDSYHHTFFEMLGNWSFGDYFKKEAIT
+            YSWTLLTEVYGIPKDRLYVTYFEGDEKLGLEPDTEARELWKNVGVPDDHILPGNAKDNFW
+            EMGDQGPCGPCSEIHYDRIGGRNAASLVNMDDPDVLEVWNLVFIQFNREQDGSLKPLPAK
+            HIDTGMGFERLVSVLQDVRSNYDTDVFTPLFERIQEITSVRPYSGNFGENDKDGIDTAYR
+            VLADHVRTLTFALADGGVPNNEGRGYVLRRILRRGARYARKYMNYPIGNFFSTLAPTLIS
+            QVQDIFPELAKDPAFLFEILDEEEASFAKTLDRGERLFEKYASAASKTESKTLDGKQVWR
+            LYDTYGFPVDLTELMAEEQGLKIDGPGFEKAKQESYEASKRGGKKDQSDLIKLNVHELSE
+            LNDAKVPKTNDEFKYGSANVEGTILKLHDGTNFVDEITEPGKKYGIILDKTCFYAEQGGQ
+            EYDTGKIVIDDAAEFNVENVQLYNGFVFHTGSLEEGKLSVGDKIIASFDELRRFPIKNNH
+            TGTHILNFALKETLGNDVDQKGSLVAPEKLRFDFSHKKAVSNEELKKVEDICNEQIKENL
+            QVFYKEIPLDLAKSIDGVRAVFGETYPDPVRVVSVGKPIEELLANPANEEWTKYSIEFCG
+            GTHVNKTGDIKYFVILEESGIAKGIRRIVAVTGTEAFEAQRLAEQFAADLDAADKLPFSP
+            IKEKKLKELGVKLGQLSISVITKNELKQKFNKIEKAVKDEVKSRAKKENKQTLDEVKTFF
+            ETNENAPYLVKFIDISPNAKAITEAINYMKSNDSVKDKSIYLLAGNDPEGRVAHGCYISN
+            AALAKGIDGSALAKKVSSIIGGKAGGKGNVFQGMGDKPAAIKDAVDDLESLFKEKLSI
+NTSEQ       2877
+            atgacgatcggtgataagcaaaaatggaccgctactaatgtccgtaatacctttctagac
+            tatttcaaatctaaagaacacaagtttgtcaaatcctctccagtagttccatttgatgat
+            ccaactttacttttcgctaatgccggtatgaaccaatacaagcctatctttttaggtact
+            gtcgatccagcttccgatttctacaccttgaaaagggcttacaactctcaaaagtgtatc
+            agagctggtggtaaacacaacgatttagaagatgtcggtaaggattcttatcatcatacc
+            ttttttgaaatgctgggtaactggtcgtttggcgactatttcaagaaggaagctattact
+            tactcatggactttgttgactgaagtatacggcattccaaaggatagattatacgttacc
+            tattttgaaggtgatgaaaagttaggcttggaacctgatactgaagcccgtgaactatgg
+            aaaaatgttggtgttcccgatgaccatatattacctggtaatgcaaaggacaacttttgg
+            gaaatgggtgaccaaggcccatgtggtccttgttctgaaattcactacgatagaataggt
+            ggtagaaatgctgcttccttggttaatatggacgaccctgatgtcttggaagtttggaat
+            ttggttttcattcaattcaacagagaacaagacgggtctttgaagcctttacctgccaag
+            catatcgacacaggtatggggttcgaaagattggtttctgttctgcaagatgttagatct
+            aactatgataccgatgttttcacacctttgttcgagcgtatccaagaaatcacttcagtt
+            agaccatattctggcaattttggtgagaatgacaaggacggtatcgatactgcctacaga
+            gttttagctgatcatgtccgtacattgacttttgccttagctgacggtggcgttccaaac
+            aatgaaggtagaggatatgttttgagacgcattctaagaagaggtgcccgttacgcccgt
+            aaatacatgaattacccaatcggtaactttttctccactttggctccaactttaatttct
+            caggttcaagatatctttcccgaattagccaaggatcctgcattcctctttgaaatcttg
+            gatgaagaagaagcttctttcgctaagaccttggatcgtggtgaaagactatttgaaaaa
+            tatgcttctgctgcttctaagactgaatctaagactttagacggtaaacaagtttggaga
+            ctttacgacacttatggtttcccagtcgacttgactgaattgatggctgaagaacaaggc
+            ttgaagattgatggacccggtttcgaaaaggccaaacaagagtcatacgaagcatccaaa
+            agaggtggtaagaaggaccaaagtgatttgattaagttaaacgtccatgaattatccgag
+            ttgaacgatgctaaggtgcccaagactaatgatgaattcaaatacggcagcgccaacgtc
+            gaaggtaccattttgaaactgcatgacggtaccaactttgttgatgagatcactgaacca
+            ggtaagaagtacggtattattttggataaaacatgtttctacgccgaacaaggtggtcaa
+            gaatatgacactggtaaaattgttattgatgacgctgctgagtttaatgttgaaaatgtt
+            caattgtataacggttttgttttccacaccgggtctttagaagaaggtaagttgtctgtc
+            ggtgacaagattatcgcttcattcgatgaactacgtcgtttccctattaagaacaatcat
+            actggtacacatatcttaaactttgctctgaaggaaactttgggtaatgatgtcgatcaa
+            aagggttctttggttgccccagaaaaattgagattcgatttctctcataaaaaggctgtg
+            tcaaatgaagaattgaaaaaagttgaagatatctgtaatgagcaaattaaagaaaactta
+            caagtgttttacaaggaaattccattggacttggccaaatccattgatggtgttcgtgct
+            gtctttggtgagacttacccagatccagttcgtgtagtttctgttggtaagccaatcgaa
+            gaattgttggccaacccagctaacgaagagtggaccaagtattctattgaattttgcggt
+            ggtacccatgtcaacaagacaggcgatattaaatacttcgtcattttagaagagagcggt
+            attgcaaagggtatcagaagaattgttgctgttactggaactgaagcctttgaagctcaa
+            agattggctgaacagtttgctgctgatttggatgctgcagacaagctgccgttctctcca
+            atcaaagaaaagaagttgaaggaacttggtgtcaaacttggtcaactttcaatttctgtt
+            atcacaaaaaatgaactgaagcagaaatttaacaaaattgaaaaagcagtgaaggatgaa
+            gttaagtcaagggccaaaaaagaaaacaaacaaactcttgatgaagtgaagacatttttc
+            gaaaccaatgagaatgctccatacctagttaaattcattgatatttctccaaatgctaaa
+            gctatcactgaagcgatcaactacatgaaatccaatgattctgtcaaagacaagtcaatc
+            tatttattggcaggtaatgaccctgaaggtcgtgttgctcacggttgttacatctccaat
+            gctgctttagccaagggtattgatggttctgcgcttgccaaaaaggtgtccagtatcatc
+            ggcggtaaggctggtggtaaaggtaatgttttccaaggtatgggtgataaaccagccgct
+            ataaaggatgcagttgatgatttggaaagtttgttcaaggagaagctttccatttaa
+///

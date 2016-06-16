@@ -1,0 +1,38 @@
+ENTRY       YJL097W           CDS       T00005
+NAME        PHS1
+DEFINITION  enoyl-CoA hydratase PHS1 (EC:4.2.1.134)
+ORTHOLOGY   K10703  very-long-chain (3R)-3-hydroxyacyl-[acyl-carrier protein] dehydratase [EC:4.2.1.134]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00062  Fatty acid elongation
+            sce01040  Biosynthesis of unsaturated fatty acids
+            sce01110  Biosynthesis of secondary metabolites
+            sce01212  Fatty acid metabolism
+MODULE      sce_M00415  Fatty acid biosynthesis, elongation, endoplasmic reticulum
+CLASS       Metabolism; Overview; Fatty acid metabolism [PATH:sce01212]
+            Metabolism; Lipid metabolism; Fatty acid elongation [PATH:sce00062]
+            Metabolism; Lipid metabolism; Biosynthesis of unsaturated fatty acids [PATH:sce01040]
+POSITION    X:245591..246244
+MOTIF       Pfam: PTPLA
+DBLINKS     NCBI-GI: 6322364
+            NCBI-GeneID: 853348
+            SGD: S000003633
+            MIPS: YJL097W
+            UniProt: P40857
+AASEQ       217
+            MSKKLASPLSFLPLYNLLSAVGWSYLLYLVISLYPKVGQPAFFYQTKNVATLVQCGAIIE
+            IINSFLGVVRSPLLTTVAQVSSRLLVVLGIFQLLPNTSGVQSVVYISLLLAWSITEIVRY
+            LYYFFMLVFKNGAPKILILLRYNLFWILYPTGVASELRIIYCALNAAESQYSLLYKRILI
+            AAMLAYIPGFPMLFLHMVAQRKKVMKSLRSSFGKKLI
+NTSEQ       654
+            atgtcaaaaaaacttgcgtcaccattgtccttcttacccctttataatttgctttctgct
+            gttggttggtcttatttgctttacttggtcatctccttgtacccaaaagttggacagcca
+            gcattcttctaccaaactaaaaatgtcgctacccttgttcaatgtggtgctataatcgag
+            atcataaactcatttttaggagttgtacgttccccattgctgaccactgttgcacaagtg
+            tcttcaagactactagttgtcctcggcatcttccaattgttgccaaacacaagtggtgtt
+            caatcagttgtttacatatcattattactggcatggtctataactgagatcgtcagatac
+            ttgtattattttttcatgttggtattcaagaatggcgcaccaaagatcttaattctatta
+            agatataatttgttctggattttgtaccccactggtgttgccagcgaactacgcattatt
+            tactgtgctttaaatgcagctgaatctcagtattctttactttacaaaagaattttaata
+            gcggccatgctcgcttatatcccaggcttcccaatgctcttcctacacatggtagcacag
+            agaaagaaagtcatgaaaagtttaagatcctctttcgggaagaaactaatttga
+///

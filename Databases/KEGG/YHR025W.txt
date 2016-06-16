@@ -1,0 +1,45 @@
+ENTRY       YHR025W           CDS       T00005
+NAME        THR1
+DEFINITION  homoserine kinase (EC:2.7.1.39)
+ORTHOLOGY   K00872  homoserine kinase [EC:2.7.1.39]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00260  Glycine, serine and threonine metabolism
+            sce01100  Metabolic pathways
+            sce01230  Biosynthesis of amino acids
+MODULE      sce_M00018  Threonine biosynthesis, aspartate => homoserine => threonine
+CLASS       Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
+            Metabolism; Amino acid metabolism; Glycine, serine and threonine metabolism [PATH:sce00260]
+POSITION    VIII:159438..160511
+MOTIF       Pfam: GHMP_kinases_N GHMP_kinases_C
+DBLINKS     NCBI-GI: 6321814
+            NCBI-GeneID: 856420
+            SGD: S000001067
+            MIPS: YHR025W
+            UniProt: P17423
+AASEQ       357
+            MVRAFKIKVPASSANIGPGYDVLGVGLSLFLELDVTIDSSQAQETNDDPNNCKLSYTKES
+            EGYSTVPLRSDANLITRTALYVLRCNNIRNFPSGTKVHVSNPIPLGRGLGSSGAAVVAGV
+            ILGNEVAQLGFSKQRMLDYCLMIERHPDNITAAMMGGFCGSFLRDLTPQEVERREIPLAE
+            VLPEPSGGEDTGLVPPLPPTDIGRHVKYQWNPAIKCIAIIPQFELSTADSRGVLPKAYPT
+            QDLVFNLQRLAVLTTALTMDPPNADLIYPAMQDRVHQPYRKTLIPGLTEILSCVTPSTYP
+            GLLGICLSGAGPTILALATENFEEISQEIINRFAKNGIKCSWKLLEPAYDGASVEQQ
+NTSEQ       1074
+            atggttcgtgccttcaaaattaaagttccagcttcttccgccaatatcggccctggttat
+            gatgttcttggtgtcggtctttctctattcttggagttagatgtcaccatcgactccagc
+            caagctcaggaaacaaacgacgatcccaacaactgcaagctgtcttacactaaagaaagt
+            gaaggctattctacggtcccattgcgttctgatgctaacctgattaccaggactgcgtta
+            tatgtgttgcgttgcaacaatattagaaacttcccctccggaaccaaagttcacgtctcc
+            aacccaatcccacttggccgtggattgggttcctctggtgcagcagttgtggcaggtgtt
+            attttaggtaacgaagtggcccaattgggtttctctaagcaacgtatgttggactactgt
+            ttgatgattgaacgtcatccagacaacataaccgctgctatgatgggaggcttttgcggt
+            tcattcctaagggacttgaccccacaagaggtggaaagacgtgagattccattggctgag
+            gtgcttccagaaccttctggtggtgaagataccggtctggttcccccattacctcccacc
+            gatatcggtagacatgtcaaataccaatggaaccccgccattaaatgtattgcgatcatc
+            ccacagttcgagttgtccaccgccgactccagaggcgttcttccaaaagcctacccaacc
+            caggacttggttttcaatctacaaagattggccgtcttgaccacagctttgaccatggac
+            ccacctaatgccgacttaatctaccctgctatgcaagatcgtgtccaccaaccttataga
+            aagacattgatcccaggtctcacggaaatcttatcatgtgtcaccccatccacataccct
+            ggcctattgggtatctgcttgtcaggtgcaggcccaactatcttggctttggccactgag
+            aatttcgaagaaatctctcaagaaattatcaacaggttcgccaaaaacggcatcaagtgc
+            tcctggaaactactggagcctgcctacgatggtgctagcgtcgaacagcaatga
+///

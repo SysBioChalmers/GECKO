@@ -1,0 +1,51 @@
+ENTRY       YBL098W           CDS       T00005
+NAME        BNA4
+DEFINITION  kynurenine 3-monooxygenase (EC:1.14.13.9)
+ORTHOLOGY   K00486  kynurenine 3-monooxygenase [EC:1.14.13.9]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00380  Tryptophan metabolism
+            sce01100  Metabolic pathways
+CLASS       Metabolism; Amino acid metabolism; Tryptophan metabolism [PATH:sce00380]
+POSITION    II:39145..40527
+MOTIF       Pfam: FAD_binding_3 Pyr_redox DAO GIDA NAD_binding_8 3HCDH_N SE ApbA Pyr_redox_2 UDPG_MGDP_dh_N FAD_binding_2 HI0933_like NAD_Gly3P_dh_N NAD_binding_2 FAD_oxidored
+DBLINKS     NCBI-GI: 6319372
+            NCBI-GeneID: 852179
+            SGD: S000000194
+            MIPS: YBL098W
+            UniProt: P38169
+STRUCTURE   PDB: 4J33 4J34 4J36 4J31 4J2W
+AASEQ       460
+            MSESVAIIGAGLVGCLAALAFSKEGYNVTLYDFRQDPRLDTTKNKNLKSINLAISARGID
+            ALKSIDPDACEHILQDMIPMKGRMIHDLKGRQESQLYGLHGEAINSINRSVLNNSLLDEL
+            EKSTTELKFGHKLVKIEWTDDKQICHFAIGEDLKTPHTEKYDFVIGCDGAYSATRSQMQR
+            KVEMDFSQEYMNLRYIELYIPPTEEFKPNYGGNFAIAPDHLHIWPRHKFMLIALANSDGS
+            FTSTFFGSKDQISDLITSKSRVREFLIENFPDIINIMDLDDAVKRFITYPKESLVCVNCK
+            PYDVPGGKAILLGDAAHAMVPFYGQGMNCGFEDVRILMALLKKHSGDRSRAFTEYTQTRH
+            KDLVSITELAKRNYKEMSHDVTSKRFLLRKKLDALFSIIMKDKWIPLYTMISFRSDISYS
+            RALERAGKQTRILKFLESLTLGMLSIGGYKLFKFLTRERS
+NTSEQ       1383
+            atgtctgaatcagtggccattataggtgcaggattagtaggctgccttgcagctttggca
+            ttctccaaagaaggctacaatgtcacactatatgattttagacaagatcctcgattggac
+            accaccaaaaataaaaatttgaaatccattaatttggctatttctgctcgtggcattgat
+            gctctgaaatcaatagatccggatgcttgtgaacatattctgcaagatatgattcccatg
+            aaaggcaggatgattcatgacttgaaaggcagacaggaatcacaattgtatggcttgcat
+            ggagaagctattaattctatcaatagatctgtattaaataatagccttttggacgaatta
+            gaaaaatctacaacagaactgaagttcggtcacaaattagtcaaaatcgaatggacagat
+            gataaacaaatctgtcattttgccattggggaagatttgaaaaccccacatactgaaaag
+            tatgattttgtcataggttgtgacggagcatactctgcgacgagatcgcaaatgcaacgt
+            aaagttgagatggatttttcacaagaatatatgaatttacgttacattgaactttacatc
+            ccgcctactgaggaattcaagccaaactatggcggaaattttgcaatagctcctgaccat
+            ttgcacatttggcctcgtcataaattcatgttaattgcgctcgccaacagtgacggctcg
+            ttcacttcaacctttttcggttctaaagatcaaatatcagatctgataacttccaagtca
+            cgtgtgagggaattcttaatcgagaactttcccgatattattaatattatggatttggac
+            gatgctgtcaaaaggtttatcacttatccaaaggaaagtcttgtctgtgtaaactgtaag
+            ccatacgatgtaccaggcggaaaggccatcctactcggcgacgctgcccatgcaatggtt
+            ccattttacggccaaggtatgaattgcggatttgaagatgtgagaattcttatggcgcta
+            ttgaaaaagcattcaggagatcgttcaagagcctttactgagtacactcaaacaagacat
+            aaggacctagtttctattactgagctggcaaaaaggaactataaagaaatgtcacatgac
+            gttacatccaagcggtttttattaaggaaaaagctagatgctctctttagtattataatg
+            aaggataagtggatacctttgtatacaatgatatctttcagatccgatatctcgtattct
+            agagctttagaaagggctggaaagcaaacacgtatcttgaaattcttagaatctctgaca
+            ctcggtatgttatctattggcggttacaagcttttcaaatttttgacaagagaacgttcc
+            tga
+///

@@ -1,0 +1,57 @@
+ENTRY       YBR283C           CDS       T00005
+NAME        SSH1
+DEFINITION  Ssh1p
+ORTHOLOGY   K10956  protein transport protein SEC61 subunit alpha
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03060  Protein export
+            sce04141  Protein processing in endoplasmic reticulum
+            sce04145  Phagosome
+MODULE      sce_M00401  Sec61 complex
+CLASS       Genetic Information Processing; Folding, sorting and degradation; Protein export [PATH:sce03060]
+            Genetic Information Processing; Folding, sorting and degradation; Protein processing in endoplasmic reticulum [PATH:sce04141]
+            Cellular Processes; Transport and catabolism; Phagosome [PATH:sce04145]
+POSITION    II:complement(768943..770415)
+MOTIF       Pfam: SecY Plug_translocon
+DBLINKS     NCBI-GI: 6319760
+            NCBI-GeneID: 852586
+            SGD: S000000487
+            MIPS: YBR283C
+            UniProt: P38353
+STRUCTURE   PDB: 2WW9 2WWA
+AASEQ       490
+            MSGFRLIDIVKPILPILPEVELPFEKLPFDDKIVYTIFAGLIYLFAQFPLVGLPKATTPN
+            VNDPIYFLRGVFGCEPRTLLEFGLFPNISSGLILQLLAGLKVIKVNFKIQSDRELFQSLT
+            KVFAIVQYVILTNIFIFAGYFGDDLSVVQIGLINFQLVGAGIFTTLLAEVIDKGFGFSSG
+            AMIINTVVIATNLVADTFGVSQIKVGEDDQTEAQGALINLIQGLRSKHKTFIGGIISAFN
+            RDYLPNLTTTIIVLAIAIIVCYLQSVRVELPIRSTRARGTNNVYPIKLLYTGCLSVLFSY
+            TILFYIHIFAFVLIQLVAKNEPTHIICKIMGHYENANNLLAVPTFPLSLLAPPTSFFKGV
+            TQQPLTFITYSAFILVTGIWFADKWQAISGSSARDVALEFKDQGITLMGRREQNVAKELN
+            KVIPIAAVTGASVLSLITVIGESLGLKGKAAGIVVGIAGGFSLLEVITIEYQQSGGQSAL
+            NQVLGVPGAM
+NTSEQ       1473
+            atgtctggttttcgtctaattgatatcgttaagcctatcctaccgattttaccggaagtt
+            gagttaccttttgaaaaattaccatttgatgacaagattgtctatactatttttgcaggg
+            ttaatttacctttttgcacaattcccacttgttggtttgcccaaagctaccacacctaat
+            gttaatgaccccatttattttctaagaggtgtatttgggtgtgaaccaagaaccttgcta
+            gaatttggcctttttcccaacatttctagtgggttaatcttacaattattagccggtttg
+            aaagtaattaaagttaatttcaagatccaaagtgatagagaattatttcaaagcttaaca
+            aaagtttttgccattgttcagtatgtgattttgaccaacattttcatatttgcaggttat
+            tttggtgatgatttatctgtggtacagatcgggttgatcaactttcaattggtcggtgct
+            ggcatattcaccactttgttagctgaagtcatcgataaaggatttggattttcttctgga
+            gctatgataatcaacactgtggtaatcgccactaacttggtggctgatacttttggtgtt
+            tctcaaattaaagttggcgaggacgaccaaaccgaagcccaaggtgccctaatcaatttg
+            attcaaggtttaagatctaagcacaagacatttattggcggcatcatctctgcattcaac
+            agagactatctaccaaacttgacaactactattatagttttggcaattgccattattgtg
+            tgctatttgcaaagtgtccgtgtagaattgccaatcagatcaacaagagcccgtggtaca
+            aacaatgtttacccaattaagctactatacactggctgtttatctgttttgttttcttac
+            accatcttgttctacatccacatttttgctttcgttttaattcaattggttgccaagaat
+            gaaccaactcacatcatctgcaaaataatgggccactatgagaatgctaataatctttta
+            gcagtcccaaccttcccattatctcttttggctccaccaacatctttcttcaaaggtgtc
+            actcaacaacctttaaccttcatcacctattccgcctttatattggttactggtatttgg
+            tttgctgataagtggcaggctatttcaggttcctctgctcgtgatgtagccttggaattc
+            aaagaccaaggtatcactttgatgggacgcagagaacagaatgtcgctaaagaattgaac
+            aaagtcattccaatcgcagctgttacgggtgcatccgtcttaagtttgatcaccgttatc
+            ggtgaatctttgggtttgaaaggtaaagctgctggtatagttgttggcattgctggtggg
+            ttttctttgctagaagtcattaccattgaataccaacaaagtggcggtcaaagtgctttg
+            aatcaagtcttgggtgttccaggtgctatgtaa
+///

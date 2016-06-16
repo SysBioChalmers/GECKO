@@ -1,0 +1,53 @@
+ENTRY       YDR402C           CDS       T00005
+NAME        DIT2, CYP56
+DEFINITION  Dit2p (EC:1.14.14.-)
+ORTHOLOGY   K00493  unspecific monooxygenase [EC:1.14.14.1]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00071  Fatty acid degradation
+            sce00380  Tryptophan metabolism
+CLASS       Metabolism; Lipid metabolism; Fatty acid degradation [PATH:sce00071]
+            Metabolism; Amino acid metabolism; Tryptophan metabolism [PATH:sce00380]
+POSITION    IV:complement(1272234..1273703)
+MOTIF       Pfam: p450
+DBLINKS     NCBI-GI: 6320610
+            NCBI-GeneID: 852011
+            SGD: S000002810
+            MIPS: YDR402C
+            UniProt: P21595
+AASEQ       489
+            MELLKLLCLILFLTLSYVAFAIIVPPLNFPKNIPTIPFYVVFLPVIFPIDQTELYDLYIR
+            ESMEKYGAVKFFFGSRWNILVSRSEYLAQIFKDEDTFAKSGNQKKIPYSALAAYTGDNVI
+            SAYGAVWRNYRNAVTNGLQHFDDAPIFKNAKILCTLIKNRLLEGQTSIPMGPLSQRMALD
+            NISQVALGFDFGALTHEKNAFHEHLIRIKKQIFHPFFLTFPFLDVLPIPSRKKAFKDVVS
+            FRELLVKRVQDELVNNYKFEQTTFAASDLIRAHNNEIIDYKQLTDNIVIILVAGHENPQL
+            LFNSSLYLLAKYSNEWQEKLRKEVNGITDPKGLADLPLLNAFLFEVVRMYPPLSTIINRC
+            TTKTCKLGAEIVIPKGVYVGYNNFGTSHDPKTWGTTADDFKPERWGSDIETIRKNWRMAK
+            NRCAVTGFHGGRRACLGEKLALTEMRISLAEMLKQFRWSLDPEWEEKLTPAGPLCPLNLK
+            LKFNENIME
+NTSEQ       1470
+            atggagttgttaaagcttctgtgtttgattttatttcttactctttcctatgtcgccttt
+            gcaatcattgtcccacctctaaactttcccaaaaatatacccaccatcccattttatgta
+            gtatttttaccagtaatatttcccattgatcaaacggagctatacgatctttatattagg
+            gaatcaatggaaaaatacggtgctgtaaaatttttctttggttcacggtggaatattctc
+            gtttctcgttctgagtatctagcacaaatattcaaagatgaagatacttttgcgaagagc
+            ggtaatcaaaagaaaatcccatacagtgctcttgccgcttacacaggggacaatgtcatt
+            agcgcgtatggtgcagtttggagaaactacagaaatgctgtgacaaacgggctccaacat
+            tttgacgatgcacctatattcaaaaatgcaaaaattttatgcactttgataaaaaacaga
+            ctcctagaaggacaaacttcgatccctatgggacctttatcccagagaatggcattggat
+            aacatttcacaggttgcccttggatttgattttggtgctctaacacatgaaaaaaatgct
+            ttccacgagcatttgattcgtattaaaaagcaaatatttcatccattctttttaactttt
+            ccattccttgatgttcttcctattccttcaagaaaaaaagccttcaaggatgttgttagt
+            tttagagaacttctcgttaaaagagttcaagatgaattagtcaataattacaaatttgaa
+            caaactacttttgctgccagtgatctaattcgtgctcacaataacgaaataatcgactac
+            aaacagttgaccgataatatcgtcattatccttgtcgctggccatgaaaacccgcagttg
+            ctatttaatagttcactctaccttctagccaaatattcaaatgaatggcaagagaaactc
+            aggaaggaagtaaacggcatcactgatccaaaaggcttagcagatttacccttattaaat
+            gcttttctcttcgaagtagtaagaatgtatcctcctttgagcacaattattaatagatgt
+            actaccaaaacgtgcaagttgggggcggaaattgttatacccaagggcgtatatgtcggg
+            tacaacaactttggaacctcacacgatcccaaaacttggggcacaacagcagatgatttt
+            aaaccagaaagatggggttcagatatcgaaaccataaggaaaaactggagaatggcgaaa
+            aacagatgtgctgtgactgggttccatggaggccgaagagcatgcctaggggaaaaacta
+            gccctaacagaaatgagaatttctttggctgaaatgttgaaacagtttcgatggagtctt
+            gaccctgaatgggaagaaaaattaactcccgctgggcctctttgccctcttaatttaaag
+            ttaaaatttaacgagaatataatggaataa
+///

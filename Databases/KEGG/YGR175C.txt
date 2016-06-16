@@ -1,0 +1,55 @@
+ENTRY       YGR175C           CDS       T00005
+NAME        ERG1
+DEFINITION  squalene monooxygenase (EC:1.14.13.132)
+ORTHOLOGY   K00511  squalene monooxygenase [EC:1.14.13.132]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00100  Steroid biosynthesis
+            sce00909  Sesquiterpenoid and triterpenoid biosynthesis
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+CLASS       Metabolism; Lipid metabolism; Steroid biosynthesis [PATH:sce00100]
+            Metabolism; Metabolism of terpenoids and polyketides; Sesquiterpenoid and triterpenoid biosynthesis [PATH:sce00909]
+POSITION    VII:complement(846933..848423)
+MOTIF       Pfam: SE FAD_binding_3 DAO Pyr_redox Pyr_redox_2 NAD_binding_8 FAD_binding_2 3HCDH_N Thi4 Shikimate_DH GDI ApbA FAD_oxidored UDPG_MGDP_dh_N HI0933_like
+DBLINKS     NCBI-GI: 6321614
+            NCBI-GeneID: 853086
+            SGD: S000003407
+            MIPS: YGR175C
+            UniProt: P32476
+AASEQ       496
+            MSAVNVAPELINADNTITYDAIVIGAGVIGPCVATGLARKGKKVLIVERDWAMPDRIVGE
+            LMQPGGVRALRSLGMIQSINNIEAYPVTGYTVFFNGEQVDIPYPYKADIPKVEKLKDLVK
+            DGNDKVLEDSTIHIKDYEDDERERGVAFVHGRFLNNLRNITAQEPNVTRVQGNCIEILKD
+            EKNEVVGAKVDIDGRGKVEFKAHLTFICDGIFSRFRKELHPDHVPTVGSSFVGMSLFNAK
+            NPAPMHGHVILGSDHMPILVYQISPEETRILCAYNSPKVPADIKSWMIKDVQPFIPKSLR
+            PSFDEAVSQGKFRAMPNSYLPARQNDVTGMCVIGDALNMRHPLTGGGMTVGLHDVVLLIK
+            KIGDLDFSDREKVLDELLDYHFERKSYDSVINVLSVALYSLFAADSDNLKALQKGCFKYF
+            QRGGDCVNKPVEFLSGVLPKPLQLTRVFFAVAFYTIYLNMEERGFLGLPMALLEGIMILI
+            TAIRVFTPFLFGELIG
+NTSEQ       1491
+            atgtctgctgttaacgttgcacctgaattgattaatgccgacaacacaattacctacgat
+            gcgattgtcatcggtgctggtgttatcggtccatgtgttgctactggtctagcaagaaag
+            ggtaagaaagttcttatcgtagaacgtgactgggctatgcctgatagaattgttggtgaa
+            ttgatgcaaccaggtggtgttagagcattgagaagtctgggtatgattcaatctatcaac
+            aacatcgaagcatatcctgttaccggttataccgtctttttcaacggcgaacaagttgat
+            attccatacccttacaaggccgatatccctaaagttgaaaaattgaaggacttggtcaaa
+            gatggtaatgacaaggtcttggaagacagcactattcacatcaaggattacgaagatgat
+            gaaagagaaaggggtgttgcttttgttcatggtagattcttgaacaacttgagaaacatt
+            actgctcaagagccaaatgttactagagtgcaaggtaactgtattgagatattgaaggat
+            gaaaagaatgaggttgttggtgccaaggttgacattgatggccgtggcaaggtggaattc
+            aaagcccacttgacatttatctgtgacggtatcttttcacgtttcagaaaggaattgcac
+            ccagaccatgttccaactgtcggttcttcgtttgtcggtatgtctttgttcaatgctaag
+            aatcctgctcctatgcacggtcacgttattcttggtagtgatcatatgccaatcttggtt
+            taccaaatcagtccagaagaaacaagaatcctttgtgcttacaactctccaaaggtccca
+            gctgatatcaagagttggatgattaaggatgtccaacctttcattccaaagagtctacgt
+            ccttcatttgatgaagccgtcagccaaggtaaatttagagctatgccaaactcctacttg
+            ccagctagacaaaacgacgtcactggtatgtgtgttatcggtgacgctctaaatatgaga
+            catccattgactggtggtggtatgactgtcggtttgcatgatgttgtcttgttgattaag
+            aaaataggtgacctagacttcagcgaccgtgaaaaggttttggatgaattactagactac
+            catttcgaaagaaagagttacgattccgttattaacgttttgtcagtggctttgtattct
+            ttgttcgctgctgacagcgataacttgaaggcattacaaaaaggttgtttcaaatatttc
+            caaagaggtggcgattgtgtcaacaaacccgttgaatttctgtctggtgtcttgccaaag
+            cctttgcaattgaccagggttttcttcgctgtcgctttttacaccatttacttgaacatg
+            gaagaacgtggtttcttgggattaccaatggctttattggaaggtattatgattttgatc
+            acagctattagagtattcaccccatttttgtttggtgagttgattggttaa
+///

@@ -1,0 +1,35 @@
+ENTRY       YMR271C           CDS       T00005
+NAME        URA10
+DEFINITION  orotate phosphoribosyltransferase URA10 (EC:2.4.2.10)
+ORTHOLOGY   K00762  orotate phosphoribosyltransferase [EC:2.4.2.10]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00240  Pyrimidine metabolism
+            sce01100  Metabolic pathways
+MODULE      sce_M00051  Uridine monophosphate biosynthesis, glutamine (+ PRPP) => UMP
+CLASS       Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
+POSITION    XIII:complement(806865..807548)
+MOTIF       Pfam: Pribosyltran
+DBLINKS     NCBI-GI: 6323927
+            NCBI-GeneID: 855313
+            SGD: S000004884
+            MIPS: YMR271C
+            UniProt: P30402
+AASEQ       227
+            MSASTTSLEEYQKTFLELGLECKALRFGSFKLNSGRQSPYFFNLSLFNSGKLLANLATAY
+            ATAIIQSELKFDVIFGPAYKGIPLAAIVCVKLAEIGGTKFQGIQYAFNRKKVKDHGEGGI
+            IVGASLEDKRVLIIDDVMTAGTAINEAFEIISIAQGRVVGCIVALDRQEVIHESDPERTS
+            ATQSVSKRYNVPVLSIVSLTQVVQFMGNRLSPEQKSAIENYRKAYGI
+NTSEQ       684
+            atgtctgcatctactacaagtttagaggaatatcaaaaaactttccttgaactgggatta
+            gaatgcaaagcactaagatttgggtcattcaagctgaattcaggcaggcagtcgccatat
+            tttttcaatcttagtttgttcaattctggaaagctgttggcaaaccttgccaccgcgtat
+            gcaactgctatcattcaatcggagcttaaattcgatgttattttcggacctgcttacaaa
+            gggatccctttggctgctattgtatgcgttaaactagcagaaatcgggggcactaaattt
+            caaggtattcaatatgcttttaatagaaagaaagttaaagaccacggcgaaggtggtatt
+            attgttggagcatcgcttgaagacaagagggtgttgattatcgacgatgtcatgactgca
+            ggaactgcaatcaatgaagcatttgagataatcagtattgctcaaggtagggtagtgggt
+            tgtattgttgctttagataggcaagaagtgattcatgaatctgatccggaaagaacaagt
+            gctacccaatctgtttcaaagagatacaacgttcctgtgctaagtattgtatcactgact
+            caagtggtacaatttatgggaaatagactatcaccagagcaaaaatcagcgattgaaaac
+            taccgtaaggcctatggtatatga
+///

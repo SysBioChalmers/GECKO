@@ -1,0 +1,54 @@
+ENTRY       YOR184W           CDS       T00005
+NAME        SER1, ADE9
+DEFINITION  O-phospho-L-serine:2-oxoglutarate transaminase (EC:2.6.1.52)
+ORTHOLOGY   K00831  phosphoserine aminotransferase [EC:2.6.1.52]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00260  Glycine, serine and threonine metabolism
+            sce00680  Methane metabolism
+            sce00750  Vitamin B6 metabolism
+            sce01100  Metabolic pathways
+            sce01200  Carbon metabolism
+            sce01230  Biosynthesis of amino acids
+MODULE      sce_M00020  Serine biosynthesis, glycerate-3P => serine
+CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
+            Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
+            Metabolism; Energy metabolism; Methane metabolism [PATH:sce00680]
+            Metabolism; Amino acid metabolism; Glycine, serine and threonine metabolism [PATH:sce00260]
+            Metabolism; Metabolism of cofactors and vitamins; Vitamin B6 metabolism [PATH:sce00750]
+POSITION    XV:679357..680544
+MOTIF       Pfam: Aminotran_5
+DBLINKS     NCBI-GI: 398365625
+            NCBI-GeneID: 854356
+            SGD: S000005710
+            MIPS: YOR184W
+            UniProt: P33330
+AASEQ       395
+            MSLEREEPQHFGAGPAQMPTPVLQQAAKDLINFNDIGLGIGEISHRSKDATKVIEDSKKH
+            LIELLNIPDTHEVFYLQGGGTTGFSSVATNLAAAYVGKHGKIAPAGYLVTGSWSQKSFEE
+            AKRLHVPAEVIFNAKDYNNGKFGKIPDESLWEDKIKGKAFSYVYLCENETVHGVEWPELP
+            KCLVNDPNIEIVADLSSDILSRKIDVSQYGVIMAGAQKNIGLAGLTLYIIKKSILKNISG
+            ASDETLHELGVPITPIAFDYPTVVKNNSAYNTIPIFTLHVMDLVFQHILKKGGVEAQQAE
+            NEEKAKILYEALDANSDFYNVPVDPKCRSKMNVVFTLKKDGLDDQFLKEAAARHLTGLKG
+            HRSVGGFRASIYNALSVKAVQNLVDFIKEFAEKNA
+NTSEQ       1188
+            atgtctttggaaagagaggaaccacaacatttcggagcagggccagctcaaatgcctaca
+            ccagttttgcaacaagctgctaaagacttaatcaatttcaatgacataggtttgggtatc
+            ggtgaaatttctcaccgttcgaaggatgccaccaaagtgattgaagactctaagaagcac
+            ttaatcgaactgctaaatattcctgacactcatgaagtgttctacttgcaaggtggtggc
+            actactggtttttcttccgttgctactaatttggcagctgcatatgtgggtaagcatggg
+            aagattgcacctgccggttatttagtcaccggtagttggtctcagaaatcttttgaagag
+            gcaaagagattgcacgttcctgctgaagttatcttcaacgctaaagattataacaatggc
+            aaatttggtaaaattccggatgaatccctttgggaagataaaatcaaaggtaaggctttc
+            tcatacgtgtacctatgtgagaatgaaactgttcatggtgttgaatggccagaattacca
+            aaatgtttagtaaacgaccccaacatcgaaattgttgctgacttatccagcgacattttg
+            tctcgtaagattgacgtttctcaatacggtgtcatcatggcaggcgcccaaaaaaacatt
+            ggtttagcaggcttaaccctatacattatcaagaaatccatccttaagaatatttctggc
+            gcttctgatgaaacattacatgaattgggagtaccaatcacccctattgcattcgactat
+            ccaacggtggtgaagaacaactcagcctataatacaattccaattttcactttacatgtt
+            atggatctcgtgttccaacatattttgaagaagggtggtgttgaagcgcaacaggctgaa
+            aatgaagaaaaggccaagatattatatgaggcattggatgcaaattcagatttttacaac
+            gttccagtggatccaaagtgtagatcaaaaatgaatgtcgttttcacccttaaaaaggac
+            ggccttgatgaccagtttctaaaagaggcagctgctcgtcatttaaccggtttgaaagga
+            catcgttcagttggtgggttcagagcctccatctataacgcgctttcagtgaaagctgta
+            caaaacttggtagattttatcaaggaatttgctgagaaaaacgcttaa
+///

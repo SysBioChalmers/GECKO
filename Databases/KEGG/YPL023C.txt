@@ -1,0 +1,64 @@
+ENTRY       YPL023C           CDS       T00005
+NAME        MET12
+DEFINITION  methylenetetrahydrofolate reductase (NAD(P)H) MET12 (EC:1.5.1.20)
+ORTHOLOGY   K00297  methylenetetrahydrofolate reductase (NADPH) [EC:1.5.1.20]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00670  One carbon pool by folate
+            sce01100  Metabolic pathways
+            sce01200  Carbon metabolism
+CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
+            Metabolism; Metabolism of cofactors and vitamins; One carbon pool by folate [PATH:sce00670]
+POSITION    XVI:complement(504339..506312)
+MOTIF       Pfam: MTHFR
+DBLINKS     NCBI-GI: 6325234
+            NCBI-GeneID: 856084
+            SGD: S000005944
+            MIPS: YPL023C
+            UniProt: P46151
+AASEQ       657
+            MSIRDLYHARASPFISLEFFPPKTELGTRNLMERMHRMTALDPLFITVTWGAGGTTAEKT
+            LTLASLAQQTLNIPVCMHLTCTNTEKAIIDDALDRCYNAGIRNILALRGDPPIGEDWLDS
+            QSNESPFKYAVDLVRYIKQSYGDKFCVGVAAYPEGHCEGEAEGHEQDPLKDLVYLKEKVE
+            AGADFVITQLFYDVEKFLTFEMLFRERISQDLPLFPGLMPINSYLLFHRAAKLSHASIPP
+            AILSRFPPEIQSDDNAVKSIGVDILIELIQEIYQRTSGRIKGFHFYTLNLEKAIAQIVSQ
+            SPVLSHIVNESSEEEGEDETSGEIGSIENVPIEDADGDIVLDDSNEETVANRKRRRHSSL
+            DSAKLIFNRAIVTEKGLRYNNENGSMPSKKALISISKGHGTLGRDATWDEFPNGRFGDSR
+            SPAYGEIDGYGPSIKVSKSKALELWGIPKTIGDLKDIFIKYLEGSTDAIPWSDLGLSAET
+            ALIQEELIQLNYRGYLTLASQPATNATLSSDKIFGWGPAKGRLYQKAFVEMFIHRQQWET
+            TLKPKLDHYGRRKFSYYAGDSSGSFETNLDPHSSSVVTWGVFPNSPVKQTTIIEEESFKA
+            WRDEAFSIWSEWAKLFPRNTPANILLRLVHKDYCLVSIVHHDFKETDELWEMLLDQA
+NTSEQ       1974
+            atgtccatcagagatttatatcatgcgagggcttccccttttatatcgttagaattcttc
+            cctccaaagactgaattagggacgagaaatttgatggaacgtatgcatcgtatgactgct
+            ttagatccactgtttatcacggttacttggggagcaggtggtactactgcggaaaagact
+            ctgacattagcttccttggcacagcagacactaaatataccagtttgtatgcatttgacc
+            tgtacaaacacagaaaaagccatcattgatgatgcgctggatagatgttataatgcagga
+            atcaggaatattttggctcttcgaggtgacccacctattggggaagattggctagattct
+            caatcgaacgaatcaccttttaaatatgcggttgatttagttcgttatatcaagcaaagc
+            tacggagacaagttctgcgtcggtgttgcagcatatccagaaggtcattgtgaaggtgaa
+            gcagaaggtcacgagcaagacccattgaaggatttggtatatttaaaagaaaaagttgaa
+            gctggggccgattttgtgataacacaactgttttacgacgttgaaaaattcttaactttt
+            gaaatgctatttcgggaacggatttcgcaagatttgccccttttccctgggttgatgcct
+            attaactcctatctgcttttccacagagcagcaaagttatcacatgcatctattccacct
+            gcaatactgagtaggttccccccagaaatccaatcggatgataatgccgtgaagtccatt
+            ggtgtggacattcttatcgaattgattcaggaaatatatcaaagaacatctggtagaatt
+            aaagggtttcatttctatacattaaatttggaaaaggctattgctcaaattgtctcgcaa
+            tctcccgtcttatcccatatcgtaaatgaatctagcgaagaagagggagaagatgaaacc
+            agtggcgaaataggaagcatagaaaatgtgccaatagaagatgctgacggggatattgtg
+            ttggatgattcgaatgaagaaactgtagcaaaccggaaaaggagaaggcattcaagtctt
+            gattcggccaagttgattttcaatagggctatcgtcactgaaaaaggcttacgctataat
+            aatgagaatggttccatgccatctaaaaaggctttaatatctatttctaaaggtcacgga
+            actttgggtcgtgatgccacttgggatgagttccccaatggtagatttggtgactccagg
+            tctcccgcatatggtgaaatagacggttatgggccatccatcaaggtaagcaaaagcaaa
+            gcgcttgaactatggggtataccaaagacaattggcgatttaaaagatatttttataaaa
+            tatttggaaggttcaacggatgcgattccctggtctgacctgggtttatcagctgaaacg
+            gcgttaatacaagaagaactaatccaactaaactatcgcggatatttgactttggcatcg
+            caacctgccacaaatgctacattgagtagtgataaaatattcggctgggggcccgcgaaa
+            gggaggttgtatcagaaggcattcgtagaaatgtttattcatagacagcaatgggaaaca
+            actttgaaacccaagctagaccattacgggcgtcggaaattcagttattacgcgggcgat
+            tcatctggttcatttgaaacgaacctagacccgcacagctctagcgttgtaacatggggt
+            gtttttcccaacagtccggtcaaacagactacaatcattgaagaagagtcattcaaggca
+            tggagagatgaagcgtttagtatctggtccgagtgggccaagttatttccaaggaacacc
+            ccagccaatattcttctaagactagtgcataaagactactgtcttgtctcaattgttcat
+            cacgacttcaaagaaaccgacgagctatgggaaatgttactcgaccaagcctaa
+///

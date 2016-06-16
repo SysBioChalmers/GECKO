@@ -1,0 +1,29 @@
+ENTRY       YER146W           CDS       T00005
+NAME        LSM5
+DEFINITION  Lsm5p
+ORTHOLOGY   K12624  U6 snRNA-associated Sm-like protein LSm5
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03018  RNA degradation
+            sce03040  Spliceosome
+MODULE      sce_M00396  Lsm 2-8 complex
+            sce_M00397  Lsm 1-7 complex
+CLASS       Genetic Information Processing; Transcription; Spliceosome [PATH:sce03040]
+            Genetic Information Processing; Folding, sorting and degradation; RNA degradation [PATH:sce03018]
+POSITION    V:462585..462866
+MOTIF       Pfam: LSM
+DBLINKS     NCBI-GI: 6320994
+            NCBI-GeneID: 856889
+            SGD: S000000948
+            MIPS: YER146W
+            UniProt: P40089
+STRUCTURE   PDB: 4C92 4M7D 4M7A 4M78 4M75 4M77 4C8Q
+AASEQ       93
+            MSLPEILPLEVIDKTINQKVLIVLQSNREFEGTLVGFDDFVNVILEDAVEWLIDPEDESR
+            NEKVMQHHGRMLLSGNNIAILVPGGKKTPTEAL
+NTSEQ       282
+            atgagtctaccggagattttgcctttggaagtcatagataaaacaattaaccagaaagtg
+            ttgattgtgctgcagtcgaaccgcgagttcgagggcacgttagttggtttcgacgacttc
+            gtcaacgttatactggaagacgctgtcgagtggcttatcgatcctgaggacgagagcaga
+            aatgagaaagttatgcagcaccatggcagaatgcttttaagcggcaacaatattgccatc
+            cttgtgccaggcggcaaaaagacccctacggaggcgttgtaa
+///

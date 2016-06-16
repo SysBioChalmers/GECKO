@@ -1,0 +1,47 @@
+ENTRY       YBL013W           CDS       T00005
+NAME        FMT1
+DEFINITION  Fmt1p (EC:2.1.2.9)
+ORTHOLOGY   K00604  methionyl-tRNA formyltransferase [EC:2.1.2.9]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00670  One carbon pool by folate
+            sce00970  Aminoacyl-tRNA biosynthesis
+CLASS       Metabolism; Metabolism of cofactors and vitamins; One carbon pool by folate [PATH:sce00670]
+            Genetic Information Processing; Translation; Aminoacyl-tRNA biosynthesis [PATH:sce00970]
+POSITION    II:202056..203261
+MOTIF       Pfam: Formyl_trans_N Formyl_trans_C
+DBLINKS     NCBI-GI: 41629674
+            NCBI-GeneID: 852270
+            SGD: S000000109
+            MIPS: YBL013W
+            UniProt: P32785
+AASEQ       401
+            MVKMRRITPTRLLFTCRYISNNASPPVQPLNVLFFGSDTFSNFSLQALNELRQNNGSCGI
+            VDNIQVVTRSPKWCGRQKSILKYPPIFDMAEKLQLPRPITCDTKQEMLALSKLTPSRQGN
+            PENDGSGAPFNAIIAVSFGKLIPGDLIRAVPLALNVHPSLLPRHKGSAPIQRALLEGDTY
+            TGVTIQTLHPDRFDHGAIVAQTEPLAIATMLSKGRVNDSTADFNSEGLPRRTAILMDQLG
+            ALGAQLLGQTLRERLYLPQNRVQAPTAYKPSYAHRITTEDKRIHWARDSAAELLNKLETL
+            GPLHAFKEATAARKDAQNSVLKRILFHECKVMRDARLDNGSKPGMFKYDDIKDCILVTCR
+            GNLLLCVSRLQFEGFAVERAGQFMARLRKRCGALSEKLVFL
+NTSEQ       1206
+            atggttaaaatgagaagaataacacctacacgcctcctattcacatgcagatatatttca
+            aacaatgcttctccaccagtgcagcccttgaatgtgcttttctttggtagcgacactttc
+            agtaatttctcattgcaagcactcaatgagttgcgtcaaaataatggaagctgtggtata
+            gtggacaatattcaagtagtaactaggtcgccgaagtggtgcggtagacagaagtctatt
+            ttgaaatacccgccgatcttcgatatggcagagaagcttcaattgccacgcccaattaca
+            tgcgacaccaagcaggaaatgttggcgctaagcaaactgacacccagtcgccaaggaaat
+            ccggagaacgacggctccggtgctccgttcaacgcgatcattgcggtttcttttgggaag
+            ctcattccgggtgacttgatccgcgcggtgccattggcgctaaacgtccatccttcgcta
+            cttcccagacataaaggcagtgcacctatccagcgagctctgctcgagggtgacacttac
+            accggtgtaactatacagacactgcatccggatcggtttgaccatggtgcaattgtagcg
+            cagacggagccactggcgatcgcaacaatgctgtcaaaagggagagtcaatgattcgacg
+            gcagattttaattctgagggcctgcctcggaggactgccatactgatggaccagttgggc
+            gcccttggcgcccaacttttgggccaaacgcttcgtgagaggttatatctaccacagaac
+            cgtgtgcaagcgccaacagcttacaaacccagttacgcccaccgtataacaacagaagat
+            aaacgcattcattgggcgcgcgattctgccgccgaactacttaacaaactcgaaacgctc
+            ggtcctctgcacgcgttcaaagaagcgacagcggcaagaaaggacgctcaaaattcagta
+            ttaaaacgaatattgtttcatgagtgtaaagtgatgagagacgcacgtctagataatggc
+            agtaaaccgggcatgttcaaatatgatgatattaaagactgtattttggtcacctgtcgc
+            ggcaacttactactatgtgtgagccgcctccagttcgaaggtttcgccgtagaacgtgct
+            ggccagttcatggcgcgcctgcggaaaagatgcggcgccctgagtgaaaagttagttttc
+            ctgtaa
+///

@@ -1,0 +1,60 @@
+ENTRY       YDR294C           CDS       T00005
+NAME        DPL1, BST1
+DEFINITION  sphinganine-1-phosphate aldolase DPL1 (EC:4.1.2.27)
+ORTHOLOGY   K01634  sphinganine-1-phosphate aldolase [EC:4.1.2.27]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00600  Sphingolipid metabolism
+            sce01100  Metabolic pathways
+MODULE      sce_M00100  Sphingosine degradation
+CLASS       Metabolism; Lipid metabolism; Sphingolipid metabolism [PATH:sce00600]
+POSITION    IV:complement(1050459..1052228)
+MOTIF       Pfam: Pyridoxal_deC Aminotran_5 DegT_DnrJ_EryC1 SLA_LP_auto_ag DUF436
+DBLINKS     NCBI-GI: 6320500
+            NCBI-GeneID: 851888
+            SGD: S000002702
+            MIPS: YDR294C
+            UniProt: Q05567
+STRUCTURE   PDB: 3MC6
+AASEQ       589
+            MSGVSNKTVSINGWYGMPIHLLREEGDFAQFMILTINELKIAIHGYLRNTPWYNMLKDYL
+            FVIFCYKLISNFFYLLKVYGPVRLAVRTYEHSSRRLFRWLLDSPFLRGTVEKEVTKVKQS
+            IEDELIRSDSQLMNFPQLPSNGIPQDDVIEELNKLNDLIPHTQWKEGKVSGAVYHGGDDL
+            IHLQTIAYEKYCVANQLHPDVFPAVRKMESEVVSMVLRMFNAPSDTGCGTTTSGGTESLL
+            LACLSAKMYALHHRGITEPEIIAPVTAHAGFDKAAYYFGMKLRHVELDPTTYQVDLGKVK
+            KFINKNTILLVGSAPNFPHGIADDIEGLGKIAQKYKLPLHVDSCLGSFIVSFMEKAGYKN
+            LPLLDFRVPGVTSISCDTHKYGFAPKGSSVIMYRNSDLRMHQYYVNPAWTGGLYGSPTLA
+            GSRPGAIVVGCWATMVNMGENGYIESCQEIVGAAMKFKKYIQENIPDLNIMGNPRYSVIS
+            FSSKTLNIHELSDRLSKKGWHFNALQKPVALHMAFTRLSAHVVDEICDILRTTVQELKSE
+            SNSKPSPDGTSALYGVAGSVKTAGVADKLIVGFLDALYKLGPGEDTATK
+NTSEQ       1770
+            atgagtggagtatcaaataaaacagtatcaattaatggttggtatggcatgccaattcat
+            ttactaagggaagaaggcgactttgcccagtttatgattctaaccatcaacgaattaaaa
+            atagccatacatggttacctcagaaataccccatggtacaacatgttgaaggattatttg
+            tttgtgatcttttgttacaagctaataagtaattttttttatctgttgaaagtttatggg
+            ccggtgaggttagcagtgagaacatacgagcatagttccagaagattgtttcgttggtta
+            ttggactcaccatttttgaggggtaccgtagaaaaggaagtcacaaaggtcaaacaatcg
+            atcgaagacgaactaattagatcggactctcagttaatgaatttcccacagttgccatcc
+            aatgggatacctcaggatgatgttattgaagagctaaataaattgaacgacttgatacca
+            catacccaatggaaggaaggaaaggtctctggtgccgtttaccacggtggtgatgatttg
+            atccacttacaaacaatcgcatacgaaaaatattgcgttgccaatcaattacatcccgat
+            gtctttcctgccgtacgtaaaatggaatccgaagtggtttctatggttttaagaatgttt
+            aatgccccttctgatacaggttgtggtaccacaacttcaggtggtacagaatccttgctt
+            ttagcatgtctgagcgctaaaatgtatgcccttcatcatcgtggaatcaccgaaccagaa
+            ataattgctcccgtaactgcacatgctgggtttgacaaagctgcttattactttggcatg
+            aagctacgccacgtggagctagatccaacgacatatcaagtggacctgggaaaagtgaaa
+            aaattcatcaataagaacacaattttactggtcggttccgctccaaactttcctcatggt
+            attgccgatgatattgaaggattgggtaaaatagcacaaaaatataaacttcctttacac
+            gtcgacagttgtctaggttcctttattgtttcatttatggaaaaggctggttacaaaaat
+            ctgccattacttgactttagagtcccgggagtcacctcaatatcatgtgacactcataaa
+            tatggatttgcaccaaaaggctcgtcagttataatgtatagaaacagcgacttacgaatg
+            catcagtattacgtaaatcctgcttggactggcgggttatatggctctcctacattagca
+            gggtccaggcctggtgctattgtcgtaggttgttgggccactatggtcaacatgggtgaa
+            aatgggtacattgagtcgtgccaagaaatagtcggtgcagcaatgaagtttaaaaaatac
+            atccaggaaaacattccagacctgaatataatgggcaaccctagatattcagtcatttca
+            ttttcttcaaagaccttgaacatacacgaactatctgacaggttgtccaagaaaggctgg
+            catttcaatgccctacaaaagccggttgcactacacatggccttcacgagattgagcgct
+            catgttgtggatgagatctgcgacattttacgtactaccgtgcaagagttgaagagcgaa
+            tcaaattctaaaccatccccagacggaactagcgctctatatggtgtcgccgggagcgtt
+            aaaactgctggcgttgcagacaaattgattgtgggattcctagacgcattatacaagttg
+            ggtccaggagaggataccgccaccaagtag
+///

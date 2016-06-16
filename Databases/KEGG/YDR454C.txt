@@ -1,0 +1,34 @@
+ENTRY       YDR454C           CDS       T00005
+NAME        GUK1, PUR5
+DEFINITION  guanylate kinase (EC:2.7.4.8)
+ORTHOLOGY   K00942  guanylate kinase [EC:2.7.4.8]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00230  Purine metabolism
+            sce01100  Metabolic pathways
+MODULE      sce_M00050  Guanine ribonucleotide biosynthesis IMP => GDP,GTP
+CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
+POSITION    IV:complement(1366264..1366827)
+MOTIF       Pfam: Guanylate_kin AAA_33 AAA_22 AAA_18 AAA_16 AAA_17 AAA_14 AAA Miro RNA_helicase ABC_tran AAA_28 DUF258 MMR_HSR1 Arch_ATPase AAA_19 T2SE NACHT AAA_2 DUF2075 AAA_10 AAA_29 AAA_30 NTPase_1 AAA_24 Viral_helicase1 KAP_NTPase Rad17 AAA_5 AAA_23 Parvo_NS1 AAA_25 MobB cobW Thymidylate_kin AAA_21
+DBLINKS     NCBI-GI: 6320662
+            NCBI-GeneID: 852065
+            SGD: S000002862
+            MIPS: YDR454C
+            UniProt: P15454
+STRUCTURE   PDB: 1EX7 1GKY 1EX6 4F4J
+AASEQ       187
+            MSRPIVISGPSGTGKSTLLKKLFAEYPDSFGFSVSSTTRTPRAGEVNGKDYNFVSVDEFK
+            SMIKNNEFIEWAQFSGNYYGSTVASVKQVSKSGKTCILDIDMQGVKSVKAIPELNARFLF
+            IAPPSVEDLKKRLEGRGTETEESINKRLSAAQAELAYAETGAHDKVIVNDDLDKAYKELK
+            DFIFAEK
+NTSEQ       564
+            atgtcccgtcctatcgtaatttctggcccaagtggtacaggtaaatctacactgttgaag
+            aaattgttcgctgaatacccagattctttcgggtttagtgtttcatccactactagaacc
+            ccaagagctggcgaagtaaacggtaaggactataactttgtctccgtagatgaattcaaa
+            tctatgattaagaacaatgaattcattgaatgggcgcaattctccggtaactactatggt
+            agtactgtcgcttccgtcaaacaagtcagtaaatctggtaagacttgtattttagatatt
+            gatatgcagggtgtcaaatctgtcaaggctatcccagagttaaatgccaggtttttgttt
+            attgctccaccatcggtcgaggatttgaaaaaaagattagaaggtagaggtacggagacc
+            gaagaatccatcaacaagaggttaagcgccgctcaagctgaattggcatatgctgagaca
+            ggtgcccatgacaaagttattgtcaatgatgatttggacaaggcctacaaggaattgaag
+            gattttatctttgcagaaaaatga
+///

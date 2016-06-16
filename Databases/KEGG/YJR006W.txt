@@ -1,0 +1,64 @@
+ENTRY       YJR006W           CDS       T00005
+NAME        POL31, HUS2, HYS2, SDP5
+DEFINITION  Pol31p (EC:2.7.7.7)
+ORTHOLOGY   K02328  DNA polymerase delta subunit 2
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00230  Purine metabolism
+            sce00240  Pyrimidine metabolism
+            sce01100  Metabolic pathways
+            sce03030  DNA replication
+            sce03410  Base excision repair
+            sce03420  Nucleotide excision repair
+            sce03430  Mismatch repair
+            sce03440  Homologous recombination
+CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
+            Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
+            Genetic Information Processing; Replication and repair; DNA replication [PATH:sce03030]
+            Genetic Information Processing; Replication and repair; Base excision repair [PATH:sce03410]
+            Genetic Information Processing; Replication and repair; Nucleotide excision repair [PATH:sce03420]
+            Genetic Information Processing; Replication and repair; Mismatch repair [PATH:sce03430]
+            Genetic Information Processing; Replication and repair; Homologous recombination [PATH:sce03440]
+POSITION    X:449202..450665
+MOTIF       Pfam: DNA_pol_E_B
+DBLINKS     NCBI-GI: 6322465
+            NCBI-GeneID: 853462
+            SGD: S000003766
+            MIPS: YJR006W
+            UniProt: P46957
+AASEQ       487
+            MDALLTKFNEDRSLQDENLSQPRTRVRIVDDNLYNKSNPFQLCYKKRDYGSQYYHIYQYR
+            LKTFRERVLKECDKRWDAGFTLNGQLVLKKDKVLDIQGNQPCWCVGSIYCEMKYKPNVLD
+            EVINDTYGAPDLTKSYTDKEGGSDEIMLEDESGRVLLVGDFIRSTPFITGVVVGILGMEA
+            EAGTFQVLDICYPTPLPQNPFPAPIATCPTRGKIALVSGLNLNNTSPDRLLRLEILREFL
+            MGRINNKIDDISLIGRLLICGNSVDFDIKSVNKDELMISLTEFSKFLHNILPSISVDIMP
+            GTNDPSDKSLPQQPFHKSLFDKSLESYFNGSNKEILNLVTNPYEFSYNGVDVLAVSGKNI
+            NDICKYVIPSNDNGESENKVEEGESNDFKDDIEHRLDLMECTMKWQNIAPTAPDTLWCYP
+            YTDKDPFVLDKWPHVYIVANQPYFGTRVVEIGGKNIKIISVPEFSSTGMIILLDLETLEA
+            ETVKIDI
+NTSEQ       1464
+            atggacgcattgttaacaaagttcaacgaggatagaagtctccaagatgaaaacttgtcc
+            caaccacgaacgagagtaagaattgttgacgacaatctttacaacaaatcgaatccattc
+            caactatgctataaaaaacgtgactacggttctcagtactaccacatttatcaataccgt
+            ctaaagactttcagagaacgcgtcttaaaagaatgtgacaagagatgggatgcgggcttt
+            accttgaatggccaattagttctaaaaaaggacaaagtgttagatattcagggaaaccaa
+            ccatgttggtgcgtaggatccatatattgcgagatgaaatataaaccaaacgtactggac
+            gaagtgatcaatgatacatatggtgcaccagatttaactaaaagttatactgataaagag
+            ggtggttctgatgaaattatgctcgaagatgaaagtgggagagtgcttctagtgggagat
+            tttattcggtctacacccttcatcacgggtgttgttgtaggtatactgggtatggaagct
+            gaagccgggacatttcaagttttagacatatgctaccccactcctttaccacaaaatcct
+            ttccctgcaccaattgctacctgccccaccaggggaaaaattgctcttgtttctgggtta
+            aacctcaataatacatcacctgataggctattgagattggagattttgagagaatttttg
+            atggggagaatcaataacaaaattgacgacatttctctaattggtagattactgatatgc
+            ggcaactctgttgacttcgacattaaaagcgtgaacaaagacgaattgatgatttctcta
+            actgagttcagtaaatttctacacaacattttgccatctatatctgttgatattatgccc
+            ggaaccaatgatccaagtgacaaatctctaccgcaacagcctttccacaaatcattgttt
+            gataagtccctagaatcatacttcaacggttctaacaaagaaattttgaatttagtgacc
+            aacccatatgagtttagctataatggcgtagacgttctagccgtttcaggcaaaaatatc
+            aatgatatttgtaaatacgtaataccatcaaatgataacggagaaagtgaaaacaaggtc
+            gaggagggcgagagtaatgatttcaaagacgatatagagcatcgcctggaccttatggaa
+            tgtacaatgaaatggcaaaacatcgcgcccaccgcacctgataccttatggtgttatccg
+            tacactgataaggatccatttgtattggataagtggccccacgtttacattgtggcaaac
+            cagccatattttggaacaagagtagtggaaataggtggtaagaacataaagataatatct
+            gtccctgaattcagttctactgggatgataatattactggatttggaaacgttagaagca
+            gagacggtcaagattgacatttaa
+///

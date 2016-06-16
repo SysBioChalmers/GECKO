@@ -1,0 +1,35 @@
+ENTRY       YEL038W           CDS       T00005
+NAME        UTR4
+DEFINITION  putative acireductone synthase UTR4 (EC:3.1.3.77)
+ORTHOLOGY   K09880  enolase-phosphatase E1 [EC:3.1.3.77]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00270  Cysteine and methionine metabolism
+MODULE      sce_M00034  Methionine salvage pathway
+CLASS       Metabolism; Amino acid metabolism; Cysteine and methionine metabolism [PATH:sce00270]
+POSITION    V:80462..81145
+MOTIF       Pfam: HAD_2
+DBLINKS     NCBI-GI: 99030924
+            NCBI-GeneID: 856673
+            SGD: S000000764
+            MIPS: YEL038W
+            UniProt: P32626
+STRUCTURE   PDB: 2G80
+AASEQ       227
+            MGDNYSTYLLDIEGTVCPISFVKETLFPYFTNKVPQLVQQDTRDSPVSNILSQFHIDNKE
+            QLQAHILELVAKDVKDPILKQLQGYVWAHGYESGQIKAPVYADAIDFIKRKKRVFIYSSG
+            SVKAQKLLFGYVQDPNAPAHDSLDLNSYIDGYFDINTSGKKTETQSYANILRDIGAKASE
+            VLFLSDNPLELDAAAGVGIATGLASRPGNAPVPDGQKYQVYKNFETL
+NTSEQ       684
+            atgggagacaattactcgacttacttgcttgatattgaagggacagtgtgcccgatctcg
+            ttcgtgaaggagactttattcccttatttcacgaataaagtgccgcaattggttcaacag
+            gatacaagggactccccggtttccaacattctgtcgcagtttcacatcgacaataaggag
+            cagttgcaggcgcatattttggagttggtggccaaggatgtgaaggatccaatcttgaaa
+            cagttgcaaggctacgtctgggctcacggatacgaatctgggcagattaaggcgcccgtt
+            tatgcagatgctattgactttatcaagaggaagaagcgtgtgtttatctactctagtgga
+            tctgtaaaggcacagaaattgctgttcgggtatgttcaggatcccaacgcgcctgcgcat
+            gattcgttggatttgaattcttatatagatggttatttcgacatcaacacttctggaaag
+            aaaaccgaaacacagtcttacgccaacatcttgcgggatatcggtgcgaaggctagcgag
+            gtactgttcttgagcgataatccattggaattggacgcagcggccggcgttggaatagct
+            actgggttagcttcccgacctggtaatgcacctgtccccgatgggcaaaagtaccaggta
+            tacaagaattttgaaactctttaa
+///

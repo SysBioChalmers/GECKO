@@ -1,0 +1,48 @@
+ENTRY       YDR021W           CDS       T00005
+NAME        FAL1
+DEFINITION  Fal1p (EC:3.6.4.13)
+ORTHOLOGY   K13025  ATP-dependent RNA helicase [EC:3.6.4.13]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03013  RNA transport
+            sce03015  mRNA surveillance pathway
+            sce03040  Spliceosome
+CLASS       Genetic Information Processing; Transcription; Spliceosome [PATH:sce03040]
+            Genetic Information Processing; Translation; RNA transport [PATH:sce03013]
+            Genetic Information Processing; Translation; mRNA surveillance pathway [PATH:sce03015]
+POSITION    IV:486804..488003
+MOTIF       Pfam: DEAD Helicase_C AAA_19 AAA_22 AAA_30 Helicase_RecD PhoH CobA_CobO_BtuR CMS1 ResIII Helicase_C_2 Flavi_DEAD
+DBLINKS     NCBI-GI: 398365053
+            NCBI-GeneID: 851584
+            SGD: S000002428
+            MIPS: YDR021W
+            UniProt: Q12099
+AASEQ       399
+            MSFDREEDQKLKFKTSKKLKVSSTFESMNLKDDLLRGIYSYGFEAPSSIQSRAITQIISG
+            KDVIAQAQSGTGKTATFTIGLLQAIDLRKKDLQALILSPTRELASQIGQVVKNLGDYMNV
+            NAFAITGGKTLKDDLKKMQKHGCQAVSGTPGRVLDMIKKQMLQTRNVQMLVLDEADELLS
+            ETLGFKQQIYDIFAKLPKNCQVVVVSATMNKDILEVTRKFMNDPVKILVKRDEISLEGIK
+            QYVVNVDKEEWKFDTLCDIYDSLTITQCVIFCNTKKKVDWLSQRLIQSNFAVVSMHGDMK
+            QEERDKVMNDFRTGHSRVLISTDVWARGIDVQQVSLVINYDLPEIIENYIHRIGRSGRFG
+            RKGVAINFITKADLAKLREIEKFYSIKINPMPANFAELS
+NTSEQ       1200
+            atgtcgtttgacagagaagaagaccaaaaattgaagtttaaaacatcgaaaaaattaaag
+            gtgtcttctacttttgaaagcatgaatctaaaagatgacttacttcgaggaatatactca
+            tacggttttgaagcaccatcctctatccaatcaagggctattacacagattatttcgggc
+            aaggacgttatagcacaagcacaatcaggtacaggtaagacagcaacttttacaatcggc
+            cttttacaagctattgatttaaggaagaaagatttacaagctctaatactatctccaaca
+            cgtgaattagcaagccaaattgggcaagtagtaaaaaatctaggggattatatgaatgtc
+            aatgcatttgccattacaggtggtaaaactttgaaagacgacctgaagaaaatgcaaaag
+            catggttgccaggccgttagcggaacaccaggaagagtattagacatgattaagaaacaa
+            atgttgcaaacaagaaatgttcaaatgttagttttagatgaggctgatgaattattgagt
+            gagacactaggtttcaagcaacaaatatacgatatttttgcaaaattgcctaaaaattgc
+            caagttgttgttgtcagcgcaacaatgaataaggacattttagaagtaaccagaaaattt
+            atgaatgatccagttaaaatcctagtgaagagggatgaaatatcacttgaaggtatcaaa
+            caatatgtcgttaatgttgacaaagaagagtggaaattcgatactctgtgtgatatatac
+            gattctttgaccattacacaatgtgtgatattctgtaacaccaagaaaaaagtagattgg
+            ttatctcagcggctaatccaatcaaactttgctgtagtctccatgcatggtgatatgaaa
+            caagaagaaagagataaagtaatgaatgattttagaacaggtcattctcgtgtactgata
+            tcgacggatgtttgggcgcgcggtattgatgtccaacaagtttctttagtcattaactat
+            gacctaccagaaataatagaaaattacatccatcgtatcggtagaagtggtcgatttggt
+            agaaagggtgtggctataaacttcattaccaaagctgatttagcaaaacttagagaaatt
+            gaaaaattctattctatcaaaataaatccgatgccagcaaattttgcagaattatcataa
+///

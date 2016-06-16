@@ -1,0 +1,55 @@
+ENTRY       YIL116W           CDS       T00005
+NAME        HIS5
+DEFINITION  histidinol-phosphate transaminase (EC:2.6.1.9)
+ORTHOLOGY   K00817  histidinol-phosphate aminotransferase [EC:2.6.1.9]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00340  Histidine metabolism
+            sce00350  Tyrosine metabolism
+            sce00360  Phenylalanine metabolism
+            sce00400  Phenylalanine, tyrosine and tryptophan biosynthesis
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01230  Biosynthesis of amino acids
+MODULE      sce_M00026  Histidine biosynthesis, PRPP => histidine
+CLASS       Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
+            Metabolism; Amino acid metabolism; Histidine metabolism [PATH:sce00340]
+            Metabolism; Amino acid metabolism; Tyrosine metabolism [PATH:sce00350]
+            Metabolism; Amino acid metabolism; Phenylalanine metabolism [PATH:sce00360]
+            Metabolism; Amino acid metabolism; Phenylalanine, tyrosine and tryptophan biosynthesis [PATH:sce00400]
+POSITION    IX:142928..144085
+MOTIF       Pfam: Aminotran_1_2 Alliinase_C GATase_5
+DBLINKS     NCBI-GI: 6322075
+            NCBI-GeneID: 854690
+            SGD: S000001378
+            MIPS: YIL116W
+            UniProt: P07172
+AASEQ       385
+            MVFDLKRIVRPKIYNLEPYRCARDDFTEGILLDANENAHGPTPVELSKTNLHRYPDPHQL
+            EFKTAMTKYRNKTSSYANDPEVKPLTADNLCLGVGSDESIDAIIRACCVPGKEKILVLPP
+            TYSMYSVCANINDIEVVQCPLTVSDGSFQMDTEAVLTILKNDSLIKLMFVTSPGNPTGAK
+            IKTSLIEKVLQNWDNGLVVVDEAYVDFCGGSTAPLVTKYPNLVTLQTLSKSFGLAGIRLG
+            MTYATAELARILNAMKAPYNISSLASEYALKAVQDSNLKKMEATSKIINEEKMRLLKELT
+            ALDYVDDQYVGGLDANFLLIRINGGDNVLAKKLYYQLATQSGVVVRFRGNELGCSGCLRI
+            TVGTHEENTHLIKYFKETLYKLANE
+NTSEQ       1158
+            atggtttttgatttgaaaagaattgttagaccaaaaatttataacttggaaccttatcgc
+            tgtgcaagagatgatttcaccgagggtatattgctagacgccaatgaaaatgcccatgga
+            cctactccagttgaattgagcaagaccaatttacatcgttacccggatcctcaccaattg
+            gaattcaagaccgcaatgacgaaatacaggaacaaaacaagcagttatgccaatgaccca
+            gaggtaaaacctttaactgctgacaatctgtgcctaggtgtgggatctgatgagagtatt
+            gatgctattattagagcatgctgtgttcccgggaaagaaaagattctggttcttccacca
+            acatattctatgtactctgtttgtgcaaacattaatgatatagaagtcgtccaatgtcct
+            ttaactgtttccgacggttcttttcaaatggataccgaagctgtattaaccattttgaaa
+            aacgactcgctaattaagttgatgttcgttacttcaccaggtaatccaaccggagccaaa
+            attaagaccagtttaatcgaaaaggtcttacagaattgggacaatgggttagtcgttgtt
+            gatgaagcttacgtagatttttgtggtggctctacagctccactagtcaccaagtatcct
+            aacttggttactttgcaaactctatccaagtcattcggtttagccgggattaggttgggt
+            atgacatatgcaacagcagagttggccagaattttaaatgcaatgaaggcgccttataat
+            atttcctccctagcctctgaatatgcactaaaagctgttcaagacagtaatctaaagaag
+            atggaagccacttcgaaaataatcaatgaagagaaaatgcgcctcttaaaggaattaact
+            gctttggattacgttgatgaccaatatgttggtggattagatgctaattttcttttaata
+            cggatcaacgggggtgacaatgtcttggcaaagaagttatattaccaattggctactcaa
+            tctggggttgtcgtcagatttagaggtaacgaattaggctgttccggatgtttgagaatt
+            accgttggaacccatgaggagaacacacatttgataaagtacttcaaggagacgttatat
+            aagctggccaatgaataa
+///

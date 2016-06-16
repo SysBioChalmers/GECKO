@@ -1,0 +1,36 @@
+ENTRY       YOL133W           CDS       T00005
+NAME        HRT1, HRT2, RBX1, ROC1
+DEFINITION  SCF ubiquitin ligase complex subunit HRT1
+ORTHOLOGY   K03868  RING-box protein 1
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03420  Nucleotide excision repair
+            sce04111  Cell cycle - yeast
+            sce04120  Ubiquitin mediated proteolysis
+            sce04141  Protein processing in endoplasmic reticulum
+MODULE      sce_M00379  SCF-MET30 complex
+            sce_M00407  SCF-CDC4 complex
+            sce_M00411  SCF-GRR1 complex
+CLASS       Genetic Information Processing; Folding, sorting and degradation; Protein processing in endoplasmic reticulum [PATH:sce04141]
+            Genetic Information Processing; Folding, sorting and degradation; Ubiquitin mediated proteolysis [PATH:sce04120]
+            Genetic Information Processing; Replication and repair; Nucleotide excision repair [PATH:sce03420]
+            Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
+POSITION    XV:70325..70690
+MOTIF       Pfam: zf-rbx1 zf-Apc11 zf-RING_2 zf-C3HC4 zf-C3HC4_2 zf-Nse zf-RING_UBOX zf-C3HC4_4
+DBLINKS     NCBI-GI: 6324438
+            NCBI-GeneID: 853986
+            SGD: S000005493
+            MIPS: YOL133W
+            UniProt: Q08273
+AASEQ       121
+            MSNEVDRMDVDEDESQNIAQSSNQSAPVETKKKRFEIKKWTAVAFWSWDIAVDNCAICRN
+            HIMEPCIECQPKAMTDTDNECVAAWGVCNHAFHLHCINKWIKTRDACPLDNQPWQLARCG
+            R
+NTSEQ       366
+            atgagcaacgaagttgacaggatggatgttgatgaagatgaatcgcaaaatattgcgcaa
+            agctcaaaccaaagtgcgccagtggaaaccaaaaagaagagatttgaaattaagaaatgg
+            accgcagtggcgttttggtcatgggatatagctgttgacaactgtgctatttgcaggaac
+            catataatggaaccatgcattgaatgccagccaaaggccatgacggacactgataatgaa
+            tgtgtagcagcctggggtgtctgtaatcacgctttccatttgcactgtattaataaatgg
+            atcaagacaagagacgcatgcccattagataaccaaccttggcagttagcaagatgcggt
+            aggtga
+///

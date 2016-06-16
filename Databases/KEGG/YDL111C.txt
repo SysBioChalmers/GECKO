@@ -1,0 +1,39 @@
+ENTRY       YDL111C           CDS       T00005
+NAME        RRP42
+DEFINITION  Rrp42p
+ORTHOLOGY   K12589  exosome complex component RRP42
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03018  RNA degradation
+MODULE      sce_M00390  Exosome, archaea
+            sce_M00391  Exosome, eukaryotes
+CLASS       Genetic Information Processing; Folding, sorting and degradation; RNA degradation [PATH:sce03018]
+POSITION    IV:complement(263313..264110)
+MOTIF       Pfam: RNase_PH RNase_PH_C
+DBLINKS     NCBI-GI: 6320092
+            NCBI-GeneID: 851447
+            SGD: S000002269
+            MIPS: YDL111C
+            UniProt: Q12277
+STRUCTURE   PDB: 4IFD
+AASEQ       265
+            MSLSVAEKSYLYDSLASTPSIRPDGRLPHQFRPIEIFTDFLPSSNGSSRIIASDGSECIV
+            SIKSKVVDHHVENELLQVDVDIAGQRDDALVVETITSLLNKVLKSGSGVDSSKLQLTKKY
+            SFKIFVDVLVISSHSHPVSLISFAIYSALNSTYLPKLISAFDDLEVEELPTFHDYDMVKL
+            DINPPLVFILAVVGNNMLLDPAANESEVANNGLIISWSNGKITSPIRSVALNDSNVKSFK
+            PHLLKQGLAMVEKYAPDVVRSLENL
+NTSEQ       798
+            atgtctctttcggtcgccgaaaagtcgtacctatacgattcactagcaagcacgccttca
+            attaggcccgatggaagactacctcatcaattcagacctatagaaatatttactgacttc
+            ctaccaagttccaatggatcgtccagaattatagctagtgatggaagtgaatgtatcgtg
+            agcattaagtccaaagttgtggatcatcatgtggagaatgaactacttcaggtcgatgta
+            gatatcgcaggccaaagagatgacgcgctggtagtagagacaatcacttctttactgaac
+            aaggttttgaagtctggtagcggagtagattcctcaaagttgcaattgacaaaaaagtac
+            agcttcaaaatatttgtcgatgttctggtcatttcatcacattcacacccagtttcttta
+            atatcctttgctatttattcagcgttgaactccacatacctaccgaaacttatttcagct
+            tttgacgacttagaggtggaagaacttcctacgtttcatgattacgacatggttaagctt
+            gacattaatccgcctttagtgtttatattggccgttgtaggcaacaatatgctattggac
+            cctgcagccaacgaaagcgaagtggccaataatggcctaatcatttcctggtctaatggt
+            aagattacatcacctatcagatcagtagcattgaatgattcaaacgttaaaagctttaaa
+            cctcatttgttgaagcaaggtcttgcaatggtggagaaatacgcccccgacgtagtacga
+            tcactggagaatttataa
+///

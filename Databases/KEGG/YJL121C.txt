@@ -1,0 +1,43 @@
+ENTRY       YJL121C           CDS       T00005
+NAME        RPE1, EPI1, POS18
+DEFINITION  ribulose-phosphate 3-epimerase RPE1 (EC:5.1.3.1)
+ORTHOLOGY   K01783  ribulose-phosphate 3-epimerase [EC:5.1.3.1]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00030  Pentose phosphate pathway
+            sce00040  Pentose and glucuronate interconversions
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01200  Carbon metabolism
+            sce01230  Biosynthesis of amino acids
+MODULE      sce_M00004  Pentose phosphate pathway (Pentose phosphate cycle)
+            sce_M00007  Pentose phosphate pathway, non-oxidative phase, fructose 6P => ribose 5P
+CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
+            Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
+            Metabolism; Carbohydrate metabolism; Pentose phosphate pathway [PATH:sce00030]
+            Metabolism; Carbohydrate metabolism; Pentose and glucuronate interconversions [PATH:sce00040]
+POSITION    X:complement(190374..191090)
+MOTIF       Pfam: Ribul_P_3_epim OMPdecase QRPTase_C PcrB
+DBLINKS     NCBI-GI: 6322341
+            NCBI-GeneID: 853322
+            SGD: S000003657
+            MIPS: YJL121C
+            UniProt: P46969
+AASEQ       238
+            MVKPIIAPSILASDFANLGCECHKVINAGADWLHIDVMDGHFVPNITLGQPIVTSLRRSV
+            PRPGDASNTEKKPTAFFDCHMMVENPEKWVDDFAKCGADQFTFHYEATQDPLHLVKLIKS
+            KGIKAACAIKPGTSVDVLFELAPHLDMALVMTVEPGFGGQKFMEDMMPKVETLRAKFPHL
+            NIQVDGGLGKETIPKAAKAGANVIVAGTSVFTAADPHDVISFMKEEVSKELRSRDLLD
+NTSEQ       717
+            atggtcaaaccaattatagctcccagtatccttgcttctgacttcgccaacttgggttgc
+            gaatgtcataaggtcatcaacgccggcgcagattggttacatatcgatgtcatggacggc
+            cattttgttccaaacattactctgggccaaccaattgttacctccctacgtcgttctgtg
+            ccacgccctggcgatgctagcaacacagaaaagaagcccactgcgttcttcgattgtcac
+            atgatggttgaaaatcctgaaaaatgggtcgacgattttgctaaatgtggtgctgaccaa
+            tttacgttccactacgaggccacacaagaccctttgcatttagttaagttgattaagtct
+            aagggcatcaaagctgcatgcgccatcaaacctggtacttctgttgacgttttatttgaa
+            ctagctcctcatttggatatggctcttgttatgactgtggaacctgggtttggaggccaa
+            aaattcatggaagacatgatgccaaaagtggaaactttgagagccaagttcccccatttg
+            aatatccaagtcgatggtggtttgggcaaggagaccatcccgaaagccgccaaagccggt
+            gccaacgttattgtcgctggtaccagtgttttcactgcagctgacccgcacgatgttatc
+            tccttcatgaaagaagaagtctcgaaggaattgcgttctagagatttgctagattag
+///

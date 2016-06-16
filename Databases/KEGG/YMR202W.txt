@@ -1,0 +1,35 @@
+ENTRY       YMR202W           CDS       T00005
+NAME        ERG2, END11
+DEFINITION  C-8 sterol isomerase ERG2 (EC:5.-.-.-)
+ORTHOLOGY   K09829  C-8 sterol isomerase [EC:5.-.-.-]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00100  Steroid biosynthesis
+            sce01100  Metabolic pathways
+MODULE      sce_M00102  Ergocalciferol biosynthesis
+CLASS       Metabolism; Lipid metabolism; Steroid biosynthesis [PATH:sce00100]
+POSITION    XIII:667537..668205
+MOTIF       Pfam: ERG2_Sigma1R
+DBLINKS     NCBI-GI: 6323858
+            NCBI-GeneID: 855242
+            SGD: S000004815
+            MIPS: YMR202W
+            UniProt: P32352
+AASEQ       222
+            MKFFPLLLLIGVVGYIMNVLFTTWLPTNYMFDPKTLNEICNSVISKHNAAEGLSTEDLLQ
+            DVRDALASHYGDEYINRYVKEEWVFNNAGGAMGQMIILHASVSEYLILFGTAVGTEGHTG
+            VHFADDYFTILHGTQIAALPYATEAEVYTPGMTHHLKKGYAKQYSMPGGSFALELAQGWI
+            PCMLPFGFLDTFSSTLDLYTLYRTVYLTARDMGKNLLQNKKF
+NTSEQ       669
+            atgaagtttttcccactccttttgttgattggtgttgtaggctacattatgaacgtattg
+            ttcactacctggttgccaaccaattacatgttcgatccaaaaactttgaacgaaatatgt
+            aactcggtgattagcaaacacaacgcagcagaaggtttatccactgaagacctgttacag
+            gatgtcagagacgcacttgcctctcattacggggacgaatacatcaacaggtacgtcaaa
+            gaagaatgggtcttcaacaatgctggtggtgcgatgggccaaatgatcatcctacacgct
+            tccgtatccgagtacttaattctattcggaaccgctgttggtactgaagggcacacaggt
+            gttcactttgctgacgactattttaccatcttacatggtacgcaaatcgcagcattgcca
+            tatgccactgaagccgaagtttacactcctggtatgactcatcacttgaagaagggatac
+            gccaagcaatacagcatgccaggtggttcctttgcccttgaattggctcaaggctggatt
+            ccatgtatgttgccattcgggtttttggacactttctccagtactcttgatttatacact
+            ctatatagaactgtctacctgactgccagggacatgggtaagaacttgttgcaaaacaaa
+            aagttctaa
+///

@@ -1,0 +1,50 @@
+ENTRY       YHL002W           CDS       T00005
+NAME        HSE1
+DEFINITION  Hse1p
+ORTHOLOGY   K04705  signal transducing adaptor molecule
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04144  Endocytosis
+MODULE      sce_M00408  ESCRT-0 complex
+CLASS       Cellular Processes; Transport and catabolism; Endocytosis [PATH:sce04144]
+POSITION    VIII:102612..103970
+MOTIF       Pfam: VHS SH3_1 SH3_9 SH3_2 UIM
+DBLINKS     NCBI-GI: 6321785
+            NCBI-GeneID: 856387
+            SGD: S000000994
+            MIPS: YHL002W
+            UniProt: P38753
+STRUCTURE   PDB: 2PJW
+AASEQ       452
+            MSSSAIKIRNALLKATDPKLRSDNWQYILDVCDLVKEDPEDNGQEVMSLIEKRLEQQDAN
+            VILRTLSLTVSLAENCGSRLRQEISSKNFTSLLYALIESHSVHITLKKAVTDVVKQLSDS
+            FKDDPSLRAMGDLYDKIKRKAPYLVQPNVPEKHNMSTQADNSDDEELQKALKMSLFEYEK
+            QKKLQEQEKESAEVLPQQQQQHQQQNQAPAHKIPAQTVVRRVRALYDLTTNEPDELSFRK
+            GDVITVLEQVYRDWWKGALRGNMGIFPLNYVTPIVEPSKEEIEKEKNKEAIVFSQKTTID
+            QLHNSLNAASKTGNSNEVLQDPHIGDMYGSVTPLRPQVTRMLGKYAKEKEDMLSLRQVLA
+            NAERSYNQLMDRAANAHISPPVPGPALYAGMTHANNTPVMPPQRQSYQSNEYSPYPSNLP
+            IQHPTNSANNTPQYGYDLGYSVVSQPPPGYEQ
+NTSEQ       1359
+            atgtcatcatctgcgattaaaataaggaatgcactgttgaaggcaacagatcccaagttg
+            agaagtgataactggcaatacattttagatgtttgcgatttggtgaaggaagatcccgaa
+            gataatggacaagaggttatgtctcttatagagaagaggctagaacaacaggatgctaac
+            gtgatcttaagaaccctctctttgacggtatctttggcagaaaattgtggttcccgctta
+            agacaggaaattagttcaaaaaattttacctctttgttatatgcgctcatcgagagccat
+            tctgtacacattactctaaaaaaagcggtgactgatgttgtcaagcaactgtctgattca
+            ttcaaggatgacccatcattacgcgccatgggagatctatatgacaaaattaaaagaaag
+            gctccatatttggtacagcctaatgtaccagagaagcataacatgagtacccaggcagac
+            aactcagatgatgaggaattacaaaaagcactaaaaatgtctttgtttgagtacgaaaag
+            caaaaaaagctacaagaacaggaaaaagaaagtgccgaagtccttccgcagcaacagcag
+            cagcatcagcagcagaatcaagctcctgctcacaaaataccggcacaaaccgttgtgaga
+            agagttcgggctctatatgacttaaccacaaacgaaccggatgaattgtcctttaggaag
+            ggcgatgttattacagtgctggaacaagtatatagagattggtggaagggagctcttcga
+            ggaaatatgggtatatttccattaaattatgtaacaccgattgttgagccatcgaaagaa
+            gaaattgagaaggaaaaaaataaggaagccatagtattctctcaaaaaactaccatagat
+            caacttcataattcgcttaatgcagcttctaaaacgggaaattcaaatgaagttttgcaa
+            gatcctcatattggagatatgtacggatctgtaacgcctttgagacctcaagttacgaga
+            atgttaggtaaatatgctaaagaaaaagaagacatgttatccctgcgtcaagtcttagca
+            aatgcagaacgctcatataatcaactaatggatcgtgcagctaacgcacatatctcacca
+            ccagttccaggccctgcactctacgcaggaatgactcatgctaataatactccagtaatg
+            ccacctcagaggcagagttaccaaagcaatgagtactcaccttacccttctaatttgcca
+            atccaacatcctacgaatagcgcaaataataccccacaatacggttatgatcttggatat
+            tcagttgttagccaaccaccacctggttatgaacaatag
+///

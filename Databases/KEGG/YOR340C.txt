@@ -1,0 +1,47 @@
+ENTRY       YOR340C           CDS       T00005
+NAME        RPA43
+DEFINITION  Rpa43p
+ORTHOLOGY   K03004  DNA-directed RNA polymerase I subunit RPA43
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00230  Purine metabolism
+            sce00240  Pyrimidine metabolism
+            sce01100  Metabolic pathways
+            sce03020  RNA polymerase
+MODULE      sce_M00182  RNA polymerase I, eukaryotes
+CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
+            Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
+            Genetic Information Processing; Transcription; RNA polymerase [PATH:sce03020]
+POSITION    XV:complement(959202..960182)
+MOTIF       Pfam: SHS2_Rpb7-N RicinB_lectin_2
+DBLINKS     NCBI-GI: 6324916
+            NCBI-GeneID: 854518
+            SGD: S000005867
+            MIPS: YOR340C
+            UniProt: P46669
+STRUCTURE   PDB: 4C2M 4C3I 2RF4 4C3H 4C3J
+AASEQ       326
+            MSQVKRANENRETARFIKKHKKQVTNPIDEKNGTSNCIVRVPIALYVSLAPMYLENPLQG
+            VMKQHLNPLVMKYNNKVGGVVLGYEGLKILDADPLSKEDTSEKLIKITPDTPFGFTWCHV
+            NLYVWQPQVGDVLEGYIFIQSASHIGLLIHDAFNASIKKNNIPVDWTFVHNDVEEDADVI
+            NTDENNGNNNNEDNKDSNGGSNSLGKFSFGNRSLGHWVDSNGEPIDGKLRFTVRNVHTTG
+            RVVSVDGTLISDADEEGNGYNSSRSQAESLPIVSNKKIVFDDEVSIENKESHKELDLPEV
+            KEDNGSEIVYEENTSESNDGESSDSD
+NTSEQ       981
+            atgtcacaagtaaaaagagccaatgagaaccgcgaaaccgcaaggttcatcaagaaacac
+            aaaaaacaggttacaaacccaattgatgagaaaaatggaacttccaactgtatagtgcgt
+            gttcccattgctctctatgtttctttggcaccaatgtatttagaaaatcccttgcaaggt
+            gtcatgaagcagcacttgaacccattagtaatgaaatataacaacaaagttggaggtgtt
+            gtgctaggttatgaagggttgaaaattcttgatgctgatcctttaagcaaagaagataca
+            tcagaaaaactaataaaaatcacacccgataccccttttggatttacttggtgccatgta
+            aacctatacgtttggcagccacaagttggagatgttttggaaggttacattttcattcaa
+            tccgcctcacacattggtcttttgattcatgatgcgtttaatgctagtatcaaaaagaat
+            aatatccctgtggattggacctttgtccataacgacgtggaagaagatgctgacgtgata
+            aacacagatgaaaataatggaaacaataataacgaagataacaaggatagcaatggtgga
+            agcaatagtttgggcaaattttcctttggaaacagatctttgggccactgggtagattct
+            aatggtgaacccattgacggtaaattgaggttcacagtgagaaatgttcatactacagga
+            agagttgtttctgtggacggtacattaataagtgacgccgacgaagaaggcaatggctat
+            aacagctctcgttcccaagctgaaagtttacctatagtttcaaacaaaaaaattgtattt
+            gatgacgaagtttcaatcgaaaacaaagagagccacaaggaactagacttacctgaagta
+            aaagaagataatggttcagagatcgtatacgaggaaaacaccagtgaaagcaatgatggt
+            gaatcgagtgatagtgattag
+///

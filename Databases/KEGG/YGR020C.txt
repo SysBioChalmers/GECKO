@@ -1,0 +1,29 @@
+ENTRY       YGR020C           CDS       T00005
+NAME        VMA7
+DEFINITION  Vma7p (EC:3.6.3.14)
+ORTHOLOGY   K02151  V-type H+-transporting ATPase subunit F [EC:3.6.3.14]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00190  Oxidative phosphorylation
+            sce01100  Metabolic pathways
+            sce04145  Phagosome
+CLASS       Metabolism; Energy metabolism; Oxidative phosphorylation [PATH:sce00190]
+            Cellular Processes; Transport and catabolism; Phagosome [PATH:sce04145]
+POSITION    VII:complement(526973..527329)
+MOTIF       Pfam: ATP-synt_F DUF257
+DBLINKS     NCBI-GI: 6321457
+            NCBI-GeneID: 852903
+            SGD: S000003252
+            MIPS: YGR020C
+            UniProt: P39111
+STRUCTURE   PDB: 4IX9
+AASEQ       118
+            MAEKRTLIAVIADEDTTTGLLLAGIGQITPETQEKNFFVYQEGKTTKEEITDKFNHFTEE
+            RDDIAILLINQHIAENIRARVDSFTNAFPAILEIPSKDHPYDPEKDSVLKRVRKLFGE
+NTSEQ       357
+            atggctgagaaacgtactcttatagctgtgatagctgacgaagatactacaactggttta
+            ttgttagccgggattggacaaatcactcctgaaacccaagaaaagaacttttttgtttac
+            caagaaggtaagactactaaggaggaaatcactgacaagtttaatcactttactgaagag
+            agagacgatattgccatccttctaatcaaccaacatatcgcggaaaacataagagctaga
+            gtggactccttcaccaatgcgttccctgctattttagaaattccatctaaagatcatccc
+            tacgaccctgaaaaggactctgtattgaagagagtcagaaagttgttcggtgagtaa
+///

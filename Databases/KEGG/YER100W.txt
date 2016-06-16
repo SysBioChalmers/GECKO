@@ -1,0 +1,37 @@
+ENTRY       YER100W           CDS       T00005
+NAME        UBC6, DOA2
+DEFINITION  E2 ubiquitin-conjugating protein UBC6 (EC:6.3.2.19)
+ORTHOLOGY   K04554  ubiquitin-conjugating enzyme E2 J2 [EC:6.3.2.19]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04120  Ubiquitin mediated proteolysis
+            sce04141  Protein processing in endoplasmic reticulum
+CLASS       Genetic Information Processing; Folding, sorting and degradation; Protein processing in endoplasmic reticulum [PATH:sce04141]
+            Genetic Information Processing; Folding, sorting and degradation; Ubiquitin mediated proteolysis [PATH:sce04120]
+POSITION    V:359562..360314
+MOTIF       Pfam: UQ_con RWD Prok-E2_B
+DBLINKS     NCBI-GI: 398364639
+            NCBI-GeneID: 856837
+            SGD: S000000902
+            MIPS: YER100W
+            UniProt: P33296
+AASEQ       250
+            MATKQAHKRLTKEYKLMVENPPPYILARPNEDNILEWHYIITGPADTPYKGGQYHGTLTF
+            PSDYPYKPPAIRMITPNGRFKPNTRLCLSMSDYHPDTWNPGWSVSTILNGLLSFMTSDEA
+            TTGSITTSDHQKKTLARNSISYNTFQNVRFKLIFPEVVQENVETLEKRKLDEGDAANTGD
+            ETEDPFTKAAKEKVISLEEILDPEDRIRAEQALRQSENNSKKDGKEPNDSSSMVYIGIAI
+            FLFLVGLFMK
+NTSEQ       753
+            atggctacaaagcaggctcacaagagattgacgaaagagtacaagttgatggtggaaaac
+            cctccaccatatattcttgctcgccccaacgaagataatattttagagtggcactatatt
+            atcacaggacctgcggatactccttacaagggcggtcaatatcacggtactttaactttc
+            ccgtctgattatccatacaaaccaccggctatcagaatgataacaccgaatggacgtttc
+            aagcccaacacacgattatgcctttctatgagtgattaccaccctgatacttggaatcct
+            ggctggtctgtctcaaccattttgaacgggttactaagtttcatgaccagtgatgaagcc
+            acgacaggatcaattacaacatcagaccatcagaagaagacattagcaagaaattccata
+            agttataacacttttcaaaatgttagattcaaattgatttttccggaagttgtacaggaa
+            aatgtagagacattagaaaagagaaaattggatgagggggatgcggcaaatacaggtgat
+            gaaacagaagacccttttacaaaggctgcgaaggaaaaagtcatctcgttggaggaaatt
+            ctagaccctgaagacagaatacgcgctgaacaagcgttgagacaatcagaaaataattcc
+            aagaaagatggcaaagaacctaatgatagttcttcaatggtttatattggtatcgctatt
+            tttttgtttttggttggcctttttatgaaatga
+///

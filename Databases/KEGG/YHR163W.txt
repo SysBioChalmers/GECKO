@@ -1,0 +1,41 @@
+ENTRY       YHR163W           CDS       T00005
+NAME        SOL3
+DEFINITION  6-phosphogluconolactonase SOL3 (EC:3.1.1.31)
+ORTHOLOGY   K01057  6-phosphogluconolactonase [EC:3.1.1.31]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00030  Pentose phosphate pathway
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01200  Carbon metabolism
+MODULE      sce_M00004  Pentose phosphate pathway (Pentose phosphate cycle)
+            sce_M00006  Pentose phosphate pathway, oxidative phase, glucose 6P => ribulose 5P
+CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
+            Metabolism; Carbohydrate metabolism; Pentose phosphate pathway [PATH:sce00030]
+POSITION    VIII:423724..424473
+MOTIF       Pfam: Glucosamine_iso
+DBLINKS     NCBI-GI: 82795254
+            NCBI-GeneID: 856568
+            SGD: S000001206
+            MIPS: YHR163W
+            UniProt: P38858
+AASEQ       249
+            MVTVGVFSERASLTHQLGEFIVKKQDEALQKKSDFKVSVSGGSLIDALYESLVADESLSS
+            RVQWSKWQIYFSDERIVPLTDADSNYGAFKRAVLDKLPSTSQPNVYPMDESLIGSDAESN
+            NKIAAEYERIVPQVLDLVLLGCGPDGHTCSLFPGETHRYLLNETTKRVAWCHDSPKPPSD
+            RITFTLPVLKDAKALCFVAEGSSKQNIMHEIFDLKNDQLPTALVNKLFGEKTSWFVNEEA
+            FGKVQTKTF
+NTSEQ       750
+            atggtgacagtcggtgtgttttctgagagggctagtttgacccatcaattgggggaattc
+            atcgtcaagaaacaagatgaggcgctgcaaaagaagtcagactttaaagtttccgttagc
+            ggtggctctttgatcgatgctctgtatgaaagtttagtagcggacgaatcactatcttct
+            cgagtgcaatggtctaaatggcaaatctacttctctgatgaaagaattgtgccactgacg
+            gacgctgacagcaattatggtgccttcaagagagctgttctagataaattaccctcgact
+            agtcagccaaacgtttatcccatggacgagtccttgattggcagcgatgctgaatctaac
+            aacaaaattgctgcagagtacgagcgtatcgtacctcaagtgcttgatttggtactgttg
+            ggctgtggtcctgatggacacacttgttccttattccctggagaaacacataggtacttg
+            ctgaacgaaacaaccaaaagagttgcttggtgccacgattctcccaagcctccaagtgac
+            agaatcaccttcactctgcctgtgttgaaagacgccaaagccctgtgttttgtggctgag
+            ggcagttccaaacaaaatataatgcatgagatctttgacttgaaaaacgatcaattgcca
+            accgcattggttaacaaattatttggtgaaaaaacatcctggttcgttaatgaggaagct
+            tttggaaaagttcaaacgaaaactttttag
+///

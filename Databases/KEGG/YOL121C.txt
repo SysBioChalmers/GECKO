@@ -1,0 +1,29 @@
+ENTRY       YOL121C           CDS       T00005
+NAME        RPS19A
+DEFINITION  ribosomal 40S subunit protein S19A
+ORTHOLOGY   K02966  small subunit ribosomal protein S19e
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03010  Ribosome
+CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+POSITION    XV:complement(join(92026..92440,92831..92850))
+MOTIF       Pfam: Ribosomal_S19e
+DBLINKS     NCBI-GI: 6324451
+            NCBI-GeneID: 854028
+            SGD: S000005481
+            MIPS: YOL121C
+            UniProt: P07280
+STRUCTURE   PDB: 3U5C 3U5G 3O2Z 3O30 4BYL 4BYT 3IZB
+AASEQ       144
+            MPGVSVRDVAAQDFINAYASFLQRQGKLEVPGYVDIVKTSSGNEMPPQDAEGWFYKRAAS
+            VARHIYMRKQVGVGKLNKLYGGAKSRGVRPYKHIDASGSINRKVLQALEKIGIVEISPKG
+            GRRISENGQRDLDRIAAQTLEEDE
+NTSEQ       435
+            atgccaggtgtttccgttagagacgttgctgctcaagatttcattaatgcttacgcttct
+            ttcttgcaaagacaaggtaagctagaagttccaggttacgttgacattgtcaagacctct
+            tctggtaacgaaatgccaccacaagatgccgaaggttggttctacaagcgtgctgcctct
+            gttgccagacacatttacatgagaaaacaagttggtgttggtaaattgaacaaattatac
+            ggtggtgccaagagcagaggtgttagaccatacaagcacattgacgcttccggttctatc
+            aacagaaaggttttgcaagctttggaaaagattggtatcgtcgaaatctctccaaagggt
+            ggtagaagaatctctgaaaacggtcaaagagatttggatcgtattgccgctcaaactttg
+            gaagaagacgaataa
+///

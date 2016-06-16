@@ -1,0 +1,51 @@
+ENTRY       YBL045C           CDS       T00005
+NAME        COR1, QCR1
+DEFINITION  ubiquinol--cytochrome-c reductase subunit COR1
+ORTHOLOGY   K00414  ubiquinol-cytochrome c reductase core subunit 1
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00190  Oxidative phosphorylation
+            sce01100  Metabolic pathways
+MODULE      sce_M00152  Cytochrome bc1 complex
+CLASS       Metabolism; Energy metabolism; Oxidative phosphorylation [PATH:sce00190]
+POSITION    II:complement(134143..135516)
+MOTIF       Pfam: Peptidase_M16 Peptidase_M16_C
+DBLINKS     NCBI-GI: 6319426
+            NCBI-GeneID: 852235
+            SGD: S000000141
+            MIPS: YBL045C
+            UniProt: P07256
+STRUCTURE   PDB: 3CX5 2IBZ 1KB9 1EZV 3CXH 1P84 1KYO
+AASEQ       457
+            MLRTVTSKTVSNQFKRSLATAVATPKAEVTQLSNGIVVATEHNPSAHTASVGVVFGSGAA
+            NENPYNNGVSNLWKNIFLSKENSAVAAKEGLALSSNISRDFQSYIVSSLPGSTDKSLDFL
+            NQSFIQQKANLLSSSNFEATKKSVLKQVQDFEENDHPNRVLEHLHSTAFQNTPLSLPTRG
+            TLESLENLVVADLESFANNHFLNSNAVVVGTGNIKHEDLVNSIESKNLSLQTGTKPVLKK
+            KAAFLGSEVRLRDDTLPKAWISLAVEGEPVNSPNYFVAKLAAQIFGSYNAFEPASRLQGI
+            KLLDNIQEYQLCDNFNHFSLSYKDSGLWGFSTATRNVTMIDDLIHFTLKQWNRLTISVTD
+            TEVERAKSLLKLQLGQLYESGNPVNDANLLGAEVLIKGSKLSLGEAFKKIDAITVKDVKA
+            WAGKRLWDQDIAIAGTGQIEGLLDYMRIRSDMSMMRW
+NTSEQ       1374
+            atgctaagaacagtaacttcaaagactgtatctaaccagttcaagaggtctttggctaca
+            gctgtagcaacccccaaggccgaagtaacgcaattatctaacggtatagttgtagccact
+            gagcataatccttccgctcacacagcctctgtcggtgttgtcttcggctccggtgctgcc
+            aacgaaaacccttataacaacggggtttccaatttatggaagaacatctttctatccaaa
+            gaaaactctgctgttgccgccaaggaaggtttggcattgtcttccaatatctccagagac
+            ttccaatcttacattgtatcttctttgccaggttctaccgataaatcactagacttcttg
+            aatcagtctttcatccaacaaaaggctaatttgctatcttcttctaacttcgaggccacg
+            aagaaatctgtcttgaagcaagttcaagattttgaagaaaacgaccatcccaacagagtt
+            ttggaacatttacactccaccgccttccaaaacactccattatctttgcctactagaggt
+            actttggagtccttggagaatttagttgttgctgatctggaatcttttgccaataaccat
+            ttcttgaattcaaatgctgttgttgttggtaccggtaatatcaaacatgaggatttagta
+            aattccatcgaatccaaaaacctaagtttgcaaaccggtaccaagcccgtactcaagaaa
+            aaggccgctttcttgggttccgaagttagattgagagacgacaccttgccaaaggcgtgg
+            atttcgctggctgtggaaggtgaacctgtcaattcaccaaattattttgttgctaaatta
+            gccgcccaaattttcggctcatacaacgccttcgaacccgcttctagattacaaggtatc
+            aaattgttagacaacatacaggagtaccaattatgcgacaatttcaatcatttctctctt
+            tcttacaaagattccggtttatgggggttctctacggccacgagaaacgttaccatgatt
+            gacgacctcatccatttcactttgaaacaatggaacagattgaccatttctgtcactgat
+            actgaagttgaacgtgccaaatcgctgttgaaattacaattagggcagttatacgaatct
+            ggtaatcccgtcaatgacgctaacttgttaggcgcagaagtcctaatcaagggctccaaa
+            ctgtctctgggtgaggctttcaagaaaattgatgcaatcacagtcaaagatgttaaggct
+            tgggccggtaagagattatgggaccaagatattgctattgctggtacaggccaaattgaa
+            gggttattagattacatgagaatcagaagtgacatgtccatgatgagatggtaa
+///

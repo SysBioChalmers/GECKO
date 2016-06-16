@@ -1,0 +1,47 @@
+ENTRY       YEL037C           CDS       T00005
+NAME        RAD23
+DEFINITION  Rad23p
+ORTHOLOGY   K10839  UV excision repair protein RAD23
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03420  Nucleotide excision repair
+            sce04141  Protein processing in endoplasmic reticulum
+CLASS       Genetic Information Processing; Folding, sorting and degradation; Protein processing in endoplasmic reticulum [PATH:sce04141]
+            Genetic Information Processing; Replication and repair; Nucleotide excision repair [PATH:sce03420]
+POSITION    V:complement(81407..82603)
+MOTIF       Pfam: UBA ubiquitin XPC-binding Rad60-SLD Rad60-SLD_2 DUF2407 RepB
+DBLINKS     NCBI-GI: 398364251
+            NCBI-GeneID: 856674
+            SGD: S000000763
+            MIPS: YEL037C
+            UniProt: P32628
+STRUCTURE   PDB: 2QSF 3M62 1X3Z 2QSH 1X3W 2QSG 3ESW
+AASEQ       398
+            MVSLTFKNFKKEKVPLDLEPSNTILETKTKLAQSISCEESQIKLIYSGKVLQDSKTVSEC
+            GLKDGDQVVFMVSQKKSTKTKVTEPPIAPESATTPGRENSTEASPSTDASAAPAATAPEG
+            SQPQEEQTATTERTESASTPGFVVGTERNETIERIMEMGYQREEVERALRAAFNNPDRAV
+            EYLLMGIPENLRQPEPQQQTAAAAEQPSTAATTAEQPAEDDLFAQAAQGGNASSGALGTT
+            GGATDAAQGGPPGSIGLTVEDLLSLRQVVSGNPEALAPLLENISARYPQLREHIMANPEV
+            FVSMLLEAVGDNMQDVMEGADDMVEGEDIEVTGEAAAAGLGQGEGEGSFQVDYTPEDDQA
+            ISRLCELGFERDLVIQVYFACDKNEEAAANILFSDHAD
+NTSEQ       1197
+            atggttagcttaacctttaaaaatttcaagaaggaaaaagttcctttagatctggaacct
+            tcaaacacaattttagagaccaagaccaagcttgctcaatccatttcttgtgaagaatct
+            caaataaaactgatctactcgggtaaagtgctacaagattccaaaaccgtatcggaatgc
+            gggctaaaagatggggaccaagttgtcttcatggtttctcaaaaaaagtccacgaagacc
+            aaagtaacagaacctccaattgctcctgagagcgccactacccccggaagagaaaattct
+            acagaagcatcccccagtacggatgcttctgcagctcctgcagccactgctcccgaaggc
+            tcacaaccgcaagaagaacaaaccgccactacagaacgtactgaatctgcctctacaccg
+            ggattcgtggtgggaaccgagaggaacgagaccatcgagagaatcatggaaatgggctac
+            caaagagaggaagtcgaacgagccttgagagcagcctttaataatccagatagagcggtg
+            gaatatctactgatgggtattccagaaaatctgcgtcaaccggaaccacagcaacaaaca
+            gccgccgcagcggaacaaccatcgacagccgccaccactgcggaacaaccggctgaagac
+            gacttatttgcacaagctgcccaaggcggtaatgcttcatccggtgcgcttggcacaact
+            ggaggagctacagatgctgcgcaaggtggacctccaggttccattggcctcactgtagaa
+            gatttactatcgttgagacaggtcgtttcaggtaacccagaagctttagccccattgttg
+            gaaaacataagtgctagatatcctcaattacgtgaacatatcatggcaaacccagaagtg
+            tttgtgtccatgttgctagaagccgtgggtgacaatatgcaagatgttatggaaggtgcg
+            gatgatatggtggaaggagaggatatagaagttacaggagaggctgctgctgcaggactg
+            ggacaaggtgaaggtgaaggttctttccaagttgactatacccccgaagacgatcaagct
+            atttcgcgcctctgtgaattgggctttgaaagagatcttgttatccaggtgtattttgcg
+            tgcgataaaaacgaagaagctgcagcaaatattctattcagcgatcatgccgactga
+///

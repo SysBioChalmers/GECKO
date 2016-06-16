@@ -1,0 +1,32 @@
+ENTRY       YIR037W           CDS       T00005
+NAME        HYR1, GPX3, ORP1
+DEFINITION  peroxiredoxin HYR1 (EC:1.11.1.15)
+ORTHOLOGY   K00432  glutathione peroxidase [EC:1.11.1.9]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00480  Glutathione metabolism
+            sce00590  Arachidonic acid metabolism
+CLASS       Metabolism; Lipid metabolism; Arachidonic acid metabolism [PATH:sce00590]
+            Metabolism; Metabolism of other amino acids; Glutathione metabolism [PATH:sce00480]
+POSITION    IX:423128..423619
+MOTIF       Pfam: GSHPx AhpC-TSA Redoxin DUF4174 SCO1-SenC
+DBLINKS     NCBI-GI: 6322228
+            NCBI-GeneID: 854855
+            SGD: S000001476
+            MIPS: YIR037W
+            UniProt: P40581
+STRUCTURE   PDB: 3CMI
+AASEQ       163
+            MSEFYKLAPVDKKGQPFPFDQLKGKVVLIVNVASKCGFTPQYKELEALYKRYKDEGFTII
+            GFPCNQFGHQEPGSDEEIAQFCQLNYGVTFPIMKKIDVNGGNEDPVYKFLKSQKSGMLGL
+            RGIKWNFEKFLVDKKGKVYERYSSLTKPSSLSETIEELLKEVE
+NTSEQ       492
+            atgtcagaattctataagctagcacctgttgacaagaaaggccaaccattccccttcgac
+            caattaaagggaaaagtggtgcttatcgttaatgttgcctccaaatgtggattcactcct
+            caatacaaagaactagaggccttgtacaaacgttataaggacgaaggatttaccatcatc
+            gggttcccatgcaaccagtttggccaccaagaacctggctctgatgaagaaattgcccag
+            ttctgccaactgaactatggcgtgactttccccattatgaaaaaaattgacgttaatggt
+            ggcaatgaggaccctgtttacaagtttttgaagagccaaaaatccggtatgttgggcttg
+            agaggtatcaaatggaattttgaaaaattcttagtcgataaaaagggtaaagtgtacgaa
+            agatactcttcactaaccaaaccttcttcgttgtccgaaaccatcgaagaacttttgaaa
+            gaggtggaatag
+///

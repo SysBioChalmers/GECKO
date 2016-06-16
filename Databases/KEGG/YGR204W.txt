@@ -1,0 +1,83 @@
+ENTRY       YGR204W           CDS       T00005
+NAME        ADE3
+DEFINITION  trifunctional formate-tetrahydrofolate ligase/methenyltetrahydrofolate cyclohydrolase/methylenetetrahydrofolate dehydrogenase ADE3 (EC:1.5.1.5 3.5.4.9 6.3.4.3)
+ORTHOLOGY   K00288  methylenetetrahydrofolate dehydrogenase (NADP+) / methenyltetrahydrofolate cyclohydrolase / formyltetrahydrofolate synthetase [EC:1.5.1.5 3.5.4.9 6.3.4.3]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00670  One carbon pool by folate
+            sce01100  Metabolic pathways
+MODULE      sce_M00141  C1-unit interconversion, eukaryotes
+CLASS       Metabolism; Metabolism of cofactors and vitamins; One carbon pool by folate [PATH:sce00670]
+POSITION    VII:905934..908774
+MOTIF       Pfam: FTHFS THF_DHG_CYH_C THF_DHG_CYH
+DBLINKS     NCBI-GI: 398366131
+            NCBI-GeneID: 853118
+            SGD: S000003436
+            MIPS: YGR204W
+            UniProt: P07245
+AASEQ       946
+            MAGQVLDGKACAQQFRSNIANEIKSIQGHVPGFAPNLAIIQVGNRPDSATYVRMKRKAAE
+            EAGIVANFIHLDESATEFEVLRYVDQLNEDPHTHGIIVQLPLPAHLDEDRITSRVLAEKD
+            VDGFGPTNIGELNKKNGHPFFLPCTPKGIIELLHKANVTIEGSRSVVIGRSDIVGSPVAE
+            LLKSLNSTVTITHSKTRDIASYLHDADIVVVAIGQPEFVKGEWFKPRDGTSSDKKTVVID
+            VGTNYVADPSKKSGFKCVGDVEFNEAIKYVHLITPVPGGVGPMTVAMLMQNTLIAAKRQM
+            EESSKPLQIPPLPLKLLTPVPSDIDISRAQQPKLINQLAQELGIYSHELELYGHYKAKIS
+            PKVIERLQTRQNGKYILVSGITPTPLGEGKSTTTMGLVQALTAHLGKPAIANVRQPSLGP
+            TLGVKGGAAGGGYSQVIPMDEFNLHLTGDIHAIGAANNLLAAAIDTRMFHETTQKNDATF
+            YNRLVPRKNGKRKFTPSMQRRLNRLGIQKTNPDDLTPEEINKFARLNIDPDTITIKRVVD
+            INDRMLRQITIGQAPTEKNHTRVTGFDITVASELMAILALSKDLRDMKERIGRVVVAADV
+            NRSPVTVEDVGCTGALTALLRDAIKPNLMQTLEGTPVLVHAGPFANISIGASSVIADRVA
+            LKLVGTEPEAKTEAGYVVTEAGFDFTMGGERFFNIKCRSSGLTPNAVVLVATVRALKSHG
+            GAPDVKPGQPLPSAYTEENIEFVEKGAANMCKQIANIKQFGVPVVVAINKFETDTEGEIA
+            AIRKAALEAGAFEAVTSNHWAEGGKGAIDLAKAVIEASNQPVDFHFLYDVNSSVEDKLTT
+            IVQKMYGGAAIDILPEAQRKIDMYKEQGFGNLPICIAKTQYSLSHDATLKGVPTGFTFPI
+            RDVRLSNGAGYLYALAAEIQTIPGLATYAGYMAVEVDDDGEIDGLF
+NTSEQ       2841
+            atggctggtcaagtgttggacggcaaagcatgcgctcagcagtttagaagcaatattgct
+            aatgaaatcaaaagcattcaaggtcacgtgcctgggtttgcacctaaccttgccatcatt
+            caagtaggcaacagaccagactcagccacatatgtacgcatgaagcgtaaggcagctgaa
+            gaggccggcattgttgctaatttcattcatttagatgaatccgctactgaatttgaagtt
+            ctgcgttacgtggaccagctgaatgaggacccacatacacacggtattatcgtgcaacta
+            ccattacccgctcatttggacgaggatagaatcacctcgagagtgttggcagaaaaggac
+            gtggacgggttcgggcccaccaacattggcgaattgaataagaagaacggacacccattc
+            tttttgccctgcacgcccaaggggatcattgagctgcttcacaaggccaacgtcacgatt
+            gaaggttcccggtccgttgtgatcggaagatctgacattgttggctctcctgttgcagaa
+            ttgttaaaatctctaaactccaccgtcaccatcactcattctaaaacccgtgatatcgca
+            tcatacttacacgacgcggacatcgtagtcgttgccatcggccaaccagaatttgtgaag
+            ggtgaatggttcaaaccaagagacggcacttccagtgataagaaaaccgtggtaattgat
+            gttggcaccaactacgttgctgatccttccaaaaagtccggtttcaaatgtgttggtgac
+            gttgagttcaatgaagcaatcaaatacgtccatctaatcactccagtgcccggtggtgtg
+            ggccccatgacggtggctatgttaatgcaaaataccttgattgctgccaaacgccaaatg
+            gaagaatcctcgaagcctttgcagattcctcccttgccattgaagttgctaacacctgtt
+            ccttccgatatagacatctccagagcacaacagccaaagcttatcaaccagcttgctcaa
+            gaattgggtatttactctcatgagttggagctgtacggacattacaaggccaaaatttct
+            cctaaagtcatcgaaaggctgcagacgcgccaaaatggtaagtacatcttggtgtctggt
+            atcacaccaacaccactgggagagggtaaatccactacaacaatgggtcttgtccaggca
+            ctaacggctcacttgggcaagccagccattgcgaacgtcagacaaccctccctaggaccc
+            actttaggtgtcaaaggtggtgctgcgggtggtggttattcccaagtcatcccaatggac
+            gaattcaacttacatttgactggtgacattcacgccattggtgcggctaacaacctactt
+            gctgccgctattgacactagaatgttccatgagaccactcaaaagaacgacgctaccttc
+            tacaacagactagtgcctagaaagaacggaaagagaaagtttactccctccatgcaaaga
+            agattgaacagactgggtattcaaaagaccaaccccgatgatctaacacccgaagagatc
+            aacaaattcgccagattgaacattgacccggacactattactatcaagagggtggtcgat
+            atcaacgacagaatgttaagacaaatcaccattggtcaagcccctaccgagaagaaccac
+            acaagagttactggattcgatatcaccgttgcttctgaattgatggctattcttgctctt
+            tcaaaggacttgagggacatgaaggaacgtattggaagagtcgttgttgctgctgacgta
+            aacaggtctccagtcactgttgaagatgtgggttgtaccggtgccttaaccgctttatta
+            agagacgctatcaagcccaacttgatgcaaactttagaaggtactcctgtcttggtccat
+            gccggcccatttgccaacatctctatcggtgcctcttctgttattgctgatcgcgtggct
+            ttgaaattggttggtaccgagccagaggcaaaaacagaagctggttatgtggttactgaa
+            gcagggttcgatttcactatgggtggtgaaagattcttcaacatcaagtgccgttcctct
+            ggattgacacctaatgctgtggtcttggttgctactgttagggcattgaagtcacacggt
+            ggtgctccagatgtcaaacctggccaacctttaccttccgcatacactgaagagaatatc
+            gagtttgtcgaaaaaggtgccgctaacatgtgtaaacaaattgccaacattaagcaattt
+            ggcgtccccgtcgttgtcgcaattaacaagtttgaaactgacactgaaggtgaaatagcc
+            gccattagaaaagccgctttggaagctggtgcatttgaagccgtaacctctaaccattgg
+            gccgaaggtggtaaaggtgctatcgacttggccaaggccgtcatcgaagcttccaaccaa
+            ccagtggacttccatttcctatatgacgttaactcctccgttgaagacaaattaactact
+            atcgttcaaaagatgtacggtggtgccgcaatcgatatcttgcctgaagcacaacgcaag
+            attgacatgtacaaggaacaaggtttcggtaacttgccaatttgtatcgccaagacacaa
+            tactctttatcccacgatgcaactttgaaaggtgttccaaccgggttcactttccccatc
+            agagacgtcagattgtctaatggtgctggatacttatacgctcttgccgccgaaatacaa
+            accattcctggtttggctacctatgctggttacatggccgtggaagtcgatgatgacggt
+            gagatcgatggcctgttctaa
+///

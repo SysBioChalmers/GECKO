@@ -1,0 +1,45 @@
+ENTRY       YGL040C           CDS       T00005
+NAME        HEM2, OLE4, SLU1
+DEFINITION  porphobilinogen synthase HEM2 (EC:4.2.1.24)
+ORTHOLOGY   K01698  porphobilinogen synthase [EC:4.2.1.24]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00860  Porphyrin and chlorophyll metabolism
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+CLASS       Metabolism; Metabolism of cofactors and vitamins; Porphyrin and chlorophyll metabolism [PATH:sce00860]
+POSITION    VII:complement(419527..420555)
+MOTIF       Pfam: ALAD
+DBLINKS     NCBI-GI: 6321398
+            NCBI-GeneID: 852842
+            SGD: S000003008
+            MIPS: YGL040C
+            UniProt: P05373
+STRUCTURE   PDB: 1H7P 1EB3 1H7O 1YLV 1AW5 1W31 1OHL 1GJP 1H7N 1H7R 1QNV
+                 1QML
+AASEQ       342
+            MHTAEFLETEPTEISSVLAGGYNHPLLRQWQSERQLTKNMLIFPLFISDNPDDFTEIDSL
+            PNINRIGVNRLKDYLKPLVAKGLRSVILFGVPLIPGTKDPVGTAADDPAGPVIQGIKFIR
+            EYFPELYIICDVCLCEYTSHGHCGVLYDDGTINRERSVSRLAAVAVNYAKAGAHCVAPSD
+            MIDGRIRDIKRGLINANLAHKTFVLSYAAKFSGNLYGPFRDAACSAPSNGDRKCYQLPPA
+            GRGLARRALERDMSEGADGIIVKPSTFYLDIMRDASEICKDLPICAYHVSGEYAMLHAAA
+            EKGVVDLKTIAFESHQGFLRAGARLIITYLAPEFLDWLDEEN
+NTSEQ       1029
+            atgcatacagctgaatttttggaaacagaaccaacagaaatctcatctgttctagcaggt
+            ggttataatcacccactgctgagacagtggcaaagtgagcgtcaactgactaagaacatg
+            ttgatttttccgctattcatctccgataatccagatgactttactgaaattgactctcta
+            cctaatatcaatagaatcggtgtaaataggctaaaagactacttaaagccattagtggcc
+            aagggtttgcgttctgtgatcttgtttggtgtgcctctcatccctggtaccaaggatcca
+            gtgggtacagcggctgacgatcctgcagggccagtcattcaaggtattaaattcattcgt
+            gagtatttccctgaactgtatattatttgcgatgtctgtctctgtgaatacacttctcat
+            ggccattgcggggttctatacgatgatggtactattaatagagaacgtagtgtctctaga
+            ttagcagctgtggcagttaactacgctaaagctggtgcgcactgtgtggctcccagtgat
+            atgatcgatggtaggatcagagatattaaacgaggcttaataaatgcaaacttggctcac
+            aagaccttcgtgttatcctatgcagctaagtttagcggtaatctatatgggccattccgt
+            gatgctgcttgttcagctccttcgaatggtgataggaaatgttaccaattacctcctgcc
+            ggtcgtggcctggcacgtagggcgttggaaagggatatgagtgaaggtgccgacggtatt
+            attgttaagccttccactttctacttagatataatgagggatgcaagtgaaatttgtaaa
+            gacttaccaatctgcgcatatcacgtgtcgggcgaatacgcaatgttacatgctgcagct
+            gaaaaaggtgttgttgatttgaagacaattgcctttgaatctcatcaaggtttcttgagg
+            gcgggtgccagattaatcatcacttatttggctcctgagttcctagactggttagatgaa
+            gaaaactaa
+///

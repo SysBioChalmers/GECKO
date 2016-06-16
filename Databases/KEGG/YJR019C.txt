@@ -1,0 +1,46 @@
+ENTRY       YJR019C           CDS       T00005
+NAME        TES1, PTE1
+DEFINITION  Tes1p (EC:3.1.2.2)
+ORTHOLOGY   K01068  acyl-coenzyme A thioesterase 1/2/4 [EC:3.1.2.2]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00062  Fatty acid elongation
+            sce01040  Biosynthesis of unsaturated fatty acids
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+CLASS       Metabolism; Lipid metabolism; Fatty acid elongation [PATH:sce00062]
+            Metabolism; Lipid metabolism; Biosynthesis of unsaturated fatty acids [PATH:sce01040]
+POSITION    X:complement(467232..468281)
+MOTIF       Pfam: Acyl_CoA_thio 4HBT_3
+DBLINKS     NCBI-GI: 398364819
+            NCBI-GeneID: 853477
+            SGD: S000003780
+            MIPS: YJR019C
+            UniProt: P41903
+STRUCTURE   PDB: 1TBU
+AASEQ       349
+            MSASKMAMSNLEKILELVPLSPTSFVTKYLPAAPVGSKGTFGGTLVSQSLLASLHTVPLN
+            FFPTSLHSYFIKGGDPRTKITYHVQNLRNGRNFIHKQVSAYQHDKLIFTSMILFAVQRSK
+            EHDSLQHWETIPGLQGKQPDPHRYEEATSLFQKEVLDPQKLSRYASLSDRFQDATSMSKY
+            VDAFQYGVMEYQFPKDMFYSARHTDELDYFVKVRPPITTVEHAGDESSLHKHHPYRIPKS
+            ITPENDARYNYVAFAYLSDSYLLLTIPYFHNLPLYCHSFSVSLDHTIYFHQLPHVNNWIY
+            LKISNPRSHWDKHLVQGKYFDTQSGRIMASVSQEGYVVYGSERDIRAKF
+NTSEQ       1050
+            atgagtgcttccaaaatggccatgtccaacctagagaaaatattggaactggttcctctt
+            tcgcctaccagttttgtcacaaagtatctgcctgccgcgcccgtagggtctaagggcact
+            tttggtggaacgctggtatcacaatcgctgctggcgtcattgcatactgtgccattgaac
+            ttcttccccacatcgctacattcgtatttcatcaagggtggtgatccgcggaccaagatc
+            acgtaccatgtgcagaatctgagaaacggtagaaatttcatccataagcaggttagtgct
+            tatcagcacgacaagttgatatttacgtcgatgatcttatttgccgtgcaacggtccaag
+            gagcacgactccttgcagcactgggagacgattccaggcctgcaaggtaagcagccagac
+            cctcatcgttatgaagaggccacttcgcttttccagaaagaagttctggacccacagaaa
+            ttgagcaggtatgcctcattgtccgacaggttccaagacgcaacctcgatgagcaagtat
+            gtggatgcgtttcaatacggagtcatggagtaccaattccccaaggacatgttctactcg
+            gcaagacacaccgacgagctggattatttcgtcaaagtgagacctcccatcactaccgtg
+            gagcacgcgggcgacgagtcttctttacacaagcatcatccgtacaggatcccgaagagc
+            attactcctgagaacgacgctcgctacaactacgtggcctttgcgtatctgtccgattcc
+            tacctcctactcacgatcccgtacttccacaacctgcctttgtactgccacagtttcagt
+            gtctcgctcgaccacacgatttactttcaccagttgcctcatgtgaacaattggatctat
+            cttaagatttcgaatcccaggtcccactgggacaagcacctcgtacagggcaagtatttc
+            gacacacagtcgggacgcatcatggcaagcgtctctcaggagggctacgttgtctacggg
+            tcagaacgagacattcgagccaagttctga
+///

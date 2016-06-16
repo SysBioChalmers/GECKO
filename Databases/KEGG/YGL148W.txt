@@ -1,0 +1,49 @@
+ENTRY       YGL148W           CDS       T00005
+NAME        ARO2
+DEFINITION  bifunctional chorismate synthase/riboflavin reductase [NAD(P)H] ARO2 (EC:4.2.3.5)
+ORTHOLOGY   K01736  chorismate synthase [EC:4.2.3.5]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00400  Phenylalanine, tyrosine and tryptophan biosynthesis
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01230  Biosynthesis of amino acids
+MODULE      sce_M00022  Shikimate pathway, phosphoenolpyruvate + erythrose-4P => chorismate
+CLASS       Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
+            Metabolism; Amino acid metabolism; Phenylalanine, tyrosine and tryptophan biosynthesis [PATH:sce00400]
+POSITION    VII:226399..227529
+MOTIF       Pfam: Chorismate_synt
+DBLINKS     NCBI-GI: 6321290
+            NCBI-GeneID: 852729
+            SGD: S000003116
+            MIPS: YGL148W
+            UniProt: P28777
+STRUCTURE   PDB: 1R53 1R52
+AASEQ       376
+            MSTFGKLFRVTTYGESHCKSVGCIVDGVPPGMSLTEADIQPQLTRRRPGQSKLSTPRDEK
+            DRVEIQSGTEFGKTLGTPIAMMIKNEDQRPHDYSDMDKFPRPSHADFTYSEKYGIKASSG
+            GGRASARETIGRVASGAIAEKFLAQNSNVEIVAFVTQIGEIKMNRDSFDPEFQHLLNTIT
+            REKVDSMGPIRCPDASVAGLMVKEIEKYRGNKDSIGGVVTCVVRNLPTGLGEPCFDKLEA
+            MLAHAMLSIPASKGFEIGSGFQGVSVPGSKHNDPFYFEKETNRLRTKTNNSGGVQGGISN
+            GENIYFSVPFKSVATISQEQKTATYDGEEGILAAKGRHDPAVTPRAIPIVEAMTALVLAD
+            ALLIQKARDFSRSVVH
+NTSEQ       1131
+            atgtcaacgtttgggaaactgttccgcgtcaccacatatggtgaatcgcattgtaagtct
+            gtcggttgcattgtcgacggtgttcctccaggaatgtcattaaccgaagctgacattcag
+            ccacaattgaccagaagaagaccgggtcaatctaagctatcgacccctagagacgaaaag
+            gatagagtggaaatccagtccggtaccgagttcggcaagactctaggtacacccatcgcc
+            atgatgatcaaaaacgaggaccaaagacctcacgactactccgacatggacaagttccct
+            agaccttcccatgcggacttcacgtactcggaaaagtacggtatcaaggcctcctctggt
+            ggtggcagagcttctgctagagaaacgattggccgtgtcgcttcaggtgccattgctgag
+            aagttcttagctcagaactctaatgtcgagatcgtagcctttgtgacacaaatcggggaa
+            atcaagatgaacagagactctttcgatcctgaatttcagcatctgttgaacaccatcacc
+            agggaaaaagtggactcaatgggtcctatcagatgtccagacgcctccgttgctggtttg
+            atggtcaaggaaatcgaaaagtacagaggcaacaaggactctatcggtggtgtcgtcact
+            tgtgtcgtgagaaacttgcctaccggtctcggtgagccatgctttgacaagttggaagcc
+            atgttggctcatgctatgttgtccattccagcatccaagggtttcgaaattggctcaggt
+            tttcagggtgtctctgttccagggtccaagcacaatgacccattttactttgaaaaagaa
+            acaaacagattaagaacaaagaccaacaattcaggtggtgtacaaggtggtatctctaat
+            ggtgagaacatctatttctctgtcccattcaagtcagtggccactatctctcaagaacaa
+            aaaaccgccacttacgatggtgaagaaggtatcttagccgctaagggtagacatgaccct
+            gctgtcactccaagagctattcctattgtggaagccatgaccgctctggtgttggctgac
+            gcgcttttgatccaaaaggcaagagatttctccagatccgtggttcattaa
+///

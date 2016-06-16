@@ -1,0 +1,72 @@
+ENTRY       YGL026C           CDS       T00005
+NAME        TRP5
+DEFINITION  tryptophan synthase TRP5 (EC:4.2.1.20)
+ORTHOLOGY   K01694  tryptophan synthase [EC:4.2.1.20]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00260  Glycine, serine and threonine metabolism
+            sce00400  Phenylalanine, tyrosine and tryptophan biosynthesis
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01230  Biosynthesis of amino acids
+MODULE      sce_M00023  Tryptophan biosynthesis, chorismate => tryptophan
+CLASS       Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
+            Metabolism; Amino acid metabolism; Glycine, serine and threonine metabolism [PATH:sce00260]
+            Metabolism; Amino acid metabolism; Phenylalanine, tyrosine and tryptophan biosynthesis [PATH:sce00400]
+POSITION    VII:complement(446412..448535)
+MOTIF       Pfam: Trp_syntA PALP PcrB
+DBLINKS     NCBI-GI: 6321412
+            NCBI-GeneID: 852858
+            SGD: S000002994
+            MIPS: YGL026C
+            UniProt: P00931
+AASEQ       707
+            MSEQLRQTFANAKKENRNALVTFMTAGYPTVKDTVPILKGFQDGGVDIIELGMPFSDPIA
+            DGPTIQLSNTVALQNGVTLPQTLEMVSQARNEGVTVPIILMGYYNPILNYGEERFIQDAA
+            KAGANGFIIVDLPPEEALKVRNYINDNGLSLIPLVAPSTTDERLELLSHIADSFVYVVSR
+            MGTTGVQSSVASDLDELISRVRKYTKDTPLAVGFGVSTREHFQSVGSVADGVVIGSKIVT
+            LCGDAPEGKRYDVAKEYVQGILNGAKHKVLSKDEFFAFQKESLKSANVKKEILDEFDENH
+            KHPIRFGDFGGQYVPEALHACLRELEKGFDEAVADPTFWEDFKSLYSYIGRPSSLHKAER
+            LTEHCQGAQIWLKREDLNHTGSHKINNALAQVLLAKRLGKKNVIAETGAGQHGVATATAC
+            AKFGLTCTVFMGAEDVRRQALNVFRMRILGAKVIAVTNGTKTLRDATSEAFRFWVTNLKT
+            TYYVVGSAIGPHPYPTLVRTFQSVIGKETKEQFAAMNNGKLPDAVVACVGGGSNSTGMFS
+            PFEHDTSVKLLGVEAGGDGVDTKFHSATLTAGRPGVFHGVKTYVLQDSDGQVHDTHSVSA
+            GLDYPGVGPELAYWKSTGRAQFIAATDAQALLGFKLLSQLEGIIPALESSHAVYGACELA
+            KTMKPDQHLVINISGRGDKDVQSVAEVLPKLGPKIGWDLRFEEDPSA
+NTSEQ       2124
+            atgtcagaacaactcagacaaacatttgctaacgctaaaaaagaaaacaggaacgccttg
+            gtcacatttatgaccgcaggttacccaacagtcaaagacactgtccctattctcaagggt
+            ttccaggatggtggtgtagatatcatcgaattgggtatgcccttctctgatccaattgca
+            gatggtcctacaattcaattatctaatactgtggctttgcaaaacggtgttaccttgcct
+            caaactctagaaatggtctcccaagctagaaatgaaggtgttaccgtacccataatccta
+            atgggttactataaccctattctaaactacggtgaagaaagatttattcaggacgctgcc
+            aaggctggtgctaatggttttatcatcgtcgatttgccaccagaggaggcgttgaaggtc
+            agaaactacatcaatgataatggtttgagcctgatcccactagtggctccttctaccacc
+            gacgaaagattggaattactatcgcatattgccgattcgtttgtctacgttgtgtctaga
+            atgggtactactggtgttcaaagttctgtggccagtgatttggatgaactcatctctaga
+            gtcagaaagtacaccaaggatactcctttggccgttgggtttggtgtctctaccagagaa
+            catttccaatcagttggtagtgttgctgacggtgtagtgattggttccaaaatcgtcaca
+            ttatgtggagatgctccagagggcaaaaggtacgacgttgctaaggaatatgtacaggga
+            attctaaatggtgctaagcataaggttctgtccaaggacgaattctttgcctttcaaaaa
+            gagtccttgaagtccgcaaacgttaagaaggaaatactggacgaatttgatgaaaatcac
+            aagcacccaattagatttggggactttggtggtcagtatgtcccagaagctcttcatgca
+            tgtctaagagagttggaaaagggttttgatgaagctgtcgccgatcccacattctgggaa
+            gacttcaaatccttgtattcttatattggccgtccttcttcactacacaaagctgagaga
+            ttaactgagcattgtcaaggtgctcaaatctggttgaagagagaagatcttaaccacacg
+            ggatctcacaagatcaacaatgctttagcacaagttcttctagctaaaagattaggcaag
+            aagaacgttattgctgaaaccggtgctggtcaacacggtgttgccactgccactgcatgt
+            gctaaatttggcttaacctgtactgtgttcatgggtgcagaagatgttcgtcgccaagct
+            ttaaacgtcttcagaatgagaattctcggtgctaaagtaattgctgttactaatggtaca
+            aagactctaagagacgctacttcagaggcattcagattttgggttactaacttgaaaact
+            acttactacgtcgtcggttctgccattggtcctcacccatatccaactttggttagaact
+            ttccaaagtgtcattggtaaagaaaccaaggaacagtttgctgccatgaacaatggtaaa
+            ttacctgacgcagttgttgcatgtgttgggggtggttccaactctacaggtatgttttca
+            ccattcgagcatgatacttccgttaagttattgggtgtggaagccggtggtgatggtgta
+            gatacaaagttccactctgctactctaactgccggtagacctggtgtcttccatggtgtc
+            aagacttatgtcttgcaagatagtgatggtcaagtccatgatactcattctgtttctgct
+            gggttagactacccaggtgtcggtccagaattggcatattggaaatctactggccgtgct
+            caattcattgcagctactgacgctcaggctctgcttggctttaaattattatctcaatta
+            gaaggtattattcccgctttggaatcttctcatgctgtttatggcgcttgcgaattggct
+            aagacgatgaagcctgatcaacatttggttatcaatatttctggtagaggtgataaagat
+            gtccaaagtgtcgctgaagtcttgccgaaattaggtccaaagataggttgggatttgaga
+            ttcgaagaagacccatctgcctaa
+///

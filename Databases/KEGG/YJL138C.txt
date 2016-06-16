@@ -1,0 +1,46 @@
+ENTRY       YJL138C           CDS       T00005
+NAME        TIF2
+DEFINITION  Tif2p (EC:3.6.4.13)
+ORTHOLOGY   K03257  translation initiation factor 4A
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03013  RNA transport
+MODULE      sce_M00428  eIF4F complex
+CLASS       Genetic Information Processing; Translation; RNA transport [PATH:sce03013]
+POSITION    X:complement(153504..154691)
+MOTIF       Pfam: DEAD Helicase_C ResIII AAA_19 Helicase_C_2 AAA_30
+DBLINKS     NCBI-GI: 6322323
+            NCBI-GeneID: 853303
+            SGD: S000003674
+            MIPS: YJL138C
+            UniProt: P10081
+STRUCTURE   PDB: 1FUK 1QDE 1FUU 1QVA 2VSX 2VSO
+AASEQ       395
+            MSEGITDIEESQIQTNYDKVVYKFDDMELDENLLRGVFGYGFEEPSAIQQRAIMPIIEGH
+            DVLAQAQSGTGKTGTFSIAALQRIDTSVKAPQALMLAPTRELALQIQKVVMALAFHMDIK
+            VHACIGGTSFVEDAEGLRDAQIVVGTPGRVFDNIQRRRFRTDKIKMFILDEADEMLSSGF
+            KEQIYQIFTLLPPTTQVVLLSATMPNDVLEVTTKFMRNPVRILVKKDELTLEGIKQFYVN
+            VEEEEYKYECLTDLYDSISVTQAVIFCNTRRKVEELTTKLRNDKFTVSAIYSDLPQQERD
+            TIMKEFRSGSSRILISTDLLARGIDVQQVSLVINYDLPANKENYIHRIGRGGRFGRKGVA
+            INFVTNEDVGAMRELEKFYSTQIEELPSDIATLLN
+NTSEQ       1188
+            atgtctgaaggtattactgatattgaagaatcccaaattcaaaccaactatgacaaggtc
+            gtctacaagttcgatgatatggaattggacgaaaacttgttaagaggtgttttcggttac
+            ggtttcgaagaaccatctgccattcaacaacgtgccatcatgcctattattgaaggtcac
+            gatgtcttggctcaagctcaatctggtactggtaagaccggtactttctccattgctgct
+            ttgcaaagaattgacacctctgtcaaggctcctcaagctttgatgttggctccaactaga
+            gaattggctttgcaaatccaaaaggttgtcatggctttggctttccacatggacatcaag
+            gtccacgcttgtatcggtggtacttcctttgttgaagacgctgaaggtttgagagatgct
+            caaatcgtcgttggtactccaggtcgtgtttttgacaacatccaaagacgtagattcaga
+            actgacaagatcaagatgttcatcttagatgaagctgatgaaatgttgtcttctggtttc
+            aaggaacaaatctaccaaattttcaccttacttccaccaaccactcaagttgttctattg
+            tccgccaccatgccaaatgacgtcttggaagttaccaccaaatttatgagaaacccagtt
+            agaattttggttaagaaggatgaattgactttggaaggtatcaaacaattctacgttaat
+            gttgaagaagaagaatacaaatacgagtgtttgaccgatttatacgactctatctccgtt
+            actcaagctgtcatcttctgtaacaccagaagaaaggtcgaagaattgaccactaagtta
+            agaaacgacaaatttaccgtttctgccatctattctgatttaccacaacaagaaagagac
+            accatcatgaaggaattcagaagtggttcttccagaattttgatctccactgatttgttg
+            gctagaggtatcgatgtccaacaagtttctttggttattaactacgacttaccagctaac
+            aaagaaaactatattcacagaatcggtagaggtggtcgtttcggtagaaagggtgttgcc
+            atcaactttgttactaacgaagacgttggcgctatgagagaactagaaaagttctactcc
+            actcaaattgaagaattgccatccgacattgctaccttgttgaactaa
+///

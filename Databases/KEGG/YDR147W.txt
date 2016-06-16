@@ -1,0 +1,55 @@
+ENTRY       YDR147W           CDS       T00005
+NAME        EKI1
+DEFINITION  bifunctional choline kinase/ethanolamine kinase EKI1 (EC:2.7.1.82)
+ORTHOLOGY   K00894  ethanolamine kinase [EC:2.7.1.82]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00564  Glycerophospholipid metabolism
+            sce01100  Metabolic pathways
+MODULE      sce_M00092  Phosphatidylethanolamine (PE) biosynthesis, ethanolamine => PE
+CLASS       Metabolism; Lipid metabolism; Glycerophospholipid metabolism [PATH:sce00564]
+POSITION    IV:751631..753235
+MOTIF       Pfam: Choline_kinase Choline_kin_N APH EcKinase
+DBLINKS     NCBI-GI: 398365849
+            NCBI-GeneID: 851725
+            SGD: S000002554
+            MIPS: YDR147W
+            UniProt: Q03764
+AASEQ       534
+            MYTNYSLTSSDAMPRTYLVGTASPEMSKKKRQSANCDKPTRRVIHIIDTNEHSEVDLKNE
+            LPITCTNEDGEMTSSSWTSQTANDFLKLAYVNAKLDPSLPSQYFKQDIINVLQSLEIPGW
+            SVPGSKESSLNKNLLTLTQIKGALTNVIYKIHYPNLPPLLMRIFGDSIDSVIDREYELKV
+            IARLSFYDLGPKLEGFFENGRFEKYIEGSRTSTQADFIDRDTSIKIAKKLKELHCTVPLT
+            HKEITDQPSCWTTFDQWIKLIDSHKEWVSNNVNISENLRCSSWNFFLKSFKNYKRWLYND
+            SAFTSKLLREDDKDSMINSGLKMVFCHNDLQHGNLLFKSKGKDDISVGDLTIIDFEYAGP
+            NPVVFDLSNHLNEWMQDYNDVQSFKSHIDKYPKEEDILVFAQSYINHMNENHVKIASQEV
+            RILYNLIIEWRPCTQLFWCLWALLQSGRLPQRPLIEGEKLMSEKAGLGDETHLMEHKNKE
+            NGKYDCSEDDSFNYLGFCKEKMSVFWGDLITLGVIDKDCPDIGKTDYLDTKLIF
+NTSEQ       1605
+            atgtacaccaattattcacttacaagcagtgacgcaatgccccgaacttacttggtcggc
+            acagcctcaccagaaatgtctaagaaaaagcgccagtctgcaaattgtgacaagccaacg
+            aggagggtgatccacatcatcgatactaatgagcactcagaagtcgacttgaaaaatgaa
+            ctgccaataacatgcacgaatgaagacggtgagatgacatcaagctcatggacttcacaa
+            accgctaatgattttctcaaactggcatacgtaaacgcgaaattagacccgtctttgcca
+            tctcaatatttcaaacaagatatcataaatgttttacaaagcttggagattcctggatgg
+            tctgtgcccggctctaaagaatcctcgttgaataagaatttattaactttgacacaaatc
+            aagggggcccttacaaatgttatttataagattcactatccaaacttaccccctttactg
+            atgagaatttttggtgatagcatagattctgtaattgatagagagtatgaattaaaggtt
+            attgcgagattatcattttatgatttaggacccaaactagaagggttttttgaaaatggc
+            agatttgaaaaatacattgagggttcgaggacatctactcaagccgactttatagatcgg
+            gatacttcaataaaaattgctaaaaaattgaaagagttgcattgtactgttccattaacg
+            cataaagaaataacggatcaaccgtcatgctggacaacctttgatcagtggatcaaatta
+            atagactcgcataaagagtgggtttccaataatgtaaatataagtgaaaatttacgctgt
+            tcaagttggaatttttttttaaagagtttcaaaaattataagcgttggttgtataatgat
+            tctgcttttacctcaaaattattaagagaggatgataaagatagtatgataaattctggg
+            ctaaaaatggtattttgccataacgacttacagcatggtaatttactttttaaaagtaag
+            ggtaaggatgacatctcagtgggcgatttaacaattattgactttgagtacgcaggccct
+            aaccccgttgtatttgatttatcaaatcatttgaatgaatggatgcaagactataatgat
+            gtgcagtctttcaagtctcatattgataagtatccaaaagaagaagatattttagttttt
+            gcacaaagttatataaatcacatgaatgagaaccatgtcaaaattgcttctcaagaggtt
+            aggattctttacaatctaatcatcgaatggaggccttgtacacaattattctggtgcctt
+            tgggctcttttgcaaagcggaaggctaccacaacgaccactgatagaaggtgaaaaacta
+            atgagcgaaaaggctggactaggtgatgaaacgcaccttatggagcacaaaaataaagag
+            aatggaaaatacgattgttctgaagatgattcgttcaactatttaggattttgtaaagaa
+            aaaatgtctgtcttttggggcgatttaattacattgggagttatcgacaaagactgccca
+            gatattggaaaaacagattacttagacactaaacttattttttaa
+///

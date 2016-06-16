@@ -1,0 +1,48 @@
+ENTRY       YKL113C           CDS       T00005
+NAME        RAD27, ERC11, FEN1, RTH1
+DEFINITION  Rad27p (EC:3.1.-.-)
+ORTHOLOGY   K04799  flap endonuclease-1 [EC:3.-.-.-]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03030  DNA replication
+            sce03410  Base excision repair
+            sce03450  Non-homologous end-joining
+CLASS       Genetic Information Processing; Replication and repair; DNA replication [PATH:sce03030]
+            Genetic Information Processing; Replication and repair; Base excision repair [PATH:sce03410]
+            Genetic Information Processing; Replication and repair; Non-homologous end-joining [PATH:sce03450]
+POSITION    XI:complement(224727..225875)
+MOTIF       Pfam: XPG_N XPG_I 5_3_exonuc CDKN3 HHH_2
+DBLINKS     NCBI-GI: 6322736
+            NCBI-GeneID: 853747
+            SGD: S000001596
+            MIPS: YKL113C
+            UniProt: P26793
+AASEQ       382
+            MGIKGLNAIISEHVPSAIRKSDIKSFFGRKVAIDASMSLYQFLIAVRQQDGGQLTNEAGE
+            TTSHLMGMFYRTLRMIDNGIKPCYVFDGKPPDLKSHELTKRSSRRVETEKKLAEATTELE
+            KMKQERRLVKVSKEHNEEAQKLLGLMGIPYIIAPTEAEAQCAELAKKGKVYAAASEDMDT
+            LCYRTPFLLRHLTFSEAKKEPIHEIDTELVLRGLDLTIEQFVDLCIMLGCDYCESIRGVG
+            PVTALKLIKTHGSIEKIVEFIESGESNNTKWKIPEDWPYKQARMLFLDPEVIDGNEINLK
+            WSPPKEKELIEYLCDDKKFSEERVKSGISRLKKGLKSGIQGRLDGFFQVVPKTKEQLAAA
+            AKRAQENKKLNKNKNKVTKGRR
+NTSEQ       1149
+            atgggtattaaaggtttgaatgcaattatatcggaacatgttccctctgctatcaggaaa
+            agcgatatcaagagcttttttggcagaaaggttgccatcgatgcctctatgtctctatat
+            cagtttttaattgctgtaagacagcaagacggtgggcagttgaccaatgaagccggtgaa
+            acaacgtcacacttgatgggtatgttttataggacactgagaatgattgataacggtatc
+            aagccttgttatgtcttcgacggcaaacctccagatttgaaatctcatgagttgacaaag
+            cggtcttcaagaagggtggaaacagaaaaaaaactggcagaggcaacaacagaattggaa
+            aagatgaagcaagaaagaagattggtgaaggtctcaaaagagcataatgaagaagcccaa
+            aaattactaggactaatgggaatcccatatataatagcgccaacggaagctgaggctcaa
+            tgtgctgagttggcaaagaagggaaaggtgtatgccgcagcaagtgaagatatggacaca
+            ctctgttatagaacacccttcttgttgagacatttgactttttcagaggccaagaaggaa
+            ccgattcacgaaatagatactgaattagttttgagaggactcgacttgacaatagagcag
+            tttgttgatctttgcataatgcttggttgtgactactgtgaaagcatcagaggtgttggt
+            ccagtgacagccttaaaattgataaaaacgcatggatccatcgaaaaaatcgtggagttt
+            attgaatctggggagtcaaacaacactaaatggaaaatcccagaagactggccttacaaa
+            caagcaagaatgctgtttcttgaccctgaagttatagatggtaacgaaataaacttgaaa
+            tggtcgccaccaaaggagaaggaacttatcgagtatttatgtgatgataagaaattcagt
+            gaagaaagagttaaatctggtatatcaagattgaaaaaaggcttgaaatctggcattcag
+            ggtaggttagatgggttcttccaagtggtgcctaagacaaaggaacagctggctgctgcg
+            gcgaaaagagcacaagaaaataaaaaattgaacaaaaataagaataaagtcacaaaggga
+            agaagatga
+///

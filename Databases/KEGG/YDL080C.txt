@@ -1,0 +1,61 @@
+ENTRY       YDL080C           CDS       T00005
+NAME        THI3, KID1
+DEFINITION  branched-chain-2-oxoacid decarboxylase THI3 (EC:4.1.1.72 4.1.1.- 4.1.1.1)
+ORTHOLOGY   K01568  pyruvate decarboxylase [EC:4.1.1.1]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00010  Glycolysis / Gluconeogenesis
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+CLASS       Metabolism; Carbohydrate metabolism; Glycolysis / Gluconeogenesis [PATH:sce00010]
+POSITION    IV:complement(310642..312471)
+MOTIF       Pfam: TPP_enzyme_N TPP_enzyme_M TPP_enzyme_C
+DBLINKS     NCBI-GI: 6320123
+            NCBI-GeneID: 851479
+            SGD: S000002238
+            MIPS: YDL080C
+            UniProt: Q07471
+AASEQ       609
+            MNSSYTQRYALPKCIAISDYLFHRLNQLNIHTIFGLSGEFSMPLLDKLYNIPNLRWAGNS
+            NELNAAYAADGYSRLKGLGCLITTFGVGELSAINGVAGSYAEHVGILHIVGMPPTSAQTK
+            QLLLHHTLGNGDFTVFHRIASDVACYTTLIIDSELCADEVDKCIKKAWIEQRPVYMGMPV
+            NQVNLPIESARLNTPLDLQLHKNDPDVEKEVISRILSFIYKSQNPAIIVDACTSRQNLIE
+            ETKELCNRLKFPVFVTPMGKGTVNETDPQFGGVFTGSISAPEVREVVDFADFIIVIGCML
+            SEFSTSTFHFQYKTKNCALLYSTSVKLKNATYPDLSIKLLLQKILANLDESKLSYQPSEQ
+            PSMMVPRPYPAGNVLLRQEWVWNEISHWFQPGDIIITETGASAFGVNQTRFPVNTLGISQ
+            ALWGSVGYTMGACLGAEFAVQEINKDKFPATKHRVILFMGDGAFQLTVQELSTIVKWGLT
+            PYIFVMNNQGYSVDRFLHHRSDASYYDIQPWNYLGLLRVFGCTNYETKKIITVGEFRSMI
+            SDPNFATNDKIRMIEIMLPPRDVPQALLDRWVVEKEQSKQVQEENENSSAVNTPTPEFQP
+            LLKKNQVGY
+NTSEQ       1830
+            atgaattctagctatacacagagatatgcactgccgaagtgtatagcaatatcagattat
+            cttttccatcggctcaaccagctgaacatacataccatatttggactctccggagaattt
+            agcatgccgttgctggataaactatacaacattccgaacttacgatgggccggtaattct
+            aatgagttaaatgctgcctacgcagcagatggatactcacgactaaaaggcttgggatgt
+            ctcataacaacctttggtgtaggcgaattatcggcaatcaatggcgtggccggatcttac
+            gctgaacatgtaggaatacttcacatagtgggtatgccgccaacaagtgcacaaacgaaa
+            caactactactgcatcatactctgggcaatggtgatttcacggtatttcatagaatagcc
+            agtgatgtagcatgctatacaacattgattattgactctgaattatgtgccgacgaagtc
+            gataagtgcatcaaaaaggcttggatagaacagaggccagtatacatgggcatgcctgtc
+            aaccaggtaaatctcccgattgaatcagcaaggcttaatacacctctggatttacaattg
+            cataaaaacgacccagacgtagagaaagaagttatttctcgaatattgagttttatatac
+            aaaagccagaatccggcaatcatcgtagatgcatgtactagtcgacagaatttaatcgag
+            gagactaaagagctttgtaataggcttaaatttccagtttttgttacacctatgggtaag
+            ggtacagtaaacgaaacagacccgcaatttgggggcgtattcacgggctcgatatcagcc
+            ccagaagtaagagaagtagttgattttgccgattttatcatcgtcattggttgcatgctc
+            tccgaattcagcacgtcaactttccacttccaatataaaactaagaattgtgcgctacta
+            tattctacatctgtgaaattgaaaaatgccacatatcctgacttgagcattaaattacta
+            ctacagaaaatattagcaaatcttgatgaatctaaactgtcttaccaaccaagcgaacaa
+            cccagtatgatggttccaagaccttacccagcaggaaatgtcctcttgagacaagaatgg
+            gtctggaatgaaatatcccattggttccaaccaggtgacataatcataacagaaactggt
+            gcttctgcatttggagttaaccagaccagatttccggtaaatacactaggtatttcgcaa
+            gctctttggggatctgtcggatatacaatgggggcgtgtcttggggcagaatttgctgtt
+            caagagataaacaaggataaattccccgcaactaaacatagagttattctgtttatgggt
+            gacggtgctttccaattgacagttcaagaattatccacaattgttaagtggggattgaca
+            ccttatatttttgtgatgaataaccaaggttactctgtggacaggtttttgcatcacagg
+            tcagatgctagttattacgatatccaaccttggaactacttgggattattgcgagtattt
+            ggttgcacgaactacgaaacgaaaaaaattattactgttggagaattcagatccatgatc
+            agtgacccaaactttgcgaccaatgacaaaattcggatgatagagattatgctaccacca
+            agggatgttccacaggctctgcttgacaggtgggtggtagaaaaagaacagagcaaacaa
+            gtgcaagaggagaacgaaaattctagcgcagtaaatacgccaactccagaattccaacca
+            cttctaaaaaaaaatcaagttggatactga
+///

@@ -1,0 +1,56 @@
+ENTRY       YLR432W           CDS       T00005
+NAME        IMD3
+DEFINITION  IMP dehydrogenase IMD3 (EC:1.1.1.205)
+ORTHOLOGY   K00088  IMP dehydrogenase [EC:1.1.1.205]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00230  Purine metabolism
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+MODULE      sce_M00050  Guanine ribonucleotide biosynthesis IMP => GDP,GTP
+CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
+POSITION    XII:1002557..1004128
+MOTIF       Pfam: IMPDH CBS NMO FMN_dh His_biosynth Response_reg ADH_zinc_N ThiG
+DBLINKS     NCBI-GI: 398366255
+            NCBI-GeneID: 851152
+            SGD: S000004424
+            MIPS: YLR432W
+            UniProt: P50095
+AASEQ       523
+            MAAVRDYKTALEFAKSLPRLDGLSVQELMDSKTRGGLTYNDFLVLPGLVDFPSSEVSLQT
+            KLTRNITLNTPFVSSPMDTVTESEMAIFMALLGGIGFIHHNCTPEDQADMVRRVKNYENG
+            FINNPIVISPTTTVGEAKSMKERFGFSGFPVTEDGKRNGKLMGIVTSRDIQFVEDNSLLV
+            QDVMTKNPVTGAQGITLSEGNEILKKIKKGKLLIVDDNGNLVSMLSRTDLMKNQNYPLAS
+            KSATTKQLLCGAAIGTIDADKERLRLLVEAGLDVVILDSSQGNSIFQLNMIKWIKETFPD
+            LEIIAGNVATREQAANLIAAGADGLRIGMGSGSICITQEVMACGRPQGTAVYNVCEFANQ
+            FGIPCMADGGVQNIGHITKALALGSSTVMMGGMLAGTTESPGEYFYQDGKRLKAYRGMGS
+            IDAMQKTGTKGNASTSRYFSESDSVLVAQGVSGAVVDKGSIKKFIPYLYNGLQHSCQDIG
+            YKSLTLLKENVQSGKVRFEFRTASAQLEGGVHNLHSYEKRLHN
+NTSEQ       1572
+            atggccgccgttagagactacaagactgccttggaattcgccaagagcttaccaagacta
+            gatggtttgtctgtccaggagttgatggactccaagaccagaggtgggttgacttataac
+            gactttttggttttgccaggtctggttgatttcccatcttctgaagttagcctacaaact
+            aagttgacaaggaatatcactttgaacaccccattcgtttcctctccaatggacaccgtg
+            acagaatcagaaatggccatcttcatggctttgttgggtggtatcggttttattcaccac
+            aactgtaccccagaggaccaagctgacatggtcagaagagtcaagaactatgaaaatggg
+            tttattaacaaccctatagtgatttccccaactactactgtgggtgaagctaagagtatg
+            aaggaaagatttggattttccggtttccccgttacagaagatggtaaaagaaacggaaaa
+            ttgatgggtatcgtcacttctcgtgatattcagttcgttgaagacaactctttgcttgtt
+            caagatgttatgaccaaaaaccctgtcaccggtgcacaaggtattacattgtctgaaggt
+            aatgaaattttaaagaagattaaaaagggtaagctattgattgttgacgacaatggtaac
+            ttagtttctatgctttccagaactgatttaatgaaaaatcagaactatccattggcttct
+            aaatctgccaccaccaagcaactgttatgtggtgctgctatcggtactatcgatgctgat
+            aaggaaaggttaagactattagtcgaagcaggtttggatgttgttatcttagattcctct
+            caaggtaactctattttccaattgaacatgatcaaatggattaaagaaactttcccagat
+            ttggaaatcattgctggtaacgttgccaccagagaacaagctgctaacttgattgctgcc
+            ggtgccgatggtttaagaattggtatgggttcaggctctatttgtatcactcaagaagtt
+            atggcctgtggtagaccacaaggtacagccgtctacaacgtgtgtgaatttgctaaccaa
+            ttcggtattccatgtatggctgatggtggtgttcaaaacattggtcatattaccaaagct
+            ttggctcttggttcttctactgttatgatgggtggtatgttagctggtactactgaatct
+            cctggtgaatatttctatcaagatggtaaaagattgaaggcatatcgtggtatgggttcc
+            attgacgccatgcaaaagactggtactaaaggtaatgcatctacctcccgttacttttcc
+            gaatcagacagtgttttggtcgcacaaggtgtctccggtgctgtcgttgacaaaggttct
+            atcaagaaatttattccatatttgtacaacggtttacaacattcttgtcaagacattggt
+            tacaagtccctaactttattaaaggaaaatgtccaaagcggtaaagttagatttgaattt
+            agaaccgcttctgctcaactagaaggtggtgttcataacttacattcttacgaaaagcgt
+            ttacataactaa
+///

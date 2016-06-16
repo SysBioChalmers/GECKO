@@ -1,0 +1,38 @@
+ENTRY       YPR113W           CDS       T00005
+NAME        PIS1
+DEFINITION  CDP-diacylglycerol--inositol 3-phosphatidyltransferase (EC:2.7.8.11)
+ORTHOLOGY   K00999  CDP-diacylglycerol--inositol 3-phosphatidyltransferase [EC:2.7.8.11]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00562  Inositol phosphate metabolism
+            sce00564  Glycerophospholipid metabolism
+            sce01100  Metabolic pathways
+            sce04070  Phosphatidylinositol signaling system
+CLASS       Metabolism; Carbohydrate metabolism; Inositol phosphate metabolism [PATH:sce00562]
+            Metabolism; Lipid metabolism; Glycerophospholipid metabolism [PATH:sce00564]
+            Environmental Information Processing; Signal transduction; Phosphatidylinositol signaling system [PATH:sce04070]
+POSITION    XVI:752257..752919
+MOTIF       Pfam: CDP-OH_P_transf
+DBLINKS     NCBI-GI: 6325370
+            NCBI-GeneID: 856229
+            SGD: S000006317
+            MIPS: YPR113W
+            UniProt: P06197
+AASEQ       220
+            MSSNSTPEKVTAEHVLWYIPNKIGYVRVITAALSFFVMKNHPTAFTWLYSTSCLLDALDG
+            TMARKYNQVSSLGAVLDMVTDRSSTAGLMCFLCVQYPQWCVFFQLMLGLDITSHYMHMYA
+            SLSAGKTSHKSVGEGESRLLHLYYTRRDVLFTICAFNELFYAGLYLQLFSNSATFGKWTT
+            IISFPGYVFKQTANVVQLKRAALILADNDAKNANEKNKTY
+NTSEQ       663
+            atgagttcgaattcaacaccagaaaaggttactgcagaacacgttctgtggtatattccc
+            aataagatcggttatgttcgtgttatcaccgccgccctttcttttttcgttatgaagaat
+            catcctacggcctttacatggttgtatagtacatcatgtctactggatgcgctagacgga
+            accatggcaagaaagtacaatcaggtttccagtctgggtgccgttctggacatggttacc
+            gacagatccagtaccgctggcttgatgtgtttcctttgtgtgcagtatccccaatggtgc
+            gttttcttccaattaatgctgggcttggatattactagtcactacatgcatatgtatgcc
+            agtttaagtgctggtaagacttctcataaaagtgtgggcgagggtgagtccagattgtta
+            cacctgtactacacgagaagagacgtactgttcactatctgtgcgtttaacgaactattt
+            tatgctggattgtacttgcagttgttctcaaattctgcaacctttggtaaatggactaca
+            atcataagtttccctggttacgtgttcaagcagaccgcaaacgttgtccagctaaaaagg
+            gcagccttgattttagcagacaacgatgccaagaatgccaacgagaagaacaagacttac
+            tga
+///

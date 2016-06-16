@@ -1,0 +1,81 @@
+ENTRY       YHL007C           CDS       T00005
+NAME        STE20
+DEFINITION  Ste20p (EC:2.7.11.25 2.7.11.1)
+ORTHOLOGY   K04409  p21-activated kinase 1 [EC:2.7.11.1]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04011  MAPK signaling pathway - yeast
+CLASS       Environmental Information Processing; Signal transduction; MAPK signaling pathway - yeast [PATH:sce04011]
+POSITION    VIII:complement(95118..97937)
+MOTIF       Pfam: Pkinase Pkinase_Tyr PBD Kinase-like ANAPC15 DUF1741
+DBLINKS     NCBI-GI: 6321780
+            NCBI-GeneID: 856382
+            SGD: S000000999
+            MIPS: YHL007C
+            UniProt: Q03497
+STRUCTURE   PDB: 2RQW
+AASEQ       939
+            MSNDPSAVSELPDKDSLDNGISNDNERAMGGNGDGGDGLRLPRTTGTLNVNALQKGTNAA
+            HEAGGYKSMDPAKNAETTNDDDNNVVSLDDPIQFTRVSSSSVISGMSSSMSPHSNIDETK
+            SLEAVTPNINTSNITPDHSADNTFSTINASESDHQFNDTLLSKLSLTDSTETIENNATVK
+            HQQPVASSTVNSNKSSTDIRRATPVSTPVISKPSMTTTPRQINSASHSLSNPKHKQHKPK
+            VKPSKPEAKSKPVSVKKSFPSKNPLKNSSPPKKQTEKSYYSSSSKKRKSGSNSGTLRMKD
+            VFTSFVQNIKRNSQDDKRASSSSNNSSSSSITTALRISTPYNAKHIHHVGVDSKTGEYTG
+            LPEEWEKLLTSSGISKREQQQNMQAVMDIVKFYQDVTETNGEDKMFKTFNTTTGLPGSPQ
+            VSTPPANSFNKFPPSTSDSHNYGSRTGTPMSNHVMSPTLNTDSSSANGKFIPSRPAPKPP
+            SSASASAPIIKSPVMNSAANVSPLKQTHAPTTPNRTSPNRSSISRNATLKKEEQPLPPIP
+            PTKSKTSPIISTAHTPQQVAQSPKAPAQETVTTPTSKPAQARSLSKELNEKKREERERRK
+            KQLYAKLNEICSDGDPSTKYANLVKIGQGASGGVYTAYEIGTNVSVAIKQMNLEKQPKKE
+            LIINEILVMKGSKHPNIVNFIDSYVLKGDLWVIMEYMEGGSLTDVVTHCILTEGQIGAVC
+            RETLSGLEFLHSKGVLHRDIKSDNILLSMEGDIKLTDFGFCAQINELNLKRTTMVGTPYW
+            MAPEVVSRKEYGPKVDIWSLGIMIIEMIEGEPPYLNETPLRALYLIATNGTPKLKEPENL
+            SSSLKKFLDWCLCVEPEDRASATELLHDEYITEIAEANSSLAPLVKLARLKKVAENMDAD
+            EDNDDDNDNEHINKTNNCDDNNDSKETVNLDVTEDDKQK
+NTSEQ       2820
+            atgagcaatgatccatctgctgtatcggaactaccagacaaggacagtcttgataacggt
+            atcagcaatgacaatgaaagggccatgggcggcaatggcgatggcggcgatggattacga
+            ttaccaaggaccactggaactttgaacgtcaatgccttacaaaaaggcactaatgctgcc
+            catgaagctggtggatacaaatccatggatcctgcgaagaacgcggagacaaccaatgat
+            gatgacaataatgtcgtttcactagatgatcctattcaatttacccgagtatcttcctcc
+            tctgtcatcagtggaatgtcttcatccatgagtcctcattctaacatcgatgaaaccaaa
+            tctctagaagcagtcactccaaacataaataccagcaatataaccccggatcattctgct
+            gacaacacattttctaccataaatgcgtccgagtcagatcaccagtttaatgacacttta
+            ctatcaaaactgtcgttaacagattctacagaaactatagaaaataacgcgacagtgaag
+            caccagcagccagttgcatcttccacagtaaactcgaataagagctccactgatatacga
+            agggctacaccagtgtccactcccgttatctctaaaccatcgatgacaaccacgccaaga
+            cagatcaattcagcttcccattcgctttcgaaccctaagcataagcaacataaaccaaaa
+            gttaaaccgtccaagcctgaagcaaaaagtaaaccggtttctgtgaaaaaaagctttcct
+            tcgaaaaatcctttaaaaaactcctctccacctaaaaagcaaacagaaaaatcgtattat
+            tcttcctcttcgaaaaaaaggaaaagcggttcaaatagtggtacactaagaatgaaagat
+            gtctttacgtcctttgtacagaatataaagagaaattctcaggatgataaaagggcctca
+            tcgtcgtccaataattcttcctcatcttctataaccaccgctttgaggatatctacgcca
+            tacaatgccaagcatatccaccatgtgggcgtggactccaagactggtgagtacacaggt
+            ttgccggaggaatgggaaaaattgttgacttctagtggtatttccaaaagagaacaacag
+            caaaacatgcaagcagtcatggatattgtcaaattctatcaggatgtcacggaaacaaac
+            ggtgaagataaaatgttcaagactttcaacacaaccacaggattgccgggaagtcctcaa
+            gtttcaacaccgcctgcaaactcattcaataaatttcctccgtcgacaagtgattcgcac
+            aattacggttccagaacaggtacaccaatgtccaatcacgtcatgtctccaaccttaaat
+            acagattctagttcagcaaacgggaaattcataccaagtagaccggctcctaagccccca
+            tcttctgcgtccgcttcagctccaattataaaatcacccgtcatgaattctgccgccaat
+            gtttcgcccttgaagcagactcatgcacctacaactccgaacaggaccagcccaaacagg
+            tcctcaatatcaagaaatgccactttaaaaaaagaggagcagccactaccaccaatacct
+            ccaaccaaatccaaaacgtctccaatcatctccacagctcacacaccacagcaagttgct
+            caatcgccaaaagcgccggcgcaagagacggtaacgacacctacttcgaagccagctcaa
+            gcaagaagcttgtctaaagaattaaatgagaaaaagagagaggaaagggaaagacgtaaa
+            aaacaactatatgccaaattgaacgaaatttgctcagacggtgacccaagtacaaaatat
+            gccaatttagtaaaaattggtcaaggtgcatcaggtggtgtttatactgcttatgaaata
+            ggtacgaatgtctcagtggccattaagcaaatgaatctcgaaaagcaaccaaaaaaggag
+            ctaatcatcaatgagattctggtcatgaagggtagcaaacaccctaatatagttaatttc
+            attgattcttacgttttaaaaggcgacctttgggtcattatggaatacatggaaggtggc
+            tccttaactgatgtggtcacccattgtattttgacagaaggtcaaattggtgccgtttgt
+            agagaaactttgagtgggttggaatttttacattctaaaggtgttcttcacagagatatc
+            aaatccgataacatcctattgtccatggaaggggatattaagttaacggatttcggtttt
+            tgcgctcaaatcaatgaattgaacttgaaaagaactactatggtgggaacgccttattgg
+            atggcgcctgaagtggtttctaggaaagaatatggcccaaaagtagatatctggtcgttg
+            ggtatcatgatcattgaaatgatcgagggggagcctccatatttaaatgaaaccccgcta
+            agagcactgtatttaattgctacaaatggtacacccaagttaaaggaacccgagaatcta
+            tcgtcaagcttgaaaaaattccttgattggtgtttatgtgtggagcccgaagatagagca
+            agcgctacggaattgcttcatgatgaatatatcacggagatagctgaagccaattcctca
+            ttggccccgctagtcaagttagcaagattgaagaaagtagctgagaacatggatgctgat
+            gaagataatgacgacgataacgacaacgagcatattaataagacaaacaattgtgacgac
+            aataacgatagcaaagaaaccgtaaatttggacgtaactgaagatgataaacaaaagtaa
+///

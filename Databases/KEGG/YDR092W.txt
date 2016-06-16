@@ -1,0 +1,29 @@
+ENTRY       YDR092W           CDS       T00005
+NAME        UBC13
+DEFINITION  E2 ubiquitin-conjugating protein UBC13 (EC:6.3.2.19)
+ORTHOLOGY   K10580  ubiquitin-conjugating enzyme E2 N [EC:6.3.2.19]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04120  Ubiquitin mediated proteolysis
+CLASS       Genetic Information Processing; Folding, sorting and degradation; Ubiquitin mediated proteolysis [PATH:sce04120]
+POSITION    IV:join(629876..629905,630174..630605)
+MOTIF       Pfam: UQ_con Prok-E2_B RWD UEV
+DBLINKS     NCBI-GI: 398365541
+            NCBI-GeneID: 851666
+            SGD: S000002499
+            MIPS: YDR092W
+            UniProt: P52490
+STRUCTURE   PDB: 1JAT 1JBB 2GMI 4FH1
+AASEQ       153
+            MASLPKRIIKETEKLVSDPVPGITAEPHDDNLRYFQVTIEGPEQSPYEDGIFELELYLPD
+            DYPMEAPKVRFLTKIYHPNIDRLGRICLDVLKTNWSPALQIRTVLLSIQALLASPNPNDP
+            LANDVAEDWIKNEQGAKAKAREWTKLYAKKKPE
+NTSEQ       462
+            atggcatcattacccaagagaataatcaaggaaactgagaaattagtaagtgacccagta
+            cctggcattacagcagaaccacatgacgacaacttacgttacttccaagtaacaatcgaa
+            ggcccagaacagtcaccatatgaagacggtattttcgaattagaattatatctgcctgac
+            gactatccaatggaagcaccgaaagtacgttttttaaccaagatatatcatcccaatatt
+            gataggttgggccgtatatgtcttgatgtgcttaaaactaattggtcacccgctttacag
+            atcagaaccgtcctgctgtccattcaagcactgttggctagccctaatcctaatgatccg
+            ctagctaatgacgtcgctgaagattggataaagaatgagcaaggtgccaaagctaaggct
+            cgcgaatggacgaaattgtatgcaaagaagaaacccgagtga
+///

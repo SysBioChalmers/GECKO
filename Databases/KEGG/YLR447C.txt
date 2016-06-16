@@ -1,0 +1,44 @@
+ENTRY       YLR447C           CDS       T00005
+NAME        VMA6
+DEFINITION  Vma6p (EC:3.6.3.14)
+ORTHOLOGY   K02146  V-type H+-transporting ATPase subunit AC39 [EC:3.6.3.14]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00190  Oxidative phosphorylation
+            sce01100  Metabolic pathways
+            sce04145  Phagosome
+CLASS       Metabolism; Energy metabolism; Oxidative phosphorylation [PATH:sce00190]
+            Cellular Processes; Transport and catabolism; Phagosome [PATH:sce04145]
+POSITION    XII:complement(1026856..1027893)
+MOTIF       Pfam: vATP-synt_AC39
+DBLINKS     NCBI-GI: 398366327
+            NCBI-GeneID: 851168
+            SGD: S000004439
+            MIPS: YLR447C
+            UniProt: P32366
+AASEQ       345
+            MEGVYFNIDNGFIEGVVRGYRNGLLSNNQYINLTQCDTLEDLKLQLSSTDYGNFLSSVSS
+            ESLTTSLIQEYASSKLYHEFNYIRDQSSGSTRKFMDYITYGYMIDNVALMITGTIHDRDK
+            GEILQRCHPLGWFDTLPTLSVATDLESLYETVLVDTPLAPYFKNCFDTAEELDDMNIEII
+            RNKLYKAYLEDFYNFVTEEIPEPAKECMQTLLGFEADRRSINIALNSLQSSDIDPDLKSD
+            LLPNIGKLYPLATFHLAQAQDFEGVRAALANVYEYRGFLETGNLEDHFYQLEMELCRDAF
+            TQQFAISTVWAWMKSKEQEVRNITWIAECIAQNQRERINNYISVY
+NTSEQ       1038
+            atggaaggcgtgtatttcaatattgacaatgggtttattgaaggtgtagtgagaggctac
+            agaaatgggttgttatctaataaccaatacatcaacttaacacaatgtgacacgttggaa
+            gatctaaaattacaattatcatcaactgattatggtaattttctttcctctgtttcctca
+            gagtctttgaccacgtcattgattcaagaatatgcttctagcaagttgtaccacgaattc
+            aactacataagagaccaatccagtggatccacgagaaagttcatggactatatcacttat
+            ggttacatgatcgacaatgtagcattgatgattacaggtactattcatgatcgtgataag
+            ggtgaaattttacaacgttgtcatccgctaggttggtttgatactttgcctacgttgagt
+            gttgctactgatcttgaatccctatacgaaaccgtattggtggataccccactggcacct
+            tacttcaaaaactgttttgacacggcagaggagctagacgatatgaacattgaaattatt
+            agaaataagctgtacaaggcttatttagaagacttttacaattttgtcactgaagaaatt
+            ccggaacctgctaaagaatgtatgcaaacattactagggtttgaagctgacagaagaagt
+            atcaatattgcactcaactctttgcaaagttcagatattgacccagatttgaaaagtgac
+            ttgttacctaacataggtaagttgtaccctcttgcaacgtttcacttggcgcaagcccaa
+            gatttcgaaggagttagagctgctttagctaacgtctatgagtataggggatttttggag
+            actggtaacttagaagatcacttttaccaattggaaatggaactatgtagagatgctttc
+            acgcaacaatttgccatcagcactgtttgggcctggatgaaatccaaggaacaagaagtt
+            aggaatattacctggattgcagaatgtatcgcacaaaaccaaagagaaagaatcaacaat
+            tatatttccgtttattga
+///

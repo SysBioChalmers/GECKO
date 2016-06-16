@@ -1,0 +1,51 @@
+ENTRY       YGR255C           CDS       T00005
+NAME        COQ6
+DEFINITION  putative N,N-dimethylaniline monooxygenase COQ6 (EC:1.14.13.-)
+ORTHOLOGY   K06126  ubiquinone biosynthesis monooxygenase Coq6 [EC:1.14.13.-]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00130  Ubiquinone and other terpenoid-quinone biosynthesis
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+CLASS       Metabolism; Metabolism of cofactors and vitamins; Ubiquinone and other terpenoid-quinone biosynthesis [PATH:sce00130]
+POSITION    VII:complement(1002523..1003962)
+MOTIF       Pfam: FAD_binding_3 Lycopene_cycl SE DAO Pyr_redox_2 FAD_binding_2 NAD_binding_8 Thi4 Trp_halogenase NAD_binding_9 HI0933_like
+DBLINKS     NCBI-GI: 6321694
+            NCBI-GeneID: 853170
+            SGD: S000003487
+            MIPS: YGR255C
+            UniProt: P53318
+AASEQ       479
+            MFFSKVMLTRRILVRGLATAKSSAPKLTDVLIVGGGPAGLTLAASIKNSPQLKDLKTTLV
+            DMVDLKDKLSDFYNSPPDYFTNRIVSVTPRSIHFLENNAGATLMHDRIQSYDGLYVTDGC
+            SKATLDLARDSMLCMIEIINIQASLYNRISQYDSKKDSIDIIDNTKVVNIKHSDPNDPLS
+            WPLVTLSNGEVYKTRLLVGADGFNSPTRRFSQIPSRGWMYNAYGVVASMKLEYPPFKLRG
+            WQRFLPTGPIAHLPMPENNATLVWSSSERLSRLLLSLPPESFTALINAAFVLEDADMNYY
+            YRTLEDGSMDTDKLIEDIKFRTEEIYATLKDESDIDEIYPPRVVSIIDKTRARFPLKLTH
+            ADRYCTDRVALVGDAAHTTHPLAGQGLNMGQTDVHGLVYALEKAMERGLDIGSSLSLEPF
+            WAERYPSNNVLLGMADKLFKLYHTNFPPVVALRTFGLNLTNKIGPVKNMIIDTLGGNEK
+NTSEQ       1440
+            atgttcttttcaaaagttatgcttactcggcgtattttggtgaggggtttggcaacagcc
+            aaatcttcagctccaaagttaacagatgtattaatcgtaggtgggggtcctgcaggtttg
+            actttagctgcatcgattaagaattctccgcaattaaaagatctaaagacaactttagtc
+            gatatggtggacttaaaagataaattatcggacttttataattcacccccagattatttt
+            acgaacaggattgtcagtgttacgcctagatctattcattttcttgagaataacgctggg
+            gcaactttgatgcatgacaggattcaaagttatgacggactctatgtcacggacggttgt
+            tctaaggctactttggatctggcaagggactccatgctttgtatgattgaaattataaat
+            atacaggcctccttatacaacagaatttctcagtacgattcaaagaaggactccattgat
+            attattgataatacaaaagttgtcaatattaaacacagcgaccctaatgatccattgtcc
+            tggcctttagtcactctttccaatggtgaagtatacaagacgagattgctagtgggtgca
+            gacgggttcaattctcctaccagaagattttcccagatcccatctaggggctggatgtat
+            aatgcctatggtgttgtggccagcatgaagttagagtatcctccctttaaactaaggggc
+            tggcagaggttcttacccactggtccaattgcacacttacccatgcctgaaaataatgct
+            actttagtctggagttcatctgaacgtttatcgaggcttttgttgtcattacctccagaa
+            tcattcactgcacttatcaatgctgcttttgtcttggaagacgcagacatgaactactat
+            taccgtacattggaagatggctctatggacaccgataaattgatagaagatattaaattc
+            agaactgaggaaatatacgccacgttgaaggacgagtcggatattgatgaaatttaccca
+            ccaagagttgttagtataatagataagacaagagcacgttttcccttaaaattaacacat
+            gcagatcgttattgcactgatagagttgcccttgttggggacgcagcacatacgacacat
+            cctctcgctggacaggggttaaacatggggcaaacagacgttcatggtttagtatacgct
+            ttagaaaaggcaatggaaagaggtttagacattggctcttcattgagcttagaacccttt
+            tgggcagaaagatatccgtcgaacaacgttctattaggaatggcggataaattatttaaa
+            ttatatcacactaattttcctcctgtggtagccctaagaacttttggtttgaatctgacg
+            aataagatcggtccagttaagaatatgatcattgacacattaggaggaaatgagaaatga
+///

@@ -1,0 +1,36 @@
+ENTRY       YER170W           CDS       T00005
+NAME        ADK2, AKY3, PAK3
+DEFINITION  adenylate kinase ADK2 (EC:2.7.4.3 2.7.4.10)
+ORTHOLOGY   K00939  adenylate kinase [EC:2.7.4.3]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00230  Purine metabolism
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+MODULE      sce_M00049  Adenine ribonucleotide biosynthesis, IMP => ADP,ATP
+CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
+POSITION    V:525974..526651
+MOTIF       Pfam: ADK ADK_lid AAA_33 AAA_18 AAA_17 AAA_16 Mg_chelatase Zeta_toxin
+DBLINKS     NCBI-GI: 398365067
+            NCBI-GeneID: 856917
+            SGD: S000000972
+            MIPS: YER170W
+            UniProt: P26364
+AASEQ       225
+            MKADAKQITHLLKPLRLLLLGAPGSGKGTQTSRLLKQIPQLSSISSGDILRQEIKSESTL
+            GREATTYIAQGKLLPDDLITRLITFRLSALGWLKPSAMWLLDGFPRTTAQASALDELLKQ
+            HDASLNLVVELDVPESTILERIENRYVHVPSGRVYNLQYNPPKVPGLDDITGEPLTKRLD
+            DTAEVFKKRLEEYKKTNEPLKDYYKKSGIFGTVSGETSDIIFRNY
+NTSEQ       678
+            atgaaagcagacgcgaaacaaataacacatctactcaaacctcttcgacttttattattg
+            ggggctccagggtcaggtaaagggacacagacttcgagattactaaagcaaattccacaa
+            ttatcttcaatttcgtcaggcgacattttacgtcaggaaataaaatctgaatctacccta
+            ggccgagaggctactacctacattgctcaaggcaagttattaccggatgatctcataacg
+            cgtctgataacttttcgtctttcggcattgggttggttaaaaccatctgccatgtggttg
+            ctcgatggatttcctcgaactactgcgcaagcttctgccttagacgagctgctgaaacag
+            catgacgccagcttgaatctagtggtagagctagatgtacccgaatccaccatattagaa
+            aggatcgagaacagatatgttcacgttcctagtgggagagtgtataacttacaatataat
+            cctcccaaagtgccaggattagacgatatcaccggagaaccattgaccaagaggcttgat
+            gacacagcggaagtgtttaaaaaaaggctagaagagtacaagaaaacaaatgagccttta
+            aaagattattacaaaaaaagtgggatttttggtaccgtctctggggaaacatcagatatt
+            atcttccgaaattattga
+///

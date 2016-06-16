@@ -1,0 +1,34 @@
+ENTRY       YJR063W           CDS       T00005
+NAME        RPA12, RRN4
+DEFINITION  Rpa12p
+ORTHOLOGY   K03000  DNA-directed RNA polymerase I subunit RPA12
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00230  Purine metabolism
+            sce00240  Pyrimidine metabolism
+            sce01100  Metabolic pathways
+            sce03020  RNA polymerase
+MODULE      sce_M00182  RNA polymerase I, eukaryotes
+CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
+            Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
+            Genetic Information Processing; Transcription; RNA polymerase [PATH:sce03020]
+POSITION    X:555195..555572
+MOTIF       Pfam: TFIIS_C RNA_POL_M_15KD Lar_restr_allev DZR zinc_ribbon_2 TF_Zn_Ribbon Terminase_GpA zf-H2C2_2 Stc1 Zn_Tnp_IS1595 DUF2387 zf-DNA_Pol DUF2072 CpXC Nop10p Ogr_Delta Baculo_LEF5_C Elf1 zf-TFIIB zf-C4_Topoisom
+DBLINKS     NCBI-GI: 6322523
+            NCBI-GeneID: 853526
+            SGD: S000003824
+            MIPS: YJR063W
+            UniProt: P32529
+STRUCTURE   PDB: 4C2M 4C3I 4C3H 4C3J
+AASEQ       125
+            MSVVGSLIFCLDCGDLLENPNAVLGSNVECSQCKAIYPKSQFSNLKVVTTTADDAFPSSL
+            RAKKSVVKTSLKKNELKDGATIKEKCPQCGNEEMNYHTLQLRSADEGATVFYTCTSCGYK
+            FRTNN
+NTSEQ       378
+            atgtctgttgtaggatcgttaattttttgcttggactgtggtgatctcctggaaaatcct
+            aatgccgtattaggctctaacgttgaatgcagccaatgtaaagccatatatcccaagtca
+            caattctccaatttaaaagtcgtcaccacgacggcagacgatgcgtttccatcttctctt
+            agagccaagaaatccgtggttaaaacttctttgaagaagaacgaactgaaagacggcgct
+            actatcaaggaaaagtgtcctcagtgtggaaatgaagagatgaactatcatactttacag
+            ttaagatctgcagatgaaggtgctactgtcttctatacatgcacttcctgtggttacaag
+            ttccgtaccaacaattga
+///

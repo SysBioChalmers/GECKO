@@ -1,0 +1,41 @@
+ENTRY       YPL117C           CDS       T00005
+NAME        IDI1, BOT2, LPH10
+DEFINITION  isopentenyl-diphosphate delta-isomerase IDI1 (EC:5.3.3.2)
+ORTHOLOGY   K01823  isopentenyl-diphosphate delta-isomerase [EC:5.3.3.2]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00900  Terpenoid backbone biosynthesis
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+MODULE      sce_M00095  C5 isoprenoid biosynthesis, mevalonate pathway
+            sce_M00367  C10-C20 isoprenoid biosynthesis, non-plant eukaryotes
+CLASS       Metabolism; Metabolism of terpenoids and polyketides; Terpenoid backbone biosynthesis [PATH:sce00900]
+POSITION    XVI:complement(327864..328730)
+MOTIF       Pfam: NUDIX DUF4459
+DBLINKS     NCBI-GI: 6325140
+            NCBI-GeneID: 855986
+            SGD: S000006038
+            MIPS: YPL117C
+            UniProt: P15496
+AASEQ       288
+            MTADNNSMPHGAVSSYAKLVQNQTPEDILEEFPEIIPLQQRPNTRSSETSNDESGETCFS
+            GHDEEQIKLMNENCIVLDWDDNAIGAGTKKVCHLMENIEKGLLHRAFSVFIFNEQGELLL
+            QQRATEKITFPDLWTNTCCSHPLCIDDELGLKGKLDDKIKGAITAAVRKLDHELGIPEDE
+            TKTRGKFHFLNRIHYMAPSNEPWGEHEIDYILFYKINAKENLTVNPNVNEVRDFKWVSPN
+            DLKTMFADPSYKFTPWFKIICENYLFNWWEQLDDLSEVENDRQIHRML
+NTSEQ       867
+            atgactgccgacaacaatagtatgccccatggtgcagtatctagttacgccaaattagtg
+            caaaaccaaacacctgaagacattttggaagagtttcctgaaattattccattacaacaa
+            agacctaatacccgatctagtgagacgtcaaatgacgaaagcggagaaacatgtttttct
+            ggtcatgatgaggagcaaattaagttaatgaatgaaaattgtattgttttggattgggac
+            gataatgctattggtgccggtaccaagaaagtttgtcatttaatggaaaatattgaaaag
+            ggtttactacatcgtgcattctccgtctttattttcaatgaacaaggtgaattactttta
+            caacaaagagccactgaaaaaataactttccctgatctttggactaacacatgctgctct
+            catccactatgtattgatgacgaattaggtttgaagggtaagctagacgataagattaag
+            ggcgctattactgcggcggtgagaaaactagatcatgaattaggtattccagaagatgaa
+            actaagacaaggggtaagtttcactttttaaacagaatccattacatggcaccaagcaat
+            gaaccatggggtgaacatgaaattgattacatcctattttataagatcaacgctaaagaa
+            aacttgactgtcaacccaaacgtcaatgaagttagagacttcaaatgggtttcaccaaat
+            gatttgaaaactatgtttgctgacccaagttacaagtttacgccttggtttaagattatt
+            tgcgagaattacttattcaactggtgggagcaattagatgacctttctgaagtggaaaat
+            gacaggcaaattcatagaatgctataa
+///

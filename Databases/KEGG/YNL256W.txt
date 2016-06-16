@@ -1,0 +1,76 @@
+ENTRY       YNL256W           CDS       T00005
+NAME        FOL1
+DEFINITION  trifunctional dihydropteroate synthetase/dihydrohydroxymethylpterin pyrophosphokinase/dihydroneopterin aldolase FOL1 (EC:4.1.2.25 2.7.6.3 2.5.1.15)
+ORTHOLOGY   K13939  dihydroneopterin aldolase / 2-amino-4-hydroxy-6-hydroxymethyldihydropteridine diphosphokinase / dihydropteroate synthase [EC:4.1.2.25 2.7.6.3 2.5.1.15]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00790  Folate biosynthesis
+            sce01100  Metabolic pathways
+MODULE      sce_M00126  Tetrahydrofolate biosynthesis, GTP => THF
+CLASS       Metabolism; Metabolism of cofactors and vitamins; Folate biosynthesis [PATH:sce00790]
+POSITION    XIV:164623..167097
+MOTIF       Pfam: Pterin_bind HPPK FolB
+DBLINKS     NCBI-GI: 37362687
+            NCBI-GeneID: 855465
+            SGD: S000005200
+            MIPS: YNL256W
+            UniProt: P53848
+STRUCTURE   PDB: 2BMB
+AASEQ       824
+            MSKLFSTVNSARHSVPLGGMRDYVHIKKLEMNTVLGPDSWNQLMPQKCLLSLDMGTDFSK
+            SAATDDLKYSLNYAVISRDLTNFVSKKKNWGSVSNLAKSVSQFVMDKYSGVECLNLEVQA
+            DTTHIRSDHISCIIQQERGNPESQEFDVVRISELKMLTLIGVFTFERLKKQYVTLDIKLP
+            WPKKAELPPPVQSIIDNVVKFVEESNFKTVEALVESVSAVIAHNEYFQKFPDSPLVVKVL
+            KLNAITATEGVGVSCIREPREIAMVNIPYLSSIHESSDIKFQLSSSQNTPIEGKNTWKRA
+            FLAFGSNIGDRFKHIQMALQLLSREKTVKLRNISSIFESEPMYFKDQTPFMNGCVEVETL
+            LTPSELLKLCKKIEYEELQRVKHFDNGPRTIDLDIVMFLNSAGEDIIVNEPDLNIPHPRM
+            LERTFVLEPLCELISPVHLHPVTAEPIVDHLKQLYDKQHDEDTLWKLVPLPYRSGVEPRF
+            LKFKTATKLDEFTGETNRITVSPTYIMAIFNATPDSFSDGGEHFADIESQLNDIIKLCKD
+            ALYLHESVIIDVGGCSTRPNSIQASEEEEIRRSIPLIKAIRESTELPQDKVILSIDTYRS
+            NVAKEAIKVGVDIINDISGGLFDSNMFAVIAENPEICYILSHTRGDISTMNRLAHYENFA
+            LGDSIQQEFVHNTDIQQLDDLKDKTVLIRNVGQEIGERYIKAIDNGVKRWQILIDPGLGF
+            AKTWKQNLQIIRHIPILKNYSFTMNSNNSQVYVNLRNMPVLLGPSRKKFIGHITKDVDAK
+            QRDFATGAVVASCIGFGSDMVRVHDVKNCSKSIKLADAIYKGLE
+NTSEQ       2475
+            atgtcaaagctattttctactgtcaattctgcaagacatagtgtaccactaggcggcatg
+            agagattatgtgcacattaagaaactagagatgaatacagttcttgggcctgattcctgg
+            aatcaattaatgcctcagaaatgtctactaagcttagatatgggtacagattttagtaaa
+            tctgcggctacggatgatttgaaatattctctaaattatgcagttatttctcgtgatttg
+            acgaatttcgtcagcaaaaaaaagaattggggttctgtttctaatttggctaaatctgtg
+            tctcaatttgttatggacaaatattctggtgtcgagtgtctgaatttagaagtgcaggcg
+            gatacaacgcatattagaagtgaccacatatcttgtattattcaacaagaaagagggaat
+            ccagaatcacaggaatttgacgttgttaggatatctgagttaaaaatgttgactttgatt
+            ggtgttttcacctttgagagacttaagaaacagtatgtaactttggatataaagttgcct
+            tggccaaagaaagccgaattgccaccgccagtgcaaagcataattgataacgttgtcaag
+            tttgtggaggaatcaaatttcaagactgtggaagctcttgtagaatctgtgtcagctgtt
+            attgcccataacgagtattttcaaaagtttccagattcgcctttggtggtgaaggttttg
+            aaattaaacgcaatcacagccacagaaggtgttggtgtaagctgtattagagagcccagg
+            gagattgcgatggtaaatattccatatctttcctccatacatgaatcgtctgatattaag
+            ttccaattgtcttcatcacaaaacactcctattgagggtaaaaatacatggaaaagagcg
+            tttttagcgtttggttcaaacattggggaccgtttcaaacacattcaaatggcgttgcaa
+            ttattatcaagggaaaaaacggttaaattacggaatatttcgtctatttttgaaagtgaa
+            ccaatgtatttcaaagatcaaacccctttcatgaatgggtgtgttgaggtggagacatta
+            ctgaccccaagcgaattattaaaattgtgtaaaaaaattgaatatgaagagttgcaaaga
+            gtcaagcattttgataatggtccgagaacaatagatctggatattgttatgtttttgaat
+            agcgccggagaagatattatagtaaatgaaccggatttgaatataccgcatcctagaatg
+            ctggagaggactttcgttcttgagccgttatgtgaattaatatcccccgttcaccttcat
+            cctgtgacagcggaacccattgtagaccatttaaaacagttatacgacaaacagcatgat
+            gaagataccttatggaaattagttccattgccttatcgtagtggtgtggagcctagattt
+            ttgaaattcaagaccgctacaaaacttgacgaatttactggagaaacaaacagaattact
+            gtttcacctacatatatcatggctatcttcaacgctacaccagattcattttccgatgga
+            ggtgagcattttgcggacattgaaagtcaattgaatgatatcattaaattgtgtaaagac
+            gcattatatttgcatgagagcgtcatcatcgacgttggagggtgttctaccaggcctaac
+            tctattcaggcgtctgaggaagaagaaatacgcaggtctatcccattaattaaggccatt
+            agagaaagcactgagttaccgcaagataaagtcatactatccattgatacttatcgttcc
+            aatgtcgctaaagaagcgattaaagttggagtggatattattaatgatatttcgggaggt
+            ttatttgacagcaacatgtttgccgtaattgcagagaacccagaaatttgttatatttta
+            tcacacacacgtggtgatatttcaacgatgaataggctggcgcattacgaaaattttgca
+            ttgggtgattctattcagcaagaatttgttcataataccgacattcagcagctagacgac
+            ttgaaagacaaaacagtgttaatcaggaatgttggtcaagaaattggcgaaaggtatatc
+            aaagcgattgataatggagtaaagcgctggcaaattctaatcgaccctggacttggtttt
+            gctaagacctggaagcaaaacttacaaattattagacatatccccattttaaagaactac
+            tcattcaccatgaactcaaacaattcgcaagtgtatgttaacctcagaaatatgcccgtt
+            ttattgggtccatcgcgcaaaaaattcattggacatatcacaaaagatgtggatgcgaag
+            caaagagactttgctactggagcggtggtagcgtcgtgtattggtttcggcagcgacatg
+            gttagggtccatgacgttaaaaattgttcgaagagcattaaattagcagatgctatttat
+            aaaggtttggaataa
+///

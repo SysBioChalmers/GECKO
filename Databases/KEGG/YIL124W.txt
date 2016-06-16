@@ -1,0 +1,40 @@
+ENTRY       YIL124W           CDS       T00005
+NAME        AYR1
+DEFINITION  acylglycerone-phosphate reductase (EC:1.1.1.101)
+ORTHOLOGY   K06123  1-acylglycerone phosphate reductase [EC:1.1.1.101]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00564  Glycerophospholipid metabolism
+            sce00565  Ether lipid metabolism
+            sce01100  Metabolic pathways
+CLASS       Metabolism; Lipid metabolism; Glycerophospholipid metabolism [PATH:sce00564]
+            Metabolism; Lipid metabolism; Ether lipid metabolism [PATH:sce00565]
+POSITION    IX:126204..127097
+MOTIF       Pfam: adh_short adh_short_C2 KR NAD_binding_10 Epimerase RmlD_sub_bind Saccharop_dh NmrA
+DBLINKS     NCBI-GI: 398364253
+            NCBI-GeneID: 854682
+            SGD: S000001386
+            MIPS: YIL124W
+            UniProt: P40471
+AASEQ       297
+            MSELQSQPKKIAVVTGASGGIGYEVTKELARNGYLVYACARRLEPMAQLAIQFGNDSIKP
+            YKLDISKPEEIVTFSGFLRANLPDGKLDLLYNNAGQSCTFPALDATDAAVEQCFKVNVFG
+            HINMCRELSEFLIKAKGTIVFTGSLAGVVSFPFGSIYSASKAAIHQYARGLHLEMKPFNV
+            RVINAITGGVATDIADKRPLPETSIYNFPEGREAFNSRKTMAKDNKPMPADAYAKQLVKD
+            ILSTSDPVDVYRGTFANIMRFVMIFVPYWLLEKGLSKKFKLDKVNNALKSKQKNKDD
+NTSEQ       894
+            atgtcggagttacagtcacaacctaaaaagattgccgttgttacaggcgcctcaggtggt
+            attggatatgaggtaacgaaggaattagccagaaatggctatttggtttatgcatgtgca
+            agaagactagaaccaatggcacaattggccatccaatttggtaacgatagtatcaaacca
+            tataagttggatatttccaagccagaagaaattgtaacattttctggttttttgcgagct
+            aatttacctgatggtaaattagatttattgtacaacaatgccggtcagagttgtacattc
+            cctgcattggatgcaacagatgctgcagtagaacaatgctttaaggtcaatgtgtttggt
+            catatcaacatgtgccgtgaattgtcggagttccttattaaagcgaaaggaaccattgtc
+            ttcactggttccttggcaggagttgtgtcattcccctttggtagcatttattccgcttct
+            aaagctgctatccaccaatatgctcgtgggttacatctagagatgaagcccttcaacgtg
+            agagtgattaacgctattactggcggtgtggctactgatatcgctgataaaaggcccttg
+            cctgaaacctcaatatacaacttccctgaaggtagggaagcttttaattcaagaaaaacc
+            atggctaaggacaataagcccatgccagctgatgcgtacgcaaagcaactggttaaagat
+            atcttgagcactagtgaccctgtagatgtttatagaggaacgttcgccaacatcatgcgt
+            tttgtcatgatatttgttccttactggctattggaaaaaggactttccaaaaaatttaaa
+            ttggacaaagttaataatgctttgaagtcgaaacagaagaataaggacgattag
+///

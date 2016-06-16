@@ -1,0 +1,31 @@
+ENTRY       YBR082C           CDS       T00005
+NAME        UBC4
+DEFINITION  E2 ubiquitin-conjugating protein UBC4 (EC:6.3.2.19)
+ORTHOLOGY   K06689  ubiquitin-conjugating enzyme E2 D/E [EC:6.3.2.19]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04120  Ubiquitin mediated proteolysis
+            sce04141  Protein processing in endoplasmic reticulum
+CLASS       Genetic Information Processing; Folding, sorting and degradation; Protein processing in endoplasmic reticulum [PATH:sce04141]
+            Genetic Information Processing; Folding, sorting and degradation; Ubiquitin mediated proteolysis [PATH:sce04120]
+POSITION    II:complement(join(406628..407027,407123..407169))
+MOTIF       Pfam: UQ_con Prok-E2_B RWD UEV
+DBLINKS     NCBI-GI: 6319556
+            NCBI-GeneID: 852376
+            SGD: S000000286
+            MIPS: YBR082C
+            UniProt: P15731
+STRUCTURE   PDB: 1QCQ
+AASEQ       148
+            MSSSKRIAKELSDLERDPPTSCSAGPVGDDLYHWQASIMGPADSPYAGGVFFLSIHFPTD
+            YPFKPPKISFTTKIYHPNINANGNICLDILKDQWSPALTLSKVLLSICSLLTDANPDDPL
+            VPEIAHIYKTDRPKYEATAREWTKKYAV
+NTSEQ       447
+            atgtcttcttctaaacgtattgctaaagaactaagtgatctagaaagagatccacctact
+            tcatgttcagccggtccagtcggcgatgatctatatcactggcaagcatccatcatggga
+            cctgccgattccccatatgccggcggtgttttcttcttgtctatccatttcccaaccgac
+            tacccattcaagccaccaaagatctccttcacaaccaagatatatcatccaaatatcaat
+            gccaatggtaacatctgtctggacatcctaaaggatcaatggtctccagctctaactcta
+            tcgaaggtcctattatccatctgttctttgttaacagacgctaatcctgacgatccttta
+            gtaccagaaatcgctcatatctacaagactgacagacccaagtacgaagctacagccaga
+            gaatggacaaagaaatacgctgtataa
+///

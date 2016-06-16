@@ -1,0 +1,23 @@
+ENTRY       YML081C-A         CDS       T00005
+NAME        ATP18
+DEFINITION  F1F0 ATP synthase subunit I (EC:3.6.3.14)
+ORTHOLOGY   K02142  F-type H+-transporting ATPase subunit j [EC:3.6.3.14]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00190  Oxidative phosphorylation
+            sce01100  Metabolic pathways
+MODULE      sce_M00158  F-type ATPase, eukaryotes
+CLASS       Metabolism; Energy metabolism; Oxidative phosphorylation [PATH:sce00190]
+POSITION    XIII:complement(103983..104162)
+MOTIF       Pfam: ATP-synt_J
+DBLINKS     NCBI-GI: 6323558
+            NCBI-GeneID: 854893
+            SGD: S000007247
+            MIPS: YML081C-A
+            UniProt: P81450
+AASEQ       59
+            MLKRFPTPILKVYWPFFVAGAAVYYGMSKAADLSSNTKEFINDPRNPRFAKGGKFVEVD
+NTSEQ       180
+            atgttgaaaagattccctacccctatccttaaagtatactggcctttctttgtggctggc
+            gccgcagtgtattatggtatgagtaaagctgctgacctttcttctaacacgaaggaattt
+            atcaatgatccaagaaatcccagattcgcaaaaggtggaaagtttgtggaagttgattga
+///

@@ -1,0 +1,38 @@
+ENTRY       YEL051W           CDS       T00005
+NAME        VMA8
+DEFINITION  Vma8p (EC:3.6.3.14)
+ORTHOLOGY   K02149  V-type H+-transporting ATPase subunit D [EC:3.6.3.14]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00190  Oxidative phosphorylation
+            sce01100  Metabolic pathways
+            sce04145  Phagosome
+CLASS       Metabolism; Energy metabolism; Oxidative phosphorylation [PATH:sce00190]
+            Cellular Processes; Transport and catabolism; Phagosome [PATH:sce04145]
+POSITION    V:58378..59148
+MOTIF       Pfam: ATP-synt_D RICH DUF1640
+DBLINKS     NCBI-GI: 6320784
+            NCBI-GeneID: 856659
+            SGD: S000000777
+            MIPS: YEL051W
+            UniProt: P32610
+AASEQ       256
+            MSGNREQVFPTRMTLGLMKTKLKGANQGYSLLKRKSEALTKRFRDITKRIDDAKQKMGRV
+            MQTAAFSLAEVSYATGENIGYQVQESVSTARFKVRARQENVSGVYLSQFESYIDPEINDF
+            RLTGLGRGGQQVQRAKEIYSRAVETLVELASLQTAFIILDEVIKVTNRRVNAIEHVIIPR
+            TENTIAYINSELDELDREEFYRLKKVQEKKQNETAKLDAEMKLKRDRAEQDASEVAADEE
+            PQGETLVADQEDDVIF
+NTSEQ       771
+            atgtctggtaatagagagcaagtctttcctacgcgtatgacgctgggtttgatgaagacc
+            aagttaaaaggtgccaaccaaggttattctttactaaagcgtaagtctgaagccctaaca
+            aagagattcagagatattaccaaaagaattgatgatgctaagcaaaagatggggagagtt
+            atgcaaactgctgccttttccttggccgaagtttcctatgcaacaggtgaaaacattggc
+            tatcaagtgcaagaaagtgtctctactgcaagattcaaagtgagagcacgtcaagaaaac
+            gttagtggtgtgtatttgtctcaatttgagtcctacatcgaccctgaaattaatgatttc
+            agattaactggtttaggtagaggtggtcaacaggttcaacgagccaaggaaatctattca
+            agagccgttgaaactttagttgaattagcctctttacagactgcatttattattttggat
+            gaagtgattaaagtgacgaacagaagggttaatgctatcgaacacgttattatcccaaga
+            actgaaaacacaattgcttacattaacagtgagttggatgagttggacagagaagaattt
+            tatagattgaaaaaggtccaagaaaagaagcaaaatgagactgcaaaattggatgctgag
+            atgaaattgaagagagatagagcagaacaagatgcttcagaagtagctgctgatgaggaa
+            cctcaaggtgaaacattggttgctgatcaagaagacgatgttatattctga
+///

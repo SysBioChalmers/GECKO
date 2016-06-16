@@ -1,0 +1,84 @@
+ENTRY       YER069W           CDS       T00005
+NAME        ARG5,6
+DEFINITION  bifunctional acetylglutamate kinase/N-acetyl-gamma-glutamyl-phosphate reductase (EC:2.7.2.8 1.2.1.38)
+ORTHOLOGY   K12659  N-acetyl-gamma-glutamyl-phosphate reductase / acetylglutamate kinase [EC:1.2.1.38 2.7.2.8]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00330  Arginine and proline metabolism
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01210  2-Oxocarboxylic acid metabolism
+            sce01230  Biosynthesis of amino acids
+MODULE      sce_M00028  Ornithine biosynthesis, glutamate => ornithine
+CLASS       Metabolism; Overview; 2-Oxocarboxylic acid metabolism [PATH:sce01210]
+            Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
+            Metabolism; Amino acid metabolism; Arginine and proline metabolism [PATH:sce00330]
+POSITION    V:295410..298001
+MOTIF       Pfam: DUF619 Semialdhyde_dh AA_kinase Semialdhyde_dhC DapB_N
+DBLINKS     NCBI-GI: 6320913
+            NCBI-GeneID: 856800
+            SGD: S000000871
+            MIPS: YER069W
+            UniProt: Q01217
+STRUCTURE   PDB: 3ZZH 3ZZF 3ZZG 4AB7 3ZZI
+AASEQ       863
+            MPSASLLVSTKRLNASKFQKFVSSLNKSTIAGFASVPLRAPPSVAFTRKKVGYSKRYVSS
+            TNGFSATRSTVIQLLNNISTKREVEQYLKYFTSVSQQQFAVIKVGGAIISDNLHELASCL
+            AFLYHVGLYPIVLHGTGPQVNGRLEAQGIEPDYIDGIRITDEHTMAVVRKCFLEQNLKLV
+            TALEQLGVRARPITSGVFTADYLDKDKYKLVGNIKSVTKEPIEASIKAGALPILTSLAET
+            ASGQMLNVNADVAAGELARVFEPLKIVYLNEKGGIINGSTGEKISMINLDEEYDDLMKQS
+            WVKYGTKLKIREIKELLDYLPRSSSVAIINVQDLQKELFTDSGAGTMIRRGYKLVKRSSI
+            GEFPSADALRKALQRDAGISSGKESVASYLRYLENSDFVSYADEPLEAVAIVKKDTNVPT
+            LDKFVCSDAAWLNNVTDNVFNVLRRDFPALQWVVSENDANIAWHFDKSQGSYLKGGKVLF
+            WYGIDDINTISELVENFVKSCDTASTLNSSASSGVFANKKSARSYSTRSTPRPEGVNTNP
+            GRVALIGARGYTGKNLVSLINGHPYLEVAHVSSRELKGQKLQDYTKSEIIYESLQIQDIR
+            KLEEQNAVDFWVMALPNKVCEPFVETIQSVHGKSKIIDLSADHRFVSESDWAYGLPELND
+            RAKIANAAKIANPGCYATGSQLTISPLTKYINGLPTVFGVSGYSGAGTKPSPKNDPKFLN
+            NNLIPYALSDHIHEREISARIGHNVAFMPHVGQWFQGISLTVSIPIKKGSLSIDEIRKLY
+            RNFYEDEKLVHVIDDIPLVKDIEGTHGVVIGGFKLNDAEDRVVVCATIDNLLKGAATQCL
+            QNINLAMGYGEYAGIPENKIIGV
+NTSEQ       2592
+            atgccatctgctagcttactcgtctcgacaaagagacttaacgcttccaaattccaaaaa
+            tttgtgtcttcattaaacaaatccaccatagcaggatttgcatctgtacccttgagagct
+            ccaccatccgttgcatttacgagaaagaaagtcggatactcaaagaggtatgtttcatct
+            actaacggcttttcagctactagatccactgtgatccaactgttgaacaatatcagcaca
+            aaaagagaggttgaacaatatttgaaatatttcacttccgtctcacaacaacaatttgct
+            gtgatcaaggtgggtggtgccattatcagcgacaatctacacgaactcgcttcctgcttg
+            gcatttttgtatcatgttggtctatatccaatagttttacatggtaccggtcctcaggtt
+            aatggaaggctagaagcgcagggaattgagccagactatattgatggtattagaatcacg
+            gatgagcacacaatggccgtagttagaaaatgttttttggaacaaaatcttaagctagtt
+            actgcattagaacagctaggggtccgtgcaagacccattacttctggtgtttttactgct
+            gactatttggataaggacaaatacaagctagtgggcaatattaaaagtgtcacaaaagag
+            ccaattgaagcatctattaaggcaggtgccctaccaatcttgacctctttagccgaaact
+            gcttctggtcaaatgttgaacgtcaacgccgacgtagctgctggtgaattagcccgtgtt
+            tttgagcctttgaagatcgtttacctgaatgagaaagggggtattatcaatggctccacg
+            ggagaaaaaatttcgatgatcaatttggatgaagagtatgacgatttaatgaagcaaagt
+            tgggtgaagtatggtaccaaattaaaaattagagaaattaaagagcttttggactatctt
+            cctcgttcttcttcagttgcaatcattaacgttcaagatctacaaaaagaactgttcact
+            gattctggtgcgggtactatgatcaggagaggttacaaattagtgaagagatcctccatt
+            ggcgaatttccatccgctgatgctctaagaaaagctcttcaaagggacgctggcattagt
+            tccggtaaagaatctgttgcttcttatttaagatatttggaaaactctgattttgtctct
+            tatgctgatgaacctcttgaagcagtggccattgtaaagaaagatacgaacgttcccaca
+            ctagacaaatttgtctgttctgacgcagcctggttgaataacgtcacagataatgtattc
+            aatgttttgcgccgtgattttcctgctttacaatgggtagtcagtgaaaatgatgctaac
+            attgcatggcattttgataagtctcaaggttcatatctaaaaggcggaaaagttttgttc
+            tggtatggtatcgatgatataaatacaatatccgagctcgttgaaaattttgtgaagtcg
+            tgtgacactgcttctaccctcaactcatcagcaagtagtggagtatttgctaacaaaaaa
+            tcagctaggtcgtactcaactagatccactcctcgtcccgagggagttaacaccaaccct
+            ggtcgtgtcgcgcttattggtgctagaggttacacaggtaaaaatttggtatctttgatc
+            aacggccacccatatttagaagtggcccatgtttcttctcgtgaattgaaaggtcaaaag
+            ttgcaagattatacaaaatccgaaattatatatgaaagtttgcaaatacaggatattagg
+            aaactggaagaacaaaatgctgtggacttttgggttatggcattacccaacaaagtctgt
+            gaacctttcgttgagacaatccaaagtgttcatggtaagtctaaaattattgatctgtcc
+            gctgatcacaggtttgtatcagaatcagactgggcttacggtttgccagaattgaatgat
+            agagcaaaaattgcaaacgctgccaaaattgctaatcccggttgttatgctactggttcg
+            caattaactatttctccgttaacaaagtatatcaatggtcttccaactgtgtttggtgtt
+            tcagggtattcaggcgcggggacgaagccttctccaaaaaacgatcccaaattcttgaac
+            aataacttaattccttacgctttaagtgatcatatacacgaacgcgaaatctcagctcgc
+            attgggcacaatgttgcattcatgccccatgttgggcagtggtttcaaggtatctctttg
+            accgtctctattccaataaaaaaaggttccttgtctattgatgagatcaggaaattatac
+            agaaatttttacgaagacgaaaagctagtacatgtcatcgatgatatcccactggttaaa
+            gatattgagggcacccatggtgtagttattggtggtttcaagctgaatgatgctgaagat
+            cgtgtagttgtttgcgcaaccatcgataacttacttaaaggcgccgctactcaatgtctg
+            caaaatattaatcttgctatgggttatggagagtatgctggtatccctgaaaataaaatt
+            attggtgtctga
+///

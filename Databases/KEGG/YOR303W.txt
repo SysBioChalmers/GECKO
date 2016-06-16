@@ -1,0 +1,49 @@
+ENTRY       YOR303W           CDS       T00005
+NAME        CPA1
+DEFINITION  carbamoyl-phosphate synthase (glutamine-hydrolyzing) CPA1 (EC:6.3.5.5)
+ORTHOLOGY   K01956  carbamoyl-phosphate synthase small subunit [EC:6.3.5.5]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00240  Pyrimidine metabolism
+            sce00250  Alanine, aspartate and glutamate metabolism
+            sce01100  Metabolic pathways
+MODULE      sce_M00051  Uridine monophosphate biosynthesis, glutamine (+ PRPP) => UMP
+CLASS       Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
+            Metabolism; Amino acid metabolism; Alanine, aspartate and glutamate metabolism [PATH:sce00250]
+POSITION    XV:882899..884134
+MOTIF       Pfam: GATase CPSase_sm_chain Peptidase_C26 DJ-1_PfpI
+DBLINKS     NCBI-GI: 398366173
+            NCBI-GeneID: 854479
+            SGD: S000005829
+            MIPS: YOR303W
+            UniProt: P07258
+AASEQ       411
+            MSSAATKATFCIQNGPSFEGISFGANKSVAGETVFTTSLVGYPESMTDPSYRGQILVFTQ
+            PLIGNYGVPSGEARDEYNLLKYFESPHIHVVGIVVAEYAYQYSHWTAVESLAQWCQREGV
+            AAITGVDTRELVQYLREQGSSLGRITLADHDPVPYVNPMKTNLVAQVTTKKPFHVSALPG
+            KAKANVALIDCGVKENIIRCLVKRGANVTVFPYDYRIQDVASEFDGIFLSNGPGNPELCQ
+            ATISNVRELLNNPVYDCIPIFGICLGHQLLALASGASTHKLKYGNRAHNIPAMDLTTGQC
+            HITSQNHGYAVDPETLPKDQWKPYFVNLNDKSNEGMIHLQRPIFSTQFHPEAKGGPLDTA
+            ILFDKFFDNIEKYQLQSQAKSSISLKVTYSTDKSRLQSINVTKLAKERVLF
+NTSEQ       1236
+            atgtcctccgctgcaacaaaagctactttctgtatccaaaatggtccttcctttgaaggt
+            atatcttttggtgcaaacaaatctgttgctggtgaaacagttttcactacttctctggtt
+            ggttacccagagtccatgactgatccttcctaccgtggtcagatattagtcttcacgcaa
+            cccttgattggtaactacggtgtcccatccggcgaagcccgcgatgaatacaatttactg
+            aagtattttgaatctccgcatatacatgtggtcggcatcgttgtcgctgaatatgcttat
+            caatattcgcattggaccgctgttgaatctctggcacaatggtgtcagagagaaggtgtt
+            gctgctattactggcgtagacacccgtgaactagtgcaatacttgagggaacaaggttct
+            tctttgggccgtattacgttggctgatcatgaccctgtcccctacgtgaatcccatgaaa
+            actaacttggttgctcaagtcaccacaaaaaagcctttccacgtctctgccttacctggg
+            aaggctaaggcaaatgtggctcttattgactgtggtgttaaagaaaacattatcagatgc
+            ctagtcaaaagaggtgccaatgtaactgttttcccctatgattacagaattcaagatgtt
+            gcttctgaattcgacggtattttcttatccaatggaccaggcaacccagaactatgccaa
+            gctacaatttccaacgtcagggaattactaaataaccctgtttatgactgtatccctatt
+            tttgggatttgtctaggccatcaactcttggctctggcctccggtgcctctactcacaaa
+            ttgaaatatggtaatagggctcacaacatccctgccatggatttgactaccggccagtgc
+            cacattacatctcaaaatcatggctatgcagttgatcctgagaccctaccaaaggaccaa
+            tggaaaccttattttgttaatttaaacgacaaatcaaacgaaggcatgatacaccttcaa
+            agacccatattttctacccaatttcacccagaggcaaaaggtggtcccttagacacagct
+            attctttttgacaaattcttcgataatatagaaaaataccaattacaatctcaggcaaaa
+            agttcaatctcactaaaagtaacatacagtaccgataaatcgagattgcagagtataaat
+            gttactaagttggccaaggaaagagtgttgttctaa
+///

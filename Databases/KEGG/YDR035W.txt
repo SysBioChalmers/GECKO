@@ -1,0 +1,48 @@
+ENTRY       YDR035W           CDS       T00005
+NAME        ARO3
+DEFINITION  3-deoxy-7-phosphoheptulonate synthase ARO3 (EC:2.5.1.54)
+ORTHOLOGY   K01626  3-deoxy-7-phosphoheptulonate synthase [EC:2.5.1.54]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00400  Phenylalanine, tyrosine and tryptophan biosynthesis
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01230  Biosynthesis of amino acids
+MODULE      sce_M00022  Shikimate pathway, phosphoenolpyruvate + erythrose-4P => chorismate
+CLASS       Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
+            Metabolism; Amino acid metabolism; Phenylalanine, tyrosine and tryptophan biosynthesis [PATH:sce00400]
+POSITION    IV:521816..522928
+MOTIF       Pfam: DAHP_synth_1
+DBLINKS     NCBI-GI: 398365167
+            NCBI-GeneID: 851605
+            SGD: S000002442
+            MIPS: YDR035W
+            UniProt: P14843
+AASEQ       370
+            MFIKNDHAGDRKRLEDWRIKGYDPLTPPDLLQHEFPISAKGEENIIKARDSVCDILNGKD
+            DRLVIVIGPCSLHDPKAAYDYADRLAKISEKLSKDLLIIMRAYLEKPRTTVGWKGLINDP
+            DMNNSFQINKGLRISREMFIKLVEKLPIAGEMLDTISPQFLSDCFSLGAIGARTTESQLH
+            RELASGLSFPIGFKNGTDGGLQVAIDAMRAAAHEHYFLSVTKPGVTAIVGTEGNKDTFLI
+            LRGGKNGTNFDKESVQNTKKQLEKAGLTDDSQKRIMIDCSHGNSNKDFKNQPKVAKCIYD
+            QLTEGENSLCGVMIESNINEGRQDIPKEGGREGLKYGCSVTDACIGWESTEQVLELLAEG
+            VRNRRKALKK
+NTSEQ       1113
+            atgttcattaaaaacgatcacgccggtgacaggaaacgcttggaagactggagaatcaaa
+            ggttatgatccattaacccctccagatctgcttcaacatgaatttccaatttcagccaaa
+            ggtgaggaaaacattatcaaggcaagagactccgtctgtgatattttgaatggtaaagat
+            gatcgtttagttatcgtgatcgggccatgttccctacatgaccccaaagccgcttacgat
+            tacgctgacagattggctaaaatttcagaaaagttgtcaaaagacttattgattattatg
+            agagcgtatttagaaaaaccaaggactactgttggctggaaagggttgattaacgaccct
+            gatatgaataactcttttcaaatcaataaaggtctacggatttcgagagaaatgttcata
+            aaactggttgaaaaattacccattgctggtgagatgttggataccatttctccgcagttt
+            ttgagtgattgtttctccttgggtgccatcggcgccagaactactgaatcccaactgcac
+            agagaattagcatccggtctatctttccctattggatttaagaacggtactgatggtggt
+            ttgcaagtcgccatcgacgctatgagagccgctgcacatgaacattacttcctttctgtc
+            acaaagccaggtgtcactgctatcgtgggcactgaaggtaacaaggataccttcctgatc
+            ttgagaggtggtaagaacggtactaactttgacaaagaaagtgttcaaaatactaagaaa
+            cagttagaaaaggccggtttgactgatgattcccagaaaagaattatgatcgattgttcc
+            cacggcaacagtaataaagatttcaagaaccaaccaaaggttgccaaatgtatttatgac
+            cagctgacggagggtgagaatagtctctgtggtgttatgattgagtccaacataaatgaa
+            ggtagacaagatattcccaaagaaggtggcagagagggattgaagtatggttgttctgtt
+            acggatgcttgtattggctgggagtccaccgaacaggtattggagctattggcagaaggt
+            gttagaaacagaagaaaggccttgaaaaaatag
+///

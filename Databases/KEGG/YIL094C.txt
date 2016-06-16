@@ -1,0 +1,50 @@
+ENTRY       YIL094C           CDS       T00005
+NAME        LYS12, LYS10, LYS11
+DEFINITION  homoisocitrate dehydrogenase (EC:1.1.1.87)
+ORTHOLOGY   K05824  homoisocitrate dehydrogenase [EC:1.1.1.87]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00300  Lysine biosynthesis
+            sce01100  Metabolic pathways
+            sce01210  2-Oxocarboxylic acid metabolism
+            sce01230  Biosynthesis of amino acids
+MODULE      sce_M00030  Lysine biosynthesis, AAA pathway, 2-oxoglutarate => 2-aminoadipate => lysine
+            sce_M00433  Lysine biosynthesis, 2-oxoglutarate => 2-oxoadipate
+CLASS       Metabolism; Overview; 2-Oxocarboxylic acid metabolism [PATH:sce01210]
+            Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
+            Metabolism; Amino acid metabolism; Lysine biosynthesis [PATH:sce00300]
+POSITION    IX:complement(186517..187632)
+MOTIF       Pfam: Iso_dh
+DBLINKS     NCBI-GI: 6322097
+            NCBI-GeneID: 854714
+            SGD: S000001356
+            MIPS: YIL094C
+            UniProt: P40495
+AASEQ       371
+            MFRSVATRLSACRGLASNAARKSLTIGLIPGDGIGKEVIPAGKQVLENLNSKHGLSFNFI
+            DLYAGFQTFQETGKALPDETVKVLKEQCQGALFGAVQSPTTKVEGYSSPIVALRREMGLF
+            ANVRPVKSVEGEKGKPIDMVIVRENTEDLYIKIEKTYIDKATGTRVADATKRISEIATRR
+            IATIALDIALKRLQTRGQATLTVTHKSNVLSQSDGLFREICKEVYESNKDKYGQIKYNEQ
+            IVDSMVYRLFREPQCFDVIVAPNLYGDILSDGAAALVGSLGVVPSANVGPEIVIGEPCHG
+            SAPDIAGKGIANPIATIRSTALMLEFLGHNEAAQDIYKAVDANLREGSIKTPDLGGKAST
+            QQVVDDVLSRL
+NTSEQ       1116
+            atgtttagatctgttgctactagattatctgcctgccgtgggttagcatctaacgctgct
+            cgcaaatcactcactattggtcttatccccggtgacggtatcggtaaggaagtcattcct
+            gctggtaagcaagttttggaaaaccttaactccaagcacggcctaagcttcaactttatt
+            gatctctacgccggtttccaaacattccaagaaacaggaaaggcgttgcctgatgagact
+            gttaaagtgttgaaggaacaatgtcaaggtgctcttttcggtgcagttcagtctccaact
+            actaaggtggaaggttactcctcaccaattgttgctctaaggagggaaatgggccttttc
+            gctaatgttcgtcctgttaagtctgtagagggagaaaagggtaaaccaattgacatggtt
+            atcgtcagagaaaatactgaggacctgtacattaaaattgaaaaaacatacattgacaag
+            gccacaggtacaagagttgctgatgccacaaagagaatatccgaaattgcaacaagaaga
+            attgcaaccattgcattagatattgccttgaaaagattacaaacaagaggccaagccact
+            ttgacagtgactcataaatcaaatgttctatctcaaagtgatggtctattcagagaaatc
+            tgtaaggaagtctacgaatctaacaaggacaagtacggtcaaatcaaatataacgaacaa
+            attgtggattccatggtttataggctgttcagagaaccacaatgttttgatgtgatagtg
+            gcaccaaacctatacggggatatattatctgacggtgctgctgctttagtcggttcatta
+            ggtgttgttccaagcgccaacgtaggtccagaaattgtcattggtgaaccatgccatggt
+            tctgcaccagatattgctggtaaaggtattgctaacccaatcgccactataagatctact
+            gctttgatgttggaattcttgggccacaacgaagctgcccaagatatctacaaggctgtt
+            gatgctaacttaagagagggttctatcaagacaccagatttaggtggtaaggcttctact
+            caacaagtcgttgacgacgttttgtcgagattatag
+///

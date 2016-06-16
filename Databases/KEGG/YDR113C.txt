@@ -1,0 +1,45 @@
+ENTRY       YDR113C           CDS       T00005
+NAME        PDS1
+DEFINITION  Pds1p
+ORTHOLOGY   K02627  cell cycle regulator
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04111  Cell cycle - yeast
+            sce04113  Meiosis - yeast
+CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
+            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+POSITION    IV:complement(680496..681617)
+MOTIF       Pfam: Securin
+DBLINKS     NCBI-GI: 398365667
+            NCBI-GeneID: 851691
+            SGD: S000002520
+            MIPS: YDR113C
+            UniProt: P40316
+AASEQ       373
+            MMPANEDKENNIVYTGNESSGINFPQTPAHLLKRSHSNILKPPVRLDQLKRDANSNNGNT
+            LKYIQGGKEVSPTKRLHTHAQQQGRLPLAAKDNNRSKSFIFPETSNQSKDADLPQLQNTL
+            SIRKNDQLRKLSQISRSRSRANHNDLLSNSRKLQKYGSVLGYNALPKMKSLVLKDLADSG
+            KNEESSDDDEGNEDSESKLGKKLQSALLKQDSSDGENELNGGLGLFNEQGGLQQLIKNST
+            KNEQKTKNDKSDKTDDYDIEIAPQRQEPLPYVPEGYSPFQQDDIEKLKTFNSPYKLDLED
+            EDDTPDKVDLLPLEQIDEEGEKDETECITRNQEEGAALPLLSKNFKEVAAVPTMELVYSE
+            EGLDPEELEDLVT
+NTSEQ       1122
+            atgatgccagctaacgaagataaagagaataatatcgtatatacagggaatgaaagttcc
+            ggcattaactttccacagacgccggctcacttgctgaaaaggtcgcactctaatatttta
+            aaaccacctgtaagattggaccaactcaaaagggatgcgaacagcaacaatggcaacaca
+            ttaaagtacatacaaggagggaaggaggtgtcacccacaaaaaggttgcatacccatgcg
+            caacaacaaggaagattgcctctggcagcaaaagacaacaatagatcgaaaagctttatt
+            tttcccgaaacttctaatcagagtaaagatgcagacttaccacaactacagaatacacta
+            tctatacgcaaaaacgaccaactcaggaaactttcgcaaatttctcgcagtcgtagtagg
+            gccaaccataatgatttgttaagcaattcaagaaagttacaaaagtacggttctgtcctt
+            ggttataatgctttacctaaaatgaaaagtctagttttaaaagatcttgcagattcaggt
+            aaaaatgaagagagttccgacgatgatgaaggtaatgaagattccgagagtaaacttggc
+            aaaaaactccaaagtgcacttttaaaacaggattcctccgacggtgaaaatgaattaaat
+            ggtggcctaggactatttaatgagcaaggtggtctgcaacaactcataaagaactccacg
+            aagaatgagcaaaaaactaaaaacgataaaagtgataaaactgatgactatgatatcgaa
+            atagcaccacagaggcaggagccgttaccgtatgtaccagaaggctattccccatttcaa
+            caagatgatattgaaaagctgaagacgttcaactcaccatataagcttgacttggaagac
+            gaagatgacaccccagataaagttgatttactcccactagaacaaattgatgaagaaggc
+            gaaaaagatgagactgagtgcatcactcggaatcaagaagaaggtgcagcgttaccactg
+            ctgtctaagaacttcaaagaagttgccgccgtcccaaccatggagttagtgtacagcgaa
+            gaaggcctcgatcctgaagaactagaggacttagttacttag
+///

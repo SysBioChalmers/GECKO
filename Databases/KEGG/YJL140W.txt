@@ -1,0 +1,44 @@
+ENTRY       YJL140W           CDS       T00005
+NAME        RPB4, CTF15
+DEFINITION  Rpb4p
+ORTHOLOGY   K03012  DNA-directed RNA polymerase II subunit RPB4
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00230  Purine metabolism
+            sce00240  Pyrimidine metabolism
+            sce01100  Metabolic pathways
+            sce03020  RNA polymerase
+MODULE      sce_M00180  RNA polymerase II, eukaryotes
+CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
+            Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
+            Genetic Information Processing; Transcription; RNA polymerase [PATH:sce03020]
+POSITION    X:150961..151626
+MOTIF       Pfam: RNA_pol_Rpb4 IncFII_repA FLO_LFY RXT2_N Rtf2 DUF2457
+DBLINKS     NCBI-GI: 6322321
+            NCBI-GeneID: 853301
+            SGD: S000003676
+            MIPS: YJL140W
+            UniProt: P20433
+STRUCTURE   PDB: 1Y14 4BY7 3HOU 4BXX 3PO2 3PO3 4BBR 4A93 4A3D 4A3E 3HOY
+                 2VUM 4A3B 4A3C 4A3F 4A3G 4A3K 3HOV 4BY1 4BBS 4A3L 3HOW
+                 3HOX 3HOZ 4A3J 3I4M 4A3I 2R92 2R7Z 2B63 1Y1V 1WCM 1PQV
+                 3FKI 4A3M 3I4N 3H3V 2R93 1Y1W 1Y1Y 2B8K 1NT9 3QT1 3K1F
+                 1Y77 4BXZ 3J1N 2JA5 2JA6 2JA7 2JA8
+AASEQ       221
+            MNVSTSTFQTRRRRLKKVEEEENAATLQLGQEFQLKQINHQGEEEELIALNLSEARLVIK
+            EALVERRRAFKRSQKKHKKKHLKHENANDETTAVEDEDDDLDEDDVNADDDDFMHSETRE
+            KELESIDVLLEQTTGGNNKDLKNTMQYLTNFSRFRDQETVGAVIQLLKSTGLHPFEVAQL
+            GSLACDTADEAKTLIPSLNNKISDDELERILKELSNLETLY
+NTSEQ       666
+            atgaatgtttctacatcaacctttcaaacaagacggagaagattgaagaaagtggaggaa
+            gaagaaaatgcagctactctacaactgggccaggaattccagctgaaacagataaatcat
+            cagggtgaagaggaggaattgattgccttgaacctaagtgaagccaggttagtaatcaaa
+            gaagctcttgtagaacgtaggagagcatttaaaagatcgcaaaaaaaacacaagaagaag
+            catttgaagcacgaaaacgccaatgatgaaactacggcagtagaggatgaagatgatgat
+            ctggatgaagatgacgtcaacgctgatgatgatgattttatgcattctgaaactagggag
+            aaggagttggagtctatcgacgttctgttagaacagacaacgggaggaaataataaagat
+            ttgaaaaataccatgcagtatttaacaaatttctcccgatttagagaccaagaaaccgtc
+            ggggcagttatacagcttctgaaaagcactgggttacatccttttgaagtggcgcaacta
+            ggttctttggcctgtgacacagctgatgaagcaaagactttaattccaagcttaaacaat
+            aaaatatcagacgatgagttggaaaggatactaaaggaattgtcaaacctagaaacactc
+            tattaa
+///

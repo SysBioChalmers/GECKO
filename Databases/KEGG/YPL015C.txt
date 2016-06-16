@@ -1,0 +1,43 @@
+ENTRY       YPL015C           CDS       T00005
+NAME        HST2
+DEFINITION  Hst2p (EC:3.5.1.-)
+ORTHOLOGY   K11121  NAD-dependent histone deacetylase SIR2 [EC:3.5.1.-]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00760  Nicotinate and nicotinamide metabolism
+            sce01100  Metabolic pathways
+CLASS       Metabolism; Metabolism of cofactors and vitamins; Nicotinate and nicotinamide metabolism [PATH:sce00760]
+POSITION    XVI:complement(525810..526883)
+MOTIF       Pfam: SIR2
+DBLINKS     NCBI-GI: 6325242
+            NCBI-GeneID: 856092
+            SGD: S000005936
+            MIPS: YPL015C
+            UniProt: P53686
+STRUCTURE   PDB: 1SZD 1Q1A 1SZC 2QQF 2OD2 2OD7 2QQG 2OD9 1Q14 1Q17
+AASEQ       357
+            MSVSTASTEMSVRKIAAHMKSNPNAKVIFMVGAGISTSCGIPDFRSPGTGLYHNLARLKL
+            PYPEAVFDVDFFQSDPLPFYTLAKELYPGNFRPSKFHYLLKLFQDKDVLKRVYTQNIDTL
+            ERQAGVKDDLIIEAHGSFAHCHCIGCGKVYPPQVFKSKLAEHPIKDFVKCDVCGELVKPA
+            IVFFGEDLPDSFSETWLNDSEWLREKITTSGKHPQQPLVIVVGTSLAVYPFASLPEEIPR
+            KVKRVLCNLETVGDFKANKRPTDLIVHQYSDEFAEQLVEELGWQEDFEKILTAQGGMGDN
+            SKEQLLEIVHDLENLSLDQSEHESADKKDKKLQRLNGHDSDEDGASNSSSSQKAAKE
+NTSEQ       1074
+            atgtctgtttctaccgcctctacagagatgtcggttaggaagatcgctgctcatatgaaa
+            agcaaccccaacgctaaagtaatctttatggtgggtgccgggatatccacttcttgtggg
+            ataccagacttccgatctccgggaactggcctgtaccataacttggccaggttgaagttg
+            ccgtaccctgaagcagtgttcgatgtcgattttttccaatcggatcctttgccattttac
+            actttggctaaagagttgtatcccggaaatttcagaccttctaagtttcactatcttttg
+            aaattgtttcaagacaaagacgttttgaagagagtatatacccagaatatagacacttta
+            gaaagacaggccggtgttaaggatgatctgatcatcgaggcccatggcagttttgctcac
+            tgtcattgtatcggatgtggtaaagtttatcccccacaggttttcaaatccaagctggca
+            gagcatcctataaaggattttgtcaagtgtgatgtgtgcggtgaactggtaaagccggca
+            atagttttttttggcgaagatctaccggattccttttcggaaacttggttaaacgattca
+            gagtggcttcgtgaaaaaatcacgacatctggaaaacatcctcagcagcctcttgtcatc
+            gtcgttggcacctcactagccgtttatccctttgcgtctctgcccgaagaaattcctcga
+            aaggtaaaaagagttctgtgcaatttggaaacggtgggcgattttaaagctaacaagagg
+            cctacagatttaatagttcatcagtactcggatgagtttgccgagcaactcgttgaagaa
+            ttaggttggcaagaagatttcgaaaagatacttacggcccaaggtggaatgggggataac
+            tctaaagagcaattacttgaaattgtacatgatttagagaatttgagtttggatcaatct
+            gaacatgagagtgcagacaagaaggataagaagctacagcgtctcaatggccatgacagc
+            gatgaagatggagcaagcaactcctcttcttcacaaaaagccgctaaagaataa
+///

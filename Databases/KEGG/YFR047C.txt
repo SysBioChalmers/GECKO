@@ -1,0 +1,39 @@
+ENTRY       YFR047C           CDS       T00005
+NAME        BNA6, QPT1
+DEFINITION  nicotinate-nucleotide diphosphorylase (carboxylating) (EC:2.4.2.19)
+ORTHOLOGY   K00767  nicotinate-nucleotide pyrophosphorylase (carboxylating) [EC:2.4.2.19]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00760  Nicotinate and nicotinamide metabolism
+            sce01100  Metabolic pathways
+CLASS       Metabolism; Metabolism of cofactors and vitamins; Nicotinate and nicotinamide metabolism [PATH:sce00760]
+POSITION    VI:complement(244279..245166)
+MOTIF       Pfam: QRPTase_C QRPTase_N
+DBLINKS     NCBI-GI: 398364399
+            NCBI-GeneID: 850608
+            SGD: S000001943
+            MIPS: YFR047C
+            UniProt: P43619
+STRUCTURE   PDB: 3C2E 3C2V 3C2O 3C2F 3C2R
+AASEQ       295
+            MPVYEHLLPVNGAWRQDVTNWLSEDVPSFDFGGYVVGSDLKEANLYCKQDGMLCGVPFAQ
+            EVFNQCELQVEWLFKEGSFLEPSKNDSGKIVVAKITGPAKNILLAERTALNILSRSSGIA
+            TASHKIISLARSTGYKGTIAGTRKTTPGLRRLEKYSMLVGGCDTHRYDLSSMVMLKDNHI
+            WATGSITNAVKNARAVCGFAVKIEVECLSEDEATEAIEAGADVIMLDNFKGDGLKMCAQS
+            LKNKWNGKKHFLLECSGGLNLDNLEEYLCDDIDIYSTSSIHQGTPVIDFSLKLAH
+NTSEQ       888
+            atgcctgtttatgaacacttattgcccgttaatggagcatggagacaagacgtcaccaat
+            tggctgagcgaggacgttccttcttttgattttggtggatatgttgttggttccgaccta
+            aaggaggccaatttgtactgtaagcaggatggtatgctgtgtggtgtcccctttgcgcaa
+            gaagtctttaatcagtgcgaattgcaagttgagtggttgtttaaggaaggctccttcttg
+            gagccttcgaagaatgactctggtaagattgttgtagctaaaattactgggcccgctaaa
+            aacattctattagctgaaagaaccgccttgaacatccttagtagaagtagtggaattgcc
+            accgcctcacataagataatcagtttggcgcgttcgactggttacaaggggaccattgcg
+            gggacaagaaagactacaccaggtttacgtagattagaaaagtattccatgcttgtaggt
+            ggctgcgacacgcacagatacgacctttcctctatggtcatgctcaaagataatcatatt
+            tgggctactggttctataacaaacgcagttaagaacgccagggccgtgtgcgggtttgct
+            gtgaagatcgaagtggagtgtttgagtgaagatgaagccacagaggccattgaagctggt
+            gcagacgttatcatgttggataatttcaaaggtgacggtttgaaaatgtgcgcccaaagt
+            cttaagaacaaatggaatggtaaaaagcatttcctcttggaatgtagtggaggcttgaat
+            ttggacaacctcgaggagtatttgtgcgatgacattgacatttacagcactagtagcatt
+            catcaaggcacaccagtgattgatttctcattgaaactggctcattga
+///

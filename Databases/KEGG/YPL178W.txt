@@ -1,0 +1,37 @@
+ENTRY       YPL178W           CDS       T00005
+NAME        CBC2, CBP20, MUD13, SAE1
+DEFINITION  Cbc2p
+ORTHOLOGY   K12883  nuclear cap-binding protein subunit 2
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03013  RNA transport
+            sce03015  mRNA surveillance pathway
+            sce03040  Spliceosome
+MODULE      sce_M00399  Cap binding complex
+CLASS       Genetic Information Processing; Transcription; Spliceosome [PATH:sce03040]
+            Genetic Information Processing; Translation; RNA transport [PATH:sce03013]
+            Genetic Information Processing; Translation; mRNA surveillance pathway [PATH:sce03015]
+POSITION    XVI:212158..212784
+MOTIF       Pfam: RRM_1 RRM_6 RRM_5
+DBLINKS     NCBI-GI: 6325079
+            NCBI-GeneID: 855925
+            SGD: S000006099
+            MIPS: YPL178W
+            UniProt: Q08920
+AASEQ       208
+            MSLEEFDEVKYDHSTKRLDTPSRYLLRKARRNPNGLQELRESMKSSTIYVGNLSFYTSEE
+            QIYELFSKCGTIKRIIMGLDRFKFTPCGFCFIIYSCPDEALNALKYLSDTKLDEKTITID
+            LDPGFEDGRQFGRGKSGGQVSDELRFDFDASRGGFAIPFAERVGVPHSRFDNSSSQSNTN
+            NYIPPPDAMGTFRPGFDEEREDDNYVPQ
+NTSEQ       627
+            atgtccctggaagaatttgacgaagttaaatatgatcattcaactaaacgcctagataca
+            ccatcaaggtacctgctgcgcaaggctagaagaaaccctaacgggctacaagaactgcgt
+            gagtcgatgaagtcatccacaatttatgtaggaaatctttccttttatacatcagaagaa
+            caaatttacgaattattcagtaaatgtggcacaataaaaagaataattatgggtttggac
+            cgttttaagttcacgccatgtggcttctgttttattatatatagttgtccagatgaagca
+            ttgaatgccttaaaatatttgtccgatacaaagttagacgaaaagacaattaccattgat
+            ctagatcctggttttgaagatggaagacagtttggtcgtggtaagagcggtggtcaagtc
+            agcgatgaattgaggttcgattttgatgcatccagaggtggcttcgccattccatttgca
+            gagcgtgtcggcgtaccacattccagatttgataacagtagctcacaatctaatacgaat
+            aattatatccctcctcctgatgcaatgggtactttcagaccaggtttcgatgaagaaaga
+            gaagatgataactacgtacctcagtag
+///

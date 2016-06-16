@@ -1,0 +1,52 @@
+ENTRY       YDL021W           CDS       T00005
+NAME        GPM2
+DEFINITION  phosphoglycerate mutase family protein GPM2 (EC:5.4.2.1)
+ORTHOLOGY   K01834  2,3-bisphosphoglycerate-dependent phosphoglycerate mutase [EC:5.4.2.11]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00010  Glycolysis / Gluconeogenesis
+            sce00260  Glycine, serine and threonine metabolism
+            sce00680  Methane metabolism
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01200  Carbon metabolism
+            sce01230  Biosynthesis of amino acids
+MODULE      sce_M00001  Glycolysis (Embden-Meyerhof pathway), glucose => pyruvate
+            sce_M00002  Glycolysis, core module involving three-carbon compounds
+            sce_M00003  Gluconeogenesis, oxaloacetate => fructose-6P
+CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
+            Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
+            Metabolism; Carbohydrate metabolism; Glycolysis / Gluconeogenesis [PATH:sce00010]
+            Metabolism; Energy metabolism; Methane metabolism [PATH:sce00680]
+            Metabolism; Amino acid metabolism; Glycine, serine and threonine metabolism [PATH:sce00260]
+POSITION    IV:413953..414888
+MOTIF       Pfam: His_Phos_1
+DBLINKS     NCBI-GI: 6320183
+            NCBI-GeneID: 851541
+            SGD: S000002179
+            MIPS: YDL021W
+            UniProt: Q12008
+AASEQ       311
+            MTASTPSNVMTLFLLRHGQSELNHENIFCGWIDAKLTEKGKEQARHSAELIEQYCKANNL
+            RLPQIGYTSRLIRTQQTIETMCEEFKLKPQLQVVYDFNKIKLGDEFGSDDKDNMKIPILQ
+            TWRLNERHYGSWQGQRKPNVLKEYGKDKYMFIRRDYEGKPPPVDLDREMIQQENEKGSST
+            GYEFKEPNRQIKYELECSNHDIVLPDSESLREVVYRLNPFLQNVILKLANQYDESSCLIV
+            GHGSSVRSLLKILEGISDDDIKNVDIPNGIPLVVELDKNNGLKFIRKFYLDPESAKINAE
+            KVRNEGFIKNP
+NTSEQ       936
+            atgactgcaagcacaccatccaatgtcatgacattgttcttgttaaggcatggacaaagt
+            gaattgaatcacgagaatatattctgtggttggattgacgctaagctaaccgaaaaaggt
+            aaagaacaagctcgtcattctgccgagctaatcgaacaatattgtaaagctaataatttg
+            agattaccccagattggttacacctcacgtttaattaggacccaacagaccatagaaacg
+            atgtgtgaagaatttaagttaaagccacaactgcaggttgtttacgactttaataaaatc
+            aaacttggagacgaatttggcagtgatgacaaggataatatgaaaatcccgattcttcaa
+            acttggaggctaaatgaacgtcattacggttcctggcagggccagaggaaaccgaatgtt
+            ttaaaagaatatggtaaggataaatatatgttcattaggagagattacgagggtaagcca
+            ccacctgtagatcttgaccgtgagatgattcaacaagaaaatgagaagggctcttctact
+            gggtacgaattcaaggagccaaacagacaaataaaatatgaattggaatgcagcaatcat
+            gacattgtattaccggattccgaatctcttcgtgaagtggtttatagattgaatcctttt
+            ctacaaaatgtcatattaaaattagccaatcaatatgatgaatcttcatgcctgattgtg
+            ggccatggaagttcagtgagatcgctactgaaaattctggagggtatatcagatgatgac
+            atcaagaatgttgatattccaaatggtatccccttagtcgttgaattagataagaataat
+            ggtcttaagtttatcagaaaattctacctagatcctgaatctgctaagatcaatgctgag
+            aaagtccgtaatgagggtttcataaaaaatccttaa
+///

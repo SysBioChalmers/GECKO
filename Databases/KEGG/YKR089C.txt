@@ -1,0 +1,92 @@
+ENTRY       YKR089C           CDS       T00005
+NAME        TGL4, STC1
+DEFINITION  Tgl4p (EC:3.1.1.3)
+ORTHOLOGY   K14674  TAG lipase / steryl ester hydrolase / phospholipase A2 / LPA acyltransferase [EC:3.1.1.3 3.1.1.13 3.1.1.4 2.3.1.51]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00100  Steroid biosynthesis
+            sce00561  Glycerolipid metabolism
+            sce00564  Glycerophospholipid metabolism
+            sce00565  Ether lipid metabolism
+            sce00590  Arachidonic acid metabolism
+            sce00591  Linoleic acid metabolism
+            sce00592  alpha-Linolenic acid metabolism
+            sce01100  Metabolic pathways
+CLASS       Metabolism; Lipid metabolism; Steroid biosynthesis [PATH:sce00100]
+            Metabolism; Lipid metabolism; Glycerolipid metabolism [PATH:sce00561]
+            Metabolism; Lipid metabolism; Glycerophospholipid metabolism [PATH:sce00564]
+            Metabolism; Lipid metabolism; Ether lipid metabolism [PATH:sce00565]
+            Metabolism; Lipid metabolism; Arachidonic acid metabolism [PATH:sce00590]
+            Metabolism; Lipid metabolism; Linoleic acid metabolism [PATH:sce00591]
+            Metabolism; Lipid metabolism; alpha-Linolenic acid metabolism [PATH:sce00592]
+POSITION    XI:complement(605633..608365)
+MOTIF       Pfam: DUF3336 Patatin
+DBLINKS     NCBI-GI: 6322942
+            NCBI-GeneID: 853964
+            SGD: S000001797
+            MIPS: YKR089C
+            UniProt: P36165
+AASEQ       910
+            MSSKISDLTSTQNKPLLVTQQLIEKYYEQILGTSQNIIPILNPKNKFIRPSKDNSDVERV
+            EEDAGKRLQTGKNKTTNKVNFNLDTGNEDKLDDDQETVTENENNDIEMVETDEGEDERQG
+            SSLASKCKSFLYNVFVGNYERDILIDKVCSQKQHAMSFEEWCSAGARLDDLTGKTEWKQK
+            LESPLYDYKLIKDLTSRMREERLNRNYAQLLYIIRTNWVRNLGNMGNVNLYRHSHVGTKY
+            LIDEYMMESRLALESLMESDLDDSYLLGILQQTRRNIGRTALVLSGGGTFGLFHIGVLGT
+            LFELDLLPRVISGSSAGAIVASILSVHHKEEIPVLLNHILDKEFNIFKDDKQKSESENLL
+            IKISRFFKNGTWFDNKHLVNTMIEFLGDLTFREAYNRTGKILNITVSPASLFEQPRLLNN
+            LTAPNVLIWSAVCASCSLPGIFPSSPLYEKDPKTGERKPWTGSSSVKFVDGSVDNDLPIS
+            RLSEMFNVDHIIACQVNIHVFPFLKLSLSCVGGEIEDEFSARLKQNLSSIYNFMANEAIH
+            ILEIGSEMGIAKNALTKLRSVLSQQYSGDITILPDMCMLFRIKELLSNPTKEFLLREITN
+            GAKATWPKVSIIQNHCGQEFALDKAISYIKGRMIVTSSLKTPFQFADSVIGLIKAPEQTS
+            DESKNPENSTLLTRTPTKGDNHISNVLDDNLLESESTNSLLLLRENASTYGRSPSGFRPR
+            YSITSASLNPRHQRRKSDTISTSRRPAKSFSFSVASPTSRMLRQSSKINGHPPPILQKKT
+            SMGRLMFPMDAKTYDPESHELIPHSASIETPAMVDKKLHFGRKSRYLRHMNKKWVSSSNI
+            LYTDSDKEDHPTLRLISNFDSDAMIHSDLAGNFRRHSIDGRPPSQATKSSPFRSRPSSST
+            QHKSTTSFTQ
+NTSEQ       2733
+            atgagcagcaaaatatcagatcttacatctacacaaaataagcccctccttgttacgcaa
+            caactaatcgaaaaatattacgaacagatcctgggcacttcccagaacataattcctatt
+            ttaaatccgaagaacaagtttattaggcccagtaaggataattcagatgttgaaagggtg
+            gaggaggatgctggtaaaagactgcaaactggcaagaacaaaactacgaacaaagtaaat
+            ttcaacctggatactggaaacgaggataaacttgacgatgaccaagagacagtaacagaa
+            aatgaaaataatgatatcgagatggttgagacagacgaaggcgaagatgaaaggcaaggg
+            tcatctttagccagtaaatgcaaatcatttctttacaacgtttttgtgggaaactatgaa
+            agagacattcttattgacaaagtctgttcacaaaagcaacatgcgatgtcatttgaagaa
+            tggtgttctgcgggcgccagattggatgacctcactgggaaaacagaatggaagcagaaa
+            ttggaaagtcccttgtatgattacaagctaataaaagatttaacatctagaatgcgtgag
+            gagcgcttgaataggaattacgctcaattgttgtacatcattaggacgaattgggtacga
+            aacctgggaaatatggggaatgtaaacctatataggcactcccatgtaggcaccaaatat
+            ttaattgacgagtatatgatggagtctaggttagcgctagaatctttaatggagtctgat
+            cttgatgatagttaccttttgggtatactgcaacaaacgagaagaaatattggtcgtacc
+            gctttagttctcagtgggggtggaacttttggtcttttccacatcggtgtccttggtact
+            ctatttgaattggatttattacccagagtgattagtggtagcagtgctggtgcaattgta
+            gcaagcatattatctgtccatcacaaagaagaaattccggttttactaaatcatattttg
+            gataaagaattcaacattttcaaagacgataaacagaaaagtgaaagcgagaatttgtta
+            ataaaaatatctaggttcttcaaaaacggtacgtggtttgataacaagcatctggtaaat
+            acaatgatagaatttttgggagatttgacatttagggaagcttacaatagaacgggtaaa
+            attttgaatataaccgtttcgccggcatctttatttgaacaaccgcgcttgctgaataat
+            ttgactgcaccaaacgtcctgatttggtccgccgtatgtgcatcatgttcactaccggga
+            attttcccctcgagcccactttacgaaaaagatccaaaaacgggagaaaggaaaccatgg
+            actggtagtagttcggtcaaatttgtcgatggttctgtggacaatgacttgcccatttct
+            cgtctttctgaaatgtttaatgtagaccatattatcgcatgccaggtgaatattcacgta
+            tttccctttttgaaactatcactatcctgtgttggcggggaaattgaggacgaatttagt
+            gcaagattaaagcaaaacttatcaagtatatacaattttatggccaatgaagctattcat
+            attctagaaattggaagtgagatgggaattgccaaaaacgcgcttacaaaactgagatcg
+            gtattatctcaacaatattctggtgacatcactattttgcccgacatgtgtatgcttttt
+            agaataaaggagctgttgtcaaacccaacaaaagaatttttattaagggaaatcaccaat
+            ggtgcaaaagctacgtggcccaaggtttccattattcaaaatcactgtggccaggaattt
+            gctctggataaggcgatttcttatatcaaaggtaggatgattgtcacctcctctttaaaa
+            acccccttccaatttgctgattcagtcattggattaattaaagctccagagcaaacgtca
+            gatgagtccaaaaacccagaaaattcaacattgctaactaggactccaaccaagggtgac
+            aatcatatttccaatgttttagatgacaacttattagaatcagaatcgacaaactctttg
+            ctattgttacgtgagaatgcaagcacatatgggcggtcaccttccgggtttagaccgcgg
+            tattccattacgtccgcttctctcaatccgcgtcaccaaagaaggaaatcagatactatt
+            tcaacttcaaggcgaccagccaaatccttttcattttcagttgcttctcccacatcaagg
+            atgttgaggcaatccagcaaaatcaatggacacccaccgccaattctgcagaaaaaaaca
+            agtatgggccggctaatgtttcctatggatgccaagacctatgacccggaaagccatgaa
+            cttatcccacattctgccagcattgaaacacctgccatggtagacaagaaattgcatttt
+            ggccgaaagagtagatacttgaggcatatgaacaaaaaatgggtcagcagtagcaacata
+            ttatacacagattcggataaagaagaccatcctacattgagactgataagtaacttcgat
+            tcagacgcaatgattcatagtgatttagcgggcaatttcaggcgtcatagcattgatgga
+            agacccccttctcaagctacaaagagctcaccgtttcgatcgaggccttcttcttcaacg
+            cagcacaaaagcaccaccagttttactcaataa
+///

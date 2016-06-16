@@ -1,0 +1,37 @@
+ENTRY       YGL047W           CDS       T00005
+NAME        ALG13
+DEFINITION  N-acetylglucosaminyldiphosphodolichol N-acetylglucosaminyltransferase catalytic subunit ALG13 (EC:2.4.1.141)
+ORTHOLOGY   K07432  beta-1,4-N-acetylglucosaminyltransferase [EC:2.4.1.141]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00510  N-Glycan biosynthesis
+            sce00513  Various types of N-glycan biosynthesis
+            sce01100  Metabolic pathways
+MODULE      sce_M00055  N-glycan precursor biosynthesis
+CLASS       Metabolism; Glycan biosynthesis and metabolism; N-Glycan biosynthesis [PATH:sce00510]
+            Metabolism; Glycan biosynthesis and metabolism; Various types of N-glycan biosynthesis [PATH:sce00513]
+POSITION    VII:411552..412160
+MOTIF       Pfam: Glyco_tran_28_C Glyco_trans_1_3
+DBLINKS     NCBI-GI: 6321391
+            NCBI-GeneID: 852835
+            SGD: S000003015
+            MIPS: YGL047W
+            UniProt: P53178
+STRUCTURE   PDB: 2KS6 2JZC
+AASEQ       202
+            MGIIEEKALFVTCGATVPFPKLVSCVLSDEFCQELIQYGFVRLIIQFGRNYSSEFEHLVQ
+            ERGGQRESQKIPIDQFGCGDTARQYVLMNGKLKVIGFDFSTKMQSIIRDYSDLVISHAGT
+            GSILDSLRLNKPLIVCVNDSLMDNHQQQIADKFVELGYVWSCAPTETGLIAGLRASQTEK
+            LKPFPVSHNPSFERLLVETIYS
+NTSEQ       609
+            atgggtattattgaagaaaaggctctttttgttacgtgtggggcaacggtgccatttcca
+            aagctcgtctcatgtgtgctaagcgacgaattctgccaagaattgattcaatatggattc
+            gtacgtctaatcattcagtttgggagaaactacagttctgaatttgagcatttagtgcaa
+            gaacgcgggggccaaagagaaagccaaaaaattccaattgaccagtttggctgtggcgac
+            accgcaagacagtatgtcctgatgaacgggaaattaaaggtgatcgggtttgacttttcg
+            accaagatgcaaagtattatacgtgattattcagatttggtcatatcacacgctggaacg
+            ggctctatactagattctctacggttgaataaaccgttgatagtttgcgtaaacgattct
+            ttgatggataaccaccagcagcagatagcagacaagtttgtagagttgggctacgtatgg
+            tcttgtgcacccactgaaacaggtttgatagctggtttacgtgcatctcaaacagagaaa
+            ctcaaaccattcccagtttctcataacccgtcatttgagcgattgctagttgaaactata
+            tacagctag
+///

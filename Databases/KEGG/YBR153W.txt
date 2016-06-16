@@ -1,0 +1,37 @@
+ENTRY       YBR153W           CDS       T00005
+NAME        RIB7
+DEFINITION  Rib7p (EC:1.1.1.193 1.1.1.302)
+ORTHOLOGY   K14654  2,5-diamino-6-(ribosylamino)-4(3H)-pyrimidinone 5'-phosphate reductase [EC:1.1.1.302]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00740  Riboflavin metabolism
+            sce01100  Metabolic pathways
+CLASS       Metabolism; Metabolism of cofactors and vitamins; Riboflavin metabolism [PATH:sce00740]
+POSITION    II:547460..548194
+MOTIF       Pfam: RibD_C
+DBLINKS     NCBI-GI: 398365117
+            NCBI-GeneID: 852450
+            SGD: S000000357
+            MIPS: YBR153W
+            UniProt: P33312
+STRUCTURE   PDB: 4HA7 4HA9
+AASEQ       244
+            MSLTPLCEDLPQFLQNYLPNAGQTENTIVPFVTLTYAQSLDARVSRGPGVRTTISHPETK
+            TMTHYLRHHHDGILVGSGTVLADNPGLNCKWGPDPAANSPRPIIIDTKQKWRFDGSKMQE
+            LFIKRQGKPPIVVVTSEPIIKEQHVDYAICPINDTTKLVDWKKLFEILKEEFNIRSVMVE
+            GGANVINQLLLRSDIVNSLIITIGSTFLGSSGTEVSPPQTVNLKDMSWWKGITDVVLCAR
+            LADD
+NTSEQ       735
+            atgtctttgacaccactgtgtgaagatttaccacaatttctgcaaaactatctaccgaat
+            gctggtcaaacggaaaataccattgtgccctttgtcacactaacttatgctcaatcgctc
+            gacgcgagagtatctaggggccctggagtgaggactacaatttcacatcccgagaccaaa
+            acaatgacgcattatttgagacatcatcacgatggaatactcgtaggaagtggaacagtg
+            ctagctgataatcctggattgaattgtaaatggggtcccgatccggctgcaaattcccca
+            aggccaataataatagatacaaagcaaaagtggcgatttgatggttcaaaaatgcaagaa
+            ctttttattaaacgacagggtaagccgccaatcgttgttgtcacaagtgagcccattata
+            aaagaacaacatgtagactacgcaatttgtccaataaatgatactacgaaattggtcgat
+            tggaagaaattgtttgagatattaaaagaagaattcaatataaggtcagtaatggttgaa
+            ggaggtgccaatgtaataaatcagttgttgctgaggagcgatattgtcaacagtcttata
+            ataactattggatcaacatttctgggtagctcaggcaccgaagttagcccaccccaaaca
+            gtaaatttaaaggatatgtcatggtggaagggcattaccgatgtggtgctttgtgcgaga
+            ctggccgatgactaa
+///

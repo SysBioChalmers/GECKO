@@ -1,0 +1,59 @@
+ENTRY       YDR036C           CDS       T00005
+NAME        EHD3
+DEFINITION  Ehd3p (EC:3.1.2.4)
+ORTHOLOGY   K05605  3-hydroxyisobutyryl-CoA hydrolase [EC:3.1.2.4]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00280  Valine, leucine and isoleucine degradation
+            sce00410  beta-Alanine metabolism
+            sce00640  Propanoate metabolism
+            sce01100  Metabolic pathways
+            sce01200  Carbon metabolism
+CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
+            Metabolism; Carbohydrate metabolism; Propanoate metabolism [PATH:sce00640]
+            Metabolism; Amino acid metabolism; Valine, leucine and isoleucine degradation [PATH:sce00280]
+            Metabolism; Metabolism of other amino acids; beta-Alanine metabolism [PATH:sce00410]
+POSITION    IV:complement(523211..524713)
+MOTIF       Pfam: ECH ECH_C
+DBLINKS     NCBI-GI: 6320241
+            NCBI-GeneID: 851606
+            SGD: S000002443
+            MIPS: YDR036C
+            UniProt: P28817
+AASEQ       500
+            MLRNTLKCAQLSSKYGFKTTTRTFMTTQPQLNVTDAPPVLFTVQDTARVITLNRPKKLNA
+            LNAEMSESMFKTLNEYAKSDTTNLVILKSSNRPRSFCAGGDVATVAIFNFNKEFAKSIKF
+            FTDEYSLNFQIATYLKPIVTFMDGITMGGGVGLSIHTPFRIATENTKWAMPEMDIGFFPD
+            VGSTFALPRIVTLANSNSQMALYLCLTGEVVTGADAYMLGLASHYVSSENLDALQKRLGE
+            ISPPFNNDPQSAYFFGMVNESIDEFVSPLPKDYVFKYSNEKLNVIEACFNLSKNGTIEDI
+            MNNLRQYEGSAEGKAFAQEIKTKLLTKSPSSLQIALRLVQENSRDHIESAIKRDLYTAAN
+            MCMNQDSLVEFSEATKHKLIDKQRVPYPWTKKEQLFVSQLTSITSPKPSLPMSLLRNTSN
+            VTWTQYPYHSKYQLPTEQEIAAYIEKRTNDDTGAKVTEREVLNHFANVIPSRRGKLGIQS
+            LCKIVCERKCEEVNDGLRWK
+NTSEQ       1503
+            atgctcagaaatacgctaaaatgtgcccaattgtcgtctaaatacggatttaaaactacc
+            acacgtacattcatgactactcaaccccagctaaatgtcaccgacgcaccacctgtgcta
+            tttaccgttcaagatacagctagagttatcacgctaaataggcccaaaaagctcaatgct
+            ttgaacgccgaaatgtcagaatccatgttcaagactttgaacgagtatgcaaagagcgat
+            actacaaacttagtcattttaaagtcatccaaccgaccacgttcgttctgtgctggtggt
+            gatgtagctactgtggcaatattcaattttaacaaagaatttgccaagtccatcaaattt
+            tttactgatgaatattctttgaattttcaaatagcaacttacttgaaaccaattgttacc
+            ttcatggacggtatcaccatgggtggcggcgttggtctatccattcacacgccctttaga
+            attgctacagaaaacaccaaatgggccatgcccgagatggacattggtttttttccagat
+            gtaggctcaacttttgctctccctagaatcgtgacattggctaactcaaactcacaaatg
+            gccctgtatctatgtcttacaggagaagtagtcacaggagcagacgcttatatgctcggc
+            ttagcgtctcattacgtcagtagtgaaaatttagatgctttgcagaaaagattaggtgaa
+            attagccccccttttaataacgatccacaatctgcatacttcttcgggatggttaacgaa
+            tccatcgacgaattcgtatcaccattaccaaaagattatgttttcaagtattctaacgag
+            aaattaaacgttattgaagcctgttttaacttgtctaaaaatggtactattgaagacata
+            atgaataacttacgtcaatatgaaggttctgcggaaggtaaggctttcgcacaagaaatc
+            aaaacgaaattgttaaccaagtcaccatcctctcttcaaatcgccttgagattggtgcaa
+            gagaattccagagatcacatagaatctgctatcaaaagagacttatacacagcagctaac
+            atgtgcatgaaccaggactctttggtggaattctctgaagccacaaagcataaacttatt
+            gataaacaaagggtcccgtatccatggacaaagaaggaacagttatttgtatctcagttg
+            acatctatcacatctcctaaaccatcgctaccaatgtcattactaagaaatacctcgaat
+            gttacttggactcaatatccctaccattctaaataccaattgcctacagaacaggaaatc
+            gctgcgtatattgaaaagagaacgaatgatgacactggcgccaaagttaccgaaagagaa
+            gtactaaatcactttgccaatgtgattccttctagaagagggaaactgggtatccaatcg
+            ctatgtaaaattgtttgtgaaagaaaatgtgaagaagttaacgatggcttaagatggaaa
+            taa
+///

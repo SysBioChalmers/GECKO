@@ -1,0 +1,45 @@
+ENTRY       YCL008C           CDS       T00005
+NAME        STP22, VPL15, VPS23
+DEFINITION  Stp22p
+ORTHOLOGY   K12183  ESCRT-I complex subunit TSG101
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04144  Endocytosis
+CLASS       Cellular Processes; Transport and catabolism; Endocytosis [PATH:sce04144]
+POSITION    III:complement(105696..106853)
+MOTIF       Pfam: UEV Vps23_core UQ_con MHC_II_beta
+DBLINKS     NCBI-GI: 42759852
+            NCBI-GeneID: 850349
+            SGD: S000000514
+            MIPS: YCL008C
+            UniProt: P25604
+STRUCTURE   PDB: 3R3Q 1UZX 3R42 2F6M 2P22 2F66 2CAZ
+AASEQ       385
+            MSANGKISVPEAVVNWLFKVIQPIYNDGRTTFHDSLALLDNFHSLRPRTRVFTHSDGTPQ
+            LLLSIYGTISTGEDGSSPHSIPVIMWVPSMYPVKPPFISINLENFDMNTISSSLPIQEYI
+            DSNGWIALPILHCWDPAAMNLIMVVQELMSLLHEPPQDQAPSLPPKPNTQLQQEQNTPPL
+            PPKPKSPHLKPPLPPPPPPQPASNALDLMDMDNTDISPTNHHEMLQNLQTVVNELYREDV
+            DYVADKILTRQTVMQESIARFHEIIAIDKNHLRAVEQAIEQTMHSLNAQIDVLTANRAKV
+            QQFSSTSHVDDEDVNSIAVAKTDGLNQLYNLVAQDYALTDTIECLSRMLHRGTIPLDTFV
+            KQGRELARQQFLVRWHIQRITSPLS
+NTSEQ       1158
+            atgtctgcaaacggcaagatctctgttcccgaggcggtggtcaattggctgttcaaagtc
+            attcaacccatttataacgacggaagaacaactttccacgattctttagcgctgctggac
+            aattttcacagtttaaggccaagaacaagggtatttacgcactctgacggcactccacaa
+            ctactgttgtccatatatggtaccattagtactggtgaggatggttcatctcctcacagt
+            attcctgtgatcatgtgggtacccagtatgtacccggtaaaacctccctttataagtata
+            aacttggaaaatttcgacatgaacaccatcagtagttccttgcccattcaagaatacatc
+            gactccaatgggtggattgcgctgcccatactccactgctgggatcctgccgcgatgaac
+            cttataatggtcgtacaagaattaatgagtctcttacacgagccgccacaagatcaggcg
+            cccagtctaccccctaagcccaatacgcagctccagcaggagcagaatactcccccactg
+            cccccaaagcccaagtctccacacctaaaaccgccattgcctccacctccaccacctcaa
+            ccggcatctaacgcactcgaccttatggacatggacaacacggatatctccccaaccaac
+            catcatgaaatgctacaaaatctacaaaccgtagtcaatgagttatacagagaggatgtg
+            gactatgtagcggacaagatactgacgagacagaccgtcatgcaagaatcaattgccaga
+            ttccatgaaataatcgccatcgacaagaaccatttacgagccgttgagcaggctattgag
+            cagaccatgcactcgctaaacgcacagatagacgtcctgaccgcaaatagggccaaagtc
+            caacagtttagctcaacttcgcatgtggatgacgaggacgtgaactccatagcagtggcc
+            aaaacagatggactcaatcaactatacaacctcgttgcccaggactacgctctcacggac
+            accattgagtgcttatctaggatgctgcaccgtggcaccattcccctcgatacttttgtc
+            aagcaaggtcgtgaattagcacgccagcaattccttgtgcgatggcacatccaacgaatc
+            acctcaccgttatcgtga
+///

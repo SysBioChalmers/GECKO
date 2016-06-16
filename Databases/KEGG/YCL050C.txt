@@ -1,0 +1,42 @@
+ENTRY       YCL050C           CDS       T00005
+NAME        APA1, DTP1
+DEFINITION  Apa1p (EC:2.7.7.5 2.7.7.53)
+ORTHOLOGY   K00988  ATP adenylyltransferase [EC:2.7.7.53]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00230  Purine metabolism
+            sce00920  Sulfur metabolism
+CLASS       Metabolism; Energy metabolism; Sulfur metabolism [PATH:sce00920]
+            Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
+POSITION    III:complement(37836..38801)
+MOTIF       Pfam: ATP_transf HIT
+DBLINKS     NCBI-GI: 10383757
+            NCBI-GeneID: 850307
+            SGD: S000000555
+            MIPS: YCL050C
+            UniProt: P16550
+AASEQ       321
+            MSIPADIASLISDKYKSAFDNGNLKFIQTETTKTKDPKTSMPYLISHMPSLIEKPERGQT
+            PEGEDPLGKPEEELTVIPEFGGADNKAYKLLLNKFPVIPEHTLLVTNEYQHQTDALTPTD
+            LLTAYKLLCALDNEESDKRHMVFYNSGPASGSSLDHKHLQILQMPEKFVTFQDRLCNGKE
+            HFLPTFNTEPLQDAKVSFAHFVLPMPESEETVDEDLLAMCYISILQRALTFFQDWLNENP
+            ELKKSYNLMLTKEWICVVPRSKAFSDEMKIGFNSTGYCGMILTKNDEVFSKITEKPELIN
+            DILLECGFPNTSGQKPNEYNY
+NTSEQ       966
+            atgagtatccccgctgacattgcatctttaattagtgacaagtacaaaagtgccttcgat
+            aatggtaacttaaaatttatccagactgaaacaacgaaaacaaaggacccaaaaaccagc
+            atgccatacttgattagtcacatgccaagtctgatcgaaaagccagagcgtggccaaact
+            ccagaaggagaggatccactaggcaaacctgaggaagaattaacggttatcccagaattt
+            ggtggtgccgataacaaagcgtataaattgctattaaacaaattccctgtaatccctgaa
+            cacactttattggtaactaacgaataccaacatcaaactgatgccttgaccccaaccgat
+            ttattgactgcttataagttgctgtgtgccttggacaatgaagaatccgacaagagacac
+            atggtcttttacaattctggtccagccagtggttcttcattggaccacaaacatttgcaa
+            attctgcaaatgcctgaaaagttcgtcactttccaagatagactatgtaatggtaaagaa
+            catttcctaccaactttcaatactgaacctttgcaagatgctaaagtctcgttcgctcat
+            tttgtcttgccaatgccggagtctgaagaaactgttgatgaagacctattagctatgtgt
+            tacatctccatattgcaaagagctttgacctttttccaggactggttgaacgaaaatcca
+            gaactaaagaaatcctacaatcttatgttaaccaaggaatggatctgtgtcgttccacgc
+            tcgaaggccttttctgatgaaatgaagataggtttcaactccacaggttattgtggtatg
+            atcttaaccaaaaatgatgaagttttctccaagattactgaaaaacctgaattgattaac
+            gatatcttattggaatgtggtttcccaaacacttctggtcaaaaaccaaacgaatacaac
+            tattga
+///

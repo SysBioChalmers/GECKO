@@ -1,0 +1,30 @@
+ENTRY       YLR245C           CDS       T00005
+NAME        CDD1
+DEFINITION  cytidine deaminase (EC:3.5.4.5)
+ORTHOLOGY   K01489  cytidine deaminase [EC:3.5.4.5]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00240  Pyrimidine metabolism
+            sce01100  Metabolic pathways
+CLASS       Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
+POSITION    XII:complement(626502..626930)
+MOTIF       Pfam: dCMP_cyt_deam_1 dCMP_cyt_deam_2
+DBLINKS     NCBI-GI: 6323274
+            NCBI-GeneID: 850946
+            SGD: S000004235
+            MIPS: YLR245C
+            UniProt: Q06549
+STRUCTURE   PDB: 1R5T
+AASEQ       142
+            MKVGGIEDRQLEALKRAALKACELSYSPYSHFRVGCSILTNNDVIFTGANVENASYSNCI
+            CAERSAMIQVLMAGHRSGWKCMVICGDSEDQCVSPCGVCRQFINEFVVKDFPIVMLNSTG
+            SRSKVMTMGELLPMAFGPSHLN
+NTSEQ       429
+            atgaaagtaggtggcatagaagacagacaactggaagccttaaaaagggcggcactgaag
+            gcgtgtgaactctcctatagcccctattctcacttccgtgtcggttgttccatattaaca
+            aataacgatgttatcttcactggtgctaatgtcgagaatgcaagctacagtaattgtata
+            tgtgcagaacgatctgctatgatacaagttctaatggcaggccatcgctcaggatggaaa
+            tgcatggtcatttgtggcgattctgaggaccagtgtgtttccccttgcggcgtttgcagg
+            cagtttatcaatgaatttgtggtcaaggactttccaatagtcatgcttaattccacaggt
+            tctcgttctaaagtcatgacaatgggagaactgctgcccatggcttttggtccatctcat
+            ttaaactag
+///

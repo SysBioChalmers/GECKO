@@ -1,0 +1,49 @@
+ENTRY       YHL011C           CDS       T00005
+NAME        PRS3
+DEFINITION  ribose phosphate diphosphokinase subunit PRS3 (EC:2.7.6.1)
+ORTHOLOGY   K00948  ribose-phosphate pyrophosphokinase [EC:2.7.6.1]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00030  Pentose phosphate pathway
+            sce00230  Purine metabolism
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01200  Carbon metabolism
+            sce01230  Biosynthesis of amino acids
+MODULE      sce_M00005  PRPP biosynthesis, ribose 5P => PRPP
+CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
+            Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
+            Metabolism; Carbohydrate metabolism; Pentose phosphate pathway [PATH:sce00030]
+            Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
+POSITION    VIII:complement(80654..81616)
+MOTIF       Pfam: Pribosyl_synth Pribosyltran_N Pribosyltran DUF218 UPRTase
+DBLINKS     NCBI-GI: 6321776
+            NCBI-GeneID: 856375
+            SGD: S000001003
+            MIPS: YHL011C
+            UniProt: P38689
+AASEQ       320
+            MPTNSIKLLAPDVHRGLAELVAKRLGLQLTSSKLKRDPTGEVSFSIGESVRDQDIFIITQ
+            IGSGVVNDRVLELLIMINASKTASARRITAIIPNFPYARQDRKDKSRAPITAKLMADMLT
+            TAGCDHVITMDLHASQIQGFFDVPVDNLYAEPSVVRYIKENVNYMDSIIISPDAGGAKRA
+            ATLADRLDLNFALIHKERARANEVSRMVLVGDVTDKICIIVDDMADTCGTLAKAAEILLE
+            NRAKSVIAIVTHGVLSGRAIENINNSKLDRVVCTNTVPFEEKIKKCPKLAVIDISSVLAE
+            SIRRLHNGESISYLFKNYPL
+NTSEQ       963
+            atgccaacaaattccatcaaattattagcaccagatgtccaccgaggtttagctgaactt
+            gttgccaaaaggctaggtctacagttaacaagcagcaaactaaagagagatccaaccggt
+            gaggtttccttttctattggagaatctgttagggaccaagatatctttatcatcacgcaa
+            attggctctggtgtcgtgaacgatcgtgttctagaactactgatcatgatcaatgcttcg
+            aagactgcgtctgcaagaagaatcactgctattattccaaatttcccatatgcaagacaa
+            gatagaaaggataagtctcgtgctcctattaccgctaaattgatggccgatatgttaaca
+            acagccgggtgtgatcatgttattactatggatttgcatgcttcccaaattcaagggttc
+            ttcgacgtcccagtagataatttatatgcagaaccaagcgtagttaggtatatcaaggaa
+            aatgtcaactatatggattcaataataatttcgccagatgctggtggggcaaaacgtgct
+            gccactttggctgatcgtttggatctaaattttgcattgatccataaggaaagagctcgt
+            gccaatgaggtttctcgtatggttcttgttggggatgttactgataagatttgtatcatt
+            gttgatgatatggccgatacttgtggtactttagctaaggctgctgaaattcttttggag
+            aatagagctaaatctgttattgctattgtcacgcacggtgttttatcaggcagagctatt
+            gaaaatattaacaattctaaactggatagagttgtttgcacaaatactgttccatttgaa
+            gaaaaaatcaagaagtgcccaaaactggcagtcattgacatcagtagtgtgctggctgaa
+            agtattcgtcgtttgcataatggtgaaagtatttcttatttatttaagaattatccctta
+            taa
+///

@@ -1,0 +1,47 @@
+ENTRY       YPR025C           CDS       T00005
+NAME        CCL1
+DEFINITION  Ccl1p
+ORTHOLOGY   K06634  cyclin H
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03022  Basal transcription factors
+            sce03420  Nucleotide excision repair
+MODULE      sce_M00290  Holo-TFIIH complex
+CLASS       Genetic Information Processing; Transcription; Basal transcription factors [PATH:sce03022]
+            Genetic Information Processing; Replication and repair; Nucleotide excision repair [PATH:sce03420]
+POSITION    XVI:complement(613377..614558)
+MOTIF       Pfam: Cyclin_N TFIIB MRP-L28 GvpK
+DBLINKS     NCBI-GI: 6325282
+            NCBI-GeneID: 856136
+            SGD: S000006229
+            MIPS: YPR025C
+            UniProt: P37366
+AASEQ       393
+            MTDIQLNGKSTLDTPSATMSAKEKEAKLKSADENNKPPNYKRISDDDLYRHSSQYRMWSY
+            TKDQLQEKRVDTNARAIAYIEENLLKFREAHNLTEEEIKVLEAKAIPLTMEEELDLVNFY
+            AKKVQVIAQHLNLPTEVVATAISFFRRFFLENSVMQIDPKSIVHTTIFLACKSENYFISV
+            DSFAQKAKSTRDSVLKFEFKLLESLKFSLLNHHPYKPLHGFFLDIQNVLYGKVDLNYMGQ
+            IYDRCKKRITAALLTDVVYFYTPPQITLATLLIEDEALVTRYLETKFPSREGSQESVPGN
+            EKEEPQNDASTTEKNKEKSTESEEYSIDSAKLLTIIRECKSIIEDCKPPSTEEAKKIAAK
+            NYYCQNPSTLIQKLKRKLNGEDTSSTVEKKQKT
+NTSEQ       1182
+            atgacggatattcaactaaatggaaagagtacattagatactccttctgctaccatgtca
+            gcaaaagaaaaagaggcaaaattaaaatcggctgatgagaataacaagccaccgaactac
+            aaaagaatttctgacgatgatttatataggcactcttctcagtatagaatgtggtcatac
+            actaaagatcaacttcaggagaaaagggtagataccaatgcccgagcgattgcttacatt
+            gaggaaaatttattaaaatttagagaagcacacaatttaacagaagaagaaataaaagta
+            ctagaagcaaaggctatccctttgacaatggaagaagaactcgatttggtgaatttctac
+            gcaaaaaaagttcaggtaatagcacagcatctaaatttgccaaccgaagtagtggccact
+            gcgatatccttttttaggcgttttttcttagaaaattctgttatgcaaatagatcctaaa
+            agtattgtacatactactatctttctagcctgcaaatcggagaactattttattagcgtg
+            gactcgtttgctcaaaaggccaaatctactagagatagtgttctcaaattcgagtttaag
+            ttgttagaatcattgaaattttcactgttgaaccatcatccttacaaaccgcttcatggg
+            tttttcttagatatccagaacgtcctttatggtaaggttgatttaaattacatgggccaa
+            atatacgataggtgtaagaagagaataactgccgcattattaaccgatgtcgtatatttc
+            tacactccaccccaaataacactagcaacattattgattgaggatgaagccttggtcaca
+            aggtatttagaaacaaaatttcccagcagagaaggtagccaggaatcagtaccgggaaac
+            gaaaaagaagaaccacaaaatgatgccagtacaactgagaaaaacaaagagaagtccaca
+            gagagcgaagaatattcgatagactccgcgaagttactaaccataatacgcgagtgtaaa
+            agtattattgaagattgtaaacctccgagtactgaagaggccaagaaaattgcggcaaaa
+            aactattattgtcaaaatccatcaacactgattcagaaattaaaaaggaagttgaatgga
+            gaagatacttcgtccaccgttgagaaaaagcaaaaaacatga
+///

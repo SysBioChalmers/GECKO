@@ -1,0 +1,31 @@
+ENTRY       YGR030C           CDS       T00005
+NAME        POP6
+DEFINITION  Pop6p (EC:3.1.26.5)
+ORTHOLOGY   K14524  ribonuclease P/MRP protein subunit POP6 [EC:3.1.26.5]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03008  Ribosome biogenesis in eukaryotes
+            sce03013  RNA transport
+CLASS       Genetic Information Processing; Translation; RNA transport [PATH:sce03013]
+            Genetic Information Processing; Translation; Ribosome biogenesis in eukaryotes [PATH:sce03008]
+POSITION    VII:complement(545681..546157)
+MOTIF       Pfam: Alba HTH_34
+DBLINKS     NCBI-GI: 6321467
+            NCBI-GeneID: 852918
+            SGD: S000003262
+            MIPS: YGR030C
+            UniProt: P53218
+STRUCTURE   PDB: 3IAB
+AASEQ       158
+            MINGVYYNEISRDLDISSSTQCLRFLKETVIPSLANNGNNSTSIQYHGISKNDNIKKSVN
+            KLDKQINMADRSLGLQQVVCIFSYGPHIQKMLSILEIFKKGYIKNNKKIYQWNKLTSFDI
+            KREGRNELQEERLKVPILVTLVSDSEIIDLNLHSFTKQ
+NTSEQ       477
+            atgatcaatggcgtatattacaatgaaattagtagagatttggatatctcttcctccact
+            caatgtcttcggtttctcaaagaaacagttataccgtccttagcaaataatggtaacaac
+            agtacatcaatacagtatcatggcatatcgaagaacgataacattaagaagtctgtaaat
+            aagttagataaacaaatcaacatggcagatagaagtttgggtctacaacaagtagtttgt
+            atattctcttacggtccacatattcaaaaaatgttaagtattttggaaatatttaaaaag
+            ggttatattaagaacaataagaaaatttatcagtggaataaattaacatcgttcgatata
+            aaaagagaaggcagaaatgaactacaggaagaaaggctcaaggttccaattttggtcacc
+            cttgtttctgattcagagatcattgatttaaacctacattcattcaccaaacaataa
+///

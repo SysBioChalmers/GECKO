@@ -1,0 +1,32 @@
+ENTRY       YFR036W           CDS       T00005
+NAME        CDC26, HIT3, SCD26
+DEFINITION  anaphase promoting complex subunit CDC26
+ORTHOLOGY   K03359  anaphase-promoting complex subunit 12
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04111  Cell cycle - yeast
+            sce04113  Meiosis - yeast
+            sce04120  Ubiquitin mediated proteolysis
+MODULE      sce_M00389  APC/C complex
+CLASS       Genetic Information Processing; Folding, sorting and degradation; Ubiquitin mediated proteolysis [PATH:sce04120]
+            Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
+            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+POSITION    VI:226963..227337
+MOTIF       Pfam: APC_CDC26 IFT57
+DBLINKS     NCBI-GI: 14318561
+            NCBI-GeneID: 850597
+            SGD: S000001932
+            MIPS: YFR036W
+            UniProt: P14724
+AASEQ       124
+            MIRRAPTTLQLSHDDVTSLIDDLNEQKLKQQLNIEKTKYFQGKNGGSLHSNTDFQDTSQN
+            IEDNNNDNDNDIDEDDDMSSYNDKAASVAHTRVLNSLHLSTDSNTAHETSNANDNHNPFY
+            IREE
+NTSEQ       375
+            atgatcagaagggcccctaccaccttgcagctcagtcacgacgacgtaacctctctgatc
+            gatgacctgaacgagcagaaactcaagcagcagctgaatatcgagaagacaaaatacttc
+            caaggaaaaaatggcggatcgctgcactccaatacagactttcaggacacatcgcagaat
+            atcgaagacaacaataacgataacgataacgatatcgatgaagatgacgacatgtcatct
+            tacaacgacaaagcagcctcggtagcgcacaccagagtcctcaattccttgcatctgtcc
+            accgacagcaataccgcccacgagacgtccaatgcaaacgacaaccacaaccccttctac
+            atccgcgaggaataa
+///

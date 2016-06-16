@@ -1,0 +1,63 @@
+ENTRY       YJR131W           CDS       T00005
+NAME        MNS1
+DEFINITION  Mns1p (EC:3.2.1.113)
+ORTHOLOGY   K01230  mannosyl-oligosaccharide alpha-1,2-mannosidase [EC:3.2.1.113]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00510  N-Glycan biosynthesis
+            sce00513  Various types of N-glycan biosynthesis
+            sce01100  Metabolic pathways
+            sce04141  Protein processing in endoplasmic reticulum
+MODULE      sce_M00073  N-glycan precursor trimming
+            sce_M00074  N-glycan biosynthesis, high-mannose type
+CLASS       Metabolism; Glycan biosynthesis and metabolism; N-Glycan biosynthesis [PATH:sce00510]
+            Metabolism; Glycan biosynthesis and metabolism; Various types of N-glycan biosynthesis [PATH:sce00513]
+            Genetic Information Processing; Folding, sorting and degradation; Protein processing in endoplasmic reticulum [PATH:sce04141]
+POSITION    X:667644..669293
+MOTIF       Pfam: Glyco_hydro_47
+DBLINKS     NCBI-GI: 398365531
+            NCBI-GeneID: 853595
+            SGD: S000003892
+            MIPS: YJR131W
+            UniProt: P32906
+STRUCTURE   PDB: 1DL2 1G6I
+AASEQ       549
+            MKNSVGISIATIVAIIAAIYYVPWYEHFERKSPGAGEMRDRIESMFLESWRDYSKHGWGY
+            DVYGPIEHTSHNMPRGNQPLGWIIVDSVDTLMLMYNSSTLYKSEFEAEIQRSEHWINDVL
+            DFDIDAEVNVFETTIRMLGGLLSAYHLSDVLEVGNKTVYLNKAIDLGDRLALAFLSTQTG
+            IPYSSINLHSGQAVKNHADGGASSTAEFTTLQMEFKYLAYLTGNRTYWELVERVYEPLYK
+            NNDLLNTYDGLVPIYTFPDTGKFGASTIRFGSRGDSFYEYLLKQYLLTHETLYYDLYRKS
+            MEGMKKHLLAQSKPSSLWYIGEREQGLHGQLSPKMDHLVCFMGGLLASGSTEGLSIHEAR
+            RRPFFSLSLERKSDWDLAKGITDTCYQMYKQSSSGLAPEIVVFNDGNIKQDGWWRSSVGD
+            FFVKPLDRHNLQRPETVESIMFMYHLSHDHKYREWGAEIATSFFENTCVDCNDPKLRRFT
+            SLSDCITLPTKKSNNMESFWLAETLKYLYILFLDEFDLTKVVFNTEAHPFPVLDEEILKS
+            QSLTTGWSL
+NTSEQ       1650
+            atgaagaactctgtcggtatttcaattgcaaccattgttgctatcatagcagctatatac
+            tatgtgccatggtacgaacactttgagagaaagtcaccgggggccggagaaatgagagat
+            cggattgaaagcatgttcttggaatcgtggagagactattccaagcatggctggggatac
+            gatgtgtatggacctattgagcacacttcccataatatgcctcgtggcaaccagccgtta
+            ggctggattatcgtagattcagtggataccttgatgttaatgtataactcctccacacta
+            tacaaaagtgagttcgaggcagaaattcagagatcggagcattggataaacgatgttttg
+            gattttgatattgatgccgaagtgaatgtttttgaaactactattagaatgctaggtggt
+            ttattatccgcatatcatctatctgatgttttagaagtaggtaataagactgtctacttg
+            aacaaagcaatagatttgggggataggcttgctttggcgttcttatccactcagaccgga
+            attccatactcaagtataaaccttcatagtggccaagcggttaagaaccatgcagatggg
+            ggggcatcttctaccgcagaattcactacgctacaaatggaattcaaatatctggcgtat
+            ttgacaggaaatcgtacttattgggagctggtggagcgtgtttacgagccattatacaaa
+            aataacgatcttctaaatacctacgatggattggttccaatttatacatttccagatact
+            gggaagtttggtgcttcgactatccggttcggatcaagaggtgattctttttatgagtat
+            ttactaaaacaatatttattgacgcacgaaacactttattatgatctgtacagaaaatcc
+            atggaaggtatgaaaaagcatttattagcacaatccaaaccctcttctctgtggtacatt
+            ggggaaagagaacaaggtctacatggacaactttctcctaagatggaccacctcgtgtgc
+            tttatggggggattgttagcatcaggctctactgagggcctttctattcatgaagcccga
+            agacgtccgtttttctctctttcccttgaaagaaaaagtgactgggatttggctaaaggg
+            ataactgacacatgttatcaaatgtacaagcagtcttcctcggggcttgcgcctgaaatc
+            gttgtcttcaatgatggaaacataaaacaggatggttggtggcggtcgtctgtgggtgat
+            ttttttgttaaaccactcgataggcacaacctacaaagaccagaaacggtggaatcgatt
+            atgttcatgtatcatttatctcatgatcacaaatatcgtgaatggggggcggaaatcgca
+            actagcttctttgaaaatacctgtgttgattgtaatgacccaaaattaaggcggttcacc
+            agtttaagtgattgtatcacgttacctacaaagaaatctaacaatatggaaagtttctgg
+            ttggcagagactttaaagtatttatatatattgtttttagacgagtttgatttgaccaaa
+            gttgttttcaacacagaagctcatccttttccagtattagacgaagaaatattaaaatcg
+            cagtctctgaccacaggttggtcgttgtag
+///

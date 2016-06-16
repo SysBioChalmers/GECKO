@@ -1,0 +1,25 @@
+ENTRY       YOL077W-A         CDS       T00005
+NAME        ATP19
+DEFINITION  F1F0 ATP synthase subunit K (EC:3.6.3.14)
+ORTHOLOGY   K02143  F-type H+-transporting ATPase subunit k [EC:3.6.3.14]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00190  Oxidative phosphorylation
+            sce01100  Metabolic pathways
+MODULE      sce_M00158  F-type ATPase, eukaryotes
+CLASS       Metabolism; Energy metabolism; Oxidative phosphorylation [PATH:sce00190]
+POSITION    XV:185438..185644
+MOTIF       Pfam: DUF2611
+DBLINKS     NCBI-GI: 6324495
+            NCBI-GeneID: 854077
+            SGD: S000007339
+            MIPS: YOL077W-A
+            UniProt: P81451
+AASEQ       68
+            MGAAYHFMGKAIPPHQLAIGTLGLLGLLVVPNPFKSAKPKTVDIKTDNKDEEKFIENYLK
+            KHSEKQDA
+NTSEQ       207
+            atgggtgctgcttatcatttcatggggaaagctatccctccacaccaactagccattggg
+            acattaggactgctaggtttattggttgttccaaatccttttaaaagcgcaaagccaaaa
+            acagtcgacatcaaaacagacaacaaagacgaggaaaaattcattgaaaactacttaaag
+            aaacattcggaaaagcaagatgcgtaa
+///

@@ -1,0 +1,41 @@
+ENTRY       YPR060C           CDS       T00005
+NAME        ARO7, HGS1, OSM2, TYR7
+DEFINITION  chorismate mutase ARO7 (EC:5.4.99.5)
+ORTHOLOGY   K01850  chorismate mutase [EC:5.4.99.5]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00400  Phenylalanine, tyrosine and tryptophan biosynthesis
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01230  Biosynthesis of amino acids
+MODULE      sce_M00024  Phenylalanine biosynthesis, chorismate => phenylalanine
+CLASS       Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
+            Metabolism; Amino acid metabolism; Phenylalanine, tyrosine and tryptophan biosynthesis [PATH:sce00400]
+POSITION    XVI:complement(674861..675631)
+MOTIF       Pfam: CM_2 Baculo_FP
+DBLINKS     NCBI-GI: 6325317
+            NCBI-GeneID: 856173
+            SGD: S000006264
+            MIPS: YPR060C
+            UniProt: P32178
+STRUCTURE   PDB: 5CSM 1CSM 4CSM 2CSM 3CSM
+AASEQ       256
+            MDFTKPETVLNLQNIRDELVRMEDSIIFKFIERSHFATCPSVYEANHPGLEIPNFKGSFL
+            DWALSNLEIAHSRIRRFESPDETPFFPDKIQKSFLPSINYPQILAPYAPEVNYNDKIKKV
+            YIEKIIPLISKRDGDDKNNFGSVATRDIECLQSLSRRIHFGKFVAEAKFQSDIPLYTKLI
+            KSKDVEGIMKNITNSAVEEKILERLTKKAEVYGVDPTNESGERRITPEYLVKIYKEIVIP
+            ITKEVEVEYLLRRLEE
+NTSEQ       771
+            atggatttcacaaaaccagaaactgttttaaatctacaaaatattagagatgaattagtt
+            agaatggaggattcgatcatcttcaaatttattgagaggtcgcatttcgccacatgtcct
+            tcagtttatgaggcaaaccatccaggtttagaaattccgaattttaaaggatctttcttg
+            gattgggctctttcaaatcttgaaattgcgcattctcgcatcagaagattcgaatcacct
+            gatgaaactcccttctttcctgacaagattcagaaatcattcttaccgagcattaactac
+            ccacaaattttggcgccttatgccccagaagttaattacaatgataaaataaaaaaagtt
+            tatattgaaaagattataccattaatttcgaaaagagatggtgatgataagaataacttc
+            ggttctgttgccactagagatatagaatgtttgcaaagcttgagtaggagaatccacttt
+            ggcaagtttgttgctgaagccaagttccaatcggatatcccgctatacacaaagctgatc
+            aaaagtaaagatgtcgaggggataatgaagaatatcaccaattctgccgttgaagaaaag
+            attctagaaagattaactaagaaggctgaagtctatggtgtggaccctaccaacgagtca
+            ggtgaaagaaggattactccagaatatttggtaaaaatttataaggaaattgttatacct
+            atcactaaggaagttgaggtggaatacttgctaagaaggttggaagagtaa
+///

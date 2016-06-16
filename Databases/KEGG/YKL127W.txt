@@ -1,0 +1,69 @@
+ENTRY       YKL127W           CDS       T00005
+NAME        PGM1
+DEFINITION  phosphoglucomutase PGM1 (EC:5.4.2.2)
+ORTHOLOGY   K01835  phosphoglucomutase [EC:5.4.2.2]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00010  Glycolysis / Gluconeogenesis
+            sce00030  Pentose phosphate pathway
+            sce00052  Galactose metabolism
+            sce00230  Purine metabolism
+            sce00500  Starch and sucrose metabolism
+            sce00520  Amino sugar and nucleotide sugar metabolism
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+MODULE      sce_M00549  Nucleotide sugar biosynthesis, glucose => UDP-glucose
+CLASS       Metabolism; Carbohydrate metabolism; Glycolysis / Gluconeogenesis [PATH:sce00010]
+            Metabolism; Carbohydrate metabolism; Pentose phosphate pathway [PATH:sce00030]
+            Metabolism; Carbohydrate metabolism; Galactose metabolism [PATH:sce00052]
+            Metabolism; Carbohydrate metabolism; Starch and sucrose metabolism [PATH:sce00500]
+            Metabolism; Carbohydrate metabolism; Amino sugar and nucleotide sugar metabolism [PATH:sce00520]
+            Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
+POSITION    XI:203541..205253
+MOTIF       Pfam: PGM_PMM_I PGM_PMM_III PGM_PMM_II PGM_PMM_IV
+DBLINKS     NCBI-GI: 6322722
+            NCBI-GeneID: 853732
+            SGD: S000001610
+            MIPS: YKL127W
+            UniProt: P33401
+AASEQ       570
+            MSLLIDSVPTVAYKDQKPGTSGLRKKTKVFMDEPHYTENFIQATMQSIPNGSEGTTLVVG
+            GDGRFYNDVIMNKIAAVGAANGVRKLVIGQGGLLSTPAASHIIRTYEEKCTGGGIILTAS
+            HNPGGPENDLGIKYNLPNGGPAPESVTNAIWEASKKLTHYKIIKNFPKLNLNKLGKNQKY
+            GPLLVDIIDPAKAYVQFLKEIFDFDLIKSFLAKQRKDKGWKLLFDSLNGITGPYGKAIFV
+            DEFGLPAEEVLQNWHPLPDFGGLHPDPNLTYARTLVDRVDREKIAFGAASDGDGDRNMIY
+            GYGPAFVSPGDSVAIIAEYAPEIPYFAKQGIYGLARSFPTSSAIDRVAAKKGLRCYEVPT
+            GWKFFCALFDAKKLSICGEESFGTGSNHIREKDGLWAIIAWLNILAIYHRRNPEKEASIK
+            TIQDEFWNEYGRTFFTRYDYEHIECEQAEKVVALLSEFVSRPNVCGSHFPADESLTVIDC
+            GDFSYRDLDGSISENQGLFVKFSNGTKFVLRLSGTGSSGATIRLYVEKYTDKKENYGQTA
+            DVFLKPVINSIVKFLRFKEILGTDEPTVRT
+NTSEQ       1713
+            atgtcacttctaatagattctgtaccaacagttgcttataaggaccaaaaaccgggtact
+            tcaggtttacgtaagaagaccaaggttttcatggatgagcctcattatactgagaacttc
+            attcaagcaacaatgcaatctatccctaatggctcagagggaaccactttagttgttgga
+            ggagatggtcgtttctacaacgatgttatcatgaacaagattgccgcagtaggtgctgca
+            aacggtgtcagaaagttagtcattggtcaaggcggtttactttcaacaccagctgcttct
+            catataattagaacatacgaggaaaagtgtaccggtggtggtatcatattaactgcctca
+            cacaacccaggcggtccagagaatgatttaggtatcaagtataatttacctaatggtggg
+            ccagctccagagagtgtcactaacgctatctgggaagcgtctaaaaaattaactcactat
+            aaaattataaagaacttccccaagttgaatttgaacaagcttggtaaaaaccaaaaatat
+            ggcccattgttagtggacataattgatcctgccaaagcatacgttcaatttctgaaggaa
+            atttttgattttgacttaattaaaagcttcttagcgaaacagcgcaaagacaaagggtgg
+            aagttgttgtttgactccttaaatggtattacaggaccatatggtaaggctatatttgtt
+            gatgaatttggtttaccggcagaggaagttcttcaaaattggcaccctttacctgatttc
+            ggcggtttacatcccgatccgaatctaacctatgcacgaactcttgttgacagggttgac
+            cgcgaaaaaattgcctttggagcagcctccgatggtgatggtgataggaatatgatttac
+            ggttatggccctgctttcgtttcgccaggtgattctgttgccattattgccgaatatgca
+            cccgaaattccatacttcgccaaacaaggtatttatggcttggcacgttcatttcctaca
+            tcctcagccattgatcgtgttgcagcaaaaaagggattaagatgttacgaagttccaacc
+            ggctggaaattcttctgtgccttatttgatgctaaaaagctatcaatctgtggtgaagaa
+            tccttcggtacaggttccaatcatatcagagaaaaggacggtctatgggccattattgct
+            tggttaaatatcttggctatctaccataggcgtaaccctgaaaaggaagcttcgatcaaa
+            actattcaggacgaattttggaacgagtatggccgtactttcttcacaagatacgattac
+            gaacatatcgaatgcgagcaggccgaaaaagttgtagctcttttgagtgaatttgtatca
+            aggccaaacgtttgtggctcccacttcccagctgatgagtctttaaccgttatcgattgt
+            ggtgatttttcgtatagagatctagatggctccatctctgaaaatcaaggccttttcgta
+            aagttttcgaatgggactaaatttgttttgaggttatccggcacaggcagttctggtgca
+            acaataagattatacgtagaaaagtatactgataaaaaggagaactatggccaaacagct
+            gacgtcttcttgaaacccgtcatcaactccattgtaaaattcttaagatttaaagaaatt
+            ttaggaacagacgaaccaacagtccgcacatag
+///

@@ -1,0 +1,48 @@
+ENTRY       YEL046C           CDS       T00005
+NAME        GLY1
+DEFINITION  threonine aldolase GLY1 (EC:4.1.2.48 4.1.2.5)
+ORTHOLOGY   K01620  threonine aldolase [EC:4.1.2.5]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00260  Glycine, serine and threonine metabolism
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01230  Biosynthesis of amino acids
+CLASS       Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
+            Metabolism; Amino acid metabolism; Glycine, serine and threonine metabolism [PATH:sce00260]
+POSITION    V:complement(67629..68792)
+MOTIF       Pfam: Beta_elim_lyase Aminotran_1_2
+DBLINKS     NCBI-GI: 6320789
+            NCBI-GeneID: 856665
+            SGD: S000000772
+            MIPS: YEL046C
+            UniProt: P37303
+AASEQ       387
+            MTEFELPPKYITAANDLRSDTFTTPTAEMMEAALEASIGDAVYGEDVDTVRLEQTVARMA
+            GKEAGLFCVSGTLSNQIAIRTHLMQPPYSILCDYRAHVYTHEAAGLAILSQAMVVPVVPS
+            NGDYLTLEDIKSHYVPDDGDIHGAPTRLISLENTLHGIVYPLEELVRIKAWCMENGLKLH
+            CDGARIWNAAAQSGVPLKQYGEIFDSISICLSKSMGAPIGSVLVGNLKFVKKATHFRKQQ
+            GGGIRQSGMMARMALVNINNDWKSQLLYSHSLAHELAEYCEAKGIPLESPADTNFVFINL
+            KAARMDPDVLVKKGLKYNVKLMGGRVSFHYQVTRDTLEKVKLAISEAFDYAKEHPFDCNG
+            PTQIYRSESTEVDVDGNAIREIKTYKY
+NTSEQ       1164
+            atgactgaattcgaattgcctccaaaatatatcaccgctgctaacgacttgcggtcagac
+            acattcaccactccaactgcagagatgatggaggccgctttagaggcctctatcggtgac
+            gctgtctacggtgaagatgttgacaccgttaggctcgaacagaccgttgcccgcatggct
+            ggcaaagaagcaggtttgttctgtgtctctgggactttgtccaaccagattgccatcaga
+            actcacttgatgcaacctccatactctattctatgtgattacagggctcacgtttacact
+            cacgaagccgctggactggcgatcttgtctcaagcgatggtggttcctgtggttccttcc
+            aacggtgactacttgaccttggaagacatcaagtcacactacgtcccagacgacggtgat
+            attcacggtgcccccaccagattgatttctctggaaaacactttacacggtattgtttat
+            ccattggaagaactggtccgcatcaaagcttggtgtatggaaaatggtctcaaactacat
+            tgtgacggtgccagaatctggaatgccgctgcacaatctggcgtgccattaaagcaatat
+            ggggaaatcttcgactccatctccatctgtctatccaagtctatgggtgctcctattggg
+            tccgtcttggttgggaaccttaagtttgtcaagaaggccacccatttcagaaaacaacaa
+            ggtggtggtattagacaatctggtatgatggctagaatggctcttgtaaacatcaacaac
+            gattggaagtcccaattgctgtactcgcactctttggctcatgaattagccgaatattgt
+            gaggcaaagggcatcccgctagagtctccagcagacaccaactttgtctttattaacctg
+            aaggccgctagaatggacccagatgtccttgttaagaagggtttgaagtacaacgttaag
+            ctaatgggtggtagagtctcgttccactatcaagtcaccagagatactttggaaaaagtc
+            aaattggccatctccgaggccttcgactatgctaaagaacatcctttcgactgtaacgga
+            cctacccagatttaccgtagtgaatccaccgaggtcgacgttgatggcaacgctatccgc
+            gaaataaaaacctacaaatactga
+///

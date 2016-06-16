@@ -1,0 +1,36 @@
+ENTRY       YNL113W           CDS       T00005
+NAME        RPC19
+DEFINITION  Rpc19p
+ORTHOLOGY   K03020  DNA-directed RNA polymerases I and III subunit RPAC2
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00230  Purine metabolism
+            sce00240  Pyrimidine metabolism
+            sce01100  Metabolic pathways
+            sce03020  RNA polymerase
+MODULE      sce_M00181  RNA polymerase III, eukaryotes
+            sce_M00182  RNA polymerase I, eukaryotes
+CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
+            Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
+            Genetic Information Processing; Transcription; RNA polymerase [PATH:sce03020]
+POSITION    XIV:412771..413199
+MOTIF       Pfam: RNA_pol_L_2 RNA_pol_L
+DBLINKS     NCBI-GI: 6324215
+            NCBI-GeneID: 855609
+            SGD: S000005057
+            MIPS: YNL113W
+            UniProt: P28000
+STRUCTURE   PDB: 4C2M 4C3I 4C3H 4C3J
+AASEQ       142
+            MTEDIEQKKTATEVTPQEPKHIQEEEEQDVDMTGDEEQEEEPDREKIKLLTQATSEDGTS
+            ASFQIVEEDHTLGNALRYVIMKNPDVEFCGYSIPHPSENLLNIRIQTYGETTAVDALQKG
+            LKDLMDLCDVVESKFTEKIKSM
+NTSEQ       429
+            atgactgaagacatcgaacaaaaaaagaccgctacagaggtaacaccacaagaaccaaag
+            cacatccaagaagaagaagaacaggatgttgatatgactggcgatgaagaacaggaagag
+            gaaccagacagggaaaaaattaagcttctcacacaggcaacatctgaagatggaactagt
+            gcctcttttcaaattgtagaggaggatcacacgcttggaaatgcccttcgttacgttata
+            atgaaaaatccagacgtagaattttgtggttactcgatacctcatccttctgaaaaccta
+            ttaaatatcagaattcaaacctacggtgaaacgaccgcggtggatgctcttcaaaaaggg
+            ctaaaggacttgatggatttatgtgacgttgtagaatctaagtttactgaaaaaatcaag
+            agcatgtag
+///

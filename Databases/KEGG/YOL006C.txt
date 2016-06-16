@@ -1,0 +1,68 @@
+ENTRY       YOL006C           CDS       T00005
+NAME        TOP1, MAK1, MAK17
+DEFINITION  DNA topoisomerase 1 (EC:5.99.1.2)
+ORTHOLOGY   K03163  DNA topoisomerase I [EC:5.99.1.2]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+POSITION    XV:complement(313078..315387)
+MOTIF       Pfam: Topoisom_I_N Topoisom_I Topo_C_assoc
+DBLINKS     NCBI-GI: 6324568
+            NCBI-GeneID: 854156
+            SGD: S000005366
+            MIPS: YOL006C
+            UniProt: P04786
+STRUCTURE   PDB: 1OIS
+AASEQ       769
+            MTIADASKVNHELSSDDDDDVPLSQTLKKRKVASMNSASLQDEAEPYDSDEAISKISKKK
+            TKKIKTEPVQSSSLPSPPAKKSATSKPKKIKKEDGDVKVKTTKKEEQENEKKKREEEEEE
+            DKKAKEEEEEYKWWEKENEDDTIKWVTLKHNGVIFPPPYQPLPSHIKLYYDGKPVDLPPQ
+            AEEVAGFFAALLESDHAKNPVFQKNFFNDFLQVLKESGGPLNGIEIKEFSRCDFTKMFDY
+            FQLQKEQKKQLTSQEKKQIRLEREKFEEDYKFCELDGRREQVGNFKVEPPDLFRGRGAHP
+            KTGKLKRRVNPEDIVLNLSKDAPVPPAPEGHKWGEIRHDNTVQWLAMWRENIFNSFKYVR
+            LAANSSLKGQSDYKKFEKARQLKSYIDAIRRDYTRNLKSKVMLERQKAVAIYLIDVFALR
+            AGGEKSEDEADTVGCCSLRYEHVTLKPPNTVIFDFLGKDSIRFYQEVEVDKQVFKNLTIF
+            KRPPKQPGHQLFDRLDPSILNKYLQNYMPGLTAKVFRTYNASKTMQDQLDLIPNKGSVAE
+            KILKYNAANRTVAILCNHQRTVTKGHAQTVEKANNRIQELEWQKIRCKRAILQLDKDLLK
+            KEPKYFEEIDDLTKEDEATIHKRIIDREIEKYQRKFVRENDKRKFEKEELLPESQLKEWL
+            EKVDEKKQEFEKELKTGEVELKSSWNSVEKIKAQVEKLEQRIQTSSIQLKDKEENSQVSL
+            GTSKINYIDPRLSVVFCKKYDVPIEKIFTKTLREKFKWAIESVDENWRF
+NTSEQ       2310
+            atgactattgctgatgcttccaaagttaatcatgagttgtcttctgatgacgatgacgat
+            gtgccattatctcaaactttaaaaaaaagaaaggtggcgtccatgaactctgcctctctt
+            caagacgaagcggaaccttatgatagtgatgaggcaatctctaagatttccaagaaaaag
+            actaagaaaataaagaccgaaccagtgcaatcgtcgtcattaccatcgcctccagcaaag
+            aaaagcgcgacatcaaagcctaaaaaaatcaagaaagaagatggtgatgtaaaggtaaaa
+            acaactaaaaaggaagaacaggagaacgaaaaaaagaaacgagaagaagaagaagaggag
+            gacaagaaagcgaaggaggaggaggaagaatataaatggtgggaaaaagaaaacgaagat
+            gacaccataaaatgggtcacactgaagcataacggtgttatattccctccaccataccag
+            cccttaccatctcacatcaaattatattacgatgggaagccagtagatttacctccgcaa
+            gctgaagaagtagccgggttctttgctgccctattagagagtgatcatgccaaaaatcct
+            gttttccaaaagaacttcttcaatgatttcttgcaagtactgaaagaaagtggtggtccc
+            ctcaatggaattgagataaaggaattttctcgttgcgatttcaccaaaatgtttgattac
+            ttccagttacaaaaagaacagaaaaagcaactgacttcccaagaaaagaaacagattcgt
+            ttggaaagagaaaaattcgaggaagattataaattctgtgaattagatggcagaagggaa
+            caagtagggaatttcaaggttgaacctcctgatctatttagaggtcgtggcgctcaccca
+            aaaacaggcaaattgaagagaagagtgaatcctgaggatatcgttttaaatctaagtaaa
+            gacgcacccgttccgccagccccagaagggcacaagtggggtgaaatcagacacgacaat
+            accgttcaatggttagccatgtggagagagaatattttcaactcattcaaatacgtcaga
+            ttggcagcgaactcttcattgaagggtcaaagtgactacaagaagtttgaaaaggcgaga
+            caattgaaatcctatatcgatgccatcagaagggattacacgagaaatttgaaaagcaaa
+            gttatgctagagcgccaaaaggccgtagccatttatttgatcgatgtattcgctttaaga
+            gccggtggtgaaaaatccgaagatgaagccgatactgtgggttgttgttcattgcgatat
+            gagcatgttactttgaaacctccgaatactgttatctttgatttcttaggtaaggattct
+            attagattttatcaagaggtagaagttgacaaacaagttttcaaaaatttgacaattttt
+            aaaaggccgcccaaacagccaggacatcaactgtttgatcgtctagatccatctatactg
+            aacaaatatctacaaaactacatgccgggattgactgctaaagttttccgtacatataat
+            gcttccaaaacaatgcaagatcaactggatctaattccaaataaaggatctgtcgcagag
+            aaaatattgaagtacaacgcagcaaatagaactgtagccatcctatgtaaccatcaaagg
+            actgtcacgaaggggcatgcacaaacagtggaaaaggccaataatagaatacaagagttg
+            gaatggcaaaagattcgttgcaagagggccattttacaattggataaggatcttttaaag
+            aaagagccaaaatatttcgaagaaatcgacgatttgacgaaagaagatgaagccaccatt
+            cacaagagaattattgatagagaaattgaaaaatatcagcgaaaatttgttagggagaac
+            gataagaggaaatttgaaaaggaagaattattgccggaaagtcaattgaaggaatggttg
+            gagaaagtcgacgaaaagaaacaagaattcgaaaaggaattgaaaaccggtgaagtggaa
+            ctgaaatcaagttggaattcagtcgaaaaaataaaagcacaagtagagaaattagaacag
+            cgtatccaaactagttccattcagttgaaagataaagaggaaaactcccaggtttcactg
+            ggcacttccaaaatcaattatatagaccctagactttctgtggtattttgcaaaaagtat
+            gatgttccgattgaaaagatttttacaaaaaccctaagagaaaaattcaaatgggccata
+            gaatcggtagatgaaaattggaggttttaa
+///

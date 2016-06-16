@@ -1,0 +1,37 @@
+ENTRY       YDR408C           CDS       T00005
+NAME        ADE8
+DEFINITION  phosphoribosylglycinamide formyltransferase (EC:2.1.2.2)
+ORTHOLOGY   K00601  phosphoribosylglycinamide formyltransferase [EC:2.1.2.2]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00230  Purine metabolism
+            sce00670  One carbon pool by folate
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+MODULE      sce_M00048  Inosine monophosphate biosynthesis, PRPP + glutamine => IMP
+CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
+            Metabolism; Metabolism of cofactors and vitamins; One carbon pool by folate [PATH:sce00670]
+POSITION    IV:complement(1288215..1288859)
+MOTIF       Pfam: Formyl_trans_N Glyco_trans_4_4 MannoseP_isomer MGDG_synth
+DBLINKS     NCBI-GI: 398366571
+            NCBI-GeneID: 852017
+            SGD: S000002816
+            MIPS: YDR408C
+            UniProt: P04161
+AASEQ       214
+            MARIVVLISGSGSNLQALIDAQKQGQLGEDAHIVSVISSSKKAYGLTRAADNNIPTKVCS
+            LYPYTKGIAKEDKAARAKARSQFENDLAKLVLEEKPDVIICAGWLLILGSTFLSQLQSVP
+            ILNLHPALPGCFDGTTHAIEMAWRKCQDENKPLTAGCMVHYVIEEVDKGEPLVVKKLEII
+            PGEETLEQYEQRVHDAEHIAIVEATYKVLQQLHK
+NTSEQ       645
+            atggccagaattgtcgtattaatttcgggctcaggttccaacttgcaagccttgatcgat
+            gcccaaaagcagggccaattaggcgaggatgctcatattgtctctgtcatatcttccagc
+            aagaaggcatacgggttaactagggcagcggacaataatatccccacaaaggtttgttcg
+            ctatacccatatacaaagggtattgcgaaggaggacaaagccgcaagggccaaggcaaga
+            tcccagtttgagaacgacctcgcaaaactagtgctcgaggaaaagcctgacgttatcatc
+            tgcgcgggctggttattgatccttggatctactttcttgagccaactgcaatctgtgccg
+            atattaaatctgcatccagcgctaccaggttgtttcgatggtaccacacacgcaattgaa
+            atggcatggcgcaaatgtcaggacgagaacaagcctctgacggccggatgcatggtgcac
+            tatgtcatcgaggaggtcgacaagggtgagccattggtggtaaaaaagctagaaatcata
+            cctggcgaagaaacactagagcagtacgagcaaagggtacacgatgctgagcacatcgcg
+            attgtagaagctacatataaggttttacagcagcttcacaaataa
+///

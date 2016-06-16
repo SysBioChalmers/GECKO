@@ -1,0 +1,54 @@
+ENTRY       YDR158W           CDS       T00005
+NAME        HOM2, THR2
+DEFINITION  aspartate-semialdehyde dehydrogenase (EC:1.2.1.11)
+ORTHOLOGY   K00133  aspartate-semialdehyde dehydrogenase [EC:1.2.1.11]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00260  Glycine, serine and threonine metabolism
+            sce00270  Cysteine and methionine metabolism
+            sce00300  Lysine biosynthesis
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01210  2-Oxocarboxylic acid metabolism
+            sce01230  Biosynthesis of amino acids
+MODULE      sce_M00018  Threonine biosynthesis, aspartate => homoserine => threonine
+CLASS       Metabolism; Overview; 2-Oxocarboxylic acid metabolism [PATH:sce01210]
+            Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
+            Metabolism; Amino acid metabolism; Glycine, serine and threonine metabolism [PATH:sce00260]
+            Metabolism; Amino acid metabolism; Cysteine and methionine metabolism [PATH:sce00270]
+            Metabolism; Amino acid metabolism; Lysine biosynthesis [PATH:sce00300]
+POSITION    IV:770357..771454
+MOTIF       Pfam: Semialdhyde_dhC Semialdhyde_dh DXP_reductoisom DapB_N Saccharop_dh
+DBLINKS     NCBI-GI: 398365877
+            NCBI-GeneID: 851736
+            SGD: S000002565
+            MIPS: YDR158W
+            UniProt: P13663
+AASEQ       365
+            MAGKKIAGVLGATGSVGQRFILLLANHPHFELKVLGASSRSAGKKYVDAVNWKQTDLLPE
+            SATDIIVSECKSEFFKECDIVFSGLDADYAGAIEKEFMEAGIAIVSNAKNYRREQDVPLI
+            VPVVNPEHLDIVAQKLDTAKAQGKPRPGFIICISNCSTAGLVAPLKPLIEKFGPIDALTT
+            TTLQAISGAGFSPGVPGIDILDNIIPYIGGEEDKMEWETKKILAPLAEDKTHVKLLTPEE
+            IKVSAQCNRVAVSDGHTECISLRFKNRPAPSVEQVKTCLKEYVCDAYKLGCHSAPKQTIH
+            VLEQPDRPQPRLDRNRDSGYGVSVGRIREDPLLDFKMVVLSHNTIIGAAGSGVLIAEILL
+            ARNLI
+NTSEQ       1098
+            atggctggaaagaaaattgctggtgttttgggtgctactggttccgttggtcaacgtttc
+            attctgttgttggcaaatcaccctcatttcgaactgaaagttcttggtgcctcttctaga
+            tcagctggcaagaaatacgttgacgctgtgaactggaagcaaaccgatttgctaccggaa
+            tctgctaccgatattattgtttccgaatgtaaatctgaattctttaaagagtgtgacatc
+            gtcttttccggattggatgctgactatgctggcgctatcgaaaaggaattcatggaagct
+            ggtatcgccattgtttccaatgccaagaattatagaagagaacaagatgtgccattgatt
+            gttcctgttgtcaatcctgagcatttggatattgtagctcaaaagcttgacaccgccaag
+            gctcaaggtaagccaagaccagggttcattatctgtatttccaattgttccactgcaggt
+            ttggttgcaccattgaagcctttgattgaaaaattcggtcctattgatgctttgaccact
+            actactttgcaagcaatctcaggtgctggtttctccccaggtgtaccaggtattgatatt
+            ctagacaatattattccatacattggtggtgaagaagacaagatggaatgggagaccaag
+            aaaatcttggctccattagcagaagacaagacacacgtcaaactattgactccagaagaa
+            atcaaagtctctgctcaatgtaacagagtcgctgtttccgatgggcacaccgaatgtatc
+            tctttgaggttcaagaacagacctgctccatccgtcgagcaagtcaagacatgcctaaaa
+            gaatacgtctgcgatgcctacaaattaggctgtcattctgctccaaagcaaactattcat
+            gttttggaacaaccagacagacctcaaccaaggttggacaggaacagagacagcggttac
+            ggtgtttccgttggtagaatcagagaagacccattgttagatttcaaaatggttgtcctt
+            tcccacaacaccattattggtgccgctggttctggtgtcttgattgccgaaatcttacta
+            gcaagaaacttgatttaa
+///

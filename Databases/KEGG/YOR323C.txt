@@ -1,0 +1,53 @@
+ENTRY       YOR323C           CDS       T00005
+NAME        PRO2
+DEFINITION  glutamate-5-semialdehyde dehydrogenase (EC:1.2.1.41)
+ORTHOLOGY   K00147  glutamate-5-semialdehyde dehydrogenase [EC:1.2.1.41]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00330  Arginine and proline metabolism
+            sce01100  Metabolic pathways
+            sce01230  Biosynthesis of amino acids
+MODULE      sce_M00015  Proline biosynthesis, glutamate => proline
+CLASS       Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
+            Metabolism; Amino acid metabolism; Arginine and proline metabolism [PATH:sce00330]
+POSITION    XV:complement(921535..922905)
+MOTIF       Pfam: Aldedh Phi_1
+DBLINKS     NCBI-GI: 6324899
+            NCBI-GeneID: 854501
+            SGD: S000005850
+            MIPS: YOR323C
+            UniProt: P54885
+STRUCTURE   PDB: 1VLU
+AASEQ       456
+            MSSSQQIAKNARKAGNILKTISNEGRSDILYKIHDALKANAHAIEEANKIDLAVAKETGL
+            ADSLLKRLDLFKGDKFEVMLQGIKDVAELEDPVGKVKMARELDDGLTLYQVTAPVGVLLV
+            IFESRPEVIANITALSIKSGNAAILKGGKESVNTFREMAKIVNDTIAQFQSETGVPVGSV
+            QLIETRQDVSDLLDQDEYIDLVVPRGSNALVRKIKDTTKIPVLGHADGICSIYLDEDADL
+            IKAKRISLDAKTNYPAGCNAMETLLINPKFSKWWEVLENLTLEGGVTIHATKDLKTAYFD
+            KLNELGKLTEAIQCKTVDADEEQDFDKEFLSLDLAAKFVTSTESAIQHINTHSSRHTDAI
+            VTENKANAEKFMKGVDSSGVYWNASTRFADGFRYGFGAEVGISTSKIHARGPVGLDGLVS
+            YQYQIRGDGQVASDYLGAGGNKAFVHKDLDIKTVTL
+NTSEQ       1371
+            atgtccagttcacaacaaatagccaaaaatgcccgtaaagcagggaatattttgaaaacc
+            atctcaaacgagggcagatcagatattttatacaaaattcacgatgccctgaaggctaat
+            gcgcatgccattgaagaagcgaataaaatcgatttagctgttgccaaagagactggccta
+            gcggattctttattgaaacgtctcgacctatttaaaggggacaaatttgaagttatgtta
+            caaggtattaaggatgtagccgaactagaagaccctgttggcaaggttaaaatggccagg
+            gaattagatgatggcttgacgttgtaccaagtaaccgctccagtcggcgttttgttagtt
+            atctttgaatcccgtccagaagttattgccaatattaccgcattgagtatcaagtctggt
+            aatgctgcaattttgaagggtggtaaagagtctgtgaacacgttcagagaaatggcaaag
+            atcgttaacgacaccattgcacaattccaaagtgagactggtgttcctgtgggctctgtg
+            caattgatcgaaaccagacaggatgtttccgacttgttggatcaagatgagtacatcgac
+            ttagttgttcctcgtggttccaatgccttagtcagaaaaatcaaggacactacaaaaatt
+            cccgtgttgggtcatgcggatggtatctgctcaatttacttggatgaagacgcagatttg
+            attaaggcaaaaagaattagtttggatgcaaagactaactacccagctggttgcaacgct
+            atggaaacgttgttgattaacccaaaattctctaagtggtgggaagttctggaaaactta
+            actttggaaggcggagtgactatccacgctacaaaagatttgaaaactgcgtattttgat
+            aaactgaatgagttagggaaattgacagaagcaattcaatgcaaaaccgttgatgctgat
+            gaggagcaagattttgataaggaatttttatccttggatttggctgccaagtttgttaca
+            tctacagaatcggccattcaacatataaatacacactcttcgagacataccgacgctatt
+            gtaacggaaaataaagcaaacgctgaaaaatttatgaagggtgtcgactcctctggtgtt
+            tactggaatgcatcaactagatttgccgatggtttcaggtacggttttggtgctgaagtg
+            ggtatttctacctctaagattcacgcccgtggtccagttggcttggacggtctggtgagt
+            tatcaataccaaataagaggtgacggccaggttgctagtgactaccttggtgctggtggt
+            aacaaagcttttgttcacaaggatttagatataaagactgtgacattataa
+///

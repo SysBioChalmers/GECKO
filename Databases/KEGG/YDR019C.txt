@@ -1,0 +1,50 @@
+ENTRY       YDR019C           CDS       T00005
+NAME        GCV1, GSD1
+DEFINITION  glycine decarboxylase subunit T (EC:2.1.2.10)
+ORTHOLOGY   K00605  aminomethyltransferase [EC:2.1.2.10]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00260  Glycine, serine and threonine metabolism
+            sce00670  One carbon pool by folate
+            sce01100  Metabolic pathways
+            sce01200  Carbon metabolism
+CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
+            Metabolism; Amino acid metabolism; Glycine, serine and threonine metabolism [PATH:sce00260]
+            Metabolism; Metabolism of cofactors and vitamins; One carbon pool by folate [PATH:sce00670]
+POSITION    IV:complement(484163..485365)
+MOTIF       Pfam: GCV_T GCV_T_C
+DBLINKS     NCBI-GI: 6320222
+            NCBI-GeneID: 851582
+            SGD: S000002426
+            MIPS: YDR019C
+            UniProt: P48015
+AASEQ       400
+            MSIIKKIVFKRFNSTLKKTALHDLHVSLGGTMVPYAGYSMPVLYKGQTHIESHNWTRTNA
+            GLFDVSHMLQSKLSGPHSVKFLQRVTPTDFNALPVGSGTLSVLLNPQGGVVDDTIITKEN
+            DDNEFYIVTNAGCAERDTEFFHDELQNGSTLDCQWKIIEGRSLLALQGPKAKDVLEPLLS
+            KTAPGKDLKELFFGQRHEFALKDGSLVQIARGGYTGEDGFEISIANEKAVEFAEQLLANP
+            VMKPIGLAARDSLRLEAGMCLYGHELDESITPVEAALNWVISKSRRDLVDQKYWFNGYAK
+            IMDQLNNKTYSKVRVGFKYLKKGPAARNGVKIFLPDAETEVGLVTSGSASPTLNNINIGQ
+            AYVQKGYHKKGTKLLVQVRNKFYPIELAKMPLVPTHYYKQ
+NTSEQ       1203
+            atgtctataatcaaaaaaattgtgtttaagagattcaactcaactttgaaaaaaactgct
+            cttcatgaccttcatgtgtcattaggcggtacaatggtaccatacgcaggatattccatg
+            cccgtactatacaagggacagactcatattgaatcacataattggaccaggacaaacgct
+            ggtttatttgatgtttctcatatgttacaaagtaagttatctggtcctcattctgttaag
+            tttctgcaacgtgtaacgcccacagatttcaatgccttgcctgttgggtcagggacctta
+            agtgttctattaaatccacagggaggcgtggtagacgataccatcatcactaaagaaaac
+            gatgacaatgagttctatattgtgaccaatgctggctgtgcggaaagagacaccgagttc
+            tttcacgatgagctacaaaatggttctactttagattgtcaatggaaaatcattgaaggt
+            agatcactattggcattgcagggtcctaaagcaaaagatgtgttggaaccacttttatca
+            aaaacagctcctggaaaggatctaaaagagttattttttggacaaagacatgaatttgcg
+            ttaaaggacggttctttggttcaaattgctagaggcgggtacactggtgaagatggattt
+            gagataagcattgcaaatgagaaagcggttgagtttgcggagcaactcttggccaatcca
+            gtaatgaagcctatcggactggctgctagagacagtttaaggttggaagctggtatgtgt
+            ttgtatggtcatgaattggacgaaagtatcacaccagtagaagctgcgttaaactgggtg
+            atttcaaagtcaagaagggacctagtagatcaaaagtactggttcaatggctatgccaag
+            ataatggaccagctaaacaataaaacgtatagcaaggtacgagtcggattcaaatacttg
+            aaaaaggggccagctgccagaaatggtgtcaagatcttcttgcccgatgccgaaacagag
+            gtcggccttgttacatcaggtagtgcatctccaactttaaacaacatcaatattggacaa
+            gcttatgtacagaaaggttaccacaagaagggaacgaagttgcttgttcaagtaaggaac
+            aagttctacccgattgaacttgctaaaatgcctcttgtgcccacacattactacaagcag
+            taa
+///

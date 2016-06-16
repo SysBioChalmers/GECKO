@@ -1,0 +1,35 @@
+ENTRY       YPL002C           CDS       T00005
+NAME        SNF8, VPL14, VPS22
+DEFINITION  Snf8p
+ORTHOLOGY   K12188  ESCRT-II complex subunit VPS22
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04144  Endocytosis
+MODULE      sce_M00410  ESCRT-II complex
+CLASS       Cellular Processes; Transport and catabolism; Endocytosis [PATH:sce04144]
+POSITION    XVI:complement(553627..554328)
+MOTIF       Pfam: EAP30
+DBLINKS     NCBI-GI: 6325255
+            NCBI-GeneID: 856105
+            SGD: S000005923
+            MIPS: YPL002C
+            UniProt: Q12483
+STRUCTURE   PDB: 1W7P 1U5T
+AASEQ       233
+            MKQFGLAAFDELKDGKYNDVNKTILEKQSVELRDQLMVFQERLVEFAKKHNSELQASPEF
+            RSKFMHMCSSIGIDPLSLFDRDKHLFTVNDFYYEVCLKVIEICRQTKDMNGGVISFQELE
+            KVHFRKLNVGLDDLEKSIDMLKSLECFEIFQIRGKKFLRSVPNELTSDQTKILEICSILG
+            YSSISLLKANLGWEAVRSKSALDEMVANGLLWIDYQGGAEALYWDPSWITRQL
+NTSEQ       702
+            atgaaacagtttggactggcagcctttgacgagttgaaggatggaaagtacaatgacgta
+            aacaaaaccatacttgaaaagcaatctgtcgaactaagggaccaattaatggtattccaa
+            gaacgactggtagaatttgccaagaaacacaatagcgagcttcaagcttcacctgaattc
+            cgctcaaaattcatgcatatgtgctcatctattgggattgatcccctatctttatttgat
+            cgagataagcacttatttacagtgaatgatttttattatgaagtatgtcttaaagttata
+            gaaatttgtcggcaaactaaagatatgaatggaggcgtcatttcttttcaagagttggag
+            aaggtgcattttcgtaagctgaatgttggactcgatgatttggaaaaatctatcgacatg
+            ctaaagagcctagagtgttttgagatatttcaaattcgcggcaaaaagtttttacgaagt
+            gttccaaatgagttgacatcagatcaaacaaagattttggaaatatgctcaattctgggc
+            tactcaagtatctctttattaaaggcaaacttgggatgggaggctgttaggagtaaatct
+            gctcttgatgaaatggtcgctaacggtttattgtggattgattatcaaggtggtgcagag
+            gcgttgtattgggatccctcttggattacgaggcaactgtga
+///

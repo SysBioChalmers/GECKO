@@ -1,0 +1,31 @@
+ENTRY       YMR150C           CDS       T00005
+NAME        IMP1
+DEFINITION  Imp1p (EC:3.4.21.-)
+ORTHOLOGY   K09647  mitochondrial inner membrane protease subunit 1 [EC:3.4.21.-]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03060  Protein export
+CLASS       Genetic Information Processing; Folding, sorting and degradation; Protein export [PATH:sce03060]
+POSITION    XIII:complement(561956..562528)
+MOTIF       Pfam: Peptidase_S24 Peptidase_S26
+DBLINKS     NCBI-GI: 6323800
+            NCBI-GeneID: 855182
+            SGD: S000004758
+            MIPS: YMR150C
+            UniProt: P28627
+AASEQ       190
+            MTVGTLPIWSKTFSYAIRSLCFLHIIHMYAYEFTETRGESMLPTLSATNDYVHVLKNFQN
+            GRGIKMGDCIVALKPTDPNHRICKRVTGMPGDLVLVDPSTIVNYVGDVLVDEERFGTYIK
+            VPEGHVWVTGDNLSHSLDSRTYNALPMGLIMGKIVAANNFDKPFWDGSIRNIWGFKWINN
+            TFLDVQAKSN
+NTSEQ       573
+            atgacggttggtacacttcccatctggtcaaaaaccttttcttatgcaattaggtcatta
+            tgcttcttgcatataatacatatgtatgcatacgaatttactgagacgaggggagaatca
+            atgttgccaacactgtcagcgaccaatgattatgtgcatgtcttgaaaaatttccaaaat
+            ggtagaggcataaaaatgggtgactgcatagtagcactgaaacctactgaccctaatcat
+            aggatttgcaaaagggttacgggtatgcctggtgatctcgtgctcgtggatcccagtacg
+            atagttaattatgtcggcgatgtgcttgttgatgaggagaggtttggtacctatattaaa
+            gtccctgaaggtcatgtttgggtaaccggagataatttgtcacattcattagattcaaga
+            acatacaatgcattacccatggggctgatcatgggcaagattgtagctgctaacaatttt
+            gacaagcccttctgggacggttcgatacgcaatatttggggtttcaaatggatcaataat
+            acatttctagatgtgcaggctaagagcaactga
+///

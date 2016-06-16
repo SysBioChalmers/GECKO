@@ -1,0 +1,64 @@
+ENTRY       YKR097W           CDS       T00005
+NAME        PCK1, JPM2, PPC1
+DEFINITION  phosphoenolpyruvate carboxykinase PCK1 (EC:4.1.1.49)
+ORTHOLOGY   K01610  phosphoenolpyruvate carboxykinase (ATP) [EC:4.1.1.49]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00010  Glycolysis / Gluconeogenesis
+            sce00020  Citrate cycle (TCA cycle)
+            sce00620  Pyruvate metabolism
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01200  Carbon metabolism
+MODULE      sce_M00003  Gluconeogenesis, oxaloacetate => fructose-6P
+CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
+            Metabolism; Carbohydrate metabolism; Glycolysis / Gluconeogenesis [PATH:sce00010]
+            Metabolism; Carbohydrate metabolism; Citrate cycle (TCA cycle) [PATH:sce00020]
+            Metabolism; Carbohydrate metabolism; Pyruvate metabolism [PATH:sce00620]
+POSITION    XI:631152..632801
+MOTIF       Pfam: PEPCK_ATP AAA_33 AAA_29 KaiC AAA_25 MRFAP1
+DBLINKS     NCBI-GI: 398365505
+            NCBI-GeneID: 853972
+            SGD: S000001805
+            MIPS: YKR097W
+            UniProt: P10963
+AASEQ       549
+            MSPSKMNATVGSTSEVEQKIRQELALSDEVTTIRRNAPAAVLYEDGLKENKTVISSSGAL
+            IAYSGVKTGRSPKDKRIVEEPTSKDEIWWGPVNKPCSERTWSINRERAADYLRTRDHIYI
+            VDAFAGWDPKYRIKVRVVCARAYHALFMTNMLIRPTEEELAHFGEPDFTVWNAGQFPANL
+            HTQDMSSKSTIEINFKAMEMIILGTEYAGEMKKGIFTVMFYLMPVHHNVLTLHSSANQGI
+            QNGDVTLFFGLSGTGKTTLSADPHRLLIGDDEHCWSDHGVFNIEGGCYAKCINLSAEKEP
+            EIFDAIKFGSVLENVIYDEKSHVVDYDDSSITENTRCAYPIDYIPSAKIPCLADSHPKNI
+            ILLTCDASGVLPPVSKLTPEQVMYHFISGYTSKMAGTEQGVTEPEPTFSSCFGQPFLALH
+            PIRYATMLATKMSQHKANAYLINTGWTGSSYVSGGKRCPLKYTRAILDSIHDGSLANETY
+            ETLPIFNLQVPTKVNGVPAELLNPAKNWSQGESKYRGAVTNLANLFVQNFKIYQDRATPD
+            VLAAGPQFE
+NTSEQ       1650
+            atgtccccttctaaaatgaatgctacagtaggatctacttccgaagttgaacaaaaaatc
+            agacaagaattggctcttagtgacgaagtcaccaccatcagacgcaatgctccagctgcc
+            gttttgtatgaagatggtctaaaagaaaataaaactgtcatttcatcaagcggtgcattg
+            atcgcttattccggtgttaaaaccggaagatctccaaaggacaaacgtattgttgaagaa
+            cctacctcgaaagacgaaatttggtggggtccggtcaataaaccatgttctgaaagaaca
+            tggtctatcaaccgtgaaagagctgcagattacttgagaacaagagaccacatttatatt
+            gtcgatgcatttgcaggatgggatccaaaatacagaatcaaagtccgcgttgtttgtgcc
+            agggcttaccacgctttattcatgacaaatatgcttattagacctacagaagaagaatta
+            gcccattttggagaacctgattttactgtctggaacgctggtcagttcccagccaattta
+            cacacccaggatatgtcttcaaagagtactatagaaattaacttcaaagcaatggaaatg
+            atcattttaggtaccgaatacgccggtgaaatgaaaaaaggtattttcacagttatgttt
+            tacttgatgcctgtgcaccataacgttttaactttgcactcttccgccaaccagggtatt
+            caaaacggtgacgttactttattctttggcctaagtggtaccgggaaaaccactttatcc
+            gcagacccacatagattgttgatcggcgatgatgaacattgttggtccgaccatggtgtc
+            ttcaatatcgaaggtggttgttacgccaagtgtattaatttatctgccgaaaaggagcct
+            gaaattttcgacgctatcaagtttggttctgtattagaaaacgttatctatgacgagaag
+            tcgcatgtagtcgactatgacgactcttctattactgaaaatactagatgtgcctaccca
+            attgactacattccaagtgccaagattccatgtttggcggactctcatccaaagaacatt
+            atcctgctaacttgtgatgcttcgggtgttttaccaccagtatctaaattgactcctgaa
+            caagtcatgtaccatttcatctctggttacacttctaaaatggctggtactgagcaaggt
+            gtcactgaacctgaaccaacattttcatcttgtttcggacaacccttcctagccttgcac
+            cctattagatacgcaaccatgttagctacaaagatgtctcaacataaagctaatgcgtac
+            ttaatcaacaccggctggactggttcttcctacgtatctggtggtaaacgttgcccattg
+            aagtacacaagggccattctggattctattcatgatggttcgttagccaatgaaacgtac
+            gaaactttaccgattttcaatcttcaagtacctaccaaggttaacggtgttccagctgag
+            cttttgaatcctgctaaaaactggtctcaaggtgaatccaaatacagaggtgcagttacc
+            aacttggccaacttgtttgttcaaaatttcaagatttatcaagacagagccacaccagat
+            gtattagccgctggtcctcaattcgagtaa
+///

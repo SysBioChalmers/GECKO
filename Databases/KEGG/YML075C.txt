@@ -1,0 +1,91 @@
+ENTRY       YML075C           CDS       T00005
+NAME        HMG1
+DEFINITION  hydroxymethylglutaryl-CoA reductase (NADPH) HMG1 (EC:1.1.1.34)
+ORTHOLOGY   K00021  hydroxymethylglutaryl-CoA reductase (NADPH) [EC:1.1.1.34]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00900  Terpenoid backbone biosynthesis
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+MODULE      sce_M00095  C5 isoprenoid biosynthesis, mevalonate pathway
+CLASS       Metabolism; Metabolism of terpenoids and polyketides; Terpenoid backbone biosynthesis [PATH:sce00900]
+POSITION    XIII:complement(115734..118898)
+MOTIF       Pfam: HMG-CoA_red HPIH Sterol-sensing
+DBLINKS     NCBI-GI: 6323565
+            NCBI-GeneID: 854900
+            SGD: S000004540
+            MIPS: YML075C
+            UniProt: P12683
+AASEQ       1054
+            MPPLFKGLKQMAKPIAYVSRFSAKRPIHIILFSLIISAFAYLSVIQYYFNGWQLDSNSVF
+            ETAPNKDSNTLFQECSHYYRDSSLDGWVSITAHEASELPAPHHYYLLNLNFNSPNETDSI
+            PELANTVFEKDNTKYILQEDLSVSKEISSTDGTKWRLRSDRKSLFDVKTLAYSLYDVFSE
+            NVTQADPFDVLIMVTAYLMMFYTIFGLFNDMRKTGSNFWLSASTVVNSASSLFLALYVTQ
+            CILGKEVSALTLFEGLPFIVVVVGFKHKIKIAQYALEKFERVGLSKRITTDEIVFESVSE
+            EGGRLIQDHLLCIFAFIGCSMYAHQLKTLTNFCILSAFILIFELILTPTFYSAILALRLE
+            MNVIHRSTIIKQTLEEDGVVPSTARIISKAEKKSVSSFLNLSVVVIIMKLSVILLFVFIN
+            FYNFGANWVNDAFNSLYFDKERVSLPDFITSNASENFKEQAIVSVTPLLYYKPIKSYQRI
+            EDMVLLLLRNVSVAIRDRFVSKLVLSALVCSAVINVYLLNAARIHTSYTADQLVKTEVTK
+            KSFTAPVQKASTPVLTNKTVISGSKVKSLSSAQSSSSGPSSSSEEDDSRDIESLDKKIRP
+            LEELEALLSSGNTKQLKNKEVAALVIHGKLPLYALEKKLGDTTRAVAVRRKALSILAEAP
+            VLASDRLPYKNYDYDRVFGACCENVIGYMPLPVGVIGPLVIDGTSYHIPMATTEGCLVAS
+            AMRGCKAINAGGGATTVLTKDGMTRGPVVRFPTLKRSGACKIWLDSEEGQNAIKKAFNST
+            SRFARLQHIQTCLAGDLLFMRFRTTTGDAMGMNMISKGVEYSLKQMVEEYGWEDMEVVSV
+            SGNYCTDKKPAAINWIEGRGKSVVAEATIPGDVVRKVLKSDVSALVELNIAKNLVGSAMA
+            GSVGGFNAHAANLVTAVFLALGQDPAQNVESSNCITLMKEVDGDLRISVSMPSIEVGTIG
+            GGTVLEPQGAMLDLLGVRGPHATAPGTNARQLARIVACAVLAGELSLCAALAAGHLVQSH
+            MTHNRKPAEPTKPNNLDATDINRLKDGSVTCIKS
+NTSEQ       3165
+            atgccgccgctattcaagggactgaaacagatggcaaagccaattgcctatgtttcaaga
+            ttttcggcgaaacgaccaattcatataatacttttttctctaatcatatccgcattcgct
+            tatctatccgtcattcagtattacttcaatggttggcaactagattcaaatagtgttttt
+            gaaactgctccaaataaagactccaacactctatttcaagaatgttcccattactacaga
+            gattcctctctagatggttgggtatcaatcaccgcgcatgaagctagtgagttaccagcc
+            ccacaccattactatctattaaacctgaacttcaatagtcctaatgaaactgactccatt
+            ccagaactagctaacacggtttttgagaaagataatacaaaatatattctgcaagaagat
+            ctcagtgtttccaaagaaatttcttctactgatggaacgaaatggaggttaagaagtgac
+            agaaaaagtcttttcgacgtaaagacgttagcatattctctctacgatgtattttcagaa
+            aatgtaacccaagcagacccgtttgacgtccttattatggttactgcctacctaatgatg
+            ttctacaccatattcggcctcttcaatgacatgaggaagaccgggtcaaatttttggttg
+            agcgcctctacagtggtcaattctgcatcatcacttttcttagcattgtatgtcacccaa
+            tgtattctaggcaaagaagtttccgcattaactctttttgaaggtttgcctttcattgta
+            gttgttgttggtttcaagcacaaaatcaagattgcccagtatgccctggagaaatttgaa
+            agagtcggtttatctaaaaggattactaccgatgaaatcgtttttgaatccgtgagcgaa
+            gagggtggtcgtttgattcaagaccatttgctttgtatttttgcctttatcggatgctct
+            atgtatgctcaccaattgaagactttgacaaacttctgcatattatcagcatttatccta
+            atttttgaattgattttaactcctacattttattctgctatcttagcgcttagactggaa
+            atgaatgttatccacagatctactattatcaagcaaacattagaagaagacggtgttgtt
+            ccatctacagcaagaatcatttctaaagcagaaaagaaatccgtatcttctttcttaaat
+            ctcagtgtggttgtcattatcatgaaactctctgtcatactgttgtttgtcttcatcaac
+            ttttataactttggtgcaaattgggtcaatgatgccttcaattcattgtacttcgataag
+            gaacgtgtttctctaccagattttattacctcgaatgcctctgaaaactttaaagagcaa
+            gctattgttagtgtcaccccattattatattacaaacccattaagtcctaccaacgcatt
+            gaggatatggttcttctattgcttcgtaatgtcagtgttgccattcgtgataggttcgtc
+            agtaaattagttctttccgccttagtatgcagtgctgtcatcaatgtgtatttattgaat
+            gctgctagaattcataccagttatactgcagaccaattggtgaaaactgaagtcaccaag
+            aagtcttttactgctcctgtacaaaaggcttctacaccagttttaaccaataaaacagtc
+            atttctggatcgaaagtcaaaagtttatcatctgcgcaatcgagctcatcaggaccttca
+            tcatctagtgaggaagatgattcccgcgatattgaaagcttggataagaaaatacgtcct
+            ttagaagaattagaagcattattaagtagtggaaatacaaaacaattgaagaacaaagag
+            gtcgctgccttggttattcacggtaagttacctttgtacgctttggagaaaaaattaggt
+            gatactacgagagcggttgcggtacgtaggaaggctctttcaattttggcagaagctcct
+            gtattagcatctgatcgtttaccatataaaaattatgactacgaccgcgtatttggcgct
+            tgttgtgaaaatgttataggttacatgcctttgcccgttggtgttataggccccttggtt
+            atcgatggtacatcttatcatataccaatggcaactacagagggttgtttggtagcttct
+            gccatgcgtggctgtaaggcaatcaatgctggcggtggtgcaacaactgttttaactaag
+            gatggtatgacaagaggcccagtagtccgtttcccaactttgaaaagatctggtgcctgt
+            aagatatggttagactcagaagagggacaaaacgcaattaaaaaagcttttaactctaca
+            tcaagatttgcacgtctgcaacatattcaaacttgtctagcaggagatttactcttcatg
+            agatttagaacaactactggtgacgcaatgggtatgaatatgatttctaaaggtgtcgaa
+            tactcattaaagcaaatggtagaagagtatggctgggaagatatggaggttgtctccgtt
+            tctggtaactactgtaccgacaaaaaaccagctgccatcaactggatcgaaggtcgtggt
+            aagagtgtcgtcgcagaagctactattcctggtgatgttgtcagaaaagtgttaaaaagt
+            gatgtttccgcattggttgagttgaacattgctaagaatttggttggatctgcaatggct
+            gggtctgttggtggatttaacgcacatgcagctaatttagtgacagctgttttcttggca
+            ttaggacaagatcctgcacaaaatgttgaaagttccaactgtataacattgatgaaagaa
+            gtggacggtgatttgagaatttccgtatccatgccatccatcgaagtaggtaccatcggt
+            ggtggtactgttctagaaccacaaggtgccatgttggacttattaggtgtaagaggcccg
+            catgctaccgctcctggtaccaacgcacgtcaattagcaagaatagttgcctgtgccgtc
+            ttggcaggtgaattatccttatgtgctgccctagcagccggccatttggttcaaagtcat
+            atgacccacaacaggaaacctgctgaaccaacaaaacctaacaatttggacgccactgat
+            ataaatcgtttgaaagatgggtccgtcacctgcattaaatcctaa
+///

@@ -1,0 +1,67 @@
+ENTRY       YMR216C           CDS       T00005
+NAME        SKY1
+DEFINITION  Sky1p (EC:2.7.11.1)
+ORTHOLOGY   K08832  serine/threonine-protein kinase SRPK3 [EC:2.7.11.1]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+POSITION    XIII:complement(698811..701039)
+MOTIF       Pfam: Pkinase Pkinase_Tyr
+DBLINKS     NCBI-GI: 6323872
+            NCBI-GeneID: 855256
+            SGD: S000004829
+            MIPS: YMR216C
+            UniProt: Q03656
+STRUCTURE   PDB: 1Q8Y 1HOW 1Q99 1Q97 1Q8Z 2JD5
+AASEQ       742
+            MGSSINYPGFVTKSAHLADTSTDASISCEEATSSQEAKKNFFQRDYNMMKKAPAPTKSKL
+            SLALQTSKSSSSANGTVQEDTSSKTEDFSTKSIKKKPDSGVESHVSIQSDSGPQSDSDLD
+            SDSSISSCDERNEESLKDYRPGGYHPAFKGEPYKDARYILVRKLGWGHFSTVWLAKDMVN
+            NTHVAMKIVRGDKVYTEAAEDEIKLLQRVNDADNTKEDSMGANHILKLLDHFNHKGPNGV
+            HVVMVFEVLGENLLALIKKYEHRGIPLIYVKQISKQLLLGLDYMHRRCGIIHTDIKPENV
+            LMEIGDVEGIVQMVEALDKQKREAKRLQRHVSRSSDITANDSSDEKWAECQTSMPCGSSS
+            NSKSRSIEKDLSKRCFRRPRRHTIITGSQPLPSPISSSNFFEMRAHFCGSSHNSFSSVSG
+            NRNIPSSINNNSINNGIGIKNSNNSFLNSVPHSVTRMFINEDSNDNNNNDNSKNKNNNNN
+            NSNNNNNEDIMNTPLHEEQLADSLSTFDISNISQSSDTNGPYISNTMDSNSNVSTDINSP
+            ENLIQIKIADLGNACWYDEHYTNSIQTREYRSPEVLLGAPWGCGADIWSTACLIFELITG
+            DFLFEPDEGHSYTKDDDHIAQIIELLGELPSYLLRNGKYTRTFFNSRGLLRNISKLKFWP
+            LEDVLTEKYKFSKDEAKEISDFLSPMLQLDPRKRADAGGLVNHPWLKDTLGMEEIRVPDR
+            ELYGSGSDIPGWFEEVRDHKRH
+NTSEQ       2229
+            atgggttcatcaattaactatcctgggtttgtgactaaaagcgctcatttggctgacact
+            agtacggatgcgagcatttcatgtgaggaagcaacaagctcgcaggaagcgaagaagaat
+            ttctttcaaagggattataacatgatgaagaaggcgcctgctccaacgaagtctaaactg
+            tctttggccttgcagacttccaagtcatcctctagtgccaacggtactgtacaagaggat
+            acttcctcgaagacagaagatttttctacaaagagcattaagaaaaaaccagatagcggc
+            gttgaatcgcatgtgtccatccaatcggattcggggccacaatcagactcagatttggat
+            tcagattcctctatctcatcatgtgacgaaaggaacgaagagtctttgaaagattacagg
+            ccgggtgggtaccaccctgcctttaagggcgagccctataaggatgcacgctacatttta
+            gtaagaaagctgggatggggccacttctccaccgtttggttggcaaaggatatggtaaac
+            aacactcacgttgctatgaagattgttcggggcgacaaagtttacacagaagctgctgaa
+            gacgaaattaagcttttgcaaagagtgaatgacgccgataatacaaaggaggattccatg
+            ggggctaatcatattttgaaattgctagatcatttcaaccataagggccccaatggcgtc
+            catgtggttatggtatttgaagtcctcggcgagaacttactggctttgataaagaagtat
+            gaacataggggcattccattgatttatgtcaagcaaatatcgaagcagttactgcttggt
+            cttgattacatgcataggcggtgtggtattatacacacagatattaaaccagaaaacgtg
+            ttgatggagattggagatgttgagggtatcgttcaaatggtcgaggcactggataaacag
+            aagagagaggcaaaaaggttgcagaggcacgtttcgcggtcttctgatattaccgcgaac
+            gatagcagtgatgagaaatgggcagaatgccaaacaagtatgccctgcggctcaagctca
+            aattccaaatctcgttctatagagaaggacttgtcaaaaagatgctttagaagacctaga
+            cgtcatacaattatcacagggtcgcaaccattaccttccccaattagttcatcaaatttc
+            tttgaaatgagggcgcacttttgtggtagtagtcacaatagcttttcctccgtatctggg
+            aataggaacattccatcttccatcaataataacagtattaataatggcataggcattaag
+            aatagcaacaatagtttcttaaattcagtaccacattctgtgaccaggatgttcataaat
+            gaagacagtaatgataacaacaataatgataatagtaaaaataaaaataacaacaataac
+            aacagtaacaacaataataacgaggacataatgaacacacctttgcatgaagagcagctg
+            gcagactctttatctacatttgatatttccaatatatcacaaagctccgatacaaatggt
+            ccatatatttctaatactatggattcaaattcaaacgtcagtaccgatatcaactcccca
+            gaaaatttgattcagatcaagattgctgatttaggtaatgcttgttggtatgacgaacat
+            tacacgaattctatacagacaagagaatacagatcaccagaggtgttactaggcgcccct
+            tggggttgtggtgcagatatatggtctactgcttgtctaatttttgaattgattaccgga
+            gattttcttttcgaaccggacgaaggtcattcctacactaaggatgatgaccatattgca
+            caaatcatcgagttattgggagaattaccatcataccttttgaggaacggcaaatataca
+            agaactttcttcaattcaagagggcttttaagaaatatctcgaaattgaaattttggccc
+            ttagaagatgttttaactgaaaaatataagttttctaaggacgaagccaaggaaatatct
+            gattttttgtcgcctatgttacagctagacccaaggaaaagagctgatgcaggtggcttg
+            gttaaccatccatggctcaaggataccttgggtatggaagagattcgggtacctgataga
+            gagttgtacgggagtggttccgatatccccggatggtttgaagaagtccgcgatcataaa
+            agacattga
+///

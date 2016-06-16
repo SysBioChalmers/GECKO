@@ -1,0 +1,53 @@
+ENTRY       YDL101C           CDS       T00005
+NAME        DUN1
+DEFINITION  Dun1p (EC:2.7.11.1)
+ORTHOLOGY   K06641  serine/threonine-protein kinase Chk2 [EC:2.7.11.1]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04111  Cell cycle - yeast
+CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
+POSITION    IV:complement(280307..281848)
+MOTIF       Pfam: Pkinase Pkinase_Tyr FHA Kinase-like YrbL-PhoP_reg Kdo
+DBLINKS     NCBI-GI: 6320102
+            NCBI-GeneID: 851457
+            SGD: S000002259
+            MIPS: YDL101C
+            UniProt: P39009
+STRUCTURE   PDB: 2JQJ 2JQL
+AASEQ       513
+            MSLSTKREHSGDVTDSSFKRQQRSNKPSSEYTCLGHLVNLIPGKEQKVEITNRNVTTIGR
+            SRSCDVILSEPDISTFHAEFHLLQMDVDNFQRNLINVIDKSRNGTFINGNRLVKKDYILK
+            NGDRIVFGKSCSFLFKYASSSSTDIENDDEKVSSESRSYKNDDEVFKKPQISATSSQNAT
+            TSAAIRKLNKTRPVSFFDKYLLGKELGAGHYALVKEAKNKKTGQQVAVKIFHAQQNDDQK
+            KNKQFREETNILMRVQHPNIVNLLDSFVEPISKSQIQKYLVLEKIDDGELFERIVRKTCL
+            RQDESKALFKQLLTGLKYLHEQNIIHRDIKPENILLNITRRENPSQVQLGPWDEDEIDIQ
+            VKIADFGLAKFTGEMQFTNTLCGTPSYVAPEVLTKKGYTSKVDLWSAGVILYVCLCGFPP
+            FSDQLGPPSLKEQILQAKYAFYSPYWDKIDDSVLHLISNLLVLNPDERYNIDEALNHPWF
+            NDIQQQSSVSLELQRLQITDNKIPKTYSELSCL
+NTSEQ       1542
+            atgagtttgtccacgaaaagagagcactctggtgatgtaactgactcttcattcaaaaga
+            cagcaacgaagtaataagcccagctcagaatacacttgtctgggccatctggtgaactta
+            atacccggaaaggagcaaaaagtggaaataacaaatagaaacgttactacaatcggtaga
+            agtaggtcgtgcgacgttatattgagtgagcctgacatctcgactttccatgctgagttt
+            catctactgcaaatggatgtggataatttccaaagaaatttgattaatgttatcgataag
+            agcagaaacggaacttttattaatggtaatcgtttggtgaagaaagactacatccttaag
+            aatggtgacagaattgtctttggcaaaagttgctcctttttgttcaagtacgcatcttca
+            tcttctactgacatcgaaaatgacgatgaaaaggtaagttcagaaagtcgttcatataag
+            aacgacgacgaagttttcaagaaaccgcaaataagtgctacaagtagccaaaatgctaca
+            acgagtgccgcaattagaaaactgaataagacaaggcctgtgtcgttctttgataaatat
+            ttattaggtaaagaattaggtgcagggcactacgccctggtgaaagaagccaaaaacaaa
+            aaaactggtcagcaagtagctgtgaaaatattccacgctcagcaaaatgacgaccaaaaa
+            aagaataaacaatttagggaggaaactaacatcctaatgagagtgcaacatccaaacatt
+            gtcaacttactagatagttttgtagagccaatcagcaaatctcagattcaaaaatatttg
+            gtactggaaaagatcgacgatggcgaactatttgaaagaatcgtcagaaaaacatgtttg
+            agacaggatgaatccaaagctctattcaaacagttacttaccggattgaagtatctgcat
+            gagcaaaacatcattcacagagacatcaagccagaaaatatcttattaaatataacaagg
+            cgcgaaaatccaagtcaagtccaacttggcccatgggatgaagatgaaattgatattcaa
+            gttaaaatagcggattttggcctagcaaaatttacaggagaaatgcaattcacaaacaca
+            ctttgtggtacgccttcttatgtagcgcccgaagtcctcacaaagaaaggatacacatca
+            aaagtagatctttggagtgctggtgtcatattatatgtctgtttatgtggttttcctcca
+            ttcagtgatcaattggggccaccttcattgaaggaacagatcttacaagctaagtatgcg
+            ttttactctccgtactgggataaaatcgatgactcagtactacatttaatatccaatctt
+            ttggtcctaaatcctgatgaaaggtacaatatagatgaagctttgaaccacccttggttc
+            aatgacatacagcaacaaagctcggtctcattagaattgcagcgtttacaaattactgac
+            aataaaatacccaaaacatactcagaattatcttgcctctaa
+///

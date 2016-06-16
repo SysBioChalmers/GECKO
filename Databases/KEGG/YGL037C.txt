@@ -1,0 +1,34 @@
+ENTRY       YGL037C           CDS       T00005
+NAME        PNC1
+DEFINITION  nicotinamidase (EC:3.5.1.19)
+ORTHOLOGY   K01440  nicotinamidase [EC:3.5.1.19]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00760  Nicotinate and nicotinamide metabolism
+            sce01100  Metabolic pathways
+CLASS       Metabolism; Metabolism of cofactors and vitamins; Nicotinate and nicotinamide metabolism [PATH:sce00760]
+POSITION    VII:complement(427297..427947)
+MOTIF       Pfam: Isochorismatase
+DBLINKS     NCBI-GI: 398364807
+            NCBI-GeneID: 852846
+            SGD: S000003005
+            MIPS: YGL037C
+            UniProt: P53184
+STRUCTURE   PDB: 3V8E 2H0R
+AASEQ       216
+            MKTLIVVDMQNDFISPLGSLTVPKGEELINPISDLMQDADRDWHRIVVTRDWHPSRHISF
+            AKNHKDKEPYSTYTYHSPRPGDDSTQEGILWPVHCVKNTWGSQLVDQIMDQVVTKHIKIV
+            DKGFLTDREYYSAFHDIWNFHKTDMNKYLEKHHTDEVYIVGVALEYCVKATAISAAELGY
+            KTTVLLDYTRPISDDPEVINKVKEELKAHNINVVDK
+NTSEQ       651
+            atgaagactttaattgttgttgatatgcaaaatgattttatttcacctttaggttccttg
+            actgttccaaaaggtgaggaattaatcaatcctatctcggatttgatgcaagatgctgat
+            agagactggcacaggattgtggtcaccagagattggcacccttccagacatatttcgttc
+            gcaaagaaccataaagataaagaaccctattcaacatacacctaccactctccaaggcca
+            ggcgatgattccacgcaagagggtattttgtggcccgtacactgtgtgaaaaacacctgg
+            ggtagtcaattggttgaccaaataatggaccaagtggtcactaagcatattaagattgtc
+            gacaagggtttcttgactgaccgtgaatactactccgccttccacgacatctggaacttc
+            cataagaccgacatgaacaagtacttagaaaagcatcatacagacgaggtttacattgtc
+            ggtgtagctttggagtattgtgtcaaagccaccgccatttccgctgcagaactaggttat
+            aagaccactgtcctgctggattacacaagacccatcagcgatgatcccgaagtcatcaat
+            aaggttaaggaagagttgaaggcccacaacatcaatgtcgtggataaataa
+///

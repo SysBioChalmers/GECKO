@@ -1,0 +1,34 @@
+ENTRY       YHR008C           CDS       T00005
+NAME        SOD2
+DEFINITION  superoxide dismutase SOD2 (EC:1.15.1.1)
+ORTHOLOGY   K04564  superoxide dismutase, Fe-Mn family [EC:1.15.1.1]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04146  Peroxisome
+CLASS       Cellular Processes; Transport and catabolism; Peroxisome [PATH:sce04146]
+POSITION    VIII:complement(122889..123590)
+MOTIF       Pfam: Sod_Fe_C Sod_Fe_N Imm15 HHH_2
+DBLINKS     NCBI-GI: 6321796
+            NCBI-GeneID: 856399
+            SGD: S000001050
+            MIPS: YHR008C
+            UniProt: P00447
+STRUCTURE   PDB: 4F6E 3RN4 4E4E 3LSU 3BFR
+AASEQ       233
+            MFAKTAAANLTKKGGLSLLSTTARRTKVTLPDLKWDFGALEPYISGQINELHYTKHHQTY
+            VNGFNTAVDQFQELSDLLAKEPSPANARKMIAIQQNIKFHGGGFTNHCLFWENLAPESQG
+            GGEPPTGALAKAIDEQFGSLDELIKLTNTKLAGVQGSGWAFIVKNLSNGGKLDVVQTYNQ
+            DTVTGPLVPLVAIDAWEHAYYLQYQNKKADYFKAIWNVVNWKEASRRFDAGKI
+NTSEQ       702
+            atgttcgcgaaaacagcagctgctaatttaaccaagaagggtggtttgtcattgctctcc
+            accacagcaaggagaaccaaagtcaccttgccagacttgaagtgggacttcggtgcattg
+            gaaccttatatctccggtcaaatcaacgaattgcattacaccaagcaccatcaaacttat
+            gtgaacggattcaacactgctgttgaccaattccaagaactctcagatcttctggccaag
+            gagccctctcccgcaaacgcaagaaaaatgattgctatccaacaaaacatcaagttccat
+            ggcggtggtttcacaaaccactgtctattctgggaaaacctggctccagagtcgcagggc
+            ggtggtgaaccacccaccggcgctttggcaaaggcaatcgacgagcagtttggcagtctg
+            gacgagctgattaagttgaccaacacaaagctagcaggcgtgcagggctccggatgggcc
+            ttcattgtgaaaaacctctctaatggaggcaagctggacgttgttcaaacctacaaccag
+            gataccgtcacaggcccactagttcctctagttgccattgacgcctgggaacacgcctac
+            tacttgcagtaccaaaacaagaaagccgactacttcaaagccatttggaatgtggtcaac
+            tggaaagaagcatccagaagattcgatgctggcaagatctga
+///

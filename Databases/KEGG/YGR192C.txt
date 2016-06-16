@@ -1,0 +1,50 @@
+ENTRY       YGR192C           CDS       T00005
+NAME        TDH3, GLD1, HSP35, HSP36, SSS2
+DEFINITION  glyceraldehyde-3-phosphate dehydrogenase (phosphorylating) TDH3 (EC:1.2.1.12)
+ORTHOLOGY   K00134  glyceraldehyde 3-phosphate dehydrogenase [EC:1.2.1.12]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00010  Glycolysis / Gluconeogenesis
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01200  Carbon metabolism
+            sce01230  Biosynthesis of amino acids
+MODULE      sce_M00001  Glycolysis (Embden-Meyerhof pathway), glucose => pyruvate
+            sce_M00002  Glycolysis, core module involving three-carbon compounds
+            sce_M00003  Gluconeogenesis, oxaloacetate => fructose-6P
+CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
+            Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
+            Metabolism; Carbohydrate metabolism; Glycolysis / Gluconeogenesis [PATH:sce00010]
+POSITION    VII:complement(882812..883810)
+MOTIF       Pfam: Gp_dh_C Gp_dh_N DapB_N DUF2436 2-Hacid_dh_C
+DBLINKS     NCBI-GI: 398366083
+            NCBI-GeneID: 853106
+            SGD: S000003424
+            MIPS: YGR192C
+            UniProt: P00359
+STRUCTURE   PDB: 3PYM 4IQ8
+AASEQ       332
+            MVRVAINGFGRIGRLVMRIALSRPNVEVVALNDPFITNDYAAYMFKYDSTHGRYAGEVSH
+            DDKHIIVDGKKIATYQERDPANLPWGSSNVDIAIDSTGVFKELDTAQKHIDAGAKKVVIT
+            APSSTAPMFVMGVNEEKYTSDLKIVSNASCTTNCLAPLAKVINDAFGIEEGLMTTVHSLT
+            ATQKTVDGPSHKDWRGGRTASGNIIPSSTGAAKAVGKVLPELQGKLTGMAFRVPTVDVSV
+            VDLTVKLNKETTYDEIKKVVKAAAEGKLKGVLGYTEDAVVSSDFLGDSHSSIFDASAGIQ
+            LSPKFVKLVSWYDNEYGYSTRVVDLVEHVAKA
+NTSEQ       999
+            atggttagagttgctattaacggtttcggtagaatcggtagattggtcatgagaattgct
+            ttgtctagaccaaacgtcgaagttgttgctttgaacgacccattcatcaccaacgactac
+            gctgcttacatgttcaagtacgactccactcacggtagatacgctggtgaagtttcccac
+            gatgacaagcacatcattgtcgatggtaagaagattgctacttaccaagaaagagaccca
+            gctaacttgccatggggttcttccaacgttgacatcgccattgactccactggtgttttc
+            aaggaattagacactgctcaaaagcacattgacgctggtgccaagaaggttgttatcact
+            gctccatcttccaccgccccaatgttcgtcatgggtgttaacgaagaaaaatacacttct
+            gacttgaagattgtttccaacgcttcttgtaccaccaactgtttggctccattggccaag
+            gttatcaacgatgctttcggtattgaagaaggtttgatgaccactgtccactctttgact
+            gctactcaaaagactgttgacggtccatcccacaaggactggagaggtggtagaaccgct
+            tccggtaacatcatcccatcctccaccggtgctgctaaggctgtcggtaaggtcttgcca
+            gaattgcaaggtaagttgaccggtatggctttcagagtcccaaccgtcgatgtctccgtt
+            gttgacttgactgtcaagttgaacaaggaaaccacctacgatgaaatcaagaaggttgtt
+            aaggctgccgctgaaggtaagttgaagggtgttttgggttacaccgaagacgctgttgtc
+            tcctctgacttcttgggtgactctcactcttccatcttcgatgcttccgctggtatccaa
+            ttgtctccaaagttcgtcaagttggtctcctggtacgacaacgaatacggttactctacc
+            agagttgtcgacttggttgaacacgttgccaaggcttaa
+///

@@ -1,0 +1,40 @@
+ENTRY       YJL148W           CDS       T00005
+NAME        RPA34, CST21
+DEFINITION  Rpa34p
+ORTHOLOGY   K03003  DNA-directed RNA polymerase I subunit RPA34
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00230  Purine metabolism
+            sce00240  Pyrimidine metabolism
+            sce01100  Metabolic pathways
+            sce03020  RNA polymerase
+MODULE      sce_M00182  RNA polymerase I, eukaryotes
+CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
+            Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
+            Genetic Information Processing; Transcription; RNA polymerase [PATH:sce03020]
+POSITION    X:140437..141138
+MOTIF       Pfam: RNA_polI_A34 RR_TM4-6
+DBLINKS     NCBI-GI: 6322313
+            NCBI-GeneID: 853293
+            SGD: S000003684
+            MIPS: YJL148W
+            UniProt: P47006
+STRUCTURE   PDB: 4C2M 4C3I 4C3H 4C3J
+AASEQ       233
+            MSKLSKDYVSDSDSDDEVISNEFSIPDGFKKCKHLKNFPLNGDNKKKAKQQQVWLIKFPS
+            NVDISKLKSLPVDFESSTTMTIDKHDYKIMDDTDIESSLTQDNLSNMTLLVPSESKESLK
+            IASTAKDNAPLQFDKVFSVSETAKIPAIDYSKVRVPRKDVPKVEGLKLEHFATGYDAEDF
+            HVAEEVKENKKEPKKRSHHDDEEESSEKKKKKKEKREKREKKDKKDKKKKHRD
+NTSEQ       702
+            atgtccaagctttcgaaagattacgtatcagattcagactctgatgatgaagtgatatca
+            aacgagttcagcataccagatggtttcaagaaatgtaaacatttaaagaatttccctctc
+            aacggtgataacaaaaaaaaagcgaaacagcaacaggtttggctgatcaaattcccatca
+            aatgtggacatctccaagttaaaatctctgcctgtagattttgaatcctctacaaccatg
+            acaattgataaacacgattataaaatcatggacgatacagatattgagtcctcgttaaca
+            caggataacctcagtaatatgactttattggttccttcggaaagtaaggaaagtcttaaa
+            attgctagcactgccaaggataatgcaccattacagtttgacaaggtattttctgtcagc
+            gaaaccgctaaaatcccagctattgattacagtaaggtaagagttccacgtaaagatgtt
+            ccaaaagtagaaggcttgaagttggagcattttgctactggttatgatgccgaagatttc
+            catgtggctgaggaagttaaagaaaataagaaagaaccaaagaagcgttcacatcacgac
+            gatgaagaggagtctagtgaaaagaagaaaaagaagaaggagaagagggagaagagggag
+            aagaaggataaaaaggataagaaaaagaaacatagagattga
+///

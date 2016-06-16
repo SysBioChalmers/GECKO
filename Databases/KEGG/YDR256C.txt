@@ -1,0 +1,58 @@
+ENTRY       YDR256C           CDS       T00005
+NAME        CTA1
+DEFINITION  catalase A (EC:1.11.1.6)
+ORTHOLOGY   K03781  catalase [EC:1.11.1.6]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00380  Tryptophan metabolism
+            sce00630  Glyoxylate and dicarboxylate metabolism
+            sce01110  Biosynthesis of secondary metabolites
+            sce04146  Peroxisome
+CLASS       Metabolism; Carbohydrate metabolism; Glyoxylate and dicarboxylate metabolism [PATH:sce00630]
+            Metabolism; Amino acid metabolism; Tryptophan metabolism [PATH:sce00380]
+            Cellular Processes; Transport and catabolism; Peroxisome [PATH:sce04146]
+POSITION    IV:complement(968133..969680)
+MOTIF       Pfam: Catalase Catalase-rel
+DBLINKS     NCBI-GI: 6320462
+            NCBI-GeneID: 851843
+            SGD: S000002664
+            MIPS: YDR256C
+            UniProt: P15202
+STRUCTURE   PDB: 1A4E
+AASEQ       515
+            MSKLGQEKNEVNYSDVREDRVVTNSTGNPINEPFVTQRIGEHGPLLLQDYNLIDSLAHFN
+            RENIPQRNPHAHGSGAFGYFEVTDDITDICGSAMFSKIGKRTKCLTRFSTVGGDKGSADT
+            VRDPRGFATKFYTEEGNLDWVYNNTPVFFIRDPSKFPHFIHTQKRNPQTNLRDADMFWDF
+            LTTPENQVAIHQVMILFSDRGTPANYRSMHGYSGHTYKWSNKNGDWHYVQVHIKTDQGIK
+            NLTIEEATKIAGSNPDYCQQDLFEAIQNGNYPSWTVYIQTMTERDAKKLPFSVFDLTKVW
+            PQGQFPLRRVGKIVLNENPLNFFAQVEQAAFAPSTTVPYQEASADPVLQARLFSYADAHR
+            YRLGPNFHQIPVNCPYASKFFNPAIRDGPMNVNGNFGSEPTYLANDKSYTYIQQDRPIQQ
+            HQEVWNGPAIPYHWATSPGDVDFVQARNLYRVLGKQPGQQKNLAYNIGIHVEGACPQIQQ
+            RVYDMFARVDKGLSEAIKKVAEAKHASELSSNSKF
+NTSEQ       1548
+            atgtcgaaattgggacaagaaaaaaatgaagtaaattactctgatgtaagagaggataga
+            gttgtgacaaactccactggtaatccaatcaatgaaccatttgtcacccaacgtattggg
+            gaacatggccctttgcttttgcaagattataacttaattgattctttggctcatttcaac
+            agggaaaatattcctcaaaggaatccacatgctcatggttctggtgccttcggctatttt
+            gaagtaaccgatgacattactgatatctgcgggtctgctatgtttagtaaaattgggaaa
+            agaacgaaatgtctaacaagattttcgactgtgggtggtgataaaggtagtgccgacacg
+            gttcgtgatccaagggggtttgccaccaaattctacactgaagaaggtaatttagattgg
+            gtctacaataatacaccggtattctttatcagagacccttccaagttccctcactttatc
+            cacacacagaagagaaacccacaaaccaacctaagggatgctgacatgttttgggatttc
+            ctcaccactcctgaaaatcaggtggccattcatcaagtaatgatccttttttcagaccgt
+            ggtacccctgccaactaccgtagtatgcatggttattctggtcatacctataaatggtcc
+            aataaaaacggagattggcattatgtgcaagttcatatcaaaaccgatcaaggaataaag
+            aatttgaccatagaagaggctaccaaaattgcgggatccaatccagattactgccagcag
+            gatttatttgaggctattcagaatggaaactatccttcctggacagtttatattcaaaca
+            atgaccgaacgcgatgccaaaaaattaccattttcagtctttgatttgactaaagtatgg
+            cctcaggggcaattccctttacggcgtgtgggtaagattgttttgaacgagaatccactg
+            aacttcttcgcacaggtggaacaagctgccttcgcccccagtaccacggttccttaccaa
+            gaagcaagcgctgatccagtattacaggcccgtttgttttcatatgcggatgctcataga
+            tacaggctaggtcctaacttccatcaaatacccgtaaactgtccatatgcatctaaattt
+            ttcaatcccgctatcagagatggaccgatgaatgttaacggcaacttcggctcagaacct
+            acatatttggccaacgataaatcgtacacgtatatccaacaggacagacccattcaacaa
+            caccaagaggtatggaatgggccagctatcccttatcattgggcaacatccccaggtgat
+            gtagatttcgtgcaagcaagaaatctctaccgcgttttgggtaaacaacctggacagcaa
+            aagaacttggcatataacatcggcattcatgtagaaggcgcctgtcctcaaatacagcag
+            cgcgtttatgatatgtttgctcgtgttgataagggactatctgaggcaattaaaaaagta
+            gctgaggcaaaacatgcttctgagctttcgagtaactccaaattttga
+///

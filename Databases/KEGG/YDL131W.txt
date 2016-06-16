@@ -1,0 +1,57 @@
+ENTRY       YDL131W           CDS       T00005
+NAME        LYS21
+DEFINITION  homocitrate synthase LYS21 (EC:2.3.3.14)
+ORTHOLOGY   K01655  homocitrate synthase [EC:2.3.3.14]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00300  Lysine biosynthesis
+            sce00620  Pyruvate metabolism
+            sce01100  Metabolic pathways
+            sce01210  2-Oxocarboxylic acid metabolism
+            sce01230  Biosynthesis of amino acids
+MODULE      sce_M00030  Lysine biosynthesis, AAA pathway, 2-oxoglutarate => 2-aminoadipate => lysine
+            sce_M00433  Lysine biosynthesis, 2-oxoglutarate => 2-oxoadipate
+CLASS       Metabolism; Overview; 2-Oxocarboxylic acid metabolism [PATH:sce01210]
+            Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
+            Metabolism; Carbohydrate metabolism; Pyruvate metabolism [PATH:sce00620]
+            Metabolism; Amino acid metabolism; Lysine biosynthesis [PATH:sce00300]
+POSITION    IV:227393..228715
+MOTIF       Pfam: HMGL-like ADP_PFK_GK
+DBLINKS     NCBI-GI: 6320071
+            NCBI-GeneID: 851425
+            SGD: S000002289
+            MIPS: YDL131W
+            UniProt: Q12122
+AASEQ       440
+            MSENNEFQSVTESTTAPTTSNPYGPNPADYLSNVKNFQLIDSTLREGEQFANAFFDTEKK
+            IEIARALDDFGVDYIELTSPVASEQSRKDCEAICKLGLKAKILTHIRCHMDDARVAVETG
+            VDGVDVVIGTSKFLRQYSHGKDMNYIAKSAVEVIEFVKSKGIEIRFSSEDSFRSDLVDLL
+            NIYKTVDKIGVNRVGIADTVGCANPRQVYELIRTLKSVVSCDIECHFHNDTGCAIANAYT
+            ALEGGARLIDVSVLGIGERNGITPLGGLMARMIVAAPDYVRSKYKLHKIRDIENLVADAV
+            EVNIPFNNPITGFCAFTHKAGIHAKAILANPSTYEILDPHDFGMKRYIHFANRLTGWNAI
+            KSRVDQLNLNLTDDQIKEVTAKIKKLGDVRPLNIDDVDSIIKDFHAELSTPLLKPVNKGT
+            DDDNIDISNGHVSKKAKVTK
+NTSEQ       1323
+            atgtctgaaaataacgaattccagagtgtcaccgaatcgacgactgctccaaccactagt
+            aacccatatggcccaaatcctgcggattatctatccaatgttaagaatttccagttgatt
+            gattcaacactaagagagggtgaacaatttgccaacgcattcttcgatactgaaaaaaag
+            attgaaattgctagagccttggatgatttcggtgtggactacatcgagttaacctctccc
+            gtagcatccgaacaatcaagaaaggactgtgaagctatatgtaaactaggtttaaaggcc
+            aagatccttacacacattcgttgtcacatggacgatgccagagtcgccgtagagactggt
+            gtcgacggtgtcgatgttgttatcggcacctccaaatttttaagacaatattcccacggt
+            aaggatatgaactacatcgccaagagtgctgttgaagtcattgaatttgtcaaatccaaa
+            ggtattgaaatcagattttcctctgaagattccttcagaagtgatctcgttgatcttttg
+            aacatttataaaaccgttgacaagatcggtgtaaatagagtcggtattgccgacacagtt
+            ggatgtgccaacccaagacaagtatatgaactgatcagaactttgaagagtgttgtctca
+            tgtgacatcgaatgccatttccacaatgataccggttgtgccattgcaaacgcctacact
+            gctttggaaggtggtgccagattgattgacgtcagtgtactgggtattggtgaaagaaac
+            ggtatcactcctctaggtgggctcatggcaagaatgattgttgccgcaccagactatgtc
+            agatctaaatacaagctgcacaagatcagagacatcgaaaacctggtcgctgatgctgtg
+            gaagttaacattccattcaacaaccctatcaccgggttctgtgcattcacacataaagca
+            ggtatccatgccaaggccattttggctaacccatctacctacgaaatcttggaccctcac
+            gatttcggtatgaagagatatatccacttcgccaacagactaactggttggaatgcaatc
+            aaatcaagagtcgaccaattgaacttgaatttgacggatgatcaaatcaaggaagttact
+            gctaagattaagaagctgggtgatgtcagaccgctaaatattgatgatgtagactccatt
+            atcaaggacttccatgcagaattgagcaccccacttttaaaaccagtaaataagggtaca
+            gatgacgacaatatcgatatttccaatgggcatgtttctaaaaaggcaaaggtcaccaaa
+            tag
+///

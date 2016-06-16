@@ -1,0 +1,58 @@
+ENTRY       YHR137W           CDS       T00005
+NAME        ARO9
+DEFINITION  aromatic-amino-acid:2-oxoglutarate transaminase (EC:2.6.1.28 2.6.1.7 2.6.1.57)
+ORTHOLOGY   K05821  aromatic amino acid aminotransferase II [EC:2.6.1.58 2.6.1.28]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00350  Tyrosine metabolism
+            sce00360  Phenylalanine metabolism
+            sce00400  Phenylalanine, tyrosine and tryptophan biosynthesis
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+CLASS       Metabolism; Amino acid metabolism; Tyrosine metabolism [PATH:sce00350]
+            Metabolism; Amino acid metabolism; Phenylalanine metabolism [PATH:sce00360]
+            Metabolism; Amino acid metabolism; Phenylalanine, tyrosine and tryptophan biosynthesis [PATH:sce00400]
+POSITION    VIII:375709..377250
+MOTIF       Pfam: Aminotran_1_2
+DBLINKS     NCBI-GI: 6321929
+            NCBI-GeneID: 856539
+            SGD: S000001179
+            MIPS: YHR137W
+            UniProt: P38840
+AASEQ       513
+            MTAGSAPPVDYTSLKKNFQPFLSRRVENRSLKSFWDASDISDDVIELAGGMPNERFFPIE
+            SMDLKISKVPFNDNPKWHNSFTTAHLDLGSPSELPIARSFQYAETKGLPPLLHFVKDFVS
+            RINRPAFSDETESNWDVILSGGSNDSMFKVFETICDESTTVMIEEFTFTPAMSNVEATGA
+            KVIPIKMNLTFDRESQGIDVEYLTQLLDNWSTGPYKDLNKPRVLYTIATGQNPTGMSVPQ
+            WKREKIYQLAQRHDFLIVEDDPYGYLYFPSYNPQEPLENPYHSSDLTTERYLNDFLMKSF
+            LTLDTDARVIRLETFSKIFAPGLRLSFIVANKFLLQKILDLADITTRAPSGTSQAIVYST
+            IKAMAESNLSSSLSMKEAMFEGWIRWIMQIASKYNHRKNLTLKALYETESYQAGQFTVME
+            PSAGMFIIIKINWGNFDRPDDLPQQMDILDKFLLKNGVKVVLGYKMAVCPNYSKQNSDFL
+            RLTIAYARDDDQLIEASKRIGSGIKEFFDNYKS
+NTSEQ       1542
+            atgactgctggttctgccccccctgttgattacacttccttaaagaagaacttccaaccg
+            tttctctccagaagagtagaaaatagatctctgaaaagcttttgggatgcttctgatatc
+            tcagatgacgtcattgagctagctggtggaatgccaaacgagagattttttcctatcgaa
+            tctatggatttgaaaatatcaaaagttccttttaatgataacccaaaatggcataattcg
+            tttaccacggcgcatttggacttgggatcccccagtgagctacccattgcacgttctttc
+            caatatgcagaaaccaagggtttaccccctctcttacattttgttaaagattttgtgtcc
+            agaattaatcgcccagccttttccgatgagacggagtctaactgggatgtcatcctttct
+            ggcgggtccaacgattcaatgtttaaggtttttgaaacaatttgcgacgaatcgaccact
+            gtgatgattgaagagtttactttcaccccggctatgtccaatgtggaggctacaggagca
+            aaagtcatccccatcaagatgaacctgaccttcgacagagagtcccagggtattgatgtc
+            gaatatctaacgcagttgctcgataattggtcaactggaccatacaaagacttaaacaag
+            ccaagggtcctatataccattgcaacgggccaaaatcctaccgggatgtctgtcccccag
+            tggaaaagagagaaaatttaccagttggcccaaagacacgatttcctcattgttgaagat
+            gatccctacggttatctgtactttccttcctataatccgcaagagccattagaaaaccct
+            taccattctagcgacctgactactgaacggtatttgaatgattttttaatgaaatcattc
+            ttgactttggatacagatgcccgtgtcatccgtttggagactttttctaaaatttttgct
+            cctggattaaggttatccttcatcgttgctaataaattccttttgcaaaaaatcttggat
+            ttggccgacattactacaagggcccccagtggtacctcacaagctattgtttattctaca
+            ataaaggcaatggctgagtccaacttatcgtcctctctttctatgaaagaagcaatgttt
+            gagggttggataagatggataatgcagattgcttctaaatacaatcataggaaaaatctt
+            actttgaaagccttatacgaaacagaatcttaccaagctggtcagtttaccgttatggaa
+            ccctccgcgggtatgttcatcattattaaaatcaattgggggaatttcgatagacctgac
+            gatttgccgcaacagatggatattttagataagttcttgctgaagaatggtgttaaagta
+            gtgcttggttataaaatggctgtttgcccaaattattcaaagcagaattcagattttcta
+            agactcaccatcgcctatgcaagggatgatgatcagttgattgaagcttccaaaagaatc
+            ggtagtggcataaaagaattttttgacaactataaaagttga
+///

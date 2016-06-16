@@ -1,0 +1,47 @@
+ENTRY       YGR208W           CDS       T00005
+NAME        SER2
+DEFINITION  phosphoserine phosphatase (EC:3.1.3.3)
+ORTHOLOGY   K01079  phosphoserine phosphatase [EC:3.1.3.3]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00260  Glycine, serine and threonine metabolism
+            sce00680  Methane metabolism
+            sce01100  Metabolic pathways
+            sce01200  Carbon metabolism
+            sce01230  Biosynthesis of amino acids
+MODULE      sce_M00020  Serine biosynthesis, glycerate-3P => serine
+CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
+            Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
+            Metabolism; Energy metabolism; Methane metabolism [PATH:sce00680]
+            Metabolism; Amino acid metabolism; Glycine, serine and threonine metabolism [PATH:sce00260]
+POSITION    VII:911883..912812
+MOTIF       Pfam: HAD Hydrolase Hydrolase_3 Put_Phosphatase HAD_2 DUF2018 Toxin_ToxA Acid_PPase
+DBLINKS     NCBI-GI: 6321647
+            NCBI-GeneID: 853122
+            SGD: S000003440
+            MIPS: YGR208W
+            UniProt: P42941
+AASEQ       309
+            MSKFVITCIAHGENLPKETIDQIAKEITESSAKDVSINGTKKLSARATDIFIEVAGSIVQ
+            KDLKNKLTNVIDSHNDVDVIVSVDNEYRQAKKLFVFDMDSTLIYQEVIELIAAYAGVEEQ
+            VHEITERAMNNELDFKESLRERVKLLQGLQVDTLYDEIKQKLEVTKGVPELCKFLHKKNC
+            KLAVLSGGFIQFAGFIKDQLGLDFCKANLLEVDTDGKLTGKTLGPIVDGQCKSETLLQLC
+            NDYNVPVEASCMVGDGGNDLPAMATAGFGIAWNAKPKVQKAAPCKLNTKSMTDILYILGY
+            TDDEIYNRQ
+NTSEQ       930
+            atgtcaaagtttgttatcacctgcatagctcatggagaaaatctcccaaaagaaaccatc
+            gaccagattgcgaaagaaattactgaaagctcggcgaaagatgtatcaatcaatggtacc
+            aagaaactatcggccagagctaccgatatattcattgaagtcgcaggatcgattgttcaa
+            aaagacctcaagaataagctgacgaacgtcattgacagtcataatgatgttgatgttatt
+            gtttctgtcgacaatgaatatcgtcaagccaaaaagctctttgtctttgacatggattca
+            acattaatctaccaagaggtcatcgaattgattgccgcttatgctggtgttgaagaacaa
+            gtgcacgagatcacagaaagagccatgaacaatgaacttgatttcaaagagtctttaaga
+            gaacgcgttaaattattgcaaggcctccaagtcgatacactatatgatgaaataaaacaa
+            aagctagaggtcaccaagggtgtgccagaactatgcaagttccttcacaaaaaaaattgc
+            aagctcgctgttttaagcggtggttttattcagtttgccggttttatcaaggatcagtta
+            ggtttagatttttgtaaggcaaacttgttggaagttgacactgatggaaaattaaccggt
+            aaaacactgggtcctatcgtagacggacagtgcaagagtgaaacccttctgcaactatgt
+            aatgactacaatgttccagttgaagcaagttgtatggtgggtgacggtggtaacgacctg
+            ccagccatggctaccgccgggtttgggatcgcatggaacgccaagccaaaggtgcagaaa
+            gctgcaccttgtaagttgaataccaagagcatgactgacattttatacattcttggttac
+            accgatgatgaaatatacaatagacaatga
+///

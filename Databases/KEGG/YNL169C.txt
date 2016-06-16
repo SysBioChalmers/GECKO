@@ -1,0 +1,54 @@
+ENTRY       YNL169C           CDS       T00005
+NAME        PSD1
+DEFINITION  phosphatidylserine decarboxylase 1 (EC:4.1.1.65)
+ORTHOLOGY   K01613  phosphatidylserine decarboxylase [EC:4.1.1.65]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00564  Glycerophospholipid metabolism
+            sce01100  Metabolic pathways
+MODULE      sce_M00093  Phosphatidylethanolamine (PE) biosynthesis, PA => PS => PE
+CLASS       Metabolism; Lipid metabolism; Glycerophospholipid metabolism [PATH:sce00564]
+POSITION    XIV:complement(316169..317671)
+MOTIF       Pfam: PS_Dcarbxylase NADH_oxidored Peptidase_M23
+DBLINKS     NCBI-GI: 6324160
+            NCBI-GeneID: 855552
+            SGD: S000005113
+            MIPS: YNL169C
+            UniProt: P39006
+AASEQ       500
+            MSIMPVKNALAQGRTLLMGRMPAVKFSTRMQLRNRTAVLWNRKFSTRLFVQQRRSSGEIV
+            DRAKAAAANSGRKQVSMKWVVLTSFTIVLGTILLVSRNDSTEEDATEGKKGRRTRKIKIF
+            NNNWLFFCYSTLPLNAMSRLWGQVNSLTLPIWVRPWGYRLYSFLFGVNLDEMEDPDLTHY
+            ANLSEFFYRNIKPGTRPVAQGEDVIASPSDGKILQVGIINSETGEIEQVKGMTYSIKEFL
+            GTHSHPLMSKSASSLDLTSDEEKHREFARVNRIQLAGSEDTEQPLLNFKNEGDQSVREFK
+            PSVSKNIHLLSQLSLNYFSNGFSCSEPHDTELFFAVIYLAPGDYHHFHSPVDWVCKVRRH
+            FPGDLFSVAPYFQRNFPNLFVLNERVALLGSWKYGFFSMTPVGATNVGSIKLNFDQEFVT
+            NSKSDKHLEPHTCYQAVYENASKILGGMPLVKGEEMGGFELGSTVVLCFEAPTEFKFDVR
+            VGDKVKMGQKLGIIGKNDLK
+NTSEQ       1503
+            atgtcaattatgccagttaagaacgccttggcgcaagggaggacgctcctcatggggagg
+            atgcctgctgtaaagttttctacaagaatgcaattaagaaatagaactgcggtgctatgg
+            aatagaaagttttccacgcgtcttttcgttcagcaacgacgcagttctggagagattgtg
+            gatcgtgccaaagctgctgccgcaaatagcggaagaaaacaggtctccatgaaatgggtt
+            gttttaactagtttcaccattgttctaggaaccattttactagtgtcaaggaatgatagt
+            acagaggaggatgctacagagggcaaaaaagggagaaggacaagaaaaatcaaaatattt
+            aacaataattggctctttttctgctattctactttaccgctgaatgcgatgtctcgatta
+            tggggccaagtaaattctcttacgttacccatttgggttagaccatggggttacaggtta
+            tattctttcctttttggagttaacttggacgagatggaagatcctgatttgacacattat
+            gcaaatttatccgaatttttctatcgtaacataaaaccaggcacacgtccagtagcacaa
+            ggcgaagacgttatagcttctccaagtgatggaaagattttacaagttggtataatcaac
+            tctgaaactggcgaaatcgaacaagtcaagggaatgacatattccatcaaagaattcctt
+            ggcactcactcccaccccttgatgtctaagagtgcatctagtctagatttgacttctgat
+            gaggaaaagcatagagaattcgccagggtaaatagaatacaattagcgggttccgaagac
+            actgaacagcctcttcttaactttaaaaacgagggcgatcaatctgttcgagagttcaaa
+            ccaagtgtgtccaaaaatatacatcttttaagtcaactttctttaaactacttctctaat
+            gggttttcgtgctctgagcctcatgatacggaacttttctttgccgtcatttatttggct
+            cccggtgattaccatcatttccactctccagttgactgggtttgtaaggttcgccgccat
+            ttcccaggtgatttattctccgtggcaccttatttccagcgtaacttccctaatcttttc
+            gttctaaatgaaagagttgctttgttgggtagttggaagtacggattttttagcatgact
+            cctgttggtgcaacaaatgttggttcaatcaagttgaattttgatcaagaatttgtgaca
+            aattcaaagagcgacaaacacttggaaccacatacctgctaccaggcagtatatgagaat
+            gcaagtaaaatattgggagggatgcctttggttaagggtgaagaaatgggtggctttgaa
+            ttgggtagcactgttgtactttgttttgaagctcccactgaatttaagttcgatgttagg
+            gttggtgataaggttaagatgggacagaaattaggcataattggaaagaatgatttaaaa
+            tga
+///

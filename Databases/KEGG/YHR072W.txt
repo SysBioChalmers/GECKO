@@ -1,0 +1,69 @@
+ENTRY       YHR072W           CDS       T00005
+NAME        ERG7
+DEFINITION  lanosterol synthase ERG7 (EC:5.4.99.7)
+ORTHOLOGY   K01852  lanosterol synthase [EC:5.4.99.7]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00100  Steroid biosynthesis
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+CLASS       Metabolism; Lipid metabolism; Steroid biosynthesis [PATH:sce00100]
+POSITION    VIII:239098..241293
+MOTIF       Pfam: Prenyltrans Prenyltrans_2 Prenyltrans_1 A2M_comp
+DBLINKS     NCBI-GI: 330443583
+            NCBI-GeneID: 856470
+            SGD: S000001114
+            MIPS: YHR072W
+            UniProt: P38604
+AASEQ       731
+            MTEFYSDTIGLPKTDPRLWRLRTDELGRESWEYLTPQQAANDPPSTFTQWLLQDPKFPQP
+            HPERNKHSPDFSAFDACHNGASFFKLLQEPDSGIFPCQYKGPMFMTIGYVAVNYIAGIEI
+            PEHERIELIRYIVNTAHPVDGGWGLHSVDKSTVFGTVLNYVILRLLGLPKDHPVCAKARS
+            TLLRLGGAIGSPHWGKIWLSALNLYKWEGVNPAPPETWLLPYSLPMHPGRWWVHTRGVYI
+            PVSYLSLVKFSCPMTPLLEELRNEIYTKPFDKINFSKNRNTVCGVDLYYPHSTTLNIANS
+            LVVFYEKYLRNRFIYSLSKKKVYDLIKTELQNTDSLCIAPVNQAFCALVTLIEEGVDSEA
+            FQRLQYRFKDALFHGPQGMTIMGTNGVQTWDCAFAIQYFFVAGLAERPEFYNTIVSAYKF
+            LCHAQFDTECVPGSYRDKRKGAWGFSTKTQGYTVADCTAEAIKAIIMVKNSPVFSEVHHM
+            ISSERLFEGIDVLLNLQNIGSFEYGSFATYEKIKAPLAMETLNPAEVFGNIMVEYPYVEC
+            TDSSVLGLTYFHKYFDYRKEEIRTRIRIAIEFIKKSQLPDGSWYGSWGICFTYAGMFALE
+            ALHTVGETYENSSTVRKGCDFLVSKQMKDGGWGESMKSSELHSYVDSEKSLVVQTAWALI
+            ALLFAEYPNKEVIDRGIDLLKNRQEESGEWKFESVEGVFNHSCAIEYPSYRFLFPIKALG
+            MYSRAYETHTL
+NTSEQ       2196
+            atgacagaattttattctgacacaatcggtctaccaaagacagatccacgtctttggaga
+            ctgagaactgatgagctaggccgagaaagctgggaatatttaacccctcagcaagccgca
+            aacgacccaccatccactttcacgcagtggcttcttcaagatcccaaatttcctcaacct
+            catccagaaagaaataagcattcaccagatttttcagccttcgatgcgtgtcataatggt
+            gcatcttttttcaaactgcttcaagagcctgactcaggtatttttccgtgtcaatataaa
+            ggacccatgttcatgacaatcggttacgtagccgtaaactatatcgccggtattgaaatt
+            cctgagcatgagagaatagaattaattagatacatcgtcaatacagcacatccggttgat
+            ggtggctggggtctacattctgttgacaaatccaccgtgtttggtacagtattgaactat
+            gtaatcttacgtttattgggtctacccaaggaccacccggtttgcgccaaggcaagaagc
+            acattgttaaggttaggcggtgctattggatcccctcactggggaaaaatttggctaagt
+            gcactaaacttgtataaatgggaaggtgtgaaccctgcccctcctgaaacttggttactt
+            ccatattcactgcccatgcatccggggagatggtgggttcatactagaggtgtttacatt
+            ccggtcagttacctgtcattggtcaaattttcttgcccaatgactcctcttcttgaagaa
+            ctgaggaatgaaatttacactaaaccgtttgacaagattaacttctccaagaacaggaat
+            accgtatgtggagtagacctatattacccccattctactactttgaatattgcgaacagc
+            cttgtagtattttacgaaaaatacctaagaaaccggttcatttactctctatccaagaag
+            aaggtttatgatctaatcaaaacggagttacagaatactgattccttgtgtatagcacct
+            gttaaccaggcgttttgcgcacttgtcactcttattgaagaaggggtagactcggaagcg
+            ttccagcgtctccaatataggttcaaggatgcattgttccatggtccacagggtatgacc
+            attatgggaacaaatggtgtgcaaacctgggattgtgcgtttgccattcaatactttttc
+            gtcgcaggcctcgcagaaagacctgaattctataacacaattgtctctgcctataaattc
+            ttgtgtcatgctcaatttgacaccgagtgcgttccaggtagttatagggataagagaaag
+            ggggcttggggcttctcaacaaaaacacagggctatacagtggcagattgcactgcagaa
+            gcaattaaagccatcatcatggtgaaaaactctcccgtctttagtgaagtacaccatatg
+            attagcagtgaacgtttatttgaaggcattgatgtgttattgaacctacaaaacatcgga
+            tcttttgaatatggttcctttgcaacctatgaaaaaatcaaggccccactagcaatggaa
+            accttgaatcctgctgaagtttttggtaacataatggtagaatacccatacgtggaatgt
+            actgattcatccgttctggggttgacatattttcacaagtacttcgactataggaaagag
+            gaaatacgtacacgcatcagaatcgccatcgaattcataaaaaaatctcaattaccagat
+            ggaagttggtatggaagctggggtatttgttttacatatgccggtatgtttgcattggag
+            gcattacacaccgtgggggagacctatgagaattcctcaacggtaagaaaaggttgcgac
+            ttcttggtcagtaaacagatgaaggatggcggttggggggaatcaatgaagtccagtgaa
+            ttacatagttatgtggatagtgaaaaatcgctagtcgttcaaaccgcatgggcgctaatt
+            gcacttcttttcgctgaatatcctaataaagaagtcatcgaccgcggtattgacctttta
+            aaaaatagacaagaagaatccggggaatggaaatttgaaagtgtagaaggtgttttcaac
+            cactcttgtgcaattgaatacccaagttatcgattcttattccctattaaggcattaggt
+            atgtacagcagggcatatgaaacacatacgctttaa
+///

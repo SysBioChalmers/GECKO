@@ -1,0 +1,56 @@
+ENTRY       YML056C           CDS       T00005
+NAME        IMD4
+DEFINITION  IMP dehydrogenase IMD4 (EC:1.1.1.205)
+ORTHOLOGY   K00088  IMP dehydrogenase [EC:1.1.1.205]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00230  Purine metabolism
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+MODULE      sce_M00050  Guanine ribonucleotide biosynthesis IMP => GDP,GTP
+CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
+POSITION    XIII:complement(join(162194..163308,163717..164176))
+MOTIF       Pfam: IMPDH CBS NMO FMN_dh Response_reg ThiG Aldolase
+DBLINKS     NCBI-GI: 6323585
+            NCBI-GeneID: 854948
+            SGD: S000004520
+            MIPS: YML056C
+            UniProt: P50094
+AASEQ       524
+            MSAAPLDYKKALEHLKTYSSKDGLSVQELMDSTTRGGLTYNDFLVLPGLVNFPSSAVSLQ
+            TKLTKKITLNTPFVSSPMDTVTEADMAIYMALLGGIGFIHHNCTPKEQASMVKKVKMFEN
+            GFINSPIVISPTTTVGEVKVMKRKFGFSGFPVTEDGKCPGKLVGLVTSRDIQFLEDDSLV
+            VSEVMTKNPVTGIKGITLKEGNEILKQTKKGKLLIVDDNGNLVSMLSRADLMKNQNYPLA
+            SKSATTKQLLCGAAIGTIEADKERLRLLVEAGLDVVILDSSQGNSVFQLNMIKWIKETFP
+            DLEIIAGNVATREQAANLIAAGADGLRIGMGSGSICITQEVMACGRPQGTAVYNVCQFAN
+            QFGVPCMADGGVQNIGHITKALALGSSTVMMGGMLAGTTESPGEYFYKDGKRLKAYRGMG
+            SIDAMQKTGNKGNASTSRYFSESDSVLVAQGVSGAVVDKGSIKKFIPYLYNGLQHSCQDI
+            GCESLTSLKENVQNGEVRFEFRTASAQLEGGVHNLHSYEKRLYN
+NTSEQ       1575
+            atgagtgctgctccattggattacaaaaaggctttagaacatttgaagacatacagttcc
+            aaggacggtctttctgtccaggaattgatggactccacaactagaggtgggttgacctac
+            aatgattttttggtcttaccaggcttggtcaatttcccatcttctgctgtcagtttgcaa
+            accaaattgaccaagaaaatcactttgaacactccttttgtctcttctcctatggacaca
+            gtcactgaagctgatatggctatttatatggctttattgggtggtattggtttcatccat
+            cacaactgtactccaaaggaacaggcttccatggtcaagaaagttaaaatgtttgaaaac
+            ggtttcatcaattctccaatagtaatttctccaaccaccactgttggtgaagttaaggtt
+            atgaagagaaagtttggtttctctggcttcccagttactgaagacggtaagtgtccaggt
+            aagttagttgggttagtcacctctcgtgatatacaattcttagaagatgattctttggtt
+            gtttctgaagtcatgactaaaaatccagttactggcatcaagggtattactttgaaagaa
+            ggtaatgaaatcctaaaacaaaccaagaaaggtaaattgcttatcgttgatgataacggt
+            aacctcgtttccatgttgtcaagagcggatttgatgaagaatcaaaactacccgttagct
+            tctaaatccgccaccaccaagcaattgctatgtggtgctgcaattggtactatcgaagct
+            gataaggaaagattaagactattagtcgaagcaggtttggatgttgttatcttagattcc
+            tctcaaggtaactctgttttccaattgaacatgatcaaatggattaaagaaactttccca
+            gatttggaaatcattgctggtaacgttgccaccagagaacaagctgctaacttgattgct
+            gccggtgccgatggtttaagaattggtatgggttctgggtctatttgtatcactcaagaa
+            gttatggcttgtggtagaccacaaggtacagctgtctacaacgtttgtcaatttgctaac
+            caatttggcgttccatgtatggctgatggtggtgtccaaaacattggccacatcaccaag
+            gctttggcccttggttcctccaccgtcatgatgggtggtatgttagctggtactaccgag
+            tcaccaggtgaatacttctacaaggatggtaagagattgaaggcttatcgtggtatgggg
+            tccattgacgccatgcaaaagaccggtaacaagggtaatgcctctacttctcgttatttc
+            tctgagtcagacagtgtcttggttgcacaaggtgtttctggggctgtcgtagacaaaggt
+            tccatcaagaagtttattccatatttgtacaacggtttacaacattcttgtcaagacatt
+            ggttgcgaatctctaacttcattgaaagagaatgttcaaaatggtgaagttagatttgaa
+            ttcagaaccgcttctgctcaattagaaggtggtgtccataatttgcactcctatgaaaaa
+            cgtctatacaattga
+///

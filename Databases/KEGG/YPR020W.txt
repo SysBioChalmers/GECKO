@@ -1,0 +1,27 @@
+ENTRY       YPR020W           CDS       T00005
+NAME        ATP20
+DEFINITION  F1F0 ATP synthase subunit G (EC:3.6.3.14)
+ORTHOLOGY   K02140  F-type H+-transporting ATPase subunit g [EC:3.6.3.14]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00190  Oxidative phosphorylation
+            sce01100  Metabolic pathways
+MODULE      sce_M00158  F-type ATPase, eukaryotes
+CLASS       Metabolism; Energy metabolism; Oxidative phosphorylation [PATH:sce00190]
+POSITION    XVI:599870..600217
+MOTIF       Pfam: ATP-synt_G
+DBLINKS     NCBI-GI: 6325277
+            NCBI-GeneID: 856131
+            SGD: S000006224
+            MIPS: YPR020W
+            UniProt: Q12233
+AASEQ       115
+            MLSRIQNYTSGLVSKANLLSSKALYYGKVGAEISKQIYLKEGLQPPTVAQFKSVYSNLYK
+            QSLNFALKPTEVLSCLKNIQKNELLKYGAYGIQLIGFYSVGEIIGRRKLVGYKHH
+NTSEQ       348
+            atgctaagcaggatccaaaattataccagtgggttggtttctaaagcaaatcttttgtca
+            tcaaaggctttatactatggtaaagtcggtgccgagatttcaaaacagatttatttaaaa
+            gagggtcttcaaccaccaactgttgcccagttcaaatcagtgtattcgaacctttataag
+            cagagcctaaactttgctctaaagcctacagaagttttatcgtgtttaaaaaacatccaa
+            aagaatgaactattaaaatatggcgcatatggtattcagttgatagggttttattctgtc
+            ggtgaaataattggaagaagaaaattagtgggatataaacatcactaa
+///

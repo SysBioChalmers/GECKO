@@ -1,0 +1,39 @@
+ENTRY       YBR011C           CDS       T00005
+NAME        IPP1, PPA1
+DEFINITION  Ipp1p (EC:3.6.1.1)
+ORTHOLOGY   K01507  inorganic pyrophosphatase [EC:3.6.1.1]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00190  Oxidative phosphorylation
+CLASS       Metabolism; Energy metabolism; Oxidative phosphorylation [PATH:sce00190]
+POSITION    II:complement(257112..257975)
+MOTIF       Pfam: Pyrophosphatase Phage_tail_2
+DBLINKS     NCBI-GI: 6319483
+            NCBI-GeneID: 852296
+            SGD: S000000215
+            MIPS: YBR011C
+            UniProt: P00817
+STRUCTURE   PDB: 1E9G 2IK9 2IHP 2IK0 2IK1 2IK2 2IK4 2IK6 1M38 8PRK 2IK7
+                 1WGJ 1HUJ 117E 1HUK 1WGI 1YPP 1PYP 1E6A
+AASEQ       287
+            MTYTTRQIGAKNTLEYKVYIEKDGKPVSAFHDIPLYADKENNIFNMVVEIPRWTNAKLEI
+            TKEETLNPIIQDTKKGKLRFVRNCFPHHGYIHNYGAFPQTWEDPNVSHPETKAVGDNDPI
+            DVLEIGETIAYTGQVKQVKALGIMALLDEGETDWKVIAIDINDPLAPKLNDIEDVEKYFP
+            GLLRATNEWFRIYKIPDGKPENQFAFSGEAKNKKYALDIIKETHDSWKQLIAGKSSDSKG
+            IDLTNVTLPDTPTYSKAASDAIPPASPKADAPIDKSIDKWFFISGSV
+NTSEQ       864
+            atgacctacactaccagacaaattggtgccaagaacaccttggaatacaaagtttatatc
+            gaaaaggatggtaagccagtttctgccttccacgacattcccttgtacgctgacaaggaa
+            aacaacattttcaacatggttgttgaaattccacgttggaccaacgccaagttagaaatc
+            accaaggaagaaactttgaacccaatcatccaagacaccaagaagggcaagttgagattt
+            gttagaaactgtttccctcaccatggttacattcacaactatggtgctttcccacaaact
+            tgggaagacccaaacgtaagccacccagaaactaaggcagttggtgacaacgatccaatt
+            gatgtgttggaaattggtgaaactattgcttacactggtcaagtcaagcaagttaaggct
+            ctaggtatcatggctttattggatgaaggtgagaccgattggaaagttattgccattgat
+            attaacgatccattagccccaaaattgaacgacattgaggatgttgagaaatacttccca
+            ggtctgttgagggctactaacgaatggttcagaatttacaaaatcccagatggtaagcca
+            gaaaaccaatttgccttctccggtgaagctaagaacaagaagtacgctttggatatcatc
+            aaggaaacacatgactcctggaaacaattaattgctggtaagtcttctgacagcaagggt
+            attgatttgaccaatgttactttgcctgacaccccaacctactccaaggctgcctctgat
+            gccatcccaccagcttctccaaaggcagatgctccaattgacaagtctattgacaagtgg
+            ttcttcatctccggttctgtttaa
+///

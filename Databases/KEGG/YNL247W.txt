@@ -1,0 +1,69 @@
+ENTRY       YNL247W           CDS       T00005
+DEFINITION  cysteine--tRNA ligase (EC:6.1.1.16)
+ORTHOLOGY   K01883  cysteinyl-tRNA synthetase [EC:6.1.1.16]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00970  Aminoacyl-tRNA biosynthesis
+MODULE      sce_M00359  Aminoacyl-tRNA biosynthesis, eukaryotes
+CLASS       Genetic Information Processing; Translation; Aminoacyl-tRNA biosynthesis [PATH:sce00970]
+POSITION    XIV:182875..185178
+MOTIF       Pfam: tRNA-synt_1e tRNA-synt_1g tRNA-synt_1 tRNA-synt_1f
+DBLINKS     NCBI-GI: 6324082
+            NCBI-GeneID: 855474
+            SGD: S000005191
+            MIPS: YNL247W
+            UniProt: P53852
+AASEQ       767
+            MNIFIKALRRYTIMSTPKIVQPKWKVPTPQAKETVLKLYNSLTRSKVEFIPQSGNRGVTW
+            YSCGPTVYDASHMGHARNYVSIDINRRIIQDYFGYDVQFVQNVTDIDDKIILRARQNYLF
+            DNFVKENDTKFNATVVDKVKTALFQYINKNFTIQGSEIKTIEEFETWLSNADTETLKLEN
+            PKFPMHVTAVQNAIESITKGDSMDAEVAFEKVKDVTVPLLDKELGSTISNPEIFRQLPAY
+            WEQKFNDDMLSLNVLPPTVTTRVSEYVPEIIDFVQKIIDNGYAYATSDGSVYFDTLKFDK
+            SPNHDYAKCQPWNKGQLDLINDGEGSLSNFADNGKKSNNDFALWKASKAGEPEWESPWGK
+            GRPGWHIECSVMASDILGSNIDIHSGGIDLAFPHHDNELAQSEARFDNQQWINYFLHTGH
+            LHIEGQKMSKSLKNFITIQEALKKFSPRQLRLAFASVQWNNQLDFKESLIHEVKSFENSM
+            NNFFKTIRALKNDAASAGHISKKFSPLEKELLADFVESESKVHSAFCDNLSTPVALKTLS
+            ELVTKSNTYITTAGAALKIEPLIAICSYITKILRIIGFPSRPDNLGWAAQAGSNDGSLGS
+            LEDTVMPYVKCLSTFRDDVRSLAIKKAEPKEFLQLTDKIRNEDLLNLNVALDDRNGQSAL
+            IKFLTNDEKLEIVKLNEEKHANELAKKQKKLEQQKLREQKENERKQKAQIKPQDMFKDVT
+            LYSAWDEQGLPTKDKDGNDITKSMTKKLKKQWEQQKKLHEEYFGEDK
+NTSEQ       2304
+            atgaatatcttcataaaagccctgagaagatatactataatgtctacgccgaagattgtg
+            cagcccaaatggaaggttccaacgccacaagctaaagaaactgtgttgaagttgtacaac
+            agtttaacaagatctaaggttgaattcattccgcaatctggcaatagaggtgtcacttgg
+            tactcttgcggtcctactgtttacgatgcctcccatatgggtcatgccagaaactatgtc
+            tctattgatatcaatagaagaattattcaagattattttggttacgacgtgcaatttgtg
+            caaaatgttactgatatcgacgataaaattattttgagagctagacaaaactatttattt
+            gacaattttgtcaaagaaaatgataccaaattcaacgccactgttgttgacaaggtcaaa
+            accgcacttttccaatatatcaacaaaaattttactattcaaggcagcgagatcaaaact
+            atcgaagaatttgaaacttggttatcgaatgctgatactgaaactttaaaattggagaat
+            cctaaattccctatgcatgtcaccgcagttcaaaatgctattgaatcaatcactaagggc
+            gattccatggacgcagaagttgcctttgaaaaagtcaaggacgttacggttcctctattg
+            gataaagaattgggctctaccattagcaatccagagattttccgccaacttccagcttac
+            tgggaacagaaattcaatgatgacatgttatcattaaacgtgctacctcccaccgttaca
+            actcgtgtttctgagtacgttccagaaattattgactttgttcaaaaaattattgataat
+            ggttacgcatatgccacttccgacggttccgtgtactttgatactttaaaatttgacaaa
+            tccccaaatcatgactatgctaaatgccagccatggaataagggccagttagacttaatt
+            aatgatggtgaagggtccttaagcaactttgctgataacggaaaaaagtcgaataatgat
+            tttgctttatggaaggcttccaaggcaggtgaacctgagtgggaatcaccatggggtaag
+            ggtagaccaggatggcatattgaatgttctgtgatggccagtgatatcctaggctctaac
+            atcgatattcattcaggtggcatcgatttggcctttcctcaccatgataacgaattggct
+            caatccgaggctcgcttcgacaatcaacagtggatcaactatttcttacatacgggccat
+            ttacatattgagggtcaaaaaatgtctaaatccttaaagaatttcattaccattcaagaa
+            gctttgaaaaaattctcaccgcgccaattaagattggcttttgcctcagtacaatggaac
+            aatcaattggatttcaaggaatctttgatccatgaagtaaagtcatttgaaaactccatg
+            aacaatttttttaagactattagagcattgaagaacgatgcagcttctgcaggtcatatc
+            tctaaaaagtttagtcccttagagaaagaattattggctgattttgttgaaagtgaatcg
+            aaagtccattcggcgttctgtgataatttatccacacctgttgctttgaagacactgagc
+            gaattagtgaccaagtcaaacacatacattaccactgcaggtgctgctttaaaaattgag
+            cccttgattgctatctgtagctacatcaccaaaatcttaagaataattggatttccatcc
+            cgtcctgacaatttgggttgggcagcccaagctggctccaacgatggatccctaggctca
+            ttggaagacactgttatgccatatgttaagtgtttatccacatttagagatgatgtacgt
+            tccttagctatcaagaaagccgaacccaaggaattcttgcaattaacggataaaattaga
+            aacgaagatttgctaaacttgaatgttgccttggatgataggaatggacaatctgccttg
+            atcaaatttttgactaacgatgaaaaattggaaattgtcaagctaaacgaggagaaacat
+            gccaacgaactagcaaagaaacaaaagaaattggaacagcagaaattaagagagcagaag
+            gaaaacgagaggaagcagaaagctcaaattaaaccacaagatatgttcaaggatgtcaca
+            ttgtacagtgcttgggacgagcaaggccttccaacaaaggacaaagacggtaatgatatc
+            accaagagtatgaccaagaagttgaagaagcaatgggaacaacaaaagaagctacatgaa
+            gagtactttggtgaagacaaatag
+///

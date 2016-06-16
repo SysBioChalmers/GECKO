@@ -1,0 +1,57 @@
+ENTRY       YLR359W           CDS       T00005
+NAME        ADE13, BRA1, BRA8
+DEFINITION  adenylosuccinase ADE13 (EC:4.3.2.2)
+ORTHOLOGY   K01756  adenylosuccinate lyase [EC:4.3.2.2]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00230  Purine metabolism
+            sce00250  Alanine, aspartate and glutamate metabolism
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+MODULE      sce_M00048  Inosine monophosphate biosynthesis, PRPP + glutamine => IMP
+            sce_M00049  Adenine ribonucleotide biosynthesis, IMP => ADP,ATP
+CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
+            Metabolism; Amino acid metabolism; Alanine, aspartate and glutamate metabolism [PATH:sce00250]
+POSITION    XII:844282..845730
+MOTIF       Pfam: Lyase_1 ADSL_C DUF1331
+DBLINKS     NCBI-GI: 6323391
+            NCBI-GeneID: 851073
+            SGD: S000004351
+            MIPS: YLR359W
+            UniProt: Q05911
+AASEQ       482
+            MPDYDNYTTPLSSRYASKEMSATFSLRNRFSTWRKLWLNLAIAEKELGLTVVTDEAIEQM
+            RKHVEITDDEIAKASAQEAIVRHDVMAHVHTFGETCPAAAGIIHLGATSCFVTDNADLIF
+            IRDAYDIIIPKLVNVINRLAKFAMEYKDLPVLGWTHFQPAQLTTLGKRATLWIQELLWDL
+            RNFERARNDIGLRGVKGTTGTQASFLALFHGNHDKVEALDERVTELLGFDKVYPVTGQTY
+            SRKIDIDVLAPLSSFAATAHKMATDIRLLANLKEVEEPFEKSQIGSSAMAYKRNPMRCER
+            VCSLARHLGSLFSDAVQTASVQWFERTLDDSAIRRISLPSAFLTADILLSTLLNISSGLV
+            VYPKVIERRIKGELPFMATENIIMAMVEKNASRQEVHERIRVLSHQAAAVVKEEGGENDL
+            IERVKRDEFFKPIWEELDSLLEPSTFVGRAPQQVEKFVQKDVNNALQPFQKYLNDEQVKL
+            NV
+NTSEQ       1449
+            atgcctgactatgacaattacactacgccattgtcttctagatatgcctccaaggaaatg
+            tcagcaacgttttctttgagaaacagattttccacatggagaaaactatggttaaatttg
+            gctattgctgagaaggaattgggcttaactgttgttacagatgaagcaattgagcaaatg
+            cgcaaacacgtcgaaatcactgatgatgaaatcgcaaaagcttctgctcaagaagccatt
+            gtaagacatgatgttatggcacatgttcatacatttggtgaaacttgtccggctgctgcg
+            ggtatcattcacttaggtgctacttcctgtttcgttacagacaatgctgatctaatcttt
+            attagggacgcctacgatattattattccaaaacttgttaacgtcatcaacagattggct
+            aagtttgctatggaatacaaggatttgcctgtattgggttggactcactttcaaccagca
+            caattaacgaccttgggtaagagagctactttatggatacaagagctattgtgggatttg
+            agaaactttgaaagagctagaaacgatatcggtctacgtggtgttaagggtactactggt
+            actcaggcatcattcttggccttattccatggtaatcatgataaagttgaagcccttgac
+            gaaagagtaactgaattattaggtttcgataaggtatatccagtcactggtcaaacctac
+            tcaagaaaaattgacattgacgtgttggctcctttgtcttcttttgctgctactgcacac
+            aaaatggctactgacataagattattagccaacctgaaggaagttgaggaaccttttgag
+            aaatcacaaatcggatcctctgctatggcttacaagagaaacccaatgcgttgtgagaga
+            gtgtgctccttggctagacacttaggttccttgtttagtgacgccgttcaaactgcatcc
+            gttcaatggttcgaaagaactctggatgattctgctattagaagaatttctttaccaagt
+            gcatttttaaccgcagatattctattatctactttgttgaacatctcatccggtttagtt
+            gtgtatccaaaggttatcgaaaggagaattaagggtgaactaccttttatggctactgaa
+            aatatcatcatggctatggtagaaaagaatgcctccagacaagaagtacatgagcgtatt
+            agagtgctctctcatcaagccgcagcagtagtcaaggaagaaggtggggaaaatgattta
+            attgaacgagtaaagagggatgaatttttcaagcctatctgggaagaattagattcttta
+            ctggaaccatccacttttgttggtagagctccacaacaagttgagaaatttgttcaaaaa
+            gacgttaacaatgctttacaacctttccaaaagtacctaaacgatgaacaagtcaagtta
+            aatgtttag
+///

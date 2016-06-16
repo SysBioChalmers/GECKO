@@ -1,0 +1,48 @@
+ENTRY       YNL130C           CDS       T00005
+NAME        CPT1
+DEFINITION  diacylglycerol cholinephosphotransferase (EC:2.7.8.2)
+ORTHOLOGY   K00994  diacylglycerol cholinephosphotransferase [EC:2.7.8.2]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00564  Glycerophospholipid metabolism
+            sce00565  Ether lipid metabolism
+            sce01100  Metabolic pathways
+MODULE      sce_M00090  Phosphatidylcholine (PC) biosynthesis, choline => PC
+CLASS       Metabolism; Lipid metabolism; Glycerophospholipid metabolism [PATH:sce00564]
+            Metabolism; Lipid metabolism; Ether lipid metabolism [PATH:sce00565]
+POSITION    XIV:complement(join(379558..380689,380782..380831))
+MOTIF       Pfam: CDP-OH_P_transf
+DBLINKS     NCBI-GI: 398364723
+            NCBI-GeneID: 855593
+            SGD: S000005074
+            MIPS: YNL130C
+            UniProt: P17898
+AASEQ       393
+            MGFFIPQSSLGNLKLYKYQSDDRSFLSNHVLRPFWRKFATIFPLWMAPNLVTLLGFCFII
+            FNVLTTLYYDPYFDQESPRWTYFSYAIGLFLYQTFDACDGMHARRTGQQGPLGELFDHCI
+            DSINTTLSMIPVCSMTGMGYTYMTIFSQFAILCSFYLSTWEEYHTHKLYLAEFCGPVEGI
+            IVLCISFIAVGIYGPQTIWHTKVAQFSWQDFVFDVETVHLMYAFCTGALIFNIVTAHTNV
+            VRYYESQSTKSATPSKTAENISKAVNGLLPFFAYFSSIFTLVLIQPSFISLALILSIGFS
+            VAFVVGRMIIAHLTMQPFPMVNFPFLIPTIQLVLYAFMVYVLDYQKGSIVSALVWMGLGL
+            TLAIHGMFINDIIYDITTFLDIYALSIKHPKEI
+NTSEQ       1182
+            atgggattctttattcctcagagtagtttgggaaacttgaagctttacaagtatcaaagt
+            gatgaccgctctttcctttcaaaccatgtattgaggcccttttggagaaagtttgcgact
+            atttttccactatggatggcacccaatttggtaacattattagggttctgctttattata
+            tttaatgtgttaacaacactttactacgacccgtattttgaccaggaatcgccacgttgg
+            acctatttctcctatgctataggtttgtttttataccagacttttgatgcttgcgatgga
+            atgcatgcacgtcgtacaggccagcagggccctctaggggaattgtttgaccattgtatt
+            gattcaatcaacacaactttgtcaatgattcctgtctgttccatgacaggtatgggttac
+            acatatatgaccattttttcacaatttgcgatattgtgcagcttttacttgagcacatgg
+            gaagagtatcacacccacaaactttatctagctgaattctgcggtcctgttgaaggtatt
+            attgttttgtgtatttctttcattgcagtcggaatttacggacctcaaaccatctggcac
+            actaaagtagcgcaattctcctggcaagattttgtgtttgatgttgaaaccgttcatcta
+            atgtatgcattttgcacaggagcattaatatttaatattgtcacagctcatacaaacgtc
+            gtgaggtattacgaatcccaatcgaccaaatctgcaactccaagcaaaactgcagaaaat
+            ataagtaaagcagtaaatggtcttttgccattctttgcatacttctcttcaatttttacc
+            ttagtcttgattcaaccatcttttatttctttggctttaattttatcgattggtttttcg
+            gttgcctttgtagttggtcggatgattattgctcatttaaccatgcaaccattcccaatg
+            gtcaatttcccatttttaatcccaactatccaattggtattgtacgcatttatggtttac
+            gttttagattaccaaaaaggaagcatagtttctgcattggtttggatgggactcggcttg
+            acacttgctatccatggaatgttcatcaatgatattatctatgacatcactacctttctg
+            gatatttacgctttatcaattaaacatccaaaagaaatttag
+///

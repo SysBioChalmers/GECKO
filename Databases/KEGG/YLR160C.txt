@@ -1,0 +1,47 @@
+ENTRY       YLR160C           CDS       T00005
+NAME        ASP3-4, ASP3
+DEFINITION  asparaginase ASP3-4 (EC:3.5.1.1)
+ORTHOLOGY   K01424  L-asparaginase [EC:3.5.1.1]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00250  Alanine, aspartate and glutamate metabolism
+            sce00460  Cyanoamino acid metabolism
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+CLASS       Metabolism; Amino acid metabolism; Alanine, aspartate and glutamate metabolism [PATH:sce00250]
+            Metabolism; Metabolism of other amino acids; Cyanoamino acid metabolism [PATH:sce00460]
+POSITION    XII:complement(486201..487289)
+MOTIF       Pfam: Asparaginase PRAI
+DBLINKS     NCBI-GI: 6323189
+            NCBI-GeneID: 850857
+            SGD: S000004150
+            MIPS: YLR160C
+            UniProt: P0CZ17 P0CX77 P0CX78 P0CX79
+AASEQ       362
+            MRSLNTLLLSLFVAMSSGAPLLKIREEKNSSLPSIKIFGTGGTIASKGSTSATTAGYSVG
+            LTVNDLIEAVPSLAEKANLDYLQVSNVGSNSLNYTHLIPLYHGISEALASDDYAGAVVTH
+            GTDTMEETAFFLDLTINSEKPVCIAGAMRPATATSADGPMNLYQAVSIAASEKSLGRGTM
+            ITLNDRIASGFWTTKMNANSLDTFRADEQGYLGYFSNDDVEFYYPPVKPNGWQFFDISNL
+            TDPSEIPEVIILYSYQGLNPELIVKAVKDLGAKGIVLAGSGAGSWTATGSIVNEQLYEEY
+            GIPIVHSRRTADGTVPPDDAPEYAIGSGYLNPQKSRILLQLCLYSGYGMDQIRSVFSGVY
+            GG
+NTSEQ       1089
+            atgagatctttaaatacccttttactttctctctttgtcgcaatgtccagtggtgctcca
+            ctactaaaaattcgtgaagagaagaattcttctttgccatcaatcaaaatttttggtacc
+            ggcggtactatcgcttccaagggttcgacaagtgcaacaacggcgggttatagcgtggga
+            ttaaccgtaaatgatttaatagaagccgtcccatctttagctgagaaggcaaatctggac
+            tatcttcaagtgtctaacgttggttcaaattctttaaactatacgcatctgatcccattg
+            tatcacggtatctccgaggcactagcctctgatgactacgctggtgcggttgtcactcat
+            gggaccgacactatggaggagacagctttcttcttagatttgaccataaattcagagaag
+            ccagtatgtatcgcaggcgctatgcgtccagccactgccacgtctgctgatggcccaatg
+            aatttatatcaagcagtgtctattgctgcttctgagaaatcactgggtcgtggcacgatg
+            atcactctaaacgatcgtattgcctctgggttttggacaacgaaaatgaatgccaactct
+            ttagatacattcagagcggatgaacagggatatttaggttacttttcaaatgatgacgtg
+            gagttttactacccaccagtcaagccaaatggatggcaattttttgacatttccaacctc
+            acagacccttcggaaattccagaagtcattattctgtactcctatcaaggcttgaatcct
+            gagctaatagtaaaggccgtcaaggacctgggcgcaaaaggtatcgtgttggcgggttct
+            ggagctggttcctggactgctacgggtagtattgtaaacgaacaactttatgaagagtat
+            ggtataccaattgttcacagcagaagaacagcagatggtacagttcctccagatgatgcc
+            ccagagtacgccattggatctggctacctaaaccctcaaaaatcgcgtattttgctacaa
+            ttatgtttgtactccggctacggcatggatcagattaggtctgttttttctggcgtctac
+            ggtggttaa
+///

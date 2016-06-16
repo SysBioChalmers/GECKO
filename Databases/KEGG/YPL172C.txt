@@ -1,0 +1,53 @@
+ENTRY       YPL172C           CDS       T00005
+NAME        COX10
+DEFINITION  Cox10p (EC:2.5.1.-)
+ORTHOLOGY   K02257  protoheme IX farnesyltransferase [EC:2.5.1.-]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00190  Oxidative phosphorylation
+            sce00860  Porphyrin and chlorophyll metabolism
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+CLASS       Metabolism; Energy metabolism; Oxidative phosphorylation [PATH:sce00190]
+            Metabolism; Metabolism of cofactors and vitamins; Porphyrin and chlorophyll metabolism [PATH:sce00860]
+POSITION    XVI:complement(224353..225741)
+MOTIF       Pfam: UbiA
+DBLINKS     NCBI-GI: 6325085
+            NCBI-GeneID: 855931
+            SGD: S000006093
+            MIPS: YPL172C
+            UniProt: P21592
+AASEQ       462
+            MSYFPRTYAHLMRNVLAHNKGNIYLQIGTQLHDTQIKIRFNGVRYISRNHGGKQQHINTA
+            PIEFTPNFGYGDRTSNCNKKVESTAMKTLRCTDDISTSSGSEATTDASTQLPFNVKLVDP
+            MVRKSKRPSHAISEGLNMKTLKKKVIMPYLQLTKPRLTILVMLSAICSYALSPYPASVNE
+            LLCLTVGTTLCSGSANAINMGREPEFDRQMVRTQARPVVRGDVTPTQAFEFAALIGTLGV
+            SILYFGVNPTVAILGASNIALYGWAYTSMKRKHIINTWLGALVGMVPPLMGWAAASPLSH
+            PGSWCLAGLLFAWQFPHFNTLSHNIRNEYKNAGYVMTAWKNPLLNARVSLRYSILMFPLC
+            FGLSYFNITDWYYQIDSGLINAWLTFWAFKFYWQQRINYSAKTLKDNVKFNKGLSVANIY
+            ARKTFMASVLHLPAILILAIIHKKGRWDWIYPGEAKRPQERF
+NTSEQ       1389
+            atgagttactttcctcgaacatatgctcacttgatgagaaatgttcttgctcataataaa
+            gggaatatatacttacaaattggtacacagctgcacgatactcaaataaaaattcgattt
+            aatggagttcgttatattagtcggaatcatggcgggaaacagcaacatataaacactgcg
+            ccgatagaatttactcccaattttggatatggtgatagaacctctaattgcaataaaaag
+            gttgaatcgactgccatgaaaacgctaagatgcacagatgatatatcaacttcaagtgga
+            agcgaagctactaccgatgcaagcacacaacttccatttaatgtcaaacttgtagacccg
+            atggtaagaaaatctaagagaccatctcacgcaatcagcgaagggctgaatatgaaaact
+            ttaaagaagaaggtaattatgccatatcttcagttgaccaagccccgactcaccattcta
+            gtgatgttaagtgccatttgttcgtatgctttatctccatatccagcctccgtcaatgaa
+            ttgttatgtttaacagtaggcactactttgtgttccggttctgcaaacgctataaatatg
+            ggcagagagccagaatttgatagacaaatggtgagaactcaggcgaggcccgttgttaga
+            ggtgatgttacacctacccaggcattcgagtttgccgcacttatcggaacattaggagta
+            tctatcttgtactttggtgttaatcctaccgttgctattcttggtgcttcaaatatcgcg
+            ttatatggctgggcctatacgtctatgaaaagaaagcatatcattaacacatggttaggt
+            gccctagtaggaatggtacctcctctaatgggatgggcagccgcaagtccgctttcacat
+            ccgggatcttggtgccttgctggtctattgtttgcttggcaattcccacactttaatacg
+            ttgagtcataacattagaaatgaatacaaaaatgccggatacgttatgactgcatggaaa
+            aatccgctcctaaacgcccgtgtgtcgttgagatactctatcctaatgttccctttatgt
+            ttcggattgtcttattttaatatcacagattggtactaccaaatagattccggacttata
+            aatgcctggctaacgttctgggctttcaaattctattggcaacaaagaatcaactattct
+            gcaaaaacattaaaagataacgtcaagtttaataaaggtctaagtgtagccaacatttat
+            gcaaggaaaacttttatggctagtgtattgcacctaccggcaattctaatcctagccatt
+            atacataaaaaaggccgctgggattggatatatcctggtgaagcaaagcgaccacaggaa
+            cgattttag
+///

@@ -1,0 +1,44 @@
+ENTRY       YOR120W           CDS       T00005
+NAME        GCY1
+DEFINITION  Gcy1p (EC:1.1.1.-)
+ORTHOLOGY   K00100   [EC:1.1.1.-]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00051  Fructose and mannose metabolism
+            sce00591  Linoleic acid metabolism
+            sce00650  Butanoate metabolism
+            sce01100  Metabolic pathways
+CLASS       Metabolism; Carbohydrate metabolism; Fructose and mannose metabolism [PATH:sce00051]
+            Metabolism; Carbohydrate metabolism; Butanoate metabolism [PATH:sce00650]
+            Metabolism; Lipid metabolism; Linoleic acid metabolism [PATH:sce00591]
+POSITION    XV:551114..552052
+MOTIF       Pfam: Aldo_ket_red
+DBLINKS     NCBI-GI: 6324694
+            NCBI-GeneID: 854287
+            SGD: S000005646
+            MIPS: YOR120W
+            UniProt: P14065
+AASEQ       312
+            MPATLHDSTKILSLNTGAQIPQIGLGTWQSKENDAYKAVLTALKDGYRHIDTAAIYRNED
+            QVGQAIKDSGVPREEIFVTTKLWCTQHHEPEVALDQSLKRLGLDYVDLYLMHWPARLDPA
+            YIKNEDILSVPTKKDGSRAVDITNWNFIKTWELMQELPKTGKTKAVGVSNFSINNLKDLL
+            ASQGNKLTPAANQVEIHPLLPQDELINFCKSKGIVVEAYSPLGSTDAPLLKEPVILEIAK
+            KNNVQPGHVVISWHVQRGYVVLPKSVNPDRIKTNRKIFTLSTEDFEAINNISKEKGEKRV
+            VHPNWSPFEVFK
+NTSEQ       939
+            atgcctgctactttacatgattctacgaaaatcctttctctaaatactggagcccaaatc
+            cctcaaataggtttaggtacgtggcagtcgaaagagaacgatgcttataaggctgtttta
+            accgctttgaaagatggctaccgacacattgatactgctgctatttaccgtaatgaagac
+            caagtcggtcaagccatcaaggattcaggtgttcctcgggaagaaatctttgttactaca
+            aagttatggtgtacacaacaccacgaacctgaagtagcgctggatcaatcactaaagagg
+            ttaggattggactacgtagacttatatttgatgcattggcctgccagattagatccagcc
+            tacatcaaaaatgaagacatcttgagtgtgccaacaaagaaggatggttctcgtgcagtg
+            gatatcaccaattggaatttcatcaaaacctgggaattaatgcaggaactaccaaagact
+            ggtaaaactaaggccgttggagtctccaacttttctataaataacctgaaagatctatta
+            gcatctcaaggtaataagcttacgccagctgctaaccaagtcgaaatacatccattacta
+            cctcaagacgaattgattaatttttgtaaaagtaaaggcattgtggttgaagcttattct
+            ccgttaggtagtaccgatgctccactattgaaggaaccggttatccttgaaattgcgaag
+            aaaaataacgttcaacccggacacgttgttattagctggcacgtccaaagaggttatgtt
+            gtcttgccaaaatctgtgaatcccgatcgaatcaaaacgaacaggaaaatatttactttg
+            tctactgaggactttgaagctatcaataacatatcgaaggaaaagggcgaaaaaagggtt
+            gtacatccaaattggtctcctttcgaagtattcaagtaa
+///

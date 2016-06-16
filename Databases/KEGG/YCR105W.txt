@@ -1,0 +1,49 @@
+ENTRY       YCR105W           CDS       T00005
+NAME        ADH7, ADHVII
+DEFINITION  Adh7p (EC:1.1.1.2)
+ORTHOLOGY   K00002  alcohol dehydrogenase (NADP+) [EC:1.1.1.2]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00010  Glycolysis / Gluconeogenesis
+            sce00561  Glycerolipid metabolism
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01220  Degradation of aromatic compounds
+CLASS       Metabolism; Overview; Degradation of aromatic compounds [PATH:sce01220]
+            Metabolism; Carbohydrate metabolism; Glycolysis / Gluconeogenesis [PATH:sce00010]
+            Metabolism; Lipid metabolism; Glycerolipid metabolism [PATH:sce00561]
+POSITION    III:309070..310155
+MOTIF       Pfam: ADH_N ADH_zinc_N 2-Hacid_dh_C
+DBLINKS     NCBI-GI: 6319949
+            NCBI-GeneID: 850469
+            SGD: S000000702
+            MIPS: YCR105W
+            UniProt: P25377
+AASEQ       361
+            MLYPEKFQGIGISNAKDWKHPKLVSFDPKPFGDHDVDVEIEACGICGSDFHIAVGNWGPV
+            PENQILGHEIIGRVVKVGSKCHTGVKIGDRVGVGAQALACFECERCKSDNEQYCTNDHVL
+            TMWTPYKDGYISQGGFASHVRLHEHFAIQIPENIPSPLAAPLLCGGITVFSPLLRNGCGP
+            GKRVGIVGIGGIGHMGILLAKAMGAEVYAFSRGHSKREDSMKLGADHYIAMLEDKGWTEQ
+            YSNALDLLVVCSSSLSKVNFDSIVKIMKIGGSIVSIAAPEVNEKLVLKPLGLMGVSISSS
+            AIGSRKEIEQLLKLVSEKNVKIWVEKLPISEEGVSHAFTRMESGDVKYRFTLVDYDKKFH
+            K
+NTSEQ       1086
+            atgctttacccagaaaaatttcagggcatcggtatttccaacgcaaaggattggaagcat
+            cctaaattagtgagttttgacccaaaaccctttggcgatcatgacgttgatgttgaaatt
+            gaagcctgtggtatctgcggatctgattttcatatagccgttggtaattggggtccagtc
+            ccagaaaatcaaatccttggacatgaaataattggccgcgtggtgaaggttggatccaag
+            tgccacactggggtaaaaatcggtgaccgtgttggtgttggtgcccaagccttggcgtgt
+            tttgagtgtgaacgttgcaaaagtgacaacgagcaatactgtaccaatgaccacgttttg
+            actatgtggactccttacaaggacggctacatttcacaaggaggctttgcctcccacgtg
+            aggcttcatgaacactttgctattcaaataccagaaaatattccaagtccgctagccgct
+            ccattattgtgtggtggtattacagttttctctccactactaagaaatggctgtggtcca
+            ggtaagagggtaggtattgttggcatcggtggtattgggcatatggggattctgttggct
+            aaagctatgggagccgaggtttatgcgttttcgcgaggccactccaagcgggaggattct
+            atgaaactcggtgctgatcactatattgctatgttggaggataaaggctggacagaacaa
+            tactctaacgctttggaccttcttgtcgtttgctcatcatctttgtcgaaagttaatttt
+            gacagtatcgttaagattatgaagattggaggctccatcgtttcaattgctgctcctgaa
+            gttaatgaaaagcttgttttaaaaccgttgggcctaatgggagtatcaatctcaagcagt
+            gctatcggatctaggaaggaaatcgaacaactattgaaattagtttccgaaaagaatgtc
+            aaaatatgggtggaaaaacttccgatcagcgaagaaggcgtcagccatgcctttacaagg
+            atggaaagcggagacgtcaaatacagatttactttggtcgattatgataagaaattccat
+            aaatag
+///

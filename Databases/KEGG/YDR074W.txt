@@ -1,0 +1,78 @@
+ENTRY       YDR074W           CDS       T00005
+NAME        TPS2, HOG2, PFK3
+DEFINITION  trehalose-phosphatase TPS2 (EC:3.1.3.12)
+ORTHOLOGY   K16055  trehalose 6-phosphate synthase/phosphatase [EC:2.4.1.15 3.1.3.12]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00500  Starch and sucrose metabolism
+            sce01100  Metabolic pathways
+CLASS       Metabolism; Carbohydrate metabolism; Starch and sucrose metabolism [PATH:sce00500]
+POSITION    IV:593893..596583
+MOTIF       Pfam: Glyco_transf_20 Trehalose_PPase
+DBLINKS     NCBI-GI: 6320279
+            NCBI-GeneID: 851646
+            SGD: S000002481
+            MIPS: YDR074W
+            UniProt: P31688
+AASEQ       896
+            MTTTAQDNSPKKRQRIINCVTQLPYKIQLGESNDDWKISATTGNSALFSSLEYLQFDSTE
+            YEQHVVGWTGEITRTERNLFTREAKEKPQDLDDDPLYLTKEQINGLTTTLQDHMKSDKEA
+            KTDTTQTAPVTNNVHPVWLLRKNQSRWRNYAEKVIWPTFHYILNPSNEGEQEKNWWYDYV
+            KFNEAYAQKIGEVYRKGDIIWIHDYYLLLLPQLLRMKFNDESIIIGYFHHAPWPSNEYFR
+            CLPRRKQILDGLVGANRICFQNESFSRHFVSSCKRLLDATAKKSKNSSNSDQYQVSVYGG
+            DVLVDSLPIGVNTTQILKDAFTKDIDSKVLSIKQAYQNKKIIIGRDRLDSVRGVVQKLRA
+            FETFLAMYPEWRDQVVLIQVSSPTANRNSPQTIRLEQQVNELVNSINSEYGNLNFSPVQH
+            YYMRIPKDVYLSLLRVADLCLITSVRDGMNTTALEYVTVKSHMSNFLCYGNPLILSEFSG
+            SSNVLKDAIVVNPWDSVAVAKSINMALKLDKEEKSNLESKLWKEVPTIQDWTNKFLSSLK
+            EQASSNDDMERKMTPALNRPVLLENYKQAKRRLFLFDYDGTLTPIVKDPAAAIPSARLYT
+            ILQKLCADPHNQIWIISGRDQKFLNKWLGGKLPQLGLSAEHGCFMKDVSCQDWVNLTEKV
+            DMSWQVRVNEVMEEFTTRTPGSFIERKKVALTWHYRRTVPELGEFHAKELKEKLLSFTDD
+            FDLEVMDGKANIEVRPRFVNKGEIVKRLVWHQHGKPQDMLKGISEKLPKDEMPDFVLCLG
+            DDFTDEDMFRQLNTIETCWKEKYPDQKNQWGNYGFYPVTVGSASKKTVAKAHLTDPQQVL
+            ETLGLLVGDVSLFQSAGTVDLDSRGHVKNSESSLKSKLASKAYVMKRSASYTGAKV
+NTSEQ       2691
+            atgaccaccactgcccaagacaattctccaaagaagagacagcgtatcatcaattgtgtc
+            acgcagctgccctacaaaatccaattgggagaaagcaacgatgactggaaaatatctgct
+            actacaggtaacagcgcattattttcctctctagaataccttcaatttgattctaccgag
+            tacgagcaacacgttgttggttggaccggcgaaataacaagaaccgaacgcaacctgttt
+            actagagaagcgaaagaaaaaccacaggatctggacgatgacccactatatttaacaaaa
+            gagcagatcaatgggttgactactactctacaagatcatatgaaatctgataaagaggca
+            aagaccgatactactcaaacagctcccgttaccaataacgttcatcccgtttggctactt
+            agaaaaaaccagagtagatggagaaattacgcggaaaaagtaatttggccaaccttccac
+            tacatcttgaatccttcaaatgaaggtgaacaagaaaaaaactggtggtacgactacgtc
+            aagtttaacgaagcttatgcacaaaaaatcggggaagtttacaggaagggtgacatcatc
+            tggatccatgactactacctactgttattgcctcaactactgagaatgaaatttaacgac
+            gaatctatcattattggttatttccatcatgccccatggcctagtaatgaatattttcgt
+            tgtttgccacgtagaaaacaaatcttagatggtcttgttggggccaatagaatttgtttc
+            caaaatgaatctttctcccgtcattttgtatcgagttgtaaaagattactcgacgcaacc
+            gccaaaaaatctaaaaactcttccaatagtgatcaatatcaagtctctgtgtacggtggt
+            gacgtactcgtagattctttgcctataggtgttaacacaactcaaatactaaaagatgct
+            ttcacgaaggatatagattccaaggttctttccatcaagcaagcttatcaaaacaaaaaa
+            attattattggtagagatcgtctggattccgtcagaggcgtcgttcaaaaattaagagct
+            ttcgaaactttcttggccatgtatccagaatggcgagatcaagtggtattgatccaagtc
+            agcagtcctactgccaacagaaattccccccaaactatcagattggaacaacaagtcaac
+            gagttggttaactccataaattctgaatacggtaatttgaatttttctcccgtccagcat
+            tactatatgagaatccctaaagatgtatacttgtccttactaagagttgcagacttatgt
+            ttaatcacaagtgttagagacggtatgaataccactgctttggaatacgtcactgtcaaa
+            tcgcacatgtcgaactttttatgctacggaaatccattgatcttaagtgagttttctggc
+            tctagtaacgtattgaaagatgccattgtggttaacccatgggattcggtggccgtggct
+            aaatctattaacatggctttgaaattggacaaggaagaaaagtccaatttagaatcaaaa
+            ttatggaaagaagttcctacaattcaagattggactaataagtttttgagttcattaaag
+            gaacaggcgtcatctaatgatgatatggaaaggaaaatgactccagcacttaatagacct
+            gttcttttagaaaattacaagcaggctaagcgtagattgttcctttttgattacgatggt
+            actttgaccccaattgtcaaagacccagctgcagctattccatcggcaagactttataca
+            attctacaaaaattatgtgctgatcctcataatcaaatctggattatttctggtcgtgac
+            cagaagtttttgaacaagtggttaggcggtaaacttcctcaactgggtctaagtgcggag
+            catggatgtttcatgaaagatgtttcttgccaagattgggtcaatttgaccgaaaaagtt
+            gatatgtcttggcaagtacgcgtcaatgaagtgatggaagaatttaccacaaggacccca
+            ggttcattcatcgaaagaaagaaagtcgctctaacttggcattatagacgtaccgttcca
+            gaattgggtgaattccacgccaaagaactgaaagaaaaattgttatcatttactgatgac
+            tttgatttagaggtcatggatggtaaagcaaacattgaagttcgtccaagattcgtcaac
+            aaaggtgaaatagtcaagagactagtctggcatcaacatggcaaaccacaggacatgttg
+            aagggaatcagtgaaaaactacctaaggatgaaatgcctgattttgtattatgtttgggt
+            gatgacttcactgacgaagacatgtttagacagttgaataccattgaaacttgttggaaa
+            gaaaaatatcctgaccaaaaaaatcaatggggcaactacggattctatcctgtcactgtg
+            ggatctgcatccaagaaaactgtcgcaaaggctcatttaaccgatcctcagcaagtcctg
+            gagactttaggtttacttgttggtgatgtctctctcttccaaagtgctggtacggtcgac
+            ctggattccagaggtcatgtcaagaatagtgagagcagtttgaaatcaaagctagcatct
+            aaagcttatgttatgaaaagatcggcttcttacaccggcgcaaaggtttga
+///

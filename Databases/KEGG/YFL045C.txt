@@ -1,0 +1,39 @@
+ENTRY       YFL045C           CDS       T00005
+NAME        SEC53, ALG4
+DEFINITION  phosphomannomutase SEC53 (EC:5.4.2.8)
+ORTHOLOGY   K17497  phosphomannomutase [EC:5.4.2.8]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00051  Fructose and mannose metabolism
+            sce00520  Amino sugar and nucleotide sugar metabolism
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+CLASS       Metabolism; Carbohydrate metabolism; Fructose and mannose metabolism [PATH:sce00051]
+            Metabolism; Carbohydrate metabolism; Amino sugar and nucleotide sugar metabolism [PATH:sce00520]
+POSITION    VI:complement(43628..44392)
+MOTIF       Pfam: PMM Hydrolase_3 TMPIT Hydrolase
+DBLINKS     NCBI-GI: 14318474
+            NCBI-GeneID: 850499
+            SGD: S000001849
+            MIPS: YFL045C
+            UniProt: P07283
+AASEQ       254
+            MSIAEFAYKEKPETLVLFDVDGTLTPARLTVSEEVRKTLAKLRNKCCIGFVGGSDLSKQL
+            EQLGPNVLDEFDYSFSENGLTAYRLGKELASQSFINWLGEEKYNKLAVFILRYLSEIDLP
+            KRRGTFLEFRNGMINVSPIGRNASTEERNEFERYDKEHQIRAKFVEALKKEFPDYGLTFS
+            IGGQISFDVFPAGWDKTYCLQHVEKDGFKEIHFFGDKTMVGGNDYEIFVDERTIGHSVQS
+            PDDTVKILTELFNL
+NTSEQ       765
+            atgagtatcgctgaattcgcttacaaggaaaaaccagaaactttggttttattcgatgtt
+            gatggtaccttgacaccagccagattaactgtttctgaagaagttagaaaaactttggcc
+            aagttgagaaacaagtgctgcattggttttgtcggtggttctgacttaagcaagcaatta
+            gaacagttaggcccaaacgttttagatgaatttgactattctttctctgaaaatggtttg
+            accgcctacagattaggtaaggaattagcttctcaatccttcatcaactggctcggtgag
+            gaaaaatacaataaattggccgtcttcattttgagatatctatctgaaattgacttgcca
+            aagagaagaggtactttcttggaatttagaaatggtatgatcaacgtttccccaattggt
+            agaaatgcttctactgaggaaagaaacgaattcgaaagatacgataaggaacaccaaatc
+            agagccaagttcgttgaagctttgaaaaaggaattcccagactacggtttgactttctcc
+            attggtggccaaatctctttcgacgttttccccgctggttgggataagacctactgtttg
+            caacacgttgaaaaagatggtttcaaggaaattcatttctttggtgacaagactatggtc
+            ggtggtaacgattacgaaatttttgtcgatgaaagaaccatcggacattcagtacaatcc
+            cctgatgacaccgtcaaaattttgactgaactattcaacttatag
+///

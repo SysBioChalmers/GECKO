@@ -1,0 +1,35 @@
+ENTRY       YML001W           CDS       T00005
+NAME        YPT7, AST4, VAM4
+DEFINITION  Ypt7p
+ORTHOLOGY   K07897  Ras-related protein Rab-7A
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04144  Endocytosis
+            sce04145  Phagosome
+CLASS       Cellular Processes; Transport and catabolism; Endocytosis [PATH:sce04144]
+            Cellular Processes; Transport and catabolism; Phagosome [PATH:sce04145]
+POSITION    XIII:267174..267800
+MOTIF       Pfam: Ras Miro Arf Gtr1_RagA GTP_EFTU MMR_HSR1 SRPRB AAA_22 AAA_16 ATP_bind_1 NTPase_1 MobB AAA_24 cobW Arch_ATPase DUF258 NACHT PduV-EutP NB-ARC AAA_10 AAA_35
+DBLINKS     NCBI-GI: 6323642
+            NCBI-GeneID: 855012
+            SGD: S000004460
+            MIPS: YML001W
+            UniProt: P32939
+STRUCTURE   PDB: 1KY3 1KY2
+AASEQ       208
+            MSSRKKNILKVIILGDSGVGKTSLMHRYVNDKYSQQYKATIGADFLTKEVTVDGDKVATM
+            QVWDTAGQERFQSLGVAFYRGADCCVLVYDVTNASSFENIKSWRDEFLVHANVNSPETFP
+            FVILGNKIDAEESKKIVSEKSAQELAKSLGDIPLFLTSAKNAINVDTAFEEIARSALQQN
+            QADTEAFEDDYNDAINIRLDGENNSCSC
+NTSEQ       627
+            atgtcttctagaaaaaaaaatattttgaaagtaatcatcctaggtgactctggtgttggg
+            aagacctccttgatgcaccgttatgtcaatgataagtattctcaacagtataaagcaaca
+            attggggctgactttttaacaaaagaggtgacagttgacggtgataaagttgccaccatg
+            caagtttgggatactgctggacaggaacgtttccaatcactgggtgttgctttctataga
+            ggtgcagattgttgcgttttggtctacgatgtgaccaatgccagttcctttgagaatatt
+            aagtcttggcgagatgaatttctagtgcatgcgaacgtaaactcaccagaaacatttcca
+            tttgttatactgggaaataaaattgatgccgaagaatctaaaaaaattgtatcagaaaag
+            tccgctcaggagcttgctaaatcattaggcgatattcctttgtttttaacaagtgccaaa
+            aacgccataaacgttgataccgcatttgaagaaattgcaaggagtgctttacaacagaat
+            caagctgatacagaagcctttgaagatgactataatgatgccatcaatattcgcctagat
+            ggagaaaataattcttgtagctgttga
+///

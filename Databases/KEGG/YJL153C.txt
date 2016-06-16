@@ -1,0 +1,56 @@
+ENTRY       YJL153C           CDS       T00005
+NAME        INO1, APR1
+DEFINITION  inositol-3-phosphate synthase INO1 (EC:5.5.1.4)
+ORTHOLOGY   K01858  myo-inositol-1-phosphate synthase [EC:5.5.1.4]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00562  Inositol phosphate metabolism
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+CLASS       Metabolism; Carbohydrate metabolism; Inositol phosphate metabolism [PATH:sce00562]
+POSITION    X:complement(134332..135933)
+MOTIF       Pfam: NAD_binding_5 Inos-1-P_synth
+DBLINKS     NCBI-GI: 37362665
+            NCBI-GeneID: 853288
+            SGD: S000003689
+            MIPS: YJL153C
+            UniProt: P11986
+STRUCTURE   PDB: 1P1J 1P1H 1RM0 1P1K 1JKI 1P1I 1JKF 1P1F 1LA2
+AASEQ       533
+            MTEDNIAPITSVKVVTDKCTYKDNELLTKYSYENAVVTKTASGRFDVTPTVQDYVFKLDL
+            KKPEKLGIMLIGLGGNNGSTLVASVLANKHNVEFQTKEGVKQPNYFGSMTQCSTLKLGID
+            AEGNDVYAPFNSLLPMVSPNDFVVSGWDINNADLYEAMQRSQVLEYDLQQRLKAKMSLVK
+            PLPSIYYPDFIAANQDERANNCINLDEKGNVTTRGKWTHLQRIRRDIQNFKEENALDKVI
+            VLWTANTERYVEVSPGVNDTMENLLQSIKNDHEEIAPSTIFAAASILEGVPYINGSPQNT
+            FVPGLVQLAEHEGTFIAGDDLKSGQTKLKSVLAQFLVDAGIKPVSIASYNHLGNNDGYNL
+            SAPKQFRSKEISKSSVIDDIIASNDILYNDKLGKKVDHCIVIKYMKPVGDSKVAMDEYYS
+            ELMLGGHNRISIHNVCEDSLLATPLIIDLLVMTEFCTRVSYKKVDPVKEDAGKFENFYPV
+            LTFLSYWLKAPLTRPGFHPVNGLNKQRTALENFLRLLIGLPSQNELRFEERLL
+NTSEQ       1602
+            atgacagaagataatattgctccaatcacctccgttaaagtagttaccgacaagtgcacg
+            tacaaggacaacgagctgctcaccaagtacagctacgaaaatgctgtagttacgaagaca
+            gctagtggccgcttcgatgtaacgcccactgttcaagactacgtgttcaaacttgacttg
+            aaaaagccggaaaaactaggaattatgctcattgggttaggtggcaacaatggctccact
+            ttagtggcctcggtattggcgaataagcacaatgtggagtttcaaactaaggaaggcgtt
+            aagcaaccaaactacttcggctccatgactcaatgttctaccttgaaactgggtatcgat
+            gcggaggggaatgacgtttatgctccttttaactctctgttgcccatggttagcccaaac
+            gactttgtcgtctctggttgggacatcaataacgcagatctatacgaagctatgcagaga
+            agtcaagttctcgaatatgatctgcaacaacgcttgaaggcgaagatgtccttggtgaag
+            cctcttccttccatttactaccctgatttcattgcagctaatcaagatgagagagccaat
+            aactgcatcaatttggatgaaaaaggcaacgtaaccacgaggggtaagtggacccatctg
+            caacgcatcagacgcgatatccagaatttcaaagaagaaaacgcccttgataaagtaatc
+            gttctttggactgcaaatactgagaggtacgtagaagtatctcctggtgttaatgacacc
+            atggaaaacctcttgcagtctattaagaatgaccatgaagagattgctccttccacgatc
+            tttgcagcagcatctatcttggaaggtgtcccctatattaatggttcaccgcagaatact
+            tttgttcccggcttggttcagctggctgagcatgagggtacattcattgcgggagacgat
+            ctcaagtcgggacaaaccaagttgaagtctgttctggcccagttcttagtggatgcaggt
+            attaaaccggtctccattgcatcctataaccatttaggcaataatgacggttataactta
+            tctgctccaaaacaatttaggtctaaggagatttccaaaagttctgtcatagatgacatc
+            atcgcgtctaatgatatcttgtacaatgataaactgggtaaaaaagttgaccactgcatt
+            gtcatcaaatatatgaagcccgtcggggactcaaaagtggcaatggacgagtattacagt
+            gagttgatgttaggtggccataaccggatttccattcacaatgtttgcgaagattcttta
+            ctggctacgcccttgatcatcgatcttttagtcatgactgagttttgtacaagagtgtcc
+            tataagaaggtggacccagttaaagaagatgctggcaaattcgagaacttttatccagtt
+            ttaaccttcttgagttactggttaaaagctccattaacaagaccaggatttcacccggtg
+            aatggcttaaacaagcaaagaaccgccttagaaaattttttaagattgttgattggattg
+            ccttctcaaaacgaactaagattcgaagagagattgttgtaa
+///

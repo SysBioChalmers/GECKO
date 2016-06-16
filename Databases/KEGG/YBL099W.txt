@@ -1,0 +1,58 @@
+ENTRY       YBL099W           CDS       T00005
+NAME        ATP1
+DEFINITION  F1F0 ATP synthase subunit alpha (EC:3.6.3.14)
+ORTHOLOGY   K02132  F-type H+-transporting ATPase subunit alpha [EC:3.6.3.14]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00190  Oxidative phosphorylation
+            sce01100  Metabolic pathways
+MODULE      sce_M00158  F-type ATPase, eukaryotes
+CLASS       Metabolism; Energy metabolism; Oxidative phosphorylation [PATH:sce00190]
+POSITION    II:37053..38690
+MOTIF       Pfam: ATP-synt_ab ATP-synt_ab_C ATP-synt_ab_N HAS-barrel AAA_25
+DBLINKS     NCBI-GI: 330443397
+            NCBI-GeneID: 852177
+            SGD: S000000195
+            MIPS: YBL099W
+            UniProt: P07251
+STRUCTURE   PDB: 3ZIA 3OEE 2HLD 3OEH 2XOK 3OE7 3OFN 2WPD 3FKS 3ZRY 4B2Q
+AASEQ       545
+            MLARTAAIRSLSRTLINSTKAARPAAAALASTRRLASTKAQPTEVSSILEERIKGVSDEA
+            NLNETGRVLAVGDGIARVFGLNNIQAEELVEFSSGVKGMALNLEPGQVGIVLFGSDRLVK
+            EGELVKRTGNIVDVPVGPGLLGRVVDALGNPIDGKGPIDAAGRSRAQVKAPGILPRRSVH
+            EPVQTGLKAVDALVPIGRGQRELIIGDRQTGKTAVALDTILNQKRWNNGSDESKKLYCVY
+            VAVGQKRSTVAQLVQTLEQHDAMKYSIIVAATASEAAPLQYLAPFTAASIGEWFRDNGKH
+            ALIVYDDLSKQAVAYRQLSLLLRRPPGREAYPGDVFYLHSRLLERAAKLSEKEGSGSLTA
+            LPVIETQGGDVSAYIPTNVISITDGQIFLEAELFYKGIRPAINVGLSVSRVGSAAQVKAL
+            KQVAGSLKLFLAQYREVAAFAQFGSDLDASTKQTLVRGERLTQLLKQNQYSPLATEEQVP
+            LIYAGVNGHLDGIELSRIGEFESSFLSYLKSNHNELLTEIREKGELSKELLASLKSATES
+            FVATF
+NTSEQ       1638
+            atgttggctcgtactgctgctattcgttctctatcgagaactctaattaactctaccaag
+            gccgcaagacctgccgctgctgctttggcttccaccagaagattggcttccaccaaggca
+            caacccacagaagtttcctccatcttagaggaaagaattaagggtgtgtccgacgaggcc
+            aatttgaacgaaactggtagagttcttgcagtcggtgatggtattgctcgtgtttttggt
+            ttgaacaacattcaggctgaagaattggtcgagttctcctctggtgttaaaggtatggct
+            ttgaacttggagcctggtcaagtcggtatcgttcttttcggttccgatagactggttaaa
+            gaaggtgaattggtcaagagaaccggtaatattgttgatgtcccagtcggtccaggcctt
+            ttgggtagagttgtcgacgctttaggtaaccctattgatggtaaaggtcctattgacgct
+            gccggtcgttcaagagctcaagtcaaagcaccaggtattttgccaagaagatctgtccat
+            gaaccagttcaaaccggtttgaaagccgttgacgccttggtccctatcggtagaggtcaa
+            agagagttgattattggtgatcgtcaaacaggtaagactgctgtcgccttagacaccatc
+            ttgaatcaaaagagatggaataacggtagtgacgaatccaagaaactttactgtgtttac
+            gttgccgttggacaaaaaagatctaccgttgctcaattggtccaaactttggaacaacat
+            gacgccatgaagtactctattattgttgcagctactgcatctgaagccgctcctctacaa
+            tacttggctccatttactgccgcatccattggtgaatggttcagagataatggaaagcac
+            gctttgatcgtctatgacgatttgtccaagcaagccgtggcataccgtcaattatctttg
+            ttgttgagacgtcctcctggtcgtgaagcctaccctggtgatgtcttttacttgcattca
+            agattgctagaaagagccgctaagctttctgaaaaggaaggttctggttctttaactgct
+            ttgcctgttattgaaacccaaggtggtgatgtctccgcttatattccaaccaatgttatt
+            tccattaccgatggtcaaattttcttggaagctgaattattctacaagggtatcagacct
+            gccattaacgttggtttgtccgtttctcgtgtcggttccgctgctcaagttaaggctttg
+            aagcaagtcgctggttccttgaaattgtttttggctcaatacagagaagtcgctgctttt
+            gctcaattcggttccgatttagatgcctccaccaagcaaactttggttagaggtgaaaga
+            ttgactcaattgttgaagcaaaaccaatattctcctttggctacagaagaacaggttcca
+            ttgatttatgccggtgttaatggtcatttggatggtattgaactatcaagaattggtgaa
+            tttgagtcctcctttttgtcctatctaaaatccaatcacaatgagcttttgaccgaaatt
+            agagaaaagggtgaattgtctaaagaattgttggcatctctaaagagtgctactgaatca
+            tttgttgccactttttaa
+///

@@ -1,0 +1,53 @@
+ENTRY       YNL037C           CDS       T00005
+NAME        IDH1
+DEFINITION  isocitrate dehydrogenase (NAD(+)) IDH1 (EC:1.1.1.41)
+ORTHOLOGY   K00030  isocitrate dehydrogenase (NAD+) [EC:1.1.1.41]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00020  Citrate cycle (TCA cycle)
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01200  Carbon metabolism
+            sce01210  2-Oxocarboxylic acid metabolism
+            sce01230  Biosynthesis of amino acids
+MODULE      sce_M00009  Citrate cycle (TCA cycle, Krebs cycle)
+            sce_M00010  Citrate cycle, first carbon oxidation, oxaloacetate => 2-oxoglutarate
+CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
+            Metabolism; Overview; 2-Oxocarboxylic acid metabolism [PATH:sce01210]
+            Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
+            Metabolism; Carbohydrate metabolism; Citrate cycle (TCA cycle) [PATH:sce00020]
+POSITION    XIV:complement(557920..559002)
+MOTIF       Pfam: Iso_dh
+DBLINKS     NCBI-GI: 6324291
+            NCBI-GeneID: 855691
+            SGD: S000004982
+            MIPS: YNL037C
+            UniProt: P28834
+STRUCTURE   PDB: 3BLX 3BLV 3BLW
+AASEQ       360
+            MLNRTIAKRTLATAAQAERTLPKKYGGRFTVTLIPGDGVGKEITDSVRTIFEAENIPIDW
+            ETINIKQTDHKEGVYEAVESLKRNKIGLKGLWHTPADQTGHGSLNVALRKQLDIYANVAL
+            FKSLKGVKTRIPDIDLIVIRENTEGEFSGLEHESVPGVVESLKVMTRPKTERIARFAFDF
+            AKKYNRKSVTAVHKANIMKLGDGLFRNIITEIGQKEYPDIDVSSIIVDNASMQAVAKPHQ
+            FDVLVTPSMYGTILGNIGAALIGGPGLVAGANFGRDYAVFEPGSRHVGLDIKGQNVANPT
+            AMILSSTLMLNHLGLNEYATRISKAVHETIAEGKHTTRDIGGSSSTTDFTNEIINKLSTM
+NTSEQ       1083
+            atgcttaacagaacaattgctaagagaactttagccactgccgctcaggcggaacgcacc
+            ctacccaagaagtatggcggtcgtttcaccgtcactttgatacctggtgacggtgttggg
+            aaagaaatcactgattcagtgagaaccatttttgaggctgaaaatatcccgatcgactgg
+            gaaactataaacattaagcaaacagatcataaggaaggcgtctatgaagctgttgagtct
+            ctaaagagaaataagattggtcttaaggggctatggcacactcctgctgaccaaacaggt
+            cacggttcactaaacgttgctttgcgtaaacaactagatatctacgccaatgtggccctt
+            ttcaaatccttgaagggtgtcaagactagaattccagacatagatttgattgtcattaga
+            gaaaacacggagggtgagttctcaggcctggaacatgaatccgtccctggtgtagtggaa
+            tctttgaaagttatgactagacctaagacagaaaggatcgccagatttgcctttgacttc
+            gccaagaaatacaacagaaagtctgtcacagctgtgcataaggcaaatatcatgaagtta
+            ggtgacggtctgttcagaaatataataactgaaattggccaaaaagaatatcctgatatt
+            gacgtatcgtccatcattgtcgacaatgcctccatgcaggcggtggccaaacctcatcaa
+            tttgatgtcctagttaccccttcaatgtacggtaccatcttaggcaacattggcgctgct
+            ttgatcggtggtccaggattggtggcaggtgccaactttggcagggactatgctgtcttc
+            gaaccaggttccagacatgttggtttagatattaaaggccaaaatgtggctaacccaact
+            gccatgatcctttcctccacgttaatgttgaaccatttgggtttgaatgaatatgctact
+            agaatctcaaaggcagttcatgaaacgatcgcagaaggtaagcataccactagagatatt
+            ggtggttcctcttctactactgacttcacgaatgaaatcatcaacaaattatctaccatg
+            taa
+///

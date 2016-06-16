@@ -1,0 +1,38 @@
+ENTRY       YOR202W           CDS       T00005
+NAME        HIS3, HIS10, HIS8
+DEFINITION  imidazoleglycerol-phosphate dehydratase HIS3 (EC:4.2.1.19)
+ORTHOLOGY   K01693  imidazoleglycerol-phosphate dehydratase [EC:4.2.1.19]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00340  Histidine metabolism
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01230  Biosynthesis of amino acids
+MODULE      sce_M00026  Histidine biosynthesis, PRPP => histidine
+CLASS       Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
+            Metabolism; Amino acid metabolism; Histidine metabolism [PATH:sce00340]
+POSITION    XV:721946..722608
+MOTIF       Pfam: IGPD
+DBLINKS     NCBI-GI: 6324776
+            NCBI-GeneID: 854377
+            SGD: S000005728
+            MIPS: YOR202W
+            UniProt: P06633
+AASEQ       220
+            MTEQKALVKRITNETKIQIAISLKGGPLAIEHSIFPEKEAEAVAEQATQSQVINVHTGIG
+            FLDHMIHALAKHSGWSLIVECIGDLHIDDHHTTEDCGIALGQAFKEALGAVRGVKRFGSG
+            FAPLDEALSRAVVDLSNRPYAVVELGLQREKVGDLSCEMIPHFLESFAEASRITLHVDCL
+            RGKNDHHRSESAFKALAVAIREATSPNGTNDVPSTKGVLM
+NTSEQ       663
+            atgacagagcagaaagccctagtaaagcgtattacaaatgaaaccaagattcagattgcg
+            atctctttaaagggtggtcccctagcgatagagcactcgatcttcccagaaaaagaggca
+            gaagcagtagcagaacaggccacacaatcgcaagtgattaacgtccacacaggtataggg
+            tttctggaccatatgatacatgctctggccaagcattccggctggtcgctaatcgttgag
+            tgcattggtgacttacacatagacgaccatcacaccactgaagactgcgggattgctctc
+            ggtcaagcttttaaagaggccctaggggccgtgcgtggagtaaaaaggtttggatcagga
+            tttgcgcctttggatgaggcactttccagagcggtggtagatctttcgaacaggccgtac
+            gcagttgtcgaacttggtttgcaaagggagaaagtaggagatctctcttgcgagatgatc
+            ccgcattttcttgaaagctttgcagaggctagcagaattaccctccacgttgattgtctg
+            cgaggcaagaatgatcatcaccgtagtgagagtgcgttcaaggctcttgcggttgccata
+            agagaagccacctcgcccaatggtaccaacgatgttccctccaccaaaggtgttcttatg
+            tag
+///

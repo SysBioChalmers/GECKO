@@ -1,0 +1,66 @@
+ENTRY       YMR250W           CDS       T00005
+NAME        GAD1
+DEFINITION  glutamate decarboxylase GAD1 (EC:4.1.1.15)
+ORTHOLOGY   K01580  glutamate decarboxylase [EC:4.1.1.15]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00250  Alanine, aspartate and glutamate metabolism
+            sce00410  beta-Alanine metabolism
+            sce00430  Taurine and hypotaurine metabolism
+            sce00650  Butanoate metabolism
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+MODULE      sce_M00027  GABA (gamma-Aminobutyrate) shunt
+CLASS       Metabolism; Carbohydrate metabolism; Butanoate metabolism [PATH:sce00650]
+            Metabolism; Amino acid metabolism; Alanine, aspartate and glutamate metabolism [PATH:sce00250]
+            Metabolism; Metabolism of other amino acids; beta-Alanine metabolism [PATH:sce00410]
+            Metabolism; Metabolism of other amino acids; Taurine and hypotaurine metabolism [PATH:sce00430]
+POSITION    XIII:770801..772558
+MOTIF       Pfam: Pyridoxal_deC
+DBLINKS     NCBI-GI: 6323905
+            NCBI-GeneID: 855291
+            SGD: S000004862
+            MIPS: YMR250W
+            UniProt: Q04792
+AASEQ       585
+            MLHRHGSKQKNFENIAGKVVHDLAGLQLLSNDVQKSAVQSGHQGSNNMRDTSSQGMANKY
+            SVPKKGLPADLSYQLIHNELTLDGNPHLNLASFVNTFTTDQARKLIDENLTKNLADNDEY
+            PQLIELTQRCISMLAQLWHANPDEEPIGCATTGSSEAIMLGGLAMKKRWEHRMKNAGKDA
+            SKPNIIMSSACQVALEKFTRYFEVECRLVPVSHRSHHMLDPESLWDYVDENTIGCFVILG
+            TTYTGHLENVEKVADVLSQIEAKHPDWSNTDIPIHADGASGGFIIPFGFEKEHMKAYGME
+            RWGFNHPRVVSMNTSGHKFGLTTPGLGWVLWRDESLLADELRFKLKYLGGVEETFGLNFS
+            RPGFQVVHQYFNFVSLGHSGYRTQFQNSLFVARAFSFELLNSSKLPGCFEIVSSIHESIE
+            NDSAPKSVKDYWEHPQAYKPGVPLVAFKLSKKFHEEYPEVPQAILSSLLRGRGWIIPNYP
+            LPKATDGSDEKEVLRVVFRSEMKLDLAQLLIVDIESILTKLIHSYEKVCHHIELASEQTP
+            ERKSSFIYEMLLALASPQDDIPTPDEIEKKNKLKETTTRNYRGTC
+NTSEQ       1758
+            atgttacacaggcacggttctaagcagaagaacttcgagaatatcgctggaaaagttgtc
+            cacgaccttgcaggtctgcaattgctttctaacgacgttcaaaaatccgctgtccaaagt
+            ggtcatcaaggatcgaacaatatgagagatacttcgtctcagggcatggctaataagtat
+            tcagttccaaaaaagggactacctgctgatttgtcttaccaactgattcataatgaatta
+            acacttgatggtaatccgcatttgaaccttgccagtttcgtgaacacttttaccactgat
+            caggcaaggaaattgattgatgaaaatttgaccaaaaatcttgctgacaatgatgaatat
+            ccgcaattaattgagctaactcagcgttgtatttctatgctagctcaattatggcacgct
+            aatcccgatgaagaaccaataggctgtgccaccacaggttctagtgaggcaatcatgttg
+            ggtggactcgccatgaaaaaaagatgggaacacagaatgaagaatgctggtaaagatgct
+            tccaagccgaacattataatgtcttctgcgtgccaagtggcattagagaagtttacgaga
+            tattttgaagtggaatgccgattggttccggtatcccacagaagccatcatatgcttgac
+            ccagagtcgttatgggattatgtagatgagaacactattggctgttttgtaattttagga
+            accacctacactggccatttggaaaatgtagagaaagttgcagatgtcttgtcccaaatt
+            gaggccaagcatcctgattggagcaatactgatattccaatccatgcggatggcgcttca
+            ggtgggtttattatcccatttggctttgaaaaagagcacatgaaagcttatggcatggaa
+            cgttgggggttcaaccatccgcgtgtggttagtatgaacactagtggtcataagtttggc
+            ttaaccactcccggtctgggttgggtgctatggagagatgaatccttactggctgatgaa
+            ttgagattcaaactaaagtacctcggtggcgtggaagaaactttcggtttgaatttttca
+            agacctggatttcaagttgtccatcaatacttcaattttgtttctctaggccattcaggg
+            tatagaacacaattccaaaattctctatttgttgcaagagcgttttctttcgaattattg
+            aattcgtcaaaattgcccggatgctttgaaattgttagcagtatccatgaaagcattgag
+            aacgattccgcccctaagtcagttaaagactattgggaacacccccaggcttacaaacca
+            ggtgtaccgctggtagccttcaaattgtccaagaaattccacgaagaatatccagaagtg
+            ccacaagcaatcctttcctctttactgagaggtaggggttggataataccaaattaccca
+            ctaccaaaggcaacggatggatccgatgagaaggaggtattaagagtggttttcagatcg
+            gagatgaagttggatttagcacagttgttgatcgttgacatcgagagtatcttgacaaag
+            ttgattcatagttacgaaaaggtttgtcatcatatagaacttgcctctgagcaaactcca
+            gagcgcaagagttcgttcatctacgaaatgttgctggcattggcatctccacaagatgac
+            atcccaacgccggatgaaatcgaaaagaaaaataagctaaaggaaacaacaacgagaaac
+            tatagaggaacatgttga
+///

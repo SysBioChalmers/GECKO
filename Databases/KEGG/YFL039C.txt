@@ -1,0 +1,44 @@
+ENTRY       YFL039C           CDS       T00005
+NAME        ACT1, ABY1, END7
+DEFINITION  actin
+ORTHOLOGY   K05692  actin beta/gamma 1
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04145  Phagosome
+CLASS       Cellular Processes; Transport and catabolism; Phagosome [PATH:sce04145]
+POSITION    VI:complement(join(53260..54377,54687..54696))
+MOTIF       Pfam: Actin ESSS
+DBLINKS     NCBI-GI: 14318479
+            NCBI-GeneID: 850504
+            SGD: S000001855
+            MIPS: YFL039C
+            UniProt: P60010
+STRUCTURE   PDB: 1YAG 1YVN
+AASEQ       375
+            MDSEVAALVIDNGSGMCKAGFAGDDAPRAVFPSIVGRPRHQGIMVGMGQKDSYVGDEAQS
+            KRGILTLRYPIEHGIVTNWDDMEKIWHHTFYNELRVAPEEHPVLLTEAPMNPKSNREKMT
+            QIMFETFNVPAFYVSIQAVLSLYSSGRTTGIVLDSGDGVTHVVPIYAGFSLPHAILRIDL
+            AGRDLTDYLMKILSERGYSFSTTAEREIVRDIKEKLCYVALDFEQEMQTAAQSSSIEKSY
+            ELPDGQVITIGNERFRAPEALFHPSVLGLESAGIDQTTYNSIMKCDVDVRKELYGNIVMS
+            GGTTMFPGIAERMQKEITALAPSSMKVKIIAPPERKYSVWIGGSILASLTTFQQMWISKQ
+            EYDESGPSIVHHKCF
+NTSEQ       1128
+            atggattctgaggttgctgctttggttattgataacggttctggtatgtgtaaagccggt
+            tttgccggtgacgacgctcctcgtgctgtcttcccatctatcgtcggtagaccaagacac
+            caaggtatcatggtcggtatgggtcaaaaagactcctacgttggtgatgaagctcaatcc
+            aagagaggtatcttgactttacgttacccaattgaacacggtattgtcaccaactgggac
+            gatatggaaaagatctggcatcataccttctacaacgaattgagagttgccccagaagaa
+            caccctgttcttttgactgaagctccaatgaaccctaaatcaaacagagaaaagatgact
+            caaattatgtttgaaactttcaacgttccagccttctacgtttccatccaagccgttttg
+            tccttgtactcttccggtagaactactggtattgttttggattccggtgatggtgttact
+            cacgtcgttccaatttacgctggtttctctctacctcacgccattttgagaatcgatttg
+            gccggtagagatttgactgactacttgatgaagatcttgagtgaacgtggttactctttc
+            tccaccactgctgaaagagaaattgtccgtgacatcaaggaaaaactatgttacgtcgcc
+            ttggacttcgaacaagaaatgcaaaccgctgctcaatcttcttcaattgaaaaatcctac
+            gaacttccagatggtcaagtcatcactattggtaacgaaagattcagagccccagaagct
+            ttgttccatccttctgttttgggtttggaatctgccggtattgaccaaactacttacaac
+            tccatcatgaagtgtgatgtcgatgtccgtaaggaattatacggtaacatcgttatgtcc
+            ggtggtaccaccatgttcccaggtattgccgaaagaatgcaaaaggaaatcaccgctttg
+            gctccatcttccatgaaggtcaagatcattgctcctccagaaagaaagtactccgtctgg
+            attggtggttctatcttggcttctttgactaccttccaacaaatgtggatctcaaaacaa
+            gaatacgacgaaagtggtccatctatcgttcaccacaagtgtttctaa
+///

@@ -1,0 +1,39 @@
+ENTRY       YHR062C           CDS       T00005
+NAME        RPP1
+DEFINITION  Rpp1p (EC:3.1.26.5)
+ORTHOLOGY   K03539  ribonuclease P/MRP protein subunit RPP1 [EC:3.1.26.5]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03008  Ribosome biogenesis in eukaryotes
+            sce03013  RNA transport
+CLASS       Genetic Information Processing; Translation; RNA transport [PATH:sce03013]
+            Genetic Information Processing; Translation; Ribosome biogenesis in eukaryotes [PATH:sce03008]
+POSITION    VIII:complement(222877..223758)
+MOTIF       Pfam: RNase_P_p30
+DBLINKS     NCBI-GI: 6321853
+            NCBI-GeneID: 856459
+            SGD: S000001104
+            MIPS: YHR062C
+            UniProt: P38786
+AASEQ       293
+            MLVDLNVPWPQNSYADKVTSQAVNNLIKTLSTLHMLGYTHIAINFTVNHSEKFPNDVKLL
+            NPIDIKRRFGELMDRTGLKLYSRITLIIDDPSKGQSLSKISQAFDIVAALPISEKGLTLS
+            TTNLDIDLLTFQYGSRLPTFLKHKSICSCVNRGVKLEIVYGYALRDVQARRQFVSNVRSV
+            IRSSRSRGIVIGSGAMSPLECRNILGVTSLIKNLGLPSDRCSKAMGDLASLVLLNGRLRN
+            KSHKQTIVTGGGSGNGDDVVNDVQGIDDVQTIKVVKRSMDAEQLGHASKRHKP
+NTSEQ       882
+            atgctggtagatttgaatgtaccgtggccacagaacagctatgcagacaaagttacttct
+            caggcggtcaacaatttaataaaaacgttatccacattgcatatgttgggatatacacac
+            atcgccataaattttacagtaaaccacagcgagaaattccccaacgatgttaagctgtta
+            aatcctatcgatatcaagagaaggtttggagaattgatggatcgaacagggctaaaatta
+            tacagcaggatcacgctaattatcgacgatccatcgaagggacagtctctttccaagata
+            agccaggcctttgatattgtagcagcattgccaatcagtgaaaagggccttactttatca
+            actaccaatctggatattgacttgttgacctttcagtacgggtcgcgcctgcctactttc
+            cttaagcataaaagcatatgcagctgtgtgaacagaggagtaaaacttgaaattgtttat
+            ggctatgctttgcgtgacgtacaagctcggaggcagttcgtatccaatgtaagaagcgtc
+            atcaggagttcgaggtccagaggcattgttatcggcagtggtgccatgtcaccacttgag
+            tgccgcaacatattaggagtaacaagtctaatcaagaatttaggtcttccgagcgatagg
+            tgttcgaaggccatgggagacctagcttcactcgtcctcctaaatggccgcttaaggaat
+            aagagccacaaacagaccattgttaccggtggtggtagcggaaacggcgatgacgtggtc
+            aacgatgttcaaggcatcgacgacgtccagaccatcaaggtagtgaaaaggagtatggat
+            gctgaacaattaggccatgcttccaaaagacacaagccttaa
+///

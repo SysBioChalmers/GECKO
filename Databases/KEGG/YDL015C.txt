@@ -1,0 +1,45 @@
+ENTRY       YDL015C           CDS       T00005
+NAME        TSC13
+DEFINITION  trans-2-enoyl-CoA reductase (NADPH) TSC13 (EC:1.3.1.38 1.3.1.93)
+ORTHOLOGY   K10258  very-long-chain enoyl-CoA reductase [EC:1.3.1.93]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00062  Fatty acid elongation
+            sce01040  Biosynthesis of unsaturated fatty acids
+            sce01110  Biosynthesis of secondary metabolites
+            sce01212  Fatty acid metabolism
+MODULE      sce_M00415  Fatty acid biosynthesis, elongation, endoplasmic reticulum
+CLASS       Metabolism; Overview; Fatty acid metabolism [PATH:sce01212]
+            Metabolism; Lipid metabolism; Fatty acid elongation [PATH:sce00062]
+            Metabolism; Lipid metabolism; Biosynthesis of unsaturated fatty acids [PATH:sce01040]
+POSITION    IV:complement(426002..426934)
+MOTIF       Pfam: Steroid_dh
+DBLINKS     NCBI-GI: 6320189
+            NCBI-GeneID: 851547
+            SGD: S000002173
+            MIPS: YDL015C
+            UniProt: Q99190
+AASEQ       310
+            MPITIKSRSKGLRDTEIDLSKKPTLDDVLKKISANNHNISKYRIRLTYKKESKQVPVISE
+            SFFQEEADDSMEFFIKDLGPQISWRLVFFCEYLGPVLVHSLFYYLSTIPTVVDRWHSASS
+            DYNPFLNRVAYFLILGHYGKRLFETLFVHQFSLATMPIFNLFKNCFHYWVLSGLISFGYF
+            GYGFPFGNAKLFKYYSYLKLDDLSTLIGLFVLSELWNFYCHIKLRLWGDYQKKHGNAKIR
+            VPLNQGIFNLFVAPNYTFEVWSWIWFTFVFKFNLFAVLFLTVSTAQMYAWAQKKNKKYHT
+            RRAFLIPFVF
+NTSEQ       933
+            atgcctatcaccataaaaagccgctctaaagggttaagggacactgaaattgacttatcc
+            aaaaagcctactttagatgatgttttgaaaaaaatctctgctaataaccacaatatcagc
+            aagtacaggataagattaacctacaaaaaggaatctaaacaagttccggttatttcagaa
+            tcgttttttcaagaagaggctgatgactcaatggaattcttcatcaaagatttgggtccc
+            caaatttcatggagattagtcttcttttgtgagtatttgggtccagtcttggttcactcc
+            cttttttattatctatctaccattcccacagttgttgatagatggcacagtgctagctcc
+            gactataatccatttttaaacagggttgcatattttttaattttaggacattatggaaag
+            agattatttgaaaccttatttgttcaccaattctctttagctactatgccaattttcaac
+            ctgttcaaaaattgtttccattactgggttctaagcggtctcatttcattcggttacttt
+            ggctacggcttcccctttgggaatgctaagttattcaaatactattcatatttgaaattg
+            gatgacttgagtacattaattggtcttttcgtgctttcagaactatggaacttttattgc
+            cacattaaattgcgcctatggggtgactatcaaaagaagcatggtaacgctaagatccgt
+            gtcccattgaatcaaggtattttcaatctttttgttgctcccaactatacttttgaagtt
+            tggtcttggatttggtttacttttgtgttcaagttcaatttatttgccgttttatttttg
+            actgtttcaacagctcaaatgtacgcatgggctcaaaagaaaaacaaaaagtatcatacc
+            agaagagcattcttgattccatttgtattttga
+///

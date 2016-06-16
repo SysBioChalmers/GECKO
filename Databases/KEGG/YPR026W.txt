@@ -1,0 +1,100 @@
+ENTRY       YPR026W           CDS       T00005
+NAME        ATH1
+DEFINITION  alpha,alpha-trehalase ATH1 (EC:3.2.1.28)
+ORTHOLOGY   K01194  alpha,alpha-trehalase [EC:3.2.1.28]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00500  Starch and sucrose metabolism
+            sce01100  Metabolic pathways
+CLASS       Metabolism; Carbohydrate metabolism; Starch and sucrose metabolism [PATH:sce00500]
+POSITION    XVI:615379..619014
+MOTIF       Pfam: Glyco_hydro_65m Glyco_hydro_65N Glyco_hydro_65C
+DBLINKS     NCBI-GI: 6325283
+            NCBI-GeneID: 856137
+            SGD: S000006230
+            MIPS: YPR026W
+            UniProt: P48016
+AASEQ       1211
+            MKRIRSLWFNAEASYSNLNNSPSLRNKNSTGNNSRSKNYRSFSRFDLINSILLLMMLFLL
+            AIFVTALYLTKSSRLTYSHASRAALFNPLGVISPSLGNHTLNYDPEARESSKKLYELLSD
+            FNTAYYDDENMILGSNLFSKNTYSRQPYVANGYIGSRIPNIGFGYALDTLNFYTDAPGAL
+            NNGWPLRNHRFAGAFVSDFYCLQPKLNSTNFPELDDVGYSTVISSIPQWTNLQFSLVNDS
+            KWFNPQNVTLDDVTNYSQNLSMKDGIVTTELDWLNSQIHVKSEIWAHRHIHPLGVVSLEI
+            SLNTDHLPSDFDSLDVNIWDILDFNTSHRTVLHSTGTDEKNNAVFMIVQPDNVPSSNCAI
+            YSTCTVKYENSTNPINSSESFEEKDVSSNIYNVILTEDQPKIIVHKYVGIMSTEFNKNKE
+            QQDNTNIGLAKMIALNSKGNYEKLLSSHKRAWYDLYNDAFIEIPSDSLLEMTARSSLFHL
+            LANTRDYNVSSDRGLPVGVSGLSSDSYGGMVFWDADIWMEPALLPFFPNVAQNMNNYRNA
+            THSQAKLNAEKYGYPGAIYPWTSGKYANCTSTGPCVDYEYHINVDVAMASFSIYLNGHEG
+            IDDEYLRYTTWPIIKNAAQFFTAYVKYNSSLGLYETYNLTDPDEFANHINNGAFTNAGIK
+            TLLKWATDIGNHLGEVVDPKWSEISKDIYIPRSSSNITLEYSGMNSSVEIKQADVTLMVY
+            PLGYINDESILNNAIKDLYYYSERQSASGPAMTYPVFVAAAAGLLNHGSSSQSYLYKSVL
+            PYLRAPFAQFSEQSDDNFLTNGLTQPAFPFLTANGGFLQSILFGLTGIRYSYEVDPDTKK
+            INRLLRFNPIELPLLPGGIAIRNFKYMNQVLDIIIDDHNGTIVHKSGDVPIHIKIPNRSL
+            IHDQDINFYNGSENERKPNLERRDVDRVGDPMRMDRYGTYYLLKPKQELTVQLFKPGLNA
+            RNNIAENKQITNLTAGVPGDVAFSALDGNNYTHWQPLDKIHRAKLLIDLGEYNEKEITKG
+            MILWGQRPAKNISISILPHSEKVENLFANVTEIMQNSGNDQLLNETIGQLLDNAGIPVEN
+            VIDFDGIEQEDDESLDDVQALLHWKKEDLAKLIEQIPRLNFLKRKFVKILDNVPVSPSEP
+            YYEASRNQSLIEILPSNRTTFTIDYDKLQVGDKGNTDWRKTRYIVVAVQGVYDDYDDDNK
+            GATIKEIVLND
+NTSEQ       3636
+            atgaaaagaataagatcgctttggttcaatgcggaggcttcttattcaaaccttaacaat
+            tctcctagtttgaggaacaaaaatagtaccggtaataactctcgctctaaaaattatcgt
+            tctttctcaaggtttgacttgatcaactctatacttttactgatgatgctatttttatta
+            gctatcttcgtcactgcattatatttaacaaagagttccaggcttacatactcacatgcc
+            tcgagggctgccctatttaaccctctgggtgtgatatcgccgtcattgggaaatcatacg
+            ttgaactacgatccagaagcaagggaatcttctaaaaaactttatgaactcctttctgat
+            ttcaacacggcatattatgatgatgagaacatgattttgggaagtaacttgttctcaaag
+            aatacatactcgagacaaccatatgttgctaacggttatataggtagtcgtattcccaat
+            attgggttcggctatgccttagacaccctgaatttttacacagacgcaccaggcgctttg
+            aataacggttggcccttaagaaatcatagatttgccggtgcgtttgtatcggacttttat
+            tgtctacaaccaaaactaaattcaacaaacttcccagaattggatgatgtaggatattcc
+            actgtcatttcatctattccacaatggaccaatctacagttctcattagtgaatgattct
+            aagtggttcaatccacaaaatgttacgttggatgacgtaactaattatagccaaaactta
+            tcaatgaaggatggtatcgtaactacggagttagattggctaaacagtcaaatacatgtt
+            aaaagtgaaatctgggcacatcggcacattcatccactgggagtggtttctttggaaatt
+            tccctgaatacggaccatttaccttcggattttgattcattagatgttaatatatgggat
+            atacttgatttcaacacatcacataggactgttctacatagcacgggaacagacgaaaaa
+            aataatgcggttttcatgattgttcagccagataacgttccatcttctaattgcgctatt
+            tactcaacgtgtactgtaaagtatgaaaattccaccaatccaataaattctagtgaatct
+            tttgaagaaaaagatgtttcttctaatatttataatgttattttgacagaggaccaaccc
+            aagataatcgttcataagtatgttggtattatgtctactgagttcaataagaacaaagaa
+            caacaagacaatactaatattggtttggccaaaatgatagctctaaacagtaaaggcaat
+            tacgagaagcttctgtcaagtcacaaacgtgcgtggtatgacctttacaacgacgccttc
+            attgaaattccttctgacagtcttttagaaatgacagcaagatcgtccctattccattta
+            ctagcaaatacaagagattacaatgtctcgagcgataggggtcttcccgtgggagtttct
+            ggtttgtcatcagattcctatggtggtatggtgttctgggacgcagatatatggatggaa
+            cctgccctattgcctttcttcccaaatgtggctcaaaatatgaataattacagaaatgct
+            acacattcgcaggcaaagttaaatgcagagaaatatggataccccggagcaatatacccc
+            tggacatctggtaagtacgctaattgtacttctacgggaccttgtgtcgattacgaatac
+            catattaacgttgatgtcgctatggcctccttttccatatacttgaatggacacgaaggg
+            attgatgacgagtatctgagatatactacatggccaattatcaaaaacgcagcccaattt
+            tttactgcttatgttaagtacaattcttccctaggattgtatgaaacatataatttgaca
+            gatcccgacgagtttgctaatcacatcaataacggggctttcacgaatgctggcattaaa
+            acacttctaaagtgggcaacagacattggcaatcatctcggcgaggtcgttgaccccaaa
+            tggagtgaaatttccaaagatatttatatccctagatcctcatctaacatcactttggaa
+            tattctggtatgaatagctcagtggagattaaacaggcggatgtgactttaatggtttac
+            ccacttggatatatcaatgatgaatccatattgaacaatgcaattaaagatctttattat
+            tattcagaaagacagtctgcgtctgggcctgcaatgacatatccggtttttgtggccgca
+            gctgctggtctgctgaatcacggctcttcttctcaaagttacttatataaatcggttctt
+            ccatacttacgggctcctttcgctcaatttagtgagcaatcagacgacaactttttaaca
+            aacggattaacccagccagcattcccctttttaacagctaacggtggatttctacagagc
+            attctgtttgggttaacaggaatccgatattcttatgaggttgatccagatactaaaaaa
+            attaaccgtttgttaaggttcaatccaatagaactaccgttgctccctggtggtatcgct
+            attagaaacttcaaatatatgaaccaagttttagatataataattgacgaccacaatggt
+            acgattgttcataaatcaggagatgttcctattcatataaagataccaaacagatctcta
+            atacatgaccaggatatcaacttctataatggttccgaaaacgaaagaaaaccaaatcta
+            gagcgtagagacgtcgaccgtgttggtgatccaatgaggatggataggtatggtacctat
+            tatcttttaaaaccgaaacaagagcttacagtccaactgttcaagcctggcttaaacgca
+            agaaacaacatagcggaaaataagcaaataacaaacttgacggccggcgttcctggtgac
+            gttgcattctctgctctagatgggaataattacacgcattggcaacccttagacaaaatt
+            caccgtgcgaagctattgattgatttaggtgaatacaacgagaaagagattaccaaggga
+            atgattctttgggggcagaggcccgcaaaaaacatttccatatctattttgcctcattct
+            gaaaaagtcgaaaatttatttgcgaacgtgacagaaattatgcaaaattcgggaaatgat
+            caacttcttaatgaaaccattggtcagcttttagataatgccggaattcctgtcgagaac
+            gttattgattttgatggcatagaacaagaggatgatgaatctttggatgatgtgcaagcc
+            ttattgcactggaagaaggaagacttagccaagctaattgaacaaatacccagacttaac
+            tttctaaaaagaaaatttgtgaaaattctggataacgtgccagtgagcccaagtgagcca
+            tactacgaagcaagtcgcaaccagtcgttaatcgagatattacccagtaatagaacgact
+            ttcactattgattatgataaattgcaggtgggtgataaagggaacacagattggaggaaa
+            acaagatacatagttgtggcagtacaaggagtgtatgatgattatgatgatgataacaaa
+            ggagctacaatcaaggaaattgttctcaatgattaa
+///

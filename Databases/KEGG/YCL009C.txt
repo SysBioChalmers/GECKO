@@ -1,0 +1,52 @@
+ENTRY       YCL009C           CDS       T00005
+NAME        ILV6
+DEFINITION  acetolactate synthase regulatory subunit (EC:2.2.1.6)
+ORTHOLOGY   K01653  acetolactate synthase I/III small subunit [EC:2.2.1.6]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00290  Valine, leucine and isoleucine biosynthesis
+            sce00650  Butanoate metabolism
+            sce00770  Pantothenate and CoA biosynthesis
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01210  2-Oxocarboxylic acid metabolism
+            sce01230  Biosynthesis of amino acids
+MODULE      sce_M00019  Valine/isoleucine biosynthesis, pyruvate => valine / 2-oxobutanoate => isoleucine
+            sce_M00570  Isoleucine biosynthesis, threonine => 2-oxobutanoate => isoleucine
+CLASS       Metabolism; Overview; 2-Oxocarboxylic acid metabolism [PATH:sce01210]
+            Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
+            Metabolism; Carbohydrate metabolism; Butanoate metabolism [PATH:sce00650]
+            Metabolism; Carbohydrate metabolism; C5-Branched dibasic acid metabolism
+            Metabolism; Amino acid metabolism; Valine, leucine and isoleucine biosynthesis [PATH:sce00290]
+            Metabolism; Metabolism of cofactors and vitamins; Pantothenate and CoA biosynthesis [PATH:sce00770]
+POSITION    III:complement(104619..105548)
+MOTIF       Pfam: ALS_ss_C ACT ACT_5 Limkain-b1 ACT_4
+DBLINKS     NCBI-GI: 6319837
+            NCBI-GeneID: 850348
+            SGD: S000000515
+            MIPS: YCL009C
+            UniProt: P25605
+AASEQ       309
+            MLRSLLQSGHRRVVASSCATMVRCSSSSTSALAYKQMHRHATRPPLPTLDTPSWNANSAV
+            SSIIYETPAPSRQPRKQHVLNCLVQNEPGVLSRVSGTLAARGFNIDSLVVCNTEVKDLSR
+            MTIVLQGQDGVVEQARRQIEDLVPVYAVLDYTNSEIIKRELVMARISLLGTEYFEDLLLH
+            HHTSTNAGAADSQELVAEIREKQFHPANLPASEVLRLKHEHLNDITNLTNNFGGRVVDIS
+            ETSCIVELSAKPTRISAFLKLVEPFGVLECARSGMMALPRTPLKTSTEEAADEDEKISEI
+            VDISQLPPG
+NTSEQ       930
+            atgctgagatcgttattgcaaagcggccaccgcagggtggttgcttcttcatgtgctacc
+            atggtgcgttgcagttcctcgtcgacctccgcgttggcgtacaagcagatgcacagacac
+            gcaacaagacctcccttgcccacactagacactccttcctggaatgccaacagtgccgtt
+            tcatccatcatttacgaaacaccagcgccttctcgtcaaccaagaaaacagcatgtcttg
+            aactgtttggtgcaaaacgaacccggtgtcttgtccagagtctcgggtacgttagctgcc
+            agaggctttaacatcgattcgttggtcgtgtgcaacaccgaggtcaaagacctaagtaga
+            atgaccattgttttgcaagggcaagatggcgtagtcgaacaagcacgcagacaaatcgaa
+            gacttggtccccgtctacgccgtcctagactataccaattctgagatcatcaaaagagag
+            ctagtgatggccagaatctctctattgggtactgaatacttcgaagacctactattgcac
+            caccacacttccaccaatgctggcgccgctgactcccaagaattggtcgccgaaatcaga
+            gaaaagcaattccaccctgccaacttgcccgccagtgaggtattaaggttgaagcacgag
+            catttgaacgatatcaccaacttgaccaacaactttggaggtcgtgtcgtcgacatcagc
+            gaaacaagctgtattgtggagttgtctgcaaaacccacacgtatctctgccttcttgaag
+            ttggtcgagccattcggtgtcctagagtgtgcaagaagcggtatgatggcattgccaaga
+            actcctttgaagacaagcaccgaggaagctgccgacgaagacgaaaagatcagcgaaatc
+            gtcgacatttcccaactaccacctggttag
+///

@@ -1,0 +1,42 @@
+ENTRY       YDL052C           CDS       T00005
+NAME        SLC1
+DEFINITION  1-acylglycerol-3-phosphate O-acyltransferase SLC1 (EC:2.3.1.51)
+ORTHOLOGY   K13509  lysophosphatidate acyltransferase [EC:2.3.1.51]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00561  Glycerolipid metabolism
+            sce00564  Glycerophospholipid metabolism
+            sce01100  Metabolic pathways
+CLASS       Metabolism; Lipid metabolism; Glycerolipid metabolism [PATH:sce00561]
+            Metabolism; Lipid metabolism; Glycerophospholipid metabolism [PATH:sce00564]
+POSITION    IV:complement(362672..363583)
+MOTIF       Pfam: Acyltransferase
+DBLINKS     NCBI-GI: 6320151
+            NCBI-GeneID: 851508
+            SGD: S000002210
+            MIPS: YDL052C
+            UniProt: P33333
+AASEQ       303
+            MSVIGRFLYYLRSVLVVLALAGCGFYGVIASILCTLIGKQHLAQWITARCFYHVMKLMLG
+            LDVKVVGEENLAKKPYIMIANHQSTLDIFMLGRIFPPGCTVTAKKSLKYVPFLGWFMALS
+            GTYFLDRSKRQEAIDTLNKGLENVKKNKRALWVFPEGTRSYTSELTMLPFKKGAFHLAQQ
+            GKIPIVPVVVSNTSTLVSPKYGVFNRGCMIVRILKPISTENLTKDKIGEFAEKVRDQMVD
+            TLKEIGYSPAINDTTLPPQAIEYAALQHDKKVNKKIKNEPVPSVSISNDVNTHNEGSSVK
+            KMH
+NTSEQ       912
+            atgagtgtgataggtaggttcttgtattacttgaggtccgtgttggtcgtactggcgctt
+            gcaggctgtggcttttacggtgtaatcgcctctatcctttgcacgttaatcggtaagcaa
+            catttggctcagtggattactgcgcgttgtttttaccatgtcatgaaattgatgcttggc
+            cttgacgtcaaggtcgttggcgaggagaatttggccaagaagccatatattatgattgcc
+            aatcaccaatccaccttggatatcttcatgttaggtaggattttcccccctggttgcaca
+            gttactgccaagaagtctttgaaatacgtcccctttctgggttggttcatggctttgagt
+            ggtacatatttcttagacagatctaaaaggcaagaagccattgacaccttgaataaaggt
+            ttagaaaatgttaagaaaaacaagcgtgctctatgggtttttcctgagggtaccaggtct
+            tacacgagtgagctgacaatgttgcctttcaagaagggtgctttccatttggcacaacag
+            ggtaagatccccattgttccagtggttgtttccaataccagtactttagtaagtcctaaa
+            tatggggtcttcaacagaggctgtatgattgttagaattttaaaacctatttcaaccgag
+            aacttaacaaaggacaaaattggtgaatttgctgaaaaagttagagatcaaatggttgac
+            actttgaaggagattggctactctcccgccatcaacgatacaaccctcccaccacaagct
+            attgagtatgccgctcttcaacatgacaagaaagtgaacaagaaaatcaagaatgagcct
+            gtgccttctgtcagcattagcaacgatgtcaatacccataacgaaggttcatctgtaaaa
+            aagatgcattaa
+///

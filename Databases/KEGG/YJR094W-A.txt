@@ -1,0 +1,25 @@
+ENTRY       YJR094W-A         CDS       T00005
+NAME        RPL43B
+DEFINITION  ribosomal 60S subunit protein L43B
+ORTHOLOGY   K02921  large subunit ribosomal protein L37Ae
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03010  Ribosome
+CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+POSITION    X:join(608305..608306,608582..608858)
+MOTIF       Pfam: Ribosomal_L37ae DUF1364 Rep_fac-A_C C1_1 CarbpepA_inh zf-C4_ClpX Zn_Tnp_IS1595
+DBLINKS     NCBI-GI: 398365303
+            NCBI-GeneID: 853557
+            SGD: S000003855
+            MIPS: YJR094W-A
+            UniProt: P0CX25 P0CX26
+STRUCTURE   PDB: 3U5E 3U5I 3O58 3O5H 4B6A 3IZS 1S1I
+AASEQ       92
+            MAKRTKKVGITGKYGVRYGSSLRRQVKKLEIQQHARYDCSFCGKKTVKRGAAGIWTCSCC
+            KKTVAGGAYTVSTAAAATVRSTIRRLREMVEA
+NTSEQ       279
+            atggctaagagaacaaagaaggtcggtatcacaggtaaatacggtgtccgttatggttca
+            tcattgagaagacaagttaagaagcttgaaattcaacaacatgccagatatgactgttcc
+            ttctgtggtaagaagactgttaagagaggtgcagctggtatttggacttgttcctgttgt
+            aagaagaccgttgccggtggtgcttatactgtttctactgcagctgccgctactgttaga
+            tctaccatcagaagattaagagaaatggttgaagcttaa
+///

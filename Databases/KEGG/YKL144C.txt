@@ -1,0 +1,39 @@
+ENTRY       YKL144C           CDS       T00005
+NAME        RPC25, YKL1
+DEFINITION  Rpc25p
+ORTHOLOGY   K03022  DNA-directed RNA polymerase III subunit RPC8
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00230  Purine metabolism
+            sce00240  Pyrimidine metabolism
+            sce01100  Metabolic pathways
+            sce03020  RNA polymerase
+MODULE      sce_M00181  RNA polymerase III, eukaryotes
+CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
+            Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
+            Genetic Information Processing; Transcription; RNA polymerase [PATH:sce03020]
+POSITION    XI:complement(175843..176481)
+MOTIF       Pfam: RNA_pol_Rbc25 SHS2_Rpb7-N
+DBLINKS     NCBI-GI: 6322705
+            NCBI-GeneID: 853713
+            SGD: S000001627
+            MIPS: YKL144C
+            UniProt: P35718
+STRUCTURE   PDB: 2CKZ
+AASEQ       212
+            MFILSKIADLVRIPPDQFHRDTISAITHQLNNKFANKIIPNVGLCITIYDLLTVEEGQLK
+            PGDGSSYINVTFRAVVFKPFLGEIVTGWISKCTAEGIKVSLLGIFDDIFIPQNMLFEGCY
+            YTPEESAWIWPMDEETKLYFDVNEKIRFRIEREVFVDVKPKSPKERELEERAQLENEIEG
+            KNEETPQNEKPPAYALLGSCQTDGMGLVSWWE
+NTSEQ       639
+            atgtttatcctttcaaaaatcgctgacttggtacgaatcccgcccgatcaattccatcgc
+            gatacaatatcggcaatcacacatcagttaaataataagttcgccaacaagattattccc
+            aatgtcggtctatgtattacgatttacgacttattaaccgtcgaggaaggccaattgaag
+            ccaggcgatggatcatcctatattaacgttacatttcgagccgttgttttcaaaccgttt
+            ctaggtgagatagtaactggatggatttctaaatgtacagcagaaggcataaaagtttca
+            ctgttaggtatatttgatgacatttttatcccacaaaatatgttattcgaagggtgctat
+            tatacccctgaagaaagtgcatggatttggcccatggatgaagagacgaaactatatttc
+            gatgtaaatgaaaaaattagattcagaatcgaaagagaagtttttgttgatgtgaagcca
+            aaatcacccaaagaacgagaattggaggaaagagctcaattagagaatgagattgagggt
+            aagaatgaagaaactcctcaaaacgaaaaacctccagcatatgccctattaggtagttgt
+            caaactgatggcatgggactcgttagttggtgggaatga
+///

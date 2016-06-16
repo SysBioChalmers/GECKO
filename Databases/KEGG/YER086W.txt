@@ -1,0 +1,65 @@
+ENTRY       YER086W           CDS       T00005
+NAME        ILV1, ISO1
+DEFINITION  threonine ammonia-lyase ILV1 (EC:4.3.1.19)
+ORTHOLOGY   K01754  threonine dehydratase [EC:4.3.1.19]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00260  Glycine, serine and threonine metabolism
+            sce00290  Valine, leucine and isoleucine biosynthesis
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01200  Carbon metabolism
+            sce01230  Biosynthesis of amino acids
+MODULE      sce_M00570  Isoleucine biosynthesis, threonine => 2-oxobutanoate => isoleucine
+CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
+            Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
+            Metabolism; Amino acid metabolism; Glycine, serine and threonine metabolism [PATH:sce00260]
+            Metabolism; Amino acid metabolism; Valine, leucine and isoleucine biosynthesis [PATH:sce00290]
+POSITION    V:328477..330207
+MOTIF       Pfam: PALP Thr_dehydrat_C
+DBLINKS     NCBI-GI: 6320930
+            NCBI-GeneID: 856819
+            SGD: S000000888
+            MIPS: YER086W
+            UniProt: P00927
+AASEQ       576
+            MSATLLKQPLCTVVRQGKQSKVSGLNLLRLKAHLHRQHLSPSLIKLHSELKLDELQTDNT
+            PDYVRLVLRSSVYDVINESPISQGVGLSSRLNTNVILKREDLLPVFSFKLRGAYNMIAKL
+            DDSQRNQGVIACSAGNHAQGVAFAAKHLKIPATIVMPVCTPSIKYQNVSRLGSQVVLYGN
+            DFDEAKAECAKLAEERGLTNIPPFDHPYVIAGQGTVAMEILRQVRTANKIGAVFVPVGGG
+            GLIAGIGAYLKRVAPHIKIIGVETYDAATLHNSLQRNQRTPLPVVGTFADGTSVRMIGEE
+            TFRVAQQVVDEVVLVNTDEICAAVKDIFEDTRSIVEPSGALSVAGMKKYISTVHPEIDHT
+            KNTYVPILSGANMNFDRLRFVSERAVLGEGKEVFMLVTLPDVPGAFKKMQKIIHPRSVTE
+            FSYRYNEHRHESSSEVPKAYIYTSFSVVDREKEIKQVMQQLNALGFEAVDISDNELAKSH
+            GRYLVGGASKVPNERIISFEFPERPGALTRFLGGLSDSWNLTLFHYRNHGADIGKVLAGI
+            SVPPRENLTFQKFLEDLGYTYHDETDNTVYQKFLKY
+NTSEQ       1731
+            atgtcagctactctactaaagcaaccattatgtacggttgttcggcaaggtaaacagtcc
+            aaagtgtctggattgaaccttttgagactaaaggctcatttgcacagacaacacctgtca
+            ccttccttgataaaactacactctgaattgaaattggatgagctgcaaactgataacacc
+            cctgattacgtccgtttagttttaaggtcctctgtatacgatgttattaatgaatctcca
+            atctctcaaggtgtaggtttgtcttcccgtctaaacacgaatgtcatcttgaaaagagaa
+            gatctattgcctgttttctctttcaagcttcgtggtgcctataacatgattgccaagttg
+            gacgattctcaaagaaaccagggtgttattgcctgttcagctgggaatcatgcccaaggt
+            gtggcctttgctgctaaacacttgaaaatacctgctactatcgttatgcctgtttgtaca
+            ccatctattaagtatcaaaatgtctcgagattagggtctcaagtcgtcctatatggtaac
+            gattttgacgaggctaaggctgaatgtgccaaattggctgaagagcgtggcttgacgaac
+            attcctcctttcgatcatccttatgtcattgccggtcaaggtactgtagctatggaaatc
+            ctaagacaagtacgtaccgctaataagatcggtgctgtctttgttcccgtcggcggtggt
+            ggtttaattgctggtattggtgcttatttgaaaagggttgctcctcatatcaaaatcatt
+            ggtgttgaaacttacgatgcggccactttacataattccttgcaacgcaaccagagaact
+            cctttacctgtggtgggtacttttgccgatggtacgtctgtgcgtatgattggtgaagaa
+            acatttagagtcgcccaacaagtggttgatgaagttgttcttgttaacactgacgaaatc
+            tgtgctgcagtaaaggatatttttgaagatactagaagtattgtagaaccatctggtgcc
+            ctttcagtagccggtatgaagaaatacatctctaccgtacatccagaaattgaccacact
+            aaaaacacctatgttcccatcctttctggtgctaacatgaactttgatagattaagattt
+            gtttccgaacgtgctgttcttggtgaaggaaaggaagtcttcatgttagttactttaccc
+            gacgtccctggtgcgttcaagaaaatgcaaaagatcatccacccaagatctgtcactgaa
+            ttctcttaccgttacaatgaacatcgtcatgagtcctctagtgaagtgcccaaggcttac
+            atttacacttctttcagcgtcgttgacagagaaaaggaaatcaagcaagttatgcaacag
+            ttgaatgctttaggttttgaagctgtggatatctccgataacgaattggctaaatctcat
+            ggtagatacttggttggtggtgcttctaaggttcctaatgaaagaattatttcatttgaa
+            ttccctgaaagaccaggtgccttgactaggttccttggaggcctaagcgattcttggaat
+            cttactttattccattatagaaaccatggtgccgatatcggtaaggttttagctggtatt
+            tccgttcctccaagggaaaacttaaccttccaaaaattcttggaagatttaggctacact
+            tatcatgatgaaactgataacactgtttatcaaaaattcttgaaatattaa
+///

@@ -1,0 +1,37 @@
+ENTRY       YPL078C           CDS       T00005
+NAME        ATP4, LPF7
+DEFINITION  F1F0 ATP synthase subunit 4 (EC:3.6.3.14)
+ORTHOLOGY   K02127  F-type H+-transporting ATPase subunit b [EC:3.6.3.14]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00190  Oxidative phosphorylation
+            sce01100  Metabolic pathways
+MODULE      sce_M00158  F-type ATPase, eukaryotes
+CLASS       Metabolism; Energy metabolism; Oxidative phosphorylation [PATH:sce00190]
+POSITION    XVI:complement(408010..408744)
+MOTIF       Pfam: Mt_ATP-synt_B SRX
+DBLINKS     NCBI-GI: 6325179
+            NCBI-GeneID: 856027
+            SGD: S000005999
+            MIPS: YPL078C
+            UniProt: P05626
+AASEQ       244
+            MSMSMGVRGLALRSVSKTLFSQGVRCPSMVIGARYMSSTPEKQTDPKAKANSIINAIPGN
+            NILTKTGVLGTSAAAVIYAISNELYVINDESILLLTFLGFTGLVAKYLAPAYKDFADARM
+            KKVSDVLNASRNKHVEAVKDRIDSVSQLQNVAETTKVLFDVSKETVELESEAFELKQKVE
+            LAHEAKAVLDSWVRYEASLRQLEQRQLAKSVISRVQSELGNPKFQEKVLQQSISEIEQLL
+            SKLK
+NTSEQ       735
+            atgagcatgagtatgggtgtccgtggcctagcgttaaggtccgtttctaaaacattattt
+            agccaaggtgttcgttgtccttcgatggtgattggagcccgttatatgtcttccactcca
+            gaaaaacagacagatccaaaagcaaaggctaactctatcatcaatgccattccaggtaat
+            aatattttgacaaagacgggggttttggggacttctgctgccgctgtcatttatgccatt
+            tccaatgaattgtacgttatcaacgatgaaagtattttattgctgacttttttgggtttc
+            actggtttagtggcaaagtatttggcgccagcatataaagattttgccgatgcaagaatg
+            aagaaagtctccgacgttttaaatgcctcgagaaacaagcatgtcgaagctgttaaagat
+            agaatcgactctgtctctcaactacaaaatgttgctgaaactacaaaggttttgtttgat
+            gtttccaaggaaactgttgaacttgaaagcgaagcctttgaattgaaacaaaaggtagaa
+            ttagctcacgaagcaaaggcagtcttagattcgtgggttagatatgaagcttccttgcgt
+            caattggaacaaaggcaactagcaaaatctgtcatctccagagttcagtcagaattgggt
+            aatccaaaattccaagagaaagttttgcaacagtctatatctgaaattgaacaattgctt
+            tctaaattgaagtaa
+///

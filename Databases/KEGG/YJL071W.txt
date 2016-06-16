@@ -1,0 +1,63 @@
+ENTRY       YJL071W           CDS       T00005
+NAME        ARG2, HRB574
+DEFINITION  acetyl-CoA:L-glutamate N-acetyltransferase (EC:2.3.1.1)
+ORTHOLOGY   K00618  amino-acid N-acetyltransferase [EC:2.3.1.1]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00330  Arginine and proline metabolism
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01210  2-Oxocarboxylic acid metabolism
+            sce01230  Biosynthesis of amino acids
+MODULE      sce_M00028  Ornithine biosynthesis, glutamate => ornithine
+CLASS       Metabolism; Overview; 2-Oxocarboxylic acid metabolism [PATH:sce01210]
+            Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
+            Metabolism; Amino acid metabolism; Arginine and proline metabolism [PATH:sce00330]
+POSITION    X:306132..307856
+MOTIF       Pfam: DUF619
+DBLINKS     NCBI-GI: 6322390
+            NCBI-GeneID: 853374
+            SGD: S000003607
+            MIPS: YJL071W
+            UniProt: P40360
+AASEQ       574
+            MWRRIFAHELKYDQPNASSKNLILSVLNTTATKREAKDYLSKYTNDSGQHNHCLFFIRDL
+            HKVAPAILSQFSSVIKRLGMLGLRPMFVIPPSPTHVNIQAELLDSIVTEADLKPLHLKEG
+            LTKSRTGLYHSVFSQESRFFDIGNSNFIPIVKPYVYNEETASEFMTKDVVKFMDCLCQGN
+            IPHIDKFFILNNAGGIPSGERNDNAHVFINLSQELEHLSSSLSHNISTLTKREPRSQNLL
+            HRMEVYVKKDEISSLECEYHDHLENLLLMDKVLSNLAATATGLITTVKAAALSSDRKNPL
+            VYNLLTDRSLISSSLPRFKKKDGEIDSPANMFDDHAWYELPSQQVNAAPSNSDAVLVTTV
+            LKKGVHIKTYDYKTLTQFNSIGLPKKFHVPEKGAKPSSNSPKLDINKFKSIIDQSFKRSL
+            DLHDYIKRINGKIATIIVIGDYEGIAILTYEGSEENSFVYLDKFAVLPHLKGSLGISDII
+            FNLMFKKFPNEILWRSRKDNVVNKWYFQRSVAVLDLSIDLDPEHCDEKQSQFKLFYYGNP
+            QYAKRALRDKKRLREFMRSVRDIKPSWENEKNIS
+NTSEQ       1725
+            atgtggaggagaatattcgcgcatgaactcaagtatgatcaacccaatgcatcttcaaaa
+            aacttgatcctttcagttctgaatacaaccgctacaaaacgagaggctaaggattatctc
+            tcaaaatatacaaatgatagtgggcagcataatcattgtttgttttttatcagggacctg
+            cataaagtcgcaccagcgattttgtcccagttttcaagtgtcataaagagactaggaatg
+            ctaggtttgcgacctatgtttgtaattccgccgtcgccaactcatgtaaatatacaggca
+            gagttacttgacagtatcgttacagaagcagatttaaagccacttcaccttaaggagggt
+            cttactaaatcccgcactgggttatatcattctgttttttcgcaagagagtcgtttcttt
+            gatattggaaattccaattttataccaattgtgaaaccttatgtgtataatgaagagact
+            gcttcagaattcatgacaaaggatgttgtaaaatttatggattgcctgtgccaagggaat
+            attccacacattgacaaattcttcattctaaataatgccggaggtataccttcgggagag
+            agaaatgataacgctcatgtattcatcaatctttctcaggaactcgagcatttgtcctcg
+            tcattatctcacaatataagcactctaaccaaacgagagccacgctcccaaaacctgtta
+            cacagaatggaggtgtacgttaaaaaagatgagatatcttccttagaatgtgaataccat
+            gatcatttagaaaacctgttattgatggacaaagttttatcaaatctagcggctacagca
+            acgggactgattacaactgtcaaagctgccgcactatcatcagataggaaaaatccttta
+            gtatataatttattgacagaccgatcgctaatttcttcttctttaccaaggtttaaaaaa
+            aaggacggcgagatagactcaccagccaacatgtttgatgatcacgcatggtatgaattg
+            ccttcccaacaggtaaatgcagctccttctaactcagatgcagttttagtgacaactgtt
+            ctcaaaaagggcgtccatatcaaaacttatgactataagacgctgactcaattcaactca
+            attgggcttccaaagaagtttcacgtacctgagaaaggagcaaaaccctcgagcaatagt
+            ccaaaactagatatcaacaaatttaaatccatcatcgatcagagctttaaaagatctttg
+            gatttgcatgactacataaaaaggattaatggaaaaatagctacaattattgtgataggt
+            gattatgaaggcattgcaattcttacctatgaaggctcggaggaaaattcctttgtttat
+            ctcgataagttcgccgttctaccacacttgaaaggctcgctgggtatatctgatataatc
+            ttcaatttgatgttcaaaaaatttcctaatgagatactttggagaagcagaaaagacaat
+            gtggtgaacaagtggtattttcaacgtagcgttgctgtgctagatttgtcgattgactta
+            gaccccgaacactgtgatgaaaagcaaagccaatttaaactattttactacggtaaccct
+            caatacgctaagagggcactacgtgacaagaaacgtttaagagaattcatgaggtctgtc
+            agggacatcaagccaagttgggaaaatgaaaaaaatatttcatga
+///

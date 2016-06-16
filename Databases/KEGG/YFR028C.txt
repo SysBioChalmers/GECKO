@@ -1,0 +1,57 @@
+ENTRY       YFR028C           CDS       T00005
+NAME        CDC14, OAF3
+DEFINITION  Cdc14p (EC:3.1.3.48)
+ORTHOLOGY   K06639  cell division cycle 14 [EC:3.1.3.48]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04111  Cell cycle - yeast
+            sce04113  Meiosis - yeast
+CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
+            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+POSITION    VI:complement(208413..210068)
+MOTIF       Pfam: DSPn DSPc Y_phosphatase CDKN3 PTPlike_phytase Y_phosphatase3
+DBLINKS     NCBI-GI: 398364341
+            NCBI-GeneID: 850585
+            SGD: S000001924
+            MIPS: YFR028C
+            UniProt: Q00684
+AASEQ       551
+            MRRSVYLDNTIEFLRGRVYLGAYDYTPEDTDELVFFTVEDAIFYNSFHLDFGPMNIGHLY
+            RFAVIFHEILNDPENANKAVVFYSSASTRQRANAACMLCCYMILVQAWTPHQVLQPLAQV
+            DPPFMPFRDAGYSNADFEITIQDVVYGVWRAKEKGLIDLHSFNLESYEKYEHVEFGDFNV
+            LTPDFIAFASPQEDHPKGYLATKSSHLNQPFKSVLNFFANNNVQLVVRLNSHLYNKKHFE
+            DIGIQHLDLIFEDGTCPDLSIVKNFVGAAETIIKRGGKIAVHCKAGLGRTGCLIGAHLIY
+            TYGFTANECIGFLRFIRPGMVVGPQQHWLYLHQNDFREWKYTTRISLKPSEAIGGLYPLI
+            SLEEYRLQKKKLKDDKRVAQNNIEGELRDLTMTPPSNGHGALSARNSSQPSTANNGSNSF
+            KSSAVPQTSPGQPRKGQNGSNTIEDINNNRNPTSHANRKVVIESNNSDDESMQDTNGTSN
+            HYPKVSRKKNDISSASSSRMEDNEPSATNINNAADDTILRQLLPKNRRVTSGRRTTSAAG
+            GIRKISGSIKK
+NTSEQ       1656
+            atgcgtaggagtgtatacctcgacaacacgatcgagttcctgcgaggcagagtatatctc
+            ggtgcatatgattacacgccggaagatactgatgagctggtgttttttaccgtggaggac
+            gcaatcttttacaacagtttccatttggatttcggtcccatgaacattggacatctatat
+            cgttttgccgttattttccatgaaatcttgaatgacccagaaaatgccaataaagccgtt
+            gttttctattcatctgcatcgaccagacaacgtgctaacgccgcatgtatgctttgctgt
+            tatatgatcctcgttcaggcatggactccgcatcaagtgcttcagccgttggcgcaagta
+            gaccctcccttcatgccatttagagatgccggttattctaatgcggatttcgaaatcaca
+            attcaagatgtggtttatggcgtttggagggctaaggaaaaaggccttattgatttgcat
+            tccttcaatttggagagttacgagaaatacgaacacgtggagtttggagacttcaatgta
+            ctcaccccagattttattgcatttgcgtcaccacaagaggaccatccaaagggctatctc
+            gctaccaaatcttcacatttgaaccagccgtttaagtcagttctgaattttttcgccaac
+            aataacgtccaattagtggtaaggttgaattctcatttatataataaaaagcattttgaa
+            gacattggcattcaacatttggatctaattttcgaagatggtacatgtcctgatctttcc
+            attgtaaaaaactttgttggtgctgctgaaacgataattaaaaggggaggtaaaattgct
+            gtgcactgtaaggctgggctaggtagaactggttgtttaattggtgctcacttaatatac
+            acgtatggatttaccgctaacgagtgtattggcttcttaaggtttataaggccgggaatg
+            gtcgttggccctcaacagcattggttatatttacaccagaatgattttagagaatggaag
+            tacacaaccagaatttctttgaagcctagtgaggccattggcggcttatatcccttaata
+            agtttagaagaataccgcttacaaaaaaagaaacttaaagacgacaagagggttgcgcaa
+            aataacattgaaggtgaattaagagatttaaccatgacgccgccatccaacggtcatggg
+            gcgcttagtgccagaaattcgagccaaccttctacggcgaataatggaagtaattcattc
+            aagagctcagccgtcccacagacttcgcctggtcagccgagaaagggccaaaacggttct
+            aatactatagaagatatcaacaataatcgtaatccaacttcccatgcgaataggaaggta
+            gtaatagaaagcaacaactcagatgacgaatccatgcaggataccaacggcacaagtaat
+            cattatcccaaagtttcgcgcaagaaaaatgatatctcctctgcttcatcgtcccgaatg
+            gaagataacgaacccagcgcaacgaacatcaataatgccgcagatgataccatactaaga
+            caactattgcccaagaataggagagtaacgtcagggagaaggactacaagcgccgccggt
+            ggtataagaaaaataagtggctccatcaagaaataa
+///

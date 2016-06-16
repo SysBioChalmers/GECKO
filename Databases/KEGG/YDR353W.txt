@@ -1,0 +1,42 @@
+ENTRY       YDR353W           CDS       T00005
+NAME        TRR1
+DEFINITION  thioredoxin-disulfide reductase TRR1 (EC:1.8.1.9)
+ORTHOLOGY   K00384  thioredoxin reductase (NADPH) [EC:1.8.1.9]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00240  Pyrimidine metabolism
+            sce00450  Selenocompound metabolism
+CLASS       Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
+            Metabolism; Metabolism of other amino acids; Selenocompound metabolism [PATH:sce00450]
+POSITION    IV:1183299..1184258
+MOTIF       Pfam: Pyr_redox_2 Pyr_redox Pyr_redox_3 GIDA FAD_binding_2 Shikimate_DH Thi4 NAD_binding_7 NAD_binding_8
+DBLINKS     NCBI-GI: 6320560
+            NCBI-GeneID: 851955
+            SGD: S000002761
+            MIPS: YDR353W
+            UniProt: P29509
+STRUCTURE   PDB: 3ITJ 3D8X
+AASEQ       319
+            MVHNKVTIIGSGPAAHTAAIYLARAEIKPILYEGMMANGIAAGGQLTTTTEIENFPGFPD
+            GLTGSELMDRMREQSTKFGTEIITETVSKVDLSSKPFKLWTEFNEDAEPVTTDAIILATG
+            ASAKRMHLPGEETYWQKGISACAVCDGAVPIFRNKPLAVIGGGDSACEEAQFLTKYGSKV
+            FMLVRKDHLRASTIMQKRAEKNEKIEILYNTVALEAKGDGKLLNALRIKNTKKNEETDLP
+            VSGLFYAIGHTPATKIVAGQVDTDEAGYIKTVPGSSLTSVPGFFAAGDVQDSKYRQAITS
+            AGSGCMAALDAEKYLTSLE
+NTSEQ       960
+            atggttcacaacaaagttactatcattggttcaggtccagctgcacacaccgccgccatc
+            tatttggccagggcagaaatcaagccaatcctatatgaaggtatgatggcgaacggtatt
+            gctgccggtggccagctaaccaccactacagaaatcgaaaacttcccaggtttcccagat
+            ggtctaacaggtagcgaactgatggacagaatgagagaacaatccacgaagtttggcact
+            gaaattatcacggaaacagtttccaaagttgatctgtcttccaaaccattcaagctatgg
+            accgaatttaacgaagacgcagaacctgtgacgactgacgctataatcttggccacaggc
+            gcttctgctaagagaatgcatttgccgggcgaggaaacctactggcaaaaaggtatttct
+            gcctgtgccgtgtgtgatggtgccgtccccattttcagaaacaagccattggccgtcatt
+            ggtggtggtgactctgcatgtgaagaagctcagttcttgaccaagtacggctcaaaagtg
+            tttatgcttgtcagaaaagaccatttgcgtgcttctaccattatgcaaaagcgtgctgag
+            aagaacgaaaaaattgaaatcctttacaacactgttgcgctagaagctaagggggatggt
+            aaattattgaatgccttgaggattaagaacactaaaaagaatgaagaaaccgatttgcca
+            gtcagcggtttattttatgcaattggccacactccagcaacaaagattgtcgctggccaa
+            gtcgacactgatgaagcgggctacattaaaactgtcccaggcagctcattaacctccgtt
+            ccaggatttttcgctgctggtgatgttcaggattctaaatacagacaagctattacttct
+            gctggctctggttgtatggccgctttggatgctgagaaatacttaacttccctagaatag
+///

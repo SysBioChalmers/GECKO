@@ -1,0 +1,51 @@
+ENTRY       YDR300C           CDS       T00005
+NAME        PRO1
+DEFINITION  glutamate 5-kinase (EC:2.7.2.11)
+ORTHOLOGY   K00931  glutamate 5-kinase [EC:2.7.2.11]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00330  Arginine and proline metabolism
+            sce01100  Metabolic pathways
+            sce01230  Biosynthesis of amino acids
+MODULE      sce_M00015  Proline biosynthesis, glutamate => proline
+CLASS       Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
+            Metabolism; Amino acid metabolism; Arginine and proline metabolism [PATH:sce00330]
+POSITION    IV:complement(1061505..1062791)
+MOTIF       Pfam: AA_kinase PUA
+DBLINKS     NCBI-GI: 398366455
+            NCBI-GeneID: 851894
+            SGD: S000002708
+            MIPS: YDR300C
+            UniProt: P32264
+AASEQ       428
+            MKDANESKSYTIVIKLGSSSLVDEKTKEPKLAIMSLIVETVVKLRRMGHKVIIVSSGGIA
+            VGLRTMRMNKRPKHLAEVQAIAAIGQGRLIGRWDLLFSQFDQRIAQILLTRNDILDWTQY
+            KNAQNTINELLNMGVIPIVNENDTLSVREIKFGDNDTLSAITSALIHADYLFLLTDVDCL
+            YTDNPRTNPDAMPILVVPDLSKGLPGVNTAGGSGSDVGTGGMETKLVAADLATNAGVHTL
+            IMKSDTPANIGRIVEYMQTLELDDENKVKQAYNGDLTDLQKREFEKLKALNVPLHTKFIA
+            NDNKHHLKNREFWILHGLVSKGAVVIDQGAYAALTRKNKAGLLPAGVIDVQGTFHELECV
+            DIKVGKKLPDGTLDPDFPLQTVGKARCNYTSSELTKIKGLHSDQIEEELGYNDSEYVAHR
+            ENLAFPPR
+NTSEQ       1287
+            atgaaggatgctaatgagagtaaatcgtatactatagtgatcaaattaggctcttcatcg
+            ctagtagatgaaaaaaccaaagaacctaagttagctatcatgtcgcttattgtcgaaact
+            gtagtcaaattgagaagaatgggacacaaagttatcatcgtgtccagtggtggtattgct
+            gttggtttgaggactatgcgtatgaataaaagaccaaaacatttagcagaagttcaggcc
+            atcgcagctattgggcagggtagattgatcgggagatgggatcttctgttttcgcaattt
+            gatcaacgtatcgctcaaattctattgaccagaaatgatattctggactggacccaatat
+            aagaacgctcaaaacacaattaatgaattgttgaacatgggcgttattcccattgtgaat
+            gaaaacgacacactatctgttagagaaatcaaatttggtgacaatgacactttatcagca
+            attacttctgctttaatccatgcagattatcttttcttactgacagatgttgactgtttg
+            tatactgataatccaaggacaaacccagatgccatgccgatcttagttgtcccagatctc
+            tcaaagggtttgcccggtgtgaatactgctggtggttcaggttctgacgttgggaccggt
+            ggtatggaaactaaattggttgctgcagatttggcaacgaatgccggtgttcatacgttg
+            atcatgaaaagcgatacacctgcgaatataggtagaattgtcgagtatatgcaaactcta
+            gaacttgacgatgaaaataaagttaaacaagcatataatggcgatttaacggatttgcaa
+            aaaagagaatttgagaaattaaaggctcttaacgttccactacatacgaagttcattgct
+            aatgataataaacaccatctaaagaatagagagttttggattttacacggtcttgtctct
+            aaaggcgctgttgttatagaccaaggtgcgtacgcagccttaacaaggaaaaataaggcg
+            ggattattgccagcaggtgttattgatgttcagggcactttccatgagttagaatgtgtt
+            gacataaaagttggtaaaaagttaccagatggcacgttagatccagattttcccttgcaa
+            acagtaggcaaggcaagatgcaattacacgagttctgaattaactaaaattaaaggtttg
+            cacagtgaccaaatcgaagaggaattgggctataatgacagcgaatatgtcgctcataga
+            gaaaatttggcattcccacctcgttga
+///

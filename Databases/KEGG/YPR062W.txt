@@ -1,0 +1,32 @@
+ENTRY       YPR062W           CDS       T00005
+NAME        FCY1
+DEFINITION  cytosine deaminase (EC:3.5.4.1)
+ORTHOLOGY   K01485  cytosine deaminase [EC:3.5.4.1]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00240  Pyrimidine metabolism
+            sce00330  Arginine and proline metabolism
+            sce01100  Metabolic pathways
+CLASS       Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
+            Metabolism; Amino acid metabolism; Arginine and proline metabolism [PATH:sce00330]
+POSITION    XVI:677165..677641
+MOTIF       Pfam: dCMP_cyt_deam_1 Bd3614-deam XOO_2897-deam
+DBLINKS     NCBI-GI: 6325319
+            NCBI-GeneID: 856175
+            SGD: S000006266
+            MIPS: YPR062W
+            UniProt: Q12178
+STRUCTURE   PDB: 1P6O 1OX7 1UAQ 1YSB 1YSD 1RB7 2O3K
+AASEQ       158
+            MVTGGMASKWDQKGMDIAYEEAALGYKEGGVPIGGCLINNKDGSVLGRGHNMRFQKGSAT
+            LHGEISTLENCGRLEGKVYKDTTLYTTLSPCDMCTGAIIMYGIPRCVVGENVNFKSKGEK
+            YLQTRGHEVVVVDDERCKKIMKQFIDERPQDWFEDIGE
+NTSEQ       477
+            atggtgacagggggaatggcaagcaagtgggatcagaagggtatggacattgcctatgag
+            gaggcggccttaggttacaaagagggtggtgttcctattggcggatgtcttatcaataac
+            aaagacggaagtgttctcggtcgtggtcacaacatgagatttcaaaagggatccgccaca
+            ctacatggtgagatctccactttggaaaactgtgggagattagagggcaaagtgtacaaa
+            gataccactttgtatacgacgctgtctccatgcgacatgtgtacaggtgccatcatcatg
+            tatggtattccacgctgtgttgtcggtgagaacgttaatttcaaaagtaagggcgagaaa
+            tatttacaaactagaggtcacgaggttgttgttgttgacgatgagaggtgtaaaaagatc
+            atgaaacaatttatcgatgaaagacctcaggattggtttgaagatattggtgagtag
+///

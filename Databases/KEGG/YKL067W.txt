@@ -1,0 +1,36 @@
+ENTRY       YKL067W           CDS       T00005
+NAME        YNK1, NDK1
+DEFINITION  nucleoside diphosphate kinase (EC:2.7.4.6)
+ORTHOLOGY   K00940  nucleoside-diphosphate kinase [EC:2.7.4.6]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00230  Purine metabolism
+            sce00240  Pyrimidine metabolism
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+MODULE      sce_M00049  Adenine ribonucleotide biosynthesis, IMP => ADP,ATP
+            sce_M00050  Guanine ribonucleotide biosynthesis IMP => GDP,GTP
+            sce_M00052  Pyrimidine ribonucleotide biosynthesis, UMP => UDP/UTP,CDP/CTP
+CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
+            Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
+POSITION    XI:314812..315273
+MOTIF       Pfam: NDK
+DBLINKS     NCBI-GI: 6322783
+            NCBI-GeneID: 853798
+            SGD: S000001550
+            MIPS: YKL067W
+            UniProt: P36010
+STRUCTURE   PDB: 3B54
+AASEQ       153
+            MSSQTERTFIAVKPDGVQRGLVSQILSRFEKKGYKLVAIKLVKADDKLLEQHYAEHVGKP
+            FFPKMVSFMKSGPILATVWEGKDVVRQGRTILGATNPLGSAPGTIRGDFGIDLGRNVCHG
+            SDSVDSAEREINLWFKKEELVDWESNQAKWIYE
+NTSEQ       462
+            atgtctagtcaaacagaaagaacttttattgcggtaaaaccagatggtgtccagaggggc
+            ttagtatctcaaattctatctcgttttgaaaaaaaaggttacaaactagttgctattaaa
+            ttagttaaagcggatgataaattactagagcaacattacgcagagcatgttggtaaacca
+            tttttcccaaagatggtatcctttatgaagtctggtcccattttggccacggtctgggag
+            ggaaaagatgtggttagacaaggaagaactattcttggtgctactaatcctttgggcagt
+            gcaccaggtaccattagaggtgatttcggtattgacctaggcagaaacgtctgtcacggc
+            agtgattctgttgatagcgctgaacgtgaaatcaatttgtggtttaagaaggaagagtta
+            gttgattgggaatctaatcaagctaagtggatttatgaatga
+///

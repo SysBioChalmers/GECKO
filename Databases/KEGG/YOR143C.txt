@@ -1,0 +1,41 @@
+ENTRY       YOR143C           CDS       T00005
+NAME        THI80
+DEFINITION  thiamine diphosphokinase (EC:2.7.6.2)
+ORTHOLOGY   K00949  thiamine pyrophosphokinase [EC:2.7.6.2]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00730  Thiamine metabolism
+            sce01100  Metabolic pathways
+CLASS       Metabolism; Metabolism of cofactors and vitamins; Thiamine metabolism [PATH:sce00730]
+POSITION    XV:complement(601383..602342)
+MOTIF       Pfam: TPK_catalytic TPK_B1_binding
+DBLINKS     NCBI-GI: 6324717
+            NCBI-GeneID: 854314
+            SGD: S000005669
+            MIPS: YOR143C
+            UniProt: P35202
+STRUCTURE   PDB: 1IG0
+AASEQ       319
+            MSEECIENPERIKIGTDLINIRNKMNLKELIHPNEDENSTLLILNQKIDIPRPLFYKIWK
+            LHDLKVCADGAANRLYDYLDDDETLRIKYLPNYIIGDLDSLSEKVYKYYRKNKVTIIKQT
+            TQYSTDFTKCVNLISLHFNSPEFRSLISNKDNLQSNHGIELEKGIHTLYNTMTESLVFSK
+            VTPISLLALGGIGGRFDQTVHSITQLYTLSENASYFKLCYMTPTDLIFLIKKNGTLIEYD
+            PQFRNTCIGNCGLLPIGEATLVKETRGLKWDVKNWPTSVVTGRVSSSNRFVGDNCCFIDT
+            KDDIILNVEIFVDKLIDFL
+NTSEQ       960
+            atgagcgaggagtgtattgaaaatcctgaacgtattaaaattggtactgatttaatcaac
+            atccgaaataaaatgaacttaaaagaactaatccatccaaacgaggatgaaaactctacc
+            ctactcatacttaatcaaaaaattgacattcctagaccgttgttttacaaaatttggaag
+            ctgcatgacttgaaggtctgtgcagatggtgcagccaatagattatatgactacctagat
+            gatgacgaaaccctaaggataaaatatcttcccaattatattattggcgatctggattca
+            ctatcagaaaaggtttacaagtattataggaaaaacaaagtaactataataaaacaaact
+            acacaatattcgactgatttcacgaagtgcgttaatttgatctctctacacttcaattca
+            ccagaatttcgttctttaatatcgaataaagacaatcttcagtcaaatcatggaattgaa
+            ctggaaaagggtattcacacattatacaatactatgaccgagtccttggttttctcgaaa
+            gtgactccaattagtctattagcactaggaggaattggtggtagatttgatcagacggtt
+            cactcaataacgcaattgtataccttatccgagaatgcaagctatttcaagctttgttac
+            atgactccaacagacttaatattcttaatcaaaaaaaatggaactttgattgagtatgat
+            ccccaatttaggaacacttgtataggaaattgtgggttgttgcctattggagaggctact
+            ttggttaaggaaacccgtggtttaaagtgggatgttaaaaactggccaactagcgtggtc
+            accggaagagtcagcagtagtaacagatttgttggggataattgttgtttcattgatacc
+            aaagatgacatcattttgaatgtagaaatattcgttgataaattaatagattttttgtaa
+///

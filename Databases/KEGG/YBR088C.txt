@@ -1,0 +1,43 @@
+ENTRY       YBR088C           CDS       T00005
+NAME        POL30
+DEFINITION  Pol30p
+ORTHOLOGY   K04802  proliferating cell nuclear antigen
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03030  DNA replication
+            sce03410  Base excision repair
+            sce03420  Nucleotide excision repair
+            sce03430  Mismatch repair
+CLASS       Genetic Information Processing; Replication and repair; DNA replication [PATH:sce03030]
+            Genetic Information Processing; Replication and repair; Base excision repair [PATH:sce03410]
+            Genetic Information Processing; Replication and repair; Nucleotide excision repair [PATH:sce03420]
+            Genetic Information Processing; Replication and repair; Mismatch repair [PATH:sce03430]
+POSITION    II:complement(424990..425766)
+MOTIF       Pfam: PCNA_C PCNA_N Rad1 Rad9
+DBLINKS     NCBI-GI: 6319564
+            NCBI-GeneID: 852385
+            SGD: S000000292
+            MIPS: YBR088C
+            UniProt: P15873
+STRUCTURE   PDB: 1PLQ 3GPN 3V60 3V61 3PGE 3L0W 3L10 2OD8 1SXJ 3V62 3F1W
+                 3K4X 4L60 3L0X 1PLR 3GPM
+AASEQ       258
+            MLEAKFEEASLFKRIIDGFKDCVQLVNFQCKEDGIIAQAVDDSRVLLVSLEIGVEAFQEY
+            RCDHPVTLGMDLTSLSKILRCGNNTDTLTLIADNTPDSIILLFEDTKKDRIAEYSLKLMD
+            IDADFLKIEELQYDSTLSLPSSEFSKIVRDLSQLSDSINIMITKETIKFVADGDIGSGSV
+            IIKPFVDMEHPETSIKLEMDQPVDLTFGAKYLLDIIKGSSLSDRVGIRLSSEAPALFQFD
+            LKSGFLQFFLAPKFNDEE
+NTSEQ       777
+            atgttagaagcaaaatttgaagaagcatcccttttcaagagaataattgatggtttcaaa
+            gattgtgtccagttggtcaatttccaatgtaaagaagatggtatcattgcacaagctgtc
+            gatgactcaagagttctattggtctccttggaaataggtgtcgaagccttccaagaatat
+            agatgtgaccatcctgttacgttaggtatggatctaacctcactaagtaaaatcctacgt
+            tgtggtaacaacaccgatacattaacactaattgctgacaacacaccggattccatcatc
+            ttattatttgaggataccaagaaagaccgtatagccgaatactctctgaaattgatggat
+            atcgatgctgatttcttaaagattgaagaattacagtacgactccaccctgtcattgcca
+            tcttccgaattctctaaaattgttcgtgacttgtcccaattgagtgattctattaatatc
+            atgatcaccaaagaaacaataaagtttgtagctgacggtgatatcggatcaggttcagtc
+            ataataaaaccattcgtggatatggaacatcctgaaacaagcatcaaacttgaaatggat
+            caacctgtcgacttgacgttcggagctaaatatttattggacatcattaagggctcctcc
+            ctttctgatagagttggtatcaggctctccagcgaagctcctgctttattccaatttgat
+            ttgaagagtgggttcctacagtttttcttggctcctaaatttaatgacgaagaataa
+///

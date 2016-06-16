@@ -1,0 +1,91 @@
+ENTRY       YJL050W           CDS       T00005
+NAME        MTR4, DOB1
+DEFINITION  Mtr4p (EC:3.6.4.13)
+ORTHOLOGY   K12598  ATP-dependent RNA helicase DOB1 [EC:3.6.4.13]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03018  RNA degradation
+MODULE      sce_M00393  TRAMP complex
+CLASS       Genetic Information Processing; Folding, sorting and degradation; RNA degradation [PATH:sce03018]
+POSITION    X:342522..345743
+MOTIF       Pfam: rRNA_proc-arch DSHCT DEAD Helicase_C T2SE
+DBLINKS     NCBI-GI: 6322411
+            NCBI-GeneID: 853397
+            SGD: S000003586
+            MIPS: YJL050W
+            UniProt: P47047
+STRUCTURE   PDB: 2XGJ 3L9O
+AASEQ       1073
+            MDSTDLFDVFEETPVELPTDSNGEKNADTNVGDTPDHTQDKKHGLEEEKEEHEENNSENK
+            KIKSNKSKTEDKNKKVVVPVLADSFEQEASREVDASKGLTNSETLQVEQDGKVRLSHQVR
+            HQVALPPNYDYTPIAEHKRVNEARTYPFTLDPFQDTAISCIDRGESVLVSAHTSAGKTVV
+            AEYAIAQSLKNKQRVIYTSPIKALSNQKYRELLAEFGDVGLMTGDITINPDAGCLVMTTE
+            ILRSMLYRGSEVMREVAWVIFDEVHYMRDKERGVVWEETIILLPDKVRYVFLSATIPNAM
+            EFAEWICKIHSQPCHIVYTNFRPTPLQHYLFPAHGDGIYLVVDEKSTFREENFQKAMASI
+            SNQIGDDPNSTDSRGKKGQTYKGGSAKGDAKGDIYKIVKMIWKKKYNPVIVFSFSKRDCE
+            ELALKMSKLDFNSDDEKEALTKIFNNAIALLPETDRELPQIKHILPLLRRGIGIHHSGLL
+            PILKEVIEILFQEGFLKVLFATETFSIGLNMPAKTVVFTSVRKWDGQQFRWVSGGEYIQM
+            SGRAGRRGLDDRGIVIMMIDEKMEPQVAKGMVKGQADRLDSAFHLGYNMILNLMRVEGIS
+            PEFMLEHSFFQFQNVISVPVMEKKLAELKKDFDGIEVEDEENVKEYHEIEQAIKGYREDV
+            RQVVTHPANALSFLQPGRLVEISVNGKDNYGWGAVVDFAKRINKRNPSAVYTDHESYIVN
+            VVVNTMYIDSPVNLLKPFNPTLPEGIRPAEEGEKSICAVIPITLDSIKSIGNLRLYMPKD
+            IRASGQKETVGKSLREVNRRFPDGIPVLDPVKNMKIEDEDFLKLMKKIDVLNTKLSSNPL
+            TNSMRLEELYGKYSRKHDLHEDMKQLKRKISESQAVIQLDDLRRRKRVLRRLGFCTPNDI
+            IELKGRVACEISSGDELLLTELIFNGNFNELKPEQAAALLSCFAFQERCKEAPRLKPELA
+            EPLKAMREIAAKIAKIMKDSKIEVVEKDYVESFRHELMEVVYEWCRGATFTQICKMTDVY
+            EGSLIRMFKRLEELVKELVDVANTIGNSSLKEKMEAVLKLIHRDIVSAGSLYL
+NTSEQ       3222
+            atggattctactgatctgttcgatgttttcgaggaaacacctgttgagcttcctacagat
+            agtaatggagaaaaaaatgctgatacaaacgtaggagatactccagatcatacccaggat
+            aagaagcatggccttgaagaagaaaaagaagagcatgaggaaaacaacagtgaaaataaa
+            aaaatcaaatccaataagagcaaaacggaagataaaaacaaaaaagttgtagtaccagtg
+            ttggcagattcgttcgaacaagaagcctctagagaagtggatgcatcgaaaggactgaca
+            aattcagaaaccttacaagttgagcaagacggtaaagtcagattatcgcatcaggtccgc
+            caccaggttgcactaccaccgaactatgattatacgcctatcgctgagcataagagggta
+            aatgaggctcgtacatatccattcacattagaccctttccaggacactgcaatctcatgt
+            atagatagaggcgaatctgtgttggtttctgcgcacacatcggctggtaaaacagttgtg
+            gctgaatatgccatcgcacaatctttaaaaaataagcaaagagtcatttatacctctcca
+            attaaggctctatcaaaccaaaaatacagagaacttttagcagaatttggagatgtcggt
+            ttgatgactggtgatatcacgatcaatccggatgcaggctgtttggtcatgaccactgag
+            attttgagaagtatgttatatagaggcagtgaagttatgagagaagttgcctgggtcatc
+            tttgatgaagtgcattacatgagggataaagaaagaggtgttgtgtgggaagaaacgatt
+            attttactgccagataaggtccgttacgtgtttttatcggccaccattccaaatgcaatg
+            gagtttgctgaatggatatgcaaaattcattctcagccatgtcatattgtctacacaaat
+            ttccgtccaactcctttacaacattacctgtttccagcccatggagatggtatttatctg
+            gtggttgacgaaaaaagtaccttcagagaggaaaatttccaaaaagcaatggcgtccata
+            agtaaccagataggtgatgatccaaattccactgattcaagaggtaaaaagggtcaaacc
+            tataaaggtggctccgctaagggtgacgcaaaaggtgacatttataagatagtgaaaatg
+            atttggaagaaaaagtacaatccagtgattgtattttcgttcagtaaacgtgattgtgaa
+            gaattagcattgaagatgtctaaattagattttaattctgatgatgaaaaggaggctttg
+            acgaagatttttaacaatgccattgcactattaccagagacagacagagagctaccccaa
+            attaaacacattttaccattattaagaagaggtatcggtattcatcattccggtttactg
+            cccattttgaaggaagtcattgaaattctgtttcaagagggatttttgaaggtgttgttt
+            gcaacagaaacattttcgattggattaaacatgcctgctaaaactgttgtctttacatcg
+            gtcagaaagtgggatggtcaacaattccgctgggtttcaggtggagaatatatacaaatg
+            tctggtcgtgcaggtcgtcgtggtttagatgatcgtggtattgttattatgatgattgat
+            gaaaaaatggaacctcaagttgctaaaggaatggttaagggccaagcagataggctagac
+            tcggcttttcacttaggatataatatgattttgaacttaatgagagttgaaggtatctct
+            ccggagtttatgttggagcattctttcttccaatttcaaaacgttatttcagtaccagtt
+            atggaaaagaaacttgctgaactgaaaaaagactttgatggcatcgaagtcgaagatgaa
+            gaaaatgttaaagaataccatgagattgagcaggctatcaaaggttaccgtgaagatgtt
+            cgtcaagttgtcacccatccggcaaacgccttaagtttcctacaaccaggcagattagtt
+            gaaatctctgtcaatggtaaggataactatggctggggtgctgttgtcgattttgctaaa
+            agaattaacaaacgcaacccaagtgctgtctatacagaccatgaatcctatattgtcaat
+            gtggtcgtcaataccatgtatatagactctccagtcaacttgttgaaacctttcaaccct
+            accttaccagaagggattcgcccagcggaagaaggtgaaaaaagcatatgtgctgttatt
+            cccataactttggattcaatcaagtcgattggtaatttgagactatatatgcccaaagat
+            attagagccagcggtcaaaaagaaactgttgggaagtctttaagggaggttaatcggagg
+            ttcccggatggtattcccgtgctggatcctgttaaaaacatgaagatcgaagatgaggac
+            tttttaaagctaatgaagaagattgacgttttaaacacaaagttatcctccaatccctta
+            accaattccatgagactagaagaactatatggtaaatatagtagaaaacacgatttacat
+            gaagatatgaaacaattgaaacgcaaaatttcagaatcacaagccgtaatccaactggac
+            gatcttcgtcgccgtaaaagagttttgcgccgtttaggattttgtactcctaatgacatt
+            attgaactgaaaggtagagttgcatgtgaaatatctagtggtgatgaactgttactaaca
+            gaattgatcttcaatggtaatttcaatgagttgaaaccggaacaagcagcagcattatta
+            tcatgctttgcattccaagaacgctgtaaagaagcgcctagattgaaaccagagcttgcc
+            gaacctttgaaggctatgagagaaattgcagcaaagatcgctaagataatgaaggattct
+            aaaattgaagttgtagaaaaggactacgttgaaagcttcagacatgaactaatggaagtt
+            gtttacgaatggtgtagaggagctacttttacgcaaatctgtaaaatgaccgacgtttac
+            gaaggttcgttgatcagaatgttcaagagattagaggaattggtgaaggagctggtagac
+            gtcgccaataccattggtaactcttcacttaaggagaagatggaagctgtcttgaaatta
+            attcatagagatatcgtatctgctggttctttgtatttatag
+///

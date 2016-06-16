@@ -1,0 +1,27 @@
+ENTRY       YDR079C-A         CDS       T00005
+NAME        TFB5
+DEFINITION  Tfb5p
+ORTHOLOGY   K10845  TFIIH basal transcription factor complex TTD-A subunit
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03022  Basal transcription factors
+            sce03420  Nucleotide excision repair
+MODULE      sce_M00290  Holo-TFIIH complex
+CLASS       Genetic Information Processing; Transcription; Basal transcription factors [PATH:sce03022]
+            Genetic Information Processing; Replication and repair; Nucleotide excision repair [PATH:sce03420]
+POSITION    IV:complement(603593..603811)
+MOTIF       Pfam: Tbf5
+DBLINKS     NCBI-GI: 398365465
+            NCBI-GeneID: 851652
+            SGD: S000007603
+            MIPS: YDR079C-A
+            UniProt: Q3E7C1
+STRUCTURE   PDB: 3DGP 3DOM
+AASEQ       72
+            MARARKGALVQCDPSIKALILQIDAKMSDIVLEELDDTHLLVNPSKVEFVKHELNRLLSK
+            NIYNPMDEEENQ
+NTSEQ       219
+            atggctagagcaagaaagggtgcactggttcaatgtgatccatccatcaaggcgctcata
+            ttacaaattgacgccaagatgagtgatatagtactagaggagttggatgacacccatctt
+            ttagtaaatccctcgaaagtcgaatttgttaagcatgagctaaataggctattatctaag
+            aatatatataatcctatggatgaagaagaaaatcagtaa
+///

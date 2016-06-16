@@ -1,0 +1,38 @@
+ENTRY       YDR007W           CDS       T00005
+NAME        TRP1
+DEFINITION  phosphoribosylanthranilate isomerase TRP1 (EC:5.3.1.24)
+ORTHOLOGY   K01817  phosphoribosylanthranilate isomerase [EC:5.3.1.24]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00400  Phenylalanine, tyrosine and tryptophan biosynthesis
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01230  Biosynthesis of amino acids
+MODULE      sce_M00023  Tryptophan biosynthesis, chorismate => tryptophan
+CLASS       Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
+            Metabolism; Amino acid metabolism; Phenylalanine, tyrosine and tryptophan biosynthesis [PATH:sce00400]
+POSITION    IV:461842..462516
+MOTIF       Pfam: PRAI
+DBLINKS     NCBI-GI: 398364971
+            NCBI-GeneID: 851570
+            SGD: S000002414
+            MIPS: YDR007W
+            UniProt: P00912
+AASEQ       224
+            MSVINFTGSSGPLVKVCGLQSTEAAECALDSDADLLGIICVPNRKRTIDPVIARKISSLV
+            KAYKNSSGTPKYLVGVFRNQPKEDVLALVNDYGIDIVQLHGDESWQEYQEFLGLPVIKRL
+            VFPKDCNILLSAASQKPHSFIPLFDSEAGGTGELLDWNSISDWVGRQESPESLHFMLAGG
+            LTPENVGDALRLNGVIGVDVSGGVETNGVKDSNKIANFVKNAKK
+NTSEQ       675
+            atgtctgttattaatttcacaggtagttctggtccattggtgaaagtttgcggcttgcag
+            agcacagaggccgcagaatgtgctctagattccgatgctgacttgctgggtattatatgt
+            gtgcccaatagaaagagaacaattgacccggttattgcaaggaaaatttcaagtcttgta
+            aaagcatataaaaatagttcaggcactccgaaatacttggttggcgtgtttcgtaatcaa
+            cctaaggaggatgttttggctctggtcaatgattacggcattgatatcgtccaactgcat
+            ggagatgagtcgtggcaagaataccaagagttcctcggtttgccagttattaaaagactc
+            gtatttccaaaagactgcaacatactactcagtgcagcttcacagaaacctcattcgttt
+            attcccttgtttgattcagaagcaggtgggacaggtgaacttttggattggaactcgatt
+            tctgactgggttggaaggcaagagagccccgaaagcttacattttatgttagctggtgga
+            ctgacgccagaaaatgttggtgatgcgcttagattaaatggcgttattggtgttgatgta
+            agcggaggtgtggagacaaatggtgtaaaagactctaacaaaatagcaaatttcgtcaaa
+            aatgctaagaaatag
+///

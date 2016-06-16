@@ -1,0 +1,45 @@
+ENTRY       YPR069C           CDS       T00005
+NAME        SPE3
+DEFINITION  spermidine synthase (EC:2.5.1.16)
+ORTHOLOGY   K00797  spermidine synthase [EC:2.5.1.16]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00270  Cysteine and methionine metabolism
+            sce00330  Arginine and proline metabolism
+            sce00410  beta-Alanine metabolism
+            sce00480  Glutathione metabolism
+            sce01100  Metabolic pathways
+MODULE      sce_M00034  Methionine salvage pathway
+CLASS       Metabolism; Amino acid metabolism; Cysteine and methionine metabolism [PATH:sce00270]
+            Metabolism; Amino acid metabolism; Arginine and proline metabolism [PATH:sce00330]
+            Metabolism; Metabolism of other amino acids; beta-Alanine metabolism [PATH:sce00410]
+            Metabolism; Metabolism of other amino acids; Glutathione metabolism [PATH:sce00480]
+POSITION    XVI:complement(684556..685437)
+MOTIF       Pfam: Spermine_synth Methyltransf_31 Methyltransf_12 Methyltransf_18 Methyltransf_23 DUF226 Methyltransf_30
+DBLINKS     NCBI-GI: 6325326
+            NCBI-GeneID: 856182
+            SGD: S000006273
+            MIPS: YPR069C
+            UniProt: Q12074
+AASEQ       293
+            MAQEITHPTIVDGWFREISDTMWPGQAMTLKVEKVLHHEKSKYQDVLIFKSTTYGNVLVL
+            DNVIQATERDEFAYQEMIAHLALNSHPNPKKVLVIGGGDGGVLREVVKHDSVEEAWLCDI
+            DEAVIRLSKEYLPEMAASYSHPKVKTHIGDGFQFLRDYQNTFDVIITDSSDPEGPAETLF
+            QKEYFQLLNSALTEKGVITTQAESMWIHLPIIKDLKKACSEVFPVAEYSFVTIPTYPTGT
+            IGFMVCSKDKTCNVKKPLREISDEKEAELYRYYNKKIHEASFVLPTWAAKELN
+NTSEQ       882
+            atggcacaagaaatcactcacccaactattgtagacggctggttcagagaaatttctgat
+            accatgtggccaggccaggccatgactttaaaagtggagaaagttttacaccatgagaag
+            tcaaaatatcaagacgttttgatcttcaaatccactacatatggtaatgttctagtttta
+            gataatgtaattcaagccaccgaaagggatgaatttgcctaccaagaaatgattgcccat
+            cttgccttgaattcccatccaaatcctaagaaggttcttgttattggtgggggtgatggt
+            ggtgttttgagagaggttgtcaagcatgattccgttgaggaagcctggttatgtgacatt
+            gatgaagctgttattagactatcaaaggagtacctaccagaaatggctgcctcttattct
+            cacccaaaggttaagacccacattggtgatggtttccaatttttaagagattaccaaaac
+            acatttgacgtaatcattactgactcttctgacccagaaggtccagctgaaacccttttc
+            caaaaggaatatttccaattgttgaacagtgcgttgacagaaaagggtgtaatcactaca
+            caagcagaaagtatgtggattcacttgccaatcattaaggacttaaagaaagcctgttct
+            gaagttttcccagttgcagaatactctttcgttactattccaacttacccaactggtacg
+            attggttttatggtttgctccaaagataaaacttgcaatgtcaagaagccactacgtgaa
+            atctctgatgagaaggaggctgaattatacagatactataacaagaaaattcacgaagct
+            tcctttgttctaccaacctgggcagccaaggaattaaattag
+///

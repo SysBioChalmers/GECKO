@@ -1,0 +1,55 @@
+ENTRY       YKL060C           CDS       T00005
+NAME        FBA1, LOT1
+DEFINITION  fructose-bisphosphate aldolase FBA1 (EC:4.1.2.13)
+ORTHOLOGY   K01624  fructose-bisphosphate aldolase, class II [EC:4.1.2.13]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00010  Glycolysis / Gluconeogenesis
+            sce00030  Pentose phosphate pathway
+            sce00051  Fructose and mannose metabolism
+            sce00680  Methane metabolism
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01200  Carbon metabolism
+            sce01230  Biosynthesis of amino acids
+MODULE      sce_M00001  Glycolysis (Embden-Meyerhof pathway), glucose => pyruvate
+            sce_M00003  Gluconeogenesis, oxaloacetate => fructose-6P
+CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
+            Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
+            Metabolism; Carbohydrate metabolism; Glycolysis / Gluconeogenesis [PATH:sce00010]
+            Metabolism; Carbohydrate metabolism; Pentose phosphate pathway [PATH:sce00030]
+            Metabolism; Carbohydrate metabolism; Fructose and mannose metabolism [PATH:sce00051]
+            Metabolism; Energy metabolism; Methane metabolism [PATH:sce00680]
+POSITION    XI:complement(326408..327487)
+MOTIF       Pfam: F_bP_aldolase SNAP
+DBLINKS     NCBI-GI: 6322790
+            NCBI-GeneID: 853805
+            SGD: S000001543
+            MIPS: YKL060C
+            UniProt: P14540
+AASEQ       359
+            MGVEQILKRKTGVIVGEDVHNLFTYAKEHKFAIPAINVTSSSTAVAALEAARDSKSPIIL
+            QTSNGGAAYFAGKGISNEGQNASIKGAIAAAHYIRSIAPAYGIPVVLHSDHCAKKLLPWF
+            DGMLEADEAYFKEHGEPLFSSHMLDLSEETDEENISTCVKYFKRMAAMDQWLEMEIGITG
+            GEEDGVNNENADKEDLYTKPEQVYNVYKALHPISPNFSIAAAFGNCHGLYAGDIALRPEI
+            LAEHQKYTREQVGCKEEKPLFLVFHGGSGSTVQEFHTGIDNGVVKVNLDTDCQYAYLTGI
+            RDYVLNKKDYIMSPVGNPEGPEKPNKKFFDPRVWVREGEKTMGAKITKSLETFRTTNTL
+NTSEQ       1080
+            atgggtgttgaacaaatcttaaagagaaagaccggtgtcatcgttggtgaagatgtccac
+            aacttattcacttacgctaaggaacacaagttcgctattccagctattaacgtcacctct
+            tcttctactgccgtcgctgctttagaagctgctagagacagcaagtccccaatcattttg
+            caaacctctaacggtggtgctgcttacttcgctggtaagggtatctctaacgaaggtcaa
+            aatgcttccatcaagggtgctattgccgctgcccactacatcagatccattgctccagct
+            tacggtatcccagttgtcttacactctgaccactgtgccaagaagttgttgccatggttc
+            gatggtatgttggaagctgatgaagcttacttcaaggaacacggtgaaccattattctcc
+            tcccacatgttggatttgtctgaagaaaccgatgaagaaaacatctctacttgtgtcaag
+            tacttcaagagaatggccgctatggaccaatggttagaaatggaaatcggtattaccggt
+            ggtgaagaagatggtgttaacaacgaaaacgctgacaaggaagacttgtacaccaagcca
+            gaacaagtttacaacgtctacaaggctttgcacccaatctctccaaacttctccattgct
+            gctgctttcggtaactgtcacggtttgtacgctggtgacatcgctttgagaccagaaatc
+            ttggctgaacaccaaaagtacaccagagaacaagttggttgcaaggaagaaaagccattg
+            ttcttggtcttccacggtggttccggttctactgtccaagaattccacactggtattgac
+            aacggtgttgtcaaggtcaacttggacactgactgtcaatacgcttacttgactggtatc
+            agagactacgtcttgaacaagaaggactacataatgtccccagtcggtaacccagaaggt
+            ccagaaaagccaaacaagaagttcttcgacccaagagtctgggttagagaaggtgaaaag
+            accatgggtgctaagatcaccaagtctttggaaactttccgtaccactaacactttataa
+///

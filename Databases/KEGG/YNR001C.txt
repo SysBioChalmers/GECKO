@@ -1,0 +1,62 @@
+ENTRY       YNR001C           CDS       T00005
+NAME        CIT1, LYS6
+DEFINITION  citrate (Si)-synthase CIT1 (EC:2.3.3.1)
+ORTHOLOGY   K01647  citrate synthase [EC:2.3.3.1]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00020  Citrate cycle (TCA cycle)
+            sce00630  Glyoxylate and dicarboxylate metabolism
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01200  Carbon metabolism
+            sce01210  2-Oxocarboxylic acid metabolism
+            sce01230  Biosynthesis of amino acids
+MODULE      sce_M00009  Citrate cycle (TCA cycle, Krebs cycle)
+            sce_M00010  Citrate cycle, first carbon oxidation, oxaloacetate => 2-oxoglutarate
+            sce_M00012  Glyoxylate cycle
+CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
+            Metabolism; Overview; 2-Oxocarboxylic acid metabolism [PATH:sce01210]
+            Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
+            Metabolism; Carbohydrate metabolism; Citrate cycle (TCA cycle) [PATH:sce00020]
+            Metabolism; Carbohydrate metabolism; Glyoxylate and dicarboxylate metabolism [PATH:sce00630]
+POSITION    XIV:complement(629622..631061)
+MOTIF       Pfam: Citrate_synt
+DBLINKS     NCBI-GI: 6324328
+            NCBI-GeneID: 855732
+            SGD: S000005284
+            MIPS: YNR001C
+            UniProt: P00890
+AASEQ       479
+            MSAILSTTSKSFLSRGSTRQCQNMQKALFALLNARHYSSASEQTLKERFAEIIPAKAEEI
+            KKFKKEHGKTVIGEVLLEQAYGGMRGIKGLVWEGSVLDPEEGIRFRGRTIPEIQRELPKA
+            EGSTEPLPEALFWLLLTGEIPTDAQVKALSADLAARSEIPEHVIQLLDSLPKDLHPMAQF
+            SIAVTALESESKFAKAYAQGVSKKEYWSYTFEDSLDLLGKLPVIASKIYRNVFKDGKITS
+            TDPNADYGKNLAQLLGYENKDFIDLMRLYLTIHSDHEGGNVSAHTTHLVGSALSSPYLSL
+            AAGLNGLAGPLHGRANQEVLEWLFKLREEVKGDYSKETIEKYLWDTLNAGRVVPGYGHAV
+            LRKTDPRYTAQREFALKHFPDYELFKLVSTIYEVAPGVLTKHGKTKNPWPNVDSHSGVLL
+            QYYGLTEASFYTVLFGVARAIGVLPQLIIDRAVGAPIERPKSFSTEKYKELVKKIESKN
+NTSEQ       1440
+            atgtcagcgatattatcaacaactagcaaaagtttcttatcaaggggctccacaagacaa
+            tgtcaaaatatgcaaaaggctctttttgcactattgaatgctcgccactatagtagcgcc
+            tccgaacaaacgttgaaggagagatttgctgaaattatcccagcaaaggcagaagaaatt
+            aaaaaattcaagaaagaacacggtaaaaccgttattggtgaagttcttttggagcaagct
+            tatggtggtatgagaggtattaaaggccttgtttgggaaggttccgtgttagaccccgaa
+            gaaggtattagatttaggggtcgtactattccagaaattcaaagggaactaccaaaggct
+            gagggtagtacagaacctttgccagaagctttattttggttgcttttgactggtgaaata
+            cctactgacgctcaagttaaagccctttctgctgatttagctgccagatcagaaattcca
+            gagcacgttatccaacttttagatagcctcccaaaagatctacatccaatggcgcaattt
+            tctattgccgtgactgctttagaaagcgagtctaagtttgccaaagcatatgctcaaggt
+            gtatccaagaaagaatattggagctatacatttgaagattcgttagatctgctgggtaaa
+            ttacctgttattgcttccaaaatttatcgtaatgtgttcaaggatggtaaaattacttca
+            accgatcctaatgctgactatggtaaaaatttggcccaacttttgggctacgaaaacaag
+            gattttattgacttaatgagactatatttaactattcattctgatcatgaaggtggtaac
+            gtttctgcccatactacacatttagtgggttctgccttatcttcgccatacttatctttg
+            gccgctggtttgaatggtttagctggcccattacatggtcgtgccaatcaagaagtttta
+            gaatggctatttaaattgagagaagaagtgaaaggtgactattcaaaagaaacaattgaa
+            aagtacttgtgggatactttgaacgcagggagagttgttcctggttatggccatgcggtt
+            ttgagaaaaactgatcctcgttatacggctcaacgtgaattcgcattgaaacatttccca
+            gattacgagttatttaagttggtctccaccatttatgaagttgccccaggggttttaact
+            aagcatggtaaaactaagaacccatggccaaatgttgattcacattccggtgttttattg
+            caatactatggtctaactgaggcttcgttctacactgtattgtttggtgttgccagagct
+            attggtgtgttaccccaattaatcatcgatagggctgttggtgctccaatcgaaaggcca
+            aaatcattctccaccgaaaaatacaaggagttggtaaagaaaatcgaaagtaagaactaa
+///

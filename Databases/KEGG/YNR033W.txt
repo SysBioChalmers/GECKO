@@ -1,0 +1,71 @@
+ENTRY       YNR033W           CDS       T00005
+NAME        ABZ1
+DEFINITION  4-amino-4-deoxychorismate synthase (EC:2.6.1.85)
+ORTHOLOGY   K13950  para-aminobenzoate synthetase [EC:2.6.1.85]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00790  Folate biosynthesis
+CLASS       Metabolism; Metabolism of cofactors and vitamins; Folate biosynthesis [PATH:sce00790]
+POSITION    XIV:687635..689998
+MOTIF       Pfam: Chorismate_bind GATase Anth_synt_I_N Peptidase_C26
+DBLINKS     NCBI-GI: 6324361
+            NCBI-GeneID: 855768
+            SGD: S000005316
+            MIPS: YNR033W
+            UniProt: P37254
+AASEQ       787
+            MLSDTIDTKQQQQQLHVLFIDSYDSFTYNVVRLIEQQTDISPGVNAVHVTTVHSDTFQSM
+            DQLLPLLPLFDAIVVGPGPGNPNNGAQDMGIISELFENANGKLDEVPILGICLGFQAMCL
+            AQGADVSELNTIKHGQVYEMHLNDAARACGLFSGYPDTFKSTRYHSLHVNAEGIDTLLPL
+            CTTEDENGILLMSAQTKNKPWFGVQYHPESCCSELGGLLVSNFLKLSFINNVKTGRWEKK
+            KLNGEFSDILSRLDRTIDRDPIYKVKEKYPKGEDTTYVKQFEVSEDPKLTFEICNIIREE
+            KFVMSSSVISENTGEWSIIALPNSASQVFTHYGAMKKTTVHYWQDSEISYTLLKKCLDGQ
+            DSDLPGSLEVIHEDKSQFWITLGKFMENKIIDNHREIPFIGGLVGILGYEIGQYIACGRC
+            NDDENSLVPDAKLVFINNSIVINHKQGKLYCISLDNTFPVALEQSLRDSFVRKKNIKQSL
+            SWPKYLPEEIDFIITMPDKLDYAKAFKKCQDYMHKGDSYEMCLTTQTKVVPSAVIEPWRI
+            FQTLVQRNPAPFSSFFEFKDIIPRQDETPPVLCFLSTSPERFLKWDADTCELRPIKGTVK
+            KGPQMNLAKATRILKTPKEFGENLMILDLIRNDLYELVPDVRVEEFMSVQEYATVYQLVS
+            VVKAHGLTSASKKTRYSGIDVLKHSLPPGSMTGAPKKITVQLLQDKIESKLNKHVNGGAR
+            GVYSGVTGYWSVNSNGDWSVNIRCMYSYNGGTSWQLGAGGAITVLSTLDGELEEMYNKLE
+            SNLQIFM
+NTSEQ       2364
+            atgctgtccgatacaattgacacaaagcaacaacagcaacagcttcatgtcctgttcata
+            gactcttatgattcattcacctacaatgtagtgagactaattgaacaacaaactgatatc
+            tcaccgggagtcaacgccgtgcacgtgacgacggtacatagtgatacgttccaatctatg
+            gatcagctattgccacttttgccgctttttgatgctatcgttgttggcccaggacctggg
+            aatcccaacaatggtgcacaagatatgggtataatatctgagcttttcgagaatgccaat
+            ggaaagttagatgaagttccaatattgggtatatgtcttgggttccaagcaatgtgcttg
+            gctcaaggtgctgatgtcagtgagctaaatactatcaagcatgggcaagtgtatgaaatg
+            catttaaacgatgcagccagagcttgtggccttttttctggttatcccgatacgttcaaa
+            tctacgaggtaccattcattgcatgtcaatgccgaaggcattgacacccttttgccctta
+            tgcacaaccgaagatgagaacggtattcttttgatgagtgctcaaacgaaaaataagcca
+            tggtttggcgtacagtaccacccggagtcatgttgttcagaattgggggggctgttagtc
+            agtaactttctcaagttgagtttcataaataacgtgaagacaggaaggtgggaaaagaag
+            aaacttaatggagagttttccgatatcctatctcgattggataggactattgatagagac
+            cccatatacaaggtaaaagagaaatatccgaagggcgaggacacaacttacgttaagcag
+            ttcgaggtctctgaagacccgaaattgacatttgaaatttgcaacatcatacgagaagaa
+            aaatttgtcatgtcatcttctgtgattagtgaaaatacgggtgaatggtctatcattgct
+            ttaccaaactccgcatcccaggtattcactcattatggagctatgaaaaagactacagtt
+            cattattggcaagatagtgaaattagttacaccttgttgaaaaagtgtctagatggtcaa
+            gattcggatttgcctggctcccttgaggtaatacatgaagataaatcccaattttggatc
+            actttgggtaaatttatggagaataaaataatcgataaccacagagaaataccttttatt
+            ggaggtcttgttggcattttaggttatgaaataggtcagtacattgcatgcggccgttgc
+            aatgatgatgagaattcccttgttcccgacgccaaactagtttttatcaacaatagtata
+            gtcattaatcacaagcaagggaagctttattgtatttctctggataatacatttccagtg
+            gcattagaacaatcattaagggacagttttgttagaaagaagaatattaagcaatccctg
+            tcctggcccaagtatcttccagaggagatagacttcattataactatgcccgataaactt
+            gactacgctaaggcgtttaagaaatgtcaggattatatgcataagggtgattcttatgaa
+            atgtgtctcacaacgcaaaccaaagttgtaccatctgcggtgatagaaccctggaggatt
+            ttccagaccttggtacaaagaaacccggctccattttcaagtttttttgagtttaaagac
+            attattccccgccaagatgaaacgcctccagttttgtgcttcttaagtacttctccagaa
+            aggtttttgaagtgggatgcagacacatgcgagctacgtcccatcaagggaactgtgaaa
+            aaaggaccgcaaatgaacttggcaaaagccacacgaatcctgaagacaccaaaagaattt
+            ggtgagaacttaatgattttggacttaatcagaaatgacctttacgagttggttcctgac
+            gttcgggtggaggagttcatgtccgtgcaagaatatgccaccgtttaccaactcgttagc
+            gtcgtaaaggcacatggattgacctctgccagtaagaagacgagatattcaggcattgat
+            gtccttaaacactcgcttcctccgggatctatgacgggagcccccaagaagattactgtg
+            caattattgcaggacaagatagaaagcaagctaaacaaacatgtcaatggtggagcacgt
+            ggtgtttacagcggtgtcacgggatattggtctgtgaattccaacggagattggtctgtt
+            aacattagatgtatgtattcctacaacggcggaaccagctggcaactcggtgcagggggg
+            gccataacagtcttaagcacactagatggcgaactagaggaaatgtacaacaagttggag
+            agcaacttacaaattttcatgtag
+///

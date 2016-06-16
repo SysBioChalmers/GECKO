@@ -1,0 +1,78 @@
+ENTRY       YGL027C           CDS       T00005
+NAME        CWH41, DER7, GLS1
+DEFINITION  Cwh41p (EC:3.2.1.106)
+ORTHOLOGY   K01228  mannosyl-oligosaccharide glucosidase [EC:3.2.1.106]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00510  N-Glycan biosynthesis
+            sce01100  Metabolic pathways
+            sce04141  Protein processing in endoplasmic reticulum
+MODULE      sce_M00073  N-glycan precursor trimming
+CLASS       Metabolism; Glycan biosynthesis and metabolism; N-Glycan biosynthesis [PATH:sce00510]
+            Genetic Information Processing; Folding, sorting and degradation; Protein processing in endoplasmic reticulum [PATH:sce04141]
+POSITION    VII:complement(443642..446143)
+MOTIF       Pfam: Glyco_hydro_63 FlaE
+DBLINKS     NCBI-GI: 6321411
+            NCBI-GeneID: 852857
+            SGD: S000002995
+            MIPS: YGL027C
+            UniProt: P53008
+STRUCTURE   PDB: 4J5T
+AASEQ       833
+            MLISKSKMFKTFWILTSIVLLASATVDISKLQEFEEYQKFTNESLLWAPYRSNCYFGMRP
+            RYVHESPLIMGIMWFNSLSQDGLHSLRHFATPQDKLQKYGWEVYDPRIGGKEVFIDEKNN
+            LNLTVYFVKSKNGENWSVRVQGEPLDPKRPSTASVVLYFSQNGGEIDGKSSLAMIGHDGP
+            NDMKFFGYSKELGEYHLTVKDNFGHYFKNPEYETMEVAPGSDCSKTSHLSLQIPDKEVWK
+            ARDVFQSLVSDSIRDILEKEETKQRPADLIPSVLTIRNLYNFNPGNFHYIQKTFDLTKKD
+            GFQFDITYNKLGTTQSISTREQVTELITWSLNEINARFDKQFSFGEGPDSIESVEVKRRF
+            ALETLSNLLGGIGYFYGNQLIDRETEFDESQFTEIKLLNAKEEGPFELFTSVPSRGFFPR
+            GFYWDEGFHLLQIMEYDFDLAFEILASWFEMIEDDSGWIAREIILGNEARSKVPQEFQVQ
+            NPNIANPPTLLLAFSEMLSRAIENIGDFNSDSYHQVMFNSRTAKFMTNNLEANPGLLTEY
+            AKKIYPKLLKHYNWFRKSQTGLIDEYEEILEDEGIWDKIHKNEVYRWVGRTFTHCLPSGM
+            DDYPRAQPPDVAELNVDALAWVGVMTRSMKQIAHVLKLTQDEQRYAQIEQEVVENLDLLH
+            WSENDNCYCDISIDPEDDEIREFVCHEGYVSVLPFALKLIPKNSPKLEKVVALMSDPEKI
+            FSDYGLLSLSRQDDYFGKDENYWRGPIWMNINYLCLDAMRYYYPEVILDVAGEASNAKKL
+            YQSLKINLSNNIYKVWEEQGYCYENYSPIDGHGTGAEHFTGWTALVVNILGRF
+NTSEQ       2502
+            atgcttatttcaaaatctaagatgtttaaaacattttggatactaaccagcatagttctc
+            ctggcatctgccaccgttgatattagtaaactacaagaattcgaagaatatcaaaagttc
+            acgaatgaatctttactgtgggcaccgtatagatccaattgttactttggtatgaggccc
+            agatatgtccatgaaagtccactaattatgggtatcatgtggttcaacagtttgagtcag
+            gatggcttacattcgttaagacattttgcaacgcctcaggataaattgcaaaagtatggt
+            tgggaagtgtatgatccaagaattggtggtaaagaagtttttattgatgaaaaaaataac
+            ttgaacttgactgtttattttgtaaagagcaagaacggggaaaattggtcagtgagagtt
+            caaggtgagcctttggatcccaagagaccatctacagcatctgtcgtattgtactttagt
+            caaaatggtggcgagatagatggaaaatcttccttagcaatgataggtcatgacggccct
+            aatgacatgaaattcttcggatattctaaagaattaggcgagtatcatcttacagtaaag
+            gacaattttggtcactacttcaaaaatccggaatatgaaaccatggaagtagcaccagga
+            agtgactgctctaaaacaagtcatttatcacttcaaatcccggataaagaagtttggaag
+            gctcgtgatgttttccaatctctagttagcgattcgatacgtgatatactggaaaaggaa
+            gagacaaagcagcgtcctgctgatttaataccaagtgttttaactattagaaatttgtac
+            aattttaatcctggtaattttcattatatacaaaagacatttgatttgaccaaaaaagat
+            gggttccaatttgatatcacttacaataaacttggcactactcaaagtatttccaccagg
+            gaacaagttacggagttgattacttggtcactaaatgagataaacgcgcgttttgataag
+            cagtttagttttggagaaggtcccgactcaattgaaagcgtggaggtcaaaagaagattt
+            gctttagagacgctatcaaacctattaggaggaatcggttatttctatgggaatcaacta
+            attgatcgtgaaacagaatttgatgagagccagtttacagagatcaaactgctgaatgca
+            aaagaggaaggtccatttgaactgtttaccagcgttccgagccgtggctttttcccacgt
+            ggattctattgggatgaaggtttccatcttctacaaattatggagtatgattttgacctt
+            gcctttgaaatcttagcgagctggtttgaaatgatcgaagatgatagtggttggattgct
+            agagaaattatactgggtaatgaggcaaggagtaaagttccgcaggaatttcaggtgcaa
+            aatcccaatattgctaatccgccaactttattgctagcatttagtgaaatgctttctagg
+            gccattgaaaacatcggcgatttcaacagtgacagctaccaccaagtcatgttcaatagt
+            aggacagccaagtttatgacgaacaatctagaagccaatcctggcttgctaaccgaatat
+            gccaagaaaatttatcctaagctattgaagcactataattggttcagaaaatctcaaaca
+            ggacttattgatgaatatgaggaaatattggaagatgaaggaatatgggataagattcat
+            aagaacgaagtttatagatgggttgggcgtaccttcactcattgtttgccaagcggtatg
+            gatgactatcctagagcacaaccaccagatgtagcagaattgaacgtagacgcattagca
+            tgggtgggcgttatgacaagatccatgaagcaaattgctcacgtgttgaagttaacacag
+            gacgagcaaagatatgcacaaattgagcaagaggtggtcgagaatctggatttgttacac
+            tggagtgaaaatgacaattgctactgtgatattagcatcgatccagaagacgatgagatt
+            agggagtttgtatgtcatgagggttacgtctccgtattgccctttgcattgaagctaatc
+            cccaaaaactcacccaagctagagaaagtagttgctttgatgagtgacccagaaaaaatc
+            ttttcagactacgggctgttatcactatcgagacaagacgactatttcggcaaggatgaa
+            aactattggagaggcccaatttggatgaatattaattacttgtgtcttgacgcaatgaga
+            tactactacccagaggtgattctcgacgtggctggtgaggctagcaatgccaagaaactg
+            taccaaagtttaaagattaatctcagtaacaacatatacaaagtttgggaagaacaaggt
+            tattgttatgaaaattacagtccgatagatggtcatggtactggtgctgagcatttcaca
+            ggctggacagcacttgttgtcaacatccttggacgcttctga
+///

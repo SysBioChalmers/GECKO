@@ -1,0 +1,41 @@
+ENTRY       YLR208W           CDS       T00005
+NAME        SEC13, ANU3
+DEFINITION  Sec13p
+ORTHOLOGY   K14004  protein transport protein SEC13
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03013  RNA transport
+            sce04141  Protein processing in endoplasmic reticulum
+MODULE      sce_M00404  COPII complex
+CLASS       Genetic Information Processing; Translation; RNA transport [PATH:sce03013]
+            Genetic Information Processing; Folding, sorting and degradation; Protein processing in endoplasmic reticulum [PATH:sce04141]
+POSITION    XII:559551..560444
+MOTIF       Pfam: WD40 TFIIIC_delta
+DBLINKS     NCBI-GI: 6323237
+            NCBI-GeneID: 850905
+            SGD: S000004198
+            MIPS: YLR208W
+            UniProt: Q04491
+STRUCTURE   PDB: 2PM7 2PM6 3JRP 3MZK 3MZL 3IKO 2PM9 4BZJ 4BZK
+AASEQ       297
+            MVVIANAHNELIHDAVLDYYGKRLATCSSDKTIKIFEVEGETHKLIDTLTGHEGPVWRVD
+            WAHPKFGTILASCSYDGKVLIWKEENGRWSQIAVHAVHSASVNSVQWAPHEYGPLLLVAS
+            SDGKVSVVEFKENGTTSPIIIDAHAIGVNSASWAPATIEEDGEHNGTKESRKFVTGGADN
+            LVKIWKYNSDAQTYVLESTLEGHSDWVRDVAWSPTVLLRSYLASVSQDRTCIIWTQDNEQ
+            GPWKKTLLKEEKFPDVLWRASWSLSGNVLALSGGDNKVTLWKENLEGKWEPAGEVHQ
+NTSEQ       894
+            atggtcgtcatagctaatgcgcacaacgaattaatccatgacgctgttctagactattat
+            gggaagcgccttgcaacctgctcttctgacaagacaatcaagatctttgaagtcgaagga
+            gaaacacacaagttaatagacacgttgactggccacgaaggcccagtttggcgtgttgat
+            tgggcacatcctaaattcggaaccattttggcatcgtgttcttatgatggtaaagtgttg
+            atttggaaggaagaaaacggtagatggtctcaaattgccgttcatgctgtccactctgct
+            tctgtcaactctgttcaatgggctcctcatgaatatggccccctactgctggttgcttcc
+            tctgatggtaaggtctccgtagtagagttcaaagaaaacggtactacttccccaataatc
+            atcgatgctcatgccattggcgttaactctgcttcttgggctccagctaccatcgaagaa
+            gatggtgaacacaacggtactaaagaatctcgcaagtttgttactgggggtgctgacaat
+            ttggtaaagatttggaagtacaattcagatgcccaaacttatgttctggaaagcacctta
+            gaaggtcacagcgattgggttagagacgtagcatggtcacctactgttcttctacgttct
+            tatttggccagtgtttctcaagatcgcacctgtattatttggactcaagacaatgaacaa
+            ggcccatggaaaaaaactttattaaaagaagaaaaattcccagatgttttatggagagcc
+            agttggtctttgtcaggtaatgtactagctctttccggtggcgataataaagttacttta
+            tggaaggaaaatcttgagggtaaatgggaacccgctggtgaagttcatcagtga
+///

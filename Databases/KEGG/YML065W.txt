@@ -1,0 +1,83 @@
+ENTRY       YML065W           CDS       T00005
+NAME        ORC1
+DEFINITION  origin recognition complex subunit 1
+ORTHOLOGY   K02603  origin recognition complex subunit 1
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04111  Cell cycle - yeast
+            sce04113  Meiosis - yeast
+MODULE      sce_M00284  Origin recognition complex
+CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
+            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+POSITION    XIII:142210..144954
+MOTIF       Pfam: AAA BAH AAA_22 AAA_16 Arch_ATPase NACHT AAA_17 AAA_18 AAA_19
+DBLINKS     NCBI-GI: 6323575
+            NCBI-GeneID: 854937
+            SGD: S000004530
+            MIPS: YML065W
+            UniProt: P54784
+STRUCTURE   PDB: 1M4Z 1ZBX 1ZHI
+AASEQ       914
+            MAKTLKDLQGWEIITTDEQGNIIDGGQKRLRRRGAKTEHYLKRSSDGIKLGRGDSVVMHN
+            EAAGTYSVYMIQELRLNTLNNVVELWALTYLRWFEVNPLAHYRQFNPDANILNRPLNYYN
+            KLFSETANKNELYLTAELAELQLFNFIRVANVMDGSKWEVLKGNVDPERDFTVRYICEPT
+            GEKFVDINIEDVKAYIKKVEPREAQEYLKDLTLPSKKKEIKRGPQKKDKATQTAQISDAE
+            TRATDITDNEDGNEDESSDYESPSDIDVSEDMDSGEISADELEEEEDEEEDEDEEEKEAR
+            HTNSPRKRGRKIKLGKDDIDASVQPPPKKRGRKPKDPSKPRQMLLISSCRANNTPVIRKF
+            TKKNVARAKKKYTPFSKRFKSIAAIPDLTSLPEFYGNSSELMASRFENKLKTTQKHQIVE
+            TIFSKVKKQLNSSYVKEEILKSANFQDYLPARENEFASIYLSAYSAIESDSATTIYVAGT
+            PGVGKTLTVREVVKELLSSSAQREIPDFLYVEINGLKMVKPTDCYETLWNKVSGERLTWA
+            ASMESLEFYFKRVPKNKKKTIVVLLDELDAMVTKSQDIMYNFFNWTTYENAKLIVIAVAN
+            TMDLPERQLGNKITSRIGFTRIMFTGYTHEELKNIIDLRLKGLNDSFFYVDTKTGNAILI
+            DAAGNDTTVKQTLPEDVRKVRLRMSADAIEIASRKVASVSGDARRALKVCKRAAEIAEKH
+            YMAKHGYGYDGKTVIEDENEEQIYDDEDKDLIESNKAKDDNDDDDDNDGVQTVHITHVMK
+            ALNETLNSHVITFMTRLSFTAKLFIYALLNLMKKNGSQEQELGDIVDEIKLLIEVNGSNK
+            FVMEIAKTLFQQGSDNISEQLRIISWDFVLNQLLDAGILFKQTMKNDRICCVKLNISVEE
+            AKRAMNEDETLRNL
+NTSEQ       2745
+            atggcaaaaacgttgaaggatttacagggttgggagataataacaactgatgagcaggga
+            aatataatcgatggaggtcagaagagattacgccgaagaggtgcaaaaactgaacattac
+            ttaaagagaagttctgatggaattaaactaggtcgtggtgatagtgtagtcatgcacaac
+            gaagccgctgggacttactccgtttatatgatccaggagttgagacttaatacattaaat
+            aatgttgtcgaactctgggctctcacctatttacgatggtttgaagtcaatcctttagct
+            cattataggcagtttaatcctgacgctaacattttgaatcgtcctttaaattattacaat
+            aaactgttttctgaaactgcaaataaaaatgaactgtatctcactgcagaattagccgaa
+            ttgcagctatttaactttatcagggttgccaacgtaatggatggaagcaaatgggaagta
+            ttgaaaggaaatgtcgatccagaaagagactttacagttcgttatatttgtgagccgact
+            ggggagaaatttgtggacattaatattgaggatgtcaaagcttacataaagaaagtggag
+            ccaagggaagcccaggaatatttgaaagatttaacacttccatcaaagaagaaagagatc
+            aaaagaggtcctcaaaagaaagataaggctactcaaacggcacaaatttcagacgcagaa
+            acaagagctacagatataacggataatgaggacggtaatgaagatgaatcatctgattat
+            gaaagtccgtcagatatcgacgttagcgaggatatggacagcggtgaaatatccgcagat
+            gagcttgaggaagaagaagacgaagaagaagacgaagacgaagaagagaaagaagctagg
+            catacaaattcaccaaggaaaagaggccgtaagataaaactaggtaaagatgatattgac
+            gcttctgtacaacctccccccaaaaaaagaggtcgtaaacctaaagatcctagtaaaccg
+            cgtcagatgctattgatatcttcatgccgtgcaaataatactcctgtgattaggaaattt
+            acaaaaaagaatgttgctagggcgaaaaagaaatataccccgttttcgaaaagatttaaa
+            tctatagctgcaataccagatttaacttcattacctgaattttacggaaattcttcggaa
+            ttgatggcatcaaggtttgaaaacaaattaaaaacaacccaaaagcatcagattgtagaa
+            acaattttttctaaagtcaaaaaacagttgaactcttcgtatgtcaaagaagaaatattg
+            aagtctgcaaatttccaagattatttaccggctagggagaatgaattcgcctcaatttat
+            ttaagtgcatatagtgccattgagtccgactccgctactactatatacgtggctggtacg
+            cctggtgtagggaaaactttaaccgtaagggaagtcgtaaaggaactactatcgtcttct
+            gcacaacgagaaataccagactttctttatgtggaaataaatggattgaaaatggtaaaa
+            cccacagactgttacgaaactttatggaacaaagtgtcaggagaaaggttaacatgggca
+            gcttcaatggagtcactagagttttactttaaaagagttccaaaaaataagaagaaaacc
+            attgtagtcttgttggacgaactcgatgccatggtaacgaaatctcaagatattatgtac
+            aattttttcaattggactacttacgaaaatgccaaacttattgtcattgcagtagccaat
+            acaatggacttaccagaacgtcagctaggcaataagattacttcaagaattgggtttacc
+            agaattatgttcactgggtatacgcacgaagagctaaaaaatatcattgatttaagactg
+            aaggggttgaacgactcatttttctatgttgatacaaaaactggcaatgctattttgatt
+            gatgcggctggaaacgacactacagttaagcaaacgttgcctgaagacgtgaggaaagtt
+            cgcttaagaatgagtgctgatgccattgaaatagcttcgagaaaagtagcaagtgttagt
+            ggtgatgcaagaagagcattgaaggtttgtaaaagagcagctgaaattgctgaaaaacac
+            tatatggctaagcatggttatggatatgatggaaagacggttattgaagatgaaaatgag
+            gagcaaatatacgatgatgaagacaaggatcttattgaaagtaacaaagccaaagacgat
+            aatgatgacgatgatgacaatgatggggtacaaacagttcacatcacgcacgttatgaaa
+            gccttaaacgaaactttaaattctcatgtaattacgtttatgacgcgactttcatttaca
+            gcaaaactgtttatttatgcattattaaacttgatgaaaaagaacggatctcaagagcaa
+            gaactgggcgatattgtcgatgaaatcaagttacttattgaagtaaatggcagtaataag
+            tttgtcatggagatagccaaaacattgttccaacagggaagtgataatatttctgaacaa
+            ttgagaattatatcatgggatttcgttctcaatcagttacttgacgcgggaatattgttt
+            aaacaaactatgaagaacgatagaatatgttgtgtcaagctaaatatatcagtagaagaa
+            gccaaaagagccatgaatgaggatgagacattgagaaatttatag
+///

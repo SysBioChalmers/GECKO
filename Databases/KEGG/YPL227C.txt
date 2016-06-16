@@ -1,0 +1,42 @@
+ENTRY       YPL227C           CDS       T00005
+NAME        ALG5
+DEFINITION  dolichyl-phosphate beta-glucosyltransferase (EC:2.4.1.117)
+ORTHOLOGY   K00729  dolichyl-phosphate beta-glucosyltransferase [EC:2.4.1.117]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00510  N-Glycan biosynthesis
+            sce01100  Metabolic pathways
+MODULE      sce_M00055  N-glycan precursor biosynthesis
+CLASS       Metabolism; Glycan biosynthesis and metabolism; N-Glycan biosynthesis [PATH:sce00510]
+POSITION    XVI:complement(120163..121167)
+MOTIF       Pfam: Glycos_transf_2 Glyco_tranf_2_3 Glyco_tranf_2_2 Glyco_tranf_2_4
+DBLINKS     NCBI-GI: 6325029
+            NCBI-GeneID: 855874
+            SGD: S000006148
+            MIPS: YPL227C
+            UniProt: P40350
+AASEQ       334
+            MRALRFLIENRNTVFFTLLVALVLSLYLLVYLFSHTPRPPYPEELKYIAIDEKGHEVSRA
+            LPNLNEHQDDEEIFLSVVIPSYNETGRILLMLTDAISFLKEKYGSRWEIVIVDDGSTDNT
+            TQYCLKICKEQFKLNYEQFRIIKFSQNRGKGGAVRQGFLHIRGKYGLFADADGASKFSDV
+            EKLIDAISKIETSSTDLKTTKPAVAIGSRAHMVNTEAVIKRSMIRNCLMYGFHTLVFIFG
+            IRSIKDTQCGFKLFNRAAILKIFPYLHTEGWIFDVEILILAIRKRIQIEEIPISWHEVDG
+            SKMALAIDSIKMAKDLVIIRMAYLLGIYRDNKKC
+NTSEQ       1005
+            atgagagcgttgagattcctgattgagaacagaaacactgtcttttttacgctcttagta
+            gccttggtgctttcactgtatttattggtctatttattttcgcatacaccaaggccgcca
+            tatccagaggagctcaaatacatagctattgatgaaaaaggtcatgaagttagtcgtgcc
+            ttacctaacttgaatgaacaccaagatgacgaagaaatatttttatctgttgttatccca
+            agctataatgagacaggtagaattttactaatgttgacagacgcaatcagctttttaaag
+            gaaaaatatggttccagatgggagattgtcatagtggatgatggttccacagataatacc
+            acacaatactgtttgaaaatttgtaaagaacagttcaaattgaactacgaacaattcaga
+            atcatcaagttttctcaaaacagaggcaaaggtggcgcagtgagacaaggttttttacat
+            attagaggtaagtatggtctttttgccgatgctgatggtgctagtaagttcagtgatgta
+            gaaaaactaatagatgctattagcaaaattgaaacgtctagtacagatctaaaaacgact
+            aaaccagcagtagcaattggttccagagcacatatggtaaataccgaagccgtcataaag
+            agatcaatgataagaaactgcttgatgtacggtttccataccttagttttcatcttcggc
+            atcaggtctatcaaagacacacaatgtggattcaaattgttcaacagagccgctatattg
+            aaaatttttccgtatttgcatacagagggttggatctttgacgttgaaattttgatctta
+            gccatcagaaaaagaatccaaattgaggagataccaatttcctggcatgaggttgatggc
+            tctaagatggctttagctattgatagtatcaaaatggcgaaagacttggttattataaga
+            atggcctatttattagggatatatagagataataagaaatgttag
+///

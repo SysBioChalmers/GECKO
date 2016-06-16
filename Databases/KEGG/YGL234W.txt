@@ -1,0 +1,75 @@
+ENTRY       YGL234W           CDS       T00005
+NAME        ADE5,7
+DEFINITION  bifunctional aminoimidazole ribotide synthase/glycinamide ribotide synthase (EC:6.3.4.13 6.3.3.1)
+ORTHOLOGY   K11788  phosphoribosylamine--glycine ligase / phosphoribosylformylglycinamidine cyclo-ligase [EC:6.3.4.13 6.3.3.1]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00230  Purine metabolism
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+MODULE      sce_M00048  Inosine monophosphate biosynthesis, PRPP + glutamine => IMP
+CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
+POSITION    VII:56482..58890
+MOTIF       Pfam: GARS_A AIRS_C GARS_N GARS_C AIRS ATP-grasp_4 ATPgrasp_Ter ATP-grasp_2 ATP-grasp ATP-grasp_3 ATPgrasp_ST
+DBLINKS     NCBI-GI: 6321203
+            NCBI-GeneID: 852617
+            SGD: S000003203
+            MIPS: YGL234W
+            UniProt: P07244
+AASEQ       802
+            MLNILVLGNGAREHVLVTKLAQSPTVGKIYVAPGNGGTATMDPSRVINWDITPDVANFAR
+            LQSMAVEHKINLVVPGPELPLVNGITSVFHSVGIPVFGPSVKAAQLEASKAFSKRFMSKH
+            NIPTASYDVFTNPEEAISFLQAHTDKAFVIKADGIAAGKGVIIPSSIDESVQAIKDIMVT
+            KQFGEEAGKQVVIEQFLEGDEISLLTIVDGYSHFNLPVAQDHKRIFDGDKGLNTGGMGAY
+            APAPVATPSLLKTIDSQIVKPTIDGMRRDGMPFVGVLFTGMILVKDSKTNQLVPEVLEYN
+            VRFGDPETQAVLSLLDDQTDLAQVFLAAAEHRLDSVNIGIDDTRSAVTVVVAAGGYPESY
+            AKGDKITLDTDKLPPHTQIFQAGTKYDSATDSLLTNGGRVLSVTSTAQDLRTAVDTVYEA
+            VKCVHFQNSYYRKDIAYRAFQNSESSKVAITYADSGVSVDNGNNLVQTIKEMVRSTRRPG
+            ADSDIGGFGGLFDLAQAGFRQNEDTLLVGATDGVGTKLIIAQETGIHNTVGIDLVAMNVN
+            DLVVQGAEPLFFLDYFATGALDIQVASDFVSGVANGCIQSGCALVGGETSEMPGMYPPGH
+            YDTNGTAVGAVLRQDILPKINEMAAGDVLLGLASSGVHSNGFSLVRKIIQHVALPWDAPC
+            PWDESKTLGEGILEPTKIYVKQLLPSIRQRLLLGLAHITGGGLVENIPRAIPDHLQARVD
+            MSTWEVPRVFKWFGQAGNVPHDDILRTFNMGVGMVLIVKRENVKAVCDSLTEEGEIIWEL
+            GSLQERPKDAPGCVIENGTKLY
+NTSEQ       2409
+            atgctcaacattctcgttttaggaaacggtgcaagagaacacgttcttgtcaccaagctg
+            gctcagtcacccaccgtgggtaagatctatgtcgctccaggtaatggagggaccgcaacc
+            atggatccttcgcgtgtgataaactgggatattacgccagatgtcgccaattttgctcgt
+            ttgcagtcgatggctgtggaacataagatcaacttggtcgttcctggtccagaattacct
+            ctagtcaacggcatcacctccgtgttccatagcgttggtattcccgtttttggaccttcc
+            gtcaaagccgctcagttggaagcttccaaggctttctccaagagatttatgtcaaaacac
+            aatattccaaccgcgtcttatgatgtcttcactaatccagaagaagccatttcattcttg
+            caagctcatactgacaaagcttttgtcatcaaggccgacgggatcgctgctgggaaaggt
+            gttattatcccatctagcatcgacgagtccgtccaagctatcaaggacataatggtcacc
+            aagcaattcggtgaagaagcgggcaagcaggttgtgatagaacaattcttggaaggtgat
+            gaaatctctctactcaccattgttgacgggtactctcacttcaatctccccgtcgcacaa
+            gatcacaagaggatctttgatggcgacaagggcttgaacaccggtgggatgggtgcctat
+            gcccccgctcctgtggccacaccatctttgttgaagaccatagattcacagattgtgaag
+            cctacgattgatgggatgagacgtgatggtatgccctttgttggtgtgctgttcaccggg
+            atgattttggtgaaggattctaagacaaatcaacttgttcccgaagtgttagaatataat
+            gtcagattcggtgacccagagacacaggctgttttgagtttacttgatgatcaaaccgat
+            ttggcgcaagtgtttttggctgctgctgaacatcgtttggattccgtaaacataggaatc
+            gatgacacaagatctgccgttactgtcgtagtggctgcaggtggttatcctgaatcatac
+            gccaaaggtgacaaaattaccttggataccgataaattacctccacatacacaaatcttc
+            caagcaggtaccaaatacgattccgccaccgattctttattgaccaatggtggtagagtt
+            ctttctgtgacctccactgctcaggacttgagaacagcagtagatacagtatatgaagcc
+            gtcaaatgcgtccatttccaaaattcttactacagaaaggacatcgcataccgtgcgttc
+            caaaactcagaatcatcaaaagttgccatcacatacgcagactcaggtgtctctgttgat
+            aatggtaacaatctcgtacaaactatcaaagaaatggtcagatccacaagaaggccaggt
+            gcagactctgatattggtggttttggtggtttattcgatttggctcaagcaggtttccgt
+            caaaacgaagataccttactagtaggtgctacagatggtgtcggtactaaattaatcatt
+            gcccaagagaccgggattcataatactgtcggtattgacctggtggccatgaatgttaac
+            gatttggtggtacaaggtgctgagcctctattctttttggactactttgccactggtgct
+            cttgacattcaagttgcctctgattttgtgtccggtgttgctaatggttgtattcaaagt
+            ggttgtgctcttgtgggtggtgaaacttcggaaatgcccggtatgtatccacccggccac
+            tacgatactaatggtaccgctgttggtgctgtattaagacaagatatcttgcccaagata
+            aatgaaatggccgcaggagatgttcttctgggtctcgcctctagcggtgttcattctaat
+            ggtttctctttggttagaaaaattattcaacatgtagcattaccatgggacgctccatgt
+            ccatgggatgaatctaagacgttaggtgaaggtattcttgaaccaacaaaaatttacgtc
+            aagcaattattgccatcaattagacaaagactactactaggtttagctcatataacaggt
+            ggtggtttagtagagaatatcccaagagctattccagaccacctacaggcccgcgttgat
+            atgtcaacctgggaagtaccccgtgtcttcaaatggtttggtcaagcaggtaatgttcca
+            cacgatgacattttaagaaccttcaacatgggtgttggtatggttttgattgtcaagaga
+            gaaaacgtcaaggctgtttgtgattcattgactgaagaaggtgaaattatttgggagctt
+            ggttctttgcaagaaagaccaaaggatgctcccggttgtgtgattgaaaacggaactaag
+            ctttactaa
+///

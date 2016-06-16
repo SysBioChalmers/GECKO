@@ -1,0 +1,50 @@
+ENTRY       YBR243C           CDS       T00005
+NAME        ALG7, TUR1
+DEFINITION  UDP-N-acetylglucosamine--dolichyl-phosphate N-acetylglucosaminephosphotransferase (EC:2.7.8.15)
+ORTHOLOGY   K01001  UDP-N-acetylglucosamine--dolichyl-phosphate N-acetylglucosaminephosphotransferase [EC:2.7.8.15]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00510  N-Glycan biosynthesis
+            sce01100  Metabolic pathways
+MODULE      sce_M00055  N-glycan precursor biosynthesis
+CLASS       Metabolism; Glycan biosynthesis and metabolism; N-Glycan biosynthesis [PATH:sce00510]
+POSITION    II:complement(705447..706793)
+MOTIF       Pfam: Glycos_transf_4
+DBLINKS     NCBI-GI: 398365703
+            NCBI-GeneID: 852545
+            SGD: S000000447
+            MIPS: YBR243C
+            UniProt: P07286
+AASEQ       448
+            MLRLFSLALITCLIYYSKNQGPSALVAAVGFGIAGYLATDMLIPRVGKSFIKIGLFGKDL
+            SKPGRPVLPETIGAIPAAVYLFVMFIYIPFIFYKYMVITTSGGGHRDVSVVEDNGMNSNI
+            FPHDKLSEYLSAILCLESTVLLGIADDLFDLRWRHKFFLPAIAAIPLLMVYYVDFGVTHV
+            LIPGFMERWLKKTSVDLGLWYYVYMASMAIFCPNSINILAGVNGLEVGQCIVLAILALLN
+            DLLYFSMGPLATRDSHRFSAVLIIPFLGVSLALWKWNRWPATVFVGDTYCYFAGMVFAVV
+            GILGHFSKTMLLLFIPQIVNFIYSCPQLFKLVPCPRHRLPKFNEKDGLMYPSRANLKEEP
+            PKSIFKPILKLLYCLHLIDLEFDENNEIISTSNMTLINLTLVWFGPMREDKLCNTILKLQ
+            FCIGILALLGRHAIGAIIFGHDNLWTVR
+NTSEQ       1347
+            atgttgcgacttttttcactggcacttatcacatgcttaatctactattccaaaaatcag
+            ggcccatctgctcttgttgcggccgtgggatttggtatagcaggctatttagctacagat
+            atgttgattccacgtgtgggcaaatccttcatcaaaataggcctattcggtaaggacttg
+            agtaaacctggccgtccggtgcttccagaaacaataggtgctatccctgctgcagtttat
+            ttatttgtaatgttcatttacattcccttcattttctacaagtatatggtcataaccact
+            tcaggtgggggccatcgcgatgtctcagtggttgaagataacggtatgaattctaatatt
+            tttcctcatgataaactatctgaatatttgagcgctatcctatgcttggaaagtacggtc
+            ctcttgggtatcgctgatgatttatttgatttacgttggagacataagtttttcttgcct
+            gccattgcagccatcccactgctaatggtttattatgtggattttggagttacgcatgta
+            cttattcccggattcatggaacgctggttgaaaaagactagtgttgatttggggctgtgg
+            tattatgtttatatggcatcgatggcaattttttgccccaactccatcaacatcctggca
+            ggtgttaatggtttagaggttggccaatgtatagtgttggccatcttagcgctattgaac
+            gatttgctgtacttctcgatggggccattagccacaagagactcccataggttttccgct
+            gttttgattatcccatttttgggtgtatccttggcgctatggaaatggaatcgttggccc
+            gccacagtgtttgtgggagatacatattgttatttcgctggaatggtattcgcagtcgtt
+            ggtatactgggtcatttttcaaagacgatgcttttgctattcattcctcaaatcgttaat
+            tttatttattcatgtcctcagctattcaaattggtcccctgcccgagacataggttacct
+            aaatttaatgaaaaagacggtttaatgtatccatcaagagcaaacttaaaagaagaaccg
+            ccaaagagcatttttaaaccgatcttgaagttactatactgtctccatttgattgacctg
+            gaatttgatgaaaataatgagattattagcacctctaatatgacgttaataaacttgaca
+            ttagtatggtttggccctatgagggaagacaaattgtgcaatacaatcttgaagttgcaa
+            ttctgcattggaattttggctttacttggaagacacgctataggcgctatcatctttggc
+            cacgacaacctatggacagtacgttga
+///

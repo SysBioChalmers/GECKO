@@ -1,0 +1,32 @@
+ENTRY       YDL004W           CDS       T00005
+NAME        ATP16
+DEFINITION  F1F0 ATP synthase subunit delta (EC:3.6.3.14)
+ORTHOLOGY   K02134  F-type H+-transporting ATPase subunit delta [EC:3.6.3.14]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00190  Oxidative phosphorylation
+            sce01100  Metabolic pathways
+MODULE      sce_M00158  F-type ATPase, eukaryotes
+CLASS       Metabolism; Energy metabolism; Oxidative phosphorylation [PATH:sce00190]
+POSITION    IV:443029..443511
+MOTIF       Pfam: ATP-synt_DE_N
+DBLINKS     NCBI-GI: 6320200
+            NCBI-GeneID: 851560
+            SGD: S000002162
+            MIPS: YDL004W
+            UniProt: Q12165
+STRUCTURE   PDB: 3ZIA 3OEE 2HLD 3OEH 2XOK 3OE7 3OFN 2WPD 3FKS 3ZRY 4B2Q
+AASEQ       160
+            MLRSIIGKSASRSLNFVAKRSYAEAAAASSGLKLQFALPHETLYSGSEVTQVNLPAKSGR
+            IGVLANHVPTVEQLLPGVVEVMEGSNSKKFFISGGFATVQPDSQLCVTAIEAFPLESFSQ
+            ENIKNLLAEAKKNVSSSDAREAAEAAIQVEVLENLQSVLK
+NTSEQ       483
+            atgttacgttcaattattggaaagagtgcatcaagatcattgaatttcgtcgctaagcgt
+            tcatatgcagaagctgctgccgcatcatcaggtttgaagttacaatttgctctaccacac
+            gaaactttatatagtggctccgaagttactcaagtgaacctgcctgctaagtcaggacgt
+            attggtgtattggccaaccatgttcccaccgttgaacaattactaccaggtgtcgttgaa
+            gttatggaaggctctaactctaaaaaattctttatatcaggtggatttgcaacagttcaa
+            ccagactcgcagttatgtgtaactgcaattgaagcttttccattggaatccttttcacaa
+            gaaaatataaaaaatttgttggcagaagctaagaagaacgttagttcatctgatgccagg
+            gaagccgcagaagctgcaattcaagtagaagttttagaaaacctacaatccgtattgaaa
+            tag
+///

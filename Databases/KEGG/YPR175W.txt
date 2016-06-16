@@ -1,0 +1,74 @@
+ENTRY       YPR175W           CDS       T00005
+NAME        DPB2
+DEFINITION  Dpb2p (EC:2.7.7.7)
+ORTHOLOGY   K02325  DNA polymerase epsilon subunit 2 [EC:2.7.7.7]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00230  Purine metabolism
+            sce00240  Pyrimidine metabolism
+            sce01100  Metabolic pathways
+            sce03030  DNA replication
+            sce03410  Base excision repair
+            sce03420  Nucleotide excision repair
+MODULE      sce_M00263  DNA polymerase epsilon complex
+CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
+            Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
+            Genetic Information Processing; Replication and repair; DNA replication [PATH:sce03030]
+            Genetic Information Processing; Replication and repair; Base excision repair [PATH:sce03410]
+            Genetic Information Processing; Replication and repair; Nucleotide excision repair [PATH:sce03420]
+POSITION    XVI:888974..891043
+MOTIF       Pfam: DNA_pol_E_B
+DBLINKS     NCBI-GI: 37362708
+            NCBI-GeneID: 856305
+            SGD: S000006379
+            MIPS: YPR175W
+            UniProt: P24482
+AASEQ       689
+            MFGSGNVLPVKIQPPLLRPLAYRVLSRKYGLSIKSDGLSALAEFVGTNIGANWRQGPATI
+            KFLEQFAAVWKQQERGLFIDQSGVKEVIQEMKEREKVEWSHEHPIQHEENILGRTDDDEN
+            NSDDEMPIAADSSLQNVSLSSPMRQPTERDEYKQPFKPESSKALDWRDYFKVINASQQQR
+            FSYNPHKMQFIFVPNKKQNGLGGIAGFLPDIEDKVQMFLTRYYLTNDRVMRNENFQNSDM
+            FNPLSSMVSLQNELSNTNRQQQSSSMSITPIKNLLGRDAQNFLLLGLLNKNFKGNWSLED
+            PSGSVEIDISQTIPTQGHYYVPGCMVLVEGIYYSVGNKFHVTSMTLPPGERREITLETIG
+            NLDLLGIHGISNNNFIARLDKDLKIRLHLLEKELTDHKFVILGANLFLDDLKIMTALSKI
+            LQKLNDDPPTLLIWQGSFTSVPVFASMSSRNISSSTQFKNNFDALATLLSRFDNLTENTT
+            MIFIPGPNDLWGSMVSLGASGTLPQDPIPSAFTKKINKVCKNVVWSSNPTRIAYLSQEIV
+            IFRDDLSGRFKRHRLEFPFNESEDVYTENDNMMSKDTDIVPIDELVKEPDQLPQKVQETR
+            KLVKTILDQGHLSPFLDSLRPISWDLDHTLTLCPIPSTMVLCDTTSAQFDLTYNGCKVIN
+            PGSFIHNRRARYMEYVPSSKKTIQEEIYI
+NTSEQ       2070
+            atgtttggctctgggaatgttctgcctgttaaaattcagcctccgctgcttaggccactg
+            gcgtatagagttttatcaagaaaatatggtttatcaattaaatctgatggactgtctgct
+            cttgcagaattcgttggcactaatataggtgctaactggagacaagggcctgctacaata
+            aaatttctcgagcaatttgctgcagtatggaaacaacaagaaagaggccttttcatcgac
+            cagagcggggttaaagaagttatacaggagatgaaagaacgtgagaaagtcgaatggagt
+            catgaacaccctattcaacatgaggagaatatcttgggacggacagatgacgatgagaac
+            aacagtgacgatgaaatgccgatcgctgctgattcatccttacaaaatgtttcattatct
+            tcacccatgcgacagcccaccgaaagagatgaatataaacagcctttcaagccagaaagc
+            tccaaggcgttggactggagggactacttcaaagttatcaatgcttctcagcaacaaaga
+            ttctcatacaatccgcacaaaatgcaatttattttcgtccccaataaaaagcagaatggg
+            ctaggaggcattgcgggttttctaccagatatagaggacaaagttcaaatgttcttgaca
+            agatattacctcacgaacgacagagtcatgagaaatgaaaacttccaaaacagtgacatg
+            tttaatccattatcatctatggtgtctttacaaaatgaactgtccaatactaaccgacag
+            cagcaatccagcagtatgagtatcaccccaataaaaaacctactaggtagggatgctcaa
+            aactttctactattggggctcttaaataagaactttaagggcaattggtcactggaagat
+            ccgtctggatctgtcgaaattgacatttcccaaactatccctacacaaggccattactac
+            gtgccaggttgcatggttcttgtggaaggaatatactattctgtaggaaataaattccat
+            gttacctccatgactttaccccctggtgagagaagagaaattacattagaaacgataggt
+            aatctcgatctcttaggaatacatggcatttctaataacaatttcattgctcgtttggat
+            aaagatttgaagattagattacaccttttggagaaagaattaacagatcataaatttgta
+            attctcggcgcaaatttgttcctagatgatttgaaaattatgactgcactcagcaaaatt
+            ttgcaaaaattaaatgatgacccaccgaccctattaatttggcaaggttctttcacttca
+            gttcccgttttcgcatcaatgagtagccggaatataagtagttccactcaatttaagaat
+            aatttcgatgccttggcgacgcttctgtcaagatttgacaatttgaccgaaaataccaca
+            atgatatttattccaggtcctaacgatttatgggggtcgatggtgtcattgggggcaagt
+            gggacattaccgcaagatccaattcctagtgcgtttaccaaaaaaatcaacaaggtctgt
+            aaaaacgttgtatggagctcaaatccaactagaatagcatacttatcccaagaaatagtc
+            attttcagggacgatttatccggaagattcaaaagacaccgtttggaattcccattcaac
+            gagagcgaagatgtttatactgaaaacgataacatgatgtctaaagacaccgatattgta
+            ccaatcgatgaattagttaaagaaccagaccagttaccacaaaaggttcaagaaacaaga
+            aaactcgttaaaacaatactagaccagggtcatttatcgccatttcttgattccttgcgc
+            ccaatttcatgggatttggaccacactttgacactttgcccaataccatcgacaatggtt
+            ctttgcgacactacttctgcacaatttgatttgacatacaacggttgtaaagtaattaac
+            cctggaagtttcattcataatagacgtgctaggtatatggagtacgttccatcctcaaag
+            aaaactatacaagaagagatatatatctaa
+///

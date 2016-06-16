@@ -1,0 +1,40 @@
+ENTRY       YDR428C           CDS       T00005
+NAME        BNA7
+DEFINITION  arylformamidase (EC:3.5.1.9 3.1.-.-)
+ORTHOLOGY   K14263  kynurenine formamidase [EC:3.5.1.9]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00380  Tryptophan metabolism
+            sce00630  Glyoxylate and dicarboxylate metabolism
+            sce01100  Metabolic pathways
+CLASS       Metabolism; Carbohydrate metabolism; Glyoxylate and dicarboxylate metabolism [PATH:sce00630]
+            Metabolism; Amino acid metabolism; Tryptophan metabolism [PATH:sce00380]
+POSITION    IV:complement(1323454..1324239)
+MOTIF       Pfam: Abhydrolase_3 DUF2424 Abhydrolase_6 Abhydrolase_5 Abhydrolase_1 DUF900 DUF915 DUF2305 UPF0565
+DBLINKS     NCBI-GI: 398366589
+            NCBI-GeneID: 852038
+            SGD: S000002836
+            MIPS: YDR428C
+            UniProt: Q04066
+STRUCTURE   PDB: 1VKH
+AASEQ       261
+            MSNTVRAISPDITLFNKTLTFQEISQNTREAVIYIHGGAWNDPENTPNDFNQLANTIKSM
+            DTESTVCQYSIEYRLSPEITNPRNLYDAVSNITRLVKEKGLTNINMVGHSVGATFIWQIL
+            AALKDPQEKMSEAQLQMLGLLQIVKRVFLLDGIYSLKELLVEYPEYDCFTRLAFPDGIQM
+            YEEEPSRVMPYVKKALSRFSIDMHLVHSYSDELLTLRQTNCLISCLQDYQLSFKLYLDDL
+            GLHNDVYKNGKVAKYIFDNIC
+NTSEQ       786
+            atgtcaaataccgtaagagccatttcaccagatataacactattcaacaagacattgaca
+            ttccaagaaatctcacaaaacactagagaggctgtcatatacattcatggaggtgcatgg
+            aacgatcctgagaatacgcccaatgattttaatcaattagccaataccatcaaatcaatg
+            gatactgagtcaacggtttgtcaatactctatagaatacaggttatcaccagagatcaca
+            aatccaagaaacttatatgatgctgtgtcaaatataacaaggcttgttaaagaaaaggga
+            ttaacgaacattaatatggtgggacattccgttggagctacctttatttggcagatatta
+            gctgcactcaaagatcctcaagaaaaaatgagtgaagcgcaattgcaaatgttgggactt
+            ttgcagatcgtgaagagagtatttctattggatggtatatactcgttaaaggaactgttg
+            gtagaatacccagagtatgattgttttacaagacttgccttccctgatggtattcaaatg
+            tacgaggaagagccctcgagagtaatgccttacgtgaagaaagccctttctcgcttcagt
+            attgatatgcacctagtgcattcttatagcgacgagttattaacgttaagacaaactaat
+            tgtttaatttcttgtcttcaggattatcagttaagtttcaagttgtatttggacgatttg
+            ggtttgcataatgatgtttataagaatggtaaagttgcgaagtatatttttgacaatatt
+            tgttga
+///

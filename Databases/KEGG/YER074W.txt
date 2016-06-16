@@ -1,0 +1,28 @@
+ENTRY       YER074W           CDS       T00005
+NAME        RPS24A, RPS24EA
+DEFINITION  ribosomal 40S subunit protein S24A
+ORTHOLOGY   K02974  small subunit ribosomal protein S24e
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03010  Ribosome
+CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+POSITION    V:join(306323..306325,306792..307196)
+MOTIF       Pfam: Ribosomal_S24e RAMPs SeleniumBinding
+DBLINKS     NCBI-GI: 398364517
+            NCBI-GeneID: 856805
+            SGD: S000000876
+            MIPS: YER074W
+            UniProt: P0CX31 P0CX32
+STRUCTURE   PDB: 3U5C 3U5G 4BYL 4BYT 3J16 3IZB
+AASEQ       135
+            MSDAVTIRTRKVISNPLLARKQFVVDVLHPNRANVSKDELREKLAEVYKAEKDAVSVFGF
+            RTQFGGGKSVGFGLVYNSVAEAKKFEPTYRLVRYGLAEKVEKASRQQRKQKKNRDKKIFG
+            TGKRLAKKVARRNAD
+NTSEQ       408
+            atgtctgacgctgttactatccgtactagaaaggttatctccaacccattgttggccaga
+            aagcaattcgtcgtcgacgtcttgcacccaaacagagctaatgtctccaaggatgaattg
+            cgtgaaaaattagctgaagtctacaaggctgaaaaggacgctgtctccgttttcggtttc
+            agaacccaatttggtggtggtaagtctgttggtttcggtttggtctacaactctgttgcc
+            gaagctaagaagttcgaaccaacttacagattagtcagatacggtttggctgaaaaggtt
+            gaaaaggcttccagacaacaaagaaagcaaaagaagaacagagacaagaagatcttcggt
+            actggtaagagattggctaagaaggttgctcgtcgtaacgccgattaa
+///

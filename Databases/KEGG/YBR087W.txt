@@ -1,0 +1,47 @@
+ENTRY       YBR087W           CDS       T00005
+NAME        RFC5
+DEFINITION  replication factor C subunit 5
+ORTHOLOGY   K10756  replication factor C subunit 3/5
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03030  DNA replication
+            sce03420  Nucleotide excision repair
+            sce03430  Mismatch repair
+MODULE      sce_M00289  RF-C complex
+CLASS       Genetic Information Processing; Replication and repair; DNA replication [PATH:sce03030]
+            Genetic Information Processing; Replication and repair; Nucleotide excision repair [PATH:sce03420]
+            Genetic Information Processing; Replication and repair; Mismatch repair [PATH:sce03430]
+POSITION    II:423765..424829
+MOTIF       Pfam: Rep_fac_C DNA_pol3_delta2 AAA AAA_22 AAA_16 Sigma54_activ_2 NYD-SP12_N RuvB_N AAA_5
+DBLINKS     NCBI-GI: 398364719
+            NCBI-GeneID: 852383
+            SGD: S000000291
+            MIPS: YBR087W
+            UniProt: P38251
+STRUCTURE   PDB: 1SXJ
+AASEQ       354
+            MSLWVDKYRPKSLNALSHNEELTNFLKSLSDQPRDLPHLLLYGPNGTGKKTRCMALLESI
+            FGPGVYRLKIDVRQFVTASNRKLELNVVSSPYHLEITPSDMGNNDRIVIQELLKEVAQME
+            QVDFQDSKDGLAHRYKCVIINEANSLTKDAQAALRRTMEKYSKNIRLIMVCDSMSPIIAP
+            IKSRCLLIRCPAPSDSEISTILSDVVTNERIQLETKDILKRIAQASNGNLRVSLLMLESM
+            ALNNELALKSSSPIIKPDWIIVIHKLTRKIVKERSVNSLIECRAVLYDLLAHCIPANIIL
+            KELTFSLLDVETLNTTNKSSIIEYSSVFDERLSLGNKAIFHLEGFIAKVMCCLD
+NTSEQ       1065
+            atgtcattgtgggtagataaatacagacctaagtccttgaatgctctttcacataatgaa
+            gagttgacaaattttctaaaatcgttatctgatcagcctcgtgatttacctcatctttta
+            ctgtatggaccaaatggtacaggtaagaaaacgcgttgtatggcattattggagtccata
+            tttggacctggagtctatagattgaaaattgatgtcagacaatttgtcactgcttcgaac
+            agaaaactagaactgaatgtggtcagctcgccataccatttagagatcacgccaagtgat
+            atgggtaacaatgatagaattgtcatccaagaactattgaaagaagtggctcaaatggaa
+            caagtggactttcaagattctaaggatggacttgcccatagatataagtgtgttattatc
+            aacgaggcgaactcgttaacaaaagatgctcaagctgctttaagacgtaccatggaaaaa
+            tactccaaaaacattaggttgataatggtctgcgattcgatgtcgcctataattgctcct
+            atcaaatcccgttgtctgttgattcgttgtcctgcaccaagcgatagcgaaatttcaact
+            atcttgtctgatgtggtgacaaatgaaagaatacaactagaaacaaaggatattttaaaa
+            agaattgctcaggcatcgaatggaaacttgcgagtctccctattaatgcttgaatctatg
+            gcactgaacaacgaattagcattgaaaagcagtagccctataataaaaccagattggatt
+            atagtgatccataaattaacgaggaaaatcgttaaagagagatctgtcaattctttaatc
+            gaatgcagagctgtcctatacgatttactagctcattgtatacctgccaatatcatctta
+            aaggaactaacgttttctttgttggatgtggaaaccctgaataccacgaataaatcgtcc
+            ataattgaatactcaagtgtttttgacgaaagattatcacttggaaacaaagcaatattc
+            catttggaagggttcatagcaaaagttatgtgctgtctagattaa
+///

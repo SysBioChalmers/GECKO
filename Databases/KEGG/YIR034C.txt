@@ -1,0 +1,51 @@
+ENTRY       YIR034C           CDS       T00005
+NAME        LYS1
+DEFINITION  saccharopine dehydrogenase (NAD+, L-lysine-forming) (EC:1.5.1.7)
+ORTHOLOGY   K00290  saccharopine dehydrogenase (NAD+, L-lysine forming) [EC:1.5.1.7]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00300  Lysine biosynthesis
+            sce00310  Lysine degradation
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01230  Biosynthesis of amino acids
+MODULE      sce_M00030  Lysine biosynthesis, AAA pathway, 2-oxoglutarate => 2-aminoadipate => lysine
+CLASS       Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
+            Metabolism; Amino acid metabolism; Lysine biosynthesis [PATH:sce00300]
+            Metabolism; Amino acid metabolism; Lysine degradation [PATH:sce00310]
+POSITION    IX:complement(419615..420736)
+MOTIF       Pfam: AlaDh_PNT_N AlaDh_PNT_C
+DBLINKS     NCBI-GI: 398364729
+            NCBI-GeneID: 854852
+            SGD: S000001473
+            MIPS: YIR034C
+            UniProt: P38998
+STRUCTURE   PDB: 2QRJ 2QRL 2Q99 2QRK 3UGK 3UH1 3UHA
+AASEQ       373
+            MAAVTLHLRAETKPLEARAALTPTTVKKLIAKGFKIYVEDSPQSTFNINEYRQAGAIIVP
+            AGSWKTAPRDRIIIGLKEMPETDTFPLVHEHIQFAHCYKDQAGWQNVLMRFIKGHGTLYD
+            LEFLENDQGRRVAAFGFYAGFAGAALGVRDWAFKQTHSDDEDLPAVSPYPNEKALVKDVT
+            KDYKEALATGARKPTVLIIGALGRCGSGAIDLLHKVGIPDANILKWDIKETSRGGPFDEI
+            PQADIFINCIYLSKPIAPFTNMEKLNNPNRRLRTVVDVSADTTNPHNPIPIYTVATVFNK
+            PTVLVPTTAGPKLSVISIDHLPSLLPREASEFFSHDLLPSLELLPQRKTAPVWVRAKKLF
+            DRHCARVKRSSRL
+NTSEQ       1122
+            atggctgccgtcacattacatctaagagctgaaactaaacccctagaggcacgtgctgcc
+            ttaacacctaccacggttaaaaaactgatagctaagggcttcaaaatatatgtagaggac
+            agtccacaatctactttcaatattaacgaatatcgtcaagcaggtgccattatagtgcct
+            gcaggttcatggaaaaccgctccacgcgacagaatcattataggtttgaaggaaatgcct
+            gaaaccgatactttccctctagtccacgaacacatccagtttgctcactgctacaaagac
+            caagctgggtggcaaaatgtccttatgagatttattaagggacacggtactctatatgat
+            ttggaatttttggaaaatgaccaaggtagaagagttgctgcctttggattttacgctggg
+            ttcgcaggtgcagcccttggtgtaagagactgggcattcaagcaaacgcattctgacgat
+            gaagacttgcctgcagtgtcgccttaccccaatgaaaaggcattggttaaagatgttacc
+            aaagattataaagaagccttagccaccggagccagaaagccaaccgtgttaatcattggt
+            gcgctaggaagatgtggttccggtgccatcgatctgttgcacaaagttggtattccagat
+            gctaacatattaaaatgggatatcaaagaaacttcccgtggtggtccctttgacgaaatt
+            ccacaagctgatatttttatcaattgtatatatctatcgaagccaattgctcctttcact
+            aacatggagaaactgaataatcctaacagaagactaaggaccgtggtggacgtatcagca
+            gacactaccaaccctcacaaccccatcccaatatacactgtggctactgtgtttaacaaa
+            cctaccgttctggtacctaccactgccgggcctaaattatctgtcatctctattgatcac
+            ttgccttctttgctgccaagagaagcttcagaatttttctctcatgatctcttaccatct
+            ttagagctcctacctcaaagaaaaactgctcctgtctgggttagagccaagaaattgttc
+            gatagacattgcgctcgtgttaaaagatcttcaagattgtag
+///

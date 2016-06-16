@@ -1,0 +1,34 @@
+ENTRY       YJR073C           CDS       T00005
+NAME        OPI3, PEM2
+DEFINITION  bifunctional phosphatidyl-N-methylethanolamine N-methyltransferase/phosphatidyl-N-dimethylethanolamine N-methyltransferase (EC:2.1.1.71 2.1.1.17)
+ORTHOLOGY   K00550  methylene-fatty-acyl-phospholipid synthase [EC:2.1.1.16]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00564  Glycerophospholipid metabolism
+            sce01100  Metabolic pathways
+MODULE      sce_M00091  Phosphatidylcholine (PC) biosynthesis, PE => PC
+CLASS       Metabolism; Lipid metabolism; Glycerophospholipid metabolism [PATH:sce00564]
+POSITION    X:complement(572315..572935)
+MOTIF       Pfam: PEMT
+DBLINKS     NCBI-GI: 6322533
+            NCBI-GeneID: 853536
+            SGD: S000003834
+            MIPS: YJR073C
+            UniProt: P05375
+AASEQ       206
+            MKESVQEIIQQLIHSVDLQSSKFQLAIVCTMFNPIFWNIVARMEYHKHSLTKMCGGARKG
+            CYMLAATIFSLGIVRDMVYESALREQPTCSLITGENWTKLGVALFGLGQVLVLSSMYKLG
+            ITGTYLGDYFGILMDERVTGFPFNVSNNPMYQGSTLSFLGIALYKGKPAGLVVSAVVYFM
+            YKIALRWEEPFTAMIYANRDKAKKNM
+NTSEQ       621
+            atgaaggagtcagtccaagagatcatccagcaactcatccacagtgtcgatttacagtct
+            tccaagttccagctggccattgtgtgcacgatgttcaatcctatcttttggaacatcgtt
+            gcaagaatggaataccacaagcattctctcaccaagatgtgtggtggggccagaaagggc
+            tgttacatgttggcggcgaccatattttcgctaggtatcgtcagagacatggtgtacgag
+            tctgcattgcgtgaacagcctacgtgttctctgatcacgggcgagaactggaccaagctg
+            ggtgtggctctctttggtttggggcaagtgcttgttttgagttccatgtacaagctgggt
+            atcacagggacgtacttgggtgactatttcggcatcctgatggatgagagagtcaccggc
+            ttccccttcaacgtttccaacaaccccatgtaccagggttccactttgtccttcttgggc
+            atagccctttacaaaggaaagcctgcggggctggttgtttctgccgtagtttacttcatg
+            tacaagatcgctcttcgttgggaagaaccttttactgccatgatctacgctaaccgtgat
+            aaggccaaaaagaatatgtaa
+///

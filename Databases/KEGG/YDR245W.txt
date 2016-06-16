@@ -1,0 +1,46 @@
+ENTRY       YDR245W           CDS       T00005
+NAME        MNN10, BED1, REC41, SLC2
+DEFINITION  Mnn10p (EC:2.4.1.-)
+ORTHOLOGY   K05531  mannan polymerase II complex MNN10 subunit [EC:2.4.1.-]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00513  Various types of N-glycan biosynthesis
+            sce01100  Metabolic pathways
+MODULE      sce_M00074  N-glycan biosynthesis, high-mannose type
+CLASS       Metabolism; Glycan biosynthesis and metabolism; Various types of N-glycan biosynthesis [PATH:sce00513]
+POSITION    IV:952800..953981
+MOTIF       Pfam: Glyco_transf_34 DUF273
+DBLINKS     NCBI-GI: 6320451
+            NCBI-GeneID: 851832
+            SGD: S000002653
+            MIPS: YDR245W
+            UniProt: P50108
+AASEQ       393
+            MSSVPYNSQLPISNHLEYDEDEKKSRGSKLGLKYKMIYWRKTLCSSLARWRKLILLISLA
+            LFLFIWISDSTISRNPSTTSFQGQNSNDNKLSNTGSSINSKRYVPPYSKRSRWSFWNQDP
+            RIVIILAANEGGGVLRWKNEQEWAIEGISIENKKAYAKRHGYALTIKDLTTSKRYSHEYR
+            EGWQKVDILRQTFREFPNAEWFWWLDLDTMIMEPSKSLEEHIFDRLETLADRELKSFNPL
+            NLRDDIPYVDYSEEMEFLITQDCGGFNLGSFLIKNSEWSKLLLDMWWDPVLYEQKHMVWE
+            HREQDALEALYENEPWIRSRIGFLPLRTINAFPPGACSEYSGDSRYFYSEKDHDFVVNMA
+            GCNFGRDCWGEMQYYTTLMEKLNRKWYTRFFFP
+NTSEQ       1182
+            atgtctagtgtaccttataattcccaacttcctatatccaaccatctagagtacgatgaa
+            gatgaaaagaagagcagaggctcaaaactaggcctgaaatataaaatgatatactggagg
+            aaaactttatgcagttcgctagcgagatggagaaagctaatactattaatatctttagct
+            ttgtttttattcatatggataagcgattccaccataagcagaaatccatctaccacaagt
+            tttcaaggccaaaatagtaacgataataagttgagtaatactggttctagcatcaactcc
+            aaaagatatgtaccaccatattctaagagatcaagatggtcgttttggaatcaagatcct
+            aggattgtcattatattagcggcaaacgaaggtggtggtgtattgaggtggaaaaatgag
+            caagaatgggctatcgaaggcatatcaatagaaaataagaaggcctatgcgaagagacat
+            ggatatgcgttgactatcaaggatttgacaacgtccaaaagatactctcacgaatacaga
+            gagggttggcaaaaagtagatatattgagacagacgttcagggagtttcctaatgcagaa
+            tggttctggtggttggacctggatactatgataatggagccttctaaatcattagaagaa
+            catattttcgacagattggaaactctggctgacagagaattgaaaagttttaatccccta
+            aacctaagagacgacataccctatgtcgattattcagaggaaatggagtttctaataaca
+            caagattgtggaggcttcaatttgggctcatttctgataaaaaatagcgaatggtctaag
+            ctgcttctagatatgtggtgggaccccgttctgtatgaacaaaaacatatggtttgggaa
+            catagagaacaagatgcgttagaggcattatatgaaaacgaaccgtggattcgttcgaga
+            ataggatttttgcccttaagaacgatcaatgcattcccaccgggagcatgctctgaatac
+            agtggtgactcaagatacttttacagtgagaaagaccatgattttgttgtgaatatggcc
+            ggatgcaattttggcagagattgctggggcgagatgcagtactacaccactttaatggaa
+            aaactgaataggaaatggtacacgagatttttcttcccataa
+///

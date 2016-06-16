@@ -1,0 +1,72 @@
+ENTRY       YBL035C           CDS       T00005
+NAME        POL12
+DEFINITION  Pol12p
+ORTHOLOGY   K02321  DNA polymerase alpha subunit B
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00230  Purine metabolism
+            sce00240  Pyrimidine metabolism
+            sce01100  Metabolic pathways
+            sce03030  DNA replication
+MODULE      sce_M00261  DNA polymerase alpha / primase complex
+CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
+            Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
+            Genetic Information Processing; Replication and repair; DNA replication [PATH:sce03030]
+POSITION    II:complement(151493..153610)
+MOTIF       Pfam: Pol_alpha_B_N DNA_pol_E_B
+DBLINKS     NCBI-GI: 6319436
+            NCBI-GeneID: 852245
+            SGD: S000000131
+            MIPS: YBL035C
+            UniProt: P38121
+STRUCTURE   PDB: 3FLO
+AASEQ       705
+            MSGSIDVITHFGPDADKPEIITALENLTKLHALSVEDLYIKWEQFSNQRRQTHTDLTSKN
+            IDEFKQFLQLQMEKRANQISSSSKVNTSTKKPVIKKSLNSSPLFGLSIPKTPTLKKRKLH
+            GPFSLSDSKQTYNVGSEAETNEKGNSSLKLEFTPGMAEDAVGDSAPLSHAKSSDAKTPGS
+            STFQTPTTNTPTTSRQNVPAGEILDSLNPENIEISSGNPNVGLLSTEEPSYNQVKVEPFY
+            DAKKYKFRTMRQNLQEASDVLDDQIESFTKIIQNHYKLSPNDFADPTIQSQSEIYAVGRI
+            VPDSPTYDKFLNPESLSLETSRMGGVGRRVRLDLSQVNELSFFLGQIVAFKGKNANGDYF
+            TVNSILPLPYPNSPVSTSQELQEFQANLEGSSLKVIVTCGPYFANDNFSLELLQEFIDSI
+            NNEVKPHVLIMFGPFIDITHPLIASGKLPNFPQFKTQPKTLDELFLKLFTPILKTISPHI
+            QTVLIPSTKDAISNHAAYPQASLIRKALQLPKRNFKCMANPSSFQINEIYFGCSNVDTFK
+            DLKEVIKGGTTSSRYRLDRVSEHILQQRRYYPIFPGSIRTRIKPKDVSTKKETNDMESKE
+            EKVYEHISGADLDVSYLGLTEFVGGFSPDIMIIPSELQHFARVVQNVVVINPGRFIRATG
+            NRGSYAQITVQCPDLEDGKLTLVEGEEPVYLHNVWKRARVDLIAS
+NTSEQ       2118
+            atgagcggatctatcgatgtcatcactcattttgggcctgatgcagacaagccggaaatc
+            atcactgcattagagaatttaactaaactgcatgcattgtccgtcgaggatctatacatt
+            aaatgggagcagttctccaatcaaaggcgtcaaactcacacagatctgacttccaagaac
+            atagatgagtttaaacaatttttacaattacaaatggaaaagcgtgctaaccaaatttca
+            tcgtcctctaaggtaaacacatccacaaaaaaaccagtgattaaaaaaagtttgaattca
+            agtcccttgtttggccttagtattccaaagactccgactttaaaaaaaagaaagttacat
+            ggtcccttttcactcagtgattccaagcaaacatataatgtaggctctgaggcagaaaca
+            aatgaaaaaggaaatagttctttaaaattggagtttactccaggcatggcagaagatgct
+            gtgggtgacagtgctccattgtcccacgctaaaagctcggatgccaagactcccggctcg
+            tcgacattccaaactccaacaacaaacactcctaccacatcgaggcaaaatgttcctgct
+            ggtgaaattttggattctttgaaccctgaaaatattgaaatatcatctggtaatccaaat
+            gtaggccttctttcgactgaagaaccatcatataaccaggtcaaagtagaaccattttat
+            gatgctaaaaagtataaattcagaacaatgaggcaaaacttacaggaagcgtctgatgtc
+            ctcgatgatcaaattgaatcgtttactaagattattcaaaatcactataagttatctcca
+            aacgacttcgctgatccaactattcaatctcagtccgaaatttatgctgttggaaggata
+            gttccagattcgccgacctacgacaagtttttgaatccagaatcgctttccctagagacc
+            tcaagaatgggcggcgttggaagaagggtaaggttagatctatcgcaggtcaacgagctt
+            tcgtttttcttaggccaaattgtggcattcaaaggtaaaaatgctaatggggattacttc
+            accgttaactctattttgccgctaccttatccaaactccccagtgtccacatcgcaggaa
+            ctgcaggagtttcaagcaaatttggaaggttcttctttgaaggttatcgtgacctgtggc
+            ccatactttgcaaatgataacttctccctcgaattgttgcaagaatttatcgatagtata
+            aataatgaggtaaaacctcacgtcttgataatgtttggcccatttatagatatcacccat
+            cctctgatagcgagtggtaaattgccaaattttccccagttcaagacacagcccaaaaca
+            ttggacgagctttttttgaagttatttactcctattctaaaaaccatatcaccacatatc
+            caaaccgtattgataccctccacaaaagatgcaatttctaatcacgccgcatatccacaa
+            gcttctttaattagaaaggctttacagctgcctaaaaggaacttcaaatgcatggctaat
+            ccttcatcttttcaaataaatgagatatacttcggttgctcaaacgttgatacattcaaa
+            gatctaaaggaagtcataaaaggcggtactacctcatcaagatatagattagatcgtgtt
+            tctgagcatattttacaacagcgcaggtattaccccatatttccaggtagtattcgtaca
+            agaataaaaccaaaagacgtatctacgaagaaggaaaccaatgatatggaaagcaaagaa
+            gaaaaagtttatgaacatatatctggtgcagatttagacgtgagttatctgggactaaca
+            gagtttgttggtgggttctcgcctgacataatgattatacccagtgaattacaacacttt
+            gcaagagttgtccaaaacgtagttgttataaatcccggaagatttattagagcaacaggt
+            aacaggggatcctatgcacaaattactgtccaatgccctgatcttgaagacgggaaattg
+            acgcttgttgaaggtgaagagccagtttatctacacaacgtgtggaagcgcgctagagtt
+            gacttgattgctagttga
+///

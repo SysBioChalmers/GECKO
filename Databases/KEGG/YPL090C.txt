@@ -1,0 +1,34 @@
+ENTRY       YPL090C           CDS       T00005
+NAME        RPS6A
+DEFINITION  ribosomal 40S subunit protein S6A
+ORTHOLOGY   K02991  small subunit ribosomal protein S6e
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03010  Ribosome
+CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+POSITION    XVI:complement(join(377291..377995,378390..378395))
+MOTIF       Pfam: Ribosomal_S6e
+DBLINKS     NCBI-GI: 6325167
+            NCBI-GeneID: 856015
+            SGD: S000006011
+            MIPS: YPL090C
+            UniProt: P0CX37 P0CX38
+STRUCTURE   PDB: 3U5C 3U5G 4BYL 4BYT 3J16
+AASEQ       236
+            MKLNISYPVNGSQKTFEIDDEHRIRVFFDKRIGQEVDGEAVGDEFKGYVFKISGGNDKQG
+            FPMKQGVLLPTRIKLLLTKNVSCYRPRRDGERKRKSVRGAIVGPDLAVLALVIVKKGEQE
+            LEGLTDTTVPKRLGPKRANNIRKFFGLSKEDDVRDFVIRREVTKGEKTYTKAPKIQRLVT
+            PQRLQRKRHQRALKVRNAQAQREAAAEYAQLLAKRLSERKAEKAEIRKRRASSLKA
+NTSEQ       711
+            atgaagttgaacatttcttacccagttaacgggtctcaaaagaccttcgaaattgatgat
+            gaacaccgtattcgtgttttcttcgacaagagaatcggtcaagaagtcgatggtgaagcc
+            gttggtgacgaattcaagggttacgtcttcaagatctctggtggtaacgacaaacaaggt
+            ttcccaatgaagcaaggtgttttgttgccaactagaatcaagttgttgttgaccaagaac
+            gtttcttgttacagaccaagacgtgatggtgaaagaaagagaaagtccgtcagaggtgcc
+            attgttggtccagatttggctgtcttggctttggtcattgtcaagaagggtgagcaagaa
+            ttggaaggtctaactgacactactgttccaaagagattgggtccaaagagagctaacaac
+            atcagaaagttcttcggtttgtccaaggaagatgacgttcgtgatttcgtcatcagaaga
+            gaagtcaccaagggtgaaaagacttacaccaaggctccaaagatccaaagattggttact
+            cctcaaagattgcaaagaaagagacaccaaagagctttgaaggtcagaaacgctcaagct
+            caaagagaagctgctgccgaatacgctcaattgttggctaagagattgtctgaaagaaag
+            gctgagaaggctgaaatcagaaagagaagagcttcttctttgaaggcttaa
+///

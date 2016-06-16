@@ -1,0 +1,49 @@
+ENTRY       YDR354W           CDS       T00005
+NAME        TRP4
+DEFINITION  anthranilate phosphoribosyltransferase (EC:2.4.2.18)
+ORTHOLOGY   K00766  anthranilate phosphoribosyltransferase [EC:2.4.2.18]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00400  Phenylalanine, tyrosine and tryptophan biosynthesis
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01230  Biosynthesis of amino acids
+MODULE      sce_M00023  Tryptophan biosynthesis, chorismate => tryptophan
+CLASS       Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
+            Metabolism; Amino acid metabolism; Phenylalanine, tyrosine and tryptophan biosynthesis [PATH:sce00400]
+POSITION    IV:1184747..1185889
+MOTIF       Pfam: Glycos_transf_3 Glycos_trans_3N
+DBLINKS     NCBI-GI: 398366515
+            NCBI-GeneID: 851956
+            SGD: S000002762
+            MIPS: YDR354W
+            UniProt: P07285
+AASEQ       380
+            MSEATLLSYTKKLLASPPQLSSTDLHDALLVILSLLQKCDTNSDESLSIYTKVSSFLTAL
+            RVTKLDHKAEYIAEAAKAVLRHSDLVDLPLPKKDELHPEDGPVILDIVGTGGDGQNTFNV
+            STSAAIVASGIQGLKICKHGGKASTSNSGAGDLIGTLGCDMFKVNSSTVPKLWPDNTFMF
+            LLAPFFHHGMGHVSKIRKFLGIPTVFNVLGPLLHPVSHVNKRILGVYSKELAPEYAKAAA
+            LVYPGSETFIVWGHVGLDEVSPIGKTTVWHIDPTSSELKLKTFQLEPSMFGLEEHELSKC
+            ASYGPKENARILKEEVLSGKYHLGDNNPIYDYILMNTAVLYCLSQGHQNWKEGIIKAEES
+            IHSGNALRSLEHFIDSVSSL
+NTSEQ       1143
+            atgtccgaggcgactttgctatcttacaccaagaaattattggcttctccgccgcaattg
+            agtagcacagacctacacgatgcgttgctggttatattaagtcttttgcaaaaatgtgat
+            acaaatagcgatgagagtctttccatctataccaaagtttcgagttttctcacggccttg
+            agagttactaaacttgatcacaaggctgaatacattgcggaagctgcaaaggctgtgctc
+            agacattccgaccttgttgatctacctttacccaagaaggacgaattacacccggaagat
+            ggaccagtaatcttagatattgtaggtactggtggtgacggacagaatacttttaatgtt
+            tccacgtctgctgctatcgttgcctccggaattcagggcctaaaaatttgtaagcacggt
+            ggtaaagcttctacatccaatagtggagctggtgacctaattggaactttaggctgtgac
+            atgttcaaggttaattcatcgacagtgcccaaactttggcctgataatacgttcatgttt
+            ctacttgctcctttttttcatcatggaatgggccacgtttctaagatacgcaaatttctt
+            ggaattccgactgttttcaacgtactgggaccacttctacatccagttagccacgtaaac
+            aagagaatattgggcgtttactcaaaggaacttgcgcctgaatatgccaaggcagccgct
+            ttggtatatccaggaagcgaaacttttatagtttggggacatgttgggttagacgaagta
+            tcacctataggcaaaactactgtctggcatattgatccgacatcgtccgaacttaaattg
+            aagaccttccaattagaaccttctatgtttggtttagaagaacacgagttgtcgaagtgt
+            gcttcatacggccctaaagagaatgcgagaattctaaaagaagaagtcttgtccggcaag
+            taccaccttggcgacaataatcctatttatgactacatcttgatgaacaccgccgtgtta
+            tattgtttaagccaaggtcaccagaactggaaggaagggatcattaaggcagaagaaagc
+            atacattctggtaatgcattacgttctttagaacactttatagatagtgtgagctccttg
+            tag
+///

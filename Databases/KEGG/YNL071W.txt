@@ -1,0 +1,60 @@
+ENTRY       YNL071W           CDS       T00005
+NAME        LAT1, ODP2, PDA2
+DEFINITION  dihydrolipoyllysine-residue acetyltransferase (EC:2.3.1.12)
+ORTHOLOGY   K00627  pyruvate dehydrogenase E2 component (dihydrolipoamide acetyltransferase) [EC:2.3.1.12]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00010  Glycolysis / Gluconeogenesis
+            sce00020  Citrate cycle (TCA cycle)
+            sce00620  Pyruvate metabolism
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01200  Carbon metabolism
+MODULE      sce_M00307  Pyruvate oxidation, pyruvate => acetyl-CoA
+CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
+            Metabolism; Carbohydrate metabolism; Glycolysis / Gluconeogenesis [PATH:sce00010]
+            Metabolism; Carbohydrate metabolism; Citrate cycle (TCA cycle) [PATH:sce00020]
+            Metabolism; Carbohydrate metabolism; Pyruvate metabolism [PATH:sce00620]
+POSITION    XIV:491523..492971
+MOTIF       Pfam: 2-oxoacid_dh Biotin_lipoyl E3_binding L1R_F9L
+DBLINKS     NCBI-GI: 398365063
+            NCBI-GeneID: 855653
+            SGD: S000005015
+            MIPS: YNL071W
+            UniProt: P12695
+AASEQ       482
+            MSAFVRVVPRISRSSVLTRSLRLQLRCYASYPEHTIIGMPALSPTMTQGNLAAWTKKEGD
+            QLSPGEVIAEIETDKAQMDFEFQEDGYLAKILVPEGTKDIPVNKPIAVYVEDKADVPAFK
+            DFKLEDSGSDSKTSTKAQPAEPQAEKKQEAPAEETKTSAPEAKKSDVAAPQGRIFASPLA
+            KTIALEKGISLKDVHGTGPRGRITKADIESYLEKSSKQSSQTSGAAAATPAAATSSTTAG
+            SAPSPSSTASYEDVPISTMRSIIGERLLQSTQGIPSYIVSSKISISKLLKLRQSLNATAN
+            DKYKLSINDLLVKAITVAAKRVPDANAYWLPNENVIRKFKNVDVSVAVATPTGLLTPIVK
+            NCEAKGLSQISNEIKELVKRARINKLAPEEFQGGTICISNMGMNNAVNMFTSIINPPQST
+            ILAIATVERVAVEDAAAENGFSFDNQVTITGTFDHRTIDGAKGAEFMKELKTVIENPLEM
+            LL
+NTSEQ       1449
+            atgtctgcctttgtcagggtggttccaagaatatccagaagttcagtactcaccagatca
+            ttgagactgcaattgagatgctacgcatcgtacccagagcacaccattattggtatgccg
+            gcactgtctcctacgatgacgcaaggtaatcttgctgcttggactaagaaggaaggtgac
+            caattgtctcccggtgaagttattgccgaaatagaaacagacaaggctcaaatggacttt
+            gagttccaagaagatggttacttagccaagattctagttcctgaaggtacaaaggacatt
+            cctgtcaacaagcctattgccgtctatgtggaggacaaagctgatgtgccagcttttaag
+            gactttaagctggaggattcaggttctgattcaaagaccagtacgaaggctcagcctgcc
+            gaaccacaggcagaaaagaaacaagaagcgccagctgaagagaccaagacttctgcacct
+            gaagctaagaaatctgacgttgctgctcctcaaggtaggatttttgcctctccacttgcc
+            aagactatcgccttggaaaagggtatttctttgaaggatgttcacggcactggaccccgc
+            ggtagaattaccaaggctgacattgagtcatatctagaaaagtcgtctaagcagtcttct
+            caaaccagtggtgctgccgccgccactcctgccgccgctacctcaagcactactgctggc
+            tctgctccatcgccttcttctacagcatcatatgaggatgttccaatttcaaccatgaga
+            agcatcattggagaacgtttattgcaatctactcaaggcattccatcatacatcgtttcc
+            tccaagatatccatctccaaacttttgaaattgagacagtccttgaacgctacagcaaac
+            gacaagtacaaactgtccattaatgacctattagtaaaagccatcactgttgcggctaag
+            agggtgccagatgccaatgcctactggttacctaatgagaacgttatccgtaaattcaag
+            aatgtcgatgtctcagtcgctgttgccacaccaacaggattattgacaccaattgtcaag
+            aattgtgaggccaagggcttgtcgcaaatctctaacgaaatcaaggaactagtcaagcgt
+            gccagaataaacaaattggcaccagaggaattccaaggtgggaccatttgcatatccaat
+            atgggcatgaataatgctgttaacatgtttacttcgattatcaacccaccacagtctaca
+            atcttggccatcgctactgttgaaagggtcgctgtggaagacgccgctgctgagaacgga
+            ttctcctttgataaccaggttaccataacagggacctttgatcatagaaccattgatggc
+            gccaaaggtgcagaattcatgaaggaattgaaaactgttattgaaaatcctttggaaatg
+            ctattgtga
+///

@@ -1,0 +1,32 @@
+ENTRY       YOR096W           CDS       T00005
+NAME        RPS7A, RPS30
+DEFINITION  ribosomal 40S subunit protein S7A
+ORTHOLOGY   K02993  small subunit ribosomal protein S7e
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03010  Ribosome
+CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+POSITION    XV:join(505794..505937,506339..506767)
+MOTIF       Pfam: Ribosomal_S7e
+DBLINKS     NCBI-GI: 6324670
+            NCBI-GeneID: 854263
+            SGD: S000005622
+            MIPS: YOR096W
+            UniProt: P26786
+STRUCTURE   PDB: 3U5C 3U5G 4BYL 4BYT
+AASEQ       190
+            MSAPQAKILSQAPTELELQVAQAFVELENSSPELKAELRPLQFKSIREIDVAGGKKALAI
+            FVPVPSLAGFHKVQTKLTRELEKKFQDRHVIFLAERRILPKPSRTSRQVQKRPRSRTLTA
+            VHDKILEDLVFPTEIVGKRVRYLVGGNKIQKVLLDSKDVQQIDYKLESFQAVYNKLTGKQ
+            IVFEIPSETH
+NTSEQ       573
+            atgtctgctccacaagccaagattttgtctcaagctccaactgaattggaattacaagtt
+            gctcaagctttcgttgaattggaaaattcttctccagaattgaaagctgagttgagacct
+            ttgcaattcaagtccatcagagaaatcgacgttgctggtggtaagaaggctttggccatt
+            tttgttccagtcccatctttggctggtttccacaaggttcaaactaagttgacccgtgaa
+            ttggaaaagaaattccaagaccgtcatgtcatcttcttggctgaaagaagaatcttgcca
+            aagccatctagaacatctagacaagtccaaaagagaccaagatccagaaccttgactgct
+            gttcatgacaagatcttggaagacttagtcttcccaactgaaatcgttggtaagagagtt
+            agatatttggttggtggtaacaagatccaaaaggttttgttagactcaaaggatgtccaa
+            caaatcgactacaaattggaatctttccaagctgtttacaacaaattgactggtaagcaa
+            attgttttcgaaattccaagtgaaactcattag
+///

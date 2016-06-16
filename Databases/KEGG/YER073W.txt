@@ -1,0 +1,78 @@
+ENTRY       YER073W           CDS       T00005
+NAME        ALD5
+DEFINITION  aldehyde dehydrogenase (NAD(P)(+)) ALD5 (EC:1.2.1.4 1.2.1.3 1.2.1.5)
+ORTHOLOGY   K00128  aldehyde dehydrogenase (NAD+) [EC:1.2.1.3]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00010  Glycolysis / Gluconeogenesis
+            sce00040  Pentose and glucuronate interconversions
+            sce00071  Fatty acid degradation
+            sce00280  Valine, leucine and isoleucine degradation
+            sce00310  Lysine degradation
+            sce00330  Arginine and proline metabolism
+            sce00340  Histidine metabolism
+            sce00380  Tryptophan metabolism
+            sce00410  beta-Alanine metabolism
+            sce00561  Glycerolipid metabolism
+            sce00620  Pyruvate metabolism
+            sce00640  Propanoate metabolism
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+CLASS       Metabolism; Carbohydrate metabolism; Glycolysis / Gluconeogenesis [PATH:sce00010]
+            Metabolism; Carbohydrate metabolism; Pentose and glucuronate interconversions [PATH:sce00040]
+            Metabolism; Carbohydrate metabolism; Ascorbate and aldarate metabolism
+            Metabolism; Carbohydrate metabolism; Pyruvate metabolism [PATH:sce00620]
+            Metabolism; Carbohydrate metabolism; Propanoate metabolism [PATH:sce00640]
+            Metabolism; Lipid metabolism; Fatty acid degradation [PATH:sce00071]
+            Metabolism; Lipid metabolism; Glycerolipid metabolism [PATH:sce00561]
+            Metabolism; Amino acid metabolism; Valine, leucine and isoleucine degradation [PATH:sce00280]
+            Metabolism; Amino acid metabolism; Lysine degradation [PATH:sce00310]
+            Metabolism; Amino acid metabolism; Arginine and proline metabolism [PATH:sce00330]
+            Metabolism; Amino acid metabolism; Histidine metabolism [PATH:sce00340]
+            Metabolism; Amino acid metabolism; Tryptophan metabolism [PATH:sce00380]
+            Metabolism; Metabolism of other amino acids; beta-Alanine metabolism [PATH:sce00410]
+POSITION    V:304030..305592
+MOTIF       Pfam: Aldedh LuxC TPR_12
+DBLINKS     NCBI-GI: 330443526
+            NCBI-GeneID: 856804
+            SGD: S000000875
+            MIPS: YER073W
+            UniProt: P40047
+AASEQ       520
+            MLSRTRAAAPNSRIFTRSLLRLYSQAPLRVPITLPNGFTYEQPTGLFINGEFVASKQKKT
+            FDVINPSNEEKITTVYKAMEDDVDEAVAAAKKAFETKWSIVEPEVRAKALFNLADLVEKH
+            QETLAAIESMDNGKSLFCARGDVALVSKYLRSCGGWADKIYGNVIDTGKNHFTYSIKEPL
+            GVCGQIIPWNFPLLMWSWKIGPALATGNTVVLKPAETTPLSALFASQLCQEAGIPAGVVN
+            ILPGSGRVVGERLSAHPDVKKIAFTGSTATGRHIMKVAADTVKKVTLELGGKSPNIVFAD
+            ADLDKAVKNIAFGIFYNSGEVCCAGSRIYIQDTVYEEVLQKLKDYTESLKVGDPFDEEVF
+            QGAQTSDKQLHKILDYVDVAKSEGARLVTGGARHGSKGYFVKPTVFADVKEDMRIVKEEV
+            FGPIVTVSKFSTVDEVIAMANDSQYGLAAGIHTNDINKAVDVSKRVKAGTVWINTYNNFH
+            QNVPFGGFGQSGIGREMGEAALSNYTQTKSVRIAIDKPIR
+NTSEQ       1563
+            atgctttctcgcacaagagctgcagctccgaattccagaatattcactagaagcttgtta
+            cgtctttattctcaagcaccattacgcgttccaattactcttccaaatggtttcacctac
+            gaacagccaacagggttattcatcaatggtgaatttgttgcctcgaagcaaaagaaaacg
+            tttgacgtgatcaatccatctaacgaagaaaagataacaactgtatacaaggctatggaa
+            gatgatgttgatgaagccgttgcagcggctaaaaaagcttttgaaacgaagtggtctatt
+            gtagagccggaggttcgcgctaaagctttattcaatctcgctgacttggttgagaaacac
+            caagaaacactggctgccattgagtcaatggataatggtaagtcattgttttgtgcgcgc
+            ggtgacgtcgctttagtatctaaatacttgcgttcttgcggtggttgggcagataaaatc
+            tacggtaacgttattgacacaggtaaaaaccattttacctactcaattaaggaaccatta
+            ggcgtttgcggccaaataatcccttggaacttccctttattgatgtggtcatggaaaatt
+            gggcctgctctggctacaggtaacaccgtcgtattgaaacccgctgaaacaacaccttta
+            tctgcccttttcgcttcccagttgtgtcaggaagcaggcatacccgctggtgtagtcaat
+            atccttccgggttccggtagagttgttggagaaagattgagtgcacacccagacgtgaag
+            aagattgcttttacaggctctactgccaccggccgccatattatgaaggtcgctgccgat
+            actgtcaagaaagtcactttggagctgggaggtaaatcaccaaatattgtgtttgctgac
+            gctgatctagataaagccgtcaagaacattgccttcggtattttttacaactctggtgaa
+            gtttgctgcgctggttccagaatatacattcaagatacagtatacgaggaggtgttgcaa
+            aaactaaaggattacaccgagtcactaaaggtcggtgacccatttgatgaggaagttttc
+            caaggtgctcaaacatctgacaaacagctgcataaaattttagactatgtcgatgtagca
+            aaatcagagggggctcgtcttgtgactggaggggccagacatggcagtaaaggttatttt
+            gtcaagccaacagtgtttgctgatgtcaaagaagatatgagaattgttaaggaggaagtg
+            tttggtcccattgtaactgtatccaagttttctactgttgatgaagtgattgctatggca
+            aatgattctcaatatgggttagccgcaggtattcacactaacgatattaacaaggctgtt
+            gatgtgtccaaaagagtgaaagctggtactgtttggataaatacctataacaacttccac
+            caaaatgttcctttcggtggcttcggccagtcaggtattggccgtgaaatgggtgaggct
+            gctttaagtaactacactcaaacaaaatctgtcagaattgccattgacaagccaattcgt
+            tga
+///

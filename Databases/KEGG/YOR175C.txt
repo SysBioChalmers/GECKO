@@ -1,0 +1,64 @@
+ENTRY       YOR175C           CDS       T00005
+NAME        ALE1, LCA1, LPT1, SLC4
+DEFINITION  Ale1p (EC:2.3.1.23 2.3.1.51)
+ORTHOLOGY   K13519  lysophospholipid acyltransferase [EC:2.3.1.51 2.3.1.23 2.3.1.-]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00561  Glycerolipid metabolism
+            sce00564  Glycerophospholipid metabolism
+            sce00565  Ether lipid metabolism
+            sce01100  Metabolic pathways
+CLASS       Metabolism; Lipid metabolism; Glycerolipid metabolism [PATH:sce00561]
+            Metabolism; Lipid metabolism; Glycerophospholipid metabolism [PATH:sce00564]
+            Metabolism; Lipid metabolism; Ether lipid metabolism [PATH:sce00565]
+POSITION    XV:complement(659815..661674)
+MOTIF       Pfam: MBOAT CPW_WPC
+DBLINKS     NCBI-GI: 6324749
+            NCBI-GeneID: 854346
+            SGD: S000005701
+            MIPS: YOR175C
+            UniProt: Q08548
+AASEQ       619
+            MYNPVDAVLTKIITNYGIDSFTLRYAICLLGSFPLNAILKRIPEKRIGLKCCFIISMSMF
+            YLFGVLNLVSGFRTLFISTMFTYLISRFYRSKFMPHLNFMFVMGHLAINHIHAQFLNEQT
+            QTTVDITSSQMVLAMKLTSFAWSYYDGSCTSESDFKDLTEHQKSRAVRGHPPLLKFLAYA
+            FFYSTLLTGPSFDYADFDSWLNCEMFRDLPESKKPMRRHHPGERRQIPKNGKLALWKVVQ
+            GLAWMILSTLGMKHFPVKYVLDKDGFPTRSFIFRIHYLFLLGFIHRFKYYAAWTISEGSC
+            ILCGLGYNGYDSKTQKIRWDRVRNIDIWTVETAQNTREMLEAWNMNTNKWLKYSVYLRVT
+            KKGKKPGFRSTLFTFLTSAFWHGTRPGYYLTFATGALYQTCGKIYRRNFRPIFLREDGVT
+            PLPSKKIYDLVGIYAIKLAFGYMVQPFIILDLKPSLMVWGSVYFYVHIIVAFSFFLFRGP
+            YAKQVTEFFKSKQPKEIFIRKQKKLEKDISASSPNLGGILKAKIEHEKGKTAEEEEMNLG
+            IPPIELEKWDNAKEDWEDFCKDYKEWRNKNGLEIEEENLSKAFERFKQEFSNAASGSGER
+            VRKMSFSGYSPKPISKKEE
+NTSEQ       1860
+            atgtacaatcctgtggacgctgttttaacaaagataattaccaactatgggattgatagt
+            tttacactgcgatatgctatctgcttattgggatcgttcccactgaatgctattttgaag
+            agaattcccgagaagcgtataggtttaaaatgttgttttatcatttctatgtcgatgttt
+            tacttattcggtgtgctgaatctagtaagtggattcaggaccctgtttattagtaccatg
+            tttacttacttgatctcaagattttaccgttccaagtttatgccacacttgaatttcatg
+            tttgttatgggtcatttggcaataaatcatatacacgcccaattccttaacgaacagact
+            caaactaccgttgacattacaagttcacaaatggttttagccatgaaactaacttctttt
+            gcatggtcgtactatgatggttcatgcactagcgaaagcgatttcaaagatttgactgag
+            catcaaaaatctcgtgctgtcagaggtcatccacccttattaaagttcctggcatatgca
+            tttttctattcaacgttgctaactggcccaagtttcgattatgccgattttgacagctgg
+            ttgaattgtgagatgttccgtgacttgcctgaaagcaaaaagcctatgagaagacaccac
+            cctggtgaaagaagacagattccaaagaatggtaaacttgcattatggaaagttgttcaa
+            ggtcttgcttggatgattttaagtacactaggaatgaagcacttccccgtaaaatacgtt
+            ttggacaaagatggcttcccaacgagatcttttatattcagaatccattacttattcttg
+            cttggtttcatccatagattcaagtactacgctgcctggactatttcggaaggatcttgt
+            attttgtgcggtttgggttataatggttatgattcaaagacacaaaagatcagatgggat
+            cgtgtcagaaatattgacatttggaccgtagaaacggcgcagaatacgcgtgaaatgttg
+            gaagcatggaatatgaatactaacaagtggctaaaatactctgtttatttacgtgtcaca
+            aagaagggcaaaaaacctggtttccgctcaactttgtttactttcctaacttccgcattt
+            tggcatggtaccagacctgggtactatctgacttttgcgacaggggctttgtaccaaaca
+            tgtggtaaaatctacagacgcaattttagaccaattttcttgcgagaagatggtgtcact
+            cctttgccttctaaaaaaatctacgatttagttggcatatatgcaattaaactagcattt
+            ggttacatggtgcaaccatttattatccttgatttgaagccatctttaatggtatggggc
+            tctgtttatttctatgttcatattattgttgctttctcatttttcctattcagaggacca
+            tatgctaaacaagttactgaattttttaaatccaaacaacctaaagaaatattcattaga
+            aaacaaaagaagttggaaaaagatatttctgcaagctctccaaacttgggtggtatattg
+            aaggcaaagattgaacatgaaaagggaaagacagcagaagaagaagaaatgaacttaggt
+            attccaccaattgagttagaaaagtgggacaatgctaaggaagattgggaagatttctgc
+            aaagattacaaagaatggagaaataaaaatggtcttgaaatagaagaggaaaacctttct
+            aaagcttttgaaagattcaagcaggaattttctaacgctgcaagtggatcaggtgaacgt
+            gtgagaaaaatgagttttagtggttactcaccaaagcctatttcaaaaaaggaagagtag
+///

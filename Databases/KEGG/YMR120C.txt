@@ -1,0 +1,62 @@
+ENTRY       YMR120C           CDS       T00005
+NAME        ADE17
+DEFINITION  bifunctional phosphoribosylaminoimidazolecarboxamide formyltransferase/IMP cyclohydrolase ADE17 (EC:2.1.2.3 3.5.4.10)
+ORTHOLOGY   K00602  phosphoribosylaminoimidazolecarboxamide formyltransferase / IMP cyclohydrolase [EC:2.1.2.3 3.5.4.10]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00230  Purine metabolism
+            sce00670  One carbon pool by folate
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+MODULE      sce_M00048  Inosine monophosphate biosynthesis, PRPP + glutamine => IMP
+CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
+            Metabolism; Metabolism of cofactors and vitamins; One carbon pool by folate [PATH:sce00670]
+POSITION    XIII:complement(507502..509280)
+MOTIF       Pfam: AICARFT_IMPCHas MGS
+DBLINKS     NCBI-GI: 6323768
+            NCBI-GeneID: 855149
+            SGD: S000004727
+            MIPS: YMR120C
+            UniProt: P38009
+AASEQ       592
+            MANYTKTAILSVYDKTGLLDLARGLIEKNVRILASGGTARMIRDAGFPIEDVSAITHAPE
+            MLGGRVKTLHPAVHGGILARDIDSDEKDLKEQHIEKVDYVVCNLYPFKETVAKVGVTIPE
+            AVEEIDIGGVTLLRAAAKNHARVTILSDPKDYSEFLSELSSNGEISQDLRNRLALKAFEH
+            TADYDAAISDFFRKQYSEGQAQITLRYGANPHQKPAQAYVSQQDSLPFKVLCGSPGYINL
+            LDALNSWPLVKELSASLNLPAAASFKHVSPAGAAVGIPLSDVEKQVYFVADIENLSPLAC
+            AYARARGADRMSSFGDWIALSNIVDVPTAKIISREVSDGVIAPGYEPEALAILSKKKGGK
+            YCILQIDPNYVPEAVERRQVYGVTLEQKRNDAIINQSTFKEIVSQNKNLTEQAIIDLTVA
+            TIAIKYTQSNSVCYARNGMVVGLGAGQQSRIHCTRLAGDKADNWWFRQHPRVLEIKWAKG
+            VKRPEKSNAIDLFVTGQIPTEEPELSEYQSKFEEIPKPFTPEERKEWLSKLTNVSLSSDA
+            FFPFPDNVYRAVKSGVKYIAAPSGSVMDKVVFSAADSFDLVYVENPIRLFHH
+NTSEQ       1779
+            atggccaattacacaaaaaccgcaatcctatccgtctatgacaagacaggtctacttgat
+            ttagccagaggcctcatcgagaagaacgttcgtattctcgcctccggtggtactgctcgt
+            atgattcgtgacgctggttttccaatcgaagacgtttctgctatcacacatgccccagaa
+            atgttgggaggtagagtgaaaactttacatcctgccgttcatggtggtatccttgctagg
+            gacatcgatagcgatgagaaagacttgaaggaacagcacattgaaaaagtcgattatgtc
+            gtttgtaacctatacccattcaaagaaactgttgctaaggtgggtgtgactattccagaa
+            gcagtagaagaaattgatattggtggtgttactctattaagagcagctgctaagaaccat
+            gctagagtcactattttatctgatccaaaggactactccgaatttttaagtgaattatcc
+            agtaatggtgaaatctctcaagatttgagaaacagattggcattaaaggctttcgaacac
+            actgccgattatgatgctgcaatttcagatttcttcaggaaacaatactctgaaggtcaa
+            gctcaaattactctacgttatggtgccaatccacaccaaaagccggctcaagcttacgtc
+            agtcaacaagacagtttacctttcaaagtcctatgtggttcaccaggttacattaatttg
+            ttggatgctctaaattcctggcccctggttaaggaattatccgcctcgttgaatttacca
+            gcagcagcatcgttcaagcatgtatcaccagctggtgccgctgtgggtatcccattgtct
+            gatgttgaaaagcaagtttattttgttgccgacattgaaaacttatctcccctggcatgt
+            gcctatgctagggcccgtggtgctgatagaatgtcttcctttggtgattggattgctctt
+            tccaacatagttgatgttccaacagctaagatcatatctagagaagtttctgatggtgtt
+            attgccccaggttatgagcctgaggcgttggccattctatccaagaagaagggaggtaag
+            tactgcatattacaaattgatccaaactatgttccagaagctgtcgaaagaagacaagta
+            tacggtgtgactttggaacaaaagagaaacgatgccataatcaatcaatcaactttcaaa
+            gaaattgtttctcaaaataaaaatctcactgaacaagccataattgatttaacggttgcc
+            accattgctattaaatatactcaatctaattccgtatgttatgctagaaatggtatggtt
+            gtcggattgggtgcaggtcaacaatctagaatccattgtacaagattagctggtgataag
+            gctgataattggtggttcagacaacaccctagagttttggagattaaatgggctaaaggc
+            gtcaagagaccagaaaaatctaatgctatcgatttattcgtaaccggccaaattccaaca
+            gaagaaccagaattgtctgaataccaatcgaagttcgaggagattccaaaaccatttact
+            ccagaagaaagaaaggaatggttgagtaaattaaccaacgtttctttgtcatcggatgca
+            tttttcccattcccagacaatgtttacagagcagttaaatccggtgtcaaatacattgcc
+            gctccatctggttctgtcatggacaaggttgtattttcagctgccgattcattcgatttg
+            gtttacgtagagaacccaatccgtttgttccaccattag
+///

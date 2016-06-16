@@ -1,0 +1,43 @@
+ENTRY       YOL064C           CDS       T00005
+NAME        MET22, HAL2
+DEFINITION  Met22p (EC:3.1.3.7)
+ORTHOLOGY   K01082  3'(2'), 5'-bisphosphate nucleotidase [EC:3.1.3.7]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00920  Sulfur metabolism
+            sce01100  Metabolic pathways
+CLASS       Metabolism; Energy metabolism; Sulfur metabolism [PATH:sce00920]
+POSITION    XV:complement(206103..207176)
+MOTIF       Pfam: Inositol_P
+DBLINKS     NCBI-GI: 6324508
+            NCBI-GeneID: 854090
+            SGD: S000005425
+            MIPS: YOL064C
+            UniProt: P32179
+STRUCTURE   PDB: 1KA1 1K9Z 1QGX 1KA0 1K9Y
+AASEQ       357
+            MALERELLVATQAVRKASLLTKRIQSEVISHKDSTTITKNDNSPVTTGDYAAQTIIINAI
+            KSNFPDDKVVGEESSSGLSDAFVSGILNEIKANDEVYNKNYKKDDFLFTNDQFPLKSLED
+            VRQIIDFGNYEGGRKGRFWCLDPIDGTKGFLRGEQFAVCLALIVDGVVQLGCIGCPNLVL
+            SSYGAQDLKGHESFGYIFRAVRGLGAFYSPSSDAESWTKIHVRHLKDTKDMITLEGVEKG
+            HSSHDEQTAIKNKLNISKSLHLDSQAKYCLLALGLADVYLRLPIKLSYQEKIWDHAAGNV
+            IVHEAGGIHTDAMEDVPLDFGNGRTLATKGVIASSGPRELHDLVVSTSCDVIQSRNA
+NTSEQ       1074
+            atggcattggaaagagaattattggttgcaactcaagctgtacgaaaggcgtctttattg
+            actaagagaattcaatctgaagtgatttctcacaaggactccactactattaccaagaat
+            gataattctccagtaaccacaggtgattatgctgcacaaacgatcatcataaatgctatc
+            aagagcaattttcctgatgataaggtagttggtgaagaatcctcatcaggattgagcgac
+            gcattcgtctcaggaattttaaacgaaataaaagccaatgacgaagtttataacaagaat
+            tataaaaaggatgattttctgtttacaaacgatcagtttccgctaaaatctttggaggac
+            gtcaggcaaatcatcgatttcggcaattacgaaggtggtagaaaaggaagattttggtgt
+            ttggatcctattgacggaaccaaggggtttttaagaggtgaacagtttgcagtatgtctg
+            gccttaattgtggacggtgttgttcagcttggttgtattggatgccccaacttagtttta
+            agttcttatggggcccaagatttgaaaggccatgagtcatttggttatatctttcgtgct
+            gttagaggtttaggtgccttctattctccatcttcagatgcagagtcatggaccaaaatc
+            cacgttagacacttaaaagacactaaagacatgattactttagagggagttgaaaaggga
+            cactcctctcatgatgaacaaactgctatcaaaaacaaactaaatatatccaaatctttg
+            cacttggattctcaagccaagtactgtttgttagcattgggcttagcagacgtatattta
+            cgtctgcctatcaaactttcttaccaagaaaagatctgggaccatgctgcaggcaacgtt
+            attgtccatgaagctggaggtatccatacagatgccatggaagatgttcctctagacttc
+            ggtaacggtagaacgctagctacgaagggagttatagcgtcaagtggcccacgcgagtta
+            catgacttggtggtgtctacatcatgcgatgtcattcagtcaagaaacgcctaa
+///

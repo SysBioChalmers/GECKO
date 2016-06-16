@@ -1,0 +1,33 @@
+ENTRY       YML022W           CDS       T00005
+NAME        APT1
+DEFINITION  adenine phosphoribosyltransferase APT1 (EC:2.4.2.7)
+ORTHOLOGY   K00759  adenine phosphoribosyltransferase [EC:2.4.2.7]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00230  Purine metabolism
+            sce01100  Metabolic pathways
+CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
+POSITION    XIII:228937..229500
+MOTIF       Pfam: Pribosyltran UPRTase PRTase_3
+DBLINKS     NCBI-GI: 6323619
+            NCBI-GeneID: 854986
+            SGD: S000004484
+            MIPS: YML022W
+            UniProt: P49435
+STRUCTURE   PDB: 1G2Q 1G2P
+AASEQ       187
+            MSIASYAQELKLALHQYPNFPSEGILFEDFLPIFRNPGLFQKLIDAFKLHLEEAFPEVKI
+            DYIVGLESRGFLFGPTLALALGVGFVPVRKAGKLPGECFKATYEKEYGSDLFEIQKNAIP
+            AGSNVIIVDDIIATGGSAAAAGELVEQLEANLLEYNFVMELDFLKGRSKLNAPVFTLLNA
+            QKEALKK
+NTSEQ       564
+            atgtctatagcaagttatgcccaagagttgaagttggctttacatcaatatccaaacttc
+            cctagtgaaggcattctcttcgaagatttcttacccattttcaggaacccaggtcttttc
+            cagaagttgatcgatgctttcaaactgcatttagaagaagcttttccagaagttaaaatt
+            gattatatcgtcgggttggaatcccgtgggttcttgttcggaccaactttagctttggcc
+            ctaggtgttggtttcgttccagtcaggaaggcaggtaagctacctggcgaatgttttaag
+            gctacgtacgaaaaggagtacggttctgatctttttgagatacagaaaaacgctattcca
+            gcaggttccaacgttatcattgttgatgacattattgccactggtggttctgctgctgca
+            gccggcgaattagttgaacaactcgaagccaaccttttggaatataactttgttatggag
+            ttggatttcttgaaaggcaggagtaagttgaatgctccagtgttcactttactgaacgct
+            caaaaggaagcgttgaaaaaatga
+///

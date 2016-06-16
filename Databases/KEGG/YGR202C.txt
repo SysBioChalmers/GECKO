@@ -1,0 +1,49 @@
+ENTRY       YGR202C           CDS       T00005
+NAME        PCT1, BSR2, CCT1
+DEFINITION  choline-phosphate cytidylyltransferase (EC:2.7.7.15)
+ORTHOLOGY   K00968  choline-phosphate cytidylyltransferase [EC:2.7.7.15]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00564  Glycerophospholipid metabolism
+            sce01100  Metabolic pathways
+MODULE      sce_M00090  Phosphatidylcholine (PC) biosynthesis, choline => PC
+CLASS       Metabolism; Lipid metabolism; Glycerophospholipid metabolism [PATH:sce00564]
+POSITION    VII:complement(903474..904748)
+MOTIF       Pfam: CTP_transf_2
+DBLINKS     NCBI-GI: 6321641
+            NCBI-GeneID: 853116
+            SGD: S000003434
+            MIPS: YGR202C
+            UniProt: P13259
+AASEQ       424
+            MANPTTGKSSIRAKLSNSSLSNLFKKNKNKRQREETEEQDNEDKDESKNQDENKDTQLTP
+            RKRRRLTKEFEEKEARYTNELPKELRKYRPKGFRFNLPPTDRPIRIYADGVFDLFHLGHM
+            KQLEQCKKAFPNVTLIVGVPSDKITHKLKGLTVLTDKQRCETLTHCRWVDEVVPNAPWCV
+            TPEFLLEHKIDYVAHDDIPYVSADSDDIYKPIKEMGKFLTTQRTNGVSTSDIITKIIRDY
+            DKYLMRNFARGATRQELNVSWLKKNELEFKKHINEFRSYFKKNQTNLNNASRDLYFEVRE
+            ILLKKTLGKKLYSKLIGNELKKQNQRQRKQNFLDDPFTRKLIREASPATEFANEFTGENS
+            TAKSPDDNGNLFSQEDDEDTNSNNTNTNSDSDSNTNSTPPSEDDDDNDRLTLENLTQKKK
+            QSAN
+NTSEQ       1275
+            atggcaaacccaacaacagggaagtcctcgattagggctaagctttctaactcatcgcta
+            tcaaacctatttaaaaaaaataaaaataaaagacagcgtgaggaaacggaagagcaggac
+            aatgaggataaggatgagagtaagaaccaggatgaaaataaggacacacagctcactccc
+            cgcaagcgtcgccggttgacgaaggagtttgaagagaaggaggctcgttacaccaacgag
+            ttgcccaaggaactgcgcaagtatcgtcctaaaggtttcagattcaatttgcctccaacg
+            gatagacccatcaggatatatgcagatggtgtttttgatcttttccatcttggccacatg
+            aagcaactggaacagtgtaagaaggctttccccaatgtaacactgatagttggtgtgcct
+            agcgacaaaatcactcacaaactaaaaggtttgactgtgctgaccgataagcagcgttgt
+            gaaactttaacgcactgcagatgggttgacgaagtcgtgcccaacgctccctggtgtgtc
+            accccagaatttctactagaacacaagattgactacgtggcacatgacgatattccttac
+            gttagcgccgacagcgacgatatctacaagccaataaaggagatgggaaaattcttgact
+            acccaaagaaccaatggtgtctctacaagtgatattatcacaaagatcatcagagattat
+            gacaaatatttgatgagaaactttgcaaggggtgctaccagacaggagctgaacgtttct
+            tggttgaagaaaaacgaactggagttcaaaaaacacatcaatgaattcaggtcatatttc
+            aagaaaaaccagacaaatttgaataacgcctccagagacttgtacttcgaagtccgtgaa
+            atcttgctaaagaaaacgttgggcaaaaaactctactccaagttaataggcaatgaatta
+            aagaaacaaaatcaacgacaaagaaaacagaattttttggatgatccgtttactaggaag
+            ctaatcagggaggcctctccggctacagagtttgccaacgaatttacgggcgaaaactct
+            accgctaaatcaccggatgacaatggaaatcttttcagtcaggaagatgatgaagacaca
+            aattctaacaacacgaatacaaattcagattcagattcaaacactaactcaacgcctccc
+            agtgaagatgacgacgacaacgacaggttaactttggaaaacctaacacagaagaagaaa
+            caatcagcgaactga
+///

@@ -1,0 +1,30 @@
+ENTRY       YDR086C           CDS       T00005
+NAME        SSS1
+DEFINITION  Sss1p
+ORTHOLOGY   K07342  protein transport protein SEC61 subunit gamma and related proteins
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03060  Protein export
+            sce04141  Protein processing in endoplasmic reticulum
+            sce04145  Phagosome
+MODULE      sce_M00401  Sec61 complex
+CLASS       Genetic Information Processing; Folding, sorting and degradation; Protein export [PATH:sce03060]
+            Genetic Information Processing; Folding, sorting and degradation; Protein processing in endoplasmic reticulum [PATH:sce04141]
+            Cellular Processes; Transport and catabolism; Phagosome [PATH:sce04145]
+POSITION    IV:complement(616928..617170)
+MOTIF       Pfam: SecE Coiled-coil_56 TIP_N DUF3944
+DBLINKS     NCBI-GI: 6320291
+            NCBI-GeneID: 851659
+            SGD: S000002493
+            MIPS: YDR086C
+            UniProt: P35179
+STRUCTURE   PDB: 2WW9 2WWA
+AASEQ       80
+            MARASEKGEEKKQSNNQVEKLVEAPVEFVREGTQFLAKCKKPDLKEYTKIVKAVGIGFIA
+            VGIIGYAIKLIHIPIRYVIV
+NTSEQ       243
+            atggctagagctagtgaaaaaggtgaagagaaaaagcagagcaacaaccaggttgaaaag
+            ctggttgaagcacctgtagaatttgtcagagaaggtactcaattcttggccaagtgtaag
+            aaacctgatttgaaggaatacaccaagattgtcaaggctgttggtattggttttattgca
+            gtcggtatcattggttacgccatcaagttgattcatattccaatcagatacgttattgtt
+            taa
+///

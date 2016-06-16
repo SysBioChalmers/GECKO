@@ -1,0 +1,48 @@
+ENTRY       YCR107W           CDS       T00005
+NAME        AAD3
+DEFINITION  Aad3p (EC:1.1.1.-)
+ORTHOLOGY   K00100   [EC:1.1.1.-]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00051  Fructose and mannose metabolism
+            sce00591  Linoleic acid metabolism
+            sce00650  Butanoate metabolism
+            sce01100  Metabolic pathways
+CLASS       Metabolism; Carbohydrate metabolism; Fructose and mannose metabolism [PATH:sce00051]
+            Metabolism; Carbohydrate metabolism; Butanoate metabolism [PATH:sce00650]
+            Metabolism; Lipid metabolism; Linoleic acid metabolism [PATH:sce00591]
+POSITION    III:313890..314981
+MOTIF       Pfam: Aldo_ket_red
+DBLINKS     NCBI-GI: 6319951
+            NCBI-GeneID: 850471
+            SGD: S000000704
+            MIPS: YCR107W
+            UniProt: P25612
+AASEQ       363
+            MIGSASDSSSKLGRLRFLSETAAIKVSPLILGEVSYDGARSDFLKSMNKNRAFELLDTFY
+            EAGGNFIDAANNCQNEQSEEWIGEWIQSRRLRDQIVIATKFIKSDKKYKAGESNTANYCG
+            NHKRSLHVSVRDSLRKLQTDWIDILYVHWWDYMSSIEEFMDSLHILVQQGKVLYLGVSDT
+            PAWVVSAANYYATSYGKTPFSIYQGKWNVLNRDFERDIIPMARHFGMALAPWDVMGGGRF
+            QSKKAMEERRKNGEGIRSFVGASEQTDAEIKISEALAKIAEEHGTESVTAIAIAYVRSKA
+            KNFFPSVEGGKIEDLKENIKALSIDLTPDNIKYLESIVPFDIGFPNNFIVLNSLTQKYGT
+            NNV
+NTSEQ       1092
+            atgattgggtccgcgtccgactcatctagcaagttaggacgcctccgatttctttctgaa
+            actgccgctattaaagtatccccgttaatcctaggagaagtctcatacgatggagcacgt
+            tcggattttctcaaatcaatgaacaagaatcgagcttttgaattgcttgatactttttac
+            gaggcaggtggaaatttcattgatgccgcaaacaactgccaaaacgagcaatcagaagaa
+            tggattggtgaatggatacagtccagaaggttacgtgatcaaattgtcattgcaaccaag
+            tttataaaaagcgataaaaagtataaagcaggtgaaagtaacactgccaactactgtggt
+            aatcacaagcgtagtttacatgtgagtgtgagggattctctccgcaaattgcaaactgat
+            tggattgatatactttacgttcactggtgggattatatgagttcaatcgaagaatttatg
+            gatagtttgcatattctggtccagcagggcaaggtcctctatttgggtgtatctgataca
+            cctgcttgggttgtttctgcggcaaactactacgctacatcttatggtaaaactcccttt
+            agtatctaccaaggtaaatggaacgtgttgaacagagattttgagcgtgatattattcca
+            atggctaggcatttcggtatggccctcgccccatgggatgtcatgggaggtggaagattt
+            cagagtaaaaaagcaatggaggaacggaggaagaatggagagggtattcgttctttcgtt
+            ggcgcctccgaacaaacagatgcagaaatcaagattagtgaagcattggccaagattgct
+            gaggaacatggcactgagtctgttactgctattgctattgcctatgttcgctctaaggcg
+            aaaaatttttttccgtcggttgaaggaggaaaaattgaggatctcaaagagaacattaag
+            gctctcagtatcgatctaacgccagacaatataaaatacttagaaagtatagttcctttt
+            gacatcggatttcctaataattttatcgtgttaaattccttgactcaaaaatatggtacg
+            aataatgtttag
+///

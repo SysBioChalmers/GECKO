@@ -1,0 +1,42 @@
+ENTRY       YIL020C           CDS       T00005
+NAME        HIS6
+DEFINITION  1-(5-phosphoribosyl)-5-((5-phosphoribosylamino)methylideneamino)imidazole-4-carboxamide isomerase HIS6 (EC:5.3.1.16)
+ORTHOLOGY   K01814  phosphoribosylformimino-5-aminoimidazole carboxamide ribotide isomerase [EC:5.3.1.16]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00340  Histidine metabolism
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01230  Biosynthesis of amino acids
+MODULE      sce_M00026  Histidine biosynthesis, PRPP => histidine
+CLASS       Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
+            Metabolism; Amino acid metabolism; Histidine metabolism [PATH:sce00340]
+POSITION    IX:complement(314035..314820)
+MOTIF       Pfam: His_biosynth
+DBLINKS     NCBI-GI: 398364475
+            NCBI-GeneID: 854792
+            SGD: S000001282
+            MIPS: YIL020C
+            UniProt: P40545
+STRUCTURE   PDB: 2AGK
+AASEQ       261
+            MTKFIGCIDLHNGEVKQIVGGTLTSKKEDVPKTNFVSQHPSSYYAKLYKDRDVQGCHVIK
+            LGPNNDDAAREALQESPQFLQVGGGINDTNCLEWLKWASKVIVTSWLFTKEGHFQLKRLE
+            RLTELCGKDRIVVDLSCRKTQDGRWIVAMNKWQTLTDLELNADTFRELRKYTNEFLIHAA
+            DVEGLCGGIDELLVSKLFEWTKDYDDLKIVYAGGAKSVDDLKLVDELSHGKVDLTFGSSL
+            DIFGGNLVKFEDCCRWNEKQG
+NTSEQ       786
+            atgacgaagtttattggttgtatagacctgcataatggagaggttaaacagattgtaggt
+            ggaacgttaacgagcaaaaaggaggacgttccaaaaactaactttgtatcacaacatcct
+            tcttcatattacgctaaactttacaaagacagagatgtccaaggatgtcatgttattaag
+            ttgggacctaacaatgacgacgctgcacgcgaggcactccaggagtcaccacaatttcta
+            caagtgggcggaggaattaatgatacgaactgtttggaatggttaaaatgggccagtaaa
+            gtaattgttacgagttggctatttacaaaagagggtcattttcaattaaaaaggttagaa
+            agactgacagaactatgtgggaaagaccgcattgttgtagacttaagctgtagaaaaacc
+            caggacggtcgttggattgtggccatgaacaaatggcaaactctaactgatcttgagctt
+            aatgctgacactttcagagaattgaggaaatatacaaatgagtttctaattcacgctgca
+            gacgttgaaggtttgtgtggtggtatcgatgaattattggtttctaagcttttcgaatgg
+            accaaagattacgatgatttgaaaatcgtttatgctggtggggccaaaagtgttgatgat
+            ttgaaattagtagacgaactaagtcacggaaaagtagatttgacattcggtagttcctta
+            gatatatttggtggtaacctagttaagtttgaagactgctgtagatggaatgaaaagcaa
+            ggttag
+///

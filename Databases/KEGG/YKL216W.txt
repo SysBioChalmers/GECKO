@@ -1,0 +1,41 @@
+ENTRY       YKL216W           CDS       T00005
+NAME        URA1
+DEFINITION  dihydroorotate dehydrogenase (EC:1.3.5.2 1.3.98.1)
+ORTHOLOGY   K00226  dihydroorotate dehydrogenase (fumarate) [EC:1.3.98.1]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00240  Pyrimidine metabolism
+            sce01100  Metabolic pathways
+MODULE      sce_M00051  Uridine monophosphate biosynthesis, glutamine (+ PRPP) => UMP
+CLASS       Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
+POSITION    XI:25215..26159
+MOTIF       Pfam: DHO_dh FMN_dh Polysacc_deac_1 NMO Glu_synthase DUF2059 PcrB DUF885
+DBLINKS     NCBI-GI: 6322633
+            NCBI-GeneID: 853664
+            SGD: S000001699
+            MIPS: YKL216W
+            UniProt: P28272
+AASEQ       314
+            MTASLTTKFLNNTYENPFMNASGVHCMTTQELDELANSKAGAFITKSATTLEREGNPEPR
+            YISVPLGSINSMGLPNEGIDYYLSYVLNRQKNYPDAPAIFFSVAGMSIDENLNLLRKIQD
+            SEFNGITELNLSCPNVPGKPQVAYDFDLTKETLEKVFAFFKKPLGVKLPPYFDFAHFDIM
+            AKILNEFPLAYVNSINSIGNGLFIDVEKESVVVKPKNGFGGIGGEYVKPTALANVRAFYT
+            RLRPEIKVIGTGGIKSGKDAFEHLLCGASMLQIGTELQKEGVKIFERIEKELKDIMEAKG
+            YTSIDQFRGKLNSI
+NTSEQ       945
+            atgacagccagtttaactaccaagttcttgaacaatacctatgaaaacccatttatgaat
+            gcatccggtgttcattgcatgactacacaagaattagatgaattagcaaactctaaagct
+            ggcgcattcattacaaagagtgctacaaccttagaaagagaaggtaaccctgaaccacgt
+            tacatttctgtccctctaggcagtatcaactccatgggtttaccaaacgaaggtatcgac
+            tactatttgtcctatgtattaaaccgtcaaaagaattatcctgatgcacctgctattttc
+            ttctcagttgctggtatgagcattgatgaaaatttaaatttgttgaggaaaatccaagat
+            agcgaattcaacggtattaccgagttaaacttgtcttgtcctaatgtgcctgggaaacca
+            caagttgcttatgactttgacttgacaaaggaaaccttggaaaaggtttttgcctttttc
+            aaaaaacctcttggtgtcaagttgcctccttattttgattttgcccattttgatatcatg
+            gcaaaaatattgaacgagttcccattagcttatgtcaactctatcaatagtataggaaat
+            ggtcttttcattgatgtggagaaggagagtgtagtagtgaagccaaagaatggtttcggg
+            ggtattggaggtgaatatgttaagccaaccgcgctcgccaatgttcgtgcattttacact
+            cgtttgagacctgaaatcaaagttatcggtacaggtggaattaagtccggtaaggatgca
+            tttgaacatcttctatgtggtgcctctatgctacagattggtacagaattacaaaaagag
+            ggcgtcaagatttttgaacgtatcgaaaaagaattaaaagacataatggaagctaagggt
+            tatacatccatagatcagttccgtgggaagttgaacagcatttaa
+///

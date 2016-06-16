@@ -1,0 +1,42 @@
+ENTRY       YNL312W           CDS       T00005
+NAME        RFA2, BUF1, RPA2, RPA32
+DEFINITION  Rfa2p
+ORTHOLOGY   K10739  replication factor A2
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03030  DNA replication
+            sce03420  Nucleotide excision repair
+            sce03430  Mismatch repair
+            sce03440  Homologous recombination
+CLASS       Genetic Information Processing; Replication and repair; DNA replication [PATH:sce03030]
+            Genetic Information Processing; Replication and repair; Nucleotide excision repair [PATH:sce03420]
+            Genetic Information Processing; Replication and repair; Mismatch repair [PATH:sce03430]
+            Genetic Information Processing; Replication and repair; Homologous recombination [PATH:sce03440]
+POSITION    XIV:join(48287..48293,48402..49216)
+MOTIF       Pfam: tRNA_anti-codon RPA_C HTH_IclR DUF4539
+DBLINKS     NCBI-GI: 6324017
+            NCBI-GeneID: 855404
+            SGD: S000005256
+            MIPS: YNL312W
+            UniProt: P26754
+AASEQ       273
+            MATYQPYNEYSSVTGGGFENSESRPGSGESETNTRVNTLTPVTIKQILESKQDIQDGPFV
+            SHNQELHHVCFVGVVRNITDHTANIFLTIEDGTGQIEVRKWSEDANDLAAGNDDSSGKGY
+            GSQVAQQFEIGGYVKVFGALKEFGGKKNIQYAVIKPIDSFNEVLTHHLEVIKCHSIASGM
+            MKQPLESASNNNGQSLFVKDDNDTSSGSSPLQRILEFCKKQCEGKDANSFAVPIPLISQS
+            LNLDETTVRNCCTTLTDQGFIYPTFDDNNFFAL
+NTSEQ       822
+            atggcaacctatcaaccatataacgaatattcatcagtaacgggcggtggctttgagaac
+            tctgagtcccgcccaggtagtggggagtcggaaactaacactagagttaacaccttgaca
+            cctgtgacgatcaaacaaattctagagtccaaacaggatattcaggacggccccttcgtt
+            tcgcataaccaagaacttcatcacgtttgttttgtaggtgtggtgagaaacattacagac
+            catactgcaaatatttttttaactattgaggatggaactggtcaaatagaagtgagaaaa
+            tggagcgaagatgcaaatgacttggctgccggtaacgatgactcttctggtaaaggttat
+            ggttcgcaagtcgcccaacaatttgaaattggcggttacgtaaaagtttttggtgctttg
+            aaagagtttggtggtaagaaaaatatacagtatgcggtgattaagcccatagattcattc
+            aatgaagtgttgacgcatcacttggaagtcatcaaatgtcattccatagccagtggaatg
+            atgaaacaacctttggagagtgcatccaacaacaatgggcaatcattatttgtcaaggat
+            gataacgatacatcttccggctccagtccgttacaaagaattctagaattttgtaagaag
+            caatgtgagggcaaagacgctaattcattcgctgttcccattccattgatctcgcaatcc
+            ttgaatttggatgaaactaccgtcagaaactgctgtacgaccttgactgaccagggtttt
+            atctacccaacttttgatgacaataacttctttgccctatga
+///

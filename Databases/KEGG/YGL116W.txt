@@ -1,0 +1,64 @@
+ENTRY       YGL116W           CDS       T00005
+NAME        CDC20, PAC5
+DEFINITION  Cdc20p
+ORTHOLOGY   K03363  cell division cycle 20, cofactor of APC complex
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04111  Cell cycle - yeast
+            sce04113  Meiosis - yeast
+            sce04120  Ubiquitin mediated proteolysis
+MODULE      sce_M00389  APC/C complex
+CLASS       Genetic Information Processing; Folding, sorting and degradation; Ubiquitin mediated proteolysis [PATH:sce04120]
+            Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
+            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+POSITION    VII:289809..291641
+MOTIF       Pfam: WD40
+DBLINKS     NCBI-GI: 6321322
+            NCBI-GeneID: 852762
+            SGD: S000003084
+            MIPS: YGL116W
+            UniProt: P26309
+AASEQ       610
+            MPESSRDKGNAAISGNRSVLSIASPTKLNILSSDWSRNQGKVSKNSLKRSSSLNIRNSKR
+            PSLQASANSIYSRPKITIGAPPLIRRDSSFFKDEFDAKKDKATFSAYSSRSYPTIGSESV
+            VSQTSLSQPTTSREVDEQFTVAADRYIPILQGASQNKVDPETLHEALPPPNASPISHLRA
+            QTKIVFKQNVAEACGLDMNKRILQYMPEPPKCSSLRQKSYIMKKRTHYSYQQEQKIPDLI
+            KLRKINTNPERILDAPGFQDDFYLNLLSWSKKNVLAIALDTALYLWNATTGDVSLLTDFE
+            NTTICSVTWSDDDCHISIGKEDGNTEIWDVETMSLIRTMRSGLGVRIGSLSWLDTLIATG
+            SRSGEIQINDVRIKQHIVSTWAEHTGEVCGLSYKSDGLQLASGGNDNTVMIWDTRTSLPQ
+            FSKKTHTAAVKALSWCPYSPNILASGGGQTDKHIHFWNSITGARVGSINTGSQVSSLHWG
+            QSHTSTNGGMMNKEIVATGGNPENAISVYNYETKFKVAEVVHAHEARICCSQLSPDGTTL
+            ATVGGDENLKFYKIFDPRCTGRSREDGLMDGMLGLIGKEGCRTNDKENRSKNSSEIHTRR
+            PSSTSQYLIR
+NTSEQ       1833
+            atgccagaaagctctagagataagggaaatgcagcaattagcggtaaccgttctgtactt
+            tctattgcgtccccaacaaagctaaacatactatcttccgattggtccagaaaccaaggt
+            aaagtttctaaaaattcgctaaagagatcaagttcactgaacattagaaactccaaacgt
+            cccagtttacaagcctctgccaattctatttattcaagacctaagattacaattggggca
+            ccaccgttaataagacgagattcttcatttttcaaagatgaatttgacgctaaaaaagac
+            aaagcaacgttttcggcatactcttctcgttcatatccaacaattggatctgagagcgta
+            gtttcccaaacatctttatcgcaaccgacaacatctagagaagttgatgagcaatttaca
+            gtagctgcggatagatatattccaattctacagggagcttcgcaaaacaaggtcgatcct
+            gaaaccttacacgaggcattacctccgccaaacgcgtcgccaatttcacacttaagggcc
+            cagactaagattgtcttcaaacaaaatgtagctgaagcgtgtgggttagatatgaataaa
+            agaatactacaatacatgccggaaccaccaaaatgctcttccttgagacaaaaaagctat
+            atcatgaagaaaagaacacattatagttatcagcaggaacaaaaaattcctgatttaatt
+            aaattaaggaaaatcaataccaatccggaaagaattcttgatgcacctggtttccaagac
+            gacttttatttaaacttgttaagttggtccaaaaaaaatgtcttagctatagcactagac
+            actgcattatatctgtggaatgccaccactggggatgtttccctgttaacggatttcgaa
+            aacaccacaatatgcagcgttacgtggtctgatgatgattgtcatatctctatcggtaaa
+            gaggatgggaacaccgaaatttgggacgttgagaccatgtcattaattagaactatgaga
+            tcaggcttaggtgtccgtatcggttcattgtcttggttagatactttgatagctacaggc
+            agtcgtagtggagaaattcaaatcaatgatgtcaggatcaaacagcatattgtatctaca
+            tgggcagagcacacaggcgaagtctgcggtttgagctataaaagtgacggattgcaactt
+            gcatctggtggtaatgataacactgtaatgatttgggataccagaacgtccttgcctcaa
+            ttttccaagaagacgcatactgctgctgtaaaagcactaagctggtgtccatattcgcca
+            aatattctagcctctggaggcggacaaacagataaacacatccatttttggaacagtatc
+            acaggtgcacgagttggctcaatcaataccggatcccaggtgagctctttacattggggc
+            caaagtcatacgtcaaccaatggtggtatgatgaataaagagattgttgccacaggaggt
+            aatccagagaatgcaatctctgtttataattatgaaacaaaattcaaagttgcagaagta
+            gttcatgctcatgaagcaagaatatgctgttctcaattgtcccctgacggaaccacattg
+            gccacagtgggaggagatgaaaacttaaaattttataagatatttgatccaagatgtaca
+            ggaagatcgagagaagacggattgatggatggtatgctaggacttattggcaaggaaggt
+            tgtcgaacaaatgataaggagaatcgttccaaaaattcgagtgagattcatacaaggagg
+            ccctctagtaccagccaatatttgatcaggtga
+///

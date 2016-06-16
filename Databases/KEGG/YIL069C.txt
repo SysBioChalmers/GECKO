@@ -1,0 +1,28 @@
+ENTRY       YIL069C           CDS       T00005
+NAME        RPS24B, RPS24EB
+DEFINITION  ribosomal 40S subunit protein S24B
+ORTHOLOGY   K02974  small subunit ribosomal protein S24e
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03010  Ribosome
+CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+POSITION    IX:complement(join(231553..231957,232367..232369))
+MOTIF       Pfam: Ribosomal_S24e RAMPs SeleniumBinding
+DBLINKS     NCBI-GI: 6322120
+            NCBI-GeneID: 854741
+            SGD: S000001331
+            MIPS: YIL069C
+            UniProt: P0CX31 P0CX32
+STRUCTURE   PDB: 3U5C 3U5G 4BYL 4BYT 3J16 3IZB
+AASEQ       135
+            MSDAVTIRTRKVISNPLLARKQFVVDVLHPNRANVSKDELREKLAEVYKAEKDAVSVFGF
+            RTQFGGGKSVGFGLVYNSVAEAKKFEPTYRLVRYGLAEKVEKASRQQRKQKKNRDKKIFG
+            TGKRLAKKVARRNAD
+NTSEQ       408
+            atgtctgacgctgtcactattcgtaccagaaaggttatctccaacccattgttggccaga
+            aagcaattcgttgttgacgtcttgcacccaaacagagctaatgtctccaaggatgaatta
+            cgtgaaaaattagctgaagtctacaaggctgaaaaggacgctgtctccgttttcggtttc
+            agaacccaatttggtggtggtaaatctgttggtttcggtttggtctacaactctgttgcc
+            gaagctaagaagttcgaaccaacttacagattagtcagatacggtttggctgaaaaggtt
+            gaaaaggcttccagacaacaaagaaagcaaaagaagaacagagacaagaagatctttggt
+            actggtaaaagattggccaaaaaggttgctcgtcgtaacgctgattaa
+///

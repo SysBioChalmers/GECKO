@@ -1,0 +1,31 @@
+ENTRY       YAL033W           CDS       T00005
+NAME        POP5, FUN53
+DEFINITION  Pop5p (EC:3.1.26.5)
+ORTHOLOGY   K03537  ribonuclease P/MRP protein subunit POP5 [EC:3.1.26.5]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03008  Ribosome biogenesis in eukaryotes
+            sce03013  RNA transport
+CLASS       Genetic Information Processing; Translation; RNA transport [PATH:sce03013]
+            Genetic Information Processing; Translation; Ribosome biogenesis in eukaryotes [PATH:sce03008]
+POSITION    I:82706..83227
+MOTIF       Pfam: RNase_P_Rpp14
+DBLINKS     NCBI-GI: 6319286
+            NCBI-GeneID: 851200
+            SGD: S000000031
+            MIPS: YAL033W
+            UniProt: P28005
+AASEQ       173
+            MVRLKSRYILFEIIFPPTDTNVEESVSKADILLSHHRASPADVSIKSILQEIRRSLSLNL
+            GDYGSAKCNSLLQLKYFSNKTSTGIIRCHREDCDLVIMALMLMSKIGDVDGLIVNPVKVS
+            GTIKKIEQFAMRRNSKILNIIKCSQSSHLSDNDFIINDFKKIGRENENENEDD
+NTSEQ       522
+            atggtacgtttaaaaagtagatatatcctttttgaaattatattcccacctacagacacc
+            aacgttgaggaatctgtgtcgaaagcagacatcttgctttcgcatcacagagcatcgcct
+            gcggatgtgtccataaagtcgatactccaagagatacgacgctcgctgtcgttgaatctg
+            ggcgactatgggtctgcaaaatgtaactctctcttgcagttgaaatacttttcaaataag
+            acgtctacggggataatccgatgccatcgagaggattgcgaccttgttatcatggcattg
+            atgttgatgtcgaaaattggcgacgtcgatggactgatcgtgaaccccgtcaaggtaagt
+            gggaccatcaagaaaatagagcagtttgctatgagaaggaattctaaaattctgaacata
+            atcaagtgtagtcaatcatcacacctcagcgataatgactttattatcaatgatttcaag
+            aaaattggaagggaaaacgaaaacgaaaacgaggacgattag
+///

@@ -1,0 +1,59 @@
+ENTRY       YBR006W           CDS       T00005
+NAME        UGA2, UGA5
+DEFINITION  succinate-semialdehyde dehydrogenase (NAD(P)(+)) (EC:1.2.1.16)
+ORTHOLOGY   K00135  succinate-semialdehyde dehydrogenase / glutarate-semialdehyde dehydrogenase [EC:1.2.1.16 1.2.1.79 1.2.1.20]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00250  Alanine, aspartate and glutamate metabolism
+            sce00310  Lysine degradation
+            sce00350  Tyrosine metabolism
+            sce00650  Butanoate metabolism
+            sce01100  Metabolic pathways
+MODULE      sce_M00027  GABA (gamma-Aminobutyrate) shunt
+CLASS       Metabolism; Carbohydrate metabolism; Butanoate metabolism [PATH:sce00650]
+            Metabolism; Amino acid metabolism; Alanine, aspartate and glutamate metabolism [PATH:sce00250]
+            Metabolism; Amino acid metabolism; Lysine degradation [PATH:sce00310]
+            Metabolism; Amino acid metabolism; Tyrosine metabolism [PATH:sce00350]
+POSITION    II:247010..248503
+MOTIF       Pfam: Aldedh DUF1487
+DBLINKS     NCBI-GI: 6319478
+            NCBI-GeneID: 852291
+            SGD: S000000210
+            MIPS: YBR006W
+            UniProt: P38067
+AASEQ       497
+            MTLSKYSKPTLNDPNLFRESGYIDGKWVKGTDEVFEVVDPASGEIIARVPEQPVSVVEEA
+            IDVAYETFKTYKNTTPRERAKWLRNMYNLMLENLDDLATIITLENGKALGEAKGEIKYAA
+            SYFEWYAEEAPRLYGATIQPLNPHNRVFTIRQPVGVCGIICPWNFPSAMITRKAAAALAV
+            GCTVVIKPDSQTPLSALAMAYLAEKAGFPKGSFNVILSHANTPKLGKTLCESPKVKKVTF
+            TGSTNVGKILMKQSSSTLKKLSFELGGNAPFIVFEDADLDQALEQAMACKFRGLGQTCVC
+            ANRLYVHSSIIDKFAKLLAERVKKFVIGHGLDPKTTHGCVINSSAIEKVERHKQDAIDKG
+            AKVVLEGGRLTELGPNFYAPVILSHVPSTAIVSKEETFGPLCPIFSFDTMEEVVGYANDT
+            EFGLAAYVFSKNVNTLYTVSEALETGMVSCNTGVFSDCSIPFGGVKESGFGREGSLYGIE
+            DYTVLKTITIGNLPNSI
+NTSEQ       1494
+            atgactttgagtaagtattctaaaccaactctaaacgaccctaatttattcagagaatct
+            ggttatattgacggaaaatgggttaagggcactgacgaagtttttgaggtggtagaccct
+            gcttccggcgaaatcatagcaagagttcccgaacaaccagtctccgtggttgaggaagcg
+            attgatgttgcctatgaaactttcaagacgtacaagaatacaacaccaagagagagggca
+            aagtggctcagaaacatgtataacttaatgcttgaaaatttggatgatctggcaaccatc
+            attactttagaaaatggtaaagctctaggggaagctaaaggagaaatcaaatacgcggct
+            tcgtattttgagtggtacgccgaggaagcaccccgtttatatggtgctactattcaaccc
+            ttgaaccctcacaacagagtattcacaattaggcaacctgttggtgtatgcggtataatt
+            tgtccatggaattttccgagcgccatgatcacgagaaaggccgccgctgctttagctgtg
+            ggctgcacagtagtcatcaagccagactctcaaacgccgctatctgctttagcaatggca
+            tatttggctgaaaaggcaggctttcccaagggttcgtttaatgttattctttcacatgcc
+            aacacaccaaagcttggtaaaacattatgtgaatcaccaaaagtcaagaaagttactttt
+            actggttctacaaacgtcggtaaaatcttgatgaaacaatcttcttctactttgaagaaa
+            ctgtcttttgagctgggtggtaacgcccctttcatagtctttgaggatgccgatttggat
+            caagccttggaacaagccatggcttgtaaatttaggggtttgggtcaaacatgtgtgtgc
+            gcaaatagactttacgttcactcatccataattgataaatttgcgaaattactcgcggag
+            agggtcaaaaaattcgtaattggccatggtttggacccaaaaactacacatggttgtgtc
+            attaactccagcgctattgaaaaagttgaaagacataaacaggatgccattgataaggga
+            gcaaaagttgtgcttgaaggtggacgtttaactgagttaggtcctaacttttatgctcca
+            gtaattttgtcacacgttccctcaacagctattgtttccaaggaggagacttttggtcca
+            ttatgtccaatcttttcttttgatactatggaagaagttgtcggatatgctaatgatact
+            gagtttggtttagcagcatatgtcttttctaaaaatgtcaacactttatacactgtgtct
+            gaagctttggaaactggtatggtttcatgtaatacaggtgttttttcggattgttctata
+            ccatttggtggtgttaaagagtcaggatttggaagagaaggttcgctatatggtattgaa
+            gattacactgttttgaagaccatcacaattgggaatttgccaaacagcatttaa
+///

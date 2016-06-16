@@ -1,0 +1,74 @@
+ENTRY       YDL126C           CDS       T00005
+NAME        CDC48
+DEFINITION  AAA family ATPase CDC48
+ORTHOLOGY   K13525  transitional endoplasmic reticulum ATPase
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04141  Protein processing in endoplasmic reticulum
+MODULE      sce_M00400  p97-Ufd1-Npl4 complex
+CLASS       Genetic Information Processing; Folding, sorting and degradation; Protein processing in endoplasmic reticulum [PATH:sce04141]
+POSITION    IV:complement(236157..238664)
+MOTIF       Pfam: AAA CDC48_N RuvB_N AAA_2 AAA_5 AAA_16 AAA_33 AAA_17 AAA_22 TIP49 CDC48_2 AAA_14 IstB_IS21 AAA_19 RNA_helicase AAA_25 Mg_chelatase Zeta_toxin AAA_24 KaiC ABC_tran ResIII AAA_18 Sigma54_activat AAA_28 PhoH Parvo_NS1 Sigma54_activ_2 DUF815 AAA_11 AAA_3 Vps4_C Bac_DnaA Arch_ATPase DUF2075 UFD1
+DBLINKS     NCBI-GI: 6320077
+            NCBI-GeneID: 851431
+            SGD: S000002284
+            MIPS: YDL126C
+            UniProt: P25694
+AASEQ       835
+            MGEEHKPLLDASGVDPREEDKTATAILRRKKKDNMLLVDDAINDDNSVIAINSNTMDKLE
+            LFRGDTVLVKGKKRKDTVLIVLIDDELEDGACRINRVVRNNLRIRLGDLVTIHPCPDIKY
+            ATRISVLPIADTIEGITGNLFDVFLKPYFVEAYRPVRKGDHFVVRGGMRQVEFKVVDVEP
+            EEYAVVAQDTIIHWEGEPINREDEENNMNEVGYDDIGGCRKQMAQIREMVELPLRHPQLF
+            KAIGIKPPRGVLMYGPPGTGKTLMARAVANETGAFFFLINGPEVMSKMAGESESNLRKAF
+            EEAEKNAPAIIFIDEIDSIAPKRDKTNGEVERRVVSQLLTLMDGMKARSNVVVIAATNRP
+            NSIDPALRRFGRFDREVDIGIPDATGRLEVLRIHTKNMKLADDVDLEALAAETHGYVGAD
+            IASLCSEAAMQQIREKMDLIDLDEDEIDAEVLDSLGVTMDNFRFALGNSNPSALRETVVE
+            SVNVTWDDVGGLDEIKEELKETVEYPVLHPDQYTKFGLSPSKGVLFYGPPGTGKTLLAKA
+            VATEVSANFISVKGPELLSMWYGESESNIRDIFDKARAAAPTVVFLDELDSIAKARGGSL
+            GDAGGASDRVVNQLLTEMDGMNAKKNVFVIGATNRPDQIDPAILRPGRLDQLIYVPLPDE
+            NARLSILNAQLRKTPLEPGLELTAIAKATQGFSGADLLYIVQRAAKYAIKDSIEAHRQHE
+            AEKEVKVEGEDVEMTDEGAKAEQEPEVDPVPYITKEHFAEAMKTAKRSVSDAELRRYEAY
+            SQQMKASRGQFSNFNFNDAPLGTTATDNANSNNSAPSGAGAAFGSNAEEDDDLYS
+NTSEQ       2508
+            atgggtgaagaacataaaccacttttggacgcctcgggtgtcgaccctcgtgaggaggat
+            aaaaccgccaccgccattttaagaagaaagaagaaggacaacatgcttttggtggacgat
+            gctatcaatgatgacaattctgtcattgctattaattctaacaccatggacaaattggaa
+            ttgttccgtggtgacaccgttctcgttaagggcaagaagagaaaagatactgtcttaatt
+            gtgttgatcgatgacgaattagaagacggagcatgcaggataaaccgtgtagttcgtaac
+            aatttacgtattaggctgggtgatttagttacaattcatccttgccccgatatcaaatac
+            gctactagaatttctgtgttaccaattgctgatacgatcgaaggtataactggtaatctt
+            ttcgatgtttttttgaagccttattttgtggaagcctacagaccagtgaggaaaggcgac
+            cattttgttgtcagaggcggtatgagacaagtcgaattcaaggttgtggatgtcgaacct
+            gaagaatatgccgtcgttgctcaggatactattattcactgggaaggtgagccaatcaac
+            agggaagatgaagaaaataatatgaatgaggtgggttacgatgatattggtggttgtcgt
+            aagcaaatggctcaaattagggaaatggttgaactaccattgagacatcctcagttgttc
+            aaggctatcggtatcaagccaccaagaggtgttttgatgtatggtccccctggtactggt
+            aaaaccttgatggcaagagctgttgctaatgagaccggtgccttttttttcttaattaat
+            ggtccagaagtcatgtcaaaaatggctggtgaatcagagtctaacttaagaaaggccttt
+            gaagaagccgaaaagaacgctccagccatcatttttatcgatgaaatcgattctatagct
+            ccaaagagagacaagactaatggtgaagttgagagaagagttgtctctcaattgttaact
+            ttaatggatggtatgaaggcaagatctaatgttgttgtcattgctgctaccaatagacca
+            aattcgattgatcccgctttaagaagatttggtagattcgatcgtgaagtcgacattggt
+            atcccagatgctacaggtagacttgaagttctacgtattcacaccaagaacatgaagttg
+            gctgatgatgttgatttggaagcattggctgctgaaacacacggttacgtgggtgctgat
+            attgcctctttgtgttctgaagctgccatgcaacagatccgtgaaaaaatggacttgata
+            gatttagatgaagatgaaattgatgcagaggtgctcgattctttaggagtcaccatggac
+            aacttcagattcgcattgggcaattcaaacccatctgcattgcgtgaaaccgttgttgaa
+            agtgtcaatgttacttgggatgacgttggtggcctagatgaaatcaaggaggaattgaag
+            gaaactgtagaatacccagtcttacatccagaccaatacacaaagtttgggttatcacca
+            tcaaagggtgtgttgttctacggtccaccaggtacaggtaaaactttgttagcaaaagct
+            gtagctactgaggtttctgccaactttatctcagtcaaaggtccagaattattgagtatg
+            tggtatggtgaatcggaatctaacatccgtgatatttttgataaggcaagagcagctgca
+            ccaaccgtcgtttttctagatgaattagactccattgccaaggcaagaggtggttccttg
+            ggtgatgctggtggtgcttcggatagagtcgtcaaccaactattaacagaaatggatggt
+            atgaatgctaagaaaaatgtgttcgtgattggtgccaccaataggccagatcaaattgat
+            cctgctattttaagacctggcagattggatcaattaatttatgttccattgccagatgaa
+            aacgctagattatctattctaaatgctcaattaaggaaaacaccactagaaccagggcta
+            gagttaactgcgattgccaaggccactcaaggtttctctggtgctgatttactctatatt
+            gtgcagagggctgctaaatacgctatcaaggattctatcgaagctcacagacaacacgaa
+            gctgaaaaggaagtgaaagtagaaggtgaagacgtggaaatgacagatgagggagcaaag
+            gctgaacaagaaccagaagtagatcctgttccatatattacaaaggagcatttcgcagaa
+            gctatgaagaccgctaaacgttctgtttcagatgctgaattgcgtcgttatgaagcatac
+            tcacagcaaatgaaagcatctagaggtcaattcagtaatttcaactttaatgacgctcca
+            ttaggtactacggctacggacaatgctaacagtaataatagtgctccaagtggagcaggt
+            gctgcatttggttctaatgcggaggaagatgatgatttgtatagttag
+///

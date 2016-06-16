@@ -1,0 +1,36 @@
+ENTRY       YOR236W           CDS       T00005
+NAME        DFR1
+DEFINITION  dihydrofolate reductase (EC:1.5.1.3)
+ORTHOLOGY   K00287  dihydrofolate reductase [EC:1.5.1.3]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00670  One carbon pool by folate
+            sce00790  Folate biosynthesis
+            sce01100  Metabolic pathways
+MODULE      sce_M00126  Tetrahydrofolate biosynthesis, GTP => THF
+CLASS       Metabolism; Metabolism of cofactors and vitamins; Folate biosynthesis [PATH:sce00790]
+            Metabolism; Metabolism of cofactors and vitamins; One carbon pool by folate [PATH:sce00670]
+POSITION    XV:780906..781541
+MOTIF       Pfam: DHFR_1
+DBLINKS     NCBI-GI: 6324810
+            NCBI-GeneID: 854411
+            SGD: S000005762
+            MIPS: YOR236W
+            UniProt: P07807
+AASEQ       211
+            MAGGKIPIVGIVACLQPEMGIGFRGGLPWRLPSEMKYFRQVTSLTKDPNKKNALIMGRKT
+            WESIPPKFRPLPNRMNVIISRSFKDDFVHDKERSIVQSNSLANAIMNLESNFKEHLERIY
+            VIGGGEVYSQIFSITDHWLITKINPLDKNATPAMDTFLDAKKLEEVFSEQDPAQLKEFLP
+            PKVELPETDCDQRYSLEEKGYCFEFTLYNRK
+NTSEQ       636
+            atggctggaggaaagattcctattgtaggaattgtggcatgtttacagccggagatgggg
+            ataggatttcgtggaggtctaccatggaggttgcccagtgaaatgaagtatttcagacag
+            gtcacttcattgacgaaagatccaaacaaaaaaaatgctttgataatgggaaggaagaca
+            tgggaatccataccgcccaagtttcgcccactgcccaatagaatgaatgtcattatatcg
+            agaagcttcaaggacgattttgtccacgataaagagagatcaatagtccaaagtaattca
+            ttggcaaacgcaataatgaacctagaaagcaattttaaggagcatctggaaagaatctac
+            gtgattgggggtggcgaagtttatagtcaaatcttctccattacagatcattggctcatc
+            acgaaaataaatccattagataaaaacgcaactcctgcaatggacactttccttgatgcg
+            aagaaattggaagaagtatttagcgagcaagatccggcccagctgaaagaatttcttccc
+            cctaaagtagagttgcccgaaacagactgtgatcaacgctactcgctggaagaaaaaggt
+            tattgcttcgaattcactctatacaatcgtaaatga
+///

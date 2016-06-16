@@ -1,0 +1,33 @@
+ENTRY       YOR103C           CDS       T00005
+NAME        OST2
+DEFINITION  Ost2p (EC:2.4.99.18)
+ORTHOLOGY   K12668  oligosaccharyltransferase complex subunit epsilon
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00510  N-Glycan biosynthesis
+            sce00513  Various types of N-glycan biosynthesis
+            sce01100  Metabolic pathways
+            sce04141  Protein processing in endoplasmic reticulum
+MODULE      sce_M00072  Oligosaccharyltransferase
+CLASS       Metabolism; Glycan biosynthesis and metabolism; N-Glycan biosynthesis [PATH:sce00510]
+            Metabolism; Glycan biosynthesis and metabolism; Various types of N-glycan biosynthesis [PATH:sce00513]
+            Genetic Information Processing; Folding, sorting and degradation; Protein processing in endoplasmic reticulum [PATH:sce04141]
+POSITION    XV:complement(516449..516841)
+MOTIF       Pfam: DAD
+DBLINKS     NCBI-GI: 37362695
+            NCBI-GeneID: 854270
+            SGD: S000005629
+            MIPS: YOR103C
+            UniProt: P46964
+AASEQ       130
+            MAKAPKANTPKVTSTSSAVLTDFQETFKTSKRAYFAQIEKYPKLKLIDTFCFFLVLLGVI
+            QCTFIILIRDNFPFNAFLAGFIICVGQFVLLMSLRLQLCNSFPGISKNRAFAEFIVASLI
+            LHFVCLHFIN
+NTSEQ       393
+            atggcaaaagcaccaaaggcaaacacaccaaaagtaaccagcacgtcatctgcagtctta
+            acagattttcaagaaactttcaagacttctaagagggcatattttgcccaaattgaaaaa
+            tatcctaaactgaaactaattgatacattctgcttctttttggtattattaggggtgatc
+            cagtgtacattcattatcttgatccgtgataattttccattcaatgcgtttttagcggga
+            ttcattatttgtgtgggacaattcgtcctattgatgagtttgcggttacaattgtgtaat
+            agttttccaggcatttctaaaaacagagcttttgccgagtttattgttgctagtttgatt
+            ttacatttcgtttgtttacattttataaattga
+///

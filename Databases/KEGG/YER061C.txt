@@ -1,0 +1,54 @@
+ENTRY       YER061C           CDS       T00005
+NAME        CEM1
+DEFINITION  fatty acid synthase CEM1 (EC:2.3.1.41)
+ORTHOLOGY   K09458  3-oxoacyl-[acyl-carrier-protein] synthase II [EC:2.3.1.179]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00061  Fatty acid biosynthesis
+            sce00780  Biotin metabolism
+            sce01100  Metabolic pathways
+            sce01212  Fatty acid metabolism
+MODULE      sce_M00083  Fatty acid biosynthesis, elongation
+CLASS       Metabolism; Overview; Fatty acid metabolism [PATH:sce01212]
+            Metabolism; Lipid metabolism; Fatty acid biosynthesis [PATH:sce00061]
+            Metabolism; Metabolism of cofactors and vitamins; Biotin metabolism [PATH:sce00780]
+POSITION    V:complement(278298..279626)
+MOTIF       Pfam: ketoacyl-synt Ketoacyl-synt_C Thiolase_N
+DBLINKS     NCBI-GI: 330443524
+            NCBI-GeneID: 856790
+            SGD: S000000863
+            MIPS: YER061C
+            UniProt: P39525
+AASEQ       442
+            MSRRVVITGLGCVTPLGRSLSESWGNLLSSKNGLTPITSLPNYNEDYKLREKSIPSTITV
+            GKIPENFQNENSAINKLLFTSQDERRTSSFIKLALRTTYEALHNAGLLNPNDITINTSLC
+            NLDHFGCLIGSGIGSIQDIYQTSLQFHNDNKRINPYFVPKILTNMAAGNVSIKFNLRGLS
+            HSVSTACATGNNSIGDAFNFIRLGMQDICVAGASETSLHPLSLAGFIRAKSITTNGISRP
+            FDTQRSGFVLGEGCGMIVMESLEHAQKRNANIISELVGYGLSSDACHITSPPADGNGAKR
+            AIEMALKMARLEPTDVDYVNAHATSTLLGDKAECLAVASALLPGRSKSKPLYISSNKGAI
+            GHLLGAAGAVESIFTICSLKDDKMPHTLNLDNVLTLENNEADKLHFIRDKPIVGANPKYA
+            LCNSFGFGGVNTSLLFKKWEGS
+NTSEQ       1329
+            atgtcaagaagagtggttatcacaggattgggctgtgtaacgccgttgggaagatcatta
+            agtgagtcatgggggaatctgctctcttccaaaaatggactcacaccaatcacatctttg
+            cccaactataatgaggactacaaactcagagaaaaaagtatcccatcaacgataacagtg
+            gggaagattccagagaattttcaaaacgaaaattcagccatcaataaactgctgttcact
+            agccaggatgagagaagaacctcaagctttatcaagctagcactacgtacaacttatgaa
+            gcgcttcacaatgctggtctcttgaacccaaatgatataaccatcaatacatctctgtgc
+            aatctggatcactttggttgcctgataggttctggtataggatccattcaagacatatac
+            caaacttctctacaattccataacgacaataaaagaataaatccatatttcgtccctaaa
+            atccttacaaatatggcagctggtaatgtttccatcaagtttaaccttagaggattatcc
+            catagtgtttccacagcatgcgcaacaggtaataactccattggcgatgcattcaatttt
+            attcggttaggcatgcaagacatctgtgtcgccggtgcaagtgaaacgagtttgcatccg
+            ttaagtttagcaggtttcatcagagcaaagtcgattactacaaacgggatctctagaccc
+            tttgatacacaacgttctggattcgtacttggtgaaggatgcggaatgattgtcatggaa
+            tcgctagaacatgctcaaaagagaaatgcaaacataatttctgagctcgtgggctatggt
+            ttaagcagtgatgcctgccatattacctcccctcctgctgatggaaatggtgccaaaaga
+            gcaatagagatggctctaaaaatggctagattagaaccaactgatgttgactacgtcaat
+            gcacatgctacatcaactttactaggcgataaagcagagtgtctggcagtagcctcagca
+            ctcttaccaggaagatccaaaagcaagccactgtacatatccagtaacaaaggtgcaatt
+            ggccatcttttaggtgcagctggcgccgtagaaagtatatttacaatttgttccttgaag
+            gatgataagatgccgcataccttaaacctggacaatgttctgactctagaaaataacgag
+            gccgataagctacatttcataagagacaaacctattgtgggagctaatccgaagtacgca
+            ttatgcaacagcttcggatttggaggagttaacacatctcttctcttcaagaaatgggaa
+            gggagttaa
+///

@@ -1,0 +1,37 @@
+ENTRY       YFL056C           CDS       T00005
+NAME        AAD6
+DEFINITION  Aad6p (EC:1.1.1.-)
+ORTHOLOGY   K00100   [EC:1.1.1.-]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00051  Fructose and mannose metabolism
+            sce00591  Linoleic acid metabolism
+            sce00650  Butanoate metabolism
+            sce01100  Metabolic pathways
+CLASS       Metabolism; Carbohydrate metabolism; Fructose and mannose metabolism [PATH:sce00051]
+            Metabolism; Carbohydrate metabolism; Butanoate metabolism [PATH:sce00650]
+            Metabolism; Lipid metabolism; Linoleic acid metabolism [PATH:sce00591]
+POSITION    VI:complement(14793..15431)
+MOTIF       Pfam: Aldo_ket_red
+DBLINKS     NCBI-GI: 14318463
+            NCBI-GeneID: 850488
+            SGD: S000001838
+            MIPS: YFL056C
+            UniProt: P43547
+AASEQ       212
+            MADLFAPAPEPSTELGRLRVLSKSAGIRVSPLILGGMSIGDAWSEILGSMSKERAFELLD
+            AFYEAGGNFIDTANNYQNEQSEAWIGEWMVSRKLRDQIVIATKFTTDYKKYDVGGGKSAN
+            YCGNHKRSLHVSVRDSLRKLQTDWIDILYVHWWDYMSSIEEVMDSLHILVQQARSSIWVC
+            LIRLPGLFLRQITTLNLMVKPLLASIKVNGTC
+NTSEQ       639
+            atggctgatttatttgctcctgctcctgaaccatctacagagttaggacgtctcagagtt
+            ctttctaaaagtgctggtattagagtttcccctctcattttgggaggaatgtcaattggc
+            gacgcttggtctgaaatcctaggatcaatgagcaaggagcgagcttttgagttgctcgat
+            gctttttatgaggcaggtggaaatttcattgatactgcaaataattatcaaaacgaacag
+            tcagaagcttggatcggtgaatggatggtttcaagaaaattacgcgaccagattgtaatc
+            gccaccaagtttaccactgactataagaaatacgacgttggtggtggtaaaagcgcaaac
+            tactgtggcaatcacaagcgtagtttgcatgtgagtgtgagggattctctccgcaaattg
+            caaactgattggattgatatactttacgttcactggtgggattatatgagttctatcgaa
+            gaagttatggatagtttacacattctagtgcagcaggcaaggtcctctatttgggtgtgt
+            ctgatacgcctgcctgggttgtttctgcggcaaattactacgctaaatctcatggtaaaa
+            ccccttttagcatctatcaaggtaaatggaacctgttga
+///

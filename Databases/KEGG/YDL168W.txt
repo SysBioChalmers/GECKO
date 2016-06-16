@@ -1,0 +1,56 @@
+ENTRY       YDL168W           CDS       T00005
+NAME        SFA1, ADH5
+DEFINITION  bifunctional alcohol dehydrogenase/S-(hydroxymethyl)glutathione dehydrogenase (EC:1.1.1.284 1.1.1.1 1.1.1.-)
+ORTHOLOGY   K00121  S-(hydroxymethyl)glutathione dehydrogenase / alcohol dehydrogenase [EC:1.1.1.284 1.1.1.1]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00010  Glycolysis / Gluconeogenesis
+            sce00071  Fatty acid degradation
+            sce00350  Tyrosine metabolism
+            sce00680  Methane metabolism
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01200  Carbon metabolism
+            sce01220  Degradation of aromatic compounds
+CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
+            Metabolism; Overview; Degradation of aromatic compounds [PATH:sce01220]
+            Metabolism; Carbohydrate metabolism; Glycolysis / Gluconeogenesis [PATH:sce00010]
+            Metabolism; Energy metabolism; Methane metabolism [PATH:sce00680]
+            Metabolism; Lipid metabolism; Fatty acid degradation [PATH:sce00071]
+            Metabolism; Amino acid metabolism; Tyrosine metabolism [PATH:sce00350]
+POSITION    IV:159604..160764
+MOTIF       Pfam: ADH_N ADH_zinc_N ADH_zinc_N_2 2-Hacid_dh_C AlaDh_PNT_C TrkA_N ELFV_dehydrog
+DBLINKS     NCBI-GI: 6320033
+            NCBI-GeneID: 851386
+            SGD: S000002327
+            MIPS: YDL168W
+            UniProt: P32771
+AASEQ       386
+            MSAATVGKPIKCIAAVAYDAKKPLSVEEITVDAPKAHEVRIKIEYTAVCHTDAYTLSGSD
+            PEGLFPCVLGHEGAGIVESVGDDVITVKPGDHVIALYTAECGKCKFCTSGKTNLCGAVRA
+            TQGKGVMPDGTTRFHNAKGEDIYHFMGCSTFSEYTVVADVSVVAIDPKAPLDAACLLGCG
+            VTTGFGAALKTANVQKGDTVAVFGCGTVGLSVIQGAKLRGASKIIAIDINNKKKQYCSQF
+            GATDFVNPKEDLAKDQTIVEKLIEMTDGGLDFTFDCTGNTKIMRDALEACHKGWGQSIII
+            GVAAAGEEISTRPFQLVTGRVWKGSAFGGIKGRSEMGGLIKDYQKGALKVEEFITHRRPF
+            KEINQAFEDLHNGDCLRTVLKSDEIK
+NTSEQ       1161
+            atgtccgccgctactgttggtaaacctattaagtgcattgctgctgttgcgtatgatgcg
+            aagaaaccattaagtgttgaagaaatcacggtagacgccccaaaagcgcacgaagtacgt
+            atcaaaattgaatatactgctgtatgccacactgatgcgtacactttatcaggctctgat
+            ccagaaggacttttcccttgcgttctgggccacgaaggagccggtatcgtagaatctgta
+            ggcgatgatgtcataacagttaagcctggtgatcatgttattgctttgtacactgctgag
+            tgtggcaaatgtaagttctgtacttccggtaaaaccaacttatgtggtgctgttagagct
+            actcaagggaaaggtgtaatgcctgatgggaccacaagatttcataatgcgaaaggtgaa
+            gatatataccatttcatgggttgctctactttttccgaatatactgtggtggcagatgtc
+            tctgtggttgccatcgatccaaaagctcccttggatgctgcctgtttactgggttgtggt
+            gttactactggttttggggcggctcttaagacagctaatgtgcaaaaaggcgataccgtt
+            gcagtatttggctgcgggactgtaggactctccgttatccaaggtgcaaagttaaggggc
+            gcttccaagatcattgccattgacattaacaataagaaaaaacaatattgttctcaattt
+            ggtgccacggattttgttaatcccaaggaagatttggccaaagatcaaactatcgttgaa
+            aagttaattgaaatgactgatgggggtctggattttacttttgactgtactggtaatacc
+            aaaattatgagagatgctttggaagcctgtcataaaggttggggtcaatctattatcatt
+            ggtgtggctgccgctggtgaagaaatttctacaaggccgttccagctggtcactggtaga
+            gtgtggaaaggctctgcttttggtggcatcaaaggtagatctgaaatgggcggtttaatt
+            aaagactatcaaaaaggtgccttaaaagtcgaagaatttatcactcacaggagaccattc
+            aaagaaatcaatcaagcctttgaagatttgcataacggtgattgcttaagaaccgtcttg
+            aagtctgatgaaataaaatag
+///

@@ -1,0 +1,70 @@
+ENTRY       YGL120C           CDS       T00005
+NAME        PRP43
+DEFINITION  Prp43p (EC:3.6.4.13)
+ORTHOLOGY   K12820  pre-mRNA-splicing factor ATP-dependent RNA helicase DHX15/PRP43 [EC:3.6.4.13]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03040  Spliceosome
+CLASS       Genetic Information Processing; Transcription; Spliceosome [PATH:sce03040]
+POSITION    VII:complement(281634..283937)
+MOTIF       Pfam: HA2 OB_NTP_bind Helicase_C DEAD AAA_22 SRP54 Flavi_DEAD ResIII AAA_23 T2SE AAA_30 PhoH AAA_29
+DBLINKS     NCBI-GI: 6321318
+            NCBI-GeneID: 852757
+            SGD: S000003088
+            MIPS: YGL120C
+            UniProt: P53131
+STRUCTURE   PDB: 2XAU 3KX2
+AASEQ       767
+            MGSKRRFSSEHPDPVETSIPEQAAEIAEELSKQHPLPSEEPLVHHDAGEFKGLQRHHTSA
+            EEAQKLEDGKINPFTGREFTPKYVDILKIRRELPVHAQRDEFLKLYQNNQIMVFVGETGS
+            GKTTQIPQFVLFDEMPHLENTQVACTQPRRVAAMSVAQRVAEEMDVKLGEEVGYSIRFEN
+            KTSNKTILKYMTDGMLLREAMEDHDLSRYSCIILDEAHERTLATDILMGLLKQVVKRRPD
+            LKIIIMSATLDAEKFQRYFNDAPLLAVPGRTYPVELYYTPEFQRDYLDSAIRTVLQIHAT
+            EEAGDILLFLTGEDEIEDAVRKISLEGDQLVREEGCGPLSVYPLYGSLPPHQQQRIFEPA
+            PESHNGRPGRKVVISTNIAETSLTIDGIVYVVDPGFSKQKVYNPRIRVESLLVSPISKAS
+            AQQRAGRAGRTRPGKCFRLYTEEAFQKELIEQSYPEILRSNLSSTVLELKKLGIDDLVHF
+            DFMDPPAPETMMRALEELNYLACLDDEGNLTPLGRLASQFPLDPMLAVMLIGSFEFQCSQ
+            EILTIVAMLSVPNVFIRPTKDKKRADDAKNIFAHPDGDHITLLNVYHAFKSDEAYEYGIH
+            KWCRDHYLNYRSLSAADNIRSQLERLMNRYNLELNTTDYESPKYFDNIRKALASGFFMQV
+            AKKRSGAKGYITVKDNQDVLIHPSTVLGHDAEWVIYNEFVLTSKNYIRTVTSVRPEWLIE
+            IAPAYYDLSNFQKGDVKLSLERIKEKVDRLNELKQGKNKKKSKHSKK
+NTSEQ       2304
+            atgggttccaaaagaagattctcgtccgaacacccggatccagttgagacctctattcct
+            gagcaggccgccgagattgcggaagaattatccaaacagcatcctcttccatccgaagag
+            ccacttgtccatcatgatgctggtgaattcaagggcttgcaacgtcaccatacttcagca
+            gaagaggcccaaaaacttgaagatggaaaaataaatccatttaccggtagggagtttaca
+            ccaaaatatgttgatatcctgaaaattagaagagaattgccagtacatgcccagagagat
+            gagtttttaaaactttatcaaaataaccagattatggtttttgttggtgaaacaggttcc
+            ggtaaaacgacacaaattcctcaattcgttttattcgatgagatgccacacttagagaac
+            actcaagttgcatgtactcaacctcgtcgtgtcgcagcaatgtctgttgcacagagagtt
+            gctgaggaaatggatgtcaagttgggcgaagaagttggttattctatcagattcgaaaat
+            aaaacttctaataaaacgatattgaagtatatgactgatggtatgttgttgagagaggca
+            atggaagaccatgacttgtcgcgttattcatgtatcattctggatgaagcgcacgaacgt
+            acactagctactgatattttgatgggtcttttgaagcaagtagtcaagaggagacctgat
+            ttgaagataattattatgtctgctactctggatgcagagaagttccaacgctacttcaac
+            gatgctccattacttgccgttccgggcagaacatatccagttgagctatactatacaccg
+            gaatttcaaagggactatttagattctgccattcgtactgttttgcaaattcatgccact
+            gaagaggctggcgatattttgttatttttaactggtgaagatgaaattgaagacgctgtc
+            agaaagatttccttagaaggtgatcaattggttagagaagagggatgcggacctttatcc
+            gtatacccactgtatggttcattaccaccgcatcaacaacaaagaatattcgagcctgct
+            ccagagtcacataatggtagaccaggcaggaaagttgttatctccacgaacatcgctgaa
+            acttctttaacaattgatggtattgtctacgtcgttgacccaggattttcaaagcaaaaa
+            gtttacaatccaagaattagagttgagtctttacttgtttcccctatctccaaggcttct
+            gcccaacaaagagctggtcgtgctggtcgtacaaggcctggtaaatgtttcagattatac
+            actgaagaggcattccaaaaggaactgatagagcaaagttacccagaaattttacgttcc
+            aatttatcctccaccgttctagaactaaaaaaattaggtattgatgacttggtccatttc
+            gattttatggatccaccggctccggaaacaatgatgagagcccttgaagaactaaattat
+            ttggcatgtctggacgacgaaggtaacttaacacccctaggtagattggcatcccagttt
+            cccttggatcctatgctagcggtgatgttaattgggtcctttgagttccaatgttctcaa
+            gaaatactaactatagtggccatgctatcggttccaaacgtgtttattcgcccaacaaag
+            gacaagaagcgagcagatgatgccaagaatatctttgctcatccagacggtgatcatatc
+            accttactaaatgtatatcatgcgttcaaatcggatgaagcttatgaatatggtatccat
+            aagtggtgccgtgaccactatctaaattacaggtccctttccgctgctgataatatccgc
+            tcccaattagaaagattaatgaaccgttacaacctagaattaaacactacagactatgaa
+            agccctaaatactttgacaacatcagaaaggctcttgcgtctgggtttttcatgcaagta
+            gcaaaaaaaagatcgggagctaaaggatacatcacagttaaagataaccaagatgttctg
+            atccatcctagtacggttcttggccacgacgcagaatgggtcatttacaatgaatttgtg
+            ctcacatcgaagaactacataagaactgtgacctcggtcaggcccgaatggctgattgaa
+            atagcgcctgcatactacgacttaagcaatttccaaaaaggtgatgtcaaattatctttg
+            gaaaggatcaaggaaaaagttgatagattaaacgagttgaaacaaggtaaaaacaaaaag
+            aagagtaagcactccaagaaatag
+///

@@ -1,0 +1,53 @@
+ENTRY       YDL150W           CDS       T00005
+NAME        RPC53, RPC4
+DEFINITION  Rpc53p
+ORTHOLOGY   K03026  DNA-directed RNA polymerase III subunit RPC4
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00230  Purine metabolism
+            sce00240  Pyrimidine metabolism
+            sce01100  Metabolic pathways
+            sce03020  RNA polymerase
+MODULE      sce_M00181  RNA polymerase III, eukaryotes
+CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
+            Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
+            Genetic Information Processing; Transcription; RNA polymerase [PATH:sce03020]
+POSITION    IV:183343..184611
+MOTIF       Pfam: RNA_pol_Rpc4 Ald_Xan_dh_C2
+DBLINKS     NCBI-GI: 6320050
+            NCBI-GeneID: 851404
+            SGD: S000002309
+            MIPS: YDL150W
+            UniProt: P25441
+AASEQ       422
+            MSSNKGNGRLPSLKDSSSNGGGSAKPSLKFKPKAVARKSKEEREAAASKVKLEEESKRGN
+            DKKHFNNKNKRVTGAGGQQRRMAKYLNNTHVISSGPLAAGNFVSEKGDLRRGFIKSEGSG
+            SSLVQKGLETIDNGAESSENEAEDDDNEGVASKSKKKFNMGKEFEARNLIEDEDDGESEK
+            SSDVDMDDEEWRSKRIEQLFPVRPVRVRHEDVETVKREIQEALSEKPTREPTPSVKTEPV
+            GTGLQSYLEERERQVNEKLADLGLEKEFQSVDGKEAAAELELLNADHQHILRKLKKMNNK
+            PERFMVFQLPTRLPAFERPAVKEEKEDMETQASDPSKKKKNIKKKDTKDALSTRELAGKV
+            GSIRVHKSGKLSVKIGNVVMDIGKGAETTFLQDVIALSIADDASSAELLGRVDGKIVVTP
+            QI
+NTSEQ       1269
+            atgagcagtaataaaggaaatgggcgcttgccatcattaaaagattcctcctccaatgga
+            ggaggatctgccaagccctcattaaagtttaaaccaaaagcagttgcaagaaagtccaag
+            gaagaaagagaagcagctgcgtccaaagtaaagctagaggaggaatctaagagaggtaat
+            gacaagaaacatttcaataacaagaataaaagagtaaccggcgctggcggccagcaaagg
+            cgaatggccaaatacttaaataacacacacgttatctctagcggtccattggcggctggg
+            aactttgtaagtgagaagggtgatttgagaagaggattcatcaaatcagaaggaagcggg
+            tcatctcttgtgcaaaagggcctggaaactattgacaatggtgctgagagctctgagaat
+            gaggcagaagacgatgataatgaaggtgtagcgtccaaatctaagaagaagttcaatatg
+            ggaaaagaattcgaggcacgcaatctcatagaggacgaagatgacggcgaaagtgaaaag
+            agcagtgacgtcgacatggatgacgaagaatggagatctaaacggattgaacagttattc
+            cctgtgagacctgtccgcgtaagacacgaagacgttgaaactgtcaaaagagaaatacaa
+            gaagctctttcagaaaagccaactcgtgaaccaacccccagtgtgaagacagagcctgtc
+            ggaaccggattacaatcttatttggaagaaagagaaaggcaagtcaatgagaaactggca
+            gatcttggacttgaaaaggagtttcaatcggttgatgggaaagaagcggccgctgagttg
+            gaattattaaatgcagatcatcagcatatattacgaaaactaaagaaaatgaataataaa
+            ccagaaagattcatggtattccagttacctactaggttaccagcttttgaaagacccgct
+            gtgaaagaagaaaaagaagacatggaaacccaggctagcgacccttcaaagaagaagaag
+            aatattaaaaagaaggacacgaaggatgctttgtctactagagaacttgccggcaaggtt
+            gggtctatacgggttcacaaatctggaaaactttccgtgaaaattggaaatgtggtgatg
+            gatattggcaaaggtgccgaaaccacatttttacaagatgttatagcattaagtatcgct
+            gatgatgcatcctcagcggaacttctaggccgtgtggacggtaaaatagtagtcacacct
+            caaatctaa
+///

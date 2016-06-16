@@ -1,0 +1,53 @@
+ENTRY       YEL002C           CDS       T00005
+NAME        WBP1
+DEFINITION  Wbp1p (EC:2.4.99.18)
+ORTHOLOGY   K12670  oligosaccharyltransferase complex subunit beta
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00510  N-Glycan biosynthesis
+            sce00513  Various types of N-glycan biosynthesis
+            sce01100  Metabolic pathways
+            sce04141  Protein processing in endoplasmic reticulum
+MODULE      sce_M00072  Oligosaccharyltransferase
+CLASS       Metabolism; Glycan biosynthesis and metabolism; N-Glycan biosynthesis [PATH:sce00510]
+            Metabolism; Glycan biosynthesis and metabolism; Various types of N-glycan biosynthesis [PATH:sce00513]
+            Genetic Information Processing; Folding, sorting and degradation; Protein processing in endoplasmic reticulum [PATH:sce04141]
+POSITION    V:complement(148722..150014)
+MOTIF       Pfam: DDOST_48kD
+DBLINKS     NCBI-GI: 398364295
+            NCBI-GeneID: 856716
+            SGD: S000000728
+            MIPS: YEL002C
+            UniProt: P33767
+AASEQ       430
+            MRTDWNFFFCILLQAIFVVGTQTSRTLVLYDQSTEPLEEYSVYLKDLEQRNYKLEYLDIN
+            STSTTVDLYDKEQRLFDNIIVFPTKGGKNLARQIPVKQLIKFFENEGNILCMSSPGAVPN
+            TIRLFLNELGIYPSPKGHVIRDYFSPSSEELVVSSNHLLNKYVYNARKSEDFVFGESSAA
+            LLENREQIVPILNAPRTSFTESKGKCNSWTSGSQGFLVVGFQNLNNARLVWIGSSDFLKN
+            KNQDSNQEFAKELLKWTFNEKSVIKSVHAVHSHADGTSYDEEPYKIKDKVIYSVGFSEWN
+            GEEWLPHIADDIQFELRQVDPYYRLTLSPSGNDSETQYYTTGEFILPDRHGVFTFLTDYR
+            KIGLSFTTDKDVKAIRHLANDEYPRSWEISNSWVYISAICGVIVAWIFFVVSFVTTSSVG
+            KKLETFKKTN
+NTSEQ       1293
+            atgcggaccgattggaattttttcttttgtatccttctgcaggccattttcgttgtgggc
+            acacaaacttcaagaacgcttgttctttacgaccaatctacggaacctttagaggagtac
+            tcagtctatttaaaagatctagaacaaaggaattacaaacttgaatatttagatattaac
+            agtacttccactactgtggatttgtatgacaaagagcaaagattgtttgataacatcatc
+            gtttttcctaccaaaggaggcaagaatttagcgagacaaatcccagttaagcagttgatt
+            aaattttttgaaaatgaaggtaacattttatgcatgagttctccaggtgctgttccgaat
+            accattcgtttatttttgaatgaattaggtatctatccaagtccaaaaggacacgttatt
+            cgtgactatttttcgccctcctcagaagagctagtggtttcttctaaccatcttctgaac
+            aaatatgtgtacaacgccagaaaaagcgaggattttgtttttggggaaagttcagctgct
+            ttattagaaaatcgtgaacaaatcgtcccaattttaaacgctccaagaacatcctttact
+            gagtccaaaggcaaatgcaactcttggaccagcggatctcaaggctttcttgtagttggt
+            ttccagaacttaaacaatgctcgtttagtatggatcggcagtagtgatttcttaaagaac
+            aaaaatcaggactctaatcaggagtttgcaaaagaattactaaaatggacatttaatgaa
+            aaatctgtaatcaaaagtgtgcatgcggttcattcacatgcggatggtactagttatgac
+            gaagagccctacaaaatcaaggacaaagttatttattctgtaggcttttcggaatggaat
+            ggagaagaatggctaccacatatcgctgatgatatccaatttgaactaagacaagtggat
+            ccgtactaccgtctaacattgtcgccaagcggaaacgattctgaaactcagtattacacc
+            accggtgaattcatccttccagaccgccatggagtgtttacattcctcactgactatcgt
+            aagattggcctgtcgttcactactgacaaagacgttaaagctatccgtcaccttgctaat
+            gatgaatacccaagaagttgggaaatcagcaattcttgggtttatattagcgccatttgt
+            ggcgtcattgttgcgtggatattttttgttgtttctttcgttacgacttcctctgttggc
+            aagaaacttgaaacattcaaaaaaacaaactaa
+///

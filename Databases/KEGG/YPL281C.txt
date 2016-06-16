@@ -1,0 +1,60 @@
+ENTRY       YPL281C           CDS       T00005
+NAME        ERR2
+DEFINITION  phosphopyruvate hydratase ERR2 (EC:4.2.1.11)
+ORTHOLOGY   K01689  enolase [EC:4.2.1.11]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00010  Glycolysis / Gluconeogenesis
+            sce00680  Methane metabolism
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01200  Carbon metabolism
+            sce01230  Biosynthesis of amino acids
+            sce03018  RNA degradation
+MODULE      sce_M00001  Glycolysis (Embden-Meyerhof pathway), glucose => pyruvate
+            sce_M00002  Glycolysis, core module involving three-carbon compounds
+            sce_M00003  Gluconeogenesis, oxaloacetate => fructose-6P
+CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
+            Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
+            Metabolism; Carbohydrate metabolism; Glycolysis / Gluconeogenesis [PATH:sce00010]
+            Metabolism; Energy metabolism; Methane metabolism [PATH:sce00680]
+            Genetic Information Processing; Folding, sorting and degradation; RNA degradation [PATH:sce03018]
+POSITION    XVI:complement(9557..10870)
+MOTIF       Pfam: Enolase_C Enolase_N MR_MLE_C MAAL_C
+DBLINKS     NCBI-GI: 6324974
+            NCBI-GeneID: 855848
+            SGD: S000006202
+            MIPS: YPL281C
+            UniProt: P0CX10 P0CX11
+AASEQ       437
+            MSITKVHARTVYDSRGNPTVEVEITTENGLFRAIVPSGASTGIHEAVELRDGNKSEWMGK
+            GVTKAVSNVNSIIGPALIKSELCVTNQKGIDELMISLDGTSNKSRLGANAILGVSLCVAR
+            AAAAQKGITLYKYIAELADARQDPFVIPVPFFNVLNGGAHAGGSLAMQEFKIAPVGAQSF
+            AEAMRMGSEVYHHLKILAKEQYGPSAGNVGDEGGVAPDIDTAEDALDMIVEAINICGYEG
+            RVKVGIDSAPSVFYKDGKYDLNFKEPNSDPSHWLSPAQLAEYYHSLLKKYPIISLEDPYA
+            EDDWSSWSAFLKTVNVQIIADDLTCTNKTRIARAIEEKCANTLLLKLNQIGTLTESIEAA
+            NQAFDAGWGVMISHRSGETEDPFIADLVVGLRCGQIKSGALSRSERLAKYNELLRIEEEL
+            GDDCIYAGHRFHDGNKL
+NTSEQ       1314
+            atgtccatcacgaaggtacatgctagaacggtgtatgattctcgcggcaatccgactgtt
+            gaggttgaaattacaacagagaatggtctcttcagagcgatcgtcccatctggtgcctcc
+            accggcattcacgaagctgttgaacttagagacgggaacaagtccgaatggatgggaaaa
+            ggggtgaccaaggcagtcagtaacgtcaatagtatcatagggcctgctttaatcaagtcc
+            gaattatgtgtaaccaatcagaagggcatagacgagctcatgatatcgttagacggaact
+            tctaacaagtcaaggttgggcgccaatgctatccttggtgtttccttgtgcgttgctcga
+            gctgctgccgcacaaaagggaattactctctacaagtatatagccgagttagcggatgct
+            agacaggacccctttgttattcctgttccttttttcaatgttttgaatggtggagcccac
+            gccggtggctctttagctatgcaagaattcaagatcgcgccagtcggggctcagagcttt
+            gcagaagccatgaggatgggttcggaagtttaccatcatttgaagatattggcgaaggag
+            caatatggaccttccgctggaaatgttggtgacgagggtggagttgcccccgatattgac
+            actgccgaagacgccttggacatgattgtggaagccattaacatatgcggttacgagggt
+            agagtgaaagtaggaatcgatagtgctccttctgttttttataaggacgggaaatacgac
+            ctaaatttcaaggaaccgaactctgacccatctcactggctcagtccagcccagttagca
+            gaatattaccattcattgctaaagaaatacccaatcatttccctggaagatccctacgcc
+            gaagatgattggtcctcgtggtctgccttcctaaagactgtcaatgttcagattattgca
+            gatgacctgacatgcaccaacaagaccaggatcgcccgtgctatagaggagaaatgtgcg
+            aatactctgttgctgaaactcaaccagatcggtactctgactgagtctattgaagccgcc
+            aatcaggctttcgatgctggatggggtgtaatgatatcgcatagatcaggtgaaaccgaa
+            gatccgtttatcgctgatttggtcgttggtttaagatgtggtcaaattaaatcgggcgct
+            ttgtcgagatcagaaagactggccaagtataatgaacttttgcgtatcgaagaggaactg
+            ggggacgattgtatatatgctggtcataggtttcatgatggaaacaaactataa
+///

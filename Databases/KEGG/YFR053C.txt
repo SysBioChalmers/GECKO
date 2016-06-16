@@ -1,0 +1,67 @@
+ENTRY       YFR053C           CDS       T00005
+NAME        HXK1
+DEFINITION  hexokinase 1 (EC:2.7.1.4 2.7.1.1)
+ORTHOLOGY   K00844  hexokinase [EC:2.7.1.1]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00010  Glycolysis / Gluconeogenesis
+            sce00051  Fructose and mannose metabolism
+            sce00052  Galactose metabolism
+            sce00500  Starch and sucrose metabolism
+            sce00520  Amino sugar and nucleotide sugar metabolism
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01200  Carbon metabolism
+MODULE      sce_M00001  Glycolysis (Embden-Meyerhof pathway), glucose => pyruvate
+            sce_M00549  Nucleotide sugar biosynthesis, glucose => UDP-glucose
+CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
+            Metabolism; Carbohydrate metabolism; Glycolysis / Gluconeogenesis [PATH:sce00010]
+            Metabolism; Carbohydrate metabolism; Fructose and mannose metabolism [PATH:sce00051]
+            Metabolism; Carbohydrate metabolism; Galactose metabolism [PATH:sce00052]
+            Metabolism; Carbohydrate metabolism; Starch and sucrose metabolism [PATH:sce00500]
+            Metabolism; Carbohydrate metabolism; Amino sugar and nucleotide sugar metabolism [PATH:sce00520]
+            Metabolism; Biosynthesis of other secondary metabolites; Butirosin and neomycin biosynthesis
+POSITION    VI:complement(253592..255049)
+MOTIF       Pfam: Hexokinase_2 Hexokinase_1 FGGY_N
+DBLINKS     NCBI-GI: 398364415
+            NCBI-GeneID: 850614
+            SGD: S000001949
+            MIPS: YFR053C
+            UniProt: P04806
+STRUCTURE   PDB: 3B8A
+AASEQ       485
+            MVHLGPKKPQARKGSMADVPKELMDEIHQLEDMFTVDSETLRKVVKHFIDELNKGLTKKG
+            GNIPMIPGWVMEFPTGKESGNYLAIDLGGTNLRVVLVKLSGNHTFDTTQSKYKLPHDMRT
+            TKHQEELWSFIADSLKDFMVEQELLNTKDTLPLGFTFSYPASQNKINEGILQRWTKGFDI
+            PNVEGHDVVPLLQNEISKRELPIEIVALINDTVGTLIASYYTDPETKMGVIFGTGVNGAF
+            YDVVSDIEKLEGKLADDIPSNSPMAINCEYGSFDNEHLVLPRTKYDVAVDEQSPRPGQQA
+            FEKMTSGYYLGELLRLVLLELNEKGLMLKDQDLSKLKQPYIMDTSYPARIEDDPFENLED
+            TDDIFQKDFGVKTTLPERKLIRRLCELIGTRAARLAVCGIAAICQKRGYKTGHIAADGSV
+            YNKYPGFKEAAAKGLRDIYGWTGDASKDPITIVPAEDGSGAGAAVIAALSEKRIAEGKSL
+            GIIGA
+NTSEQ       1458
+            atggttcatttaggtccaaagaaaccacaggctagaaagggttccatggctgatgtgccc
+            aaggaattgatggatgaaattcatcagttggaagatatgtttacagttgacagcgagacc
+            ttgagaaaggttgttaagcactttatcgacgaattgaataaaggtttgacaaagaaggga
+            ggtaacattccaatgattcccggttgggtcatggaattcccaacaggtaaagaatctggt
+            aactatttggccattgatttgggtggtactaacttaagagtcgtgttggtcaagttgagc
+            ggtaaccatacctttgacaccactcaatccaagtataaactaccacatgacatgagaacc
+            actaagcaccaagaggagttatggtcctttattgccgactctttgaaggactttatggtc
+            gagcaagaattgctaaacaccaaggacaccttaccattaggtttcaccttctcgtaccca
+            gcttcccaaaacaagattaacgaaggtattttgcaaagatggaccaagggtttcgatatt
+            ccaaatgtcgaaggccacgatgtcgtcccattgctacaaaacgaaatttccaagagagag
+            ttgcctattgaaattgtagcattgattaatgatactgttggtactttaattgcctcatac
+            tacactgacccagagactaagatgggtgtgattttcggtactggtgtcaacggtgctttc
+            tatgatgttgtttccgatatcgaaaagttggagggcaaattagcagacgatattccaagt
+            aactctccaatggctatcaattgtgaatatggttccttcgataatgaacatttggtcttg
+            ccaagaaccaagtacgatgttgctgtcgacgaacaatctccaagacctggtcaacaagct
+            tttgaaaagatgacctccggttactacttgggtgaattgttgcgtctagtgttacttgaa
+            ttaaacgagaagggcttgatgttgaaggatcaagatctaagcaagttgaaacaaccatac
+            atcatggatacctcctacccagcaagaatcgaggatgatccatttgaaaacttggaagat
+            actgatgacatcttccaaaaggactttggtgtcaagaccactctgccagaacgtaagttg
+            attagaagactttgtgaattgatcggtaccagagctgctagattagctgtttgtggtatt
+            gccgctatttgccaaaagagaggttacaagactggtcacattgccgctgacggttctgtc
+            tataacaaatacccaggtttcaaggaagccgccgctaagggtttgagagatatctatgga
+            tggactggtgacgcaagcaaagatccaattacgattgttccagctgaggatggttcaggt
+            gcaggtgctgctgttattgctgcattgtccgaaaaaagaattgccgaaggtaagtctctt
+            ggtatcattggcgcttaa
+///

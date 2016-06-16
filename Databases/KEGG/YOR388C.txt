@@ -1,0 +1,48 @@
+ENTRY       YOR388C           CDS       T00005
+NAME        FDH1
+DEFINITION  formate dehydrogenase (NAD+) (EC:1.2.1.2)
+ORTHOLOGY   K00122  formate dehydrogenase [EC:1.2.1.2]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00630  Glyoxylate and dicarboxylate metabolism
+            sce00680  Methane metabolism
+            sce01100  Metabolic pathways
+            sce01200  Carbon metabolism
+CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
+            Metabolism; Carbohydrate metabolism; Glyoxylate and dicarboxylate metabolism [PATH:sce00630]
+            Metabolism; Energy metabolism; Methane metabolism [PATH:sce00680]
+POSITION    XV:complement(1071793..1072923)
+MOTIF       Pfam: 2-Hacid_dh_C 2-Hacid_dh NAD_binding_2 Polysacc_synt_2
+DBLINKS     NCBI-GI: 6324964
+            NCBI-GeneID: 854570
+            SGD: S000005915
+            MIPS: YOR388C
+            UniProt: Q08911
+AASEQ       376
+            MSKGKVLLVLYEGGKHAEEQEKLLGCIENELGIRNFIEEQGYELVTTIDKDPEPTSTVDR
+            ELKDAEIVITTPFFPAYISRNRIAEAPNLKLCVTAGVGSDHVDLEAANERKITVTEVTGS
+            NVVSVAEHVMATILVLIRNYNGGHQQAINGEWDIAGVAKNEYDLEDKIISTVGAGRIGYR
+            VLERLVAFNPKKLLYYDYQELPAEAINRLNEASKLFNGRGDIVQRVEKLEDMVAQSDVVT
+            INCPLHKDSRGLFNKKLISHMKDGAYLVNTARGAICVAEDVAEAVKSGKLAGYGGDVWDK
+            QPAPKDHPWRTMDNKDHVGNAMTVHISGTSLDAQKRYAQGVKNILNSYFSKKFDYRPQDI
+            IVQNGSYATRAYGQKK
+NTSEQ       1131
+            atgtcgaagggaaaggttttgctggttctttacgaaggtggtaagcatgctgaagagcag
+            gaaaagttattggggtgtattgaaaatgaacttggtatcagaaatttcattgaagaacag
+            ggatacgagttggttactaccattgacaaggaccctgagccaacctcaacggtagacagg
+            gagttgaaagacgctgaaattgtcattactacgccctttttccccgcctacatctcgaga
+            aacaggattgcagaagctcctaacctgaagctctgtgtaaccgctggcgtcggttcagac
+            catgtcgatttagaagctgcaaatgaacggaaaatcacggtcaccgaagttactggttct
+            aacgtcgtttctgtcgcagagcacgttatggccacaattttggttttgataagaaactat
+            aatggtggtcatcaacaagcaattaatggtgagtgggatattgccggcgtggctaaaaat
+            gagtatgatctggaagacaaaataatttcaacggtaggtgccggtagaattggatatagg
+            gttctggaaagattggtcgcatttaatccgaagaagttactgtactacgactaccaggaa
+            ctacctgcggaagcaatcaatagattgaacgaggccagcaagcttttcaatggcagaggt
+            gatattgttcagagagtagagaaattggaggatatggttgctcagtcagatgttgttacc
+            atcaactgtccattgcacaaggactcaaggggtttattcaataaaaagcttatttcccac
+            atgaaagatggtgcatacttggtgaataccgctagaggtgctatttgtgtcgcagaagat
+            gttgccgaggcagtcaagtctggtaaattggctggctatggtggtgatgtctgggataag
+            caaccagcaccaaaagaccatccctggaggactatggacaataaggaccacgtgggaaac
+            gcaatgactgttcatatcagtggcacatctctggatgctcaaaagaggtacgctcaggga
+            gtaaagaacatcctaaatagttacttttccaaaaagtttgattaccgtccacaggatatt
+            attgtgcagaatggttcttatgccaccagagcttatggacagaagaaataa
+///

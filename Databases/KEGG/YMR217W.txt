@@ -1,0 +1,55 @@
+ENTRY       YMR217W           CDS       T00005
+NAME        GUA1
+DEFINITION  GMP synthase (glutamine-hydrolyzing) (EC:6.3.5.2)
+ORTHOLOGY   K01951  GMP synthase (glutamine-hydrolysing) [EC:6.3.5.2]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00230  Purine metabolism
+            sce01100  Metabolic pathways
+MODULE      sce_M00050  Guanine ribonucleotide biosynthesis IMP => GDP,GTP
+CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
+POSITION    XIII:701790..703367
+MOTIF       Pfam: GATase GMP_synt_C NAD_synthase Peptidase_C26 QueC PAPS_reduct Arginosuc_synth ThiI tRNA_Me_trans Asn_synthase
+DBLINKS     NCBI-GI: 6323873
+            NCBI-GeneID: 855257
+            SGD: S000004830
+            MIPS: YMR217W
+            UniProt: P38625
+AASEQ       525
+            MAAGEQVSNMFDTILVLDFGSQYSHLITRRLREFNIYAEMLPCTQKISELGWTPKGVILS
+            GGPYSVYAEDAPHVDHAIFDLNVPILGICYGMQELAWINGKQVGRGDKREYGPATLKVID
+            DSNSLFKGMNDSTVWMSHGDKLHGLPTGYKTIATSDNSPYCGIVHETKPIYGIQFHPEVT
+            HSTQGKTLLKNFAVDLCHAKQNWTMENFIDTEINRIRKLVGPTAEVIGAVSGGVDSTVAS
+            KLMTEAIGDRFHAILVDNGVLRLNEAANVKKTLVEGLGINLMVVDASEEFLSKLKGVTDP
+            EKKRKIIGNTFIHVFEREAEKIKPKDGKEIQFLLQGTLYPDVIESISFKGPSQTIKTHHN
+            VGGLLENMKLKLIEPLRELFKDEVRHLGELLGIPHDLVWRHPFPGPGIAIRVLGEVTKEQ
+            VEIARKADNIYIEEIKKAGLYNQISQAFACLLPVKSVGVMGDQRTYDQVIALRAIETTDF
+            MTADWFPFEHSFLKKVASRIVNEVDGVARVTYDITSKPPATVEWE
+NTSEQ       1578
+            atggctgccggtgaacaagtttctaacatgtttgacactatcttagtgttagactttggt
+            tctcaatactctcatttgattaccagaagattaagagagtttaacatctatgctgagatg
+            ttgccatgcactcagaagatctctgagttgggctggactccaaagggtgtcattctttct
+            ggtggtccatattccgtatacgctgaagacgctccacacgtagaccatgctatctttgat
+            ttgaacgttccaatcctgggtatctgttacggtatgcaagaattggcttggattaatggt
+            aaacaagttggtcgtggtgacaagagagagtacggtcctgccactttgaaggtgattgac
+            gattccaactctctattcaaaggtatgaacgactctactgtctggatgtctcacggtgat
+            aaattgcacggcttgccaactggttacaagaccattgccacctccgataactccccatac
+            tgtggtattgtccacgaaactaagccaatctatggtattcaattccacccagaagttaca
+            cattctacccaaggtaagactcttttgaaaaacttcgccgttgatttgtgtcacgctaag
+            caaaactggactatggaaaactttatcgacactgaaataaacagaatcagaaaactggtc
+            ggtccaactgctgaagtcattggtgctgtttccggtggtgttgattctactgttgcatcc
+            aaattgatgacagaagccatcggtgatagattccatgccatcttggtcgataacggtgtt
+            ttgagattaaatgaagctgctaacgttaaaaagacccttgtcgaaggtttaggtatcaac
+            ttgatggttgtcgatgcttccgaagaatttttaagtaaattgaagggtgtcactgaccca
+            gaaaagaagagaaagattattggtaacacatttatccacgtctttgaaagagaagctgaa
+            aaaattaagccaaaagatggtaaggagattcaattcctgttacaaggtactctttatcca
+            gatgtcatcgaatccatttctttcaaaggtccttctcaaaccattaaaactcatcacaac
+            gtcggtggtttactagagaacatgaaattaaagctaattgaaccattgagagaactgttc
+            aaagacgaagtcaggcatctaggtgaattattaggaatccctcatgatctagtctggaga
+            caccctttccctggtccaggtattgctattcgtgttctaggtgaagttactaaggaacaa
+            gtcgaaatagcaagaaaagctgacaacatttacattgaagaaatcaagaaggccggctta
+            tacaaccaaatttcccaagcctttgcctgtttgttgcccgttaaatccgttggtgttatg
+            ggtgaccaaagaacctatgatcaagttattgctttgagggccattgaaactactgatttc
+            atgactgctgactggttcccattcgaacacagtttcttgaagaaagtcgcctcaagaatt
+            gtcaatgaagtcgatggggttgctagggtcacttacgatataacttccaaacctcctgca
+            actgttgaatgggaatga
+///

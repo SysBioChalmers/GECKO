@@ -1,0 +1,26 @@
+ENTRY       YGR183C           CDS       T00005
+NAME        QCR9, UCR9
+DEFINITION  ubiquinol--cytochrome-c reductase subunit 9
+ORTHOLOGY   K00419  ubiquinol-cytochrome c reductase subunit 9
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00190  Oxidative phosphorylation
+            sce01100  Metabolic pathways
+MODULE      sce_M00152  Cytochrome bc1 complex
+CLASS       Metabolism; Energy metabolism; Oxidative phosphorylation [PATH:sce00190]
+POSITION    VII:complement(join(859063..859260,859474..859476))
+MOTIF       Pfam: UCR_UQCRX_QCR9 DUF2976
+DBLINKS     NCBI-GI: 6321622
+            NCBI-GeneID: 853095
+            SGD: S000003415
+            MIPS: YGR183C
+            UniProt: P22289
+STRUCTURE   PDB: 3CX5 2IBZ 1KB9 1EZV 3CXH 1P84 1KYO
+AASEQ       66
+            MSFSSLYKTFFKRNAVFVGTIFAGAFVFQTVFDTAITSWYENHNKGKLWKDVKARIAAGD
+            GDDDDE
+NTSEQ       201
+            atgtctttttcatcactatataaaacctttttcaaacgaaacgctgtttttgttggtact
+            atctttgcaggtgcctttgttttccaaactgtatttgatactgctattacttcatggtac
+            gagaatcacaacaaaggaaaattatggaaagatgtcaaggctcgaatagctgcaggcgat
+            ggagacgacgatgatgagtaa
+///

@@ -1,0 +1,73 @@
+ENTRY       YCR077C           CDS       T00005
+NAME        PAT1, MRT1
+DEFINITION  Pat1p
+ORTHOLOGY   K12617  DNA topoisomerase 2-associated protein PAT1
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03018  RNA degradation
+MODULE      sce_M00395  Decapping complex
+CLASS       Genetic Information Processing; Folding, sorting and degradation; RNA degradation [PATH:sce03018]
+POSITION    III:complement(250238..252628)
+MOTIF       Pfam: PAT1
+DBLINKS     NCBI-GI: 330443486
+            NCBI-GeneID: 850440
+            SGD: S000000673
+            MIPS: YCR077C
+            UniProt: P25644
+STRUCTURE   PDB: 4BRW 4N0A 4C8Q
+AASEQ       796
+            MSFFGLENSGNARDGPLDFEESYKGYGEHELEENDYLNDETFGDNVQVGTDFDFGNPHSS
+            GSSGNAIGGNGVGATARSYVAATAEGISGPRTDGTAAAGPLDLKPMESLWSTAPPPAMAP
+            SPQSTMAPAPAPQQMAPLQPILSMQDLERQQRQMQQQFMNFHAMGHPQGLPQGPPQQQFP
+            MQPASGQPGPSQFAPPPPPPGVNVNMNQMPMGPVQVPVQASPSPIGMSNTPSPGPVVGAT
+            KMPLQSGRRSKRDLSPEEQRRLQIRHAKVEKILKYSGLMTPRDKDFITRYQLSQIVTEDP
+            YNEDFYFQVYKIIQRGGITSESNKGLIARAYLEHSGHRLGGRYKRTDIALQRMQSQVEKA
+            VTVAKERPSKLKDQQAAAGNSSQDNKQANTVLGKISSTLNSKNPRRQLQIPRQQPSDPDA
+            LKDVTDSLTNVDLASSGSSSTGSSAAAVASKQRRRSSYAFNNGNGATNLNKSGGKKFILE
+            LIETVYEEILDLEANLRNGQQTDSTAMWEALHIDDSSYDVNPFISMLSFDKGIKIMPRIF
+            NFLDKQQKLKILQKIFNELSHLQIIILSSYKTTPKPTLTQLKKVDLFQMIILKIIVSFLS
+            NNSNFIEIMGLLLQLIRNNNVSFLTTSKIGLNLITILISRAALIKQDSSRSNILSSPEIS
+            TWNEIYDKLFTSLESKIQLIFPPREYNDHIMRLQNDKFMDEAYIWQFLASLALSGKLNHQ
+            RIIIDEVRDEIFATINEAETLQKKEKELSVLPQRSQELDTELKSIIYNKEKLYQDLNLFL
+            NVMGLVYRDGEISELK
+NTSEQ       2391
+            atgtccttctttgggttagaaaatagcggtaatgcgcgggatggtcctctggactttgaa
+            gagagttacaagggctatggcgagcacgaacttgaggagaacgactatttgaacgacgaa
+            acatttggtgataatgttcaggttggtaccgactttgattttggaaatcctcacagcagc
+            ggcagcagcggcaacgcaattggtggtaatggcgtcggtgccacggctagatcatatgtt
+            gcagctactgcagaaggaattagcggccctaggaccgatggaacggcagcagcaggacct
+            ctagacctgaagccaatggaatctttgtggtctactgcaccacctccagcaatggcgcct
+            tcaccccaaagtacaatggctccggctcctgctccgcagcaaatggcccccctacagcca
+            atcttgtcgatgcaagacttggaaagacaacaacgtcaaatgcagcaacagtttatgaat
+            ttccacgccatgggtcatccacagggtctcccacagggtccgcctcagcagcaatttcca
+            atgcagcctgcgtcgggtcaaccaggtccctcacaatttgcgcctccacctccacctcct
+            ggcgttaatgtgaatatgaatcaaatgccaatgggtcctgtacaagttccagttcaagct
+            tcgccttcacccatcggtatgtccaacactccttctccaggccctgtggttggcgcaact
+            aaaatgcctctgcaaagtggacgcagatcgaagagagatttgtcgcctgaagagcaaaga
+            cgtttgcagattcgtcatgccaaagtggagaaaatcttgaaatactcaggtttaatgact
+            cctcgtgataaggacttcatcaccagatatcagttgtctcaaattgtcactgaggaccct
+            tacaatgaggatttctacttccaggtctacaagattatccaaagaggcggtatcacgtcc
+            gaatccaacaaaggtttgattgctagggcgtatttggaacattctggacacagactcggt
+            ggtcgctataagagaaccgatattgccctacagagaatgcaaagtcaagtagaaaaggct
+            gtcactgtggctaaggaaagaccttctaagttgaaggatcaacaagcggctgctggtaac
+            tctagccaggataataagcaagcaaacacggttctgggcaaaatctcttccactttgaac
+            agcaagaatccaagaagacaactgcagatccccagacaacagccttctgaccccgatgcg
+            ctaaaagacgtcactgactctctgaccaacgtggacttggcctcttcagggtcctcctct
+            acgggctcttctgccgctgctgttgcttctaagcaaagaagaagatcttcatacgcgttc
+            aacaacggtaatggtgccacaaatttgaacaaatctgggggcaaaaaattcattcttgag
+            ttaattgaaacagtttatgaagagattttagacttggaagctaacttgaggaatggccag
+            caaactgacagcactgcaatgtgggaggcccttcacatcgacgacagttcatatgacgta
+            aaccctttcatttcgatgctatcatttgataaaggtatcaagattatgcctagaattttt
+            aatttcttggataagcagcaaaaattgaaaatcctgcaaaaaatcttcaatgaattatca
+            cacttgcaaatcatcatattgagttcctacaagactacaccaaaaccaactttgacacaa
+            ttgaagaaagtcgatctgttccaaatgatcatattaaagatcattgtctcgtttttgtct
+            aataactccaattttatcgaaattatgggtctgttgctacagttaatcagaaacaacaac
+            gtttcgttcttgaccacctccaaaattggtctaaatttgatcaccattttgatttctcgt
+            gccgcattaatcaagcaagattcatcaagatctaatattctttcctctcctgaaatctcc
+            acatggaatgagatttatgataaattattcacttcattggaaagtaagattcagctgatt
+            ttccctccaagggaatataacgaccacatcatgcgtttacaaaatgacaagtttatggat
+            gaagcatacatttggcagttcctagctagtttagcactaagtggaaagctaaaccaccag
+            agaatcattattgatgaagtacgtgatgaaatctttgccactattaacgaggcggagacc
+            ttacaaaagaaagagaaagaattgagtgtattacctcagaggtctcaagaattagacaca
+            gagttaaaatctattatttataataaagagaaactataccaagatttgaatttgttccta
+            aacgttatggggttggtgtatcgcgatggtgaaatatcagaactaaagtaa
+///

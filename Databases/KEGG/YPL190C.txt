@@ -1,0 +1,71 @@
+ENTRY       YPL190C           CDS       T00005
+NAME        NAB3, HMD1
+DEFINITION  Nab3p
+ORTHOLOGY   K15561  nuclear polyadenylated RNA-binding protein 3
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+POSITION    XVI:complement(185317..187725)
+MOTIF       Pfam: RRM_1 RRM_6 RRM_5
+DBLINKS     NCBI-GI: 6325066
+            NCBI-GeneID: 855911
+            SGD: S000006111
+            MIPS: YPL190C
+            UniProt: P38996
+STRUCTURE   PDB: 2XNQ 2XNR 2L41 2KVI
+AASEQ       802
+            MSDENHNSDVQDIPSPELSVDSNSNENELMNNSSADDGIEFDAPEEEREAEREEENEEQH
+            ELEDVNDEEEEDKEEKGEENGEVINTEEEEEEEHQQKGGNDDDDDDNEEEEEEEEDDDDD
+            DDDDDDDEEEEEEEEEEGNDNSSVGSDSAAEDGEDEEDKKDKTKDKEVELRRETLEKEQK
+            DVDEAIKKITREENDNTHFPTNMENVNYDLLQKQVKYIMDSNMLNLPQFQHLPQEEKMSA
+            ILAMLNSNSDTALSVPPHDSTISTTASASATSGARSNDQRKPPLSDAQRRMRFPRADLSK
+            PITEEEHDRYAAYLHGENKITEMHNIPPKSRLFIGNLPLKNVSKEDLFRIFSPYGHIMQI
+            NIKNAFGFIQFDNPQSVRDAIECESQEMNFGKKLILEVSSSNARPQFDHGDHGTNSSSTF
+            ISSAKRPFQTESGDMYNDDNGAGYKKSRRHTVSCNIFVKRTADRTYAIEVFNRFRDGTGL
+            ETDMIFLKPRMELGKLINDAAYNGVWGVVLVNKTHNVDVQTFYKGSQGETKFDEYISISA
+            DDAVAIFNNIKNNRNNSRPTDYRAMSHQQNIYGAPPLPVPNGPAVGPPPQTNYYQGYSMP
+            PPQQQQQQPYGNYGMPPPSHDQGYGSQPPIPMNQSYGRYQTSIPPPPPQQQIPQGYGRYQ
+            AGPPPQPPSQTPMDQQQLLSAIQNLPPNVVSNLLSMAQQQQQQPHAQQQLVGLIQSMQGQ
+            APQQQQQQLGGYSSMNSSSPPPMSTNYNGQNISAKPSAPPMSHQPPPPQQQQQQQQQQQQ
+            QQQQPAGNNVQSLLDSLAKLQK
+NTSEQ       2409
+            atgtcagatgaaaaccataacagtgatgttcaagatattccttcacctgaactatccgtc
+            gatagtaactctaacgagaatgaattgatgaataactcaagcgcagacgatggaatcgaa
+            tttgacgccccagaggaagaaagagaagccgaaagggaggaggaaaatgaagaacaacac
+            gaactggaagatgtgaacgatgaagaggaggaagataaggaggaaaaaggagaggaaaac
+            ggggaagtaataaacacagaagaagaagaagaagaagaacatcaacaaaaaggcggaaat
+            gatgatgacgatgatgataatgaagaggaagaagaggaagaagaggatgatgacgatgat
+            gatgatgacgacgatgatgatgaagaagaagaagaagaagaagaagaagaaggcaacgac
+            aacagttcggtaggctcagatagtgccgctgaagacggtgaggatgaggaagacaaaaag
+            gataaaaccaaagataaagaggtcgaacttcgccgtgaaacattggaaaaagaacaaaag
+            gacgtagatgaagctataaaaaaaataactcgtgaagaaaatgataatactcactttcca
+            actaatatggaaaatgttaattacgatcttttacaaaagcaagtcaagtacattatggac
+            agtaacatgctaaatttgcctcagtttcaacatttacctcaagaagaaaagatgtctgcg
+            attttagcaatgttaaattcaaattctgacacagctctttccgtacctcctcatgatagt
+            actatctcaacaacagctagcgcctcagccacaagcggcgcaagaagcaatgatcaaaga
+            aaacctccattgtcagatgcccaaagacgtatgagatttcctagggcggatttatctaag
+            ccgattaccgaagaagaacacgaccgttatgcagcctatttgcacggtgaaaataaaatc
+            accgagatgcacaatattcctccgaagtcaagattattcattggtaatttgccgctaaag
+            aacgtttctaaggaggatttatttaggattttctctccatacggtcatatcatgcaaatc
+            aatatcaaaaatgcctttggattcattcagtttgacaaccctcaaagcgttagagatgca
+            attgaatgcgagtctcaagaaatgaactttggcaaaaagttgatcctggaagtttctagc
+            tcgaatgctcgtcctcaatttgatcatggtgatcacggtacaaacagtagttctactttt
+            atttcttccgcaaaacgaccatttcaaactgaatctggtgacatgtacaatgacgacaat
+            ggtgctggctacaagaaatccagaagacacaccgtttcttgcaacattttcgttaaaaga
+            accgcagatcgtacgtatgccattgaggttttcaacaggtttagggacgggactggtttg
+            gaaactgatatgattttcttgaaaccaagaatggaactgggaaagcttatcaatgatgcc
+            gcatataatggggtgtggggcgttgttttagttaataaaacacacaatgtagatgttcaa
+            actttctacaaaggctcacaaggtgaaacgaaatttgatgaatatattagcatatccgct
+            gatgacgcagttgccatttttaataacatcaaaaacaacagaaataattctcgtcctact
+            gattaccgtgctatgagccatcagcaaaacatatatggcgctcctcctcttcctgttcca
+            aacggcccagctgtcggacctcctcctcaaacaaactattaccagggttacagtatgcct
+            cctccacaacaacaacagcaacagccatatggtaattatgggatgccaccaccatcccat
+            gaccaaggatatggttctcaacctccaattccaatgaatcagagctacggtcgctaccag
+            acttctattccaccaccacctccacaacaacaaattcctcaagggtatggtcgttatcag
+            gctggtccgcctcctcaaccaccttctcaaactccaatggaccagcaacaactattatct
+            gccattcaaaaccttccacctaacgttgtatcgaatttgctttcaatggcccaacaacag
+            caacaacaacctcatgctcagcagcaattggttggtttaatacaatcaatgcaaggccag
+            gctcctcaacaacagcaacaacagttgggtggatattcctctatgaactcatcctctccc
+            cctcctatgagtaccaattacaatggtcaaaatatatctgcaaaaccctctgccccacca
+            atgtcacaccaacctccgccacctcaacaacaacaacaacaacaacaacagcaacagcaa
+            cagcaacagcaacctgctggcaataatgttcaaagtctattagatagtttagcaaaacta
+            caaaaatag
+///

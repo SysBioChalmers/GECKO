@@ -1,0 +1,77 @@
+ENTRY       YGL180W           CDS       T00005
+NAME        ATG1, APG1, AUT3, CVT10
+DEFINITION  Atg1p (EC:2.7.11.1)
+ORTHOLOGY   K08269  serine/threonine-protein kinase ULK/ATG1 [EC:2.7.11.1]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04140  Regulation of autophagy
+CLASS       Cellular Processes; Transport and catabolism; Regulation of autophagy [PATH:sce04140]
+POSITION    VII:160065..162758
+MOTIF       Pfam: DUF3543 Pkinase Pkinase_Tyr Kinase-like APH
+DBLINKS     NCBI-GI: 6321258
+            NCBI-GeneID: 852695
+            SGD: S000003148
+            MIPS: YGL180W
+            UniProt: P53104
+AASEQ       897
+            MGDIKNKDHTTSVNHNLMASAGNYTAEKEIGKGSFATVYRGHLTSDKSQHVAIKEVSRAK
+            LKNKKLLENLEIEIAILKKIKHPHIVGLIDCERTSTDFYLIMEYCALGDLTFLLKRRKEL
+            MENHPLLRTVFEKYPPPSENHNGLHRAFVLSYLQQLASALKFLRSKNLVHRDIKPQNLLL
+            STPLIGYHDSKSFHELGFVGIYNLPILKIADFGFARFLPNTSLAETLCGSPLYMAPEILN
+            YQKYNAKADLWSVGTVVFEMCCGTPPFRASNHLELFKKIKRANDVITFPSYCNIEPELKE
+            LICSLLTFDPAQRIGFEEFFANKVVNEDLSSYELEDDLPELESKSKGIVESNMFVSEYLS
+            KQPKSPNSNLAGHQSMADNPAELSDALKNSNILTAPAVKTDHTQAVDKKASNNKYHNSLV
+            SDRSFEREYVVVEKKSVEVNSLADEVAQAGFNPNPIKHPTSTQNQNVLLNEQFSPNNQQY
+            FQNQGENPRLLRATSSSSGGSDGSRRPSLVDRRLSISSLNPSNALSRALGIASTRLFGGA
+            NQQQQQQQITSSPPYSQTLLNSQLFHELTENIILRIDHLQHPETLKLDNTNIVSILESLA
+            AKAFVVYSYAEVKFSQIVPLSTTLKGMANFENRRSMDSNAIAEEQDSDDAEEEDETLKKY
+            KEDCLSTKTFGKGRTLSATSQLSATFNKLPRSEMILLCNEAIVLYMKALSILSKSMQVTS
+            NWWYESQEKSCSLRVNVLVQWLREKFNECLEKADFLRLKINDLRFKHASEVAENQTLEEK
+            GSSEEPVYLEKLLYDRALEISKMAAHMELKGENLYNCELAYATSLWMLETSLDDDDFTNA
+            YGDYPFKTNIHLKSNDVEDKEKYHSVLDENDRIIIRKYIDSIANRLKILRQKMNHQN
+NTSEQ       2694
+            atgggagacattaaaaataaagatcacacaacctctgtgaaccataatctaatggcaagt
+            gcaggaaattacaccgctgagaaagaaatcggaaagggttcgtttgccactgtatataga
+            gggcatctgacatccgacaaatctcagcatgtagccataaaggaagtatcaagggcgaaa
+            ttaaaaaataagaaattactagagaatttggaaatagaaatcgctatcttgaagaaaatc
+            aagcatcctcatatcgtcggacttattgactgtgaacgaacatcaacagatttttatttg
+            atcatggagtactgtgctcttggggacctaacatttctgttgaaaaggcgtaaagaattg
+            atggagaatcatcctctactaaggaccgtatttgaaaaataccctccaccgagtgagaac
+            cataacggcctgcatagagcgtttgtcttgagttatttacagcagttagcgtccgctttg
+            aaatttttgaggtctaaaaacttggttcatagagacatcaagcctcaaaacttactatta
+            tctacacccctaattggatatcatgattcaaaaagcttccatgaacttggatttgttggg
+            atctacaacttacccattttaaagatagcagatttcgggtttgcaagatttttgccaaac
+            acgtcattagcagaaactctttgtggctcaccattatatatggcaccagaaattttgaat
+            tatcaaaaatataacgctaaagcagatctgtggtctgtcggtacagtggtattcgaaatg
+            tgctgtggcaccccaccgtttagagcttccaatcatttggagttattcaagaaaattaaa
+            agagcaaacgatgtcataacgtttccttcatattgcaatattgaaccagagttaaaagag
+            ttgatatgtagtttattgacatttgatccagcccaaagaataggatttgaggagtttttt
+            gctaacaaggtagtcaacgaagacttgtcttcttatgaattggaagatgatttacctgag
+            ttagaatccaaatcaaaaggtattgtagaaagtaatatgttcgtttctgagtatttatct
+            aaacagccaaagagtccgaacagtaatcttgcaggtcatcaatcaatggcagataatccc
+            gcggagctcagtgatgccctcaagaacagcaatatattaactgccccagccgttaaaaca
+            gaccatacacaagccgtagataaaaaggcttcaaataataaataccataatagcctagtt
+            tcagatagaagctttgaaagagaatatgtggtggtagagaagaaatcggttgaagttaat
+            tcattggcagacgaggttgctcaagcaggattcaatccaaatcctattaagcacccaact
+            tcaactcaaaatcagaacgtcttattgaatgagcaattctctccaaacaatcaacagtat
+            tttcaaaatcaaggagaaaatccgaggttactgagggccacatcatcttccagtggaggt
+            agtgatgggtctaggcgaccatctttggtggatagacgcttgtctatatcctcgctgaat
+            ccatctaatgcattatcaagagccctcggtattgcatcaacgagattgtttggtggtgca
+            aatcaacagcagcaacagcaacaaatcacatcttccccaccgtacagtcaaactttgttg
+            aattcccaactttttcatgaacttactgagaatataatattaagaatagatcacctacag
+            catccagagacactgaaattagataatactaatatcgttagtattttggaatctctggcc
+            gcaaaggcatttgttgtttactcttatgcagaagtgaaattttctcaaattgttccatta
+            tcaacaacattaaaaggcatggctaactttgagaacaggcgcagtatggatagtaatgct
+            attgcagaagaacaagactcagacgatgcagaagaagaggatgaaacgttgaaaaagtac
+            aaggaagattgcttatccacgaaaacttttggaaagggtagaactttatctgccacatct
+            cagttgagtgcaactttcaataaactaccacgttcggaaatgatccttctatgtaatgag
+            gccattgtcttatatatgaaggcattatccattttatcaaaatctatgcaggtaacgtcc
+            aactggtggtatgaatctcaagaaaaatcatgttctctaagagttaacgtgttggtacag
+            tggctaagggaaaaatttaatgaatgtttagaaaaagctgatttcctgagattaaaaatt
+            aacgacttgagattcaagcatgcttctgaggtagctgaaaatcaaactttggaagaaaaa
+            ggtagttcggaagagccagtatatttagaaaagctattatatgatcgtgcattagaaata
+            tctaagatggccgcacatatggaattaaaaggagaaaatttgtacaactgtgaattagct
+            tatgcaacttcactttggatgttagaaacttctctggacgatgatgattttacgaatgcc
+            tatggtgactacccttttaaaactaacatacatctaaaaagtaacgacgttgaagataaa
+            gagaagtatcatagtgtgttggatgaaaatgacagaataatcataagaaagtatattgat
+            agtattgcaaacaggttgaaaatattgaggcagaagatgaaccaccaaaattaa
+///

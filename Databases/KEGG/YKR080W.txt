@@ -1,0 +1,42 @@
+ENTRY       YKR080W           CDS       T00005
+NAME        MTD1
+DEFINITION  methylenetetrahydrofolate dehydrogenase (NAD(+)) (EC:1.5.1.15)
+ORTHOLOGY   K00295  methylenetetrahydrofolate dehydrogenase (NAD+) [EC:1.5.1.15]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00670  One carbon pool by folate
+            sce01100  Metabolic pathways
+CLASS       Metabolism; Metabolism of cofactors and vitamins; One carbon pool by folate [PATH:sce00670]
+POSITION    XI:590395..591357
+MOTIF       Pfam: THF_DHG_CYH THF_DHG_CYH_C RTP
+DBLINKS     NCBI-GI: 398365387
+            NCBI-GeneID: 853955
+            SGD: S000001788
+            MIPS: YKR080W
+            UniProt: Q02046
+STRUCTURE   PDB: 1EDZ 1EE9
+AASEQ       320
+            MSKPGRTILASKVAETFNTEIINNVEEYKKTHNGQGPLLVGFLANNDPAAKMYATWTQKT
+            SESMGFRYDLRVIEDKDFLEEAIIQANGDDSVNGIMVYFPVFGNAQDQYLQQVVCKEKDV
+            EGLNHVYYQNLYHNVRYLDKENRLKSILPCTPLAIVKILEFLKIYNNLLPEGNRLYGKKC
+            IVINRSEIVGRPLAALLANDGATVYSVDVNNIQKFTRGESLKLNKHHVEDLGEYSEDLLK
+            KCSLDSDVVITGVPSENYKFPTEYIKEGAVCINFACTKNFSDDVKEKASLYVPMTGKVTI
+            AMLLRNMLRLVRNVELSKEK
+NTSEQ       963
+            atgtcgaagcctggtcgtactattttagcaagcaaggtcgccgaaactttcaataccgaa
+            ataattaacaacgtagaggaatacaagaagacacataatggtcaaggtccccttcttgtg
+            ggattcctagctaataatgatcctgctgcaaagatgtatgctacatggactcaaaagact
+            agcgagtcaatggggttccgctatgacttaagggtcattgaagataaggattttttggaa
+            gaagcgataatacaagctaacggcgatgactctgtgaacggtatcatggtatactttcct
+            gttttcggtaatgctcaagatcagtatttgcaacaggttgtgtgcaaggaaaaagatgta
+            gaagggttaaatcatgtttactaccaaaacctgtaccataatgtcagatacctggacaaa
+            gaaaaccgtttgaaatccattctaccttgcacaccactagctatcgttaagatattggaa
+            ttcttgaaaatttacaacaatttgttaccagaaggaaacagactgtatgggaagaaatgc
+            atagtaattaacaggtcagaaatcgtcggtagaccactggcggcgctattagccaatgac
+            ggtgccacagtatactctgtggacgttaacaacattcaaaaattcacccgtggtgaaagt
+            ttgaaattaaacaagcatcatgtggaagaccttggggagtactctgaagatctgttgaaa
+            aagtgttctcttgattcagatgtggtcatcactggtgtccctagtgaaaattacaaattc
+            cccaccgaatacatcaaagaaggtgccgtctgcatcaattttgcatgcaccaaaaatttt
+            agcgatgatgtcaaggaaaaagcttctctttacgttccaatgactggtaaagttaccatt
+            gcaatgttgttgagaaacatgttacgtttagtaaggaacgtagaactgtctaaagaaaaa
+            tag
+///

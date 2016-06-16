@@ -1,0 +1,71 @@
+ENTRY       YKR067W           CDS       T00005
+NAME        GPT2, GAT1
+DEFINITION  bifunctional glycerol-3-phosphate/glycerone-phosphate O-acyltransferase GPT2 (EC:2.3.1.42 2.3.1.15)
+ORTHOLOGY   K13507  glycerol-3-phosphate O-acyltransferase / dihydroxyacetone phosphate acyltransferase [EC:2.3.1.15 2.3.1.42]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00561  Glycerolipid metabolism
+            sce00564  Glycerophospholipid metabolism
+            sce01100  Metabolic pathways
+CLASS       Metabolism; Lipid metabolism; Glycerolipid metabolism [PATH:sce00561]
+            Metabolism; Lipid metabolism; Glycerophospholipid metabolism [PATH:sce00564]
+POSITION    XI:567918..570149
+MOTIF       Pfam: Acyltransferase
+DBLINKS     NCBI-GI: 398365317
+            NCBI-GeneID: 853941
+            SGD: S000001775
+            MIPS: YKR067W
+            UniProt: P36148
+AASEQ       743
+            MSAPAADHNAAKPIPHVPQASRRYKNSYNGFVYNIHTWLYDVSVFLFNILFTIFFREIKV
+            RGAYNVPEVGVPTILVCAPHANQFIDPALVMSQTRLLKTSAGKSRSRMPCFVTAESSFKK
+            RFISFFGHAMGGIPVPRIQDNLKPVDENLEIYAPDLKNHPEIIKGRSKNPQTTPVNFTKR
+            FSAKSLLGLPDYLSNAQIKEIPDDETIILSSPFRTSKSKVVELLTNGTNFKYAEKIDNTE
+            TFQSVFDHLHTKGCVGIFPEGGSHDRPSLLPIKAGVAIMALGAVAADPTMKVAVVPCGLH
+            YFHRNKFRSRAVLEYGEPIVVDGKYGEMYKDSPRETVSKLLKKITNSLFSVTENAPDYDT
+            LMVIQAARRLYQPVKVRLPLPAIVEINRRLLFGYSKFKDDPRIIHLKKLVYDYNRKLDSV
+            GLKDHQVMQLKTTKLEALRCFVTLIVRLIKFSVFAILSLPGSILFTPIFIICRVYSEKKA
+            KEGLKKSLVKIKGTDLLATWKLIVALILAPILYVTYSILLIILARKQHYCRIWVPSNNAF
+            IQFVYFYALLVFTTYSSLKTGEIGVDLFKSLRPLFVSIVYPGKKIEEIQTTRKNLSLELT
+            AVCNDLGPLVFPDYDKLATEIFSKRDGYDVSSDAESSISRMSVQSRSRSSSIHSIGSLAS
+            NALSRVNSRGSLTDIPIFSDAKQGQWKSEGETSEDEDEFDEKNPAIVQTARSSDLNKENS
+            RNTNISSKIASLVRQKREHEKKE
+NTSEQ       2232
+            atgtctgctcccgctgccgatcataacgctgccaaacctattcctcatgtacctcaagcg
+            tcccgacggtacaaaaattcatacaatggattcgtatacaatatacatacatggctgtat
+            gatgtgtctgtatttctgtttaatattttgttcactattttcttcagagaaattaaggta
+            cgtggtgcatataacgttcccgaagttggggtgccaaccatccttgtgtgtgcccctcat
+            gcaaatcagttcatcgacccggctttggtaatgtcgcaaacccgtttgctgaagacatca
+            gcgggaaagtcccgatccagaatgccttgttttgttactgctgagtcgagttttaagaaa
+            agatttatctctttctttggtcacgcaatgggcggtattcccgtgcctagaattcaggac
+            aacttgaagccagtggatgagaatcttgagatttacgctccggacttgaagaaccacccg
+            gaaatcatcaagggccgctccaagaacccacagactacaccagtgaactttacgaaaagg
+            ttttctgccaagtccttgcttggattgcccgactacttaagtaatgctcaaatcaaggaa
+            atcccggatgatgaaacgataatcttgtcctctccattcagaacatcgaaatcaaaagtg
+            gtggagctcttgactaatggtactaattttaaatatgcagagaaaatcgacaatacggaa
+            actttccagagtgtttttgatcacttgcatacgaagggctgtgtaggtattttccccgag
+            ggtggttctcatgaccgtccttcgttactacccatcaaggcaggtgttgccattatggct
+            ctgggcgcagtagccgctgatcctaccatgaaagttgctgttgtaccctgtggtttgcat
+            tatttccacagaaataaattcagatctagagctgttttagaatacggcgaacctatagtg
+            gtggatgggaaatatggcgaaatgtataaggactccccacgtgagaccgtttccaaacta
+            ctaaaaaagatcaccaattctttgttttctgttaccgaaaatgctccagattacgatact
+            ttgatggtcattcaggctgccagaagactatatcaaccggtaaaagtcaggctacctttg
+            cctgccattgtagaaatcaacagaaggttacttttcggttattccaagtttaaagatgat
+            ccaagaattattcacttaaaaaaactggtatatgactacaacaggaaattagattcagtg
+            ggtttaaaagaccatcaggtgatgcaattaaaaactaccaaattagaagcattgaggtgc
+            tttgtaactttgatcgttcgattgattaaattttctgtctttgctatactatcgttaccg
+            ggttctattctcttcactccaattttcattatttgtcgcgtatactcagaaaagaaggcc
+            aaagagggtttaaagaaatcattggttaaaattaagggtaccgatttgttggccacatgg
+            aaacttatcgtggcgttaatattggcaccaattttatacgttacttactcgatcttgttg
+            attattttggcaagaaaacaacactattgtcgcatctgggttccttccaataacgcattc
+            atacaatttgtctatttttatgcgttattggttttcaccacgtattcctctttaaagacc
+            ggtgaaatcggtgttgaccttttcaaatctttaagaccactttttgtttctattgtttac
+            cccggtaagaagatcgaagaaatccaaacaacaagaaagaatttaagtctagagttgact
+            gctgtttgtaacgatttaggacctttggttttccctgattacgataaattagcgactgag
+            atattctctaagagagacggttatgatgtctcttctgatgcagagtcttctataagtcgt
+            atgagtgtacaatctagaagccgctcttcttctatacattctattggctcgctagcttct
+            aacgccctatcaagagtgaattcaagaggctcgttgaccgatattccaattttttctgat
+            gcaaagcaaggtcaatggaaaagtgaaggtgaaactagtgaggatgaggatgaatttgat
+            gagaaaaatcctgccatagtacaaaccgcacgaagttctgatctaaataaggaaaacagt
+            cgcaacacaaatatatcttcgaagattgcttcgctggtaagacagaaaagagaacacgaa
+            aagaaagaatga
+///

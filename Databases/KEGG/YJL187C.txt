@@ -1,0 +1,74 @@
+ENTRY       YJL187C           CDS       T00005
+NAME        SWE1, WEE1
+DEFINITION  Swe1p (EC:2.7.11.1)
+ORTHOLOGY   K03114  mitosis inhibitor protein kinase SWE1 [EC:2.7.11.1]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04111  Cell cycle - yeast
+            sce04113  Meiosis - yeast
+CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
+            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+POSITION    X:complement(76803..79262)
+MOTIF       Pfam: Pkinase Pkinase_Tyr Kinase-like DUF4299
+DBLINKS     NCBI-GI: 6322274
+            NCBI-GeneID: 853252
+            SGD: S000003723
+            MIPS: YJL187C
+            UniProt: P32944
+AASEQ       819
+            MSSLDEDEEDFEMLDTENLQFMGKKMFGKQAGEDESDDFAIGGSTPTNKLKFYPYSNNKL
+            TRSTGTLNLSLSNTALSEANSKFLGKIEEEEEEEEEGKDEESVDSRIKRWSPFHENESVT
+            TPITKRSAEKTNSPISLKQWNQRWFPKNDARTENTSSSSSYSVAKPNQSAFTSSGLVSKM
+            SMDTSLYPAKLRIPETPVKKSPLVEGRDHKHVHLSSSKNASSSLSVSPLNFVEDNNLQED
+            LLFSDSPSSKALPSIHVPTIDSSPLSEAKYHAHDRHNNQTNILSPTNSLVTNSSPQTLHS
+            NKFKKIKRARNSVILKNRELTNSLQQFKDDLYGTDENFPPPIIISSHHSTRKNPQPYQFR
+            GRYDNDTDEEISTPTRRKSIIGATSQTHRESRPLSLSSAIVTNTTSAETHSISSTDSSPL
+            NSKRRLISSNKLSANPDSHLFEKFTNVHSIGKGQFSTVYQVTFAQTNKKYAIKAIKPNKY
+            NSLKRILLEIKILNEVTNQITMDQEGKEYIIDYISSWKFQNSYYIMTELCENGNLDGFLQ
+            EQVIAKKKRLEDWRIWKIIVELSLALRFIHDSCHIVHLDLKPANVMITFEGNLKLGDFGM
+            ATHLPLEDKSFENEGDREYIAPEIISDCTYDYKADIFSLGLMIVEIAANVVLPDNGNAWH
+            KLRSGDLSDAGRLSSTDIHSESLFSDITKVDTNDLFDFERDNISGNSNNAGTSTVHNNSN
+            INNPNMNNGNDNNNVNTAATKNRLILHKSSKIPAWVPKFLIDGESLERIVRWMIEPNYER
+            RPTANQILQTEECLYVEMTRNAGAIIQEDDFGPKPKFFI
+NTSEQ       2460
+            atgagttctttggacgaggatgaagaggacttcgaaatgctggacacggagaacctccag
+            tttatggggaagaagatgtttggcaaacaggccggcgaagacgagagtgatgattttgct
+            atagggggtagcaccccgaccaataaactgaaattttatccatattcgaacaacaaattg
+            acaagaagtacggggaccttgaacctgtcattaagtaatacagctttgtcagaggctaac
+            tccaaatttcttgggaaaattgaagaagaggaagaagaggaggaagaaggcaaggatgag
+            gaaagcgtggattctcgtattaaaaggtggtctccgttccatgaaaatgaaagtgttact
+            actcctattacaaaaagatctgcggaaaaaacgaacagtcctatttctctcaaacaatgg
+            aaccagcgatggtttccgaaaaatgatgctcgcactgaaaatacatcctcatcctcttca
+            tatagcgtcgctaaacctaaccaatcagcctttacgtcttcgggcctcgtatctaaaatg
+            tctatggacacttcgttataccctgcgaaattgaggataccagaaacaccagtgaaaaaa
+            tcacccttagtggagggaagagaccataagcatgtccacctttcgagttcgaaaaatgca
+            tcgtcttctctaagtgtttcccctttaaattttgttgaagacaataatttacaagaagac
+            cttttattttcagattctccgtcttcgaaagctttaccttccatccatgtaccaaccata
+            gactcatccccactgagcgaggcaaaatatcatgcacatgatcgtcacaataaccagaca
+            aacatcctgtctcccactaatagcttggttaccaacagctctccacaaacattgcattct
+            aacaagttcaaaaaaatcaaaagagcaaggaattcggttattttgaaaaatagagagcta
+            acaaacagtttacaacaattcaaagatgatttatacggcacggacgagaatttcccacct
+            ccaatcataatatcaagtcatcattcaactagaaagaaccctcaaccttatcaatttcgt
+            ggacgctatgacaatgacactgacgaagagatctccactccaacaagacgaaaatctatt
+            attggggcaacatctcaaacacatagagaaagcagaccattgtcactctcctctgccatc
+            gtgacaaacacaacaagtgcagagacgcattccatatcttccaccgattcttcgccgtta
+            aattccaaaaggcgtctaatctcttcaaataagttatcagcaaatccagattcccatctt
+            ttcgaaaaatttacgaatgtgcattccattggtaaaggccagttttccacggtctaccag
+            gttacgtttgcccaaacaaacaaaaagtatgcaatcaaagccattaaaccaaacaaatat
+            aattccttgaaacgcatattactggaaattaaaatactaaacgaggtaacaaaccaaatt
+            acaatggatcaagaagggaaggaatacatcatcgattacatcagttcctggaagtttcaa
+            aattcatactatattatgacagaattgtgcgaaaatggtaatttggatggatttttacaa
+            gagcaagttatcgcaaagaaaaaaaggttggaagattggagaatttggaaaatcatcgtg
+            gaattaagcctggctttacgattcatccatgattcttgtcacattgtgcatctggacttg
+            aaacccgcaaacgtcatgatcacatttgaaggtaacctaaaactaggtgactttggaatg
+            gctactcatttaccgttggaggataaaagttttgaaaatgaaggtgacagagaatatatt
+            gcaccagaaatcatttctgattgtacgtacgattacaaggcagatattttttccctgggt
+            ctgatgattgttgaaattgcagcgaacgttgtgttacctgacaatggcaacgcatggcat
+            aagttgagatcgggtgatttatcggatgcaggaagattaagttccacagatattcattct
+            gaatcattattttcagacattacgaaagtagatacaaatgatttatttgattttgaaaga
+            gacaatatcagtggtaatagtaacaacgctggcacctccactgttcataacaatagtaat
+            atcaacaaccctaatatgaataatggcaacgataataataatgtcaatactgccgctacc
+            aagaatcgtcttattttgcataaaagttctaaaattcccgcatgggtaccgaaatttctt
+            attgatggtgaatcacttgagagaatagtacgatggatgatagagcccaattatgagaga
+            aggcccacggcaaatcaaatcttacaaactgaggaatgcctgtatgtagaaatgacacgc
+            aatgcaggtgctattatccaggaagacgactttggacctaagccaaaattttttatatga
+///

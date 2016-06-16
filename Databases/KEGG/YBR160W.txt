@@ -1,0 +1,39 @@
+ENTRY       YBR160W           CDS       T00005
+NAME        CDC28, CDK1, HSL5, SRM5
+DEFINITION  Cdc28p (EC:2.7.11.22)
+ORTHOLOGY   K04563  cyclin-dependent kinase [EC:2.7.11.22]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04111  Cell cycle - yeast
+            sce04113  Meiosis - yeast
+CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
+            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+POSITION    II:560078..560974
+MOTIF       Pfam: Pkinase Pkinase_Tyr Kinase-like APH Seadorna_VP7 Kdo
+DBLINKS     NCBI-GI: 398365175
+            NCBI-GeneID: 852457
+            SGD: S000000364
+            MIPS: YBR160W
+            UniProt: P00546
+AASEQ       298
+            MSGELANYKRLEKVGEGTYGVVYKALDLRPGQGQRVVALKKIRLESEDEGVPSTAIREIS
+            LLKELKDDNIVRLYDIVHSDAHKLYLVFEFLDLDLKRYMEGIPKDQPLGADIVKKFMMQL
+            CKGIAYCHSHRILHRDLKPQNLLINKDGNLKLGDFGLARAFGVPLRAYTHEIVTLWYRAP
+            EVLLGGKQYSTGVDTWSIGCIFAEMCNRKPIFSGDSEIDQIFKIFRVLGTPNEAIWPDIV
+            YLPDFKPSFPQWRRKDLSQVVPSLDPRGIDLLDKLLAYDPINRISARRAAIHPYFQES
+NTSEQ       897
+            atgagcggtgaattagcaaattacaaaagacttgagaaagtcggtgaaggtacatacggt
+            gttgtttataaagcgttagacttaagacctggccaaggtcaaagagtagtcgcattgaag
+            aaaataagactagagagtgaagacgagggtgttcccagtacagccatcagagaaatctca
+            ttattgaaggaattaaaagacgataatattgtcagattatacgatattgttcactctgat
+            gcacacaagctatatcttgtttttgagttcctcgatttggacctgaaaagatatatggag
+            ggtattccaaaggaccaaccgttaggagctgatattgttaagaagtttatgatgcaactt
+            tgtaagggtattgcatactgccactcacaccgtattctgcatcgtgatttaaaaccgcag
+            aacttattgattaacaaagatgggaatctaaaactaggtgattttggcttagcgcgtgct
+            tttggtgttccgttgagagcttacacacatgaaattgttactctatggtatagagctccg
+            gaggtattactgggtggaaaacaatatagtacaggtgtcgatacatggtccatcggctgt
+            atatttgccgaaatgtgtaacaggaaaccaatcttcagtggcgatagtgagatcgatcag
+            attttcaagatattcagagtattgggaacgccgaatgaagctatatggccagatattgtc
+            tacttgcctgatttcaagccaagctttcctcaatggcgcagaaaagacctatcacaagtg
+            gtaccaagtctagatccacgcggtattgatttgttggacaaactcctcgcgtatgaccct
+            attaaccggattagcgccagaagagcagccatccacccctacttccaagaatcataa
+///

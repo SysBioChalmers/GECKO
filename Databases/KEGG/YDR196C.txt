@@ -1,0 +1,37 @@
+ENTRY       YDR196C           CDS       T00005
+NAME        CAB5
+DEFINITION  putative dephospho-CoA kinase (EC:2.7.1.24)
+ORTHOLOGY   K00859  dephospho-CoA kinase [EC:2.7.1.24]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00770  Pantothenate and CoA biosynthesis
+            sce01100  Metabolic pathways
+MODULE      sce_M00120  Coenzyme A biosynthesis, pantothenate => CoA
+CLASS       Metabolism; Metabolism of cofactors and vitamins; Pantothenate and CoA biosynthesis [PATH:sce00770]
+POSITION    IV:complement(850274..850999)
+MOTIF       Pfam: CoaE AAA_17 SKI AAA_18 Cytidylate_kin2 AAA_28 AAA_33 PRK Glyco_trans_1_3
+DBLINKS     NCBI-GI: 398366057
+            NCBI-GeneID: 851777
+            SGD: S000002604
+            MIPS: YDR196C
+            UniProt: Q03941
+AASEQ       241
+            MLVVGLTGGIACGKSTVSRRLRDKYKLPIVDADKIARQVVEPGQNAYDQIVLYFKDKIPN
+            LLLEDGHLNREALGKWVFSHKEDLQALNGITHPAIRYAMFKEIGYYYLKGYRMCVLDVPL
+            LFEGNLDSICGVTVSVICTQELQLERLMTRNPELSEEDAKNRLNSQMSTEERMARSDYIL
+            QNNSTLVDLYEQIESVVKKIQPSKLRTVLEYFPPFGAVSASSIVMSRLLMKKLQNKKSSA
+            V
+NTSEQ       726
+            atgctggtagtgggattgacaggtgggatcgcttgtggtaagagcacagtgtcgagaaga
+            ctcagagacaaatacaaactacccattgttgatgcggacaagattgctagacaagtggtc
+            gaaccaggacagaatgcttatgatcaaattgtgttatacttcaaggacaaaataccgaat
+            ttattattggaggatgggcatttaaatcgtgaagccctagggaaatgggtttttagtcat
+            aaagaagatttgcaagccttgaatgggataacacatcctgcaatcaggtatgcaatgttc
+            aaagaaattggctactattacttgaagggatatagaatgtgtgtattggatgtgccactc
+            ttatttgaaggaaatctggattcaatatgcggagtgactgtaagcgtaatttgtacgcaa
+            gaattgcaactagaaagattaatgacaagaaatcctgaacttagtgaagaagatgcaaaa
+            aacaggctaaatagtcaaatgagcactgaagaaaggatggcaagatctgactatatccta
+            caaaataacagcacattggttgacttatacgaacagattgaaagtgttgtaaaaaaaatc
+            caacctagtaaattaagaactgttttggagtatttcccaccttttggggccgtaagtgcc
+            agtagcatcgtcatgtccagattactgatgaaaaaacttcaaaataaaaagtcttcagcg
+            gtataa
+///

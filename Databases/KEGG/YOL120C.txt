@@ -1,0 +1,32 @@
+ENTRY       YOL120C           CDS       T00005
+NAME        RPL18A, RP28A
+DEFINITION  ribosomal 60S subunit protein L18A
+ORTHOLOGY   K02883  large subunit ribosomal protein L18e
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03010  Ribosome
+CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+POSITION    XV:complement(join(93395..93843,94291..94402))
+MOTIF       Pfam: Ribosomal_L18e
+DBLINKS     NCBI-GI: 6324452
+            NCBI-GeneID: 854029
+            SGD: S000005480
+            MIPS: YOL120C
+            UniProt: P0CX49 P0CX50
+STRUCTURE   PDB: 3U5E 3U5I 3O58 3O5H 4BYN 4BYU 4B6A 3IZS 1S1I
+AASEQ       186
+            MGIDHTSKQHKRSGHRTAPKSDNVYLKLLVKLYTFLARRTDAPFNKVVLKALFLSKINRP
+            PVSVSRIARALKQEGAANKTVVVVGTVTDDARIFEFPKTTVAALRFTAGARAKIVKAGGE
+            CITLDQLAVRAPKGQNTLILRGPRNSREAVRHFGMGPHKGKAPRILSTGRKFERARGRRR
+            SKGFKV
+NTSEQ       561
+            atgggtatcgatcacacttccaagcaacacaagagatctggtcacagaactgctccaaag
+            tctgacaatgtctacttgaaattgttagtcaaattatacactttcttagctcgtcgtact
+            gatgctccattcaacaaggttgtcttgaaggctttgttcttgtctaagatcaacagacca
+            cctgtttctgtctctagaattgctagagctttgaagcaagaaggtgctgctaacaagact
+            gttgtcgttgttggtactgttactgacgatgccagaatctttgaattcccaaagaccact
+            gttgctgctttgagattcactgctggtgccagagccaagattgttaaggctggtggtgaa
+            tgtatcactttggatcaattagctgtcagagctccaaagggtcaaaacactttgatcttg
+            agaggtccaagaaactccagagaagctgtcagacacttcggtatgggtccacacaagggt
+            aaggctccaagaatcttgtccaccggtagaaagttcgaaagagctagaggtagaagaaga
+            tctaagggtttcaaggtgtaa
+///

@@ -1,0 +1,42 @@
+ENTRY       YDL108W           CDS       T00005
+NAME        KIN28
+DEFINITION  Kin28p (EC:2.7.11.23 2.7.11.1)
+ORTHOLOGY   K02202  cyclin-dependent kinase 7 [EC:2.7.11.22 2.7.11.23]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03022  Basal transcription factors
+            sce03420  Nucleotide excision repair
+MODULE      sce_M00290  Holo-TFIIH complex
+CLASS       Genetic Information Processing; Transcription; Basal transcription factors [PATH:sce03022]
+            Genetic Information Processing; Replication and repair; Nucleotide excision repair [PATH:sce03420]
+POSITION    IV:join(267698..267725,267807..268699)
+MOTIF       Pfam: Pkinase Pkinase_Tyr APH Kinase-like
+DBLINKS     NCBI-GI: 6320095
+            NCBI-GeneID: 851450
+            SGD: S000002266
+            MIPS: YDL108W
+            UniProt: P06242
+AASEQ       306
+            MKVNMEYTKEKKVGEGTYAVVYLGCQHSTGRKIAIKEIKTSEFKDGLDMSAIREVKYLQE
+            MQHPNVIELIDIFMAYDNLNLVLEFLPTDLEVVIKDKSILFTPADIKAWMLMTLRGVYHC
+            HRNFILHRDLKPNNLLFSPDGQIKVADFGLARAIPAPHEILTSNVVTRWYRAPELLFGAK
+            HYTSAIDIWSVGVIFAELMLRIPYLPGQNDVDQMEVTFRALGTPTDRDWPEVSSFMTYNK
+            LQIYPPPSRDELRKRFIAASEYALDFMCGMLTMNPQKRWTAVQCLESDYFKELPPPSDPS
+            SIKIRN
+NTSEQ       921
+            atgaaagtgaatatggagtacacaaaggaaaagaaagttggtgagggtacttatgcggtt
+            gtttacttgggttgtcaacactctactggaagaaagattgctattaaggagatcaaaaca
+            tccgaatttaaagatggtttagatatgtcagctatccgtgaagttaagtacctccaagaa
+            atgcagcatccgaacgtcatagaactaatagacatatttatggcttatgataatttaaat
+            ctcgttctggagttcctaccaactgatctagaggtggtaataaaagacaaatcaatactg
+            tttacaccagcagatattaaggcatggatgcttatgactttgaggggcgtgtatcattgc
+            cacagaaatttcattttgcacagggatctgaaaccaaacaatttattattttcacctgat
+            ggccagataaaagtagcagatttcggtctagcaagggcgataccggccccacatgagata
+            ctgacaagtaacgtcgtaacaagatggtatagagcgccagaattgttgtttggagctaaa
+            cattacacatcggctattgatatctggtcagtaggcgttatattcgcggaattaatgcta
+            aggataccttatttaccaggacagaatgatgtcgatcaaatggaagtaacgttcagggcc
+            ttagggacacctacagatagagattggcccgaagtttcttcctttatgacgtataacaag
+            ttacaaatatatccgcccccttcaagagatgaattgaggaaaaggttcattgctgctagc
+            gaatacgccttagattttatgtgtggaatgctaacgatgaacccacaaaagaggtggacc
+            gctgttcagtgtttagaaagtgattatttcaaagaattaccaccaccaagtgacccgtct
+            tcaataaaaatacgtaactga
+///

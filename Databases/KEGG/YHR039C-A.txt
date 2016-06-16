@@ -1,0 +1,29 @@
+ENTRY       YHR039C-A         CDS       T00005
+NAME        VMA10, YHR039C-B
+DEFINITION  Vma10p (EC:3.6.3.14)
+ORTHOLOGY   K02152  V-type H+-transporting ATPase subunit G [EC:3.6.3.14]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00190  Oxidative phosphorylation
+            sce01100  Metabolic pathways
+            sce04145  Phagosome
+CLASS       Metabolism; Energy metabolism; Oxidative phosphorylation [PATH:sce00190]
+            Cellular Processes; Transport and catabolism; Phagosome [PATH:sce04145]
+POSITION    VIII:complement(join(187173..187514,187677..187679))
+MOTIF       Pfam: V-ATPase_G GA DapH_N DUF3552 ATP-synt_B
+DBLINKS     NCBI-GI: 6321829
+            NCBI-GeneID: 856435
+            SGD: S000002100
+            MIPS: YHR039C-A
+            UniProt: P48836
+STRUCTURE   PDB: 4EFA 4DL0 2KWY 2K88
+AASEQ       114
+            MSQKNGIATLLQAEKEAHEIVSKARKYRQDKLKQAKTDAAKEIDSYKIQKDKELKEFEQK
+            NAGGVGELEKKAEAGVQGELAEIKKIAEKKKDDVVKILIETVIKPSAEVHINAL
+NTSEQ       345
+            atgtcccaaaaaaacggaattgccaccctactacaagctgaaaaggaagcccacgaaata
+            gtatcaaaggctagaaagtacagacaagataagttgaagcaagccaagactgatgcagcc
+            aaggaaatcgactcatacaaaattcaaaaagacaaggaattgaaggagtttgaacaaaag
+            aatgccggtggtgttggtgaattggaaaagaaagcagaggctggtgtgcaaggtgaatta
+            gctgagattaagaaaattgcagagaagaaaaaggatgacgttgtcaaaattttgatcgag
+            actgtcatcaagccttctgctgaagtccatatcaatgccttgtaa
+///

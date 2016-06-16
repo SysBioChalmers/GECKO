@@ -1,0 +1,52 @@
+ENTRY       YPL091W           CDS       T00005
+NAME        GLR1, LPG17
+DEFINITION  glutathione-disulfide reductase GLR1 (EC:1.8.1.7)
+ORTHOLOGY   K00383  glutathione reductase (NADPH) [EC:1.8.1.7]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00480  Glutathione metabolism
+CLASS       Metabolism; Metabolism of other amino acids; Glutathione metabolism [PATH:sce00480]
+POSITION    XVI:375502..376953
+MOTIF       Pfam: Pyr_redox_2 Pyr_redox_dim Pyr_redox Pyr_redox_3 FAD_oxidored GIDA HI0933_like K_oxygenase AlaDh_PNT_C DAO 3HCDH_N Thi4 UDPG_MGDP_dh_N NAD_Gly3P_dh_N XdhC_C
+DBLINKS     NCBI-GI: 6325166
+            NCBI-GeneID: 856014
+            SGD: S000006012
+            MIPS: YPL091W
+            UniProt: P41921
+STRUCTURE   PDB: 2HQM
+AASEQ       483
+            MLSATKQTFRSLQIRTMSTNTKHYDYLVIGGGSGGVASARRAASYGAKTLLVEAKALGGT
+            CVNVGCVPKKVMWYASDLATRVSHANEYGLYQNLPLDKEHLTFNWPEFKQKRDAYVHRLN
+            GIYQKNLEKEKVDVVFGWARFNKDGNVEVQKRDNTTEVYSANHILVATGGKAIFPENIPG
+            FELGTDSDGFFRLEEQPKKVVVVGAGYIGIELAGVFHGLGSETHLVIRGETVLRKFDECI
+            QNTITDHYVKEGINVHKLSKIVKVEKNVETDKLKIHMNDSKSIDDVDELIWTIGRKSHLG
+            MGSENVGIKLNSHDQIIADEYQNTNVPNIYSLGDVVGKVELTPVAIAAGRKLSNRLFGPE
+            KFRNDKLDYENVPSVIFSHPEAGSIGISEKEAIEKYGKENIKVYNSKFTAMYYAMLSEKS
+            PTRYKIVCAGPNEKVVGLHIVGDSSAEILQGFGVAIKMGATKADFDNCVAIHPTSAEELV
+            TMR
+NTSEQ       1452
+            atgctttctgcaaccaaacaaacatttagaagtctacagataagaactatgtccacgaac
+            accaagcattacgattacctcgtcatcgggggtggctcagggggtgttgcttccgcaaga
+            agagctgcatcttatggtgcgaagacattactagttgaagctaaggctcttggtggtacc
+            tgtgttaacgtgggttgtgttccgaagaaagtcatgtggtatgcttctgacctcgctact
+            agagtatcccatgcaaatgaatatggattatatcagaatcttccattagataaagagcat
+            ttgacttttaattggccagaatttaagcagaaaagggatgcttatgtccataggttgaac
+            ggtatataccagaagaatttagaaaaagaaaaagtggatgttgtatttggatgggctaga
+            ttcaataaggacggtaatgttgaagttcagaaaagggataatactactgaagtttactcc
+            gctaaccatattttagttgcgaccggtggaaaggctattttccccgaaaacattccaggt
+            ttcgaattaggtactgattctgatgggttctttagattggaagaacaacctaagaaagtt
+            gttgttgttggcgctggttatattggtattgagctagcaggtgtgttccatgggctggga
+            tccgaaacgcacttggtaattagaggtgaaactgtcttgagaaaatttgatgaatgcatc
+            cagaacactattactgaccattacgtaaaggaaggcatcaacgttcataaactatccaaa
+            attgttaaggtggagaaaaatgtagaaactgacaaactgaaaatacatatgaatgactca
+            aagtccatcgatgacgttgacgaattaatttggacaattggacgtaaatcccatctaggt
+            atgggttcagaaaatgtaggtataaagctgaactctcatgaccaaataattgctgatgaa
+            tatcagaacaccaatgttccaaacatttattctctaggtgacgttgttggaaaagttgaa
+            ttgacacctgtcgctattgcagcgggcagaaagctgtctaatagactgtttggtccagag
+            aaattccgtaatgacaaactagattacgagaacgtccccagcgtaattttctcacatcct
+            gaagccggttccattggtatttctgagaaggaagccattgaaaagtacggtaaggagaat
+            ataaaggtctacaattccaaatttaccgccatgtactatgctatgttgagtgagaaatca
+            cccacaagatataaaattgtttgtgcgggaccaaatgaaaaggttgtcggtctgcacatt
+            gttggtgattcctctgcagaaatcttgcaagggttcggtgttgctataaagatgggtgcc
+            actaaggctgatttcgataattgtgttgctattcatccgactagcgcagaagaattggtt
+            actatgagatga
+///

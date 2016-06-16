@@ -1,0 +1,45 @@
+ENTRY       YDL022W           CDS       T00005
+NAME        GPD1, DAR1, HOR1, OSG1, OSR5
+DEFINITION  glycerol-3-phosphate dehydrogenase (NAD(+)) GPD1 (EC:1.1.1.8)
+ORTHOLOGY   K00006  glycerol-3-phosphate dehydrogenase (NAD+) [EC:1.1.1.8]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00564  Glycerophospholipid metabolism
+CLASS       Metabolism; Lipid metabolism; Glycerophospholipid metabolism [PATH:sce00564]
+POSITION    IV:411825..413000
+MOTIF       Pfam: NAD_Gly3P_dh_N NAD_Gly3P_dh_C
+DBLINKS     NCBI-GI: 6320181
+            NCBI-GeneID: 851539
+            SGD: S000002180
+            MIPS: YDL022W
+            UniProt: Q00055
+STRUCTURE   PDB: 4FGW
+AASEQ       391
+            MSAAADRLNLTSGHLNAGRKRSSSSVSLKAAEKPFKVTVIGSGNWGTTIAKVVAENCKGY
+            PEVFAPIVQMWVFEEEINGEKLTEIINTRHQNVKYLPGITLPDNLVANPDLIDSVKDVDI
+            IVFNIPHQFLPRICSQLKGHVDSHVRAISCLKGFEVGAKGVQLLSSYITEELGIQCGALS
+            GANIATEVAQEHWSETTVAYHIPKDFRGEGKDVDHKVLKALFHRPYFHVSVIEDVAGISI
+            CGALKNVVALGCGFVEGLGWGNNASAAIQRVGLGEIIRFGQMFFPESREETYYQESAGVA
+            DLITTCAGGRNVKVARLMATSGKDAWECEKELLNGQSAQGLITCKEVHEWLETCGSVEDF
+            PLFEAVYQIVYNNYPMKNLPDMIEELDLHED
+NTSEQ       1176
+            atgtctgctgctgctgatagattaaacttaacttccggccacttgaatgctggtagaaag
+            agaagttcctcttctgtttctttgaaggctgccgaaaagcctttcaaggttactgtgatt
+            ggatctggtaactggggtactactattgccaaggtggttgccgaaaattgtaagggatac
+            ccagaagttttcgctccaatagtacaaatgtgggtgttcgaagaagagatcaatggtgaa
+            aaattgactgaaatcataaatactagacatcaaaacgtgaaatacttgcctggcatcact
+            ctacccgacaatttggttgctaatccagacttgattgattcagtcaaggatgtcgacatc
+            atcgttttcaacattccacatcaatttttgccccgtatctgtagccaattgaaaggtcat
+            gttgattcacacgtcagagctatctcctgtctaaagggttttgaagttggtgctaaaggt
+            gtccaattgctatcctcttacatcactgaggaactaggtattcaatgtggtgctctatct
+            ggtgctaacattgccaccgaagtcgctcaagaacactggtctgaaacaacagttgcttac
+            cacattccaaaggatttcagaggcgagggcaaggacgtcgaccataaggttctaaaggcc
+            ttgttccacagaccttacttccacgttagtgtcatcgaagatgttgctggtatctccatc
+            tgtggtgctttgaagaacgttgttgccttaggttgtggtttcgtcgaaggtctaggctgg
+            ggtaacaacgcttctgctgccatccaaagagtcggtttgggtgagatcatcagattcggt
+            caaatgtttttcccagaatctagagaagaaacatactaccaagagtctgctggtgttgct
+            gatttgatcaccacctgcgctggtggtagaaacgtcaaggttgctaggctaatggctact
+            tctggtaaggacgcctgggaatgtgaaaaggagttgttgaatggccaatccgctcaaggt
+            ttaattacctgcaaagaagttcacgaatggttggaaacatgtggctctgtcgaagacttc
+            ccattatttgaagccgtataccaaatcgtttacaacaactacccaatgaagaacctgccg
+            gacatgattgaagaattagatctacatgaagattag
+///

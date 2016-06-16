@@ -1,0 +1,62 @@
+ENTRY       YML070W           CDS       T00005
+NAME        DAK1
+DEFINITION  Dak1p (EC:2.7.1.28 2.7.1.29)
+ORTHOLOGY   K00863  dihydroxyacetone kinase [EC:2.7.1.29]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00561  Glycerolipid metabolism
+            sce00680  Methane metabolism
+            sce01100  Metabolic pathways
+            sce01200  Carbon metabolism
+CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
+            Metabolism; Energy metabolism; Methane metabolism [PATH:sce00680]
+            Metabolism; Lipid metabolism; Glycerolipid metabolism [PATH:sce00561]
+POSITION    XIII:133475..135229
+MOTIF       Pfam: Dak1 Dak2
+DBLINKS     NCBI-GI: 6323570
+            NCBI-GeneID: 854932
+            SGD: S000004535
+            MIPS: YML070W
+            UniProt: P54838
+AASEQ       584
+            MSAKSFEVTDPVNSSLKGFALANPSITLVPEEKILFRKTDSDKIALISGGGSGHEPTHAG
+            FIGKGMLSGAVVGEIFASPSTKQILNAIRLVNENASGVLLIVKNYTGDVLHFGLSAERAR
+            ALGINCRVAVIGDDVAVGREKGGMVGRRALAGTVLVHKIVGAFAEEYSSKYGLDGTAKVA
+            KIINDNLVTIGSSLDHCKVPGRKFESELNEKQMELGMGIHNEPGVKVLDPIPSTEDLISK
+            YMLPKLLDPNDKDRAFVKFDEDDEVVLLVNNLGGVSNFVISSITSKTTDFLKENYNITPV
+            QTIAGTLMTSFNGNGFSITLLNATKATKALQSDFEEIKSVLDLLNAFTNAPGWPIADFEK
+            TSAPSVNDDLLHNEVTAKAVGTYDFDKFAEWMKSGAEQVIKSEPHITELDNQVGDGDCGY
+            TLVAGVKGITENLDKLSKDSLSQAVAQISDFIEGSMGGTSGGLYSILLSGFSHGLIQVCK
+            SKDEPVTKEIVAKSLGIALDTLYKYTKARKGSSTMIDALEPFVKEFTASKDFNKAVKAAE
+            EGAKSTATFEAKFGRASYVGDSSQVEDPGAVGLCEFLKGVQSAL
+NTSEQ       1755
+            atgtccgctaaatcgtttgaagtcacagatccagtcaattcaagtctcaaagggtttgcc
+            cttgctaacccctccattacgctggtccctgaagaaaaaattctcttcagaaagaccgat
+            tccgacaagatcgcattaatttctggtggtggtagtggacatgaacctacacacgccggt
+            ttcattggtaagggtatgttgagtggcgccgtggttggcgaaatttttgcatccccttca
+            acaaaacagattttaaatgcaatccgtttagtcaatgaaaatgcgtctggcgttttattg
+            attgtgaagaactacacaggtgatgttttgcattttggtctgtccgctgagagagcaaga
+            gccttgggtattaactgccgcgttgctgtcataggtgatgatgttgcagttggcagagaa
+            aagggtggtatggttggtagaagagcattggcaggtaccgttttggttcataagattgta
+            ggtgccttcgcagaagaatattctagtaagtatggcttagacggtacagctaaagtggct
+            aaaattatcaacgacaatttggtgaccattggatcttctttagaccattgtaaagttcct
+            ggcaggaaattcgaaagtgaattaaacgaaaaacaaatggaattgggtatgggtattcat
+            aacgaacctggtgtgaaagttttagaccctattccttctaccgaagacttgatctccaag
+            tatatgctaccaaaactattggatccaaacgataaggatagagcttttgtaaagtttgat
+            gaagatgatgaagttgtcttgttagttaacaatctcggcggtgtttctaattttgttatt
+            agttctatcacttccaaaactacggatttcttaaaggaaaattacaacataaccccggtt
+            caaacaattgctggcacattgatgacctccttcaatggtaatgggttcagtatcacatta
+            ctaaacgccactaaggctacaaaggctttgcaatctgattttgaggagatcaaatcagta
+            ctagacttgttgaacgcatttacgaacgcaccgggctggccaattgcagattttgaaaag
+            acttctgccccatctgttaacgatgacttgttacataatgaagtaacagcaaaggccgtc
+            ggtacctatgactttgacaagtttgctgagtggatgaagagtggtgctgaacaagttatc
+            aagagcgaaccgcacattacggaactagacaatcaagttggtgatggtgattgtggttac
+            actttagtggcaggagttaaaggcatcaccgaaaaccttgacaagctgtcgaaggactca
+            ttatctcaggcggttgcccaaatttcagatttcattgaaggctcaatgggaggtacttct
+            ggtggtttatattctattcttttgtcgggtttttcacacggattaattcaggtttgtaaa
+            tcaaaggatgaacccgtcactaaggaaattgtggctaagtcactcggaattgcattggat
+            actttatacaaatatacaaaggcaaggaagggatcatccaccatgattgatgctttagaa
+            ccattcgttaaagaatttactgcatctaaggatttcaataaggcggtaaaagctgcagag
+            gaaggtgctaaatccactgctacattcgaggccaaatttggcagagcttcgtatgtcggc
+            gattcatctcaagtagaagatcctggtgcagtaggcctatgtgagtttttgaagggggtt
+            caaagcgccttgtaa
+///

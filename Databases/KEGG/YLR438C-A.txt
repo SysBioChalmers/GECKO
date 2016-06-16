@@ -1,0 +1,29 @@
+ENTRY       YLR438C-A         CDS       T00005
+NAME        LSM3, SMX4, USS2
+DEFINITION  Lsm3p
+ORTHOLOGY   K12622  U6 snRNA-associated Sm-like protein LSm3
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03018  RNA degradation
+            sce03040  Spliceosome
+MODULE      sce_M00396  Lsm 2-8 complex
+            sce_M00397  Lsm 1-7 complex
+CLASS       Genetic Information Processing; Transcription; Spliceosome [PATH:sce03040]
+            Genetic Information Processing; Folding, sorting and degradation; RNA degradation [PATH:sce03018]
+POSITION    XII:complement(1013909..1014178)
+MOTIF       Pfam: LSM
+DBLINKS     NCBI-GI: 398366287
+            NCBI-GeneID: 851159
+            SGD: S000006434
+            MIPS: YLR438C-A
+            UniProt: P57743
+STRUCTURE   PDB: 4C92 3BW1 4M7D 4M7A 4M78 4M75 4M77 4N0A 4C8Q
+AASEQ       89
+            METPLDLLKLNLDERVYIKLRGARTLVGTLQAFDSHCNIVLSDAVETIYQLNNEELSESE
+            RRCEMVFIRGDTVTLISTPSEDDDGAVEI
+NTSEQ       270
+            atggagacacctttggatttattgaaactcaatctcgatgagagggtgtacatcaagctg
+            cgcggggccaggacgctggtgggcacactgcaagcgttcgactcacactgcaacatcgtg
+            ctgagtgatgcagtagagaccatataccaattaaacaacgaggagttgagtgagtccgaa
+            agacgatgtgaaatggtgttcatcagaggagacacagtgactctaatcagcacgccctct
+            gaagatgacgatggcgcagtggagatataa
+///

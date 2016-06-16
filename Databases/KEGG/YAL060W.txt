@@ -1,0 +1,44 @@
+ENTRY       YAL060W           CDS       T00005
+NAME        BDH1
+DEFINITION  (R,R)-butanediol dehydrogenase (EC:1.1.1.303 1.1.1.4)
+ORTHOLOGY   K00004  (R,R)-butanediol dehydrogenase / diacetyl reductase [EC:1.1.1.4 1.1.1.303]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00650  Butanoate metabolism
+CLASS       Metabolism; Carbohydrate metabolism; Butanoate metabolism [PATH:sce00650]
+POSITION    I:35155..36303
+MOTIF       Pfam: ADH_N ADH_zinc_N Shikimate_DH 2-Hacid_dh_C
+DBLINKS     NCBI-GI: 330443362
+            NCBI-GeneID: 851239
+            SGD: S000000056
+            MIPS: YAL060W
+            UniProt: P39714
+AASEQ       382
+            MRALAYFKKGDIHFTNDIPRPEIQTDDEVIIDVSWCGICGSDLHEYLDGPIFMPKDGECH
+            KLSNAALPLAMGHEMSGIVSKVGPKVTKVKVGDHVVVDAASSCADLHCWPHSKFYNSKPC
+            DACQRGSENLCTHAGFVGLGVISGGFAEQVVVSQHHIIPVPKEIPLDVAALVEPLSVTWH
+            AVKISGFKKGSSALVLGAGPIGLCTILVLKGMGASKIVVSEIAERRIEMAKKLGVEVFNP
+            SKHGHKSIEILRGLTKSHDGFDYSYDCSGIQVTFETSLKALTFKGTATNIAVWGPKPVPF
+            QPMDVTLQEKVMTGSIGYVVEDFEEVVRAIHNGDIAMEDCKQLITGKQRIEDGWEKGFQE
+            LMDHKESNVKILLTPNNHGEMK
+NTSEQ       1149
+            atgagagctttggcatatttcaagaagggtgatattcacttcactaatgatatccctagg
+            ccagaaatccaaaccgacgatgaggttattatcgacgtctcttggtgtgggatttgtggc
+            tcggatcttcacgagtacttggatggtccaatcttcatgcctaaagatggagagtgccat
+            aaattatccaacgctgctttacctctggcaatgggccatgagatgtcaggaattgtttcc
+            aaggttggtcctaaagtgacaaaggtgaaggttggcgaccacgtggtcgttgatgctgcc
+            agcagttgtgcggacctgcattgctggccacactccaaattttacaattccaaaccatgt
+            gatgcttgtcagaggggcagtgaaaatctatgtacccacgccggttttgtaggactaggt
+            gtgatcagtggtggctttgctgaacaagtcgtagtctctcaacatcacattatcccggtt
+            ccaaaggaaattcctctagatgtggctgctttagttgagcctctttctgtcacctggcat
+            gctgttaagatttctggtttcaaaaaaggcagttcagccttggttcttggtgcaggtccc
+            attgggttgtgtaccattttggtacttaagggaatgggggctagtaaaattgtagtgtct
+            gaaattgcagagagaagaatagaaatggccaagaaactgggcgttgaggtgttcaatccc
+            tccaagcacggtcataaatctatagagatactacgtggtttgaccaagagccatgatggg
+            tttgattacagttatgattgttctggtattcaagttactttcgaaacctctttgaaggca
+            ttaacattcaaggggacagccaccaacattgcagtttggggtccaaaacctgtcccattc
+            caaccaatggatgtgactctccaagagaaagttatgactggttcgatcggctatgttgtc
+            gaagacttcgaagaagttgttcgtgccatccacaacggagacatcgccatggaagattgt
+            aagcaactaatcactggtaagcaaaggattgaggacggttgggaaaagggattccaagag
+            ttgatggatcacaaggaatccaacgttaagattctattgacgcctaacaatcacggtgaa
+            atgaagtaa
+///

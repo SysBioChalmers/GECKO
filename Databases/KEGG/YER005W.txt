@@ -1,0 +1,62 @@
+ENTRY       YER005W           CDS       T00005
+NAME        YND1, APY1, YEJ5
+DEFINITION  Ynd1p (EC:3.6.1.5)
+ORTHOLOGY   K14642  golgi apyrase [EC:3.6.1.5]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00230  Purine metabolism
+            sce00240  Pyrimidine metabolism
+CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
+            Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
+POSITION    V:160550..162442
+MOTIF       Pfam: GDA1_CD39 Ppx-GppA
+DBLINKS     NCBI-GI: 398364305
+            NCBI-GeneID: 856722
+            SGD: S000000807
+            MIPS: YER005W
+            UniProt: P40009
+AASEQ       630
+            MLIENTNDRFGIVIDAGSSGSRIHVFKWQDTESLLHATNQDSQSILQSVPHIHQEKDWTF
+            KLNPGLSSFEKKPQDAYKSHIKPLLDFAKNIIPESHWSSCPVFIQATAGMRLLPQDIQSS
+            ILDGLCQGLKHPAEFLVEDCSAQIQVIDGETEGLYGWLGLNYLYGHFNDYNPEVSDHFTF
+            GFMDMGGASTQIAFAPHDSGEIARHRDDIATIFLRSVNGDLQKWDVFVSTWLGFGANQAR
+            RRYLAQLINTLPENTNDYENDDFSTRNLNDPCMPRGSSTDFEFKDTIFHIAGSGNYEQCT
+            KSIYPLLLKNMPCDDEPCLFNGVHAPRIDFANDKFIGTSEYWYTANDVFKLGGEYNFDKF
+            SKSLREFCNSNWTQILANSDKGVYNSIPENFLKDACFKGNWVLNILHEGFDMPRIDVDAE
+            NVNDRPLFQSVEKVEERELSWTLGRILLYASGSILAGNDDFMVGIAPSERRTKLTGKKFI
+            PGKLLESDQLRKQSSSLSNKGFLMWFAIICCIFYLIFHRSHIIRRRFSGLYNITKDFKTG
+            IRRRLKFLRRSDPFSRLEEGELGTDVDGFKDVYRMKSSSMFDLGKSSATMQREHEPQRTA
+            SQSANLAPSNLRPAFSMADFSKFKDSRLYD
+NTSEQ       1893
+            atgctcatagaaaacactaatgatcggtttggtatcgtcatagatgcagggtcttcgggt
+            tcgagaatccatgtgtttaagtggcaggacacggaatcgcttcttcatgcaacaaaccag
+            gactcacagtccatattacaatcagtacctcatattcatcaagaaaaagactggactttt
+            aagctgaatccaggcttgtcgagttttgaaaaaaaacctcaagatgcgtacaaatctcac
+            atcaagccgttactagattttgctaagaatattatccctgaatcacattggtcgagttgt
+            cccgtttttattcaagcaaccgcgggcatgcgccttttacctcaagacatacaatcttcc
+            attttggatggtttgtgtcaggggctcaaacaccctgcagaatttttggttgaggattgc
+            tcagcacaaattcaagtcattgatggtgaaaccgaaggtttatatggctggcttggctta
+            aactatctatatggacactttaatgactataatccagaggtctctgaccattttacattt
+            gggtttatggacatgggcggtgcctctactcagattgcgtttgcaccgcatgattcagga
+            gaaatagctagacatagagatgacatcgccaccatcttcttgaggagtgttaacggagat
+            ttgcagaaatgggacgtttttgttagtacgtggttagggtttggtgccaatcaggctaga
+            agaaggtacttggctcagttgatcaatacccttccagaaaacacaaatgattacgaaaat
+            gatgacttctctacaaggaacttgaatgatccatgtatgccgcgaggaagcagcacggat
+            tttgaatttaaagataccatatttcacatcgcgggttctgggaattacgaacaatgtaca
+            aaatctatttatccgttacttttaaagaacatgccttgtgatgacgagccgtgcttgttt
+            aatggtgttcatgctcctcgaatagactttgccaatgacaaatttataggtacttctgag
+            tactggtacactgccaacgacgtattcaaacttgggggcgaatacaactttgacaaattt
+            agcaaaagcctaagggagttttgcaattccaattggacgcaaatattagcgaacagtgat
+            aaaggcgtgtataattctattccggagaattttttgaaagatgcatgctttaagggcaat
+            tgggtccttaatatacttcatgaagggtttgatatgcctcgaatagatgtcgacgcagaa
+            aatgtcaatgacaggcccttatttcaaagtgtggaaaaagtcgaagaacgagagttatcg
+            tggacactaggcagaattttactttatgcctcaggtagcatattggcaggtaatgatgac
+            ttcatggtgggtattgcgcccagtgaaagaagaactaagctcactggtaagaaattcata
+            cctggcaagttactggagtctgatcaactacgcaagcaaagttccagcctttctaataaa
+            ggatttttgatgtggttcgcaattatttgttgcatattttacttgatctttcataggtca
+            cacataatcagaagacgtttttccggtctgtacaacattaccaaggactttaagacaggc
+            ataaggagaaggttgaaatttctaaggagatcagatccattttccagattggaggaaggt
+            gaacttggaacagacgtagatggcttcaaagatgtgtacaggatgaagagtagcagtatg
+            tttgatcttggtaagagttcagccacaatgcaaagggagcacgaaccacaaaggacagca
+            agtcagtccgctaatctcgctccgtcaaacttacgacctgcgttttctatggctgatttt
+            tccaaatttaaggacagtaggctatatgattga
+///

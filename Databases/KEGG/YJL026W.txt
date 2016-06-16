@@ -1,0 +1,50 @@
+ENTRY       YJL026W           CDS       T00005
+NAME        RNR2, CRT6
+DEFINITION  ribonucleotide-diphosphate reductase subunit RNR2 (EC:1.17.4.1)
+ORTHOLOGY   K10808  ribonucleoside-diphosphate reductase subunit M2 [EC:1.17.4.1]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00230  Purine metabolism
+            sce00240  Pyrimidine metabolism
+            sce00480  Glutathione metabolism
+            sce01100  Metabolic pathways
+CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
+            Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
+            Metabolism; Metabolism of other amino acids; Glutathione metabolism [PATH:sce00480]
+POSITION    X:392404..393603
+MOTIF       Pfam: Ribonuc_red_sm
+DBLINKS     NCBI-GI: 6322434
+            NCBI-GeneID: 853427
+            SGD: S000003563
+            MIPS: YJL026W
+            UniProt: P09938
+STRUCTURE   PDB: 1JK0 1SMQ
+AASEQ       399
+            MPKETPSKAAADALSDLEIKDSKSNLNKELETLREENRVKSDMLKEKLSKDAENHKAYLK
+            SHQVHRHKLKEMEKEEPLLNEDKERTVLFPIKYHEIWQAYKRAEASFWTAEEIDLSKDIH
+            DWNNRMNENERFFISRVLAFFAASDGIVNENLVENFSTEVQIPEAKSFYGFQIMIENIHS
+            ETYSLLIDTYIKDPKESEFLFNAIHTIPEIGEKAEWALRWIQDADALFGERLVAFASIEG
+            VFFSGSFASIFWLKKRGMMPGLTFSNELICRDEGLHTDFACLLFAHLKNKPDPAIVEKIV
+            TEAVEIEQRYFLDALPVALLGMNADLMNQYVEFVADRLLVAFGNKKYYKVENPFDFMENI
+            SLAGKTNFFEKRVSDYQKAGVMSKSTKQEAGAFTFNEDF
+NTSEQ       1200
+            atgcctaaagagaccccttccaaagctgctgccgatgcattgtccgacttggaaatcaaa
+            gattccaagtccaaccttaacaaggaattggagacattgagagaggaaaacagagtaaag
+            tcagacatgcttaaggagaaattgagcaaggacgctgaaaatcacaaggcttacttgaaa
+            tctcatcaagttcaccgtcacaaacttaaggaaatggaaaaggaggaacctttgttgaat
+            gaagacaaggagagaactgttcttttccctatcaagtaccatgaaatctggcaagcctac
+            aagcgtgccgaagcttctttctggaccgctgaagaaattgatttgtctaaggatatccat
+            gactggaacaacagaatgaacgaaaacgagagatttttcatttccagagttcttgccttt
+            ttcgccgcttctgacggtattgttaatgaaaacttggttgaaaacttctccaccgaagtc
+            caaattccagaggcaaagagtttctacggtttccaaatcatgattgaaaatattcactct
+            gaaacttactccttgttgatcgatacttacatcaaggaccctaaagaaagtgaattcttg
+            ttcaatgccattcacaccatcccagaaatcggtgagaaggccgaatgggctttaagatgg
+            attcaagacgctgacgccttgtttggtgaaagactagttgcctttgcctccattgaaggt
+            gtctttttctccggttcctttgcctccattttctggttgaaaaagagaggtatgatgccc
+            ggtttaaccttttccaacgaattgatctgtagagacgaaggtttgcacaccgactttgca
+            tgcttgttgttcgcccatttgaagaacaaaccagacccagccattgttgaaaaaattgtc
+            accgaggctgtggaaattgaacaaagatacttcttggacgccttaccagttgctttgcta
+            ggtatgaacgctgacttaatgaaccaatacgttgagttcgtcgccgacagactgttggtt
+            gctttcggtaacaagaaatactacaaggtcgaaaaccccttcgatttcatggaaaacatc
+            tccttggccggtaagaccaacttcttcgaaaagagagtttctgactaccaaaaggctggt
+            gttatgtccaagtcgactaagcaagaagccggtgctttcaccttcaacgaagacttttaa
+///

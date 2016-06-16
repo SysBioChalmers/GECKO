@@ -1,0 +1,29 @@
+ENTRY       YBL026W           CDS       T00005
+NAME        LSM2, SMX5, SNP3
+DEFINITION  Lsm2p
+ORTHOLOGY   K12621  U6 snRNA-associated Sm-like protein LSm2
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03018  RNA degradation
+            sce03040  Spliceosome
+MODULE      sce_M00396  Lsm 2-8 complex
+            sce_M00397  Lsm 1-7 complex
+CLASS       Genetic Information Processing; Transcription; Spliceosome [PATH:sce03040]
+            Genetic Information Processing; Folding, sorting and degradation; RNA degradation [PATH:sce03018]
+POSITION    II:join(170623..170676,170805..171038)
+MOTIF       Pfam: LSM
+DBLINKS     NCBI-GI: 6319445
+            NCBI-GeneID: 852255
+            SGD: S000000122
+            MIPS: YBL026W
+            UniProt: P38203
+STRUCTURE   PDB: 4C92 4M7D 4M7A 4M78 4M75 4M77 4N0A 4C8Q
+AASEQ       95
+            MLFFSFFKTLVDQEVVVELKNDIEIKGTLQSVDQFLNLKLDNISCTDEKKYPHLGSVRNI
+            FIRGSTVRYVYLNKNMVDTNLLQDATRREVMTERK
+NTSEQ       288
+            atgcttttcttctcctttttcaagactttagttgaccaagaagtggtcgtagagttaaaa
+            aacgacattgaaataaaaggtacactacaatcagttgaccaatttttgaatctgaaacta
+            gacaacatatcatgcacagatgaaaaaaaatatccacacttgggttccgtaaggaatatt
+            tttataagaggttcaacagtcaggtacgtttacttgaataagaacatggtagatacgaat
+            ttgctacaagacgctaccagaagggaggtaatgactgaaagaaaataa
+///

@@ -1,0 +1,46 @@
+ENTRY       YGR185C           CDS       T00005
+NAME        TYS1, TTS1
+DEFINITION  tyrosine--tRNA ligase TYS1 (EC:6.1.1.1)
+ORTHOLOGY   K01866  tyrosyl-tRNA synthetase [EC:6.1.1.1]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00970  Aminoacyl-tRNA biosynthesis
+MODULE      sce_M00359  Aminoacyl-tRNA biosynthesis, eukaryotes
+CLASS       Genetic Information Processing; Translation; Aminoacyl-tRNA biosynthesis [PATH:sce00970]
+POSITION    VII:complement(866336..867520)
+MOTIF       Pfam: tRNA-synt_1b
+DBLINKS     NCBI-GI: 398366063
+            NCBI-GeneID: 853097
+            SGD: S000003417
+            MIPS: YGR185C
+            UniProt: P36421
+STRUCTURE   PDB: 2DLC
+AASEQ       394
+            MSSAATVDPNEAFGLITKNLQEVLNPQIIKDVLEVQKRHLKLYWGTAPTGRPHCGYFVPM
+            TKLADFLKAGCEVTVLLADLHAFLDNMKAPLEVVNYRAKYYELTIKAILRSINVPIEKLK
+            FVVGSSYQLTPDYTMDIFRLSNIVSQNDAKRAGADVVKQVANPLLSGLIYPLMQALDEQF
+            LDVDCQFGGVDQRKIFVLAEENLPSLGYKKRAHLMNPMVPGLAQGGKMSASDPNSKIDLL
+            EEPKQVKKKINSAFCSPGNVEENGLLSFVQYVIAPIQELKFGTNHFEFFIDRPEKFGGPI
+            TYKSFEEMKLAFKEEKLSPPDLKIGVADAINELLEPIRQEFANNKEFQEASEKGYPVATP
+            QKSKKAKKPKNKGTKYPGATKTNEIATKLEETKL
+NTSEQ       1185
+            atgtcctctgctgccacggttgaccctaatgaggcgttcggtctcattaccaagaacttg
+            caagaagtcttgaacccacaaatcatcaaagatgttctcgaagtacaaaagagacatttg
+            aaattatactggggtaccgcgcccactggaagacctcattgtggttattttgttcctatg
+            accaagcttgctgatttcttgaaagcaggttgtgaagtgactgttcttttagcagacttg
+            cacgcctttttggacaacatgaaggcgccattggaagtggtgaactatagggccaaatac
+            tatgaattgaccatcaaagctatcttgagaagcatcaatgttccaattgaaaagctaaaa
+            tttgttgttggctcttcttaccagctaactccagactataccatggatatctttagatta
+            tccaacattgtttcacaaaacgatgctaaaagggcaggcgctgatgttgtcaagcaagtc
+            gccaatccattattgagtgggcttatctatcctttaatgcaagcgttggacgaacaattc
+            ttagatgttgattgccaatttggtggtgtcgaccagagaaaaatttttgtcttagcggaa
+            gaaaatttaccaagtttgggctacaagaaaagagcacatttaatgaaccctatggttcca
+            ggtttggctcaaggtggtaaaatgtctgcctctgatccgaattcaaaaatcgaccttttg
+            gaagaaccaaagcaagttaagaaaaagatcaatagtgcattttgtagccccggtaacgtc
+            gaagagaatggtttactgtcatttgtccaatatgtcattgcaccaatccaagaattgaag
+            tttggtacaaatcacttcgaattcttcattgatagaccagaaaagttcggtggtccaatt
+            acctacaaatccttcgaagaaatgaaattggcttttaaagaagaaaaattgtccccacct
+            gatctaaaaattggtgttgctgacgctatcaacgagctattggagccaatcagacaagaa
+            tttgccaacaacaaggaatttcaagaggcctccgaaaagggttatccagttgccacacca
+            caaaagtcgaaaaaggctaagaaaccaaagaataagggtactaagtacccaggcgctact
+            aagaccaacgagattgccacgaaactagaggaaaccaaattgtaa
+///

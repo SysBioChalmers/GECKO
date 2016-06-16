@@ -1,0 +1,80 @@
+ENTRY       YDR409W           CDS       T00005
+NAME        SIZ1, ULL1
+DEFINITION  SUMO ligase SIZ1 (EC:6.3.2.-)
+ORTHOLOGY   K04706  E3 SUMO-protein ligase PIAS1 [EC:6.3.2.-]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04120  Ubiquitin mediated proteolysis
+CLASS       Genetic Information Processing; Folding, sorting and degradation; Ubiquitin mediated proteolysis [PATH:sce04120]
+POSITION    IV:1289406..1292120
+MOTIF       Pfam: PINIT zf-MIZ SAP zf-Nse zf-RING_UBOX
+DBLINKS     NCBI-GI: 398366573
+            NCBI-GeneID: 852018
+            SGD: S000002817
+            MIPS: YDR409W
+            UniProt: Q04195
+STRUCTURE   PDB: 3I2D 2RNN
+AASEQ       904
+            MINLEDYWEDETPGPDREPTNELRNEVEETITLMELLKVSELKDICRSVSFPVSGRKAVL
+            QDLIRNFLQNALVVGKSDPYRVQAVKFLIERIRKNEPLPVYKDLWNALRKGTPLSAITVR
+            SMEGPPTVQQQSPSVIRQSPTQRRKTSTTSSTSRAPPPTNPDASSSSSSFAVPTIHFKES
+            PFYKIQRLIPELVMNVEVTGGRGMCSAKFKLSKADYNLLSNPNSKHRLYLFSGMINPLGS
+            RGNEPIQFPFPNELRCNNVQIKDNIRGFKSKPGTAKPADLTPHLKPYTQQNNVELIYAFT
+            TKEYKLFGYIVEMITPEQLLEKVLQHPKIIKQATLLYLKKTLREDEEMGLTTTSTIMSLQ
+            CPISYTRMKYPSKSINCKHLQCFDALWFLHSQLQIPTWQCPVCQIDIALENLAISEFVDD
+            ILQNCQKNVEQVELTSDGKWTAILEDDDDSDSDSNDGSRSPEKGTSVSDHHCSSSHPSEP
+            IIINLDSDDDEPNGNNPHVTNNHDDSNRHSNDNNNNSIKNNDSHNKNNNNNNNNNNNNND
+            NNNSIENNDSNSNNKHDHGSRSNTPSHNHTKNLMNDNDDDDDDRLMAEITSNHLKSTNTD
+            ILTEKGSSAPSRTLDPKSYNIVASETTTPVTNRVIPEYLGNSSSYIGKQLPNILGKTPLN
+            VTAVDNSSHLISPDVSVSSPTPRNTASNASSSALSTPPLIRMSSLDPRGSTVPDKTIRPP
+            INSNSYTASISDSFVQPQESSVFPPREQNMDMSFPSTVNSRFNDPRLNTTRFPDSTLRGA
+            TILSNNGLDQRNNSLPTTEAITRNDVGRQNSTPVLPTLPQNVPIRTNSNKSGLPLINNEN
+            SVPNPPNTATIPLQKSRLIVNPFIPRRPYSNVLPQKRQLSNTSSTSPIMGTWKTQDYGKK
+            YNSG
+NTSEQ       2715
+            atgataaatttagaggattactgggaagatgaaacgcctgggcctgatagggaaccgact
+            aatgaactaagaaacgaggtggaggaaaccatcactctgatggaactgctgaaagtgtcc
+            gaattgaaggatatttgcaggtctgtatctttcccggtttccggtcgcaaggccgttcta
+            caggaccttatcaggaatttcttgcagaacgctttagtagtaggcaagtctgatccttat
+            agagttcaagccgttaaatttctgatagaacggatcagaaagaatgaacctttgcctgtt
+            tataaagatctttggaacgctttaagaaagggtaccccattgagtgctatcacagtacgt
+            tctatggaggggcctcccacggtgcagcagcaatcaccttccgttattaggcagtctccc
+            actcaacggcggaaaacgtctaccacatcttccacatctcgtgcaccaccacctacaaat
+            ccagatgcctcttcttcttcatcatcttttgctgtaccgacaattcattttaaagagtct
+            ccattttacaaaatacaaaggctaatccctgaattagtgatgaacgtggaagtcacaggc
+            ggaagaggtatgtgctctgcgaaatttaaattgtccaaagcagactataatctattaagt
+            aacccgaatagcaaacacaggctatacttattttctgggatgattaatccattaggatcc
+            cgaggtaatgaacccatccaatttccattcccaaatgaattaaggtgcaataatgttcaa
+            atcaaagataatataagaggtttcaagagtaagccgggcacagctaagccggcggattta
+            acgcctcatctcaaaccttatactcaacaaaacaatgtggagctgatatatgccttcacc
+            acgaaggaatacaagctatttgggtacattgtagaaatgatcactccggagcaactcctg
+            gaaaaagtattacagcatccaaaaattattaaacaagccacgttactttacttgaaaaaa
+            acacttcgggaggatgaagaaatgggcttgactaccacatctactatcatgagtctgcaa
+            tgtccaatttcgtacacaagaatgaaatacccttcaaaatcaataaattgtaagcatctg
+            caatgttttgatgcattatggttcctacactcccaactacaaattcctacgtggcaatgc
+            ccagtatgtcaaattgatatagctttggaaaatttagcaatttccgaatttgttgatgac
+            attttacagaactgtcaaaaaaacgttgaacaggtagaacttacttctgatggtaagtgg
+            acagccatattggaagacgatgatgacagcgacagtgacagcaatgatggtagtagaagc
+            ccagaaaaaggtacttcagtatcggatcatcattgttcttcttcacatccaagtgaaccg
+            attatcataaatctcgatagtgatgatgacgaaccaaatggaaataatcctcatgttact
+            aataatcatgatgatagcaacaggcatagtaatgataacaataataatagtatcaaaaat
+            aatgatagtcataataaaaataataataataataataataacaataataataataatgat
+            aataataatagtatcgaaaataatgatagtaatagtaataataaacatgatcatggtagt
+            cgcagtaatactcccagtcataatcatactaaaaatttaatgaacgataatgatgacgat
+            gatgatgatcgacttatggcggaaataactagcaatcaccttaaaagtactaatacagat
+            attctaactgaaaaaggttcaagtgcaccctcgagaaccctggatccaaaaagttataac
+            atagttgcttcagaaactactactccggtgacaaacagggttattcctgagtacctcgga
+            aacagttccagttatattggtaaacaattgccgaacattctgggaaaaacgcctttaaat
+            gtgactgctgttgataattcatcccacttaatctctccagatgttagcgtatcatcccca
+            acgccaagaaacaccgcttcaaatgcaagttcgagcgctctcagtacccctcccttaata
+            agaatgagttcattagatcccaggggatccactgttcccgataaaacaataaggcctccc
+            ataaattccaacagttatactgcatcgatatcagattcatttgtccagcctcaagaatct
+            tcagtttttccaccacgtgaacagaatatggatatgtcctttccttccaccgtgaactca
+            agatttaatgatccacgtttgaataccacaagattccctgattcaacattgcgtggggca
+            actattttgtcgaataatgggcttgatcaaaggaataactctctaccaacaacagaagca
+            atcacgaggaatgacgtcgggcgacaaaattctacgcctgtacttcccacgttgccccag
+            aacgtcccaattcgtacaaactctaacaagtctgggcttcctttgataaacaatgaaaac
+            agtgtccccaatcctcccaacactgcaaccataccgttgcagaagtccagactcattgta
+            aatccattcattccaaggaggccttactctaatgtactgccccaaaaaagacaactttct
+            aatacatcctcaacttcacccataatgggtacatggaaaacgcaagattatggaaagaaa
+            tacaacagtggttaa
+///

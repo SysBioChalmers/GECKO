@@ -1,0 +1,34 @@
+ENTRY       YDR156W           CDS       T00005
+NAME        RPA14
+DEFINITION  Rpa14p
+ORTHOLOGY   K03001  DNA-directed RNA polymerase I subunit RPA14
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00230  Purine metabolism
+            sce00240  Pyrimidine metabolism
+            sce01100  Metabolic pathways
+            sce03020  RNA polymerase
+MODULE      sce_M00182  RNA polymerase I, eukaryotes
+CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
+            Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
+            Genetic Information Processing; Transcription; RNA polymerase [PATH:sce03020]
+POSITION    IV:769525..769938
+MOTIF       Pfam: RNA_polI_A14
+DBLINKS     NCBI-GI: 6320360
+            NCBI-GeneID: 851734
+            SGD: S000002563
+            MIPS: YDR156W
+            UniProt: P50106
+STRUCTURE   PDB: 4C2M 4C3I 2RF4 4C3H 4C3J
+AASEQ       137
+            MMKGSRRTGNNTATTLNTPVVIHATQLPQHVSTDEVLQFLESFIDEKENIIDSTTMNTIS
+            GNAADADAAAVANTSLNIDTNLSSSISQLKRIQRDFKGLPPAQDFSAAPIQVSTTEKKET
+            SIGVSATGGKKTTFADE
+NTSEQ       414
+            atgatgaaaggttctagaagaacaggtaataacactgctaccacgctaaacacgcctgtg
+            gtcattcatgccacgcagctgccccaacatgtctctactgacgaggttcttcaatttctg
+            gagagctttatcgatgagaaggagaacattattgatagtactaccatgaataccatcagc
+            ggcaacgccgctgacgcggacgctgccgctgtggctaacaccagcctcaacatcgacacc
+            aacctttccagctccatatcgcaattaaagaggattcagagagacttcaagggtctgcca
+            cccgcccaagacttttccgccgcgcccattcaggtctccacgacggagaagaaggagaca
+            agcataggtgttagtgccaccggcggcaagaaaactacattcgccgatgagtga
+///

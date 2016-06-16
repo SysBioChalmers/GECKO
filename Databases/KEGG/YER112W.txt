@@ -1,0 +1,36 @@
+ENTRY       YER112W           CDS       T00005
+NAME        LSM4, SDB23, USS1
+DEFINITION  Lsm4p
+ORTHOLOGY   K12623  U6 snRNA-associated Sm-like protein LSm4
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03018  RNA degradation
+            sce03040  Spliceosome
+MODULE      sce_M00396  Lsm 2-8 complex
+            sce_M00397  Lsm 1-7 complex
+CLASS       Genetic Information Processing; Transcription; Spliceosome [PATH:sce03040]
+            Genetic Information Processing; Folding, sorting and degradation; RNA degradation [PATH:sce03018]
+POSITION    V:387232..387795
+MOTIF       Pfam: LSM SM-ATX
+DBLINKS     NCBI-GI: 398364697
+            NCBI-GeneID: 856848
+            SGD: S000000914
+            MIPS: YER112W
+            UniProt: P40070
+STRUCTURE   PDB: 4C92 4M7D 4M7A 4M78 4M75 4M77 4C8Q
+AASEQ       187
+            MLPLYLLTNAKGQQMQIELKNGEIIQGILTNVDNWMNLTLSNVTEYSEESAINSEDNAES
+            SKAVKLNEIYIRGTFIKFIKLQDNIIDKVKQQINSNNNSNSNGPGHKRYYNNRDSNNNRG
+            NYNRRNNNNGNSNRRPYSQNRQYNNSNSSNINNSINSINSNNQNMNNGLGGSVQHHFNSS
+            SPQKVEF
+NTSEQ       564
+            atgctacctttatatcttttaacaaatgcgaagggacaacaaatgcaaatagaattgaaa
+            aacggtgaaattatacaagggatattgaccaacgtagataactggatgaaccttacttta
+            tctaatgtaaccgaatatagtgaagaaagcgcaattaattcagaagacaatgctgagagc
+            agtaaagccgtaaaattgaacgaaatttatattagagggacttttatcaagtttatcaaa
+            ttgcaagataatataattgacaaggtcaagcagcaaattaactccaacaataactctaat
+            agtaacggccctgggcataaaagatactacaacaatagggattcaaacaacaatagaggt
+            aactacaacagaagaaataataataacggcaacagcaaccgccgtccatactctcaaaac
+            cgtcaatacaacaacagcaacagcagtaacattaacaacagtatcaacagtatcaatagc
+            aacaaccaaaatatgaacaatggtttaggtgggtccgtccaacatcattttaacagctct
+            tctccacaaaaggtcgaattttaa
+///

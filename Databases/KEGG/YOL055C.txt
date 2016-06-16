@@ -1,0 +1,57 @@
+ENTRY       YOL055C           CDS       T00005
+NAME        THI20
+DEFINITION  trifunctional hydroxymethylpyrimidine kinase/phosphomethylpyrimidine kinase/thiaminase (EC:2.7.1.49 2.7.4.7)
+ORTHOLOGY   K00877  hydroxymethylpyrimidine/phosphomethylpyrimidine kinase [EC:2.7.1.49 2.7.4.7]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00730  Thiamine metabolism
+            sce01100  Metabolic pathways
+CLASS       Metabolism; Metabolism of cofactors and vitamins; Thiamine metabolism [PATH:sce00730]
+POSITION    XV:complement(224420..226075)
+MOTIF       Pfam: Phos_pyr_kin TENA_THI-4 PfkB HK
+DBLINKS     NCBI-GI: 6324517
+            NCBI-GeneID: 854099
+            SGD: S000005416
+            MIPS: YOL055C
+            UniProt: Q08224
+STRUCTURE   PDB: 3RM5
+AASEQ       551
+            MTYSTVSINTPPPYLTLACNEKLPTVLSIAGTDPSGGAGIEADVKTITAHRCYAMTCITA
+            LNAQTPVKVYSINNTPKEVVFQTLESNLKDMKCNVIKTGMLTAAAIEVLHEKLLQLGENR
+            PKLVVDPVLVATSGSSLAGKDIVSLITEKVAPFADILTPNIPECYKLLGEERKVNGLQDI
+            FQIAKDLAKITKCSNILVKGGHIPWNDEKEKYITDVLFLGAEQKFIIFKGNFVNTTHTHG
+            TGCTLASAIASNLARGYSLPQSVYGGIEYVQNAVAIGCDVTKETVKDNGPINHVYAVEIP
+            LEKMLSDECFTASDVIPKKPLKSAADKIPGGNFYEYLINHPKVKPHWDSYINHEFVKKVA
+            DGTLERKKFQFFIEQDYAYLVDYARVHCIAGSKAPCLEDMEKELVIVGGVRTEMGQHEKR
+            LKEVFGVKDPDYFQKIKRGPALRAYSRYFNDVSRRGNWQELVASLTPCLMGYGEALTKMK
+            GKVTAPEGSVYHEWCETYASSWYREAMDEGEKLLNHILETYPPEQLDTLVTIYAEVCELE
+            TNFWTAALEYE
+NTSEQ       1656
+            atgacctattctacagttagcatcaacacgcctccaccatatcttactttagcctgcaac
+            gaaaagttgccaacagttttatccattgctggaacagatccaagtggtggagccggtatc
+            gaagctgatgtcaaaactatcacagcacacagatgttatgccatgacatgtatcactgct
+            ttaaatgctcaaactccagttaaagtctacagcataaataacacaccaaaagaagtggtt
+            ttccaaactttggaatccaatttaaaggatatgaaatgtaatgttatcaaaaccggtatg
+            cttaccgcagctgctatcgaagtcttgcacgaaaaactgctgcaactcggcgaaaataga
+            cctaagttggttgttgatccagttcttgtcgctacttctggttcttctttagctggaaag
+            gatatagttagtttgattacggagaaggttgcaccttttgctgatattttgactcctaac
+            atcccagagtgttacaaattgttaggtgaggaaagaaaggttaacggattacaggatatt
+            ttccaaatcgcaaaagaccttgctaaaataaccaagtgttcgaatatactagtgaagggt
+            ggccatattccatggaatgatgaaaaggaaaagtacattaccgacgttcttttcttgggt
+            gctgaacaaaaattcattatctttaaaggcaatttcgttaacaccacgcatacacatggt
+            actgggtgcacactagcttctgccattgcatcaaacttggctcgtggttattctcttcct
+            cagtctgtttatggtggtattgaatacgtccaaaatgccgtggcaattggttgtgatgtc
+            acaaaagaaactgtcaaggataatggaccaattaatcatgtttacgccgtggaaattcca
+            ttggagaaaatgctcagtgatgaatgttttactgcatcggatgttatacctaaaaagccg
+            ctcaaaagtgctgctgacaaaatcccaggcggtaatttctatgaatacctgatcaatcac
+            cctaaagttaagccacactgggattcctatattaaccatgagtttgttaaaaaggttgcg
+            gacggtacattagaacgtaagaagtttcagttctttattgaacaagattatgcatacttg
+            gttgattatgctagagttcattgtatcgcgggtagtaaagctccatgcctagaagatatg
+            gaaaaggagctagtcattgttggaggtgttcgtactgaaatgggtcaacatgaaaagaga
+            ttaaaagaagtatttggtgttaaagatcctgattactttcaaaagattaagagaggacct
+            gcattaagagcttactctcgttactttaacgatgtttccagaagaggtaactggcaagaa
+            ttggttgcatcccttactccttgtttgatgggttatggtgaagctttaactaaaatgaag
+            ggtaaagtcaccgcacctgaagggtccgtttaccacgaatggtgtgaaacttacgcatct
+            tcatggtatcgtgaagccatggatgaaggtgaaaaacttttgaaccacatcttagaaaca
+            taccctccagagcaacttgacactttagtaacaatctacgctgaagtttgtgaattagaa
+            acaaatttttggaccgctgcgctagaatacgagtag
+///

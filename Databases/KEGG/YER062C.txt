@@ -1,0 +1,36 @@
+ENTRY       YER062C           CDS       T00005
+NAME        HOR2, GPP2
+DEFINITION  glycerol-1-phosphatase HOR2 (EC:3.1.3.21 3.1.3.-)
+ORTHOLOGY   K06117  glycerol 3-phosphatase 2 [EC:3.1.3.21]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00561  Glycerolipid metabolism
+            sce01100  Metabolic pathways
+CLASS       Metabolism; Lipid metabolism; Glycerolipid metabolism [PATH:sce00561]
+POSITION    V:complement(279930..280682)
+MOTIF       Pfam: HAD_2 Hydrolase Hydrolase_like HAD
+DBLINKS     NCBI-GI: 398364483
+            NCBI-GeneID: 856791
+            SGD: S000000864
+            MIPS: YER062C
+            UniProt: P40106
+AASEQ       250
+            MGLTTKPLSLKVNAALFDVDGTIIISQPAIAAFWRDFGKDKPYFDAEHVIQVSHGWRTFD
+            AIAKFAPDFANEEYVNKLEAEIPVKYGEKSIEVPGAVKLCNALNALPKEKWAVATSGTRD
+            MAQKWFEHLGIRRPKYFITANDVKQGKPHPEPYLKGRNGLGYPINEQDPSKSKVVVFEDA
+            PAGIAAGKAAGCKIIGIATTFDLDFLKEKGCDIIVKNHESIRVGGYNAETDEVEFIFDDY
+            LYAKDDLLKW
+NTSEQ       753
+            atgggattgactactaaacctctatctttgaaagttaacgccgctttgttcgacgtcgac
+            ggtaccattatcatctctcaaccagccattgctgcattctggagggatttcggtaaggac
+            aaaccttatttcgatgctgaacacgttatccaagtctcgcatggttggagaacgtttgat
+            gccattgctaagttcgctccagactttgccaatgaagagtatgttaacaaattagaagct
+            gaaattccggtcaagtacggtgaaaaatccattgaagtcccaggtgcagttaagctgtgc
+            aacgctttgaacgctctaccaaaagagaaatgggctgtggcaacttccggtacccgtgat
+            atggcacaaaaatggttcgagcatctgggaatcaggagaccaaagtacttcattaccgct
+            aatgatgtcaaacagggtaagcctcatccagaaccatatctgaagggcaggaatggctta
+            ggatatccgatcaatgagcaagacccttccaaatctaaggtagtagtatttgaagacgct
+            ccagcaggtattgccgccggaaaagccgccggttgtaagatcattggtattgccactact
+            ttcgacttggacttcctaaaggaaaaaggctgtgacatcattgtcaaaaaccacgaatcc
+            atcagagttggcggctacaatgccgaaacagacgaagttgaattcatttttgacgactac
+            ttatatgctaaggacgatctgttgaaatggtaa
+///

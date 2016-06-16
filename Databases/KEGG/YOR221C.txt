@@ -1,0 +1,46 @@
+ENTRY       YOR221C           CDS       T00005
+NAME        MCT1
+DEFINITION  [acyl-carrier-protein] S-malonyltransferase (EC:2.3.1.39)
+ORTHOLOGY   K00645  [acyl-carrier-protein] S-malonyltransferase [EC:2.3.1.39]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00061  Fatty acid biosynthesis
+            sce01100  Metabolic pathways
+            sce01212  Fatty acid metabolism
+MODULE      sce_M00082  Fatty acid biosynthesis, initiation
+CLASS       Metabolism; Overview; Fatty acid metabolism [PATH:sce01212]
+            Metabolism; Lipid metabolism; Fatty acid biosynthesis [PATH:sce00061]
+POSITION    XV:complement(756476..757558)
+MOTIF       Pfam: Acyl_transf_1
+DBLINKS     NCBI-GI: 398365823
+            NCBI-GeneID: 854396
+            SGD: S000005747
+            MIPS: YOR221C
+            UniProt: Q12283
+AASEQ       360
+            MKLLTFPGQGTSISISILKAIIRNKSREFQTILSQNGKESNDLLQYIFQNPSSPGSIAVC
+            SNLFYQLYQILSNPSDPQDQAPKNMTKIDSPDKKDNEQCYLLGHSLGELTCLSVNSLFSL
+            KDLFDIANFRNKLMVTSTEKYLVAHNINRSNKFEMWALSSPRATDLPQEVQKLLNSPNLL
+            SSSQNTISVANANSVKQCVVTGLVDDLESLRTELNLRFPRLRITELTNPYNIPFHNSTVL
+            RPVQEPLYDYIWDILKKNGTHTLMELNHPIIANLDGNISYYIHHALDRFVKCSSRTVQFT
+            MCYDTINSGTPVEIDKSICFGPGNVIYNLIRRNCPQVDTIEYTSLATIDAYHKAAEENKD
+NTSEQ       1083
+            atgaagctactaaccttcccaggtcaagggacctccatctccatttcgatattaaaagcg
+            ataataagaaacaaatcaagagaattccaaacaatactgagtcagaacggcaaggaatca
+            aatgatctattgcagtacatcttccagaacccttccagccccggaagcattgcagtctgc
+            tccaaccttttctatcaattgtaccagatactctcgaatccttctgatcctcaagatcaa
+            gcaccaaaaaatatgactaagatcgattcccccgacaagaaagacaatgaacaatgttac
+            cttttgggtcactcgctaggcgagttaacatgtctgagtgttaattcactgttttcgtta
+            aaggatctttttgatattgctaattttagaaataagttaatggtaacatctactgaaaag
+            tacttagtagcccacaatatcaacagatccaacaaatttgaaatgtgggcactctcttct
+            ccgagggccacagatttaccgcaagaagtgcaaaaactactaaattcccctaatttatta
+            tcatcttcacaaaataccatttctgtagcaaatgcaaattcagtaaagcaatgtgtagtc
+            accggtctggttgatgatttagagtccttaagaacagaattgaacttaaggttcccgcgt
+            ttaagaattacagaattaactaacccatacaacatccccttccataatagcactgtgttg
+            aggcccgttcaggaaccactctatgactacatttgggatatattaaagaaaaacggaact
+            cacacgttgatggagttgaaccatccaataatagctaacttagatggtaatatatcttac
+            tatattcatcatgccctagatagattcgttaagtgttcaagcaggactgtgcaattcacc
+            atgtgttatgataccataaactctggaaccccagtggaaattgataagagtatttgcttt
+            ggcccgggcaatgtgatttataaccttattcggagaaattgtccccaagtggacactata
+            gaatacacctctttagcaactatagacgcttatcacaaggcggcagaggagaacaaagat
+            tga
+///

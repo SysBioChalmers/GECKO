@@ -1,0 +1,50 @@
+ENTRY       YCL018W           CDS       T00005
+NAME        LEU2
+DEFINITION  3-isopropylmalate dehydrogenase (EC:1.1.1.85)
+ORTHOLOGY   K00052  3-isopropylmalate dehydrogenase [EC:1.1.1.85]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00290  Valine, leucine and isoleucine biosynthesis
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01210  2-Oxocarboxylic acid metabolism
+            sce01230  Biosynthesis of amino acids
+MODULE      sce_M00432  Leucine biosynthesis, 2-oxoisovalerate => 2-oxoisocaproate
+CLASS       Metabolism; Overview; 2-Oxocarboxylic acid metabolism [PATH:sce01210]
+            Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
+            Metabolism; Amino acid metabolism; Valine, leucine and isoleucine biosynthesis [PATH:sce00290]
+POSITION    III:91324..92418
+MOTIF       Pfam: Iso_dh DNA_ligase_aden
+DBLINKS     NCBI-GI: 10383772
+            NCBI-GeneID: 850342
+            SGD: S000000523
+            MIPS: YCL018W
+            UniProt: P04173
+AASEQ       364
+            MSAPKKIVVLPGDHVGQEITAEAIKVLKAISDVRSNVKFDFENHLIGGAAIDATGVPLPD
+            EALEASKKADAVLLGAVGGPKWGTGSVRPEQGLLKIRKELQLYANLRPCNFASDSLLDLS
+            PIKPQFAKGTDFVVVRELVGGIYFGKRKEDDGDGVAWDSEQYTVPEVQRITRMAAFMALQ
+            HEPPLPIWSLDKANVLASSRLWRKTVEETIKNEFPTLKVQHQLIDSAAMILVKNPTHLNG
+            IIITSNMFGDIISDEASVIPGSLGLLPSASLASLPDKNTAFGLYEPCHGSAPDLPKNKVN
+            PIATILSAAMMLKLSLNLPEEGKAIEDAVKKVLDAGIRTGDLGGSNSTTEVGDAVAEEVK
+            KILA
+NTSEQ       1095
+            atgtctgcccctaagaagatcgtcgttttgccaggtgaccacgttggtcaagaaatcaca
+            gccgaagccattaaggttcttaaagctatttctgatgttcgttccaatgtcaagttcgat
+            ttcgaaaatcatttaattggtggtgctgctatcgatgctacaggtgttccacttccagat
+            gaggcgctggaagcctccaagaaggctgatgccgttttgttaggtgctgtgggtggtcct
+            aaatggggtaccggtagtgttagacctgaacaaggtttactaaaaatccgtaaagaactt
+            caattgtacgccaacttaagaccatgtaactttgcatccgactctcttttagacttatct
+            ccaatcaagccacaatttgctaaaggtactgacttcgttgttgtcagagaattagtggga
+            ggtatttactttggtaagagaaaggaagacgatggtgatggtgtcgcttgggatagtgaa
+            caatacaccgttccagaagtgcaaagaatcacaagaatggccgctttcatggccctacaa
+            catgagccaccattgcctatttggtccttggataaagctaatgttttggcctcttcaaga
+            ttatggagaaaaactgtggaggaaaccatcaagaacgaattccctacattgaaggttcaa
+            catcaattgattgattctgccgccatgatcctagttaagaacccaacccacctaaatggt
+            attataatcaccagcaacatgtttggtgatatcatctccgatgaagcctccgttatccca
+            ggttccttgggtttgttgccatctgcgtccttggcctctttgccagacaagaacaccgca
+            tttggtttgtacgaaccatgccacggttctgctccagatttgccaaagaataaggtcaac
+            cctatcgccactatcttgtctgctgcaatgatgttgaaattgtcattgaacttgcctgaa
+            gaaggtaaggccattgaagatgcagttaaaaaggttttggatgcaggtatcagaactggt
+            gatttaggtggttccaacagtaccaccgaagtcggtgatgctgtcgccgaagaagttaag
+            aaaatccttgcttaa
+///

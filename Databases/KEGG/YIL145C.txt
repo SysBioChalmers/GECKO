@@ -1,0 +1,43 @@
+ENTRY       YIL145C           CDS       T00005
+NAME        PAN6
+DEFINITION  pantoate--beta-alanine ligase PAN6 (EC:6.3.2.1)
+ORTHOLOGY   K01918  pantoate--beta-alanine ligase [EC:6.3.2.1]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00410  beta-Alanine metabolism
+            sce00770  Pantothenate and CoA biosynthesis
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+CLASS       Metabolism; Metabolism of other amino acids; beta-Alanine metabolism [PATH:sce00410]
+            Metabolism; Metabolism of cofactors and vitamins; Pantothenate and CoA biosynthesis [PATH:sce00770]
+POSITION    IX:complement(76354..77283)
+MOTIF       Pfam: Pantoate_ligase FAD_syn
+DBLINKS     NCBI-GI: 37362661
+            NCBI-GeneID: 854661
+            SGD: S000001407
+            MIPS: YIL145C
+            UniProt: P40459
+AASEQ       309
+            MKIFHTVEEVVQWRTQELRETRFRETIGFVPTMGCLHSGHASLISQSVKENTYTVVSIFV
+            NPSQFAPTEDLDNYPRTLPDDIKLLESLKVDVLFAPNAHVMYPQGIPLDIEEQKGPFVSV
+            LGLSEKLEGKTRPNFFRGVATVVTKLFNIVMADVAYFGQKDIQQFIVLQCMVDELFVNTR
+            LQMMPIVRNNNGLALSSRNKYLCPESLKISENLYRGLKAAENAIRRLAPGGRLSRSEIID
+            TVTQIWAPYVDSHDFKIDYVSLADFKTLDELSDVENTSEQQPIVISCAVYVTDREKPDTV
+            VRLIDNIVI
+NTSEQ       930
+            atgaaaatcttccatactgtcgaagaagttgttcaatggagaacacaggagctgagggaa
+            actagatttagagaaactattgggttcgttcccacaatgggttgcctgcattcgggtcac
+            gctagtttgatctcgcagtctgtgaaggaaaacacctatactgtggtcagtatatttgta
+            aatccctcccagtttgcgccaacggaagatctagataactatcctcgaactttgccagac
+            gacatcaaattgcttgagtcgttgaaggtggatgttctatttgctcctaatgcacacgtg
+            atgtatccacagggaattccgctcgacatagaagagcagaaaggcccttttgttagtgtt
+            cttggattgagtgaaaaattagaggggaagacgagacctaacttctttaggggcgtggca
+            actgtcgtgactaaactattcaatatcgttatggcggatgtggcttattttgggcagaag
+            gacattcaacagttcattgttttacagtgtatggtggacgaactgtttgttaatacaagg
+            ctacaaatgatgcctattgtaagaaacaataatggactggctctgagtagtagaaacaaa
+            tatctttgtccagagtctttaaagatctctgaaaacctttaccgcgggctgaaagctgcg
+            gaaaatgctattaggagactagcaccagggggacgtctctccagatcagaaatcatcgat
+            actgtgactcaaatatgggcaccctacgttgattcccacgatttcaaaatcgactatgtt
+            tccttagcagattttaagactcttgatgaactctccgatgttgaaaacaccagcgaacag
+            cagccaatagtcattagttgtgctgtatacgtgactgaccgcgaaaaacccgatacggtc
+            gtcagactaatagataacatcgttatttaa
+///

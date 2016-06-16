@@ -1,0 +1,50 @@
+ENTRY       YOL086C           CDS       T00005
+NAME        ADH1, ADC1
+DEFINITION  alcohol dehydrogenase ADH1 (EC:1.1.1.190 1.1.1.1)
+ORTHOLOGY   K13953  alcohol dehydrogenase, propanol-preferring [EC:1.1.1.1]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00010  Glycolysis / Gluconeogenesis
+            sce00071  Fatty acid degradation
+            sce00350  Tyrosine metabolism
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01220  Degradation of aromatic compounds
+CLASS       Metabolism; Overview; Degradation of aromatic compounds [PATH:sce01220]
+            Metabolism; Carbohydrate metabolism; Glycolysis / Gluconeogenesis [PATH:sce00010]
+            Metabolism; Lipid metabolism; Fatty acid degradation [PATH:sce00071]
+            Metabolism; Amino acid metabolism; Tyrosine metabolism [PATH:sce00350]
+POSITION    XV:complement(159548..160594)
+MOTIF       Pfam: ADH_N ADH_zinc_N ADH_zinc_N_2 YbjQ_1
+DBLINKS     NCBI-GI: 6324486
+            NCBI-GeneID: 854068
+            SGD: S000005446
+            MIPS: YOL086C
+            UniProt: P00330
+STRUCTURE   PDB: 2HCY
+AASEQ       348
+            MSIPETQKGVIFYESHGKLEYKDIPVPKPKANELLINVKYSGVCHTDLHAWHGDWPLPVK
+            LPLVGGHEGAGVVVGMGENVKGWKIGDYAGIKWLNGSCMACEYCELGNESNCPHADLSGY
+            THDGSFQQYATADAVQAAHIPQGTDLAQVAPILCAGITVYKALKSANLMAGHWVAISGAA
+            GGLGSLAVQYAKAMGYRVLGIDGGEGKEELFRSIGGEVFIDFTKEKDIVGAVLKATDGGA
+            HGVINVSVSEAAIEASTRYVRANGTTVLVGMPAGAKCCSDVFNQVVKSISIVGSYVGNRA
+            DTREALDFFARGLVKSPIKVVGLSTLPEIYEKMEKGQIVGRYVVDTSK
+NTSEQ       1047
+            atgtctatcccagaaactcaaaaaggtgttatcttctacgaatcccacggtaagttggaa
+            tacaaagatattccagttccaaagccaaaggccaacgaattgttgatcaacgttaaatac
+            tctggtgtctgtcacactgacttgcacgcttggcacggtgactggccattgccagttaag
+            ctaccattagtcggtggtcacgaaggtgccggtgtcgttgtcggcatgggtgaaaacgtt
+            aagggctggaagatcggtgactacgccggtatcaaatggttgaacggttcttgtatggcc
+            tgtgaatactgtgaattgggtaacgaatccaactgtcctcacgctgacttgtctggttac
+            acccacgacggttctttccaacaatacgctaccgctgacgctgttcaagccgctcacatt
+            cctcaaggtaccgacttggcccaagtcgcccccatcttgtgtgctggtatcaccgtctac
+            aaggctttgaagtctgctaacttgatggccggtcactgggttgctatctccggtgctgct
+            ggtggtctaggttctttggctgttcaatacgccaaggctatgggttacagagtcttgggt
+            attgacggtggtgaaggtaaggaagaattattcagatccatcggtggtgaagtcttcatt
+            gacttcactaaggaaaaggacattgtcggtgctgttctaaaggccactgacggtggtgct
+            cacggtgtcatcaacgtttccgtttccgaagccgctattgaagcttctaccagatacgtt
+            agagctaacggtaccaccgttttggtcggtatgccagctggtgccaagtgttgttctgat
+            gtcttcaaccaagtcgtcaagtccatctctattgttggttcttacgtcggtaacagagct
+            gacaccagagaagctttggacttcttcgccagaggtttggtcaagtctccaatcaaggtt
+            gtcggcttgtctaccttgccagaaatttacgaaaagatggaaaagggtcaaatcgttggt
+            agatacgttgttgacacttctaaataa
+///

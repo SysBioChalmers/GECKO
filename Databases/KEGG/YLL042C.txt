@@ -1,0 +1,30 @@
+ENTRY       YLL042C           CDS       T00005
+NAME        ATG10, APG10
+DEFINITION  Atg10p (EC:6.3.2.-)
+ORTHOLOGY   K08338  ubiquitin-like-conjugating enzyme ATG10, fungi type [EC:6.3.2.19]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04140  Regulation of autophagy
+CLASS       Cellular Processes; Transport and catabolism; Regulation of autophagy [PATH:sce04140]
+POSITION    XII:complement(52087..52590)
+MOTIF       Pfam: Autophagy_act_C
+DBLINKS     NCBI-GI: 6322986
+            NCBI-GeneID: 850684
+            SGD: S000003965
+            MIPS: YLL042C
+            UniProt: Q07879
+STRUCTURE   PDB: 4EBR 4GSK
+AASEQ       167
+            MIPYQEWHSQLQSLYDSQIFHNWALCQDVHLNDEKDGLLLRLIPTRQLQKNTERIENKLL
+            NHIELYLTYSKVYNEPLLLLRIWEEKSIDGIPMTKLMLPTDIESLLDVQGKFQLGLDTII
+            NLEGSVWYSFHPCDTSCIVGDQAEFMSTYLRRWVSIFIFSWLGYEDS
+NTSEQ       504
+            atgattccttaccaggagtggcatagccaactgcaatcgttgtatgactcccagattttc
+            cataactgggccctttgccaagatgtccatttgaatgatgaaaaggatggacttcttttg
+            cgtttaatacctactcgacaactgcagaaaaatactgagcgtatagaaaataaattacta
+            aatcatatagaattatatcttacatattcaaaagtatataacgagcccttactacttttg
+            cgaatatgggaggagaaaagcatagatggtattccaatgaccaaattgatgctcccaact
+            gatatcgaatcgctgcttgatgttcaaggcaaattccaactaggtttggatactatcatt
+            aacctggaaggtagcgtttggtattctttccatccatgcgatacatcatgtatagtaggt
+            gaccaggctgagttcatgtcaacttacttaagacgatgggtcagtattttcatatttagt
+            tggttaggttatgaagattcatag
+///

@@ -1,0 +1,67 @@
+ENTRY       YPR190C           CDS       T00005
+NAME        RPC82, RPC3, RPC80
+DEFINITION  Rpc82p
+ORTHOLOGY   K03023  DNA-directed RNA polymerase III subunit RPC3
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00230  Purine metabolism
+            sce00240  Pyrimidine metabolism
+            sce01100  Metabolic pathways
+            sce03020  RNA polymerase
+MODULE      sce_M00181  RNA polymerase III, eukaryotes
+CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
+            Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
+            Genetic Information Processing; Transcription; RNA polymerase [PATH:sce03020]
+POSITION    XVI:complement(917077..919041)
+MOTIF       Pfam: RNA_pol_Rpc82 HTH_9 TFIIE_alpha
+DBLINKS     NCBI-GI: 6325448
+            NCBI-GeneID: 856320
+            SGD: S000006394
+            MIPS: YPR190C
+            UniProt: P32349
+AASEQ       654
+            MDELLGEALSAENQTGESTVESEKLVTPEDVMTISSLEQRTLNPDLFLYKELVKAHLGER
+            AASVIGMLVALGRLSVRELVEKIDGMDVDSVKTTLVSLTQLRCVKYLQETAISGKKTTYY
+            YYNEEGIHILLYSGLIIDEIITQMRVNDEEEHKQLVAEIVQNVISLGSLTVEDYLSSVTS
+            DSMKYTISSLFVQLCEMGYLIQISKLHYTPIEDLWQFLYEKHYKNIPRNSPLSDLKKRSQ
+            AKMNAKTDFAKIINKPNELSQILTVDPKTSLRIVKPTVSLTINLDRFMKGRRSKQLINLA
+            KTRVGSVTAQVYKIALRLTEQKSPKIRDPLTQTGLLQDLEEAKSFQDEAELVEEKTPGLT
+            FNAIDLARHLPAELDLRGSLLSRKPSDNKKRSGSNAAASLPSKKLKTEDGFVIPALPAAV
+            SKSLQESGDTQEEDEEEEDLDADTEDPHSASLINSHLKILASSNFPFLNETKPGVYYVPY
+            SKLMPVLKSSVYEYVIASTLGPSAMRLSRCIRDNKLVSEKIINSTALMKEKDIRSTLASL
+            IRYNSVEIQEVPRTADRSASRAVFLFRCKETHSYNFMRQNLEWNMANLLFKKEKLKQENS
+            TLLKKANRDDVKGRENELLLPSELNQLKMVNERELNVFARLSRLLSLWEVFQMA
+NTSEQ       1965
+            atggacgagttactgggagaagcgcttagtgcagagaaccaaacaggtgagagcactgtc
+            gaatctgagaagttggtcacccccgaagatgttatgaccatatcatccttggaacagaga
+            accttgaatcccgatttgtttctttacaaagagttggtgaaggcacatctgggtgaaaga
+            gcagcttctgtaattgggatgttggttgcgctgggcagattgagtgtgcgcgagttagtg
+            gagaaaatagatggtatggatgtagacagcgtcaagacgacactagtctcattaactcaa
+            ttaaggtgtgttaagtacctgcaagaaacagcaatatccgggaaaaaaacgacttattat
+            tactataacgaggaagggatacacattttactctactcagggttgattattgacgaaatt
+            attacgcaaatgcgtgtaaacgacgaagaggagcataaacagctggtggctgaaattgta
+            caaaacgttatatcattagggtccttaacagtggaagattatctaagtagtgtcacgtca
+            gattccatgaagtacaccatttcatcactattcgtgcaactgtgtgaaatgggatatctt
+            attcaaatatcaaaattgcattataccccaatcgaagatctctggcaatttttatatgaa
+            aaacattacaaaaatattcccagaaactccccgttgtccgatttgaagaaaagatcccaa
+            gccaagatgaatgcgaaaactgattttgccaaaatcataaataaaccaaatgagctttca
+            caaatcttaacggttgatccaaagacctcattgaggattgttaaacctacagtctctctg
+            acgattaatttggatagatttatgaaaggtagaagatctaaacaattgattaacttggcc
+            aagacaagagtcggctccgtcacagctcaagtttacaaaattgcattaagactcacagag
+            caaaagtctcctaaaattagagatccactaactcaaactgggcttttacaagatttggag
+            gaagcaaaatcgtttcaagacgaagccgaacttgttgaggagaagacaccagggcttacc
+            tttaatgctattgacttggcaagacatctccccgcagaattggacttgcgtggaagctta
+            ttatctagaaagccctctgacaataaaaagcgttctggctcaaacgctgctgcatcatta
+            cccagtaaaaaattaaaaaccgaagatggatttgtgatcccggcgctacctgctgctgtt
+            tccaaatctcttcaagaaagtggagatacacaagaagaagacgaagaggaggaggatttg
+            gatgcagacactgaggatcctcactcagcttctttgataaatagtcatttaaaaatccta
+            gcatcatcaaatttcccctttttgaacgaaaccaaaccaggtgtttactatgttccatat
+            agcaaactaatgccagtattaaagtcatctgtttatgagtatgttatcgcgtctacgttg
+            ggaccctcagcaatgcgtttaagccgttgtattcgtgataacaagctggtgtctgagaaa
+            attatcaactcaactgcgttaatgaaggaaaaggatataagatctacattagcatcttta
+            attagatacaattctgtggaaatccaggaagttccaagaacagccgatagatcagcatca
+            agggcagtttttttgtttagatgcaaagaaacgcattcctataatttcatgagacaaaac
+            ttggaatggaatatggcaaatttactttttaaaaaggagaaattaaagcaagaaaactct
+            acattattaaaaaaggcaaatagagatgatgttaaaggaagagagaacgaactactatta
+            ccaagcgaattgaatcaattaaagatggtcaatgaaagagagctaaatgttttcgctcgt
+            ttatcgaggttgctatcgctttgggaagttttccaaatggcatga
+///

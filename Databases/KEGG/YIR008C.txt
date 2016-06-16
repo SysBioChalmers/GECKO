@@ -1,0 +1,52 @@
+ENTRY       YIR008C           CDS       T00005
+NAME        PRI1
+DEFINITION  Pri1p (EC:2.7.7.-)
+ORTHOLOGY   K02684  DNA primase small subunit [EC:2.7.7.-]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00230  Purine metabolism
+            sce00240  Pyrimidine metabolism
+            sce01100  Metabolic pathways
+            sce03030  DNA replication
+MODULE      sce_M00261  DNA polymerase alpha / primase complex
+CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
+            Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
+            Genetic Information Processing; Replication and repair; DNA replication [PATH:sce03030]
+POSITION    IX:complement(373077..374306)
+MOTIF       Pfam: DNA_primase_S
+DBLINKS     NCBI-GI: 6322198
+            NCBI-GeneID: 854825
+            SGD: S000001447
+            MIPS: YIR008C
+            UniProt: P10363
+STRUCTURE   PDB: 4LIM
+AASEQ       409
+            MTNSVKTNGPSSSDMEYYYKSLYPFKHIFNWLNHSPKPSRDMINREFAMAFRSGAYKRYN
+            SFNSVQDFKAQIEKANPDRFEIGAIYNKPPRERDTLLKSELKALEKELVFDIDMDDYDAF
+            RTCCSGAQVCSKCWKFISLAMKITNTALREDFGYKDFIWVFSGRRGAHCWVSDKRARALT
+            DVQRRNVLDYVNVIRDRNTDKRLALKRPYHPHLARSLEQLKPFFVSIMLEEQNPWEDDQH
+            AIQTLLPALYDKQLIDSLKKYWLDNPRRSSKEKWNDIDQIATSLFKGPKQDSHIIKLREC
+            KEDLVLMTLYPKLDVEVTKQTIHLLKAPFCIHPATGNVCVPIDESFAPEKAPKLIDLQTE
+            MEKNNDVSLTALQPFINQFQAYVSSLLKNELGSVKREREDDDEPASLDF
+NTSEQ       1230
+            atgaccaattcagtaaagactaatgggccaagctcctcagacatggagtactactataag
+            tcgctctatccattcaaacacattttcaactggctgaatcattcgcccaaaccttctagg
+            gatatgattaacagagaattcgctatggcgttcaggtcaggtgcttacaaaaggtataat
+            tcttttaactctgtgcaagatttcaaagcacaaatagaaaaagccaacccagacagattt
+            gaaatcggtgccatatataacaaaccgccaagagaacgtgatactctattaaaaagcgaa
+            ttgaaagctttagagaaggagttggtgtttgatattgatatggatgattacgatgccttc
+            agaacgtgttgctccggagcccaagtttgctctaagtgctggaaatttatatctttggca
+            atgaaaattacgaacacggccctaagagaggattttggttataaggacttcatctgggta
+            ttttcaggtagacgtggtgctcattgttgggtaagcgacaaacgggcacgggctttgacg
+            gatgtacaacgaagaaacgttttagattatgtcaacgtgattagagacagaaatactgac
+            aagcgattggctttgaagaggccttatcaccctcatcttgctcgttctttggagcaattg
+            aaacctttctttgtcagcattatgctcgaagagcaaaatccttgggaagatgaccaacat
+            gctatccaaactttattgcctgcattatatgataaacaattgattgattcattaaagaag
+            tattggctggacaatccaaggaggtcaagcaaagagaagtggaatgatatagatcagata
+            gctacatcgctcttcaaaggccccaagcaagactctcacataattaagttacgtgaatgt
+            aaggaagatctcgtattgatgactctttatccgaagctggatgtggaagttacaaagcaa
+            acaattcatttgttaaaggcccctttttgtattcatcctgctacggggaatgtctgtgtg
+            cctattgatgaatcctttgcacctgaaaaagcacctaagctaattgatcttcaaacagaa
+            atggagaaaaataatgatgtttcattaacagctttacaaccttttatcaatcagttccaa
+            gcatatgtgagttctcttttgaaaaatgaactgggttcagtgaaaagagaacgtgaagat
+            gatgatgaaccggcttctttagatttctga
+///

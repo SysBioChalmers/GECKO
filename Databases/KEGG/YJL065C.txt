@@ -1,0 +1,38 @@
+ENTRY       YJL065C           CDS       T00005
+NAME        DLS1
+DEFINITION  Dls1p
+ORTHOLOGY   K03506  DNA polymerase epsilon subunit 4 [EC:2.7.7.7]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00230  Purine metabolism
+            sce00240  Pyrimidine metabolism
+            sce01100  Metabolic pathways
+            sce03030  DNA replication
+            sce03410  Base excision repair
+            sce03420  Nucleotide excision repair
+CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
+            Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
+            Genetic Information Processing; Replication and repair; DNA replication [PATH:sce03030]
+            Genetic Information Processing; Replication and repair; Base excision repair [PATH:sce03410]
+            Genetic Information Processing; Replication and repair; Nucleotide excision repair [PATH:sce03420]
+POSITION    X:complement(315054..315557)
+MOTIF       Pfam: CBFD_NFYB_HMF DUF4411
+DBLINKS     NCBI-GI: 6322397
+            NCBI-GeneID: 853381
+            SGD: S000003601
+            MIPS: YJL065C
+            UniProt: P40366
+AASEQ       167
+            MNNETSGKETASAPLCSPKLPVEKVQRIAKNDPEYMDTSDDAFVATAFATEFFVQVLTHE
+            SLHRQQQQQQQQVPPLPDELTLSYDDISAAIVHSSDGHLQFLNDVIPTTKNLRLLVEENR
+            VRYTTSVMPPNEVYSAYVVNDTAPKPNIVEIDLDNDEDDDEDVTDQE
+NTSEQ       504
+            atgaacaacgagactagtggtaaagaaacggcgtctgcacctctgtgttcgcccaagtta
+            cctgtagaaaaagtgcagagaatagccaagaatgatccagaatatatggacacttcggat
+            gacgcattcgtagccacagcgtttgctacagaattcttcgtccaggtgctgacacatgag
+            tccctacataggcaacagcagcagcaacaacaacaggtaccgccgctcccagatgaactc
+            acgctgtcgtacgatgacatctctgccgcaattgtgcactcttctgacggccatctgcag
+            tttttgaatgatgtgataccaacaacaaagaatttgaggcttctagtggaagaaaaccga
+            gttagatatactacaagtgtcatgccccctaatgaagtttactccgcctatgtggtgaac
+            gatacggctccgaagcccaacattgtcgagattgatcttgataatgacgaagacgacgac
+            gaagacgttactgatcaagaataa
+///

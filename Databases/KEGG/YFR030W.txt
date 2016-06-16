@@ -1,0 +1,89 @@
+ENTRY       YFR030W           CDS       T00005
+NAME        MET10
+DEFINITION  sulfite reductase subunit alpha (EC:1.8.1.2)
+ORTHOLOGY   K00380  sulfite reductase (NADPH) flavoprotein alpha-component [EC:1.8.1.2]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00920  Sulfur metabolism
+            sce01100  Metabolic pathways
+MODULE      sce_M00176  Assimilatory sulfate reduction, sulfate => H2S
+CLASS       Metabolism; Energy metabolism; Sulfur metabolism [PATH:sce00920]
+POSITION    VI:213312..216419
+MOTIF       Pfam: FAD_binding_1 NAD_binding_1 FAD_binding_6
+DBLINKS     NCBI-GI: 398364343
+            NCBI-GeneID: 850588
+            SGD: S000001926
+            MIPS: YFR030W
+            UniProt: P39692
+AASEQ       1035
+            MPVEFATNPFGEAKNATSLPKYGTPVTAISSVLFNNVDSIFAYKSFSQPDLLHQDLKKWS
+            EKRGNESRGKPFFQELDIRSGAGLAPLGFSHGLKNTTAIVAPGFSLPYFINSLKTVSHDG
+            KFLLNVGALNYDNATGSVTNDYVTALDAASKLKYGVVTPISANEVQSVALLALAIATFSN
+            NSGAINLFDGLNYSKTVLPLVESVPEASILAKLSKVIAPDAAFDDVLDKFNELTGLRLHN
+            FQYFGAQDAETVFITYGSLESELFNSAISGNNSKIGLINVRVPLPFNVAKFVTHVPSTTK
+            QIVVIGQTLDGSSPSFLRSQVSAALFYHGRTSISVSEYIYQPDFIWSPKAVKSIVSSFIP
+            EFTYNADSSFGEGFIYWASDKSINIDVASKLVKALSLEDGKFVSLRTKFDNLANAGTFQA
+            QFVTSKEQIPVSNIDSTKLSVVEDVSLLKHLDVAATVAEQGSIALVSQKAVKDLDLNSVE
+            SYVKNLGIPESFLISIAKKNIKLFIIDGETTNDESKLSLFIQAVFWKLAFGLDVAECTNR
+            IWKSIDSGADISAASISEFLTGAFKNFLSEVPLALYTKFSEINIEKKEDEEEPAALPIFV
+            NETSFLPNNSTIEEIPLPETSEISDIAKKLSFKEAYEVENKLRPDLPVKNFVVKVKENRR
+            VTPADYDRYIFHIEFDISGTGMTYDIGEALGIHARNNESLVKEFLTFYGLNESDVVLVPN
+            KDNHHLLETRTVLQAFVENLDIFGKPPKRFYESLIPYASNEEEKKKLEDLVTPAGAVDLK
+            RFQDVEYYTYADIFELFPSVRPSLEELVTIIEPLKRREYSIASSQKVHPNEVHLLIVVVD
+            WVDNKGRKRYGQASKYISDLAVGSELVVSVKPSVMKLPPSPKQPVIMSGLGTGLAPFKAI
+            VEEKLWQKQQGYEIGEVFLYLGSRHKREEYLYGELWEAYKDAGIITHIGAAFSRDQPQKI
+            YIQDRIKENLDELKTAMIDNKGSFYLCGPTWPVPDITQALQDILAKDAEERGIKVDLDAA
+            IEELKEASRYILEVY
+NTSEQ       3108
+            atgccagttgagtttgctaccaatccttttggcgaggccaaaaatgcaacttcactgcca
+            aaatatggtacacccgtaactgccatttcatctgtgctgttcaataacgtggactccatt
+            tttgcttacaagtccttttctcaacccgatttgctacaccaagatctaaaaaaatggtct
+            gaaaagcgtggtaacgaatcacgtgggaagccatttttccaagagctggatatcagatct
+            ggcgctggtttggctcctttagggttttctcatggattgaagaacactacagcaattgtt
+            gctccagggttttcgctgccatacttcattaactctttgaaaaccgtctctcatgatggt
+            aagtttcttttgaatgttggtgctttaaactacgacaatgctaccggctctgtcaccaac
+            gattatgtaaccgcattggatgctgcttccaagctgaagtatggtgtcgtgactccgatt
+            tccgctaacgaggtacaaagtgtcgccttactggcattggcgattgccactttcagtaat
+            aactccggagctatcaatttatttgacggattaaactactcgaaaaccgtcttgccgttg
+            gtcgaatctgttcctgaggcatctattttggcaaaactatccaaagttattgcaccagat
+            gctgcctttgatgatgtcttggataagtttaatgaattgactggattgagactacataat
+            ttccaatactttggtgctcaggatgctgaaactgtgtttatcacttatgggtctttagaa
+            tccgaattgttcaactctgcgattagtggtaataattccaaaatcgggttaatcaacgtc
+            agagtgccattaccttttaacgttgctaagtttgtcactcacgttccatccactaccaaa
+            caaattgttgttataggccaaactttggatggttcttcgccttctttcttgagatctcaa
+            gtttcagccgccttattttaccacggccgcacctcaattagcgtttctgagtacatctat
+            caaccagatttcatttggtccccaaaagctgtcaaatcaattgtatcgtcattcatccct
+            gaattcacttacaatgccgattcatctttcggcgaaggattcatttattgggcctctgat
+            aagagtatcaatattgatgttgcctccaaacttgtgaaagctctgtctttggaagatggg
+            aaatttgtgtctttgagaacgaaatttgataacttggctaatgctggtaccttccaagct
+            caatttgtgacctcgaaagaacagatacctgtttcaaacatcgattctacgaaattatca
+            gtcgttgaagatgtcagtttattgaagcatttagacgtagctgctaccgtcgcagaacaa
+            ggttcaattgcgttggtttcccaaaaggcagttaaagatttggatttaaattctgtagaa
+            agttacgtcaagaatttgggaattcctgaatcattcctaatatctattgcgaagaaaaac
+            atcaaattgtttatcatcgatggtgagaccactaacgacgagtccaaattgtccttgttt
+            atccaagccgttttctggaaattggccttcggtctagatgtcgcagaatgtaccaaccgt
+            atctggaaaagcattgattcaggtgcagacatttcagcagcctcgatttctgaatttctc
+            actggtgcattcaaaaacttcctcagtgaggttccgctagcgctgtacactaaattttct
+            gaaataaacattgaaaagaaagaggatgaggaagagcctgcagctttaccaattttcgtt
+            aatgaaacatctttcctcccaaataacagtaccattgaagaaataccattacctgagacc
+            tctgagatctctgatattgccaagaagttgtccttcaaagaggcatatgaagttgagaat
+            aaactaagacccgatttacccgtcaagaacttcgtcgtgaaagttaaagaaaatagacgt
+            gttacgcctgctgattatgatagatatattttccatattgaattcgatatttctggtact
+            ggaatgacttatgacatcggtgaagccctcggtattcatgccagaaacaatgaatctttg
+            gtcaaagaattcttaaccttctatggtctaaatgaatccgatgttgtcttagtccccaac
+            aaggacaaccaccatttgttagaaacaagaaccgtcttacaagcatttgtggaaaatttg
+            gatattttcggtaaaccaccaaaaagattttacgaatcattgattccatatgcctctaac
+            gaagaggagaagaaaaaattagaggatttggttactcctgccggtgcagtagatttgaag
+            agatttcaagatgtggagtattatacatatgctgacatttttgaattgttcccatctgtt
+            cgcccatctcttgaggaacttgttactatcattgaaccattgaagagaagagaatactca
+            attgcctcctctcagaaagttcatccaaatgaagttcatttattgatcgttgttgttgat
+            tgggtggataataaaggaagaaaaaggtacggtcaagcttctaagtatatctcagacctt
+            gctgtcggttcagaattggtcgttagcgttaaaccatctgttatgaaattaccaccatct
+            ccaaagcaaccagttattatgagtggtttaggtactggtttggcaccattcaaggccatt
+            gttgaagagaaattatggcaaaagcagcaaggttatgagattggtgaagtcttcctatat
+            ctaggttcaagacacaaaagagaagaatatttatatggtgagttatgggaggcttacaaa
+            gatgcaggtattatcacacacatcggcgctgctttctcaagagaccaacctcaaaaaatt
+            tacattcaagatcgtatcaaagagaatttggatgaattaaaaactgcaatgattgataat
+            aaaggttcattttacttgtgtggccctacttggccagttccagatattactcaagctttg
+            caagacattctggctaaagacgccgaggaaagaggcatcaaagtcgacttggatgccgca
+            attgaagaattaaaggaagcatcaagatacattttagaagtctactaa
+///

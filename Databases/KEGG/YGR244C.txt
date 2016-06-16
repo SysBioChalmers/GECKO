@@ -1,0 +1,55 @@
+ENTRY       YGR244C           CDS       T00005
+NAME        LSC2
+DEFINITION  succinate--CoA ligase (GDP-forming) subunit beta (EC:6.2.1.5)
+ORTHOLOGY   K01900  succinyl-CoA synthetase beta subunit [EC:6.2.1.4 6.2.1.5]
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00020  Citrate cycle (TCA cycle)
+            sce00640  Propanoate metabolism
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01200  Carbon metabolism
+MODULE      sce_M00009  Citrate cycle (TCA cycle, Krebs cycle)
+            sce_M00011  Citrate cycle, second carbon oxidation, 2-oxoglutarate => oxaloacetate
+CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
+            Metabolism; Carbohydrate metabolism; Citrate cycle (TCA cycle) [PATH:sce00020]
+            Metabolism; Carbohydrate metabolism; Propanoate metabolism [PATH:sce00640]
+POSITION    VII:complement(978036..979319)
+MOTIF       Pfam: ATP-grasp_2 Ligase_CoA ATP-grasp_5 GARS_A ATP-grasp_4
+DBLINKS     NCBI-GI: 398366275
+            NCBI-GeneID: 853159
+            SGD: S000003476
+            MIPS: YGR244C
+            UniProt: P53312
+AASEQ       427
+            MYSRKSLSLISKCGQLSRLNAQAALQARRHLSIHEYRSAQLLREYGIGTPEGFPAFTPEE
+            AFEAAKKLNTNKLVIKAQALTGGRGKGHFDTGYKSGVHMIESPQQAEDVAKEMLNHNLIT
+            KQTGIAGKPVSAVYIVKRVDTKHEAYLSILMDRQTKKPMIIASSQGGMNIEEVAERTPDA
+            IKKFSIETSKGLSPQMAKDVAKSLGFSPDAQDEAAKAVSNLYKIFMERDATQVEINPLSE
+            IEHDPTHKIMCTDAKFGFDDNASFRQEKIYSWRDLSQEDPDEVKAKKYDLNFVKLKGNIG
+            CLVNGAGLAMATMDVIKLNGGDPANFLDCGGGATPETIKQGFELILSNKNVDAIFVNIFG
+            GIVRCDYVALGLVEAARELEVRVPIVARLQGTKVEEGRDIINKSGVKIYSFDELDPAAKK
+            VVELTQN
+NTSEQ       1284
+            atgtactcaagaaaatccttatccctaatttcaaagtgtgggcaattaagcaggctaaac
+            gcgcaagctgctttacaagcaaggagacacttgtcaattcatgaatacaggtcagctcag
+            ttattgagggaatacggtattggtactccagaaggatttccagcgttcactcccgaagag
+            gctttcgaagcagccaagaaattaaacactaacaaactggtcatcaaggcgcaggcattg
+            accggaggtagaggtaaaggtcacttcgacaccggttacaaaagcggtgttcacatgatc
+            gaaagtcctcagcaggcagaggatgttgcaaaagaaatgctcaatcataacctgattact
+            aaacagacgggaatagcggggaagccagtatctgctgtatatatagtgaaaagagtagat
+            acaaagcatgaagcttatttatctattctaatggacagacaaaccaagaaaccgatgatc
+            attgcgtccagtcaaggtggtatgaatattgaagaggtggctgagagaaccccagatgct
+            ataaagaaattttcaattgaaacttcaaagggattgagcccacaaatggccaaggatgtt
+            gccaagagtctcggtttcagtcccgatgcacaagacgaggcagcaaaagctgtttccaat
+            ttgtataaaatattcatggaaagggatgctacacaagtggagattaaccctttgagtgaa
+            attgaacatgatccaacccacaaaatcatgtgtacagacgccaaatttgggtttgatgat
+            aacgcatcattcagacaggaaaagatatattcctggagggacttatcacaagaagatcct
+            gatgaagttaaggcaaagaagtatgatttgaattttgttaagttgaagggtaacattgga
+            tgtttagtcaatggtgctggtttggctatggctactatggatgtcatcaaattaaatgga
+            ggcgatcctgcgaactttttggattgtggtggtggtgccacccctgagaccatcaaacaa
+            ggtttcgaattgatcttatccaataagaacgtagatgcaattttcgtcaatattttcggc
+            ggtatcgtaagatgtgactatgttgccctggggctggtagaagccgccagagaactagaa
+            gttagggtccccattgtggcacgtttgcaaggtaccaaagtagaagaaggccgcgacatt
+            atcaataagtcaggcgtgaagatttattcgtttgatgaattagatcctgctgctaaaaag
+            gtcgttgaattgacccaaaattaa
+///
