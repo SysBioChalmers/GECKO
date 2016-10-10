@@ -93,6 +93,7 @@ tot.wc1      = 0;
 tot.wc2      = 0;
 tot.wc3      = 0;
 tot.wc4      = 0;
+tot.matrix   = zeros(6,5);
 
 %Main loop: 
 for i = 1:mM
@@ -182,6 +183,7 @@ if sum(origin) > 0
     tot.wc3          = tot.wc3     + (wc_num == 3);
     tot.wc4          = tot.wc4     + (wc_num == 4);
     tot.queries      = tot.queries + 1;
+    tot.matrix(origin,wc_num+1) = tot.matrix(origin,wc_num+1) + 1;
 end
 
 end

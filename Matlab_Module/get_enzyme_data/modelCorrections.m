@@ -21,12 +21,13 @@ model.ub(strcmp(model.rxns,'r_1250')) = 0;  %Block free putrescine export
 model.ub(strcmp(model.rxns,'r_1259')) = 0;  %Block free spermidine export
 
 %CHANGES IN OX.PHO.:
-%COMPLEX III: H+ pumping according to Förster 2003 (75% eff in P/O ratio):
-model.S(strcmp(model.mets,'s_0799'),strcmp(model.rxns,'r_0439')) = -1.5;
-model.S(strcmp(model.mets,'s_0794'),strcmp(model.rxns,'r_0439')) = +3;
-%COMPLEX IV: H+ pumping according to Förster 2003 (75% eff in P/O ratio):
-model.S(strcmp(model.mets,'s_0799'),strcmp(model.rxns,'r_0438')) = -6;
-model.S(strcmp(model.mets,'s_0794'),strcmp(model.rxns,'r_0438')) = +3;
+%COMPLEX III: H+ pumping corrected for eff P/O ratio:
+eff = 0.633;     %Growth in glucose S.cerevisiae Verduyn 1991
+model.S(strcmp(model.mets,'s_0799'),strcmp(model.rxns,'r_0439')) = -2*eff;
+model.S(strcmp(model.mets,'s_0794'),strcmp(model.rxns,'r_0439')) = +4*eff;
+%COMPLEX IV: H+ pumping corrected for eff P/O ratio:
+model.S(strcmp(model.mets,'s_0799'),strcmp(model.rxns,'r_0438')) = -8*eff;
+model.S(strcmp(model.mets,'s_0794'),strcmp(model.rxns,'r_0438')) = +4*eff;
 %COMPLEX IV: Normalize rxn by the number of ferrocytochromes c:
 rxn_pos            = strcmp(model.rxns,'r_0438');
 ferro_S            = abs(model.S(strcmp(model.mets,'s_0710'),rxn_pos));

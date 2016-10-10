@@ -9,9 +9,9 @@ function model = changeProtein(model,P,fs,options,GAM)
 
 %Current values (aerobic Yeast 7.6)
 if nargin < 5
-    GAM = 51.07;
+    GAM = 41.93;
     if nargin < 4
-        options = [2;3;1;2;2;2;0.4266];
+        options = [2;3;0.7;1;2;2;0.4266];
     end
 end
 
@@ -19,10 +19,14 @@ end
 Pbase = options(7);
 Cbase = 0.4067;
 P_pos = strcmp(model.rxns,'prot_pool_exchange');
-if options(4) == 1
-    model.ub(P_pos) = fs*Pbase;    %Fixed % protein
+if sum(P_pos) == 0
+    disp('Metabolic model')
 else
-    model.ub(P_pos) = fs*P;        %Variable % protein
+    if options(4) == 1
+        model.ub(P_pos) = fs*Pbase;    %Fixed % protein
+    else
+        model.ub(P_pos) = fs*P;        %Variable % protein
+    end
 end
 
 Pfactor = P/Pbase;
