@@ -11,7 +11,7 @@
 % OUTPUT:
 % eModel            Modified GEM structure (1x1 struct)
 % 
-% Cheng Zhang. Last edited: 2016-02-10
+% Cheng Zhang. Last edited: 2016-10-16
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function eModel = convertToEnzymeModel(irrevModel,uniprots,kcats)
@@ -71,11 +71,12 @@ kegg      = data.kegg;
 cd ../Matlab_Module/change_model
 
 %Create additional fields in model:
-eModel.enzymes  = cell(0,1);
-eModel.genes2   = cell(0,1);
-eModel.MWs      = zeros(0,1);
-eModel.sequence = cell(0,1);
-eModel.pathways = cell(0,1);
+eModel.enzymes   = cell(0,1);
+eModel.genes2    = cell(0,1);
+eModel.geneNames = cell(0,1);
+eModel.MWs       = zeros(0,1);
+eModel.sequence  = cell(0,1);
+eModel.pathways  = cell(0,1);
 for i = 1:length(enzymes)
     eModel = addProtein(eModel,enzymes{i},kegg,swissprot);
 end

@@ -12,7 +12,7 @@
 % OUTPUTS:
 % model             Model with the added protein
 % 
-% Cheng Zhang. Last edited: 2016-03-17
+% Cheng Zhang. Last edited: 2016-10-17
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function model = addProtein(model,P,kegg,swissprot)
@@ -26,9 +26,20 @@ model        = addReaction(model,exchange_rxn,{prot_name},1,true,0,1000,0);
 model.enzymes = [model.enzymes;P];
 
 %Update model.MWs & model.sequences vectors:
-match_MW  = false;
-match_seq = false;
+match_geneName = false;
+match_MW       = false;
+match_seq      = false;
 for i = 1:length(swissprot)
+    %Gene name:
+    if strcmp(P,swissprot{i,1}) && ~isempty(swissprot{i,3}) && ~match_geneName
+        match_geneName  = true;
+        geneName        = swissprot{i,3};
+        pos_space       = strfind(geneName,' ');
+        if isempty(pos_space)
+            pos_space = length(geneName)+1;
+        end
+        model.geneNames = [model.geneNames;geneName(1:pos_space(1)-1)];
+    end
     %Molecular Weight:
     if strcmp(P,swissprot{i,1}) && swissprot{i,5} ~= 0 && ~match_MW
         match_MW  = true;
@@ -39,6 +50,9 @@ for i = 1:length(swissprot)
         match_seq      = true;
         model.sequence = [model.sequence;swissprot{i,6}];
     end
+end
+if ~match_geneName
+    model.geneNames = [model.geneNames;'-'];
 end
 if ~match_MW
     model.MWs = [model.MWs;mean(cell2mat(swissprot(:,5)))/1000];	%average g/mmol
