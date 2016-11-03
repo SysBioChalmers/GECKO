@@ -5,7 +5,7 @@ The **GECKO** toolbox is a Matlab/Python package for enhancing a **G**enome-scal
 
 GECKO was mainly programmed by Benjamín J. Sánchez (@BenjaSanchez), Division of Systems and Synthetic Biology, Department of Biology and Biological Engineering, Chalmers University of Technology, with a part written by Cheng Zhang, Science for Life Laboratory, KTH - Royal Institute of Technology.
 
-Last update: 2016-10-10
+Last update: 2016-11-03
 
 ========================
 
@@ -22,6 +22,6 @@ Last update: 2016-10-10
 ## Required Software for Matlab module:
 
 * MATLAB (7.5 or higher) + Optimization Toolbox (http://www.mathworks.com/).
-* The COBRA toolbox for MATLAB, available free of charge at http://opencobra.sourceforge.net/openCOBRA/Welcome.html. Note that libSBML (http://sbml.org/Software/libSBML) and the SBML toolbox (http://sbml.org/Software/SBMLToolbox) should both be installed. Both of them are free of charge for academic users. Aditionally, you should add the cobra folder to your MATLAB search path.
+* The COBRA toolbox for MATLAB (https://github.com/opencobra/cobratoolbox). Note that libSBML (http://sbml.org/Software/libSBML) and the SBML toolbox (http://sbml.org/Software/SBMLToolbox) should both be installed. Both of them are free of charge for academic users. Aditionally, you should add the cobra folder to your MATLAB search path.
 
 ========================
