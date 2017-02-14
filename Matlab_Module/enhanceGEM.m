@@ -30,7 +30,7 @@ enzymeModel = manualModifications(enzymeModel);
 cd ..
 
 %Finally, save output model:
-save([enzymeModel.description(1:end-4) '_max_current.mat'],'enzymeModel','model_data','kcats')
+save('ecYeast7_current.mat','enzymeModel','model_data','kcats')
 
 end
 

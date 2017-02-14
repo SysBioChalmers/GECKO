@@ -2,7 +2,7 @@
 % model = manualModifications(model)
 % 
 %
-% Benjamín J. Sánchez. Last edited: 2016-03-01
+% Benjamín J. Sánchez. Last edited: 2017-01-17
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function model = manualModifications(model)
@@ -28,12 +28,13 @@ for i = 1:length(kcats)
     %Separate complex strings in units and amount of each unit:
     for j = 1:length(uniprots{i})
         unit = uniprots{i}{j};
-        if isempty(strfind(unit,' '))
+        pos  = strfind(unit,' ');
+        if isempty(pos)
             stoich{i}(j)   = 1;
             uniprots{i}{j} = unit;
         else
-            stoich{i}(j)   = str2double(unit(1));
-            uniprots{i}{j} = unit(3:end);
+            stoich{i}(j)   = str2double(unit(1:pos-1));
+            uniprots{i}{j} = unit(pos+1:end);
         end
     end
 end
@@ -53,7 +54,7 @@ for i = 1:length(model.rxns)
     end
     %Find intersection with manual curated data:
     for j = 1:length(uniprots)
-        int = intersect(prot_set,uniprots{j});
+        int    = intersect(prot_set,uniprots{j});
         if length(int)/max(length(prot_set),length(uniprots{j})) > 0.50 % 50% match
             %Erase previous protein stoich. coeffs from rxn:
             for k = 1:length(prot_set)
@@ -206,16 +207,91 @@ for i = 1:length(model.rxns)
         if ~isempty(strfind(model.rxns{i},'r_0918'))
             model.S(int_pos(j),i) = -(78*60*1e3/1e3*MW_set)^-1;    %78 [umol/min/mg]
         end
+        %ADITIONAL CURATION FOR CHEMOSTAT GROWTH
+        % Succinate-semialdehyde dehydrogenase (P38067/EC1.2.1.16): Retrieved value was
+        % from E.coli under extreme conditions. Value changed with s.a. in S.cerevisiae
+        % from BRENDA (2017-02-13).
+        if ~isempty(strfind(model.rxns{i},'r_1023'))
+            model.S(int_pos(j),i) = -(0.66*60*1e3/1e3*MW_set)^-1;   %0.66 [umol/min/mg]
+        end
     end
     disp(['Improving model with curated data: Ready with rxn #' num2str(i)])
 end
 
 % Other manual changes:
 
-% Eliminate protein P14540 (Fructose-bisphosphate aldolase) from missanotated rxns
-% (2015-08-31):
-model = removeRxns(model,'r_0322No1');
-model = removeRxns(model,'r_0990No1');
+% Remove protein P14540 (Fructose-bisphosphate aldolase) from missanotated rxns
+% (2017-01-16):
+rxns_tochange = {'r_0322No1','r_0322_REVNo1','r_0990No1','r_0990_REVNo1'};
+for i = 1:length(rxns_tochange)
+    rxn_name = rxns_tochange{i};
+    pos_rxn  = strcmp(model.rxns,rxn_name);
+    model.S(strcmp(model.mets,'prot_P14540'),pos_rxn) = 0;
+    model.rxns{pos_rxn} = rxn_name(1:end-3);
+end
+
+% Remove protein P40009 (Golgi apyrase) from missanotated rxns (2016-12-14):
+model = removeRxns(model,'r_0227No3');
+
+% Remove repeated reactions (2017-01-16):
+rem_rxn = false(size(model.rxns));
+for i = 1:length(model.rxns)-1
+    for j = i+1:length(model.rxns)
+        if isequal(model.S(:,i),model.S(:,j)) && model.lb(i) == model.lb(j) && ...
+           model.ub(i) == model.ub(j) 
+            rem_rxn(j) = true;
+            disp(['Removing repeated rxn: ' model.rxns{i} ' & ' model.rxns{j}])
+        end
+    end
+end
+model = removeRxns(model,model.rxns(rem_rxn));
+
+% Merge arm reactions to reactions with only one isozyme (2017-01-17):
+arm_pos = zeros(size(model.rxns));
+p       = 0;
+for i = 1:length(model.rxns)
+    rxn_name = model.rxns{i};
+    if ~isempty(strfind(rxn_name,'arm_'))
+        rxn_code  = rxn_name(5:end);
+        k         = 0;
+        for j = 1:length(model.rxns)
+            if ~isempty(strfind(model.rxns{j},[rxn_code 'No']))
+                k   = k + 1;
+                pos = j;
+            end
+        end
+        if k == 1
+            %Condense both reactions in one:
+            new_name   = model.rxns{pos};
+            stoich     = model.S(:,i) + model.S(:,pos);
+            model      = addReaction(model,new_name,model.mets,stoich,true,0,1000);
+            p          = p + 1;
+            arm_pos(p) = i;
+            disp(['Merging reactions: ' model.rxns{i} ' & ' model.rxns{pos}])
+        end
+    end
+end
+% Remove saved arm reactions:
+model = removeRxns(model,model.rxns(arm_pos(1:p)));
+
+% Remove unused enzymes after manual curation (2017-01-16):
+rem_enz = false(size(model.enzymes));
+rem_met = false(size(model.mets));
+for i = 1:length(model.enzymes)
+    pos_met = strcmp(model.mets,['prot_' model.enzymes{i}]);
+    if sum(model.S(pos_met,:)~=0) == 1
+        rem_met(pos_met) = true;
+        rem_enz(i)       = true;
+        disp(['Removing unused protein: ' model.enzymes{i}])
+    end
+end
+model.enzymes(rem_enz)   = [];
+model.genes2(rem_enz)    = [];
+model.geneNames(rem_enz) = [];
+model.MWs(rem_enz)       = [];
+model.sequence(rem_enz)  = [];
+model.pathways(rem_enz)  = [];
+model                    = removeMetabolites(model,model.mets(rem_met));
 
 % Block O2 and glucose production (for avoiding multiple solutions):
 model.ub(strcmp(model.rxnNames,'oxygen exchange'))    = 0;

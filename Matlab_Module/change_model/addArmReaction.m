@@ -9,7 +9,7 @@
 % OUTPUTS:
 % model             Modified GEM structure (1x1 struct)
 % 
-% Cheng Zhang. Last edited: 2016-03-18
+% Cheng Zhang. Last edited: 2016-12-21
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function model = addArmReaction(model,rxn)
@@ -34,8 +34,9 @@ model  = addReaction(model,['arm_' rxn],mets,coeffs,true,LB,UB,obj);
 %Change old rxn:
 model  = addReaction(model,rxn,[['pmet_' rxn], metP],[-1,coeffsP]);
 
-%Update metComps (last position is for the newly created pmet):
-model.metComps(end+1) = model.metComps(sub_pos(1));
+%Update metComps:
+pos = strcmp(model.mets,['pmet_' rxn]);
+model.metComps(pos) = model.metComps(sub_pos(1));
 
 end
 

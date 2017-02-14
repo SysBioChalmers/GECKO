@@ -2,20 +2,14 @@
 % model = constrainEnzymes(model,Ptotal,sigma,pIDs,data)
 % 
 %
-% Benjamín J. Sánchez. Last edited: 2016-08-30
+% Benjamín J. Sánchez. Last edited: 2017-01-17
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function model = constrainEnzymes(model,Ptotal,sigma,pIDs,data)
+function model = constrainEnzymes(model,Ptot,sigma,pIDs,data)
 
 %Current values:
-f       = 0.4462; %Yeast 7.6 (all enzymes) [g(Pmodel)/g(Ptot)]
-options = [2;3;0.7;1;2;2;0.4266];
-
-if options(4) == 1
-    Pbase = options(7);
-else
-    Pbase = Ptotal;
-end
+f       = 0.4461; %Yeast 7.6 (all enzymes) [g(Pmodel)/g(Ptot)]
+Pbase   = 0.4005; %Value from biomass comp. (Förster data @ 0.1 1/h)
 
 %No UB will be changed if no data is available -> pool = all enzymes(FBAwMC)
 if nargin == 3
@@ -45,21 +39,24 @@ concs_measured = model.concs(measured);
 Pmeasured      = sum(concs_measured);
 
 if Pmeasured > 0
-    %Calculate fraction of non measured proteins in model out of remaining mass:
-    fm     = Pmeasured/Ptotal;
+    %Calculate fraction of non measured proteins in model out of remaining mass:    
     [fn,~] = measureAbundance(model.enzymes(~measured),'prot_abundance.txt');
+    fm     = Pmeasured/Ptot;
     f      = fn/(1-fm);
     %Discount measured mass from global constrain:
-    fs = (Ptotal - Pmeasured)/Pbase*f*sigma;
+    fs = (Ptot - Pmeasured)/Pbase*f*sigma;
 else
     fs = f*sigma;
 end
 
-
 %Constrain the rest of enzymes with the pool assumption:
-model = constrainPool(model,~measured,1000);
-model = fixedModifications(model,options);
-model = changeProtein(model,Ptotal,fs);
+if sum(strcmp(model.rxns,'prot_pool_exchange')) == 0
+    model = constrainPool(model,~measured,1000);
+end
+
+model = fixedModifications(model);
+
+model = changeProtein(model,Ptot,fs);
 
 %Display some metrics:
 disp(['Total protein amount measured = '     num2str(Pmeasured)              ' g/gDW'])
