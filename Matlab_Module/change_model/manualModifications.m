@@ -214,6 +214,12 @@ for i = 1:length(model.rxns)
         if ~isempty(strfind(model.rxns{i},'r_1023'))
             model.S(int_pos(j),i) = -(0.66*60*1e3/1e3*MW_set)^-1;   %0.66 [umol/min/mg]
         end
+        % 1,3-beta-glucan synthase component FKS1 (P38631/EC2.4.1.34): Retrieved value
+        % was from Staphylococcus aureus. Value changed with s.a. in S.cerevisiae
+        % from BRENDA (2017-03-05).
+        if ~isempty(strfind(model.rxns{i},'r_0005'))
+            model.S(int_pos(j),i) = -(4*60*1e3/1e3*MW_set)^-1;   %4 [umol/min/mg]
+        end
     end
     disp(['Improving model with curated data: Ready with rxn #' num2str(i)])
 end

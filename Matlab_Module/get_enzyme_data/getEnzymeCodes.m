@@ -15,7 +15,7 @@
 %           *count(3):   #exchange/transport rxns with no GPRs
 %           *count(4):   #other rxns
 % 
-% Benjamín Sánchez. Last edited: 2015-09-03
+% Benjamín Sánchez. Last edited: 2017-03-05
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function model_data = getEnzymeCodes(model)
@@ -25,6 +25,9 @@ data      = load('ProtDatabase.mat');
 swissprot = data.swissprot;
 kegg      = data.kegg;
 cd ../Matlab_Module/get_enzyme_data
+
+swissprot = standardizeDatabase(swissprot);
+kegg      = standardizeDatabase(kegg);
 
 [m,n]      = size(model.S);
 substrates = cell(n,20);
@@ -101,6 +104,16 @@ model_data.uniprots   = uniprots;
 model_data.EC_numbers = EC_numbers;
 model_data.MWs        = MWs;
 model_data.count      = count;
+
+end
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+function database = standardizeDatabase(database)
+
+for i = 1:length(database)
+    database{i,3} = strsplit(database{i,3},' ');
+end
 
 end
 

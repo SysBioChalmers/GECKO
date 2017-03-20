@@ -8,7 +8,7 @@
 function model = changeProtein(model,Ptot,fs,GAM)
 
 if nargin < 4
-    GAM = 38.14;      %current
+    GAM = 35;      %63.3% eff OXPHO - no H2O in prot/carb
 end
 
 % Change Protein total amount:

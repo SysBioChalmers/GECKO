@@ -62,9 +62,9 @@ model = changeProtein(model,Ptot,fs);
 disp(['Total protein amount measured = '     num2str(Pmeasured)              ' g/gDW'])
 disp(['Total enzymes measured = '            num2str(sum(measured))          ' enzymes'])
 disp(['Enzymes in model with 0 g/gDW = '     num2str(sum(concs_measured==0)) ' enzymes'])
-disp(['Total protein amount not measured = ' num2str(Pbase - Pmeasured)      ' g/gDW'])
+disp(['Total protein amount not measured = ' num2str(Ptot - Pmeasured)       ' g/gDW'])
 disp(['Total enzymes not measured = '        num2str(sum(~measured))         ' enzymes'])
-disp(['Total protein in model = '            num2str(Pbase)                  ' g/gDW'])
+disp(['Total protein in model = '            num2str(Ptot)                   ' g/gDW'])
 
 
 %Plot histogram:
