@@ -21,14 +21,16 @@ model = rmfield(model,'metComps');
 model = rmfield(model,'comps');
 model = rmfield(model,'compNames');
 
-%Fix gene names;
-model.genes   = regexprep(model.genes,'-','_');
-model.grRules = regexprep(model.grRules,'-','_');
-
-%Save model:
-model.id = 'ecYeast7';
-writeCbModel(model,'sbml',[name '.xml'],comps,compNames,3,1);
-writeCbModel(model,'text',[name '.txt'],comps,compNames,3,1);
+if nargin == 2
+    %Fix gene names;
+    model.genes   = regexprep(model.genes,'-','_');
+    model.grRules = regexprep(model.grRules,'-','_');
+    
+    %Save model:
+    model.id = 'ecYeast7';
+    writeCbModel(model,'sbml',[name '.xml'],comps,compNames,3,1);
+    writeCbModel(model,'text',[name '.txt'],comps,compNames,3,1);
+end
 
 end
 
