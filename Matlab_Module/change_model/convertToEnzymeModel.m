@@ -21,7 +21,7 @@ enzymes = cell(5000,1);
 [m,n]   = size(uniprots);
 y       = 0;
 for i = 1:m
-    rxnName = irrevModel.rxns{i};
+    rxnID = irrevModel.rxns{i};
     x = 0;
     for j = 1:n
         %Update vector enzymes and count the number of isozymes (x):
@@ -39,23 +39,24 @@ for i = 1:m
         %>1 enzyme: Will include an "arm reaction" for controlling the
         %total flux through the system of parallel rxns.
         if x > 1
-            eModel = addArmReaction(eModel,rxnName);
+            eModel = addArmReaction(eModel,rxnID);
         end
         x = 0;
         %For each enzyme adds a new parallel rxn with that enzyme as pseudo metabolite.
         for j = 1:n
             if ~isempty(uniprots{i,j}) && kcats(i,j) > 0 % if kcat=0 no mets will be added
                 x       = x+1;
-                newName = [rxnName 'No' num2str(x)];
+                newID   = [rxnID 'No' num2str(x)];
+                newName = [irrevModel.rxnNames{i} ' (No' num2str(x) ')'];
                 kvalues = ones(size(uniprots{i,j}))*kcats(i,j);
                 newMets = cell(size(uniprots{i,j}));
                 for k = 1:length(newMets)
                     newMets{k} = ['prot_' uniprots{i,j}{k}];
                 end 
-                eModel = addEnzymesToRxn(eModel,kvalues,rxnName,newMets,newName); 
+                eModel = addEnzymesToRxn(eModel,kvalues,rxnID,newMets,{newID,newName}); 
             end
         end
-        eModel = removeRxns(eModel,{rxnName});  %Remove the original rxn
+        eModel = removeRxns(eModel,{rxnID});  %Remove the original rxn
     end
 end
 

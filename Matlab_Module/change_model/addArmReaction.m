@@ -29,10 +29,12 @@ coeffsP  = model.S(pro_pos,rxnIndex)';
 %Create new rxn:
 mets   = [metS,['pmet_' rxn]];
 coeffs = [coeffsS,1];
-model  = addReaction(model,['arm_' rxn],mets,coeffs,true,LB,UB,obj);
+name   = {['arm_' rxn],[model.rxnNames{rxnIndex} ' (arm)']};
+model  = addReaction(model,name,mets,coeffs,true,LB,UB,obj);
 
 %Change old rxn:
-model  = addReaction(model,rxn,[['pmet_' rxn], metP],[-1,coeffsP]);
+name   = {rxn,model.rxnNames{rxnIndex}};
+model  = addReaction(model,name,[['pmet_' rxn], metP],[-1,coeffsP]);
 
 %Update metComps:
 pos = strcmp(model.mets,['pmet_' rxn]);

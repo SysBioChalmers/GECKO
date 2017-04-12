@@ -72,7 +72,7 @@ for i = 1:length(model.rxns)
             kvalues = kcats(j)./stoich{j};
             rxnID   = model.rxns{i};
             rxnName = model.rxnNames{i};
-            model   = addEnzymesToRxn(model,kvalues,rxnID,newMets,rxnName);
+            model   = addEnzymesToRxn(model,kvalues,rxnID,newMets,{rxnID,rxnName});
         end
     end
     %Update int_pos:
@@ -129,7 +129,7 @@ for i = 1:length(model.rxns)
         % original source (I.F.Durr & H.Rudney, J. Biol. Chem. 1960 235:2572-2578
         % http://www.jbc.org/content/235/9/2572) (2015-08-31).
         if ~isempty(strfind(model.rxns{i},'r_0558'))
-            model.S(int_pos(j),i) = -(13.5*0.002*60*1e3/1e3*MW_set)^-1;     %13.5 units
+            model.S(int_pos(j),i) = -(13.5*0.002*60*1e3/1e3*MW_set)^-1;     %13.5 units*0.002 umol = 0.027 [umol/min/mg]
         end
         % FPP synthase (P08524/EC2.5.1.1): The recommended EC is 2.5.1.10. Value corrected
         % with s.a. in S.cerevisiae from BRENDA (2015-08-31).

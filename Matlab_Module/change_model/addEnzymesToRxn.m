@@ -6,9 +6,9 @@
 % INPUT:
 % model        the GEM structure (1x1 struct)
 % kvalues      kcat values of the enzyme/complex
-% rxn          the reaction ID   (string)
+% rxn          the reaction original ID   (string)
 % newMets      name of the new pseudo-metabolite (enzyme)
-% newRxnName   name of the new reaction
+% newRxnName   {ID,name} of the new reaction
 %
 % OUTPUTS:
 % model             Modified GEM structure (1x1 struct)
