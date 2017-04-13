@@ -3,13 +3,12 @@
 % Updates all databases for protein matching (KEGG and Swiss-Prot).
 %
 % Note: Before using this script, one should manually download:
-%       *KEGG:      
 %       *Swissprot: Download a tab delimited file with the following format:
 %                   Entry - Protein names - Gene names - EC number - Sequence
 %                   http://www.uniprot.org/uniprot/?query=organism:%22yeast%22
 %                   OBS: filter with the Swiss-Prot option
 % 
-% Benjamín Sánchez. Last edited: 2016-01-21
+% Benjamín Sánchez. Last edited: 2017-04-13
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function updateDatabases
@@ -20,10 +19,8 @@ fileID_uni        = fopen('uniprot-organism%3Ayeast.tab');
 swissprot         = textscan(fileID_uni,'%s %s %s %s %s %s','delimiter','\t');
 swissprot         = [swissprot{1} swissprot{2} swissprot{3} swissprot{4} swissprot{5}];
 swissprot(1,:)    = [];
-swissprot_complex = cell(1000,3);
 fclose(fileID_uni);
 cd ../Matlab_Module/get_enzyme_data
-m = 0;
 for i = 1:length(swissprot)
     %Leave protein name as lower case, remove ';' from ECs & calculate MW:
     prot_name      = lower(swissprot{i,2});
@@ -34,20 +31,15 @@ for i = 1:length(swissprot)
     swissprot{i,4} = strrep(swissprot{i,4},';','');
     swissprot{i,5} = MW;
     swissprot{i,6} = sequence;
-    %Update complex database:
-    [swissprot_complex,m] = updateComplexDB(swissprot_complex,m,prot_name,uni,MW);
     disp(['Updating Swiss-Prot database: Ready with protein ' uni])
 end
-swissprot_complex(m+1:end,:) = [];
 
 %Retrieve KEGG info (gen - uniprot - EC code - name - MW - Pathway):
 cd ../../Databases/KEGG
 file_names      = dir();
 file_names(1:2) = [];
 kegg            = cell(100000,7);
-kegg_complex    = cell(1000,3);
 n               = 0;
-m               = 0;
 for i = 1:length(file_names)
     file_name = file_names(i).name;
     %1st column: Gene name
@@ -120,48 +112,15 @@ for i = 1:length(file_names)
     kegg{n,5} = MW;
     kegg{n,6} = pathway;
     kegg{n,7} = sequence;
-    
-    %Update complex database:
-    [kegg_complex,m] = updateComplexDB(kegg_complex,m,prot_name,uni,MW);
     cd ../../Databases/KEGG
     disp(['Updating KEGG database: Ready with gene ' gene_name])
 end
 kegg(n+1:end,:)         = [];
-kegg_complex(m+1:end,:) = [];
 
 %Save all databases as .mat files:
 cd ..
-save('ProtDatabase.mat','kegg','kegg_complex','swissprot','swissprot_complex');
+save('ProtDatabase.mat','kegg','swissprot');
 cd ../Matlab_Module/get_enzyme_data
-
-end
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-function [complex,m] = updateComplexDB(complex,m,prot_name,uniprot,MW)
-%Adds protein to the complex database, as long as a "subunit" appears in
-%the protein name.
-
-subunit_pos = strfind(prot_name,'subunit');
-if ~isempty(subunit_pos)
-    complex_name = prot_name(1:subunit_pos-2);
-    match        = false;
-    for j = 1:m
-        if strcmp(complex_name,complex{j,1})
-            %If protein is part of a complex, update complex database:
-            match        = true;
-            complex{j,2} = [complex{j,2} '-' uniprot];
-            complex{j,3} = complex{j,3} + MW;
-        end
-    end
-    %If no match, create new complex:
-    if ~match
-        m            = m+1;
-        complex{m,1} = complex_name;
-        complex{m,2} = uniprot;
-        complex{m,3} = MW;
-    end
-end
 
 end
 
