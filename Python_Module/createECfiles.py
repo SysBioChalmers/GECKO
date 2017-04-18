@@ -7,10 +7,10 @@
 ################################################################################
 
 #INPUTS:
-#1) Path in which all BRENDA queries are:
-input_path = 'D:/Users/bensan.NET/Documents/BRENDA/BRENDA_queries'
+#1) Path in which all BRENDA queries are (from script retrieveBRENDA.py):
+input_path = 'path_1'
 #2) Path in which you wish to store all EC files:
-output_path = 'D:/Users/bensan.NET/Documents/BRENDA/EC_files'
+output_path = 'path_2'
 
 ################################################################################
 

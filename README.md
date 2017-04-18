@@ -5,7 +5,7 @@ The **GECKO** toolbox is a Matlab/Python package for enhancing a **G**enome-scal
 
 GECKO was programmed by Benjamín J. Sánchez (@BenjaSanchez), Division of Systems and Synthetic Biology, Department of Biology and Biological Engineering, Chalmers University of Technology, and Cheng Zhang, Science for Life Laboratory, KTH - Royal Institute of Technology.
 
-Last update: 2017-04-13
+Last update: 2017-04-18
 
 ========================
 

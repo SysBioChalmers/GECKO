@@ -9,7 +9,7 @@
 
 #INPUTS:
 #1) Path in which you wish to store all BRENDA queries:
-output_path = 'D:/Users/bensan.NET/Documents/PhD_backups/BRENDA_queries'
+output_path = 'path_1'
 #2) Last field processed (if the program was interrupted), e.g. 'KM'. If you
 #   want to start from scratch, leave empty:
 last_field = ''
@@ -17,9 +17,9 @@ last_field = ''
 #   If you want to start from scratch, leave empty:
 last_EC = ''
 #4) E-mail in BRENDA:
-email = 'bensan@chalmers.se'
+email = 'email@email.com'
 #5) Password in BRENDA:
-password = 'chalmers123'
+password = 'password'
 
 ################################################################################
 

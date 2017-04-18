@@ -16,10 +16,10 @@
 #INPUTS:
 #1) Organism
 organism = 'saccharomyces cerevisiae'
-#2) Path in which the EC files are stored:
-input_path = 'D:/Users/bensan.NET/Documents/BRENDA/EC_files'
+#2) Path in which the EC files are stored (from script createECfiles.py):
+input_path = 'path_2'
 #3) Path in which you wish to store the final table:
-output_path = 'D:/Users/bensan.NET/Documents/Dropbox/PhD/Modelos/FBAwMC/GECKO'
+output_path = '.../GECKO/Databases'
 
 ################################################################################
 

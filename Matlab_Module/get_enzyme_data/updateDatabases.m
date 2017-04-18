@@ -2,18 +2,18 @@
 % updateDatabases
 % Updates all databases for protein matching (KEGG and Swiss-Prot).
 %
-% Note: Before using this script, one should manually download:
-%       *Swissprot: Download a tab delimited file with the following format:
-%                   Entry - Protein names - Gene names - EC number - Sequence
-%                   http://www.uniprot.org/uniprot/?query=organism:%22yeast%22
-%                   OBS: filter with the Swiss-Prot option
+% Note: Before using this script, one should manually download Swissprot:
+%       Download a tab delimited file with the following format:
+%       Entry - Protein names - Gene names - EC number - Sequence
+%       http://www.uniprot.org/uniprot/?query=organism:%22yeast%22
+%       OBS: filter with the Swiss-Prot option
 % 
-% Benjamín Sánchez. Last edited: 2017-04-13
+% Benjamín Sánchez. Last edited: 2017-04-18
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function updateDatabases
 
-%Retrieve Swissprot Data (Entry - Protein names - Gene names - EC number - Sequence):
+%Retrieve Swissprot Data (uniprot code - protein name - gene names - EC number - MW - sequence):
 cd ../../Databases
 fileID_uni        = fopen('uniprot-organism%3Ayeast.tab');
 swissprot         = textscan(fileID_uni,'%s %s %s %s %s %s','delimiter','\t');
@@ -34,7 +34,7 @@ for i = 1:length(swissprot)
     disp(['Updating Swiss-Prot database: Ready with protein ' uni])
 end
 
-%Retrieve KEGG info (gen - uniprot - EC code - name - MW - Pathway):
+%Retrieve KEGG info (uniprot code - protein name - systematic gene name - EC number - MW - pathway - sequence):
 cd ../../Databases/KEGG
 file_names      = dir();
 file_names(1:2) = [];
@@ -42,7 +42,7 @@ kegg            = cell(100000,7);
 n               = 0;
 for i = 1:length(file_names)
     file_name = file_names(i).name;
-    %1st column: Gene name
+    %3rd column: systematic gene name
     gene_name = file_name(1:end-4);
     %Retrieve all data as a cell with all rows:
     fID  = fopen(file_name);
@@ -57,47 +57,52 @@ for i = 1:length(file_names)
     pathway  = '';
     for j = 1:length(text)
         line = text{j};
-        %2nd column: uniprot number
-        if ~isempty(strfind(line,'UniProt:'))
-            uni = line(10:end);
-            
-        %3rd & 4th column: protein name and EC number
-        elseif ~isempty(strfind(line,'DEFINITION'))
-            pos_EC    = strfind(line,'EC:');
-            if isempty(pos_EC)
-                prot_name = lower(line(13:end));
-                EC_names  = '';
-            else
-                prot_name = lower(line(13:pos_EC-3));
-                EC_names  = line(pos_EC+3:end-1);
-            end
-            
-        %5th column and 7th column: MW & sequence
-        elseif ~isempty(strfind(line,'AASEQ'))
-            end_seq  = false;
-            for k = j+1:length(text)
-                if ~isempty(strfind(text{k},'NTSEQ'))
-                    end_seq = true;
-                elseif ~end_seq
-                    sequence = [sequence text{k}];
+        if length(line) > 10
+            %1st column: uniprot code
+            if strcmp(line(1:8),'UniProt:')
+                uni = line(10:end);
+                
+            %2nd & 4th column: protein name and EC number
+            elseif strcmp(line(1:10),'DEFINITION')
+                pos_EC    = strfind(line,'EC:');
+                if isempty(pos_EC)
+                    prot_name = lower(line(13:end));
+                    EC_names  = '';
+                else
+                    prot_name = lower(line(13:pos_EC-3));
+                    EC_names  = line(pos_EC+3:end-1);
                 end
-            end
-            MW = calculateMW(sequence);
-        
-        %6th column: Pathway
-        elseif ~isempty(strfind(line,'PATHWAY'))
-            start    = strfind(line,'sce');
-            pathway  = line(start(1):end);
-            end_path = false;
-            for k = j+1:length(text)
-                nospace = strrep(text{k},'sce01100  Metabolic pathways','');
-                nospace = strrep(nospace,' ','');
-                if length(nospace) > 10
-                    if strcmp(nospace(1:3),'sce') && ~end_path
-                        start    = strfind(text{k},'sce');
-                        pathway  = [pathway ' ' text{k}(start(1):end)];
-                    else
-                        end_path = true;
+                
+            %5th column and 7th column: MW & sequence
+            elseif strcmp(line(1:5),'AASEQ')
+                end_seq  = false;
+                for k = j+1:length(text)
+                    if length(text{k}) > 10
+                        if strcmp(text{k}(1:5),'NTSEQ')
+                            end_seq = true;
+                        end
+                    end
+                    if ~end_seq
+                        sequence = [sequence text{k}];
+                    end
+                end
+                MW = calculateMW(sequence);
+                
+                %6th column: pathway
+            elseif strcmp(line(1:7),'PATHWAY')
+                start    = strfind(line,'sce');
+                pathway  = line(start(1):end);
+                end_path = false;
+                for k = j+1:length(text)
+                    nospace = strrep(text{k},'sce01100  Metabolic pathways','');
+                    nospace = strrep(nospace,' ','');
+                    if length(nospace) > 10
+                        if strcmp(nospace(1:3),'sce') && ~end_path
+                            start    = strfind(text{k},'sce');
+                            pathway  = [pathway ' ' text{k}(start(1):end)];
+                        else
+                            end_path = true;
+                        end
                     end
                 end
             end
