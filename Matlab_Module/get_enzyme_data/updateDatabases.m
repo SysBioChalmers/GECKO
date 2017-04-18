@@ -2,10 +2,10 @@
 % updateDatabases
 % Updates all databases for protein matching (KEGG and Swiss-Prot).
 %
-% Note: Before using this script, one should manually download Swissprot:
-%       Download a tab delimited file with the following format:
+% Note: Before using this script, one should manually download from 
+%       http://www.uniprot.org/uniprot a tab delimited file for the
+%       desired organism with the following format:
 %       Entry - Protein names - Gene names - EC number - Sequence
-%       http://www.uniprot.org/uniprot/?query=organism:%22yeast%22
 %       OBS: filter with the Swiss-Prot option
 % 
 % Benjamín Sánchez. Last edited: 2017-04-18
