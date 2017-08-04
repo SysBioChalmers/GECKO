@@ -1,18 +1,29 @@
 ENTRY       YIR037W           CDS       T00005
 NAME        HYR1, GPX3, ORP1
-DEFINITION  peroxiredoxin HYR1 (EC:1.11.1.15)
+DEFINITION  (RefSeq) peroxiredoxin HYR1
 ORTHOLOGY   K00432  glutathione peroxidase [EC:1.11.1.9]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00480  Glutathione metabolism
             sce00590  Arachidonic acid metabolism
-CLASS       Metabolism; Lipid metabolism; Arachidonic acid metabolism [PATH:sce00590]
-            Metabolism; Metabolism of other amino acids; Glutathione metabolism [PATH:sce00480]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Lipid metabolism
+               00590 Arachidonic acid metabolism
+                YIR037W (HYR1)
+              Metabolism of other amino acids
+               00480 Glutathione metabolism
+                YIR037W (HYR1)
+            Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.11  Acting on a peroxide as acceptor
+               1.11.1  Peroxidases
+                1.11.1.9  glutathione peroxidase
+                 YIR037W (HYR1)
 POSITION    IX:423128..423619
-MOTIF       Pfam: GSHPx AhpC-TSA Redoxin DUF4174 SCO1-SenC
-DBLINKS     NCBI-GI: 6322228
+MOTIF       Pfam: GSHPx AhpC-TSA Redoxin SCO1-SenC
+DBLINKS     NCBI-ProteinID: NP_012303
             NCBI-GeneID: 854855
             SGD: S000001476
-            MIPS: YIR037W
             UniProt: P40581
 STRUCTURE   PDB: 3CMI
 AASEQ       163

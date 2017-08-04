@@ -1,16 +1,24 @@
 ENTRY       YCL031C           CDS       T00005
 NAME        RRP7
-DEFINITION  Rrp7p
+DEFINITION  (RefSeq) Rrp7p
 ORTHOLOGY   K14545  ribosomal RNA-processing protein 7
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03008  Ribosome biogenesis in eukaryotes
-CLASS       Genetic Information Processing; Translation; Ribosome biogenesis in eukaryotes [PATH:sce03008]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03008 Ribosome biogenesis in eukaryotes
+                YCL031C (RRP7)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              90S particles
+               U3 small nucleolar RNA-associated proteins
+                YCL031C (RRP7)
 POSITION    III:complement(64675..65568)
-MOTIF       Pfam: RRP7
-DBLINKS     NCBI-GI: 6319818
+MOTIF       Pfam: RRP7 Glyoxalase_2 DUF547
+DBLINKS     NCBI-ProteinID: NP_009899
             NCBI-GeneID: 850326
             SGD: S000000536
-            MIPS: YCL031C
             UniProt: P25368
 STRUCTURE   PDB: 4M5D 2MBY
 AASEQ       297

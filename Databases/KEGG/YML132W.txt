@@ -1,13 +1,12 @@
 ENTRY       YML132W           CDS       T00005
 NAME        COS3
-DEFINITION  Cos3p
+DEFINITION  (RefSeq) Cos3p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:7244..8383
 MOTIF       Pfam: DUP Myb_DNA-bind_4
-DBLINKS     NCBI-GI: 6323503
+DBLINKS     NCBI-ProteinID: NP_013574
             NCBI-GeneID: 854907
             SGD: S000004601
-            MIPS: YML132W
             UniProt: P0CX12 P0CX13
 AASEQ       379
             MKENELKNEKSVDVLSFKQLESQKIVLPQDLFRSSFTWFCYEIYKSLAFRIWMLLWLPLS

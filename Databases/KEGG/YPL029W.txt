@@ -1,14 +1,24 @@
 ENTRY       YPL029W           CDS       T00005
 NAME        SUV3, LPB2
-DEFINITION  Suv3p (EC:3.6.4.13)
+DEFINITION  (RefSeq) ATP-dependent RNA helicase SUV3
 ORTHOLOGY   K17675  ATP-dependent RNA helicase SUPV3L1/SUV3 [EC:3.6.4.13]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.4  Acting on acid anhydrides to facilitate cellular and subcellular movement
+                3.6.4.13  RNA helicase
+                 YPL029W (SUV3)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial DNA transcription, translation, and replication factors
+              Mitochondrial transcription and translation factors
+               Other mitochondrial DNA transcription and translation factors
+                YPL029W (SUV3)
 POSITION    XVI:495506..497719
 MOTIF       Pfam: SUV3_C Helicase_C
-DBLINKS     NCBI-GI: 6325228
+DBLINKS     NCBI-ProteinID: NP_015296
             NCBI-GeneID: 856078
             SGD: S000005950
-            MIPS: YPL029W
             UniProt: P32580
 AASEQ       737
             MALVKYSTVFFPLRSLRLFVSIKKAYYHSEPHSIDLFHDKDWIVKRPKFLNLPKNEHSKL

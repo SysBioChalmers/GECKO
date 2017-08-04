@@ -1,16 +1,30 @@
 ENTRY       YNL072W           CDS       T00005
 NAME        RNH201, RNH35
-DEFINITION  Rnh201p (EC:3.1.26.4)
+DEFINITION  (RefSeq) ribonuclease H2 catalytic subunit RNH201
 ORTHOLOGY   K10743  ribonuclease H2 subunit A [EC:3.1.26.4]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03030  DNA replication
-CLASS       Genetic Information Processing; Replication and repair; DNA replication [PATH:sce03030]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Replication and repair
+               03030 DNA replication
+                YNL072W (RNH201)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.26  Endoribonucleases producing 5'-phosphomonoesters
+                3.1.26.4  ribonuclease H
+                 YNL072W (RNH201)
+            DNA replication proteins [BR:sce03032]
+             Eukaryotic Type
+              DNA Replication Elongation Factors
+               RNase H
+                YNL072W (RNH201)
 POSITION    XIV:490317..491240
-MOTIF       Pfam: RNase_HII Adeno_GP19K
-DBLINKS     NCBI-GI: 6324257
+MOTIF       Pfam: RNase_HII
+DBLINKS     NCBI-ProteinID: NP_014327
             NCBI-GeneID: 855652
             SGD: S000005016
-            MIPS: YNL072W
             UniProt: P53942
 AASEQ       307
             MVPPTVEASLESPYTKSYFSPVPSALLEQNDSPIIMGIDEAGRGPVLGPMVYAVAYSTQK

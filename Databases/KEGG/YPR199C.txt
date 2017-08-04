@@ -1,13 +1,18 @@
 ENTRY       YPR199C           CDS       T00005
 NAME        ARR1, ACR1, YAP8
-DEFINITION  Arr1p
+DEFINITION  (RefSeq) Arr1p
+ORTHOLOGY   K09043  AP-1-like transcription factor
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription factors [BR:sce03000]
+             Eukaryotic Type
+              Basic leucine zipper (bZIP)
+               AP-1(-like) components, Fungal regulators
+                YPR199C (ARR1)
 POSITION    XVI:complement(938148..939032)
-MOTIF       Pfam: bZIP_1 PAP1
-DBLINKS     NCBI-GI: 6325457
+MOTIF       Pfam: bZIP_1 JMY Fmp27_WPPW
+DBLINKS     NCBI-ProteinID: NP_015525
             NCBI-GeneID: 856329
             SGD: S000006403
-            MIPS: YPR199C
             UniProt: Q06596
 AASEQ       294
             MAKPRGRKGGRKPSLTPPKNKRAAQLRASQNAFRKRKLERLEELEKKEAQLTVTNDQIHI

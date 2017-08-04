@@ -1,18 +1,21 @@
 ENTRY       YER106W           CDS       T00005
 NAME        MAM1
-DEFINITION  Mam1p
+DEFINITION  (RefSeq) Mam1p
 ORTHOLOGY   K12774  monopolin complex subunit MAM1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04113  Meiosis - yeast
-CLASS       Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04113 Meiosis - yeast
+                YER106W (MAM1)
 POSITION    V:372326..373234
-MOTIF       Pfam: MAM1
-DBLINKS     NCBI-GI: 6320953
+MOTIF       Pfam: MAM1 SurA_N_2
+DBLINKS     NCBI-ProteinID: NP_011032
             NCBI-GeneID: 856843
             SGD: S000000908
-            MIPS: YER106W
             UniProt: P40065
-STRUCTURE   PDB: 4EMC
+STRUCTURE   PDB: 5CYZ 5CZO 5KTB
 AASEQ       302
             MREKRTISNKDTNYLKFPNKLQRYSRFLSRKISNTSPEKQPKKNIKEHCLSSYHKEHSVK
             PKQNSGNVAAKEDKDTQHLQNNVANEEATECLTRSNLKKLQEKIFDRELNDIACDHCLCS

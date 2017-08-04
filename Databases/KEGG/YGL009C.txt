@@ -1,6 +1,6 @@
 ENTRY       YGL009C           CDS       T00005
 NAME        LEU1
-DEFINITION  3-isopropylmalate dehydratase LEU1 (EC:4.2.1.33)
+DEFINITION  (RefSeq) 3-isopropylmalate dehydratase LEU1
 ORTHOLOGY   K01702  3-isopropylmalate dehydratase [EC:4.2.1.33]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00290  Valine, leucine and isoleucine biosynthesis
@@ -9,15 +9,27 @@ PATHWAY     sce00290  Valine, leucine and isoleucine biosynthesis
             sce01210  2-Oxocarboxylic acid metabolism
             sce01230  Biosynthesis of amino acids
 MODULE      sce_M00432  Leucine biosynthesis, 2-oxoisovalerate => 2-oxoisocaproate
-CLASS       Metabolism; Overview; 2-Oxocarboxylic acid metabolism [PATH:sce01210]
-            Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
-            Metabolism; Amino acid metabolism; Valine, leucine and isoleucine biosynthesis [PATH:sce00290]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01210 2-Oxocarboxylic acid metabolism
+                YGL009C (LEU1)
+               01230 Biosynthesis of amino acids
+                YGL009C (LEU1)
+              Amino acid metabolism
+               00290 Valine, leucine and isoleucine biosynthesis
+                YGL009C (LEU1)
+            Enzymes [BR:sce01000]
+             4. Lyases
+              4.2  Carbon-oxygen lyases
+               4.2.1  Hydro-lyases
+                4.2.1.33  3-isopropylmalate dehydratase
+                 YGL009C (LEU1)
 POSITION    VII:complement(476313..478652)
 MOTIF       Pfam: Aconitase Aconitase_C
-DBLINKS     NCBI-GI: 6321429
+DBLINKS     NCBI-ProteinID: NP_011506
             NCBI-GeneID: 852875
             SGD: S000002977
-            MIPS: YGL009C
             UniProt: P07264
 AASEQ       779
             MVYTPSKGPRTLYDKVFDAHVVHQDENGSFLLYIDRHLVHEVTSPQAFEGLENAGRKVRR

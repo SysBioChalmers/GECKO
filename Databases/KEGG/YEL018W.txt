@@ -1,14 +1,19 @@
 ENTRY       YEL018W           CDS       T00005
 NAME        EAF5
-DEFINITION  Eaf5p
+DEFINITION  (RefSeq) Eaf5p
 ORTHOLOGY   K11398  chromatin modification-related protein EAF5
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Histone modification proteins
+               HAT complexes
+                NuA4 complex
+                 YEL018W (EAF5)
 POSITION    V:121471..122310
 MOTIF       Pfam: Bet_v_1
-DBLINKS     NCBI-GI: 6320818
+DBLINKS     NCBI-ProteinID: NP_010897
             NCBI-GeneID: 856696
             SGD: S000000744
-            MIPS: YEL018W
             UniProt: P39995
 AASEQ       279
             MDKEVSELVVLQLIHTLISNKNEELVRNGGGINMIGNNLRISLVKLTNEIQNNLLINELT

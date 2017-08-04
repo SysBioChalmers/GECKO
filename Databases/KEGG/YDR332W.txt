@@ -1,14 +1,24 @@
 ENTRY       YDR332W           CDS       T00005
 NAME        IRC3
-DEFINITION  Irc3p (EC:3.6.4.- 3.6.1.-)
+DEFINITION  (RefSeq) double-stranded DNA-dependent ATPase
 ORTHOLOGY   K17677  ATP-dependent helicase IRC3 [EC:3.6.4.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.4  Acting on acid anhydrides to facilitate cellular and subcellular movement
+                3.6.4.-  
+                 YDR332W (IRC3)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial DNA transcription, translation, and replication factors
+              Mitochondrial DNA replication factors
+               Mitochondrial DNA maintenance factors
+                YDR332W (IRC3)
 POSITION    IV:1131001..1133070
-MOTIF       Pfam: ResIII DEAD Helicase_C AAA_22 Helicase_C_2 START
-DBLINKS     NCBI-GI: 398366495
+MOTIF       Pfam: ResIII Helicase_C DEAD AAA_22 DUF2075 ERCC3_RAD25_C RtcR START
+DBLINKS     NCBI-ProteinID: NP_010619
             NCBI-GeneID: 851932
             SGD: S000002740
-            MIPS: YDR332W
             UniProt: Q06683
 AASEQ       689
             MTSTLATRLSTYSISLILQRIKIIKRCYSAPVLRDYQQDAIDACVNSIRQGTKRIGVSLA

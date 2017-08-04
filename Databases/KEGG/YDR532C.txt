@@ -1,16 +1,28 @@
 ENTRY       YDR532C           CDS       T00005
 NAME        KRE28
-DEFINITION  Kre28p
+DEFINITION  (RefSeq) Kre28p
 ORTHOLOGY   K05749  cytoplasmic FMR1 interacting protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03013  RNA transport
-CLASS       Genetic Information Processing; Translation; RNA transport [PATH:sce03013]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03013 RNA transport
+                YDR532C (KRE28)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Transport factors
+                eIF4F and regulatory proteins
+                 YDR532C (KRE28)
+               Factors involved in mRNA localization
+                Other mRNA localization factors
+                 YDR532C (KRE28)
 POSITION    IV:complement(1499396..1500553)
-MOTIF       Pfam: DUF1216
-DBLINKS     NCBI-GI: 398366685
+MOTIF       Pfam: Kre28 DUF4407
+DBLINKS     NCBI-ProteinID: NP_010821
             NCBI-GeneID: 852145
             SGD: S000002940
-            MIPS: YDR532C
             UniProt: Q04431
 AASEQ       385
             MDTGSASIKDYETVLTDIEDSIAVSSEEVLNNQELRLKNTLHEITSSILAINEENKFVNP

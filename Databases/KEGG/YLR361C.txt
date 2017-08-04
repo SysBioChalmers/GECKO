@@ -1,13 +1,12 @@
 ENTRY       YLR361C           CDS       T00005
 NAME        DCR2
-DEFINITION  Dcr2p (EC:3.1.-.-)
+DEFINITION  (RefSeq) phosphoprotein phosphatase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XII:complement(847388..849124)
 MOTIF       Pfam: Metallophos Metallophos_2 OapA_N
-DBLINKS     NCBI-GI: 6323393
+DBLINKS     NCBI-ProteinID: NP_013465
             NCBI-GeneID: 851075
             SGD: S000004353
-            MIPS: YLR361C
             UniProt: Q05924
 AASEQ       578
             MIRLPRLYQRYLLYLVVFVVIALFYFLQAPRVEEHIGFDLALPISHVDNLWFQNKGLEGF

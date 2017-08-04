@@ -1,14 +1,25 @@
 ENTRY       YPL116W           CDS       T00005
 NAME        HOS3
-DEFINITION  Hos3p (EC:3.5.1.98)
+DEFINITION  (RefSeq) histone deacetylase
 ORTHOLOGY   K11484  histone deacetylase HOS3 [EC:3.5.1.98]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.5  Acting on carbon-nitrogen bonds, other than peptide bonds
+               3.5.1  In linear amides
+                3.5.1.98  histone deacetylase
+                 YPL116W (HOS3)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Histone modification proteins
+               HDACs (histone deacetylases)
+                Class I HDACs
+                 YPL116W (HOS3)
 POSITION    XVI:329606..331699
 MOTIF       Pfam: Hist_deacetyl
-DBLINKS     NCBI-GI: 6325141
+DBLINKS     NCBI-ProteinID: NP_015209
             NCBI-GeneID: 855987
             SGD: S000006037
-            MIPS: YPL116W
             UniProt: Q02959
 AASEQ       697
             MSSKHSDPLERFYKQFQAFVQNNPNVISAARAAAQIPESAKAVVVLSPYSLQHVFPREWV

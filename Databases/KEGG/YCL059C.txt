@@ -1,15 +1,20 @@
 ENTRY       YCL059C           CDS       T00005
 NAME        KRR1
-DEFINITION  Krr1p
+DEFINITION  (RefSeq) ribosome biosynthesis protein KRR1
 ORTHOLOGY   K06961  ribosomal RNA assembly protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              90S particles
+               Other 90S particles
+                YCL059C (KRR1)
 POSITION    III:complement(22429..23379)
-MOTIF       Pfam: KH_1 KH_3
-DBLINKS     NCBI-GI: 6319791
+MOTIF       Pfam: KH_1
+DBLINKS     NCBI-ProteinID: NP_009872
             NCBI-GeneID: 850298
             SGD: S000000564
-            MIPS: YCL059C
             UniProt: P25586
+STRUCTURE   PDB: 4QMF
 AASEQ       316
             MVSTHNRDKPWDTDDIDKWKIEEFKEEDNASGQPFAEESSFMTLFPKYRESYLKTIWNDV
             TRALDKHNIACVLDLVEGSMTVKTTRKTYDPAIILKARDLIKLLARSVPFPQAVKILQDD

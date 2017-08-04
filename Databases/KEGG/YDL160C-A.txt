@@ -1,13 +1,12 @@
 ENTRY       YDL160C-A         CDS       T00005
 NAME        MHF2
-DEFINITION  Mhf2p
+DEFINITION  (RefSeq) Mhf2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(169366..169608)
 MOTIF       Pfam: CENP-X
-DBLINKS     NCBI-GI: 33438778
+DBLINKS     NCBI-ProteinID: NP_878060
             NCBI-GeneID: 1466431
             SGD: S000028520
-            MIPS: YDL160C-A
             UniProt: Q3E829
 STRUCTURE   PDB: 3V9R
 AASEQ       80

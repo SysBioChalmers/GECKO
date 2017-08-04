@@ -1,16 +1,24 @@
 ENTRY       YHR196W           CDS       T00005
 NAME        UTP9
-DEFINITION  Utp9p
+DEFINITION  (RefSeq) Utp9p
 ORTHOLOGY   K14551  U3 small nucleolar RNA-associated protein 9
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03008  Ribosome biogenesis in eukaryotes
-CLASS       Genetic Information Processing; Translation; Ribosome biogenesis in eukaryotes [PATH:sce03008]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03008 Ribosome biogenesis in eukaryotes
+                YHR196W (UTP9)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              90S particles
+               U3 small nucleolar RNA-associated proteins
+                YHR196W (UTP9)
 POSITION    VIII:491931..493658
-MOTIF       Pfam: Utp12
-DBLINKS     NCBI-GI: 6321990
+MOTIF       Pfam: Utp12 Radial_spoke_3 GCD14
+DBLINKS     NCBI-ProteinID: NP_012066
             NCBI-GeneID: 856603
             SGD: S000001239
-            MIPS: YHR196W
             UniProt: P38882
 AASEQ       575
             MGSSLDLVASFSHDSTRFAFQASVAQKNNVDIYPLNETKDYVVNSSLVSHIDYETNDMKV

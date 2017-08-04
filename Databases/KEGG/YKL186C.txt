@@ -1,22 +1,38 @@
 ENTRY       YKL186C           CDS       T00005
 NAME        MTR2
-DEFINITION  Mtr2p
+DEFINITION  (RefSeq) Mtr2p
 ORTHOLOGY   K14543  mRNA transport regulator MTR2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03008  Ribosome biogenesis in eukaryotes
             sce03013  RNA transport
             sce03015  mRNA surveillance pathway
-CLASS       Genetic Information Processing; Translation; RNA transport [PATH:sce03013]
-            Genetic Information Processing; Translation; mRNA surveillance pathway [PATH:sce03015]
-            Genetic Information Processing; Translation; Ribosome biogenesis in eukaryotes [PATH:sce03008]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03013 RNA transport
+                YKL186C (MTR2)
+               03015 mRNA surveillance pathway
+                YKL186C (MTR2)
+               03008 Ribosome biogenesis in eukaryotes
+                YKL186C (MTR2)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Transport factors
+                Nuclear pore complex
+                 YKL186C (MTR2)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               Export and cytoplasmic maturation factors
+                YKL186C (MTR2)
 POSITION    XI:complement(92744..93298)
-MOTIF       Pfam: Mtr2
-DBLINKS     NCBI-GI: 6322662
+MOTIF       Pfam: Mtr2 Glyoxal_oxid_N
+DBLINKS     NCBI-ProteinID: NP_012735
             NCBI-GeneID: 853649
             SGD: S000001669
-            MIPS: YKL186C
             UniProt: P34232
-STRUCTURE   PDB: 1OF5
+STRUCTURE   PDB: 4WWU 1OF5
 AASEQ       184
             MNTNSNTMVMNDANQAQITATFTKKILAHLDDPDSNKLAQFVQLFNPNNCRIIFNATPFA
             QATVFLQMWQNQVVQTQHALTGVDYHAIPGSGTLICNVNCKVRFDESGRDKMGQDATVPI

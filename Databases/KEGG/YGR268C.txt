@@ -1,13 +1,12 @@
 ENTRY       YGR268C           CDS       T00005
 NAME        HUA1
-DEFINITION  Hua1p
+DEFINITION  (RefSeq) Hua1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:complement(1026057..1026653)
-MOTIF       Pfam: DnaJ_CXXCXGXG HypA
-DBLINKS     NCBI-GI: 398366355
+MOTIF       Pfam: DnaJ_CXXCXGXG DZR KAR9 SCIMP
+DBLINKS     NCBI-ProteinID: NP_011784
             NCBI-GeneID: 853185
             SGD: S000003500
-            MIPS: YGR268C
             UniProt: P40325
 AASEQ       198
             MSKDTHDDELPSYEDVIKEEERLQSQPPRPPRPAANLAQGHQSRPHQRPSTMPATSSSQT

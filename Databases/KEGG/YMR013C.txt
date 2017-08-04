@@ -1,17 +1,25 @@
 ENTRY       YMR013C           CDS       T00005
 NAME        SEC59
-DEFINITION  Sec59p (EC:2.7.1.108)
+DEFINITION  (RefSeq) dolichol kinase
 ORTHOLOGY   K00902  dolichol kinase [EC:2.7.1.108]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00510  N-Glycan biosynthesis
             sce01100  Metabolic pathways
-CLASS       Metabolism; Glycan biosynthesis and metabolism; N-Glycan biosynthesis [PATH:sce00510]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Glycan biosynthesis and metabolism
+               00510 N-Glycan biosynthesis
+                YMR013C (SEC59)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.1  Phosphotransferases with an alcohol group as acceptor
+                2.7.1.108  dolichol kinase
+                 YMR013C (SEC59)
 POSITION    XIII:complement(295179..296738)
-MOTIF       Pfam: CTP_transf_1
-DBLINKS     NCBI-GI: 6323655
+DBLINKS     NCBI-ProteinID: NP_013726
             NCBI-GeneID: 855026
             SGD: S000004615
-            MIPS: YMR013C
             UniProt: P20048
 AASEQ       519
             MVAIIPHASFTTIKLTQKTEGSQMPTEEICKINMRTRKFDVGGNSRDFECFYSNFVQTVI

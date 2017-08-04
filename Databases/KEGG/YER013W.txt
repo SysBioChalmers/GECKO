@@ -1,17 +1,32 @@
 ENTRY       YER013W           CDS       T00005
 NAME        PRP22
-DEFINITION  Prp22p (EC:3.6.4.13)
+DEFINITION  (RefSeq) DEAH-box ATP-dependent RNA helicase PRP22
 ORTHOLOGY   K12818  ATP-dependent RNA helicase DHX8/PRP22 [EC:3.6.4.13]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03040  Spliceosome
-CLASS       Genetic Information Processing; Transcription; Spliceosome [PATH:sce03040]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03040 Spliceosome
+                YER013W (PRP22)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.4  Acting on acid anhydrides to facilitate cellular and subcellular movement
+                3.6.4.13  RNA helicase
+                 YER013W (PRP22)
+            Spliceosome [BR:sce03041]
+             Complex C
+              Other components
+               Step II factors
+                YER013W (PRP22)
 POSITION    V:178841..182278
-MOTIF       Pfam: OB_NTP_bind HA2 S1 Helicase_C AAA_22 DEAD T2SE AAA_14 AAA_30 Sigma54_activ_2 AAA ABC_tran SRP54 AAA_19
-DBLINKS     NCBI-GI: 398364321
+MOTIF       Pfam: HA2 OB_NTP_bind Helicase_C S1 DEAD AAA_22 PWI AAA_30 T2SSE AAA_14 AAA_19 SRP54 AAA ABC_tran Acyl-CoA_ox_N AAA_23
+DBLINKS     NCBI-ProteinID: NP_010929
             NCBI-GeneID: 856732
             SGD: S000000815
-            MIPS: YER013W
             UniProt: P24384
+STRUCTURE   PDB: 5MQ0
 AASEQ       1145
             MSDISKLIGAIVGSDDPVIIEFVLNIINKSGNLQEFIRNIQKLDAGISYEDSIKMYNAFL
             GKQEEEKVRNKVKSSPLSQKINQVLKDDVNLDDPVVTEFVLSILNKSKSITEFQEQLNLM

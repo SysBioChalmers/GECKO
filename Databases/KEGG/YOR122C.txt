@@ -1,14 +1,28 @@
 ENTRY       YOR122C           CDS       T00005
 NAME        PFY1, CLS5, PRF1
-DEFINITION  Pfy1p
+DEFINITION  (RefSeq) profilin
 ORTHOLOGY   K05759  profilin
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Others
+              Actin-binding proteins
+               Others
+                YOR122C (PFY1)
+            Cytoskeleton proteins [BR:sce04812]
+             Eukaryotic cytoskeleton proteins
+              Actin filaments / Microfilaments
+               Actin-binding proteins
+                Profilin
+                 YOR122C (PFY1)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Proteins found in most exosomes
+               YOR122C (PFY1)
 POSITION    XV:complement(join(552298..552665,552875..552887))
-MOTIF       Pfam: Profilin
-DBLINKS     NCBI-GI: 398365245
+MOTIF       Pfam: Profilin NTNH_C
+DBLINKS     NCBI-ProteinID: NP_014765
             NCBI-GeneID: 854289
             SGD: S000005648
-            MIPS: YOR122C
             UniProt: P07274
 STRUCTURE   PDB: 1YPR 1K0K
 AASEQ       126

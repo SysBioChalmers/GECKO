@@ -1,16 +1,30 @@
 ENTRY       YOR026W           CDS       T00005
 NAME        BUB3, PAC9
-DEFINITION  Bub3p
+DEFINITION  (RefSeq) Bub3p
 ORTHOLOGY   K02180  cell cycle arrest protein BUB3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
-CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YOR026W (BUB3)
+            Spliceosome [BR:sce03041]
+             Complex A
+              Other components
+               Complex A specific factors
+                YOR026W (BUB3)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centromeric chromatin formation proteins
+               SAC (spindle assembly checkpoint) factors
+                Core SAC proteins
+                 YOR026W (BUB3)
 POSITION    XV:379781..380806
-MOTIF       Pfam: WD40 eIF2A Nucleoporin_N
-DBLINKS     NCBI-GI: 6324600
+MOTIF       Pfam: WD40 WD40_like ANAPC4_WD40 Utp8 Nucleoporin_N eIF2A DERM
+DBLINKS     NCBI-ProteinID: NP_014669
             NCBI-GeneID: 854191
             SGD: S000005552
-            MIPS: YOR026W
             UniProt: P26449
 STRUCTURE   PDB: 1YFQ 2I3S 4BL0 1U4C 2I3T
 AASEQ       341

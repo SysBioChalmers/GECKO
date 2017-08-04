@@ -1,13 +1,12 @@
 ENTRY       YML131W           CDS       T00005
-DEFINITION  hypothetical protein
-ORTHOLOGY   K07119
+DEFINITION  (RefSeq) hypothetical protein
+ORTHOLOGY   K07119  uncharacterized protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:10198..11295
-MOTIF       Pfam: ADH_zinc_N ADH_zinc_N_2 LAB_N BPD_transp_1
-DBLINKS     NCBI-GI: 6323504
+MOTIF       Pfam: ADH_N_2 ADH_zinc_N LAB_N ADH_zinc_N_2 BPD_transp_1
+DBLINKS     NCBI-ProteinID: NP_013575
             NCBI-GeneID: 854908
             SGD: S000004600
-            MIPS: YML131W
             UniProt: Q03102
 AASEQ       365
             MVLAKQWVLKNLPTPGEPFNFHFHDPACTFELIEKELSSEQLKDGELLLETTYLSNDPAQ

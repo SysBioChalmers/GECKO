@@ -1,14 +1,17 @@
 ENTRY       YBR069C           CDS       T00005
 NAME        TAT1, TAP1, VAP1
-DEFINITION  Tat1p
+DEFINITION  (RefSeq) amino acid transporter TAT1
 ORTHOLOGY   K16261  yeast amino acid transporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Other Transporters
+              Electrochemical potential-driven transporters [TC:2]
+               YBR069C (TAT1)
 POSITION    II:complement(376574..378433)
-MOTIF       Pfam: AA_permease AA_permease_2 Spore_permease ROK
-DBLINKS     NCBI-GI: 6319543
+MOTIF       Pfam: AA_permease AA_permease_2 Pet100 PB1-F2 ROK
+DBLINKS     NCBI-ProteinID: NP_009625
             NCBI-GeneID: 852361
             SGD: S000000273
-            MIPS: YBR069C
             UniProt: P38085
 AASEQ       619
             MDDSVSFIAKEASPAQYSHSLHERTHSEKQKRDFTITEKQDEVSGQTAEPRRTDSKSILQ

@@ -1,20 +1,36 @@
 ENTRY       YBR060C           CDS       T00005
 NAME        ORC2, RRR1, SIR5
-DEFINITION  origin recognition complex subunit 2
+DEFINITION  (RefSeq) origin recognition complex subunit 2
 ORTHOLOGY   K02604  origin recognition complex subunit 2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
             sce04113  Meiosis - yeast
 MODULE      sce_M00284  Origin recognition complex
-CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
-            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YBR060C (ORC2)
+               04113 Meiosis - yeast
+                YBR060C (ORC2)
+            DNA replication proteins [BR:sce03032]
+             Eukaryotic Type
+              DNA Replication Initiation Factors
+               pre-RC (pre-replication complex)
+                YBR060C (ORC2)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centrosome formation and ciliogenesis proteins
+               Centrosome duplication proteins
+                Other centrosome duplication proteins
+                 YBR060C (ORC2)
 POSITION    II:complement(360652..362514)
 MOTIF       Pfam: ORC2 AT_hook
-DBLINKS     NCBI-GI: 6319534
+DBLINKS     NCBI-ProteinID: NP_009616
             NCBI-GeneID: 852352
             SGD: S000000264
-            MIPS: YBR060C
             UniProt: P32833
+STRUCTURE   PDB: 5UDB
 AASEQ       620
             MLNGEDFVEHNDILSSPAKSRNVTPKRVDPHGERQLRRIHSSKKNLLERISLVGNERKNT
             SPDPALKPKTPSKAPRKRGRPRKIQEELTDRIKKDEKDTISSKKKRKLDKDTSGNVNEES

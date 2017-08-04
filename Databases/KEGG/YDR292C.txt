@@ -1,16 +1,23 @@
 ENTRY       YDR292C           CDS       T00005
 NAME        SRP101
-DEFINITION  Srp101p
+DEFINITION  (RefSeq) Signal recognition particle receptor subunit alpha
 ORTHOLOGY   K13431  signal recognition particle receptor subunit alpha
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03060  Protein export
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Protein export [PATH:sce03060]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               03060 Protein export
+                YDR292C (SRP101)
+            Secretion system [BR:sce02044]
+             Sec (secretion) system
+              Eukaryotic Sec-SRP protein
+               YDR292C (SRP101)
 POSITION    IV:complement(1043146..1045011)
-MOTIF       Pfam: SRX SRP54 SRP54_N CbiA ArgK AAA_22 ArsA_ATPase MobB AAA_14 Fer4_NifH AAA_16
-DBLINKS     NCBI-GI: 398366427
+MOTIF       Pfam: SRX SRP54 SRP-alpha_N SRP54_N AAA_31 ArgK CbiA cobW ArsA_ATPase Enterotoxin_a Fer4_NifH AAA_30 AAA_22
+DBLINKS     NCBI-ProteinID: NP_010578
             NCBI-GeneID: 851886
             SGD: S000002700
-            MIPS: YDR292C
             UniProt: P32916
 STRUCTURE   PDB: 1NRJ
 AASEQ       621

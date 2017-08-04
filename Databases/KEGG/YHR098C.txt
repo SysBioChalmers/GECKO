@@ -1,13 +1,25 @@
 ENTRY       YHR098C           CDS       T00005
 NAME        SFB3, LST1
-DEFINITION  Sfb3p
+DEFINITION  (RefSeq) Sfb3p
+ORTHOLOGY   K14007  protein transport protein SEC24
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04141  Protein processing in endoplasmic reticulum
+MODULE      sce_M00404  COPII complex
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04141 Protein processing in endoplasmic reticulum
+                YHR098C (SFB3)
+            Membrane trafficking [BR:sce04131]
+             Endoplasmic reticulum (ER) - Golgi transport
+              Forward pathways
+               Coat protein complex II (COP-II)
+                YHR098C (SFB3)
 POSITION    VIII:complement(299145..301934)
 MOTIF       Pfam: Sec23_trunk Sec23_helical Sec23_BS zf-Sec23_Sec24 Gelsolin
-DBLINKS     NCBI-GI: 6321890
+DBLINKS     NCBI-ProteinID: NP_011966
             NCBI-GeneID: 856498
             SGD: S000001140
-            MIPS: YHR098C
             UniProt: P38810
 AASEQ       929
             MSQQNILAASVSALSLDESTVHTGGASSKKSRRPHRAYHNFSSGTVPTLGNSPYTTPQLN

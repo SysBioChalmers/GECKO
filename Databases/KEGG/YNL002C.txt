@@ -1,16 +1,25 @@
 ENTRY       YNL002C           CDS       T00005
 NAME        RLP7, RPL7
-DEFINITION  Rlp7p
+DEFINITION  (RefSeq) Rlp7p
 ORTHOLOGY   K02937  large subunit ribosomal protein L7e
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03010  Ribosome
-CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+MODULE      sce_M00177  Ribosome, eukaryotes
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03010 Ribosome
+                YNL002C (RLP7)
+            Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Eukaryotes
+               Large subunit
+                YNL002C (RLP7)
 POSITION    XIV:complement(626174..627142)
-MOTIF       Pfam: Ribosomal_L30 DNA_pol_viral_C
-DBLINKS     NCBI-GI: 398365527
+MOTIF       Pfam: Ribosomal_L30
+DBLINKS     NCBI-ProteinID: NP_014396
             NCBI-GeneID: 855730
             SGD: S000004947
-            MIPS: YNL002C
             UniProt: P40693
 AASEQ       322
             MSSTQDSKAQTLNSNPEILLRKRRNADRTRIERQELAKKKREEQIKKKRSNKNKFVRAES

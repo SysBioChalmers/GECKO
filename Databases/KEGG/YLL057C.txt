@@ -1,13 +1,19 @@
 ENTRY       YLL057C           CDS       T00005
 NAME        JLP1
-DEFINITION  Jlp1p (EC:1.14.11.-)
+DEFINITION  (RefSeq) sulfonate dioxygenase
+ORTHOLOGY   K19245  sulfonate dioxygenase [EC:1.14.11.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.14  Acting on paired donors, with incorporation or reduction of molecular oxygen
+               1.14.11  With 2-oxoglutarate as one donor, and incorporation of one atom of oxygen into each donor
+                1.14.11.-  
+                 YLL057C (JLP1)
 POSITION    XII:complement(25756..26994)
 MOTIF       Pfam: TauD
-DBLINKS     NCBI-GI: 6322971
+DBLINKS     NCBI-ProteinID: NP_013043
             NCBI-GeneID: 850669
             SGD: S000003980
-            MIPS: YLL057C
             UniProt: Q12358
 AASEQ       412
             MSPAAAQTAIPLPSTDLPVKIITNGLKNLNYTSKQGYGNFDTHFYDGQDEVSPSGLLKIR

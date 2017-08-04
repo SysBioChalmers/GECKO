@@ -1,16 +1,25 @@
 ENTRY       YNR008W           CDS       T00005
 NAME        LRO1
-DEFINITION  phospholipid:diacylglycerol acyltransferase (EC:2.3.1.158)
+DEFINITION  (RefSeq) phospholipid:diacylglycerol acyltransferase
 ORTHOLOGY   K00679  phospholipid:diacylglycerol acyltransferase [EC:2.3.1.158]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00561  Glycerolipid metabolism
-CLASS       Metabolism; Lipid metabolism; Glycerolipid metabolism [PATH:sce00561]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Lipid metabolism
+               00561 Glycerolipid metabolism
+                YNR008W (LRO1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.3  Acyltransferases
+               2.3.1  Transferring groups other than aminoacyl groups
+                2.3.1.158  phospholipid:diacylglycerol acyltransferase
+                 YNR008W (LRO1)
 POSITION    XIV:640396..642381
-MOTIF       Pfam: LCAT Abhydrolase_5 DUF1749 Abhydrolase_1 Lipase_2
-DBLINKS     NCBI-GI: 6324335
+MOTIF       Pfam: LCAT DUF1749
+DBLINKS     NCBI-ProteinID: NP_014405
             NCBI-GeneID: 855742
             SGD: S000005291
-            MIPS: YNR008W
             UniProt: P40345
 AASEQ       661
             MGTLFRRNVQNQKSDSDENNKGGSVHNKRESRNHIHHQQGLGHKRRRGISGSAKRNERGK

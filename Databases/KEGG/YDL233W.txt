@@ -1,13 +1,12 @@
 ENTRY       YDL233W           CDS       T00005
 NAME        MFG1
-DEFINITION  Mfg1p
+DEFINITION  (RefSeq) Mfg1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:36797..38173
 MOTIF       Pfam: LIM_bind
-DBLINKS     NCBI-GI: 6319968
+DBLINKS     NCBI-ProteinID: NP_010048
             NCBI-GeneID: 851365
             SGD: S000002392
-            MIPS: YDL233W
             UniProt: Q07684
 AASEQ       458
             MYQGPPQPPPQAVPMPYIVNNNTPPYPNGNINFPPTAQQNIPPTVYPQQVPFPGQPQGGQ

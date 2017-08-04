@@ -1,16 +1,29 @@
 ENTRY       YPR072W           CDS       T00005
 NAME        NOT5
-DEFINITION  CCR4-NOT core subunit NOT5
+DEFINITION  (RefSeq) CCR4-NOT core subunit NOT5
 ORTHOLOGY   K12580  CCR4-NOT transcription complex subunit 3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03018  RNA degradation
-CLASS       Genetic Information Processing; Folding, sorting and degradation; RNA degradation [PATH:sce03018]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               03018 RNA degradation
+                YPR072W (NOT5)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               mRNA cycle factors
+                P-body specific factors
+                 YPR072W (NOT5)
+              mRNA degradation factors
+               3'-5' decay
+                Ccr4-NOT complex
+                 YPR072W (NOT5)
 POSITION    XVI:690107..691789
-MOTIF       Pfam: Not3 NOT2_3_5 DUF1461 NACHT
-DBLINKS     NCBI-GI: 6325329
+MOTIF       Pfam: Not3 NOT2_3_5 NACHT
+DBLINKS     NCBI-ProteinID: NP_015397
             NCBI-GeneID: 856186
             SGD: S000006276
-            MIPS: YPR072W
             UniProt: Q12514
 STRUCTURE   PDB: 4BY6
 AASEQ       560

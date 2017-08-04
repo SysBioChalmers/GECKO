@@ -1,18 +1,57 @@
 ENTRY       YLR229C           CDS       T00005
 NAME        CDC42
-DEFINITION  Cdc42p
+DEFINITION  (RefSeq) Rho family GTPase CDC42
 ORTHOLOGY   K04393  cell division control protein 42
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04011  MAPK signaling pathway - yeast
             sce04144  Endocytosis
-CLASS       Environmental Information Processing; Signal transduction; MAPK signaling pathway - yeast [PATH:sce04011]
-            Cellular Processes; Transport and catabolism; Endocytosis [PATH:sce04144]
+            sce04933  AGE-RAGE signaling pathway in diabetic complications
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YLR229C (CDC42)
+             Cellular Processes
+              Transport and catabolism
+               04144 Endocytosis
+                YLR229C (CDC42)
+             Human Diseases
+              Endocrine and metabolic diseases
+               04933 AGE-RAGE signaling pathway in diabetic complications
+                YLR229C (CDC42)
+            Membrane trafficking [BR:sce04131]
+             Exocytosis
+              Small GTPases and associated proteins
+               Rho GTPases
+                YLR229C (CDC42)
+             Endocytosis
+              Lipid raft mediated endocytosis
+               GRAF1-dependent endocytosis
+                YLR229C (CDC42)
+              Macropinocytosis
+               Ras GTPases
+                YLR229C (CDC42)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centrosome formation and ciliogenesis proteins
+               Other centriole associated proteins
+                YLR229C (CDC42)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of microglial cells
+               YLR229C (CDC42)
+              Exosomal proteins of breast milk
+               YLR229C (CDC42)
+            GTP-binding proteins [BR:sce04031]
+             Small (Monomeric) G-proteins
+              Rho Family
+               Rac/Cdc42 [OT]
+                YLR229C (CDC42)
 POSITION    XII:complement(604212..604787)
-MOTIF       Pfam: Ras Miro Arf
-DBLINKS     NCBI-GI: 6323259
+MOTIF       Pfam: Ras Roc Arf
+DBLINKS     NCBI-ProteinID: NP_013330
             NCBI-GeneID: 850930
             SGD: S000004219
-            MIPS: YLR229C
             UniProt: P19073
 AASEQ       191
             MQTLKCVVVGDGAVGKTCLLISYTTNQFPADYVPTVFDNYAVTVMIGDEPYTLGLFDTAG

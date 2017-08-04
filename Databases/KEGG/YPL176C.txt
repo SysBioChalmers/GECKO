@@ -1,13 +1,12 @@
 ENTRY       YPL176C           CDS       T00005
 NAME        TRE1
-DEFINITION  Tre1p
+DEFINITION  (RefSeq) Tre1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:complement(216012..218363)
 MOTIF       Pfam: TFR_dimer PA
-DBLINKS     NCBI-GI: 6325081
+DBLINKS     NCBI-ProteinID: NP_015149
             NCBI-GeneID: 855927
             SGD: S000006097
-            MIPS: YPL176C
             UniProt: Q08919
 AASEQ       783
             MVNTRGYTTLPNVEEPANNSQDELNSQDFEQAIGMPSEPPVYVEEMGMEEPQAPEAFSEK

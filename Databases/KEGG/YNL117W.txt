@@ -1,22 +1,35 @@
 ENTRY       YNL117W           CDS       T00005
 NAME        MLS1
-DEFINITION  malate synthase MLS1 (EC:2.3.3.9)
+DEFINITION  (RefSeq) malate synthase MLS1
 ORTHOLOGY   K01638  malate synthase [EC:2.3.3.9]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00620  Pyruvate metabolism
             sce00630  Glyoxylate and dicarboxylate metabolism
             sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
             sce01200  Carbon metabolism
 MODULE      sce_M00012  Glyoxylate cycle
-CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
-            Metabolism; Carbohydrate metabolism; Pyruvate metabolism [PATH:sce00620]
-            Metabolism; Carbohydrate metabolism; Glyoxylate and dicarboxylate metabolism [PATH:sce00630]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01200 Carbon metabolism
+                YNL117W (MLS1)
+              Carbohydrate metabolism
+               00620 Pyruvate metabolism
+                YNL117W (MLS1)
+               00630 Glyoxylate and dicarboxylate metabolism
+                YNL117W (MLS1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.3  Acyltransferases
+               2.3.3  Acyl groups converted into alkyl groups on transfer
+                2.3.3.9  malate synthase
+                 YNL117W (MLS1)
 POSITION    XIV:406358..408022
-MOTIF       Pfam: Malate_synthase HpcH_HpaI
-DBLINKS     NCBI-GI: 6324212
+MOTIF       Pfam: Malate_synthase
+DBLINKS     NCBI-ProteinID: NP_014282
             NCBI-GeneID: 855606
             SGD: S000005061
-            MIPS: YNL117W
             UniProt: P30952
 AASEQ       554
             MVKVSLDNVKLLVDVDKEPFFKPSSTTVGDILTKDALEFIVLLHRTFNNKRKQLLENRQV

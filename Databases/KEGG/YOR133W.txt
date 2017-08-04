@@ -1,0 +1,82 @@
+ENTRY       YOR133W           CDS       T00005
+NAME        EFT1
+DEFINITION  (RefSeq) elongation factor 2
+ORTHOLOGY   K03234  elongation factor 2
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Translation factors [BR:sce03012]
+             Eukaryotic Type
+              Elongation factors
+               YOR133W (EFT1)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Proteins found in most exosomes
+               YOR133W (EFT1)
+POSITION    XV:575098..577626
+MOTIF       Pfam: GTP_EFTU EFG_IV EFG_C GTP_EFTU_D2 EFG_II MMR_HSR1
+DBLINKS     NCBI-ProteinID: NP_014776
+            NCBI-GeneID: 854301
+            SGD: S000005659
+            UniProt: P32324
+STRUCTURE   PDB: 1N0U 3B82 3B8H 3B78 1U2R 1ZM9 1N0V 2NPF 1ZM4 2ZIT 1ZM2
+                 1ZM3 2E1R 2P8Z 2P8X 2P8W 2P8Y 3DNY
+AASEQ       842
+            MVAFTVDQMRSLMDKVTNVRNMSVIAHVDHGKSTLTDSLVQRAGIISAAKAGEARFTDTR
+            KDEQERGITIKSTAISLYSEMSDEDVKEIKQKTDGNSFLINLIDSPGHVDFSSEVTAALR
+            VTDGALVVVDTIEGVCVQTETVLRQALGERIKPVVVINKVDRALLELQVSKEDLYQTFAR
+            TVESVNVIVSTYADEVLGDVQVYPARGTVAFGSGLHGWAFTIRQFATRYAKKFGVDKAKM
+            MDRLWGDSFFNPKTKKWTNKDTDAEGKPLERAFNMFILDPIFRLFTAIMNFKKDEIPVLL
+            EKLEIVLKGDEKDLEGKALLKVVMRKFLPAADALLEMIVLHLPSPVTAQAYRAEQLYEGP
+            ADDANCIAIKNCDPKADLMLYVSKMVPTSDKGRFYAFGRVFAGTVKSGQKVRIQGPNYVP
+            GKKDDLFIKAIQRVVLMMGRFVEPIDDCPAGNIIGLVGIDQFLLKTGTLTTSETAHNMKV
+            MKFSVSPVVQVAVEVKNANDLPKLVEGLKRLSKSDPCVLTYMSESGEHIVAGTGELHLEI
+            CLQDLEHDHAGVPLKISPPVVAYRETVESESSQTALSKSPNKHNRIYLKAEPIDEEVSLA
+            IENGIINPRDDFKARARIMADDYGWDVTDARKIWCFGPDGNGPNLVIDQTKAVQYLHEIK
+            DSVVAAFQWATKEGPIFGEEMRSVRVNILDVTLHADAIHRGGGQIIPTMRRATYAGFLLA
+            DPKIQEPVFLVEIQCPEQAVGGIYSVLNKKRGQVVSEEQRPGTPLFTVKAYLPVNESFGF
+            TGELRQATGGQAFPQMVFDHWSTLGSDPLDPTSKAGEIVLAARKRHGMKEEVPGWQEYYD
+            KL
+NTSEQ       2529
+            atggttgctttcactgttgaccaaatgcgttctttaatggacaaagttaccaatgtgcgt
+            aacatgtccgttattgctcacgtcgatcatggtaagtccactttgaccgattccttggtc
+            caaagagccggtattatttccgctgctaaggctggtgaagctcgtttcaccgataccaga
+            aaggatgaacaagaaagaggtatcactatcaagtctaccgctatttctctatactctgaa
+            atgtctgacgaagatgtcaaggaaatcaagcaaaagaccgacggtaactccttcttgatc
+            aacttgatcgactctccaggtcacgttgacttctcctctgaagttactgccgctttacgt
+            gtcactgacggtgctttggttgtcgtcgacaccattgaaggtgtctgtgtccaaaccgaa
+            actgttttgagacaagctttgggtgaaagaatcaagcctgttgttgttatcaacaaggtc
+            gacagagctttgttggaattgcaagtttctaaggaagatttataccaaacctttgccaga
+            actgttgaatccgttaacgtcatcgtttccacctacgccgatgaagttttgggtgatgtc
+            caagtttacccagccagaggtaccgttgccttcggttccggtttgcacggttgggctttc
+            actatccgtcaattcgccaccagatatgctaagaaattcggtgtcgacaaggccaagatg
+            atggacagattatggggtgactctttcttcaacccaaagaccaagaagtggaccaacaag
+            gacactgatgctgaaggtaagccattggaaagagctttcaacatgttcatcttggaccca
+            atcttcagattattcactgctatcatgaacttcaagaaagacgaaattccagttttgcta
+            gaaaagttggaaattgtcttgaagggtgacgaaaaggacttggaaggtaaggccttgttg
+            aaggttgttatgagaaagttcttgccagctgccgatgccttattggaaatgattgtcttg
+            cacttgccatctccagtcactgctcaagcctacagagctgaacaattatacgaaggtcca
+            gctgacgatgccaactgtattgctatcaagaactgtgatccaaaggctgatttgatgttg
+            tacgtctccaagatggtgccaacctctgataagggtagattctacgccttcggtagagtt
+            tttgccggtactgttaagtccggtcaaaaggtcagaatccaaggtccaaactacgttcca
+            ggtaagaaggacgatttgttcatcaaggccattcaaagagttgttttgatgatgggtaga
+            tttgtcgaaccaatcgatgactgtccagccggtaacattatcggtttagtcggtatcgat
+            caattcttgttgaagactggtactttgaccaccagtgaaactgctcacaacatgaaggtc
+            atgaaattctctgtctctccagttgtgcaagtcgctgtcgaagtcaagaacgctaacgac
+            ttaccaaaattggtcgaaggtttgaagagattgtccaagtctgatccatgtgtcttgacc
+            tatatgtctgaatccggtgaacatatcgttgctggtaccggtgaattgcatttggaaatt
+            tgtttgcaagatttggaacacgaccacgctggtgttccattgaagatctccccaccagtt
+            gtcgcttacagagaaactgttgaaagtgaatcttctcaaactgctttgtccaagtctcca
+            aacaagcataacagaatctacttgaaggctgaaccaattgacgaagaagtctctttggct
+            attgaaaacggtatcatcaacccaagagatgatttcaaggccagagctagaatcatggct
+            gacgactacggttgggatgtcaccgatgccagaaagatctggtgtttcggtccagacggt
+            aacggtccaaacttggttattgaccaaactaaggctgtccaatacttgcacgaaatcaag
+            gattccgttgttgctgctttccaatgggctaccaaggaaggtccaattttcggtgaagaa
+            atgagatctgtcagagttaacattttggatgttactttacatgccgatgctatccacaga
+            ggtggtggtcaaatcatcccaaccatgagaagagctacttacgccggtttcttgttggct
+            gatccaaagatccaagaaccagttttcttggtcgaaattcaatgtccagaacaagccgtc
+            ggtggtatctactccgtcttaaacaagaagagaggtcaagtcgtttctgaagaacaaaga
+            ccaggtactccattgtttaccgtcaaggcctacttgccagttaacgaatctttcggtttc
+            actggtgaattgagacaagctaccggtggtcaagctttcccacaaatggttttcgaccat
+            tggtccactttaggttctgacccattggacccaacctctaaggctggtgaaattgttctt
+            gctgctcgtaagagacacggtatgaaggaagaagttccaggctggcaagaatattacgac
+            aaattgtaa
+///

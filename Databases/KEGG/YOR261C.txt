@@ -1,19 +1,29 @@
 ENTRY       YOR261C           CDS       T00005
 NAME        RPN8
-DEFINITION  proteasome regulatory particle lid subunit RPN8
+DEFINITION  (RefSeq) proteasome regulatory particle lid subunit RPN8
 ORTHOLOGY   K03038  26S proteasome regulatory subunit N8
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03050  Proteasome
 MODULE      sce_M00341  Proteasome, 19S regulatory particle (PA700)
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Proteasome [PATH:sce03050]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               03050 Proteasome
+                YOR261C (RPN8)
+            Proteasome [BR:sce03051]
+             Eukaryotic proteasome
+              Regulatory particles
+               PA700 (19S proteasome)
+                non-ATPase subunits
+                 YOR261C (RPN8)
 POSITION    XV:complement(815915..816931)
 MOTIF       Pfam: MitMem_reg JAB
-DBLINKS     NCBI-GI: 398365985
+DBLINKS     NCBI-ProteinID: NP_014904
             NCBI-GeneID: 854435
             SGD: S000005787
-            MIPS: YOR261C
             UniProt: Q08723
-STRUCTURE   PDB: 4O8Y 4O8X 4B4T 4C0V 3J47
+STRUCTURE   PDB: 4O8Y 4OCM 4O8X 4OCN 4OWP 4OCL 3JCK 5MPD 5MPE 4CR2 4CR4
+                 4CR3 5A5B 3J47
 AASEQ       338
             MSLQHEKVTIAPLVLLSALDHYERTQTKENKRCVGVILGDANSSTIRVTNSFALPFEEDE
             KNSDVWFLDHNYIENMNEMCKKINAKEKLIGWYHSGPKLRASDLKINELFKKYTQNNPLL

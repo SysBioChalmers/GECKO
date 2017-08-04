@@ -1,12 +1,12 @@
 ENTRY       YNL024C           CDS       T00005
-DEFINITION  hypothetical protein
+NAME        EFM6
+DEFINITION  (RefSeq) putative protein-lysine N-methyltransferase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIV:complement(587107..587847)
-MOTIF       Pfam: Methyltransf_16 MTS Methyltransf_18 PCMT
-DBLINKS     NCBI-GI: 6324304
+MOTIF       Pfam: Methyltransf_16 MTS Methyltransf_23 PCMT
+DBLINKS     NCBI-ProteinID: NP_014374
             NCBI-GeneID: 855707
             SGD: S000004969
-            MIPS: YNL024C
             UniProt: P53970
 AASEQ       246
             MESIFGGFGDLVVPRPKEHLGQTDLSFGGKLLPALKICEDGGESGCGGKVWIAGELLCEY

@@ -1,16 +1,44 @@
 ENTRY       YMR223W           CDS       T00005
 NAME        UBP8
-DEFINITION  Ubp8p (EC:3.4.19.12 3.1.2.15)
-ORTHOLOGY   K11366  ubiquitin carboxyl-terminal hydrolase 22/27/51 [EC:3.1.2.15]
+DEFINITION  (RefSeq) ubiquitin-specific protease UBP8
+ORTHOLOGY   K11366  ubiquitin carboxyl-terminal hydrolase 22/27/51 [EC:3.4.19.12]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.4  Acting on peptide bonds (peptidases)
+               3.4.19  Omega peptidases
+                3.4.19.12  ubiquitinyl hydrolase 1
+                 YMR223W (UBP8)
+            Peptidases [BR:sce01002]
+             Cysteine Peptidases
+              Family C19: ubiquitin-specific protease family
+               YMR223W (UBP8)
+            Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Coactivators
+                SAGA/TFTC/STAGA complex
+                 YMR223W (UBP8)
+            Ubiquitin system [BR:sce04121]
+             Deubiquitinating enzyme (DUB)
+              Ubiquitin-specific proteases (UBPs)
+               UBP/USP
+                YMR223W (UBP8)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Histone modification proteins
+               HAT complexes
+                SAGA complex
+                 YMR223W (UBP8)
+                SLIK complex
+                 YMR223W (UBP8)
 POSITION    XIII:716715..718130
 MOTIF       Pfam: UCH UCH_1 zf-UBP
-DBLINKS     NCBI-GI: 6323879
+DBLINKS     NCBI-ProteinID: NP_013950
             NCBI-GeneID: 855263
             SGD: S000004836
-            MIPS: YMR223W
             UniProt: P50102
-STRUCTURE   PDB: 3MHS 4FK5 3MHH 4FIP 3M99 4FJC
+STRUCTURE   PDB: 3MHS 4FK5 4WA6 3MHH 4FIP 3M99 4W4U 4FJC 4ZUX
 AASEQ       471
             MSICPHIQQVFQNEKSKDGVLKTCNAARYILNHSVPKEKFLNTMKCGTCHEINSGATFMC
             LQCGFCGCWNHSHFLSHSKQIGHIFGINSNNGLLFCFKCEDYIGNIDLINDAILAKYWDD

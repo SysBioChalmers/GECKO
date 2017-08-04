@@ -1,14 +1,22 @@
 ENTRY       YPL215W           CDS       T00005
 NAME        CBP3
-DEFINITION  Cbp3p
+DEFINITION  (RefSeq) Cbp3p
 ORTHOLOGY   K17662  cytochrome b pre-mRNA-processing protein 3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial DNA transcription, translation, and replication factors
+              Mitochondrial transcription and translation factors
+               Other mitochondrial DNA transcription and translation factors
+                YPL215W (CBP3)
+             Mitochondrial quality control factors
+              Mitochondrial respiratory chain complex assembly factors
+               Complex-III assembly factors
+                YPL215W (CBP3)
 POSITION    XVI:147416..148423
 MOTIF       Pfam: Ubiq_cyt_C_chap
-DBLINKS     NCBI-GI: 6325041
+DBLINKS     NCBI-ProteinID: NP_015109
             NCBI-GeneID: 855886
             SGD: S000006136
-            MIPS: YPL215W
             UniProt: P21560
 AASEQ       335
             MMSVNRFTSGRLPVFLRKSPFYYSRAYLHQTCVFKQNKETAQDSPELLAKSSHLNSKPLD

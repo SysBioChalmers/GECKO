@@ -1,14 +1,19 @@
 ENTRY       YLR097C           CDS       T00005
 NAME        HRT3
-DEFINITION  SCF ubiquitin ligase complex subunit HRT3
+DEFINITION  (RefSeq) SCF ubiquitin ligase complex subunit HRT3
 ORTHOLOGY   K10295  F-box protein 9
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ubiquitin system [BR:sce04121]
+             Ubiquitin ligases (E3)
+              Multi subunit Ring-finger type E3
+               SCF complex
+                Target recognizing subunit (F-box)
+                 YLR097C (HRT3)
 POSITION    XII:complement(336231..337265)
-MOTIF       Pfam: F-box-like F-box
-DBLINKS     NCBI-GI: 6323126
+MOTIF       Pfam: F-box-like F-box MIT
+DBLINKS     NCBI-ProteinID: NP_013198
             NCBI-GeneID: 850786
             SGD: S000004087
-            MIPS: YLR097C
             UniProt: Q12347
 AASEQ       344
             MIVDYEKDPRAKEAIAIWEKGVLKEKDGSMSDAINFYRSALKIHDNVESLYRKKILDEWM

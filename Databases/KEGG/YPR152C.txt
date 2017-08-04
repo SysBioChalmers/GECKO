@@ -1,13 +1,12 @@
 ENTRY       YPR152C           CDS       T00005
 NAME        URN1
-DEFINITION  Urn1p
+DEFINITION  (RefSeq) Urn1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:complement(832061..833458)
 MOTIF       Pfam: WW FF
-DBLINKS     NCBI-GI: 6325410
+DBLINKS     NCBI-ProteinID: NP_015478
             NCBI-GeneID: 856275
             SGD: S000006356
-            MIPS: YPR152C
             UniProt: Q06525
 STRUCTURE   PDB: 2JUC
 AASEQ       465

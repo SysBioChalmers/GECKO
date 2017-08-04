@@ -1,16 +1,24 @@
 ENTRY       YBR128C           CDS       T00005
 NAME        ATG14, APG14, CVT12
-DEFINITION  Atg14p
+DEFINITION  (RefSeq) Atg14p
 ORTHOLOGY   K08335  autophagy-related protein 14
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
-PATHWAY     sce04140  Regulation of autophagy
-CLASS       Cellular Processes; Transport and catabolism; Regulation of autophagy [PATH:sce04140]
+PATHWAY     sce04138  Autophagy - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04138 Autophagy - yeast
+                YBR128C (ATG14)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial quality control factors
+              Mitophagy factors
+               Autophagy-related proteins
+                YBR128C (ATG14)
 POSITION    II:complement(493081..494115)
-MOTIF       Pfam: Atg14 DUF342 Fib_alpha
-DBLINKS     NCBI-GI: 6319604
+MOTIF       Pfam: Atg14 Phage_HK97_TLTM DUF4763 FapA
+DBLINKS     NCBI-ProteinID: NP_009686
             NCBI-GeneID: 852425
             SGD: S000000332
-            MIPS: YBR128C
             UniProt: P38270
 AASEQ       344
             MHCPICHHRAHVVYCAHCINTSPSLLLKLKLDLILLKDENKELNGKVEQILNEAMNYDQL

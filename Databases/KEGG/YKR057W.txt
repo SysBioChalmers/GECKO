@@ -1,18 +1,26 @@
 ENTRY       YKR057W           CDS       T00005
 NAME        RPS21A, RPS25
-DEFINITION  ribosomal 40S subunit protein S21A
+DEFINITION  (RefSeq) ribosomal 40S subunit protein S21A
 ORTHOLOGY   K02971  small subunit ribosomal protein S21e
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03010  Ribosome
-CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+MODULE      sce_M00177  Ribosome, eukaryotes
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03010 Ribosome
+                YKR057W (RPS21A)
+            Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Eukaryotes
+               Small subunit
+                YKR057W (RPS21A)
 POSITION    XI:join(551657..551680,552003..552242)
 MOTIF       Pfam: Ribosomal_S21e
-DBLINKS     NCBI-GI: 398365233
+DBLINKS     NCBI-ProteinID: NP_012983
             NCBI-GeneID: 853931
             SGD: S000001765
-            MIPS: YKR057W
             UniProt: P0C0V8
-STRUCTURE   PDB: 3U5C 3U5G 4BYL 4BYT 3IZB
 AASEQ       87
             MENDKGQLVELYVPRKCSATNRIIKADDHASVQINVAKVDEEGRAIPGEYVTYALSGYVR
             SRGESDDSLNRLAQNDGLLKNVWSYSR

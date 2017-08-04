@@ -1,13 +1,12 @@
 ENTRY       YPL103C           CDS       T00005
 NAME        FMP30
-DEFINITION  Fmp30p (EC:3.1.4.- 3.1.4.54)
+DEFINITION  (RefSeq) N-acetylphosphatidylethanolamine-hydrolyzing phospholipase D
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:complement(358000..359406)
 MOTIF       Pfam: Lactamase_B_2 Lactamase_B_3
-DBLINKS     NCBI-GI: 6325154
+DBLINKS     NCBI-ProteinID: NP_015222
             NCBI-GeneID: 856001
             SGD: S000006024
-            MIPS: YPL103C
             UniProt: Q02883
 AASEQ       468
             MNFVTCHVQMRLLLQRRLVRLRESELFRPQTSLSTFKRHASQKTRPIQKCSRKYARILLL

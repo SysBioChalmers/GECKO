@@ -1,13 +1,13 @@
 ENTRY       YBL104C           CDS       T00005
 NAME        SEA4, YBL103C-A
-DEFINITION  Sea4p
+DEFINITION  (RefSeq) Sea4p
+ORTHOLOGY   K20407  WD repeat-containing protein mio
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    II:complement(18177..21293)
-MOTIF       Pfam: SopA
-DBLINKS     NCBI-GI: 41629671
+MOTIF       Pfam: zinc_ribbon_16 Zn_ribbon_17
+DBLINKS     NCBI-ProteinID: NP_009446
             NCBI-GeneID: 852170
             SGD: S000000200
-            MIPS: YBL104C
             UniProt: P38164
 AASEQ       1038
             MGLIKKVTHWSYDNLIDYLSVNPTRDEVTHYKVDPENESDESIIKLHTVKDFGSITCLDY

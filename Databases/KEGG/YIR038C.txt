@@ -1,16 +1,25 @@
 ENTRY       YIR038C           CDS       T00005
 NAME        GTT1
-DEFINITION  bifunctional glutathione transferase/peroxidase (EC:2.5.1.18)
+DEFINITION  (RefSeq) bifunctional glutathione transferase/peroxidase
 ORTHOLOGY   K00799  glutathione S-transferase [EC:2.5.1.18]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00480  Glutathione metabolism
-CLASS       Metabolism; Metabolism of other amino acids; Glutathione metabolism [PATH:sce00480]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Metabolism of other amino acids
+               00480 Glutathione metabolism
+                YIR038C (GTT1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.5  Transferring alkyl or aryl groups, other than methyl groups
+               2.5.1  Transferring alkyl or aryl groups, other than methyl groups (only sub-subclass identified to date)
+                2.5.1.18  glutathione transferase
+                 YIR038C (GTT1)
 POSITION    IX:complement(423809..424513)
 MOTIF       Pfam: GST_N GST_C GST_N_3 GST_N_2 GST_C_3
-DBLINKS     NCBI-GI: 6322229
+DBLINKS     NCBI-ProteinID: NP_012304
             NCBI-GeneID: 854856
             SGD: S000001477
-            MIPS: YIR038C
             UniProt: P40582
 AASEQ       234
             MSLPIIKVHWLDHSRAFRLLWLLDHLNLEYEIVPYKRDANFRAPPELKKIHPLGRSPLLE

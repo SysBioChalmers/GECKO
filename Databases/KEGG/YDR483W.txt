@@ -1,16 +1,29 @@
 ENTRY       YDR483W           CDS       T00005
 NAME        KRE2, MNT1
-DEFINITION  Kre2p (EC:2.4.1.-)
+DEFINITION  (RefSeq) alpha-1,2-mannosyltransferase KRE2
 ORTHOLOGY   K10967  alpha 1,2-mannosyltransferase [EC:2.4.1.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00514  Other types of O-glycan biosynthesis
-CLASS       Metabolism; Glycan biosynthesis and metabolism; Other types of O-glycan biosynthesis [PATH:sce00514]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Glycan biosynthesis and metabolism
+               00514 Other types of O-glycan biosynthesis
+                YDR483W (KRE2)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.4  Glycosyltransferases
+               2.4.1  Hexosyltransferases
+                2.4.1.-  
+                 YDR483W (KRE2)
+            Glycosyltransferases [BR:sce01003]
+             Glycan extension
+              Yeast mannan chain
+               YDR483W (KRE2)
 POSITION    IV:1421157..1422485
-MOTIF       Pfam: Glyco_transf_15
-DBLINKS     NCBI-GI: 6320691
+MOTIF       Pfam: Glyco_transf_15 DUF4179
+DBLINKS     NCBI-ProteinID: NP_010771
             NCBI-GeneID: 852094
             SGD: S000002891
-            MIPS: YDR483W
             UniProt: P27809
 STRUCTURE   PDB: 1S4N 1S4O 1S4P
 AASEQ       442

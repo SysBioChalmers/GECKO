@@ -1,15 +1,20 @@
 ENTRY       YLR330W           CDS       T00005
 NAME        CHS5, CAL3
-DEFINITION  Chs5p
+DEFINITION  (RefSeq) Chs5p
+ORTHOLOGY   K19877  chitin biosynthesis protein CHS5
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Exocytosis
+              Others
+               Exomer complex
+                YLR330W (CHS5)
 POSITION    XII:787664..789679
-MOTIF       Pfam: BRCT DUF3006 fn3 PTCB-BRCT
-DBLINKS     NCBI-GI: 6323362
+MOTIF       Pfam: fn3_2 CHS5_N BRCT DUF3006 fn3 PTCB-BRCT BRCT_2
+DBLINKS     NCBI-ProteinID: NP_013434
             NCBI-GeneID: 851041
             SGD: S000004322
-            MIPS: YLR330W
             UniProt: Q12114
-STRUCTURE   PDB: 4GNS 4IN3
+STRUCTURE   PDB: 4WJW 4YG8 4IN3 4Q66
 AASEQ       671
             MSSVDVLLTVGKLDASLALLTTQDHHVIEFPTVLLPENVKAGSIIKMQVSQNLEEEKKQR
             NHFKSIQAKILEKYGTHKPESPVLKIVNVTQTSCVLAWDPLKLGSAKLKSLILYRKGIRS

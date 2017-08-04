@@ -1,13 +1,25 @@
 ENTRY       YGL196W           CDS       T00005
 NAME        DSD1
-DEFINITION  D-serine ammonia-lyase DSD1 (EC:4.3.1.18)
+DEFINITION  (RefSeq) D-serine ammonia-lyase DSD1
+ORTHOLOGY   K20498  D-serine ammonia-lyase [EC:4.3.1.18]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00260  Glycine, serine and threonine metabolism
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Amino acid metabolism
+               00260 Glycine, serine and threonine metabolism
+                YGL196W (DSD1)
+            Enzymes [BR:sce01000]
+             4. Lyases
+              4.3  Carbon-nitrogen lyases
+               4.3.1  Ammonia-lyases
+                4.3.1.18  D-serine ammonia-lyase
+                 YGL196W (DSD1)
 POSITION    VII:129883..131169
 MOTIF       Pfam: D-ser_dehydrat Ala_racemase_N
-DBLINKS     NCBI-GI: 50593216
+DBLINKS     NCBI-ProteinID: NP_011319
             NCBI-GeneID: 852679
             SGD: S000003164
-            MIPS: YGL196W
             UniProt: P53095
 AASEQ       428
             MSDVLSQYKGCSVRDLPTPNFVINEEKFDKNCTTMLNNVEKLSQECGVPIKFRAHVKTHK

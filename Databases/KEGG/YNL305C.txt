@@ -1,14 +1,13 @@
 ENTRY       YNL305C           CDS       T00005
 NAME        BXI1, YBH3
-DEFINITION  Bxi1p
-ORTHOLOGY   K06890
+DEFINITION  (RefSeq) Bxi1p
+ORTHOLOGY   K06890  uncharacterized protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIV:complement(58898..59791)
-MOTIF       Pfam: Bax1-I MerC DUF2919
-DBLINKS     NCBI-GI: 6324024
+MOTIF       Pfam: Bax1-I BaxI_1 MerC HupE_UreJ_2
+DBLINKS     NCBI-ProteinID: NP_014094
             NCBI-GeneID: 855411
             SGD: S000005249
-            MIPS: YNL305C
             UniProt: P48558
 AASEQ       297
             MSGPPPPYEEQSSHLYGQPASSQDGNAFIPEDFKYSTVVISCEPIIRQRFMHKVYSLLSC

@@ -1,20 +1,51 @@
 ENTRY       YER125W           CDS       T00005
 NAME        RSP5, MDP1, MUT2, NPI1, SMM1, UBY1
-DEFINITION  NEDD4 family E3 ubiquitin-protein ligase (EC:6.3.2.-)
-ORTHOLOGY   K10591  E3 ubiquitin-protein ligase NEDD4 [EC:6.3.2.19]
+DEFINITION  (RefSeq) NEDD4 family E3 ubiquitin-protein ligase
+ORTHOLOGY   K10591  E3 ubiquitin-protein ligase NEDD4 [EC:2.3.2.26]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
-PATHWAY     sce04120  Ubiquitin mediated proteolysis
+PATHWAY     sce04011  MAPK signaling pathway - yeast
+            sce04120  Ubiquitin mediated proteolysis
             sce04144  Endocytosis
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Ubiquitin mediated proteolysis [PATH:sce04120]
-            Cellular Processes; Transport and catabolism; Endocytosis [PATH:sce04144]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04120 Ubiquitin mediated proteolysis
+                YER125W (RSP5)
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YER125W (RSP5)
+             Cellular Processes
+              Transport and catabolism
+               04144 Endocytosis
+                YER125W (RSP5)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.3  Acyltransferases
+               2.3.2  Aminoacyltransferases
+                2.3.2.26  HECT-type E3 ubiquitin transferase
+                 YER125W (RSP5)
+            Membrane trafficking [BR:sce04131]
+             Endocytosis
+              Clathrin-mediated endocytosis
+               Ubiquitin E3 ligases
+                YER125W (RSP5)
+            Ubiquitin system [BR:sce04121]
+             Ubiquitin ligases (E3)
+              HECT type E3
+               YER125W (RSP5)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial quality control factors
+              Mitochondrial dynamics
+               Morphogenesis factors
+                YER125W (RSP5)
 POSITION    V:410189..412618
-MOTIF       Pfam: HECT WW C2 SOG2
-DBLINKS     NCBI-GI: 398364769
+MOTIF       Pfam: HECT WW C2
+DBLINKS     NCBI-ProteinID: NP_011051
             NCBI-GeneID: 856862
             SGD: S000000927
-            MIPS: YER125W
             UniProt: P39940
-STRUCTURE   PDB: 3OLM 4LCD
+STRUCTURE   PDB: 5HPL 3OLM 4LCD
 AASEQ       809
             MPSSISVKLVAAESLYKRDVFRSPDPFAVLTIDGYQTKSTSAAKKTLNPYWNETFKFDDI
             NENSILTIQVFDQKKFKKKDQGFLGVVNVRVGDVLGHLDEDTATSSGRPREETITRDLKK

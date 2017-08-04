@@ -1,13 +1,12 @@
 ENTRY       YER059W           CDS       T00005
 NAME        PCL6
-DEFINITION  Pcl6p
+DEFINITION  (RefSeq) Pcl6p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    V:272624..273886
-MOTIF       Pfam: Cyclin
-DBLINKS     NCBI-GI: 6320901
+MOTIF       Pfam: Cyclin DUF913
+DBLINKS     NCBI-ProteinID: NP_010980
             NCBI-GeneID: 856787
             SGD: S000000861
-            MIPS: YER059W
             UniProt: P40038
 AASEQ       420
             MSIKGDSPSSTNASSSPKSTYSIQSDDKANLGSGNVDIRTDNSQQDSNNRRDIVVVTRVA

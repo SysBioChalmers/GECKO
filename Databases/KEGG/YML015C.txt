@@ -1,16 +1,25 @@
 ENTRY       YML015C           CDS       T00005
 NAME        TAF11, TAF40
-DEFINITION  Taf11p
+DEFINITION  (RefSeq) Taf11p
 ORTHOLOGY   K03135  transcription initiation factor TFIID subunit 11
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03022  Basal transcription factors
-CLASS       Genetic Information Processing; Transcription; Basal transcription factors [PATH:sce03022]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03022 Basal transcription factors
+                YML015C (TAF11)
+            Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Basal transcription factors
+                TFIID
+                 YML015C (TAF11)
 POSITION    XIII:complement(241989..243029)
-MOTIF       Pfam: TAFII28 eIF_4EBP
-DBLINKS     NCBI-GI: 6323626
+MOTIF       Pfam: TAFII28
+DBLINKS     NCBI-ProteinID: NP_013697
             NCBI-GeneID: 854993
             SGD: S000004477
-            MIPS: YML015C
             UniProt: Q04226
 AASEQ       346
             MTEPQGPLDTIPKVNYPPILTIANYFSTKQMIDQVISEDQDYVTWKLQNLRTGGTSINNQ

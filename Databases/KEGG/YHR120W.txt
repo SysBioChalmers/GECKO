@@ -1,13 +1,12 @@
 ENTRY       YHR120W           CDS       T00005
 NAME        MSH1
-DEFINITION  mismatch repair ATPase MSH1
+DEFINITION  (RefSeq) mismatch repair ATPase MSH1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VIII:349574..352453
-MOTIF       Pfam: MutS_V MutS_III MutS_I MutS_II DUF2846
-DBLINKS     NCBI-GI: 6321912
+MOTIF       Pfam: MutS_V MutS_III MutS_I MutS_II AAA_29
+DBLINKS     NCBI-ProteinID: NP_011988
             NCBI-GeneID: 856520
             SGD: S000001162
-            MIPS: YHR120W
             UniProt: P25846
 AASEQ       959
             MKHFFRLPTAFRPISRVSLRYSSTDTAQPKISKLKISFNKISESNSEKKDNLGSIDTRNC

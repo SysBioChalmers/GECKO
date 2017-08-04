@@ -1,17 +1,26 @@
 ENTRY       YIR032C           CDS       T00005
 NAME        DAL3
-DEFINITION  ureidoglycolate hydrolase (EC:4.3.2.3 3.5.3.19)
-ORTHOLOGY   K01483  ureidoglycolate hydrolase [EC:3.5.3.19]
+DEFINITION  (RefSeq) ureidoglycolate hydrolase
+ORTHOLOGY   K01483  ureidoglycolate lyase [EC:4.3.2.3]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00230  Purine metabolism
             sce01100  Metabolic pathways
-CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Nucleotide metabolism
+               00230 Purine metabolism
+                YIR032C (DAL3)
+            Enzymes [BR:sce01000]
+             4. Lyases
+              4.3  Carbon-nitrogen lyases
+               4.3.2  Amidine-lyases
+                4.3.2.3  ureidoglycolate lyase
+                 YIR032C (DAL3)
 POSITION    IX:complement(415030..415617)
-MOTIF       Pfam: Ureidogly_hydro
-DBLINKS     NCBI-GI: 6322223
+MOTIF       Pfam: Ureidogly_lyase
+DBLINKS     NCBI-ProteinID: NP_012298
             NCBI-GeneID: 854850
             SGD: S000001471
-            MIPS: YIR032C
             UniProt: P32459
 AASEQ       195
             MVTVVAETLTKESFEEYGTIISPDEEISRMQNLEKGANQGTAIKLLQVSQVENKSTSKVP

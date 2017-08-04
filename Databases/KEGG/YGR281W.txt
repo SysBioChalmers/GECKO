@@ -1,13 +1,12 @@
 ENTRY       YGR281W           CDS       T00005
 NAME        YOR1, YRS1
-DEFINITION  ATP-binding cassette transporter YOR1
+DEFINITION  (RefSeq) ATP-binding cassette transporter YOR1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:1052824..1057257
-MOTIF       Pfam: ABC_membrane ABC_tran AAA_23 SMC_N AAA_29 AAA_21 AAA_17 DUF258 AAA_18 MMR_HSR1 Zeta_toxin AAA_22 AAA_25 T2SE AAA_16 IstB_IS21 ArgK AAA_30 DUF4220 AAA AAA_28 Dynamin_N UPF0079 DUF87 Arch_ATPase
-DBLINKS     NCBI-GI: 398366407
+MOTIF       Pfam: ABC_membrane ABC_tran SMC_N AAA_29 AAA_23 AAA_21 RsgA_GTPase MMR_HSR1 AAA_18 AAA_22 Zeta_toxin IstB_IS21 AAA_16 T2SSE AAA_27 AAA_28 cobW ArgK AAA Dynamin_N AAA_30 DUF87
+DBLINKS     NCBI-ProteinID: NP_011797
             NCBI-GeneID: 853198
             SGD: S000003513
-            MIPS: YGR281W
             UniProt: P53049
 AASEQ       1477
             MTITVGDAVSETELENKSQNVVLSPKASASSDISTDVDKDTSSSWDDKSLLPTGEYIVDR

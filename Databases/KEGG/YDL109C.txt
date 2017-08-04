@@ -1,12 +1,11 @@
 ENTRY       YDL109C           CDS       T00005
-DEFINITION  putative lipase (EC:3.1.-.-)
+DEFINITION  (RefSeq) putative lipase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(265258..267201)
-MOTIF       Pfam: DUF676 Lipase_3 Abhydrolase_5
-DBLINKS     NCBI-GI: 6320094
+MOTIF       Pfam: DUF676
+DBLINKS     NCBI-ProteinID: NP_010174
             NCBI-GeneID: 851449
             SGD: S000002267
-            MIPS: YDL109C
             UniProt: Q12103
 AASEQ       647
             MEAGRSADEVLYHNQSSVKLGELERYVITYELYQGDSIPADITLDSLWVKIKNTTKLSYK

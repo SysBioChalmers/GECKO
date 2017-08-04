@@ -1,6 +1,6 @@
 ENTRY       YPR069C           CDS       T00005
 NAME        SPE3
-DEFINITION  spermidine synthase (EC:2.5.1.16)
+DEFINITION  (RefSeq) spermidine synthase
 ORTHOLOGY   K00797  spermidine synthase [EC:2.5.1.16]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00270  Cysteine and methionine metabolism
@@ -9,16 +9,29 @@ PATHWAY     sce00270  Cysteine and methionine metabolism
             sce00480  Glutathione metabolism
             sce01100  Metabolic pathways
 MODULE      sce_M00034  Methionine salvage pathway
-CLASS       Metabolism; Amino acid metabolism; Cysteine and methionine metabolism [PATH:sce00270]
-            Metabolism; Amino acid metabolism; Arginine and proline metabolism [PATH:sce00330]
-            Metabolism; Metabolism of other amino acids; beta-Alanine metabolism [PATH:sce00410]
-            Metabolism; Metabolism of other amino acids; Glutathione metabolism [PATH:sce00480]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Amino acid metabolism
+               00270 Cysteine and methionine metabolism
+                YPR069C (SPE3)
+               00330 Arginine and proline metabolism
+                YPR069C (SPE3)
+              Metabolism of other amino acids
+               00410 beta-Alanine metabolism
+                YPR069C (SPE3)
+               00480 Glutathione metabolism
+                YPR069C (SPE3)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.5  Transferring alkyl or aryl groups, other than methyl groups
+               2.5.1  Transferring alkyl or aryl groups, other than methyl groups (only sub-subclass identified to date)
+                2.5.1.16  spermidine synthase
+                 YPR069C (SPE3)
 POSITION    XVI:complement(684556..685437)
-MOTIF       Pfam: Spermine_synth Methyltransf_31 Methyltransf_12 Methyltransf_18 Methyltransf_23 DUF226 Methyltransf_30
-DBLINKS     NCBI-GI: 6325326
+MOTIF       Pfam: Spermine_synth Spermine_synt_N Methyltransf_25 Methyltransf_12 Methyltransf_18
+DBLINKS     NCBI-ProteinID: NP_015394
             NCBI-GeneID: 856182
             SGD: S000006273
-            MIPS: YPR069C
             UniProt: Q12074
 AASEQ       293
             MAQEITHPTIVDGWFREISDTMWPGQAMTLKVEKVLHHEKSKYQDVLIFKSTTYGNVLVL

@@ -1,18 +1,29 @@
 ENTRY       YMR020W           CDS       T00005
 NAME        FMS1
-DEFINITION  polyamine oxidase (EC:1.5.3.17)
+DEFINITION  (RefSeq) polyamine oxidase
 ORTHOLOGY   K13367  polyamine oxidase [EC:1.5.3.17]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00330  Arginine and proline metabolism
             sce00410  beta-Alanine metabolism
-CLASS       Metabolism; Amino acid metabolism; Arginine and proline metabolism [PATH:sce00330]
-            Metabolism; Metabolism of other amino acids; beta-Alanine metabolism [PATH:sce00410]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Amino acid metabolism
+               00330 Arginine and proline metabolism
+                YMR020W (FMS1)
+              Metabolism of other amino acids
+               00410 beta-Alanine metabolism
+                YMR020W (FMS1)
+            Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.5  Acting on the CH-NH group of donors
+               1.5.3  With oxygen as acceptor
+                1.5.3.17  non-specific polyamine oxidase
+                 YMR020W (FMS1)
 POSITION    XIII:315377..316903
-MOTIF       Pfam: Amino_oxidase NAD_binding_8 Pyr_redox_3 DAO FAD_binding_2 HI0933_like GIDA FAD_binding_3 Pyr_redox_2 Lycopene_cycl Pyr_redox Thi4 AlaDh_PNT_C Shikimate_DH CPSase_L_chain PMI_typeI TrkA_N
-DBLINKS     NCBI-GI: 6323662
+MOTIF       Pfam: Amino_oxidase NAD_binding_8 Pyr_redox_2 Pyr_redox_3 FAD_binding_2 HI0933_like DAO GIDA FAD_binding_3 Lycopene_cycl AlaDh_PNT_C Thi4 FAD_oxidored Shikimate_DH Pyr_redox PMI_typeI
+DBLINKS     NCBI-ProteinID: NP_013733
             NCBI-GeneID: 855034
             SGD: S000004622
-            MIPS: YMR020W
             UniProt: P50264
 STRUCTURE   PDB: 1RSG 4GDP 3BNM 3BNU 3BI4 3BI2 1YY5 4ECH 3CNS 3CN8 3CNP
                  3CND 3BI5 1Z6L 1XPQ 3CNT

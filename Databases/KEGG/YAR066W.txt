@@ -1,12 +1,11 @@
 ENTRY       YAR066W           CDS       T00005
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) hypothetical protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    I:221049..221660
-MOTIF       Pfam: Bactofilin Fil_haemagg_2
-DBLINKS     NCBI-GI: 6319347
+MOTIF       Pfam: Hyphal_reg_CWP Bactofilin
+DBLINKS     NCBI-ProteinID: NP_009430
             NCBI-GeneID: 851295
             SGD: S000002144
-            MIPS: YAR066W
             UniProt: P0CX18 P0CX19
 AASEQ       203
             MFNRFNKFQAAVALALLSRGALGDSYTNSTSSADLSSITSVSSASASATASDSLSSSDGT

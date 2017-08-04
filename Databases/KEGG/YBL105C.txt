@@ -1,18 +1,47 @@
 ENTRY       YBL105C           CDS       T00005
 NAME        PKC1, CLY15, CLY5, CLY7, HPO2, STT1
-DEFINITION  Pkc1p (EC:2.7.11.13)
-ORTHOLOGY   K02677  classical protein kinase C [EC:2.7.11.13]
+DEFINITION  (RefSeq) protein kinase C
+ORTHOLOGY   K02677  classical protein kinase C alpha type [EC:2.7.11.13]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04011  MAPK signaling pathway - yeast
             sce04070  Phosphatidylinositol signaling system
-CLASS       Environmental Information Processing; Signal transduction; MAPK signaling pathway - yeast [PATH:sce04011]
-            Environmental Information Processing; Signal transduction; Phosphatidylinositol signaling system [PATH:sce04070]
+            sce04139  Mitophagy - yeast
+            sce04933  AGE-RAGE signaling pathway in diabetic complications
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YBL105C (PKC1)
+               04070 Phosphatidylinositol signaling system
+                YBL105C (PKC1)
+             Cellular Processes
+              Transport and catabolism
+               04139 Mitophagy - yeast
+                YBL105C (PKC1)
+             Human Diseases
+              Endocrine and metabolic diseases
+               04933 AGE-RAGE signaling pathway in diabetic complications
+                YBL105C (PKC1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.11  Protein-serine/threonine kinases
+                2.7.11.13  protein kinase C
+                 YBL105C (PKC1)
+            Protein kinases [BR:sce01001]
+             Serine/threonine protein kinases: AGC group
+              PKC family [OT]
+               YBL105C (PKC1)
+            Membrane trafficking [BR:sce04131]
+             Endocytosis
+              Lipid raft mediated endocytosis
+               Caveolin-mediated endocytosis
+                YBL105C (PKC1)
 POSITION    II:complement(14241..17696)
-MOTIF       Pfam: Pkinase Pkinase_Tyr HR1 C1_1 Pkinase_C C2 Kinase-like DUF2746
-DBLINKS     NCBI-GI: 330443395
+MOTIF       Pfam: Pkinase Pkinase_Tyr C1_1 HR1 Pkinase_C C2 Kinase-like
+DBLINKS     NCBI-ProteinID: NP_009445
             NCBI-GeneID: 852169
             SGD: S000000201
-            MIPS: YBL105C
             UniProt: P24583
 AASEQ       1151
             MSFSQLEQNIKKKIAVEENIIRGASALKKKTSNVMVIQKCNTNIREARQNLEYLEDSLKK

@@ -1,12 +1,11 @@
 ENTRY       YJR098C           CDS       T00005
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) hypothetical protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    X:complement(613186..615156)
-MOTIF       Pfam: LCAT PGAP1 DUF900 Abhydrolase_6 Abhydrolase_8 Abhydrolase_1 Abhydrolase_5 Ser_hydrolase DUF2305 DUF676
-DBLINKS     NCBI-GI: 330443617
+MOTIF       Pfam: LCAT PGAP1 DUF900 Hydrolase_4 Abhydrolase_6 Abhydrolase_5 Abhydrolase_8 Abhydrolase_1 LIDHydrolase Ser_hydrolase DUF676
+DBLINKS     NCBI-ProteinID: NP_012632
             NCBI-GeneID: 853561
             SGD: S000003859
-            MIPS: YJR098C
             UniProt: P47139
 AASEQ       656
             MMATPATDLISDNDKYNKQCLSDSSDSGSDVSFFSVNESEGELDTMEKVDTLIGGARVIS

@@ -1,13 +1,12 @@
 ENTRY       YJR067C           CDS       T00005
 NAME        YAE1
-DEFINITION  Yae1p
+DEFINITION  (RefSeq) Yae1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    X:complement(567019..567444)
-MOTIF       Pfam: Yae1_N Romo1 Baculo_gp41
-DBLINKS     NCBI-GI: 6322527
+MOTIF       Pfam: Yae1_N
+DBLINKS     NCBI-ProteinID: NP_012601
             NCBI-GeneID: 853530
             SGD: S000003828
-            MIPS: YJR067C
             UniProt: P47118
 AASEQ       141
             MSNTWDDVWASDSDVETERSPDLVKLRENHSKRGYLDGIVSSKEEKLQEGFNDGFPTGAK

@@ -1,13 +1,12 @@
 ENTRY       YPR052C           CDS       T00005
 NAME        NHP6A
-DEFINITION  Nhp6ap
+DEFINITION  (RefSeq) high-mobility group nucleosome-binding protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:complement(665693..665974)
-MOTIF       Pfam: HMG_box HMG_box_2 HMG_box_5 YABBY
-DBLINKS     NCBI-GI: 6325309
+MOTIF       Pfam: HMG_box HMG_box_2 Ccdc124 YABBY
+DBLINKS     NCBI-ProteinID: NP_015377
             NCBI-GeneID: 856165
             SGD: S000006256
-            MIPS: YPR052C
             UniProt: P11632
 STRUCTURE   PDB: 1LWM 1J5N 1CG7
 AASEQ       93

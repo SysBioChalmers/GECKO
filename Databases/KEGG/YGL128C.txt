@@ -1,13 +1,12 @@
 ENTRY       YGL128C           CDS       T00005
 NAME        CWC23
-DEFINITION  Cwc23p
+DEFINITION  (RefSeq) U2-type spliceosomal complex subunit CWC23
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:complement(269293..270144)
-MOTIF       Pfam: DnaJ Ephrin_lbd
-DBLINKS     NCBI-GI: 37362651
+MOTIF       Pfam: DnaJ
+DBLINKS     NCBI-ProteinID: NP_011387
             NCBI-GeneID: 852749
             SGD: S000003096
-            MIPS: YGL128C
             UniProt: P52868
 AASEQ       283
             MPGHELEDVINQRLNLYDVLELPTPLDVHTIYDDLPQIKRKYRTLALKYHPDKHPDNPSI

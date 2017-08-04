@@ -1,13 +1,12 @@
 ENTRY       YER119C           CDS       T00005
 NAME        AVT6
-DEFINITION  Avt6p
+DEFINITION  (RefSeq) aspartate/glutamate transporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    V:complement(399496..400842)
 MOTIF       Pfam: Aa_trans Trp_Tyr_perm
-DBLINKS     NCBI-GI: 6320965
+DBLINKS     NCBI-ProteinID: NP_011044
             NCBI-GeneID: 856855
             SGD: S000000921
-            MIPS: YER119C
             UniProt: P40074
 AASEQ       448
             MVASIRSGVLTLLHTACGAGILAMPYAFKPFGLIPGVIMIVLCGACAMQSLFIQARVAKY

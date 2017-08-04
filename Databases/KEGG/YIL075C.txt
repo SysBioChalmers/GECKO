@@ -1,19 +1,28 @@
 ENTRY       YIL075C           CDS       T00005
 NAME        RPN2, SEN3
-DEFINITION  proteasome regulatory particle base subunit RPN2
+DEFINITION  (RefSeq) proteasome regulatory particle base subunit RPN2
 ORTHOLOGY   K03032  26S proteasome regulatory subunit N2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03050  Proteasome
 MODULE      sce_M00341  Proteasome, 19S regulatory particle (PA700)
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Proteasome [PATH:sce03050]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               03050 Proteasome
+                YIL075C (RPN2)
+            Proteasome [BR:sce03051]
+             Eukaryotic proteasome
+              Regulatory particles
+               PA700 (19S proteasome)
+                non-ATPase subunits
+                 YIL075C (RPN2)
 POSITION    IX:complement(217863..220700)
-MOTIF       Pfam: PC_rep HEAT_2 HEAT_EZ HEAT RICTOR_V Ribosomal_60s
-DBLINKS     NCBI-GI: 6322115
+MOTIF       Pfam: PC_rep HEAT_2 HEAT_EZ HEAT Ribosomal_60s DUF3824 DUF4775 RICTOR_V
+DBLINKS     NCBI-ProteinID: NP_012190
             NCBI-GeneID: 854735
             SGD: S000001337
-            MIPS: YIL075C
             UniProt: P32565
-STRUCTURE   PDB: 4ADY 4B4T 4C0V
+STRUCTURE   PDB: 4ADY 5MPD 5MPE 4CR2 4CR4 4CR3 5A5B
 AASEQ       945
             MSLTTAAPLLALLRENQDSVKTYALESINNVVDQLWSEISNELPDIEALYDDDTFSDREM
             AALIASKVYYNLGEYESAVKYALAAKDRFDIDEKSQFVETIVSKSIEMYVQEASKQYTKD

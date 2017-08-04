@@ -1,13 +1,12 @@
 ENTRY       YOR091W           CDS       T00005
 NAME        TMA46
-DEFINITION  Tma46p
+DEFINITION  (RefSeq) Tma46p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:493433..494470
-MOTIF       Pfam: zf-CCCH DUF2443
-DBLINKS     NCBI-GI: 83578105
+MOTIF       Pfam: DFRP_C Torus zf-CCCH DUF2443 zf-CCCH_2 zf-CCCH_3
+DBLINKS     NCBI-ProteinID: NP_014734
             NCBI-GeneID: 854258
             SGD: S000005617
-            MIPS: YOR091W
             UniProt: Q12000
 STRUCTURE   PDB: 4A9A
 AASEQ       345

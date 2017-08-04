@@ -1,21 +1,49 @@
 ENTRY       YDL084W           CDS       T00005
 NAME        SUB2
-DEFINITION  Sub2p (EC:3.6.4.13)
+DEFINITION  (RefSeq) ATP-dependent RNA helicase SUB2
 ORTHOLOGY   K12812  ATP-dependent RNA helicase UAP56/SUB2 [EC:3.6.4.13]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03013  RNA transport
             sce03015  mRNA surveillance pathway
             sce03040  Spliceosome
-CLASS       Genetic Information Processing; Transcription; Spliceosome [PATH:sce03040]
-            Genetic Information Processing; Translation; RNA transport [PATH:sce03013]
-            Genetic Information Processing; Translation; mRNA surveillance pathway [PATH:sce03015]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03040 Spliceosome
+                YDL084W (SUB2)
+              Translation
+               03013 RNA transport
+                YDL084W (SUB2)
+               03015 mRNA surveillance pathway
+                YDL084W (SUB2)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.4  Acting on acid anhydrides to facilitate cellular and subcellular movement
+                3.6.4.13  RNA helicase
+                 YDL084W (SUB2)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Transport factors
+                EJC complex
+                 YDL084W (SUB2)
+            Spliceosome [BR:sce03041]
+             Complex C
+              Other components
+               EJC/TREX
+                YDL084W (SUB2)
+             Other splicing related proteins
+              Spliceosome associated proteins (SAPs)
+               TREX complex
+                YDL084W (SUB2)
 POSITION    IV:305237..306577
 MOTIF       Pfam: DEAD Helicase_C ResIII
-DBLINKS     NCBI-GI: 6320119
+DBLINKS     NCBI-ProteinID: NP_010199
             NCBI-GeneID: 851475
             SGD: S000002242
-            MIPS: YDL084W
             UniProt: Q07478
+STRUCTURE   PDB: 5SUP 5SUQ
 AASEQ       446
             MSHEGEEDLLEYSDNEQEIQIDASKAAEAGETGAATSATEGDNNNNTAAGDKKGSYVGIH
             STGFKDFLLKPELSRAIIDCGFEHPSEVQQHTIPQSIHGTDVLCQAKSGLGKTAVFVLST

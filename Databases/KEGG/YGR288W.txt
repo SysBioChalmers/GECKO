@@ -1,13 +1,12 @@
 ENTRY       YGR288W           CDS       T00005
 NAME        MAL13
-DEFINITION  Mal13p
+DEFINITION  (RefSeq) transcription factor MAL13
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:1070293..1071714
-MOTIF       Pfam: Fungal_trans Zn_clus
-DBLINKS     NCBI-GI: 6321727
+MOTIF       Pfam: Zn_clus Fungal_trans
+DBLINKS     NCBI-ProteinID: NP_011804
             NCBI-GeneID: 853205
             SGD: S000003520
-            MIPS: YGR288W
             UniProt: P53338
 AASEQ       473
             MTLTKQTCAKQACDCCRIRRVKCDGKRPCSSCLQNSLDCTYLQPSRKRGPKSIRLRSLKR

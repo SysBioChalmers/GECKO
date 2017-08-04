@@ -1,18 +1,44 @@
 ENTRY       YOR159C           CDS       T00005
 NAME        SME1
-DEFINITION  Sme1p
+DEFINITION  (RefSeq) mRNA splicing protein SME1
 ORTHOLOGY   K11097  small nuclear ribonucleoprotein E
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03040  Spliceosome
-MODULE      sce_M00398  Sm core complex
-CLASS       Genetic Information Processing; Transcription; Spliceosome [PATH:sce03040]
+MODULE      sce_M00351  Spliceosome, U1-snRNP
+            sce_M00398  Sm core complex
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03040 Spliceosome
+                YOR159C (SME1)
+            Spliceosome [BR:sce03041]
+             Complex A
+              U1 snRNP components
+               Sm proteins
+                YOR159C (SME1)
+              U2 snRNP components
+                YOR159C (SME1)
+             Complex B
+              U1 snRNP components
+                YOR159C (SME1)
+              U4/U6.U5 tri-snRNP components
+                YOR159C (SME1)
+             Complex C
+              U2 snRNP components
+                YOR159C (SME1)
+            DNA replication proteins [BR:sce03032]
+             Eukaryotic Type
+              DNA Replication Termination Factors
+               Telomerase complex (fungi)
+                Sm core complex
+                 YOR159C (SME1)
 POSITION    XV:complement(633282..633566)
-MOTIF       Pfam: LSM
-DBLINKS     NCBI-GI: 398365473
+MOTIF       Pfam: LSM Hfq
+DBLINKS     NCBI-ProteinID: NP_014802
             NCBI-GeneID: 854330
             SGD: S000005685
-            MIPS: YOR159C
             UniProt: Q12330
+STRUCTURE   PDB: 5GMK 5GAN 5GAO 5GAM 5LJ3 5LJ5 3JCM 5MPS 5WSG 5MQ0 5LQW
 AASEQ       94
             MSNKVKTKAMVPPINCIFNFLQQQTPVTIWLFEQIGIRIKGKIVGFDEFMNVVIDEAVEI
             PVNSADGKEDVEKGTPLGKILLKGDNITLITSAD

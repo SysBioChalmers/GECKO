@@ -1,6 +1,6 @@
 ENTRY       YLR372W           CDS       T00005
-NAME        SUR4, APA1, ELO3, SRE1, VBM1
-DEFINITION  fatty acid elongase SUR4 (EC:2.3.1.199)
+NAME        ELO3, APA1, SRE1, SUR4, VBM1
+DEFINITION  (RefSeq) fatty acid elongase ELO3
 ORTHOLOGY   K10246  fatty acid elongase 3 [EC:2.3.1.199]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00062  Fatty acid elongation
@@ -8,15 +8,31 @@ PATHWAY     sce00062  Fatty acid elongation
             sce01110  Biosynthesis of secondary metabolites
             sce01212  Fatty acid metabolism
 MODULE      sce_M00415  Fatty acid biosynthesis, elongation, endoplasmic reticulum
-CLASS       Metabolism; Overview; Fatty acid metabolism [PATH:sce01212]
-            Metabolism; Lipid metabolism; Fatty acid elongation [PATH:sce00062]
-            Metabolism; Lipid metabolism; Biosynthesis of unsaturated fatty acids [PATH:sce01040]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01212 Fatty acid metabolism
+                YLR372W (ELO3)
+              Lipid metabolism
+               00062 Fatty acid elongation
+                YLR372W (ELO3)
+               01040 Biosynthesis of unsaturated fatty acids
+                YLR372W (ELO3)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.3  Acyltransferases
+               2.3.1  Transferring groups other than aminoacyl groups
+                2.3.1.199  very-long-chain 3-oxoacyl-CoA synthase
+                 YLR372W (ELO3)
+            Lipid biosynthesis proteins [BR:sce01004]
+             Elongase
+              LCFA
+               YLR372W (ELO3)
 POSITION    XII:867354..868391
 MOTIF       Pfam: ELO
-DBLINKS     NCBI-GI: 398366027
+DBLINKS     NCBI-ProteinID: NP_013476
             NCBI-GeneID: 851087
             SGD: S000004364
-            MIPS: YLR372W
             UniProt: P40319
 AASEQ       345
             MNTTTSTVIAAVADQFQSLNSSSSCFLKVHVPSIENPFGIELWPIFSKVFEYFSGYPAEQ

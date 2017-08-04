@@ -1,14 +1,18 @@
 ENTRY       YNL215W           CDS       T00005
 NAME        IES2
-DEFINITION  Ies2p
+DEFINITION  (RefSeq) Ies2p
 ORTHOLOGY   K11676  Ino eighty subunit 2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Chromatin remodeling factors
+               INO80 complex (yeast)
+                YNL215W (IES2)
 POSITION    XIV:244468..245430
-MOTIF       Pfam: PAPA-1 DUF874
-DBLINKS     NCBI-GI: 6324114
+MOTIF       Pfam: PAPA-1
+DBLINKS     NCBI-ProteinID: NP_014184
             NCBI-GeneID: 855506
             SGD: S000005159
-            MIPS: YNL215W
             UniProt: P40154
 AASEQ       320
             MDSEASDIEAELSDSVSAGGEEYIDDDDYTEDIDDQIVTAKSSRRTARRSVPKGVRTSKR

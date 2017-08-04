@@ -1,14 +1,18 @@
 ENTRY       YER028C           CDS       T00005
 NAME        MIG3
-DEFINITION  Mig3p
+DEFINITION  (RefSeq) Mig3p
 ORTHOLOGY   K09467  zinc-finger protein CreA/MIG
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription factors [BR:sce03000]
+             Eukaryotic Type
+              Zinc finger
+               Cys2His2 metabolic regulators in fungi
+                YER028C (MIG3)
 POSITION    V:complement(210692..211876)
-MOTIF       Pfam: zf-H2C2_2 zf-C2H2 zf-C2H2_4
-DBLINKS     NCBI-GI: 6320866
+MOTIF       Pfam: zf-C2H2 zf-H2C2_2 zf-C2H2_4 DNase_NucA_NucB zf-H2C2_5
+DBLINKS     NCBI-ProteinID: NP_010945
             NCBI-GeneID: 856750
             SGD: S000000830
-            MIPS: YER028C
             UniProt: P39943
 AASEQ       394
             MNYLRDRFPPDNDQRPFRCEICSRGFHRLEHKKRHGRTHTGEKPHKCTVQGCPKSFSRSD

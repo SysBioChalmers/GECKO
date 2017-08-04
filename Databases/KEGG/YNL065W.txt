@@ -1,13 +1,12 @@
 ENTRY       YNL065W           CDS       T00005
 NAME        AQR1
-DEFINITION  Aqr1p
+DEFINITION  (RefSeq) Aqr1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIV:503724..505484
-MOTIF       Pfam: MFS_1 Sugar_tr TRI12 MFS_3
-DBLINKS     NCBI-GI: 398365123
+MOTIF       Pfam: MFS_1 Sugar_tr TRI12 MFS_3 PMT_4TMC
+DBLINKS     NCBI-ProteinID: NP_014334
             NCBI-GeneID: 855660
             SGD: S000005009
-            MIPS: YNL065W
             UniProt: P53943
 AASEQ       586
             MSRSNSIYTEDIEMYPTHNEQHLTREYTKPDGQTKSEKLNFEGAYINSHGTLSKTTTREI

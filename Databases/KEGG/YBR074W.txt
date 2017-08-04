@@ -1,13 +1,12 @@
 ENTRY       YBR074W           CDS       T00005
 NAME        PFF1, YBR075W
-DEFINITION  Pff1p (EC:3.4.-.-)
+DEFINITION  (RefSeq) Pff1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    II:386286..389216
-MOTIF       Pfam: Peptidase_M28 Peptidase_M20 Peptidase_M42 DUF2189
-DBLINKS     NCBI-GI: 330443435
+MOTIF       Pfam: Peptidase_M28 DUF2189 Peptidase_M42 Peptidase_M20 TMEM51
+DBLINKS     NCBI-ProteinID: NP_009630
             NCBI-GeneID: 852366
             SGD: S000000278
-            MIPS: YBR074W
             UniProt: P38244
 AASEQ       976
             MKLKSVFRSVLKYRKTNLSLLLLITYSIITLLYIFDHERYKLNLPKEDEHPEFNDLLETA

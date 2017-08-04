@@ -1,13 +1,29 @@
 ENTRY       YNL079C           CDS       T00005
 NAME        TPM1
-DEFINITION  Tpm1p
+DEFINITION  (RefSeq) tropomyosin TPM1
+ORTHOLOGY   K17945  tropomyosin, fungi type
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Exocytosis
+              Tethering complex
+               Exocyst complex assembly proteins
+                YNL079C (TPM1)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial quality control factors
+              Mitochondrial dynamics
+               Actin cytoskeleton organization
+                YNL079C (TPM1)
+            Cytoskeleton proteins [BR:sce04812]
+             Eukaryotic cytoskeleton proteins
+              Actin filaments / Microfilaments
+               Actin-binding proteins
+                Tropomyosins
+                 YNL079C (TPM1)
 POSITION    XIV:complement(478566..479165)
-MOTIF       Pfam: Tropomyosin_1 Tropomyosin KLRAQ CENP-F_leu_zip ATG16 TMF_DNA_bd IFP_35_N Rootletin GAS bZIP_1 ADIP DUF4201 APG6 Mod_r DivIC Filament ERM DUF3450 bZIP_2
-DBLINKS     NCBI-GI: 6324250
+MOTIF       Pfam: Tropomyosin_1 Tropomyosin CENP-F_leu_zip KLRAQ GAS ATG16 IFP_35_N TMF_DNA_bd DUF3450 DUF724 APG6 Rootletin bZIP_1 Spc7 DivIC Yuri_gagarin Cnn_1N DUF4201 ADIP Taxilin Uso1_p115_C Filament bZIP_2 Fez1
+DBLINKS     NCBI-ProteinID: NP_014320
             NCBI-GeneID: 855645
             SGD: S000005023
-            MIPS: YNL079C
             UniProt: P17536
 AASEQ       199
             MDKIREKLSNLKLEAESWQEKYEELKEKNKDLEQENVEKENQIKSLTVKNQQLEDEIEKL

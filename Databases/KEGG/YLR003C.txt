@@ -1,14 +1,18 @@
 ENTRY       YLR003C           CDS       T00005
 NAME        CMS1
-DEFINITION  Cms1p
+DEFINITION  (RefSeq) Cms1p
 ORTHOLOGY   K14784  protein CMS1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              90S particles
+               Other 90S particles
+                YLR003C (CMS1)
 POSITION    XII:complement(156855..157730)
-MOTIF       Pfam: CMS1 VitD-bind_III
-DBLINKS     NCBI-GI: 6323031
+MOTIF       Pfam: CMS1
+DBLINKS     NCBI-ProteinID: NP_013103
             NCBI-GeneID: 850689
             SGD: S000003993
-            MIPS: YLR003C
             UniProt: Q07897
 AASEQ       291
             MSNPDDLDDGLAYDFDAEHEVIFDAKDGSPPTKKVQKRSIEQDDDDVDDIDGKKEERNSE

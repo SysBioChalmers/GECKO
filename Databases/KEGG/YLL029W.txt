@@ -1,14 +1,23 @@
 ENTRY       YLL029W           CDS       T00005
 NAME        FRA1
-DEFINITION  Fra1p (EC:3.4.11.9)
+DEFINITION  (RefSeq) Fra1p
 ORTHOLOGY   K01262  Xaa-Pro aminopeptidase [EC:3.4.11.9]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.4  Acting on peptide bonds (peptidases)
+               3.4.11  Aminopeptidases
+                3.4.11.9  Xaa-Pro aminopeptidase
+                 YLL029W (FRA1)
+            Peptidases [BR:sce01002]
+             Metallo Peptidases
+              Family M24
+               YLL029W (FRA1)
 POSITION    XII:81461..83710
-MOTIF       Pfam: Peptidase_M24 Creatinase_N
-DBLINKS     NCBI-GI: 6322999
+MOTIF       Pfam: Creatinase_N_2 Peptidase_M24 Peptidase_M24_C Creatinase_N
+DBLINKS     NCBI-ProteinID: NP_013071
             NCBI-GeneID: 850630
             SGD: S000003952
-            MIPS: YLL029W
             UniProt: Q07825
 AASEQ       749
             MTSKPSTSDGRAHSISHVPGTHMRGTSASHSPRPFRPCADCTCSPGLLSRQGRRASLFLR

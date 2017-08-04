@@ -1,14 +1,24 @@
 ENTRY       YCL054W           CDS       T00005
 NAME        SPB1
-DEFINITION  Spb1p (EC:2.1.1.167)
+DEFINITION  (RefSeq) 27S pre-rRNA (guanosine2922-2'-O)-methyltransferase
 ORTHOLOGY   K14857  AdoMet-dependent rRNA methyltransferase SPB1 [EC:2.1.1.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.1  Transferring one-carbon groups
+               2.1.1  Methyltransferases
+                2.1.1.-  
+                 YCL054W (SPB1)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               Other pre-60S particles
+                YCL054W (SPB1)
 POSITION    III:31449..33974
-MOTIF       Pfam: Spb1_C DUF3381 FtsJ DUF1796
-DBLINKS     NCBI-GI: 6319796
+MOTIF       Pfam: Spb1_C FtsJ DUF3381 Methyltransf_23
+DBLINKS     NCBI-ProteinID: NP_009877
             NCBI-GeneID: 850304
             SGD: S000000559
-            MIPS: YCL054W
             UniProt: P25582
 AASEQ       841
             MGKTQKKNSKGRLDRYYYLAKEKGYRARSSFKIIQINEKYGHFLEKSKVVIDLCAAPGSW

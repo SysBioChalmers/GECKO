@@ -1,16 +1,33 @@
 ENTRY       YGR199W           CDS       T00005
 NAME        PMT6
-DEFINITION  Pmt6p (EC:2.4.1.109)
+DEFINITION  (RefSeq) dolichyl-phosphate-mannose-protein mannosyltransferase PMT6
 ORTHOLOGY   K00728  dolichyl-phosphate-mannose-protein mannosyltransferase [EC:2.4.1.109]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00514  Other types of O-glycan biosynthesis
-CLASS       Metabolism; Glycan biosynthesis and metabolism; Other types of O-glycan biosynthesis [PATH:sce00514]
+            sce00515  Mannose type O-glycan biosynthesis
+            sce01100  Metabolic pathways
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Glycan biosynthesis and metabolism
+               00515 Mannose type O-glycan biosyntheis
+                YGR199W (PMT6)
+               00514 Other types of O-glycan biosynthesis
+                YGR199W (PMT6)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.4  Glycosyltransferases
+               2.4.1  Hexosyltransferases
+                2.4.1.109  dolichyl-phosphate-mannose---protein mannosyltransferase
+                 YGR199W (PMT6)
+            Glycosyltransferases [BR:sce01003]
+             O-Glycan biosynthesis
+              O-linked Man type
+               YGR199W (PMT6)
 POSITION    VII:897502..899781
-MOTIF       Pfam: PMT MIR
-DBLINKS     NCBI-GI: 6321638
+MOTIF       Pfam: PMT PMT_4TMC MIR
+DBLINKS     NCBI-ProteinID: NP_011715
             NCBI-GeneID: 853113
             SGD: S000003431
-            MIPS: YGR199W
             UniProt: P42934
 AASEQ       759
             MSKAKGTGFSSIDTEDENLRERYVNQPKANASDIQDEQLDCFEQLEEKHRTKKNEEYTAL

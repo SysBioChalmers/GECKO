@@ -1,13 +1,12 @@
 ENTRY       YPR093C           CDS       T00005
 NAME        ASR1
-DEFINITION  ubiquitin-protein ligase ASR1
+DEFINITION  (RefSeq) ubiquitin-protein ligase ASR1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:complement(719558..720424)
-MOTIF       Pfam: zf-RING_2 zf-rbx1 zf-C3HC4 PHD zf-RING_5 zf-C3HC4_3 zf-C3HC4_2 zf-Apc11 Baculo_IE-1 zf-HC5HC2H_2 zf-RING_UBOX C1_3 zf-HC5HC2H
-DBLINKS     NCBI-GI: 37362706
+MOTIF       Pfam: zf-RING_2 zf-rbx1 zf-C3HC4 zf-RING_11 PHD Zn_ribbon_17 zf-RING_UBOX zf-ANAPC11 zf-C3HC4_2 zf-C3HC4_3 Baculo_IE-1 zf-RING_5 C1_2 zf-HC5HC2H_2 DUF5318
+DBLINKS     NCBI-ProteinID: NP_015418
             NCBI-GeneID: 856208
             SGD: S000006297
-            MIPS: YPR093C
             UniProt: Q06834
 AASEQ       288
             MEECPICLADDQEGEQFGCLNVCGHKFHLNCIREWHKYSINLKCPICRVESTHLEVGEGQ

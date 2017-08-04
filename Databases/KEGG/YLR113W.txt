@@ -1,16 +1,39 @@
 ENTRY       YLR113W           CDS       T00005
 NAME        HOG1, SSK3
-DEFINITION  Hog1p (EC:2.7.11.24)
+DEFINITION  (RefSeq) mitogen-activated protein kinase HOG1
 ORTHOLOGY   K04441  p38 MAP kinase [EC:2.7.11.24]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04011  MAPK signaling pathway - yeast
-CLASS       Environmental Information Processing; Signal transduction; MAPK signaling pathway - yeast [PATH:sce04011]
+            sce04139  Mitophagy - yeast
+            sce04933  AGE-RAGE signaling pathway in diabetic complications
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YLR113W (HOG1)
+             Cellular Processes
+              Transport and catabolism
+               04139 Mitophagy - yeast
+                YLR113W (HOG1)
+             Human Diseases
+              Endocrine and metabolic diseases
+               04933 AGE-RAGE signaling pathway in diabetic complications
+                YLR113W (HOG1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.11  Protein-serine/threonine kinases
+                2.7.11.24  mitogen-activated protein kinase
+                 YLR113W (HOG1)
+            Protein kinases [BR:sce01001]
+             Serine/threonine protein kinases: CMGC group
+              MAPK family [OT]
+               YLR113W (HOG1)
 POSITION    XII:371620..372927
-MOTIF       Pfam: Pkinase Pkinase_Tyr Kdo APH Kinase-like RIO1
-DBLINKS     NCBI-GI: 6323142
+MOTIF       Pfam: Pkinase Pkinase_Tyr Haspin_kinase Kdo APH FTA2 Kinase-like RIO1
+DBLINKS     NCBI-ProteinID: NP_013214
             NCBI-GeneID: 850803
             SGD: S000004103
-            MIPS: YLR113W
             UniProt: P32485
 AASEQ       435
             MTTNEEFIRTQIFGTVFEITNRYNDLNPVGMGAFGLVCSATDTLTSQPVAIKKIMKPFST

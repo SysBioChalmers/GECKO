@@ -1,18 +1,27 @@
 ENTRY       YBR136W           CDS       T00005
 NAME        MEC1, ESR1, RAD31, SAD3
-DEFINITION  Mec1p (EC:2.7.11.1)
+DEFINITION  (RefSeq) protein kinase MEC1
 ORTHOLOGY   K02543  cell cycle checkpoint protein MEC1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
             sce04113  Meiosis - yeast
-CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
-            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YBR136W (MEC1)
+               04113 Meiosis - yeast
+                YBR136W (MEC1)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              Check point factors
+               Other check point factors
+                YBR136W (MEC1)
 POSITION    II:505668..512774
 MOTIF       Pfam: PI3_PI4_kinase UME FATC FAT TPR_19
-DBLINKS     NCBI-GI: 398365009
+DBLINKS     NCBI-ProteinID: NP_009694
             NCBI-GeneID: 852433
             SGD: S000000340
-            MIPS: YBR136W
             UniProt: P38111
 AASEQ       2368
             MESHVKYLDELILAIKDLNSGVDSKVQIKKVPTDPSSSQEYAKSLKILNTLIRNLKDQRR

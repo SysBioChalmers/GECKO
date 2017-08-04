@@ -1,14 +1,23 @@
 ENTRY       YNL273W           CDS       T00005
 NAME        TOF1
-DEFINITION  Tof1p
+DEFINITION  (RefSeq) Tof1p
 ORTHOLOGY   K10997  replication fork protection complex subunit Tof1/Swi1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Sister chromatid cohesion proteins
+               Tof1-Csm3-Mrc1 checkpoint complex
+                YNL273W (TOF1)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              Check point factors
+               FPC (fork protection complex)
+                YNL273W (TOF1)
 POSITION    XIV:122883..126599
-MOTIF       Pfam: TIMELESS
-DBLINKS     NCBI-GI: 6324056
+MOTIF       Pfam: TIMELESS Phage_int_SAM_5
+DBLINKS     NCBI-ProteinID: NP_014126
             NCBI-GeneID: 855448
             SGD: S000005217
-            MIPS: YNL273W
             UniProt: P53840
 AASEQ       1238
             MSADLQQGTTNAADFSLTVLRARIALLATAIGGPDYTSQIDPPPYKLGDDCLACLKDLKR

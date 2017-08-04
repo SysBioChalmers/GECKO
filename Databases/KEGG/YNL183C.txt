@@ -1,14 +1,12 @@
 ENTRY       YNL183C           CDS       T00005
 NAME        NPR1
-DEFINITION  Npr1p (EC:2.7.11.1)
-ORTHOLOGY   K00924   [EC:2.7.1.-]
+DEFINITION  (RefSeq) serine/threonine protein kinase NPR1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIV:complement(293137..295509)
-MOTIF       Pfam: Pkinase Pkinase_Tyr Kinase-like
-DBLINKS     NCBI-GI: 6324146
+MOTIF       Pfam: Pkinase Pkinase_Tyr Haspin_kinase Kinase-like
+DBLINKS     NCBI-ProteinID: NP_014216
             NCBI-GeneID: 855538
             SGD: S000005127
-            MIPS: YNL183C
             UniProt: P22211
 AASEQ       790
             MSSLTRLLQEKRKNETSNSSPRTSADTLTTTPESQSLDLHSRNKSSSHIGSVSNSSSSDR

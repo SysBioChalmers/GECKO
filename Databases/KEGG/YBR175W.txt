@@ -1,14 +1,28 @@
 ENTRY       YBR175W           CDS       T00005
 NAME        SWD3, CPS30, SAF35
-DEFINITION  Swd3p
+DEFINITION  (RefSeq) Swd3p
 ORTHOLOGY   K14963  COMPASS component SWD3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Histone modification proteins
+               HAT complexes
+                NSL complex
+                 YBR175W (SWD3)
+               HMT complexes
+                COMPASS/SET1 complex
+                 YBR175W (SWD3)
+                COMPASS/SET1 complex (yeast)
+                 YBR175W (SWD3)
+                MLL-HCF complex
+                 YBR175W (SWD3)
+                MLL3/MLL4 complex
+                 YBR175W (SWD3)
 POSITION    II:582408..583355
-MOTIF       Pfam: WD40 Nup160 Cytochrom_D1 DPPIV_N Coatomer_WDAD
-DBLINKS     NCBI-GI: 6319651
+MOTIF       Pfam: WD40 ANAPC4_WD40 Nup160 Cytochrom_D1 DPPIV_N Coatomer_WDAD WD40_like
+DBLINKS     NCBI-ProteinID: NP_009734
             NCBI-GeneID: 852472
             SGD: S000000379
-            MIPS: YBR175W
             UniProt: P38123
 AASEQ       315
             MFQFVTPVGTQNGLKATCAKISPDGQFLAITQGLNILIYDINRRTVSQTLVTSHARPFSE

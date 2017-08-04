@@ -1,13 +1,19 @@
 ENTRY       YIL097W           CDS       T00005
 NAME        FYV10, GID9
-DEFINITION  glucose-induced degradation complex subunit FYV10
+DEFINITION  (RefSeq) glucose-induced degradation complex subunit FYV10
+ORTHOLOGY   K18624  macrophage erythroblast attacher
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Cytoskeleton proteins [BR:sce04812]
+             Eukaryotic cytoskeleton proteins
+              Actin filaments / Microfilaments
+               Actin-binding proteins
+                Others
+                 YIL097W (FYV10)
 POSITION    IX:180427..181977
-MOTIF       Pfam: CLTH DUF4559 U-box
-DBLINKS     NCBI-GI: 6322094
+MOTIF       Pfam: CLTH U-box
+DBLINKS     NCBI-ProteinID: NP_012169
             NCBI-GeneID: 854710
             SGD: S000001359
-            MIPS: YIL097W
             UniProt: P40492
 AASEQ       516
             MAEKSIFNEPDVDFHLKLNQQLFHIPYELLSKRIKHTQAVINKETKSLHEHTAALNQIFE

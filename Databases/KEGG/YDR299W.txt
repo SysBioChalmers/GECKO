@@ -1,14 +1,18 @@
 ENTRY       YDR299W           CDS       T00005
 NAME        BFR2
-DEFINITION  Bfr2p
+DEFINITION  (RefSeq) rRNA-processing protein BFR2
 ORTHOLOGY   K14782  protein AATF/BFR2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              90S particles
+               Other 90S particles
+                YDR299W (BFR2)
 POSITION    IV:1059627..1061231
 MOTIF       Pfam: TRAUB AATF-Che1
-DBLINKS     NCBI-GI: 398366449
+DBLINKS     NCBI-ProteinID: NP_010585
             NCBI-GeneID: 851893
             SGD: S000002707
-            MIPS: YDR299W
             UniProt: Q06631
 AASEQ       534
             MEKSLADQISDIAIKPVNKDFDIEDEENASLFQHNEKNGESDLSDYGNSNTEETKKAHYL

@@ -1,14 +1,18 @@
 ENTRY       YBR298C           CDS       T00005
 NAME        MAL31
-DEFINITION  Mal31p
+DEFINITION  (RefSeq) maltose permease
 ORTHOLOGY   K08141  MFS transporter, SP family, general alpha glucoside:H+ symporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Major Facilitator Superfamily (MFS)
+              Sugar transporters
+               Sugar porter (SP) family [TC:2.A.1.1]
+                YBR298C (MAL31)
 POSITION    II:complement(802631..804475)
-MOTIF       Pfam: Sugar_tr MFS_1 MFS_2
-DBLINKS     NCBI-GI: 6319775
+MOTIF       Pfam: Sugar_tr MFS_1 DUF5337
+DBLINKS     NCBI-ProteinID: NP_009857
             NCBI-GeneID: 852601
             SGD: S000000502
-            MIPS: YBR298C
             UniProt: P38156
 AASEQ       614
             MKGLSSLINRKKDRNDSHLDEIENGVNATEFNSIEMEEQGKKSDFDLSHLEYGPGSLIPN

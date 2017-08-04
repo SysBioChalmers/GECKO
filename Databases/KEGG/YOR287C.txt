@@ -1,14 +1,18 @@
 ENTRY       YOR287C           CDS       T00005
 NAME        RRP36
-DEFINITION  Rrp36p
+DEFINITION  (RefSeq) rRNA-processing protein RRP36
 ORTHOLOGY   K14795  ribosomal RNA-processing protein 36
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              90S particles
+               Other 90S particles
+                YOR287C (RRP36)
 POSITION    XV:complement(850937..851839)
-MOTIF       Pfam: DUF947
-DBLINKS     NCBI-GI: 6324861
+MOTIF       Pfam: RRP36
+DBLINKS     NCBI-ProteinID: NP_014930
             NCBI-GeneID: 854461
             SGD: S000005813
-            MIPS: YOR287C
             UniProt: Q12481
 AASEQ       300
             MSYYFKNLKPDLNSDVEEDDGNLLESIMANKSKREIDEQESSDDELKTLSFGSLKKAETV

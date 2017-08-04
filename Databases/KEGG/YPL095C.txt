@@ -1,14 +1,13 @@
 ENTRY       YPL095C           CDS       T00005
 NAME        EEB1
-DEFINITION  Eeb1p (EC:2.3.1.84 3.1.1.-)
-ORTHOLOGY   K07019
+DEFINITION  (RefSeq) medium-chain fatty acid ethyl ester synthase/esterase
+ORTHOLOGY   K07019  uncharacterized protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:complement(368071..369441)
-MOTIF       Pfam: Abhydrolase_1 Abhydrolase_6 Abhydrolase_5
-DBLINKS     NCBI-GI: 6325162
+MOTIF       Pfam: Abhydrolase_1 Hydrolase_4 Abhydrolase_6 ORC3_N
+DBLINKS     NCBI-ProteinID: NP_015230
             NCBI-GeneID: 856010
             SGD: S000006016
-            MIPS: YPL095C
             UniProt: Q02891
 AASEQ       456
             MFRSGYYPTVTPSHWGYNGTVKHVLGEKGTKSLAFRDSKRQIPLHEFVTKHVPTLKDGAN

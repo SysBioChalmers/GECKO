@@ -1,18 +1,29 @@
 ENTRY       YDR400W           CDS       T00005
 NAME        URH1
-DEFINITION  trifunctional uridine nucleosidase/nicotinamide riboside hydrolase/nicotinic acid riboside hydrolase (EC:3.2.2.3 3.2.2.-)
+DEFINITION  (RefSeq) trifunctional uridine nucleosidase/nicotinamide riboside hydrolase/nicotinic acid riboside hydrolase
 ORTHOLOGY   K01240  uridine nucleosidase [EC:3.2.2.3]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00240  Pyrimidine metabolism
             sce00760  Nicotinate and nicotinamide metabolism
-CLASS       Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
-            Metabolism; Metabolism of cofactors and vitamins; Nicotinate and nicotinamide metabolism [PATH:sce00760]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Nucleotide metabolism
+               00240 Pyrimidine metabolism
+                YDR400W (URH1)
+              Metabolism of cofactors and vitamins
+               00760 Nicotinate and nicotinamide metabolism
+                YDR400W (URH1)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.2  Glycosylases
+               3.2.2  Hydrolysing N-glycosyl compounds
+                3.2.2.3  uridine nucleosidase
+                 YDR400W (URH1)
 POSITION    IV:1271063..1272085
 MOTIF       Pfam: IU_nuc_hydro tRNA_U5-meth_tr
-DBLINKS     NCBI-GI: 398366565
+DBLINKS     NCBI-ProteinID: NP_010688
             NCBI-GeneID: 852009
             SGD: S000002808
-            MIPS: YDR400W
             UniProt: Q04179
 AASEQ       340
             MTVSKIPIWLDCDPGHDDAIAILLGCFHPAFNLLGISTCFGNAPPENTDYNARSLLTAMG

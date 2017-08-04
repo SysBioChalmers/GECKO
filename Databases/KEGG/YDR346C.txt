@@ -1,13 +1,12 @@
 ENTRY       YDR346C           CDS       T00005
 NAME        SVF1, SGI1
-DEFINITION  Svf1p
+DEFINITION  (RefSeq) Svf1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(1167214..1168659)
-MOTIF       Pfam: Svf1 DUF2992 CobT Daxx TRAP_alpha
-DBLINKS     NCBI-GI: 398366507
+MOTIF       Pfam: Svf1_C Svf1 Astro_capsid_p GEMIN8 Pox_Ag35
+DBLINKS     NCBI-ProteinID: NP_010633
             NCBI-GeneID: 851947
             SGD: S000002754
-            MIPS: YDR346C
             UniProt: Q05515
 AASEQ       481
             MLKWIKGGISAVTGMAEPEYGKDYIHSVADRVKNKQPYRETSREDFFWQAPDHTNVESVI

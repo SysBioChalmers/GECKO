@@ -1,13 +1,12 @@
 ENTRY       YAL064C-A         CDS       T00005
 NAME        TDA8, YAL065C-A
-DEFINITION  Tda8p
+DEFINITION  (RefSeq) Tda8p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    I:complement(13363..13743)
-MOTIF       Pfam: PA14 PA14_2
-DBLINKS     NCBI-GI: 7839146
+MOTIF       Pfam: GLEYA PA14
+DBLINKS     NCBI-ProteinID: NP_058136
             NCBI-GeneID: 851234
             SGD: S000002140
-            MIPS: YAL064C-A
             UniProt: Q6B2U8
 AASEQ       126
             MTGYFLPPQTSSYTFRFAKVDDSAILSVGGDVAFGCCAQEQPPITSTNFTINGIKPWQGR

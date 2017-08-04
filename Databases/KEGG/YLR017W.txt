@@ -1,18 +1,27 @@
 ENTRY       YLR017W           CDS       T00005
 NAME        MEU1
-DEFINITION  S-methyl-5-thioadenosine phosphorylase (EC:2.4.2.28)
+DEFINITION  (RefSeq) S-methyl-5-thioadenosine phosphorylase
 ORTHOLOGY   K00772  5'-methylthioadenosine phosphorylase [EC:2.4.2.28]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00270  Cysteine and methionine metabolism
             sce01100  Metabolic pathways
 MODULE      sce_M00034  Methionine salvage pathway
-CLASS       Metabolism; Amino acid metabolism; Cysteine and methionine metabolism [PATH:sce00270]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Amino acid metabolism
+               00270 Cysteine and methionine metabolism
+                YLR017W (MEU1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.4  Glycosyltransferases
+               2.4.2  Pentosyltransferases
+                2.4.2.28  S-methyl-5'-thioadenosine phosphorylase
+                 YLR017W (MEU1)
 POSITION    XII:177608..178621
 MOTIF       Pfam: PNP_UDP_1
-DBLINKS     NCBI-GI: 6323045
+DBLINKS     NCBI-ProteinID: NP_013117
             NCBI-GeneID: 850704
             SGD: S000004007
-            MIPS: YLR017W
             UniProt: Q07938
 AASEQ       337
             MNRIKNTFSVAKRLKLSKVMTNSELPSIFEGTVDLGIIGGTGLYNLDCLEPIALLPPMVT

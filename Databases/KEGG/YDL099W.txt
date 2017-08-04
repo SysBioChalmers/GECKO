@@ -1,12 +1,12 @@
 ENTRY       YDL099W           CDS       T00005
 NAME        BUG1
-DEFINITION  Bug1p
+DEFINITION  (RefSeq) Bug1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:283419..284444
-DBLINKS     NCBI-GI: 6320104
+MOTIF       Pfam: DUF3290
+DBLINKS     NCBI-ProteinID: NP_010184
             NCBI-GeneID: 851459
             SGD: S000002257
-            MIPS: YDL099W
             UniProt: Q12191
 AASEQ       341
             MSEQESDEVKRMKQLEEARKRVEELKKKKNKKNKGKKNKNSSATGSIGSETPDLEGTPGE

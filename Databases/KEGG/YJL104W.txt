@@ -1,14 +1,18 @@
 ENTRY       YJL104W           CDS       T00005
 NAME        PAM16, MIA1, TIM16
-DEFINITION  Pam16p
+DEFINITION  (RefSeq) import motor complex subunit PAM16
 ORTHOLOGY   K17805  mitochondrial import inner membrane translocase subunit TIM16
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial protein import machinery
+              Matrix
+               MMC/PAM proteins
+                YJL104W (PAM16)
 POSITION    X:227327..227776
 MOTIF       Pfam: Pam16 STb_secrete
-DBLINKS     NCBI-GI: 6322357
+DBLINKS     NCBI-ProteinID: NP_012431
             NCBI-GeneID: 853340
             SGD: S000003640
-            MIPS: YJL104W
             UniProt: P42949
 STRUCTURE   PDB: 2GUZ
 AASEQ       149

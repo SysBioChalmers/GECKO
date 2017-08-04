@@ -1,14 +1,19 @@
 ENTRY       YBL025W           CDS       T00005
 NAME        RRN10
-DEFINITION  Rrn10p
+DEFINITION  (RefSeq) Rrn10p
 ORTHOLOGY   K15221  RNA polymerase I-specific transcription initiation factor RRN10
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase I system
+               Other transcription-related factors
+                Transcription initiation factors
+                 YBL025W (RRN10)
 POSITION    II:171481..171918
 MOTIF       Pfam: UAF_Rrn10
-DBLINKS     NCBI-GI: 6319446
+DBLINKS     NCBI-ProteinID: NP_009528
             NCBI-GeneID: 852256
             SGD: S000000121
-            MIPS: YBL025W
             UniProt: P38204
 AASEQ       145
             MDRNVYEACSNIIKEFGTHVVSADEVLAEKIDNAVPIPFKTREEIDADVEKDRNEGVFEG

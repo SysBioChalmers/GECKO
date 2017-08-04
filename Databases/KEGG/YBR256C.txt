@@ -1,17 +1,27 @@
 ENTRY       YBR256C           CDS       T00005
 NAME        RIB5
-DEFINITION  riboflavin synthase (EC:2.5.1.9)
+DEFINITION  (RefSeq) riboflavin synthase
 ORTHOLOGY   K00793  riboflavin synthase [EC:2.5.1.9]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00740  Riboflavin metabolism
             sce01100  Metabolic pathways
-CLASS       Metabolism; Metabolism of cofactors and vitamins; Riboflavin metabolism [PATH:sce00740]
+            sce01110  Biosynthesis of secondary metabolites
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Metabolism of cofactors and vitamins
+               00740 Riboflavin metabolism
+                YBR256C (RIB5)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.5  Transferring alkyl or aryl groups, other than methyl groups
+               2.5.1  Transferring alkyl or aryl groups, other than methyl groups (only sub-subclass identified to date)
+                2.5.1.9  riboflavin synthase
+                 YBR256C (RIB5)
 POSITION    II:complement(727386..728102)
 MOTIF       Pfam: Lum_binding
-DBLINKS     NCBI-GI: 6319733
+DBLINKS     NCBI-ProteinID: NP_009815
             NCBI-GeneID: 852559
             SGD: S000000460
-            MIPS: YBR256C
             UniProt: P38145
 AASEQ       238
             MFTGIVECMGTVLENNPYDDSESGGQGVSITIGNAGSILTDCHVGDSIAVNGVCLTVTEF

@@ -1,14 +1,17 @@
 ENTRY       YNL153C           CDS       T00005
 NAME        GIM3, PFD4
-DEFINITION  Gim3p
+DEFINITION  (RefSeq) tubulin-binding prefolding complex subunit GIM3
 ORTHOLOGY   K09550  prefoldin subunit 4
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chaperones and folding catalysts [BR:sce03110]
+             Heat shock proteins
+              GimC
+               YNL153C (GIM3)
 POSITION    XIV:complement(345669..346058)
-MOTIF       Pfam: Prefoldin_2 Sipho_Gp157 FliD_C SMK-1 Nop16 Nsp1_C DUF4140 DUF1949 DUF964 DUF87 PspB DUF3908
-DBLINKS     NCBI-GI: 6324176
+MOTIF       Pfam: Prefoldin_2 Sipho_Gp157 UPF0054 DUF5408 ABC_tran_CTD PspB
+DBLINKS     NCBI-ProteinID: NP_014246
             NCBI-GeneID: 855569
             SGD: S000005097
-            MIPS: YNL153C
             UniProt: P53900
 AASEQ       129
             MELLPQGQRNNTQVTFEDQQKINEFSKLIMRKDAIAQELSLQREEKEYLDDVSLEIELID

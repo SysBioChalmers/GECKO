@@ -1,20 +1,32 @@
 ENTRY       YER111C           CDS       T00005
 NAME        SWI4, ART1
-DEFINITION  Swi4p
+DEFINITION  (RefSeq) SBF complex DNA-binding subunit SWI4
 ORTHOLOGY   K06649  regulatory protein SWI4
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04011  MAPK signaling pathway - yeast
             sce04111  Cell cycle - yeast
             sce04113  Meiosis - yeast
-CLASS       Environmental Information Processing; Signal transduction; MAPK signaling pathway - yeast [PATH:sce04011]
-            Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
-            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YER111C (SWI4)
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YER111C (SWI4)
+               04113 Meiosis - yeast
+                YER111C (SWI4)
+            Transcription factors [BR:sce03000]
+             Eukaryotic Type
+              Basic leucine zipper (bZIP)
+               ZIP only
+                YER111C (SWI4)
 POSITION    V:complement(382595..385876)
-MOTIF       Pfam: Ank Ank_2 KilA-N Ank_4 Ank_3 Ank_5
-DBLINKS     NCBI-GI: 6320957
+MOTIF       Pfam: Ank_2 KilA-N Ank_4 Ank Ank_3 Ank_5
+DBLINKS     NCBI-ProteinID: NP_011036
             NCBI-GeneID: 856847
             SGD: S000000913
-            MIPS: YER111C
             UniProt: P25302
 AASEQ       1093
             MPFDVLISNQKDNTNHQNITPISKSVLLAPHSNHPVIEIATYSETDVYECYIRGFETKIV

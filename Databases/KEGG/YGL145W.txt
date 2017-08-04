@@ -1,13 +1,18 @@
 ENTRY       YGL145W           CDS       T00005
 NAME        TIP20, TIP1
-DEFINITION  Tip20p
+DEFINITION  (RefSeq) Tip20p
+ORTHOLOGY   K20474  RAD50-interacting protein 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endoplasmic reticulum (ER) - Golgi transport
+              Retrieval pathways
+               NRZ (DSL1) complex
+                YGL145W (TIP20)
 POSITION    VII:230243..232348
-MOTIF       Pfam: RINT1_TIP1 PrkA TraF_2
-DBLINKS     NCBI-GI: 14318435
+MOTIF       Pfam: RINT1_TIP1 PrkA
+DBLINKS     NCBI-ProteinID: NP_116577
             NCBI-GeneID: 852732
             SGD: S000003113
-            MIPS: YGL145W
             UniProt: P33891
 STRUCTURE   PDB: 3FHN
 AASEQ       701

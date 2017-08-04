@@ -1,14 +1,29 @@
 ENTRY       YHR031C           CDS       T00005
 NAME        RRM3, RTT104
-DEFINITION  Rrm3p (EC:3.6.4.- 3.6.1.-)
+DEFINITION  (RefSeq) Rrm3p
 ORTHOLOGY   K15255  ATP-dependent DNA helicase PIF1 [EC:3.6.4.12]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.4  Acting on acid anhydrides to facilitate cellular and subcellular movement
+                3.6.4.12  DNA helicase
+                 YHR031C (RRM3)
+            DNA replication proteins [BR:sce03032]
+             Eukaryotic Type
+              DNA Replication Termination Factors
+               Other telomere regulation proteins
+                YHR031C (RRM3)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial DNA transcription, translation, and replication factors
+              Mitochondrial DNA replication factors
+               Mitochondrial DNA maintenance factors
+                YHR031C (RRM3)
 POSITION    VIII:complement(170799..172970)
-MOTIF       Pfam: PIF1 AAA_30 AAA_22 Herpes_Helicase AAA_19 AAA T2SE PhoH Mg_chelatase DUF2075 FtsK_SpoIIIE UvrD_C_2 AAA_5 AAA_16 Helicase_RecD ABC_tran
-DBLINKS     NCBI-GI: 6321820
+MOTIF       Pfam: PIF1 AAA_30 AAA_19 Herpes_Helicase AAA_22 AAA T2SSE PhoH DUF2075 Mg_chelatase Viral_helicase1 AAA_5 Helicase_RecD FtsK_SpoIIIE UvrD_C_2 AAA_16 ABC_tran
+DBLINKS     NCBI-ProteinID: NP_011896
             NCBI-GeneID: 856426
             SGD: S000001073
-            MIPS: YHR031C
             UniProt: P38766
 AASEQ       723
             MFRSHASGNKKQWSKRSSNGSTPAASASGSHAYRQQTLSSFFMGCGKKSAAASKNSTTII

@@ -1,13 +1,26 @@
 ENTRY       YDR164C           CDS       T00005
 NAME        SEC1
-DEFINITION  Sec1p
+DEFINITION  (RefSeq) Sec1p
+ORTHOLOGY   K15292  syntaxin-binding protein 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Exocytosis
+              Small GTPases and associated proteins
+               Rab associated proteins
+                YDR164C (SEC1)
+             SNARE
+              SNARE associated proteins
+               Syntaxin-binding proteins
+                YDR164C (SEC1)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of other body fluids (saliva and urine)
+               YDR164C (SEC1)
 POSITION    IV:complement(782041..784215)
 MOTIF       Pfam: Sec1
-DBLINKS     NCBI-GI: 6320368
+DBLINKS     NCBI-ProteinID: NP_010448
             NCBI-GeneID: 851742
             SGD: S000002571
-            MIPS: YDR164C
             UniProt: P30619
 AASEQ       724
             MSDLIELQRNYLIGVLNQIETKNNLKFLIIDKTVETILSYLFLTPQELLNNVTSVDLIDS

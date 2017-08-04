@@ -1,13 +1,12 @@
 ENTRY       YMR031C           CDS       T00005
 NAME        EIS1
-DEFINITION  Eis1p
+DEFINITION  (RefSeq) Eis1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:complement(332212..334743)
-MOTIF       Pfam: DUF3812
-DBLINKS     NCBI-GI: 6323674
+MOTIF       Pfam: Eisosome1
+DBLINKS     NCBI-ProteinID: NP_013744
             NCBI-GeneID: 855047
             SGD: S000004633
-            MIPS: YMR031C
             UniProt: Q05050
 AASEQ       843
             MSLISAVEDRDIHNIGKTSGGGSRTSSITSSKKSLKHGSKSLRKPKVYQTTGEPLSREAL

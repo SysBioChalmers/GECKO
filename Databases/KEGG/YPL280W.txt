@@ -1,13 +1,12 @@
 ENTRY       YPL280W           CDS       T00005
 NAME        HSP32
-DEFINITION  Hsp32p (EC:3.2.-.-)
+DEFINITION  (RefSeq) glutathione-independent methylglyoxalase family protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:11887..12600
-MOTIF       Pfam: DJ-1_PfpI
-DBLINKS     NCBI-GI: 6324975
+MOTIF       Pfam: DJ-1_PfpI ThiJ_like
+DBLINKS     NCBI-ProteinID: NP_015043
             NCBI-GeneID: 855849
             SGD: S000006201
-            MIPS: YPL280W
             UniProt: Q08992
 AASEQ       237
             MTPKRALISLTSYHGPFYKDGAKTGVFVVEILRSFDTFEKHGFEVDFVSETGGFGWDEHY

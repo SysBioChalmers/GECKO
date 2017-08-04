@@ -1,13 +1,12 @@
 ENTRY       YOR216C           CDS       T00005
 NAME        RUD3, GRP1
-DEFINITION  Rud3p
+DEFINITION  (RefSeq) Rud3p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:complement(747525..748979)
-MOTIF       Pfam: GRAB Filament Alba DUF3584
-DBLINKS     NCBI-GI: 398365809
+MOTIF       Pfam: GRAB Filament DUF3584 TACC APG6 Fez1
+DBLINKS     NCBI-ProteinID: NP_014859
             NCBI-GeneID: 854391
             SGD: S000005742
-            MIPS: YOR216C
             UniProt: Q12234
 AASEQ       484
             MGKNKKKTGKKAKSHPHVEDVDETVNKPEEIINSVNVTVPPKMSTDPEADGIVASPDDEG

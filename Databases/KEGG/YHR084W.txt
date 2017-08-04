@@ -1,16 +1,24 @@
 ENTRY       YHR084W           CDS       T00005
 NAME        STE12
-DEFINITION  Ste12p
+DEFINITION  (RefSeq) homeodomain family transcription factor STE12
 ORTHOLOGY   K11215  transcription factor STE12
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04011  MAPK signaling pathway - yeast
-CLASS       Environmental Information Processing; Signal transduction; MAPK signaling pathway - yeast [PATH:sce04011]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YHR084W (STE12)
+            Transcription factors [BR:sce03000]
+             Eukaryotic Type
+              Other transcription factors
+               Others
+                YHR084W (STE12)
 POSITION    VIII:274174..276240
 MOTIF       Pfam: STE
-DBLINKS     NCBI-GI: 6321876
+DBLINKS     NCBI-ProteinID: NP_011952
             NCBI-GeneID: 856484
             SGD: S000001126
-            MIPS: YHR084W
             UniProt: P13574
 STRUCTURE   PDB: 3W3W
 AASEQ       688

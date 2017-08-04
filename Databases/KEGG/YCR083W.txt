@@ -1,14 +1,17 @@
 ENTRY       YCR083W           CDS       T00005
 NAME        TRX3
-DEFINITION  Trx3p
+DEFINITION  (RefSeq) Trx3p
 ORTHOLOGY   K03671  thioredoxin 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chaperones and folding catalysts [BR:sce03110]
+             Protein folding catalysts
+              Protein disulfide isomerase
+               YCR083W (TRX3)
 POSITION    III:259578..259961
-MOTIF       Pfam: Thioredoxin Thioredoxin_2 Thioredoxin_8 AhpC-TSA Redoxin Thioredoxin_9 Thioredoxin_7 DSBA Phosducin NAPRTase HyaE
-DBLINKS     NCBI-GI: 6319925
+MOTIF       Pfam: Thioredoxin Thioredoxin_2 Thioredoxin_8 AhpC-TSA Redoxin DSBA Phosducin Thioredoxin_9 TraF Thioredoxin_7 HyaE
+DBLINKS     NCBI-ProteinID: NP_010006
             NCBI-GeneID: 850444
             SGD: S000000679
-            MIPS: YCR083W
             UniProt: P25372
 STRUCTURE   PDB: 2OE3 2OE0 2OE1
 AASEQ       127

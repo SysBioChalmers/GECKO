@@ -1,16 +1,34 @@
 ENTRY       YBR111W-A         CDS       T00005
 NAME        SUS1
-DEFINITION  Sus1p
+DEFINITION  (RefSeq) Sus1p
 ORTHOLOGY   K11368  enhancer of yellow 2 transcription factor
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Coactivators
+                SAGA/TFTC/STAGA complex
+                 YBR111W-A (SUS1)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Transport factors
+                Other transport factors
+                 YBR111W-A (SUS1)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Histone modification proteins
+               HAT complexes
+                SAGA complex
+                 YBR111W-A (SUS1)
 POSITION    II:join(462139..462209,462290..462429,462500..462579)
-MOTIF       Pfam: EnY2 EcoR124_C AfaD
-DBLINKS     NCBI-GI: 41629677
+MOTIF       Pfam: EnY2
+DBLINKS     NCBI-ProteinID: NP_878049
             NCBI-GeneID: 1466445
             SGD: S000028510
-            MIPS: YBR111W-A
             UniProt: Q6WNK7
-STRUCTURE   PDB: 3MHS 4FK5 3KIK 3MHH 3FWB 4FIP 3M99 3KJL 3FWC 4FJC
+STRUCTURE   PDB: 3MHS 4FK5 3KIK 4WA6 3MHH 3FWB 4MBE 4FIP 3M99 3KJL 3FWC
+                 4W4U 4FJC 4C31 4ZUX
 AASEQ       96
             MTMDTAQLKSQIQQYLVESGNYELISNELKARLLQEGWVDKVKDLTKSEMNINESTNFTQ
             ILSTVEPKALEMVSDSTRETVLKQIREFLEEIVDTQ

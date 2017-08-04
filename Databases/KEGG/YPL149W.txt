@@ -1,16 +1,32 @@
 ENTRY       YPL149W           CDS       T00005
 NAME        ATG5, APG5
-DEFINITION  Atg5p
+DEFINITION  (RefSeq) Atg5p
 ORTHOLOGY   K08339  autophagy-related protein 5
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
-PATHWAY     sce04140  Regulation of autophagy
-CLASS       Cellular Processes; Transport and catabolism; Regulation of autophagy [PATH:sce04140]
+PATHWAY     sce04136  Autophagy - other
+            sce04138  Autophagy - yeast
+            sce04213  Longevity regulating pathway - multiple species
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04138 Autophagy - yeast
+                YPL149W (ATG5)
+               04136 Autophagy - other eukaryotes
+                YPL149W (ATG5)
+             Organismal Systems
+              Aging
+               04213 Longevity regulating pathway - multiple species
+                YPL149W (ATG5)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial quality control factors
+              Mitophagy factors
+               Autophagy-related proteins
+                YPL149W (ATG5)
 POSITION    XVI:271310..272194
 MOTIF       Pfam: APG5
-DBLINKS     NCBI-GI: 6325108
+DBLINKS     NCBI-ProteinID: NP_015176
             NCBI-GeneID: 855954
             SGD: S000006070
-            MIPS: YPL149W
             UniProt: Q12380
 STRUCTURE   PDB: 2DYO 2DYM 3W1S
 AASEQ       294

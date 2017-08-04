@@ -1,12 +1,18 @@
 ENTRY       YDR420W           CDS       T00005
 NAME        HKR1
-DEFINITION  Hkr1p
+DEFINITION  (RefSeq) Hkr1p
+ORTHOLOGY   K19848  signaling mucin HKR1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04011  MAPK signaling pathway - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YDR420W (HKR1)
 POSITION    IV:1306267..1311675
-DBLINKS     NCBI-GI: 6320628
+DBLINKS     NCBI-ProteinID: NP_010708
             NCBI-GeneID: 852030
             SGD: S000002828
-            MIPS: YDR420W
             UniProt: P41809
 AASEQ       1802
             MVSLKIKKILLLVSLLNAIEAYSNDTIYSTSYNNGIESTPSYSTSAISSTGSSNKENAIT

@@ -1,14 +1,18 @@
 ENTRY       YBR264C           CDS       T00005
 NAME        YPT10
-DEFINITION  Ypt10p
+DEFINITION  (RefSeq) Rab family GTPase YPT10
 ORTHOLOGY   K07976  Rab family, other
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       GTP-binding proteins [BR:sce04031]
+             Small (Monomeric) G-proteins
+              Rab Family
+               Others
+                YBR264C (YPT10)
 POSITION    II:complement(737770..738369)
-MOTIF       Pfam: Ras Miro Arf GTP_EFTU Gtr1_RagA MMR_HSR1 SRPRB AAA_22 PduV-EutP AAA_24 DUF258
-DBLINKS     NCBI-GI: 37362623
+MOTIF       Pfam: Ras Roc Arf GTP_EFTU Gtr1_RagA RsgA_GTPase MMR_HSR1 SRPRB AAA_16 MMR_HSR1_Xtn FeoB_N
+DBLINKS     NCBI-ProteinID: NP_009823
             NCBI-GeneID: 852567
             SGD: S000000468
-            MIPS: YBR264C
             UniProt: P38146
 AASEQ       199
             MEATIKVVLLGDSSVGKTSIVTRLKSGKFLAKHAATIGAAFITKTIEVPSNDSSTEKRIH

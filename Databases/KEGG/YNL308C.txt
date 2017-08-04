@@ -1,14 +1,18 @@
 ENTRY       YNL308C           CDS       T00005
 NAME        KRI1
-DEFINITION  Kri1p
+DEFINITION  (RefSeq) Kri1p
 ORTHOLOGY   K14786  protein KRI1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              90S particles
+               Other 90S particles
+                YNL308C (KRI1)
 POSITION    XIV:complement(54122..55897)
-MOTIF       Pfam: Kri1_C Kri1 DUF3236 Caenor_Her-1
-DBLINKS     NCBI-GI: 6324021
+MOTIF       Pfam: Kri1_C Kri1
+DBLINKS     NCBI-ProteinID: NP_014091
             NCBI-GeneID: 855408
             SGD: S000005252
-            MIPS: YNL308C
             UniProt: P42846
 AASEQ       591
             MPRKKSAAKRAREQAKKEAAVPATDTATIKTSETSATTVKPAIEASKSYVPSEDEEEDEE

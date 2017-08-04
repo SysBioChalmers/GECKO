@@ -1,14 +1,13 @@
 ENTRY       YPL006W           CDS       T00005
 NAME        NCR1
-DEFINITION  Ncr1p
+DEFINITION  (RefSeq) sphingolipid transporter
 ORTHOLOGY   K12385  Niemann-Pick C1 protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:544631..548143
-MOTIF       Pfam: Patched Sterol-sensing ACR_tran MMPL
-DBLINKS     NCBI-GI: 6325251
+MOTIF       Pfam: NPC1_N Patched Sterol-sensing ACR_tran MMPL TMEM18
+DBLINKS     NCBI-ProteinID: NP_015319
             NCBI-GeneID: 856101
             SGD: S000005927
-            MIPS: YPL006W
             UniProt: Q12200
 AASEQ       1170
             MNVLWIIALVGQLMRLVQGTATCAMYGNCGKKSVFGNELPCPVPRSFEPPVLSDETSKLL

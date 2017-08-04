@@ -1,14 +1,29 @@
 ENTRY       YPL154C           CDS       T00005
 NAME        PEP4, PHO9, PRA1, yscA
-DEFINITION  Pep4p (EC:3.4.23.25)
+DEFINITION  (RefSeq) proteinase A
 ORTHOLOGY   K01381  saccharopepsin [EC:3.4.23.25]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04138  Autophagy - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04138 Autophagy - yeast
+                YPL154C (PEP4)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.4  Acting on peptide bonds (peptidases)
+               3.4.23  Aspartic endopeptidases
+                3.4.23.25  saccharopepsin
+                 YPL154C (PEP4)
+            Peptidases [BR:sce01002]
+             Aspartic Peptidases
+              Family A1: pepsin family
+               YPL154C (PEP4)
 POSITION    XVI:complement(259714..260931)
-MOTIF       Pfam: Asp TAXi_N Asp_protease_2 TAXi_C
-DBLINKS     NCBI-GI: 6325103
+MOTIF       Pfam: Asp TAXi_N gag-asp_proteas Asp_protease_2
+DBLINKS     NCBI-ProteinID: NP_015171
             NCBI-GeneID: 855949
             SGD: S000006075
-            MIPS: YPL154C
             UniProt: P07267
 STRUCTURE   PDB: 1DPJ 1G0V 1DP5 1FQ5 2JXR 1FMX 1FQ4 1FQ6 1FMU 1FQ7 1FQ8
 AASEQ       405

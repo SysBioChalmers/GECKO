@@ -1,16 +1,27 @@
 ENTRY       YIL044C           CDS       T00005
 NAME        AGE2, SAT2
-DEFINITION  Age2p
+DEFINITION  (RefSeq) Age2p
 ORTHOLOGY   K12486  stromal membrane-associated protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04144  Endocytosis
-CLASS       Cellular Processes; Transport and catabolism; Endocytosis [PATH:sce04144]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04144 Endocytosis
+                YIL044C (AGE2)
+            Membrane trafficking [BR:sce04131]
+             Endocytosis
+              Arf GTPases and associated proteins
+               Arf associated proteins
+                YIL044C (AGE2)
+             Endosome - Golgi transport
+               Arf GTPase associated proteins
+                YIL044C (AGE2)
 POSITION    IX:complement(272950..273846)
-MOTIF       Pfam: ArfGap
-DBLINKS     NCBI-GI: 398364431
+MOTIF       Pfam: ArfGap PSRP-3_Ycf65
+DBLINKS     NCBI-ProteinID: NP_012220
             NCBI-GeneID: 854767
             SGD: S000001306
-            MIPS: YIL044C
             UniProt: P40529
 AASEQ       298
             MSTSVPVKKALSALLRDPGNSHCADCKAQLHPRWASWSLGVFICIKCAGIHRSLGTHISK

@@ -1,13 +1,24 @@
 ENTRY       YLR337C           CDS       T00005
 NAME        VRP1, END5, MDP2, YLR337W
-DEFINITION  Vrp1p
+DEFINITION  (RefSeq) Vrp1p
+ORTHOLOGY   K19475  WAS/WASL-interacting protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04144  Endocytosis
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04144 Endocytosis
+                YLR337C (VRP1)
+            Membrane trafficking [BR:sce04131]
+             Others
+              Actin-binding proteins
+               Nucleation-promoting factors (NPFs)
+                YLR337C (VRP1)
 POSITION    XII:complement(802653..805106)
 MOTIF       Pfam: WH2
-DBLINKS     NCBI-GI: 6323370
+DBLINKS     NCBI-ProteinID: NP_013441
             NCBI-GeneID: 851051
             SGD: S000004329
-            MIPS: YLR337C
             UniProt: P37370
 AASEQ       817
             MAGAPAPPPPPPPPALGGSAPKPAKSVMQGRDALLGDIRKGMKLKKAETNDRSAPIVGGG

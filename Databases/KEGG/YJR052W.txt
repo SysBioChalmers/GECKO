@@ -1,14 +1,20 @@
 ENTRY       YJR052W           CDS       T00005
 NAME        RAD7
-DEFINITION  Rad7p
+DEFINITION  (RefSeq) UV-damaged DNA-binding protein RAD7
 ORTHOLOGY   K15082  DNA repair protein RAD7
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              SSBR (single strand breaks repair)
+               NER (nucleotide excision repair)
+                GGR (global genome repair) factors
+                 NER4 complex
+                  YJR052W (RAD7)
 POSITION    X:532062..533759
-MOTIF       Pfam: DUF3826
-DBLINKS     NCBI-GI: 6322512
+MOTIF       Pfam: LRR_4
+DBLINKS     NCBI-ProteinID: NP_012586
             NCBI-GeneID: 853512
             SGD: S000003813
-            MIPS: YJR052W
             UniProt: P06779
 AASEQ       565
             MYRSRNRPKRGGENEVKGPNSALTQFLREEGISAENIKQKWYQRQSKKQEDATDEKKGKA

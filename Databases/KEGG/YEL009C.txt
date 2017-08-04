@@ -1,17 +1,28 @@
 ENTRY       YEL009C           CDS       T00005
 NAME        GCN4, AAS101, AAS3, ARG9
-DEFINITION  Gcn4p
+DEFINITION  (RefSeq) amino acid starvation-responsive transcription factor GCN4
 ORTHOLOGY   K09464  general control protein GCN4
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04138  Autophagy - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04138 Autophagy - yeast
+                YEL009C (GCN4)
+            Transcription factors [BR:sce03000]
+             Eukaryotic Type
+              Basic leucine zipper (bZIP)
+               AP-1(-like) components, Fungal regulators
+                YEL009C (GCN4)
 POSITION    V:complement(138918..139763)
-MOTIF       Pfam: bZIP_1 bZIP_2 bZIP_Maf
-DBLINKS     NCBI-GI: 398364285
+MOTIF       Pfam: bZIP_2 bZIP_1 ZapB FAM76 bZIP_Maf
+DBLINKS     NCBI-ProteinID: NP_010907
             NCBI-GeneID: 856709
             SGD: S000000735
-            MIPS: YEL009C
             UniProt: P03069
-STRUCTURE   PDB: 1ZII 1ZIK 2ZTA 1ZIJ 1ZIM 2DGC 1ZIL 1SWI 3P8M 1YSA 1DGC
-                 1LD4 2LPB 2KO4 1ZTA
+STRUCTURE   PDB: 5APU 5APS 5APW 5APT 5APX 4TL1 1ZII 1ZIK 2ZTA 4NJ0 5APV
+                 5APY 4NIZ 1ZIJ 1ZIM 5APQ 2DGC 1ZIL 1SWI 3P8M 1YSA 1DGC
+                 1LD4 5IIR 5IIV 5IEW 2LPB 1ZTA
 AASEQ       281
             MSEYQPSLFALNPMGFSPLDGSKSTNENVSASTSTAKPMVGQLIFDKFIKTEEDPIIKQD
             TPSNLDFDFALPQTATAPDAKTVLPIPELDDAVVESFFSSSTDSTPMFEYENLEDNSKEW

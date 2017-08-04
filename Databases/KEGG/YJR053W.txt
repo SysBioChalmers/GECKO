@@ -1,15 +1,18 @@
 ENTRY       YJR053W           CDS       T00005
 NAME        BFA1, IBD1
-DEFINITION  Bfa1p
+DEFINITION  (RefSeq) Bfa1p
 ORTHOLOGY   K02181  cell cycle arrest protein BFA1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
-CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YJR053W (BFA1)
 POSITION    X:534027..535751
-DBLINKS     NCBI-GI: 398365021
+DBLINKS     NCBI-ProteinID: NP_012587
             NCBI-GeneID: 853513
             SGD: S000003814
-            MIPS: YJR053W
             UniProt: P47113
 AASEQ       574
             MSIRPLTLNGLDEPETSFEELNTTLPRFQSHETLTLEENVPPLSTSTYIPPPSSVGTSDT

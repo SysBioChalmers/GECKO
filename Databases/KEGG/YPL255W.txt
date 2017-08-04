@@ -1,13 +1,12 @@
 ENTRY       YPL255W           CDS       T00005
 NAME        BBP1
-DEFINITION  Bbp1p
+DEFINITION  (RefSeq) Bbp1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:67725..68882
-MOTIF       Pfam: BBP1_C BBP1_N DUF1978 DUF87
-DBLINKS     NCBI-GI: 6325000
+MOTIF       Pfam: BBP1_C BBP1_N ArsR Exonuc_VII_L
+DBLINKS     NCBI-ProteinID: NP_015068
             NCBI-GeneID: 855820
             SGD: S000006176
-            MIPS: YPL255W
             UniProt: Q12365
 AASEQ       385
             MNQEDNTGGGGIFGLFKWTKDALFGTDISPSMKYKDQEERRDRSRYAQDDTNFSMKFGND

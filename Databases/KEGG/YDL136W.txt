@@ -1,18 +1,27 @@
 ENTRY       YDL136W           CDS       T00005
 NAME        RPL35B, SOS2
-DEFINITION  ribosomal 60S subunit protein L35B
+DEFINITION  (RefSeq) ribosomal 60S subunit protein L35B
 ORTHOLOGY   K02918  large subunit ribosomal protein L35e
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03010  Ribosome
-CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+MODULE      sce_M00177  Ribosome, eukaryotes
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03010 Ribosome
+                YDL136W (RPL35B)
+            Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Eukaryotes
+               Large subunit
+                YDL136W (RPL35B)
 POSITION    IV:join(217600..217602,218008..218367)
-MOTIF       Pfam: Ribosomal_L29 MRP-L47 HTH_12 DUF4600
-DBLINKS     NCBI-GI: 6320010
+MOTIF       Pfam: Ribosomal_L29 FAM167 MRP-L47
+DBLINKS     NCBI-ProteinID: NP_010090
             NCBI-GeneID: 851419
             SGD: S000002295
-            MIPS: YDL136W
             UniProt: P0CX84 P0CX85
-STRUCTURE   PDB: 3U5E 3U5I 3O58 3O5H 4BYN 4BYU 4B6A 2WW9 3IZS 2WWA 1S1I
+STRUCTURE   PDB: 2WW9 2WWA
 AASEQ       120
             MAGVKAYELRTKSKEQLASQLVDLKKELAELKVQKLSRPSLPKIKTVRKSIACVLTVINE
             QQREAVRQLYKGKKYQPKDLRAKKTRALRRALTKFEASQVTEKQRKKQIAFPQRKYAIKA

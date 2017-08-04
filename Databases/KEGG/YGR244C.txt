@@ -1,24 +1,43 @@
 ENTRY       YGR244C           CDS       T00005
 NAME        LSC2
-DEFINITION  succinate--CoA ligase (GDP-forming) subunit beta (EC:6.2.1.5)
+DEFINITION  (RefSeq) succinate--CoA ligase (GDP-forming) subunit beta
 ORTHOLOGY   K01900  succinyl-CoA synthetase beta subunit [EC:6.2.1.4 6.2.1.5]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00020  Citrate cycle (TCA cycle)
             sce00640  Propanoate metabolism
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
+            sce01130  Biosynthesis of antibiotics
             sce01200  Carbon metabolism
 MODULE      sce_M00009  Citrate cycle (TCA cycle, Krebs cycle)
             sce_M00011  Citrate cycle, second carbon oxidation, 2-oxoglutarate => oxaloacetate
-CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
-            Metabolism; Carbohydrate metabolism; Citrate cycle (TCA cycle) [PATH:sce00020]
-            Metabolism; Carbohydrate metabolism; Propanoate metabolism [PATH:sce00640]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01200 Carbon metabolism
+                YGR244C (LSC2)
+              Carbohydrate metabolism
+               00020 Citrate cycle (TCA cycle)
+                YGR244C (LSC2)
+               00640 Propanoate metabolism
+                YGR244C (LSC2)
+            Enzymes [BR:sce01000]
+             6. Ligases
+              6.2  Forming carbon-sulfur bonds
+               6.2.1  Acid-thiol ligases
+                6.2.1.4  succinate---CoA ligase (GDP-forming)
+                 YGR244C (LSC2)
+                6.2.1.5  succinate---CoA ligase (ADP-forming)
+                 YGR244C (LSC2)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of other body fluids (saliva and urine)
+               YGR244C (LSC2)
 POSITION    VII:complement(978036..979319)
-MOTIF       Pfam: ATP-grasp_2 Ligase_CoA ATP-grasp_5 GARS_A ATP-grasp_4
-DBLINKS     NCBI-GI: 398366275
+MOTIF       Pfam: ATP-grasp_2 Ligase_CoA ATP-grasp_5 GARS_A
+DBLINKS     NCBI-ProteinID: NP_011760
             NCBI-GeneID: 853159
             SGD: S000003476
-            MIPS: YGR244C
             UniProt: P53312
 AASEQ       427
             MYSRKSLSLISKCGQLSRLNAQAALQARRHLSIHEYRSAQLLREYGIGTPEGFPAFTPEE

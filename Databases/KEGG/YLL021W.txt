@@ -1,13 +1,19 @@
 ENTRY       YLL021W           CDS       T00005
-NAME        SPA2, FUS6, PEA1
-DEFINITION  Spa2p
+NAME        SPA2, FUS6, PEA1, PPF1
+DEFINITION  (RefSeq) Spa2p
+ORTHOLOGY   K19846  protein SPA2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04011  MAPK signaling pathway - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YLL021W (SPA2)
 POSITION    XII:100947..105347
-MOTIF       Pfam: GIT_SHD
-DBLINKS     NCBI-GI: 6323007
+MOTIF       Pfam: GIT_SHD GIT1_C
+DBLINKS     NCBI-ProteinID: NP_013079
             NCBI-GeneID: 850639
             SGD: S000003944
-            MIPS: YLL021W
             UniProt: P23201
 AASEQ       1466
             MGTSSEVSLAHHRDIFHYYVSLKTFFEVTGENRDRSNSTRAQKARAKLLKLSSSQFYELS

@@ -1,17 +1,35 @@
 ENTRY       YDR074W           CDS       T00005
 NAME        TPS2, HOG2, PFK3
-DEFINITION  trehalose-phosphatase TPS2 (EC:3.1.3.12)
+DEFINITION  (RefSeq) trehalose-phosphatase TPS2
 ORTHOLOGY   K16055  trehalose 6-phosphate synthase/phosphatase [EC:2.4.1.15 3.1.3.12]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00500  Starch and sucrose metabolism
             sce01100  Metabolic pathways
-CLASS       Metabolism; Carbohydrate metabolism; Starch and sucrose metabolism [PATH:sce00500]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Carbohydrate metabolism
+               00500 Starch and sucrose metabolism
+                YDR074W (TPS2)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.4  Glycosyltransferases
+               2.4.1  Hexosyltransferases
+                2.4.1.15  alpha,alpha-trehalose-phosphate synthase (UDP-forming)
+                 YDR074W (TPS2)
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.3  Phosphoric-monoester hydrolases
+                3.1.3.12  trehalose-phosphatase
+                 YDR074W (TPS2)
+            Glycosyltransferases [BR:sce01003]
+             Others
+              Trehalose
+               YDR074W (TPS2)
 POSITION    IV:593893..596583
 MOTIF       Pfam: Glyco_transf_20 Trehalose_PPase
-DBLINKS     NCBI-GI: 6320279
+DBLINKS     NCBI-ProteinID: NP_010359
             NCBI-GeneID: 851646
             SGD: S000002481
-            MIPS: YDR074W
             UniProt: P31688
 AASEQ       896
             MTTTAQDNSPKKRQRIINCVTQLPYKIQLGESNDDWKISATTGNSALFSSLEYLQFDSTE

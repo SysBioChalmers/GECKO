@@ -1,14 +1,18 @@
 ENTRY       YOL041C           CDS       T00005
 NAME        NOP12
-DEFINITION  Nop12p
+DEFINITION  (RefSeq) Nop12p
 ORTHOLOGY   K14837  nucleolar protein 12
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               Other pre-60S particles
+                YOL041C (NOP12)
 POSITION    XV:complement(251267..252646)
-MOTIF       Pfam: RRM_1 RRM_6 RRM_5
-DBLINKS     NCBI-GI: 6324532
+MOTIF       Pfam: RRM_1 RRM_7 Nup35_RRM_2
+DBLINKS     NCBI-ProteinID: NP_014601
             NCBI-GeneID: 854116
             SGD: S000005401
-            MIPS: YOL041C
             UniProt: Q08208
 AASEQ       459
             MSSAIDNLFGNIDEKKIESSVDKLFSSSCGPINKLEVKSKTRTVLPDSKKRERAAEADQE

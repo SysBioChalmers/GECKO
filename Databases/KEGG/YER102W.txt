@@ -1,18 +1,29 @@
 ENTRY       YER102W           CDS       T00005
 NAME        RPS8B
-DEFINITION  ribosomal 40S subunit protein S8B
+DEFINITION  (RefSeq) ribosomal 40S subunit protein S8B
 ORTHOLOGY   K02995  small subunit ribosomal protein S8e
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03010  Ribosome
-CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+MODULE      sce_M00177  Ribosome, eukaryotes
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03010 Ribosome
+                YER102W (RPS8B)
+            Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Eukaryotes
+               Small subunit
+                YER102W (RPS8B)
+              Archaea
+                YER102W (RPS8B)
 POSITION    V:363100..363702
 MOTIF       Pfam: Ribosomal_S8e
-DBLINKS     NCBI-GI: 6320949
+DBLINKS     NCBI-ProteinID: NP_011028
             NCBI-GeneID: 856839
             SGD: S000000904
-            MIPS: YER102W
             UniProt: P0CX39 P0CX40
-STRUCTURE   PDB: 3U5C 3U5G 4BYL 4BYT
+STRUCTURE   PDB: 5TZS
 AASEQ       200
             MGISRDSRHKRSATGAKRAQFRKKRKFELGRQPANTKIGAKRIHSVRTRGGNKKYRALRI
             ETGNFSWASEGISKKTRIAGVVYHPSNNELVRTNTLTKAAIVQIDATPFRQWFEAHYGQT

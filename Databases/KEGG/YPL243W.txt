@@ -1,15 +1,23 @@
 ENTRY       YPL243W           CDS       T00005
 NAME        SRP68
-DEFINITION  Srp68p
+DEFINITION  (RefSeq) signal recognition particle subunit SRP68
 ORTHOLOGY   K03107  signal recognition particle subunit SRP68
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03060  Protein export
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Protein export [PATH:sce03060]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               03060 Protein export
+                YPL243W (SRP68)
+            Secretion system [BR:sce02044]
+             Sec (secretion) system
+              Eukaryotic Sec-SRP protein
+               YPL243W (SRP68)
 POSITION    XVI:88517..90316
-DBLINKS     NCBI-GI: 6325013
+MOTIF       Pfam: SRP68
+DBLINKS     NCBI-ProteinID: NP_015081
             NCBI-GeneID: 855833
             SGD: S000006164
-            MIPS: YPL243W
             UniProt: P38687
 AASEQ       599
             MVAYSPIIATYGNRAEQFLETDSDFAKYHAKLNKKLQHLRSRCHLVTKDTKKYSSKNKYG

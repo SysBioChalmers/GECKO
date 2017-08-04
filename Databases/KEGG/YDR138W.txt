@@ -1,13 +1,19 @@
 ENTRY       YDR138W           CDS       T00005
 NAME        HPR1, TRF1
-DEFINITION  Hpr1p
+DEFINITION  (RefSeq) Hpr1p
+ORTHOLOGY   K18712  THO complex subunit HPR1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Transport factors
+                TREX complex
+                 YDR138W (HPR1)
 POSITION    IV:730578..732836
 MOTIF       Pfam: efThoc1
-DBLINKS     NCBI-GI: 6320342
+DBLINKS     NCBI-ProteinID: NP_010422
             NCBI-GeneID: 851716
             SGD: S000002545
-            MIPS: YDR138W
             UniProt: P17629
 AASEQ       752
             MSNTEELIQNSIGFLQKTFKALPVSFDSIRHEPLPSSMLHASVLNFEWEPLEKNISAIHD

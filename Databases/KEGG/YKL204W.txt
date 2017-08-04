@@ -1,14 +1,17 @@
 ENTRY       YKL204W           CDS       T00005
 NAME        EAP1
-DEFINITION  Eap1p
+DEFINITION  (RefSeq) Eap1p
 ORTHOLOGY   K15908  protein EAP1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Translation factors [BR:sce03012]
+             Eukaryotic Type
+              Initiation factors
+               Initiation associated factors
+                YKL204W (EAP1)
 POSITION    XI:53704..55602
-MOTIF       Pfam: MecA
-DBLINKS     NCBI-GI: 6322645
+DBLINKS     NCBI-ProteinID: NP_012718
             NCBI-GeneID: 853631
             SGD: S000001687
-            MIPS: YKL204W
             UniProt: P36041
 AASEQ       632
             MELNDPSIISSSQFSGELSDSDTAAATHKSQQAISNLFQKLAKKGREEKPIGSVESSTDS

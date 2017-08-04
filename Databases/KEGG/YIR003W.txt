@@ -1,13 +1,12 @@
 ENTRY       YIR003W           CDS       T00005
 NAME        AIM21
-DEFINITION  Aim21p
+DEFINITION  (RefSeq) Aim21p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IX:360885..362924
-MOTIF       Pfam: DUF3210
-DBLINKS     NCBI-GI: 398364557
+MOTIF       Pfam: Aim21
+DBLINKS     NCBI-ProteinID: NP_012268
             NCBI-GeneID: 854819
             SGD: S000001442
-            MIPS: YIR003W
             UniProt: P40563
 AASEQ       679
             MPSEVTPKVPERPSRRKTSELFPLSGSESGDIKANSEPPTPAGTPNVPTRRPILKAKTMT

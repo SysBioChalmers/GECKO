@@ -1,13 +1,18 @@
 ENTRY       YKL137W           CDS       T00005
 NAME        CMC1
-DEFINITION  Cmc1p
+DEFINITION  (RefSeq) Cmc1p
+ORTHOLOGY   K18171  COX assembly mitochondrial protein 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial quality control factors
+              Mitochondrial respiratory chain complex assembly factors
+               Complex-IV assembly factors
+                YKL137W (CMC1)
 POSITION    XI:185957..186292
-MOTIF       Pfam: Cmc1 Pterin_4a DUF4434 Acetyltransf_CG
-DBLINKS     NCBI-GI: 83722563
+MOTIF       Pfam: Cmc1 NDUF_B7 Acetyltransf_CG CHCH
+DBLINKS     NCBI-ProteinID: NP_012785
             NCBI-GeneID: 853721
             SGD: S000001620
-            MIPS: YKL137W
             UniProt: P36064
 AASEQ       111
             MEQNKDPQMISKHSSRLPIWVLSPREEQQARKNLKTETYKKCANFVQAMADCAKANGMKV

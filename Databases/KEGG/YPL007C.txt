@@ -1,14 +1,19 @@
 ENTRY       YPL007C           CDS       T00005
 NAME        TFC8
-DEFINITION  Tfc8p
+DEFINITION  (RefSeq) transcription factor TFIIIC subunit TFC8
 ORTHOLOGY   K15207  transcription factor C subunit 8
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase III system
+               Basal transcription factors
+                TFIIIC, fungi type
+                 YPL007C (TFC8)
 POSITION    XVI:complement(542082..543848)
-MOTIF       Pfam: zf-TFIIIC
-DBLINKS     NCBI-GI: 6325250
+MOTIF       Pfam: zf-TFIIIC ANAPC4_WD40
+DBLINKS     NCBI-ProteinID: NP_015318
             NCBI-GeneID: 856100
             SGD: S000005928
-            MIPS: YPL007C
             UniProt: Q12308
 STRUCTURE   PDB: 2J04
 AASEQ       588

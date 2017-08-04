@@ -1,17 +1,26 @@
 ENTRY       YJR057W           CDS       T00005
 NAME        CDC8
-DEFINITION  bifunctional thymidylate/uridylate kinase (EC:2.7.4.13 2.7.4.9)
+DEFINITION  (RefSeq) bifunctional thymidylate/uridylate kinase
 ORTHOLOGY   K00943  dTMP kinase [EC:2.7.4.9]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00240  Pyrimidine metabolism
             sce01100  Metabolic pathways
-CLASS       Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Nucleotide metabolism
+               00240 Pyrimidine metabolism
+                YJR057W (CDC8)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.4  Phosphotransferases with a phosphate group as acceptor
+                2.7.4.9  dTMP kinase
+                 YJR057W (CDC8)
 POSITION    X:544062..544712
-MOTIF       Pfam: Thymidylate_kin AAA_18 AAA_14 6PF2K AAA_33
-DBLINKS     NCBI-GI: 6322517
+MOTIF       Pfam: Thymidylate_kin AAA_18 6PF2K AAA_14
+DBLINKS     NCBI-ProteinID: NP_012591
             NCBI-GeneID: 853520
             SGD: S000003818
-            MIPS: YJR057W
             UniProt: P00572
 STRUCTURE   PDB: 3TMK 1TMK 2TMK
 AASEQ       216

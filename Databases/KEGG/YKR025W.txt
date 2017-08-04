@@ -1,22 +1,36 @@
 ENTRY       YKR025W           CDS       T00005
 NAME        RPC37
-DEFINITION  Rpc37p
+DEFINITION  (RefSeq) DNA-directed RNA polymerase III subunit C37
 ORTHOLOGY   K14721  DNA-directed RNA polymerase III subunit RPC5
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00230  Purine metabolism
             sce00240  Pyrimidine metabolism
             sce03020  RNA polymerase
 MODULE      sce_M00181  RNA polymerase III, eukaryotes
-CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
-            Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
-            Genetic Information Processing; Transcription; RNA polymerase [PATH:sce03020]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Nucleotide metabolism
+               00230 Purine metabolism
+                YKR025W (RPC37)
+               00240 Pyrimidine metabolism
+                YKR025W (RPC37)
+             Genetic Information Processing
+              Transcription
+               03020 RNA polymerase
+                YKR025W (RPC37)
+            Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase III system
+               RNA polymerase III
+                Pol III specific subunits
+                 YKR025W (RPC37)
 POSITION    XI:487770..488618
-MOTIF       Pfam: Sin_N
-DBLINKS     NCBI-GI: 398365013
+MOTIF       Pfam: Sin_N PDCD2_C
+DBLINKS     NCBI-ProteinID: NP_012950
             NCBI-GeneID: 853895
             SGD: S000001733
-            MIPS: YKR025W
             UniProt: P36121
+STRUCTURE   PDB: 5FJ8 5FJ9 5FJA
 AASEQ       282
             MSIDNKLFVTEEDEEDRTQDRADVEDESNDIDMIADENGTNSAIANEQEEKSEEVKAEDD
             TGEEEEDDPVIEEFPLKISGEEESLHVFQYANRPRLVGRKPAEHPFISAARYKPKSHLWE

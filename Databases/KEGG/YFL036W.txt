@@ -1,14 +1,24 @@
 ENTRY       YFL036W           CDS       T00005
 NAME        RPO41
-DEFINITION  Rpo41p (EC:2.7.7.6)
+DEFINITION  (RefSeq) DNA-directed RNA polymerase
 ORTHOLOGY   K10908  DNA-directed RNA polymerase, mitochondrial [EC:2.7.7.6]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.7  Nucleotidyltransferases
+                2.7.7.6  DNA-directed RNA polymerase
+                 YFL036W (RPO41)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial DNA transcription, translation, and replication factors
+              Mitochondrial transcription and translation factors
+               Mitochondrial RNA polymerase
+                YFL036W (RPO41)
 POSITION    VI:58782..62837
-MOTIF       Pfam: RNA_pol RPOL_N
-DBLINKS     NCBI-GI: 14318482
+MOTIF       Pfam: RNA_pol RPOL_N LTXXQ
+DBLINKS     NCBI-ProteinID: NP_116617
             NCBI-GeneID: 850507
             SGD: S000001858
-            MIPS: YFL036W
             UniProt: P13433
 AASEQ       1351
             MLRPAYKSLVKTSLLQRRLISSKGSKLFKPSPDSTSTILISEDPLVTGSSPTSSTTSGII

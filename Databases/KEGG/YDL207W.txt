@@ -1,13 +1,19 @@
 ENTRY       YDL207W           CDS       T00005
-NAME        GLE1, BRR3, RSS1
-DEFINITION  Gle1p
+NAME        GLE1, BRR3, NLE2, RSS1
+DEFINITION  (RefSeq) nucleoporin GLE1
+ORTHOLOGY   K18723  nucleoporin GLE1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Transport factors
+                Nuclear pore complex
+                 YDL207W (GLE1)
 POSITION    IV:88248..89864
-MOTIF       Pfam: GLE1 CAF-1_p150 eIF3_subunit SprA-related Ycf1 Hom_end_hint Borrelia_P83 Spore_coat_CotO DUF4613 Macoilin LMBR1
-DBLINKS     NCBI-GI: 6319994
+MOTIF       Pfam: GLE1 eIF3_subunit WDCP Borrelia_P83 MMR1
+DBLINKS     NCBI-ProteinID: NP_010074
             NCBI-GeneID: 851320
             SGD: S000002366
-            MIPS: YDL207W
             UniProt: Q12315
 STRUCTURE   PDB: 3PEV 3PEU 3RRM 3RRN
 AASEQ       538

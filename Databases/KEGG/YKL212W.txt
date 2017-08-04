@@ -1,15 +1,14 @@
 ENTRY       YKL212W           CDS       T00005
 NAME        SAC1, RSD1
-DEFINITION  phosphatidylinositol-3-phosphatase SAC1 (EC:3.1.3.-)
+DEFINITION  (RefSeq) phosphatidylinositol-3-phosphatase SAC1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XI:34543..36414
 MOTIF       Pfam: Syja_N
-DBLINKS     NCBI-GI: 6322637
+DBLINKS     NCBI-ProteinID: NP_012710
             NCBI-GeneID: 853668
             SGD: S000001695
-            MIPS: YKL212W
             UniProt: P32368
-STRUCTURE   PDB: 3LWT
+STRUCTURE   PDB: 3LWT 4TU3
 AASEQ       623
             MTGPIVYVQNADGIFFKLAEGKGTNDAVIHLANQDQGVRVLGAEEFPVQGEVVKIASLMG
             FIKLKLNRYAIIANTVEETGRFNGHVFYRVLQHSIVSTKFNSRIDSEEAEYIKLLELHLK

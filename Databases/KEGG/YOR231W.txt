@@ -1,16 +1,34 @@
 ENTRY       YOR231W           CDS       T00005
 NAME        MKK1, SSP32
-DEFINITION  Mkk1p (EC:2.7.12.2)
+DEFINITION  (RefSeq) mitogen-activated protein kinase kinase MKK1
 ORTHOLOGY   K08294  mitogen-activated protein kinase kinase [EC:2.7.12.2]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04011  MAPK signaling pathway - yeast
-CLASS       Environmental Information Processing; Signal transduction; MAPK signaling pathway - yeast [PATH:sce04011]
+            sce04139  Mitophagy - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YOR231W (MKK1)
+             Cellular Processes
+              Transport and catabolism
+               04139 Mitophagy - yeast
+                YOR231W (MKK1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.12  Dual-specificity kinases (those acting on Ser/Thr and Tyr residues)
+                2.7.12.2  mitogen-activated protein kinase kinase
+                 YOR231W (MKK1)
+            Protein kinases [BR:sce01001]
+             Serine/threonine protein kinases: STE group
+              STE7 family
+               YOR231W (MKK1)
 POSITION    XV:772601..774127
-MOTIF       Pfam: Pkinase Pkinase_Tyr Kinase-like Kdo APH Seadorna_VP7 YrbL-PhoP_reg
-DBLINKS     NCBI-GI: 6324805
+MOTIF       Pfam: Pkinase Pkinase_Tyr Kinase-like FTA2 Kdo APH Seadorna_VP7 Haspin_kinase
+DBLINKS     NCBI-ProteinID: NP_014874
             NCBI-GeneID: 854406
             SGD: S000005757
-            MIPS: YOR231W
             UniProt: P32490
 AASEQ       508
             MASLFRPPESAKCNPNSPRLKLPLLRNNQVDENNIYLTSNGSSTTAYSSHTPEPLTSSTS

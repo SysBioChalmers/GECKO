@@ -1,15 +1,27 @@
 ENTRY       YJR082C           CDS       T00005
 NAME        EAF6
-DEFINITION  Eaf6p
+DEFINITION  (RefSeq) Eaf6p
 ORTHOLOGY   K11344  chromatin modification-related protein EAF6
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Histone modification proteins
+               HAT complexes
+                TIP60 complex
+                 YJR082C (EAF6)
+                HBO1 complex
+                 YJR082C (EAF6)
+                MOZ/MORF complex
+                 YJR082C (EAF6)
+                NuA4 complex
+                 YJR082C (EAF6)
 POSITION    X:complement(581914..582255)
-MOTIF       Pfam: NuA4 CENP-Q
-DBLINKS     NCBI-GI: 398365229
+MOTIF       Pfam: NuA4
+DBLINKS     NCBI-ProteinID: NP_012615
             NCBI-GeneID: 853544
             SGD: S000003842
-            MIPS: YJR082C
             UniProt: P47128
+STRUCTURE   PDB: 5J9T 5J9W 5J9U 5J9Q
 AASEQ       113
             MTDELKSYEALKAELKKSLQDRREQEDTFDNLQQEIYDKETEYFSHNSNNNHSGHGGAHG
             SKSHYSGNIIKGFDTFSKSHHSHADSAFNNNDRIFSLSSATYVKQQHGQSQND

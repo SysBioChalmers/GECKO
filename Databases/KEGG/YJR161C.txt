@@ -1,13 +1,12 @@
 ENTRY       YJR161C           CDS       T00005
 NAME        COS5
-DEFINITION  Cos5p
+DEFINITION  (RefSeq) Cos5p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    X:complement(742848..743999)
-MOTIF       Pfam: DUP
-DBLINKS     NCBI-GI: 398365683
+MOTIF       Pfam: DUP Erf4 Uso1_p115_head
+DBLINKS     NCBI-ProteinID: NP_012695
             NCBI-GeneID: 853626
             SGD: S000003922
-            MIPS: YJR161C
             UniProt: P47187
 AASEQ       383
             MKENELKNEKSVDVLSFKQLESQKIVLPQDLFRSSFTWFCYEIYKSLAFPIWMLLWLPLS

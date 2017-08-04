@@ -1,13 +1,13 @@
 ENTRY       YBL108C-A         CDS       T00005
 NAME        PAU9
-DEFINITION  Pau9p
+DEFINITION  (RefSeq) seripauperin PAU9
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    II:complement(7605..7733)
 MOTIF       Pfam: SRP1_TIP1
-DBLINKS     NCBI-GI: 13129151
+DBLINKS     NCBI-ProteinID: NP_076873
             NCBI-GeneID: 852163
             SGD: S000007592
-            MIPS: YBL108C-A
+            UniProt: Q3E770
 AASEQ       42
             MLTGIAPDQVTRMITGVPWYSSRLKPAISSALSKDGIYTIAN
 NTSEQ       129

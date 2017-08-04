@@ -1,13 +1,12 @@
 ENTRY       YOL007C           CDS       T00005
 NAME        CSI2
-DEFINITION  Csi2p
+DEFINITION  (RefSeq) Csi2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:complement(311342..312367)
-MOTIF       Pfam: Herpes_gE
-DBLINKS     NCBI-GI: 6324567
+MOTIF       Pfam: LapA_dom PigN
+DBLINKS     NCBI-ProteinID: NP_014636
             NCBI-GeneID: 854155
             SGD: S000005367
-            MIPS: YOL007C
             UniProt: Q08054
 AASEQ       341
             MRLPEISIWKVILLLHLFALQEFQLVSAANLPSLSSSTKAADSSSKGSSSAKTTTSLGKS

@@ -1,13 +1,12 @@
 ENTRY       YKL004W           CDS       T00005
 NAME        AUR1
-DEFINITION  inositol phosphorylceramide synthase (EC:2.-.-.-)
+DEFINITION  (RefSeq) inositol phosphorylceramide synthase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XI:435580..436785
-MOTIF       Pfam: PAP2 PAP2_3
-DBLINKS     NCBI-GI: 6322849
+MOTIF       Pfam: PAP2_3 PAP2 DUF2842
+DBLINKS     NCBI-ProteinID: NP_012922
             NCBI-GeneID: 853866
             SGD: S000001487
-            MIPS: YKL004W
             UniProt: P36107
 AASEQ       401
             MANPFSRWFLSERPPNCHVADLETSLDPHQTLLKVQKYKPALSDWVHYIFLGSIMLFVFI

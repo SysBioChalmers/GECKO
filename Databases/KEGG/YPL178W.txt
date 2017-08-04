@@ -1,21 +1,38 @@
 ENTRY       YPL178W           CDS       T00005
 NAME        CBC2, CBP20, MUD13, SAE1
-DEFINITION  Cbc2p
+DEFINITION  (RefSeq) Cbc2p
 ORTHOLOGY   K12883  nuclear cap-binding protein subunit 2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03013  RNA transport
             sce03015  mRNA surveillance pathway
             sce03040  Spliceosome
 MODULE      sce_M00399  Cap binding complex
-CLASS       Genetic Information Processing; Transcription; Spliceosome [PATH:sce03040]
-            Genetic Information Processing; Translation; RNA transport [PATH:sce03013]
-            Genetic Information Processing; Translation; mRNA surveillance pathway [PATH:sce03015]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03040 Spliceosome
+                YPL178W (CBC2)
+              Translation
+               03013 RNA transport
+                YPL178W (CBC2)
+               03015 mRNA surveillance pathway
+                YPL178W (CBC2)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA processing factors
+               5' end processing
+                Cap binding complex
+                 YPL178W (CBC2)
+            Spliceosome [BR:sce03041]
+             Common components
+              Common spliceosomal components
+               Cap binding complex
+                YPL178W (CBC2)
 POSITION    XVI:212158..212784
-MOTIF       Pfam: RRM_1 RRM_6 RRM_5
-DBLINKS     NCBI-GI: 6325079
+MOTIF       Pfam: RRM_1
+DBLINKS     NCBI-ProteinID: NP_015147
             NCBI-GeneID: 855925
             SGD: S000006099
-            MIPS: YPL178W
             UniProt: Q08920
 AASEQ       208
             MSLEEFDEVKYDHSTKRLDTPSRYLLRKARRNPNGLQELRESMKSSTIYVGNLSFYTSEE

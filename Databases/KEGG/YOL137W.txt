@@ -1,13 +1,12 @@
 ENTRY       YOL137W           CDS       T00005
 NAME        BSC6
-DEFINITION  Bsc6p
+DEFINITION  (RefSeq) Bsc6p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:65621..67114
-MOTIF       Pfam: MFS_1 DUF1228
-DBLINKS     NCBI-GI: 6324435
+MOTIF       Pfam: MFS_1
+DBLINKS     NCBI-ProteinID: NP_014504
             NCBI-GeneID: 853983
             SGD: S000005497
-            MIPS: YOL137W
             UniProt: Q08280
 AASEQ       497
             MDASSVPPKVDDYGMYTTEISHHNPIELKNLLSSSDSRRNSQDEDSLPNNTNLIKEIDWQ

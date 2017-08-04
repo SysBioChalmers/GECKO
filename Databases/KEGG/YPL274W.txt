@@ -1,14 +1,17 @@
 ENTRY       YPL274W           CDS       T00005
 NAME        SAM3
-DEFINITION  Sam3p
+DEFINITION  (RefSeq) bifunctional polyamine/amino acid permease SAM3
 ORTHOLOGY   K16261  yeast amino acid transporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Other Transporters
+              Electrochemical potential-driven transporters [TC:2]
+               YPL274W (SAM3)
 POSITION    XVI:22938..24701
 MOTIF       Pfam: AA_permease AA_permease_2 ATP_synt_H
-DBLINKS     NCBI-GI: 6324981
+DBLINKS     NCBI-ProteinID: NP_015049
             NCBI-GeneID: 855854
             SGD: S000006195
-            MIPS: YPL274W
             UniProt: Q08986
 AASEQ       587
             MDILKRGNESDKFTKIETESTTIPNDSDRSGSLIRRMKDSFKQSNLHVIPEDLENSEQTE

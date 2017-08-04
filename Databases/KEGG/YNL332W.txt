@@ -1,13 +1,20 @@
 ENTRY       YNL332W           CDS       T00005
 NAME        THI12
-DEFINITION  Thi12p
+DEFINITION  (RefSeq) 4-amino-5-hydroxymethyl-2-methylpyrimidine phosphate synthase
+ORTHOLOGY   K18278  pyrimidine precursor biosynthesis enzyme
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00730  Thiamine metabolism
+            sce01100  Metabolic pathways
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Metabolism of cofactors and vitamins
+               00730 Thiamine metabolism
+                YNL332W (THI12)
 POSITION    XIV:14832..15854
-MOTIF       Pfam: NMT1 NMT1_2 PBP_like Phosphonate-bd 2Fe-2S_thioredx
-DBLINKS     NCBI-GI: 6323997
+MOTIF       Pfam: NMT1 NMT1_2 2Fe-2S_thioredx Phosphonate-bd PBP_like FMN_red
+DBLINKS     NCBI-ProteinID: NP_014067
             NCBI-GeneID: 855384
             SGD: S000005276
-            MIPS: YNL332W
             UniProt: P42883
 AASEQ       340
             MSTDKITFLLNWQPTPYHIPIFLAQTKGYFKEQGLDMAILEPTNPSDVTELIGSGKVDMG

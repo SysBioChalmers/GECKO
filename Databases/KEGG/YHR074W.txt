@@ -1,17 +1,26 @@
 ENTRY       YHR074W           CDS       T00005
 NAME        QNS1
-DEFINITION  glutamine-dependent NAD(+) synthetase (EC:6.3.5.1)
+DEFINITION  (RefSeq) glutamine-dependent NAD(+) synthetase
 ORTHOLOGY   K01950  NAD+ synthase (glutamine-hydrolysing) [EC:6.3.5.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00760  Nicotinate and nicotinamide metabolism
             sce01100  Metabolic pathways
-CLASS       Metabolism; Metabolism of cofactors and vitamins; Nicotinate and nicotinamide metabolism [PATH:sce00760]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Metabolism of cofactors and vitamins
+               00760 Nicotinate and nicotinamide metabolism
+                YHR074W (QNS1)
+            Enzymes [BR:sce01000]
+             6. Ligases
+              6.3  Forming carbon-nitrogen bonds
+               6.3.5  Carbon-nitrogen ligases with glutamine as amido-N-donor
+                6.3.5.1  NAD+ synthase (glutamine-hydrolysing)
+                 YHR074W (QNS1)
 POSITION    VIII:246193..248337
-MOTIF       Pfam: CN_hydrolase NAD_synthase Asn_synthase
-DBLINKS     NCBI-GI: 6321865
+MOTIF       Pfam: CN_hydrolase NAD_synthase
+DBLINKS     NCBI-ProteinID: NP_011941
             NCBI-GeneID: 856473
             SGD: S000001116
-            MIPS: YHR074W
             UniProt: P38795
 AASEQ       714
             MSHLITLATCNLNQWALDFEGNRDRILQSIKIAKERGARLRVGPELEITGYGCLDHFLEN

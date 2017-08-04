@@ -1,13 +1,12 @@
 ENTRY       YNL320W           CDS       T00005
-DEFINITION  hypothetical protein
-ORTHOLOGY   K06889
+DEFINITION  (RefSeq) hypothetical protein
+ORTHOLOGY   K06889  uncharacterized protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIV:37700..38554
-MOTIF       Pfam: Abhydrolase_5 Abhydrolase_6 Abhydrolase_1 Peptidase_S9 FSH1 BAAT_C Hydrolase_4 Esterase
-DBLINKS     NCBI-GI: 6324009
+MOTIF       Pfam: Hydrolase_4 Abhydrolase_1 Peptidase_S9 FSH1 Abhydrolase_6 BAAT_C DLH Esterase
+DBLINKS     NCBI-ProteinID: NP_014079
             NCBI-GeneID: 855396
             SGD: S000005264
-            MIPS: YNL320W
             UniProt: P42840
 AASEQ       284
             MLWKVSKMFLGGLVALTTISVATLYHYQNRLVYPSWAQGARNHVDTPDSRGIPYEKLTLI

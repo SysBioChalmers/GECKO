@@ -1,16 +1,24 @@
 ENTRY       YHR148W           CDS       T00005
 NAME        IMP3
-DEFINITION  Imp3p
+DEFINITION  (RefSeq) snoRNA-binding rRNA-processing protein IMP3
 ORTHOLOGY   K14560  U3 small nucleolar ribonucleoprotein protein IMP3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03008  Ribosome biogenesis in eukaryotes
-CLASS       Genetic Information Processing; Translation; Ribosome biogenesis in eukaryotes [PATH:sce03008]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03008 Ribosome biogenesis in eukaryotes
+                YHR148W (IMP3)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              90S particles
+               U3 small nucleolar RNA-associated proteins
+                YHR148W (IMP3)
 POSITION    VIII:393534..394085
-MOTIF       Pfam: Ribosomal_S4 S4 Herpes_LAMP2
-DBLINKS     NCBI-GI: 6321942
+MOTIF       Pfam: Ribosomal_S4 S4 Herpes_LAMP2 Baculo_gp41
+DBLINKS     NCBI-ProteinID: NP_012018
             NCBI-GeneID: 856553
             SGD: S000001191
-            MIPS: YHR148W
             UniProt: P32899
 AASEQ       183
             MVRKLKHHEQKLLKKVDFLEWKQDQGHRDTQVMRTYHIQNREDYHKYNRICGDIRRLANK

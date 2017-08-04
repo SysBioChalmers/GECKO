@@ -1,17 +1,31 @@
 ENTRY       YDL208W           CDS       T00005
 NAME        NHP2
-DEFINITION  Nhp2p
+DEFINITION  (RefSeq) snoRNA-binding protein NHP2
 ORTHOLOGY   K11129  H/ACA ribonucleoprotein complex subunit 2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03008  Ribosome biogenesis in eukaryotes
 MODULE      sce_M00425  H/ACA ribonucleoprotein complex
-CLASS       Genetic Information Processing; Translation; Ribosome biogenesis in eukaryotes [PATH:sce03008]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03008 Ribosome biogenesis in eukaryotes
+                YDL208W (NHP2)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Sno RNPs
+               Box H/ACA snoRNPs
+                YDL208W (NHP2)
+            DNA replication proteins [BR:sce03032]
+             Eukaryotic Type
+              DNA Replication Termination Factors
+               Telomerase complex (animals)
+                Dyskerin complex
+                 YDL208W (NHP2)
 POSITION    IV:87512..87982
-MOTIF       Pfam: Ribosomal_L7Ae RNase_P_pop3 RVT_connect DUF3692
-DBLINKS     NCBI-GI: 82795243
+MOTIF       Pfam: Ribosomal_L7Ae ATPase_2
+DBLINKS     NCBI-ProteinID: NP_010073
             NCBI-GeneID: 851319
             SGD: S000002367
-            MIPS: YDL208W
             UniProt: P32495
 STRUCTURE   PDB: 2LBW 2LBX
 AASEQ       156

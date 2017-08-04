@@ -1,12 +1,12 @@
 ENTRY       YLR072W           CDS       T00005
-DEFINITION  hypothetical protein
+NAME        LAM6, LTC1
+DEFINITION  (RefSeq) Lam6p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XII:278862..280943
-MOTIF       Pfam: GRAM Syntaphilin
-DBLINKS     NCBI-GI: 6323101
+MOTIF       Pfam: DUF4782 GRAM
+DBLINKS     NCBI-ProteinID: NP_013173
             NCBI-GeneID: 850761
             SGD: S000004062
-            MIPS: YLR072W
             UniProt: Q08001
 AASEQ       693
             MWGDSMRELGDAMDNELNAVKPVVEEGGMDGARKFIKGKSFQKSSTEHMLISPGRDGSVP

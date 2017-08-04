@@ -1,18 +1,26 @@
 ENTRY       YDR450W           CDS       T00005
 NAME        RPS18A
-DEFINITION  ribosomal 40S subunit protein S18A
+DEFINITION  (RefSeq) ribosomal 40S subunit protein S18A
 ORTHOLOGY   K02964  small subunit ribosomal protein S18e
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03010  Ribosome
-CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+MODULE      sce_M00177  Ribosome, eukaryotes
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03010 Ribosome
+                YDR450W (RPS18A)
+            Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Eukaryotes
+               Small subunit
+                YDR450W (RPS18A)
 POSITION    IV:join(1359923..1359969,1360405..1360798)
-MOTIF       Pfam: Ribosomal_S13 FbpA
-DBLINKS     NCBI-GI: 6320658
+MOTIF       Pfam: Ribosomal_S13 FbpA CDPS
+DBLINKS     NCBI-ProteinID: NP_010738
             NCBI-GeneID: 852061
             SGD: S000002858
-            MIPS: YDR450W
             UniProt: P0CX55 P0CX56
-STRUCTURE   PDB: 3U5C 3U5G 3O2Z 3O30 4BYL 4BYT 3IZB 1S1H
 AASEQ       146
             MSLVVQEQGSFQHILRLLNTNVDGNIKIVYALTTIKGVGRRYSNLVCKKADVDLHKRAGE
             LTQEELERIVQIMQNPTHYKIPAWFLNRQNDITDGKDYHTLANNVESKLRDDLERLKKIR

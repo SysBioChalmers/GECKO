@@ -1,14 +1,18 @@
 ENTRY       YNL252C           CDS       T00005
 NAME        MRPL17, MRPL30
-DEFINITION  mitochondrial 54S ribosomal protein YmL17/YmL30
-ORTHOLOGY   K17427  large subunit ribosomal protein L46, mitochondrial
+DEFINITION  (RefSeq) mitochondrial 54S ribosomal protein YmL17/YmL30
+ORTHOLOGY   K17427  large subunit ribosomal protein L46
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Mitochondria/ Chloroplast
+               Large subunit
+                YNL252C (MRPL17)
 POSITION    XIV:complement(171441..172286)
-MOTIF       Pfam: MRP-L46
-DBLINKS     NCBI-GI: 6324077
+MOTIF       Pfam: MRP-L46 DUF3642
+DBLINKS     NCBI-ProteinID: NP_014147
             NCBI-GeneID: 855469
             SGD: S000005196
-            MIPS: YNL252C
             UniProt: P36528
 AASEQ       281
             MKVNLMLKRGLATATATASSAPPKIKVGVLLSRIPIIKSELNELEKKYYEYQSELEKRLM

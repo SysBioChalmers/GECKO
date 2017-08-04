@@ -1,14 +1,13 @@
 ENTRY       YKR093W           CDS       T00005
 NAME        PTR2
-DEFINITION  Ptr2p
+DEFINITION  (RefSeq) Ptr2p
 ORTHOLOGY   K03305  proton-dependent oligopeptide transporter, POT family
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XI:615730..617535
 MOTIF       Pfam: PTR2 MFS_1
-DBLINKS     NCBI-GI: 6322946
+DBLINKS     NCBI-ProteinID: NP_013019
             NCBI-GeneID: 853968
             SGD: S000001801
-            MIPS: YKR093W
             UniProt: P32901
 AASEQ       601
             MLNHPSQGSDDAQDEKQGDFPVIEEEKTQAVTLKDSYVSDDVANSTERYNLSPSPEDEDF

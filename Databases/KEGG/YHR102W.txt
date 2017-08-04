@@ -1,14 +1,19 @@
 ENTRY       YHR102W           CDS       T00005
 NAME        KIC1, NRK1
-DEFINITION  Kic1p (EC:2.7.11.1)
+DEFINITION  (RefSeq) putative serine/threonine protein kinase KIC1
 ORTHOLOGY   K08286  protein-serine/threonine kinase [EC:2.7.11.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.11  Protein-serine/threonine kinases
+                2.7.11.-  
+                 YHR102W (KIC1)
 POSITION    VIII:316572..319814
-MOTIF       Pfam: Pkinase Pkinase_Tyr Kinase-like APH
-DBLINKS     NCBI-GI: 6321894
+MOTIF       Pfam: Pkinase Pkinase_Tyr Kinase-like
+DBLINKS     NCBI-ProteinID: NP_011970
             NCBI-GeneID: 856502
             SGD: S000001144
-            MIPS: YHR102W
             UniProt: P38692
 AASEQ       1080
             MTTKPQNSKQGLAEGEMDVSSLFKRTEVIGRGKFGVVYKGYNVKTGRVYAIKVLNLDSDS

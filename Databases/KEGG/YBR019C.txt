@@ -1,22 +1,38 @@
 ENTRY       YBR019C           CDS       T00005
 NAME        GAL10
-DEFINITION  bifunctional UDP-glucose 4-epimerase/aldose 1-epimerase (EC:5.1.3.2 5.1.3.3)
-ORTHOLOGY   K15917  UDP-glucose 4-epimerase / aldose 1-epimerase [EC:5.1.3.2 5.1.3.3]
+DEFINITION  (RefSeq) bifunctional UDP-glucose 4-epimerase/aldose 1-epimerase
+ORTHOLOGY   K01784  UDP-glucose 4-epimerase [EC:5.1.3.2]
+            K01785  aldose 1-epimerase [EC:5.1.3.3]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00010  Glycolysis / Gluconeogenesis
             sce00052  Galactose metabolism
             sce00520  Amino sugar and nucleotide sugar metabolism
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
-CLASS       Metabolism; Carbohydrate metabolism; Glycolysis / Gluconeogenesis [PATH:sce00010]
-            Metabolism; Carbohydrate metabolism; Galactose metabolism [PATH:sce00052]
-            Metabolism; Carbohydrate metabolism; Amino sugar and nucleotide sugar metabolism [PATH:sce00520]
+            sce01130  Biosynthesis of antibiotics
+MODULE      sce_M00632  Galactose degradation, Leloir pathway, galactose => alpha-D-glucose-1P
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Carbohydrate metabolism
+               00010 Glycolysis / Gluconeogenesis
+                YBR019C (GAL10)
+               00052 Galactose metabolism
+                YBR019C (GAL10)
+               00520 Amino sugar and nucleotide sugar metabolism
+                YBR019C (GAL10)
+            Enzymes [BR:sce01000]
+             5. Isomerases
+              5.1  Racemases and epimerases
+               5.1.3  Acting on carbohydrates and derivatives
+                5.1.3.2  UDP-glucose 4-epimerase
+                 YBR019C (GAL10)
+                5.1.3.3  aldose 1-epimerase
+                 YBR019C (GAL10)
 POSITION    II:complement(276253..278352)
-MOTIF       Pfam: Aldose_epim Epimerase Epimerase_Csub Polysacc_synt_2 3Beta_HSD RmlD_sub_bind adh_short NAD_binding_4 KR NAD_binding_10
-DBLINKS     NCBI-GI: 6319493
+MOTIF       Pfam: Aldose_epim GDP_Man_Dehyd Epimerase Polysacc_synt_2 3Beta_HSD RmlD_sub_bind KR adh_short NAD_binding_4 NAD_binding_10
+DBLINKS     NCBI-ProteinID: NP_009575
             NCBI-GeneID: 852307
             SGD: S000000223
-            MIPS: YBR019C
             UniProt: P04397
 STRUCTURE   PDB: 1Z45
 AASEQ       699

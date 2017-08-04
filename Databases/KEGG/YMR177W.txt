@@ -1,13 +1,12 @@
 ENTRY       YMR177W           CDS       T00005
-NAME        MMT1
-DEFINITION  Mmt1p
+NAME        MMT1, MFT1
+DEFINITION  (RefSeq) Mmt1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:616566..618098
 MOTIF       Pfam: Cation_efflux
-DBLINKS     NCBI-GI: 6323831
+DBLINKS     NCBI-ProteinID: NP_013902
             NCBI-GeneID: 855215
             SGD: S000004789
-            MIPS: YMR177W
             UniProt: Q03218
 AASEQ       510
             MLRICVKRPCIKIVLSQVRPALLVRKENLHISTGVKVEKSSIINQKDPNKVRVEINELKR

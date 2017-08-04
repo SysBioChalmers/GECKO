@@ -1,20 +1,38 @@
 ENTRY       YLR005W           CDS       T00005
 NAME        SSL1
-DEFINITION  Ssl1p
+DEFINITION  (RefSeq) TFIIH/NER complex subunit SSL1
 ORTHOLOGY   K03142  transcription initiation factor TFIIH subunit 2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03022  Basal transcription factors
             sce03420  Nucleotide excision repair
 MODULE      sce_M00290  Holo-TFIIH complex
-CLASS       Genetic Information Processing; Transcription; Basal transcription factors [PATH:sce03022]
-            Genetic Information Processing; Replication and repair; Nucleotide excision repair [PATH:sce03420]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03022 Basal transcription factors
+                YLR005W (SSL1)
+              Replication and repair
+               03420 Nucleotide excision repair
+                YLR005W (SSL1)
+            Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Basal transcription factors
+                TFIIH
+                 YLR005W (SSL1)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              SSBR (single strand breaks repair)
+               NER (nucleotide excision repair)
+                TFIIH complex
+                 YLR005W (SSL1)
 POSITION    XII:160049..161434
-MOTIF       Pfam: Ssl1 C1_4 VWA_2 IBR Taeniidae_ag VWA
-DBLINKS     NCBI-GI: 6323033
+MOTIF       Pfam: Ssl1 C1_4 VWA_2
+DBLINKS     NCBI-ProteinID: NP_013105
             NCBI-GeneID: 850691
             SGD: S000003995
-            MIPS: YLR005W
             UniProt: Q04673
+STRUCTURE   PDB: 4WFQ
 AASEQ       461
             MAPVVISESEEDEDRVAITRRTKRQVHFDGEGDDRVDQQQQQHSSSHRDRDKHVQRKKKK
             RLSNRNLQGSNGGYAWEDEIKRSWDLVKVDDEGDMASLVASIVEARKKRTAKKNITPYQR

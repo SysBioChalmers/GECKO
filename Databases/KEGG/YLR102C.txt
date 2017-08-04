@@ -1,21 +1,39 @@
 ENTRY       YLR102C           CDS       T00005
 NAME        APC9
-DEFINITION  anaphase promoting complex subunit 9
+DEFINITION  (RefSeq) anaphase promoting complex subunit 9
 ORTHOLOGY   K03356  anaphase-promoting complex subunit 9
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
             sce04113  Meiosis - yeast
             sce04120  Ubiquitin mediated proteolysis
 MODULE      sce_M00389  APC/C complex
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Ubiquitin mediated proteolysis [PATH:sce04120]
-            Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
-            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04120 Ubiquitin mediated proteolysis
+                YLR102C (APC9)
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YLR102C (APC9)
+               04113 Meiosis - yeast
+                YLR102C (APC9)
+            Ubiquitin system [BR:sce04121]
+             Ubiquitin ligases (E3)
+              Multi subunit Ring-finger type E3
+               APC/C
+                Other subunits
+                 YLR102C (APC9)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Sister chromatid separation proteins
+               APC/C complex
+                YLR102C (APC9)
 POSITION    XII:complement(342970..343767)
-MOTIF       Pfam: Apc9
-DBLINKS     NCBI-GI: 6323131
+MOTIF       Pfam: ANAPC9
+DBLINKS     NCBI-ProteinID: NP_013203
             NCBI-GeneID: 850792
             SGD: S000004092
-            MIPS: YLR102C
             UniProt: Q12107
 AASEQ       265
             MNQNGDKNEGKLFQLPSLPPWKTPRFNKANFNNFTTPLRKRSTRVINDDSMPITGEVLEE

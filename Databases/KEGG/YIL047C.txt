@@ -1,13 +1,12 @@
 ENTRY       YIL047C           CDS       T00005
 NAME        SYG1
-DEFINITION  Syg1p
+DEFINITION  (RefSeq) Syg1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IX:complement(265115..267823)
-MOTIF       Pfam: EXS SPX
-DBLINKS     NCBI-GI: 398364421
+MOTIF       Pfam: EXS SPX RrnaAD
+DBLINKS     NCBI-ProteinID: NP_012217
             NCBI-GeneID: 854764
             SGD: S000001309
-            MIPS: YIL047C
             UniProt: P40528
 AASEQ       902
             MKFADHLTESAIPEWRDKYIDYKVGKKKLRRYKEKLDAEEEQSSSYRSWMPSVSVYQTAF

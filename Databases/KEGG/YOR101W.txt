@@ -1,14 +1,39 @@
 ENTRY       YOR101W           CDS       T00005
 NAME        RAS1
-DEFINITION  Ras1p
-ORTHOLOGY   K07827  GTPase KRas
+DEFINITION  (RefSeq) Ras family GTPase RAS1
+ORTHOLOGY   K07827  GTPase Kras
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04138  Autophagy - yeast
+            sce04213  Longevity regulating pathway - multiple species
+            sce04933  AGE-RAGE signaling pathway in diabetic complications
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04138 Autophagy - yeast
+                YOR101W (RAS1)
+             Organismal Systems
+              Aging
+               04213 Longevity regulating pathway - multiple species
+                YOR101W (RAS1)
+             Human Diseases
+              Endocrine and metabolic diseases
+               04933 AGE-RAGE signaling pathway in diabetic complications
+                YOR101W (RAS1)
+            Membrane trafficking [BR:sce04131]
+             Endocytosis
+              Macropinocytosis
+               Ras GTPases
+                YOR101W (RAS1)
+            GTP-binding proteins [BR:sce04031]
+             Small (Monomeric) G-proteins
+              Ras Family
+               Ras [OT]
+                YOR101W (RAS1)
 POSITION    XV:515244..516173
-MOTIF       Pfam: Ras Miro Arf MMR_HSR1 GTP_EFTU FeoB_N
-DBLINKS     NCBI-GI: 6324675
+MOTIF       Pfam: Ras Roc Arf RsgA_GTPase MMR_HSR1 GTP_EFTU Menin MMR_HSR1_Xtn FeoB_N
+DBLINKS     NCBI-ProteinID: NP_014744
             NCBI-GeneID: 854268
             SGD: S000005627
-            MIPS: YOR101W
             UniProt: P01119
 AASEQ       309
             MQGNKSTIREYKIVVVGGGGVGKSALTIQFIQSYFVDEYDPTIEDSYRKQVVIDDKVSIL

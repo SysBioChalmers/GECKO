@@ -1,19 +1,29 @@
 ENTRY       YMR054W           CDS       T00005
 NAME        STV1
-DEFINITION  Stv1p (EC:3.6.3.14)
-ORTHOLOGY   K02154  V-type H+-transporting ATPase subunit I [EC:3.6.3.14]
+DEFINITION  (RefSeq) H(+)-transporting V0 sector ATPase subunit A
+ORTHOLOGY   K02154  V-type H+-transporting ATPase subunit a
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00190  Oxidative phosphorylation
             sce01100  Metabolic pathways
             sce04145  Phagosome
-CLASS       Metabolism; Energy metabolism; Oxidative phosphorylation [PATH:sce00190]
-            Cellular Processes; Transport and catabolism; Phagosome [PATH:sce04145]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Energy metabolism
+               00190 Oxidative phosphorylation
+                YMR054W (STV1)
+             Cellular Processes
+              Transport and catabolism
+               04145 Phagosome
+                YMR054W (STV1)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of other body fluids (saliva and urine)
+               YMR054W (STV1)
 POSITION    XIII:383303..385975
-MOTIF       Pfam: V_ATPase_I GCN5L1
-DBLINKS     NCBI-GI: 6323699
+MOTIF       Pfam: V_ATPase_I DUF1043 eIF-6
+DBLINKS     NCBI-ProteinID: NP_013770
             NCBI-GeneID: 855076
             SGD: S000004658
-            MIPS: YMR054W
             UniProt: P37296
 AASEQ       890
             MNQEEAIFRSADMTYVQLYIPLEVIREVTFLLGKMSVFMVMDLNKDLTAFQRGYVNQLRR

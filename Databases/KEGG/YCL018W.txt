@@ -1,23 +1,39 @@
 ENTRY       YCL018W           CDS       T00005
 NAME        LEU2
-DEFINITION  3-isopropylmalate dehydrogenase (EC:1.1.1.85)
+DEFINITION  (RefSeq) 3-isopropylmalate dehydrogenase
 ORTHOLOGY   K00052  3-isopropylmalate dehydrogenase [EC:1.1.1.85]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00290  Valine, leucine and isoleucine biosynthesis
+            sce00660  C5-Branched dibasic acid metabolism
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
             sce01210  2-Oxocarboxylic acid metabolism
             sce01230  Biosynthesis of amino acids
 MODULE      sce_M00432  Leucine biosynthesis, 2-oxoisovalerate => 2-oxoisocaproate
-CLASS       Metabolism; Overview; 2-Oxocarboxylic acid metabolism [PATH:sce01210]
-            Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
-            Metabolism; Amino acid metabolism; Valine, leucine and isoleucine biosynthesis [PATH:sce00290]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01210 2-Oxocarboxylic acid metabolism
+                YCL018W (LEU2)
+               01230 Biosynthesis of amino acids
+                YCL018W (LEU2)
+              Carbohydrate metabolism
+               00660 C5-Branched dibasic acid metabolism
+                YCL018W (LEU2)
+              Amino acid metabolism
+               00290 Valine, leucine and isoleucine biosynthesis
+                YCL018W (LEU2)
+            Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.1  Acting on the CH-OH group of donors
+               1.1.1  With NAD+ or NADP+ as acceptor
+                1.1.1.85  3-isopropylmalate dehydrogenase
+                 YCL018W (LEU2)
 POSITION    III:91324..92418
 MOTIF       Pfam: Iso_dh DNA_ligase_aden
-DBLINKS     NCBI-GI: 10383772
+DBLINKS     NCBI-ProteinID: NP_009911
             NCBI-GeneID: 850342
             SGD: S000000523
-            MIPS: YCL018W
             UniProt: P04173
 AASEQ       364
             MSAPKKIVVLPGDHVGQEITAEAIKVLKAISDVRSNVKFDFENHLIGGAAIDATGVPLPD

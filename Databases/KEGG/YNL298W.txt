@@ -1,14 +1,29 @@
 ENTRY       YNL298W           CDS       T00005
 NAME        CLA4, ERC10
-DEFINITION  Cla4p (EC:2.7.11.1)
-ORTHOLOGY   K08286  protein-serine/threonine kinase [EC:2.7.11.-]
+DEFINITION  (RefSeq) serine/threonine protein kinase CLA4
+ORTHOLOGY   K19833  serine/threonine-protein kinase CLA4 [EC:2.7.11.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04011  MAPK signaling pathway - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YNL298W (CLA4)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.11  Protein-serine/threonine kinases
+                2.7.11.1  non-specific serine/threonine protein kinase
+                 YNL298W (CLA4)
+            Protein kinases [BR:sce01001]
+             Serine/threonine protein kinases: STE group
+              STE20 family
+               YNL298W (CLA4)
 POSITION    XIV:68915..71443
-MOTIF       Pfam: Pkinase Pkinase_Tyr PBD PH Kinase-like PH_11 APH Kdo
-DBLINKS     NCBI-GI: 6324031
+MOTIF       Pfam: Pkinase Pkinase_Tyr PBD PH Kinase-like PH_11 APH
+DBLINKS     NCBI-ProteinID: NP_014101
             NCBI-GeneID: 855418
             SGD: S000005242
-            MIPS: YNL298W
             UniProt: P48562
 AASEQ       842
             MSLSAAANKISDNDFQNIGPAPRPPSSNSQGRTCYNQTQPITKLMSQLDLTSASHLGTST

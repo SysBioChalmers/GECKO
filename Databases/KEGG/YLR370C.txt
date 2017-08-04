@@ -1,14 +1,30 @@
 ENTRY       YLR370C           CDS       T00005
 NAME        ARC18
-DEFINITION  Arc18p
+DEFINITION  (RefSeq) Arc18p
 ORTHOLOGY   K05756  actin related protein 2/3 complex, subunit 3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04144  Endocytosis
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04144 Endocytosis
+                YLR370C (ARC18)
+            Membrane trafficking [BR:sce04131]
+             Others
+              Actin-binding proteins
+               Arp2/3 complex
+                YLR370C (ARC18)
+            Cytoskeleton proteins [BR:sce04812]
+             Eukaryotic cytoskeleton proteins
+              Actin filaments / Microfilaments
+               Actin-binding proteins
+                Arp2/3 complex
+                 YLR370C (ARC18)
 POSITION    XII:complement(861718..862254)
 MOTIF       Pfam: P21-Arc
-DBLINKS     NCBI-GI: 398366017
+DBLINKS     NCBI-ProteinID: NP_013474
             NCBI-GeneID: 851085
             SGD: S000004362
-            MIPS: YLR370C
             UniProt: Q05933
 AASEQ       178
             MPAYHSTFPVDPNTDRMVGNFALLPLNTKFRGPAYPSNSDYDIIDECLDLFRANSFFKNF

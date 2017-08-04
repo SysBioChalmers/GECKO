@@ -1,15 +1,23 @@
 ENTRY       YFL024C           CDS       T00005
 NAME        EPL1
-DEFINITION  Epl1p
+DEFINITION  (RefSeq) Epl1p
 ORTHOLOGY   K11322  enhancer of polycomb-like protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Histone modification proteins
+               HAT complexes
+                TIP60 complex
+                 YFL024C (EPL1)
+                NuA4 complex
+                 YFL024C (EPL1)
 POSITION    VI:complement(87847..90345)
-MOTIF       Pfam: EPL1
-DBLINKS     NCBI-GI: 14318495
+MOTIF       Pfam: EPL1 TFIIA SUIM_assoc
+DBLINKS     NCBI-ProteinID: NP_116629
             NCBI-GeneID: 850520
             SGD: S000001870
-            MIPS: YFL024C
             UniProt: P43572
+STRUCTURE   PDB: 5J9T 5J9W 5J9U 5J9Q
 AASEQ       832
             MPTPSNAIEINDGSHKSGRSTRRSGSRSAHDDGLDSFSKGDSGAGASAGSSNSRFRHRKI
             SVKQHLKIYLPNDLKHLDKDELQQREVVEIETGVEKNEEKEVHLHRILQMGSGHTKHKDY

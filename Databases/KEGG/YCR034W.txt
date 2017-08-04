@@ -1,6 +1,6 @@
 ENTRY       YCR034W           CDS       T00005
-NAME        FEN1, ELO2, GNS1, VBM2
-DEFINITION  fatty acid elongase FEN1 (EC:2.3.1.199)
+NAME        ELO2, FEN1, GNS1, VBM2
+DEFINITION  (RefSeq) fatty acid elongase ELO2
 ORTHOLOGY   K10245  fatty acid elongase 2 [EC:2.3.1.199]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00062  Fatty acid elongation
@@ -8,15 +8,31 @@ PATHWAY     sce00062  Fatty acid elongation
             sce01110  Biosynthesis of secondary metabolites
             sce01212  Fatty acid metabolism
 MODULE      sce_M00415  Fatty acid biosynthesis, elongation, endoplasmic reticulum
-CLASS       Metabolism; Overview; Fatty acid metabolism [PATH:sce01212]
-            Metabolism; Lipid metabolism; Fatty acid elongation [PATH:sce00062]
-            Metabolism; Lipid metabolism; Biosynthesis of unsaturated fatty acids [PATH:sce01040]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01212 Fatty acid metabolism
+                YCR034W (ELO2)
+              Lipid metabolism
+               00062 Fatty acid elongation
+                YCR034W (ELO2)
+               01040 Biosynthesis of unsaturated fatty acids
+                YCR034W (ELO2)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.3  Acyltransferases
+               2.3.1  Transferring groups other than aminoacyl groups
+                2.3.1.199  very-long-chain 3-oxoacyl-CoA synthase
+                 YCR034W (ELO2)
+            Lipid biosynthesis proteins [BR:sce01004]
+             Elongase
+              LCFA
+               YCR034W (ELO2)
 POSITION    III:190592..191635
 MOTIF       Pfam: ELO
-DBLINKS     NCBI-GI: 6319882
+DBLINKS     NCBI-ProteinID: NP_009963
             NCBI-GeneID: 850400
             SGD: S000000630
-            MIPS: YCR034W
             UniProt: P25358
 AASEQ       347
             MNSLVTQYAAPLFERYPQLHDYLPTLERPFFNISLWEHFDDVVTRVTNGRFVPSEFQFIA

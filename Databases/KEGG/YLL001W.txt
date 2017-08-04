@@ -1,14 +1,46 @@
 ENTRY       YLL001W           CDS       T00005
 NAME        DNM1
-DEFINITION  Dnm1p (EC:3.6.5.5)
+DEFINITION  (RefSeq) dynamin-related GTPase DNM1
 ORTHOLOGY   K17065  dynamin 1-like protein [EC:3.6.5.5]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04139  Mitophagy - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04139 Mitophagy - yeast
+                YLL001W (DNM1)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.5  Acting on GTP to facilitate cellular and subcellular movement
+                3.6.5.5  dynamin GTPase
+                 YLL001W (DNM1)
+            Membrane trafficking [BR:sce04131]
+             Endocytosis
+              Clathrin-mediated endocytosis
+               Dynamin
+                YLL001W (DNM1)
+              Lipid raft mediated endocytosis
+               Caveolin-mediated endocytosis
+                YLL001W (DNM1)
+               RhoA-dependent endocytosis
+                YLL001W (DNM1)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial quality control factors
+              Mitochondrial dynamics
+               Fission and Fusion factors
+                YLL001W (DNM1)
+               Retention of mitochondria
+                YLL001W (DNM1)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of haemopoietic cells  (B-cell, T-cell, DC-cell, reticulocyte, and mast cell)
+               YLL001W (DNM1)
 POSITION    XII:147890..150163
-MOTIF       Pfam: Dynamin_M Dynamin_N GED MMR_HSR1 Miro zf-CCHC_4 Utp12
-DBLINKS     NCBI-GI: 6323028
+MOTIF       Pfam: Dynamin_M Dynamin_N GED MMR_HSR1
+DBLINKS     NCBI-ProteinID: NP_013100
             NCBI-GeneID: 850686
             SGD: S000003924
-            MIPS: YLL001W
             UniProt: P54861
 AASEQ       757
             MASLEDLIPTVNKLQDVMYDSGIDTLDLPILAVVGSQSSGKSSILETLVGRDFLPRGTGI

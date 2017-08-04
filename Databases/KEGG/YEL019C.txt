@@ -1,13 +1,12 @@
 ENTRY       YEL019C           CDS       T00005
 NAME        MMS21, NSE2, PSO10
-DEFINITION  SUMO ligase MMS21 (EC:6.3.2.-)
+DEFINITION  (RefSeq) SUMO ligase MMS21
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    V:complement(120498..121301)
-MOTIF       Pfam: zf-Nse zf-RING_UBOX zf-RING_2 zf-Apc11 Bunya_RdRp HR1 zf-MIZ zf-rbx1 zf-C3HC4 FragX_IP Spectrin Fzo_mitofusin
-DBLINKS     NCBI-GI: 398364273
+MOTIF       Pfam: zf-Nse zf-RING_UBOX zf-C3HC4_2 zf-ANAPC11 Ku_PK_bind zf-MIZ zf-C3HC4 zf-rbx1 zf-RING_2 Spectrin FGGY_N
+DBLINKS     NCBI-ProteinID: NP_010896
             NCBI-GeneID: 856695
             SGD: S000000745
-            MIPS: YEL019C
             UniProt: P38632
 STRUCTURE   PDB: 3HTK
 AASEQ       267

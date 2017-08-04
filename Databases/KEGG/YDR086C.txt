@@ -1,21 +1,32 @@
 ENTRY       YDR086C           CDS       T00005
 NAME        SSS1
-DEFINITION  Sss1p
+DEFINITION  (RefSeq) translocon subunit SSS1
 ORTHOLOGY   K07342  protein transport protein SEC61 subunit gamma and related proteins
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03060  Protein export
             sce04141  Protein processing in endoplasmic reticulum
             sce04145  Phagosome
 MODULE      sce_M00401  Sec61 complex
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Protein export [PATH:sce03060]
-            Genetic Information Processing; Folding, sorting and degradation; Protein processing in endoplasmic reticulum [PATH:sce04141]
-            Cellular Processes; Transport and catabolism; Phagosome [PATH:sce04145]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               03060 Protein export
+                YDR086C (SSS1)
+               04141 Protein processing in endoplasmic reticulum
+                YDR086C (SSS1)
+             Cellular Processes
+              Transport and catabolism
+               04145 Phagosome
+                YDR086C (SSS1)
+            Secretion system [BR:sce02044]
+             Sec (secretion) system
+              Eukaryotic Sec-SRP protein
+               YDR086C (SSS1)
 POSITION    IV:complement(616928..617170)
-MOTIF       Pfam: SecE Coiled-coil_56 TIP_N DUF3944
-DBLINKS     NCBI-GI: 6320291
+MOTIF       Pfam: SecE Coiled-coil_56
+DBLINKS     NCBI-ProteinID: NP_010371
             NCBI-GeneID: 851659
             SGD: S000002493
-            MIPS: YDR086C
             UniProt: P35179
 STRUCTURE   PDB: 2WW9 2WWA
 AASEQ       80

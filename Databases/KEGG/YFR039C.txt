@@ -1,12 +1,12 @@
 ENTRY       YFR039C           CDS       T00005
-DEFINITION  hypothetical protein
+NAME        OSW7
+DEFINITION  (RefSeq) Osw7p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VI:complement(232012..233544)
-MOTIF       Pfam: Pox_Ag35 DUF2457
-DBLINKS     NCBI-GI: 398364375
+MOTIF       Pfam: Pox_Ag35 ING
+DBLINKS     NCBI-ProteinID: NP_116697
             NCBI-GeneID: 850600
             SGD: S000001935
-            MIPS: YFR039C
             UniProt: P43611
 AASEQ       510
             MKAVFKVTTALLACVFIARYLVCQQNGLGSFATDLQPICRHTEFSVGSLFDSKLVEGSAV

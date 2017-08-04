@@ -1,16 +1,22 @@
 ENTRY       YGR144W           CDS       T00005
 NAME        THI4, ESP35, MOL1
-DEFINITION  Thi4p
-ORTHOLOGY   K03146  thiamine biosynthetic enzyme
+DEFINITION  (RefSeq) thiamine thiazole synthase
+ORTHOLOGY   K03146  thiamine thiazole synthase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00730  Thiamine metabolism
+            sce01100  Metabolic pathways
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Metabolism of cofactors and vitamins
+               00730 Thiamine metabolism
+                YGR144W (THI4)
 POSITION    VII:780399..781379
-MOTIF       Pfam: Thi4 DAO NAD_binding_8 FAD_binding_2 Lycopene_cycl NAD_binding_9 FAD_oxidored HI0933_like Pyr_redox_2 Pyr_redox_3 GIDA Trp_halogenase K_oxygenase FAD_binding_3
-DBLINKS     NCBI-GI: 6321583
+MOTIF       Pfam: Thi4 DAO NAD_binding_8 FAD_binding_2 Lycopene_cycl FAD_oxidored HI0933_like NAD_binding_9 Pyr_redox_2 Pyr_redox_3 GIDA Trp_halogenase FAD_binding_3 K_oxygenase
+DBLINKS     NCBI-ProteinID: NP_011660
             NCBI-GeneID: 853047
             SGD: S000003376
-            MIPS: YGR144W
             UniProt: P32318
-STRUCTURE   PDB: 3FPZ
+STRUCTURE   PDB: 3FPZ 4Y4L
 AASEQ       326
             MSATSTATSTSASQLHLNSTPVTHCLSDIVKKEDWSDFKFAPIRESTVSRAMTSRYFKDL
             DKFAVSDVIIVGAGSSGLSAAYVIAKNRPDLKVCIIESSVAPGGGSWLGGQLFSAMVMRK

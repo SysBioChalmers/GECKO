@@ -1,13 +1,12 @@
 ENTRY       YIL131C           CDS       T00005
 NAME        FKH1
-DEFINITION  Fkh1p
+DEFINITION  (RefSeq) forkhead family transcription factor FKH1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IX:complement(100781..102235)
-MOTIF       Pfam: Fork_head FHA Linker_histone
-DBLINKS     NCBI-GI: 6322060
+MOTIF       Pfam: Forkhead FHA Linker_histone
+DBLINKS     NCBI-ProteinID: NP_012135
             NCBI-GeneID: 854675
             SGD: S000001393
-            MIPS: YIL131C
             UniProt: P40466
 AASEQ       484
             MSVTSREQKFSGKYSSYTAQDRQGLVNAVTCVLSSSSDPVAVSSDYSNSLSIAREVNAYA

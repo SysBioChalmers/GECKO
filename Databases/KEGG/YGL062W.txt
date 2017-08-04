@@ -1,6 +1,6 @@
 ENTRY       YGL062W           CDS       T00005
 NAME        PYC1
-DEFINITION  pyruvate carboxylase 1 (EC:6.4.1.1)
+DEFINITION  (RefSeq) pyruvate carboxylase 1
 ORTHOLOGY   K01958  pyruvate carboxylase [EC:6.4.1.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00020  Citrate cycle (TCA cycle)
@@ -8,16 +8,29 @@ PATHWAY     sce00020  Citrate cycle (TCA cycle)
             sce01100  Metabolic pathways
             sce01200  Carbon metabolism
             sce01230  Biosynthesis of amino acids
-CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
-            Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
-            Metabolism; Carbohydrate metabolism; Citrate cycle (TCA cycle) [PATH:sce00020]
-            Metabolism; Carbohydrate metabolism; Pyruvate metabolism [PATH:sce00620]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01200 Carbon metabolism
+                YGL062W (PYC1)
+               01230 Biosynthesis of amino acids
+                YGL062W (PYC1)
+              Carbohydrate metabolism
+               00020 Citrate cycle (TCA cycle)
+                YGL062W (PYC1)
+               00620 Pyruvate metabolism
+                YGL062W (PYC1)
+            Enzymes [BR:sce01000]
+             6. Ligases
+              6.4  Forming carbon-carbon bonds
+               6.4.1  Ligases that form carbon-carbon bonds (only sub-subclass identified to date)
+                6.4.1.1  pyruvate carboxylase
+                 YGL062W (PYC1)
 POSITION    VII:385196..388732
-MOTIF       Pfam: CPSase_L_D2 PYC_OADA CPSase_L_chain Biotin_carb_C HMGL-like ATPgrasp_Ter Biotin_lipoyl ATP-grasp_4 ATP-grasp Dala_Dala_lig_C Biotin_lipoyl_2 ATP-grasp_3 RimK HlyD_3 HlyD RnfC_N
-DBLINKS     NCBI-GI: 6321376
+MOTIF       Pfam: CPSase_L_D2 PYC_OADA Biotin_carb_N Biotin_carb_C HMGL-like Biotin_lipoyl ATPgrasp_Ter ATP-grasp Dala_Dala_lig_C Biotin_lipoyl_2 ATP-grasp_3 HlyD_D23 ATP-grasp_4 HlyD_3 RnfC_N ATPgrasp_ST NQRA
+DBLINKS     NCBI-ProteinID: NP_011453
             NCBI-GeneID: 852818
             SGD: S000003030
-            MIPS: YGL062W
             UniProt: P11154
 AASEQ       1178
             MSQRKFAGLRDNFNLLGEKNKILVANRGEIPIRIFRTAHELSMQTVAIYSHEDRLSTHKQ

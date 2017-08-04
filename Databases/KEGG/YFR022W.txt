@@ -1,13 +1,18 @@
 ENTRY       YFR022W           CDS       T00005
 NAME        ROG3, ART7
-DEFINITION  Rog3p
+DEFINITION  (RefSeq) Rog3p
+ORTHOLOGY   K20062  arrestin-related trafficking adapter 4/5/7
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endocytosis
+              Clathrin-mediated endocytosis
+               GPCR adaptor proteins
+                YFR022W (ROG3)
 POSITION    VI:196833..199034
 MOTIF       Pfam: Arrestin_C Arrestin_N LDB19
-DBLINKS     NCBI-GI: 398364325
+DBLINKS     NCBI-ProteinID: NP_116677
             NCBI-GeneID: 850578
             SGD: S000001918
-            MIPS: YFR022W
             UniProt: P43602
 AASEQ       733
             MGFSSGKSTKKKPLLFDIRLKNVDNDVILLKGPPNEAPSVLLSGCIVLSINEPMQIKSIS

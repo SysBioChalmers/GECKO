@@ -1,14 +1,18 @@
 ENTRY       YMR064W           CDS       T00005
 NAME        AEP1, NCA1
-DEFINITION  Aep1p
+DEFINITION  (RefSeq) Aep1p
 ORTHOLOGY   K17671  ATPase expression protein 1, mitochondrial
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial DNA transcription, translation, and replication factors
+              Mitochondrial transcription and translation factors
+               Other mitochondrial DNA transcription and translation factors
+                YMR064W (AEP1)
 POSITION    XIII:397903..399459
-MOTIF       Pfam: DUF3201
-DBLINKS     NCBI-GI: 6323709
+MOTIF       Pfam: AEP1
+DBLINKS     NCBI-ProteinID: NP_013780
             NCBI-GeneID: 855086
             SGD: S000004668
-            MIPS: YMR064W
             UniProt: P32493
 AASEQ       518
             MITTVQEISKWRNLCFIRMQSRKWYPVLKKTPLVADGRKIIKHADKVPHPEEIIHPFYQP

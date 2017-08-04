@@ -1,19 +1,27 @@
 ENTRY       Q0115             CDS       T00005
 NAME        BI3
-DEFINITION  cytochrome b mRNA maturase bI3
+DEFINITION  (RefSeq) cytochrome b mRNA maturase bI3
 ORTHOLOGY   K00412  ubiquinol-cytochrome c reductase cytochrome b subunit
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00190  Oxidative phosphorylation
             sce01100  Metabolic pathways
 MODULE      sce_M00151  Cytochrome bc1 complex respiratory unit
             sce_M00152  Cytochrome bc1 complex
-CLASS       Metabolism; Energy metabolism; Oxidative phosphorylation [PATH:sce00190]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Energy metabolism
+               00190 Oxidative phosphorylation
+                Q0115 (BI3)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial DNA transcription, translation, and replication factors
+              Mitochondrial DNA-encoded proteins
+               Mitochondrial respiratory chain complex III
+                Q0115 (BI3)
 POSITION    MT:join(36540..36954,37723..37736,39141..40265)
-MOTIF       Pfam: LAGLIDADG_1 Cytochrom_B_N_2 Cytochrom_B_N LAGLIDADG_3
-DBLINKS     NCBI-GI: 6226531
+MOTIF       Pfam: Cytochrome_B LAGLIDADG_1 Cytochrom_B_N_2 LAGLIDADG_3 DUF4405
+DBLINKS     NCBI-ProteinID: NP_009317
             NCBI-GeneID: 854605
             SGD: S000007272
-            MIPS: Q0115
             UniProt: Q9ZZW7
 STRUCTURE   PDB: 2AB5
 AASEQ       517

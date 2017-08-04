@@ -1,19 +1,30 @@
 ENTRY       YOR074C           CDS       T00005
 NAME        CDC21, CRT9, TMP1
-DEFINITION  thymidylate synthase (EC:2.1.1.45)
+DEFINITION  (RefSeq) thymidylate synthase
 ORTHOLOGY   K00560  thymidylate synthase [EC:2.1.1.45]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00240  Pyrimidine metabolism
             sce00670  One carbon pool by folate
             sce01100  Metabolic pathways
-CLASS       Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
-            Metabolism; Metabolism of cofactors and vitamins; One carbon pool by folate [PATH:sce00670]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Nucleotide metabolism
+               00240 Pyrimidine metabolism
+                YOR074C (CDC21)
+              Metabolism of cofactors and vitamins
+               00670 One carbon pool by folate
+                YOR074C (CDC21)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.1  Transferring one-carbon groups
+               2.1.1  Methyltransferases
+                2.1.1.45  thymidylate synthase
+                 YOR074C (CDC21)
 POSITION    XV:complement(466675..467589)
 MOTIF       Pfam: Thymidylat_synt
-DBLINKS     NCBI-GI: 83578104
+DBLINKS     NCBI-ProteinID: NP_014717
             NCBI-GeneID: 854241
             SGD: S000005600
-            MIPS: YOR074C
             UniProt: P06785
 AASEQ       304
             MTMDGKNKEEEQYLDLCKRIIDEGEFRPDRTGTGTLSLFAPPQLRFSLRDDTFPLLTTKK

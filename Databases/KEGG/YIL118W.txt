@@ -1,14 +1,18 @@
 ENTRY       YIL118W           CDS       T00005
 NAME        RHO3
-DEFINITION  Rho3p
+DEFINITION  (RefSeq) Rho family GTPase RHO3
 ORTHOLOGY   K07975  Rho family, other
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       GTP-binding proteins [BR:sce04031]
+             Small (Monomeric) G-proteins
+              Rho Family
+               Others
+                YIL118W (RHO3)
 POSITION    IX:139752..140447
-MOTIF       Pfam: Ras Miro Arf Gtr1_RagA G-alpha MMR_HSR1 SRPRB Arch_ATPase ABC_tran
-DBLINKS     NCBI-GI: 6322073
+MOTIF       Pfam: Ras Roc Arf Gtr1_RagA G-alpha DeoC SRPRB MMR_HSR1 ABC_tran AAA_16
+DBLINKS     NCBI-ProteinID: NP_012148
             NCBI-GeneID: 854688
             SGD: S000001380
-            MIPS: YIL118W
             UniProt: Q00245
 AASEQ       231
             MSFLCGSASTSNKPIERKIVILGDGACGKTSLLNVFTRGYFPEVYEPTVFENYIHDIFVD

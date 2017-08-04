@@ -1,13 +1,30 @@
 ENTRY       YJR119C           CDS       T00005
 NAME        JHD2, KDM5
-DEFINITION  Jhd2p (EC:1.14.11.-)
+DEFINITION  (RefSeq) histone demethylase
+ORTHOLOGY   K11446  histone demethylase JARID1 [EC:1.14.11.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.14  Acting on paired donors, with incorporation or reduction of molecular oxygen
+               1.14.11  With 2-oxoglutarate as one donor, and incorporation of one atom of oxygen into each donor
+                1.14.11.-  
+                 YJR119C (JHD2)
+            Protein phosphatases and associated proteins [BR:sce01009]
+             Protein Ser/ Thr phosphatases
+              Phosphoprotein phosphatases (PPPs)
+               Protein phosphatase-1
+                PP1-interacting proteins (PIPs)
+                 YJR119C (JHD2)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Histone modification proteins
+               Histone demethylases
+                YJR119C (JHD2)
 POSITION    X:complement(644304..646490)
-MOTIF       Pfam: JmjC JmjN PHD Tnp_zf-ribbon_2 DUF4451 Prok-RING_1
-DBLINKS     NCBI-GI: 6322579
+MOTIF       Pfam: JmjC PHD JmjN zf-HC5HC2H Molybdop_Fe4S4
+DBLINKS     NCBI-ProteinID: NP_012653
             NCBI-GeneID: 853583
             SGD: S000003880
-            MIPS: YJR119C
             UniProt: P47156
 AASEQ       728
             MEEIPALYPTEQEFKNPIDYLSNPHIKRLGVRYGMVKVVPPNGFCPPLSIDMENFTFQPR

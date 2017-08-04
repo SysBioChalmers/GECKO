@@ -1,14 +1,18 @@
 ENTRY       YER127W           CDS       T00005
 NAME        LCP5
-DEFINITION  Lcp5p
+DEFINITION  (RefSeq) Lcp5p
 ORTHOLOGY   K14765  U3 small nucleolar ribonucleoprotein protein LCP5
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              90S particles
+               U3 small nucleolar RNA-associated proteins
+                YER127W (LCP5)
 POSITION    V:414481..415554
 MOTIF       Pfam: Sas10_Utp3
-DBLINKS     NCBI-GI: 6320974
+DBLINKS     NCBI-ProteinID: NP_011053
             NCBI-GeneID: 856864
             SGD: S000000929
-            MIPS: YER127W
             UniProt: P40079
 AASEQ       357
             MSELNALLKDINGSLTATSESLERLSGIYSNSATDEIPESNQLHEHLFYDAKKPAEKVSL

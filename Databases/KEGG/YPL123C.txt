@@ -1,14 +1,26 @@
 ENTRY       YPL123C           CDS       T00005
 NAME        RNY1
-DEFINITION  Rny1p (EC:3.1.27.1)
+DEFINITION  (RefSeq) ribonuclease T2
 ORTHOLOGY   K01166  ribonuclease T2 [EC:3.1.27.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.27  Endoribonucleases producing 3'-phosphomonoesters
+                3.1.27.1  ribonuclease T2
+                 YPL123C (RNY1)
+            Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              3'processing and CCA adding factors
+               3'processing factors
+                YPL123C (RNY1)
+             Prokaryotic Type
+                YPL123C (RNY1)
 POSITION    XVI:complement(317641..318945)
 MOTIF       Pfam: Ribonuclease_T2
-DBLINKS     NCBI-GI: 6325134
+DBLINKS     NCBI-ProteinID: NP_015202
             NCBI-GeneID: 855980
             SGD: S000006044
-            MIPS: YPL123C
             UniProt: Q02933
 AASEQ       434
             MLLKNLHSLLQLPIFSNGADKGIEPNCPINIPLSCSNKTDIDNSCCFEYPGGIFLQTQFW

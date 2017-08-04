@@ -1,12 +1,12 @@
 ENTRY       YGR223C           CDS       T00005
 NAME        HSV2
-DEFINITION  Hsv2p
+DEFINITION  (RefSeq) Hsv2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:complement(940869..942215)
-DBLINKS     NCBI-GI: 6321662
+MOTIF       Pfam: ANAPC4_WD40 Ge1_WD40
+DBLINKS     NCBI-ProteinID: NP_011739
             NCBI-GeneID: 853138
             SGD: S000003455
-            MIPS: YGR223C
             UniProt: P50079
 AASEQ       448
             MDVRRPIREAVNNRRKPKFLSVSFNQDDSCFSVALENGFRIFNTDPLTSKLSKTFKESAT

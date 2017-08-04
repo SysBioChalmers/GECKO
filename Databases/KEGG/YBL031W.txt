@@ -1,12 +1,12 @@
 ENTRY       YBL031W           CDS       T00005
 NAME        SHE1
-DEFINITION  She1p
+DEFINITION  (RefSeq) She1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    II:161699..162715
-DBLINKS     NCBI-GI: 6319440
+MOTIF       Pfam: Msap1
+DBLINKS     NCBI-ProteinID: NP_009522
             NCBI-GeneID: 852249
             SGD: S000000127
-            MIPS: YBL031W
             UniProt: P38200
 AASEQ       338
             MNDKLQEEHNEKDTTSQINGFTPPHMSIDFHSNNNSNIIETIGVSKRLGNSVLSELDSRA

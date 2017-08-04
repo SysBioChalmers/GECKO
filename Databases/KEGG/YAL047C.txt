@@ -1,13 +1,12 @@
 ENTRY       YAL047C           CDS       T00005
 NAME        SPC72, LDB4
-DEFINITION  Spc72p
+DEFINITION  (RefSeq) gamma-tubulin complex subunit SPC72
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    I:complement(54989..56857)
-MOTIF       Pfam: Mto2_bdg IL6
-DBLINKS     NCBI-GI: 330443372
+MOTIF       Pfam: Mto2_bdg bZIP_2 Prp19
+DBLINKS     NCBI-ProteinID: NP_009352
             NCBI-GeneID: 851250
             SGD: S000000045
-            MIPS: YAL047C
             UniProt: P39723
 AASEQ       622
             MVRRWIPSGRHLRNNDNTGDDDDSEFTNSMDSGMSIPSLRDSMTTRSSHNDPIKPALMND

@@ -1,14 +1,19 @@
 ENTRY       YEL031W           CDS       T00005
 NAME        SPF1, COD1, PER9, PIO1
-DEFINITION  Spf1p (EC:3.6.3.-)
+DEFINITION  (RefSeq) ion-transporting P-type ATPase SPF1
 ORTHOLOGY   K14950  cation-transporting ATPase 13A1 [EC:3.6.3.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.3  Acting on acid anhydrides to catalyse transmembrane movement of substances
+                3.6.3.-  
+                 YEL031W (SPF1)
 POSITION    V:90258..93905
-MOTIF       Pfam: Hydrolase HAD E1-E2_ATPase Hydrolase_like2 Hydrolase_3 S6PP
-DBLINKS     NCBI-GI: 398364257
+MOTIF       Pfam: E1-E2_ATPase Hydrolase Cation_ATPase Hydrolase_3 S6PP
+DBLINKS     NCBI-ProteinID: NP_010883
             NCBI-GeneID: 856681
             SGD: S000000757
-            MIPS: YEL031W
             UniProt: P39986
 AASEQ       1215
             MTKKSFVSSPIVRDSTLLVPKSLIAKPYVLPFFPLYATFAQLYFQQYDRYIKGPEWTFVY

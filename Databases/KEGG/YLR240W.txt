@@ -1,24 +1,54 @@
 ENTRY       YLR240W           CDS       T00005
 NAME        VPS34, END12, PEP15, STT8, VPL7, VPS7, VPT29
-DEFINITION  phosphatidylinositol 3-kinase VPS34 (EC:2.7.1.137)
+DEFINITION  (RefSeq) phosphatidylinositol 3-kinase VPS34
 ORTHOLOGY   K00914  phosphatidylinositol 3-kinase [EC:2.7.1.137]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00562  Inositol phosphate metabolism
             sce01100  Metabolic pathways
             sce04070  Phosphatidylinositol signaling system
-            sce04140  Regulation of autophagy
+            sce04136  Autophagy - other
+            sce04138  Autophagy - yeast
             sce04145  Phagosome
-CLASS       Metabolism; Carbohydrate metabolism; Inositol phosphate metabolism [PATH:sce00562]
-            Environmental Information Processing; Signal transduction; Phosphatidylinositol signaling system [PATH:sce04070]
-            Cellular Processes; Transport and catabolism; Phagosome [PATH:sce04145]
-            Cellular Processes; Transport and catabolism; Regulation of autophagy [PATH:sce04140]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Carbohydrate metabolism
+               00562 Inositol phosphate metabolism
+                YLR240W (VPS34)
+             Environmental Information Processing
+              Signal transduction
+               04070 Phosphatidylinositol signaling system
+                YLR240W (VPS34)
+             Cellular Processes
+              Transport and catabolism
+               04145 Phagosome
+                YLR240W (VPS34)
+               04138 Autophagy - yeast
+                YLR240W (VPS34)
+               04136 Autophagy - other eukaryotes
+                YLR240W (VPS34)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.1  Phosphotransferases with an alcohol group as acceptor
+                2.7.1.137  phosphatidylinositol 3-kinase
+                 YLR240W (VPS34)
+            Membrane trafficking [BR:sce04131]
+             Endocytosis
+              Macropinocytosis
+               Kinases
+                YLR240W (VPS34)
+              Rab GTPases and associated proteins
+               Rab associated proteins
+                YLR240W (VPS34)
+             Endosome - Lysosome transport
+                YLR240W (VPS34)
 POSITION    XII:617533..620160
 MOTIF       Pfam: PI3Ka PI3_PI4_kinase PI3K_C2 AlcCBM31
-DBLINKS     NCBI-GI: 6323269
+DBLINKS     NCBI-ProteinID: NP_013341
             NCBI-GeneID: 850941
             SGD: S000004230
-            MIPS: YLR240W
             UniProt: P22543
+STRUCTURE   PDB: 5DFZ 5KC2
 AASEQ       875
             MSLNNITFCVSQDLDVPLKVKIKSLEGHKPLLKPSQKILNPELMLIGSNVFPSSDLIVSL
             QVFDKERNRNLTLPIYTPYIPFRNSRTWDYWLTLPIRIKQLTFSSHLRIILWEYNGSKQI

@@ -1,13 +1,11 @@
 ENTRY       YML006C           CDS       T00005
 NAME        GIS4
-DEFINITION  Gis4p
+DEFINITION  (RefSeq) Gis4p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:complement(256092..258416)
-MOTIF       Pfam: INSIG
-DBLINKS     NCBI-GI: 6323637
+DBLINKS     NCBI-ProteinID: NP_013708
             NCBI-GeneID: 855006
             SGD: S000004465
-            MIPS: YML006C
             UniProt: Q04233
 AASEQ       774
             MQKSVRVGDYFDNDDNGLWSWYLTNLRLGDFEELIGNQLKYTLLKRFLNSHFYGDNNISA

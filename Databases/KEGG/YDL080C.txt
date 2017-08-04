@@ -1,18 +1,28 @@
 ENTRY       YDL080C           CDS       T00005
 NAME        THI3, KID1
-DEFINITION  branched-chain-2-oxoacid decarboxylase THI3 (EC:4.1.1.72 4.1.1.- 4.1.1.1)
+DEFINITION  (RefSeq) branched-chain-2-oxoacid decarboxylase THI3
 ORTHOLOGY   K01568  pyruvate decarboxylase [EC:4.1.1.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00010  Glycolysis / Gluconeogenesis
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
-CLASS       Metabolism; Carbohydrate metabolism; Glycolysis / Gluconeogenesis [PATH:sce00010]
+            sce01130  Biosynthesis of antibiotics
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Carbohydrate metabolism
+               00010 Glycolysis / Gluconeogenesis
+                YDL080C (THI3)
+            Enzymes [BR:sce01000]
+             4. Lyases
+              4.1  Carbon-carbon lyases
+               4.1.1  Carboxy-lyases
+                4.1.1.1  pyruvate decarboxylase
+                 YDL080C (THI3)
 POSITION    IV:complement(310642..312471)
-MOTIF       Pfam: TPP_enzyme_N TPP_enzyme_M TPP_enzyme_C
-DBLINKS     NCBI-GI: 6320123
+MOTIF       Pfam: TPP_enzyme_M TPP_enzyme_N TPP_enzyme_C
+DBLINKS     NCBI-ProteinID: NP_010203
             NCBI-GeneID: 851479
             SGD: S000002238
-            MIPS: YDL080C
             UniProt: Q07471
 AASEQ       609
             MNSSYTQRYALPKCIAISDYLFHRLNQLNIHTIFGLSGEFSMPLLDKLYNIPNLRWAGNS

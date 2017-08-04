@@ -1,14 +1,14 @@
 ENTRY       YMR247C           CDS       T00005
 NAME        RKR1, LTN1
-DEFINITION  ubiquitin-protein ligase RKR1 (EC:6.3.2.-)
+DEFINITION  (RefSeq) ubiquitin-protein ligase RKR1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:complement(763351..768039)
-MOTIF       Pfam: zf-RING_2 zf-rbx1 FANCL_C zf-Apc11 zf-C3HC4 RINGv zf-C3HC4_2 zf-RING_4 zf-RING-like
-DBLINKS     NCBI-GI: 6323904
+MOTIF       Pfam: zf-RING_2 FANCL_C zf-rbx1 zf-ANAPC11 zf-C3HC4 zf-C3HC4_2 zf-RING-like RINGv zf-RING_4 APG5 Zn_ribbon_17
+DBLINKS     NCBI-ProteinID: NP_013975
             NCBI-GeneID: 855289
             SGD: S000004861
-            MIPS: YMR247C
             UniProt: Q04781
+STRUCTURE   PDB: 5FG0 5FG1
 AASEQ       1562
             MSFGGINTFQQYNTDLGLGHNGVRISLNYFDGLPDPSLLNSLYSNELKLIFKSLLKRDET
             TKEKALMDLSNLISDFNQNEYFFNDIFLLCWSQIYAKLIISDYKVIRLQSHQITIMLVKS

@@ -1,17 +1,26 @@
 ENTRY       YLR231C           CDS       T00005
 NAME        BNA5
-DEFINITION  kynureninase (EC:3.7.1.3)
+DEFINITION  (RefSeq) kynureninase
 ORTHOLOGY   K01556  kynureninase [EC:3.7.1.3]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00380  Tryptophan metabolism
             sce01100  Metabolic pathways
-CLASS       Metabolism; Amino acid metabolism; Tryptophan metabolism [PATH:sce00380]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Amino acid metabolism
+               00380 Tryptophan metabolism
+                YLR231C (BNA5)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.7  Acting on carbon-carbon bonds
+               3.7.1  In ketonic substances
+                3.7.1.3  kynureninase
+                 YLR231C (BNA5)
 POSITION    XII:complement(605758..607119)
 MOTIF       Pfam: Aminotran_5
-DBLINKS     NCBI-GI: 6323261
+DBLINKS     NCBI-ProteinID: NP_013332
             NCBI-GeneID: 850933
             SGD: S000004221
-            MIPS: YLR231C
             UniProt: Q05979
 AASEQ       453
             MEKALELDGEYPESLRDEFNIPTFKSMGLSSDDKPVTYLCGNSLGLMPKSTRNSINAELD

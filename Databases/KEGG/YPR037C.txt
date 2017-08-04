@@ -1,14 +1,19 @@
 ENTRY       YPR037C           CDS       T00005
 NAME        ERV2
-DEFINITION  Erv2p (EC:1.8.3.2)
+DEFINITION  (RefSeq) flavin-linked sulfhydryl oxidase
 ORTHOLOGY   K17891  FAD-linked sulfhydryl oxidase [EC:1.8.3.2]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.8  Acting on a sulfur group of donors
+               1.8.3  With oxygen as acceptor
+                1.8.3.2  thiol oxidase
+                 YPR037C (ERV2)
 POSITION    XVI:complement(646448..647038)
 MOTIF       Pfam: Evr1_Alr
-DBLINKS     NCBI-GI: 6325296
+DBLINKS     NCBI-ProteinID: NP_015362
             NCBI-GeneID: 856152
             SGD: S000006241
-            MIPS: YPR037C
             UniProt: Q12284
 STRUCTURE   PDB: 1JR8 1JRA
 AASEQ       196

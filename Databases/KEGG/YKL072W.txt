@@ -1,13 +1,12 @@
 ENTRY       YKL072W           CDS       T00005
 NAME        STB6
-DEFINITION  Stb6p
+DEFINITION  (RefSeq) Stb6p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XI:299582..301882
-MOTIF       Pfam: Tropomyosin_1 EzrA Cortex-I_coil Striatin
-DBLINKS     NCBI-GI: 6322778
+MOTIF       Pfam: Sds3 Tropomyosin_1 CENP-P Striatin
+DBLINKS     NCBI-ProteinID: NP_012851
             NCBI-GeneID: 853790
             SGD: S000001555
-            MIPS: YKL072W
             UniProt: P36085
 AASEQ       766
             MQLEATHQKENHLSPLASFIFPDFRALFNIGFNLYSNINYKEVDINGFEIYIVEQWAAQR

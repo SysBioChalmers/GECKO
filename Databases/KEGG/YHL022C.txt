@@ -1,16 +1,25 @@
 ENTRY       YHL022C           CDS       T00005
 NAME        SPO11
-DEFINITION  Spo11p
+DEFINITION  (RefSeq) Spo11p
 ORTHOLOGY   K10878  meiotic recombination protein SPO11
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04113  Meiosis - yeast
-CLASS       Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04113 Meiosis - yeast
+                YHL022C (SPO11)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              DSBR (double strand breaks repair)
+               HR (homologous recombination)
+                Other HR factors
+                 YHL022C (SPO11)
 POSITION    VIII:complement(62961..64157)
-MOTIF       Pfam: TP6A_N DUF2399
-DBLINKS     NCBI-GI: 6321765
+MOTIF       Pfam: TP6A_N Hydant_A_N
+DBLINKS     NCBI-ProteinID: NP_011841
             NCBI-GeneID: 856364
             SGD: S000001014
-            MIPS: YHL022C
             UniProt: P23179
 AASEQ       398
             MALEGLRKKYKTRQELVKALTPKRRSIHLNSNGHSNGTPCSNADVLAHIKHFLSLAANSL

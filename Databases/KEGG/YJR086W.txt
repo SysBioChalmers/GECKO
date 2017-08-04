@@ -1,16 +1,24 @@
 ENTRY       YJR086W           CDS       T00005
 NAME        STE18
-DEFINITION  Ste18p
+DEFINITION  (RefSeq) Ste18p
 ORTHOLOGY   K07973  guanine nucleotide-binding protein subunit gamma, other
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04011  MAPK signaling pathway - yeast
-CLASS       Environmental Information Processing; Signal transduction; MAPK signaling pathway - yeast [PATH:sce04011]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YJR086W (STE18)
+            GTP-binding proteins [BR:sce04031]
+             Heterotrimeric G-proteins
+              Gamma Subunits
+               Gamma [OT]
+                YJR086W (STE18)
 POSITION    X:586068..586400
-MOTIF       Pfam: G-gamma Herpes_UL95 TIP49 FYVE_2
-DBLINKS     NCBI-GI: 6322545
+MOTIF       Pfam: G-gamma Peptidase_C3
+DBLINKS     NCBI-ProteinID: NP_012619
             NCBI-GeneID: 853548
             SGD: S000003846
-            MIPS: YJR086W
             UniProt: P18852
 AASEQ       110
             MTSVQNSPRLQQPQEQQQQQQQLSLKIKQLKLKRINELNNKLRKELSRERITASNACLTI

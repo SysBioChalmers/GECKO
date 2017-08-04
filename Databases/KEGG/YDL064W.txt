@@ -1,20 +1,35 @@
 ENTRY       YDL064W           CDS       T00005
 NAME        UBC9
-DEFINITION  E2 SUMO-conjugating protein UBC9 (EC:6.3.2.-)
-ORTHOLOGY   K10577  ubiquitin-conjugating enzyme E2 I [EC:6.3.2.19]
+DEFINITION  (RefSeq) E2 SUMO-conjugating protein UBC9
+ORTHOLOGY   K10577  ubiquitin-conjugating enzyme E2 I
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03013  RNA transport
             sce04120  Ubiquitin mediated proteolysis
-CLASS       Genetic Information Processing; Translation; RNA transport [PATH:sce03013]
-            Genetic Information Processing; Folding, sorting and degradation; Ubiquitin mediated proteolysis [PATH:sce04120]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03013 RNA transport
+                YDL064W (UBC9)
+              Folding, sorting and degradation
+               04120 Ubiquitin mediated proteolysis
+                YDL064W (UBC9)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Transport factors
+                Nuclear pore complex
+                 YDL064W (UBC9)
+            Ubiquitin system [BR:sce04121]
+             Ubiquitin-conjugating enzymes (E2)
+              UBL-conjugating enzymes
+               YDL064W (UBC9)
 POSITION    IV:join(337487..337524,337635..338070)
 MOTIF       Pfam: UQ_con Prok-E2_B RWD
-DBLINKS     NCBI-GI: 6320139
+DBLINKS     NCBI-ProteinID: NP_010219
             NCBI-GeneID: 851495
             SGD: S000002222
-            MIPS: YDL064W
             UniProt: P50623
-STRUCTURE   PDB: 2GJD 2EKE 3ONG
+STRUCTURE   PDB: 2GJD 2EKE 3ONG 5JNE
 AASEQ       157
             MSSLCLQRLQEERKKWRKDHPFGFYAKPVKKADGSMDLQKWEAGIPGKEGTNWAGGVYPI
             TVEYPNEYPSKPPKVKFPAGFYHPNVYPSGTICLSILNEDQDWRPAITLKQIVLGVQDLL

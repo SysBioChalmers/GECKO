@@ -1,13 +1,12 @@
 ENTRY       YKL174C           CDS       T00005
 NAME        TPO5
-DEFINITION  Tpo5p
+DEFINITION  (RefSeq) Tpo5p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XI:complement(120380..122236)
-MOTIF       Pfam: AA_permease AA_permease_2
-DBLINKS     NCBI-GI: 6322674
+MOTIF       Pfam: AA_permease AA_permease_2 PgaD
+DBLINKS     NCBI-ProteinID: NP_012747
             NCBI-GeneID: 853680
             SGD: S000001657
-            MIPS: YKL174C
             UniProt: P36029
 AASEQ       618
             MPEYTLLADNIRENIVHFDPNGLFDNLHTIVHEDDSQENEEAEHFNYDQVLDKSLLSRGS

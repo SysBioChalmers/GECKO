@@ -1,14 +1,25 @@
 ENTRY       YOR245C           CDS       T00005
 NAME        DGA1
-DEFINITION  diacylglycerol O-acyltransferase (EC:2.3.1.22 2.3.1.20)
+DEFINITION  (RefSeq) diacylglycerol O-acyltransferase
 ORTHOLOGY   K14457  2-acylglycerol O-acyltransferase 2 [EC:2.3.1.22]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00561  Glycerolipid metabolism
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Lipid metabolism
+               00561 Glycerolipid metabolism
+                YOR245C (DGA1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.3  Acyltransferases
+               2.3.1  Transferring groups other than aminoacyl groups
+                2.3.1.22  2-acylglycerol O-acyltransferase
+                 YOR245C (DGA1)
 POSITION    XV:complement(794076..795332)
 MOTIF       Pfam: DAGAT
-DBLINKS     NCBI-GI: 6324819
+DBLINKS     NCBI-ProteinID: NP_014888
             NCBI-GeneID: 854419
             SGD: S000005771
-            MIPS: YOR245C
             UniProt: Q08650
 AASEQ       418
             MSGTFNDIRRRKKEEGSPTAGITERHENKSLSSIDKREQTLKPQLESCCPLATPFERRLQ

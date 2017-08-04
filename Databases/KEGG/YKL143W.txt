@@ -1,14 +1,18 @@
 ENTRY       YKL143W           CDS       T00005
 NAME        LTV1, YKL2
-DEFINITION  Ltv1p
+DEFINITION  (RefSeq) Ltv1p
 ORTHOLOGY   K14798  protein LTV1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-40S particles
+               Export and cytoplasmic maturation factors
+                YKL143W (LTV1)
 POSITION    XI:176781..178172
 MOTIF       Pfam: LTV
-DBLINKS     NCBI-GI: 6322706
+DBLINKS     NCBI-ProteinID: NP_012779
             NCBI-GeneID: 853714
             SGD: S000001626
-            MIPS: YKL143W
             UniProt: P34078
 AASEQ       463
             MSKKFSSKNSQRYVVVHRPHDDPSFYDTDASAHVLVPVSNPNKTSPEADLRKKDVSSTKP

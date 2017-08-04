@@ -1,13 +1,17 @@
 ENTRY       YDR493W           CDS       T00005
 NAME        MZM1, AIM8, FMP36
-DEFINITION  Mzm1p
+DEFINITION  (RefSeq) Mzm1p
+ORTHOLOGY   K18170  complex III assembly factor LYRM7
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial quality control factors
+              Mitochondrial respiratory chain complex assembly factors
+               Complex-III assembly factors
+                YDR493W (MZM1)
 POSITION    IV:1436217..1436588
-MOTIF       Pfam: DUF4051
-DBLINKS     NCBI-GI: 6320701
+DBLINKS     NCBI-ProteinID: NP_010781
             NCBI-GeneID: 852104
             SGD: S000002901
-            MIPS: YDR493W
             UniProt: Q03429
 AASEQ       123
             MSTRTKALNAYRHGLRATRIAFRNDAEVLLAARAKMRSGMLCPPDPKLTTEDQIQHLEDV

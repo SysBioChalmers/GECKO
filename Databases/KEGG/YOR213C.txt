@@ -1,14 +1,19 @@
 ENTRY       YOR213C           CDS       T00005
 NAME        SAS5
-DEFINITION  Sas5p
+DEFINITION  (RefSeq) Sas5p
 ORTHOLOGY   K11403  something about silencing protein 5
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Histone modification proteins
+               HAT complexes
+                SAS complex
+                 YOR213C (SAS5)
 POSITION    XV:complement(744535..745281)
 MOTIF       Pfam: YEATS
-DBLINKS     NCBI-GI: 6324787
+DBLINKS     NCBI-ProteinID: NP_014856
             NCBI-GeneID: 854388
             SGD: S000005739
-            MIPS: YOR213C
             UniProt: Q99314
 AASEQ       248
             MDHSIEVTFRVKTQQVIIPEQNIRGNELPLRRWQMELLMLDATGKEVEPTILSKCIYHLH

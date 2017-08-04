@@ -1,16 +1,25 @@
 ENTRY       YGR034W           CDS       T00005
 NAME        RPL26B
-DEFINITION  ribosomal 60S subunit protein L26B
+DEFINITION  (RefSeq) ribosomal 60S subunit protein L26B
 ORTHOLOGY   K02898  large subunit ribosomal protein L26e
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03010  Ribosome
-CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+MODULE      sce_M00177  Ribosome, eukaryotes
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03010 Ribosome
+                YGR034W (RPL26B)
+            Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Eukaryotes
+               Large subunit
+                YGR034W (RPL26B)
 POSITION    VII:join(555812..555830,556308..556672)
-MOTIF       Pfam: KOW
-DBLINKS     NCBI-GI: 116006491
+MOTIF       Pfam: Ribosomal_L26 KOW
+DBLINKS     NCBI-ProteinID: NP_011548
             NCBI-GeneID: 852922
             SGD: S000003266
-            MIPS: YGR034W
             UniProt: P53221
 AASEQ       127
             MAKQSLDVSSDRRKARKAYFTAPSSERRVLLSAPLSKELRAQYGIKALPIRRDDEVLVVR

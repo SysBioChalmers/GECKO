@@ -1,14 +1,25 @@
 ENTRY       YGR123C           CDS       T00005
 NAME        PPT1
-DEFINITION  Ppt1p (EC:3.1.3.16)
+DEFINITION  (RefSeq) protein serine/threonine phosphatase
 ORTHOLOGY   K04460  serine/threonine-protein phosphatase 5 [EC:3.1.3.16]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.3  Phosphoric-monoester hydrolases
+                3.1.3.16  protein-serine/threonine phosphatase
+                 YGR123C (PPT1)
+            Protein phosphatases and associated proteins [BR:sce01009]
+             Protein Ser/ Thr phosphatases
+              Phosphoprotein phosphatases (PPPs)
+               Protein phosphatase-5
+                Catalytic subunits
+                 YGR123C (PPT1)
 POSITION    VII:complement(736662..738203)
-MOTIF       Pfam: Metallophos TPR_11 TPR_2 PPP5 TPR_1 TPR_9 TPR_19 TPR_17 TPR_16 Fis1_TPR_C TPR_14 NBP1 TPR_12
-DBLINKS     NCBI-GI: 398365781
+MOTIF       Pfam: Metallophos PPP5 TPR_2 TPR_1 TPR_11 TPR_9 Fis1_TPR_C TPR_17 TPR_19 TPR_16
+DBLINKS     NCBI-ProteinID: NP_011639
             NCBI-GeneID: 853023
             SGD: S000003355
-            MIPS: YGR123C
             UniProt: P53043
 STRUCTURE   PDB: 3ICF
 AASEQ       513

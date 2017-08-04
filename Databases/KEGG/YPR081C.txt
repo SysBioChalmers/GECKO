@@ -1,17 +1,40 @@
 ENTRY       YPR081C           CDS       T00005
 NAME        GRS2
-DEFINITION  putative glycine--tRNA ligase (EC:6.1.1.14)
+DEFINITION  (RefSeq) putative glycine--tRNA ligase
 ORTHOLOGY   K01880  glycyl-tRNA synthetase [EC:6.1.1.14]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00970  Aminoacyl-tRNA biosynthesis
 MODULE      sce_M00359  Aminoacyl-tRNA biosynthesis, eukaryotes
-CLASS       Genetic Information Processing; Translation; Aminoacyl-tRNA biosynthesis [PATH:sce00970]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               00970 Aminoacyl-tRNA biosynthesis
+                YPR081C (GRS2)
+            Enzymes [BR:sce01000]
+             6. Ligases
+              6.1  Forming carbon-oxygen bonds
+               6.1.1  Ligases forming aminoacyl-tRNA and related compounds
+                6.1.1.14  glycine---tRNA ligase
+                 YPR081C (GRS2)
+            Amino acid related enzymes [BR:sce01007]
+             Aminoacyl-tRNA synthetase
+              Class II (G/C)
+               YPR081C (GRS2)
+            Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              Aminoacyl-tRNA synthetases (AARSs)
+               Other AARSs
+                YPR081C (GRS2)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial DNA transcription, translation, and replication factors
+              Mitochondrial transcription and translation factors
+               Other mitochondrial DNA transcription and translation factors
+                YPR081C (GRS2)
 POSITION    XVI:complement(702114..703970)
-MOTIF       Pfam: tRNA-synt_2b HGTP_anticodon
-DBLINKS     NCBI-GI: 6325338
+MOTIF       Pfam: HGTP_anticodon tRNA-synt_2b
+DBLINKS     NCBI-ProteinID: NP_015406
             NCBI-GeneID: 856196
             SGD: S000006285
-            MIPS: YPR081C
             UniProt: Q06817
 AASEQ       618
             MPLMSNSERDKLESTLRRRFFYTPSFEIYGGVSGLFDLGPPGCQLQNNLIRLWREHFIME

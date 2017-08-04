@@ -1,13 +1,19 @@
 ENTRY       YDL091C           CDS       T00005
 NAME        UBX3
-DEFINITION  Ubx3p
+DEFINITION  (RefSeq) Ubx3p
+ORTHOLOGY   K18726  FAS-associated factor 2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Transport factors
+                Ran-mediated transport factors
+                 YDL091C (UBX3)
 POSITION    IV:complement(293392..294759)
 MOTIF       Pfam: UBX
-DBLINKS     NCBI-GI: 6320112
+DBLINKS     NCBI-ProteinID: NP_010192
             NCBI-GeneID: 851467
             SGD: S000002249
-            MIPS: YDL091C
             UniProt: Q12229
 AASEQ       455
             MDIFRHTFGNNDDSFIRIPGAFREEPPADLNGRTEDQNSNTNEPTQSRDGRLKSILHFLF

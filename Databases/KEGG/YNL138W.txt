@@ -1,14 +1,22 @@
 ENTRY       YNL138W           CDS       T00005
 NAME        SRV2, CAP
-DEFINITION  Srv2p
+DEFINITION  (RefSeq) adenylate cyclase-binding protein
 ORTHOLOGY   K17261  adenylyl cyclase-associated protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Others
+              Actin-binding proteins
+               Others
+                YNL138W (SRV2)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of haemopoietic cells  (B-cell, T-cell, DC-cell, reticulocyte, and mast cell)
+               YNL138W (SRV2)
 POSITION    XIV:366741..368321
 MOTIF       Pfam: CAP_N CAP_C
-DBLINKS     NCBI-GI: 6324191
+DBLINKS     NCBI-ProteinID: NP_014261
             NCBI-GeneID: 855584
             SGD: S000005082
-            MIPS: YNL138W
             UniProt: P17555
 STRUCTURE   PDB: 1K4Z 1KQ5
 AASEQ       526

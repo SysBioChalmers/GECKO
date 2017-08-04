@@ -1,13 +1,12 @@
 ENTRY       YNR004W           CDS       T00005
 NAME        SWM2
-DEFINITION  Swm2p
+DEFINITION  (RefSeq) Swm2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIV:635943..636383
-MOTIF       Pfam: UPF0262
-DBLINKS     NCBI-GI: 6324331
+MOTIF       Pfam: Swm2 UPF0262
+DBLINKS     NCBI-ProteinID: NP_014401
             NCBI-GeneID: 855738
             SGD: S000005287
-            MIPS: YNR004W
             UniProt: P40342
 AASEQ       146
             MIDLYNYSNLEGLLDGLTDLNRIPKEYSAVLEPYFQNIARNAHLKSRALKICRSNFHKWN

@@ -1,16 +1,20 @@
 ENTRY       YER143W           CDS       T00005
 NAME        DDI1, VSM1
-DEFINITION  Ddi1p
+DEFINITION  (RefSeq) Ddi1p
 ORTHOLOGY   K11885  DNA damage-inducible protein 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Proteasome [BR:sce03051]
+             Eukaryotic proteasome
+              Proteasome interacting proteins (PIPs)
+               UBL-UBA shuttle proteins
+                YER143W (DDI1)
 POSITION    V:456319..457605
-MOTIF       Pfam: Asp_protease UBA Asp_protease_2 RVP RVP_2 gag-asp_proteas UN_NPL4 EAL UBA_3
-DBLINKS     NCBI-GI: 398364877
+MOTIF       Pfam: Asp_protease gag-asp_proteas UBA Asp_protease_2 RVP RVP_2 EAL UN_NPL4 UBA_3
+DBLINKS     NCBI-ProteinID: NP_011070
             NCBI-GeneID: 856886
             SGD: S000000945
-            MIPS: YER143W
             UniProt: P40087
-STRUCTURE   PDB: 2I1A
+STRUCTURE   PDB: 4Z2Z 2I1A 5KES 2N7E 2MWS 2MRO 2MRP 2MR9
 AASEQ       428
             MDLTISNELTGEIYGPIEVSEDMALTDLIALLQADCGFDKTKHDLYYNMDILDSNRTQSL
             KELGLKTDDLLLIRGKISNSIQTDAATLSDEAFIEQFRQELLNNQMLRSQLILQIPGLND

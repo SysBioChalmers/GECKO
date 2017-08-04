@@ -1,14 +1,18 @@
 ENTRY       YMR282C           CDS       T00005
 NAME        AEP2, ATP13
-DEFINITION  Aep2p
+DEFINITION  (RefSeq) Aep2p
 ORTHOLOGY   K17672  ATPase expression protein 2, mitochondrial
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial DNA transcription, translation, and replication factors
+              Mitochondrial transcription and translation factors
+               Other mitochondrial DNA transcription and translation factors
+                YMR282C (AEP2)
 POSITION    XIII:complement(833356..835098)
-MOTIF       Pfam: ATP13
-DBLINKS     NCBI-GI: 6323938
+MOTIF       Pfam: ATP13 Phage_min_tail
+DBLINKS     NCBI-ProteinID: NP_014009
             NCBI-GeneID: 855325
             SGD: S000004895
-            MIPS: YMR282C
             UniProt: P22136
 AASEQ       580
             MWINRLVKHPSYSVLRFYTKRLCTVSVKSLREFGVLPNSTICHSVYPRRTYVMGRAVIND

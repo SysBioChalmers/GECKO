@@ -1,13 +1,12 @@
 ENTRY       YDL181W           CDS       T00005
 NAME        INH1
-DEFINITION  Inh1p
+DEFINITION  (RefSeq) ATPase inhibitor
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:135179..135436
-MOTIF       Pfam: IATP Fib_alpha Atg14 DivIC Cnl2_NKP2 C-C_Bond_Lyase PspB ABC_tran_2 DUF1049 DASH_Dad2
-DBLINKS     NCBI-GI: 6320020
+MOTIF       Pfam: IATP Fib_alpha TRAF_BIRC3_bd DivIC BLOC1_2 C-C_Bond_Lyase Cnl2_NKP2 DUF4140 XhlA
+DBLINKS     NCBI-ProteinID: NP_010100
             NCBI-GeneID: 851347
             SGD: S000002340
-            MIPS: YDL181W
             UniProt: P01097
 STRUCTURE   PDB: 3ZIA
 AASEQ       85

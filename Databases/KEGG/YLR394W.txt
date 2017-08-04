@@ -1,13 +1,12 @@
 ENTRY       YLR394W           CDS       T00005
 NAME        CST9, ZIP3
-DEFINITION  SUMO ligase CST9
+DEFINITION  (RefSeq) SUMO ligase CST9
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XII:907950..909398
-MOTIF       Pfam: zf-RING_5 zf-MIZ zf-C3HC4_3 zf-C3HC4_2 zf-RING_2
-DBLINKS     NCBI-GI: 398366103
+MOTIF       Pfam: zf-RING_5 Prok-RING_4 zf-C3HC4_3 DUF2193
+DBLINKS     NCBI-ProteinID: NP_013498
             NCBI-GeneID: 851110
             SGD: S000004386
-            MIPS: YLR394W
             UniProt: Q06032
 AASEQ       482
             MGGYLAIVFIPQTNTKSMREKKQKCLKQVRRLSLISPKKYIMPDSIFEQPFVYCGVCHRR

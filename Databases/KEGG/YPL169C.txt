@@ -1,22 +1,41 @@
 ENTRY       YPL169C           CDS       T00005
 NAME        MEX67
-DEFINITION  Mex67p
-ORTHOLOGY   K14284  nuclear RNA export factor 1/2
+DEFINITION  (RefSeq) Mex67p
+ORTHOLOGY   K14284  nuclear RNA export factor
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03008  Ribosome biogenesis in eukaryotes
             sce03013  RNA transport
             sce03015  mRNA surveillance pathway
-CLASS       Genetic Information Processing; Translation; RNA transport [PATH:sce03013]
-            Genetic Information Processing; Translation; mRNA surveillance pathway [PATH:sce03015]
-            Genetic Information Processing; Translation; Ribosome biogenesis in eukaryotes [PATH:sce03008]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03013 RNA transport
+                YPL169C (MEX67)
+               03015 mRNA surveillance pathway
+                YPL169C (MEX67)
+               03008 Ribosome biogenesis in eukaryotes
+                YPL169C (MEX67)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Transport factors
+                Nuclear pore complex
+                 YPL169C (MEX67)
+               mRNA cycle factors
+                Stress granule specific factors
+                 YPL169C (MEX67)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               Export and cytoplasmic maturation factors
+                YPL169C (MEX67)
 POSITION    XVI:complement(229039..230838)
-MOTIF       Pfam: TAP_C LRR_4 LRR_9 LRR_6
-DBLINKS     NCBI-GI: 6325088
+MOTIF       Pfam: TAP_C LRR_9 LRR_4
+DBLINKS     NCBI-ProteinID: NP_015156
             NCBI-GeneID: 855934
             SGD: S000006090
-            MIPS: YPL169C
             UniProt: Q99257
-STRUCTURE   PDB: 2KHH 2JP7 1OF5
+STRUCTURE   PDB: 4WWU 2KHH 2JP7 1OF5
 AASEQ       599
             MSGFHNVGNINMMAQQQMQQNRIKISVRNWQNATMNDLINFISRNARVAVYDAHVEGPLV
             IGYVNSKAEAESLMKWNGVRFAGSNLKFELLDNNGASAGTSDTISFLRGVLLKRYDPQTK

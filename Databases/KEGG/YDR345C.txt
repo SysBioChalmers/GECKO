@@ -1,16 +1,24 @@
 ENTRY       YDR345C           CDS       T00005
 NAME        HXT3
-DEFINITION  Hxt3p
+DEFINITION  (RefSeq) hexose transporter HXT3
 ORTHOLOGY   K08139  MFS transporter, SP family, sugar:H+ symporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04113  Meiosis - yeast
-CLASS       Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04113 Meiosis - yeast
+                YDR345C (HXT3)
+            Transporters [BR:sce02000]
+             Major Facilitator Superfamily (MFS)
+              Sugar transporters
+               Sugar porter (SP) family [TC:2.A.1.1]
+                YDR345C (HXT3)
 POSITION    IV:complement(1162957..1164660)
-MOTIF       Pfam: Sugar_tr MFS_1 TPR_19
-DBLINKS     NCBI-GI: 6320552
+MOTIF       Pfam: Sugar_tr MFS_1
+DBLINKS     NCBI-ProteinID: NP_010632
             NCBI-GeneID: 851946
             SGD: S000002753
-            MIPS: YDR345C
             UniProt: P32466
 AASEQ       567
             MNSTPDLISPQKSSENSNADLPSNSSQVMNMPEEKGVQDDFQAEADQVLTNPNTGKGAYV

@@ -1,14 +1,18 @@
 ENTRY       YOR206W           CDS       T00005
 NAME        NOC2
-DEFINITION  Noc2p
+DEFINITION  (RefSeq) mRNA-binding ribosome synthesis protein NOC2
 ORTHOLOGY   K14833  nucleolar complex protein 2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               Other pre-60S particles
+                YOR206W (NOC2)
 POSITION    XV:727512..729644
 MOTIF       Pfam: Noc2
-DBLINKS     NCBI-GI: 398365741
+DBLINKS     NCBI-ProteinID: NP_014849
             NCBI-GeneID: 854381
             SGD: S000005732
-            MIPS: YOR206W
             UniProt: P39744
 AASEQ       710
             MGKVSKSTKKFQSKHLKHTLDQRRKEKIQKKRIQGRRGNKTDQEKADAAGTREQQQLKKS

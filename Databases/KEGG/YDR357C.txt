@@ -1,13 +1,11 @@
 ENTRY       YDR357C           CDS       T00005
 NAME        CNL1
-DEFINITION  Cnl1p
+DEFINITION  (RefSeq) Cnl1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(1189199..1189567)
-MOTIF       Pfam: PhoU
-DBLINKS     NCBI-GI: 6320564
+DBLINKS     NCBI-ProteinID: NP_010644
             NCBI-GeneID: 851959
             SGD: S000002765
-            MIPS: YDR357C
             UniProt: Q06333
 AASEQ       122
             MQDNSSHSRESASAGDDPLGIDKLTVDYDYLLYKMRDYVQSIQLDTTELCKKQNEVMVNG

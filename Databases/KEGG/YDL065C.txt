@@ -1,16 +1,19 @@
 ENTRY       YDL065C           CDS       T00005
 NAME        PEX19, PAS12
-DEFINITION  Pex19p
+DEFINITION  (RefSeq) Pex19p
 ORTHOLOGY   K13337  peroxin-19
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04146  Peroxisome
-CLASS       Cellular Processes; Transport and catabolism; Peroxisome [PATH:sce04146]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04146 Peroxisome
+                YDL065C (PEX19)
 POSITION    IV:complement(336249..337277)
-MOTIF       Pfam: Pex19 FliD_N
-DBLINKS     NCBI-GI: 93117371
+MOTIF       Pfam: Pex19 GlutR_dimer DUF2070
+DBLINKS     NCBI-ProteinID: NP_010218
             NCBI-GeneID: 851494
             SGD: S000002223
-            MIPS: YDL065C
             UniProt: Q07418
 AASEQ       342
             MNENEYDNFDDLDDLLDEDPTKLDEAEPDDVQAKGSVYNDSENKEKNAESKDSDGVQVAN

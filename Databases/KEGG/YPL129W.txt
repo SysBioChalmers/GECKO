@@ -1,18 +1,41 @@
 ENTRY       YPL129W           CDS       T00005
 NAME        TAF14, ANC1, SWP29, TAF30, TFG3
-DEFINITION  Taf14p
+DEFINITION  (RefSeq) TATA-binding protein-associated factor TAF14
 ORTHOLOGY   K03140  transcription initiation factor TFIID/TFIIF subunit
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03022  Basal transcription factors
-CLASS       Genetic Information Processing; Transcription; Basal transcription factors [PATH:sce03022]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03022 Basal transcription factors
+                YPL129W (TAF14)
+            Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Basal transcription factors
+                TFIID
+                 YPL129W (TAF14)
+               Coactivators
+                SWI/SNF complex
+                 YPL129W (TAF14)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Histone modification proteins
+               HAT complexes
+                NuA3 complex
+                 YPL129W (TAF14)
+              Chromatin remodeling factors
+               INO80 complex (yeast)
+                YPL129W (TAF14)
+               SWI/SNF complex
+                YPL129W (TAF14)
 POSITION    XVI:join(305298..305306,305412..306137)
-MOTIF       Pfam: YEATS
-DBLINKS     NCBI-GI: 6325128
+MOTIF       Pfam: YEATS BET
+DBLINKS     NCBI-ProteinID: NP_015196
             NCBI-GeneID: 855974
             SGD: S000006050
-            MIPS: YPL129W
             UniProt: P35189
-STRUCTURE   PDB: 3QRL 2L7E
+STRUCTURE   PDB: 3QRL 5D7E 5IOK 5SVA 2L7E
 AASEQ       244
             MVATVKRTIRIKTQQHILPEVPPVENFPVRQWSIEIVLLDDEGKEIPATIFDKVIYHLHP
             TFANPNRTFTDPPFRIEEQGWGGFPLDISVFLLEKAGERKIPHDLNFLQESYEVEHVIQI

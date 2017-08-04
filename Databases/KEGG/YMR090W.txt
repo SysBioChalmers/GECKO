@@ -1,12 +1,11 @@
 ENTRY       YMR090W           CDS       T00005
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) hypothetical protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:449245..449928
-MOTIF       Pfam: NAD_binding_10 NmrA 3Beta_HSD Epimerase Semialdhyde_dh DapB_N Ldh_1_N Shikimate_DH F420_oxidored Polysacc_synt_2 CoA_binding Saccharop_dh RmlD_sub_bind
-DBLINKS     NCBI-GI: 6323737
+MOTIF       Pfam: NAD_binding_10 NmrA Epimerase 3Beta_HSD Semialdhyde_dh DapB_N Ldh_1_N Shikimate_DH F420_oxidored Polysacc_synt_2 Sacchrp_dh_NADP Glu_dehyd_C CoA_binding RmlD_sub_bind
+DBLINKS     NCBI-ProteinID: NP_013808
             NCBI-GeneID: 855115
             SGD: S000004696
-            MIPS: YMR090W
             UniProt: Q04304
 AASEQ       227
             MSPMKVAVVGASGKVGRLLINQLKANDSFSTPLAIVRTQDQVNYFKNEVGVDASLTDIEN

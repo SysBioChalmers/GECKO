@@ -1,13 +1,12 @@
 ENTRY       YKR046C           CDS       T00005
 NAME        PET10
-DEFINITION  Pet10p
+DEFINITION  (RefSeq) Pet10p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XI:complement(524223..525074)
-MOTIF       Pfam: Peptidase_M2
-DBLINKS     NCBI-GI: 398365145
+MOTIF       Pfam: PET10 DUF2884
+DBLINKS     NCBI-ProteinID: NP_012972
             NCBI-GeneID: 853920
             SGD: S000001754
-            MIPS: YKR046C
             UniProt: P36139
 AASEQ       283
             MSESSISSSKPSVELPQATWSHLQRYPALSKFIKYAESLPPVERLISFNLVVLGSVNQWV

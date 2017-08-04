@@ -1,17 +1,31 @@
 ENTRY       YJR102C           CDS       T00005
 NAME        VPS25, VPL12, VPT25
-DEFINITION  Vps25p
+DEFINITION  (RefSeq) ESCRT-II subunit protein VPS25
 ORTHOLOGY   K12189  ESCRT-II complex subunit VPS25
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04144  Endocytosis
 MODULE      sce_M00410  ESCRT-II complex
-CLASS       Cellular Processes; Transport and catabolism; Endocytosis [PATH:sce04144]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04144 Endocytosis
+                YJR102C (VPS25)
+            Membrane trafficking [BR:sce04131]
+             Endosome - Lysosome transport
+              Endosomal sorting complexes required for transport (ESCRT)
+               ESCRT-II complex
+                YJR102C (VPS25)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of other body fluids (saliva and urine)
+               YJR102C (VPS25)
+              Exosomal proteins of colorectal cancer cells
+               YJR102C (VPS25)
 POSITION    X:complement(619157..619765)
 MOTIF       Pfam: ESCRT-II
-DBLINKS     NCBI-GI: 6322562
+DBLINKS     NCBI-ProteinID: NP_012636
             NCBI-GeneID: 853566
             SGD: S000003863
-            MIPS: YJR102C
             UniProt: P47142
 STRUCTURE   PDB: 1XB4 1W7P 1U5T
 AASEQ       202

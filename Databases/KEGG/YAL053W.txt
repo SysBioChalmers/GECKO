@@ -1,13 +1,12 @@
 ENTRY       YAL053W           CDS       T00005
 NAME        FLC2
-DEFINITION  Flc2p
+DEFINITION  (RefSeq) flavin adenine dinucleotide transporter FLC2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    I:45899..48250
-MOTIF       Pfam: TRP TRP_N Neur_chan_memb DUF4154
-DBLINKS     NCBI-GI: 330443368
+MOTIF       Pfam: TRP TRP_N
+DBLINKS     NCBI-ProteinID: NP_009348
             NCBI-GeneID: 851246
             SGD: S000000049
-            MIPS: YAL053W
             UniProt: P39719
 AASEQ       783
             MIFLNTFARCLLTCFVLCSGTARSSDTNDTTPASAKHLQTTSLLTCMDNSQLTASFFDVK

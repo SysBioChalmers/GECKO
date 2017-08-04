@@ -1,14 +1,19 @@
 ENTRY       YPR168W           CDS       T00005
 NAME        NUT2, MED10
-DEFINITION  Nut2p
+DEFINITION  (RefSeq) mediator complex subunit NUT2
 ORTHOLOGY   K15151  mediator of RNA polymerase II transcription subunit 10
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Mediator complex
+                Middle
+                 YPR168W (NUT2)
 POSITION    XVI:878076..878549
-MOTIF       Pfam: Med10 PBS_linker_poly
-DBLINKS     NCBI-GI: 6325426
+MOTIF       Pfam: Med10
+DBLINKS     NCBI-ProteinID: NP_015494
             NCBI-GeneID: 856297
             SGD: S000006372
-            MIPS: YPR168W
             UniProt: Q06213
 AASEQ       157
             MNGNSTNNEQLQQELATTQDQVASIIESFVELGVSIYDFPGTPEATKGMITNLQRNVDRL

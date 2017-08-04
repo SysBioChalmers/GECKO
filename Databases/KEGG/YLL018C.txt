@@ -1,17 +1,43 @@
 ENTRY       YLL018C           CDS       T00005
 NAME        DPS1
-DEFINITION  aspartate--tRNA ligase DPS1 (EC:6.1.1.12)
+DEFINITION  (RefSeq) aspartate--tRNA ligase DPS1
 ORTHOLOGY   K01876  aspartyl-tRNA synthetase [EC:6.1.1.12]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00970  Aminoacyl-tRNA biosynthesis
 MODULE      sce_M00359  Aminoacyl-tRNA biosynthesis, eukaryotes
-CLASS       Genetic Information Processing; Translation; Aminoacyl-tRNA biosynthesis [PATH:sce00970]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               00970 Aminoacyl-tRNA biosynthesis
+                YLL018C (DPS1)
+            Enzymes [BR:sce01000]
+             6. Ligases
+              6.1  Forming carbon-oxygen bonds
+               6.1.1  Ligases forming aminoacyl-tRNA and related compounds
+                6.1.1.12  aspartate---tRNA ligase
+                 YLL018C (DPS1)
+            Amino acid related enzymes [BR:sce01007]
+             Aminoacyl-tRNA synthetase
+              Class II (A)
+               YLL018C (DPS1)
+            Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              Aminoacyl-tRNA synthetases (AARSs)
+               Multi-aminoacyl-tRNA synthetase complex (MSC)
+                YLL018C (DPS1)
+             Prokaryotic Type
+               Other AARSs
+                YLL018C (DPS1)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial DNA transcription, translation, and replication factors
+              Mitochondrial transcription and translation factors
+               Other mitochondrial DNA transcription and translation factors
+                YLL018C (DPS1)
 POSITION    XII:complement(109902..111575)
 MOTIF       Pfam: tRNA-synt_2 tRNA_anti-codon NARP1
-DBLINKS     NCBI-GI: 6323011
+DBLINKS     NCBI-ProteinID: NP_013083
             NCBI-GeneID: 850643
             SGD: S000003941
-            MIPS: YLL018C
             UniProt: P04802
 STRUCTURE   PDB: 1EOV 1ASY 1ASZ
 AASEQ       557

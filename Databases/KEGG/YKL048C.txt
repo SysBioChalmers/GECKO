@@ -1,14 +1,29 @@
 ENTRY       YKL048C           CDS       T00005
 NAME        ELM1, LDB9
-DEFINITION  Elm1p (EC:2.7.11.1)
-ORTHOLOGY   K00924   [EC:2.7.1.-]
+DEFINITION  (RefSeq) serine/threonine protein kinase ELM1
+ORTHOLOGY   K16314  serine/threonine-protein kinase ELM1 [EC:2.7.11.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04138  Autophagy - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04138 Autophagy - yeast
+                YKL048C (ELM1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.11  Protein-serine/threonine kinases
+                2.7.11.1  non-specific serine/threonine protein kinase
+                 YKL048C (ELM1)
+            Protein kinases [BR:sce01001]
+             Serine/threonine protein kinases: Other group
+              Other families
+               YKL048C (ELM1)
 POSITION    XI:complement(347214..349136)
 MOTIF       Pfam: Pkinase Pkinase_Tyr Kinase-like Kdo APH
-DBLINKS     NCBI-GI: 6322803
+DBLINKS     NCBI-ProteinID: NP_012876
             NCBI-GeneID: 853818
             SGD: S000001531
-            MIPS: YKL048C
             UniProt: P32801
 AASEQ       640
             MSPRQLIPTLIPEWAPLSQQSCIREDELDSPPITPTSQTSSFGSSFSQQKPTYSTIIGEN

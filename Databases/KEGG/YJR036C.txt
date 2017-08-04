@@ -1,14 +1,23 @@
 ENTRY       YJR036C           CDS       T00005
 NAME        HUL4
-DEFINITION  putative E3 ubiquitin-protein ligase HUL4 (EC:6.3.2.-)
-ORTHOLOGY   K12232  E3 ubiquitin-protein ligase HECTD2 [EC:6.3.2.19]
+DEFINITION  (RefSeq) putative E3 ubiquitin-protein ligase HUL4
+ORTHOLOGY   K12232  E3 ubiquitin-protein ligase HECTD2 [EC:2.3.2.26]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.3  Acyltransferases
+               2.3.2  Aminoacyltransferases
+                2.3.2.26  HECT-type E3 ubiquitin transferase
+                 YJR036C (HUL4)
+            Ubiquitin system [BR:sce04121]
+             Ubiquitin ligases (E3)
+              HECT type E3
+               YJR036C (HUL4)
 POSITION    X:complement(500713..503391)
 MOTIF       Pfam: HECT
-DBLINKS     NCBI-GI: 398364915
+DBLINKS     NCBI-ProteinID: NP_012570
             NCBI-GeneID: 853494
             SGD: S000003797
-            MIPS: YJR036C
             UniProt: P40985
 AASEQ       892
             MVSLFDKLNAKKDGRDGSVSKELLSHSVAHTKNRLPKSGRRTSERSLAASVKDGSCSNSK

@@ -1,16 +1,19 @@
 ENTRY       YPL187W           CDS       T00005
 NAME        MF(ALPHA)1
-DEFINITION  Mf(alpha)1p
+DEFINITION  (RefSeq) Mf(alpha)1p
 ORTHOLOGY   K11234  mating pheromone alpha-factor
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04011  MAPK signaling pathway - yeast
-CLASS       Environmental Information Processing; Signal transduction; MAPK signaling pathway - yeast [PATH:sce04011]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YPL187W (MF(ALPHA)1)
 POSITION    XVI:193648..194145
-MOTIF       Pfam: MF_alpha_N MF_alpha PepSY_2
-DBLINKS     NCBI-GI: 6325069
+MOTIF       Pfam: MF_alpha_N MF_alpha
+DBLINKS     NCBI-ProteinID: NP_015137
             NCBI-GeneID: 855914
             SGD: S000006108
-            MIPS: YPL187W
             UniProt: P01149
 AASEQ       165
             MRFPSIFTAVLFAASSALAAPVNTTTEDETAQIPAEAVIGYLDLEGDFDVAVLPFSNSTN

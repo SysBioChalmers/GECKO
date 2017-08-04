@@ -1,12 +1,11 @@
 ENTRY       YDR061W           CDS       T00005
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) hypothetical protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:574164..575783
-MOTIF       Pfam: ABC_tran AAA_21 SbcCD_C AAA_29 Miro AAA_16 AAA_23
-DBLINKS     NCBI-GI: 398365333
+MOTIF       Pfam: ABC_tran AAA_21 SbcCD_C AAA_29 RsgA_GTPase AAA_23
+DBLINKS     NCBI-ProteinID: NP_010346
             NCBI-GeneID: 851633
             SGD: S000002468
-            MIPS: YDR061W
             UniProt: Q12298
 AASEQ       539
             MSTNKFVVRITNALFKSSLASNSPPVYPKRIRHFEILPNEKWVIWGPGKGKFLDVLNNKY

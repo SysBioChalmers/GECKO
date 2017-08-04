@@ -1,13 +1,13 @@
 ENTRY       YEL062W           CDS       T00005
 NAME        NPR2
-DEFINITION  Npr2p
+DEFINITION  (RefSeq) nitrogen permease regulating protein NPR2
+ORTHOLOGY   K20405  nitrogen permease regulator 2-like protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    V:34407..36254
 MOTIF       Pfam: NPR2
-DBLINKS     NCBI-GI: 398364223
+DBLINKS     NCBI-ProteinID: NP_010852
             NCBI-GeneID: 856647
             SGD: S000000788
-            MIPS: YEL062W
             UniProt: P39923
 AASEQ       615
             MLSYFQGFVPIHTIFYSVFHPTEGSKIKYEFPPNNLKNHGINFNTFKNYIIPKPILCHKL

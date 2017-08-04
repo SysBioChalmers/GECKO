@@ -1,14 +1,29 @@
 ENTRY       YGL179C           CDS       T00005
 NAME        TOS3
-DEFINITION  Tos3p (EC:2.7.11.1)
-ORTHOLOGY   K08286  protein-serine/threonine kinase [EC:2.7.11.-]
+DEFINITION  (RefSeq) serine/threonine protein kinase TOS3
+ORTHOLOGY   K21158  serine/threonine-protein kinase TOS3 [EC:2.7.11.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04138  Autophagy - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04138 Autophagy - yeast
+                YGL179C (TOS3)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.11  Protein-serine/threonine kinases
+                2.7.11.1  non-specific serine/threonine protein kinase
+                 YGL179C (TOS3)
+            Protein kinases [BR:sce01001]
+             Serine/threonine protein kinases: Other group
+              Other families
+               YGL179C (TOS3)
 POSITION    VII:complement(163409..165091)
-MOTIF       Pfam: Pkinase Pkinase_Tyr Kinase-like Seadorna_VP7 Kdo Fis1_TPR_C TPR_19 APH
-DBLINKS     NCBI-GI: 398364315
+MOTIF       Pfam: Pkinase Pkinase_Tyr Kinase-like Seadorna_VP7 Fis1_TPR_C
+DBLINKS     NCBI-ProteinID: NP_011336
             NCBI-GeneID: 852696
             SGD: S000003147
-            MIPS: YGL179C
             UniProt: P43637
 AASEQ       560
             MVLLKEPVQPLPRSSLLYNNASNSSSRIKETRKVKLLYNPLTKRQILNNFEILATLGNGQ

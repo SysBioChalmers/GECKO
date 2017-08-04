@@ -1,14 +1,19 @@
 ENTRY       YBR149W           CDS       T00005
 NAME        ARA1
-DEFINITION  D-arabinose 1-dehydrogenase (NAD(P)(+)) ARA1 (EC:1.1.1.117)
+DEFINITION  (RefSeq) D-arabinose 1-dehydrogenase (NAD(P)(+)) ARA1
 ORTHOLOGY   K00063  D-arabinose 1-dehydrogenase [EC:1.1.1.117]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.1  Acting on the CH-OH group of donors
+               1.1.1  With NAD+ or NADP+ as acceptor
+                1.1.1.117  D-arabinose 1-dehydrogenase [NAD(P)+]
+                 YBR149W (ARA1)
 POSITION    II:539987..541021
 MOTIF       Pfam: Aldo_ket_red
-DBLINKS     NCBI-GI: 398365091
+DBLINKS     NCBI-ProteinID: NP_009707
             NCBI-GeneID: 852446
             SGD: S000000353
-            MIPS: YBR149W
             UniProt: P38115
 STRUCTURE   PDB: 4IJR 4IJC
 AASEQ       344

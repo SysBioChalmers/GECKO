@@ -1,13 +1,12 @@
 ENTRY       YPL075W           CDS       T00005
-NAME        GCR1, LPF10
-DEFINITION  Gcr1p
+NAME        GCR1, LPF10, SIT3
+DEFINITION  (RefSeq) transcription regulator GCR1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:join(412254..412261,413013..415362)
-MOTIF       Pfam: GCR1_C
-DBLINKS     NCBI-GI: 6325182
+MOTIF       Pfam: GCR1_C NDC10_II
+DBLINKS     NCBI-ProteinID: NP_015250
             NCBI-GeneID: 856030
             SGD: S000005996
-            MIPS: YPL075W
             UniProt: P07261
 AASEQ       785
             MVCTSTSSNFYSIAQYILQSYFKVNVDSLNSLKLVDLIVDQTYPDSLTLRKLNEGATGQP

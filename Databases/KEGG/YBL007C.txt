@@ -1,13 +1,22 @@
 ENTRY       YBL007C           CDS       T00005
 NAME        SLA1
-DEFINITION  Sla1p
+DEFINITION  (RefSeq) cytoskeletal protein-binding protein SLA1
+ORTHOLOGY   K20046  actin cytoskeleton-regulatory complex protein SLA1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endocytosis
+              Clathrin-mediated endocytosis
+               Other core components
+                YBL007C (SLA1)
+             Others
+              Actin-binding proteins
+               Nucleation-promoting factors (NPFs)
+                YBL007C (SLA1)
 POSITION    II:complement(212632..216366)
-MOTIF       Pfam: SH3_1 SHD1 SH3_9 SH3_2 SH3_3 DUF3104
-DBLINKS     NCBI-GI: 6319464
+MOTIF       Pfam: SH3_1 SHD1 SH3_9 SH3_2 DUF3104
+DBLINKS     NCBI-ProteinID: NP_009546
             NCBI-GeneID: 852276
             SGD: S000000103
-            MIPS: YBL007C
             UniProt: P32790
 STRUCTURE   PDB: 3IDW 1Z9Z 2JT4 2V1Q 2HBP
 AASEQ       1244

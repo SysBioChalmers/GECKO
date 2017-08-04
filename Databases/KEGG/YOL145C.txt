@@ -1,14 +1,19 @@
 ENTRY       YOL145C           CDS       T00005
 NAME        CTR9, CDP1
-DEFINITION  Ctr9p
+DEFINITION  (RefSeq) Ctr9p
 ORTHOLOGY   K15176  RNA polymerase-associated protein CTR9
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Other transcription-related factors
+                PAF1 complex
+                 YOL145C (CTR9)
 POSITION    XV:complement(49555..52788)
-MOTIF       Pfam: TPR_2 TPR_11 TPR_1 TPR_16 TPR_12 TPR_19 TPR_14 Apc3 TPR_6 TPR_8 TPR_10 TPR_7
-DBLINKS     NCBI-GI: 330443717
+MOTIF       Pfam: TPR_2 TPR_1 TPR_12 TPR_16 TPR_14 TPR_8 TPR_6 TPR_19 ANAPC3 TPR_7 TPR_10 YfiO TPR_11
+DBLINKS     NCBI-ProteinID: NP_014496
             NCBI-GeneID: 854020
             SGD: S000005505
-            MIPS: YOL145C
             UniProt: P89105
 AASEQ       1077
             MTNAMKVEGYPSMEWPTSLDIPLKASEELVGIDLETDLPDDPTDLKTLLVEENSEKEHWL

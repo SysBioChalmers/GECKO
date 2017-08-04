@@ -1,16 +1,20 @@
 ENTRY       YEL039C           CDS       T00005
 NAME        CYC7
-DEFINITION  Cyc7p
+DEFINITION  (RefSeq) cytochrome c isoform 2
 ORTHOLOGY   K08738  cytochrome c
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00920  Sulfur metabolism
-CLASS       Metabolism; Energy metabolism; Sulfur metabolism [PATH:sce00920]
+            sce01100  Metabolic pathways
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Energy metabolism
+               00920 Sulfur metabolism
+                YEL039C (CYC7)
 POSITION    V:complement(79636..79977)
 MOTIF       Pfam: Cytochrom_C Cytochrome_CBB3 Cytochrom_C550
-DBLINKS     NCBI-GI: 6320796
+DBLINKS     NCBI-ProteinID: NP_010875
             NCBI-GeneID: 856672
             SGD: S000000765
-            MIPS: YEL039C
             UniProt: P00045
 STRUCTURE   PDB: 1YTC 1YEA 1YEB 3CXH
 AASEQ       113

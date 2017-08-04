@@ -1,14 +1,17 @@
 ENTRY       YMR228W           CDS       T00005
 NAME        MTF1
-DEFINITION  Mtf1p
+DEFINITION  (RefSeq) RNA polymerase specificity factor
 ORTHOLOGY   K15267  mitochondrial transcription factor 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Other ribosome biogenesis factors
+               YMR228W (MTF1)
 POSITION    XIII:724626..725651
 MOTIF       Pfam: RrnaAD
-DBLINKS     NCBI-GI: 6323884
+DBLINKS     NCBI-ProteinID: NP_013955
             NCBI-GeneID: 855268
             SGD: S000004841
-            MIPS: YMR228W
             UniProt: P14908
 STRUCTURE   PDB: 1I4W
 AASEQ       341

@@ -1,13 +1,25 @@
 ENTRY       YFL061W           CDS       T00005
 NAME        DDI2
-DEFINITION  Ddi2p
+DEFINITION  (RefSeq) cyanamide hydratase
+ORTHOLOGY   K06035  cyanamide hydratase [EC:4.2.1.69]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00791  Atrazine degradation
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Xenobiotics biodegradation and metabolism
+               00791 Atrazine degradation
+                YFL061W (DDI2)
+            Enzymes [BR:sce01000]
+             4. Lyases
+              4.2  Carbon-oxygen lyases
+               4.2.1  Hydro-lyases
+                4.2.1.69  cyanamide hydratase
+                 YFL061W (DDI2)
 POSITION    VI:9545..10222
 MOTIF       Pfam: HD
-DBLINKS     NCBI-GI: 14318458
+DBLINKS     NCBI-ProteinID: NP_116594
             NCBI-GeneID: 850483
             SGD: S000001833
-            MIPS: YFL061W
             UniProt: P0CH63 P0CH64
 AASEQ       225
             MSQYGFVRVPREVEKAIPVVNAPRPRAVVPPPNSETARLVREYAAKELTAPVLNHSLRVF

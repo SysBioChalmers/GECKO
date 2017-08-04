@@ -1,14 +1,13 @@
 ENTRY       YIR033W           CDS       T00005
 NAME        MGA2
-DEFINITION  Mga2p
-ORTHOLOGY   K06867
+DEFINITION  (RefSeq) Mga2p
+ORTHOLOGY   K06867  uncharacterized protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IX:416124..419465
-MOTIF       Pfam: Ank Ank_4 Ank_2 Ank_5 Ank_3 TIG DUF4598
-DBLINKS     NCBI-GI: 6322224
+MOTIF       Pfam: Ank_3 Ank_2 Ank_4 TIG Ank_5 Ank
+DBLINKS     NCBI-ProteinID: NP_012299
             NCBI-GeneID: 854851
             SGD: S000001472
-            MIPS: YIR033W
             UniProt: P40578
 AASEQ       1113
             MQQNSEFLTETPGSDPHISQLHANSVMESQLLDDFLLNGSPMYQDDSMAHINIDEGANFQ

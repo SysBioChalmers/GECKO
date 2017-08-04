@@ -1,14 +1,25 @@
 ENTRY       YGL130W           CDS       T00005
 NAME        CEG1
-DEFINITION  Ceg1p (EC:2.7.7.50)
+DEFINITION  (RefSeq) mRNA guanylyltransferase
 ORTHOLOGY   K00987  mRNA guanylyltransferase [EC:2.7.7.50]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.7  Nucleotidyltransferases
+                2.7.7.50  mRNA guanylyltransferase
+                 YGL130W (CEG1)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA processing factors
+               5' end processing
+                Capping factors
+                 YGL130W (CEG1)
 POSITION    VII:266145..267524
 MOTIF       Pfam: mRNA_cap_enzyme mRNA_cap_C DNA_ligase_A_M
-DBLINKS     NCBI-GI: 398364449
+DBLINKS     NCBI-ProteinID: NP_011385
             NCBI-GeneID: 852747
             SGD: S000003098
-            MIPS: YGL130W
             UniProt: Q01159
 STRUCTURE   PDB: 3KYH
 AASEQ       459

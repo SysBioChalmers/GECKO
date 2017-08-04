@@ -1,18 +1,41 @@
 ENTRY       YGR204W           CDS       T00005
 NAME        ADE3
-DEFINITION  trifunctional formate-tetrahydrofolate ligase/methenyltetrahydrofolate cyclohydrolase/methylenetetrahydrofolate dehydrogenase ADE3 (EC:1.5.1.5 3.5.4.9 6.3.4.3)
+DEFINITION  (RefSeq) trifunctional formate-tetrahydrofolate ligase/methenyltetrahydrofolate cyclohydrolase/methylenetetrahydrofolate dehydrogenase ADE3
 ORTHOLOGY   K00288  methylenetetrahydrofolate dehydrogenase (NADP+) / methenyltetrahydrofolate cyclohydrolase / formyltetrahydrofolate synthetase [EC:1.5.1.5 3.5.4.9 6.3.4.3]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00670  One carbon pool by folate
             sce01100  Metabolic pathways
 MODULE      sce_M00141  C1-unit interconversion, eukaryotes
-CLASS       Metabolism; Metabolism of cofactors and vitamins; One carbon pool by folate [PATH:sce00670]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Metabolism of cofactors and vitamins
+               00670 One carbon pool by folate
+                YGR204W (ADE3)
+            Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.5  Acting on the CH-NH group of donors
+               1.5.1  With NAD+ or NADP+ as acceptor
+                1.5.1.5  methylenetetrahydrofolate dehydrogenase (NADP+)
+                 YGR204W (ADE3)
+             3. Hydrolases
+              3.5  Acting on carbon-nitrogen bonds, other than peptide bonds
+               3.5.4  In cyclic amidines
+                3.5.4.9  methenyltetrahydrofolate cyclohydrolase
+                 YGR204W (ADE3)
+             6. Ligases
+              6.3  Forming carbon-nitrogen bonds
+               6.3.4  Other carbon-nitrogen ligases
+                6.3.4.3  formate---tetrahydrofolate ligase
+                 YGR204W (ADE3)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of other body fluids (saliva and urine)
+               YGR204W (ADE3)
 POSITION    VII:905934..908774
-MOTIF       Pfam: FTHFS THF_DHG_CYH_C THF_DHG_CYH
-DBLINKS     NCBI-GI: 398366131
+MOTIF       Pfam: FTHFS THF_DHG_CYH_C THF_DHG_CYH Glyco_trans_1_4 Shikimate_DH
+DBLINKS     NCBI-ProteinID: NP_011720
             NCBI-GeneID: 853118
             SGD: S000003436
-            MIPS: YGR204W
             UniProt: P07245
 AASEQ       946
             MAGQVLDGKACAQQFRSNIANEIKSIQGHVPGFAPNLAIIQVGNRPDSATYVRMKRKAAE

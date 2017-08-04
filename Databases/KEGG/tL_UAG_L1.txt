@@ -1,0 +1,22 @@
+ENTRY       tL_UAG_L1         tRNA      T00005
+NAME        tL(UAG)L1
+DEFINITION  (RefSeq) tRNA-Leu
+ORTHOLOGY   K14228  tRNA Leu
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00970  Aminoacyl-tRNA biosynthesis
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               00970 Aminoacyl-tRNA biosynthesis
+                tL_UAG_L1 (tL(UAG)L1)
+            Non-coding RNAs [BR:sce03100]
+             Transfer RNA
+              tRNA
+               tL_UAG_L1 (tL(UAG)L1)
+POSITION    XII:complement(join(592519..592562,592582..592619))
+DBLINKS     NCBI-GeneID: 850925
+            SGD: S000006655
+NTSEQ       82
+            gggagtttggccgagtggtttaaggcgtcagatttaggctctgatatcttcggatgcaag
+            ggttcgaatcccttagctctca
+///

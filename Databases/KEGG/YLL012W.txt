@@ -1,13 +1,12 @@
 ENTRY       YLL012W           CDS       T00005
 NAME        YEH1
-DEFINITION  Yeh1p (EC:3.1.1.13)
+DEFINITION  (RefSeq) sterol esterase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XII:125534..127255
-MOTIF       Pfam: Abhydro_lipase Abhydrolase_6 Tetraspannin
-DBLINKS     NCBI-GI: 6323017
+MOTIF       Pfam: Abhydro_lipase Abhydrolase_1 Tetraspannin Preseq_ALAS LAS2
+DBLINKS     NCBI-ProteinID: NP_013089
             NCBI-GeneID: 850648
             SGD: S000003935
-            MIPS: YLL012W
             UniProt: Q07804
 AASEQ       573
             MGVSAVLKRARNLLATFIVCCFMAVVLVLALAHHFINEHRDTRSSSTQIEVDDESKRNVH

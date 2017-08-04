@@ -1,14 +1,24 @@
 ENTRY       YDL031W           CDS       T00005
 NAME        DBP10
-DEFINITION  Dbp10p (EC:3.6.4.13)
+DEFINITION  (RefSeq) putative ATP-dependent RNA helicase DBP10
 ORTHOLOGY   K14808  ATP-dependent RNA helicase DDX54/DBP10 [EC:3.6.4.13]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.4  Acting on acid anhydrides to facilitate cellular and subcellular movement
+                3.6.4.13  RNA helicase
+                 YDL031W (DBP10)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               Helicases
+                YDL031W (DBP10)
 POSITION    IV:394217..397204
-MOTIF       Pfam: DEAD DBP10CT Helicase_C
-DBLINKS     NCBI-GI: 330443505
+MOTIF       Pfam: DEAD Helicase_C DBP10CT ERCC3_RAD25_C Peptidase_C10
+DBLINKS     NCBI-ProteinID: NP_010253
             NCBI-GeneID: 851530
             SGD: S000002189
-            MIPS: YDL031W
             UniProt: Q12389
 AASEQ       995
             MAGVQKRKRDLEDQDDNGSEEDDIAFDIANEIALNDSESDANDSDSEVEADYGPNDVQDV

@@ -1,14 +1,19 @@
 ENTRY       YKL112W           CDS       T00005
 NAME        ABF1, BAF1, OBF1, REB2, SBF1
-DEFINITION  Abf1p
+DEFINITION  (RefSeq) DNA-binding protein ABF1
 ORTHOLOGY   K09249  ARS-binding factor 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+MODULE      sce_M00692  Cell cycle - G1/S transition
+BRITE       Transcription factors [BR:sce03000]
+             Eukaryotic Type
+              Zinc finger
+               Zinc fingers of alternating composition
+                YKL112W (ABF1)
 POSITION    XI:226570..228765
 MOTIF       Pfam: BAF1_ABF1 DBD_Tnp_Mut
-DBLINKS     NCBI-GI: 6322737
+DBLINKS     NCBI-ProteinID: NP_012810
             NCBI-GeneID: 853748
             SGD: S000001595
-            MIPS: YKL112W
             UniProt: P14164
 AASEQ       731
             MDKLVVNYYEYKHPIINKDLAIGAHGGKKFPTLGAWYDVINEYEFQTRCPIILKNSHRNK

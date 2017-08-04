@@ -1,13 +1,11 @@
 ENTRY       YIL108W           CDS       T00005
-DEFINITION  putative metalloendopeptidase (EC:3.4.24.-)
-ORTHOLOGY   K01417  putative zinc metalloprotease [EC:3.4.24.-]
+DEFINITION  (RefSeq) putative metalloendopeptidase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IX:160887..162977
-MOTIF       Pfam: Metallopep Jacalin Reprolysin_3 Reprolysin_5 Sigma54_activat Reprolysin_4
-DBLINKS     NCBI-GI: 6322083
+MOTIF       Pfam: Metallopep Jacalin Reprolysin_3 Reprolysin_5 Peptidase_M66 Peptidase_M10 Sigma54_activat
+DBLINKS     NCBI-ProteinID: NP_012158
             NCBI-GeneID: 854698
             SGD: S000001370
-            MIPS: YIL108W
             UniProt: P40483
 AASEQ       696
             MVGSKDIDLFNLRENEQIVSPCLIVHGKCNKQNGAKTVQVQHPQLPPITYPIHNQFFKAT

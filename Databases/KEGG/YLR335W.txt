@@ -1,13 +1,19 @@
 ENTRY       YLR335W           CDS       T00005
 NAME        NUP2
-DEFINITION  Nup2p
+DEFINITION  (RefSeq) nucleoporin NUP2
+ORTHOLOGY   K18722  nucleoporin NUP2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Transport factors
+                Nuclear pore complex
+                 YLR335W (NUP2)
 POSITION    XII:797430..799592
 MOTIF       Pfam: Ran_BP1 NUP50
-DBLINKS     NCBI-GI: 6323367
+DBLINKS     NCBI-ProteinID: NP_013439
             NCBI-GeneID: 851048
             SGD: S000004327
-            MIPS: YLR335W
             UniProt: P32499
 STRUCTURE   PDB: 2C1T 1UN0
 AASEQ       720

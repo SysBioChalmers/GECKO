@@ -1,18 +1,31 @@
 ENTRY       YOR067C           CDS       T00005
 NAME        ALG8, YOR29-18
-DEFINITION  dolichyl-P-Glc:Glc1Man(9)GlcNAc(2)-PP-dolichol alpha-1,3-glucosyltransferase (EC:2.4.1.265)
+DEFINITION  (RefSeq) dolichyl-P-Glc:Glc1Man(9)GlcNAc(2)-PP-dolichol alpha-1,3-glucosyltransferase
 ORTHOLOGY   K03849  alpha-1,3-glucosyltransferase [EC:2.4.1.265]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00510  N-Glycan biosynthesis
             sce01100  Metabolic pathways
 MODULE      sce_M00055  N-glycan precursor biosynthesis
-CLASS       Metabolism; Glycan biosynthesis and metabolism; N-Glycan biosynthesis [PATH:sce00510]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Glycan biosynthesis and metabolism
+               00510 N-Glycan biosynthesis
+                YOR067C (ALG8)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.4  Glycosyltransferases
+               2.4.1  Hexosyltransferases
+                2.4.1.265  dolichyl-P-Glc:Glc1Man9GlcNAc2-PP-dolichol alpha-1,3-glucosyltransferase
+                 YOR067C (ALG8)
+            Glycosyltransferases [BR:sce01003]
+             N-Glycan biosynthesis
+              Dol-linked oligosaccharide
+               YOR067C (ALG8)
 POSITION    XV:complement(451729..453462)
 MOTIF       Pfam: Alg6_Alg8
-DBLINKS     NCBI-GI: 6324641
+DBLINKS     NCBI-ProteinID: NP_014710
             NCBI-GeneID: 854233
             SGD: S000005593
-            MIPS: YOR067C
             UniProt: P40351
 AASEQ       577
             MKGDRSRQNMAVTKKAKLKKNDEPKKVLKTAATEKGEGSKRYSLWNFWISTLFLKLLLIP

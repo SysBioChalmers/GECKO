@@ -1,16 +1,24 @@
 ENTRY       YDR146C           CDS       T00005
 NAME        SWI5
-DEFINITION  Swi5p
+DEFINITION  (RefSeq) DNA-binding transcription factor SWI5
 ORTHOLOGY   K09202  regulatory protein SWI5
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
-CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YDR146C (SWI5)
+            Transcription factors [BR:sce03000]
+             Eukaryotic Type
+              Zinc finger
+               Cys2His2 developmental/cell cycle regulators, Egr/Krox
+                YDR146C (SWI5)
 POSITION    IV:complement(748613..750742)
-MOTIF       Pfam: zf-C2H2 zf-H2C2_2 zf-C2H2_4 CASP_C Bunya_G2 AT_hook DUF641
-DBLINKS     NCBI-GI: 6320350
+MOTIF       Pfam: zf-C2H2 zf-C2H2_4 zf-H2C2_2 DUF641 AT_hook
+DBLINKS     NCBI-ProteinID: NP_010430
             NCBI-GeneID: 851724
             SGD: S000002553
-            MIPS: YDR146C
             UniProt: P08153
 STRUCTURE   PDB: 1ZFD 1NCS
 AASEQ       709

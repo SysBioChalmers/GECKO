@@ -1,14 +1,19 @@
 ENTRY       YKL052C           CDS       T00005
 NAME        ASK1
-DEFINITION  Ask1p
+DEFINITION  (RefSeq) Ask1p
 ORTHOLOGY   K11566  DASH complex subunit ASK1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centromeric chromatin formation proteins
+               Kinetochore proteins
+                DASH complex
+                 YKL052C (ASK1)
 POSITION    XI:complement(339668..340546)
-MOTIF       Pfam: DASH_Ask1
-DBLINKS     NCBI-GI: 269970311
+MOTIF       Pfam: DASH_Ask1 LINES_N
+DBLINKS     NCBI-ProteinID: NP_012872
             NCBI-GeneID: 853814
             SGD: S000001535
-            MIPS: YKL052C
             UniProt: P35734
 AASEQ       292
             MDSASKEETLEKLDQEITVNLQKIDSNLSFCFHKITQDIIPHVATYSEICERIMDSTEWL

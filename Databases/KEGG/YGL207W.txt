@@ -1,13 +1,12 @@
 ENTRY       YGL207W           CDS       T00005
 NAME        SPT16, CDC68, SSF1
-DEFINITION  Spt16p
+DEFINITION  (RefSeq) chromatin-remodeling protein SPT16
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:98969..102076
-MOTIF       Pfam: SPT16 FACT-Spt16_Nlob Peptidase_M24 Rtt106
-DBLINKS     NCBI-GI: 6321231
+MOTIF       Pfam: FACT-Spt16_Nlob SPT16 Peptidase_M24 Rtt106
+DBLINKS     NCBI-ProteinID: NP_011308
             NCBI-GeneID: 852665
             SGD: S000003175
-            MIPS: YGL207W
             UniProt: P32558
 STRUCTURE   PDB: 3BIQ 3BIT 3BIP 4IOY
 AASEQ       1035

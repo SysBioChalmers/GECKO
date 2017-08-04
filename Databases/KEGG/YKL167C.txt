@@ -1,14 +1,18 @@
 ENTRY       YKL167C           CDS       T00005
 NAME        MRP49
-DEFINITION  mitochondrial 54S ribosomal protein MRP49
-ORTHOLOGY   K17440  large subunit ribosomal protein MRP49, mitochondrial
+DEFINITION  (RefSeq) mitochondrial 54S ribosomal protein MRP49
+ORTHOLOGY   K17440  large subunit ribosomal protein MRP49
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Mitochondria/ Chloroplast
+               Large subunit
+                YKL167C (MRP49)
 POSITION    XI:complement(133721..134134)
 MOTIF       Pfam: L51_S25_CI-B8
-DBLINKS     NCBI-GI: 6322681
+DBLINKS     NCBI-ProteinID: NP_012754
             NCBI-GeneID: 853687
             SGD: S000001650
-            MIPS: YKL167C
             UniProt: P32388
 AASEQ       137
             MSKVAQQLKFLNKISATTRLPQILVDPKKYSGLRLTFQTKNHNGHMGARVFWHNYLPTLQ

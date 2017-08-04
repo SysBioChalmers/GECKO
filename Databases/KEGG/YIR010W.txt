@@ -1,14 +1,20 @@
 ENTRY       YIR010W           CDS       T00005
 NAME        DSN1
-DEFINITION  Dsn1p
+DEFINITION  (RefSeq) MIND complex subunit DSN1
 ORTHOLOGY   K11560  kinetochore protein Mis13/DSN1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centromeric chromatin formation proteins
+               Kinetochore proteins
+                NMS complex
+                 MIND kinetochore complex
+                  YIR010W (DSN1)
 POSITION    IX:375431..377161
 MOTIF       Pfam: MIS13
-DBLINKS     NCBI-GI: 398364589
+DBLINKS     NCBI-ProteinID: NP_012275
             NCBI-GeneID: 854827
             SGD: S000001449
-            MIPS: YIR010W
             UniProt: P40568
 AASEQ       576
             MSLEPTQTVSGTPPMLHQRTHKQVYPLRMETIPILESDSKATLQSNEPTQKDEEETEYFE

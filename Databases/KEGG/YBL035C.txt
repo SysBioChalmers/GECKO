@@ -1,6 +1,6 @@
 ENTRY       YBL035C           CDS       T00005
 NAME        POL12
-DEFINITION  Pol12p
+DEFINITION  (RefSeq) DNA-directed DNA polymerase alpha subunit POL12
 ORTHOLOGY   K02321  DNA polymerase alpha subunit B
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00230  Purine metabolism
@@ -8,15 +8,27 @@ PATHWAY     sce00230  Purine metabolism
             sce01100  Metabolic pathways
             sce03030  DNA replication
 MODULE      sce_M00261  DNA polymerase alpha / primase complex
-CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
-            Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
-            Genetic Information Processing; Replication and repair; DNA replication [PATH:sce03030]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Nucleotide metabolism
+               00230 Purine metabolism
+                YBL035C (POL12)
+               00240 Pyrimidine metabolism
+                YBL035C (POL12)
+             Genetic Information Processing
+              Replication and repair
+               03030 DNA replication
+                YBL035C (POL12)
+            DNA replication proteins [BR:sce03032]
+             Eukaryotic Type
+              DNA Replication Elongation Factors
+               DNA polymerase alpha / primase complex
+                YBL035C (POL12)
 POSITION    II:complement(151493..153610)
-MOTIF       Pfam: Pol_alpha_B_N DNA_pol_E_B
-DBLINKS     NCBI-GI: 6319436
+MOTIF       Pfam: Pol_alpha_B_N DNA_pol_E_B A1_Propeptide
+DBLINKS     NCBI-ProteinID: NP_009518
             NCBI-GeneID: 852245
             SGD: S000000131
-            MIPS: YBL035C
             UniProt: P38121
 STRUCTURE   PDB: 3FLO
 AASEQ       705

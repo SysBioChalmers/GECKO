@@ -1,15 +1,20 @@
 ENTRY       YMR237W           CDS       T00005
 NAME        BCH1
-DEFINITION  Bch1p
+DEFINITION  (RefSeq) exomer complex subunit
+ORTHOLOGY   K19881  Chs5-Arf1p-binding protein BUD7/BCH1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Exocytosis
+              Others
+               Exomer complex
+                YMR237W (BCH1)
 POSITION    XIII:743749..745923
-MOTIF       Pfam: ChAPs TPR_8 TPR_11
-DBLINKS     NCBI-GI: 6323893
+MOTIF       Pfam: ChAPs
+DBLINKS     NCBI-ProteinID: NP_013964
             NCBI-GeneID: 855277
             SGD: S000004850
-            MIPS: YMR237W
             UniProt: Q05029
-STRUCTURE   PDB: 4IN3
+STRUCTURE   PDB: 4IN3 4Q66
 AASEQ       724
             MLSQTSIPEVKEDVIGYALHQRRARVGQFQDLGPPDLITLIKSLPSSSSTTTATASANDN
             GATSNINGQDPTTIVTELHSHDKLKGQIGTFFYCMGIDTSDPTSITIFAKKITDLFLDTP

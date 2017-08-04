@@ -1,18 +1,22 @@
 ENTRY       YDL155W           CDS       T00005
 NAME        CLB3
-DEFINITION  Clb3p
+DEFINITION  (RefSeq) B-type cyclin CLB3
 ORTHOLOGY   K06659  G2/mitotic-specific cyclin 3/4
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
             sce04113  Meiosis - yeast
-CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
-            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YDL155W (CLB3)
+               04113 Meiosis - yeast
+                YDL155W (CLB3)
 POSITION    IV:176773..178056
-MOTIF       Pfam: Cyclin_N Cyclin_C
-DBLINKS     NCBI-GI: 6320046
+MOTIF       Pfam: Cyclin_N Cyclin_C Cwf_Cwc_15
+DBLINKS     NCBI-ProteinID: NP_010126
             NCBI-GeneID: 851400
             SGD: S000002314
-            MIPS: YDL155W
             UniProt: P24870
 AASEQ       427
             MHHNSQSLSSGHIRSPEDENVAPIGNLKHRTGSLSHISSAHPRVALSDVTNIVATNSSNN

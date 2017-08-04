@@ -1,13 +1,12 @@
 ENTRY       YAL067C           CDS       T00005
 NAME        SEO1
-DEFINITION  Seo1p
+DEFINITION  (RefSeq) putative permease SEO1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    I:complement(7235..9016)
 MOTIF       Pfam: MFS_1
-DBLINKS     NCBI-GI: 6319250
+DBLINKS     NCBI-ProteinID: NP_009333
             NCBI-GeneID: 851230
             SGD: S000000062
-            MIPS: YAL067C
             UniProt: P39709
 AASEQ       593
             MYSIVKEIIVDPYKRLKWGFIPVKRQVEDLPDDLNSTEIVTISNSIQSHETAENFITTTS

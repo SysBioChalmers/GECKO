@@ -1,14 +1,18 @@
 ENTRY       YGR103W           CDS       T00005
 NAME        NOP7, YPH1
-DEFINITION  Nop7p
+DEFINITION  (RefSeq) mRNA-binding ribosome synthesis protein NOP7
 ORTHOLOGY   K14843  pescadillo
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               Other pre-60S particles
+                YGR103W (NOP7)
 POSITION    VII:695417..697234
-MOTIF       Pfam: Pescadillo_N BRCT
-DBLINKS     NCBI-GI: 6321540
+MOTIF       Pfam: Pescadillo_N BRCT_2 BRCT LIG3_BRCT
+DBLINKS     NCBI-ProteinID: NP_011617
             NCBI-GeneID: 852995
             SGD: S000003335
-            MIPS: YGR103W
             UniProt: P53261
 AASEQ       605
             MRIKKKNTRGNARNFITRSQAVRKLQVSLADFRRLCIFKGIYPREPRNKKKANKGSTAPT

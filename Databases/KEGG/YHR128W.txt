@@ -1,17 +1,26 @@
 ENTRY       YHR128W           CDS       T00005
 NAME        FUR1
-DEFINITION  uracil phosphoribosyltransferase (EC:2.4.2.9)
+DEFINITION  (RefSeq) uracil phosphoribosyltransferase
 ORTHOLOGY   K00761  uracil phosphoribosyltransferase [EC:2.4.2.9]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00240  Pyrimidine metabolism
             sce01100  Metabolic pathways
-CLASS       Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Nucleotide metabolism
+               00240 Pyrimidine metabolism
+                YHR128W (FUR1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.4  Glycosyltransferases
+               2.4.2  Pentosyltransferases
+                2.4.2.9  uracil phosphoribosyltransferase
+                 YHR128W (FUR1)
 POSITION    VIII:362115..362765
 MOTIF       Pfam: UPRTase Pribosyltran Flu_C_NS1
-DBLINKS     NCBI-GI: 37362660
+DBLINKS     NCBI-ProteinID: NP_011996
             NCBI-GeneID: 856529
             SGD: S000001170
-            MIPS: YHR128W
             UniProt: P18562
 AASEQ       216
             MSSEPFKNVYLLPQTNQLLGLYTIIRNKNTTRPDFIFYSDRIIRLLVEEGLNHLPVQKQI

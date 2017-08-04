@@ -1,16 +1,37 @@
 ENTRY       YKL209C           CDS       T00005
 NAME        STE6
-DEFINITION  ATP-binding cassette alpha-factor transporter STE6 (EC:3.6.3.48)
-ORTHOLOGY   K05658  ATP-binding cassette, subfamily B (MDR/TAP), member 1
+DEFINITION  (RefSeq) ATP-binding cassette A-factor transporter STE6
+ORTHOLOGY   K05658  ATP-binding cassette, subfamily B (MDR/TAP), member 1 [EC:3.6.3.44]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce02010  ABC transporters
-CLASS       Environmental Information Processing; Membrane transport; ABC transporters [PATH:sce02010]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Membrane transport
+               02010 ABC transporters
+                YKL209C (STE6)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.3  Acting on acid anhydrides to catalyse transmembrane movement of substances
+                3.6.3.44  xenobiotic-transporting ATPase
+                 YKL209C (STE6)
+            Transporters [BR:sce02000]
+             ABC Transporters, Eukaryotic Type
+              ABCB (MDR/TAP) subfamily
+               ABCB1, 4, 5 subgroups
+                YKL209C (STE6)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of other body fluids (saliva and urine)
+               YKL209C (STE6)
+            Cellular antigens [BR:sce04090]
+             Proteins
+              YKL209C (STE6)
 POSITION    XI:complement(42423..46295)
-MOTIF       Pfam: ABC_membrane ABC_tran SMC_N DUF258 AAA_17 ABC_ATPase AAA_29 AAA_22 AAA_16 AAA_21 AAA_10 AAA_5 AAA_25 MMR_HSR1 AAA_18 DUF87 ATP-synt_ab MobB AAA_33 DUF3987 Zeta_toxin AAA_23 AAA_13
-DBLINKS     NCBI-GI: 6322640
+MOTIF       Pfam: ABC_membrane ABC_tran SMC_N RsgA_GTPase AAA_22 AAA_29 ABC_ATPase AAA_16 AAA_24 AAA_5 MMR_HSR1 AAA_15 AAA_18 DUF87 AAA_33 AAA_23 DUF3987 PEPCK_ATP P4Ha_N Zeta_toxin Abi cobW AAA_21
+DBLINKS     NCBI-ProteinID: NP_012713
             NCBI-GeneID: 853671
             SGD: S000001692
-            MIPS: YKL209C
             UniProt: P12866
 AASEQ       1290
             MNFLSFKTTKHYHIFRYVNIRNDYRLLMIMIIGTVATGLVPAITSILTGRVFDLLSVFVA

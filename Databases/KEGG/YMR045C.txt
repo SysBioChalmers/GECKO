@@ -1,12 +1,11 @@
 ENTRY       YMR045C           CDS       T00005
-DEFINITION  gag-pol fusion protein (EC:2.7.7.49 2.7.7.7 3.4.23.- 3.1.26.4)
+DEFINITION  (RefSeq) gag-pol fusion protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:complement(join(357359..361321,361323..362627))
-MOTIF       Pfam: TYA RVT_2 rve UBN2 gag_pre-integrs
-DBLINKS     NCBI-GI: 6323688
+MOTIF       Pfam: TYA RVT_2 rve gag_pre-integrs Retrotran_gag_2
+DBLINKS     NCBI-ProteinID: NP_013759
             NCBI-GeneID: 855062
             SGD: S000004648
-            MIPS: YMR045C
             UniProt: Q04214
 AASEQ       1755
             MESQQLSQHSPISHGSACASVTSKEVQTTQDPLDISASKTEECEKVSTQANSQQPTTPLS

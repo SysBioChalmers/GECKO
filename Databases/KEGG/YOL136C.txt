@@ -1,16 +1,25 @@
 ENTRY       YOL136C           CDS       T00005
 NAME        PFK27
-DEFINITION  Pfk27p (EC:2.7.1.105)
+DEFINITION  (RefSeq) 6-phosphofructo-2-kinase
 ORTHOLOGY   K00900  6-phosphofructo-2-kinase [EC:2.7.1.105]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00051  Fructose and mannose metabolism
-CLASS       Metabolism; Carbohydrate metabolism; Fructose and mannose metabolism [PATH:sce00051]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Carbohydrate metabolism
+               00051 Fructose and mannose metabolism
+                YOL136C (PFK27)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.1  Phosphotransferases with an alcohol group as acceptor
+                2.7.1.105  6-phosphofructo-2-kinase
+                 YOL136C (PFK27)
 POSITION    XV:complement(67561..68754)
-MOTIF       Pfam: 6PF2K AAA_18 KTI12 AAA_33 AAA_17 DUF234
-DBLINKS     NCBI-GI: 6324436
+MOTIF       Pfam: 6PF2K AAA_18 KTI12 AAA_33
+DBLINKS     NCBI-ProteinID: NP_014505
             NCBI-GeneID: 853984
             SGD: S000005496
-            MIPS: YOL136C
             UniProt: Q12471
 AASEQ       397
             MGGSSDSDSHDGYLTSEYNSSNSLFSLNTGNSYSSASLDRATLDCQDSVFFDNHKSSLLS

@@ -1,14 +1,18 @@
 ENTRY       YOR252W           CDS       T00005
 NAME        TMA16
-DEFINITION  Tma16p
+DEFINITION  (RefSeq) Tma16p
 ORTHOLOGY   K14860  translation machinery-associated protein 16
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               Other pre-60S particles
+                YOR252W (TMA16)
 POSITION    XV:803667..804203
-MOTIF       Pfam: DUF2962 Viral_DNA_bi DUF4100
-DBLINKS     NCBI-GI: 84626312
+MOTIF       Pfam: Tma16
+DBLINKS     NCBI-ProteinID: NP_014895
             NCBI-GeneID: 854426
             SGD: S000005778
-            MIPS: YOR252W
             UniProt: Q08687
 STRUCTURE   PDB: 2KKM
 AASEQ       178

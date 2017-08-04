@@ -1,12 +1,11 @@
 ENTRY       YNL011C           CDS       T00005
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) hypothetical protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIV:complement(611836..613170)
-MOTIF       Pfam: UPF0052
-DBLINKS     NCBI-GI: 6324317
+MOTIF       Pfam: UPF0052 DUF3842
+DBLINKS     NCBI-ProteinID: NP_014387
             NCBI-GeneID: 855721
             SGD: S000004956
-            MIPS: YNL011C
             UniProt: P53980
 AASEQ       444
             MNVVVCSGGTATNSLTPCFSNISILKGHELTYILPISDNGGSTSEILRIVGGPAIGDIRS

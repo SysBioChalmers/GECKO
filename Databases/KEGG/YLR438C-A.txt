@@ -1,22 +1,45 @@
 ENTRY       YLR438C-A         CDS       T00005
 NAME        LSM3, SMX4, USS2
-DEFINITION  Lsm3p
+DEFINITION  (RefSeq) U4/U6-U5 snRNP complex subunit LSM3
 ORTHOLOGY   K12622  U6 snRNA-associated Sm-like protein LSm3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03018  RNA degradation
             sce03040  Spliceosome
 MODULE      sce_M00396  Lsm 2-8 complex
             sce_M00397  Lsm 1-7 complex
-CLASS       Genetic Information Processing; Transcription; Spliceosome [PATH:sce03040]
-            Genetic Information Processing; Folding, sorting and degradation; RNA degradation [PATH:sce03018]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03040 Spliceosome
+                YLR438C-A (LSM3)
+              Folding, sorting and degradation
+               03018 RNA degradation
+                YLR438C-A (LSM3)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               mRNA cycle factors
+                P-body specific factors
+                 YLR438C-A (LSM3)
+              mRNA degradation factors
+               5'-3' decay
+                Lsm complex
+                 YLR438C-A (LSM3)
+            Spliceosome [BR:sce03041]
+             Complex B
+              U4/U6.U5 tri-snRNP components
+               LSm proteins
+                YLR438C-A (LSM3)
+             Complex C
+              U2 snRNP components
+                YLR438C-A (LSM3)
 POSITION    XII:complement(1013909..1014178)
-MOTIF       Pfam: LSM
-DBLINKS     NCBI-GI: 398366287
+MOTIF       Pfam: LSM DUF150_C
+DBLINKS     NCBI-ProteinID: NP_013543
             NCBI-GeneID: 851159
             SGD: S000006434
-            MIPS: YLR438C-A
             UniProt: P57743
-STRUCTURE   PDB: 4C92 3BW1 4M7D 4M7A 4M78 4M75 4M77 4N0A 4C8Q
+STRUCTURE   PDB: 4C92 3BW1 4M7D 4M7A 4M78 4M75 4M77 4N0A 5GAN 4C8Q 3JCM
 AASEQ       89
             METPLDLLKLNLDERVYIKLRGARTLVGTLQAFDSHCNIVLSDAVETIYQLNNEELSESE
             RRCEMVFIRGDTVTLISTPSEDDDGAVEI

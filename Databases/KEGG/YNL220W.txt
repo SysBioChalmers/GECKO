@@ -1,20 +1,31 @@
 ENTRY       YNL220W           CDS       T00005
 NAME        ADE12, BRA9
-DEFINITION  adenylosuccinate synthase (EC:6.3.4.4)
+DEFINITION  (RefSeq) adenylosuccinate synthase
 ORTHOLOGY   K01939  adenylosuccinate synthase [EC:6.3.4.4]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00230  Purine metabolism
             sce00250  Alanine, aspartate and glutamate metabolism
             sce01100  Metabolic pathways
 MODULE      sce_M00049  Adenine ribonucleotide biosynthesis, IMP => ADP,ATP
-CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
-            Metabolism; Amino acid metabolism; Alanine, aspartate and glutamate metabolism [PATH:sce00250]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Nucleotide metabolism
+               00230 Purine metabolism
+                YNL220W (ADE12)
+              Amino acid metabolism
+               00250 Alanine, aspartate and glutamate metabolism
+                YNL220W (ADE12)
+            Enzymes [BR:sce01000]
+             6. Ligases
+              6.3  Forming carbon-nitrogen bonds
+               6.3.4  Other carbon-nitrogen ligases
+                6.3.4.4  adenylosuccinate synthase
+                 YNL220W (ADE12)
 POSITION    XIV:234413..235714
 MOTIF       Pfam: Adenylsucc_synt
-DBLINKS     NCBI-GI: 6324109
+DBLINKS     NCBI-ProteinID: NP_014179
             NCBI-GeneID: 855501
             SGD: S000005164
-            MIPS: YNL220W
             UniProt: P80210
 AASEQ       433
             MVNVVLGSQWGDEGKGKLVDLLVGKYDIVARCAGGNNAGHTIVVDGVKYDFHMLPSGLVN

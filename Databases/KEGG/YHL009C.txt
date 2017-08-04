@@ -1,13 +1,18 @@
 ENTRY       YHL009C           CDS       T00005
 NAME        YAP3
-DEFINITION  Yap3p
+DEFINITION  (RefSeq) Yap3p
+ORTHOLOGY   K09043  AP-1-like transcription factor
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription factors [BR:sce03000]
+             Eukaryotic Type
+              Basic leucine zipper (bZIP)
+               AP-1(-like) components, Fungal regulators
+                YHL009C (YAP3)
 POSITION    VIII:complement(84068..85060)
-MOTIF       Pfam: bZIP_1 bZIP_2 DUF972 V_ATPase_I Glutaredoxin2_C MgsA_C
-DBLINKS     NCBI-GI: 6321778
+MOTIF       Pfam: bZIP_1 bZIP_2 RIC3 TPR_MLP1_2 DUF349 WDCP
+DBLINKS     NCBI-ProteinID: NP_011854
             NCBI-GeneID: 856377
             SGD: S000001001
-            MIPS: YHL009C
             UniProt: P38749
 AASEQ       330
             MTPSNMDDNTSGFMKFINPQCQEEDCCIRNSLFQEDSKCIKQQPDLLSEQTAPFPILEDQ

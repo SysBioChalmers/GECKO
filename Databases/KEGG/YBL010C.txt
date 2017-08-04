@@ -1,12 +1,11 @@
 ENTRY       YBL010C           CDS       T00005
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) hypothetical protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    II:complement(206107..206949)
-MOTIF       Pfam: HeLo
-DBLINKS     NCBI-GI: 6319461
+MOTIF       Pfam: DUF5102 YnfE
+DBLINKS     NCBI-ProteinID: NP_009543
             NCBI-GeneID: 852273
             SGD: S000000106
-            MIPS: YBL010C
             UniProt: P32788
 AASEQ       280
             MSDRDQIEPVTNALDAESDSSDDFGNFSDASVENDLYNQNSTLTTSSESVVDNCLNKILP

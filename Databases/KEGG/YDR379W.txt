@@ -1,13 +1,19 @@
 ENTRY       YDR379W           CDS       T00005
 NAME        RGA2
-DEFINITION  Rga2p
+DEFINITION  (RefSeq) Rga2p
+ORTHOLOGY   K19839  Rho-type GTPase-activating protein 1/2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04011  MAPK signaling pathway - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YDR379W (RGA2)
 POSITION    IV:1230167..1233196
 MOTIF       Pfam: RhoGAP LIM
-DBLINKS     NCBI-GI: 6320587
+DBLINKS     NCBI-ProteinID: NP_010667
             NCBI-GeneID: 851985
             SGD: S000002787
-            MIPS: YDR379W
             UniProt: Q06407
 AASEQ       1009
             MSADPINDQSSLCVRCNKSIASSQVYELESKKWHDQCFTCYKCDKKLNADSDFLVLDIGT

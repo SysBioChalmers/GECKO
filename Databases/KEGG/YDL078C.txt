@@ -1,6 +1,6 @@
 ENTRY       YDL078C           CDS       T00005
 NAME        MDH3
-DEFINITION  malate dehydrogenase MDH3 (EC:1.1.1.37)
+DEFINITION  (RefSeq) malate dehydrogenase MDH3
 ORTHOLOGY   K00026  malate dehydrogenase [EC:1.1.1.37]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00020  Citrate cycle (TCA cycle)
@@ -9,21 +9,37 @@ PATHWAY     sce00020  Citrate cycle (TCA cycle)
             sce00630  Glyoxylate and dicarboxylate metabolism
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
+            sce01130  Biosynthesis of antibiotics
             sce01200  Carbon metabolism
 MODULE      sce_M00009  Citrate cycle (TCA cycle, Krebs cycle)
             sce_M00011  Citrate cycle, second carbon oxidation, 2-oxoglutarate => oxaloacetate
             sce_M00012  Glyoxylate cycle
-CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
-            Metabolism; Carbohydrate metabolism; Citrate cycle (TCA cycle) [PATH:sce00020]
-            Metabolism; Carbohydrate metabolism; Pyruvate metabolism [PATH:sce00620]
-            Metabolism; Carbohydrate metabolism; Glyoxylate and dicarboxylate metabolism [PATH:sce00630]
-            Metabolism; Amino acid metabolism; Cysteine and methionine metabolism [PATH:sce00270]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01200 Carbon metabolism
+                YDL078C (MDH3)
+              Carbohydrate metabolism
+               00020 Citrate cycle (TCA cycle)
+                YDL078C (MDH3)
+               00620 Pyruvate metabolism
+                YDL078C (MDH3)
+               00630 Glyoxylate and dicarboxylate metabolism
+                YDL078C (MDH3)
+              Amino acid metabolism
+               00270 Cysteine and methionine metabolism
+                YDL078C (MDH3)
+            Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.1  Acting on the CH-OH group of donors
+               1.1.1  With NAD+ or NADP+ as acceptor
+                1.1.1.37  malate dehydrogenase
+                 YDL078C (MDH3)
 POSITION    IV:complement(315357..316388)
 MOTIF       Pfam: Ldh_1_C Ldh_1_N Semialdhyde_dh 3Beta_HSD
-DBLINKS     NCBI-GI: 6320125
+DBLINKS     NCBI-ProteinID: NP_010205
             NCBI-GeneID: 851481
             SGD: S000002236
-            MIPS: YDL078C
             UniProt: P32419
 AASEQ       343
             MVKVAILGASGGVGQPLSLLLKLSPYVSELALYDIRAAEGIGKDLSHINTNSSCVGYDKD

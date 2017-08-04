@@ -1,14 +1,19 @@
 ENTRY       YGL006W           CDS       T00005
 NAME        PMC1
-DEFINITION  calcium-transporting ATPase PMC1 (EC:3.6.3.8)
+DEFINITION  (RefSeq) calcium-transporting ATPase PMC1
 ORTHOLOGY   K01537  Ca2+-transporting ATPase [EC:3.6.3.8]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.3  Acting on acid anhydrides to catalyse transmembrane movement of substances
+                3.6.3.8  Ca2+-transporting ATPase
+                 YGL006W (PMC1)
 POSITION    VII:485921..489442
-MOTIF       Pfam: E1-E2_ATPase Cation_ATPase_C Hydrolase Hydrolase_like2 HAD Cation_ATPase_N Hydrolase_3
-DBLINKS     NCBI-GI: 6321432
+MOTIF       Pfam: Cation_ATPase_C E1-E2_ATPase Cation_ATPase Hydrolase Cation_ATPase_N Hydrolase_3 NfeD
+DBLINKS     NCBI-ProteinID: NP_011509
             NCBI-GeneID: 852878
             SGD: S000002974
-            MIPS: YGL006W
             UniProt: P38929
 AASEQ       1173
             MSRQDENSALLANNENNKPSYTGNENGVYDNFKLSKSQLSDLHNPKSIRSFVRLFGYESN

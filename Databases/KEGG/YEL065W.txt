@@ -1,14 +1,18 @@
 ENTRY       YEL065W           CDS       T00005
 NAME        SIT1, ARN3
-DEFINITION  Sit1p
+DEFINITION  (RefSeq) siderophore transporter
 ORTHOLOGY   K08197  MFS transporter, SIT family, siderophore-iron:H+ symporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Major Facilitator Superfamily (MFS)
+              Metal transporters
+               Siderophore-iron transporter (SIT) [TC:2.A.1.16]
+                YEL065W (SIT1)
 POSITION    V:27657..29543
 MOTIF       Pfam: MFS_1 Sugar_tr
-DBLINKS     NCBI-GI: 398364221
+DBLINKS     NCBI-ProteinID: NP_010849
             NCBI-GeneID: 856644
             SGD: S000000791
-            MIPS: YEL065W
             UniProt: P39980
 AASEQ       628
             MDPGIANHTLPEEFEEVVVPEMLEKEVGAKVDVKPTLTTSSPAPSYIELIDPGVHNIEIY

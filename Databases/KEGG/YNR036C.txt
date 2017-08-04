@@ -1,16 +1,28 @@
 ENTRY       YNR036C           CDS       T00005
 NAME        MRPS12
-DEFINITION  putative mitochondrial 37S ribosomal protein MRPS12
+DEFINITION  (RefSeq) putative mitochondrial 37S ribosomal protein MRPS12
 ORTHOLOGY   K02950  small subunit ribosomal protein S12
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03010  Ribosome
-CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03010 Ribosome
+                YNR036C (MRPS12)
+            Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Mitochondria/ Chloroplast
+               Small subunit
+                YNR036C (MRPS12)
+              Bacteria
+                YNR036C (MRPS12)
+              Archaea
+                YNR036C (MRPS12)
 POSITION    XIV:complement(694361..694822)
 MOTIF       Pfam: Ribosom_S12_S23 MFS_3
-DBLINKS     NCBI-GI: 6324364
+DBLINKS     NCBI-ProteinID: NP_014434
             NCBI-GeneID: 855772
             SGD: S000005319
-            MIPS: YNR036C
             UniProt: P53732
 AASEQ       153
             MLSRFMSNTWCTPLRQAQRLFSSTTTMQATLNQIKRGSGPPRRKKISTAPQLDQCPQRKG

@@ -1,18 +1,28 @@
 ENTRY       YBL092W           CDS       T00005
 NAME        RPL32
-DEFINITION  ribosomal 60S subunit protein L32
+DEFINITION  (RefSeq) ribosomal 60S subunit protein L32
 ORTHOLOGY   K02912  large subunit ribosomal protein L32e
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03010  Ribosome
-CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+MODULE      sce_M00177  Ribosome, eukaryotes
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03010 Ribosome
+                YBL092W (RPL32)
+            Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Eukaryotes
+               Large subunit
+                YBL092W (RPL32)
+              Archaea
+                YBL092W (RPL32)
 POSITION    II:45978..46370
 MOTIF       Pfam: Ribosomal_L32e DUF3437
-DBLINKS     NCBI-GI: 6319378
+DBLINKS     NCBI-ProteinID: NP_009460
             NCBI-GeneID: 852185
             SGD: S000000188
-            MIPS: YBL092W
             UniProt: P38061
-STRUCTURE   PDB: 3U5E 3U5I 3O58 3O5H 4BYN 4BYU 4B6A 3IZS 1S1I
 AASEQ       130
             MASLPHPKIVKKHTKKFKRHHSDRYHRVAENWRKQKGIDSVVRRRFRGNISQPKIGYGSN
             KKTKFLSPSGHKTFLVANVKDLETLTMHTKTYAAEIAHNISAKNRVVILARAKALGIKVT

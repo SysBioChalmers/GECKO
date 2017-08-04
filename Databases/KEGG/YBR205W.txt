@@ -1,16 +1,29 @@
 ENTRY       YBR205W           CDS       T00005
 NAME        KTR3
-DEFINITION  Ktr3p (EC:2.4.1.-)
+DEFINITION  (RefSeq) mannosyltransferase KTR3
 ORTHOLOGY   K10967  alpha 1,2-mannosyltransferase [EC:2.4.1.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00514  Other types of O-glycan biosynthesis
-CLASS       Metabolism; Glycan biosynthesis and metabolism; Other types of O-glycan biosynthesis [PATH:sce00514]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Glycan biosynthesis and metabolism
+               00514 Other types of O-glycan biosynthesis
+                YBR205W (KTR3)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.4  Glycosyltransferases
+               2.4.1  Hexosyltransferases
+                2.4.1.-  
+                 YBR205W (KTR3)
+            Glycosyltransferases [BR:sce01003]
+             Glycan extension
+              Yeast mannan chain
+               YBR205W (KTR3)
 POSITION    II:633622..634836
 MOTIF       Pfam: Glyco_transf_15
-DBLINKS     NCBI-GI: 398365497
+DBLINKS     NCBI-ProteinID: NP_009764
             NCBI-GeneID: 852504
             SGD: S000000409
-            MIPS: YBR205W
             UniProt: P38130
 AASEQ       404
             MSVHHKKKLMPKSALLIRKYQKGIRSSFIGLIIVLSFLFFMSGSRSPEVPIAQGTSVSRV

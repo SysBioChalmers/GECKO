@@ -1,13 +1,19 @@
 ENTRY       YPL188W           CDS       T00005
 NAME        POS5
-DEFINITION  Pos5p (EC:2.7.1.86)
+DEFINITION  (RefSeq) NADH kinase
+ORTHOLOGY   K19386  NADH kinase [EC:2.7.1.86]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.1  Phosphotransferases with an alcohol group as acceptor
+                2.7.1.86  NADH kinase
+                 YPL188W (POS5)
 POSITION    XVI:191406..192650
 MOTIF       Pfam: NAD_kinase DAGK_cat
-DBLINKS     NCBI-GI: 6325068
+DBLINKS     NCBI-ProteinID: NP_015136
             NCBI-GeneID: 855913
             SGD: S000006109
-            MIPS: YPL188W
             UniProt: Q06892
 STRUCTURE   PDB: 3AFO
 AASEQ       414

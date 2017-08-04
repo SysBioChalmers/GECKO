@@ -1,14 +1,19 @@
 ENTRY       YCR081W           CDS       T00005
 NAME        SRB8, GIG1, MED12, NUT6, SSN5, YCR080W
-DEFINITION  Srb8p
+DEFINITION  (RefSeq) Srb8p
 ORTHOLOGY   K15163  mediator of RNA polymerase II transcription subunit 12, fungi type
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Mediator complex
+                CDK-module
+                 YCR081W (SRB8)
 POSITION    III:254371..258654
-MOTIF       Pfam: Med12
-DBLINKS     NCBI-GI: 6319923
+MOTIF       Pfam: Med12 YqzH
+DBLINKS     NCBI-ProteinID: NP_010004
             NCBI-GeneID: 850442
             SGD: S000000677
-            MIPS: YCR081W
             UniProt: P25648
 AASEQ       1427
             MNNGSGRYLLTPPDDLHPYVPSSKPQEQVYPDFKPWEHTAAEDQILANFVAKGFYHTPMV

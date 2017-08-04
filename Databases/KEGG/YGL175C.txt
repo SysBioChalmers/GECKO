@@ -1,12 +1,11 @@
 ENTRY       YGL175C           CDS       T00005
 NAME        SAE2, COM1
-DEFINITION  Sae2p (EC:3.1.-.-)
+DEFINITION  (RefSeq) ssDNA endodeoxyribonuclease SAE2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:complement(173285..174322)
-DBLINKS     NCBI-GI: 6321263
+DBLINKS     NCBI-ProteinID: NP_011340
             NCBI-GeneID: 852700
             SGD: S000003143
-            MIPS: YGL175C
             UniProt: P46946
 AASEQ       345
             MVTGEENVYLKSSLSILKELSLDELLNVQYDVTTLIAKRVQALQNRNKCVLEEPNSKLAE

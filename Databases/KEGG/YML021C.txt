@@ -1,16 +1,33 @@
 ENTRY       YML021C           CDS       T00005
 NAME        UNG1
-DEFINITION  Ung1p (EC:3.2.2.27 3.2.2.-)
+DEFINITION  (RefSeq) uracil-DNA glycosylase
 ORTHOLOGY   K03648  uracil-DNA glycosylase [EC:3.2.2.27]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03410  Base excision repair
-CLASS       Genetic Information Processing; Replication and repair; Base excision repair [PATH:sce03410]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Replication and repair
+               03410 Base excision repair
+                YML021C (UNG1)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.2  Glycosylases
+               3.2.2  Hydrolysing N-glycosyl compounds
+                3.2.2.27  uracil-DNA glycosylase
+                 YML021C (UNG1)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              SSBR (single strand breaks repair)
+               BER (base exicision repair)
+                DNA glycosylases
+                 YML021C (UNG1)
+             Prokaryotic Type
+                 YML021C (UNG1)
 POSITION    XIII:complement(229734..230813)
 MOTIF       Pfam: UDG
-DBLINKS     NCBI-GI: 6323620
+DBLINKS     NCBI-ProteinID: NP_013691
             NCBI-GeneID: 854987
             SGD: S000004483
-            MIPS: YML021C
             UniProt: P12887
 AASEQ       359
             MWCMRRLPTNSVMTVARKRKQTTIEDFFGTKKSTNEAPNKKGKSGATFMTITNGAAIKTE

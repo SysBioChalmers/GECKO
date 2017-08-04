@@ -1,16 +1,25 @@
 ENTRY       YJL062W           CDS       T00005
 NAME        LAS21, GPI7
-DEFINITION  Las21p (EC:2.-.-.-)
+DEFINITION  (RefSeq) mannose-ethanolamine phosphotransferase LAS21
 ORTHOLOGY   K05310  ethanolaminephosphotransferase [EC:2.7.-.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
-PATHWAY     sce00563  Glycosylphosphatidylinositol(GPI)-anchor biosynthesis
-CLASS       Metabolism; Glycan biosynthesis and metabolism; Glycosylphosphatidylinositol(GPI)-anchor biosynthesis [PATH:sce00563]
+PATHWAY     sce00563  Glycosylphosphatidylinositol (GPI)-anchor biosynthesis
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Glycan biosynthesis and metabolism
+               00563 Glycosylphosphatidylinositol(GPI)-anchor biosynthesis
+                YJL062W (LAS21)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.-  Transferring phosphorus-containing groups
+                2.7.-.-  
+                 YJL062W (LAS21)
 POSITION    X:317284..319776
 MOTIF       Pfam: Phosphodiest Sulfatase Metalloenzyme
-DBLINKS     NCBI-GI: 6322399
+DBLINKS     NCBI-ProteinID: NP_012473
             NCBI-GeneID: 853384
             SGD: S000003598
-            MIPS: YJL062W
             UniProt: P40367
 AASEQ       830
             MNLKQFTCLSCAQLLAILLFIFAFFPRKIVLTGISKQDPDQDRDLQRDRPFQKLVFVIID

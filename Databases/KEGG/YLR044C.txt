@@ -1,18 +1,28 @@
 ENTRY       YLR044C           CDS       T00005
 NAME        PDC1
-DEFINITION  indolepyruvate decarboxylase 1 (EC:4.1.1.74 4.1.1.72 4.1.1.- 4.1.1.1)
+DEFINITION  (RefSeq) indolepyruvate decarboxylase 1
 ORTHOLOGY   K01568  pyruvate decarboxylase [EC:4.1.1.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00010  Glycolysis / Gluconeogenesis
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
-CLASS       Metabolism; Carbohydrate metabolism; Glycolysis / Gluconeogenesis [PATH:sce00010]
+            sce01130  Biosynthesis of antibiotics
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Carbohydrate metabolism
+               00010 Glycolysis / Gluconeogenesis
+                YLR044C (PDC1)
+            Enzymes [BR:sce01000]
+             4. Lyases
+              4.1  Carbon-carbon lyases
+               4.1.1  Carboxy-lyases
+                4.1.1.1  pyruvate decarboxylase
+                 YLR044C (PDC1)
 POSITION    XII:complement(232390..234081)
 MOTIF       Pfam: TPP_enzyme_M TPP_enzyme_N TPP_enzyme_C
-DBLINKS     NCBI-GI: 6323073
+DBLINKS     NCBI-ProteinID: NP_013145
             NCBI-GeneID: 850733
             SGD: S000004034
-            MIPS: YLR044C
             UniProt: P06169
 STRUCTURE   PDB: 2VK8 2W93 2VK1 1PVD 1PYD
 AASEQ       563

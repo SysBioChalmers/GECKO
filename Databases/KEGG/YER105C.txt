@@ -1,13 +1,25 @@
 ENTRY       YER105C           CDS       T00005
 NAME        NUP157
-DEFINITION  Nup157p
+DEFINITION  (RefSeq) Nup157p
+ORTHOLOGY   K14312  nuclear pore complex protein Nup155
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03013  RNA transport
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03013 RNA transport
+                YER105C (NUP157)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Transport factors
+                Nuclear pore complex
+                 YER105C (NUP157)
 POSITION    V:complement(367838..372013)
-MOTIF       Pfam: Nucleoporin_C Nucleoporin_N
-DBLINKS     NCBI-GI: 6320952
+MOTIF       Pfam: Nucleoporin_N Nucleoporin_C
+DBLINKS     NCBI-ProteinID: NP_011031
             NCBI-GeneID: 856842
             SGD: S000000907
-            MIPS: YER105C
             UniProt: P40064
 STRUCTURE   PDB: 4MHC
 AASEQ       1391

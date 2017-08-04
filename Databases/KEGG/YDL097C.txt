@@ -1,19 +1,28 @@
 ENTRY       YDL097C           CDS       T00005
 NAME        RPN6, NAS4
-DEFINITION  proteasome regulatory particle lid subunit RPN6
+DEFINITION  (RefSeq) proteasome regulatory particle lid subunit RPN6
 ORTHOLOGY   K03036  26S proteasome regulatory subunit N6
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03050  Proteasome
 MODULE      sce_M00341  Proteasome, 19S regulatory particle (PA700)
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Proteasome [PATH:sce03050]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               03050 Proteasome
+                YDL097C (RPN6)
+            Proteasome [BR:sce03051]
+             Eukaryotic proteasome
+              Regulatory particles
+               PA700 (19S proteasome)
+                non-ATPase subunits
+                 YDL097C (RPN6)
 POSITION    IV:complement(285391..286695)
-MOTIF       Pfam: PCI TPR_15 TPR_16 DDRGK TPR_12
-DBLINKS     NCBI-GI: 6320106
+MOTIF       Pfam: PCI TPR_15 TPR_16 TPR_12 DDRGK
+DBLINKS     NCBI-ProteinID: NP_010186
             NCBI-GeneID: 851461
             SGD: S000002255
-            MIPS: YDL097C
             UniProt: Q12377
-STRUCTURE   PDB: 4B4T 4C0V 3J47
+STRUCTURE   PDB: 3JCK 5MPD 5MPE 4CR2 4CR4 4CR3 5A5B 3J47
 AASEQ       434
             MSLPGSKLEEARRLVNEKQYNEAEQVYLSLLDKDSSQSSAAAGASVDDKRRNEQETSILE
             LGQLYVTMGAKDKLREFIPHSTEYMMQFAKSKTVKVLKTLIEKFEQVPDSLDDQIFVCEK

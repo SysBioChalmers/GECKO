@@ -1,13 +1,18 @@
 ENTRY       YML067C           CDS       T00005
 NAME        ERV41
-DEFINITION  Erv41p
+DEFINITION  (RefSeq) Erv41p
+ORTHOLOGY   K20366  endoplasmic reticulum-Golgi intermediate compartment protein 2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endoplasmic reticulum (ER) - Golgi transport
+              Forward pathways
+               ER-Golgi intermediate compartment (ERGIC) proteins
+                YML067C (ERV41)
 POSITION    XIII:complement(join(139063..140090,140184..140214))
 MOTIF       Pfam: COPIIcoated_ERV ERGIC_N DUF3980
-DBLINKS     NCBI-GI: 6323573
+DBLINKS     NCBI-ProteinID: NP_013644
             NCBI-GeneID: 854935
             SGD: S000004532
-            MIPS: YML067C
             UniProt: Q04651
 STRUCTURE   PDB: 3ZLC
 AASEQ       352

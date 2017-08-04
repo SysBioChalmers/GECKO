@@ -1,12 +1,12 @@
 ENTRY       YBR165W           CDS       T00005
 NAME        UBS1
-DEFINITION  Ubs1p
+DEFINITION  (RefSeq) Ubs1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    II:568852..569685
-DBLINKS     NCBI-GI: 6319642
+MOTIF       Pfam: Roc
+DBLINKS     NCBI-ProteinID: NP_009724
             NCBI-GeneID: 852463
             SGD: S000000369
-            MIPS: YBR165W
             UniProt: P38290
 AASEQ       277
             MAYSLTRKLLKDWKYFMRHPEKTQGLFHVRPHDSDLHLWHVVMYEPRTSLEVYLLLYIGG

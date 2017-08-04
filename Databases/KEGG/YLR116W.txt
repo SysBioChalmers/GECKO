@@ -1,15 +1,20 @@
 ENTRY       YLR116W           CDS       T00005
 NAME        MSL5
-DEFINITION  Msl5p
+DEFINITION  (RefSeq) mRNA splicing protein MSL5
 ORTHOLOGY   K13095  splicing factor 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Spliceosome [BR:sce03041]
+             Complex A
+              Other components
+               Complex A specific factors
+                YLR116W (MSL5)
 POSITION    XII:380822..382252
-MOTIF       Pfam: zf-CCHC KH_1 KH_3 zf-CCHC_3 zf-CCHC_2 Prim_Zn_Ribbon
-DBLINKS     NCBI-GI: 6323145
+MOTIF       Pfam: SF1-HH KH_1 zf-CCHC zf-CCHC_3 zf-CCHC_2 Prim_Zn_Ribbon
+DBLINKS     NCBI-ProteinID: NP_013217
             NCBI-GeneID: 850807
             SGD: S000004106
-            MIPS: YLR116W
             UniProt: Q12186
+STRUCTURE   PDB: 4WAN 4WAL
 AASEQ       476
             MSFRRINSRYFENRKGSSMEEKKAKVPPNVNLSLWRKNTVESDVHRFNSLPSKISGALTR
             EQIYSYQVMFRIQEITIKLRTNDFVPPSRKNRSPSPPPVYDAQGKRTNTREQRYRKKLED

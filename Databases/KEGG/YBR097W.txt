@@ -1,18 +1,39 @@
 ENTRY       YBR097W           CDS       T00005
-NAME        VPS15, GRD8, VAC4, VPL19, VPS40
-DEFINITION  Vps15p (EC:2.7.11.1)
+NAME        VPS15, GRD8, VAC4, VPL19, VPS40, VPT15
+DEFINITION  (RefSeq) ubiquitin-binding serine/threonine protein kinase VPS15
 ORTHOLOGY   K08333  phosphoinositide-3-kinase, regulatory subunit 4 [EC:2.7.11.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
-PATHWAY     sce04140  Regulation of autophagy
-CLASS       Cellular Processes; Transport and catabolism; Regulation of autophagy [PATH:sce04140]
+PATHWAY     sce04136  Autophagy - other
+            sce04138  Autophagy - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04138 Autophagy - yeast
+                YBR097W (VPS15)
+               04136 Autophagy - other eukaryotes
+                YBR097W (VPS15)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.11  Protein-serine/threonine kinases
+                2.7.11.1  non-specific serine/threonine protein kinase
+                 YBR097W (VPS15)
+            Protein kinases [BR:sce01001]
+             Serine/threonine protein kinases: Other group
+              VPS15 family
+               YBR097W (VPS15)
+            Membrane trafficking [BR:sce04131]
+             Endocytosis
+              Rab GTPases and associated proteins
+               Rab associated proteins
+                YBR097W (VPS15)
 POSITION    II:436951..441315
-MOTIF       Pfam: Pkinase Pkinase_Tyr HEAT_2 WD40 Kinase-like APH
-DBLINKS     NCBI-GI: 330443447
+MOTIF       Pfam: Pkinase Pkinase_Tyr Kinase-like HEAT_2 NopRA1 WD40
+DBLINKS     NCBI-ProteinID: NP_009655
             NCBI-GeneID: 852394
             SGD: S000000301
-            MIPS: YBR097W
             UniProt: P22219
-STRUCTURE   PDB: 3GRE
+STRUCTURE   PDB: 3GRE 5DFZ 5KC2
 AASEQ       1454
             MGAQLSLVVQASPSIAIFSYIDVLEEVHYVSQLNSSRFLKTCKALDPNGEIVIKVFIKPK
             DQYSLRPFLQRIRAQSFKLGQLPHVLNYSKLIETNRAGYMIRQHLKNNLYDRLSLRPYLQ

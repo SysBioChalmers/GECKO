@@ -1,13 +1,12 @@
 ENTRY       YJR126C           CDS       T00005
 NAME        VPS70
-DEFINITION  Vps70p (EC:3.4.-.-)
+DEFINITION  (RefSeq) putative zinc metalloprotease
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    X:complement(656254..658689)
-MOTIF       Pfam: Peptidase_M28 TFR_dimer PA
-DBLINKS     NCBI-GI: 6322586
+MOTIF       Pfam: Peptidase_M28 TFR_dimer PA T4SS-DNA_transf
+DBLINKS     NCBI-ProteinID: NP_012660
             NCBI-GeneID: 853590
             SGD: S000003887
-            MIPS: YJR126C
             UniProt: P47161
 AASEQ       811
             MRMIQRERKREKEEGQLKERTVVNMADPDDNEAEATGLQQYSGETTRDDNEESMNDSFTL

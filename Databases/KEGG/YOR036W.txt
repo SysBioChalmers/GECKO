@@ -1,19 +1,14 @@
 ENTRY       YOR036W           CDS       T00005
 NAME        PEP12, VPL6, VPS6, VPT13
-DEFINITION  Pep12p
-ORTHOLOGY   K08488  syntaxin 7
+DEFINITION  (RefSeq) SNAP receptor PEP12
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
-PATHWAY     sce04130  SNARE interactions in vesicular transport
-            sce04145  Phagosome
-CLASS       Genetic Information Processing; Folding, sorting and degradation; SNARE interactions in vesicular transport [PATH:sce04130]
-            Cellular Processes; Transport and catabolism; Phagosome [PATH:sce04145]
 POSITION    XV:400348..401214
-MOTIF       Pfam: Syntaxin_2 SNARE Synaptobrevin Rogdi_lz Hemocyanin_M V-SNARE Sigma_reg_N DUF733
-DBLINKS     NCBI-GI: 6324610
+MOTIF       Pfam: Syntaxin_2 SNARE Syntaxin BLOC1_2 Synaptobrevin Use1 CEP209_CC5 FAM76
+DBLINKS     NCBI-ProteinID: NP_014679
             NCBI-GeneID: 854201
             SGD: S000005562
-            MIPS: YOR036W
             UniProt: P32854
+STRUCTURE   PDB: 4XTR
 AASEQ       288
             MSEDEFFGGDNEAVWNGSRFSDSPEFQTLKEEVAAELFEINGQISTLQQFTATLKSFIDR
             GDVSAKVVERINKRSVAKIEEIGGLIKKVNTSVKKMDAIEEASLDKTQIIAREKLVRDVS

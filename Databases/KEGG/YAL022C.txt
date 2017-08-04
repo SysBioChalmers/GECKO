@@ -1,14 +1,17 @@
 ENTRY       YAL022C           CDS       T00005
 NAME        FUN26
-DEFINITION  Fun26p
+DEFINITION  (RefSeq) nucleoside transmembrane transporter FUN26
 ORTHOLOGY   K15014  solute carrier family 29 (equilibrative nucleoside transporter), member 1/2/3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Solute Carrier Family (SLC)
+              SLC29: Facilitative nucleoside transporter
+               YAL022C (FUN26)
 POSITION    I:complement(108877..110430)
-MOTIF       Pfam: Nucleoside_tran
-DBLINKS     NCBI-GI: 6319297
+MOTIF       Pfam: Nucleoside_tran DUF2371 DUF5383
+DBLINKS     NCBI-ProteinID: NP_009380
             NCBI-GeneID: 851211
             SGD: S000000020
-            MIPS: YAL022C
             UniProt: P31381
 AASEQ       517
             MSTSADTDTIKKPILAVPEPALADTHSEEISRSGEEHESENNEHSDEEGDNYSEREQSVS

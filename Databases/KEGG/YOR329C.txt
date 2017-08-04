@@ -1,12 +1,12 @@
 ENTRY       YOR329C           CDS       T00005
-NAME        SCD5, FTB1
-DEFINITION  Scd5p
+NAME        SCD5, FTB1, SCD7
+DEFINITION  (RefSeq) Scd5p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:complement(936731..939349)
-DBLINKS     NCBI-GI: 398366267
+MOTIF       Pfam: Glu-tRNAGln
+DBLINKS     NCBI-ProteinID: NP_014974
             NCBI-GeneID: 854507
             SGD: S000005856
-            MIPS: YOR329C
             UniProt: P34758
 AASEQ       872
             MSFDWLNVPGLDLSSGDQAEKRPSNGLGPPSVSFDFGINTAAPHDSSFWDQGSRSHSDTT

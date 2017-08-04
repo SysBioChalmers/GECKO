@@ -1,13 +1,12 @@
 ENTRY       YGL131C           CDS       T00005
 NAME        SNT2
-DEFINITION  Snt2p
+DEFINITION  (RefSeq) DNA-binding E3 ubiquitin-protein ligase SNT2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:complement(261648..265859)
-MOTIF       Pfam: BAH PHD zf-HC5HC2H_2 PHD_2 C1_1
-DBLINKS     NCBI-GI: 6321307
+MOTIF       Pfam: BAH PHD zf-HC5HC2H_2 zf-HC5HC2H PHD_2 Myb_DNA-binding Prok-RING_1 C1_1 C1_2
+DBLINKS     NCBI-ProteinID: NP_011384
             NCBI-GeneID: 852746
             SGD: S000003099
-            MIPS: YGL131C
             UniProt: P53127
 AASEQ       1403
             MPKEEDFQLPRRREAAKNVNYNEMEIDTKLVQQIQIAEKSGAKTKGSNSQTPRNCKRTSN

@@ -1,17 +1,32 @@
 ENTRY       YIL030C           CDS       T00005
 NAME        SSM4, DOA10, KIS3
-DEFINITION  E3 ubiquitin-protein ligase SSM4 (EC:6.3.2.-)
-ORTHOLOGY   K10661  E3 ubiquitin-protein ligase MARCH6 [EC:6.3.2.19]
+DEFINITION  (RefSeq) E3 ubiquitin-protein ligase SSM4
+ORTHOLOGY   K10661  E3 ubiquitin-protein ligase MARCH6 [EC:2.3.2.27]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04141  Protein processing in endoplasmic reticulum
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Protein processing in endoplasmic reticulum [PATH:sce04141]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04141 Protein processing in endoplasmic reticulum
+                YIL030C (SSM4)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.3  Acyltransferases
+               2.3.2  Aminoacyltransferases
+                2.3.2.27  RING-type E3 ubiquitin transferase
+                 YIL030C (SSM4)
+            Ubiquitin system [BR:sce04121]
+             Ubiquitin ligases (E3)
+              Single Ring-finger type E3
+               March proteins
+                YIL030C (SSM4)
 POSITION    IX:complement(296050..300009)
 MOTIF       Pfam: RINGv zf-RING_2
-DBLINKS     NCBI-GI: 398364451
+DBLINKS     NCBI-ProteinID: NP_012234
             NCBI-GeneID: 854781
             SGD: S000001292
-            MIPS: YIL030C
             UniProt: P40318
+STRUCTURE   PDB: 2M6M
 AASEQ       1319
             MDVDSDVNVSRLRDELHKVANEETDTATFNDDAPSGATCRICRGEATEDNPLFHPCKCRG
             SIKYMHESCLLEWVASKNIDISKPGADVKCDICHYPIQFKTIYAENMPEKIPFSLLLSKS

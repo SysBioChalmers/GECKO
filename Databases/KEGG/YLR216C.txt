@@ -1,14 +1,24 @@
 ENTRY       YLR216C           CDS       T00005
 NAME        CPR6, CYP40
-DEFINITION  peptidylprolyl isomerase CPR6 (EC:5.2.1.8)
+DEFINITION  (RefSeq) peptidylprolyl isomerase CPR6
 ORTHOLOGY   K05864  peptidyl-prolyl isomerase D [EC:5.2.1.8]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             5. Isomerases
+              5.2  cis-trans-Isomerases
+               5.2.1  cis-trans Isomerases (only sub-subclass identified to date)
+                5.2.1.8  peptidylprolyl isomerase
+                 YLR216C (CPR6)
+            Chaperones and folding catalysts [BR:sce03110]
+             Protein folding catalysts
+              Peptidyl prolyl isomerase
+               Cyclophilin
+                YLR216C (CPR6)
 POSITION    XII:complement(572096..573211)
-MOTIF       Pfam: Pro_isomerase TPR_1 TPR_11 TPR_2 TPR_6 TPR_9 DUF3323 TPR_8
-DBLINKS     NCBI-GI: 6323246
+MOTIF       Pfam: Pro_isomerase TPR_1 TPR_2 TPR_9 TPR_12 TPR_6 TPR_8
+DBLINKS     NCBI-ProteinID: NP_013317
             NCBI-GeneID: 850914
             SGD: S000004206
-            MIPS: YLR216C
             UniProt: P53691
 AASEQ       371
             MTRPKTFFDISIGGKPQGRIVFELYNDIVPKTAENFLKLCEGNAGMAKTKPDVPLSYKGS

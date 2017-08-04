@@ -1,15 +1,31 @@
 ENTRY       YHR172W           CDS       T00005
 NAME        SPC97
-DEFINITION  Spc97p
+DEFINITION  (RefSeq) Spc97p
 ORTHOLOGY   K16569  gamma-tubulin complex component 2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centrosome formation and ciliogenesis proteins
+               Microtubules and associated factors
+                gamma-tubulin ring complex
+                 YHR172W (SPC97)
+            Cytoskeleton proteins [BR:sce04812]
+             Eukaryotic cytoskeleton proteins
+              Microtubules
+               Tubulin-binding proteins
+                Gamma-tubulin complex components
+                 YHR172W (SPC97)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of haemopoietic cells  (B-cell, T-cell, DC-cell, reticulocyte, and mast cell)
+               YHR172W (SPC97)
 POSITION    VIII:448335..450806
-MOTIF       Pfam: Spc97_Spc98
-DBLINKS     NCBI-GI: 6321966
+MOTIF       Pfam: Spc97_Spc98 RWD
+DBLINKS     NCBI-ProteinID: NP_012042
             NCBI-GeneID: 856577
             SGD: S000001215
-            MIPS: YHR172W
             UniProt: P38863
+STRUCTURE   PDB: 5FLZ 5FM1
 AASEQ       823
             MEIKEVDDRAELLRYTNNIPLLGKLVNHQPLWSTNPKLKSFSLEKISAPDQRRVQEALVV
             KDLLNVLIGLEGTYIRYFNDYEPSDPETPIEFKIAKKMDPSFKTFSRRIVRYGKQYMILT

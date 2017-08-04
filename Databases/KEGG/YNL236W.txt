@@ -1,14 +1,19 @@
 ENTRY       YNL236W           CDS       T00005
-NAME        SIN4, BEL2, GAL22, MED16, RYE1, SDI3, SSF5, SSN4, TSF3
-DEFINITION  Sin4p
+NAME        SIN4, BEL2, GAL22, MED16, RYE1, SDI3, SSF5, SSN4, SSX3, TSF3
+DEFINITION  (RefSeq) Sin4p
 ORTHOLOGY   K15160  mediator of RNA polymerase II transcription subunit 16, fungi type
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Mediator complex
+                Tail
+                 YNL236W (SIN4)
 POSITION    XIV:206930..209854
 MOTIF       Pfam: Med16
-DBLINKS     NCBI-GI: 6324093
+DBLINKS     NCBI-ProteinID: NP_014163
             NCBI-GeneID: 855485
             SGD: S000005180
-            MIPS: YNL236W
             UniProt: P32259
 AASEQ       974
             MMLGEHLMSWSKTGIIAYSDSQSSNANICLTFLESINGINWRFHTPQKYVLHPQLHEVQY

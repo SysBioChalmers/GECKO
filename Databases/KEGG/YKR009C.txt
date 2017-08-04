@@ -1,14 +1,24 @@
 ENTRY       YKR009C           CDS       T00005
 NAME        FOX2, POX2
-DEFINITION  bifunctional hydroxyacyl-CoA dehydrogenase/enoyl-CoA hydratase FOX2 (EC:4.2.1.119 4.2.1.74)
+DEFINITION  (RefSeq) bifunctional hydroxyacyl-CoA dehydrogenase/enoyl-CoA hydratase FOX2
 ORTHOLOGY   K14729  multifunctional beta-oxidation protein [EC:4.2.1.- 1.1.1.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.1  Acting on the CH-OH group of donors
+               1.1.1  With NAD+ or NADP+ as acceptor
+                1.1.1.-  
+                 YKR009C (FOX2)
+             4. Lyases
+              4.2  Carbon-oxygen lyases
+               4.2.1  Hydro-lyases
+                4.2.1.-  
+                 YKR009C (FOX2)
 POSITION    XI:complement(454352..457054)
-MOTIF       Pfam: adh_short MaoC_dehydratas KR adh_short_C2 MaoC_dehydrat_N 3HCDH_N
-DBLINKS     NCBI-GI: 6322861
+MOTIF       Pfam: adh_short adh_short_C2 MaoC_dehydratas KR MaoC_dehydrat_N
+DBLINKS     NCBI-ProteinID: NP_012934
             NCBI-GeneID: 853878
             SGD: S000001717
-            MIPS: YKR009C
             UniProt: Q02207
 AASEQ       900
             MPGNLSFKDRVVVITGAGGGLGKVYALAYASRGAKVVVNDLGGTLGGSGHNSKAADLVVD

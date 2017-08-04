@@ -1,13 +1,12 @@
 ENTRY       YDR252W           CDS       T00005
 NAME        BTT1
-DEFINITION  Btt1p
+DEFINITION  (RefSeq) CCR4-NOT core subunit BTT1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:963412..963861
-MOTIF       Pfam: NAC SMP_2
-DBLINKS     NCBI-GI: 6320458
+MOTIF       Pfam: NAC
+DBLINKS     NCBI-ProteinID: NP_010538
             NCBI-GeneID: 851839
             SGD: S000002660
-            MIPS: YDR252W
             UniProt: P40314
 AASEQ       149
             MPVDQEKLAKLHKLSAANKVGGTRRKINKKGNLYNNNDKDNTKLQAELHKLHPMTIENVA

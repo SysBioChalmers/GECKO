@@ -1,14 +1,22 @@
 ENTRY       YNL055C           CDS       T00005
 NAME        POR1, OMP2
-DEFINITION  Por1p
+DEFINITION  (RefSeq) porin POR1
 ORTHOLOGY   K15040  voltage-dependent anion channel protein 2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial protein import machinery
+              Outer membrane
+               Porin
+                YNL055C (POR1)
+            Transporters [BR:sce02000]
+             Other Transporters
+              Pores ion channels [TC:1]
+               YNL055C (POR1)
 POSITION    XIV:complement(517994..518845)
 MOTIF       Pfam: Porin_3
-DBLINKS     NCBI-GI: 6324273
+DBLINKS     NCBI-ProteinID: NP_014343
             NCBI-GeneID: 855669
             SGD: S000005000
-            MIPS: YNL055C
             UniProt: P04840
 AASEQ       283
             MSPPVYSDISRNINDLLNKDFYHATPAAFDVQTTTANGIKFSLKAKQPVKDGPLSTNVEA

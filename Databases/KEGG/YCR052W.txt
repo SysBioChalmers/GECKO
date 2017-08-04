@@ -1,14 +1,24 @@
 ENTRY       YCR052W           CDS       T00005
 NAME        RSC6
-DEFINITION  Rsc6p
+DEFINITION  (RefSeq) Rsc6p
 ORTHOLOGY   K11760  chromatin structure-remodeling complex subunit RSC6
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Coactivators
+                RSC complex
+                 YCR052W (RSC6)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Chromatin remodeling factors
+               RSC complex
+                YCR052W (RSC6)
 POSITION    III:214994..216445
 MOTIF       Pfam: SWIB
-DBLINKS     NCBI-GI: 6319900
+DBLINKS     NCBI-ProteinID: NP_009981
             NCBI-GeneID: 850419
             SGD: S000000648
-            MIPS: YCR052W
             UniProt: P25632
 AASEQ       483
             MVTQTNPVPVTYPTDAYIPTYLPDDKVSNLADLKKLIEMDSRLDLYLTRRRLDTSINLPT

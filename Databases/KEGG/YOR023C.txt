@@ -1,13 +1,19 @@
 ENTRY       YOR023C           CDS       T00005
 NAME        AHC1
-DEFINITION  Ahc1p
+DEFINITION  (RefSeq) Ahc1p
 ORTHOLOGY   K11370  ADA HAT complex component 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Histone modification proteins
+               HAT complexes
+                ADA-HAT complex
+                 YOR023C (AHC1)
 POSITION    XV:complement(376012..377712)
-DBLINKS     NCBI-GI: 6324597
+MOTIF       Pfam: DUF3276
+DBLINKS     NCBI-ProteinID: NP_014666
             NCBI-GeneID: 854188
             SGD: S000005549
-            MIPS: YOR023C
             UniProt: Q12433
 AASEQ       566
             MMSPAQDKLQHQHHNPNSSSSSSSKMTNVYQVTTPKSPQDLENNMDEPFKMDTATSNPDK

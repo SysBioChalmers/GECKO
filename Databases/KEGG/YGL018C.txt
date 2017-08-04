@@ -1,14 +1,17 @@
 ENTRY       YGL018C           CDS       T00005
 NAME        JAC1
-DEFINITION  Jac1p
+DEFINITION  (RefSeq) J-type chaperone JAC1
 ORTHOLOGY   K04082  molecular chaperone HscB
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chaperones and folding catalysts [BR:sce03110]
+             Heat shock proteins
+              HSP40 / DNAJ
+               YGL018C (JAC1)
 POSITION    VII:complement(459110..459664)
-MOTIF       Pfam: HSCB_C DnaJ Ran_BP1 DUF2630
-DBLINKS     NCBI-GI: 6321420
+MOTIF       Pfam: HSCB_C DnaJ Ran_BP1
+DBLINKS     NCBI-ProteinID: NP_011497
             NCBI-GeneID: 852866
             SGD: S000002986
-            MIPS: YGL018C
             UniProt: P53193
 STRUCTURE   PDB: 3UO3 3UO2
 AASEQ       184

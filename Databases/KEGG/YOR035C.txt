@@ -1,13 +1,12 @@
 ENTRY       YOR035C           CDS       T00005
 NAME        SHE4, DIM1
-DEFINITION  She4p
+DEFINITION  (RefSeq) She4p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:complement(397735..400104)
-MOTIF       Pfam: UNC45-central DUF904
-DBLINKS     NCBI-GI: 6324609
+MOTIF       Pfam: UNC45-central Tox-HDC
+DBLINKS     NCBI-ProteinID: NP_014678
             NCBI-GeneID: 854200
             SGD: S000005561
-            MIPS: YOR035C
             UniProt: P51534
 STRUCTURE   PDB: 3OPB
 AASEQ       789

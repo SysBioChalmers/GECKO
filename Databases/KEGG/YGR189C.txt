@@ -1,13 +1,12 @@
 ENTRY       YGR189C           CDS       T00005
 NAME        CRH1
-DEFINITION  Crh1p (EC:3.2.-.-)
+DEFINITION  (RefSeq) transglycosylase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:complement(876669..878192)
 MOTIF       Pfam: Glyco_hydro_16
-DBLINKS     NCBI-GI: 6321628
+DBLINKS     NCBI-ProteinID: NP_011705
             NCBI-GeneID: 853102
             SGD: S000003421
-            MIPS: YGR189C
             UniProt: P53301
 AASEQ       507
             MKVLDLLTVLSASSLLSTFAAAESTATADSTTAASSTASCNPLKTTGCTPDTALATSFSE

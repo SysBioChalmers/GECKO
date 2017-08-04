@@ -1,14 +1,18 @@
 ENTRY       YDL019C           CDS       T00005
 NAME        OSH2
-DEFINITION  Osh2p
-ORTHOLOGY   K06867
+DEFINITION  (RefSeq) oxysterol-binding protein related protein OSH2
+ORTHOLOGY   K20456  oxysterol-binding protein 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endoplasmic reticulum (ER) - Golgi transport
+              Others
+               Oxysterol-binding proteins
+                YDL019C (OSH2)
 POSITION    IV:complement(417663..421514)
-MOTIF       Pfam: Oxysterol_BP Ank_5 Ank_2 Ank Ank_4 PH Ank_3 PH_8 PH_11
-DBLINKS     NCBI-GI: 6320185
+MOTIF       Pfam: Oxysterol_BP PH Ank_5 Ank_2 Ank_4 Ank_3 Ank PH_8 PH_11
+DBLINKS     NCBI-ProteinID: NP_010265
             NCBI-GeneID: 851543
             SGD: S000002177
-            MIPS: YDL019C
             UniProt: Q12451
 AASEQ       1283
             MSREDLSIAEDLNQVSKPLLKVKLLEVLGQGDFKHLKALVDNEFQPKDDPSVQQVLNLIL

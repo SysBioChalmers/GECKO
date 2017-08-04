@@ -1,17 +1,27 @@
 ENTRY       YLR079W           CDS       T00005
-NAME        SIC1, SDB25
-DEFINITION  Sic1p
+NAME        SIC1, BYC1, SDB25
+DEFINITION  (RefSeq) cyclin-dependent protein serine/threonine kinase inhibiting protein SIC1
 ORTHOLOGY   K03085  substrate and inhibitor of the cyclin-dependent protein kinase CDC28
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
-PATHWAY     sce04111  Cell cycle - yeast
+PATHWAY     sce04011  MAPK signaling pathway - yeast
+            sce04111  Cell cycle - yeast
             sce04113  Meiosis - yeast
-CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
-            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YLR079W (SIC1)
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YLR079W (SIC1)
+               04113 Meiosis - yeast
+                YLR079W (SIC1)
 POSITION    XII:286820..287674
-DBLINKS     NCBI-GI: 6323108
+MOTIF       Pfam: ACTH_assoc
+DBLINKS     NCBI-ProteinID: NP_013180
             NCBI-GeneID: 850768
             SGD: S000004069
-            MIPS: YLR079W
             UniProt: P38634
 AASEQ       284
             MTPSTPPRSRGTRYLAQPSGNTSSSALMQGQKTPQKPSQNLVPVTPSTTKSFKNAPLLAP

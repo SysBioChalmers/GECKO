@@ -1,13 +1,12 @@
 ENTRY       YCR033W           CDS       T00005
 NAME        SNT1
-DEFINITION  Snt1p
+DEFINITION  (RefSeq) Snt1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    III:186489..190169
-MOTIF       Pfam: Myb_DNA-binding Myb_DNA-bind_6 DUF348 DUF2215
-DBLINKS     NCBI-GI: 10383795
+MOTIF       Pfam: Myb_DNA-binding Myb_DNA-bind_6 DUF348 Myb_DNA-bind_7
+DBLINKS     NCBI-ProteinID: NP_009962
             NCBI-GeneID: 850399
             SGD: S000000629
-            MIPS: YCR033W
             UniProt: P25357
 AASEQ       1226
             MGYPPPTRRLGDKKRYHYSNNPNRRHPSAVYSKNSFPKSSNNGFVSSPTADNSTNPSVTP

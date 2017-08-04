@@ -1,18 +1,29 @@
 ENTRY       YKL026C           CDS       T00005
 NAME        GPX1
-DEFINITION  glutathione peroxidase GPX1 (EC:1.11.1.9)
+DEFINITION  (RefSeq) glutathione peroxidase GPX1
 ORTHOLOGY   K00432  glutathione peroxidase [EC:1.11.1.9]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00480  Glutathione metabolism
             sce00590  Arachidonic acid metabolism
-CLASS       Metabolism; Lipid metabolism; Arachidonic acid metabolism [PATH:sce00590]
-            Metabolism; Metabolism of other amino acids; Glutathione metabolism [PATH:sce00480]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Lipid metabolism
+               00590 Arachidonic acid metabolism
+                YKL026C (GPX1)
+              Metabolism of other amino acids
+               00480 Glutathione metabolism
+                YKL026C (GPX1)
+            Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.11  Acting on a peroxide as acceptor
+               1.11.1  Peroxidases
+                1.11.1.9  glutathione peroxidase
+                 YKL026C (GPX1)
 POSITION    XI:complement(389380..389883)
 MOTIF       Pfam: GSHPx AhpC-TSA Redoxin
-DBLINKS     NCBI-GI: 398364659
+DBLINKS     NCBI-ProteinID: NP_012899
             NCBI-GeneID: 853842
             SGD: S000001509
-            MIPS: YKL026C
             UniProt: P36014
 AASEQ       167
             MQEFYSFSPIDENGNPFPFNSLRNKVVLIVNVASHCAFTPQYKELEYLYEKYKSHGLVIV

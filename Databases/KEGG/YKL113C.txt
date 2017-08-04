@@ -1,20 +1,50 @@
 ENTRY       YKL113C           CDS       T00005
 NAME        RAD27, ERC11, FEN1, RTH1
-DEFINITION  Rad27p (EC:3.1.-.-)
+DEFINITION  (RefSeq) multifunctional nuclease RAD27
 ORTHOLOGY   K04799  flap endonuclease-1 [EC:3.-.-.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03030  DNA replication
             sce03410  Base excision repair
             sce03450  Non-homologous end-joining
-CLASS       Genetic Information Processing; Replication and repair; DNA replication [PATH:sce03030]
-            Genetic Information Processing; Replication and repair; Base excision repair [PATH:sce03410]
-            Genetic Information Processing; Replication and repair; Non-homologous end-joining [PATH:sce03450]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Replication and repair
+               03030 DNA replication
+                YKL113C (RAD27)
+               03410 Base excision repair
+                YKL113C (RAD27)
+               03450 Non-homologous end-joining
+                YKL113C (RAD27)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.-  
+               3.-.-  
+                3.-.-.-  
+                 YKL113C (RAD27)
+            DNA replication proteins [BR:sce03032]
+             Eukaryotic Type
+              DNA Replication Elongation Factors
+               Other elongation factors
+                YKL113C (RAD27)
+             Prokaryotic Type
+               Elongation factors (archaeal)
+                Other elongation factors
+                 YKL113C (RAD27)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              SSBR (single strand breaks repair)
+               BER (base exicision repair)
+                Long Patch-BER factors
+                 YKL113C (RAD27)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of haemopoietic cells  (B-cell, T-cell, DC-cell, reticulocyte, and mast cell)
+               YKL113C (RAD27)
 POSITION    XI:complement(224727..225875)
-MOTIF       Pfam: XPG_N XPG_I 5_3_exonuc CDKN3 HHH_2
-DBLINKS     NCBI-GI: 6322736
+MOTIF       Pfam: XPG_N XPG_I 5_3_exonuc HHH_5 CDKN3 HHH_2 5_3_exonuc_N
+DBLINKS     NCBI-ProteinID: NP_012809
             NCBI-GeneID: 853747
             SGD: S000001596
-            MIPS: YKL113C
             UniProt: P26793
 AASEQ       382
             MGIKGLNAIISEHVPSAIRKSDIKSFFGRKVAIDASMSLYQFLIAVRQQDGGQLTNEAGE

@@ -1,13 +1,12 @@
 ENTRY       YMR052W           CDS       T00005
 NAME        FAR3
-DEFINITION  Far3p
+DEFINITION  (RefSeq) Far3p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:379586..380200
-MOTIF       Pfam: ISG65-75 CCDC92 EAP30 Exonuc_VII_L HMG_box_2 APG6 Spectrin
-DBLINKS     NCBI-GI: 6323696
+MOTIF       Pfam: HMG_box_2 SAP30_Sin3_bdg
+DBLINKS     NCBI-ProteinID: NP_013767
             NCBI-GeneID: 855073
             SGD: S000004656
-            MIPS: YMR052W
             UniProt: P46671
 AASEQ       204
             MNSGGSDSFDYLLQLTKALSAECRANRQETDRIELLLKRLAKQSGISYDNLSKNIIPDSW

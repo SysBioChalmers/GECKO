@@ -1,14 +1,24 @@
 ENTRY       YLR233C           CDS       T00005
 NAME        EST1
-DEFINITION  Est1p (EC:2.7.7.-)
+DEFINITION  (RefSeq) Est1p
 ORTHOLOGY   K11132  telomere elongation protein [EC:2.7.7.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.7  Nucleotidyltransferases
+                2.7.7.-  
+                 YLR233C (EST1)
+            DNA replication proteins [BR:sce03032]
+             Eukaryotic Type
+              DNA Replication Termination Factors
+               Telomerase complex (fungi)
+                YLR233C (EST1)
 POSITION    XII:complement(607425..609524)
 MOTIF       Pfam: EST1_DNA_bind EST1 DUF1759
-DBLINKS     NCBI-GI: 6323262
+DBLINKS     NCBI-ProteinID: NP_013334
             NCBI-GeneID: 850934
             SGD: S000004223
-            MIPS: YLR233C
             UniProt: P17214
 AASEQ       699
             MDNEEVNEECMRLFFKNARAHLDKHLTSRLTCDENAYITFRCFLDGIHRKSTRFLEELLL

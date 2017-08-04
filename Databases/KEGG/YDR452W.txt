@@ -1,14 +1,19 @@
 ENTRY       YDR452W           CDS       T00005
 NAME        PPN1, PHM5
-DEFINITION  Ppn1p (EC:3.6.1.10 3.6.1.11)
+DEFINITION  (RefSeq) endopolyphosphatase
 ORTHOLOGY   K06018  endopolyphosphatase [EC:3.6.1.10]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.1  In phosphorus-containing anhydrides
+                3.6.1.10  endopolyphosphatase
+                 YDR452W (PPN1)
 POSITION    IV:1362878..1364902
-MOTIF       Pfam: Metallophos APOBEC_C
-DBLINKS     NCBI-GI: 398366609
+MOTIF       Pfam: Metallophos Endonuc_Holl
+DBLINKS     NCBI-ProteinID: NP_010740
             NCBI-GeneID: 852063
             SGD: S000002860
-            MIPS: YDR452W
             UniProt: Q04119
 AASEQ       674
             MVVVGKSEVRNVSMSRPKKKSLIAILSTCVLFFLVFIIGAKFQYVSVFSKFLDDRGDNES

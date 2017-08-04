@@ -1,17 +1,34 @@
 ENTRY       YMR213W           CDS       T00005
 NAME        CEF1, NTC85
-DEFINITION  Cef1p
+DEFINITION  (RefSeq) Cef1p
 ORTHOLOGY   K12860  pre-mRNA-splicing factor CDC5/CEF1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03040  Spliceosome
-CLASS       Genetic Information Processing; Transcription; Spliceosome [PATH:sce03040]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03040 Spliceosome
+                YMR213W (CEF1)
+            Spliceosome [BR:sce03041]
+             Complex B
+              Other components
+               Prp19 complex
+                YMR213W (CEF1)
+             Complex C
+               Prp19-CDC5 complex
+                YMR213W (CEF1)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              Other factors with a suspected DNA repair function
+               PSO4 complex
+                YMR213W (CEF1)
 POSITION    XIII:693381..695153
-MOTIF       Pfam: Myb_DNA-binding Myb_DNA-bind_6 Myb_Cef Rap1_C Rop-like DUF948
-DBLINKS     NCBI-GI: 6323869
+MOTIF       Pfam: Myb_DNA-binding Myb_DNA-bind_6 Myb_Cef Rap1_C Ribosomal_L32p
+DBLINKS     NCBI-ProteinID: NP_013940
             NCBI-GeneID: 855253
             SGD: S000004826
-            MIPS: YMR213W
             UniProt: Q03654
+STRUCTURE   PDB: 5GMK 5LJ3 5LJ5 5MPS 5WSG 5MQ0 5LQW
 AASEQ       590
             MPPVPIYVKGGVWTNVEDQILKAAVQKYGTHQWSKVASLLQKKTARQSELRWNEYLNPKL
             NFTEFSKEEDAQLLDLARELPNQWRTIADMMARPAQVCVERYNRLLESEDSGGAALSTGV

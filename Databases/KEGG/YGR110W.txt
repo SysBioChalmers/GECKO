@@ -1,16 +1,25 @@
 ENTRY       YGR110W           CDS       T00005
 NAME        CLD1
-DEFINITION  Cld1p (EC:3.5.1.-)
+DEFINITION  (RefSeq) carboxylic ester hydrolase
 ORTHOLOGY   K13535  cardiolipin-specific phospholipase [EC:3.1.1.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00564  Glycerophospholipid metabolism
-CLASS       Metabolism; Lipid metabolism; Glycerophospholipid metabolism [PATH:sce00564]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Lipid metabolism
+               00564 Glycerophospholipid metabolism
+                YGR110W (CLD1)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.1  Carboxylic-ester hydrolases
+                3.1.1.-  
+                 YGR110W (CLD1)
 POSITION    VII:713709..715046
-MOTIF       Pfam: Abhydrolase_1 Abhydrolase_6 Abhydrolase_5 Ser_hydrolase DUF2305
-DBLINKS     NCBI-GI: 398365739
+MOTIF       Pfam: Abhydrolase_1 Abhydrolase_6 Hydrolase_4 Ser_hydrolase LIDHydrolase
+DBLINKS     NCBI-ProteinID: NP_011625
             NCBI-GeneID: 853007
             SGD: S000003342
-            MIPS: YGR110W
             UniProt: P53264
 AASEQ       445
             MFKSTLNSIIRRPLKGFQLLRGADSSNTRPQSPRASARDVTEKQILRTPSAPTAIPLREI

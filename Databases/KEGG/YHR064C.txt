@@ -1,13 +1,12 @@
 ENTRY       YHR064C           CDS       T00005
 NAME        SSZ1, PDR13
-DEFINITION  Ssz1p
+DEFINITION  (RefSeq) Ssz1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VIII:complement(225525..227141)
-MOTIF       Pfam: HSP70 MreB_Mbl Actin PilM_2 PEP-utilizers ParG
-DBLINKS     NCBI-GI: 37362658
+MOTIF       Pfam: HSP70 MreB_Mbl Actin ParG
+DBLINKS     NCBI-ProteinID: NP_011931
             NCBI-GeneID: 856461
             SGD: S000001106
-            MIPS: YHR064C
             UniProt: P38788
 AASEQ       538
             MSSPVIGITFGNTSSSIAYINPKNDVDVIANPDGERAIPSALSYVGEDEYHGGQALQQLI

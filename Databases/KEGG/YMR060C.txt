@@ -1,14 +1,22 @@
 ENTRY       YMR060C           CDS       T00005
 NAME        SAM37, MAS37, PET3027, TOM37
-DEFINITION  Sam37p
+DEFINITION  (RefSeq) SAM complex subunit SAM37
 ORTHOLOGY   K17714  sorting and assembly machinery component 37
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial protein import machinery
+              Outer membrane
+               TOB/SAM complex
+                YMR060C (SAM37)
+            Transporters [BR:sce02000]
+             Other Transporters
+              Pores ion channels [TC:1]
+               YMR060C (SAM37)
 POSITION    XIII:complement(391532..392515)
-MOTIF       Pfam: Tom37_C Tom37 DUF2195
-DBLINKS     NCBI-GI: 6323705
+MOTIF       Pfam: Tom37_C Tom37 GST_N_4
+DBLINKS     NCBI-ProteinID: NP_013776
             NCBI-GeneID: 855082
             SGD: S000004664
-            MIPS: YMR060C
             UniProt: P50110
 AASEQ       327
             MVKGSVHLWGKDGKASLISVDSIALVWFIKLCTSEEAKSMVAGLQIVFSNNTDLSSDGKL

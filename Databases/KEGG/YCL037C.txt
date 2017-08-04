@@ -1,13 +1,19 @@
 ENTRY       YCL037C           CDS       T00005
 NAME        SRO9
-DEFINITION  Sro9p
+DEFINITION  (RefSeq) Sro9p
+ORTHOLOGY   K18757  la-related protein 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               mRNA cycle factors
+                Common to processing body (P body) and stress granule
+                 YCL037C (SRO9)
 POSITION    III:complement(57374..58678)
-MOTIF       Pfam: La AvrE
-DBLINKS     NCBI-GI: 37362625
+MOTIF       Pfam: La
+DBLINKS     NCBI-ProteinID: NP_009893
             NCBI-GeneID: 850320
             SGD: S000000542
-            MIPS: YCL037C
             UniProt: P25567
 AASEQ       434
             MSAETAAANTATAPVPEVQEQESSKSKQVNLTPAPLPTSSPWKLAPTEIPVSTISIEDLD

@@ -1,13 +1,12 @@
 ENTRY       YNR070W           CDS       T00005
 NAME        PDR18
-DEFINITION  ATP-binding cassette multidrug transporter PDR18
+DEFINITION  (RefSeq) ATP-binding cassette multidrug transporter PDR18
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIV:765375..769376
-MOTIF       Pfam: ABC2_membrane ABC_tran PDR_CDR ABC2_membrane_3 AAA_25 DUF258 AAA_21 Miro AAA_22 AAA_16 cobW UPF0079 AAA_29 ABC_ATPase AAA_18 AAA_28 AAA_17 MMR_HSR1 Septin NACHT AAA_30 AAA_10 AAA_33
-DBLINKS     NCBI-GI: 398365893
+MOTIF       Pfam: ABC2_membrane ABC_tran PDR_CDR ABC2_membrane_3 AAA_21 AAA_16 RsgA_GTPase AAA_22 MMR_HSR1 AAA_29 ABC_ATPase AAA_18 AAA_28 Septin NACHT AAA_24 cobW Roc TsaE AAA_23 AAA_25 TrpP AAA_33
+DBLINKS     NCBI-ProteinID: NP_014468
             NCBI-GeneID: 855807
             SGD: S000005353
-            MIPS: YNR070W
             UniProt: P53756
 AASEQ       1333
             MECVSVEGLDSSFLEGQTFGDILCLPWTIIKGIRERKNRNKMKIILKNVSLLAKSGEMVL

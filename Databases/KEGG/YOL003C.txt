@@ -1,13 +1,19 @@
 ENTRY       YOL003C           CDS       T00005
 NAME        PFA4
-DEFINITION  Pfa4p (EC:2.3.1.-)
+DEFINITION  (RefSeq) palmitoyltransferase PFA4
+ORTHOLOGY   K18932  palmitoyltransferase [EC:2.3.1.225]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.3  Acyltransferases
+               2.3.1  Transferring groups other than aminoacyl groups
+                2.3.1.225  protein S-acyltransferase
+                 YOL003C (PFA4)
 POSITION    XV:complement(321858..322994)
-MOTIF       Pfam: zf-DHHC MMgT
-DBLINKS     NCBI-GI: 6324571
+MOTIF       Pfam: DHHC DUF3488
+DBLINKS     NCBI-ProteinID: NP_014640
             NCBI-GeneID: 854159
             SGD: S000005363
-            MIPS: YOL003C
             UniProt: Q12006
 AASEQ       378
             MPVKLRWPWLGIAIPTFLISFIGYGAHYFILSNFLSVPKQITFEFCLSMIWLSYYLAICT

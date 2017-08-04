@@ -1,13 +1,12 @@
 ENTRY       YCL029C           CDS       T00005
 NAME        BIK1, ARM5, PAC14
-DEFINITION  Bik1p
+DEFINITION  (RefSeq) Bik1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    III:complement(68599..69921)
-MOTIF       Pfam: CAP_GLY Methyltransf_15 Matrilin_ccoil zf-CCHC_4 Lebercilin
-DBLINKS     NCBI-GI: 6319820
+MOTIF       Pfam: CAP_GLY Lebercilin Methyltransf_15 DUF812 TMPIT CLIP1_ZNF Matrilin_ccoil
+DBLINKS     NCBI-ProteinID: NP_009901
             NCBI-GeneID: 850328
             SGD: S000000534
-            MIPS: YCL029C
             UniProt: P11709
 AASEQ       440
             MDRYQRKIGCFIQIPNLGRGQLKYVGPVDTKAGMFAGVDLLANIGKNDGSFMGKKYFQTE

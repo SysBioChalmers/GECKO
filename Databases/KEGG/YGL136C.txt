@@ -1,14 +1,23 @@
 ENTRY       YGL136C           CDS       T00005
 NAME        MRM2
-DEFINITION  Mrm2p (EC:2.1.1.168)
+DEFINITION  (RefSeq) 21S rRNA (uridine2791-2'-O) methyltransferase
 ORTHOLOGY   K15508  21S rRNA (uridine2791-2'-O)-methyltransferase [EC:2.1.1.168]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.1  Transferring one-carbon groups
+               2.1.1  Methyltransferases
+                2.1.1.168  21S rRNA (uridine2791-2'-O)-methyltransferase
+                 YGL136C (MRM2)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Other ribosome biogenesis factors
+               YGL136C (MRM2)
 POSITION    VII:complement(252897..253859)
-MOTIF       Pfam: FtsJ Methyltransf_23 Methyltransf_18
-DBLINKS     NCBI-GI: 6321302
+MOTIF       Pfam: FtsJ Methyltransf_23
+DBLINKS     NCBI-ProteinID: NP_011379
             NCBI-GeneID: 852741
             SGD: S000003104
-            MIPS: YGL136C
             UniProt: P53123
 AASEQ       320
             MILVYNRIRSIISSSLGRIHVRYNSNSQNRWLNRQLKDPYTKEAKVQNLRSRAAFKLMQI

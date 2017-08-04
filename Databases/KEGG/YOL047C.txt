@@ -1,11 +1,12 @@
 ENTRY       YOL047C           CDS       T00005
-DEFINITION  hypothetical protein
+NAME        LDS2
+DEFINITION  (RefSeq) Lds2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:complement(join(241614..242441,242505..242747))
-DBLINKS     NCBI-GI: 9755359
+MOTIF       Pfam: EI24
+DBLINKS     NCBI-ProteinID: NP_014595
             NCBI-GeneID: 854110
             SGD: S000005407
-            MIPS: YOL047C
             UniProt: Q08218
 AASEQ       356
             MSTRPQPDWYYHRHPYASTPLAEGEEPQLLPIQDQGNHKKSKIWMAYKAPIVRWYKNAML

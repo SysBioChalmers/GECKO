@@ -1,14 +1,19 @@
 ENTRY       YDR254W           CDS       T00005
 NAME        CHL4, CTF17, MCM17
-DEFINITION  Chl4p
+DEFINITION  (RefSeq) Chl4p
 ORTHOLOGY   K11551  central kinetochore subunit Mis15/CHL4
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centromeric chromatin formation proteins
+               Kinetochore proteins
+                Mis6 complex
+                 YDR254W (CHL4)
 POSITION    IV:965113..966489
-MOTIF       Pfam: CENP-N
-DBLINKS     NCBI-GI: 398366283
+MOTIF       Pfam: CENP-N PIF1
+DBLINKS     NCBI-ProteinID: NP_010540
             NCBI-GeneID: 851841
             SGD: S000002662
-            MIPS: YDR254W
             UniProt: P38907
 STRUCTURE   PDB: 4JE3
 AASEQ       458

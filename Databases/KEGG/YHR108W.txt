@@ -1,13 +1,18 @@
 ENTRY       YHR108W           CDS       T00005
 NAME        GGA2
-DEFINITION  Gga2p
+DEFINITION  (RefSeq) phosphatidylinositol 4-phosphate-binding protein
+ORTHOLOGY   K12404  ADP-ribosylation factor-binding protein GGA
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endosome - Golgi transport
+              Others
+               GGA
+                YHR108W (GGA2)
 POSITION    VIII:328303..330060
-MOTIF       Pfam: VHS Alpha_adaptinC2 GAT PrkA
-DBLINKS     NCBI-GI: 6321900
+MOTIF       Pfam: VHS Alpha_adaptinC2 GAT
+DBLINKS     NCBI-ProteinID: NP_011976
             NCBI-GeneID: 856508
             SGD: S000001150
-            MIPS: YHR108W
             UniProt: P38817
 STRUCTURE   PDB: 3MNM
 AASEQ       585

@@ -1,16 +1,32 @@
 ENTRY       YJL014W           CDS       T00005
 NAME        CCT3, BIN2, TCP3
-DEFINITION  Cct3p
+DEFINITION  (RefSeq) chaperonin-containing T-complex subunit CCT3
 ORTHOLOGY   K09495  T-complex protein 1 subunit gamma
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chaperones and folding catalysts [BR:sce03110]
+             Heat shock proteins
+              HSP60 / Chaperonin
+               YJL014W (CCT3)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centrosome formation and ciliogenesis proteins
+               BBS-CCT complex
+                YJL014W (CCT3)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of haemopoietic cells  (B-cell, T-cell, DC-cell, reticulocyte, and mast cell)
+               YJL014W (CCT3)
+              Exosomal proteins of colorectal cancer cells
+               YJL014W (CCT3)
+              Exosomal proteins of bladder cancer cells
+               YJL014W (CCT3)
 POSITION    X:407558..409162
-MOTIF       Pfam: Cpn60_TCP1
-DBLINKS     NCBI-GI: 6322446
+MOTIF       Pfam: Cpn60_TCP1 NusA_N
+DBLINKS     NCBI-ProteinID: NP_012520
             NCBI-GeneID: 853438
             SGD: S000003551
-            MIPS: YJL014W
             UniProt: P39077
-STRUCTURE   PDB: 4APK 4AOL 4D8Q 4D8R 3P9D 3P9E
+STRUCTURE   PDB: 5GW5 5GW4
 AASEQ       534
             MQAPVVFMNASQERTTGRQAQISNITAAKAVADVIRTCLGPKAMLKMLLDPMGGLVLTND
             GHAILREIDVAHPAAKSMLELSRTQDEEVGDGTTTVIILAGEILAQCAPYLIEKNIHPVI

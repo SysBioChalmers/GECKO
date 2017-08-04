@@ -1,16 +1,36 @@
 ENTRY       YPL022W           CDS       T00005
-NAME        RAD1, LPB9
-DEFINITION  Rad1p
+NAME        RAD1, LPB9, RAD12
+DEFINITION  (RefSeq) ssDNA endodeoxyribonuclease RAD1
 ORTHOLOGY   K10848  DNA excision repair protein ERCC-4 [EC:3.1.-.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03420  Nucleotide excision repair
-CLASS       Genetic Information Processing; Replication and repair; Nucleotide excision repair [PATH:sce03420]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Replication and repair
+               03420 Nucleotide excision repair
+                YPL022W (RAD1)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.-  Acting on ester bonds
+                3.1.-.-  
+                 YPL022W (RAD1)
+            DNA replication proteins [BR:sce03032]
+             Eukaryotic Type
+              DNA Replication Termination Factors
+               Other telomere regulation proteins
+                YPL022W (RAD1)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              SSBR (single strand breaks repair)
+               NER (nucleotide excision repair)
+                Other NER factors
+                 YPL022W (RAD1)
 POSITION    XVI:506697..509999
 MOTIF       Pfam: ERCC4
-DBLINKS     NCBI-GI: 6325235
+DBLINKS     NCBI-ProteinID: NP_015303
             NCBI-GeneID: 856085
             SGD: S000005943
-            MIPS: YPL022W
             UniProt: P06777
 AASEQ       1100
             MSQLFYQGDSDDELQEELTRQTTQASQSSKIKNEDEPDDSNHLNEVENEDSKVLDDDAVL

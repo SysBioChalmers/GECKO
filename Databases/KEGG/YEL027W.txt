@@ -1,20 +1,27 @@
 ENTRY       YEL027W           CDS       T00005
 NAME        VMA3, CLS7, CUP5, GEF2
-DEFINITION  Vma3p (EC:3.6.3.14)
-ORTHOLOGY   K02155  V-type H+-transporting ATPase 16kDa proteolipid subunit [EC:3.6.3.14]
+DEFINITION  (RefSeq) H(+)-transporting V0 sector ATPase subunit C
+ORTHOLOGY   K02155  V-type H+-transporting ATPase 16kDa proteolipid subunit
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00190  Oxidative phosphorylation
             sce01100  Metabolic pathways
             sce04145  Phagosome
-CLASS       Metabolism; Energy metabolism; Oxidative phosphorylation [PATH:sce00190]
-            Cellular Processes; Transport and catabolism; Phagosome [PATH:sce04145]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Energy metabolism
+               00190 Oxidative phosphorylation
+                YEL027W (VMA3)
+             Cellular Processes
+              Transport and catabolism
+               04145 Phagosome
+                YEL027W (VMA3)
 POSITION    V:100769..101251
 MOTIF       Pfam: ATP-synt_C
-DBLINKS     NCBI-GI: 398364261
+DBLINKS     NCBI-ProteinID: NP_010887
             NCBI-GeneID: 856686
             SGD: S000000753
-            MIPS: YEL027W
             UniProt: P25515
+STRUCTURE   PDB: 5TJ5 3J9T 3J9U 3J9V
 AASEQ       160
             MTELCPVYAPFFGAIGCASAIIFTSLGAAYGTAKSGVGICATCVLRPDLLFKNIVPVIMA
             GIIAIYGLVVSVLVCYSLGQKQALYTGFIQLGAGLSVGLSGLAAGFAIGIVGDAGVRGSS

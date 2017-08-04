@@ -1,14 +1,30 @@
 ENTRY       YOR208W           CDS       T00005
 NAME        PTP2
-DEFINITION  Ptp2p (EC:3.1.3.48)
-ORTHOLOGY   K01104  protein-tyrosine phosphatase [EC:3.1.3.48]
+DEFINITION  (RefSeq) tyrosine protein phosphatase PTP2
+ORTHOLOGY   K19806  tyrosine-protein phosphatase 2/3 [EC:3.1.3.48]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04011  MAPK signaling pathway - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YOR208W (PTP2)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.3  Phosphoric-monoester hydrolases
+                3.1.3.48  protein-tyrosine-phosphatase
+                 YOR208W (PTP2)
+            Protein phosphatases and associated proteins [BR:sce01009]
+             Protein Tyrosine phosphatases (PTPs)
+              Class I PTPs (Classical)
+               Non-receptor PTPs
+                YOR208W (PTP2)
 POSITION    XV:733925..736177
-MOTIF       Pfam: Y_phosphatase Y_phosphatase3 DSPc TMEM61
-DBLINKS     NCBI-GI: 398365757
+MOTIF       Pfam: Y_phosphatase Y_phosphatase3 DSPc
+DBLINKS     NCBI-ProteinID: NP_014851
             NCBI-GeneID: 854383
             SGD: S000005734
-            MIPS: YOR208W
             UniProt: P29461
 AASEQ       750
             MDRIAQQYRNGKRDNNGNRMASSAISEKGHIQVNQTRTPGQMPVYRGETINLSNLPQNQI

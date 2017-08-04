@@ -1,18 +1,32 @@
 ENTRY       YDL116W           CDS       T00005
 NAME        NUP84
-DEFINITION  Nup84p
+DEFINITION  (RefSeq) Nup84p
 ORTHOLOGY   K14301  nuclear pore complex protein Nup107
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03013  RNA transport
-CLASS       Genetic Information Processing; Translation; RNA transport [PATH:sce03013]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03013 RNA transport
+                YDL116W (NUP84)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Transport factors
+                Nuclear pore complex
+                 YDL116W (NUP84)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centrosome formation and ciliogenesis proteins
+               Spindle formation proteins
+                YDL116W (NUP84)
 POSITION    IV:251566..253746
 MOTIF       Pfam: Nup84_Nup100
-DBLINKS     NCBI-GI: 6320087
+DBLINKS     NCBI-ProteinID: NP_010167
             NCBI-GeneID: 851441
             SGD: S000002274
-            MIPS: YDL116W
             UniProt: P52891
-STRUCTURE   PDB: 3IKO 3JRO
+STRUCTURE   PDB: 3IKO 3JRO 4XMM 4XMN
 AASEQ       726
             MELSPTYQTERFTKFSDTLKEFKIEQNNEQNPIDPFNIIREFRSAAGQLALDLANSGDES
             NVISSKDWELEARFWHLVELLLVFRNADLDLDEMELHPYNSRGLFEKKLMQDNKQLYQIW

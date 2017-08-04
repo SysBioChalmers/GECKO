@@ -1,13 +1,12 @@
 ENTRY       YFR042W           CDS       T00005
 NAME        KEG1
-DEFINITION  Keg1p
+DEFINITION  (RefSeq) Keg1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VI:238458..239060
 MOTIF       Pfam: Thioredox_DsbH
-DBLINKS     NCBI-GI: 14318567
+DBLINKS     NCBI-ProteinID: NP_116700
             NCBI-GeneID: 850603
             SGD: S000001938
-            MIPS: YFR042W
             UniProt: P43614
 AASEQ       200
             MAGIKLTHKLYQYYQLATSFLYAALLIRWLILMPLVGSRFLPGGIHEFLIYLMFYSSIME

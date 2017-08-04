@@ -1,13 +1,12 @@
 ENTRY       YFR041C           CDS       T00005
 NAME        ERJ5
-DEFINITION  Erj5p
+DEFINITION  (RefSeq) Erj5p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VI:complement(237368..238255)
-MOTIF       Pfam: DnaJ DUF1512
-DBLINKS     NCBI-GI: 398364381
+MOTIF       Pfam: DnaJ Phage_holin_2_2
+DBLINKS     NCBI-ProteinID: NP_116699
             NCBI-GeneID: 850602
             SGD: S000001937
-            MIPS: YFR041C
             UniProt: P43613
 AASEQ       295
             MNGYWKPALVVLGLVSLSYAFTTIETEIFQLQNEISTKYGPDMNFYKFLKLPKLQNSSTK

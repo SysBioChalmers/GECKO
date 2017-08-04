@@ -1,6 +1,6 @@
 ENTRY       YIL116W           CDS       T00005
 NAME        HIS5
-DEFINITION  histidinol-phosphate transaminase (EC:2.6.1.9)
+DEFINITION  (RefSeq) histidinol-phosphate transaminase
 ORTHOLOGY   K00817  histidinol-phosphate aminotransferase [EC:2.6.1.9]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00340  Histidine metabolism
@@ -9,19 +9,38 @@ PATHWAY     sce00340  Histidine metabolism
             sce00400  Phenylalanine, tyrosine and tryptophan biosynthesis
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
+            sce01130  Biosynthesis of antibiotics
             sce01230  Biosynthesis of amino acids
 MODULE      sce_M00026  Histidine biosynthesis, PRPP => histidine
-CLASS       Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
-            Metabolism; Amino acid metabolism; Histidine metabolism [PATH:sce00340]
-            Metabolism; Amino acid metabolism; Tyrosine metabolism [PATH:sce00350]
-            Metabolism; Amino acid metabolism; Phenylalanine metabolism [PATH:sce00360]
-            Metabolism; Amino acid metabolism; Phenylalanine, tyrosine and tryptophan biosynthesis [PATH:sce00400]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01230 Biosynthesis of amino acids
+                YIL116W (HIS5)
+              Amino acid metabolism
+               00340 Histidine metabolism
+                YIL116W (HIS5)
+               00350 Tyrosine metabolism
+                YIL116W (HIS5)
+               00360 Phenylalanine metabolism
+                YIL116W (HIS5)
+               00400 Phenylalanine, tyrosine and tryptophan biosynthesis
+                YIL116W (HIS5)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.6  Transferring nitrogenous groups
+               2.6.1  Transaminases
+                2.6.1.9  histidinol-phosphate transaminase
+                 YIL116W (HIS5)
+            Amino acid related enzymes [BR:sce01007]
+             Aminotransferase (transaminase)
+              Class II
+               YIL116W (HIS5)
 POSITION    IX:142928..144085
-MOTIF       Pfam: Aminotran_1_2 Alliinase_C GATase_5
-DBLINKS     NCBI-GI: 6322075
+MOTIF       Pfam: Aminotran_1_2 Alliinase_C
+DBLINKS     NCBI-ProteinID: NP_012150
             NCBI-GeneID: 854690
             SGD: S000001378
-            MIPS: YIL116W
             UniProt: P07172
 AASEQ       385
             MVFDLKRIVRPKIYNLEPYRCARDDFTEGILLDANENAHGPTPVELSKTNLHRYPDPHQL

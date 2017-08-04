@@ -1,19 +1,43 @@
 ENTRY       YGR264C           CDS       T00005
 NAME        MES1
-DEFINITION  methionine--tRNA ligase MES1 (EC:6.1.1.10)
+DEFINITION  (RefSeq) methionine--tRNA ligase MES1
 ORTHOLOGY   K01874  methionyl-tRNA synthetase [EC:6.1.1.10]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00450  Selenocompound metabolism
             sce00970  Aminoacyl-tRNA biosynthesis
 MODULE      sce_M00359  Aminoacyl-tRNA biosynthesis, eukaryotes
-CLASS       Metabolism; Metabolism of other amino acids; Selenocompound metabolism [PATH:sce00450]
-            Genetic Information Processing; Translation; Aminoacyl-tRNA biosynthesis [PATH:sce00970]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Metabolism of other amino acids
+               00450 Selenocompound metabolism
+                YGR264C (MES1)
+             Genetic Information Processing
+              Translation
+               00970 Aminoacyl-tRNA biosynthesis
+                YGR264C (MES1)
+            Enzymes [BR:sce01000]
+             6. Ligases
+              6.1  Forming carbon-oxygen bonds
+               6.1.1  Ligases forming aminoacyl-tRNA and related compounds
+                6.1.1.10  methionine---tRNA ligase
+                 YGR264C (MES1)
+            Amino acid related enzymes [BR:sce01007]
+             Aminoacyl-tRNA synthetase
+              Class I (U)
+               YGR264C (MES1)
+            Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              Aminoacyl-tRNA synthetases (AARSs)
+               Multi-aminoacyl-tRNA synthetase complex (MSC)
+                YGR264C (MES1)
+             Prokaryotic Type
+               Other AARSs
+                YGR264C (MES1)
 POSITION    VII:complement(1019598..1021853)
-MOTIF       Pfam: tRNA-synt_1g MetRS-N tRNA-synt_1
-DBLINKS     NCBI-GI: 398366347
+MOTIF       Pfam: tRNA-synt_1g MetRS-N tRNA-synt_1 Sigma54_CBD
+DBLINKS     NCBI-ProteinID: NP_011780
             NCBI-GeneID: 853181
             SGD: S000003496
-            MIPS: YGR264C
             UniProt: P00958
 STRUCTURE   PDB: 2HSN
 AASEQ       751

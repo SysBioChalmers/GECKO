@@ -1,17 +1,25 @@
 ENTRY       YDL195W           CDS       T00005
 NAME        SEC31, WEB1
-DEFINITION  Sec31p
+DEFINITION  (RefSeq) Sec31p
 ORTHOLOGY   K14005  protein transport protein SEC31
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04141  Protein processing in endoplasmic reticulum
 MODULE      sce_M00404  COPII complex
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Protein processing in endoplasmic reticulum [PATH:sce04141]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04141 Protein processing in endoplasmic reticulum
+                YDL195W (SEC31)
+            Membrane trafficking [BR:sce04131]
+             Endoplasmic reticulum (ER) - Golgi transport
+              Forward pathways
+               Coat protein complex II (COP-II)
+                YDL195W (SEC31)
 POSITION    IV:107208..111029
-MOTIF       Pfam: Sec31 WD40 SRA1 Sec16_C Prp18
-DBLINKS     NCBI-GI: 330443497
+MOTIF       Pfam: Sec31 WD40 ANAPC4_WD40 SRA1 Sec16_C Prp18
+DBLINKS     NCBI-ProteinID: NP_010086
             NCBI-GeneID: 851332
             SGD: S000002354
-            MIPS: YDL195W
             UniProt: P38968
 STRUCTURE   PDB: 2PM7 2PM6 2QTV 3MZL 2PM9 4BZJ 4BZK
 AASEQ       1273

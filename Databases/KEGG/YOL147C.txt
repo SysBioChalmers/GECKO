@@ -1,13 +1,12 @@
 ENTRY       YOL147C           CDS       T00005
 NAME        PEX11, PMP24, PMP27
-DEFINITION  Pex11p
+DEFINITION  (RefSeq) Pex11p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:complement(47933..48643)
 MOTIF       Pfam: PEX11
-DBLINKS     NCBI-GI: 6324425
+DBLINKS     NCBI-ProteinID: NP_014494
             NCBI-GeneID: 854018
             SGD: S000005507
-            MIPS: YOL147C
             UniProt: Q12462
 AASEQ       236
             MVCDTLVYHPSVTRFVKFLDGSAGREKVLRLLQYLARFLAVQNSSLLARQLQAQFTTVRK

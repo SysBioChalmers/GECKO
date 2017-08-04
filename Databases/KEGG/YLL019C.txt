@@ -1,14 +1,19 @@
 ENTRY       YLL019C           CDS       T00005
 NAME        KNS1
-DEFINITION  Kns1p (EC:2.7.12.1)
+DEFINITION  (RefSeq) serine/threonine protein kinase KNS1
 ORTHOLOGY   K08287  dual-specificity kinase [EC:2.7.12.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.12  Dual-specificity kinases (those acting on Ser/Thr and Tyr residues)
+                2.7.12.1  dual-specificity kinase
+                 YLL019C (KNS1)
 POSITION    XII:complement(105686..107899)
-MOTIF       Pfam: Pkinase Pkinase_Tyr Kinase-like
-DBLINKS     NCBI-GI: 6323009
+MOTIF       Pfam: Pkinase Pkinase_Tyr Kdo
+DBLINKS     NCBI-ProteinID: NP_013081
             NCBI-GeneID: 850641
             SGD: S000003942
-            MIPS: YLL019C
             UniProt: P32350
 AASEQ       737
             MSQNIQIGTRKRSRANMNNSTTTGPANNTSSNKTFLDNFEETRTNKLLDEMFARQNSFLT

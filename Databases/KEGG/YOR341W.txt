@@ -1,6 +1,6 @@
 ENTRY       YOR341W           CDS       T00005
 NAME        RPA190, RRN1
-DEFINITION  Rpa190p (EC:2.7.7.6)
+DEFINITION  (RefSeq) DNA-directed RNA polymerase I core subunit RPA190
 ORTHOLOGY   K02999  DNA-directed RNA polymerase I subunit RPA1 [EC:2.7.7.6]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00230  Purine metabolism
@@ -8,17 +8,37 @@ PATHWAY     sce00230  Purine metabolism
             sce01100  Metabolic pathways
             sce03020  RNA polymerase
 MODULE      sce_M00182  RNA polymerase I, eukaryotes
-CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
-            Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
-            Genetic Information Processing; Transcription; RNA polymerase [PATH:sce03020]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Nucleotide metabolism
+               00230 Purine metabolism
+                YOR341W (RPA190)
+               00240 Pyrimidine metabolism
+                YOR341W (RPA190)
+             Genetic Information Processing
+              Transcription
+               03020 RNA polymerase
+                YOR341W (RPA190)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.7  Nucleotidyltransferases
+                2.7.7.6  DNA-directed RNA polymerase
+                 YOR341W (RPA190)
+            Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase I system
+               RNA polymerase I
+                Core subunits
+                 YOR341W (RPA190)
 POSITION    XV:960987..965981
-MOTIF       Pfam: RNA_pol_Rpb1_5 RNA_pol_Rpb1_2 RNA_pol_Rpb1_3 RNA_pol_Rpb1_4 RNA_pol_Rpb1_1
-DBLINKS     NCBI-GI: 398366307
+MOTIF       Pfam: RNA_pol_Rpb1_5 RNA_pol_Rpb1_2 RNA_pol_Rpb1_3 RNA_pol_Rpb1_1 RNA_pol_Rpb1_4
+DBLINKS     NCBI-ProteinID: NP_014986
             NCBI-GeneID: 854519
             SGD: S000005868
-            MIPS: YOR341W
             UniProt: P10964
-STRUCTURE   PDB: 4C2M 4C3I 4C3H 4C3J
+STRUCTURE   PDB: 4C2M 4C3I 4C3H 4C3J 5N61 5M5W 5M3F 5M5X 5M5Y 5M3M 5M64
+                 5G5L 5LMX 5N5Y 5N5Z 5N60
 AASEQ       1664
             MDISKPVGSEITSVDFGILTAKEIRNLSAKQITNPTVLDNLGHPVSGGLYDLALGAFLRN
             LCSTCGLDEKFCPGHQGHIELPVPCYNPLFFNQLYIYLRASCLFCHHFRLKSVEVHRYAC

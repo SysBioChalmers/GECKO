@@ -1,18 +1,30 @@
 ENTRY       YOR254C           CDS       T00005
 NAME        SEC63, PTL1
-DEFINITION  Sec63p
+DEFINITION  (RefSeq) protein-transporting protein SEC63
 ORTHOLOGY   K09540  translocation protein SEC63
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03060  Protein export
             sce04141  Protein processing in endoplasmic reticulum
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Protein export [PATH:sce03060]
-            Genetic Information Processing; Folding, sorting and degradation; Protein processing in endoplasmic reticulum [PATH:sce04141]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               03060 Protein export
+                YOR254C (SEC63)
+               04141 Protein processing in endoplasmic reticulum
+                YOR254C (SEC63)
+            Chaperones and folding catalysts [BR:sce03110]
+             Heat shock proteins
+              HSP40 / DNAJ
+               YOR254C (SEC63)
+            Secretion system [BR:sce02044]
+             Sec (secretion) system
+              Eukaryotic Sec-SRP protein
+               YOR254C (SEC63)
 POSITION    XV:complement(805032..807023)
-MOTIF       Pfam: Sec63 DnaJ
-DBLINKS     NCBI-GI: 6324828
+MOTIF       Pfam: DnaJ Sec63 DUF2232 DUF2207
+DBLINKS     NCBI-ProteinID: NP_014897
             NCBI-GeneID: 854428
             SGD: S000005780
-            MIPS: YOR254C
             UniProt: P14906
 AASEQ       663
             MPTNYEYDEASETWPSFILTGLLMVVGPMTLLQIYQIFFGANAEDGNSGKSKEFNEEVFK

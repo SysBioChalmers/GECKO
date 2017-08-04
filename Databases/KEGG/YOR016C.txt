@@ -1,14 +1,27 @@
 ENTRY       YOR016C           CDS       T00005
 NAME        ERP4
-DEFINITION  Erp4p
-ORTHOLOGY   K14825  protein ERP2
+DEFINITION  (RefSeq) Erp4p
+ORTHOLOGY   K14825  p24 family protein gamma-2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               Other pre-60S particles
+                YOR016C (ERP4)
+            Membrane trafficking [BR:sce04131]
+             Endoplasmic reticulum (ER) - Golgi transport
+              Forward pathways
+               p24 family proteins
+                YOR016C (ERP4)
+            Transporters [BR:sce02000]
+             Other Transporters
+              Others
+               YOR016C (ERP4)
 POSITION    XV:complement(360461..361084)
-MOTIF       Pfam: EMP24_GP25L TMEM237 Ribosomal_S30AE
-DBLINKS     NCBI-GI: 6324590
+MOTIF       Pfam: EMP24_GP25L
+DBLINKS     NCBI-ProteinID: NP_014659
             NCBI-GeneID: 854181
             SGD: S000005542
-            MIPS: YOR016C
             UniProt: Q12450
 AASEQ       207
             MRVFTLIAILFSSSLLTHAFSSNYAPVGISLPAFTKECLYYDLSSDKDVLVVSYQVLTGG

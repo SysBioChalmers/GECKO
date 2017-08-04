@@ -1,12 +1,12 @@
 ENTRY       YIL122W           CDS       T00005
 NAME        POG1
-DEFINITION  Pog1p
+DEFINITION  (RefSeq) Pog1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IX:130610..131665
-DBLINKS     NCBI-GI: 6322069
+MOTIF       Pfam: Rhabdo_M1
+DBLINKS     NCBI-ProteinID: NP_012144
             NCBI-GeneID: 854684
             SGD: S000001384
-            MIPS: YIL122W
             UniProt: P40473
 AASEQ       351
             MKQEPHRQSEEKEKPKGPMAVEREQHTSLSSGTTVTASTGDESTNSRPVESSQTEKSLSL

@@ -1,13 +1,12 @@
 ENTRY       YHR133C           CDS       T00005
 NAME        NSG1
-DEFINITION  Nsg1p
+DEFINITION  (RefSeq) Nsg1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VIII:complement(370722..371597)
 MOTIF       Pfam: INSIG
-DBLINKS     NCBI-GI: 6321925
+DBLINKS     NCBI-ProteinID: NP_012001
             NCBI-GeneID: 856535
             SGD: S000001175
-            MIPS: YHR133C
             UniProt: P38837
 AASEQ       291
             MGKKKSKNQLNTGGVPNGVHNTKKEAALPPLGNKLGSASFTAINTLTKPALFSFYDDDIT

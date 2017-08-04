@@ -1,13 +1,22 @@
 ENTRY       YHR110W           CDS       T00005
 NAME        ERP5
-DEFINITION  Erp5p
+DEFINITION  (RefSeq) Erp5p
+ORTHOLOGY   K20346  p24 family protein alpha
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endoplasmic reticulum (ER) - Golgi transport
+              Forward pathways
+               p24 family proteins
+                YHR110W (ERP5)
+            Transporters [BR:sce02000]
+             Other Transporters
+              Others
+               YHR110W (ERP5)
 POSITION    VIII:332282..332920
-MOTIF       Pfam: EMP24_GP25L DUF4140 NTR2
-DBLINKS     NCBI-GI: 6321902
+MOTIF       Pfam: EMP24_GP25L Rota_NSP3
+DBLINKS     NCBI-ProteinID: NP_011978
             NCBI-GeneID: 856510
             SGD: S000001152
-            MIPS: YHR110W
             UniProt: P38819
 AASEQ       212
             MKYNIVHGICLLFAITQAVGAVHFYAKSGETKCFYEHLSRGNLLIGDLDLYVEKDGLFEE

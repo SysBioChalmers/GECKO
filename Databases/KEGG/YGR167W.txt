@@ -1,13 +1,12 @@
 ENTRY       YGR167W           CDS       T00005
 NAME        CLC1, SCD4
-DEFINITION  Clc1p
+DEFINITION  (RefSeq) Clc1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:832456..833157
-MOTIF       Pfam: Clathrin_lg_ch rve_3
-DBLINKS     NCBI-GI: 398365991
+MOTIF       Pfam: Clathrin_lg_ch Dna2
+DBLINKS     NCBI-ProteinID: NP_011683
             NCBI-GeneID: 853077
             SGD: S000003399
-            MIPS: YGR167W
             UniProt: P17891
 AASEQ       233
             MSEKFPPLEDQNIDFTPNDKKDDDTDFLKREAEILGDEFKTEQDDILETEASPAKDDDEI

@@ -1,14 +1,19 @@
 ENTRY       YGL252C           CDS       T00005
 NAME        RTG2
-DEFINITION  Rtg2p
+DEFINITION  (RefSeq) Rtg2p
 ORTHOLOGY   K11369  retrograde regulation protein 2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Histone modification proteins
+               HAT complexes
+                SLIK complex
+                 YGL252C (RTG2)
 POSITION    VII:complement(25718..27484)
 MOTIF       Pfam: Ppx-GppA
-DBLINKS     NCBI-GI: 6321185
+DBLINKS     NCBI-ProteinID: NP_011262
             NCBI-GeneID: 852640
             SGD: S000003221
-            MIPS: YGL252C
             UniProt: P32608
 AASEQ       588
             MSTLSDSDTETEVVSRNLCGIVDIGSNGIRFSISSKAAHHARIMPCVFKDRVGLSLYEVQ

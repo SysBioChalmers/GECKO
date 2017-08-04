@@ -1,13 +1,12 @@
 ENTRY       YFL004W           CDS       T00005
 NAME        VTC2, PHM1
-DEFINITION  Vtc2p
+DEFINITION  (RefSeq) vacuolar transporter chaperone
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VI:131810..134296
-MOTIF       Pfam: VTC SPX DUF202 MBOAT
-DBLINKS     NCBI-GI: 14318518
+MOTIF       Pfam: VTC DUF202 SPX MBOAT Pex14_N
+DBLINKS     NCBI-ProteinID: NP_116651
             NCBI-GeneID: 850544
             SGD: S000001890
-            MIPS: YFL004W
             UniProt: P43585
 STRUCTURE   PDB: 3G3O
 AASEQ       828

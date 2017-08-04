@@ -1,13 +1,12 @@
 ENTRY       YMR065W           CDS       T00005
 NAME        KAR5, FIG3
-DEFINITION  Kar5p
+DEFINITION  (RefSeq) Kar5p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:399702..401216
-MOTIF       Pfam: Tht1 Hs1pro-1_C Apolipoprotein Syntaxin-6_N
-DBLINKS     NCBI-GI: 6323710
+MOTIF       Pfam: Tht1 Apolipoprotein Syntaxin-6_N DUF1640 Baculo_PEP_C DUF1451
+DBLINKS     NCBI-ProteinID: NP_013781
             NCBI-GeneID: 855087
             SGD: S000004669
-            MIPS: YMR065W
             UniProt: Q04746
 AASEQ       504
             MFEMRYVYLFAICIKFVSSSELGKINNLLQGRLIYTDNSVATNVLESKFPFLKSTCVKDA

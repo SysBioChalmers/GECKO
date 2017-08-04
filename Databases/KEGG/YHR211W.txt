@@ -1,13 +1,12 @@
 ENTRY       YHR211W           CDS       T00005
 NAME        FLO5
-DEFINITION  Flo5p
+DEFINITION  (RefSeq) flocculin FLO5
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VIII:525392..528619
-MOTIF       Pfam: Flocculin PA14 Flocculin_t3 PA14_2
-DBLINKS     NCBI-GI: 6322005
+MOTIF       Pfam: Flocculin Flocculin_t3 PA14 GLEYA
+DBLINKS     NCBI-ProteinID: NP_012081
             NCBI-GeneID: 856618
             SGD: S000001254
-            MIPS: YHR211W
             UniProt: P38894
 STRUCTURE   PDB: 2XJP 2XJT 2XJR 2XJS 2XJQ 4AHW 4AHX 4AHY 2XJU 2XJV 4AI2
                  4AI0 4AI1 4AHZ 4AI3

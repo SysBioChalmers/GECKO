@@ -1,16 +1,25 @@
 ENTRY       YGR282C           CDS       T00005
-NAME        BGL2
-DEFINITION  Bgl2p (EC:3.2.1.58)
+NAME        BGL2, SCW9
+DEFINITION  (RefSeq) glucan 1,3-beta-glucosidase
 ORTHOLOGY   K01210  glucan 1,3-beta-glucosidase [EC:3.2.1.58]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00500  Starch and sucrose metabolism
-CLASS       Metabolism; Carbohydrate metabolism; Starch and sucrose metabolism [PATH:sce00500]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Carbohydrate metabolism
+               00500 Starch and sucrose metabolism
+                YGR282C (BGL2)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.2  Glycosylases
+               3.2.1  Glycosidases, i.e. enzymes that hydrolyse O- and S-glycosyl compounds
+                3.2.1.58  glucan 1,3-beta-glucosidase
+                 YGR282C (BGL2)
 POSITION    VII:complement(1057783..1058724)
 MOTIF       Pfam: Glyco_hydro_17
-DBLINKS     NCBI-GI: 6321721
+DBLINKS     NCBI-ProteinID: NP_011798
             NCBI-GeneID: 853199
             SGD: S000003514
-            MIPS: YGR282C
             UniProt: P15703
 AASEQ       313
             MRFSTTLATAATALFFTASQVSAIGELAFNLGVKNNDGTCKSTSDYETELQALKSYTSTV

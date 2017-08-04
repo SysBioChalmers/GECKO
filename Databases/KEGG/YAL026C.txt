@@ -1,14 +1,24 @@
 ENTRY       YAL026C           CDS       T00005
 NAME        DRS2, FUN38, SWA3
-DEFINITION  aminophospholipid-translocating P4-type ATPase DRS2 (EC:3.6.3.1)
+DEFINITION  (RefSeq) aminophospholipid-translocating P4-type ATPase DRS2
 ORTHOLOGY   K14802  phospholipid-transporting ATPase [EC:3.6.3.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.3  Acting on acid anhydrides to catalyse transmembrane movement of substances
+                3.6.3.1  phospholipid-translocating ATPase
+                 YAL026C (DRS2)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-40S particles
+               Other pre-40S particles
+                YAL026C (DRS2)
 POSITION    I:complement(95630..99697)
-MOTIF       Pfam: HAD E1-E2_ATPase Hydrolase Hydrolase_like2 Hydrolase_3
-DBLINKS     NCBI-GI: 330443374
+MOTIF       Pfam: PhoLip_ATPase_C PhoLip_ATPase_N Hydrolase Cation_ATPase E1-E2_ATPase Hydrolase_3 DUF2204
+DBLINKS     NCBI-ProteinID: NP_009376
             NCBI-GeneID: 851207
             SGD: S000000024
-            MIPS: YAL026C
             UniProt: P39524
 AASEQ       1355
             MNDDRETPPKRKPGEDDTLFDIDFLDDTTSHSGSRSKVTNSHANANYIPPSHVLPEETID

@@ -1,14 +1,19 @@
 ENTRY       YDR093W           CDS       T00005
 NAME        DNF2
-DEFINITION  aminophospholipid-translocating P4-type ATPase DNF2 (EC:3.6.3.1)
+DEFINITION  (RefSeq) aminophospholipid-translocating P4-type ATPase DNF2
 ORTHOLOGY   K01530  phospholipid-translocating ATPase [EC:3.6.3.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.3  Acting on acid anhydrides to catalyse transmembrane movement of substances
+                3.6.3.1  phospholipid-translocating ATPase
+                 YDR093W (DNF2)
 POSITION    IV:631282..636120
-MOTIF       Pfam: E1-E2_ATPase HAD Hydrolase_like2 Hydrolase Hydrolase_3
-DBLINKS     NCBI-GI: 6320298
+MOTIF       Pfam: PhoLip_ATPase_C PhoLip_ATPase_N Cation_ATPase Hydrolase E1-E2_ATPase Hydrolase_3
+DBLINKS     NCBI-ProteinID: NP_010378
             NCBI-GeneID: 851667
             SGD: S000002500
-            MIPS: YDR093W
             UniProt: Q12675
 AASEQ       1612
             MSSPSKPTSPFVDDIEHESGSASNGLSSMSPFDDSFQFEKPSSAHGNIEVAKTGGSVLKR

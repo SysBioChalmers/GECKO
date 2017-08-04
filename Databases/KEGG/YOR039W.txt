@@ -1,16 +1,29 @@
 ENTRY       YOR039W           CDS       T00005
 NAME        CKB2
-DEFINITION  Ckb2p
+DEFINITION  (RefSeq) casein kinase 2 regulatory subunit CKB2
 ORTHOLOGY   K03115  casein kinase II subunit beta
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03008  Ribosome biogenesis in eukaryotes
-CLASS       Genetic Information Processing; Translation; Ribosome biogenesis in eukaryotes [PATH:sce03008]
+            sce04139  Mitophagy - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03008 Ribosome biogenesis in eukaryotes
+                YOR039W (CKB2)
+             Cellular Processes
+              Transport and catabolism
+               04139 Mitophagy - yeast
+                YOR039W (CKB2)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              90S particles
+               Kinase
+                YOR039W (CKB2)
 POSITION    XV:405768..406544
 MOTIF       Pfam: CK_II_beta
-DBLINKS     NCBI-GI: 6324613
+DBLINKS     NCBI-ProteinID: NP_014682
             NCBI-GeneID: 854204
             SGD: S000005565
-            MIPS: YOR039W
             UniProt: P38930
 AASEQ       258
             MGSRSENVGTVTREGSRVEQDDVLMDDDSDSSEYVDMWIDLFLGRKGHEYFCDVDPEYIT

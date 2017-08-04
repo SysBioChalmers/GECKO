@@ -1,14 +1,25 @@
 ENTRY       YER016W           CDS       T00005
 NAME        BIM1, YEB1
-DEFINITION  Bim1p
+DEFINITION  (RefSeq) microtubule-binding protein BIM1
 ORTHOLOGY   K10436  microtubule-associated protein, RP/EB family
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centrosome formation and ciliogenesis proteins
+               Microtubules and associated factors
+                Microtubule-associated proteins
+                 YER016W (BIM1)
+            Cytoskeleton proteins [BR:sce04812]
+             Eukaryotic cytoskeleton proteins
+              Microtubules
+               Tubulin-binding proteins
+                EB / APC
+                 YER016W (BIM1)
 POSITION    V:188277..189311
-MOTIF       Pfam: EB1 CH Tmemb_cc2 DivIC IncA ATG16 Paramyx_P_V_C
-DBLINKS     NCBI-GI: 6320853
+MOTIF       Pfam: EB1 CH ATG16 DivIC Tmemb_cc2 N-glycanase_C zf-C4H2 IncA
+DBLINKS     NCBI-ProteinID: NP_010932
             NCBI-GeneID: 856736
             SGD: S000000818
-            MIPS: YER016W
             UniProt: P40013
 STRUCTURE   PDB: 2QJX 4E61
 AASEQ       344

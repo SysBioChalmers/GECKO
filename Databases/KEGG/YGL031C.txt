@@ -1,18 +1,29 @@
 ENTRY       YGL031C           CDS       T00005
 NAME        RPL24A, RPL30A
-DEFINITION  ribosomal 60S subunit protein L24A
+DEFINITION  (RefSeq) ribosomal 60S subunit protein L24A
 ORTHOLOGY   K02896  large subunit ribosomal protein L24e
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03010  Ribosome
-CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+MODULE      sce_M00177  Ribosome, eukaryotes
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03010 Ribosome
+                YGL031C (RPL24A)
+            Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Eukaryotes
+               Large subunit
+                YGL031C (RPL24A)
+              Archaea
+                YGL031C (RPL24A)
 POSITION    VII:complement(437467..437934)
 MOTIF       Pfam: Ribosomal_L24e
-DBLINKS     NCBI-GI: 6321407
+DBLINKS     NCBI-ProteinID: NP_011484
             NCBI-GeneID: 852852
             SGD: S000002999
-            MIPS: YGL031C
             UniProt: P04449
-STRUCTURE   PDB: 3U5E 3U5I 3O58 3O5H 4BYN 4BYU 4B6A 3IZS 1S1I 2X7N
+STRUCTURE   PDB: 2X7N
 AASEQ       155
             MKVEIDSFSGAKIYPGRGTLFVRGDSKIFRFQNSKSASLFKQRKNPRRIAWTVLFRKHHK
             KGITEEVAKKRSRKTVKAQRPITGASLDLIKERRSLKPEVRKANREEKLKANKEKKKAEK

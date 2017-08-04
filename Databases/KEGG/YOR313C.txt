@@ -1,15 +1,18 @@
 ENTRY       YOR313C           CDS       T00005
 NAME        SPS4
-DEFINITION  Sps4p
+DEFINITION  (RefSeq) Sps4p
 ORTHOLOGY   K12772  sporulation-specific protein 4
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04113  Meiosis - yeast
-CLASS       Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04113 Meiosis - yeast
+                YOR313C (SPS4)
 POSITION    XV:complement(901858..902874)
-DBLINKS     NCBI-GI: 398366211
+DBLINKS     NCBI-ProteinID: NP_014958
             NCBI-GeneID: 854490
             SGD: S000005840
-            MIPS: YOR313C
             UniProt: P09937
 AASEQ       338
             MPSNLNIVKVTKPQEENKNFLHKNTNEPNEMEQSQTQEAVTENFTENSNLSANEHAARRG

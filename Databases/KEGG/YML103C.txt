@@ -1,16 +1,25 @@
 ENTRY       YML103C           CDS       T00005
 NAME        NUP188
-DEFINITION  Nup188p
+DEFINITION  (RefSeq) Nup188p
 ORTHOLOGY   K14311  nuclear pore complex protein Nup188
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03013  RNA transport
-CLASS       Genetic Information Processing; Translation; RNA transport [PATH:sce03013]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03013 RNA transport
+                YML103C (NUP188)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Transport factors
+                Nuclear pore complex
+                 YML103C (NUP188)
 POSITION    XIII:complement(62582..67549)
 MOTIF       Pfam: Nup188
-DBLINKS     NCBI-GI: 6323533
+DBLINKS     NCBI-ProteinID: NP_013604
             NCBI-GeneID: 854868
             SGD: S000004571
-            MIPS: YML103C
             UniProt: P52593
 AASEQ       1655
             MATPSFGNSSPQLTFTHVANFMNDAAADVSAVDAKQLAQIRQFLKANKTNLIESLNTIRQ

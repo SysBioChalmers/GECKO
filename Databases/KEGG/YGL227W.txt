@@ -1,13 +1,12 @@
 ENTRY       YGL227W           CDS       T00005
 NAME        VID30, GID1
-DEFINITION  glucose-induced degradation complex subunit VID30
+DEFINITION  (RefSeq) glucose-induced degradation complex subunit VID30
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:69671..72547
-MOTIF       Pfam: SPRY CLTH Daxx LisH CDC45 CENP-T
-DBLINKS     NCBI-GI: 6321210
+MOTIF       Pfam: SPRY CLTH LisH BUD22
+DBLINKS     NCBI-ProteinID: NP_011287
             NCBI-GeneID: 852624
             SGD: S000003196
-            MIPS: YGL227W
             UniProt: P53076
 AASEQ       958
             MSEYMDDVDREFINCLFPSYLLQQPVAYDLWILYLQHRKLFHKLKNTNLINADENPTGVG

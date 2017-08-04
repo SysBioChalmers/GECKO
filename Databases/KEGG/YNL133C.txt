@@ -1,13 +1,12 @@
 ENTRY       YNL133C           CDS       T00005
 NAME        FYV6
-DEFINITION  Fyv6p
+DEFINITION  (RefSeq) Fyv6p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIV:complement(374171..374692)
-MOTIF       Pfam: PRA-CH Nefa_Nip30_N SfsA
-DBLINKS     NCBI-GI: 398364709
+MOTIF       Pfam: Nefa_Nip30_N PRA-CH
+DBLINKS     NCBI-ProteinID: NP_014266
             NCBI-GeneID: 855589
             SGD: S000005077
-            MIPS: YNL133C
             UniProt: P53913
 AASEQ       173
             MSSTSDNNANSAREKKPLKFVSEGVGNVEAQRIREQVEQKKYEAEYKRKTRKSLRDQLRS

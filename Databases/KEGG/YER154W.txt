@@ -1,16 +1,28 @@
 ENTRY       YER154W           CDS       T00005
 NAME        OXA1
-DEFINITION  Oxa1p
+DEFINITION  (RefSeq) membrane insertase OXA1
 ORTHOLOGY   K03217  YidC/Oxa1 family membrane protein insertase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03060  Protein export
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Protein export [PATH:sce03060]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               03060 Protein export
+                YER154W (OXA1)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial quality control factors
+              Mitochondrial respiratory chain complex assembly factors
+               Complex-IV assembly factors
+                YER154W (OXA1)
+            Secretion system [BR:sce02044]
+             Sec (secretion) system
+              Bacterial Sec-SRP core components [MD:M00335]
+               YER154W (OXA1)
 POSITION    V:475020..476228
-MOTIF       Pfam: 60KD_IMP
-DBLINKS     NCBI-GI: 6321002
+MOTIF       Pfam: 60KD_IMP DUF2780
+DBLINKS     NCBI-ProteinID: NP_011081
             NCBI-GeneID: 856898
             SGD: S000000956
-            MIPS: YER154W
             UniProt: P39952
 AASEQ       402
             MFKLTSRLVTSRFAASSRLATARTIVLPRPHPSWISFQAKRFNSTGPNANDVSEIQTQLP

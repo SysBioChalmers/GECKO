@@ -1,14 +1,18 @@
 ENTRY       YDL153C           CDS       T00005
 NAME        SAS10, UTP3
-DEFINITION  Sas10p
+DEFINITION  (RefSeq) rRNA-processing protein SAS10
 ORTHOLOGY   K14767  U3 small nucleolar RNA-associated protein 3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              90S particles
+               U3 small nucleolar RNA-associated proteins
+                YDL153C (SAS10)
 POSITION    IV:complement(181186..183018)
 MOTIF       Pfam: Sas10 Sas10_Utp3
-DBLINKS     NCBI-GI: 6320049
+DBLINKS     NCBI-ProteinID: NP_010128
             NCBI-GeneID: 851403
             SGD: S000002312
-            MIPS: YDL153C
             UniProt: Q12136
 AASEQ       610
             MVRKGSNRTKTSEVGDEINPYGLNEVDDFASKREKVLLGQSTFGDSNKDDDHSLLEDEDE

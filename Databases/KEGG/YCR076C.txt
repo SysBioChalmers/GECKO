@@ -1,13 +1,12 @@
 ENTRY       YCR076C           CDS       T00005
 NAME        FUB1
-DEFINITION  Fub1p
+DEFINITION  (RefSeq) Fub1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    III:complement(249293..250045)
 MOTIF       Pfam: PI31_Prot_C
-DBLINKS     NCBI-GI: 6319920
+DBLINKS     NCBI-ProteinID: NP_010001
             NCBI-GeneID: 850439
             SGD: S000000672
-            MIPS: YCR076C
             UniProt: P25659
 AASEQ       250
             MIENKVELVAELVLESIGKTEVVSRHTEGTKSCQVSFRIKDSPSEKGSTSFLSELVVIQT

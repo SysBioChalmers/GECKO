@@ -1,14 +1,22 @@
 ENTRY       YJL054W           CDS       T00005
 NAME        TIM54
-DEFINITION  Tim54p
+DEFINITION  (RefSeq) Tim54p
 ORTHOLOGY   K17792  mitochondrial import inner membrane translocase subunit TIM54
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial protein import machinery
+              Inner mambrane
+               TIM22 complex
+                YJL054W (TIM54)
+            Transporters [BR:sce02000]
+             Other Transporters
+              Others
+               YJL054W (TIM54)
 POSITION    X:334265..335701
 MOTIF       Pfam: Tim54
-DBLINKS     NCBI-GI: 398364513
+DBLINKS     NCBI-ProteinID: NP_012481
             NCBI-GeneID: 853392
             SGD: S000003590
-            MIPS: YJL054W
             UniProt: P47045
 AASEQ       478
             MSSESGKPIAKPIRKPGYTNPALKALGIPALRLPSRNWMIFWSVLTVSIGGIAYDKYKQR

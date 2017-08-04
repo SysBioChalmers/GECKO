@@ -1,21 +1,37 @@
 ENTRY       YOR251C           CDS       T00005
 NAME        TUM1
-DEFINITION  Tum1p (EC:2.8.1.1)
+DEFINITION  (RefSeq) thiosulfate sulfurtransferase
 ORTHOLOGY   K01011  thiosulfate/3-mercaptopyruvate sulfurtransferase [EC:2.8.1.1 2.8.1.2]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00270  Cysteine and methionine metabolism
             sce00920  Sulfur metabolism
             sce01100  Metabolic pathways
             sce04122  Sulfur relay system
-CLASS       Metabolism; Energy metabolism; Sulfur metabolism [PATH:sce00920]
-            Metabolism; Amino acid metabolism; Cysteine and methionine metabolism [PATH:sce00270]
-            Genetic Information Processing; Folding, sorting and degradation; Sulfur relay system [PATH:sce04122]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Energy metabolism
+               00920 Sulfur metabolism
+                YOR251C (TUM1)
+              Amino acid metabolism
+               00270 Cysteine and methionine metabolism
+                YOR251C (TUM1)
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04122 Sulfur relay system
+                YOR251C (TUM1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.8  Transferring sulfur-containing groups
+               2.8.1  Sulfurtransferases
+                2.8.1.1  thiosulfate sulfurtransferase
+                 YOR251C (TUM1)
+                2.8.1.2  3-mercaptopyruvate sulfurtransferase
+                 YOR251C (TUM1)
 POSITION    XV:complement(802550..803464)
 MOTIF       Pfam: Rhodanese
-DBLINKS     NCBI-GI: 398365943
+DBLINKS     NCBI-ProteinID: NP_014894
             NCBI-GeneID: 854425
             SGD: S000005777
-            MIPS: YOR251C
             UniProt: Q08686
 STRUCTURE   PDB: 3UTN
 AASEQ       304

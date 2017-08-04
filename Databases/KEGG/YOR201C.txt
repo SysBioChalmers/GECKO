@@ -1,14 +1,23 @@
 ENTRY       YOR201C           CDS       T00005
 NAME        MRM1, PET56
-DEFINITION  Mrm1p (EC:2.1.1.-)
+DEFINITION  (RefSeq) Mrm1p
 ORTHOLOGY   K15507  21S rRNA (GM2251-2'-O)-methyltransferase [EC:2.1.1.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.1  Transferring one-carbon groups
+               2.1.1  Methyltransferases
+                2.1.1.-  
+                 YOR201C (MRM1)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Other ribosome biogenesis factors
+               YOR201C (MRM1)
 POSITION    XV:complement(720470..721708)
 MOTIF       Pfam: SpoU_methylase SpoU_sub_bind
-DBLINKS     NCBI-GI: 398365713
+DBLINKS     NCBI-ProteinID: NP_014844
             NCBI-GeneID: 854376
             SGD: S000005727
-            MIPS: YOR201C
             UniProt: P25270
 AASEQ       412
             MTSLTNAVFKRYLAVTPSAHQALKTRIKKKSSSFDKFFPQQSNSRKKQWETLNEDKASWF

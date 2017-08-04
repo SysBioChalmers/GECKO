@@ -1,14 +1,21 @@
 ENTRY       YDL135C           CDS       T00005
 NAME        RDI1
-DEFINITION  Rdi1p
+DEFINITION  (RefSeq) Rdi1p
 ORTHOLOGY   K12462  Rho GDP-dissociation inhibitor
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of haemopoietic cells  (B-cell, T-cell, DC-cell, reticulocyte, and mast cell)
+               YDL135C (RDI1)
+              Exosomal proteins of other body fluids (saliva and urine)
+               YDL135C (RDI1)
+              Exosomal proteins of colorectal cancer cells
+               YDL135C (RDI1)
 POSITION    IV:complement(218680..219288)
 MOTIF       Pfam: Rho_GDI
-DBLINKS     NCBI-GI: 6320066
+DBLINKS     NCBI-ProteinID: NP_010146
             NCBI-GeneID: 851420
             SGD: S000002294
-            MIPS: YDL135C
             UniProt: Q12434
 AASEQ       202
             MAEESTDFSQFEEERNNDQYKVSAKKTVDEYKNLDAEDESLAKWKESLGLSSDVLPLEFP

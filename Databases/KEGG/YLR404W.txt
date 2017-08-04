@@ -1,13 +1,11 @@
 ENTRY       YLR404W           CDS       T00005
-NAME        FLD1
-DEFINITION  Fld1p
+NAME        SEI1, FLD1
+DEFINITION  (RefSeq) seipin
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XII:928743..929600
-MOTIF       Pfam: Seipin
-DBLINKS     NCBI-GI: 398366135
+DBLINKS     NCBI-ProteinID: NP_013508
             NCBI-GeneID: 851120
             SGD: S000004396
-            MIPS: YLR404W
             UniProt: Q06058
 AASEQ       285
             MKINVSRPLQFLQWSSYIVVAFLIQLLIILPLSILIYHDFYLRLLPADSSNVVPLNTFNI

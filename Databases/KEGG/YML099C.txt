@@ -1,14 +1,18 @@
 ENTRY       YML099C           CDS       T00005
 NAME        ARG81, ARGR2
-DEFINITION  Arg81p
+DEFINITION  (RefSeq) Arg81p
 ORTHOLOGY   K09246  arginine metabolism regulation protein II
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription factors [BR:sce03000]
+             Eukaryotic Type
+              Zinc finger
+               Cys6 metabolic regulators in fungi
+                YML099C (ARG81)
 POSITION    XIII:complement(74398..77040)
 MOTIF       Pfam: Fungal_trans_2 Zn_clus
-DBLINKS     NCBI-GI: 6323539
+DBLINKS     NCBI-ProteinID: NP_013610
             NCBI-GeneID: 854874
             SGD: S000004565
-            MIPS: YML099C
             UniProt: P05085
 AASEQ       880
             MGISSKNGPKKMGRAKTFTGCWTCRGRKVKCDLRHPHCQRCEKSNLPCGGYDIKLRWSKP

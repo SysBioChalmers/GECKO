@@ -1,14 +1,24 @@
 ENTRY       YKR056W           CDS       T00005
 NAME        TRM2, NUC2, NUD1, RNC1
-DEFINITION  Trm2p (EC:2.1.1.35)
+DEFINITION  (RefSeq) Trm2p
 ORTHOLOGY   K15331  tRNA (uracil-5-)-methyltransferase [EC:2.1.1.35]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.1  Transferring one-carbon groups
+               2.1.1  Methyltransferases
+                2.1.1.35  tRNA (uracil54-C5)-methyltransferase
+                 YKR056W (TRM2)
+            Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              tRNA modification factors
+               Methyltransferases
+                YKR056W (TRM2)
 POSITION    XI:549448..551367
-MOTIF       Pfam: tRNA_U5-meth_tr TRAM Methyltransf_31 Methyltransf_18 PrmA Cons_hypoth95 Methyltransf_26 Methyltransf_15 MTS Methyltransf_25 Methyltransf_4 Methyltransf_11 Ubie_methyltran Met_10 UPF0020
-DBLINKS     NCBI-GI: 42759862
+MOTIF       Pfam: tRNA_U5-meth_tr TRAM Methyltransf_31 Methyltransf_25 PrmA Cons_hypoth95 Methyltransf_15 MTS Ubie_methyltran Methyltransf_11 Met_10 Methyltransf_4
+DBLINKS     NCBI-ProteinID: NP_012982
             NCBI-GeneID: 853930
             SGD: S000001764
-            MIPS: YKR056W
             UniProt: P33753
 AASEQ       639
             MYEQFEFSFFFFENSDNKVKYKAHLISSIKRWSIITCMRCFWTVQKSIFKARFFACRNFV

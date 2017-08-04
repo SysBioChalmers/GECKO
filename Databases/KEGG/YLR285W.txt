@@ -1,14 +1,24 @@
 ENTRY       YLR285W           CDS       T00005
-NAME        NNT1
-DEFINITION  Nnt1p (EC:2.1.1.1)
+NAME        NNT1, EFM7
+DEFINITION  (RefSeq) S-adenosylmethionine-dependent methyltransferase
 ORTHOLOGY   K17878  nicotinamide N-methyltransferase [EC:2.1.1.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.1  Transferring one-carbon groups
+               2.1.1  Methyltransferases
+                2.1.1.1  nicotinamide N-methyltransferase
+                 YLR285W (NNT1)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Histone modification proteins
+               Other histone modification proteins
+                YLR285W (NNT1)
 POSITION    XII:707360..708145
-MOTIF       Pfam: Methyltransf_16 Methyltransf_23 Methyltransf_18 Methyltransf_31
-DBLINKS     NCBI-GI: 6323315
+MOTIF       Pfam: Methyltransf_16 Methyltransf_23 Methyltransf_25
+DBLINKS     NCBI-ProteinID: NP_013387
             NCBI-GeneID: 850991
             SGD: S000004275
-            MIPS: YLR285W
             UniProt: Q05874
 AASEQ       261
             MSDIESLGEAAGLFEEPEDFLPPPPKPHFAEYQRSHITKESKSDVKDIKLRLVGTSPLWG

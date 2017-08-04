@@ -1,14 +1,25 @@
 ENTRY       YGL251C           CDS       T00005
 NAME        HFM1, MER3
-DEFINITION  Hfm1p (EC:3.6.4.12)
+DEFINITION  (RefSeq) Hfm1p
 ORTHOLOGY   K15271  ATP-dependent DNA helicase HFM1/MER3 [EC:3.6.4.12]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.4  Acting on acid anhydrides to facilitate cellular and subcellular movement
+                3.6.4.12  DNA helicase
+                 YGL251C (HFM1)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              DSBR (double strand breaks repair)
+               HR (homologous recombination)
+                Other HR factors
+                 YGL251C (HFM1)
 POSITION    VII:complement(join(27921..31426,31579..31636))
-MOTIF       Pfam: Sec63 DEAD ResIII Helicase_C UvrD-helicase T2SE AAA_22 AAA_19
-DBLINKS     NCBI-GI: 9755332
+MOTIF       Pfam: Sec63 DEAD ResIII Helicase_C UvrD-helicase T2SSE AAA_22 AAA_19 AAA_11
+DBLINKS     NCBI-ProteinID: NP_011263
             NCBI-GeneID: 852641
             SGD: S000003220
-            MIPS: YGL251C
             UniProt: P51979
 AASEQ       1187
             MKTKFDRLGTGKRSRPSPNNIDFNDQSATFKRNKKNSRQPSFKVGLSYNSLLDDCDDENE

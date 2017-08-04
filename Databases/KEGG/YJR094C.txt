@@ -1,15 +1,23 @@
 ENTRY       YJR094C           CDS       T00005
 NAME        IME1
-DEFINITION  Ime1p
+DEFINITION  (RefSeq) transcription factor IME1
 ORTHOLOGY   K12764  meiosis-inducing protein 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04113  Meiosis - yeast
-CLASS       Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04113 Meiosis - yeast
+                YJR094C (IME1)
+            Transcription factors [BR:sce03000]
+             Eukaryotic Type
+              Other transcription factors
+               Others
+                YJR094C (IME1)
 POSITION    X:complement(604569..605651)
-DBLINKS     NCBI-GI: 6322553
+DBLINKS     NCBI-ProteinID: NP_012627
             NCBI-GeneID: 853556
             SGD: S000003854
-            MIPS: YJR094C
             UniProt: P21190
 AASEQ       360
             MQADMHGKLHAALEDGFFLFPFEQQQQPNIYYDTTTDQEDRPCFSFGSTISPRSWHFEKS

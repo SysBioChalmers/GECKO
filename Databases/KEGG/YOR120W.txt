@@ -1,21 +1,26 @@
 ENTRY       YOR120W           CDS       T00005
 NAME        GCY1
-DEFINITION  Gcy1p (EC:1.1.1.-)
-ORTHOLOGY   K00100   [EC:1.1.1.-]
+DEFINITION  (RefSeq) glycerol 2-dehydrogenase (NADP(+)) GCY1
+ORTHOLOGY   K18097  glycerol 2-dehydrogenase (NADP+) [EC:1.1.1.156]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
-PATHWAY     sce00051  Fructose and mannose metabolism
-            sce00591  Linoleic acid metabolism
-            sce00650  Butanoate metabolism
+PATHWAY     sce00561  Glycerolipid metabolism
             sce01100  Metabolic pathways
-CLASS       Metabolism; Carbohydrate metabolism; Fructose and mannose metabolism [PATH:sce00051]
-            Metabolism; Carbohydrate metabolism; Butanoate metabolism [PATH:sce00650]
-            Metabolism; Lipid metabolism; Linoleic acid metabolism [PATH:sce00591]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Lipid metabolism
+               00561 Glycerolipid metabolism
+                YOR120W (GCY1)
+            Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.1  Acting on the CH-OH group of donors
+               1.1.1  With NAD+ or NADP+ as acceptor
+                1.1.1.156  glycerol 2-dehydrogenase (NADP+)
+                 YOR120W (GCY1)
 POSITION    XV:551114..552052
 MOTIF       Pfam: Aldo_ket_red
-DBLINKS     NCBI-GI: 6324694
+DBLINKS     NCBI-ProteinID: NP_014763
             NCBI-GeneID: 854287
             SGD: S000005646
-            MIPS: YOR120W
             UniProt: P14065
 AASEQ       312
             MPATLHDSTKILSLNTGAQIPQIGLGTWQSKENDAYKAVLTALKDGYRHIDTAAIYRNED

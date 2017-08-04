@@ -1,6 +1,6 @@
 ENTRY       YJR139C           CDS       T00005
 NAME        HOM6, THR6
-DEFINITION  homoserine dehydrogenase (EC:1.1.1.3)
+DEFINITION  (RefSeq) homoserine dehydrogenase
 ORTHOLOGY   K00003  homoserine dehydrogenase [EC:1.1.1.3]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00260  Glycine, serine and threonine metabolism
@@ -8,18 +8,32 @@ PATHWAY     sce00260  Glycine, serine and threonine metabolism
             sce00300  Lysine biosynthesis
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
+            sce01130  Biosynthesis of antibiotics
             sce01230  Biosynthesis of amino acids
 MODULE      sce_M00018  Threonine biosynthesis, aspartate => homoserine => threonine
-CLASS       Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
-            Metabolism; Amino acid metabolism; Glycine, serine and threonine metabolism [PATH:sce00260]
-            Metabolism; Amino acid metabolism; Cysteine and methionine metabolism [PATH:sce00270]
-            Metabolism; Amino acid metabolism; Lysine biosynthesis [PATH:sce00300]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01230 Biosynthesis of amino acids
+                YJR139C (HOM6)
+              Amino acid metabolism
+               00260 Glycine, serine and threonine metabolism
+                YJR139C (HOM6)
+               00270 Cysteine and methionine metabolism
+                YJR139C (HOM6)
+               00300 Lysine biosynthesis
+                YJR139C (HOM6)
+            Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.1  Acting on the CH-OH group of donors
+               1.1.1  With NAD+ or NADP+ as acceptor
+                1.1.1.3  homoserine dehydrogenase
+                 YJR139C (HOM6)
 POSITION    X:complement(689445..690524)
-MOTIF       Pfam: Homoserine_dh NAD_binding_3 DUF2555
-DBLINKS     NCBI-GI: 398365575
+MOTIF       Pfam: Homoserine_dh NAD_binding_3 DUF5101
+DBLINKS     NCBI-ProteinID: NP_012673
             NCBI-GeneID: 853604
             SGD: S000003900
-            MIPS: YJR139C
             UniProt: P31116
 STRUCTURE   PDB: 1EBF 1Q7G 1EBU 1TVE
 AASEQ       359

@@ -1,13 +1,24 @@
 ENTRY       YNL326C           CDS       T00005
 NAME        PFA3
-DEFINITION  Pfa3p (EC:2.3.1.-)
+DEFINITION  (RefSeq) palmitoyltransferase PFA3
+ORTHOLOGY   K20028  palmitoyltransferase ZDHHC2/15/20 [EC:2.3.1.225]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.3  Acyltransferases
+               2.3.1  Transferring groups other than aminoacyl groups
+                2.3.1.225  protein S-acyltransferase
+                 YNL326C (PFA3)
+            Membrane trafficking [BR:sce04131]
+             SNARE
+              SNARE associated proteins
+               Palmitoyltransferases
+                YNL326C (PFA3)
 POSITION    XIV:complement(27337..28347)
-MOTIF       Pfam: zf-DHHC Afaf RSF
-DBLINKS     NCBI-GI: 6324003
+MOTIF       Pfam: DHHC
+DBLINKS     NCBI-ProteinID: NP_014073
             NCBI-GeneID: 855390
             SGD: S000005270
-            MIPS: YNL326C
             UniProt: P42836
 AASEQ       336
             MNDRLSLTSLFPRCLTTCLYIWTAYITLTRIHQIPRWFLALTIVPTLAVALYTYYKVIAR

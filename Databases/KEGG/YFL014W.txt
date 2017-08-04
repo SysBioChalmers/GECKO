@@ -1,13 +1,12 @@
 ENTRY       YFL014W           CDS       T00005
 NAME        HSP12, GLP1, HOR5
-DEFINITION  Hsp12p
+DEFINITION  (RefSeq) lipid-binding protein HSP12
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VI:107256..107585
-MOTIF       Pfam: HSP9_HSP12 DUF883
-DBLINKS     NCBI-GI: 14318506
+MOTIF       Pfam: HSP9_HSP12 DUF357 DUF883
+DBLINKS     NCBI-ProteinID: NP_116640
             NCBI-GeneID: 850532
             SGD: S000001880
-            MIPS: YFL014W
             UniProt: P22943
 STRUCTURE   PDB: 4AXP 2LJL 2L9Q
 AASEQ       109

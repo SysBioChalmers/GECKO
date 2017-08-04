@@ -1,18 +1,27 @@
 ENTRY       YPR173C           CDS       T00005
 NAME        VPS4, CSC1, DID6, END13, GRD13, VPL4, VPT10
-DEFINITION  AAA family ATPase VPS4
+DEFINITION  (RefSeq) AAA family ATPase VPS4
 ORTHOLOGY   K12196  vacuolar protein-sorting-associated protein 4
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04144  Endocytosis
-CLASS       Cellular Processes; Transport and catabolism; Endocytosis [PATH:sce04144]
+MODULE      sce_M00412  ESCRT-III complex
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04144 Endocytosis
+                YPR173C (VPS4)
+            Membrane trafficking [BR:sce04131]
+             Endosome - Lysosome transport
+              Endosomal sorting complexes required for transport (ESCRT)
+               ESCRT-III complex
+                YPR173C (VPS4)
 POSITION    XVI:complement(886524..887837)
-MOTIF       Pfam: AAA Vps4_C MIT AAA_17 AAA_22 AAA_5 RuvB_N IstB_IS21 AAA_14 AAA_25 AAA_16 TIP49 DUF815 AAA_2 RNA_helicase AAA_33 Zeta_toxin AAA_18 Arch_ATPase AAA_24 AAA_19 Torsin Mg_chelatase ResIII PhoH NACHT Parvo_NS1 Sigma54_activat Sigma54_activ_2 AAA_28 Use1
-DBLINKS     NCBI-GI: 6325431
+MOTIF       Pfam: AAA Vps4_C MIT AAA_16 RuvB_N AAA_5 IstB_IS21 AAA_22 TIP49 AAA_14 DUF815 RNA_helicase AAA_2 AAA_18 AAA_33 AAA_24 AAA_25 AAA_17 Torsin Mg_chelatase Use1 PhoH Sigma54_activat Parvo_NS1 NACHT Zeta_toxin
+DBLINKS     NCBI-ProteinID: NP_015499
             NCBI-GeneID: 856303
             SGD: S000006377
-            MIPS: YPR173C
             UniProt: P52917
-STRUCTURE   PDB: 2V6X 3EIE 2QP9 3MHV 2QPA 3EIH 2RKO
+STRUCTURE   PDB: 5FVK 5FVL 2V6X 4NIQ 3EIE 2QP9 3MHV 2QPA 3EIH 2RKO
 AASEQ       437
             MSTGDFLTKGIELVQKAIDLDTATQYEEAYTAYYNGLDYLMLALKYEKNPKSKDLIRAKF
             TEYLNRAEQLKKHLESEEANAAKKSPSAGSGSNGGNKKISQEEGEDNGGEDNKKLRGALS

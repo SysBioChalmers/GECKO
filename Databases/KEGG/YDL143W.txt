@@ -1,16 +1,32 @@
 ENTRY       YDL143W           CDS       T00005
 NAME        CCT4, ANC2, TCP4
-DEFINITION  Cct4p
+DEFINITION  (RefSeq) chaperonin-containing T-complex subunit CCT4
 ORTHOLOGY   K09496  T-complex protein 1 subunit delta
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chaperones and folding catalysts [BR:sce03110]
+             Heat shock proteins
+              HSP60 / Chaperonin
+               YDL143W (CCT4)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centrosome formation and ciliogenesis proteins
+               BBS-CCT complex
+                YDL143W (CCT4)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of haemopoietic cells  (B-cell, T-cell, DC-cell, reticulocyte, and mast cell)
+               YDL143W (CCT4)
+              Exosomal proteins of colorectal cancer cells
+               YDL143W (CCT4)
+              Exosomal proteins of bladder cancer cells
+               YDL143W (CCT4)
 POSITION    IV:199996..201582
-MOTIF       Pfam: Cpn60_TCP1 DeoC
-DBLINKS     NCBI-GI: 6320058
+MOTIF       Pfam: Cpn60_TCP1
+DBLINKS     NCBI-ProteinID: NP_010138
             NCBI-GeneID: 851412
             SGD: S000002302
-            MIPS: YDL143W
             UniProt: P39078
-STRUCTURE   PDB: 4APK 4AOL 4D8Q 4D8R 3P9D 3P9E
+STRUCTURE   PDB: 5GW5 5GW4
 AASEQ       528
             MSAKVPSNATFKNKEKPQEVRKANIIAARSVADAIRTSLGPKGMDKMIKTSRGEIIISND
             GHTILKQMAILHPVARMLVEVSAAQDSEAGDGTTSVVILTGALLGAAERLLNKGIHPTII

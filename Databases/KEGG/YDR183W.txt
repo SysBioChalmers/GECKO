@@ -1,13 +1,12 @@
 ENTRY       YDR183W           CDS       T00005
 NAME        PLP1
-DEFINITION  Plp1p
+DEFINITION  (RefSeq) Plp1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:829585..830277
-MOTIF       Pfam: Phosducin Thioredoxin Apolipoprotein
-DBLINKS     NCBI-GI: 398366005
+MOTIF       Pfam: Phosducin Thioredoxin Apolipoprotein WD-3
+DBLINKS     NCBI-ProteinID: NP_010469
             NCBI-GeneID: 851764
             SGD: S000002591
-            MIPS: YDR183W
             UniProt: Q04004
 AASEQ       230
             MEDKLDRYYTNVLSNAEKDKHTTVDSDDKSSGEENLDELLNELDRELDEDHEFLSAYRSE

@@ -1,21 +1,51 @@
 ENTRY       YGR218W           CDS       T00005
 NAME        CRM1, KAP124, XPO1
-DEFINITION  Crm1p
+DEFINITION  (RefSeq) exportin CRM1
 ORTHOLOGY   K14290  exportin-1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03008  Ribosome biogenesis in eukaryotes
             sce03013  RNA transport
-CLASS       Genetic Information Processing; Translation; RNA transport [PATH:sce03013]
-            Genetic Information Processing; Translation; Ribosome biogenesis in eukaryotes [PATH:sce03008]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03013 RNA transport
+                YGR218W (CRM1)
+               03008 Ribosome biogenesis in eukaryotes
+                YGR218W (CRM1)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Transport factors
+                Ran-mediated transport factors
+                 YGR218W (CRM1)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-40S particles
+               Export and cytoplasmic maturation factors
+                YGR218W (CRM1)
+              Pre-60S particles
+                YGR218W (CRM1)
+            Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              tRNA transport factors
+               tRNA export factors
+                YGR218W (CRM1)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centrosome formation and ciliogenesis proteins
+               Centrosome duplication proteins
+                Regulators of centriole replication
+                 YGR218W (CRM1)
 POSITION    VII:932541..935795
-MOTIF       Pfam: CRM1_C Xpo1 IBN_N GHMP_kinases_N
-DBLINKS     NCBI-GI: 398366207
+MOTIF       Pfam: CRM1_C Xpo1 IBN_N CUE
+DBLINKS     NCBI-ProteinID: NP_011734
             NCBI-GeneID: 853133
             SGD: S000003450
-            MIPS: YGR218W
             UniProt: P30822
-STRUCTURE   PDB: 4HAT 4HB2 4HAW 4HAZ 4HAU 4HAV 3M1I 4HB4 3VYC 4GMX 4HB0
-                 4GPT 4HAX 4HAY 4HB3
+STRUCTURE   PDB: 4HAT 4WVF 4HB2 4HAW 4HAZ 4HAU 4HAV 3M1I 5UWP 4HB4 5DIF
+                 3VYC 4GMX 5UWI 5UWW 3WYG 4HB0 5UWJ 3WYF 4GPT 5UWR 5UWU
+                 5UWH 5UWQ 5DI9 4HAX 5DHF 4HAY 5UWT 5UWO 5UWS 5JLJ 5DH9
+                 4HB3 5DHA
 AASEQ       1084
             MEGILDFSNDLDIALLDQVVSTFYQGSGVQQKQAQEILTKFQDNPDAWQKADQILQFSTN
             PQSKFIALSILDKLITRKWKLLPNDHRIGIRNFVVGMIISMCQDDEVFKTQKNLINKSDL

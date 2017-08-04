@@ -1,14 +1,22 @@
 ENTRY       YMR056C           CDS       T00005
 NAME        AAC1
-DEFINITION  Aac1p
+DEFINITION  (RefSeq) ADP/ATP carrier protein AAC1
 ORTHOLOGY   K05863  solute carrier family 25 (mitochondrial adenine nucleotide translocator), member 4/5/6/31
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial DNA transcription, translation, and replication factors
+              Mitochondrial transcription and translation factors
+               Other mitochondrial DNA transcription and translation factors
+                YMR056C (AAC1)
+            Transporters [BR:sce02000]
+             Solute Carrier Family (SLC)
+              SLC25: Mitochondrial carrier
+               YMR056C (AAC1)
 POSITION    XIII:complement(387315..388244)
-MOTIF       Pfam: Mito_carr
-DBLINKS     NCBI-GI: 6323701
+MOTIF       Pfam: Mito_carr Fuseless
+DBLINKS     NCBI-ProteinID: NP_013772
             NCBI-GeneID: 855078
             SGD: S000004660
-            MIPS: YMR056C
             UniProt: P04710
 AASEQ       309
             MSHTETQTQQSHFGVDFLMGGVSAAIAKTGAAPIERVKLLMQNQEEMLKQGSLDTRYKGI

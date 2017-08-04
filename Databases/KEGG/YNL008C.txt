@@ -1,13 +1,12 @@
 ENTRY       YNL008C           CDS       T00005
 NAME        ASI3
-DEFINITION  putative ubiquitin-protein ligase ASI3
+DEFINITION  (RefSeq) putative ubiquitin-protein ligase ASI3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIV:complement(616211..618241)
-MOTIF       Pfam: zf-C3HC4_3
-DBLINKS     NCBI-GI: 330443713
+MOTIF       Pfam: zf-C3HC4_3 Prok-RING_4
+DBLINKS     NCBI-ProteinID: NP_014390
             NCBI-GeneID: 855724
             SGD: S000004953
-            MIPS: YNL008C
             UniProt: P53983
 AASEQ       676
             MSTNILQHVKQLLHNRDVFSFFHNKTGNLNYLDNTTQKPEVFVSPNSTIVSAPTLDSFQA

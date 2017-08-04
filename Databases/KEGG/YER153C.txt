@@ -1,14 +1,18 @@
 ENTRY       YER153C           CDS       T00005
 NAME        PET122
-DEFINITION  Pet122p
+DEFINITION  (RefSeq) Pet122p
 ORTHOLOGY   K17668  protein PET122, mitochondrial
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial DNA transcription, translation, and replication factors
+              Mitochondrial transcription and translation factors
+               Other mitochondrial DNA transcription and translation factors
+                YER153C (PET122)
 POSITION    V:complement(474041..474805)
 MOTIF       Pfam: PET122
-DBLINKS     NCBI-GI: 6321001
+DBLINKS     NCBI-ProteinID: NP_011080
             NCBI-GeneID: 856897
             SGD: S000000955
-            MIPS: YER153C
             UniProt: P10355
 AASEQ       254
             MLTITKRLVTTDVRSRILLSSLNGKMSDALALLRQQQQTSVDVELLHTMLARAAALAHAD

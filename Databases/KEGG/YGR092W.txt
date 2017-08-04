@@ -1,16 +1,30 @@
 ENTRY       YGR092W           CDS       T00005
 NAME        DBF2
-DEFINITION  Dbf2p (EC:2.7.11.1)
+DEFINITION  (RefSeq) serine/threonine-protein kinase DBF2
 ORTHOLOGY   K06684  cell cycle protein kinase DBF2 [EC:2.7.11.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
-CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
+            sce04392  Hippo signaling pathway -multiple species
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04392 Hippo signaling pathway - multiple species
+                YGR092W (DBF2)
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YGR092W (DBF2)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.11  Protein-serine/threonine kinases
+                2.7.11.-  
+                 YGR092W (DBF2)
 POSITION    VII:668189..669907
-MOTIF       Pfam: Pkinase Pkinase_Tyr Pkinase_C Kinase-like Kdo Tegument_dsDNA APH
-DBLINKS     NCBI-GI: 398365629
+MOTIF       Pfam: Pkinase Pkinase_Tyr Pkinase_C Haspin_kinase Kdo Kinase-like APH
+DBLINKS     NCBI-ProteinID: NP_011606
             NCBI-GeneID: 852984
             SGD: S000003324
-            MIPS: YGR092W
             UniProt: P22204
 AASEQ       572
             MLSKSEKNVDLLAGNMSNLSFDGHGTPGGTGLFPNQNITKRRTRPAGINDSPSPVKPSFF

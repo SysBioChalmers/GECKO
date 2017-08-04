@@ -1,14 +1,24 @@
 ENTRY       YDR316W           CDS       T00005
 NAME        OMS1
-DEFINITION  Oms1p (EC:2.1.1.-)
+DEFINITION  (RefSeq) putative RNA methyltransferase
 ORTHOLOGY   K17803  methyltransferase OMS1, mitochondrial [EC:2.1.1.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.1  Transferring one-carbon groups
+               2.1.1  Methyltransferases
+                2.1.1.-  
+                 YDR316W (OMS1)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial protein import machinery
+              Inner mambrane
+               Other inner membrane factors
+                YDR316W (OMS1)
 POSITION    IV:1093763..1095178
-MOTIF       Pfam: Methyltransf_23 Methyltransf_12 Ubie_methyltran Methyltransf_31 Methyltransf_11 Methyltransf_25 Methyltransf_18
-DBLINKS     NCBI-GI: 398366477
+MOTIF       Pfam: Methyltransf_23 Methyltransf_12 Methyltransf_25 Ubie_methyltran Methyltransf_11 Methyltransf_31 YrhC
+DBLINKS     NCBI-ProteinID: NP_010602
             NCBI-GeneID: 851911
             SGD: S000002724
-            MIPS: YDR316W
             UniProt: Q06668
 AASEQ       471
             MIVFRRFPTCLLHHIRQPASRSLLLESQRRSLSFTSYKYNSSHIDDDKSKKKLKNVFQMN

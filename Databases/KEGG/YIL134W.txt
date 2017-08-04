@@ -1,14 +1,17 @@
 ENTRY       YIL134W           CDS       T00005
 NAME        FLX1
-DEFINITION  Flx1p
+DEFINITION  (RefSeq) flavin adenine dinucleotide transporter FLX1
 ORTHOLOGY   K15115  solute carrier family 25 (mitochondrial folate transporter), member 32
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Solute Carrier Family (SLC)
+              SLC25: Mitochondrial carrier
+               YIL134W (FLX1)
 POSITION    IX:97395..98330
 MOTIF       Pfam: Mito_carr
-DBLINKS     NCBI-GI: 398364245
+DBLINKS     NCBI-ProteinID: NP_012132
             NCBI-GeneID: 854672
             SGD: S000001396
-            MIPS: YIL134W
             UniProt: P40464
 AASEQ       311
             MVDHQWTPLQKEVISGLSAGSVTTLVVHPLDLLKVRLQLSATSAQKAHYGPFMVIKEIIR

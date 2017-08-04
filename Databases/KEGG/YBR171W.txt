@@ -1,14 +1,17 @@
 ENTRY       YBR171W           CDS       T00005
-NAME        SEC66, HSS1, SEC71
-DEFINITION  Sec66p
+NAME        SEC66, HSS1, KAR7, SEC71
+DEFINITION  (RefSeq) Sec63 complex subunit SEC66
 ORTHOLOGY   K12273  translocation protein SEC66
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Secretion system [BR:sce02044]
+             Sec (secretion) system
+              Eukaryotic Sec-SRP protein
+               YBR171W (SEC66)
 POSITION    II:578364..578984
-MOTIF       Pfam: Sec66 PspB IncA
-DBLINKS     NCBI-GI: 398365265
+MOTIF       Pfam: Sec66
+DBLINKS     NCBI-ProteinID: NP_009730
             NCBI-GeneID: 852469
             SGD: S000000375
-            MIPS: YBR171W
             UniProt: P33754
 AASEQ       206
             MSEFNETKFSNNGTFFETEEPIVETKSISVYTPLIYVFILVVSLVMFASSYRKKQAKKIS

@@ -1,14 +1,22 @@
 ENTRY       YBL003C           CDS       T00005
 NAME        HTA2, H2A2
-DEFINITION  Hta2p
+DEFINITION  (RefSeq) histone H2A
 ORTHOLOGY   K11251  histone H2A
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Nucleosome assembly factors
+               Histones
+                YBL003C (HTA2)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of haemopoietic cells  (B-cell, T-cell, DC-cell, reticulocyte, and mast cell)
+               YBL003C (HTA2)
 POSITION    II:complement(235394..235792)
-MOTIF       Pfam: Histone CBFD_NFYB_HMF
-DBLINKS     NCBI-GI: 6319470
+MOTIF       Pfam: Histone_H2A_C Histone CBFD_NFYB_HMF LcrG
+DBLINKS     NCBI-ProteinID: NP_009552
             NCBI-GeneID: 852283
             SGD: S000000099
-            MIPS: YBL003C
             UniProt: P04912
 STRUCTURE   PDB: 4JJN 4KUD
 AASEQ       132

@@ -1,13 +1,24 @@
 ENTRY       YJL053W           CDS       T00005
 NAME        PEP8, GRD6, VPS26, VPT4
-DEFINITION  Pep8p
+DEFINITION  (RefSeq) retromer subunit PEP8
+ORTHOLOGY   K18466  vacuolar protein sorting-associated protein 26
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04144  Endocytosis
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04144 Endocytosis
+                YJL053W (PEP8)
+            Membrane trafficking [BR:sce04131]
+             Endosome - Lysosome transport
+              Rab GTPases and associated proteins
+               Retromer subcomplex
+                YJL053W (PEP8)
 POSITION    X:335898..337037
-MOTIF       Pfam: Vps26 Arrestin_N Arrestin_C
-DBLINKS     NCBI-GI: 6322408
+MOTIF       Pfam: Vps26 Arrestin_C Arrestin_N
+DBLINKS     NCBI-ProteinID: NP_012482
             NCBI-GeneID: 853393
             SGD: S000003589
-            MIPS: YJL053W
             UniProt: P40335
 AASEQ       379
             MSIFFKPPIDIEILFDNEESRKHVDIATRSSNSSYKSMKESLPVYEDGESLGGIVTLRVR

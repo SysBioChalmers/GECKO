@@ -1,16 +1,27 @@
 ENTRY       YBR083W           CDS       T00005
 NAME        TEC1, ROC1
-DEFINITION  Tec1p
+DEFINITION  (RefSeq) Tec1p
 ORTHOLOGY   K09448  transcriptional enhancer factor
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04011  MAPK signaling pathway - yeast
-CLASS       Environmental Information Processing; Signal transduction; MAPK signaling pathway - yeast [PATH:sce04011]
+            sce04392  Hippo signaling pathway -multiple species
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YBR083W (TEC1)
+               04392 Hippo signaling pathway - multiple species
+                YBR083W (TEC1)
+            Transcription factors [BR:sce03000]
+             Eukaryotic Type
+              Helix-turn-helix
+               TEA domain
+                YBR083W (TEC1)
 POSITION    II:409169..410629
 MOTIF       Pfam: TEA
-DBLINKS     NCBI-GI: 398364681
+DBLINKS     NCBI-ProteinID: NP_009639
             NCBI-GeneID: 852377
             SGD: S000000287
-            MIPS: YBR083W
             UniProt: P18412
 AASEQ       486
             MSLKEDDFGKDNSRNIESYTGRIFDVYIQKDSYSQSALDDMFPEAVVSTAACVKNEAEDN

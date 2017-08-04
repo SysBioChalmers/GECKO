@@ -1,13 +1,24 @@
 ENTRY       YAL002W           CDS       T00005
 NAME        VPS8, FUN15, VPL8, VPT8
-DEFINITION  Vps8p
+DEFINITION  (RefSeq) CORVET complex membrane-binding subunit VPS8
+ORTHOLOGY   K20178  vacuolar protein sorting-associated protein 8
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04138  Autophagy - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04138 Autophagy - yeast
+                YAL002W (VPS8)
+            Membrane trafficking [BR:sce04131]
+             Endosome - Lysosome transport
+              Tethering complex
+               CORVET complex
+                YAL002W (VPS8)
 POSITION    I:143707..147531
-MOTIF       Pfam: Vps8 zf-rbx1 zf-C3HC4_2 zf-C3HC4 zf-RING_2 zf-RING_5 zf-RING_UBOX PHD zf-Apc11
-DBLINKS     NCBI-GI: 41629668
+MOTIF       Pfam: Vps8 Clathrin zf-C3HC4_2 zf-RING_UBOX zf-C3HC4 zf-RING_2 zf-RING_5 zf-C3H2C3 GrpE zf-rbx1 zf-ANAPC11
+DBLINKS     NCBI-ProteinID: NP_009399
             NCBI-GeneID: 851261
             SGD: S000000002
-            MIPS: YAL002W
             UniProt: P39702
 AASEQ       1274
             MEQNGLDHDSRSSIDTTINDTQKTFLEFRSYTQLSEKLASSSSYTAPPLNEDGPKGVASA

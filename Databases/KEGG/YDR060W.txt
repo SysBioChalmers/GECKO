@@ -1,14 +1,18 @@
 ENTRY       YDR060W           CDS       T00005
 NAME        MAK21, NOC1
-DEFINITION  Mak21p
+DEFINITION  (RefSeq) RNA-binding ribosome biosynthesis protein MAK21
 ORTHOLOGY   K14832  ribosome biogenesis protein MAK21
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               Other pre-60S particles
+                YDR060W (MAK21)
 POSITION    IV:570649..573726
 MOTIF       Pfam: CBF
-DBLINKS     NCBI-GI: 398365319
+DBLINKS     NCBI-ProteinID: NP_010345
             NCBI-GeneID: 851632
             SGD: S000002467
-            MIPS: YDR060W
             UniProt: Q12176
 AASEQ       1025
             MSENNGNPLDLSSLRNKISSKLRDNNSKKAKKTHKGKDVKASSNSKKVNEDIRREALALG

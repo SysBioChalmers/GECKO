@@ -1,13 +1,12 @@
 ENTRY       YGR213C           CDS       T00005
 NAME        RTA1
-DEFINITION  Rta1p
+DEFINITION  (RefSeq) Rta1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:complement(918512..919465)
-MOTIF       Pfam: RTA1 YaaC ODV-E18
-DBLINKS     NCBI-GI: 6321652
+MOTIF       Pfam: RTA1 SRTM1
+DBLINKS     NCBI-ProteinID: NP_011729
             NCBI-GeneID: 853127
             SGD: S000003445
-            MIPS: YGR213C
             UniProt: P53047
 AASEQ       317
             MAKDGFELYRYTPELGASILFTVLFAVSGVAFVILLFHYSVKSKRRVGSLMKSQPVLRYY

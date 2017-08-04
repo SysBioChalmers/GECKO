@@ -1,12 +1,17 @@
 ENTRY       YNL233W           CDS       T00005
 NAME        BNI4
-DEFINITION  Bni4p
+DEFINITION  (RefSeq) Bni4p
+ORTHOLOGY   K18638  protein BNI4
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Cytoskeleton proteins [BR:sce04812]
+             Eukaryotic cytoskeleton proteins
+              Septins
+               Septin associated proteins
+                YNL233W (BNI4)
 POSITION    XIV:211922..214600
-DBLINKS     NCBI-GI: 6324096
+DBLINKS     NCBI-ProteinID: NP_014166
             NCBI-GeneID: 855488
             SGD: S000005177
-            MIPS: YNL233W
             UniProt: P53858
 AASEQ       892
             MSDSISDSKSSELLNSTFYSSTSINTLDHARTFRNSLILKEISDQSLNSSIKPCESVLDR

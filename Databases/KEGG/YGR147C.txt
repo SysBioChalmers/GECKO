@@ -1,14 +1,13 @@
 ENTRY       YGR147C           CDS       T00005
 NAME        NAT2
-DEFINITION  Nat2p (EC:2.3.1.88)
-ORTHOLOGY   K00670  peptide alpha-N-acetyltransferase [EC:2.3.1.88]
+DEFINITION  (RefSeq) Nat2p
+ORTHOLOGY   K20815  N-terminal acetyltransferase 2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:complement(786054..786920)
 MOTIF       Pfam: DUF1279
-DBLINKS     NCBI-GI: 398365905
+DBLINKS     NCBI-ProteinID: NP_011663
             NCBI-GeneID: 853050
             SGD: S000003379
-            MIPS: YGR147C
             UniProt: P37293
 AASEQ       288
             MMVPRISASPVFKRIFLRWGFVTLPIQKTVSHTLRRDFSAPCRSMVKCLLLRPGISVHSA

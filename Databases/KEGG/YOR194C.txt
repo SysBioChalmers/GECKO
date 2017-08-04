@@ -1,18 +1,27 @@
 ENTRY       YOR194C           CDS       T00005
 NAME        TOA1
-DEFINITION  Toa1p
+DEFINITION  (RefSeq) transcription initiation factor IIA large subunit
 ORTHOLOGY   K03122  transcription initiation factor TFIIA large subunit
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03022  Basal transcription factors
-CLASS       Genetic Information Processing; Transcription; Basal transcription factors [PATH:sce03022]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03022 Basal transcription factors
+                YOR194C (TOA1)
+            Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Basal transcription factors
+                TFIIA
+                 YOR194C (TOA1)
 POSITION    XV:complement(711683..712543)
-MOTIF       Pfam: TFIIA DUF2098
-DBLINKS     NCBI-GI: 6324768
+MOTIF       Pfam: TFIIA
+DBLINKS     NCBI-ProteinID: NP_014837
             NCBI-GeneID: 854369
             SGD: S000005720
-            MIPS: YOR194C
             UniProt: P32773
-STRUCTURE   PDB: 1NH2 1RM1 1YTF
+STRUCTURE   PDB: 1NH2 1RM1 1YTF 5FYW 5FMF 5FZ5 5SVA
 AASEQ       286
             MSNAEASRVYEIIVESVVNEVREDFENAGIDEQTLQDLKNIWQKKLTETKVTTFSWDNQF
             NEGNINGVQNDLNFNLATPGVNSSEFNIKEENTGNEGLILPNINSNNNIPHSGETNINTN

@@ -1,13 +1,12 @@
 ENTRY       YHL034C           CDS       T00005
 NAME        SBP1, SSB1, SSBR1
-DEFINITION  Sbp1p
+DEFINITION  (RefSeq) Sbp1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VIII:complement(33193..34077)
-MOTIF       Pfam: RRM_1 RRM_6 RRM_5 DUF3213 GRP
-DBLINKS     NCBI-GI: 6321753
+MOTIF       Pfam: RRM_1 RRM_7 GRP
+DBLINKS     NCBI-ProteinID: NP_011829
             NCBI-GeneID: 856351
             SGD: S000001026
-            MIPS: YHL034C
             UniProt: P10080
 AASEQ       294
             MSAEIEEATNAVNNLSINDSEQQPRAPTHKTVIDPEDTIFIGNVAHECTEDDLKQLFVEE

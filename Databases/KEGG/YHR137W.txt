@@ -1,6 +1,6 @@
 ENTRY       YHR137W           CDS       T00005
 NAME        ARO9
-DEFINITION  aromatic-amino-acid:2-oxoglutarate transaminase (EC:2.6.1.28 2.6.1.7 2.6.1.57)
+DEFINITION  (RefSeq) aromatic-amino-acid:2-oxoglutarate transaminase
 ORTHOLOGY   K05821  aromatic amino acid aminotransferase II [EC:2.6.1.58 2.6.1.28]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00350  Tyrosine metabolism
@@ -8,15 +8,33 @@ PATHWAY     sce00350  Tyrosine metabolism
             sce00400  Phenylalanine, tyrosine and tryptophan biosynthesis
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
-CLASS       Metabolism; Amino acid metabolism; Tyrosine metabolism [PATH:sce00350]
-            Metabolism; Amino acid metabolism; Phenylalanine metabolism [PATH:sce00360]
-            Metabolism; Amino acid metabolism; Phenylalanine, tyrosine and tryptophan biosynthesis [PATH:sce00400]
+            sce01130  Biosynthesis of antibiotics
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Amino acid metabolism
+               00350 Tyrosine metabolism
+                YHR137W (ARO9)
+               00360 Phenylalanine metabolism
+                YHR137W (ARO9)
+               00400 Phenylalanine, tyrosine and tryptophan biosynthesis
+                YHR137W (ARO9)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.6  Transferring nitrogenous groups
+               2.6.1  Transaminases
+                2.6.1.28  tryptophan---phenylpyruvate transaminase
+                 YHR137W (ARO9)
+                2.6.1.58  phenylalanine(histidine) transaminase
+                 YHR137W (ARO9)
+            Amino acid related enzymes [BR:sce01007]
+             Aminotransferase (transaminase)
+              Class I
+               YHR137W (ARO9)
 POSITION    VIII:375709..377250
 MOTIF       Pfam: Aminotran_1_2
-DBLINKS     NCBI-GI: 6321929
+DBLINKS     NCBI-ProteinID: NP_012005
             NCBI-GeneID: 856539
             SGD: S000001179
-            MIPS: YHR137W
             UniProt: P38840
 AASEQ       513
             MTAGSAPPVDYTSLKKNFQPFLSRRVENRSLKSFWDASDISDDVIELAGGMPNERFFPIE

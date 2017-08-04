@@ -1,18 +1,29 @@
 ENTRY       YOR106W           CDS       T00005
 NAME        VAM3, PTH1
-DEFINITION  Vam3p
-ORTHOLOGY   K08488  syntaxin 7
+DEFINITION  (RefSeq) SNAP receptor VAM3
+ORTHOLOGY   K21155  syntaxin VAM3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04130  SNARE interactions in vesicular transport
-            sce04145  Phagosome
-CLASS       Genetic Information Processing; Folding, sorting and degradation; SNARE interactions in vesicular transport [PATH:sce04130]
-            Cellular Processes; Transport and catabolism; Phagosome [PATH:sce04145]
+            sce04138  Autophagy - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04130 SNARE interactions in vesicular transport
+                YOR106W (VAM3)
+             Cellular Processes
+              Transport and catabolism
+               04138 Autophagy - yeast
+                YOR106W (VAM3)
+            Membrane trafficking [BR:sce04131]
+             SNARE
+              Syntaxin (Qa)
+               Stx-Endo
+                YOR106W (VAM3)
 POSITION    XV:519121..519972
-MOTIF       Pfam: SNARE Syntaxin_2 Synaptobrevin Syntaxin Herpes_US9 T2SF
-DBLINKS     NCBI-GI: 6324680
+MOTIF       Pfam: SNARE Syntaxin_2 Synaptobrevin Prominin T2SSF
+DBLINKS     NCBI-ProteinID: NP_014749
             NCBI-GeneID: 854273
             SGD: S000005632
-            MIPS: YOR106W
             UniProt: Q12241
 STRUCTURE   PDB: 1HS7
 AASEQ       283

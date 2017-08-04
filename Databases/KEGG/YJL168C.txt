@@ -1,16 +1,31 @@
 ENTRY       YJL168C           CDS       T00005
-NAME        SET2, EZL1
-DEFINITION  Set2p (EC:2.1.1.43)
+NAME        SET2, EZL1, KMT3
+DEFINITION  (RefSeq) histone methyltransferase SET2
 ORTHOLOGY   K11423  histone-lysine N-methyltransferase SETD2 [EC:2.1.1.43]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00310  Lysine degradation
-CLASS       Metabolism; Amino acid metabolism; Lysine degradation [PATH:sce00310]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Amino acid metabolism
+               00310 Lysine degradation
+                YJL168C (SET2)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.1  Transferring one-carbon groups
+               2.1.1  Methyltransferases
+                2.1.1.43  histone-lysine N-methyltransferase
+                 YJL168C (SET2)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Histone modification proteins
+               HMTs (histone methyltransferases)
+                HKMTs (histone lysine methyltransferases)
+                 YJL168C (SET2)
 POSITION    X:complement(102227..104428)
-MOTIF       Pfam: SRI SET WW DUF3677 DUF3385
-DBLINKS     NCBI-GI: 330443605
+MOTIF       Pfam: SRI SET WW
+DBLINKS     NCBI-ProteinID: NP_012367
             NCBI-GeneID: 853271
             SGD: S000003704
-            MIPS: YJL168C
             UniProt: P46995
 STRUCTURE   PDB: 2C5Z 1E0N
 AASEQ       733

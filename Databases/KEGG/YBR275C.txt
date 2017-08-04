@@ -1,16 +1,21 @@
 ENTRY       YBR275C           CDS       T00005
 NAME        RIF1
-DEFINITION  Rif1p
+DEFINITION  (RefSeq) DNA-binding protein RIF1
 ORTHOLOGY   K11118  RAP1-interacting factor 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       DNA replication proteins [BR:sce03032]
+             Eukaryotic Type
+              DNA Replication Termination Factors
+               Telomere proteins
+                RIF proteins
+                 YBR275C (RIF1)
 POSITION    II:complement(751356..757106)
-MOTIF       Pfam: Rif1_N
-DBLINKS     NCBI-GI: 398365841
+MOTIF       Pfam: Rif1_N Xpo1
+DBLINKS     NCBI-ProteinID: NP_009834
             NCBI-GeneID: 852578
             SGD: S000000479
-            MIPS: YBR275C
             UniProt: P29539
-STRUCTURE   PDB: 4BJS
+STRUCTURE   PDB: 4BJT 4BJS
 AASEQ       1916
             MSKDFSDKKKHTIDRIDQHILRRSQHDNYSNGSSPWMKTNLPPPSPQAHMHIQSDLSPTP
             KRRKLASSSDCENKQFDLSAINKNLYPEDTGSRLMQSLPELSASNSDNVSPVTKSVAFSD

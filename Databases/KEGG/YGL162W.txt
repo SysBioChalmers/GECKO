@@ -1,13 +1,12 @@
 ENTRY       YGL162W           CDS       T00005
 NAME        SUT1
-DEFINITION  Sut1p
+DEFINITION  (RefSeq) Sut1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:198138..199037
 MOTIF       Pfam: Zn_clus
-DBLINKS     NCBI-GI: 6321276
+DBLINKS     NCBI-ProteinID: NP_011353
             NCBI-GeneID: 852714
             SGD: S000003130
-            MIPS: YGL162W
             UniProt: P53032
 AASEQ       299
             MSTSITVRNRDRSLPPLLLPNVSLLEKDIRRKGTQNVGITDPELLSTTWTRKRAFPTDEL

@@ -1,18 +1,28 @@
 ENTRY       YKL156W           CDS       T00005
 NAME        RPS27A
-DEFINITION  ribosomal 40S subunit protein S27A
+DEFINITION  (RefSeq) ribosomal 40S subunit protein S27A
 ORTHOLOGY   K02978  small subunit ribosomal protein S27e
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03010  Ribosome
-CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+MODULE      sce_M00177  Ribosome, eukaryotes
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03010 Ribosome
+                YKL156W (RPS27A)
+            Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Eukaryotes
+               Small subunit
+                YKL156W (RPS27A)
+              Archaea
+                YKL156W (RPS27A)
 POSITION    XI:join(158613..158615,158967..159212)
 MOTIF       Pfam: Ribosomal_S27e IBR TF_Zn_Ribbon
-DBLINKS     NCBI-GI: 6322693
+DBLINKS     NCBI-ProteinID: NP_012766
             NCBI-GeneID: 853700
             SGD: S000001639
-            MIPS: YKL156W
             UniProt: P35997
-STRUCTURE   PDB: 3U5C 3U5G 4BYL 4BYT 3IZB
 AASEQ       82
             MVLVQDLLHPTAASEARKHKLKTLVQGPRSYFLDVKCPGCLNITTVFSHAQTAVTCESCS
             TILCTPTGGKAKLSEGTSFRRK

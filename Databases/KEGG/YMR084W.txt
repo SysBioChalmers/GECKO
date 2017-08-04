@@ -1,12 +1,11 @@
 ENTRY       YMR084W           CDS       T00005
-DEFINITION  hypothetical protein (EC:2.6.1.16)
+DEFINITION  (RefSeq) putative glutamine--fructose-6-phosphate transaminase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:436628..437416
-MOTIF       Pfam: GATase_2 GATase_6 GATase_7 GATase_4
-DBLINKS     NCBI-GI: 6323730
+MOTIF       Pfam: GATase_6 GATase_7 GATase_4
+DBLINKS     NCBI-ProteinID: NP_013801
             NCBI-GeneID: 855108
             SGD: S000004689
-            MIPS: YMR084W
             UniProt: A2P2R3
 AASEQ       262
             MCGIFGYCNFLIEKTRGEIIDTLIEGLQALEYKEYDSSGISIQGDELESLNIYKQTGKIS

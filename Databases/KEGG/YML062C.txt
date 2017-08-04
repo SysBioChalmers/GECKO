@@ -1,13 +1,19 @@
 ENTRY       YML062C           CDS       T00005
 NAME        MFT1, MFT52
-DEFINITION  Mft1p
+DEFINITION  (RefSeq) Mft1p
+ORTHOLOGY   K18714  THO complex subunit MFT1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Transport factors
+                TREX complex
+                 YML062C (MFT1)
 POSITION    XIII:complement(147505..148683)
 MOTIF       Pfam: THOC7
-DBLINKS     NCBI-GI: 6323578
+DBLINKS     NCBI-ProteinID: NP_013649
             NCBI-GeneID: 854940
             SGD: S000004527
-            MIPS: YML062C
             UniProt: P33441
 AASEQ       392
             MPLSQKQIDQVRTKVHYSEVDTPFNKYLDILGKVTKLTGSIINGTLSNDDSKIEKLTEQN

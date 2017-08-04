@@ -1,14 +1,28 @@
 ENTRY       YLR314C           CDS       T00005
 NAME        CDC3
-DEFINITION  septin CDC3
+DEFINITION  (RefSeq) septin CDC3
 ORTHOLOGY   K16944  septin 7
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Exocytosis
+              Calcium ion-dependent exocytosis
+               Septins
+                YLR314C (CDC3)
+            Cytoskeleton proteins [BR:sce04812]
+             Eukaryotic cytoskeleton proteins
+              Septins
+               Septins
+                Group 2
+                 YLR314C (CDC3)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of haemopoietic cells  (B-cell, T-cell, DC-cell, reticulocyte, and mast cell)
+               YLR314C (CDC3)
 POSITION    XII:complement(762575..764137)
-MOTIF       Pfam: Septin GTP_EFTU AAA_22 AAA_33 AAA_16 AAA_28 ABC_tran AAA_24 AAA AAA_14 DUF3987
-DBLINKS     NCBI-GI: 330443676
+MOTIF       Pfam: Septin AAA_22 GTP_EFTU AAA_33 AAA_28 AAA_16 ABC_tran AAA_24 RsgA_GTPase AAA AAA_14 MMR_HSR1
+DBLINKS     NCBI-ProteinID: NP_013418
             NCBI-GeneID: 851024
             SGD: S000004306
-            MIPS: YLR314C
             UniProt: P32457
 AASEQ       520
             MSLKEEQVSIKQDPEQEERQHDQFNDVQIKQESQDHDGVDSQYTNGTQNDDSERFEAAES

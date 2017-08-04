@@ -1,13 +1,24 @@
 ENTRY       YIL098C           CDS       T00005
 NAME        FMC1
-DEFINITION  Fmc1p
+DEFINITION  (RefSeq) Fmc1p
+ORTHOLOGY   K18191  ATP synthase assembly factor FMC1, mitochondrial
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04139  Mitophagy - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04139 Mitophagy - yeast
+                YIL098C (FMC1)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial quality control factors
+              Mitochondrial respiratory chain complex assembly factors
+               Complex-V assembly factors
+                YIL098C (FMC1)
 POSITION    IX:complement(179772..180239)
-MOTIF       Pfam: Complex1_LYR_2 Phage_int_SAM_1 DUF4463
-DBLINKS     NCBI-GI: 398364293
+MOTIF       Pfam: Complex1_LYR_2 Phage_int_SAM_1
+DBLINKS     NCBI-ProteinID: NP_012168
             NCBI-GeneID: 854709
             SGD: S000001360
-            MIPS: YIL098C
             UniProt: P40491
 AASEQ       155
             MDRPRTLRTYRGLIRAILKYERPSKIVNWGNLRKAMITKLEYAKKQNQRDSHENINRQLE

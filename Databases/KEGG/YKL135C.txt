@@ -1,13 +1,12 @@
 ENTRY       YKL135C           CDS       T00005
 NAME        APL2
-DEFINITION  Apl2p
+DEFINITION  (RefSeq) Apl2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XI:complement(186460..188640)
-MOTIF       Pfam: Adaptin_N Cnd1 HEAT_2 HEAT Arm
-DBLINKS     NCBI-GI: 6322714
+MOTIF       Pfam: Adaptin_N Cnd1 HEAT_2 HEAT DUF5388 Arm
+DBLINKS     NCBI-ProteinID: NP_012787
             NCBI-GeneID: 853723
             SGD: S000001618
-            MIPS: YKL135C
             UniProt: P36000
 AASEQ       726
             MPPLDKRIKKFLKDSIRIAPKISGKGELSELRTGLVSQYPQTRKDAIKKTIQQMTLGKDV

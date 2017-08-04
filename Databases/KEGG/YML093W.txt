@@ -1,16 +1,24 @@
 ENTRY       YML093W           CDS       T00005
 NAME        UTP14
-DEFINITION  Utp14p
+DEFINITION  (RefSeq) Utp14p
 ORTHOLOGY   K14567  U3 small nucleolar RNA-associated protein 14
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03008  Ribosome biogenesis in eukaryotes
-CLASS       Genetic Information Processing; Translation; Ribosome biogenesis in eukaryotes [PATH:sce03008]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03008 Ribosome biogenesis in eukaryotes
+                YML093W (UTP14)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              90S particles
+               U3 small nucleolar RNA-associated proteins
+                YML093W (UTP14)
 POSITION    XIII:83090..85789
 MOTIF       Pfam: Utp14
-DBLINKS     NCBI-GI: 6323546
+DBLINKS     NCBI-ProteinID: NP_013617
             NCBI-GeneID: 854881
             SGD: S000004558
-            MIPS: YML093W
             UniProt: Q04500
 AASEQ       899
             MAKKKSKSRSKSSRRVLDALQLAEREINGEFDNSSDNDKRHDARRNGTVVNLLKRSKGDT

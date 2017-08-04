@@ -1,16 +1,24 @@
 ENTRY       YNL271C           CDS       T00005
 NAME        BNI1, PPF3, SHE5
-DEFINITION  Bni1p
+DEFINITION  (RefSeq) formin BNI1
 ORTHOLOGY   K11238  cytokinesis protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04011  MAPK signaling pathway - yeast
-CLASS       Environmental Information Processing; Signal transduction; MAPK signaling pathway - yeast [PATH:sce04011]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YNL271C (BNI1)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial quality control factors
+              Mitochondrial dynamics
+               Actin cytoskeleton organization
+                YNL271C (BNI1)
 POSITION    XIV:complement(129522..135383)
-MOTIF       Pfam: FH2 Drf_FH3 Drf_GBD
-DBLINKS     NCBI-GI: 330443692
+MOTIF       Pfam: FH2 Drf_FH3 Drf_GBD Sin3_corepress
+DBLINKS     NCBI-ProteinID: NP_014128
             NCBI-GeneID: 855450
             SGD: S000005215
-            MIPS: YNL271C
             UniProt: P41832
 STRUCTURE   PDB: 1Y64 1UX4 1UX5
 AASEQ       1953

@@ -1,14 +1,19 @@
 ENTRY       YDR082W           CDS       T00005
 NAME        STN1
-DEFINITION  Stn1p
+DEFINITION  (RefSeq) Stn1p
 ORTHOLOGY   K11117  protein STN1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       DNA replication proteins [BR:sce03032]
+             Eukaryotic Type
+              DNA Replication Termination Factors
+               Telomere proteins
+                Telomere specific RPA-like complex
+                 YDR082W (STN1)
 POSITION    IV:610441..611925
-MOTIF       Pfam: Stn1 Stn1_C DUF2073 LrgA
-DBLINKS     NCBI-GI: 6320287
+MOTIF       Pfam: Stn1 Stn1_C Thymidylat_synt DUF2073 LrgA
+DBLINKS     NCBI-ProteinID: NP_010367
             NCBI-GeneID: 851655
             SGD: S000002489
-            MIPS: YDR082W
             UniProt: P38960
 STRUCTURE   PDB: 3KEY 3K10
 AASEQ       494

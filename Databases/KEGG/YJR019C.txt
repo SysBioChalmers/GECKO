@@ -1,20 +1,34 @@
 ENTRY       YJR019C           CDS       T00005
 NAME        TES1, PTE1
-DEFINITION  Tes1p (EC:3.1.2.2)
+DEFINITION  (RefSeq) Tes1p
 ORTHOLOGY   K01068  acyl-coenzyme A thioesterase 1/2/4 [EC:3.1.2.2]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00062  Fatty acid elongation
             sce01040  Biosynthesis of unsaturated fatty acids
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
-CLASS       Metabolism; Lipid metabolism; Fatty acid elongation [PATH:sce00062]
-            Metabolism; Lipid metabolism; Biosynthesis of unsaturated fatty acids [PATH:sce01040]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Lipid metabolism
+               00062 Fatty acid elongation
+                YJR019C (TES1)
+               01040 Biosynthesis of unsaturated fatty acids
+                YJR019C (TES1)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.2  Thioester hydrolases
+                3.1.2.2  palmitoyl-CoA hydrolase
+                 YJR019C (TES1)
+            Lipid biosynthesis proteins [BR:sce01004]
+             Fatty acid synthase
+              Component type
+               YJR019C (TES1)
 POSITION    X:complement(467232..468281)
 MOTIF       Pfam: Acyl_CoA_thio 4HBT_3
-DBLINKS     NCBI-GI: 398364819
+DBLINKS     NCBI-ProteinID: NP_012553
             NCBI-GeneID: 853477
             SGD: S000003780
-            MIPS: YJR019C
             UniProt: P41903
 STRUCTURE   PDB: 1TBU
 AASEQ       349

@@ -1,14 +1,19 @@
 ENTRY       YHR042W           CDS       T00005
 NAME        NCP1, CPR1
-DEFINITION  Ncp1p (EC:1.6.2.4)
+DEFINITION  (RefSeq) Ncp1p
 ORTHOLOGY   K00327  NADPH-ferrihemoprotein reductase [EC:1.6.2.4]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.6  Acting on NADH or NADPH
+               1.6.2  With a heme protein as acceptor
+                1.6.2.4  NADPH---hemoprotein reductase
+                 YHR042W (NCP1)
 POSITION    VIII:190543..192618
-MOTIF       Pfam: FAD_binding_1 Flavodoxin_1 NAD_binding_1 Flavodoxin_5 Spore_IV_A
-DBLINKS     NCBI-GI: 6321832
+MOTIF       Pfam: FAD_binding_1 Flavodoxin_1 NAD_binding_1 Flavodoxin_5
+DBLINKS     NCBI-ProteinID: NP_011908
             NCBI-GeneID: 856438
             SGD: S000001084
-            MIPS: YHR042W
             UniProt: P16603
 STRUCTURE   PDB: 2BN4 2BPO 2BF4
 AASEQ       691

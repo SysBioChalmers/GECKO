@@ -1,13 +1,12 @@
 ENTRY       YGL223C           CDS       T00005
 NAME        COG1, COD3, LDB11, SEC36
-DEFINITION  Cog1p
+DEFINITION  (RefSeq) Golgi transport complex subunit COG1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:complement(79112..80365)
-MOTIF       Pfam: Vps51 PRANC
-DBLINKS     NCBI-GI: 6321215
+MOTIF       Pfam: Vps51 PRANC KLRAQ
+DBLINKS     NCBI-ProteinID: NP_011292
             NCBI-GeneID: 852649
             SGD: S000003191
-            MIPS: YGL223C
             UniProt: P53079
 AASEQ       417
             MDEVLPLFRDSHIPQIKDYQLELQNDLTKTNEAFQKNLLKNYNKILSLTDSVNDLSLNLK

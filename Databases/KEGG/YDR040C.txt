@@ -1,13 +1,12 @@
 ENTRY       YDR040C           CDS       T00005
 NAME        ENA1, HOR6, PMR2
-DEFINITION  Na(+)/Li(+)-exporting P-type ATPase ENA1 (EC:3.6.3.7)
+DEFINITION  (RefSeq) Na(+)/Li(+)-exporting P-type ATPase ENA1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(535192..538467)
-MOTIF       Pfam: E1-E2_ATPase Cation_ATPase_C Hydrolase Hydrolase_like2 Cation_ATPase_N HAD Hydrolase_3
-DBLINKS     NCBI-GI: 6320245
+MOTIF       Pfam: E1-E2_ATPase Cation_ATPase_C Hydrolase Cation_ATPase Cation_ATPase_N Hydrolase_3
+DBLINKS     NCBI-ProteinID: NP_010325
             NCBI-GeneID: 851610
             SGD: S000002447
-            MIPS: YDR040C
             UniProt: P13587
 AASEQ       1091
             MGEGTTKENNNAEFNAYHTLTAEEAAEFIGTSLTEGLTQDEFVHRLKTVGENTLGDDTKI

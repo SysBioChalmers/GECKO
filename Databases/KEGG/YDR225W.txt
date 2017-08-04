@@ -1,16 +1,24 @@
 ENTRY       YDR225W           CDS       T00005
 NAME        HTA1, H2A1, SPT11
-DEFINITION  Hta1p
+DEFINITION  (RefSeq) histone H2A
 ORTHOLOGY   K11251  histone H2A
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Nucleosome assembly factors
+               Histones
+                YDR225W (HTA1)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of haemopoietic cells  (B-cell, T-cell, DC-cell, reticulocyte, and mast cell)
+               YDR225W (HTA1)
 POSITION    IV:915530..915928
-MOTIF       Pfam: Histone CBFD_NFYB_HMF
-DBLINKS     NCBI-GI: 398366187
+MOTIF       Pfam: Histone_H2A_C Histone CBFD_NFYB_HMF LcrG
+DBLINKS     NCBI-ProteinID: NP_010511
             NCBI-GeneID: 851811
             SGD: S000002633
-            MIPS: YDR225W
             UniProt: P04911
-STRUCTURE   PDB: 1ID3
+STRUCTURE   PDB: 4WNN 5BT1 1ID3
 AASEQ       132
             MSGGKGGKAGSAAKASQSRSAKAGLTFPVGRVHRLLRRGNYAQRIGSGAPVYLTAVLEYL
             AAEILELAGNAARDNKKTRIIPRHLQLAIRNDDELNKLLGNVTIAQGGVLPNIHQNLLPK

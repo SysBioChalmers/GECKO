@@ -1,13 +1,12 @@
 ENTRY       YKL054C           CDS       T00005
 NAME        DEF1, VID31
-DEFINITION  Def1p
+DEFINITION  (RefSeq) DNA damage-responsive RNA polymerase-degradation factor DEF1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XI:complement(336537..338753)
 MOTIF       Pfam: CUE
-DBLINKS     NCBI-GI: 6322796
+DBLINKS     NCBI-ProteinID: NP_012869
             NCBI-GeneID: 853811
             SGD: S000001537
-            MIPS: YKL054C
             UniProt: P35732
 AASEQ       738
             MSTQFRKSNHNSHSSKKLNPALKSKIDTLTELFPDWTSDDLIDIVQEYDDLETIIDKITS

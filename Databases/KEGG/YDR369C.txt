@@ -1,19 +1,32 @@
 ENTRY       YDR369C           CDS       T00005
 NAME        XRS2
-DEFINITION  Xrs2p
+DEFINITION  (RefSeq) Xrs2p
 ORTHOLOGY   K10868  DNA repair protein XRS2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03440  Homologous recombination
             sce03450  Non-homologous end-joining
 MODULE      sce_M00292  MRX complex
-CLASS       Genetic Information Processing; Replication and repair; Homologous recombination [PATH:sce03440]
-            Genetic Information Processing; Replication and repair; Non-homologous end-joining [PATH:sce03450]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Replication and repair
+               03440 Homologous recombination
+                YDR369C (XRS2)
+               03450 Non-homologous end-joining
+                YDR369C (XRS2)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              DSBR (double strand breaks repair)
+               HR (homologous recombination)
+                MRN(MRX) complex
+                 YDR369C (XRS2)
+               NHEJ (non-homologous end-joining)
+                MRX complex
+                 YDR369C (XRS2)
 POSITION    IV:complement(1215016..1217580)
 MOTIF       Pfam: FHA
-DBLINKS     NCBI-GI: 398366531
+DBLINKS     NCBI-ProteinID: NP_010657
             NCBI-GeneID: 851975
             SGD: S000002777
-            MIPS: YDR369C
             UniProt: P33301
 AASEQ       854
             MWVVRYQNTLEDGSISFISCCLQAFKTYSIGRSSKNPLIIKNDKSISRQHITFKWEINNS

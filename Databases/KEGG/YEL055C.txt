@@ -1,14 +1,29 @@
 ENTRY       YEL055C           CDS       T00005
 NAME        POL5
-DEFINITION  Pol5p (EC:2.7.7.7)
+DEFINITION  (RefSeq) DNA-directed DNA polymerase
 ORTHOLOGY   K02331  DNA polymerase phi [EC:2.7.7.7]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.7  Nucleotidyltransferases
+                2.7.7.7  DNA-directed DNA polymerase
+                 YEL055C (POL5)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Chromatin remodeling factors
+               B-WICH complex
+                YEL055C (POL5)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              Other factors with a suspected DNA repair function
+               DNA polymerases
+                YEL055C (POL5)
 POSITION    V:complement(48471..51539)
 MOTIF       Pfam: DNA_pol_phi
-DBLINKS     NCBI-GI: 6320780
+DBLINKS     NCBI-ProteinID: NP_010859
             NCBI-GeneID: 856655
             SGD: S000000781
-            MIPS: YEL055C
             UniProt: P39985
 AASEQ       1022
             MTGKVNRDLFFKLASDLREERLHAAVALIKDLSALDLPDDAEEWSYVLNRLIKGLSSDRN

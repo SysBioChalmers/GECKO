@@ -1,17 +1,26 @@
 ENTRY       YLR239C           CDS       T00005
 NAME        LIP2
-DEFINITION  lipoyl(octanoyl) transferase LIP2 (EC:2.3.1.181)
+DEFINITION  (RefSeq) lipoyl(octanoyl) transferase LIP2
 ORTHOLOGY   K03801  lipoyl(octanoyl) transferase [EC:2.3.1.181]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00785  Lipoic acid metabolism
             sce01100  Metabolic pathways
-CLASS       Metabolism; Metabolism of cofactors and vitamins; Lipoic acid metabolism [PATH:sce00785]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Metabolism of cofactors and vitamins
+               00785 Lipoic acid metabolism
+                YLR239C (LIP2)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.3  Acyltransferases
+               2.3.1  Transferring groups other than aminoacyl groups
+                2.3.1.181  lipoyl(octanoyl) transferase
+                 YLR239C (LIP2)
 POSITION    XII:complement(616332..617318)
-MOTIF       Pfam: BPL_LplA_LipB DUF2540
-DBLINKS     NCBI-GI: 6323268
+MOTIF       Pfam: BPL_LplA_LipB
+DBLINKS     NCBI-ProteinID: NP_013340
             NCBI-GeneID: 850940
             SGD: S000004229
-            MIPS: YLR239C
             UniProt: Q06005
 AASEQ       328
             MSRCIRQSVCTNFNVCRRQCFSTYASALKEMTHPIKPSAQTLRHLQFTQRIPFQKGLEIQ

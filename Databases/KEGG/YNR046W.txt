@@ -1,16 +1,24 @@
 ENTRY       YNR046W           CDS       T00005
 NAME        TRM112
-DEFINITION  Trm112p
+DEFINITION  (RefSeq) RNA methylation protein TRM112
 ORTHOLOGY   K15448  multifunctional methyltransferase subunit TRM112
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              tRNA modification factors
+               Methyltransferases
+                YNR046W (TRM112)
+            Translation factors [BR:sce03012]
+             Eukaryotic Type
+              Release factors
+               YNR046W (TRM112)
 POSITION    XIV:707788..708195
-MOTIF       Pfam: Trm112p Ret_tiss zf-NADH-PPase
-DBLINKS     NCBI-GI: 6324374
+MOTIF       Pfam: Trm112p zf-NADH-PPase
+DBLINKS     NCBI-ProteinID: NP_014444
             NCBI-GeneID: 855782
             SGD: S000005329
-            MIPS: YNR046W
             UniProt: P53738
-STRUCTURE   PDB: 2J6A
+STRUCTURE   PDB: 4QTT 4QTU 2J6A
 AASEQ       135
             MKFLTTNFLKCSVKACDTSNDNFPLQYDGSKCQLVQDESIEFNPEFLLNIVDRVDWPAVL
             TVAAELGNNALPPTKPSFPSSIQELTDDDMAILNDLHTLLLQTSIAEGEMKCRNCGHIYY

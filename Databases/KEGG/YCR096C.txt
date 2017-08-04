@@ -1,16 +1,24 @@
 ENTRY       YCR096C           CDS       T00005
 NAME        HMRA2, A2
-DEFINITION  Hmra2p
+DEFINITION  (RefSeq) homeodomain mating type protein A2
 ORTHOLOGY   K09359  mating-type protein A2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04113  Meiosis - yeast
-CLASS       Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04113 Meiosis - yeast
+                YCR096C (HMRA2)
+            Transcription factors [BR:sce03000]
+             Eukaryotic Type
+              Helix-turn-helix
+               Homeo domain only, not assigned
+                YCR096C (HMRA2)
 POSITION    III:complement(293179..293538)
-MOTIF       Pfam: Homeobox Homeobox_KN Homez DUF825 Aurora-A_bind
-DBLINKS     NCBI-GI: 6319939
+MOTIF       Pfam: Homeobox Homeobox_KN Homez
+DBLINKS     NCBI-ProteinID: NP_010020
             NCBI-GeneID: 850458
             SGD: S000000692
-            MIPS: YCR096C
             UniProt: P0CY13
 STRUCTURE   PDB: 1MNM 1LE8 1AKH 1YRN 1APL
 AASEQ       119

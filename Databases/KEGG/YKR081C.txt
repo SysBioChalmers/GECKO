@@ -1,15 +1,20 @@
 ENTRY       YKR081C           CDS       T00005
 NAME        RPF2
-DEFINITION  Rpf2p
+DEFINITION  (RefSeq) rRNA-binding ribosome biosynthesis protein RPF2
 ORTHOLOGY   K14847  ribosome production factor 2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               Other pre-60S particles
+                YKR081C (RPF2)
 POSITION    XI:complement(591506..592540)
 MOTIF       Pfam: Brix
-DBLINKS     NCBI-GI: 6322934
+DBLINKS     NCBI-ProteinID: NP_013007
             NCBI-GeneID: 853956
             SGD: S000001789
-            MIPS: YKR081C
             UniProt: P36160
+STRUCTURE   PDB: 5WXL 5A53
 AASEQ       344
             MIRTVKPKNARAKRALVKREAKLVENVKQALFIPGQSCNKNLHDIMVDLSALKKPDMKRF
             NRKNDIHPFEDMSPLEFFSEKNDCSLMVLMTSSKKRKNNMTFIRTFGYKIYDMIELMVAD

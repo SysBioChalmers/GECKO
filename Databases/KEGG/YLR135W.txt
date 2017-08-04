@@ -1,14 +1,19 @@
 ENTRY       YLR135W           CDS       T00005
 NAME        SLX4
-DEFINITION  Slx4p
+DEFINITION  (RefSeq) Slx4p
 ORTHOLOGY   K15079  structure-specific endonuclease subunit SLX4
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              DSBR (double strand breaks repair)
+               HR (homologous recombination)
+                Other HR factors
+                 YLR135W (SLX4)
 POSITION    XII:413281..415527
-MOTIF       Pfam: Slx4
-DBLINKS     NCBI-GI: 6323164
+MOTIF       Pfam: Slx4 Adeno_100
+DBLINKS     NCBI-ProteinID: NP_013236
             NCBI-GeneID: 850826
             SGD: S000004125
-            MIPS: YLR135W
             UniProt: Q12098
 AASEQ       748
             MELQRAQRNLKFLQNEDYVNVTDQTNLNGESQNAYSLGMETQVPEMQFSLSSDDDSIGTQ

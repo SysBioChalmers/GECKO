@@ -1,20 +1,56 @@
 ENTRY       YDR021W           CDS       T00005
 NAME        FAL1
-DEFINITION  Fal1p (EC:3.6.4.13)
+DEFINITION  (RefSeq) ATP-dependent RNA helicase FAL1
 ORTHOLOGY   K13025  ATP-dependent RNA helicase [EC:3.6.4.13]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03013  RNA transport
             sce03015  mRNA surveillance pathway
             sce03040  Spliceosome
-CLASS       Genetic Information Processing; Transcription; Spliceosome [PATH:sce03040]
-            Genetic Information Processing; Translation; RNA transport [PATH:sce03013]
-            Genetic Information Processing; Translation; mRNA surveillance pathway [PATH:sce03015]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03040 Spliceosome
+                YDR021W (FAL1)
+              Translation
+               03013 RNA transport
+                YDR021W (FAL1)
+               03015 mRNA surveillance pathway
+                YDR021W (FAL1)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.4  Acting on acid anhydrides to facilitate cellular and subcellular movement
+                3.6.4.13  RNA helicase
+                 YDR021W (FAL1)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Transport factors
+                EJC complex
+                 YDR021W (FAL1)
+               mRNA cycle factors
+                Stress granule specific factors
+                 YDR021W (FAL1)
+            Spliceosome [BR:sce03041]
+             Complex C
+              Other components
+               EJC/TREX
+                YDR021W (FAL1)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              90S particles
+               Helicases
+                YDR021W (FAL1)
+            Translation factors [BR:sce03012]
+             Eukaryotic Type
+              Initiation factors
+               eIF-4
+                YDR021W (FAL1)
 POSITION    IV:486804..488003
-MOTIF       Pfam: DEAD Helicase_C AAA_19 AAA_22 AAA_30 Helicase_RecD PhoH CobA_CobO_BtuR CMS1 ResIII Helicase_C_2 Flavi_DEAD
-DBLINKS     NCBI-GI: 398365053
+MOTIF       Pfam: DEAD Helicase_C AAA_30 ResIII AAA_19 Helicase_RecD PhoH AAA_22 CMS1 CobA_CobO_BtuR TniB Flavi_DEAD
+DBLINKS     NCBI-ProteinID: NP_010304
             NCBI-GeneID: 851584
             SGD: S000002428
-            MIPS: YDR021W
             UniProt: Q12099
 AASEQ       399
             MSFDREEDQKLKFKTSKKLKVSSTFESMNLKDDLLRGIYSYGFEAPSSIQSRAITQIISG

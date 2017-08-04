@@ -1,14 +1,19 @@
 ENTRY       YGR246C           CDS       T00005
 NAME        BRF1, PCF4, TDS4
-DEFINITION  Brf1p
+DEFINITION  (RefSeq) transcription factor TFIIIB subunit BRF1
 ORTHOLOGY   K15196  transcription factor IIIB 90 kDa subunit
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase III system
+               Basal transcription factors
+                TFIIIB
+                 YGR246C (BRF1)
 POSITION    VII:complement(982482..984272)
 MOTIF       Pfam: TFIIB BRF1 TF_Zn_Ribbon Cyclin_N
-DBLINKS     NCBI-GI: 6321685
+DBLINKS     NCBI-ProteinID: NP_011762
             NCBI-GeneID: 853161
             SGD: S000003478
-            MIPS: YGR246C
             UniProt: P29056
 STRUCTURE   PDB: 1NGM
 AASEQ       596

@@ -1,13 +1,12 @@
 ENTRY       YHL021C           CDS       T00005
 NAME        AIM17, FMP12
-DEFINITION  Aim17p (EC:1.14.11.-)
+DEFINITION  (RefSeq) Aim17p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VIII:complement(64462..65859)
-MOTIF       Pfam: TauD
-DBLINKS     NCBI-GI: 6321766
+MOTIF       Pfam: TauD DUF971
+DBLINKS     NCBI-ProteinID: NP_011842
             NCBI-GeneID: 856365
             SGD: S000001013
-            MIPS: YHL021C
             UniProt: P23180
 AASEQ       465
             MLRSNLCRGSRILARLTTTPRTYTSAATAAAANRGHIIKTYFNRDSTTITFSMEESSKPV

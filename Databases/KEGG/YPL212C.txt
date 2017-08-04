@@ -1,14 +1,26 @@
 ENTRY       YPL212C           CDS       T00005
 NAME        PUS1
-DEFINITION  pseudouridine synthase PUS1 (EC:5.4.99.- 4.2.1.70)
+DEFINITION  (RefSeq) pseudouridine synthase PUS1
 ORTHOLOGY   K06173  tRNA pseudouridine38-40 synthase [EC:5.4.99.12]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             5. Isomerases
+              5.4  Intramolecular transferases
+               5.4.99  Transferring other groups
+                5.4.99.12  tRNA pseudouridine38-40 synthase
+                 YPL212C (PUS1)
+            Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              tRNA modification factors
+               Psudouridine synthases
+                YPL212C (PUS1)
+             Prokaryotic Type
+                YPL212C (PUS1)
 POSITION    XVI:complement(151515..153149)
-MOTIF       Pfam: PseudoU_synth_1 DUF2344
-DBLINKS     NCBI-GI: 6325044
+MOTIF       Pfam: PseudoU_synth_1 DUF2344 DUF4107
+DBLINKS     NCBI-ProteinID: NP_015112
             NCBI-GeneID: 855889
             SGD: S000006133
-            MIPS: YPL212C
             UniProt: Q12211
 AASEQ       544
             MSEENLRPAYDDQVNEDVYKRGAQSKLTKARKADFDDEKDKKKDNDKHIDKRPKSGPRLD

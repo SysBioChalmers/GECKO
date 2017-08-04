@@ -1,16 +1,25 @@
 ENTRY       YOR083W           CDS       T00005
 NAME        WHI5
-DEFINITION  Whi5p
+DEFINITION  (RefSeq) transcriptional repressor WHI5
 ORTHOLOGY   K12413  G1-specific transcriptional repressor WHI5
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
-CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
+MODULE      sce_M00692  Cell cycle - G1/S transition
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YOR083W (WHI5)
+            Transcription factors [BR:sce03000]
+             Eukaryotic Type
+              Other transcription factors
+               Others
+                YOR083W (WHI5)
 POSITION    XV:479533..480420
-MOTIF       Pfam: Whi5 PBP1_TM
-DBLINKS     NCBI-GI: 6324656
+MOTIF       Pfam: Whi5 DUF4611 PBP1_TM
+DBLINKS     NCBI-ProteinID: NP_014726
             NCBI-GeneID: 854249
             SGD: S000005609
-            MIPS: YOR083W
             UniProt: Q12416
 AASEQ       295
             MSLRTPKRSRTSDEQEQEQEQEQVQNPDTHVNNEHQQRPGPTTLLSTPVRLKNGFGTPSP

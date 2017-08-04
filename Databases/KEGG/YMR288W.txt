@@ -1,17 +1,36 @@
 ENTRY       YMR288W           CDS       T00005
 NAME        HSH155
-DEFINITION  Hsh155p
+DEFINITION  (RefSeq) U2 snRNP complex subunit HSH155
 ORTHOLOGY   K12828  splicing factor 3B subunit 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03040  Spliceosome
-CLASS       Genetic Information Processing; Transcription; Spliceosome [PATH:sce03040]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03040 Spliceosome
+                YMR288W (HSH155)
+            Spliceosome [BR:sce03041]
+             Complex A
+              U2 snRNP components
+               U2 snRNP specific factors
+                YMR288W (HSH155)
+             Complex B
+                YMR288W (HSH155)
+             Complex C
+               U2 SnRNP specific factors
+                YMR288W (HSH155)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Chromatin remodeling factors
+               B-WICH complex
+                YMR288W (HSH155)
 POSITION    XIII:845571..848486
-MOTIF       Pfam: HEAT HEAT_2 Vac14_Fab1_bd Adaptin_N DUF2890
-DBLINKS     NCBI-GI: 6323944
+MOTIF       Pfam: HEAT Vac14_Fab1_bd Adaptin_N
+DBLINKS     NCBI-ProteinID: NP_014015
             NCBI-GeneID: 855332
             SGD: S000004901
-            MIPS: YMR288W
             UniProt: P49955
+STRUCTURE   PDB: 5LQW
 AASEQ       971
             MSHPIQFVNANNSDKSHQLGGQYSIPQDLRENLQKEAARIGENEKDVLQEKMETRTVQNR
             EDSYHKRRFDMKFEPDSDTQTVTSSENTQDAVVPRKRKSRWDVKGYEPPDESSTAVKENS

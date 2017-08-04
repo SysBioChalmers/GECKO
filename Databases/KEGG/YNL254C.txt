@@ -1,13 +1,12 @@
 ENTRY       YNL254C           CDS       T00005
 NAME        RTC4
-DEFINITION  Rtc4p
+DEFINITION  (RefSeq) Rtc4p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIV:complement(168043..169248)
-MOTIF       Pfam: RTC4
-DBLINKS     NCBI-GI: 6324075
+MOTIF       Pfam: RTC4 Smg4_UPF3
+DBLINKS     NCBI-ProteinID: NP_014145
             NCBI-GeneID: 855467
             SGD: S000005198
-            MIPS: YNL254C
             UniProt: P53850
 AASEQ       401
             MVGPGLGINRVRRKGVYSTKKGSGDNLLLMKRQGKHDIHDRESDDLSGHDAFSPSKKRGK

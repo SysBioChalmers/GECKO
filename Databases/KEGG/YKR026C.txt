@@ -1,16 +1,24 @@
 ENTRY       YKR026C           CDS       T00005
 NAME        GCN3, AAS2
-DEFINITION  Gcn3p
+DEFINITION  (RefSeq) translation initiation factor eIF2B subunit alpha
 ORTHOLOGY   K03239  translation initiation factor eIF-2B subunit alpha
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03013  RNA transport
-CLASS       Genetic Information Processing; Translation; RNA transport [PATH:sce03013]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03013 RNA transport
+                YKR026C (GCN3)
+            Translation factors [BR:sce03012]
+             Eukaryotic Type
+              Initiation factors
+               eIF-2B
+                YKR026C (GCN3)
 POSITION    XI:complement(488738..489655)
 MOTIF       Pfam: IF-2B
-DBLINKS     NCBI-GI: 6322878
+DBLINKS     NCBI-ProteinID: NP_012951
             NCBI-GeneID: 853896
             SGD: S000001734
-            MIPS: YKR026C
             UniProt: P14741
 AASEQ       305
             MSEFNITETYLRFLEEDTEMTMPIAAIEALVTLLRIKTPETAAEMINTIKSSTEELIKSI

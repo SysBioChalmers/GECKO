@@ -1,17 +1,25 @@
 ENTRY       YPL132W           CDS       T00005
 NAME        COX11, LPI13, PSO7
-DEFINITION  Cox11p
+DEFINITION  (RefSeq) Cox11p
 ORTHOLOGY   K02258  cytochrome c oxidase assembly protein subunit 11
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00190  Oxidative phosphorylation
             sce01100  Metabolic pathways
-CLASS       Metabolism; Energy metabolism; Oxidative phosphorylation [PATH:sce00190]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Energy metabolism
+               00190 Oxidative phosphorylation
+                YPL132W (COX11)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial quality control factors
+              Mitochondrial respiratory chain complex assembly factors
+               Complex-IV assembly factors
+                YPL132W (COX11)
 POSITION    XVI:301716..302618
-MOTIF       Pfam: CtaG_Cox11 tRNA-synt_2b
-DBLINKS     NCBI-GI: 6325125
+MOTIF       Pfam: CtaG_Cox11 SPG4
+DBLINKS     NCBI-ProteinID: NP_015193
             NCBI-GeneID: 855971
             SGD: S000006053
-            MIPS: YPL132W
             UniProt: P19516
 AASEQ       300
             MIRICPIVRSKVPLLGTFLRSDSWLAPHALALRRAICKNVALRSYSVNSEQPKHTFDISK

@@ -1,14 +1,19 @@
 ENTRY       YOR080W           CDS       T00005
 NAME        DIA2, YOR29-31
-DEFINITION  DNA-binding SCF ubiquitin ligase subunit DIA2
+DEFINITION  (RefSeq) DNA-binding SCF ubiquitin ligase subunit DIA2
 ORTHOLOGY   K15068  protein DIA2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ubiquitin system [BR:sce04121]
+             Ubiquitin ligases (E3)
+              Multi subunit Ring-finger type E3
+               SCF complex
+                Target recognizing subunit (F-box)
+                 YOR080W (DIA2)
 POSITION    XV:474594..476792
-MOTIF       Pfam: TPR_11 F-box LRR_4 F-box-like Apc3 F-box-like_2 MAS20
-DBLINKS     NCBI-GI: 296148082
+MOTIF       Pfam: F-box F-box-like LRR_1 ANAPC3 LRR_4 AGH MAS20
+DBLINKS     NCBI-ProteinID: NP_014723
             NCBI-GeneID: 854247
             SGD: S000005606
-            MIPS: YOR080W
             UniProt: Q08496
 AASEQ       732
             MSSPGNSGVAIDSTVLKAIELGTRLFKSGEYLQAKRIFTNALRVCDSYSQEQIMRIRNAY

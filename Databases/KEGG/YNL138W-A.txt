@@ -1,0 +1,38 @@
+ENTRY       YNL138W-A         CDS       T00005
+NAME        YSF3, RCP10
+DEFINITION  (RefSeq) U2 snRNP complex subunit YSF3
+ORTHOLOGY   K12832  splicing factor 3B subunit 5
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03040  Spliceosome
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03040 Spliceosome
+                YNL138W-A (YSF3)
+            Spliceosome [BR:sce03041]
+             Complex A
+              U2 snRNP components
+               U2 snRNP specific factors
+                YNL138W-A (YSF3)
+             Complex B
+                YNL138W-A (YSF3)
+             Complex C
+               U2 SnRNP specific factors
+                YNL138W-A (YSF3)
+POSITION    XIV:join(366033..366035,366158..366412)
+MOTIF       Pfam: SF3b10
+DBLINKS     NCBI-ProteinID: NP_878153
+            NCBI-GeneID: 1466511
+            SGD: S000028509
+            UniProt: P0C074
+STRUCTURE   PDB: 5LQW
+AASEQ       85
+            MAEKQRQLKLQKIYKQKYIGLGDESTTREQWQRNVRNDTLNTLQGHSASLEYVSLSRGDL
+            SIRDTRIHLLKSMSPGYKAYLREER
+NTSEQ       258
+            atggcggaaaagcagaggcagttgaagttgcagaagatatacaaacaaaagtacatcgga
+            ctgggagatgagagcactacacgagaacagtggcagagaaatgtgagaaacgatacacta
+            aatacattacaaggccactccgcatctttggagtacgtttcattgagccgaggagacctt
+            agtatacgtgacactcgtattcacctcctgaaatccatgtcccctggctataaagcctac
+            ttacgagaagagaggtag
+///

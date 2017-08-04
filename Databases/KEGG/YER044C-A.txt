@@ -1,13 +1,12 @@
 ENTRY       YER044C-A         CDS       T00005
 NAME        MEI4
-DEFINITION  Mei4p
+DEFINITION  (RefSeq) Mei4p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    V:complement(join(238460..239623,239712..239774))
-MOTIF       Pfam: Mei4
-DBLINKS     NCBI-GI: 6320884
+MOTIF       Pfam: Mei4 THAP
+DBLINKS     NCBI-ProteinID: NP_010963
             NCBI-GeneID: 856768
             SGD: S000001954
-            MIPS: YER044C-A
             UniProt: P29467
 AASEQ       408
             MSRGKLEDMEQKETSEVDWIICFALIQSRNPTLWKRALSRKKGDVEDVGALKSEKNLKIN

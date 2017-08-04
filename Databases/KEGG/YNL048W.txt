@@ -1,20 +1,34 @@
 ENTRY       YNL048W           CDS       T00005
 NAME        ALG11
-DEFINITION  alpha-1,2-mannosyltransferase ALG11 (EC:2.4.1.131)
+DEFINITION  (RefSeq) alpha-1,2-mannosyltransferase ALG11
 ORTHOLOGY   K03844  alpha-1,2-mannosyltransferase [EC:2.4.1.131]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00510  N-Glycan biosynthesis
             sce00513  Various types of N-glycan biosynthesis
             sce01100  Metabolic pathways
 MODULE      sce_M00055  N-glycan precursor biosynthesis
-CLASS       Metabolism; Glycan biosynthesis and metabolism; N-Glycan biosynthesis [PATH:sce00510]
-            Metabolism; Glycan biosynthesis and metabolism; Various types of N-glycan biosynthesis [PATH:sce00513]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Glycan biosynthesis and metabolism
+               00510 N-Glycan biosynthesis
+                YNL048W (ALG11)
+               00513 Various types of N-glycan biosynthesis
+                YNL048W (ALG11)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.4  Glycosyltransferases
+               2.4.1  Hexosyltransferases
+                2.4.1.131  GDP-Man:Man3GlcNAc2-PP-dolichol alpha-1,2-mannosyltransferase
+                 YNL048W (ALG11)
+            Glycosyltransferases [BR:sce01003]
+             N-Glycan biosynthesis
+              Dol-linked oligosaccharide
+               YNL048W (ALG11)
 POSITION    XIV:538173..539819
-MOTIF       Pfam: Glycos_transf_1 Glyco_transf_4 Glyco_trans_1_4
-DBLINKS     NCBI-GI: 6324280
+MOTIF       Pfam: ALG11_N Glycos_transf_1 Glyco_trans_1_4 Glyco_transf_4 Glyco_transf_28
+DBLINKS     NCBI-ProteinID: NP_014350
             NCBI-GeneID: 855679
             SGD: S000004993
-            MIPS: YNL048W
             UniProt: P53954
 AASEQ       548
             MGSAWTNYNFEEVKSHFGFKKYVVSSLVLVYGLIKVLTWIFRQWVYSSLNPFSKKSSLLN

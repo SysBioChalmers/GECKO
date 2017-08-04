@@ -1,14 +1,24 @@
 ENTRY       YBL006C           CDS       T00005
 NAME        LDB7, RSC14
-DEFINITION  Ldb7p
+DEFINITION  (RefSeq) Ldb7p
 ORTHOLOGY   K11764  chromatin structure-remodeling complex protein RSC14
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Coactivators
+                RSC complex
+                 YBL006C (LDB7)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Chromatin remodeling factors
+               RSC complex
+                YBL006C (LDB7)
 POSITION    II:complement(216587..217129)
-MOTIF       Pfam: Rsc14 zf-met2 zf-AN1
-DBLINKS     NCBI-GI: 41629675
+MOTIF       Pfam: Rsc14 zf-met2
+DBLINKS     NCBI-ProteinID: NP_009547
             NCBI-GeneID: 852277
             SGD: S000000102
-            MIPS: YBL006C
             UniProt: P38210
 AASEQ       180
             MSGSNMGYYDVLAGLSALEKSSQVVFSATELQQLTQQSHATDKGIEGSENSKAKVSKPKR

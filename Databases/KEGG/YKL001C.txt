@@ -1,20 +1,31 @@
 ENTRY       YKL001C           CDS       T00005
 NAME        MET14
-DEFINITION  adenylyl-sulfate kinase (EC:2.7.1.25)
+DEFINITION  (RefSeq) adenylyl-sulfate kinase
 ORTHOLOGY   K00860  adenylylsulfate kinase [EC:2.7.1.25]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00230  Purine metabolism
             sce00920  Sulfur metabolism
             sce01100  Metabolic pathways
 MODULE      sce_M00176  Assimilatory sulfate reduction, sulfate => H2S
-CLASS       Metabolism; Energy metabolism; Sulfur metabolism [PATH:sce00920]
-            Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Energy metabolism
+               00920 Sulfur metabolism
+                YKL001C (MET14)
+              Nucleotide metabolism
+               00230 Purine metabolism
+                YKL001C (MET14)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.1  Phosphotransferases with an alcohol group as acceptor
+                2.7.1.25  adenylyl-sulfate kinase
+                 YKL001C (MET14)
 POSITION    XI:complement(438777..439385)
-MOTIF       Pfam: APS_kinase AAA_33 AAA_17 AAA_18 KTI12 AAA_29 CPT AAA_21 AAA_23 PRK AAA_16 Zeta_toxin ABC_tran
-DBLINKS     NCBI-GI: 398364837
+MOTIF       Pfam: APS_kinase AAA_33 AAA_18 KTI12 AAA_29 CPT G-alpha Zeta_toxin CbiA PRK AAA_16 ABC_tran
+DBLINKS     NCBI-ProteinID: NP_012925
             NCBI-GeneID: 853869
             SGD: S000001484
-            MIPS: YKL001C
             UniProt: Q02196
 AASEQ       202
             MATNITWHPNLTYDERKALRKQDGCTIWLTGLSASGKSTIACALEQLLLQKNLSAYRLDG

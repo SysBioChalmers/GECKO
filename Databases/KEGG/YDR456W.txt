@@ -1,14 +1,17 @@
 ENTRY       YDR456W           CDS       T00005
 NAME        NHX1, NHA2, VPL27, VPS44
-DEFINITION  Nhx1p
+DEFINITION  (RefSeq) bifunctional K:H/Na:H antiporter NHX1
 ORTHOLOGY   K12041  solute carrier family 9 (sodium/hydrogen exchanger), member 6/7
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Solute Carrier Family (SLC)
+              SLC9: Na+/H+ exchanger
+               YDR456W (NHX1)
 POSITION    IV:1367485..1369386
-MOTIF       Pfam: Na_H_Exchanger Myc_target_1
-DBLINKS     NCBI-GI: 398366611
+MOTIF       Pfam: Na_H_Exchanger
+DBLINKS     NCBI-ProteinID: NP_010744
             NCBI-GeneID: 852066
             SGD: S000002864
-            MIPS: YDR456W
             UniProt: Q04121
 AASEQ       633
             MLSKVLLNIAFKVLLTTAKRAVDPDDDDELLPSPDLPGSDDPIAGDPDVDLNPVTEEMFS

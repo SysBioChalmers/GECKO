@@ -1,6 +1,6 @@
 ENTRY       YKL060C           CDS       T00005
 NAME        FBA1, LOT1
-DEFINITION  fructose-bisphosphate aldolase FBA1 (EC:4.1.2.13)
+DEFINITION  (RefSeq) fructose-bisphosphate aldolase FBA1
 ORTHOLOGY   K01624  fructose-bisphosphate aldolase, class II [EC:4.1.2.13]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00010  Glycolysis / Gluconeogenesis
@@ -9,22 +9,39 @@ PATHWAY     sce00010  Glycolysis / Gluconeogenesis
             sce00680  Methane metabolism
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
+            sce01130  Biosynthesis of antibiotics
             sce01200  Carbon metabolism
             sce01230  Biosynthesis of amino acids
 MODULE      sce_M00001  Glycolysis (Embden-Meyerhof pathway), glucose => pyruvate
             sce_M00003  Gluconeogenesis, oxaloacetate => fructose-6P
-CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
-            Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
-            Metabolism; Carbohydrate metabolism; Glycolysis / Gluconeogenesis [PATH:sce00010]
-            Metabolism; Carbohydrate metabolism; Pentose phosphate pathway [PATH:sce00030]
-            Metabolism; Carbohydrate metabolism; Fructose and mannose metabolism [PATH:sce00051]
-            Metabolism; Energy metabolism; Methane metabolism [PATH:sce00680]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01200 Carbon metabolism
+                YKL060C (FBA1)
+               01230 Biosynthesis of amino acids
+                YKL060C (FBA1)
+              Carbohydrate metabolism
+               00010 Glycolysis / Gluconeogenesis
+                YKL060C (FBA1)
+               00030 Pentose phosphate pathway
+                YKL060C (FBA1)
+               00051 Fructose and mannose metabolism
+                YKL060C (FBA1)
+              Energy metabolism
+               00680 Methane metabolism
+                YKL060C (FBA1)
+            Enzymes [BR:sce01000]
+             4. Lyases
+              4.1  Carbon-carbon lyases
+               4.1.2  Aldehyde-lyases
+                4.1.2.13  fructose-bisphosphate aldolase
+                 YKL060C (FBA1)
 POSITION    XI:complement(326408..327487)
 MOTIF       Pfam: F_bP_aldolase SNAP
-DBLINKS     NCBI-GI: 6322790
+DBLINKS     NCBI-ProteinID: NP_012863
             NCBI-GeneID: 853805
             SGD: S000001543
-            MIPS: YKL060C
             UniProt: P14540
 AASEQ       359
             MGVEQILKRKTGVIVGEDVHNLFTYAKEHKFAIPAINVTSSSTAVAALEAARDSKSPIIL

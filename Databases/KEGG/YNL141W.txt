@@ -1,17 +1,26 @@
 ENTRY       YNL141W           CDS       T00005
 NAME        AAH1
-DEFINITION  adenine deaminase (EC:3.5.4.2)
+DEFINITION  (RefSeq) adenine deaminase
 ORTHOLOGY   K01488  adenosine deaminase [EC:3.5.4.4]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00230  Purine metabolism
             sce01100  Metabolic pathways
-CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Nucleotide metabolism
+               00230 Purine metabolism
+                YNL141W (AAH1)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.5  Acting on carbon-nitrogen bonds, other than peptide bonds
+               3.5.4  In cyclic amidines
+                3.5.4.4  adenosine deaminase
+                 YNL141W (AAH1)
 POSITION    XIV:359596..360639
-MOTIF       Pfam: A_deaminase DUF3889 DUF647
-DBLINKS     NCBI-GI: 6324188
+MOTIF       Pfam: A_deaminase DUF647
+DBLINKS     NCBI-ProteinID: NP_014258
             NCBI-GeneID: 855581
             SGD: S000005085
-            MIPS: YNL141W
             UniProt: P53909
 AASEQ       347
             MVSVEFLQELPKCEHHLHLEGTLEPDLLFPLAKRNDIILPEGFPKSVEELNEKYKKFRDL

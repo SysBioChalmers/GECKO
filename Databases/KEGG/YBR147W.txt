@@ -1,13 +1,12 @@
 ENTRY       YBR147W           CDS       T00005
 NAME        RTC2, RRT11, YPQ3
-DEFINITION  Rtc2p
+DEFINITION  (RefSeq) cationic amino acid transporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    II:536575..537465
-MOTIF       Pfam: PQ-loop YbhQ Steroid_dh DUF805 YrhC
-DBLINKS     NCBI-GI: 6319623
+MOTIF       Pfam: PQ-loop
+DBLINKS     NCBI-ProteinID: NP_009705
             NCBI-GeneID: 852444
             SGD: S000000351
-            MIPS: YBR147W
             UniProt: P38279
 AASEQ       296
             MKLIPIILNAKNLSGMAGSISICCWIVVFVPQIYENFRRQSAEGLSLLFIVLWLLGDIFN

@@ -1,13 +1,12 @@
 ENTRY       YGR071C           CDS       T00005
 NAME        ENV11
-DEFINITION  Env11p
+DEFINITION  (RefSeq) Env11p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:complement(631481..634063)
-MOTIF       Pfam: zf-BED DUF165
-DBLINKS     NCBI-GI: 398365511
+MOTIF       Pfam: zf-BED Vut_1
+DBLINKS     NCBI-ProteinID: NP_011585
             NCBI-GeneID: 852962
             SGD: S000003303
-            MIPS: YGR071C
             UniProt: P53246
 AASEQ       860
             MNTALDDLHGDLVTLEDNEIINNSDHSSSHSTSHEEEDEEEDDTEDIELIEKDGNKILSS

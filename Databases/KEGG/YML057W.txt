@@ -1,14 +1,25 @@
 ENTRY       YML057W           CDS       T00005
 NAME        CMP2, CNA2
-DEFINITION  Cmp2p (EC:3.1.3.16)
+DEFINITION  (RefSeq) calcineurin catalytic subunit A
 ORTHOLOGY   K04348  serine/threonine-protein phosphatase 2B catalytic subunit [EC:3.1.3.16]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.3  Phosphoric-monoester hydrolases
+                3.1.3.16  protein-serine/threonine phosphatase
+                 YML057W (CMP2)
+            Protein phosphatases and associated proteins [BR:sce01009]
+             Protein Ser/ Thr phosphatases
+              Phosphoprotein phosphatases (PPPs)
+               Calcineurin (PPP3/ PP2B)
+                Catalytic subunits
+                 YML057W (CMP2)
 POSITION    XIII:160180..161994
 MOTIF       Pfam: Metallophos
-DBLINKS     NCBI-GI: 6323583
+DBLINKS     NCBI-ProteinID: NP_013655
             NCBI-GeneID: 854946
             SGD: S000004521
-            MIPS: YML057W
             UniProt: P14747
 AASEQ       604
             MSSDAIRNTEQINAAIKIIENKTERPQSSTTPIDSKASTVAAANSTATETSRDLTQYTLD

@@ -1,12 +1,12 @@
 ENTRY       YML047C           CDS       T00005
 NAME        PRM6, KCH2
-DEFINITION  Prm6p
+DEFINITION  (RefSeq) pheromone-regulated K(+) transporter PRM6
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:complement(180017..181075)
-DBLINKS     NCBI-GI: 6323595
+MOTIF       Pfam: KCH
+DBLINKS     NCBI-ProteinID: NP_013666
             NCBI-GeneID: 854959
             SGD: S000004510
-            MIPS: YML047C
             UniProt: Q04705
 AASEQ       352
             MESSLQKLKFQDIDINLIPTAKWTTKLQYILYTWCQSILHVAMFFSDIYTCIKLLAFNTW

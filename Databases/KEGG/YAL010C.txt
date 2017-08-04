@@ -1,14 +1,32 @@
 ENTRY       YAL010C           CDS       T00005
 NAME        MDM10, FUN37
-DEFINITION  Mdm10p
+DEFINITION  (RefSeq) Mdm10p
 ORTHOLOGY   K17774  mitochondrial distribution and morphology protein 10
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04139  Mitophagy - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04139 Mitophagy - yeast
+                YAL010C (MDM10)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial protein import machinery
+              Outer membrane
+               ERMES complex
+                YAL010C (MDM10)
+             Mitochondrial quality control factors
+              Mitochondrial dynamics
+               Mitochondrial movement
+                YAL010C (MDM10)
+            Transporters [BR:sce02000]
+             Other Transporters
+              Pores ion channels [TC:1]
+               YAL010C (MDM10)
 POSITION    I:complement(134184..135665)
-MOTIF       Pfam: DUF3722
-DBLINKS     NCBI-GI: 330443384
+MOTIF       Pfam: MDM10
+DBLINKS     NCBI-ProteinID: NP_009392
             NCBI-GeneID: 851223
             SGD: S000000008
-            MIPS: YAL010C
             UniProt: P18409
 AASEQ       493
             MLPYMDQVLRAFYQSTHWSTQNSYEDITATSRTLLDFRIPSAIHLQISNKSTPNTFNSLD

@@ -1,16 +1,27 @@
 ENTRY       YDR500C           CDS       T00005
 NAME        RPL37B
-DEFINITION  ribosomal 60S subunit protein L37B
+DEFINITION  (RefSeq) ribosomal 60S subunit protein L37B
 ORTHOLOGY   K02922  large subunit ribosomal protein L37e
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03010  Ribosome
-CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+MODULE      sce_M00177  Ribosome, eukaryotes
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03010 Ribosome
+                YDR500C (RPL37B)
+            Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Eukaryotes
+               Large subunit
+                YDR500C (RPL37B)
+              Archaea
+                YDR500C (RPL37B)
 POSITION    IV:complement(join(1450198..1450457,1450847..1450853))
-MOTIF       Pfam: Ribosomal_L37e DZR SelR zf-C2HC5 zinc_ribbon_6 zf-Mss51 zf-RING_5 zf-ribbon_3 GATA
-DBLINKS     NCBI-GI: 6320708
+MOTIF       Pfam: Ribosomal_L37e SelR DZR HypA zf-ribbon_3 DUF1258
+DBLINKS     NCBI-ProteinID: NP_010788
             NCBI-GeneID: 852111
             SGD: S000002908
-            MIPS: YDR500C
             UniProt: P51402
 AASEQ       88
             MGKGTPSFGKRHNKSHTLCNRCGRRSFHVQKKTCSSCGYPSAKTRSHNWAAKAKRRHTTG

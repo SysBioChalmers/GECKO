@@ -1,17 +1,40 @@
 ENTRY       YJL138C           CDS       T00005
 NAME        TIF2
-DEFINITION  Tif2p (EC:3.6.4.13)
+DEFINITION  (RefSeq) translation initiation factor eIF4A
 ORTHOLOGY   K03257  translation initiation factor 4A
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03013  RNA transport
 MODULE      sce_M00428  eIF4F complex
-CLASS       Genetic Information Processing; Translation; RNA transport [PATH:sce03013]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03013 RNA transport
+                YJL138C (TIF2)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Transport factors
+                eIF4F and regulatory proteins
+                 YJL138C (TIF2)
+               mRNA cycle factors
+                Stress granule specific factors
+                 YJL138C (TIF2)
+            Translation factors [BR:sce03012]
+             Eukaryotic Type
+              Initiation factors
+               eIF-4
+                YJL138C (TIF2)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of haemopoietic cells  (B-cell, T-cell, DC-cell, reticulocyte, and mast cell)
+               YJL138C (TIF2)
+              Exosomal proteins of bladder cancer cells
+               YJL138C (TIF2)
 POSITION    X:complement(153504..154691)
-MOTIF       Pfam: DEAD Helicase_C ResIII AAA_19 Helicase_C_2 AAA_30
-DBLINKS     NCBI-GI: 6322323
+MOTIF       Pfam: DEAD Helicase_C ResIII AAA_30 AAA_19
+DBLINKS     NCBI-ProteinID: NP_012397
             NCBI-GeneID: 853303
             SGD: S000003674
-            MIPS: YJL138C
             UniProt: P10081
 STRUCTURE   PDB: 1FUK 1QDE 1FUU 1QVA 2VSX 2VSO
 AASEQ       395

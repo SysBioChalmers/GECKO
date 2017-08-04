@@ -1,16 +1,26 @@
 ENTRY       YIL139C           CDS       T00005
 NAME        REV7
-DEFINITION  Rev7p
+DEFINITION  (RefSeq) Rev7p
 ORTHOLOGY   K03508  DNA polymerase zeta [EC:2.7.7.7]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce01100  Metabolic pathways
 MODULE      sce_M00293  DNA polymerase zeta  complex
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.7  Nucleotidyltransferases
+                2.7.7.7  DNA-directed DNA polymerase
+                 YIL139C (REV7)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              TLS (translesion DNA synthesis) factors
+               B-family DNA polymerases
+                YIL139C (REV7)
 POSITION    IX:complement(87979..88716)
 MOTIF       Pfam: HORMA
-DBLINKS     NCBI-GI: 6322052
+DBLINKS     NCBI-ProteinID: NP_012127
             NCBI-GeneID: 854667
             SGD: S000001401
-            MIPS: YIL139C
             UniProt: P38927
 AASEQ       245
             MNRWVEKWLRVYLKCYINLILFYRNVYPPQSFDYTTYQSFNLPQFVPINRHPALIDYIEE

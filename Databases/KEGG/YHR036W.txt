@@ -1,13 +1,12 @@
 ENTRY       YHR036W           CDS       T00005
 NAME        BRL1
-DEFINITION  Brl1p
+DEFINITION  (RefSeq) Brl1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VIII:180345..181760
-MOTIF       Pfam: Brr6_like_C_C LMBR1
-DBLINKS     NCBI-GI: 6321825
+MOTIF       Pfam: Brr6_like_C_C
+DBLINKS     NCBI-ProteinID: NP_011901
             NCBI-GeneID: 856431
             SGD: S000001078
-            MIPS: YHR036W
             UniProt: P38770
 AASEQ       471
             MESFENLSIRDSFTSGMEHVDEELGGLSDLSISKQGPTLSPQLINRFMPHFPSSPSPLRN

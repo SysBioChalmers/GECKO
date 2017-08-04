@@ -1,17 +1,26 @@
 ENTRY       YHL003C           CDS       T00005
 NAME        LAG1
-DEFINITION  sphingosine N-acyltransferase LAG1 (EC:2.3.1.24)
+DEFINITION  (RefSeq) sphingosine N-acyltransferase LAG1
 ORTHOLOGY   K04709  Acyl-CoA-dependent ceramide synthase [EC:2.3.1.24]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00600  Sphingolipid metabolism
             sce01100  Metabolic pathways
-CLASS       Metabolism; Lipid metabolism; Sphingolipid metabolism [PATH:sce00600]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Lipid metabolism
+               00600 Sphingolipid metabolism
+                YHL003C (LAG1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.3  Acyltransferases
+               2.3.1  Transferring groups other than aminoacyl groups
+                2.3.1.24  sphingosine N-acyltransferase
+                 YHL003C (LAG1)
 POSITION    VIII:complement(100648..101883)
 MOTIF       Pfam: TRAM_LAG1_CLN8 TRAM1
-DBLINKS     NCBI-GI: 6321784
+DBLINKS     NCBI-ProteinID: NP_011860
             NCBI-GeneID: 856386
             SGD: S000000995
-            MIPS: YHL003C
             UniProt: P38703
 AASEQ       411
             MTSATDKSIDRLVVNAKTRRRNSSVGKIDLGDTVPGFAAMPESAASKNEAKKRMKALTGD

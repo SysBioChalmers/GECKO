@@ -1,18 +1,29 @@
 ENTRY       YDL133C-A         CDS       T00005
 NAME        RPL41B, RPL47B, YDL134C-A
-DEFINITION  ribosomal 60S subunit protein L41B
+DEFINITION  (RefSeq) ribosomal 60S subunit protein L41B
 ORTHOLOGY   K02928  large subunit ribosomal protein L41e
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03010  Ribosome
-CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+MODULE      sce_M00177  Ribosome, eukaryotes
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03010 Ribosome
+                YDL133C-A (RPL41B)
+            Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Eukaryotes
+               Large subunit
+                YDL133C-A (RPL41B)
+              Archaea
+                YDL133C-A (RPL41B)
 POSITION    IV:complement(221724..221801)
-MOTIF       Pfam: Ribosomal_L41 DUF1601
-DBLINKS     NCBI-GI: 6320068
+MOTIF       Pfam: Ribosomal_L41
+DBLINKS     NCBI-ProteinID: NP_010148
             NCBI-GeneID: 851422
             SGD: S000002293
-            MIPS: YDL133C-A
             UniProt: P0CX86 P0CX87
-STRUCTURE   PDB: 3U5E 3U5I 4BYN 4BYU 4B6A 3IZS
+STRUCTURE   PDB: 3J80 3J81
 AASEQ       25
             MRAKWRKKRTRRLKRKRRKVRARSK
 NTSEQ       78

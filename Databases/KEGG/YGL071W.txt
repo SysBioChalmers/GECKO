@@ -1,13 +1,12 @@
 ENTRY       YGL071W           CDS       T00005
 NAME        AFT1, RCS1
-DEFINITION  Aft1p
+DEFINITION  (RefSeq) DNA-binding transcription factor AFT1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:372012..374084
-MOTIF       Pfam: AFT
-DBLINKS     NCBI-GI: 6321367
+MOTIF       Pfam: AFT LURAP
+DBLINKS     NCBI-ProteinID: NP_011444
             NCBI-GeneID: 852809
             SGD: S000003039
-            MIPS: YGL071W
             UniProt: P22149
 AASEQ       690
             MEGFNPADIEHASPINSSDSHSSSFVYALPKSASEYVVNHNEGRASASGNPAAVPSPIMT

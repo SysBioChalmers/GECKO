@@ -1,17 +1,26 @@
 ENTRY       YCL004W           CDS       T00005
 NAME        PGS1, PEL1, YCL003W
-DEFINITION  CDP-diacylglycerol--glycerol-3-phosphate 3-phosphatidyltransferase (EC:2.7.8.5)
+DEFINITION  (RefSeq) CDP-diacylglycerol--glycerol-3-phosphate 3-phosphatidyltransferase
 ORTHOLOGY   K00995  CDP-diacylglycerol--glycerol-3-phosphate 3-phosphatidyltransferase [EC:2.7.8.5]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00564  Glycerophospholipid metabolism
             sce01100  Metabolic pathways
-CLASS       Metabolism; Lipid metabolism; Glycerophospholipid metabolism [PATH:sce00564]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Lipid metabolism
+               00564 Glycerophospholipid metabolism
+                YCL004W (PGS1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.8  Transferases for other substituted phosphate groups
+                2.7.8.5  CDP-diacylglycerol---glycerol-3-phosphate 1-phosphatidyltransferase
+                 YCL004W (PGS1)
 POSITION    III:109105..110670
 MOTIF       Pfam: PLDc_2 PLDc
-DBLINKS     NCBI-GI: 10383778
+DBLINKS     NCBI-ProteinID: NP_009923
             NCBI-GeneID: 850352
             SGD: S000000510
-            MIPS: YCL004W
             UniProt: P25578
 AASEQ       521
             MTTRLLQLTRPHYRLLSLPLQKPFNIKRQMSAANPSPFGNYLNTITKSLQQNLQTCFHFQ

@@ -1,14 +1,19 @@
 ENTRY       YDR039C           CDS       T00005
 NAME        ENA2
-DEFINITION  Na(+)-exporting P-type ATPase ENA2 (EC:3.6.3.12 3.6.3.7)
+DEFINITION  (RefSeq) Na(+)-exporting P-type ATPase ENA2
 ORTHOLOGY   K01536  Na+-exporting ATPase [EC:3.6.3.7]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.3  Acting on acid anhydrides to catalyse transmembrane movement of substances
+                3.6.3.7  Na+-exporting ATPase
+                 YDR039C (ENA2)
 POSITION    IV:complement(531307..534582)
-MOTIF       Pfam: E1-E2_ATPase Cation_ATPase_C Hydrolase Hydrolase_like2 HAD Cation_ATPase_N Hydrolase_3
-DBLINKS     NCBI-GI: 398365207
+MOTIF       Pfam: E1-E2_ATPase Cation_ATPase_C Hydrolase Cation_ATPase Cation_ATPase_N Hydrolase_3
+DBLINKS     NCBI-ProteinID: NP_010324
             NCBI-GeneID: 851609
             SGD: S000002446
-            MIPS: YDR039C
             UniProt: Q01896
 AASEQ       1091
             MSEGTVKENNNEEFNAYHTLTTEEAAEFIGTSLTEGLTQDESLRRLKAVGENTLGDDTKI

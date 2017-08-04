@@ -1,18 +1,28 @@
 ENTRY       YOR125C           CDS       T00005
 NAME        CAT5, COQ7
-DEFINITION  putative monooxygenase CAT5 (EC:1.14.13.-)
+DEFINITION  (RefSeq) putative monooxygenase CAT5
 ORTHOLOGY   K06134  ubiquinone biosynthesis monooxygenase Coq7 [EC:1.14.13.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00130  Ubiquinone and other terpenoid-quinone biosynthesis
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
-CLASS       Metabolism; Metabolism of cofactors and vitamins; Ubiquinone and other terpenoid-quinone biosynthesis [PATH:sce00130]
+MODULE      sce_M00128  Ubiquinone biosynthesis, eukaryotes, 4-hydroxybenzoate => ubiquinone
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Metabolism of cofactors and vitamins
+               00130 Ubiquinone and other terpenoid-quinone biosynthesis
+                YOR125C (CAT5)
+            Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.14  Acting on paired donors, with incorporation or reduction of molecular oxygen
+               1.14.13  With NADH or NADPH as one donor, and incorporation of one atom of oxygen into the other donor
+                1.14.13.-  
+                 YOR125C (CAT5)
 POSITION    XV:complement(559030..559731)
 MOTIF       Pfam: COQ7
-DBLINKS     NCBI-GI: 37362696
+DBLINKS     NCBI-ProteinID: NP_014768
             NCBI-GeneID: 854292
             SGD: S000005651
-            MIPS: YOR125C
             UniProt: P41735
 AASEQ       233
             MLSRVSVFKPASRGFSVLSSLKITEHTSAKHTEKPEHAPKCQNLSDAQAAFLDRVIRVDQ

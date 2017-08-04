@@ -1,21 +1,38 @@
 ENTRY       YJL026W           CDS       T00005
 NAME        RNR2, CRT6
-DEFINITION  ribonucleotide-diphosphate reductase subunit RNR2 (EC:1.17.4.1)
+DEFINITION  (RefSeq) ribonucleotide-diphosphate reductase subunit RNR2
 ORTHOLOGY   K10808  ribonucleoside-diphosphate reductase subunit M2 [EC:1.17.4.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00230  Purine metabolism
             sce00240  Pyrimidine metabolism
             sce00480  Glutathione metabolism
             sce01100  Metabolic pathways
-CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
-            Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
-            Metabolism; Metabolism of other amino acids; Glutathione metabolism [PATH:sce00480]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Nucleotide metabolism
+               00230 Purine metabolism
+                YJL026W (RNR2)
+               00240 Pyrimidine metabolism
+                YJL026W (RNR2)
+              Metabolism of other amino acids
+               00480 Glutathione metabolism
+                YJL026W (RNR2)
+            Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.17  Acting on CH or CH2 groups
+               1.17.4  With a disulfide as acceptor
+                1.17.4.1  ribonucleoside-diphosphate reductase
+                 YJL026W (RNR2)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              Other factors with a suspected DNA repair function
+               Modulation of nucleotide pools
+                YJL026W (RNR2)
 POSITION    X:392404..393603
-MOTIF       Pfam: Ribonuc_red_sm
-DBLINKS     NCBI-GI: 6322434
+MOTIF       Pfam: Ribonuc_red_sm DUF4744 GIDA_assoc
+DBLINKS     NCBI-ProteinID: NP_012508
             NCBI-GeneID: 853427
             SGD: S000003563
-            MIPS: YJL026W
             UniProt: P09938
 STRUCTURE   PDB: 1JK0 1SMQ
 AASEQ       399

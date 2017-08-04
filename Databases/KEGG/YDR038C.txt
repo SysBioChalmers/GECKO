@@ -1,13 +1,12 @@
 ENTRY       YDR038C           CDS       T00005
 NAME        ENA5
-DEFINITION  putative Na(+)-exporting P-type ATPase ENA5 (EC:3.6.3.7)
+DEFINITION  (RefSeq) putative Na(+)-exporting P-type ATPase ENA5
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(527422..530697)
-MOTIF       Pfam: E1-E2_ATPase Cation_ATPase_C Hydrolase Hydrolase_like2 HAD Cation_ATPase_N Hydrolase_3
-DBLINKS     NCBI-GI: 398365197
+MOTIF       Pfam: E1-E2_ATPase Cation_ATPase_C Hydrolase Cation_ATPase Cation_ATPase_N Hydrolase_3
+DBLINKS     NCBI-ProteinID: NP_010323
             NCBI-GeneID: 851608
             SGD: S000002445
-            MIPS: YDR038C
             UniProt: Q12691
 AASEQ       1091
             MSEGTVKENNNEEFNAYHTLTTEEAAEFIGTSLTEGLTQDESLRRLKAVGENTLGDDTKI

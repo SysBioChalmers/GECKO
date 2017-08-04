@@ -1,16 +1,31 @@
 ENTRY       YGL163C           CDS       T00005
 NAME        RAD54, XRS1
-DEFINITION  DNA-dependent ATPase RAD54 (EC:3.6.4.-)
+DEFINITION  (RefSeq) DNA-dependent ATPase RAD54
 ORTHOLOGY   K10875  DNA repair and recombination protein RAD54 and RAD54-like protein [EC:3.6.4.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03440  Homologous recombination
-CLASS       Genetic Information Processing; Replication and repair; Homologous recombination [PATH:sce03440]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Replication and repair
+               03440 Homologous recombination
+                YGL163C (RAD54)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.4  Acting on acid anhydrides to facilitate cellular and subcellular movement
+                3.6.4.-  
+                 YGL163C (RAD54)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              DSBR (double strand breaks repair)
+               HR (homologous recombination)
+                Rad54 family proteins
+                 YGL163C (RAD54)
 POSITION    VII:complement(193707..196403)
-MOTIF       Pfam: SNF2_N Rad54_N Helicase_C HDA2-3 DEAD ResIII
-DBLINKS     NCBI-GI: 6321275
+MOTIF       Pfam: SNF2_N Rad54_N Helicase_C ResIII HDA2-3
+DBLINKS     NCBI-ProteinID: NP_011352
             NCBI-GeneID: 852713
             SGD: S000003131
-            MIPS: YGL163C
             UniProt: P32863
 AASEQ       898
             MARRRLPDRPPNGIGAGERPRLVPRPINVQDSVNRLTKPFRVPYKNTHIPPAAGRIATGS

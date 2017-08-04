@@ -1,15 +1,25 @@
 ENTRY       YNR073C           CDS       T00005
-DEFINITION  putative mannitol dehydrogenase (EC:1.1.-.- 1.1.1.-)
+NAME        MAN2
+DEFINITION  (RefSeq) putative mannitol dehydrogenase
 ORTHOLOGY   K00045  mannitol 2-dehydrogenase [EC:1.1.1.67]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00051  Fructose and mannose metabolism
-CLASS       Metabolism; Carbohydrate metabolism; Fructose and mannose metabolism [PATH:sce00051]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Carbohydrate metabolism
+               00051 Fructose and mannose metabolism
+                YNR073C (MAN2)
+            Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.1  Acting on the CH-OH group of donors
+               1.1.1  With NAD+ or NADP+ as acceptor
+                1.1.1.67  mannitol 2-dehydrogenase
+                 YNR073C (MAN2)
 POSITION    XIV:complement(774792..776300)
 MOTIF       Pfam: Mannitol_dh_C Mannitol_dh
-DBLINKS     NCBI-GI: 398365901
+DBLINKS     NCBI-ProteinID: NP_014471
             NCBI-GeneID: 855810
             SGD: S000005356
-            MIPS: YNR073C
             UniProt: P0CX08 P0CX09
 AASEQ       502
             MTKSDETTATSLNAKTLKSFESTLPIPTYPREGVKQGIVHLGVGAFHRSHLAVFMHRLMQ

@@ -1,13 +1,12 @@
 ENTRY       YER101C           CDS       T00005
 NAME        AST2
-DEFINITION  Ast2p
+DEFINITION  (RefSeq) Ast2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    V:complement(360502..361794)
 MOTIF       Pfam: ADH_zinc_N_2 ADH_N ADH_zinc_N
-DBLINKS     NCBI-GI: 6320948
+DBLINKS     NCBI-ProteinID: NP_011027
             NCBI-GeneID: 856838
             SGD: S000000903
-            MIPS: YER101C
             UniProt: P39945
 AASEQ       430
             MAEKILENKDPKLEAMTVDHEVSAPKPIPVDEPTLTRVARPLRHVRHIPVKSLVFHSKHG

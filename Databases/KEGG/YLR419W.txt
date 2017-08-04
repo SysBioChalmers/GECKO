@@ -1,12 +1,11 @@
 ENTRY       YLR419W           CDS       T00005
-DEFINITION  putative helicase (EC:3.6.4.13)
+DEFINITION  (RefSeq) putative helicase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XII:958428..962735
-MOTIF       Pfam: OB_NTP_bind RWD Helicase_C DEAD HA2 T2SE AAA_22 PhoH AAA_19 FtsK_SpoIIIE AAA_29 UBA AAA_16 Zot AAA_25 KaiC NACHT ResIII ABC_tran
-DBLINKS     NCBI-GI: 398366185
+MOTIF       Pfam: OB_NTP_bind Helicase_C RWD DEAD T2SSE AAA_19 HA2 PhoH ResIII AAA_30 AAA_22 AAA_29 FtsK_SpoIIIE AAA_25 ATPase AAA_23 Zot ABC_tran AAA_16 NACHT Sigma54_activat ATPase_2 AAA_11
+DBLINKS     NCBI-ProteinID: NP_013523
             NCBI-GeneID: 851137
             SGD: S000004411
-            MIPS: YLR419W
             UniProt: Q06698
 AASEQ       1435
             MAKKTKNNSKSSTPVNDVPTTAGKKKAKGKKGQEPEPEDDKRAKQQSNRAKVTSTASWTG

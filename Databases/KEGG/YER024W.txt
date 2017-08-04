@@ -1,13 +1,25 @@
 ENTRY       YER024W           CDS       T00005
 NAME        YAT2
-DEFINITION  carnitine O-acetyltransferase YAT2 (EC:2.3.1.7)
+DEFINITION  (RefSeq) carnitine O-acetyltransferase YAT2
+ORTHOLOGY   K00624  carnitine O-acetyltransferase [EC:2.3.1.7]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04146  Peroxisome
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04146 Peroxisome
+                YER024W (YAT2)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.3  Acyltransferases
+               2.3.1  Transferring groups other than aminoacyl groups
+                2.3.1.7  carnitine O-acetyltransferase
+                 YER024W (YAT2)
 POSITION    V:202192..204963
-MOTIF       Pfam: Carn_acyltransf
-DBLINKS     NCBI-GI: 6320862
+MOTIF       Pfam: Carn_acyltransf UBA2_C
+DBLINKS     NCBI-ProteinID: NP_010941
             NCBI-GeneID: 856745
             SGD: S000000826
-            MIPS: YER024W
             UniProt: P40017
 AASEQ       923
             MSSGSTIVSSDKSGRTFKHEEELPKLPLPKLCDTLQRLKESLEPLYYADGYYQHPLDPEQ

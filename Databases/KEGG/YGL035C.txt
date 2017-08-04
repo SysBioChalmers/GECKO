@@ -1,14 +1,18 @@
 ENTRY       YGL035C           CDS       T00005
 NAME        MIG1, CAT4, SSN1, TDS22
-DEFINITION  Mig1p
+DEFINITION  (RefSeq) transcription factor MIG1
 ORTHOLOGY   K09467  zinc-finger protein CreA/MIG
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription factors [BR:sce03000]
+             Eukaryotic Type
+              Zinc finger
+               Cys2His2 metabolic regulators in fungi
+                YGL035C (MIG1)
 POSITION    VII:complement(431548..433062)
-MOTIF       Pfam: zf-H2C2_2 zf-C2H2 zf-C2H2_4 ZF-HD_dimer GAGA
-DBLINKS     NCBI-GI: 6321403
+MOTIF       Pfam: zf-H2C2_2 zf-C2H2 zf-C2H2_4 DUF3748 GAGA
+DBLINKS     NCBI-ProteinID: NP_011480
             NCBI-GeneID: 852848
             SGD: S000003003
-            MIPS: YGL035C
             UniProt: P27705
 AASEQ       504
             MQSPYPMTQVSNVDDGSLLKESKSKSKVAAKSEAPRPHACPICHRAFHRLEHQTRHMRIH

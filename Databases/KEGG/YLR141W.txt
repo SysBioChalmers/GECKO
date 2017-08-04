@@ -1,13 +1,18 @@
 ENTRY       YLR141W           CDS       T00005
 NAME        RRN5
-DEFINITION  Rrn5p
+DEFINITION  (RefSeq) Rrn5p
 ORTHOLOGY   K15217  RNA polymerase I-specific transcription initiation factor RRN5
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase I system
+               Other transcription-related factors
+                Transcription initiation factors
+                 YLR141W (RRN5)
 POSITION    XII:423683..424774
-DBLINKS     NCBI-GI: 6323170
+DBLINKS     NCBI-ProteinID: NP_013242
             NCBI-GeneID: 850832
             SGD: S000004131
-            MIPS: YLR141W
             UniProt: Q02983
 AASEQ       363
             MEHQQLRKYVELYNKEVEEFYNGAASGRPAEFHPSKVHVKSIHEKAGTANAGVEISSVGV

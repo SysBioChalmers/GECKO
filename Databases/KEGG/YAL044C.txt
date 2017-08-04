@@ -1,17 +1,26 @@
 ENTRY       YAL044C           CDS       T00005
 NAME        GCV3
-DEFINITION  glycine decarboxylase subunit H
+DEFINITION  (RefSeq) glycine decarboxylase subunit H
 ORTHOLOGY   K02437  glycine cleavage system H protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
-PATHWAY     sce00630  Glyoxylate and dicarboxylate metabolism
+PATHWAY     sce00260  Glycine, serine and threonine metabolism
+            sce00630  Glyoxylate and dicarboxylate metabolism
+            sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
-CLASS       Metabolism; Carbohydrate metabolism; Glyoxylate and dicarboxylate metabolism [PATH:sce00630]
+            sce01130  Biosynthesis of antibiotics
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Carbohydrate metabolism
+               00630 Glyoxylate and dicarboxylate metabolism
+                YAL044C (GCV3)
+              Amino acid metabolism
+               00260 Glycine, serine and threonine metabolism
+                YAL044C (GCV3)
 POSITION    I:complement(57950..58462)
 MOTIF       Pfam: GCV_H Biotin_lipoyl
-DBLINKS     NCBI-GI: 269970294
+DBLINKS     NCBI-ProteinID: NP_009355
             NCBI-GeneID: 851254
             SGD: S000000042
-            MIPS: YAL044C
             UniProt: P39726
 AASEQ       170
             MLRTTRLWTTRMPTVSKLFLRNSSGNALNKNKLPFLYSSQGPQAVRYTSQHEWIAVHQDK

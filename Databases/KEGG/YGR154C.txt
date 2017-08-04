@@ -1,13 +1,12 @@
 ENTRY       YGR154C           CDS       T00005
 NAME        GTO1
-DEFINITION  Gto1p (EC:1.8.5.1 2.5.1.18)
+DEFINITION  (RefSeq) omega-class glutathione transferase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:complement(796798..797868)
-MOTIF       Pfam: GST_N_2 GST_C_2 GST_C_3 GST_C
-DBLINKS     NCBI-GI: 398365927
+MOTIF       Pfam: GST_N_2 GST_C_2 GST_C
+DBLINKS     NCBI-ProteinID: NP_011670
             NCBI-GeneID: 853058
             SGD: S000003386
-            MIPS: YGR154C
             UniProt: P48239
 AASEQ       356
             MSVSYKGTISKTHSVFKPEKGRYYIYGALGCPFTHRAILARSLKKLEPVLGLVLSHWQLD

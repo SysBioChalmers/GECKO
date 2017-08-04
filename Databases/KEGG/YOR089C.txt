@@ -1,14 +1,44 @@
 ENTRY       YOR089C           CDS       T00005
 NAME        VPS21, VPS12, VPT12, YPT21, YPT51
-DEFINITION  Vps21p
-ORTHOLOGY   K07976  Rab family, other
+DEFINITION  (RefSeq) Rab family GTPase VPS21
+ORTHOLOGY   K07889  Ras-related protein Rab-5C
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04144  Endocytosis
+            sce04145  Phagosome
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04144 Endocytosis
+                YOR089C (VPS21)
+               04145 Phagosome
+                YOR089C (VPS21)
+            Membrane trafficking [BR:sce04131]
+             Endocytosis
+              Rab GTPases and associated proteins
+               Rab GTPases
+                YOR089C (VPS21)
+             Endosome - Lysosome transport
+                YOR089C (VPS21)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of haemopoietic cells  (B-cell, T-cell, DC-cell, reticulocyte, and mast cell)
+               YOR089C (VPS21)
+              Exosomal proteins of other body fluids (saliva and urine)
+               YOR089C (VPS21)
+              Exosomal proteins of colorectal cancer cells
+               YOR089C (VPS21)
+              Exosomal proteins of bladder cancer cells
+               YOR089C (VPS21)
+            GTP-binding proteins [BR:sce04031]
+             Small (Monomeric) G-proteins
+              Rab Family
+               Rab5/17/22/31 [OT]
+                YOR089C (VPS21)
 POSITION    XV:complement(490196..490828)
-MOTIF       Pfam: Ras Miro Arf Gtr1_RagA GTP_EFTU MMR_HSR1 Arch_ATPase
-DBLINKS     NCBI-GI: 6324663
+MOTIF       Pfam: Ras Roc Arf Gtr1_RagA MMR_HSR1 GTP_EFTU RsgA_GTPase AAA_16
+DBLINKS     NCBI-ProteinID: NP_014732
             NCBI-GeneID: 854256
             SGD: S000005615
-            MIPS: YOR089C
             UniProt: P36017
 STRUCTURE   PDB: 1EK0
 AASEQ       210

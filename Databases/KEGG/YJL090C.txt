@@ -1,14 +1,18 @@
 ENTRY       YJL090C           CDS       T00005
 NAME        DPB11
-DEFINITION  Dpb11p
+DEFINITION  (RefSeq) protein kinase activating protein DPB11
 ORTHOLOGY   K03507  DNA replication regulator DPB11
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       DNA replication proteins [BR:sce03032]
+             Eukaryotic Type
+              DNA Replication Initiation Factors
+               Other initiation factors
+                YJL090C (DPB11)
 POSITION    X:complement(262757..265051)
-MOTIF       Pfam: BRCT PTCB-BRCT
-DBLINKS     NCBI-GI: 6322371
+MOTIF       Pfam: BRCT BRCT_2 PTCB-BRCT
+DBLINKS     NCBI-ProteinID: NP_012445
             NCBI-GeneID: 853355
             SGD: S000003626
-            MIPS: YJL090C
             UniProt: P47027
 AASEQ       764
             MKPFQGITFCPTAINNEILAKKISKKIIKLGGIFSKDLTRQVNVLVVGSTTNTNKFKFAV

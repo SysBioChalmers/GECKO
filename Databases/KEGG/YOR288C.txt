@@ -1,16 +1,34 @@
 ENTRY       YOR288C           CDS       T00005
 NAME        MPD1
-DEFINITION  protein disulfide isomerase MPD1 (EC:5.3.4.1)
+DEFINITION  (RefSeq) protein disulfide isomerase MPD1
 ORTHOLOGY   K09584  protein disulfide-isomerase A6 [EC:5.3.4.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04141  Protein processing in endoplasmic reticulum
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Protein processing in endoplasmic reticulum [PATH:sce04141]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04141 Protein processing in endoplasmic reticulum
+                YOR288C (MPD1)
+            Enzymes [BR:sce01000]
+             5. Isomerases
+              5.3  Intramolecular oxidoreductases
+               5.3.4  Transposing S-S bonds
+                5.3.4.1  protein disulfide-isomerase
+                 YOR288C (MPD1)
+            Chaperones and folding catalysts [BR:sce03110]
+             Protein folding catalysts
+              Protein disulfide isomerase
+               YOR288C (MPD1)
+            Membrane trafficking [BR:sce04131]
+             Endoplasmic reticulum (ER) - Golgi transport
+              Forward pathways
+               PDI family proteins
+                YOR288C (MPD1)
 POSITION    XV:complement(852121..853077)
-MOTIF       Pfam: Thioredoxin Thioredoxin_6 Thioredoxin_8 Thioredoxin_2 Thioredoxin_7 Thioredoxin_3 AhpC-TSA Glyco_hydro_57
-DBLINKS     NCBI-GI: 398366089
+MOTIF       Pfam: Thioredoxin Thioredoxin_6 Thioredoxin_8 Thioredoxin_2 Thioredoxin_7 OST3_OST6 Thioredoxin_3 Glyco_hydro_57 TraF AhpC-TSA
+DBLINKS     NCBI-ProteinID: NP_014931
             NCBI-GeneID: 854462
             SGD: S000005814
-            MIPS: YOR288C
             UniProt: Q12404
 STRUCTURE   PDB: 3ED3
 AASEQ       318

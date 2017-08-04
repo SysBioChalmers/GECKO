@@ -1,12 +1,12 @@
 ENTRY       YOL048C           CDS       T00005
 NAME        RRT8
-DEFINITION  Rrt8p
+DEFINITION  (RefSeq) Rrt8p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:complement(join(240204..240947,241026..241310))
-DBLINKS     NCBI-GI: 37362693
+MOTIF       Pfam: EI24 PetG
+DBLINKS     NCBI-ProteinID: NP_014594
             NCBI-GeneID: 854109
             SGD: S000005408
-            MIPS: YOL048C
             UniProt: Q08219
 AASEQ       342
             MKAGIELISHSQASHATYANSMTLAEKGPQRLKRQFKEHSSSKESNVSRWLKIFIRQFDI

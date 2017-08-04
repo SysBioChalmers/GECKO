@@ -1,13 +1,12 @@
 ENTRY       YPL224C           CDS       T00005
 NAME        MMT2, MFT2
-DEFINITION  Mmt2p
+DEFINITION  (RefSeq) Mmt2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:complement(126634..128088)
 MOTIF       Pfam: Cation_efflux
-DBLINKS     NCBI-GI: 330443745
+DBLINKS     NCBI-ProteinID: NP_015100
             NCBI-GeneID: 855877
             SGD: S000006145
-            MIPS: YPL224C
             UniProt: Q08970
 AASEQ       484
             MLRISIDSIKQFGSFVPGYNNTSYHAAGRAIRTSSLYSTMISANPRRCLHSSKLLNKEGQ

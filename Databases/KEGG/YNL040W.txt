@@ -1,13 +1,25 @@
 ENTRY       YNL040W           CDS       T00005
-DEFINITION  putative alanine--tRNA ligase
-ORTHOLOGY   K07050
+DEFINITION  (RefSeq) putative alanine--tRNA ligase
+ORTHOLOGY   K07050  misacylated tRNA(Ala) deacylase [EC:3.1.1.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.1  Carboxylic-ester hydrolases
+                3.1.1.-  
+                 YNL040W
+            Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              Aminoacyl-tRNA synthetases (AARSs)
+               Trans-editing factors
+                YNL040W
+             Prokaryotic Type
+                YNL040W
 POSITION    XIV:553380..554750
 MOTIF       Pfam: tRNA_SAD tRNA-synt_2c
-DBLINKS     NCBI-GI: 398365301
+DBLINKS     NCBI-ProteinID: NP_014358
             NCBI-GeneID: 855688
             SGD: S000004985
-            MIPS: YNL040W
             UniProt: P53960
 AASEQ       456
             MPTPMTPVKVGALACQRNSFLFDGFKTLVVSCEPTKNKKGEIEGYEIELQDTILFPEGGG

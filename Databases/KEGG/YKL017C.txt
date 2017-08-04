@@ -1,13 +1,24 @@
 ENTRY       YKL017C           CDS       T00005
 NAME        HCS1, DIP1
-DEFINITION  Hcs1p (EC:3.6.4.12)
+DEFINITION  (RefSeq) ATP-dependent 5'-3' DNA helicase HCS1
+ORTHOLOGY   K19783  DNA polymerase alpha-associated DNA helicase A [EC:3.6.4.12]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.4  Acting on acid anhydrides to facilitate cellular and subcellular movement
+                3.6.4.12  DNA helicase
+                 YKL017C (HCS1)
+            DNA replication proteins [BR:sce03032]
+             Eukaryotic Type
+              DNA Replication Elongation Factors
+               Other elongation factors
+                YKL017C (HCS1)
 POSITION    XI:complement(405190..407241)
-MOTIF       Pfam: AAA_12 AAA_11 AAA_19 Viral_helicase1 AAA_30 ResIII PhoH DUF2075 DEAD UvrD-helicase AAA_23 AAA_22 AAA_14 Helicase_RecD AAA_25 UvrD_C_2 AAA T2SE AAA_10 AAA_16 Zot AAA_33 RNA_helicase FtsK_SpoIIIE AAA_17
-DBLINKS     NCBI-GI: 6322835
+MOTIF       Pfam: AAA_12 AAA_11 AAA_19 AAA_30 Viral_helicase1 ResIII PhoH DEAD AAA_23 AAA_22 UvrD-helicase DUF2075 Adeno_IVa2 Helicase_RecD AAA_14 AAA Zot UvrD_C_2 AAA_33 T2SSE AAA_25 HeLo RNA_helicase AAA_16 SpoVT_C
+DBLINKS     NCBI-ProteinID: NP_012908
             NCBI-GeneID: 853852
             SGD: S000001500
-            MIPS: YKL017C
             UniProt: P34243
 AASEQ       683
             MNKELASKFLSSIKHEREQDIQTTSRLLTTLSIQQLVQNGLAINNIHLENIRSGLIGKLY

@@ -1,13 +1,12 @@
 ENTRY       YBL089W           CDS       T00005
 NAME        AVT5
-DEFINITION  Avt5p
+DEFINITION  (RefSeq) amino acid transporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    II:49574..50953
-MOTIF       Pfam: Aa_trans DUF1129 DUF788
-DBLINKS     NCBI-GI: 37362614
+MOTIF       Pfam: Aa_trans DUF1129
+DBLINKS     NCBI-ProteinID: NP_009464
             NCBI-GeneID: 852189
             SGD: S000000185
-            MIPS: YBL089W
             UniProt: P38176
 AASEQ       459
             MPSNVRSGVLTLLHTACGAGVLAMPFAFKPFGLMPGLITLTFCGICSLCGLLLQTRIAKY

@@ -1,16 +1,25 @@
 ENTRY       YOR040W           CDS       T00005
 NAME        GLO4
-DEFINITION  hydroxyacylglutathione hydrolase GLO4 (EC:3.1.2.6)
+DEFINITION  (RefSeq) hydroxyacylglutathione hydrolase GLO4
 ORTHOLOGY   K01069  hydroxyacylglutathione hydrolase [EC:3.1.2.6]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00620  Pyruvate metabolism
-CLASS       Metabolism; Carbohydrate metabolism; Pyruvate metabolism [PATH:sce00620]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Carbohydrate metabolism
+               00620 Pyruvate metabolism
+                YOR040W (GLO4)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.2  Thioester hydrolases
+                3.1.2.6  hydroxyacylglutathione hydrolase
+                 YOR040W (GLO4)
 POSITION    XV:407064..407921
-MOTIF       Pfam: Lactamase_B Lactamase_B_2 Lactamase_B_3
-DBLINKS     NCBI-GI: 6324614
+MOTIF       Pfam: HAGH_C Lactamase_B Lactamase_B_2
+DBLINKS     NCBI-ProteinID: NP_014683
             NCBI-GeneID: 854205
             SGD: S000005566
-            MIPS: YOR040W
             UniProt: Q12320
 AASEQ       285
             MKFLLQQIRNMHVKPIKMRWLTGGVNYSYLLSTEDRRNSWLIDPAEPLEVSPKLSAEEKK

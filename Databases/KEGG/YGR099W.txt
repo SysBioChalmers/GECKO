@@ -1,14 +1,24 @@
 ENTRY       YGR099W           CDS       T00005
 NAME        TEL2
-DEFINITION  Tel2p
+DEFINITION  (RefSeq) Tel2p
 ORTHOLOGY   K11137  telomere length regulation protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       DNA replication proteins [BR:sce03032]
+             Eukaryotic Type
+              DNA Replication Termination Factors
+               Other telomere regulation proteins
+                YGR099W (TEL2)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              DSBR (double strand breaks repair)
+               FA (Fanconi anemia) pathway
+                Other FA pathway factors
+                 YGR099W (TEL2)
 POSITION    VII:687899..689965
 MOTIF       Pfam: Telomere_reg-2
-DBLINKS     NCBI-GI: 398365669
+DBLINKS     NCBI-ProteinID: NP_011613
             NCBI-GeneID: 852991
             SGD: S000003331
-            MIPS: YGR099W
             UniProt: P53038
 STRUCTURE   PDB: 3O4Z
 AASEQ       688

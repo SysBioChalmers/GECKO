@@ -1,17 +1,42 @@
 ENTRY       YER068W           CDS       T00005
 NAME        MOT2, NOT4, SIG1
-DEFINITION  CCR4-NOT core ubiquitin-protein ligase subunit MOT2
-ORTHOLOGY   K10643  CCR4-NOT transcription complex subunit 4 [EC:6.3.2.19]
+DEFINITION  (RefSeq) CCR4-NOT core ubiquitin-protein ligase subunit MOT2
+ORTHOLOGY   K10643  CCR4-NOT transcription complex subunit 4 [EC:2.3.2.27]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03018  RNA degradation
-CLASS       Genetic Information Processing; Folding, sorting and degradation; RNA degradation [PATH:sce03018]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               03018 RNA degradation
+                YER068W (MOT2)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.3  Acyltransferases
+               2.3.2  Aminoacyltransferases
+                2.3.2.27  RING-type E3 ubiquitin transferase
+                 YER068W (MOT2)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               mRNA cycle factors
+                P-body specific factors
+                 YER068W (MOT2)
+              mRNA degradation factors
+               3'-5' decay
+                Ccr4-NOT complex
+                 YER068W (MOT2)
+            Ubiquitin system [BR:sce04121]
+             Ubiquitin ligases (E3)
+              Single Ring-finger type E3
+               Other single Ring-finger type E3
+                YER068W (MOT2)
 POSITION    V:293050..294813
-MOTIF       Pfam: zf-RING_4 RRM_5 Rtf2 zf-C3HC4_3 RRM_1 Baculo_IE-1 zf-RING_2 RRM_6 zf-C3HC4 SET_assoc PocR zf-UDP zf-RING_5
-DBLINKS     NCBI-GI: 398364501
+MOTIF       Pfam: zf-RING_4 zf-C3HC4_3 Rtf2 RRM_1 Baculo_IE-1 zf-RING_2 Prok-RING_4 zf-C3HC4 SET_assoc zf-RING_5 PocR
+DBLINKS     NCBI-ProteinID: NP_010991
             NCBI-GeneID: 856799
             SGD: S000000870
-            MIPS: YER068W
             UniProt: P34909
+STRUCTURE   PDB: 5AIE 5AJD
 AASEQ       587
             MMNPHVQENLQAIHNALSNFDTSFLSEDEEDYCPLCIEPMDITDKNFFPCPCGYQICQFC
             YNNIRQNPELNGRCPACRRKYDDENVRYVTLSPEELKMERAKLARKEKERKHREKERKEN

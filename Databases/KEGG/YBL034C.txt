@@ -1,13 +1,12 @@
 ENTRY       YBL034C           CDS       T00005
 NAME        STU1
-DEFINITION  Stu1p
+DEFINITION  (RefSeq) Stu1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    II:complement(153848..158389)
-MOTIF       Pfam: CLASP_N
-DBLINKS     NCBI-GI: 6319437
+MOTIF       Pfam: CLASP_N DUF4404
+DBLINKS     NCBI-ProteinID: NP_009519
             NCBI-GeneID: 852246
             SGD: S000000130
-            MIPS: YBL034C
             UniProt: P38198
 AASEQ       1513
             MSSFNNETNNNSNTNTHPDDSFPLYTVFKDESVPIEEKMALLTRFKGHVKKELVNESSIQ

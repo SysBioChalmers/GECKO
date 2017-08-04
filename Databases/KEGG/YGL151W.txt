@@ -1,14 +1,19 @@
 ENTRY       YGL151W           CDS       T00005
-NAME        NUT1, MED5
-DEFINITION  Nut1p
+NAME        NUT1, MED5, SSX4
+DEFINITION  (RefSeq) Nut1p
 ORTHOLOGY   K15147  mediator of RNA polymerase II transcription subunit 5
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Mediator complex
+                Middle
+                 YGL151W (NUT1)
 POSITION    VII:217524..220922
 MOTIF       Pfam: Med5
-DBLINKS     NCBI-GI: 6321287
+DBLINKS     NCBI-ProteinID: NP_011364
             NCBI-GeneID: 852726
             SGD: S000003119
-            MIPS: YGL151W
             UniProt: P53114
 AASEQ       1132
             MEKESVYNLALKCAERQLTSMEFSNLYKEFFNEKFPSLIQEEEEDTTTTANINEVKKASD

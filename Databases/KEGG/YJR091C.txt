@@ -1,13 +1,18 @@
 ENTRY       YJR091C           CDS       T00005
 NAME        JSN1, PUF1
-DEFINITION  Jsn1p
+DEFINITION  (RefSeq) Jsn1p
+ORTHOLOGY   K17974  protein JSN1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial quality control factors
+              Mitochondrial dynamics
+               Mitochondrial movement
+                YJR091C (JSN1)
 POSITION    X:complement(595061..598336)
-MOTIF       Pfam: PUF RRM_1 RRM_5 RRM_6
-DBLINKS     NCBI-GI: 6322550
+MOTIF       Pfam: PUF RRM_1
+DBLINKS     NCBI-ProteinID: NP_012624
             NCBI-GeneID: 853553
             SGD: S000003851
-            MIPS: YJR091C
             UniProt: P47135
 AASEQ       1091
             MDKSKQMNINNLSNIPEVIDPGITIPIYEEEYENNGESNSQLQQQPQKLGSYRSRAGKFS

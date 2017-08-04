@@ -1,12 +1,12 @@
 ENTRY       YML076C           CDS       T00005
 NAME        WAR1
-DEFINITION  War1p
+DEFINITION  (RefSeq) War1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:complement(112513..115347)
-DBLINKS     NCBI-GI: 6323564
+MOTIF       Pfam: Zn_clus Tnp_22_dsRBD
+DBLINKS     NCBI-ProteinID: NP_013635
             NCBI-GeneID: 854899
             SGD: S000004541
-            MIPS: YML076C
             UniProt: Q03631
 AASEQ       944
             MDTQIAITGVAVGKEINNDNSKTDQKVSLPKADVPCIDKATQTIIEGCSKDDPRLSYPTK

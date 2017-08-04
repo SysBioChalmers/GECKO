@@ -1,21 +1,39 @@
 ENTRY       YHR166C           CDS       T00005
 NAME        CDC23
-DEFINITION  anaphase promoting complex subunit CDC23
+DEFINITION  (RefSeq) anaphase promoting complex subunit CDC23
 ORTHOLOGY   K03355  anaphase-promoting complex subunit 8
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
             sce04113  Meiosis - yeast
             sce04120  Ubiquitin mediated proteolysis
 MODULE      sce_M00389  APC/C complex
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Ubiquitin mediated proteolysis [PATH:sce04120]
-            Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
-            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04120 Ubiquitin mediated proteolysis
+                YHR166C (CDC23)
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YHR166C (CDC23)
+               04113 Meiosis - yeast
+                YHR166C (CDC23)
+            Ubiquitin system [BR:sce04121]
+             Ubiquitin ligases (E3)
+              Multi subunit Ring-finger type E3
+               APC/C
+                Other subunits
+                 YHR166C (CDC23)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Sister chromatid separation proteins
+               APC/C complex
+                YHR166C (CDC23)
 POSITION    VIII:complement(437170..439050)
-MOTIF       Pfam: APC8 TPR_1 TPR_8 TPR_11 TPR_2 TPR_12 TPR_14 TPR_17 TPR_7 TPR_16 TPR_19 Apc3 ChAPs RPN7 MIT TPR_15 UBN2_3 TPR_9
-DBLINKS     NCBI-GI: 6321960
+MOTIF       Pfam: ANAPC8 TPR_8 TPR_1 TPR_2 TPR_14 TPR_11 TPR_17 TPR_12 TPR_7 TPR_16 TPR_19 ChAPs ANAPC3 TPR_15 RPN7 BTAD TPR_9
+DBLINKS     NCBI-ProteinID: NP_012036
             NCBI-GeneID: 856571
             SGD: S000001209
-            MIPS: YHR166C
             UniProt: P16522
 AASEQ       626
             MNDDSQDKIIHDIRIQLRKAATELSRWKLYGSSKWAAEALAGLAEAIDVDQTHSLADESP

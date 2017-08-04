@@ -1,14 +1,18 @@
 ENTRY       YOL077C           CDS       T00005
 NAME        BRX1
-DEFINITION  Brx1p
+DEFINITION  (RefSeq) Brx1p
 ORTHOLOGY   K14820  ribosome biogenesis protein BRX1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               Other pre-60S particles
+                YOL077C (BRX1)
 POSITION    XV:complement(185848..186723)
 MOTIF       Pfam: Brix
-DBLINKS     NCBI-GI: 330443726
+DBLINKS     NCBI-ProteinID: NP_014565
             NCBI-GeneID: 854078
             SGD: S000005437
-            MIPS: YOL077C
             UniProt: Q08235
 AASEQ       291
             MSSIYKALAGKSKDNKSEKKQGNVKQFMNKQRTLLISSRGVNYRHRHLIQDLSGLLPHSR

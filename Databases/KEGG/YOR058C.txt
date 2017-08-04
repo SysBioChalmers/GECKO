@@ -1,14 +1,25 @@
 ENTRY       YOR058C           CDS       T00005
 NAME        ASE1, YOR29-09
-DEFINITION  Ase1p
+DEFINITION  (RefSeq) Ase1p
 ORTHOLOGY   K16732  protein regulator of cytokinesis 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centrosome formation and ciliogenesis proteins
+               Centrosome duplication proteins
+                Other centrosome duplication proteins
+                 YOR058C (ASE1)
+            Cytoskeleton proteins [BR:sce04812]
+             Eukaryotic cytoskeleton proteins
+              Microtubules
+               Tubulin-binding proteins
+                Others
+                 YOR058C (ASE1)
 POSITION    XV:complement(433688..436345)
 MOTIF       Pfam: MAP65_ASE1
-DBLINKS     NCBI-GI: 14318440
+DBLINKS     NCBI-ProteinID: NP_116582
             NCBI-GeneID: 854223
             SGD: S000005584
-            MIPS: YOR058C
             UniProt: P50275
 AASEQ       885
             METATSSPLPIKSRRNSENSGSTTVIPHMNPSLATPLTVSTMVNQSNSKEFMKLTPVRIR

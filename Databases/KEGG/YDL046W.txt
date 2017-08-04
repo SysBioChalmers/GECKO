@@ -1,13 +1,12 @@
 ENTRY       YDL046W           CDS       T00005
 NAME        NPC2
-DEFINITION  Npc2p
+DEFINITION  (RefSeq) sterol transporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:371240..371761
-MOTIF       Pfam: E1_DerP2_DerF2 TRP_N
-DBLINKS     NCBI-GI: 6320157
+MOTIF       Pfam: E1_DerP2_DerF2
+DBLINKS     NCBI-ProteinID: NP_010237
             NCBI-GeneID: 851514
             SGD: S000002204
-            MIPS: YDL046W
             UniProt: Q12408
 AASEQ       173
             MTHSLKALFALLFLYTAAVNAGVIGIFNALPPPNTKPINGESPLYQCDILDKQLVEIKEV

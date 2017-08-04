@@ -1,14 +1,18 @@
 ENTRY       YBR037C           CDS       T00005
 NAME        SCO1, PET161
-DEFINITION  Sco1p
+DEFINITION  (RefSeq) Cu-binding protein SCO1
 ORTHOLOGY   K07152  protein SCO1/2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial quality control factors
+              Mitochondrial respiratory chain complex assembly factors
+               Complex-IV assembly factors
+                YBR037C (SCO1)
 POSITION    II:complement(310565..311452)
 MOTIF       Pfam: SCO1-SenC AhpC-TSA
-DBLINKS     NCBI-GI: 6319511
+DBLINKS     NCBI-ProteinID: NP_009593
             NCBI-GeneID: 852325
             SGD: S000000241
-            MIPS: YBR037C
             UniProt: P23833
 STRUCTURE   PDB: 2B7K 2B7J
 AASEQ       295

@@ -1,18 +1,28 @@
 ENTRY       YER162C           CDS       T00005
 NAME        RAD4
-DEFINITION  Rad4p
+DEFINITION  (RefSeq) Rad4p
 ORTHOLOGY   K10838  xeroderma pigmentosum group C-complementing protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03420  Nucleotide excision repair
-CLASS       Genetic Information Processing; Replication and repair; Nucleotide excision repair [PATH:sce03420]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Replication and repair
+               03420 Nucleotide excision repair
+                YER162C (RAD4)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              SSBR (single strand breaks repair)
+               NER (nucleotide excision repair)
+                GGR (global genome repair) factors
+                 XPC-HR23B-CETN2 complex
+                  YER162C (RAD4)
 POSITION    V:complement(500630..502894)
 MOTIF       Pfam: Rad4 BHD_3 BHD_1 BHD_2 Transglut_core
-DBLINKS     NCBI-GI: 398365007
+DBLINKS     NCBI-ProteinID: NP_011089
             NCBI-GeneID: 856909
             SGD: S000000964
-            MIPS: YER162C
             UniProt: P14736
-STRUCTURE   PDB: 2QSF 2QSH 2QSG 2M14
+STRUCTURE   PDB: 2QSF 2QSH 4YIR 2QSG 2M14
 AASEQ       754
             MNEDLPKEYFELIRKALNEKEAEKAPLSRRRRVRRKNQPLPDAKKKFKTGLNELPRESVV
             TVNLDSSDDGVVTVPTDDSVEEIQSSEEDYDSEEFEDVTDGNEVAGVEDISVEIKPSSKR

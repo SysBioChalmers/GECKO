@@ -1,13 +1,12 @@
 ENTRY       YMR194C-B         CDS       T00005
 NAME        CMC4
-DEFINITION  Cmc4p
+DEFINITION  (RefSeq) Cmc4p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:complement(join(652594..652775,652848..652887))
-MOTIF       Pfam: DUF1903 CHCH
-DBLINKS     NCBI-GI: 33438857
+MOTIF       Pfam: MTCP1
+DBLINKS     NCBI-ProteinID: NP_878145
             NCBI-GeneID: 1466503
             SGD: S000028514
-            MIPS: YMR194C-B
             UniProt: Q3E7A9
 AASEQ       73
             MSNPCQKEACAIQDCLLSHQYDDAKCAKVIDQLYICCSKFYNDNGKDSRSPCCPLPSLLE

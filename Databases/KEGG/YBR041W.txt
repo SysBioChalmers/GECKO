@@ -1,13 +1,12 @@
 ENTRY       YBR041W           CDS       T00005
 NAME        FAT1
-DEFINITION  long-chain fatty acid transporter FAT1
+DEFINITION  (RefSeq) long-chain fatty acid transporter FAT1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    II:318266..320275
-MOTIF       Pfam: AMP-binding
-DBLINKS     NCBI-GI: 41629676
+MOTIF       Pfam: AMP-binding AMP-binding_C Renin_r
+DBLINKS     NCBI-ProteinID: NP_009597
             NCBI-GeneID: 852329
             SGD: S000000245
-            MIPS: YBR041W
             UniProt: P38225
 AASEQ       669
             MSPIQVVVFALSRIFLLLFRLIKLIITPIQKSLGYLFGNYFDELDRKYRYKEDWYIIPYF

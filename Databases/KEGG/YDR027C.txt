@@ -1,14 +1,24 @@
 ENTRY       YDR027C           CDS       T00005
 NAME        VPS54, CGP1, LUV1, TCS3
-DEFINITION  Vps54p
+DEFINITION  (RefSeq) Vps54p
 ORTHOLOGY   K17600  vacuolar protein sorting-associated protein 54
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Protein phosphatases and associated proteins [BR:sce01009]
+             Protein Ser/ Thr phosphatases
+              Phosphoprotein phosphatases (PPPs)
+               Protein phosphatase-1
+                PP1-interacting proteins (PIPs)
+                 YDR027C (VPS54)
+            Membrane trafficking [BR:sce04131]
+             Endosome - Golgi transport
+              Tethering complex
+               GARP complex
+                YDR027C (VPS54)
 POSITION    IV:complement(494649..497318)
-MOTIF       Pfam: Vps54
-DBLINKS     NCBI-GI: 6320230
+MOTIF       Pfam: Vps54 DUF1759
+DBLINKS     NCBI-ProteinID: NP_010310
             NCBI-GeneID: 851591
             SGD: S000002434
-            MIPS: YDR027C
             UniProt: Q12071
 AASEQ       889
             MSISETPHNKSQGLQKAAGRPKIVVPEGSPSRNSDSGSFTIEGDTSLNDDLLSISGSVTP

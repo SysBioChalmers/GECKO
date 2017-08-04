@@ -1,13 +1,12 @@
 ENTRY       YMR275C           CDS       T00005
 NAME        BUL1, DAG1, RDS1, SMM2
-DEFINITION  ubiquitin-ubiquitin ligase BUL1
+DEFINITION  (RefSeq) ubiquitin-ubiquitin ligase BUL1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:complement(815651..818581)
 MOTIF       Pfam: Bul1_N Bul1_C
-DBLINKS     NCBI-GI: 6323931
+DBLINKS     NCBI-ProteinID: NP_014002
             NCBI-GeneID: 855318
             SGD: S000004888
-            MIPS: YMR275C
             UniProt: P48524
 AASEQ       976
             MAKDLNDSGFPPKRKPLLRPQRSDFTANSSTTMNVNANTRGRGRQKQEGGKGSSRSPSLH

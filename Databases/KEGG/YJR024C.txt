@@ -1,18 +1,27 @@
 ENTRY       YJR024C           CDS       T00005
 NAME        MDE1
-DEFINITION  methylthioribulose 1-phosphate dehydratase MDE1 (EC:4.2.1.109)
+DEFINITION  (RefSeq) methylthioribulose 1-phosphate dehydratase MDE1
 ORTHOLOGY   K08964  methylthioribulose-1-phosphate dehydratase [EC:4.2.1.109]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00270  Cysteine and methionine metabolism
             sce01100  Metabolic pathways
 MODULE      sce_M00034  Methionine salvage pathway
-CLASS       Metabolism; Amino acid metabolism; Cysteine and methionine metabolism [PATH:sce00270]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Amino acid metabolism
+               00270 Cysteine and methionine metabolism
+                YJR024C (MDE1)
+            Enzymes [BR:sce01000]
+             4. Lyases
+              4.2  Carbon-oxygen lyases
+               4.2.1  Hydro-lyases
+                4.2.1.109  methylthioribulose 1-phosphate dehydratase
+                 YJR024C (MDE1)
 POSITION    X:complement(470230..470964)
 MOTIF       Pfam: Aldolase_II
-DBLINKS     NCBI-GI: 398364835
+DBLINKS     NCBI-ProteinID: NP_012558
             NCBI-GeneID: 853481
             SGD: S000003785
-            MIPS: YJR024C
             UniProt: P47095
 AASEQ       244
             MSSQDVLIHSDDPCHPANLICTLCKQFFHNNWCTGTGGGISIKDPNTNYYYLAPSGVQKE

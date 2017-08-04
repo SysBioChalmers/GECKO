@@ -1,13 +1,12 @@
 ENTRY       YDR370C           CDS       T00005
 NAME        DXO1
-DEFINITION  Dxo1p
+DEFINITION  (RefSeq) Dxo1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(1217782..1219110)
-MOTIF       Pfam: RAI1
-DBLINKS     NCBI-GI: 398366533
+MOTIF       Pfam: RAI1 ER
+DBLINKS     NCBI-ProteinID: NP_010658
             NCBI-GeneID: 851976
             SGD: S000002778
-            MIPS: YDR370C
             UniProt: Q06349
 AASEQ       442
             MSTEQDAVLGLAKDLEGINLLTVPNLERGHQSKLCKEKTTSDSSSSRKPSQQRDNYRKRR

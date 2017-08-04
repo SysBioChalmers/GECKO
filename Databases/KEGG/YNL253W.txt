@@ -1,18 +1,38 @@
 ENTRY       YNL253W           CDS       T00005
 NAME        TEX1
-DEFINITION  Tex1p
+DEFINITION  (RefSeq) Tex1p
 ORTHOLOGY   K12880  THO complex subunit 3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03013  RNA transport
             sce03040  Spliceosome
-CLASS       Genetic Information Processing; Transcription; Spliceosome [PATH:sce03040]
-            Genetic Information Processing; Translation; RNA transport [PATH:sce03013]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03040 Spliceosome
+                YNL253W (TEX1)
+              Translation
+               03013 RNA transport
+                YNL253W (TEX1)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Transport factors
+                TREX complex
+                 YNL253W (TEX1)
+            Spliceosome [BR:sce03041]
+             Complex C
+              Other components
+               EJC/TREX
+                YNL253W (TEX1)
+             Other splicing related proteins
+              Spliceosome associated proteins (SAPs)
+               TREX complex
+                YNL253W (TEX1)
 POSITION    XIV:170018..171286
-MOTIF       Pfam: WD40 DUF4130
-DBLINKS     NCBI-GI: 6324076
+MOTIF       Pfam: ANAPC4_WD40 WD40 DUF4130
+DBLINKS     NCBI-ProteinID: NP_014146
             NCBI-GeneID: 855468
             SGD: S000005197
-            MIPS: YNL253W
             UniProt: P53851
 AASEQ       422
             MSTIGAVDILNQKTITSEVAASVTSKYLQSTFSKGNTSHIEDKRFIHVSSRSHSRFTSTP

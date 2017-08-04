@@ -1,16 +1,26 @@
 ENTRY       YGL097W           CDS       T00005
-NAME        SRM1, MTR1, PRP20
-DEFINITION  Srm1p
+NAME        SRM1, MTR1, PRP20, TSM437
+DEFINITION  (RefSeq) Ran guanyl-nucleotide exchange factor
 ORTHOLOGY   K11493  regulator of chromosome condensation
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Transport factors
+                Other transport factors
+                 YGL097W (SRM1)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Chromosome condensation proteins
+               Other regulators of chromosome condensation
+                YGL097W (SRM1)
 POSITION    VII:321782..323230
 MOTIF       Pfam: RCC1 RCC1_2
-DBLINKS     NCBI-GI: 6321341
+DBLINKS     NCBI-ProteinID: NP_011418
             NCBI-GeneID: 852782
             SGD: S000003065
-            MIPS: YGL097W
             UniProt: P21827
-STRUCTURE   PDB: 3OF7
+STRUCTURE   PDB: 3OF7 4OIH 5HQ2
 AASEQ       482
             MVKRTVATNGDASGAHRAKKMSKTHASHIINAQEDYKHMYLSVQPLDIFCWGTGSMCELG
             LGPLAKNKEVKRPRLNPFLPRDEAKIISFAVGGMHTLALDEESNVWSWGCNDVGALGRDT

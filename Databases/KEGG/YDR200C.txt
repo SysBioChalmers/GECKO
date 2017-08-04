@@ -1,13 +1,12 @@
 ENTRY       YDR200C           CDS       T00005
 NAME        VPS64, FAR9
-DEFINITION  Vps64p
+DEFINITION  (RefSeq) Vps64p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(854279..856093)
-MOTIF       Pfam: FHA
-DBLINKS     NCBI-GI: 398366071
+MOTIF       Pfam: FHA Yop-YscD_cpl
+DBLINKS     NCBI-ProteinID: NP_010486
             NCBI-GeneID: 851781
             SGD: S000002608
-            MIPS: YDR200C
             UniProt: Q03944
 AASEQ       604
             MVELEKRRRPPPQLQHSPYVRDQSNSQGMTKTPETSPPKRPMGRARSNSRSSGSRSNVDI

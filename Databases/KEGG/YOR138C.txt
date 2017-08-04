@@ -1,13 +1,12 @@
 ENTRY       YOR138C           CDS       T00005
 NAME        RUP1
-DEFINITION  Rup1p
+DEFINITION  (RefSeq) Rup1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:complement(584309..586324)
-MOTIF       Pfam: UBA UBA_4 CUE RNA_pol_Rpb4 PsiA TSKS
-DBLINKS     NCBI-GI: 6324712
+MOTIF       Pfam: UBA UBA_4 CUE RNA_pol_Rpb4
+DBLINKS     NCBI-ProteinID: NP_014781
             NCBI-GeneID: 854306
             SGD: S000005664
-            MIPS: YOR138C
             UniProt: Q12242
 AASEQ       671
             MMDNQAVKSLLEMGIPHEVAVDALQRTGGNLEAAVNFIFSNELPEQAEMGEENDGSQPRI

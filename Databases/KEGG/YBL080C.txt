@@ -1,18 +1,35 @@
 ENTRY       YBL080C           CDS       T00005
 NAME        PET112
-DEFINITION  glutamyl-tRNA(Gln) amidotransferase subunit PET112 (EC:6.3.5.-)
+DEFINITION  (RefSeq) glutamyl-tRNA(Gln) amidotransferase subunit PET112
 ORTHOLOGY   K02434  aspartyl-tRNA(Asn)/glutamyl-tRNA(Gln) amidotransferase subunit B [EC:6.3.5.6 6.3.5.7]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00970  Aminoacyl-tRNA biosynthesis
             sce01100  Metabolic pathways
-CLASS       Genetic Information Processing; Translation; Aminoacyl-tRNA biosynthesis [PATH:sce00970]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               00970 Aminoacyl-tRNA biosynthesis
+                YBL080C (PET112)
+            Enzymes [BR:sce01000]
+             6. Ligases
+              6.3  Forming carbon-nitrogen bonds
+               6.3.5  Carbon-nitrogen ligases with glutamine as amido-N-donor
+                6.3.5.6  asparaginyl-tRNA synthase (glutamine-hydrolysing)
+                 YBL080C (PET112)
+                6.3.5.7  glutaminyl-tRNA synthase (glutamine-hydrolysing)
+                 YBL080C (PET112)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial DNA transcription, translation, and replication factors
+              Mitochondrial transcription and translation factors
+               Other mitochondrial DNA transcription and translation factors
+                YBL080C (PET112)
 POSITION    II:complement(73070..74695)
 MOTIF       Pfam: GatB_N GatB_Yqey
-DBLINKS     NCBI-GI: 330443407
+DBLINKS     NCBI-ProteinID: NP_009473
             NCBI-GeneID: 852198
             SGD: S000000176
-            MIPS: YBL080C
             UniProt: P33893
+STRUCTURE   PDB: 4N0H 4N0I
 AASEQ       541
             MLRLARFYSLARTKAIHSHGAPFRPEYALKCGLEIHTQLNTKNKLFSQSTNSATSLVDAP
             NHHTSYYDIALPGTQPVLNLEAILFAMKLSLALGSQVNSISQFDRKHYFYGDQPQGYQLT

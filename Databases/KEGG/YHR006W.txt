@@ -1,13 +1,12 @@
 ENTRY       YHR006W           CDS       T00005
 NAME        STP2
-DEFINITION  Stp2p
+DEFINITION  (RefSeq) Stp2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VIII:117814..119439
-MOTIF       Pfam: zf-C2H2 zf-C2H2_4 zf-H2C2_2
-DBLINKS     NCBI-GI: 6321794
+MOTIF       Pfam: zf-C2H2_4 zf-C2H2
+DBLINKS     NCBI-ProteinID: NP_011870
             NCBI-GeneID: 856397
             SGD: S000001048
-            MIPS: YHR006W
             UniProt: P38704
 AASEQ       541
             MPILSLSSTRNSVLTRIYDYLKALVQQVIVPNVEDDKSSKSTPFEKLEPAKQNHPQKDCC

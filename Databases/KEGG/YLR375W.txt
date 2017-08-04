@@ -1,13 +1,12 @@
 ENTRY       YLR375W           CDS       T00005
 NAME        STP3
-DEFINITION  Stp3p
+DEFINITION  (RefSeq) Stp3p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XII:871697..872728
-MOTIF       Pfam: zf-C2H2_6 zf-C2H2 zf-H2C2_2 zf-C2H2_4 zf-C2H2_jaz zf-Di19 zf-RING_3 Rad50_zn_hook
-DBLINKS     NCBI-GI: 398366033
+MOTIF       Pfam: zf-C2H2_4 zf-C2H2_6 zf-C2H2_jaz zf-C2H2 zf-SNAP50_C zf-H2C2_2 zf-Di19
+DBLINKS     NCBI-ProteinID: NP_013479
             NCBI-GeneID: 851089
             SGD: S000004367
-            MIPS: YLR375W
             UniProt: Q05937
 AASEQ       343
             MSNANNSAMNHITLPPISSFDNLIKAAERQYNGEASSASTHPTLPNMNISNGSGSAGASS

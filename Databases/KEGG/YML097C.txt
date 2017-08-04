@@ -1,13 +1,21 @@
 ENTRY       YML097C           CDS       T00005
 NAME        VPS9, VPL31, VPT9
-DEFINITION  Vps9p
+DEFINITION  (RefSeq) guanine nucleotide exchange factor VPS9
+ORTHOLOGY   K20131  Rab5 GDP/GTP exchange factor
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endocytosis
+              Rab GTPases and associated proteins
+               Rab associated proteins
+                YML097C (VPS9)
+             Protein recycling
+               Others
+                YML097C (VPS9)
 POSITION    XIII:complement(78335..79690)
-MOTIF       Pfam: VPS9 CUE APO_RNA-bind
-DBLINKS     NCBI-GI: 6323541
+MOTIF       Pfam: VPS9 CUE DUF241
+DBLINKS     NCBI-ProteinID: NP_013612
             NCBI-GeneID: 854876
             SGD: S000004563
-            MIPS: YML097C
             UniProt: P54787
 STRUCTURE   PDB: 1P3Q 1MN3
 AASEQ       451

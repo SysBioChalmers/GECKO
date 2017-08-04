@@ -1,6 +1,6 @@
 ENTRY       YGL253W           CDS       T00005
 NAME        HXK2, HEX1, HKB, SCI2
-DEFINITION  hexokinase 2 (EC:2.7.1.4 2.7.1.1)
+DEFINITION  (RefSeq) hexokinase 2
 ORTHOLOGY   K00844  hexokinase [EC:2.7.1.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00010  Glycolysis / Gluconeogenesis
@@ -10,22 +10,40 @@ PATHWAY     sce00010  Glycolysis / Gluconeogenesis
             sce00520  Amino sugar and nucleotide sugar metabolism
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
+            sce01130  Biosynthesis of antibiotics
             sce01200  Carbon metabolism
 MODULE      sce_M00001  Glycolysis (Embden-Meyerhof pathway), glucose => pyruvate
             sce_M00549  Nucleotide sugar biosynthesis, glucose => UDP-glucose
-CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
-            Metabolism; Carbohydrate metabolism; Glycolysis / Gluconeogenesis [PATH:sce00010]
-            Metabolism; Carbohydrate metabolism; Fructose and mannose metabolism [PATH:sce00051]
-            Metabolism; Carbohydrate metabolism; Galactose metabolism [PATH:sce00052]
-            Metabolism; Carbohydrate metabolism; Starch and sucrose metabolism [PATH:sce00500]
-            Metabolism; Carbohydrate metabolism; Amino sugar and nucleotide sugar metabolism [PATH:sce00520]
-            Metabolism; Biosynthesis of other secondary metabolites; Butirosin and neomycin biosynthesis
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01200 Carbon metabolism
+                YGL253W (HXK2)
+              Carbohydrate metabolism
+               00010 Glycolysis / Gluconeogenesis
+                YGL253W (HXK2)
+               00051 Fructose and mannose metabolism
+                YGL253W (HXK2)
+               00052 Galactose metabolism
+                YGL253W (HXK2)
+               00500 Starch and sucrose metabolism
+                YGL253W (HXK2)
+               00520 Amino sugar and nucleotide sugar metabolism
+                YGL253W (HXK2)
+              Biosynthesis of other secondary metabolites
+               00524 Neomycin, kanamycin and gentamicin biosynthesis
+                YGL253W (HXK2)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.1  Phosphotransferases with an alcohol group as acceptor
+                2.7.1.1  hexokinase
+                 YGL253W (HXK2)
 POSITION    VII:23935..25395
 MOTIF       Pfam: Hexokinase_2 Hexokinase_1 FGGY_N
-DBLINKS     NCBI-GI: 6321184
+DBLINKS     NCBI-ProteinID: NP_011261
             NCBI-GeneID: 852639
             SGD: S000003222
-            MIPS: YGL253W
             UniProt: P04807
 STRUCTURE   PDB: 1IG8
 AASEQ       486

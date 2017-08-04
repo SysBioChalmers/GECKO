@@ -1,14 +1,34 @@
 ENTRY       YCL024W           CDS       T00005
 NAME        KCC4
-DEFINITION  Kcc4p (EC:2.7.11.1)
-ORTHOLOGY   K08286  protein-serine/threonine kinase [EC:2.7.11.-]
+DEFINITION  (RefSeq) serine/threonine protein kinase
+ORTHOLOGY   K18639  serine/threonine-protein kinase KCC4 [EC:2.7.11.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04111  Cell cycle - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YCL024W (KCC4)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.11  Protein-serine/threonine kinases
+                2.7.11.1  non-specific serine/threonine protein kinase
+                 YCL024W (KCC4)
+            Protein kinases [BR:sce01001]
+             Serine/threonine protein kinases: CAMK group
+              CAMKL family
+               YCL024W (KCC4)
+            Cytoskeleton proteins [BR:sce04812]
+             Eukaryotic cytoskeleton proteins
+              Septins
+               Septin associated proteins
+                YCL024W (KCC4)
 POSITION    III:79162..82275
-MOTIF       Pfam: Pkinase Pkinase_Tyr Kinase-like
-DBLINKS     NCBI-GI: 10383767
+MOTIF       Pfam: Pkinase Pkinase_Tyr Fungal_KA1 Kinase-like
+DBLINKS     NCBI-ProteinID: NP_009907
             NCBI-GeneID: 850334
             SGD: S000000529
-            MIPS: YCL024W
             UniProt: P25389
 STRUCTURE   PDB: 3OST 3OSM
 AASEQ       1037

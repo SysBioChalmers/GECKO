@@ -1,13 +1,12 @@
 ENTRY       YHR009C           CDS       T00005
 NAME        TDA3, BTN3
-DEFINITION  Tda3p (EC:1.-.-.-)
+DEFINITION  (RefSeq) Tda3p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VIII:complement(124109..125680)
-MOTIF       Pfam: DAO NAD_binding_8 Trp_halogenase Pyr_redox Thi4 NAD_binding_9
-DBLINKS     NCBI-GI: 6321797
+MOTIF       Pfam: DAO NAD_binding_8 Pyr_redox_2 Trp_halogenase MCRA Thi4 Pyr_redox NAD_binding_9 Sacchrp_dh_NADP
+DBLINKS     NCBI-ProteinID: NP_011873
             NCBI-GeneID: 856400
             SGD: S000001051
-            MIPS: YHR009C
             UniProt: P38758
 AASEQ       523
             MGEDFMHPPFQTYPSKNSEGKKHIVIVGGGIIGCCTAYYLTQHPSFSPSTHHITIIESRR

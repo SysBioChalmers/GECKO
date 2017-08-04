@@ -1,19 +1,29 @@
 ENTRY       YNR043W           CDS       T00005
 NAME        MVD1, ERG19
-DEFINITION  diphosphomevalonate decarboxylase MVD1 (EC:4.1.1.33)
+DEFINITION  (RefSeq) diphosphomevalonate decarboxylase MVD1
 ORTHOLOGY   K01597  diphosphomevalonate decarboxylase [EC:4.1.1.33]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00900  Terpenoid backbone biosynthesis
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
+            sce01130  Biosynthesis of antibiotics
 MODULE      sce_M00095  C5 isoprenoid biosynthesis, mevalonate pathway
-CLASS       Metabolism; Metabolism of terpenoids and polyketides; Terpenoid backbone biosynthesis [PATH:sce00900]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Metabolism of terpenoids and polyketides
+               00900 Terpenoid backbone biosynthesis
+                YNR043W (MVD1)
+            Enzymes [BR:sce01000]
+             4. Lyases
+              4.1  Carbon-carbon lyases
+               4.1.1  Carboxy-lyases
+                4.1.1.33  diphosphomevalonate decarboxylase
+                 YNR043W (MVD1)
 POSITION    XIV:701895..703085
-MOTIF       Pfam: GHMP_kinases_N CbiA
-DBLINKS     NCBI-GI: 6324371
+MOTIF       Pfam: GHMP_kinases_N
+DBLINKS     NCBI-ProteinID: NP_014441
             NCBI-GeneID: 855779
             SGD: S000005326
-            MIPS: YNR043W
             UniProt: P32377
 STRUCTURE   PDB: 1FI4
 AASEQ       396

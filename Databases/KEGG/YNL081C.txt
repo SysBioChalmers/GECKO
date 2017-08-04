@@ -1,16 +1,26 @@
 ENTRY       YNL081C           CDS       T00005
 NAME        SWS2
-DEFINITION  putative mitochondrial 37S ribosomal protein SWS2
+DEFINITION  (RefSeq) putative mitochondrial 37S ribosomal protein SWS2
 ORTHOLOGY   K02952  small subunit ribosomal protein S13
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03010  Ribosome
-CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03010 Ribosome
+                YNL081C (SWS2)
+            Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Bacteria
+               Small subunit
+                YNL081C (SWS2)
+              Archaea
+                YNL081C (SWS2)
 POSITION    XIV:complement(476188..476619)
 MOTIF       Pfam: Ribosomal_S13 FbpA IMS_HHH
-DBLINKS     NCBI-GI: 398364985
+DBLINKS     NCBI-ProteinID: NP_014318
             NCBI-GeneID: 855643
             SGD: S000005025
-            MIPS: YNL081C
             UniProt: P53937
 AASEQ       143
             MVVHILGKGFKGKEVIKIALASKFYGIGKTTAEKICSKLGFYPWMRMHQLSEPQIMSIAS

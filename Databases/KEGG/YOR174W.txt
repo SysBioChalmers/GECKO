@@ -1,15 +1,21 @@
 ENTRY       YOR174W           CDS       T00005
 NAME        MED4
-DEFINITION  Med4p
+DEFINITION  (RefSeq) Med4p
 ORTHOLOGY   K15146  mediator of RNA polymerase II transcription subunit 4
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Mediator complex
+                Middle
+                 YOR174W (MED4)
 POSITION    XV:658747..659601
-MOTIF       Pfam: Med4 CorA Osmo_CC
-DBLINKS     NCBI-GI: 398365565
+MOTIF       Pfam: Med4 DASH_Dad3
+DBLINKS     NCBI-ProteinID: NP_014817
             NCBI-GeneID: 854345
             SGD: S000005700
-            MIPS: YOR174W
             UniProt: Q12343
+STRUCTURE   PDB: 5SVA
 AASEQ       284
             MSVQDTKAVEFSMGHIRSSSVSLVAEATSNTNSEDKLSKVQLYEDLCRYEDTLSKLVESV
             DRFKPNLDIAKDLIRTDEALFENVKLLAEYDNIYRNLQKIDKDSEELDSKTRKILEILNE

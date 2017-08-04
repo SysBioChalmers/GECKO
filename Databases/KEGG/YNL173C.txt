@@ -1,13 +1,12 @@
 ENTRY       YNL173C           CDS       T00005
 NAME        MDG1
-DEFINITION  Mdg1p
+DEFINITION  (RefSeq) Mdg1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIV:complement(308957..310057)
-MOTIF       Pfam: CDV3
-DBLINKS     NCBI-GI: 6324156
+MOTIF       Pfam: AMPK1_CBM
+DBLINKS     NCBI-ProteinID: NP_014226
             NCBI-GeneID: 855548
             SGD: S000005117
-            MIPS: YNL173C
             UniProt: P53885
 AASEQ       366
             MQSSLPQFTFKWPKGPEAIILTGTFDDWKGTLPMVKDPSGAFEITLPVTFDSPSSKFYFK

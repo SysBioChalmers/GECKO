@@ -1,12 +1,11 @@
 ENTRY       YPL191C           CDS       T00005
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) hypothetical protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:complement(183597..184679)
-MOTIF       Pfam: DUF544 CCDC50_N
-DBLINKS     NCBI-GI: 6325065
+MOTIF       Pfam: MINDY_DUB
+DBLINKS     NCBI-ProteinID: NP_015133
             NCBI-GeneID: 855910
             SGD: S000006112
-            MIPS: YPL191C
             UniProt: Q08930
 AASEQ       360
             MDLSFTTKSVKINGQNHRILLQNENGPCALLALANILILSPDHTRFSNELIRLVNKGSQI

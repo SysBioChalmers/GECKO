@@ -1,16 +1,22 @@
 ENTRY       YDR057W           CDS       T00005
 NAME        YOS9
-DEFINITION  Yos9p
+DEFINITION  (RefSeq) Yos9p
 ORTHOLOGY   K10088  protein OS-9
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04141  Protein processing in endoplasmic reticulum
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Protein processing in endoplasmic reticulum [PATH:sce04141]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04141 Protein processing in endoplasmic reticulum
+                YDR057W (YOS9)
+            Lectins [BR:sce04091]
+             P-type lectins
+              YDR057W (YOS9)
 POSITION    IV:565927..567555
 MOTIF       Pfam: PRKCSH
-DBLINKS     NCBI-GI: 398365297
+DBLINKS     NCBI-ProteinID: NP_010342
             NCBI-GeneID: 851627
             SGD: S000002464
-            MIPS: YDR057W
             UniProt: Q99220
 STRUCTURE   PDB: 2YMA
 AASEQ       542

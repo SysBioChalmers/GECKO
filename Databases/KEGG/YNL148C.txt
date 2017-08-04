@@ -1,14 +1,17 @@
 ENTRY       YNL148C           CDS       T00005
 NAME        ALF1
-DEFINITION  Alf1p
+DEFINITION  (RefSeq) Alf1p
 ORTHOLOGY   K17262  tubulin-folding cofactor B
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of haemopoietic cells  (B-cell, T-cell, DC-cell, reticulocyte, and mast cell)
+               YNL148C (ALF1)
 POSITION    XIV:complement(349907..350671)
 MOTIF       Pfam: CAP_GLY Ubiquitin_2
-DBLINKS     NCBI-GI: 6324181
+DBLINKS     NCBI-ProteinID: NP_014251
             NCBI-GeneID: 855574
             SGD: S000005092
-            MIPS: YNL148C
             UniProt: P53904
 AASEQ       254
             MVRVVIESELVRTEKELPNSLKLRQFKDRLYHVTGVEPEDMEIVVKRQYDNKEIYSTKKG

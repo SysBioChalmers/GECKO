@@ -1,13 +1,12 @@
 ENTRY       YJL212C           CDS       T00005
 NAME        OPT1, GSH11, HGT1
-DEFINITION  Opt1p
+DEFINITION  (RefSeq) oligopeptide transporter OPT1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    X:complement(33850..36249)
 MOTIF       Pfam: OPT
-DBLINKS     NCBI-GI: 6322249
+DBLINKS     NCBI-ProteinID: NP_012323
             NCBI-GeneID: 853218
             SGD: S000003748
-            MIPS: YJL212C
             UniProt: P40897
 AASEQ       799
             MSTIYRESDSLESEPSPTPTTIPIQINMEEEKKDAFVKNIDEDVNNLTATTDEEDRDPES

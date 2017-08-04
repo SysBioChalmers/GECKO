@@ -1,14 +1,19 @@
 ENTRY       YPL064C           CDS       T00005
 NAME        CWC27
-DEFINITION  putative peptidylprolyl isomerase CWC27 (EC:5.2.1.8)
+DEFINITION  (RefSeq) putative peptidylprolyl isomerase CWC27
 ORTHOLOGY   K01802  peptidylprolyl isomerase [EC:5.2.1.8]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             5. Isomerases
+              5.2  cis-trans-Isomerases
+               5.2.1  cis-trans Isomerases (only sub-subclass identified to date)
+                5.2.1.8  peptidylprolyl isomerase
+                 YPL064C (CWC27)
 POSITION    XVI:complement(428711..429616)
 MOTIF       Pfam: Pro_isomerase
-DBLINKS     NCBI-GI: 6325193
+DBLINKS     NCBI-ProteinID: NP_015261
             NCBI-GeneID: 856041
             SGD: S000005985
-            MIPS: YPL064C
             UniProt: Q02770
 AASEQ       301
             MSSNIEPQTTAKCILYTTKGNIAIELWAKECPETCKRFLSMLSDGTFTNGEFKELKPTQW

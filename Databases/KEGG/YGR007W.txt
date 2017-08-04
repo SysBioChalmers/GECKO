@@ -1,18 +1,31 @@
 ENTRY       YGR007W           CDS       T00005
 NAME        ECT1, MUQ1
-DEFINITION  ethanolamine-phosphate cytidylyltransferase (EC:2.7.7.14)
+DEFINITION  (RefSeq) ethanolamine-phosphate cytidylyltransferase
 ORTHOLOGY   K00967  ethanolamine-phosphate cytidylyltransferase [EC:2.7.7.14]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
-PATHWAY     sce00564  Glycerophospholipid metabolism
+PATHWAY     sce00440  Phosphonate and phosphinate metabolism
+            sce00564  Glycerophospholipid metabolism
             sce01100  Metabolic pathways
 MODULE      sce_M00092  Phosphatidylethanolamine (PE) biosynthesis, ethanolamine => PE
-CLASS       Metabolism; Lipid metabolism; Glycerophospholipid metabolism [PATH:sce00564]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Lipid metabolism
+               00564 Glycerophospholipid metabolism
+                YGR007W (ECT1)
+              Metabolism of other amino acids
+               00440 Phosphonate and phosphinate metabolism
+                YGR007W (ECT1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.7  Nucleotidyltransferases
+                2.7.7.14  ethanolamine-phosphate cytidylyltransferase
+                 YGR007W (ECT1)
 POSITION    VII:506969..507940
-MOTIF       Pfam: CTP_transf_2
-DBLINKS     NCBI-GI: 6321444
+MOTIF       Pfam: CTP_transf_like
+DBLINKS     NCBI-ProteinID: NP_011521
             NCBI-GeneID: 852890
             SGD: S000003239
-            MIPS: YGR007W
             UniProt: P33412
 AASEQ       323
             MTVNLDPDKVWIDGCFDFTHHGHAGAILQARRTVSKENGKLFCGVHTDEDIQHNKGTPVM

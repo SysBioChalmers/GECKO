@@ -1,13 +1,12 @@
 ENTRY       YJR044C           CDS       T00005
 NAME        VPS55
-DEFINITION  Vps55p
+DEFINITION  (RefSeq) Vps55p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    X:complement(518763..519185)
-MOTIF       Pfam: Vps55 DUF2085 5TM-5TMR_LYT DUF998
-DBLINKS     NCBI-GI: 398364953
+MOTIF       Pfam: Vps55
+DBLINKS     NCBI-ProteinID: NP_012578
             NCBI-GeneID: 853502
             SGD: S000003805
-            MIPS: YJR044C
             UniProt: P47111
 AASEQ       140
             MMEFKVSPLTKIISLSGFLALGFLLVILSCALFHNYYPLFDILIFLLAPIPNTIFNAGNK

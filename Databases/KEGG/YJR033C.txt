@@ -1,13 +1,12 @@
 ENTRY       YJR033C           CDS       T00005
 NAME        RAV1, SOI3
-DEFINITION  Rav1p
+DEFINITION  (RefSeq) Rav1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    X:complement(492378..496451)
-MOTIF       Pfam: Rav1p_C WD40
-DBLINKS     NCBI-GI: 398364895
+MOTIF       Pfam: Rav1p_C
+DBLINKS     NCBI-ProteinID: NP_012567
             NCBI-GeneID: 853490
             SGD: S000003794
-            MIPS: YJR033C
             UniProt: P47104
 AASEQ       1357
             MSLNFLPGRPNATPQTACQATWQNHTIFAYCSGNNLIILTNKFTRLQTIYTQSDCTAVDI

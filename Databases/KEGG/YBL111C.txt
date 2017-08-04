@@ -1,12 +1,11 @@
 ENTRY       YBL111C           CDS       T00005
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) hypothetical protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    II:complement(join(2907..4116,4216..5009))
-MOTIF       Pfam: DEAD
-DBLINKS     NCBI-GI: 6319357
+MOTIF       Pfam: Sir1 DEAD AAA_19 TniB
+DBLINKS     NCBI-ProteinID: NP_009439
             NCBI-GeneID: 852161
             SGD: S000002151
-            MIPS: YBL111C
             UniProt: Q3E7Y5
 AASEQ       667
             MKVSDRRKFEKANFDEFESALNNKNDLVHCPSITLFESIPTEVRSFYEDEKSGLIKVVKF

@@ -1,16 +1,24 @@
 ENTRY       YHR096C           CDS       T00005
 NAME        HXT5
-DEFINITION  Hxt5p
+DEFINITION  (RefSeq) hexose transporter HXT5
 ORTHOLOGY   K08139  MFS transporter, SP family, sugar:H+ symporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04113  Meiosis - yeast
-CLASS       Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04113 Meiosis - yeast
+                YHR096C (HXT5)
+            Transporters [BR:sce02000]
+             Major Facilitator Superfamily (MFS)
+              Sugar transporters
+               Sugar porter (SP) family [TC:2.A.1.1]
+                YHR096C (HXT5)
 POSITION    VIII:complement(294669..296447)
-MOTIF       Pfam: Sugar_tr MFS_1
-DBLINKS     NCBI-GI: 6321888
+MOTIF       Pfam: Sugar_tr MFS_1 MFS_2 DUF5345 MFS_3
+DBLINKS     NCBI-ProteinID: NP_011964
             NCBI-GeneID: 856496
             SGD: S000001138
-            MIPS: YHR096C
             UniProt: P38695
 AASEQ       592
             MSELENAHQGPLEGSATVSTNSNSYNEKSGNSTAPGTAGYNDNLAQAKPVSSYISHEGPP

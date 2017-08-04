@@ -1,6 +1,6 @@
 ENTRY       YNL104C           CDS       T00005
 NAME        LEU4
-DEFINITION  2-isopropylmalate synthase LEU4 (EC:2.3.3.13)
+DEFINITION  (RefSeq) 2-isopropylmalate synthase LEU4
 ORTHOLOGY   K01649  2-isopropylmalate synthase [EC:2.3.3.13]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00290  Valine, leucine and isoleucine biosynthesis
@@ -10,16 +10,30 @@ PATHWAY     sce00290  Valine, leucine and isoleucine biosynthesis
             sce01210  2-Oxocarboxylic acid metabolism
             sce01230  Biosynthesis of amino acids
 MODULE      sce_M00432  Leucine biosynthesis, 2-oxoisovalerate => 2-oxoisocaproate
-CLASS       Metabolism; Overview; 2-Oxocarboxylic acid metabolism [PATH:sce01210]
-            Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
-            Metabolism; Carbohydrate metabolism; Pyruvate metabolism [PATH:sce00620]
-            Metabolism; Amino acid metabolism; Valine, leucine and isoleucine biosynthesis [PATH:sce00290]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01210 2-Oxocarboxylic acid metabolism
+                YNL104C (LEU4)
+               01230 Biosynthesis of amino acids
+                YNL104C (LEU4)
+              Carbohydrate metabolism
+               00620 Pyruvate metabolism
+                YNL104C (LEU4)
+              Amino acid metabolism
+               00290 Valine, leucine and isoleucine biosynthesis
+                YNL104C (LEU4)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.3  Acyltransferases
+               2.3.3  Acyl groups converted into alkyl groups on transfer
+                2.3.3.13  2-isopropylmalate synthase
+                 YNL104C (LEU4)
 POSITION    XIV:complement(424895..426754)
 MOTIF       Pfam: HMGL-like LeuA_dimer CGI-121
-DBLINKS     NCBI-GI: 6324225
+DBLINKS     NCBI-ProteinID: NP_014295
             NCBI-GeneID: 855619
             SGD: S000005048
-            MIPS: YNL104C
             UniProt: P06208
 AASEQ       619
             MVKESIIALAEHAASRASRVIPPVKLAYKNMLKDPSSKYKPFNAPKLSNRKWPDNRITRA

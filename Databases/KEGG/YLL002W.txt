@@ -1,14 +1,18 @@
 ENTRY       YLL002W           CDS       T00005
-NAME        RTT109, KIM2, REM50
-DEFINITION  Rtt109p (EC:2.3.1.48)
+NAME        RTT109, KAT11, KIM2, REM50
+DEFINITION  (RefSeq) H3 histone acetyltransferase RTT109
 ORTHOLOGY   K11309  regulator of Ty1 transposition protein 109
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Histone modification proteins
+               HATs (histone acetyltransferases)
+                YLL002W (RTT109)
 POSITION    XII:146291..147601
-MOTIF       Pfam: KAT11
-DBLINKS     NCBI-GI: 6323027
+MOTIF       Pfam: HAT_KAT11
+DBLINKS     NCBI-ProteinID: NP_013099
             NCBI-GeneID: 850658
             SGD: S000003925
-            MIPS: YLL002W
             UniProt: Q07794
 STRUCTURE   PDB: 2ZFN 3CZ7 2RIM 3Q66 3Q68 3Q33 3QM0 3Q35
 AASEQ       436

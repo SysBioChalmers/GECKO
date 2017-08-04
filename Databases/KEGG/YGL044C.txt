@@ -1,16 +1,25 @@
 ENTRY       YGL044C           CDS       T00005
 NAME        RNA15
-DEFINITION  Rna15p
+DEFINITION  (RefSeq) Rna15p
 ORTHOLOGY   K14407  cleavage stimulation factor subunit 2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03015  mRNA surveillance pathway
-CLASS       Genetic Information Processing; Translation; mRNA surveillance pathway [PATH:sce03015]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03015 mRNA surveillance pathway
+                YGL044C (RNA15)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA processing factors
+               3' end processing
+                Cleavage stimulation factor (CSTF) complex
+                 YGL044C (RNA15)
 POSITION    VII:complement(416146..417036)
-MOTIF       Pfam: RRM_1 RRM_6 RRM_5 CSTF_C CSTF2_hinge DUF4167
-DBLINKS     NCBI-GI: 6321394
+MOTIF       Pfam: RRM_1 CSTF_C CSTF2_hinge RRM_occluded DUF4167 RRM_7 NDUF_C2
+DBLINKS     NCBI-ProteinID: NP_011471
             NCBI-GeneID: 852838
             SGD: S000003012
-            MIPS: YGL044C
             UniProt: P25299
 STRUCTURE   PDB: 2X1F 2X1B 2X1A 2L9B 2KM8
 AASEQ       296

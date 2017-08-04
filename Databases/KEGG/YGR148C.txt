@@ -1,16 +1,27 @@
 ENTRY       YGR148C           CDS       T00005
 NAME        RPL24B, RPL30B
-DEFINITION  ribosomal 60S subunit protein L24B
+DEFINITION  (RefSeq) ribosomal 60S subunit protein L24B
 ORTHOLOGY   K02896  large subunit ribosomal protein L24e
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03010  Ribosome
-CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+MODULE      sce_M00177  Ribosome, eukaryotes
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03010 Ribosome
+                YGR148C (RPL24B)
+            Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Eukaryotes
+               Large subunit
+                YGR148C (RPL24B)
+              Archaea
+                YGR148C (RPL24B)
 POSITION    VII:complement(787312..787779)
-MOTIF       Pfam: Ribosomal_L24e GlcNAc
-DBLINKS     NCBI-GI: 398365909
+MOTIF       Pfam: Ribosomal_L24e
+DBLINKS     NCBI-ProteinID: NP_011664
             NCBI-GeneID: 853051
             SGD: S000003380
-            MIPS: YGR148C
             UniProt: P24000
 AASEQ       155
             MKVEVDSFSGAKIYPGRGTLFVRGDSKIFRFQNSKSASLFKQRKNPRRIAWTVLFRKHHK

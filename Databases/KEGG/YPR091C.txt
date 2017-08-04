@@ -1,13 +1,12 @@
 ENTRY       YPR091C           CDS       T00005
 NAME        NVJ2
-DEFINITION  Nvj2p
+DEFINITION  (RefSeq) Nvj2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:complement(716156..718468)
-MOTIF       Pfam: DUF2404 PH PH_11
-DBLINKS     NCBI-GI: 6325349
+MOTIF       Pfam: PH MMM1 PH_11
+DBLINKS     NCBI-ProteinID: NP_015416
             NCBI-GeneID: 856207
             SGD: S000006295
-            MIPS: YPR091C
             UniProt: Q06833
 AASEQ       770
             MASLKVFLAVYLLGGITFLPLVLFTLYKIHLLYSNLKSASKKELDHDTADEIDEKTRLLA

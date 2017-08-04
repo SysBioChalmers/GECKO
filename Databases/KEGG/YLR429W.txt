@@ -1,13 +1,19 @@
 ENTRY       YLR429W           CDS       T00005
 NAME        CRN1
-DEFINITION  Crn1p
+DEFINITION  (RefSeq) Crn1p
+ORTHOLOGY   K13886  coronin-1B/1C/6
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Cytoskeleton proteins [BR:sce04812]
+             Eukaryotic cytoskeleton proteins
+              Actin filaments / Microfilaments
+               Actin-binding proteins
+                Cross-linking proteins
+                 YLR429W (CRN1)
 POSITION    XII:990777..992732
-MOTIF       Pfam: DUF1900 DUF1899 WD40 Nup160 eIF2A
-DBLINKS     NCBI-GI: 6323460
+MOTIF       Pfam: DUF1899 WD40_4 WD40 Nup160 ANAPC4_WD40 eIF2A Ge1_WD40 HPS3_N
+DBLINKS     NCBI-ProteinID: NP_013533
             NCBI-GeneID: 851148
             SGD: S000004421
-            MIPS: YLR429W
             UniProt: Q06440
 AASEQ       651
             MSGKFVRASKYRHVFGQAAKKELQYEKLKVTNNAWDSNLLKTNGKFIAVNWNASGGGAFA

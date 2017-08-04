@@ -1,13 +1,12 @@
 ENTRY       YMR021C           CDS       T00005
 NAME        MAC1, CUA1
-DEFINITION  Mac1p
+DEFINITION  (RefSeq) Mac1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:complement(317165..318418)
 MOTIF       Pfam: Copper-fist
-DBLINKS     NCBI-GI: 6323663
+DBLINKS     NCBI-ProteinID: NP_013734
             NCBI-GeneID: 855035
             SGD: S000004623
-            MIPS: YMR021C
             UniProt: P35192
 AASEQ       417
             MIIFNGNKYACASCIRGHRSSTCRHSHRMLIKVRTRGRPSPMAIRDAILVDSTSQSTEYE

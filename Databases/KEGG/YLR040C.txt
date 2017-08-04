@@ -1,12 +1,12 @@
 ENTRY       YLR040C           CDS       T00005
-DEFINITION  hypothetical protein
+NAME        AFB1
+DEFINITION  (RefSeq) Afb1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XII:complement(228908..229582)
-MOTIF       Pfam: SRP1_TIP1 DUF3951 AKNA
-DBLINKS     NCBI-GI: 6323070
+MOTIF       Pfam: SRP1_TIP1
+DBLINKS     NCBI-ProteinID: NP_013141
             NCBI-GeneID: 850730
             SGD: S000004030
-            MIPS: YLR040C
             UniProt: Q07988
 AASEQ       224
             MIFAPSFSLIKNILLVSFLISHSFAAKTLTSSSNDDTLARSAAADADMAFFMEFLNDFDT

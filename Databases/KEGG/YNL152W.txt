@@ -1,13 +1,12 @@
 ENTRY       YNL152W           CDS       T00005
 NAME        INN1
-DEFINITION  Inn1p
+DEFINITION  (RefSeq) Inn1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIV:346313..347542
-MOTIF       Pfam: C2 CDC45 FAM220
-DBLINKS     NCBI-GI: 6324177
+MOTIF       Pfam: C2 Cnn_1N
+DBLINKS     NCBI-ProteinID: NP_014247
             NCBI-GeneID: 855570
             SGD: S000005096
-            MIPS: YNL152W
             UniProt: P53901
 AASEQ       409
             MSEEVWNGNQGILSVYVSKARDLPNLNKLDKQNVMLRLRIAHMTRASNTLHRAGQNPVFH

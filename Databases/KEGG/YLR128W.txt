@@ -1,14 +1,17 @@
 ENTRY       YLR128W           CDS       T00005
 NAME        DCN1
-DEFINITION  NEDD8 ligase DCN1
+DEFINITION  (RefSeq) NEDD8 ligase DCN1
 ORTHOLOGY   K17822  DCN1-like protein 1/2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ubiquitin system [BR:sce04121]
+             Ubiquitin ligases (E3)
+              UBL E3 ligases
+               YLR128W (DCN1)
 POSITION    XII:join(398530..398532,398627..399433)
-MOTIF       Pfam: Cullin_binding UBA_4 TAP_C
-DBLINKS     NCBI-GI: 6323157
+MOTIF       Pfam: Cullin_binding UBA_4 TAP_C WIYLD
+DBLINKS     NCBI-ProteinID: NP_013229
             NCBI-GeneID: 850819
             SGD: S000004118
-            MIPS: YLR128W
             UniProt: Q12395
 STRUCTURE   PDB: 3BQ3 2IS9 3O2P 3TDI 3O6B 2L4E 2L4F
 AASEQ       269

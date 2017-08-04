@@ -1,12 +1,12 @@
 ENTRY       YOL091W           CDS       T00005
 NAME        SPO21, MPC70
-DEFINITION  Spo21p
+DEFINITION  (RefSeq) Spo21p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:145334..147163
-DBLINKS     NCBI-GI: 6324481
+MOTIF       Pfam: Cep57_MT_bd
+DBLINKS     NCBI-ProteinID: NP_014550
             NCBI-GeneID: 854062
             SGD: S000005451
-            MIPS: YOL091W
             UniProt: Q12411
 AASEQ       609
             MDNILKASNMEGTSTMTVTSRSSEDSSCISNHEQDTDTHKDGDTSGLENSKISKRKWMKE

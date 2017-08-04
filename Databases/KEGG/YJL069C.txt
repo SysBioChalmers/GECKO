@@ -1,16 +1,24 @@
 ENTRY       YJL069C           CDS       T00005
 NAME        UTP18
-DEFINITION  Utp18p
+DEFINITION  (RefSeq) Utp18p
 ORTHOLOGY   K14553  U3 small nucleolar RNA-associated protein 18
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03008  Ribosome biogenesis in eukaryotes
-CLASS       Genetic Information Processing; Translation; Ribosome biogenesis in eukaryotes [PATH:sce03008]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03008 Ribosome biogenesis in eukaryotes
+                YJL069C (UTP18)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              90S particles
+               U3 small nucleolar RNA-associated proteins
+                YJL069C (UTP18)
 POSITION    X:complement(310922..312706)
-MOTIF       Pfam: WD40
-DBLINKS     NCBI-GI: 6322392
+MOTIF       Pfam: WD40 ANAPC4_WD40
+DBLINKS     NCBI-ProteinID: NP_012466
             NCBI-GeneID: 853376
             SGD: S000003605
-            MIPS: YJL069C
             UniProt: P40362
 AASEQ       594
             MTMATTAMNVSVPPPDEEEQLLAKFVFGDTTDLQENLAKFNADFIFNEQEMDVEDQEDEG

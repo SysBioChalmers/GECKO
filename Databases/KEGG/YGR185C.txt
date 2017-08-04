@@ -1,17 +1,42 @@
 ENTRY       YGR185C           CDS       T00005
 NAME        TYS1, TTS1
-DEFINITION  tyrosine--tRNA ligase TYS1 (EC:6.1.1.1)
+DEFINITION  (RefSeq) tyrosine--tRNA ligase TYS1
 ORTHOLOGY   K01866  tyrosyl-tRNA synthetase [EC:6.1.1.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00970  Aminoacyl-tRNA biosynthesis
 MODULE      sce_M00359  Aminoacyl-tRNA biosynthesis, eukaryotes
-CLASS       Genetic Information Processing; Translation; Aminoacyl-tRNA biosynthesis [PATH:sce00970]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               00970 Aminoacyl-tRNA biosynthesis
+                YGR185C (TYS1)
+            Enzymes [BR:sce01000]
+             6. Ligases
+              6.1  Forming carbon-oxygen bonds
+               6.1.1  Ligases forming aminoacyl-tRNA and related compounds
+                6.1.1.1  tyrosine---tRNA ligase
+                 YGR185C (TYS1)
+            Amino acid related enzymes [BR:sce01007]
+             Aminoacyl-tRNA synthetase
+              Class I (G)
+               YGR185C (TYS1)
+            Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              Aminoacyl-tRNA synthetases (AARSs)
+               Other AARSs
+                YGR185C (TYS1)
+             Prokaryotic Type
+                YGR185C (TYS1)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial DNA transcription, translation, and replication factors
+              Mitochondrial transcription and translation factors
+               Other mitochondrial DNA transcription and translation factors
+                YGR185C (TYS1)
 POSITION    VII:complement(866336..867520)
 MOTIF       Pfam: tRNA-synt_1b
-DBLINKS     NCBI-GI: 398366063
+DBLINKS     NCBI-ProteinID: NP_011701
             NCBI-GeneID: 853097
             SGD: S000003417
-            MIPS: YGR185C
             UniProt: P36421
 STRUCTURE   PDB: 2DLC
 AASEQ       394

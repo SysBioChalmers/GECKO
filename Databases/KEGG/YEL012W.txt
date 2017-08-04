@@ -1,16 +1,29 @@
 ENTRY       YEL012W           CDS       T00005
 NAME        UBC8, GID3
-DEFINITION  E2 ubiquitin-conjugating protein UBC8 (EC:6.3.2.19)
-ORTHOLOGY   K10576  ubiquitin-conjugating enzyme E2 H [EC:6.3.2.19]
+DEFINITION  (RefSeq) E2 ubiquitin-conjugating protein UBC8
+ORTHOLOGY   K10576  ubiquitin-conjugating enzyme E2 H [EC:2.3.2.23]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04120  Ubiquitin mediated proteolysis
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Ubiquitin mediated proteolysis [PATH:sce04120]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04120 Ubiquitin mediated proteolysis
+                YEL012W (UBC8)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.3  Acyltransferases
+               2.3.2  Aminoacyltransferases
+                2.3.2.23  E2 ubiquitin-conjugating enzyme
+                 YEL012W (UBC8)
+            Ubiquitin system [BR:sce04121]
+             Ubiquitin-conjugating enzymes (E2)
+              Ubiquitin-conjugating enzymes
+               YEL012W (UBC8)
 POSITION    V:join(131772..131776,131900..132551)
-MOTIF       Pfam: UQ_con RWD BUD22
-DBLINKS     NCBI-GI: 6579192
+MOTIF       Pfam: UQ_con RWD
+DBLINKS     NCBI-ProteinID: NP_010904
             NCBI-GeneID: 856704
             SGD: S000000738
-            MIPS: YEL012W
             UniProt: P28263
 AASEQ       218
             MSSSKRRIETDVMKLLMSDHQVDLINDSMQEFHVKFLGPKDTPYENGVWRLHVELPDNYP

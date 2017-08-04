@@ -1,14 +1,18 @@
 ENTRY       YFR040W           CDS       T00005
 NAME        SAP155
-DEFINITION  Sap155p
+DEFINITION  (RefSeq) Sap155p
 ORTHOLOGY   K15457  SIT4-associating protein SAP155
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              tRNA modification factors
+               Elongator related proteins
+                YFR040W (SAP155)
 POSITION    VI:234242..237250
 MOTIF       Pfam: SAPS
-DBLINKS     NCBI-GI: 330443542
+DBLINKS     NCBI-ProteinID: NP_116698
             NCBI-GeneID: 850601
             SGD: S000001936
-            MIPS: YFR040W
             UniProt: P43612
 AASEQ       1002
             MSFWPFGQNLNHSNINKILDEYFHVLHELERINPSVGKAIPAIFNNVQERGTSDSLDSIP

@@ -1,13 +1,18 @@
 ENTRY       YJL029C           CDS       T00005
 NAME        VPS53
-DEFINITION  Vps53p
+DEFINITION  (RefSeq) Vps53p
+ORTHOLOGY   K20299  vacuolar protein sorting-associated protein 53
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endosome - Golgi transport
+              Tethering complex
+               GARP complex
+                YJL029C (VPS53)
 POSITION    X:complement(388385..390853)
-MOTIF       Pfam: Vps53_N
-DBLINKS     NCBI-GI: 6322431
+MOTIF       Pfam: Vps53_N VPS53_C DUF1664
+DBLINKS     NCBI-ProteinID: NP_012505
             NCBI-GeneID: 853423
             SGD: S000003566
-            MIPS: YJL029C
             UniProt: P47061
 STRUCTURE   PDB: 3NS4
 AASEQ       822

@@ -1,14 +1,23 @@
 ENTRY       YJL139C           CDS       T00005
 NAME        YUR1
-DEFINITION  Yur1p (EC:2.4.1.-)
+DEFINITION  (RefSeq) mannosyltransferase YUR1
 ORTHOLOGY   K03854  mannosyltransferase [EC:2.4.1.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.4  Glycosyltransferases
+               2.4.1  Hexosyltransferases
+                2.4.1.-  
+                 YJL139C (YUR1)
+            Glycosyltransferases [BR:sce01003]
+             Glycan extension
+              Yeast mannan chain
+               YJL139C (YUR1)
 POSITION    X:complement(151713..152999)
 MOTIF       Pfam: Glyco_transf_15
-DBLINKS     NCBI-GI: 6322322
+DBLINKS     NCBI-ProteinID: NP_012396
             NCBI-GeneID: 853302
             SGD: S000003675
-            MIPS: YJL139C
             UniProt: P26725
 AASEQ       428
             MAKGGSLYIVGIFLPIWTFMIYIFGKELFLIRKYQKIDSTYTALSQRVKEQYDTSRRRNY

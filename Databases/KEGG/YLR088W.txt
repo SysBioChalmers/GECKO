@@ -1,17 +1,20 @@
 ENTRY       YLR088W           CDS       T00005
 NAME        GAA1, END2
-DEFINITION  Gaa1p
+DEFINITION  (RefSeq) GPI-anchor transamidase subunit GAA1
 ORTHOLOGY   K05289  glycosylphosphatidylinositol transamidase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
-PATHWAY     sce00563  Glycosylphosphatidylinositol(GPI)-anchor biosynthesis
+PATHWAY     sce00563  Glycosylphosphatidylinositol (GPI)-anchor biosynthesis
             sce01100  Metabolic pathways
-CLASS       Metabolism; Glycan biosynthesis and metabolism; Glycosylphosphatidylinositol(GPI)-anchor biosynthesis [PATH:sce00563]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Glycan biosynthesis and metabolism
+               00563 Glycosylphosphatidylinositol(GPI)-anchor biosynthesis
+                YLR088W (GAA1)
 POSITION    XII:316107..317951
 MOTIF       Pfam: Gaa1
-DBLINKS     NCBI-GI: 6323117
+DBLINKS     NCBI-ProteinID: NP_013189
             NCBI-GeneID: 850777
             SGD: S000004078
-            MIPS: YLR088W
             UniProt: P39012
 AASEQ       614
             MALLEKLHRRIVDMGLVPRIIALLPVISMLCALFGFISIAILPMDGQYRRTYISENALMP

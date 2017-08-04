@@ -1,13 +1,18 @@
 ENTRY       YPR030W           CDS       T00005
 NAME        CSR2, ART8, MRG19
-DEFINITION  Csr2p
+DEFINITION  (RefSeq) Csr2p
+ORTHOLOGY   K20060  arrestin-related trafficking adapter 2/8
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endocytosis
+              Clathrin-mediated endocytosis
+               GPCR adaptor proteins
+                YPR030W (CSR2)
 POSITION    XVI:627880..631245
 MOTIF       Pfam: Arrestin_C Arrestin_N
-DBLINKS     NCBI-GI: 6325287
+DBLINKS     NCBI-ProteinID: NP_015355
             NCBI-GeneID: 856142
             SGD: S000006234
-            MIPS: YPR030W
             UniProt: Q12734
 AASEQ       1121
             MQSTVPIAIASNGNKRDVVQNVSAGDEGDILQRLARNREMISTSLSPQKSSGFSGRRRSS

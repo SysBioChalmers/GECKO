@@ -1,16 +1,30 @@
 ENTRY       YER107C           CDS       T00005
 NAME        GLE2, RAE1
-DEFINITION  Gle2p
+DEFINITION  (RefSeq) RNA export factor GLE2
 ORTHOLOGY   K14298  mRNA export factor
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03013  RNA transport
-CLASS       Genetic Information Processing; Translation; RNA transport [PATH:sce03013]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03013 RNA transport
+                YER107C (GLE2)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Transport factors
+                Nuclear pore complex
+                 YER107C (GLE2)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centrosome formation and ciliogenesis proteins
+               Spindle formation proteins
+                YER107C (GLE2)
 POSITION    V:complement(373448..374545)
-MOTIF       Pfam: WD40 Nup160
-DBLINKS     NCBI-GI: 398364677
+MOTIF       Pfam: WD40 ANAPC4_WD40 Frtz
+DBLINKS     NCBI-ProteinID: NP_011033
             NCBI-GeneID: 856844
             SGD: S000000909
-            MIPS: YER107C
             UniProt: P40066
 AASEQ       365
             MSFFNRSNTTSALGTSTAMANEKDLANDIVINSPAEDSISDIAFSPQQDFMFSASSWDGK

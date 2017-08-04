@@ -1,14 +1,13 @@
 ENTRY       YIL112W           CDS       T00005
 NAME        HOS4
-DEFINITION  Hos4p
-ORTHOLOGY   K06867
+DEFINITION  (RefSeq) Hos4p
+ORTHOLOGY   K06867  uncharacterized protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IX:151595..154846
-MOTIF       Pfam: Ank_2 Ank Ank_5 Ank_4 Ank_3
-DBLINKS     NCBI-GI: 6322079
+MOTIF       Pfam: Ank_2 Ank_5 Ank_4 Ank Ank_3 DUF249 Imm74
+DBLINKS     NCBI-ProteinID: NP_012154
             NCBI-GeneID: 854694
             SGD: S000001374
-            MIPS: YIL112W
             UniProt: P40480
 AASEQ       1083
             MNETTTKQPLKKRSLSSYLSNVSTRREELEKISKQETSEEEDTAGKHEQRETLSEEVSDK

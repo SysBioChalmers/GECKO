@@ -1,19 +1,33 @@
 ENTRY       YHR077C           CDS       T00005
 NAME        NMD2, IFS1, SUA1, SUP111, UPF2
-DEFINITION  Nmd2p
+DEFINITION  (RefSeq) Nmd2p
 ORTHOLOGY   K14327  regulator of nonsense transcripts 2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03013  RNA transport
             sce03015  mRNA surveillance pathway
-CLASS       Genetic Information Processing; Translation; RNA transport [PATH:sce03013]
-            Genetic Information Processing; Translation; mRNA surveillance pathway [PATH:sce03015]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03013 RNA transport
+                YHR077C (NMD2)
+               03015 mRNA surveillance pathway
+                YHR077C (NMD2)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Surveillance factors
+                Surveillance complex
+                 YHR077C (NMD2)
+               mRNA cycle factors
+                P-body specific factors
+                 YHR077C (NMD2)
 POSITION    VIII:complement(join(252374..255637,255751..255756))
-MOTIF       Pfam: MIF4G Upf2
-DBLINKS     NCBI-GI: 6579193
+MOTIF       Pfam: MIF4G Upf2 Nop14
+DBLINKS     NCBI-ProteinID: NP_011944
             NCBI-GeneID: 856476
             SGD: S000001119
-            MIPS: YHR077C
             UniProt: P38798
+STRUCTURE   PDB: 4LUN
 AASEQ       1089
             MDDGRKKELHDLNTRAWNGEEVFPLKSKKLDSSIKRNTGFIKKLKKGFVKGSESSLLKDL
             SEASLEKYLSEIIVTVTECLLNVLNKNDDVIAAVEIISGLHQRFNGRFTSPLLGAFLQAF

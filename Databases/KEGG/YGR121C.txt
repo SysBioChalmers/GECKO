@@ -1,14 +1,17 @@
 ENTRY       YGR121C           CDS       T00005
 NAME        MEP1, AMT1
-DEFINITION  Mep1p
+DEFINITION  (RefSeq) ammonium permease MEP1
 ORTHOLOGY   K03320  ammonium transporter, Amt family
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Other Transporters
+              Pores ion channels [TC:1]
+               YGR121C (MEP1)
 POSITION    VII:complement(731449..732927)
-MOTIF       Pfam: Ammonium_transp ABC2_membrane_2
-DBLINKS     NCBI-GI: 398365771
+MOTIF       Pfam: Ammonium_transp
+DBLINKS     NCBI-ProteinID: NP_011636
             NCBI-GeneID: 853019
             SGD: S000003353
-            MIPS: YGR121C
             UniProt: P40260
 AASEQ       492
             MESRTTGPLTTETYDGPTVAFMILGAALVFFMVPGLGFLYSGLARRKSALALIWVVLMAT

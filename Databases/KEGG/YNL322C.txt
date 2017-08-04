@@ -1,12 +1,12 @@
 ENTRY       YNL322C           CDS       T00005
 NAME        KRE1
-DEFINITION  Kre1p
+DEFINITION  (RefSeq) Kre1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIV:complement(33294..34235)
-DBLINKS     NCBI-GI: 6324007
+MOTIF       Pfam: KRE1
+DBLINKS     NCBI-ProteinID: NP_014077
             NCBI-GeneID: 855394
             SGD: S000005266
-            MIPS: YNL322C
             UniProt: P17260
 AASEQ       313
             MMRRTLLHSFATLLLSLSLWSAAVMAAVTTQVTVVTNVAGALVTETTIWDPATAAAAATT

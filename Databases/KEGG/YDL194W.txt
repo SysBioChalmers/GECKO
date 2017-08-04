@@ -1,16 +1,24 @@
 ENTRY       YDL194W           CDS       T00005
 NAME        SNF3
-DEFINITION  Snf3p
+DEFINITION  (RefSeq) glucose sensor
 ORTHOLOGY   K08139  MFS transporter, SP family, sugar:H+ symporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04113  Meiosis - yeast
-CLASS       Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04113 Meiosis - yeast
+                YDL194W (SNF3)
+            Transporters [BR:sce02000]
+             Major Facilitator Superfamily (MFS)
+              Sugar transporters
+               Sugar porter (SP) family [TC:2.A.1.1]
+                YDL194W (SNF3)
 POSITION    IV:111580..114234
 MOTIF       Pfam: Sugar_tr MFS_1
-DBLINKS     NCBI-GI: 6320007
+DBLINKS     NCBI-ProteinID: NP_010087
             NCBI-GeneID: 851333
             SGD: S000002353
-            MIPS: YDL194W
             UniProt: P10870
 AASEQ       884
             MDPNSNSSSETLRQEKQGFLDKALQRVKGIALRRNNSNKDHTTDDTTGSIRTPTSLQRQN

@@ -1,14 +1,24 @@
 ENTRY       YLR368W           CDS       T00005
 NAME        MDM30, DSG1
-DEFINITION  SCF ubiquitin ligase complex subunit MDM30
+DEFINITION  (RefSeq) SCF ubiquitin ligase complex subunit MDM30
 ORTHOLOGY   K15070  mitochondrial distribution and morphology protein 30
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ubiquitin system [BR:sce04121]
+             Ubiquitin ligases (E3)
+              Multi subunit Ring-finger type E3
+               SCF complex
+                Target recognizing subunit (F-box)
+                 YLR368W (MDM30)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial quality control factors
+              Mitochondrial dynamics
+               Fission and Fusion factors
+                YLR368W (MDM30)
 POSITION    XII:857540..859336
 MOTIF       Pfam: F-box F-box-like
-DBLINKS     NCBI-GI: 398366011
+DBLINKS     NCBI-ProteinID: NP_013472
             NCBI-GeneID: 851083
             SGD: S000004360
-            MIPS: YLR368W
             UniProt: Q05930
 AASEQ       598
             MTKRRNLFMVGSSFTIDHLPPEIWLCISKLVGTSDLHNLCLINRRLYLTITSDEIWKRRC

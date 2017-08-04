@@ -1,13 +1,12 @@
 ENTRY       YNR022C           CDS       T00005
 NAME        MRPL50
-DEFINITION  mitochondrial 54S ribosomal protein MRPL50
+DEFINITION  (RefSeq) mitochondrial 54S ribosomal protein MRPL50
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIV:complement(669774..670193)
-MOTIF       Pfam: Ribosomal_L9_N MutS_IV
-DBLINKS     NCBI-GI: 6324349
+MOTIF       Pfam: Ribosomal_L9_N DUF4972
+DBLINKS     NCBI-ProteinID: NP_014419
             NCBI-GeneID: 855756
             SGD: S000005305
-            MIPS: YNR022C
             UniProt: P53724
 AASEQ       139
             MLHCTQVCLSALTKRTHRVKVQVLKDFPRFQLYKGQVANVKPSLMRNYLHNFNGAKYILS

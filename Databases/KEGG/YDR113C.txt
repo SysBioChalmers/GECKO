@@ -1,19 +1,24 @@
 ENTRY       YDR113C           CDS       T00005
 NAME        PDS1
-DEFINITION  Pds1p
+DEFINITION  (RefSeq) securin
 ORTHOLOGY   K02627  cell cycle regulator
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
             sce04113  Meiosis - yeast
-CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
-            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YDR113C (PDS1)
+               04113 Meiosis - yeast
+                YDR113C (PDS1)
 POSITION    IV:complement(680496..681617)
-MOTIF       Pfam: Securin
-DBLINKS     NCBI-GI: 398365667
+MOTIF       Pfam: Securin DUF5323
+DBLINKS     NCBI-ProteinID: NP_010398
             NCBI-GeneID: 851691
             SGD: S000002520
-            MIPS: YDR113C
             UniProt: P40316
+STRUCTURE   PDB: 5U1T 5U1S
 AASEQ       373
             MMPANEDKENNIVYTGNESSGINFPQTPAHLLKRSHSNILKPPVRLDQLKRDANSNNGNT
             LKYIQGGKEVSPTKRLHTHAQQQGRLPLAAKDNNRSKSFIFPETSNQSKDADLPQLQNTL

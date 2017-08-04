@@ -1,14 +1,19 @@
 ENTRY       YBR295W           CDS       T00005
 NAME        PCA1, CAD2, PAY2
-DEFINITION  cation-transporting P-type ATPase PCA1 (EC:3.6.3.3)
+DEFINITION  (RefSeq) cation-transporting P-type ATPase PCA1
 ORTHOLOGY   K01533  Cu2+-exporting ATPase [EC:3.6.3.4]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.3  Acting on acid anhydrides to catalyse transmembrane movement of substances
+                3.6.3.4  Cu2+-exporting ATPase
+                 YBR295W (PCA1)
 POSITION    II:792849..796499
-MOTIF       Pfam: E1-E2_ATPase Hydrolase HAD HMA Hydrolase_3
-DBLINKS     NCBI-GI: 330443481
+MOTIF       Pfam: E1-E2_ATPase Hydrolase HMA Hydrolase_3
+DBLINKS     NCBI-ProteinID: NP_009854
             NCBI-GeneID: 852598
             SGD: S000000499
-            MIPS: YBR295W
             UniProt: P38360
 AASEQ       1216
             MKPEKLFSGLGTSDGEYGVVNSENISIDAMQDNRGECHRRSIEMHANDNLGLVSQRDCTN

@@ -1,18 +1,29 @@
 ENTRY       YLR268W           CDS       T00005
-NAME        SEC22, SLY2, TSL26
-DEFINITION  Sec22p
+NAME        SEC22, SLY2, TS26, TSL26
+DEFINITION  (RefSeq) SNAP receptor SEC22
 ORTHOLOGY   K08517  vesicle transport protein SEC22
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04130  SNARE interactions in vesicular transport
             sce04145  Phagosome
-CLASS       Genetic Information Processing; Folding, sorting and degradation; SNARE interactions in vesicular transport [PATH:sce04130]
-            Cellular Processes; Transport and catabolism; Phagosome [PATH:sce04145]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04130 SNARE interactions in vesicular transport
+                YLR268W (SEC22)
+             Cellular Processes
+              Transport and catabolism
+               04145 Phagosome
+                YLR268W (SEC22)
+            Membrane trafficking [BR:sce04131]
+             SNARE
+              VAMP, Ykt6, Sec22 (R)
+               Sec22
+                YLR268W (SEC22)
 POSITION    XII:680200..680844
-MOTIF       Pfam: Longin Synaptobrevin DUF1664 Phi-29_GP16_7 Mst1_SARAH
-DBLINKS     NCBI-GI: 6323298
+MOTIF       Pfam: Longin Synaptobrevin DUF1664 Phi-29_GP16_7 E1-E2_ATPase
+DBLINKS     NCBI-ProteinID: NP_013370
             NCBI-GeneID: 850973
             SGD: S000004258
-            MIPS: YLR268W
             UniProt: P22214
 AASEQ       214
             MIKSTLIYREDGLPLCTSVDNENDPSLFEQKQKVKIVVSRLTPQSATEATLESGSFEIHY

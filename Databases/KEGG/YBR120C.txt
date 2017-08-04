@@ -1,14 +1,18 @@
 ENTRY       YBR120C           CDS       T00005
 NAME        CBP6
-DEFINITION  Cbp6p
+DEFINITION  (RefSeq) Cbp6p
 ORTHOLOGY   K17663  cytochrome b pre-mRNA-processing protein 6
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial DNA transcription, translation, and replication factors
+              Mitochondrial transcription and translation factors
+               Other mitochondrial DNA transcription and translation factors
+                YBR120C (CBP6)
 POSITION    II:complement(480435..480923)
-MOTIF       Pfam: CABS1
-DBLINKS     NCBI-GI: 398364897
+MOTIF       Pfam: EcoEI_R_C
+DBLINKS     NCBI-ProteinID: NP_009678
             NCBI-GeneID: 852417
             SGD: S000000324
-            MIPS: YBR120C
             UniProt: P07253
 AASEQ       162
             MSSSQVVRDSAKKLVNLLEKYPKDRIHHLVSFRDVQIARFRRVAGLPNVDDKGKSIKEKK

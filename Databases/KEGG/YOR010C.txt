@@ -1,13 +1,12 @@
 ENTRY       YOR010C           CDS       T00005
 NAME        TIR2, SRP2
-DEFINITION  Tir2p
+DEFINITION  (RefSeq) putative GPI-anchored mannoprotein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:complement(346195..346950)
-MOTIF       Pfam: SRP1_TIP1 PIR Spc42p
-DBLINKS     NCBI-GI: 6324584
+MOTIF       Pfam: SRP1_TIP1 PIR Spc42p DUF572 Utp14
+DBLINKS     NCBI-ProteinID: NP_014653
             NCBI-GeneID: 854174
             SGD: S000005536
-            MIPS: YOR010C
             UniProt: P33890
 AASEQ       251
             MAYIKIALLAAIAALASAQTQEEIDELNVILNDVKSNLQEYISLAEDSSSGFSLSSLPSG

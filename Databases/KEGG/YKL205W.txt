@@ -1,16 +1,24 @@
 ENTRY       YKL205W           CDS       T00005
 NAME        LOS1
-DEFINITION  Los1p
+DEFINITION  (RefSeq) Ran GTPase-binding protein LOS1
 ORTHOLOGY   K14288  exportin-T
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03013  RNA transport
-CLASS       Genetic Information Processing; Translation; RNA transport [PATH:sce03013]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03013 RNA transport
+                YKL205W (LOS1)
+            Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              tRNA transport factors
+               tRNA export factors
+                YKL205W (LOS1)
 POSITION    XI:50051..53353
-MOTIF       Pfam: Xpo1 ATP-gua_PtransN LysR_substrate
-DBLINKS     NCBI-GI: 6322644
+MOTIF       Pfam: Xpo1 LysR_substrate
+DBLINKS     NCBI-ProteinID: NP_012717
             NCBI-GeneID: 853630
             SGD: S000001688
-            MIPS: YKL205W
             UniProt: P33418
 AASEQ       1100
             MLERIQQLVNAVNDPRSDVATKRQAIELLNGIKSSENALEIFISLVINENSNDLLKFYGL

@@ -1,13 +1,18 @@
 ENTRY       YOL112W           CDS       T00005
 NAME        MSB4
-DEFINITION  Msb4p
+DEFINITION  (RefSeq) Rab GTPase-activating protein MSB4
+ORTHOLOGY   K19953  TBC1 domain family member 6
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Exocytosis
+              Small GTPases and associated proteins
+               Rab associated proteins
+                YOL112W (MSB4)
 POSITION    XV:106710..108188
-MOTIF       Pfam: RabGAP-TBC YqzH
-DBLINKS     NCBI-GI: 6324460
+MOTIF       Pfam: RabGAP-TBC
+DBLINKS     NCBI-ProteinID: NP_014529
             NCBI-GeneID: 854037
             SGD: S000005472
-            MIPS: YOL112W
             UniProt: Q12317
 AASEQ       492
             MIMSSTMSTEAALVPNESVFDTVSSFNEDDANYSVLDLYDDDDEGDDSSTVERKEILTTR

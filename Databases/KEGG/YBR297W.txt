@@ -1,13 +1,12 @@
 ENTRY       YBR297W           CDS       T00005
 NAME        MAL33
-DEFINITION  Mal33p
+DEFINITION  (RefSeq) transcription factor MAL33
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    II:800523..801929
-MOTIF       Pfam: Fungal_trans Zn_clus
-DBLINKS     NCBI-GI: 398365955
+MOTIF       Pfam: Zn_clus Fungal_trans
+DBLINKS     NCBI-ProteinID: NP_009856
             NCBI-GeneID: 852600
             SGD: S000000501
-            MIPS: YBR297W
             UniProt: P38157
 AASEQ       468
             MTLVKYACDYCRVRRVKCDGKKPCSRCIEHNFDCTYQQPLKKRGSKPIGTRSLKYIPKAK

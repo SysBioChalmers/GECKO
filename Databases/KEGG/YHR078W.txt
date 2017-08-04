@@ -1,12 +1,11 @@
 ENTRY       YHR078W           CDS       T00005
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) hypothetical protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VIII:256360..258018
-MOTIF       Pfam: ABA_GPCR DUF3735 Flu_M1_C
-DBLINKS     NCBI-GI: 6321869
+MOTIF       Pfam: ABA_GPCR GPHR_N Flu_M1_C
+DBLINKS     NCBI-ProteinID: NP_011945
             NCBI-GeneID: 856477
             SGD: S000001120
-            MIPS: YHR078W
             UniProt: P38799
 AASEQ       552
             MEALIVFIVLSVSGAFAYKCSYERLWFKVGSLFDIISTSSKKNVIPLASKMEVGSNEDVS

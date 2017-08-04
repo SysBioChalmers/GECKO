@@ -1,13 +1,12 @@
 ENTRY       YDR020C           CDS       T00005
 NAME        DAS2, RRT3
-DEFINITION  putative uridine kinase DAS2 (EC:2.7.1.48)
+DEFINITION  (RefSeq) putative uridine kinase DAS2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(485746..486444)
-MOTIF       Pfam: PRK DUF211 Fib_alpha
-DBLINKS     NCBI-GI: 398365047
+MOTIF       Pfam: PRK
+DBLINKS     NCBI-ProteinID: NP_010303
             NCBI-GeneID: 851583
             SGD: S000002427
-            MIPS: YDR020C
             UniProt: Q12084
 AASEQ       232
             MDRKAVEEKRIVISIGGGHATGVGAIALDLQNTFKSLYNSINIRVINLDNMIEGNIKSYN

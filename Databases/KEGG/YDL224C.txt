@@ -1,13 +1,12 @@
 ENTRY       YDL224C           CDS       T00005
 NAME        WHI4
-DEFINITION  Whi4p
+DEFINITION  (RefSeq) Whi4p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(54397..56346)
-MOTIF       Pfam: RRM_1 RRM_6
-DBLINKS     NCBI-GI: 6319977
+MOTIF       Pfam: RRM_1
+DBLINKS     NCBI-ProteinID: NP_010057
             NCBI-GeneID: 851302
             SGD: S000002383
-            MIPS: YDL224C
             UniProt: Q07655
 AASEQ       649
             MSLVHNQTNLNESKFLIERAFSSSSETVPLSKEATYPMPTAYSFSAVRSNSETNIKRENP

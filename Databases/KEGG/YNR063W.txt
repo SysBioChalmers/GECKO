@@ -1,12 +1,11 @@
 ENTRY       YNR063W           CDS       T00005
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) hypothetical protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIV:746943..748766
-MOTIF       Pfam: Zn_clus
-DBLINKS     NCBI-GI: 398365861
+MOTIF       Pfam: Zn_clus Fungal_trans
+DBLINKS     NCBI-ProteinID: NP_014461
             NCBI-GeneID: 855800
             SGD: S000005346
-            MIPS: YNR063W
             UniProt: P53749
 AASEQ       607
             MDRSKDARKRSISLACTVCRKRKLKCDGNKPCGRCIRLNTPKECIYNIDKRKDKRKIKNG

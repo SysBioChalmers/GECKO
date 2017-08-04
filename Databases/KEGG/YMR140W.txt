@@ -1,12 +1,12 @@
 ENTRY       YMR140W           CDS       T00005
 NAME        SIP5
-DEFINITION  Sip5p
+DEFINITION  (RefSeq) Sip5p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:547714..549183
-DBLINKS     NCBI-GI: 6323789
+MOTIF       Pfam: MA3 zf-C3HC4_3
+DBLINKS     NCBI-ProteinID: NP_013860
             NCBI-GeneID: 855171
             SGD: S000004748
-            MIPS: YMR140W
             UniProt: P40210
 AASEQ       489
             MGNVPGKIDQEDSFNDVRPDSSYNTTSSNSVIKQYDEEASSRVRTRRTTSLVNNILNGNN

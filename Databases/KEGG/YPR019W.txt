@@ -1,22 +1,41 @@
 ENTRY       YPR019W           CDS       T00005
 NAME        MCM4, CDC54, HCD21
-DEFINITION  Mcm4p (EC:3.6.4.12)
+DEFINITION  (RefSeq) MCM DNA helicase complex subunit MCM4
 ORTHOLOGY   K02212  DNA replication licensing factor MCM4 [EC:3.6.4.12]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03030  DNA replication
             sce04111  Cell cycle - yeast
             sce04113  Meiosis - yeast
 MODULE      sce_M00285  MCM complex
-CLASS       Genetic Information Processing; Replication and repair; DNA replication [PATH:sce03030]
-            Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
-            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Replication and repair
+               03030 DNA replication
+                YPR019W (MCM4)
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YPR019W (MCM4)
+               04113 Meiosis - yeast
+                YPR019W (MCM4)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.4  Acting on acid anhydrides to facilitate cellular and subcellular movement
+                3.6.4.12  DNA helicase
+                 YPR019W (MCM4)
+            DNA replication proteins [BR:sce03032]
+             Eukaryotic Type
+              DNA Replication Initiation Factors
+               pre-RC (pre-replication complex)
+                YPR019W (MCM4)
 POSITION    XVI:596750..599551
-MOTIF       Pfam: MCM MCM_N AAA_5 Mg_chelatase AAA_3 EnY2
-DBLINKS     NCBI-GI: 6325276
+MOTIF       Pfam: MCM MCM_OB MCM_N AAA_5 Mg_chelatase AAA_3
+DBLINKS     NCBI-ProteinID: NP_015344
             NCBI-GeneID: 856130
             SGD: S000006223
-            MIPS: YPR019W
             UniProt: P30665
+STRUCTURE   PDB: 3JC6 3JA8 5UDB 3JC5 3JC7 5U8T 5U8S 5H7I
 AASEQ       933
             MSQQSSSPTKEDNNSSSPVVPNPDSVPPQLSSPALFYSSSSSQGDIYGRNNSQNLSQGEG
             NIRAAIGSSPLNFPSSSQRQNSDVFQSQGRQGRIRSSASASGRSRYHSDLRSDRALPTSS

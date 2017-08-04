@@ -1,14 +1,19 @@
 ENTRY       YOR123C           CDS       T00005
 NAME        LEO1
-DEFINITION  Leo1p
+DEFINITION  (RefSeq) Leo1p
 ORTHOLOGY   K15177  RNA polymerase-associated protein LEO1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Other transcription-related factors
+                PAF1 complex
+                 YOR123C (LEO1)
 POSITION    XV:complement(553176..554570)
 MOTIF       Pfam: Leo1
-DBLINKS     NCBI-GI: 6324697
+DBLINKS     NCBI-ProteinID: NP_014766
             NCBI-GeneID: 854290
             SGD: S000005649
-            MIPS: YOR123C
             UniProt: P38439
 AASEQ       464
             MSSESPQDQPQKEQISNNVGVTTNSTSNEETSRSQDDNVKEVNGNDDTKEEEQEEDAELD

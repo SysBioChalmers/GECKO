@@ -1,17 +1,30 @@
 ENTRY       YHL032C           CDS       T00005
 NAME        GUT1
-DEFINITION  glycerol kinase (EC:2.7.1.30)
+DEFINITION  (RefSeq) glycerol kinase
 ORTHOLOGY   K00864  glycerol kinase [EC:2.7.1.30]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00561  Glycerolipid metabolism
             sce01100  Metabolic pathways
-CLASS       Metabolism; Lipid metabolism; Glycerolipid metabolism [PATH:sce00561]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Lipid metabolism
+               00561 Glycerolipid metabolism
+                YHL032C (GUT1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.1  Phosphotransferases with an alcohol group as acceptor
+                2.7.1.30  glycerol kinase
+                 YHL032C (GUT1)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of other body fluids (saliva and urine)
+               YHL032C (GUT1)
 POSITION    VIII:complement(36379..38508)
 MOTIF       Pfam: FGGY_C FGGY_N
-DBLINKS     NCBI-GI: 6321755
+DBLINKS     NCBI-ProteinID: NP_011831
             NCBI-GeneID: 856353
             SGD: S000001024
-            MIPS: YHL032C
             UniProt: P32190
 AASEQ       709
             MFPSLFRLVVFSKRYIFRSSQRLYTSLKQEQSRMSKIMEDLRSDYVPLIASIDVGTTSSR

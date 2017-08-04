@@ -1,13 +1,12 @@
 ENTRY       YJR100C           CDS       T00005
-NAME        AIM25
-DEFINITION  Aim25p
+NAME        AIM25, SLM35
+DEFINITION  (RefSeq) Aim25p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    X:complement(616351..617334)
-MOTIF       Pfam: Scramblase KRTDAP
-DBLINKS     NCBI-GI: 398365339
+MOTIF       Pfam: Scramblase
+DBLINKS     NCBI-ProteinID: NP_012634
             NCBI-GeneID: 853563
             SGD: S000003861
-            MIPS: YJR100C
             UniProt: P47140
 AASEQ       327
             MHRTAIFLTYRSCMRNFSTLSKTLTVSSGKVIRNGPFRRVIREKNQITKAPSVKAFKENS

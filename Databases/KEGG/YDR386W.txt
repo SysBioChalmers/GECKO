@@ -1,16 +1,31 @@
 ENTRY       YDR386W           CDS       T00005
 NAME        MUS81, SLX3
-DEFINITION  Mus81p (EC:3.1.22.-)
+DEFINITION  (RefSeq) Mus81p
 ORTHOLOGY   K08991  crossover junction endonuclease MUS81 [EC:3.1.22.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03440  Homologous recombination
-CLASS       Genetic Information Processing; Replication and repair; Homologous recombination [PATH:sce03440]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Replication and repair
+               03440 Homologous recombination
+                YDR386W (MUS81)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.22  Endodeoxyribonucleases producing 3'-phosphomonoesters
+                3.1.22.-  
+                 YDR386W (MUS81)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              DSBR (double strand breaks repair)
+               HR (homologous recombination)
+                Other HR factors
+                 YDR386W (MUS81)
 POSITION    IV:1246084..1247982
 MOTIF       Pfam: ERCC4 HHH_3
-DBLINKS     NCBI-GI: 398366551
+DBLINKS     NCBI-ProteinID: NP_010674
             NCBI-GeneID: 851994
             SGD: S000002794
-            MIPS: YDR386W
             UniProt: Q04149
 AASEQ       632
             MELSSNLKDLYIEWLQELVDGLTPKQEQLKIAYEKAKRNLQNAEGSFYYPTDLKKVKGIG

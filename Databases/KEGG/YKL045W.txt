@@ -1,6 +1,6 @@
 ENTRY       YKL045W           CDS       T00005
 NAME        PRI2
-DEFINITION  Pri2p (EC:2.7.7.-)
+DEFINITION  (RefSeq) DNA primase subunit PRI2
 ORTHOLOGY   K02685  DNA primase large subunit [EC:2.7.7.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00230  Purine metabolism
@@ -8,15 +8,33 @@ PATHWAY     sce00230  Purine metabolism
             sce01100  Metabolic pathways
             sce03030  DNA replication
 MODULE      sce_M00261  DNA polymerase alpha / primase complex
-CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
-            Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
-            Genetic Information Processing; Replication and repair; DNA replication [PATH:sce03030]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Nucleotide metabolism
+               00230 Purine metabolism
+                YKL045W (PRI2)
+               00240 Pyrimidine metabolism
+                YKL045W (PRI2)
+             Genetic Information Processing
+              Replication and repair
+               03030 DNA replication
+                YKL045W (PRI2)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.7  Nucleotidyltransferases
+                2.7.7.-  
+                 YKL045W (PRI2)
+            DNA replication proteins [BR:sce03032]
+             Eukaryotic Type
+              DNA Replication Elongation Factors
+               DNA polymerase alpha / primase complex
+                YKL045W (PRI2)
 POSITION    XI:353493..355079
 MOTIF       Pfam: DNA_primase_lrg
-DBLINKS     NCBI-GI: 6322806
+DBLINKS     NCBI-ProteinID: NP_012879
             NCBI-GeneID: 853821
             SGD: S000001528
-            MIPS: YKL045W
             UniProt: P20457
 STRUCTURE   PDB: 3LGB
 AASEQ       528

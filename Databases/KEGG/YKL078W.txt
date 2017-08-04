@@ -1,14 +1,24 @@
 ENTRY       YKL078W           CDS       T00005
 NAME        DHR2
-DEFINITION  Dhr2p (EC:3.6.4.13)
+DEFINITION  (RefSeq) RNA helicase
 ORTHOLOGY   K14781  ATP-dependent RNA helicase DHR2 [EC:3.6.4.13]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.4  Acting on acid anhydrides to facilitate cellular and subcellular movement
+                3.6.4.13  RNA helicase
+                 YKL078W (DHR2)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              90S particles
+               Helicases
+                YKL078W (DHR2)
 POSITION    XI:288845..291052
-MOTIF       Pfam: HA2 OB_NTP_bind Helicase_C DEAD AAA_22 AAA_19 AAA_29 Arch_ATPase ABC_tran AAA_14 AAA_23 Helicase_RecD
-DBLINKS     NCBI-GI: 6322772
+MOTIF       Pfam: HA2 OB_NTP_bind Helicase_C DEAD AAA_22 AAA_19 AAA_30 AAA_29 ABC_tran Helicase_RecD AAA_24 RsgA_GTPase PhoH AAA_23
+DBLINKS     NCBI-ProteinID: NP_012845
             NCBI-GeneID: 853784
             SGD: S000001561
-            MIPS: YKL078W
             UniProt: P36009
 AASEQ       735
             MAANSNSRVASNHTSKKQKVRRNIHPFTNNTRIKRASKIVKFNDSGEGDHVSDQRSNKEN

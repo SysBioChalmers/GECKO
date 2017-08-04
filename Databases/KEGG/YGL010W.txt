@@ -1,12 +1,12 @@
 ENTRY       YGL010W           CDS       T00005
-DEFINITION  hypothetical protein
+NAME        MPO1
+DEFINITION  (RefSeq) Mpo1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:475545..476069
-MOTIF       Pfam: DUF962 HlyIII ACR_tran
-DBLINKS     NCBI-GI: 6321428
+MOTIF       Pfam: DUF962 DUF2607 ACR_tran
+DBLINKS     NCBI-ProteinID: NP_011505
             NCBI-GeneID: 852874
             SGD: S000002978
-            MIPS: YGL010W
             UniProt: P25338
 AASEQ       174
             MGEGLLDLRSQLGFYKFYHHNPKNVLIHSIFVPTILFSGSCMLHRVKIYQSISLTAVLSV

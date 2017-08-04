@@ -1,13 +1,12 @@
 ENTRY       YNL313C           CDS       T00005
 NAME        EMW1
-DEFINITION  Emw1p
+DEFINITION  (RefSeq) tetratricopeptide repeat-containing protein EMW1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIV:complement(45308..48022)
-MOTIF       Pfam: TPR_11 TPR_12 TPR_1 TPR_2 TPR_16 TPR_17
-DBLINKS     NCBI-GI: 6324016
+MOTIF       Pfam: TPR_8 TPR_2 TPR_1 TPR_15 TPR_17
+DBLINKS     NCBI-ProteinID: NP_014086
             NCBI-GeneID: 855403
             SGD: S000005257
-            MIPS: YNL313C
             UniProt: P42842
 AASEQ       904
             METLLHAKLLLSAEVESLKSGSFDQTYVKKAEHIISGESYQLVQQFVDKFKGKISISGEI

@@ -1,13 +1,12 @@
 ENTRY       YDR028C           CDS       T00005
 NAME        REG1, HEX2, PZF240, SPP43, SRN1
-DEFINITION  Reg1p
+DEFINITION  (RefSeq) protein phosphatase regulator REG1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(497835..500879)
-MOTIF       Pfam: DUF1752
-DBLINKS     NCBI-GI: 6320231
+MOTIF       Pfam: DUF1752 DUF5428
+DBLINKS     NCBI-ProteinID: NP_010311
             NCBI-GeneID: 851592
             SGD: S000002435
-            MIPS: YDR028C
             UniProt: Q00816
 AASEQ       1014
             MSTNLANYFAGKKDIENEHVNRNASHESNSKSDVKISGNDNDNDEDMGPSVSMAVQAKND

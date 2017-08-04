@@ -1,13 +1,12 @@
 ENTRY       YLR170C           CDS       T00005
 NAME        APS1, YAP19
-DEFINITION  Aps1p
+DEFINITION  (RefSeq) Aps1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XII:complement(500579..501049)
 MOTIF       Pfam: Clat_adaptor_s
-DBLINKS     NCBI-GI: 6323200
+DBLINKS     NCBI-ProteinID: NP_013271
             NCBI-GeneID: 850868
             SGD: S000004160
-            MIPS: YLR170C
             UniProt: P35181
 AASEQ       156
             MTQLKYLLLVSRQGKIRLKKWYTAMSAGEKAKIVKDLTPTILARKPKMCNIIEYNDHKVV

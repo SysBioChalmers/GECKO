@@ -1,14 +1,24 @@
 ENTRY       YML074C           CDS       T00005
 NAME        FPR3, NPI46
-DEFINITION  peptidylprolyl isomerase FPR3 (EC:5.2.1.8)
+DEFINITION  (RefSeq) peptidylprolyl isomerase FPR3
 ORTHOLOGY   K14826  FK506-binding nuclear protein [EC:5.2.1.8]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             5. Isomerases
+              5.2  cis-trans-Isomerases
+               5.2.1  cis-trans Isomerases (only sub-subclass identified to date)
+                5.2.1.8  peptidylprolyl isomerase
+                 YML074C (FPR3)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               Other pre-60S particles
+                YML074C (FPR3)
 POSITION    XIII:complement(120089..121324)
-MOTIF       Pfam: FKBP_C TFIIF_alpha
-DBLINKS     NCBI-GI: 6323566
+MOTIF       Pfam: FKBP_C Presenilin GAGA_bind
+DBLINKS     NCBI-ProteinID: NP_013637
             NCBI-GeneID: 854901
             SGD: S000004539
-            MIPS: YML074C
             UniProt: P38911
 AASEQ       411
             MSDLLPLATYSLNVEPYTPVPAIDVTMPITVRITMAALNPEAIDEENKPSTLRIIKRNPD

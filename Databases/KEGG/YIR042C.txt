@@ -1,12 +1,11 @@
 ENTRY       YIR042C           CDS       T00005
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) hypothetical protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IX:complement(435273..435983)
-MOTIF       Pfam: Acetyltransf_3 Acetyltransf_4 Acetyltransf_8 Acetyltransf_1 Viral_cys_rich
-DBLINKS     NCBI-GI: 6322233
+MOTIF       Pfam: Acetyltransf_3 Acetyltransf_4 Acetyltransf_1 DUF3873
+DBLINKS     NCBI-ProteinID: NP_012308
             NCBI-GeneID: 854860
             SGD: S000001481
-            MIPS: YIR042C
             UniProt: P40586
 AASEQ       236
             MANLNIFGQEVGADVEGWTTRAFPEKVVLKGNTCRLEPLDRERHGSELFSAYSEAGQKLW

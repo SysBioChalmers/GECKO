@@ -1,13 +1,19 @@
 ENTRY       YDL088C           CDS       T00005
 NAME        ASM4, NUP59
-DEFINITION  Asm4p
+DEFINITION  (RefSeq) FG-nucleoporin ASM4
+ORTHOLOGY   K18717  nucleoporin ASM4
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Transport factors
+                Nuclear pore complex
+                 YDL088C (ASM4)
 POSITION    IV:complement(298417..300003)
 MOTIF       Pfam: Nup35_RRM Nup35_RRM_2
-DBLINKS     NCBI-GI: 6320115
+DBLINKS     NCBI-ProteinID: NP_010195
             NCBI-GeneID: 851470
             SGD: S000002246
-            MIPS: YDL088C
             UniProt: Q05166
 AASEQ       528
             MFGIRSGNNNGGFTNLTSQAPQTTQMFQSQSQLQPQPQPQPQQQQQHLQFNGSSDASSLR

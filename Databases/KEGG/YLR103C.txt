@@ -1,19 +1,29 @@
 ENTRY       YLR103C           CDS       T00005
 NAME        CDC45, SLD4
-DEFINITION  Cdc45p
+DEFINITION  (RefSeq) DNA replication initiation factor CDC45
 ORTHOLOGY   K06628  cell division control protein 45
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
             sce04113  Meiosis - yeast
-CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
-            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YLR103C (CDC45)
+               04113 Meiosis - yeast
+                YLR103C (CDC45)
+            DNA replication proteins [BR:sce03032]
+             Eukaryotic Type
+              DNA Replication Initiation Factors
+               Other initiation factors
+                YLR103C (CDC45)
 POSITION    XII:complement(343989..345941)
 MOTIF       Pfam: CDC45 MGDG_synth
-DBLINKS     NCBI-GI: 6323132
+DBLINKS     NCBI-ProteinID: NP_013204
             NCBI-GeneID: 850793
             SGD: S000004093
-            MIPS: YLR103C
             UniProt: Q08032
+STRUCTURE   PDB: 3JC6 3JC5 3JC7 5U8T 5U8S
 AASEQ       650
             MYYGISQFSEAYNKILRNSSSHSSCQLVIFVSCLNIDALCATKMLSLLFKKQLVQSQIVP
             IFGYSELRRHYSQLDDNINSLLLVGFGGVIDLEAFLEIDPQEYVIDTDEKSGEQSFRRDI

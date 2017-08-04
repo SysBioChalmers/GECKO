@@ -1,16 +1,25 @@
 ENTRY       YFR002W           CDS       T00005
 NAME        NIC96
-DEFINITION  Nic96p
+DEFINITION  (RefSeq) linker nucleoporin NIC96
 ORTHOLOGY   K14309  nuclear pore complex protein Nup93
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03013  RNA transport
-CLASS       Genetic Information Processing; Translation; RNA transport [PATH:sce03013]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03013 RNA transport
+                YFR002W (NIC96)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Transport factors
+                Nuclear pore complex
+                 YFR002W (NIC96)
 POSITION    VI:150016..152535
-MOTIF       Pfam: Nic96 HHH_4
-DBLINKS     NCBI-GI: 14318524
+MOTIF       Pfam: Nic96 HHH_4 DUF2802
+DBLINKS     NCBI-ProteinID: NP_116657
             NCBI-GeneID: 850552
             SGD: S000001898
-            MIPS: YFR002W
             UniProt: P34077
 STRUCTURE   PDB: 2QX5 2RFO
 AASEQ       839

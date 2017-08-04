@@ -1,16 +1,25 @@
 ENTRY       YPR127W           CDS       T00005
-DEFINITION  pyridoxine 4-dehydrogenase (EC:1.1.1.65)
+DEFINITION  (RefSeq) pyridoxine 4-dehydrogenase
 ORTHOLOGY   K05275  pyridoxine 4-dehydrogenase [EC:1.1.1.65]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00750  Vitamin B6 metabolism
             sce01100  Metabolic pathways
-CLASS       Metabolism; Metabolism of cofactors and vitamins; Vitamin B6 metabolism [PATH:sce00750]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Metabolism of cofactors and vitamins
+               00750 Vitamin B6 metabolism
+                YPR127W
+            Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.1  Acting on the CH-OH group of donors
+               1.1.1  With NAD+ or NADP+ as acceptor
+                1.1.1.65  pyridoxine 4-dehydrogenase
+                 YPR127W
 POSITION    XVI:790083..791120
-MOTIF       Pfam: Aldo_ket_red CENP-X
-DBLINKS     NCBI-GI: 6325384
+MOTIF       Pfam: Aldo_ket_red
+DBLINKS     NCBI-ProteinID: NP_015452
             NCBI-GeneID: 856245
             SGD: S000006331
-            MIPS: YPR127W
             UniProt: Q06494
 AASEQ       345
             MSVADLKNNIHKLDTGYGLMSLTWRAEPIPQSQAFEAMHRVVELSRERGHKAFFNVGEFY

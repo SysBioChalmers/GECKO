@@ -1,13 +1,12 @@
 ENTRY       YIL064W           CDS       T00005
-NAME        SEE1
-DEFINITION  See1p (EC:2.1.1.-)
+NAME        EFM4, SEE1
+DEFINITION  (RefSeq) Efm4p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IX:241943..242716
-MOTIF       Pfam: Methyltransf_31 Methyltransf_18 Methyltransf_11 Methyltransf_26 Methyltransf_12 Methyltransf_32 MTS Methyltransf_23 Methyltransf_25 CMAS Methyltransf_4 Methyltransf_20 Methyltransf_3 MetW UPF0020 Ubie_methyltran PCMT Methyltransf_15 GCD14 DOT1
-DBLINKS     NCBI-GI: 6322125
+MOTIF       Pfam: Methyltransf_31 Methyltransf_25 Methyltransf_11 Methyltransf_32 Methyltransf_12 Methyltransf_23 MTS CMAS Methyltransf_20 Methyltransf_4 Methyltransf_18 MetW PCMT GCD14 UPF0020 Rotavirus_VP3 Methyltransf_3
+DBLINKS     NCBI-ProteinID: NP_012200
             NCBI-GeneID: 854746
             SGD: S000001326
-            MIPS: YIL064W
             UniProt: P40516
 AASEQ       257
             MKRSEKKSMSSALKNGIMERTQPEKVVQMQGTADLSTSKLGTKKYWDELYALELENFRRN

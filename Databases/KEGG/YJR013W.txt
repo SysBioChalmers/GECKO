@@ -1,18 +1,31 @@
 ENTRY       YJR013W           CDS       T00005
 NAME        GPI14, PMH1
-DEFINITION  Gpi14p (EC:2.4.1.-)
+DEFINITION  (RefSeq) glycosylphosphatidylinositol-alpha 1,4 mannosyltransferase I
 ORTHOLOGY   K05284  phosphatidylinositol glycan, class M [EC:2.4.1.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
-PATHWAY     sce00563  Glycosylphosphatidylinositol(GPI)-anchor biosynthesis
+PATHWAY     sce00563  Glycosylphosphatidylinositol (GPI)-anchor biosynthesis
             sce01100  Metabolic pathways
 MODULE      sce_M00065  GPI-anchor biosynthesis, core oligosaccharide
-CLASS       Metabolism; Glycan biosynthesis and metabolism; Glycosylphosphatidylinositol(GPI)-anchor biosynthesis [PATH:sce00563]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Glycan biosynthesis and metabolism
+               00563 Glycosylphosphatidylinositol(GPI)-anchor biosynthesis
+                YJR013W (GPI14)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.4  Glycosyltransferases
+               2.4.1  Hexosyltransferases
+                2.4.1.-  
+                 YJR013W (GPI14)
+            Glycosyltransferases [BR:sce01003]
+             GPI-anchor biosynthesis
+              Core oligosaccharide
+               YJR013W (GPI14)
 POSITION    X:460382..461593
-MOTIF       Pfam: Mannosyl_trans PIG-U DUF2029 PMT_2
-DBLINKS     NCBI-GI: 42742257
+MOTIF       Pfam: Mannosyl_trans PIG-U GT87 PMT_2
+DBLINKS     NCBI-ProteinID: NP_012547
             NCBI-GeneID: 853470
             SGD: S000003774
-            MIPS: YJR013W
             UniProt: P47088
 AASEQ       403
             MTGEEWGLTVLSFLVRVGFFLFGIYQDANFKVRYTDIDYFVFHDAAKYVYEGKSPYARDT

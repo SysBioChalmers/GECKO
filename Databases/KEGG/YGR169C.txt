@@ -1,14 +1,24 @@
 ENTRY       YGR169C           CDS       T00005
 NAME        PUS6
-DEFINITION  pseudouridine synthase PUS6 (EC:5.4.99.- 5.4.99.42)
+DEFINITION  (RefSeq) pseudouridine synthase PUS6
 ORTHOLOGY   K15453  tRNA pseudouridine31 synthase [EC:5.4.99.42]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             5. Isomerases
+              5.4  Intramolecular transferases
+               5.4.99  Transferring other groups
+                5.4.99.42  tRNA pseudouridine31 synthase
+                 YGR169C (PUS6)
+            Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              tRNA modification factors
+               Psudouridine synthases
+                YGR169C (PUS6)
 POSITION    VII:complement(834689..835903)
 MOTIF       Pfam: PseudoU_synth_2
-DBLINKS     NCBI-GI: 398366003
+DBLINKS     NCBI-ProteinID: NP_011685
             NCBI-GeneID: 853079
             SGD: S000003401
-            MIPS: YGR169C
             UniProt: P53294
 AASEQ       404
             MSTIKVIEVYTQNGLRKVRPYYNRRSAFVKGRWLGKLLIDVLVSEFKLRPRAYYLDQIRK

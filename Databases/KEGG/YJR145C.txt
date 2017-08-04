@@ -1,18 +1,29 @@
 ENTRY       YJR145C           CDS       T00005
 NAME        RPS4A
-DEFINITION  ribosomal 40S subunit protein S4A
+DEFINITION  (RefSeq) ribosomal 40S subunit protein S4A
 ORTHOLOGY   K02987  small subunit ribosomal protein S4e
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03010  Ribosome
-CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+MODULE      sce_M00177  Ribosome, eukaryotes
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03010 Ribosome
+                YJR145C (RPS4A)
+            Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Eukaryotes
+               Small subunit
+                YJR145C (RPS4A)
+              Archaea
+                YJR145C (RPS4A)
 POSITION    X:complement(join(702027..702798,703055..703068))
-MOTIF       Pfam: Ribosomal_S4e RS4NT S4 KOW
-DBLINKS     NCBI-GI: 398365603
+MOTIF       Pfam: Ribosomal_S4e 40S_S4_C RS4NT S4 KOW Sipho_tail dCache_2
+DBLINKS     NCBI-ProteinID: NP_012679
             NCBI-GeneID: 853610
             SGD: S000003906
-            MIPS: YJR145C
             UniProt: P0CX35 P0CX36
-STRUCTURE   PDB: 3U5C 3U5G 4BYL 4BYT 3IZB
+STRUCTURE   PDB: 5TZS
 AASEQ       261
             MARGPKKHLKRLAAPHHWLLDKLSGCYAPRPSAGPHKLRESLPLIVFLRNRLKYALNGRE
             VKAILMQRHVKVDGKVRTDTTYPAGFMDVITLDATNENFRLVYDVKGRFAVHRITDEEAS

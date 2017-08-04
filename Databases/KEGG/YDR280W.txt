@@ -1,19 +1,28 @@
 ENTRY       YDR280W           CDS       T00005
 NAME        RRP45
-DEFINITION  Rrp45p
+DEFINITION  (RefSeq) exosome non-catalytic core subunit RRP45
 ORTHOLOGY   K03678  exosome complex component RRP45
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03018  RNA degradation
 MODULE      sce_M00391  Exosome, eukaryotes
-CLASS       Genetic Information Processing; Folding, sorting and degradation; RNA degradation [PATH:sce03018]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               03018 RNA degradation
+                YDR280W (RRP45)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA degradation factors
+               3'-5' decay
+                Core exosome factors
+                 YDR280W (RRP45)
 POSITION    IV:1020747..1021664
 MOTIF       Pfam: RNase_PH RNase_PH_C
-DBLINKS     NCBI-GI: 6320486
+DBLINKS     NCBI-ProteinID: NP_010566
             NCBI-GeneID: 851874
             SGD: S000002688
-            MIPS: YDR280W
             UniProt: Q05636
-STRUCTURE   PDB: 4IFD 2WP8
+STRUCTURE   PDB: 5JEA 4IFD 2WP8 5K36 4OO1 5C0X 5G06 5C0W
 AASEQ       305
             MAKDIEISASESKFILEALRQNYRLDGRSFDQFRDVEITFGKEFGDVSVKMGNTKVHCRI
             SCQIAQPYEDRPFEGLFVISTEISPMAGSQFENGNITGEDEVLCSRIIEKSVRRSGALDV

@@ -1,14 +1,24 @@
 ENTRY       YEL052W           CDS       T00005
 NAME        AFG1
-DEFINITION  Afg1p
-ORTHOLOGY   K06916
+DEFINITION  (RefSeq) Afg1p
+ORTHOLOGY   K18798  peroxisome-assembly ATPase [EC:3.6.4.7]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.4  Acting on acid anhydrides to facilitate cellular and subcellular movement
+                3.6.4.7  peroxisome-assembly ATPase
+                 YEL052W (AFG1)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial DNA transcription, translation, and replication factors
+              Mitochondrial transcription and translation factors
+               Other mitochondrial DNA transcription and translation factors
+                YEL052W (AFG1)
 POSITION    V:56571..58100
-MOTIF       Pfam: AFG1_ATPase AAA_16 AAA AAA_22 AAA_5 RNA_helicase AAA_14 Bac_DnaA Arch_ATPase NACHT
-DBLINKS     NCBI-GI: 6320783
+MOTIF       Pfam: AFG1_ATPase AAA_16 AAA AAA_22 ATPase_2 AAA_5 Bac_DnaA RNA_helicase TsaE NACHT
+DBLINKS     NCBI-ProteinID: NP_010862
             NCBI-GeneID: 856658
             SGD: S000000778
-            MIPS: YEL052W
             UniProt: P32317
 AASEQ       509
             MIALKPNAVRTFRQVQHCSFRICRYQSTKSNKCLTPLQEYDRLVKLGKLRDDTYQRGIIS

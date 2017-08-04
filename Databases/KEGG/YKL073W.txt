@@ -1,16 +1,23 @@
 ENTRY       YKL073W           CDS       T00005
 NAME        LHS1, CER1, SSI1
-DEFINITION  Hsp70 family chaperone LHS1 (EC:3.6.1.3)
+DEFINITION  (RefSeq) Hsp70 family chaperone LHS1
 ORTHOLOGY   K09486  hypoxia up-regulated 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04141  Protein processing in endoplasmic reticulum
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Protein processing in endoplasmic reticulum [PATH:sce04141]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04141 Protein processing in endoplasmic reticulum
+                YKL073W (LHS1)
+            Chaperones and folding catalysts [BR:sce03110]
+             Heat shock proteins
+              HSP110
+               YKL073W (LHS1)
 POSITION    XI:296430..299075
-MOTIF       Pfam: HSP70
-DBLINKS     NCBI-GI: 6322777
+MOTIF       Pfam: HSP70 F_actin_bind Baculo_PEP_C
+DBLINKS     NCBI-ProteinID: NP_012850
             NCBI-GeneID: 853789
             SGD: S000001556
-            MIPS: YKL073W
             UniProt: P36016
 AASEQ       881
             MRNVLRLLFLTAFVAIGSLAAVLGVDYGQQNIKAIVVSPQAPLELVLTPEAKRKEISGLS

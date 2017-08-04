@@ -1,13 +1,12 @@
 ENTRY       YPL098C           CDS       T00005
 NAME        MGR2
-DEFINITION  Mgr2p
+DEFINITION  (RefSeq) Mgr2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:complement(364386..364727)
 MOTIF       Pfam: Romo1
-DBLINKS     NCBI-GI: 6325159
+DBLINKS     NCBI-ProteinID: NP_015227
             NCBI-GeneID: 856006
             SGD: S000006019
-            MIPS: YPL098C
             UniProt: Q02889
 AASEQ       113
             MPPLPQNYAQQQPSNWDKFKMGLMMGTTVGVCTGILFGGFAIATQGPGPDGVVRTLGKYI

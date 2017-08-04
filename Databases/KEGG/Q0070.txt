@@ -1,13 +1,12 @@
 ENTRY       Q0070             CDS       T00005
 NAME        AI5_ALPHA
-DEFINITION  intron-encoded DNA endonuclease aI5 alpha (EC:3.1.-.-)
+DEFINITION  (RefSeq) intron-encoded DNA endonuclease aI5 alpha
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    MT:join(13818..13986,16435..16470,18954..18991,20508..20984,21995..23167)
 MOTIF       Pfam: COX1 LAGLIDADG_2
-DBLINKS     NCBI-GI: 6226524
+DBLINKS     NCBI-ProteinID: NP_009306
             NCBI-GeneID: 854597
             SGD: S000007265
-            MIPS: Q0070
             UniProt: Q9ZZX1
 AASEQ       630
             MVQRWLYSTNAKDIAVLYFMLAIFSGMAGTAMSLIIRLELAAPGSQYLHGNSQLFNVLVV

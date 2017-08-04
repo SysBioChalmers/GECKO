@@ -1,18 +1,53 @@
 ENTRY       YML016C           CDS       T00005
 NAME        PPZ1
-DEFINITION  Ppz1p (EC:3.1.3.16)
+DEFINITION  (RefSeq) salt homeostasis regulator
 ORTHOLOGY   K06269  serine/threonine-protein phosphatase PP1 catalytic subunit [EC:3.1.3.16]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03015  mRNA surveillance pathway
             sce04113  Meiosis - yeast
-CLASS       Genetic Information Processing; Translation; mRNA surveillance pathway [PATH:sce03015]
-            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03015 mRNA surveillance pathway
+                YML016C (PPZ1)
+             Cellular Processes
+              Cell growth and death
+               04113 Meiosis - yeast
+                YML016C (PPZ1)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.3  Phosphoric-monoester hydrolases
+                3.1.3.16  protein-serine/threonine phosphatase
+                 YML016C (PPZ1)
+            Protein phosphatases and associated proteins [BR:sce01009]
+             Protein Ser/ Thr phosphatases
+              Phosphoprotein phosphatases (PPPs)
+               Protein phosphatase-1
+                Catalytic subunits
+                 YML016C (PPZ1)
+            Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Other transcription-related factors
+                Transcription termination factor
+                 YML016C (PPZ1)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA processing factors
+               3' end processing
+                Cleavage and polyadenylation specificity factor (CPSF) complex
+                 YML016C (PPZ1)
+            Spliceosome [BR:sce03041]
+             Other splicing related proteins
+              Spliceosome associated proteins (SAPs)
+               Other SAPs
+                YML016C (PPZ1)
 POSITION    XIII:complement(239458..241536)
-MOTIF       Pfam: Metallophos
-DBLINKS     NCBI-GI: 6323625
+MOTIF       Pfam: Metallophos STPPase_N
+DBLINKS     NCBI-ProteinID: NP_013696
             NCBI-GeneID: 854992
             SGD: S000004478
-            MIPS: YML016C
             UniProt: P26570
 AASEQ       692
             MGNSSSKSSKKDSHSNSSSRNPRPQVSRTETSHSVKSAKSNKSSRSRRSLPSSSTTNTNS

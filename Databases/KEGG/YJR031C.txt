@@ -1,13 +1,24 @@
 ENTRY       YJR031C           CDS       T00005
 NAME        GEA1
-DEFINITION  Gea1p
+DEFINITION  (RefSeq) Arf family guanine nucleotide exchange factor GEA1
+ORTHOLOGY   K18443  golgi-specific brefeldin A-resistance guanine nucleotide exchange factor 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04144  Endocytosis
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04144 Endocytosis
+                YJR031C (GEA1)
+            Membrane trafficking [BR:sce04131]
+             Endosome - Golgi transport
+              Arf GTPases and associated proteins
+               Arf GTPase associated proteins
+                YJR031C (GEA1)
 POSITION    X:complement(486586..490812)
-MOTIF       Pfam: Sec7
-DBLINKS     NCBI-GI: 6322491
+MOTIF       Pfam: Sec7 Sec7_N ZapD
+DBLINKS     NCBI-ProteinID: NP_012565
             NCBI-GeneID: 853488
             SGD: S000003792
-            MIPS: YJR031C
             UniProt: P47102
 STRUCTURE   PDB: 1RE0
 AASEQ       1408

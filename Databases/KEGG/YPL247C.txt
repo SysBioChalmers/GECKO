@@ -1,13 +1,18 @@
 ENTRY       YPL247C           CDS       T00005
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) hypothetical protein
 ORTHOLOGY   K11805  WD repeat-containing protein 68
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ubiquitin system [BR:sce04121]
+             Ubiquitin ligases (E3)
+              Multi subunit Ring-finger type E3
+               Cul4 complex
+                Target recognizing subunit (DCAF)
+                 YPL247C
 POSITION    XVI:complement(82625..84196)
 MOTIF       Pfam: WD40
-DBLINKS     NCBI-GI: 6325009
+DBLINKS     NCBI-ProteinID: NP_015077
             NCBI-GeneID: 855829
             SGD: S000006168
-            MIPS: YPL247C
             UniProt: Q12523
 AASEQ       523
             MDPFHNGNKRSSISFGSSQRQPYNKNNYLSGTNGPSSAAQDQGRGPSPFGMSGNTTNGGN

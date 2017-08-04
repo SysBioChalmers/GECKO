@@ -1,14 +1,18 @@
 ENTRY       YOR344C           CDS       T00005
 NAME        TYE7, SGC1
-DEFINITION  Tye7p
+DEFINITION  (RefSeq) Tye7p
 ORTHOLOGY   K09074  fungal twist-like factor
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription factors [BR:sce03000]
+             Eukaryotic Type
+              Basic helix-loop-helix (bHLH)
+               Tal/Twist/Atonal/Hen, Mesodermal Twist-like factors
+                YOR344C (TYE7)
 POSITION    XV:complement(977194..978069)
 MOTIF       Pfam: HLH
-DBLINKS     NCBI-GI: 398366319
+DBLINKS     NCBI-ProteinID: NP_014989
             NCBI-GeneID: 854525
             SGD: S000005871
-            MIPS: YOR344C
             UniProt: P33122
 AASEQ       291
             MNSILDRNVRSSETTLIKPESEFDNWLSDENDGASHINVNKDSSSVLSASSSTWFEPLEN

@@ -1,14 +1,18 @@
 ENTRY       YPL144W           CDS       T00005
 NAME        POC4, DMP1, PBA4
-DEFINITION  Poc4p
+DEFINITION  (RefSeq) Poc4p
 ORTHOLOGY   K11882  proteasome chaperone 4
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Proteasome [BR:sce03051]
+             Eukaryotic proteasome
+              Assembling factors
+               Assembling chaperones
+                YPL144W (POC4)
 POSITION    XVI:280480..280926
-MOTIF       Pfam: chaperone_DMP
-DBLINKS     NCBI-GI: 6325113
+MOTIF       Pfam: POC3_POC4 PAC4
+DBLINKS     NCBI-ProteinID: NP_015181
             NCBI-GeneID: 855959
             SGD: S000006065
-            MIPS: YPL144W
             UniProt: Q12245
 STRUCTURE   PDB: 2Z5B 2Z5C
 AASEQ       148

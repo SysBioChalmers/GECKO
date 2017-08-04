@@ -1,13 +1,12 @@
 ENTRY       YML117W           CDS       T00005
 NAME        NAB6
-DEFINITION  Nab6p
+DEFINITION  (RefSeq) Nab6p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:34243..37647
-MOTIF       Pfam: Nab6_mRNP_bdg RRM RRM_6 RRM_1 RRM_5
-DBLINKS     NCBI-GI: 6323518
+MOTIF       Pfam: Nab6_mRNP_bdg RRM RRM_1
+DBLINKS     NCBI-ProteinID: NP_013589
             NCBI-GeneID: 854922
             SGD: S000004585
-            MIPS: YML117W
             UniProt: Q03735
 AASEQ       1134
             MSNSNSKKPVANYAYRQQQDYNGMNAMVGNPMMYHPVDFVNGAGQYGPSQHPAYYTNSPL

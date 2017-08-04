@@ -1,14 +1,28 @@
 ENTRY       YPL072W           CDS       T00005
 NAME        UBP16
-DEFINITION  Ubp16p (EC:3.4.19.12 3.1.2.15)
-ORTHOLOGY   K11874  ubiquitin carboxyl-terminal hydrolase 16 [EC:3.1.2.15]
+DEFINITION  (RefSeq) putative ubiquitin-specific protease UBP16
+ORTHOLOGY   K11874  ubiquitin carboxyl-terminal hydrolase 16 [EC:3.4.19.12]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.4  Acting on peptide bonds (peptidases)
+               3.4.19  Omega peptidases
+                3.4.19.12  ubiquitinyl hydrolase 1
+                 YPL072W (UBP16)
+            Peptidases [BR:sce01002]
+             Cysteine Peptidases
+              Family C19: ubiquitin-specific protease family
+               YPL072W (UBP16)
+            Ubiquitin system [BR:sce04121]
+             Deubiquitinating enzyme (DUB)
+              Ubiquitin-specific proteases (UBPs)
+               UBP/USP
+                YPL072W (UBP16)
 POSITION    XVI:418512..420011
 MOTIF       Pfam: UCH UCH_1
-DBLINKS     NCBI-GI: 6325184
+DBLINKS     NCBI-ProteinID: NP_015253
             NCBI-GeneID: 856032
             SGD: S000005993
-            MIPS: YPL072W
             UniProt: Q02863
 AASEQ       499
             MSWIKNVTESPTSLIKKVSCGLIIAASLYAIAPSLSALVFGDSKQSIGKYTTVGLINRGN

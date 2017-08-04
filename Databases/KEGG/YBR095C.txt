@@ -1,13 +1,12 @@
 ENTRY       YBR095C           CDS       T00005
 NAME        RXT2, RAF60
-DEFINITION  Rxt2p
+DEFINITION  (RefSeq) Rxt2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    II:complement(434406..435698)
-MOTIF       Pfam: RXT2_N DUF4570
-DBLINKS     NCBI-GI: 37362619
+MOTIF       Pfam: RXT2_N
+DBLINKS     NCBI-ProteinID: NP_009653
             NCBI-GeneID: 852392
             SGD: S000000299
-            MIPS: YBR095C
             UniProt: P38255
 AASEQ       430
             MTIRSSMKNNAELESKSVLANESNIISTFTRRIIKEKSGNYQVLKRSLDGKLIYPEATGI

@@ -1,16 +1,34 @@
 ENTRY       YOR119C           CDS       T00005
 NAME        RIO1, RRP10
-DEFINITION  Rio1p (EC:2.7.11.1)
+DEFINITION  (RefSeq) protein kinase RIO1
 ORTHOLOGY   K07178  RIO kinase 1 [EC:2.7.11.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03008  Ribosome biogenesis in eukaryotes
-CLASS       Genetic Information Processing; Translation; Ribosome biogenesis in eukaryotes [PATH:sce03008]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03008 Ribosome biogenesis in eukaryotes
+                YOR119C (RIO1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.11  Protein-serine/threonine kinases
+                2.7.11.1  non-specific serine/threonine protein kinase
+                 YOR119C (RIO1)
+            Protein kinases [BR:sce01001]
+             Serine/threonine protein kinases: Atypical group
+              RIO family [OT]
+               YOR119C (RIO1)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-40S particles
+               Kinases
+                YOR119C (RIO1)
 POSITION    XV:complement(548792..550246)
-MOTIF       Pfam: RIO1 APH
-DBLINKS     NCBI-GI: 398365221
+MOTIF       Pfam: RIO1 DUF1454
+DBLINKS     NCBI-ProteinID: NP_014762
             NCBI-GeneID: 854286
             SGD: S000005645
-            MIPS: YOR119C
             UniProt: Q12196
 AASEQ       484
             MSLEDKFDSLSVSQGASDHINNQLLEKYSHKIKTDELSFSRAKTSKDKANRATVENVLDP

@@ -1,16 +1,24 @@
 ENTRY       YGR090W           CDS       T00005
 NAME        UTP22
-DEFINITION  Utp22p
+DEFINITION  (RefSeq) rRNA-processing protein UTP22
 ORTHOLOGY   K14544  U3 small nucleolar RNA-associated protein 22
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03008  Ribosome biogenesis in eukaryotes
-CLASS       Genetic Information Processing; Translation; Ribosome biogenesis in eukaryotes [PATH:sce03008]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03008 Ribosome biogenesis in eukaryotes
+                YGR090W (UTP22)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              90S particles
+               U3 small nucleolar RNA-associated proteins
+                YGR090W (UTP22)
 POSITION    VII:662358..666071
-MOTIF       Pfam: Nrap
-DBLINKS     NCBI-GI: 398365617
+MOTIF       Pfam: Nrap_D5 Nrap_D4 Nrap_D2 Nrap Nrap_D3 Nrap_D6
+DBLINKS     NCBI-ProteinID: NP_011604
             NCBI-GeneID: 852982
             SGD: S000003322
-            MIPS: YGR090W
             UniProt: P53254
 STRUCTURE   PDB: 4M5D
 AASEQ       1237

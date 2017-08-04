@@ -1,17 +1,37 @@
 ENTRY       YOL097C           CDS       T00005
 NAME        WRS1, HRE342
-DEFINITION  tryptophan--tRNA ligase WRS1 (EC:6.1.1.2)
+DEFINITION  (RefSeq) tryptophan--tRNA ligase WRS1
 ORTHOLOGY   K01867  tryptophanyl-tRNA synthetase [EC:6.1.1.2]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00970  Aminoacyl-tRNA biosynthesis
 MODULE      sce_M00359  Aminoacyl-tRNA biosynthesis, eukaryotes
-CLASS       Genetic Information Processing; Translation; Aminoacyl-tRNA biosynthesis [PATH:sce00970]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               00970 Aminoacyl-tRNA biosynthesis
+                YOL097C (WRS1)
+            Enzymes [BR:sce01000]
+             6. Ligases
+              6.1  Forming carbon-oxygen bonds
+               6.1.1  Ligases forming aminoacyl-tRNA and related compounds
+                6.1.1.2  tryptophan---tRNA ligase
+                 YOL097C (WRS1)
+            Amino acid related enzymes [BR:sce01007]
+             Aminoacyl-tRNA synthetase
+              Class I (A)
+               YOL097C (WRS1)
+            Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              Aminoacyl-tRNA synthetases (AARSs)
+               Other AARSs
+                YOL097C (WRS1)
+             Prokaryotic Type
+                YOL097C (WRS1)
 POSITION    XV:complement(136527..137825)
 MOTIF       Pfam: tRNA-synt_1b
-DBLINKS     NCBI-GI: 6324475
+DBLINKS     NCBI-ProteinID: NP_014544
             NCBI-GeneID: 854056
             SGD: S000005457
-            MIPS: YOL097C
             UniProt: Q12109
 STRUCTURE   PDB: 2IP1 3KT0 3KT3 3KT6 3KT8
 AASEQ       432

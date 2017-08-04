@@ -1,16 +1,25 @@
 ENTRY       YDR004W           CDS       T00005
 NAME        RAD57
-DEFINITION  Rad57p
+DEFINITION  (RefSeq) putative DNA-dependent ATPase RAD57
 ORTHOLOGY   K10958  DNA repair protein RAD57
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03440  Homologous recombination
-CLASS       Genetic Information Processing; Replication and repair; Homologous recombination [PATH:sce03440]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Replication and repair
+               03440 Homologous recombination
+                YDR004W (RAD57)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              DSBR (double strand breaks repair)
+               HR (homologous recombination)
+                RecA family proteins
+                 YDR004W (RAD57)
 POSITION    IV:455201..456583
-MOTIF       Pfam: Rad51 AAA_25 KaiC RecA DUF2073 Arch_ATPase AAA_22 CobU
-DBLINKS     NCBI-GI: 6320207
+MOTIF       Pfam: Rad51 AAA_25 ATPase RecA NUP214 DUF2073 CobU
+DBLINKS     NCBI-ProteinID: NP_010287
             NCBI-GeneID: 851567
             SGD: S000002411
-            MIPS: YDR004W
             UniProt: P25301
 AASEQ       460
             MPRALSIKFDNTYMDLYDELPESKLLYDEEFSYLLDAVRQNGVCVVDFLTLTPKELARLI

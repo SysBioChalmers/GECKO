@@ -1,16 +1,27 @@
 ENTRY       YPL079W           CDS       T00005
 NAME        RPL21B
-DEFINITION  ribosomal 60S subunit protein L21B
+DEFINITION  (RefSeq) ribosomal 60S subunit protein L21B
 ORTHOLOGY   K02889  large subunit ribosomal protein L21e
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03010  Ribosome
-CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+MODULE      sce_M00177  Ribosome, eukaryotes
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03010 Ribosome
+                YPL079W (RPL21B)
+            Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Eukaryotes
+               Large subunit
+                YPL079W (RPL21B)
+              Archaea
+                YPL079W (RPL21B)
 POSITION    XVI:join(406636..406646,407068..407539)
-MOTIF       Pfam: Ribosomal_L21e LRS4
-DBLINKS     NCBI-GI: 6325178
+MOTIF       Pfam: Ribosomal_L21e SIMPL LRS4
+DBLINKS     NCBI-ProteinID: NP_015246
             NCBI-GeneID: 856026
             SGD: S000006000
-            MIPS: YPL079W
             UniProt: Q12672
 AASEQ       160
             MGKSHGYRSRTRYMFQRDFRKHGAVHMSTYLKIYKVGDIVDIKANGSIQKGMPHKFYQGK

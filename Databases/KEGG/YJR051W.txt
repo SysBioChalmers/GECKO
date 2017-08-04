@@ -1,13 +1,19 @@
 ENTRY       YJR051W           CDS       T00005
 NAME        OSM1
-DEFINITION  Osm1p
+DEFINITION  (RefSeq) fumarate reductase
+ORTHOLOGY   K18561  FAD-dependent fumarate reductase [EC:1.3.8.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.3  Acting on the CH-CH group of donors
+               1.3.8  With a flavin as acceptor
+                1.3.8.-  
+                 YJR051W (OSM1)
 POSITION    X:529861..531366
-MOTIF       Pfam: FAD_binding_2 Pyr_redox_2 DAO NAD_binding_8 HI0933_like Pyr_redox_3 Thi4 FAD_binding_3 Lycopene_cycl NAD_binding_9
-DBLINKS     NCBI-GI: 6322511
+MOTIF       Pfam: FAD_binding_2 DAO NAD_binding_8 Pyr_redox_2 HI0933_like Lycopene_cycl Thi4 FAD_binding_3
+DBLINKS     NCBI-ProteinID: NP_012585
             NCBI-GeneID: 853510
             SGD: S000003812
-            MIPS: YJR051W
             UniProt: P21375
 AASEQ       501
             MIRSVRRVFIYVSIFVLIIVLKRTLSGTDQTSMKQPVVVIGSGLAGLTTSNRLISKYRIP

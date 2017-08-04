@@ -1,18 +1,27 @@
 ENTRY       YDR147W           CDS       T00005
 NAME        EKI1
-DEFINITION  bifunctional choline kinase/ethanolamine kinase EKI1 (EC:2.7.1.82)
+DEFINITION  (RefSeq) bifunctional choline kinase/ethanolamine kinase EKI1
 ORTHOLOGY   K00894  ethanolamine kinase [EC:2.7.1.82]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00564  Glycerophospholipid metabolism
             sce01100  Metabolic pathways
 MODULE      sce_M00092  Phosphatidylethanolamine (PE) biosynthesis, ethanolamine => PE
-CLASS       Metabolism; Lipid metabolism; Glycerophospholipid metabolism [PATH:sce00564]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Lipid metabolism
+               00564 Glycerophospholipid metabolism
+                YDR147W (EKI1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.1  Phosphotransferases with an alcohol group as acceptor
+                2.7.1.82  ethanolamine kinase
+                 YDR147W (EKI1)
 POSITION    IV:751631..753235
-MOTIF       Pfam: Choline_kinase Choline_kin_N APH EcKinase
-DBLINKS     NCBI-GI: 398365849
+MOTIF       Pfam: Choline_kinase Choline_kin_N APH EcKinase DUF1679
+DBLINKS     NCBI-ProteinID: NP_010431
             NCBI-GeneID: 851725
             SGD: S000002554
-            MIPS: YDR147W
             UniProt: Q03764
 AASEQ       534
             MYTNYSLTSSDAMPRTYLVGTASPEMSKKKRQSANCDKPTRRVIHIIDTNEHSEVDLKNE

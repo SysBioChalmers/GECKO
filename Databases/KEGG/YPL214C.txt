@@ -1,17 +1,30 @@
 ENTRY       YPL214C           CDS       T00005
 NAME        THI6
-DEFINITION  bifunctional hydroxyethylthiazole kinase/thiamine-phosphate diphosphorylase (EC:2.5.1.3 2.7.1.50)
+DEFINITION  (RefSeq) bifunctional hydroxyethylthiazole kinase/thiamine-phosphate diphosphorylase
 ORTHOLOGY   K14154  thiamine-phosphate diphosphorylase / hydroxyethylthiazole kinase [EC:2.5.1.3 2.7.1.50]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00730  Thiamine metabolism
             sce01100  Metabolic pathways
-CLASS       Metabolism; Metabolism of cofactors and vitamins; Thiamine metabolism [PATH:sce00730]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Metabolism of cofactors and vitamins
+               00730 Thiamine metabolism
+                YPL214C (THI6)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.5  Transferring alkyl or aryl groups, other than methyl groups
+               2.5.1  Transferring alkyl or aryl groups, other than methyl groups (only sub-subclass identified to date)
+                2.5.1.3  thiamine phosphate synthase
+                 YPL214C (THI6)
+              2.7  Transferring phosphorus-containing groups
+               2.7.1  Phosphotransferases with an alcohol group as acceptor
+                2.7.1.50  hydroxyethylthiazole kinase
+                 YPL214C (THI6)
 POSITION    XVI:complement(148569..150191)
 MOTIF       Pfam: HK TMP-TENI
-DBLINKS     NCBI-GI: 6325042
+DBLINKS     NCBI-ProteinID: NP_015110
             NCBI-GeneID: 855887
             SGD: S000006135
-            MIPS: YPL214C
             UniProt: P41835
 AASEQ       540
             MVFTKEEVDYSLYLVTDSTMLPPGTTLCSQVEAGLKNGVTLVQIREKDIETKNFVAEALE

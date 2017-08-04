@@ -1,14 +1,18 @@
 ENTRY       YMR225C           CDS       T00005
 NAME        MRPL44, YMR44
-DEFINITION  mitochondrial 54S ribosomal protein YmL44
-ORTHOLOGY   K17434  large subunit ribosomal protein L53, mitochondrial
+DEFINITION  (RefSeq) mitochondrial 54S ribosomal protein YmL44
+ORTHOLOGY   K17434  large subunit ribosomal protein L53
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Mitochondria/ Chloroplast
+               Large subunit
+                YMR225C (MRPL44)
 POSITION    XIII:complement(join(720960..721198,721346..721403))
-MOTIF       Pfam: MRP_L53 DUF1931 Colicin
-DBLINKS     NCBI-GI: 6323881
+MOTIF       Pfam: MRP_L53
+DBLINKS     NCBI-ProteinID: NP_013952
             NCBI-GeneID: 855265
             SGD: S000004838
-            MIPS: YMR225C
             UniProt: P19956
 AASEQ       98
             MITKYFSKVIVRFNPFGKEAKVARLVLAAIPPTQRNMGTQIQSEIISDYNKVKPLVKVTY

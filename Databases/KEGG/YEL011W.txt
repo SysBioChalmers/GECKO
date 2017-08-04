@@ -1,18 +1,31 @@
 ENTRY       YEL011W           CDS       T00005
 NAME        GLC3, GHA1
-DEFINITION  1,4-alpha-glucan branching enzyme (EC:2.4.1.18)
+DEFINITION  (RefSeq) 1,4-alpha-glucan branching enzyme
 ORTHOLOGY   K00700  1,4-alpha-glucan branching enzyme [EC:2.4.1.18]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00500  Starch and sucrose metabolism
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
-CLASS       Metabolism; Carbohydrate metabolism; Starch and sucrose metabolism [PATH:sce00500]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Carbohydrate metabolism
+               00500 Starch and sucrose metabolism
+                YEL011W (GLC3)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.4  Glycosyltransferases
+               2.4.1  Hexosyltransferases
+                2.4.1.18  1,4-alpha-glucan branching enzyme
+                 YEL011W (GLC3)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of other body fluids (saliva and urine)
+               YEL011W (GLC3)
 POSITION    V:133120..135234
-MOTIF       Pfam: Alpha-amylase_C Alpha-amylase CBM_48 Glyco_hydro_66
-DBLINKS     NCBI-GI: 6320826
+MOTIF       Pfam: Alpha-amylase_C CBM_48 Alpha-amylase Glyco_hydro_66 AMPK1_CBM Aminotran_5
+DBLINKS     NCBI-ProteinID: NP_010905
             NCBI-GeneID: 856705
             SGD: S000000737
-            MIPS: YEL011W
             UniProt: P32775
 AASEQ       704
             MYNIPDNVKGAVEFDPWLKPFADVLSERRYLADKWLYDITHATPDGSYQSLSKFARDSYK

@@ -1,14 +1,17 @@
 ENTRY       YMR243C           CDS       T00005
 NAME        ZRC1, OSR1
-DEFINITION  Zn(2+) transporter ZRC1
+DEFINITION  (RefSeq) Zn(2+) transporter ZRC1
 ORTHOLOGY   K14688  solute carrier family 30 (zinc transporter), member 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Solute Carrier Family (SLC)
+              SLC30: Zinc efflux transporter
+               YMR243C (ZRC1)
 POSITION    XIII:complement(754838..756166)
 MOTIF       Pfam: Cation_efflux
-DBLINKS     NCBI-GI: 6323899
+DBLINKS     NCBI-ProteinID: NP_013970
             NCBI-GeneID: 855284
             SGD: S000004856
-            MIPS: YMR243C
             UniProt: P20107
 AASEQ       442
             MITGKELRIISLLTLDTVFFLLEITIGYMSHSLALIADSFHMLNDIISLLVALWAVDVAK

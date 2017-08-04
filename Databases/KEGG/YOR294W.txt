@@ -1,15 +1,20 @@
 ENTRY       YOR294W           CDS       T00005
 NAME        RRS1
-DEFINITION  Rrs1p
+DEFINITION  (RefSeq) Rrs1p
 ORTHOLOGY   K14852  regulator of ribosome biosynthesis
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               Other pre-60S particles
+                YOR294W (RRS1)
 POSITION    XV:868340..868951
 MOTIF       Pfam: RRS1
-DBLINKS     NCBI-GI: 6324868
+DBLINKS     NCBI-ProteinID: NP_014937
             NCBI-GeneID: 854469
             SGD: S000005820
-            MIPS: YOR294W
             UniProt: Q08746
+STRUCTURE   PDB: 5WXL 5A53
 AASEQ       203
             MSAEDYKNLPVTVEKPIPVVYDLGNLAAFDSNVLDKNDLDSSNARREEKIKSLTRDNVQL
             LINQLLSLPMKTTTESVGGTGGQSSVMTLLQLPDPTTDLPREKPLPKAKAMTKWEKFAAK

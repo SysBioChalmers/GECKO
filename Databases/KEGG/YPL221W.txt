@@ -1,13 +1,12 @@
 ENTRY       YPL221W           CDS       T00005
 NAME        FLC1
-DEFINITION  Flc1p
+DEFINITION  (RefSeq) flavin adenine dinucleotide transporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:133043..135424
-MOTIF       Pfam: TRP TRP_N E1_DerP2_DerF2 PgaD
-DBLINKS     NCBI-GI: 6325035
+MOTIF       Pfam: TRP TRP_N E1_DerP2_DerF2
+DBLINKS     NCBI-ProteinID: NP_015103
             NCBI-GeneID: 855880
             SGD: S000006142
-            MIPS: YPL221W
             UniProt: Q08967
 AASEQ       793
             MQVLVTLWCLICTCLVLPVAAKKRTLTASSLVTCMENSQLSANSFDVSFSPDDRSLHYDL

@@ -1,17 +1,20 @@
 ENTRY       YKL192C           CDS       T00005
 NAME        ACP1
-DEFINITION  Acp1p
+DEFINITION  (RefSeq) acyl carrier protein
 ORTHOLOGY   K03955  NADH dehydrogenase (ubiquinone) 1 alpha/beta subcomplex 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00190  Oxidative phosphorylation
             sce01100  Metabolic pathways
-CLASS       Metabolism; Energy metabolism; Oxidative phosphorylation [PATH:sce00190]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Energy metabolism
+               00190 Oxidative phosphorylation
+                YKL192C (ACP1)
 POSITION    XI:complement(80160..80537)
 MOTIF       Pfam: PP-binding PP-binding_2 DUF1493
-DBLINKS     NCBI-GI: 6322656
+DBLINKS     NCBI-ProteinID: NP_012729
             NCBI-GeneID: 853642
             SGD: S000001675
-            MIPS: YKL192C
             UniProt: P32463
 AASEQ       125
             MFRSVCRISSRVAPSAYRTIMGRSVMSNTILAQRFYSANLSKDQVSQRVIDVIKAFDKNS

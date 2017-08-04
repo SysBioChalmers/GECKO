@@ -1,18 +1,27 @@
 ENTRY       YHR170W           CDS       T00005
 NAME        NMD3, SRC5
-DEFINITION  Nmd3p
+DEFINITION  (RefSeq) ribosome-binding protein NMD3
 ORTHOLOGY   K07562  nonsense-mediated mRNA decay protein 3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03008  Ribosome biogenesis in eukaryotes
             sce03013  RNA transport
-CLASS       Genetic Information Processing; Translation; RNA transport [PATH:sce03013]
-            Genetic Information Processing; Translation; Ribosome biogenesis in eukaryotes [PATH:sce03008]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03013 RNA transport
+                YHR170W (NMD3)
+               03008 Ribosome biogenesis in eukaryotes
+                YHR170W (NMD3)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               Export and cytoplasmic maturation factors
+                YHR170W (NMD3)
 POSITION    VIII:443828..445384
-MOTIF       Pfam: NMD3 FYVE zinc_ribbon_6
-DBLINKS     NCBI-GI: 6321964
+MOTIF       Pfam: NMD3 Nif11
+DBLINKS     NCBI-ProteinID: NP_012040
             NCBI-GeneID: 856575
             SGD: S000001213
-            MIPS: YHR170W
             UniProt: P38861
 AASEQ       518
             MEFTPIDPHQHQNAATLLCCNCGTPIDGSTGLVMCYDCIKLTVDITQGIPREANISFCRN

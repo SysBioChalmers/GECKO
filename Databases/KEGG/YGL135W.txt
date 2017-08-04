@@ -1,18 +1,27 @@
 ENTRY       YGL135W           CDS       T00005
 NAME        RPL1B, SSM2
-DEFINITION  ribosomal 60S subunit protein L1B
+DEFINITION  (RefSeq) ribosomal 60S subunit protein L1B
 ORTHOLOGY   K02865  large subunit ribosomal protein L10Ae
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03010  Ribosome
-CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+MODULE      sce_M00177  Ribosome, eukaryotes
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03010 Ribosome
+                YGL135W (RPL1B)
+            Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Eukaryotes
+               Large subunit
+                YGL135W (RPL1B)
 POSITION    VII:254641..255294
-MOTIF       Pfam: Ribosomal_L1 Vesiculo_matrix
-DBLINKS     NCBI-GI: 398364437
+MOTIF       Pfam: Ribosomal_L1
+DBLINKS     NCBI-ProteinID: NP_011380
             NCBI-GeneID: 852742
             SGD: S000003103
-            MIPS: YGL135W
             UniProt: P0CX43 P0CX44
-STRUCTURE   PDB: 3O58 3O5H 2NOQ 3IZS 1S1I
+STRUCTURE   PDB: 2NOQ
 AASEQ       217
             MSKITSSQVREHVKELLKYSNETKKRNFLETVELQVGLKNYDPQRDKRFSGSLKLPNCPR
             PNMSICIFGDAFDVDRAKSCGVDAMSVDDLKKLNKNKKLIKKLSKKYNAFIASEVLIKQV

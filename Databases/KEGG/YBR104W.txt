@@ -1,14 +1,17 @@
 ENTRY       YBR104W           CDS       T00005
 NAME        YMC2
-DEFINITION  Ymc2p
+DEFINITION  (RefSeq) organic acid transporter
 ORTHOLOGY   K15109  solute carrier family 25 (mitochondrial carnitine/acylcarnitine transporter), member 20/29
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Solute Carrier Family (SLC)
+              SLC25: Mitochondrial carrier
+               YBR104W (YMC2)
 POSITION    II:449667..450656
 MOTIF       Pfam: Mito_carr
-DBLINKS     NCBI-GI: 398364797
+DBLINKS     NCBI-ProteinID: NP_009662
             NCBI-GeneID: 852401
             SGD: S000000308
-            MIPS: YBR104W
             UniProt: P38087
 AASEQ       329
             MSEEFPTPQLLDELEDQQKVTTPNEKRELSSNRVLKDIFAGTIGGIAQVLVGQPFDTTKV

@@ -1,14 +1,25 @@
 ENTRY       YAR003W           CDS       T00005
 NAME        SWD1, CPS50, FUN16, SAF49
-DEFINITION  Swd1p
+DEFINITION  (RefSeq) COMPASS subunit protein SWD1
 ORTHOLOGY   K14961  COMPASS component SWD1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Histone modification proteins
+               HMT complexes
+                COMPASS/SET1 complex
+                 YAR003W (SWD1)
+                COMPASS/SET1 complex (yeast)
+                 YAR003W (SWD1)
+                MLL-HCF complex
+                 YAR003W (SWD1)
+                MLL3/MLL4 complex
+                 YAR003W (SWD1)
 POSITION    I:155005..156285
-MOTIF       Pfam: WD40 eIF2A Nucleoporin_N DUF3312 Cytochrom_D1
-DBLINKS     NCBI-GI: 6319320
+MOTIF       Pfam: WD40 ANAPC4_WD40 Ge1_WD40 eIF2A Frtz PD40 PilM
+DBLINKS     NCBI-ProteinID: NP_009403
             NCBI-GeneID: 851265
             SGD: S000000064
-            MIPS: YAR003W
             UniProt: P39706
 AASEQ       426
             MNILLQDPFAVLKEHPEKLTHTIENPLRTECLQFSPCGDYLALGCANGALVIYDMDTFRP

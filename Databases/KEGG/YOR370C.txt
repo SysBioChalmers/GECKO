@@ -1,13 +1,12 @@
 ENTRY       YOR370C           CDS       T00005
 NAME        MRS6, MSI4
-DEFINITION  Mrs6p
+DEFINITION  (RefSeq) GTPase-activating protein MRS6
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:complement(1029183..1030994)
 MOTIF       Pfam: GDI
-DBLINKS     NCBI-GI: 6324946
+DBLINKS     NCBI-ProteinID: NP_015015
             NCBI-GeneID: 854552
             SGD: S000005897
-            MIPS: YOR370C
             UniProt: P32864
 AASEQ       603
             MLSPERRPSMAERRPSFFSFTQNPSPLVVPHLAGIEDPLPATTPDKVDVLIAGTGMVESV

@@ -1,14 +1,21 @@
 ENTRY       YHR052W           CDS       T00005
 NAME        CIC1, NSA3
-DEFINITION  Cic1p
+DEFINITION  (RefSeq) Cic1p
 ORTHOLOGY   K14783  proteasome-interacting protein CIC1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              90S particles
+               Other 90S particles
+                YHR052W (CIC1)
+              Pre-60S particles
+               Other pre-60S particles
+                YHR052W (CIC1)
 POSITION    VIII:210848..211978
 MOTIF       Pfam: Ribosomal_L1
-DBLINKS     NCBI-GI: 6321843
+DBLINKS     NCBI-ProteinID: NP_011919
             NCBI-GeneID: 856449
             SGD: S000001094
-            MIPS: YHR052W
             UniProt: P38779
 AASEQ       376
             MAKKSNSKKSTPVSTPSKEKKKVIEKKSSTAIPRERVIKAVNELIKFTSKPQDENNEEGN

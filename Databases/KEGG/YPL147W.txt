@@ -1,18 +1,29 @@
 ENTRY       YPL147W           CDS       T00005
 NAME        PXA1, LPI1, PAL1, PAT2, SSH2
-DEFINITION  ATP-binding cassette long-chain fatty acid transporter PXA1
+DEFINITION  (RefSeq) ATP-binding cassette long-chain fatty acid transporter PXA1
 ORTHOLOGY   K15628  ATP-binding cassette, subfamily D (ALD), peroxisomal long-chain fatty acid import protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce02010  ABC transporters
             sce04146  Peroxisome
-CLASS       Environmental Information Processing; Membrane transport; ABC transporters [PATH:sce02010]
-            Cellular Processes; Transport and catabolism; Peroxisome [PATH:sce04146]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Membrane transport
+               02010 ABC transporters
+                YPL147W (PXA1)
+             Cellular Processes
+              Transport and catabolism
+               04146 Peroxisome
+                YPL147W (PXA1)
+            Transporters [BR:sce02000]
+             ABC Transporters, Eukaryotic Type
+              ABCD (ALD) subfamily
+               Others
+                YPL147W (PXA1)
 POSITION    XVI:273255..275867
 MOTIF       Pfam: ABC_membrane_2 ABC_tran SMC_N AAA_16
-DBLINKS     NCBI-GI: 6325110
+DBLINKS     NCBI-ProteinID: NP_015178
             NCBI-GeneID: 855956
             SGD: S000006068
-            MIPS: YPL147W
             UniProt: P41909
 AASEQ       870
             MSTTLAAPAKLKSLLLNLHTHCIGLHVNDVTPKVYFKLLIRHLLQISRSNAAHPKLRRRA

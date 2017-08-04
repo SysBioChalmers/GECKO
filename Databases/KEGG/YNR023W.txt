@@ -1,13 +1,24 @@
 ENTRY       YNR023W           CDS       T00005
 NAME        SNF12, SWP73
-DEFINITION  Snf12p
+DEFINITION  (RefSeq) Snf12p
 ORTHOLOGY   K11775  SWI/SNF complex component SWP73
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Coactivators
+                SWI/SNF complex
+                 YNR023W (SNF12)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Chromatin remodeling factors
+               SWI/SNF complex
+                YNR023W (SNF12)
 POSITION    XIV:670418..672118
-DBLINKS     NCBI-GI: 6324350
+MOTIF       Pfam: SWIB
+DBLINKS     NCBI-ProteinID: NP_014420
             NCBI-GeneID: 855757
             SGD: S000005306
-            MIPS: YNR023W
             UniProt: P53628
 AASEQ       566
             MSKVMKPSNGKGSRKSSKAATPDTKNFFHAKKKDPVNQDKANNASQITPTVPHSHPSDMV

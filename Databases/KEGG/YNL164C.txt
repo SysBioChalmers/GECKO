@@ -1,12 +1,12 @@
 ENTRY       YNL164C           CDS       T00005
 NAME        IBD2
-DEFINITION  Ibd2p
+DEFINITION  (RefSeq) Ibd2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIV:complement(325265..326320)
-DBLINKS     NCBI-GI: 6324165
+MOTIF       Pfam: Imm30
+DBLINKS     NCBI-ProteinID: NP_014235
             NCBI-GeneID: 855557
             SGD: S000005108
-            MIPS: YNL164C
             UniProt: P53892
 AASEQ       351
             MTPTNQSSGTTNASVEVLSEDGPMPINVMMQEGVKALTKILSNQLQDRQAFQNAPHAMQF

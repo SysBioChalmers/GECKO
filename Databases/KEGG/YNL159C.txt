@@ -1,12 +1,12 @@
 ENTRY       YNL159C           CDS       T00005
 NAME        ASI2
-DEFINITION  Asi2p
+DEFINITION  (RefSeq) Asi2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIV:complement(338478..339347)
-DBLINKS     NCBI-GI: 6324170
+MOTIF       Pfam: Transglut_i_TM
+DBLINKS     NCBI-ProteinID: NP_014240
             NCBI-GeneID: 855563
             SGD: S000005103
-            MIPS: YNL159C
             UniProt: P53895
 AASEQ       289
             MARPQNHRRSNWTERDDNDDYLFQRFLEESETRHSREPSPVTEQSQQELQQDVQQAIDGI

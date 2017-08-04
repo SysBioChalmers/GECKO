@@ -1,13 +1,12 @@
 ENTRY       YNL068C           CDS       T00005
 NAME        FKH2
-DEFINITION  Fkh2p
+DEFINITION  (RefSeq) forkhead family transcription factor FKH2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIV:complement(495701..498289)
-MOTIF       Pfam: Fork_head FHA
-DBLINKS     NCBI-GI: 398365089
+MOTIF       Pfam: Forkhead FHA Linker_histone
+DBLINKS     NCBI-ProteinID: NP_014331
             NCBI-GeneID: 855656
             SGD: S000005012
-            MIPS: YNL068C
             UniProt: P41813
 AASEQ       862
             MSSSNFNEMNELNMTQTNYGSTKYTAQHHQGVINAIISSLTAPDQPTTVSLQYSNDKNMA

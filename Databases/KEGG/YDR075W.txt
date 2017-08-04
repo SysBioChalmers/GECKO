@@ -1,14 +1,31 @@
 ENTRY       YDR075W           CDS       T00005
 NAME        PPH3
-DEFINITION  Pph3p (EC:3.1.3.16)
+DEFINITION  (RefSeq) phosphoprotein phosphatase PP4 catalytic subunit PPH3
 ORTHOLOGY   K15423  serine/threonine-protein phosphatase 4 catalytic subunit [EC:3.1.3.16]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.3  Phosphoric-monoester hydrolases
+                3.1.3.16  protein-serine/threonine phosphatase
+                 YDR075W (PPH3)
+            Protein phosphatases and associated proteins [BR:sce01009]
+             Protein Ser/ Thr phosphatases
+              Phosphoprotein phosphatases (PPPs)
+               Protein phosphatase-4
+                Catalytic subunits
+                 YDR075W (PPH3)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              DSBR (double strand breaks repair)
+               HR (homologous recombination)
+                Protein phosphatase 4
+                 YDR075W (PPH3)
 POSITION    IV:597156..598082
-MOTIF       Pfam: Metallophos Metallophos_2
-DBLINKS     NCBI-GI: 6320280
+MOTIF       Pfam: Metallophos Metallophos_2 8TM_micro Glyco_hydro_65N
+DBLINKS     NCBI-ProteinID: NP_010360
             NCBI-GeneID: 851647
             SGD: S000002482
-            MIPS: YDR075W
             UniProt: P32345
 AASEQ       308
             MMDLDKIIASLRDGKHIPEETVFRLCLNSQELLMNEGNVTQVDTPVTICGDIHGQLHDLL

@@ -1,13 +1,12 @@
 ENTRY       YHR061C           CDS       T00005
 NAME        GIC1
-DEFINITION  Gic1p
+DEFINITION  (RefSeq) Gic1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VIII:complement(221534..222478)
-MOTIF       Pfam: PBD
-DBLINKS     NCBI-GI: 6321852
+MOTIF       Pfam: SPAN-X
+DBLINKS     NCBI-ProteinID: NP_011928
             NCBI-GeneID: 856458
             SGD: S000001103
-            MIPS: YHR061C
             UniProt: P38785
 AASEQ       314
             MTEGKRLQQMELPQMKSIWIDEDQEMEKLYGFQVRQRFMNGPSTDSDEDADEDLGIVLVD

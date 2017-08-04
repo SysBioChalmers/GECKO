@@ -1,16 +1,31 @@
 ENTRY       YHR171W           CDS       T00005
 NAME        ATG7, APG11, APG7, CVT2
-DEFINITION  Atg7p
+DEFINITION  (RefSeq) Atg7p
 ORTHOLOGY   K08337  ubiquitin-like modifier-activating enzyme ATG7
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
-PATHWAY     sce04140  Regulation of autophagy
-CLASS       Cellular Processes; Transport and catabolism; Regulation of autophagy [PATH:sce04140]
+PATHWAY     sce04136  Autophagy - other
+            sce04138  Autophagy - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04138 Autophagy - yeast
+                YHR171W (ATG7)
+               04136 Autophagy - other eukaryotes
+                YHR171W (ATG7)
+            Ubiquitin system [BR:sce04121]
+             Ubiquitin-activating enzymes (E1)
+              UBL-activating enzymes
+               YHR171W (ATG7)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial quality control factors
+              Mitophagy factors
+               Autophagy-related proteins
+                YHR171W (ATG7)
 POSITION    VIII:445713..447605
-MOTIF       Pfam: ThiF Shikimate_DH
-DBLINKS     NCBI-GI: 6321965
+MOTIF       Pfam: ATG7_N ThiF Shikimate_DH
+DBLINKS     NCBI-ProteinID: NP_012041
             NCBI-GeneID: 856576
             SGD: S000001214
-            MIPS: YHR171W
             UniProt: P38862
 STRUCTURE   PDB: 3T7H 4GSJ 3T7F 3RUI 3VH3 3T7G 3RUJ 3T7E 3VH4 4GSL 4GSK
                  3VH1 3VH2 2LI5

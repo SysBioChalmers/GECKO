@@ -1,13 +1,18 @@
 ENTRY       YHR194W           CDS       T00005
 NAME        MDM31
-DEFINITION  Mdm31p
+DEFINITION  (RefSeq) Mdm31p
+ORTHOLOGY   K17979  mitochondrial distribution and morphology protein 31
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial quality control factors
+              Mitochondrial dynamics
+               Morphogenesis factors
+                YHR194W (MDM31)
 POSITION    VIII:488657..490396
 MOTIF       Pfam: MDM31_MDM32
-DBLINKS     NCBI-GI: 6321988
+DBLINKS     NCBI-ProteinID: NP_012064
             NCBI-GeneID: 856601
             SGD: S000001237
-            MIPS: YHR194W
             UniProt: P38880
 AASEQ       579
             MSLFTRPFLRSPRQFSVARYVYWARSPALRSNLRIPSIAAASLRAYSNESKTGRDAPPDK

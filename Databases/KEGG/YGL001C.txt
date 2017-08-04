@@ -1,17 +1,27 @@
 ENTRY       YGL001C           CDS       T00005
 NAME        ERG26
-DEFINITION  sterol-4-alpha-carboxylate 3-dehydrogenase (decarboxylating) (EC:1.1.1.170)
+DEFINITION  (RefSeq) sterol-4-alpha-carboxylate 3-dehydrogenase (decarboxylating)
 ORTHOLOGY   K07748  sterol-4alpha-carboxylate 3-dehydrogenase (decarboxylating) [EC:1.1.1.170]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00100  Steroid biosynthesis
             sce01100  Metabolic pathways
-CLASS       Metabolism; Lipid metabolism; Steroid biosynthesis [PATH:sce00100]
+            sce01130  Biosynthesis of antibiotics
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Lipid metabolism
+               00100 Steroid biosynthesis
+                YGL001C (ERG26)
+            Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.1  Acting on the CH-OH group of donors
+               1.1.1  With NAD+ or NADP+ as acceptor
+                1.1.1.170  3beta-hydroxysteroid-4alpha-carboxylate 3-dehydrogenase (decarboxylating)
+                 YGL001C (ERG26)
 POSITION    VII:complement(495453..496502)
-MOTIF       Pfam: 3Beta_HSD Epimerase RmlD_sub_bind NAD_binding_4 NAD_binding_10 Polysacc_synt_2 adh_short KR NmrA Aminotran_5
-DBLINKS     NCBI-GI: 6321437
+MOTIF       Pfam: 3Beta_HSD Epimerase GDP_Man_Dehyd RmlD_sub_bind NAD_binding_4 NAD_binding_10 Polysacc_synt_2 KR Aminotran_5 NmrA
+DBLINKS     NCBI-ProteinID: NP_011514
             NCBI-GeneID: 852883
             SGD: S000002969
-            MIPS: YGL001C
             UniProt: P53199
 AASEQ       349
             MSKIDSVLIIGGSGFLGLHLIQQFFDINPKPDIHIFDVRDLPEKLSKQFTFNVDDIKFHK

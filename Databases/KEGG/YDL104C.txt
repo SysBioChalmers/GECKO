@@ -1,16 +1,28 @@
 ENTRY       YDL104C           CDS       T00005
 NAME        QRI7
-DEFINITION  Qri7p (EC:3.4.24.-)
-ORTHOLOGY   K01409  O-sialoglycoprotein endopeptidase [EC:3.4.24.57]
+DEFINITION  (RefSeq) putative N(6)-L-threonylcarbamoyladenine synthase
+ORTHOLOGY   K01409  N6-L-threonylcarbamoyladenine synthase [EC:2.3.1.234]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.3  Acyltransferases
+               2.3.1  Transferring groups other than aminoacyl groups
+                2.3.1.234  N6-L-threonylcarbamoyladenine synthase
+                 YDL104C (QRI7)
+            Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              tRNA modification factors
+               KEOPS/EKC complex
+                YDL104C (QRI7)
+             Prokaryotic Type
+                YDL104C (QRI7)
 POSITION    IV:complement(273653..274876)
 MOTIF       Pfam: Peptidase_M22 BcrAD_BadFG
-DBLINKS     NCBI-GI: 6320099
+DBLINKS     NCBI-ProteinID: NP_010179
             NCBI-GeneID: 851454
             SGD: S000002262
-            MIPS: YDL104C
             UniProt: P43122
-STRUCTURE   PDB: 4K25
+STRUCTURE   PDB: 4K25 3WUH
 AASEQ       407
             MISIKGTGRFLLDNYRIWQRRAFNRPIQLRKGYKVLAIETSCDDTCVSVLDRFSKSAAPN
             VLANLKDTLDSIDEGGIIPTKAHIHHQARIGPLTERALIESNAREGIDLICVTRGPGMPG

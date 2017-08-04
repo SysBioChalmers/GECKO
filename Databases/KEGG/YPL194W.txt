@@ -1,18 +1,27 @@
 ENTRY       YPL194W           CDS       T00005
 NAME        DDC1
-DEFINITION  Ddc1p
+DEFINITION  (RefSeq) Ddc1p
 ORTHOLOGY   K06663  DNA damage checkpoint protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
             sce04113  Meiosis - yeast
-CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
-            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YPL194W (DDC1)
+               04113 Meiosis - yeast
+                YPL194W (DDC1)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              Check point factors
+               Rad17-Mec3-Ddc1 complex
+                YPL194W (DDC1)
 POSITION    XVI:179277..181115
 MOTIF       Pfam: Rad9
-DBLINKS     NCBI-GI: 6325062
+DBLINKS     NCBI-ProteinID: NP_015130
             NCBI-GeneID: 855907
             SGD: S000006115
-            MIPS: YPL194W
             UniProt: Q08949
 AASEQ       612
             MSFKATITESGKQNIWFRAIYVLSTIQDDIKITVTTNELIAWSMNETDTTLCQVRFQKSF

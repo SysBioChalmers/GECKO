@@ -1,13 +1,12 @@
 ENTRY       YDR068W           CDS       T00005
 NAME        DOS2
-DEFINITION  Dos2p
+DEFINITION  (RefSeq) Dos2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:583713..584645
-MOTIF       Pfam: BSD DUF3328
-DBLINKS     NCBI-GI: 398365381
+MOTIF       Pfam: BSD DUF3153
+DBLINKS     NCBI-ProteinID: NP_010353
             NCBI-GeneID: 851640
             SGD: S000002475
-            MIPS: YDR068W
             UniProt: P54858
 AASEQ       310
             MEFFYEEQVACIEDDKISNSHTKETGSTENTENNELQSRDDKTNEAFQKLEEEVNKRYEK

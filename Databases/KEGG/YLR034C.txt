@@ -1,14 +1,17 @@
 ENTRY       YLR034C           CDS       T00005
 NAME        SMF3
-DEFINITION  putative divalent metal ion transporter SMF3
+DEFINITION  (RefSeq) putative divalent metal ion transporter SMF3
 ORTHOLOGY   K12346  metal iron transporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Other Transporters
+              Electrochemical potential-driven transporters [TC:2]
+               YLR034C (SMF3)
 POSITION    XII:complement(210512..211933)
-MOTIF       Pfam: Nramp FAM72
-DBLINKS     NCBI-GI: 6323062
+MOTIF       Pfam: Nramp
+DBLINKS     NCBI-ProteinID: NP_013134
             NCBI-GeneID: 850721
             SGD: S000004024
-            MIPS: YLR034C
             UniProt: Q12078
 AASEQ       473
             MRSYMQILQKFAKFIGPGILVSVAYMDPGNYATSVSGGAQYKYTLLFSIFISNIFAVLLQ

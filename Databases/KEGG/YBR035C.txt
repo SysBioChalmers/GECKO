@@ -1,17 +1,26 @@
 ENTRY       YBR035C           CDS       T00005
 NAME        PDX3
-DEFINITION  pyridoxamine-phosphate oxidase PDX3 (EC:1.4.3.5)
+DEFINITION  (RefSeq) pyridoxamine-phosphate oxidase PDX3
 ORTHOLOGY   K00275  pyridoxamine 5'-phosphate oxidase [EC:1.4.3.5]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00750  Vitamin B6 metabolism
             sce01100  Metabolic pathways
-CLASS       Metabolism; Metabolism of cofactors and vitamins; Vitamin B6 metabolism [PATH:sce00750]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Metabolism of cofactors and vitamins
+               00750 Vitamin B6 metabolism
+                YBR035C (PDX3)
+            Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.4  Acting on the CH-NH2 group of donors
+               1.4.3  With oxygen as acceptor
+                1.4.3.5  pyridoxal 5'-phosphate synthase
+                 YBR035C (PDX3)
 POSITION    II:complement(306269..306955)
-MOTIF       Pfam: PNPOx_C Pyridox_oxidase Pyridox_oxase_2 N6_Mtase
-DBLINKS     NCBI-GI: 6319509
+MOTIF       Pfam: PNP_phzG_C Putative_PNPOx Pyridox_oxase_2 KdpC
+DBLINKS     NCBI-ProteinID: NP_009591
             NCBI-GeneID: 852323
             SGD: S000000239
-            MIPS: YBR035C
             UniProt: P38075
 STRUCTURE   PDB: 1CI0
 AASEQ       228

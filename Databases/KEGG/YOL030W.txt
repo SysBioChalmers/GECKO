@@ -1,13 +1,12 @@
 ENTRY       YOL030W           CDS       T00005
 NAME        GAS5
-DEFINITION  Gas5p (EC:2.4.1.-)
+DEFINITION  (RefSeq) 1,3-beta-glucanosyltransferase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:268187..269641
-MOTIF       Pfam: Glyco_hydro_72 Glyco_hydro_2_C Cellulase Nop14 DUF4614
-DBLINKS     NCBI-GI: 6324543
+MOTIF       Pfam: Glyco_hydro_72 Cellulase Nop14 SOG2 Peroxin-3 SPX Macoilin BUD22
+DBLINKS     NCBI-ProteinID: NP_014612
             NCBI-GeneID: 854127
             SGD: S000005390
-            MIPS: YOL030W
             UniProt: Q08193
 AASEQ       484
             MLLRSLTSAFVLSAGLAQAASSSNSSTPSIEIKGNAFFNSESGERFYIRGVDYQPGGSSN

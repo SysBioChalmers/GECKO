@@ -1,14 +1,29 @@
 ENTRY       YLL010C           CDS       T00005
 NAME        PSR1
-DEFINITION  Psr1p (EC:3.1.3.-)
+DEFINITION  (RefSeq) phosphatase
 ORTHOLOGY   K15731  carboxy-terminal domain RNA polymerase II polypeptide A small phosphatase [EC:3.1.3.16]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.3  Phosphoric-monoester hydrolases
+                3.1.3.16  protein-serine/threonine phosphatase
+                 YLL010C (PSR1)
+            Protein phosphatases and associated proteins [BR:sce01009]
+             HAD phosphatases
+              Fcp/Scp phosphatases
+               YLL010C (PSR1)
+            Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Other transcription-related factors
+                Others
+                 YLL010C (PSR1)
 POSITION    XII:complement(129330..130613)
-MOTIF       Pfam: NIF PPC
-DBLINKS     NCBI-GI: 6323019
+MOTIF       Pfam: NIF HAD PPC
+DBLINKS     NCBI-ProteinID: NP_013091
             NCBI-GeneID: 850650
             SGD: S000003933
-            MIPS: YLL010C
             UniProt: Q07800
 AASEQ       427
             MGFISSILCCSSETTQSNSNSAYRQQQSSSLNKNRSVKHSNTKSRTRGVHQTNSPPSKTN

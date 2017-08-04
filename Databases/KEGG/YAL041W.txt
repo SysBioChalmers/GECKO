@@ -1,16 +1,19 @@
 ENTRY       YAL041W           CDS       T00005
 NAME        CDC24, CLS4
-DEFINITION  Cdc24p
+DEFINITION  (RefSeq) Rho family guanine nucleotide exchange factor CDC24
 ORTHOLOGY   K11236  cell division control protein 24
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04011  MAPK signaling pathway - yeast
-CLASS       Environmental Information Processing; Signal transduction; MAPK signaling pathway - yeast [PATH:sce04011]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YAL041W (CDC24)
 POSITION    I:62840..65404
 MOTIF       Pfam: CDC24 RhoGEF PH_10 PB1
-DBLINKS     NCBI-GI: 6319276
+DBLINKS     NCBI-ProteinID: NP_009359
             NCBI-GeneID: 851190
             SGD: S000000039
-            MIPS: YAL041W
             UniProt: P11433
 STRUCTURE   PDB: 2KFK 2KFJ 1TZ1 1Q1O 1PQS
 AASEQ       854

@@ -1,13 +1,12 @@
 ENTRY       YHR154W           CDS       T00005
 NAME        RTT107, ESC4
-DEFINITION  Rtt107p
+DEFINITION  (RefSeq) Rtt107p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VIII:402966..406178
-MOTIF       Pfam: BRCT PTCB-BRCT
-DBLINKS     NCBI-GI: 6321948
+MOTIF       Pfam: RTT107_BRCT_6 BRCT RTT107_BRCT_5 PTCB-BRCT
+DBLINKS     NCBI-ProteinID: NP_012024
             NCBI-GeneID: 856559
             SGD: S000001197
-            MIPS: YHR154W
             UniProt: P38850
 STRUCTURE   PDB: 3T7K 3T7J 3T7I
 AASEQ       1070

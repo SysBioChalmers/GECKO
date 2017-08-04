@@ -1,13 +1,12 @@
 ENTRY       YBR140C           CDS       T00005
 NAME        IRA1, GLC1, PPD1
-DEFINITION  Ira1p
+DEFINITION  (RefSeq) GTPase-activating protein IRA1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    II:complement(517350..526628)
 MOTIF       Pfam: RasGAP
-DBLINKS     NCBI-GI: 398365033
+DBLINKS     NCBI-ProteinID: NP_009698
             NCBI-GeneID: 852437
             SGD: S000000344
-            MIPS: YBR140C
             UniProt: P18963
 AASEQ       3092
             MNQSDPQDKKNFPMEYSLTKHLFFDRLLLVLPIESNLKTYADVEADSVFNSCRSIILNIA

@@ -1,14 +1,29 @@
 ENTRY       YIL015W           CDS       T00005
 NAME        BAR1, SST1
-DEFINITION  Bar1p (EC:3.4.23.35)
+DEFINITION  (RefSeq) aspartyl protease BAR1
 ORTHOLOGY   K01383  barrierpepsin [EC:3.4.23.35]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04011  MAPK signaling pathway - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YIL015W (BAR1)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.4  Acting on peptide bonds (peptidases)
+               3.4.23  Aspartic endopeptidases
+                3.4.23.35  barrierpepsin
+                 YIL015W (BAR1)
+            Peptidases [BR:sce01002]
+             Aspartic Peptidases
+              Family A1: pepsin family
+               YIL015W (BAR1)
 POSITION    IX:322342..324105
 MOTIF       Pfam: Asp TAXi_N TAXi_C
-DBLINKS     NCBI-GI: 6322174
+DBLINKS     NCBI-ProteinID: NP_012249
             NCBI-GeneID: 854797
             SGD: S000001277
-            MIPS: YIL015W
             UniProt: P12630
 AASEQ       587
             MSAINHLCLKLILASFAIINTITALTNDGTGHLEFLLQHEEEMYYATTLDIGTPSQSLTV

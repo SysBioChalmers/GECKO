@@ -1,17 +1,36 @@
 ENTRY       YPL218W           CDS       T00005
 NAME        SAR1
-DEFINITION  Sar1p (EC:3.6.5.-)
+DEFINITION  (RefSeq) Arf family GTPase SAR1
 ORTHOLOGY   K07953  GTP-binding protein SAR1 [EC:3.6.5.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04141  Protein processing in endoplasmic reticulum
 MODULE      sce_M00404  COPII complex
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Protein processing in endoplasmic reticulum [PATH:sce04141]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04141 Protein processing in endoplasmic reticulum
+                YPL218W (SAR1)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.5  Acting on GTP to facilitate cellular and subcellular movement
+                3.6.5.-  
+                 YPL218W (SAR1)
+            Membrane trafficking [BR:sce04131]
+             Endoplasmic reticulum (ER) - Golgi transport
+              Forward pathways
+               Coat protein complex II (COP-II)
+                YPL218W (SAR1)
+            GTP-binding proteins [BR:sce04031]
+             Small (Monomeric) G-proteins
+              Arf/Sar Family
+               Sar
+                YPL218W (SAR1)
 POSITION    XVI:join(138698..138725,138865..139409)
-MOTIF       Pfam: Arf G-alpha Miro Ras SRPRB MMR_HSR1 Gtr1_RagA GTP_EFTU PduV-EutP Tegument_dsDNA
-DBLINKS     NCBI-GI: 6325038
+MOTIF       Pfam: Arf G-alpha Ras SRPRB Roc MMR_HSR1 Gtr1_RagA GTP_EFTU PduV-EutP
+DBLINKS     NCBI-ProteinID: NP_015106
             NCBI-GeneID: 855883
             SGD: S000006139
-            MIPS: YPL218W
             UniProt: P20606
 STRUCTURE   PDB: 2QTV 1M2O 4BZI
 AASEQ       190

@@ -1,16 +1,31 @@
 ENTRY       YCR014C           CDS       T00005
 NAME        POL4
-DEFINITION  Pol4p (EC:2.7.7.7)
+DEFINITION  (RefSeq) DNA-directed DNA polymerase IV
 ORTHOLOGY   K10981  DNA polymerase IV [EC:2.7.7.7]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03450  Non-homologous end-joining
-CLASS       Genetic Information Processing; Replication and repair; Non-homologous end-joining [PATH:sce03450]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Replication and repair
+               03450 Non-homologous end-joining
+                YCR014C (POL4)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.7  Nucleotidyltransferases
+                2.7.7.7  DNA-directed DNA polymerase
+                 YCR014C (POL4)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              DSBR (double strand breaks repair)
+               NHEJ (non-homologous end-joining)
+                X-family DNA polymerases
+                 YCR014C (POL4)
 POSITION    III:complement(139185..140933)
-MOTIF       Pfam: DNA_pol_B_thumb HHH_8 DNA_pol_B_palm DNA_pol_lambd_f
-DBLINKS     NCBI-GI: 10383782
+MOTIF       Pfam: DNA_pol_B_thumb HHH_8 DNA_pol_B_palm DNA_pol_lambd_f Thioredoxin_4
+DBLINKS     NCBI-ProteinID: NP_009940
             NCBI-GeneID: 850372
             SGD: S000000607
-            MIPS: YCR014C
             UniProt: P25615
 AASEQ       582
             MSLKGKFFAFLPNPNTSSNKFFKSILEKKGATIVSSIQNCLQSSRKEVVILIEDSFVDSD

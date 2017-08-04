@@ -1,14 +1,25 @@
 ENTRY       YBR223C           CDS       T00005
 NAME        TDP1
-DEFINITION  tyrosyl-DNA phosphodiesterase 1 (EC:3.1.4.-)
+DEFINITION  (RefSeq) tyrosyl-DNA phosphodiesterase 1
 ORTHOLOGY   K10862  tyrosyl-DNA phosphodiesterase 1 [EC:3.1.4.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.4  Phosphoric-diester hydrolases
+                3.1.4.-  
+                 YBR223C (TDP1)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              SSBR (single strand breaks repair)
+               BER (base exicision repair)
+                Other BER factors
+                 YBR223C (TDP1)
 POSITION    II:complement(668663..670297)
 MOTIF       Pfam: Tyr-DNA_phospho
-DBLINKS     NCBI-GI: 398365591
+DBLINKS     NCBI-ProteinID: NP_009782
             NCBI-GeneID: 852525
             SGD: S000000427
-            MIPS: YBR223C
             UniProt: P38319
 STRUCTURE   PDB: 3SQ7 1Q32 3SQ8 3SQ5 3SQ3
 AASEQ       544

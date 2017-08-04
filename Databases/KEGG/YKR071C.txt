@@ -1,13 +1,12 @@
 ENTRY       YKR071C           CDS       T00005
 NAME        DRE2
-DEFINITION  Dre2p
+DEFINITION  (RefSeq) electron carrier DRE2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XI:complement(574934..575980)
-MOTIF       Pfam: CIAPIN1 CAV_VP3
-DBLINKS     NCBI-GI: 398365343
+MOTIF       Pfam: CIAPIN1 DRE2_N
+DBLINKS     NCBI-ProteinID: NP_012997
             NCBI-GeneID: 853945
             SGD: S000001779
-            MIPS: YKR071C
             UniProt: P36152
 STRUCTURE   PDB: 2KM1
 AASEQ       348

@@ -1,16 +1,23 @@
 ENTRY       YML105C           CDS       T00005
 NAME        SEC65
-DEFINITION  Sec65p
+DEFINITION  (RefSeq) RNA-binding signal recognition particle subunit SEC65
 ORTHOLOGY   K03105  signal recognition particle subunit SRP19
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03060  Protein export
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Protein export [PATH:sce03060]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               03060 Protein export
+                YML105C (SEC65)
+            Secretion system [BR:sce02044]
+             Sec (secretion) system
+              Eukaryotic Sec-SRP protein
+               YML105C (SEC65)
 POSITION    XIII:complement(57866..58687)
 MOTIF       Pfam: SRP19
-DBLINKS     NCBI-GI: 6323531
+DBLINKS     NCBI-ProteinID: NP_013602
             NCBI-GeneID: 854866
             SGD: S000004573
-            MIPS: YML105C
             UniProt: P29478
 AASEQ       273
             MPRLEEIDDFNDIDDLDMELAELDPSLRTPIAPKITPKVVRSQDQENPAFLPGTNNNSNS

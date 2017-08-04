@@ -1,12 +1,12 @@
 ENTRY       YHR080C           CDS       T00005
-DEFINITION  hypothetical protein
+NAME        LAM4, LTC3
+DEFINITION  (RefSeq) Lam4p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VIII:complement(262801..266838)
-MOTIF       Pfam: GRAM
-DBLINKS     NCBI-GI: 6321872
+MOTIF       Pfam: DUF4782 GRAM
+DBLINKS     NCBI-ProteinID: NP_011948
             NCBI-GeneID: 856480
             SGD: S000001122
-            MIPS: YHR080C
             UniProt: P38800
 AASEQ       1345
             MTRDSKKKHHWGTAFLRTIGVKRKHKKDRNFLNNTTGENVSTTASAERFRRVGGNPDIPS

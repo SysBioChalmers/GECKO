@@ -1,13 +1,12 @@
 ENTRY       YMR222C           CDS       T00005
 NAME        FSH2
-DEFINITION  Fsh2p (EC:3.1.-.-)
+DEFINITION  (RefSeq) putative serine hydrolase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:complement(715638..716309)
-MOTIF       Pfam: FSH1 Abhydrolase_5 Abhydrolase_6 Abhydrolase_2 Esterase_phd BAAT_C
-DBLINKS     NCBI-GI: 6323878
+MOTIF       Pfam: FSH1 Abhydrolase_2 Hydrolase_4 Peptidase_S15 Esterase_phd BAAT_C
+DBLINKS     NCBI-ProteinID: NP_013949
             NCBI-GeneID: 855262
             SGD: S000004835
-            MIPS: YMR222C
             UniProt: Q05015
 AASEQ       223
             MTKNVLMLHGLAQSGDYFASKTKGFRAEMEKLGYKLYYPTAPNEFPPADVPDFLGEVIAD

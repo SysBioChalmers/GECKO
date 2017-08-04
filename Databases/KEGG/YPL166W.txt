@@ -1,12 +1,18 @@
 ENTRY       YPL166W           CDS       T00005
 NAME        ATG29
-DEFINITION  Atg29p
+DEFINITION  (RefSeq) Atg29p
+ORTHOLOGY   K21143  autophagy-related protein 29
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04138  Autophagy - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04138 Autophagy - yeast
+                YPL166W (ATG29)
 POSITION    XVI:237338..237979
-DBLINKS     NCBI-GI: 6325091
+DBLINKS     NCBI-ProteinID: NP_015159
             NCBI-GeneID: 855937
             SGD: S000006087
-            MIPS: YPL166W
             UniProt: Q12092
 AASEQ       213
             MIMNSTNTVVYIKVKGRRPQGFLDPPKFEWNGTKERQLWTMVSNLNYSQDQIDWQNLSKI

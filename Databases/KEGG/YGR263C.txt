@@ -1,13 +1,12 @@
 ENTRY       YGR263C           CDS       T00005
 NAME        SAY1
-DEFINITION  Say1p (EC:3.1.1.-)
+DEFINITION  (RefSeq) steryl deacetylase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:complement(1017967..1019241)
-MOTIF       Pfam: DUF2424 Abhydrolase_3 Abhydrolase_6 Abhydrolase_5 Esterase
-DBLINKS     NCBI-GI: 398366343
+MOTIF       Pfam: Say1_Mug180 Abhydrolase_3 Esterase
+DBLINKS     NCBI-ProteinID: NP_011779
             NCBI-GeneID: 853179
             SGD: S000003495
-            MIPS: YGR263C
             UniProt: P53324
 AASEQ       424
             MAANSGLDSKVEYYRLQENEIISAVSSEDADQNDAGFRLSTIHLHLFHGLKFAALLFTVV

@@ -1,13 +1,12 @@
 ENTRY       YDR463W           CDS       T00005
 NAME        STP1, BAP1, SSY2
-DEFINITION  Stp1p
+DEFINITION  (RefSeq) Stp1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:1386816..1388375
-MOTIF       Pfam: zf-C2H2 Prp31_C zf-C2H2_4 zf-H2C2_2 zf-BED zf-H2C2_5
-DBLINKS     NCBI-GI: 398366619
+MOTIF       Pfam: zf-C2H2_4 zf-C2H2 zf-H2C2_2
+DBLINKS     NCBI-ProteinID: NP_010751
             NCBI-GeneID: 852074
             SGD: S000002871
-            MIPS: YDR463W
             UniProt: Q00947
 AASEQ       519
             MPSTTLLFPQKHIRAIPGKIYAFFRELVSGVIISKPDLSHHYSCENATKEEGKDAADEEK

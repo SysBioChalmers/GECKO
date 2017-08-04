@@ -1,16 +1,28 @@
 ENTRY       YBL037W           CDS       T00005
 NAME        APL3
-DEFINITION  Apl3p
+DEFINITION  (RefSeq) Apl3p
 ORTHOLOGY   K11824  AP-2 complex subunit alpha
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04144  Endocytosis
-CLASS       Cellular Processes; Transport and catabolism; Endocytosis [PATH:sce04144]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04144 Endocytosis
+                YBL037W (APL3)
+            Membrane trafficking [BR:sce04131]
+             Endocytosis
+              Clathrin-mediated endocytosis
+               AP-2 complex
+                YBL037W (APL3)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of colorectal cancer cells
+               YBL037W (APL3)
 POSITION    II:147209..150286
 MOTIF       Pfam: Adaptin_N Alpha_adaptinC2 Alpha_adaptin_C
-DBLINKS     NCBI-GI: 6319434
+DBLINKS     NCBI-ProteinID: NP_009516
             NCBI-GeneID: 852243
             SGD: S000000133
-            MIPS: YBL037W
             UniProt: P38065
 AASEQ       1025
             MDRKKTLINSSVSNNNSTIKGLQLFIADLRSAQQAQEQEKRIQSEIVKIKQHFDAAKKKQ

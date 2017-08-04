@@ -1,20 +1,36 @@
 ENTRY       YDR300C           CDS       T00005
 NAME        PRO1
-DEFINITION  glutamate 5-kinase (EC:2.7.2.11)
+DEFINITION  (RefSeq) glutamate 5-kinase
 ORTHOLOGY   K00931  glutamate 5-kinase [EC:2.7.2.11]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00330  Arginine and proline metabolism
+            sce00332  Carbapenem biosynthesis
             sce01100  Metabolic pathways
+            sce01130  Biosynthesis of antibiotics
             sce01230  Biosynthesis of amino acids
 MODULE      sce_M00015  Proline biosynthesis, glutamate => proline
-CLASS       Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
-            Metabolism; Amino acid metabolism; Arginine and proline metabolism [PATH:sce00330]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01230 Biosynthesis of amino acids
+                YDR300C (PRO1)
+              Amino acid metabolism
+               00330 Arginine and proline metabolism
+                YDR300C (PRO1)
+              Biosynthesis of other secondary metabolites
+               00332 Carbapenem biosynthesis
+                YDR300C (PRO1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.2  Phosphotransferases with a carboxy group as acceptor
+                2.7.2.11  glutamate 5-kinase
+                 YDR300C (PRO1)
 POSITION    IV:complement(1061505..1062791)
 MOTIF       Pfam: AA_kinase PUA
-DBLINKS     NCBI-GI: 398366455
+DBLINKS     NCBI-ProteinID: NP_010586
             NCBI-GeneID: 851894
             SGD: S000002708
-            MIPS: YDR300C
             UniProt: P32264
 AASEQ       428
             MKDANESKSYTIVIKLGSSSLVDEKTKEPKLAIMSLIVETVVKLRRMGHKVIIVSSGGIA

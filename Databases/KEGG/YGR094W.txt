@@ -1,17 +1,37 @@
 ENTRY       YGR094W           CDS       T00005
 NAME        VAS1
-DEFINITION  valine--tRNA ligase (EC:6.1.1.9)
+DEFINITION  (RefSeq) valine--tRNA ligase
 ORTHOLOGY   K01873  valyl-tRNA synthetase [EC:6.1.1.9]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00970  Aminoacyl-tRNA biosynthesis
 MODULE      sce_M00359  Aminoacyl-tRNA biosynthesis, eukaryotes
-CLASS       Genetic Information Processing; Translation; Aminoacyl-tRNA biosynthesis [PATH:sce00970]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               00970 Aminoacyl-tRNA biosynthesis
+                YGR094W (VAS1)
+            Enzymes [BR:sce01000]
+             6. Ligases
+              6.1  Forming carbon-oxygen bonds
+               6.1.1  Ligases forming aminoacyl-tRNA and related compounds
+                6.1.1.9  valine---tRNA ligase
+                 YGR094W (VAS1)
+            Amino acid related enzymes [BR:sce01007]
+             Aminoacyl-tRNA synthetase
+              Class I (U)
+               YGR094W (VAS1)
+            Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              Aminoacyl-tRNA synthetases (AARSs)
+               Other AARSs
+                YGR094W (VAS1)
+             Prokaryotic Type
+                YGR094W (VAS1)
 POSITION    VII:672186..675500
-MOTIF       Pfam: tRNA-synt_1 Anticodon_1 tRNA-synt_1g tRNA-synt_1_2 Val_tRNA-synt_C tRNA-synt_1e
-DBLINKS     NCBI-GI: 6321531
+MOTIF       Pfam: tRNA-synt_1 Anticodon_1 tRNA-synt_1g tRNA-synt_1_2 Val_tRNA-synt_C tRNA-synt_1e Lzipper-MIP1 DUF3807 tRNA-synt_1b
+DBLINKS     NCBI-ProteinID: NP_011608
             NCBI-GeneID: 852986
             SGD: S000003326
-            MIPS: YGR094W
             UniProt: P07806
 AASEQ       1104
             MNKWLNTLSKTFTFRLLNCHYRRSLPLCQNFSLKKSLTHNQVRFFKMSDLDNLPPVDPKT

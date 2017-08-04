@@ -1,14 +1,17 @@
 ENTRY       YOL130W           CDS       T00005
 NAME        ALR1, SWC3
-DEFINITION  Mg(2+) transporter ALR1
+DEFINITION  (RefSeq) Mg(2+) transporter ALR1
 ORTHOLOGY   K16073  magnesium transporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Other Transporters
+              Pores ion channels [TC:1]
+               YOL130W (ALR1)
 POSITION    XV:74400..76979
-MOTIF       Pfam: CorA DUF2231 DUF4199 Cu_amine_oxidN1 HAMP
-DBLINKS     NCBI-GI: 6324442
+MOTIF       Pfam: CorA
+DBLINKS     NCBI-ProteinID: NP_014511
             NCBI-GeneID: 853990
             SGD: S000005490
-            MIPS: YOL130W
             UniProt: Q08269
 AASEQ       859
             MSSSSSSSESSPNLSRSNSLANTMVSMKTEDHTGLYDHRQHPDSLPVRHQPPTLKNKEIA

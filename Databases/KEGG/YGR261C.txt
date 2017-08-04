@@ -1,13 +1,20 @@
 ENTRY       YGR261C           CDS       T00005
 NAME        APL6, YKS5
-DEFINITION  Apl6p
+DEFINITION  (RefSeq) Apl6p
+ORTHOLOGY   K12397  AP-3 complex subunit beta
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endosome - Lysosome transport
+              Others
+               AP-3 complex
+                YGR261C (APL6)
+             Endosome - Golgi transport
+                YGR261C (APL6)
 POSITION    VII:complement(1014321..1016750)
-MOTIF       Pfam: Adaptin_N HEAT_2 HEAT Cnd1
-DBLINKS     NCBI-GI: 398366337
+MOTIF       Pfam: Adaptin_N HEAT_2 Cnd1 HEAT UNC45-central Cohesin_HEAT THAP
+DBLINKS     NCBI-ProteinID: NP_011777
             NCBI-GeneID: 853177
             SGD: S000003493
-            MIPS: YGR261C
             UniProt: P46682
 AASEQ       809
             MVDSIHRIASALDTAKVITREAAAVATSKLGESSYTYYSQNINPQQLVTLLNSRNSREVR

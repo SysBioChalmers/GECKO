@@ -1,14 +1,20 @@
 ENTRY       YPL233W           CDS       T00005
 NAME        NSL1
-DEFINITION  Nsl1p
+DEFINITION  (RefSeq) MIND complex subunit NSL1
 ORTHOLOGY   K11561  kinetochor protein Mis14/NSL1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centromeric chromatin formation proteins
+               Kinetochore proteins
+                NMS complex
+                 MIND kinetochore complex
+                  YPL233W (NSL1)
 POSITION    XVI:106172..106822
-MOTIF       Pfam: Mis14 Gemini_AL1_M
-DBLINKS     NCBI-GI: 6325023
+MOTIF       Pfam: Mis14
+DBLINKS     NCBI-ProteinID: NP_015091
             NCBI-GeneID: 855843
             SGD: S000006154
-            MIPS: YPL233W
             UniProt: Q12143
 AASEQ       216
             MSQGQSKKLDVTVEQLRSIYHQFHDILEEKTDLHLPKKEYDDDAVRREVQIQLQEFLLSA

@@ -1,14 +1,13 @@
 ENTRY       YNL191W           CDS       T00005
 NAME        DUG3
-DEFINITION  glutamine amidotransferase subunit DUG3
-ORTHOLOGY   K07008  glutamine amidotransferase
+DEFINITION  (RefSeq) glutamine amidotransferase subunit DUG3
+ORTHOLOGY   K18802  glutamine amidotransferase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIV:280432..281505
-MOTIF       Pfam: GATase_4 GATase_6 GATase_2 GATase_7
-DBLINKS     NCBI-GI: 6324138
+MOTIF       Pfam: GATase_4 GATase_6 GATase_7
+DBLINKS     NCBI-ProteinID: NP_014208
             NCBI-GeneID: 855530
             SGD: S000005135
-            MIPS: YNL191W
             UniProt: P53871
 AASEQ       357
             MCRFLIFKGKQPIRLSHLLTRPAHSIINQSFDSRLRLDRRRPMNGDGFGVAYYPLDTELS

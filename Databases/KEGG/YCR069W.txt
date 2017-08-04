@@ -1,14 +1,19 @@
 ENTRY       YCR069W           CDS       T00005
 NAME        CPR4, CYP4, SCC3, YCR070W
-DEFINITION  peptidylprolyl isomerase family protein CPR4 (EC:5.2.1.8)
+DEFINITION  (RefSeq) peptidylprolyl isomerase family protein CPR4
 ORTHOLOGY   K01802  peptidylprolyl isomerase [EC:5.2.1.8]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             5. Isomerases
+              5.2  cis-trans-Isomerases
+               5.2.1  cis-trans Isomerases (only sub-subclass identified to date)
+                5.2.1.8  peptidylprolyl isomerase
+                 YCR069W (CPR4)
 POSITION    III:239055..240011
 MOTIF       Pfam: Pro_isomerase
-DBLINKS     NCBI-GI: 6319914
+DBLINKS     NCBI-ProteinID: NP_009995
             NCBI-GeneID: 850433
             SGD: S000000665
-            MIPS: YCR069W
             UniProt: P25334
 AASEQ       318
             MWLKSLLLCLYSLVLCQVHAAPSSGKQITSKDVDLQKKYEPSPPATHRGIITIEYFDPVS

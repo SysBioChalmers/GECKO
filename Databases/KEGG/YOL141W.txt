@@ -1,14 +1,28 @@
 ENTRY       YOL141W           CDS       T00005
 NAME        PPM2, TYW4
-DEFINITION  Ppm2p (EC:2.1.1.-)
-ORTHOLOGY   K15451  tRNA wybutosine-synthesizing protein 4 [EC:2.1.1.-]
+DEFINITION  (RefSeq) tRNA methyltransferase PPM2
+ORTHOLOGY   K15451  tRNA wybutosine-synthesizing protein 4 [EC:2.1.1.290 2.3.1.231]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.1  Transferring one-carbon groups
+               2.1.1  Methyltransferases
+                2.1.1.290  tRNAPhe [7-(3-amino-3-carboxypropyl)wyosine37-O]-methyltransferase
+                 YOL141W (PPM2)
+              2.3  Acyltransferases
+               2.3.1  Transferring groups other than aminoacyl groups
+                2.3.1.231  tRNAPhe {7-[3-amino-3-(methoxycarbonyl)propyl]wyosine37-N}-methoxycarbonyltransferase
+                 YOL141W (PPM2)
+            Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              tRNA modification factors
+               Methyltransferases
+                YOL141W (PPM2)
 POSITION    XV:56452..58539
-MOTIF       Pfam: LCM Kelch_4 Kelch_6 Kelch_5 Kelch_3 Kelch_2 Kelch_1
-DBLINKS     NCBI-GI: 330443721
+MOTIF       Pfam: LCM Kelch_4 Kelch_6 Kelch_1 Kelch_2 Kelch_5 FAM193_C
+DBLINKS     NCBI-ProteinID: NP_014500
             NCBI-GeneID: 854024
             SGD: S000005501
-            MIPS: YOL141W
             UniProt: Q08282
 STRUCTURE   PDB: 2ZWA 2ZW9 2ZZK
 AASEQ       695

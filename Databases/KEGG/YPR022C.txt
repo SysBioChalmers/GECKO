@@ -1,12 +1,12 @@
 ENTRY       YPR022C           CDS       T00005
-DEFINITION  hypothetical protein
+NAME        SDD4
+DEFINITION  (RefSeq) Sdd4p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:complement(603911..607312)
-MOTIF       Pfam: Fungal_trans zf-C2H2_4 zf-C2H2
-DBLINKS     NCBI-GI: 6325279
+MOTIF       Pfam: Fungal_trans zf-C2H2_4 zf-C2H2 zf-C2H2_8
+DBLINKS     NCBI-ProteinID: NP_015347
             NCBI-GeneID: 856133
             SGD: S000006226
-            MIPS: YPR022C
             UniProt: Q12139
 AASEQ       1133
             MHGKELAGRLRKRENDNDLSPNSSSSPAERFRCPHPECNKTFSRQEHLSRHKLNHWPKEI

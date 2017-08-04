@@ -1,12 +1,11 @@
 ENTRY       YPR172W           CDS       T00005
-DEFINITION  pyridoxal 5'-phosphate synthase (EC:1.4.3.5)
+DEFINITION  (RefSeq) pyridoxal 5'-phosphate synthase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:885796..886398
-MOTIF       Pfam: Pyridox_oxidase L_biotic_typeA
-DBLINKS     NCBI-GI: 6325430
+MOTIF       Pfam: Putative_PNPOx Pyrid_ox_like L_biotic_typeA
+DBLINKS     NCBI-ProteinID: NP_015498
             NCBI-GeneID: 856302
             SGD: S000006376
-            MIPS: YPR172W
             UniProt: Q06608
 AASEQ       200
             MAWTSTLPAHLLNLIKNSKYVHVATCSKDCIPSVALMNYIYVPGEKLFGQTDNKNDYIIF

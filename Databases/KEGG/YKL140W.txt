@@ -1,14 +1,25 @@
 ENTRY       YKL140W           CDS       T00005
 NAME        TGL1, YKL5
-DEFINITION  Tgl1p (EC:3.1.1.13)
-ORTHOLOGY   K01066  esterase / lipase [EC:3.1.1.-]
+DEFINITION  (RefSeq) Tgl1p
+ORTHOLOGY   K01052  lysosomal acid lipase/cholesteryl ester hydrolase [EC:3.1.1.13]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00100  Steroid biosynthesis
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Lipid metabolism
+               00100 Steroid biosynthesis
+                YKL140W (TGL1)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.1  Carboxylic-ester hydrolases
+                3.1.1.13  sterol esterase
+                 YKL140W (TGL1)
 POSITION    XI:180779..182425
-MOTIF       Pfam: Abhydrolase_1 Abhydro_lipase Abhydrolase_6 Abhydrolase_5 FSH1 Ndr
-DBLINKS     NCBI-GI: 6322709
+MOTIF       Pfam: Abhydrolase_1 Abhydro_lipase Hydrolase_4 FSH1 Abhydrolase_2 Ndr RseA_C
+DBLINKS     NCBI-ProteinID: NP_012782
             NCBI-GeneID: 853717
             SGD: S000001623
-            MIPS: YKL140W
             UniProt: P34163
 AASEQ       548
             MYFPFLGRLSITDYIIVVLVYIESIISSVLKLIPQPMINLFEWLINFSTSSDDNTIEEKL

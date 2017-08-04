@@ -1,14 +1,19 @@
 ENTRY       YBR028C           CDS       T00005
 NAME        YPK3
-DEFINITION  Ypk3p (EC:2.7.11.1)
+DEFINITION  (RefSeq) putative protein kinase YPK3
 ORTHOLOGY   K08286  protein-serine/threonine kinase [EC:2.7.11.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.11  Protein-serine/threonine kinases
+                2.7.11.-  
+                 YBR028C (YPK3)
 POSITION    II:complement(294425..296002)
 MOTIF       Pfam: Pkinase Pkinase_Tyr Pkinase_C Kinase-like
-DBLINKS     NCBI-GI: 6319502
+DBLINKS     NCBI-ProteinID: NP_009584
             NCBI-GeneID: 852316
             SGD: S000000232
-            MIPS: YBR028C
             UniProt: P38070
 AASEQ       525
             MIFSLDEELHRVSLDDKKNDIKVDYSSAIYNDINHEQGSSITYEESINHLSVHSNAIPLN

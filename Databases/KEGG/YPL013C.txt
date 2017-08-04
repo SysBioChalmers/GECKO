@@ -1,16 +1,31 @@
 ENTRY       YPL013C           CDS       T00005
 NAME        MRPS16
-DEFINITION  mitochondrial 37S ribosomal protein MRPS16
+DEFINITION  (RefSeq) mitochondrial 37S ribosomal protein MRPS16
 ORTHOLOGY   K02959  small subunit ribosomal protein S16
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03010  Ribosome
-CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03010 Ribosome
+                YPL013C (MRPS16)
+            Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Mitochondria/ Chloroplast
+               Small subunit
+                YPL013C (MRPS16)
+              Bacteria
+                YPL013C (MRPS16)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial DNA transcription, translation, and replication factors
+              Mitochondrial transcription and translation factors
+               Other mitochondrial DNA transcription and translation factors
+                YPL013C (MRPS16)
 POSITION    XVI:complement(528985..529350)
 MOTIF       Pfam: Ribosomal_S16 PDR_assoc
-DBLINKS     NCBI-GI: 6325244
+DBLINKS     NCBI-ProteinID: NP_015312
             NCBI-GeneID: 856094
             SGD: S000005934
-            MIPS: YPL013C
             UniProt: Q02608
 AASEQ       121
             MTCGLVRIRLARFGRKNSPVYNIVVANSRKARDAKPIEVLGTYVPVPSPVTKRELKRGVV

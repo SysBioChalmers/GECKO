@@ -1,18 +1,29 @@
 ENTRY       YKL029C           CDS       T00005
 NAME        MAE1
-DEFINITION  malate dehydrogenase (oxaloacetate-decarboxylating) (EC:1.1.1.38)
+DEFINITION  (RefSeq) malate dehydrogenase (oxaloacetate-decarboxylating)
 ORTHOLOGY   K00027  malate dehydrogenase (oxaloacetate-decarboxylating) [EC:1.1.1.38]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00620  Pyruvate metabolism
             sce01200  Carbon metabolism
-CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
-            Metabolism; Carbohydrate metabolism; Pyruvate metabolism [PATH:sce00620]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01200 Carbon metabolism
+                YKL029C (MAE1)
+              Carbohydrate metabolism
+               00620 Pyruvate metabolism
+                YKL029C (MAE1)
+            Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.1  Acting on the CH-OH group of donors
+               1.1.1  With NAD+ or NADP+ as acceptor
+                1.1.1.38  malate dehydrogenase (oxaloacetate-decarboxylating)
+                 YKL029C (MAE1)
 POSITION    XI:complement(382716..384725)
 MOTIF       Pfam: Malic_M malic
-DBLINKS     NCBI-GI: 6322823
+DBLINKS     NCBI-ProteinID: NP_012896
             NCBI-GeneID: 853839
             SGD: S000001512
-            MIPS: YKL029C
             UniProt: P36013
 AASEQ       669
             MLRTRLSVSVAARSQLTRSLTASRTAPLRRWPIQQSRLYSSNTRSHKATTTRENTFQKPY

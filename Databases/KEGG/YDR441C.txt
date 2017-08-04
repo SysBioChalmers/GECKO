@@ -1,17 +1,30 @@
 ENTRY       YDR441C           CDS       T00005
 NAME        APT2
-DEFINITION  adenine phosphoribosyltransferase APT2 (EC:2.4.2.7)
+DEFINITION  (RefSeq) adenine phosphoribosyltransferase APT2
 ORTHOLOGY   K00759  adenine phosphoribosyltransferase [EC:2.4.2.7]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00230  Purine metabolism
             sce01100  Metabolic pathways
-CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Nucleotide metabolism
+               00230 Purine metabolism
+                YDR441C (APT2)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.4  Glycosyltransferases
+               2.4.2  Pentosyltransferases
+                2.4.2.7  adenine phosphoribosyltransferase
+                 YDR441C (APT2)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of other body fluids (saliva and urine)
+               YDR441C (APT2)
 POSITION    IV:complement(1344517..1345062)
 MOTIF       Pfam: Pribosyltran UPRTase PRTase_2
-DBLINKS     NCBI-GI: 398366599
+DBLINKS     NCBI-ProteinID: NP_010729
             NCBI-GeneID: 852051
             SGD: S000002849
-            MIPS: YDR441C
             UniProt: P36973
 AASEQ       181
             MSISESYAKEIKTAFRQFTDFPIEGEQFEDFLPIIGNPTLFQKLVHTFKTHLEEKFGKEK

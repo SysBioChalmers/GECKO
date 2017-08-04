@@ -1,18 +1,32 @@
 ENTRY       YDR059C           CDS       T00005
 NAME        UBC5
-DEFINITION  E2 ubiquitin-conjugating protein UBC5 (EC:6.3.2.19)
-ORTHOLOGY   K06689  ubiquitin-conjugating enzyme E2 D/E [EC:6.3.2.19]
+DEFINITION  (RefSeq) E2 ubiquitin-conjugating protein UBC5
+ORTHOLOGY   K06689  ubiquitin-conjugating enzyme E2 D [EC:2.3.2.23]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04120  Ubiquitin mediated proteolysis
             sce04141  Protein processing in endoplasmic reticulum
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Protein processing in endoplasmic reticulum [PATH:sce04141]
-            Genetic Information Processing; Folding, sorting and degradation; Ubiquitin mediated proteolysis [PATH:sce04120]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04141 Protein processing in endoplasmic reticulum
+                YDR059C (UBC5)
+               04120 Ubiquitin mediated proteolysis
+                YDR059C (UBC5)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.3  Acyltransferases
+               2.3.2  Aminoacyltransferases
+                2.3.2.23  E2 ubiquitin-conjugating enzyme
+                 YDR059C (UBC5)
+            Ubiquitin system [BR:sce04121]
+             Ubiquitin-conjugating enzymes (E2)
+              Ubiquitin-conjugating enzymes
+               YDR059C (UBC5)
 POSITION    IV:complement(join(569234..569633,569724..569770))
 MOTIF       Pfam: UQ_con Prok-E2_B RWD UEV
-DBLINKS     NCBI-GI: 6320264
+DBLINKS     NCBI-ProteinID: NP_010344
             NCBI-GeneID: 851631
             SGD: S000002466
-            MIPS: YDR059C
             UniProt: P15732
 AASEQ       148
             MSSSKRIAKELSDLGRDPPASCSAGPVGDDLYHWQASIMGPSDSPYAGGVFFLSIHFPTD

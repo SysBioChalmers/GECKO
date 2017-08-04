@@ -1,13 +1,12 @@
 ENTRY       YDR520C           CDS       T00005
 NAME        URC2, RRT4
-DEFINITION  Urc2p
+DEFINITION  (RefSeq) Urc2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(1481085..1483403)
-MOTIF       Pfam: Zn_clus KH_3
-DBLINKS     NCBI-GI: 398366673
+MOTIF       Pfam: Zn_clus
+DBLINKS     NCBI-ProteinID: NP_010808
             NCBI-GeneID: 852133
             SGD: S000002928
-            MIPS: YDR520C
             UniProt: Q04411
 AASEQ       772
             MDINSNASVSPRPDGLPMTAGYNSASGKVRNSIRSIINHPEDSARAKERSETNSPKNNGN

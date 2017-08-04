@@ -1,14 +1,21 @@
 ENTRY       YBR130C           CDS       T00005
 NAME        SHE3
-DEFINITION  She3p
+DEFINITION  (RefSeq) She3p
+ORTHOLOGY   K18737  SWI5-dependent HO expression protein 3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Factors involved in mRNA localization
+                Cargo complex
+                 YBR130C (SHE3)
 POSITION    II:complement(495592..496869)
-MOTIF       Pfam: IncA
-DBLINKS     NCBI-GI: 398364975
+MOTIF       Pfam: SHE3 IncA
+DBLINKS     NCBI-ProteinID: NP_009688
             NCBI-GeneID: 852427
             SGD: S000000334
-            MIPS: YBR130C
             UniProt: P38272
+STRUCTURE   PDB: 4LL7 5M0I 4WNL 4LL8
 AASEQ       425
             MSDQDNTQTSSSKLAPHHNIFMANLESSPTKDRNTSSQNASSSRVIESLHDQIDMLTKTN
             LQLTTQSQNLLSKLELAQSKESKLLENLNLLKNENENLNSIFERKNKKLKELEKDYSELS

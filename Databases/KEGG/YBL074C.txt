@@ -1,14 +1,18 @@
 ENTRY       YBL074C           CDS       T00005
 NAME        AAR2
-DEFINITION  Aar2p
+DEFINITION  (RefSeq) U5 snRNP complex subunit AAR2
 ORTHOLOGY   K13205  A1 cistron-splicing factor AAR2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Spliceosome [BR:sce03041]
+             Other splicing related proteins
+              Spliceosome associated proteins (SAPs)
+               Other SAPs
+                YBL074C (AAR2)
 POSITION    II:complement(86722..87789)
-MOTIF       Pfam: AAR2
-DBLINKS     NCBI-GI: 6319398
+MOTIF       Pfam: AAR2 Agenet Salt_tol_Pase
+DBLINKS     NCBI-ProteinID: NP_009479
             NCBI-GeneID: 852205
             SGD: S000000170
-            MIPS: YBL074C
             UniProt: P32357
 STRUCTURE   PDB: 3SBT 4ILH 4I43 4ILG 3SBS 3ZEF 4ILI
 AASEQ       355

@@ -1,12 +1,18 @@
 ENTRY       YDR192C           CDS       T00005
 NAME        NUP42, RIP1, UIP1
-DEFINITION  Nup42p
+DEFINITION  (RefSeq) FG-nucleoporin NUP42
+ORTHOLOGY   K18716  nucleoporin NUP42
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Transport factors
+                Nuclear pore complex
+                 YDR192C (NUP42)
 POSITION    IV:complement(843569..844861)
-DBLINKS     NCBI-GI: 398366037
+DBLINKS     NCBI-ProteinID: NP_010478
             NCBI-GeneID: 851774
             SGD: S000002600
-            MIPS: YDR192C
             UniProt: P49686
 AASEQ       430
             MSAFGNPFTSGAKPNLSNTSGINPFTNNAASTNNMGGSAFGRPSFGTANTMTGGTTTSAF

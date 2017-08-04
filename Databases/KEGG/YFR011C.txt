@@ -1,14 +1,18 @@
 ENTRY       YFR011C           CDS       T00005
-NAME        AIM13, MCS19
-DEFINITION  Aim13p
+NAME        MIC19, AIM13, MCS19
+DEFINITION  (RefSeq) Mic19p
 ORTHOLOGY   K17788  altered inheritance of mitochondria protein 13
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial protein import machinery
+              Inner mambrane
+               MINOS/MitOS complex (yeast)
+                YFR011C (MIC19)
 POSITION    VI:complement(166746..167258)
 MOTIF       Pfam: DUF1690
-DBLINKS     NCBI-GI: 14318533
+DBLINKS     NCBI-ProteinID: NP_116666
             NCBI-GeneID: 850563
             SGD: S000001907
-            MIPS: YFR011C
             UniProt: P43594
 AASEQ       170
             MGSNTSKVGAGAEKQQVYTPLTQIDFSQSLVSQLDSSKESDYVTKQNAEKFIEKKVSQRL

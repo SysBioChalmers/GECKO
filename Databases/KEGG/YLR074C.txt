@@ -1,14 +1,18 @@
 ENTRY       YLR074C           CDS       T00005
 NAME        BUD20
-DEFINITION  Bud20p
+DEFINITION  (RefSeq) Bud20p
 ORTHOLOGY   K14821  bud site selection protein 20
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               Other pre-60S particles
+                YLR074C (BUD20)
 POSITION    XII:complement(281956..282456)
-MOTIF       Pfam: zf-C2H2_jaz zf-C2H2_2 zf-U1 zf-AD zf-met
-DBLINKS     NCBI-GI: 6323103
+MOTIF       Pfam: zf-C2H2_jaz zf-C2H2_2 zf-U1 zf-met zf-AD
+DBLINKS     NCBI-ProteinID: NP_013175
             NCBI-GeneID: 850763
             SGD: S000004064
-            MIPS: YLR074C
             UniProt: Q08004
 AASEQ       166
             MGRYSVKRYKTKRRTRDLDLIYNDLSTKESVQKLLNQPLDETKPGLGQHYCIHCAKYMET

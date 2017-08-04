@@ -1,13 +1,12 @@
 ENTRY       YNL047C           CDS       T00005
 NAME        SLM2, LIT1
-DEFINITION  Slm2p
+DEFINITION  (RefSeq) phosphatidylinositol 4,5-bisphosphate-binding protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIV:complement(539911..541881)
-MOTIF       Pfam: PH
-DBLINKS     NCBI-GI: 398365255
+MOTIF       Pfam: PH FliT
+DBLINKS     NCBI-ProteinID: NP_014351
             NCBI-GeneID: 855680
             SGD: S000004992
-            MIPS: YNL047C
             UniProt: P53955
 AASEQ       656
             MSYQRNSARASLDLRSQYQQLEGRMRSEHFNPAYQQQQQKGQNIPLSLPSSLAQRNPIPY

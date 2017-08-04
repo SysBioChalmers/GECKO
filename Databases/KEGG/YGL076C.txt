@@ -1,18 +1,26 @@
 ENTRY       YGL076C           CDS       T00005
 NAME        RPL7A
-DEFINITION  ribosomal 60S subunit protein L7A
+DEFINITION  (RefSeq) ribosomal 60S subunit protein L7A
 ORTHOLOGY   K02937  large subunit ribosomal protein L7e
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03010  Ribosome
-CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+MODULE      sce_M00177  Ribosome, eukaryotes
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03010 Ribosome
+                YGL076C (RPL7A)
+            Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Eukaryotes
+               Large subunit
+                YGL076C (RPL7A)
 POSITION    VII:complement(join(364335..364964,365433..365526,365986..365996))
-MOTIF       Pfam: Ribosomal_L30 Ribosomal_L30_N Lipoprotein_7 DUF3035
-DBLINKS     NCBI-GI: 6321362
+MOTIF       Pfam: Ribosomal_L30_N Ribosomal_L30 CSRNP_N
+DBLINKS     NCBI-ProteinID: NP_011439
             NCBI-GeneID: 852804
             SGD: S000003044
-            MIPS: YGL076C
             UniProt: P05737
-STRUCTURE   PDB: 3U5E 3U5I 3O58 3O5H 4BYN 4BYU 4B6A 3IZS 1S1I
 AASEQ       244
             MAAEKILTPESQLKKSKAQQKTAEQVAAERAARKAANKEKRAIILERNAAYQKEYETAER
             NIIQAKRDAKAAGSYYVEAQHKLVFVVRIKGINKIPPKPRKVLQLLRLTRINSGTFVKVT

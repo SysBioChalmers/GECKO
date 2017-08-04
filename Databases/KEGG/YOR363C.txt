@@ -1,13 +1,12 @@
 ENTRY       YOR363C           CDS       T00005
 NAME        PIP2, OAF2
-DEFINITION  Pip2p
+DEFINITION  (RefSeq) oleate-activated transcription factor PIP2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:complement(1020222..1023212)
-MOTIF       Pfam: Zn_clus
-DBLINKS     NCBI-GI: 398366391
+MOTIF       Pfam: Zn_clus COMM_domain
+DBLINKS     NCBI-ProteinID: NP_015008
             NCBI-GeneID: 854545
             SGD: S000005890
-            MIPS: YOR363C
             UniProt: P52960
 AASEQ       996
             MYFTDESSPAMNRVGKKRNRLSFVCQACRKAKTKCDQEKPRCGRCTKQNLFCIYDVARQA

@@ -1,15 +1,20 @@
 ENTRY       YNL110C           CDS       T00005
 NAME        NOP15
-DEFINITION  Nop15p
+DEFINITION  (RefSeq) rRNA-binding ribosome biosynthesis protein NOP15
 ORTHOLOGY   K14838  nucleolar protein 15
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               Other pre-60S particles
+                YNL110C (NOP15)
 POSITION    XIV:complement(417826..418488)
-MOTIF       Pfam: RRM_1 RRM_6 RRM_5 Limkain-b1 Telethonin CDC45
-DBLINKS     NCBI-GI: 6324219
+MOTIF       Pfam: RRM_1
+DBLINKS     NCBI-ProteinID: NP_014289
             NCBI-GeneID: 855613
             SGD: S000005054
-            MIPS: YNL110C
             UniProt: P53927
+STRUCTURE   PDB: 5T9P
 AASEQ       220
             MVKSTSKTSTKETVTKQPTEEKPIQEKEELALETSSSSSDEEDEKDEDEIEGLAASDDEQ
             SGTHKIKRLNPKKQANEKKSKDKKTLEEYSGIIYVSRLPHGFHEKELSKYFAQFGDLKEV

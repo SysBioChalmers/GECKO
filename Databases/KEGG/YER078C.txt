@@ -1,14 +1,23 @@
 ENTRY       YER078C           CDS       T00005
 NAME        ICP55
-DEFINITION  Icp55p (EC:3.4.11.26)
-ORTHOLOGY   K01262  Xaa-Pro aminopeptidase [EC:3.4.11.9]
+DEFINITION  (RefSeq) aminopeptidase
+ORTHOLOGY   K18573  intermediate cleaving peptidase 55 [EC:3.4.11.26]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.4  Acting on peptide bonds (peptidases)
+               3.4.11  Aminopeptidases
+                3.4.11.26  intermediate cleaving peptidase 55
+                 YER078C (ICP55)
+            Peptidases [BR:sce01002]
+             Metallo Peptidases
+              Family M24
+               YER078C (ICP55)
 POSITION    V:complement(316807..318342)
 MOTIF       Pfam: Peptidase_M24 AMP_N
-DBLINKS     NCBI-GI: 6320922
+DBLINKS     NCBI-ProteinID: NP_011001
             NCBI-GeneID: 856811
             SGD: S000000880
-            MIPS: YER078C
             UniProt: P40051
 AASEQ       511
             MLHRINPVRFSMQSCQRYFSKLVSPLEQHKSNTFTNRVRIPIEAGQPLHETRPFLIKSGE

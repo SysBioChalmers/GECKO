@@ -1,16 +1,25 @@
 ENTRY       YFL060C           CDS       T00005
 NAME        SNO3
-DEFINITION  Sno3p (EC:2.6.-.-)
-ORTHOLOGY   K08681  glutamine amidotransferase [EC:2.6.-.-]
+DEFINITION  (RefSeq) putative pyridoxal 5'-phosphate synthase
+ORTHOLOGY   K08681  5'-phosphate synthase pdxT subunit [EC:4.3.3.6]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00750  Vitamin B6 metabolism
-CLASS       Metabolism; Metabolism of cofactors and vitamins; Vitamin B6 metabolism [PATH:sce00750]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Metabolism of cofactors and vitamins
+               00750 Vitamin B6 metabolism
+                YFL060C (SNO3)
+            Enzymes [BR:sce01000]
+             4. Lyases
+              4.3  Carbon-nitrogen lyases
+               4.3.3  Amine-lyases
+                4.3.3.6  pyridoxal 5'-phosphate synthase (glutamine hydrolysing)
+                 YFL060C (SNO3)
 POSITION    VI:complement(10301..10969)
-MOTIF       Pfam: SNO GATase_3 DUF4154 GATase Peptidase_S51 DJ-1_PfpI
-DBLINKS     NCBI-GI: 14318459
+MOTIF       Pfam: SNO GATase_3 Peptidase_S51 DJ-1_PfpI GATase
+DBLINKS     NCBI-ProteinID: NP_116595
             NCBI-GeneID: 850484
             SGD: S000001834
-            MIPS: YFL060C
             UniProt: P43544
 AASEQ       222
             MTVVIGVLALQGAFIEHVRHVEKCIVENRDFYEKKLSVMTVKDKNQLAQCDALIIPGGES

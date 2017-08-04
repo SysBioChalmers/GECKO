@@ -1,19 +1,36 @@
 ENTRY       YLR167W           CDS       T00005
 NAME        RPS31, RPS37, UBI3
-DEFINITION  ubiquitin-ribosomal 40S subunit protein S31 fusion protein
+DEFINITION  (RefSeq) ubiquitin-ribosomal 40S subunit protein S31 fusion protein
 ORTHOLOGY   K02977  small subunit ribosomal protein S27Ae
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03010  Ribosome
-CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+MODULE      sce_M00177  Ribosome, eukaryotes
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03010 Ribosome
+                YLR167W (RPS31)
+            Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Eukaryotes
+               Small subunit
+                YLR167W (RPS31)
+              Archaea
+                YLR167W (RPS31)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of haemopoietic cells  (B-cell, T-cell, DC-cell, reticulocyte, and mast cell)
+               YLR167W (RPS31)
+              Exosomal proteins of colorectal cancer cells
+               YLR167W (RPS31)
 POSITION    XII:498947..499405
-MOTIF       Pfam: ubiquitin Ribosomal_S27 Rad60-SLD Ubiquitin_2 Telomere_Sde2 Rad60-SLD_2 DUF2407 IBR Fer2_3 DUF2870 DUF2207
-DBLINKS     NCBI-GI: 6323196
+MOTIF       Pfam: ubiquitin Ribosomal_S27 Rad60-SLD Ubiquitin_2 Rad60-SLD_2 DUF2407 IBR Fer2_3
+DBLINKS     NCBI-ProteinID: NP_013268
             NCBI-GeneID: 850864
             SGD: S000004157
-            MIPS: YLR167W
             UniProt: P05759
-STRUCTURE   PDB: 3OLM 4HCN 3CMM 3U5C 3U5G 4BYL 4BYT 2L00 2KDI 2JWZ 2JT4
-                 2G3Q 1WR1 1Q0W 1OTR
+STRUCTURE   PDB: 4Q5E 4Q5H 4NNJ 3OLM 4HCN 3CMM 2L00 2KDI 2JWZ 2JT4 2G3Q
+                 1WR1 1Q0W 1OTR
 AASEQ       152
             MQIFVKTLTGKTITLEVESSDTIDNVKSKIQDKEGIPPDQQRLIFAGKQLEDGRTLSDYN
             IQKESTLHLVLRLRGGGKKRKKKVYTTPKKIKHKHKKVKLAVLSYYKVDAEGKVTKLRRE

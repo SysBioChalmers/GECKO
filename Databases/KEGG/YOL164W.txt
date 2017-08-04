@@ -1,13 +1,12 @@
 ENTRY       YOL164W           CDS       T00005
 NAME        BDS1
-DEFINITION  Bds1p (EC:3.1.6.-)
+DEFINITION  (RefSeq) sulfuric ester hydrolase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:6175..8115
-MOTIF       Pfam: Alkyl_sulf_dimr Lactamase_B Alkyl_sulf_C Lactamase_B_2 SCP2
-DBLINKS     NCBI-GI: 6324409
+MOTIF       Pfam: Alkyl_sulf_dimr Lactamase_B Alkyl_sulf_C Lactamase_B_2 SCP2 BTAD
+DBLINKS     NCBI-ProteinID: NP_014478
             NCBI-GeneID: 854000
             SGD: S000005524
-            MIPS: YOL164W
             UniProt: Q08347
 AASEQ       646
             MIGAFKRNRGSSQSFAKECQPSTLKANLEVAKELPFSDRRDFEDATQGYIGSLSDEQIIG

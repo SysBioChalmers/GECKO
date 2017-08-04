@@ -1,16 +1,33 @@
 ENTRY       YOR321W           CDS       T00005
 NAME        PMT3
-DEFINITION  Pmt3p (EC:2.4.1.109)
+DEFINITION  (RefSeq) dolichyl-phosphate-mannose-protein mannosyltransferase PMT3
 ORTHOLOGY   K00728  dolichyl-phosphate-mannose-protein mannosyltransferase [EC:2.4.1.109]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00514  Other types of O-glycan biosynthesis
-CLASS       Metabolism; Glycan biosynthesis and metabolism; Other types of O-glycan biosynthesis [PATH:sce00514]
+            sce00515  Mannose type O-glycan biosynthesis
+            sce01100  Metabolic pathways
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Glycan biosynthesis and metabolism
+               00515 Mannose type O-glycan biosyntheis
+                YOR321W (PMT3)
+               00514 Other types of O-glycan biosynthesis
+                YOR321W (PMT3)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.4  Glycosyltransferases
+               2.4.1  Hexosyltransferases
+                2.4.1.109  dolichyl-phosphate-mannose---protein mannosyltransferase
+                 YOR321W (PMT3)
+            Glycosyltransferases [BR:sce01003]
+             O-Glycan biosynthesis
+              O-linked Man type
+               YOR321W (PMT3)
 POSITION    XV:916030..918291
-MOTIF       Pfam: PMT MIR
-DBLINKS     NCBI-GI: 6324897
+MOTIF       Pfam: PMT PMT_4TMC MIR
+DBLINKS     NCBI-ProteinID: NP_014966
             NCBI-GeneID: 854499
             SGD: S000005848
-            MIPS: YOR321W
             UniProt: P47190
 AASEQ       753
             MPYRVATGYSEKSTDDDLIWRTPIVKEELEDADNFLKDDAELYDKVKNESAVSHLDTIVM

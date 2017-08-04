@@ -1,13 +1,12 @@
 ENTRY       YOR391C           CDS       T00005
 NAME        HSP33
-DEFINITION  Hsp33p (EC:3.2.-.-)
+DEFINITION  (RefSeq) glutathione-independent methylglyoxalase family protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:complement(1078545..1079258)
-MOTIF       Pfam: DJ-1_PfpI
-DBLINKS     NCBI-GI: 398366457
+MOTIF       Pfam: DJ-1_PfpI ThiJ_like
+DBLINKS     NCBI-ProteinID: NP_015036
             NCBI-GeneID: 854573
             SGD: S000005918
-            MIPS: YOR391C
             UniProt: Q08914
 STRUCTURE   PDB: 3KKL 3MII
 AASEQ       237

@@ -1,16 +1,25 @@
 ENTRY       YCR092C           CDS       T00005
 NAME        MSH3
-DEFINITION  mismatch repair protein MSH3
+DEFINITION  (RefSeq) mismatch repair protein MSH3
 ORTHOLOGY   K08736  DNA mismatch repair protein MSH3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03430  Mismatch repair
-CLASS       Genetic Information Processing; Replication and repair; Mismatch repair [PATH:sce03430]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Replication and repair
+               03430 Mismatch repair
+                YCR092C (MSH3)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              SSBR (single strand breaks repair)
+               MMR (mismatch exicision repair)
+                Mismatch and loop recognition factors
+                 YCR092C (MSH3)
 POSITION    III:complement(276764..279820)
-MOTIF       Pfam: MutS_V MutS_III MutS_I MutS_IV MutS_II Period_C
-DBLINKS     NCBI-GI: 157285763
+MOTIF       Pfam: MutS_V MutS_I MutS_III MutS_II MutS_IV TROVE AAA_14
+DBLINKS     NCBI-ProteinID: NP_010016
             NCBI-GeneID: 850454
             SGD: S000000688
-            MIPS: YCR092C
             UniProt: P25336
 AASEQ       1018
             MAGQPTISRFFKKAVKSELTHKQEQEVAVGNGAGSESICLDTDEEDNLSSVASTTVTNDS

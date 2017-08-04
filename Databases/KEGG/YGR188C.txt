@@ -1,20 +1,40 @@
 ENTRY       YGR188C           CDS       T00005
 NAME        BUB1
-DEFINITION  Bub1p (EC:2.7.11.1)
+DEFINITION  (RefSeq) protein kinase BUB1
 ORTHOLOGY   K02178  checkpoint serine/threonine-protein kinase [EC:2.7.11.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
             sce04113  Meiosis - yeast
-CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
-            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YGR188C (BUB1)
+               04113 Meiosis - yeast
+                YGR188C (BUB1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.11  Protein-serine/threonine kinases
+                2.7.11.1  non-specific serine/threonine protein kinase
+                 YGR188C (BUB1)
+            Protein kinases [BR:sce01001]
+             Serine/threonine protein kinases: Other group
+              BUB family
+               YGR188C (BUB1)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centromeric chromatin formation proteins
+               SAC (spindle assembly checkpoint) factors
+                Core SAC proteins
+                 YGR188C (BUB1)
 POSITION    VII:complement(872044..875109)
-MOTIF       Pfam: Mad3_BUB1_I Mad3_BUB1_II Pkinase Pkinase_Tyr
-DBLINKS     NCBI-GI: 398366073
+MOTIF       Pfam: Mad3_BUB1_I Mad3_BUB1_II Pkinase Mad3_BUB1_I_2 Pkinase_Tyr
+DBLINKS     NCBI-ProteinID: NP_011704
             NCBI-GeneID: 853100
             SGD: S000003420
-            MIPS: YGR188C
             UniProt: P41695
-STRUCTURE   PDB: 3ESL 4BL0
+STRUCTURE   PDB: 3ESL 2I3S 4BL0
 AASEQ       1021
             MNLDLGSTVRGYESDKDTFPQSKGVSSSQKEQHSQLNQTKIAYEQRLLNDLEDMDDPLDL
             FLDYMIWISTSYIEVDSESGQEVLRSTMERCLIYIQDMETYRNDPRFLKIWIWYINLFLS

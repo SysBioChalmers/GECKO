@@ -1,13 +1,13 @@
 ENTRY       YDR128W           CDS       T00005
 NAME        MTC5, SEA3
-DEFINITION  Mtc5p
+DEFINITION  (RefSeq) Mtc5p
+ORTHOLOGY   K20409  WD repeat-containing protein 59
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:709549..712995
-MOTIF       Pfam: WD40 RWD zf-rbx1 zf-C3HC4_2 zf-RING_2 C1_3
-DBLINKS     NCBI-GI: 398365749
+MOTIF       Pfam: Zn_ribbon_17 WD40 C1_2 RWD zf-rbx1 zf-C3HC4_2 zf-RING_2
+DBLINKS     NCBI-ProteinID: NP_010413
             NCBI-GeneID: 851706
             SGD: S000002535
-            MIPS: YDR128W
             UniProt: Q03897
 AASEQ       1148
             MCSSINEGPYNSPTFGKSLSLKVDGGFNAVSINPSGRDIVLASRQGLYIIDLDDPFTPPR

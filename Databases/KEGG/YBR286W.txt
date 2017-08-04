@@ -1,14 +1,23 @@
 ENTRY       YBR286W           CDS       T00005
 NAME        APE3, APY1
-DEFINITION  Ape3p (EC:3.4.11.15)
+DEFINITION  (RefSeq) Ape3p
 ORTHOLOGY   K01264  aminopeptidase Y [EC:3.4.11.15]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.4  Acting on peptide bonds (peptidases)
+               3.4.11  Aminopeptidases
+                3.4.11.15  aminopeptidase Y
+                 YBR286W (APE3)
+            Peptidases [BR:sce01002]
+             Metallo Peptidases
+              Family M28: aminopeptidase Y family
+               YBR286W (APE3)
 POSITION    II:774700..776313
 MOTIF       Pfam: Peptidase_M28 PA Peptidase_M20 Peptidase_M42
-DBLINKS     NCBI-GI: 82795241
+DBLINKS     NCBI-ProteinID: NP_009845
             NCBI-GeneID: 852589
             SGD: S000000490
-            MIPS: YBR286W
             UniProt: P37302
 AASEQ       537
             MHFSLKQLAVAAFYATNLGSAYVIPQFFQEAFQQEEPIENYLPQLNDDDSSAVAANIPKP

@@ -1,14 +1,17 @@
 ENTRY       YGL225W           CDS       T00005
 NAME        VRG4, GOG5, LDB3, VAN2, VIG4
-DEFINITION  Vrg4p
+DEFINITION  (RefSeq) GDP-mannose transporter
 ORTHOLOGY   K15356  GDP-mannose transporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Other Transporters
+              Electrochemical potential-driven transporters [TC:2]
+               YGL225W (VRG4)
 POSITION    VII:76894..77907
-MOTIF       Pfam: UAA TPT EamA Nuc_sug_transp Helicase_C_4 PHO4
-DBLINKS     NCBI-GI: 6321213
+MOTIF       Pfam: EamA
+DBLINKS     NCBI-ProteinID: NP_011290
             NCBI-GeneID: 852647
             SGD: S000003193
-            MIPS: YGL225W
             UniProt: P40107
 AASEQ       337
             MSELKTGHAGHNPWASVANSGPISILSYCGSSILMTVTNKFVVNLKDFNMNFVMLFVQSL

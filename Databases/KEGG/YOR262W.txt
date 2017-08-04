@@ -1,14 +1,13 @@
 ENTRY       YOR262W           CDS       T00005
 NAME        GPN2
-DEFINITION  Gpn2p
-ORTHOLOGY   K06883
+DEFINITION  (RefSeq) putative GTPase GPN2
+ORTHOLOGY   K06883  uncharacterized protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:817292..818335
-MOTIF       Pfam: ATP_bind_1 AAA_17 AAA_18 AAA_10 MMR_HSR1 AAA_19 ArgK AAA_33 RNA_helicase AAA_29
-DBLINKS     NCBI-GI: 6324836
+MOTIF       Pfam: ATP_bind_1 AAA_18 HUN AAA_22 AAA_17 ArgK RNA_helicase AAA_30
+DBLINKS     NCBI-ProteinID: NP_014905
             NCBI-GeneID: 854436
             SGD: S000005788
-            MIPS: YOR262W
             UniProt: Q08726
 AASEQ       347
             MPFAQIVIGPPGSGKSTYCNGCSQFFNAIGRHSQVVNMDPANDALPYPCAVDIRDFITLE

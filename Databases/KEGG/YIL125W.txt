@@ -1,6 +1,6 @@
 ENTRY       YIL125W           CDS       T00005
 NAME        KGD1, OGD1
-DEFINITION  alpha-ketoglutarate dehydrogenase KGD1 (EC:1.2.4.2)
+DEFINITION  (RefSeq) alpha-ketoglutarate dehydrogenase KGD1
 ORTHOLOGY   K00164  2-oxoglutarate dehydrogenase E1 component [EC:1.2.4.2]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00020  Citrate cycle (TCA cycle)
@@ -8,19 +8,34 @@ PATHWAY     sce00020  Citrate cycle (TCA cycle)
             sce00380  Tryptophan metabolism
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
+            sce01130  Biosynthesis of antibiotics
             sce01200  Carbon metabolism
 MODULE      sce_M00009  Citrate cycle (TCA cycle, Krebs cycle)
             sce_M00011  Citrate cycle, second carbon oxidation, 2-oxoglutarate => oxaloacetate
-CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
-            Metabolism; Carbohydrate metabolism; Citrate cycle (TCA cycle) [PATH:sce00020]
-            Metabolism; Amino acid metabolism; Lysine degradation [PATH:sce00310]
-            Metabolism; Amino acid metabolism; Tryptophan metabolism [PATH:sce00380]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01200 Carbon metabolism
+                YIL125W (KGD1)
+              Carbohydrate metabolism
+               00020 Citrate cycle (TCA cycle)
+                YIL125W (KGD1)
+              Amino acid metabolism
+               00310 Lysine degradation
+                YIL125W (KGD1)
+               00380 Tryptophan metabolism
+                YIL125W (KGD1)
+            Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.2  Acting on the aldehyde or oxo group of donors
+               1.2.4  With a disulfide as acceptor
+                1.2.4.2  oxoglutarate dehydrogenase (succinyl-transferring)
+                 YIL125W (KGD1)
 POSITION    IX:122689..125733
-MOTIF       Pfam: Transket_pyr E1_dh
-DBLINKS     NCBI-GI: 6322066
+MOTIF       Pfam: Transket_pyr E1_dh OxoGdeHyase_C 2-oxogl_dehyd_N
+DBLINKS     NCBI-ProteinID: NP_012141
             NCBI-GeneID: 854681
             SGD: S000001387
-            MIPS: YIL125W
             UniProt: P20967
 AASEQ       1014
             MLRFVSSQTCRYSSRGLLKTSLLKNASTVKIVGRGLATTGTDNFLSTSNATYIDEMYQAW

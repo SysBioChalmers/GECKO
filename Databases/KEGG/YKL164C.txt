@@ -1,13 +1,12 @@
 ENTRY       YKL164C           CDS       T00005
 NAME        PIR1, CCW6
-DEFINITION  Pir1p
+DEFINITION  (RefSeq) beta-1,3-glucan linked protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XI:complement(141794..142819)
-MOTIF       Pfam: PIR DUF2807
-DBLINKS     NCBI-GI: 6322684
+MOTIF       Pfam: PIR
+DBLINKS     NCBI-ProteinID: NP_012757
             NCBI-GeneID: 853692
             SGD: S000001647
-            MIPS: YKL164C
             UniProt: Q03178
 AASEQ       341
             MQYKKSLVASALVATSLAAYAPKDPWSTLTPSATYKGGITDYSSTFGIAVEPIATTASSK

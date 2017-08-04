@@ -1,14 +1,17 @@
 ENTRY       YLR052W           CDS       T00005
 NAME        IES3
-DEFINITION  Ies3p
+DEFINITION  (RefSeq) Ies3p
 ORTHOLOGY   K11677  Ino eighty subunit 3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Chromatin remodeling factors
+               INO80 complex (yeast)
+                YLR052W (IES3)
 POSITION    XII:247201..247953
-MOTIF       Pfam: Phi-29_GP3 Rep_N Scaffolding_pro
-DBLINKS     NCBI-GI: 6323081
+DBLINKS     NCBI-ProteinID: NP_013153
             NCBI-GeneID: 850741
             SGD: S000004042
-            MIPS: YLR052W
             UniProt: Q12345
 AASEQ       250
             MKFEDLLATNKQVQFAHAATQHYKSVKTPDFLEKDPHHKKFHNADGLNQQGSSTPSTATD

@@ -1,13 +1,12 @@
 ENTRY       YHR115C           CDS       T00005
 NAME        DMA1, CHF1
-DEFINITION  ubiquitin-conjugating protein DMA1 (EC:6.3.2.-)
+DEFINITION  (RefSeq) ubiquitin-conjugating protein DMA1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VIII:complement(340109..341359)
-MOTIF       Pfam: FHA zf-RING_2 zf-rbx1 zf-Apc11 zf-C3HC4 zf-RING_5 Sec_GG zf-C3HC4_2 zf-HC5HC2H
-DBLINKS     NCBI-GI: 6321907
+MOTIF       Pfam: FHA zf-RING_11 zf-RING_2 Yop-YscD_cpl zf-ANAPC11 zf-C3HC4 zf-RING_5 zf-C3HC4_2 zf-rbx1 Sec_GG zf-HC5HC2H zf-RING_UBOX
+DBLINKS     NCBI-ProteinID: NP_011983
             NCBI-GeneID: 856515
             SGD: S000001157
-            MIPS: YHR115C
             UniProt: P38823
 AASEQ       416
             MSTNTVPSSPPNQTPPAASGIATSHDHTKFNNPIRLPISISLTINDTPNNNSNNNSVSNG

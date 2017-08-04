@@ -1,13 +1,12 @@
 ENTRY       YAR031W           CDS       T00005
 NAME        PRM9
-DEFINITION  Prm9p
+DEFINITION  (RefSeq) pheromone-regulated DUP240 family protein PRM9
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    I:186836..187732
-MOTIF       Pfam: DUP
-DBLINKS     NCBI-GI: 6319334
+MOTIF       Pfam: DUP OppC_N Phtf-FEM1B_bdg
+DBLINKS     NCBI-ProteinID: NP_009418
             NCBI-GeneID: 851282
             SGD: S000000078
-            MIPS: YAR031W
             UniProt: P39551
 AASEQ       298
             MSPQYHFYFVSFRNLVLNEKCLRSKKQVMKSFNWYKTDRYFDPHNILQHHSRAIEKTRYK

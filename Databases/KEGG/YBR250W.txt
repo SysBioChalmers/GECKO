@@ -1,13 +1,12 @@
 ENTRY       YBR250W           CDS       T00005
 NAME        SPO23
-DEFINITION  Spo23p
+DEFINITION  (RefSeq) Spo23p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    II:719033..720604
-MOTIF       Pfam: Arrestin_N
-DBLINKS     NCBI-GI: 6319727
+MOTIF       Pfam: Arrestin_N Phage_Mu_Gam
+DBLINKS     NCBI-ProteinID: NP_009809
             NCBI-GeneID: 852552
             SGD: S000000454
-            MIPS: YBR250W
             UniProt: P33757
 AASEQ       523
             MLFSSSSSSLNSEVSQVFSENISSRSTTLTESSTQSEIRQHFGNEDFSGELPKKLIQLKK

@@ -1,14 +1,18 @@
 ENTRY       YML046W           CDS       T00005
 NAME        PRP39
-DEFINITION  Prp39p
+DEFINITION  (RefSeq) Prp39p
 ORTHOLOGY   K13217  pre-mRNA-processing factor 39
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Spliceosome [BR:sce03041]
+             Other splicing related proteins
+              Spliceosome associated proteins (SAPs)
+               Other SAPs
+                YML046W (PRP39)
 POSITION    XIII:181474..183363
-MOTIF       Pfam: Suf
-DBLINKS     NCBI-GI: 6323596
+MOTIF       Pfam: DUF3387 Mad3_BUB1_I
+DBLINKS     NCBI-ProteinID: NP_013667
             NCBI-GeneID: 854960
             SGD: S000004509
-            MIPS: YML046W
             UniProt: P39682
 AASEQ       629
             MPDETNFTIEDIEPRPDALRGLDTQFLQDNTALVQAYRGLDWSDISSLTQMVDVIEQTVV

@@ -1,17 +1,20 @@
 ENTRY       YLR038C           CDS       T00005
 NAME        COX12
-DEFINITION  cytochrome c oxidase subunit VIb (EC:1.9.3.1)
+DEFINITION  (RefSeq) cytochrome c oxidase subunit VIb
 ORTHOLOGY   K02267  cytochrome c oxidase subunit 6b
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00190  Oxidative phosphorylation
             sce01100  Metabolic pathways
-CLASS       Metabolism; Energy metabolism; Oxidative phosphorylation [PATH:sce00190]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Energy metabolism
+               00190 Oxidative phosphorylation
+                YLR038C (COX12)
 POSITION    XII:complement(224921..225172)
-MOTIF       Pfam: COX6B Somatostatin APOBEC_C UCR_hinge UPF0203
-DBLINKS     NCBI-GI: 6323067
+MOTIF       Pfam: COX6B CX9C APOBEC_C MYT1 YozE_SAM_like
+DBLINKS     NCBI-ProteinID: NP_013139
             NCBI-GeneID: 850727
             SGD: S000004028
-            MIPS: YLR038C
             UniProt: Q01519
 AASEQ       83
             MADQENSPLHTVGFDARFPQQNQTKHCWQSYVDYHKCVNMKGEDFAPCKVFWKTYNALCP

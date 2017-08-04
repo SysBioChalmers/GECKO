@@ -1,14 +1,18 @@
 ENTRY       YPR192W           CDS       T00005
 NAME        AQY1
-DEFINITION  Aqy1p
+DEFINITION  (RefSeq) Aqy1p
 ORTHOLOGY   K09885  aquaporin rerated protein, other eukaryote
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Other Transporters
+              Aquaporins and small neutral solute transporters [TC:1.A.8]
+               Aquaporins
+                YPR192W (AQY1)
 POSITION    XVI:921860..922777
-MOTIF       Pfam: MIP
-DBLINKS     NCBI-GI: 6325450
+MOTIF       Pfam: MIP MrpF_PhaF
+DBLINKS     NCBI-ProteinID: NP_015518
             NCBI-GeneID: 856322
             SGD: S000006396
-            MIPS: YPR192W
             UniProt: P0CD91
 AASEQ       305
             MSSNDSNDTDKQHTRLDPTGVDDAYIPPEQPETKHHRFKISRDTLRDHFIAAVGEFCGTF

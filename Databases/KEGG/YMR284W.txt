@@ -1,16 +1,30 @@
 ENTRY       YMR284W           CDS       T00005
 NAME        YKU70, HDF1, NES24
-DEFINITION  Yku70p (EC:3.6.4.12)
+DEFINITION  (RefSeq) ATP-dependent DNA helicase YKU70
 ORTHOLOGY   K10884  ATP-dependent DNA helicase 2 subunit 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03450  Non-homologous end-joining
-CLASS       Genetic Information Processing; Replication and repair; Non-homologous end-joining [PATH:sce03450]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Replication and repair
+               03450 Non-homologous end-joining
+                YMR284W (YKU70)
+            Spliceosome [BR:sce03041]
+             Other splicing related proteins
+              Spliceosome associated proteins (SAPs)
+               Other SAPs
+                YMR284W (YKU70)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              DSBR (double strand breaks repair)
+               NHEJ (non-homologous end-joining)
+                DNA-PK complex
+                 YMR284W (YKU70)
 POSITION    XIII:838187..839995
-MOTIF       Pfam: Ku_N Ku Ku_C Paramyxo_PCT
-DBLINKS     NCBI-GI: 6323940
+MOTIF       Pfam: Ku_N Ku Ku_C DUF2170
+DBLINKS     NCBI-ProteinID: NP_014011
             NCBI-GeneID: 855328
             SGD: S000004897
-            MIPS: YMR284W
             UniProt: P32807
 AASEQ       602
             MRSVTNAFGNSGELNDQVDETGYRKFDIHEGILFCIELSETMFKESSDLEYKSPLLEILE

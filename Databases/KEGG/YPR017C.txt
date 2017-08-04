@@ -1,13 +1,18 @@
 ENTRY       YPR017C           CDS       T00005
 NAME        DSS4
-DEFINITION  Dss4p
+DEFINITION  (RefSeq) guanine nucleotide exchange factor DSS4
+ORTHOLOGY   K19952  guanine nucleotide exchange factor
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Exocytosis
+              Small GTPases and associated proteins
+               Rab associated proteins
+                YPR017C (DSS4)
 POSITION    XVI:complement(593486..593917)
 MOTIF       Pfam: Mss4
-DBLINKS     NCBI-GI: 6325274
+DBLINKS     NCBI-ProteinID: NP_015342
             NCBI-GeneID: 856128
             SGD: S000006221
-            MIPS: YPR017C
             UniProt: P32601
 AASEQ       143
             MSKATCSFEGCHSAVITINDDNIINLPEQVHSEFKLLENRTMRDATPSESNFLVVPDVWD

@@ -1,13 +1,20 @@
 ENTRY       YLR381W           CDS       T00005
 NAME        CTF3, CHL3
-DEFINITION  Ctf3p
+DEFINITION  (RefSeq) Ctf3p
 ORTHOLOGY   K11501  centromere protein I
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centromeric chromatin formation proteins
+               Kinetochore proteins
+                Centromere proteins
+                 YLR381W (CTF3)
+                Mis6 complex
+                 YLR381W (CTF3)
 POSITION    XII:879723..881924
-DBLINKS     NCBI-GI: 6323413
+DBLINKS     NCBI-ProteinID: NP_013485
             NCBI-GeneID: 851097
             SGD: S000004373
-            MIPS: YLR381W
             UniProt: Q12748
 AASEQ       733
             MSLILDDIILSLTNANERTPPQALKTTLSLLYEKSKQYGLSSPQLQALVRLLCETSIIDT

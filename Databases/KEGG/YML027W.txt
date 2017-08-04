@@ -1,16 +1,24 @@
 ENTRY       YML027W           CDS       T00005
 NAME        YOX1
-DEFINITION  Yox1p
+DEFINITION  (RefSeq) Yox1p
 ORTHOLOGY   K12411  homeobox protein YOX1/YHP1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
-CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YML027W (YOX1)
+            Transcription factors [BR:sce03000]
+             Eukaryotic Type
+              Helix-turn-helix
+               Homeo domain only, not assigned
+                YML027W (YOX1)
 POSITION    XIII:221406..222563
-MOTIF       Pfam: Homeobox Homeobox_KN
-DBLINKS     NCBI-GI: 6323614
+MOTIF       Pfam: Homeobox Homeobox_KN YdaS_antitoxin
+DBLINKS     NCBI-ProteinID: NP_013685
             NCBI-GeneID: 854981
             SGD: S000004489
-            MIPS: YML027W
             UniProt: P34161
 AASEQ       385
             MSQETKMLPSLSSLLSGTEISSSPVSPSFTNPRTSFHLDDRGTIKLPPLNTSINRPRSVE

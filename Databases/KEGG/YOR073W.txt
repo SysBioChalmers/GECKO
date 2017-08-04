@@ -1,16 +1,25 @@
 ENTRY       YOR073W           CDS       T00005
 NAME        SGO1, YOR29-24
-DEFINITION  Sgo1p
+DEFINITION  (RefSeq) Sgo1p
 ORTHOLOGY   K11582  shugoshin
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04113  Meiosis - yeast
-CLASS       Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04113 Meiosis - yeast
+                YOR073W (SGO1)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centromeric chromatin formation proteins
+               Other centromeric chromatin formation proteins
+                Shugoshin
+                 YOR073W (SGO1)
 POSITION    XV:464771..466543
-MOTIF       Pfam: Shugoshin_N Shugoshin_C FHIPEP
-DBLINKS     NCBI-GI: 6324647
+MOTIF       Pfam: Shugoshin_N Shugoshin_C TSC22 FHIPEP
+DBLINKS     NCBI-ProteinID: NP_014716
             NCBI-GeneID: 854240
             SGD: S000005599
-            MIPS: YOR073W
             UniProt: Q08490
 AASEQ       590
             MPKRKIAPNKESSRRTVSHDDLTPQIQEFQNLMDLESQKVENIRQSYSRQNSLLAKDNSI

@@ -1,13 +1,12 @@
 ENTRY       YOR032C           CDS       T00005
 NAME        HMS1
-DEFINITION  Hms1p
+DEFINITION  (RefSeq) Hms1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:complement(389771..391075)
 MOTIF       Pfam: HLH
-DBLINKS     NCBI-GI: 6324606
+DBLINKS     NCBI-ProteinID: NP_014675
             NCBI-GeneID: 854197
             SGD: S000005558
-            MIPS: YOR032C
             UniProt: Q12398
 AASEQ       434
             MPNFQKPFSGSSDGNSVMNDLGNKVAIKVFDCRSAQDGSEEQNVNVTTNQMYLMFQSNNY

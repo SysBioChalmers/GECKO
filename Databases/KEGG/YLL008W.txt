@@ -1,14 +1,29 @@
 ENTRY       YLL008W           CDS       T00005
 NAME        DRS1
-DEFINITION  Drs1p (EC:3.6.4.13)
+DEFINITION  (RefSeq) putative ATP-dependent RNA helicase
 ORTHOLOGY   K13181  ATP-dependent RNA helicase DDX27 [EC:3.6.4.13]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.4  Acting on acid anhydrides to facilitate cellular and subcellular movement
+                3.6.4.13  RNA helicase
+                 YLL008W (DRS1)
+            Spliceosome [BR:sce03041]
+             Other splicing related proteins
+              Spliceosome associated proteins (SAPs)
+               RNA helicase-like proteins
+                YLL008W (DRS1)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               Helicases
+                YLL008W (DRS1)
 POSITION    XII:131729..133987
 MOTIF       Pfam: DEAD Helicase_C
-DBLINKS     NCBI-GI: 6323021
+DBLINKS     NCBI-ProteinID: NP_013093
             NCBI-GeneID: 850652
             SGD: S000003931
-            MIPS: YLL008W
             UniProt: P32892
 AASEQ       752
             MVVGTKKYSNLDFVPTISDSEDDVPILDSSDDEKVEAKKTTKKRKGKNNKKKVSEGDNLD

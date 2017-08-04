@@ -1,13 +1,12 @@
 ENTRY       YGL139W           CDS       T00005
 NAME        FLC3
-DEFINITION  Flc3p
+DEFINITION  (RefSeq) putative flavin adenine dinucleotide transporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:245716..248124
-MOTIF       Pfam: TRP TRP_N E1_DerP2_DerF2
-DBLINKS     NCBI-GI: 398364429
+MOTIF       Pfam: TRP TRP_N
+DBLINKS     NCBI-ProteinID: NP_011376
             NCBI-GeneID: 852738
             SGD: S000003107
-            MIPS: YGL139W
             UniProt: P53121
 AASEQ       802
             MRFLQVYKSSALIGLIILLASKVNLAEAKRKLVATSLVTCMENSQLSANSFDVVFNPDDR

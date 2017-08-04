@@ -1,23 +1,39 @@
 ENTRY       YKL067W           CDS       T00005
 NAME        YNK1, NDK1
-DEFINITION  nucleoside diphosphate kinase (EC:2.7.4.6)
+DEFINITION  (RefSeq) nucleoside diphosphate kinase
 ORTHOLOGY   K00940  nucleoside-diphosphate kinase [EC:2.7.4.6]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00230  Purine metabolism
             sce00240  Pyrimidine metabolism
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
+            sce01130  Biosynthesis of antibiotics
 MODULE      sce_M00049  Adenine ribonucleotide biosynthesis, IMP => ADP,ATP
             sce_M00050  Guanine ribonucleotide biosynthesis IMP => GDP,GTP
             sce_M00052  Pyrimidine ribonucleotide biosynthesis, UMP => UDP/UTP,CDP/CTP
-CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
-            Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Nucleotide metabolism
+               00230 Purine metabolism
+                YKL067W (YNK1)
+               00240 Pyrimidine metabolism
+                YKL067W (YNK1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.4  Phosphotransferases with a phosphate group as acceptor
+                2.7.4.6  nucleoside-diphosphate kinase
+                 YKL067W (YNK1)
+            Membrane trafficking [BR:sce04131]
+             Exocytosis
+              Calcium ion-dependent exocytosis
+               Kinases and associated proteins
+                YKL067W (YNK1)
 POSITION    XI:314812..315273
 MOTIF       Pfam: NDK
-DBLINKS     NCBI-GI: 6322783
+DBLINKS     NCBI-ProteinID: NP_012856
             NCBI-GeneID: 853798
             SGD: S000001550
-            MIPS: YKL067W
             UniProt: P36010
 STRUCTURE   PDB: 3B54
 AASEQ       153

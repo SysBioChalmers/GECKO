@@ -1,18 +1,27 @@
 ENTRY       YPL273W           CDS       T00005
 NAME        SAM4
-DEFINITION  Sam4p (EC:2.1.1.10)
+DEFINITION  (RefSeq) S-adenosylmethionine-homocysteine S-methyltransferase SAM4
 ORTHOLOGY   K00547  homocysteine S-methyltransferase [EC:2.1.1.10]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00270  Cysteine and methionine metabolism
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
-CLASS       Metabolism; Amino acid metabolism; Cysteine and methionine metabolism [PATH:sce00270]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Amino acid metabolism
+               00270 Cysteine and methionine metabolism
+                YPL273W (SAM4)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.1  Transferring one-carbon groups
+               2.1.1  Methyltransferases
+                2.1.1.10  homocysteine S-methyltransferase
+                 YPL273W (SAM4)
 POSITION    XVI:25087..26064
-MOTIF       Pfam: S-methyl_trans Kelch_1
-DBLINKS     NCBI-GI: 6324982
+MOTIF       Pfam: S-methyl_trans
+DBLINKS     NCBI-ProteinID: NP_015050
             NCBI-GeneID: 855855
             SGD: S000006194
-            MIPS: YPL273W
             UniProt: Q08985
 AASEQ       325
             MARLPLKQFLADNPKKVLVLDGGQGTELENRGIKVANPVWSTIPFISESFWSDESSANRK

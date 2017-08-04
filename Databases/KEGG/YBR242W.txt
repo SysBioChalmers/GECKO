@@ -1,13 +1,12 @@
 ENTRY       YBR242W           CDS       T00005
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) hypothetical protein
 ORTHOLOGY   K07023  putative hydrolases of HD superfamily
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    II:704670..705386
-MOTIF       Pfam: HD_3 HD
-DBLINKS     NCBI-GI: 6319719
+MOTIF       Pfam: HD_3 HD Unstab_antitox
+DBLINKS     NCBI-ProteinID: NP_009801
             NCBI-GeneID: 852544
             SGD: S000000446
-            MIPS: YBR242W
             UniProt: P38331
 AASEQ       238
             MTATITNKKSCSGSVEAGKTRLTTEWKPESQVPQYVKNELSKPHPNYILAFLNVVQQLKI

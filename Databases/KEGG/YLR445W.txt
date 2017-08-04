@@ -1,13 +1,12 @@
 ENTRY       YLR445W           CDS       T00005
 NAME        GMC2
-DEFINITION  Gmc2p
+DEFINITION  (RefSeq) Gmc2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XII:join(1024189..1024572,1024655..1024837)
-MOTIF       Pfam: RE_NgoPII Porin_OmpG
-DBLINKS     NCBI-GI: 398366321
+MOTIF       Pfam: DUF5004
+DBLINKS     NCBI-ProteinID: NP_013550
             NCBI-GeneID: 851166
             SGD: S000004437
-            MIPS: YLR445W
             UniProt: Q06201
 AASEQ       188
             MSDTTEVPRQSSENDQDNNLERTNSLKSPDVTNNIPSLFKLAAEWQINNPQETFQNHILE

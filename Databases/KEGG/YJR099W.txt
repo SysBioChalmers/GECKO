@@ -1,14 +1,30 @@
 ENTRY       YJR099W           CDS       T00005
 NAME        YUH1
-DEFINITION  Yuh1p (EC:3.4.19.12)
+DEFINITION  (RefSeq) ubiquitin-specific protease YUH1
 ORTHOLOGY   K05609  ubiquitin carboxyl-terminal hydrolase L3 [EC:3.4.19.12]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.4  Acting on peptide bonds (peptidases)
+               3.4.19  Omega peptidases
+                3.4.19.12  ubiquitinyl hydrolase 1
+                 YJR099W (YUH1)
+            Peptidases [BR:sce01002]
+             Cysteine Peptidases
+              Family C12: ubiquitin C-terminal hydrolase family
+               YJR099W (YUH1)
+            Ubiquitin system [BR:sce04121]
+             Deubiquitinating enzyme (DUB)
+              Ubiquitin-specific proteases (UBPs)
+               UCH
+                YJR099W (YUH1)
+              UBL-specific proteases (ULPs)
+               YJR099W (YUH1)
 POSITION    X:615576..616286
 MOTIF       Pfam: Peptidase_C12
-DBLINKS     NCBI-GI: 6322559
+DBLINKS     NCBI-ProteinID: NP_012633
             NCBI-GeneID: 853562
             SGD: S000003860
-            MIPS: YJR099W
             UniProt: P35127
 AASEQ       236
             MSGENRAVVPIESNPEVFTNFAHKLGLKNEWAYFDIYSLTEPELLAFLPRPVKAIVLLFP

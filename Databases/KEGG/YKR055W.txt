@@ -1,14 +1,18 @@
 ENTRY       YKR055W           CDS       T00005
 NAME        RHO4
-DEFINITION  Rho4p
+DEFINITION  (RefSeq) Rho family GTPase RHO4
 ORTHOLOGY   K07975  Rho family, other
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       GTP-binding proteins [BR:sce04031]
+             Small (Monomeric) G-proteins
+              Rho Family
+               Others
+                YKR055W (RHO4)
 POSITION    XI:548216..549091
-MOTIF       Pfam: Ras Miro Arf Gtr1_RagA
-DBLINKS     NCBI-GI: 398365217
+MOTIF       Pfam: Ras Roc Arf
+DBLINKS     NCBI-ProteinID: NP_012981
             NCBI-GeneID: 853929
             SGD: S000001763
-            MIPS: YKR055W
             UniProt: Q00246
 AASEQ       291
             MNTLLFKRKGGNCGNESNIVSQGSPSSSNLPESPGTLDEKNLPRLPTPFARSLSTIPSYE

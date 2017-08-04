@@ -1,16 +1,29 @@
 ENTRY       YMR240C           CDS       T00005
 NAME        CUS1
-DEFINITION  Cus1p
+DEFINITION  (RefSeq) U2 snRNP complex subunit CUS1
 ORTHOLOGY   K12829  splicing factor 3B subunit 2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03040  Spliceosome
-CLASS       Genetic Information Processing; Transcription; Spliceosome [PATH:sce03040]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03040 Spliceosome
+                YMR240C (CUS1)
+            Spliceosome [BR:sce03041]
+             Complex A
+              U2 snRNP components
+               U2 snRNP specific factors
+                YMR240C (CUS1)
+             Complex B
+                YMR240C (CUS1)
+             Complex C
+               U2 SnRNP specific factors
+                YMR240C (CUS1)
 POSITION    XIII:complement(749930..751240)
 MOTIF       Pfam: DUF382 PSP Syntaxin_2
-DBLINKS     NCBI-GI: 6323896
+DBLINKS     NCBI-ProteinID: NP_013967
             NCBI-GeneID: 855281
             SGD: S000004853
-            MIPS: YMR240C
             UniProt: Q02554
 AASEQ       436
             MARTKSRKRSGNNQNKNASVVNNKAEIAAMIDARRLEQKKKGGVTNSKGKTNKVVDAKLE

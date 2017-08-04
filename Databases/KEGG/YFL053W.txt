@@ -1,21 +1,45 @@
 ENTRY       YFL053W           CDS       T00005
 NAME        DAK2
-DEFINITION  Dak2p (EC:2.7.1.28 2.7.1.29)
-ORTHOLOGY   K00863  dihydroxyacetone kinase [EC:2.7.1.29]
+DEFINITION  (RefSeq) dihydroxyacetone kinase
+ORTHOLOGY   K00863  triose/dihydroxyacetone kinase / FAD-AMP lyase (cyclizing) [EC:2.7.1.28 2.7.1.29 4.6.1.15]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
-PATHWAY     sce00561  Glycerolipid metabolism
+PATHWAY     sce00051  Fructose and mannose metabolism
+            sce00561  Glycerolipid metabolism
             sce00680  Methane metabolism
             sce01100  Metabolic pathways
             sce01200  Carbon metabolism
-CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
-            Metabolism; Energy metabolism; Methane metabolism [PATH:sce00680]
-            Metabolism; Lipid metabolism; Glycerolipid metabolism [PATH:sce00561]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01200 Carbon metabolism
+                YFL053W (DAK2)
+              Carbohydrate metabolism
+               00051 Fructose and mannose metabolism
+                YFL053W (DAK2)
+              Energy metabolism
+               00680 Methane metabolism
+                YFL053W (DAK2)
+              Lipid metabolism
+               00561 Glycerolipid metabolism
+                YFL053W (DAK2)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.1  Phosphotransferases with an alcohol group as acceptor
+                2.7.1.28  triokinase
+                 YFL053W (DAK2)
+                2.7.1.29  glycerone kinase
+                 YFL053W (DAK2)
+             4. Lyases
+              4.6  Phosphorus-oxygen lyases
+               4.6.1  Phosphorus-oxygen lyases (only sub-subclass identified to date)
+                4.6.1.15  FAD-AMP lyase (cyclizing)
+                 YFL053W (DAK2)
 POSITION    VI:23423..25198
 MOTIF       Pfam: Dak1 Dak2
-DBLINKS     NCBI-GI: 14318466
+DBLINKS     NCBI-ProteinID: NP_116602
             NCBI-GeneID: 850491
             SGD: S000001841
-            MIPS: YFL053W
             UniProt: P43550
 AASEQ       591
             MSHKQFKSDGNIVTPYLLGLARSNPGLTVIKHDRVVFRTASAPNSGNPPKVSLVSGGGSG

@@ -1,14 +1,17 @@
 ENTRY       YGR096W           CDS       T00005
 NAME        TPC1
-DEFINITION  Tpc1p
+DEFINITION  (RefSeq) thiamine transporter TPC1
 ORTHOLOGY   K15108  solute carrier family 25 (mitochondrial thiamine pyrophosphate transporter), member 19
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Solute Carrier Family (SLC)
+              SLC25: Mitochondrial carrier
+               YGR096W (TPC1)
 POSITION    VII:676621..677565
 MOTIF       Pfam: Mito_carr Herpes_IE1
-DBLINKS     NCBI-GI: 398365651
+DBLINKS     NCBI-ProteinID: NP_011610
             NCBI-GeneID: 852988
             SGD: S000003328
-            MIPS: YGR096W
             UniProt: P53257
 AASEQ       314
             MFKEEDSLRKGQNVAAWKTLLAGAVSGLLARSITAPMDTIKIRLQLTPANGLKPFGSQVM

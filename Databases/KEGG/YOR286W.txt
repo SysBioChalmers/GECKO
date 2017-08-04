@@ -1,13 +1,12 @@
 ENTRY       YOR286W           CDS       T00005
 NAME        RDL2, AIM42
-DEFINITION  Rdl2p (EC:2.8.1.1)
+DEFINITION  (RefSeq) thiosulfate sulfurtransferase RDL2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:850280..850729
 MOTIF       Pfam: Rhodanese
-DBLINKS     NCBI-GI: 398366081
+DBLINKS     NCBI-ProteinID: NP_014929
             NCBI-GeneID: 854460
             SGD: S000005812
-            MIPS: YOR286W
             UniProt: Q08742
 AASEQ       149
             MFKHSTGILSRTVSARSPTLVLRTFTTKAPKIYTFDQVRNLVEHPNDKKLLVDVREPKEV

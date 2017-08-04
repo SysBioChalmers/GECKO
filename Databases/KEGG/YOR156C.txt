@@ -1,13 +1,12 @@
 ENTRY       YOR156C           CDS       T00005
 NAME        NFI1, SIZ2
-DEFINITION  SUMO ligase NFI1 (EC:6.3.2.-)
+DEFINITION  (RefSeq) SUMO ligase NFI1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:complement(628360..630540)
 MOTIF       Pfam: PINIT zf-MIZ SAP zf-Nse zf-RING_UBOX
-DBLINKS     NCBI-GI: 6324730
+DBLINKS     NCBI-ProteinID: NP_014799
             NCBI-GeneID: 854327
             SGD: S000005682
-            MIPS: YOR156C
             UniProt: Q12216
 AASEQ       726
             MASVMSNNNNNNNNNNASYMFTNPLSNTGGGLINEIKDAINEMEQLKVLELKQICKSLDL

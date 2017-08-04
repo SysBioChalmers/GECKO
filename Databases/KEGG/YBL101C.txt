@@ -1,13 +1,18 @@
 ENTRY       YBL101C           CDS       T00005
 NAME        ECM21, ART2
-DEFINITION  Ecm21p
+DEFINITION  (RefSeq) Ecm21p
+ORTHOLOGY   K20060  arrestin-related trafficking adapter 2/8
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endocytosis
+              Clathrin-mediated endocytosis
+               GPCR adaptor proteins
+                YBL101C (ECM21)
 POSITION    II:complement(24946..28299)
 MOTIF       Pfam: Arrestin_C
-DBLINKS     NCBI-GI: 6319367
+DBLINKS     NCBI-ProteinID: NP_009449
             NCBI-GeneID: 852173
             SGD: S000000197
-            MIPS: YBL101C
             UniProt: P38167
 AASEQ       1117
             MPFITSRPVAKNSSHSLSETDLNQSKGQPFQPSPTKKLGSMQQRRRSSTIRHALSSLLGG

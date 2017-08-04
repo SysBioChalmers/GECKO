@@ -1,13 +1,12 @@
 ENTRY       YLR152C           CDS       T00005
-DEFINITION  hypothetical protein
-ORTHOLOGY   K07088
+DEFINITION  (RefSeq) hypothetical protein
+ORTHOLOGY   K07088  uncharacterized protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XII:complement(442958..444688)
-MOTIF       Pfam: Mem_trans
-DBLINKS     NCBI-GI: 6323181
+MOTIF       Pfam: Mem_trans TcpE SafA
+DBLINKS     NCBI-ProteinID: NP_013253
             NCBI-GeneID: 850845
             SGD: S000004142
-            MIPS: YLR152C
             UniProt: P54072
 AASEQ       576
             MSLSLGAAIYIALKPIFKIYTIMLVGYLVAKFDIVSMENAKGISNMVVNAILPCLTFNKI

@@ -1,13 +1,12 @@
 ENTRY       YPR061C           CDS       T00005
 NAME        JID1
-DEFINITION  Jid1p
+DEFINITION  (RefSeq) Jid1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:complement(675977..676882)
 MOTIF       Pfam: DnaJ
-DBLINKS     NCBI-GI: 6325318
+DBLINKS     NCBI-ProteinID: NP_015386
             NCBI-GeneID: 856174
             SGD: S000006265
-            MIPS: YPR061C
             UniProt: Q12350
 AASEQ       301
             MLHHKFVYPFLFKWHLSCVEKCPPQITFIAKYATANDKNGNRKLTIRDEQWPELADPTPY

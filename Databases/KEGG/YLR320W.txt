@@ -1,13 +1,12 @@
 ENTRY       YLR320W           CDS       T00005
 NAME        MMS22, SLM2
-DEFINITION  Mms22p
+DEFINITION  (RefSeq) Mms22p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XII:771940..776304
-MOTIF       Pfam: Mus7
-DBLINKS     NCBI-GI: 6323352
+MOTIF       Pfam: Mus7 DUF4460
+DBLINKS     NCBI-ProteinID: NP_013424
             NCBI-GeneID: 851030
             SGD: S000004312
-            MIPS: YLR320W
             UniProt: Q06164
 AASEQ       1454
             MDVDEPNPIVISDSEATDEEISIIYEPEFNENYLWAEENVQEASRSQKIVTERLSLDSTA

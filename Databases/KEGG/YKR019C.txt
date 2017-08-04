@@ -1,13 +1,12 @@
 ENTRY       YKR019C           CDS       T00005
 NAME        IRS4
-DEFINITION  Irs4p
+DEFINITION  (RefSeq) Irs4p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XI:complement(476216..478063)
 MOTIF       Pfam: EF-hand_4
-DBLINKS     NCBI-GI: 398364961
+DBLINKS     NCBI-ProteinID: NP_012944
             NCBI-GeneID: 853889
             SGD: S000001727
-            MIPS: YKR019C
             UniProt: P36115
 AASEQ       615
             MRLSFGKQRYHGGTTVTLTEQGASDSLRAAQAIFQNHSNEVSSPCPPVTVSRNPQTRLSE

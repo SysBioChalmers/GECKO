@@ -1,13 +1,12 @@
 ENTRY       YDR276C           CDS       T00005
 NAME        PMP3, SNA1
-DEFINITION  Pmp3p
+DEFINITION  (RefSeq) Pmp3p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(1013476..1013643)
-MOTIF       Pfam: Pmp3 BTP PsbH
-DBLINKS     NCBI-GI: 6320482
+MOTIF       Pfam: Pmp3
+DBLINKS     NCBI-ProteinID: NP_010562
             NCBI-GeneID: 851869
             SGD: S000002684
-            MIPS: YDR276C
             UniProt: P87284
 AASEQ       55
             MDSAKIINIILSLFLPPVAVFLARGWGTDCIVDIILTILAWFPGMLYALYIVLQD

@@ -1,14 +1,24 @@
 ENTRY       YGL017W           CDS       T00005
 NAME        ATE1
-DEFINITION  Ate1p (EC:2.3.2.8)
-ORTHOLOGY   K00685  arginine-tRNA-protein transferase [EC:2.3.2.8]
+DEFINITION  (RefSeq) arginyltransferase
+ORTHOLOGY   K00685  arginyl-tRNA---protein transferase [EC:2.3.2.8]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.3  Acyltransferases
+               2.3.2  Aminoacyltransferases
+                2.3.2.8  arginyltransferase
+                 YGL017W (ATE1)
+            Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              tRNA modification factors
+               Other tRNA modification factors
+                YGL017W (ATE1)
 POSITION    VII:459854..461365
 MOTIF       Pfam: ATE_C ATE_N
-DBLINKS     NCBI-GI: 6321421
+DBLINKS     NCBI-ProteinID: NP_011498
             NCBI-GeneID: 852867
             SGD: S000002985
-            MIPS: YGL017W
             UniProt: P16639
 AASEQ       503
             MSDRFVIWAPSMHNEPAAKCGYCHGNKGGNMDQLFALDSWAHRYMNKMDVVKIENCTIGS

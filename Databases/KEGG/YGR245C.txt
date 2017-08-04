@@ -1,14 +1,18 @@
 ENTRY       YGR245C           CDS       T00005
 NAME        SDA1
-DEFINITION  Sda1p
+DEFINITION  (RefSeq) Sda1p
 ORTHOLOGY   K14856  protein SDA1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               Other pre-60S particles
+                YGR245C (SDA1)
 POSITION    VII:complement(979765..982068)
 MOTIF       Pfam: SDA1 NUC130_3NT
-DBLINKS     NCBI-GI: 398366281
+DBLINKS     NCBI-ProteinID: NP_011761
             NCBI-GeneID: 853160
             SGD: S000003477
-            MIPS: YGR245C
             UniProt: P53313
 AASEQ       767
             MGRRSRAAMLPTNIILLQNLVKRDPESYQEEFLQQYAHYESLRDIFMLNGLAGGDSAAAT

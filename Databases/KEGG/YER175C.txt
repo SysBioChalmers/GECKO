@@ -1,13 +1,12 @@
 ENTRY       YER175C           CDS       T00005
 NAME        TMT1, TAM1
-DEFINITION  Tmt1p (EC:2.1.1.145)
+DEFINITION  (RefSeq) Tmt1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    V:complement(539464..540363)
-MOTIF       Pfam: Methyltransf_31 Methyltransf_11 Methyltransf_12 Methyltransf_23 Methyltransf_18 Methyltransf_25 Methyltransf_4 Ubie_methyltran CMAS Methyltransf_26 Methyltransf_32 FtsJ DOT1
-DBLINKS     NCBI-GI: 398365095
+MOTIF       Pfam: Methyltransf_31 Methyltransf_25 Methyltransf_12 Methyltransf_11 Methyltransf_23 Ubie_methyltran Methyltransf_4 CMAS MTS Methyltransf_32 DOT1
+DBLINKS     NCBI-ProteinID: NP_011102
             NCBI-GeneID: 856922
             SGD: S000000977
-            MIPS: YER175C
             UniProt: P32643
 STRUCTURE   PDB: 3G5T
 AASEQ       299

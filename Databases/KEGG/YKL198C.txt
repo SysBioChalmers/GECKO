@@ -1,14 +1,19 @@
 ENTRY       YKL198C           CDS       T00005
 NAME        PTK1, KKT8, POT1, STK1, YKL199C, YKT9
-DEFINITION  Ptk1p (EC:2.7.11.1)
+DEFINITION  (RefSeq) putative serine/threonine protein kinase PTK1
 ORTHOLOGY   K08286  protein-serine/threonine kinase [EC:2.7.11.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.11  Protein-serine/threonine kinases
+                2.7.11.-  
+                 YKL198C (PTK1)
 POSITION    XI:complement(68232..70220)
-MOTIF       Pfam: Pkinase Pkinase_Tyr Kdo Kinase-like Trp_syntA
-DBLINKS     NCBI-GI: 330443642
+MOTIF       Pfam: Pkinase Pkinase_Tyr Kdo Kinase-like
+DBLINKS     NCBI-ProteinID: NP_012723
             NCBI-GeneID: 853635
             SGD: S000001681
-            MIPS: YKL198C
             UniProt: P36002
 AASEQ       662
             MTVSHNHSTKISQQPISSVSAFKFFGKKLLSSSHGNKLKKKASLPPDFHSTSTNDSESSS

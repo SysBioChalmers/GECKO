@@ -1,14 +1,29 @@
 ENTRY       YCL010C           CDS       T00005
 NAME        SGF29
-DEFINITION  Sgf29p
+DEFINITION  (RefSeq) Sgf29p
 ORTHOLOGY   K11364  SAGA-associated factor 29
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Coactivators
+                SAGA/TFTC/STAGA complex
+                 YCL010C (SGF29)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Histone modification proteins
+               HAT complexes
+                SAGA complex
+                 YCL010C (SGF29)
+                SLIK complex
+                 YCL010C (SGF29)
+                ADA-HAT complex
+                 YCL010C (SGF29)
 POSITION    III:complement(103571..104350)
-MOTIF       Pfam: DUF1325 DUF4537 Cyc-maltodext_C
-DBLINKS     NCBI-GI: 6319836
+MOTIF       Pfam: DUF1325 DUF4537 Agenet Cyc-maltodext_C
+DBLINKS     NCBI-ProteinID: NP_009917
             NCBI-GeneID: 850347
             SGD: S000000516
-            MIPS: YCL010C
             UniProt: P25554
 AASEQ       259
             MDGYWDVVVSSLQDIYNANEVIPFDDELQTKKLNFLNMSKDQLQLHLNTFQEHMENVNRV

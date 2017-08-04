@@ -1,16 +1,30 @@
 ENTRY       YNL163C           CDS       T00005
 NAME        RIA1, EFL1
-DEFINITION  Ria1p (EC:3.6.5.-)
+DEFINITION  (RefSeq) GTPase RIA1
 ORTHOLOGY   K14536  ribosome assembly protein 1 [EC:3.6.5.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03008  Ribosome biogenesis in eukaryotes
-CLASS       Genetic Information Processing; Translation; Ribosome biogenesis in eukaryotes [PATH:sce03008]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03008 Ribosome biogenesis in eukaryotes
+                YNL163C (RIA1)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.5  Acting on GTP to facilitate cellular and subcellular movement
+                3.6.5.-  
+                 YNL163C (RIA1)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               GTPases
+                YNL163C (RIA1)
 POSITION    XIV:complement(326741..330073)
 MOTIF       Pfam: GTP_EFTU EFG_C GTP_EFTU_D2 EFG_II EFG_IV MMR_HSR1
-DBLINKS     NCBI-GI: 6324166
+DBLINKS     NCBI-ProteinID: NP_014236
             NCBI-GeneID: 855558
             SGD: S000005107
-            MIPS: YNL163C
             UniProt: P53893
 AASEQ       1110
             MPRVESETYKRLQNDPSCIRNICIVAHVDHGKTSLSDSLLASNGIISQRLAGKIRFLDAR

@@ -1,13 +1,30 @@
 ENTRY       YKR058W           CDS       T00005
 NAME        GLG1
-DEFINITION  glycogenin glucosyltransferase GLG1 (EC:2.4.1.186)
+DEFINITION  (RefSeq) glycogenin glucosyltransferase GLG1
+ORTHOLOGY   K00750  glycogenin [EC:2.4.1.186]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00500  Starch and sucrose metabolism
+            sce01100  Metabolic pathways
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Carbohydrate metabolism
+               00500 Starch and sucrose metabolism
+                YKR058W (GLG1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.4  Glycosyltransferases
+               2.4.1  Hexosyltransferases
+                2.4.1.186  glycogenin glucosyltransferase
+                 YKR058W (GLG1)
+            Glycosyltransferases [BR:sce01003]
+             Polysaccharide
+              Storage polysaccharide
+               YKR058W (GLG1)
 POSITION    XI:552770..554620
 MOTIF       Pfam: Glyco_transf_8
-DBLINKS     NCBI-GI: 83578103
+DBLINKS     NCBI-ProteinID: NP_012984
             NCBI-GeneID: 853932
             SGD: S000001766
-            MIPS: YKR058W
             UniProt: P36143
 AASEQ       616
             MYKKLAIATLLYSADYLPGVFALGHQVNKLLEEAGKKGDIETCLIVTTSLFNGTLSELAK

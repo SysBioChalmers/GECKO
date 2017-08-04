@@ -1,14 +1,19 @@
 ENTRY       YBR025C           CDS       T00005
 NAME        OLA1
-DEFINITION  Ola1p
-ORTHOLOGY   K06942
+DEFINITION  (RefSeq) Obg-like ATPase
+ORTHOLOGY   K19788  obg-like ATPase 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centrosome formation and ciliogenesis proteins
+               Centrosome duplication proteins
+                Regulators of centriole replication
+                 YBR025C (OLA1)
 POSITION    II:complement(290681..291865)
-MOTIF       Pfam: YchF-GTPase_C MMR_HSR1 TGS AAA_23 FeoB_N SecA_PP_bind
-DBLINKS     NCBI-GI: 6319499
+MOTIF       Pfam: YchF-GTPase_C MMR_HSR1 TGS FeoB_N
+DBLINKS     NCBI-ProteinID: NP_009581
             NCBI-GeneID: 852313
             SGD: S000000229
-            MIPS: YBR025C
             UniProt: P38219
 AASEQ       394
             MPPKKQVEEKKVLLGRPGNNLKAGIVGLANVGKSTFFQAITRCPLGNPANYPFATIDPEE

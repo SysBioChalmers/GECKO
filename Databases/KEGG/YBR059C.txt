@@ -1,14 +1,19 @@
 ENTRY       YBR059C           CDS       T00005
 NAME        AKL1
-DEFINITION  Akl1p (EC:2.7.11.1)
+DEFINITION  (RefSeq) serine/threonine protein kinase AKL1
 ORTHOLOGY   K08286  protein-serine/threonine kinase [EC:2.7.11.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.11  Protein-serine/threonine kinases
+                2.7.11.-  
+                 YBR059C (AKL1)
 POSITION    II:complement(356861..360187)
 MOTIF       Pfam: Pkinase Pkinase_Tyr APH
-DBLINKS     NCBI-GI: 6319533
+DBLINKS     NCBI-ProteinID: NP_009615
             NCBI-GeneID: 852351
             SGD: S000000263
-            MIPS: YBR059C
             UniProt: P38080
 AASEQ       1108
             MSITNGTSRSVSAMGHPAVERYTPGHIVCVGTHKVEVVNYLAEGGFAQIYVVKFLEYLNE

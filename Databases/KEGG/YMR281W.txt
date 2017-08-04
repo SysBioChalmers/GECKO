@@ -1,18 +1,27 @@
 ENTRY       YMR281W           CDS       T00005
 NAME        GPI12
-DEFINITION  Gpi12p (EC:3.5.1.89)
+DEFINITION  (RefSeq) N-acetylglucosaminylphosphatidylinositol deacetylase
 ORTHOLOGY   K03434  N-acetylglucosaminylphosphatidylinositol deacetylase [EC:3.5.1.89]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
-PATHWAY     sce00563  Glycosylphosphatidylinositol(GPI)-anchor biosynthesis
+PATHWAY     sce00563  Glycosylphosphatidylinositol (GPI)-anchor biosynthesis
             sce01100  Metabolic pathways
 MODULE      sce_M00065  GPI-anchor biosynthesis, core oligosaccharide
-CLASS       Metabolism; Glycan biosynthesis and metabolism; Glycosylphosphatidylinositol(GPI)-anchor biosynthesis [PATH:sce00563]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Glycan biosynthesis and metabolism
+               00563 Glycosylphosphatidylinositol(GPI)-anchor biosynthesis
+                YMR281W (GPI12)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.5  Acting on carbon-nitrogen bonds, other than peptide bonds
+               3.5.1  In linear amides
+                3.5.1.89  N-acetylglucosaminylphosphatidylinositol deacetylase
+                 YMR281W (GPI12)
 POSITION    XIII:832339..833253
-MOTIF       Pfam: PIG-L CBM_17_28 Herpes_UL21
-DBLINKS     NCBI-GI: 6323937
+MOTIF       Pfam: PIG-L
+DBLINKS     NCBI-ProteinID: NP_014008
             NCBI-GeneID: 855324
             SGD: S000004894
-            MIPS: YMR281W
             UniProt: P23797
 AASEQ       304
             MKMLRRTKVNFSKLLYKITKLAIVLTILYIYFTPKIVSRNNASLQHIFPHKYGDYEINLV

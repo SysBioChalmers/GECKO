@@ -1,13 +1,12 @@
 ENTRY       YPR179C           CDS       T00005
 NAME        HDA3, PLO1
-DEFINITION  Hda3p
+DEFINITION  (RefSeq) Hda3p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:complement(893797..895764)
-MOTIF       Pfam: HDA2-3 Complex1_49kDa
-DBLINKS     NCBI-GI: 6325437
+MOTIF       Pfam: HDA2-3
+DBLINKS     NCBI-ProteinID: NP_015505
             NCBI-GeneID: 856309
             SGD: S000006383
-            MIPS: YPR179C
             UniProt: Q06623
 STRUCTURE   PDB: 3HGT 3HGQ
 AASEQ       655

@@ -1,14 +1,18 @@
 ENTRY       YMR042W           CDS       T00005
 NAME        ARG80, ARGR1
-DEFINITION  Arg80p
-ORTHOLOGY   K09265  MADS-box transcription factor, other eukaryote
+DEFINITION  (RefSeq) Arg80p
+ORTHOLOGY   K19808  arginine metabolism regulation protein I
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription factors [BR:sce03000]
+             Eukaryotic Type
+              beta-Scaffold factors with minor groove contacts
+               MADS-box regulators of differentiation, Yeast regulators
+                YMR042W (ARG80)
 POSITION    XIII:352603..353136
 MOTIF       Pfam: SRF-TF
-DBLINKS     NCBI-GI: 6323685
+DBLINKS     NCBI-ProteinID: NP_013756
             NCBI-GeneID: 855059
             SGD: S000004645
-            MIPS: YMR042W
             UniProt: P07249
 AASEQ       177
             MTSNSDGSSTSPVEKPITGDVETNEPTKPIRRLSTPSPEQDQEGDFDEEDDDDKFSVSTS

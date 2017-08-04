@@ -1,14 +1,17 @@
 ENTRY       YNL268W           CDS       T00005
 NAME        LYP1
-DEFINITION  Lyp1p
+DEFINITION  (RefSeq) lysine permease
 ORTHOLOGY   K16261  yeast amino acid transporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Other Transporters
+              Electrochemical potential-driven transporters [TC:2]
+               YNL268W (LYP1)
 POSITION    XIV:138550..140385
 MOTIF       Pfam: AA_permease AA_permease_2 RhodobacterPufX
-DBLINKS     NCBI-GI: 6324061
+DBLINKS     NCBI-ProteinID: NP_014131
             NCBI-GeneID: 855453
             SGD: S000005212
-            MIPS: YNL268W
             UniProt: P32487
 AASEQ       611
             MGRFSNIITSNKWDEKQNNIGEQSMQELPEDQIEHEMEAIDPSNKTTPYSIDEKQYNTKK

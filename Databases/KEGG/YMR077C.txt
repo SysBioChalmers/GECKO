@@ -1,17 +1,33 @@
 ENTRY       YMR077C           CDS       T00005
 NAME        VPS20, CHM6, VPL10, VPT20
-DEFINITION  Vps20p
+DEFINITION  (RefSeq) ESCRT-III subunit protein VPS20
 ORTHOLOGY   K12195  charged multivesicular body protein 6
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04144  Endocytosis
-CLASS       Cellular Processes; Transport and catabolism; Endocytosis [PATH:sce04144]
+MODULE      sce_M00412  ESCRT-III complex
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04144 Endocytosis
+                YMR077C (VPS20)
+            Membrane trafficking [BR:sce04131]
+             Endosome - Lysosome transport
+              Endosomal sorting complexes required for transport (ESCRT)
+               ESCRT-III complex
+                YMR077C (VPS20)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of haemopoietic cells  (B-cell, T-cell, DC-cell, reticulocyte, and mast cell)
+               YMR077C (VPS20)
+              Exosomal proteins of other body fluids (saliva and urine)
+               YMR077C (VPS20)
 POSITION    XIII:complement(421484..422149)
-MOTIF       Pfam: Snf7 Mating_N Orbi_VP5 SlyX UvrD-helicase
-DBLINKS     NCBI-GI: 6323723
+MOTIF       Pfam: Snf7 SlyX T2SSS_2 Mating_N UvrD-helicase DUF948
+DBLINKS     NCBI-ProteinID: NP_013794
             NCBI-GeneID: 855101
             SGD: S000004682
-            MIPS: YMR077C
             UniProt: Q04272
+STRUCTURE   PDB: 5FVL
 AASEQ       221
             MGQKSSKVHITKTDRAILEVKRSKDEIHKFTRRTDNLILVEKSQLKDLIRKNPENYKSNM
             KVRFLLKRIHYQEHLLQQASDQLINLENMVSTLEFKMVEKQFINGLKNGNEILKKLNKEF

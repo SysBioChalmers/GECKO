@@ -1,14 +1,19 @@
 ENTRY       YNL039W           CDS       T00005
 NAME        BDP1, TFC5, TFC7
-DEFINITION  Bdp1p
+DEFINITION  (RefSeq) transcription factor TFIIIB subunit BDP1
 ORTHOLOGY   K15198  transcription factor TFIIIB component B''
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase III system
+               Basal transcription factors
+                TFIIIB
+                 YNL039W (BDP1)
 POSITION    XIV:555048..556832
-MOTIF       Pfam: Myb_DNA-binding
-DBLINKS     NCBI-GI: 398365309
+MOTIF       Pfam: Myb_DNA-bind_7 Myb_DNA-binding Myb_DNA-bind_6
+DBLINKS     NCBI-ProteinID: NP_014359
             NCBI-GeneID: 855689
             SGD: S000004984
-            MIPS: YNL039W
             UniProt: P46678
 AASEQ       594
             MSSIVNKSGTRFAPKVRQRRAATGGTPTPKPRTPQLFIPESKEIEEDNSDNDKGVDENET

@@ -1,14 +1,18 @@
 ENTRY       YHL040C           CDS       T00005
 NAME        ARN1
-DEFINITION  Arn1p
+DEFINITION  (RefSeq) siderophore transporter
 ORTHOLOGY   K08197  MFS transporter, SIT family, siderophore-iron:H+ symporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Major Facilitator Superfamily (MFS)
+              Metal transporters
+               Siderophore-iron transporter (SIT) [TC:2.A.1.16]
+                YHL040C (ARN1)
 POSITION    VIII:complement(19088..20971)
-MOTIF       Pfam: MFS_1 Sugar_tr
-DBLINKS     NCBI-GI: 6321747
+MOTIF       Pfam: MFS_1 Sugar_tr DUF2530 WASH-7_C
+DBLINKS     NCBI-ProteinID: NP_011823
             NCBI-GeneID: 856345
             SGD: S000001032
-            MIPS: YHL040C
             UniProt: P38731
 AASEQ       627
             MESVHSRDPVKEEKKHVFMGMEHELNPETHNDSNSDSYGLPQLSEKYNALRQNRSLIIQQ

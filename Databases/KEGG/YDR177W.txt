@@ -1,16 +1,29 @@
 ENTRY       YDR177W           CDS       T00005
 NAME        UBC1
-DEFINITION  E2 ubiquitin-conjugating protein UBC1 (EC:6.3.2.19)
-ORTHOLOGY   K04649  ubiquitin-conjugating enzyme (huntingtin interacting protein 2) [EC:6.3.2.19]
+DEFINITION  (RefSeq) E2 ubiquitin-conjugating protein UBC1
+ORTHOLOGY   K04649  ubiquitin-conjugating enzyme (huntingtin interacting protein 2) [EC:2.3.2.23]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04120  Ubiquitin mediated proteolysis
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Ubiquitin mediated proteolysis [PATH:sce04120]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04120 Ubiquitin mediated proteolysis
+                YDR177W (UBC1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.3  Acyltransferases
+               2.3.2  Aminoacyltransferases
+                2.3.2.23  E2 ubiquitin-conjugating enzyme
+                 YDR177W (UBC1)
+            Ubiquitin system [BR:sce04121]
+             Ubiquitin-conjugating enzymes (E2)
+              Ubiquitin-conjugating enzymes
+               YDR177W (UBC1)
 POSITION    IV:816878..817525
-MOTIF       Pfam: UQ_con UBA_3 Prok-E2_B RWD UBA_2 Calsarcin
-DBLINKS     NCBI-GI: 398365965
+MOTIF       Pfam: UQ_con UBA_3 Calsarcin RGS12_usC DUF1421
+DBLINKS     NCBI-ProteinID: NP_010462
             NCBI-GeneID: 851757
             SGD: S000002584
-            MIPS: YDR177W
             UniProt: P21734
 STRUCTURE   PDB: 1FZY 1TTE 1FXT
 AASEQ       215

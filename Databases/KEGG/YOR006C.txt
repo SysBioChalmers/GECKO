@@ -1,14 +1,18 @@
 ENTRY       YOR006C           CDS       T00005
 NAME        TSR3
-DEFINITION  Tsr3p
+DEFINITION  (RefSeq) Tsr3p
 ORTHOLOGY   K09140  pre-rRNA-processing protein TSR3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-40S particles
+               Export and cytoplasmic maturation factors
+                YOR006C (TSR3)
 POSITION    XV:complement(337680..338621)
-MOTIF       Pfam: DUF367 RLI
-DBLINKS     NCBI-GI: 6324579
+MOTIF       Pfam: Ribo_biogen_C RLI
+DBLINKS     NCBI-ProteinID: NP_014648
             NCBI-GeneID: 854167
             SGD: S000005532
-            MIPS: YOR006C
             UniProt: Q12094
 AASEQ       313
             MGKGKNKMHEPKNGRPQRGANGHSSRQNHRRMEMKYDNSEKMKFPVKLAMWDFDHCDPKR

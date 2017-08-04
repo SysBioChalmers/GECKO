@@ -1,14 +1,19 @@
 ENTRY       YBR211C           CDS       T00005
 NAME        AME1, ARP100
-DEFINITION  Ame1p
+DEFINITION  (RefSeq) Ame1p
 ORTHOLOGY   K11556  central kinetochore subunit AME1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centromeric chromatin formation proteins
+               Kinetochore proteins
+                COMA complex
+                 YBR211C (AME1)
 POSITION    II:complement(646158..647132)
-MOTIF       Pfam: APG6 DUF1640
-DBLINKS     NCBI-GI: 398365517
+MOTIF       Pfam: DUF1640
+DBLINKS     NCBI-ProteinID: NP_009770
             NCBI-GeneID: 852512
             SGD: S000000415
-            MIPS: YBR211C
             UniProt: P38313
 AASEQ       324
             MDRDTKLAFRLRGSHSRRTDDIDDDVIVFKTPNAVYREENSPIQSPVQPILSSPKLANSF

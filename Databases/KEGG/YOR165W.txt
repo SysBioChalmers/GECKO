@@ -1,13 +1,12 @@
 ENTRY       YOR165W           CDS       T00005
 NAME        SEY1
-DEFINITION  Sey1p (EC:3.6.5.-)
+DEFINITION  (RefSeq) dynamin-like GTPase SEY1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:644566..646896
-MOTIF       Pfam: RHD3 Dynamin_N MMR_HSR1 Miro
-DBLINKS     NCBI-GI: 6324739
+MOTIF       Pfam: RHD3 MMR_HSR1 Dynamin_N Septin Roc
+DBLINKS     NCBI-ProteinID: NP_014808
             NCBI-GeneID: 854336
             SGD: S000005691
-            MIPS: YOR165W
             UniProt: Q99287
 AASEQ       776
             MADRPAIQLIDEEKEFHQSALQYFQQCIGNRDVGLDYHVISVFGSQSSGKSTLLNVLFNT

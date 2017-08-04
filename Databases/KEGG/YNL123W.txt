@@ -1,13 +1,12 @@
 ENTRY       YNL123W           CDS       T00005
 NAME        NMA111, YNM3
-DEFINITION  Nma111p (EC:3.4.21.-)
+DEFINITION  (RefSeq) Nma111p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIV:394685..397678
-MOTIF       Pfam: PDZ_1 PDZ Trypsin_2 PDZ_2 Tricorn_PDZ Trypsin DUF31 Peptidase_S7
-DBLINKS     NCBI-GI: 6324206
+MOTIF       Pfam: PDZ_1 Trypsin_2 PDZ PDZ_2 Tricorn_PDZ Trypsin DUF31 Peptidase_S7
+DBLINKS     NCBI-ProteinID: NP_014276
             NCBI-GeneID: 855600
             SGD: S000005067
-            MIPS: YNL123W
             UniProt: P53920
 AASEQ       997
             MTISLSNIKKRDHSKISDGTSGESSLVKRKQLESATGDQEEEYTDHEIIIEPLHFANNNN

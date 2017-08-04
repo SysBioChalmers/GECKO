@@ -1,16 +1,34 @@
 ENTRY       YJL095W           CDS       T00005
 NAME        BCK1, LAS3, SAP3, SLK1, SSP31
-DEFINITION  Bck1p (EC:2.7.11.1)
-ORTHOLOGY   K11229  mitogen-activated protein kinase kinase kinase [EC:2.7.11.1]
+DEFINITION  (RefSeq) mitogen-activated protein kinase kinase kinase BCK1
+ORTHOLOGY   K11229  mitogen-activated protein kinase kinase kinase [EC:2.7.11.25]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04011  MAPK signaling pathway - yeast
-CLASS       Environmental Information Processing; Signal transduction; MAPK signaling pathway - yeast [PATH:sce04011]
+            sce04139  Mitophagy - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YJL095W (BCK1)
+             Cellular Processes
+              Transport and catabolism
+               04139 Mitophagy - yeast
+                YJL095W (BCK1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.11  Protein-serine/threonine kinases
+                2.7.11.25  mitogen-activated protein kinase kinase kinase
+                 YJL095W (BCK1)
+            Protein kinases [BR:sce01001]
+             Serine/threonine protein kinases: STE group
+              Other families
+               YJL095W (BCK1)
 POSITION    X:247255..251691
-MOTIF       Pfam: Pkinase Pkinase_Tyr Kinase-like APH
-DBLINKS     NCBI-GI: 6322366
+MOTIF       Pfam: Pkinase Pkinase_Tyr Kinase-like Mrr_N APH
+DBLINKS     NCBI-ProteinID: NP_012440
             NCBI-GeneID: 853350
             SGD: S000003631
-            MIPS: YJL095W
             UniProt: Q01389
 AASEQ       1478
             MPFLRKIAGTAHTHSRSDSNSSVKFGHQPTSSVASTKSSSKSPRATSRKSIYDDIRSQFP

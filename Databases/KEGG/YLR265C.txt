@@ -1,16 +1,25 @@
 ENTRY       YLR265C           CDS       T00005
 NAME        NEJ1, LIF2
-DEFINITION  Nej1p
+DEFINITION  (RefSeq) Nej1p
 ORTHOLOGY   K10983  non-homologous end-joining protein 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03450  Non-homologous end-joining
-CLASS       Genetic Information Processing; Replication and repair; Non-homologous end-joining [PATH:sce03450]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Replication and repair
+               03450 Non-homologous end-joining
+                YLR265C (NEJ1)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              DSBR (double strand breaks repair)
+               NHEJ (non-homologous end-joining)
+                DNA Ligase 4 complex
+                 YLR265C (NEJ1)
 POSITION    XII:complement(674427..675455)
 MOTIF       Pfam: XLF
-DBLINKS     NCBI-GI: 6323295
+DBLINKS     NCBI-ProteinID: NP_013367
             NCBI-GeneID: 850970
             SGD: S000004255
-            MIPS: YLR265C
             UniProt: Q06148
 AASEQ       342
             MDSELKGQQLSDAEWCVKKINGEGNCLLLFLPMSSPTTIVMIVLVSLERLVPYVFKLSQT

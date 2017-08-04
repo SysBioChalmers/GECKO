@@ -1,13 +1,12 @@
 ENTRY       YER045C           CDS       T00005
 NAME        ACA1
-DEFINITION  Aca1p
+DEFINITION  (RefSeq) Aca1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    V:complement(240032..241501)
-MOTIF       Pfam: bZIP_1 bZIP_2 CelD_N bZIP_Maf DUF730
-DBLINKS     NCBI-GI: 398364425
+MOTIF       Pfam: bZIP_1 bZIP_2 Tup_N CelD_N bZIP_Maf DUF730
+DBLINKS     NCBI-ProteinID: NP_010964
             NCBI-GeneID: 856769
             SGD: S000000847
-            MIPS: YER045C
             UniProt: P39970
 AASEQ       489
             MDYKHNFATSPDSFLDGRQNPLLYTDFLSSNKELIYKQPSGPGLVDSAYNFHHQNSLHDR

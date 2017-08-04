@@ -1,15 +1,20 @@
 ENTRY       YMR076C           CDS       T00005
 NAME        PDS5
-DEFINITION  Pds5p
+DEFINITION  (RefSeq) Pds5p
 ORTHOLOGY   K11267  sister chromatid cohesion protein PDS5
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Sister chromatid cohesion proteins
+               Adherin complex
+                YMR076C (PDS5)
 POSITION    XIII:complement(416196..420029)
-MOTIF       Pfam: HEAT_2 DDHD
-DBLINKS     NCBI-GI: 6323722
+MOTIF       Pfam: Cnd1
+DBLINKS     NCBI-ProteinID: NP_013793
             NCBI-GeneID: 855099
             SGD: S000004681
-            MIPS: YMR076C
             UniProt: Q04264
+STRUCTURE   PDB: 5FRP 5FRS 5FRR
 AASEQ       1277
             MAKGAVTKLKFNSPIISTSDQLISTNELLDRLKALHEELASLDQDNTDLTGLDKYRDALV
             SRKLLKHKDVGIRAFTACCLSDILRLYAPDAPYTDAQLTDIFKLVLSQFEQLGDQENGYH

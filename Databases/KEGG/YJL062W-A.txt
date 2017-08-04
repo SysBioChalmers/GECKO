@@ -1,12 +1,17 @@
 ENTRY       YJL062W-A         CDS       T00005
 NAME        COA3, COX25, RRG10
-DEFINITION  Coa3p
+DEFINITION  (RefSeq) Coa3p
+ORTHOLOGY   K18176  cytochrome c oxidase assembly factor 3, fungi type
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial quality control factors
+              Mitochondrial respiratory chain complex assembly factors
+               Complex-IV assembly factors
+                YJL062W-A (COA3)
 POSITION    X:316723..316980
-DBLINKS     NCBI-GI: 398364487
+DBLINKS     NCBI-ProteinID: NP_076894
             NCBI-GeneID: 853383
             SGD: S000007611
-            MIPS: YJL062W-A
             UniProt: Q3E7B2
 AASEQ       85
             MVLNPSKYQDTRTWKMTPAMIRARKPFFKGNMLGLTLLLGVTGSVYYYTYHFLHKDNDFA

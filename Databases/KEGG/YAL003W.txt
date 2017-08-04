@@ -1,14 +1,17 @@
 ENTRY       YAL003W           CDS       T00005
 NAME        EFB1, TEF5
-DEFINITION  Efb1p
+DEFINITION  (RefSeq) translation elongation factor 1 subunit beta
 ORTHOLOGY   K03232  elongation factor 1-beta
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Translation factors [BR:sce03012]
+             Eukaryotic Type
+              Elongation factors
+               YAL003W (EFB1)
 POSITION    I:join(142174..142253,142620..143160)
-MOTIF       Pfam: EF1_GNE EF-1_beta_acid GST_C GST_C_3 GST_C_2 Cwf_Cwc_15
-DBLINKS     NCBI-GI: 6319315
+MOTIF       Pfam: EF1_GNE EF-1_beta_acid GST_C_2 GST_C
+DBLINKS     NCBI-ProteinID: NP_009398
             NCBI-GeneID: 851260
             SGD: S000000003
-            MIPS: YAL003W
             UniProt: P32471
 STRUCTURE   PDB: 1F60 2B7C 1G7C 1IJE 2B7B 1IJF
 AASEQ       206

@@ -1,13 +1,12 @@
 ENTRY       YHR121W           CDS       T00005
 NAME        LSM12
-DEFINITION  Lsm12p
+DEFINITION  (RefSeq) Lsm12p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VIII:352756..353319
-MOTIF       Pfam: AD Baculo_LEF-3 Peroxin-22 LSM14
-DBLINKS     NCBI-GI: 6321913
+MOTIF       Pfam: AD LSM14
+DBLINKS     NCBI-ProteinID: NP_011989
             NCBI-GeneID: 856521
             SGD: S000001163
-            MIPS: YHR121W
             UniProt: P38828
 AASEQ       187
             MSVSLEQTLGFRIKVTNVLDVVTEGRLYSFNSSNNTLTIQTTKKNQSPQNFKVIKCTFIK

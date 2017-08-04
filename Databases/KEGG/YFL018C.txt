@@ -1,6 +1,6 @@
 ENTRY       YFL018C           CDS       T00005
 NAME        LPD1, HPD1
-DEFINITION  dihydrolipoyl dehydrogenase (EC:1.8.1.4)
+DEFINITION  (RefSeq) dihydrolipoyl dehydrogenase
 ORTHOLOGY   K00382  dihydrolipoamide dehydrogenase [EC:1.8.1.4]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00010  Glycolysis / Gluconeogenesis
@@ -8,24 +8,51 @@ PATHWAY     sce00010  Glycolysis / Gluconeogenesis
             sce00260  Glycine, serine and threonine metabolism
             sce00280  Valine, leucine and isoleucine degradation
             sce00620  Pyruvate metabolism
+            sce00630  Glyoxylate and dicarboxylate metabolism
+            sce00640  Propanoate metabolism
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
+            sce01130  Biosynthesis of antibiotics
             sce01200  Carbon metabolism
 MODULE      sce_M00009  Citrate cycle (TCA cycle, Krebs cycle)
             sce_M00011  Citrate cycle, second carbon oxidation, 2-oxoglutarate => oxaloacetate
             sce_M00307  Pyruvate oxidation, pyruvate => acetyl-CoA
-CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
-            Metabolism; Carbohydrate metabolism; Glycolysis / Gluconeogenesis [PATH:sce00010]
-            Metabolism; Carbohydrate metabolism; Citrate cycle (TCA cycle) [PATH:sce00020]
-            Metabolism; Carbohydrate metabolism; Pyruvate metabolism [PATH:sce00620]
-            Metabolism; Amino acid metabolism; Glycine, serine and threonine metabolism [PATH:sce00260]
-            Metabolism; Amino acid metabolism; Valine, leucine and isoleucine degradation [PATH:sce00280]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01200 Carbon metabolism
+                YFL018C (LPD1)
+              Carbohydrate metabolism
+               00010 Glycolysis / Gluconeogenesis
+                YFL018C (LPD1)
+               00020 Citrate cycle (TCA cycle)
+                YFL018C (LPD1)
+               00620 Pyruvate metabolism
+                YFL018C (LPD1)
+               00630 Glyoxylate and dicarboxylate metabolism
+                YFL018C (LPD1)
+               00640 Propanoate metabolism
+                YFL018C (LPD1)
+              Amino acid metabolism
+               00260 Glycine, serine and threonine metabolism
+                YFL018C (LPD1)
+               00280 Valine, leucine and isoleucine degradation
+                YFL018C (LPD1)
+            Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.8  Acting on a sulfur group of donors
+               1.8.1  With NAD+ or NADP+ as acceptor
+                1.8.1.4  dihydrolipoyl dehydrogenase
+                 YFL018C (LPD1)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of breast cancer cells
+               YFL018C (LPD1)
 POSITION    VI:complement(101628..103127)
-MOTIF       Pfam: Pyr_redox_dim Pyr_redox_2 Pyr_redox FAD_oxidored NAD_binding_8 Pyr_redox_3 GIDA HI0933_like FAD_binding_2 DAO Thi4 FAD_binding_3 AlaDh_PNT_C K_oxygenase 3HCDH_N XdhC_C THF_DHG_CYH_C Lycopene_cycl Trp_halogenase UDPG_MGDP_dh_N Mqo
-DBLINKS     NCBI-GI: 14318501
+MOTIF       Pfam: Pyr_redox_2 Pyr_redox_dim Pyr_redox NAD_binding_8 FAD_oxidored GIDA HI0933_like Pyr_redox_3 AlaDh_PNT_C FAD_binding_2 FAD_binding_3 Thi4 DAO K_oxygenase 3HCDH_N THF_DHG_CYH_C Trp_halogenase Lycopene_cycl UDPG_MGDP_dh_N
+DBLINKS     NCBI-ProteinID: NP_116635
             NCBI-GeneID: 850527
             SGD: S000001876
-            MIPS: YFL018C
             UniProt: P09624
 STRUCTURE   PDB: 1V59 1JEH
 AASEQ       499

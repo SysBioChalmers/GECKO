@@ -1,13 +1,12 @@
 ENTRY       YOR306C           CDS       T00005
 NAME        MCH5
-DEFINITION  Mch5p
+DEFINITION  (RefSeq) Mch5p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:complement(889867..891432)
-MOTIF       Pfam: MFS_1 MFS_2 Sugar_tr
-DBLINKS     NCBI-GI: 398366189
+MOTIF       Pfam: MFS_1 Sugar_tr
+DBLINKS     NCBI-ProteinID: NP_014951
             NCBI-GeneID: 854483
             SGD: S000005833
-            MIPS: YOR306C
             UniProt: Q08777
 AASEQ       521
             MSSDSLTPKDTIVPEEQTNQLRQPDLDEDSIHYDPEADDLESLETTASYASTSVSAKVYT

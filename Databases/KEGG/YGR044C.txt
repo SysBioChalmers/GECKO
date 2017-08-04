@@ -1,18 +1,24 @@
 ENTRY       YGR044C           CDS       T00005
 NAME        RME1, CSP1
-DEFINITION  Rme1p
+DEFINITION  (RefSeq) Rme1p
 ORTHOLOGY   K09235  zinc finger protein RME1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04113  Meiosis - yeast
-            sce04144  Endocytosis
-CLASS       Cellular Processes; Transport and catabolism; Endocytosis [PATH:sce04144]
-            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04113 Meiosis - yeast
+                YGR044C (RME1)
+            Transcription factors [BR:sce03000]
+             Eukaryotic Type
+              Zinc finger
+               Cys2His2 developmental/cell cycle regulators, GLI-like
+                YGR044C (RME1)
 POSITION    VII:complement(582990..583892)
-MOTIF       Pfam: zf-C2H2_4 zf-C2H2 zf-H2C2_2
-DBLINKS     NCBI-GI: 6321481
+MOTIF       Pfam: zf-C2H2_4 zf-C2H2 zf-C2HE
+DBLINKS     NCBI-ProteinID: NP_011558
             NCBI-GeneID: 852935
             SGD: S000003276
-            MIPS: YGR044C
             UniProt: P32338
 AASEQ       300
             MSPCYGQNSAIAKGSWNREVLQEVQPIYHWHDFGQNMKEYSASPLEGDSSLPSSLPSSTE

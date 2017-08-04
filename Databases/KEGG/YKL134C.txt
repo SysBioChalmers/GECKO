@@ -1,14 +1,28 @@
 ENTRY       YKL134C           CDS       T00005
 NAME        OCT1
-DEFINITION  Oct1p (EC:3.4.24.59)
+DEFINITION  (RefSeq) metalloendopeptidase
 ORTHOLOGY   K01410  mitochondrial intermediate peptidase [EC:3.4.24.59]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.4  Acting on peptide bonds (peptidases)
+               3.4.24  Metalloendopeptidases
+                3.4.24.59  mitochondrial intermediate peptidase
+                 YKL134C (OCT1)
+            Peptidases [BR:sce01002]
+             Metallo Peptidases
+              Family M3
+               YKL134C (OCT1)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial protein import machinery
+              Matrix
+               Other matrix factors
+                YKL134C (OCT1)
 POSITION    XI:complement(189124..191442)
-MOTIF       Pfam: Peptidase_M3 KxDL Peptidase_M50B
-DBLINKS     NCBI-GI: 330443646
+MOTIF       Pfam: Peptidase_M3 KxDL
+DBLINKS     NCBI-ProteinID: NP_012788
             NCBI-GeneID: 853724
             SGD: S000001617
-            MIPS: YKL134C
             UniProt: P35999
 AASEQ       772
             MLRTIILKAGSNASIPSPSRQNKLLRFFATAGAVSRTSPGSIKKIFDDNSYWRNINGQDA

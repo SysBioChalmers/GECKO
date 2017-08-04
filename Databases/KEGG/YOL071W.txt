@@ -1,13 +1,18 @@
 ENTRY       YOL071W           CDS       T00005
-NAME        EMI5, SDH5
-DEFINITION  succinate dehydrogenase subunit EMI5
+NAME        SDH5, EMI5
+DEFINITION  (RefSeq) succinate dehydrogenase assembly factor SDH5
+ORTHOLOGY   K18168  succinate dehydrogenase assembly factor 2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial quality control factors
+              Mitochondrial respiratory chain complex assembly factors
+               Complex-II assembly factors
+                YOL071W (SDH5)
 POSITION    XV:196507..196995
-MOTIF       Pfam: Sdh5
-DBLINKS     NCBI-GI: 6324501
+MOTIF       Pfam: Sdh5 SOP4
+DBLINKS     NCBI-ProteinID: NP_014570
             NCBI-GeneID: 854083
             SGD: S000005432
-            MIPS: YOL071W
             UniProt: Q08230
 STRUCTURE   PDB: 2LM4
 AASEQ       162

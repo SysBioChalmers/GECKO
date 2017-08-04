@@ -1,13 +1,12 @@
 ENTRY       YCL039W           CDS       T00005
 NAME        GID7, MOH2
-DEFINITION  glucose-induced degradation complex subunit GID7
+DEFINITION  (RefSeq) glucose-induced degradation complex subunit GID7
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    III:52645..54882
-MOTIF       Pfam: WD40 DUF4221 Lactonase
-DBLINKS     NCBI-GI: 6319810
+MOTIF       Pfam: WD40 DUF4221
+DBLINKS     NCBI-ProteinID: NP_009891
             NCBI-GeneID: 850318
             SGD: S000000544
-            MIPS: YCL039W
             UniProt: P25569
 AASEQ       745
             MSHTNKIAYVLNNDTEETASPSSVGCFDKKQLTKLLIHTLKELGYDSAANQLLLESGGYQ

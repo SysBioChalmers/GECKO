@@ -1,14 +1,23 @@
 ENTRY       YOL006C           CDS       T00005
 NAME        TOP1, MAK1, MAK17
-DEFINITION  DNA topoisomerase 1 (EC:5.99.1.2)
+DEFINITION  (RefSeq) DNA topoisomerase 1
 ORTHOLOGY   K03163  DNA topoisomerase I [EC:5.99.1.2]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             5. Isomerases
+              5.99  Other isomerases
+               5.99.1  Sole sub-subclass for isomerases that do not belong in the other subclasses
+                5.99.1.2  DNA topoisomerase
+                 YOL006C (TOP1)
+            DNA replication proteins [BR:sce03032]
+             Eukaryotic Type
+              DNA Topoisomerases
+               YOL006C (TOP1)
 POSITION    XV:complement(313078..315387)
-MOTIF       Pfam: Topoisom_I_N Topoisom_I Topo_C_assoc
-DBLINKS     NCBI-GI: 6324568
+MOTIF       Pfam: Topoisom_I Topoisom_I_N Topo_C_assoc
+DBLINKS     NCBI-ProteinID: NP_014637
             NCBI-GeneID: 854156
             SGD: S000005366
-            MIPS: YOL006C
             UniProt: P04786
 STRUCTURE   PDB: 1OIS
 AASEQ       769

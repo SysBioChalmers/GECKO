@@ -1,18 +1,27 @@
 ENTRY       YLR344W           CDS       T00005
 NAME        RPL26A
-DEFINITION  ribosomal 60S subunit protein L26A
+DEFINITION  (RefSeq) ribosomal 60S subunit protein L26A
 ORTHOLOGY   K02898  large subunit ribosomal protein L26e
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03010  Ribosome
-CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+MODULE      sce_M00177  Ribosome, eukaryotes
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03010 Ribosome
+                YLR344W (RPL26A)
+            Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Eukaryotes
+               Large subunit
+                YLR344W (RPL26A)
 POSITION    XII:join(819312..819330,819778..820142)
-MOTIF       Pfam: KOW
-DBLINKS     NCBI-GI: 6323376
+MOTIF       Pfam: Ribosomal_L26 KOW
+DBLINKS     NCBI-ProteinID: NP_013448
             NCBI-GeneID: 851058
             SGD: S000004336
-            MIPS: YLR344W
             UniProt: P05743
-STRUCTURE   PDB: 3U5E 3U5I 3O58 3O5H 4BYN 4BYU 4B6A 2WW9 3IZS 2WWA 1S1I
+STRUCTURE   PDB: 2WW9 2WWA
 AASEQ       127
             MAKQSLDVSSDRRKARKAYFTAPSSQRRVLLSAPLSKELRAQYGIKALPIRRDDEVLVVR
             GSKKGQEGKISSVYRLKFAVQVDKVTKEKVNGASVPINLHPSKLVITKLHLDKDRKALIQ

@@ -1,14 +1,24 @@
 ENTRY       YMR091C           CDS       T00005
 NAME        NPL6, RSC7
-DEFINITION  Npl6p
+DEFINITION  (RefSeq) Npl6p
 ORTHOLOGY   K11761  chromatin structure-remodeling complex protein RSC7
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Coactivators
+                RSC complex
+                 YMR091C (NPL6)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Chromatin remodeling factors
+               RSC complex
+                YMR091C (NPL6)
 POSITION    XIII:complement(450058..451365)
-MOTIF       Pfam: CRC_subunit
-DBLINKS     NCBI-GI: 6323738
+MOTIF       Pfam: CRC_subunit CDC45
+DBLINKS     NCBI-ProteinID: NP_013809
             NCBI-GeneID: 855116
             SGD: S000004697
-            MIPS: YMR091C
             UniProt: P32832
 AASEQ       435
             MSDSEGGLASEVEHEKRSRSTSNRPNYAIDTEDLDIDENDENEDDDYREEEANEGVNEEE

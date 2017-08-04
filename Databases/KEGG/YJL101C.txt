@@ -1,17 +1,30 @@
 ENTRY       YJL101C           CDS       T00005
 NAME        GSH1
-DEFINITION  glutamate--cysteine ligase (EC:6.3.2.2)
+DEFINITION  (RefSeq) glutamate--cysteine ligase
 ORTHOLOGY   K11204  glutamate--cysteine ligase catalytic subunit [EC:6.3.2.2]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
-PATHWAY     sce00480  Glutathione metabolism
+PATHWAY     sce00270  Cysteine and methionine metabolism
+            sce00480  Glutathione metabolism
             sce01100  Metabolic pathways
-CLASS       Metabolism; Metabolism of other amino acids; Glutathione metabolism [PATH:sce00480]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Amino acid metabolism
+               00270 Cysteine and methionine metabolism
+                YJL101C (GSH1)
+              Metabolism of other amino acids
+               00480 Glutathione metabolism
+                YJL101C (GSH1)
+            Enzymes [BR:sce01000]
+             6. Ligases
+              6.3  Forming carbon-nitrogen bonds
+               6.3.2  Acid-D-amino-acid ligases (peptide synthases)
+                6.3.2.2  glutamate---cysteine ligase
+                 YJL101C (GSH1)
 POSITION    X:complement(234320..236356)
 MOTIF       Pfam: GCS
-DBLINKS     NCBI-GI: 6322360
+DBLINKS     NCBI-ProteinID: NP_012434
             NCBI-GeneID: 853344
             SGD: S000003637
-            MIPS: YJL101C
             UniProt: P32477
 STRUCTURE   PDB: 3IG5 3LVV 3LVW 3IG8
 AASEQ       678

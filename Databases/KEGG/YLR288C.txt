@@ -1,18 +1,27 @@
 ENTRY       YLR288C           CDS       T00005
 NAME        MEC3, PIP3, PSO9
-DEFINITION  Mec3p
+DEFINITION  (RefSeq) Mec3p
 ORTHOLOGY   K02544  G2-specific checkpoint protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
             sce04113  Meiosis - yeast
-CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
-            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YLR288C (MEC3)
+               04113 Meiosis - yeast
+                YLR288C (MEC3)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              Check point factors
+               Rad17-Mec3-Ddc1 complex
+                YLR288C (MEC3)
 POSITION    XII:complement(713480..714904)
 MOTIF       Pfam: Hus1
-DBLINKS     NCBI-GI: 6323319
+DBLINKS     NCBI-ProteinID: NP_013391
             NCBI-GeneID: 850995
             SGD: S000004279
-            MIPS: YLR288C
             UniProt: Q02574
 AASEQ       474
             MKLKLIVNGCEAPDDYKLLRTTINTVASLRKTAILRFNSERLTIISTPKSSLNSSNNGTI

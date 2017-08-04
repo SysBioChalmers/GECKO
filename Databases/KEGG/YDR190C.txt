@@ -1,14 +1,28 @@
 ENTRY       YDR190C           CDS       T00005
 NAME        RVB1, TIH1, TIP49, TIP49A
-DEFINITION  RuvB family ATP-dependent DNA helicase pontin (EC:3.6.4.12)
+DEFINITION  (RefSeq) RuvB family ATP-dependent DNA helicase pontin
 ORTHOLOGY   K04499  RuvB-like protein 1 (pontin 52)
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Histone modification proteins
+               HAT complexes
+                TIP60 complex
+                 YDR190C (RVB1)
+              Chromatin remodeling factors
+               SRCAP complex
+                YDR190C (RVB1)
+               INO80 complex
+                YDR190C (RVB1)
+               INO80 complex (yeast)
+                YDR190C (RVB1)
+               SWR1 complex
+                YDR190C (RVB1)
 POSITION    IV:complement(840604..841995)
-MOTIF       Pfam: TIP49 RuvB_N AAA AAA_28 AAA_16 AAA_19 Zeta_toxin AAA_5 DnaB_C CPT ORC3_N
-DBLINKS     NCBI-GI: 6320396
+MOTIF       Pfam: TIP49 RuvB_N AAA AAA_28 DnaB_C AAA_5 AAA_16 CPT Zeta_toxin
+DBLINKS     NCBI-ProteinID: NP_010476
             NCBI-GeneID: 851771
             SGD: S000002598
-            MIPS: YDR190C
             UniProt: Q03940
 AASEQ       463
             MVAISEVKENPGVNSSNSGAVTRTAAHTHIKGLGLDESGVAKRVEGGFVGQIEAREACGV

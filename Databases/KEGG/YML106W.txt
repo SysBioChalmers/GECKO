@@ -1,20 +1,29 @@
 ENTRY       YML106W           CDS       T00005
 NAME        URA5, PYR5
-DEFINITION  orotate phosphoribosyltransferase URA5 (EC:2.4.2.10)
+DEFINITION  (RefSeq) orotate phosphoribosyltransferase URA5
 ORTHOLOGY   K00762  orotate phosphoribosyltransferase [EC:2.4.2.10]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00240  Pyrimidine metabolism
             sce01100  Metabolic pathways
 MODULE      sce_M00051  Uridine monophosphate biosynthesis, glutamine (+ PRPP) => UMP
-CLASS       Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Nucleotide metabolism
+               00240 Pyrimidine metabolism
+                YML106W (URA5)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.4  Glycosyltransferases
+               2.4.2  Pentosyltransferases
+                2.4.2.10  orotate phosphoribosyltransferase
+                 YML106W (URA5)
 POSITION    XIII:56773..57453
 MOTIF       Pfam: Pribosyltran
-DBLINKS     NCBI-GI: 6323530
+DBLINKS     NCBI-ProteinID: NP_013601
             NCBI-GeneID: 854865
             SGD: S000004574
-            MIPS: YML106W
             UniProt: P13298
-STRUCTURE   PDB: 2PS1 2PRZ 2PRY
+STRUCTURE   PDB: 4WML 2PS1 4WN3 2PRZ 2PRY
 AASEQ       226
             MPIMLEDYQKNFLELAIECQALRFGSFKLKSGRESPYFFNLGLFNTGKLLSNLATAYAIA
             IIQSDLKFDVIFGPAYKGIPLAAIVCVKLAEIGGSKFQNIQYAFNRKEAKDHGEGGIIVG

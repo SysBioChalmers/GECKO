@@ -1,13 +1,12 @@
 ENTRY       YBR050C           CDS       T00005
 NAME        REG2
-DEFINITION  Reg2p
+DEFINITION  (RefSeq) protein phosphatase regulator REG2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    II:complement(337183..338199)
-MOTIF       Pfam: DUF1752 TBX
-DBLINKS     NCBI-GI: 6319525
+MOTIF       Pfam: DUF1752
+DBLINKS     NCBI-ProteinID: NP_009606
             NCBI-GeneID: 852340
             SGD: S000000254
-            MIPS: YBR050C
             UniProt: P38232
 AASEQ       338
             MTLSNCDSLDNLFQDPPEEEESSKFVEAVRTLMNRNDMGYPPAAANGTYCLKKIKSLNAK

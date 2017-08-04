@@ -1,13 +1,12 @@
 ENTRY       YDR414C           CDS       T00005
 NAME        ERD1, LDB2
-DEFINITION  Erd1p
+DEFINITION  (RefSeq) Erd1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(1295598..1296686)
 MOTIF       Pfam: EXS DUF818
-DBLINKS     NCBI-GI: 398366577
+DBLINKS     NCBI-ProteinID: NP_010702
             NCBI-GeneID: 852023
             SGD: S000002822
-            MIPS: YDR414C
             UniProt: P16151
 AASEQ       362
             MEKSESNSEGLYLQNILNVPPPQRFIVLIILALWIWTWILKFFLHSNLDVSQVILTRVPH

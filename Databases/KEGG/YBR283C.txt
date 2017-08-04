@@ -1,21 +1,32 @@
 ENTRY       YBR283C           CDS       T00005
 NAME        SSH1
-DEFINITION  Ssh1p
+DEFINITION  (RefSeq) Ssh1p
 ORTHOLOGY   K10956  protein transport protein SEC61 subunit alpha
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03060  Protein export
             sce04141  Protein processing in endoplasmic reticulum
             sce04145  Phagosome
 MODULE      sce_M00401  Sec61 complex
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Protein export [PATH:sce03060]
-            Genetic Information Processing; Folding, sorting and degradation; Protein processing in endoplasmic reticulum [PATH:sce04141]
-            Cellular Processes; Transport and catabolism; Phagosome [PATH:sce04145]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               03060 Protein export
+                YBR283C (SSH1)
+               04141 Protein processing in endoplasmic reticulum
+                YBR283C (SSH1)
+             Cellular Processes
+              Transport and catabolism
+               04145 Phagosome
+                YBR283C (SSH1)
+            Secretion system [BR:sce02044]
+             Sec (secretion) system
+              Eukaryotic Sec-SRP protein
+               YBR283C (SSH1)
 POSITION    II:complement(768943..770415)
 MOTIF       Pfam: SecY Plug_translocon
-DBLINKS     NCBI-GI: 6319760
+DBLINKS     NCBI-ProteinID: NP_009842
             NCBI-GeneID: 852586
             SGD: S000000487
-            MIPS: YBR283C
             UniProt: P38353
 STRUCTURE   PDB: 2WW9 2WWA
 AASEQ       490

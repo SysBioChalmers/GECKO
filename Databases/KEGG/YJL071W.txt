@@ -1,23 +1,36 @@
 ENTRY       YJL071W           CDS       T00005
 NAME        ARG2, HRB574
-DEFINITION  acetyl-CoA:L-glutamate N-acetyltransferase (EC:2.3.1.1)
+DEFINITION  (RefSeq) acetyl-CoA:L-glutamate N-acetyltransferase
 ORTHOLOGY   K00618  amino-acid N-acetyltransferase [EC:2.3.1.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
-PATHWAY     sce00330  Arginine and proline metabolism
+PATHWAY     sce00220  Arginine biosynthesis
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
+            sce01130  Biosynthesis of antibiotics
             sce01210  2-Oxocarboxylic acid metabolism
             sce01230  Biosynthesis of amino acids
 MODULE      sce_M00028  Ornithine biosynthesis, glutamate => ornithine
-CLASS       Metabolism; Overview; 2-Oxocarboxylic acid metabolism [PATH:sce01210]
-            Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
-            Metabolism; Amino acid metabolism; Arginine and proline metabolism [PATH:sce00330]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01210 2-Oxocarboxylic acid metabolism
+                YJL071W (ARG2)
+               01230 Biosynthesis of amino acids
+                YJL071W (ARG2)
+              Amino acid metabolism
+               00220 Arginine biosynthesis
+                YJL071W (ARG2)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.3  Acyltransferases
+               2.3.1  Transferring groups other than aminoacyl groups
+                2.3.1.1  amino-acid N-acetyltransferase
+                 YJL071W (ARG2)
 POSITION    X:306132..307856
-MOTIF       Pfam: DUF619
-DBLINKS     NCBI-GI: 6322390
+MOTIF       Pfam: NAT
+DBLINKS     NCBI-ProteinID: NP_012464
             NCBI-GeneID: 853374
             SGD: S000003607
-            MIPS: YJL071W
             UniProt: P40360
 AASEQ       574
             MWRRIFAHELKYDQPNASSKNLILSVLNTTATKREAKDYLSKYTNDSGQHNHCLFFIRDL

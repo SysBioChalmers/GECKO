@@ -1,13 +1,20 @@
 ENTRY       YER110C           CDS       T00005
 NAME        KAP123, YRB4
-DEFINITION  Kap123p
+DEFINITION  (RefSeq) Kap123p
+ORTHOLOGY   K20221  importin-4
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-40S particles
+               Export and cytoplasmic maturation factors
+                YER110C (KAP123)
+              Pre-60S particles
+                YER110C (KAP123)
 POSITION    V:complement(378762..382103)
-MOTIF       Pfam: HEAT_EZ IBN_N HEAT_2 HEAT
-DBLINKS     NCBI-GI: 6320956
+MOTIF       Pfam: IBN_N HEAT_EZ HEAT HEAT_2 RIX1 G-alpha
+DBLINKS     NCBI-ProteinID: NP_011035
             NCBI-GeneID: 856846
             SGD: S000000912
-            MIPS: YER110C
             UniProt: P40069
 AASEQ       1113
             MDQQFLSQLEQTLHAITSGVGLKEATKTLQTQFYTQPTTLPALIHILQNGSDDSLKQLAG

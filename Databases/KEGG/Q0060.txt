@@ -1,13 +1,12 @@
 ENTRY       Q0060             CDS       T00005
 NAME        AI3
-DEFINITION  intron-encoded DNA endonuclease aI3 (EC:3.1.-.-)
+DEFINITION  (RefSeq) intron-encoded DNA endonuclease aI3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    MT:join(13818..13986,16435..16470,18954..19996)
-MOTIF       Pfam: LAGLIDADG_1 COX1 LAGLIDADG_3
-DBLINKS     NCBI-GI: 85666122
+MOTIF       Pfam: LAGLIDADG_1 COX1 DUF2615
+DBLINKS     NCBI-ProteinID: NP_009308
             NCBI-GeneID: 854595
             SGD: S000007263
-            MIPS: Q0060
             UniProt: P03877
 AASEQ       415
             MVQRWLYSTNAKDIAVLYFMLAIFSGMAGTAMSLIIRLELAAPGSQYLHGNSQLFNVLVV

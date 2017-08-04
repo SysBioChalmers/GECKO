@@ -1,14 +1,18 @@
 ENTRY       YGL073W           CDS       T00005
 NAME        HSF1, EXA3, MAS3
-DEFINITION  Hsf1p
+DEFINITION  (RefSeq) stress-responsive transcription factor HSF1
 ORTHOLOGY   K09419  heat shock transcription factor, other eukaryote
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription factors [BR:sce03000]
+             Eukaryotic Type
+              Helix-turn-helix
+               Heat shock factors
+                YGL073W (HSF1)
 POSITION    VII:368753..371254
 MOTIF       Pfam: HSF_DNA-bind
-DBLINKS     NCBI-GI: 398364623
+DBLINKS     NCBI-ProteinID: NP_011442
             NCBI-GeneID: 852806
             SGD: S000003041
-            MIPS: YGL073W
             UniProt: P10961
 AASEQ       833
             MNNAANTGTTNESNVSDAPRIEPLPSLNDDDIEKILQPNDIFTTDRTDASTTSSTAIEDI

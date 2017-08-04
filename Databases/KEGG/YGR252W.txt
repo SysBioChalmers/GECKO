@@ -1,14 +1,45 @@
 ENTRY       YGR252W           CDS       T00005
-NAME        GCN5, AAS104, ADA4, SWI9
-DEFINITION  Gcn5p (EC:2.3.1.48)
+NAME        GCN5, AAS104, ADA4, KAT2, SWI9
+DEFINITION  (RefSeq) histone acetyltransferase GCN5
 ORTHOLOGY   K06062  histone acetyltransferase [EC:2.3.1.48]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.3  Acyltransferases
+               2.3.1  Transferring groups other than aminoacyl groups
+                2.3.1.48  histone acetyltransferase
+                 YGR252W (GCN5)
+            Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Coactivators
+                SAGA/TFTC/STAGA complex
+                 YGR252W (GCN5)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Histone modification proteins
+               HATs (histone acetyltransferases)
+                YGR252W (GCN5)
+               HAT complexes
+                PCAF complex
+                 YGR252W (GCN5)
+                STAGA complex
+                 YGR252W (GCN5)
+                TFTC complex
+                 YGR252W (GCN5)
+                SAGA complex
+                 YGR252W (GCN5)
+                SLIK complex
+                 YGR252W (GCN5)
+                ADA-HAT complex
+                 YGR252W (GCN5)
+                HAT-A2 complex
+                 YGR252W (GCN5)
 POSITION    VII:996869..998188
-MOTIF       Pfam: Bromodomain Acetyltransf_7 Acetyltransf_1 Acetyltransf_10 Acetyltransf_4
-DBLINKS     NCBI-GI: 6321691
+MOTIF       Pfam: Bromodomain Acetyltransf_1 Acetyltransf_10 Acetyltransf_7
+DBLINKS     NCBI-ProteinID: NP_011768
             NCBI-GeneID: 853167
             SGD: S000003484
-            MIPS: YGR252W
             UniProt: Q03330
 STRUCTURE   PDB: 1E6I 1YGH
 AASEQ       439

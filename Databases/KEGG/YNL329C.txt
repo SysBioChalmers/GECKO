@@ -1,16 +1,19 @@
 ENTRY       YNL329C           CDS       T00005
 NAME        PEX6, PAS8
-DEFINITION  AAA family ATPase peroxin 6
+DEFINITION  (RefSeq) AAA family ATPase peroxin 6
 ORTHOLOGY   K13339  peroxin-6
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04146  Peroxisome
-CLASS       Cellular Processes; Transport and catabolism; Peroxisome [PATH:sce04146]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04146 Peroxisome
+                YNL329C (PEX6)
 POSITION    XIV:complement(19541..22633)
-MOTIF       Pfam: AAA AAA_2 AAA_17 RuvB_N AAA_25 Parvo_NS1 AAA_22 RNA_helicase AAA_14 AAA_5 IstB_IS21 AAA_16 KaiC TIP49 Mg_chelatase AAA_19 PhoH AAA_18 AAA_24
-DBLINKS     NCBI-GI: 6324000
+MOTIF       Pfam: AAA AAA_2 RuvB_N AAA_16 Parvo_NS1 RNA_helicase Vps4_C AAA_5 AAA_14 ATPase IstB_IS21 AAA_22 TIP49 Mg_chelatase AAA_18 TsaE PhoH
+DBLINKS     NCBI-ProteinID: NP_014070
             NCBI-GeneID: 855387
             SGD: S000005273
-            MIPS: YNL329C
             UniProt: P33760
 AASEQ       1030
             MKASLTFSLSGIYAPCSISRDIYLEYGDKKAECLYGTIRLPQYGPGCTPGKIVHCVLDDS

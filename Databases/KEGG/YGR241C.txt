@@ -1,12 +1,17 @@
 ENTRY       YGR241C           CDS       T00005
-DEFINITION  Yap1802p
+DEFINITION  (RefSeq) Yap1802p
+ORTHOLOGY   K20044  phosphatidylinositol-binding clathrin assembly protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endocytosis
+              Clathrin-mediated endocytosis
+               Other core components
+                YGR241C
 POSITION    VII:complement(974875..976581)
 MOTIF       Pfam: ANTH ENTH
-DBLINKS     NCBI-GI: 398366269
+DBLINKS     NCBI-ProteinID: NP_011757
             NCBI-GeneID: 853157
             SGD: S000003473
-            MIPS: YGR241C
             UniProt: P53309
 AASEQ       568
             MSSLYTKLVKGATKIKMAPPKQKYVDPILSGTSSARGLQEITHALDIRLSDTAWTIVYKA

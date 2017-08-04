@@ -1,13 +1,12 @@
 ENTRY       Q0075             CDS       T00005
 NAME        AI5_BETA
-DEFINITION  intron-encoded DNA endonuclease aI5 beta (EC:3.1.-.-)
+DEFINITION  (RefSeq) intron-encoded DNA endonuclease aI5 beta
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    MT:join(24156..24870,24906..25255)
 MOTIF       Pfam: LAGLIDADG_1 LAGLIDADG_3
-DBLINKS     NCBI-GI: 6381999
+DBLINKS     NCBI-ProteinID: NP_009311
             NCBI-GeneID: 854599
             SGD: S000007266
-            MIPS: Q0075
             UniProt: Q9ZZX0
 AASEQ       354
             MLMLLMMILTNNKVFMETLYYYLMFNFQLMSPFGVPVPGPAPETKDIKNLYESIMNNYIN

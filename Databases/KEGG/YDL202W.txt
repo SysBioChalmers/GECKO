@@ -1,16 +1,28 @@
 ENTRY       YDL202W           CDS       T00005
 NAME        MRPL11
-DEFINITION  mitochondrial 54S ribosomal protein YmL11
+DEFINITION  (RefSeq) mitochondrial 54S ribosomal protein YmL11
 ORTHOLOGY   K02864  large subunit ribosomal protein L10
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03010  Ribosome
-CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03010 Ribosome
+                YDL202W (MRPL11)
+            Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Mitochondria/ Chloroplast
+               Large subunit
+                YDL202W (MRPL11)
+              Bacteria
+                YDL202W (MRPL11)
+              Archaea
+                YDL202W (MRPL11)
 POSITION    IV:98475..99224
-MOTIF       Pfam: Ribosomal_L10
-DBLINKS     NCBI-GI: 6319999
+MOTIF       Pfam: Ribosomal_L10 BRCT_2
+DBLINKS     NCBI-ProteinID: NP_010079
             NCBI-GeneID: 851325
             SGD: S000002361
-            MIPS: YDL202W
             UniProt: P36521
 AASEQ       249
             MLQLRFMPGWVPRNGFFGLKETIGTVHKRFYALASEQPSRKTVKPLDSRKTFLIDTYKHL

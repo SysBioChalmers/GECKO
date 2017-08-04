@@ -1,13 +1,12 @@
 ENTRY       YPL128C           CDS       T00005
 NAME        TBF1, LPI16
-DEFINITION  Tbf1p
+DEFINITION  (RefSeq) Tbf1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:complement(306533..308221)
 MOTIF       Pfam: TRF Myb_DNA-binding Myb_DNA-bind_6
-DBLINKS     NCBI-GI: 6325129
+DBLINKS     NCBI-ProteinID: NP_015197
             NCBI-GeneID: 855975
             SGD: S000006049
-            MIPS: YPL128C
             UniProt: Q02457
 AASEQ       562
             MDSQVPNNNESLNRFNDIIQSLPARTRLTICSLCLLDNISTQLLRFLILNANSPNIIAVL

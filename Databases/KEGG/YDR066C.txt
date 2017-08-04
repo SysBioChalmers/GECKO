@@ -1,13 +1,29 @@
 ENTRY       YDR066C           CDS       T00005
 NAME        RTR2
-DEFINITION  Rtr2p (EC:3.1.3.16)
+DEFINITION  (RefSeq) putative protein-serine/threonine phosphatase
+ORTHOLOGY   K20827  RNA polymerase II subunit B1 CTD phosphatase RPAP2 [EC:3.1.3.16]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.3  Phosphoric-monoester hydrolases
+                3.1.3.16  protein-serine/threonine phosphatase
+                 YDR066C (RTR2)
+            Protein phosphatases and associated proteins [BR:sce01009]
+             HAD phosphatases
+              Fcp/Scp phosphatases
+               YDR066C (RTR2)
+            Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Other transcription-related factors
+                Others
+                 YDR066C (RTR2)
 POSITION    IV:complement(581908..582498)
 MOTIF       Pfam: RPAP2_Rtr1
-DBLINKS     NCBI-GI: 6320271
+DBLINKS     NCBI-ProteinID: NP_010351
             NCBI-GeneID: 851638
             SGD: S000002473
-            MIPS: YDR066C
             UniProt: Q12378
 AASEQ       196
             MQIITTTFIQKVILGSHQLHEQLSIVEARMIESAIVSMLTESFCENEQTLKYLARLLSPM

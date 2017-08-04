@@ -1,13 +1,12 @@
 ENTRY       YJR147W           CDS       T00005
 NAME        HMS2
-DEFINITION  Hms2p
+DEFINITION  (RefSeq) Hms2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    X:704196..705272
-MOTIF       Pfam: HSF_DNA-bind Cortex-I_coil
-DBLINKS     NCBI-GI: 6322607
+MOTIF       Pfam: HSF_DNA-bind Cortex-I_coil Shufflon_N
+DBLINKS     NCBI-ProteinID: NP_012681
             NCBI-GeneID: 853612
             SGD: S000003908
-            MIPS: YJR147W
             UniProt: P47175
 AASEQ       358
             MDATSRMEQPDVFVSKLYHLLQGNAYSNIIQWSTDGSKLVIWNPDQFTKVILERFFGIHT

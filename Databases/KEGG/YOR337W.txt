@@ -1,13 +1,12 @@
 ENTRY       YOR337W           CDS       T00005
 NAME        TEA1
-DEFINITION  Tea1p
+DEFINITION  (RefSeq) Tea1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:954344..956623
-MOTIF       Pfam: Fungal_trans Zn_clus
-DBLINKS     NCBI-GI: 398366291
+MOTIF       Pfam: Fungal_trans Zn_clus Macoilin
+DBLINKS     NCBI-ProteinID: NP_014982
             NCBI-GeneID: 854515
             SGD: S000005864
-            MIPS: YOR337W
             UniProt: P47988
 AASEQ       759
             MTAPLWPNKNEKNHTVKRALSTDMTSNILSSTNASSNEENSRSSSAANVRSGTGANTLTN

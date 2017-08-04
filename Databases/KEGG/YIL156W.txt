@@ -1,14 +1,28 @@
 ENTRY       YIL156W           CDS       T00005
 NAME        UBP7
-DEFINITION  Ubp7p (EC:3.4.19.12 3.1.2.15)
-ORTHOLOGY   K11871  ubiquitin carboxyl-terminal hydrolase 7/11 [EC:3.1.2.15]
+DEFINITION  (RefSeq) ubiquitin-specific protease UBP7
+ORTHOLOGY   K11871  ubiquitin carboxyl-terminal hydrolase 7/11 [EC:3.4.19.12]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.4  Acting on peptide bonds (peptidases)
+               3.4.19  Omega peptidases
+                3.4.19.12  ubiquitinyl hydrolase 1
+                 YIL156W (UBP7)
+            Peptidases [BR:sce01002]
+             Cysteine Peptidases
+              Family C19: ubiquitin-specific protease family
+               YIL156W (UBP7)
+            Ubiquitin system [BR:sce04121]
+             Deubiquitinating enzyme (DUB)
+              Ubiquitin-specific proteases (UBPs)
+               UBP/USP
+                YIL156W (UBP7)
 POSITION    IX:48091..51306
 MOTIF       Pfam: UCH UCH_1 Rhodanese
-DBLINKS     NCBI-GI: 6322035
+DBLINKS     NCBI-ProteinID: NP_012110
             NCBI-GeneID: 854650
             SGD: S000001418
-            MIPS: YIL156W
             UniProt: P40453
 AASEQ       1071
             MLDDDKGTAMHPHITPFTPEYSNELLRRVQDLYHEDIKHYYPQLKLEKLLDLLEHTEYLF

@@ -1,13 +1,13 @@
 ENTRY       YOL138C           CDS       T00005
 NAME        RTC1, SEA2
-DEFINITION  Rtc1p
+DEFINITION  (RefSeq) Rtc1p
+ORTHOLOGY   K20408  WD repeat-containing protein 24
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:complement(61325..65350)
-MOTIF       Pfam: WD40 zf-RING_2 zf-rbx1 zf-C3HC4_2 zf-C3HC4 zf-Apc11 RINGv
-DBLINKS     NCBI-GI: 330443723
+MOTIF       Pfam: Zn_ribbon_17 WD40 zf-RING_2 zf-rbx1 zf-C3HC4_2 zf-C3HC4 zf-ANAPC11 zf-RING_11
+DBLINKS     NCBI-ProteinID: NP_014503
             NCBI-GeneID: 853982
             SGD: S000005498
-            MIPS: YOL138C
             UniProt: Q08281
 AASEQ       1341
             MSLSPHVENASIPKGSTPIPKNRNVSSIGKGEFLGSSSSNNSSFRMNHYSNSGQPSVLDS

@@ -1,17 +1,30 @@
 ENTRY       YJL186W           CDS       T00005
 NAME        MNN5
-DEFINITION  Mnn5p (EC:2.4.1.-)
+DEFINITION  (RefSeq) alpha-1,2-mannosyltransferase MNN5
 ORTHOLOGY   K05536  alpha 1,2-mannosyltransferase [EC:2.4.1.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00513  Various types of N-glycan biosynthesis
             sce01100  Metabolic pathways
-CLASS       Metabolism; Glycan biosynthesis and metabolism; Various types of N-glycan biosynthesis [PATH:sce00513]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Glycan biosynthesis and metabolism
+               00513 Various types of N-glycan biosynthesis
+                YJL186W (MNN5)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.4  Glycosyltransferases
+               2.4.1  Hexosyltransferases
+                2.4.1.-  
+                 YJL186W (MNN5)
+            Glycosyltransferases [BR:sce01003]
+             Glycan extension
+              Yeast mannan chain
+               YJL186W (MNN5)
 POSITION    X:80155..81915
-MOTIF       Pfam: Mannosyl_trans3 Glyco_transf_8
-DBLINKS     NCBI-GI: 330443597
+MOTIF       Pfam: Mannosyl_trans3 Occludin_ELL DUF5406
+DBLINKS     NCBI-ProteinID: NP_012349
             NCBI-GeneID: 853253
             SGD: S000003722
-            MIPS: YJL186W
             UniProt: P46982
 AASEQ       586
             MLIRLKKRKILQVIVSAVVLILFFCSVHNDVSSSWLYGKKLRLPVLTRSNLKNNFYTTLV

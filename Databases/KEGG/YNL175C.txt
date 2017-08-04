@@ -1,13 +1,12 @@
 ENTRY       YNL175C           CDS       T00005
 NAME        NOP13
-DEFINITION  Nop13p
+DEFINITION  (RefSeq) Nop13p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIV:complement(307401..308612)
-MOTIF       Pfam: RRM_1 RRM_6 RRM_5 Nup35_RRM_2
-DBLINKS     NCBI-GI: 330443708
+MOTIF       Pfam: RRM_1 RRM_7 Nup35_RRM_2 GNAT_acetyltr_2
+DBLINKS     NCBI-ProteinID: NP_014224
             NCBI-GeneID: 855547
             SGD: S000005119
-            MIPS: YNL175C
             UniProt: P53883
 AASEQ       403
             MSETELSKEDAVTKKDNEEQVKKALLDPTKKRKAEDEIEIDLKSSIPLSKKQKRLLRRGK

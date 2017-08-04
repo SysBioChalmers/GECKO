@@ -1,17 +1,20 @@
 ENTRY       YDR434W           CDS       T00005
 NAME        GPI17
-DEFINITION  Gpi17p
+DEFINITION  (RefSeq) GPI-anchor transamidase GPI17
 ORTHOLOGY   K05291  phosphatidylinositol glycan, class S
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
-PATHWAY     sce00563  Glycosylphosphatidylinositol(GPI)-anchor biosynthesis
+PATHWAY     sce00563  Glycosylphosphatidylinositol (GPI)-anchor biosynthesis
             sce01100  Metabolic pathways
-CLASS       Metabolism; Glycan biosynthesis and metabolism; Glycosylphosphatidylinositol(GPI)-anchor biosynthesis [PATH:sce00563]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Glycan biosynthesis and metabolism
+               00563 Glycosylphosphatidylinositol(GPI)-anchor biosynthesis
+                YDR434W (GPI17)
 POSITION    IV:1331237..1332841
 MOTIF       Pfam: PIG-S
-DBLINKS     NCBI-GI: 398366593
+DBLINKS     NCBI-ProteinID: NP_010722
             NCBI-GeneID: 852044
             SGD: S000002842
-            MIPS: YDR434W
             UniProt: Q04080
 AASEQ       534
             MSNANLRKWVGFCFVAIYLFLGVPLWYKLTTVYRASLPINYIESLQNNKFQDIHLVIPVY

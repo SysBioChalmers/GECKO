@@ -1,12 +1,23 @@
 ENTRY       YIL096C           CDS       T00005
-DEFINITION  hypothetical protein
+NAME        BMT5
+DEFINITION  (RefSeq) 25S rRNA (uracil2634-N3)-methyltransferase
+ORTHOLOGY   K19307  25S rRNA (uracil2634-N3)-methyltransferase [EC:2.1.1.313]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.1  Transferring one-carbon groups
+               2.1.1  Methyltransferases
+                2.1.1.313  25S rRNA (uracil2634-N3)-methyltransferase
+                 YIL096C (BMT5)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Other ribosome biogenesis factors
+               YIL096C (BMT5)
 POSITION    IX:complement(182117..183127)
 MOTIF       Pfam: DUF2431
-DBLINKS     NCBI-GI: 6322095
+DBLINKS     NCBI-ProteinID: NP_012170
             NCBI-GeneID: 854711
             SGD: S000001358
-            MIPS: YIL096C
             UniProt: P40493
 AASEQ       336
             MARKLKGKIGSKGLKGALLRHKAKVKLVRNIESKQKHELRKKNSSANNKTVKRNQEFQKL

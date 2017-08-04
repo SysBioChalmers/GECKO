@@ -1,14 +1,21 @@
 ENTRY       YKL089W           CDS       T00005
 NAME        MIF2
-DEFINITION  Mif2p
+DEFINITION  (RefSeq) Mif2p
 ORTHOLOGY   K11497  centromere protein C
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centromeric chromatin formation proteins
+               Kinetochore proteins
+                Centromere proteins
+                 YKL089W (MIF2)
+                Mis6 complex
+                 YKL089W (MIF2)
 POSITION    XI:273394..275043
-MOTIF       Pfam: CENP-C_C Mif2_N Cupin_2
-DBLINKS     NCBI-GI: 6322761
+MOTIF       Pfam: CENP-C_C Mif2_N Cupin_2 AT_hook
+DBLINKS     NCBI-ProteinID: NP_012834
             NCBI-GeneID: 853773
             SGD: S000001572
-            MIPS: YKL089W
             UniProt: P35201
 STRUCTURE   PDB: 2VPV
 AASEQ       549

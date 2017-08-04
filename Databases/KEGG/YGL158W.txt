@@ -1,14 +1,19 @@
 ENTRY       YGL158W           CDS       T00005
 NAME        RCK1
-DEFINITION  Rck1p (EC:2.7.11.1)
+DEFINITION  (RefSeq) putative serine/threonine protein kinase RCK1
 ORTHOLOGY   K08286  protein-serine/threonine kinase [EC:2.7.11.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.11  Protein-serine/threonine kinases
+                2.7.11.-  
+                 YGL158W (RCK1)
 POSITION    VII:207033..208571
-MOTIF       Pfam: Pkinase Pkinase_Tyr Kinase-like Kdo
-DBLINKS     NCBI-GI: 6321280
+MOTIF       Pfam: Pkinase Pkinase_Tyr Kdo Kinase-like
+DBLINKS     NCBI-ProteinID: NP_011357
             NCBI-GeneID: 852719
             SGD: S000003126
-            MIPS: YGL158W
             UniProt: P38622
 AASEQ       512
             MSVNPEFIADGIDFYPTTPDAAYFNAADGKNKVNRINGNSENLHHSFASGCRRSSLSVDF

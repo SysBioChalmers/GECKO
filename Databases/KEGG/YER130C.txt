@@ -1,12 +1,18 @@
 ENTRY       YER130C           CDS       T00005
-DEFINITION  hypothetical protein
+NAME        COM2
+DEFINITION  (RefSeq) Com2p
+ORTHOLOGY   K21545  C2H2 transcription facotor
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription factors [BR:sce03000]
+             Eukaryotic Type
+              Zinc finger
+               Other Cys2His2 zinc factors
+                YER130C (COM2)
 POSITION    V:complement(421115..422446)
-MOTIF       Pfam: zf-C2H2 zf-C2H2_4 zf-C2H2_jaz zf-met zf-H2C2_2 zf-C2H2_6 zf-Di19 GAGA PUF zf-BED
-DBLINKS     NCBI-GI: 6320977
+MOTIF       Pfam: zf-C2H2 zf-C2H2_4 zf-met zf-C2H2_jaz zf-H2C2_2 zf-C2H2_6 zf-Di19 GAGA PUF
+DBLINKS     NCBI-ProteinID: NP_011056
             NCBI-GeneID: 856867
             SGD: S000000932
-            MIPS: YER130C
             UniProt: P39959
 AASEQ       443
             MSLYPLQRFESNDTVFSYTLNSKTELFNESRNNDKQHFTLQLIPNANANAKEIDNNNVEI

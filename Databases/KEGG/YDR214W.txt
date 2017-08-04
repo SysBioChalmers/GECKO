@@ -1,13 +1,12 @@
 ENTRY       YDR214W           CDS       T00005
 NAME        AHA1
-DEFINITION  Aha1p
+DEFINITION  (RefSeq) Aha1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:892875..893927
-MOTIF       Pfam: Aha1_N AHSA1
-DBLINKS     NCBI-GI: 398366155
+MOTIF       Pfam: Aha1_N AHSA1 DUF515
+DBLINKS     NCBI-ProteinID: NP_010500
             NCBI-GeneID: 851800
             SGD: S000002622
-            MIPS: YDR214W
             UniProt: Q12449
 STRUCTURE   PDB: 1USU 1USV
 AASEQ       350

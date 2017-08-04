@@ -1,13 +1,12 @@
 ENTRY       YHL027W           CDS       T00005
 NAME        RIM101, RIM1
-DEFINITION  Rim101p
+DEFINITION  (RefSeq) alkaline-responsive transcriptional regulator RIM101
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VIII:51111..52988
-MOTIF       Pfam: zf-C2H2 zf-met zf-H2C2_2 zf-C2H2_jaz zf-C2H2_4
-DBLINKS     NCBI-GI: 6321760
+MOTIF       Pfam: zf-C2H2 zf-C2H2_6 zf-met zf-C2H2_jaz zf-H2C2_2 zf-C2H2_4 FOXP-CC
+DBLINKS     NCBI-ProteinID: NP_011836
             NCBI-GeneID: 856358
             SGD: S000001019
-            MIPS: YHL027W
             UniProt: P33400
 AASEQ       625
             MVPLEDLLNKENGTAAPQHSRESIVENGTDVSNVTKKDGLPSPNLSKRSSDCSKRPRIRC

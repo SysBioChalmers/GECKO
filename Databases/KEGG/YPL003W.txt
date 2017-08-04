@@ -1,13 +1,17 @@
 ENTRY       YPL003W           CDS       T00005
 NAME        ULA1, ENR2
-DEFINITION  Ula1p
+DEFINITION  (RefSeq) Ula1p
 ORTHOLOGY   K04532  amyloid beta precursor protein binding protein 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ubiquitin system [BR:sce04121]
+             Ubiquitin-activating enzymes (E1)
+              UBL-activating enzymes
+               YPL003W (ULA1)
 POSITION    XVI:552020..553408
-DBLINKS     NCBI-GI: 6325254
+MOTIF       Pfam: ThiF
+DBLINKS     NCBI-ProteinID: NP_015322
             NCBI-GeneID: 856104
             SGD: S000005924
-            MIPS: YPL003W
             UniProt: Q12059
 AASEQ       462
             MERYDRQLRLWGALGQDSLNRSRVCVVGPATPLLQEVFKNLVLAGISSLTWLKVECAVQS

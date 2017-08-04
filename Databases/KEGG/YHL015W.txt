@@ -1,18 +1,26 @@
 ENTRY       YHL015W           CDS       T00005
 NAME        RPS20, URP2
-DEFINITION  ribosomal 40S subunit protein S20
+DEFINITION  (RefSeq) ribosomal 40S subunit protein S20
 ORTHOLOGY   K02969  small subunit ribosomal protein S20e
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03010  Ribosome
-CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+MODULE      sce_M00177  Ribosome, eukaryotes
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03010 Ribosome
+                YHL015W (RPS20)
+            Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Eukaryotes
+               Small subunit
+                YHL015W (RPS20)
 POSITION    VIII:75412..75777
-MOTIF       Pfam: Ribosomal_S10 DUF4320 Retrotrans_gag
-DBLINKS     NCBI-GI: 6321772
+MOTIF       Pfam: Ribosomal_S10 Phage_Gp19
+DBLINKS     NCBI-ProteinID: NP_011848
             NCBI-GeneID: 856371
             SGD: S000001007
-            MIPS: YHL015W
             UniProt: P38701
-STRUCTURE   PDB: 3U5C 3U5G 3O2Z 3O30 4BYL 4BYT 3IZB 1S1H
 AASEQ       121
             MSDFQKEKVEEQEQQQQQIIKIRITLTSTKVKQLENVSSNIVKNAEQHNLVKKGPVRLPT
             KVLKISTRKTPNGEGSKTWETYEMRIHKRYIDLEAPVQIVKRITQITIEPGVDVEVVVAS

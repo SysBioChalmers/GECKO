@@ -1,13 +1,12 @@
 ENTRY       YMR030W           CDS       T00005
 NAME        RSF1
-DEFINITION  Rsf1p
+DEFINITION  (RefSeq) Rsf1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:330793..331923
-MOTIF       Pfam: RSF Peptidase_G2
-DBLINKS     NCBI-GI: 6323672
+MOTIF       Pfam: RSF DUF1053
+DBLINKS     NCBI-ProteinID: NP_013743
             NCBI-GeneID: 855045
             SGD: S000004632
-            MIPS: YMR030W
             UniProt: Q05043
 AASEQ       376
             MKDLNPEMGKFATTKGPPQDNRGMVDIATLPNFPANRSGTPREEMYLAPNKMETPRILNM

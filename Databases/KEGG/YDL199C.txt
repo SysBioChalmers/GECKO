@@ -1,12 +1,11 @@
 ENTRY       YDL199C           CDS       T00005
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) hypothetical protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(101290..103353)
-MOTIF       Pfam: Sugar_tr MFS_1
-DBLINKS     NCBI-GI: 6320002
+MOTIF       Pfam: Sugar_tr MFS_1 Leptin
+DBLINKS     NCBI-ProteinID: NP_010082
             NCBI-GeneID: 851328
             SGD: S000002358
-            MIPS: YDL199C
             UniProt: Q12407
 AASEQ       687
             MKPPLNMSRSNKPLTQEANSSAHIDRAHQLAQDFNSKQDDTALTSLPHKNPDIFRFENNI

@@ -1,13 +1,12 @@
 ENTRY       YGR150C           CDS       T00005
 NAME        CCM1, DMR1, RRG2
-DEFINITION  Ccm1p
+DEFINITION  (RefSeq) Ccm1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:complement(790459..793053)
-MOTIF       Pfam: PPR_2 PPR PPR_3
-DBLINKS     NCBI-GI: 6321589
+MOTIF       Pfam: PPR_2 PPR PPR_3 PPR_long
+DBLINKS     NCBI-ProteinID: NP_011666
             NCBI-GeneID: 853053
             SGD: S000003382
-            MIPS: YGR150C
             UniProt: P48237
 AASEQ       864
             MYMARCGPKNNVLCFPFQLSFLFSKRLINKRFKYTLQTEDEKNMMGSLSKNKIITPEDVE

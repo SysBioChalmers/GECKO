@@ -1,13 +1,12 @@
 ENTRY       YBL005W           CDS       T00005
 NAME        PDR3, AMY2, TPE2
-DEFINITION  Pdr3p
+DEFINITION  (RefSeq) drug-responsive transcription factor PDR3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    II:217470..220400
 MOTIF       Pfam: Fungal_trans Zn_clus
-DBLINKS     NCBI-GI: 6319466
+DBLINKS     NCBI-ProteinID: NP_009548
             NCBI-GeneID: 852278
             SGD: S000000101
-            MIPS: YBL005W
             UniProt: P33200
 AASEQ       976
             MKVKKSTRSKVSTACVNCRKRKIKCTGKYPCTNCISYDCTCVFLKKHLPQKEDSSQSLPT

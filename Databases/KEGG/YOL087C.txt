@@ -1,13 +1,12 @@
 ENTRY       YOL087C           CDS       T00005
 NAME        DUF1
-DEFINITION  Duf1p
+DEFINITION  (RefSeq) Duf1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:complement(155287..158637)
-MOTIF       Pfam: DUF3337 WD40
-DBLINKS     NCBI-GI: 6324485
+MOTIF       Pfam: DUF3337 RAWUL
+DBLINKS     NCBI-ProteinID: NP_014554
             NCBI-GeneID: 854066
             SGD: S000005447
-            MIPS: YOL087C
             UniProt: Q99247
 AASEQ       1116
             MNQLTVSYGLISPDYCTSQDAHILPITKILYPDIPGKNYFLTSGRDGSIILHKNTQLSNE

@@ -1,19 +1,36 @@
 ENTRY       YLL004W           CDS       T00005
 NAME        ORC3
-DEFINITION  origin recognition complex subunit 3
+DEFINITION  (RefSeq) origin recognition complex subunit 3
 ORTHOLOGY   K02605  origin recognition complex subunit 3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
             sce04113  Meiosis - yeast
 MODULE      sce_M00284  Origin recognition complex
-CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
-            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YLL004W (ORC3)
+               04113 Meiosis - yeast
+                YLL004W (ORC3)
+            DNA replication proteins [BR:sce03032]
+             Eukaryotic Type
+              DNA Replication Initiation Factors
+               pre-RC (pre-replication complex)
+                YLL004W (ORC3)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centrosome formation and ciliogenesis proteins
+               Centrosome duplication proteins
+                Other centrosome duplication proteins
+                 YLL004W (ORC3)
 POSITION    XII:141073..142923
-DBLINKS     NCBI-GI: 6323025
+MOTIF       Pfam: ORC3_N
+DBLINKS     NCBI-ProteinID: NP_013097
             NCBI-GeneID: 850656
             SGD: S000003927
-            MIPS: YLL004W
             UniProt: P54790
+STRUCTURE   PDB: 5UDB
 AASEQ       616
             MSDLNQSKKMNVSEFADAQRSHYTVYPSLPQSNKNDKHIPFVKLLSGKESEVNVEKRWEL
             YHQLHSHFHDQVDHIIDNIEADLKAEISDLLYSETTQKRRCFNTIFLLGSDSTTKIELKD

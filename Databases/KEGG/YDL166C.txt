@@ -1,18 +1,39 @@
 ENTRY       YDL166C           CDS       T00005
 NAME        FAP7
-DEFINITION  Fap7p (EC:2.7.4.3)
-ORTHOLOGY   K14535  transcription initiation factor TFIID subunit 9 / adenylate kinase [EC:2.7.4.3]
+DEFINITION  (RefSeq) nucleoside-triphosphatase
+ORTHOLOGY   K18532  adenylate kinase [EC:2.7.4.3]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
-PATHWAY     sce03008  Ribosome biogenesis in eukaryotes
-            sce03022  Basal transcription factors
-CLASS       Genetic Information Processing; Transcription; Basal transcription factors [PATH:sce03022]
-            Genetic Information Processing; Translation; Ribosome biogenesis in eukaryotes [PATH:sce03008]
+PATHWAY     sce00230  Purine metabolism
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01130  Biosynthesis of antibiotics
+            sce03008  Ribosome biogenesis in eukaryotes
+MODULE      sce_M00049  Adenine ribonucleotide biosynthesis, IMP => ADP,ATP
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Nucleotide metabolism
+               00230 Purine metabolism
+                YDL166C (FAP7)
+             Genetic Information Processing
+              Translation
+               03008 Ribosome biogenesis in eukaryotes
+                YDL166C (FAP7)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.4  Phosphotransferases with a phosphate group as acceptor
+                2.7.4.3  adenylate kinase
+                 YDL166C (FAP7)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-40S particles
+               Export and cytoplasmic maturation factors
+                YDL166C (FAP7)
 POSITION    IV:complement(163449..164042)
-MOTIF       Pfam: AAA_18 AAA_17 RNA_helicase Cytidylate_kin2 KTI12 AAA_33 AAA_22 AAA_14 Thymidylate_kin AAA_28 AAA AAA_16 GvpD Zeta_toxin NTPase_1 MobB Viral_helicase1 DUF815
-DBLINKS     NCBI-GI: 6320035
+MOTIF       Pfam: AAA_18 AAA_17 RNA_helicase AAA_22 KTI12 AAA_28 AAA_16 AAA GvpD Zeta_toxin NTPase_1 Viral_helicase1 DUF815 Ntox16 AAA_14 AAA_5
+DBLINKS     NCBI-ProteinID: NP_010115
             NCBI-GeneID: 851388
             SGD: S000002325
-            MIPS: YDL166C
             UniProt: Q12055
 AASEQ       197
             MEARRYGPNIIVTGTPGCGKSSTCEFLKNKLKDYKYYNISDFAKDNDCFEGYDEGRKSHI

@@ -1,17 +1,26 @@
 ENTRY       YDL238C           CDS       T00005
 NAME        GUD1
-DEFINITION  guanine deaminase (EC:3.5.4.3)
+DEFINITION  (RefSeq) guanine deaminase
 ORTHOLOGY   K01487  guanine deaminase [EC:3.5.4.3]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00230  Purine metabolism
             sce01100  Metabolic pathways
-CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Nucleotide metabolism
+               00230 Purine metabolism
+                YDL238C (GUD1)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.5  Acting on carbon-nitrogen bonds, other than peptide bonds
+               3.5.4  In cyclic amidines
+                3.5.4.3  guanine deaminase
+                 YDL238C (GUD1)
 POSITION    IV:complement(28985..30454)
-MOTIF       Pfam: Amidohydro_1 Amidohydro_3 Amidohydro_5 A_deaminase
-DBLINKS     NCBI-GI: 6319963
+MOTIF       Pfam: Amidohydro_1 Amidohydro_3
+DBLINKS     NCBI-ProteinID: NP_010043
             NCBI-GeneID: 851360
             SGD: S000002397
-            MIPS: YDL238C
             UniProt: Q07729
 AASEQ       489
             MTKSDLLFDKFNDKHGKFLVFFGTFVDTPKLGELRIREKTSVGVLNGIIRFVNRNSLDPV

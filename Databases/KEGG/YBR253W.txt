@@ -1,16 +1,21 @@
 ENTRY       YBR253W           CDS       T00005
 NAME        SRB6, MED22
-DEFINITION  Srb6p
+DEFINITION  (RefSeq) Srb6p
 ORTHOLOGY   K15140  mediator of RNA polymerase II transcription subunit 22, fungi type
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Mediator complex
+                Head
+                 YBR253W (SRB6)
 POSITION    II:723270..723635
-MOTIF       Pfam: Med22 TMCO5 DUF1473
-DBLINKS     NCBI-GI: 6319730
+MOTIF       Pfam: Med22
+DBLINKS     NCBI-ProteinID: NP_009812
             NCBI-GeneID: 852555
             SGD: S000000457
-            MIPS: YBR253W
             UniProt: P32570
-STRUCTURE   PDB: 3R84 4H62 4GWP 3RJ1 4GWQ 3J1O
+STRUCTURE   PDB: 3R84 4H62 4GWP 3RJ1 4GWQ 4V1O 5SVA 3J1O
 AASEQ       121
             MSNQALYEKLEQTRTILSVKLAELINMTTIADRNDDDEGSFAQENSELAVATTSVMMVNN
             QTMQLIKNVQDLLILTRSIKEKWLLNQIPVTEHSKVTRFDEKQIEELLDNCIETFVAEKT

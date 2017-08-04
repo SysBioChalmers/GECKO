@@ -1,14 +1,18 @@
 ENTRY       YJL110C           CDS       T00005
 NAME        GZF3, DEH1, NIL2
-DEFINITION  Gzf3p
+DEFINITION  (RefSeq) Gzf3p
 ORTHOLOGY   K09184  GATA-binding protein, other eukaryote
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription factors [BR:sce03000]
+             Eukaryotic Type
+              Zinc finger
+               Cys4 GATA-factors
+                YJL110C (GZF3)
 POSITION    X:complement(209922..211577)
-MOTIF       Pfam: GATA TF_Zn_Ribbon DZR
-DBLINKS     NCBI-GI: 6322351
+MOTIF       Pfam: GATA TF_Zn_Ribbon
+DBLINKS     NCBI-ProteinID: NP_012425
             NCBI-GeneID: 853334
             SGD: S000003646
-            MIPS: YJL110C
             UniProt: P42944
 AASEQ       551
             MASQATTLRGYNIRKRDNVFEPKSSENLNSLNQSEEEGHIGRWPPLGYEAVSAEQKSAVQ

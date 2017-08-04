@@ -1,13 +1,12 @@
 ENTRY       YFR032C           CDS       T00005
 NAME        RRT5
-DEFINITION  Rrt5p
+DEFINITION  (RefSeq) Rrt5p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VI:complement(222090..222959)
-MOTIF       Pfam: RRM_6 RRM_1 RRM_5
-DBLINKS     NCBI-GI: 14318556
+MOTIF       Pfam: RRM_1 RRM_7 RRM_occluded
+DBLINKS     NCBI-ProteinID: NP_116689
             NCBI-GeneID: 850591
             SGD: S000001928
-            MIPS: YFR032C
             UniProt: P43607
 AASEQ       289
             MTEQVNNDTTSDTTTTITTVYISNLPFTASERDLHAFLNNYGASSVLIPTQTVRRFSKRH

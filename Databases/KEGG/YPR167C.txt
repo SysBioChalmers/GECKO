@@ -1,18 +1,29 @@
 ENTRY       YPR167C           CDS       T00005
 NAME        MET16
-DEFINITION  phosphoadenylyl-sulfate reductase (thioredoxin) (EC:1.8.4.8)
-ORTHOLOGY   K00390  phosphoadenosine phosphosulfate reductase [EC:1.8.4.8]
+DEFINITION  (RefSeq) phosphoadenylyl-sulfate reductase (thioredoxin)
+ORTHOLOGY   K00390  phosphoadenosine phosphosulfate reductase [EC:1.8.4.8 1.8.4.10]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00920  Sulfur metabolism
             sce01100  Metabolic pathways
 MODULE      sce_M00176  Assimilatory sulfate reduction, sulfate => H2S
-CLASS       Metabolism; Energy metabolism; Sulfur metabolism [PATH:sce00920]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Energy metabolism
+               00920 Sulfur metabolism
+                YPR167C (MET16)
+            Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.8  Acting on a sulfur group of donors
+               1.8.4  With a disulfide as acceptor
+                1.8.4.8  phosphoadenylyl-sulfate reductase (thioredoxin)
+                 YPR167C (MET16)
+                1.8.4.10  adenylyl-sulfate reductase (thioredoxin)
+                 YPR167C (MET16)
 POSITION    XVI:complement(876847..877632)
-MOTIF       Pfam: PAPS_reduct Cadherin_C DUF1270
-DBLINKS     NCBI-GI: 6325425
+MOTIF       Pfam: PAPS_reduct
+DBLINKS     NCBI-ProteinID: NP_015493
             NCBI-GeneID: 856296
             SGD: S000006371
-            MIPS: YPR167C
             UniProt: P18408
 STRUCTURE   PDB: 2OQ2
 AASEQ       261

@@ -1,13 +1,12 @@
 ENTRY       YPR057W           CDS       T00005
 NAME        BRR1
-DEFINITION  Brr1p
+DEFINITION  (RefSeq) Brr1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:672471..673496
-MOTIF       Pfam: SIP1 Ribonuc_2-5A
-DBLINKS     NCBI-GI: 6325314
+MOTIF       Pfam: SIP1
+DBLINKS     NCBI-ProteinID: NP_015382
             NCBI-GeneID: 856170
             SGD: S000006261
-            MIPS: YPR057W
             UniProt: Q99177
 AASEQ       341
             MKRGESQAPDAIFGQSRAFALSDSSVNPDVIEYLKSVRQEALRTNAISIKNHMNLQKRTR

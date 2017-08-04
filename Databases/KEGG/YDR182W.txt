@@ -1,13 +1,12 @@
 ENTRY       YDR182W           CDS       T00005
 NAME        CDC1, DSC1, DSR1, ESP2
-DEFINITION  putative lipid phosphatase CDC1 (EC:3.1.-.-)
+DEFINITION  (RefSeq) putative lipid phosphatase CDC1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:827582..829057
-MOTIF       Pfam: Metallophos DUF3493
-DBLINKS     NCBI-GI: 6320388
+MOTIF       Pfam: Metallophos DUF3493 7tm_1
+DBLINKS     NCBI-ProteinID: NP_010468
             NCBI-GeneID: 851763
             SGD: S000002590
-            MIPS: YDR182W
             UniProt: P40986
 AASEQ       491
             MVYRNRSKSVLSTHSKKSDDKAHYKSRSKKKSKSRSKKRLRIYWRYISIVWILWLGLISY

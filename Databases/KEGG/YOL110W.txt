@@ -1,13 +1,12 @@
 ENTRY       YOL110W           CDS       T00005
 NAME        SHR5, ERF4
-DEFINITION  Shr5p
+DEFINITION  (RefSeq) Shr5p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:109176..109889
 MOTIF       Pfam: Erf4
-DBLINKS     NCBI-GI: 6324462
+DBLINKS     NCBI-ProteinID: NP_014531
             NCBI-GeneID: 854039
             SGD: S000005470
-            MIPS: YOL110W
             UniProt: P41912
 AASEQ       237
             MCDSHQKEEDNANTSERALFFNYHEFSYSFYEDLGSEDAKPTEHDEDHKLCITHFPNVYA

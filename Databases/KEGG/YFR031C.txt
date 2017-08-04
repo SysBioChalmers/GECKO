@@ -1,17 +1,28 @@
 ENTRY       YFR031C           CDS       T00005
 NAME        SMC2
-DEFINITION  condensin subunit SMC2
+DEFINITION  (RefSeq) condensin subunit SMC2
 ORTHOLOGY   K06674  structural maintenance of chromosome 2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
-CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YFR031C (SMC2)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Chromosome condensation proteins
+               Condensin I
+                YFR031C (SMC2)
+               Condensin II
+                YFR031C (SMC2)
 POSITION    VI:complement(216594..220106)
-MOTIF       Pfam: SMC_N SMC_hinge AAA_23 AAA_21 GAS AAA_29 Reo_sigmaC ABC_tran
-DBLINKS     NCBI-GI: 14318554
+MOTIF       Pfam: SMC_N SMC_hinge AAA_23 AAA_21 AAA_15 GAS AAA_29 Reo_sigmaC ABC_tran
+DBLINKS     NCBI-ProteinID: NP_116687
             NCBI-GeneID: 850589
             SGD: S000001927
-            MIPS: YFR031C
             UniProt: P38989
+STRUCTURE   PDB: 4RSI
 AASEQ       1170
             MKVEELIIDGFKSYATRTVITDWDPQFNAITGLNGSGKSNILDAICFVLGIASMSTVRAS
             SLQDLIYKRGQAGVTKASVTIVFDNTDKSNSPIGFTNSPQISVTRQVVLGGTSKYLINGH

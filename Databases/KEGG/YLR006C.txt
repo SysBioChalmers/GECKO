@@ -1,17 +1,29 @@
 ENTRY       YLR006C           CDS       T00005
 NAME        SSK1
-DEFINITION  Ssk1p
+DEFINITION  (RefSeq) mitogen-activated protein kinase kinase kinase SSK1
 ORTHOLOGY   K11233  osomolarity two-component system, response regulator SSK1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04011  MAPK signaling pathway - yeast
+            sce04139  Mitophagy - yeast
 MODULE      sce_M00516  SLN1-YPD1-SSK1/SKN7 (osmosensing) two-component regulatory system
-CLASS       Environmental Information Processing; Signal transduction; MAPK signaling pathway - yeast [PATH:sce04011]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YLR006C (SSK1)
+             Cellular Processes
+              Transport and catabolism
+               04139 Mitophagy - yeast
+                YLR006C (SSK1)
+            Two-component system [BR:sce02022]
+             Other families
+              SLN1-YPD1-SSK1/SKN7 [MD:M00516]
+               YLR006C (SSK1)
 POSITION    XII:complement(161755..163893)
 MOTIF       Pfam: Response_reg
-DBLINKS     NCBI-GI: 6323034
+DBLINKS     NCBI-ProteinID: NP_013106
             NCBI-GeneID: 850692
             SGD: S000003996
-            MIPS: YLR006C
             UniProt: Q07084
 AASEQ       712
             MLNSALLWKVWLRIDNSTDEVNQPIAVQFDEIDTVDDLKSRFFQKLSSTRWREINDNASI

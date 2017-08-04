@@ -1,12 +1,12 @@
 ENTRY       YNL279W           CDS       T00005
 NAME        PRM1
-DEFINITION  Prm1p
+DEFINITION  (RefSeq) pheromone-regulated protein PRM1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIV:110917..112902
-DBLINKS     NCBI-GI: 6324050
+MOTIF       Pfam: KIF1B DUF2096
+DBLINKS     NCBI-ProteinID: NP_014120
             NCBI-GeneID: 855442
             SGD: S000005223
-            MIPS: YNL279W
             UniProt: P53835
 AASEQ       661
             MSGFKCYLQLGDRLSQIWLNKYTLVLLLAMLKLLFFSKSIQHAIEVSETYILSNCYSIDS

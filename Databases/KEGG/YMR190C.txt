@@ -1,16 +1,40 @@
 ENTRY       YMR190C           CDS       T00005
 NAME        SGS1
-DEFINITION  Sgs1p (EC:3.6.4.- 3.6.1.-)
+DEFINITION  (RefSeq) ATP-dependent DNA helicase SGS1
 ORTHOLOGY   K10901  bloom syndrome protein [EC:3.6.4.12]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03440  Homologous recombination
-CLASS       Genetic Information Processing; Replication and repair; Homologous recombination [PATH:sce03440]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Replication and repair
+               03440 Homologous recombination
+                YMR190C (SGS1)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.4  Acting on acid anhydrides to facilitate cellular and subcellular movement
+                3.6.4.12  DNA helicase
+                 YMR190C (SGS1)
+            DNA replication proteins [BR:sce03032]
+             Eukaryotic Type
+              DNA Replication Termination Factors
+               Other telomere regulation proteins
+                YMR190C (SGS1)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              DSBR (double strand breaks repair)
+               HR (homologous recombination)
+                RecQ family DNA helicases
+                 YMR190C (SGS1)
+                Bloom's syndrome complex (BTR)
+                 YMR190C (SGS1)
+               FA (Fanconi anemia) pathway
+                 YMR190C (SGS1)
 POSITION    XIII:complement(640915..645258)
-MOTIF       Pfam: Helicase_Sgs1 RQC DEAD Helicase_C HRDC
-DBLINKS     NCBI-GI: 6323844
+MOTIF       Pfam: Helicase_Sgs1 RQC Helicase_C DEAD RecQ_Zn_bind ResIII HRDC
+DBLINKS     NCBI-ProteinID: NP_013915
             NCBI-GeneID: 855228
             SGD: S000004802
-            MIPS: YMR190C
             UniProt: P35187
 STRUCTURE   PDB: 1D8B
 AASEQ       1447

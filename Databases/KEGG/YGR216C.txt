@@ -1,17 +1,20 @@
 ENTRY       YGR216C           CDS       T00005
 NAME        GPI1
-DEFINITION  Gpi1p (EC:2.4.1.198)
+DEFINITION  (RefSeq) phosphatidylinositol N-acetylglucosaminyltransferase
 ORTHOLOGY   K03860  phosphatidylinositol glycan, class Q
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
-PATHWAY     sce00563  Glycosylphosphatidylinositol(GPI)-anchor biosynthesis
+PATHWAY     sce00563  Glycosylphosphatidylinositol (GPI)-anchor biosynthesis
             sce01100  Metabolic pathways
-CLASS       Metabolism; Glycan biosynthesis and metabolism; Glycosylphosphatidylinositol(GPI)-anchor biosynthesis [PATH:sce00563]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Glycan biosynthesis and metabolism
+               00563 Glycosylphosphatidylinositol(GPI)-anchor biosynthesis
+                YGR216C (GPI1)
 POSITION    VII:complement(922633..924462)
 MOTIF       Pfam: Gpi1
-DBLINKS     NCBI-GI: 6321655
+DBLINKS     NCBI-ProteinID: NP_011732
             NCBI-GeneID: 853130
             SGD: S000003448
-            MIPS: YGR216C
             UniProt: P53306
 AASEQ       609
             MPNYIFWPYESLFENSAAQGPQVALAISFEKTHFVVLGVCEPQYLEEVSIRPPYSVVATK

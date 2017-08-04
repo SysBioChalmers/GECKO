@@ -1,14 +1,19 @@
 ENTRY       YGL167C           CDS       T00005
 NAME        PMR1, BSD1, LDB1, SSC1
-DEFINITION  Ca(2+)/Mn(2+)-transporting P-type ATPase PMR1 (EC:3.6.3.8)
+DEFINITION  (RefSeq) Ca(2+)/Mn(2+)-transporting P-type ATPase PMR1
 ORTHOLOGY   K01537  Ca2+-transporting ATPase [EC:3.6.3.8]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.3  Acting on acid anhydrides to catalyse transmembrane movement of substances
+                3.6.3.8  Ca2+-transporting ATPase
+                 YGL167C (PMR1)
 POSITION    VII:complement(187616..190468)
-MOTIF       Pfam: E1-E2_ATPase Cation_ATPase_C Hydrolase Hydrolase_like2 HAD Cation_ATPase_N Hydrolase_3
-DBLINKS     NCBI-GI: 6321271
+MOTIF       Pfam: E1-E2_ATPase Cation_ATPase_C Hydrolase Cation_ATPase Cation_ATPase_N Hydrolase_3
+DBLINKS     NCBI-ProteinID: NP_011348
             NCBI-GeneID: 852709
             SGD: S000003135
-            MIPS: YGL167C
             UniProt: P13586
 AASEQ       950
             MSDNPFNASLLDEDSNREREILDATAEALSKPSPSLEYCTLSVDEALEKLDTDKNGGLRS

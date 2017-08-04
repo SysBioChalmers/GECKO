@@ -1,13 +1,12 @@
 ENTRY       YKL187C           CDS       T00005
 NAME        FAT3
-DEFINITION  Fat3p
+DEFINITION  (RefSeq) Fat3p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XI:complement(89284..91536)
-MOTIF       Pfam: SUR7
-DBLINKS     NCBI-GI: 6322661
+MOTIF       Pfam: SUR7 DUF4363 MARVEL
+DBLINKS     NCBI-ProteinID: NP_012734
             NCBI-GeneID: 853648
             SGD: S000001670
-            MIPS: YKL187C
             UniProt: P34231
 AASEQ       750
             MRIEKHRTPLSKGIIWTILSVCLLFMFTTLILVIVATAGSTANYKPLTNIYIGEADIKHI

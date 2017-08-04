@@ -1,17 +1,24 @@
 ENTRY       YDL235C           CDS       T00005
 NAME        YPD1
-DEFINITION  Ypd1p
+DEFINITION  (RefSeq) Ypd1p
 ORTHOLOGY   K11232  osomolarity two-component system, phosphorelay intermediate protein YPD1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04011  MAPK signaling pathway - yeast
 MODULE      sce_M00516  SLN1-YPD1-SSK1/SKN7 (osmosensing) two-component regulatory system
-CLASS       Environmental Information Processing; Signal transduction; MAPK signaling pathway - yeast [PATH:sce04011]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YDL235C (YPD1)
+            Two-component system [BR:sce02022]
+             Other families
+              SLN1-YPD1-SSK1/SKN7 [MD:M00516]
+               YDL235C (YPD1)
 POSITION    IV:complement(33415..33918)
-MOTIF       Pfam: Hpt PHB_acc
-DBLINKS     NCBI-GI: 6319966
+MOTIF       Pfam: Hpt
+DBLINKS     NCBI-ProteinID: NP_010046
             NCBI-GeneID: 851363
             SGD: S000002394
-            MIPS: YDL235C
             UniProt: Q07688
 STRUCTURE   PDB: 2R25 1C02 1OXK 1OXB 1C03 1QSP
 AASEQ       167

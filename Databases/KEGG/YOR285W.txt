@@ -1,13 +1,12 @@
 ENTRY       YOR285W           CDS       T00005
 NAME        RDL1
-DEFINITION  Rdl1p (EC:2.8.1.1)
+DEFINITION  (RefSeq) thiosulfate sulfurtransferase RDL1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:849635..850054
 MOTIF       Pfam: Rhodanese
-DBLINKS     NCBI-GI: 6324859
+DBLINKS     NCBI-ProteinID: NP_014928
             NCBI-GeneID: 854459
             SGD: S000005811
-            MIPS: YOR285W
             UniProt: Q12305
 STRUCTURE   PDB: 3D1P
 AASEQ       139

@@ -1,29 +1,44 @@
 ENTRY       YLR304C           CDS       T00005
 NAME        ACO1, GLU1
-DEFINITION  aconitate hydratase ACO1 (EC:4.2.1.3)
+DEFINITION  (RefSeq) aconitate hydratase ACO1
 ORTHOLOGY   K01681  aconitate hydratase [EC:4.2.1.3]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00020  Citrate cycle (TCA cycle)
             sce00630  Glyoxylate and dicarboxylate metabolism
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
+            sce01130  Biosynthesis of antibiotics
             sce01200  Carbon metabolism
             sce01210  2-Oxocarboxylic acid metabolism
             sce01230  Biosynthesis of amino acids
 MODULE      sce_M00009  Citrate cycle (TCA cycle, Krebs cycle)
             sce_M00010  Citrate cycle, first carbon oxidation, oxaloacetate => 2-oxoglutarate
             sce_M00012  Glyoxylate cycle
-CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
-            Metabolism; Overview; 2-Oxocarboxylic acid metabolism [PATH:sce01210]
-            Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
-            Metabolism; Carbohydrate metabolism; Citrate cycle (TCA cycle) [PATH:sce00020]
-            Metabolism; Carbohydrate metabolism; Glyoxylate and dicarboxylate metabolism [PATH:sce00630]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01200 Carbon metabolism
+                YLR304C (ACO1)
+               01210 2-Oxocarboxylic acid metabolism
+                YLR304C (ACO1)
+               01230 Biosynthesis of amino acids
+                YLR304C (ACO1)
+              Carbohydrate metabolism
+               00020 Citrate cycle (TCA cycle)
+                YLR304C (ACO1)
+               00630 Glyoxylate and dicarboxylate metabolism
+                YLR304C (ACO1)
+            Enzymes [BR:sce01000]
+             4. Lyases
+              4.2  Carbon-oxygen lyases
+               4.2.1  Hydro-lyases
+                4.2.1.3  aconitate hydratase
+                 YLR304C (ACO1)
 POSITION    XII:complement(735212..737548)
 MOTIF       Pfam: Aconitase Aconitase_C
-DBLINKS     NCBI-GI: 6323335
+DBLINKS     NCBI-ProteinID: NP_013407
             NCBI-GeneID: 851013
             SGD: S000004295
-            MIPS: YLR304C
             UniProt: P19414
 AASEQ       778
             MLSARSAIKRPIVRGLATVSNLTRDSKVNQNLLEDHSFINYKQNVETLDIVRKRLNRPFT

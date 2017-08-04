@@ -1,13 +1,19 @@
 ENTRY       YGR023W           CDS       T00005
 NAME        MTL1
-DEFINITION  Mtl1p
+DEFINITION  (RefSeq) Mtl1p
+ORTHOLOGY   K11245  mating pheromone-induced death protein 2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04011  MAPK signaling pathway - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YGR023W (MTL1)
 POSITION    VII:529264..530919
-MOTIF       Pfam: Mid2 SKG6
-DBLINKS     NCBI-GI: 6321459
+MOTIF       Pfam: Mid2
+DBLINKS     NCBI-ProteinID: NP_011537
             NCBI-GeneID: 852905
             SGD: S000003255
-            MIPS: YGR023W
             UniProt: P53214
 AASEQ       551
             MASCNPTRKKSSASSLSMWRTILMALTTLPLSVLSQELVPANSTTSSTAPSITSLSAVES

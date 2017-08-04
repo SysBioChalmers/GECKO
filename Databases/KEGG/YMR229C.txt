@@ -1,15 +1,20 @@
 ENTRY       YMR229C           CDS       T00005
 NAME        RRP5
-DEFINITION  Rrp5p
+DEFINITION  (RefSeq) Rrp5p
 ORTHOLOGY   K14792  rRNA biogenesis protein RRP5
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              90S particles
+               Other 90S particles
+                YMR229C (RRP5)
 POSITION    XIII:complement(725934..731123)
-MOTIF       Pfam: S1 TPR_19 Suf TPR_16 TPR_14
-DBLINKS     NCBI-GI: 6323885
+MOTIF       Pfam: S1 Suf TPR_19
+DBLINKS     NCBI-ProteinID: NP_013956
             NCBI-GeneID: 855269
             SGD: S000004842
-            MIPS: YMR229C
             UniProt: Q05022
+STRUCTURE   PDB: 5C9S 5WWM
 AASEQ       1729
             MVASTKRKRDEDFPLSREDSTKQPSTSSLVRNTEEVSFPRGGASALTPLELKQVANEAAS
             DVLFGNESVKASEPASRPLKKKKTTKKSTSKDSEASSANSDEARAGLIEHVNFKTLKNGS

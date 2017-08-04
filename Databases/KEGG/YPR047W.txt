@@ -1,17 +1,37 @@
 ENTRY       YPR047W           CDS       T00005
 NAME        MSF1
-DEFINITION  phenylalanine--tRNA ligase (EC:6.1.1.20)
+DEFINITION  (RefSeq) phenylalanine--tRNA ligase
 ORTHOLOGY   K01889  phenylalanyl-tRNA synthetase alpha chain [EC:6.1.1.20]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00970  Aminoacyl-tRNA biosynthesis
 MODULE      sce_M00359  Aminoacyl-tRNA biosynthesis, eukaryotes
-CLASS       Genetic Information Processing; Translation; Aminoacyl-tRNA biosynthesis [PATH:sce00970]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               00970 Aminoacyl-tRNA biosynthesis
+                YPR047W (MSF1)
+            Enzymes [BR:sce01000]
+             6. Ligases
+              6.1  Forming carbon-oxygen bonds
+               6.1.1  Ligases forming aminoacyl-tRNA and related compounds
+                6.1.1.20  phenylalanine---tRNA ligase
+                 YPR047W (MSF1)
+            Amino acid related enzymes [BR:sce01007]
+             Aminoacyl-tRNA synthetase
+              Class II (U)
+               YPR047W (MSF1)
+            Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              Aminoacyl-tRNA synthetases (AARSs)
+               Other AARSs
+                YPR047W (MSF1)
+             Prokaryotic Type
+                YPR047W (MSF1)
 POSITION    XVI:657529..658938
 MOTIF       Pfam: tRNA-synt_2d FDX-ACB DUF3811
-DBLINKS     NCBI-GI: 37362703
+DBLINKS     NCBI-ProteinID: NP_015372
             NCBI-GeneID: 856160
             SGD: S000006251
-            MIPS: YPR047W
             UniProt: P08425
 AASEQ       469
             MFLNRMMKTRTGLYRLYSTLKVPHVEINGIKYKTDPQTTNVTDSIIKLTDRSLHLKESHP

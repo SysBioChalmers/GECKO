@@ -1,13 +1,11 @@
 ENTRY       YPL267W           CDS       T00005
 NAME        ACM1
-DEFINITION  Acm1p
+DEFINITION  (RefSeq) Acm1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:38169..38798
-MOTIF       Pfam: HPD
-DBLINKS     NCBI-GI: 6324988
+DBLINKS     NCBI-ProteinID: NP_015056
             NCBI-GeneID: 855861
             SGD: S000006188
-            MIPS: YPL267W
             UniProt: Q08981
 STRUCTURE   PDB: 4BH6
 AASEQ       209

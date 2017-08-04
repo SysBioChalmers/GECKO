@@ -1,18 +1,29 @@
 ENTRY       YER074W           CDS       T00005
 NAME        RPS24A, RPS24EA
-DEFINITION  ribosomal 40S subunit protein S24A
+DEFINITION  (RefSeq) ribosomal 40S subunit protein S24A
 ORTHOLOGY   K02974  small subunit ribosomal protein S24e
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03010  Ribosome
-CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+MODULE      sce_M00177  Ribosome, eukaryotes
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03010 Ribosome
+                YER074W (RPS24A)
+            Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Eukaryotes
+               Small subunit
+                YER074W (RPS24A)
+              Archaea
+                YER074W (RPS24A)
 POSITION    V:join(306323..306325,306792..307196)
-MOTIF       Pfam: Ribosomal_S24e RAMPs SeleniumBinding
-DBLINKS     NCBI-GI: 398364517
+MOTIF       Pfam: Ribosomal_S24e
+DBLINKS     NCBI-ProteinID: NP_010997
             NCBI-GeneID: 856805
             SGD: S000000876
-            MIPS: YER074W
             UniProt: P0CX31 P0CX32
-STRUCTURE   PDB: 3U5C 3U5G 4BYL 4BYT 3J16 3IZB
+STRUCTURE   PDB: 5TZS 3J16
 AASEQ       135
             MSDAVTIRTRKVISNPLLARKQFVVDVLHPNRANVSKDELREKLAEVYKAEKDAVSVFGF
             RTQFGGGKSVGFGLVYNSVAEAKKFEPTYRLVRYGLAEKVEKASRQQRKQKKNRDKKIFG

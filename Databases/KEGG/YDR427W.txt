@@ -1,19 +1,28 @@
 ENTRY       YDR427W           CDS       T00005
 NAME        RPN9, NAS7
-DEFINITION  proteasome regulatory particle lid subunit RPN9
+DEFINITION  (RefSeq) proteasome regulatory particle lid subunit RPN9
 ORTHOLOGY   K03039  26S proteasome regulatory subunit N9
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03050  Proteasome
 MODULE      sce_M00341  Proteasome, 19S regulatory particle (PA700)
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Proteasome [PATH:sce03050]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               03050 Proteasome
+                YDR427W (RPN9)
+            Proteasome [BR:sce03051]
+             Eukaryotic proteasome
+              Regulatory particles
+               PA700 (19S proteasome)
+                non-ATPase subunits
+                 YDR427W (RPN9)
 POSITION    IV:1322205..1323386
-MOTIF       Pfam: PCI Foie-gras_1 DUF4080 Spo0A_C
-DBLINKS     NCBI-GI: 398366587
+MOTIF       Pfam: PCI DUF4041 DUF4080 MRP-L46
+DBLINKS     NCBI-ProteinID: NP_010715
             NCBI-GeneID: 852037
             SGD: S000002835
-            MIPS: YDR427W
             UniProt: Q04062
-STRUCTURE   PDB: 4B4T 4C0V 3J47
+STRUCTURE   PDB: 3JCK 5MPD 5MPE 4CR2 4CR4 4CR3 5A5B 2MRI 2MQW 2MR3 3J47
 AASEQ       393
             MFNNHEIDTILSTLRMEADPSLHPLFEQFEKFYEEKLWFQLSESLTKFFDDAKSTPLRLR
             LYDNFVSKFYDKINQLSVVKYLLASLKDSKDFDESLKYLDDLKAQFQELDSKKQRNNGSK

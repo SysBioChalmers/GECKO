@@ -1,13 +1,24 @@
 ENTRY       YER134C           CDS       T00005
-DEFINITION  hypothetical protein (EC:3.1.3.48)
+DEFINITION  (RefSeq) Mg-dependent acid phosphatase
 ORTHOLOGY   K17619  magnesium-dependent phosphatase 1 [EC:3.1.3.48 3.1.3.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.3  Phosphoric-monoester hydrolases
+                3.1.3.48  protein-tyrosine-phosphatase
+                 YER134C
+                3.1.3.-  
+                 YER134C
+            Protein phosphatases and associated proteins [BR:sce01009]
+             HAD phosphatases
+              MDP-1
+               YER134C
 POSITION    V:complement(437267..437803)
 MOTIF       Pfam: Acid_PPase
-DBLINKS     NCBI-GI: 6320981
+DBLINKS     NCBI-ProteinID: NP_011060
             NCBI-GeneID: 856873
             SGD: S000000936
-            MIPS: YER134C
             UniProt: P40081
 AASEQ       178
             MTGYPDVAAFDLDYTIWPCYCDTHLHGPFKPVKSSNGEVLTIICRDGYELTIYKDIPRIL

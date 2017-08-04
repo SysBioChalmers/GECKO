@@ -1,21 +1,39 @@
 ENTRY       YNL172W           CDS       T00005
 NAME        APC1
-DEFINITION  anaphase promoting complex subunit 1
+DEFINITION  (RefSeq) anaphase promoting complex subunit 1
 ORTHOLOGY   K03348  anaphase-promoting complex subunit 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
             sce04113  Meiosis - yeast
             sce04120  Ubiquitin mediated proteolysis
 MODULE      sce_M00389  APC/C complex
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Ubiquitin mediated proteolysis [PATH:sce04120]
-            Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
-            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04120 Ubiquitin mediated proteolysis
+                YNL172W (APC1)
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YNL172W (APC1)
+               04113 Meiosis - yeast
+                YNL172W (APC1)
+            Ubiquitin system [BR:sce04121]
+             Ubiquitin ligases (E3)
+              Multi subunit Ring-finger type E3
+               APC/C
+                Other subunits
+                 YNL172W (APC1)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Sister chromatid separation proteins
+               APC/C complex
+                YNL172W (APC1)
 POSITION    XIV:310636..315882
-MOTIF       Pfam: Apc1
-DBLINKS     NCBI-GI: 398364519
+MOTIF       Pfam: ANAPC1
+DBLINKS     NCBI-ProteinID: NP_014227
             NCBI-GeneID: 855549
             SGD: S000005116
-            MIPS: YNL172W
             UniProt: P53886
 AASEQ       1748
             MTSKPSTRNDYLPRETHNGEYTGDSPEWQLQINITNKIGGINGDIWLSRDGRSVKWCIED

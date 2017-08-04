@@ -1,13 +1,22 @@
 ENTRY       YNL287W           CDS       T00005
 NAME        SEC21
-DEFINITION  Sec21p
+DEFINITION  (RefSeq) coatomer subunit gamma
+ORTHOLOGY   K17267  coatomer subunit gamma
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endoplasmic reticulum (ER) - Golgi transport
+              Retrieval pathways
+               Coat protein complex I (COP-I)
+                YNL287W (SEC21)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of haemopoietic cells  (B-cell, T-cell, DC-cell, reticulocyte, and mast cell)
+               YNL287W (SEC21)
 POSITION    XIV:91994..94801
-MOTIF       Pfam: Adaptin_N COP-gamma_platf HEAT_2 Cnd1 HEAT_EZ
-DBLINKS     NCBI-GI: 6324042
+MOTIF       Pfam: Adaptin_N COP-gamma_platf Coatomer_g_Cpla HEAT_2 Cnd1
+DBLINKS     NCBI-ProteinID: NP_014112
             NCBI-GeneID: 855429
             SGD: S000005231
-            MIPS: YNL287W
             UniProt: P32074
 AASEQ       935
             MSAHTYKKFENSTSGDLPDKMTIYQDCMNTFNESPVNSKRCRLLISRLLRLLAQGETFPQ

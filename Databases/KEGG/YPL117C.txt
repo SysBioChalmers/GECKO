@@ -1,20 +1,30 @@
 ENTRY       YPL117C           CDS       T00005
 NAME        IDI1, BOT2, LPH10
-DEFINITION  isopentenyl-diphosphate delta-isomerase IDI1 (EC:5.3.3.2)
-ORTHOLOGY   K01823  isopentenyl-diphosphate delta-isomerase [EC:5.3.3.2]
+DEFINITION  (RefSeq) isopentenyl-diphosphate delta-isomerase IDI1
+ORTHOLOGY   K01823  isopentenyl-diphosphate Delta-isomerase [EC:5.3.3.2]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00900  Terpenoid backbone biosynthesis
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
+            sce01130  Biosynthesis of antibiotics
 MODULE      sce_M00095  C5 isoprenoid biosynthesis, mevalonate pathway
             sce_M00367  C10-C20 isoprenoid biosynthesis, non-plant eukaryotes
-CLASS       Metabolism; Metabolism of terpenoids and polyketides; Terpenoid backbone biosynthesis [PATH:sce00900]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Metabolism of terpenoids and polyketides
+               00900 Terpenoid backbone biosynthesis
+                YPL117C (IDI1)
+            Enzymes [BR:sce01000]
+             5. Isomerases
+              5.3  Intramolecular oxidoreductases
+               5.3.3  Transposing C=C bonds
+                5.3.3.2  isopentenyl-diphosphate Delta-isomerase
+                 YPL117C (IDI1)
 POSITION    XVI:complement(327864..328730)
 MOTIF       Pfam: NUDIX DUF4459
-DBLINKS     NCBI-GI: 6325140
+DBLINKS     NCBI-ProteinID: NP_015208
             NCBI-GeneID: 855986
             SGD: S000006038
-            MIPS: YPL117C
             UniProt: P15496
 AASEQ       288
             MTADNNSMPHGAVSSYAKLVQNQTPEDILEEFPEIIPLQQRPNTRSSETSNDESGETCFS

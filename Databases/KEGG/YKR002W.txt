@@ -1,16 +1,31 @@
 ENTRY       YKR002W           CDS       T00005
 NAME        PAP1
-DEFINITION  Pap1p (EC:2.7.7.19)
+DEFINITION  (RefSeq) polynucleotide adenylyltransferase PAP1
 ORTHOLOGY   K14376  poly(A) polymerase [EC:2.7.7.19]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03015  mRNA surveillance pathway
-CLASS       Genetic Information Processing; Translation; mRNA surveillance pathway [PATH:sce03015]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03015 mRNA surveillance pathway
+                YKR002W (PAP1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.7  Nucleotidyltransferases
+                2.7.7.19  polynucleotide adenylyltransferase
+                 YKR002W (PAP1)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA processing factors
+               3' end processing
+                Poly(A) addition factors
+                 YKR002W (PAP1)
 POSITION    XI:443232..444938
 MOTIF       Pfam: PAP_central PAP_RNA-bind NTP_transf_2
-DBLINKS     NCBI-GI: 398364849
+DBLINKS     NCBI-ProteinID: NP_012927
             NCBI-GeneID: 853871
             SGD: S000001710
-            MIPS: YKR002W
             UniProt: P29468
 STRUCTURE   PDB: 2Q66 2HHP 3C66 1FA0 2O1P
 AASEQ       568

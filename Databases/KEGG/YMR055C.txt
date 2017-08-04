@@ -1,16 +1,19 @@
 ENTRY       YMR055C           CDS       T00005
 NAME        BUB2, PAC7
-DEFINITION  Bub2p
+DEFINITION  (RefSeq) Bub2p
 ORTHOLOGY   K02179  cell cycle arrest protein BUB2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
-CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YMR055C (BUB2)
 POSITION    XIII:complement(386101..387021)
 MOTIF       Pfam: RabGAP-TBC
-DBLINKS     NCBI-GI: 6323700
+DBLINKS     NCBI-ProteinID: NP_013771
             NCBI-GeneID: 855077
             SGD: S000004659
-            MIPS: YMR055C
             UniProt: P26448
 AASEQ       306
             MTSIEDLISNPPLLLHSSLSQLRYLILSEGLPISEDKQQQRTRCYVWTVLSQTSMEASTQ

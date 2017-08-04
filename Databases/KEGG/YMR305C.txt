@@ -1,13 +1,12 @@
 ENTRY       YMR305C           CDS       T00005
 NAME        SCW10
-DEFINITION  Scw10p (EC:3.2.1.-)
+DEFINITION  (RefSeq) putative family 17 glucosidase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:complement(879063..880232)
-MOTIF       Pfam: Glyco_hydro_17 DUF2217
-DBLINKS     NCBI-GI: 6323964
+MOTIF       Pfam: Glyco_hydro_17 SPX SOG2 Apt1 Macoilin
+DBLINKS     NCBI-ProteinID: NP_014035
             NCBI-GeneID: 855352
             SGD: S000004921
-            MIPS: YMR305C
             UniProt: Q04951
 AASEQ       389
             MRFSNFLTVSALLTGALGAPAVRHKHEKRDVVTATVHAQVTVVVSGNSGETIVPVNENAV

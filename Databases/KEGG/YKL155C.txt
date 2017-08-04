@@ -1,13 +1,12 @@
 ENTRY       YKL155C           CDS       T00005
 NAME        RSM22
-DEFINITION  mitochondrial 37S ribosomal protein RSM22 (EC:2.1.1.-)
+DEFINITION  (RefSeq) mitochondrial 37S ribosomal protein RSM22
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XI:complement(159456..161342)
-MOTIF       Pfam: Rsm22 Methyltransf_23 Methyltransf_18
-DBLINKS     NCBI-GI: 6322694
+MOTIF       Pfam: Rsm22 Methyltransf_23 VWA_N
+DBLINKS     NCBI-ProteinID: NP_012767
             NCBI-GeneID: 853701
             SGD: S000001638
-            MIPS: YKL155C
             UniProt: P36056
 AASEQ       628
             MMKRCFSILPQNVRFSSKFTSLNLPKLDLADFIDSNKRGINVLPSYRDETASTTQATNSK

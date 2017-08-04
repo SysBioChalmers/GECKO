@@ -1,13 +1,12 @@
 ENTRY       YMR136W           CDS       T00005
 NAME        GAT2
-DEFINITION  Gat2p
+DEFINITION  (RefSeq) Gat2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:541199..542881
-MOTIF       Pfam: GATA FlxA
-DBLINKS     NCBI-GI: 6323785
+MOTIF       Pfam: GATA CLZ MIEAP Nudix_N_2
+DBLINKS     NCBI-ProteinID: NP_013856
             NCBI-GeneID: 855167
             SGD: S000004744
-            MIPS: YMR136W
             UniProt: P40209
 AASEQ       560
             MQAPNIYPFSQTQPQALPGFTYGPPQLVFDHSAPRVDPLHSTVTINSPLPLQHYNGPNAH

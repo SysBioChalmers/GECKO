@@ -1,14 +1,13 @@
 ENTRY       YOL101C           CDS       T00005
 NAME        IZH4
-DEFINITION  Izh4p
+DEFINITION  (RefSeq) Izh4p
 ORTHOLOGY   K07297  adiponectin receptor
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:complement(126982..127920)
 MOTIF       Pfam: HlyIII
-DBLINKS     NCBI-GI: 6324471
+DBLINKS     NCBI-ProteinID: NP_014540
             NCBI-GeneID: 854052
             SGD: S000005461
-            MIPS: YOL101C
             UniProt: Q99393
 AASEQ       312
             MVSLTTIEQSPVKCETTTEKESNDTRGTDSNENAETKETKKGFPFHDLAKLQKQYKNKSS

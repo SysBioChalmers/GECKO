@@ -1,13 +1,12 @@
 ENTRY       YCL048W           CDS       T00005
 NAME        SPS22
-DEFINITION  Sps22p
+DEFINITION  (RefSeq) Sps22p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    III:42165..43556
 MOTIF       Pfam: Recep_L_domain LRR_5
-DBLINKS     NCBI-GI: 6319801
+DBLINKS     NCBI-ProteinID: NP_009882
             NCBI-GeneID: 850309
             SGD: S000000553
-            MIPS: YCL048W
             UniProt: P25380
 AASEQ       463
             MNRITRKSCLFAIIFASLFVTHALGAAIDPPRRPHNVKPFHNGNLELQRRANEPFFEIDV

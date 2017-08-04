@@ -1,16 +1,28 @@
 ENTRY       YNL185C           CDS       T00005
 NAME        MRPL19
-DEFINITION  mitochondrial 54S ribosomal protein YmL19
+DEFINITION  (RefSeq) mitochondrial 54S ribosomal protein YmL19
 ORTHOLOGY   K02867  large subunit ribosomal protein L11
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03010  Ribosome
-CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03010 Ribosome
+                YNL185C (MRPL19)
+            Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Mitochondria/ Chloroplast
+               Large subunit
+                YNL185C (MRPL19)
+              Bacteria
+                YNL185C (MRPL19)
+              Archaea
+                YNL185C (MRPL19)
 POSITION    XIV:complement(292193..292669)
 MOTIF       Pfam: Ribosomal_L11 Ribosomal_L11_N
-DBLINKS     NCBI-GI: 6324144
+DBLINKS     NCBI-ProteinID: NP_014214
             NCBI-GeneID: 855536
             SGD: S000005129
-            MIPS: YNL185C
             UniProt: P53875
 AASEQ       158
             MSQAAKNVIVKLIVGAGQAAPSPPVGPALGSKGIKAIDFCKEFNARSANYQPGVPVPVLI

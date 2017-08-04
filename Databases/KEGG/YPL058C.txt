@@ -1,13 +1,12 @@
 ENTRY       YPL058C           CDS       T00005
 NAME        PDR12
-DEFINITION  ATP-binding cassette multidrug transporter PDR12
+DEFINITION  (RefSeq) ATP-binding cassette multidrug transporter PDR12
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:complement(445842..450377)
-MOTIF       Pfam: ABC2_membrane PDR_CDR ABC_tran ABC_trans_N DUF258 AAA_25 ABC2_membrane_3 SMC_N AAA_29 cobW AAA_22 AAA_17 AAA_16 UPF0079 AAA_18 NACHT AAA_21 AAA_19 Zeta_toxin SSURE Retinin_C
-DBLINKS     NCBI-GI: 6325199
+MOTIF       Pfam: ABC2_membrane ABC_tran PDR_CDR ABC_trans_N RsgA_GTPase AAA_16 MMR_HSR1 AAA_29 ABC2_membrane_3 AAA_18 AAA_22 AAA_25 NACHT AAA_30 cobW Zeta_toxin TsaE AAA_23 AAA_17
+DBLINKS     NCBI-ProteinID: NP_015267
             NCBI-GeneID: 856049
             SGD: S000005979
-            MIPS: YPL058C
             UniProt: Q02785
 AASEQ       1511
             MSSTDEHIEKDISSRSNHDDDYANSVQSYAASEGQVDNEDLAATSQLSRHLSNILSNEEG

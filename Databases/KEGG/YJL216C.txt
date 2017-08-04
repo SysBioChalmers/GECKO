@@ -1,19 +1,29 @@
 ENTRY       YJL216C           CDS       T00005
 NAME        IMA5
-DEFINITION  Ima5p (EC:3.2.1.10 3.2.1.20)
-ORTHOLOGY   K01187  alpha-glucosidase [EC:3.2.1.20]
+DEFINITION  (RefSeq) oligo-1,6-glucosidase IMA5
+ORTHOLOGY   K01182  oligo-1,6-glucosidase [EC:3.2.1.10]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00052  Galactose metabolism
             sce00500  Starch and sucrose metabolism
             sce01100  Metabolic pathways
-CLASS       Metabolism; Carbohydrate metabolism; Galactose metabolism [PATH:sce00052]
-            Metabolism; Carbohydrate metabolism; Starch and sucrose metabolism [PATH:sce00500]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Carbohydrate metabolism
+               00052 Galactose metabolism
+                YJL216C (IMA5)
+               00500 Starch and sucrose metabolism
+                YJL216C (IMA5)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.2  Glycosylases
+               3.2.1  Glycosidases, i.e. enzymes that hydrolyse O- and S-glycosyl compounds
+                3.2.1.10  oligo-1,6-glucosidase
+                 YJL216C (IMA5)
 POSITION    X:complement(24341..26086)
-MOTIF       Pfam: Alpha-amylase hDGE_amylase Alpha-amylase_C
-DBLINKS     NCBI-GI: 6322245
+MOTIF       Pfam: Alpha-amylase Malt_amylase_C hDGE_amylase Alpha-amylase_C
+DBLINKS     NCBI-ProteinID: NP_012319
             NCBI-GeneID: 853214
             SGD: S000003752
-            MIPS: YJL216C
             UniProt: P40884
 AASEQ       581
             MTIIHNPKWWKEATVYQIYPASFKDSNNDGWGDLAGITSKLDYVKELGVDAIWVCPFYDS

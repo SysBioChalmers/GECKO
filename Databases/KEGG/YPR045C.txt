@@ -1,13 +1,12 @@
 ENTRY       YPR045C           CDS       T00005
 NAME        THP3
-DEFINITION  Thp3p
+DEFINITION  (RefSeq) Thp3p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:complement(655140..656552)
-MOTIF       Pfam: SAC3_GANP
-DBLINKS     NCBI-GI: 6325302
+MOTIF       Pfam: SAC3_GANP Senescence CSN8_PSD8_EIF3K
+DBLINKS     NCBI-ProteinID: NP_015370
             NCBI-GeneID: 856158
             SGD: S000006249
-            MIPS: YPR045C
             UniProt: Q12049
 AASEQ       470
             MQNPYGHFTNNTTEDREASSQGGPFGQSLNRPLDYAGSFPSLTYNNNNFIANQQPSLPLP

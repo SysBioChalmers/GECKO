@@ -1,16 +1,50 @@
 ENTRY       YPL203W           CDS       T00005
 NAME        TPK2, PKA2, PKA3, YKR1
-DEFINITION  Tpk2p (EC:2.7.11.11)
+DEFINITION  (RefSeq) cAMP-dependent protein kinase catalytic subunit TPK2
 ORTHOLOGY   K04345  protein kinase A [EC:2.7.11.11]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04113  Meiosis - yeast
-CLASS       Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+            sce04138  Autophagy - yeast
+            sce04213  Longevity regulating pathway - multiple species
+MODULE      sce_M00695  cAMP signaling
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04138 Autophagy - yeast
+                YPL203W (TPK2)
+              Cell growth and death
+               04113 Meiosis - yeast
+                YPL203W (TPK2)
+             Organismal Systems
+              Aging
+               04213 Longevity regulating pathway - multiple species
+                YPL203W (TPK2)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.11  Protein-serine/threonine kinases
+                2.7.11.11  cAMP-dependent protein kinase
+                 YPL203W (TPK2)
+            Protein kinases [BR:sce01001]
+             Serine/threonine protein kinases: AGC group
+              PKA family
+               YPL203W (TPK2)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               mRNA cycle factors
+                Common to processing body (P body) and stress granule
+                 YPL203W (TPK2)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centrosome formation and ciliogenesis proteins
+               Kinases and associated factors
+                YPL203W (TPK2)
 POSITION    XVI:166256..167398
-MOTIF       Pfam: Pkinase Pkinase_Tyr Kinase-like Seadorna_VP7 APH YrbL-PhoP_reg
-DBLINKS     NCBI-GI: 6325053
+MOTIF       Pfam: Pkinase Pkinase_Tyr Kinase-like Haspin_kinase Seadorna_VP7
+DBLINKS     NCBI-ProteinID: NP_015121
             NCBI-GeneID: 855898
             SGD: S000006124
-            MIPS: YPL203W
             UniProt: P06245
 AASEQ       380
             MEFVAERAQPVGQTIQQQNVNTYGQGVLQPHHDLQQRQQQQQQRQHQQLLTSQLPQKSLV

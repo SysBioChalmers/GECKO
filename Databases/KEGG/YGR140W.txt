@@ -1,14 +1,19 @@
 ENTRY       YGR140W           CDS       T00005
 NAME        CBF2, CEP2, CSL5, CTF14, NDC10
-DEFINITION  Cbf2p
+DEFINITION  (RefSeq) Cbf2p
 ORTHOLOGY   K11574  centromere DNA-binding protein complex CBF3 subunit A
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centromeric chromatin formation proteins
+               Kinetochore proteins
+                CBF3 complex
+                 YGR140W (CBF2)
 POSITION    VII:767429..770299
-MOTIF       Pfam: GCR1_C
-DBLINKS     NCBI-GI: 398365851
+MOTIF       Pfam: NDC10_II GCR1_C
+DBLINKS     NCBI-ProteinID: NP_011656
             NCBI-GeneID: 853041
             SGD: S000003372
-            MIPS: YGR140W
             UniProt: P32504
 STRUCTURE   PDB: 4ACO
 AASEQ       956

@@ -1,13 +1,17 @@
 ENTRY       YMR066W           CDS       T00005
 NAME        SOV1
-DEFINITION  Sov1p
+DEFINITION  (RefSeq) Sov1p
 ORTHOLOGY   K17674  protein SOV1, mitochondrial
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial DNA transcription, translation, and replication factors
+              Mitochondrial transcription and translation factors
+               Other mitochondrial DNA transcription and translation factors
+                YMR066W (SOV1)
 POSITION    XIII:401541..404237
-DBLINKS     NCBI-GI: 6323711
+DBLINKS     NCBI-ProteinID: NP_013782
             NCBI-GeneID: 855088
             SGD: S000004670
-            MIPS: YMR066W
             UniProt: Q04748
 AASEQ       898
             MFKYNRSLCSSALIAKSQIRFYRLKRAPLNYASHIPEVLNKTIIGPDEPEKCLILKGKTS

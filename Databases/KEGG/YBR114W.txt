@@ -1,14 +1,20 @@
 ENTRY       YBR114W           CDS       T00005
 NAME        RAD16, PSO5
-DEFINITION  Rad16p (EC:3.6.4.- 3.6.1.-)
+DEFINITION  (RefSeq) DNA repair protein RAD16
 ORTHOLOGY   K15083  DNA repair protein RAD16
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              SSBR (single strand breaks repair)
+               NER (nucleotide excision repair)
+                GGR (global genome repair) factors
+                 NER4 complex
+                  YBR114W (RAD16)
 POSITION    II:467248..469620
-MOTIF       Pfam: SNF2_N Helicase_C DEAD zf-C3HC4 zf-RING_2 zf-C3HC4_2 zf-C3HC4_4 zf-Nse zf-RING_6
-DBLINKS     NCBI-GI: 6319590
+MOTIF       Pfam: SNF2_N Helicase_C DEAD zf-C3HC4 zf-C3HC4_2 zf-RING_UBOX zf-C3HC4_4 zf-RING_2 zf-C3HC4_3 MH2 zf-Nse
+DBLINKS     NCBI-ProteinID: NP_009672
             NCBI-GeneID: 852411
             SGD: S000000318
-            MIPS: YBR114W
             UniProt: P31244
 AASEQ       790
             MQEGGFIRRRRTRSTKKSVNYNELSDDDTAVKNSKTLQLKGNSENVNDSQDEEYRDDATL

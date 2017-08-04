@@ -1,18 +1,27 @@
 ENTRY       YEL021W           CDS       T00005
 NAME        URA3
-DEFINITION  orotidine-5'-phosphate decarboxylase (EC:4.1.1.23)
+DEFINITION  (RefSeq) orotidine-5'-phosphate decarboxylase
 ORTHOLOGY   K01591  orotidine-5'-phosphate decarboxylase [EC:4.1.1.23]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00240  Pyrimidine metabolism
             sce01100  Metabolic pathways
 MODULE      sce_M00051  Uridine monophosphate biosynthesis, glutamine (+ PRPP) => UMP
-CLASS       Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Nucleotide metabolism
+               00240 Pyrimidine metabolism
+                YEL021W (URA3)
+            Enzymes [BR:sce01000]
+             4. Lyases
+              4.1  Carbon-carbon lyases
+               4.1.1  Carboxy-lyases
+                4.1.1.23  orotidine-5'-phosphate decarboxylase
+                 YEL021W (URA3)
 POSITION    V:116167..116970
 MOTIF       Pfam: OMPdecase
-DBLINKS     NCBI-GI: 398364267
+DBLINKS     NCBI-ProteinID: NP_010893
             NCBI-GeneID: 856692
             SGD: S000000747
-            MIPS: YEL021W
             UniProt: P03962
 STRUCTURE   PDB: 3GDM 3GDT 3GDL 3GDR 3GDK 1DQW 1DQX
 AASEQ       267

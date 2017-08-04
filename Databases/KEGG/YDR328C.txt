@@ -1,6 +1,6 @@
 ENTRY       YDR328C           CDS       T00005
 NAME        SKP1, MGO1
-DEFINITION  Skp1p
+DEFINITION  (RefSeq) SCF ubiquitin ligase subunit SKP1
 ORTHOLOGY   K03094  S-phase kinase-associated protein 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
@@ -9,17 +9,42 @@ PATHWAY     sce04111  Cell cycle - yeast
 MODULE      sce_M00379  SCF-MET30 complex
             sce_M00407  SCF-CDC4 complex
             sce_M00411  SCF-GRR1 complex
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Protein processing in endoplasmic reticulum [PATH:sce04141]
-            Genetic Information Processing; Folding, sorting and degradation; Ubiquitin mediated proteolysis [PATH:sce04120]
-            Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04141 Protein processing in endoplasmic reticulum
+                YDR328C (SKP1)
+               04120 Ubiquitin mediated proteolysis
+                YDR328C (SKP1)
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YDR328C (SKP1)
+            Ubiquitin system [BR:sce04121]
+             Ubiquitin ligases (E3)
+              Multi subunit Ring-finger type E3
+               SCF complex
+                Adaptor protein
+                 YDR328C (SKP1)
+               Cul7 complex
+                 YDR328C (SKP1)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centromeric chromatin formation proteins
+               Kinetochore proteins
+                CBF3 complex
+                 YDR328C (SKP1)
+              Centrosome formation and ciliogenesis proteins
+               Centrosome duplication proteins
+                Other centrosome duplication proteins
+                 YDR328C (SKP1)
 POSITION    IV:complement(1125434..1126018)
-MOTIF       Pfam: Skp1 Skp1_POZ DUF4642 GCIP CENP-B_dimeris Ebola_NP DNA_pol_phi
-DBLINKS     NCBI-GI: 398366491
+MOTIF       Pfam: Skp1 Skp1_POZ CENP-B_dimeris rRNA_processing
+DBLINKS     NCBI-ProteinID: NP_010615
             NCBI-GeneID: 851928
             SGD: S000002736
-            MIPS: YDR328C
             UniProt: P52286
-STRUCTURE   PDB: 3V7D 3MKS 1NEX
+STRUCTURE   PDB: 3V7D 3MKS 1NEX 5AN3
 AASEQ       194
             MVTSNVVLVSGEGERFTVDKKIAERSLLLKNYLNDMHDSNLQNNSDSESDSDSETNHKSK
             DNNNGDDDDEDDDEIVMPVPNVRSSVLQKVIEWAEHHRDSNFPDEDDDDSRKSAPVDSWD

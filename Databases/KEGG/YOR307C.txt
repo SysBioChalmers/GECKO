@@ -1,14 +1,17 @@
 ENTRY       YOR307C           CDS       T00005
 NAME        SLY41
-DEFINITION  Sly41p
+DEFINITION  (RefSeq) Sly41p
 ORTHOLOGY   K15283  solute carrier family 35, member E1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Solute Carrier Family (SLC)
+              SLC35: Nucleoside-sugar transporter
+               YOR307C (SLY41)
 POSITION    XV:complement(892731..894092)
-MOTIF       Pfam: TPT EamA UAA
-DBLINKS     NCBI-GI: 6324883
+MOTIF       Pfam: TPT EamA
+DBLINKS     NCBI-ProteinID: NP_014952
             NCBI-GeneID: 854484
             SGD: S000005834
-            MIPS: YOR307C
             UniProt: P22215
 AASEQ       453
             MIQTQSTAIKRRNSVHKNLFDPSLYQIPEPPRGGFQHQKKEYSKETFSNQVFGYDITSLK

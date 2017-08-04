@@ -1,12 +1,12 @@
 ENTRY       YLR194C           CDS       T00005
-DEFINITION  hypothetical protein
+NAME        NCW2
+DEFINITION  (RefSeq) Ncw2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XII:complement(540809..541573)
-MOTIF       Pfam: Baculo_gp64 DUF4648
-DBLINKS     NCBI-GI: 6323223
+MOTIF       Pfam: Rep_4
+DBLINKS     NCBI-ProteinID: NP_013295
             NCBI-GeneID: 850891
             SGD: S000004184
-            MIPS: YLR194C
             UniProt: Q05777
 AASEQ       254
             MKACSILFTTLITLAAAQKDSGSLDGQNSEDSSQKESSNSQEITPTTTKEAQESASTVVS

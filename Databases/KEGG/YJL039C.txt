@@ -1,16 +1,30 @@
 ENTRY       YJL039C           CDS       T00005
 NAME        NUP192
-DEFINITION  Nup192p
+DEFINITION  (RefSeq) Nup192p
 ORTHOLOGY   K14310  nuclear pore complex protein Nup205
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03013  RNA transport
-CLASS       Genetic Information Processing; Translation; RNA transport [PATH:sce03013]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03013 RNA transport
+                YJL039C (NUP192)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Transport factors
+                Nuclear pore complex
+                 YJL039C (NUP192)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centrosome formation and ciliogenesis proteins
+               Spindle formation proteins
+                YJL039C (NUP192)
 POSITION    X:complement(368748..373799)
-MOTIF       Pfam: DUF3414 YmgB DUF1344
-DBLINKS     NCBI-GI: 6322421
+MOTIF       Pfam: Nup192 DUF2508 YmgB DUF1344 IF4E
+DBLINKS     NCBI-ProteinID: NP_012495
             NCBI-GeneID: 853410
             SGD: S000003576
-            MIPS: YJL039C
             UniProt: P47054
 STRUCTURE   PDB: 4IFQ
 AASEQ       1683

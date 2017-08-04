@@ -1,13 +1,12 @@
 ENTRY       YMR215W           CDS       T00005
 NAME        GAS3
-DEFINITION  Gas3p (EC:2.4.1.-)
+DEFINITION  (RefSeq) putative 1,3-beta-glucanosyltransferase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:696796..698370
 MOTIF       Pfam: Glyco_hydro_72 Glyco_hydro_2_C Cellulase
-DBLINKS     NCBI-GI: 6323871
+DBLINKS     NCBI-ProteinID: NP_013942
             NCBI-GeneID: 855255
             SGD: S000004828
-            MIPS: YMR215W
             UniProt: Q03655
 AASEQ       524
             MQLSKSILLAALAATPSLVNAMLPIHIKNYRFIKPSSATNSESDNEVFFVKGVDYQPGGS

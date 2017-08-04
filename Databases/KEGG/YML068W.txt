@@ -1,14 +1,24 @@
 ENTRY       YML068W           CDS       T00005
 NAME        ITT1
-DEFINITION  Itt1p
-ORTHOLOGY   K11971  E3 ubiquitin-protein ligase RNF14 [EC:6.3.2.19]
+DEFINITION  (RefSeq) Itt1p
+ORTHOLOGY   K11971  E3 ubiquitin-protein ligase RNF14 [EC:2.3.2.27]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.3  Acyltransferases
+               2.3.2  Aminoacyltransferases
+                2.3.2.27  RING-type E3 ubiquitin transferase
+                 YML068W (ITT1)
+            Ubiquitin system [BR:sce04121]
+             Ubiquitin ligases (E3)
+              Single Ring-finger type E3
+               RBR proteins
+                YML068W (ITT1)
 POSITION    XIII:137550..138944
 MOTIF       Pfam: IBR zf-RING_2
-DBLINKS     NCBI-GI: 6323572
+DBLINKS     NCBI-ProteinID: NP_013643
             NCBI-GeneID: 854934
             SGD: S000004533
-            MIPS: YML068W
             UniProt: Q04638
 AASEQ       464
             MALTQFENDLEILRDMYPELEMKSVKVEEEGEFPQRINGKLLFKISLLADVNIEFGEQHM

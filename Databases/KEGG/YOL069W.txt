@@ -1,15 +1,24 @@
 ENTRY       YOL069W           CDS       T00005
 NAME        NUF2
-DEFINITION  Nuf2p
+DEFINITION  (RefSeq) kinetochore-associated Ndc80 complex subunit NUF2
 ORTHOLOGY   K11548  kinetochore protein Nuf2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centromeric chromatin formation proteins
+               Kinetochore proteins
+                KMN network proteins
+                 NDC80 complex
+                  YOL069W (NUF2)
+                NMS complex
+                  YOL069W (NUF2)
 POSITION    XV:198942..200297
-MOTIF       Pfam: Nuf2 Reo_sigmaC
-DBLINKS     NCBI-GI: 6324503
+MOTIF       Pfam: Nuf2 Mce4_CUP1 Reo_sigmaC
+DBLINKS     NCBI-ProteinID: NP_014572
             NCBI-GeneID: 854085
             SGD: S000005430
-            MIPS: YOL069W
             UniProt: P33895
+STRUCTURE   PDB: 5TCS 5TD8
 AASEQ       451
             MSRNQDVFPILDLQELVICLQSCDFALATQENISRPTSDYMVTLYKQIIENFMGISVESL
             LNSSNQETGDGHLQEENENIYLDTLNVLVLNKICFKFFENIGVQDFNMTDLYKPEAQRTQ

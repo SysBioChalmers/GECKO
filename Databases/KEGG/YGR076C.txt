@@ -1,13 +1,17 @@
 ENTRY       YGR076C           CDS       T00005
 NAME        MRPL25, AFO1, YMR26
-DEFINITION  mitochondrial 54S ribosomal protein YmL25
-ORTHOLOGY   K17438  large subunit ribosomal protein L25, mitochondrial
+DEFINITION  (RefSeq) mitochondrial 54S ribosomal protein YmL25
+ORTHOLOGY   K17438  large subunit ribosomal protein L25
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Mitochondria/ Chloroplast
+               Large subunit
+                YGR076C (MRPL25)
 POSITION    VII:complement(637104..637577)
-DBLINKS     NCBI-GI: 6321513
+DBLINKS     NCBI-ProteinID: NP_011590
             NCBI-GeneID: 852967
             SGD: S000003308
-            MIPS: YGR076C
             UniProt: P23369
 AASEQ       157
             MSYKQYFDSLPLKLKSFFQRYPPSIKYSPVSTSTKAINANPFLPNKHPVTQRFHDPKYSL

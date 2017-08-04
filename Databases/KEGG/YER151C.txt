@@ -1,14 +1,34 @@
 ENTRY       YER151C           CDS       T00005
 NAME        UBP3, BLM3
-DEFINITION  Ubp3p (EC:3.4.19.12 3.1.2.15)
-ORTHOLOGY   K11841  ubiquitin carboxyl-terminal hydrolase 10 [EC:3.1.2.15]
+DEFINITION  (RefSeq) mRNA-binding ubiquitin-specific protease UBP3
+ORTHOLOGY   K11841  ubiquitin carboxyl-terminal hydrolase 10 [EC:3.4.19.12]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04139  Mitophagy - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04139 Mitophagy - yeast
+                YER151C (UBP3)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.4  Acting on peptide bonds (peptidases)
+               3.4.19  Omega peptidases
+                3.4.19.12  ubiquitinyl hydrolase 1
+                 YER151C (UBP3)
+            Peptidases [BR:sce01002]
+             Cysteine Peptidases
+              Family C19: ubiquitin-specific protease family
+               YER151C (UBP3)
+            Ubiquitin system [BR:sce04121]
+             Deubiquitinating enzyme (DUB)
+              Ubiquitin-specific proteases (UBPs)
+               UBP/USP
+                YER151C (UBP3)
 POSITION    V:complement(469686..472424)
 MOTIF       Pfam: UCH
-DBLINKS     NCBI-GI: 398364935
+DBLINKS     NCBI-ProteinID: NP_011078
             NCBI-GeneID: 856895
             SGD: S000000953
-            MIPS: YER151C
             UniProt: Q01477
 STRUCTURE   PDB: 2QIY
 AASEQ       912

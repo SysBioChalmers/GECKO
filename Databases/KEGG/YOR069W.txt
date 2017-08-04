@@ -1,14 +1,24 @@
 ENTRY       YOR069W           CDS       T00005
 NAME        VPS5, GRD2, PEP10, VPT5
-DEFINITION  Vps5p
+DEFINITION  (RefSeq) sorting nexin 1
 ORTHOLOGY   K17917  sorting nexin-1/2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04144  Endocytosis
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04144 Endocytosis
+                YOR069W (VPS5)
+            Membrane trafficking [BR:sce04131]
+             Endocytosis
+              Macropinocytosis
+               Sorting nexins
+                YOR069W (VPS5)
 POSITION    XV:453768..455795
-MOTIF       Pfam: Vps5 PX CK2S STAT_alpha IncA FliJ
-DBLINKS     NCBI-GI: 46562125
+MOTIF       Pfam: Vps5 PX FliJ FlaC_arch IncA CCDC-167
+DBLINKS     NCBI-ProteinID: NP_014712
             NCBI-GeneID: 854235
             SGD: S000005595
-            MIPS: YOR069W
             UniProt: Q92331
 AASEQ       675
             MDYEDNLEAPVWDELNHEGDKTQSLVSNSIESIGQISTNEERKDNELLETTASFADKIDL

@@ -1,12 +1,11 @@
 ENTRY       YLR278C           CDS       T00005
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) hypothetical protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XII:complement(699999..704024)
-MOTIF       Pfam: Zn_clus
-DBLINKS     NCBI-GI: 6323308
+MOTIF       Pfam: Fungal_trans Zn_clus
+DBLINKS     NCBI-ProteinID: NP_013380
             NCBI-GeneID: 850984
             SGD: S000004268
-            MIPS: YLR278C
             UniProt: Q05854
 AASEQ       1341
             MGRPRKNVSQEKIQQLKRELELAGNRTDVLLQDKKGRSRSCLLCRRRKQRCDHKLPSCTA

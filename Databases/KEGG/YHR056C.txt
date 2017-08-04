@@ -1,14 +1,24 @@
 ENTRY       YHR056C           CDS       T00005
 NAME        RSC30
-DEFINITION  Rsc30p
+DEFINITION  (RefSeq) Rsc30p
 ORTHOLOGY   K11758  chromatin structure-remodeling complex subunit RSC3/30
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Coactivators
+                RSC complex
+                 YHR056C (RSC30)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Chromatin remodeling factors
+               RSC complex
+                YHR056C (RSC30)
 POSITION    VIII:complement(215183..217834)
-MOTIF       Pfam: Zn_clus
-DBLINKS     NCBI-GI: 41629685
+MOTIF       Pfam: Zn_clus DUF3310
+DBLINKS     NCBI-ProteinID: NP_011923
             NCBI-GeneID: 856453
             SGD: S000001098
-            MIPS: YHR056C
             UniProt: P38781
 AASEQ       883
             MMDMQVRKVRKPPACTQCRKRKIGCDRAKPICGNCVKYNKPDCFYPDGPGKMVAVPSASG

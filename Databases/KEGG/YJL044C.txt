@@ -1,13 +1,18 @@
 ENTRY       YJL044C           CDS       T00005
 NAME        GYP6
-DEFINITION  Gyp6p
+DEFINITION  (RefSeq) Gyp6p
+ORTHOLOGY   K18469  TBC1 domain family member 5
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endosome - Lysosome transport
+              Rab GTPases and associated proteins
+               Rab associated proteins
+                YJL044C (GYP6)
 POSITION    X:complement(358300..359676)
-MOTIF       Pfam: RabGAP-TBC Pas_Saposin
-DBLINKS     NCBI-GI: 398364549
+MOTIF       Pfam: RabGAP-TBC PAXNEB
+DBLINKS     NCBI-ProteinID: NP_012491
             NCBI-GeneID: 853406
             SGD: S000003580
-            MIPS: YJL044C
             UniProt: P32806
 AASEQ       458
             MKDVLQWAIDHYETRDQLVQKGIWKGELYHDSIFKENSRGWLWKALLLCDENNNCLLTDN

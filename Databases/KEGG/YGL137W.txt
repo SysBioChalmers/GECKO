@@ -1,14 +1,22 @@
 ENTRY       YGL137W           CDS       T00005
 NAME        SEC27
-DEFINITION  Sec27p
-ORTHOLOGY   K17302  coatomer, subunit beta'
+DEFINITION  (RefSeq) coatomer subunit beta'
+ORTHOLOGY   K17302  coatomer subunit beta'
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endoplasmic reticulum (ER) - Golgi transport
+              Retrieval pathways
+               Coat protein complex I (COP-I)
+                YGL137W (SEC27)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of colorectal cancer cells
+               YGL137W (SEC27)
 POSITION    VII:join(249869..249886,250087..252738)
-MOTIF       Pfam: Coatomer_WDAD WD40 BBS2_Mid
-DBLINKS     NCBI-GI: 6321301
+MOTIF       Pfam: Coatomer_WDAD WD40 BBS2_Mid Nup160 MetallophosC
+DBLINKS     NCBI-ProteinID: NP_011378
             NCBI-GeneID: 852740
             SGD: S000003105
-            MIPS: YGL137W
             UniProt: P41811
 STRUCTURE   PDB: 4J73 4J82 4J84 4J86 4J78 4J79 4J81 4J77 2YNN 2YNO 3MKQ
                  2YNP

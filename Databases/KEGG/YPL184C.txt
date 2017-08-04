@@ -1,13 +1,12 @@
 ENTRY       YPL184C           CDS       T00005
 NAME        MRN1, PTR69
-DEFINITION  Mrn1p
+DEFINITION  (RefSeq) Mrn1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:complement(195950..197788)
-MOTIF       Pfam: RRM_6 RRM_1 RRM_5 Nup35_RRM_2 DnaI_N
-DBLINKS     NCBI-GI: 6325072
+MOTIF       Pfam: RRM_1 RRM_occluded RRM_5
+DBLINKS     NCBI-ProteinID: NP_015140
             NCBI-GeneID: 855917
             SGD: S000006105
-            MIPS: YPL184C
             UniProt: Q08925
 AASEQ       612
             MVVSYNNNNNNNNNNNNNNISNNNNNNNMFPPFPSSDDFAMYQQSSSSGPYQETYASGPQ

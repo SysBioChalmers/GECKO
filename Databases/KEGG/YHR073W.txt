@@ -1,13 +1,18 @@
 ENTRY       YHR073W           CDS       T00005
 NAME        OSH3
-DEFINITION  Osh3p
+DEFINITION  (RefSeq) oxysterol-binding protein related protein OSH3
+ORTHOLOGY   K20463  oxysterol-binding protein-related protein 3/6/7
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endoplasmic reticulum (ER) - Golgi transport
+              Others
+               Oxysterol-binding proteins
+                YHR073W (OSH3)
 POSITION    VIII:242582..245572
-MOTIF       Pfam: Oxysterol_BP PH_8
-DBLINKS     NCBI-GI: 6321864
+MOTIF       Pfam: Oxysterol_BP PH_8 PH PH_11
+DBLINKS     NCBI-ProteinID: NP_011940
             NCBI-GeneID: 856472
             SGD: S000001115
-            MIPS: YHR073W
             UniProt: P38713
 STRUCTURE   PDB: 4IC4 4INQ
 AASEQ       996

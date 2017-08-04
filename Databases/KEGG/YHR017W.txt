@@ -1,13 +1,12 @@
 ENTRY       YHR017W           CDS       T00005
 NAME        YSC83
-DEFINITION  Ysc83p
+DEFINITION  (RefSeq) Ysc83p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VIII:138694..139851
-MOTIF       Pfam: DUF1776 MFS_1_like
-DBLINKS     NCBI-GI: 6321805
+MOTIF       Pfam: DUF1776
+DBLINKS     NCBI-ProteinID: NP_011881
             NCBI-GeneID: 856410
             SGD: S000001059
-            MIPS: YHR017W
             UniProt: P32792
 AASEQ       385
             MAWSGGKDIVDQIFDAGYWLVSKSAVLSDEIKNHVEKSIESISGKISNKETPRLQENDSN

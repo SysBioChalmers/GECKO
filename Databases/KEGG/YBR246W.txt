@@ -1,14 +1,23 @@
 ENTRY       YBR246W           CDS       T00005
 NAME        RRT2, DPH7, ERE1
-DEFINITION  diphthamide synthase
-ORTHOLOGY   K17868  diphthamide biosynthesis protein 7
+DEFINITION  (RefSeq) diphthamide synthase
+ORTHOLOGY   K17868  diphthine methyl ester acylhydrolase [EC:3.1.1.97]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.1  Carboxylic-ester hydrolases
+                3.1.1.97  methylated diphthine methylhydrolase
+                 YBR246W (RRT2)
+            Translation factors [BR:sce03012]
+             Eukaryotic Type
+              Elongation factors
+               Elongation associated factors
+                YBR246W (RRT2)
 POSITION    II:711591..712754
-MOTIF       Pfam: WD40
-DBLINKS     NCBI-GI: 6319723
+DBLINKS     NCBI-ProteinID: NP_009805
             NCBI-GeneID: 852548
             SGD: S000000450
-            MIPS: YBR246W
             UniProt: P38332
 AASEQ       387
             MDSIQESDVLNAVKTKLPPCCLRIFRNKIILVGTYDLDKSTGYRSGSLDVFTMDLKLLCS

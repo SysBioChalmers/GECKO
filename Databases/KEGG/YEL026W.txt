@@ -1,20 +1,35 @@
 ENTRY       YEL026W           CDS       T00005
 NAME        SNU13
-DEFINITION  Snu13p
+DEFINITION  (RefSeq) RNA binding protein SNU13
 ORTHOLOGY   K12845  U4/U6 small nuclear ribonucleoprotein SNU13
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03008  Ribosome biogenesis in eukaryotes
             sce03040  Spliceosome
-CLASS       Genetic Information Processing; Transcription; Spliceosome [PATH:sce03040]
-            Genetic Information Processing; Translation; Ribosome biogenesis in eukaryotes [PATH:sce03008]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03040 Spliceosome
+                YEL026W (SNU13)
+              Translation
+               03008 Ribosome biogenesis in eukaryotes
+                YEL026W (SNU13)
+            Spliceosome [BR:sce03041]
+             Complex B
+              U4/U6.U5 tri-snRNP components
+               U4/U6 snRNP specific factors
+                YEL026W (SNU13)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Sno RNPs
+               Box C/D snoRNPs
+                YEL026W (SNU13)
 POSITION    V:101943..102323
-MOTIF       Pfam: Ribosomal_L7Ae RNase_P_pop3 PELOTA_1
-DBLINKS     NCBI-GI: 6320809
+MOTIF       Pfam: Ribosomal_L7Ae PELOTA_1 RNase_P_pop3 Pico_P2B
+DBLINKS     NCBI-ProteinID: NP_010888
             NCBI-GeneID: 856687
             SGD: S000000752
-            MIPS: YEL026W
             UniProt: P39990
-STRUCTURE   PDB: 2ALE 1ZWZ
+STRUCTURE   PDB: 4NUT 2ALE 1ZWZ 5GAN 5GAP 3JCM 5TZS
 AASEQ       126
             MSAPNPKAFPLADAALTQQILDVVQQAANLRQLKKGANEATKTLNRGISEFIIMAADCEP
             IEILLHLPLLCEDKNVPYVFVPSRVALGRACGVSRPVIAASITTNDASAIKTQIYAVKDK

@@ -1,16 +1,24 @@
 ENTRY       YDR211W           CDS       T00005
 NAME        GCD6
-DEFINITION  Gcd6p
+DEFINITION  (RefSeq) translation initiation factor eIF2B catalytic subunit epsilon
 ORTHOLOGY   K03240  translation initiation factor eIF-2B subunit epsilon
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03013  RNA transport
-CLASS       Genetic Information Processing; Translation; RNA transport [PATH:sce03013]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03013 RNA transport
+                YDR211W (GCD6)
+            Translation factors [BR:sce03012]
+             Eukaryotic Type
+              Initiation factors
+               eIF-2B
+                YDR211W (GCD6)
 POSITION    IV:884727..886865
-MOTIF       Pfam: W2 Hexapep NTP_transferase NTP_transf_3
-DBLINKS     NCBI-GI: 398366139
+MOTIF       Pfam: W2 Hexapep NTP_transferase DUF4954 Fucokinase NTP_transf_3 CTP_transf_3
+DBLINKS     NCBI-ProteinID: NP_010497
             NCBI-GeneID: 851797
             SGD: S000002619
-            MIPS: YDR211W
             UniProt: P32501
 STRUCTURE   PDB: 1PAQ
 AASEQ       712

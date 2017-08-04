@@ -1,13 +1,24 @@
 ENTRY       YEL022W           CDS       T00005
 NAME        GEA2
-DEFINITION  Gea2p
+DEFINITION  (RefSeq) Arf family guanine nucleotide exchange factor GEA2
+ORTHOLOGY   K18443  golgi-specific brefeldin A-resistance guanine nucleotide exchange factor 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04144  Endocytosis
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04144 Endocytosis
+                YEL022W (GEA2)
+            Membrane trafficking [BR:sce04131]
+             Endosome - Golgi transport
+              Arf GTPases and associated proteins
+               Arf GTPase associated proteins
+                YEL022W (GEA2)
 POSITION    V:111421..115800
-MOTIF       Pfam: Sec7
-DBLINKS     NCBI-GI: 6320813
+MOTIF       Pfam: Sec7 Sec7_N DCB DUF2683
+DBLINKS     NCBI-ProteinID: NP_010892
             NCBI-GeneID: 856691
             SGD: S000000748
-            MIPS: YEL022W
             UniProt: P39993
 STRUCTURE   PDB: 1KU1
 AASEQ       1459

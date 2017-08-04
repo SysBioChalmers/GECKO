@@ -1,18 +1,27 @@
 ENTRY       YOR171C           CDS       T00005
 NAME        LCB4
-DEFINITION  sphinganine kinase LCB4 (EC:2.7.1.91)
+DEFINITION  (RefSeq) sphinganine kinase LCB4
 ORTHOLOGY   K04718  sphingosine kinase [EC:2.7.1.91]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00600  Sphingolipid metabolism
             sce01100  Metabolic pathways
 MODULE      sce_M00100  Sphingosine degradation
-CLASS       Metabolism; Lipid metabolism; Sphingolipid metabolism [PATH:sce00600]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Lipid metabolism
+               00600 Sphingolipid metabolism
+                YOR171C (LCB4)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.1  Phosphotransferases with an alcohol group as acceptor
+                2.7.1.91  sphingosine kinase
+                 YOR171C (LCB4)
 POSITION    XV:complement(652010..653884)
-MOTIF       Pfam: DAGK_cat tify
-DBLINKS     NCBI-GI: 6324745
+MOTIF       Pfam: DAGK_cat
+DBLINKS     NCBI-ProteinID: NP_014814
             NCBI-GeneID: 854342
             SGD: S000005697
-            MIPS: YOR171C
             UniProt: Q12246
 AASEQ       624
             MVVQKKLRAILTDEGVLIKSQSHHMFNKHGQLRSGDSLSLLSCLSCLDDGTLSSDGGSFD

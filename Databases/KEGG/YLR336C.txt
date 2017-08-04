@@ -1,14 +1,19 @@
 ENTRY       YLR336C           CDS       T00005
 NAME        SGD1
-DEFINITION  Sgd1p
+DEFINITION  (RefSeq) Sgd1p
 ORTHOLOGY   K17583  nucleolar MIF4G domain-containing protein 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Protein phosphatases and associated proteins [BR:sce01009]
+             Protein Ser/ Thr phosphatases
+              Phosphoprotein phosphatases (PPPs)
+               Protein phosphatase-1
+                PP1-interacting proteins (PIPs)
+                 YLR336C (SGD1)
 POSITION    XII:complement(799697..802396)
 MOTIF       Pfam: MA3 MIF4G
-DBLINKS     NCBI-GI: 6323368
+DBLINKS     NCBI-ProteinID: NP_013440
             NCBI-GeneID: 851049
             SGD: S000004328
-            MIPS: YLR336C
             UniProt: Q06132
 AASEQ       899
             MQKTDGIRIPGVILDELKTLDYSQDERFSISEGKKRRRGNGKHLSRKEKRKMERADKKRK

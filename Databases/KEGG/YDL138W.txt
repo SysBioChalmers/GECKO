@@ -1,16 +1,24 @@
 ENTRY       YDL138W           CDS       T00005
 NAME        RGT2
-DEFINITION  Rgt2p
+DEFINITION  (RefSeq) glucose sensor
 ORTHOLOGY   K08139  MFS transporter, SP family, sugar:H+ symporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04113  Meiosis - yeast
-CLASS       Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04113 Meiosis - yeast
+                YDL138W (RGT2)
+            Transporters [BR:sce02000]
+             Major Facilitator Superfamily (MFS)
+              Sugar transporters
+               Sugar porter (SP) family [TC:2.A.1.1]
+                YDL138W (RGT2)
 POSITION    IV:213351..215642
-MOTIF       Pfam: Sugar_tr MFS_1 Pex14_N
-DBLINKS     NCBI-GI: 6320063
+MOTIF       Pfam: Sugar_tr MFS_1
+DBLINKS     NCBI-ProteinID: NP_010143
             NCBI-GeneID: 851417
             SGD: S000002297
-            MIPS: YDL138W
             UniProt: Q12300
 AASEQ       763
             MNDSQNCLRQREENSHLNPGNDFGHHQGAECTINHNNMPHRNAYTESTNDTEAKSIVMCD

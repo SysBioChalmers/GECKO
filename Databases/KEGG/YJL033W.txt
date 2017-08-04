@@ -1,14 +1,24 @@
 ENTRY       YJL033W           CDS       T00005
 NAME        HCA4, DBP4, ECM24
-DEFINITION  RNA-dependent ATPase HCA4 (EC:3.6.4.13)
+DEFINITION  (RefSeq) RNA-dependent ATPase HCA4
 ORTHOLOGY   K14776  ATP-dependent RNA helicase DDX10/DBP4 [EC:3.6.4.13]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.4  Acting on acid anhydrides to facilitate cellular and subcellular movement
+                3.6.4.13  RNA helicase
+                 YJL033W (HCA4)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              90S particles
+               Helicases
+                YJL033W (HCA4)
 POSITION    X:383837..386149
-MOTIF       Pfam: DEAD DUF4217 Helicase_C
-DBLINKS     NCBI-GI: 6322427
+MOTIF       Pfam: DEAD Helicase_C DUF4217 ResIII
+DBLINKS     NCBI-ProteinID: NP_012501
             NCBI-GeneID: 853419
             SGD: S000003570
-            MIPS: YJL033W
             UniProt: P20448
 AASEQ       770
             MAKKNRLNTTQRKTLRQKEDEYIENLKTKIDEYDPKITKAKFFKDLPISDPTLKGLRESS

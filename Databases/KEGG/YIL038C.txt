@@ -1,16 +1,29 @@
 ENTRY       YIL038C           CDS       T00005
 NAME        NOT3
-DEFINITION  CCR4-NOT core subunit NOT3
+DEFINITION  (RefSeq) CCR4-NOT core subunit NOT3
 ORTHOLOGY   K12580  CCR4-NOT transcription complex subunit 3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03018  RNA degradation
-CLASS       Genetic Information Processing; Folding, sorting and degradation; RNA degradation [PATH:sce03018]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               03018 RNA degradation
+                YIL038C (NOT3)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               mRNA cycle factors
+                P-body specific factors
+                 YIL038C (NOT3)
+              mRNA degradation factors
+               3'-5' decay
+                Ccr4-NOT complex
+                 YIL038C (NOT3)
 POSITION    IX:complement(280142..282652)
-MOTIF       Pfam: Not3 NOT2_3_5 GHMP_kinases_N
-DBLINKS     NCBI-GI: 398364441
+MOTIF       Pfam: Not3 NOT2_3_5 Syntaxin_2 GHMP_kinases_N NadA
+DBLINKS     NCBI-ProteinID: NP_012226
             NCBI-GeneID: 854773
             SGD: S000001300
-            MIPS: YIL038C
             UniProt: P06102
 AASEQ       836
             MAHRKLQQEVDRVFKKINEGLEIFNSYYERHESCTNNPSQKDKLESDLKREVKKLQRLRE

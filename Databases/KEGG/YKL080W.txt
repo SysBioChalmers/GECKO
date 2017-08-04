@@ -1,21 +1,27 @@
 ENTRY       YKL080W           CDS       T00005
 NAME        VMA5, CSL5, VAT3
-DEFINITION  Vma5p (EC:3.6.3.14)
-ORTHOLOGY   K02148  V-type H+-transporting ATPase subunit C [EC:3.6.3.14]
+DEFINITION  (RefSeq) H(+)-transporting V1 sector ATPase subunit C
+ORTHOLOGY   K02148  V-type H+-transporting ATPase subunit C
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00190  Oxidative phosphorylation
             sce01100  Metabolic pathways
             sce04145  Phagosome
-CLASS       Metabolism; Energy metabolism; Oxidative phosphorylation [PATH:sce00190]
-            Cellular Processes; Transport and catabolism; Phagosome [PATH:sce04145]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Energy metabolism
+               00190 Oxidative phosphorylation
+                YKL080W (VMA5)
+             Cellular Processes
+              Transport and catabolism
+               04145 Phagosome
+                YKL080W (VMA5)
 POSITION    XI:285030..286208
-MOTIF       Pfam: V-ATPase_C
-DBLINKS     NCBI-GI: 6322770
+MOTIF       Pfam: V-ATPase_C LMBR1
+DBLINKS     NCBI-ProteinID: NP_012843
             NCBI-GeneID: 853782
             SGD: S000001563
-            MIPS: YKL080W
             UniProt: P31412
-STRUCTURE   PDB: 1U7L 4EFA 4DL0
+STRUCTURE   PDB: 1U7L 4EFA 4DL0 3J9T 3J9U 3J9V
 AASEQ       392
             MATALYTANDFILISLPQNAQPVTAPGSKTDSWFNETLIGGRAFVSDFKIPEFKIGSLDT
             LIVESEELSKVDNQIGASIGKIIEILQGLNETSTNAYRTLPINNMPVPEYLENFQWQTRK

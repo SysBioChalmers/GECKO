@@ -1,13 +1,12 @@
 ENTRY       YFR013W           CDS       T00005
 NAME        IOC3
-DEFINITION  Ioc3p
+DEFINITION  (RefSeq) Ioc3p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VI:169922..172285
 MOTIF       Pfam: WHIM1
-DBLINKS     NCBI-GI: 14318535
+DBLINKS     NCBI-ProteinID: NP_116668
             NCBI-GeneID: 850567
             SGD: S000001909
-            MIPS: YFR013W
             UniProt: P43596
 STRUCTURE   PDB: 2Y9Y 2Y9Z
 AASEQ       787

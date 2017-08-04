@@ -1,14 +1,24 @@
 ENTRY       YDR419W           CDS       T00005
 NAME        RAD30, DBH1
-DEFINITION  Rad30p (EC:2.7.7.7)
+DEFINITION  (RefSeq) DNA-directed DNA polymerase eta
 ORTHOLOGY   K03509  DNA polymerase eta [EC:2.7.7.7]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.7  Nucleotidyltransferases
+                2.7.7.7  DNA-directed DNA polymerase
+                 YDR419W (RAD30)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              TLS (translesion DNA synthesis) factors
+               Y-family DNA polymerases
+                YDR419W (RAD30)
 POSITION    IV:1303174..1305072
-MOTIF       Pfam: IMS IMS_C IMS_HHH DUF1805
-DBLINKS     NCBI-GI: 398366581
+MOTIF       Pfam: IMS IMS_HHH IMS_C
+DBLINKS     NCBI-ProteinID: NP_010707
             NCBI-GeneID: 852028
             SGD: S000002827
-            MIPS: YDR419W
             UniProt: Q04049
 STRUCTURE   PDB: 3MFI 3OHA 3OHB 3MFH 1JIH 2WTF 2XGP 2XGQ 2R8J 2R8K
 AASEQ       632

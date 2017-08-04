@@ -1,17 +1,35 @@
 ENTRY       YBR208C           CDS       T00005
 NAME        DUR1,2, DUR80
-DEFINITION  bifunctional urea carboxylase/allophanate hydrolase (EC:6.3.4.6 3.5.1.54)
+DEFINITION  (RefSeq) bifunctional urea carboxylase/allophanate hydrolase
 ORTHOLOGY   K14541  urea carboxylase / allophanate hydrolase [EC:6.3.4.6 3.5.1.54]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
-PATHWAY     sce00330  Arginine and proline metabolism
+PATHWAY     sce00220  Arginine biosynthesis
+            sce00791  Atrazine degradation
             sce01100  Metabolic pathways
-CLASS       Metabolism; Amino acid metabolism; Arginine and proline metabolism [PATH:sce00330]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Amino acid metabolism
+               00220 Arginine biosynthesis
+                YBR208C (DUR1)
+              Xenobiotics biodegradation and metabolism
+               00791 Atrazine degradation
+                YBR208C (DUR1)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.5  Acting on carbon-nitrogen bonds, other than peptide bonds
+               3.5.1  In linear amides
+                3.5.1.54  allophanate hydrolase
+                 YBR208C (DUR1)
+             6. Ligases
+              6.3  Forming carbon-nitrogen bonds
+               6.3.4  Other carbon-nitrogen ligases
+                6.3.4.6  urea carboxylase
+                 YBR208C (DUR1)
 POSITION    II:complement(636703..642210)
-MOTIF       Pfam: Amidase AHS2 CPSase_L_D2 AHS1 CPSase_L_chain Biotin_carb_C ATP-grasp_4 Biotin_lipoyl ATPgrasp_Ter Dala_Dala_lig_C RimK ATP-grasp ATP-grasp_3 ATP-grasp_5 Mur_ligase_C Toxin_59
-DBLINKS     NCBI-GI: 6319685
+MOTIF       Pfam: Amidase CT_A_B CPSase_L_D2 CT_C_D Biotin_carb_N Biotin_carb_C Biotin_lipoyl Dala_Dala_lig_C ATP-grasp ATP-grasp_3 ATP-grasp_5 Mur_ligase_C RimK
+DBLINKS     NCBI-ProteinID: NP_009767
             NCBI-GeneID: 852507
             SGD: S000000412
-            MIPS: YBR208C
             UniProt: P32528
 AASEQ       1835
             MTVSSDTTAEISLGWSIQDWIDFHKSSSSQASLRLLESLLDSQNVAPVDNAWISLISKEN

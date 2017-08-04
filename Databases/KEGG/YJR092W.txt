@@ -1,13 +1,12 @@
 ENTRY       YJR092W           CDS       T00005
 NAME        BUD4
-DEFINITION  Bud4p
+DEFINITION  (RefSeq) Bud4p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    X:598735..603078
-MOTIF       Pfam: Anillin
-DBLINKS     NCBI-GI: 398365281
+MOTIF       Pfam: PH
+DBLINKS     NCBI-ProteinID: NP_012625
             NCBI-GeneID: 853554
             SGD: S000003852
-            MIPS: YJR092W
             UniProt: P47136
 AASEQ       1447
             MHDAESTVDSLLKEIDNEMEQTKSNITQNGSEDTPHNWKLPLQEIGDDTMEMLVKHNTRS

@@ -1,17 +1,20 @@
 ENTRY       YHR188C           CDS       T00005
 NAME        GPI16
-DEFINITION  Gpi16p
+DEFINITION  (RefSeq) GPI-anchor transamidase subunit GPI16
 ORTHOLOGY   K05292  phosphatidylinositol glycan, class T
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
-PATHWAY     sce00563  Glycosylphosphatidylinositol(GPI)-anchor biosynthesis
+PATHWAY     sce00563  Glycosylphosphatidylinositol (GPI)-anchor biosynthesis
             sce01100  Metabolic pathways
-CLASS       Metabolism; Glycan biosynthesis and metabolism; Glycosylphosphatidylinositol(GPI)-anchor biosynthesis [PATH:sce00563]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Glycan biosynthesis and metabolism
+               00563 Glycosylphosphatidylinositol(GPI)-anchor biosynthesis
+                YHR188C (GPI16)
 POSITION    VIII:complement(482005..483837)
 MOTIF       Pfam: Gpi16
-DBLINKS     NCBI-GI: 6321982
+DBLINKS     NCBI-ProteinID: NP_012058
             NCBI-GeneID: 856595
             SGD: S000001231
-            MIPS: YHR188C
             UniProt: P38875
 AASEQ       610
             MILTLAYFMLGTLLLGVFAEDTVSQIGINDSLWYPYDEALVLKPLPNNDLLLSFAFQLQS

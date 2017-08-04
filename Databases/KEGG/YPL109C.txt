@@ -1,13 +1,16 @@
 ENTRY       YPL109C           CDS       T00005
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) hypothetical protein
 ORTHOLOGY   K08869  aarF domain-containing kinase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Protein kinases [BR:sce01001]
+             Serine/threonine protein kinases: Atypical group
+              ABC1 family
+               YPL109C
 POSITION    XVI:complement(join(345264..345444,345597..347389))
-MOTIF       Pfam: ABC1 DUF3855
-DBLINKS     NCBI-GI: 50593504
+MOTIF       Pfam: ABC1
+DBLINKS     NCBI-ProteinID: NP_015216
             NCBI-GeneID: 855995
             SGD: S000006030
-            MIPS: YPL109C
             UniProt: Q02981
 AASEQ       657
             MSFLKFAYRNSWRYYSKSTRHFHKIPIRQFIIPTSIAFYLTQNSFPKQNCLIYNDSLKPD

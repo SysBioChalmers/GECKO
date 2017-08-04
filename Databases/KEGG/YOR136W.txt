@@ -1,26 +1,40 @@
 ENTRY       YOR136W           CDS       T00005
 NAME        IDH2
-DEFINITION  isocitrate dehydrogenase (NAD(+)) IDH2 (EC:1.1.1.41)
+DEFINITION  (RefSeq) isocitrate dehydrogenase (NAD(+)) IDH2
 ORTHOLOGY   K00030  isocitrate dehydrogenase (NAD+) [EC:1.1.1.41]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00020  Citrate cycle (TCA cycle)
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
+            sce01130  Biosynthesis of antibiotics
             sce01200  Carbon metabolism
             sce01210  2-Oxocarboxylic acid metabolism
             sce01230  Biosynthesis of amino acids
 MODULE      sce_M00009  Citrate cycle (TCA cycle, Krebs cycle)
             sce_M00010  Citrate cycle, first carbon oxidation, oxaloacetate => 2-oxoglutarate
-CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
-            Metabolism; Overview; 2-Oxocarboxylic acid metabolism [PATH:sce01210]
-            Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
-            Metabolism; Carbohydrate metabolism; Citrate cycle (TCA cycle) [PATH:sce00020]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01200 Carbon metabolism
+                YOR136W (IDH2)
+               01210 2-Oxocarboxylic acid metabolism
+                YOR136W (IDH2)
+               01230 Biosynthesis of amino acids
+                YOR136W (IDH2)
+              Carbohydrate metabolism
+               00020 Citrate cycle (TCA cycle)
+                YOR136W (IDH2)
+            Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.1  Acting on the CH-OH group of donors
+               1.1.1  With NAD+ or NADP+ as acceptor
+                1.1.1.41  isocitrate dehydrogenase (NAD+)
+                 YOR136W (IDH2)
 POSITION    XV:580250..581359
 MOTIF       Pfam: Iso_dh
-DBLINKS     NCBI-GI: 6324709
+DBLINKS     NCBI-ProteinID: NP_014779
             NCBI-GeneID: 854303
             SGD: S000005662
-            MIPS: YOR136W
             UniProt: P28241
 STRUCTURE   PDB: 3BLX 3BLV 3BLW
 AASEQ       369

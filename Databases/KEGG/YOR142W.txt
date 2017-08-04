@@ -1,24 +1,39 @@
 ENTRY       YOR142W           CDS       T00005
 NAME        LSC1
-DEFINITION  succinate--CoA ligase (GDP-forming) subunit alpha (EC:6.2.1.5)
+DEFINITION  (RefSeq) succinate--CoA ligase (GDP-forming) subunit alpha
 ORTHOLOGY   K01899  succinyl-CoA synthetase alpha subunit [EC:6.2.1.4 6.2.1.5]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00020  Citrate cycle (TCA cycle)
             sce00640  Propanoate metabolism
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
+            sce01130  Biosynthesis of antibiotics
             sce01200  Carbon metabolism
 MODULE      sce_M00009  Citrate cycle (TCA cycle, Krebs cycle)
             sce_M00011  Citrate cycle, second carbon oxidation, 2-oxoglutarate => oxaloacetate
-CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
-            Metabolism; Carbohydrate metabolism; Citrate cycle (TCA cycle) [PATH:sce00020]
-            Metabolism; Carbohydrate metabolism; Propanoate metabolism [PATH:sce00640]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01200 Carbon metabolism
+                YOR142W (LSC1)
+              Carbohydrate metabolism
+               00020 Citrate cycle (TCA cycle)
+                YOR142W (LSC1)
+               00640 Propanoate metabolism
+                YOR142W (LSC1)
+            Enzymes [BR:sce01000]
+             6. Ligases
+              6.2  Forming carbon-sulfur bonds
+               6.2.1  Acid-thiol ligases
+                6.2.1.4  succinate---CoA ligase (GDP-forming)
+                 YOR142W (LSC1)
+                6.2.1.5  succinate---CoA ligase (ADP-forming)
+                 YOR142W (LSC1)
 POSITION    XV:593057..594046
-MOTIF       Pfam: CoA_binding Ligase_CoA Succ_CoA_lig CoA_binding_2 IlvN Toprim_Crpt
-DBLINKS     NCBI-GI: 398365347
+MOTIF       Pfam: CoA_binding Ligase_CoA Succ_CoA_lig CoA_binding_2 IlvN
+DBLINKS     NCBI-ProteinID: NP_014785
             NCBI-GeneID: 854310
             SGD: S000005668
-            MIPS: YOR142W
             UniProt: P53598
 AASEQ       329
             MLRSTVSKASLKICRHFHRESIPYDKTIKNLLLPKDTKVIFQGFTGKQGTFHASISQEYG

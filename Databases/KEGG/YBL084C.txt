@@ -1,21 +1,45 @@
 ENTRY       YBL084C           CDS       T00005
 NAME        CDC27, APC3, SNB1
-DEFINITION  anaphase promoting complex subunit CDC27
+DEFINITION  (RefSeq) anaphase promoting complex subunit CDC27
 ORTHOLOGY   K03350  anaphase-promoting complex subunit 3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
             sce04113  Meiosis - yeast
             sce04120  Ubiquitin mediated proteolysis
 MODULE      sce_M00389  APC/C complex
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Ubiquitin mediated proteolysis [PATH:sce04120]
-            Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
-            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04120 Ubiquitin mediated proteolysis
+                YBL084C (CDC27)
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YBL084C (CDC27)
+               04113 Meiosis - yeast
+                YBL084C (CDC27)
+            Protein phosphatases and associated proteins [BR:sce01009]
+             Protein Ser/ Thr phosphatases
+              Phosphoprotein phosphatases (PPPs)
+               Protein phosphatase-5
+                PP5-interacting proteins
+                 YBL084C (CDC27)
+            Ubiquitin system [BR:sce04121]
+             Ubiquitin ligases (E3)
+              Multi subunit Ring-finger type E3
+               APC/C
+                Other subunits
+                 YBL084C (CDC27)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Sister chromatid separation proteins
+               APC/C complex
+                YBL084C (CDC27)
 POSITION    II:complement(67169..69445)
-MOTIF       Pfam: TPR_2 TPR_11 TPR_1 Apc3 TPR_8 TPR_12 TPR_16 TPR_17 TPR_19 TPR_6 TPR_14 TPR_9 TPR_15 TPR_20 TPR_10
-DBLINKS     NCBI-GI: 330443405
+MOTIF       Pfam: TPR_2 TPR_1 TPR_8 ANAPC3 TPR_11 TPR_16 TPR_17 TPR_14 TPR_12 TPR_19 TPR_6 TPR_9 TPR_7 TPR_15 TPR_20 SRP_TPR_like
+DBLINKS     NCBI-ProteinID: NP_009469
             NCBI-GeneID: 852194
             SGD: S000000180
-            MIPS: YBL084C
             UniProt: P38042
 AASEQ       758
             MAVNPELAPFTLSRGIPSFDDQALSTIIQLQDCIQQAIQQLNYSTAEFLAELLYAECSIL

@@ -1,15 +1,31 @@
 ENTRY       YNL126W           CDS       T00005
 NAME        SPC98
-DEFINITION  Spc98p
+DEFINITION  (RefSeq) Spc98p
 ORTHOLOGY   K16570  gamma-tubulin complex component 3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centrosome formation and ciliogenesis proteins
+               Microtubules and associated factors
+                gamma-tubulin ring complex
+                 YNL126W (SPC98)
+            Cytoskeleton proteins [BR:sce04812]
+             Eukaryotic cytoskeleton proteins
+              Microtubules
+               Tubulin-binding proteins
+                Gamma-tubulin complex components
+                 YNL126W (SPC98)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of haemopoietic cells  (B-cell, T-cell, DC-cell, reticulocyte, and mast cell)
+               YNL126W (SPC98)
 POSITION    XIV:387227..389767
 MOTIF       Pfam: Spc97_Spc98
-DBLINKS     NCBI-GI: 6324203
+DBLINKS     NCBI-ProteinID: NP_014273
             NCBI-GeneID: 855597
             SGD: S000005070
-            MIPS: YNL126W
             UniProt: P53540
+STRUCTURE   PDB: 5FLZ 5FM1
 AASEQ       846
             MELEPTLFGIIEALAPQLLSQSHLQTFVSDVVNLLRSSTKSATQLGPLIDFYKLQSLDSP
             ETTIMWHKIEKFLDALFGIQNTDDMVKYLSVFQSLLPSNYRAKIVQKSSGLNMENLANHE

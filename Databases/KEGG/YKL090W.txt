@@ -1,13 +1,12 @@
 ENTRY       YKL090W           CDS       T00005
 NAME        CUE2
-DEFINITION  Cue2p
+DEFINITION  (RefSeq) Cue2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XI:271878..273209
-MOTIF       Pfam: CUE Smr
-DBLINKS     NCBI-GI: 6322760
+MOTIF       Pfam: CUE Smr DMA
+DBLINKS     NCBI-ProteinID: NP_012833
             NCBI-GeneID: 853772
             SGD: S000001573
-            MIPS: YKL090W
             UniProt: P36075
 STRUCTURE   PDB: 1OTR
 AASEQ       443

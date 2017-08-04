@@ -1,18 +1,31 @@
 ENTRY       YMR217W           CDS       T00005
 NAME        GUA1
-DEFINITION  GMP synthase (glutamine-hydrolyzing) (EC:6.3.5.2)
+DEFINITION  (RefSeq) GMP synthase (glutamine-hydrolyzing)
 ORTHOLOGY   K01951  GMP synthase (glutamine-hydrolysing) [EC:6.3.5.2]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00230  Purine metabolism
             sce01100  Metabolic pathways
 MODULE      sce_M00050  Guanine ribonucleotide biosynthesis IMP => GDP,GTP
-CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Nucleotide metabolism
+               00230 Purine metabolism
+                YMR217W (GUA1)
+            Enzymes [BR:sce01000]
+             6. Ligases
+              6.3  Forming carbon-nitrogen bonds
+               6.3.5  Carbon-nitrogen ligases with glutamine as amido-N-donor
+                6.3.5.2  GMP synthase (glutamine-hydrolysing)
+                 YMR217W (GUA1)
+            Peptidases [BR:sce01002]
+             Cysteine Peptidases
+              Family C26: gamma-glutamyl hydrolase family
+               YMR217W (GUA1)
 POSITION    XIII:701790..703367
-MOTIF       Pfam: GATase GMP_synt_C NAD_synthase Peptidase_C26 QueC PAPS_reduct Arginosuc_synth ThiI tRNA_Me_trans Asn_synthase
-DBLINKS     NCBI-GI: 6323873
+MOTIF       Pfam: GMP_synt_C GATase NAD_synthase Peptidase_C26 QueC PAPS_reduct Arginosuc_synth tRNA_Me_trans ThiI
+DBLINKS     NCBI-ProteinID: NP_013944
             NCBI-GeneID: 855257
             SGD: S000004830
-            MIPS: YMR217W
             UniProt: P38625
 AASEQ       525
             MAAGEQVSNMFDTILVLDFGSQYSHLITRRLREFNIYAEMLPCTQKISELGWTPKGVILS

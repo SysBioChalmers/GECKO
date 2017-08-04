@@ -1,13 +1,20 @@
 ENTRY       YGL241W           CDS       T00005
 NAME        KAP114
-DEFINITION  Kap114p
+DEFINITION  (RefSeq) Kap114p
+ORTHOLOGY   K20224  importin-9
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-40S particles
+               Export and cytoplasmic maturation factors
+                YGL241W (KAP114)
+              Pre-60S particles
+                YGL241W (KAP114)
 POSITION    VII:45445..48459
-MOTIF       Pfam: IBN_N
-DBLINKS     NCBI-GI: 6321196
+MOTIF       Pfam: IBN_N CDC37_C
+DBLINKS     NCBI-ProteinID: NP_011273
             NCBI-GeneID: 852610
             SGD: S000003210
-            MIPS: YGL241W
             UniProt: P53067
 AASEQ       1004
             MDINELIIGAQSADKHTREVAETQLLQWCDSDASQVFKALANVALQHEASLESRQFALLS

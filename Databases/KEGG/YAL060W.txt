@@ -1,16 +1,29 @@
 ENTRY       YAL060W           CDS       T00005
 NAME        BDH1
-DEFINITION  (R,R)-butanediol dehydrogenase (EC:1.1.1.303 1.1.1.4)
-ORTHOLOGY   K00004  (R,R)-butanediol dehydrogenase / diacetyl reductase [EC:1.1.1.4 1.1.1.303]
+DEFINITION  (RefSeq) (R,R)-butanediol dehydrogenase
+ORTHOLOGY   K00004  (R,R)-butanediol dehydrogenase / meso-butanediol dehydrogenase / diacetyl reductase [EC:1.1.1.4 1.1.1.- 1.1.1.303]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00650  Butanoate metabolism
-CLASS       Metabolism; Carbohydrate metabolism; Butanoate metabolism [PATH:sce00650]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Carbohydrate metabolism
+               00650 Butanoate metabolism
+                YAL060W (BDH1)
+            Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.1  Acting on the CH-OH group of donors
+               1.1.1  With NAD+ or NADP+ as acceptor
+                1.1.1.4  (R,R)-butanediol dehydrogenase
+                 YAL060W (BDH1)
+                1.1.1.303  diacetyl reductase [(R)-acetoin forming]
+                 YAL060W (BDH1)
+                1.1.1.-  
+                 YAL060W (BDH1)
 POSITION    I:35155..36303
-MOTIF       Pfam: ADH_N ADH_zinc_N Shikimate_DH 2-Hacid_dh_C
-DBLINKS     NCBI-GI: 330443362
+MOTIF       Pfam: ADH_N ADH_zinc_N Glu_dehyd_C AlaDh_PNT_C 2-Hacid_dh_C
+DBLINKS     NCBI-ProteinID: NP_009341
             NCBI-GeneID: 851239
             SGD: S000000056
-            MIPS: YAL060W
             UniProt: P39714
 AASEQ       382
             MRALAYFKKGDIHFTNDIPRPEIQTDDEVIIDVSWCGICGSDLHEYLDGPIFMPKDGECH

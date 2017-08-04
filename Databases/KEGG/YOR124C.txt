@@ -1,14 +1,28 @@
 ENTRY       YOR124C           CDS       T00005
 NAME        UBP2
-DEFINITION  Ubp2p (EC:3.4.19.12 3.1.2.15)
-ORTHOLOGY   K11849  ubiquitin carboxyl-terminal hydrolase 25/28 [EC:3.1.2.15]
+DEFINITION  (RefSeq) ubiquitin-specific protease UBP2
+ORTHOLOGY   K11849  ubiquitin carboxyl-terminal hydrolase 25 [EC:3.4.19.12]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.4  Acting on peptide bonds (peptidases)
+               3.4.19  Omega peptidases
+                3.4.19.12  ubiquitinyl hydrolase 1
+                 YOR124C (UBP2)
+            Peptidases [BR:sce01002]
+             Cysteine Peptidases
+              Family C19: ubiquitin-specific protease family
+               YOR124C (UBP2)
+            Ubiquitin system [BR:sce04121]
+             Deubiquitinating enzyme (DUB)
+              Ubiquitin-specific proteases (UBPs)
+               UBP/USP
+                YOR124C (UBP2)
 POSITION    XV:complement(554824..558642)
-MOTIF       Pfam: UCH RPT UCH_1 Tropomyosin DUF4200 Col_cuticle_N
-DBLINKS     NCBI-GI: 398365259
+MOTIF       Pfam: UCH RPT UCH_1 Tropomyosin Col_cuticle_N
+DBLINKS     NCBI-ProteinID: NP_014767
             NCBI-GeneID: 854291
             SGD: S000005650
-            MIPS: YOR124C
             UniProt: Q01476
 AASEQ       1272
             MPNEDNELQKAIENHHNQLLNQDKENADRNGSVIEDLPLYGTSINQQSTPGDVDDGKHLL

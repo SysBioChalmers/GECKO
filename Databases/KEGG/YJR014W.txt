@@ -1,13 +1,12 @@
 ENTRY       YJR014W           CDS       T00005
 NAME        TMA22
-DEFINITION  Tma22p
+DEFINITION  (RefSeq) Tma22p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    X:461829..462425
-MOTIF       Pfam: SUI1 YscO DUF3139
-DBLINKS     NCBI-GI: 6322474
+MOTIF       Pfam: SUI1 YscO Svf1
+DBLINKS     NCBI-ProteinID: NP_012548
             NCBI-GeneID: 853471
             SGD: S000003775
-            MIPS: YJR014W
             UniProt: P47089
 AASEQ       198
             MLREVIYCGICSYPPEYCEFSGKLKRCKVWLSENHADLYAKLYGTDDNTQEVEAVTNKLA

@@ -1,18 +1,25 @@
 ENTRY       YML004C           CDS       T00005
 NAME        GLO1
-DEFINITION  lactoylglutathione lyase GLO1 (EC:4.4.1.5)
+DEFINITION  (RefSeq) lactoylglutathione lyase GLO1
 ORTHOLOGY   K01759  lactoylglutathione lyase [EC:4.4.1.5]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00620  Pyruvate metabolism
-            sce04011  MAPK signaling pathway - yeast
-CLASS       Metabolism; Carbohydrate metabolism; Pyruvate metabolism [PATH:sce00620]
-            Environmental Information Processing; Signal transduction; MAPK signaling pathway - yeast [PATH:sce04011]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Carbohydrate metabolism
+               00620 Pyruvate metabolism
+                YML004C (GLO1)
+            Enzymes [BR:sce01000]
+             4. Lyases
+              4.4  Carbon-sulfur lyases
+               4.4.1  Carbon-sulfur lyases (only sub-subclass identified to date)
+                4.4.1.5  lactoylglutathione lyase
+                 YML004C (GLO1)
 POSITION    XIII:complement(261705..262685)
-MOTIF       Pfam: Glyoxalase Glyoxalase_2 Glyoxalase_4 CppA_N Glyoxalase_3
-DBLINKS     NCBI-GI: 6323639
+MOTIF       Pfam: Glyoxalase Glyoxalase_4 CppA_N Glyoxalase_3
+DBLINKS     NCBI-ProteinID: NP_013710
             NCBI-GeneID: 855009
             SGD: S000004463
-            MIPS: YML004C
             UniProt: P50107
 AASEQ       326
             MSTDSTRYPIQIEKASNDPTLLLNHTCLRVKDPARTVKFYTEHFGMKLLSRKDFEEAKFS

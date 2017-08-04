@@ -1,13 +1,22 @@
 ENTRY       YML077W           CDS       T00005
 NAME        BET5
-DEFINITION  Bet5p
+DEFINITION  (RefSeq) TRAPP subunit BET5
+ORTHOLOGY   K20300  trafficking protein particle complex subunit 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endosome - Golgi transport
+              Tethering complex
+               TRAPP complex II
+                YML077W (BET5)
+             Endoplasmic reticulum (ER) - Golgi transport
+              Forward pathways
+               TRAPP complex I
+                YML077W (BET5)
 POSITION    XIII:111865..112344
-MOTIF       Pfam: Sybindin Sedlin_N OstA_C
-DBLINKS     NCBI-GI: 6323563
+MOTIF       Pfam: Sybindin OstA_C Sedlin_N
+DBLINKS     NCBI-ProteinID: NP_013634
             NCBI-GeneID: 854898
             SGD: S000004542
-            MIPS: YML077W
             UniProt: Q03630
 STRUCTURE   PDB: 3CUE
 AASEQ       159

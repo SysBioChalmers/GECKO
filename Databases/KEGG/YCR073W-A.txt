@@ -1,22 +1,34 @@
 ENTRY       YCR073W-A         CDS       T00005
 NAME        SOL2, YCRX13W
-DEFINITION  Sol2p (EC:3.1.1.31)
+DEFINITION  (RefSeq) Sol2p
 ORTHOLOGY   K01057  6-phosphogluconolactonase [EC:3.1.1.31]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00030  Pentose phosphate pathway
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
+            sce01130  Biosynthesis of antibiotics
             sce01200  Carbon metabolism
 MODULE      sce_M00004  Pentose phosphate pathway (Pentose phosphate cycle)
             sce_M00006  Pentose phosphate pathway, oxidative phase, glucose 6P => ribulose 5P
-CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
-            Metabolism; Carbohydrate metabolism; Pentose phosphate pathway [PATH:sce00030]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01200 Carbon metabolism
+                YCR073W-A (SOL2)
+              Carbohydrate metabolism
+               00030 Pentose phosphate pathway
+                YCR073W-A (SOL2)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.1  Carboxylic-ester hydrolases
+                3.1.1.31  6-phosphogluconolactonase
+                 YCR073W-A (SOL2)
 POSITION    III:246963..247910
 MOTIF       Pfam: Glucosamine_iso
-DBLINKS     NCBI-GI: 10383806
+DBLINKS     NCBI-ProteinID: NP_009999
             NCBI-GeneID: 850437
             SGD: S000000718
-            MIPS: YCR073W-A
             UniProt: P37262
 AASEQ       315
             MTTTVPKIFAFHEFSDVAEAVADHVVHAQDGALAPKNERKHSVPNISMNALDMTREASCK

@@ -1,13 +1,12 @@
 ENTRY       YIL120W           CDS       T00005
 NAME        QDR1
-DEFINITION  Qdr1p
+DEFINITION  (RefSeq) multidrug transporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IX:134417..136108
-MOTIF       Pfam: MFS_1 Sugar_tr TRI12
-DBLINKS     NCBI-GI: 6322071
+MOTIF       Pfam: MFS_1 Sugar_tr TRI12 OATP
+DBLINKS     NCBI-ProteinID: NP_012146
             NCBI-GeneID: 854686
             SGD: S000001382
-            MIPS: YIL120W
             UniProt: P40475
 AASEQ       563
             MTKQQTSVMRNASIAKEEREGSDNNNVDRSSSDAISDNDAERSNSHSEIDNESNFDMVPY

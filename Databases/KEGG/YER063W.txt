@@ -1,15 +1,21 @@
 ENTRY       YER063W           CDS       T00005
 NAME        THO1
-DEFINITION  Tho1p
+DEFINITION  (RefSeq) Tho1p
+ORTHOLOGY   K18732  SAP domain-containing ribonucleoprotein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Transport factors
+                Other transport factors
+                 YER063W (THO1)
 POSITION    V:281710..282366
-MOTIF       Pfam: SAP DUF236 Neisseria_TspB
-DBLINKS     NCBI-GI: 6320906
+MOTIF       Pfam: SAP
+DBLINKS     NCBI-ProteinID: NP_010985
             NCBI-GeneID: 856792
             SGD: S000000865
-            MIPS: YER063W
             UniProt: P40040
-STRUCTURE   PDB: 2WQG 1H1J
+STRUCTURE   PDB: 4UZW 4UZX 2WQG 1H1J
 AASEQ       218
             MADYSSLTVVQLKDLLTKRNLSVGGLKNELVQRLIKDDEESKGESEVSPQEQNQEQGSEP
             AAIEEPASQNITEKKEVSSEPKETNEPKEENKDVQKPSDGPSATASENEQAAASTAAPAL

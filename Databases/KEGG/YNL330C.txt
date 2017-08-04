@@ -1,14 +1,40 @@
 ENTRY       YNL330C           CDS       T00005
 NAME        RPD3, MOF6, REC3, SDI2, SDS6
-DEFINITION  Rpd3p (EC:3.5.1.98)
+DEFINITION  (RefSeq) histone deacetylase RPD3
 ORTHOLOGY   K06067  histone deacetylase 1/2 [EC:3.5.1.98]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04213  Longevity regulating pathway - multiple species
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Organismal Systems
+              Aging
+               04213 Longevity regulating pathway - multiple species
+                YNL330C (RPD3)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.5  Acting on carbon-nitrogen bonds, other than peptide bonds
+               3.5.1  In linear amides
+                3.5.1.98  histone deacetylase
+                 YNL330C (RPD3)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Histone modification proteins
+               HDACs (histone deacetylases)
+                Class I HDACs
+                 YNL330C (RPD3)
+               HDAC complexes
+                Sin3A-HDAC complex
+                 YNL330C (RPD3)
+              Heterochromatin formation proteins
+               Other heterochromatin formation proteins
+                YNL330C (RPD3)
+              Chromatin remodeling factors
+               NuRD complex
+                YNL330C (RPD3)
 POSITION    XIV:complement(18001..19302)
 MOTIF       Pfam: Hist_deacetyl
-DBLINKS     NCBI-GI: 6323999
+DBLINKS     NCBI-ProteinID: NP_014069
             NCBI-GeneID: 855386
             SGD: S000005274
-            MIPS: YNL330C
             UniProt: P32561
 AASEQ       433
             MVYEATPFDPITVKPSDKRRVAYFYDADVGNYAYGAGHPMKPHRIRMAHSLIMNYGLYKK

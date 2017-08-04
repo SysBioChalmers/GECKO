@@ -1,18 +1,36 @@
 ENTRY       YOR014W           CDS       T00005
 NAME        RTS1, SCS1
-DEFINITION  Rts1p
+DEFINITION  (RefSeq) protein phosphatase 2A regulatory subunit RTS1
 ORTHOLOGY   K11584  serine/threonine-protein phosphatase 2A regulatory subunit B'
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03015  mRNA surveillance pathway
             sce04113  Meiosis - yeast
-CLASS       Genetic Information Processing; Translation; mRNA surveillance pathway [PATH:sce03015]
-            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03015 mRNA surveillance pathway
+                YOR014W (RTS1)
+             Cellular Processes
+              Cell growth and death
+               04113 Meiosis - yeast
+                YOR014W (RTS1)
+            Protein phosphatases and associated proteins [BR:sce01009]
+             Protein Ser/ Thr phosphatases
+              Phosphoprotein phosphatases (PPPs)
+               Protein phosphatase-2 (PP2A)
+                Regulatory subunits
+                 YOR014W (RTS1)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centromeric chromatin formation proteins
+               Other centromeric chromatin formation proteins
+                PP2A (protein phosphatase 2A)
+                 YOR014W (RTS1)
 POSITION    XV:357674..359947
 MOTIF       Pfam: B56
-DBLINKS     NCBI-GI: 6324588
+DBLINKS     NCBI-ProteinID: NP_014657
             NCBI-GeneID: 854179
             SGD: S000005540
-            MIPS: YOR014W
             UniProt: P38903
 AASEQ       757
             MMRGFKQRLIKKTTGSSSSSSSKKKDKEKEKEKSSTTSSTSKKPASASSSSHGTTHSSAS

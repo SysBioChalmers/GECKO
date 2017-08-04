@@ -1,14 +1,22 @@
 ENTRY       YGR062C           CDS       T00005
 NAME        COX18, OXA2
-DEFINITION  Cox18p
+DEFINITION  (RefSeq) membrane insertase COX18
 ORTHOLOGY   K17797  mitochondrial inner membrane protein COX18
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial quality control factors
+              Mitochondrial respiratory chain complex assembly factors
+               Complex-IV assembly factors
+                YGR062C (COX18)
+            Transporters [BR:sce02000]
+             Other Transporters
+              Electrochemical potential-driven transporters [TC:2]
+               YGR062C (COX18)
 POSITION    VII:complement(616328..617278)
-MOTIF       Pfam: 60KD_IMP F-box-like_2 TilS_C
-DBLINKS     NCBI-GI: 6321499
+MOTIF       Pfam: 60KD_IMP TilS_C
+DBLINKS     NCBI-ProteinID: NP_011576
             NCBI-GeneID: 852953
             SGD: S000003294
-            MIPS: YGR062C
             UniProt: P53239
 AASEQ       316
             MLKRLANRQNGFASFSCSSVGLRYGRTNPSTKRSFSLFQSVADTFLTVHEASHIPWIVLV

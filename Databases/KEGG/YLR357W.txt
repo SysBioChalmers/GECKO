@@ -1,14 +1,24 @@
 ENTRY       YLR357W           CDS       T00005
 NAME        RSC2
-DEFINITION  Rsc2p
+DEFINITION  (RefSeq) Rsc2p
 ORTHOLOGY   K11756  chromatin structure-remodeling complex subunit RSC1/2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Coactivators
+                RSC complex
+                 YLR357W (RSC2)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Chromatin remodeling factors
+               RSC complex
+                YLR357W (RSC2)
 POSITION    XII:841331..844000
-MOTIF       Pfam: Bromodomain BAH Blt1
-DBLINKS     NCBI-GI: 6323389
+MOTIF       Pfam: Bromodomain BAH
+DBLINKS     NCBI-ProteinID: NP_013461
             NCBI-GeneID: 851071
             SGD: S000004349
-            MIPS: YLR357W
             UniProt: Q06488
 STRUCTURE   PDB: 4BB7
 AASEQ       889

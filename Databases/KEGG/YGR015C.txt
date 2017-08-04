@@ -1,12 +1,11 @@
 ENTRY       YGR015C           CDS       T00005
-DEFINITION  hypothetical protein (EC:3.-.-.-)
+DEFINITION  (RefSeq) putative hydrolase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:complement(521090..522076)
-MOTIF       Pfam: Abhydrolase_1 Abhydrolase_6 Abhydrolase_5 PGAP1 Thioesterase Esterase DUF1972 BAAT_C Abhydrolase_2
-DBLINKS     NCBI-GI: 6321452
+MOTIF       Pfam: Abhydrolase_1 Abhydrolase_6 Hydrolase_4 Thioesterase PGAP1 Esterase
+DBLINKS     NCBI-ProteinID: NP_011529
             NCBI-GeneID: 852898
             SGD: S000003247
-            MIPS: YGR015C
             UniProt: P53208
 AASEQ       328
             MSRLAHNKALPYKIIVDLSFHRTRLPSDVSSLIKFEQRPAIINIHGLLGSHVMFHSLNKL

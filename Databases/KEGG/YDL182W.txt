@@ -1,25 +1,40 @@
 ENTRY       YDL182W           CDS       T00005
 NAME        LYS20
-DEFINITION  homocitrate synthase LYS20 (EC:2.3.3.14)
+DEFINITION  (RefSeq) homocitrate synthase LYS20
 ORTHOLOGY   K01655  homocitrate synthase [EC:2.3.3.14]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00300  Lysine biosynthesis
             sce00620  Pyruvate metabolism
             sce01100  Metabolic pathways
+            sce01130  Biosynthesis of antibiotics
             sce01210  2-Oxocarboxylic acid metabolism
             sce01230  Biosynthesis of amino acids
 MODULE      sce_M00030  Lysine biosynthesis, AAA pathway, 2-oxoglutarate => 2-aminoadipate => lysine
             sce_M00433  Lysine biosynthesis, 2-oxoglutarate => 2-oxoadipate
-CLASS       Metabolism; Overview; 2-Oxocarboxylic acid metabolism [PATH:sce01210]
-            Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
-            Metabolism; Carbohydrate metabolism; Pyruvate metabolism [PATH:sce00620]
-            Metabolism; Amino acid metabolism; Lysine biosynthesis [PATH:sce00300]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01210 2-Oxocarboxylic acid metabolism
+                YDL182W (LYS20)
+               01230 Biosynthesis of amino acids
+                YDL182W (LYS20)
+              Carbohydrate metabolism
+               00620 Pyruvate metabolism
+                YDL182W (LYS20)
+              Amino acid metabolism
+               00300 Lysine biosynthesis
+                YDL182W (LYS20)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.3  Acyltransferases
+               2.3.3  Acyl groups converted into alkyl groups on transfer
+                2.3.3.14  homocitrate synthase
+                 YDL182W (LYS20)
 POSITION    IV:133437..134723
-MOTIF       Pfam: HMGL-like ADP_PFK_GK FliG_N
-DBLINKS     NCBI-GI: 6320019
+MOTIF       Pfam: HMGL-like SidE FliG_N Oxidored_FMN
+DBLINKS     NCBI-ProteinID: NP_010099
             NCBI-GeneID: 851346
             SGD: S000002341
-            MIPS: YDL182W
             UniProt: P48570
 AASEQ       428
             MTAAKPNPYAAKPGDYLSNVNNFQLIDSTLREGEQFANAFFDTEKKIEIARALDDFGVDY

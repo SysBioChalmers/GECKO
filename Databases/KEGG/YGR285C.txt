@@ -1,16 +1,19 @@
 ENTRY       YGR285C           CDS       T00005
 NAME        ZUO1
-DEFINITION  Zuo1p
+DEFINITION  (RefSeq) zuotin
 ORTHOLOGY   K09522  DnaJ homolog subfamily C member 2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chaperones and folding catalysts [BR:sce03110]
+             Heat shock proteins
+              HSP40 / DNAJ
+               YGR285C (ZUO1)
 POSITION    VII:complement(1061852..1063153)
-MOTIF       Pfam: DnaJ
-DBLINKS     NCBI-GI: 6321724
+MOTIF       Pfam: RAC_head DnaJ
+DBLINKS     NCBI-ProteinID: NP_011801
             NCBI-GeneID: 853202
             SGD: S000003517
-            MIPS: YGR285C
             UniProt: P32527
-STRUCTURE   PDB: 2LWX
+STRUCTURE   PDB: 5DJE 2LWX
 AASEQ       433
             MFSLPTLTSDITVEVNSSATKTPFVRRPVEPVGKFFLQHAQRTLRNHTWSEFERIEAEKN
             VKTVDESNVDPDELLFDTELADEDLLTHDARDWKTADLYAAMGLSKLRFRATESQIIKAH

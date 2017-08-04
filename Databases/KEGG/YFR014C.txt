@@ -1,14 +1,23 @@
 ENTRY       YFR014C           CDS       T00005
 NAME        CMK1
-DEFINITION  Cmk1p (EC:2.7.11.17)
+DEFINITION  (RefSeq) calmodulin-dependent protein kinase CMK1
 ORTHOLOGY   K08794  calcium/calmodulin-dependent protein kinase I [EC:2.7.11.17]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.11  Protein-serine/threonine kinases
+                2.7.11.17  Ca2+/calmodulin-dependent protein kinase
+                 YFR014C (CMK1)
+            Protein kinases [BR:sce01001]
+             Serine/threonine protein kinases: CAMK group
+              CAMK1 family [OT]
+               YFR014C (CMK1)
 POSITION    VI:complement(172537..173877)
-MOTIF       Pfam: Pkinase Pkinase_Tyr Kinase-like YrbL-PhoP_reg Kdo
-DBLINKS     NCBI-GI: 14318536
+MOTIF       Pfam: Pkinase Pkinase_Tyr Kinase-like Kdo
+DBLINKS     NCBI-ProteinID: NP_116669
             NCBI-GeneID: 850568
             SGD: S000001910
-            MIPS: YFR014C
             UniProt: P27466
 AASEQ       446
             MDDKVSEKESSPKQTEEDSEGKMAHVQPASYVNKKKYVFGKTLGAGTFGVVRQAKNTETG

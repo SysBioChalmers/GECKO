@@ -1,12 +1,12 @@
 ENTRY       YLR301W           CDS       T00005
 NAME        HRI1
-DEFINITION  Hri1p
+DEFINITION  (RefSeq) Hri1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XII:730825..731559
-DBLINKS     NCBI-GI: 6323332
+MOTIF       Pfam: HRI1
+DBLINKS     NCBI-ProteinID: NP_013404
             NCBI-GeneID: 851008
             SGD: S000004292
-            MIPS: YLR301W
             UniProt: Q05905
 STRUCTURE   PDB: 3RBY
 AASEQ       244

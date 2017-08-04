@@ -1,14 +1,19 @@
 ENTRY       YCR091W           CDS       T00005
 NAME        KIN82, FPK2
-DEFINITION  Kin82p (EC:2.7.11.1)
+DEFINITION  (RefSeq) putative serine/threonine protein kinase KIN82
 ORTHOLOGY   K08286  protein-serine/threonine kinase [EC:2.7.11.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.11  Protein-serine/threonine kinases
+                2.7.11.-  
+                 YCR091W (KIN82)
 POSITION    III:274404..276566
-MOTIF       Pfam: Pkinase Pkinase_Tyr Kinase-like Kdo MCR_beta
-DBLINKS     NCBI-GI: 330443488
+MOTIF       Pfam: Pkinase Pkinase_Tyr Kinase-like Kdo
+DBLINKS     NCBI-ProteinID: NP_010015
             NCBI-GeneID: 850453
             SGD: S000000687
-            MIPS: YCR091W
             UniProt: P25341
 AASEQ       720
             MTQQEYRSPSQRLSKGRSMSLPKIFARNLRSLQNNAPPGKNINVNCLNVNSCSLSASPSS

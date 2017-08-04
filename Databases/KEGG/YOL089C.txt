@@ -1,13 +1,12 @@
 ENTRY       YOL089C           CDS       T00005
 NAME        HAL9
-DEFINITION  Hal9p
+DEFINITION  (RefSeq) Hal9p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:complement(150398..153490)
-MOTIF       Pfam: Fungal_trans Zn_clus SF-assemblin
-DBLINKS     NCBI-GI: 6324483
+MOTIF       Pfam: Fungal_trans Zn_clus
+DBLINKS     NCBI-ProteinID: NP_014552
             NCBI-GeneID: 854064
             SGD: S000005449
-            MIPS: YOL089C
             UniProt: Q12180
 AASEQ       1030
             MENQGGDYSPNGFSNSASNMNAVFNNEITGRSDISNVNHQTGTPRLVPETQIWSMPVPDQ

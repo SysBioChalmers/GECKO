@@ -1,16 +1,25 @@
 ENTRY       YPL087W           CDS       T00005
 NAME        YDC1
-DEFINITION  alkaline dihydroceramidase (EC:3.5.1.-)
+DEFINITION  (RefSeq) alkaline dihydroceramidase
 ORTHOLOGY   K04711  dihydroceramidase [EC:3.5.1.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00600  Sphingolipid metabolism
-CLASS       Metabolism; Lipid metabolism; Sphingolipid metabolism [PATH:sce00600]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Lipid metabolism
+               00600 Sphingolipid metabolism
+                YPL087W (YDC1)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.5  Acting on carbon-nitrogen bonds, other than peptide bonds
+               3.5.1  In linear amides
+                3.5.1.-  
+                 YPL087W (YDC1)
 POSITION    XVI:383455..384408
-MOTIF       Pfam: Ceramidase DUF4231 DUF1673
-DBLINKS     NCBI-GI: 6325170
+MOTIF       Pfam: Ceramidase DUF3522 DUF5345
+DBLINKS     NCBI-ProteinID: NP_015238
             NCBI-GeneID: 856018
             SGD: S000006008
-            MIPS: YPL087W
             UniProt: Q02896
 AASEQ       317
             MLFSWPYPEAPIEGYWGKPTSLIDWCEENYVVSPYIAEWSNTITNSIFLMTAFYSTYSAW

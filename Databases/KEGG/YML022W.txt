@@ -1,17 +1,30 @@
 ENTRY       YML022W           CDS       T00005
 NAME        APT1
-DEFINITION  adenine phosphoribosyltransferase APT1 (EC:2.4.2.7)
+DEFINITION  (RefSeq) adenine phosphoribosyltransferase APT1
 ORTHOLOGY   K00759  adenine phosphoribosyltransferase [EC:2.4.2.7]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00230  Purine metabolism
             sce01100  Metabolic pathways
-CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Nucleotide metabolism
+               00230 Purine metabolism
+                YML022W (APT1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.4  Glycosyltransferases
+               2.4.2  Pentosyltransferases
+                2.4.2.7  adenine phosphoribosyltransferase
+                 YML022W (APT1)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of other body fluids (saliva and urine)
+               YML022W (APT1)
 POSITION    XIII:228937..229500
-MOTIF       Pfam: Pribosyltran UPRTase PRTase_3
-DBLINKS     NCBI-GI: 6323619
+MOTIF       Pfam: Pribosyltran UPRTase
+DBLINKS     NCBI-ProteinID: NP_013690
             NCBI-GeneID: 854986
             SGD: S000004484
-            MIPS: YML022W
             UniProt: P49435
 STRUCTURE   PDB: 1G2Q 1G2P
 AASEQ       187

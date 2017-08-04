@@ -1,13 +1,20 @@
 ENTRY       YMR129W           CDS       T00005
 NAME        POM152
-DEFINITION  Pom152p
+DEFINITION  (RefSeq) Pom152p
+ORTHOLOGY   K18725  nucleoporin POM152
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Transport factors
+                Nuclear pore complex
+                 YMR129W (POM152)
 POSITION    XIII:527804..531817
-DBLINKS     NCBI-GI: 6323777
+DBLINKS     NCBI-ProteinID: NP_013848
             NCBI-GeneID: 855159
             SGD: S000004736
-            MIPS: YMR129W
             UniProt: P39685
+STRUCTURE   PDB: 5TVZ
 AASEQ       1337
             MEHRYNVFNDTPRGNHWMGSSVSGSPRPSYSSRPNVNTTRRFQYSDDEPAEKIRPLRSRS
             FKSTESNISDEKSRISERDSKDRYINGDKKVDIYSLPLISTDVLEISKQRTFAVILFLII

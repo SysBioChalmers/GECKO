@@ -1,13 +1,12 @@
 ENTRY       YLL048C           CDS       T00005
 NAME        YBT1, BAT1
-DEFINITION  bile acid-transporting ATPase YBT1
+DEFINITION  (RefSeq) bile acid-transporting ATPase YBT1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XII:complement(41280..46265)
-MOTIF       Pfam: ABC_tran ABC_membrane AAA_23 SMC_N AAA_21 AAA_29 T2SE DUF258 MMR_HSR1 AAA_17 Miro AAA_22 AAA_16 Dynamin_N AAA_25 AAA_10 AAA_18 Zeta_toxin AAA_19 DUF87 ArgK
-DBLINKS     NCBI-GI: 6322980
+MOTIF       Pfam: ABC_membrane ABC_tran AAA_21 SMC_N AAA_23 AAA_29 RsgA_GTPase MMR_HSR1 AAA_16 AAA_22 T2SSE AAA_15 Dynamin_N DUF87 AAA_25 Adeno_IVa2 ArgK PhoH DUF5489
+DBLINKS     NCBI-ProteinID: NP_013052
             NCBI-GeneID: 850678
             SGD: S000003971
-            MIPS: YLL048C
             UniProt: P32386
 AASEQ       1661
             MHHVLNSTRPDHRFWFYDDVTQYGRTKYLNYYTPLVLLIFTVLFITYNIWKHYYYYDVLH

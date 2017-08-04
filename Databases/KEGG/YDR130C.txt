@@ -1,12 +1,12 @@
 ENTRY       YDR130C           CDS       T00005
 NAME        FIN1
-DEFINITION  Fin1p
+DEFINITION  (RefSeq) Fin1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(715747..716622)
-DBLINKS     NCBI-GI: 6320335
+MOTIF       Pfam: FIN1
+DBLINKS     NCBI-ProteinID: NP_010415
             NCBI-GeneID: 851708
             SGD: S000002537
-            MIPS: YDR130C
             UniProt: Q03898
 AASEQ       291
             MSNKSNRRSLRDIGNTIGRNNIPSDKDNVFVRLSMSPLRTTSQKEFLKPPMRISPNKTDG

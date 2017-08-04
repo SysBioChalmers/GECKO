@@ -1,21 +1,50 @@
 ENTRY       YDR256C           CDS       T00005
 NAME        CTA1
-DEFINITION  catalase A (EC:1.11.1.6)
+DEFINITION  (RefSeq) catalase A
 ORTHOLOGY   K03781  catalase [EC:1.11.1.6]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00380  Tryptophan metabolism
             sce00630  Glyoxylate and dicarboxylate metabolism
             sce01110  Biosynthesis of secondary metabolites
+            sce01130  Biosynthesis of antibiotics
+            sce01200  Carbon metabolism
+            sce04011  MAPK signaling pathway - yeast
             sce04146  Peroxisome
-CLASS       Metabolism; Carbohydrate metabolism; Glyoxylate and dicarboxylate metabolism [PATH:sce00630]
-            Metabolism; Amino acid metabolism; Tryptophan metabolism [PATH:sce00380]
-            Cellular Processes; Transport and catabolism; Peroxisome [PATH:sce04146]
+            sce04213  Longevity regulating pathway - multiple species
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01200 Carbon metabolism
+                YDR256C (CTA1)
+              Carbohydrate metabolism
+               00630 Glyoxylate and dicarboxylate metabolism
+                YDR256C (CTA1)
+              Amino acid metabolism
+               00380 Tryptophan metabolism
+                YDR256C (CTA1)
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YDR256C (CTA1)
+             Cellular Processes
+              Transport and catabolism
+               04146 Peroxisome
+                YDR256C (CTA1)
+             Organismal Systems
+              Aging
+               04213 Longevity regulating pathway - multiple species
+                YDR256C (CTA1)
+            Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.11  Acting on a peroxide as acceptor
+               1.11.1  Peroxidases
+                1.11.1.6  catalase
+                 YDR256C (CTA1)
 POSITION    IV:complement(968133..969680)
 MOTIF       Pfam: Catalase Catalase-rel
-DBLINKS     NCBI-GI: 6320462
+DBLINKS     NCBI-ProteinID: NP_010542
             NCBI-GeneID: 851843
             SGD: S000002664
-            MIPS: YDR256C
             UniProt: P15202
 STRUCTURE   PDB: 1A4E
 AASEQ       515

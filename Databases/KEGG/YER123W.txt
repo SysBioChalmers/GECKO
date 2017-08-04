@@ -1,14 +1,23 @@
 ENTRY       YER123W           CDS       T00005
 NAME        YCK3, CKI3
-DEFINITION  Yck3p (EC:2.7.11.1)
-ORTHOLOGY   K02218  casein kinase 1 [EC:2.7.11.1]
+DEFINITION  (RefSeq) casein kinase YCK3
+ORTHOLOGY   K19830  casein kinase I homolog 3 [EC:2.7.11.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.11  Protein-serine/threonine kinases
+                2.7.11.1  non-specific serine/threonine protein kinase
+                 YER123W (YCK3)
+            Protein kinases [BR:sce01001]
+             Serine/threonine protein kinases: CK1 group
+              CK1 family [OT]
+               YER123W (YCK3)
 POSITION    V:404813..406387
-MOTIF       Pfam: Pkinase Pkinase_Tyr DUF3354
-DBLINKS     NCBI-GI: 7276233
+MOTIF       Pfam: Pkinase Pkinase_Tyr KHA
+DBLINKS     NCBI-ProteinID: NP_011049
             NCBI-GeneID: 856860
             SGD: S000000925
-            MIPS: YER123W
             UniProt: P39962
 AASEQ       524
             MSQRSSQHIVGIHYAVGPKIGEGSFGVIFEGENILHSCQAQTGSKRDSSIIMANEPVAIK

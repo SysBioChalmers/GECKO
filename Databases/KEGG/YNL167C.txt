@@ -1,14 +1,24 @@
 ENTRY       YNL167C           CDS       T00005
 NAME        SKO1, ACR1
-DEFINITION  Sko1p
+DEFINITION  (RefSeq) Sko1p
 ORTHOLOGY   K09051  ATF/CREB family transcription factor
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04011  MAPK signaling pathway - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YNL167C (SKO1)
+            Transcription factors [BR:sce03000]
+             Eukaryotic Type
+              Basic leucine zipper (bZIP)
+               AP-1(-like) components, CRE-BP/ATF
+                YNL167C (SKO1)
 POSITION    XIV:complement(319416..321359)
-MOTIF       Pfam: bZIP_1 Aft1_OSA bZIP_2
-DBLINKS     NCBI-GI: 6324162
+MOTIF       Pfam: bZIP_1 Aft1_OSA ATP13 bZIP_2
+DBLINKS     NCBI-ProteinID: NP_014232
             NCBI-GeneID: 855554
             SGD: S000005111
-            MIPS: YNL167C
             UniProt: Q02100
 AASEQ       647
             MSSEERSRQPSTVSTFDLEPNPFEQSFASSKKALSLPGTISHPSLPKELSRNNSTSTITQ

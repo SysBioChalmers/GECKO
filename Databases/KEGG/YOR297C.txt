@@ -1,14 +1,22 @@
 ENTRY       YOR297C           CDS       T00005
 NAME        TIM18
-DEFINITION  Tim18p
+DEFINITION  (RefSeq) Tim18p
 ORTHOLOGY   K17791  mitochondrial import inner membrane translocase subunit TIM18
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial protein import machinery
+              Inner mambrane
+               TIM22 complex
+                YOR297C (TIM18)
+            Transporters [BR:sce02000]
+             Other Transporters
+              Others
+               YOR297C (TIM18)
 POSITION    XV:complement(874743..875321)
 MOTIF       Pfam: CybS
-DBLINKS     NCBI-GI: 398366137
+DBLINKS     NCBI-ProteinID: NP_014940
             NCBI-GeneID: 854472
             SGD: S000005823
-            MIPS: YOR297C
             UniProt: Q08749
 AASEQ       192
             MLLFPGLKPVLNASTVIVNPVRAVFPGLVLSTKRSFYSINRLNAENKINDIANTSKEASS

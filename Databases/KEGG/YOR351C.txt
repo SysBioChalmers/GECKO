@@ -1,16 +1,29 @@
 ENTRY       YOR351C           CDS       T00005
 NAME        MEK1, MRE4
-DEFINITION  Mek1p (EC:2.7.11.1)
+DEFINITION  (RefSeq) serine/threonine protein kinase MEK1
 ORTHOLOGY   K12776  meiosis-specific serine/threonine-protein kinase MEK1 [EC:2.7.11.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04113  Meiosis - yeast
-CLASS       Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04113 Meiosis - yeast
+                YOR351C (MEK1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.11  Protein-serine/threonine kinases
+                2.7.11.1  non-specific serine/threonine protein kinase
+                 YOR351C (MEK1)
+            Protein kinases [BR:sce01001]
+             Serine/threonine protein kinases: CAMK group
+              RAD53 family
+               YOR351C (MEK1)
 POSITION    XV:complement(995018..996511)
-MOTIF       Pfam: Pkinase Pkinase_Tyr FHA Kinase-like Kdo
-DBLINKS     NCBI-GI: 398366345
+MOTIF       Pfam: Pkinase Pkinase_Tyr FHA Kinase-like Yop-YscD_cpl Kdo
+DBLINKS     NCBI-ProteinID: NP_014996
             NCBI-GeneID: 854533
             SGD: S000005878
-            MIPS: YOR351C
             UniProt: P24719
 AASEQ       497
             MRPLYSCNLATKDDIEMAGGVAPAHLEVNVGGYNTEQTIPIVKHQLVKVGRNDKECQLVL

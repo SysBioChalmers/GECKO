@@ -1,14 +1,25 @@
 ENTRY       YGR271W           CDS       T00005
 NAME        SLH1
-DEFINITION  Slh1p (EC:3.6.4.13)
-ORTHOLOGY   K01529   [EC:3.6.1.-]
+DEFINITION  (RefSeq) putative RNA helicase
+ORTHOLOGY   K18664  antiviral helicase SLH1 [EC:3.6.4.13]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.4  Acting on acid anhydrides to facilitate cellular and subcellular movement
+                3.6.4.13  RNA helicase
+                 YGR271W (SLH1)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Transport factors
+                eIF4F and regulatory proteins
+                 YGR271W (SLH1)
 POSITION    VII:1031791..1037694
-MOTIF       Pfam: Sec63 DEAD ResIII Helicase_C SNF2_N AAA PhoH AAA_22
-DBLINKS     NCBI-GI: 398366359
+MOTIF       Pfam: Sec63 DEAD ResIII Helicase_C AAA AAA_19 PhoH AAA_22 MotA_ExbB
+DBLINKS     NCBI-ProteinID: NP_011787
             NCBI-GeneID: 853187
             SGD: S000003503
-            MIPS: YGR271W
             UniProt: P53327
 AASEQ       1967
             MSTEYSADSSKSFMIAMQSMIDTSQTFNLDRSKISLPDFDDELKKVQKDEQNQRTELTVL

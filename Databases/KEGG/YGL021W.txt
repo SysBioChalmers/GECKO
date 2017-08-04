@@ -1,13 +1,12 @@
 ENTRY       YGL021W           CDS       T00005
 NAME        ALK1
-DEFINITION  Alk1p (EC:2.7.11.1)
+DEFINITION  (RefSeq) protein kinase ALK1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:454785..457067
-MOTIF       Pfam: DUF3635 Pkinase APH Pkinase_Tyr
-DBLINKS     NCBI-GI: 6321417
+MOTIF       Pfam: Haspin_kinase APH Choline_kinase Pkinase Pkinase_Tyr
+DBLINKS     NCBI-ProteinID: NP_011494
             NCBI-GeneID: 852863
             SGD: S000002989
-            MIPS: YGL021W
             UniProt: P43633
 AASEQ       760
             MLLHFDIVIQLLSSHTLKSHQVEPPMDFETSFEEFVEDKRFIALEVSDNDDDCDTDLTAD

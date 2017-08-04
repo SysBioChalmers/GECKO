@@ -1,15 +1,20 @@
 ENTRY       YMR049C           CDS       T00005
 NAME        ERB1
-DEFINITION  Erb1p
+DEFINITION  (RefSeq) Erb1p
 ORTHOLOGY   K14824  ribosome biogenesis protein ERB1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               Other pre-60S particles
+                YMR049C (ERB1)
 POSITION    XIII:complement(368094..370517)
-MOTIF       Pfam: BOP1NT WD40 Colicin_D
-DBLINKS     NCBI-GI: 6323693
+MOTIF       Pfam: BOP1NT WD40 ANAPC4_WD40 Colicin-DNase
+DBLINKS     NCBI-ProteinID: NP_013764
             NCBI-GeneID: 855068
             SGD: S000004652
-            MIPS: YMR049C
             UniProt: Q04660
+STRUCTURE   PDB: 4U7A
 AASEQ       807
             MMAKNNKTTEAKMSKKRAASEESDVEEDEDKLLSVDGLIDAEASESDEDDDEYESAVEEK
             ESSSDKEAQDDSDDDSDAELNKLLAEEEGDGEEDYDSSEFSDDTTSLTDRLSGVKLQTIV

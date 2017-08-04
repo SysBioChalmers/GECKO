@@ -1,12 +1,12 @@
 ENTRY       YHL029C           CDS       T00005
 NAME        OCA5
-DEFINITION  Oca5p
+DEFINITION  (RefSeq) Oca5p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VIII:complement(45929..47968)
-DBLINKS     NCBI-GI: 6321758
+MOTIF       Pfam: RabGAP-TBC
+DBLINKS     NCBI-ProteinID: NP_011834
             NCBI-GeneID: 856356
             SGD: S000001021
-            MIPS: YHL029C
             UniProt: P38738
 AASEQ       679
             MHDKKSPMANSHYLKNLKQQFRNKNLIETTIHLVKCNDHDSLAFLARTYGVPPQLRHVVW

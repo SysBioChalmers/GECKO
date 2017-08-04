@@ -1,18 +1,27 @@
 ENTRY       YML115C           CDS       T00005
 NAME        VAN1, LDB13, VRG7, VRG8
-DEFINITION  Van1p
+DEFINITION  (RefSeq) Van1p
 ORTHOLOGY   K05530  mannan polymerase I complex VAN1 subunit [EC:2.4.1.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00513  Various types of N-glycan biosynthesis
             sce01100  Metabolic pathways
 MODULE      sce_M00074  N-glycan biosynthesis, high-mannose type
-CLASS       Metabolism; Glycan biosynthesis and metabolism; Various types of N-glycan biosynthesis [PATH:sce00513]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Glycan biosynthesis and metabolism
+               00513 Various types of N-glycan biosynthesis
+                YML115C (VAN1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.4  Glycosyltransferases
+               2.4.1  Hexosyltransferases
+                2.4.1.-  
+                 YML115C (VAN1)
 POSITION    XIII:complement(40187..41794)
-MOTIF       Pfam: Anp1 DUF866
-DBLINKS     NCBI-GI: 6323521
+MOTIF       Pfam: Anp1
+DBLINKS     NCBI-ProteinID: NP_013592
             NCBI-GeneID: 854925
             SGD: S000004583
-            MIPS: YML115C
             UniProt: P23642
 AASEQ       535
             MGMFFNLRSNIKKKAMDNGLSLPISRNGSSNNIKDKRSEHNSNSLKGKYRYQPRSTPSKF

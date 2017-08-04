@@ -1,18 +1,28 @@
 ENTRY       YGL086W           CDS       T00005
 NAME        MAD1
-DEFINITION  Mad1p
+DEFINITION  (RefSeq) coiled-coil domain-containing protein MAD1
 ORTHOLOGY   K06679  mitotic spindle assembly checkpoint protein MAD1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
             sce04113  Meiosis - yeast
-CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
-            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YGL086W (MAD1)
+               04113 Meiosis - yeast
+                YGL086W (MAD1)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centromeric chromatin formation proteins
+               SAC (spindle assembly checkpoint) factors
+                Core SAC proteins
+                 YGL086W (MAD1)
 POSITION    VII:347119..349368
 MOTIF       Pfam: MAD
-DBLINKS     NCBI-GI: 398364567
+DBLINKS     NCBI-ProteinID: NP_011429
             NCBI-GeneID: 852794
             SGD: S000003054
-            MIPS: YGL086W
             UniProt: P40957
 AASEQ       749
             MDVRAALQCFFSALSGRFTGKKLGLEIYSIQYKMSNSGGSSPFLESPGGSPDVGSTNGQS

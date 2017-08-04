@@ -1,12 +1,12 @@
 ENTRY       YJL171C           CDS       T00005
-DEFINITION  hypothetical protein
+NAME        TOH1
+DEFINITION  (RefSeq) Toh1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    X:complement(99704..100894)
 MOTIF       Pfam: DUF2401 DUF2403
-DBLINKS     NCBI-GI: 330443603
+DBLINKS     NCBI-ProteinID: NP_012364
             NCBI-GeneID: 853268
             SGD: S000003707
-            MIPS: YJL171C
             UniProt: P46992
 AASEQ       396
             MLQSIVLSVCMFMLHTVAASGPQSYQKLDFTNVGFTGSYVDVNKFKDITNNESCTCEVGD

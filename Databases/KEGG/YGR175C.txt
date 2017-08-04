@@ -1,20 +1,32 @@
 ENTRY       YGR175C           CDS       T00005
 NAME        ERG1
-DEFINITION  squalene monooxygenase (EC:1.14.13.132)
-ORTHOLOGY   K00511  squalene monooxygenase [EC:1.14.13.132]
+DEFINITION  (RefSeq) squalene monooxygenase
+ORTHOLOGY   K00511  squalene monooxygenase [EC:1.14.14.17]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00100  Steroid biosynthesis
             sce00909  Sesquiterpenoid and triterpenoid biosynthesis
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
-CLASS       Metabolism; Lipid metabolism; Steroid biosynthesis [PATH:sce00100]
-            Metabolism; Metabolism of terpenoids and polyketides; Sesquiterpenoid and triterpenoid biosynthesis [PATH:sce00909]
+            sce01130  Biosynthesis of antibiotics
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Lipid metabolism
+               00100 Steroid biosynthesis
+                YGR175C (ERG1)
+              Metabolism of terpenoids and polyketides
+               00909 Sesquiterpenoid and triterpenoid biosynthesis
+                YGR175C (ERG1)
+            Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.14  Acting on paired donors, with incorporation or reduction of molecular oxygen
+               1.14.14  With reduced flavin or flavoprotein as one donor, and incorporation of one atom of oxygen into the other donor
+                1.14.14.17  squalene monooxygenase
+                 YGR175C (ERG1)
 POSITION    VII:complement(846933..848423)
-MOTIF       Pfam: SE FAD_binding_3 DAO Pyr_redox Pyr_redox_2 NAD_binding_8 FAD_binding_2 3HCDH_N Thi4 Shikimate_DH GDI ApbA FAD_oxidored UDPG_MGDP_dh_N HI0933_like
-DBLINKS     NCBI-GI: 6321614
+MOTIF       Pfam: SE FAD_binding_3 DAO Pyr_redox FAD_binding_2 NAD_binding_8 Pyr_redox_2 3HCDH_N Shikimate_DH Thi4 FAD_oxidored GDI Sacchrp_dh_NADP ApbA HI0933_like
+DBLINKS     NCBI-ProteinID: NP_011691
             NCBI-GeneID: 853086
             SGD: S000003407
-            MIPS: YGR175C
             UniProt: P32476
 AASEQ       496
             MSAVNVAPELINADNTITYDAIVIGAGVIGPCVATGLARKGKKVLIVERDWAMPDRIVGE

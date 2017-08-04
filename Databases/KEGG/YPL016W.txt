@@ -1,14 +1,24 @@
 ENTRY       YPL016W           CDS       T00005
 NAME        SWI1, ADR6, GAM3, LPA1
-DEFINITION  Swi1p
+DEFINITION  (RefSeq) Swi1p
 ORTHOLOGY   K11771  SWI/SNF chromatin-remodeling complex subunit SWI1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Coactivators
+                SWI/SNF complex
+                 YPL016W (SWI1)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Chromatin remodeling factors
+               SWI/SNF complex
+                YPL016W (SWI1)
 POSITION    XVI:521014..524958
 MOTIF       Pfam: ARID
-DBLINKS     NCBI-GI: 6325241
+DBLINKS     NCBI-ProteinID: NP_015309
             NCBI-GeneID: 856091
             SGD: S000005937
-            MIPS: YPL016W
             UniProt: P09547
 STRUCTURE   PDB: 2LI6 1KN5 1KKX
 AASEQ       1314

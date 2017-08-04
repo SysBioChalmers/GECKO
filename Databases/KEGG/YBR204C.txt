@@ -1,14 +1,12 @@
 ENTRY       YBR204C           CDS       T00005
 NAME        LDH1
-DEFINITION  Ldh1p (EC:3.1.1.3 3.1.1.-)
-ORTHOLOGY   K01066  esterase / lipase [EC:3.1.1.-]
+DEFINITION  (RefSeq) triacylglycerol lipase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    II:complement(632254..633381)
-MOTIF       Pfam: Abhydrolase_1 Abhydrolase_6 Abhydrolase_5 DUF2305 PGAP1 Ser_hydrolase Thioesterase Abhydrolase_3 DUF3089 Chlorophyllase2 DUF900
-DBLINKS     NCBI-GI: 330443463
+MOTIF       Pfam: Abhydrolase_1 Abhydrolase_6 Hydrolase_4 LIDHydrolase PGAP1 Ser_hydrolase Thioesterase Chlorophyllase2 Abhydrolase_3 Thioredoxin_2 DUF900 DUF3089
+DBLINKS     NCBI-ProteinID: NP_009763
             NCBI-GeneID: 852503
             SGD: S000000408
-            MIPS: YBR204C
             UniProt: P38139
 AASEQ       375
             MNMAERAEATKSWSCEPLSGKTLEEIVQNAENAADLVAYIRKPEVDLDFRLKFIAEHEEF

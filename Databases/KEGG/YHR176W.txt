@@ -1,13 +1,12 @@
 ENTRY       YHR176W           CDS       T00005
 NAME        FMO1
-DEFINITION  Fmo1p (EC:1.14.13.-)
+DEFINITION  (RefSeq) N,N-dimethylaniline monooxygenase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VIII:454229..455527
-MOTIF       Pfam: FMO-like Pyr_redox_3 NAD_binding_9 Pyr_redox_2 K_oxygenase NAD_binding_8 DAO Thi4 HI0933_like
-DBLINKS     NCBI-GI: 398364881
+MOTIF       Pfam: FMO-like Pyr_redox_3 Pyr_redox_2 NAD_binding_9 K_oxygenase Thi4 DAO NAD_binding_8 HI0933_like Rep_fac_C
+DBLINKS     NCBI-ProteinID: NP_012046
             NCBI-GeneID: 856581
             SGD: S000001219
-            MIPS: YHR176W
             UniProt: P38866
 AASEQ       432
             MTVNDKKRLAIIGGGPGGLAAARVFSQSLPNFEIEIFVKDYDIGGVWHYPEQKSDGRVMY

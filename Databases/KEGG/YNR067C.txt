@@ -1,13 +1,19 @@
 ENTRY       YNR067C           CDS       T00005
 NAME        DSE4, ENG1
-DEFINITION  Dse4p (EC:3.2.1.6)
+DEFINITION  (RefSeq) endo-1,3(4)-beta-glucanase
+ORTHOLOGY   K01180  endo-1,3(4)-beta-glucanase [EC:3.2.1.6]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.2  Glycosylases
+               3.2.1  Glycosidases, i.e. enzymes that hydrolyse O- and S-glycosyl compounds
+                3.2.1.6  endo-1,3(4)-beta-glucanase
+                 YNR067C (DSE4)
 POSITION    XIV:complement(755746..759099)
 MOTIF       Pfam: Glyco_hydro_81
-DBLINKS     NCBI-GI: 6324395
+DBLINKS     NCBI-ProteinID: NP_014465
             NCBI-GeneID: 855804
             SGD: S000005350
-            MIPS: YNR067C
             UniProt: P53753
 AASEQ       1117
             MQLYLTLLFLLSFVECSYISFISNNADEILETDLIETLSYATLTVGEPYVAQSVVVTRVS

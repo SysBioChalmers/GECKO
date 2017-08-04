@@ -1,17 +1,26 @@
 ENTRY       YIL099W           CDS       T00005
 NAME        SGA1
-DEFINITION  glucan 1,4-alpha-glucosidase (EC:3.2.1.3)
+DEFINITION  (RefSeq) glucan 1,4-alpha-glucosidase
 ORTHOLOGY   K01178  glucoamylase [EC:3.2.1.3]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00500  Starch and sucrose metabolism
             sce01100  Metabolic pathways
-CLASS       Metabolism; Carbohydrate metabolism; Starch and sucrose metabolism [PATH:sce00500]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Carbohydrate metabolism
+               00500 Starch and sucrose metabolism
+                YIL099W (SGA1)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.2  Glycosylases
+               3.2.1  Glycosidases, i.e. enzymes that hydrolyse O- and S-glycosyl compounds
+                3.2.1.3  glucan 1,4-alpha-glucosidase
+                 YIL099W (SGA1)
 POSITION    IX:178004..179653
-MOTIF       Pfam: Glyco_hydro_15 LMP DUF3775
-DBLINKS     NCBI-GI: 398364291
+MOTIF       Pfam: Glyco_hydro_15 DUF3775 LMP
+DBLINKS     NCBI-ProteinID: NP_012167
             NCBI-GeneID: 854708
             SGD: S000001361
-            MIPS: YIL099W
             UniProt: P08019
 AASEQ       549
             MARQKMFYNKLLGMLSVGFGFAWALENITIYEFDFGKGILDQSYGGVFSNNGPSQVQLRD

@@ -1,15 +1,25 @@
 ENTRY       YDR453C           CDS       T00005
 NAME        TSA2
-DEFINITION  Tsa2p (EC:1.11.1.15)
+DEFINITION  (RefSeq) thioredoxin peroxidase TSA2
 ORTHOLOGY   K03386  peroxiredoxin (alkyl hydroperoxide reductase subunit C) [EC:1.11.1.15]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.11  Acting on a peroxide as acceptor
+               1.11.1  Peroxidases
+                1.11.1.15  peroxiredoxin
+                 YDR453C (TSA2)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Proteins found in most exosomes
+               YDR453C (TSA2)
 POSITION    IV:complement(1365072..1365662)
 MOTIF       Pfam: AhpC-TSA Redoxin 1-cysPrx_C
-DBLINKS     NCBI-GI: 6320661
+DBLINKS     NCBI-ProteinID: NP_010741
             NCBI-GeneID: 852064
             SGD: S000002861
-            MIPS: YDR453C
             UniProt: Q04120
+STRUCTURE   PDB: 5DVB 5EPT
 AASEQ       196
             MVAEVQKQAPPFKKTAVVDGIFEEISLEKYKGKYVVLAFVPLAFSFVCPTEIVAFSDAAK
             KFEDQGAQVLFASTDSEYSLLAWTNLPRKDGGLGPVKVPLLADKNHSLSRDYGVLIEKEG

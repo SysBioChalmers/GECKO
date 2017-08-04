@@ -1,16 +1,50 @@
 ENTRY       YJL164C           CDS       T00005
 NAME        TPK1, PKA1, SRA3
-DEFINITION  Tpk1p (EC:2.7.11.11)
+DEFINITION  (RefSeq) cAMP-dependent protein kinase catalytic subunit TPK1
 ORTHOLOGY   K04345  protein kinase A [EC:2.7.11.11]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04113  Meiosis - yeast
-CLASS       Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+            sce04138  Autophagy - yeast
+            sce04213  Longevity regulating pathway - multiple species
+MODULE      sce_M00695  cAMP signaling
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04138 Autophagy - yeast
+                YJL164C (TPK1)
+              Cell growth and death
+               04113 Meiosis - yeast
+                YJL164C (TPK1)
+             Organismal Systems
+              Aging
+               04213 Longevity regulating pathway - multiple species
+                YJL164C (TPK1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.11  Protein-serine/threonine kinases
+                2.7.11.11  cAMP-dependent protein kinase
+                 YJL164C (TPK1)
+            Protein kinases [BR:sce01001]
+             Serine/threonine protein kinases: AGC group
+              PKA family
+               YJL164C (TPK1)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               mRNA cycle factors
+                Common to processing body (P body) and stress granule
+                 YJL164C (TPK1)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centrosome formation and ciliogenesis proteins
+               Kinases and associated factors
+                YJL164C (TPK1)
 POSITION    X:complement(109966..111159)
-MOTIF       Pfam: Pkinase Pkinase_Tyr Kinase-like APH Seadorna_VP7 Kdo
-DBLINKS     NCBI-GI: 330443607
+MOTIF       Pfam: Pkinase Pkinase_Tyr Kinase-like APH Haspin_kinase Seadorna_VP7 DUF3297
+DBLINKS     NCBI-ProteinID: NP_012371
             NCBI-GeneID: 853275
             SGD: S000003700
-            MIPS: YJL164C
             UniProt: P06244
 STRUCTURE   PDB: 1FOT
 AASEQ       397

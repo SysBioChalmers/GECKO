@@ -1,24 +1,40 @@
 ENTRY       YGR256W           CDS       T00005
 NAME        GND2
-DEFINITION  phosphogluconate dehydrogenase (decarboxylating) GND2 (EC:1.1.1.44)
-ORTHOLOGY   K00033  6-phosphogluconate dehydrogenase [EC:1.1.1.44]
+DEFINITION  (RefSeq) phosphogluconate dehydrogenase (decarboxylating) GND2
+ORTHOLOGY   K00033  6-phosphogluconate dehydrogenase [EC:1.1.1.44 1.1.1.343]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00030  Pentose phosphate pathway
             sce00480  Glutathione metabolism
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
+            sce01130  Biosynthesis of antibiotics
             sce01200  Carbon metabolism
 MODULE      sce_M00004  Pentose phosphate pathway (Pentose phosphate cycle)
             sce_M00006  Pentose phosphate pathway, oxidative phase, glucose 6P => ribulose 5P
-CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
-            Metabolism; Carbohydrate metabolism; Pentose phosphate pathway [PATH:sce00030]
-            Metabolism; Metabolism of other amino acids; Glutathione metabolism [PATH:sce00480]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01200 Carbon metabolism
+                YGR256W (GND2)
+              Carbohydrate metabolism
+               00030 Pentose phosphate pathway
+                YGR256W (GND2)
+              Metabolism of other amino acids
+               00480 Glutathione metabolism
+                YGR256W (GND2)
+            Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.1  Acting on the CH-OH group of donors
+               1.1.1  With NAD+ or NADP+ as acceptor
+                1.1.1.44  phosphogluconate dehydrogenase (NADP+-dependent, decarboxylating)
+                 YGR256W (GND2)
+                1.1.1.343  phosphogluconate dehydrogenase (NAD+-dependent, decarboxylating)
+                 YGR256W (GND2)
 POSITION    VII:1004624..1006102
-MOTIF       Pfam: 6PGD NAD_binding_2 NAD_binding_11 F420_oxidored 2-Hacid_dh_C 3HCDH_N
-DBLINKS     NCBI-GI: 398366323
+MOTIF       Pfam: 6PGD NAD_binding_2 F420_oxidored 2-Hacid_dh_C NAD_binding_11 3HCDH_N
+DBLINKS     NCBI-ProteinID: NP_011772
             NCBI-GeneID: 853172
             SGD: S000003488
-            MIPS: YGR256W
             UniProt: P53319
 AASEQ       492
             MSKAVGDLGLVGLAVMGQNLILNAADHGFTVVAYNRTQSKVDRFLANEAKGKSIIGATSI

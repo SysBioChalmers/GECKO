@@ -1,12 +1,12 @@
 ENTRY       YER167W           CDS       T00005
 NAME        BCK2, CTR7
-DEFINITION  Bck2p
+DEFINITION  (RefSeq) Bck2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    V:518216..520771
-DBLINKS     NCBI-GI: 398365049
+MOTIF       Pfam: GAPT
+DBLINKS     NCBI-ProteinID: NP_011094
             NCBI-GeneID: 856914
             SGD: S000000969
-            MIPS: YER167W
             UniProt: P33306
 AASEQ       851
             MPKNSHHHRSSSVNSTKSRSTESTNKWKIPHYYRRSASGSTQASPDRNSSTGSCSTPVLP

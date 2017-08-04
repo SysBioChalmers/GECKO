@@ -1,16 +1,24 @@
 ENTRY       YGR083C           CDS       T00005
 NAME        GCD2, GCD12
-DEFINITION  Gcd2p
+DEFINITION  (RefSeq) translation initiation factor eIF2B subunit delta
 ORTHOLOGY   K03680  translation initiation factor eIF-2B subunit delta
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03013  RNA transport
-CLASS       Genetic Information Processing; Translation; RNA transport [PATH:sce03013]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03013 RNA transport
+                YGR083C (GCD2)
+            Translation factors [BR:sce03012]
+             Eukaryotic Type
+              Initiation factors
+               eIF-2B
+                YGR083C (GCD2)
 POSITION    VII:complement(644860..646815)
-MOTIF       Pfam: IF-2B DeoRC STb_secrete
-DBLINKS     NCBI-GI: 6321520
+MOTIF       Pfam: IF-2B DeoRC STb_secrete NUDIX_2
+DBLINKS     NCBI-ProteinID: NP_011597
             NCBI-GeneID: 852974
             SGD: S000003315
-            MIPS: YGR083C
             UniProt: P12754
 AASEQ       651
             MSESEAKSRSATPPSKAKQATPTTTAAANGEKKLTNKELKELKKQEKAAKRAAMKQANGI

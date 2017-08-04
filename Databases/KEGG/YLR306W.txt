@@ -1,16 +1,23 @@
 ENTRY       YLR306W           CDS       T00005
 NAME        UBC12
-DEFINITION  NEDD8-conjugating protein UBC12 (EC:6.3.2.-)
-ORTHOLOGY   K10579  ubiquitin-conjugating enzyme E2 M [EC:6.3.2.19]
+DEFINITION  (RefSeq) NEDD8-conjugating protein UBC12
+ORTHOLOGY   K10579  ubiquitin-conjugating enzyme E2 M
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04120  Ubiquitin mediated proteolysis
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Ubiquitin mediated proteolysis [PATH:sce04120]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04120 Ubiquitin mediated proteolysis
+                YLR306W (UBC12)
+            Ubiquitin system [BR:sce04121]
+             Ubiquitin-conjugating enzymes (E2)
+              UBL-conjugating enzymes
+               YLR306W (UBC12)
 POSITION    XII:join(744151..744153,744288..744851)
 MOTIF       Pfam: UQ_con
-DBLINKS     NCBI-GI: 6323337
+DBLINKS     NCBI-ProteinID: NP_013409
             NCBI-GeneID: 851015
             SGD: S000004297
-            MIPS: YLR306W
             UniProt: P52491
 STRUCTURE   PDB: 3O2U 3TDI
 AASEQ       188

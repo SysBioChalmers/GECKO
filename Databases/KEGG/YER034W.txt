@@ -1,12 +1,11 @@
 ENTRY       YER034W           CDS       T00005
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) hypothetical protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    V:221846..222403
-MOTIF       Pfam: S_100 Tox-HDC
-DBLINKS     NCBI-GI: 6320872
+MOTIF       Pfam: DUF5364 S_100
+DBLINKS     NCBI-ProteinID: NP_010951
             NCBI-GeneID: 856756
             SGD: S000000836
-            MIPS: YER034W
             UniProt: P40022
 AASEQ       185
             MDAFSLKKDNRKKFQDKQKLKRKHATPSDRKYRLLNRQKEEKATTEEKDQDQEQPALKSN

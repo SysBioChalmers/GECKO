@@ -1,14 +1,18 @@
 ENTRY       YHR085W           CDS       T00005
 NAME        IPI1
-DEFINITION  Ipi1p
+DEFINITION  (RefSeq) Ipi1p
 ORTHOLOGY   K14827  pre-rRNA-processing protein IPI1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               5-FMC complex
+                YHR085W (IPI1)
 POSITION    VIII:276764..277768
-MOTIF       Pfam: Ipi1_N
-DBLINKS     NCBI-GI: 6321877
+MOTIF       Pfam: Ipi1_N TPK_catalytic
+DBLINKS     NCBI-ProteinID: NP_011953
             NCBI-GeneID: 856485
             SGD: S000001127
-            MIPS: YHR085W
             UniProt: P38803
 AASEQ       334
             MTKSRKQKQKKQDFLRKKLKVGKPKEKARNATDTSFVSKTISIRNQHLDQNPHDLTKRLT

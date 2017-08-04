@@ -1,25 +1,40 @@
 ENTRY       YBR117C           CDS       T00005
 NAME        TKL2
-DEFINITION  transketolase TKL2 (EC:2.2.1.1)
+DEFINITION  (RefSeq) transketolase TKL2
 ORTHOLOGY   K00615  transketolase [EC:2.2.1.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00030  Pentose phosphate pathway
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
+            sce01130  Biosynthesis of antibiotics
             sce01200  Carbon metabolism
             sce01230  Biosynthesis of amino acids
 MODULE      sce_M00004  Pentose phosphate pathway (Pentose phosphate cycle)
             sce_M00007  Pentose phosphate pathway, non-oxidative phase, fructose 6P => ribose 5P
-CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
-            Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
-            Metabolism; Carbohydrate metabolism; Pentose phosphate pathway [PATH:sce00030]
-            Metabolism; Metabolism of terpenoids and polyketides; Biosynthesis of ansamycins
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01200 Carbon metabolism
+                YBR117C (TKL2)
+               01230 Biosynthesis of amino acids
+                YBR117C (TKL2)
+              Carbohydrate metabolism
+               00030 Pentose phosphate pathway
+                YBR117C (TKL2)
+              Metabolism of terpenoids and polyketides
+               01051 Biosynthesis of ansamycins
+                YBR117C (TKL2)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.2  Transferring aldehyde or ketonic groups
+               2.2.1  Transketolases and transaldolases
+                2.2.1.1  transketolase
+                 YBR117C (TKL2)
 POSITION    II:complement(474392..476437)
-MOTIF       Pfam: Transketolase_N Transket_pyr Transketolase_C DXP_synthase_N TPP_enzyme_C E1_dh
-DBLINKS     NCBI-GI: 398364879
+MOTIF       Pfam: Transketolase_N Transket_pyr Transketolase_C TPP_enzyme_C DXP_synthase_N ThiP_synth XFP_C
+DBLINKS     NCBI-ProteinID: NP_009675
             NCBI-GeneID: 852414
             SGD: S000000321
-            MIPS: YBR117C
             UniProt: P33315
 AASEQ       681
             MAQFSDIDKLAVSTLRLLSVDQVESAQSGHPGAPLGLAPVAHVIFKQLRCNPNNEHWINR

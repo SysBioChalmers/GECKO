@@ -1,13 +1,12 @@
 ENTRY       YBR057C           CDS       T00005
 NAME        MUM2
-DEFINITION  Mum2p
+DEFINITION  (RefSeq) Mum2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    II:complement(352193..353293)
-MOTIF       Pfam: AKAP95 IncA DUF4140
-DBLINKS     NCBI-GI: 6319531
+MOTIF       Pfam: Wtap
+DBLINKS     NCBI-ProteinID: NP_009613
             NCBI-GeneID: 852348
             SGD: S000000261
-            MIPS: YBR057C
             UniProt: P38236
 AASEQ       366
             MNYMAYDYDPQHSLETSFNNLAFHPHQQSQQQALYESGERNDARPGLMNTLGQASKMNNS

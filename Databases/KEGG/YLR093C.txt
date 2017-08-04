@@ -1,14 +1,18 @@
 ENTRY       YLR093C           CDS       T00005
 NAME        NYV1, MAM2
-DEFINITION  Nyv1p
+DEFINITION  (RefSeq) Nyv1p
 ORTHOLOGY   K08564  vacuolar v-SNARE NYV1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             SNARE
+              VAMP, Ykt6, Sec22 (R)
+               VAMP
+                YLR093C (NYV1)
 POSITION    XII:complement(join(326513..327258,327400..327415))
 MOTIF       Pfam: Nyv1_N Synaptobrevin
-DBLINKS     NCBI-GI: 9755337
+DBLINKS     NCBI-ProteinID: NP_013194
             NCBI-GeneID: 850782
             SGD: S000004083
-            MIPS: YLR093C
             UniProt: Q12255
 STRUCTURE   PDB: 2FZ0
 AASEQ       253

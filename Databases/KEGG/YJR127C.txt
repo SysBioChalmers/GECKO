@@ -1,13 +1,12 @@
 ENTRY       YJR127C           CDS       T00005
 NAME        RSF2, ZMS1
-DEFINITION  Rsf2p
+DEFINITION  (RefSeq) Rsf2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    X:complement(658917..663059)
-MOTIF       Pfam: Fungal_trans zf-C2H2 zf-H2C2_2 zf-C2H2_4
-DBLINKS     NCBI-GI: 398365503
+MOTIF       Pfam: Fungal_trans zf-C2H2 zf-H2C2_2 zf-C2H2_4 Carb_bind
+DBLINKS     NCBI-ProteinID: NP_012661
             NCBI-GeneID: 853592
             SGD: S000003888
-            MIPS: YJR127C
             UniProt: P46974
 AASEQ       1380
             MEPFAFGRGAPALCILTAAARINLDNFVPCCWALFRLSFFFPLDPAYIRNENKETRTSWI

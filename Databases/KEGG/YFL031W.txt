@@ -1,14 +1,18 @@
 ENTRY       YFL031W           CDS       T00005
 NAME        HAC1, ERN4, IRE15
-DEFINITION  Hac1p
+DEFINITION  (RefSeq) transcription factor HAC1
 ORTHOLOGY   K16230  transcriptional activator HAC1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription factors [BR:sce03000]
+             Eukaryotic Type
+              Basic leucine zipper (bZIP)
+               CREB
+                YFL031W (HAC1)
 POSITION    VI:join(75179..75839,76092..76147)
-MOTIF       Pfam: bZIP_2 bZIP_1 DUF2360 DFF-C
-DBLINKS     NCBI-GI: 14318488
+MOTIF       Pfam: bZIP_1 bZIP_2 CCDC53
+DBLINKS     NCBI-ProteinID: NP_116622
             NCBI-GeneID: 850513
             SGD: S000001863
-            MIPS: YFL031W
             UniProt: P41546
 AASEQ       238
             MEMTDFELTSNSQSNLAIPTNFKSTLPPRKRAKTKEEKEQRRIERILRNRRAAHQSREKK

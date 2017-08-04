@@ -1,18 +1,26 @@
 ENTRY       YLR181C           CDS       T00005
 NAME        VTA1
-DEFINITION  Vta1p
+DEFINITION  (RefSeq) Vta1p
 ORTHOLOGY   K12199  vacuolar protein sorting-associated protein VTA1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04144  Endocytosis
-CLASS       Cellular Processes; Transport and catabolism; Endocytosis [PATH:sce04144]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04144 Endocytosis
+                YLR181C (VTA1)
+            Membrane trafficking [BR:sce04131]
+             Endosome - Lysosome transport
+              Endosomal sorting complexes required for transport (ESCRT)
+               ESCRT associated proteins
+                YLR181C (VTA1)
 POSITION    XII:complement(516678..517670)
-MOTIF       Pfam: DUF605
-DBLINKS     NCBI-GI: 6323210
+MOTIF       Pfam: Vta1 Med9
+DBLINKS     NCBI-ProteinID: NP_013282
             NCBI-GeneID: 850878
             SGD: S000004171
-            MIPS: YLR181C
             UniProt: Q06263
-STRUCTURE   PDB: 2RKL 2RKK 3MHV 2LUH
+STRUCTURE   PDB: 2RKL 2RKK 3MHV 5H7P 2LUH
 AASEQ       330
             MASNAARVVATAKDFDKVGLGIIGYYLQLYAVELILSEEDRSQEMTALATELLDTIEAFK
             KEIGGESEAEDSDKSLHVMNTLIHDQEKAKIYMLNFTMSLYNEKLKQLKDGPWDVMLKRS

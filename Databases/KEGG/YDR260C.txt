@@ -1,20 +1,33 @@
 ENTRY       YDR260C           CDS       T00005
 NAME        SWM1, APC13
-DEFINITION  Swm1p
+DEFINITION  (RefSeq) Swm1p
 ORTHOLOGY   K12416  anaphase-promoting complex subunit SWM1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
             sce04113  Meiosis - yeast
             sce04120  Ubiquitin mediated proteolysis
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Ubiquitin mediated proteolysis [PATH:sce04120]
-            Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
-            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04120 Ubiquitin mediated proteolysis
+                YDR260C (SWM1)
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YDR260C (SWM1)
+               04113 Meiosis - yeast
+                YDR260C (SWM1)
+            Ubiquitin system [BR:sce04121]
+             Ubiquitin ligases (E3)
+              Multi subunit Ring-finger type E3
+               APC/C
+                Other subunits
+                 YDR260C (SWM1)
 POSITION    IV:complement(976717..977229)
-MOTIF       Pfam: Apc13p CKS
-DBLINKS     NCBI-GI: 6320466
+MOTIF       Pfam: Apc13p
+DBLINKS     NCBI-ProteinID: NP_010546
             NCBI-GeneID: 851847
             SGD: S000002668
-            MIPS: YDR260C
             UniProt: Q12379
 AASEQ       170
             MSSSSYRDSYFQYRHLPAPHHILYAEWNQDILALPDEVANITMAMKDNTRTDAEEGRAPQ

@@ -1,16 +1,29 @@
 ENTRY       YDL159W           CDS       T00005
 NAME        STE7
-DEFINITION  Ste7p (EC:2.7.12.2)
+DEFINITION  (RefSeq) mitogen-activated protein kinase kinase STE7
 ORTHOLOGY   K11226  mitogen-activated protein kinase kinase [EC:2.7.12.2]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04011  MAPK signaling pathway - yeast
-CLASS       Environmental Information Processing; Signal transduction; MAPK signaling pathway - yeast [PATH:sce04011]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YDL159W (STE7)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.12  Dual-specificity kinases (those acting on Ser/Thr and Tyr residues)
+                2.7.12.2  mitogen-activated protein kinase kinase
+                 YDL159W (STE7)
+            Protein kinases [BR:sce01001]
+             Serine/threonine protein kinases: STE group
+              STE7 family
+               YDL159W (STE7)
 POSITION    IV:172481..174028
-MOTIF       Pfam: Pkinase Pkinase_Tyr Kinase-like
-DBLINKS     NCBI-GI: 6320042
+MOTIF       Pfam: Pkinase Pkinase_Tyr Haspin_kinase Kinase-like HHH_4
+DBLINKS     NCBI-ProteinID: NP_010122
             NCBI-GeneID: 851396
             SGD: S000002318
-            MIPS: YDL159W
             UniProt: P06784
 AASEQ       515
             MFQRKTLQRRNLKGLNLNLHPDVGNNGQLQEKTETHQGQSRIEGHVMSNINAIQNNSNLF

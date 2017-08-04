@@ -1,16 +1,19 @@
 ENTRY       YGL089C           CDS       T00005
 NAME        MF(ALPHA)2
-DEFINITION  Mf(alpha)2p
+DEFINITION  (RefSeq) Mf(alpha)2p
 ORTHOLOGY   K11234  mating pheromone alpha-factor
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04011  MAPK signaling pathway - yeast
-CLASS       Environmental Information Processing; Signal transduction; MAPK signaling pathway - yeast [PATH:sce04011]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YGL089C (MF(ALPHA)2)
 POSITION    VII:complement(344791..345153)
 MOTIF       Pfam: MF_alpha_N MF_alpha
-DBLINKS     NCBI-GI: 6321349
+DBLINKS     NCBI-ProteinID: NP_011426
             NCBI-GeneID: 852791
             SGD: S000003057
-            MIPS: YGL089C
             UniProt: P32435
 AASEQ       120
             MKFISTFLTFILAAVSVTASSDEDIAQVPAEAIIGYLDFGGDHDIAFLPFSNATASGLLF

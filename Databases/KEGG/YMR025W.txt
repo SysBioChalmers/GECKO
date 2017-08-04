@@ -1,13 +1,12 @@
 ENTRY       YMR025W           CDS       T00005
 NAME        CSI1
-DEFINITION  Csi1p
+DEFINITION  (RefSeq) Csi1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:323300..324187
-MOTIF       Pfam: RNA_pol_Rpb4 Surf_Ag_VNR
-DBLINKS     NCBI-GI: 6323667
+MOTIF       Pfam: POTRA
+DBLINKS     NCBI-ProteinID: NP_013738
             NCBI-GeneID: 855040
             SGD: S000004627
-            MIPS: YMR025W
             UniProt: Q04368
 AASEQ       295
             MDLLKFSSLAISEINFLHESSFDSIDHSWFLLIGCKLDQDDEIYIPINGNEAESQWYIEK

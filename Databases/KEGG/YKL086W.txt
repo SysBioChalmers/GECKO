@@ -1,14 +1,19 @@
 ENTRY       YKL086W           CDS       T00005
 NAME        SRX1
-DEFINITION  Srx1p (EC:1.8.98.2)
+DEFINITION  (RefSeq) sulfiredoxin
 ORTHOLOGY   K12260  sulfiredoxin [EC:1.8.98.2]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.8  Acting on a sulfur group of donors
+               1.8.98  With other, known, physiological acceptors
+                1.8.98.2  sulfiredoxin
+                 YKL086W (SRX1)
 POSITION    XI:278281..278664
 MOTIF       Pfam: ParBc
-DBLINKS     NCBI-GI: 6322764
+DBLINKS     NCBI-ProteinID: NP_012837
             NCBI-GeneID: 853776
             SGD: S000001569
-            MIPS: YKL086W
             UniProt: P36077
 AASEQ       127
             MSLQSNSVKPTEIPLSEIRRPLAPVLDPQKIDAMVATMKGIPTASKTCSLEQAEAAASAG

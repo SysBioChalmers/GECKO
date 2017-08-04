@@ -1,16 +1,33 @@
 ENTRY       YKL018W           CDS       T00005
 NAME        SWD2, CPS35, SAF37
-DEFINITION  Swd2p
+DEFINITION  (RefSeq) WD-repeat containing protein SWD2
 ORTHOLOGY   K14962  COMPASS component SWD2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03015  mRNA surveillance pathway
-CLASS       Genetic Information Processing; Translation; mRNA surveillance pathway [PATH:sce03015]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03015 mRNA surveillance pathway
+                YKL018W (SWD2)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA processing factors
+               3' end processing
+                Cleavage and polyadenylation specificity factor (CPSF) complex
+                 YKL018W (SWD2)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Histone modification proteins
+               HMT complexes
+                COMPASS/SET1 complex
+                 YKL018W (SWD2)
+                COMPASS/SET1 complex (yeast)
+                 YKL018W (SWD2)
 POSITION    XI:404102..405091
-MOTIF       Pfam: WD40 eIF2A
-DBLINKS     NCBI-GI: 398364727
+MOTIF       Pfam: WD40 ANAPC4_WD40 eIF2A
+DBLINKS     NCBI-ProteinID: NP_012907
             NCBI-GeneID: 853851
             SGD: S000001501
-            MIPS: YKL018W
             UniProt: P36104
 AASEQ       329
             MTTVSINKPNLLKFKHVKSFQPQEKDCGPVTSLNFDDNGQFLLTSSSNDTMQLYSATNCK

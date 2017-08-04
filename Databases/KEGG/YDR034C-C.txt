@@ -1,12 +1,11 @@
 ENTRY       YDR034C-C         CDS       T00005
-DEFINITION  gag protein
+DEFINITION  (RefSeq) gag protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(518040..519356)
-MOTIF       Pfam: TYA UBN2 UBN2_2
-DBLINKS     NCBI-GI: 7839149
+MOTIF       Pfam: TYA Retrotran_gag_2
+DBLINKS     NCBI-ProteinID: NP_058139
             NCBI-GeneID: 851600
             SGD: S000007344
-            MIPS: YDR034C-C
             UniProt: Q12392
 AASEQ       438
             MESQQLSQNSPNLHGSAYASVTSKEVPSNQDPLAVSASNLPEFDRDSTKVNSQQETTPGT

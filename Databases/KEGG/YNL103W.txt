@@ -1,13 +1,12 @@
 ENTRY       YNL103W           CDS       T00005
 NAME        MET4
-DEFINITION  Met4p
+DEFINITION  (RefSeq) Met4p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIV:427735..429753
 MOTIF       Pfam: bZIP_2 PspB
-DBLINKS     NCBI-GI: 398364833
+DBLINKS     NCBI-ProteinID: NP_014296
             NCBI-GeneID: 855620
             SGD: S000005047
-            MIPS: YNL103W
             UniProt: P32389
 AASEQ       672
             MKQEQSHEGDSYSTEFINLFGKDTATHPSSNNGANNNGMGSTNSLDQFVATASSSSSLVT

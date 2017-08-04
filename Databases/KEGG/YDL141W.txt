@@ -1,17 +1,32 @@
 ENTRY       YDL141W           CDS       T00005
 NAME        BPL1, ACC2
-DEFINITION  biotin--[acetyl-CoA-carboxylase] ligase BPL1 (EC:6.3.4.10 6.3.4.9 6.3.4.11 6.3.4.15 6.3.4.-)
+DEFINITION  (RefSeq) biotin--[acetyl-CoA-carboxylase] ligase BPL1
 ORTHOLOGY   K01942  biotin--protein ligase [EC:6.3.4.9 6.3.4.10 6.3.4.11 6.3.4.15]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00780  Biotin metabolism
             sce01100  Metabolic pathways
-CLASS       Metabolism; Metabolism of cofactors and vitamins; Biotin metabolism [PATH:sce00780]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Metabolism of cofactors and vitamins
+               00780 Biotin metabolism
+                YDL141W (BPL1)
+            Enzymes [BR:sce01000]
+             6. Ligases
+              6.3  Forming carbon-nitrogen bonds
+               6.3.4  Other carbon-nitrogen ligases
+                6.3.4.9  biotin---[methylmalonyl-CoA-carboxytransferase] ligase
+                 YDL141W (BPL1)
+                6.3.4.10  biotin---[propionyl-CoA-carboxylase (ATP-hydrolysing)] ligase
+                 YDL141W (BPL1)
+                6.3.4.11  biotin---[methylcrotonoyl-CoA-carboxylase] ligase
+                 YDL141W (BPL1)
+                6.3.4.15  biotin---[acetyl-CoA-carboxylase] ligase
+                 YDL141W (BPL1)
 POSITION    IV:203039..205111
-MOTIF       Pfam: BPL_N BPL_LplA_LipB BPL_C Nitr_red_assoc
-DBLINKS     NCBI-GI: 6320060
+MOTIF       Pfam: BPL_N BPL_LplA_LipB BPL_C HI0933_like
+DBLINKS     NCBI-ProteinID: NP_010140
             NCBI-GeneID: 851414
             SGD: S000002300
-            MIPS: YDL141W
             UniProt: P48445
 AASEQ       690
             MNVLVYNGPGTTPGSVKHAVESLRDFLEPYYAVSTVNVKVLQTEPWMSKTSAVVFPGGAD

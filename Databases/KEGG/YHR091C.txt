@@ -1,17 +1,43 @@
 ENTRY       YHR091C           CDS       T00005
 NAME        MSR1
-DEFINITION  arginine--tRNA ligase MSR1 (EC:6.1.1.19)
+DEFINITION  (RefSeq) arginine--tRNA ligase MSR1
 ORTHOLOGY   K01887  arginyl-tRNA synthetase [EC:6.1.1.19]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00970  Aminoacyl-tRNA biosynthesis
 MODULE      sce_M00359  Aminoacyl-tRNA biosynthesis, eukaryotes
-CLASS       Genetic Information Processing; Translation; Aminoacyl-tRNA biosynthesis [PATH:sce00970]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               00970 Aminoacyl-tRNA biosynthesis
+                YHR091C (MSR1)
+            Enzymes [BR:sce01000]
+             6. Ligases
+              6.1  Forming carbon-oxygen bonds
+               6.1.1  Ligases forming aminoacyl-tRNA and related compounds
+                6.1.1.19  arginine---tRNA ligase
+                 YHR091C (MSR1)
+            Amino acid related enzymes [BR:sce01007]
+             Aminoacyl-tRNA synthetase
+              Class I (G)
+               YHR091C (MSR1)
+            Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              Aminoacyl-tRNA synthetases (AARSs)
+               Multi-aminoacyl-tRNA synthetase complex (MSC)
+                YHR091C (MSR1)
+             Prokaryotic Type
+               Other AARSs
+                YHR091C (MSR1)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial DNA transcription, translation, and replication factors
+              Mitochondrial transcription and translation factors
+               Other mitochondrial DNA transcription and translation factors
+                YHR091C (MSR1)
 POSITION    VIII:complement(284839..286770)
-MOTIF       Pfam: tRNA-synt_1d DALR_1 Arg_tRNA_synt_N IDEAL
-DBLINKS     NCBI-GI: 6321883
+MOTIF       Pfam: tRNA-synt_1d DALR_1 Arg_tRNA_synt_N IDEAL POT1
+DBLINKS     NCBI-ProteinID: NP_011959
             NCBI-GeneID: 856491
             SGD: S000001133
-            MIPS: YHR091C
             UniProt: P38714
 AASEQ       643
             MFGIVYLKNRSLLCKNPFSSYPRYGFMPSFDTQFSNQFRKLEINIGRKRYSSKTLNTKYT

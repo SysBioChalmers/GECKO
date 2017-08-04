@@ -1,14 +1,31 @@
 ENTRY       YPR176C           CDS       T00005
 NAME        BET2
-DEFINITION  Bet2p (EC:2.5.1.60)
+DEFINITION  (RefSeq) Rab geranylgeranyltransferase BET2
 ORTHOLOGY   K05956  geranylgeranyl transferase type-2 subunit beta [EC:2.5.1.60]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.5  Transferring alkyl or aryl groups, other than methyl groups
+               2.5.1  Transferring alkyl or aryl groups, other than methyl groups (only sub-subclass identified to date)
+                2.5.1.60  protein geranylgeranyltransferase type II
+                 YPR176C (BET2)
+            Prenyltransferases [BR:sce01006]
+             Protein prenylation
+              Rab geranylgeranyltransferase
+               YPR176C (BET2)
+            Membrane trafficking [BR:sce04131]
+             Exocytosis
+              Small GTPases and associated proteins
+               Rab associated proteins
+                YPR176C (BET2)
+             Endosome - Lysosome transport
+              Rab GTPases and associated proteins
+                YPR176C (BET2)
 POSITION    XVI:complement(891101..892078)
-MOTIF       Pfam: Prenyltrans Prenyltrans_2 Prenyltrans_1
-DBLINKS     NCBI-GI: 6325434
+MOTIF       Pfam: Prenyltrans SQHop_cyclase_C
+DBLINKS     NCBI-ProteinID: NP_015502
             NCBI-GeneID: 856306
             SGD: S000006380
-            MIPS: YPR176C
             UniProt: P20133
 AASEQ       325
             MSGSLTLLKEKHIRYIESLDTKKHNFEYWLTEHLRLNGIYWGLTALCVLDSPETFVKEEV

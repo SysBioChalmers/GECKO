@@ -1,14 +1,24 @@
 ENTRY       YKL149C           CDS       T00005
 NAME        DBR1, PRP26
-DEFINITION  Dbr1p (EC:3.1.-.-)
-ORTHOLOGY   K01175   [EC:3.1.-.-]
+DEFINITION  (RefSeq) RNA lariat debranching enzyme
+ORTHOLOGY   K18328  lariat debranching enzyme [EC:3.1.-.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.-  Acting on ester bonds
+                3.1.-.-  
+                 YKL149C (DBR1)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              90S particles
+               RNase
+                YKL149C (DBR1)
 POSITION    XI:complement(167612..168829)
-MOTIF       Pfam: Metallophos DBR1 Metallophos_2 Usg
-DBLINKS     NCBI-GI: 6322700
+MOTIF       Pfam: DBR1 Metallophos Usg
+DBLINKS     NCBI-ProteinID: NP_012773
             NCBI-GeneID: 853708
             SGD: S000001632
-            MIPS: YKL149C
             UniProt: P24309
 AASEQ       405
             MTKLRIAVQGCCHGQLNQIYKEVSRIHAKTPIDLLIILGDFQSIRDGQDFKSIAIPPKYQ

@@ -1,16 +1,24 @@
 ENTRY       YJR158W           CDS       T00005
-NAME        HXT16
-DEFINITION  Hxt16p
+NAME        HXT16, HLT3
+DEFINITION  (RefSeq) hexose transporter HXT16
 ORTHOLOGY   K08139  MFS transporter, SP family, sugar:H+ symporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04113  Meiosis - yeast
-CLASS       Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04113 Meiosis - yeast
+                YJR158W (HXT16)
+            Transporters [BR:sce02000]
+             Major Facilitator Superfamily (MFS)
+              Sugar transporters
+               Sugar porter (SP) family [TC:2.A.1.1]
+                YJR158W (HXT16)
 POSITION    X:732440..734143
-MOTIF       Pfam: Sugar_tr MFS_1 Cytochrom_B_N Pox_A14
-DBLINKS     NCBI-GI: 398365671
+MOTIF       Pfam: Sugar_tr MFS_1 Pox_A14
+DBLINKS     NCBI-ProteinID: NP_012692
             NCBI-GeneID: 853623
             SGD: S000003919
-            MIPS: YJR158W
             UniProt: P47185
 AASEQ       567
             MASEQSSPEINADNLNSSAADVHVQPPGEKEWSDGFYDKEVINGNTPDAPKRGFLGYLII

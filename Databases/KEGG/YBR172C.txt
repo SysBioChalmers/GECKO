@@ -1,13 +1,22 @@
 ENTRY       YBR172C           CDS       T00005
 NAME        SMY2
-DEFINITION  Smy2p
+DEFINITION  (RefSeq) Smy2p
+ORTHOLOGY   K18730  PERQ amino acid-rich with GYF domain-containing protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Transport factors
+                eIF4F and regulatory proteins
+                 YBR172C (SMY2)
+               Surveillance factors
+                Other surveillance  factors
+                 YBR172C (SMY2)
 POSITION    II:complement(579150..581372)
 MOTIF       Pfam: GYF
-DBLINKS     NCBI-GI: 398365269
+DBLINKS     NCBI-ProteinID: NP_009731
             NCBI-GeneID: 852470
             SGD: S000000376
-            MIPS: YBR172C
             UniProt: P32909
 STRUCTURE   PDB: 3K3V 3FMA
 AASEQ       740

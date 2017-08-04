@@ -1,13 +1,12 @@
 ENTRY       YGR161C           CDS       T00005
 NAME        RTS3
-DEFINITION  Rts3p
+DEFINITION  (RefSeq) Rts3p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:complement(808629..809420)
-MOTIF       Pfam: DUF2046 MerR_2 Uso1_p115_C NYD-SP28_assoc
-DBLINKS     NCBI-GI: 398365945
+MOTIF       Pfam: DUF2046 PRKG1_interact MerR_2 CCDC92 MCM3AP_GANP
+DBLINKS     NCBI-ProteinID: NP_011677
             NCBI-GeneID: 853065
             SGD: S000003393
-            MIPS: YGR161C
             UniProt: P53289
 AASEQ       263
             MIATSRAVNMNKESKHKKAVAKPCRERQTSVTRAMRPAVARDPRRLSTSSSPSSSPMSAQ

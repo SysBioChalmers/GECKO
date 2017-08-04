@@ -1,16 +1,19 @@
 ENTRY       YDL056W           CDS       T00005
 NAME        MBP1
-DEFINITION  Mbp1p
+DEFINITION  (RefSeq) transcription factor MBP1
 ORTHOLOGY   K06647  transcription factor MBP1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
-CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YDL056W (MBP1)
 POSITION    IV:352877..355378
-MOTIF       Pfam: Ank_4 Ank_5 Ank_2 Ank KilA-N Ank_3
-DBLINKS     NCBI-GI: 6320147
+MOTIF       Pfam: Ank_4 Ank_5 Ank_2 KilA-N Ank Ank_3
+DBLINKS     NCBI-ProteinID: NP_010227
             NCBI-GeneID: 851503
             SGD: S000002214
-            MIPS: YDL056W
             UniProt: P39678
 STRUCTURE   PDB: 1BM8 1MB1 1L3G
 AASEQ       833

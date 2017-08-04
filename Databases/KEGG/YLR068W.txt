@@ -1,13 +1,12 @@
 ENTRY       YLR068W           CDS       T00005
 NAME        FYV7
-DEFINITION  Fyv7p
+DEFINITION  (RefSeq) Fyv7p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XII:271008..271463
-MOTIF       Pfam: rRNA_processing LZ_Tnp_IS481
-DBLINKS     NCBI-GI: 6323097
+MOTIF       Pfam: rRNA_processing
+DBLINKS     NCBI-ProteinID: NP_013169
             NCBI-GeneID: 850757
             SGD: S000004058
-            MIPS: YLR068W
             UniProt: Q12247
 AASEQ       151
             MGTAKQNQNRKKFTREYKVKEIQRSITKKTRLRKEYLKALKDEGYAVPEKEPKTVAKESV

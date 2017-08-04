@@ -1,14 +1,19 @@
 ENTRY       YMR168C           CDS       T00005
 NAME        CEP3, CBF3, CSL1
-DEFINITION  Cep3p
+DEFINITION  (RefSeq) Cep3p
 ORTHOLOGY   K11575  centromere DNA-binding protein complex CBF3 subunit B
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centromeric chromatin formation proteins
+               Kinetochore proteins
+                CBF3 complex
+                 YMR168C (CEP3)
 POSITION    XIII:complement(597332..599158)
-MOTIF       Pfam: Zn_clus
-DBLINKS     NCBI-GI: 6323820
+MOTIF       Pfam: Cep3 Zn_clus
+DBLINKS     NCBI-ProteinID: NP_013891
             NCBI-GeneID: 855204
             SGD: S000004778
-            MIPS: YMR168C
             UniProt: P40969
 STRUCTURE   PDB: 2VEQ 2QUQ
 AASEQ       608

@@ -1,18 +1,29 @@
 ENTRY       YOR176W           CDS       T00005
 NAME        HEM15
-DEFINITION  ferrochelatase HEM15 (EC:4.99.1.1)
-ORTHOLOGY   K01772  ferrochelatase [EC:4.99.1.1]
+DEFINITION  (RefSeq) ferrochelatase HEM15
+ORTHOLOGY   K01772  protoporphyrin/coproporphyrin ferrochelatase [EC:4.99.1.1 4.99.1.9]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00860  Porphyrin and chlorophyll metabolism
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
-CLASS       Metabolism; Metabolism of cofactors and vitamins; Porphyrin and chlorophyll metabolism [PATH:sce00860]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Metabolism of cofactors and vitamins
+               00860 Porphyrin and chlorophyll metabolism
+                YOR176W (HEM15)
+            Enzymes [BR:sce01000]
+             4. Lyases
+              4.99  Other lyases
+               4.99.1  Sole sub-subclass for lyases that do not belong in the other subclasses
+                4.99.1.1  protoporphyrin ferrochelatase
+                 YOR176W (HEM15)
+                4.99.1.9  coproporphyrin ferrochelatase
+                 YOR176W (HEM15)
 POSITION    XV:662401..663582
 MOTIF       Pfam: Ferrochelatase
-DBLINKS     NCBI-GI: 398365579
+DBLINKS     NCBI-ProteinID: NP_014819
             NCBI-GeneID: 854347
             SGD: S000005702
-            MIPS: YOR176W
             UniProt: P16622
 STRUCTURE   PDB: 1LBQ 1L8X
 AASEQ       393

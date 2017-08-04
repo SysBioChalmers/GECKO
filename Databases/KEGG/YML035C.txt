@@ -1,18 +1,28 @@
 ENTRY       YML035C           CDS       T00005
 NAME        AMD1, AMD3
-DEFINITION  AMP deaminase (EC:3.5.4.6)
+DEFINITION  (RefSeq) AMP deaminase
 ORTHOLOGY   K01490  AMP deaminase [EC:3.5.4.6]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00230  Purine metabolism
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
-CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
+            sce01130  Biosynthesis of antibiotics
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Nucleotide metabolism
+               00230 Purine metabolism
+                YML035C (AMD1)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.5  Acting on carbon-nitrogen bonds, other than peptide bonds
+               3.5.4  In cyclic amidines
+                3.5.4.6  AMP deaminase
+                 YML035C (AMD1)
 POSITION    XIII:complement(206428..208860)
 MOTIF       Pfam: A_deaminase
-DBLINKS     NCBI-GI: 6323606
+DBLINKS     NCBI-ProteinID: NP_013677
             NCBI-GeneID: 854973
             SGD: S000004498
-            MIPS: YML035C
             UniProt: P15274
 AASEQ       810
             MDNQATQRLNDLSLEPAPSHDEQDGSGLVIDIDQRKIGDEQAGVVVDDETPPLEQQDSHE

@@ -1,13 +1,12 @@
 ENTRY       YCR017C           CDS       T00005
 NAME        CWH43
-DEFINITION  Cwh43p
+DEFINITION  (RefSeq) Cwh43p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    III:complement(144773..147634)
-MOTIF       Pfam: Frag1
-DBLINKS     NCBI-GI: 10383785
+MOTIF       Pfam: Frag1 Exo_endo_phos
+DBLINKS     NCBI-ProteinID: NP_009943
             NCBI-GeneID: 850376
             SGD: S000000610
-            MIPS: YCR017C
             UniProt: P25618
 AASEQ       953
             MLIINGKIIPIAHTICAFSAFFAALVTGYSLHFHKIVTNAHYTYPDEWFPSVSATIGDRY

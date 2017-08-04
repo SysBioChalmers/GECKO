@@ -1,13 +1,23 @@
 ENTRY       YBR141C           CDS       T00005
 NAME        BMT2
-DEFINITION  Bmt2p
+DEFINITION  (RefSeq) 25S rRNA (adenine2142-N1)-methyltransferase
+ORTHOLOGY   K18849  25S rRNA (adenine2142-N1)-methyltransferase [EC:2.1.1.286]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.1  Transferring one-carbon groups
+               2.1.1  Methyltransferases
+                2.1.1.286  25S rRNA (adenine2142-N1)-methyltransferase
+                 YBR141C (BMT2)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Other ribosome biogenesis factors
+               YBR141C (BMT2)
 POSITION    II:complement(527025..528038)
-MOTIF       Pfam: DUF3321 Methyltransf_23 Methyltransf_11 Methyltransf_12 Methyltransf_31 Methyltransf_18 NodS CheR
-DBLINKS     NCBI-GI: 330443457
+MOTIF       Pfam: Bmt2 Methyltransf_23 Methyltransf_12 Methyltransf_11 Methyltransf_25 Methyltransf_31 CheR NodS
+DBLINKS     NCBI-ProteinID: NP_009699
             NCBI-GeneID: 852438
             SGD: S000000345
-            MIPS: YBR141C
             UniProt: P38278
 AASEQ       337
             MHSRKSKSITGKRKQVGSNVTRVIKPQKTRRIIRRFHHLINKRQSICKFLCLKENLDDSN

@@ -1,16 +1,19 @@
 ENTRY       YLR207W           CDS       T00005
 NAME        HRD3
-DEFINITION  ubiquitin ligase complex subunit HRD3
+DEFINITION  (RefSeq) ubiquitin ligase complex subunit HRD3
 ORTHOLOGY   K14023  ERAD-associated E3 ubiquitin-protein ligase component HRD3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04141  Protein processing in endoplasmic reticulum
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Protein processing in endoplasmic reticulum [PATH:sce04141]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04141 Protein processing in endoplasmic reticulum
+                YLR207W (HRD3)
 POSITION    XII:556788..559289
-MOTIF       Pfam: Sel1 TPR_8 TPR_7
-DBLINKS     NCBI-GI: 6323236
+MOTIF       Pfam: Sel1 TPR_12 Lipoprotein_Ltp TPR_8 Baculo_E66
+DBLINKS     NCBI-ProteinID: NP_013308
             NCBI-GeneID: 850904
             SGD: S000004197
-            MIPS: YLR207W
             UniProt: Q05787
 AASEQ       833
             MITLLLYLCVICNAIVLIRADSIADPWPEARHLLNTIAKSRDPMKEAAMEPNADEFVGFY

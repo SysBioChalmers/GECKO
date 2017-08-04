@@ -1,13 +1,18 @@
 ENTRY       YNL293W           CDS       T00005
 NAME        MSB3, GYP3
-DEFINITION  Msb3p
+DEFINITION  (RefSeq) Rab GTPase-activating protein MSB3
+ORTHOLOGY   K19953  TBC1 domain family member 6
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Exocytosis
+              Small GTPases and associated proteins
+               Rab associated proteins
+                YNL293W (MSB3)
 POSITION    XIV:80640..82541
 MOTIF       Pfam: RabGAP-TBC
-DBLINKS     NCBI-GI: 6324036
+DBLINKS     NCBI-ProteinID: NP_014106
             NCBI-GeneID: 855423
             SGD: S000005237
-            MIPS: YNL293W
             UniProt: P48566
 AASEQ       633
             MQNDQQRFSLQNRTVLAHPYKRLGGAFTVKSPSVPNFHDKMHSDHSSSDSALVNGSFRAN

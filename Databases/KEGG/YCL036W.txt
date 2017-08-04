@@ -1,13 +1,11 @@
 ENTRY       YCL036W           CDS       T00005
 NAME        GFD2, YCD6
-DEFINITION  Gfd2p
+DEFINITION  (RefSeq) Gfd2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    III:59026..60726
-MOTIF       Pfam: Rsa3
-DBLINKS     NCBI-GI: 6319813
+DBLINKS     NCBI-ProteinID: NP_009894
             NCBI-GeneID: 850321
             SGD: S000000541
-            MIPS: YCL036W
             UniProt: P25370
 AASEQ       566
             MQVQKMVRDNSNNGSDKSVHWERRNNNGAGPRYRSRSGNTGALATKLSNGTLSVRGLVKD

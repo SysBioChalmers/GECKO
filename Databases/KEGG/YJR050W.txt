@@ -1,17 +1,28 @@
 ENTRY       YJR050W           CDS       T00005
 NAME        ISY1, NTC30, UTR3
-DEFINITION  Isy1p
+DEFINITION  (RefSeq) Isy1p
 ORTHOLOGY   K12870  pre-mRNA-splicing factor ISY1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03040  Spliceosome
-CLASS       Genetic Information Processing; Transcription; Spliceosome [PATH:sce03040]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03040 Spliceosome
+                YJR050W (ISY1)
+            Spliceosome [BR:sce03041]
+             Complex B
+              Other components
+               Prp19-related factors
+                YJR050W (ISY1)
+             Complex C
+                YJR050W (ISY1)
 POSITION    X:528697..529404
-MOTIF       Pfam: Isy1 Ribosomal_L35p
-DBLINKS     NCBI-GI: 398365001
+MOTIF       Pfam: Isy1 LUD_dom DUF4996
+DBLINKS     NCBI-ProteinID: NP_012584
             NCBI-GeneID: 853509
             SGD: S000003811
-            MIPS: YJR050W
             UniProt: P21374
+STRUCTURE   PDB: 5GMK 5LJ3 5LJ5
 AASEQ       235
             MSRNVDKANSVLVRFQEQQAESAGGYKDYSRYQRPRNVSKVKSIKEANEWKRQVSKEIKQ
             KSTRIYDPSLNEMQIAELNDELNNLFKEWKRWQWHIDHTLMEKKTKRKRLEDSHVLMNSG

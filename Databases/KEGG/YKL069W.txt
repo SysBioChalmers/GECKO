@@ -1,16 +1,25 @@
 ENTRY       YKL069W           CDS       T00005
 NAME        YKG9
-DEFINITION  hypothetical protein (EC:1.8.4.14)
+DEFINITION  (RefSeq) L-methionine (R)-S-oxide reductase
 ORTHOLOGY   K08968  L-methionine (R)-S-oxide reductase [EC:1.8.4.14]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00270  Cysteine and methionine metabolism
-CLASS       Metabolism; Amino acid metabolism; Cysteine and methionine metabolism [PATH:sce00270]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Amino acid metabolism
+               00270 Cysteine and methionine metabolism
+                YKL069W (YKG9)
+            Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.8  Acting on a sulfur group of donors
+               1.8.4  With a disulfide as acceptor
+                1.8.4.14  L-methionine (R)-S-oxide reductase
+                 YKL069W (YKG9)
 POSITION    XI:307285..307827
-MOTIF       Pfam: GAF_2 GAF
-DBLINKS     NCBI-GI: 6322781
+MOTIF       Pfam: GAF_2 GAF GAF_3
+DBLINKS     NCBI-ProteinID: NP_012854
             NCBI-GeneID: 853794
             SGD: S000001552
-            MIPS: YKL069W
             UniProt: P36088
 STRUCTURE   PDB: 1F5M 3KO6
 AASEQ       180

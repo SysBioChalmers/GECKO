@@ -1,14 +1,18 @@
 ENTRY       YNL255C           CDS       T00005
 NAME        GIS2
-DEFINITION  Gis2p
+DEFINITION  (RefSeq) mRNA-binding translational activator GIS2
 ORTHOLOGY   K09250  cellular nucleic acid-binding protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription factors [BR:sce03000]
+             Eukaryotic Type
+              Zinc finger
+               Zinc fingers of alternating composition
+                YNL255C (GIS2)
 POSITION    XIV:complement(167329..167790)
-MOTIF       Pfam: zf-CCHC zf-CCHC_4 zf-CCHC_2 zf-CCHC_3
-DBLINKS     NCBI-GI: 6324074
+MOTIF       Pfam: zf-CCHC zf-CCHC_4 zf-CCHC_5 zf-CCHC_3 zf-C2H2_10
+DBLINKS     NCBI-ProteinID: NP_014144
             NCBI-GeneID: 855466
             SGD: S000005199
-            MIPS: YNL255C
             UniProt: P53849
 AASEQ       153
             MSQKACYVCGKIGHLAEDCDSERLCYNCNKPGHVQTDCTMPRTVEFKQCYNCGETGHVRS

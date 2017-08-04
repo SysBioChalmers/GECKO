@@ -1,14 +1,26 @@
 ENTRY       YER019W           CDS       T00005
 NAME        ISC1
-DEFINITION  inositol phosphosphingolipid phospholipase (EC:3.1.4.-)
-ORTHOLOGY   K01128   [EC:3.1.4.-]
+DEFINITION  (RefSeq) inositol phosphosphingolipid phospholipase
+ORTHOLOGY   K12351  sphingomyelin phosphodiesterase 2 [EC:3.1.4.12]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00600  Sphingolipid metabolism
+            sce01100  Metabolic pathways
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Lipid metabolism
+               00600 Sphingolipid metabolism
+                YER019W (ISC1)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.4  Phosphoric-diester hydrolases
+                3.1.4.12  sphingomyelin phosphodiesterase
+                 YER019W (ISC1)
 POSITION    V:192797..194230
-MOTIF       Pfam: Exo_endo_phos
-DBLINKS     NCBI-GI: 6320856
+MOTIF       Pfam: Exo_endo_phos DUF4231
+DBLINKS     NCBI-ProteinID: NP_010935
             NCBI-GeneID: 856739
             SGD: S000000821
-            MIPS: YER019W
             UniProt: P40015
 AASEQ       477
             MYNRKDRDVHERKEDGQSEFEALNGTNAIMSDNSKAYSIKFLTFNTWGLKYVSKHRKERL

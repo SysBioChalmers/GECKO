@@ -1,14 +1,17 @@
 ENTRY       YNR045W           CDS       T00005
 NAME        PET494
-DEFINITION  Pet494p
+DEFINITION  (RefSeq) Pet494p
 ORTHOLOGY   K17670  COX3 mRNA-specific translational activator PET494
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial DNA transcription, translation, and replication factors
+              Mitochondrial transcription and translation factors
+               Other mitochondrial DNA transcription and translation factors
+                YNR045W (PET494)
 POSITION    XIV:706139..707608
-MOTIF       Pfam: Ins_allergen_rp
-DBLINKS     NCBI-GI: 398365785
+DBLINKS     NCBI-ProteinID: NP_014443
             NCBI-GeneID: 855781
             SGD: S000005328
-            MIPS: YNR045W
             UniProt: P07390
 AASEQ       489
             MHLKKGKRSISTVWRLLWKRFYSVNSKTNMHFSRSRKKPVTNFTRTNGLLLSCNGDTFPY

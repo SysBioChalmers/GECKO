@@ -1,13 +1,12 @@
 ENTRY       YMR299C           CDS       T00005
 NAME        DYN3
-DEFINITION  dynein light intermediate chain
+DEFINITION  (RefSeq) dynein light intermediate chain
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:complement(864412..865350)
-MOTIF       Pfam: DLIC Zeta_toxin SulA
-DBLINKS     NCBI-GI: 330443685
+MOTIF       Pfam: DLIC SulA
+DBLINKS     NCBI-ProteinID: NP_014028
             NCBI-GeneID: 855345
             SGD: S000004914
-            MIPS: YMR299C
             UniProt: Q04949
 AASEQ       312
             MDNCNAWDKLLSQNESTINSTETATITAIIYSPSSKTLHQFINICFPEGSNSILDTTLIN

@@ -1,16 +1,26 @@
 ENTRY       YIL155C           CDS       T00005
 NAME        GUT2
-DEFINITION  glycerol-3-phosphate dehydrogenase (EC:1.1.5.3)
+DEFINITION  (RefSeq) glycerol-3-phosphate dehydrogenase
 ORTHOLOGY   K00111  glycerol-3-phosphate dehydrogenase [EC:1.1.5.3]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00564  Glycerophospholipid metabolism
-CLASS       Metabolism; Lipid metabolism; Glycerophospholipid metabolism [PATH:sce00564]
+            sce01110  Biosynthesis of secondary metabolites
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Lipid metabolism
+               00564 Glycerophospholipid metabolism
+                YIL155C (GUT2)
+            Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.1  Acting on the CH-OH group of donors
+               1.1.5  With a quinone or similar compound as acceptor
+                1.1.5.3  glycerol-3-phosphate dehydrogenase
+                 YIL155C (GUT2)
 POSITION    IX:complement(51759..53708)
-MOTIF       Pfam: DAO FAD_binding_2 FAD_oxidored Pyr_redox_2 GIDA Thi4 HI0933_like NAD_binding_8 FAD_binding_3 Lycopene_cycl GMC_oxred_N 3HCDH_N Pyr_redox
-DBLINKS     NCBI-GI: 6322036
+MOTIF       Pfam: DAO DAO_C FAD_binding_2 FAD_oxidored Pyr_redox_2 GIDA HI0933_like NAD_binding_8 Pyr_redox_3 FAD_binding_3 Thi4 GMC_oxred_N Lycopene_cycl LcrV 3HCDH_N
+DBLINKS     NCBI-ProteinID: NP_012111
             NCBI-GeneID: 854651
             SGD: S000001417
-            MIPS: YIL155C
             UniProt: P32191
 AASEQ       649
             MFSVTRRRAAGAAAAMATATGTLYWMTSQGDRPLVHNDPSYMVQFPTAAPPQVSRRDLLD

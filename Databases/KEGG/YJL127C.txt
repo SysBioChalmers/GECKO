@@ -1,13 +1,12 @@
 ENTRY       YJL127C           CDS       T00005
 NAME        SPT10, CRE1, SUD1
-DEFINITION  Spt10p
+DEFINITION  (RefSeq) Spt10p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    X:complement(182298..184220)
-MOTIF       Pfam: zf-H2C2 Acetyltransf_1
-DBLINKS     NCBI-GI: 6322334
+MOTIF       Pfam: zf-H2C2 Acetyltransf_1 Acetyltransf_7
+DBLINKS     NCBI-ProteinID: NP_012408
             NCBI-GeneID: 853315
             SGD: S000003663
-            MIPS: YJL127C
             UniProt: P35208
 AASEQ       640
             MLNQHTSSVPDDEHLQMAHQNSSSEVRNEAAVPDQLLTPLQPYTILLKDGETIATMYPIP

@@ -1,14 +1,25 @@
 ENTRY       YNL201C           CDS       T00005
 NAME        PSY2
-DEFINITION  Psy2p
+DEFINITION  (RefSeq) Psy2p
 ORTHOLOGY   K17491  protein phosphatase 4 regulatory subunit 3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Protein phosphatases and associated proteins [BR:sce01009]
+             Protein Ser/ Thr phosphatases
+              Phosphoprotein phosphatases (PPPs)
+               Protein phosphatase-4
+                Regulatory subunits
+                 YNL201C (PSY2)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              DSBR (double strand breaks repair)
+               HR (homologous recombination)
+                Protein phosphatase 4
+                 YNL201C (PSY2)
 POSITION    XIV:complement(260627..263203)
 MOTIF       Pfam: SMK-1
-DBLINKS     NCBI-GI: 6324128
+DBLINKS     NCBI-ProteinID: NP_014198
             NCBI-GeneID: 855520
             SGD: S000005145
-            MIPS: YNL201C
             UniProt: P40164
 AASEQ       858
             MSLPGTPTTSPTPMDEDTEQAVSVNTEPKRVKVYILENNEWKDTGTGFCIGEVDEGKFAY

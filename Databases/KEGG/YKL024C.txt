@@ -1,18 +1,29 @@
 ENTRY       YKL024C           CDS       T00005
 NAME        URA6, SOC8
-DEFINITION  bifunctional uridylate/adenylate kinase (EC:2.7.4.14)
+DEFINITION  (RefSeq) bifunctional uridylate/adenylate kinase
 ORTHOLOGY   K13800  UMP-CMP kinase [EC:2.7.4.- 2.7.4.14]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00240  Pyrimidine metabolism
             sce01100  Metabolic pathways
 MODULE      sce_M00052  Pyrimidine ribonucleotide biosynthesis, UMP => UDP/UTP,CDP/CTP
-CLASS       Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Nucleotide metabolism
+               00240 Pyrimidine metabolism
+                YKL024C (URA6)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.4  Phosphotransferases with a phosphate group as acceptor
+                2.7.4.14  UMP/CMP kinase
+                 YKL024C (URA6)
+                2.7.4.-  
+                 YKL024C (URA6)
 POSITION    XI:complement(392526..393140)
-MOTIF       Pfam: ADK AAA_18 AAA_17 AAA_33 Thymidylate_kin Zeta_toxin AAA
-DBLINKS     NCBI-GI: 398364671
+MOTIF       Pfam: ADK AAA_17 AAA_18 Thymidylate_kin AAA_33 Zeta_toxin AAA SRP54
+DBLINKS     NCBI-ProteinID: NP_012901
             NCBI-GeneID: 853844
             SGD: S000001507
-            MIPS: YKL024C
             UniProt: P15700
 STRUCTURE   PDB: 1UKZ 1UKY
 AASEQ       204

@@ -1,14 +1,19 @@
 ENTRY       YNL136W           CDS       T00005
 NAME        EAF7
-DEFINITION  Eaf7p
+DEFINITION  (RefSeq) Eaf7p
 ORTHOLOGY   K11399  chromatin modification-related protein EAF7
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Histone modification proteins
+               HAT complexes
+                NuA4 complex
+                 YNL136W (EAF7)
 POSITION    XIV:370368..371645
 MOTIF       Pfam: Eaf7
-DBLINKS     NCBI-GI: 6324193
+DBLINKS     NCBI-ProteinID: NP_014263
             NCBI-GeneID: 855586
             SGD: S000005080
-            MIPS: YNL136W
             UniProt: P53911
 AASEQ       425
             MVVHWTIVDEIRLLRWASEFKPAGIHKHFHMFCIVERMNSPDKYPVTLLQKETMKLGKVF

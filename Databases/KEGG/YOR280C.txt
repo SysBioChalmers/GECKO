@@ -1,13 +1,12 @@
 ENTRY       YOR280C           CDS       T00005
 NAME        FSH3
-DEFINITION  Fsh3p (EC:3.1.-.-)
+DEFINITION  (RefSeq) putative serine hydrolase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:complement(844992..845792)
-MOTIF       Pfam: FSH1 Abhydrolase_5 Abhydrolase_6 Abhydrolase_2 Peptidase_S15
-DBLINKS     NCBI-GI: 6324854
+MOTIF       Pfam: FSH1 Peptidase_S15 Abhydrolase_2 Hydrolase_4
+DBLINKS     NCBI-ProteinID: NP_014923
             NCBI-GeneID: 854454
             SGD: S000005806
-            MIPS: YOR280C
             UniProt: Q99369
 AASEQ       266
             MSEKKKVLMLHGFVQSDKIFSAKTGGLRKNLKKLGYDLYYPCAPHSIDKKALFQSESEKG

@@ -1,14 +1,18 @@
 ENTRY       YLR399C           CDS       T00005
 NAME        BDF1
-DEFINITION  Bdf1p
+DEFINITION  (RefSeq) chromatin-binding protein BDF1
 ORTHOLOGY   K11684  bromodomain-containing factor 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Chromatin remodeling factors
+               SWR1 complex
+                YLR399C (BDF1)
 POSITION    XII:complement(919536..921596)
-MOTIF       Pfam: Bromodomain
-DBLINKS     NCBI-GI: 6323431
+MOTIF       Pfam: Bromodomain BET
+DBLINKS     NCBI-ProteinID: NP_013503
             NCBI-GeneID: 851115
             SGD: S000004391
-            MIPS: YLR399C
             UniProt: P35817
 AASEQ       686
             MTDITPVQNDVDVNGNNVNDDVSSNLKRPIDQGDPSNGLAEEENPANNQLHLKKARLDGD

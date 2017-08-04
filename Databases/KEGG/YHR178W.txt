@@ -1,13 +1,12 @@
 ENTRY       YHR178W           CDS       T00005
 NAME        STB5
-DEFINITION  Stb5p
+DEFINITION  (RefSeq) Stb5p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VIII:459299..461530
-MOTIF       Pfam: Fungal_trans Zn_clus DUF1216
-DBLINKS     NCBI-GI: 398364891
+MOTIF       Pfam: Fungal_trans Zn_clus
+DBLINKS     NCBI-ProteinID: NP_012048
             NCBI-GeneID: 856583
             SGD: S000001221
-            MIPS: YHR178W
             UniProt: P38699
 AASEQ       743
             MDGPNFAHQGGRSQRTTELYSCARCRKLKKKCGKQIPTCANCDKNGAHCSYPGRAPRRTK

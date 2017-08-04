@@ -1,13 +1,12 @@
 ENTRY       YOR256C           CDS       T00005
 NAME        TRE2
-DEFINITION  Tre2p (EC:3.-.-.-)
+DEFINITION  (RefSeq) putative zinc metalloprotease
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:complement(808254..810683)
-MOTIF       Pfam: TFR_dimer PA Peptidase_M28
-DBLINKS     NCBI-GI: 6324830
+MOTIF       Pfam: TFR_dimer Peptidase_M28 PA Nicastrin RecG_N
+DBLINKS     NCBI-ProteinID: NP_014899
             NCBI-GeneID: 854430
             SGD: S000005782
-            MIPS: YOR256C
             UniProt: Q08693
 AASEQ       809
             MRSSYQPVSTTNFEHENAIPTASSSHNLLMSQRFDDSPPSSNDNSIETNITPPPEPPSYE

@@ -1,14 +1,19 @@
 ENTRY       YLR248W           CDS       T00005
 NAME        RCK2, CLK1, CMK3
-DEFINITION  Rck2p (EC:2.7.11.1)
+DEFINITION  (RefSeq) serine/threonine protein kinase RCK2
 ORTHOLOGY   K08286  protein-serine/threonine kinase [EC:2.7.11.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.11  Protein-serine/threonine kinases
+                2.7.11.-  
+                 YLR248W (RCK2)
 POSITION    XII:634252..636084
-MOTIF       Pfam: Pkinase Pkinase_Tyr Kinase-like Kdo YrbL-PhoP_reg
-DBLINKS     NCBI-GI: 6323277
+MOTIF       Pfam: Pkinase Pkinase_Tyr Kinase-like Kdo
+DBLINKS     NCBI-ProteinID: NP_013349
             NCBI-GeneID: 850950
             SGD: S000004238
-            MIPS: YLR248W
             UniProt: P38623
 AASEQ       610
             MLKIKALFSKKKPDQADLSQESKKPFKGKTRSSGTNNKDVSQITSSPKKSFQDKNIVQYP

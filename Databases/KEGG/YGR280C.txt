@@ -1,14 +1,23 @@
 ENTRY       YGR280C           CDS       T00005
 NAME        PXR1, GNO1
-DEFINITION  Pxr1p
+DEFINITION  (RefSeq) telomerase inhibitor
 ORTHOLOGY   K11135  Pin2-interacting protein X1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              90S particles
+               Other 90S particles
+                YGR280C (PXR1)
+            DNA replication proteins [BR:sce03032]
+             Eukaryotic Type
+              DNA Replication Termination Factors
+               Other telomere regulation proteins
+                YGR280C (PXR1)
 POSITION    VII:complement(1050910..1051725)
-MOTIF       Pfam: G-patch YL1 CDC45 MIP-T3
-DBLINKS     NCBI-GI: 6321719
+MOTIF       Pfam: G-patch G-patch_2 CDC45 DUF1510 Tim54 PTPRCAP MIP-T3 SAPS ALMT
+DBLINKS     NCBI-ProteinID: NP_011796
             NCBI-GeneID: 853197
             SGD: S000003512
-            MIPS: YGR280C
             UniProt: P53335
 AASEQ       271
             MGLAATRTKQRFGLDPRNTAWSNDTSRFGHQFLEKFGWKPGMGLGLSPMNSNTSHIKVSI

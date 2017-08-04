@@ -1,14 +1,17 @@
 ENTRY       YCL035C           CDS       T00005
 NAME        GRX1
-DEFINITION  Grx1p
+DEFINITION  (RefSeq) dithiol glutaredoxin GRX1
 ORTHOLOGY   K03676  glutaredoxin 3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chaperones and folding catalysts [BR:sce03110]
+             Protein folding catalysts
+              Protein disulfide isomerase
+               YCL035C (GRX1)
 POSITION    III:complement(60841..61173)
-MOTIF       Pfam: Glutaredoxin Thioredoxin_3 Thioredoxin_9 GST_N_2 MafB19-deam Thioredoxin_2
-DBLINKS     NCBI-GI: 6319814
+MOTIF       Pfam: Glutaredoxin Thioredoxin_3 GST_N_2 Thioredoxin_2
+DBLINKS     NCBI-ProteinID: NP_009895
             NCBI-GeneID: 850322
             SGD: S000000540
-            MIPS: YCL035C
             UniProt: P25373
 STRUCTURE   PDB: 3C1R 2JAC 3C1S
 AASEQ       110

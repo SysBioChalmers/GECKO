@@ -1,13 +1,16 @@
 ENTRY       YCR087C-A         CDS       T00005
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) hypothetical protein
 ORTHOLOGY   K15263  cell growth-regulating nucleolar protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Other ribosome biogenesis factors
+               YCR087C-A
 POSITION    III:complement(264006..264467)
-MOTIF       Pfam: zf-LYAR Gemini_AL2 BAF1_ABF1 Tfb4 PadR zf-C2H2_jaz zf-GRF Acyl-CoA_ox_N
-DBLINKS     NCBI-GI: 6319930
+MOTIF       Pfam: zf-LYAR FTZ Tfb4 Senescence_reg zf-C2H2_jaz SUIM_assoc zf-C2H2_4 MAS20
+DBLINKS     NCBI-ProteinID: NP_010011
             NCBI-GeneID: 850449
             SGD: S000007223
-            MIPS: YCR087C-A
             UniProt: P37263
 AASEQ       153
             MVTFNCEVCNDTVPKKNTEKHYYRCPNAYYTCIDCSKTFEDGVSYKNHTSCISEDEKYQK

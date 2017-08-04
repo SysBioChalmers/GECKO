@@ -1,18 +1,33 @@
 ENTRY       YAR019C           CDS       T00005
 NAME        CDC15, LYT1
-DEFINITION  Cdc15p (EC:2.7.11.1)
+DEFINITION  (RefSeq) serine/threonine protein kinase CDC15
 ORTHOLOGY   K06683  cell division control protein CDC15 [EC:2.7.11.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
             sce04113  Meiosis - yeast
-CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
-            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+            sce04392  Hippo signaling pathway -multiple species
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04392 Hippo signaling pathway - multiple species
+                YAR019C (CDC15)
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YAR019C (CDC15)
+               04113 Meiosis - yeast
+                YAR019C (CDC15)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.11  Protein-serine/threonine kinases
+                2.7.11.1  non-specific serine/threonine protein kinase
+                 YAR019C (CDC15)
 POSITION    I:complement(172211..175135)
-MOTIF       Pfam: Pkinase Pkinase_Tyr Kinase-like Kdo
-DBLINKS     NCBI-GI: 330443388
+MOTIF       Pfam: Pkinase Pkinase_Tyr Kinase-like Sec34 Kdo
+DBLINKS     NCBI-ProteinID: NP_009411
             NCBI-GeneID: 851274
             SGD: S000000072
-            MIPS: YAR019C
             UniProt: P27636
 AASEQ       974
             MNSMADTDRVNLTPIQRASEKSVQYHLKQVIGRGSYGVVYKAINKHTDQVVAIKEVVYEN

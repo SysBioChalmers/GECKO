@@ -1,14 +1,31 @@
 ENTRY       YDL149W           CDS       T00005
-NAME        ATG9, APG9, AUT9, CVT7
-DEFINITION  Atg9p
+NAME        ATG9, APG9, AUT9, CVT6, CVT7
+DEFINITION  (RefSeq) autophagy protein ATG9
 ORTHOLOGY   K17907  autophagy-related protein 9
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04136  Autophagy - other
+            sce04138  Autophagy - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04138 Autophagy - yeast
+                YDL149W (ATG9)
+               04136 Autophagy - other eukaryotes
+                YDL149W (ATG9)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial quality control factors
+              Mitophagy factors
+               Autophagy-related proteins
+                YDL149W (ATG9)
+            Transporters [BR:sce02000]
+             Other Transporters
+              Others
+               YDL149W (ATG9)
 POSITION    IV:184925..187918
 MOTIF       Pfam: APG9
-DBLINKS     NCBI-GI: 6320052
+DBLINKS     NCBI-ProteinID: NP_010132
             NCBI-GeneID: 851406
             SGD: S000002308
-            MIPS: YDL149W
             UniProt: Q12142
 AASEQ       997
             MERDEYQLPNSHGKNTFLSRIFGLQSDEVNPSLNSQEMSNFPLPDIERGSSLLHSTNDSR

@@ -1,16 +1,20 @@
 ENTRY       YPR137W           CDS       T00005
 NAME        RRP9
-DEFINITION  Rrp9p
+DEFINITION  (RefSeq) Rrp9p
 ORTHOLOGY   K14793  ribosomal RNA-processing protein 9
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              90S particles
+               Other 90S particles
+                YPR137W (RRP9)
 POSITION    XVI:802359..804080
-MOTIF       Pfam: WD40 YfhD
-DBLINKS     NCBI-GI: 6325394
+MOTIF       Pfam: WD40 WD40_like Rrn6
+DBLINKS     NCBI-ProteinID: NP_015463
             NCBI-GeneID: 856255
             SGD: S000006341
-            MIPS: YPR137W
             UniProt: Q06506
-STRUCTURE   PDB: 4J0X
+STRUCTURE   PDB: 4J0X 5TZS
 AASEQ       573
             MSDVTQQKKRKRSKGEVNPSKPTVDEEITDPSSNEDEQLEVSDEEDALESEEEFEGENPA
             DKRRRLAKQYLENLKSEANDILTDNRNAEEKDLNNLKERTIDEYNNFDAGDLDKDIIASR

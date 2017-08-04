@@ -1,15 +1,20 @@
 ENTRY       YIR012W           CDS       T00005
 NAME        SQT1
-DEFINITION  Sqt1p
+DEFINITION  (RefSeq) Sqt1p
 ORTHOLOGY   K14818  ribosome assembly protein SQT1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               Export and cytoplasmic maturation factors
+                YIR012W (SQT1)
 POSITION    IX:378486..379781
-MOTIF       Pfam: WD40 PQQ_2 Apc4_WD40 DUF1493
-DBLINKS     NCBI-GI: 6322202
+MOTIF       Pfam: ANAPC4_WD40 DUF1493
+DBLINKS     NCBI-ProteinID: NP_012277
             NCBI-GeneID: 854829
             SGD: S000001451
-            MIPS: YIR012W
             UniProt: P35184
+STRUCTURE   PDB: 4ZOX 4ZOV 5AMS
 AASEQ       431
             MEPQEEFITTEEVEQEIVPTVEVEQDVPVDIEGENDDDDEMMNDDEEALEVDMSNNSLTY
             FDKHTDSVFAIGHHPNLPLVCTGGGDNLAHLWTSHSQPPKFAGTLTGYGESVISCSFTSE

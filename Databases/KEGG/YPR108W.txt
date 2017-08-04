@@ -1,19 +1,28 @@
 ENTRY       YPR108W           CDS       T00005
 NAME        RPN7
-DEFINITION  proteasome regulatory particle lid subunit RPN7
+DEFINITION  (RefSeq) proteasome regulatory particle lid subunit RPN7
 ORTHOLOGY   K03037  26S proteasome regulatory subunit N7
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03050  Proteasome
 MODULE      sce_M00341  Proteasome, 19S regulatory particle (PA700)
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Proteasome [PATH:sce03050]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               03050 Proteasome
+                YPR108W (RPN7)
+            Proteasome [BR:sce03051]
+             Eukaryotic proteasome
+              Regulatory particles
+               PA700 (19S proteasome)
+                non-ATPase subunits
+                 YPR108W (RPN7)
 POSITION    XVI:742454..743743
-MOTIF       Pfam: RPN7 PCI TPR_8 TPR_12 His_Phos_2 TPR_2 TPR_7 DUF357 TPR_21 TPR_1 Ank_2 TPR_17 TPR_19 DUF1897
-DBLINKS     NCBI-GI: 6325365
+MOTIF       Pfam: RPN7 PCI TPR_8 TPR_2 TPR_12 TPR_1 TPR_17 DUF357 DUF5494 DUF1897
+DBLINKS     NCBI-ProteinID: NP_015433
             NCBI-GeneID: 856223
             SGD: S000006312
-            MIPS: YPR108W
             UniProt: Q06103
-STRUCTURE   PDB: 4B4T 4C0V 3J47
+STRUCTURE   PDB: 3JCK 5MPD 5MPE 4CR2 4CR4 4CR3 5A5B 3J47
 AASEQ       429
             MVDVEEKSQEVEYVDPTVNRVPNYEVSEKAFLLTQSKVSIEQRKEAAEFVLAKIKEEEMA
             PYYKYLCEEYLVNNGQSDLEHDEKSDSLNEWIKFDQELYNELCKKNESKIKELNEKIQKL

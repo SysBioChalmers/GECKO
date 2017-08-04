@@ -1,13 +1,12 @@
 ENTRY       YAL008W           CDS       T00005
-NAME        FUN14
-DEFINITION  Fun14p
+NAME        FUN14, MCP3
+DEFINITION  (RefSeq) Fun14p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    I:136914..137510
-MOTIF       Pfam: FUN14
-DBLINKS     NCBI-GI: 6319311
+MOTIF       Pfam: FUN14 ESPR
+DBLINKS     NCBI-ProteinID: NP_009394
             NCBI-GeneID: 851225
             SGD: S000000006
-            MIPS: YAL008W
             UniProt: P18411
 AASEQ       198
             MTLAFNMQRLVFRNLNVGKRMFKNVPLWRFNVANKLGKPLTRSVGLGGAGIVAGGFYLMN

@@ -1,13 +1,24 @@
 ENTRY       YIL146C           CDS       T00005
 NAME        ATG32, ECM37
-DEFINITION  Atg32p
+DEFINITION  (RefSeq) mitophagy protein ATG32
+ORTHOLOGY   K17984  autophagy-related protein 32
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04139  Mitophagy - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04139 Mitophagy - yeast
+                YIL146C (ATG32)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial quality control factors
+              Mitophagy factors
+               Autophagy-related proteins
+                YIL146C (ATG32)
 POSITION    IX:complement(74184..75773)
-MOTIF       Pfam: ATG27
-DBLINKS     NCBI-GI: 6322045
+MOTIF       Pfam: ArsP_1 SWC7 Pex2_Pex12
+DBLINKS     NCBI-ProteinID: NP_012120
             NCBI-GeneID: 854660
             SGD: S000001408
-            MIPS: YIL146C
             UniProt: P40458
 AASEQ       529
             MVLEYQQREGKGSSSKSMPPDSSSTTIHTCSEAQTGEDKGLLDPHLSVLELLSKTGHSPS

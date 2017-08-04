@@ -1,12 +1,12 @@
 ENTRY       YFL034W           CDS       T00005
-DEFINITION  hypothetical protein
+NAME        MIL1
+DEFINITION  (RefSeq) Mil1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VI:65477..68698
-MOTIF       Pfam: DUF726
-DBLINKS     NCBI-GI: 330443533
+MOTIF       Pfam: DUF726 DUF3161
+DBLINKS     NCBI-ProteinID: NP_116583
             NCBI-GeneID: 850510
             SGD: S000001860
-            MIPS: YFL034W
             UniProt: P43564
 AASEQ       1073
             MSDSEEDLGVQLKGLKIARHLKESGEHTDEESNSSPEHDCGLSNQDDLTVMHTQAKEEVF

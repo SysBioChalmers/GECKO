@@ -1,14 +1,26 @@
 ENTRY       YOR386W           CDS       T00005
 NAME        PHR1
-DEFINITION  deoxyribodipyrimidine photo-lyase PHR1 (EC:4.1.99.3)
+DEFINITION  (RefSeq) deoxyribodipyrimidine photo-lyase PHR1
 ORTHOLOGY   K01669  deoxyribodipyrimidine photo-lyase [EC:4.1.99.3]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             4. Lyases
+              4.1  Carbon-carbon lyases
+               4.1.99  Other carbon-carbon lyases
+                4.1.99.3  deoxyribodipyrimidine photo-lyase
+                 YOR386W (PHR1)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              SSBR (single strand breaks repair)
+               Direct repair
+                YOR386W (PHR1)
+             Prokaryotic Type
+                YOR386W (PHR1)
 POSITION    XV:1066839..1068536
-MOTIF       Pfam: FAD_binding_7 DNA_photolyase
-DBLINKS     NCBI-GI: 6324962
+MOTIF       Pfam: FAD_binding_7 DNA_photolyase DUF2200 Mss4
+DBLINKS     NCBI-ProteinID: NP_015031
             NCBI-GeneID: 854568
             SGD: S000005913
-            MIPS: YOR386W
             UniProt: P05066
 AASEQ       565
             MKRTVISSSNAYASKRSRLDIEHDFEQYHSLNKKYYPRPITRTGANQFNNKSRAKPMEIV

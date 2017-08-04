@@ -1,19 +1,31 @@
 ENTRY       YHR165C           CDS       T00005
 NAME        PRP8, DBF3, DNA39, RNA8, SLT21, USA2
-DEFINITION  Prp8p
+DEFINITION  (RefSeq) U4/U6-U5 snRNP complex subunit PRP8
 ORTHOLOGY   K12856  pre-mRNA-processing factor 8
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03040  Spliceosome
-CLASS       Genetic Information Processing; Transcription; Spliceosome [PATH:sce03040]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03040 Spliceosome
+                YHR165C (PRP8)
+            Spliceosome [BR:sce03041]
+             Complex B
+              U4/U6.U5 tri-snRNP components
+               U5 snRNP specific factors
+                YHR165C (PRP8)
+             Complex C
+               U5 SnRNP specific factors
+                YHR165C (PRP8)
 POSITION    VIII:complement(429707..436948)
-MOTIF       Pfam: PROCN PRP8_domainIV U6-snRNA_bdg PRO8NT U5_2-snRNA_bdg PROCT RRM_4
-DBLINKS     NCBI-GI: 6321959
+MOTIF       Pfam: PROCN PRP8_domainIV U6-snRNA_bdg PRO8NT U5_2-snRNA_bdg RRM_4 PROCT TPD Methyltr_RsmF_N
+DBLINKS     NCBI-ProteinID: NP_012035
             NCBI-GeneID: 856570
             SGD: S000001208
-            MIPS: YHR165C
             UniProt: P33334
-STRUCTURE   PDB: 3SBT 4ILH 4ILJ 4I43 3E9O 2OG4 3E66 4ILG 3E9P 4BGD 3ZEF
-                 3SBG
+STRUCTURE   PDB: 3SBT 4ILH 4ILJ 4I43 3E9O 2OG4 3E66 4ILG 3E9P 5DCA 4BGD
+                 3ZEF 3SBG 5M52 5GMK 5GAN 5GAO 5GAP 5GAM 5LJ3 5LJ5 3JCM
+                 5MPS 5WSG 5MQ0 5M5P 5LQW
 AASEQ       2413
             MSGLPPPPPGFEEDSDLALPPPPPPPPGYEIEELDNPMVPSSVNEDTFLPPPPPPPSNFE
             INAEEIVDFTLPPPPPPPGLDELETKAEKKVELHGKRKLDIGKDTFVTRKSRKRAKKMTK

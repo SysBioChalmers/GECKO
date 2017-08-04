@@ -1,14 +1,26 @@
 ENTRY       YBR276C           CDS       T00005
 NAME        PPS1
-DEFINITION  Pps1p (EC:3.1.3.16 3.1.3.48)
-ORTHOLOGY   K01104  protein-tyrosine phosphatase [EC:3.1.3.48]
+DEFINITION  (RefSeq) tyrosine/serine/threonine protein phosphatase PPS1
+ORTHOLOGY   K04459  dual specificity MAP kinase phosphatase [EC:3.1.3.16 3.1.3.48]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.3  Phosphoric-monoester hydrolases
+                3.1.3.16  protein-serine/threonine phosphatase
+                 YBR276C (PPS1)
+                3.1.3.48  protein-tyrosine-phosphatase
+                 YBR276C (PPS1)
+            Protein phosphatases and associated proteins [BR:sce01009]
+             Protein Tyrosine phosphatases (PTPs)
+              Class I PTPs (Dual specificity phosphatases)
+               MAPK phosphatases
+                YBR276C (PPS1)
 POSITION    II:complement(757620..760043)
 MOTIF       Pfam: DSPc Y_phosphatase PTPlike_phytase
-DBLINKS     NCBI-GI: 398365845
+DBLINKS     NCBI-ProteinID: NP_009835
             NCBI-GeneID: 852579
             SGD: S000000480
-            MIPS: YBR276C
             UniProt: P38148
 AASEQ       807
             MVLEVPSITPGELHDLMRLHQDAEWPECKKMFPWAHDISFGQPPDFPHSLAIVKSQSDAN

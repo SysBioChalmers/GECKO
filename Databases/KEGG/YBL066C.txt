@@ -1,13 +1,12 @@
 ENTRY       YBL066C           CDS       T00005
 NAME        SEF1
-DEFINITION  Sef1p
+DEFINITION  (RefSeq) Sef1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    II:complement(96669..100115)
 MOTIF       Pfam: Fungal_trans Zn_clus
-DBLINKS     NCBI-GI: 50593117
+DBLINKS     NCBI-ProteinID: NP_009487
             NCBI-GeneID: 852214
             SGD: S000000162
-            MIPS: YBL066C
             UniProt: P34228
 AASEQ       1148
             MVKDNRDSDQDQDFSSAHMKRQPEQQQLQQHQFPSKKQRISHHDDSHQINHRPVTSCTHC

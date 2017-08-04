@@ -1,20 +1,19 @@
 ENTRY       YGL033W           CDS       T00005
 NAME        HOP2
-DEFINITION  Hop2p
+DEFINITION  (RefSeq) Hop2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
-POSITION    VII:join(435625..435679,435750..436351)
-MOTIF       Pfam: TBPIP Penicillinase_R TMF_TATA_bd Peptidase_M85 DUF2533 CtsR Phage_Integr_2
-DBLINKS     NCBI-GI: 9755333
+POSITION    VII:join(435625..435679,435750..436312,436375..436401)
+MOTIF       Pfam: TBPIP Penicillinase_R MtaB TMF_TATA_bd HSCB_C TMPIT
+DBLINKS     NCBI-ProteinID: NP_011482
             NCBI-GeneID: 852850
             SGD: S000003001
-            MIPS: YGL033W
             UniProt: P53187
-AASEQ       218
+AASEQ       214
             MAPKKKSNDRAIQAKGSEAEQLIEDYLVSQYKPFSVNDIVQNLHNKVTKTTATKALENLV
             NEKRIVSKTFGKIIIYSCNEQDTALPSNIDPSQFDFETVLQLRNDLIELERDKSTAKDAL
             DSVTKEPENEDLLTIIENEENELKKIESKLQSLQDDWDPANDEIVKRIMSEDTLLQKEIT
-            KRSKICKNLIATIKDSVCPKNMNEFLVCILNIFRDLFF
-NTSEQ       657
+            KRSKICKNLIATIKDSVCPKNMNEFLEEIGFEDI
+NTSEQ       645
             atggcaccgaaaaagaaatcaaacgatagagccattcaggcaaaaggctcagaagctgaa
             caattaatagaagattacttggtgtcacaatataaaccattttctgtaaatgatatagtt
             cagaatttgcacaataaagtgacaaaaacaacagcaaccaaagcattagaaaatctcgtt
@@ -25,5 +24,5 @@ NTSEQ       657
             aacgagttgaaaaagattgaatcaaaattacaaagtctacaggatgattgggatccagca
             aatgatgagattgtcaagcggataatgtctgaagatacgctgctacaaaaagaaatcacg
             aagagatcaaagatttgcaaaaacctaattgctacaataaaggactcagtgtgcccgaaa
-            aatatgaatgaatttttggtatgtattttgaacatttttcgagaccttttcttttga
+            aatatgaatgaatttttggaagaaattggatttgaggacatttga
 ///

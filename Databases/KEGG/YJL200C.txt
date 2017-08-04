@@ -1,22 +1,36 @@
 ENTRY       YJL200C           CDS       T00005
 NAME        ACO2
-DEFINITION  aconitate hydratase ACO2 (EC:4.2.1.3)
+DEFINITION  (RefSeq) aconitate hydratase ACO2
 ORTHOLOGY   K17450  homoaconitase [EC:4.2.1.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00300  Lysine biosynthesis
+            sce01100  Metabolic pathways
+            sce01130  Biosynthesis of antibiotics
             sce01210  2-Oxocarboxylic acid metabolism
             sce01230  Biosynthesis of amino acids
 MODULE      sce_M00030  Lysine biosynthesis, AAA pathway, 2-oxoglutarate => 2-aminoadipate => lysine
             sce_M00433  Lysine biosynthesis, 2-oxoglutarate => 2-oxoadipate
-CLASS       Metabolism; Overview; 2-Oxocarboxylic acid metabolism [PATH:sce01210]
-            Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
-            Metabolism; Amino acid metabolism; Lysine biosynthesis [PATH:sce00300]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01210 2-Oxocarboxylic acid metabolism
+                YJL200C (ACO2)
+               01230 Biosynthesis of amino acids
+                YJL200C (ACO2)
+              Amino acid metabolism
+               00300 Lysine biosynthesis
+                YJL200C (ACO2)
+            Enzymes [BR:sce01000]
+             4. Lyases
+              4.2  Carbon-oxygen lyases
+               4.2.1  Hydro-lyases
+                4.2.1.-  
+                 YJL200C (ACO2)
 POSITION    X:complement(56444..58813)
 MOTIF       Pfam: Aconitase Aconitase_C DUF521
-DBLINKS     NCBI-GI: 6322261
+DBLINKS     NCBI-ProteinID: NP_012335
             NCBI-GeneID: 853230
             SGD: S000003736
-            MIPS: YJL200C
             UniProt: P39533
 AASEQ       789
             MLSSANRFYIKRHLATHANMFPSVSKNFQTKVPPYAKLLTNLDKIKQITNNAPLTLAEKI

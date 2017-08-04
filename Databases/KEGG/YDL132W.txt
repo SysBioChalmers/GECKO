@@ -1,6 +1,6 @@
 ENTRY       YDL132W           CDS       T00005
 NAME        CDC53
-DEFINITION  cullin CDC53
+DEFINITION  (RefSeq) cullin CDC53
 ORTHOLOGY   K03347  cullin 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
@@ -9,15 +9,28 @@ PATHWAY     sce04111  Cell cycle - yeast
 MODULE      sce_M00379  SCF-MET30 complex
             sce_M00407  SCF-CDC4 complex
             sce_M00411  SCF-GRR1 complex
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Protein processing in endoplasmic reticulum [PATH:sce04141]
-            Genetic Information Processing; Folding, sorting and degradation; Ubiquitin mediated proteolysis [PATH:sce04120]
-            Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04141 Protein processing in endoplasmic reticulum
+                YDL132W (CDC53)
+               04120 Ubiquitin mediated proteolysis
+                YDL132W (CDC53)
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YDL132W (CDC53)
+            Ubiquitin system [BR:sce04121]
+             Ubiquitin ligases (E3)
+              Multi subunit Ring-finger type E3
+               SCF complex
+                Cullin
+                 YDL132W (CDC53)
 POSITION    IV:224304..226751
 MOTIF       Pfam: Cullin Cullin_Nedd8 Penicillinase_R
-DBLINKS     NCBI-GI: 6320070
+DBLINKS     NCBI-ProteinID: NP_010150
             NCBI-GeneID: 851424
             SGD: S000002290
-            MIPS: YDL132W
             UniProt: Q12018
 STRUCTURE   PDB: 3O2P 3O6B
 AASEQ       815

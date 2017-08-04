@@ -1,13 +1,17 @@
 ENTRY       YDR350C           CDS       T00005
 NAME        ATP22, TCM10
-DEFINITION  Atp22p
+DEFINITION  (RefSeq) Atp22p
 ORTHOLOGY   K17673  mitochondrial translation factor ATP22
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial DNA transcription, translation, and replication factors
+              Mitochondrial transcription and translation factors
+               Other mitochondrial DNA transcription and translation factors
+                YDR350C (ATP22)
 POSITION    IV:complement(1176120..1178174)
-DBLINKS     NCBI-GI: 398366511
+DBLINKS     NCBI-ProteinID: NP_010637
             NCBI-GeneID: 851952
             SGD: S000002758
-            MIPS: YDR350C
             UniProt: P50273
 AASEQ       684
             MLKCICRVYSQPLAQMVTSPLFKHMGSAGTYTILPITNLRHLSTKNCPLKIKSNRSEPLQ

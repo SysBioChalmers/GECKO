@@ -1,18 +1,31 @@
 ENTRY       YBR015C           CDS       T00005
 NAME        MNN2, CRV4, LDB8, TTP1
-DEFINITION  Mnn2p (EC:2.4.1.-)
+DEFINITION  (RefSeq) alpha-1,2-mannosyltransferase MNN2
 ORTHOLOGY   K05535  alpha 1,2-mannosyltransferase [EC:2.4.1.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00513  Various types of N-glycan biosynthesis
             sce01100  Metabolic pathways
 MODULE      sce_M00074  N-glycan biosynthesis, high-mannose type
-CLASS       Metabolism; Glycan biosynthesis and metabolism; Various types of N-glycan biosynthesis [PATH:sce00513]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Glycan biosynthesis and metabolism
+               00513 Various types of N-glycan biosynthesis
+                YBR015C (MNN2)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.4  Glycosyltransferases
+               2.4.1  Hexosyltransferases
+                2.4.1.-  
+                 YBR015C (MNN2)
+            Glycosyltransferases [BR:sce01003]
+             Glycan extension
+              Yeast mannan chain
+               YBR015C (MNN2)
 POSITION    II:complement(267710..269503)
 MOTIF       Pfam: Mannosyl_trans3
-DBLINKS     NCBI-GI: 6319489
+DBLINKS     NCBI-ProteinID: NP_009571
             NCBI-GeneID: 852303
             SGD: S000000219
-            MIPS: YBR015C
             UniProt: P38069
 AASEQ       597
             MLLTKRFSKLFKLTFIVLILCGLFVITNKYMDENTSVKEYKEYLDRYVQSYSNKYSSSSD

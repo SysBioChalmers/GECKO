@@ -1,14 +1,19 @@
 ENTRY       YPR031W           CDS       T00005
 NAME        NTO1
-DEFINITION  Nto1p
+DEFINITION  (RefSeq) Nto1p
 ORTHOLOGY   K11380  NuA3 HAT complex component NTO1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Histone modification proteins
+               HAT complexes
+                NuA3 complex
+                 YPR031W (NTO1)
 POSITION    XVI:631515..633761
-MOTIF       Pfam: zf-HC5HC2H_2 zf-HC5HC2H PHD_2 PHD EPL1 zf-RING-like
-DBLINKS     NCBI-GI: 6325288
+MOTIF       Pfam: zf-HC5HC2H_2 zf-HC5HC2H PHD_2 EPL1 PHD Prok-RING_1
+DBLINKS     NCBI-ProteinID: NP_015356
             NCBI-GeneID: 856143
             SGD: S000006235
-            MIPS: YPR031W
             UniProt: Q12311
 AASEQ       748
             MNRGSLDDGPKLREEKHFQDFYPDLNADTLLPFIVPLVETKDNSTDTDSDDISNRNNREI

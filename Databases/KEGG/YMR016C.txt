@@ -1,16 +1,19 @@
 ENTRY       YMR016C           CDS       T00005
 NAME        SOK2
-DEFINITION  Sok2p
+DEFINITION  (RefSeq) Sok2p
 ORTHOLOGY   K12763  protein SOK2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04113  Meiosis - yeast
-CLASS       Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04113 Meiosis - yeast
+                YMR016C (SOK2)
 POSITION    XIII:complement(303236..305593)
 MOTIF       Pfam: KilA-N
-DBLINKS     NCBI-GI: 6323658
+DBLINKS     NCBI-ProteinID: NP_013729
             NCBI-GeneID: 855030
             SGD: S000004618
-            MIPS: YMR016C
             UniProt: P53438
 AASEQ       785
             MPIGNPINTNDIKSNRMRQESNMSAVSNSESTIGQSTQQQQQQQQYLGQSVQPLMPVSYQ

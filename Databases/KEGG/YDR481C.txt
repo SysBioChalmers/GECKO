@@ -1,18 +1,37 @@
 ENTRY       YDR481C           CDS       T00005
 NAME        PHO8
-DEFINITION  Pho8p (EC:3.1.7.6 3.1.3.1)
+DEFINITION  (RefSeq) alkaline phosphatase PHO8
 ORTHOLOGY   K01077  alkaline phosphatase [EC:3.1.3.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
-PATHWAY     sce00790  Folate biosynthesis
+PATHWAY     sce00730  Thiamine metabolism
+            sce00790  Folate biosynthesis
             sce01100  Metabolic pathways
 MODULE      sce_M00126  Tetrahydrofolate biosynthesis, GTP => THF
-CLASS       Metabolism; Metabolism of cofactors and vitamins; Folate biosynthesis [PATH:sce00790]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Metabolism of cofactors and vitamins
+               00730 Thiamine metabolism
+                YDR481C (PHO8)
+               00790 Folate biosynthesis
+                YDR481C (PHO8)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.3  Phosphoric-monoester hydrolases
+                3.1.3.1  alkaline phosphatase
+                 YDR481C (PHO8)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of other body fluids (saliva and urine)
+               YDR481C (PHO8)
+            Glycosylphosphatidylinositol (GPI)-anchored proteins [BR:sce00537]
+             Enzymes
+              YDR481C (PHO8)
 POSITION    IV:complement(1418550..1420250)
 MOTIF       Pfam: Alk_phosphatase Metalloenzyme
-DBLINKS     NCBI-GI: 398366635
+DBLINKS     NCBI-ProteinID: NP_010769
             NCBI-GeneID: 852092
             SGD: S000002889
-            MIPS: YDR481C
             UniProt: P11491
 AASEQ       566
             MMTHTLPSEQTRLVPGSDSSSRPKKRRISKRSKIIVSTVVCIGLLLVLVQLAFPSSFALR

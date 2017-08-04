@@ -1,21 +1,38 @@
 ENTRY       YIL066C           CDS       T00005
 NAME        RNR3, DIN1, RIR3
-DEFINITION  ribonucleotide-diphosphate reductase subunit RNR3 (EC:1.17.4.1)
+DEFINITION  (RefSeq) ribonucleotide-diphosphate reductase subunit RNR3
 ORTHOLOGY   K10807  ribonucleoside-diphosphate reductase subunit M1 [EC:1.17.4.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00230  Purine metabolism
             sce00240  Pyrimidine metabolism
             sce00480  Glutathione metabolism
             sce01100  Metabolic pathways
-CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
-            Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
-            Metabolism; Metabolism of other amino acids; Glutathione metabolism [PATH:sce00480]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Nucleotide metabolism
+               00230 Purine metabolism
+                YIL066C (RNR3)
+               00240 Pyrimidine metabolism
+                YIL066C (RNR3)
+              Metabolism of other amino acids
+               00480 Glutathione metabolism
+                YIL066C (RNR3)
+            Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.17  Acting on CH or CH2 groups
+               1.17.4  With a disulfide as acceptor
+                1.17.4.1  ribonucleoside-diphosphate reductase
+                 YIL066C (RNR3)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              Other factors with a suspected DNA repair function
+               Modulation of nucleotide pools
+                YIL066C (RNR3)
 POSITION    IX:complement(238099..240708)
-MOTIF       Pfam: Ribonuc_red_lgC Ribonuc_red_lgN ATP-cone NRDD
-DBLINKS     NCBI-GI: 398364373
+MOTIF       Pfam: Ribonuc_red_lgC Ribonuc_red_lgN ATP-cone
+DBLINKS     NCBI-ProteinID: NP_012198
             NCBI-GeneID: 854744
             SGD: S000001328
-            MIPS: YIL066C
             UniProt: P21672
 AASEQ       869
             MYVIKRDGRKEPVQFDKITSRITRLSYGLDPNRIDAVKVTQRIISGVYSGVTTVELDNLA

@@ -1,13 +1,38 @@
 ENTRY       YBR245C           CDS       T00005
 NAME        ISW1, SGN2
-DEFINITION  chromatin-remodeling ATPase ISW1 (EC:3.6.4.- 3.6.1.-)
+DEFINITION  (RefSeq) chromatin-remodeling ATPase ISW1
+ORTHOLOGY   K11654  SWI/SNF-related matrix-associated actin-dependent regulator of chromatin subfamily A member 5 [EC:3.6.4.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.4  Acting on acid anhydrides to facilitate cellular and subcellular movement
+                3.6.4.-  
+                 YBR245C (ISW1)
+            Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase I system
+               Other transcription-related factors
+                NoRC (nucleolar remodeling complex)
+                 YBR245C (ISW1)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Chromatin remodeling factors
+               CHRAC complex
+                YBR245C (ISW1)
+               RSF complex
+                YBR245C (ISW1)
+               WICH complex
+                YBR245C (ISW1)
+               B-WICH complex
+                YBR245C (ISW1)
+               NuRF complex (fruit fly)
+                YBR245C (ISW1)
 POSITION    II:complement(708150..711539)
-MOTIF       Pfam: SNF2_N SLIDE HAND Helicase_C ResIII DEAD AAA_14 DEAD_2
-DBLINKS     NCBI-GI: 6319722
+MOTIF       Pfam: SNF2_N SLIDE HAND Helicase_C ResIII HDA2-3 ERCC3_RAD25_C DEAD DEAD_2 AAA_14
+DBLINKS     NCBI-ProteinID: NP_009804
             NCBI-GeneID: 852547
             SGD: S000000449
-            MIPS: YBR245C
             UniProt: P38144
 STRUCTURE   PDB: 2Y9Y 2Y9Z
 AASEQ       1129

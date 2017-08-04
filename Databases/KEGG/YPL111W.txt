@@ -1,21 +1,36 @@
 ENTRY       YPL111W           CDS       T00005
 NAME        CAR1, LPH15
-DEFINITION  arginase (EC:3.5.3.1)
+DEFINITION  (RefSeq) arginase
 ORTHOLOGY   K01476  arginase [EC:3.5.3.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
-PATHWAY     sce00330  Arginine and proline metabolism
+PATHWAY     sce00220  Arginine biosynthesis
+            sce00330  Arginine and proline metabolism
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
+            sce01130  Biosynthesis of antibiotics
             sce01230  Biosynthesis of amino acids
 MODULE      sce_M00134  Polyamine biosynthesis, arginine => ornithine => putrescine
-CLASS       Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
-            Metabolism; Amino acid metabolism; Arginine and proline metabolism [PATH:sce00330]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01230 Biosynthesis of amino acids
+                YPL111W (CAR1)
+              Amino acid metabolism
+               00220 Arginine biosynthesis
+                YPL111W (CAR1)
+               00330 Arginine and proline metabolism
+                YPL111W (CAR1)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.5  Acting on carbon-nitrogen bonds, other than peptide bonds
+               3.5.3  In linear amidines
+                3.5.3.1  arginase
+                 YPL111W (CAR1)
 POSITION    XVI:339944..340945
 MOTIF       Pfam: Arginase
-DBLINKS     NCBI-GI: 6325146
+DBLINKS     NCBI-ProteinID: NP_015214
             NCBI-GeneID: 855993
             SGD: S000006032
-            MIPS: YPL111W
             UniProt: P00812
 AASEQ       333
             METGPHYNYYKNRELSIVLAPFSGGQGKLGVEKGPKYMLKHGLQTSIEDLGWSTELEPSM

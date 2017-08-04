@@ -1,16 +1,25 @@
 ENTRY       YLR066W           CDS       T00005
 NAME        SPC3
-DEFINITION  Spc3p
+DEFINITION  (RefSeq) signal peptidase complex subunit SPC3
 ORTHOLOGY   K12948  signal peptidase complex subunit 3 [EC:3.4.-.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03060  Protein export
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Protein export [PATH:sce03060]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               03060 Protein export
+                YLR066W (SPC3)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.4  Acting on peptide bonds (peptidases)
+               3.4.-  Acting on peptide bonds (peptidases)
+                3.4.-.-  
+                 YLR066W (SPC3)
 POSITION    XII:267169..267723
-MOTIF       Pfam: SPC22
-DBLINKS     NCBI-GI: 6323095
+MOTIF       Pfam: SPC22 HIM1
+DBLINKS     NCBI-ProteinID: NP_013167
             NCBI-GeneID: 850755
             SGD: S000004056
-            MIPS: YLR066W
             UniProt: Q12133
 AASEQ       184
             MFSFVQRFQNVSNQAFSMGIVMVVFIMASSYYQLINNNAFSVPSNIDNVKTLINVRTSRY

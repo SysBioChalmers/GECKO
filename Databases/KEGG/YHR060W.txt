@@ -1,13 +1,12 @@
 ENTRY       YHR060W           CDS       T00005
 NAME        VMA22, CEV1, VPH6
-DEFINITION  Vma22p
+DEFINITION  (RefSeq) Vma22p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VIII:220725..221270
-MOTIF       Pfam: Laminin_G_2 DUF694 Laminin_G_1 MRP-S26 Peroxin-13_N Peptidase_S49_N
-DBLINKS     NCBI-GI: 6321851
+MOTIF       Pfam: MRP-S26 Laminin_G_1 Laminin_G_2
+DBLINKS     NCBI-ProteinID: NP_011927
             NCBI-GeneID: 856457
             SGD: S000001102
-            MIPS: YHR060W
             UniProt: P38784
 AASEQ       181
             MSETRMAQNMDTTDEQYLRLIELLSNYDSTLEQLQKGFQDGYIQLSRSNYYNKDSLRGNY

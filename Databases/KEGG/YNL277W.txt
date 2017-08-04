@@ -1,17 +1,27 @@
 ENTRY       YNL277W           CDS       T00005
 NAME        MET2
-DEFINITION  homoserine O-acetyltransferase (EC:2.3.1.31)
+DEFINITION  (RefSeq) homoserine O-acetyltransferase
 ORTHOLOGY   K00641  homoserine O-acetyltransferase [EC:2.3.1.31]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00270  Cysteine and methionine metabolism
             sce01100  Metabolic pathways
-CLASS       Metabolism; Amino acid metabolism; Cysteine and methionine metabolism [PATH:sce00270]
+            sce01130  Biosynthesis of antibiotics
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Amino acid metabolism
+               00270 Cysteine and methionine metabolism
+                YNL277W (MET2)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.3  Acyltransferases
+               2.3.1  Transferring groups other than aminoacyl groups
+                2.3.1.31  homoserine O-acetyltransferase
+                 YNL277W (MET2)
 POSITION    XIV:117349..118809
-MOTIF       Pfam: Abhydrolase_1 Abhydrolase_6 Abhydrolase_5
-DBLINKS     NCBI-GI: 6324052
+MOTIF       Pfam: Abhydrolase_1 Abhydrolase_6 Hydrolase_4 Plasmodium_Vir
+DBLINKS     NCBI-ProteinID: NP_014122
             NCBI-GeneID: 855444
             SGD: S000005221
-            MIPS: YNL277W
             UniProt: P08465
 AASEQ       486
             MSHTLKSKTLQELDIEEIKETNPLLKLVQGQRIVQVPELVLESGVVINNFPIAYKTWGTL

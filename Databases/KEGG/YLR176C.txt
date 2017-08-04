@@ -1,16 +1,24 @@
 ENTRY       YLR176C           CDS       T00005
 NAME        RFX1, CRT1
-DEFINITION  Rfx1p
+DEFINITION  (RefSeq) Rfx1p
 ORTHOLOGY   K09175  regulatory factor X, other
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
-CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YLR176C (RFX1)
+            Transcription factors [BR:sce03000]
+             Eukaryotic Type
+              Other basic domains
+               RF-X
+                YLR176C (RFX1)
 POSITION    XII:complement(507797..510232)
-MOTIF       Pfam: RFX_DNA_binding Pox_D5
-DBLINKS     NCBI-GI: 6323205
+MOTIF       Pfam: RFX_DNA_binding Pox_D5 Cdc6_C
+DBLINKS     NCBI-ProteinID: NP_013277
             NCBI-GeneID: 850873
             SGD: S000004166
-            MIPS: YLR176C
             UniProt: P48743
 AASEQ       811
             MVIFKERKPTENLFTRKIPAKYFIFSPSFLSVHYFEFYLPMSGDNNIEPTSRGSNDNSNG

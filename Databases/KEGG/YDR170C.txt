@@ -1,14 +1,26 @@
 ENTRY       YDR170C           CDS       T00005
 NAME        SEC7
-DEFINITION  Sec7p
+DEFINITION  (RefSeq) Arf family guanine nucleotide exchange factor SEC7
+ORTHOLOGY   K18442  brefeldin A-inhibited guanine nucleotide-exchange protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04144  Endocytosis
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04144 Endocytosis
+                YDR170C (SEC7)
+            Membrane trafficking [BR:sce04131]
+             Endosome - Golgi transport
+              Arf GTPases and associated proteins
+               Arf GTPase associated proteins
+                YDR170C (SEC7)
 POSITION    IV:complement(796193..802222)
-MOTIF       Pfam: Sec7 Sec7_N DUF1981
-DBLINKS     NCBI-GI: 398365941
+MOTIF       Pfam: Sec7 Sec7_N DUF1981 DCB
+DBLINKS     NCBI-ProteinID: NP_010454
             NCBI-GeneID: 851748
             SGD: S000002577
-            MIPS: YDR170C
             UniProt: P11075
+STRUCTURE   PDB: 4OIY
 AASEQ       2009
             MSEQNSVVNAEKGDGEISSNVETASSVNPSVKPQNAIKEEAKETNGEDQKCKGPENAGST
             AETKETSNDATNGMKTPEETEDTNDKRHDDEGEDGDEDEDEDEDEDEDNGDEDDEDVDSS

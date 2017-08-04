@@ -1,12 +1,11 @@
 ENTRY       YGR161C-C         CDS       T00005
-DEFINITION  gag protein
+DEFINITION  (RefSeq) gag protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:complement(821693..823015)
-MOTIF       Pfam: TYA UBN2 UBN2_2
-DBLINKS     NCBI-GI: 7839177
+MOTIF       Pfam: TYA Retrotran_gag_2
+DBLINKS     NCBI-ProteinID: NP_058166
             NCBI-GeneID: 853069
             SGD: S000007367
-            MIPS: YGR161C-C
             UniProt: P0CX65 P0CX66 P0CX67 P0CX68 P0CX69
 AASEQ       440
             MESQQLSNYPHISHGSACASVTSKEVHTNQDPLDVSASKIQEYDKASTKANSQQTTTPAS

@@ -1,17 +1,25 @@
 ENTRY       YLL009C           CDS       T00005
 NAME        COX17
-DEFINITION  Cox17p
+DEFINITION  (RefSeq) copper metallochaperone COX17
 ORTHOLOGY   K02260  cytochrome c oxidase assembly protein subunit 17
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00190  Oxidative phosphorylation
             sce01100  Metabolic pathways
-CLASS       Metabolism; Energy metabolism; Oxidative phosphorylation [PATH:sce00190]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Energy metabolism
+               00190 Oxidative phosphorylation
+                YLL009C (COX17)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial quality control factors
+              Mitochondrial respiratory chain complex assembly factors
+               Complex-IV assembly factors
+                YLL009C (COX17)
 POSITION    XII:complement(131205..131414)
-MOTIF       Pfam: COX17 CHCH Cmc1 WBS_methylT
-DBLINKS     NCBI-GI: 6323020
+MOTIF       Pfam: COX17 CHCH Cmc1
+DBLINKS     NCBI-ProteinID: NP_013092
             NCBI-GeneID: 850651
             SGD: S000003932
-            MIPS: YLL009C
             UniProt: Q12287
 STRUCTURE   PDB: 1Z2G 1U96 1U97
 AASEQ       69

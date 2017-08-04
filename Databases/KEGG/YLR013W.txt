@@ -1,13 +1,12 @@
 ENTRY       YLR013W           CDS       T00005
 NAME        GAT3
-DEFINITION  Gat3p
+DEFINITION  (RefSeq) Gat3p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XII:171339..171764
-MOTIF       Pfam: GATA Cytochrome_C554
-DBLINKS     NCBI-GI: 6323041
+MOTIF       Pfam: GATA
+DBLINKS     NCBI-ProteinID: NP_013113
             NCBI-GeneID: 850700
             SGD: S000004003
-            MIPS: YLR013W
             UniProt: Q07928
 AASEQ       141
             MNIKTLCHPEYKRISVESLLNPVEETIDCEKPHSQTKINTAKPISASLYVTTNNTAVVQH

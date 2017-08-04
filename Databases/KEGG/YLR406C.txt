@@ -1,16 +1,27 @@
 ENTRY       YLR406C           CDS       T00005
 NAME        RPL31B
-DEFINITION  ribosomal 60S subunit protein L31B
+DEFINITION  (RefSeq) ribosomal 60S subunit protein L31B
 ORTHOLOGY   K02910  large subunit ribosomal protein L31e
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03010  Ribosome
-CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+MODULE      sce_M00177  Ribosome, eukaryotes
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03010 Ribosome
+                YLR406C (RPL31B)
+            Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Eukaryotes
+               Large subunit
+                YLR406C (RPL31B)
+              Archaea
+                YLR406C (RPL31B)
 POSITION    XII:complement(join(931065..931349,931699..931755))
 MOTIF       Pfam: Ribosomal_L31e
-DBLINKS     NCBI-GI: 398366143
+DBLINKS     NCBI-ProteinID: NP_013510
             NCBI-GeneID: 851122
             SGD: S000004398
-            MIPS: YLR406C
             UniProt: P0C2H9
 AASEQ       113
             MAGLKDVVTREYTINLHKRLHGVSFKKRAPRAVKEIKKFAKLHMGTEDVRLAPELNQAIW

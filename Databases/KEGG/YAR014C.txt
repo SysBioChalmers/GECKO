@@ -1,13 +1,12 @@
 ENTRY       YAR014C           CDS       T00005
 NAME        BUD14
-DEFINITION  Bud14p
+DEFINITION  (RefSeq) protein phosphatase regulator BUD14
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    I:complement(166742..168871)
 MOTIF       Pfam: SH3_1 SH3_9
-DBLINKS     NCBI-GI: 330443386
+DBLINKS     NCBI-ProteinID: NP_009408
             NCBI-GeneID: 851271
             SGD: S000000069
-            MIPS: YAR014C
             UniProt: P27637
 AASEQ       709
             MSNKEEHVDETSASGVKEVSSIAARHDNGYAPSLITSTSGMDSFQSHALLNDPTLIEDYS

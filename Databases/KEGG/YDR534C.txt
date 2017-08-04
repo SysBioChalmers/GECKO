@@ -1,12 +1,12 @@
 ENTRY       YDR534C           CDS       T00005
 NAME        FIT1
-DEFINITION  Fit1p
+DEFINITION  (RefSeq) Fit1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(1503314..1504900)
-DBLINKS     NCBI-GI: 6320743
+MOTIF       Pfam: FIT1_2
+DBLINKS     NCBI-ProteinID: NP_010823
             NCBI-GeneID: 852147
             SGD: S000002942
-            MIPS: YDR534C
             UniProt: Q04433
 AASEQ       528
             MKLSSAFVLSAITVAALGESITTTITATKNGHVYTKTVTQDATFVWAGEGAAVTSAVTEA

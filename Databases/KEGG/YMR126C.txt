@@ -1,13 +1,11 @@
 ENTRY       YMR126C           CDS       T00005
 NAME        DLT1
-DEFINITION  Dlt1p
+DEFINITION  (RefSeq) Dlt1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:complement(520761..521789)
-MOTIF       Pfam: OppC_N
-DBLINKS     NCBI-GI: 6323774
+DBLINKS     NCBI-ProteinID: NP_013845
             NCBI-GeneID: 855156
             SGD: S000004733
-            MIPS: YMR126C
             UniProt: Q04216
 AASEQ       342
             MSGFAKLKSWLYKASLFVSLILLIGFSVVLPIDSIAQASKSENNAFNTFIVVGALVVFGV

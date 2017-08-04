@@ -1,13 +1,12 @@
 ENTRY       YDR084C           CDS       T00005
 NAME        TVP23
-DEFINITION  Tvp23p
+DEFINITION  (RefSeq) Tvp23p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(613405..614004)
-MOTIF       Pfam: DUF846
-DBLINKS     NCBI-GI: 398365491
+MOTIF       Pfam: DUF846 FA_desaturase
+DBLINKS     NCBI-ProteinID: NP_010369
             NCBI-GeneID: 851657
             SGD: S000002491
-            MIPS: YDR084C
             UniProt: P38962
 AASEQ       199
             MDQARNFYNTILKSSHPLLLSFHLAGKAVPIVFYIIGSMFLNFTPQFITVVLLLSFDFYL

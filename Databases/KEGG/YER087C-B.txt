@@ -1,21 +1,32 @@
 ENTRY       YER087C-B         CDS       T00005
 NAME        SBH1, SEB1, YER087C-A
-DEFINITION  Sbh1p
+DEFINITION  (RefSeq) Arf family guanine nucleotide exchange factor SBH1
 ORTHOLOGY   K09481  protein transport protein SEC61 subunit beta
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03060  Protein export
             sce04141  Protein processing in endoplasmic reticulum
             sce04145  Phagosome
 MODULE      sce_M00401  Sec61 complex
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Protein export [PATH:sce03060]
-            Genetic Information Processing; Folding, sorting and degradation; Protein processing in endoplasmic reticulum [PATH:sce04141]
-            Cellular Processes; Transport and catabolism; Phagosome [PATH:sce04145]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               03060 Protein export
+                YER087C-B (SBH1)
+               04141 Protein processing in endoplasmic reticulum
+                YER087C-B (SBH1)
+             Cellular Processes
+              Transport and catabolism
+               04145 Phagosome
+                YER087C-B (SBH1)
+            Secretion system [BR:sce02044]
+             Sec (secretion) system
+              Eukaryotic Sec-SRP protein
+               YER087C-B (SBH1)
 POSITION    V:complement(332582..332830)
 MOTIF       Pfam: Sec61_beta
-DBLINKS     NCBI-GI: 398364575
+DBLINKS     NCBI-ProteinID: NP_011011
             NCBI-GeneID: 856821
             SGD: S000002128
-            MIPS: YER087C-B
             UniProt: P52870
 AASEQ       82
             MSSPTPPGGQRTLQKRKQGSSQKVAASAPKKNTNSNNSILKIYSDEATGLRVDPLVVLFL

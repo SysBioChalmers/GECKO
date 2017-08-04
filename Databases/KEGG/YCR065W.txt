@@ -1,14 +1,18 @@
 ENTRY       YCR065W           CDS       T00005
 NAME        HCM1
-DEFINITION  Hcm1p
+DEFINITION  (RefSeq) Hcm1p
 ORTHOLOGY   K09413  forkhead transcription factor HCM1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription factors [BR:sce03000]
+             Eukaryotic Type
+              Helix-turn-helix
+               Fork head/winged helix other regulators
+                YCR065W (HCM1)
 POSITION    III:229310..231004
-MOTIF       Pfam: Fork_head
-DBLINKS     NCBI-GI: 10383801
+MOTIF       Pfam: Forkhead
+DBLINKS     NCBI-ProteinID: NP_009991
             NCBI-GeneID: 850429
             SGD: S000000661
-            MIPS: YCR065W
             UniProt: P25364
 AASEQ       564
             MMNEDISIIDGHNSFLTEKSTVLLTQAKRTLEDEKEMITPPSSTVRKTMKEVNKRPSHPL

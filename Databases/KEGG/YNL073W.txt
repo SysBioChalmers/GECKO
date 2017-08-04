@@ -1,17 +1,38 @@
 ENTRY       YNL073W           CDS       T00005
 NAME        MSK1
-DEFINITION  lysine--tRNA ligase MSK1 (EC:6.1.1.6)
+DEFINITION  (RefSeq) lysine--tRNA ligase MSK1
 ORTHOLOGY   K04567  lysyl-tRNA synthetase, class II [EC:6.1.1.6]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00970  Aminoacyl-tRNA biosynthesis
 MODULE      sce_M00359  Aminoacyl-tRNA biosynthesis, eukaryotes
-CLASS       Genetic Information Processing; Translation; Aminoacyl-tRNA biosynthesis [PATH:sce00970]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               00970 Aminoacyl-tRNA biosynthesis
+                YNL073W (MSK1)
+            Enzymes [BR:sce01000]
+             6. Ligases
+              6.1  Forming carbon-oxygen bonds
+               6.1.1  Ligases forming aminoacyl-tRNA and related compounds
+                6.1.1.6  lysine---tRNA ligase
+                 YNL073W (MSK1)
+            Amino acid related enzymes [BR:sce01007]
+             Aminoacyl-tRNA synthetase
+              Class II (A)
+               YNL073W (MSK1)
+            Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              Aminoacyl-tRNA synthetases (AARSs)
+               Multi-aminoacyl-tRNA synthetase complex (MSC)
+                YNL073W (MSK1)
+             Prokaryotic Type
+               Other AARSs
+                YNL073W (MSK1)
 POSITION    XIV:488386..490116
 MOTIF       Pfam: tRNA-synt_2 tRNA_anti-codon tRNA-synt_2d DUF3749
-DBLINKS     NCBI-GI: 6324256
+DBLINKS     NCBI-ProteinID: NP_014326
             NCBI-GeneID: 855651
             SGD: S000005017
-            MIPS: YNL073W
             UniProt: P32048
 AASEQ       576
             MNVLLKRRSLTFAPRWLWCKCRSSRSRPYSLAHAVDTSKMEATRRNGQIVKDLGRYYPSM

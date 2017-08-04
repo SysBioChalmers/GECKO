@@ -1,15 +1,26 @@
 ENTRY       YDR334W           CDS       T00005
 NAME        SWR1
-DEFINITION  Swr1p (EC:3.6.4.12 3.6.1.-)
+DEFINITION  (RefSeq) chromatin-remodeling protein SWR1
 ORTHOLOGY   K11681  helicase SWR1 [EC:3.6.4.12]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.4  Acting on acid anhydrides to facilitate cellular and subcellular movement
+                3.6.4.12  DNA helicase
+                 YDR334W (SWR1)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Chromatin remodeling factors
+               SWR1 complex
+                YDR334W (SWR1)
 POSITION    IV:1135932..1140476
-MOTIF       Pfam: SNF2_N HSA Helicase_C DEAD
-DBLINKS     NCBI-GI: 6320541
+MOTIF       Pfam: SNF2_N Helicase_C ResIII HSA DEAD
+DBLINKS     NCBI-ProteinID: NP_010621
             NCBI-GeneID: 851934
             SGD: S000002742
-            MIPS: YDR334W
             UniProt: Q05471
+STRUCTURE   PDB: 4M6B 5I9E
 AASEQ       1514
             MTTSRKSHAKDKKAGGEQDLADLKFRYDLLTNELFHLREFVSLVDYDPTHFNDSESFQKF
             LRETHLSLEERGEKFTDDVAKKGTNGDLTRRRRNLRTSTVVSSETTNEKKGDIELKLESI

@@ -1,13 +1,12 @@
 ENTRY       YKR105C           CDS       T00005
 NAME        VBA5
-DEFINITION  Vba5p
+DEFINITION  (RefSeq) basic amino acid transporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XI:complement(658716..660464)
-MOTIF       Pfam: MFS_1 Sugar_tr TRI12
-DBLINKS     NCBI-GI: 398365555
+MOTIF       Pfam: MFS_1 TRI12 Sugar_tr OATP
+DBLINKS     NCBI-ProteinID: NP_013031
             NCBI-GeneID: 853980
             SGD: S000001813
-            MIPS: YKR105C
             UniProt: P36172
 AASEQ       582
             MEETKYSSQQEIEGACGSDASLNARGSNDSPMGLSLYLCLASLTLVLFITALDILIVGTI

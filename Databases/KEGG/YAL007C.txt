@@ -1,14 +1,27 @@
 ENTRY       YAL007C           CDS       T00005
 NAME        ERP2
-DEFINITION  Erp2p
-ORTHOLOGY   K14825  protein ERP2
+DEFINITION  (RefSeq) Erp2p
+ORTHOLOGY   K14825  p24 family protein gamma-2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               Other pre-60S particles
+                YAL007C (ERP2)
+            Membrane trafficking [BR:sce04131]
+             Endoplasmic reticulum (ER) - Golgi transport
+              Forward pathways
+               p24 family proteins
+                YAL007C (ERP2)
+            Transporters [BR:sce02000]
+             Other Transporters
+              Others
+               YAL007C (ERP2)
 POSITION    I:complement(137698..138345)
-MOTIF       Pfam: EMP24_GP25L GP41
-DBLINKS     NCBI-GI: 6319312
+MOTIF       Pfam: EMP24_GP25L
+DBLINKS     NCBI-ProteinID: NP_009395
             NCBI-GeneID: 851226
             SGD: S000000005
-            MIPS: YAL007C
             UniProt: P39704
 AASEQ       215
             MIKSTIALPSFFIVLILALVNSVAASSSYAPVAISLPAFSKECLYYDMVTEDDSLAVGYQ

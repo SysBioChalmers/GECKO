@@ -1,14 +1,23 @@
 ENTRY       YCR002C           CDS       T00005
 NAME        CDC10
-DEFINITION  septin CDC10
+DEFINITION  (RefSeq) septin CDC10
 ORTHOLOGY   K16938  septin 3/9/12
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Cytoskeleton proteins [BR:sce04812]
+             Eukaryotic cytoskeleton proteins
+              Septins
+               Septins
+                Group 1
+                 YCR002C (CDC10)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of haemopoietic cells  (B-cell, T-cell, DC-cell, reticulocyte, and mast cell)
+               YCR002C (CDC10)
 POSITION    III:complement(117380..118348)
-MOTIF       Pfam: Septin MMR_HSR1 AIG1 DUF258 GTP_EFTU Dynamin_N AAA_24 AAA_10 FtsK_SpoIIIE Gtr1_RagA Miro AAA_23 AAA_22 ABC_tran AAA_16 AAA_14 IIGP NB-ARC FeoB_N AAA_29 MobB PduV-EutP T2SE AAA_33 AAA_17
-DBLINKS     NCBI-GI: 6319847
+MOTIF       Pfam: Septin MMR_HSR1 AIG1 RsgA_GTPase GTP_EFTU Dynamin_N AAA_22 Gtr1_RagA AAA_16 FtsK_SpoIIIE NB-ARC ABC_tran IIGP AAA_14 Roc FeoB_N AAA_29 AAA_24 Reprolysin_3
+DBLINKS     NCBI-ProteinID: NP_009928
             NCBI-GeneID: 850358
             SGD: S000000595
-            MIPS: YCR002C
             UniProt: P25342
 AASEQ       322
             MDPLSSVQPASYVGFDTITNQIEHRLLKKGFQFNIMVVGQSGLGKSTLINTLFASHLIDS

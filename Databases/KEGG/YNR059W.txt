@@ -1,13 +1,12 @@
 ENTRY       YNR059W           CDS       T00005
 NAME        MNT4
-DEFINITION  Mnt4p (EC:2.4.1.-)
+DEFINITION  (RefSeq) putative alpha-1,3-mannosyltransferase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIV:736803..738545
 MOTIF       Pfam: Mannosyl_trans3
-DBLINKS     NCBI-GI: 398365843
+DBLINKS     NCBI-ProteinID: NP_014457
             NCBI-GeneID: 855796
             SGD: S000005342
-            MIPS: YNR059W
             UniProt: P53745
 AASEQ       580
             MVLRIRRIKKLAPLIFTSLLSLIVLFRVYRQYPFSDHFETRREDDRSGNVHCFSRLRQIE

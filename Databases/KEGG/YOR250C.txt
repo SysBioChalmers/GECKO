@@ -1,18 +1,33 @@
 ENTRY       YOR250C           CDS       T00005
 NAME        CLP1
-DEFINITION  Clp1p
+DEFINITION  (RefSeq) cleavage polyadenylation factor subunit CLP1
 ORTHOLOGY   K14399  polyribonucleotide 5'-hydroxyl-kinase [EC:2.7.1.78]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03015  mRNA surveillance pathway
-CLASS       Genetic Information Processing; Translation; mRNA surveillance pathway [PATH:sce03015]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03015 mRNA surveillance pathway
+                YOR250C (CLP1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.1  Phosphotransferases with an alcohol group as acceptor
+                2.7.1.78  polynucleotide 5'-hydroxyl-kinase
+                 YOR250C (CLP1)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA processing factors
+               3' end processing
+                Pre-mRNA cleavage factor IIm (CFIIm)
+                 YOR250C (CLP1)
 POSITION    XV:complement(800970..802307)
-MOTIF       Pfam: Clp1 MobB AAA_16 AAA_14 Miro PduV-EutP ATP-synt_ab MMR_HSR1 AAA_28 AAA_17
-DBLINKS     NCBI-GI: 6324824
+MOTIF       Pfam: CLP1_P Clp1 CLP1_N AAA_16 PduV-EutP AAA_14 AAA_24 CbiA ATP-synt_ab Roc Kinase-PPPase
+DBLINKS     NCBI-ProteinID: NP_014893
             NCBI-GeneID: 854424
             SGD: S000005776
-            MIPS: YOR250C
             UniProt: Q08685
-STRUCTURE   PDB: 2NPI
+STRUCTURE   PDB: 4OI4 4C0H 4C0B 2NPI
 AASEQ       445
             MASLPGIDEHTTSEELITGDNEWHKLVIPKGSDWQIDLKAEGKLIVKVNSGIVEIFGTEL
             AVDDEYTFQNWKFPIYAVEETELLWKCPDLTTNTITVKPNHTMKYIYNLHFMLEKIRMSN

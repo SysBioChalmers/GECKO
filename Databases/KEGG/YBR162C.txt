@@ -1,13 +1,12 @@
 ENTRY       YBR162C           CDS       T00005
 NAME        TOS1
-DEFINITION  Tos1p
+DEFINITION  (RefSeq) Tos1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    II:complement(563203..564570)
-MOTIF       Pfam: DUF2401 DUF2403 Macoilin
-DBLINKS     NCBI-GI: 6319638
+MOTIF       Pfam: DUF2401 DUF2403
+DBLINKS     NCBI-ProteinID: NP_009720
             NCBI-GeneID: 852459
             SGD: S000000366
-            MIPS: YBR162C
             UniProt: P38288
 AASEQ       455
             MLQKLSMTALVGLFSSVVSLVNADCTYSGGNYYCAQTDAIIYSNVGLSATYQDVTNMDES

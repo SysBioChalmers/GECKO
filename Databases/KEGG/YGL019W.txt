@@ -1,16 +1,29 @@
 ENTRY       YGL019W           CDS       T00005
 NAME        CKB1
-DEFINITION  Ckb1p
+DEFINITION  (RefSeq) casein kinase 2 regulatory subunit CKB1
 ORTHOLOGY   K03115  casein kinase II subunit beta
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03008  Ribosome biogenesis in eukaryotes
-CLASS       Genetic Information Processing; Translation; Ribosome biogenesis in eukaryotes [PATH:sce03008]
+            sce04139  Mitophagy - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03008 Ribosome biogenesis in eukaryotes
+                YGL019W (CKB1)
+             Cellular Processes
+              Transport and catabolism
+               04139 Mitophagy - yeast
+                YGL019W (CKB1)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              90S particles
+               Kinase
+                YGL019W (CKB1)
 POSITION    VII:458156..458992
 MOTIF       Pfam: CK_II_beta
-DBLINKS     NCBI-GI: 398364887
+DBLINKS     NCBI-ProteinID: NP_011496
             NCBI-GeneID: 852865
             SGD: S000002987
-            MIPS: YGL019W
             UniProt: P43639
 AASEQ       278
             MSQEFVEDYSRTGSSDDEDSGAYDEWIPSFCSRFGHEYFCQVPTEFIEDDFNMTSLSQEV

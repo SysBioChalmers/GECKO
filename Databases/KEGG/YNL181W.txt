@@ -1,12 +1,12 @@
 ENTRY       YNL181W           CDS       T00005
-DEFINITION  hypothetical protein (EC:1.-.-.-)
+NAME        PBR1
+DEFINITION  (RefSeq) putative oxidoreductase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIV:298335..299558
-MOTIF       Pfam: adh_short KR adh_short_C2 HxlR
-DBLINKS     NCBI-GI: 330443702
+MOTIF       Pfam: adh_short KR adh_short_C2 HxlR DUF3012
+DBLINKS     NCBI-ProteinID: NP_014218
             NCBI-GeneID: 855540
             SGD: S000005125
-            MIPS: YNL181W
             UniProt: P53878
 AASEQ       407
             MPLNIIGTALLDGTDKIPYYQTIKKVAPYVLATGAIKYWSRGPSNTWERKLHGKVYLVTG

@@ -1,13 +1,25 @@
 ENTRY       YNL036W           CDS       T00005
 NAME        NCE103, NCE3
-DEFINITION  carbonate dehydratase NCE103 (EC:4.2.1.1)
+DEFINITION  (RefSeq) carbonate dehydratase NCE103
+ORTHOLOGY   K01673  carbonic anhydrase [EC:4.2.1.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00910  Nitrogen metabolism
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Energy metabolism
+               00910 Nitrogen metabolism
+                YNL036W (NCE103)
+            Enzymes [BR:sce01000]
+             4. Lyases
+              4.2  Carbon-oxygen lyases
+               4.2.1  Hydro-lyases
+                4.2.1.1  carbonic anhydrase
+                 YNL036W (NCE103)
 POSITION    XIV:559814..560479
 MOTIF       Pfam: Pro_CA
-DBLINKS     NCBI-GI: 398365327
+DBLINKS     NCBI-ProteinID: NP_014362
             NCBI-GeneID: 855692
             SGD: S000004981
-            MIPS: YNL036W
             UniProt: P53615
 STRUCTURE   PDB: 3EYX
 AASEQ       221

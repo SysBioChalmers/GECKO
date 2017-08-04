@@ -1,13 +1,12 @@
 ENTRY       YPR143W           CDS       T00005
 NAME        RRP15
-DEFINITION  Rrp15p
+DEFINITION  (RefSeq) Rrp15p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:818323..819075
-MOTIF       Pfam: Rrp15p
-DBLINKS     NCBI-GI: 6325400
+MOTIF       Pfam: Rrp15p Glyco_hydro_63
+DBLINKS     NCBI-ProteinID: NP_015469
             NCBI-GeneID: 856264
             SGD: S000006347
-            MIPS: YPR143W
             UniProt: Q06511
 AASEQ       250
             MGSKHRVDTKDKKRTRKNAEFGREKRNSGNQELSNEPEKDTIMEGDEAEEDEQNSSSDES

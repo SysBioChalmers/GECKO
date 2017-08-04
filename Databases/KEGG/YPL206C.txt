@@ -1,16 +1,25 @@
 ENTRY       YPL206C           CDS       T00005
 NAME        PGC1
-DEFINITION  Pgc1p (EC:3.1.4.- 3.1.4.46)
-ORTHOLOGY   K01126  glycerophosphoryl diester phosphodiesterase [EC:3.1.4.46]
+DEFINITION  (RefSeq) phosphatidylglycerol phospholipase
+ORTHOLOGY   K18694  phosphatidylglycerol phospholipase C [EC:3.1.4.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00564  Glycerophospholipid metabolism
-CLASS       Metabolism; Lipid metabolism; Glycerophospholipid metabolism [PATH:sce00564]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Lipid metabolism
+               00564 Glycerophospholipid metabolism
+                YPL206C (PGC1)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.4  Phosphoric-diester hydrolases
+                3.1.4.-  
+                 YPL206C (PGC1)
 POSITION    XVI:complement(162632..163597)
 MOTIF       Pfam: GDPD GDPD_2 DUF3132
-DBLINKS     NCBI-GI: 6325050
+DBLINKS     NCBI-ProteinID: NP_015118
             NCBI-GeneID: 855895
             SGD: S000006127
-            MIPS: YPL206C
             UniProt: Q08959
 AASEQ       321
             MVEIVGHRAFKARYPENTLLAFEKAYAAGADVIETDLQMTSDGMVVVNHDSDTGRMWDKN

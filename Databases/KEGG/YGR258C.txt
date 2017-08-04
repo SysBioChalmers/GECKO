@@ -1,18 +1,27 @@
 ENTRY       YGR258C           CDS       T00005
 NAME        RAD2
-DEFINITION  Rad2p (EC:3.1.-.-)
+DEFINITION  (RefSeq) ssDNA endodeoxyribonuclease RAD2
 ORTHOLOGY   K10846  DNA excision repair protein ERCC-5
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03420  Nucleotide excision repair
-CLASS       Genetic Information Processing; Replication and repair; Nucleotide excision repair [PATH:sce03420]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Replication and repair
+               03420 Nucleotide excision repair
+                YGR258C (RAD2)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              SSBR (single strand breaks repair)
+               NER (nucleotide excision repair)
+                Other NER factors
+                 YGR258C (RAD2)
 POSITION    VII:complement(1007671..1010766)
 MOTIF       Pfam: XPG_N XPG_I 5_3_exonuc
-DBLINKS     NCBI-GI: 6321697
+DBLINKS     NCBI-ProteinID: NP_011774
             NCBI-GeneID: 853174
             SGD: S000003490
-            MIPS: YGR258C
             UniProt: P07276
-STRUCTURE   PDB: 2LOX
+STRUCTURE   PDB: 4Q0W 4Q0Z 4Q10 4Q0R 2LOX
 AASEQ       1031
             MGVHSFWDIAGPTARPVRLESLEDKRMAVDASIWIYQFLKAVRDQEGNAVKNSHITGFFR
             RICKLLYFGIRPVFVFDGGVPVLKRETIRQRKERRQGKRESAKSTARKLLALQLQNGSND

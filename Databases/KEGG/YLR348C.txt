@@ -1,14 +1,17 @@
 ENTRY       YLR348C           CDS       T00005
 NAME        DIC1
-DEFINITION  Dic1p
+DEFINITION  (RefSeq) Dic1p
 ORTHOLOGY   K13577  solute carrier family 25 (mitochondrial dicarboxylate transporter), member 10
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Solute Carrier Family (SLC)
+              SLC25: Mitochondrial carrier
+               YLR348C (DIC1)
 POSITION    XII:complement(826977..827873)
 MOTIF       Pfam: Mito_carr
-DBLINKS     NCBI-GI: 6323381
+DBLINKS     NCBI-ProteinID: NP_013452
             NCBI-GeneID: 851063
             SGD: S000004340
-            MIPS: YLR348C
             UniProt: Q06143
 AASEQ       298
             MSTNAKESAGKNIKYPWWYGGAAGIFATMVTHPLDLAKVRLQAAPMPKPTLFRMLESILA

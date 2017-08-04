@@ -1,16 +1,27 @@
 ENTRY       YHL001W           CDS       T00005
 NAME        RPL14B
-DEFINITION  ribosomal 60S subunit protein L14B
+DEFINITION  (RefSeq) ribosomal 60S subunit protein L14B
 ORTHOLOGY   K02875  large subunit ribosomal protein L14e
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03010  Ribosome
-CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+MODULE      sce_M00177  Ribosome, eukaryotes
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03010 Ribosome
+                YHL001W (RPL14B)
+            Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Eukaryotes
+               Large subunit
+                YHL001W (RPL14B)
+              Archaea
+                YHL001W (RPL14B)
 POSITION    VIII:join(104277..104405,104804..105091)
 MOTIF       Pfam: Ribosomal_L14e KOW
-DBLINKS     NCBI-GI: 6321786
+DBLINKS     NCBI-ProteinID: NP_011862
             NCBI-GeneID: 856388
             SGD: S000000993
-            MIPS: YHL001W
             UniProt: P38754
 AASEQ       138
             MSTDSIVKASNWRLVEVGRVVLIKKGQSAGKLAAIVEIIDQKKVLIDGPKAGVPRQAINL

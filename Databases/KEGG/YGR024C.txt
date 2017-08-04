@@ -1,14 +1,24 @@
 ENTRY       YGR024C           CDS       T00005
 NAME        THG1
-DEFINITION  Thg1p (EC:2.7.7.79 2.7.7.-)
+DEFINITION  (RefSeq) tRNA guanylyltransferase
 ORTHOLOGY   K10761  tRNA(His) guanylyltransferase [EC:2.7.7.79]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.7  Nucleotidyltransferases
+                2.7.7.79  tRNAHis guanylyltransferase
+                 YGR024C (THG1)
+            Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              tRNA modification factors
+               Other tRNA modification factors
+                YGR024C (THG1)
 POSITION    VII:complement(531883..532596)
 MOTIF       Pfam: Thg1 Thg1C TOM13
-DBLINKS     NCBI-GI: 398365171
+DBLINKS     NCBI-ProteinID: NP_011538
             NCBI-GeneID: 852908
             SGD: S000003256
-            MIPS: YGR024C
             UniProt: P53215
 AASEQ       237
             MANSKFGYVRQFETHDVILPQCYIVVRIDGKKFHEFSKFYEFAKPNDENALKLMNACAKN

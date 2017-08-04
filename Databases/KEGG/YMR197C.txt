@@ -1,16 +1,29 @@
 ENTRY       YMR197C           CDS       T00005
 NAME        VTI1
-DEFINITION  Vti1p
+DEFINITION  (RefSeq) v-SNARE protein VTI1
 ORTHOLOGY   K08493  vesicle transport through interaction with t-SNAREs 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04130  SNARE interactions in vesicular transport
-CLASS       Genetic Information Processing; Folding, sorting and degradation; SNARE interactions in vesicular transport [PATH:sce04130]
+            sce04138  Autophagy - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04130 SNARE interactions in vesicular transport
+                YMR197C (VTI1)
+             Cellular Processes
+              Transport and catabolism
+               04138 Autophagy - yeast
+                YMR197C (VTI1)
+            Membrane trafficking [BR:sce04131]
+             SNARE
+              SNAP-25[N] (Qb)
+               Vti1
+                YMR197C (VTI1)
 POSITION    XIII:complement(658545..659198)
-MOTIF       Pfam: V-SNARE_C V-SNARE Sec20 CytochromB561_N Nsp1_C DUF1744 Myosin_tail_1 Fusion_gly Prominin Flu_NS2 T2SF YqjK Snapin_Pallidin
-DBLINKS     NCBI-GI: 6323853
+MOTIF       Pfam: V-SNARE_C V-SNARE Sec20 Fusion_gly Nsp1_C Snapin_Pallidin Prominin YqjK
+DBLINKS     NCBI-ProteinID: NP_013924
             NCBI-GeneID: 855237
             SGD: S000004810
-            MIPS: YMR197C
             UniProt: Q04338
 STRUCTURE   PDB: 3ONJ 3ONL
 AASEQ       217

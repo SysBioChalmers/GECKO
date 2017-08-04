@@ -1,16 +1,25 @@
 ENTRY       YMR008C           CDS       T00005
 NAME        PLB1
-DEFINITION  Plb1p (EC:3.1.1.5)
+DEFINITION  (RefSeq) lysophospholipase
 ORTHOLOGY   K13333  lysophospholipase [EC:3.1.1.5]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00564  Glycerophospholipid metabolism
-CLASS       Metabolism; Lipid metabolism; Glycerophospholipid metabolism [PATH:sce00564]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Lipid metabolism
+               00564 Glycerophospholipid metabolism
+                YMR008C (PLB1)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.1  Carboxylic-ester hydrolases
+                3.1.1.5  lysophospholipase
+                 YMR008C (PLB1)
 POSITION    XIII:complement(280590..282584)
-MOTIF       Pfam: PLA2_B
-DBLINKS     NCBI-GI: 6323650
+MOTIF       Pfam: PLA2_B IBR
+DBLINKS     NCBI-ProteinID: NP_013721
             NCBI-GeneID: 855020
             SGD: S000004610
-            MIPS: YMR008C
             UniProt: P39105
 AASEQ       664
             MKLQSLLVSAAVLTSLTENVNAWSPNNSYVPANVTCDDDINLVREASGLSDNETEWLKKR

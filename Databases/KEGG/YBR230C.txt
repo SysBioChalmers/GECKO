@@ -1,12 +1,12 @@
 ENTRY       YBR230C           CDS       T00005
 NAME        OM14
-DEFINITION  Om14p
+DEFINITION  (RefSeq) Om14p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    II:complement(join(679549..679942,680040..680050))
-DBLINKS     NCBI-GI: 6319707
+MOTIF       Pfam: DUF5353
+DBLINKS     NCBI-ProteinID: NP_009789
             NCBI-GeneID: 852531
             SGD: S000000434
-            MIPS: YBR230C
             UniProt: P38325
 AASEQ       134
             MSATAKHDSNASPNSDSEDGHHHNNKKECAIEYLKARLNSASAVACGYLQAFVSKTQDFA

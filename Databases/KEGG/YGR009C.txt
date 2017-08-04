@@ -1,15 +1,17 @@
 ENTRY       YGR009C           CDS       T00005
 NAME        SEC9, HSS7
-DEFINITION  Sec9p
-ORTHOLOGY   K08508  synaptosomal-associated protein, 23kDa
+DEFINITION  (RefSeq) Sec9p
+ORTHOLOGY   K19950  protein transport protein SEC9
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
-PATHWAY     sce04130  SNARE interactions in vesicular transport
-CLASS       Genetic Information Processing; Folding, sorting and degradation; SNARE interactions in vesicular transport [PATH:sce04130]
+BRITE       Membrane trafficking [BR:sce04131]
+             SNARE
+              SNAP-25 (Qb,c)
+               SNAP-25
+                YGR009C (SEC9)
 POSITION    VII:complement(509047..511002)
-DBLINKS     NCBI-GI: 398365079
+DBLINKS     NCBI-ProteinID: NP_011523
             NCBI-GeneID: 852892
             SGD: S000003241
-            MIPS: YGR009C
             UniProt: P40357
 STRUCTURE   PDB: 3B5N
 AASEQ       651

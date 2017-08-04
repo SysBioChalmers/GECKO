@@ -1,12 +1,12 @@
 ENTRY       YOR352W           CDS       T00005
 NAME        TFB6
-DEFINITION  Tfb6p
+DEFINITION  (RefSeq) TFIIH complex subunit TFB6
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:997213..998244
-DBLINKS     NCBI-GI: 6324928
+MOTIF       Pfam: TFB6
+DBLINKS     NCBI-ProteinID: NP_014997
             NCBI-GeneID: 854534
             SGD: S000005879
-            MIPS: YOR352W
             UniProt: Q08816
 AASEQ       343
             MSEPNTPLHAQPNEQLDLNNLNDLDEKDIDDLNLDPNSDVEISADSGDVVNSNIDNVIWQ

@@ -1,18 +1,32 @@
 ENTRY       YLR258W           CDS       T00005
 NAME        GSY2
-DEFINITION  glycogen (starch) synthase GSY2 (EC:2.4.1.11)
-ORTHOLOGY   K00693  glycogen(starch) synthase [EC:2.4.1.11]
+DEFINITION  (RefSeq) glycogen (starch) synthase GSY2
+ORTHOLOGY   K00693  glycogen synthase [EC:2.4.1.11]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00500  Starch and sucrose metabolism
-CLASS       Metabolism; Carbohydrate metabolism; Starch and sucrose metabolism [PATH:sce00500]
+            sce01100  Metabolic pathways
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Carbohydrate metabolism
+               00500 Starch and sucrose metabolism
+                YLR258W (GSY2)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.4  Glycosyltransferases
+               2.4.1  Hexosyltransferases
+                2.4.1.11  glycogen(starch) synthase
+                 YLR258W (GSY2)
+            Glycosyltransferases [BR:sce01003]
+             Polysaccharide
+              Storage polysaccharide
+               YLR258W (GSY2)
 POSITION    XII:660716..662833
-MOTIF       Pfam: Glycogen_syn Glycos_transf_1 Glyco_trans_4_4
-DBLINKS     NCBI-GI: 6323287
+MOTIF       Pfam: Glycogen_syn Glycos_transf_1 Glyco_trans_1_4 Glyco_transf_4 Glyco_trans_4_4
+DBLINKS     NCBI-ProteinID: NP_013359
             NCBI-GeneID: 850962
             SGD: S000004248
-            MIPS: YLR258W
             UniProt: P27472
-STRUCTURE   PDB: 3NB0 4KQ1 4KQM 3RT1 3NCH 3NAZ 3RSZ 3O3C
+STRUCTURE   PDB: 3NB0 4KQ1 4KQM 3RT1 3NCH 4KQ2 3NAZ 3RSZ 3O3C
 AASEQ       705
             MSRDLQNHLLFETATEVANRVGGIYSVLKSKAPITVAQYKDHYHLIGPLNKATYQNEVDI
             LDWKKPEAFSDEMRPVQHALQTMESRGVHFVYGRWLIEGAPKVILFDLDSVRGYSNEWKG

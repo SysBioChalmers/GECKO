@@ -1,18 +1,43 @@
 ENTRY       YNL098C           CDS       T00005
 NAME        RAS2, CTN5, CYR3, GLC5, TSL7
-DEFINITION  Ras2p
-ORTHOLOGY   K07827  GTPase KRas
+DEFINITION  (RefSeq) Ras family GTPase RAS2
+ORTHOLOGY   K07827  GTPase Kras
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
-PATHWAY     sce04011  MAPK signaling pathway - yeast
-            sce04113  Meiosis - yeast
-CLASS       Environmental Information Processing; Signal transduction; MAPK signaling pathway - yeast [PATH:sce04011]
-            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+PATHWAY     sce04113  Meiosis - yeast
+            sce04138  Autophagy - yeast
+            sce04213  Longevity regulating pathway - multiple species
+            sce04933  AGE-RAGE signaling pathway in diabetic complications
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04138 Autophagy - yeast
+                YNL098C (RAS2)
+              Cell growth and death
+               04113 Meiosis - yeast
+                YNL098C (RAS2)
+             Organismal Systems
+              Aging
+               04213 Longevity regulating pathway - multiple species
+                YNL098C (RAS2)
+             Human Diseases
+              Endocrine and metabolic diseases
+               04933 AGE-RAGE signaling pathway in diabetic complications
+                YNL098C (RAS2)
+            Membrane trafficking [BR:sce04131]
+             Endocytosis
+              Macropinocytosis
+               Ras GTPases
+                YNL098C (RAS2)
+            GTP-binding proteins [BR:sce04031]
+             Small (Monomeric) G-proteins
+              Ras Family
+               Ras [OT]
+                YNL098C (RAS2)
 POSITION    XIV:complement(439602..440570)
-MOTIF       Pfam: Ras Miro Arf GTP_EFTU MMR_HSR1 ATP_bind_1
-DBLINKS     NCBI-GI: 6324231
+MOTIF       Pfam: Ras Roc Arf GTP_EFTU RsgA_GTPase MMR_HSR1 MMR_HSR1_Xtn
+DBLINKS     NCBI-ProteinID: NP_014301
             NCBI-GeneID: 855625
             SGD: S000005042
-            MIPS: YNL098C
             UniProt: P01120
 AASEQ       322
             MPLNKSNIREYKLVVVGGGGVGKSALTIQLTQSHFVDEYDPTIEDSYRKQVVIDDEVSIL

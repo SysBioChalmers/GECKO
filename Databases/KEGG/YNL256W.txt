@@ -1,18 +1,36 @@
 ENTRY       YNL256W           CDS       T00005
 NAME        FOL1
-DEFINITION  trifunctional dihydropteroate synthetase/dihydrohydroxymethylpterin pyrophosphokinase/dihydroneopterin aldolase FOL1 (EC:4.1.2.25 2.7.6.3 2.5.1.15)
+DEFINITION  (RefSeq) trifunctional dihydropteroate synthetase/dihydrohydroxymethylpterin pyrophosphokinase/dihydroneopterin aldolase FOL1
 ORTHOLOGY   K13939  dihydroneopterin aldolase / 2-amino-4-hydroxy-6-hydroxymethyldihydropteridine diphosphokinase / dihydropteroate synthase [EC:4.1.2.25 2.7.6.3 2.5.1.15]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00790  Folate biosynthesis
             sce01100  Metabolic pathways
 MODULE      sce_M00126  Tetrahydrofolate biosynthesis, GTP => THF
-CLASS       Metabolism; Metabolism of cofactors and vitamins; Folate biosynthesis [PATH:sce00790]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Metabolism of cofactors and vitamins
+               00790 Folate biosynthesis
+                YNL256W (FOL1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.5  Transferring alkyl or aryl groups, other than methyl groups
+               2.5.1  Transferring alkyl or aryl groups, other than methyl groups (only sub-subclass identified to date)
+                2.5.1.15  dihydropteroate synthase
+                 YNL256W (FOL1)
+              2.7  Transferring phosphorus-containing groups
+               2.7.6  Diphosphotransferases
+                2.7.6.3  2-amino-4-hydroxy-6-hydroxymethyldihydropteridine diphosphokinase
+                 YNL256W (FOL1)
+             4. Lyases
+              4.1  Carbon-carbon lyases
+               4.1.2  Aldehyde-lyases
+                4.1.2.25  dihydroneopterin aldolase
+                 YNL256W (FOL1)
 POSITION    XIV:164623..167097
-MOTIF       Pfam: Pterin_bind HPPK FolB
-DBLINKS     NCBI-GI: 37362687
+MOTIF       Pfam: Pterin_bind FolB HPPK
+DBLINKS     NCBI-ProteinID: NP_014143
             NCBI-GeneID: 855465
             SGD: S000005200
-            MIPS: YNL256W
             UniProt: P53848
 STRUCTURE   PDB: 2BMB
 AASEQ       824

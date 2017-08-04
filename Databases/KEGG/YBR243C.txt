@@ -1,18 +1,31 @@
 ENTRY       YBR243C           CDS       T00005
 NAME        ALG7, TUR1
-DEFINITION  UDP-N-acetylglucosamine--dolichyl-phosphate N-acetylglucosaminephosphotransferase (EC:2.7.8.15)
+DEFINITION  (RefSeq) UDP-N-acetylglucosamine--dolichyl-phosphate N-acetylglucosaminephosphotransferase
 ORTHOLOGY   K01001  UDP-N-acetylglucosamine--dolichyl-phosphate N-acetylglucosaminephosphotransferase [EC:2.7.8.15]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00510  N-Glycan biosynthesis
             sce01100  Metabolic pathways
 MODULE      sce_M00055  N-glycan precursor biosynthesis
-CLASS       Metabolism; Glycan biosynthesis and metabolism; N-Glycan biosynthesis [PATH:sce00510]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Glycan biosynthesis and metabolism
+               00510 N-Glycan biosynthesis
+                YBR243C (ALG7)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.8  Transferases for other substituted phosphate groups
+                2.7.8.15  UDP-N-acetylglucosamine---dolichyl-phosphate N-acetylglucosaminephosphotransferase
+                 YBR243C (ALG7)
+            Glycosyltransferases [BR:sce01003]
+             N-Glycan biosynthesis
+              Dol-linked oligosaccharide
+               YBR243C (ALG7)
 POSITION    II:complement(705447..706793)
 MOTIF       Pfam: Glycos_transf_4
-DBLINKS     NCBI-GI: 398365703
+DBLINKS     NCBI-ProteinID: NP_009802
             NCBI-GeneID: 852545
             SGD: S000000447
-            MIPS: YBR243C
             UniProt: P07286
 AASEQ       448
             MLRLFSLALITCLIYYSKNQGPSALVAAVGFGIAGYLATDMLIPRVGKSFIKIGLFGKDL

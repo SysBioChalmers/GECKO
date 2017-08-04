@@ -1,14 +1,13 @@
 ENTRY       YPR201W           CDS       T00005
 NAME        ARR3, ACR3
-DEFINITION  Arr3p
+DEFINITION  (RefSeq) Arr3p
 ORTHOLOGY   K03325  arsenite transporter, ACR3 family
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:939922..941136
-MOTIF       Pfam: SBF
-DBLINKS     NCBI-GI: 6325459
+MOTIF       Pfam: SBF DHHC
+DBLINKS     NCBI-ProteinID: NP_015527
             NCBI-GeneID: 856331
             SGD: S000006405
-            MIPS: YPR201W
             UniProt: Q06598
 AASEQ       404
             MSEDQKSENSVPSKVNMVNRTDILTTIKSLSWLDLMLPFTIILSIIIAVIISVYVPSSRH

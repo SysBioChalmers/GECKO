@@ -1,14 +1,17 @@
 ENTRY       YGR209C           CDS       T00005
 NAME        TRX2, LMA1
-DEFINITION  Trx2p
+DEFINITION  (RefSeq) thioredoxin TRX2
 ORTHOLOGY   K03671  thioredoxin 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chaperones and folding catalysts [BR:sce03110]
+             Protein folding catalysts
+              Protein disulfide isomerase
+               YGR209C (TRX2)
 POSITION    VII:complement(912913..913227)
-MOTIF       Pfam: Thioredoxin Thioredoxin_2 Thioredoxin_8 Thioredoxin_9 AhpC-TSA DIM1 Redoxin Thioredoxin_7 Thioredoxin_3 TraF Thioredoxin_6
-DBLINKS     NCBI-GI: 398366149
+MOTIF       Pfam: Thioredoxin Thioredoxin_2 Thioredoxin_9 AhpC-TSA Thioredoxin_8 DIM1 Redoxin OST3_OST6 Thioredoxin_7 Thioredoxin_6 Thioredoxin_3 DUF4290 HyaE TraF HlyC
+DBLINKS     NCBI-ProteinID: NP_011725
             NCBI-GeneID: 853123
             SGD: S000003441
-            MIPS: YGR209C
             UniProt: P22803
 STRUCTURE   PDB: 4DSS 2FA4 3PIN 2HSY
 AASEQ       104

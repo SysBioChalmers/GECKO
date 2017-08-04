@@ -1,16 +1,24 @@
 ENTRY       YLL034C           CDS       T00005
 NAME        RIX7
-DEFINITION  putative AAA family ATPase RIX7
+DEFINITION  (RefSeq) putative AAA family ATPase RIX7
 ORTHOLOGY   K14571  ribosome biogenesis ATPase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03008  Ribosome biogenesis in eukaryotes
-CLASS       Genetic Information Processing; Translation; Ribosome biogenesis in eukaryotes [PATH:sce03008]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03008 Ribosome biogenesis in eukaryotes
+                YLL034C (RIX7)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               Other pre-60S particles
+                YLL034C (RIX7)
 POSITION    XII:complement(70633..73146)
-MOTIF       Pfam: AAA RuvB_N AAA_16 AAA_17 AAA_2 AAA_22 AAA_33 Zeta_toxin AAA_5 AAA_14 AAA_18 TIP49 RNA_helicase ABC_tran AAA_25 IstB_IS21 AAA_28 AAA_19 Mg_chelatase Vps4_C SKI AAA_3 Cytidylate_kin2 NACHT Viral_helicase1 NB-ARC Sigma54_activ_2 Rad17 DUF815 Sigma54_activat CPT ATP-synt_ab AAA_11 DUF258
-DBLINKS     NCBI-GI: 6322994
+MOTIF       Pfam: AAA RuvB_N AAA_16 AAA_2 AAA_33 AAA_5 AAA_22 TIP49 Vps4_C AAA_18 RNA_helicase ABC_tran AAA_14 Zeta_toxin Mg_chelatase AAA_28 IstB_IS21 AAA_3 AAA_17 NACHT TsaE Cytidylate_kin2 Viral_helicase1 SKI Rad17 DUF815 Sigma54_activat CPT Cytidylate_kin AAA_11 RsgA_GTPase Hydin_ADK MPM1
+DBLINKS     NCBI-ProteinID: NP_013066
             NCBI-GeneID: 850625
             SGD: S000003957
-            MIPS: YLL034C
             UniProt: Q07844
 AASEQ       837
             MVKVKSKKNSLTSSLDNKIVDLIYRLLEEKTLDRKRSLRQESQGEEGENNEGEEDEDIFE

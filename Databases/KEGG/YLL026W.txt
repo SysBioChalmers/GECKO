@@ -1,14 +1,25 @@
 ENTRY       YLL026W           CDS       T00005
 NAME        HSP104
-DEFINITION  chaperone ATPase HSP104
+DEFINITION  (RefSeq) chaperone ATPase HSP104
+ORTHOLOGY   K03695  ATP-dependent Clp protease ATP-binding subunit ClpB
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04213  Longevity regulating pathway - multiple species
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Organismal Systems
+              Aging
+               04213 Longevity regulating pathway - multiple species
+                YLL026W (HSP104)
+            Chaperones and folding catalysts [BR:sce03110]
+             Heat shock proteins
+              HSP100
+               YLL026W (HSP104)
 POSITION    XII:88623..91349
-MOTIF       Pfam: AAA_2 AAA ClpB_D2-small Clp_N AAA_5 AAA_16 Sigma54_activat AAA_22 TIP49 Zeta_toxin AAA_19 AAA_33 AAA_3 Torsin AAA_17 IstB_IS21 PEPCK_ATP
-DBLINKS     NCBI-GI: 6323002
+MOTIF       Pfam: AAA_2 AAA ClpB_D2-small Clp_N AAA_5 Sigma54_activat AAA_16 AAA_22 TIP49 AAA_24 AAA_33 Zeta_toxin AAA_3 Torsin IstB_IS21 AAA_19 PEPCK_ATP IncA
+DBLINKS     NCBI-ProteinID: NP_013074
             NCBI-GeneID: 850633
             SGD: S000003949
-            MIPS: YLL026W
             UniProt: P31539
+STRUCTURE   PDB: 5KNE
 AASEQ       908
             MNDQTQFTERALTILTLAQKLASDHQHPQLQPIHILAAFIETPEDGSVPYLQNLIEKGRY
             DYDLFKKVVNRNLVRIPQQQPAPAEITPSYALGKVLQDAAKIQKQQKDSFIAQDHILFAL

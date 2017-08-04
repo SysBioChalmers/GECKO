@@ -1,13 +1,23 @@
 ENTRY       YHR054C           CDS       T00005
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) hypothetical protein
 ORTHOLOGY   K11758  chromatin structure-remodeling complex subunit RSC3/30
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Coactivators
+                RSC complex
+                 YHR054C
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Chromatin remodeling factors
+               RSC complex
+                YHR054C
 POSITION    VIII:complement(213185..214249)
-MOTIF       Pfam: DUF3310 Bromodomain
-DBLINKS     NCBI-GI: 6321845
+MOTIF       Pfam: DUF3310 SusE
+DBLINKS     NCBI-ProteinID: NP_011921
             NCBI-GeneID: 856451
             SGD: S000001096
-            MIPS: YHR054C
             UniProt: P38780
 AASEQ       354
             MVPAAENLSPIPASIDTNDIPLIANDLKLLETQAKLINILQGVPFYLPVNLTKIESLLET

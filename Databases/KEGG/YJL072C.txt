@@ -1,16 +1,21 @@
 ENTRY       YJL072C           CDS       T00005
 NAME        PSF2, CDC102
-DEFINITION  Psf2p
+DEFINITION  (RefSeq) DNA replication protein PSF2
 ORTHOLOGY   K10733  GINS complex subunit 2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 MODULE      sce_M00286  GINS complex
+BRITE       DNA replication proteins [BR:sce03032]
+             Eukaryotic Type
+              DNA Replication Initiation Factors
+               GINS complex
+                YJL072C (PSF2)
 POSITION    X:complement(305221..305862)
-MOTIF       Pfam: Sld5 DUF790
-DBLINKS     NCBI-GI: 6322389
+MOTIF       Pfam: Sld5
+DBLINKS     NCBI-ProteinID: NP_012463
             NCBI-GeneID: 853373
             SGD: S000003608
-            MIPS: YJL072C
             UniProt: P40359
+STRUCTURE   PDB: 3JC6 3JC5 3JC7 5U8T 5U8S
 AASEQ       213
             MSLPAHLQQTFSPEEIQFIVENEPIKIFPRITTRQKIRGDDRGTGNHTRWQLITTDDKAL
             NNMVAMRSTEVVLWIALLLKQQSKCSIVAPQWLTTKELDRKIQYEKTHPDRFSELPWNWL

@@ -1,13 +1,22 @@
 ENTRY       YKL033W-A         CDS       T00005
-DEFINITION  hypothetical protein (EC:3.-.-.-)
-ORTHOLOGY   K17623  pseudouridine-5'-monophosphatase [EC:3.1.3.-]
+DEFINITION  (RefSeq) putative hydrolase
+ORTHOLOGY   K17623  pseudouridine 5'-phosphatase [EC:3.1.3.96]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.3  Phosphoric-monoester hydrolases
+                3.1.3.96  pseudouridine 5'-phosphatase
+                 YKL033W-A
+            Protein phosphatases and associated proteins [BR:sce01009]
+             HAD phosphatases
+              Other HAD phosphatases
+               YKL033W-A
 POSITION    XI:374505..375215
-MOTIF       Pfam: HAD_2 Hydrolase Hydrolase_6 Hydrolase_like HAD
-DBLINKS     NCBI-GI: 398364625
+MOTIF       Pfam: HAD_2 Hydrolase Hydrolase_6 HAD
+DBLINKS     NCBI-ProteinID: NP_012891
             NCBI-GeneID: 853833
             SGD: S000007242
-            MIPS: YKL033W-A
             UniProt: Q86ZR7
 AASEQ       236
             MTHPVAVKACLFDMDGLLINTEDIYTETLNETLAEFGKGPLTWDVKIKLQGLPGPEAGKR

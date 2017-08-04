@@ -1,13 +1,12 @@
 ENTRY       YML081W           CDS       T00005
 NAME        TDA9, AAF1
-DEFINITION  Tda9p
+DEFINITION  (RefSeq) Tda9p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:104777..108532
-MOTIF       Pfam: zf-C2H2 zf-H2C2_2 zf-C2H2_4 Kinocilin
-DBLINKS     NCBI-GI: 6323559
+MOTIF       Pfam: zf-C2H2 zf-H2C2_2 zf-C2H2_4
+DBLINKS     NCBI-ProteinID: NP_013630
             NCBI-GeneID: 854894
             SGD: S000004546
-            MIPS: YML081W
             UniProt: Q04545
 AASEQ       1251
             MSSEEFKGLPIKRDISSTIYADRPPALSAPPCVGATGNDKIQVLPIPKKSRTIKTDKPRP

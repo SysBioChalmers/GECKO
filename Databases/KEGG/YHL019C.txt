@@ -1,13 +1,12 @@
 ENTRY       YHL019C           CDS       T00005
 NAME        APM2
-DEFINITION  Apm2p
+DEFINITION  (RefSeq) Apm2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VIII:complement(67731..69548)
-MOTIF       Pfam: Adap_comp_sub SR-25
-DBLINKS     NCBI-GI: 6321768
+MOTIF       Pfam: Adap_comp_sub SR-25 Clat_adaptor_s Coilin_N CCDC106
+DBLINKS     NCBI-ProteinID: NP_011844
             NCBI-GeneID: 856367
             SGD: S000001011
-            MIPS: YHL019C
             UniProt: P38700
 AASEQ       605
             MSSSLFILDENLEPLVSKNIRALPNLSSVLSSFKQCYHDGSPPILSQNDWFFIHLKRDFL

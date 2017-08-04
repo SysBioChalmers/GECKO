@@ -1,13 +1,12 @@
 ENTRY       YNL249C           CDS       T00005
 NAME        MPA43
-DEFINITION  Mpa43p
+DEFINITION  (RefSeq) Mpa43p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIV:complement(179394..181022)
 MOTIF       Pfam: FGGY_C FGGY_N
-DBLINKS     NCBI-GI: 6324080
+DBLINKS     NCBI-ProteinID: NP_014150
             NCBI-GeneID: 855472
             SGD: S000005193
-            MIPS: YNL249C
             UniProt: P53583
 AASEQ       542
             MNSSLQVGIGIDVGSSSARIGVYNYYNDALLEMAQEPVPYYQDSSKKSWKFWQKSTEIIK

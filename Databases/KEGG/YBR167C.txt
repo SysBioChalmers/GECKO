@@ -1,18 +1,44 @@
 ENTRY       YBR167C           CDS       T00005
 NAME        POP7, RPP2
-DEFINITION  Pop7p (EC:3.1.26.5)
+DEFINITION  (RefSeq) ribonuclease P/MRP protein subunit POP7
 ORTHOLOGY   K14526  ribonuclease P/MRP protein subunit POP7 [EC:3.1.26.5]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03008  Ribosome biogenesis in eukaryotes
             sce03013  RNA transport
-CLASS       Genetic Information Processing; Translation; RNA transport [PATH:sce03013]
-            Genetic Information Processing; Translation; Ribosome biogenesis in eukaryotes [PATH:sce03008]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03013 RNA transport
+                YBR167C (POP7)
+               03008 Ribosome biogenesis in eukaryotes
+                YBR167C (POP7)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.26  Endoribonucleases producing 5'-phosphomonoesters
+                3.1.26.5  ribonuclease P
+                 YBR167C (POP7)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               RNases
+                RNase MRP
+                 YBR167C (POP7)
+            Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              5'processing factors
+               Ribonucrease P
+                YBR167C (POP7)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial DNA transcription, translation, and replication factors
+              Mitochondrial transcription and translation factors
+               RNase MRP
+                YBR167C (POP7)
 POSITION    II:complement(571468..571890)
-MOTIF       Pfam: Rpp20 Alba
-DBLINKS     NCBI-GI: 398365235
+MOTIF       Pfam: Rpp20 Alba PHM7_cyt Ribosomal_L30
+DBLINKS     NCBI-ProteinID: NP_009726
             NCBI-GeneID: 852465
             SGD: S000000371
-            MIPS: YBR167C
             UniProt: P38291
 STRUCTURE   PDB: 3IAB
 AASEQ       140

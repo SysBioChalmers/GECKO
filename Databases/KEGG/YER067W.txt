@@ -1,13 +1,12 @@
 ENTRY       YER067W           CDS       T00005
 NAME        RGI1
-DEFINITION  Rgi1p
+DEFINITION  (RefSeq) Rgi1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    V:292066..292551
-MOTIF       Pfam: DUF2578 DIX
-DBLINKS     NCBI-GI: 6320910
+MOTIF       Pfam: RGI1 Adeno_100 DIX
+DBLINKS     NCBI-ProteinID: NP_010990
             NCBI-GeneID: 856797
             SGD: S000000869
-            MIPS: YER067W
             UniProt: P40043
 STRUCTURE   PDB: 3BCY
 AASEQ       161

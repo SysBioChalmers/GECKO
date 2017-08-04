@@ -1,18 +1,26 @@
 ENTRY       YFR032C-A         CDS       T00005
 NAME        RPL29
-DEFINITION  ribosomal 60S subunit protein L29
+DEFINITION  (RefSeq) ribosomal 60S subunit protein L29
 ORTHOLOGY   K02905  large subunit ribosomal protein L29e
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03010  Ribosome
-CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+MODULE      sce_M00177  Ribosome, eukaryotes
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03010 Ribosome
+                YFR032C-A (RPL29)
+            Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Eukaryotes
+               Large subunit
+                YFR032C-A (RPL29)
 POSITION    VI:complement(223258..223437)
-MOTIF       Pfam: Ribosomal_L29e Phage_Mu_F
-DBLINKS     NCBI-GI: 398364355
+MOTIF       Pfam: Ribosomal_L29e
+DBLINKS     NCBI-ProteinID: NP_116690
             NCBI-GeneID: 850592
             SGD: S000006437
-            MIPS: YFR032C-A
             UniProt: P05747
-STRUCTURE   PDB: 3U5E 3U5I 4BYN 4BYU 4B6A 3IZS
 AASEQ       59
             MAKSKNHTAHNQTRKAHRNGIKKPKTYKYPSLKGVDPKFRRNHKHALHGTAKALAAAKK
 NTSEQ       180

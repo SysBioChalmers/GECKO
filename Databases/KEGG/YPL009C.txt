@@ -1,13 +1,12 @@
 ENTRY       YPL009C           CDS       T00005
-NAME        TAE2
-DEFINITION  Tae2p
+NAME        RQC2, TAE2
+DEFINITION  (RefSeq) Rqc2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:complement(535820..538936)
-MOTIF       Pfam: DUF3441 FbpA DUF814 Daxx
-DBLINKS     NCBI-GI: 6325248
+MOTIF       Pfam: DUF3441 FbpA DUF814
+DBLINKS     NCBI-ProteinID: NP_015316
             NCBI-GeneID: 856098
             SGD: S000005930
-            MIPS: YPL009C
             UniProt: Q12532
 AASEQ       1038
             MKQRISALDLLLLARELKQDLEGYRLSNIYNIADSSKQFLLKFNKPDSKLNVVVDCGLRI

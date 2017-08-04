@@ -1,14 +1,24 @@
 ENTRY       YNL061W           CDS       T00005
 NAME        NOP2, YNA1
-DEFINITION  Nop2p (EC:2.1.1.-)
-ORTHOLOGY   K14835  ribosomal RNA methyltransferase Nop2 [EC:2.1.1.-]
+DEFINITION  (RefSeq) rRNA (cytosine-C5-)-methyltransferase NOP2
+ORTHOLOGY   K14835  25S rRNA (cytosine2870-C5)-methyltransferase [EC:2.1.1.310]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.1  Transferring one-carbon groups
+               2.1.1  Methyltransferases
+                2.1.1.310  25S rRNA (cytosine2870-C5)-methyltransferase
+                 YNL061W (NOP2)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               Other pre-60S particles
+                YNL061W (NOP2)
 POSITION    XIV:510540..512396
-MOTIF       Pfam: Nol1_Nop2_Fmu FtsJ Methyltransf_31
-DBLINKS     NCBI-GI: 398365157
+MOTIF       Pfam: Methyltr_RsmB-F Methyltr_RsmF_N FtsJ
+DBLINKS     NCBI-ProteinID: NP_014338
             NCBI-GeneID: 855664
             SGD: S000005005
-            MIPS: YNL061W
             UniProt: P40991
 AASEQ       618
             MGSRRHKNKQAAPPTLEEFQARKEKKANRKLEKGKRPSTTQGDEVSDRKKKKSKPFKKSR

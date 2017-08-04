@@ -1,18 +1,28 @@
 ENTRY       YBR031W           CDS       T00005
 NAME        RPL4A
-DEFINITION  ribosomal 60S subunit protein L4A
+DEFINITION  (RefSeq) ribosomal 60S subunit protein L4A
 ORTHOLOGY   K02930  large subunit ribosomal protein L4e
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03010  Ribosome
-CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+MODULE      sce_M00177  Ribosome, eukaryotes
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03010 Ribosome
+                YBR031W (RPL4A)
+            Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Eukaryotes
+               Large subunit
+                YBR031W (RPL4A)
+              Archaea
+                YBR031W (RPL4A)
 POSITION    II:300166..301254
 MOTIF       Pfam: Ribosomal_L4 Ribos_L4_asso_C
-DBLINKS     NCBI-GI: 6319505
+DBLINKS     NCBI-ProteinID: NP_009587
             NCBI-GeneID: 852319
             SGD: S000000235
-            MIPS: YBR031W
             UniProt: P10664
-STRUCTURE   PDB: 3U5E 3U5I 3O58 3O5H 4BYN 4BYU 4B6A 3IZS
 AASEQ       362
             MSRPQVTVHSLTGEATANALPLPAVFSAPIRPDIVHTVFTSVNKNKRQAYAVSEKAGHQT
             SAESWGTGRAVARIPRVGGGGTGRSGQGAFGNMCRGGRMFAPTKTWRKWNVKVNHNEKRY

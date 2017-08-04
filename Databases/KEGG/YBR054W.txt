@@ -1,13 +1,12 @@
 ENTRY       YBR054W           CDS       T00005
 NAME        YRO2
-DEFINITION  Yro2p
+DEFINITION  (RefSeq) Yro2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    II:343101..344135
-MOTIF       Pfam: Bac_rhodopsin SR-25 BLVR
-DBLINKS     NCBI-GI: 6319528
+MOTIF       Pfam: Bac_rhodopsin PIRT
+DBLINKS     NCBI-ProteinID: NP_009610
             NCBI-GeneID: 852343
             SGD: S000000258
-            MIPS: YBR054W
             UniProt: P38079
 AASEQ       344
             MSDYVELLKRGGNEAIKINPPTGADFHITSRGSDWLFTVFCVNLLFGVILVPLMFRKPVK

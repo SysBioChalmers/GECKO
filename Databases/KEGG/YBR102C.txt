@@ -1,13 +1,18 @@
 ENTRY       YBR102C           CDS       T00005
 NAME        EXO84, USA3
-DEFINITION  Exo84p
+DEFINITION  (RefSeq) exocyst subunit EXO84
+ORTHOLOGY   K19986  exocyst complex component 8
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Exocytosis
+              Tethering complex
+               Exocyst complex
+                YBR102C (EXO84)
 POSITION    II:complement(445062..447323)
-MOTIF       Pfam: Vps51 DUF957
-DBLINKS     NCBI-GI: 6319578
+MOTIF       Pfam: Exo84_C Vps51 L27 COG2 Fzo_mitofusin
+DBLINKS     NCBI-ProteinID: NP_009660
             NCBI-GeneID: 852398
             SGD: S000000306
-            MIPS: YBR102C
             UniProt: P38261
 STRUCTURE   PDB: 2D2S
 AASEQ       753

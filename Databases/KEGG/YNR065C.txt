@@ -1,12 +1,11 @@
 ENTRY       YNR065C           CDS       T00005
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) hypothetical protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIV:complement(750350..753700)
-MOTIF       Pfam: BNR BNR_2 HHH_3
-DBLINKS     NCBI-GI: 6324393
+MOTIF       Pfam: Sortilin-Vps10 Sortilin_C BNR BNR_2 HHH_3
+DBLINKS     NCBI-ProteinID: NP_014463
             NCBI-GeneID: 855802
             SGD: S000005348
-            MIPS: YNR065C
             UniProt: P53751
 AASEQ       1116
             MLMTGSVGDGSEFDWEDQKTFISRDGGLTWRFVHNSSGLYATGDLGNIIVYIPYDPEEDG

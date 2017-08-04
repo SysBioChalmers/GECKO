@@ -1,14 +1,18 @@
 ENTRY       YKR099W           CDS       T00005
 NAME        BAS1
-DEFINITION  Bas1p
+DEFINITION  (RefSeq) Bas1p
 ORTHOLOGY   K09423  Myb-like DNA-binding protein BAS1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription factors [BR:sce03000]
+             Eukaryotic Type
+              Helix-turn-helix
+               Tryptophan clusters Myb, Myb-like factors
+                YKR099W (BAS1)
 POSITION    XI:635851..638286
-MOTIF       Pfam: Myb_DNA-bind_6 Myb_DNA-binding Rap1_C
-DBLINKS     NCBI-GI: 398365513
+MOTIF       Pfam: Myb_DNA-binding Myb_DNA-bind_6
+DBLINKS     NCBI-ProteinID: NP_013025
             NCBI-GeneID: 853974
             SGD: S000001807
-            MIPS: YKR099W
             UniProt: P22035
 AASEQ       811
             MSNISTKDIRKSKPKRGSGFDLLEVTESLGYQTHRKNGRNSWSKDDDNMLRSLVNESAKE

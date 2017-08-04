@@ -1,16 +1,26 @@
 ENTRY       YPL183W-A         CDS       T00005
 NAME        RTC6, TAE4
-DEFINITION  putative mitochondrial 54S ribosomal protein RTC6
+DEFINITION  (RefSeq) putative mitochondrial 54S ribosomal protein RTC6
 ORTHOLOGY   K02919  large subunit ribosomal protein L36
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03010  Ribosome
-CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03010 Ribosome
+                YPL183W-A (RTC6)
+            Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Mitochondria/ Chloroplast
+               Large subunit
+                YPL183W-A (RTC6)
+              Bacteria
+                YPL183W-A (RTC6)
 POSITION    XVI:199095..199376
 MOTIF       Pfam: Ribosomal_L36 Crust_neurohorm
-DBLINKS     NCBI-GI: 6325073
+DBLINKS     NCBI-ProteinID: NP_015141
             NCBI-GeneID: 855918
             SGD: S000007224
-            MIPS: YPL183W-A
             UniProt: O14464
 AASEQ       93
             MFLQTLRLTMPRMFLHMKPSPITITRACTVPSLLSVAAPQPALVAANRPLVFNRGFKVRT

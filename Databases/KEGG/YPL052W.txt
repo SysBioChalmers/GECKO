@@ -1,13 +1,12 @@
 ENTRY       YPL052W           CDS       T00005
 NAME        OAZ1, YPL052W-A
-DEFINITION  Oaz1p
+DEFINITION  (RefSeq) Oaz1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:join(458799..459005,459007..459678)
-MOTIF       Pfam: ODC_AZ
-DBLINKS     NCBI-GI: 83722566
+MOTIF       Pfam: ODC_AZ FA_synthesis
+DBLINKS     NCBI-ProteinID: NP_015273
             NCBI-GeneID: 856055
             SGD: S000005973
-            MIPS: YPL052W
             UniProt: Q02803
 AASEQ       292
             MYEVIQKRKTKIINVLQSPELMRLIEDPSNLGISLHFPVSSLLKSNKCTPMPKLSTYSLA

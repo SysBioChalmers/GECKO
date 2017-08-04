@@ -1,12 +1,23 @@
 ENTRY       YLR063W           CDS       T00005
-DEFINITION  hypothetical protein
+NAME        BMT6
+DEFINITION  (RefSeq) 25S rRNA (uracil2843-N3)-methyltransferase
+ORTHOLOGY   K19308  25S rRNA (uracil2843-N3)-methyltransferase [EC:2.1.1.312]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.1  Transferring one-carbon groups
+               2.1.1  Methyltransferases
+                2.1.1.312  25S rRNA (uracil2843-N3)-methyltransferase
+                 YLR063W (BMT6)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Other ribosome biogenesis factors
+               YLR063W (BMT6)
 POSITION    XII:264157..265254
-MOTIF       Pfam: DUF3115 SAM_2
-DBLINKS     NCBI-GI: 6323092
+MOTIF       Pfam: Methyltransf_34
+DBLINKS     NCBI-ProteinID: NP_013164
             NCBI-GeneID: 850752
             SGD: S000004053
-            MIPS: YLR063W
             UniProt: Q12291
 AASEQ       365
             MLLMRRFAFLTSSVYFKYIPIYSQYHYSSQFPINMNPKKVAQLPVHNKSTLPPQEIIDLF

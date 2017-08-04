@@ -1,16 +1,25 @@
 ENTRY       YDR486C           CDS       T00005
 NAME        VPS60, CHM5, MOS10
-DEFINITION  Vps60p
+DEFINITION  (RefSeq) Vps60p
 ORTHOLOGY   K12198  charged multivesicular body protein 5
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04144  Endocytosis
-CLASS       Cellular Processes; Transport and catabolism; Endocytosis [PATH:sce04144]
+MODULE      sce_M00412  ESCRT-III complex
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04144 Endocytosis
+                YDR486C (VPS60)
+            Membrane trafficking [BR:sce04131]
+             Endosome - Lysosome transport
+              Endosomal sorting complexes required for transport (ESCRT)
+               ESCRT-III complex
+                YDR486C (VPS60)
 POSITION    IV:complement(1427431..1428120)
-MOTIF       Pfam: Snf7 YlqD V_ATPase_I Fmp27_SW TrfA COG2 Ribosomal_L29 XhlA
-DBLINKS     NCBI-GI: 398366641
+MOTIF       Pfam: Snf7 Fmp27_WPPW SKA1 YlqD DUF5446 TrfA AceK Exonuc_VII_L V_ATPase_I Not3 Jnk-SapK_ap_N
+DBLINKS     NCBI-ProteinID: NP_010774
             NCBI-GeneID: 852097
             SGD: S000002894
-            MIPS: YDR486C
             UniProt: Q03390
 STRUCTURE   PDB: 2LUH
 AASEQ       229

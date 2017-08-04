@@ -1,13 +1,12 @@
 ENTRY       YHR134W           CDS       T00005
 NAME        WSS1
-DEFINITION  Wss1p
+DEFINITION  (RefSeq) metalloendopeptidase WSS1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VIII:371749..372558
 MOTIF       Pfam: WLM DUF45
-DBLINKS     NCBI-GI: 6321926
+DBLINKS     NCBI-ProteinID: NP_012002
             NCBI-GeneID: 856536
             SGD: S000001176
-            MIPS: YHR134W
             UniProt: P38838
 AASEQ       269
             MKTEGIKSPSAKYHDMAGSQRIPHKNPHIQKVAVLQSKPNKEDALNLIKEIAHKVSYLMK

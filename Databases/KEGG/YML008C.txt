@@ -1,19 +1,29 @@
 ENTRY       YML008C           CDS       T00005
 NAME        ERG6, ISE1, LIS1, SED6, VID1
-DEFINITION  sterol 24-C-methyltransferase (EC:2.1.1.41)
+DEFINITION  (RefSeq) sterol 24-C-methyltransferase
 ORTHOLOGY   K00559  sterol 24-C-methyltransferase [EC:2.1.1.41]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00100  Steroid biosynthesis
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
+            sce01130  Biosynthesis of antibiotics
 MODULE      sce_M00102  Ergocalciferol biosynthesis
-CLASS       Metabolism; Lipid metabolism; Steroid biosynthesis [PATH:sce00100]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Lipid metabolism
+               00100 Steroid biosynthesis
+                YML008C (ERG6)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.1  Transferring one-carbon groups
+               2.1.1  Methyltransferases
+                2.1.1.41  sterol 24-C-methyltransferase
+                 YML008C (ERG6)
 POSITION    XIII:complement(251839..252990)
-MOTIF       Pfam: Sterol_MT_C Methyltransf_11 Methyltransf_31 Methyltransf_23 CMAS Methyltransf_12 Methyltransf_25 Methyltransf_18 Ubie_methyltran Methyltransf_26 Methyltransf_15 UPF0020 PrmA Methyltransf_2 Haem_oxygenas_2 MTS PCMT RAG2 RrnaAD Methyltransf_32
-DBLINKS     NCBI-GI: 6323635
+MOTIF       Pfam: Sterol_MT_C Methyltransf_11 Methyltransf_25 Methyltransf_31 CMAS Methyltransf_23 Methyltransf_12 Ubie_methyltran Methyltransf_15 PrmA Methyltransf_2 PCMT Methyltransf_32 UPF0020 MTS RAG2
+DBLINKS     NCBI-ProteinID: NP_013706
             NCBI-GeneID: 855003
             SGD: S000004467
-            MIPS: YML008C
             UniProt: P25087
 AASEQ       383
             MSETELRKRQAQFTRELHGDDIGKKTGLSALMSKNNSAQKEAVQKYLRNWDGRTDKDAEE

@@ -1,14 +1,19 @@
 ENTRY       YIL048W           CDS       T00005
 NAME        NEO1
-DEFINITION  putative aminophospholipid-translocating P4-type ATPase NEO1 (EC:3.6.3.1)
+DEFINITION  (RefSeq) putative aminophospholipid-translocating P4-type ATPase NEO1
 ORTHOLOGY   K01530  phospholipid-translocating ATPase [EC:3.6.3.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.3  Acting on acid anhydrides to catalyse transmembrane movement of substances
+                3.6.3.1  phospholipid-translocating ATPase
+                 YIL048W (NEO1)
 POSITION    IX:261437..264892
-MOTIF       Pfam: E1-E2_ATPase Hydrolase HAD Hydrolase_like2 Hydrolase_3 PhaG_MnhG_YufB
-DBLINKS     NCBI-GI: 6322141
+MOTIF       Pfam: PhoLip_ATPase_C PhoLip_ATPase_N E1-E2_ATPase Hydrolase Cation_ATPase Hydrolase_3
+DBLINKS     NCBI-ProteinID: NP_012216
             NCBI-GeneID: 854763
             SGD: S000001310
-            MIPS: YIL048W
             UniProt: P40527
 AASEQ       1151
             MPNPPSFKSHKQNLFNSNNNQHANSVDSFDLHLDDSFDAALDSLQINNNPEPLSKHNTVG

@@ -1,18 +1,44 @@
 ENTRY       YNL282W           CDS       T00005
 NAME        POP3
-DEFINITION  Pop3p
+DEFINITION  (RefSeq) Pop3p
 ORTHOLOGY   K14522  ribonuclease P/MRP protein subunit POP3 [EC:3.1.26.5]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03008  Ribosome biogenesis in eukaryotes
             sce03013  RNA transport
-CLASS       Genetic Information Processing; Translation; RNA transport [PATH:sce03013]
-            Genetic Information Processing; Translation; Ribosome biogenesis in eukaryotes [PATH:sce03008]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03013 RNA transport
+                YNL282W (POP3)
+               03008 Ribosome biogenesis in eukaryotes
+                YNL282W (POP3)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.26  Endoribonucleases producing 5'-phosphomonoesters
+                3.1.26.5  ribonuclease P
+                 YNL282W (POP3)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               RNases
+                RNase MRP
+                 YNL282W (POP3)
+            Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              5'processing factors
+               Ribonucrease P
+                YNL282W (POP3)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial DNA transcription, translation, and replication factors
+              Mitochondrial transcription and translation factors
+               RNase MRP
+                YNL282W (POP3)
 POSITION    XIV:107687..108274
 MOTIF       Pfam: RNase_P_pop3
-DBLINKS     NCBI-GI: 6324047
+DBLINKS     NCBI-ProteinID: NP_014117
             NCBI-GeneID: 855439
             SGD: S000005226
-            MIPS: YNL282W
             UniProt: P53833
 AASEQ       195
             MSGSLKSLDKKIAKRRQVYKPVLDNPFTNEAHMWPRVHDQPLIWQLLQSSIINKLIHIQS

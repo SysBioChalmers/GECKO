@@ -1,13 +1,12 @@
 ENTRY       YGR270W           CDS       T00005
 NAME        YTA7
-DEFINITION  Yta7p
+DEFINITION  (RefSeq) Yta7p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:1027370..1031509
-MOTIF       Pfam: AAA AAA_2 Bromodomain AAA_16 IstB_IS21 AAA_22 AAA_5 AAA_14 AAA_19 Sigma54_activ_2 TIP49 AAA_25 AAA_33 Sigma54_activat AAA_17 RNA_helicase Mg_chelatase ABC_tran AAA_30 AAA_18 AAA_3 PhoH
-DBLINKS     NCBI-GI: 6321709
+MOTIF       Pfam: AAA AAA_2 AAA_16 IstB_IS21 AAA_5 Bromodomain Sigma54_activ_2 ResIII AAA_14 AAA_22 TIP49 Sigma54_activat AAA_33 RNA_helicase ABC_tran Mg_chelatase AAA_3 RuvB_N AAA_25 AAA_30 AAA_18
+DBLINKS     NCBI-ProteinID: NP_011786
             NCBI-GeneID: 853186
             SGD: S000003502
-            MIPS: YGR270W
             UniProt: P40340
 AASEQ       1379
             MARNLRNRRGSDVEDASNAKVGYETQIKDENGIIHTTTRSLRKINYAEIEKVFDFLEDDQ

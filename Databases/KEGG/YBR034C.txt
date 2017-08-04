@@ -1,14 +1,25 @@
 ENTRY       YBR034C           CDS       T00005
 NAME        HMT1, HCP1, ODP1, RMT1
-DEFINITION  Hmt1p (EC:2.1.1.-)
-ORTHOLOGY   K11434  protein arginine N-methyltransferase 1 [EC:2.1.1.-]
+DEFINITION  (RefSeq) protein-arginine omega-N methyltransferase HMT1
+ORTHOLOGY   K11434  type I protein arginine methyltransferase [EC:2.1.1.319]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.1  Transferring one-carbon groups
+               2.1.1  Methyltransferases
+                2.1.1.319  type I protein arginine methyltransferase
+                 YBR034C (HMT1)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Histone modification proteins
+               HMTs (histone methyltransferases)
+                PRMTs (protein arginine metyltransferases)
+                 YBR034C (HMT1)
 POSITION    II:complement(304930..305976)
-MOTIF       Pfam: Methyltransf_31 PrmA Methyltransf_26 Methyltransf_18 Methyltransf_11 Methyltransf_23 MTS Methyltransf_25 PRMT5 Methyltransf_9 CMAS Methyltransf_16 Methyltransf_12 FtsJ Met_10 PCMT UPF0020 Methyltransf_32 Methyltransf_4 DOT1 Cons_hypoth95
-DBLINKS     NCBI-GI: 6319508
+MOTIF       Pfam: PrmA Methyltransf_25 Methyltransf_31 Methyltransf_11 Methyltransf_23 Methyltransf_9 MTS CMAS Methyltransf_18 Methyltransf_12 Methyltransf_16 Methyltransf_2 FtsJ Methyltransf_32 PCMT Met_10 DOT1 Cons_hypoth95
+DBLINKS     NCBI-ProteinID: NP_009590
             NCBI-GeneID: 852322
             SGD: S000000238
-            MIPS: YBR034C
             UniProt: P38074
 STRUCTURE   PDB: 1G6Q
 AASEQ       348

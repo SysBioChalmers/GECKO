@@ -1,17 +1,30 @@
 ENTRY       YBR002C           CDS       T00005
 NAME        RER2
-DEFINITION  Rer2p (EC:2.5.1.87)
+DEFINITION  (RefSeq) ditrans,polycis-polyprenyl diphosphate synthase
 ORTHOLOGY   K11778  ditrans,polycis-polyprenyl diphosphate synthase [EC:2.5.1.87]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00900  Terpenoid backbone biosynthesis
             sce01110  Biosynthesis of secondary metabolites
-CLASS       Metabolism; Metabolism of terpenoids and polyketides; Terpenoid backbone biosynthesis [PATH:sce00900]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Metabolism of terpenoids and polyketides
+               00900 Terpenoid backbone biosynthesis
+                YBR002C (RER2)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.5  Transferring alkyl or aryl groups, other than methyl groups
+               2.5.1  Transferring alkyl or aryl groups, other than methyl groups (only sub-subclass identified to date)
+                2.5.1.87  ditrans,polycis-polyprenyl diphosphate synthase [(2E,6E)-farnesyl diphosphate specific]
+                 YBR002C (RER2)
+            Prenyltransferases [BR:sce01006]
+             Terpene biosynthesis
+              Prenyl diphosphate synthase
+               YBR002C (RER2)
 POSITION    II:complement(241708..242568)
 MOTIF       Pfam: Prenyltransf
-DBLINKS     NCBI-GI: 6319474
+DBLINKS     NCBI-ProteinID: NP_009556
             NCBI-GeneID: 852287
             SGD: S000000206
-            MIPS: YBR002C
             UniProt: P35196
 AASEQ       286
             METDSGIPGHSFVLKWTKNIFSRTLRASNCVPRHVGFIMDGNRRFARKKEMDVKEGHEAG

@@ -1,13 +1,12 @@
 ENTRY       YCL073C           CDS       T00005
 NAME        GEX1
-DEFINITION  Gex1p
+DEFINITION  (RefSeq) glutathione exchanger
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    III:complement(6479..8326)
 MOTIF       Pfam: MFS_1 TRI12
-DBLINKS     NCBI-GI: 10383750
+DBLINKS     NCBI-ProteinID: NP_009863
             NCBI-GeneID: 850289
             SGD: S000000575
-            MIPS: YCL073C
             UniProt: P25596
 AASEQ       615
             MSSSVVGASSNKKSGIRQSCEIIERERHSNDDTYSMTSTFFKLKENEIMSAQFDSLKYKI

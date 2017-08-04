@@ -1,16 +1,61 @@
 ENTRY       YFL039C           CDS       T00005
 NAME        ACT1, ABY1, END7
-DEFINITION  actin
+DEFINITION  (RefSeq) actin
 ORTHOLOGY   K05692  actin beta/gamma 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04145  Phagosome
-CLASS       Cellular Processes; Transport and catabolism; Phagosome [PATH:sce04145]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04145 Phagosome
+                YFL039C (ACT1)
+            Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Coactivators
+                BAF/PBAF complex
+                 YFL039C (ACT1)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Factors involved in mRNA localization
+                Factors that have mRNA localization signals
+                 YFL039C (ACT1)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Histone modification proteins
+               HAT complexes
+                TIP60 complex
+                 YFL039C (ACT1)
+                NuA4 complex
+                 YFL039C (ACT1)
+              Chromatin remodeling factors
+               BAF complex
+                YFL039C (ACT1)
+               PBAF complex
+                YFL039C (ACT1)
+               SWR1 complex
+                YFL039C (ACT1)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial quality control factors
+              Mitochondrial dynamics
+               Actin cytoskeleton organization
+                YFL039C (ACT1)
+            Cytoskeleton proteins [BR:sce04812]
+             Eukaryotic cytoskeleton proteins
+              Actin filaments / Microfilaments
+               Actins
+                Actins
+                 YFL039C (ACT1)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Proteins found in most exosomes
+               YFL039C (ACT1)
 POSITION    VI:complement(join(53260..54377,54687..54696))
-MOTIF       Pfam: Actin ESSS
-DBLINKS     NCBI-GI: 14318479
+MOTIF       Pfam: Actin
+DBLINKS     NCBI-ProteinID: NP_116614
             NCBI-GeneID: 850504
             SGD: S000001855
-            MIPS: YFL039C
             UniProt: P60010
 STRUCTURE   PDB: 1YAG 1YVN
 AASEQ       375

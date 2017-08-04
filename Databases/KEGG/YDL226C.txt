@@ -1,16 +1,24 @@
 ENTRY       YDL226C           CDS       T00005
 NAME        GCS1
-DEFINITION  Gcs1p
+DEFINITION  (RefSeq) Gcs1p
 ORTHOLOGY   K12492  ADP-ribosylation factor GTPase-activating protein 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04144  Endocytosis
-CLASS       Cellular Processes; Transport and catabolism; Endocytosis [PATH:sce04144]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04144 Endocytosis
+                YDL226C (GCS1)
+            Membrane trafficking [BR:sce04131]
+             Endosome - Golgi transport
+              Arf GTPases and associated proteins
+               Arf GTPase associated proteins
+                YDL226C (GCS1)
 POSITION    IV:complement(51115..52173)
-MOTIF       Pfam: ArfGap
-DBLINKS     NCBI-GI: 6319975
+MOTIF       Pfam: ArfGap PHA_synth_III_E
+DBLINKS     NCBI-ProteinID: NP_010055
             NCBI-GeneID: 851372
             SGD: S000002385
-            MIPS: YDL226C
             UniProt: P35197
 AASEQ       352
             MSDWKVDPDTRRRLLQLQKIGANKKCMDCGAPNPQWATPKFGAFICLECAGIHRGLGVHI

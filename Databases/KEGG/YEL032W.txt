@@ -1,22 +1,46 @@
 ENTRY       YEL032W           CDS       T00005
 NAME        MCM3
-DEFINITION  Mcm3p (EC:3.6.4.12)
+DEFINITION  (RefSeq) MCM DNA helicase complex subunit MCM3
 ORTHOLOGY   K02541  DNA replication licensing factor MCM3 [EC:3.6.4.12]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03030  DNA replication
             sce04111  Cell cycle - yeast
             sce04113  Meiosis - yeast
 MODULE      sce_M00285  MCM complex
-CLASS       Genetic Information Processing; Replication and repair; DNA replication [PATH:sce03030]
-            Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
-            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Replication and repair
+               03030 DNA replication
+                YEL032W (MCM3)
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YEL032W (MCM3)
+               04113 Meiosis - yeast
+                YEL032W (MCM3)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.4  Acting on acid anhydrides to facilitate cellular and subcellular movement
+                3.6.4.12  DNA helicase
+                 YEL032W (MCM3)
+            DNA replication proteins [BR:sce03032]
+             Eukaryotic Type
+              DNA Replication Initiation Factors
+               pre-RC (pre-replication complex)
+                YEL032W (MCM3)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centrosome formation and ciliogenesis proteins
+               Other centriole associated proteins
+                YEL032W (MCM3)
 POSITION    V:86937..89852
-MOTIF       Pfam: MCM MCM_N Mg_chelatase ORC6 AAA_3 Sigma54_activat
-DBLINKS     NCBI-GI: 6320803
+MOTIF       Pfam: MCM MCM_OB Mg_chelatase MCM_N ORC6 AAA_3 Sigma54_activat Stm1_N AAA_5
+DBLINKS     NCBI-ProteinID: NP_010882
             NCBI-GeneID: 856680
             SGD: S000000758
-            MIPS: YEL032W
             UniProt: P24279
+STRUCTURE   PDB: 3JC6 3JA8 5UDB 3JC5 3JC7 5U8T 5U8S 5H7I
 AASEQ       971
             MEGSTGFDGDATTFFAPDAVFGDRVRRFQEFLDTFTSYRDSVRSIQVYNSNNAANYNDDQ
             DDADERDLLGDDDGDDLEKEKKAASSTSLNILPHRIIISLDDLREFDRSFWSGILVEPAY

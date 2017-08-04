@@ -1,18 +1,44 @@
 ENTRY       YGR074W           CDS       T00005
 NAME        SMD1, SPP92
-DEFINITION  Smd1p
+DEFINITION  (RefSeq) mRNA splicing protein SMD1
 ORTHOLOGY   K11087  small nuclear ribonucleoprotein D1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03040  Spliceosome
-MODULE      sce_M00398  Sm core complex
-CLASS       Genetic Information Processing; Transcription; Spliceosome [PATH:sce03040]
+MODULE      sce_M00351  Spliceosome, U1-snRNP
+            sce_M00398  Sm core complex
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03040 Spliceosome
+                YGR074W (SMD1)
+            Spliceosome [BR:sce03041]
+             Complex A
+              U1 snRNP components
+               Sm proteins
+                YGR074W (SMD1)
+              U2 snRNP components
+                YGR074W (SMD1)
+             Complex B
+              U1 snRNP components
+                YGR074W (SMD1)
+              U4/U6.U5 tri-snRNP components
+                YGR074W (SMD1)
+             Complex C
+              U2 snRNP components
+                YGR074W (SMD1)
+            DNA replication proteins [BR:sce03032]
+             Eukaryotic Type
+              DNA Replication Termination Factors
+               Telomerase complex (fungi)
+                Sm core complex
+                 YGR074W (SMD1)
 POSITION    VII:635712..636152
-MOTIF       Pfam: LSM SM-ATX
-DBLINKS     NCBI-GI: 398365525
+MOTIF       Pfam: LSM SM-ATX DUF148
+DBLINKS     NCBI-ProteinID: NP_011588
             NCBI-GeneID: 852964
             SGD: S000003306
-            MIPS: YGR074W
             UniProt: Q02260
+STRUCTURE   PDB: 5GMK 5GAN 5GAO 5GAM 5LJ3 5LJ5 3JCM 5MPS 5WSG 5MQ0 5LQW
 AASEQ       146
             MKLVNFLKKLRNEQVTIELKNGTTVWGTLQSVSPQMNAILTDVKLTLPQPRLNKLNSNGI
             AMASLYLTGGQQPTASDNIASLQYINIRGNTIRQIILPDSLNLDSLLVDQKQLNSLRRSG

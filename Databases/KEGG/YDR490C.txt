@@ -1,13 +1,34 @@
 ENTRY       YDR490C           CDS       T00005
 NAME        PKH1
-DEFINITION  Pkh1p (EC:2.7.11.1)
+DEFINITION  (RefSeq) serine/threonine protein kinase PKH1
+ORTHOLOGY   K06276  3-phosphoinositide dependent protein kinase-1 [EC:2.7.11.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04011  MAPK signaling pathway - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YDR490C (PKH1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.11  Protein-serine/threonine kinases
+                2.7.11.1  non-specific serine/threonine protein kinase
+                 YDR490C (PKH1)
+            Protein kinases [BR:sce01001]
+             Serine/threonine protein kinases: AGC group
+              PDK1 family
+               YDR490C (PKH1)
+            Membrane trafficking [BR:sce04131]
+             Exocytosis
+              Calcium ion-dependent exocytosis
+               Acrosomal exocytosis proteins
+                YDR490C (PKH1)
 POSITION    IV:complement(1431968..1434268)
-MOTIF       Pfam: Pkinase Pkinase_Tyr Kinase-like Kdo APH
-DBLINKS     NCBI-GI: 398366645
+MOTIF       Pfam: Pkinase Pkinase_Tyr Kinase-like FTA2 Kdo Haspin_kinase APH AAA_14 Seadorna_VP7
+DBLINKS     NCBI-ProteinID: NP_010778
             NCBI-GeneID: 852101
             SGD: S000002898
-            MIPS: YDR490C
             UniProt: Q03407
 AASEQ       766
             MGNRSLTEADHALLSKPLVPTSAEHTQTQEYPRPFVDGSNSQSGSELQASPQGQFGEKAL

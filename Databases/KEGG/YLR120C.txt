@@ -1,14 +1,33 @@
 ENTRY       YLR120C           CDS       T00005
 NAME        YPS1, YAP3
-DEFINITION  Yps1p (EC:3.4.23.41)
-ORTHOLOGY   K06009  yapsin 1 [EC:3.4.23.41]
+DEFINITION  (RefSeq) aspartyl protease
+ORTHOLOGY   K06009  yapsin 1/2 [EC:3.4.23.41]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04011  MAPK signaling pathway - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YLR120C (YPS1)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.4  Acting on peptide bonds (peptidases)
+               3.4.23  Aspartic endopeptidases
+                3.4.23.41  yapsin 1
+                 YLR120C (YPS1)
+            Peptidases [BR:sce01002]
+             Aspartic Peptidases
+              Family A1: pepsin family
+               YLR120C (YPS1)
+            Chaperones and folding catalysts [BR:sce03110]
+             Intramolecular chaperones
+              Other peptidases
+               YLR120C (YPS1)
 POSITION    XII:complement(386511..388220)
-MOTIF       Pfam: Asp TAXi_N TAXi_C TRAPPC9-Trs120
-DBLINKS     NCBI-GI: 6323149
+MOTIF       Pfam: Asp TAXi_N
+DBLINKS     NCBI-ProteinID: NP_013221
             NCBI-GeneID: 850811
             SGD: S000004110
-            MIPS: YLR120C
             UniProt: P32329
 AASEQ       569
             MKLKTVRSAVLSSLFASQVLGKIIPAANKRDDDSNSKFVKLPFHKLYGDSLENVGSDKKP

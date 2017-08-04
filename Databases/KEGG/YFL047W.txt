@@ -1,13 +1,12 @@
 ENTRY       YFL047W           CDS       T00005
 NAME        RGD2
-DEFINITION  Rgd2p
+DEFINITION  (RefSeq) Rgd2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VI:40421..42565
-MOTIF       Pfam: FCH DEP RhoGAP
-DBLINKS     NCBI-GI: 16198342
+MOTIF       Pfam: DEP FCH RhoGAP
+DBLINKS     NCBI-ProteinID: NP_428268
             NCBI-GeneID: 850497
             SGD: S000001847
-            MIPS: YFL047W
             UniProt: P43556
 AASEQ       714
             MLSFCDYFWSEDLVSGLDVLFDRLYHGCEQCDLFIQLFASRMQFEVSHGRQLFGIEAGMD

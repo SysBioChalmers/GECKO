@@ -1,13 +1,12 @@
 ENTRY       YNL210W           CDS       T00005
 NAME        MER1
-DEFINITION  Mer1p
+DEFINITION  (RefSeq) Mer1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIV:250931..251743
-MOTIF       Pfam: KH_1 KH_3 KH_2 PRCC
-DBLINKS     NCBI-GI: 6324119
+MOTIF       Pfam: KH_1 KH_2
+DBLINKS     NCBI-ProteinID: NP_014189
             NCBI-GeneID: 855511
             SGD: S000005154
-            MIPS: YNL210W
             UniProt: P16523
 AASEQ       270
             MSNQHSPQPFCLDTKLVKLLEELQEGKQFNNKNIFPEKALYLKLALDYSFFRKNLLEFCV

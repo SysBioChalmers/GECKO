@@ -1,18 +1,46 @@
 ENTRY       YML085C           CDS       T00005
 NAME        TUB1
-DEFINITION  Tub1p
+DEFINITION  (RefSeq) alpha-tubulin TUB1
 ORTHOLOGY   K07374  tubulin alpha
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04145  Phagosome
-CLASS       Cellular Processes; Transport and catabolism; Phagosome [PATH:sce04145]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04145 Phagosome
+                YML085C (TUB1)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               mRNA cycle factors
+                P-body specific factors
+                 YML085C (TUB1)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centrosome formation and ciliogenesis proteins
+               Microtubules and associated factors
+                Other tubulins
+                 YML085C (TUB1)
+            Cytoskeleton proteins [BR:sce04812]
+             Eukaryotic cytoskeleton proteins
+              Microtubules
+               Tubulins
+                YML085C (TUB1)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of haemopoietic cells  (B-cell, T-cell, DC-cell, reticulocyte, and mast cell)
+               YML085C (TUB1)
+              Exosomal proteins of other body fluids (saliva and urine)
+               YML085C (TUB1)
+              Exosomal proteins of colorectal cancer cells
+               YML085C (TUB1)
 POSITION    XIII:complement(join(97941..99259,99376..99400))
 MOTIF       Pfam: Tubulin Tubulin_C Tubulin_3
-DBLINKS     NCBI-GI: 6323554
+DBLINKS     NCBI-ProteinID: NP_013625
             NCBI-GeneID: 854889
             SGD: S000004550
-            MIPS: YML085C
             UniProt: P09733
-STRUCTURE   PDB: 4FFB
+STRUCTURE   PDB: 4U3J 4FFB
 AASEQ       447
             MREVISINVGQAGCQIGNACWELYSLEHGIKPDGHLEDGLSKPKGGEEGFSTFFHETGYG
             KFVPRAIYVDLEPNVIDEVRNGPYKDLFHPEQLISGKEDAANNYARGHYTVGREILGDVL

@@ -1,6 +1,6 @@
 ENTRY       YNL262W           CDS       T00005
 NAME        POL2, DUN2
-DEFINITION  Pol2p (EC:2.7.7.7)
+DEFINITION  (RefSeq) DNA polymerase epsilon catalytic subunit
 ORTHOLOGY   K02324  DNA polymerase epsilon subunit 1 [EC:2.7.7.7]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00230  Purine metabolism
@@ -10,19 +10,46 @@ PATHWAY     sce00230  Purine metabolism
             sce03410  Base excision repair
             sce03420  Nucleotide excision repair
 MODULE      sce_M00263  DNA polymerase epsilon complex
-CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
-            Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
-            Genetic Information Processing; Replication and repair; DNA replication [PATH:sce03030]
-            Genetic Information Processing; Replication and repair; Base excision repair [PATH:sce03410]
-            Genetic Information Processing; Replication and repair; Nucleotide excision repair [PATH:sce03420]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Nucleotide metabolism
+               00230 Purine metabolism
+                YNL262W (POL2)
+               00240 Pyrimidine metabolism
+                YNL262W (POL2)
+             Genetic Information Processing
+              Replication and repair
+               03030 DNA replication
+                YNL262W (POL2)
+               03410 Base excision repair
+                YNL262W (POL2)
+               03420 Nucleotide excision repair
+                YNL262W (POL2)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.7  Nucleotidyltransferases
+                2.7.7.7  DNA-directed DNA polymerase
+                 YNL262W (POL2)
+            DNA replication proteins [BR:sce03032]
+             Eukaryotic Type
+              DNA Replication Elongation Factors
+               DNA polymerase epsilon complex
+                YNL262W (POL2)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              SSBR (single strand breaks repair)
+               BER (base exicision repair)
+                Long Patch-BER factors
+                 DNA polymerase epsilon complex
+                  YNL262W (POL2)
 POSITION    XIV:148212..154880
-MOTIF       Pfam: DUF1744 DNA_pol_B_exo1 DNA_pol_B DNA_pol_B_exo2 RNase_H_2 zf-DNA_Pol Cytochrome_C554
-DBLINKS     NCBI-GI: 6324067
+MOTIF       Pfam: DUF1744 DNA_pol_B_exo1 DNA_pol_B DNA_pol_B_exo2 RNase_H_2 zf-DNA_Pol Cytochrom_c3_2
+DBLINKS     NCBI-ProteinID: NP_014137
             NCBI-GeneID: 855459
             SGD: S000005206
-            MIPS: YNL262W
             UniProt: P21951
-STRUCTURE   PDB: 4M8O
+STRUCTURE   PDB: 4M8O 4PTF
 AASEQ       2222
             MMFGKKKNNGGSSTARYSAGNKYNTLSNNYALSAQQLLNASKIDDIDSMMGFERYVPPQY
             NGRFDAKDIDQIPGRVGWLTNMHATLVSQETLSSGSNGGGNSNDGERVTTNQGISGVDFY

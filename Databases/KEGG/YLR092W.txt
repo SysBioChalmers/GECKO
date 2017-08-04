@@ -1,14 +1,17 @@
 ENTRY       YLR092W           CDS       T00005
 NAME        SUL2
-DEFINITION  Sul2p
+DEFINITION  (RefSeq) sulfate permease
 ORTHOLOGY   K14708  solute carrier family 26 (sodium-independent sulfate anion transporter), member 11
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Solute Carrier Family (SLC)
+              SLC26: Multifunctional anion exchanger
+               YLR092W (SUL2)
 POSITION    XII:323544..326225
-MOTIF       Pfam: Sulfate_transp Sulfate_tra_GLY STAS STAS_2
-DBLINKS     NCBI-GI: 6323121
+MOTIF       Pfam: Sulfate_transp STAS STAS_2
+DBLINKS     NCBI-ProteinID: NP_013193
             NCBI-GeneID: 850781
             SGD: S000004082
-            MIPS: YLR092W
             UniProt: Q12325
 AASEQ       893
             MSREGYPNFEEVEIPDFQETNNTVPDLDDLELEYDQYKNNENNDTFNDKDLESNSVAKHN

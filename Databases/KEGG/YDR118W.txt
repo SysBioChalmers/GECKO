@@ -1,21 +1,39 @@
 ENTRY       YDR118W           CDS       T00005
 NAME        APC4
-DEFINITION  anaphase promoting complex subunit 4
+DEFINITION  (RefSeq) anaphase promoting complex subunit 4
 ORTHOLOGY   K03351  anaphase-promoting complex subunit 4
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
             sce04113  Meiosis - yeast
             sce04120  Ubiquitin mediated proteolysis
 MODULE      sce_M00389  APC/C complex
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Ubiquitin mediated proteolysis [PATH:sce04120]
-            Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
-            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04120 Ubiquitin mediated proteolysis
+                YDR118W (APC4)
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YDR118W (APC4)
+               04113 Meiosis - yeast
+                YDR118W (APC4)
+            Ubiquitin system [BR:sce04121]
+             Ubiquitin ligases (E3)
+              Multi subunit Ring-finger type E3
+               APC/C
+                Other subunits
+                 YDR118W (APC4)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Sister chromatid separation proteins
+               APC/C complex
+                YDR118W (APC4)
 POSITION    IV:685882..687840
-MOTIF       Pfam: Apc4 Apc4_WD40
-DBLINKS     NCBI-GI: 398365699
+MOTIF       Pfam: ANAPC4 DBP10CT
+DBLINKS     NCBI-ProteinID: NP_010403
             NCBI-GeneID: 851696
             SGD: S000002525
-            MIPS: YDR118W
             UniProt: Q04601
 AASEQ       652
             MSSPINDYFIDYNPLFPIFATRIAKGLAIYRVSDHARLAVIPIRNINLVANYDWDTTTGK

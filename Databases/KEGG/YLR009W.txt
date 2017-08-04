@@ -1,16 +1,27 @@
 ENTRY       YLR009W           CDS       T00005
 NAME        RLP24
-DEFINITION  Rlp24p
+DEFINITION  (RefSeq) ATPase-activating ribosome biosynthesis protein
 ORTHOLOGY   K02896  large subunit ribosomal protein L24e
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03010  Ribosome
-CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+MODULE      sce_M00177  Ribosome, eukaryotes
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03010 Ribosome
+                YLR009W (RLP24)
+            Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Eukaryotes
+               Large subunit
+                YLR009W (RLP24)
+              Archaea
+                YLR009W (RLP24)
 POSITION    XII:166537..167136
-MOTIF       Pfam: Ribosomal_L24e TFIIF_alpha zf-FCS
-DBLINKS     NCBI-GI: 6323037
+MOTIF       Pfam: Ribosomal_L24e TFIIF_alpha
+DBLINKS     NCBI-ProteinID: NP_013109
             NCBI-GeneID: 850695
             SGD: S000003999
-            MIPS: YLR009W
             UniProt: Q07915
 AASEQ       199
             MRIYQCHFCSSPCYPGHGIMFVRNDAKEFRFCRSKCHKAFKQRRNPRKLKWTKAFRKAAG

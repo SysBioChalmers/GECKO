@@ -1,14 +1,19 @@
 ENTRY       YLL051C           CDS       T00005
 NAME        FRE6
-DEFINITION  Fre6p (EC:1.16.1.7 1.16.1.-)
+DEFINITION  (RefSeq) putative ferric-chelate reductase
 ORTHOLOGY   K00521  ferric-chelate reductase [EC:1.16.1.7]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.16  Oxidizing metal ions
+               1.16.1  With NAD+ or NADP+ as acceptor
+                1.16.1.7  ferric-chelate reductase (NADH)
+                 YLL051C (FRE6)
 POSITION    XII:complement(37333..39471)
-MOTIF       Pfam: FAD_binding_8 NAD_binding_6 Ferric_reduct NAD_binding_1
-DBLINKS     NCBI-GI: 6322977
+MOTIF       Pfam: FAD_binding_8 NAD_binding_6 Ferric_reduct
+DBLINKS     NCBI-ProteinID: NP_013049
             NCBI-GeneID: 850675
             SGD: S000003974
-            MIPS: YLL051C
             UniProt: Q12473
 AASEQ       712
             MHRTLLFLTWLISLTKAFNIKLPHTEKKDHLESNAVLACASYINTLKWSFDSSVVPGFYS

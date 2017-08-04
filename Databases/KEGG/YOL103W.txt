@@ -1,14 +1,21 @@
 ENTRY       YOL103W           CDS       T00005
 NAME        ITR2, HRB612
-DEFINITION  Itr2p
+DEFINITION  (RefSeq) myo-inositol transporter ITR2
 ORTHOLOGY   K08150  MFS transporter, SP family, solute carrier family 2 (myo-inositol transporter), member 13
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Solute Carrier Family (SLC)
+              SLC2: Facilitative GLUT transporter
+               YOL103W (ITR2)
+             Major Facilitator Superfamily (MFS)
+              Sugar transporters
+               Sugar porter (SP) family [TC:2.A.1.1]
+                YOL103W (ITR2)
 POSITION    XV:124001..125830
-MOTIF       Pfam: Sugar_tr MFS_1 TRI12 MFS_3
-DBLINKS     NCBI-GI: 37362691
+MOTIF       Pfam: Sugar_tr MFS_1 TRI12 MFS_3 DUF4637
+DBLINKS     NCBI-ProteinID: NP_014538
             NCBI-GeneID: 854050
             SGD: S000005463
-            MIPS: YOL103W
             UniProt: P30606
 AASEQ       609
             MKNSTAASSRWTKSRLSHFFPSYTNSSGMGAASTDQSSTQGEELHHRKHCEEDNDGQKPK

@@ -1,13 +1,12 @@
 ENTRY       YJL149W           CDS       T00005
-NAME        DAS1
-DEFINITION  SCF ubiquitin ligase complex subunit DAS1
+NAME        DAS1, DUH1
+DEFINITION  (RefSeq) SCF ubiquitin ligase complex subunit DAS1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    X:137379..139370
-MOTIF       Pfam: F-box-like F-box HVSL
-DBLINKS     NCBI-GI: 6322312
+MOTIF       Pfam: F-box-like F-box F-box_4
+DBLINKS     NCBI-ProteinID: NP_012386
             NCBI-GeneID: 853292
             SGD: S000003685
-            MIPS: YJL149W
             UniProt: P47005
 AASEQ       663
             MPFQDYFQKKKAAFINRNNKSNADASALRDINDININFAAKSKNYVFPLTKLPDELMQEV

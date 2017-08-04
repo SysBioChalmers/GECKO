@@ -1,16 +1,28 @@
 ENTRY       YPR166C           CDS       T00005
 NAME        MRP2
-DEFINITION  mitochondrial 37S ribosomal protein MRP2
+DEFINITION  (RefSeq) mitochondrial 37S ribosomal protein MRP2
 ORTHOLOGY   K02954  small subunit ribosomal protein S14
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03010  Ribosome
-CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03010 Ribosome
+                YPR166C (MRP2)
+            Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Mitochondria/ Chloroplast
+               Small subunit
+                YPR166C (MRP2)
+              Bacteria
+                YPR166C (MRP2)
+              Archaea
+                YPR166C (MRP2)
 POSITION    XVI:complement(876282..876629)
 MOTIF       Pfam: Ribosomal_S14
-DBLINKS     NCBI-GI: 6325424
+DBLINKS     NCBI-ProteinID: NP_015492
             NCBI-GeneID: 856295
             SGD: S000006370
-            MIPS: YPR166C
             UniProt: P10663
 AASEQ       115
             MGNFRFPIKTKLPPGFINARILRDNFKRQQFKENEILVKSLKFIARNMNLPTKLRLEAQL

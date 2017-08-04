@@ -1,12 +1,12 @@
 ENTRY       YMR144W           CDS       T00005
-DEFINITION  hypothetical protein
+NAME        FDO1
+DEFINITION  (RefSeq) Fdo1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:553362..554390
-MOTIF       Pfam: LMBR1
-DBLINKS     NCBI-GI: 6323793
+MOTIF       Pfam: DUF2120
+DBLINKS     NCBI-ProteinID: NP_013864
             NCBI-GeneID: 855175
             SGD: S000004752
-            MIPS: YMR144W
             UniProt: P40214
 AASEQ       342
             MEENKLSGNKPIQLATWSNQMGSPENNGNNANNGSDVQNVIQKALGLIRQLNNNGLMSPM

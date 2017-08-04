@@ -1,13 +1,26 @@
 ENTRY       YPL045W           CDS       T00005
-NAME        VPS16, SVL6, VAM9, VPT16
-DEFINITION  Vps16p
+NAME        VPS16, CVT15, SVL6, VAM9, VPT16
+DEFINITION  (RefSeq) tethering complex subunit VPS16
+ORTHOLOGY   K20180  vacuolar protein sorting-associated protein 16
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04138  Autophagy - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04138 Autophagy - yeast
+                YPL045W (VPS16)
+            Membrane trafficking [BR:sce04131]
+             Endosome - Lysosome transport
+              Tethering complex
+               CORVET complex
+                YPL045W (VPS16)
+               Hops complex
+                YPL045W (VPS16)
 POSITION    XVI:467260..469656
-MOTIF       Pfam: Vps16_N Vps16_C
-DBLINKS     NCBI-GI: 6325212
+MOTIF       Pfam: Vps16_C Vps16_N
+DBLINKS     NCBI-ProteinID: NP_015280
             NCBI-GeneID: 856062
             SGD: S000005966
-            MIPS: YPL045W
             UniProt: Q03308
 AASEQ       798
             MKNPSFDWERLKDVFYRSRAIGELKWPTQYEEFKCALSLTVIAVEIQDFIQVYNYFGQLL

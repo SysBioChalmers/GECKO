@@ -1,14 +1,19 @@
 ENTRY       YLR418C           CDS       T00005
 NAME        CDC73
-DEFINITION  Cdc73p
+DEFINITION  (RefSeq) Cdc73p
 ORTHOLOGY   K15175  parafibromin
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Other transcription-related factors
+                PAF1 complex
+                 YLR418C (CDC73)
 POSITION    XII:complement(956914..958095)
-MOTIF       Pfam: CDC73 ATPgrasp_ST
-DBLINKS     NCBI-GI: 6323450
+MOTIF       Pfam: CDC73_C CDC73_N
+DBLINKS     NCBI-ProteinID: NP_013522
             NCBI-GeneID: 851136
             SGD: S000004410
-            MIPS: YLR418C
             UniProt: Q06697
 STRUCTURE   PDB: 3V46 4DM4
 AASEQ       393

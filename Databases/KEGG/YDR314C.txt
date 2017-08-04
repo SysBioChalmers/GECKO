@@ -1,13 +1,12 @@
 ENTRY       YDR314C           CDS       T00005
 NAME        RAD34
-DEFINITION  Rad34p
+DEFINITION  (RefSeq) Rad34p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(1090433..1092511)
-MOTIF       Pfam: BHD_1 BHD_2 BHD_3 Rad4
-DBLINKS     NCBI-GI: 6320520
+MOTIF       Pfam: BHD_3 BHD_1 Rad4 BHD_2
+DBLINKS     NCBI-ProteinID: NP_010600
             NCBI-GeneID: 851909
             SGD: S000002722
-            MIPS: YDR314C
             UniProt: Q06665
 AASEQ       692
             MAKRLLESSQNDQANRKNSKIEKKEVSFYEEEETDDSFDSFYQDEEDDLSDIDWEEVSLD

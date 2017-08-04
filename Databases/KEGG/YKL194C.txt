@@ -1,19 +1,39 @@
 ENTRY       YKL194C           CDS       T00005
 NAME        MST1
-DEFINITION  threonine--tRNA ligase MST1 (EC:6.1.1.3)
+DEFINITION  (RefSeq) threonine--tRNA ligase MST1
 ORTHOLOGY   K01868  threonyl-tRNA synthetase [EC:6.1.1.3]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00970  Aminoacyl-tRNA biosynthesis
 MODULE      sce_M00359  Aminoacyl-tRNA biosynthesis, eukaryotes
-CLASS       Genetic Information Processing; Translation; Aminoacyl-tRNA biosynthesis [PATH:sce00970]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               00970 Aminoacyl-tRNA biosynthesis
+                YKL194C (MST1)
+            Enzymes [BR:sce01000]
+             6. Ligases
+              6.1  Forming carbon-oxygen bonds
+               6.1.1  Ligases forming aminoacyl-tRNA and related compounds
+                6.1.1.3  threonine---tRNA ligase
+                 YKL194C (MST1)
+            Amino acid related enzymes [BR:sce01007]
+             Aminoacyl-tRNA synthetase
+              Class II (G/C)
+               YKL194C (MST1)
+            Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              Aminoacyl-tRNA synthetases (AARSs)
+               Other AARSs
+                YKL194C (MST1)
+             Prokaryotic Type
+                YKL194C (MST1)
 POSITION    XI:complement(77258..78646)
-MOTIF       Pfam: tRNA-synt_2b HGTP_anticodon Caps_assemb_Wzi
-DBLINKS     NCBI-GI: 6322654
+MOTIF       Pfam: tRNA-synt_2b HGTP_anticodon
+DBLINKS     NCBI-ProteinID: NP_012727
             NCBI-GeneID: 853640
             SGD: S000001677
-            MIPS: YKL194C
             UniProt: P07236
-STRUCTURE   PDB: 3UH0 3UGQ 4EO4 3UGT
+STRUCTURE   PDB: 3UH0 3UGQ 4YYE 4EO4 3UGT
 AASEQ       462
             MKIQLVRWHCSRNALWNRAFYSTRKATKNASSATPATMTSMVSQRQDLFMTDPLSPGSMF
             FLPNGAKIFNKLIEFMKLQQKFKFGFNEVVTPLIYKKTLWEKSGHWENYADDMFKVETTD

@@ -1,16 +1,25 @@
 ENTRY       YGR225W           CDS       T00005
 NAME        AMA1, SPO70
-DEFINITION  Ama1p
+DEFINITION  (RefSeq) Ama1p
 ORTHOLOGY   K12782  meiosis-specific APC/C activator protein AMA1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04113  Meiosis - yeast
-CLASS       Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04113 Meiosis - yeast
+                YGR225W (AMA1)
+            Ubiquitin system [BR:sce04121]
+             Ubiquitin ligases (E3)
+              Multi subunit Ring-finger type E3
+               APC/C
+                Target recognizing subunit
+                 YGR225W (AMA1)
 POSITION    VII:join(945145..946327,946421..947019)
 MOTIF       Pfam: WD40
-DBLINKS     NCBI-GI: 398366225
+DBLINKS     NCBI-ProteinID: NP_011741
             NCBI-GeneID: 853140
             SGD: S000003457
-            MIPS: YGR225W
             UniProt: P50082
 AASEQ       593
             MATPHLYHRYNSKSSNKNINSSGNSTEVDRFIPKSVSRNAYKSIPMLNGFDISYSELCEK

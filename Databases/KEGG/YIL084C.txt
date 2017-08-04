@@ -1,13 +1,12 @@
 ENTRY       YIL084C           CDS       T00005
 NAME        SDS3
-DEFINITION  Sds3p
+DEFINITION  (RefSeq) Sds3p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IX:complement(202276..203259)
 MOTIF       Pfam: Sds3 Tim44
-DBLINKS     NCBI-GI: 6322107
+DBLINKS     NCBI-ProteinID: NP_012182
             NCBI-GeneID: 854725
             SGD: S000001346
-            MIPS: YIL084C
             UniProt: P40505
 AASEQ       327
             MAIQKVSNKDLSRKDKRRFNIESKVNKIYQNFYSERDNQYKDRLTALQTDLTSLHQGDNG

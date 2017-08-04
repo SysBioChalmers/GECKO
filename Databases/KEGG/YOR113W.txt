@@ -1,13 +1,12 @@
 ENTRY       YOR113W           CDS       T00005
 NAME        AZF1
-DEFINITION  Azf1p
+DEFINITION  (RefSeq) Azf1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:534075..536819
-MOTIF       Pfam: zf-H2C2_2 zf-C2H2 zf-C2H2_4 zf-C2H2_jaz zf-met zf-Di19 zf-C2H2_6
-DBLINKS     NCBI-GI: 398365185
+MOTIF       Pfam: zf-H2C2_2 zf-C2H2 zf-C2H2_4 zf-met zf-C2H2_6 zf-C2H2_jaz zf-Di19
+DBLINKS     NCBI-ProteinID: NP_014756
             NCBI-GeneID: 854280
             SGD: S000005639
-            MIPS: YOR113W
             UniProt: P41696
 AASEQ       914
             MPPPTAQFMGPTQAGQNESQNQSSGEAGEQNQEHGQGPTPILNQSQPASSQPQHQQQRNE

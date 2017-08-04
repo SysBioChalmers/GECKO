@@ -1,13 +1,20 @@
 ENTRY       YOR070C           CDS       T00005
 NAME        GYP1, YOR29-21
-DEFINITION  Gyp1p
+DEFINITION  (RefSeq) Gyp1p
+ORTHOLOGY   K20360  TBC1 domain family member 2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endoplasmic reticulum (ER) - Golgi transport
+              Forward pathways
+               Rab associated proteins
+                YOR070C (GYP1)
+              Retrieval pathways
+                YOR070C (GYP1)
 POSITION    XV:complement(455907..457820)
 MOTIF       Pfam: RabGAP-TBC
-DBLINKS     NCBI-GI: 6324644
+DBLINKS     NCBI-ProteinID: NP_014713
             NCBI-GeneID: 854236
             SGD: S000005596
-            MIPS: YOR070C
             UniProt: Q08484
 STRUCTURE   PDB: 1FKM 2G77
 AASEQ       637

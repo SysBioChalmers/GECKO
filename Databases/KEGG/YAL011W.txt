@@ -1,13 +1,17 @@
 ENTRY       YAL011W           CDS       T00005
 NAME        SWC3, SWC1
-DEFINITION  Swc3p
+DEFINITION  (RefSeq) Swc3p
 ORTHOLOGY   K11682  SWR1-complex protein 3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Chromatin remodeling factors
+               SWR1 complex
+                YAL011W (SWC3)
 POSITION    I:132199..134076
-DBLINKS     NCBI-GI: 37362611
+DBLINKS     NCBI-ProteinID: NP_009391
             NCBI-GeneID: 851222
             SGD: S000000009
-            MIPS: YAL011W
             UniProt: P31376
 AASEQ       625
             MPAVLRTRSKESSIEQKPASRTRTRSRRGKRGRDDDDDDDDEESDDAYDEVGNDYDEYAS

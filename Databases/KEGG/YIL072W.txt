@@ -1,16 +1,19 @@
 ENTRY       YIL072W           CDS       T00005
 NAME        HOP1
-DEFINITION  Hop1p
+DEFINITION  (RefSeq) Hop1p
 ORTHOLOGY   K12778  meiosis-specific protein HOP1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04113  Meiosis - yeast
-CLASS       Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04113 Meiosis - yeast
+                YIL072W (HOP1)
 POSITION    IX:226602..228419
-MOTIF       Pfam: HORMA Cut8_N PHD_2
-DBLINKS     NCBI-GI: 398364357
+MOTIF       Pfam: HORMA DUF928 PHD_2
+DBLINKS     NCBI-ProteinID: NP_012193
             NCBI-GeneID: 854738
             SGD: S000001334
-            MIPS: YIL072W
             UniProt: P20050
 AASEQ       605
             MSNKQLVKPKTETKTEITTEQSQKLLQTMLTMSFGCLAFLRGLFPDDIFVDQRFVPEKVE

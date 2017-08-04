@@ -1,18 +1,29 @@
 ENTRY       YOR075W           CDS       T00005
 NAME        UFE1
-DEFINITION  Ufe1p
+DEFINITION  (RefSeq) Ufe1p
 ORTHOLOGY   K08492  syntaxin 18
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04130  SNARE interactions in vesicular transport
             sce04145  Phagosome
-CLASS       Genetic Information Processing; Folding, sorting and degradation; SNARE interactions in vesicular transport [PATH:sce04130]
-            Cellular Processes; Transport and catabolism; Phagosome [PATH:sce04145]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04130 SNARE interactions in vesicular transport
+                YOR075W (UFE1)
+             Cellular Processes
+              Transport and catabolism
+               04145 Phagosome
+                YOR075W (UFE1)
+            Membrane trafficking [BR:sce04131]
+             SNARE
+              Syntaxin (Qa)
+               Stx-rER
+                YOR075W (UFE1)
 POSITION    XV:468212..469252
-MOTIF       Pfam: Syntaxin-18_N SNARE
-DBLINKS     NCBI-GI: 6324649
+MOTIF       Pfam: Syntaxin-18_N SNARE MCU FAM167
+DBLINKS     NCBI-ProteinID: NP_014718
             NCBI-GeneID: 854242
             SGD: S000005601
-            MIPS: YOR075W
             UniProt: P41834
 AASEQ       346
             MMSDLTPIFRKYVAVIDDARNEQNGIDDHVERKQEDFGNSNETCEMFRDSFIKECARLLK

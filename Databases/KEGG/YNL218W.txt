@@ -1,14 +1,13 @@
 ENTRY       YNL218W           CDS       T00005
 NAME        MGS1
-DEFINITION  ssDNA-dependent ATPase MGS1
+DEFINITION  (RefSeq) ssDNA-dependent ATPase MGS1
 ORTHOLOGY   K07478  putative ATPase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIV:238238..240001
-MOTIF       Pfam: MgsA_C AAA RuvB_N AAA_14 AAA_16 AAA_22 AAA_5 Mg_chelatase Sigma54_activat IstB_IS21 AAA_2 TIP49 AAA_24 Sigma54_activ_2 AAA_18 AAA_17 ResIII DUF815 RNA_helicase MMR_HSR1 ABC_tran zf-C2HC_2 AAA_33 AAA_28 NACHT DUF258
-DBLINKS     NCBI-GI: 6324111
+MOTIF       Pfam: MgsA_C AAA_assoc_2 AAA RuvB_N AAA_14 AAA_16 AAA_5 AAA_22 Sigma54_activat Mg_chelatase AAA_2 ResIII TIP49 RsgA_GTPase TniB AAA_19 IstB_IS21 Sigma54_activ_2 AAA_24 AAA_18 DUF815 Roc RNA_helicase AAA_30 RNA_pol_Rpb5_N ABC_tran zf-C2HC_2 AAA_28 NACHT MMR_HSR1
+DBLINKS     NCBI-ProteinID: NP_014181
             NCBI-GeneID: 855503
             SGD: S000005162
-            MIPS: YNL218W
             UniProt: P40151
 AASEQ       587
             MSNKRTSVEQLISCPICSRKVFFSLINSHLDICGKEKSKPSSRPQTVSSLLAGPKKRKQA

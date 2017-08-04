@@ -1,14 +1,24 @@
 ENTRY       YHR169W           CDS       T00005
 NAME        DBP8
-DEFINITION  ATP-dependent RNA helicase DBP8 (EC:3.6.4.13)
+DEFINITION  (RefSeq) ATP-dependent RNA helicase DBP8
 ORTHOLOGY   K14778  ATP-dependent RNA helicase DDX49/DBP8 [EC:3.6.4.13]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.4  Acting on acid anhydrides to facilitate cellular and subcellular movement
+                3.6.4.13  RNA helicase
+                 YHR169W (DBP8)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              90S particles
+               Helicases
+                YHR169W (DBP8)
 POSITION    VIII:442181..443476
-MOTIF       Pfam: DEAD Helicase_C ResIII Dynactin_p22
-DBLINKS     NCBI-GI: 6321963
+MOTIF       Pfam: DEAD Helicase_C ResIII
+DBLINKS     NCBI-ProteinID: NP_012039
             NCBI-GeneID: 856574
             SGD: S000001212
-            MIPS: YHR169W
             UniProt: P38719
 AASEQ       431
             MADFKSLGLSKWLTESLRAMKITQPTAIQKACIPKILEGRDCIGGAKTGSGKTIAFAGPM

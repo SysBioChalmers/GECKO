@@ -1,13 +1,12 @@
 ENTRY       YER054C           CDS       T00005
 NAME        GIP2
-DEFINITION  Gip2p
+DEFINITION  (RefSeq) Gip2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    V:complement(262052..263698)
-MOTIF       Pfam: CBM_21
-DBLINKS     NCBI-GI: 6320895
+MOTIF       Pfam: CBM_21 CBM53
+DBLINKS     NCBI-ProteinID: NP_010974
             NCBI-GeneID: 856781
             SGD: S000000856
-            MIPS: YER054C
             UniProt: P40036
 AASEQ       548
             MYIKAEQKPQQFERKNEKLDRNKNQQLPDLETDFKGYRVNSDLYNKERDGSTEETLNSLK

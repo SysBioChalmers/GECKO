@@ -1,14 +1,22 @@
 ENTRY       YEL020W-A         CDS       T00005
 NAME        TIM9
-DEFINITION  Tim9p
+DEFINITION  (RefSeq) protein transporter TIM9
 ORTHOLOGY   K17777  mitochondrial import inner membrane translocase subunit TIM9
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial protein import machinery
+              Inter membrane space
+               Transporter inner membrane (TIM) 9/10 complex
+                YEL020W-A (TIM9)
+            Transporters [BR:sce02000]
+             Other Transporters
+              Others
+               YEL020W-A (TIM9)
 POSITION    V:117211..117474
-MOTIF       Pfam: zf-Tim10_DDP Mmp37 DUF1178 Pepsin-I3 Gemini_AL1_M CARM1 Vicilin_N
-DBLINKS     NCBI-GI: 6320815
+MOTIF       Pfam: zf-Tim10_DDP Phasin_2 Mmp37
+DBLINKS     NCBI-ProteinID: NP_010894
             NCBI-GeneID: 856693
             SGD: S000007256
-            MIPS: YEL020W-A
             UniProt: O74700
 STRUCTURE   PDB: 3DXR
 AASEQ       87

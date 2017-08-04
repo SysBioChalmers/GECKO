@@ -1,14 +1,19 @@
 ENTRY       YDR359C           CDS       T00005
 NAME        EAF1, VID21
-DEFINITION  Eaf1p
+DEFINITION  (RefSeq) Eaf1p
 ORTHOLOGY   K11397  chromatin modification-related protein VID21
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Histone modification proteins
+               HAT complexes
+                NuA4 complex
+                 YDR359C (EAF1)
 POSITION    IV:complement(1191936..1194884)
-MOTIF       Pfam: HSA Myb_DNA-bind_6
-DBLINKS     NCBI-GI: 398366519
+MOTIF       Pfam: HSA Myb_DNA-bind_6 Myb_DNA-binding
+DBLINKS     NCBI-ProteinID: NP_010646
             NCBI-GeneID: 851962
             SGD: S000002767
-            MIPS: YDR359C
             UniProt: Q06337
 AASEQ       982
             MSSRPSSAVPNSASLSEDQSSDRSKFPKADDLIDERDRKLTELYCVSRLNQLLELTDENK

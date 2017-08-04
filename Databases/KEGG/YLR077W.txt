@@ -1,13 +1,12 @@
 ENTRY       YLR077W           CDS       T00005
 NAME        FMP25, BCA1
-DEFINITION  Fmp25p
+DEFINITION  (RefSeq) Fmp25p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XII:283872..285623
-MOTIF       Pfam: RCC1 RCC1_2
-DBLINKS     NCBI-GI: 6323106
+MOTIF       Pfam: RCC1 RCC1_2 zf-trcl
+DBLINKS     NCBI-ProteinID: NP_013178
             NCBI-GeneID: 850766
             SGD: S000004067
-            MIPS: YLR077W
             UniProt: Q08023
 AASEQ       583
             MSFRLFTRTSQRLPRLNWVSPIRRYAKQPQYDEAELFAENINHGAYKAKKRPSDEHFQWP

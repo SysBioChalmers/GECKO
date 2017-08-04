@@ -1,14 +1,18 @@
 ENTRY       YDL107W           CDS       T00005
 NAME        MSS2
-DEFINITION  Mss2p
+DEFINITION  (RefSeq) Mss2p
 ORTHOLOGY   K17798  mitochondrial protein MSS2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial protein import machinery
+              Inner mambrane
+               Other inner membrane factors
+                YDL107W (MSS2)
 POSITION    IV:268921..269976
-MOTIF       Pfam: TPR_11 TPR_2 TPR_8 Apc3 TPR_12 TPR_7 TPR_16 RasGAP_C TPR_1
-DBLINKS     NCBI-GI: 6320096
+MOTIF       Pfam: TPR_2 ANAPC3 TPR_8 TPR_16 TPR_1 Lipase_GDSL
+DBLINKS     NCBI-ProteinID: NP_010176
             NCBI-GeneID: 851451
             SGD: S000002265
-            MIPS: YDL107W
             UniProt: P40990
 AASEQ       351
             MQRFVSKFVSTPPVPKKFQEIFPKKRTVNKILFQLDTRLTYHEMYPIFLQVSQNTNEENI

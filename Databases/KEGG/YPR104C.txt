@@ -1,13 +1,12 @@
 ENTRY       YPR104C           CDS       T00005
 NAME        FHL1, SPP42
-DEFINITION  Fhl1p
+DEFINITION  (RefSeq) Fhl1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:complement(733623..736433)
-MOTIF       Pfam: Fork_head FHA
-DBLINKS     NCBI-GI: 6325361
+MOTIF       Pfam: Forkhead FHA Linker_histone
+DBLINKS     NCBI-ProteinID: NP_015429
             NCBI-GeneID: 856219
             SGD: S000006308
-            MIPS: YPR104C
             UniProt: P39521
 AASEQ       936
             MDGEMAIIESSNHVGTSSPTTETQFTIDSSALKDQETKESITNSPTSEVPIETKLPKSSD

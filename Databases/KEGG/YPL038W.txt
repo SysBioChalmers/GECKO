@@ -1,13 +1,12 @@
 ENTRY       YPL038W           CDS       T00005
 NAME        MET31
-DEFINITION  Met31p
+DEFINITION  (RefSeq) Met31p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:480535..481068
-MOTIF       Pfam: zf-C2H2 zf-C2H2_4 zf-H2C2_2 C1_4 RuvA_C zf-H2C2_5 VHS SprT-like zf-C2HC_2 zf-C2H2_3
-DBLINKS     NCBI-GI: 6325219
+MOTIF       Pfam: zf-C2H2 zf-C2H2_4 zf-C2H2_11 zf-H2C2_2 C1_4 Zn_ribbon_SprT zf-C2H2_3 VHS zf-C2H2_6 HypA Zn-ribbon_8 zf-C2HC_2
+DBLINKS     NCBI-ProteinID: NP_015287
             NCBI-GeneID: 856069
             SGD: S000005959
-            MIPS: YPL038W
             UniProt: Q03081
 AASEQ       177
             MKLAQDMNVDEIFLKQAAEAIAVISSSPTHTDPIIRELLHRIRQSSPLSAVIPAPENVLK

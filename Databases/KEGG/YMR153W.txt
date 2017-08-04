@@ -1,13 +1,25 @@
 ENTRY       YMR153W           CDS       T00005
 NAME        NUP53
-DEFINITION  Nup53p
+DEFINITION  (RefSeq) FG-nucleoporin NUP53
+ORTHOLOGY   K14313  nuclear pore complex protein Nup53
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03013  RNA transport
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03013 RNA transport
+                YMR153W (NUP53)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Transport factors
+                Nuclear pore complex
+                 YMR153W (NUP53)
 POSITION    XIII:564435..565862
 MOTIF       Pfam: Nup35_RRM Nup35_RRM_2
-DBLINKS     NCBI-GI: 6323802
+DBLINKS     NCBI-ProteinID: NP_013873
             NCBI-GeneID: 855184
             SGD: S000004762
-            MIPS: YMR153W
             UniProt: Q03790
 STRUCTURE   PDB: 3W3Y
 AASEQ       475

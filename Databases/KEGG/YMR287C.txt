@@ -1,13 +1,24 @@
 ENTRY       YMR287C           CDS       T00005
 NAME        DSS1, MSU1
-DEFINITION  Dss1p (EC:3.1.13.1)
+DEFINITION  (RefSeq) Dss1p
+ORTHOLOGY   K19782  exoribonuclease II, mitochondrial [EC:3.1.13.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.13  Exoribonucleases producing 5'-phosphomonoesters
+                3.1.13.1  exoribonuclease II
+                 YMR287C (DSS1)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial DNA transcription, translation, and replication factors
+              Mitochondrial transcription and translation factors
+               Other mitochondrial DNA transcription and translation factors
+                YMR287C (DSS1)
 POSITION    XIII:complement(842436..845345)
 MOTIF       Pfam: RNB
-DBLINKS     NCBI-GI: 6323943
+DBLINKS     NCBI-ProteinID: NP_014014
             NCBI-GeneID: 855331
             SGD: S000004900
-            MIPS: YMR287C
             UniProt: P39112
 AASEQ       969
             MVVRRKVHVLLIARSFHSYTPCFRVTTRGKRQRSKSKQQAKVELDHTRELDNDQATETVV

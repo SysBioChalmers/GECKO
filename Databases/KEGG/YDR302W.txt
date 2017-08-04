@@ -1,18 +1,27 @@
 ENTRY       YDR302W           CDS       T00005
 NAME        GPI11
-DEFINITION  Gpi11p
+DEFINITION  (RefSeq) mannose-ethanolamine phosphotransferase GPI11
 ORTHOLOGY   K05287  phosphatidylinositol glycan, class F [EC:2.7.-.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
-PATHWAY     sce00563  Glycosylphosphatidylinositol(GPI)-anchor biosynthesis
+PATHWAY     sce00563  Glycosylphosphatidylinositol (GPI)-anchor biosynthesis
             sce01100  Metabolic pathways
 MODULE      sce_M00065  GPI-anchor biosynthesis, core oligosaccharide
-CLASS       Metabolism; Glycan biosynthesis and metabolism; Glycosylphosphatidylinositol(GPI)-anchor biosynthesis [PATH:sce00563]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Glycan biosynthesis and metabolism
+               00563 Glycosylphosphatidylinositol(GPI)-anchor biosynthesis
+                YDR302W (GPI11)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.-  Transferring phosphorus-containing groups
+                2.7.-.-  
+                 YDR302W (GPI11)
 POSITION    IV:1067731..1068390
-MOTIF       Pfam: PIG-F Gly-zipper_Omp
-DBLINKS     NCBI-GI: 6320508
+MOTIF       Pfam: PIG-F DUF2070
+DBLINKS     NCBI-ProteinID: NP_010588
             NCBI-GeneID: 851896
             SGD: S000002710
-            MIPS: YDR302W
             UniProt: Q06636
 AASEQ       219
             MPAKKRTRKTVKKTVSFSDDTTLTTHQNREKKNVDHDRPPVYVRKTPLMTFPYHLVALLY

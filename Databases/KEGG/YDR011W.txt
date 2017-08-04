@@ -1,16 +1,24 @@
 ENTRY       YDR011W           CDS       T00005
 NAME        SNQ2
-DEFINITION  ATP-binding cassette transporter SNQ2
+DEFINITION  (RefSeq) ATP-binding cassette transporter SNQ2
 ORTHOLOGY   K08712  ATP-binding cassette, subfamily G (WHITE), member 2, SNQ2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce02010  ABC transporters
-CLASS       Environmental Information Processing; Membrane transport; ABC transporters [PATH:sce02010]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Membrane transport
+               02010 ABC transporters
+                YDR011W (SNQ2)
+            Transporters [BR:sce02000]
+             ABC Transporters, Eukaryotic Type
+              ABCG (White) subfamily
+               ABCG2, 3 subgroups
+                YDR011W (SNQ2)
 POSITION    IV:465919..470424
-MOTIF       Pfam: ABC2_membrane ABC_tran PDR_CDR ABC_trans_N ABC2_membrane_3 DUF258 AAA_25 cobW AAA_21 AAA_29 AAA_22 SMC_N AAA_16 AAA_18 UPF0079 MMR_HSR1 FtsK_SpoIIIE Dynamin_N AAA_17 AAA_28 Septin NACHT
-DBLINKS     NCBI-GI: 6320214
+MOTIF       Pfam: ABC2_membrane ABC_tran PDR_CDR ABC2_membrane_3 ABC_trans_N RsgA_GTPase AAA_21 AAA_16 SMC_N AAA_22 AAA_29 MMR_HSR1 TrpP AAA_18 cobW AAA_25 AAA_24 Septin AAA_28 TsaE Dynamin_N
+DBLINKS     NCBI-ProteinID: NP_010294
             NCBI-GeneID: 851574
             SGD: S000002418
-            MIPS: YDR011W
             UniProt: P32568
 AASEQ       1501
             MSNIKSTQDSSHNAVARSSSASFAASEESFTGITHDKDEQSDTPADKLTKMLTGPARDTA

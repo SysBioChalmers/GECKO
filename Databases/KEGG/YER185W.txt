@@ -1,13 +1,12 @@
 ENTRY       YER185W           CDS       T00005
 NAME        PUG1
-DEFINITION  Pug1p
+DEFINITION  (RefSeq) Pug1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    V:559454..560365
-MOTIF       Pfam: RTA1 DUF2755
-DBLINKS     NCBI-GI: 398365177
+MOTIF       Pfam: RTA1 Ctr
+DBLINKS     NCBI-ProteinID: NP_011112
             NCBI-GeneID: 856934
             SGD: S000000987
-            MIPS: YER185W
             UniProt: P40100
 AASEQ       303
             MSTTDSGFVLYHYTPSKAAAIVFVVLFIIMTVIFAVQTLYAARKSSKALKNNPFESSDDK

@@ -1,19 +1,40 @@
 ENTRY       YMR224C           CDS       T00005
 NAME        MRE11, NGS1, RAD58, XRS4
-DEFINITION  Mre11p
+DEFINITION  (RefSeq) MRX complex nuclease subunit
 ORTHOLOGY   K10865  double-strand break repair protein MRE11
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03440  Homologous recombination
             sce03450  Non-homologous end-joining
 MODULE      sce_M00292  MRX complex
-CLASS       Genetic Information Processing; Replication and repair; Homologous recombination [PATH:sce03440]
-            Genetic Information Processing; Replication and repair; Non-homologous end-joining [PATH:sce03450]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Replication and repair
+               03440 Homologous recombination
+                YMR224C (MRE11)
+               03450 Non-homologous end-joining
+                YMR224C (MRE11)
+            DNA replication proteins [BR:sce03032]
+             Eukaryotic Type
+              DNA Replication Termination Factors
+               Other telomere regulation proteins
+                MRN complex
+                 YMR224C (MRE11)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              DSBR (double strand breaks repair)
+               HR (homologous recombination)
+                MRN(MRX) complex
+                 YMR224C (MRE11)
+                BRCA1-C complex
+                 YMR224C (MRE11)
+               NHEJ (non-homologous end-joining)
+                MRX complex
+                 YMR224C (MRE11)
 POSITION    XIII:complement(718575..720653)
 MOTIF       Pfam: Mre11_DNA_bind Metallophos Metallophos_2
-DBLINKS     NCBI-GI: 6323880
+DBLINKS     NCBI-ProteinID: NP_013951
             NCBI-GeneID: 855264
             SGD: S000004837
-            MIPS: YMR224C
             UniProt: P32829
 AASEQ       692
             MDYPDPDTIRILITTDNHVGYNENDPITGDDSWKTFHEVMMLAKNNNVDMVVQSGDLFHV

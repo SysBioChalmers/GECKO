@@ -1,17 +1,26 @@
 ENTRY       YDL142C           CDS       T00005
 NAME        CRD1, CLS1
-DEFINITION  cardiolipin synthase (EC:2.7.8.-)
-ORTHOLOGY   K08744  cardiolipin synthase [EC:2.7.8.-]
+DEFINITION  (RefSeq) cardiolipin synthase
+ORTHOLOGY   K08744  cardiolipin synthase (CMP-forming) [EC:2.7.8.41]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00564  Glycerophospholipid metabolism
             sce01100  Metabolic pathways
-CLASS       Metabolism; Lipid metabolism; Glycerophospholipid metabolism [PATH:sce00564]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Lipid metabolism
+               00564 Glycerophospholipid metabolism
+                YDL142C (CRD1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.8  Transferases for other substituted phosphate groups
+                2.7.8.41  cardiolipin synthase (CMP-forming)
+                 YDL142C (CRD1)
 POSITION    IV:complement(201719..202570)
-MOTIF       Pfam: CDP-OH_P_transf TctB
-DBLINKS     NCBI-GI: 6320059
+MOTIF       Pfam: CDP-OH_P_transf
+DBLINKS     NCBI-ProteinID: NP_010139
             NCBI-GeneID: 851413
             SGD: S000002301
-            MIPS: YDL142C
             UniProt: Q07560
 AASEQ       283
             MIQMVPIYSCSALLRRTIPKRPFYHVLSGLTVRFKVNPQLNYNLFRDLTRREYATNPSKT

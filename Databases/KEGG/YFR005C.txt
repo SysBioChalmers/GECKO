@@ -1,17 +1,26 @@
 ENTRY       YFR005C           CDS       T00005
 NAME        SAD1
-DEFINITION  Sad1p
+DEFINITION  (RefSeq) mRNA splicing protein SAD1
 ORTHOLOGY   K12847  U4/U6.U5 tri-snRNP-associated protein 2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03040  Spliceosome
-CLASS       Genetic Information Processing; Transcription; Spliceosome [PATH:sce03040]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03040 Spliceosome
+                YFR005C (SAD1)
+            Spliceosome [BR:sce03041]
+             Complex B
+              U4/U6.U5 tri-snRNP components
+               U4/U6.U5 tri-snRNP specific factors
+                YFR005C (SAD1)
 POSITION    VI:complement(154527..155873)
 MOTIF       Pfam: zf-UBP UCH
-DBLINKS     NCBI-GI: 14318527
+DBLINKS     NCBI-ProteinID: NP_116660
             NCBI-GeneID: 850555
             SGD: S000001901
-            MIPS: YFR005C
             UniProt: P43589
+STRUCTURE   PDB: 4MSX
 AASEQ       448
             MEVDNKRRHSEDELKQEAVKKIKSQEPNYAYLETVVREKLDFDSEKICCITLSPLNVYCC
             LVCGHYYQGRHEKSPAFIHSIDENHHVFLNLTSLKFYMLPQNVQILHDGEVQLLNSIKFA

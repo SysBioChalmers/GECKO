@@ -1,14 +1,18 @@
 ENTRY       YMR059W           CDS       T00005
 NAME        SEN15
-DEFINITION  Sen15p
+DEFINITION  (RefSeq) Sen15p
 ORTHOLOGY   K15325  tRNA-splicing endonuclease subunit Sen15, fungi type
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              tRNA spricing factors
+               tRNA splicing endonucleases
+                YMR059W (SEN15)
 POSITION    XIII:391099..391485
 MOTIF       Pfam: Sen15
-DBLINKS     NCBI-GI: 99030929
+DBLINKS     NCBI-ProteinID: NP_013775
             NCBI-GeneID: 855081
             SGD: S000004663
-            MIPS: YMR059W
             UniProt: Q04675
 AASEQ       128
             MATTDIISLVKNNLLYFQMWTEVEILQDDLSWKGNSLRLLRGRPPHKLSNDVDTEHENSL

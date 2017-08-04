@@ -1,13 +1,12 @@
 ENTRY       YNL204C           CDS       T00005
 NAME        SPS18, SPX18
-DEFINITION  Sps18p
+DEFINITION  (RefSeq) Sps18p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIV:complement(258375..259277)
 MOTIF       Pfam: ArfGap
-DBLINKS     NCBI-GI: 6324125
+DBLINKS     NCBI-ProteinID: NP_014195
             NCBI-GeneID: 855517
             SGD: S000005148
-            MIPS: YNL204C
             UniProt: P32572
 AASEQ       300
             MRLFENSKDMENRKRLLRAKKAAGNNNCFECKSVNPQFVSCSFGIFICVNCANLLRGMGT

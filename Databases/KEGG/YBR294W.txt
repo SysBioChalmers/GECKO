@@ -1,14 +1,17 @@
 ENTRY       YBR294W           CDS       T00005
 NAME        SUL1, SFP2
-DEFINITION  Sul1p
+DEFINITION  (RefSeq) sulfate permease
 ORTHOLOGY   K14708  solute carrier family 26 (sodium-independent sulfate anion transporter), member 11
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Solute Carrier Family (SLC)
+              SLC26: Multifunctional anion exchanger
+               YBR294W (SUL1)
 POSITION    II:789235..791814
-MOTIF       Pfam: Sulfate_transp Sulfate_tra_GLY STAS STAS_2
-DBLINKS     NCBI-GI: 398365929
+MOTIF       Pfam: Sulfate_transp STAS STAS_2
+DBLINKS     NCBI-ProteinID: NP_009853
             NCBI-GeneID: 852597
             SGD: S000000498
-            MIPS: YBR294W
             UniProt: P38359
 AASEQ       859
             MSRKSSTEYVHNQEDADIEVFESEYRTYRESEAAENRDGLHNGDEENWKVNSSKQKFGVT

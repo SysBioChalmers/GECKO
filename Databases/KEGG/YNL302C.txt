@@ -1,16 +1,27 @@
 ENTRY       YNL302C           CDS       T00005
 NAME        RPS19B, RP55B
-DEFINITION  ribosomal 40S subunit protein S19B
+DEFINITION  (RefSeq) ribosomal 40S subunit protein S19B
 ORTHOLOGY   K02966  small subunit ribosomal protein S19e
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03010  Ribosome
-CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+MODULE      sce_M00177  Ribosome, eukaryotes
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03010 Ribosome
+                YNL302C (RPS19B)
+            Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Eukaryotes
+               Small subunit
+                YNL302C (RPS19B)
+              Archaea
+                YNL302C (RPS19B)
 POSITION    XIV:complement(join(61958..62372,62924..62943))
 MOTIF       Pfam: Ribosomal_S19e
-DBLINKS     NCBI-GI: 6324027
+DBLINKS     NCBI-ProteinID: NP_014097
             NCBI-GeneID: 855414
             SGD: S000005246
-            MIPS: YNL302C
             UniProt: P07281
 AASEQ       144
             MAGVSVRDVAAQDFINAYASFLQRQGKLEVPGYVDIVKTSSGNEMPPQDAEGWFYKRAAS

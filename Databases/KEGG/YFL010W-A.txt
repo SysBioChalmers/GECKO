@@ -1,13 +1,12 @@
 ENTRY       YFL010W-A         CDS       T00005
 NAME        AUA1, YFL011W-A
-DEFINITION  Aua1p
+DEFINITION  (RefSeq) Aua1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VI:114990..115274
-MOTIF       Pfam: DUF4248 DUF3504 Turandot
-DBLINKS     NCBI-GI: 14318511
+MOTIF       Pfam: IFT57 Turandot
+DBLINKS     NCBI-ProteinID: NP_116645
             NCBI-GeneID: 850537
             SGD: S000001955
-            MIPS: YFL010W-A
             UniProt: P32450
 AASEQ       94
             MDRSLQVYICMYPYLDGSKQYRFDELISFYRPCPKSLDNIKSHYRQIHHQIRRRTHQHHQ

@@ -1,13 +1,12 @@
 ENTRY       YDR333C           CDS       T00005
 NAME        RQC1
-DEFINITION  Rqc1p
+DEFINITION  (RefSeq) Rqc1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(1133260..1135431)
-MOTIF       Pfam: Tcf25 Pox_Ag35
-DBLINKS     NCBI-GI: 398366497
+MOTIF       Pfam: Tcf25
+DBLINKS     NCBI-ProteinID: NP_010620
             NCBI-GeneID: 851933
             SGD: S000002741
-            MIPS: YDR333C
             UniProt: Q05468
 AASEQ       723
             MSSRALRRLQDDNALLESLLSNSNANKMTSGKSTAGNIQKRENIFSMMNNVRDSDNSTDE

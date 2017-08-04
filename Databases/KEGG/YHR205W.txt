@@ -1,14 +1,34 @@
 ENTRY       YHR205W           CDS       T00005
 NAME        SCH9, HRM2, KOM1
-DEFINITION  Sch9p (EC:2.7.11.1)
-ORTHOLOGY   K08286  protein-serine/threonine kinase [EC:2.7.11.-]
+DEFINITION  (RefSeq) serine/threonine protein kinase SCH9
+ORTHOLOGY   K19800  serine/threonine protein kinase SCH9 [EC:2.7.11.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04138  Autophagy - yeast
+            sce04213  Longevity regulating pathway - multiple species
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04138 Autophagy - yeast
+                YHR205W (SCH9)
+             Organismal Systems
+              Aging
+               04213 Longevity regulating pathway - multiple species
+                YHR205W (SCH9)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.11  Protein-serine/threonine kinases
+                2.7.11.1  non-specific serine/threonine protein kinase
+                 YHR205W (SCH9)
+            Protein kinases [BR:sce01001]
+             Serine/threonine protein kinases: AGC group
+              AKT/PKB family
+               YHR205W (SCH9)
 POSITION    VIII:509363..511837
-MOTIF       Pfam: Pkinase Pkinase_Tyr Pkinase_C Kinase-like C2 YrbL-PhoP_reg APH
-DBLINKS     NCBI-GI: 6321999
+MOTIF       Pfam: Pkinase Pkinase_Tyr Kinase-like Pkinase_C C2 Haspin_kinase FTA2 Adeno_E3_15_3
+DBLINKS     NCBI-ProteinID: NP_012075
             NCBI-GeneID: 856612
             SGD: S000001248
-            MIPS: YHR205W
             UniProt: P11792
 AASEQ       824
             MMNFFTSKSSNQDTGFSSQHQHPNGQNNGNNNSSTAGNDNGYPCKLVSSGPCASSNNGAL

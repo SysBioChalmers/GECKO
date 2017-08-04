@@ -1,13 +1,18 @@
 ENTRY       YGR068C           CDS       T00005
 NAME        ART5
-DEFINITION  Art5p
+DEFINITION  (RefSeq) Art5p
+ORTHOLOGY   K20062  arrestin-related trafficking adapter 4/5/7
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endocytosis
+              Clathrin-mediated endocytosis
+               GPCR adaptor proteins
+                YGR068C (ART5)
 POSITION    VII:complement(625324..627084)
 MOTIF       Pfam: Arrestin_C Arrestin_N
-DBLINKS     NCBI-GI: 6321506
+DBLINKS     NCBI-ProteinID: NP_011582
             NCBI-GeneID: 852960
             SGD: S000003300
-            MIPS: YGR068C
             UniProt: P53244
 AASEQ       586
             MFSLSSLSSSGGHSEQKERERISYFDIRINSPYKDIILIQGSPLELSSIPLSGNLVISVK

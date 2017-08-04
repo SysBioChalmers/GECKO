@@ -1,15 +1,20 @@
 ENTRY       YPR135W           CDS       T00005
 NAME        CTF4, CHL15, POB1
-DEFINITION  Ctf4p
+DEFINITION  (RefSeq) chromatin-binding protein CTF4
 ORTHOLOGY   K11274  chromosome transmission fidelity protein 4
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Sister chromatid cohesion proteins
+               Other sister chromatid cohesion factors
+                YPR135W (CTF4)
 POSITION    XVI:799234..802017
-MOTIF       Pfam: DUF3639 Utp8 Pribosyltran Apc4_WD40
-DBLINKS     NCBI-GI: 6325393
+MOTIF       Pfam: Mcl1_mid ANAPC4_WD40 Nup160 DNA_pol_alpha_N
+DBLINKS     NCBI-ProteinID: NP_015461
             NCBI-GeneID: 856254
             SGD: S000006339
-            MIPS: YPR135W
             UniProt: Q01454
+STRUCTURE   PDB: 4C93 4C95 4C8H 4C8S 5HOG 5HOI
 AASEQ       927
             MVSVIDKLVFDFGGKTLVSLAPDNNTLCVANKNGLTKILKTNNPEEEPETLDSSKLVSSI
             KCYSNSHFLMTTMQGDALRYNIDSSQEELLARFALPLRDCCVIHSGKMAVFGGDDLELIL

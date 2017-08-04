@@ -1,13 +1,11 @@
 ENTRY       YCL058W-A         CDS       T00005
 NAME        ADF1
-DEFINITION  Adf1p
+DEFINITION  (RefSeq) Adf1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    III:23584..23925
-MOTIF       Pfam: DUF2411 Auxin_canalis BASP1
-DBLINKS     NCBI-GI: 85666112
+DBLINKS     NCBI-ProteinID: NP_001018031
             NCBI-GeneID: 3289591
             SGD: S000028518
-            MIPS: YCL058W-A
             UniProt: Q2V2Q1
 AASEQ       113
             MGKCSMKKKGVGKNVGVGKKVQKKRSISTAERKRTKLQVEKLNKSSETMIPTLLREASTQ

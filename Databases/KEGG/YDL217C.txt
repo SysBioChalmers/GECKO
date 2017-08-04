@@ -1,14 +1,22 @@
 ENTRY       YDL217C           CDS       T00005
 NAME        TIM22
-DEFINITION  Tim22p
+DEFINITION  (RefSeq) translocation channel protein TIM22
 ORTHOLOGY   K17790  mitochondrial import inner membrane translocase subunit TIM22
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial protein import machinery
+              Inner mambrane
+               TIM22 complex
+                YDL217C (TIM22)
+            Transporters [BR:sce02000]
+             Other Transporters
+              Others
+               YDL217C (TIM22)
 POSITION    IV:complement(67983..68606)
-MOTIF       Pfam: Tim17 DLH
-DBLINKS     NCBI-GI: 6319984
+MOTIF       Pfam: Tim17 CbtA
+DBLINKS     NCBI-ProteinID: NP_010064
             NCBI-GeneID: 851309
             SGD: S000002376
-            MIPS: YDL217C
             UniProt: Q12328
 AASEQ       207
             MVYTGFGLEQISPAQKKPYNELTPEEQGERGAEMIMNFMTSCPGKSVVSGVTGFALGGVL

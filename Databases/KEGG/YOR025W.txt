@@ -1,17 +1,42 @@
 ENTRY       YOR025W           CDS       T00005
 NAME        HST3
-DEFINITION  Hst3p (EC:3.5.1.-)
+DEFINITION  (RefSeq) NAD-dependent histone deacetylase HST3
 ORTHOLOGY   K11121  NAD-dependent histone deacetylase SIR2 [EC:3.5.1.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00760  Nicotinate and nicotinamide metabolism
             sce01100  Metabolic pathways
-CLASS       Metabolism; Metabolism of cofactors and vitamins; Nicotinate and nicotinamide metabolism [PATH:sce00760]
+            sce04213  Longevity regulating pathway - multiple species
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Metabolism of cofactors and vitamins
+               00760 Nicotinate and nicotinamide metabolism
+                YOR025W (HST3)
+             Organismal Systems
+              Aging
+               04213 Longevity regulating pathway - multiple species
+                YOR025W (HST3)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.5  Acting on carbon-nitrogen bonds, other than peptide bonds
+               3.5.1  In linear amides
+                3.5.1.-  
+                 YOR025W (HST3)
+            DNA replication proteins [BR:sce03032]
+             Eukaryotic Type
+              DNA Replication Termination Factors
+               Telomere proteins
+                SIR proteins
+                 YOR025W (HST3)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Histone modification proteins
+               Sir proteins
+                YOR025W (HST3)
 POSITION    XV:378219..379562
-MOTIF       Pfam: SIR2 DUF573 DUF4089
-DBLINKS     NCBI-GI: 6324599
+MOTIF       Pfam: SIR2 DUF4089
+DBLINKS     NCBI-ProteinID: NP_014668
             NCBI-GeneID: 854190
             SGD: S000005551
-            MIPS: YOR025W
             UniProt: P53687
 AASEQ       447
             MTSVSPSPPASRSGSMCSDLPSSLQTEKLAHIIGLDADDEVLRRVTKQLSRSRRIACLTG

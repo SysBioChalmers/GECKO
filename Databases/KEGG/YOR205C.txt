@@ -1,14 +1,17 @@
 ENTRY       YOR205C           CDS       T00005
 NAME        GEP3, AIM40, FMP38, MTG3
-DEFINITION  Gep3p
-ORTHOLOGY   K06948
+DEFINITION  (RefSeq) Gep3p
+ORTHOLOGY   K19829  genetic interactor of prohibitins 3, mitochondrial
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Other ribosome biogenesis factors
+               YOR205C (GEP3)
 POSITION    XV:complement(725564..727234)
-MOTIF       Pfam: MMR_HSR1 DUF258 AAA_10 FeoB_N GTP_EFTU AAA_14 ABC_tran Secretin
-DBLINKS     NCBI-GI: 6324779
+MOTIF       Pfam: MMR_HSR1 RsgA_GTPase FeoB_N DUF1823 RNA_helicase ABC_tran Roc
+DBLINKS     NCBI-ProteinID: NP_014848
             NCBI-GeneID: 854380
             SGD: S000005731
-            MIPS: YOR205C
             UniProt: Q08622
 AASEQ       556
             MLNLCHALRGVRQFSCSVIVKVKCASCSIKLQDQDPSKPGYYTKPKSLPDSKLNPDLQDL

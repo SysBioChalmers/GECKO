@@ -1,15 +1,25 @@
 ENTRY       YLR189C           CDS       T00005
 NAME        ATG26, UGT51
-DEFINITION  Atg26p (EC:2.4.1.173)
+DEFINITION  (RefSeq) Atg26p
 ORTHOLOGY   K05841  sterol 3beta-glucosyltransferase [EC:2.4.1.173]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.4  Glycosyltransferases
+               2.4.1  Hexosyltransferases
+                2.4.1.173  sterol 3beta-glucosyltransferase
+                 YLR189C (ATG26)
+            Glycosyltransferases [BR:sce01003]
+             Others
+              Hydrophobic molecule
+               YLR189C (ATG26)
 POSITION    XII:complement(530797..534393)
-MOTIF       Pfam: Glyco_transf_28 GRAM PH UDPGT PH_11 Glyco_trans_4_4
-DBLINKS     NCBI-GI: 6323218
+MOTIF       Pfam: Glyco_transf_28 GRAM PH UDPGT PH_11 PH_2
+DBLINKS     NCBI-ProteinID: NP_013290
             NCBI-GeneID: 850886
             SGD: S000004179
-            MIPS: YLR189C
             UniProt: Q06321
+STRUCTURE   PDB: 5GL5
 AASEQ       1198
             MPITQIISASDSEAGPKPSISLVPDKPSEPETSPRHHRLSRSLSKFKRWRGRSNSSLSMG
             SSEQQELQDSPNEARSDDDENGYNNDNADDLAKSKYMMKSIAGLLTTASVYAGMNNAQEM

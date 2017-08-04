@@ -1,14 +1,18 @@
 ENTRY       YCR071C           CDS       T00005
 NAME        IMG2
-DEFINITION  mitochondrial 54S ribosomal protein IMG2
-ORTHOLOGY   K17430  large subunit ribosomal protein L49, mitochondrial
+DEFINITION  (RefSeq) mitochondrial 54S ribosomal protein IMG2
+ORTHOLOGY   K17430  large subunit ribosomal protein L49
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Mitochondria/ Chloroplast
+               Large subunit
+                YCR071C (IMG2)
 POSITION    III:complement(240103..240543)
-MOTIF       Pfam: Img2 DUF3294 SUI1
-DBLINKS     NCBI-GI: 10383803
+MOTIF       Pfam: Img2 SUI1
+DBLINKS     NCBI-ProteinID: NP_009996
             NCBI-GeneID: 850434
             SGD: S000000667
-            MIPS: YCR071C
             UniProt: P25642
 AASEQ       146
             MISSCVTRCFGRGKCLPGPATASIYQTIRCISTNSNKAAEAPIFPKLEDVKMHELIGNNN

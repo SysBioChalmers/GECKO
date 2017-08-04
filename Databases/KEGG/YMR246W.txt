@@ -1,22 +1,49 @@
 ENTRY       YMR246W           CDS       T00005
 NAME        FAA4
-DEFINITION  long-chain fatty acid-CoA ligase FAA4 (EC:6.2.1.3)
+DEFINITION  (RefSeq) long-chain fatty acid-CoA ligase FAA4
 ORTHOLOGY   K01897  long-chain acyl-CoA synthetase [EC:6.2.1.3]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
-PATHWAY     sce00071  Fatty acid degradation
+PATHWAY     sce00061  Fatty acid biosynthesis
+            sce00071  Fatty acid degradation
             sce01100  Metabolic pathways
             sce01212  Fatty acid metabolism
             sce04146  Peroxisome
 MODULE      sce_M00086  beta-Oxidation, acyl-CoA synthesis
-CLASS       Metabolism; Overview; Fatty acid metabolism [PATH:sce01212]
-            Metabolism; Lipid metabolism; Fatty acid degradation [PATH:sce00071]
-            Cellular Processes; Transport and catabolism; Peroxisome [PATH:sce04146]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01212 Fatty acid metabolism
+                YMR246W (FAA4)
+              Lipid metabolism
+               00061 Fatty acid biosynthesis
+                YMR246W (FAA4)
+               00071 Fatty acid degradation
+                YMR246W (FAA4)
+             Cellular Processes
+              Transport and catabolism
+               04146 Peroxisome
+                YMR246W (FAA4)
+            Enzymes [BR:sce01000]
+             6. Ligases
+              6.2  Forming carbon-sulfur bonds
+               6.2.1  Acid-thiol ligases
+                6.2.1.3  long-chain-fatty-acid---CoA ligase
+                 YMR246W (FAA4)
+            Lipid biosynthesis proteins [BR:sce01004]
+             Acyl-CoA synthetase
+              Long/very long chain acyl-CoA synthetase
+               YMR246W (FAA4)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of breast milk
+               YMR246W (FAA4)
+              Exosomal proteins of breast cancer cells
+               YMR246W (FAA4)
 POSITION    XIII:759807..761891
 MOTIF       Pfam: AMP-binding AMP-binding_C
-DBLINKS     NCBI-GI: 6323903
+DBLINKS     NCBI-ProteinID: NP_013974
             NCBI-GeneID: 855288
             SGD: S000004860
-            MIPS: YMR246W
             UniProt: P47912
 AASEQ       694
             MTEQYSVAVGEAANEHETAPRRNIRVKDQPLIRPINSSASTLYEFALECFTKGGKRDGMA

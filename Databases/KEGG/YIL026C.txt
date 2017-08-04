@@ -1,19 +1,29 @@
 ENTRY       YIL026C           CDS       T00005
 NAME        IRR1, SCC3
-DEFINITION  Irr1p
+DEFINITION  (RefSeq) Irr1p
 ORTHOLOGY   K06671  cohesin complex subunit SA-1/2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
             sce04113  Meiosis - yeast
-CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
-            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YIL026C (IRR1)
+               04113 Meiosis - yeast
+                YIL026C (IRR1)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Sister chromatid cohesion proteins
+               Cohesin complex
+                YIL026C (IRR1)
 POSITION    IX:complement(304477..307929)
-MOTIF       Pfam: STAG
-DBLINKS     NCBI-GI: 6322163
+MOTIF       Pfam: STAG EBV-NA3
+DBLINKS     NCBI-ProteinID: NP_012238
             NCBI-GeneID: 854786
             SGD: S000001288
-            MIPS: YIL026C
             UniProt: P40541
+STRUCTURE   PDB: 4UVJ
 AASEQ       1150
             MTAVRRSTRIRTKSQVIEEDYDDEQNTSAQHVESDKITAKTQHEEEEEQDTGESEESSSE
             DDYEDQDDDDYVDTATAKRKSRKRKPKSASNTSSKRQKKKPTSAQKSAVSHAPAYHRSKK

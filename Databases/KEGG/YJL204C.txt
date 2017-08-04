@@ -1,14 +1,19 @@
 ENTRY       YJL204C           CDS       T00005
 NAME        RCY1
-DEFINITION  Rcy1p
+DEFINITION  (RefSeq) Rcy1p
 ORTHOLOGY   K15071  recyclin-1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ubiquitin system [BR:sce04121]
+             Ubiquitin ligases (E3)
+              Multi subunit Ring-finger type E3
+               SCF complex
+                Target recognizing subunit (F-box)
+                 YJL204C (RCY1)
 POSITION    X:complement(50629..53151)
-MOTIF       Pfam: Sec10 F-box
-DBLINKS     NCBI-GI: 6322257
+MOTIF       Pfam: Sec10 F-box DUF1981 DUF5363
+DBLINKS     NCBI-ProteinID: NP_012331
             NCBI-GeneID: 853226
             SGD: S000003740
-            MIPS: YJL204C
             UniProt: P39531
 AASEQ       840
             MDDLLKVPEIVTNIASYLSTVDYLSFQQVNKRVYAIINGKNDSKYWSLKLTRMGLQQVHS

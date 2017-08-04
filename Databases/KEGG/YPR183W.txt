@@ -1,17 +1,30 @@
 ENTRY       YPR183W           CDS       T00005
 NAME        DPM1, SED3
-DEFINITION  dolichyl-phosphate beta-D-mannosyltransferase (EC:2.4.1.83)
+DEFINITION  (RefSeq) dolichyl-phosphate beta-D-mannosyltransferase
 ORTHOLOGY   K00721  dolichol-phosphate mannosyltransferase [EC:2.4.1.83]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00510  N-Glycan biosynthesis
             sce01100  Metabolic pathways
-CLASS       Metabolism; Glycan biosynthesis and metabolism; N-Glycan biosynthesis [PATH:sce00510]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Glycan biosynthesis and metabolism
+               00510 N-Glycan biosynthesis
+                YPR183W (DPM1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.4  Glycosyltransferases
+               2.4.1  Hexosyltransferases
+                2.4.1.83  dolichyl-phosphate beta-D-mannosyltransferase
+                 YPR183W (DPM1)
+            Glycosyltransferases [BR:sce01003]
+             N-Glycan biosynthesis
+              Dol-P-Man biosyntheisis
+               YPR183W (DPM1)
 POSITION    XVI:900755..901558
 MOTIF       Pfam: Glycos_transf_2 Glyco_tranf_2_3 Glyco_tranf_2_2
-DBLINKS     NCBI-GI: 6325441
+DBLINKS     NCBI-ProteinID: NP_015509
             NCBI-GeneID: 856313
             SGD: S000006387
-            MIPS: YPR183W
             UniProt: P14020
 AASEQ       267
             MSIEYSVIVPAYHEKLNIKPLTTRLFAGMSPEMAKKTELIFVDDNSQDGSVEEVDALAHQ

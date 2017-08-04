@@ -1,13 +1,18 @@
 ENTRY       YLR166C           CDS       T00005
 NAME        SEC10
-DEFINITION  Sec10p
+DEFINITION  (RefSeq) exocyst subunit SEC10
+ORTHOLOGY   K19984  exocyst complex component 5
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Exocytosis
+              Tethering complex
+               Exocyst complex
+                YLR166C (SEC10)
 POSITION    XII:complement(495429..498044)
 MOTIF       Pfam: Sec10 RTBV_P12
-DBLINKS     NCBI-GI: 6323195
+DBLINKS     NCBI-ProteinID: NP_013267
             NCBI-GeneID: 850863
             SGD: S000004156
-            MIPS: YLR166C
             UniProt: Q06245
 AASEQ       871
             MNSLYELDPKWKKLLKTDNFLGGLTVNEFVQELSKDHRNDVLIDANTKNLPTNEKDQDAI

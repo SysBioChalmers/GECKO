@@ -1,16 +1,25 @@
 ENTRY       YML042W           CDS       T00005
 NAME        CAT2, YCAT
-DEFINITION  carnitine O-acetyltransferase CAT2 (EC:2.3.1.7)
+DEFINITION  (RefSeq) carnitine O-acetyltransferase CAT2
 ORTHOLOGY   K00624  carnitine O-acetyltransferase [EC:2.3.1.7]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04146  Peroxisome
-CLASS       Cellular Processes; Transport and catabolism; Peroxisome [PATH:sce04146]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04146 Peroxisome
+                YML042W (CAT2)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.3  Acyltransferases
+               2.3.1  Transferring groups other than aminoacyl groups
+                2.3.1.7  carnitine O-acetyltransferase
+                 YML042W (CAT2)
 POSITION    XIII:192788..194800
 MOTIF       Pfam: Carn_acyltransf
-DBLINKS     NCBI-GI: 6323599
+DBLINKS     NCBI-ProteinID: NP_013670
             NCBI-GeneID: 854965
             SGD: S000004506
-            MIPS: YML042W
             UniProt: P32796
 AASEQ       670
             MRICHSRTLSNLKDLPITSRRAMHSAIVNYSTQKAQFPVETNNGEHYWAEKPNKFYQNKR

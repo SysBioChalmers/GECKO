@@ -1,14 +1,21 @@
 ENTRY       YBR123C           CDS       T00005
 NAME        TFC1
-DEFINITION  Tfc1p
+DEFINITION  (RefSeq) transcription factor TFIIIC subunit TFC1
 ORTHOLOGY   K15202  general transcription factor 3C polypeptide 5 (transcription factor C subunit 1)
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase III system
+               Basal transcription factors
+                TFIIIC
+                 YBR123C (TFC1)
+                TFIIIC, fungi type
+                 YBR123C (TFC1)
 POSITION    II:complement(484742..486691)
 MOTIF       Pfam: Tau95
-DBLINKS     NCBI-GI: 398364921
+DBLINKS     NCBI-ProteinID: NP_009681
             NCBI-GeneID: 852421
             SGD: S000000327
-            MIPS: YBR123C
             UniProt: P32367
 AASEQ       649
             MPVEEPLATLSSIPDSSADQAPPLIADEFTLDLPRIPSLELPLNVSTKHSSIQKAIKMCG

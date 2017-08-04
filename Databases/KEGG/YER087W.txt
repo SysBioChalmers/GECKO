@@ -1,17 +1,37 @@
 ENTRY       YER087W           CDS       T00005
 NAME        AIM10
-DEFINITION  putative proline--tRNA ligase AIM10 (EC:6.1.1.15)
+DEFINITION  (RefSeq) putative proline--tRNA ligase AIM10
 ORTHOLOGY   K01881  prolyl-tRNA synthetase [EC:6.1.1.15]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00970  Aminoacyl-tRNA biosynthesis
 MODULE      sce_M00359  Aminoacyl-tRNA biosynthesis, eukaryotes
-CLASS       Genetic Information Processing; Translation; Aminoacyl-tRNA biosynthesis [PATH:sce00970]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               00970 Aminoacyl-tRNA biosynthesis
+                YER087W (AIM10)
+            Enzymes [BR:sce01000]
+             6. Ligases
+              6.1  Forming carbon-oxygen bonds
+               6.1.1  Ligases forming aminoacyl-tRNA and related compounds
+                6.1.1.15  proline---tRNA ligase
+                 YER087W (AIM10)
+            Amino acid related enzymes [BR:sce01007]
+             Aminoacyl-tRNA synthetase
+              Class II (G/C)
+               YER087W (AIM10)
+            Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              Aminoacyl-tRNA synthetases (AARSs)
+               Multi-aminoacyl-tRNA synthetase complex (MSC)
+                YER087W (AIM10)
+             Prokaryotic Type
+                YER087W (AIM10)
 POSITION    V:330576..332306
-MOTIF       Pfam: tRNA-synt_2b HGTP_anticodon
-DBLINKS     NCBI-GI: 6320931
+MOTIF       Pfam: tRNA-synt_2b TERF2_RBM HGTP_anticodon
+DBLINKS     NCBI-ProteinID: NP_011010
             NCBI-GeneID: 856820
             SGD: S000000889
-            MIPS: YER087W
             UniProt: P39965
 AASEQ       576
             MLKYRTLSRSCHIFHPKSLSNNTLKSETTQELLQTVGFVRRSQVGLFQWLPLGLRSLNKV

@@ -1,12 +1,12 @@
 ENTRY       YGR001C           CDS       T00005
-DEFINITION  hypothetical protein (EC:2.1.1.-)
+NAME        EFM5, AML1
+DEFINITION  (RefSeq) protein-lysine N-methyltransferase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:complement(join(497133..497365,497459..497937,498000..498034))
-MOTIF       Pfam: N6-adenineMlase DnaI_N IL28A
-DBLINKS     NCBI-GI: 398365017
+MOTIF       Pfam: N6-adenineMlase IL28A DnaI_N Tubulin_2
+DBLINKS     NCBI-ProteinID: NP_011515
             NCBI-GeneID: 852884
             SGD: S000003233
-            MIPS: YGR001C
             UniProt: P53200
 AASEQ       248
             MSDSDSDSDYELTLSANALAALEEFKREEQQHQEAFQKLYDETDEDFQKKKKEEGMKLFK

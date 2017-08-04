@@ -1,15 +1,19 @@
 ENTRY       YNL142W           CDS       T00005
 NAME        MEP2
-DEFINITION  Mep2p
+DEFINITION  (RefSeq) ammonium permease MEP2
 ORTHOLOGY   K03320  ammonium transporter, Amt family
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Other Transporters
+              Pores ion channels [TC:1]
+               YNL142W (MEP2)
 POSITION    XIV:357453..358952
 MOTIF       Pfam: Ammonium_transp
-DBLINKS     NCBI-GI: 6324187
+DBLINKS     NCBI-ProteinID: NP_014257
             NCBI-GeneID: 855580
             SGD: S000005086
-            MIPS: YNL142W
             UniProt: P41948
+STRUCTURE   PDB: 5AEX
 AASEQ       499
             MSYNFTGTPTGEGTGGNSLTTDLNTQFDLANMGWIGVASAGVWIMVPGIGLLYSGLSRKK
             HALSLLWASMMASAVCIFQWFFWGYSLAFSHNTRGNGFIGTLEFFGFRNVLGAPSSVSSL

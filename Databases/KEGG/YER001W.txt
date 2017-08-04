@@ -1,19 +1,33 @@
 ENTRY       YER001W           CDS       T00005
 NAME        MNN1
-DEFINITION  Mnn1p (EC:2.4.1.-)
+DEFINITION  (RefSeq) alpha-1,3-mannosyltransferase MNN1
 ORTHOLOGY   K05538  alpha 1,3-mannosyltransferase [EC:2.4.1.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00513  Various types of N-glycan biosynthesis
             sce00514  Other types of O-glycan biosynthesis
             sce01100  Metabolic pathways
-CLASS       Metabolism; Glycan biosynthesis and metabolism; Various types of N-glycan biosynthesis [PATH:sce00513]
-            Metabolism; Glycan biosynthesis and metabolism; Other types of O-glycan biosynthesis [PATH:sce00514]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Glycan biosynthesis and metabolism
+               00513 Various types of N-glycan biosynthesis
+                YER001W (MNN1)
+               00514 Other types of O-glycan biosynthesis
+                YER001W (MNN1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.4  Glycosyltransferases
+               2.4.1  Hexosyltransferases
+                2.4.1.-  
+                 YER001W (MNN1)
+            Glycosyltransferases [BR:sce01003]
+             Glycan extension
+              Yeast mannan chain
+               YER001W (MNN1)
 POSITION    V:153520..155808
-MOTIF       Pfam: Mannosyl_trans3
-DBLINKS     NCBI-GI: 6320837
+MOTIF       Pfam: Mannosyl_trans3 Maf1
+DBLINKS     NCBI-ProteinID: NP_010916
             NCBI-GeneID: 856718
             SGD: S000000803
-            MIPS: YER001W
             UniProt: P39106
 AASEQ       762
             MLALRRFILNQRSLRSCTIPILVGALIIILVLFQLVTHRNDALIRSSNVNSTNKKTLKDA

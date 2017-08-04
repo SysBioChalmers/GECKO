@@ -1,14 +1,28 @@
 ENTRY       YJL197W           CDS       T00005
 NAME        UBP12
-DEFINITION  Ubp12p (EC:3.4.19.12 3.1.2.15)
-ORTHOLOGY   K11835  ubiquitin carboxyl-terminal hydrolase 4/11/15 [EC:3.1.2.15]
+DEFINITION  (RefSeq) putative ubiquitin-specific protease UBP12
+ORTHOLOGY   K11835  ubiquitin carboxyl-terminal hydrolase 4/11 [EC:3.4.19.12]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.4  Acting on peptide bonds (peptidases)
+               3.4.19  Omega peptidases
+                3.4.19.12  ubiquitinyl hydrolase 1
+                 YJL197W (UBP12)
+            Peptidases [BR:sce01002]
+             Cysteine Peptidases
+              Family C19: ubiquitin-specific protease family
+               YJL197W (UBP12)
+            Ubiquitin system [BR:sce04121]
+             Deubiquitinating enzyme (DUB)
+              Ubiquitin-specific proteases (UBPs)
+               UBP/USP
+                YJL197W (UBP12)
 POSITION    X:63805..67569
-MOTIF       Pfam: UCH UCH_1 DUSP
-DBLINKS     NCBI-GI: 6322264
+MOTIF       Pfam: UCH UCH_1 DUSP USP7_C2 Toprim_C_rpt
+DBLINKS     NCBI-ProteinID: NP_012338
             NCBI-GeneID: 853242
             SGD: S000003733
-            MIPS: YJL197W
             UniProt: P39538
 AASEQ       1254
             MGSSDVSSRECSLVYNEDPDFTDGTTPCDRLGVDLMNVLDDKDEIKQESVPVSDREIEDT

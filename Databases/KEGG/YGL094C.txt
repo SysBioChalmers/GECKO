@@ -1,17 +1,37 @@
 ENTRY       YGL094C           CDS       T00005
 NAME        PAN2
-DEFINITION  Pan2p (EC:3.1.13.4)
+DEFINITION  (RefSeq) poly(A)-specific ribonuclease
 ORTHOLOGY   K12571  PAB-dependent poly(A)-specific ribonuclease subunit 2 [EC:3.1.13.4]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03018  RNA degradation
-CLASS       Genetic Information Processing; Folding, sorting and degradation; RNA degradation [PATH:sce03018]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               03018 RNA degradation
+                YGL094C (PAN2)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.13  Exoribonucleases producing 5'-phosphomonoesters
+                3.1.13.4  poly(A)-specific ribonuclease
+                 YGL094C (PAN2)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               mRNA cycle factors
+                P-body specific factors
+                 YGL094C (PAN2)
+              mRNA degradation factors
+               3'-5' decay
+                Pan complex
+                 YGL094C (PAN2)
 POSITION    VII:complement(331118..334465)
-MOTIF       Pfam: UCH_1 RNase_T UCH
-DBLINKS     NCBI-GI: 6321344
+MOTIF       Pfam: UCH_1 RNase_T UCH ANAPC4_WD40
+DBLINKS     NCBI-ProteinID: NP_011421
             NCBI-GeneID: 852786
             SGD: S000003062
-            MIPS: YGL094C
             UniProt: P53010
+STRUCTURE   PDB: 4Q8G 4Q8H 4XR7
 AASEQ       1115
             MNNWQHFFNNPVDLSEHLKKPYFRFDNRDKEITAISFDEKANLIWSGDSYGCISSYDPTF
             QLYTRYRGHIGGNSVKDILSHRDGILSISEDSLHFANRRGVTKLNLTSIDIAAFSELNTM

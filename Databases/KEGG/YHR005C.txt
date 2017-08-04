@@ -1,16 +1,24 @@
 ENTRY       YHR005C           CDS       T00005
 NAME        GPA1, CDC70, DAC1, SCG1
-DEFINITION  Gpa1p
-ORTHOLOGY   K04640  guanine nucleotide-binding protein subunit alpha, other
+DEFINITION  (RefSeq) guanine nucleotide-binding protein subunit alpha
+ORTHOLOGY   K19860  guanine nucleotide-binding protein alpha-1 subunit
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04011  MAPK signaling pathway - yeast
-CLASS       Environmental Information Processing; Signal transduction; MAPK signaling pathway - yeast [PATH:sce04011]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YHR005C (GPA1)
+            GTP-binding proteins [BR:sce04031]
+             Heterotrimeric G-proteins
+              Alpha Subunits
+               Alpha others - lower eukaryotes
+                YHR005C (GPA1)
 POSITION    VIII:complement(113499..114917)
-MOTIF       Pfam: G-alpha Arf Miro Gtr1_RagA AAA_22 AAA_29 FtsK_SpoIIIE
-DBLINKS     NCBI-GI: 6321792
+MOTIF       Pfam: G-alpha Arf Gtr1_RagA FtsK_SpoIIIE
+DBLINKS     NCBI-ProteinID: NP_011868
             NCBI-GeneID: 856394
             SGD: S000001047
-            MIPS: YHR005C
             UniProt: P08539
 AASEQ       472
             MGCTVSTQTIGDESDPFLQNKRANDVIEQSLQLEKQRDKNEIKLLLLGAGESGKSTVLKQ

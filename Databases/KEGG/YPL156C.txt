@@ -1,12 +1,12 @@
 ENTRY       YPL156C           CDS       T00005
 NAME        PRM4
-DEFINITION  Prm4p
+DEFINITION  (RefSeq) pheromone-regulated protein PRM4
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:complement(255913..256767)
-DBLINKS     NCBI-GI: 6325101
+MOTIF       Pfam: DUF1673 Pectate_lyase22
+DBLINKS     NCBI-ProteinID: NP_015169
             NCBI-GeneID: 855947
             SGD: S000006077
-            MIPS: YPL156C
             UniProt: Q12498
 AASEQ       284
             MIADSSVLKKHTAIKRSTRIISLTLVLLGVFSFLLLTWNDSLEFYNSADPSENKKNSEEE

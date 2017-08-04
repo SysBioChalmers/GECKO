@@ -1,14 +1,17 @@
 ENTRY       YHR175W           CDS       T00005
 NAME        CTR2
-DEFINITION  Ctr2p
+DEFINITION  (RefSeq) low-affinity Cu transporter
 ORTHOLOGY   K14686  solute carrier family 31 (copper transporter), member 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Solute Carrier Family (SLC)
+              SLC31: Copper transporter
+               YHR175W (CTR2)
 POSITION    VIII:452872..453441
-MOTIF       Pfam: Ctr DUF3304 LysE DUF2897
-DBLINKS     NCBI-GI: 398364867
+MOTIF       Pfam: Ctr DUF1449 DUF2070
+DBLINKS     NCBI-ProteinID: NP_012045
             NCBI-GeneID: 856580
             SGD: S000001218
-            MIPS: YHR175W
             UniProt: P38865
 AASEQ       189
             MDDKKTWSTVTLRTFNQLVTSSLIGYSKKMDSMNHKMEGNAGHDHSDMHMGDGDDTCSMN

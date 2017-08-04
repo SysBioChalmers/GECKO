@@ -1,14 +1,18 @@
 ENTRY       YIR021W           CDS       T00005
 NAME        MRS1, PET157
-DEFINITION  Mrs1p
+DEFINITION  (RefSeq) Mrs1p
 ORTHOLOGY   K17657  mitochondrial RNA-splicing protein MRS1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial DNA transcription, translation, and replication factors
+              Mitochondrial transcription and translation factors
+               Other mitochondrial DNA transcription and translation factors
+                YIR021W (MRS1)
 POSITION    IX:397294..398385
 MOTIF       Pfam: Ydc2-catalyt
-DBLINKS     NCBI-GI: 398364657
+DBLINKS     NCBI-ProteinID: NP_012287
             NCBI-GeneID: 854839
             SGD: S000001460
-            MIPS: YIR021W
             UniProt: P07266
 AASEQ       363
             MSPKNITRSVIPAIDLYCRKANFKTLKSLSMILGSKKEWYDTKKAPLRTFLVSRCGIFEQ

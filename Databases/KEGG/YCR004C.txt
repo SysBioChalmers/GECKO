@@ -1,13 +1,12 @@
 ENTRY       YCR004C           CDS       T00005
 NAME        YCP4
-DEFINITION  Ycp4p
+DEFINITION  (RefSeq) flavodoxin-like fold family protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    III:complement(119575..120318)
-MOTIF       Pfam: Flavodoxin_1 FMN_red Flavodoxin_2
-DBLINKS     NCBI-GI: 6319849
+MOTIF       Pfam: FMN_red Flavodoxin_2 Flavodoxin_1
+DBLINKS     NCBI-ProteinID: NP_009930
             NCBI-GeneID: 850360
             SGD: S000000597
-            MIPS: YCR004C
             UniProt: P25349
 AASEQ       247
             MVKIAIITYSTYGHIDVLAQAVKKGVEAAGGKADIYRVEETLPDEVLTKMNAPQKPEDIP

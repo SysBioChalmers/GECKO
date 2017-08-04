@@ -1,16 +1,25 @@
 ENTRY       YLR115W           CDS       T00005
 NAME        CFT2, YDH1
-DEFINITION  Cft2p
+DEFINITION  (RefSeq) cleavage polyadenylation factor subunit CFT2
 ORTHOLOGY   K14402  cleavage and polyadenylation specificity factor subunit 2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03015  mRNA surveillance pathway
-CLASS       Genetic Information Processing; Translation; mRNA surveillance pathway [PATH:sce03015]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03015 mRNA surveillance pathway
+                YLR115W (CFT2)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA processing factors
+               3' end processing
+                Cleavage and polyadenylation specificity factor (CPSF) complex
+                 YLR115W (CFT2)
 POSITION    XII:377985..380564
-MOTIF       Pfam: CPSF100_C Beta-Casp HrpE
-DBLINKS     NCBI-GI: 6323144
+MOTIF       Pfam: Lactamase_B_6 CPSF100_C
+DBLINKS     NCBI-ProteinID: NP_013216
             NCBI-GeneID: 850806
             SGD: S000004105
-            MIPS: YLR115W
             UniProt: Q12102
 STRUCTURE   PDB: 2I7X
 AASEQ       859

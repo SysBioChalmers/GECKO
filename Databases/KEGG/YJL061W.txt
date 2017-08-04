@@ -1,12 +1,18 @@
 ENTRY       YJL061W           CDS       T00005
 NAME        NUP82, HRB187
-DEFINITION  Nup82p
+DEFINITION  (RefSeq) linker nucleoporin NUP82
+ORTHOLOGY   K18719  nucleoporin NUP82
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Transport factors
+                Nuclear pore complex
+                 YJL061W (NUP82)
 POSITION    X:320016..322157
-DBLINKS     NCBI-GI: 6322400
+DBLINKS     NCBI-ProteinID: NP_012474
             NCBI-GeneID: 853385
             SGD: S000003597
-            MIPS: YJL061W
             UniProt: P40368
 STRUCTURE   PDB: 3PBP 3TKN
 AASEQ       713

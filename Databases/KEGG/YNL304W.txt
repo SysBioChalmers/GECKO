@@ -1,14 +1,18 @@
 ENTRY       YNL304W           CDS       T00005
 NAME        YPT11
-DEFINITION  Ypt11p
-ORTHOLOGY   K06883
+DEFINITION  (RefSeq) Rab family GTPase YPT11
+ORTHOLOGY   K17977  GTP-binding protein YPT11
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial quality control factors
+              Mitochondrial dynamics
+               Retention of mitochondria
+                YNL304W (YPT11)
 POSITION    XIV:60297..61550
-MOTIF       Pfam: Ras Miro Arf GTP_EFTU Gtr1_RagA MMR_HSR1 AAA_11 Kdo
-DBLINKS     NCBI-GI: 82795261
+MOTIF       Pfam: Ras Roc Arf Gtr1_RagA MMR_HSR1 GTP_EFTU
+DBLINKS     NCBI-ProteinID: NP_014095
             NCBI-GeneID: 855412
             SGD: S000005248
-            MIPS: YNL304W
             UniProt: P48559
 AASEQ       417
             MSQRKRYSLNVVTSPSIPSPTPSAPIRTNESNWEAASPASAASSFLPNVHHGGTVLNPGL

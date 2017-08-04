@@ -1,16 +1,19 @@
 ENTRY       YBR201W           CDS       T00005
 NAME        DER1
-DEFINITION  Der1p
+DEFINITION  (RefSeq) derlin
 ORTHOLOGY   K13989  Derlin-2/3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04141  Protein processing in endoplasmic reticulum
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Protein processing in endoplasmic reticulum [PATH:sce04141]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04141 Protein processing in endoplasmic reticulum
+                YBR201W (DER1)
 POSITION    II:623576..624211
-MOTIF       Pfam: DER1 RVT_1
-DBLINKS     NCBI-GI: 6319678
+MOTIF       Pfam: DER1 SNARE
+DBLINKS     NCBI-ProteinID: NP_009760
             NCBI-GeneID: 852500
             SGD: S000000405
-            MIPS: YBR201W
             UniProt: P38307
 AASEQ       211
             MDAVILNLLGDIPLVTRLWTIGCLVLSGLTSLRIVDPGKVVYSYDLVFKKGQYGRLLYSI

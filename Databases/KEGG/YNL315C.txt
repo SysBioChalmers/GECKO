@@ -1,14 +1,18 @@
 ENTRY       YNL315C           CDS       T00005
 NAME        ATP11
-DEFINITION  Atp11p
+DEFINITION  (RefSeq) Atp11p
 ORTHOLOGY   K07555  ATP synthase mitochondrial F1 complex assembly factor 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial quality control factors
+              Mitochondrial respiratory chain complex assembly factors
+               Complex-V assembly factors
+                YNL315C (ATP11)
 POSITION    XIV:complement(43324..44280)
-MOTIF       Pfam: ATP11 DUF655
-DBLINKS     NCBI-GI: 6324014
+MOTIF       Pfam: ATP11 Fib_alpha DUF655 Phage_int_SAM_5
+DBLINKS     NCBI-ProteinID: NP_014084
             NCBI-GeneID: 855401
             SGD: S000005259
-            MIPS: YNL315C
             UniProt: P32453
 AASEQ       318
             MWRLTRKIGTRIHISNQLSPIFNKAIGTVPVFRFYSSSPEQKYRKKLLEEAQKQGFNSIE

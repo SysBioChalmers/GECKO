@@ -1,13 +1,12 @@
 ENTRY       YHL035C           CDS       T00005
 NAME        VMR1
-DEFINITION  putative ATP-binding cassette multidrug transporter VMR1
+DEFINITION  (RefSeq) putative ATP-binding cassette multidrug transporter VMR1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VIII:complement(27978..32756)
-MOTIF       Pfam: ABC_tran ABC_membrane AAA_29 SMC_N DUF87 Miro MMR_HSR1 T2SE Zeta_toxin AAA_16 AAA_17 AAA_18 AAA_23
-DBLINKS     NCBI-GI: 6321752
+MOTIF       Pfam: ABC_membrane ABC_tran AAA_29 SMC_N AAA_21 DUF87 MMR_HSR1 Zeta_toxin AAA_23
+DBLINKS     NCBI-ProteinID: NP_011828
             NCBI-GeneID: 856350
             SGD: S000001027
-            MIPS: YHL035C
             UniProt: P38735
 AASEQ       1592
             MGTDPLIIRNNGSFWEVDDFTRLGRTQLLSYYLPLAIIASIGIFALCRSGLSRYVRSAEC

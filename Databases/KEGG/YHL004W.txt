@@ -1,16 +1,28 @@
 ENTRY       YHL004W           CDS       T00005
 NAME        MRP4
-DEFINITION  mitochondrial 37S ribosomal protein MRP4
+DEFINITION  (RefSeq) mitochondrial 37S ribosomal protein MRP4
 ORTHOLOGY   K02967  small subunit ribosomal protein S2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03010  Ribosome
-CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03010 Ribosome
+                YHL004W (MRP4)
+            Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Mitochondria/ Chloroplast
+               Small subunit
+                YHL004W (MRP4)
+              Bacteria
+                YHL004W (MRP4)
+              Archaea
+                YHL004W (MRP4)
 POSITION    VIII:99219..100403
-MOTIF       Pfam: Ribosomal_S2
-DBLINKS     NCBI-GI: 6321782
+MOTIF       Pfam: Ribosomal_S2 GPAT_N
+DBLINKS     NCBI-ProteinID: NP_011859
             NCBI-GeneID: 856384
             SGD: S000000996
-            MIPS: YHL004W
             UniProt: P32902
 AASEQ       394
             MQRHVFARNFRRLSLLRNPSLTKRFQSSASGAANTPNNNDEVMLLQQKLLYDEIRSELKS

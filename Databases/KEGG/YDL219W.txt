@@ -1,14 +1,26 @@
 ENTRY       YDL219W           CDS       T00005
 NAME        DTD1
-DEFINITION  Dtd1p (EC:3.1.-.-)
+DEFINITION  (RefSeq) D-tyrosyl-tRNA(Tyr) deacylase
 ORTHOLOGY   K07560  D-tyrosyl-tRNA(Tyr) deacylase [EC:3.1.-.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.-  Acting on ester bonds
+                3.1.-.-  
+                 YDL219W (DTD1)
+            Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              Aminoacyl-tRNA synthetases (AARSs)
+               Trans-editing factors
+                YDL219W (DTD1)
+             Prokaryotic Type
+                YDL219W (DTD1)
 POSITION    IV:join(65242..65306,65378..65765)
-MOTIF       Pfam: Tyr_Deacylase DUF2659
-DBLINKS     NCBI-GI: 6319982
+MOTIF       Pfam: Tyr_Deacylase
+DBLINKS     NCBI-ProteinID: NP_010062
             NCBI-GeneID: 851307
             SGD: S000002378
-            MIPS: YDL219W
             UniProt: Q07648
 AASEQ       150
             MKIVLQKVSQASVVVDSKVISSIKHGYMLLVGISIDDSMAEIDKLSKKVLSLRIFEDESR

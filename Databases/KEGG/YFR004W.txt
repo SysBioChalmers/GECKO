@@ -1,19 +1,38 @@
 ENTRY       YFR004W           CDS       T00005
 NAME        RPN11, MPR1
-DEFINITION  proteasome regulatory particle lid subunit RPN11
+DEFINITION  (RefSeq) proteasome regulatory particle lid subunit RPN11
 ORTHOLOGY   K03030  26S proteasome regulatory subunit N11
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03050  Proteasome
 MODULE      sce_M00341  Proteasome, 19S regulatory particle (PA700)
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Proteasome [PATH:sce03050]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               03050 Proteasome
+                YFR004W (RPN11)
+            Peptidases [BR:sce01002]
+             Metallo Peptidases
+              Family M67
+               YFR004W (RPN11)
+            Ubiquitin system [BR:sce04121]
+             Deubiquitinating enzyme (DUB)
+              Ubiquitin-specific proteases (UBPs)
+               JAMM
+                YFR004W (RPN11)
+            Proteasome [BR:sce03051]
+             Eukaryotic proteasome
+              Regulatory particles
+               PA700 (19S proteasome)
+                non-ATPase subunits
+                 YFR004W (RPN11)
 POSITION    VI:153393..154313
 MOTIF       Pfam: JAB MitMem_reg Prok-JAB
-DBLINKS     NCBI-GI: 14318526
+DBLINKS     NCBI-ProteinID: NP_116659
             NCBI-GeneID: 850554
             SGD: S000001900
-            MIPS: YFR004W
             UniProt: P43588
-STRUCTURE   PDB: 4O8Y 4O8X 4B4T 4C0V 3J47
+STRUCTURE   PDB: 4O8Y 4OCM 4O8X 4OCN 4OWP 4OCL 3JCK 5MPD 5MPE 4CR2 4CR4
+                 4CR3 5A5B 3J47
 AASEQ       306
             MERLQRLMMNSKVGSADTGRDDTKETVYISSIALLKMLKHGRAGVPMEVMGLMLGEFVDD
             YTVNVVDVFAMPQSGTGVSVEAVDDVFQAKMMDMLKQTGRDQMVVGWYHSHPGFGCWLSS

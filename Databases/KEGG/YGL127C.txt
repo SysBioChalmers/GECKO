@@ -1,16 +1,21 @@
 ENTRY       YGL127C           CDS       T00005
 NAME        SOH1, MED31
-DEFINITION  Soh1p
+DEFINITION  (RefSeq) Soh1p
 ORTHOLOGY   K15153  mediator of RNA polymerase II transcription subunit 31
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Mediator complex
+                Middle
+                 YGL127C (SOH1)
 POSITION    VII:complement(270392..270775)
 MOTIF       Pfam: Med31 Dam
-DBLINKS     NCBI-GI: 6321311
+DBLINKS     NCBI-ProteinID: NP_011388
             NCBI-GeneID: 852750
             SGD: S000003095
-            MIPS: YGL127C
             UniProt: P38633
-STRUCTURE   PDB: 3FBI 3FBN
+STRUCTURE   PDB: 3FBI 3FBN 5SVA
 AASEQ       127
             MSSTNGNAPATPSSDQNPLPTRFEVELEFIQSLANIQYVTYLLTQQQIWKSPNFKNYLKY
             LEYWCNPPYSQCIVYPNCLFILKLLNGFMESAIVNEDGLLEGLDELPKIIQLQGPQWMNE

@@ -1,14 +1,12 @@
 ENTRY       YPL026C           CDS       T00005
 NAME        SKS1, SHA3
-DEFINITION  Sks1p (EC:2.7.11.1)
-ORTHOLOGY   K08286  protein-serine/threonine kinase [EC:2.7.11.-]
+DEFINITION  (RefSeq) putative serine/threonine protein kinase SKS1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:complement(500675..502183)
-MOTIF       Pfam: Pkinase Pkinase_Tyr Kinase-like Med15 PBP_sp32 APH BAF1_ABF1 DDRGK Pox_Ag35 TT_ORF1
-DBLINKS     NCBI-GI: 6325231
+MOTIF       Pfam: Pkinase Pkinase_Tyr Kinase-like PBP_sp32 Pinin_SDK_memA Spt20 APH FTA2 Hid1 DUF4175 YABBY CPSF100_C EIIBC-GUT_N SprA-related TT_ORF1 DUF1510 CSG2
+DBLINKS     NCBI-ProteinID: NP_015299
             NCBI-GeneID: 856081
             SGD: S000005947
-            MIPS: YPL026C
             UniProt: Q12505
 AASEQ       502
             MLSDCLLNNFRITAQIGSGAYGLVFHVVDILTSREYAVKTVFKSSSMDEFYNKNGLNNNS

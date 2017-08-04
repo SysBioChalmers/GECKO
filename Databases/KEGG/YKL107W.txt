@@ -1,12 +1,11 @@
 ENTRY       YKL107W           CDS       T00005
-DEFINITION  putative short-chain dehydrogenase/reductase (EC:1.-.-.-)
+DEFINITION  (RefSeq) putative short-chain dehydrogenase/reductase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XI:236141..237070
-MOTIF       Pfam: NAD_binding_10 adh_short Epimerase KR F420_oxidored NAD_binding_7 YjeF_N 2-Hacid_dh_C THF_DHG_CYH_C NmrA 3HCDH_N
-DBLINKS     NCBI-GI: 6322742
+MOTIF       Pfam: adh_short Epimerase KR adh_short_C2 F420_oxidored NAD_binding_10 3HCDH_N YjeF_N 2-Hacid_dh_C NAD_binding_7 THF_DHG_CYH_C
+DBLINKS     NCBI-ProteinID: NP_012815
             NCBI-GeneID: 853753
             SGD: S000001590
-            MIPS: YKL107W
             UniProt: P34251
 AASEQ       309
             MFWKKDPTVSWERKNINDIDFSRFNVAIIGGTGGLGRAISRELAQRNARVTVVGQTFRDE

@@ -1,13 +1,18 @@
 ENTRY       YPR154W           CDS       T00005
 NAME        PIN3, LSB2
-DEFINITION  Pin3p
+DEFINITION  (RefSeq) Pin3p
+ORTHOLOGY   K20522  LAS seventeen-binding protein 1/2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Others
+              Actin-binding proteins
+               Nucleation-promoting factors (NPFs)
+                YPR154W (PIN3)
 POSITION    XVI:834565..835212
-MOTIF       Pfam: SH3_1 SH3_9 SH3_2 DUF605 Pex14_N DUF2076 PAT1 Suf
-DBLINKS     NCBI-GI: 6325412
+MOTIF       Pfam: SH3_1 SH3_9 SH3_2 Pex14_N TFIIA DUF2076 Suf
+DBLINKS     NCBI-ProteinID: NP_015480
             NCBI-GeneID: 856277
             SGD: S000006358
-            MIPS: YPR154W
             UniProt: Q06449
 STRUCTURE   PDB: 1ZX6 1YNZ
 AASEQ       215

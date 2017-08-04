@@ -1,24 +1,47 @@
 ENTRY       YIL160C           CDS       T00005
 NAME        POT1, FOX3, POX3
-DEFINITION  acetyl-CoA C-acyltransferase (EC:2.3.1.16)
-ORTHOLOGY   K00632  acetyl-CoA acyltransferase [EC:2.3.1.16]
+DEFINITION  (RefSeq) acetyl-CoA C-acyltransferase
+ORTHOLOGY   K07513  acetyl-CoA acyltransferase 1 [EC:2.3.1.16]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00071  Fatty acid degradation
             sce00280  Valine, leucine and isoleucine degradation
             sce00592  alpha-Linolenic acid metabolism
+            sce01040  Biosynthesis of unsaturated fatty acids
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
+            sce01130  Biosynthesis of antibiotics
             sce01212  Fatty acid metabolism
-CLASS       Metabolism; Overview; Fatty acid metabolism [PATH:sce01212]
-            Metabolism; Lipid metabolism; Fatty acid degradation [PATH:sce00071]
-            Metabolism; Lipid metabolism; alpha-Linolenic acid metabolism [PATH:sce00592]
-            Metabolism; Amino acid metabolism; Valine, leucine and isoleucine degradation [PATH:sce00280]
+            sce04146  Peroxisome
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01212 Fatty acid metabolism
+                YIL160C (POT1)
+              Lipid metabolism
+               00071 Fatty acid degradation
+                YIL160C (POT1)
+               00592 alpha-Linolenic acid metabolism
+                YIL160C (POT1)
+               01040 Biosynthesis of unsaturated fatty acids
+                YIL160C (POT1)
+              Amino acid metabolism
+               00280 Valine, leucine and isoleucine degradation
+                YIL160C (POT1)
+             Cellular Processes
+              Transport and catabolism
+               04146 Peroxisome
+                YIL160C (POT1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.3  Acyltransferases
+               2.3.1  Transferring groups other than aminoacyl groups
+                2.3.1.16  acetyl-CoA C-acyltransferase
+                 YIL160C (POT1)
 POSITION    IX:complement(40191..41444)
 MOTIF       Pfam: Thiolase_N Thiolase_C ketoacyl-synt
-DBLINKS     NCBI-GI: 6322031
+DBLINKS     NCBI-ProteinID: NP_012106
             NCBI-GeneID: 854646
             SGD: S000001422
-            MIPS: YIL160C
             UniProt: P27796
 STRUCTURE   PDB: 1AFW 1PXT
 AASEQ       417

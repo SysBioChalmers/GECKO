@@ -1,12 +1,11 @@
 ENTRY       YGL140C           CDS       T00005
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) hypothetical protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:complement(241353..245012)
-MOTIF       Pfam: DUF2422 FUSC_2 ALMT DUF2421
-DBLINKS     NCBI-GI: 6321298
+MOTIF       Pfam: ArAE_2_N FUSC_2 ALMT ArAE_2 Pox_A_type_inc
+DBLINKS     NCBI-ProteinID: NP_011375
             NCBI-GeneID: 852737
             SGD: S000003108
-            MIPS: YGL140C
             UniProt: P53120
 AASEQ       1219
             MSLKSKLTKIQKLWLYYFPCDRILAKRICKSTVNTTVAFIFCLIPKITAHLGAAPAMLPM

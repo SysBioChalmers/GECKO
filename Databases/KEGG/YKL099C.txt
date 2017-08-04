@@ -1,14 +1,18 @@
 ENTRY       YKL099C           CDS       T00005
 NAME        UTP11
-DEFINITION  Utp11p
+DEFINITION  (RefSeq) rRNA-processing protein UTP11
 ORTHOLOGY   K14769  U3 small nucleolar RNA-associated protein 11
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              90S particles
+               U3 small nucleolar RNA-associated proteins
+                YKL099C (UTP11)
 POSITION    XI:complement(255720..256472)
-MOTIF       Pfam: Utp11 DUF2529 NuiA
-DBLINKS     NCBI-GI: 83722564
+MOTIF       Pfam: Utp11 DUF2529 Type2_restr_D3
+DBLINKS     NCBI-ProteinID: NP_012823
             NCBI-GeneID: 853762
             SGD: S000001582
-            MIPS: YKL099C
             UniProt: P34247
 AASEQ       250
             MAKLVHDVQKKQHRERSQLTSRSRYGFLEKHKDYVKRAQDFHRKQSTLKVLREKAKERNP

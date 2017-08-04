@@ -1,14 +1,29 @@
 ENTRY       YLR247C           CDS       T00005
 NAME        IRC20
-DEFINITION  Irc20p (EC:3.6.1.-)
-ORTHOLOGY   K15710  E3 ubiquitin-protein ligase SHPRH [EC:3.6.4.- 6.3.2.19]
+DEFINITION  (RefSeq) E3 ubiquitin-protein ligase IRC20
+ORTHOLOGY   K15710  E3 ubiquitin-protein ligase SHPRH [EC:3.6.4.- 2.3.2.27]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.3  Acyltransferases
+               2.3.2  Aminoacyltransferases
+                2.3.2.27  RING-type E3 ubiquitin transferase
+                 YLR247C (IRC20)
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.4  Acting on acid anhydrides to facilitate cellular and subcellular movement
+                3.6.4.-  
+                 YLR247C (IRC20)
+            Ubiquitin system [BR:sce04121]
+             Ubiquitin ligases (E3)
+              Single Ring-finger type E3
+               Other single Ring-finger type E3
+                YLR247C (IRC20)
 POSITION    XII:complement(628684..633354)
-MOTIF       Pfam: SNF2_N zf-RING_2 zf-C3HC4 zf-C3HC4_2 zf-RING_5 zf-C3HC4_3 zf-rbx1 Helicase_C zf-C3HC4_4 zf-Apc11 zf-RING_UBOX
-DBLINKS     NCBI-GI: 6323276
+MOTIF       Pfam: SNF2_N zf-C3HC4_2 zf-RING_2 zf-C3HC4 zf-C3HC4_3 zf-RING_UBOX Helicase_C zf-RING_5 zf-rbx1 Prok-RING_4 zf-C3HC4_4 zf-RING_10 zf-ANAPC11 ResIII zf-P11
+DBLINKS     NCBI-ProteinID: NP_013348
             NCBI-GeneID: 850949
             SGD: S000004237
-            MIPS: YLR247C
             UniProt: Q06554
 AASEQ       1556
             MSAVGALLAREYNVTAEKCDFFLENGSFDSVIAALPALNQEQETVTQKVSKNGKELINVA

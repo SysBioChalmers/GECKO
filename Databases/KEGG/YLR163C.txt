@@ -1,14 +1,28 @@
 ENTRY       YLR163C           CDS       T00005
 NAME        MAS1, MIF1
-DEFINITION  Mas1p (EC:3.4.24.64)
+DEFINITION  (RefSeq) Mas1p
 ORTHOLOGY   K17732  mitochondrial-processing peptidase subunit beta [EC:3.4.24.64]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.4  Acting on peptide bonds (peptidases)
+               3.4.24  Metalloendopeptidases
+                3.4.24.64  mitochondrial processing peptidase
+                 YLR163C (MAS1)
+            Peptidases [BR:sce01002]
+             Metallo Peptidases
+              Family M16: pitrilysin family
+               YLR163C (MAS1)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial protein import machinery
+              Matrix
+               Other matrix factors
+                YLR163C (MAS1)
 POSITION    XII:complement(491866..493254)
-MOTIF       Pfam: Peptidase_M16 Peptidase_M16_C
-DBLINKS     NCBI-GI: 6323192
+MOTIF       Pfam: Peptidase_M16 Peptidase_M16_C M16C_assoc
+DBLINKS     NCBI-ProteinID: NP_013264
             NCBI-GeneID: 850860
             SGD: S000004153
-            MIPS: YLR163C
             UniProt: P10507
 STRUCTURE   PDB: 1HR6 1HR7 1HR8 1HR9
 AASEQ       462

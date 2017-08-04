@@ -1,14 +1,26 @@
 ENTRY       YCR047C           CDS       T00005
 NAME        BUD23
-DEFINITION  Bud23p (EC:2.1.1.-)
+DEFINITION  (RefSeq) 18S rRNA (guanine1575-N7)-methyltransferase
+ORTHOLOGY   K19306  18S rRNA (guanine1575-N7)-methyltransferase [EC:2.1.1.309]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.1  Transferring one-carbon groups
+               2.1.1  Methyltransferases
+                2.1.1.309  18S rRNA (guanine1575-N7)-methyltransferase
+                 YCR047C (BUD23)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-40S particles
+               Export and cytoplasmic maturation factors
+                YCR047C (BUD23)
 POSITION    III:complement(210718..211545)
-MOTIF       Pfam: WBS_methylT Methyltransf_11 Methyltransf_25 Methyltransf_12 Methyltransf_31 Methyltransf_23 CMAS Methyltransf_18 PCMT Methyltransf_26 MetW PrmA AdoMet_MTase
-DBLINKS     NCBI-GI: 6319895
+MOTIF       Pfam: WBS_methylT Methyltransf_11 Methyltransf_25 Methyltransf_12 CMAS Methyltransf_31 PCMT Methyltransf_23 MetW PrmA Methyltransf_32 AdoMet_MTase
+DBLINKS     NCBI-ProteinID: NP_009976
             NCBI-GeneID: 850414
             SGD: S000000643
-            MIPS: YCR047C
             UniProt: P25627
+STRUCTURE   PDB: 4QTT 4QTU
 AASEQ       275
             MSRPEELAPPEIFYNDSEAHKYTGSTRVQHIQAKMTLRALELLNLQPCSFILDIGCGSGL
             SGEILTQEGDHVWCGLDISPSMLATGLSRELEGDLMLQDMGTGIPFRAGSFDAAISISAI

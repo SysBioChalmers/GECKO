@@ -1,14 +1,25 @@
 ENTRY       YGL224C           CDS       T00005
 NAME        SDT1, SSM1
-DEFINITION  Sdt1p
-ORTHOLOGY   K07025  putative hydrolase of the HAD superfamily
+DEFINITION  (RefSeq) nucleotidase
+ORTHOLOGY   K18551  pyrimidine and pyridine-specific 5'-nucleotidase [EC:3.1.3.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00760  Nicotinate and nicotinamide metabolism
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Metabolism of cofactors and vitamins
+               00760 Nicotinate and nicotinamide metabolism
+                YGL224C (SDT1)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.3  Phosphoric-monoester hydrolases
+                3.1.3.-  
+                 YGL224C (SDT1)
 POSITION    VII:complement(78015..78857)
-MOTIF       Pfam: HAD_2 Hydrolase Acid_PPase Hydrolase_like DUF2536
-DBLINKS     NCBI-GI: 6321214
+MOTIF       Pfam: Hydrolase HAD_2 Acid_PPase
+DBLINKS     NCBI-ProteinID: NP_011291
             NCBI-GeneID: 852648
             SGD: S000003192
-            MIPS: YGL224C
             UniProt: P53078
 STRUCTURE   PDB: 3OPX 3NUQ 3ONN
 AASEQ       280

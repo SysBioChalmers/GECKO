@@ -1,13 +1,19 @@
 ENTRY       YLR246W           CDS       T00005
 NAME        ERF2
-DEFINITION  Erf2p (EC:2.3.1.-)
+DEFINITION  (RefSeq) palmitoyltransferase ERF2
+ORTHOLOGY   K16675  palmitoyltransferase ZDHHC9/14/18 [EC:2.3.1.225]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.3  Acyltransferases
+               2.3.1  Transferring groups other than aminoacyl groups
+                2.3.1.225  protein S-acyltransferase
+                 YLR246W (ERF2)
 POSITION    XII:627118..628197
-MOTIF       Pfam: zf-DHHC SDF DUF35_N MNHE
-DBLINKS     NCBI-GI: 6323275
+MOTIF       Pfam: DHHC SDF
+DBLINKS     NCBI-ProteinID: NP_013347
             NCBI-GeneID: 850947
             SGD: S000004236
-            MIPS: YLR246W
             UniProt: Q06551
 AASEQ       359
             MALVSRRSTRSESTSITKEEHTGEGSLTKLFFRWLVTLEGDQDINDGKGYISLPNVSNYI

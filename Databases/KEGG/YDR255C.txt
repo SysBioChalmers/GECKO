@@ -1,13 +1,12 @@
 ENTRY       YDR255C           CDS       T00005
 NAME        RMD5, GID2
-DEFINITION  ubiquitin-protein ligase RMD5
+DEFINITION  (RefSeq) ubiquitin-protein ligase RMD5
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(966557..967822)
-MOTIF       Pfam: zf-RING_UBOX CLTH zf-RING_2 zf-RING_5 MRP-L51 CCD Tmemb_9
-DBLINKS     NCBI-GI: 398366289
+MOTIF       Pfam: CLTH zf-RING_UBOX zf-RING_5 LprI zf-RING_2 MRP-L51 Ku_PK_bind
+DBLINKS     NCBI-ProteinID: NP_010541
             NCBI-GeneID: 851842
             SGD: S000002663
-            MIPS: YDR255C
             UniProt: Q12508
 AASEQ       421
             MSELLDSFETEFAKFYTDSNLEETNLQKCLDHTHEFKSQLKKLKAHLNKHIQESKPEVYN

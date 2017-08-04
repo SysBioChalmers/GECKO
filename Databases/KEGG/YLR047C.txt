@@ -1,13 +1,12 @@
 ENTRY       YLR047C           CDS       T00005
 NAME        FRE8
-DEFINITION  Fre8p (EC:1.16.1.7)
+DEFINITION  (RefSeq) putative ferric-chelate reductase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XII:complement(239347..241407)
-MOTIF       Pfam: Ferric_reduct FAD_binding_8 NAD_binding_6 DUF4131
-DBLINKS     NCBI-GI: 6323076
+MOTIF       Pfam: Ferric_reduct FAD_binding_8 NAD_binding_6
+DBLINKS     NCBI-ProteinID: NP_013148
             NCBI-GeneID: 850736
             SGD: S000004037
-            MIPS: YLR047C
             UniProt: Q12209
 AASEQ       686
             MNLKSIVSWFKEHLPSFDVDVDKHFRTLRVRKYSQICLLISFIIICVIIPLMNYLLLTDK

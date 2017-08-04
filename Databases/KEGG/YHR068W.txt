@@ -1,14 +1,19 @@
 ENTRY       YHR068W           CDS       T00005
 NAME        DYS1
-DEFINITION  Dys1p (EC:2.5.1.46)
+DEFINITION  (RefSeq) deoxyhypusine synthase
 ORTHOLOGY   K00809  deoxyhypusine synthase [EC:2.5.1.46]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.5  Transferring alkyl or aryl groups, other than methyl groups
+               2.5.1  Transferring alkyl or aryl groups, other than methyl groups (only sub-subclass identified to date)
+                2.5.1.46  deoxyhypusine synthase
+                 YHR068W (DYS1)
 POSITION    VIII:232133..233296
 MOTIF       Pfam: DS
-DBLINKS     NCBI-GI: 6321859
+DBLINKS     NCBI-ProteinID: NP_011935
             NCBI-GeneID: 856465
             SGD: S000001110
-            MIPS: YHR068W
             UniProt: P38791
 AASEQ       387
             MSDINEKLPELLQDAVLKASVPIPDDFVKVQGIDYSKPEATNMRATDLIEAMKTMGFQAS

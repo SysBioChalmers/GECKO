@@ -1,13 +1,12 @@
 ENTRY       YBR271W           CDS       T00005
 NAME        EFM2
-DEFINITION  Efm2p
+DEFINITION  (RefSeq) S-adenosylmethionine-dependent methyltransferase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    II:744852..746111
-MOTIF       Pfam: Methyltransf_16 Methyltransf_18 Methyltransf_31 Cons_hypoth95 Methyltransf_23 MTS DREV Methyltransf_12 Methyltransf_26
-DBLINKS     NCBI-GI: 398365821
+MOTIF       Pfam: Methyltransf_16 Methyltransf_23 Methyltransf_31 Cons_hypoth95 DREV TRM Methyltransf_25 Methyltransf_12 MTS
+DBLINKS     NCBI-ProteinID: NP_009830
             NCBI-GeneID: 852574
             SGD: S000000475
-            MIPS: YBR271W
             UniProt: P38347
 AASEQ       419
             MFDPLDLYTPDDIQVEALQFNLAEREPKDPCSPQRDEILTAVDEEESDDDDTIIDNLDLP

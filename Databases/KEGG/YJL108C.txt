@@ -1,13 +1,12 @@
 ENTRY       YJL108C           CDS       T00005
 NAME        PRM10
-DEFINITION  Prm10p
+DEFINITION  (RefSeq) pheromone-regulated protein PRM10
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    X:complement(217705..218856)
-MOTIF       Pfam: DUF1212 DUF3815 Peptidase_A8
-DBLINKS     NCBI-GI: 6322353
+MOTIF       Pfam: ThrE ThrE_2
+DBLINKS     NCBI-ProteinID: NP_012427
             NCBI-GeneID: 853336
             SGD: S000003644
-            MIPS: YJL108C
             UniProt: P42946
 AASEQ       383
             MIVSFGDATTRTSEVQLVRCTQGLNLWKLHQVHAVYKRVVHDTLGADEGNALLDQILADT

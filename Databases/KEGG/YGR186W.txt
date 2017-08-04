@@ -1,17 +1,27 @@
 ENTRY       YGR186W           CDS       T00005
 NAME        TFG1, RAP74, SSU71
-DEFINITION  Tfg1p (EC:2.7.11.1)
+DEFINITION  (RefSeq) transcription factor IIF subunit TFG1
 ORTHOLOGY   K03138  transcription initiation factor TFIIF subunit alpha
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03022  Basal transcription factors
-CLASS       Genetic Information Processing; Transcription; Basal transcription factors [PATH:sce03022]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03022 Basal transcription factors
+                YGR186W (TFG1)
+            Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Basal transcription factors
+                TFIIF
+                 YGR186W (TFG1)
 POSITION    VII:867774..869981
-MOTIF       Pfam: TFIIF_alpha
-DBLINKS     NCBI-GI: 6321625
+MOTIF       Pfam: TFIIF_alpha Sfi1_C
+DBLINKS     NCBI-ProteinID: NP_011702
             NCBI-GeneID: 853098
             SGD: S000003418
-            MIPS: YGR186W
             UniProt: P41895
+STRUCTURE   PDB: 5FYW 5FMF 5FZ5 5SVA
 AASEQ       735
             MSRRNPPGSRNGGGPTNASPFIKRDRMRRNFLRMRMGQNGSNSSSPGVPNGDNSRGSLVK
             KDDPEYAEEREKMLLQIGVEADAGRSNVKVKDEDPNEYNEFPLRAIPKEDLENMRTHLLK

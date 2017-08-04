@@ -1,16 +1,27 @@
 ENTRY       YOR046C           CDS       T00005
 NAME        DBP5, RAT8
-DEFINITION  ATP-dependent RNA helicase DBP5 (EC:3.6.4.13)
-ORTHOLOGY   K01529   [EC:3.6.1.-]
+DEFINITION  (RefSeq) ATP-dependent RNA helicase DBP5
+ORTHOLOGY   K18655  ATP-dependent RNA helicase DDX19/DBP5 [EC:3.6.4.13]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.4  Acting on acid anhydrides to facilitate cellular and subcellular movement
+                3.6.4.13  RNA helicase
+                 YOR046C (DBP5)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Transport factors
+                Other transport factors
+                 YOR046C (DBP5)
 POSITION    XV:complement(414459..415907)
-MOTIF       Pfam: DEAD Helicase_C ResIII Helicase_C_2 AAA_22 AAA_30 DUF2075
-DBLINKS     NCBI-GI: 6324620
+MOTIF       Pfam: DEAD Helicase_C AAA_30 AAA_22
+DBLINKS     NCBI-ProteinID: NP_014689
             NCBI-GeneID: 854211
             SGD: S000005572
-            MIPS: YOR046C
             UniProt: P20449
-STRUCTURE   PDB: 3PEY 3PEW 3GFP 3PEV 3PEU 3RRM 3RRN 2KBF 2KBE
+STRUCTURE   PDB: 3PEY 3PEW 3GFP 5ELX 3PEV 3PEU 3RRM 3RRN 2KBF 2KBE
 AASEQ       482
             MSDTKRDPADLLASLKIDNEKEDTSEVSTKETVKSQPEKTADSIKPAEKLVPKVEEKKTK
             QEDSNLISSEYEVKVKLADIQADPNSPLYSAKSFDELGLAPELLKGIYAMKFQKPSKIQE

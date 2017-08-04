@@ -1,13 +1,12 @@
 ENTRY       YML052W           CDS       T00005
 NAME        SUR7
-DEFINITION  Sur7p
+DEFINITION  (RefSeq) Sur7p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:170402..171310
 MOTIF       Pfam: SUR7 Fig1
-DBLINKS     NCBI-GI: 6323589
+DBLINKS     NCBI-ProteinID: NP_013660
             NCBI-GeneID: 854953
             SGD: S000004516
-            MIPS: YML052W
             UniProt: P54003
 AASEQ       302
             MVKVWNIVLRLVVLLFLAGNTLLLILMIISGATDHYPVNRFYWVQGNTTGIPNAGDETRW

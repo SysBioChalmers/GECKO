@@ -1,13 +1,22 @@
 ENTRY       YGL002W           CDS       T00005
 NAME        ERP6
-DEFINITION  Erp6p
+DEFINITION  (RefSeq) Erp6p
+ORTHOLOGY   K20346  p24 family protein alpha
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endoplasmic reticulum (ER) - Golgi transport
+              Forward pathways
+               p24 family proteins
+                YGL002W (ERP6)
+            Transporters [BR:sce02000]
+             Other Transporters
+              Others
+               YGL002W (ERP6)
 POSITION    VII:494517..495167
-MOTIF       Pfam: EMP24_GP25L Y_Y_Y DUF2846
-DBLINKS     NCBI-GI: 6321436
+MOTIF       Pfam: EMP24_GP25L Y_Y_Y DUF1761
+DBLINKS     NCBI-ProteinID: NP_011513
             NCBI-GeneID: 852882
             SGD: S000002970
-            MIPS: YGL002W
             UniProt: P53198
 AASEQ       216
             MLSHYIFLAFVLLPFRVSAFYFYGYGGDRKCFLKELSKDTLLKGSYNLEVYDDKLADYAL

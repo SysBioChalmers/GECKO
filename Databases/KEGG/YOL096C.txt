@@ -1,18 +1,30 @@
 ENTRY       YOL096C           CDS       T00005
 NAME        COQ3
-DEFINITION  hexaprenyldihydroxybenzoate methyltransferase (EC:2.1.1.64 2.1.1.222 2.1.1.114)
-ORTHOLOGY   K00591  hexaprenyldihydroxybenzoate methyltransferase [EC:2.1.1.114]
+DEFINITION  (RefSeq) hexaprenyldihydroxybenzoate methyltransferase
+ORTHOLOGY   K00591  polyprenyldihydroxybenzoate methyltransferase / 3-demethylubiquinol 3-O-methyltransferase [EC:2.1.1.114 2.1.1.64]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00130  Ubiquinone and other terpenoid-quinone biosynthesis
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
-CLASS       Metabolism; Metabolism of cofactors and vitamins; Ubiquinone and other terpenoid-quinone biosynthesis [PATH:sce00130]
+MODULE      sce_M00128  Ubiquinone biosynthesis, eukaryotes, 4-hydroxybenzoate => ubiquinone
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Metabolism of cofactors and vitamins
+               00130 Ubiquinone and other terpenoid-quinone biosynthesis
+                YOL096C (COQ3)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.1  Transferring one-carbon groups
+               2.1.1  Methyltransferases
+                2.1.1.64  3-demethylubiquinol 3-O-methyltransferase
+                 YOL096C (COQ3)
+                2.1.1.114  polyprenyldihydroxybenzoate methyltransferase
+                 YOL096C (COQ3)
 POSITION    XV:complement(138107..139045)
-MOTIF       Pfam: Methyltransf_23 Methyltransf_18 Methyltransf_31 Methyltransf_11 Methyltransf_12 Methyltransf_25 CMAS MTS PrmA NodS MetW Methyltransf_26 Methyltransf_32 DREV Ubie_methyltran RrnaAD PCMT
-DBLINKS     NCBI-GI: 37362692
+MOTIF       Pfam: Methyltransf_23 Methyltransf_25 Methyltransf_11 Methyltransf_31 Methyltransf_12 CMAS PrmA MTS NodS MetW Methyltransf_32 DREV Methyltransf_18 Ubie_methyltran RrnaAD PCMT
+DBLINKS     NCBI-ProteinID: NP_014545
             NCBI-GeneID: 854057
             SGD: S000005456
-            MIPS: YOL096C
             UniProt: P27680
 AASEQ       312
             MLLRSRFLKVIHVRKQLSACSRFAIQTQTRCKSTDASEDEVKHFQELAPTWWDTDGSQRI

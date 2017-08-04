@@ -1,14 +1,17 @@
 ENTRY       YPL265W           CDS       T00005
 NAME        DIP5
-DEFINITION  Dip5p
+DEFINITION  (RefSeq) Dip5p
 ORTHOLOGY   K16261  yeast amino acid transporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Other Transporters
+              Electrochemical potential-driven transporters [TC:2]
+               YPL265W (DIP5)
 POSITION    XVI:41043..42869
 MOTIF       Pfam: AA_permease AA_permease_2
-DBLINKS     NCBI-GI: 6324990
+DBLINKS     NCBI-ProteinID: NP_015058
             NCBI-GeneID: 855863
             SGD: S000006186
-            MIPS: YPL265W
             UniProt: P53388
 AASEQ       608
             MKMPLKKMFTSTSPRNSSSLDSDHDAYYSKQNPDNFPVKEQEIYNIDLEENNVSSRSSTS

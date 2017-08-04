@@ -1,13 +1,12 @@
 ENTRY       YKL220C           CDS       T00005
 NAME        FRE2
-DEFINITION  Fre2p (EC:1.16.1.7 1.16.1.-)
+DEFINITION  (RefSeq) ferric/cupric-chelate reductase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XI:complement(9091..11226)
-MOTIF       Pfam: NAD_binding_6 FAD_binding_8 Ferric_reduct FAD_binding_6
-DBLINKS     NCBI-GI: 6322629
+MOTIF       Pfam: NAD_binding_6 FAD_binding_8 Ferric_reduct
+DBLINKS     NCBI-ProteinID: NP_012702
             NCBI-GeneID: 853660
             SGD: S000001703
-            MIPS: YKL220C
             UniProt: P36033
 AASEQ       711
             MHWTSILSAILLFCLSGARASPAKTVIRNKVPLLVTNACTRIFQKVTWEYTSKSKRSSPV

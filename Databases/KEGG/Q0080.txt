@@ -1,18 +1,26 @@
 ENTRY       Q0080             CDS       T00005
 NAME        ATP8, AAP1
-DEFINITION  F1F0 ATP synthase subunit 8 (EC:3.6.3.14)
-ORTHOLOGY   K02125  F-type H+-transporting ATPase subunit 8 [EC:3.6.3.14]
+DEFINITION  (RefSeq) F1F0 ATP synthase subunit 8
+ORTHOLOGY   K02125  F-type H+-transporting ATPase subunit 8
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00190  Oxidative phosphorylation
             sce01100  Metabolic pathways
 MODULE      sce_M00158  F-type ATPase, eukaryotes
-CLASS       Metabolism; Energy metabolism; Oxidative phosphorylation [PATH:sce00190]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Energy metabolism
+               00190 Oxidative phosphorylation
+                Q0080 (ATP8)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial DNA transcription, translation, and replication factors
+              Mitochondrial DNA-encoded proteins
+               F-type ATPase
+                Q0080 (ATP8)
 POSITION    MT:27666..27812
-MOTIF       Pfam: Fun_ATP-synt_8 PsbT YMF19
-DBLINKS     NCBI-GI: 6226526
+MOTIF       Pfam: Fun_ATP-synt_8 YMF19
+DBLINKS     NCBI-ProteinID: NP_009312
             NCBI-GeneID: 854600
             SGD: S000007267
-            MIPS: Q0080
             UniProt: P00856
 AASEQ       48
             MPQLVPFYFMNQLTYGFLLMITLLILFSQFFLPMILRLYVSRLFISKL

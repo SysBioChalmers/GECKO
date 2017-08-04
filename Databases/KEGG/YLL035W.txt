@@ -1,14 +1,24 @@
 ENTRY       YLL035W           CDS       T00005
 NAME        GRC3
-DEFINITION  Grc3p (EC:2.7.1.-)
+DEFINITION  (RefSeq) polynucleotide 5'-hydroxyl-kinase
 ORTHOLOGY   K06947  polynucleotide 5'-hydroxyl-kinase GRC3/NOL9 [EC:2.7.1.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.1  Phosphotransferases with an alcohol group as acceptor
+                2.7.1.-  
+                 YLL035W (GRC3)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               Kinases
+                YLL035W (GRC3)
 POSITION    XII:68580..70478
-MOTIF       Pfam: Clp1 MobB MMR_HSR1 AAA_14 Miro FtsK_SpoIIIE Dynamin_N AAA_17 SRPRB
-DBLINKS     NCBI-GI: 6322993
+MOTIF       Pfam: CLP1_P MMR_HSR1 FtsK_SpoIIIE AAA_14
+DBLINKS     NCBI-ProteinID: NP_013065
             NCBI-GeneID: 850624
             SGD: S000003958
-            MIPS: YLL035W
             UniProt: Q07845
 AASEQ       632
             MVIDSKQDLPQYTKDSGSESDSDSSNNFIVESPSIPSSKSATVVLNSEEYEDDEGDDLNG

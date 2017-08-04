@@ -1,13 +1,12 @@
 ENTRY       YOR380W           CDS       T00005
 NAME        RDR1
-DEFINITION  Rdr1p
+DEFINITION  (RefSeq) Rdr1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:1051290..1052930
 MOTIF       Pfam: Fungal_trans Zn_clus
-DBLINKS     NCBI-GI: 398366433
+DBLINKS     NCBI-ProteinID: NP_015025
             NCBI-GeneID: 854562
             SGD: S000005907
-            MIPS: YOR380W
             UniProt: Q08904
 AASEQ       546
             MASPGSTALPHKRQRVRKACVPCRERKRKCNGKSPCEMCVAYGYVCHYIDGRVPSASPQV

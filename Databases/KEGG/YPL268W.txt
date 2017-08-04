@@ -1,19 +1,45 @@
 ENTRY       YPL268W           CDS       T00005
 NAME        PLC1
-DEFINITION  phosphatidylinositol phospholipase C (EC:3.1.4.11)
+DEFINITION  (RefSeq) phosphatidylinositol phospholipase C
 ORTHOLOGY   K05857  phosphatidylinositol phospholipase C, delta [EC:3.1.4.11]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00562  Inositol phosphate metabolism
             sce01100  Metabolic pathways
             sce04070  Phosphatidylinositol signaling system
-CLASS       Metabolism; Carbohydrate metabolism; Inositol phosphate metabolism [PATH:sce00562]
-            Environmental Information Processing; Signal transduction; Phosphatidylinositol signaling system [PATH:sce04070]
+            sce04933  AGE-RAGE signaling pathway in diabetic complications
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Carbohydrate metabolism
+               00562 Inositol phosphate metabolism
+                YPL268W (PLC1)
+             Environmental Information Processing
+              Signal transduction
+               04070 Phosphatidylinositol signaling system
+                YPL268W (PLC1)
+             Human Diseases
+              Endocrine and metabolic diseases
+               04933 AGE-RAGE signaling pathway in diabetic complications
+                YPL268W (PLC1)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.4  Phosphoric-diester hydrolases
+                3.1.4.11  phosphoinositide phospholipase C
+                 YPL268W (PLC1)
+            Membrane trafficking [BR:sce04131]
+             Exocytosis
+              Calcium ion-dependent exocytosis
+               Phospholipases
+                YPL268W (PLC1)
+             Endocytosis
+              Macropinocytosis
+               Phospholipase C
+                YPL268W (PLC1)
 POSITION    XVI:35236..37845
-MOTIF       Pfam: PI-PLC-X PI-PLC-Y EF-hand_7 C2 EF-hand_1 EF-hand_like EF-hand_6
-DBLINKS     NCBI-GI: 6324987
+MOTIF       Pfam: PI-PLC-X PI-PLC-Y EF-hand_like EF-hand_1 C2 EF-hand_6 EF-hand_7
+DBLINKS     NCBI-ProteinID: NP_015055
             NCBI-GeneID: 855860
             SGD: S000006189
-            MIPS: YPL268W
             UniProt: P32383
 AASEQ       869
             MTESAIDDQRFNLTKELQRHSCRDQGKITQKDDALDFISYSSFQSSFNTDQKSANNGSTV

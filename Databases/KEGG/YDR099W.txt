@@ -1,14 +1,28 @@
 ENTRY       YDR099W           CDS       T00005
 NAME        BMH2, SCD3
-DEFINITION  Bmh2p
+DEFINITION  (RefSeq) 14-3-3 family protein BMH2
 ORTHOLOGY   K06630  14-3-3 protein epsilon
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04011  MAPK signaling pathway - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YDR099W (BMH2)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              Check point factors
+               Other check point factors
+                YDR099W (BMH2)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Proteins found in most exosomes
+               YDR099W (BMH2)
 POSITION    IV:653607..654428
-MOTIF       Pfam: 14-3-3 DUF885
-DBLINKS     NCBI-GI: 398365597
+MOTIF       Pfam: 14-3-3 FlaF Spt20 DUF4710
+DBLINKS     NCBI-ProteinID: NP_010384
             NCBI-GeneID: 851676
             SGD: S000002506
-            MIPS: YDR099W
             UniProt: P34730
 AASEQ       273
             MSQTREDSVYLAKLAEQAERYEEMVENMKAVASSGQELSVEERNLLSVAYKNVIGARRAS

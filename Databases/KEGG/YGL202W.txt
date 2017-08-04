@@ -1,6 +1,6 @@
 ENTRY       YGL202W           CDS       T00005
 NAME        ARO8
-DEFINITION  bifunctional 2-aminoadipate transaminase/aromatic-amino-acid:2-oxoglutarate transaminase (EC:2.6.1.39 2.6.1.27 2.6.1.5 2.6.1.57)
+DEFINITION  (RefSeq) bifunctional 2-aminoadipate transaminase/aromatic-amino-acid:2-oxoglutarate transaminase
 ORTHOLOGY   K00838  aromatic amino acid aminotransferase I [EC:2.6.1.57 2.6.1.27 2.6.1.5]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00130  Ubiquinone and other terpenoid-quinone biosynthesis
@@ -12,26 +12,54 @@ PATHWAY     sce00130  Ubiquinone and other terpenoid-quinone biosynthesis
             sce00400  Phenylalanine, tyrosine and tryptophan biosynthesis
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
+            sce01130  Biosynthesis of antibiotics
             sce01210  2-Oxocarboxylic acid metabolism
             sce01230  Biosynthesis of amino acids
 MODULE      sce_M00024  Phenylalanine biosynthesis, chorismate => phenylalanine
             sce_M00030  Lysine biosynthesis, AAA pathway, 2-oxoglutarate => 2-aminoadipate => lysine
             sce_M00034  Methionine salvage pathway
-CLASS       Metabolism; Overview; 2-Oxocarboxylic acid metabolism [PATH:sce01210]
-            Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
-            Metabolism; Amino acid metabolism; Cysteine and methionine metabolism [PATH:sce00270]
-            Metabolism; Amino acid metabolism; Lysine biosynthesis [PATH:sce00300]
-            Metabolism; Amino acid metabolism; Tyrosine metabolism [PATH:sce00350]
-            Metabolism; Amino acid metabolism; Phenylalanine metabolism [PATH:sce00360]
-            Metabolism; Amino acid metabolism; Tryptophan metabolism [PATH:sce00380]
-            Metabolism; Amino acid metabolism; Phenylalanine, tyrosine and tryptophan biosynthesis [PATH:sce00400]
-            Metabolism; Metabolism of cofactors and vitamins; Ubiquinone and other terpenoid-quinone biosynthesis [PATH:sce00130]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01210 2-Oxocarboxylic acid metabolism
+                YGL202W (ARO8)
+               01230 Biosynthesis of amino acids
+                YGL202W (ARO8)
+              Amino acid metabolism
+               00270 Cysteine and methionine metabolism
+                YGL202W (ARO8)
+               00300 Lysine biosynthesis
+                YGL202W (ARO8)
+               00350 Tyrosine metabolism
+                YGL202W (ARO8)
+               00360 Phenylalanine metabolism
+                YGL202W (ARO8)
+               00380 Tryptophan metabolism
+                YGL202W (ARO8)
+               00400 Phenylalanine, tyrosine and tryptophan biosynthesis
+                YGL202W (ARO8)
+              Metabolism of cofactors and vitamins
+               00130 Ubiquinone and other terpenoid-quinone biosynthesis
+                YGL202W (ARO8)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.6  Transferring nitrogenous groups
+               2.6.1  Transaminases
+                2.6.1.5  tyrosine transaminase
+                 YGL202W (ARO8)
+                2.6.1.27  tryptophan transaminase
+                 YGL202W (ARO8)
+                2.6.1.57  aromatic-amino-acid transaminase
+                 YGL202W (ARO8)
+            Amino acid related enzymes [BR:sce01007]
+             Aminotransferase (transaminase)
+              Class I
+               YGL202W (ARO8)
 POSITION    VII:116059..117561
-MOTIF       Pfam: Aminotran_1_2 DegT_DnrJ_EryC1 Beta_elim_lyase
-DBLINKS     NCBI-GI: 6321236
+MOTIF       Pfam: Aminotran_1_2 DegT_DnrJ_EryC1
+DBLINKS     NCBI-ProteinID: NP_011313
             NCBI-GeneID: 852672
             SGD: S000003170
-            MIPS: YGL202W
             UniProt: P53090
 STRUCTURE   PDB: 4JE5
 AASEQ       500

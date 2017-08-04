@@ -1,14 +1,19 @@
 ENTRY       YGL216W           CDS       T00005
 NAME        KIP3
-DEFINITION  tubulin-dependent ATPase KIP3
+DEFINITION  (RefSeq) tubulin-dependent ATPase KIP3
 ORTHOLOGY   K10401  kinesin family member 18/19
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Cytoskeleton proteins [BR:sce04812]
+             Eukaryotic cytoskeleton proteins
+              Microtubules
+               Tubulin-binding proteins
+                Kinesins
+                 YGL216W (KIP3)
 POSITION    VII:84885..87302
-MOTIF       Pfam: Kinesin AAA_24
-DBLINKS     NCBI-GI: 6321221
+MOTIF       Pfam: Kinesin Microtub_bd
+DBLINKS     NCBI-ProteinID: NP_011299
             NCBI-GeneID: 852655
             SGD: S000003184
-            MIPS: YGL216W
             UniProt: P53086
 AASEQ       805
             MNVPETRQSSIVVAIRVRPFTSMEKTRLVNEASGAEANFPGLGDSSLILPMSNNSDSDID

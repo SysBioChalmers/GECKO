@@ -1,22 +1,29 @@
 ENTRY       YEL002C           CDS       T00005
 NAME        WBP1
-DEFINITION  Wbp1p (EC:2.4.99.18)
+DEFINITION  (RefSeq) dolichyl-diphosphooligosaccharide-protein glycotransferase
 ORTHOLOGY   K12670  oligosaccharyltransferase complex subunit beta
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00510  N-Glycan biosynthesis
             sce00513  Various types of N-glycan biosynthesis
             sce01100  Metabolic pathways
             sce04141  Protein processing in endoplasmic reticulum
-MODULE      sce_M00072  Oligosaccharyltransferase
-CLASS       Metabolism; Glycan biosynthesis and metabolism; N-Glycan biosynthesis [PATH:sce00510]
-            Metabolism; Glycan biosynthesis and metabolism; Various types of N-glycan biosynthesis [PATH:sce00513]
-            Genetic Information Processing; Folding, sorting and degradation; Protein processing in endoplasmic reticulum [PATH:sce04141]
+MODULE      sce_M00072  N-glycosylation by oligosaccharyltransferase
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Glycan biosynthesis and metabolism
+               00510 N-Glycan biosynthesis
+                YEL002C (WBP1)
+               00513 Various types of N-glycan biosynthesis
+                YEL002C (WBP1)
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04141 Protein processing in endoplasmic reticulum
+                YEL002C (WBP1)
 POSITION    V:complement(148722..150014)
-MOTIF       Pfam: DDOST_48kD
-DBLINKS     NCBI-GI: 398364295
+MOTIF       Pfam: DDOST_48kD Transpeptidase
+DBLINKS     NCBI-ProteinID: NP_010914
             NCBI-GeneID: 856716
             SGD: S000000728
-            MIPS: YEL002C
             UniProt: P33767
 AASEQ       430
             MRTDWNFFFCILLQAIFVVGTQTSRTLVLYDQSTEPLEEYSVYLKDLEQRNYKLEYLDIN

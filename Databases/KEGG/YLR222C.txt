@@ -1,16 +1,24 @@
 ENTRY       YLR222C           CDS       T00005
 NAME        UTP13
-DEFINITION  Utp13p
+DEFINITION  (RefSeq) Utp13p
 ORTHOLOGY   K14555  U3 small nucleolar RNA-associated protein 13
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03008  Ribosome biogenesis in eukaryotes
-CLASS       Genetic Information Processing; Translation; Ribosome biogenesis in eukaryotes [PATH:sce03008]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03008 Ribosome biogenesis in eukaryotes
+                YLR222C (UTP13)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              90S particles
+               U3 small nucleolar RNA-associated proteins
+                YLR222C (UTP13)
 POSITION    XII:complement(579318..581771)
-MOTIF       Pfam: WD40 Utp13 Nup160 Nucleoporin_N
-DBLINKS     NCBI-GI: 6323251
+MOTIF       Pfam: Utp13 WD40 ANAPC4_WD40 WD40_like Ge1_WD40
+DBLINKS     NCBI-ProteinID: NP_013323
             NCBI-GeneID: 850919
             SGD: S000004212
-            MIPS: YLR222C
             UniProt: Q05946
 AASEQ       817
             MDLKTSYKGISLNPIYAGSSAVATVSENGKILATPVLDEINIIDLTPGSRKILHKISNED

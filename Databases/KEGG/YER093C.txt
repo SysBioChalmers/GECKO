@@ -1,13 +1,13 @@
 ENTRY       YER093C           CDS       T00005
 NAME        TSC11, AVO3
-DEFINITION  Tsc11p
+DEFINITION  (RefSeq) TORC2 complex subunit TSC11
+ORTHOLOGY   K08267  rapamycin-insensitive companion of mTOR
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    V:complement(343320..347612)
-MOTIF       Pfam: RICTOR_N RICTOR_M RasGEF_N_2 RICTOR_V
-DBLINKS     NCBI-GI: 6320939
+MOTIF       Pfam: RICTOR_N RICTOR_M RICTOR_V RasGEF_N_2 K_oxygenase
+DBLINKS     NCBI-ProteinID: NP_011018
             NCBI-GeneID: 856828
             SGD: S000000895
-            MIPS: YER093C
             UniProt: P40061
 AASEQ       1430
             MSIPHSAKQSSPLSSRRRSVTNTTPLLTPRHSRDNSSTQISSAKNITSSSPSTITNESSK

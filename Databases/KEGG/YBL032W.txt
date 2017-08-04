@@ -1,13 +1,19 @@
 ENTRY       YBL032W           CDS       T00005
 NAME        HEK2, KHD1
-DEFINITION  Hek2p
+DEFINITION  (RefSeq) Hek2p
+ORTHOLOGY   K18738  heterogeneous nuclear rnp K-like protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Factors involved in mRNA localization
+                Cargo complex
+                 YBL032W (HEK2)
 POSITION    II:160184..161329
-MOTIF       Pfam: KH_1 KH_3 KH_2 KH_4 KH_5
-DBLINKS     NCBI-GI: 6319439
+MOTIF       Pfam: KH_1 KH_4 KH_2
+DBLINKS     NCBI-ProteinID: NP_009521
             NCBI-GeneID: 852248
             SGD: S000000128
-            MIPS: YBL032W
             UniProt: P38199
 AASEQ       381
             MSQFFEAATPVAIPTNNTNGGSSDAGSAATGGAPVVGTTAQPTINHRLLLSLKEAAKIIG

@@ -1,14 +1,26 @@
 ENTRY       YLR318W           CDS       T00005
 NAME        EST2
-DEFINITION  Est2p (EC:2.7.7.49)
+DEFINITION  (RefSeq) Est2p
 ORTHOLOGY   K11126  telomerase reverse transcriptase [EC:2.7.7.49]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.7  Nucleotidyltransferases
+                2.7.7.49  RNA-directed DNA polymerase
+                 YLR318W (EST2)
+            DNA replication proteins [BR:sce03032]
+             Eukaryotic Type
+              DNA Replication Termination Factors
+               Telomerase complex (animals)
+                YLR318W (EST2)
+               Telomerase complex (fungi)
+                YLR318W (EST2)
 POSITION    XII:766542..769196
-MOTIF       Pfam: Telomerase_RBD RVT_1
-DBLINKS     NCBI-GI: 330443678
+MOTIF       Pfam: Telomerase_RBD RVT_1 Nop
+DBLINKS     NCBI-ProteinID: NP_013422
             NCBI-GeneID: 851028
             SGD: S000004310
-            MIPS: YLR318W
             UniProt: Q06163
 AASEQ       884
             MKILFEFIQDKLDIDLQTNSTYKENLKCGHFNGLDEILTTCFALPNSRKIALPCLPGDLS

@@ -1,15 +1,24 @@
 ENTRY       YDR310C           CDS       T00005
 NAME        SUM1
-DEFINITION  Sum1p
+DEFINITION  (RefSeq) Sum1p
 ORTHOLOGY   K12779  suppressor of MAR1-1 protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04113  Meiosis - yeast
-CLASS       Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04113 Meiosis - yeast
+                YDR310C (SUM1)
+            Transcription factors [BR:sce03000]
+             Eukaryotic Type
+              Other transcription factors
+               Others
+                YDR310C (SUM1)
 POSITION    IV:complement(1081128..1084316)
-DBLINKS     NCBI-GI: 6320516
+MOTIF       Pfam: Cbl_N
+DBLINKS     NCBI-ProteinID: NP_010596
             NCBI-GeneID: 851905
             SGD: S000002718
-            MIPS: YDR310C
             UniProt: P46676
 AASEQ       1062
             MSENTTAPSDNITNEQRLPSGPKDDVDTLALTSAQNQANSLRKLDTDANAKALPSITDIP

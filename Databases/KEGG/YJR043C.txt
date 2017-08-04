@@ -1,6 +1,6 @@
 ENTRY       YJR043C           CDS       T00005
-NAME        POL32
-DEFINITION  Pol32p
+NAME        POL32, REV5
+DEFINITION  (RefSeq) DNA polymerase delta subunit POL32
 ORTHOLOGY   K03504  DNA polymerase delta subunit 3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00230  Purine metabolism
@@ -11,19 +11,51 @@ PATHWAY     sce00230  Purine metabolism
             sce03420  Nucleotide excision repair
             sce03430  Mismatch repair
             sce03440  Homologous recombination
-CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
-            Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
-            Genetic Information Processing; Replication and repair; DNA replication [PATH:sce03030]
-            Genetic Information Processing; Replication and repair; Base excision repair [PATH:sce03410]
-            Genetic Information Processing; Replication and repair; Nucleotide excision repair [PATH:sce03420]
-            Genetic Information Processing; Replication and repair; Mismatch repair [PATH:sce03430]
-            Genetic Information Processing; Replication and repair; Homologous recombination [PATH:sce03440]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Nucleotide metabolism
+               00230 Purine metabolism
+                YJR043C (POL32)
+               00240 Pyrimidine metabolism
+                YJR043C (POL32)
+             Genetic Information Processing
+              Replication and repair
+               03030 DNA replication
+                YJR043C (POL32)
+               03410 Base excision repair
+                YJR043C (POL32)
+               03420 Nucleotide excision repair
+                YJR043C (POL32)
+               03430 Mismatch repair
+                YJR043C (POL32)
+               03440 Homologous recombination
+                YJR043C (POL32)
+            Protein phosphatases and associated proteins [BR:sce01009]
+             Protein Ser/ Thr phosphatases
+              Phosphoprotein phosphatases (PPPs)
+               Protein phosphatase-1
+                PP1-interacting proteins (PIPs)
+                 YJR043C (POL32)
+            DNA replication proteins [BR:sce03032]
+             Eukaryotic Type
+              DNA Replication Elongation Factors
+               DNA polymerase delta complex
+                YJR043C (POL32)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              SSBR (single strand breaks repair)
+               BER (base exicision repair)
+                Long Patch-BER factors
+                 DNA polymerase delta complex
+                  YJR043C (POL32)
+               MMR (mismatch exicision repair)
+                DNA polymerase delta complex
+                 YJR043C (POL32)
 POSITION    X:complement(516461..517513)
 MOTIF       Pfam: CDC27 SPATIAL
-DBLINKS     NCBI-GI: 6322503
+DBLINKS     NCBI-ProteinID: NP_012577
             NCBI-GeneID: 853500
             SGD: S000003804
-            MIPS: YJR043C
             UniProt: P47110
 AASEQ       350
             MDQKASYFINEKLFTEVKPVLFTDLIHHLKIGPSMAKKLMFDYYKQTTNAKYNCVVICCY

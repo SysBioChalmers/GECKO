@@ -1,17 +1,37 @@
 ENTRY       YLR060W           CDS       T00005
 NAME        FRS1
-DEFINITION  phenylalanine--tRNA ligase subunit beta (EC:6.1.1.20)
+DEFINITION  (RefSeq) phenylalanine--tRNA ligase subunit beta
 ORTHOLOGY   K01890  phenylalanyl-tRNA synthetase beta chain [EC:6.1.1.20]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00970  Aminoacyl-tRNA biosynthesis
 MODULE      sce_M00359  Aminoacyl-tRNA biosynthesis, eukaryotes
-CLASS       Genetic Information Processing; Translation; Aminoacyl-tRNA biosynthesis [PATH:sce00970]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               00970 Aminoacyl-tRNA biosynthesis
+                YLR060W (FRS1)
+            Enzymes [BR:sce01000]
+             6. Ligases
+              6.1  Forming carbon-oxygen bonds
+               6.1.1  Ligases forming aminoacyl-tRNA and related compounds
+                6.1.1.20  phenylalanine---tRNA ligase
+                 YLR060W (FRS1)
+            Amino acid related enzymes [BR:sce01007]
+             Aminoacyl-tRNA synthetase
+              Class II (U)
+               YLR060W (FRS1)
+            Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              Aminoacyl-tRNA synthetases (AARSs)
+               Other AARSs
+                YLR060W (FRS1)
+             Prokaryotic Type
+                YLR060W (FRS1)
 POSITION    XII:260979..262766
-MOTIF       Pfam: B3_4 B5 SLS
-DBLINKS     NCBI-GI: 6323089
+MOTIF       Pfam: B3_4 B5
+DBLINKS     NCBI-ProteinID: NP_013161
             NCBI-GeneID: 850749
             SGD: S000004050
-            MIPS: YLR060W
             UniProt: P15624
 AASEQ       595
             MPTVSVNKQQLFDLLGKNYTSQEFDELCFEFGMEMDEDTTEEALKTGEEPELKLDISANR

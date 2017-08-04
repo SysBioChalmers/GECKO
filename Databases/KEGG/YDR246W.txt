@@ -1,13 +1,22 @@
 ENTRY       YDR246W           CDS       T00005
 NAME        TRS23
-DEFINITION  Trs23p
+DEFINITION  (RefSeq) TRAPP subunit TRS23
+ORTHOLOGY   K20303  trafficking protein particle complex subunit 4
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endosome - Golgi transport
+              Tethering complex
+               TRAPP complex II
+                YDR246W (TRS23)
+             Endoplasmic reticulum (ER) - Golgi transport
+              Forward pathways
+               TRAPP complex I
+                YDR246W (TRS23)
 POSITION    IV:954288..954947
-MOTIF       Pfam: Sybindin Sedlin_N TraU Peroxin-22
-DBLINKS     NCBI-GI: 398366249
+MOTIF       Pfam: Sybindin Sedlin_N TraU
+DBLINKS     NCBI-ProteinID: NP_010532
             NCBI-GeneID: 851833
             SGD: S000002654
-            MIPS: YDR246W
             UniProt: Q03784
 STRUCTURE   PDB: 3CUE
 AASEQ       219

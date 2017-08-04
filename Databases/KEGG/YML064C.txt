@@ -1,16 +1,19 @@
 ENTRY       YML064C           CDS       T00005
 NAME        TEM1
-DEFINITION  Tem1p
+DEFINITION  (RefSeq) Ras family GTPase TEM1
 ORTHOLOGY   K06682  Gtp-binding protein of the ras superfamily involved in termination of M-phase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
-CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YML064C (TEM1)
 POSITION    XIII:complement(145139..145876)
-MOTIF       Pfam: Ras Miro Gtr1_RagA GTP_EFTU Arf MMR_HSR1
-DBLINKS     NCBI-GI: 6323576
+MOTIF       Pfam: Ras Roc Gtr1_RagA Arf DLIC MMR_HSR1
+DBLINKS     NCBI-ProteinID: NP_013647
             NCBI-GeneID: 854938
             SGD: S000004529
-            MIPS: YML064C
             UniProt: P38987
 AASEQ       245
             MATPSTGANNSIPAVRNQVEVQVGLVGDAQVGKTSLMVKYVQNIYDKEYTQTLGVNFLKR

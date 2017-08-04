@@ -1,14 +1,22 @@
 ENTRY       YKL195W           CDS       T00005
 NAME        MIA40, FMP15, TIM40
-DEFINITION  Mia40p
+DEFINITION  (RefSeq) Mia40p
 ORTHOLOGY   K17782  mitochondrial intermembrane space import and assembly protein 40
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial protein import machinery
+              Inter membrane space
+               Mitochondrial intermembrane space assembly (MIA) complex
+                YKL195W (MIA40)
+            Transporters [BR:sce02000]
+             Other Transporters
+              Others
+               YKL195W (MIA40)
 POSITION    XI:75821..77032
-MOTIF       Pfam: CHCH
-DBLINKS     NCBI-GI: 37362671
+MOTIF       Pfam: CHCH GCK
+DBLINKS     NCBI-ProteinID: NP_012726
             NCBI-GeneID: 853639
             SGD: S000001678
-            MIPS: YKL195W
             UniProt: P36046
 AASEQ       403
             MLRNLVVRNACRNRPSIQVARGLCRHQTRRLMASSPQFGRNSNQEKTAGFIMGILSMAGA

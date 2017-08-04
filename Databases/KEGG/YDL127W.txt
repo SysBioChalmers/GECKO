@@ -1,16 +1,19 @@
 ENTRY       YDL127W           CDS       T00005
 NAME        PCL2, CLN4
-DEFINITION  Pcl2p
+DEFINITION  (RefSeq) cyclin PCL2
 ORTHOLOGY   K06657  G1/S-specific cyclin PLC2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
-CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YDL127W (PCL2)
 POSITION    IV:234927..235853
 MOTIF       Pfam: Cyclin_N Cyclin PX
-DBLINKS     NCBI-GI: 42742057
+DBLINKS     NCBI-ProteinID: NP_010156
             NCBI-GeneID: 851430
             SGD: S000002285
-            MIPS: YDL127W
             UniProt: P25693
 AASEQ       308
             MSNYEALLKFNRKAVSKEMVQYLASTTASIIKIKKTNSMIDIALPAPPLTKFINRLIKHS

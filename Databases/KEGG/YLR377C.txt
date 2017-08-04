@@ -1,6 +1,6 @@
 ENTRY       YLR377C           CDS       T00005
 NAME        FBP1, ACN8
-DEFINITION  fructose 1,6-bisphosphate 1-phosphatase (EC:3.1.3.11)
+DEFINITION  (RefSeq) fructose 1,6-bisphosphate 1-phosphatase
 ORTHOLOGY   K03841  fructose-1,6-bisphosphatase I [EC:3.1.3.11]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00010  Glycolysis / Gluconeogenesis
@@ -9,19 +9,39 @@ PATHWAY     sce00010  Glycolysis / Gluconeogenesis
             sce00680  Methane metabolism
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
+            sce01130  Biosynthesis of antibiotics
             sce01200  Carbon metabolism
 MODULE      sce_M00003  Gluconeogenesis, oxaloacetate => fructose-6P
-CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
-            Metabolism; Carbohydrate metabolism; Glycolysis / Gluconeogenesis [PATH:sce00010]
-            Metabolism; Carbohydrate metabolism; Pentose phosphate pathway [PATH:sce00030]
-            Metabolism; Carbohydrate metabolism; Fructose and mannose metabolism [PATH:sce00051]
-            Metabolism; Energy metabolism; Methane metabolism [PATH:sce00680]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01200 Carbon metabolism
+                YLR377C (FBP1)
+              Carbohydrate metabolism
+               00010 Glycolysis / Gluconeogenesis
+                YLR377C (FBP1)
+               00030 Pentose phosphate pathway
+                YLR377C (FBP1)
+               00051 Fructose and mannose metabolism
+                YLR377C (FBP1)
+              Energy metabolism
+               00680 Methane metabolism
+                YLR377C (FBP1)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.3  Phosphoric-monoester hydrolases
+                3.1.3.11  fructose-bisphosphatase
+                 YLR377C (FBP1)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of other body fluids (saliva and urine)
+               YLR377C (FBP1)
 POSITION    XII:complement(873746..874792)
 MOTIF       Pfam: FBPase
-DBLINKS     NCBI-GI: 398366041
+DBLINKS     NCBI-ProteinID: NP_013481
             NCBI-GeneID: 851092
             SGD: S000004369
-            MIPS: YLR377C
             UniProt: P09201
 AASEQ       348
             MPTLVNGPRRDSTEGFDTDIITLPRFIIEHQKQFKNATGDFTLVLNALQFAFKFVSHTIR

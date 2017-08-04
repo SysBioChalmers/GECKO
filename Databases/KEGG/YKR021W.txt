@@ -1,13 +1,18 @@
 ENTRY       YKR021W           CDS       T00005
 NAME        ALY1, ART6
-DEFINITION  Aly1p
+DEFINITION  (RefSeq) Aly1p
+ORTHOLOGY   K20061  arrestin-related trafficking adapter 3/6
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endocytosis
+              Clathrin-mediated endocytosis
+               GPCR adaptor proteins
+                YKR021W (ALY1)
 POSITION    XI:479234..481981
 MOTIF       Pfam: Arrestin_C Arrestin_N
-DBLINKS     NCBI-GI: 398364977
+DBLINKS     NCBI-ProteinID: NP_012946
             NCBI-GeneID: 853891
             SGD: S000001729
-            MIPS: YKR021W
             UniProt: P36117
 AASEQ       915
             MLQFNTENDTVAPVFPMEQDINAAPDAVPLVQTTTLQVFVKLAEPIVFLKGFETNGLSEI

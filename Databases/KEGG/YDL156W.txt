@@ -1,13 +1,12 @@
 ENTRY       YDL156W           CDS       T00005
 NAME        CMR1
-DEFINITION  Cmr1p
+DEFINITION  (RefSeq) Cmr1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:174918..176486
-MOTIF       Pfam: WD40
-DBLINKS     NCBI-GI: 6320045
+MOTIF       Pfam: WD40 DUF870
+DBLINKS     NCBI-ProteinID: NP_010125
             NCBI-GeneID: 851399
             SGD: S000002315
-            MIPS: YDL156W
             UniProt: Q12510
 AASEQ       522
             MPELTEFQKKRLENIKRNNDLLKKLHLSGVASQIKHEAGVLEKSRAPAKKKQKTTNTRAT

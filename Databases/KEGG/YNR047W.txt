@@ -1,14 +1,19 @@
 ENTRY       YNR047W           CDS       T00005
 NAME        FPK1
-DEFINITION  Fpk1p (EC:2.7.11.1)
+DEFINITION  (RefSeq) serine/threonine protein kinase FPK1
 ORTHOLOGY   K08286  protein-serine/threonine kinase [EC:2.7.11.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.11  Protein-serine/threonine kinases
+                2.7.11.-  
+                 YNR047W (FPK1)
 POSITION    XIV:708523..711204
 MOTIF       Pfam: Pkinase Pkinase_Tyr Kinase-like Kdo
-DBLINKS     NCBI-GI: 6324375
+DBLINKS     NCBI-ProteinID: NP_014445
             NCBI-GeneID: 855783
             SGD: S000005330
-            MIPS: YNR047W
             UniProt: P53739
 AASEQ       893
             MAGHHHEHEQERDHEQEHEHDSLQRPTTGSERTRSISFSKLLTRSWKRNASSSNNMSVSS

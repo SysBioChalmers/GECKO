@@ -1,13 +1,12 @@
 ENTRY       YPL180W           CDS       T00005
 NAME        TCO89
-DEFINITION  Tco89p
+DEFINITION  (RefSeq) Tco89p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:205248..207647
 MOTIF       Pfam: TCO89
-DBLINKS     NCBI-GI: 6325077
+DBLINKS     NCBI-ProteinID: NP_015145
             NCBI-GeneID: 855922
             SGD: S000006101
-            MIPS: YPL180W
             UniProt: Q08921
 AASEQ       799
             MVHRGRTLKSDTDVTSLNASTVSHQSKPFRQFSTRSRAKSNASFKGLRRVLTHDGTLDND

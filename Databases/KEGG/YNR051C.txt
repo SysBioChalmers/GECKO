@@ -1,13 +1,19 @@
 ENTRY       YNR051C           CDS       T00005
 NAME        BRE5
-DEFINITION  Bre5p
+DEFINITION  (RefSeq) Bre5p
+ORTHOLOGY   K19718  UBP3-associated protein BRE5
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04139  Mitophagy - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04139 Mitophagy - yeast
+                YNR051C (BRE5)
 POSITION    XIV:complement(716780..718327)
-MOTIF       Pfam: NTF2 RRM_1 RRM_6 CheY-binding
-DBLINKS     NCBI-GI: 6324379
+MOTIF       Pfam: NTF2 RRM_1 CSRNP_N
+DBLINKS     NCBI-ProteinID: NP_014449
             NCBI-GeneID: 855787
             SGD: S000005334
-            MIPS: YNR051C
             UniProt: P53741
 STRUCTURE   PDB: 2QIY 1ZX2
 AASEQ       515

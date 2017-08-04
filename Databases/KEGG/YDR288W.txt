@@ -1,13 +1,12 @@
 ENTRY       YDR288W           CDS       T00005
 NAME        NSE3
-DEFINITION  Nse3p
+DEFINITION  (RefSeq) Smc5-Smc6 complex subunit NSE3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:1037195..1038106
-MOTIF       Pfam: MAGE DUF387
-DBLINKS     NCBI-GI: 6320494
+MOTIF       Pfam: MAGE Flavokinase SMC_ScpB
+DBLINKS     NCBI-ProteinID: NP_010574
             NCBI-GeneID: 851882
             SGD: S000002696
-            MIPS: YDR288W
             UniProt: Q05541
 AASEQ       303
             MSSIDNDSDVDLTEDLAVAKIVKENPVARKMVRYILSRGESQNSIITRNKLQSVIHEAAR

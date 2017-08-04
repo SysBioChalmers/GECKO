@@ -1,16 +1,24 @@
 ENTRY       YBL097W           CDS       T00005
 NAME        BRN1
-DEFINITION  Brn1p
+DEFINITION  (RefSeq) condensin subunit BRN1
 ORTHOLOGY   K06676  condensin complex subunit 2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
-CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YBL097W (BRN1)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Chromosome condensation proteins
+               Condensin I
+                YBL097W (BRN1)
 POSITION    II:40831..43095
-MOTIF       Pfam: Cnd2 MHC_II_beta
-DBLINKS     NCBI-GI: 330443399
+MOTIF       Pfam: Cnd2 CNDH2_N AKAP95
+DBLINKS     NCBI-ProteinID: NP_009455
             NCBI-GeneID: 852180
             SGD: S000000193
-            MIPS: YBL097W
             UniProt: P38170
 AASEQ       754
             MTTQLRYENNDDDERVEYNLFTNRSTMMANFEEWIKMATDNKINSRNSWNFALIDYFYDL

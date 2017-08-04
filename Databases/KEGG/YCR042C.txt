@@ -1,16 +1,38 @@
 ENTRY       YCR042C           CDS       T00005
 NAME        TAF2, TAF150, TSM1
-DEFINITION  Taf2p
+DEFINITION  (RefSeq) Taf2p
 ORTHOLOGY   K03128  transcription initiation factor TFIID subunit 2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03022  Basal transcription factors
-CLASS       Genetic Information Processing; Transcription; Basal transcription factors [PATH:sce03022]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03022 Basal transcription factors
+                YCR042C (TAF2)
+            Peptidases [BR:sce01002]
+             Metallo Peptidases
+              Family M1
+               YCR042C (TAF2)
+            Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Basal transcription factors
+                TFIID
+                 YCR042C (TAF2)
+               Coactivators
+                SAGA/TFTC/STAGA complex
+                 YCR042C (TAF2)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Histone modification proteins
+               HAT complexes
+                TFTC complex
+                 YCR042C (TAF2)
 POSITION    III:complement(201174..205397)
-MOTIF       Pfam: Peptidase_M1 Nop14 DUF1510 CDC45
-DBLINKS     NCBI-GI: 6319890
+MOTIF       Pfam: Peptidase_M1 SDA1 Nop14
+DBLINKS     NCBI-ProteinID: NP_009971
             NCBI-GeneID: 850409
             SGD: S000000638
-            MIPS: YCR042C
             UniProt: P23255
 AASEQ       1407
             MMSFSKNATPRAIVSESSTLHEMKFRNFRVAHEKISLDIDLATHCITGSATIIIIPLIQN

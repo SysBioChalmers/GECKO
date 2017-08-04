@@ -1,13 +1,12 @@
 ENTRY       YDR365C           CDS       T00005
 NAME        ESF1
-DEFINITION  Esf1p
+DEFINITION  (RefSeq) Esf1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(1204497..1206383)
 MOTIF       Pfam: NUC153
-DBLINKS     NCBI-GI: 6320573
+DBLINKS     NCBI-ProteinID: NP_010653
             NCBI-GeneID: 851969
             SGD: S000002773
-            MIPS: YDR365C
             UniProt: Q06344
 AASEQ       628
             MAGENPKKEGVDARFAGIYSDPKFKNTKTKDHKIKLDSRFSKKDLEVQHKSKVDKYGRKI

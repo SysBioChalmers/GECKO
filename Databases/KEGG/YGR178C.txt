@@ -1,13 +1,12 @@
 ENTRY       YGR178C           CDS       T00005
 NAME        PBP1, MRS16
-DEFINITION  Pbp1p
+DEFINITION  (RefSeq) Pbp1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:complement(851047..853215)
 MOTIF       Pfam: LsmAD SM-ATX LSM14
-DBLINKS     NCBI-GI: 398366039
+DBLINKS     NCBI-ProteinID: NP_011694
             NCBI-GeneID: 853089
             SGD: S000003410
-            MIPS: YGR178C
             UniProt: P53297
 AASEQ       722
             MKGNFRKRDSSTNSRKGGNSDSNYTNGGVPNQNNSSMFYENPEITRNFDDRQDYLLANSI

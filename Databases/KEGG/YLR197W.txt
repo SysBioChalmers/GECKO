@@ -1,16 +1,26 @@
 ENTRY       YLR197W           CDS       T00005
 NAME        NOP56, SIK1
-DEFINITION  Nop56p
+DEFINITION  (RefSeq) snoRNP complex protein NOP56
 ORTHOLOGY   K14564  nucleolar protein 56
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03008  Ribosome biogenesis in eukaryotes
-CLASS       Genetic Information Processing; Translation; Ribosome biogenesis in eukaryotes [PATH:sce03008]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03008 Ribosome biogenesis in eukaryotes
+                YLR197W (NOP56)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Sno RNPs
+               Box C/D snoRNPs
+                YLR197W (NOP56)
+             Prokaryotic Type
+                YLR197W (NOP56)
 POSITION    XII:546097..547611
-MOTIF       Pfam: Nop NOSIC NOP5NT RNA_polI_A34 RNase_H2-Ydr279 PcfK DDHD GAGA_bind
-DBLINKS     NCBI-GI: 6323226
+MOTIF       Pfam: Nop NOP5NT GAGA_bind
+DBLINKS     NCBI-ProteinID: NP_013298
             NCBI-GeneID: 850894
             SGD: S000004187
-            MIPS: YLR197W
             UniProt: Q12460
 AASEQ       504
             MAPIEYLLFEEPTGYAVFKVKLQQDDIGSRLKEVQEQINDFGAFTKLIELVSFAPFKGAA

@@ -1,13 +1,20 @@
 ENTRY       YBR288C           CDS       T00005
 NAME        APM3, YKS6
-DEFINITION  Apm3p
+DEFINITION  (RefSeq) Apm3p
+ORTHOLOGY   K12398  AP-3 complex subunit mu
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endosome - Lysosome transport
+              Others
+               AP-3 complex
+                YBR288C (APM3)
+             Endosome - Golgi transport
+                YBR288C (APM3)
 POSITION    II:complement(778012..779463)
 MOTIF       Pfam: Adap_comp_sub DUF3947
-DBLINKS     NCBI-GI: 398365907
+DBLINKS     NCBI-ProteinID: NP_009847
             NCBI-GeneID: 852591
             SGD: S000000492
-            MIPS: YBR288C
             UniProt: P38153
 AASEQ       483
             MYLSFYITDTKNKLIFQYLLGATAPSFKHLWTRVQSTCPQLLEDSSSDDYLDHSMVGRDL

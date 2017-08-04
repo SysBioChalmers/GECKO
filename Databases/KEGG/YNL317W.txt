@@ -1,16 +1,25 @@
 ENTRY       YNL317W           CDS       T00005
 NAME        PFS2
-DEFINITION  Pfs2p
+DEFINITION  (RefSeq) cleavage polyadenylation factor subunit PFS2
 ORTHOLOGY   K15542  polyadenylation factor subunit 2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03015  mRNA surveillance pathway
-CLASS       Genetic Information Processing; Translation; mRNA surveillance pathway [PATH:sce03015]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03015 mRNA surveillance pathway
+                YNL317W (PFS2)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA processing factors
+               3' end processing
+                Cleavage and polyadenylation specificity factor (CPSF) complex
+                 YNL317W (PFS2)
 POSITION    XIV:40619..42016
-MOTIF       Pfam: WD40 eIF2A Apc4_WD40
-DBLINKS     NCBI-GI: 6324012
+MOTIF       Pfam: WD40 ANAPC4_WD40 eIF2A
+DBLINKS     NCBI-ProteinID: NP_014082
             NCBI-GeneID: 855399
             SGD: S000005261
-            MIPS: YNL317W
             UniProt: P42841
 AASEQ       465
             MDGHNQNQYQNQNQIQQSQQPPLKKYVTQRRSVDVSSPYINLYYNRRHGLPNLVVEPETS

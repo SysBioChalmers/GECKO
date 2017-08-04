@@ -1,18 +1,27 @@
 ENTRY       YJL190C           CDS       T00005
 NAME        RPS22A, RPS24
-DEFINITION  ribosomal 40S subunit protein S22A
+DEFINITION  (RefSeq) ribosomal 40S subunit protein S22A
 ORTHOLOGY   K02957  small subunit ribosomal protein S15Ae
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03010  Ribosome
-CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+MODULE      sce_M00177  Ribosome, eukaryotes
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03010 Ribosome
+                YJL190C (RPS22A)
+            Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Eukaryotes
+               Small subunit
+                YJL190C (RPS22A)
 POSITION    X:complement(74910..75302)
 MOTIF       Pfam: Ribosomal_S8
-DBLINKS     NCBI-GI: 6322271
+DBLINKS     NCBI-ProteinID: NP_012345
             NCBI-GeneID: 853249
             SGD: S000003726
-            MIPS: YJL190C
             UniProt: P0C0W1
-STRUCTURE   PDB: 3U5C 3U5G 3O2Z 3O30 4BYL 4BYT 3IZB 1S1H
+STRUCTURE   PDB: 5TZS
 AASEQ       130
             MTRSSVLADALNAINNAEKTGKRQVLIRPSSKVIIKFLQVMQKHGYIGEFEYIDDHRSGK
             IVVQLNGRLNKCGVISPRFNVKIGDIEKWTANLLPARQFGYVILTTSAGIMDHEEARRKH

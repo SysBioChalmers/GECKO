@@ -1,12 +1,11 @@
 ENTRY       YMR315W           CDS       T00005
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) hypothetical protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:902800..903849
-MOTIF       Pfam: GFO_IDH_MocA GFO_IDH_MocA_C NAD_binding_3
-DBLINKS     NCBI-GI: 6323975
+MOTIF       Pfam: GFO_IDH_MocA GFO_IDH_MocA_C NAD_binding_3 G6PD_N
+DBLINKS     NCBI-ProteinID: NP_014046
             NCBI-GeneID: 855363
             SGD: S000004932
-            MIPS: YMR315W
             UniProt: Q04869
 AASEQ       349
             MSPLNVGIVGTGIFARDRHLPSYQEFPDKFKVIAAFNRHKAKALDFAKVADIPENKVYDN

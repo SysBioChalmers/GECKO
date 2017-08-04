@@ -1,18 +1,31 @@
 ENTRY       YPR145W           CDS       T00005
 NAME        ASN1
-DEFINITION  asparagine synthase (glutamine-hydrolyzing) 1 (EC:6.3.5.4)
+DEFINITION  (RefSeq) asparagine synthase (glutamine-hydrolyzing) 1
 ORTHOLOGY   K01953  asparagine synthase (glutamine-hydrolysing) [EC:6.3.5.4]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00250  Alanine, aspartate and glutamate metabolism
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
-CLASS       Metabolism; Amino acid metabolism; Alanine, aspartate and glutamate metabolism [PATH:sce00250]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Amino acid metabolism
+               00250 Alanine, aspartate and glutamate metabolism
+                YPR145W (ASN1)
+            Enzymes [BR:sce01000]
+             6. Ligases
+              6.3  Forming carbon-nitrogen bonds
+               6.3.5  Carbon-nitrogen ligases with glutamine as amido-N-donor
+                6.3.5.4  asparagine synthase (glutamine-hydrolysing)
+                 YPR145W (ASN1)
+            Peptidases [BR:sce01002]
+             Cysteine Peptidases
+              Family C44
+               YPR145W (ASN1)
 POSITION    XVI:822620..824338
-MOTIF       Pfam: Asn_synthase GATase_7 GATase_6 DUF3700 GATase_2 NAD_synthase
-DBLINKS     NCBI-GI: 6325403
+MOTIF       Pfam: Asn_synthase GATase_7 GATase_6 DUF3700 NAD_synthase
+DBLINKS     NCBI-ProteinID: NP_015471
             NCBI-GeneID: 856268
             SGD: S000006349
-            MIPS: YPR145W
             UniProt: P49089
 AASEQ       572
             MCGIFAAFRHEDVHRYKPKALQLSKRIRHRGPDWSGNAIKNSTIFVHERLAIVGVESGAQ

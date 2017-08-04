@@ -1,20 +1,27 @@
 ENTRY       YPL234C           CDS       T00005
 NAME        VMA11, CLS9, TFP3
-DEFINITION  Vma11p (EC:3.6.3.14)
-ORTHOLOGY   K02155  V-type H+-transporting ATPase 16kDa proteolipid subunit [EC:3.6.3.14]
+DEFINITION  (RefSeq) H(+)-transporting V0 sector ATPase subunit c'
+ORTHOLOGY   K02155  V-type H+-transporting ATPase 16kDa proteolipid subunit
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00190  Oxidative phosphorylation
             sce01100  Metabolic pathways
             sce04145  Phagosome
-CLASS       Metabolism; Energy metabolism; Oxidative phosphorylation [PATH:sce00190]
-            Cellular Processes; Transport and catabolism; Phagosome [PATH:sce04145]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Energy metabolism
+               00190 Oxidative phosphorylation
+                YPL234C (VMA11)
+             Cellular Processes
+              Transport and catabolism
+               04145 Phagosome
+                YPL234C (VMA11)
 POSITION    XVI:complement(104946..105440)
-MOTIF       Pfam: ATP-synt_C Polysacc_synt_3
-DBLINKS     NCBI-GI: 6325022
+MOTIF       Pfam: ATP-synt_C
+DBLINKS     NCBI-ProteinID: NP_015090
             NCBI-GeneID: 855842
             SGD: S000006155
-            MIPS: YPL234C
             UniProt: P32842
+STRUCTURE   PDB: 5TJ5
 AASEQ       164
             MSTQLASNIYAPLYAPFFGFAGCAAAMVLSCLGAAIGTAKSGIGIAGIGTFKPELIMKSL
             IPVVMSGILAIYGLVVAVLIAGNLSPTEDYTLFNGFMHLSCGLCVGFACLSSGYAIGMVG

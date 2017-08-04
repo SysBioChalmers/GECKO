@@ -1,16 +1,25 @@
 ENTRY       YNL334C           CDS       T00005
 NAME        SNO2
-DEFINITION  Sno2p (EC:2.6.-.-)
-ORTHOLOGY   K08681  glutamine amidotransferase [EC:2.6.-.-]
+DEFINITION  (RefSeq) putative pyridoxal 5'-phosphate synthase
+ORTHOLOGY   K08681  5'-phosphate synthase pdxT subunit [EC:4.3.3.6]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00750  Vitamin B6 metabolism
-CLASS       Metabolism; Metabolism of cofactors and vitamins; Vitamin B6 metabolism [PATH:sce00750]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Metabolism of cofactors and vitamins
+               00750 Vitamin B6 metabolism
+                YNL334C (SNO2)
+            Enzymes [BR:sce01000]
+             4. Lyases
+              4.3  Carbon-nitrogen lyases
+               4.3.3  Amine-lyases
+                4.3.3.6  pyridoxal 5'-phosphate synthase (glutamine hydrolysing)
+                 YNL334C (SNO2)
 POSITION    XIV:complement(12208..12876)
-MOTIF       Pfam: SNO GATase_3 GATase DUF4154 Peptidase_S51 DJ-1_PfpI
-DBLINKS     NCBI-GI: 6323995
+MOTIF       Pfam: SNO GATase_3 Peptidase_S51 DJ-1_PfpI GATase
+DBLINKS     NCBI-ProteinID: NP_014065
             NCBI-GeneID: 855382
             SGD: S000005278
-            MIPS: YNL334C
             UniProt: P53823
 AASEQ       222
             MTVVIGVLALQGAFIEHVRHVEKCIVENRDFYEKKLSVMTVKDKNQLAQCDALIIPGGES

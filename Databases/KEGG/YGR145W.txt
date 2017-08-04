@@ -1,14 +1,18 @@
 ENTRY       YGR145W           CDS       T00005
 NAME        ENP2
-DEFINITION  Enp2p
+DEFINITION  (RefSeq) ribosome biosynthesis protein ENP2
 ORTHOLOGY   K14788  ribosome biogenesis protein ENP2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              90S particles
+               Other 90S particles
+                YGR145W (ENP2)
 POSITION    VII:781767..783890
-MOTIF       Pfam: NUC153 DUF3362
-DBLINKS     NCBI-GI: 330443568
+MOTIF       Pfam: NUC153
+DBLINKS     NCBI-ProteinID: NP_011661
             NCBI-GeneID: 853048
             SGD: S000003377
-            MIPS: YGR145W
             UniProt: P48234
 AASEQ       707
             MVLKSTSANDVSVYQVSGTNVSRSLPDWIAKKRKRQLKNDLEYQNRVELIQDFEFSEASN

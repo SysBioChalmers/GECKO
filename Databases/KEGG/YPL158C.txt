@@ -1,13 +1,12 @@
 ENTRY       YPL158C           CDS       T00005
 NAME        AIM44, GPS1
-DEFINITION  Aim44p
+DEFINITION  (RefSeq) Aim44p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:complement(252034..254310)
-MOTIF       Pfam: Nop14 TFIIA POP1
-DBLINKS     NCBI-GI: 6325099
+MOTIF       Pfam: TFIIA DUF2079
+DBLINKS     NCBI-ProteinID: NP_015167
             NCBI-GeneID: 855945
             SGD: S000006079
-            MIPS: YPL158C
             UniProt: Q99299
 AASEQ       758
             MIIRAPIRTKTKSFRGDQMDFKFPSNESLPRGTLEEYHLNNHHLLNDVFAAENGVSRDED

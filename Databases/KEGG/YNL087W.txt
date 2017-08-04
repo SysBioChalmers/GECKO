@@ -1,13 +1,12 @@
 ENTRY       YNL087W           CDS       T00005
 NAME        TCB2
-DEFINITION  Tcb2p
+DEFINITION  (RefSeq) tricalbin
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIV:462411..465947
-MOTIF       Pfam: C2
-DBLINKS     NCBI-GI: 6324242
+MOTIF       Pfam: C2 SMP_LBD
+DBLINKS     NCBI-ProteinID: NP_014312
             NCBI-GeneID: 855637
             SGD: S000005031
-            MIPS: YNL087W
             UniProt: P48231
 AASEQ       1178
             MSPNSSKTRTDQISSMPGINEATKVESKNVVKDAVPIKSEVETNGTSIVREKQDPSYVGW

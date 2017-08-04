@@ -1,12 +1,12 @@
 ENTRY       YER150W           CDS       T00005
 NAME        SPI1
-DEFINITION  Spi1p
+DEFINITION  (RefSeq) Spi1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    V:468370..468816
-DBLINKS     NCBI-GI: 6320998
+MOTIF       Pfam: Flocculin_t3
+DBLINKS     NCBI-ProteinID: NP_011077
             NCBI-GeneID: 856893
             SGD: S000000952
-            MIPS: YER150W
             UniProt: P40092
 AASEQ       148
             MLSNAKLLLSLAMASTALGLVSNSSSSVIVVPSSDATIAGNDTATPAPEPSSAAPIFYNS

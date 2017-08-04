@@ -1,16 +1,19 @@
 ENTRY       YLR191W           CDS       T00005
 NAME        PEX13, PAS20
-DEFINITION  Pex13p
+DEFINITION  (RefSeq) peroxin PEX13
 ORTHOLOGY   K13344  peroxin-13
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04146  Peroxisome
-CLASS       Cellular Processes; Transport and catabolism; Peroxisome [PATH:sce04146]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04146 Peroxisome
+                YLR191W (PEX13)
 POSITION    XII:537272..538432
-MOTIF       Pfam: Peroxin-13_N SH3_1 SH3_9 SH3_2 SH3_3
-DBLINKS     NCBI-GI: 6323220
+MOTIF       Pfam: Peroxin-13_N SH3_1 SH3_2 SH3_9 SH3_3
+DBLINKS     NCBI-ProteinID: NP_013292
             NCBI-GeneID: 850888
             SGD: S000004181
-            MIPS: YLR191W
             UniProt: P80667
 STRUCTURE   PDB: 2V1R 1JQQ 1N5Z 1NM7
 AASEQ       386

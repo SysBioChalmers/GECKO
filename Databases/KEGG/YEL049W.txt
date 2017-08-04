@@ -1,13 +1,12 @@
 ENTRY       YEL049W           CDS       T00005
 NAME        PAU2
-DEFINITION  Pau2p
+DEFINITION  (RefSeq) seripauperin PAU2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    V:63728..64090
 MOTIF       Pfam: SRP1_TIP1
-DBLINKS     NCBI-GI: 6320786
+DBLINKS     NCBI-ProteinID: NP_010865
             NCBI-GeneID: 856662
             SGD: S000000775
-            MIPS: YEL049W
             UniProt: P32612
 AASEQ       120
             MVKLTSIAAGVAAIAATASATTTLAQSDERVNLVELGVYVSDIRAHLAQYYSFQAAHPTE

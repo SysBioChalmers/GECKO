@@ -1,18 +1,22 @@
 ENTRY       YOR195W           CDS       T00005
 NAME        SLK19
-DEFINITION  Slk19p
+DEFINITION  (RefSeq) Slk19p
 ORTHOLOGY   K12575  kinetochore protein SLK19
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
             sce04113  Meiosis - yeast
-CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
-            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YOR195W (SLK19)
+               04113 Meiosis - yeast
+                YOR195W (SLK19)
 POSITION    XV:712866..715331
 MOTIF       Pfam: Kinetocho_Slk19 IncA Spc7
-DBLINKS     NCBI-GI: 398365697
+DBLINKS     NCBI-ProteinID: NP_014838
             NCBI-GeneID: 854370
             SGD: S000005721
-            MIPS: YOR195W
             UniProt: Q08581
 AASEQ       821
             MNEVPTTPVRLILGQAQQREQNSENCSQERNPRTFNSEPDSSFNSPGSSQFVIHPHEPLE

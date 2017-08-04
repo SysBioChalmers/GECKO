@@ -1,14 +1,18 @@
 ENTRY       YPL259C           CDS       T00005
 NAME        APM1, YAP54
-DEFINITION  Apm1p
+DEFINITION  (RefSeq) Apm1p
 ORTHOLOGY   K12393  AP-1 complex subunit mu
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endosome - Golgi transport
+              Others
+               AP-1 complex
+                YPL259C (APM1)
 POSITION    XVI:complement(51244..52671)
 MOTIF       Pfam: Adap_comp_sub Clat_adaptor_s
-DBLINKS     NCBI-GI: 6324996
+DBLINKS     NCBI-ProteinID: NP_015064
             NCBI-GeneID: 855869
             SGD: S000006180
-            MIPS: YPL259C
             UniProt: Q00776
 AASEQ       475
             MASAVYFCDHNGKPLLSRRYRDDIPLSAIDKFPILLSDLEEQSNLIPPCLNHNGLEYLFI

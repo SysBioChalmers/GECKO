@@ -1,13 +1,23 @@
 ENTRY       YNL023C           CDS       T00005
 NAME        FAP1
-DEFINITION  Fap1p
+DEFINITION  (RefSeq) Fap1p
+ORTHOLOGY   K12236  transcriptional repressor NF-X1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription factors [BR:sce03000]
+             Eukaryotic Type
+              Zinc finger
+               Cys4HisCys3 PHD fingers
+                YNL023C (FAP1)
+            Ubiquitin system [BR:sce04121]
+             Ubiquitin ligases (E3)
+              Single Ring-finger type E3
+               NFX1 proteins
+                YNL023C (FAP1)
 POSITION    XIV:complement(588263..591160)
 MOTIF       Pfam: R3H zf-NF-X1
-DBLINKS     NCBI-GI: 6324305
+DBLINKS     NCBI-ProteinID: NP_014375
             NCBI-GeneID: 855708
             SGD: S000004968
-            MIPS: YNL023C
             UniProt: P53971
 AASEQ       965
             MTEHESLGLEQNQDGGDTYRHHNLSDGCISSVEDANEQPSSYEEESDDDMQYYERAIQEI

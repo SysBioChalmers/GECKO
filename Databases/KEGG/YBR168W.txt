@@ -1,13 +1,12 @@
 ENTRY       YBR168W           CDS       T00005
 NAME        PEX32
-DEFINITION  Pex32p
+DEFINITION  (RefSeq) Pex32p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    II:572371..573612
-MOTIF       Pfam: Pex24p
-DBLINKS     NCBI-GI: 398365241
+MOTIF       Pfam: Pex24p DUF5081
+DBLINKS     NCBI-ProteinID: NP_009727
             NCBI-GeneID: 852466
             SGD: S000000372
-            MIPS: YBR168W
             UniProt: P38292
 AASEQ       413
             MDTNSKTKVQTENKKIKAKFIHNHGQKPSLIQITPPMISSTLFHAYPLLLIFDNALANIM

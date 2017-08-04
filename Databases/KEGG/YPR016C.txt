@@ -1,16 +1,29 @@
 ENTRY       YPR016C           CDS       T00005
 NAME        TIF6, CDC95
-DEFINITION  Tif6p
+DEFINITION  (RefSeq) translation initiation factor 6
 ORTHOLOGY   K03264  translation initiation factor 6
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03008  Ribosome biogenesis in eukaryotes
-CLASS       Genetic Information Processing; Translation; Ribosome biogenesis in eukaryotes [PATH:sce03008]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03008 Ribosome biogenesis in eukaryotes
+                YPR016C (TIF6)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               Export and cytoplasmic maturation factors
+                YPR016C (TIF6)
+            Translation factors [BR:sce03012]
+             Eukaryotic Type
+              Initiation factors
+               eIF-6
+                YPR016C (TIF6)
 POSITION    XVI:complement(592332..593069)
 MOTIF       Pfam: eIF-6
-DBLINKS     NCBI-GI: 6325273
+DBLINKS     NCBI-ProteinID: NP_015341
             NCBI-GeneID: 856126
             SGD: S000006220
-            MIPS: YPR016C
             UniProt: Q12522
 STRUCTURE   PDB: 1G62 2X7N 3J2I
 AASEQ       245

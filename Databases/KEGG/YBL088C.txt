@@ -1,14 +1,40 @@
 ENTRY       YBL088C           CDS       T00005
 NAME        TEL1
-DEFINITION  Tel1p (EC:2.7.11.1)
+DEFINITION  (RefSeq) DNA-binding protein kinase TEL1
 ORTHOLOGY   K04728  ataxia telangiectasia mutated family protein [EC:2.7.11.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03440  Homologous recombination
+MODULE      sce_M00691  DNA damage-induced cell cycle checkpoints
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Replication and repair
+               03440 Homologous recombination
+                YBL088C (TEL1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.11  Protein-serine/threonine kinases
+                2.7.11.1  non-specific serine/threonine protein kinase
+                 YBL088C (TEL1)
+            Protein kinases [BR:sce01001]
+             Serine/threonine protein kinases: Atypical group
+              PIKK family [OT]
+               YBL088C (TEL1)
+            DNA replication proteins [BR:sce03032]
+             Eukaryotic Type
+              DNA Replication Termination Factors
+               Other telomere regulation proteins
+                YBL088C (TEL1)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              Check point factors
+               Other check point factors
+                YBL088C (TEL1)
 POSITION    II:complement(51019..59382)
 MOTIF       Pfam: PI3_PI4_kinase TAN FATC
-DBLINKS     NCBI-GI: 330443403
+DBLINKS     NCBI-ProteinID: NP_009465
             NCBI-GeneID: 852190
             SGD: S000000184
-            MIPS: YBL088C
             UniProt: P38110
 AASEQ       2787
             MEDHGIVETLNFLSSTKIKERNNALDELTTILKEDPERIPTKALSTTAEALVELLASEHT

@@ -1,13 +1,12 @@
 ENTRY       YBR240C           CDS       T00005
 NAME        THI2, PHO6
-DEFINITION  Thi2p
+DEFINITION  (RefSeq) Thi2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    II:complement(700490..701842)
 MOTIF       Pfam: Zn_clus
-DBLINKS     NCBI-GI: 398365685
+DBLINKS     NCBI-ProteinID: NP_009799
             NCBI-GeneID: 852542
             SGD: S000000444
-            MIPS: YBR240C
             UniProt: P38141
 AASEQ       450
             MVNSKRQQRSKKVASSSKVPPTKGRTFTGCWACRFKKRRCDENRPICSLCAKHGDNCSYD

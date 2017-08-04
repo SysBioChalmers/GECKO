@@ -18,7 +18,6 @@ if nargin == 2
     %Limit unmeasured excretions:
     model.ub(strcmp(model.rxnNames,'(R,R)-2,3-butanediol exchange')) = 1e-5;
     model.ub(strcmp(model.rxnNames,'acetaldehyde exchange'))         = 1e-5;
-    model.ub(strcmp(model.rxnNames,'glycine exchange'))              = 1e-5;
 end
 
 end

@@ -1,13 +1,12 @@
 ENTRY       YIL013C           CDS       T00005
 NAME        PDR11
-DEFINITION  ATP-binding cassette multidrug transporter PDR11
+DEFINITION  (RefSeq) ATP-binding cassette multidrug transporter PDR11
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IX:complement(328207..332442)
-MOTIF       Pfam: ABC2_membrane PDR_CDR ABC_tran ABC2_membrane_3 AAA_21 DUF258 SMC_N AAA_18 AAA_16 AAA_22 AAA_23 cobW AAA_29
-DBLINKS     NCBI-GI: 6322177
+MOTIF       Pfam: ABC2_membrane ABC_tran PDR_CDR ABC2_membrane_3 RsgA_GTPase AAA_21 SMC_N AAA_16 AAA_23 AAA_18 AAA_22 AAA_29 MMR_HSR1
+DBLINKS     NCBI-ProteinID: NP_012252
             NCBI-GeneID: 854802
             SGD: S000001275
-            MIPS: YIL013C
             UniProt: P40550
 AASEQ       1411
             MSLSKYFNPIPDASVTFDGATVQLEESLGAVQNDEESASEFKNVGHLEISDITFRANEGE

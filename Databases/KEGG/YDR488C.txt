@@ -1,16 +1,32 @@
 ENTRY       YDR488C           CDS       T00005
 NAME        PAC11
-DEFINITION  dynein intermediate chain
+DEFINITION  (RefSeq) dynein intermediate chain
 ORTHOLOGY   K10415  dynein intermediate chain, cytosolic
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04145  Phagosome
-CLASS       Cellular Processes; Transport and catabolism; Phagosome [PATH:sce04145]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04145 Phagosome
+                YDR488C (PAC11)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centromeric chromatin formation proteins
+               SAC (spindle assembly checkpoint) factors
+                Motor proteins
+                 Dynein complex
+                  YDR488C (PAC11)
+            Cytoskeleton proteins [BR:sce04812]
+             Eukaryotic cytoskeleton proteins
+              Microtubules
+               Tubulin-binding proteins
+                Dyneins
+                 YDR488C (PAC11)
 POSITION    IV:complement(1429188..1430789)
 MOTIF       Pfam: WD40
-DBLINKS     NCBI-GI: 6320696
+DBLINKS     NCBI-ProteinID: NP_010776
             NCBI-GeneID: 852099
             SGD: S000002896
-            MIPS: YDR488C
             UniProt: P40960
 AASEQ       533
             MERLKQLEEKRRQLKELRERRKQASLFPGSETMGHHPTEVHAKATMVSVSVQTDMEEGSK

@@ -1,13 +1,12 @@
 ENTRY       YHR162W           CDS       T00005
 NAME        MPC2
-DEFINITION  Mpc2p
+DEFINITION  (RefSeq) mitochondrial pyruvate carrier
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VIII:423072..423461
 MOTIF       Pfam: MPC MtN3_slv
-DBLINKS     NCBI-GI: 6321956
+DBLINKS     NCBI-ProteinID: NP_012032
             NCBI-GeneID: 856567
             SGD: S000001205
-            MIPS: YHR162W
             UniProt: P38857
 AASEQ       129
             MSTSSVRFAFRRFWQSETGPKTVHFWAPTLKWGLVFAGFSDMKRPVEKISGAQNLSLLST

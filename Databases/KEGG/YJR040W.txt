@@ -1,14 +1,17 @@
 ENTRY       YJR040W           CDS       T00005
 NAME        GEF1, CLC
-DEFINITION  Gef1p
+DEFINITION  (RefSeq) Gef1p
 ORTHOLOGY   K05012  chloride channel 3/4/5
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ion channels [BR:sce04040]
+             Chloride channels
+              CLCN chloride channel
+               YJR040W (GEF1)
 POSITION    X:507746..510085
 MOTIF       Pfam: Voltage_CLC CBS
-DBLINKS     NCBI-GI: 6322500
+DBLINKS     NCBI-ProteinID: NP_012574
             NCBI-GeneID: 853497
             SGD: S000003801
-            MIPS: YJR040W
             UniProt: P37020
 AASEQ       779
             MPTTYVPINQPIGDGEDVIDTNRFTNIPETQNFDQFVTIDKIAEENRPLSVDSDREFLNS

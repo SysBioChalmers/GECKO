@@ -1,16 +1,24 @@
 ENTRY       YKL178C           CDS       T00005
 NAME        STE3, DAF2
-DEFINITION  Ste3p
+DEFINITION  (RefSeq) Ste3p
 ORTHOLOGY   K04627  pheromone a factor receptor
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04011  MAPK signaling pathway - yeast
-CLASS       Environmental Information Processing; Signal transduction; MAPK signaling pathway - yeast [PATH:sce04011]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YKL178C (STE3)
+            G protein-coupled receptors [BR:sce04030]
+             Others
+              Chemoreception
+               Fungal mating pheromone
+                YKL178C (STE3)
 POSITION    XI:complement(113215..114627)
-MOTIF       Pfam: STE3 DUF2516 Pup
-DBLINKS     NCBI-GI: 6322671
+MOTIF       Pfam: STE3 DUF2516
+DBLINKS     NCBI-ProteinID: NP_012743
             NCBI-GeneID: 853677
             SGD: S000001661
-            MIPS: YKL178C
             UniProt: P06783
 AASEQ       470
             MSYKSAIIGLCLLAVILLAPPLAWHSHTKNIPAIILITWLLTMNLTCIVDAAIWSDDDFL

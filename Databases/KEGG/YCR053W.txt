@@ -1,22 +1,36 @@
 ENTRY       YCR053W           CDS       T00005
 NAME        THR4
-DEFINITION  threonine synthase THR4 (EC:4.2.3.1)
+DEFINITION  (RefSeq) threonine synthase THR4
 ORTHOLOGY   K01733  threonine synthase [EC:4.2.3.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00260  Glycine, serine and threonine metabolism
             sce00750  Vitamin B6 metabolism
             sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
             sce01230  Biosynthesis of amino acids
 MODULE      sce_M00018  Threonine biosynthesis, aspartate => homoserine => threonine
-CLASS       Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
-            Metabolism; Amino acid metabolism; Glycine, serine and threonine metabolism [PATH:sce00260]
-            Metabolism; Metabolism of cofactors and vitamins; Vitamin B6 metabolism [PATH:sce00750]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01230 Biosynthesis of amino acids
+                YCR053W (THR4)
+              Amino acid metabolism
+               00260 Glycine, serine and threonine metabolism
+                YCR053W (THR4)
+              Metabolism of cofactors and vitamins
+               00750 Vitamin B6 metabolism
+                YCR053W (THR4)
+            Enzymes [BR:sce01000]
+             4. Lyases
+              4.2  Carbon-oxygen lyases
+               4.2.3  Acting on phosphates
+                4.2.3.1  threonine synthase
+                 YCR053W (THR4)
 POSITION    III:216697..218241
-MOTIF       Pfam: Thr_synth_N PALP
-DBLINKS     NCBI-GI: 6319901
+MOTIF       Pfam: Thr_synth_N PALP Helicase_IV_N
+DBLINKS     NCBI-ProteinID: NP_009982
             NCBI-GeneID: 850420
             SGD: S000000649
-            MIPS: YCR053W
             UniProt: P16120
 STRUCTURE   PDB: 1KL7
 AASEQ       514

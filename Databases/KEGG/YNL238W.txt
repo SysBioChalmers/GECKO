@@ -1,14 +1,27 @@
 ENTRY       YNL238W           CDS       T00005
 NAME        KEX2, QDS1, SRB1, VMA45
-DEFINITION  Kex2p (EC:3.4.21.61)
+DEFINITION  (RefSeq) kexin KEX2
 ORTHOLOGY   K01341  kexin [EC:3.4.21.61]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.4  Acting on peptide bonds (peptidases)
+               3.4.21  Serine endopeptidases
+                3.4.21.61  kexin
+                 YNL238W (KEX2)
+            Peptidases [BR:sce01002]
+             Serine Peptidases
+              Family S8: subtilisin family
+               YNL238W (KEX2)
+            Chaperones and folding catalysts [BR:sce03110]
+             Intramolecular chaperones
+              Subtilisin family
+               YNL238W (KEX2)
 POSITION    XIV:202428..204872
-MOTIF       Pfam: Peptidase_S8 P_proprotein
-DBLINKS     NCBI-GI: 6324091
+MOTIF       Pfam: Peptidase_S8 P_proprotein DUF1180 DUF5305
+DBLINKS     NCBI-ProteinID: NP_014161
             NCBI-GeneID: 855483
             SGD: S000005182
-            MIPS: YNL238W
             UniProt: P13134
 STRUCTURE   PDB: 2ID4 1R64 1OT5
 AASEQ       814

@@ -1,13 +1,12 @@
 ENTRY       YPL133C           CDS       T00005
 NAME        RDS2
-DEFINITION  Rds2p
+DEFINITION  (RefSeq) Rds2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:complement(299888..301228)
 MOTIF       Pfam: Zn_clus
-DBLINKS     NCBI-GI: 6325124
+DBLINKS     NCBI-ProteinID: NP_015192
             NCBI-GeneID: 855970
             SGD: S000006054
-            MIPS: YPL133C
             UniProt: P19541
 AASEQ       446
             MSANSGVKRASKAFKTCLFCKRSHVVCDKQRPCSRCVKRDIAHLCREDDIAVPNEMPSQH

@@ -1,13 +1,12 @@
 ENTRY       YGR271C-A         CDS       T00005
 NAME        EFG1, YGR272C
-DEFINITION  Efg1p
+DEFINITION  (RefSeq) Efg1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:complement(1037800..1038501)
-MOTIF       Pfam: DUF2361
-DBLINKS     NCBI-GI: 398366365
+MOTIF       Pfam: Efg1
+DBLINKS     NCBI-ProteinID: NP_076891
             NCBI-GeneID: 853188
             SGD: S000007608
-            MIPS: YGR271C-A
             UniProt: Q3E705
 AASEQ       233
             MAKLQRKRSKALGSSLEMSQIMDAGTNKIKRRIRDLERLLKKKKDILPSTVIIEKERNLQ

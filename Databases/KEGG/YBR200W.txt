@@ -1,16 +1,19 @@
 ENTRY       YBR200W           CDS       T00005
 NAME        BEM1, SRO1
-DEFINITION  Bem1p
+DEFINITION  (RefSeq) phosphatidylinositol-3-phosphate-binding protein BEM1
 ORTHOLOGY   K11237  bud emergence protein 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04011  MAPK signaling pathway - yeast
-CLASS       Environmental Information Processing; Signal transduction; MAPK signaling pathway - yeast [PATH:sce04011]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YBR200W (BEM1)
 POSITION    II:620872..622527
-MOTIF       Pfam: SH3_1 PX SH3_9 PB1 SH3_2
-DBLINKS     NCBI-GI: 398365445
+MOTIF       Pfam: SH3_1 PX SH3_9 SH3_2 PB1
+DBLINKS     NCBI-ProteinID: NP_009759
             NCBI-GeneID: 852499
             SGD: S000000404
-            MIPS: YBR200W
             UniProt: P29366
 STRUCTURE   PDB: 2RQV 2RQW 2KFK 2V6V 2CZO 1IPG 1IP9
 AASEQ       551

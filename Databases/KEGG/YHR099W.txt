@@ -1,14 +1,41 @@
 ENTRY       YHR099W           CDS       T00005
 NAME        TRA1
-DEFINITION  Tra1p
+DEFINITION  (RefSeq) histone acetyltransferase TRA1
 ORTHOLOGY   K08874  transformation/transcription domain-associated protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Protein kinases [BR:sce01001]
+             Serine/threonine protein kinases: Atypical group
+              PIKK family [OT]
+               YHR099W (TRA1)
+            Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Coactivators
+                SAGA/TFTC/STAGA complex
+                 YHR099W (TRA1)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Histone modification proteins
+               HAT complexes
+                PCAF complex
+                 YHR099W (TRA1)
+                STAGA complex
+                 YHR099W (TRA1)
+                TFTC complex
+                 YHR099W (TRA1)
+                TIP60 complex
+                 YHR099W (TRA1)
+                SAGA complex
+                 YHR099W (TRA1)
+                SLIK complex
+                 YHR099W (TRA1)
+                NuA4 complex
+                 YHR099W (TRA1)
 POSITION    VIII:302761..313995
-MOTIF       Pfam: FAT PI3_PI4_kinase FATC TPR_11 Ponericin
-DBLINKS     NCBI-GI: 6321891
+MOTIF       Pfam: FAT PI3_PI4_kinase FATC IFRD
+DBLINKS     NCBI-ProteinID: NP_011967
             NCBI-GeneID: 856499
             SGD: S000001141
-            MIPS: YHR099W
             UniProt: P38811
 AASEQ       3744
             MSLTEQIEQFASRFRDDDATLQSRYSTLSELYDIMELLNSPEDYHFFLQAVIPLLLNQLK

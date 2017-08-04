@@ -1,13 +1,12 @@
 ENTRY       YBR239C           CDS       T00005
 NAME        ERT1
-DEFINITION  Ert1p
+DEFINITION  (RefSeq) Ert1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    II:complement(698354..699943)
-MOTIF       Pfam: PAS Zn_clus PAS_9 CpeT PAS_8 PAS_4
-DBLINKS     NCBI-GI: 398365677
+MOTIF       Pfam: PAS Zn_clus PAS_4
+DBLINKS     NCBI-ProteinID: NP_009798
             NCBI-GeneID: 852541
             SGD: S000000443
-            MIPS: YBR239C
             UniProt: P38140
 AASEQ       529
             MCTPDENDYKTSTDPDTSANTNHTLEKKKRKKRKNTNVACVNCSRLHVSCEAKRPCLRCI

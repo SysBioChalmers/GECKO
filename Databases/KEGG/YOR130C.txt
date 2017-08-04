@@ -1,14 +1,17 @@
 ENTRY       YOR130C           CDS       T00005
 NAME        ORT1, ARG11
-DEFINITION  Ort1p
+DEFINITION  (RefSeq) Ort1p
 ORTHOLOGY   K15114  mitochondrial ornithine carrier protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Solute Carrier Family (SLC)
+              SLC25: Mitochondrial carrier
+               YOR130C (ORT1)
 POSITION    XV:complement(569929..570807)
 MOTIF       Pfam: Mito_carr
-DBLINKS     NCBI-GI: 398365287
+DBLINKS     NCBI-ProteinID: NP_014773
             NCBI-GeneID: 854297
             SGD: S000005656
-            MIPS: YOR130C
             UniProt: Q12375
 AASEQ       292
             MEDSKKKGLIEGAILDIINGSIAGACGKVIEFPFDTVKVRLQTQASNVFPTTWSCIKFTY

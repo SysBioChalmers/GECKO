@@ -1,16 +1,19 @@
 ENTRY       YDR285W           CDS       T00005
 NAME        ZIP1
-DEFINITION  Zip1p
+DEFINITION  (RefSeq) Zip1p
 ORTHOLOGY   K12768  synaptonemal complex protein ZIP1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04113  Meiosis - yeast
-CLASS       Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04113 Meiosis - yeast
+                YDR285W (ZIP1)
 POSITION    IV:1032436..1035063
-MOTIF       Pfam: AAA_13 IncA Mnd1
-DBLINKS     NCBI-GI: 6320491
+MOTIF       Pfam: AAA_13 TPR_MLP1_2 HrpB7 IncA CLZ TACC DUF373
+DBLINKS     NCBI-ProteinID: NP_010571
             NCBI-GeneID: 851879
             SGD: S000002693
-            MIPS: YDR285W
             UniProt: P31111
 AASEQ       875
             MSNFFRDSSMGFKPRPNIFAKLRVRDVDSDSSANTVVENSSNCLDVGSSIEGDDTFKKPH

@@ -1,12 +1,11 @@
 ENTRY       YBL005W-B         CDS       T00005
-DEFINITION  gag-pol fusion protein (EC:2.7.7.49 2.7.7.7 3.4.23.- 3.1.26.4)
+DEFINITION  (RefSeq) gag-pol fusion protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    II:join(221330..222634,222636..226598)
-MOTIF       Pfam: TYA RVT_2 rve gag_pre-integrs UBN2
-DBLINKS     NCBI-GI: 6319468
+MOTIF       Pfam: TYA RVT_2 rve gag_pre-integrs Retrotran_gag_2
+DBLINKS     NCBI-ProteinID: NP_009549
             NCBI-GeneID: 852280
             SGD: S000002147
-            MIPS: YBL005W-B
             UniProt: Q12490
 AASEQ       1755
             MESQQLSQHSPIFHGSACASVTSKEVQTTQDPLDISASKTEECEKVSTQANSQQPTTPPS

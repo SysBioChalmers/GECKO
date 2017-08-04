@@ -1,13 +1,18 @@
 ENTRY       YPL230W           CDS       T00005
 NAME        USV1, NSF1
-DEFINITION  Usv1p
+DEFINITION  (RefSeq) Usv1p
+ORTHOLOGY   K21544  C2H2 transcription facotor
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription factors [BR:sce03000]
+             Eukaryotic Type
+              Zinc finger
+               Other Cys2His2 zinc factors
+                YPL230W (USV1)
 POSITION    XVI:115312..116487
-MOTIF       Pfam: zf-C2H2 zf-H2C2_2 zf-C2H2_4 SR-25 Chorion_2 zf-H2C2_5
-DBLINKS     NCBI-GI: 6325026
+MOTIF       Pfam: zf-H2C2_2 zf-C2H2 zf-C2H2_4 zf-met
+DBLINKS     NCBI-ProteinID: NP_015094
             NCBI-GeneID: 855871
             SGD: S000006151
-            MIPS: YPL230W
             UniProt: Q12132
 AASEQ       391
             MENTTNRNTAGVLTSSNGNFATNSVAASTPKRSKSARRKTFKCTGYDGCTMSFTRAEHLA

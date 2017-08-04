@@ -1,15 +1,21 @@
 ENTRY       YJL025W           CDS       T00005
 NAME        RRN7
-DEFINITION  Rrn7p
+DEFINITION  (RefSeq) Rrn7p
 ORTHOLOGY   K15219  RNA polymerase I-specific transcription initiation factor RRN7
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase I system
+               Other transcription-related factors
+                Transcription initiation factors
+                 YJL025W (RRN7)
 POSITION    X:393967..395511
-MOTIF       Pfam: RRN7
-DBLINKS     NCBI-GI: 6322435
+MOTIF       Pfam: zf-RRN7
+DBLINKS     NCBI-ProteinID: NP_012509
             NCBI-GeneID: 853428
             SGD: S000003562
-            MIPS: YJL025W
             UniProt: P40992
+STRUCTURE   PDB: 5N5X 5N61 5N5Y 5N5Z 5N60
 AASEQ       514
             MSTFIRGPICGTDNCPSRLWRIIDGRRTCQYGHVMEGDVEFNDDEDDLNGLGAGVITRRL
             NLTTNATGSFQSSQLTNSQLLQQQQRQSHKKFKKLIGHEAKLLFLKSFQFILKRQIRWLI

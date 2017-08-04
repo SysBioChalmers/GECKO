@@ -1,13 +1,20 @@
 ENTRY       YFL058W           CDS       T00005
 NAME        THI5
-DEFINITION  Thi5p
+DEFINITION  (RefSeq) 4-amino-5-hydroxymethyl-2-methylpyrimidine phosphate synthase
+ORTHOLOGY   K18278  pyrimidine precursor biosynthesis enzyme
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00730  Thiamine metabolism
+            sce01100  Metabolic pathways
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Metabolism of cofactors and vitamins
+               00730 Thiamine metabolism
+                YFL058W (THI5)
 POSITION    VI:12929..13951
-MOTIF       Pfam: NMT1 NMT1_2 PBP_like Phosphonate-bd 2Fe-2S_thioredx
-DBLINKS     NCBI-GI: 14318461
+MOTIF       Pfam: NMT1 NMT1_2 2Fe-2S_thioredx Phosphonate-bd PBP_like FMN_red
+DBLINKS     NCBI-ProteinID: NP_116597
             NCBI-GeneID: 850486
             SGD: S000001836
-            MIPS: YFL058W
             UniProt: P43534
 STRUCTURE   PDB: 4H65 4H67 4H6D
 AASEQ       340

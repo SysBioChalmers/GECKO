@@ -1,13 +1,12 @@
 ENTRY       YGR251W           CDS       T00005
 NAME        NOP19
-DEFINITION  Nop19p
+DEFINITION  (RefSeq) Nop19p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:995639..996229
-MOTIF       Pfam: DUF2702
-DBLINKS     NCBI-GI: 398366303
+MOTIF       Pfam: NOP19
+DBLINKS     NCBI-ProteinID: NP_011767
             NCBI-GeneID: 853166
             SGD: S000003483
-            MIPS: YGR251W
             UniProt: P53317
 AASEQ       196
             MSRAKELQEKLNLQAKLQSTFSNNTAAVLDWLKESDETGISNDTERNKQLKDHKELEDGK

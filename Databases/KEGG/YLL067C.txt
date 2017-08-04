@@ -1,12 +1,11 @@
 ENTRY       YLL067C           CDS       T00005
-DEFINITION  Y' element ATP-dependent helicase (EC:3.6.4.12)
+DEFINITION  (RefSeq) Y' element ATP-dependent helicase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XII:complement(join(585..3915,4015..4301))
-MOTIF       Pfam: DEAD Helicase_C WCOR413
-DBLINKS     NCBI-GI: 6322961
+MOTIF       Pfam: Helicase_C TFIIA
+DBLINKS     NCBI-ProteinID: NP_013033
             NCBI-GeneID: 850659
             SGD: S000003990
-            MIPS: YLL067C
             UniProt: Q07888
 AASEQ       1205
             MRTFTDFVSGAPIVRSLQKSTIRRYGYNLAPHMFLLLHVDELSIFSAYQASLPGEKKVDT

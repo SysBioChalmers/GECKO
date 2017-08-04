@@ -1,16 +1,24 @@
 ENTRY       YLR423C           CDS       T00005
 NAME        ATG17, APG17
-DEFINITION  Atg17p
+DEFINITION  (RefSeq) protein kinase regulatory subunit ATG17
 ORTHOLOGY   K08329  autophagy-related protein 17
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
-PATHWAY     sce04140  Regulation of autophagy
-CLASS       Cellular Processes; Transport and catabolism; Regulation of autophagy [PATH:sce04140]
+PATHWAY     sce04138  Autophagy - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04138 Autophagy - yeast
+                YLR423C (ATG17)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial quality control factors
+              Mitophagy factors
+               Autophagy-related proteins
+                YLR423C (ATG17)
 POSITION    XII:complement(971917..973170)
-MOTIF       Pfam: APG17 Occludin_ELL DCP2 DUF2852 PMC2NT Baculo_PEP_C
-DBLINKS     NCBI-GI: 398366201
+MOTIF       Pfam: APG17 DUF948 Hydrolase_4 Baculo_PEP_C
+DBLINKS     NCBI-ProteinID: NP_013527
             NCBI-GeneID: 851142
             SGD: S000004415
-            MIPS: YLR423C
             UniProt: Q06410
 AASEQ       417
             MNEADVTKFVNNARKTLTDAQLLCSSANLRIVDIKKKLSSWQLSISKLNFLIVGLRQQGK

@@ -1,12 +1,11 @@
 ENTRY       YLR456W           CDS       T00005
-DEFINITION  pyridoxal 5'-phosphate synthase (EC:1.4.3.5)
+DEFINITION  (RefSeq) pyridoxal 5'-phosphate synthase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XII:1055070..1055684
-MOTIF       Pfam: Pyridox_oxidase Pyrid_oxidase_2
-DBLINKS     NCBI-GI: 6323489
+MOTIF       Pfam: Putative_PNPOx
+DBLINKS     NCBI-ProteinID: NP_013561
             NCBI-GeneID: 851178
             SGD: S000004448
-            MIPS: YLR456W
             UniProt: Q06199
 AASEQ       204
             MKLNEQIPKDLLRLIKSSKYVHVATCSSNCIPSVSLMHYIFVSSAETFHKHEYSIEIDCN

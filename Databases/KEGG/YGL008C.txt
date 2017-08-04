@@ -1,16 +1,25 @@
 ENTRY       YGL008C           CDS       T00005
 NAME        PMA1, KTI10
-DEFINITION  H(+)-exporting P2-type ATPase PMA1 (EC:3.6.3.6)
+DEFINITION  (RefSeq) H(+)-exporting P2-type ATPase PMA1
 ORTHOLOGY   K01535  H+-transporting ATPase [EC:3.6.3.6]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00190  Oxidative phosphorylation
-CLASS       Metabolism; Energy metabolism; Oxidative phosphorylation [PATH:sce00190]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Energy metabolism
+               00190 Oxidative phosphorylation
+                YGL008C (PMA1)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.3  Acting on acid anhydrides to catalyse transmembrane movement of substances
+                3.6.3.6  H+-exporting ATPase
+                 YGL008C (PMA1)
 POSITION    VII:complement(479910..482666)
-MOTIF       Pfam: E1-E2_ATPase Hydrolase HAD Cation_ATPase_N Hydrolase_3 Hydrolase_like2
-DBLINKS     NCBI-GI: 6321430
+MOTIF       Pfam: E1-E2_ATPase Hydrolase Cation_ATPase_N Cation_ATPase Hydrolase_3
+DBLINKS     NCBI-ProteinID: NP_011507
             NCBI-GeneID: 852876
             SGD: S000002976
-            MIPS: YGL008C
             UniProt: P05030
 AASEQ       918
             MTDTSSSSSSSSASSVSAHQPTQEKPAKTYDDAASESSDDDDIDALIEELQSNHGVDDED

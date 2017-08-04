@@ -1,13 +1,19 @@
 ENTRY       YEL047C           CDS       T00005
 NAME        FRD1
-DEFINITION  Frd1p (EC:1.3.1.6)
+DEFINITION  (RefSeq) fumarate reductase
+ORTHOLOGY   K18561  FAD-dependent fumarate reductase [EC:1.3.8.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.3  Acting on the CH-CH group of donors
+               1.3.8  With a flavin as acceptor
+                1.3.8.-  
+                 YEL047C (FRD1)
 POSITION    V:complement(65385..66797)
-MOTIF       Pfam: FAD_binding_2 NAD_binding_8 DAO Pyr_redox_2 Pyr_redox_3 Thi4 FAD_binding_3 HI0933_like NAD_binding_9 FAD_oxidored Lycopene_cycl Amino_oxidase Pyr_redox GIDA 3HCDH_N
-DBLINKS     NCBI-GI: 398364239
+MOTIF       Pfam: FAD_binding_2 DAO NAD_binding_8 Pyr_redox_2 Thi4 FAD_binding_3 HI0933_like Lycopene_cycl Pyr_redox_3 FAD_oxidored Amino_oxidase MCRA Pyr_redox NAD_binding_9 GIDA 3HCDH_N
+DBLINKS     NCBI-ProteinID: NP_010867
             NCBI-GeneID: 856664
             SGD: S000000773
-            MIPS: YEL047C
             UniProt: P32614
 AASEQ       470
             MSLSPVVVIGTGLAGLAAANELVNKYNIPVTILEKASSIGGNSIKASSGINGACTETQRH

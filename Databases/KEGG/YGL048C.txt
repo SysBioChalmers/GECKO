@@ -1,19 +1,28 @@
 ENTRY       YGL048C           CDS       T00005
 NAME        RPT6, CIM3, CRL3, SCB68, SUG1
-DEFINITION  proteasome regulatory particle base subunit RPT6
+DEFINITION  (RefSeq) proteasome regulatory particle base subunit RPT6
 ORTHOLOGY   K03066  26S proteasome regulatory subunit T6
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03050  Proteasome
 MODULE      sce_M00341  Proteasome, 19S regulatory particle (PA700)
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Proteasome [PATH:sce03050]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               03050 Proteasome
+                YGL048C (RPT6)
+            Proteasome [BR:sce03051]
+             Eukaryotic proteasome
+              Regulatory particles
+               PA700 (19S proteasome)
+                ATPase subunits
+                 YGL048C (RPT6)
 POSITION    VII:complement(410069..411286)
-MOTIF       Pfam: AAA AAA_5 AAA_2 AAA_22 AAA_16 AAA_17 RuvB_N AAA_19 IstB_IS21 AAA_14 AAA_33 AAA_28 Zeta_toxin DUF2072 AAA_3 AAA_18 TIP49 Mg_chelatase PhoH Sigma54_activat AAA_25 AAA_24 RNA_helicase NACHT DUF815 Parvo_NS1
-DBLINKS     NCBI-GI: 6321390
+MOTIF       Pfam: AAA AAA_2 AAA_5 AAA_16 AAA_22 RuvB_N AAA_18 IstB_IS21 AAA_33 AAA_28 AAA_3 DUF2072 TIP49 Mg_chelatase AAA_14 PhoH TsaE Sigma54_activat RNA_helicase AAA_24 AAA_25 DUF815 Parvo_NS1 ATG16 DUF3372 AAA_30 NACHT
+DBLINKS     NCBI-ProteinID: NP_011467
             NCBI-GeneID: 852834
             SGD: S000003016
-            MIPS: YGL048C
             UniProt: Q01939
-STRUCTURE   PDB: 4B4T 4C0V
+STRUCTURE   PDB: 5MP9 5MPA 4CR2 4CR4 4CR3 5A5B
 AASEQ       405
             MTAAVTSSNIVLETHESGIKPYFEQKIQETELKIRSKTENVRRLEAQRNALNDKVRFIKD
             ELRLLQEPGSYVGEVIKIVSDKKVLVKVQPEGKYIVDVAKDINVKDLKASQRVCLRSDSY

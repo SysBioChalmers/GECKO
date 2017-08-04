@@ -1,14 +1,24 @@
 ENTRY       YOL102C           CDS       T00005
 NAME        TPT1
-DEFINITION  Tpt1p (EC:2.7.1.160)
+DEFINITION  (RefSeq) tRNA 2'-phosphotransferase
 ORTHOLOGY   K10669  2'-phosphotransferase [EC:2.7.1.160]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.1  Phosphotransferases with an alcohol group as acceptor
+                2.7.1.160  2'-phosphotransferase
+                 YOL102C (TPT1)
+            Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              tRNA spricing factors
+               Other tRNA splicing factors
+                YOL102C (TPT1)
 POSITION    XV:complement(125997..126689)
 MOTIF       Pfam: PTS_2-RNA PARP Pox_VLTF3
-DBLINKS     NCBI-GI: 6324470
+DBLINKS     NCBI-ProteinID: NP_014539
             NCBI-GeneID: 854051
             SGD: S000005462
-            MIPS: YOL102C
             UniProt: Q12272
 AASEQ       230
             MRQVLQKDKRDVQLSKALSYLLRHTAVKEKLTIDSNGYTPLKELLSHNRLKTHKCTVDDI

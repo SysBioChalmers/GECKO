@@ -1,13 +1,12 @@
 ENTRY       YOL025W           CDS       T00005
 NAME        LAG2, ECM36
-DEFINITION  Lag2p
+DEFINITION  (RefSeq) Lag2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:274957..276939
-MOTIF       Pfam: TIP120
-DBLINKS     NCBI-GI: 6324548
+MOTIF       Pfam: TIP120 WIYLD
+DBLINKS     NCBI-ProteinID: NP_014617
             NCBI-GeneID: 854133
             SGD: S000005385
-            MIPS: YOL025W
             UniProt: Q92325
 AASEQ       660
             MSLHISKLIEQYRSTKDNDLKYMLLRQNFKINDIEDELAPLVNELLLPVLVEEQDMEILN

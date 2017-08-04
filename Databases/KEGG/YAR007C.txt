@@ -1,24 +1,51 @@
 ENTRY       YAR007C           CDS       T00005
 NAME        RFA1, BUF2, FUN3, RPA1, RPA70
-DEFINITION  Rfa1p
+DEFINITION  (RefSeq) replication factor A subunit protein RFA1
 ORTHOLOGY   K07466  replication factor A1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03030  DNA replication
             sce03420  Nucleotide excision repair
             sce03430  Mismatch repair
             sce03440  Homologous recombination
-CLASS       Genetic Information Processing; Replication and repair; DNA replication [PATH:sce03030]
-            Genetic Information Processing; Replication and repair; Nucleotide excision repair [PATH:sce03420]
-            Genetic Information Processing; Replication and repair; Mismatch repair [PATH:sce03430]
-            Genetic Information Processing; Replication and repair; Homologous recombination [PATH:sce03440]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Replication and repair
+               03030 DNA replication
+                YAR007C (RFA1)
+               03420 Nucleotide excision repair
+                YAR007C (RFA1)
+               03430 Mismatch repair
+                YAR007C (RFA1)
+               03440 Homologous recombination
+                YAR007C (RFA1)
+            Transcription factors [BR:sce03000]
+             Eukaryotic Type
+              Zinc finger
+               Other Cys4 zinc finger factors
+                YAR007C (RFA1)
+            DNA replication proteins [BR:sce03032]
+             Eukaryotic Type
+              DNA Replication Elongation Factors
+               RPA (replication protein A)
+                YAR007C (RFA1)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              SSBR (single strand breaks repair)
+               NER (nucleotide excision repair)
+                RPA (replication factor A)
+                 YAR007C (RFA1)
+               MMR (mismatch exicision repair)
+                 YAR007C (RFA1)
+              DSBR (double strand breaks repair)
+               HR (homologous recombination)
+                 YAR007C (RFA1)
 POSITION    I:complement(156754..158619)
-MOTIF       Pfam: Rep_fac-A_C tRNA_anti-codon Rep-A_N DUF223 BRCA-2_OB1 DUF1474
-DBLINKS     NCBI-GI: 6319321
+MOTIF       Pfam: Rep_fac-A_C REPA_OB_2 tRNA_anti-codon CDC24_OB3 Rep-A_N DUF223 BRCA-2_OB1
+DBLINKS     NCBI-ProteinID: NP_009404
             NCBI-GeneID: 851266
             SGD: S000000065
-            MIPS: YAR007C
             UniProt: P22336
-STRUCTURE   PDB: 1YNX
+STRUCTURE   PDB: 5M1X 1YNX
 AASEQ       621
             MSSVQLSRGDFHSIFTNKQRYDNPTGGVYQVYNTRKSDGANSNRKNLIMISDGIYHMKAL
             LRNQAASKFQSMELQRGDIIRVIIAEPAIVRERKKYVLLVDDFELVQSRADMVNQTSTFL

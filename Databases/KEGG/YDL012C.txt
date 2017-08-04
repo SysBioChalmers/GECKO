@@ -1,12 +1,11 @@
 ENTRY       YDL012C           CDS       T00005
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) hypothetical protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(join(431108..431386,431473..431517))
-MOTIF       Pfam: CYSTM
-DBLINKS     NCBI-GI: 6320192
+MOTIF       Pfam: DUF2076 Velvet
+DBLINKS     NCBI-ProteinID: NP_010272
             NCBI-GeneID: 851550
             SGD: S000002170
-            MIPS: YDL012C
             UniProt: Q12489
 AASEQ       107
             MSAQDYYGNSASKQSYSRPSAPPPGYETASRGYAPSQSQQNYYPPQQQQQQYQQQPQYYQ

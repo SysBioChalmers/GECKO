@@ -1,13 +1,12 @@
 ENTRY       YML051W           CDS       T00005
 NAME        GAL80
-DEFINITION  Gal80p
+DEFINITION  (RefSeq) transcription regulator GAL80
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:171594..172901
 MOTIF       Pfam: GFO_IDH_MocA GFO_IDH_MocA_C
-DBLINKS     NCBI-GI: 6323590
+DBLINKS     NCBI-ProteinID: NP_013661
             NCBI-GeneID: 854954
             SGD: S000004515
-            MIPS: YML051W
             UniProt: P04387
 STRUCTURE   PDB: 3V2U 3BTV 3BTS 3BTU
 AASEQ       435

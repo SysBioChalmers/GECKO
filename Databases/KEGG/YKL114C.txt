@@ -1,16 +1,31 @@
 ENTRY       YKL114C           CDS       T00005
 NAME        APN1
-DEFINITION  DNA-(apurinic or apyrimidinic site) lyase APN1 (EC:4.2.99.18)
+DEFINITION  (RefSeq) DNA-(apurinic or apyrimidinic site) lyase APN1
 ORTHOLOGY   K10771  AP endonuclease 1 [EC:4.2.99.18]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03410  Base excision repair
-CLASS       Genetic Information Processing; Replication and repair; Base excision repair [PATH:sce03410]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Replication and repair
+               03410 Base excision repair
+                YKL114C (APN1)
+            Enzymes [BR:sce01000]
+             4. Lyases
+              4.2  Carbon-oxygen lyases
+               4.2.99  Other carbon-oxygen lyases
+                4.2.99.18  DNA-(apurinic or apyrimidinic site) lyase
+                 YKL114C (APN1)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              SSBR (single strand breaks repair)
+               BER (base exicision repair)
+                AP endonucleases
+                 YKL114C (APN1)
 POSITION    XI:complement(223352..224455)
 MOTIF       Pfam: AP_endonuc_2
-DBLINKS     NCBI-GI: 6322735
+DBLINKS     NCBI-ProteinID: NP_012808
             NCBI-GeneID: 853746
             SGD: S000001597
-            MIPS: YKL114C
             UniProt: P22936
 AASEQ       367
             MPSTPSFVRSAVSKYKFGAHMSGAGGISNSVTNAFNTGCNSFAMFLKSPRKWVSPQYTQE

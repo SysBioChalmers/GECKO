@@ -1,20 +1,36 @@
 ENTRY       YHR190W           CDS       T00005
 NAME        ERG9
-DEFINITION  bifunctional farnesyl-diphosphate farnesyltransferase/squalene synthase (EC:2.5.1.21)
+DEFINITION  (RefSeq) bifunctional farnesyl-diphosphate farnesyltransferase/squalene synthase
 ORTHOLOGY   K00801  farnesyl-diphosphate farnesyltransferase [EC:2.5.1.21]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00100  Steroid biosynthesis
             sce00909  Sesquiterpenoid and triterpenoid biosynthesis
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
-CLASS       Metabolism; Lipid metabolism; Steroid biosynthesis [PATH:sce00100]
-            Metabolism; Metabolism of terpenoids and polyketides; Sesquiterpenoid and triterpenoid biosynthesis [PATH:sce00909]
+            sce01130  Biosynthesis of antibiotics
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Lipid metabolism
+               00100 Steroid biosynthesis
+                YHR190W (ERG9)
+              Metabolism of terpenoids and polyketides
+               00909 Sesquiterpenoid and triterpenoid biosynthesis
+                YHR190W (ERG9)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.5  Transferring alkyl or aryl groups, other than methyl groups
+               2.5.1  Transferring alkyl or aryl groups, other than methyl groups (only sub-subclass identified to date)
+                2.5.1.21  squalene synthase
+                 YHR190W (ERG9)
+            Prenyltransferases [BR:sce01006]
+             Terpene biosynthesis
+              Squalene/phytoene synthase
+               YHR190W (ERG9)
 POSITION    VIII:484845..486179
 MOTIF       Pfam: SQS_PSY
-DBLINKS     NCBI-GI: 6321984
+DBLINKS     NCBI-ProteinID: NP_012060
             NCBI-GeneID: 856597
             SGD: S000001233
-            MIPS: YHR190W
             UniProt: P29704
 AASEQ       444
             MGKLLQLALHPVEMKAALKLKFCRTPLFSIYDQSTSPYLLHCFELLNLTSRSFAAVIREL

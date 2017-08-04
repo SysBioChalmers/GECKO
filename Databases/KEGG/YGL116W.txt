@@ -1,21 +1,39 @@
 ENTRY       YGL116W           CDS       T00005
 NAME        CDC20, PAC5
-DEFINITION  Cdc20p
+DEFINITION  (RefSeq) ubiquitin-protein transferase activating protein CDC20
 ORTHOLOGY   K03363  cell division cycle 20, cofactor of APC complex
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
             sce04113  Meiosis - yeast
             sce04120  Ubiquitin mediated proteolysis
 MODULE      sce_M00389  APC/C complex
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Ubiquitin mediated proteolysis [PATH:sce04120]
-            Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
-            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04120 Ubiquitin mediated proteolysis
+                YGL116W (CDC20)
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YGL116W (CDC20)
+               04113 Meiosis - yeast
+                YGL116W (CDC20)
+            Ubiquitin system [BR:sce04121]
+             Ubiquitin ligases (E3)
+              Multi subunit Ring-finger type E3
+               APC/C
+                Target recognizing subunit
+                 YGL116W (CDC20)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Sister chromatid separation proteins
+               APC/C complex
+                YGL116W (CDC20)
 POSITION    VII:289809..291641
-MOTIF       Pfam: WD40
-DBLINKS     NCBI-GI: 6321322
+MOTIF       Pfam: ANAPC4_WD40 WD40 Ge1_WD40
+DBLINKS     NCBI-ProteinID: NP_011399
             NCBI-GeneID: 852762
             SGD: S000003084
-            MIPS: YGL116W
             UniProt: P26309
 AASEQ       610
             MPESSRDKGNAAISGNRSVLSIASPTKLNILSSDWSRNQGKVSKNSLKRSSSLNIRNSKR

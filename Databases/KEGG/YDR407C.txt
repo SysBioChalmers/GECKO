@@ -1,13 +1,18 @@
 ENTRY       YDR407C           CDS       T00005
 NAME        TRS120
-DEFINITION  Trs120p
+DEFINITION  (RefSeq) Trs120p
+ORTHOLOGY   K20306  trafficking protein particle complex subunit 9
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endosome - Golgi transport
+              Tethering complex
+               TRAPP complex II
+                YDR407C (TRS120)
 POSITION    IV:complement(1284069..1287938)
 MOTIF       Pfam: TRAPPC9-Trs120
-DBLINKS     NCBI-GI: 6320615
+DBLINKS     NCBI-ProteinID: NP_010695
             NCBI-GeneID: 852016
             SGD: S000002815
-            MIPS: YDR407C
             UniProt: Q04183
 AASEQ       1289
             MNILKHFPSYVGPSKIRTLVIPIGHWTRKEFNNAVQKLSEFNEIHLSDVTPIDSPIFTPQ

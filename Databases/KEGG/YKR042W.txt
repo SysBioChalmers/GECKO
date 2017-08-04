@@ -1,13 +1,19 @@
 ENTRY       YKR042W           CDS       T00005
 NAME        UTH1
-DEFINITION  Uth1p
+DEFINITION  (RefSeq) SUN family protein UTH1
+ORTHOLOGY   K01238  SUN family beta-glucosidase [EC:3.2.1.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.2  Glycosylases
+               3.2.1  Glycosidases, i.e. enzymes that hydrolyse O- and S-glycosyl compounds
+                3.2.1.-  
+                 YKR042W (UTH1)
 POSITION    XI:519527..520624
 MOTIF       Pfam: SUN
-DBLINKS     NCBI-GI: 398365111
+DBLINKS     NCBI-ProteinID: NP_012968
             NCBI-GeneID: 853916
             SGD: S000001750
-            MIPS: YKR042W
             UniProt: P36135
 AASEQ       365
             MKLSALLALSASTAVLAAPAVHHSDNHHHNDKRAVVTVTQYVNADGAVVIPAATTATSAA

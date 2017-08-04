@@ -1,14 +1,23 @@
 ENTRY       YNL101W           CDS       T00005
 NAME        AVT4
-DEFINITION  Avt4p
+DEFINITION  (RefSeq) Avt4p
 ORTHOLOGY   K14209  solute carrier family 36 (proton-coupled amino acid transporter)
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04138  Autophagy - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04138 Autophagy - yeast
+                YNL101W (AVT4)
+            Transporters [BR:sce02000]
+             Solute Carrier Family (SLC)
+              SLC36: Proton-coupled amino acid transporter
+               YNL101W (AVT4)
 POSITION    XIV:434999..437140
 MOTIF       Pfam: Aa_trans
-DBLINKS     NCBI-GI: 6324228
+DBLINKS     NCBI-ProteinID: NP_014298
             NCBI-GeneID: 855622
             SGD: S000005045
-            MIPS: YNL101W
             UniProt: P50944
 AASEQ       713
             MVTNNGDGEHLGIRRNGNLRHPSNNMKIPRRAQSTVLNSNPFYSRKYSMSTLTPRDICRS

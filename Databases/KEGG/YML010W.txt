@@ -1,15 +1,29 @@
 ENTRY       YML010W           CDS       T00005
 NAME        SPT5
-DEFINITION  Spt5p
+DEFINITION  (RefSeq) transcription elongation factor SPT5
 ORTHOLOGY   K15172  transcription elongation factor SPT5
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Other transcription-related factors
+                Transcription elongation factors
+                 YML010W (SPT5)
+              RNA polymerase I system
+                 YML010W (SPT5)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA processing factors
+               3' end processing
+                DRB sensitivity inducing factor (DSIF) complex
+                 YML010W (SPT5)
 POSITION    XIII:247677..250868
-MOTIF       Pfam: Spt5-NGN Spt5_N KOW SPT6_acidic
-DBLINKS     NCBI-GI: 6323632
+MOTIF       Pfam: Spt5-NGN Spt5_N KOW CTD
+DBLINKS     NCBI-ProteinID: NP_013703
             NCBI-GeneID: 854999
             SGD: S000004470
-            MIPS: YML010W
             UniProt: P27692
+STRUCTURE   PDB: 4YTK 4YTL
 AASEQ       1063
             MSDNSDTNVSMQDHDQQFADPVVVPQSTDTKDENTSDKDTVDSGNVTTTESTERAESTSN
             IPPLDGEEKEAKSEPQQPEDNAETAATEQVSSSNGPATDDAQATLNTDSSEANEIVKKEE

@@ -1,14 +1,19 @@
 ENTRY       YMR291W           CDS       T00005
 NAME        TDA1
-DEFINITION  Tda1p (EC:2.7.11.1)
+DEFINITION  (RefSeq) protein kinase TDA1
 ORTHOLOGY   K08286  protein-serine/threonine kinase [EC:2.7.11.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.11  Protein-serine/threonine kinases
+                2.7.11.-  
+                 YMR291W (TDA1)
 POSITION    XIII:852630..854390
 MOTIF       Pfam: Pkinase Pkinase_Tyr Kinase-like
-DBLINKS     NCBI-GI: 6323948
+DBLINKS     NCBI-ProteinID: NP_014019
             NCBI-GeneID: 855336
             SGD: S000004905
-            MIPS: YMR291W
             UniProt: Q03533
 AASEQ       586
             MTTASSSASQLQQRLPEEKPWPQLSGSNADAQTFKCKYVTNHNSLGDGNFSVVKECMNIH

@@ -1,14 +1,24 @@
 ENTRY       YBR163W           CDS       T00005
 NAME        EXO5, DEM1
-DEFINITION  Exo5p (EC:3.1.-.-)
+DEFINITION  (RefSeq) Exo5p
 ORTHOLOGY   K17815  exonuclease V [EC:3.1.-.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.-  Acting on ester bonds
+                3.1.-.-  
+                 YBR163W (EXO5)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              Other factors with a suspected DNA repair function
+               Nucleases
+                YBR163W (EXO5)
 POSITION    II:565723..567480
 MOTIF       Pfam: Exo5 PDDEXK_1
-DBLINKS     NCBI-GI: 398365199
+DBLINKS     NCBI-ProteinID: NP_009722
             NCBI-GeneID: 852461
             SGD: S000000367
-            MIPS: YBR163W
             UniProt: P38289
 AASEQ       585
             MLGRALINKYGFLIHPRRFVHLNDKSLDGTFILPSKKNHMYDVPTNDPSGILNASDIDRI

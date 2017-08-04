@@ -1,14 +1,25 @@
 ENTRY       YBR228W           CDS       T00005
 NAME        SLX1
-DEFINITION  Slx1p (EC:3.6.1.-)
+DEFINITION  (RefSeq) endonuclease
 ORTHOLOGY   K15078  structure-specific endonuclease subunit SLX1 [EC:3.6.1.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.1  In phosphorus-containing anhydrides
+                3.6.1.-  
+                 YBR228W (SLX1)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              DSBR (double strand breaks repair)
+               HR (homologous recombination)
+                Other HR factors
+                 YBR228W (SLX1)
 POSITION    II:675313..676227
-MOTIF       Pfam: GIY-YIG zf-RING-like FANCL_C RAP-1 zf-RING_2
-DBLINKS     NCBI-GI: 398365607
+MOTIF       Pfam: GIY-YIG DUF1908 FANCL_C CsgA
+DBLINKS     NCBI-ProteinID: NP_009787
             NCBI-GeneID: 852529
             SGD: S000000432
-            MIPS: YBR228W
             UniProt: P38324
 AASEQ       304
             MSQKIQQHQFPDFYCCYLLQSINKRQSFYVGSTPNPVRRLRQHNGKLAVGGAYRTKRDGS

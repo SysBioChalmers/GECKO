@@ -1,13 +1,12 @@
 ENTRY       YJL151C           CDS       T00005
 NAME        SNA3
-DEFINITION  Sna3p
+DEFINITION  (RefSeq) Sna3p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    X:complement(136372..136773)
-MOTIF       Pfam: Pmp3 Herpes_LMP1 FYDLN_acid
-DBLINKS     NCBI-GI: 6322310
+MOTIF       Pfam: Pmp3
+DBLINKS     NCBI-ProteinID: NP_012384
             NCBI-GeneID: 853290
             SGD: S000003687
-            MIPS: YJL151C
             UniProt: P14359
 STRUCTURE   PDB: 4LCD
 AASEQ       133

@@ -1,17 +1,26 @@
 ENTRY       YGL213C           CDS       T00005
 NAME        SKI8, REC103
-DEFINITION  Ski8p
+DEFINITION  (RefSeq) SKI complex subunit WD repeat protein SKI8
 ORTHOLOGY   K12601  superkiller protein 8
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03018  RNA degradation
 MODULE      sce_M00392  Ski complex
-CLASS       Genetic Information Processing; Folding, sorting and degradation; RNA degradation [PATH:sce03018]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               03018 RNA degradation
+                YGL213C (SKI8)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA degradation factors
+               3'-5' decay
+                Ski complex
+                 YGL213C (SKI8)
 POSITION    VII:complement(90054..91247)
-MOTIF       Pfam: WD40 eIF2A
-DBLINKS     NCBI-GI: 6321225
+MOTIF       Pfam: WD40 ANAPC4_WD40 Ge1_WD40
+DBLINKS     NCBI-ProteinID: NP_011302
             NCBI-GeneID: 852659
             SGD: S000003181
-            MIPS: YGL213C
             UniProt: Q02793
 STRUCTURE   PDB: 1SQ9 1S4U 4BUJ
 AASEQ       397

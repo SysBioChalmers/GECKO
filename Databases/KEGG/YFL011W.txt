@@ -1,16 +1,24 @@
 ENTRY       YFL011W           CDS       T00005
 NAME        HXT10
-DEFINITION  Hxt10p
+DEFINITION  (RefSeq) hexose transporter HXT10
 ORTHOLOGY   K08139  MFS transporter, SP family, sugar:H+ symporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04113  Meiosis - yeast
-CLASS       Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04113 Meiosis - yeast
+                YFL011W (HXT10)
+            Transporters [BR:sce02000]
+             Major Facilitator Superfamily (MFS)
+              Sugar transporters
+               Sugar porter (SP) family [TC:2.A.1.1]
+                YFL011W (HXT10)
 POSITION    VI:112345..113985
-MOTIF       Pfam: Sugar_tr MFS_1 MFS_2 MFS_3 Cytochrom_B_N
-DBLINKS     NCBI-GI: 14318510
+MOTIF       Pfam: Sugar_tr MFS_1 MFS_3 DUF3792
+DBLINKS     NCBI-ProteinID: NP_116644
             NCBI-GeneID: 850536
             SGD: S000001883
-            MIPS: YFL011W
             UniProt: P43581
 AASEQ       546
             MVSSSVSILGTSAKASTSLSRKDEIKLTPETREASLDIPYKPIIAYWTVMGLCLMIAFGG

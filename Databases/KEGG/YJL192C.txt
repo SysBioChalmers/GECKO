@@ -1,13 +1,12 @@
 ENTRY       YJL192C           CDS       T00005
-NAME        SOP4
-DEFINITION  Sop4p
+NAME        SOP4, EMC7
+DEFINITION  (RefSeq) Sop4p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    X:complement(72710..73414)
-MOTIF       Pfam: fn3_3 DUF4538
-DBLINKS     NCBI-GI: 6322269
+MOTIF       Pfam: SOP4 DUF4538
+DBLINKS     NCBI-ProteinID: NP_012343
             NCBI-GeneID: 853247
             SGD: S000003728
-            MIPS: YJL192C
             UniProt: P39543
 AASEQ       234
             MFSQIVLLLSAFIYVASATARRGTIKGRLDLAASNITGFVSTRTSFKLYQIGNFSTEYPY

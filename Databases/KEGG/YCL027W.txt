@@ -1,16 +1,19 @@
 ENTRY       YCL027W           CDS       T00005
 NAME        FUS1
-DEFINITION  Fus1p
+DEFINITION  (RefSeq) Fus1p
 ORTHOLOGY   K11243  nuclear fusion protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04011  MAPK signaling pathway - yeast
-CLASS       Environmental Information Processing; Signal transduction; MAPK signaling pathway - yeast [PATH:sce04011]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YCL027W (FUS1)
 POSITION    III:71803..73341
-MOTIF       Pfam: SH3_9 SH3_1 SH3_2 SKG6 DUF3611 DUF485
-DBLINKS     NCBI-GI: 10383763
+MOTIF       Pfam: SH3_9 SH3_1 SH3_2 DUF599
+DBLINKS     NCBI-ProteinID: NP_009903
             NCBI-GeneID: 850330
             SGD: S000000532
-            MIPS: YCL027W
             UniProt: P11710
 AASEQ       512
             MVATIMQTTTTVLTTVAAMSTTLASNYISSQASSSTSVTTVTTIATSIRSTPSNLLFSNV

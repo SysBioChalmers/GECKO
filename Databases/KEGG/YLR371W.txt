@@ -1,13 +1,19 @@
 ENTRY       YLR371W           CDS       T00005
 NAME        ROM2
-DEFINITION  Rom2p
+DEFINITION  (RefSeq) Rho family guanine nucleotide exchange factor ROM2
+ORTHOLOGY   K19842  RHO1 GDP-GTP exchange protein 1/2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04011  MAPK signaling pathway - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YLR371W (ROM2)
 POSITION    XII:862714..866784
 MOTIF       Pfam: CNH PH_5 RhoGEF DEP
-DBLINKS     NCBI-GI: 6323403
+DBLINKS     NCBI-ProteinID: NP_013475
             NCBI-GeneID: 851086
             SGD: S000004363
-            MIPS: YLR371W
             UniProt: P51862
 AASEQ       1356
             MSETNVDSLGDRNDIYSQIFGVERRPDSFATFDSDSHGDISSQLLPNRIENIQNLNVLLS

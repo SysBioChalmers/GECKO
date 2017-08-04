@@ -1,13 +1,30 @@
 ENTRY       YKL068W           CDS       T00005
 NAME        NUP100, NSP100
-DEFINITION  Nup100p
+DEFINITION  (RefSeq) FG-nucleoporin NUP100
+ORTHOLOGY   K14297  nuclear pore complex protein Nup98-Nup96
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03013  RNA transport
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03013 RNA transport
+                YKL068W (NUP100)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Transport factors
+                Nuclear pore complex
+                 YKL068W (NUP100)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centrosome formation and ciliogenesis proteins
+               Spindle formation proteins
+                YKL068W (NUP100)
 POSITION    XI:310199..313078
-MOTIF       Pfam: Nucleoporin2 Nucleoporin_FG
-DBLINKS     NCBI-GI: 6322782
+MOTIF       Pfam: Nucleoporin_FG Nucleoporin2
+DBLINKS     NCBI-ProteinID: NP_012855
             NCBI-GeneID: 853796
             SGD: S000001551
-            MIPS: YKL068W
             UniProt: Q02629
 AASEQ       959
             MFGNNRPMFGGSNLSFGSNTSSFGGQQSQQPNSLFGNSNNNNNSTSNNAQSGFGGFTSAA

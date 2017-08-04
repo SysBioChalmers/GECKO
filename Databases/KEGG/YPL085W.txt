@@ -1,13 +1,18 @@
 ENTRY       YPL085W           CDS       T00005
 NAME        SEC16, LPF1
-DEFINITION  Sec16p
+DEFINITION  (RefSeq) Sec16p
+ORTHOLOGY   K20353  COPII coat assembly protein SEC16
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endoplasmic reticulum (ER) - Golgi transport
+              Forward pathways
+               Coat protein complex II (COP-II)
+                YPL085W (SEC16)
 POSITION    XVI:387067..393654
-MOTIF       Pfam: Sec16_C Sec16_N Sec16
-DBLINKS     NCBI-GI: 6325172
+MOTIF       Pfam: Sec16_C Sec16_N Sec16 Nup96
+DBLINKS     NCBI-ProteinID: NP_015240
             NCBI-GeneID: 856020
             SGD: S000006006
-            MIPS: YPL085W
             UniProt: P48415
 STRUCTURE   PDB: 3MZK
 AASEQ       2195

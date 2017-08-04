@@ -1,23 +1,41 @@
 ENTRY       YLR303W           CDS       T00005
 NAME        MET17, MET15, MET25
-DEFINITION  bifunctional cysteine synthase/O-acetylhomoserine aminocarboxypropyltransferase MET17 (EC:2.5.1.49 2.5.1.47)
+DEFINITION  (RefSeq) bifunctional cysteine synthase/O-acetylhomoserine aminocarboxypropyltransferase MET17
 ORTHOLOGY   K17069  O-acetylhomoserine/O-acetylserine sulfhydrylase [EC:2.5.1.49 2.5.1.47]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00270  Cysteine and methionine metabolism
             sce00920  Sulfur metabolism
             sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01130  Biosynthesis of antibiotics
             sce01200  Carbon metabolism
             sce01230  Biosynthesis of amino acids
-CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
-            Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
-            Metabolism; Energy metabolism; Sulfur metabolism [PATH:sce00920]
-            Metabolism; Amino acid metabolism; Cysteine and methionine metabolism [PATH:sce00270]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01200 Carbon metabolism
+                YLR303W (MET17)
+               01230 Biosynthesis of amino acids
+                YLR303W (MET17)
+              Energy metabolism
+               00920 Sulfur metabolism
+                YLR303W (MET17)
+              Amino acid metabolism
+               00270 Cysteine and methionine metabolism
+                YLR303W (MET17)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.5  Transferring alkyl or aryl groups, other than methyl groups
+               2.5.1  Transferring alkyl or aryl groups, other than methyl groups (only sub-subclass identified to date)
+                2.5.1.47  cysteine synthase
+                 YLR303W (MET17)
+                2.5.1.49  O-acetylhomoserine aminocarboxypropyltransferase
+                 YLR303W (MET17)
 POSITION    XII:732542..733876
-MOTIF       Pfam: Cys_Met_Meta_PP DegT_DnrJ_EryC1 Aminotran_1_2 Beta_elim_lyase Aminotran_5 Met_gamma_lyase GDC-P CPSase_L_D2 Phg_2220_C
-DBLINKS     NCBI-GI: 6323333
+MOTIF       Pfam: Cys_Met_Meta_PP Aminotran_1_2 Aminotran_5 DegT_DnrJ_EryC1 Beta_elim_lyase Met_gamma_lyase GDC-P CPSase_L_D2
+DBLINKS     NCBI-ProteinID: NP_013406
             NCBI-GeneID: 851010
             SGD: S000004294
-            MIPS: YLR303W
             UniProt: P06106
 AASEQ       444
             MPSHFDTVQLHAGQENPGDNAHRSRAVPIYATTSYVFENSKHGSQLFGLEVPGYVYSRFQ

@@ -1,13 +1,18 @@
 ENTRY       YLR393W           CDS       T00005
 NAME        ATP10
-DEFINITION  Atp10p
+DEFINITION  (RefSeq) Atp10p
+ORTHOLOGY   K18192  mitochondrial ATPase complex subunit ATP10
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial quality control factors
+              Mitochondrial respiratory chain complex assembly factors
+               Complex-V assembly factors
+                YLR393W (ATP10)
 POSITION    XII:907079..907918
 MOTIF       Pfam: ATP-synt_10
-DBLINKS     NCBI-GI: 6323425
+DBLINKS     NCBI-ProteinID: NP_013497
             NCBI-GeneID: 851109
             SGD: S000004385
-            MIPS: YLR393W
             UniProt: P18496
 AASEQ       279
             MQGTFKRFYHPTLTRMSFLDKFLKPMMATASPKEYQIKQLVKPIGLTQAPRKSTKYSQGN

@@ -1,21 +1,24 @@
 ENTRY       YOR065W           CDS       T00005
 NAME        CYT1, CTC1, YOR29-16
-DEFINITION  ubiquinol--cytochrome-c reductase catalytic subunit CYT1
+DEFINITION  (RefSeq) ubiquinol--cytochrome-c reductase catalytic subunit CYT1
 ORTHOLOGY   K00413  ubiquinol-cytochrome c reductase cytochrome c1 subunit
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00190  Oxidative phosphorylation
             sce01100  Metabolic pathways
 MODULE      sce_M00151  Cytochrome bc1 complex respiratory unit
             sce_M00152  Cytochrome bc1 complex
-CLASS       Metabolism; Energy metabolism; Oxidative phosphorylation [PATH:sce00190]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Energy metabolism
+               00190 Oxidative phosphorylation
+                YOR065W (CYT1)
 POSITION    XV:447439..448368
 MOTIF       Pfam: Cytochrom_C1 Cytochrome_CBB3 Cytochrom_C
-DBLINKS     NCBI-GI: 6324639
+DBLINKS     NCBI-ProteinID: NP_014708
             NCBI-GeneID: 854231
             SGD: S000005591
-            MIPS: YOR065W
             UniProt: P07143
-STRUCTURE   PDB: 3CX5 2IBZ 1KB9 1EZV 3CXH 1P84 1KYO
+STRUCTURE   PDB: 3CX5 2IBZ 1KB9 1EZV 3CXH 1P84 1KYO 4PD4
 AASEQ       309
             MFSNLSKRWAQRTLSKSFYSTATGAASKSGKLTQKLVTAGVAAAGITASTLLYADSLTAE
             AMTAAEHGLHAPAYAWSHNGPFETFDHASIRRGYQVYREVCAACHSLDRVAWRTLVGVSH

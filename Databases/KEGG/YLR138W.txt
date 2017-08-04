@@ -1,14 +1,13 @@
 ENTRY       YLR138W           CDS       T00005
 NAME        NHA1
-DEFINITION  Nha1p
+DEFINITION  (RefSeq) Nha1p
 ORTHOLOGY   K03316  monovalent cation:H+ antiporter, CPA1 family
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XII:418437..421394
-MOTIF       Pfam: Nha1_C Na_H_Exchanger
-DBLINKS     NCBI-GI: 6323167
+MOTIF       Pfam: Na_H_Exchanger Nha1_C
+DBLINKS     NCBI-ProteinID: NP_013239
             NCBI-GeneID: 850829
             SGD: S000004128
-            MIPS: YLR138W
             UniProt: Q99271
 AASEQ       985
             MAIWEQLEVSKAHVAYACVGVFSSIFSLVSLYVKEKLYIGESTVAGIFGLIVGPVCLNWF

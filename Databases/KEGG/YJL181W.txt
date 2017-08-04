@@ -1,11 +1,12 @@
 ENTRY       YJL181W           CDS       T00005
-DEFINITION  hypothetical protein
+NAME        RBH1
+DEFINITION  (RefSeq) hypothetical protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    X:85660..87495
-DBLINKS     NCBI-GI: 6322279
+MOTIF       Pfam: ASFV_360
+DBLINKS     NCBI-ProteinID: NP_012354
             NCBI-GeneID: 853257
             SGD: S000003717
-            MIPS: YJL181W
             UniProt: P46987
 AASEQ       611
             MEIFKEEEEEAFSAIEGIIYACEVYDPVPRHLHKSKTKIINAAKLIIETHLSYYTILNNI

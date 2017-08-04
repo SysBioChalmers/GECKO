@@ -1,13 +1,18 @@
 ENTRY       YEL053C           CDS       T00005
 NAME        MAK10, NAA35
-DEFINITION  Mak10p
+DEFINITION  (RefSeq) Mak10p
+ORTHOLOGY   K20823  N-alpha-acetyltransferase 35, NatC auxiliary subunit
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endosome - Lysosome transport
+              Arf GTPases and associated proteins
+               N-acetyl transferase complex C (NatC)
+                YEL053C (MAK10)
 POSITION    V:complement(53901..56102)
-MOTIF       Pfam: Mak10
-DBLINKS     NCBI-GI: 398364233
+MOTIF       Pfam: Mak10 DUF2489
+DBLINKS     NCBI-ProteinID: NP_010861
             NCBI-GeneID: 856657
             SGD: S000000779
-            MIPS: YEL053C
             UniProt: Q02197
 AASEQ       733
             MEVDSILGSLSITDDFDQLVDVTSLFDELCSKLKPEAIVKDPRFDLFEGTHSLEVNNSKL

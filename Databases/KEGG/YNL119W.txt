@@ -1,16 +1,24 @@
 ENTRY       YNL119W           CDS       T00005
 NAME        NCS2, TUC2
-DEFINITION  Ncs2p
+DEFINITION  (RefSeq) Ncs2p
 ORTHOLOGY   K14169  cytoplasmic tRNA 2-thiolation protein 2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04122  Sulfur relay system
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Sulfur relay system [PATH:sce04122]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04122 Sulfur relay system
+                YNL119W (NCS2)
+            Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              tRNA modification factors
+               Thiolation factors
+                YNL119W (NCS2)
 POSITION    XIV:401040..402521
-MOTIF       Pfam: DUF2392 DUF3510
-DBLINKS     NCBI-GI: 398364777
+MOTIF       Pfam: CTU2 DUF3172 zf-C3HC4_2
+DBLINKS     NCBI-ProteinID: NP_014280
             NCBI-GeneID: 855603
             SGD: S000005063
-            MIPS: YNL119W
             UniProt: P53923
 AASEQ       493
             MECQRCPASARNPATVESRKEKFCDECFIKFVSTKQRKQMMKDEYFRNLFKVIYPFEKEG

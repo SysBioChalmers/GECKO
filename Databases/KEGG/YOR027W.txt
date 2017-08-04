@@ -1,14 +1,17 @@
 ENTRY       YOR027W           CDS       T00005
 NAME        STI1
-DEFINITION  Sti1p
+DEFINITION  (RefSeq) Hsp90 cochaperone STI1
 ORTHOLOGY   K09553  stress-induced-phosphoprotein 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chaperones and folding catalysts [BR:sce03110]
+             Other chaperones and cochaperones
+              Sti1 / p60
+               YOR027W (STI1)
 POSITION    XV:381053..382822
-MOTIF       Pfam: TPR_11 TPR_1 TPR_2 TPR_12 TPR_8 TPR_16 TPR_14 TPR_7 TPR_17 TPR_19 TPR_9 Apc3 DUF3808 TPR_10 TPR_20 XPC-binding
-DBLINKS     NCBI-GI: 6324601
+MOTIF       Pfam: TPR_1 TPR_2 TPR_11 TPR_12 TPR_8 TPR_16 TPR_14 TPR_7 TPR_17 TPR_19 TPR_10 TPR_9 ANAPC3 DUF3808 TPR_20 MAS20 XPC-binding
+DBLINKS     NCBI-ProteinID: NP_014670
             NCBI-GeneID: 854192
             SGD: S000005553
-            MIPS: YOR027W
             UniProt: P15705
 STRUCTURE   PDB: 3UPV 3UQ3 2LLV 2LLW
 AASEQ       589

@@ -1,16 +1,23 @@
 ENTRY       YBR169C           CDS       T00005
 NAME        SSE2
-DEFINITION  Sse2p
+DEFINITION  (RefSeq) adenyl-nucleotide exchange factor SSE2
 ORTHOLOGY   K09485  heat shock protein 110kDa
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04141  Protein processing in endoplasmic reticulum
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Protein processing in endoplasmic reticulum [PATH:sce04141]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04141 Protein processing in endoplasmic reticulum
+                YBR169C (SSE2)
+            Chaperones and folding catalysts [BR:sce03110]
+             Heat shock proteins
+              HSP110
+               YBR169C (SSE2)
 POSITION    II:complement(573915..575996)
-MOTIF       Pfam: HSP70 MreB_Mbl FtsA AHS1 FGGY_C
-DBLINKS     NCBI-GI: 6319646
+MOTIF       Pfam: HSP70 MreB_Mbl FtsA CT_C_D
+DBLINKS     NCBI-ProteinID: NP_009728
             NCBI-GeneID: 852467
             SGD: S000000373
-            MIPS: YBR169C
             UniProt: P32590
 AASEQ       693
             MSTPFGLDLGNNNSVLAVARNRGIDVVVNEVSNRSTPSLVGFGPRNRYLGESGKTKQTSN

@@ -1,13 +1,12 @@
 ENTRY       YLR151C           CDS       T00005
 NAME        PCD1
-DEFINITION  Pcd1p (EC:3.6.1.55)
+DEFINITION  (RefSeq) 8-oxo-dGTP diphosphatase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XII:complement(441715..442737)
 MOTIF       Pfam: NUDIX
-DBLINKS     NCBI-GI: 6323180
+DBLINKS     NCBI-ProteinID: NP_013252
             NCBI-GeneID: 850844
             SGD: S000004141
-            MIPS: YLR151C
             UniProt: Q12524
 AASEQ       340
             MILSQRRMLSSKQLIENLIRYKFHKTPYTRSSIWPFKRNSAVIILLFIGMKGELRVLLTK

@@ -1,13 +1,12 @@
 ENTRY       YCL044C           CDS       T00005
 NAME        MGR1
-DEFINITION  Mgr1p
+DEFINITION  (RefSeq) Mgr1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    III:complement(47111..48364)
-MOTIF       Pfam: Mgr1 EzrA
-DBLINKS     NCBI-GI: 6319805
+MOTIF       Pfam: Mgr1
+DBLINKS     NCBI-ProteinID: NP_009886
             NCBI-GeneID: 850313
             SGD: S000000549
-            MIPS: YCL044C
             UniProt: P25573
 AASEQ       417
             MAVFTPPSGNSNSTDHTHTQDDHDKDDNDIKKFYIRPSLGLKLWGPLVPAPDNLPGLYTL

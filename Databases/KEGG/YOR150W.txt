@@ -1,16 +1,28 @@
 ENTRY       YOR150W           CDS       T00005
 NAME        MRPL23
-DEFINITION  mitochondrial 54S ribosomal protein YmL23
+DEFINITION  (RefSeq) mitochondrial 54S ribosomal protein YmL23
 ORTHOLOGY   K02871  large subunit ribosomal protein L13
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03010  Ribosome
-CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03010 Ribosome
+                YOR150W (MRPL23)
+            Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Mitochondria/ Chloroplast
+               Large subunit
+                YOR150W (MRPL23)
+              Bacteria
+                YOR150W (MRPL23)
+              Archaea
+                YOR150W (MRPL23)
 POSITION    XV:611999..612490
 MOTIF       Pfam: Ribosomal_L13
-DBLINKS     NCBI-GI: 6324724
+DBLINKS     NCBI-ProteinID: NP_014793
             NCBI-GeneID: 854321
             SGD: S000005676
-            MIPS: YOR150W
             UniProt: Q12487
 AASEQ       163
             MSQKIGHSGLAFARLWHHVDVARDKRTLGRLASAIAITLIGRHKPVYHPSQDCGDYVVVT

@@ -1,14 +1,18 @@
 ENTRY       YML123C           CDS       T00005
 NAME        PHO84
-DEFINITION  Pho84p
+DEFINITION  (RefSeq) phosphate transporter PHO84
 ORTHOLOGY   K08176  MFS transporter, PHS family, inorganic phosphate transporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Major Facilitator Superfamily (MFS)
+              Phosphate and organophosphate transporters
+               Phosphate:H+ symporter (PHS) family [TC:2.A.1.9]
+                YML123C (PHO84)
 POSITION    XIII:complement(24037..25800)
-MOTIF       Pfam: Sugar_tr MFS_1 BRI3BP
-DBLINKS     NCBI-GI: 6323512
+MOTIF       Pfam: Sugar_tr MFS_1 DUF5510 FAM178
+DBLINKS     NCBI-ProteinID: NP_013583
             NCBI-GeneID: 854916
             SGD: S000004592
-            MIPS: YML123C
             UniProt: P25297
 AASEQ       587
             MSSVNKDTIHVAERSLHKEHLTEGGNMAFHNHLNDFAHIEDPLERRRLALESIDDEGFGW

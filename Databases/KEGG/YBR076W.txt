@@ -1,13 +1,12 @@
 ENTRY       YBR076W           CDS       T00005
 NAME        ECM8
-DEFINITION  Ecm8p
+DEFINITION  (RefSeq) Ecm8p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    II:390227..391291
-MOTIF       Pfam: DUF4451 Terminase_GpA
-DBLINKS     NCBI-GI: 330443437
+MOTIF       Pfam: DUF4451
+DBLINKS     NCBI-ProteinID: NP_009632
             NCBI-GeneID: 852368
             SGD: S000000280
-            MIPS: YBR076W
             UniProt: P38246
 AASEQ       354
             MDYGYFFPAQRIEETNGVDFWIDSNAEFTQSKRPDSSTSTLSRVLTDTTNVSNNSGSLKR

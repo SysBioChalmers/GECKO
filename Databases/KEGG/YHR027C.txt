@@ -1,18 +1,28 @@
 ENTRY       YHR027C           CDS       T00005
 NAME        RPN1, HRD2, NAS1
-DEFINITION  proteasome regulatory particle base subunit RPN1
+DEFINITION  (RefSeq) proteasome regulatory particle base subunit RPN1
 ORTHOLOGY   K03028  26S proteasome regulatory subunit N1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03050  Proteasome
 MODULE      sce_M00341  Proteasome, 19S regulatory particle (PA700)
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Proteasome [PATH:sce03050]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               03050 Proteasome
+                YHR027C (RPN1)
+            Proteasome [BR:sce03051]
+             Eukaryotic proteasome
+              Regulatory particles
+               PA700 (19S proteasome)
+                non-ATPase subunits
+                 YHR027C (RPN1)
 POSITION    VIII:complement(161730..164711)
-MOTIF       Pfam: PC_rep Pox_VERT_large
-DBLINKS     NCBI-GI: 6321816
+MOTIF       Pfam: PC_rep HEAT_2
+DBLINKS     NCBI-ProteinID: NP_011892
             NCBI-GeneID: 856422
             SGD: S000001069
-            MIPS: YHR027C
             UniProt: P38764
+STRUCTURE   PDB: 5MPD 5MPE 4CR2 4CR4 4CR3 5A5B 2NBW 2N3T 2N3U 2N3V 2N3W
 AASEQ       993
             MVDESDKKQQTIDEQSQISPEKQTPNKKDKKKEEEEQLSEEDAKLKTDLELLVERLKEDD
             SSLYEASLNALKESIKNSTSSMTAVPKPLKFLRPTYPDLCSIYDKWTDPNLKSSLADVLS

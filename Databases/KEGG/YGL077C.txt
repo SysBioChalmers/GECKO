@@ -1,13 +1,17 @@
 ENTRY       YGL077C           CDS       T00005
 NAME        HNM1, CTR1
-DEFINITION  Hnm1p
+DEFINITION  (RefSeq) Hnm1p
+ORTHOLOGY   K19564  choline transport protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Other Transporters
+              Electrochemical potential-driven transporters [TC:2]
+               YGL077C (HNM1)
 POSITION    VII:complement(362225..363916)
 MOTIF       Pfam: AA_permease_2 AA_permease
-DBLINKS     NCBI-GI: 6321361
+DBLINKS     NCBI-ProteinID: NP_011438
             NCBI-GeneID: 852803
             SGD: S000003045
-            MIPS: YGL077C
             UniProt: P19807
 AASEQ       563
             MSIRNDNASGGYMQPDQSSNASMHKRDLRVEEEIKPLDDMDSKGAVAADGEVHLRKSFSL

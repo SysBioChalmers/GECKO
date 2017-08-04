@@ -1,13 +1,12 @@
 ENTRY       YOR148C           CDS       T00005
 NAME        SPP2
-DEFINITION  Spp2p
+DEFINITION  (RefSeq) Spp2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:complement(608640..609197)
-MOTIF       Pfam: G-patch_2 DUF3245
-DBLINKS     NCBI-GI: 6324722
+MOTIF       Pfam: G-patch_2
+DBLINKS     NCBI-ProteinID: NP_014791
             NCBI-GeneID: 854319
             SGD: S000005674
-            MIPS: YOR148C
             UniProt: Q02521
 AASEQ       185
             MSKFSLKLGSKTLKKNISKKTKKKNSLQKANLFDWDDAETASLSHKPQSKIKIQSIDKFD

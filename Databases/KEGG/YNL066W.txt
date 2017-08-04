@@ -1,13 +1,19 @@
 ENTRY       YNL066W           CDS       T00005
 NAME        SUN4, SCW3
-DEFINITION  Sun4p
+DEFINITION  (RefSeq) putative glucosidase SUN4
+ORTHOLOGY   K01238  SUN family beta-glucosidase [EC:3.2.1.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.2  Glycosylases
+               3.2.1  Glycosidases, i.e. enzymes that hydrolyse O- and S-glycosyl compounds
+                3.2.1.-  
+                 YNL066W (SUN4)
 POSITION    XIV:501515..502777
-MOTIF       Pfam: SUN
-DBLINKS     NCBI-GI: 6324263
+MOTIF       Pfam: SUN Macoilin
+DBLINKS     NCBI-ProteinID: NP_014333
             NCBI-GeneID: 855659
             SGD: S000005010
-            MIPS: YNL066W
             UniProt: P53616
 AASEQ       420
             MKLSATTLTAASLIGYSTIVSALPYAADIDTGCTTTAHGSHQHKRAVAVTYVYETVTVDK

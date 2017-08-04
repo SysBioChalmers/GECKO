@@ -1,18 +1,37 @@
 ENTRY       YJL092W           CDS       T00005
 NAME        SRS2, HPR5
-DEFINITION  Srs2p (EC:3.6.4.12)
+DEFINITION  (RefSeq) DNA helicase SRS2
 ORTHOLOGY   K03657  DNA helicase II / ATP-dependent DNA helicase PcrA [EC:3.6.4.12]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03420  Nucleotide excision repair
             sce03430  Mismatch repair
-CLASS       Genetic Information Processing; Replication and repair; Nucleotide excision repair [PATH:sce03420]
-            Genetic Information Processing; Replication and repair; Mismatch repair [PATH:sce03430]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Replication and repair
+               03420 Nucleotide excision repair
+                YJL092W (SRS2)
+               03430 Mismatch repair
+                YJL092W (SRS2)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.4  Acting on acid anhydrides to facilitate cellular and subcellular movement
+                3.6.4.12  DNA helicase
+                 YJL092W (SRS2)
+            DNA repair and recombination proteins [BR:sce03400]
+             Prokaryotic Type
+              SSBR (single strand breaks repair)
+               NER (nucleotide excision repair)
+                GGR (global genome repair) factors
+                 YJL092W (SRS2)
+               MMR (mismatch exicision repair)
+                Other MMR factors
+                 YJL092W (SRS2)
 POSITION    X:257423..260947
-MOTIF       Pfam: UvrD_C UvrD-helicase AAA_19 UvrD_C_2 AAA_30 Helicase_RecD Orthopox_B11R
-DBLINKS     NCBI-GI: 6322369
+MOTIF       Pfam: UvrD-helicase UvrD_C AAA_19 UvrD_C_2 AAA_30 AAA_11 Helicase_RecD TEX12
+DBLINKS     NCBI-ProteinID: NP_012443
             NCBI-GeneID: 853353
             SGD: S000003628
-            MIPS: YJL092W
             UniProt: P12954
 STRUCTURE   PDB: 3V62
 AASEQ       1174

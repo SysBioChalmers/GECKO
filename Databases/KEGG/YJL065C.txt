@@ -1,6 +1,6 @@
 ENTRY       YJL065C           CDS       T00005
 NAME        DLS1
-DEFINITION  Dls1p
+DEFINITION  (RefSeq) Dls1p
 ORTHOLOGY   K03506  DNA polymerase epsilon subunit 4 [EC:2.7.7.7]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00230  Purine metabolism
@@ -9,17 +9,45 @@ PATHWAY     sce00230  Purine metabolism
             sce03030  DNA replication
             sce03410  Base excision repair
             sce03420  Nucleotide excision repair
-CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
-            Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
-            Genetic Information Processing; Replication and repair; DNA replication [PATH:sce03030]
-            Genetic Information Processing; Replication and repair; Base excision repair [PATH:sce03410]
-            Genetic Information Processing; Replication and repair; Nucleotide excision repair [PATH:sce03420]
+MODULE      sce_M00263  DNA polymerase epsilon complex
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Nucleotide metabolism
+               00230 Purine metabolism
+                YJL065C (DLS1)
+               00240 Pyrimidine metabolism
+                YJL065C (DLS1)
+             Genetic Information Processing
+              Replication and repair
+               03030 DNA replication
+                YJL065C (DLS1)
+               03410 Base excision repair
+                YJL065C (DLS1)
+               03420 Nucleotide excision repair
+                YJL065C (DLS1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.7  Nucleotidyltransferases
+                2.7.7.7  DNA-directed DNA polymerase
+                 YJL065C (DLS1)
+            DNA replication proteins [BR:sce03032]
+             Eukaryotic Type
+              DNA Replication Elongation Factors
+               DNA polymerase epsilon complex
+                YJL065C (DLS1)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              SSBR (single strand breaks repair)
+               BER (base exicision repair)
+                Long Patch-BER factors
+                 DNA polymerase epsilon complex
+                  YJL065C (DLS1)
 POSITION    X:complement(315054..315557)
 MOTIF       Pfam: CBFD_NFYB_HMF DUF4411
-DBLINKS     NCBI-GI: 6322397
+DBLINKS     NCBI-ProteinID: NP_012470
             NCBI-GeneID: 853381
             SGD: S000003601
-            MIPS: YJL065C
             UniProt: P40366
 AASEQ       167
             MNNETSGKETASAPLCSPKLPVEKVQRIAKNDPEYMDTSDDAFVATAFATEFFVQVLTHE

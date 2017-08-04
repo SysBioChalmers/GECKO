@@ -1,15 +1,18 @@
 ENTRY       YHR206W           CDS       T00005
 NAME        SKN7, BRY1, POS9
-DEFINITION  Skn7p
+DEFINITION  (RefSeq) kinase-regulated stress-responsive transcription factor SKN7
 ORTHOLOGY   K15859  osomolarity two-component system, response regulator SKN7
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 MODULE      sce_M00516  SLN1-YPD1-SSK1/SKN7 (osmosensing) two-component regulatory system
+BRITE       Two-component system [BR:sce02022]
+             Other families
+              SLN1-YPD1-SSK1/SKN7 [MD:M00516]
+               YHR206W (SKN7)
 POSITION    VIII:512732..514600
-MOTIF       Pfam: HSF_DNA-bind Response_reg Myosin_tail_1
-DBLINKS     NCBI-GI: 398365083
+MOTIF       Pfam: HSF_DNA-bind Response_reg
+DBLINKS     NCBI-ProteinID: NP_012076
             NCBI-GeneID: 856613
             SGD: S000001249
-            MIPS: YHR206W
             UniProt: P38889
 AASEQ       622
             MSFSTINSNVNKTTGDSNNNTTENSSTADLLGMDLLQSGPRLMNTMQPNNSSDMLHINNK

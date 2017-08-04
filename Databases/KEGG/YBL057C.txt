@@ -1,14 +1,25 @@
 ENTRY       YBL057C           CDS       T00005
 NAME        PTH2
-DEFINITION  Pth2p (EC:3.1.1.29)
+DEFINITION  (RefSeq) aminoacyl-tRNA hydrolase
 ORTHOLOGY   K04794  peptidyl-tRNA hydrolase, PTH2 family [EC:3.1.1.29]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.1  Carboxylic-ester hydrolases
+                3.1.1.29  aminoacyl-tRNA hydrolase
+                 YBL057C (PTH2)
+            Translation factors [BR:sce03012]
+             Eukaryotic Type
+              Release factors
+               YBL057C (PTH2)
+             Prokaryotic Type
+               YBL057C (PTH2)
 POSITION    II:complement(112801..113427)
-MOTIF       Pfam: PTH2 FAM176
-DBLINKS     NCBI-GI: 330443413
+MOTIF       Pfam: PTH2 Astro_capsid_p DNA_pol_phi FAM176
+DBLINKS     NCBI-ProteinID: NP_009496
             NCBI-GeneID: 852223
             SGD: S000000153
-            MIPS: YBL057C
             UniProt: P34222
 AASEQ       208
             MEKMTVSSNYTIALWATFTAISFAVGYQLGTSNASSTKKSSATLLRSKEMKEGKLHNDTD

@@ -1,16 +1,28 @@
 ENTRY       YDR041W           CDS       T00005
 NAME        RSM10
-DEFINITION  mitochondrial 37S ribosomal protein RSM10
+DEFINITION  (RefSeq) mitochondrial 37S ribosomal protein RSM10
 ORTHOLOGY   K02946  small subunit ribosomal protein S10
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03010  Ribosome
-CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03010 Ribosome
+                YDR041W (RSM10)
+            Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Mitochondria/ Chloroplast
+               Small subunit
+                YDR041W (RSM10)
+              Bacteria
+                YDR041W (RSM10)
+              Archaea
+                YDR041W (RSM10)
 POSITION    IV:539803..540414
 MOTIF       Pfam: Ribosomal_S10
-DBLINKS     NCBI-GI: 6320246
+DBLINKS     NCBI-ProteinID: NP_010326
             NCBI-GeneID: 851611
             SGD: S000002448
-            MIPS: YDR041W
             UniProt: Q03201
 AASEQ       203
             MLRNTIALRSFIRTQSTRPYPVNVEAVYYAPLKLPIKYGDLVADIQLRSYDNENLDFYSD

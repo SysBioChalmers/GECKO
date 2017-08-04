@@ -1,14 +1,17 @@
 ENTRY       YBR158W           CDS       T00005
 NAME        AMN1, CST13, ICS4
-DEFINITION  Amn1p
+DEFINITION  (RefSeq) Amn1p
 ORTHOLOGY   K15081  antagonist of mitotic exit network protein 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              Check point factors
+               Other check point factors
+                YBR158W (AMN1)
 POSITION    II:556549..558198
-MOTIF       Pfam: LRR_4 LRR_8
-DBLINKS     NCBI-GI: 6319634
+DBLINKS     NCBI-ProteinID: NP_009716
             NCBI-GeneID: 852455
             SGD: S000000362
-            MIPS: YBR158W
             UniProt: P38285
 AASEQ       549
             MKLERVSSNGSFKRGRDIQSLESPCTRPLKKMSPSPSFTSLKMEKPFKDIVRKYGGHLHQ

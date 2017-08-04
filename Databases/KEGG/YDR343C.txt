@@ -1,16 +1,24 @@
 ENTRY       YDR343C           CDS       T00005
 NAME        HXT6
-DEFINITION  Hxt6p
+DEFINITION  (RefSeq) hexose transporter HXT6
 ORTHOLOGY   K08139  MFS transporter, SP family, sugar:H+ symporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04113  Meiosis - yeast
-CLASS       Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04113 Meiosis - yeast
+                YDR343C (HXT6)
+            Transporters [BR:sce02000]
+             Major Facilitator Superfamily (MFS)
+              Sugar transporters
+               Sugar porter (SP) family [TC:2.A.1.1]
+                YDR343C (HXT6)
 POSITION    IV:complement(1159608..1161320)
 MOTIF       Pfam: Sugar_tr MFS_1
-DBLINKS     NCBI-GI: 6320550
+DBLINKS     NCBI-ProteinID: NP_010630
             NCBI-GeneID: 851944
             SGD: S000002751
-            MIPS: YDR343C
             UniProt: P39003
 AASEQ       570
             MSQDAAIAEQTPVEHLSAVDSASHSVLSTPSNKAERDEIKAYGEGEEHEPVVEIPKRPAS

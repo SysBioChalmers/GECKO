@@ -1,18 +1,29 @@
 ENTRY       YKL188C           CDS       T00005
 NAME        PXA2, PAT1
-DEFINITION  ATP-binding cassette long-chain fatty acid transporter PXA2
+DEFINITION  (RefSeq) ATP-binding cassette long-chain fatty acid transporter PXA2
 ORTHOLOGY   K15628  ATP-binding cassette, subfamily D (ALD), peroxisomal long-chain fatty acid import protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce02010  ABC transporters
             sce04146  Peroxisome
-CLASS       Environmental Information Processing; Membrane transport; ABC transporters [PATH:sce02010]
-            Cellular Processes; Transport and catabolism; Peroxisome [PATH:sce04146]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Membrane transport
+               02010 ABC transporters
+                YKL188C (PXA2)
+             Cellular Processes
+              Transport and catabolism
+               04146 Peroxisome
+                YKL188C (PXA2)
+            Transporters [BR:sce02000]
+             ABC Transporters, Eukaryotic Type
+              ABCD (ALD) subfamily
+               Others
+                YKL188C (PXA2)
 POSITION    XI:complement(86225..88786)
-MOTIF       Pfam: ABC_membrane_2 ABC_tran AAA_21 AAA_29 AAA_16 DUF258 AAA_22
-DBLINKS     NCBI-GI: 6322660
+MOTIF       Pfam: ABC_membrane_2 ABC_tran AAA_21 AAA_29 AAA_22 NACHT
+DBLINKS     NCBI-ProteinID: NP_012733
             NCBI-GeneID: 853647
             SGD: S000001671
-            MIPS: YKL188C
             UniProt: P34230
 AASEQ       853
             MISTASAFYQKHRVNLLRSSYIILLLATLYNSNSSSSNNKTDKKDSESTVLENKKIEEGK

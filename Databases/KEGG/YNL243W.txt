@@ -1,14 +1,20 @@
 ENTRY       YNL243W           CDS       T00005
 NAME        SLA2, END4, MOP2
-DEFINITION  Sla2p
+DEFINITION  (RefSeq) Sla2p
+ORTHOLOGY   K20040  huntingtin-interacting protein 1-related protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endocytosis
+              Clathrin-mediated endocytosis
+               Others
+                YNL243W (SLA2)
 POSITION    XIV:188051..190957
-MOTIF       Pfam: ANTH I_LWEQ
-DBLINKS     NCBI-GI: 330443694
+MOTIF       Pfam: ANTH I_LWEQ TFIIA
+DBLINKS     NCBI-ProteinID: NP_014156
             NCBI-GeneID: 855478
             SGD: S000005187
-            MIPS: YNL243W
             UniProt: P33338
+STRUCTURE   PDB: 5AHV
 AASEQ       968
             MSRIDSDLQKALKKACSVEETAPKRKHVRACIVYTWDHQSSKAVFTTLKTLPLANDEVQL
             FKMLIVLHKIIQEGHPSALAEAIRDRDWIRSLGRVHSGGSSYSKLIREYVRYLVLKLDFH

@@ -1,14 +1,31 @@
 ENTRY       YGR101W           CDS       T00005
 NAME        PCP1, MDM37, RBD1
-DEFINITION  Pcp1p (EC:3.4.21.105)
+DEFINITION  (RefSeq) rhomboid protease PCP1
 ORTHOLOGY   K09650  rhomboid-like protein [EC:3.4.21.105]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.4  Acting on peptide bonds (peptidases)
+               3.4.21  Serine endopeptidases
+                3.4.21.105  rhomboid protease
+                 YGR101W (PCP1)
+            Peptidases [BR:sce01002]
+             Serine Peptidases
+              Family S54: Rhomboid family
+               YGR101W (PCP1)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial quality control factors
+              Mitochondrial dynamics
+               Fission and Fusion factors
+                YGR101W (PCP1)
+              Mitophagy factors
+               Parkin-dependent mechanism factors
+                YGR101W (PCP1)
 POSITION    VII:693363..694403
 MOTIF       Pfam: Rhomboid
-DBLINKS     NCBI-GI: 6321538
+DBLINKS     NCBI-ProteinID: NP_011615
             NCBI-GeneID: 852993
             SGD: S000003333
-            MIPS: YGR101W
             UniProt: P53259
 AASEQ       346
             MSGVSSVMLGLRPATRIFFRSNISVSPSRTFVSYIGRSQSTSILKNAPNLEDNVTNLQKI

@@ -1,14 +1,27 @@
 ENTRY       YPR023C           CDS       T00005
 NAME        EAF3
-DEFINITION  Eaf3p
+DEFINITION  (RefSeq) Eaf3p
 ORTHOLOGY   K11339  mortality factor 4-like protein 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Histone modification proteins
+               HAT complexes
+                TIP60 complex
+                 YPR023C (EAF3)
+                NuA4 complex
+                 YPR023C (EAF3)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              DSBR (double strand breaks repair)
+               HR (homologous recombination)
+                Other HR factors
+                 YPR023C (EAF3)
 POSITION    XVI:complement(608826..610031)
 MOTIF       Pfam: MRG Tudor-knot Macoilin
-DBLINKS     NCBI-GI: 6325280
+DBLINKS     NCBI-ProteinID: NP_015348
             NCBI-GeneID: 856134
             SGD: S000006227
-            MIPS: YPR023C
             UniProt: Q12432
 STRUCTURE   PDB: 3E9F 3E9G 2K3X 2K3Y
 AASEQ       401

@@ -1,18 +1,26 @@
 ENTRY       YOL039W           CDS       T00005
 NAME        RPP2A, RPL44, RPLA2
-DEFINITION  ribosomal protein P2A
+DEFINITION  (RefSeq) ribosomal protein P2A
 ORTHOLOGY   K02943  large subunit ribosomal protein LP2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03010  Ribosome
-CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+MODULE      sce_M00177  Ribosome, eukaryotes
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03010 Ribosome
+                YOL039W (RPP2A)
+            Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Eukaryotes
+               Large subunit
+                YOL039W (RPP2A)
 POSITION    XV:254297..254617
 MOTIF       Pfam: Ribosomal_60s Sugar-bind
-DBLINKS     NCBI-GI: 6324534
+DBLINKS     NCBI-ProteinID: NP_014603
             NCBI-GeneID: 854118
             SGD: S000005399
-            MIPS: YOL039W
             UniProt: P05319
-STRUCTURE   PDB: 3IZS
 AASEQ       106
             MKYLAAYLLLNAAGNTPDATKIKAILESVGIEIEDEKVSSVLSALEGKSVDELITEGNEK
             LAAVPAAGPASAGGAAAASGDAAAEEEKEEEAAEESDDDMGFGLFD

@@ -1,16 +1,24 @@
 ENTRY       YOR260W           CDS       T00005
 NAME        GCD1, TRA3
-DEFINITION  Gcd1p
+DEFINITION  (RefSeq) translation initiation factor eIF2B subunit gamma
 ORTHOLOGY   K03241  translation initiation factor eIF-2B subunit gamma
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03013  RNA transport
-CLASS       Genetic Information Processing; Translation; RNA transport [PATH:sce03013]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03013 RNA transport
+                YOR260W (GCD1)
+            Translation factors [BR:sce03012]
+             Eukaryotic Type
+              Initiation factors
+               eIF-2B
+                YOR260W (GCD1)
 POSITION    XV:813984..815720
-MOTIF       Pfam: NTP_transf_3 Fucokinase Hexapep NTP_transferase
-DBLINKS     NCBI-GI: 6324834
+MOTIF       Pfam: NTP_transf_3 Fucokinase Hexapep CTP_transf_3 Hexapep_2 NTP_transferase DUF4332
+DBLINKS     NCBI-ProteinID: NP_014903
             NCBI-GeneID: 854434
             SGD: S000005786
-            MIPS: YOR260W
             UniProt: P09032
 AASEQ       578
             MSIQAFVFCGKGSNLAPFTQPDFPFQTQNKDSTAATSGDKLNELVNSALDSTVINEFMQH

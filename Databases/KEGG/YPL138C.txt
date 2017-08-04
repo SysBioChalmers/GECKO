@@ -1,14 +1,26 @@
 ENTRY       YPL138C           CDS       T00005
 NAME        SPP1, CPS40, SAF41
-DEFINITION  Spp1p
+DEFINITION  (RefSeq) Spp1p
 ORTHOLOGY   K14960  COMPASS component SPP1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription factors [BR:sce03000]
+             Eukaryotic Type
+              Zinc finger
+               Other Cys4 zinc finger factors
+                YPL138C (SPP1)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Histone modification proteins
+               HMT complexes
+                COMPASS/SET1 complex
+                 YPL138C (SPP1)
+                COMPASS/SET1 complex (yeast)
+                 YPL138C (SPP1)
 POSITION    XVI:complement(291366..292427)
-MOTIF       Pfam: PHD LIF_OSM
-DBLINKS     NCBI-GI: 6325119
+MOTIF       Pfam: PHD LIF_OSM DASH_Spc34
+DBLINKS     NCBI-ProteinID: NP_015187
             NCBI-GeneID: 855965
             SGD: S000006059
-            MIPS: YPL138C
             UniProt: Q03012
 AASEQ       353
             MSLPQWCPPHSTLKRNPTTGEDVYCICKRPDYGELMVGCDGCDDWFHFTCLHIPEQFKDL

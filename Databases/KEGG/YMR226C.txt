@@ -1,16 +1,31 @@
 ENTRY       YMR226C           CDS       T00005
-DEFINITION  oxidoreductase (EC:1.-.-.-)
-ORTHOLOGY   K16066  malonic semialdehyde reductase [EC:1.1.1.-]
+DEFINITION  (RefSeq) oxidoreductase
+ORTHOLOGY   K16066  3-hydroxy acid dehydrogenase / malonic semialdehyde reductase [EC:1.1.1.381 1.1.1.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00240  Pyrimidine metabolism
+            sce00260  Glycine, serine and threonine metabolism
             sce01100  Metabolic pathways
-CLASS       Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Nucleotide metabolism
+               00240 Pyrimidine metabolism
+                YMR226C
+              Amino acid metabolism
+               00260 Glycine, serine and threonine metabolism
+                YMR226C
+            Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.1  Acting on the CH-OH group of donors
+               1.1.1  With NAD+ or NADP+ as acceptor
+                1.1.1.381  3-hydroxy acid dehydrogenase
+                 YMR226C
+                1.1.1.-  
+                 YMR226C
 POSITION    XIII:complement(721593..722396)
-MOTIF       Pfam: adh_short adh_short_C2 KR Eno-Rase_NADH_b Epimerase Saccharop_dh DUF1776 Polysacc_synt_2 NAD_binding_10 UBA_4 MreB_Mbl Shikimate_DH DUF4164
-DBLINKS     NCBI-GI: 6323882
+MOTIF       Pfam: adh_short adh_short_C2 KR Sacchrp_dh_NADP Polysacc_synt_2 DUF1776 UBA_4 MreB_Mbl DinI NAD_binding_10 Eno-Rase_NADH_b
+DBLINKS     NCBI-ProteinID: NP_013953
             NCBI-GeneID: 855266
             SGD: S000004839
-            MIPS: YMR226C
             UniProt: Q05016
 STRUCTURE   PDB: 3RKU
 AASEQ       267

@@ -1,11 +1,12 @@
 ENTRY       YLL007C           CDS       T00005
-DEFINITION  hypothetical protein
+NAME        LMO1
+DEFINITION  (RefSeq) Lmo1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XII:complement(134302..136299)
-DBLINKS     NCBI-GI: 6323022
+MOTIF       Pfam: PH_12
+DBLINKS     NCBI-ProteinID: NP_013094
             NCBI-GeneID: 850653
             SGD: S000003930
-            MIPS: YLL007C
             UniProt: Q07799
 AASEQ       665
             MKHNRQMPDESLENIKVLLNPKLGKPVKSLTSAQSKACYHTLISNKNLNKTSDEYEKLLA

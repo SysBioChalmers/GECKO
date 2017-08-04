@@ -1,13 +1,12 @@
 ENTRY       YIL130W           CDS       T00005
 NAME        ASG1
-DEFINITION  Asg1p
+DEFINITION  (RefSeq) Asg1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IX:102782..105676
 MOTIF       Pfam: Fungal_trans Zn_clus
-DBLINKS     NCBI-GI: 6322061
+DBLINKS     NCBI-ProteinID: NP_012136
             NCBI-GeneID: 854676
             SGD: S000001392
-            MIPS: YIL130W
             UniProt: P40467
 AASEQ       964
             MPEQAQQGEQSVKRRRVTRACDECRKKKVKCDGQQPCIHCTVYSYECTYKKPTKRTQNSG

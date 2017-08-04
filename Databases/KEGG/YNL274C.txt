@@ -1,13 +1,12 @@
 ENTRY       YNL274C           CDS       T00005
 NAME        GOR1
-DEFINITION  Gor1p (EC:1.1.1.26)
+DEFINITION  (RefSeq) glyoxylate reductase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIV:complement(121118..122170)
-MOTIF       Pfam: 2-Hacid_dh_C 2-Hacid_dh NAD_binding_2 IlvN AlaDh_PNT_C Gp_dh_N
-DBLINKS     NCBI-GI: 6324055
+MOTIF       Pfam: 2-Hacid_dh_C 2-Hacid_dh IlvN NAD_binding_2 AlaDh_PNT_C Gp_dh_N
+DBLINKS     NCBI-ProteinID: NP_014125
             NCBI-GeneID: 855447
             SGD: S000005218
-            MIPS: YNL274C
             UniProt: P53839
 AASEQ       350
             MSKKPIVLKLGKDAFGDQAWGELEKIADVITIPESTTREQFLREVKDPQNKLSQVQVITR

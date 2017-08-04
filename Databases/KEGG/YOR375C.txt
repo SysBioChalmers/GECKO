@@ -1,21 +1,33 @@
 ENTRY       YOR375C           CDS       T00005
 NAME        GDH1, DHE4, URE1
-DEFINITION  glutamate dehydrogenase (NADP(+)) GDH1 (EC:1.4.1.4)
+DEFINITION  (RefSeq) glutamate dehydrogenase (NADP(+)) GDH1
 ORTHOLOGY   K00262  glutamate dehydrogenase (NADP+) [EC:1.4.1.4]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
-PATHWAY     sce00250  Alanine, aspartate and glutamate metabolism
-            sce00330  Arginine and proline metabolism
+PATHWAY     sce00220  Arginine biosynthesis
+            sce00250  Alanine, aspartate and glutamate metabolism
             sce00910  Nitrogen metabolism
             sce01100  Metabolic pathways
-CLASS       Metabolism; Energy metabolism; Nitrogen metabolism [PATH:sce00910]
-            Metabolism; Amino acid metabolism; Alanine, aspartate and glutamate metabolism [PATH:sce00250]
-            Metabolism; Amino acid metabolism; Arginine and proline metabolism [PATH:sce00330]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Energy metabolism
+               00910 Nitrogen metabolism
+                YOR375C (GDH1)
+              Amino acid metabolism
+               00250 Alanine, aspartate and glutamate metabolism
+                YOR375C (GDH1)
+               00220 Arginine biosynthesis
+                YOR375C (GDH1)
+            Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.4  Acting on the CH-NH2 group of donors
+               1.4.1  With NAD+ or NADP+ as acceptor
+                1.4.1.4  glutamate dehydrogenase (NADP+)
+                 YOR375C (GDH1)
 POSITION    XV:complement(1041678..1043042)
-MOTIF       Pfam: ELFV_dehydrog ELFV_dehydrog_N NAD_binding_7
-DBLINKS     NCBI-GI: 398366421
+MOTIF       Pfam: ELFV_dehydrog ELFV_dehydrog_N NAD_binding_7 Coat_F
+DBLINKS     NCBI-ProteinID: NP_015020
             NCBI-GeneID: 854557
             SGD: S000005902
-            MIPS: YOR375C
             UniProt: P07262
 AASEQ       454
             MSEPEFQQAYEEVVSSLEDSTLFEQHPEYRKVLPIVSVPERIIQFRVTWENDKGEQEVAQ

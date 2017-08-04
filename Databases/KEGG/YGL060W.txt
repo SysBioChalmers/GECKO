@@ -1,13 +1,12 @@
 ENTRY       YGL060W           CDS       T00005
 NAME        YBP2, YBH1
-DEFINITION  Ybp2p
+DEFINITION  (RefSeq) Ybp2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:390065..391990
-MOTIF       Pfam: Kinetochor_Ybp2 Rhabdo_ncap_2 AMMECR1 Toxin_64
-DBLINKS     NCBI-GI: 6321378
+MOTIF       Pfam: Kinetochor_Ybp2
+DBLINKS     NCBI-ProteinID: NP_011455
             NCBI-GeneID: 852820
             SGD: S000003028
-            MIPS: YGL060W
             UniProt: P53169
 AASEQ       641
             MYNEQVNSGKSIKEKERYLDALLKILKDNPVTLKEIGWDLPKGLLQFFSRKNINVNIHLV

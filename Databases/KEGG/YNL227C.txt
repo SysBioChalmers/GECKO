@@ -1,14 +1,22 @@
 ENTRY       YNL227C           CDS       T00005
 NAME        JJJ1
-DEFINITION  Jjj1p
+DEFINITION  (RefSeq) Jjj1p
 ORTHOLOGY   K09506  DnaJ homolog subfamily A member 5
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               Export and cytoplasmic maturation factors
+                YNL227C (JJJ1)
+            Chaperones and folding catalysts [BR:sce03110]
+             Heat shock proteins
+              HSP40 / DNAJ
+               YNL227C (JJJ1)
 POSITION    XIV:complement(220659..222431)
-MOTIF       Pfam: DnaJ zf-C2H2_jaz zf-C2H2 zf-C2H2_2 zf-met zf-C2H2_4 zf-C2H2_6
-DBLINKS     NCBI-GI: 6324103
+MOTIF       Pfam: DnaJ zf-C2H2_jaz zf-C2H2_4 zf-C2H2 zf-C2H2_2 zf-met zf-C2H2_6
+DBLINKS     NCBI-ProteinID: NP_014172
             NCBI-GeneID: 855495
             SGD: S000005171
-            MIPS: YNL227C
             UniProt: P53863
 AASEQ       590
             MKTCYYELLGVETHASDLELKKAYRKKALQYHPDKNPDNVEEATQKFAVIRAAYEVLSDP

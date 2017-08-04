@@ -1,16 +1,24 @@
 ENTRY       YDR324C           CDS       T00005
 NAME        UTP4
-DEFINITION  Utp4p
+DEFINITION  (RefSeq) Utp4p
 ORTHOLOGY   K14548  U3 small nucleolar RNA-associated protein 4
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03008  Ribosome biogenesis in eukaryotes
-CLASS       Genetic Information Processing; Translation; Ribosome biogenesis in eukaryotes [PATH:sce03008]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03008 Ribosome biogenesis in eukaryotes
+                YDR324C (UTP4)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              90S particles
+               U3 small nucleolar RNA-associated proteins
+                YDR324C (UTP4)
 POSITION    IV:complement(1114433..1116763)
-MOTIF       Pfam: WD40 SURF2
-DBLINKS     NCBI-GI: 398366489
+MOTIF       Pfam: WD40 ANAPC4_WD40
+DBLINKS     NCBI-ProteinID: NP_010611
             NCBI-GeneID: 851924
             SGD: S000002732
-            MIPS: YDR324C
             UniProt: Q06679
 AASEQ       776
             MSSSLLSVLKEKSRSLKIRNKPVKMTSQERMIVHRCRFVDFTPATITSLAFSHKSNINKL

@@ -1,14 +1,17 @@
 ENTRY       YEL063C           CDS       T00005
 NAME        CAN1
-DEFINITION  Can1p
+DEFINITION  (RefSeq) arginine permease CAN1
 ORTHOLOGY   K16261  yeast amino acid transporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Other Transporters
+              Electrochemical potential-driven transporters [TC:2]
+               YEL063C (CAN1)
 POSITION    V:complement(31694..33466)
 MOTIF       Pfam: AA_permease AA_permease_2
-DBLINKS     NCBI-GI: 6320772
+DBLINKS     NCBI-ProteinID: NP_010851
             NCBI-GeneID: 856646
             SGD: S000000789
-            MIPS: YEL063C
             UniProt: P04817
 AASEQ       590
             MTNSKEDADIEEKHMYNEPVTTLFHDVEASQTHHRRGSIPLKDEKSKELYPLRSFPTRVN

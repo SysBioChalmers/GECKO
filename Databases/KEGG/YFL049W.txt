@@ -1,14 +1,24 @@
 ENTRY       YFL049W           CDS       T00005
 NAME        SWP82
-DEFINITION  Swp82p
+DEFINITION  (RefSeq) Swp82p
 ORTHOLOGY   K11776  SWI/SNF complex component SWP82
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Coactivators
+                SWI/SNF complex
+                 YFL049W (SWP82)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Chromatin remodeling factors
+               SWI/SNF complex
+                YFL049W (SWP82)
 POSITION    VI:36803..38674
 MOTIF       Pfam: CRC_subunit
-DBLINKS     NCBI-GI: 14318470
+DBLINKS     NCBI-ProteinID: NP_116605
             NCBI-GeneID: 850495
             SGD: S000001845
-            MIPS: YFL049W
             UniProt: P43554
 AASEQ       623
             MLGEDEGNTVLEKGNNPSVKQGEVGAVFIVPKILIREHERVILKQILQILDQDELVQPPL

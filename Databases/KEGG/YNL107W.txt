@@ -1,14 +1,26 @@
 ENTRY       YNL107W           CDS       T00005
 NAME        YAF9
-DEFINITION  Yaf9p
+DEFINITION  (RefSeq) Yaf9p
 ORTHOLOGY   K11341  YEATS domain-containing protein 4
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Histone modification proteins
+               HAT complexes
+                TIP60 complex
+                 YNL107W (YAF9)
+                NuA4 complex
+                 YNL107W (YAF9)
+              Chromatin remodeling factors
+               SRCAP complex
+                YNL107W (YAF9)
+               SWR1 complex
+                YNL107W (YAF9)
 POSITION    XIV:420098..420778
 MOTIF       Pfam: YEATS Osmo_CC
-DBLINKS     NCBI-GI: 398364823
+DBLINKS     NCBI-ProteinID: NP_014292
             NCBI-GeneID: 855616
             SGD: S000005051
-            MIPS: YNL107W
             UniProt: P53930
 STRUCTURE   PDB: 3RLS 3FK3
 AASEQ       226

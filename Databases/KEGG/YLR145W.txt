@@ -1,15 +1,24 @@
 ENTRY       YLR145W           CDS       T00005
 NAME        RMP1
-DEFINITION  Rmp1p
+DEFINITION  (RefSeq) Rmp1p
 ORTHOLOGY   K14532  ribonuclease MRP protein subunit RMP1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03008  Ribosome biogenesis in eukaryotes
-CLASS       Genetic Information Processing; Translation; Ribosome biogenesis in eukaryotes [PATH:sce03008]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03008 Ribosome biogenesis in eukaryotes
+                YLR145W (RMP1)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               RNases
+                RNase MRP
+                 YLR145W (RMP1)
 POSITION    XII:432168..432773
-DBLINKS     NCBI-GI: 6323174
+DBLINKS     NCBI-ProteinID: NP_013246
             NCBI-GeneID: 850837
             SGD: S000004135
-            MIPS: YLR145W
             UniProt: Q12530
 AASEQ       201
             MDEMDNVIRSLEQEYRLILLLNHRNKNQHRAASWYGSFNEMKRNCGQIITLFSSRRLQAK

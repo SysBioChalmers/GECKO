@@ -1,13 +1,12 @@
 ENTRY       YML101C           CDS       T00005
 NAME        CUE4
-DEFINITION  Cue4p
+DEFINITION  (RefSeq) Cue4p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:complement(69735..70088)
 MOTIF       Pfam: CUE
-DBLINKS     NCBI-GI: 6323536
+DBLINKS     NCBI-ProteinID: NP_013607
             NCBI-GeneID: 854871
             SGD: S000004568
-            MIPS: YML101C
             UniProt: Q04201
 AASEQ       117
             MDGSTIVFILTMVCLFVYTVKHRGAKQVPSRTVQDAKPAPSVATNDPSPEPVPSAPEERV

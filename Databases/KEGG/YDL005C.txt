@@ -1,14 +1,19 @@
 ENTRY       YDL005C           CDS       T00005
 NAME        MED2
-DEFINITION  Med2p
+DEFINITION  (RefSeq) Med2p
 ORTHOLOGY   K15154  mediator of RNA polymerase II transcription subunit 2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Mediator complex
+                Tail
+                 YDL005C (MED2)
 POSITION    IV:complement(441014..442309)
-MOTIF       Pfam: Med2
-DBLINKS     NCBI-GI: 398364901
+MOTIF       Pfam: Med2 DUF1510
+DBLINKS     NCBI-ProteinID: NP_010279
             NCBI-GeneID: 851559
             SGD: S000002163
-            MIPS: YDL005C
             UniProt: Q12124
 AASEQ       431
             MVVQNSPVSSVHTANFSERGSNTRTMTYKNKLTVCFDDILKVGAEMMMQQQLKNVQLDSY

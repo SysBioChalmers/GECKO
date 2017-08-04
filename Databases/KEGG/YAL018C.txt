@@ -1,11 +1,12 @@
 ENTRY       YAL018C           CDS       T00005
-DEFINITION  hypothetical protein
+NAME        LDS1
+DEFINITION  (RefSeq) Lds1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    I:complement(118564..119541)
-DBLINKS     NCBI-GI: 6319301
+MOTIF       Pfam: EI24
+DBLINKS     NCBI-ProteinID: NP_009384
             NCBI-GeneID: 851215
             SGD: S000000016
-            MIPS: YAL018C
             UniProt: P31379
 AASEQ       325
             MSFTGSLALAGIGGLVYKFGGGQSYEKLPYVNIPFNQYLDKVYKKHFSKVMSRTRYVLMN

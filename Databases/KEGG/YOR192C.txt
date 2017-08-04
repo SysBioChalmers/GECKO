@@ -1,13 +1,12 @@
 ENTRY       YOR192C           CDS       T00005
 NAME        THI72
-DEFINITION  Thi72p
+DEFINITION  (RefSeq) thiamine transporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:complement(698768..700567)
-MOTIF       Pfam: Transp_cyt_pur SPC25
-DBLINKS     NCBI-GI: 398365675
+MOTIF       Pfam: Transp_cyt_pur SPC25 FliW
+DBLINKS     NCBI-ProteinID: NP_014835
             NCBI-GeneID: 854364
             SGD: S000005718
-            MIPS: YOR192C
             UniProt: Q08579
 AASEQ       599
             MSFGTRISRALRFLEIPVKNRASVNFLRNPDLQPIKSVNQTWGFWSNFAYWGVLSFNVGM

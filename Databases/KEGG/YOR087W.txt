@@ -1,13 +1,12 @@
 ENTRY       YOR087W           CDS       T00005
 NAME        YVC1, YOR088W
-DEFINITION  Yvc1p
+DEFINITION  (RefSeq) Yvc1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:487707..489734
-MOTIF       Pfam: Ion_trans
-DBLINKS     NCBI-GI: 27808717
+MOTIF       Pfam: Ion_trans Carb_bind
+DBLINKS     NCBI-ProteinID: NP_014730
             NCBI-GeneID: 854255
             SGD: S000005613
-            MIPS: YOR087W
             UniProt: Q12324
 AASEQ       675
             MVSANGDLHLPISNEQCMPENNGSLGFEAPTPRQILRVTLNLKYLIDKVVPIVYDPNDIV

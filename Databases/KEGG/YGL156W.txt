@@ -1,17 +1,27 @@
 ENTRY       YGL156W           CDS       T00005
 NAME        AMS1
-DEFINITION  Ams1p (EC:3.2.1.24)
+DEFINITION  (RefSeq) alpha-mannosidase
 ORTHOLOGY   K01191  alpha-mannosidase [EC:3.2.1.24]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00511  Other glycan degradation
-CLASS       Metabolism; Glycan biosynthesis and metabolism; Other glycan degradation [PATH:sce00511]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Glycan biosynthesis and metabolism
+               00511 Other glycan degradation
+                YGL156W (AMS1)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.2  Glycosylases
+               3.2.1  Glycosidases, i.e. enzymes that hydrolyse O- and S-glycosyl compounds
+                3.2.1.24  alpha-mannosidase
+                 YGL156W (AMS1)
 POSITION    VII:210416..213667
-MOTIF       Pfam: Glyco_hydro_38 Glyco_hydro_38C Alpha-mann_mid
-DBLINKS     NCBI-GI: 6321282
+MOTIF       Pfam: Glyco_hydro_38 Glyco_hydro_38C Alpha-mann_mid FBA
+DBLINKS     NCBI-ProteinID: NP_011359
             NCBI-GeneID: 852721
             SGD: S000003124
-            MIPS: YGL156W
             UniProt: P22855
+STRUCTURE   PDB: 5JM0
 AASEQ       1083
             MSSEDIIYDPQFKPVQGIYENRLRQFIDTGGDYHDLNLPKFYDKKRISLDHDHVKVWWYQ
             VSFERGSSPVSPDKRPSWKSIIERDKKGELEFREANINQPFGPSWSTTWFKVKISLPEDW

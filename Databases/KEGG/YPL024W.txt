@@ -1,13 +1,21 @@
 ENTRY       YPL024W           CDS       T00005
 NAME        RMI1, NCE4
-DEFINITION  Rmi1p
+DEFINITION  (RefSeq) Rmi1p
 ORTHOLOGY   K15364  RecQ-mediated genome instability protein 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              DSBR (double strand breaks repair)
+               HR (homologous recombination)
+                Bloom's syndrome complex (BTR)
+                 YPL024W (RMI1)
+               FA (Fanconi anemia) pathway
+                 YPL024W (RMI1)
 POSITION    XVI:503517..504242
-DBLINKS     NCBI-GI: 6325233
+MOTIF       Pfam: RMI1_N
+DBLINKS     NCBI-ProteinID: NP_015301
             NCBI-GeneID: 856083
             SGD: S000005945
-            MIPS: YPL024W
             UniProt: Q02685
 AASEQ       241
             MSFSSILSQDITDDITPPAYSATLGSREQIVFRAYQNEPWLAGTASNLILDKKLVIVDRE

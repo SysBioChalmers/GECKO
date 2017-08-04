@@ -1,14 +1,17 @@
 ENTRY       YKR039W           CDS       T00005
 NAME        GAP1
-DEFINITION  Gap1p
+DEFINITION  (RefSeq) amino acid permease GAP1
 ORTHOLOGY   K16261  yeast amino acid transporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Other Transporters
+              Electrochemical potential-driven transporters [TC:2]
+               YKR039W (GAP1)
 POSITION    XI:515063..516871
 MOTIF       Pfam: AA_permease AA_permease_2
-DBLINKS     NCBI-GI: 398365093
+DBLINKS     NCBI-ProteinID: NP_012965
             NCBI-GeneID: 853912
             SGD: S000001747
-            MIPS: YKR039W
             UniProt: P19145
 AASEQ       602
             MSNTSSYEKNNPDNLKHNGITIDSEFLTQEPITIPSNGSAVSIDETGSGSKWQDFKDSFK

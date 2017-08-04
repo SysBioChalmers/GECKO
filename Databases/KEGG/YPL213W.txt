@@ -1,17 +1,31 @@
 ENTRY       YPL213W           CDS       T00005
 NAME        LEA1
-DEFINITION  Lea1p
+DEFINITION  (RefSeq) U2 snRNP complex subunit LEA1
 ORTHOLOGY   K11092  U2 small nuclear ribonucleoprotein A'
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03040  Spliceosome
-CLASS       Genetic Information Processing; Transcription; Spliceosome [PATH:sce03040]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03040 Spliceosome
+                YPL213W (LEA1)
+            Spliceosome [BR:sce03041]
+             Complex A
+              U2 snRNP components
+               U2 snRNP specific factors
+                YPL213W (LEA1)
+             Complex B
+                YPL213W (LEA1)
+             Complex C
+               U2 SnRNP specific factors
+                YPL213W (LEA1)
 POSITION    XVI:150614..151330
-MOTIF       Pfam: LRR_9 LRR_4 PDGF_N
-DBLINKS     NCBI-GI: 6325043
+MOTIF       Pfam: LRR_9 LRR_8
+DBLINKS     NCBI-ProteinID: NP_015111
             NCBI-GeneID: 855888
             SGD: S000006134
-            MIPS: YPL213W
             UniProt: Q08963
+STRUCTURE   PDB: 5GMK 5LJ3 5LJ5 5WSG 5MQ0
 AASEQ       238
             MKFTPSIVIDAPQYYVDHFNGKYNVDKCVILRDLQLETDSESMPSSLKHLTKPTHILDLT
             NNDLIMIPDLSRRDDIHTLLLGRNNIVEVDGRLLPMNVQNLTLSNNSIRRFEDLQRLRRA

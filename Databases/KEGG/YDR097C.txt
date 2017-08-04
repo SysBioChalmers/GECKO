@@ -1,16 +1,25 @@
 ENTRY       YDR097C           CDS       T00005
-NAME        MSH6, PMS3
-DEFINITION  mismatch repair ATPase MSH6
+NAME        MSH6, PMS3, PMS6
+DEFINITION  (RefSeq) mismatch repair ATPase MSH6
 ORTHOLOGY   K08737  DNA mismatch repair protein MSH6
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03430  Mismatch repair
-CLASS       Genetic Information Processing; Replication and repair; Mismatch repair [PATH:sce03430]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Replication and repair
+               03430 Mismatch repair
+                YDR097C (MSH6)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              SSBR (single strand breaks repair)
+               MMR (mismatch exicision repair)
+                Mismatch and loop recognition factors
+                 YDR097C (MSH6)
 POSITION    IV:complement(640109..643837)
-MOTIF       Pfam: MutS_V MutS_III MutS_I MutS_IV MutS_II AAA_29
-DBLINKS     NCBI-GI: 398365559
+MOTIF       Pfam: MutS_V MutS_III MutS_I MutS_IV MutS_II AAA_29 AAA_27 Zeta_toxin AAA_23
+DBLINKS     NCBI-ProteinID: NP_010382
             NCBI-GeneID: 851671
             SGD: S000002504
-            MIPS: YDR097C
             UniProt: Q03834
 AASEQ       1242
             MAPATPKTSKTAHFENGSTSSQKKMKQSSLLSFFSKQVPSGTPSKKVQKPTPATLENTAT

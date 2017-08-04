@@ -1,20 +1,30 @@
 ENTRY       YOL052C           CDS       T00005
 NAME        SPE2
-DEFINITION  adenosylmethionine decarboxylase SPE2 (EC:4.1.1.50)
+DEFINITION  (RefSeq) adenosylmethionine decarboxylase SPE2
 ORTHOLOGY   K01611  S-adenosylmethionine decarboxylase [EC:4.1.1.50]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00270  Cysteine and methionine metabolism
             sce00330  Arginine and proline metabolism
             sce01100  Metabolic pathways
 MODULE      sce_M00034  Methionine salvage pathway
-CLASS       Metabolism; Amino acid metabolism; Cysteine and methionine metabolism [PATH:sce00270]
-            Metabolism; Amino acid metabolism; Arginine and proline metabolism [PATH:sce00330]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Amino acid metabolism
+               00270 Cysteine and methionine metabolism
+                YOL052C (SPE2)
+               00330 Arginine and proline metabolism
+                YOL052C (SPE2)
+            Enzymes [BR:sce01000]
+             4. Lyases
+              4.1  Carbon-carbon lyases
+               4.1.1  Carboxy-lyases
+                4.1.1.50  adenosylmethionine decarboxylase
+                 YOL052C (SPE2)
 POSITION    XV:complement(232446..233636)
 MOTIF       Pfam: SAM_decarbox
-DBLINKS     NCBI-GI: 6324521
+DBLINKS     NCBI-ProteinID: NP_014590
             NCBI-GeneID: 854105
             SGD: S000005412
-            MIPS: YOL052C
             UniProt: P21182
 AASEQ       396
             MTVTIKELTNHNYIDHELSATLDSTDAFEGPEKLLEIWFFPHKKSITTEKTLRNIGMDRW

@@ -1,18 +1,31 @@
 ENTRY       YFL044C           CDS       T00005
 NAME        OTU1
-DEFINITION  Otu1p (EC:3.4.19.12)
+DEFINITION  (RefSeq) ubiquitin-specific protease OTU1
 ORTHOLOGY   K13719  ubiquitin thioesterase OTU1 [EC:3.1.2.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04141  Protein processing in endoplasmic reticulum
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Protein processing in endoplasmic reticulum [PATH:sce04141]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04141 Protein processing in endoplasmic reticulum
+                YFL044C (OTU1)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.2  Thioester hydrolases
+                3.1.2.-  
+                 YFL044C (OTU1)
+            Peptidases [BR:sce01002]
+             Cysteine Peptidases
+              Family C88
+               YFL044C (OTU1)
 POSITION    VI:complement(44655..45560)
-MOTIF       Pfam: OTU Flagellin_IN
-DBLINKS     NCBI-GI: 14318475
+MOTIF       Pfam: OTU Flagellin_IN FeoA
+DBLINKS     NCBI-ProteinID: NP_116610
             NCBI-GeneID: 850500
             SGD: S000001850
-            MIPS: YFL044C
             UniProt: P43558
-STRUCTURE   PDB: 3BY4 3C0R
+STRUCTURE   PDB: 3BY4 4KDL 4KDI 3C0R
 AASEQ       301
             MKLKVTGAGINQVVTLKQDATLNDLIEHINVDVKTMRFGYPPQRINLQGEDASLGQTQLD
             ELGINSGEKITIESSDSNESFSLPPPQPKPKRVLKSTEMSIGGSGENVLSVHPVLDDNSC

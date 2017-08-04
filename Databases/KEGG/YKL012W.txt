@@ -1,16 +1,26 @@
 ENTRY       YKL012W           CDS       T00005
 NAME        PRP40
-DEFINITION  Prp40p
+DEFINITION  (RefSeq) Prp40p
 ORTHOLOGY   K12821  pre-mRNA-processing factor 40
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03040  Spliceosome
-CLASS       Genetic Information Processing; Transcription; Spliceosome [PATH:sce03040]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03040 Spliceosome
+                YKL012W (PRP40)
+            Spliceosome [BR:sce03041]
+             Complex A
+              U1 snRNP components
+               U1 related factors
+                YKL012W (PRP40)
+             Complex B
+                YKL012W (PRP40)
 POSITION    XI:418310..420061
-MOTIF       Pfam: FF WW
-DBLINKS     NCBI-GI: 398364759
+MOTIF       Pfam: FF WW Glyco_hyd_101C
+DBLINKS     NCBI-ProteinID: NP_012913
             NCBI-GeneID: 853857
             SGD: S000001495
-            MIPS: YKL012W
             UniProt: P33203
 STRUCTURE   PDB: 2KFD 2B7E 1O6W
 AASEQ       583

@@ -1,14 +1,14 @@
 ENTRY       YCL011C           CDS       T00005
 NAME        GBP2, RLF6
-DEFINITION  Gbp2p
+DEFINITION  (RefSeq) single-stranded telomeric DNA-binding/mRNA-binding protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    III:complement(102075..103358)
-MOTIF       Pfam: RRM_1 RRM_6 RRM_5
-DBLINKS     NCBI-GI: 6319835
+MOTIF       Pfam: RRM_1
+DBLINKS     NCBI-ProteinID: NP_009916
             NCBI-GeneID: 850346
             SGD: S000000517
-            MIPS: YCL011C
             UniProt: P25555
+STRUCTURE   PDB: 2MZQ
 AASEQ       427
             MERELGMYGNDRSRSRSPVRRRLSDDRDRYDDYNDSSSNNGNGSRRQRRDRGSRFNDRYD
             QSYGGSRYHDDRNWPPRRGGRGRGGSRSFRGGRGGGRGRTLGPIVERDLERQFDATKRNF

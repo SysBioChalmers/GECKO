@@ -1,17 +1,20 @@
 ENTRY       YCL052C           CDS       T00005
 NAME        PBN1
-DEFINITION  Pbn1p
+DEFINITION  (RefSeq) Pbn1p
 ORTHOLOGY   K07541  phosphatidylinositol glycan, class X
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
-PATHWAY     sce00563  Glycosylphosphatidylinositol(GPI)-anchor biosynthesis
+PATHWAY     sce00563  Glycosylphosphatidylinositol (GPI)-anchor biosynthesis
             sce01100  Metabolic pathways
-CLASS       Metabolism; Glycan biosynthesis and metabolism; Glycosylphosphatidylinositol(GPI)-anchor biosynthesis [PATH:sce00563]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Glycan biosynthesis and metabolism
+               00563 Glycosylphosphatidylinositol(GPI)-anchor biosynthesis
+                YCL052C (PBN1)
 POSITION    III:complement(34143..35393)
 MOTIF       Pfam: PIG-X
-DBLINKS     NCBI-GI: 6319797
+DBLINKS     NCBI-ProteinID: NP_009878
             NCBI-GeneID: 850305
             SGD: S000000557
-            MIPS: YCL052C
             UniProt: P25580
 AASEQ       416
             MVTRHRVTVLYNAPEDIGNHMRQNDTHLTVRGGSGVVLQQRWLLERTGSLDKSFTRITWR

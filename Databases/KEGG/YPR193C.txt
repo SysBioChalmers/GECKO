@@ -1,13 +1,25 @@
 ENTRY       YPR193C           CDS       T00005
-NAME        HPA2
-DEFINITION  Hpa2p (EC:2.3.1.48)
+NAME        HPA2, KAT10
+DEFINITION  (RefSeq) histone acetyltransferase
+ORTHOLOGY   K18852  D-amino-acid N-acetyltransferase [EC:2.3.1.36]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00360  Phenylalanine metabolism
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Amino acid metabolism
+               00360 Phenylalanine metabolism
+                YPR193C (HPA2)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.3  Acyltransferases
+               2.3.1  Transferring groups other than aminoacyl groups
+                2.3.1.36  D-amino-acid N-acetyltransferase
+                 YPR193C (HPA2)
 POSITION    XVI:complement(922909..923379)
-MOTIF       Pfam: Acetyltransf_1 Acetyltransf_7 Acetyltransf_4 Acetyltransf_3 FR47 Acetyltransf_10 Acetyltransf_CG Acetyltransf_9
-DBLINKS     NCBI-GI: 6325451
+MOTIF       Pfam: Acetyltransf_1 Acetyltransf_10 Acetyltransf_7 FR47 Acetyltransf_3 Acetyltransf_4 Acetyltransf_CG
+DBLINKS     NCBI-ProteinID: NP_015519
             NCBI-GeneID: 856323
             SGD: S000006397
-            MIPS: YPR193C
             UniProt: Q06592
 STRUCTURE   PDB: 1QSM 1QSO
 AASEQ       156

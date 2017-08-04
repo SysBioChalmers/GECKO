@@ -1,16 +1,25 @@
 ENTRY       YML059C           CDS       T00005
 NAME        NTE1
-DEFINITION  Nte1p (EC:3.1.1.5)
+DEFINITION  (RefSeq) lysophospholipase
 ORTHOLOGY   K14676  lysophospholipid hydrolase [EC:3.1.1.5]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00564  Glycerophospholipid metabolism
-CLASS       Metabolism; Lipid metabolism; Glycerophospholipid metabolism [PATH:sce00564]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Lipid metabolism
+               00564 Glycerophospholipid metabolism
+                YML059C (NTE1)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.1  Carboxylic-ester hydrolases
+                3.1.1.5  lysophospholipase
+                 YML059C (NTE1)
 POSITION    XIII:complement(153219..158258)
 MOTIF       Pfam: cNMP_binding Patatin
-DBLINKS     NCBI-GI: 6323581
+DBLINKS     NCBI-ProteinID: NP_013652
             NCBI-GeneID: 854943
             SGD: S000004524
-            MIPS: YML059C
             UniProt: Q04958
 AASEQ       1679
             MRSMNCTTNNTNNTGQNTKNSLGSSFNSSNYTSYRFQTCLTDQIISEAQTWSLSSLFNFS

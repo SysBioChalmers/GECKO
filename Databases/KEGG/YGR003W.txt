@@ -1,16 +1,31 @@
 ENTRY       YGR003W           CDS       T00005
 NAME        CUL3
-DEFINITION  cullin CUL3
+DEFINITION  (RefSeq) cullin CUL3
 ORTHOLOGY   K03869  cullin 3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04120  Ubiquitin mediated proteolysis
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Ubiquitin mediated proteolysis [PATH:sce04120]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04120 Ubiquitin mediated proteolysis
+                YGR003W (CUL3)
+            Ubiquitin system [BR:sce04121]
+             Ubiquitin ligases (E3)
+              Multi subunit Ring-finger type E3
+               Cul3 complex
+                Cullin
+                 YGR003W (CUL3)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              SSBR (single strand breaks repair)
+               NER (nucleotide excision repair)
+                Other NER factors
+                 YGR003W (CUL3)
 POSITION    VII:500132..502366
 MOTIF       Pfam: Cullin Cullin_Nedd8 DUF512
-DBLINKS     NCBI-GI: 6321440
+DBLINKS     NCBI-ProteinID: NP_011517
             NCBI-GeneID: 852886
             SGD: S000003235
-            MIPS: YGR003W
             UniProt: P53202
 AASEQ       744
             MITNKKIKISVPEKLGLSEESFEESWETVKYAIDHIYSDDMADLSFEQVYKTIYTIVLNK

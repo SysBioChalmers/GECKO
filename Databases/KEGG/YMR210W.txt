@@ -1,13 +1,13 @@
 ENTRY       YMR210W           CDS       T00005
-DEFINITION  putative carboxylic ester hydrolase (EC:3.1.1.-)
-ORTHOLOGY   K07019
+NAME        MGL2
+DEFINITION  (RefSeq) putative carboxylic ester hydrolase
+ORTHOLOGY   K07019  uncharacterized protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:687516..688865
-MOTIF       Pfam: Abhydrolase_1 Abhydrolase_6 Abhydrolase_5 Cutinase DUF915 Lipase_3
-DBLINKS     NCBI-GI: 6323866
+MOTIF       Pfam: Abhydrolase_1 Hydrolase_4 DUF915 Cutinase Lipase_3
+DBLINKS     NCBI-ProteinID: NP_013937
             NCBI-GeneID: 855250
             SGD: S000004823
-            MIPS: YMR210W
             UniProt: Q03649
 AASEQ       449
             MRLKELLPNFLIVHQEVPEDPIAFKSTDKRENENKEITIPELIDTKVPELADGATDTLYG

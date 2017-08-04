@@ -1,14 +1,24 @@
 ENTRY       YPL030W           CDS       T00005
 NAME        TRM44
-DEFINITION  Trm44p (EC:2.1.1.211)
+DEFINITION  (RefSeq) tRNA (uracil) methyltransferase
 ORTHOLOGY   K15447  tRNASer (uridine44-2'-O)-methyltransferase [EC:2.1.1.211]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.1  Transferring one-carbon groups
+               2.1.1  Methyltransferases
+                2.1.1.211  tRNASer (uridine44-2'-O)-methyltransferase
+                 YPL030W (TRM44)
+            Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              tRNA modification factors
+               Methyltransferases
+                YPL030W (TRM44)
 POSITION    XVI:493543..495246
 MOTIF       Pfam: AdoMet_MTase Methyltransf_31
-DBLINKS     NCBI-GI: 6325227
+DBLINKS     NCBI-ProteinID: NP_015295
             NCBI-GeneID: 856077
             SGD: S000005951
-            MIPS: YPL030W
             UniProt: Q02648
 AASEQ       567
             MTGDGSAHISKNNQNQHKDRFKFIVNDKSILGPQWLSLYQTDGKVTFAKSHFEQAMMNVI

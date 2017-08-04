@@ -1,14 +1,21 @@
 ENTRY       YDR539W           CDS       T00005
 NAME        FDC1
-DEFINITION  putative phenylacrylic acid decarboxylase FDC1 (EC:4.1.1.-)
+DEFINITION  (RefSeq) putative phenylacrylic acid decarboxylase FDC1
+ORTHOLOGY   K20039  phenacrylate decarboxylase [EC:4.1.1.102]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             4. Lyases
+              4.1  Carbon-carbon lyases
+               4.1.1  Carboxy-lyases
+                4.1.1.102  phenacrylate decarboxylase
+                 YDR539W (FDC1)
 POSITION    IV:1512094..1513605
 MOTIF       Pfam: UbiD
-DBLINKS     NCBI-GI: 6320748
+DBLINKS     NCBI-ProteinID: NP_010828
             NCBI-GeneID: 852152
             SGD: S000002947
-            MIPS: YDR539W
             UniProt: Q03034
+STRUCTURE   PDB: 4ZAC 4S13
 AASEQ       503
             MRKLNPALEFRDFIQVLKDEDDLIEITEEIDPNLEVGAIMRKAYESHLPAPLFKNLKGAS
             KDLFSILGCPAGLRSKEKGDHGRIAHHLGLDPKTTIKEIIDYLLECKEKEPLPPITVPVS

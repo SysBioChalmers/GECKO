@@ -1,13 +1,43 @@
 ENTRY       YJR110W           CDS       T00005
 NAME        YMR1
-DEFINITION  phosphatidylinositol-3-phosphatase YMR1 (EC:3.1.3.64)
+DEFINITION  (RefSeq) phosphatidylinositol-3-phosphatase YMR1
+ORTHOLOGY   K18083  myotubularin-related protein 6/7/8 [EC:3.1.3.64 3.1.3.95]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00562  Inositol phosphate metabolism
+            sce01100  Metabolic pathways
+            sce04070  Phosphatidylinositol signaling system
+            sce04138  Autophagy - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Carbohydrate metabolism
+               00562 Inositol phosphate metabolism
+                YJR110W (YMR1)
+             Environmental Information Processing
+              Signal transduction
+               04070 Phosphatidylinositol signaling system
+                YJR110W (YMR1)
+             Cellular Processes
+              Transport and catabolism
+               04138 Autophagy - yeast
+                YJR110W (YMR1)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.3  Phosphoric-monoester hydrolases
+                3.1.3.64  phosphatidylinositol-3-phosphatase
+                 YJR110W (YMR1)
+                3.1.3.95  phosphatidylinositol-3,5-bisphosphate 3-phosphatase
+                 YJR110W (YMR1)
+            Protein phosphatases and associated proteins [BR:sce01009]
+             Protein Tyrosine phosphatases (PTPs)
+              Class I PTPs (Dual specificity phosphatases)
+               Myotubularins
+                YJR110W (YMR1)
 POSITION    X:633615..635681
-MOTIF       Pfam: Myotub-related Y_phosphatase GRAM DSPc Y_phosphatase3
-DBLINKS     NCBI-GI: 6322570
+MOTIF       Pfam: Myotub-related GRAM DSPc Y_phosphatase Y_phosphatase3 HTH_29
+DBLINKS     NCBI-ProteinID: NP_012644
             NCBI-GeneID: 853574
             SGD: S000003871
-            MIPS: YJR110W
             UniProt: P47147
 AASEQ       688
             MEYIKIAKVSNVVLHRRGTATQGTLHLTTHHLIFESPQLSTEFWFPYPLIYGVHKNPGST

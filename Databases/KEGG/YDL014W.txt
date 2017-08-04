@@ -1,16 +1,30 @@
 ENTRY       YDL014W           CDS       T00005
 NAME        NOP1, LOT3
-DEFINITION  Nop1p (EC:2.1.1.-)
+DEFINITION  (RefSeq) rRNA methyltransferase NOP1
 ORTHOLOGY   K14563  rRNA 2'-O-methyltransferase fibrillarin [EC:2.1.1.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03008  Ribosome biogenesis in eukaryotes
-CLASS       Genetic Information Processing; Translation; Ribosome biogenesis in eukaryotes [PATH:sce03008]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03008 Ribosome biogenesis in eukaryotes
+                YDL014W (NOP1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.1  Transferring one-carbon groups
+               2.1.1  Methyltransferases
+                2.1.1.-  
+                 YDL014W (NOP1)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Sno RNPs
+               Box C/D snoRNPs
+                YDL014W (NOP1)
 POSITION    IV:427364..428347
-MOTIF       Pfam: Fibrillarin GCD14 PCMT
-DBLINKS     NCBI-GI: 6320190
+MOTIF       Pfam: Fibrillarin GCD14 FtsJ Methyltr_RsmB-F PCMT
+DBLINKS     NCBI-ProteinID: NP_010270
             NCBI-GeneID: 851548
             SGD: S000002172
-            MIPS: YDL014W
             UniProt: P15646
 AASEQ       327
             MSFRPGSRGGSRGGSRGGFGGRGGSRGGARGGSRGGFGGRGGSRGGARGGSRGGFGGRGG

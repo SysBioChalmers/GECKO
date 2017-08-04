@@ -1,17 +1,35 @@
 ENTRY       YMR296C           CDS       T00005
 NAME        LCB1, END8, TSC2
-DEFINITION  serine C-palmitoyltransferase LCB1 (EC:2.3.1.50)
+DEFINITION  (RefSeq) serine C-palmitoyltransferase LCB1
 ORTHOLOGY   K00654  serine palmitoyltransferase [EC:2.3.1.50]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00600  Sphingolipid metabolism
             sce01100  Metabolic pathways
-CLASS       Metabolism; Lipid metabolism; Sphingolipid metabolism [PATH:sce00600]
+            sce04138  Autophagy - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Lipid metabolism
+               00600 Sphingolipid metabolism
+                YMR296C (LCB1)
+             Cellular Processes
+              Transport and catabolism
+               04138 Autophagy - yeast
+                YMR296C (LCB1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.3  Acyltransferases
+               2.3.1  Transferring groups other than aminoacyl groups
+                2.3.1.50  serine C-palmitoyltransferase
+                 YMR296C (LCB1)
+            Amino acid related enzymes [BR:sce01007]
+             Aminotransferase (transaminase)
+              Class II
+               YMR296C (LCB1)
 POSITION    XIII:complement(859215..860891)
 MOTIF       Pfam: Aminotran_1_2
-DBLINKS     NCBI-GI: 6323954
+DBLINKS     NCBI-ProteinID: NP_014025
             NCBI-GeneID: 855342
             SGD: S000004911
-            MIPS: YMR296C
             UniProt: P25045
 AASEQ       558
             MAHIPEVLPKSIPIPAFIVTTSSYLWYYFNLVLTQIPGGQFIVSYIKKSHHDDPYRTTVE

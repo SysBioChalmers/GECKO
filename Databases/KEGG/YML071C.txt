@@ -1,13 +1,18 @@
 ENTRY       YML071C           CDS       T00005
 NAME        COG8, DOR1
-DEFINITION  Cog8p
+DEFINITION  (RefSeq) Golgi transport complex subunit COG8
+ORTHOLOGY   K20295  conserved oligomeric Golgi complex subunit 8
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endosome - Golgi transport
+              Tethering complex
+               Conserved oligomeric Golgi (COG) complex
+                YML071C (COG8)
 POSITION    XIII:complement(129749..131572)
-MOTIF       Pfam: Dor1
-DBLINKS     NCBI-GI: 6323569
+MOTIF       Pfam: Dor1 TPR_7
+DBLINKS     NCBI-ProteinID: NP_013640
             NCBI-GeneID: 854904
             SGD: S000004536
-            MIPS: YML071C
             UniProt: Q04632
 AASEQ       607
             MELILNSLISDDLTEEQKRLSLDFLQDILQSNTKDYESYFSSRAVPGSITEDIAEIDAEL

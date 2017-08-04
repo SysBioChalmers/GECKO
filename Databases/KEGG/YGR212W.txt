@@ -1,13 +1,12 @@
 ENTRY       YGR212W           CDS       T00005
 NAME        SLI1
-DEFINITION  Sli1p (EC:2.3.1.-)
+DEFINITION  (RefSeq) N-acetyltransferase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:917040..918446
 MOTIF       Pfam: AATase Condensation
-DBLINKS     NCBI-GI: 398366181
+DBLINKS     NCBI-ProteinID: NP_011728
             NCBI-GeneID: 853126
             SGD: S000003444
-            MIPS: YGR212W
             UniProt: P53304
 AASEQ       468
             MNLKLSAIESYFFHRSRLNLHSCFYVGIKLNELPKKSQLIAALKYTVIQHERLTCNVFYD

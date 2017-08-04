@@ -1,13 +1,12 @@
 ENTRY       YBL107C           CDS       T00005
-NAME        MIC23
-DEFINITION  Mic23p
+NAME        MIX23, MIC23
+DEFINITION  (RefSeq) Mix23p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    II:complement(9961..10551)
-MOTIF       Pfam: Cid2 Ku_PK_bind Cas_DxTHG
-DBLINKS     NCBI-GI: 6319361
+MOTIF       Pfam: Cid2
+DBLINKS     NCBI-ProteinID: NP_009443
             NCBI-GeneID: 852167
             SGD: S000000203
-            MIPS: YBL107C
             UniProt: P38162
 AASEQ       196
             MVDNRRTFTAPQSLLETNLTFPNDEPSLTTITVTRERCVDPSLIDSFLRFLRHGSDDIIR

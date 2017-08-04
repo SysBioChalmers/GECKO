@@ -1,9 +1,10 @@
 ENTRY       YLR027C           CDS       T00005
 NAME        AAT2, ASP5
-DEFINITION  aspartate transaminase AAT2 (EC:2.6.1.1)
+DEFINITION  (RefSeq) aspartate transaminase AAT2
 ORTHOLOGY   K14454  aspartate aminotransferase, cytoplasmic [EC:2.6.1.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
-PATHWAY     sce00250  Alanine, aspartate and glutamate metabolism
+PATHWAY     sce00220  Arginine biosynthesis
+            sce00250  Alanine, aspartate and glutamate metabolism
             sce00270  Cysteine and methionine metabolism
             sce00330  Arginine and proline metabolism
             sce00350  Tyrosine metabolism
@@ -11,24 +12,55 @@ PATHWAY     sce00250  Alanine, aspartate and glutamate metabolism
             sce00400  Phenylalanine, tyrosine and tryptophan biosynthesis
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
+            sce01130  Biosynthesis of antibiotics
             sce01200  Carbon metabolism
             sce01210  2-Oxocarboxylic acid metabolism
             sce01230  Biosynthesis of amino acids
-CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
-            Metabolism; Overview; 2-Oxocarboxylic acid metabolism [PATH:sce01210]
-            Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
-            Metabolism; Amino acid metabolism; Alanine, aspartate and glutamate metabolism [PATH:sce00250]
-            Metabolism; Amino acid metabolism; Cysteine and methionine metabolism [PATH:sce00270]
-            Metabolism; Amino acid metabolism; Arginine and proline metabolism [PATH:sce00330]
-            Metabolism; Amino acid metabolism; Tyrosine metabolism [PATH:sce00350]
-            Metabolism; Amino acid metabolism; Phenylalanine metabolism [PATH:sce00360]
-            Metabolism; Amino acid metabolism; Phenylalanine, tyrosine and tryptophan biosynthesis [PATH:sce00400]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01200 Carbon metabolism
+                YLR027C (AAT2)
+               01210 2-Oxocarboxylic acid metabolism
+                YLR027C (AAT2)
+               01230 Biosynthesis of amino acids
+                YLR027C (AAT2)
+              Amino acid metabolism
+               00250 Alanine, aspartate and glutamate metabolism
+                YLR027C (AAT2)
+               00270 Cysteine and methionine metabolism
+                YLR027C (AAT2)
+               00220 Arginine biosynthesis
+                YLR027C (AAT2)
+               00330 Arginine and proline metabolism
+                YLR027C (AAT2)
+               00350 Tyrosine metabolism
+                YLR027C (AAT2)
+               00360 Phenylalanine metabolism
+                YLR027C (AAT2)
+               00400 Phenylalanine, tyrosine and tryptophan biosynthesis
+                YLR027C (AAT2)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.6  Transferring nitrogenous groups
+               2.6.1  Transaminases
+                2.6.1.1  aspartate transaminase
+                 YLR027C (AAT2)
+            Amino acid related enzymes [BR:sce01007]
+             Aminotransferase (transaminase)
+              Class I
+               YLR027C (AAT2)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of haemopoietic cells  (B-cell, T-cell, DC-cell, reticulocyte, and mast cell)
+               YLR027C (AAT2)
+              Exosomal proteins of other body fluids (saliva and urine)
+               YLR027C (AAT2)
 POSITION    XII:complement(196829..198085)
 MOTIF       Pfam: Aminotran_1_2
-DBLINKS     NCBI-GI: 37362677
+DBLINKS     NCBI-ProteinID: NP_013127
             NCBI-GeneID: 850714
             SGD: S000004017
-            MIPS: YLR027C
             UniProt: P23542
 STRUCTURE   PDB: 1YAA
 AASEQ       418

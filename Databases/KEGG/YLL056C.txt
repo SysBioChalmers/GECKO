@@ -1,12 +1,11 @@
 ENTRY       YLL056C           CDS       T00005
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) hypothetical protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XII:complement(27409..28305)
-MOTIF       Pfam: Epimerase NAD_binding_10 3Beta_HSD NmrA RmlD_sub_bind adh_short NAD_binding_4 TrkA_N F420_oxidored DapB_N Polysacc_synt_2
-DBLINKS     NCBI-GI: 6322972
+MOTIF       Pfam: Epimerase 3Beta_HSD GDP_Man_Dehyd NAD_binding_10 NmrA RmlD_sub_bind adh_short NAD_binding_4 TrkA_N KR DapB_N Polysacc_synt_2
+DBLINKS     NCBI-ProteinID: NP_013044
             NCBI-GeneID: 850670
             SGD: S000003979
-            MIPS: YLL056C
             UniProt: Q12177
 AASEQ       298
             MKVFITGASGFIGSAVLSELISSGHEVVGLARSDEAAAKIKSIDPAAKILRGDLKDLEIL

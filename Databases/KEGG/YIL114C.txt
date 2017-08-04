@@ -1,13 +1,12 @@
 ENTRY       YIL114C           CDS       T00005
 NAME        POR2
-DEFINITION  Por2p
+DEFINITION  (RefSeq) putative porin POR2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IX:complement(149143..149988)
 MOTIF       Pfam: Porin_3
-DBLINKS     NCBI-GI: 398364265
+DBLINKS     NCBI-ProteinID: NP_012152
             NCBI-GeneID: 854692
             SGD: S000001376
-            MIPS: YIL114C
             UniProt: P40478
 AASEQ       281
             MALRFFNDISRDVNGLFNRDFFHTNPLSLNISTTTENGVNFTLKAKQGVTEGPIQTSVEG

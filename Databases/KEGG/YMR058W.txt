@@ -1,13 +1,17 @@
 ENTRY       YMR058W           CDS       T00005
 NAME        FET3
-DEFINITION  Fet3p (EC:1.-.-.-)
+DEFINITION  (RefSeq) ferroxidase FET3
+ORTHOLOGY   K19791  iron transport multicopper oxidase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Other Transporters
+              Electrochemical potential-driven transporters [TC:2]
+               YMR058W (FET3)
 POSITION    XIII:388822..390732
-MOTIF       Pfam: Cu-oxidase_2 Cu-oxidase_3 Cu-oxidase Glycophorin_A
-DBLINKS     NCBI-GI: 6323703
+MOTIF       Pfam: Cu-oxidase_2 Cu-oxidase_3 Cu-oxidase
+DBLINKS     NCBI-ProteinID: NP_013774
             NCBI-GeneID: 855080
             SGD: S000004662
-            MIPS: YMR058W
             UniProt: P38993
 STRUCTURE   PDB: 1ZPU
 AASEQ       636

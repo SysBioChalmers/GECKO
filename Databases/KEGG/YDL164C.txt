@@ -1,22 +1,59 @@
 ENTRY       YDL164C           CDS       T00005
 NAME        CDC9, MMS8
-DEFINITION  DNA ligase (ATP) CDC9 (EC:6.5.1.1)
-ORTHOLOGY   K10747  DNA ligase 1 [EC:6.5.1.1]
+DEFINITION  (RefSeq) DNA ligase (ATP) CDC9
+ORTHOLOGY   K10747  DNA ligase 1 [EC:6.5.1.1 6.5.1.6 6.5.1.7]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03030  DNA replication
             sce03410  Base excision repair
             sce03420  Nucleotide excision repair
             sce03430  Mismatch repair
-CLASS       Genetic Information Processing; Replication and repair; DNA replication [PATH:sce03030]
-            Genetic Information Processing; Replication and repair; Base excision repair [PATH:sce03410]
-            Genetic Information Processing; Replication and repair; Nucleotide excision repair [PATH:sce03420]
-            Genetic Information Processing; Replication and repair; Mismatch repair [PATH:sce03430]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Replication and repair
+               03030 DNA replication
+                YDL164C (CDC9)
+               03410 Base excision repair
+                YDL164C (CDC9)
+               03420 Nucleotide excision repair
+                YDL164C (CDC9)
+               03430 Mismatch repair
+                YDL164C (CDC9)
+            Enzymes [BR:sce01000]
+             6. Ligases
+              6.5  Forming phosphoric-ester bonds
+               6.5.1  Ligases that form phosphoric-ester bonds (only sub-subclass identified to date)
+                6.5.1.1  DNA ligase (ATP)
+                 YDL164C (CDC9)
+                6.5.1.6  DNA ligase (ATP or NAD+)
+                 YDL164C (CDC9)
+                6.5.1.7  DNA ligase (ATP, ADP or GTP)
+                 YDL164C (CDC9)
+            DNA replication proteins [BR:sce03032]
+             Eukaryotic Type
+              DNA Replication Elongation Factors
+               Other elongation factors
+                YDL164C (CDC9)
+             Prokaryotic Type
+               Elongation factors (archaeal)
+                Other elongation factors
+                 YDL164C (CDC9)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              SSBR (single strand breaks repair)
+               BER (base exicision repair)
+                Long Patch-BER factors
+                 YDL164C (CDC9)
+               NER (nucleotide excision repair)
+                Other NER factors
+                 YDL164C (CDC9)
+               MMR (mismatch exicision repair)
+                Other MMR factors
+                 YDL164C (CDC9)
 POSITION    IV:complement(164987..167254)
 MOTIF       Pfam: DNA_ligase_A_M DNA_ligase_A_N DNA_ligase_A_C
-DBLINKS     NCBI-GI: 6320038
+DBLINKS     NCBI-ProteinID: NP_010117
             NCBI-GeneID: 851391
             SGD: S000002323
-            MIPS: YDL164C
             UniProt: P04819
 AASEQ       755
             MRRLLTGCLLSSARPLKSRLPLLMSSSLPSSAGKKPKQATLARFFTSMKNKPTEGTPSPK

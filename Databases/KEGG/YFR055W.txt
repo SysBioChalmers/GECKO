@@ -1,6 +1,6 @@
 ENTRY       YFR055W           CDS       T00005
 NAME        IRC7
-DEFINITION  cysteine-S-conjugate beta-lyase IRC7 (EC:4.4.1.8)
+DEFINITION  (RefSeq) cysteine-S-conjugate beta-lyase IRC7
 ORTHOLOGY   K01760  cystathionine beta-lyase [EC:4.4.1.8]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00270  Cysteine and methionine metabolism
@@ -8,15 +8,28 @@ PATHWAY     sce00270  Cysteine and methionine metabolism
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
             sce01230  Biosynthesis of amino acids
-CLASS       Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
-            Metabolism; Amino acid metabolism; Cysteine and methionine metabolism [PATH:sce00270]
-            Metabolism; Metabolism of other amino acids; Selenocompound metabolism [PATH:sce00450]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01230 Biosynthesis of amino acids
+                YFR055W (IRC7)
+              Amino acid metabolism
+               00270 Cysteine and methionine metabolism
+                YFR055W (IRC7)
+              Metabolism of other amino acids
+               00450 Selenocompound metabolism
+                YFR055W (IRC7)
+            Enzymes [BR:sce01000]
+             4. Lyases
+              4.4  Carbon-sulfur lyases
+               4.4.1  Carbon-sulfur lyases (only sub-subclass identified to date)
+                4.4.1.8  cystathionine beta-lyase
+                 YFR055W (IRC7)
 POSITION    VI:264204..265226
 MOTIF       Pfam: Cys_Met_Meta_PP DegT_DnrJ_EryC1 Aminotran_5
-DBLINKS     NCBI-GI: 14318580
+DBLINKS     NCBI-ProteinID: NP_116714
             NCBI-GeneID: 850616
             SGD: S000001952
-            MIPS: YFR055W
             UniProt: P43623
 AASEQ       340
             MIDRTELSKFGITTQLSVIGRNPDEQSGFVNPPLYKGSTIILKKLSDLEQRKGRFYGTAG

@@ -1,13 +1,12 @@
 ENTRY       YLR410W           CDS       T00005
 NAME        VIP1
-DEFINITION  inositol polyphosphate kinase VIP1 (EC:2.7.4.24 2.7.4.21)
+DEFINITION  (RefSeq) inositol polyphosphate kinase VIP1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XII:937541..940981
-MOTIF       Pfam: His_Phos_2 RimK ATP-grasp_3
-DBLINKS     NCBI-GI: 6323442
+MOTIF       Pfam: His_Phos_2 RimK LEM
+DBLINKS     NCBI-ProteinID: NP_013514
             NCBI-GeneID: 851126
             SGD: S000004402
-            MIPS: YLR410W
             UniProt: Q06685
 AASEQ       1146
             MSGIKKEPIESDEVPQQETKNNLPSAPSEMSPLFLNKNTQKAMQSIAPILEGFSPKTSAS

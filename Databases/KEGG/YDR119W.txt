@@ -1,13 +1,12 @@
 ENTRY       YDR119W           CDS       T00005
 NAME        VBA4
-DEFINITION  Vba4p
+DEFINITION  (RefSeq) Vba4p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:688227..690533
-MOTIF       Pfam: MFS_1
-DBLINKS     NCBI-GI: 6320324
+MOTIF       Pfam: MFS_1 UPF1_Zn_bind
+DBLINKS     NCBI-ProteinID: NP_010404
             NCBI-GeneID: 851697
             SGD: S000002526
-            MIPS: YDR119W
             UniProt: Q04602
 AASEQ       768
             MGKKDRQRKKLREFAKLKNRQRNLRKSVQTLKNEVQREAKVPRTSNQIALGNDKIEEINE

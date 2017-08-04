@@ -1,16 +1,29 @@
 ENTRY       YGL141W           CDS       T00005
 NAME        HUL5
-DEFINITION  ubiquitin-ubiquitin ligase HUL5 (EC:6.3.2.-)
-ORTHOLOGY   K10589  ubiquitin-protein ligase E3 C [EC:6.3.2.19]
+DEFINITION  (RefSeq) ubiquitin-ubiquitin ligase HUL5
+ORTHOLOGY   K10589  ubiquitin-protein ligase E3 C [EC:2.3.2.26]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04120  Ubiquitin mediated proteolysis
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Ubiquitin mediated proteolysis [PATH:sce04120]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04120 Ubiquitin mediated proteolysis
+                YGL141W (HUL5)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.3  Acyltransferases
+               2.3.2  Aminoacyltransferases
+                2.3.2.26  HECT-type E3 ubiquitin transferase
+                 YGL141W (HUL5)
+            Ubiquitin system [BR:sce04121]
+             Ubiquitin ligases (E3)
+              HECT type E3
+               YGL141W (HUL5)
 POSITION    VII:238353..241085
 MOTIF       Pfam: HECT
-DBLINKS     NCBI-GI: 6321297
+DBLINKS     NCBI-ProteinID: NP_011374
             NCBI-GeneID: 852736
             SGD: S000003109
-            MIPS: YGL141W
             UniProt: P53119
 AASEQ       910
             MLNFTGQTRRRNVNLGNRTRNSKKDLLEKAKRERERRAQDKLKEDASKTIQKSIRRHFSN

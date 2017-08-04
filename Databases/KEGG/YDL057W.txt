@@ -1,12 +1,11 @@
 ENTRY       YDL057W           CDS       T00005
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) hypothetical protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:351434..352420
-MOTIF       Pfam: Abhydrolase_5 Abhydrolase_6 Hydrolase_4
-DBLINKS     NCBI-GI: 6320146
+MOTIF       Pfam: Hydrolase_4 Abhydrolase_6 Chlorophyllase2 DUF559
+DBLINKS     NCBI-ProteinID: NP_010226
             NCBI-GeneID: 851502
             SGD: S000002215
-            MIPS: YDL057W
             UniProt: Q07379
 AASEQ       328
             MEKKHVTVQIQSAPPSYIKLEANEKFVYITSTMNGLSYQIAAIVSYPEKRNSSTANKEDG

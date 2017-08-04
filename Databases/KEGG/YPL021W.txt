@@ -1,13 +1,12 @@
 ENTRY       YPL021W           CDS       T00005
 NAME        ECM23, SRD2
-DEFINITION  Ecm23p
+DEFINITION  (RefSeq) Ecm23p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:511101..511664
 MOTIF       Pfam: GATA zf-like
-DBLINKS     NCBI-GI: 6325236
+DBLINKS     NCBI-ProteinID: NP_015304
             NCBI-GeneID: 856086
             SGD: S000005942
-            MIPS: YPL021W
             UniProt: Q02710
 AASEQ       187
             MLYNKEQGTSGASSSGRRTKFHFDRFVQMVLFIAANPNYCCSVASIPKSGVTPDLKRADI

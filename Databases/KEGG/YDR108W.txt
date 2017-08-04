@@ -1,13 +1,18 @@
 ENTRY       YDR108W           CDS       T00005
 NAME        TRS85, GSG1, MUM1
-DEFINITION  Trs85p
+DEFINITION  (RefSeq) Trs85p
+ORTHOLOGY   K20305  trafficking protein particle complex subunit 8
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endosome - Golgi transport
+              Tethering complex
+               TRAPP complex II
+                YDR108W (TRS85)
 POSITION    IV:671269..673365
-MOTIF       Pfam: TRAPPC-Trs85 RPN7 SEFIR Acyl-thio_N
-DBLINKS     NCBI-GI: 398365643
+MOTIF       Pfam: TRAPPC-Trs85 SEFIR
+DBLINKS     NCBI-ProteinID: NP_010393
             NCBI-GeneID: 851686
             SGD: S000002515
-            MIPS: YDR108W
             UniProt: P46944
 AASEQ       698
             MVFSYEHYMNLLFHLDNSKETVPPEIAKRIISNAIAPVITVTSTPLFDKHIQETYKVDSL

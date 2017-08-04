@@ -1,16 +1,31 @@
 ENTRY       YDR440W           CDS       T00005
-NAME        DOT1, PCH1
-DEFINITION  Dot1p (EC:2.1.1.43)
+NAME        DOT1, KMT4, PCH1
+DEFINITION  (RefSeq) histone methyltransferase DOT1
 ORTHOLOGY   K11427  histone-lysine N-methyltransferase, H3 lysine-79 specific [EC:2.1.1.43]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00310  Lysine degradation
-CLASS       Metabolism; Amino acid metabolism; Lysine degradation [PATH:sce00310]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Amino acid metabolism
+               00310 Lysine degradation
+                YDR440W (DOT1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.1  Transferring one-carbon groups
+               2.1.1  Methyltransferases
+                2.1.1.43  histone-lysine N-methyltransferase
+                 YDR440W (DOT1)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Histone modification proteins
+               HMTs (histone methyltransferases)
+                HKMTs (histone lysine methyltransferases)
+                 YDR440W (DOT1)
 POSITION    IV:1342493..1344241
 MOTIF       Pfam: DOT1
-DBLINKS     NCBI-GI: 6320648
+DBLINKS     NCBI-ProteinID: NP_010728
             NCBI-GeneID: 852050
             SGD: S000002848
-            MIPS: YDR440W
             UniProt: Q04089
 STRUCTURE   PDB: 1U2Z
 AASEQ       582

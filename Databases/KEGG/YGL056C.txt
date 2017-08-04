@@ -1,13 +1,12 @@
 ENTRY       YGL056C           CDS       T00005
 NAME        SDS23
-DEFINITION  Sds23p
+DEFINITION  (RefSeq) Sds23p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:complement(396035..397618)
-MOTIF       Pfam: CBS FBD Gag_spuma
-DBLINKS     NCBI-GI: 330443557
+MOTIF       Pfam: CBS FBD
+DBLINKS     NCBI-ProteinID: NP_011459
             NCBI-GeneID: 852824
             SGD: S000003024
-            MIPS: YGL056C
             UniProt: P53172
 AASEQ       527
             MPQNTRHTSIVEMLSTPPQLPNSTDLNSLSEQTDKNTEANKSDTESLHKSISKSSSSSSL

@@ -1,16 +1,29 @@
 ENTRY       YOR339C           CDS       T00005
 NAME        UBC11
-DEFINITION  putative E2 ubiquitin-protein ligase UBC11 (EC:6.3.2.19)
-ORTHOLOGY   K06688  ubiquitin-conjugating enzyme E2 C [EC:6.3.2.19]
+DEFINITION  (RefSeq) putative E2 ubiquitin-protein ligase UBC11
+ORTHOLOGY   K06688  ubiquitin-conjugating enzyme E2 C [EC:2.3.2.23]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04120  Ubiquitin mediated proteolysis
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Ubiquitin mediated proteolysis [PATH:sce04120]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04120 Ubiquitin mediated proteolysis
+                YOR339C (UBC11)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.3  Acyltransferases
+               2.3.2  Aminoacyltransferases
+                2.3.2.23  E2 ubiquitin-conjugating enzyme
+                 YOR339C (UBC11)
+            Ubiquitin system [BR:sce04121]
+             Ubiquitin-conjugating enzymes (E2)
+              Ubiquitin-conjugating enzymes
+               YOR339C (UBC11)
 POSITION    XV:complement(958362..958832)
 MOTIF       Pfam: UQ_con UEV RWD Prok-E2_B
-DBLINKS     NCBI-GI: 398366297
+DBLINKS     NCBI-ProteinID: NP_014984
             NCBI-GeneID: 854517
             SGD: S000005866
-            MIPS: YOR339C
             UniProt: P52492
 AASEQ       156
             MAVEEGGCVTKRLQNELLQLLSSTTESISAFPVDDNDLTYWVGYITGPKDTPYSGLKFKV

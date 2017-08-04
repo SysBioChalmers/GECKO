@@ -1,13 +1,12 @@
 ENTRY       YOR180C           CDS       T00005
 NAME        DCI1, ECI2
-DEFINITION  putative dodecenoyl-CoA isomerase DCI1 (EC:5.3.3.-)
+DEFINITION  (RefSeq) putative dodecenoyl-CoA isomerase DCI1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:complement(674352..675167)
-MOTIF       Pfam: ECH SPA FAST_1
-DBLINKS     NCBI-GI: 398365593
+MOTIF       Pfam: ECH_1 ECH_2 SPA Init_tRNA_PT
+DBLINKS     NCBI-ProteinID: NP_014823
             NCBI-GeneID: 854352
             SGD: S000005706
-            MIPS: YOR180C
             UniProt: Q08558
 AASEQ       271
             MSSRVCYHINGPFFIIKLIDPKHLNSLTFEDFVYIALLLHKANDIDSVLFTVLQSSGKYF

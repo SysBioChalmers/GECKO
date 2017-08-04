@@ -1,13 +1,12 @@
 ENTRY       YCR011C           CDS       T00005
 NAME        ADP1
-DEFINITION  putative ATP-dependent permease ADP1
+DEFINITION  (RefSeq) putative ATP-dependent permease ADP1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    III:complement(133724..136873)
-MOTIF       Pfam: ABC2_membrane ABC_tran DUF258 AAA_16 AAA_25 AAA_29 AAA_28 AAA_22 Glyco_transf_92 AAA_15 SbcCD_C NACHT EGF_2 Laminin_EGF
-DBLINKS     NCBI-GI: 10383780
+MOTIF       Pfam: ABC2_membrane ABC_tran RsgA_GTPase AAA_21 AAA_29 EGF_2 AAA_16 AAA_22 AAA_28 AAA_23 NACHT Laminin_EGF
+DBLINKS     NCBI-ProteinID: NP_009937
             NCBI-GeneID: 850369
             SGD: S000000604
-            MIPS: YCR011C
             UniProt: P25371
 AASEQ       1049
             MGSHRRYLYYSILSFLLLSCSVVLAKQDKTPFFEGTSSKNSRLTAQDKGNDTCPPCFNCM

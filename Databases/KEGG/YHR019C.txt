@@ -1,17 +1,37 @@
 ENTRY       YHR019C           CDS       T00005
 NAME        DED81
-DEFINITION  asparagine--tRNA ligase DED81 (EC:6.1.1.22)
+DEFINITION  (RefSeq) asparagine--tRNA ligase DED81
 ORTHOLOGY   K01893  asparaginyl-tRNA synthetase [EC:6.1.1.22]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00970  Aminoacyl-tRNA biosynthesis
 MODULE      sce_M00359  Aminoacyl-tRNA biosynthesis, eukaryotes
-CLASS       Genetic Information Processing; Translation; Aminoacyl-tRNA biosynthesis [PATH:sce00970]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               00970 Aminoacyl-tRNA biosynthesis
+                YHR019C (DED81)
+            Enzymes [BR:sce01000]
+             6. Ligases
+              6.1  Forming carbon-oxygen bonds
+               6.1.1  Ligases forming aminoacyl-tRNA and related compounds
+                6.1.1.22  asparagine---tRNA ligase
+                 YHR019C (DED81)
+            Amino acid related enzymes [BR:sce01007]
+             Aminoacyl-tRNA synthetase
+              Class II (A)
+               YHR019C (DED81)
+            Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              Aminoacyl-tRNA synthetases (AARSs)
+               Other AARSs
+                YHR019C (DED81)
+             Prokaryotic Type
+                YHR019C (DED81)
 POSITION    VIII:complement(141894..143558)
-MOTIF       Pfam: tRNA-synt_2 tRNA_anti-codon Ins134_P3_kin DUF4539
-DBLINKS     NCBI-GI: 6321807
+MOTIF       Pfam: tRNA-synt_2 tRNA_anti-codon Ins134_P3_kin tRNA_anti_2
+DBLINKS     NCBI-ProteinID: NP_011883
             NCBI-GeneID: 856412
             SGD: S000001061
-            MIPS: YHR019C
             UniProt: P38707
 AASEQ       554
             MSSLYIKEATGVDELTTAGSQDHPFKTPAYALFASQQKSDATEPKLFVFKTEDNEYQEIS

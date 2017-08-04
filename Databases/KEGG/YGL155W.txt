@@ -1,14 +1,23 @@
 ENTRY       YGL155W           CDS       T00005
 NAME        CDC43, CAL1
-DEFINITION  protein geranylgeranyltransferase type I subunit CDC43 (EC:2.5.1.59)
+DEFINITION  (RefSeq) protein geranylgeranyltransferase type I subunit CDC43
 ORTHOLOGY   K11713  geranylgeranyl transferase type-1 subunit beta [EC:2.5.1.59]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.5  Transferring alkyl or aryl groups, other than methyl groups
+               2.5.1  Transferring alkyl or aryl groups, other than methyl groups (only sub-subclass identified to date)
+                2.5.1.59  protein geranylgeranyltransferase type I
+                 YGL155W (CDC43)
+            Prenyltransferases [BR:sce01006]
+             Protein prenylation
+              Farnesyltransferase/geranylgeranyltransferase 1
+               YGL155W (CDC43)
 POSITION    VII:214081..215211
-MOTIF       Pfam: Prenyltrans Prenyltrans_2 Prenyltrans_1
-DBLINKS     NCBI-GI: 6321283
+MOTIF       Pfam: Prenyltrans Glyco_hydro_88
+DBLINKS     NCBI-ProteinID: NP_011360
             NCBI-GeneID: 852722
             SGD: S000003123
-            MIPS: YGL155W
             UniProt: P18898
 AASEQ       376
             MCQATNGPSRVVTKKHRKFFERHLQLLPSSHQGHDVNRMAIIFYSISGLSIFDVNVSAKY

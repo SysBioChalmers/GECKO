@@ -1,17 +1,34 @@
 ENTRY       YLR117C           CDS       T00005
 NAME        CLF1, NTC77, SYF3
-DEFINITION  Clf1p
+DEFINITION  (RefSeq) Clf1p
 ORTHOLOGY   K12869  crooked neck
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03040  Spliceosome
-CLASS       Genetic Information Processing; Transcription; Spliceosome [PATH:sce03040]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03040 Spliceosome
+                YLR117C (CLF1)
+            Spliceosome [BR:sce03041]
+             Complex B
+              Other components
+               Prp19-related factors
+                YLR117C (CLF1)
+             Complex C
+                YLR117C (CLF1)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centrosome formation and ciliogenesis proteins
+               Centrosome duplication proteins
+                Other centrosome duplication proteins
+                 YLR117C (CLF1)
 POSITION    XII:complement(382471..384534)
-MOTIF       Pfam: TPR_14 HAT TPR_11 TPR_12 TPR_17 U3_assoc_6
-DBLINKS     NCBI-GI: 6323146
+MOTIF       Pfam: TPR_14 HAT TPR_19 TPR_17 U3_assoc_6
+DBLINKS     NCBI-ProteinID: NP_013218
             NCBI-GeneID: 850808
             SGD: S000004107
-            MIPS: YLR117C
             UniProt: Q12309
+STRUCTURE   PDB: 5GMK 5LJ3 5LJ5 5MPS 5WSG 5MQ0 5LQW
 AASEQ       687
             MDTLEPTAVDTHVSAEQILRDVYKKGQKARGSTNIDILDLEELREYQRRKRTEYEGYLKR
             NRLDMGQWIRYAQFEIEQHDMRRARSIFERALLVDSSFIPLWIRYIDAELKVKCINHARN

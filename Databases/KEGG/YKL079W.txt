@@ -1,13 +1,34 @@
 ENTRY       YKL079W           CDS       T00005
 NAME        SMY1
-DEFINITION  Smy1p
+DEFINITION  (RefSeq) Smy1p
+ORTHOLOGY   K10396  kinesin family member 5
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04144  Endocytosis
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04144 Endocytosis
+                YKL079W (SMY1)
+            Membrane trafficking [BR:sce04131]
+             Others
+              Actin-binding proteins
+               Others
+                YKL079W (SMY1)
+            Cytoskeleton proteins [BR:sce04812]
+             Eukaryotic cytoskeleton proteins
+              Microtubules
+               Tubulin-binding proteins
+                Kinesins
+                 YKL079W (SMY1)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of haemopoietic cells  (B-cell, T-cell, DC-cell, reticulocyte, and mast cell)
+               YKL079W (SMY1)
 POSITION    XI:286603..288573
-MOTIF       Pfam: Kinesin
-DBLINKS     NCBI-GI: 6322771
+MOTIF       Pfam: Kinesin Microtub_bd
+DBLINKS     NCBI-ProteinID: NP_012844
             NCBI-GeneID: 853783
             SGD: S000001562
-            MIPS: YKL079W
             UniProt: P32364
 AASEQ       656
             MHWNIISKEQSSSSVSLPTLDSSEPCHIEVILRAIPEKGLQNNESTFKIDPYENTVLFRT

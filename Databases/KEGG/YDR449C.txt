@@ -1,16 +1,24 @@
 ENTRY       YDR449C           CDS       T00005
 NAME        UTP6
-DEFINITION  Utp6p
+DEFINITION  (RefSeq) snoRNA-binding rRNA-processing protein UTP6
 ORTHOLOGY   K14557  U3 small nucleolar RNA-associated protein 6
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03008  Ribosome biogenesis in eukaryotes
-CLASS       Genetic Information Processing; Translation; Ribosome biogenesis in eukaryotes [PATH:sce03008]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03008 Ribosome biogenesis in eukaryotes
+                YDR449C (UTP6)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              90S particles
+               U3 small nucleolar RNA-associated proteins
+                YDR449C (UTP6)
 POSITION    IV:complement(1357580..1358902)
 MOTIF       Pfam: U3_assoc_6 NRDE-2 DUF2250 HAT
-DBLINKS     NCBI-GI: 6320657
+DBLINKS     NCBI-ProteinID: NP_010737
             NCBI-GeneID: 852060
             SGD: S000002857
-            MIPS: YDR449C
             UniProt: Q02354
 AASEQ       440
             MSKTRYYLEQCIPEMDDLVEKGLFTKNEVSLIMKKRTDFEHRLNSRGSSINDYIKYINYE

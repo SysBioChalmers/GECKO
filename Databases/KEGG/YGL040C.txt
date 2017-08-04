@@ -1,18 +1,31 @@
 ENTRY       YGL040C           CDS       T00005
 NAME        HEM2, OLE4, SLU1
-DEFINITION  porphobilinogen synthase HEM2 (EC:4.2.1.24)
+DEFINITION  (RefSeq) porphobilinogen synthase HEM2
 ORTHOLOGY   K01698  porphobilinogen synthase [EC:4.2.1.24]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00860  Porphyrin and chlorophyll metabolism
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
-CLASS       Metabolism; Metabolism of cofactors and vitamins; Porphyrin and chlorophyll metabolism [PATH:sce00860]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Metabolism of cofactors and vitamins
+               00860 Porphyrin and chlorophyll metabolism
+                YGL040C (HEM2)
+            Enzymes [BR:sce01000]
+             4. Lyases
+              4.2  Carbon-oxygen lyases
+               4.2.1  Hydro-lyases
+                4.2.1.24  porphobilinogen synthase
+                 YGL040C (HEM2)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of other body fluids (saliva and urine)
+               YGL040C (HEM2)
 POSITION    VII:complement(419527..420555)
 MOTIF       Pfam: ALAD
-DBLINKS     NCBI-GI: 6321398
+DBLINKS     NCBI-ProteinID: NP_011475
             NCBI-GeneID: 852842
             SGD: S000003008
-            MIPS: YGL040C
             UniProt: P05373
 STRUCTURE   PDB: 1H7P 1EB3 1H7O 1YLV 1AW5 1W31 1OHL 1GJP 1H7N 1H7R 1QNV
                  1QML

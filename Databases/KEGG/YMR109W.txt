@@ -1,14 +1,43 @@
 ENTRY       YMR109W           CDS       T00005
 NAME        MYO5
-DEFINITION  myosin 5
+DEFINITION  (RefSeq) myosin 5
 ORTHOLOGY   K10356  myosin I
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Protein phosphatases and associated proteins [BR:sce01009]
+             Protein Ser/ Thr phosphatases
+              Phosphoprotein phosphatases (PPPs)
+               Protein phosphatase-1
+                PP1-interacting proteins (PIPs)
+                 YMR109W (MYO5)
+            Membrane trafficking [BR:sce04131]
+             Endocytosis
+              Phagocytosis
+               Others
+                YMR109W (MYO5)
+             Others
+              Actin-binding proteins
+               Myosins
+                YMR109W (MYO5)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Chromatin remodeling factors
+               B-WICH complex
+                YMR109W (MYO5)
+            Cytoskeleton proteins [BR:sce04812]
+             Eukaryotic cytoskeleton proteins
+              Actin filaments / Microfilaments
+               Actin-binding proteins
+                Myosins
+                 YMR109W (MYO5)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Proteins found in most exosomes
+               YMR109W (MYO5)
 POSITION    XIII:486587..490246
-MOTIF       Pfam: Myosin_head Myosin_TH1 SH3_1 SH3_9 SH3_2 Zeta_toxin AAA_22 AAA_16 AAA_17 AAA_19 SH3_3 NACHT
-DBLINKS     NCBI-GI: 6323756
+MOTIF       Pfam: Myosin_head Myosin_TH1 SH3_1 SH3_9 SH3_2 RsgA_GTPase AAA_16 AAA_22 NACHT Sigma54_activat Zeta_toxin
+DBLINKS     NCBI-ProteinID: NP_013827
             NCBI-GeneID: 855136
             SGD: S000004715
-            MIPS: YMR109W
             UniProt: Q04439
 STRUCTURE   PDB: 1ZUY 1YP5
 AASEQ       1219

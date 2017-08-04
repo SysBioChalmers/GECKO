@@ -1,14 +1,29 @@
 ENTRY       YOL113W           CDS       T00005
 NAME        SKM1
-DEFINITION  Skm1p (EC:2.7.11.1)
-ORTHOLOGY   K08286  protein-serine/threonine kinase [EC:2.7.11.-]
+DEFINITION  (RefSeq) putative serine/threonine protein kinase SKM1
+ORTHOLOGY   K19833  serine/threonine-protein kinase CLA4 [EC:2.7.11.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04011  MAPK signaling pathway - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YOL113W (SKM1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.11  Protein-serine/threonine kinases
+                2.7.11.1  non-specific serine/threonine protein kinase
+                 YOL113W (SKM1)
+            Protein kinases [BR:sce01001]
+             Serine/threonine protein kinases: STE group
+              STE20 family
+               YOL113W (SKM1)
 POSITION    XV:104326..106293
-MOTIF       Pfam: Pkinase Pkinase_Tyr PBD PH Kinase-like PH_11 DUF1320 APH
-DBLINKS     NCBI-GI: 6324459
+MOTIF       Pfam: Pkinase Pkinase_Tyr PBD PH Kinase-like PH_11 DUF3811
+DBLINKS     NCBI-ProteinID: NP_014528
             NCBI-GeneID: 854036
             SGD: S000005473
-            MIPS: YOL113W
             UniProt: Q12469
 AASEQ       655
             MKGVKKEGWISYKVDGLFSFLWQKRYLVLNDSYLAFYKSDKCNEEPVLSVPLTSITNVSR

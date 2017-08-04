@@ -1,13 +1,30 @@
 ENTRY       YBR139W           CDS       T00005
-DEFINITION  carboxypeptidase C (EC:3.4.16.-)
+DEFINITION  (RefSeq) carboxypeptidase C
 ORTHOLOGY   K13289  cathepsin A (carboxypeptidase C) [EC:3.4.16.5]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.4  Acting on peptide bonds (peptidases)
+               3.4.16  Serine-type carboxypeptidases
+                3.4.16.5  carboxypeptidase C
+                 YBR139W
+            Peptidases [BR:sce01002]
+             Serine Peptidases
+              Family S10
+               YBR139W
+            Chaperones and folding catalysts [BR:sce03110]
+             Intramolecular chaperones
+              Other peptidases
+               YBR139W
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of other body fluids (saliva and urine)
+               YBR139W
 POSITION    II:515664..517190
-MOTIF       Pfam: Peptidase_S10 Abhydrolase_6
-DBLINKS     NCBI-GI: 398365031
+MOTIF       Pfam: Peptidase_S10
+DBLINKS     NCBI-ProteinID: NP_009697
             NCBI-GeneID: 852436
             SGD: S000000343
-            MIPS: YBR139W
             UniProt: P38109
 AASEQ       508
             MKYLNLVFVLQLLISIKYASFGRAFSLFEDDTTFANLDKQLKLPQNTQQTLKLDRLNHDD

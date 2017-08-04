@@ -1,13 +1,12 @@
 ENTRY       YKL214C           CDS       T00005
 NAME        YRA2
-DEFINITION  Yra2p
+DEFINITION  (RefSeq) Yra2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XI:complement(31082..31693)
-MOTIF       Pfam: RRM_1 FoP_duplication RRM_6 RRM_5 Zeta_toxin
-DBLINKS     NCBI-GI: 6322635
+MOTIF       Pfam: FoP_duplication RRM_1
+DBLINKS     NCBI-ProteinID: NP_012708
             NCBI-GeneID: 853666
             SGD: S000001697
-            MIPS: YKL214C
             UniProt: P36036
 AASEQ       203
             MDKAFDEIIGNSHTDSSSNHKVTRYRRRDLRNELGPRLGFAPSDAASRSKDRLYREREEP

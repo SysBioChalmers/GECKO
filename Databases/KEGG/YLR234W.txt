@@ -1,16 +1,37 @@
 ENTRY       YLR234W           CDS       T00005
 NAME        TOP3, EDR1
-DEFINITION  DNA topoisomerase 3 (EC:5.99.1.2)
+DEFINITION  (RefSeq) DNA topoisomerase 3
 ORTHOLOGY   K03165  DNA topoisomerase III [EC:5.99.1.2]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03440  Homologous recombination
-CLASS       Genetic Information Processing; Replication and repair; Homologous recombination [PATH:sce03440]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Replication and repair
+               03440 Homologous recombination
+                YLR234W (TOP3)
+            Enzymes [BR:sce01000]
+             5. Isomerases
+              5.99  Other isomerases
+               5.99.1  Sole sub-subclass for isomerases that do not belong in the other subclasses
+                5.99.1.2  DNA topoisomerase
+                 YLR234W (TOP3)
+            DNA replication proteins [BR:sce03032]
+             Eukaryotic Type
+              DNA Topoisomerases
+               YLR234W (TOP3)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              DSBR (double strand breaks repair)
+               HR (homologous recombination)
+                Bloom's syndrome complex (BTR)
+                 YLR234W (TOP3)
+               FA (Fanconi anemia) pathway
+                 YLR234W (TOP3)
 POSITION    XII:609783..611753
 MOTIF       Pfam: Topoisom_bac Toprim
-DBLINKS     NCBI-GI: 6323263
+DBLINKS     NCBI-ProteinID: NP_013335
             NCBI-GeneID: 850935
             SGD: S000004224
-            MIPS: YLR234W
             UniProt: P13099
 AASEQ       656
             MKVLCVAEKNSIAKAVSQILGGGRSTSRDSGYMYVKNYDFMFSGFPFARNGANCEVTMTS

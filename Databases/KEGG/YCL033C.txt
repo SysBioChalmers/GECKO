@@ -1,13 +1,19 @@
 ENTRY       YCL033C           CDS       T00005
 NAME        MXR2
-DEFINITION  Mxr2p (EC:1.8.4.12)
+DEFINITION  (RefSeq) Mxr2p
+ORTHOLOGY   K07305  peptide-methionine (R)-S-oxide reductase [EC:1.8.4.12]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.8  Acting on a sulfur group of donors
+               1.8.4  With a disulfide as acceptor
+                1.8.4.12  peptide-methionine (R)-S-oxide reductase
+                 YCL033C (MXR2)
 POSITION    III:complement(62776..63282)
-MOTIF       Pfam: SelR DZR
-DBLINKS     NCBI-GI: 6319816
+MOTIF       Pfam: SelR Yippee-Mis18 DZR
+DBLINKS     NCBI-ProteinID: NP_009897
             NCBI-GeneID: 850324
             SGD: S000000538
-            MIPS: YCL033C
             UniProt: P25566
 AASEQ       168
             MNKWSRLYVITVRRTFPGRRNIVLTQYWNKSKKMSDESNDVKWNDALTPLQLMVLRDKAT

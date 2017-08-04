@@ -1,16 +1,21 @@
 ENTRY       YKR048C           CDS       T00005
 NAME        NAP1
-DEFINITION  Nap1p
+DEFINITION  (RefSeq) histone chaperone NAP1
 ORTHOLOGY   K11279  nucleosome assembly protein 1-like 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Nucleosome assembly factors
+               Histone chaperones
+                NAPs (Nucleosome assembly proteins)
+                 YKR048C (NAP1)
 POSITION    XI:complement(525387..526640)
 MOTIF       Pfam: NAP
-DBLINKS     NCBI-GI: 6322901
+DBLINKS     NCBI-ProteinID: NP_012974
             NCBI-GeneID: 853922
             SGD: S000001756
-            MIPS: YKR048C
             UniProt: P25293
-STRUCTURE   PDB: 2AYU 2Z2R
+STRUCTURE   PDB: 2AYU 2Z2R 5G2E
 AASEQ       417
             MSDPIRTKPKSSMQIDNAPTPHNTPASVLNPSYLKNGNPVRAQAQEQDDKIGTINEEDIL
             ANQPLLLQSIQDRLGSLVGQDSGYVGGLPKNVKEKLLSLKTLQSELFEVEKEFQVEMFEL

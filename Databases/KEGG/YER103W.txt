@@ -1,20 +1,85 @@
 ENTRY       YER103W           CDS       T00005
 NAME        SSA4, YG107
-DEFINITION  Hsp70 family chaperone SSA4
+DEFINITION  (RefSeq) Hsp70 family chaperone SSA4
 ORTHOLOGY   K03283  heat shock 70kDa protein 1/8
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03040  Spliceosome
             sce04141  Protein processing in endoplasmic reticulum
             sce04144  Endocytosis
-CLASS       Genetic Information Processing; Transcription; Spliceosome [PATH:sce03040]
-            Genetic Information Processing; Folding, sorting and degradation; Protein processing in endoplasmic reticulum [PATH:sce04141]
-            Cellular Processes; Transport and catabolism; Endocytosis [PATH:sce04144]
+            sce04213  Longevity regulating pathway - multiple species
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03040 Spliceosome
+                YER103W (SSA4)
+              Folding, sorting and degradation
+               04141 Protein processing in endoplasmic reticulum
+                YER103W (SSA4)
+             Cellular Processes
+              Transport and catabolism
+               04144 Endocytosis
+                YER103W (SSA4)
+             Organismal Systems
+              Aging
+               04213 Longevity regulating pathway - multiple species
+                YER103W (SSA4)
+            Protein phosphatases and associated proteins [BR:sce01009]
+             Protein Ser/ Thr phosphatases
+              Phosphoprotein phosphatases (PPPs)
+               Protein phosphatase-5
+                PP5-interacting proteins
+                 YER103W (SSA4)
+            Spliceosome [BR:sce03041]
+             Complex B
+              Other components
+               Prp19 complex
+                YER103W (SSA4)
+             Complex C
+               Prp19-CDC5 complex
+                YER103W (SSA4)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               Export and cytoplasmic maturation factors
+                YER103W (SSA4)
+            Chaperones and folding catalysts [BR:sce03110]
+             Heat shock proteins
+              HSP70 / DNAK
+               YER103W (SSA4)
+            Membrane trafficking [BR:sce04131]
+             Endocytosis
+              Clathrin-mediated endocytosis
+               Other core components
+                YER103W (SSA4)
+            Proteasome [BR:sce03051]
+             Eukaryotic proteasome
+              Assembling factors
+               Other assembling factors
+                YER103W (SSA4)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial protein import machinery
+              Endoplasmic reticulum membrane and cytosol
+               Other ER-memrane and cytosol factors
+                YER103W (SSA4)
+            Transporters [BR:sce02000]
+             Other Transporters
+              Pores ion channels [TC:1]
+               YER103W (SSA4)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Proteins found in most exosomes
+               YER103W (SSA4)
+            Cell adhesion molecules and their ligands [BR:sce04516]
+             1. Immunoglobulin Superfamily
+              Neural system
+               6/5 subfamily
+                CHL1; L1 cell adhesion molecule like protein [KO:K06758]
+                 YER103W (SSA4)
 POSITION    V:364589..366517
-MOTIF       Pfam: HSP70 MreB_Mbl FGGY_C DDR Hydantoinase_A
-DBLINKS     NCBI-GI: 398364655
+MOTIF       Pfam: HSP70 MreB_Mbl FGGY_C Hydantoinase_A DDR StbA FmdE HDV_ag
+DBLINKS     NCBI-ProteinID: NP_011029
             NCBI-GeneID: 856840
             SGD: S000000905
-            MIPS: YER103W
             UniProt: P22202
 AASEQ       642
             MSKAVGIDLGTTYSCVAHFANDRVEIIANDQGNRTTPSYVAFTDTERLIGDAAKNQAAMN

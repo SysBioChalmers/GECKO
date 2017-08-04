@@ -1,14 +1,18 @@
 ENTRY       YPL127C           CDS       T00005
 NAME        HHO1
-DEFINITION  Hho1p
+DEFINITION  (RefSeq) histone H1
 ORTHOLOGY   K11275  histone H1/5
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Nucleosome assembly factors
+               Histones
+                YPL127C (HHO1)
 POSITION    XVI:complement(308828..309604)
-MOTIF       Pfam: Linker_histone
-DBLINKS     NCBI-GI: 6325130
+MOTIF       Pfam: Linker_histone WAPL
+DBLINKS     NCBI-ProteinID: NP_015198
             NCBI-GeneID: 855976
             SGD: S000006048
-            MIPS: YPL127C
             UniProt: P53551
 STRUCTURE   PDB: 1YQA 1USS 1UST 1UHM
 AASEQ       258

@@ -1,14 +1,24 @@
 ENTRY       YCL038C           CDS       T00005
 NAME        ATG22, AUT4
-DEFINITION  Atg22p
+DEFINITION  (RefSeq) Atg22p
 ORTHOLOGY   K06902  MFS transporter, UMF1 family
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04138  Autophagy - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04138 Autophagy - yeast
+                YCL038C (ATG22)
+            Transporters [BR:sce02000]
+             Major Facilitator Superfamily (MFS)
+              Unknown transporters
+               Unknown major facilitator-1 (UMF1) [TC:2.A.1.24]
+                YCL038C (ATG22)
 POSITION    III:complement(54941..56527)
 MOTIF       Pfam: ATG22 MFS_1
-DBLINKS     NCBI-GI: 6319811
+DBLINKS     NCBI-ProteinID: NP_009892
             NCBI-GeneID: 850319
             SGD: S000000543
-            MIPS: YCL038C
             UniProt: P25568
 AASEQ       528
             MSYGTINDMNESVTNYRIKKAQNNIKGWYAYSFSSEPFVVSAVSTYIPLLLQQFASINGV

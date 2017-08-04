@@ -1,13 +1,12 @@
 ENTRY       Q0055             CDS       T00005
 NAME        AI2
-DEFINITION  intron-encoded reverse transcriptase aI2
+DEFINITION  (RefSeq) intron-encoded reverse transcriptase aI2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    MT:join(13818..13986,16435..18830)
-MOTIF       Pfam: RVT_1 Intron_maturas2 COX1 HNH
-DBLINKS     NCBI-GI: 6226521
+MOTIF       Pfam: Intron_maturas2 RVT_1 COX1 HNH
+DBLINKS     NCBI-ProteinID: NP_009309
             NCBI-GeneID: 854594
             SGD: S000007262
-            MIPS: Q0055
             UniProt: P03876
 AASEQ       854
             MVQRWLYSTNAKDIAVLYFMLAIFSGMAGTAMSLIIRLELAAPGSQYLHGNSQLFNVLVV

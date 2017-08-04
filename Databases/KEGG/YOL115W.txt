@@ -1,17 +1,37 @@
 ENTRY       YOL115W           CDS       T00005
 NAME        PAP2, TRF4
-DEFINITION  non-canonical poly(A) polymerase PAP2 (EC:2.7.7.-)
-ORTHOLOGY   K03514  DNA polymerase sigma [EC:2.7.7.7]
+DEFINITION  (RefSeq) non-canonical poly(A) polymerase PAP2
+ORTHOLOGY   K03514  non-canonical poly(A) RNA polymerase PAPD5/7 [EC:2.7.7.19]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03018  RNA degradation
 MODULE      sce_M00393  TRAMP complex
-CLASS       Genetic Information Processing; Folding, sorting and degradation; RNA degradation [PATH:sce03018]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               03018 RNA degradation
+                YOL115W (PAP2)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.7  Nucleotidyltransferases
+                2.7.7.19  polynucleotide adenylyltransferase
+                 YOL115W (PAP2)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA degradation factors
+               3'-5' decay
+                TRAMP complex
+                 YOL115W (PAP2)
+            Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              tRNA degradation factors
+               TRAMP complex
+                YOL115W (PAP2)
 POSITION    XV:101475..103229
 MOTIF       Pfam: NTP_transf_2 PAP_assoc DNA_pol_B_palm RD3
-DBLINKS     NCBI-GI: 6324457
+DBLINKS     NCBI-ProteinID: NP_014526
             NCBI-GeneID: 854034
             SGD: S000005475
-            MIPS: YOL115W
             UniProt: P53632
 STRUCTURE   PDB: 3NYB
 AASEQ       584

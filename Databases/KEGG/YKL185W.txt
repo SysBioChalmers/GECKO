@@ -1,13 +1,24 @@
 ENTRY       YKL185W           CDS       T00005
 NAME        ASH1
-DEFINITION  Ash1p
+DEFINITION  (RefSeq) DNA-binding transcription repressor ASH1
+ORTHOLOGY   K18658  transcriptional regulatory protein ASH1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription factors [BR:sce03000]
+             Eukaryotic Type
+              Zinc finger
+               Cys4 GATA-factors
+                YKL185W (ASH1)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Factors involved in mRNA localization
+                Cargo complex
+                 YKL185W (ASH1)
 POSITION    XI:94499..96265
 MOTIF       Pfam: GATA
-DBLINKS     NCBI-GI: 6322663
+DBLINKS     NCBI-ProteinID: NP_012736
             NCBI-GeneID: 853650
             SGD: S000001668
-            MIPS: YKL185W
             UniProt: P34233
 AASEQ       588
             MSSLYIKTPLHALSAGPDSHANSSYYDNLLLPSFSNLSSNISRNNITTDNNINSASPRKY

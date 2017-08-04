@@ -1,14 +1,23 @@
 ENTRY       YKL157W           CDS       T00005
 NAME        APE2, LAP1, YKL158W
-DEFINITION  Ape2p (EC:3.4.11.-)
+DEFINITION  (RefSeq) metallo-aminopeptidase
 ORTHOLOGY   K13721  aminopeptidase 2 [EC:3.4.11.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.4  Acting on peptide bonds (peptidases)
+               3.4.11  Aminopeptidases
+                3.4.11.-  
+                 YKL157W (APE2)
+            Peptidases [BR:sce01002]
+             Metallo Peptidases
+              Family M1
+               YKL157W (APE2)
 POSITION    XI:join(154991..155271,155655..158232)
-MOTIF       Pfam: Peptidase_M1 ERAP1_C Peptidase_MA_2
-DBLINKS     NCBI-GI: 330443644
+MOTIF       Pfam: Peptidase_M1 ERAP1_C DUF5380
+DBLINKS     NCBI-ProteinID: NP_012765
             NCBI-GeneID: 853699
             SGD: S000001640
-            MIPS: YKL157W
             UniProt: P32454
 AASEQ       952
             MPIVRWLLLKSAVRGSSLIGKAHPCLRSIAAHPRYLSNVYSPPAGVSRSLRINVMWKQSK

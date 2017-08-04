@@ -1,16 +1,24 @@
 ENTRY       YJL214W           CDS       T00005
 NAME        HXT8
-DEFINITION  Hxt8p
+DEFINITION  (RefSeq) hexose transporter HXT8
 ORTHOLOGY   K08139  MFS transporter, SP family, sugar:H+ symporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04113  Meiosis - yeast
-CLASS       Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04113 Meiosis - yeast
+                YJL214W (HXT8)
+            Transporters [BR:sce02000]
+             Major Facilitator Superfamily (MFS)
+              Sugar transporters
+               Sugar porter (SP) family [TC:2.A.1.1]
+                YJL214W (HXT8)
 POSITION    X:26887..28596
-MOTIF       Pfam: Sugar_tr MFS_1
-DBLINKS     NCBI-GI: 6322247
+MOTIF       Pfam: Sugar_tr MFS_1 CaKB
+DBLINKS     NCBI-ProteinID: NP_012321
             NCBI-GeneID: 853216
             SGD: S000003750
-            MIPS: YJL214W
             UniProt: P40886
 AASEQ       569
             MTDRKTNLPEEPIFEEAEDDGCPSIENSSHLSVPTVEENKDFSEYNGEEAEEVVVPEKPA

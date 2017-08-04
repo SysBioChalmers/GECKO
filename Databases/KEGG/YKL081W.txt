@@ -1,14 +1,23 @@
 ENTRY       YKL081W           CDS       T00005
 NAME        TEF4, EFC1
-DEFINITION  Tef4p
+DEFINITION  (RefSeq) translation elongation factor EF1B gamma
 ORTHOLOGY   K03233  elongation factor 1-gamma
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Factors involved in mRNA localization
+                Trans-acting binding proteins
+                 YKL081W (TEF4)
+            Translation factors [BR:sce03012]
+             Eukaryotic Type
+              Elongation factors
+               YKL081W (TEF4)
 POSITION    XI:join(282891..283095,283422..284455)
-MOTIF       Pfam: EF1G GST_N GST_C GST_C_2 DUF4552
-DBLINKS     NCBI-GI: 6322769
+MOTIF       Pfam: EF1G GST_N GST_C GST_C_2
+DBLINKS     NCBI-ProteinID: NP_012842
             NCBI-GeneID: 853781
             SGD: S000001564
-            MIPS: YKL081W
             UniProt: P36008
 AASEQ       412
             MSQGTLYINRSPRNYASEALISYFKLDVKIVDLEQSSEFASLFPLKQAPAFLGPKGLKLT

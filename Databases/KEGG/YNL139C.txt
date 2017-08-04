@@ -1,18 +1,38 @@
 ENTRY       YNL139C           CDS       T00005
 NAME        THO2, LDB5, RLR1, ZRG13
-DEFINITION  Tho2p
+DEFINITION  (RefSeq) Tho2p
 ORTHOLOGY   K12879  THO complex subunit 2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03013  RNA transport
             sce03040  Spliceosome
-CLASS       Genetic Information Processing; Transcription; Spliceosome [PATH:sce03040]
-            Genetic Information Processing; Translation; RNA transport [PATH:sce03013]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03040 Spliceosome
+                YNL139C (THO2)
+              Translation
+               03013 RNA transport
+                YNL139C (THO2)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Transport factors
+                TREX complex
+                 YNL139C (THO2)
+            Spliceosome [BR:sce03041]
+             Complex C
+              Other components
+               EJC/TREX
+                YNL139C (THO2)
+             Other splicing related proteins
+              Spliceosome associated proteins (SAPs)
+               TREX complex
+                YNL139C (THO2)
 POSITION    XIV:complement(360924..365717)
-MOTIF       Pfam: Tho2 Thoc2
-DBLINKS     NCBI-GI: 398364667
+MOTIF       Pfam: THOC2_N Tho2 Thoc2
+DBLINKS     NCBI-ProteinID: NP_014260
             NCBI-GeneID: 855583
             SGD: S000005083
-            MIPS: YNL139C
             UniProt: P53552
 AASEQ       1597
             MAEQTLLSKLNALSQKVIPPASPSQASILTEEVIRNWPERSKTLCSDFTALESNDEKEDW

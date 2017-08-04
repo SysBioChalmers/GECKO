@@ -1,19 +1,28 @@
 ENTRY       YER021W           CDS       T00005
 NAME        RPN3, SUN2
-DEFINITION  proteasome regulatory particle lid subunit RPN3
+DEFINITION  (RefSeq) proteasome regulatory particle lid subunit RPN3
 ORTHOLOGY   K03033  26S proteasome regulatory subunit N3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03050  Proteasome
 MODULE      sce_M00341  Proteasome, 19S regulatory particle (PA700)
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Proteasome [PATH:sce03050]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               03050 Proteasome
+                YER021W (RPN3)
+            Proteasome [BR:sce03051]
+             Eukaryotic proteasome
+              Regulatory particles
+               PA700 (19S proteasome)
+                non-ATPase subunits
+                 YER021W (RPN3)
 POSITION    V:196948..198519
-MOTIF       Pfam: Rpn3_C PCI PCI_Csn8 MarR_2
-DBLINKS     NCBI-GI: 6320859
+MOTIF       Pfam: PCI Rpn3_C HTH_27
+DBLINKS     NCBI-ProteinID: NP_010938
             NCBI-GeneID: 856742
             SGD: S000000823
-            MIPS: YER021W
             UniProt: P40016
-STRUCTURE   PDB: 4B4T 4C0V 3J47
+STRUCTURE   PDB: 3JCK 5MPD 5MPE 4CR2 4CR4 4CR3 5A5B 3J47
 AASEQ       523
             MASTAVMMDVDSSGVNDLHHSEKKYAEEDQVQELLKVLNEISKTTLTLDPRYIWRSLKDL
             SSLRNQELLNAETLCFTVNVLYPDSSSFKKNLLKFITSNHKSSVPGSAELRNSYPASFYS

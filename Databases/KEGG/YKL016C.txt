@@ -1,18 +1,21 @@
 ENTRY       YKL016C           CDS       T00005
 NAME        ATP7
-DEFINITION  F1F0 ATP synthase subunit D (EC:3.6.3.14)
-ORTHOLOGY   K02138  F-type H+-transporting ATPase subunit d [EC:3.6.3.14]
+DEFINITION  (RefSeq) F1F0 ATP synthase subunit D
+ORTHOLOGY   K02138  F-type H+-transporting ATPase subunit d
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00190  Oxidative phosphorylation
             sce01100  Metabolic pathways
 MODULE      sce_M00158  F-type ATPase, eukaryotes
-CLASS       Metabolism; Energy metabolism; Oxidative phosphorylation [PATH:sce00190]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Energy metabolism
+               00190 Oxidative phosphorylation
+                YKL016C (ATP7)
 POSITION    XI:complement(407465..407989)
-MOTIF       Pfam: Mt_ATP-synt_D E3_UbLigase_R4 T5orf172 IncA MUG113 Dor1 OmpH
-DBLINKS     NCBI-GI: 398364745
+MOTIF       Pfam: Mt_ATP-synt_D Spc29 E3_UbLigase_R4 T5orf172 DUF16
+DBLINKS     NCBI-ProteinID: NP_012909
             NCBI-GeneID: 853853
             SGD: S000001499
-            MIPS: YKL016C
             UniProt: P30902
 AASEQ       174
             MSLAKSAANKLDWAKVISSLRITGSTATQLSSFKKRNDEARRQLLELQSQPTEVDFSHYR

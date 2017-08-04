@@ -1,14 +1,18 @@
 ENTRY       YKR028W           CDS       T00005
 NAME        SAP190
-DEFINITION  Sap190p
+DEFINITION  (RefSeq) Sap190p
 ORTHOLOGY   K15458  SIT4-associating protein SAP185/190
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              tRNA modification factors
+               Elongator related proteins
+                YKR028W (SAP190)
 POSITION    XI:494257..497358
 MOTIF       Pfam: SAPS
-DBLINKS     NCBI-GI: 330443662
+DBLINKS     NCBI-ProteinID: NP_012953
             NCBI-GeneID: 853899
             SGD: S000001736
-            MIPS: YKR028W
             UniProt: P36123
 AASEQ       1033
             MSGSFWKFGQDYSIESPVSKILNSAFIKINKDQDDDVPTGTCEENIADDEDNSSHDYAAS

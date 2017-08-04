@@ -1,13 +1,20 @@
 ENTRY       YDR395W           CDS       T00005
 NAME        SXM1, KAP108
-DEFINITION  Sxm1p
+DEFINITION  (RefSeq) Sxm1p
+ORTHOLOGY   K20223  importin-7
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-40S particles
+               Export and cytoplasmic maturation factors
+                YDR395W (SXM1)
+              Pre-60S particles
+                YDR395W (SXM1)
 POSITION    IV:1263324..1266158
-MOTIF       Pfam: IBN_N
-DBLINKS     NCBI-GI: 398366561
+MOTIF       Pfam: IBN_N Cse1 Telomerase_RBD
+DBLINKS     NCBI-ProteinID: NP_010683
             NCBI-GeneID: 852004
             SGD: S000002803
-            MIPS: YDR395W
             UniProt: Q04175
 AASEQ       944
             MVQEQAILSCIEQTMVADAKIIKEAEQQLFEFQKQPGFTSFLLNIVSDDNFALNVRLSSA

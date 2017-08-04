@@ -1,13 +1,12 @@
 ENTRY       YOR227W           CDS       T00005
 NAME        HER1
-DEFINITION  Her1p
+DEFINITION  (RefSeq) Her1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:762825..766565
-MOTIF       Pfam: LRR_8 DUF1221
-DBLINKS     NCBI-GI: 6324801
+MOTIF       Pfam: DUF1221 Vip3A_N LRR_8
+DBLINKS     NCBI-ProteinID: NP_014870
             NCBI-GeneID: 854402
             SGD: S000005753
-            MIPS: YOR227W
             UniProt: Q12276
 AASEQ       1246
             MSSKLKYTDIDVPLDWLYKGKRRNRTKSAASTRTSEATTTSVKKTATLPSTAAVPTKTIA

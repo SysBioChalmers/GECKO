@@ -1,35 +1,32 @@
 ENTRY       YDR098C           CDS       T00005
 NAME        GRX3
-DEFINITION  Grx3p
+DEFINITION  (RefSeq) monothiol glutaredoxin GRX3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
-POSITION    IV:complement(644178..645035)
-MOTIF       Pfam: Glutaredoxin Thioredoxin Thioredoxin_8 AhpC-TSA Thioredoxin_7 Thioredoxin_2 BSP_II Myc_N Sporozoite_P67 Nucleoplasmin
-DBLINKS     NCBI-GI: 398365573
+POSITION    IV:complement(644178..644930)
+MOTIF       Pfam: Glutaredoxin Thioredoxin Thioredoxin_8 OST3_OST6 Thioredoxin_2 Thioredoxin_7 AhpC-TSA BSP_II FAM176 Myc_N Sporozoite_P67 DUF4611
+DBLINKS     NCBI-ProteinID: NP_010383
             NCBI-GeneID: 851672
             SGD: S000002505
-            MIPS: YDR098C
             UniProt: Q03835
 STRUCTURE   PDB: 3D6I
-AASEQ       285
-            MCSFQVPSAFSFNYTSYCYKRHQARYYTAAKLFQEMPVIEINDQEQFTYLTTTAAGDKLI
-            VLYFHTSWAEPCKALKQVFEAISNEPSNSNVSFLSIDADENSEISELFEISAVPYFIIIH
-            KGTILKELSGADPKEYVSLLEDCKNSVNSGSSQTHTMENANVNEGSHNDEDDDDEEEEEE
-            TEEQINARLTKLVNAAPVMLFMKGSPSEPKCGFSRQLVGILREHQVRFGFFDILRDESVR
-            QNLKKFSEWPTFPQLYINGEFQGGLDIIKESLEEDPDFLQHALQS
-NTSEQ       858
-            atgtgttcttttcaggttccatctgcattttcttttaactacacctcgtactgttataaa
-            cgccaccaagcaagatattacacagcagcaaaactttttcaggaaatgcctgttattgaa
-            attaacgatcaagagcaatttacttacctaactaccactgcggccggcgacaagttaatc
-            gtgctttatttccataccagttgggcagaaccatgcaaagcattaaagcaggtttttgag
-            gccattagtaatgagccttccaattccaacgtctctttcttatccattgatgcggacgaa
-            aactcggaaatttcagaactttttgaaatctcagctgttccatattttatcataattcac
-            aaagggacaatcttaaaagaattatccggcgcggatccaaaggagtatgtgtctttatta
-            gaagactgcaagaactcagtcaattccggatcatcacaaactcatactatggaaaatgca
-            aacgtaaatgaggggagtcataatgatgaagacgatgacgacgaagaagaggaagaagaa
-            actgaggagcaaataaacgctagattgactaaattggtcaatgccgcgccggtaatgtta
-            tttatgaaggggagcccctctgaacctaaatgcgggttttcgagacaacttgtgggtatc
-            ttgagagaacatcaagtaagatttggcttctttgatatattaagagacgaatctgttaga
-            caaaacttgaaaaagttttctgaatggccaactttccctcaactttatataaatggggag
-            tttcaaggcggtttagacattatcaaggaatccttggaggaagaccctgattttttgcag
-            catgctctccaatcttaa
+AASEQ       250
+            MPVIEINDQEQFTYLTTTAAGDKLIVLYFHTSWAEPCKALKQVFEAISNEPSNSNVSFLS
+            IDADENSEISELFEISAVPYFIIIHKGTILKELSGADPKEYVSLLEDCKNSVNSGSSQTH
+            TMENANVNEGSHNDEDDDDEEEEEETEEQINARLTKLVNAAPVMLFMKGSPSEPKCGFSR
+            QLVGILREHQVRFGFFDILRDESVRQNLKKFSEWPTFPQLYINGEFQGGLDIIKESLEED
+            PDFLQHALQS
+NTSEQ       753
+            atgcctgttattgaaattaacgatcaagagcaatttacttacctaactaccactgcggcc
+            ggcgacaagttaatcgtgctttatttccataccagttgggcagaaccatgcaaagcatta
+            aagcaggtttttgaggccattagtaatgagccttccaattccaacgtctctttcttatcc
+            attgatgcggacgaaaactcggaaatttcagaactttttgaaatctcagctgttccatat
+            tttatcataattcacaaagggacaatcttaaaagaattatccggcgcggatccaaaggag
+            tatgtgtctttattagaagactgcaagaactcagtcaattccggatcatcacaaactcat
+            actatggaaaatgcaaacgtaaatgaggggagtcataatgatgaagacgatgacgacgaa
+            gaagaggaagaagaaactgaggagcaaataaacgctagattgactaaattggtcaatgcc
+            gcgccggtaatgttatttatgaaggggagcccctctgaacctaaatgcgggttttcgaga
+            caacttgtgggtatcttgagagaacatcaagtaagatttggcttctttgatatattaaga
+            gacgaatctgttagacaaaacttgaaaaagttttctgaatggccaactttccctcaactt
+            tatataaatggggagtttcaaggcggtttagacattatcaaggaatccttggaggaagac
+            cctgattttttgcagcatgctctccaatcttaa
 ///

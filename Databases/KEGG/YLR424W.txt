@@ -1,14 +1,21 @@
 ENTRY       YLR424W           CDS       T00005
 NAME        SPP382, CCF8, NTR1
-DEFINITION  Spp382p
+DEFINITION  (RefSeq) mRNA splicing protein SPP382
 ORTHOLOGY   K13103  tuftelin-interacting protein 11
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Spliceosome [BR:sce03041]
+             Complex C
+              U4/U6.U5 tri-snRNP components
+               U4/U6.U5 tri-SnRNP related factors
+                YLR424W (SPP382)
+              Other components
+               Complex C specific factors
+                YLR424W (SPP382)
 POSITION    XII:973395..975521
-MOTIF       Pfam: G-patch G-patch_2
-DBLINKS     NCBI-GI: 6323456
+MOTIF       Pfam: G-patch G-patch_2 WASH-7_mid
+DBLINKS     NCBI-ProteinID: NP_013528
             NCBI-GeneID: 851143
             SGD: S000004416
-            MIPS: YLR424W
             UniProt: Q06411
 AASEQ       708
             MEDSDSNTDKKFFFKKRRIDSYNYSDEEDNNSSMNSDMTYTNDALKTSSGNAPTISKLTK

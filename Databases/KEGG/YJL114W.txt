@@ -1,12 +1,11 @@
 ENTRY       YJL114W           CDS       T00005
-DEFINITION  gag protein
+DEFINITION  (RefSeq) gag protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    X:197915..198595
-MOTIF       Pfam: DUF4208 TBPIP SeqA CR6_interact IncA CorA DUF2730
-DBLINKS     NCBI-GI: 330443637
+MOTIF       Pfam: DUF4208 TBPIP BORCS7 CorA DUF16 zf-C4H2 PCRF TSC22
+DBLINKS     NCBI-ProteinID: NP_012422
             NCBI-GeneID: 853329
             SGD: S000003650
-            MIPS: YJL114W
             UniProt: P47023
 AASEQ       226
             MATPVRGETRNVIDDNISARIQSKVKTNDTVRQTPSSLRKVSIKDEQVRQYQRNLNRFKT

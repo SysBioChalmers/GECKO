@@ -1,14 +1,18 @@
 ENTRY       YBL090W           CDS       T00005
 NAME        MRP21, MRP50
-DEFINITION  mitochondrial 37S ribosomal protein MRP21
-ORTHOLOGY   K17415  small subunit ribosomal protein MRP21, mitochondrial
+DEFINITION  (RefSeq) mitochondrial 37S ribosomal protein MRP21
+ORTHOLOGY   K17415  small subunit ribosomal protein MRP21
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Mitochondria/ Chloroplast
+               Small subunit
+                YBL090W (MRP21)
 POSITION    II:48825..49358
 MOTIF       Pfam: Ribosomal_S21
-DBLINKS     NCBI-GI: 6319381
+DBLINKS     NCBI-ProteinID: NP_009463
             NCBI-GeneID: 852188
             SGD: S000000186
-            MIPS: YBL090W
             UniProt: P38175
 AASEQ       177
             MLKSTLRLSRISLRRGFTTIDCLRQQNSDIDKIILNPIKLAQGSNSDRGQTSKSKTDNAD

@@ -1,12 +1,12 @@
 ENTRY       YLR413W           CDS       T00005
-DEFINITION  hypothetical protein
+NAME        INA1
+DEFINITION  (RefSeq) Ina1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XII:951156..953183
-MOTIF       Pfam: SUR7
-DBLINKS     NCBI-GI: 6323445
+MOTIF       Pfam: SUR7 DUF3387
+DBLINKS     NCBI-ProteinID: NP_013517
             NCBI-GeneID: 851131
             SGD: S000004405
-            MIPS: YLR413W
             UniProt: Q06689
 AASEQ       675
             MNFKILLPICALLTLTTFLLTIIATAGSTSNYKPITNIYIGDADISKINVTKVMPQVGPI

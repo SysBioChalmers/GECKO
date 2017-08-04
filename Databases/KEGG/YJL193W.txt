@@ -1,13 +1,16 @@
 ENTRY       YJL193W           CDS       T00005
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) hypothetical protein
 ORTHOLOGY   K15283  solute carrier family 35, member E1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Solute Carrier Family (SLC)
+              SLC35: Nucleoside-sugar transporter
+               YJL193W
 POSITION    X:71366..72574
-MOTIF       Pfam: TPT UAA EamA
-DBLINKS     NCBI-GI: 6322268
+MOTIF       Pfam: TPT EamA
+DBLINKS     NCBI-ProteinID: NP_012342
             NCBI-GeneID: 853246
             SGD: S000003729
-            MIPS: YJL193W
             UniProt: P39542
 AASEQ       402
             MFQQLSASIRHNAHIIFLCISWYFISSLASQVTKQVLTVCPLPLFLGEFQFIYTAVLAWF

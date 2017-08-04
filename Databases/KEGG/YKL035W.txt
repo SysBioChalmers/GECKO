@@ -1,6 +1,6 @@
 ENTRY       YKL035W           CDS       T00005
 NAME        UGP1
-DEFINITION  UTP glucose-1-phosphate uridylyltransferase (EC:2.7.7.9)
+DEFINITION  (RefSeq) UTP glucose-1-phosphate uridylyltransferase
 ORTHOLOGY   K00963  UTP--glucose-1-phosphate uridylyltransferase [EC:2.7.7.9]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00040  Pentose and glucuronate interconversions
@@ -8,18 +8,30 @@ PATHWAY     sce00040  Pentose and glucuronate interconversions
             sce00500  Starch and sucrose metabolism
             sce00520  Amino sugar and nucleotide sugar metabolism
             sce01100  Metabolic pathways
-            sce01110  Biosynthesis of secondary metabolites
+            sce01130  Biosynthesis of antibiotics
 MODULE      sce_M00549  Nucleotide sugar biosynthesis, glucose => UDP-glucose
-CLASS       Metabolism; Carbohydrate metabolism; Pentose and glucuronate interconversions [PATH:sce00040]
-            Metabolism; Carbohydrate metabolism; Galactose metabolism [PATH:sce00052]
-            Metabolism; Carbohydrate metabolism; Starch and sucrose metabolism [PATH:sce00500]
-            Metabolism; Carbohydrate metabolism; Amino sugar and nucleotide sugar metabolism [PATH:sce00520]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Carbohydrate metabolism
+               00040 Pentose and glucuronate interconversions
+                YKL035W (UGP1)
+               00052 Galactose metabolism
+                YKL035W (UGP1)
+               00500 Starch and sucrose metabolism
+                YKL035W (UGP1)
+               00520 Amino sugar and nucleotide sugar metabolism
+                YKL035W (UGP1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.7  Nucleotidyltransferases
+                2.7.7.9  UTP---glucose-1-phosphate uridylyltransferase
+                 YKL035W (UGP1)
 POSITION    XI:369891..371390
 MOTIF       Pfam: UDPGP DUF4301
-DBLINKS     NCBI-GI: 398364619
+DBLINKS     NCBI-ProteinID: NP_012889
             NCBI-GeneID: 853830
             SGD: S000001518
-            MIPS: YKL035W
             UniProt: P32861
 STRUCTURE   PDB: 2I5K
 AASEQ       499

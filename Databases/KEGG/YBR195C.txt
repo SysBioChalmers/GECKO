@@ -1,13 +1,12 @@
 ENTRY       YBR195C           CDS       T00005
 NAME        MSI1, CAC3
-DEFINITION  Msi1p
+DEFINITION  (RefSeq) Msi1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    II:complement(610614..611882)
-MOTIF       Pfam: WD40 CAF1C_H4-bd eIF2A IKI3
-DBLINKS     NCBI-GI: 6319672
+MOTIF       Pfam: CAF1C_H4-bd WD40 ANAPC4_WD40 eIF2A IKI3
+DBLINKS     NCBI-ProteinID: NP_009754
             NCBI-GeneID: 852494
             SGD: S000000399
-            MIPS: YBR195C
             UniProt: P13712
 AASEQ       422
             MNQCAKDITHEASSIPIDLQERYSHWKKNTKLLYDYLNTNSTKWPSLTCQFFPDLDTTSD

@@ -1,13 +1,12 @@
 ENTRY       YOL026C           CDS       T00005
 NAME        MIM1, TOM13
-DEFINITION  Mim1p
+DEFINITION  (RefSeq) Mim1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:complement(274012..274353)
 MOTIF       Pfam: TOM13
-DBLINKS     NCBI-GI: 6324547
+DBLINKS     NCBI-ProteinID: NP_014616
             NCBI-GeneID: 854131
             SGD: S000005386
-            MIPS: YOL026C
             UniProt: Q08176
 AASEQ       113
             MTEVVGFWESVSDDESEDKDCMEVQNTVSADESPLVQSLVSFVGSCSINLLLPFLNGMML

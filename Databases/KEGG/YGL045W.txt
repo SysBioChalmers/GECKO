@@ -1,13 +1,18 @@
 ENTRY       YGL045W           CDS       T00005
 NAME        RIM8, ART9, PAL3, YGL046W
-DEFINITION  Rim8p
+DEFINITION  (RefSeq) Rim8p
+ORTHOLOGY   K20063  arrestin-related trafficking adapter 9
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endocytosis
+              Clathrin-mediated endocytosis
+               GPCR adaptor proteins
+                YGL045W (RIM8)
 POSITION    VII:414102..415730
-MOTIF       Pfam: Arrestin_N Arrestin_C
-DBLINKS     NCBI-GI: 398364763
+MOTIF       Pfam: Arrestin_N Arrestin_C Calcyon
+DBLINKS     NCBI-ProteinID: NP_011470
             NCBI-GeneID: 852837
             SGD: S000003013
-            MIPS: YGL045W
             UniProt: P53179
 AASEQ       542
             MSLLRLWNKESRAPSKIKSHGIVGSYGNSMLAHNNVKQFRIDIDEPHRVWKPNESITGEA

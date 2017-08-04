@@ -1,6 +1,6 @@
 ENTRY       YLR058C           CDS       T00005
 NAME        SHM2, SHMT2
-DEFINITION  glycine hydroxymethyltransferase SHM2 (EC:2.1.2.1)
+DEFINITION  (RefSeq) glycine hydroxymethyltransferase SHM2
 ORTHOLOGY   K00600  glycine hydroxymethyltransferase [EC:2.1.2.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00260  Glycine, serine and threonine metabolism
@@ -10,22 +10,43 @@ PATHWAY     sce00260  Glycine, serine and threonine metabolism
             sce00680  Methane metabolism
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
+            sce01130  Biosynthesis of antibiotics
             sce01200  Carbon metabolism
             sce01230  Biosynthesis of amino acids
 MODULE      sce_M00141  C1-unit interconversion, eukaryotes
-CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
-            Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
-            Metabolism; Carbohydrate metabolism; Glyoxylate and dicarboxylate metabolism [PATH:sce00630]
-            Metabolism; Energy metabolism; Methane metabolism [PATH:sce00680]
-            Metabolism; Amino acid metabolism; Glycine, serine and threonine metabolism [PATH:sce00260]
-            Metabolism; Metabolism of other amino acids; Cyanoamino acid metabolism [PATH:sce00460]
-            Metabolism; Metabolism of cofactors and vitamins; One carbon pool by folate [PATH:sce00670]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01200 Carbon metabolism
+                YLR058C (SHM2)
+               01230 Biosynthesis of amino acids
+                YLR058C (SHM2)
+              Carbohydrate metabolism
+               00630 Glyoxylate and dicarboxylate metabolism
+                YLR058C (SHM2)
+              Energy metabolism
+               00680 Methane metabolism
+                YLR058C (SHM2)
+              Amino acid metabolism
+               00260 Glycine, serine and threonine metabolism
+                YLR058C (SHM2)
+              Metabolism of other amino acids
+               00460 Cyanoamino acid metabolism
+                YLR058C (SHM2)
+              Metabolism of cofactors and vitamins
+               00670 One carbon pool by folate
+                YLR058C (SHM2)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.1  Transferring one-carbon groups
+               2.1.2  Hydroxymethyl-, formyl- and related transferases
+                2.1.2.1  glycine hydroxymethyltransferase
+                 YLR058C (SHM2)
 POSITION    XII:complement(257992..259401)
-MOTIF       Pfam: SHMT Aminotran_1_2 Aminotran_5 Beta_elim_lyase
-DBLINKS     NCBI-GI: 6323087
+MOTIF       Pfam: SHMT Aminotran_1_2 Aminotran_5 Beta_elim_lyase HPD
+DBLINKS     NCBI-ProteinID: NP_013159
             NCBI-GeneID: 850747
             SGD: S000004048
-            MIPS: YLR058C
             UniProt: P37291
 AASEQ       469
             MPYTLSDAHHKLITSHLVDTDPEVDSIIKDEIERQKHSIDLIASENFTSTSVFDALGTPL

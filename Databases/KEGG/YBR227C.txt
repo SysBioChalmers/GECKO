@@ -1,14 +1,17 @@
 ENTRY       YBR227C           CDS       T00005
 NAME        MCX1
-DEFINITION  Mcx1p
+DEFINITION  (RefSeq) Mcx1p
 ORTHOLOGY   K03544  ATP-dependent Clp protease ATP-binding subunit ClpX
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chaperones and folding catalysts [BR:sce03110]
+             Heat shock proteins
+              HSP100
+               YBR227C (MCX1)
 POSITION    II:complement(673572..675134)
-MOTIF       Pfam: AAA_2 AAA AAA_5 ClpB_D2-small AAA_22 AAA_17 AAA_16 Mg_chelatase Sigma54_activat AAA_14 IstB_IS21 AAA_24 RuvB_N Sigma54_activ_2 T2SE AAA_33 NACHT DEAD AAA_18 PhoH AAA_29 ResIII RNA_helicase ABC_tran AAA_19 MobB CbiA AAA_25
-DBLINKS     NCBI-GI: 6319704
+MOTIF       Pfam: AAA_2 AAA AAA_5 ClpB_D2-small AAA_22 Mg_chelatase AAA_16 Sigma54_activ_2 Sigma54_activat AAA_14 RuvB_N IstB_IS21 AAA_24 DEAD T2SSE AAA_33 NACHT AAA_18 PhoH RNA_helicase AAA_29 ABC_tran FtsK_SpoIIIE CbiA
+DBLINKS     NCBI-ProteinID: NP_009786
             NCBI-GeneID: 852528
             SGD: S000000431
-            MIPS: YBR227C
             UniProt: P38323
 AASEQ       520
             MLKSASQNFFRAYSSRIGRYAATASGKLAQSRLSNIPTPKALKKFLDEYIVGQEIGKKVL

@@ -1,12 +1,12 @@
 ENTRY       YMR107W           CDS       T00005
 NAME        SPG4
-DEFINITION  Spg4p
+DEFINITION  (RefSeq) Spg4p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:483014..483361
-DBLINKS     NCBI-GI: 6323754
+MOTIF       Pfam: SPG4
+DBLINKS     NCBI-ProteinID: NP_013825
             NCBI-GeneID: 855134
             SGD: S000004713
-            MIPS: YMR107W
             UniProt: Q04438
 AASEQ       115
             MGSFWDAFAVYDKKKHADPSVYGGNHNNTGDSKTQVMFSKEYRQPRTHQQENLQSMRRSS

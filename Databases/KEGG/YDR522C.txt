@@ -1,13 +1,12 @@
 ENTRY       YDR522C           CDS       T00005
 NAME        SPS2
-DEFINITION  Sps2p
+DEFINITION  (RefSeq) Sps2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(1483795..1485303)
-MOTIF       Pfam: Recep_L_domain LRR_9
-DBLINKS     NCBI-GI: 6320730
+MOTIF       Pfam: Recep_L_domain
+DBLINKS     NCBI-ProteinID: NP_010810
             NCBI-GeneID: 852134
             SGD: S000002930
-            MIPS: YDR522C
             UniProt: P08459
 AASEQ       502
             MPIWKTQTFFTSISVIQIVNKETKVSTKKEKDSMLNQLNTILRFLFLFLQLIKSSAAVEP

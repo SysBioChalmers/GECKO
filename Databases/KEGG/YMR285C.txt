@@ -1,14 +1,24 @@
 ENTRY       YMR285C           CDS       T00005
 NAME        NGL2
-DEFINITION  Ngl2p (EC:3.1.-.-)
+DEFINITION  (RefSeq) RNA exonuclease
 ORTHOLOGY   K14812  RNA exonuclease NGL2 [EC:3.1.-.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.-  Acting on ester bonds
+                3.1.-.-  
+                 YMR285C (NGL2)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               RNases
+                YMR285C (NGL2)
 POSITION    XIII:complement(840144..841691)
-MOTIF       Pfam: Exo_endo_phos
-DBLINKS     NCBI-GI: 6323941
+MOTIF       Pfam: Exo_endo_phos RBR
+DBLINKS     NCBI-ProteinID: NP_014012
             NCBI-GeneID: 855329
             SGD: S000004898
-            MIPS: YMR285C
             UniProt: Q03264
 AASEQ       515
             MTQDKEVKVVAPDVAPDQEVEINKSVKDAKHQTNDDSLLQHKKKGKKGKKSKPIVTPEHI

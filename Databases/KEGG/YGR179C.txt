@@ -1,14 +1,19 @@
 ENTRY       YGR179C           CDS       T00005
 NAME        OKP1
-DEFINITION  Okp1p
+DEFINITION  (RefSeq) Okp1p
 ORTHOLOGY   K11555  central kinetochore subunit OKP1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centromeric chromatin formation proteins
+               Kinetochore proteins
+                COMA complex
+                 YGR179C (OKP1)
 POSITION    VII:complement(853675..854895)
-MOTIF       Pfam: DUF2404
-DBLINKS     NCBI-GI: 6321618
+MOTIF       Pfam: CENP-Q
+DBLINKS     NCBI-ProteinID: NP_011695
             NCBI-GeneID: 853090
             SGD: S000003411
-            MIPS: YGR179C
             UniProt: P53298
 AASEQ       406
             MAADRDNFLQNIENDSINNGQAMDLSPNRSSSESDSSILMNVNDIKTLRLDVAPEAKSTQ

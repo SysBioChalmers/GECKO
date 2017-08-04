@@ -1,16 +1,40 @@
 ENTRY       YAL029C           CDS       T00005
 NAME        MYO4, FUN22, SHE1
-DEFINITION  myosin 4
+DEFINITION  (RefSeq) myosin 4
 ORTHOLOGY   K10357  myosin V
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Factors involved in mRNA localization
+                Cargo complex
+                 YAL029C (MYO4)
+               mRNA cycle factors
+                P-body specific factors
+                 YAL029C (MYO4)
+            Membrane trafficking [BR:sce04131]
+             Others
+              Actin-binding proteins
+               Myosins
+                YAL029C (MYO4)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial quality control factors
+              Mitochondrial dynamics
+               Retention of mitochondria
+                YAL029C (MYO4)
+            Cytoskeleton proteins [BR:sce04812]
+             Eukaryotic cytoskeleton proteins
+              Actin filaments / Microfilaments
+               Actin-binding proteins
+                Myosins
+                 YAL029C (MYO4)
 POSITION    I:complement(87855..92270)
-MOTIF       Pfam: Myosin_head DIL IQ AAA_22 Myosin_N Sigma54_activat ABC_tran AAA_19 AAA_16
-DBLINKS     NCBI-GI: 6319290
+MOTIF       Pfam: Myosin_head DIL IQ Myosin_N NB-ARC AAA_22 Sigma54_activat AAA_16 ABC_tran
+DBLINKS     NCBI-ProteinID: NP_009373
             NCBI-GeneID: 851204
             SGD: S000000027
-            MIPS: YAL029C
             UniProt: P32492
-STRUCTURE   PDB: 3MMI
+STRUCTURE   PDB: 4LL6 3MMI 4LL8
 AASEQ       1471
             MSFEVGTKCWYPHKEQGWIGGEVTKNDFFEGTFHLELKLEDGETVSIETNSFENDDDHPT
             LPVLRNPPILESTDDLTTLSYLNEPAVLHAIKKRYMNGQIYTYSGIVLIAANPFDKVDHL

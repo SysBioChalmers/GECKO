@@ -1,17 +1,36 @@
 ENTRY       YLR270W           CDS       T00005
 NAME        DCS1
-DEFINITION  Dcs1p (EC:3.6.1.59)
-ORTHOLOGY   K12584  scavenger mRNA-decapping enzyme DcpS [EC:3.-.-.-]
+DEFINITION  (RefSeq) 5'-(N(7)-methyl 5'-triphosphoguanosine)-(mRNA) diphosphatase
+ORTHOLOGY   K12584  m7GpppX diphosphatase [EC:3.6.1.59]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03018  RNA degradation
-CLASS       Genetic Information Processing; Folding, sorting and degradation; RNA degradation [PATH:sce03018]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               03018 RNA degradation
+                YLR270W (DCS1)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.1  In phosphorus-containing anhydrides
+                3.6.1.59  5'-(N7-methyl 5'-triphosphoguanosine)-[mRNA] diphosphatase
+                 YLR270W (DCS1)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA degradation factors
+               5'-3' decay
+                Other 5'-3' decay factors
+                 YLR270W (DCS1)
+               3'-5' decay
+                Other 3'-5' decay factors
+                 YLR270W (DCS1)
 POSITION    XII:681186..682238
 MOTIF       Pfam: DcpS DcpS_C
-DBLINKS     NCBI-GI: 6323299
+DBLINKS     NCBI-ProteinID: NP_013372
             NCBI-GeneID: 850974
             SGD: S000004260
-            MIPS: YLR270W
             UniProt: Q06151
+STRUCTURE   PDB: 5BV3
 AASEQ       350
             MSQLPTDFASLIKRFQFVSVLDSNPQTKVMSLLGTIDNKDAIITAEKTHFLFDETVRRPS
             QDGRSTPVLYNCENEYSCINGIQELKEITSNDIYYWGLSVIKQDMESNPTAKLNLIWPAT

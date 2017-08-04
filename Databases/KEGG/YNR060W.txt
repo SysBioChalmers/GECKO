@@ -1,14 +1,19 @@
 ENTRY       YNR060W           CDS       T00005
 NAME        FRE4
-DEFINITION  Fre4p (EC:1.16.1.7 1.16.1.-)
+DEFINITION  (RefSeq) ferric-chelate reductase
 ORTHOLOGY   K00521  ferric-chelate reductase [EC:1.16.1.7]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.16  Oxidizing metal ions
+               1.16.1  With NAD+ or NADP+ as acceptor
+                1.16.1.7  ferric-chelate reductase (NADH)
+                 YNR060W (FRE4)
 POSITION    XIV:739951..742110
 MOTIF       Pfam: NAD_binding_6 FAD_binding_8 Ferric_reduct
-DBLINKS     NCBI-GI: 6324388
+DBLINKS     NCBI-ProteinID: NP_014458
             NCBI-GeneID: 855797
             SGD: S000005343
-            MIPS: YNR060W
             UniProt: P53746
 AASEQ       719
             MLLVHIISFLLFFQLSAAKAPPSKTSLINTHERRSIYSCYVGLRKETWGFNGSAICRYEP

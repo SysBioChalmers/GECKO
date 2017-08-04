@@ -1,14 +1,19 @@
 ENTRY       YPL190C           CDS       T00005
 NAME        NAB3, HMD1
-DEFINITION  Nab3p
+DEFINITION  (RefSeq) Nab3p
 ORTHOLOGY   K15561  nuclear polyadenylated RNA-binding protein 3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Other transcription-related factors
+                Transcription termination factor
+                 YPL190C (NAB3)
 POSITION    XVI:complement(185317..187725)
-MOTIF       Pfam: RRM_1 RRM_6 RRM_5
-DBLINKS     NCBI-GI: 6325066
+MOTIF       Pfam: RRM_1 RRM_5
+DBLINKS     NCBI-ProteinID: NP_015134
             NCBI-GeneID: 855911
             SGD: S000006111
-            MIPS: YPL190C
             UniProt: P38996
 STRUCTURE   PDB: 2XNQ 2XNR 2L41 2KVI
 AASEQ       802

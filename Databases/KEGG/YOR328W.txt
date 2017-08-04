@@ -1,13 +1,12 @@
 ENTRY       YOR328W           CDS       T00005
 NAME        PDR10
-DEFINITION  ATP-binding cassette multidrug transporter PDR10
+DEFINITION  (RefSeq) ATP-binding cassette multidrug transporter PDR10
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:931803..936497
-MOTIF       Pfam: ABC2_membrane ABC_tran PDR_CDR ABC_trans_N AAA_25 AAA_16 AAA_33 DUF258 AAA_19 cobW AAA_29 AAA_21 AAA_17 ABC2_membrane_3 AAA_28 AAA_18 SMC_N AAA_22 AAA_23
-DBLINKS     NCBI-GI: 6324904
+MOTIF       Pfam: ABC2_membrane ABC_tran PDR_CDR ABC_trans_N AAA_25 AAA_21 AAA_16 RsgA_GTPase AAA_33 AAA_29 AAA_23 AAA_18 AAA_22 SMC_N AAA_28 DnaB_C
+DBLINKS     NCBI-ProteinID: NP_014973
             NCBI-GeneID: 854506
             SGD: S000005855
-            MIPS: YOR328W
             UniProt: P51533
 AASEQ       1564
             MLQAPSSSNSGLNQGNAAPDGPPNETQPYEGLDAAAQEEIKELARTLTSQSSLLSQEKRI

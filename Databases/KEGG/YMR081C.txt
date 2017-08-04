@@ -1,12 +1,12 @@
 ENTRY       YMR081C           CDS       T00005
 NAME        ISF1, MBR3
-DEFINITION  Isf1p
+DEFINITION  (RefSeq) Isf1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:complement(430079..431095)
-DBLINKS     NCBI-GI: 6323727
+MOTIF       Pfam: MBR1
+DBLINKS     NCBI-ProteinID: NP_013798
             NCBI-GeneID: 855105
             SGD: S000004686
-            MIPS: YMR081C
             UniProt: P32488
 AASEQ       338
             MIASEIFERGVQDPFCQDCDYEDETDVQSFLGSNDLNDFVNSKLASFSFQNSSKSNNSHH

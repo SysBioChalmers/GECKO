@@ -1,16 +1,25 @@
 ENTRY       YFL029C           CDS       T00005
 NAME        CAK1, CIV1
-DEFINITION  Cak1p (EC:2.7.11.22)
+DEFINITION  (RefSeq) cyclin-dependent protein kinase-activating kinase CAK1
 ORTHOLOGY   K06667  serine/threonine-protein kinase CAK1 [EC:2.7.11.22]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
-CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YFL029C (CAK1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.11  Protein-serine/threonine kinases
+                2.7.11.22  cyclin-dependent kinase
+                 YFL029C (CAK1)
 POSITION    VI:complement(78055..79161)
-MOTIF       Pfam: Pkinase Pkinase_Tyr APH YrbL-PhoP_reg Kdo
-DBLINKS     NCBI-GI: 14318490
+MOTIF       Pfam: Pkinase Pkinase_Tyr APH YrbL-PhoP_reg Kdo FAM150 FTA2
+DBLINKS     NCBI-ProteinID: NP_116624
             NCBI-GeneID: 850515
             SGD: S000001865
-            MIPS: YFL029C
             UniProt: P43568
 AASEQ       368
             MKLDSIDITHCQLVKSTRTARIYRSDTYAIKCLALDFDIPPHNAKFEVSILNKLGNKCKH

@@ -1,13 +1,12 @@
 ENTRY       YCR024C-A         CDS       T00005
 NAME        PMP1
-DEFINITION  Pmp1p
+DEFINITION  (RefSeq) proteolipid ATPase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    III:complement(162945..163067)
-MOTIF       Pfam: PMP1_2 DUF1049 Chordopox_A13L DUF1206 P12
-DBLINKS     NCBI-GI: 7839147
+MOTIF       Pfam: PMP1_2 OppC_N Oxidored_q2 P12 TMEM132D_C CD34_antigen Chordopox_A13L
+DBLINKS     NCBI-ProteinID: NP_058137
             NCBI-GeneID: 850389
             SGD: S000000619
-            MIPS: YCR024C-A
             UniProt: P32903
 AASEQ       40
             MTLPGGVILVFILVGLACIAIIATIIYRKWQARQRGLQRF

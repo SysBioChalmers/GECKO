@@ -1,13 +1,18 @@
 ENTRY       YOR299W           CDS       T00005
 NAME        BUD7
-DEFINITION  Bud7p
+DEFINITION  (RefSeq) exomer complex subunit
+ORTHOLOGY   K19881  Chs5-Arf1p-binding protein BUD7/BCH1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Exocytosis
+              Others
+               Exomer complex
+                YOR299W (BUD7)
 POSITION    XV:878435..880675
-MOTIF       Pfam: ChAPs TPR_8 TPR_11 TPR_2 Apc3
-DBLINKS     NCBI-GI: 6324874
+MOTIF       Pfam: ChAPs ANAPC3 TPR_2 Mnd1 TPR_8 TPR_19
+DBLINKS     NCBI-ProteinID: NP_014943
             NCBI-GeneID: 854475
             SGD: S000005825
-            MIPS: YOR299W
             UniProt: Q08754
 AASEQ       746
             MITQNSIPEVKEDFIGYALHERRIRLPQFQDLGPADLVTLTKYLPTSSNTNAINSTSRNG

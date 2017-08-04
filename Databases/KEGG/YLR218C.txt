@@ -1,13 +1,18 @@
 ENTRY       YLR218C           CDS       T00005
 NAME        COA4, CMC3
-DEFINITION  Coa4p
+DEFINITION  (RefSeq) Coa4p
+ORTHOLOGY   K18177  cytochrome c oxidase assembly factor 4
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial quality control factors
+              Mitochondrial respiratory chain complex assembly factors
+               Complex-IV assembly factors
+                YLR218C (COA4)
 POSITION    XII:complement(573466..573918)
 MOTIF       Pfam: CHCH
-DBLINKS     NCBI-GI: 6323247
+DBLINKS     NCBI-ProteinID: NP_013319
             NCBI-GeneID: 850915
             SGD: S000004208
-            MIPS: YLR218C
             UniProt: Q05809
 AASEQ       150
             MLLFSSFFSHNKCPKQKKGPQPLKVVKGTSKSCAKQGKIKGKEKLWQAKTGRLVMSETGE

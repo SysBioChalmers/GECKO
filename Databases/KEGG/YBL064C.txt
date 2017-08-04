@@ -1,14 +1,23 @@
 ENTRY       YBL064C           CDS       T00005
 NAME        PRX1
-DEFINITION  Prx1p (EC:1.11.1.15)
+DEFINITION  (RefSeq) thioredoxin peroxidase PRX1
 ORTHOLOGY   K03386  peroxiredoxin (alkyl hydroperoxide reductase subunit C) [EC:1.11.1.15]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.11  Acting on a peroxide as acceptor
+               1.11.1  Peroxidases
+                1.11.1.15  peroxiredoxin
+                 YBL064C (PRX1)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Proteins found in most exosomes
+               YBL064C (PRX1)
 POSITION    II:complement(100371..101156)
 MOTIF       Pfam: AhpC-TSA 1-cysPrx_C Redoxin
-DBLINKS     NCBI-GI: 6319407
+DBLINKS     NCBI-ProteinID: NP_009489
             NCBI-GeneID: 852215
             SGD: S000000160
-            MIPS: YBL064C
             UniProt: P34227
 AASEQ       261
             MFSRICSAQLKRTAWTLPKQAHLQSQTIKTFATAPILCKQFKQSDQPRLRINSDAPNFDA

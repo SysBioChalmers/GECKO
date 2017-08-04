@@ -1,13 +1,18 @@
 ENTRY       YCL034W           CDS       T00005
 NAME        LSB5
-DEFINITION  Lsb5p
+DEFINITION  (RefSeq) Lsb5p
+ORTHOLOGY   K20524  LAS seventeen-binding protein 5
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Others
+              Actin-binding proteins
+               Nucleation-promoting factors (NPFs)
+                YCL034W (LSB5)
 POSITION    III:61658..62722
 MOTIF       Pfam: GAT VHS
-DBLINKS     NCBI-GI: 10383760
+DBLINKS     NCBI-ProteinID: NP_009896
             NCBI-GeneID: 850323
             SGD: S000000539
-            MIPS: YCL034W
             UniProt: P25369
 AASEQ       354
             MGFLSDHPHTAITETIFRIVSSRDYTLEVELAPLIQLIKADHNDYNYTVNQEEAARALRK

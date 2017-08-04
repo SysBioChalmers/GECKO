@@ -1,14 +1,24 @@
 ENTRY       YOR239W           CDS       T00005
 NAME        ABP140, TRM140, YOR240W
-DEFINITION  Abp140p (EC:2.1.1.-)
+DEFINITION  (RefSeq) Abp140p
 ORTHOLOGY   K17053  tRNAThr (cytosine32-N3)-methyltransferase [EC:2.1.1.268]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.1  Transferring one-carbon groups
+               2.1.1  Methyltransferases
+                2.1.1.268  tRNAThr (cytosine32-N3)-methyltransferase
+                 YOR239W (ABP140)
+            Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              tRNA modification factors
+               Methyltransferases
+                YOR239W (ABP140)
 POSITION    XV:join(784857..785687,785689..786744)
-MOTIF       Pfam: Methyltransf_12 Methyltransf_23 Methyltransf_11 Methyltransf_25 Methyltransf_18 Methyltransf_26 DUF3419
-DBLINKS     NCBI-GI: 398365899
+MOTIF       Pfam: Methyltransf_12 Methyltransf_23 Methyltransf_25 Methyltransf_11
+DBLINKS     NCBI-ProteinID: NP_014882
             NCBI-GeneID: 854414
             SGD: S000005765
-            MIPS: YOR239W
             UniProt: Q08641
 AASEQ       628
             MGVADLIKKFESISKEEGDATVDTNSSSKPLKSNDETKELHQQESTAVPQEVDVNEEFEN

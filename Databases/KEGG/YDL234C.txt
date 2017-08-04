@@ -1,13 +1,18 @@
 ENTRY       YDL234C           CDS       T00005
 NAME        GYP7
-DEFINITION  Gyp7p
+DEFINITION  (RefSeq) Gyp7p
+ORTHOLOGY   K20168  TBC1 domain family member 15
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endosome - Lysosome transport
+              Rab GTPases and associated proteins
+               Rab associated proteins
+                YDL234C (GYP7)
 POSITION    IV:complement(34237..36477)
-MOTIF       Pfam: RabGAP-TBC
-DBLINKS     NCBI-GI: 6319967
+MOTIF       Pfam: RabGAP-TBC DUF1451
+DBLINKS     NCBI-ProteinID: NP_010047
             NCBI-GeneID: 851364
             SGD: S000002393
-            MIPS: YDL234C
             UniProt: P48365
 AASEQ       746
             MSKILFCKSKVFLHPTSDARDNIAGFLLLTLEANKLSHQAILQYIPESGLSTLEISKLLK

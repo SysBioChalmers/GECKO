@@ -1,13 +1,12 @@
 ENTRY       YIL105C           CDS       T00005
 NAME        SLM1, LIT2
-DEFINITION  Slm1p
+DEFINITION  (RefSeq) phosphatidylinositol 4,5-bisphosphate-binding protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IX:complement(167581..169641)
-MOTIF       Pfam: PH
-DBLINKS     NCBI-GI: 6322086
+MOTIF       Pfam: PH RTT107_BRCT_5
+DBLINKS     NCBI-ProteinID: NP_012161
             NCBI-GeneID: 854701
             SGD: S000001367
-            MIPS: YIL105C
             UniProt: P40485
 STRUCTURE   PDB: 4A6H 4A6F 4A5K 4A6K 3NSU
 AASEQ       686

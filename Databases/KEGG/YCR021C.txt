@@ -1,13 +1,12 @@
 ENTRY       YCR021C           CDS       T00005
 NAME        HSP30, YRO1
-DEFINITION  Hsp30p
+DEFINITION  (RefSeq) Hsp30p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    III:complement(156109..157107)
-MOTIF       Pfam: Bac_rhodopsin Phage_XkdX DUF4131
-DBLINKS     NCBI-GI: 6319869
+MOTIF       Pfam: Bac_rhodopsin DUF4131 Phage_XkdX DUF2157 Oxidored_q3
+DBLINKS     NCBI-ProteinID: NP_009950
             NCBI-GeneID: 850385
             SGD: S000000615
-            MIPS: YCR021C
             UniProt: P25619
 AASEQ       332
             MNDTLSSFLNRNEALGLNPPHGLDMHITKRGSDWLWAVFAVFGFILLCYVVMFFIAENKG

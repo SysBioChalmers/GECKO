@@ -1,13 +1,12 @@
 ENTRY       YGL261C           CDS       T00005
 NAME        PAU11
-DEFINITION  Pau11p
+DEFINITION  (RefSeq) seripauperin PAU11
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:complement(6290..6652)
 MOTIF       Pfam: SRP1_TIP1
-DBLINKS     NCBI-GI: 6321176
+DBLINKS     NCBI-ProteinID: NP_011253
             NCBI-GeneID: 852630
             SGD: S000003230
-            MIPS: YGL261C
             UniProt: P0CE93 P0CE92 Q3E770
 AASEQ       120
             MVKLTSIAAGVAAIAATASATTTLAQSDERVNLVELGVYVSDIRAHLAQYYMFQAAHPTE

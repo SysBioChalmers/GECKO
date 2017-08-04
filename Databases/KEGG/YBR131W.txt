@@ -1,13 +1,24 @@
 ENTRY       YBR131W           CDS       T00005
 NAME        CCZ1, CVT16
-DEFINITION  Ccz1p
+DEFINITION  (RefSeq) Ccz1p
+ORTHOLOGY   K21156  vacuolar fusion protein CCZ1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04138  Autophagy - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04138 Autophagy - yeast
+                YBR131W (CCZ1)
+            Membrane trafficking [BR:sce04131]
+             Endosome - Lysosome transport
+              Others
+               Others
+                YBR131W (CCZ1)
 POSITION    II:497163..499277
 MOTIF       Pfam: DUF1712 SUV3_C
-DBLINKS     NCBI-GI: 398364979
+DBLINKS     NCBI-ProteinID: NP_009689
             NCBI-GeneID: 852428
             SGD: S000000335
-            MIPS: YBR131W
             UniProt: P38273
 AASEQ       704
             MRLHYITVFDPSRSTNENDTFKQLLLFHYFGTTDSIPSLNEKLSIIGVIQGIWSLTSSCV

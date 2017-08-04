@@ -1,19 +1,31 @@
 ENTRY       YFL009W           CDS       T00005
 NAME        CDC4
-DEFINITION  SCF ubiquitin ligase complex subunit CDC4
+DEFINITION  (RefSeq) SCF ubiquitin ligase complex subunit CDC4
 ORTHOLOGY   K03361  F-box and WD-40 domain protein CDC4
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
             sce04120  Ubiquitin mediated proteolysis
 MODULE      sce_M00407  SCF-CDC4 complex
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Ubiquitin mediated proteolysis [PATH:sce04120]
-            Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04120 Ubiquitin mediated proteolysis
+                YFL009W (CDC4)
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YFL009W (CDC4)
+            Ubiquitin system [BR:sce04121]
+             Ubiquitin ligases (E3)
+              Multi subunit Ring-finger type E3
+               SCF complex
+                Target recognizing subunit (F-box)
+                 YFL009W (CDC4)
 POSITION    VI:116145..118484
-MOTIF       Pfam: WD40 F-box-like F-box PRANC DNA_pol_A
-DBLINKS     NCBI-GI: 14318513
+MOTIF       Pfam: WD40 CDC4_D F-box-like ANAPC4_WD40 F-box PRANC
+DBLINKS     NCBI-ProteinID: NP_116585
             NCBI-GeneID: 850539
             SGD: S000001885
-            MIPS: YFL009W
             UniProt: P07834
 STRUCTURE   PDB: 3V7D 3MKS 2P63 1NEX
 AASEQ       779

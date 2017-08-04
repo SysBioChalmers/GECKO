@@ -1,16 +1,24 @@
 ENTRY       YLR081W           CDS       T00005
 NAME        GAL2
-DEFINITION  Gal2p
+DEFINITION  (RefSeq) galactose permease GAL2
 ORTHOLOGY   K08139  MFS transporter, SP family, sugar:H+ symporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04113  Meiosis - yeast
-CLASS       Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04113 Meiosis - yeast
+                YLR081W (GAL2)
+            Transporters [BR:sce02000]
+             Major Facilitator Superfamily (MFS)
+              Sugar transporters
+               Sugar porter (SP) family [TC:2.A.1.1]
+                YLR081W (GAL2)
 POSITION    XII:290212..291936
-MOTIF       Pfam: Sugar_tr MFS_1 LMF1 Cytochrom_B_N
-DBLINKS     NCBI-GI: 6323110
+MOTIF       Pfam: Sugar_tr MFS_1 DUF4118 LMF1
+DBLINKS     NCBI-ProteinID: NP_013182
             NCBI-GeneID: 850770
             SGD: S000004071
-            MIPS: YLR081W
             UniProt: P13181
 AASEQ       574
             MAVEENNMPVVSQQPQAGEDVISSLSKDSHLSAQSQKYSNDELKAGESGSEGSQSVPIEI

@@ -1,14 +1,13 @@
 ENTRY       YGR211W           CDS       T00005
 NAME        ZPR1
-DEFINITION  Zpr1p
+DEFINITION  (RefSeq) zinc finger-containing protein ZPR1
 ORTHOLOGY   K06874  zinc finger protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:915241..916701
-MOTIF       Pfam: zf-ZPR1
-DBLINKS     NCBI-GI: 398366177
+MOTIF       Pfam: zf-ZPR1 HypA
+DBLINKS     NCBI-ProteinID: NP_011727
             NCBI-GeneID: 853125
             SGD: S000003443
-            MIPS: YGR211W
             UniProt: P53303
 AASEQ       486
             MSEQKEDLFKPVGEAAAEVEDESIAEQNKANDGVKLTGAQDAMGHPVQEIESLCMNCGKN

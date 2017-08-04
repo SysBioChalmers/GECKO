@@ -1,13 +1,12 @@
 ENTRY       YMR192W           CDS       T00005
 NAME        GYL1, APP2
-DEFINITION  Gyl1p
+DEFINITION  (RefSeq) Gyl1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:647118..649280
-MOTIF       Pfam: RabGAP-TBC APG6
-DBLINKS     NCBI-GI: 6323846
+MOTIF       Pfam: RabGAP-TBC
+DBLINKS     NCBI-ProteinID: NP_013917
             NCBI-GeneID: 855230
             SGD: S000004804
-            MIPS: YMR192W
             UniProt: Q04322
 AASEQ       720
             MNSNEDIHEERIEVPRTPHQTQPEKDSDRIALRDEISVPEGDEKAYSDEKVEMATTNASS

@@ -1,14 +1,17 @@
 ENTRY       YBR068C           CDS       T00005
 NAME        BAP2
-DEFINITION  Bap2p
+DEFINITION  (RefSeq) branched-chain amino acid permease BAP2
 ORTHOLOGY   K16261  yeast amino acid transporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Other Transporters
+              Electrochemical potential-driven transporters [TC:2]
+               YBR068C (BAP2)
 POSITION    II:complement(373861..375690)
 MOTIF       Pfam: AA_permease AA_permease_2
-DBLINKS     NCBI-GI: 398364599
+DBLINKS     NCBI-ProteinID: NP_009624
             NCBI-GeneID: 852360
             SGD: S000000272
-            MIPS: YBR068C
             UniProt: P38084
 AASEQ       609
             MLSSEDFGSSGKKETSPDSISIRSFSAGNNFQSSSSEKTYSKQKSGSDKLIHRFADSFKR

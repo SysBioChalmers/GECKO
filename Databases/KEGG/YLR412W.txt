@@ -1,13 +1,12 @@
 ENTRY       YLR412W           CDS       T00005
 NAME        BER1
-DEFINITION  Ber1p
+DEFINITION  (RefSeq) Ber1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XII:948368..949192
-MOTIF       Pfam: SRR1
-DBLINKS     NCBI-GI: 6323444
+MOTIF       Pfam: SRR1 TFIIE_beta
+DBLINKS     NCBI-ProteinID: NP_013516
             NCBI-GeneID: 851130
             SGD: S000004404
-            MIPS: YLR412W
             UniProt: Q06688
 AASEQ       274
             MDFKASGTKFKKTGKKVVPAKAFEEIVQTNRDVLKKSAFLSDLLENLQPHLNNIKKIRCV

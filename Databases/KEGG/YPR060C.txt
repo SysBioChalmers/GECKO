@@ -1,21 +1,33 @@
 ENTRY       YPR060C           CDS       T00005
 NAME        ARO7, HGS1, OSM2, TYR7
-DEFINITION  chorismate mutase ARO7 (EC:5.4.99.5)
+DEFINITION  (RefSeq) chorismate mutase ARO7
 ORTHOLOGY   K01850  chorismate mutase [EC:5.4.99.5]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00400  Phenylalanine, tyrosine and tryptophan biosynthesis
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
+            sce01130  Biosynthesis of antibiotics
             sce01230  Biosynthesis of amino acids
 MODULE      sce_M00024  Phenylalanine biosynthesis, chorismate => phenylalanine
-CLASS       Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
-            Metabolism; Amino acid metabolism; Phenylalanine, tyrosine and tryptophan biosynthesis [PATH:sce00400]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01230 Biosynthesis of amino acids
+                YPR060C (ARO7)
+              Amino acid metabolism
+               00400 Phenylalanine, tyrosine and tryptophan biosynthesis
+                YPR060C (ARO7)
+            Enzymes [BR:sce01000]
+             5. Isomerases
+              5.4  Intramolecular transferases
+               5.4.99  Transferring other groups
+                5.4.99.5  chorismate mutase
+                 YPR060C (ARO7)
 POSITION    XVI:complement(674861..675631)
-MOTIF       Pfam: CM_2 Baculo_FP
-DBLINKS     NCBI-GI: 6325317
+MOTIF       Pfam: CM_2
+DBLINKS     NCBI-ProteinID: NP_015385
             NCBI-GeneID: 856173
             SGD: S000006264
-            MIPS: YPR060C
             UniProt: P32178
 STRUCTURE   PDB: 5CSM 1CSM 4CSM 2CSM 3CSM
 AASEQ       256

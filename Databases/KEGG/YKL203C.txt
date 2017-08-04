@@ -1,16 +1,44 @@
 ENTRY       YKL203C           CDS       T00005
 NAME        TOR2, DRR2
-DEFINITION  Tor2p (EC:2.7.1.67 2.7.11.1)
-ORTHOLOGY   K07203  FKBP12-rapamycin complex-associated protein
+DEFINITION  (RefSeq) phosphatidylinositol kinase-related protein kinase TOR2
+ORTHOLOGY   K07203  serine/threonine-protein kinase mTOR [EC:2.7.11.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04113  Meiosis - yeast
-CLASS       Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+            sce04136  Autophagy - other
+            sce04138  Autophagy - yeast
+            sce04139  Mitophagy - yeast
+            sce04213  Longevity regulating pathway - multiple species
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04138 Autophagy - yeast
+                YKL203C (TOR2)
+               04136 Autophagy - other eukaryotes
+                YKL203C (TOR2)
+               04139 Mitophagy - yeast
+                YKL203C (TOR2)
+              Cell growth and death
+               04113 Meiosis - yeast
+                YKL203C (TOR2)
+             Organismal Systems
+              Aging
+               04213 Longevity regulating pathway - multiple species
+                YKL203C (TOR2)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.11  Protein-serine/threonine kinases
+                2.7.11.1  non-specific serine/threonine protein kinase
+                 YKL203C (TOR2)
+            Protein kinases [BR:sce01001]
+             Serine/threonine protein kinases: Atypical group
+              PIKK family [OT]
+               YKL203C (TOR2)
 POSITION    XI:complement(55935..63359)
-MOTIF       Pfam: FAT DUF3385 PI3_PI4_kinase Rapamycin_bind FATC HEAT_2 HEAT_EZ HEAT TPR_19 Vac14_Fab1_bd
-DBLINKS     NCBI-GI: 42759860
+MOTIF       Pfam: FAT PI3_PI4_kinase DUF3385 FRB_dom FATC HEAT_2 HEAT Vac14_Fab1_bd IFRD TPR_19
+DBLINKS     NCBI-ProteinID: NP_012719
             NCBI-GeneID: 853632
             SGD: S000001686
-            MIPS: YKL203C
             UniProt: P32600
 AASEQ       2474
             MNKYINKYTTPPNLLSLRQRAEGKHRTRKKLTHKSHSHDDEMSTTSNTDSNHNGPNDSGR

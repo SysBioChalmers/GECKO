@@ -1,13 +1,12 @@
 ENTRY       YNR069C           CDS       T00005
 NAME        BSC5, BUL3
-DEFINITION  Bsc5p
+DEFINITION  (RefSeq) Bsc5p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIV:complement(761123..762592)
 MOTIF       Pfam: Bul1_N
-DBLINKS     NCBI-GI: 398365887
+DBLINKS     NCBI-ProteinID: NP_014467
             NCBI-GeneID: 855806
             SGD: S000005352
-            MIPS: YNR069C
             UniProt: P53755
 AASEQ       489
             MQESKEPQNKFEGCQRISSSSSTLFGGTSFEEPRCGTSQGKEEDAFACNNGDHCSSITNV

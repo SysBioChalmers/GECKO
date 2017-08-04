@@ -1,13 +1,12 @@
 ENTRY       YNR074C           CDS       T00005
 NAME        AIF1, CPD1
-DEFINITION  Aif1p (EC:1.-.-.-)
+DEFINITION  (RefSeq) Aif1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIV:complement(777602..778738)
-MOTIF       Pfam: Pyr_redox Pyr_redox_2 NAD_binding_9 DAO K_oxygenase
-DBLINKS     NCBI-GI: 6324402
+MOTIF       Pfam: Pyr_redox_2 Pyr_redox NAD_binding_9 DAO K_oxygenase Shikimate_DH
+DBLINKS     NCBI-ProteinID: NP_014472
             NCBI-GeneID: 855811
             SGD: S000005357
-            MIPS: YNR074C
             UniProt: P52923
 AASEQ       378
             MTINTKNIVVVGAGVFGVSVANHLYRELGGTYAIKLVTASNYVYFLPSAVRLTVSKDYTK

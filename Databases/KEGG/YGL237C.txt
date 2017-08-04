@@ -1,13 +1,12 @@
 ENTRY       YGL237C           CDS       T00005
 NAME        HAP2
-DEFINITION  Hap2p
+DEFINITION  (RefSeq) Hap2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:complement(52731..53528)
-MOTIF       Pfam: CBFB_NFYA
-DBLINKS     NCBI-GI: 6321200
+MOTIF       Pfam: CBFB_NFYA TFIIA RCR
+DBLINKS     NCBI-ProteinID: NP_011277
             NCBI-GeneID: 852614
             SGD: S000003206
-            MIPS: YGL237C
             UniProt: P06774
 AASEQ       265
             MSADETDAKFHPLETDLQSDTAAATSTAAASRSPSLQEKPIEMPLDMGKAPSPRGEDQRV

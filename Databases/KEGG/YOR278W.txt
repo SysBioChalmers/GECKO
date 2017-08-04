@@ -1,18 +1,27 @@
 ENTRY       YOR278W           CDS       T00005
 NAME        HEM4, SLU2
-DEFINITION  uroporphyrinogen-III synthase HEM4 (EC:4.2.1.75)
+DEFINITION  (RefSeq) uroporphyrinogen-III synthase HEM4
 ORTHOLOGY   K01719  uroporphyrinogen-III synthase [EC:4.2.1.75]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00860  Porphyrin and chlorophyll metabolism
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
-CLASS       Metabolism; Metabolism of cofactors and vitamins; Porphyrin and chlorophyll metabolism [PATH:sce00860]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Metabolism of cofactors and vitamins
+               00860 Porphyrin and chlorophyll metabolism
+                YOR278W (HEM4)
+            Enzymes [BR:sce01000]
+             4. Lyases
+              4.2  Carbon-oxygen lyases
+               4.2.1  Hydro-lyases
+                4.2.1.75  uroporphyrinogen-III synthase
+                 YOR278W (HEM4)
 POSITION    XV:842817..843644
 MOTIF       Pfam: HEM4
-DBLINKS     NCBI-GI: 6324852
+DBLINKS     NCBI-ProteinID: NP_014921
             NCBI-GeneID: 854452
             SGD: S000005804
-            MIPS: YOR278W
             UniProt: P06174
 AASEQ       275
             MSSRKKVRVLLLKNKTVPIDKYELECRSKAFEPIFVPLIKHTHVIQDFRNVLNTIPNYLN

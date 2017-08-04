@@ -1,15 +1,26 @@
 ENTRY       YOL009C           CDS       T00005
 NAME        MDM12
-DEFINITION  Mdm12p
+DEFINITION  (RefSeq) ERMES complex subunit MDM12
 ORTHOLOGY   K17765  mitochondrial distribution and morphology protein 12
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04139  Mitophagy - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04139 Mitophagy - yeast
+                YOL009C (MDM12)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial protein import machinery
+              Endoplasmic reticulum membrane and cytosol
+               ER-mitochondria encounter structure (ERMES) complex
+                YOL009C (MDM12)
 POSITION    XV:complement(309324..310139)
-MOTIF       Pfam: DUF2404
-DBLINKS     NCBI-GI: 6324565
+MOTIF       Pfam: MMM1
+DBLINKS     NCBI-ProteinID: NP_014634
             NCBI-GeneID: 854153
             SGD: S000005369
-            MIPS: YOL009C
             UniProt: Q92328
+STRUCTURE   PDB: 5GYD 5GYK
 AASEQ       271
             MSFDINWSTLESDNRLNDLIRKHLNSYLQNTQLPSYVSNLRVLDFDLGKVGPAITLKEIT
             DPLDEFYDSIREEADQETEENNDNKEDSEHICPDRTIANHEGPKDDFEAPVVMPSPNDIQ

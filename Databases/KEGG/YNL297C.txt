@@ -1,13 +1,12 @@
 ENTRY       YNL297C           CDS       T00005
 NAME        MON2, YSL2
-DEFINITION  Mon2p
+DEFINITION  (RefSeq) Mon2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIV:complement(71673..76583)
-MOTIF       Pfam: Sec7_N
-DBLINKS     NCBI-GI: 6324033
+MOTIF       Pfam: DCB Sec7_N Mon2_C
+DBLINKS     NCBI-ProteinID: NP_014102
             NCBI-GeneID: 855420
             SGD: S000005241
-            MIPS: YNL297C
             UniProt: P48563
 AASEQ       1636
             MAMNTGGFDSMQRQLEAELRSLSSESKRRNSTIRHASDKSIEILKRVHSFEELERHPDFA

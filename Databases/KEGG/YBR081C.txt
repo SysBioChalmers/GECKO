@@ -1,14 +1,27 @@
 ENTRY       YBR081C           CDS       T00005
 NAME        SPT7, GIT2
-DEFINITION  Spt7p
+DEFINITION  (RefSeq) SAGA histone acetyltransferase complex subunit SPT7
 ORTHOLOGY   K11359  transcriptional activator SPT7
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Coactivators
+                SAGA/TFTC/STAGA complex
+                 YBR081C (SPT7)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Histone modification proteins
+               HAT complexes
+                SAGA complex
+                 YBR081C (SPT7)
+                SLIK complex
+                 YBR081C (SPT7)
 POSITION    II:complement(401253..405251)
-MOTIF       Pfam: Bromodomain Bromo_TP
-DBLINKS     NCBI-GI: 6319555
+MOTIF       Pfam: Bromodomain Bromo_TP Bromo_TP_like
+DBLINKS     NCBI-ProteinID: NP_009637
             NCBI-GeneID: 852373
             SGD: S000000285
-            MIPS: YBR081C
             UniProt: P35177
 AASEQ       1332
             MTERIPIKNYQRTNAKALLKLTEKLFNKNFFDLYLTSQQLVVLEYLLSISSEEDKLKAWD

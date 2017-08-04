@@ -1,16 +1,25 @@
 ENTRY       YHR201C           CDS       T00005
 NAME        PPX1
-DEFINITION  Ppx1p (EC:3.6.1.11)
+DEFINITION  (RefSeq) exopolyphosphatase
 ORTHOLOGY   K01514  exopolyphosphatase [EC:3.6.1.11]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00230  Purine metabolism
-CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Nucleotide metabolism
+               00230 Purine metabolism
+                YHR201C (PPX1)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.1  In phosphorus-containing anhydrides
+                3.6.1.11  exopolyphosphatase
+                 YHR201C (PPX1)
 POSITION    VIII:complement(499950..501143)
 MOTIF       Pfam: DHHA2 DHH
-DBLINKS     NCBI-GI: 6321995
+DBLINKS     NCBI-ProteinID: NP_012071
             NCBI-GeneID: 856608
             SGD: S000001244
-            MIPS: YHR201C
             UniProt: P38698
 STRUCTURE   PDB: 2QB7 2QB6 2QB8
 AASEQ       397

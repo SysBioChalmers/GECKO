@@ -1,16 +1,19 @@
 ENTRY       YLR043C           CDS       T00005
 NAME        TRX1, LMA1
-DEFINITION  Trx1p
+DEFINITION  (RefSeq) thioredoxin TRX1
 ORTHOLOGY   K03671  thioredoxin 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chaperones and folding catalysts [BR:sce03110]
+             Protein folding catalysts
+              Protein disulfide isomerase
+               YLR043C (TRX1)
 POSITION    XII:complement(231702..232013)
-MOTIF       Pfam: Thioredoxin Thioredoxin_2 Thioredoxin_8 Thioredoxin_9 AhpC-TSA Redoxin Thioredoxin_7 DIM1 Phosducin DUF2847 TraF
-DBLINKS     NCBI-GI: 6323072
+MOTIF       Pfam: Thioredoxin Thioredoxin_9 Thioredoxin_2 Thioredoxin_8 AhpC-TSA Redoxin DIM1 Thioredoxin_7 OST3_OST6 TraF Phosducin DUF2847
+DBLINKS     NCBI-ProteinID: NP_013144
             NCBI-GeneID: 850732
             SGD: S000004033
-            MIPS: YLR043C
             UniProt: P22217
-STRUCTURE   PDB: 3F3Q 3F3R 2I9H
+STRUCTURE   PDB: 3F3Q 3F3R 2N5A 2N5B 2I9H
 AASEQ       103
             MVTQFKTASEFDSAIAQDKLVVVDFYATWCGPCKMIAPMIEKFSEQYPQADFYKLDVDEL
             GDVAQKNEVSAMPTLLLFKNGKEVAKVVGANPAAIKQAIAANA

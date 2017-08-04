@@ -1,14 +1,18 @@
 ENTRY       YPR112C           CDS       T00005
 NAME        MRD1
-DEFINITION  Mrd1p
+DEFINITION  (RefSeq) RNA-binding ribosome biosynthesis protein MRD1
 ORTHOLOGY   K14787  multiple RNA-binding domain-containing protein 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              90S particles
+               Other 90S particles
+                YPR112C (MRD1)
 POSITION    XVI:complement(749256..751919)
-MOTIF       Pfam: RRM_1 RRM_6 RRM_5
-DBLINKS     NCBI-GI: 6325369
+MOTIF       Pfam: RRM_1 RRM_5 RRM_occluded
+DBLINKS     NCBI-ProteinID: NP_015437
             NCBI-GeneID: 856228
             SGD: S000006316
-            MIPS: YPR112C
             UniProt: Q06106
 AASEQ       887
             MSRIIVKGLPVYLTDDNLREHFTKRLRQKHSHQAVNGSGPDLITDVKILRDRNGESRRFG

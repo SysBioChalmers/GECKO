@@ -1,17 +1,37 @@
 ENTRY       YOR335C           CDS       T00005
 NAME        ALA1, CDC64
-DEFINITION  alanine--tRNA ligase (EC:6.1.1.7)
+DEFINITION  (RefSeq) alanine--tRNA ligase
 ORTHOLOGY   K01872  alanyl-tRNA synthetase [EC:6.1.1.7]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00970  Aminoacyl-tRNA biosynthesis
 MODULE      sce_M00359  Aminoacyl-tRNA biosynthesis, eukaryotes
-CLASS       Genetic Information Processing; Translation; Aminoacyl-tRNA biosynthesis [PATH:sce00970]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               00970 Aminoacyl-tRNA biosynthesis
+                YOR335C (ALA1)
+            Enzymes [BR:sce01000]
+             6. Ligases
+              6.1  Forming carbon-oxygen bonds
+               6.1.1  Ligases forming aminoacyl-tRNA and related compounds
+                6.1.1.7  alanine---tRNA ligase
+                 YOR335C (ALA1)
+            Amino acid related enzymes [BR:sce01007]
+             Aminoacyl-tRNA synthetase
+              Class II (G/C)
+               YOR335C (ALA1)
+            Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              Aminoacyl-tRNA synthetases (AARSs)
+               Other AARSs
+                YOR335C (ALA1)
+             Prokaryotic Type
+                YOR335C (ALA1)
 POSITION    XV:complement(946233..949109)
-MOTIF       Pfam: tRNA-synt_2c tRNA_SAD DHHA1
-DBLINKS     NCBI-GI: 398366285
+MOTIF       Pfam: tRNA-synt_2c tRNA_SAD DHHA1 Halogen_Hydrol Z1 FKBP_N
+DBLINKS     NCBI-ProteinID: NP_014980
             NCBI-GeneID: 854513
             SGD: S000005862
-            MIPS: YOR335C
             UniProt: P40825
 AASEQ       958
             MTIGDKQKWTATNVRNTFLDYFKSKEHKFVKSSPVVPFDDPTLLFANAGMNQYKPIFLGT

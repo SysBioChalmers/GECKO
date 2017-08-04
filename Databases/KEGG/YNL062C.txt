@@ -1,15 +1,20 @@
 ENTRY       YNL062C           CDS       T00005
 NAME        GCD10, TRM6
-DEFINITION  Gcd10p
+DEFINITION  (RefSeq) tRNA 1-methyladenosine methyltransferase subunit GCD10
 ORTHOLOGY   K03256  tRNA (adenine-N(1)-)-methyltransferase non-catalytic subunit
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              tRNA modification factors
+               Methyltransferases
+                YNL062C (GCD10)
 POSITION    XIV:complement(508776..510212)
-MOTIF       Pfam: Gcd10p RNase_H2_suC
-DBLINKS     NCBI-GI: 398365151
+MOTIF       Pfam: Gcd10p CREPT
+DBLINKS     NCBI-ProteinID: NP_014337
             NCBI-GeneID: 855663
             SGD: S000005006
-            MIPS: YNL062C
             UniProt: P41814
+STRUCTURE   PDB: 5ERG 5EQJ
 AASEQ       478
             MNALTTIDFNQHVIVRLPSKNYKIVELKPNTSVSLGKFGAFEVNDIIGYPFGLTFEIYYD
             GEEVSSDENRDSKPKNKIPIGKVRLLSQEIKDVNNDKDDGQSEPPLSIKEKSVSLELSSI

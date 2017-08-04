@@ -1,17 +1,26 @@
 ENTRY       YOR209C           CDS       T00005
 NAME        NPT1
-DEFINITION  nicotinate phosphoribosyltransferase (EC:2.4.2.11)
+DEFINITION  (RefSeq) nicotinate phosphoribosyltransferase
 ORTHOLOGY   K00763  nicotinate phosphoribosyltransferase [EC:6.3.4.21]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00760  Nicotinate and nicotinamide metabolism
             sce01100  Metabolic pathways
-CLASS       Metabolism; Metabolism of cofactors and vitamins; Nicotinate and nicotinamide metabolism [PATH:sce00760]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Metabolism of cofactors and vitamins
+               00760 Nicotinate and nicotinamide metabolism
+                YOR209C (NPT1)
+            Enzymes [BR:sce01000]
+             6. Ligases
+              6.3  Forming carbon-nitrogen bonds
+               6.3.4  Other carbon-nitrogen ligases
+                6.3.4.21  nicotinate phosphoribosyltransferase
+                 YOR209C (NPT1)
 POSITION    XV:complement(736437..737726)
 MOTIF       Pfam: NAPRTase
-DBLINKS     NCBI-GI: 6324783
+DBLINKS     NCBI-ProteinID: NP_014852
             NCBI-GeneID: 854384
             SGD: S000005735
-            MIPS: YOR209C
             UniProt: P39683
 STRUCTURE   PDB: 1VLP
 AASEQ       429

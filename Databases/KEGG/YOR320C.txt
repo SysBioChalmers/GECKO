@@ -1,13 +1,12 @@
 ENTRY       YOR320C           CDS       T00005
 NAME        GNT1
-DEFINITION  Gnt1p (EC:2.4.1.-)
+DEFINITION  (RefSeq) glucose N-acetyltransferase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:complement(913619..915094)
 MOTIF       Pfam: Glyco_transf_8 Mannosyl_trans3
-DBLINKS     NCBI-GI: 398366239
+DBLINKS     NCBI-ProteinID: NP_014965
             NCBI-GeneID: 854498
             SGD: S000005847
-            MIPS: YOR320C
             UniProt: Q12096
 AASEQ       491
             MRLISKRRIRFIVFILFGVLTVFVVSRLVVHFQYNQEIKFYKKYFQQRKDGLHEIYNPLE

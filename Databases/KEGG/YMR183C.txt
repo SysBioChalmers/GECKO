@@ -1,17 +1,32 @@
 ENTRY       YMR183C           CDS       T00005
 NAME        SSO2
-DEFINITION  Sso2p
+DEFINITION  (RefSeq) syntaxin
 ORTHOLOGY   K08486  syntaxin 1B/2/3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04130  SNARE interactions in vesicular transport
-CLASS       Genetic Information Processing; Folding, sorting and degradation; SNARE interactions in vesicular transport [PATH:sce04130]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04130 SNARE interactions in vesicular transport
+                YMR183C (SSO2)
+            Membrane trafficking [BR:sce04131]
+             SNARE
+              Syntaxin (Qa)
+               Stx-PM
+                YMR183C (SSO2)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of epithelial cells
+               YMR183C (SSO2)
+              Exosomal proteins of other body fluids (saliva and urine)
+               YMR183C (SSO2)
 POSITION    XIII:complement(626921..627808)
-MOTIF       Pfam: SNARE Syntaxin Synaptobrevin T2SF Rifin_STEVOR DUF4094 Shisa
-DBLINKS     NCBI-GI: 6323837
+MOTIF       Pfam: Syntaxin SNARE Synaptobrevin DUF948 DUF2207 Chordopox_A33R EVI2A BLOC1_2 T2SSF PBP1_TM DUF4085
+DBLINKS     NCBI-ProteinID: NP_013908
             NCBI-GeneID: 855221
             SGD: S000004795
-            MIPS: YMR183C
             UniProt: P39926
+STRUCTURE   PDB: 5M4Y 5LG4
 AASEQ       295
             MSNANPYENNNPYAENYEMQEDLNNAPTGHSDGSDDFVAFMNKINSINANLSRYENIINQ
             IDAQHKDLLTQVSEEQEMELRRSLDDYISQATDLQYQLKADIKDAQRDGLHDSNKQAQAE

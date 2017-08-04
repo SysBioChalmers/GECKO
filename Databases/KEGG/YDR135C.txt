@@ -1,13 +1,12 @@
 ENTRY       YDR135C           CDS       T00005
 NAME        YCF1
-DEFINITION  ATP-binding cassette glutathione S-conjugate transporter YCF1
+DEFINITION  (RefSeq) ATP-binding cassette glutathione S-conjugate transporter YCF1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(723004..727551)
-MOTIF       Pfam: ABC_membrane ABC_tran SMC_N AAA_16 AAA_25 AAA_23 AAA_29 MMR_HSR1 T2SE Sigma54_activat Arch_ATPase cobW DUF87
-DBLINKS     NCBI-GI: 398365779
+MOTIF       Pfam: ABC_membrane ABC_tran SMC_N AAA_23 MMR_HSR1 AAA_29 AAA_21 AAA_15 TMEM132D_C Sigma54_activat
+DBLINKS     NCBI-ProteinID: NP_010419
             NCBI-GeneID: 851713
             SGD: S000002542
-            MIPS: YDR135C
             UniProt: P39109
 AASEQ       1515
             MAGNLVSWACKLCRSPEGFGPISFYGDFTQCFIDGVILNLSAIFMITFGIRDLVNLCKKK

@@ -1,18 +1,41 @@
 ENTRY       YIL035C           CDS       T00005
 NAME        CKA1
-DEFINITION  Cka1p (EC:2.7.11.1)
+DEFINITION  (RefSeq) casein kinase 2 catalytic subunit CKA1
 ORTHOLOGY   K03097  casein kinase II subunit alpha [EC:2.7.11.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03008  Ribosome biogenesis in eukaryotes
-CLASS       Genetic Information Processing; Translation; Ribosome biogenesis in eukaryotes [PATH:sce03008]
+            sce04139  Mitophagy - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03008 Ribosome biogenesis in eukaryotes
+                YIL035C (CKA1)
+             Cellular Processes
+              Transport and catabolism
+               04139 Mitophagy - yeast
+                YIL035C (CKA1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.11  Protein-serine/threonine kinases
+                2.7.11.1  non-specific serine/threonine protein kinase
+                 YIL035C (CKA1)
+            Protein kinases [BR:sce01001]
+             Serine/threonine protein kinases: Other group
+              CK2 family
+               YIL035C (CKA1)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              90S particles
+               Kinase
+                YIL035C (CKA1)
 POSITION    IX:complement(287790..288908)
-MOTIF       Pfam: Pkinase Pkinase_Tyr APH Choline_kinase Kdo
-DBLINKS     NCBI-GI: 6322154
+MOTIF       Pfam: Pkinase Pkinase_Tyr APH Kdo Choline_kinase
+DBLINKS     NCBI-ProteinID: NP_012229
             NCBI-GeneID: 854776
             SGD: S000001297
-            MIPS: YIL035C
             UniProt: P15790
-STRUCTURE   PDB: 4MWH 4FI1
+STRUCTURE   PDB: 4JR7 4JQE 4LFI 4MWH 4FI1
 AASEQ       372
             MKCRVWSEARVYTNINKQRTEEYWDYENTVIDWSTNTKDYEIENKVGRGKYSEVFQGVKL
             DSKVKIVIKMLKPVKKKKIKREIKILTDLSNEKVPPTTLPFQKDQYYTNQKEDVLKFIRP

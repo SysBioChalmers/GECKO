@@ -1,13 +1,12 @@
 ENTRY       YOL078W           CDS       T00005
 NAME        AVO1
-DEFINITION  Avo1p
+DEFINITION  (RefSeq) Avo1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:181682..185212
-MOTIF       Pfam: TUG-UBL1 RBD
-DBLINKS     NCBI-GI: 6324494
+MOTIF       Pfam: CRIM SIN1_PH TUG-UBL1 RBD
+DBLINKS     NCBI-ProteinID: NP_014563
             NCBI-GeneID: 854076
             SGD: S000005438
-            MIPS: YOL078W
             UniProt: Q08236
 STRUCTURE   PDB: 3ULB 3ULC
 AASEQ       1176

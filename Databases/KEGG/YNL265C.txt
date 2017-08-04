@@ -1,13 +1,19 @@
 ENTRY       YNL265C           CDS       T00005
 NAME        IST1
-DEFINITION  Ist1p
+DEFINITION  (RefSeq) Ist1p
+ORTHOLOGY   K19476  vacuolar protein sorting-associated protein IST1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04144  Endocytosis
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04144 Endocytosis
+                YNL265C (IST1)
 POSITION    XIV:complement(join(144280..145149,145255..145281))
-MOTIF       Pfam: Ist1 DUF4414
-DBLINKS     NCBI-GI: 6324064
+MOTIF       Pfam: Ist1
+DBLINKS     NCBI-ProteinID: NP_014134
             NCBI-GeneID: 855456
             SGD: S000005209
-            MIPS: YNL265C
             UniProt: P53843
 STRUCTURE   PDB: 3GGY 3GGZ
 AASEQ       298

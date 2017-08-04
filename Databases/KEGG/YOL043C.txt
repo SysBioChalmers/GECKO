@@ -1,16 +1,33 @@
 ENTRY       YOL043C           CDS       T00005
 NAME        NTG2, SCR2
-DEFINITION  bifunctional N-glycosylase/AP lyase NTG2
+DEFINITION  (RefSeq) bifunctional N-glycosylase/AP lyase NTG2
 ORTHOLOGY   K10773  endonuclease III [EC:4.2.99.18]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03410  Base excision repair
-CLASS       Genetic Information Processing; Replication and repair; Base excision repair [PATH:sce03410]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Replication and repair
+               03410 Base excision repair
+                YOL043C (NTG2)
+            Enzymes [BR:sce01000]
+             4. Lyases
+              4.2  Carbon-oxygen lyases
+               4.2.99  Other carbon-oxygen lyases
+                4.2.99.18  DNA-(apurinic or apyrimidinic site) lyase
+                 YOL043C (NTG2)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              SSBR (single strand breaks repair)
+               BER (base exicision repair)
+                DNA glycosylases
+                 YOL043C (NTG2)
+             Prokaryotic Type
+                 YOL043C (NTG2)
 POSITION    XV:complement(248392..249534)
 MOTIF       Pfam: HhH-GPD HHH
-DBLINKS     NCBI-GI: 6324530
+DBLINKS     NCBI-ProteinID: NP_014599
             NCBI-GeneID: 854114
             SGD: S000005403
-            MIPS: YOL043C
             UniProt: Q08214
 AASEQ       380
             MREESRSRKRKHIPVDIEEVEVRSKYFKKNERTVELVKENKINKDLQNYGGVNIDWIKAL

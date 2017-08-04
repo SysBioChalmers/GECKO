@@ -1,16 +1,24 @@
 ENTRY       YOL105C           CDS       T00005
 NAME        WSC3
-DEFINITION  Wsc3p
+DEFINITION  (RefSeq) Wsc3p
 ORTHOLOGY   K11244  cell wall integrity and stress response component
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04011  MAPK signaling pathway - yeast
-CLASS       Environmental Information Processing; Signal transduction; MAPK signaling pathway - yeast [PATH:sce04011]
+            sce04139  Mitophagy - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YOL105C (WSC3)
+             Cellular Processes
+              Transport and catabolism
+               04139 Mitophagy - yeast
+                YOL105C (WSC3)
 POSITION    XV:complement(114138..115808)
-MOTIF       Pfam: WSC Glycophorin_A SKG6 Syndecan Adeno_E3_CR2 Rifin_STEVOR EphA2_TM DUF2407_C RCR DUF912
-DBLINKS     NCBI-GI: 6324467
+MOTIF       Pfam: WSC Glycophorin_A Syndecan SKG6 Adeno_E3_CR2 EphA2_TM DUF2207 RTA1 CbtA DUF2407_C Orf78
+DBLINKS     NCBI-ProteinID: NP_014536
             NCBI-GeneID: 854046
             SGD: S000005465
-            MIPS: YOL105C
             UniProt: Q12215
 AASEQ       556
             MERVWFAKLTNKGTIKIGYISFILLSLLCQSLIGLVNADFNYEGCYSAADIQSAGLSLKN

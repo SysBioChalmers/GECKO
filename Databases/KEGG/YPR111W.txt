@@ -1,16 +1,25 @@
 ENTRY       YPR111W           CDS       T00005
 NAME        DBF20
-DEFINITION  Dbf20p (EC:2.7.11.1)
+DEFINITION  (RefSeq) serine/threonine-protein kinase DBF20
 ORTHOLOGY   K06686  cell cycle protein kinase DBF20 [EC:2.7.11.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
-CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YPR111W (DBF20)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.11  Protein-serine/threonine kinases
+                2.7.11.-  
+                 YPR111W (DBF20)
 POSITION    XVI:747306..749000
-MOTIF       Pfam: Pkinase Pkinase_Tyr Pkinase_C Kinase-like APH
-DBLINKS     NCBI-GI: 6325368
+MOTIF       Pfam: Pkinase Pkinase_Tyr Pkinase_C Haspin_kinase Kdo Kinase-like APH
+DBLINKS     NCBI-ProteinID: NP_015436
             NCBI-GeneID: 856227
             SGD: S000006315
-            MIPS: YPR111W
             UniProt: P32328
 AASEQ       564
             MFSRSDREVDDLAGNMSHLGFYDLNIPKPTSPQAQYRPARKSENGRLTPGLPRSYKPCDS

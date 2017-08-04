@@ -1,13 +1,12 @@
 ENTRY       YIL071C           CDS       T00005
 NAME        PCI8, CSN11, YIH1, YIL071W
-DEFINITION  Pci8p
+DEFINITION  (RefSeq) Pci8p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IX:complement(228660..229994)
 MOTIF       Pfam: PCI
-DBLINKS     NCBI-GI: 398364361
+DBLINKS     NCBI-ProteinID: NP_085069
             NCBI-GeneID: 854739
             SGD: S000001333
-            MIPS: YIL071C
             UniProt: P40512
 AASEQ       444
             MFHGAKGPLLIERIGHLLSINYGEKEERKRWAMQGISYLQEVQCTSTPYLEILVEESGLR

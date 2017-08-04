@@ -1,14 +1,25 @@
 ENTRY       YBL052C           CDS       T00005
-NAME        SAS3
-DEFINITION  Sas3p (EC:2.3.1.48)
+NAME        SAS3, KAT6
+DEFINITION  (RefSeq) Sas3p
 ORTHOLOGY   K11378  histone acetyltransferase SAS3 [EC:2.3.1.48]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.3  Acyltransferases
+               2.3.1  Transferring groups other than aminoacyl groups
+                2.3.1.48  histone acetyltransferase
+                 YBL052C (SAS3)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Histone modification proteins
+               HAT complexes
+                NuA3 complex
+                 YBL052C (SAS3)
 POSITION    II:complement(119379..121874)
-MOTIF       Pfam: MOZ_SAS
-DBLINKS     NCBI-GI: 6319419
+MOTIF       Pfam: MOZ_SAS Acetyltransf_7
+DBLINKS     NCBI-ProteinID: NP_009501
             NCBI-GeneID: 852228
             SGD: S000000148
-            MIPS: YBL052C
             UniProt: P34218
 AASEQ       831
             MSLTANDESPKPKKNALLKNLEIDDLIHSQFVRSDTNGHRTTRRLFNSDASISHRIRGSV

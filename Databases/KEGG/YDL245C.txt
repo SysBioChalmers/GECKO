@@ -1,16 +1,24 @@
 ENTRY       YDL245C           CDS       T00005
-NAME        HXT15
-DEFINITION  Hxt15p
+NAME        HXT15, HLT2
+DEFINITION  (RefSeq) hexose transporter HXT15
 ORTHOLOGY   K08139  MFS transporter, SP family, sugar:H+ symporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04113  Meiosis - yeast
-CLASS       Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04113 Meiosis - yeast
+                YDL245C (HXT15)
+            Transporters [BR:sce02000]
+             Major Facilitator Superfamily (MFS)
+              Sugar transporters
+               Sugar porter (SP) family [TC:2.A.1.1]
+                YDL245C (HXT15)
 POSITION    IV:complement(11657..13360)
-MOTIF       Pfam: Sugar_tr MFS_1 Cytochrom_B_N Pox_A14
-DBLINKS     NCBI-GI: 6319956
+MOTIF       Pfam: Sugar_tr MFS_1 Pox_A14
+DBLINKS     NCBI-ProteinID: NP_010036
             NCBI-GeneID: 851352
             SGD: S000002404
-            MIPS: YDL245C
             UniProt: P54854
 AASEQ       567
             MASEQSSPEINADNLNSSAADVHVQPPGEKEWSDGFYDKEVINGNTPDAPKRGFLGYLII

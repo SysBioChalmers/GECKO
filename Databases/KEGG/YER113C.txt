@@ -1,14 +1,17 @@
 ENTRY       YER113C           CDS       T00005
 NAME        TMN3
-DEFINITION  Tmn3p
+DEFINITION  (RefSeq) Tmn3p
 ORTHOLOGY   K17086  transmembrane 9 superfamily member 2/4
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of haemopoietic cells  (B-cell, T-cell, DC-cell, reticulocyte, and mast cell)
+               YER113C (TMN3)
 POSITION    V:complement(387932..390052)
-MOTIF       Pfam: EMP70 DUF1469
-DBLINKS     NCBI-GI: 398364705
+MOTIF       Pfam: EMP70 Chromosome_seg
+DBLINKS     NCBI-ProteinID: NP_011038
             NCBI-GeneID: 856849
             SGD: S000000915
-            MIPS: YER113C
             UniProt: P40071
 AASEQ       706
             MRVRPKRSVITLMAIVVVMLILRNQFYSSRTRGHGQEPVISSSQKNLYDGWITPNFYRKG

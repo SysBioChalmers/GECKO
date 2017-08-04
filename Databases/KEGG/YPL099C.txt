@@ -1,12 +1,12 @@
 ENTRY       YPL099C           CDS       T00005
-NAME        AIM43, FMP14
-DEFINITION  Aim43p
+NAME        INA17, AIM43, FMP14
+DEFINITION  (RefSeq) Ina17p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:complement(363520..364068)
-DBLINKS     NCBI-GI: 6325158
+MOTIF       Pfam: LapA_dom
+DBLINKS     NCBI-ProteinID: NP_015226
             NCBI-GeneID: 856005
             SGD: S000006020
-            MIPS: YPL099C
             UniProt: Q02888
 AASEQ       182
             MLKRRSNALITLSRTKLFPITTVAYYHRRLLNQQRRAVSTSPKKEIKSLEDLANLDSLDG

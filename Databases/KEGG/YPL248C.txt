@@ -1,14 +1,18 @@
 ENTRY       YPL248C           CDS       T00005
 NAME        GAL4, GAL81
-DEFINITION  Gal4p
+DEFINITION  (RefSeq) galactose-responsive transcription factor GAL4
 ORTHOLOGY   K09241  transcriptional regulatory protein GAL4
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription factors [BR:sce03000]
+             Eukaryotic Type
+              Zinc finger
+               Cys6 metabolic regulators in fungi
+                YPL248C (GAL4)
 POSITION    XVI:complement(79711..82356)
-MOTIF       Pfam: Fungal_trans Gal4_dimer Zn_clus
-DBLINKS     NCBI-GI: 6325008
+MOTIF       Pfam: Gal4_dimer Fungal_trans Zn_clus
+DBLINKS     NCBI-ProteinID: NP_015076
             NCBI-GeneID: 855828
             SGD: S000006169
-            MIPS: YPL248C
             UniProt: P04386
 STRUCTURE   PDB: 3COQ 1D66 1HBW 1AW6
 AASEQ       881

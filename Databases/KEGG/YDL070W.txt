@@ -1,14 +1,18 @@
 ENTRY       YDL070W           CDS       T00005
 NAME        BDF2
-DEFINITION  Bdf2p
+DEFINITION  (RefSeq) Bdf2p
 ORTHOLOGY   K11684  bromodomain-containing factor 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Chromatin remodeling factors
+               SWR1 complex
+                YDL070W (BDF2)
 POSITION    IV:331024..332940
-MOTIF       Pfam: Bromodomain Cob_adeno_trans YlqD
-DBLINKS     NCBI-GI: 6320132
+MOTIF       Pfam: Bromodomain BET Cob_adeno_trans YlqD DUF4094
+DBLINKS     NCBI-ProteinID: NP_010213
             NCBI-GeneID: 851488
             SGD: S000002228
-            MIPS: YDL070W
             UniProt: Q07442
 AASEQ       638
             MSRTNMDTRHAHSALLAAPQSATANSRSSNSSSESSSNKNNINVGVGDDSGNVSAVSIDD

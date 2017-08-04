@@ -1,16 +1,36 @@
 ENTRY       YOR033C           CDS       T00005
 NAME        EXO1, DHS1
-DEFINITION  Exo1p (EC:3.1.-.-)
+DEFINITION  (RefSeq) Rad2 family nuclease EXO1
 ORTHOLOGY   K10746  exonuclease 1 [EC:3.1.-.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03430  Mismatch repair
-CLASS       Genetic Information Processing; Replication and repair; Mismatch repair [PATH:sce03430]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Replication and repair
+               03430 Mismatch repair
+                YOR033C (EXO1)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.-  Acting on ester bonds
+                3.1.-.-  
+                 YOR033C (EXO1)
+            DNA replication proteins [BR:sce03032]
+             Eukaryotic Type
+              DNA Replication Elongation Factors
+               Other elongation factors
+                YOR033C (EXO1)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              SSBR (single strand breaks repair)
+               MMR (mismatch exicision repair)
+                Other MMR factors
+                 YOR033C (EXO1)
 POSITION    XV:complement(392416..394524)
-MOTIF       Pfam: XPG_N XPG_I 5_3_exonuc HHH_2 XPG_I_2
-DBLINKS     NCBI-GI: 6324607
+MOTIF       Pfam: XPG_N XPG_I 5_3_exonuc HHH_2 XPG_I_2 TPR_8 DUF1825
+DBLINKS     NCBI-ProteinID: NP_014676
             NCBI-GeneID: 854198
             SGD: S000005559
-            MIPS: YOR033C
             UniProt: P39875
 AASEQ       702
             MGIQGLLPQLKPIQNPVSLRRYEGEVLAIDGYAWLHRAACSCAYELAMGKPTDKYLQFFI

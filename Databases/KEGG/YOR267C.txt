@@ -1,13 +1,12 @@
 ENTRY       YOR267C           CDS       T00005
 NAME        HRK1
-DEFINITION  Hrk1p (EC:2.7.11.1)
+DEFINITION  (RefSeq) putative serine/threonine protein kinase HRK1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:complement(822588..824867)
 MOTIF       Pfam: Pkinase Pkinase_Tyr
-DBLINKS     NCBI-GI: 6324841
+DBLINKS     NCBI-ProteinID: NP_014910
             NCBI-GeneID: 854441
             SGD: S000005793
-            MIPS: YOR267C
             UniProt: Q08732
 AASEQ       759
             MPNLLSRNPFHGHHNDHHHDRENSSNNPPQLIRSSKSFLNFIGRKQSNDSLRSEKSTDSM

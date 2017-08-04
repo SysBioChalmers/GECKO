@@ -1,6 +1,6 @@
 ENTRY       YER055C           CDS       T00005
 NAME        HIS1
-DEFINITION  ATP phosphoribosyltransferase (EC:2.4.2.17)
+DEFINITION  (RefSeq) ATP phosphoribosyltransferase
 ORTHOLOGY   K00765  ATP phosphoribosyltransferase [EC:2.4.2.17]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00340  Histidine metabolism
@@ -8,14 +8,25 @@ PATHWAY     sce00340  Histidine metabolism
             sce01110  Biosynthesis of secondary metabolites
             sce01230  Biosynthesis of amino acids
 MODULE      sce_M00026  Histidine biosynthesis, PRPP => histidine
-CLASS       Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
-            Metabolism; Amino acid metabolism; Histidine metabolism [PATH:sce00340]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01230 Biosynthesis of amino acids
+                YER055C (HIS1)
+              Amino acid metabolism
+               00340 Histidine metabolism
+                YER055C (HIS1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.4  Glycosyltransferases
+               2.4.2  Pentosyltransferases
+                2.4.2.17  ATP phosphoribosyltransferase
+                 YER055C (HIS1)
 POSITION    V:complement(264892..265785)
-MOTIF       Pfam: HisG HisG_C Toxin_65
-DBLINKS     NCBI-GI: 398364453
+MOTIF       Pfam: HisG HisG_C
+DBLINKS     NCBI-ProteinID: NP_010975
             NCBI-GeneID: 856782
             SGD: S000000857
-            MIPS: YER055C
             UniProt: P00498
 AASEQ       297
             MDLVNHLTDRLLFAIPKKGRLYSKSVSILNGADITFHRSQRLDIALSTSLPVALVFLPAA

@@ -1,28 +1,51 @@
 ENTRY       YJR148W           CDS       T00005
 NAME        BAT2, ECA40, TWT2
-DEFINITION  branched-chain-amino-acid transaminase BAT2 (EC:2.6.1.42)
+DEFINITION  (RefSeq) branched-chain-amino-acid transaminase BAT2
 ORTHOLOGY   K00826  branched-chain amino acid aminotransferase [EC:2.6.1.42]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
-PATHWAY     sce00280  Valine, leucine and isoleucine degradation
+PATHWAY     sce00270  Cysteine and methionine metabolism
+            sce00280  Valine, leucine and isoleucine degradation
             sce00290  Valine, leucine and isoleucine biosynthesis
             sce00770  Pantothenate and CoA biosynthesis
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
+            sce01130  Biosynthesis of antibiotics
             sce01210  2-Oxocarboxylic acid metabolism
             sce01230  Biosynthesis of amino acids
 MODULE      sce_M00019  Valine/isoleucine biosynthesis, pyruvate => valine / 2-oxobutanoate => isoleucine
             sce_M00570  Isoleucine biosynthesis, threonine => 2-oxobutanoate => isoleucine
-CLASS       Metabolism; Overview; 2-Oxocarboxylic acid metabolism [PATH:sce01210]
-            Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
-            Metabolism; Amino acid metabolism; Valine, leucine and isoleucine degradation [PATH:sce00280]
-            Metabolism; Amino acid metabolism; Valine, leucine and isoleucine biosynthesis [PATH:sce00290]
-            Metabolism; Metabolism of cofactors and vitamins; Pantothenate and CoA biosynthesis [PATH:sce00770]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01210 2-Oxocarboxylic acid metabolism
+                YJR148W (BAT2)
+               01230 Biosynthesis of amino acids
+                YJR148W (BAT2)
+              Amino acid metabolism
+               00270 Cysteine and methionine metabolism
+                YJR148W (BAT2)
+               00280 Valine, leucine and isoleucine degradation
+                YJR148W (BAT2)
+               00290 Valine, leucine and isoleucine biosynthesis
+                YJR148W (BAT2)
+              Metabolism of cofactors and vitamins
+               00770 Pantothenate and CoA biosynthesis
+                YJR148W (BAT2)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.6  Transferring nitrogenous groups
+               2.6.1  Transaminases
+                2.6.1.42  branched-chain-amino-acid transaminase
+                 YJR148W (BAT2)
+            Amino acid related enzymes [BR:sce01007]
+             Aminotransferase (transaminase)
+              Class IV
+               YJR148W (BAT2)
 POSITION    X:705744..706874
 MOTIF       Pfam: Aminotran_4
-DBLINKS     NCBI-GI: 6322608
+DBLINKS     NCBI-ProteinID: NP_012682
             NCBI-GeneID: 853613
             SGD: S000003909
-            MIPS: YJR148W
             UniProt: P47176
 AASEQ       376
             MTLAPLDASKVKITTTQHASKPKPNSELVFGKSFTDHMLTAEWTAEKGWGTPEIKPYQNL

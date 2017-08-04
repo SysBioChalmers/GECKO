@@ -1,16 +1,34 @@
 ENTRY       YPR049C           CDS       T00005
-NAME        ATG11, CVT9
-DEFINITION  Atg11p
+NAME        ATG11, CVT3, CVT9
+DEFINITION  (RefSeq) autophagy protein ATG11
 ORTHOLOGY   K08330  autophagy-related protein 11
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
-PATHWAY     sce04140  Regulation of autophagy
-CLASS       Cellular Processes; Transport and catabolism; Regulation of autophagy [PATH:sce04140]
+PATHWAY     sce04136  Autophagy - other
+            sce04138  Autophagy - yeast
+            sce04139  Mitophagy - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04138 Autophagy - yeast
+                YPR049C (ATG11)
+               04136 Autophagy - other eukaryotes
+                YPR049C (ATG11)
+               04139 Mitophagy - yeast
+                YPR049C (ATG11)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial quality control factors
+              Mitophagy factors
+               Autophagy-related proteins
+                YPR049C (ATG11)
+            Transporters [BR:sce02000]
+             Other Transporters
+              Others
+               YPR049C (ATG11)
 POSITION    XVI:complement(661137..664673)
-MOTIF       Pfam: ATG11
-DBLINKS     NCBI-GI: 6325306
+MOTIF       Pfam: ATG11 TrbH DUF4452 ABC_tran_Xtn
+DBLINKS     NCBI-ProteinID: NP_015374
             NCBI-GeneID: 856162
             SGD: S000006253
-            MIPS: YPR049C
             UniProt: Q12527
 AASEQ       1178
             MADADEYSTAPTQQEITPLQTTATIINAISGECITTNVDFFVSLDKFKQFIARKWKIPPD

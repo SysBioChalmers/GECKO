@@ -1,13 +1,22 @@
 ENTRY       YNL044W           CDS       T00005
 NAME        YIP3
-DEFINITION  Yip3p
+DEFINITION  (RefSeq) Yip3p
+ORTHOLOGY   K20359  PRA1 family protein 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endoplasmic reticulum (ER) - Golgi transport
+              Forward pathways
+               Rab associated proteins
+                YNL044W (YIP3)
+            Transporters [BR:sce02000]
+             Other Transporters
+              Others
+               YNL044W (YIP3)
 POSITION    XIV:join(545268..545291,545371..545877)
-MOTIF       Pfam: PRA1 TLE_N
-DBLINKS     NCBI-GI: 6681850
+MOTIF       Pfam: PRA1 DUF2207 TLE_N DUF2627 SPC25
+DBLINKS     NCBI-ProteinID: NP_014354
             NCBI-GeneID: 855683
             SGD: S000004989
-            MIPS: YNL044W
             UniProt: P53633
 AASEQ       176
             MNQLGALAQVSRFTQNFSMENIKSEFQSLQSKLATLRTPQEFFNFKKISKPQNFGEVQSR

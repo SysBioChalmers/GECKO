@@ -1,13 +1,12 @@
 ENTRY       YDR179C           CDS       T00005
 NAME        CSN9
-DEFINITION  Csn9p
+DEFINITION  (RefSeq) Csn9p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(818708..819196)
-MOTIF       Pfam: PCI RsbU_N
-DBLINKS     NCBI-GI: 6320384
+MOTIF       Pfam: PCI
+DBLINKS     NCBI-ProteinID: NP_010464
             NCBI-GeneID: 851759
             SGD: S000002586
-            MIPS: YDR179C
             UniProt: Q03981
 AASEQ       162
             MVMREETIKSLEDPYKYHYKEEWLNTKDPDEQQLFEIFAFGNIKDLPENIILTSLMRSKL

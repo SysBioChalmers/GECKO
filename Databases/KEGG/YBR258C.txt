@@ -1,14 +1,19 @@
 ENTRY       YBR258C           CDS       T00005
 NAME        SHG1, CPS15
-DEFINITION  Shg1p
+DEFINITION  (RefSeq) Shg1p
 ORTHOLOGY   K14969  COMPASS component SHG1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Histone modification proteins
+               HMT complexes
+                COMPASS/SET1 complex (yeast)
+                 YBR258C (SHG1)
 POSITION    II:complement(729734..730162)
-MOTIF       Pfam: COMPASS-Shg1 DUF1024
-DBLINKS     NCBI-GI: 398365769
+MOTIF       Pfam: COMPASS-Shg1
+DBLINKS     NCBI-ProteinID: NP_009817
             NCBI-GeneID: 852561
             SGD: S000000462
-            MIPS: YBR258C
             UniProt: P38337
 AASEQ       142
             MAYNQEDSKRLSDKYKKEGHFDKLKREILSNPWNNTEENSESFEQALRKRVASTVKEMVN

@@ -1,16 +1,23 @@
 ENTRY       YDL092W           CDS       T00005
 NAME        SRP14
-DEFINITION  Srp14p
+DEFINITION  (RefSeq) RNA-binding signal recognition particle subunit SRP14
 ORTHOLOGY   K03104  signal recognition particle subunit SRP14
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03060  Protein export
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Protein export [PATH:sce03060]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               03060 Protein export
+                YDL092W (SRP14)
+            Secretion system [BR:sce02044]
+             Sec (secretion) system
+              Eukaryotic Sec-SRP protein
+               YDL092W (SRP14)
 POSITION    IV:292781..293221
-MOTIF       Pfam: SRP14 SIT
-DBLINKS     NCBI-GI: 6320111
+MOTIF       Pfam: SRP14 FixG_C Lipocalin_9
+DBLINKS     NCBI-ProteinID: NP_010191
             NCBI-GeneID: 851466
             SGD: S000002250
-            MIPS: YDL092W
             UniProt: P38985
 AASEQ       146
             MANTGCLSPGAFLSKVPEFFQTANEKHITVRLTAKRLIEHDPVEGNLEFDSTNHPDYDVS

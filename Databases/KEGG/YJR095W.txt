@@ -1,14 +1,17 @@
 ENTRY       YJR095W           CDS       T00005
 NAME        SFC1, ACR1
-DEFINITION  Sfc1p
+DEFINITION  (RefSeq) Sfc1p
 ORTHOLOGY   K15100  solute carrier family 25 (mitochondrial citrate transporter), member 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Solute Carrier Family (SLC)
+              SLC25: Mitochondrial carrier
+               YJR095W (SFC1)
 POSITION    X:609773..610741
-MOTIF       Pfam: Mito_carr Cas_GSU0053
-DBLINKS     NCBI-GI: 6322555
+MOTIF       Pfam: Mito_carr
+DBLINKS     NCBI-ProteinID: NP_012629
             NCBI-GeneID: 853558
             SGD: S000003856
-            MIPS: YJR095W
             UniProt: P33303
 AASEQ       322
             MSQKKKASHPAINLMAGGTAGLFEALCCHPLDTIKVRMQIYRRVAGIEHVKPPGFIKTGR

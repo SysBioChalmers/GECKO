@@ -1,15 +1,21 @@
 ENTRY       YNL161W           CDS       T00005
 NAME        CBK1
-DEFINITION  Cbk1p (EC:2.7.11.1)
+DEFINITION  (RefSeq) serine/threonine protein kinase CBK1
 ORTHOLOGY   K08286  protein-serine/threonine kinase [EC:2.7.11.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.11  Protein-serine/threonine kinases
+                2.7.11.-  
+                 YNL161W (CBK1)
 POSITION    XIV:332597..334867
-MOTIF       Pfam: Pkinase Pkinase_Tyr Pkinase_C Seadorna_VP7 APH
-DBLINKS     NCBI-GI: 398364551
+MOTIF       Pfam: Pkinase Pkinase_Tyr APH Seadorna_VP7
+DBLINKS     NCBI-ProteinID: NP_014238
             NCBI-GeneID: 855561
             SGD: S000005105
-            MIPS: YNL161W
             UniProt: P53894
+STRUCTURE   PDB: 4LQS 4LQQ 4LQP
 AASEQ       756
             MYNSSTNHHEGAPTSGHGYYMSQQQDQQHQQQQQYANEMNPYQQIPRPPAAGFSSNYMKE
             QGSHQSLQEHLQRETGNLGSGFTDVPALNYPATPPPHNNYAASNQMINTPPPSMGGLYRH

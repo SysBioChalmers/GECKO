@@ -1,6 +1,6 @@
 ENTRY       YJL140W           CDS       T00005
 NAME        RPB4, CTF15
-DEFINITION  Rpb4p
+DEFINITION  (RefSeq) DNA-directed RNA polymerase II subunit RPB4
 ORTHOLOGY   K03012  DNA-directed RNA polymerase II subunit RPB4
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00230  Purine metabolism
@@ -8,21 +8,42 @@ PATHWAY     sce00230  Purine metabolism
             sce01100  Metabolic pathways
             sce03020  RNA polymerase
 MODULE      sce_M00180  RNA polymerase II, eukaryotes
-CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
-            Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
-            Genetic Information Processing; Transcription; RNA polymerase [PATH:sce03020]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Nucleotide metabolism
+               00230 Purine metabolism
+                YJL140W (RPB4)
+               00240 Pyrimidine metabolism
+                YJL140W (RPB4)
+             Genetic Information Processing
+              Transcription
+               03020 RNA polymerase
+                YJL140W (RPB4)
+            Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               RNA polymerase II
+                Pol II specific subunits
+                 YJL140W (RPB4)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              SSBR (single strand breaks repair)
+               NER (nucleotide excision repair)
+                TCR (transcription coupled repair) factors
+                 DNA-directed RNA polymerase II complex
+                  YJL140W (RPB4)
 POSITION    X:150961..151626
-MOTIF       Pfam: RNA_pol_Rpb4 IncFII_repA FLO_LFY RXT2_N Rtf2 DUF2457
-DBLINKS     NCBI-GI: 6322321
+MOTIF       Pfam: RNA_pol_Rpb4 Rtf2 RXT2_N GAGA_bind Cellulose_synt
+DBLINKS     NCBI-ProteinID: NP_012395
             NCBI-GeneID: 853301
             SGD: S000003676
-            MIPS: YJL140W
             UniProt: P20433
 STRUCTURE   PDB: 1Y14 4BY7 3HOU 4BXX 3PO2 3PO3 4BBR 4A93 4A3D 4A3E 3HOY
-                 2VUM 4A3B 4A3C 4A3F 4A3G 4A3K 3HOV 4BY1 4BBS 4A3L 3HOW
-                 3HOX 3HOZ 4A3J 3I4M 4A3I 2R92 2R7Z 2B63 1Y1V 1WCM 1PQV
-                 3FKI 4A3M 3I4N 3H3V 2R93 1Y1W 1Y1Y 2B8K 1NT9 3QT1 3K1F
-                 1Y77 4BXZ 3J1N 2JA5 2JA6 2JA7 2JA8
+                 2VUM 4A3B 4A3C 4A3F 4A3G 4A3K 3HOV 5IP7 4BY1 4BBS 4A3L
+                 3HOW 3HOX 3HOZ 5C3E 4A3J 3I4M 5U5Q 4A3I 2R92 2R7Z 2JA5
+                 2B63 1Y1V 1WCM 1PQV 3FKI 5IP9 4A3M 3I4N 5C44 5C4X 3H3V
+                 2R93 1Y1W 1Y1Y 2B8K 5C4A 1NT9 3QT1 3K1F 5FYW 1Y77 4BXZ
+                 5FMF 4V1N 5FZ5 4V1O 5SVA 3J1N 2JA6 2JA7 2JA8
 AASEQ       221
             MNVSTSTFQTRRRRLKKVEEEENAATLQLGQEFQLKQINHQGEEEELIALNLSEARLVIK
             EALVERRRAFKRSQKKHKKKHLKHENANDETTAVEDEDDDLDEDDVNADDDDFMHSETRE

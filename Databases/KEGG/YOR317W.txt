@@ -1,22 +1,49 @@
 ENTRY       YOR317W           CDS       T00005
 NAME        FAA1
-DEFINITION  long-chain fatty acid-CoA ligase FAA1 (EC:6.2.1.3)
+DEFINITION  (RefSeq) long-chain fatty acid-CoA ligase FAA1
 ORTHOLOGY   K01897  long-chain acyl-CoA synthetase [EC:6.2.1.3]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
-PATHWAY     sce00071  Fatty acid degradation
+PATHWAY     sce00061  Fatty acid biosynthesis
+            sce00071  Fatty acid degradation
             sce01100  Metabolic pathways
             sce01212  Fatty acid metabolism
             sce04146  Peroxisome
 MODULE      sce_M00086  beta-Oxidation, acyl-CoA synthesis
-CLASS       Metabolism; Overview; Fatty acid metabolism [PATH:sce01212]
-            Metabolism; Lipid metabolism; Fatty acid degradation [PATH:sce00071]
-            Cellular Processes; Transport and catabolism; Peroxisome [PATH:sce04146]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01212 Fatty acid metabolism
+                YOR317W (FAA1)
+              Lipid metabolism
+               00061 Fatty acid biosynthesis
+                YOR317W (FAA1)
+               00071 Fatty acid degradation
+                YOR317W (FAA1)
+             Cellular Processes
+              Transport and catabolism
+               04146 Peroxisome
+                YOR317W (FAA1)
+            Enzymes [BR:sce01000]
+             6. Ligases
+              6.2  Forming carbon-sulfur bonds
+               6.2.1  Acid-thiol ligases
+                6.2.1.3  long-chain-fatty-acid---CoA ligase
+                 YOR317W (FAA1)
+            Lipid biosynthesis proteins [BR:sce01004]
+             Acyl-CoA synthetase
+              Long/very long chain acyl-CoA synthetase
+               YOR317W (FAA1)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of breast milk
+               YOR317W (FAA1)
+              Exosomal proteins of breast cancer cells
+               YOR317W (FAA1)
 POSITION    XV:909343..911445
 MOTIF       Pfam: AMP-binding AMP-binding_C
-DBLINKS     NCBI-GI: 398366229
+DBLINKS     NCBI-ProteinID: NP_014962
             NCBI-GeneID: 854495
             SGD: S000005844
-            MIPS: YOR317W
             UniProt: P30624
 AASEQ       700
             MVAQYTVPVGKAANEHETAPRRNYQCREKPLVRPPNTKCSTVYEFVLECFQKNKNSNAMG

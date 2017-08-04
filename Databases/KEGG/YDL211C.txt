@@ -1,12 +1,11 @@
 ENTRY       YDL211C           CDS       T00005
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) hypothetical protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(79294..80412)
-MOTIF       Pfam: Protocadherin Rifin_STEVOR Romo1 EphA2_TM P12 Syndecan DUF4328
-DBLINKS     NCBI-GI: 6319990
+MOTIF       Pfam: EphA2_TM RIFIN Romo1 Amnionless P12
+DBLINKS     NCBI-ProteinID: NP_010070
             NCBI-GeneID: 851315
             SGD: S000002370
-            MIPS: YDL211C
             UniProt: Q12121
 AASEQ       372
             MLLNVTSSQYISTPQSRSLSEIDTSETASLSSATDHIFALSTEVVSSITTNLIEGLESSI

@@ -1,21 +1,38 @@
 ENTRY       YGR180C           CDS       T00005
 NAME        RNR4, CRT3, PSO3
-DEFINITION  ribonucleotide-diphosphate reductase subunit RNR4 (EC:1.17.4.1)
+DEFINITION  (RefSeq) ribonucleotide-diphosphate reductase subunit RNR4
 ORTHOLOGY   K10808  ribonucleoside-diphosphate reductase subunit M2 [EC:1.17.4.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00230  Purine metabolism
             sce00240  Pyrimidine metabolism
             sce00480  Glutathione metabolism
             sce01100  Metabolic pathways
-CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
-            Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
-            Metabolism; Metabolism of other amino acids; Glutathione metabolism [PATH:sce00480]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Nucleotide metabolism
+               00230 Purine metabolism
+                YGR180C (RNR4)
+               00240 Pyrimidine metabolism
+                YGR180C (RNR4)
+              Metabolism of other amino acids
+               00480 Glutathione metabolism
+                YGR180C (RNR4)
+            Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.17  Acting on CH or CH2 groups
+               1.17.4  With a disulfide as acceptor
+                1.17.4.1  ribonucleoside-diphosphate reductase
+                 YGR180C (RNR4)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              Other factors with a suspected DNA repair function
+               Modulation of nucleotide pools
+                YGR180C (RNR4)
 POSITION    VII:complement(855264..856301)
 MOTIF       Pfam: Ribonuc_red_sm
-DBLINKS     NCBI-GI: 398366047
+DBLINKS     NCBI-ProteinID: NP_011696
             NCBI-GeneID: 853091
             SGD: S000003412
-            MIPS: YGR180C
             UniProt: P49723
 STRUCTURE   PDB: 1JK0 1SMS
 AASEQ       345

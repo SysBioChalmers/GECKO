@@ -1,13 +1,18 @@
 ENTRY       YNL056W           CDS       T00005
 NAME        OCA2
-DEFINITION  Oca2p
+DEFINITION  (RefSeq) Oca2p
+ORTHOLOGY   K18044  tyrosine-protein phosphatase-like protein OCA2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Protein phosphatases and associated proteins [BR:sce01009]
+             Protein Tyrosine phosphatases (PTPs)
+              Class I PTPs (Dual specificity phosphatases)
+               Atypical DSPs
+                YNL056W (OCA2)
 POSITION    XIV:517249..517842
-MOTIF       Pfam: Y_phosphatase2 Y_phosphatase3 DUF2608 Y_phosphatase DSPc
-DBLINKS     NCBI-GI: 398365189
+MOTIF       Pfam: Y_phosphatase2 Y_phosphatase3 DSPc Y_phosphatase
+DBLINKS     NCBI-ProteinID: NP_014342
             NCBI-GeneID: 855668
             SGD: S000005001
-            MIPS: YNL056W
             UniProt: P53949
 AASEQ       197
             MKYIPPLNFSPVVSTDVSLYRSGYPMPLNYSFIKHQLHLKTIIYIGDKDRPLEEYQSFLE

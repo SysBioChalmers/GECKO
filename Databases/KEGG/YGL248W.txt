@@ -1,17 +1,27 @@
 ENTRY       YGL248W           CDS       T00005
 NAME        PDE1
-DEFINITION  Pde1p (EC:3.1.4.17)
+DEFINITION  (RefSeq) 3',5'-cyclic-nucleotide phosphodiesterase PDE1
 ORTHOLOGY   K01120  3',5'-cyclic-nucleotide phosphodiesterase [EC:3.1.4.17]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00230  Purine metabolism
-CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Nucleotide metabolism
+               00230 Purine metabolism
+                YGL248W (PDE1)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.4  Phosphoric-diester hydrolases
+                3.1.4.17  3',5'-cyclic-nucleotide phosphodiesterase
+                 YGL248W (PDE1)
 POSITION    VII:35653..36762
 MOTIF       Pfam: PDEase_II Lactamase_B_2
-DBLINKS     NCBI-GI: 6321189
+DBLINKS     NCBI-ProteinID: NP_011266
             NCBI-GeneID: 852644
             SGD: S000003217
-            MIPS: YGL248W
             UniProt: P22434
+STRUCTURE   PDB: 4OJV 4OJX
 AASEQ       369
             MVVFEITILGANGGPTEYGTQCFILKPARTEDPELIAVDGGAGMYQLREMLVQGRNENEG
             DDELVPSFYEHDREPIEFFIDSKLNIQKGLSKSLLQSLKRQGEHFESANTMKKTYEVFQG

@@ -1,13 +1,11 @@
 ENTRY       YBR272C           CDS       T00005
 NAME        HSM3
-DEFINITION  Hsm3p
+DEFINITION  (RefSeq) Hsm3p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    II:complement(746361..747803)
-MOTIF       Pfam: HEAT
-DBLINKS     NCBI-GI: 398365825
+DBLINKS     NCBI-ProteinID: NP_009831
             NCBI-GeneID: 852575
             SGD: S000000476
-            MIPS: YBR272C
             UniProt: P38348
 STRUCTURE   PDB: 3VLD 4A3T 4FP7 3VLE 3VLF 4A3V 4JPO
 AASEQ       480

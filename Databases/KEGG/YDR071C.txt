@@ -1,13 +1,12 @@
 ENTRY       YDR071C           CDS       T00005
 NAME        PAA1
-DEFINITION  Paa1p (EC:2.3.1.-)
+DEFINITION  (RefSeq) polyamine acetyltransferase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(588827..589402)
-MOTIF       Pfam: Acetyltransf_1 Acetyltransf_7 Acetyltransf_4 Acetyltransf_9 Acetyltransf_8 FR47 Acetyltransf_10
-DBLINKS     NCBI-GI: 6320276
+MOTIF       Pfam: Acetyltransf_1 Acetyltransf_10 Acetyltransf_7 Acetyltransf_4 Acetyltransf_15 Acetyltransf_9 FR47 Med16
+DBLINKS     NCBI-ProteinID: NP_010356
             NCBI-GeneID: 851643
             SGD: S000002478
-            MIPS: YDR071C
             UniProt: Q12447
 AASEQ       191
             MASSSSTLPLHMYIRPLIIEDLKQILNLESQGFPPNERASEEIISFRLINCPELCSGLFI

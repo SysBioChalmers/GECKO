@@ -1,14 +1,18 @@
 ENTRY       YGR046W           CDS       T00005
 NAME        TAM41, MMP37
-DEFINITION  Tam41p
+DEFINITION  (RefSeq) putative phosphatidate cytidylyltransferase
 ORTHOLOGY   K17807  mitochondrial translocator assembly and maintenance protein 41
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial protein import machinery
+              Matrix
+               Other matrix factors
+                YGR046W (TAM41)
 POSITION    VII:584895..586052
 MOTIF       Pfam: Mmp37
-DBLINKS     NCBI-GI: 398365345
+DBLINKS     NCBI-ProteinID: NP_011560
             NCBI-GeneID: 852937
             SGD: S000003278
-            MIPS: YGR046W
             UniProt: P53230
 AASEQ       385
             MLRVSENGLRFLLKCHSTNVSMFNRLLSTQIKEGRSSIDDAGIIPDGTINERPNHYIEGI

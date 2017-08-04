@@ -1,13 +1,12 @@
 ENTRY       YCR038C           CDS       T00005
 NAME        BUD5
-DEFINITION  Bud5p
+DEFINITION  (RefSeq) Ras family guanine nucleotide exchange factor BUD5
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    III:complement(197621..199549)
-MOTIF       Pfam: RasGEF Glycoprotein_G RasGEF_N
-DBLINKS     NCBI-GI: 10383799
+MOTIF       Pfam: RasGEF Glycoprotein_G Inj_translocase RasGEF_N
+DBLINKS     NCBI-ProteinID: NP_009967
             NCBI-GeneID: 850405
             SGD: S000000634
-            MIPS: YCR038C
             UniProt: P25300
 AASEQ       642
             MSPKNKYVYICVEYIYIYFAKIHKQSTLSSDTTKMFVLIDNVLAYLLEQDDLFVTARFAI

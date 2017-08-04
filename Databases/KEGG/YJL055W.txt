@@ -1,13 +1,12 @@
 ENTRY       YJL055W           CDS       T00005
-DEFINITION  hypothetical protein
-ORTHOLOGY   K06966
+DEFINITION  (RefSeq) hypothetical protein
+ORTHOLOGY   K06966  uncharacterized protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    X:333357..334094
-MOTIF       Pfam: Lysine_decarbox DUF3107
-DBLINKS     NCBI-GI: 6322406
+MOTIF       Pfam: Lysine_decarbox
+DBLINKS     NCBI-ProteinID: NP_012480
             NCBI-GeneID: 853391
             SGD: S000003591
-            MIPS: YJL055W
             UniProt: P47044
 AASEQ       245
             MTMEKNGGNSSRGGQVGGKSVCVYCGSSFGAKALYSESAEELGALFHKLGWKLVYGGGTT

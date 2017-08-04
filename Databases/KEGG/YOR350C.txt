@@ -1,13 +1,12 @@
 ENTRY       YOR350C           CDS       T00005
 NAME        MNE1
-DEFINITION  Mne1p
+DEFINITION  (RefSeq) Mne1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:complement(992864..994855)
-MOTIF       Pfam: MNE1
-DBLINKS     NCBI-GI: 6324926
+MOTIF       Pfam: MNE1 DUF1951
+DBLINKS     NCBI-ProteinID: NP_014995
             NCBI-GeneID: 854532
             SGD: S000005877
-            MIPS: YOR350C
             UniProt: P24720
 AASEQ       663
             MKLLFKRYSSSHIGKLIKDSLITPEILPQLGRQPSSHKRLPNNKRTNSITDKWLKDALTR

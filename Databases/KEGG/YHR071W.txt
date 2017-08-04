@@ -1,13 +1,19 @@
 ENTRY       YHR071W           CDS       T00005
 NAME        PCL5
-DEFINITION  Pcl5p
+DEFINITION  (RefSeq) Pcl5p
+ORTHOLOGY   K21197  G1/S-specific cyclin
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04138  Autophagy - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04138 Autophagy - yeast
+                YHR071W (PCL5)
 POSITION    VIII:237004..237693
-MOTIF       Pfam: Cyclin Cyclin_N
-DBLINKS     NCBI-GI: 6321862
+MOTIF       Pfam: Cyclin_N Cyclin
+DBLINKS     NCBI-ProteinID: NP_011938
             NCBI-GeneID: 856468
             SGD: S000001113
-            MIPS: YHR071W
             UniProt: P38794
 AASEQ       229
             MDGNHRFTPDSKEFNTVVKSKESSTGRNPYQTPPLEHNGTHHQTNYSRKKTNLAIIISNF

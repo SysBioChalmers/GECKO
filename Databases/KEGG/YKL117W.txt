@@ -1,13 +1,11 @@
 ENTRY       YKL117W           CDS       T00005
 NAME        SBA1, CST18
-DEFINITION  Sba1p
+DEFINITION  (RefSeq) Hsp90 cochaperone SBA1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XI:220324..220974
-MOTIF       Pfam: CS
-DBLINKS     NCBI-GI: 6322732
+DBLINKS     NCBI-ProteinID: NP_012805
             NCBI-GeneID: 853743
             SGD: S000001600
-            MIPS: YKL117W
             UniProt: P28707
 STRUCTURE   PDB: 2CG9
 AASEQ       216

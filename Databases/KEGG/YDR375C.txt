@@ -1,14 +1,18 @@
 ENTRY       YDR375C           CDS       T00005
 NAME        BCS1
-DEFINITION  bifunctional AAA family ATPase chaperone/translocase BCS1
+DEFINITION  (RefSeq) bifunctional AAA family ATPase chaperone/translocase BCS1
 ORTHOLOGY   K08900  mitochondrial chaperone BCS1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial quality control factors
+              Mitochondrial respiratory chain complex assembly factors
+               Complex-III assembly factors
+                YDR375C (BCS1)
 POSITION    IV:complement(1225166..1226536)
-MOTIF       Pfam: BCS1_N AAA AAA_17 AAA_21 AAA_33 AAA_18 RuvB_N AAA_22 DUF815 AAA_16 AAA_5 AAA_14 AAA_25 Zeta_toxin ABC_tran AAA_29 NACHT AAA_24 KaiC RNA_helicase Arch_ATPase AAA_19 Miro AAA_23 AAA_28 AAA_11 DUF3315
-DBLINKS     NCBI-GI: 6320583
+MOTIF       Pfam: BCS1_N AAA RuvB_N DUF815 AAA_16 AAA_33 AAA_5 AAA_18 ABC_tran NACHT AAA_24 AAA_29 ATPase RNA_helicase AAA_21 AAA_22 RcnB AAA_11 ATPase_2 Gram_pos_anchor
+DBLINKS     NCBI-ProteinID: NP_010663
             NCBI-GeneID: 851981
             SGD: S000002783
-            MIPS: YDR375C
             UniProt: P32839
 AASEQ       456
             MSDKPIDIQYDKQATPNLSGVITPPTNETGNDSVREKLSKLVGDAMSNNPYFAAGGGLMI

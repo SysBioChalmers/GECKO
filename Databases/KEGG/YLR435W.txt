@@ -1,14 +1,18 @@
 ENTRY       YLR435W           CDS       T00005
 NAME        TSR2
-DEFINITION  Tsr2p
+DEFINITION  (RefSeq) Tsr2p
 ORTHOLOGY   K14800  pre-rRNA-processing protein TSR2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-40S particles
+               Export and cytoplasmic maturation factors
+                YLR435W (TSR2)
 POSITION    XII:1006378..1006995
-MOTIF       Pfam: WGG Nucleoplasmin Vfa1 DUF2457 PBP1_TM Myc_N
-DBLINKS     NCBI-GI: 398366271
+MOTIF       Pfam: WGG DUF4746 PBP1_TM CDC27 DUF2457
+DBLINKS     NCBI-ProteinID: NP_013539
             NCBI-GeneID: 851154
             SGD: S000004427
-            MIPS: YLR435W
             UniProt: Q06672
 AASEQ       205
             MSTQYIDETAFVQAEQGKTNLMFSDEKQQARFELGVSMVIYKWDALDVAVENSWGGPDSA

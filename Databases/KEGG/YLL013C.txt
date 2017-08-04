@@ -1,14 +1,18 @@
 ENTRY       YLL013C           CDS       T00005
 NAME        PUF3
-DEFINITION  Puf3p
+DEFINITION  (RefSeq) mRNA-binding protein PUF3
 ORTHOLOGY   K17944  mRNA-binding protein PUF3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial quality control factors
+              Mitochondrial dynamics
+               Mitochondrial movement
+                YLL013C (PUF3)
 POSITION    XII:complement(122075..124714)
-MOTIF       Pfam: PUF
-DBLINKS     NCBI-GI: 6323016
+MOTIF       Pfam: PUF CPL
+DBLINKS     NCBI-ProteinID: NP_013088
             NCBI-GeneID: 850647
             SGD: S000003936
-            MIPS: YLL013C
             UniProt: Q07807
 STRUCTURE   PDB: 3K49 3K4E
 AASEQ       879

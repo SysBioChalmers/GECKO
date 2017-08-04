@@ -1,13 +1,12 @@
 ENTRY       YER004W           CDS       T00005
 NAME        FMP52
-DEFINITION  Fmp52p
+DEFINITION  (RefSeq) Fmp52p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    V:159580..160275
-MOTIF       Pfam: NAD_binding_10 HIM1 Epimerase NmrA Semialdhyde_dh
-DBLINKS     NCBI-GI: 6320840
+MOTIF       Pfam: HIM1 Epimerase NAD_binding_10 Semialdhyde_dh
+DBLINKS     NCBI-ProteinID: NP_010919
             NCBI-GeneID: 856721
             SGD: S000000806
-            MIPS: YER004W
             UniProt: P40008
 AASEQ       231
             MNGLVLGATGLCGGGFLRHAQEAPQFSKVYAILRRELPFPATDKVVAIVERDNSKWSQLI

@@ -1,16 +1,31 @@
 ENTRY       YBL019W           CDS       T00005
 NAME        APN2, ETH1
-DEFINITION  DNA-(apurinic or apyrimidinic site) lyase APN2 (EC:4.2.99.18)
+DEFINITION  (RefSeq) DNA-(apurinic or apyrimidinic site) lyase APN2
 ORTHOLOGY   K10772  AP endonuclease 2 [EC:4.2.99.18]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03410  Base excision repair
-CLASS       Genetic Information Processing; Replication and repair; Base excision repair [PATH:sce03410]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Replication and repair
+               03410 Base excision repair
+                YBL019W (APN2)
+            Enzymes [BR:sce01000]
+             4. Lyases
+              4.2  Carbon-oxygen lyases
+               4.2.99  Other carbon-oxygen lyases
+                4.2.99.18  DNA-(apurinic or apyrimidinic site) lyase
+                 YBL019W (APN2)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              SSBR (single strand breaks repair)
+               BER (base exicision repair)
+                AP endonucleases
+                 YBL019W (APN2)
 POSITION    II:184353..185915
-MOTIF       Pfam: Exo_endo_phos Exo_endo_phos_2 zf-GRF
-DBLINKS     NCBI-GI: 6319452
+MOTIF       Pfam: Exo_endo_phos zf-GRF Exo_endo_phos_2
+DBLINKS     NCBI-ProteinID: NP_009534
             NCBI-GeneID: 852262
             SGD: S000000115
-            MIPS: YBL019W
             UniProt: P38207
 AASEQ       520
             MSSSENTLLDGKSENTIRFLTFNVNGIRTFFHYQPFSQMNQSLRSVFDFFRADIITFQEL

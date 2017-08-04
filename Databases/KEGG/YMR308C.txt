@@ -1,15 +1,22 @@
 ENTRY       YMR308C           CDS       T00005
 NAME        PSE1, KAP121
-DEFINITION  Pse1p
+DEFINITION  (RefSeq) Pse1p
+ORTHOLOGY   K20222  importin-5
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-40S particles
+               Export and cytoplasmic maturation factors
+                YMR308C (PSE1)
+              Pre-60S particles
+                YMR308C (PSE1)
 POSITION    XIII:complement(888952..892221)
-MOTIF       Pfam: HEAT HEAT_EZ HEAT_2 MMS19_C CLASP_N Vac14_Fab1_bd DNA_alkylation
-DBLINKS     NCBI-GI: 6323968
+MOTIF       Pfam: HEAT_EZ HEAT HEAT_2 RIX1 CLASP_N Vac14_Fab1_bd MMS19_C DUF3385 ParcG DNA_alkylation
+DBLINKS     NCBI-ProteinID: NP_014039
             NCBI-GeneID: 855356
             SGD: S000004925
-            MIPS: YMR308C
             UniProt: P32337
-STRUCTURE   PDB: 3W3W 3W3U 3W3Z 3W3Y 3W3T 3W3X 3W3V
+STRUCTURE   PDB: 3W3W 4ZJ7 3W3U 3W3Z 5H2V 3W3Y 3W3T 3W3X 3W3V
 AASEQ       1089
             MSALPEEVNRTLLQIVQAFASPDNQIRSVAEKALSEEWITENNIEYLLTFLAEQAAFSQD
             TTVAALSAVLFRKLALKAPPSSKLMIMSKNITHIRKEVLAQIRSSLLKGFLSERADSIRH

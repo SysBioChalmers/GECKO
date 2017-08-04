@@ -1,13 +1,12 @@
 ENTRY       YOL067C           CDS       T00005
 NAME        RTG1
-DEFINITION  Rtg1p
+DEFINITION  (RefSeq) Rtg1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:complement(201985..202518)
 MOTIF       Pfam: HLH
-DBLINKS     NCBI-GI: 6324505
+DBLINKS     NCBI-ProteinID: NP_014574
             NCBI-GeneID: 854087
             SGD: S000005428
-            MIPS: YOL067C
             UniProt: P32607
 AASEQ       177
             MSSIPAGTDPGSCGANFKNDRKRRDKINDRIQELLSIIPKDFFRDYYGNSGSNDTLSEST

@@ -1,16 +1,25 @@
 ENTRY       YKL215C           CDS       T00005
 NAME        OXP1
-DEFINITION  Oxp1p (EC:3.5.2.9)
+DEFINITION  (RefSeq) 5-oxoprolinase
 ORTHOLOGY   K01469  5-oxoprolinase (ATP-hydrolysing) [EC:3.5.2.9]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00480  Glutathione metabolism
-CLASS       Metabolism; Metabolism of other amino acids; Glutathione metabolism [PATH:sce00480]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Metabolism of other amino acids
+               00480 Glutathione metabolism
+                YKL215C (OXP1)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.5  Acting on carbon-nitrogen bonds, other than peptide bonds
+               3.5.2  In cyclic amides
+                3.5.2.9  5-oxoprolinase (ATP-hydrolysing)
+                 YKL215C (OXP1)
 POSITION    XI:complement(26827..30687)
 MOTIF       Pfam: Hydantoinase_B Hydantoinase_A Hydant_A_N
-DBLINKS     NCBI-GI: 6322634
+DBLINKS     NCBI-ProteinID: NP_012707
             NCBI-GeneID: 853665
             SGD: S000001698
-            MIPS: YKL215C
             UniProt: P28273
 AASEQ       1286
             MQKGNIRIAIDKGGTFTDCVGNIGTGKQEHDTVIKLLSVDPKNYPDAPLEGIRRLLEVLE

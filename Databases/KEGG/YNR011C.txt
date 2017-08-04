@@ -1,17 +1,32 @@
 ENTRY       YNR011C           CDS       T00005
 NAME        PRP2, RNA2
-DEFINITION  DEAH-box RNA-dependent ATPase PRP2 (EC:3.6.4.13)
+DEFINITION  (RefSeq) DEAH-box RNA-dependent ATPase PRP2
 ORTHOLOGY   K12814  pre-mRNA-splicing factor ATP-dependent RNA helicase-like protein PRP2 [EC:3.6.4.13]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03040  Spliceosome
-CLASS       Genetic Information Processing; Transcription; Spliceosome [PATH:sce03040]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03040 Spliceosome
+                YNR011C (PRP2)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.4  Acting on acid anhydrides to facilitate cellular and subcellular movement
+                3.6.4.13  RNA helicase
+                 YNR011C (PRP2)
+            Spliceosome [BR:sce03041]
+             Complex B
+              U4/U6.U5 tri-snRNP components
+               U4/U6.U5 tri-snRNP related factors
+                YNR011C (PRP2)
 POSITION    XIV:complement(644320..646950)
-MOTIF       Pfam: HA2 OB_NTP_bind Helicase_C DEAD AAA_22 T2SE Flavi_DEAD KaiC ABC_tran FtsK_SpoIIIE AAA_29
-DBLINKS     NCBI-GI: 6324338
+MOTIF       Pfam: HA2 Helicase_C OB_NTP_bind DEAD AAA_22 AAA_30 AAA_19 Flavi_DEAD T2SSE ATPase ABC_tran PhoH AAA_29
+DBLINKS     NCBI-ProteinID: NP_014408
             NCBI-GeneID: 855745
             SGD: S000005294
-            MIPS: YNR011C
             UniProt: P20095
+STRUCTURE   PDB: 5LQW
 AASEQ       876
             MSSITSETGKRRVKRTYEVTRQNDNAVRIEPSSLGEEEDKEAKDKNSALQLKRSRYDPNK
             VFSNTNQGPEKNNLKGEQLGSQKKSSKYDEKITSNNELTTKKGLLGDSENETKYASSNSK

@@ -1,16 +1,26 @@
 ENTRY       YPL167C           CDS       T00005
 NAME        REV3, PSO1
-DEFINITION  Rev3p (EC:2.7.7.7)
+DEFINITION  (RefSeq) Rev3p
 ORTHOLOGY   K02350  DNA polymerase zeta [EC:2.7.7.7]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce01100  Metabolic pathways
 MODULE      sce_M00293  DNA polymerase zeta  complex
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.7  Nucleotidyltransferases
+                2.7.7.7  DNA-directed DNA polymerase
+                 YPL167C (REV3)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              TLS (translesion DNA synthesis) factors
+               B-family DNA polymerases
+                YPL167C (REV3)
 POSITION    XVI:complement(232593..237107)
 MOTIF       Pfam: DNA_pol_B DNA_pol_B_exo1 zf-C4pol
-DBLINKS     NCBI-GI: 6325090
+DBLINKS     NCBI-ProteinID: NP_015158
             NCBI-GeneID: 855936
             SGD: S000006088
-            MIPS: YPL167C
             UniProt: P14284
 AASEQ       1504
             MSRESNDTIQSDTVRSSSKSDYFRIQLNNQDYYMSKPTFLDPSHGESLPLNQFSQVPNIR

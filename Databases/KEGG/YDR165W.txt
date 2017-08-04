@@ -1,14 +1,18 @@
 ENTRY       YDR165W           CDS       T00005
 NAME        TRM82
-DEFINITION  Trm82p
+DEFINITION  (RefSeq) Trm82p
 ORTHOLOGY   K15443  tRNA (guanine-N(7)-)-methyltransferase subunit TRM82
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              tRNA modification factors
+               Methyltransferases
+                YDR165W (TRM82)
 POSITION    IV:784871..786205
-MOTIF       Pfam: WD40 CPSF_A
-DBLINKS     NCBI-GI: 6320369
+MOTIF       Pfam: CPSF_A
+DBLINKS     NCBI-ProteinID: NP_010449
             NCBI-GeneID: 851743
             SGD: S000002572
-            MIPS: YDR165W
             UniProt: Q03774
 STRUCTURE   PDB: 2VDU
 AASEQ       444

@@ -1,20 +1,39 @@
 ENTRY       YAL016W           CDS       T00005
 NAME        TPD3, FUN32
-DEFINITION  Tpd3p
+DEFINITION  (RefSeq) protein phosphatase 2A structural subunit TPD3
 ORTHOLOGY   K03456  serine/threonine-protein phosphatase 2A regulatory subunit A
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03015  mRNA surveillance pathway
             sce04111  Cell cycle - yeast
             sce04113  Meiosis - yeast
-CLASS       Genetic Information Processing; Translation; mRNA surveillance pathway [PATH:sce03015]
-            Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
-            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03015 mRNA surveillance pathway
+                YAL016W (TPD3)
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YAL016W (TPD3)
+               04113 Meiosis - yeast
+                YAL016W (TPD3)
+            Protein phosphatases and associated proteins [BR:sce01009]
+             Protein Ser/ Thr phosphatases
+              Phosphoprotein phosphatases (PPPs)
+               Protein phosphatase-2 (PP2A)
+                Regulatory subunits
+                 YAL016W (TPD3)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centromeric chromatin formation proteins
+               Other centromeric chromatin formation proteins
+                PP2A (protein phosphatase 2A)
+                 YAL016W (TPD3)
 POSITION    I:124879..126786
-MOTIF       Pfam: HEAT HEAT_2 Vac14_Fab1_bd Ecm29
-DBLINKS     NCBI-GI: 6319303
+MOTIF       Pfam: HEAT HEAT_2 Vac14_Fab1_bd Cnd1 Ecm29
+DBLINKS     NCBI-ProteinID: NP_009386
             NCBI-GeneID: 851217
             SGD: S000000014
-            MIPS: YAL016W
             UniProt: P31383
 AASEQ       635
             MSGARSTTAGAVPSAATTSTTSTTSNSKDSDSNESLYPLALLMDELKHDDIANRVEAMKK

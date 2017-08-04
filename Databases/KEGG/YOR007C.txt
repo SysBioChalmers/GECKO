@@ -1,14 +1,23 @@
 ENTRY       YOR007C           CDS       T00005
 NAME        SGT2
-DEFINITION  Sgt2p
+DEFINITION  (RefSeq) Sgt2p
 ORTHOLOGY   K16365  small glutamine-rich tetratricopeptide repeat-containing protein alpha
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of haemopoietic cells  (B-cell, T-cell, DC-cell, reticulocyte, and mast cell)
+               YOR007C (SGT2)
+            Cell adhesion molecules and their ligands [BR:sce04516]
+             1. Immunoglobulin Superfamily
+              Neural system
+               6/5 subfamily
+                CHL1; L1 cell adhesion molecule like protein [KO:K06758]
+                 YOR007C (SGT2)
 POSITION    XV:complement(338938..339978)
-MOTIF       Pfam: TPR_11 TPR_1 TPR_2 TPR_16 TPR_12 TPR_14 TPR_17 TPR_8 TPR_19 TPR_7 BTAD TPR_6 TPR_9 Apc3
-DBLINKS     NCBI-GI: 6324580
+MOTIF       Pfam: TPR_1 SGTA_dimer TPR_2 TPR_11 TPR_8 TPR_16 TPR_10 TPR_12 TPR_17 TPR_14 TPR_6 BTAD TPR_19 TPR_9
+DBLINKS     NCBI-ProteinID: NP_014649
             NCBI-GeneID: 854168
             SGD: S000005533
-            MIPS: YOR007C
             UniProt: Q12118
 STRUCTURE   PDB: 3ZDM 2LXB 2LXC 4ASV 4ASW
 AASEQ       346

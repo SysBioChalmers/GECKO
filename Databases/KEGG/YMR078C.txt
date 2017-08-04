@@ -1,15 +1,20 @@
 ENTRY       YMR078C           CDS       T00005
 NAME        CTF18, CHL12
-DEFINITION  Ctf18p
+DEFINITION  (RefSeq) Ctf18p
 ORTHOLOGY   K11269  chromosome transmission fidelity protein 18
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Sister chromatid cohesion proteins
+               CTF18-RFC complex
+                YMR078C (CTF18)
 POSITION    XIII:complement(422503..424728)
-MOTIF       Pfam: AAA Rad17 RuvB_N AAA_14 AAA_22 AAA_17 AAA_16 AAA_19 AAA_33 RNA_helicase DUF258 AAA_5 AAA_18
-DBLINKS     NCBI-GI: 6323724
+MOTIF       Pfam: AAA Rad17 RuvB_N AAA_16 AAA_assoc_2 AAA_14 AAA_22 AAA_33 RNA_helicase AAA_11 AAA_5 AAA_18 Arch_flagellin IPT Phage_Mu_Gam
+DBLINKS     NCBI-ProteinID: NP_013795
             NCBI-GeneID: 855102
             SGD: S000004683
-            MIPS: YMR078C
             UniProt: P49956
+STRUCTURE   PDB: 5MSM
 AASEQ       741
             MVDTAPYIGSLGRSSLFDTGDIEQAPGNNAIGINEEDIHAFVSSTGETVQLKKKPAKLAT
             GNISLYTNPDTVWRSDDTYGININYLLDKIEASGDDRTNAQKTSPITGKIGSDTLWVEKW

@@ -1,17 +1,27 @@
 ENTRY       YBR065C           CDS       T00005
 NAME        ECM2, SLT11
-DEFINITION  Ecm2p
+DEFINITION  (RefSeq) Ecm2p
 ORTHOLOGY   K12872  pre-mRNA-splicing factor RBM22/SLT11
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03040  Spliceosome
-CLASS       Genetic Information Processing; Transcription; Spliceosome [PATH:sce03040]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03040 Spliceosome
+                YBR065C (ECM2)
+            Spliceosome [BR:sce03041]
+             Complex B
+              Other components
+               Prp19-related factors
+                YBR065C (ECM2)
+             Complex C
+                YBR065C (ECM2)
 POSITION    II:complement(368584..369678)
-MOTIF       Pfam: DUF1660
-DBLINKS     NCBI-GI: 398364587
+DBLINKS     NCBI-ProteinID: NP_009621
             NCBI-GeneID: 852357
             SGD: S000000269
-            MIPS: YBR065C
             UniProt: P38241
+STRUCTURE   PDB: 5GMK 5LJ3 5LJ5 5MPS 5WSG 5MQ0 5LQW
 AASEQ       364
             MNDEINEPPPNICEQCLGDEANIRMTKIPQGSECKICTLPFTLYHFKTSKRSNNIIKTLI
             CVRCATQRNICQCCMLDSRWHIPIQLRDHLISLVNEENVMTEEAKNDMMKRFLSLKNVKL

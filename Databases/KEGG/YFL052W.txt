@@ -1,12 +1,12 @@
 ENTRY       YFL052W           CDS       T00005
-DEFINITION  hypothetical protein
+NAME        ZNF1
+DEFINITION  (RefSeq) DNA-binding domain containing protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VI:28232..29629
-MOTIF       Pfam: Fungal_trans Zn_clus GxDLY
-DBLINKS     NCBI-GI: 14318467
+MOTIF       Pfam: Zn_clus Fungal_trans GxDLY
+DBLINKS     NCBI-ProteinID: NP_116603
             NCBI-GeneID: 850492
             SGD: S000001842
-            MIPS: YFL052W
             UniProt: P43551
 AASEQ       465
             MARNRQACDCCCIRRVKCDRKKPCKCCLQHNLQCTYLRPLKKRGPKPVKVRNLKKVDDVQ

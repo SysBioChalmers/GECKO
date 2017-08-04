@@ -1,19 +1,37 @@
 ENTRY       YPL069C           CDS       T00005
 NAME        BTS1
-DEFINITION  farnesyltranstransferase (EC:2.5.1.29 2.5.1.1 2.5.1.- 2.5.1.10)
+DEFINITION  (RefSeq) farnesyltranstransferase
 ORTHOLOGY   K00804  geranylgeranyl diphosphate synthase, type III [EC:2.5.1.1 2.5.1.10 2.5.1.29]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00900  Terpenoid backbone biosynthesis
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
+            sce01130  Biosynthesis of antibiotics
 MODULE      sce_M00367  C10-C20 isoprenoid biosynthesis, non-plant eukaryotes
-CLASS       Metabolism; Metabolism of terpenoids and polyketides; Terpenoid backbone biosynthesis [PATH:sce00900]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Metabolism of terpenoids and polyketides
+               00900 Terpenoid backbone biosynthesis
+                YPL069C (BTS1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.5  Transferring alkyl or aryl groups, other than methyl groups
+               2.5.1  Transferring alkyl or aryl groups, other than methyl groups (only sub-subclass identified to date)
+                2.5.1.1  dimethylallyltranstransferase
+                 YPL069C (BTS1)
+                2.5.1.10  (2E,6E)-farnesyl diphosphate synthase
+                 YPL069C (BTS1)
+                2.5.1.29  geranylgeranyl diphosphate synthase
+                 YPL069C (BTS1)
+            Prenyltransferases [BR:sce01006]
+             Terpene biosynthesis
+              Prenyl diphosphate synthase
+               YPL069C (BTS1)
 POSITION    XVI:complement(422885..423892)
-MOTIF       Pfam: polyprenyl_synt DUF1487
-DBLINKS     NCBI-GI: 6325188
+MOTIF       Pfam: polyprenyl_synt DUF1487 Med10
+DBLINKS     NCBI-ProteinID: NP_015256
             NCBI-GeneID: 856036
             SGD: S000005990
-            MIPS: YPL069C
             UniProt: Q12051
 STRUCTURE   PDB: 2E8V 2Z4V 2Z4X 2DH4 2ZEU 2Z50 2E8X 2Z7H 2E8U 2Z4Z 2Z7I
                  2Z78 2Z4Y 2E93 2Z52 2E8T 2E91 2E94 2E95 2ZEV 2E92 2E8W

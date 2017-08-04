@@ -1,14 +1,30 @@
 ENTRY       YKR024C           CDS       T00005
 NAME        DBP7
-DEFINITION  Dbp7p (EC:3.6.4.13)
+DEFINITION  (RefSeq) putative ATP-dependent RNA helicase
 ORTHOLOGY   K14806  ATP-dependent RNA helicase DDX31/DBP7 [EC:3.6.4.13]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.4  Acting on acid anhydrides to facilitate cellular and subcellular movement
+                3.6.4.13  RNA helicase
+                 YKR024C (DBP7)
+            Protein phosphatases and associated proteins [BR:sce01009]
+             Protein Ser/ Thr phosphatases
+              Phosphoprotein phosphatases (PPPs)
+               Protein phosphatase-1
+                PP1-interacting proteins (PIPs)
+                 YKR024C (DBP7)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               Helicases
+                YKR024C (DBP7)
 POSITION    XI:complement(485144..487372)
-MOTIF       Pfam: DEAD DUF4217 Helicase_C ResIII
-DBLINKS     NCBI-GI: 6322876
+MOTIF       Pfam: DEAD DUF4217 Helicase_C ResIII DUF3450
+DBLINKS     NCBI-ProteinID: NP_012949
             NCBI-GeneID: 853894
             SGD: S000001732
-            MIPS: YKR024C
             UniProt: P36120
 AASEQ       742
             MSDEDSMLLNFTTNEDTAGSSYKQAAKVTGGRWKDRRRMKMKLEGKTVSRKRKANTTGDE

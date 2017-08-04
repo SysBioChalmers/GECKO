@@ -1,13 +1,12 @@
 ENTRY       YDL013W           CDS       T00005
 NAME        SLX5, HEX3, ULS2
-DEFINITION  SUMO-targeted ubiquitin ligase complex subunit SLX5 (EC:6.3.2.-)
+DEFINITION  (RefSeq) SUMO-targeted ubiquitin ligase complex subunit SLX5
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:429067..430926
-MOTIF       Pfam: zf-RING_5 zf-C3HC4 DUF1980 zf-C3HC4_2 Fer2_3 DUF1501
-DBLINKS     NCBI-GI: 398364839
+MOTIF       Pfam: Prok-RING_4 zf-C3HC4_2 zf-RING_5 zf-C3HC4 zf-RING_UBOX zf-C3HC4_3 DUF1501 zf-RING_2 TPR_10
+DBLINKS     NCBI-ProteinID: NP_010271
             NCBI-GeneID: 851549
             SGD: S000002171
-            MIPS: YDL013W
             UniProt: P32828
 AASEQ       619
             MHSDTNGRTKSNNSPSDNNPNETVILIDSDKEEDASIREANLPVRLYPDRRVGRRRDALN

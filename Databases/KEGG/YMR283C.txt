@@ -1,14 +1,24 @@
 ENTRY       YMR283C           CDS       T00005
 NAME        RIT1
-DEFINITION  Rit1p (EC:2.4.2.-)
+DEFINITION  (RefSeq) tRNA A64-2'-O-ribosylphosphate transferase
 ORTHOLOGY   K15463  tRNA A64-2'-O-ribosylphosphate transferase [EC:2.4.2.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.4  Glycosyltransferases
+               2.4.2  Pentosyltransferases
+                2.4.2.-  
+                 YMR283C (RIT1)
+            Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              tRNA modification factors
+               Other tRNA modification factors
+                YMR283C (RIT1)
 POSITION    XIII:complement(835326..836867)
-MOTIF       Pfam: Init_tRNA_PT
-DBLINKS     NCBI-GI: 6323939
+MOTIF       Pfam: Rit1_C Init_tRNA_PT
+DBLINKS     NCBI-ProteinID: NP_014010
             NCBI-GeneID: 855326
             SGD: S000004896
-            MIPS: YMR283C
             UniProt: P23796
 AASEQ       513
             MVSRLSKRYRSRVQFSISVMDENIYLSLSQINKDIRKENKSVRNRLQSILLDNKFLQDRV

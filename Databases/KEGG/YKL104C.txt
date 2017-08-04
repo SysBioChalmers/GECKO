@@ -1,20 +1,35 @@
 ENTRY       YKL104C           CDS       T00005
 NAME        GFA1
-DEFINITION  glutamine--fructose-6-phosphate transaminase (isomerizing) GFA1 (EC:2.6.1.16)
+DEFINITION  (RefSeq) glutamine--fructose-6-phosphate transaminase (isomerizing) GFA1
 ORTHOLOGY   K00820  glucosamine--fructose-6-phosphate aminotransferase (isomerizing) [EC:2.6.1.16]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00250  Alanine, aspartate and glutamate metabolism
             sce00520  Amino sugar and nucleotide sugar metabolism
             sce01100  Metabolic pathways
-            sce01110  Biosynthesis of secondary metabolites
-CLASS       Metabolism; Carbohydrate metabolism; Amino sugar and nucleotide sugar metabolism [PATH:sce00520]
-            Metabolism; Amino acid metabolism; Alanine, aspartate and glutamate metabolism [PATH:sce00250]
+            sce01130  Biosynthesis of antibiotics
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Carbohydrate metabolism
+               00520 Amino sugar and nucleotide sugar metabolism
+                YKL104C (GFA1)
+              Amino acid metabolism
+               00250 Alanine, aspartate and glutamate metabolism
+                YKL104C (GFA1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.6  Transferring nitrogenous groups
+               2.6.1  Transaminases
+                2.6.1.16  glutamine---fructose-6-phosphate transaminase (isomerizing)
+                 YKL104C (GFA1)
+            Peptidases [BR:sce01002]
+             Cysteine Peptidases
+              Family C44
+               YKL104C (GFA1)
 POSITION    XI:complement(243220..245373)
-MOTIF       Pfam: SIS GATase_2 GATase_6 GATase_7 GATase_4 SIS_2
-DBLINKS     NCBI-GI: 6322745
+MOTIF       Pfam: SIS GATase_6 GATase_7 GATase_4
+DBLINKS     NCBI-ProteinID: NP_012818
             NCBI-GeneID: 853757
             SGD: S000001587
-            MIPS: YKL104C
             UniProt: P14742
 AASEQ       717
             MCGIFGYCNYLVERSRGEIIDTLVDGLQRLEYRGYDSTGIAIDGDEADSTFIYKQIGKVS

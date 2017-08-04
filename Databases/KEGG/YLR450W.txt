@@ -1,19 +1,29 @@
 ENTRY       YLR450W           CDS       T00005
 NAME        HMG2
-DEFINITION  hydroxymethylglutaryl-CoA reductase (NADPH) HMG2 (EC:1.1.1.34)
+DEFINITION  (RefSeq) hydroxymethylglutaryl-CoA reductase (NADPH) HMG2
 ORTHOLOGY   K00021  hydroxymethylglutaryl-CoA reductase (NADPH) [EC:1.1.1.34]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00900  Terpenoid backbone biosynthesis
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
+            sce01130  Biosynthesis of antibiotics
 MODULE      sce_M00095  C5 isoprenoid biosynthesis, mevalonate pathway
-CLASS       Metabolism; Metabolism of terpenoids and polyketides; Terpenoid backbone biosynthesis [PATH:sce00900]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Metabolism of terpenoids and polyketides
+               00900 Terpenoid backbone biosynthesis
+                YLR450W (HMG2)
+            Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.1  Acting on the CH-OH group of donors
+               1.1.1  With NAD+ or NADP+ as acceptor
+                1.1.1.34  hydroxymethylglutaryl-CoA reductase (NADPH)
+                 YLR450W (HMG2)
 POSITION    XII:1032627..1035764
 MOTIF       Pfam: HMG-CoA_red HPIH Sterol-sensing
-DBLINKS     NCBI-GI: 6323483
+DBLINKS     NCBI-ProteinID: NP_013555
             NCBI-GeneID: 851171
             SGD: S000004442
-            MIPS: YLR450W
             UniProt: P12684
 AASEQ       1045
             MSLPLKTIVHLVKPFACTARFSARYPIHVIVVAVLLSAAAYLSVTQSYLNEWKLDSNQYS

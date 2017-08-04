@@ -1,13 +1,12 @@
 ENTRY       YKR077W           CDS       T00005
 NAME        MSA2
-DEFINITION  Msa2p
+DEFINITION  (RefSeq) Msa2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XI:583653..584744
-MOTIF       Pfam: SLY DUF3997
-DBLINKS     NCBI-GI: 6322930
+MOTIF       Pfam: SLY Enkurin
+DBLINKS     NCBI-ProteinID: NP_013003
             NCBI-GeneID: 853952
             SGD: S000001785
-            MIPS: YKR077W
             UniProt: P36157
 AASEQ       363
             MVYTTPQQQQRFSSTPQSSHTLIFSPIRAPSMQTPSSLDYQSPSIVVSSSSMKVHGRSSS

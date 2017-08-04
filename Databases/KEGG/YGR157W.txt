@@ -1,18 +1,28 @@
 ENTRY       YGR157W           CDS       T00005
 NAME        CHO2, PEM1
-DEFINITION  phosphatidylethanolamine N-methyltransferase (EC:2.1.1.17)
+DEFINITION  (RefSeq) phosphatidylethanolamine N-methyltransferase
 ORTHOLOGY   K16369  phosphatidylethanolamine N-methyltransferase [EC:2.1.1.17]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00564  Glycerophospholipid metabolism
             sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
 MODULE      sce_M00091  Phosphatidylcholine (PC) biosynthesis, PE => PC
-CLASS       Metabolism; Lipid metabolism; Glycerophospholipid metabolism [PATH:sce00564]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Lipid metabolism
+               00564 Glycerophospholipid metabolism
+                YGR157W (CHO2)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.1  Transferring one-carbon groups
+               2.1.1  Methyltransferases
+                2.1.1.17  phosphatidylethanolamine N-methyltransferase
+                 YGR157W (CHO2)
 POSITION    VII:802440..805049
-MOTIF       Pfam: PEMT ICMT SinI
-DBLINKS     NCBI-GI: 6321596
+MOTIF       Pfam: PEMT ICMT
+DBLINKS     NCBI-ProteinID: NP_011673
             NCBI-GeneID: 853061
             SGD: S000003389
-            MIPS: YGR157W
             UniProt: P05374
 AASEQ       869
             MSSCKTTLSEMVGSVTKDRGTINVEARTRSSNVTFKPPVTHDMVRSLFDPTLKKSLLEKC

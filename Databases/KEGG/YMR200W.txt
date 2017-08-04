@@ -1,13 +1,12 @@
 ENTRY       YMR200W           CDS       T00005
 NAME        ROT1
-DEFINITION  Rot1p
+DEFINITION  (RefSeq) Rot1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:664752..665522
 MOTIF       Pfam: Rot1
-DBLINKS     NCBI-GI: 6323856
+DBLINKS     NCBI-ProteinID: NP_013927
             NCBI-GeneID: 855240
             SGD: S000004813
-            MIPS: YMR200W
             UniProt: Q03691
 AASEQ       256
             MWSKKFTLKKLILGGYLFAQKVYCEDESNSIYGTWSSKSNQVFTGPGFYDPVDELLIEPS

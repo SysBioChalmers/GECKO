@@ -1,13 +1,12 @@
 ENTRY       YGL023C           CDS       T00005
 NAME        PIB2
-DEFINITION  Pib2p
+DEFINITION  (RefSeq) Pib2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:complement(450197..452104)
 MOTIF       Pfam: FYVE
-DBLINKS     NCBI-GI: 398364865
+DBLINKS     NCBI-ProteinID: NP_011492
             NCBI-GeneID: 852861
             SGD: S000002991
-            MIPS: YGL023C
             UniProt: P53191
 AASEQ       635
             MTALHSVSKTPAIKEEEEDGDERDGRGVPLGPRNHDYRGRKGDEESGADTVTSPITFEKK

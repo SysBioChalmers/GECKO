@@ -1,22 +1,44 @@
 ENTRY       YNL312W           CDS       T00005
 NAME        RFA2, BUF1, RPA2, RPA32
-DEFINITION  Rfa2p
+DEFINITION  (RefSeq) Rfa2p
 ORTHOLOGY   K10739  replication factor A2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03030  DNA replication
             sce03420  Nucleotide excision repair
             sce03430  Mismatch repair
             sce03440  Homologous recombination
-CLASS       Genetic Information Processing; Replication and repair; DNA replication [PATH:sce03030]
-            Genetic Information Processing; Replication and repair; Nucleotide excision repair [PATH:sce03420]
-            Genetic Information Processing; Replication and repair; Mismatch repair [PATH:sce03430]
-            Genetic Information Processing; Replication and repair; Homologous recombination [PATH:sce03440]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Replication and repair
+               03030 DNA replication
+                YNL312W (RFA2)
+               03420 Nucleotide excision repair
+                YNL312W (RFA2)
+               03430 Mismatch repair
+                YNL312W (RFA2)
+               03440 Homologous recombination
+                YNL312W (RFA2)
+            DNA replication proteins [BR:sce03032]
+             Eukaryotic Type
+              DNA Replication Elongation Factors
+               RPA (replication protein A)
+                YNL312W (RFA2)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              SSBR (single strand breaks repair)
+               NER (nucleotide excision repair)
+                RPA (replication factor A)
+                 YNL312W (RFA2)
+               MMR (mismatch exicision repair)
+                 YNL312W (RFA2)
+              DSBR (double strand breaks repair)
+               HR (homologous recombination)
+                 YNL312W (RFA2)
 POSITION    XIV:join(48287..48293,48402..49216)
-MOTIF       Pfam: tRNA_anti-codon RPA_C HTH_IclR DUF4539
-DBLINKS     NCBI-GI: 6324017
+MOTIF       Pfam: tRNA_anti-codon RPA_C HTH_IclR CDC24_OB3
+DBLINKS     NCBI-ProteinID: NP_014087
             NCBI-GeneID: 855404
             SGD: S000005256
-            MIPS: YNL312W
             UniProt: P26754
 AASEQ       273
             MATYQPYNEYSSVTGGGFENSESRPGSGESETNTRVNTLTPVTIKQILESKQDIQDGPFV

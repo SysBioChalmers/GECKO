@@ -1,16 +1,34 @@
 ENTRY       YGR162W           CDS       T00005
-DEFINITION  Tif4631p
+NAME        TIF4631
+DEFINITION  (RefSeq) translation initiation factor eIF4G
 ORTHOLOGY   K03260  translation initiation factor 4G
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03013  RNA transport
 MODULE      sce_M00428  eIF4F complex
-CLASS       Genetic Information Processing; Translation; RNA transport [PATH:sce03013]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03013 RNA transport
+                YGR162W (TIF4631)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Transport factors
+                eIF4F and regulatory proteins
+                 YGR162W (TIF4631)
+               mRNA cycle factors
+                Stress granule specific factors
+                 YGR162W (TIF4631)
+            Translation factors [BR:sce03012]
+             Eukaryotic Type
+              Initiation factors
+               eIF-4
+                YGR162W (TIF4631)
 POSITION    VII:824059..826917
 MOTIF       Pfam: MIF4G eIF_4G1
-DBLINKS     NCBI-GI: 398365973
+DBLINKS     NCBI-ProteinID: NP_011678
             NCBI-GeneID: 853071
             SGD: S000003394
-            MIPS: YGR162W
             UniProt: P39935
 STRUCTURE   PDB: 2VSX 2VSO 1RF8
 AASEQ       952

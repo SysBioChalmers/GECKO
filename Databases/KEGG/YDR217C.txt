@@ -1,18 +1,27 @@
 ENTRY       YDR217C           CDS       T00005
 NAME        RAD9
-DEFINITION  Rad9p
+DEFINITION  (RefSeq) chromatin-binding protein RAD9
 ORTHOLOGY   K06661  DNA repair protein RAD9
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
             sce04113  Meiosis - yeast
-CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
-            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YDR217C (RAD9)
+               04113 Meiosis - yeast
+                YDR217C (RAD9)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              Check point factors
+               Other check point factors
+                YDR217C (RAD9)
 POSITION    IV:complement(899551..903480)
-MOTIF       Pfam: Rad9_Rad53_bind BRCT
-DBLINKS     NCBI-GI: 6320423
+MOTIF       Pfam: Rad9_Rad53_bind BRCT BRCT_2 RTT107_BRCT_5
+DBLINKS     NCBI-ProteinID: NP_010503
             NCBI-GeneID: 851803
             SGD: S000002625
-            MIPS: YDR217C
             UniProt: P14737
 AASEQ       1309
             MSGQLVQWKSSPDRVTQSAIKEALHSPLADGDMNEMNVPVDPLENKVNSTNIIEGSPKAN

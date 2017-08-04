@@ -1,13 +1,27 @@
 ENTRY       YGL095C           CDS       T00005
 NAME        VPS45, STT10, VPL28
-DEFINITION  Vps45p
+DEFINITION  (RefSeq) Vps45p
+ORTHOLOGY   K12479  vacuolar protein sorting-associated protein 45
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04138  Autophagy - yeast
+            sce04144  Endocytosis
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04144 Endocytosis
+                YGL095C (VPS45)
+               04138 Autophagy - yeast
+                YGL095C (VPS45)
+            Membrane trafficking [BR:sce04131]
+             Endocytosis
+              Rab GTPases and associated proteins
+               Rab associated proteins
+                YGL095C (VPS45)
 POSITION    VII:complement(328874..330607)
-MOTIF       Pfam: Sec1
-DBLINKS     NCBI-GI: 398364537
+MOTIF       Pfam: Sec1 YxiJ
+DBLINKS     NCBI-ProteinID: NP_011420
             NCBI-GeneID: 852785
             SGD: S000003063
-            MIPS: YGL095C
             UniProt: P38932
 AASEQ       577
             MNLFDVADFYINKIVTSQSKLSVANVNEHQRIKVLLLDKNTTPTISLCATQSELLKHEIY

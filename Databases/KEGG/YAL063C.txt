@@ -1,13 +1,12 @@
 ENTRY       YAL063C           CDS       T00005
 NAME        FLO9
-DEFINITION  Flo9p
+DEFINITION  (RefSeq) flocculin FLO9
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    I:complement(24000..27968)
-MOTIF       Pfam: Flocculin PA14 Flocculin_t3 PA14_2
-DBLINKS     NCBI-GI: 6319255
+MOTIF       Pfam: Flocculin PA14 Flocculin_t3 GLEYA
+DBLINKS     NCBI-ProteinID: NP_009338
             NCBI-GeneID: 851236
             SGD: S000000059
-            MIPS: YAL063C
             UniProt: P39712
 AASEQ       1322
             MSLAHYCLLLAIVTLLGLTNVVSATTAACLPANSRKNGMNVNFYQYSLRDSSTYSNAAYM

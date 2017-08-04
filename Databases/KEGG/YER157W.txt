@@ -1,13 +1,18 @@
 ENTRY       YER157W           CDS       T00005
 NAME        COG3, GRD20, SEC34
-DEFINITION  Cog3p
+DEFINITION  (RefSeq) Golgi transport complex subunit COG3
+ORTHOLOGY   K20290  conserved oligomeric Golgi complex subunit 3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endosome - Golgi transport
+              Tethering complex
+               Conserved oligomeric Golgi (COG) complex
+                YER157W (COG3)
 POSITION    V:484788..487193
 MOTIF       Pfam: Sec34
-DBLINKS     NCBI-GI: 6321005
+DBLINKS     NCBI-ProteinID: NP_011084
             NCBI-GeneID: 856901
             SGD: S000000959
-            MIPS: YER157W
             UniProt: P40094
 AASEQ       801
             MARSRKNSLVRDIASHPTIPESQTIVGLLDDSYLFDKLKKLSLAVENSDSLQRTDVSEGC

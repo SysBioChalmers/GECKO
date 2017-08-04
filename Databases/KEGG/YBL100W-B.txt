@@ -1,12 +1,12 @@
 ENTRY       YBL100W-B         CDS       T00005
-DEFINITION  gag-pol fusion protein (EC:2.7.7.49 2.7.7.7 3.4.23.- 3.1.26.4)
+NAME        YBL101W-B
+DEFINITION  (RefSeq) gag-pol fusion protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    II:join(29935..31227,31229..35248)
-MOTIF       Pfam: TYA RVT_2 rve gag_pre-integrs UBN2
-DBLINKS     NCBI-GI: 6319369
+MOTIF       Pfam: TYA RVT_2 rve gag_pre-integrs RVT_1 Retrotran_gag_2
+DBLINKS     NCBI-ProteinID: NP_009450
             NCBI-GeneID: 852175
             SGD: S000002149
-            MIPS: YBL100W-B
             UniProt: Q12491
 AASEQ       1770
             MESQQLHQNPHSLHGSAYASVTSKEVSSNQDPLAVSASNLPEFDRDSTKVNSQQETTPGT

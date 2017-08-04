@@ -1,14 +1,19 @@
 ENTRY       YOL128C           CDS       T00005
 NAME        YGK3
-DEFINITION  Ygk3p (EC:2.7.11.1)
+DEFINITION  (RefSeq) serine/threonine protein kinase YGK3
 ORTHOLOGY   K08286  protein-serine/threonine kinase [EC:2.7.11.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.11  Protein-serine/threonine kinases
+                2.7.11.-  
+                 YOL128C (YGK3)
 POSITION    XV:complement(78352..79479)
-MOTIF       Pfam: Pkinase Pkinase_Tyr Kinase-like Kdo APH Mitoc_L55 Choline_kinase SPG48
-DBLINKS     NCBI-GI: 6324444
+MOTIF       Pfam: Pkinase Pkinase_Tyr Kinase-like Kdo APH
+DBLINKS     NCBI-ProteinID: NP_014513
             NCBI-GeneID: 853992
             SGD: S000005488
-            MIPS: YOL128C
             UniProt: Q12222
 AASEQ       375
             MLKVNNVFGSNPNRMTKLEDEHYFIDDIVSIKNRQKSKMYVREGKRIGHGSFGTVTQSIL

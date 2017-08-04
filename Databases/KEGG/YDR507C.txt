@@ -1,16 +1,34 @@
 ENTRY       YDR507C           CDS       T00005
 NAME        GIN4, ERC47
-DEFINITION  Gin4p (EC:2.7.11.1)
+DEFINITION  (RefSeq) protein kinase GIN4
 ORTHOLOGY   K06668  serine/threonine-protein kinase GIN4 [EC:2.7.11.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
-CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YDR507C (GIN4)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.11  Protein-serine/threonine kinases
+                2.7.11.-  
+                 YDR507C (GIN4)
+            Protein kinases [BR:sce01001]
+             Serine/threonine protein kinases: CAMK group
+              CAMKL family
+               YDR507C (GIN4)
+            Cytoskeleton proteins [BR:sce04812]
+             Eukaryotic cytoskeleton proteins
+              Septins
+               Septin associated proteins
+                YDR507C (GIN4)
 POSITION    IV:complement(1462358..1465786)
-MOTIF       Pfam: Pkinase Pkinase_Tyr Kinase-like APH
-DBLINKS     NCBI-GI: 398366661
+MOTIF       Pfam: Pkinase Fungal_KA1 Pkinase_Tyr Kinase-like APH
+DBLINKS     NCBI-ProteinID: NP_010795
             NCBI-GeneID: 852119
             SGD: S000002915
-            MIPS: YDR507C
             UniProt: Q12263
 AASEQ       1142
             MAINGNSIPAIKDNTIGPWKLGETLGLGSTGKVQLARNGSTGQEAAVKVISKAVFNTGNV

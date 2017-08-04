@@ -1,21 +1,35 @@
 ENTRY       YDR009W           CDS       T00005
 NAME        GAL3
-DEFINITION  transcriptional regulator GAL3
+DEFINITION  (RefSeq) transcriptional regulator GAL3
 ORTHOLOGY   K00849  galactokinase [EC:2.7.1.6]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00052  Galactose metabolism
             sce00520  Amino sugar and nucleotide sugar metabolism
             sce01100  Metabolic pathways
-            sce01110  Biosynthesis of secondary metabolites
 MODULE      sce_M00554  Nucleotide sugar biosynthesis, galactose => UDP-galactose
-CLASS       Metabolism; Carbohydrate metabolism; Galactose metabolism [PATH:sce00052]
-            Metabolism; Carbohydrate metabolism; Amino sugar and nucleotide sugar metabolism [PATH:sce00520]
+            sce_M00632  Galactose degradation, Leloir pathway, galactose => alpha-D-glucose-1P
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Carbohydrate metabolism
+               00052 Galactose metabolism
+                YDR009W (GAL3)
+               00520 Amino sugar and nucleotide sugar metabolism
+                YDR009W (GAL3)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.1  Phosphotransferases with an alcohol group as acceptor
+                2.7.1.6  galactokinase
+                 YDR009W (GAL3)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of other body fluids (saliva and urine)
+               YDR009W (GAL3)
 POSITION    IV:463434..464996
-MOTIF       Pfam: GalKase_gal_bdg GHMP_kinases_N GHMP_kinases_C
-DBLINKS     NCBI-GI: 6320212
+MOTIF       Pfam: GalKase_gal_bdg GHMP_kinases_N GHMP_kinases_C DUF1748
+DBLINKS     NCBI-ProteinID: NP_010292
             NCBI-GeneID: 851572
             SGD: S000002416
-            MIPS: YDR009W
             UniProt: P13045
 STRUCTURE   PDB: 3V5R 3V2U
 AASEQ       520

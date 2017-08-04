@@ -1,12 +1,11 @@
 ENTRY       YGL185C           CDS       T00005
-DEFINITION  putative hydroxyacid dehydrogenase (EC:1.-.-.-)
+DEFINITION  (RefSeq) putative hydroxyacid dehydrogenase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:complement(153167..154306)
-MOTIF       Pfam: 2-Hacid_dh_C 2-Hacid_dh NAD_binding_2 ApbA Shikimate_DH
-DBLINKS     NCBI-GI: 6321253
+MOTIF       Pfam: 2-Hacid_dh_C 2-Hacid_dh ApbA
+DBLINKS     NCBI-ProteinID: NP_011330
             NCBI-GeneID: 852690
             SGD: S000003153
-            MIPS: YGL185C
             UniProt: P53100
 AASEQ       379
             MCDSPATTGKPTILFIADPCETSATLNSKAFKEKFRILRYQLDTKEAFLNFLERHEQDKI

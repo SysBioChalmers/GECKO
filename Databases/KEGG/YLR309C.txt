@@ -1,13 +1,12 @@
 ENTRY       YLR309C           CDS       T00005
 NAME        IMH1, SYS3
-DEFINITION  Imh1p
+DEFINITION  (RefSeq) Imh1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XII:complement(749034..751769)
-MOTIF       Pfam: GRIP AAA_13 Reo_sigmaC Spc7 BicD AAA_27
-DBLINKS     NCBI-GI: 6323340
+MOTIF       Pfam: GRIP Spc7 APG6 Taxilin Reo_sigmaC ATG16 DUF4164
+DBLINKS     NCBI-ProteinID: NP_013412
             NCBI-GeneID: 851018
             SGD: S000004300
-            MIPS: YLR309C
             UniProt: Q06704
 AASEQ       911
             MFKQLSQIGKNLTDELAKGLADDMSPTPSEQQIEDDKSGLPKEIQAKLRKFEKYEQKYPL

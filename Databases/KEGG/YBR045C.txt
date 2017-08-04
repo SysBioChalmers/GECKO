@@ -1,16 +1,18 @@
 ENTRY       YBR045C           CDS       T00005
 NAME        GIP1
-DEFINITION  Gip1p
+DEFINITION  (RefSeq) protein phosphatase regulator GIP1
 ORTHOLOGY   K12770  GLC7-interacting protein 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04113  Meiosis - yeast
-CLASS       Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04113 Meiosis - yeast
+                YBR045C (GIP1)
 POSITION    II:complement(328173..330092)
-MOTIF       Pfam: Flu_M1
-DBLINKS     NCBI-GI: 330443429
+DBLINKS     NCBI-ProteinID: NP_009601
             NCBI-GeneID: 852334
             SGD: S000000249
-            MIPS: YBR045C
             UniProt: P38229
 AASEQ       639
             METILQPKARPFESLKRKRFREWLRPSTAHGSLLHSDTLDLRDFAKPNPADTFSNLDSGH

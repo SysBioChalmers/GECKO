@@ -1,13 +1,13 @@
 ENTRY       YOL008W           CDS       T00005
 NAME        COQ10
-DEFINITION  Coq10p
+DEFINITION  (RefSeq) ubiquinone-binding protein COQ10
+ORTHOLOGY   K18588  coenzyme Q-binding protein COQ10
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:310312..310935
 MOTIF       Pfam: Polyketide_cyc Polyketide_cyc2
-DBLINKS     NCBI-GI: 6324566
+DBLINKS     NCBI-ProteinID: NP_014635
             NCBI-GeneID: 854154
             SGD: S000005368
-            MIPS: YOL008W
             UniProt: Q08058
 AASEQ       207
             MVLIIRPSQTLILFRKAMLKPIGRYPLKRNFFGLSGTNHTIREQRYVLRKAINAPPSTVY

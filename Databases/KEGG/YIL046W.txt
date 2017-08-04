@@ -1,19 +1,31 @@
 ENTRY       YIL046W           CDS       T00005
 NAME        MET30, ZRG11
-DEFINITION  Met30p
+DEFINITION  (RefSeq) ubiquitin-binding SDF ubiquitin ligase complex subunit MET30
 ORTHOLOGY   K10259  F-box and WD-40 domain protein MET30
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
             sce04120  Ubiquitin mediated proteolysis
 MODULE      sce_M00379  SCF-MET30 complex
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Ubiquitin mediated proteolysis [PATH:sce04120]
-            Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04120 Ubiquitin mediated proteolysis
+                YIL046W (MET30)
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YIL046W (MET30)
+            Ubiquitin system [BR:sce04121]
+             Ubiquitin ligases (E3)
+              Multi subunit Ring-finger type E3
+               SCF complex
+                Target recognizing subunit (F-box)
+                 YIL046W (MET30)
 POSITION    IX:268651..270573
-MOTIF       Pfam: WD40 F-box-like Nup160 F-box PRANC
-DBLINKS     NCBI-GI: 6322143
+MOTIF       Pfam: WD40 F-box-like Nup160 F-box WD40_like PAN_4
+DBLINKS     NCBI-ProteinID: NP_012218
             NCBI-GeneID: 854765
             SGD: S000001308
-            MIPS: YIL046W
             UniProt: P39014
 AASEQ       640
             MRRERQRMMSFEDKDKDDLDNSNSNNSSEMTDTAMMPPLKRLLITGSSDDLAQGSSGKKK

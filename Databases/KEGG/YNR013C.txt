@@ -1,14 +1,17 @@
 ENTRY       YNR013C           CDS       T00005
 NAME        PHO91
-DEFINITION  Pho91p
+DEFINITION  (RefSeq) Pho91p
 ORTHOLOGY   K14430  phosphate transporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Other Transporters
+              Electrochemical potential-driven transporters [TC:2]
+               YNR013C (PHO91)
 POSITION    XIV:complement(649028..651712)
 MOTIF       Pfam: SPX Na_sulph_symp CitMHS
-DBLINKS     NCBI-GI: 398365615
+DBLINKS     NCBI-ProteinID: NP_014410
             NCBI-GeneID: 855747
             SGD: S000005296
-            MIPS: YNR013C
             UniProt: P27514
 AASEQ       894
             MKFSHSLQFNSVPEWSTKYLAYSQLKKLIYSLQKDKLYSNNKHHVVEPHDANDENLPLLA

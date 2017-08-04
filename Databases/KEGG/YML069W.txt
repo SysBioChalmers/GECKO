@@ -1,16 +1,20 @@
 ENTRY       YML069W           CDS       T00005
 NAME        POB3
-DEFINITION  Pob3p
+DEFINITION  (RefSeq) FACT complex subunit POB3
 ORTHOLOGY   K09272  structure-specific recognition protein 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription factors [BR:sce03000]
+             Eukaryotic Type
+              beta-Scaffold factors with minor groove contacts
+               HMG2-related
+                YML069W (POB3)
 POSITION    XIII:135500..137158
-MOTIF       Pfam: SSrecog Rtt106
-DBLINKS     NCBI-GI: 6323571
+MOTIF       Pfam: SSrecog Rtt106 POB3_N DUF4827
+DBLINKS     NCBI-ProteinID: NP_013642
             NCBI-GeneID: 854933
             SGD: S000004534
-            MIPS: YML069W
             UniProt: Q04636
-STRUCTURE   PDB: 3F5R 2GCL 2GCJ
+STRUCTURE   PDB: 4PQ0 3F5R 2GCL 2GCJ
 AASEQ       552
             MSTDFDRIYLNQSKFSGRFRIADSGLGWKISTSGGSAANQARKPFLLPATELSTVQWSRG
             CRGYDLKINTKNQGVIQLDGFSQDDYNLIKNDFHRRFNIQVEQREHSLRGWNWGKTDLAR

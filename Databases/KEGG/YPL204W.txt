@@ -1,17 +1,43 @@
 ENTRY       YPL204W           CDS       T00005
 NAME        HRR25, KTI14
-DEFINITION  Hrr25p (EC:2.7.11.1)
+DEFINITION  (RefSeq) serine/threonine protein kinase HRR25
 ORTHOLOGY   K14758  casein kinase I homolog HRR25 [EC:2.7.11.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03008  Ribosome biogenesis in eukaryotes
-CLASS       Genetic Information Processing; Translation; Ribosome biogenesis in eukaryotes [PATH:sce03008]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03008 Ribosome biogenesis in eukaryotes
+                YPL204W (HRR25)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.11  Protein-serine/threonine kinases
+                2.7.11.1  non-specific serine/threonine protein kinase
+                 YPL204W (HRR25)
+            Protein kinases [BR:sce01001]
+             Serine/threonine protein kinases: CK1 group
+              CK1 family [OT]
+               YPL204W (HRR25)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-40S particles
+               Kinases
+                YPL204W (HRR25)
+              Pre-60S particles
+                YPL204W (HRR25)
+            Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              tRNA modification factors
+               Elongator related proteins
+                YPL204W (HRR25)
 POSITION    XVI:164276..165760
 MOTIF       Pfam: Pkinase Pkinase_Tyr APH
-DBLINKS     NCBI-GI: 6325052
+DBLINKS     NCBI-ProteinID: NP_015120
             NCBI-GeneID: 855897
             SGD: S000006125
-            MIPS: YPL204W
             UniProt: P29295
+STRUCTURE   PDB: 5CYZ 5CZO 4XHL
 AASEQ       494
             MDLRVGRKFRIGRKIGSGSFGDIYHGTNLISGEEVAIKLESIRSRHPQLDYESRVYRYLS
             GGVGIPFIRWFGREGEYNAMVIDLLGPSLEDLFNYCHRRFSFKTVIMLALQMFCRIQYIH

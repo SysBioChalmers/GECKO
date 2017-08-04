@@ -1,18 +1,31 @@
 ENTRY       YCR093W           CDS       T00005
 NAME        CDC39, NOT1, ROS1, SMD6
-DEFINITION  CCR4-NOT core subunit CDC39
+DEFINITION  (RefSeq) CCR4-NOT core subunit CDC39
 ORTHOLOGY   K12604  CCR4-NOT transcription complex subunit 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03018  RNA degradation
-CLASS       Genetic Information Processing; Folding, sorting and degradation; RNA degradation [PATH:sce03018]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               03018 RNA degradation
+                YCR093W (CDC39)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               mRNA cycle factors
+                P-body specific factors
+                 YCR093W (CDC39)
+              mRNA degradation factors
+               3'-5' decay
+                Ccr4-NOT complex
+                 YCR093W (CDC39)
 POSITION    III:280117..286443
-MOTIF       Pfam: Not1 DUF3819
-DBLINKS     NCBI-GI: 10383811
+MOTIF       Pfam: Not1 CNOT1_HEAT_N CNOT1_CAF1_bind CNOT1_TTP_bind DUF3819 CNOT1_HEAT TFIIA
+DBLINKS     NCBI-ProteinID: NP_010017
             NCBI-GeneID: 850455
             SGD: S000000689
-            MIPS: YCR093W
             UniProt: P25655
-STRUCTURE   PDB: 4B89 4B8A 4BY6 4B8B 4B8C
+STRUCTURE   PDB: 4B89 4B8A 4BY6 4B8B 4B8C 5AJD 4CV5
 AASEQ       2108
             MLSATYRDLNTASNLETSKEKQAAQIVIAQISLLFTTLNNDNFESVEREIRHILDRSSVD
             IYIKVWERLLTLSSRDILQAGKFLLQENLLHRLLLEFAKDLPKKSTDLIELLKERTFNNQ

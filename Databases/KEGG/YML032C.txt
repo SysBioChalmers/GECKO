@@ -1,16 +1,25 @@
 ENTRY       YML032C           CDS       T00005
 NAME        RAD52
-DEFINITION  recombinase RAD52
+DEFINITION  (RefSeq) recombinase RAD52
 ORTHOLOGY   K10873  DNA repair and recombination protein RAD52
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03440  Homologous recombination
-CLASS       Genetic Information Processing; Replication and repair; Homologous recombination [PATH:sce03440]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Replication and repair
+               03440 Homologous recombination
+                YML032C (RAD52)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              DSBR (double strand breaks repair)
+               HR (homologous recombination)
+                Rad52 family proteins
+                 YML032C (RAD52)
 POSITION    XIII:complement(212515..213930)
 MOTIF       Pfam: Rad52_Rad22
-DBLINKS     NCBI-GI: 27808713
+DBLINKS     NCBI-ProteinID: NP_013680
             NCBI-GeneID: 854976
             SGD: S000004494
-            MIPS: YML032C
             UniProt: P06778
 AASEQ       471
             MNEIMDMDEKKPVFGNHSEDIQTKLDKKLGPEYISKRVGFGTSRIAYIEGWRVINLANQI

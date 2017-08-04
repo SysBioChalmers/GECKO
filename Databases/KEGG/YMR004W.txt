@@ -1,14 +1,13 @@
 ENTRY       YMR004W           CDS       T00005
 NAME        MVP1
-DEFINITION  Mvp1p
+DEFINITION  (RefSeq) Mvp1p
 ORTHOLOGY   K17922  sorting nexin-8
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:274017..275552
-MOTIF       Pfam: PX
-DBLINKS     NCBI-GI: 6323646
+MOTIF       Pfam: PX IL5
+DBLINKS     NCBI-ProteinID: NP_013717
             NCBI-GeneID: 855016
             SGD: S000004606
-            MIPS: YMR004W
             UniProt: P40959
 AASEQ       511
             MDNYEGSDPWNTSSNAWTKDDDHVVSTTNSEPSLNGISGEFNTLNFSTPLDTNEEDTGFL

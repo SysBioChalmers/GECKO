@@ -1,14 +1,18 @@
 ENTRY       YHL030W           CDS       T00005
 NAME        ECM29
-DEFINITION  Ecm29p
+DEFINITION  (RefSeq) Ecm29p
 ORTHOLOGY   K11886  proteasome component ECM29
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Proteasome [BR:sce03051]
+             Eukaryotic proteasome
+              Proteasome interacting proteins (PIPs)
+               Other PIPs
+                YHL030W (ECM29)
 POSITION    VIII:40084..45690
-MOTIF       Pfam: Ecm29 HEAT
-DBLINKS     NCBI-GI: 6321757
+MOTIF       Pfam: Ecm29 HEAT CM2
+DBLINKS     NCBI-ProteinID: NP_011833
             NCBI-GeneID: 856355
             SGD: S000001022
-            MIPS: YHL030W
             UniProt: P38737
 AASEQ       1868
             MSISSDEAKEKQLVEKAELRLAIADSPQKFETNLQTFLPPLLLKLASPHASVRTAVFSAL

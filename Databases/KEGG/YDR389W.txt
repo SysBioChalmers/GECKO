@@ -1,13 +1,19 @@
 ENTRY       YDR389W           CDS       T00005
 NAME        SAC7
-DEFINITION  Sac7p
+DEFINITION  (RefSeq) Sac7p
+ORTHOLOGY   K19845  GTPase-activating protein SAC7
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04011  MAPK signaling pathway - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YDR389W (SAC7)
 POSITION    IV:1252537..1254501
-MOTIF       Pfam: RhoGAP DUF3408
-DBLINKS     NCBI-GI: 6320597
+MOTIF       Pfam: RhoGAP
+DBLINKS     NCBI-ProteinID: NP_010677
             NCBI-GeneID: 851997
             SGD: S000002797
-            MIPS: YDR389W
             UniProt: P17121
 AASEQ       654
             MPNNTLKQGSKIENVSPSKGHVPSFWKQFINNPKSMSSENITVPRSPTSLSRNAQPTTLK

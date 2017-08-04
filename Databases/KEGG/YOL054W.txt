@@ -1,13 +1,12 @@
 ENTRY       YOL054W           CDS       T00005
 NAME        PSH1
-DEFINITION  ubiquitin-protein ligase PSH1
+DEFINITION  (RefSeq) ubiquitin-protein ligase PSH1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:228614..229834
-MOTIF       Pfam: zf-C3HC4_4 zf-C3HC4 zf-C3HC4_3 zf-C3HC4_2 zf-RING_2 zf-RING_UBOX zf-RING_5 DZR zf-ribbon_3 HypA zf-RING_3 zf-rbx1 zinc_ribbon_2 zf-Apc11
-DBLINKS     NCBI-GI: 6324518
+MOTIF       Pfam: zf-C3HC4_4 zf-C3HC4_3 zf-C3HC4 zf-RING_2 zf-RING_UBOX zf-C3HC4_2 zf-RING_5 Prok-RING_4 zinc_ribbon_2 HypA DZR zf-ANAPC11 zinc_ribbon_9 zf-rbx1
+DBLINKS     NCBI-ProteinID: NP_014587
             NCBI-GeneID: 854102
             SGD: S000005415
-            MIPS: YOL054W
             UniProt: Q12161
 AASEQ       406
             MGDELHNRLLHQNDGTKDAILYKIIESLVCSICHDYMFVPMMTPCGHNYCYGCLNTWFAS

@@ -1,13 +1,12 @@
 ENTRY       YOR172W           CDS       T00005
 NAME        YRM1
-DEFINITION  Yrm1p
+DEFINITION  (RefSeq) Yrm1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:654210..656570
-MOTIF       Pfam: Zn_clus DUF2069 DUF2420
-DBLINKS     NCBI-GI: 398365545
+MOTIF       Pfam: Zn_clus
+DBLINKS     NCBI-ProteinID: NP_014815
             NCBI-GeneID: 854343
             SGD: S000005698
-            MIPS: YOR172W
             UniProt: Q12340
 AASEQ       786
             MSKRGSLQDRASPSEETVKKAQKRRKPIKSCAFCRKRKLRCDQQKPMCSTCKTRGRSGCL

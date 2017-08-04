@@ -1,13 +1,12 @@
 ENTRY       YGL020C           CDS       T00005
 NAME        GET1, MDM39
-DEFINITION  Get1p
+DEFINITION  (RefSeq) GET complex subunit GET1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:complement(457163..457870)
-MOTIF       Pfam: CHD5 AAA_21 Seryl_tRNA_N Lipoprotein_6 IncA
-DBLINKS     NCBI-GI: 6321418
+MOTIF       Pfam: CHD5 Seryl_tRNA_N DUF4363 Syntaxin_2 DUF16 Tmemb_40
+DBLINKS     NCBI-ProteinID: NP_011495
             NCBI-GeneID: 852864
             SGD: S000002988
-            MIPS: YGL020C
             UniProt: P53192
 STRUCTURE   PDB: 3B2E 3ZS8 3SJA 3SJC 3SJB 3VLC
 AASEQ       235

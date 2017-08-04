@@ -1,12 +1,11 @@
 ENTRY       YJL113W           CDS       T00005
-DEFINITION  gag-pol fusion protein (EC:2.7.7.49 2.7.7.7 3.4.23.- 3.1.26.4)
+DEFINITION  (RefSeq) gag-pol fusion protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    X:join(198678..198998,199000..203325)
-MOTIF       Pfam: RVT_2 rve gag_pre-integrs RVP
-DBLINKS     NCBI-GI: 330443635
+MOTIF       Pfam: RVT_2 rve gag_pre-integrs zf-MYND
+DBLINKS     NCBI-ProteinID: NP_012421
             NCBI-GeneID: 853330
             SGD: S000003649
-            MIPS: YJL113W
             UniProt: P47024
 AASEQ       1548
             MNKLQKLVLMEKWIFSKCCQDCPNLKDYLQEAIMGTLHESLRNSVKQRLYNIPHDVGIDH

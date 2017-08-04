@@ -1,16 +1,21 @@
 ENTRY       YNL251C           CDS       T00005
 NAME        NRD1
-DEFINITION  Nrd1p
+DEFINITION  (RefSeq) Nrd1 complex RNA-binding subunit
 ORTHOLOGY   K15560  protein NRD1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Other transcription-related factors
+                Transcription termination factor
+                 YNL251C (NRD1)
 POSITION    XIV:complement(172588..174315)
-MOTIF       Pfam: RRM_1 RRM_6 RRM_5 Spo7_2_N CTD_bind
-DBLINKS     NCBI-GI: 6324078
+MOTIF       Pfam: CTD_bind RRM_1 Spo7_2_N RNA_bind RRM_7
+DBLINKS     NCBI-ProteinID: NP_014148
             NCBI-GeneID: 855470
             SGD: S000005195
-            MIPS: YNL251C
             UniProt: P53617
-STRUCTURE   PDB: 3CLJ 2LO6
+STRUCTURE   PDB: 3CLJ 2MOW 2M88 2LO6
 AASEQ       575
             MQQDDDFQNFVATLESFKDLKSGISGSRIKKLTTYALDHIDIESKIISLIIDYSRLCPDS
             HKLGSLYIIDSIGRAYLDETRSNSNSSSNKPGTCAHAINTLGEVIQELLSDAIAKSNQDH

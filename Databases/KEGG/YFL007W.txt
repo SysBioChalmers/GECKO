@@ -1,18 +1,25 @@
 ENTRY       YFL007W           CDS       T00005
 NAME        BLM10, YFL006W
-DEFINITION  Blm10p
+DEFINITION  (RefSeq) Blm10p
 ORTHOLOGY   K06699  proteasome activator subunit 4
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03050  Proteasome
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Proteasome [PATH:sce03050]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               03050 Proteasome
+                YFL007W (BLM10)
+            Proteasome [BR:sce03051]
+             Eukaryotic proteasome
+              Regulatory particles
+               PA200
+                YFL007W (BLM10)
 POSITION    VI:123479..129910
-MOTIF       Pfam: DUF3437
-DBLINKS     NCBI-GI: 37362646
+MOTIF       Pfam: BLM10_mid BLM10_N DUF3437
+DBLINKS     NCBI-ProteinID: NP_116648
             NCBI-GeneID: 850541
             SGD: S000001887
-            MIPS: YFL007W
             UniProt: P43583
-STRUCTURE   PDB: 1VSY 3L5Q
 AASEQ       2143
             MTANNDDDIKSPIPITNKTLSQLKRFERSPGRPSSSQGEIKRKKSRLYAADGRPHSPLRA
             RSATPTLQDQKLFNGMDSTSLLNERLQHYTLDYVSDRAQHMKNIYDPSSRWFSRSVRPEF

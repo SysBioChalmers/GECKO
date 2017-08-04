@@ -1,14 +1,19 @@
 ENTRY       YOR038C           CDS       T00005
 NAME        HIR2, SPT1
-DEFINITION  Hir2p
+DEFINITION  (RefSeq) Hir2p
 ORTHOLOGY   K11293  protein HIRA/HIR1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Nucleosome assembly factors
+               Histone chaperones
+                Other Histone chaperones and regulators
+                 YOR038C (HIR2)
 POSITION    XV:complement(402761..405388)
-MOTIF       Pfam: Hira WD40
-DBLINKS     NCBI-GI: 6324612
+MOTIF       Pfam: Hira DegV
+DBLINKS     NCBI-ProteinID: NP_014681
             NCBI-GeneID: 854203
             SGD: S000005564
-            MIPS: YOR038C
             UniProt: P32480
 AASEQ       875
             MRLLKYPLDIHNEQVNALAALGPYIILAGSGGHVMAWRQQQLVDTAFDRVMIKDLKPEVS

@@ -1,22 +1,35 @@
 ENTRY       YIR031C           CDS       T00005
 NAME        DAL7, MLS2, MSL2
-DEFINITION  malate synthase DAL7 (EC:2.3.3.9)
+DEFINITION  (RefSeq) malate synthase DAL7
 ORTHOLOGY   K01638  malate synthase [EC:2.3.3.9]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00620  Pyruvate metabolism
             sce00630  Glyoxylate and dicarboxylate metabolism
             sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
             sce01200  Carbon metabolism
 MODULE      sce_M00012  Glyoxylate cycle
-CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
-            Metabolism; Carbohydrate metabolism; Pyruvate metabolism [PATH:sce00620]
-            Metabolism; Carbohydrate metabolism; Glyoxylate and dicarboxylate metabolism [PATH:sce00630]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01200 Carbon metabolism
+                YIR031C (DAL7)
+              Carbohydrate metabolism
+               00620 Pyruvate metabolism
+                YIR031C (DAL7)
+               00630 Glyoxylate and dicarboxylate metabolism
+                YIR031C (DAL7)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.3  Acyltransferases
+               2.3.3  Acyl groups converted into alkyl groups on transfer
+                2.3.3.9  malate synthase
+                 YIR031C (DAL7)
 POSITION    IX:complement(413015..414679)
-MOTIF       Pfam: Malate_synthase HpcH_HpaI
-DBLINKS     NCBI-GI: 398364713
+MOTIF       Pfam: Malate_synthase
+DBLINKS     NCBI-ProteinID: NP_012297
             NCBI-GeneID: 854849
             SGD: S000001470
-            MIPS: YIR031C
             UniProt: P21826
 AASEQ       554
             MVKISLDNTALYADIDTTPQFEPSKTTVADILTKDALEFIVLLHRTFNSTRKQLLANRSN

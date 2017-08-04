@@ -1,21 +1,39 @@
 ENTRY       YLR127C           CDS       T00005
 NAME        APC2, RSI1, TID2
-DEFINITION  anaphase promoting complex subunit 2
+DEFINITION  (RefSeq) anaphase promoting complex subunit 2
 ORTHOLOGY   K03349  anaphase-promoting complex subunit 2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
             sce04113  Meiosis - yeast
             sce04120  Ubiquitin mediated proteolysis
 MODULE      sce_M00389  APC/C complex
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Ubiquitin mediated proteolysis [PATH:sce04120]
-            Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
-            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04120 Ubiquitin mediated proteolysis
+                YLR127C (APC2)
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YLR127C (APC2)
+               04113 Meiosis - yeast
+                YLR127C (APC2)
+            Ubiquitin system [BR:sce04121]
+             Ubiquitin ligases (E3)
+              Multi subunit Ring-finger type E3
+               APC/C
+                Cullin
+                 YLR127C (APC2)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Sister chromatid separation proteins
+               APC/C complex
+                YLR127C (APC2)
 POSITION    XII:complement(395758..398319)
-MOTIF       Pfam: Cullin APC2 FeoC
-DBLINKS     NCBI-GI: 6323156
+MOTIF       Pfam: ANAPC2 Cullin FeoC
+DBLINKS     NCBI-ProteinID: NP_013228
             NCBI-GeneID: 850818
             SGD: S000004117
-            MIPS: YLR127C
             UniProt: Q12440
 STRUCTURE   PDB: 1LDD
 AASEQ       853

@@ -1,16 +1,29 @@
 ENTRY       YBR092C           CDS       T00005
 NAME        PHO3
-DEFINITION  Pho3p (EC:3.1.3.2)
+DEFINITION  (RefSeq) acid phosphatase PHO3
 ORTHOLOGY   K01078  acid phosphatase [EC:3.1.3.2]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
-PATHWAY     sce00740  Riboflavin metabolism
-CLASS       Metabolism; Metabolism of cofactors and vitamins; Riboflavin metabolism [PATH:sce00740]
+PATHWAY     sce00730  Thiamine metabolism
+            sce00740  Riboflavin metabolism
+            sce01100  Metabolic pathways
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Metabolism of cofactors and vitamins
+               00730 Thiamine metabolism
+                YBR092C (PHO3)
+               00740 Riboflavin metabolism
+                YBR092C (PHO3)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.3  Phosphoric-monoester hydrolases
+                3.1.3.2  acid phosphatase
+                 YBR092C (PHO3)
 POSITION    II:complement(427698..429101)
-MOTIF       Pfam: His_Phos_2 DUF1122
-DBLINKS     NCBI-GI: 6319568
+MOTIF       Pfam: His_Phos_2
+DBLINKS     NCBI-ProteinID: NP_009650
             NCBI-GeneID: 852389
             SGD: S000000296
-            MIPS: YBR092C
             UniProt: P24031
 AASEQ       467
             MFKSVVYSVLAAALVNAGTIPLGELADVAKIGTQEDIFPFLGGAGPYFSFPGDYGISRDL

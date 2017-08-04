@@ -1,13 +1,12 @@
 ENTRY       YGR086C           CDS       T00005
 NAME        PIL1
-DEFINITION  Pil1p
+DEFINITION  (RefSeq) lipid-binding protein PIL1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:complement(649598..650617)
-MOTIF       Pfam: Pil1
-DBLINKS     NCBI-GI: 398365595
+MOTIF       Pfam: Pil1 SLT_beta
+DBLINKS     NCBI-ProteinID: NP_011600
             NCBI-GeneID: 852977
             SGD: S000003318
-            MIPS: YGR086C
             UniProt: P53252
 AASEQ       339
             MHRTYSLRNSRAPTASQLQNPPPPPSTTKGRFFGKGGLAYSFRRSAAGAFGPELSRKLSQ

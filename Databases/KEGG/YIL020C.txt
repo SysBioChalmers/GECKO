@@ -1,6 +1,6 @@
 ENTRY       YIL020C           CDS       T00005
 NAME        HIS6
-DEFINITION  1-(5-phosphoribosyl)-5-((5-phosphoribosylamino)methylideneamino)imidazole-4-carboxamide isomerase HIS6 (EC:5.3.1.16)
+DEFINITION  (RefSeq) 1-(5-phosphoribosyl)-5-((5-phosphoribosylamino)methylideneamino)imidazole-4-carboxamide isomerase HIS6
 ORTHOLOGY   K01814  phosphoribosylformimino-5-aminoimidazole carboxamide ribotide isomerase [EC:5.3.1.16]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00340  Histidine metabolism
@@ -8,14 +8,25 @@ PATHWAY     sce00340  Histidine metabolism
             sce01110  Biosynthesis of secondary metabolites
             sce01230  Biosynthesis of amino acids
 MODULE      sce_M00026  Histidine biosynthesis, PRPP => histidine
-CLASS       Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
-            Metabolism; Amino acid metabolism; Histidine metabolism [PATH:sce00340]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01230 Biosynthesis of amino acids
+                YIL020C (HIS6)
+              Amino acid metabolism
+               00340 Histidine metabolism
+                YIL020C (HIS6)
+            Enzymes [BR:sce01000]
+             5. Isomerases
+              5.3  Intramolecular oxidoreductases
+               5.3.1  Interconverting aldoses and ketoses, and related compounds
+                5.3.1.16  1-(5-phosphoribosyl)-5-[(5-phosphoribosylamino)methylideneamino]imidazole-4-carboxamide isomerase
+                 YIL020C (HIS6)
 POSITION    IX:complement(314035..314820)
 MOTIF       Pfam: His_biosynth
-DBLINKS     NCBI-GI: 398364475
+DBLINKS     NCBI-ProteinID: NP_012244
             NCBI-GeneID: 854792
             SGD: S000001282
-            MIPS: YIL020C
             UniProt: P40545
 STRUCTURE   PDB: 2AGK
 AASEQ       261

@@ -1,16 +1,24 @@
 ENTRY       YLR206W           CDS       T00005
 NAME        ENT2
-DEFINITION  Ent2p
+DEFINITION  (RefSeq) epsin
 ORTHOLOGY   K12471  epsin
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04144  Endocytosis
-CLASS       Cellular Processes; Transport and catabolism; Endocytosis [PATH:sce04144]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04144 Endocytosis
+                YLR206W (ENT2)
+            Membrane trafficking [BR:sce04131]
+             Endocytosis
+              Clathrin-mediated endocytosis
+               Other core components
+                YLR206W (ENT2)
 POSITION    XII:554578..556419
 MOTIF       Pfam: ENTH
-DBLINKS     NCBI-GI: 6323235
+DBLINKS     NCBI-ProteinID: NP_013307
             NCBI-GeneID: 850903
             SGD: S000004196
-            MIPS: YLR206W
             UniProt: Q05785
 STRUCTURE   PDB: 4GZC 4GZD
 AASEQ       613

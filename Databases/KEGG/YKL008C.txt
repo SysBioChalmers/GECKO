@@ -1,17 +1,26 @@
 ENTRY       YKL008C           CDS       T00005
 NAME        LAC1, DGT1
-DEFINITION  sphingosine N-acyltransferase LAC1 (EC:2.3.1.24)
+DEFINITION  (RefSeq) sphingosine N-acyltransferase LAC1
 ORTHOLOGY   K04709  Acyl-CoA-dependent ceramide synthase [EC:2.3.1.24]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00600  Sphingolipid metabolism
             sce01100  Metabolic pathways
-CLASS       Metabolism; Lipid metabolism; Sphingolipid metabolism [PATH:sce00600]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Lipid metabolism
+               00600 Sphingolipid metabolism
+                YKL008C (LAC1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.3  Acyltransferases
+               2.3.1  Transferring groups other than aminoacyl groups
+                2.3.1.24  sphingosine N-acyltransferase
+                 YKL008C (LAC1)
 POSITION    XI:complement(427295..428551)
 MOTIF       Pfam: TRAM_LAG1_CLN8 TRAM1
-DBLINKS     NCBI-GI: 398364795
+DBLINKS     NCBI-ProteinID: NP_012917
             NCBI-GeneID: 853861
             SGD: S000001491
-            MIPS: YKL008C
             UniProt: P28496
 AASEQ       418
             MSTIKPSPSNNNLKVRSRPRRKSSIGKIDLGDTVPSLGTMFETKESKTAAKRRMQRLSEA

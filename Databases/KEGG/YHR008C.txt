@@ -1,16 +1,30 @@
 ENTRY       YHR008C           CDS       T00005
 NAME        SOD2
-DEFINITION  superoxide dismutase SOD2 (EC:1.15.1.1)
+DEFINITION  (RefSeq) superoxide dismutase SOD2
 ORTHOLOGY   K04564  superoxide dismutase, Fe-Mn family [EC:1.15.1.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04146  Peroxisome
-CLASS       Cellular Processes; Transport and catabolism; Peroxisome [PATH:sce04146]
+            sce04213  Longevity regulating pathway - multiple species
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04146 Peroxisome
+                YHR008C (SOD2)
+             Organismal Systems
+              Aging
+               04213 Longevity regulating pathway - multiple species
+                YHR008C (SOD2)
+            Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.15  Acting on superoxide as acceptor
+               1.15.1  Acting on superoxide as acceptor (only sub-subclass identified to date)
+                1.15.1.1  superoxide dismutase
+                 YHR008C (SOD2)
 POSITION    VIII:complement(122889..123590)
-MOTIF       Pfam: Sod_Fe_C Sod_Fe_N Imm15 HHH_2
-DBLINKS     NCBI-GI: 6321796
+MOTIF       Pfam: Sod_Fe_C Sod_Fe_N HHH_2
+DBLINKS     NCBI-ProteinID: NP_011872
             NCBI-GeneID: 856399
             SGD: S000001050
-            MIPS: YHR008C
             UniProt: P00447
 STRUCTURE   PDB: 4F6E 3RN4 4E4E 3LSU 3BFR
 AASEQ       233

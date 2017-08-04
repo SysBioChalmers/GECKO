@@ -1,13 +1,12 @@
 ENTRY       YIL090W           CDS       T00005
 NAME        ICE2
-DEFINITION  Ice2p
+DEFINITION  (RefSeq) Ice2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IX:193595..195070
 MOTIF       Pfam: ICE2
-DBLINKS     NCBI-GI: 6322101
+DBLINKS     NCBI-ProteinID: NP_012176
             NCBI-GeneID: 854718
             SGD: S000001352
-            MIPS: YIL090W
             UniProt: P40499
 AASEQ       491
             MTSLSKSFMQSGRICAACFYLLFTLLSIPISFKVGGLECGLSFTVTLFTLYFITTTLNVL

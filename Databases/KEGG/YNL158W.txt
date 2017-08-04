@@ -1,13 +1,12 @@
 ENTRY       YNL158W           CDS       T00005
 NAME        PGA1
-DEFINITION  Pga1p
+DEFINITION  (RefSeq) Pga1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIV:339612..340208
-MOTIF       Pfam: Pga1
-DBLINKS     NCBI-GI: 6324171
+MOTIF       Pfam: Pga1 AKAP28
+DBLINKS     NCBI-ProteinID: NP_014241
             NCBI-GeneID: 855564
             SGD: S000005102
-            MIPS: YNL158W
             UniProt: P53896
 AASEQ       198
             MVRPQNVHWFIATIVFFIGFVHANTESILYKVPHNFPLKKPRDSSTYARDVNLISSISLS

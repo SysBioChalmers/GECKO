@@ -1,14 +1,22 @@
 ENTRY       YJL133W           CDS       T00005
 NAME        MRS3
-DEFINITION  Mrs3p
+DEFINITION  (RefSeq) Fe(2+) transporter
 ORTHOLOGY   K15113  solute carrier family 25 (mitochondrial iron transporter), member 28/37
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial DNA transcription, translation, and replication factors
+              Mitochondrial transcription and translation factors
+               Other mitochondrial DNA transcription and translation factors
+                YJL133W (MRS3)
+            Transporters [BR:sce02000]
+             Solute Carrier Family (SLC)
+              SLC25: Mitochondrial carrier
+               YJL133W (MRS3)
 POSITION    X:160619..161563
 MOTIF       Pfam: Mito_carr
-DBLINKS     NCBI-GI: 6322328
+DBLINKS     NCBI-ProteinID: NP_012402
             NCBI-GeneID: 853308
             SGD: S000003669
-            MIPS: YJL133W
             UniProt: P10566
 AASEQ       314
             MVENSSSNNSTRPIPAIPMDLPDYEALPTHAPLYHQLIAGAFAGIMEHSVMFPIDALKTR

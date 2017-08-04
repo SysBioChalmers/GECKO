@@ -1,6 +1,6 @@
 ENTRY       YNL071W           CDS       T00005
 NAME        LAT1, ODP2, PDA2
-DEFINITION  dihydrolipoyllysine-residue acetyltransferase (EC:2.3.1.12)
+DEFINITION  (RefSeq) dihydrolipoyllysine-residue acetyltransferase
 ORTHOLOGY   K00627  pyruvate dehydrogenase E2 component (dihydrolipoamide acetyltransferase) [EC:2.3.1.12]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00010  Glycolysis / Gluconeogenesis
@@ -8,18 +8,32 @@ PATHWAY     sce00010  Glycolysis / Gluconeogenesis
             sce00620  Pyruvate metabolism
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
+            sce01130  Biosynthesis of antibiotics
             sce01200  Carbon metabolism
 MODULE      sce_M00307  Pyruvate oxidation, pyruvate => acetyl-CoA
-CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
-            Metabolism; Carbohydrate metabolism; Glycolysis / Gluconeogenesis [PATH:sce00010]
-            Metabolism; Carbohydrate metabolism; Citrate cycle (TCA cycle) [PATH:sce00020]
-            Metabolism; Carbohydrate metabolism; Pyruvate metabolism [PATH:sce00620]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01200 Carbon metabolism
+                YNL071W (LAT1)
+              Carbohydrate metabolism
+               00010 Glycolysis / Gluconeogenesis
+                YNL071W (LAT1)
+               00020 Citrate cycle (TCA cycle)
+                YNL071W (LAT1)
+               00620 Pyruvate metabolism
+                YNL071W (LAT1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.3  Acyltransferases
+               2.3.1  Transferring groups other than aminoacyl groups
+                2.3.1.12  dihydrolipoyllysine-residue acetyltransferase
+                 YNL071W (LAT1)
 POSITION    XIV:491523..492971
-MOTIF       Pfam: 2-oxoacid_dh Biotin_lipoyl E3_binding L1R_F9L
-DBLINKS     NCBI-GI: 398365063
+MOTIF       Pfam: 2-oxoacid_dh Biotin_lipoyl E3_binding Biotin_lipoyl_2
+DBLINKS     NCBI-ProteinID: NP_014328
             NCBI-GeneID: 855653
             SGD: S000005015
-            MIPS: YNL071W
             UniProt: P12695
 AASEQ       482
             MSAFVRVVPRISRSSVLTRSLRLQLRCYASYPEHTIIGMPALSPTMTQGNLAAWTKKEGD

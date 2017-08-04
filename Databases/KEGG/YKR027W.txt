@@ -1,13 +1,18 @@
 ENTRY       YKR027W           CDS       T00005
 NAME        BCH2, FMP50
-DEFINITION  Bch2p
+DEFINITION  (RefSeq) Bch2p
+ORTHOLOGY   K19880  Chs5-Arf1p-binding protein CHS6/BCH2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Exocytosis
+              Others
+               Exomer complex
+                YKR027W (BCH2)
 POSITION    XI:491364..493661
-MOTIF       Pfam: ChAPs TPR_11
-DBLINKS     NCBI-GI: 398365029
+MOTIF       Pfam: ChAPs
+DBLINKS     NCBI-ProteinID: NP_012952
             NCBI-GeneID: 853898
             SGD: S000001735
-            MIPS: YKR027W
             UniProt: P36122
 AASEQ       765
             MSFLWGSTKSKKGKNKKAAGSLPSGVVPQQRVKPTRKNVPIDYPRTLEKVHGESLIFRTS

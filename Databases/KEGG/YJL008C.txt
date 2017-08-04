@@ -1,16 +1,24 @@
 ENTRY       YJL008C           CDS       T00005
 NAME        CCT8
-DEFINITION  Cct8p
+DEFINITION  (RefSeq) chaperonin-containing T-complex subunit CCT8
 ORTHOLOGY   K09500  T-complex protein 1 subunit theta
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chaperones and folding catalysts [BR:sce03110]
+             Heat shock proteins
+              HSP60 / Chaperonin
+               YJL008C (CCT8)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centrosome formation and ciliogenesis proteins
+               BBS-CCT complex
+                YJL008C (CCT8)
 POSITION    X:complement(419957..421663)
-MOTIF       Pfam: Cpn60_TCP1
-DBLINKS     NCBI-GI: 6322452
+MOTIF       Pfam: Cpn60_TCP1 Nitro_FeMo-Co
+DBLINKS     NCBI-ProteinID: NP_012526
             NCBI-GeneID: 853447
             SGD: S000003545
-            MIPS: YJL008C
             UniProt: P47079
-STRUCTURE   PDB: 4APK 4AOL 4D8Q 4D8R 3P9D 3P9E
+STRUCTURE   PDB: 5GW5 5GW4
 AASEQ       568
             MSLRLPQNPNAGLFKQGYNSYSNADGQIIKSIAAIRELHQMCLTSMGPCGRNKIIVNHLG
             KIIITNDAATMLRELDIVHPAVKVLVMATEQQKIDMGDGTNLVMILAGELLNVSEKLISM

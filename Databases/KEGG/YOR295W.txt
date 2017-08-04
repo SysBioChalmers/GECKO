@@ -1,14 +1,19 @@
 ENTRY       YOR295W           CDS       T00005
 NAME        UAF30
-DEFINITION  Uaf30p
+DEFINITION  (RefSeq) Uaf30p
 ORTHOLOGY   K15223  upstream activation factor subunit UAF30
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase I system
+               Other transcription-related factors
+                Transcription initiation factors
+                 YOR295W (UAF30)
 POSITION    XV:869208..869894
-MOTIF       Pfam: SWIB DEK_C Baculo_LEF5 DUF4109
-DBLINKS     NCBI-GI: 398366129
+MOTIF       Pfam: SWIB DEK_C RbpA
+DBLINKS     NCBI-ProteinID: NP_014938
             NCBI-GeneID: 854470
             SGD: S000005821
-            MIPS: YOR295W
             UniProt: Q08747
 AASEQ       228
             MAELNDYSTMIDILLSDMDLETVTTKKVRMALKEVYAIDVESQGKAINKLIRKHLDLVKE

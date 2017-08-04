@@ -1,12 +1,11 @@
 ENTRY       YMR253C           CDS       T00005
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) hypothetical protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:complement(775946..777190)
-MOTIF       Pfam: EamA EmrE UAA DUF914 TPT
-DBLINKS     NCBI-GI: 6323909
+MOTIF       Pfam: EamA SLC35F CRT-like
+DBLINKS     NCBI-ProteinID: NP_013980
             NCBI-GeneID: 855295
             SGD: S000004866
-            MIPS: YMR253C
             UniProt: Q04835
 AASEQ       414
             MNPSVPKVMKRENNTHLLVSKEMNDTSLQLPSTTRSLSPKESNSNEDFNVDGNETTLQRI

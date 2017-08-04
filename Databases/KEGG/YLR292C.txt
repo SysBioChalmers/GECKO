@@ -1,14 +1,17 @@
 ENTRY       YLR292C           CDS       T00005
 NAME        SEC72, SEC67, SIM2
-DEFINITION  Sec72p
+DEFINITION  (RefSeq) Sec63 complex subunit SEC72
 ORTHOLOGY   K12274  translocation protein SEC72
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Secretion system [BR:sce02044]
+             Sec (secretion) system
+              Eukaryotic Sec-SRP protein
+               YLR292C (SEC72)
 POSITION    XII:complement(719789..720370)
-MOTIF       Pfam: TPR_11 TPR_2 TPR_1 TPR_19 TPR_14 TPR_12 TPR_16 TPR_7 Apc3 TPR_15 TPR_9
-DBLINKS     NCBI-GI: 6323323
+MOTIF       Pfam: TPR_2 TPR_1 TPR_12 TPR_19 TPR_14 TPR_8 TPR_7 ANAPC3
+DBLINKS     NCBI-ProteinID: NP_013395
             NCBI-GeneID: 850999
             SGD: S000004283
-            MIPS: YLR292C
             UniProt: P39742
 AASEQ       193
             MVTLEYNANSKLITASDAVVALSTETNIDQINVLTTSLIGETNPNFTPQPNEALSKMIKG

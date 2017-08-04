@@ -1,14 +1,32 @@
 ENTRY       YHR135C           CDS       T00005
 NAME        YCK1, CKI2
-DEFINITION  Yck1p (EC:2.7.11.1)
+DEFINITION  (RefSeq) serine/threonine protein kinase YCK1
 ORTHOLOGY   K02218  casein kinase 1 [EC:2.7.11.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04011  MAPK signaling pathway - yeast
+            sce04392  Hippo signaling pathway -multiple species
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YHR135C (YCK1)
+               04392 Hippo signaling pathway - multiple species
+                YHR135C (YCK1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.11  Protein-serine/threonine kinases
+                2.7.11.1  non-specific serine/threonine protein kinase
+                 YHR135C (YCK1)
+            Protein kinases [BR:sce01001]
+             Serine/threonine protein kinases: CK1 group
+              CK1 family [OT]
+               YHR135C (YCK1)
 POSITION    VIII:complement(372694..374310)
 MOTIF       Pfam: Pkinase Pkinase_Tyr
-DBLINKS     NCBI-GI: 6321927
+DBLINKS     NCBI-ProteinID: NP_012003
             NCBI-GeneID: 856537
             SGD: S000001177
-            MIPS: YHR135C
             UniProt: P23291
 AASEQ       538
             MSMPIASTTLAVNNLTNINGNANFNVQANKQLHHQAVDSPARSSMTATTAANSNSNSSRD

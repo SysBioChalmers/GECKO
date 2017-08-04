@@ -1,14 +1,19 @@
 ENTRY       YML102W           CDS       T00005
 NAME        CAC2
-DEFINITION  Cac2p
+DEFINITION  (RefSeq) Cac2p
 ORTHOLOGY   K10751  chromatin assembly factor 1 subunit B
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Nucleosome assembly factors
+               Histone chaperones
+                CAF-1
+                 YML102W (CAC2)
 POSITION    XIII:68294..69700
-MOTIF       Pfam: WD40 eIF2A
-DBLINKS     NCBI-GI: 6323534
+MOTIF       Pfam: WD40 ANAPC4_WD40 eIF2A PD40 Frtz
+DBLINKS     NCBI-ProteinID: NP_013605
             NCBI-GeneID: 854869
             SGD: S000004570
-            MIPS: YML102W
             UniProt: Q04199
 AASEQ       468
             MEASHLQIYWHDSQPVYSLTFQKNSANDKLFTAGGDNKVRIWKLNRDENGQNGGVRKIES

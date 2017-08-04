@@ -1,14 +1,25 @@
 ENTRY       YPL228W           CDS       T00005
 NAME        CET1, CES5
-DEFINITION  Cet1p (EC:3.1.3.33)
-ORTHOLOGY   K01098  polynucleotide 5'-phosphatase [EC:3.1.3.33]
+DEFINITION  (RefSeq) polynucleotide 5'-phosphatase
+ORTHOLOGY   K01098  polynucleotide 5'-triphosphatase [EC:3.6.1.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.1  In phosphorus-containing anhydrides
+                3.6.1.-  
+                 YPL228W (CET1)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA processing factors
+               5' end processing
+                Capping factors
+                 YPL228W (CET1)
 POSITION    XVI:118382..120031
-MOTIF       Pfam: mRNA_triPase
-DBLINKS     NCBI-GI: 6325028
+MOTIF       Pfam: mRNA_triPase TraH
+DBLINKS     NCBI-ProteinID: NP_015096
             NCBI-GeneID: 855873
             SGD: S000006149
-            MIPS: YPL228W
             UniProt: O13297
 STRUCTURE   PDB: 1D8H 1D8I 3KYH
 AASEQ       549

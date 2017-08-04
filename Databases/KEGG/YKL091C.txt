@@ -1,13 +1,12 @@
 ENTRY       YKL091C           CDS       T00005
 NAME        SFH1
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) phosphatidylinositol/phosphatidylcholine-binding protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XI:complement(269718..270650)
-MOTIF       Pfam: CRAL_TRIO CRAL_TRIO_N CRAL_TRIO_2 EF-hand_like
-DBLINKS     NCBI-GI: 6322759
+MOTIF       Pfam: CRAL_TRIO CRAL_TRIO_N CRAL_TRIO_2
+DBLINKS     NCBI-ProteinID: NP_012832
             NCBI-GeneID: 853771
             SGD: S000001574
-            MIPS: YKL091C
             UniProt: P33324
 STRUCTURE   PDB: 3Q8G 3B7N 3B74 3B7Q 3B7Z
 AASEQ       310

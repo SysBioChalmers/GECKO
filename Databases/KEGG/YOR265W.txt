@@ -1,14 +1,17 @@
 ENTRY       YOR265W           CDS       T00005
 NAME        RBL2
-DEFINITION  Rbl2p
+DEFINITION  (RefSeq) Rbl2p
 ORTHOLOGY   K17292  tubulin-specific chaperone A
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of colorectal cancer cells
+               YOR265W (RBL2)
 POSITION    XV:820454..820774
-MOTIF       Pfam: TBCA Myosin_tail_1 CENP-Q IncA Cor1 Cytochrom_C_2 LON DUF848 DUF342
-DBLINKS     NCBI-GI: 6324839
+MOTIF       Pfam: TBCA Cytochrom_C_2 IncA A1_Propeptide
+DBLINKS     NCBI-ProteinID: NP_014908
             NCBI-GeneID: 854439
             SGD: S000005791
-            MIPS: YOR265W
             UniProt: P48606
 STRUCTURE   PDB: 1QSD
 AASEQ       106

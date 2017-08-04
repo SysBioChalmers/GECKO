@@ -1,13 +1,12 @@
 ENTRY       YGL104C           CDS       T00005
 NAME        VPS73
-DEFINITION  Vps73p
+DEFINITION  (RefSeq) putative sugar transporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:complement(308713..310173)
-MOTIF       Pfam: Sugar_tr MFS_1
-DBLINKS     NCBI-GI: 398364511
+MOTIF       Pfam: Sugar_tr MFS_1 MFS_2 MFS_4
+DBLINKS     NCBI-ProteinID: NP_011411
             NCBI-GeneID: 852774
             SGD: S000003072
-            MIPS: YGL104C
             UniProt: P53142
 AASEQ       486
             MNRILSSASLLSNVSMPRQNKHKITKALCYAIIVASIGSIQFGYHLSELNAPQQVLSCSE

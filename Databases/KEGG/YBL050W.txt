@@ -1,14 +1,24 @@
 ENTRY       YBL050W           CDS       T00005
 NAME        SEC17, RNS3
-DEFINITION  Sec17p
+DEFINITION  (RefSeq) Sec17p
 ORTHOLOGY   K15296  alpha-soluble NSF attachment protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04138  Autophagy - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04138 Autophagy - yeast
+                YBL050W (SEC17)
+            Membrane trafficking [BR:sce04131]
+             SNARE
+              SNARE associated proteins
+               Others
+                YBL050W (SEC17)
 POSITION    II:join(125125..125154,125271..126119)
-MOTIF       Pfam: SNAP TPR_12 Foie-gras_1 TPR_11 DUF410 TPR_1
-DBLINKS     NCBI-GI: 6319421
+MOTIF       Pfam: SNAP Foie-gras_1 Endonuc-MspI TPR_7
+DBLINKS     NCBI-ProteinID: NP_009503
             NCBI-GeneID: 852230
             SGD: S000000146
-            MIPS: YBL050W
             UniProt: P32602
 STRUCTURE   PDB: 1QQE
 AASEQ       292

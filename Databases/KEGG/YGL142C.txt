@@ -1,18 +1,31 @@
 ENTRY       YGL142C           CDS       T00005
 NAME        GPI10
-DEFINITION  Gpi10p (EC:2.4.1.-)
+DEFINITION  (RefSeq) putative glycosylphosphatidylinositol-alpha 1,2 mannosyltransferase
 ORTHOLOGY   K05286  phosphatidylinositol glycan, class B [EC:2.4.1.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
-PATHWAY     sce00563  Glycosylphosphatidylinositol(GPI)-anchor biosynthesis
+PATHWAY     sce00563  Glycosylphosphatidylinositol (GPI)-anchor biosynthesis
             sce01100  Metabolic pathways
 MODULE      sce_M00065  GPI-anchor biosynthesis, core oligosaccharide
-CLASS       Metabolism; Glycan biosynthesis and metabolism; Glycosylphosphatidylinositol(GPI)-anchor biosynthesis [PATH:sce00563]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Glycan biosynthesis and metabolism
+               00563 Glycosylphosphatidylinositol(GPI)-anchor biosynthesis
+                YGL142C (GPI10)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.4  Glycosyltransferases
+               2.4.1  Hexosyltransferases
+                2.4.1.-  
+                 YGL142C (GPI10)
+            Glycosyltransferases [BR:sce01003]
+             GPI-anchor biosynthesis
+              Core oligosaccharide
+               YGL142C (GPI10)
 POSITION    VII:complement(236269..238119)
 MOTIF       Pfam: Glyco_transf_22
-DBLINKS     NCBI-GI: 6321296
+DBLINKS     NCBI-ProteinID: NP_011373
             NCBI-GeneID: 852735
             SGD: S000003110
-            MIPS: YGL142C
             UniProt: P30777
 AASEQ       616
             MAHEVHRIKPKLGRTQIFWVFLAFRVLNAVLTRTFFQADEFWQALEPAHWKAFKYGELTW

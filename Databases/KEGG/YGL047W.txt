@@ -1,20 +1,34 @@
 ENTRY       YGL047W           CDS       T00005
 NAME        ALG13
-DEFINITION  N-acetylglucosaminyldiphosphodolichol N-acetylglucosaminyltransferase catalytic subunit ALG13 (EC:2.4.1.141)
+DEFINITION  (RefSeq) N-acetylglucosaminyldiphosphodolichol N-acetylglucosaminyltransferase catalytic subunit ALG13
 ORTHOLOGY   K07432  beta-1,4-N-acetylglucosaminyltransferase [EC:2.4.1.141]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00510  N-Glycan biosynthesis
             sce00513  Various types of N-glycan biosynthesis
             sce01100  Metabolic pathways
 MODULE      sce_M00055  N-glycan precursor biosynthesis
-CLASS       Metabolism; Glycan biosynthesis and metabolism; N-Glycan biosynthesis [PATH:sce00510]
-            Metabolism; Glycan biosynthesis and metabolism; Various types of N-glycan biosynthesis [PATH:sce00513]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Glycan biosynthesis and metabolism
+               00510 N-Glycan biosynthesis
+                YGL047W (ALG13)
+               00513 Various types of N-glycan biosynthesis
+                YGL047W (ALG13)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.4  Glycosyltransferases
+               2.4.1  Hexosyltransferases
+                2.4.1.141  N-acetylglucosaminyldiphosphodolichol N-acetylglucosaminyltransferase
+                 YGL047W (ALG13)
+            Glycosyltransferases [BR:sce01003]
+             N-Glycan biosynthesis
+              Dol-linked oligosaccharide
+               YGL047W (ALG13)
 POSITION    VII:411552..412160
-MOTIF       Pfam: Glyco_tran_28_C Glyco_trans_1_3
-DBLINKS     NCBI-GI: 6321391
+MOTIF       Pfam: Glyco_tran_28_C
+DBLINKS     NCBI-ProteinID: NP_011468
             NCBI-GeneID: 852835
             SGD: S000003015
-            MIPS: YGL047W
             UniProt: P53178
 STRUCTURE   PDB: 2KS6 2JZC
 AASEQ       202

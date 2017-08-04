@@ -1,13 +1,12 @@
 ENTRY       YNL111C           CDS       T00005
 NAME        CYB5
-DEFINITION  Cyb5p
+DEFINITION  (RefSeq) Cyb5p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIV:complement(416940..417302)
-MOTIF       Pfam: Cyt-b5
-DBLINKS     NCBI-GI: 398364811
+MOTIF       Pfam: Cyt-b5 DUF4366
+DBLINKS     NCBI-ProteinID: NP_014288
             NCBI-GeneID: 855612
             SGD: S000005055
-            MIPS: YNL111C
             UniProt: P40312
 AASEQ       120
             MPKVYSYQEVAEHNGPENFWIIIDDKVYDVSQFKDEHPGGDEIIMDLGGQDATESFVDIG

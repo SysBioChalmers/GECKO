@@ -1,14 +1,23 @@
 ENTRY       YPL048W           CDS       T00005
 NAME        CAM1, TEF3
-DEFINITION  Cam1p
+DEFINITION  (RefSeq) translation elongation factor EF1B gamma
 ORTHOLOGY   K03233  elongation factor 1-gamma
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Factors involved in mRNA localization
+                Trans-acting binding proteins
+                 YPL048W (CAM1)
+            Translation factors [BR:sce03012]
+             Eukaryotic Type
+              Elongation factors
+               YPL048W (CAM1)
 POSITION    XVI:464401..465648
-MOTIF       Pfam: EF1G GST_C GST_N GST_C_2 GST_N_3
-DBLINKS     NCBI-GI: 6325209
+MOTIF       Pfam: EF1G GST_N GST_C GST_C_2 GST_C_3 GST_N_3
+DBLINKS     NCBI-ProteinID: NP_015277
             NCBI-GeneID: 856059
             SGD: S000005969
-            MIPS: YPL048W
             UniProt: P29547
 STRUCTURE   PDB: 1NHY
 AASEQ       415

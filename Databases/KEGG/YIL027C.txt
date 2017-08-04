@@ -1,13 +1,12 @@
 ENTRY       YIL027C           CDS       T00005
 NAME        EMC5, KRE27
-DEFINITION  Emc5p
+DEFINITION  (RefSeq) Emc5p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IX:complement(303679..304104)
 MOTIF       Pfam: MMgT
-DBLINKS     NCBI-GI: 6322162
+DBLINKS     NCBI-ProteinID: NP_012237
             NCBI-GeneID: 854785
             SGD: S000001289
-            MIPS: YIL027C
             UniProt: P40540
 AASEQ       141
             MSFVSKLLYTVSALVLFHSGFSSYEFHHLLKLNSLNNAQGAISKLPKDIMYETYAGLILF

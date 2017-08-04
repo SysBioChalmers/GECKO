@@ -1,6 +1,6 @@
 ENTRY       YPR110C           CDS       T00005
 NAME        RPC40, RPC5
-DEFINITION  Rpc40p
+DEFINITION  (RefSeq) DNA-directed RNA polymerase core subunit RPC40
 ORTHOLOGY   K03027  DNA-directed RNA polymerases I and III subunit RPAC1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00230  Purine metabolism
@@ -9,17 +9,34 @@ PATHWAY     sce00230  Purine metabolism
             sce03020  RNA polymerase
 MODULE      sce_M00181  RNA polymerase III, eukaryotes
             sce_M00182  RNA polymerase I, eukaryotes
-CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
-            Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
-            Genetic Information Processing; Transcription; RNA polymerase [PATH:sce03020]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Nucleotide metabolism
+               00230 Purine metabolism
+                YPR110C (RPC40)
+               00240 Pyrimidine metabolism
+                YPR110C (RPC40)
+             Genetic Information Processing
+              Transcription
+               03020 RNA polymerase
+                YPR110C (RPC40)
+            Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase III system
+               RNA polymerase III
+                Core subunits
+                 YPR110C (RPC40)
+              RNA polymerase I system
+               RNA polymerase I
+                 YPR110C (RPC40)
 POSITION    XVI:complement(745828..746835)
 MOTIF       Pfam: RNA_pol_A_bac RNA_pol_L
-DBLINKS     NCBI-GI: 6325367
+DBLINKS     NCBI-ProteinID: NP_015435
             NCBI-GeneID: 856226
             SGD: S000006314
-            MIPS: YPR110C
             UniProt: P07703
-STRUCTURE   PDB: 4C2M 4C3I 4C3H 4C3J
+STRUCTURE   PDB: 4C2M 4C3I 4C3H 4C3J 5N61 5M5W 5M3F 5FJ8 5M5X 5M5Y 5M3M
+                 5M64 5FJ9 5FJA 5G5L 5LMX 5N5Y 5N5Z 5N60
 AASEQ       335
             MSNIVGIEYNRVTNTTSTDFPGFSKDAENEWNVEKFKKDFEVNISSLDAREANFDLINID
             TSIANAFRRIMISEVPSVAAEYVYFFNNTSVIQDEVLAHRIGLVPLKVDPDMLTWVDSNL

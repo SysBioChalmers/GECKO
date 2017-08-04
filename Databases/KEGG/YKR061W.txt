@@ -1,14 +1,23 @@
 ENTRY       YKR061W           CDS       T00005
 NAME        KTR2
-DEFINITION  Ktr2p (EC:2.4.1.-)
+DEFINITION  (RefSeq) mannosyltransferase KTR2
 ORTHOLOGY   K03854  mannosyltransferase [EC:2.4.1.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.4  Glycosyltransferases
+               2.4.1  Hexosyltransferases
+                2.4.1.-  
+                 YKR061W (KTR2)
+            Glycosyltransferases [BR:sce01003]
+             Glycan extension
+              Yeast mannan chain
+               YKR061W (KTR2)
 POSITION    XI:557677..558954
-MOTIF       Pfam: Glyco_transf_15
-DBLINKS     NCBI-GI: 398365275
+MOTIF       Pfam: Glyco_transf_15 DUF166
+DBLINKS     NCBI-ProteinID: NP_012987
             NCBI-GeneID: 853935
             SGD: S000001769
-            MIPS: YKR061W
             UniProt: P33550
 AASEQ       425
             MQICKVFLTQVKKLLFVSLLFCLIAQTCWLALVPYQRQLSLDSYFFRRSREVSSRYDFTR

@@ -1,18 +1,31 @@
 ENTRY       YGR072W           CDS       T00005
 NAME        UPF3, SUA6, SUP112
-DEFINITION  Upf3p
+DEFINITION  (RefSeq) Upf3p
 ORTHOLOGY   K14328  regulator of nonsense transcripts 3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03013  RNA transport
             sce03015  mRNA surveillance pathway
-CLASS       Genetic Information Processing; Translation; RNA transport [PATH:sce03013]
-            Genetic Information Processing; Translation; mRNA surveillance pathway [PATH:sce03015]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03013 RNA transport
+                YGR072W (UPF3)
+               03015 mRNA surveillance pathway
+                YGR072W (UPF3)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Surveillance factors
+                Surveillance complex
+                 YGR072W (UPF3)
+               mRNA cycle factors
+                P-body specific factors
+                 YGR072W (UPF3)
 POSITION    VII:634304..635467
 MOTIF       Pfam: Smg4_UPF3
-DBLINKS     NCBI-GI: 6321509
+DBLINKS     NCBI-ProteinID: NP_011586
             NCBI-GeneID: 852963
             SGD: S000003304
-            MIPS: YGR072W
             UniProt: P48412
 AASEQ       387
             MSNVAGELKNSEGKKKGRGNRYHNKNRGKSKNETVDPKKNENKVNNATNATHNNSKGRRN

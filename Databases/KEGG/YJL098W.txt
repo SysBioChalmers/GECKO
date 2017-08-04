@@ -1,14 +1,18 @@
 ENTRY       YJL098W           CDS       T00005
 NAME        SAP185
-DEFINITION  Sap185p
+DEFINITION  (RefSeq) Sap185p
 ORTHOLOGY   K15458  SIT4-associating protein SAP185/190
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              tRNA modification factors
+               Elongator related proteins
+                YJL098W (SAP185)
 POSITION    X:242082..245258
 MOTIF       Pfam: SAPS
-DBLINKS     NCBI-GI: 6322363
+DBLINKS     NCBI-ProteinID: NP_012437
             NCBI-GeneID: 853347
             SGD: S000003634
-            MIPS: YJL098W
             UniProt: P40856
 AASEQ       1058
             MSGSFWKFGQDFGSQSPLAKLLNRAFIKIDDKPTSTEAGKIDSNSTDESLESNSFKSEDE

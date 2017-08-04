@@ -1,13 +1,12 @@
 ENTRY       YEL005C           CDS       T00005
 NAME        VAB2, VAB31
-DEFINITION  Vab2p
+DEFINITION  (RefSeq) Vab2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    V:complement(145907..146755)
-MOTIF       Pfam: AIP3 FlaC_arch
-DBLINKS     NCBI-GI: 398364289
+MOTIF       Pfam: FlaC_arch AIP3 DUF1374
+DBLINKS     NCBI-ProteinID: NP_010911
             NCBI-GeneID: 856713
             SGD: S000000731
-            MIPS: YEL005C
             UniProt: P40003
 AASEQ       282
             MVADLTKGILKWKSRIEFDAVGSSSYYEELKGLPPLASHKKLTQAAIFNSTKYELLQVKK

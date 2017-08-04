@@ -1,18 +1,21 @@
 ENTRY       YIR019C           CDS       T00005
 NAME        FLO11, MUC1, STA4
-DEFINITION  Flo11p
-ORTHOLOGY   K01178  glucoamylase [EC:3.2.1.3]
+DEFINITION  (RefSeq) Flo11p
+ORTHOLOGY   K19851  flocculation protein FLO11
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
-PATHWAY     sce00500  Starch and sucrose metabolism
-            sce01100  Metabolic pathways
-CLASS       Metabolism; Carbohydrate metabolism; Starch and sucrose metabolism [PATH:sce00500]
+PATHWAY     sce04011  MAPK signaling pathway - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YIR019C (FLO11)
 POSITION    IX:complement(389572..393675)
 MOTIF       Pfam: Flo11
-DBLINKS     NCBI-GI: 398364641
+DBLINKS     NCBI-ProteinID: NP_012284
             NCBI-GeneID: 854836
             SGD: S000001458
-            MIPS: YIR019C
             UniProt: P08640
+STRUCTURE   PDB: 4UYR 4UYT 4UYS
 AASEQ       1367
             MQRPFLLAYLVLSLLFNSALGFPTALVPRGSSEGTSCNSIVNGCPNLDFNWHMDQQNIMQ
             YTLDVTSVSWVQDNTYQITIHVKGKENIDLKYLWSLKIIGVTGPKGTVQLYGYNENTYLI

@@ -1,14 +1,19 @@
 ENTRY       YFL023W           CDS       T00005
 NAME        BUD27, URI1
-DEFINITION  Bud27p
+DEFINITION  (RefSeq) Bud27p
 ORTHOLOGY   K17560  unconventional prefoldin RPB5 interactor 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Protein phosphatases and associated proteins [BR:sce01009]
+             Protein Ser/ Thr phosphatases
+              Phosphoprotein phosphatases (PPPs)
+               Protein phosphatase-1
+                PP1-interacting proteins (PIPs)
+                 YFL023W (BUD27)
 POSITION    VI:90986..93376
 MOTIF       Pfam: Prefoldin DUF3835
-DBLINKS     NCBI-GI: 22532997
+DBLINKS     NCBI-ProteinID: NP_683715
             NCBI-GeneID: 850521
             SGD: S000001871
-            MIPS: YFL023W
             UniProt: P43573
 AASEQ       796
             MDLLAASVESTLKNLQDKRNFLSEQREHYIDIRSRLVRFINDNDDGEEEGEGQGMVFGDI

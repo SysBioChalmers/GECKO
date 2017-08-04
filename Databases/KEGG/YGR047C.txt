@@ -1,15 +1,23 @@
 ENTRY       YGR047C           CDS       T00005
 NAME        TFC4, PCF1
-DEFINITION  Tfc4p
+DEFINITION  (RefSeq) transcription factor TFIIIC subunit TFC4
 ORTHOLOGY   K15201  general transcription factor 3C polypeptide 3 (transcription factor C subunit 4)
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase III system
+               Basal transcription factors
+                TFIIIC
+                 YGR047C (TFC4)
+                TFIIIC, fungi type
+                 YGR047C (TFC4)
 POSITION    VII:complement(586392..589469)
-MOTIF       Pfam: TPR_11 TPR_16 TPR_2 TPR_19 TPR_12 TPR_1 TPR_17 TPR_6 Apc3 TPR_8 TPR_20 Pox_polyA_pol_N Alkyl_sulf_dimr
-DBLINKS     NCBI-GI: 398365353
+MOTIF       Pfam: TPR_2 TPR_19 TPR_16 TPR_1 TPR_12 TPR_8 TPR_17 TPR_9 TPR_6 TPR_11 ALMT Alkyl_sulf_dimr
+DBLINKS     NCBI-ProteinID: NP_011561
             NCBI-GeneID: 852938
             SGD: S000003279
-            MIPS: YGR047C
             UniProt: P33339
+STRUCTURE   PDB: 5AIO 5AEM
 AASEQ       1025
             MAAGKLKKEQQNQSAERESADTGKVNDEDEEHLYGNIDDYKHLIQDEEYDDEDVPHDLQL
             SEDEYNSERDSSLLAEFSDYGEISEDDEEDFMNAIREASNFKVKKKKKNDKGKSYGRQRK

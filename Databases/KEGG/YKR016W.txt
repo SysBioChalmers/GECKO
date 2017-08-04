@@ -1,14 +1,24 @@
 ENTRY       YKR016W           CDS       T00005
-NAME        FCJ1, AIM28, FMP13
-DEFINITION  Fcj1p
+NAME        MIC60, AIM28, FCJ1, FMP13
+DEFINITION  (RefSeq) Mic60p
 ORTHOLOGY   K17785  mitofilin
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial protein import machinery
+              Inner mambrane
+               MINOS/MitOS complex
+                YKR016W (MIC60)
+               MINOS/MitOS complex (yeast)
+                YKR016W (MIC60)
+             Mitochondrial quality control factors
+              Mitochondrial dynamics
+               Morphogenesis factors
+                YKR016W (MIC60)
 POSITION    XI:469717..471339
-MOTIF       Pfam: Mitofilin
-DBLINKS     NCBI-GI: 6322868
+MOTIF       Pfam: Mitofilin Focal_AT DUF4954 DUF4407 Wax2_C
+DBLINKS     NCBI-ProteinID: NP_012941
             NCBI-GeneID: 853886
             SGD: S000001724
-            MIPS: YKR016W
             UniProt: P36112
 AASEQ       540
             MMLRTTASRKIVLRRGLASINTGTTVASKKASHKFRNTLWTIALSATAFYAGGIIYSQKN

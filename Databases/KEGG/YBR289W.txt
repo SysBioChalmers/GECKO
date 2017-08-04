@@ -1,14 +1,36 @@
 ENTRY       YBR289W           CDS       T00005
 NAME        SNF5, HAF4, SWI10, TYE4
-DEFINITION  Snf5p
+DEFINITION  (RefSeq) Snf5p
 ORTHOLOGY   K11648  SWI/SNF-related matrix-associated actin-dependent regulator of chromatin subfamily B member 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Protein phosphatases and associated proteins [BR:sce01009]
+             Protein Ser/ Thr phosphatases
+              Phosphoprotein phosphatases (PPPs)
+               Protein phosphatase-1
+                PP1-interacting proteins (PIPs)
+                 YBR289W (SNF5)
+            Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Coactivators
+                BAF/PBAF complex
+                 YBR289W (SNF5)
+                SWI/SNF complex
+                 YBR289W (SNF5)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Chromatin remodeling factors
+               BAF complex
+                YBR289W (SNF5)
+               PBAF complex
+                YBR289W (SNF5)
+               SWI/SNF complex
+                YBR289W (SNF5)
 POSITION    II:779667..782384
 MOTIF       Pfam: SNF5
-DBLINKS     NCBI-GI: 398365913
+DBLINKS     NCBI-ProteinID: NP_009848
             NCBI-GeneID: 852592
             SGD: S000000493
-            MIPS: YBR289W
             UniProt: P18480
 AASEQ       905
             MNNQPQGTNSVPNSIGNIFSNIGTPSFNMAQIPQQLYQSLTPQQLQMIQQRHQQLLRSRL

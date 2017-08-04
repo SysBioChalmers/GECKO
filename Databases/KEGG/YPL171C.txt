@@ -1,14 +1,19 @@
 ENTRY       YPL171C           CDS       T00005
 NAME        OYE3, ZRG6
-DEFINITION  Oye3p (EC:1.6.99.1)
+DEFINITION  (RefSeq) NADPH dehydrogenase
 ORTHOLOGY   K00354  NADPH2 dehydrogenase [EC:1.6.99.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.6  Acting on NADH or NADPH
+               1.6.99  With unknown physiological acceptors
+                1.6.99.1  NADPH dehydrogenase
+                 YPL171C (OYE3)
 POSITION    XVI:complement(226169..227371)
 MOTIF       Pfam: Oxidored_FMN
-DBLINKS     NCBI-GI: 6325086
+DBLINKS     NCBI-ProteinID: NP_015154
             NCBI-GeneID: 855932
             SGD: S000006092
-            MIPS: YPL171C
             UniProt: P41816
 AASEQ       400
             MPFVKGFEPISLRDTNLFEPIKIGNTQLAHRAVMPPLTRMRATHPGNIPNKEWAAVYYGQ

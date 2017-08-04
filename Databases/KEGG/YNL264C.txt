@@ -1,13 +1,12 @@
 ENTRY       YNL264C           CDS       T00005
 NAME        PDR17, ISS1, SFH4
-DEFINITION  Pdr17p
+DEFINITION  (RefSeq) phosphatidylinositol transporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIV:complement(145563..146615)
 MOTIF       Pfam: CRAL_TRIO CRAL_TRIO_N CRAL_TRIO_2
-DBLINKS     NCBI-GI: 6324065
+DBLINKS     NCBI-ProteinID: NP_014135
             NCBI-GeneID: 855457
             SGD: S000005208
-            MIPS: YNL264C
             UniProt: P53844
 AASEQ       350
             MGLFSRKRDHTPAVPKEKLIPCDKIFLDPPAKYGNAPLLEPISEDQNEKYRAVLRHFQDD

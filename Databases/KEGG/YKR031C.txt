@@ -1,21 +1,44 @@
 ENTRY       YKR031C           CDS       T00005
 NAME        SPO14, PLD1
-DEFINITION  phospholipase D (EC:3.1.4.4)
+DEFINITION  (RefSeq) phospholipase D
 ORTHOLOGY   K01115  phospholipase D1/2 [EC:3.1.4.4]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00564  Glycerophospholipid metabolism
             sce00565  Ether lipid metabolism
             sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
             sce04144  Endocytosis
-CLASS       Metabolism; Lipid metabolism; Glycerophospholipid metabolism [PATH:sce00564]
-            Metabolism; Lipid metabolism; Ether lipid metabolism [PATH:sce00565]
-            Cellular Processes; Transport and catabolism; Endocytosis [PATH:sce04144]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Lipid metabolism
+               00564 Glycerophospholipid metabolism
+                YKR031C (SPO14)
+               00565 Ether lipid metabolism
+                YKR031C (SPO14)
+             Cellular Processes
+              Transport and catabolism
+               04144 Endocytosis
+                YKR031C (SPO14)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.4  Phosphoric-diester hydrolases
+                3.1.4.4  phospholipase D
+                 YKR031C (SPO14)
+            Membrane trafficking [BR:sce04131]
+             Exocytosis
+              Calcium ion-dependent exocytosis
+               Phospholipases
+                YKR031C (SPO14)
+             Endosome - Golgi transport
+              Others
+               Others
+                YKR031C (SPO14)
 POSITION    XI:complement(501344..506395)
 MOTIF       Pfam: PLDc PLDc_2 PX
-DBLINKS     NCBI-GI: 398365057
+DBLINKS     NCBI-ProteinID: NP_012956
             NCBI-GeneID: 853902
             SGD: S000001739
-            MIPS: YKR031C
             UniProt: P36126
 AASEQ       1683
             MSNVSTASGTHFAPPQADRSVTEEVDRVNSRPDELENQEVLRQLPENGNLTSSLQREKRR

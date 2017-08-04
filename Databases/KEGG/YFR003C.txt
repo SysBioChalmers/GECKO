@@ -1,14 +1,19 @@
 ENTRY       YFR003C           CDS       T00005
 NAME        YPI1
-DEFINITION  Ypi1p
+DEFINITION  (RefSeq) type 1 protein phosphatase-activating protein YPI1
 ORTHOLOGY   K17553  protein phosphatase 1 regulatory subunit 11
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Protein phosphatases and associated proteins [BR:sce01009]
+             Protein Ser/ Thr phosphatases
+              Phosphoprotein phosphatases (PPPs)
+               Protein phosphatase-1
+                PP1-interacting proteins (PIPs)
+                 YFR003C (YPI1)
 POSITION    VI:complement(152657..153124)
-MOTIF       Pfam: PPI_Ypi1 DUF4513 DUF4636 SR-25
-DBLINKS     NCBI-GI: 14318525
+MOTIF       Pfam: PPI_Ypi1 DUF4513 Astro_capsid_p2
+DBLINKS     NCBI-ProteinID: NP_116658
             NCBI-GeneID: 850553
             SGD: S000001899
-            MIPS: YFR003C
             UniProt: P43587
 AASEQ       155
             MSGNQMAMGSEQQQTVGSRTVSVEEVPAVLQLRATQDPPRSQEAMPTRHNVRWEENVIDN

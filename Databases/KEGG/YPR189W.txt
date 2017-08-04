@@ -1,17 +1,26 @@
 ENTRY       YPR189W           CDS       T00005
 NAME        SKI3, SKI5
-DEFINITION  Ski3p
+DEFINITION  (RefSeq) SKI complex subunit tetratricopeptide repeat protein SKI3
 ORTHOLOGY   K12600  superkiller protein 3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03018  RNA degradation
 MODULE      sce_M00392  Ski complex
-CLASS       Genetic Information Processing; Folding, sorting and degradation; RNA degradation [PATH:sce03018]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               03018 RNA degradation
+                YPR189W (SKI3)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA degradation factors
+               3'-5' decay
+                Ski complex
+                 YPR189W (SKI3)
 POSITION    XVI:912664..916962
-MOTIF       Pfam: TPR_11 TPR_2 TPR_14 TPR_16 TPR_19 TPR_1 TPR_17 Apc3 TPR_8 TPR_12 TPR_20 Alkyl_sulf_dimr HrpB1_HrpK
-DBLINKS     NCBI-GI: 6325447
+MOTIF       Pfam: TPR_2 TPR_8 TPR_19 TPR_11 TPR_1 TPR_14 TPR_17 TPR_16 ANAPC3 HrpB1_HrpK TPR_9 TPR_12 Alkyl_sulf_dimr
+DBLINKS     NCBI-ProteinID: NP_015515
             NCBI-GeneID: 856319
             SGD: S000006393
-            MIPS: YPR189W
             UniProt: P17883
 STRUCTURE   PDB: 4BUJ
 AASEQ       1432

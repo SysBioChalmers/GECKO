@@ -1,14 +1,22 @@
 ENTRY       YGR082W           CDS       T00005
 NAME        TOM20, MAS20, MOM19
-DEFINITION  Tom20p
+DEFINITION  (RefSeq) Tom20p
 ORTHOLOGY   K17770  mitochondrial import receptor subunit TOM20
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial protein import machinery
+              Outer membrane
+               Transporter outer membrane (TOM) complex
+                YGR082W (TOM20)
+            Transporters [BR:sce02000]
+             Other Transporters
+              Others
+               YGR082W (TOM20)
 POSITION    VII:644044..644595
-MOTIF       Pfam: MAS20 LIF_OSM PsbN
-DBLINKS     NCBI-GI: 6321519
+MOTIF       Pfam: MAS20 LIF_OSM
+DBLINKS     NCBI-ProteinID: NP_011596
             NCBI-GeneID: 852973
             SGD: S000003314
-            MIPS: YGR082W
             UniProt: P35180
 AASEQ       183
             MSQSNPILRGLAITTAIAALSATGYAIYFDYQRRNSPQFRKVLRQRAKEQAKMEEQAKTH

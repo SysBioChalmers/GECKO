@@ -1,14 +1,31 @@
 ENTRY       YMR297W           CDS       T00005
-NAME        PRC1, LBC1
-DEFINITION  carboxypeptidase C PRC1 (EC:3.4.16.5)
+NAME        PRC1, CPY1, LBC1
+DEFINITION  (RefSeq) carboxypeptidase C PRC1
 ORTHOLOGY   K13289  cathepsin A (carboxypeptidase C) [EC:3.4.16.5]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.4  Acting on peptide bonds (peptidases)
+               3.4.16  Serine-type carboxypeptidases
+                3.4.16.5  carboxypeptidase C
+                 YMR297W (PRC1)
+            Peptidases [BR:sce01002]
+             Serine Peptidases
+              Family S10
+               YMR297W (PRC1)
+            Chaperones and folding catalysts [BR:sce03110]
+             Intramolecular chaperones
+              Other peptidases
+               YMR297W (PRC1)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of other body fluids (saliva and urine)
+               YMR297W (PRC1)
 POSITION    XIII:861922..863520
 MOTIF       Pfam: Peptidase_S10 Carbpep_Y_N
-DBLINKS     NCBI-GI: 6323955
+DBLINKS     NCBI-ProteinID: NP_014026
             NCBI-GeneID: 855343
             SGD: S000004912
-            MIPS: YMR297W
             UniProt: P00729
 STRUCTURE   PDB: 1CPY 1WPX 1YSC
 AASEQ       532

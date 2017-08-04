@@ -1,17 +1,30 @@
 ENTRY       YPL053C           CDS       T00005
 NAME        KTR6, MNN6
-DEFINITION  Ktr6p (EC:2.4.1.-)
+DEFINITION  (RefSeq) putative mannosyltransferase
 ORTHOLOGY   K05537  mannosylphosphate transferase [EC:2.7.8.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00513  Various types of N-glycan biosynthesis
             sce01100  Metabolic pathways
-CLASS       Metabolism; Glycan biosynthesis and metabolism; Various types of N-glycan biosynthesis [PATH:sce00513]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Glycan biosynthesis and metabolism
+               00513 Various types of N-glycan biosynthesis
+                YPL053C (KTR6)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.8  Transferases for other substituted phosphate groups
+                2.7.8.-  
+                 YPL053C (KTR6)
+            Glycosyltransferases [BR:sce01003]
+             Glycan extension
+              Yeast mannan chain
+               YPL053C (KTR6)
 POSITION    XVI:complement(457118..458458)
 MOTIF       Pfam: Glyco_transf_15
-DBLINKS     NCBI-GI: 6325204
+DBLINKS     NCBI-ProteinID: NP_015272
             NCBI-GeneID: 856054
             SGD: S000005974
-            MIPS: YPL053C
             UniProt: P54070
 AASEQ       446
             MHVLLSKKIARFLLISFVFVLALMVTINHPKTKQMSEQYVTPYLPKSLQPIAKISAEEQR

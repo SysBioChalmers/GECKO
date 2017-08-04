@@ -1,13 +1,22 @@
 ENTRY       YGL233W           CDS       T00005
 NAME        SEC15
-DEFINITION  Sec15p
+DEFINITION  (RefSeq) Rab GTPase-binding exocyst subunit SEC15
+ORTHOLOGY   K19985  exocyst complex component 6
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Exocytosis
+              Tethering complex
+               Exocyst complex
+                YGL233W (SEC15)
+             Protein recycling
+              Rab GTPases and associated proteins
+               Rab11 associated proteins
+                YGL233W (SEC15)
 POSITION    VII:59122..61854
 MOTIF       Pfam: Sec15
-DBLINKS     NCBI-GI: 6321204
+DBLINKS     NCBI-ProteinID: NP_011281
             NCBI-GeneID: 852618
             SGD: S000003202
-            MIPS: YGL233W
             UniProt: P22224
 AASEQ       910
             MDQEGQPLLSKDFQQVLLATASGNNSSWTERAVLNNESTDAVKHEPALGQNDVFDLDPLS

@@ -1,13 +1,12 @@
 ENTRY       YPL055C           CDS       T00005
 NAME        LGE1
-DEFINITION  Lge1p
+DEFINITION  (RefSeq) Lge1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:complement(453992..454990)
-MOTIF       Pfam: Lge1 Ashwin
-DBLINKS     NCBI-GI: 6325202
+MOTIF       Pfam: Lge1
+DBLINKS     NCBI-ProteinID: NP_015270
             NCBI-GeneID: 856052
             SGD: S000005976
-            MIPS: YPL055C
             UniProt: Q02796
 AASEQ       332
             MSGYTGNNYSRYSSTPPRQRGGYHHARRSRGGAGGSYYRGGNASYGARYNSDYEQPPQEG

@@ -1,13 +1,12 @@
 ENTRY       YNL281W           CDS       T00005
 NAME        HCH1
-DEFINITION  Hch1p
+DEFINITION  (RefSeq) Hch1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIV:108467..108928
-MOTIF       Pfam: Aha1_N UPF0556
-DBLINKS     NCBI-GI: 6324048
+MOTIF       Pfam: Aha1_N
+DBLINKS     NCBI-ProteinID: NP_014118
             NCBI-GeneID: 855440
             SGD: S000005225
-            MIPS: YNL281W
             UniProt: P53834
 AASEQ       153
             MVVLNPNNWHWVDKNTLPWSKDYLNGKLTSLSTVSSDGKSKIELTQVSSITGDSNVSQRK

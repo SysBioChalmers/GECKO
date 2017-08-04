@@ -1,13 +1,12 @@
 ENTRY       YMR040W           CDS       T00005
 NAME        YET2
-DEFINITION  Yet2p
+DEFINITION  (RefSeq) Yet2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:350381..350863
-MOTIF       Pfam: Bap31 Sm_multidrug_ex
-DBLINKS     NCBI-GI: 6323683
+MOTIF       Pfam: Bap31
+DBLINKS     NCBI-ProteinID: NP_013754
             NCBI-GeneID: 855056
             SGD: S000004643
-            MIPS: YMR040W
             UniProt: Q04210
 AASEQ       160
             MGVYLAVLFSLLVIEMAILFILVLPLPQRMRRWLYIRYSIISTNKKFRTYMVGIMIFVGL

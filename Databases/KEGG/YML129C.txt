@@ -1,13 +1,18 @@
 ENTRY       YML129C           CDS       T00005
 NAME        COX14
-DEFINITION  Cox14p
+DEFINITION  (RefSeq) Cox14p
+ORTHOLOGY   K18181  cytochrome c oxidase assembly factor 14
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial quality control factors
+              Mitochondrial respiratory chain complex assembly factors
+               Complex-IV assembly factors
+                YML129C (COX14)
 POSITION    XIII:complement(14541..14753)
-MOTIF       Pfam: COX14 DUF533
-DBLINKS     NCBI-GI: 6323506
+MOTIF       Pfam: COX14
+DBLINKS     NCBI-ProteinID: NP_013577
             NCBI-GeneID: 854910
             SGD: S000004598
-            MIPS: YML129C
             UniProt: P39103
 AASEQ       70
             MSKYAWYTRVTDTLHRLTVLTLVGGTLYMSGGLAYTLYMNGKKYEQQVTQQKALEEDNQQ

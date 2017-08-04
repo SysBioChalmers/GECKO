@@ -1,14 +1,27 @@
 ENTRY       YHR186C           CDS       T00005
 NAME        KOG1, LAS24
-DEFINITION  Kog1p
+DEFINITION  (RefSeq) ubiquitin-binding TORC1 subunit KOG1
 ORTHOLOGY   K07204  regulatory associated protein of mTOR
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04136  Autophagy - other
+            sce04138  Autophagy - yeast
+            sce04213  Longevity regulating pathway - multiple species
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04138 Autophagy - yeast
+                YHR186C (KOG1)
+               04136 Autophagy - other eukaryotes
+                YHR186C (KOG1)
+             Organismal Systems
+              Aging
+               04213 Longevity regulating pathway - multiple species
+                YHR186C (KOG1)
 POSITION    VIII:complement(475999..480672)
-MOTIF       Pfam: Raptor_N HEAT BBS2_Mid HEAT_2
-DBLINKS     NCBI-GI: 6321980
+MOTIF       Pfam: Raptor_N HEAT BBS2_Mid WD40 HEAT_2 Cnd1
+DBLINKS     NCBI-ProteinID: NP_012056
             NCBI-GeneID: 856593
             SGD: S000001229
-            MIPS: YHR186C
             UniProt: P38873
 AASEQ       1557
             MPEIYGPQPLKPLNTVMRHGFEEQYQSDQLLQSLANDFIFYFDDKRHKTNGNPIPEEDKQ

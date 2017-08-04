@@ -1,19 +1,28 @@
 ENTRY       YOL142W           CDS       T00005
 NAME        RRP40, MTR14
-DEFINITION  Rrp40p
+DEFINITION  (RefSeq) exosome non-catalytic core subunit RRP40
 ORTHOLOGY   K03681  exosome complex component RRP40
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03018  RNA degradation
 MODULE      sce_M00391  Exosome, eukaryotes
-CLASS       Genetic Information Processing; Folding, sorting and degradation; RNA degradation [PATH:sce03018]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               03018 RNA degradation
+                YOL142W (RRP40)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA degradation factors
+               3'-5' decay
+                Core exosome factors
+                 YOL142W (RRP40)
 POSITION    XV:55558..56280
-MOTIF       Pfam: UBA_e1_C
-DBLINKS     NCBI-GI: 330443719
+MOTIF       Pfam: KH_6 E1_UFD
+DBLINKS     NCBI-ProteinID: NP_014499
             NCBI-GeneID: 854023
             SGD: S000005502
-            MIPS: YOL142W
             UniProt: Q08285
-STRUCTURE   PDB: 2JA9 4IFD
+STRUCTURE   PDB: 2JA9 5JEA 4IFD 5K36 4OO1 5C0X 5G06 5C0W
 AASEQ       240
             MSTFIFPGDSFPVDPTTPVKLGPGIYCDPNTQEIRPVNTGVLHVSAKGKSGVQTAYIDYS
             SKRYIPSVNDFVIGVIIGTFSDSYKVSLQNFSSSVSLSYMAFPNASKKNRPTLQVGDLVY

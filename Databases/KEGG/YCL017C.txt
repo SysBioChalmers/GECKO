@@ -1,18 +1,42 @@
 ENTRY       YCL017C           CDS       T00005
 NAME        NFS1, SPL1
-DEFINITION  Nfs1p (EC:2.8.1.7)
+DEFINITION  (RefSeq) Nfs1p
 ORTHOLOGY   K04487  cysteine desulfurase [EC:2.8.1.7]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00730  Thiamine metabolism
+            sce01100  Metabolic pathways
             sce04122  Sulfur relay system
-CLASS       Metabolism; Metabolism of cofactors and vitamins; Thiamine metabolism [PATH:sce00730]
-            Genetic Information Processing; Folding, sorting and degradation; Sulfur relay system [PATH:sce04122]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Metabolism of cofactors and vitamins
+               00730 Thiamine metabolism
+                YCL017C (NFS1)
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04122 Sulfur relay system
+                YCL017C (NFS1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.8  Transferring sulfur-containing groups
+               2.8.1  Sulfurtransferases
+                2.8.1.7  cysteine desulfurase
+                 YCL017C (NFS1)
+            Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              tRNA modification factors
+               Thiolation factors
+                YCL017C (NFS1)
+             Prokaryotic Type
+                YCL017C (NFS1)
+            Prokaryotic defense system [BR:sce02048]
+             DNA phosphothiolation system
+              Sulfur modification proteins
+               YCL017C (NFS1)
 POSITION    III:complement(92777..94270)
 MOTIF       Pfam: Aminotran_5 Aminotran_1_2 Beta_elim_lyase DegT_DnrJ_EryC1 Pyridoxal_deC Cys_Met_Meta_PP
-DBLINKS     NCBI-GI: 10383773
+DBLINKS     NCBI-ProteinID: NP_009912
             NCBI-GeneID: 850343
             SGD: S000000522
-            MIPS: YCL017C
             UniProt: P25374
 AASEQ       497
             MLKSTATRSITRLSQVYNVPAATYRACLVSRRFYSPPAAGVKLDDNFSLETHTDIQAAAK

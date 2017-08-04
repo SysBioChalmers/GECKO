@@ -1,14 +1,18 @@
 ENTRY       YNL182C           CDS       T00005
 NAME        IPI3
-DEFINITION  Ipi3p
+DEFINITION  (RefSeq) chromatin-binding/pre-rRNA-processing protein IPI3
 ORTHOLOGY   K14829  pre-rRNA-processing protein IPI3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               5-FMC complex
+                YNL182C (IPI3)
 POSITION    XIV:complement(295960..297627)
-MOTIF       Pfam: WD40 DUF1664 MRP-L28 Borrelia_orfD CBM_19 NPV_P10
-DBLINKS     NCBI-GI: 6324147
+MOTIF       Pfam: ANAPC4_WD40 HPS3_N Mod_r CBM_19 NPV_P10 bZIP_1 DUF1664
+DBLINKS     NCBI-ProteinID: NP_014217
             NCBI-GeneID: 855539
             SGD: S000005126
-            MIPS: YNL182C
             UniProt: P53877
 AASEQ       555
             MDEQVIFTTNTSGTIASVHSFEQINLRQCSTQSRNSCVQVGNKYLFIAQAQKALINVYNL

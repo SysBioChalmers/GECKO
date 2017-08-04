@@ -1,12 +1,12 @@
 ENTRY       YJL042W           CDS       T00005
 NAME        MHP1
-DEFINITION  Mhp1p
+DEFINITION  (RefSeq) Mhp1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    X:361249..365445
-DBLINKS     NCBI-GI: 6322419
+MOTIF       Pfam: KaiA
+DBLINKS     NCBI-ProteinID: NP_012493
             NCBI-GeneID: 853408
             SGD: S000003578
-            MIPS: YJL042W
             UniProt: P43638
 AASEQ       1398
             MDSKDTQKLLKEHRIPCIDVGWLVRPSASTSKSSRPGKSESKANSVAPDIQMDTARPPVF

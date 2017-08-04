@@ -1,13 +1,30 @@
 ENTRY       YPL174C           CDS       T00005
 NAME        NIP100, PAC13
-DEFINITION  Nip100p
+DEFINITION  (RefSeq) Nip100p
+ORTHOLOGY   K04648  dynactin 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endosome - Golgi transport
+              Rab GTPases and associated proteins
+               Rab associated proteins
+                YPL174C (NIP100)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centrosome formation and ciliogenesis proteins
+               Microtubules and associated factors
+                Dynactin complex
+                 YPL174C (NIP100)
+            Cytoskeleton proteins [BR:sce04812]
+             Eukaryotic cytoskeleton proteins
+              Microtubules
+               Tubulin-binding proteins
+                Dynactins
+                 YPL174C (NIP100)
 POSITION    XVI:complement(220167..222773)
 MOTIF       Pfam: CAP_GLY
-DBLINKS     NCBI-GI: 6325083
+DBLINKS     NCBI-ProteinID: NP_015151
             NCBI-GeneID: 855929
             SGD: S000006095
-            MIPS: YPL174C
             UniProt: P33420
 AASEQ       868
             MRNAGVQVDTNMQKISLQDTVLVNEMKGRVKFIGETQFAKGIWYGIELDKPLGKNDGSAN

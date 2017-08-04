@@ -1,14 +1,17 @@
 ENTRY       YKL120W           CDS       T00005
 NAME        OAC1
-DEFINITION  Oac1p
+DEFINITION  (RefSeq) Oac1p
 ORTHOLOGY   K15117  solute carrier family 25, member 34/35
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Solute Carrier Family (SLC)
+              SLC25: Mitochondrial carrier
+               YKL120W (OAC1)
 POSITION    XI:217344..218318
-MOTIF       Pfam: Mito_carr
-DBLINKS     NCBI-GI: 6322729
+MOTIF       Pfam: Mito_carr HMD
+DBLINKS     NCBI-ProteinID: NP_012802
             NCBI-GeneID: 853739
             SGD: S000001603
-            MIPS: YKL120W
             UniProt: P32332
 AASEQ       324
             MSSDNSKQDKQIEKTAAQKISKFGSFVAGGLAACIAVTVTNPIELIKIRMQLQGEMSASA

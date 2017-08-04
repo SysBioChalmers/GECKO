@@ -1,14 +1,13 @@
 ENTRY       YLR386W           CDS       T00005
 NAME        VAC14
-DEFINITION  Vac14p
+DEFINITION  (RefSeq) Vac14p
 ORTHOLOGY   K15305  vacuole morphology and inheritance protein 14
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XII:893628..896270
-MOTIF       Pfam: Vac14_Fig4_bd Vac14_Fab1_bd HEAT HEAT_2 MMS19_C HEAT_EZ Cnd1 ParcG RIX1
-DBLINKS     NCBI-GI: 398366065
+MOTIF       Pfam: Vac14_Fig4_bd Vac14_Fab1_bd HEAT HEAT_EZ CLASP_N ParcG RIX1
+DBLINKS     NCBI-ProteinID: NP_013490
             NCBI-GeneID: 851102
             SGD: S000004378
-            MIPS: YLR386W
             UniProt: Q06708
 AASEQ       880
             MEKSIAKGLSDKLYEKRKAAALELEKLVKQCVLEGDYDRIDKIIDELCRDYAYALHQPMA

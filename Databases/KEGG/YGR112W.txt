@@ -1,13 +1,18 @@
 ENTRY       YGR112W           CDS       T00005
 NAME        SHY1
-DEFINITION  Shy1p
+DEFINITION  (RefSeq) Shy1p
+ORTHOLOGY   K14998  surfeit locus 1 family protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial quality control factors
+              Mitochondrial respiratory chain complex assembly factors
+               Complex-IV assembly factors
+                YGR112W (SHY1)
 POSITION    VII:717358..718527
 MOTIF       Pfam: SURF1
-DBLINKS     NCBI-GI: 6321550
+DBLINKS     NCBI-ProteinID: NP_011627
             NCBI-GeneID: 853009
             SGD: S000003344
-            MIPS: YGR112W
             UniProt: P53266
 AASEQ       389
             MSLLGARSTYRWFSIAASIPTKNAIGKSTYLLASRNQQYRGIITSTVDWKPIKTGKSPND

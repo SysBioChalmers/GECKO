@@ -1,17 +1,29 @@
 ENTRY       YKL173W           CDS       T00005
 NAME        SNU114, GIN10
-DEFINITION  Snu114p
+DEFINITION  (RefSeq) U5 snRNP GTPase SNU114
 ORTHOLOGY   K12853  114 kDa U5 small nuclear ribonucleoprotein component
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03040  Spliceosome
-CLASS       Genetic Information Processing; Transcription; Spliceosome [PATH:sce03040]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03040 Spliceosome
+                YKL173W (SNU114)
+            Spliceosome [BR:sce03041]
+             Complex B
+              U4/U6.U5 tri-snRNP components
+               U5 snRNP specific factors
+                YKL173W (SNU114)
+             Complex C
+               U5 SnRNP specific factors
+                YKL173W (SNU114)
 POSITION    XI:122517..125543
-MOTIF       Pfam: GTP_EFTU GTP_EFTU_D2 EFG_IV EFG_C Miro MMR_HSR1 EFG_II
-DBLINKS     NCBI-GI: 6322675
+MOTIF       Pfam: GTP_EFTU GTP_EFTU_D2 EFG_C EFG_IV EFTUD2 MMR_HSR1 EFG_II
+DBLINKS     NCBI-ProteinID: NP_012748
             NCBI-GeneID: 853681
             SGD: S000001656
-            MIPS: YKL173W
             UniProt: P36048
+STRUCTURE   PDB: 5GMK 5GAN 5GAM 5LJ3 5LJ5 3JCM 5MPS 5WSG 5MQ0 5LQW
 AASEQ       1008
             MEGDDLFDEFGNLIGVDPFDSDEEESVLDEQEQYQTNTFEGSGNNNEIESRQLTSLGSKK
             ELGISLEHPYGKEVEVLMETKNTQSPQTPLVEPVTERTKLQEHTIFTQLKKNIPKTRYNR

@@ -1,13 +1,12 @@
 ENTRY       YLL055W           CDS       T00005
 NAME        YCT1
-DEFINITION  Yct1p
+DEFINITION  (RefSeq) Yct1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XII:30109..31704
-MOTIF       Pfam: MFS_1 DUF3353
-DBLINKS     NCBI-GI: 6322973
+MOTIF       Pfam: MFS_1 MFS_4
+DBLINKS     NCBI-ProteinID: NP_013045
             NCBI-GeneID: 850671
             SGD: S000003978
-            MIPS: YLL055W
             UniProt: Q12235
 AASEQ       531
             MSKVDVKIGADSISSSDEILVPSRLADVTLAFMEENDAAVPEITPEQEKKLKRKLFLTIF

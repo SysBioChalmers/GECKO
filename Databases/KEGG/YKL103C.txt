@@ -1,15 +1,25 @@
 ENTRY       YKL103C           CDS       T00005
 NAME        APE1, API, LAP4, YSC1
-DEFINITION  Ape1p (EC:3.4.11.22)
+DEFINITION  (RefSeq) metalloaminopeptidase APE1
 ORTHOLOGY   K01268  aminopeptidase I [EC:3.4.11.22]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.4  Acting on peptide bonds (peptidases)
+               3.4.11  Aminopeptidases
+                3.4.11.22  aminopeptidase I
+                 YKL103C (APE1)
+            Peptidases [BR:sce01002]
+             Metallo Peptidases
+              Family M18
+               YKL103C (APE1)
 POSITION    XI:complement(246138..247682)
-MOTIF       Pfam: Peptidase_M18
-DBLINKS     NCBI-GI: 6322746
+MOTIF       Pfam: Peptidase_M18 DUF4942
+DBLINKS     NCBI-ProteinID: NP_012819
             NCBI-GeneID: 853758
             SGD: S000001586
-            MIPS: YKL103C
             UniProt: P14904
+STRUCTURE   PDB: 5JGF 5JGE 5JH9 4R8F 5JHC 5JM9
 AASEQ       514
             MEEQREILEQLKKTLQMLTVEPSKNNQIANEEKEKKENENSWCILEHNYEDIAQEFIDFI
             YKNPTTYHVVSFFAELLDKHNFKYLSEKSNWQDSIGEDGGKFYTIRNGTNLSAFILGKNW

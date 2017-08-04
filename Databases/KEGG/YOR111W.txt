@@ -1,13 +1,12 @@
 ENTRY       YOR111W           CDS       T00005
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) hypothetical protein
 ORTHOLOGY   K06287  septum formation protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:530429..531127
-MOTIF       Pfam: Maf
-DBLINKS     NCBI-GI: 398365159
+MOTIF       Pfam: Maf GFD1
+DBLINKS     NCBI-ProteinID: NP_014754
             NCBI-GeneID: 854278
             SGD: S000005637
-            MIPS: YOR111W
             UniProt: Q99210
 AASEQ       232
             MSGNSQLPPDVIGFICSKYDIILASTSPRRYEILHDIMGITDLKTMVSTFEENLDKMNYS

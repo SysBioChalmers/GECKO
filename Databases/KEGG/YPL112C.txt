@@ -1,13 +1,12 @@
 ENTRY       YPL112C           CDS       T00005
 NAME        PEX25
-DEFINITION  Pex25p
+DEFINITION  (RefSeq) Pex25p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:complement(337436..338620)
-MOTIF       Pfam: PEX11 Tom22
-DBLINKS     NCBI-GI: 6325145
+MOTIF       Pfam: PEX11
+DBLINKS     NCBI-ProteinID: NP_015213
             NCBI-GeneID: 855991
             SGD: S000006033
-            MIPS: YPL112C
             UniProt: Q02969
 AASEQ       394
             MSQFGTTDIVSGSETPPYSGASYQDAQDDNTHPHSSDAGAEKFSAGSGSESHTESSRSDD

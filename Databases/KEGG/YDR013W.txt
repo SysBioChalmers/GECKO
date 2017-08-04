@@ -1,16 +1,21 @@
 ENTRY       YDR013W           CDS       T00005
 NAME        PSF1, CDC101
-DEFINITION  Psf1p
+DEFINITION  (RefSeq) DNA replication protein PSF1
 ORTHOLOGY   K10732  GINS complex subunit 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 MODULE      sce_M00286  GINS complex
+BRITE       DNA replication proteins [BR:sce03032]
+             Eukaryotic Type
+              DNA Replication Initiation Factors
+               GINS complex
+                YDR013W (PSF1)
 POSITION    IV:473157..473783
-MOTIF       Pfam: Sld5 PIF1
-DBLINKS     NCBI-GI: 398365003
+MOTIF       Pfam: Sld5 PIF1 Occludin_ELL
+DBLINKS     NCBI-ProteinID: NP_010296
             NCBI-GeneID: 851576
             SGD: S000002420
-            MIPS: YDR013W
             UniProt: Q12488
+STRUCTURE   PDB: 3JC6 3JC5 3JC7 5U8T 5U8S
 AASEQ       208
             MYGDLGNKLVLEAKRTKQLYARSNQDVNLPMYHEDIIRNILKEVSNLRKNTEYLKEQQQL
             GMLDDKVAKCQYFVTLLCMERNKRCLLAYQRLRTDILDSMAWNNNGLDLMSSITFSQQDT

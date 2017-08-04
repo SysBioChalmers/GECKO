@@ -1,14 +1,18 @@
 ENTRY       YGR222W           CDS       T00005
 NAME        PET54
-DEFINITION  Pet54p
+DEFINITION  (RefSeq) Pet54p
 ORTHOLOGY   K17666  protein PET54, mitochondrial
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial DNA transcription, translation, and replication factors
+              Mitochondrial transcription and translation factors
+               Other mitochondrial DNA transcription and translation factors
+                YGR222W (PET54)
 POSITION    VII:939923..940804
-MOTIF       Pfam: RRM_1 rRNA_methylase
-DBLINKS     NCBI-GI: 398366215
+MOTIF       Pfam: BRAP2 RRM_1 rRNA_methylase
+DBLINKS     NCBI-ProteinID: NP_011738
             NCBI-GeneID: 853137
             SGD: S000003454
-            MIPS: YGR222W
             UniProt: P10834
 AASEQ       293
             MKASSKAIKLVLDHLKSTGRVLGSVESGNSATISEKTASVNKQQQLQEKKPSVLQYRSYN

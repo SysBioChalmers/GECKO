@@ -1,21 +1,33 @@
 ENTRY       YDR408C           CDS       T00005
 NAME        ADE8
-DEFINITION  phosphoribosylglycinamide formyltransferase (EC:2.1.2.2)
+DEFINITION  (RefSeq) phosphoribosylglycinamide formyltransferase
 ORTHOLOGY   K00601  phosphoribosylglycinamide formyltransferase [EC:2.1.2.2]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00230  Purine metabolism
             sce00670  One carbon pool by folate
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
+            sce01130  Biosynthesis of antibiotics
 MODULE      sce_M00048  Inosine monophosphate biosynthesis, PRPP + glutamine => IMP
-CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
-            Metabolism; Metabolism of cofactors and vitamins; One carbon pool by folate [PATH:sce00670]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Nucleotide metabolism
+               00230 Purine metabolism
+                YDR408C (ADE8)
+              Metabolism of cofactors and vitamins
+               00670 One carbon pool by folate
+                YDR408C (ADE8)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.1  Transferring one-carbon groups
+               2.1.2  Hydroxymethyl-, formyl- and related transferases
+                2.1.2.2  phosphoribosylglycinamide formyltransferase
+                 YDR408C (ADE8)
 POSITION    IV:complement(1288215..1288859)
-MOTIF       Pfam: Formyl_trans_N Glyco_trans_4_4 MannoseP_isomer MGDG_synth
-DBLINKS     NCBI-GI: 398366571
+MOTIF       Pfam: Formyl_trans_N MGDG_synth Glyco_trans_4_4
+DBLINKS     NCBI-ProteinID: NP_010696
             NCBI-GeneID: 852017
             SGD: S000002816
-            MIPS: YDR408C
             UniProt: P04161
 AASEQ       214
             MARIVVLISGSGSNLQALIDAQKQGQLGEDAHIVSVISSSKKAYGLTRAADNNIPTKVCS

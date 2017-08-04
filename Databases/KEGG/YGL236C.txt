@@ -1,14 +1,25 @@
 ENTRY       YGL236C           CDS       T00005
 NAME        MTO1, IPS1
-DEFINITION  Mto1p
+DEFINITION  (RefSeq) tRNA modification protein MTO1
 ORTHOLOGY   K03495  tRNA uridine 5-carboxymethylaminomethyl modification enzyme
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              tRNA modification factors
+               Other tRNA modification factors
+                YGL236C (MTO1)
+             Prokaryotic Type
+                YGL236C (MTO1)
+            Chromosome [BR:sce03036]
+             Prokaryotic Type
+              Chromosome partitioning proteins
+               Other chromosome partitioning proteins
+                YGL236C (MTO1)
 POSITION    VII:complement(53787..55796)
-MOTIF       Pfam: GIDA GIDA_assoc_3 Pyr_redox_2 DAO FAD_oxidored Pyr_redox NAD_binding_9 FAD_binding_2 AlaDh_PNT_C NAD_binding_7 Pyr_redox_3 HI0933_like
-DBLINKS     NCBI-GI: 50593214
+MOTIF       Pfam: GIDA GIDA_assoc Pyr_redox_2 FAD_oxidored Pyr_redox_3 Pyr_redox AlaDh_PNT_C Lycopene_cycl FAD_binding_2 NAD_binding_9 HI0933_like NAD_binding_7 NAD_binding_8
+DBLINKS     NCBI-ProteinID: NP_011278
             NCBI-GeneID: 852616
             SGD: S000003205
-            MIPS: YGL236C
             UniProt: P53070
 AASEQ       669
             MLRVTTLASSCTSFPLQVLRRRLTISSLTSFQPTTKTQVVVIGAGHAGCEAAAASSRTGA

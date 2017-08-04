@@ -1,16 +1,21 @@
 ENTRY       YDR308C           CDS       T00005
-NAME        SRB7, MED21
-DEFINITION  Srb7p
+NAME        SRB7, MED21, SSX1
+DEFINITION  (RefSeq) Srb7p
 ORTHOLOGY   K15152  mediator of RNA polymerase II transcription subunit 21
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Mediator complex
+                Middle
+                 YDR308C (SRB7)
 POSITION    IV:complement(1078027..1078449)
-MOTIF       Pfam: Med21 Spore_III_AB Med9 TMCO5 DUF2200 STAT_alpha
-DBLINKS     NCBI-GI: 398366469
+MOTIF       Pfam: Med21 Med9 DUF2200
+DBLINKS     NCBI-ProteinID: NP_010594
             NCBI-GeneID: 851903
             SGD: S000002716
-            MIPS: YDR308C
             UniProt: P47822
-STRUCTURE   PDB: 1YKH 1YKE
+STRUCTURE   PDB: 1YKH 1YKE 5SVA
 AASEQ       140
             MTDRLTQLQICLDQMTEQFCATLNYIDKNHGFERLTVNEPQMSDKHATVVPPEEFSNTID
             ELSTDIILKTRQINKLIDSLPGVDVSAEEQLRKIDMLQKKLVEVEDEKIEAIKKKEKLLR

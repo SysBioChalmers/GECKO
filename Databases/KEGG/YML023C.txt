@@ -1,13 +1,12 @@
 ENTRY       YML023C           CDS       T00005
 NAME        NSE5
-DEFINITION  Nse5p
+DEFINITION  (RefSeq) Smc5-Smc6 complex subunit NSE5
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:complement(226994..228664)
 MOTIF       Pfam: Nse5
-DBLINKS     NCBI-GI: 6323618
+DBLINKS     NCBI-ProteinID: NP_013689
             NCBI-GeneID: 854985
             SGD: S000004485
-            MIPS: YML023C
             UniProt: Q03718
 AASEQ       556
             MDGALINSVLYVSPRNGAHYFVELTEKHLLAFEMLNSMCLLENYDHVLLFLECQFGKSHN

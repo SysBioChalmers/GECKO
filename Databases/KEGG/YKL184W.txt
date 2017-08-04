@@ -1,21 +1,33 @@
 ENTRY       YKL184W           CDS       T00005
 NAME        SPE1, ORD1, SPE10
-DEFINITION  ornithine decarboxylase SPE1 (EC:4.1.1.17)
+DEFINITION  (RefSeq) ornithine decarboxylase SPE1
 ORTHOLOGY   K01581  ornithine decarboxylase [EC:4.1.1.17]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00330  Arginine and proline metabolism
             sce00480  Glutathione metabolism
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
+            sce01130  Biosynthesis of antibiotics
 MODULE      sce_M00134  Polyamine biosynthesis, arginine => ornithine => putrescine
-CLASS       Metabolism; Amino acid metabolism; Arginine and proline metabolism [PATH:sce00330]
-            Metabolism; Metabolism of other amino acids; Glutathione metabolism [PATH:sce00480]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Amino acid metabolism
+               00330 Arginine and proline metabolism
+                YKL184W (SPE1)
+              Metabolism of other amino acids
+               00480 Glutathione metabolism
+                YKL184W (SPE1)
+            Enzymes [BR:sce01000]
+             4. Lyases
+              4.1  Carbon-carbon lyases
+               4.1.1  Carboxy-lyases
+                4.1.1.17  ornithine decarboxylase
+                 YKL184W (SPE1)
 POSITION    XI:96757..98157
 MOTIF       Pfam: Orn_Arg_deC_N Orn_DAP_Arg_deC
-DBLINKS     NCBI-GI: 6322664
+DBLINKS     NCBI-ProteinID: NP_012737
             NCBI-GeneID: 853651
             SGD: S000001667
-            MIPS: YKL184W
             UniProt: P08432
 AASEQ       466
             MSSTQVGNALSSSTTTLVDLSNSTVTQKKQYYKDGETLHNLLLELKNNQDLELLPHEQAH

@@ -1,12 +1,11 @@
 ENTRY       YPR114W           CDS       T00005
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) hypothetical protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:753301..754248
-MOTIF       Pfam: TRAM_LAG1_CLN8
-DBLINKS     NCBI-GI: 6325371
+MOTIF       Pfam: TRAM_LAG1_CLN8 F1F0-ATPsyn_F
+DBLINKS     NCBI-ProteinID: NP_015439
             NCBI-GeneID: 856230
             SGD: S000006318
-            MIPS: YPR114W
             UniProt: Q06107
 AASEQ       315
             MDVLLSLPQPELFKTTVIPFLANRNIIKSEAILSNLHSIFYVAIFYHIWFLFGKWILFPH

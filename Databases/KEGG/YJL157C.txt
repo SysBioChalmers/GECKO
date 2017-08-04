@@ -1,18 +1,24 @@
 ENTRY       YJL157C           CDS       T00005
 NAME        FAR1
-DEFINITION  Far1p
+DEFINITION  (RefSeq) cyclin-dependent protein serine/threonine kinase inhibiting protein FAR1
 ORTHOLOGY   K06652  cyclin-dependent kinase inhibitor FAR1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04011  MAPK signaling pathway - yeast
             sce04111  Cell cycle - yeast
-CLASS       Environmental Information Processing; Signal transduction; MAPK signaling pathway - yeast [PATH:sce04011]
-            Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YJL157C (FAR1)
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YJL157C (FAR1)
 POSITION    X:complement(123836..126328)
-MOTIF       Pfam: zf-RING_2 zf-C3HC4_2 zf-rbx1
-DBLINKS     NCBI-GI: 6322304
+MOTIF       Pfam: Cas_Cas6 zf-RING_2 Prok-RING_1 zf-RING_11
+DBLINKS     NCBI-ProteinID: NP_012378
             NCBI-GeneID: 853283
             SGD: S000003693
-            MIPS: YJL157C
             UniProt: P21268
 AASEQ       830
             MKTPTRVSFEKKIHTPPSGDRDAERSPPKKFLRGLSGKVFRKTPEFKKQQMPTFGYIEES

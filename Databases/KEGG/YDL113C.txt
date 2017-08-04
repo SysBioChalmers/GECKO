@@ -1,13 +1,12 @@
 ENTRY       YDL113C           CDS       T00005
 NAME        ATG20, CVT20, SNX42
-DEFINITION  Atg20p
+DEFINITION  (RefSeq) Atg20p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(256633..258555)
-MOTIF       Pfam: PX Vps5
-DBLINKS     NCBI-GI: 6320090
+MOTIF       Pfam: PX Vps5 HTH_16
+DBLINKS     NCBI-ProteinID: NP_010170
             NCBI-GeneID: 851445
             SGD: S000002271
-            MIPS: YDL113C
             UniProt: Q07528
 AASEQ       640
             MSDLNDVQENAKLNSETRNTGKAEPPHGTTEYVAEAEISKNGVGSPKKSPKKGKVGKGDN

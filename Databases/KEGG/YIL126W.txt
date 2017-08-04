@@ -1,14 +1,34 @@
 ENTRY       YIL126W           CDS       T00005
 NAME        STH1, NPS1
-DEFINITION  Sth1p (EC:3.6.4.12 3.6.1.-)
+DEFINITION  (RefSeq) RSC chromatin remodeling complex ATPase subunit STH1
 ORTHOLOGY   K11786  ATP-dependent helicase STH1/SNF2 [EC:3.6.4.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.4  Acting on acid anhydrides to facilitate cellular and subcellular movement
+                3.6.4.-  
+                 YIL126W (STH1)
+            Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Coactivators
+                SWI/SNF complex
+                 YIL126W (STH1)
+                RSC complex
+                 YIL126W (STH1)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Chromatin remodeling factors
+               RSC complex
+                YIL126W (STH1)
+               SWI/SNF complex
+                YIL126W (STH1)
 POSITION    IX:117992..122071
-MOTIF       Pfam: SNF2_N Bromodomain Helicase_C SnAC HSA
-DBLINKS     NCBI-GI: 6322065
+MOTIF       Pfam: SNF2_N Helicase_C Bromodomain HSA ResIII SnAC
+DBLINKS     NCBI-ProteinID: NP_012140
             NCBI-GeneID: 854680
             SGD: S000001388
-            MIPS: YIL126W
             UniProt: P32597
 AASEQ       1359
             MLQEQSELMSTVMNNTPTTVAALAAVAAASETNGKLGSEEQPEITIPKPRSSAQLEQLLY

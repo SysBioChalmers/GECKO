@@ -1,19 +1,31 @@
 ENTRY       YDR248C           CDS       T00005
-DEFINITION  gluconokinase (EC:2.7.1.12)
+DEFINITION  (RefSeq) gluconokinase
 ORTHOLOGY   K00851  gluconokinase [EC:2.7.1.12]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00030  Pentose phosphate pathway
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
+            sce01130  Biosynthesis of antibiotics
             sce01200  Carbon metabolism
-CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
-            Metabolism; Carbohydrate metabolism; Pentose phosphate pathway [PATH:sce00030]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01200 Carbon metabolism
+                YDR248C
+              Carbohydrate metabolism
+               00030 Pentose phosphate pathway
+                YDR248C
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.1  Phosphotransferases with an alcohol group as acceptor
+                2.7.1.12  gluconokinase
+                 YDR248C
 POSITION    IV:complement(957758..958339)
-MOTIF       Pfam: AAA_18 APS_kinase AAA_17 SKI AAA_33 Zeta_toxin NB-ARC Guanylate_kin DUF2075 RNA_helicase ABC_tran NACHT DUF258 AAA_14 ArgK AAA_30 T2SE AAA AAA_28 AAA_22 AAA_16 AAA_19
-DBLINKS     NCBI-GI: 6320454
+MOTIF       Pfam: APS_kinase AAA_18 SKI AAA_33 NB-ARC AAA_16 Zeta_toxin AAA_30 NACHT RsgA_GTPase RNA_helicase ABC_tran DUF2075 AAA_22 ArgK Guanylate_kin AAA_28 AAA_17 AAA AAA_24 T2SSE
+DBLINKS     NCBI-ProteinID: NP_010534
             NCBI-GeneID: 851835
             SGD: S000002656
-            MIPS: YDR248C
             UniProt: Q03786
 AASEQ       193
             MTEKHKTMGKFKVIVLAGTAGTGKSTIAGELIHEFKDIYPDLKFIEGDDLHPPANVEKMT

@@ -1,13 +1,35 @@
 ENTRY       YDR323C           CDS       T00005
 NAME        PEP7, VAC1, VPL21, VPS19, VPT19
-DEFINITION  Pep7p
+DEFINITION  (RefSeq) Pep7p
+ORTHOLOGY   K12481  rabenosyn-5
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04144  Endocytosis
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04144 Endocytosis
+                YDR323C (PEP7)
+            Membrane trafficking [BR:sce04131]
+             Exocytosis
+              Others
+               Others
+                YDR323C (PEP7)
+             Endocytosis
+              Rab GTPases and associated proteins
+               Rab associated proteins
+                YDR323C (PEP7)
+             Protein recycling
+               Rab4 associated proteins
+                YDR323C (PEP7)
+             Endoplasmic reticulum (ER) - Golgi transport
+              Retrieval pathways
+               Rab associated proteins
+                YDR323C (PEP7)
 POSITION    IV:complement(1112480..1114027)
-MOTIF       Pfam: FYVE Rbsn zf-C2H2_4 zf-C2HC_2 Siva zf-C2H2
-DBLINKS     NCBI-GI: 398366487
+MOTIF       Pfam: FYVE Rbsn zf-C2H2_6 zf-Di19 zf-C2H2_4 zf-C2H2 zf-C2HC_2
+DBLINKS     NCBI-ProteinID: NP_010610
             NCBI-GeneID: 851923
             SGD: S000002731
-            MIPS: YDR323C
             UniProt: P32609
 AASEQ       515
             MDLENVSCPICLRKFDNLQALNAHLDVEHGFNDNEDSLGSNDSRLVNGKQKKARSVDSSA

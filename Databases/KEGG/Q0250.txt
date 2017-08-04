@@ -1,17 +1,25 @@
 ENTRY       Q0250             CDS       T00005
 NAME        COX2, OXI1, OXII
-DEFINITION  cytochrome c oxidase subunit 2 (EC:1.9.3.1)
+DEFINITION  (RefSeq) cytochrome c oxidase subunit 2
 ORTHOLOGY   K02261  cytochrome c oxidase subunit 2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00190  Oxidative phosphorylation
             sce01100  Metabolic pathways
-CLASS       Metabolism; Energy metabolism; Oxidative phosphorylation [PATH:sce00190]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Energy metabolism
+               00190 Oxidative phosphorylation
+                Q0250 (COX2)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial DNA transcription, translation, and replication factors
+              Mitochondrial DNA-encoded proteins
+               Cytochrome c oxidase
+                Q0250 (COX2)
 POSITION    MT:73758..74513
 MOTIF       Pfam: COX2 COX2_TM
-DBLINKS     NCBI-GI: 6226540
+DBLINKS     NCBI-ProteinID: NP_009326
             NCBI-GeneID: 854622
             SGD: S000007281
-            MIPS: Q0250
             UniProt: P00410
 AASEQ       251
             MLDLLRLQLTTFIMNDVPTPYACYFQDSATPNQEGILELHDNIMFYLLVILGLVSWMLYT

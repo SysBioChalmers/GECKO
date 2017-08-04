@@ -1,18 +1,21 @@
 ENTRY       YDR298C           CDS       T00005
 NAME        ATP5, OSC1
-DEFINITION  F1F0 ATP synthase subunit 5 (EC:3.6.3.14)
-ORTHOLOGY   K02137  F-type H+-transporting ATPase oligomycin sensitivity conferral protein [EC:3.6.3.14]
+DEFINITION  (RefSeq) F1F0 ATP synthase subunit 5
+ORTHOLOGY   K02137  F-type H+-transporting ATPase subunit O
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00190  Oxidative phosphorylation
             sce01100  Metabolic pathways
 MODULE      sce_M00158  F-type ATPase, eukaryotes
-CLASS       Metabolism; Energy metabolism; Oxidative phosphorylation [PATH:sce00190]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Energy metabolism
+               00190 Oxidative phosphorylation
+                YDR298C (ATP5)
 POSITION    IV:complement(1058176..1058814)
 MOTIF       Pfam: OSCP
-DBLINKS     NCBI-GI: 6320504
+DBLINKS     NCBI-ProteinID: NP_010584
             NCBI-GeneID: 851892
             SGD: S000002706
-            MIPS: YDR298C
             UniProt: P09457
 AASEQ       212
             MFNRVFTRSFASSLRAAASKAAAPPPVRLFGVEGTYATALYQAAAKNSSIDAAFQSLQKV

@@ -1,16 +1,20 @@
 ENTRY       YLL039C           CDS       T00005
 NAME        UBI4, SCD2, UB14
-DEFINITION  ubiquitin
+DEFINITION  (RefSeq) ubiquitin
 ORTHOLOGY   K08770  ubiquitin C
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ubiquitin system [BR:sce04121]
+             Ubiquitins and Ubiquitin-like proteins
+              Ubiquitins
+               YLL039C (UBI4)
 POSITION    XII:complement(64062..65207)
-MOTIF       Pfam: ubiquitin Rad60-SLD Ubiquitin_2 Telomere_Sde2 Rad60-SLD_2 DUF2407
-DBLINKS     NCBI-GI: 6322989
+MOTIF       Pfam: ubiquitin Rad60-SLD Ubiquitin_2 Rad60-SLD_2 DUF2407
+DBLINKS     NCBI-ProteinID: NP_013061
             NCBI-GeneID: 850620
             SGD: S000003962
-            MIPS: YLL039C
             UniProt: P0CG63
-STRUCTURE   PDB: 3OLM 4HCN 3CMM 2L00 2KDI 2JWZ 2JT4 2G3Q 1WR1 1Q0W 1OTR
+STRUCTURE   PDB: 4Q5E 4Q5H 4NNJ 3OLM 4HCN 3CMM 2L00 2KDI 2JWZ 2JT4 2G3Q
+                 1WR1 1Q0W 1OTR
 AASEQ       381
             MQIFVKTLTGKTITLEVESSDTIDNVKSKIQDKEGIPPDQQRLIFAGKQLEDGRTLSDYN
             IQKESTLHLVLRLRGGMQIFVKTLTGKTITLEVESSDTIDNVKSKIQDKEGIPPDQQRLI

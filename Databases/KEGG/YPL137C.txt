@@ -1,13 +1,11 @@
 ENTRY       YPL137C           CDS       T00005
 NAME        GIP3
-DEFINITION  Gip3p
+DEFINITION  (RefSeq) protein phosphatase regulator GIP3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:complement(292817..296647)
-MOTIF       Pfam: LRR_4
-DBLINKS     NCBI-GI: 6325121
+DBLINKS     NCBI-ProteinID: NP_015188
             NCBI-GeneID: 855967
             SGD: S000006058
-            MIPS: YPL137C
             UniProt: Q03016
 AASEQ       1276
             MITNTEFDVPVDWLYKGKSRRKTNTKPSRPSTSPASSSSTSSSKNGDNSTSGNRSSNDKP

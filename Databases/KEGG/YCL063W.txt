@@ -1,12 +1,12 @@
 ENTRY       YCL063W           CDS       T00005
 NAME        VAC17, YCL062W
-DEFINITION  Vac17p
+DEFINITION  (RefSeq) Vac17p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    III:17290..18561
-DBLINKS     NCBI-GI: 6319789
+MOTIF       Pfam: Vac17
+DBLINKS     NCBI-ProteinID: NP_009870
             NCBI-GeneID: 850296
             SGD: S000000568
-            MIPS: YCL063W
             UniProt: P25591
 AASEQ       423
             MATQALEDITERLLIRSQEAILQLDLWIQRQQRSSICQTTDQESLDKLSQQYNQYMSQLN

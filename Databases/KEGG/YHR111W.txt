@@ -1,16 +1,38 @@
 ENTRY       YHR111W           CDS       T00005
 NAME        UBA4, YHR1
-DEFINITION  Uba4p (EC:2.8.1.- 2.7.7.-)
-ORTHOLOGY   K11996  adenylyltransferase and sulfurtransferase
+DEFINITION  (RefSeq) Uba4p
+ORTHOLOGY   K11996  adenylyltransferase and sulfurtransferase [EC:2.7.7.80 2.8.1.11]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04122  Sulfur relay system
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Sulfur relay system [PATH:sce04122]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04122 Sulfur relay system
+                YHR111W (UBA4)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.7  Nucleotidyltransferases
+                2.7.7.80  molybdopterin-synthase adenylyltransferase
+                 YHR111W (UBA4)
+              2.8  Transferring sulfur-containing groups
+               2.8.1  Sulfurtransferases
+                2.8.1.11  molybdopterin synthase sulfurtransferase
+                 YHR111W (UBA4)
+            Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              tRNA modification factors
+               Thiolation factors
+                YHR111W (UBA4)
+            Ubiquitin system [BR:sce04121]
+             Ubiquitin-activating enzymes (E1)
+              UBL-activating enzymes
+               YHR111W (UBA4)
 POSITION    VIII:333072..334394
-MOTIF       Pfam: ThiF MoeZ_MoeB Rhodanese Shikimate_DH Herpes_BLRF2
-DBLINKS     NCBI-GI: 6321903
+MOTIF       Pfam: ThiF Rhodanese Shikimate_DH Herpes_BLRF2
+DBLINKS     NCBI-ProteinID: NP_011979
             NCBI-GeneID: 856511
             SGD: S000001153
-            MIPS: YHR111W
             UniProt: P38820
 AASEQ       440
             MNDYHLEDTTSELEALRLENAQLREQLAKREDSSRDYPLSLEEYQRYGRQMIVEETGGVA

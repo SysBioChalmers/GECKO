@@ -1,14 +1,25 @@
 ENTRY       YMR127C           CDS       T00005
-NAME        SAS2
-DEFINITION  Sas2p (EC:2.3.1.48)
+NAME        SAS2, KAT8
+DEFINITION  (RefSeq) Sas2p
 ORTHOLOGY   K11401  histone acetyltransferase SAS2 [EC:2.3.1.48]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.3  Acyltransferases
+               2.3.1  Transferring groups other than aminoacyl groups
+                2.3.1.48  histone acetyltransferase
+                 YMR127C (SAS2)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Histone modification proteins
+               HAT complexes
+                SAS complex
+                 YMR127C (SAS2)
 POSITION    XIII:complement(522329..523345)
-MOTIF       Pfam: MOZ_SAS Asp
-DBLINKS     NCBI-GI: 6323775
+MOTIF       Pfam: MOZ_SAS Acetyltransf_7
+DBLINKS     NCBI-ProteinID: NP_013846
             NCBI-GeneID: 855157
             SGD: S000004734
-            MIPS: YMR127C
             UniProt: P40963
 AASEQ       338
             MARSLSQSLTATTQKLKGKKNGGKGKNKPSAKIKKTQKEMLYGILNERNIRQIQFGLNKK

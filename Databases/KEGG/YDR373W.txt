@@ -1,13 +1,18 @@
 ENTRY       YDR373W           CDS       T00005
 NAME        FRQ1
-DEFINITION  Frq1p
+DEFINITION  (RefSeq) frequenin
+ORTHOLOGY   K19932  neuronal calcium sensor 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Exocytosis
+              Calcium ion-dependent exocytosis
+               Others
+                YDR373W (FRQ1)
 POSITION    IV:1222759..1223331
 MOTIF       Pfam: EF-hand_1 EF-hand_6 EF-hand_7 EF-hand_5 EF-hand_8 EF-hand_4 SPARC_Ca_bdg EF-hand_9 S10_plectin
-DBLINKS     NCBI-GI: 398366535
+DBLINKS     NCBI-ProteinID: NP_010661
             NCBI-GeneID: 851979
             SGD: S000002781
-            MIPS: YDR373W
             UniProt: Q06389
 STRUCTURE   PDB: 2JU0 1FPW
 AASEQ       190

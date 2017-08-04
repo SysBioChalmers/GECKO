@@ -1,13 +1,12 @@
 ENTRY       YEL041W           CDS       T00005
 NAME        YEF1
-DEFINITION  Yef1p (EC:2.7.1.86)
+DEFINITION  (RefSeq) NADH/NAD(+) kinase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    V:75944..77431
-MOTIF       Pfam: NAD_kinase Ivy
-DBLINKS     NCBI-GI: 6320794
+MOTIF       Pfam: NAD_kinase Ivy DAGK_cat
+DBLINKS     NCBI-ProteinID: NP_010873
             NCBI-GeneID: 856670
             SGD: S000000767
-            MIPS: YEL041W
             UniProt: P32622
 AASEQ       495
             MKTDRLLINASPETCTKGDAEMDTMDTIDRMTSVKVLAEGKVLSNFEEPGLMRCGYHDAK

@@ -1,13 +1,12 @@
 ENTRY       YPR124W           CDS       T00005
 NAME        CTR1
-DEFINITION  Ctr1p
+DEFINITION  (RefSeq) high-affinity Cu transporter CTR1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:786208..787428
 MOTIF       Pfam: Ctr DUF4229
-DBLINKS     NCBI-GI: 6325380
+DBLINKS     NCBI-ProteinID: NP_015449
             NCBI-GeneID: 856241
             SGD: S000006328
-            MIPS: YPR124W
             UniProt: P49573
 AASEQ       406
             MEGMNMGSSMNMDAMSSASKTVASSMASMSMDAMSSASKTILSSMSSMSMEAMSSASKTL

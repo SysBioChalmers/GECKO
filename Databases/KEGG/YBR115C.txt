@@ -1,23 +1,36 @@
 ENTRY       YBR115C           CDS       T00005
 NAME        LYS2
-DEFINITION  L-aminoadipate-semialdehyde dehydrogenase (EC:1.2.1.31)
+DEFINITION  (RefSeq) L-aminoadipate-semialdehyde dehydrogenase
 ORTHOLOGY   K00143  L-aminoadipate-semialdehyde dehydrogenase [EC:1.2.1.31]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00300  Lysine biosynthesis
             sce00310  Lysine degradation
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
+            sce01130  Biosynthesis of antibiotics
             sce01230  Biosynthesis of amino acids
 MODULE      sce_M00030  Lysine biosynthesis, AAA pathway, 2-oxoglutarate => 2-aminoadipate => lysine
-CLASS       Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
-            Metabolism; Amino acid metabolism; Lysine biosynthesis [PATH:sce00300]
-            Metabolism; Amino acid metabolism; Lysine degradation [PATH:sce00310]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01230 Biosynthesis of amino acids
+                YBR115C (LYS2)
+              Amino acid metabolism
+               00300 Lysine biosynthesis
+                YBR115C (LYS2)
+               00310 Lysine degradation
+                YBR115C (LYS2)
+            Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.2  Acting on the aldehyde or oxo group of donors
+               1.2.1  With NAD+ or NADP+ as acceptor
+                1.2.1.31  L-aminoadipate-semialdehyde dehydrogenase
+                 YBR115C (LYS2)
 POSITION    II:complement(469748..473926)
-MOTIF       Pfam: AMP-binding NAD_binding_4 PP-binding Epimerase AMP-binding_C 3Beta_HSD Condensation DUF3992
-DBLINKS     NCBI-GI: 6319591
+MOTIF       Pfam: NAD_binding_4 AMP-binding PP-binding Epimerase Condensation AMP-binding_C 3Beta_HSD GDP_Man_Dehyd
+DBLINKS     NCBI-ProteinID: NP_009673
             NCBI-GeneID: 852412
             SGD: S000000319
-            MIPS: YBR115C
             UniProt: P07702
 AASEQ       1392
             MTNEKVWIEKLDNPTLSVLPHDFLRPQQEPYTKQATYSLQLPQLDVPHDSFSNKYAVALS

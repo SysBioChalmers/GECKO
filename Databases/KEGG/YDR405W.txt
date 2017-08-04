@@ -1,16 +1,28 @@
 ENTRY       YDR405W           CDS       T00005
 NAME        MRP20
-DEFINITION  mitochondrial 54S ribosomal protein YmL41
+DEFINITION  (RefSeq) mitochondrial 54S ribosomal protein YmL41
 ORTHOLOGY   K02892  large subunit ribosomal protein L23
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03010  Ribosome
-CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03010 Ribosome
+                YDR405W (MRP20)
+            Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Mitochondria/ Chloroplast
+               Large subunit
+                YDR405W (MRP20)
+              Bacteria
+                YDR405W (MRP20)
+              Archaea
+                YDR405W (MRP20)
 POSITION    IV:1277646..1278437
 MOTIF       Pfam: Ribosomal_L23
-DBLINKS     NCBI-GI: 398366569
+DBLINKS     NCBI-ProteinID: NP_010693
             NCBI-GeneID: 852014
             SGD: S000002813
-            MIPS: YDR405W
             UniProt: P32387
 AASEQ       263
             MPRLTVGTKNMLYPLQKTLAVGSCKPEQVPIRSLASVVESSSKILDKSGSDREVDINVSE

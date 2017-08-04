@@ -1,13 +1,11 @@
 ENTRY       YAL031C           CDS       T00005
 NAME        GIP4, FUN21
-DEFINITION  Gip4p
+DEFINITION  (RefSeq) protein phosphatase regulator GIP4
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    I:complement(84749..87031)
-MOTIF       Pfam: DUF972
-DBLINKS     NCBI-GI: 6319288
+DBLINKS     NCBI-ProteinID: NP_009371
             NCBI-GeneID: 851202
             SGD: S000000029
-            MIPS: YAL031C
             UniProt: P39732
 AASEQ       760
             MVDVQKRKKLLAKAAASASIPAIKGSVPLDSYDIKIIQYKNALYKLNELNRLLNVLVPHL

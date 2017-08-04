@@ -1,16 +1,34 @@
 ENTRY       YNL207W           CDS       T00005
 NAME        RIO2
-DEFINITION  Rio2p (EC:2.7.11.1)
+DEFINITION  (RefSeq) protein kinase RIO2
 ORTHOLOGY   K07179  RIO kinase 2 [EC:2.7.11.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03008  Ribosome biogenesis in eukaryotes
-CLASS       Genetic Information Processing; Translation; Ribosome biogenesis in eukaryotes [PATH:sce03008]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03008 Ribosome biogenesis in eukaryotes
+                YNL207W (RIO2)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.11  Protein-serine/threonine kinases
+                2.7.11.1  non-specific serine/threonine protein kinase
+                 YNL207W (RIO2)
+            Protein kinases [BR:sce01001]
+             Serine/threonine protein kinases: Atypical group
+              RIO family [OT]
+               YNL207W (RIO2)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-40S particles
+               Kinases
+                YNL207W (RIO2)
 POSITION    XIV:255353..256630
 MOTIF       Pfam: RIO1 Rio2_N APH Kdo Pkinase
-DBLINKS     NCBI-GI: 6324122
+DBLINKS     NCBI-ProteinID: NP_014192
             NCBI-GeneID: 855514
             SGD: S000005151
-            MIPS: YNL207W
             UniProt: P40160
 AASEQ       425
             MKLDTSHMRYLTTDDFRVLQAVEQGSRSHEVVPTPLIHQISGMRSQSGTNRAISDLAKLS

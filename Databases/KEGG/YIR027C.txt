@@ -1,17 +1,26 @@
 ENTRY       YIR027C           CDS       T00005
 NAME        DAL1
-DEFINITION  allantoinase (EC:3.5.2.5)
+DEFINITION  (RefSeq) allantoinase
 ORTHOLOGY   K01466  allantoinase [EC:3.5.2.5]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00230  Purine metabolism
             sce01100  Metabolic pathways
-CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Nucleotide metabolism
+               00230 Purine metabolism
+                YIR027C (DAL1)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.5  Acting on carbon-nitrogen bonds, other than peptide bonds
+               3.5.2  In cyclic amides
+                3.5.2.5  allantoinase
+                 YIR027C (DAL1)
 POSITION    IX:complement(406260..407642)
-MOTIF       Pfam: Amidohydro_1 Amidohydro_4 Amidohydro_5 Amidohydro_3 Amidohydro_2
-DBLINKS     NCBI-GI: 398364693
+MOTIF       Pfam: Amidohydro_1 Amidohydro_3 Amidohydro_2
+DBLINKS     NCBI-ProteinID: NP_012293
             NCBI-GeneID: 854845
             SGD: S000001466
-            MIPS: YIR027C
             UniProt: P32375
 AASEQ       460
             MPINAITSDHVIINGANKPATIVYSTESGTILDVLEGSVVMEKTEITKYEIHTLENVSPC

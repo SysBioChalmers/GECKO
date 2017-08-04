@@ -1,13 +1,12 @@
 ENTRY       YKL032C           CDS       T00005
 NAME        IXR1, ORD1
-DEFINITION  Ixr1p
+DEFINITION  (RefSeq) DNA-binding transcription repressor IXR1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XI:complement(380065..381858)
-MOTIF       Pfam: HMG_box HMG_box_2 CHDNT
-DBLINKS     NCBI-GI: 398364635
+MOTIF       Pfam: HMG_box HMG_box_2 CHDNT SUIM_assoc
+DBLINKS     NCBI-ProteinID: NP_012893
             NCBI-GeneID: 853836
             SGD: S000001515
-            MIPS: YKL032C
             UniProt: P33417
 AASEQ       597
             MNTGISPKQDDASNSNLLNIGQDHSLQYQGLEHNDSQYRDASHQTPHQYLNQFQAQPQQQ

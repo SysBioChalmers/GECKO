@@ -1,13 +1,22 @@
 ENTRY       YPR032W           CDS       T00005
 NAME        SRO7, SNI1, SOP1
-DEFINITION  Sro7p
+DEFINITION  (RefSeq) Rab GTPase-binding protein SRO7
+ORTHOLOGY   K08518  syntaxin-binding protein 5
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Exocytosis
+              Small GTPases and associated proteins
+               Rab associated proteins
+                YPR032W (SRO7)
+             SNARE
+              VAMP, Ykt6, Sec22 (R)
+               Tomosyn
+                YPR032W (SRO7)
 POSITION    XVI:634123..637224
-MOTIF       Pfam: Lgl_C
-DBLINKS     NCBI-GI: 6325289
+MOTIF       Pfam: Lgl_C ANAPC4_WD40 WD40_like
+DBLINKS     NCBI-ProteinID: NP_015357
             NCBI-GeneID: 856144
             SGD: S000006236
-            MIPS: YPR032W
             UniProt: Q12038
 STRUCTURE   PDB: 2OAJ
 AASEQ       1033

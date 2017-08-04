@@ -1,14 +1,34 @@
 ENTRY       YOR290C           CDS       T00005
 NAME        SNF2, GAM1, HAF1, SWI2, TYE3
-DEFINITION  Snf2p (EC:3.6.4.- 3.6.1.-)
+DEFINITION  (RefSeq) SWI/SNF catalytic subunit SNF2
 ORTHOLOGY   K11786  ATP-dependent helicase STH1/SNF2 [EC:3.6.4.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.4  Acting on acid anhydrides to facilitate cellular and subcellular movement
+                3.6.4.-  
+                 YOR290C (SNF2)
+            Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Coactivators
+                SWI/SNF complex
+                 YOR290C (SNF2)
+                RSC complex
+                 YOR290C (SNF2)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Chromatin remodeling factors
+               RSC complex
+                YOR290C (SNF2)
+               SWI/SNF complex
+                YOR290C (SNF2)
 POSITION    XV:complement(855147..860258)
-MOTIF       Pfam: SNF2_N Helicase_C Bromodomain SnAC QLQ
-DBLINKS     NCBI-GI: 398366101
+MOTIF       Pfam: SNF2_N Helicase_C Bromodomain SnAC QLQ ResIII HSA Tristanin_u2
+DBLINKS     NCBI-ProteinID: NP_014933
             NCBI-GeneID: 854465
             SGD: S000005816
-            MIPS: YOR290C
             UniProt: P22082
 STRUCTURE   PDB: 4I6M
 AASEQ       1703

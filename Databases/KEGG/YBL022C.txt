@@ -1,14 +1,28 @@
 ENTRY       YBL022C           CDS       T00005
 NAME        PIM1
-DEFINITION  Pim1p (EC:3.4.21.-)
+DEFINITION  (RefSeq) ATP-dependent Lon protease PIM1
 ORTHOLOGY   K08675  Lon-like ATP-dependent protease [EC:3.4.21.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.4  Acting on peptide bonds (peptidases)
+               3.4.21  Serine endopeptidases
+                3.4.21.-  
+                 YBL022C (PIM1)
+            Peptidases [BR:sce01002]
+             Serine Peptidases
+              Family S16: lon protease family
+               YBL022C (PIM1)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial quality control factors
+              Regulator of mitochondrial biogenesis
+               Other regulator of mitochondrial biogenesis
+                YBL022C (PIM1)
 POSITION    II:complement(177874..181275)
-MOTIF       Pfam: Lon_C LON AAA AAA_5 ChlI AAA_17 AAA_22 AAA_16 RNA_helicase AAA_14 AAA_18 RuvB_N NTPase_1 SKI DUF258 IstB_IS21
-DBLINKS     NCBI-GI: 6319449
+MOTIF       Pfam: Lon_C LON_substr_bdg AAA AAA_2 AAA_5 ChlI AAA_22 RNA_helicase AAA_PrkA AAA_16 AAA_14 IstB_IS21 RuvB_N TIP49 AAA_18 EloA-BP1 RsgA_GTPase SKI TsaE NTPase_1 AAA_30
+DBLINKS     NCBI-ProteinID: NP_009531
             NCBI-GeneID: 852259
             SGD: S000000118
-            MIPS: YBL022C
             UniProt: P36775
 AASEQ       1133
             MLRTRTTKTLSTVARTTRAIQYYRSIAKTAAVSQRRFASTLTVRDVENIKPSHIIKSPTW

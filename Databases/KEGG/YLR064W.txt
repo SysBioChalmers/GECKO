@@ -1,13 +1,23 @@
 ENTRY       YLR064W           CDS       T00005
 NAME        PER33
-DEFINITION  Per33p
+DEFINITION  (RefSeq) Per33p
+ORTHOLOGY   K20724  transmembrane protein 33
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endoplasmic reticulum (ER) - Golgi transport
+              Others
+               Others
+                YLR064W (PER33)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centrosome formation and ciliogenesis proteins
+               Spindle formation proteins
+                YLR064W (PER33)
 POSITION    XII:265456..266277
-MOTIF       Pfam: UPF0121
-DBLINKS     NCBI-GI: 6323093
+MOTIF       Pfam: LapA_dom
+DBLINKS     NCBI-ProteinID: NP_013165
             NCBI-GeneID: 850753
             SGD: S000004054
-            MIPS: YLR064W
             UniProt: Q12144
 AASEQ       273
             MTVPRNRPMAPFGTIIKSRIKQPQFYWFIGHFLTIFNFIQFHLSITSKQNQLSCYRRSLF

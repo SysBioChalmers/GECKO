@@ -1,14 +1,18 @@
 ENTRY       YLR067C           CDS       T00005
 NAME        PET309
-DEFINITION  Pet309p
+DEFINITION  (RefSeq) Pet309p
 ORTHOLOGY   K17669  pentatricopeptide repeat-containing protein PET309
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial DNA transcription, translation, and replication factors
+              Mitochondrial transcription and translation factors
+               Other mitochondrial DNA transcription and translation factors
+                YLR067C (PET309)
 POSITION    XII:complement(267813..270710)
-MOTIF       Pfam: PPR_2 ATP13
-DBLINKS     NCBI-GI: 6323096
+MOTIF       Pfam: PPR_long PPR_2 RPM2 Sin3a_C
+DBLINKS     NCBI-ProteinID: NP_013168
             NCBI-GeneID: 850756
             SGD: S000004057
-            MIPS: YLR067C
             UniProt: P32522
 AASEQ       965
             MKRCAPAVLRNYNYKKGIWSTGVPDHIRKLLRDKSTSPLCSQDERNLVSYFMARGSVPLK

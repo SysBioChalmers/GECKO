@@ -1,14 +1,18 @@
 ENTRY       YDR117C           CDS       T00005
 NAME        TMA64
-DEFINITION  Tma64p
+DEFINITION  (RefSeq) Tma64p
 ORTHOLOGY   K15027  translation initiation factor 2D
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Translation factors [BR:sce03012]
+             Eukaryotic Type
+              Initiation factors
+               eIF-2D
+                YDR117C (TMA64)
 POSITION    IV:complement(683946..685643)
 MOTIF       Pfam: SUI1 SWIB
-DBLINKS     NCBI-GI: 398365693
+DBLINKS     NCBI-ProteinID: NP_010402
             NCBI-GeneID: 851695
             SGD: S000002524
-            MIPS: YDR117C
             UniProt: Q04600
 AASEQ       565
             MFKKEPHIKALSNLKNSERKKLLQTFQKQTNNEEYSFRTSTIKQTNFNGQKSVGTVYTDE

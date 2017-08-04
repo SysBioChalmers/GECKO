@@ -1,12 +1,12 @@
 ENTRY       YDR351W           CDS       T00005
 NAME        SBE2
-DEFINITION  Sbe2p
+DEFINITION  (RefSeq) Sbe2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:1178666..1181260
-DBLINKS     NCBI-GI: 398366513
+MOTIF       Pfam: SBE2
+DBLINKS     NCBI-ProteinID: NP_010638
             NCBI-GeneID: 851953
             SGD: S000002759
-            MIPS: YDR351W
             UniProt: P42223
 AASEQ       864
             MTARRLINIVPNTSKLDPLKEEDSTHLKQNQPKKFSTKELMLSEYTERKSCSLPLSKSRS

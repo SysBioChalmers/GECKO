@@ -1,17 +1,30 @@
 ENTRY       YOL149W           CDS       T00005
-NAME        DCP1
-DEFINITION  Dcp1p
+NAME        DCP1, MRT2
+DEFINITION  (RefSeq) Dcp1p
 ORTHOLOGY   K12612  mRNA-decapping enzyme subunit 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03018  RNA degradation
 MODULE      sce_M00395  Decapping complex
-CLASS       Genetic Information Processing; Folding, sorting and degradation; RNA degradation [PATH:sce03018]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               03018 RNA degradation
+                YOL149W (DCP1)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               mRNA cycle factors
+                P-body specific factors
+                 YOL149W (DCP1)
+              mRNA degradation factors
+               5'-3' decay
+                Decapping complex
+                 YOL149W (DCP1)
 POSITION    XV:44938..45633
 MOTIF       Pfam: DCP1
-DBLINKS     NCBI-GI: 6324423
+DBLINKS     NCBI-ProteinID: NP_014492
             NCBI-GeneID: 854016
             SGD: S000005509
-            MIPS: YOL149W
             UniProt: Q12517
 STRUCTURE   PDB: 1Q67
 AASEQ       231

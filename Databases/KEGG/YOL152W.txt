@@ -1,14 +1,19 @@
 ENTRY       YOL152W           CDS       T00005
 NAME        FRE7
-DEFINITION  Fre7p (EC:1.16.1.7 1.16.1.-)
+DEFINITION  (RefSeq) putative ferric-chelate reductase
 ORTHOLOGY   K00521  ferric-chelate reductase [EC:1.16.1.7]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.16  Oxidizing metal ions
+               1.16.1  With NAD+ or NADP+ as acceptor
+                1.16.1.7  ferric-chelate reductase (NADH)
+                 YOL152W (FRE7)
 POSITION    XV:40748..42610
-MOTIF       Pfam: NAD_binding_6 FAD_binding_8 Ferric_reduct FAD_binding_6
-DBLINKS     NCBI-GI: 84626311
+MOTIF       Pfam: NAD_binding_6 Ferric_reduct FAD_binding_8 FAD_binding_6
+DBLINKS     NCBI-ProteinID: NP_014489
             NCBI-GeneID: 854013
             SGD: S000005512
-            MIPS: YOL152W
             UniProt: Q12333
 AASEQ       620
             MIEERDLVLSNGIHCIADIHSELYARLKKESQAATPWVYQKQYGKFVTYFVAVIIFLSLI

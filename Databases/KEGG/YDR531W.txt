@@ -1,18 +1,27 @@
 ENTRY       YDR531W           CDS       T00005
 NAME        CAB1
-DEFINITION  pantothenate kinase (EC:2.7.1.33)
+DEFINITION  (RefSeq) pantothenate kinase
 ORTHOLOGY   K09680  type II pantothenate kinase [EC:2.7.1.33]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00770  Pantothenate and CoA biosynthesis
             sce01100  Metabolic pathways
 MODULE      sce_M00120  Coenzyme A biosynthesis, pantothenate => CoA
-CLASS       Metabolism; Metabolism of cofactors and vitamins; Pantothenate and CoA biosynthesis [PATH:sce00770]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Metabolism of cofactors and vitamins
+               00770 Pantothenate and CoA biosynthesis
+                YDR531W (CAB1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.1  Phosphotransferases with an alcohol group as acceptor
+                2.7.1.33  pantothenate kinase
+                 YDR531W (CAB1)
 POSITION    IV:1498232..1499335
-MOTIF       Pfam: Fumble T4SS
-DBLINKS     NCBI-GI: 398366683
+MOTIF       Pfam: Fumble
+DBLINKS     NCBI-ProteinID: NP_010820
             NCBI-GeneID: 852144
             SGD: S000002939
-            MIPS: YDR531W
             UniProt: Q04430
 AASEQ       367
             MPRITQEISYNCDYGDNTFNLAIDIGGTLAKVVFSPIHSNRLMFYTIETEKIDKFMELLH

@@ -1,14 +1,19 @@
 ENTRY       YJR008W           CDS       T00005
 NAME        MHO1
-DEFINITION  Mho1p
-ORTHOLOGY   K06990
+DEFINITION  (RefSeq) Mho1p
+ORTHOLOGY   K06990  MEMO1 family protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Cytoskeleton proteins [BR:sce04812]
+             Eukaryotic cytoskeleton proteins
+              Microtubules
+               Tubulin-binding proteins
+                Others
+                 YJR008W (MHO1)
 POSITION    X:452430..453446
-MOTIF       Pfam: Memo CbiX
-DBLINKS     NCBI-GI: 6322467
+MOTIF       Pfam: Memo
+DBLINKS     NCBI-ProteinID: NP_012541
             NCBI-GeneID: 853464
             SGD: S000003768
-            MIPS: YJR008W
             UniProt: P47085
 AASEQ       338
             MSIRPATHAGSWYSNRAQELSQQLHTYLIKSTLKGPIHNARIIICPHAGYRYCGPTMAYS

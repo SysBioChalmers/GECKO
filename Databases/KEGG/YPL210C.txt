@@ -1,16 +1,23 @@
 ENTRY       YPL210C           CDS       T00005
 NAME        SRP72
-DEFINITION  Srp72p
+DEFINITION  (RefSeq) signal recognition particle subunit SRP72
 ORTHOLOGY   K03108  signal recognition particle subunit SRP72
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03060  Protein export
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Protein export [PATH:sce03060]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               03060 Protein export
+                YPL210C (SRP72)
+            Secretion system [BR:sce02044]
+             Sec (secretion) system
+              Eukaryotic Sec-SRP protein
+               YPL210C (SRP72)
 POSITION    XVI:complement(154290..156212)
-MOTIF       Pfam: SRP72 TPR_2 TPR_12 TPR_11 TPR_19 Apc3 TPR_5 TPR_7 TPR_1 TPR_8
-DBLINKS     NCBI-GI: 37362700
+MOTIF       Pfam: SRP72 TPR_2 SRP_TPR_like TPR_12 TPR_19 TPR_5 TPR_1 TPR_7 Clathrin
+DBLINKS     NCBI-ProteinID: NP_015114
             NCBI-GeneID: 855891
             SGD: S000006131
-            MIPS: YPL210C
             UniProt: P38688
 AASEQ       640
             MAKDNLTNLLSQLNIQLSQDEHSQVEQTCVKLLDSGCENPADVFRRCLVAVIQQDKYQKA

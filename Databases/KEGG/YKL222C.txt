@@ -1,12 +1,11 @@
 ENTRY       YKL222C           CDS       T00005
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) hypothetical protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XI:complement(3503..5620)
-MOTIF       Pfam: Fungal_trans Zn_clus ERM
-DBLINKS     NCBI-GI: 6322627
+MOTIF       Pfam: Fungal_trans Zn_clus
+DBLINKS     NCBI-ProteinID: NP_012700
             NCBI-GeneID: 853658
             SGD: S000001705
-            MIPS: YKL222C
             UniProt: P35995
 AASEQ       705
             MKNTELSQKKKLDRQSRRKPAKSCHFCRVRKLKCDRVRPFCGSCSSRNRKQCEYKENTSA

@@ -1,13 +1,19 @@
 ENTRY       YMR255W           CDS       T00005
 NAME        GFD1
-DEFINITION  Gfd1p
+DEFINITION  (RefSeq) Gfd1p
+ORTHOLOGY   K18731  mRNA transport factor GFD1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Transport factors
+                Other transport factors
+                 YMR255W (GFD1)
 POSITION    XIII:778001..778567
-MOTIF       Pfam: SAGA-Tad1
-DBLINKS     NCBI-GI: 6323911
+MOTIF       Pfam: GFD1 MKRN1_C
+DBLINKS     NCBI-ProteinID: NP_013982
             NCBI-GeneID: 855297
             SGD: S000004868
-            MIPS: YMR255W
             UniProt: Q04839
 STRUCTURE   PDB: 3LCN
 AASEQ       188

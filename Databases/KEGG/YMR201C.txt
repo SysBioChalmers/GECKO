@@ -1,17 +1,27 @@
 ENTRY       YMR201C           CDS       T00005
 NAME        RAD14
-DEFINITION  Rad14p
+DEFINITION  (RefSeq) Rad14p
 ORTHOLOGY   K10847  DNA-repair protein complementing XP-A cells
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03420  Nucleotide excision repair
-CLASS       Genetic Information Processing; Replication and repair; Nucleotide excision repair [PATH:sce03420]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Replication and repair
+               03420 Nucleotide excision repair
+                YMR201C (RAD14)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              SSBR (single strand breaks repair)
+               NER (nucleotide excision repair)
+                Other NER factors
+                 YMR201C (RAD14)
 POSITION    XIII:complement(join(665845..666933,667018..667044))
-MOTIF       Pfam: XPA_C XPA_N
-DBLINKS     NCBI-GI: 6323857
+MOTIF       Pfam: XPA_C XPA_N GA-like
+DBLINKS     NCBI-ProteinID: NP_013928
             NCBI-GeneID: 855241
             SGD: S000004814
-            MIPS: YMR201C
             UniProt: P28519
+STRUCTURE   PDB: 5A3D 5G34 5G35 5G32 5G33 5A39
 AASEQ       371
             MTPEQKAKLEANRKLAIERLRKRGILSSDQLNRIESRNEPLKTRPLAVTSGSNRDDNAAA
             AVHVPNHNGQPSALANTNTNTTSLYGSGVVDGSKRDASVLDKRPTDRIRPSIRKQDYIEY

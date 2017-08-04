@@ -1,14 +1,18 @@
 ENTRY       YPR029C           CDS       T00005
 NAME        APL4
-DEFINITION  Apl4p
+DEFINITION  (RefSeq) Apl4p
 ORTHOLOGY   K12391  AP-1 complex subunit gamma-1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endosome - Golgi transport
+              Others
+               AP-1 complex
+                YPR029C (APL4)
 POSITION    XVI:complement(624469..626967)
-MOTIF       Pfam: Adaptin_N Alpha_adaptinC2
-DBLINKS     NCBI-GI: 6325286
+MOTIF       Pfam: Adaptin_N Alpha_adaptinC2 Maelstrom
+DBLINKS     NCBI-ProteinID: NP_015354
             NCBI-GeneID: 856141
             SGD: S000006233
-            MIPS: YPR029C
             UniProt: Q12028
 AASEQ       832
             MGSSLRSFIKDVRGAKTLADERAIITKQSAKIRTKLRDDHLPHEKRRVNIQKLLYLYILG

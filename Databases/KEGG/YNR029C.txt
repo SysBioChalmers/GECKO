@@ -1,12 +1,11 @@
 ENTRY       YNR029C           CDS       T00005
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) hypothetical protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIV:complement(677199..678488)
-MOTIF       Pfam: cobW CobW_C AAA_18 MobB AAA_29 MMR_HSR1 GTP_EFTU NACHT Arch_ATPase AAA_23 AAA_14 AAA_16 AAA_10 AAA_17
-DBLINKS     NCBI-GI: 398365701
+MOTIF       Pfam: cobW CobW_C RsgA_GTPase GTP_EFTU AAA_29 NACHT AAA_23 AAA_16 ATPase_2 AAA_18
+DBLINKS     NCBI-ProteinID: NP_014426
             NCBI-GeneID: 855763
             SGD: S000005312
-            MIPS: YNR029C
             UniProt: P53729
 AASEQ       429
             MSALRNIKFNEEEDGELPCLVTGEENNLQEILENVSYDGGNIVSDAKVERVNKQVENTSA

@@ -1,13 +1,12 @@
 ENTRY       YGR146C           CDS       T00005
 NAME        ECL1
-DEFINITION  Ecl1p
+DEFINITION  (RefSeq) Ecl1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:complement(784223..784858)
-MOTIF       Pfam: Ecl1 zf-FCS
-DBLINKS     NCBI-GI: 398365889
+MOTIF       Pfam: Ecl1
+DBLINKS     NCBI-ProteinID: NP_011662
             NCBI-GeneID: 853049
             SGD: S000003378
-            MIPS: YGR146C
             UniProt: P48235
 AASEQ       211
             MSTAFNDYCTVCDRLIPTSPQKTNINTRKIQRDNETKSSLQSNKLYCSEDCKLKDSNPLN

@@ -1,14 +1,18 @@
 ENTRY       YPR100W           CDS       T00005
 NAME        MRPL51
-DEFINITION  mitochondrial 54S ribosomal protein MRPL51
-ORTHOLOGY   K17424  large subunit ribosomal protein L43, mitochondrial
+DEFINITION  (RefSeq) mitochondrial 54S ribosomal protein MRPL51
+ORTHOLOGY   K17424  large subunit ribosomal protein L43
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Mitochondria/ Chloroplast
+               Large subunit
+                YPR100W (MRPL51)
 POSITION    XVI:729791..730213
 MOTIF       Pfam: L51_S25_CI-B8
-DBLINKS     NCBI-GI: 6325356
+DBLINKS     NCBI-ProteinID: NP_015425
             NCBI-GeneID: 856214
             SGD: S000006304
-            MIPS: YPR100W
             UniProt: Q06090
 AASEQ       140
             MVVKAIARNSIGRNGVGAFVFPCRKITLQFCNWGGSSEGMRKFLTSKRLDKWGQEFPWIQ

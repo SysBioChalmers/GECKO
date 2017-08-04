@@ -1,13 +1,12 @@
 ENTRY       YOL081W           CDS       T00005
 NAME        IRA2, CCS1, GLC4
-DEFINITION  Ira2p
+DEFINITION  (RefSeq) Ras GTPase activating protein IRA2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:171070..180309
 MOTIF       Pfam: RasGAP
-DBLINKS     NCBI-GI: 6324491
+DBLINKS     NCBI-ProteinID: NP_014560
             NCBI-GeneID: 854073
             SGD: S000005441
-            MIPS: YOL081W
             UniProt: P19158
 AASEQ       3079
             MSQPTKNKKKEHGTDSKSSRMTRTLVNHILFERILPILPVESNLSTYSEVEEYSSFISCR

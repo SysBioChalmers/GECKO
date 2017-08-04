@@ -1,14 +1,22 @@
 ENTRY       YDR238C           CDS       T00005
 NAME        SEC26
-DEFINITION  Sec26p
-ORTHOLOGY   K17301  coatomer, subunit beta
+DEFINITION  (RefSeq) coatomer subunit beta
+ORTHOLOGY   K17301  coatomer subunit beta
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endoplasmic reticulum (ER) - Golgi transport
+              Retrieval pathways
+               Coat protein complex I (COP-I)
+                YDR238C (SEC26)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of colorectal cancer cells
+               YDR238C (SEC26)
 POSITION    IV:complement(937895..940816)
-MOTIF       Pfam: Adaptin_N Coatomer_b_Cpla Coatamer_beta_C HEAT_2 Vac14_Fab1_bd
-DBLINKS     NCBI-GI: 398366227
+MOTIF       Pfam: Adaptin_N Coatomer_b_Cpla Coatamer_beta_C Cnd1 Vac14_Fab1_bd
+DBLINKS     NCBI-ProteinID: NP_010524
             NCBI-GeneID: 851824
             SGD: S000002646
-            MIPS: YDR238C
             UniProt: P41810
 AASEQ       973
             MTSLSSQPAYTLVFDPSPSMETYSSTDFQKALEKGSDEQKIDTMKSILVTMLEGNPMPEL

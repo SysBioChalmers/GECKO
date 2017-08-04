@@ -1,16 +1,25 @@
 ENTRY       YNL067W           CDS       T00005
 NAME        RPL9B
-DEFINITION  ribosomal 60S subunit protein L9B
+DEFINITION  (RefSeq) ribosomal 60S subunit protein L9B
 ORTHOLOGY   K02940  large subunit ribosomal protein L9e
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03010  Ribosome
-CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+MODULE      sce_M00177  Ribosome, eukaryotes
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03010 Ribosome
+                YNL067W (RPL9B)
+            Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Eukaryotes
+               Large subunit
+                YNL067W (RPL9B)
 POSITION    XIV:499681..500256
-MOTIF       Pfam: Ribosomal_L6
-DBLINKS     NCBI-GI: 6324262
+MOTIF       Pfam: Ribosomal_L6 DUF2096
+DBLINKS     NCBI-ProteinID: NP_014332
             NCBI-GeneID: 855658
             SGD: S000005011
-            MIPS: YNL067W
             UniProt: P51401
 AASEQ       191
             MKYIQTEQQIEIPEGVTVSIKSRIVKVVGPRGTLTKNLKHIDVTFTKVNNQLIKVAVHNG

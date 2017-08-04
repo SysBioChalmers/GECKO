@@ -1,13 +1,12 @@
 ENTRY       YIL132C           CDS       T00005
 NAME        CSM2
-DEFINITION  Csm2p
+DEFINITION  (RefSeq) Csm2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IX:complement(99860..100501)
-MOTIF       Pfam: Acatn LolA
-DBLINKS     NCBI-GI: 6322059
+MOTIF       Pfam: CSM2
+DBLINKS     NCBI-ProteinID: NP_012134
             NCBI-GeneID: 854674
             SGD: S000001394
-            MIPS: YIL132C
             UniProt: P40465
 STRUCTURE   PDB: 3VU9 4EQ6 4DT1
 AASEQ       213

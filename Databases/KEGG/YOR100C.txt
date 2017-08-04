@@ -1,14 +1,17 @@
 ENTRY       YOR100C           CDS       T00005
 NAME        CRC1
-DEFINITION  Crc1p
+DEFINITION  (RefSeq) carnitine:acyl carnitine antiporter
 ORTHOLOGY   K15109  solute carrier family 25 (mitochondrial carnitine/acylcarnitine transporter), member 20/29
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Solute Carrier Family (SLC)
+              SLC25: Mitochondrial carrier
+               YOR100C (CRC1)
 POSITION    XV:complement(513295..514278)
 MOTIF       Pfam: Mito_carr
-DBLINKS     NCBI-GI: 6324674
+DBLINKS     NCBI-ProteinID: NP_014743
             NCBI-GeneID: 854267
             SGD: S000005626
-            MIPS: YOR100C
             UniProt: Q12289
 AASEQ       327
             MSSDTSLSESSLLKEESGSLTKSRPPIKSNPVRENIKSFVAGGVGGVCAVFTGHPFDLIK

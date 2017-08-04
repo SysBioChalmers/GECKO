@@ -1,21 +1,36 @@
 ENTRY       YER090W           CDS       T00005
 NAME        TRP2
-DEFINITION  anthranilate synthase TRP2 (EC:4.1.3.27)
+DEFINITION  (RefSeq) anthranilate synthase TRP2
 ORTHOLOGY   K01657  anthranilate synthase component I [EC:4.1.3.27]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00400  Phenylalanine, tyrosine and tryptophan biosynthesis
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
+            sce01130  Biosynthesis of antibiotics
             sce01230  Biosynthesis of amino acids
 MODULE      sce_M00023  Tryptophan biosynthesis, chorismate => tryptophan
-CLASS       Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
-            Metabolism; Amino acid metabolism; Phenylalanine, tyrosine and tryptophan biosynthesis [PATH:sce00400]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01230 Biosynthesis of amino acids
+                YER090W (TRP2)
+              Amino acid metabolism
+               00400 Phenylalanine, tyrosine and tryptophan biosynthesis
+                YER090W (TRP2)
+              Biosynthesis of other secondary metabolites
+               00405 Phenazine biosynthesis
+                YER090W (TRP2)
+            Enzymes [BR:sce01000]
+             4. Lyases
+              4.1  Carbon-carbon lyases
+               4.1.3  Oxo-acid-lyases
+                4.1.3.27  anthranilate synthase
+                 YER090W (TRP2)
 POSITION    V:337949..339472
 MOTIF       Pfam: Chorismate_bind Anth_synt_I_N POR
-DBLINKS     NCBI-GI: 6320935
+DBLINKS     NCBI-ProteinID: NP_011014
             NCBI-GeneID: 856824
             SGD: S000000892
-            MIPS: YER090W
             UniProt: P00899
 AASEQ       507
             MTASIKIQPDIDSLKQLQQQNDDSSINMYPVYAYLPSLDLTPHVAYLKLAQLNNPDRKES

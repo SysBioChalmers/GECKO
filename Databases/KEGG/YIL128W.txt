@@ -1,14 +1,19 @@
 ENTRY       YIL128W           CDS       T00005
 NAME        MET18, MMS19
-DEFINITION  Met18p
+DEFINITION  (RefSeq) Met18p
 ORTHOLOGY   K15075  DNA repair/transcription protein MET18/MMS19
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              SSBR (single strand breaks repair)
+               NER (nucleotide excision repair)
+                Other NER factors
+                 YIL128W (MET18)
 POSITION    IX:113806..116904
-MOTIF       Pfam: MMS19_C MMS19_N HEAT HEAT_2 DUF2435 YobH
-DBLINKS     NCBI-GI: 6322063
+MOTIF       Pfam: MMS19_C MMS19_N HEAT RTP1_C1 HEAT_2
+DBLINKS     NCBI-ProteinID: NP_012138
             NCBI-GeneID: 854678
             SGD: S000001390
-            MIPS: YIL128W
             UniProt: P40469
 AASEQ       1032
             MTPDELNSAVVTFMANLNIDDSKANETASTVTDSIVHRSIKLLEVVVALKDYFLSENEVE

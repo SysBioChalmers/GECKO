@@ -1,13 +1,27 @@
 ENTRY       YLL062C           CDS       T00005
 NAME        MHT1
-DEFINITION  Mht1p (EC:2.1.1.10)
+DEFINITION  (RefSeq) S-adenosylmethionine-homocysteine S-methyltransferase MHT1
+ORTHOLOGY   K00547  homocysteine S-methyltransferase [EC:2.1.1.10]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00270  Cysteine and methionine metabolism
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Amino acid metabolism
+               00270 Cysteine and methionine metabolism
+                YLL062C (MHT1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.1  Transferring one-carbon groups
+               2.1.1  Methyltransferases
+                2.1.1.10  homocysteine S-methyltransferase
+                 YLL062C (MHT1)
 POSITION    XII:complement(16639..17613)
 MOTIF       Pfam: S-methyl_trans Kelch_1
-DBLINKS     NCBI-GI: 6322966
+DBLINKS     NCBI-ProteinID: NP_013038
             NCBI-GeneID: 850664
             SGD: S000003985
-            MIPS: YLL062C
             UniProt: Q12525
 AASEQ       324
             MKRIPIKELIVEHPGKVLILDGGQGTELENRGININSPVWSAAPFTSESFWEPSSQERKV

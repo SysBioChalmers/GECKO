@@ -1,18 +1,28 @@
 ENTRY       YMR001C           CDS       T00005
 NAME        CDC5, MSD2, PKX2
-DEFINITION  polo kinase CDC5 (EC:2.7.11.21)
+DEFINITION  (RefSeq) polo kinase CDC5
 ORTHOLOGY   K06660  cell cycle serine/threonine-protein kinase CDC5/MSD2 [EC:2.7.11.21]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
             sce04113  Meiosis - yeast
-CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
-            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YMR001C (CDC5)
+               04113 Meiosis - yeast
+                YMR001C (CDC5)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.11  Protein-serine/threonine kinases
+                2.7.11.21  polo kinase
+                 YMR001C (CDC5)
 POSITION    XIII:complement(269019..271136)
-MOTIF       Pfam: Pkinase Pkinase_Tyr POLO_box Kinase-like SH3_3 Kdo
-DBLINKS     NCBI-GI: 6323643
+MOTIF       Pfam: Pkinase Pkinase_Tyr POLO_box Kinase-like SH3_3 Kdo Haspin_kinase
+DBLINKS     NCBI-ProteinID: NP_013714
             NCBI-GeneID: 855013
             SGD: S000004603
-            MIPS: YMR001C
             UniProt: P32562
 AASEQ       705
             MSLGPLKAINDKQLNTRSKLVHTPIKGNTADLVGKENHFKQTKRLDPNNDHHHQPAQKKK

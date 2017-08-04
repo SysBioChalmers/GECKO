@@ -1,16 +1,30 @@
 ENTRY       YPL047W           CDS       T00005
 NAME        SGF11
-DEFINITION  Sgf11p
+DEFINITION  (RefSeq) SAGA histone acetyltransferase complex subunit SGF11
 ORTHOLOGY   K11363  SAGA-associated factor 11
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Coactivators
+                SAGA/TFTC/STAGA complex
+                 YPL047W (SGF11)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Histone modification proteins
+               HAT complexes
+                SAGA complex
+                 YPL047W (SGF11)
+                SLIK complex
+                 YPL047W (SGF11)
 POSITION    XVI:465962..466261
 MOTIF       Pfam: Sgf11 zf-C2HC_2 zf-CpG_bind_C
-DBLINKS     NCBI-GI: 6325210
+DBLINKS     NCBI-ProteinID: NP_015278
             NCBI-GeneID: 856060
             SGD: S000005968
-            MIPS: YPL047W
             UniProt: Q03067
-STRUCTURE   PDB: 3MHS 4FK5 3KIK 3MHH 4FIP 3M99 3KJL 4FJC 2LO2
+STRUCTURE   PDB: 3MHS 4FK5 3KIK 4WA6 3MHH 4FIP 3M99 3KJL 4W4U 4FJC 4ZUX
+                 2LO2
 AASEQ       99
             MTEETITIDSISNGILNNLLTTLIQDIVARETTQQQLLKTRYPDLRSYYFDPNGSLDING
             LQKQQESSQYIHCENCGRDVSANRLAAHLQRCLSRGARR

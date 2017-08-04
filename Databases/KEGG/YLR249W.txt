@@ -1,14 +1,17 @@
 ENTRY       YLR249W           CDS       T00005
 NAME        YEF3, TEF3
-DEFINITION  Yef3p
+DEFINITION  (RefSeq) translation elongation factor EF-3
 ORTHOLOGY   K03235  elongation factor 3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Translation factors [BR:sce03012]
+             Eukaryotic Type
+              Elongation factors
+               YLR249W (YEF3)
 POSITION    XII:636780..639914
-MOTIF       Pfam: ABC_tran AAA_21 SMC_N AAA_23 AAA_22 AAA_17 AAA_29 AAA_28 DUF258 Dynamin_N MMR_HSR1 RNA_helicase AAA Miro ArgK AAA_18 Arch_ATPase AAA_10 AAA_15 SbcCD_C AAA_14 ParcG AAA_33 MobB AAA_16 HEAT_2 NACHT MutS_V DUF87 PduV-EutP CLASP_N Rad17 Adeno_IVa2 UME T2SE FeoB_N
-DBLINKS     NCBI-GI: 6323278
+MOTIF       Pfam: ABC_tran AAA_21 SMC_N AAA_23 AAA_29 AAA_28 AAA_22 RsgA_GTPase MMR_HSR1 Dynamin_N RNA_helicase AAA AAA_15 ArgK AAA_18 ParcG AAA_16 ATPase_2 AAA_33 HEAT_2 DUF87 AAA_14 NACHT AAA_27 UME PduV-EutP Rad17 SbcCD_C HEAT_EZ CLASP_N Tricho_coat T2SSE RE_HindVP Adaptin_N
+DBLINKS     NCBI-ProteinID: NP_013350
             NCBI-GeneID: 850951
             SGD: S000004239
-            MIPS: YLR249W
             UniProt: P16521
 STRUCTURE   PDB: 2IX8 2IX3 2IWH 2IW3
 AASEQ       1044

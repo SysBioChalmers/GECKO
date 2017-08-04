@@ -1,17 +1,26 @@
 ENTRY       YBL098W           CDS       T00005
 NAME        BNA4
-DEFINITION  kynurenine 3-monooxygenase (EC:1.14.13.9)
+DEFINITION  (RefSeq) kynurenine 3-monooxygenase
 ORTHOLOGY   K00486  kynurenine 3-monooxygenase [EC:1.14.13.9]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00380  Tryptophan metabolism
             sce01100  Metabolic pathways
-CLASS       Metabolism; Amino acid metabolism; Tryptophan metabolism [PATH:sce00380]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Amino acid metabolism
+               00380 Tryptophan metabolism
+                YBL098W (BNA4)
+            Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.14  Acting on paired donors, with incorporation or reduction of molecular oxygen
+               1.14.13  With NADH or NADPH as one donor, and incorporation of one atom of oxygen into the other donor
+                1.14.13.9  kynurenine 3-monooxygenase
+                 YBL098W (BNA4)
 POSITION    II:39145..40527
-MOTIF       Pfam: FAD_binding_3 Pyr_redox DAO GIDA NAD_binding_8 3HCDH_N SE ApbA Pyr_redox_2 UDPG_MGDP_dh_N FAD_binding_2 HI0933_like NAD_Gly3P_dh_N NAD_binding_2 FAD_oxidored
-DBLINKS     NCBI-GI: 6319372
+MOTIF       Pfam: FAD_binding_3 DAO GIDA Pyr_redox NAD_binding_8 Pyr_redox_2 3HCDH_N SE ApbA FAD_binding_2 UDPG_MGDP_dh_N HI0933_like AlaDh_PNT_C NAD_binding_2
+DBLINKS     NCBI-ProteinID: NP_009454
             NCBI-GeneID: 852179
             SGD: S000000194
-            MIPS: YBL098W
             UniProt: P38169
 STRUCTURE   PDB: 4J33 4J34 4J36 4J31 4J2W
 AASEQ       460

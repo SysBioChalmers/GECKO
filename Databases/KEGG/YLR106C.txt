@@ -1,16 +1,24 @@
 ENTRY       YLR106C           CDS       T00005
 NAME        MDN1, REA1
-DEFINITION  AAA family ATPase midasin
+DEFINITION  (RefSeq) AAA family ATPase midasin
 ORTHOLOGY   K14572  midasin
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03008  Ribosome biogenesis in eukaryotes
-CLASS       Genetic Information Processing; Translation; Ribosome biogenesis in eukaryotes [PATH:sce03008]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03008 Ribosome biogenesis in eukaryotes
+                YLR106C (MDN1)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               Other pre-60S particles
+                YLR106C (MDN1)
 POSITION    XII:complement(349006..363738)
-MOTIF       Pfam: AAA_5 AAA_3 AAA AAA_17 AAA_16 Sigma54_activ_2 Sigma54_activat AAA_14 AAA_33 AAA_22 T2SE Zeta_toxin UPF0079 RNA_helicase MobB ABC_tran Miro AAA_19 AAA_18 PduV-EutP DUF258 AAA_25 AAA_29 NACHT IstB_IS21 SRP54 RuvB_N
-DBLINKS     NCBI-GI: 6323135
+MOTIF       Pfam: AAA_5 AAA_3 AAA AAA_16 AAA_18 Sigma54_activat Sigma54_activ_2 AAA_22 AAA_14 TsaE AAA_30 AAA_33 RNA_helicase ABC_tran T2SSE RsgA_GTPase Zeta_toxin AAA_19 AAA_25 PduV-EutP NACHT DUF815 RuvB_N SRP54 VWA AAA_7 KAP_NTPase TniB ResIII CbiA
+DBLINKS     NCBI-ProteinID: NP_013207
             NCBI-GeneID: 850796
             SGD: S000004096
-            MIPS: YLR106C
             UniProt: Q12019
 AASEQ       4910
             MSQDRILLDLDVVNQRLILFNSAFPSDAIEAPFHFSNKESTSENLDNLAGTILHSRSITG

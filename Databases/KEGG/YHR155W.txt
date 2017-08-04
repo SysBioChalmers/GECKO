@@ -1,13 +1,12 @@
 ENTRY       YHR155W           CDS       T00005
-NAME        YSP1
-DEFINITION  Ysp1p
+NAME        LAM1, YSP1
+DEFINITION  (RefSeq) Lam1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VIII:407103..410789
-MOTIF       Pfam: PH
-DBLINKS     NCBI-GI: 6321949
+MOTIF       Pfam: PH DUF4782 BAR_3 E2F_CC-MB
+DBLINKS     NCBI-ProteinID: NP_012025
             NCBI-GeneID: 856560
             SGD: S000001198
-            MIPS: YHR155W
             UniProt: P38851
 AASEQ       1228
             MHEHKAELRLITVALNEASTDSPSFRASVNYFHTRMESLSSWMHSTVDYVENTYKPSFQD

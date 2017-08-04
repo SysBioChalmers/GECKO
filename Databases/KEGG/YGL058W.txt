@@ -1,18 +1,36 @@
 ENTRY       YGL058W           CDS       T00005
 NAME        RAD6, PSO8, UBC2
-DEFINITION  E2 ubiquitin-conjugating protein RAD6 (EC:6.3.2.19)
-ORTHOLOGY   K10573  ubiquitin-conjugating enzyme E2 A [EC:6.3.2.19]
+DEFINITION  (RefSeq) E2 ubiquitin-conjugating protein RAD6
+ORTHOLOGY   K10573  ubiquitin-conjugating enzyme E2 A [EC:2.3.2.23]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04120  Ubiquitin mediated proteolysis
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Ubiquitin mediated proteolysis [PATH:sce04120]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04120 Ubiquitin mediated proteolysis
+                YGL058W (RAD6)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.3  Acyltransferases
+               2.3.2  Aminoacyltransferases
+                2.3.2.23  E2 ubiquitin-conjugating enzyme
+                 YGL058W (RAD6)
+            Ubiquitin system [BR:sce04121]
+             Ubiquitin-conjugating enzymes (E2)
+              Ubiquitin-conjugating enzymes
+               YGL058W (RAD6)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              TLS (translesion DNA synthesis) factors
+               Rad6 epistasis group
+                YGL058W (RAD6)
 POSITION    VII:393986..394504
-MOTIF       Pfam: UQ_con Prok-E2_B RWD UEV
-DBLINKS     NCBI-GI: 6321380
+MOTIF       Pfam: UQ_con Prok-E2_B RWD Leuk-A4-hydro_C UEV
+DBLINKS     NCBI-ProteinID: NP_011457
             NCBI-GeneID: 852822
             SGD: S000003026
-            MIPS: YGL058W
             UniProt: P06104
-STRUCTURE   PDB: 1AYZ
+STRUCTURE   PDB: 4R62 1AYZ
 AASEQ       172
             MSTPARRRLMRDFKRMKEDAPPGVSASPLPDNVMVWNAMIIGPADTPYEDGTFRLLLEFD
             EEYPNKPPHVKFLSEMFHPNVYANGEICLDILQNRWTPTYDVASILTSIQSLFNDPNPAS

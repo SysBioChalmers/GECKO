@@ -1,14 +1,22 @@
 ENTRY       YOR112W           CDS       T00005
 NAME        CEX1
-DEFINITION  Cex1p
+DEFINITION  (RefSeq) Cex1p
 ORTHOLOGY   K08876  SCY1-like protein 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Protein kinases [BR:sce01001]
+             Serine/threonine protein kinases: Other group
+              SCY1 family [OT]
+               YOR112W (CEX1)
+            Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              tRNA transport factors
+               tRNA export factors
+                YOR112W (CEX1)
 POSITION    XV:531508..533793
-MOTIF       Pfam: HEAT
-DBLINKS     NCBI-GI: 6324686
+MOTIF       Pfam: Cnd1
+DBLINKS     NCBI-ProteinID: NP_014755
             NCBI-GeneID: 854279
             SGD: S000005638
-            MIPS: YOR112W
             UniProt: Q12453
 STRUCTURE   PDB: 3VWA
 AASEQ       761

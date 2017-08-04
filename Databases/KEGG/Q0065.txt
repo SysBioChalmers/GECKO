@@ -1,13 +1,12 @@
 ENTRY       Q0065             CDS       T00005
 NAME        AI4
-DEFINITION  intron-encoded DNA endonuclease aI4 (EC:3.1.-.-)
+DEFINITION  (RefSeq) intron-encoded DNA endonuclease aI4
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    MT:join(13818..13986,16435..16470,18954..18991,20508..21935)
-MOTIF       Pfam: COX1 LAGLIDADG_1 LAGLIDADG_3 Hom_end
-DBLINKS     NCBI-GI: 85666123
+MOTIF       Pfam: COX1 LAGLIDADG_1 LAGLIDADG_3 DUF695 Hom_end
+DBLINKS     NCBI-ProteinID: NP_009307
             NCBI-GeneID: 854596
             SGD: S000007264
-            MIPS: Q0065
             UniProt: P03878
 AASEQ       556
             MVQRWLYSTNAKDIAVLYFMLAIFSGMAGTAMSLIIRLELAAPGSQYLHGNSQLFNVLVV

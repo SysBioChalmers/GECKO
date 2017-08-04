@@ -1,14 +1,25 @@
 ENTRY       YPL242C           CDS       T00005
 NAME        IQG1, CYK1
-DEFINITION  Iqg1p
+DEFINITION  (RefSeq) Iqg1p
 ORTHOLOGY   K05767  Ras GTPase-activating-like protein IQGAP2/3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Cytoskeleton proteins [BR:sce04812]
+             Eukaryotic cytoskeleton proteins
+              Actin filaments / Microfilaments
+               Actin-binding proteins
+                Others
+                 YPL242C (IQG1)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of other body fluids (saliva and urine)
+               YPL242C (IQG1)
+              Exosomal proteins of colorectal cancer cells
+               YPL242C (IQG1)
 POSITION    XVI:complement(90622..95109)
-MOTIF       Pfam: RasGAP_C RasGAP CH IQ DUF972
-DBLINKS     NCBI-GI: 6325014
+MOTIF       Pfam: RasGAP_C RasGAP CH IQ YabB
+DBLINKS     NCBI-ProteinID: NP_015082
             NCBI-GeneID: 855834
             SGD: S000006163
-            MIPS: YPL242C
             UniProt: Q12280
 AASEQ       1495
             MTAYSGSPSKPGNNNSYLNRYVENLGTNVTPPLRPQSSSKINSSLNIASPSHLKTKTSAS

@@ -1,14 +1,23 @@
 ENTRY       YPL051W           CDS       T00005
 NAME        ARL3
-DEFINITION  Arl3p
+DEFINITION  (RefSeq) Arf family GTPase ARL3
 ORTHOLOGY   K07952  ADP-ribosylation factor related protein 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endosome - Golgi transport
+              Arf GTPases and associated proteins
+               Arf GTPases
+                YPL051W (ARL3)
+            GTP-binding proteins [BR:sce04031]
+             Small (Monomeric) G-proteins
+              Arf/Sar Family
+               Arp
+                YPL051W (ARL3)
 POSITION    XVI:459963..460559
-MOTIF       Pfam: Arf Ras SRPRB Miro G-alpha GTP_EFTU Gtr1_RagA MMR_HSR1 AAA_22 Thymidylate_kin AAA_14
-DBLINKS     NCBI-GI: 6325206
+MOTIF       Pfam: Arf Ras SRPRB Roc G-alpha Gtr1_RagA GTP_EFTU MMR_HSR1 AAA_18 AAA_22 AAA_24 Thymidylate_kin tRNA_lig_CPD
+DBLINKS     NCBI-ProteinID: NP_015274
             NCBI-GeneID: 856056
             SGD: S000005972
-            MIPS: YPL051W
             UniProt: Q02804
 AASEQ       198
             MFHLVKGLYNNWNKKEQYSILILGLDNAGKTTFLETLKKEYSLAFKALEKIQPTVGQNVA

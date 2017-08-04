@@ -1,24 +1,37 @@
 ENTRY       YGR043C           CDS       T00005
 NAME        NQM1
-DEFINITION  sedoheptulose-7-phosphate:D-glyceraldehyde-3-phosphate transaldolase NQM1 (EC:2.2.1.2)
+DEFINITION  (RefSeq) sedoheptulose-7-phosphate:D-glyceraldehyde-3-phosphate transaldolase NQM1
 ORTHOLOGY   K00616  transaldolase [EC:2.2.1.2]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00030  Pentose phosphate pathway
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
+            sce01130  Biosynthesis of antibiotics
             sce01200  Carbon metabolism
             sce01230  Biosynthesis of amino acids
 MODULE      sce_M00004  Pentose phosphate pathway (Pentose phosphate cycle)
             sce_M00007  Pentose phosphate pathway, non-oxidative phase, fructose 6P => ribose 5P
-CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
-            Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
-            Metabolism; Carbohydrate metabolism; Pentose phosphate pathway [PATH:sce00030]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01200 Carbon metabolism
+                YGR043C (NQM1)
+               01230 Biosynthesis of amino acids
+                YGR043C (NQM1)
+              Carbohydrate metabolism
+               00030 Pentose phosphate pathway
+                YGR043C (NQM1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.2  Transferring aldehyde or ketonic groups
+               2.2.1  Transketolases and transaldolases
+                2.2.1.2  transaldolase
+                 YGR043C (NQM1)
 POSITION    VII:complement(580435..581436)
-MOTIF       Pfam: Transaldolase
-DBLINKS     NCBI-GI: 6321480
+MOTIF       Pfam: TAL_FSA
+DBLINKS     NCBI-ProteinID: NP_011557
             NCBI-GeneID: 852934
             SGD: S000003275
-            MIPS: YGR043C
             UniProt: P53228
 STRUCTURE   PDB: 3CQ0
 AASEQ       333

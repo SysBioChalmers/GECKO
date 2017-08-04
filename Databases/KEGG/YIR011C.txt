@@ -1,14 +1,18 @@
 ENTRY       YIR011C           CDS       T00005
 NAME        STS1, DBF8, SSM5
-DEFINITION  Sts1p
+DEFINITION  (RefSeq) Sts1p
 ORTHOLOGY   K11888  protein Cut8
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Proteasome [BR:sce03051]
+             Eukaryotic proteasome
+              Proteasome interacting proteins (PIPs)
+               Other PIPs
+                YIR011C (STS1)
 POSITION    IX:complement(377287..378246)
-MOTIF       Pfam: Cut8_C Cut8_M Cut8_N
-DBLINKS     NCBI-GI: 6322201
+MOTIF       Pfam: Cut8
+DBLINKS     NCBI-ProteinID: NP_012276
             NCBI-GeneID: 854828
             SGD: S000001450
-            MIPS: YIR011C
             UniProt: P38637
 AASEQ       319
             MMGFEWGFKPSSKITQSTVSSQGTGNVMIPTAGVKQKRRYANEEQEEEELPRNKNVMKYG

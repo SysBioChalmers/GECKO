@@ -1,13 +1,11 @@
 ENTRY       YML058W           CDS       T00005
 NAME        SML1
-DEFINITION  Sml1p
+DEFINITION  (RefSeq) ribonucleotide reductase inhibiting protein SML1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:159383..159697
-MOTIF       Pfam: RNR_inhib Mst1_SARAH
-DBLINKS     NCBI-GI: 6323582
+DBLINKS     NCBI-ProteinID: NP_013653
             NCBI-GeneID: 854945
             SGD: S000004523
-            MIPS: YML058W
             UniProt: Q04964
 AASEQ       104
             MQNSQDYFYAQNRCQQQQAPSTLRTVTMAEFRRVPLPPMAEVPMLSTQNSMGSSASASAS

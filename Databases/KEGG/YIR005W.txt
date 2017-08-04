@@ -1,15 +1,22 @@
 ENTRY       YIR005W           CDS       T00005
 NAME        IST3, SNU17
-DEFINITION  Ist3p
+DEFINITION  (RefSeq) U2 snRNP complex subunit IST3
 ORTHOLOGY   K13107  RNA-binding motif protein, X-linked 2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Spliceosome [BR:sce03041]
+             Complex B
+              Other components
+               RES complex
+                YIR005W (IST3)
+             Complex C
+                YIR005W (IST3)
 POSITION    IX:364889..365335
-MOTIF       Pfam: RRM_1 RRM_6 RRM_5
-DBLINKS     NCBI-GI: 6322195
+MOTIF       Pfam: RRM_1 RRM_7
+DBLINKS     NCBI-ProteinID: NP_012270
             NCBI-GeneID: 854821
             SGD: S000001444
-            MIPS: YIR005W
             UniProt: P40565
+STRUCTURE   PDB: 5LQW 2MY2 2MY3 4UQT 2MKC
 AASEQ       148
             MNKIQQINDKELQSGILSPHQSWHNEYKDNAYIYIGNLNRELTEGDILTVFSEYGVPVDV
             ILSRDENTGESQGFAYLKYEDQRSTILAVDNLNGFKIGGRALKIDHTFYRPKRSLQKYYE

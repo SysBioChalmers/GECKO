@@ -1,13 +1,18 @@
 ENTRY       YCR088W           CDS       T00005
 NAME        ABP1
-DEFINITION  Abp1p
+DEFINITION  (RefSeq) Abp1p
+ORTHOLOGY   K20520  drebrin-like protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Others
+              Actin-binding proteins
+               Nucleation-promoting factors (NPFs)
+                YCR088W (ABP1)
 POSITION    III:265068..266846
 MOTIF       Pfam: Cofilin_ADF SH3_1 SH3_9 SH3_2
-DBLINKS     NCBI-GI: 6319931
+DBLINKS     NCBI-ProteinID: NP_010012
             NCBI-GeneID: 850450
             SGD: S000000684
-            MIPS: YCR088W
             UniProt: P15891
 STRUCTURE   PDB: 1JO8 1HQZ 2RPN 2K3B
 AASEQ       592

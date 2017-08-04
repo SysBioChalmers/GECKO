@@ -1,17 +1,26 @@
 ENTRY       YDR180W           CDS       T00005
 NAME        SCC2
-DEFINITION  Scc2p
+DEFINITION  (RefSeq) cohesin-loading factor complex subunit SCC2
 ORTHOLOGY   K06672  cohesin loading factor subunit SCC2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
-CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YDR180W (SCC2)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Sister chromatid cohesion proteins
+               Adherin complex
+                YDR180W (SCC2)
 POSITION    IV:821295..825776
-MOTIF       Pfam: Nipped-B_C Cohesin_HEAT
-DBLINKS     NCBI-GI: 398365987
+MOTIF       Pfam: Nipped-B_C Cohesin_HEAT CBM_11
+DBLINKS     NCBI-ProteinID: NP_010466
             NCBI-GeneID: 851761
             SGD: S000002588
-            MIPS: YDR180W
             UniProt: Q04002
+STRUCTURE   PDB: 4XDN
 AASEQ       1493
             MSYPGKDKNIPGRIIEALEDLPLSYLVPKDGLAALVNAPMRVSLPFDKTIFTSADDGRDV
             NINVLGTANSTTSSIKNEAEKERLVFKRPSNFTSSANSVDYVPTNFLEGLSPLAQSVLST

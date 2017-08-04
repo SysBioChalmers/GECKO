@@ -1,14 +1,31 @@
 ENTRY       YPR161C           CDS       T00005
 NAME        SGV1, BUR1
-DEFINITION  Sgv1p (EC:2.7.11.23 2.7.11.22)
+DEFINITION  (RefSeq) cyclin-dependent serine/threonine protein kinase SGV1
 ORTHOLOGY   K15562  serine/threonine-protein kinase BUR1 [EC:2.7.11.22 2.7.11.23]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.11  Protein-serine/threonine kinases
+                2.7.11.22  cyclin-dependent kinase
+                 YPR161C (SGV1)
+                2.7.11.23  [RNA-polymerase]-subunit kinase
+                 YPR161C (SGV1)
+            Protein kinases [BR:sce01001]
+             Serine/threonine protein kinases: CMGC group
+              CDK family
+               YPR161C (SGV1)
+            Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Other transcription-related factors
+                BUR kinase complex
+                 YPR161C (SGV1)
 POSITION    XVI:complement(864449..866422)
-MOTIF       Pfam: Pkinase Pkinase_Tyr Seadorna_VP7
-DBLINKS     NCBI-GI: 6325419
+MOTIF       Pfam: Pkinase Pkinase_Tyr Haspin_kinase Seadorna_VP7
+DBLINKS     NCBI-ProteinID: NP_015487
             NCBI-GeneID: 856290
             SGD: S000006365
-            MIPS: YPR161C
             UniProt: P23293
 AASEQ       657
             MSDNGSPAVLPKTEFNKYKIGKVKSTPAIQRDAKTNLTYIKLRKRSSEKVYGCTVFQNHY

@@ -1,19 +1,28 @@
 ENTRY       YCR035C           CDS       T00005
 NAME        RRP43
-DEFINITION  Rrp43p
+DEFINITION  (RefSeq) exosome non-catalytic core subunit RRP43
 ORTHOLOGY   K12586  exosome complex component RRP43
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03018  RNA degradation
 MODULE      sce_M00391  Exosome, eukaryotes
-CLASS       Genetic Information Processing; Folding, sorting and degradation; RNA degradation [PATH:sce03018]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               03018 RNA degradation
+                YCR035C (RRP43)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA degradation factors
+               3'-5' decay
+                Core exosome factors
+                 YCR035C (RRP43)
 POSITION    III:complement(191834..193018)
-MOTIF       Pfam: RNase_PH RNase_PH_C
-DBLINKS     NCBI-GI: 10383796
+MOTIF       Pfam: RNase_PH
+DBLINKS     NCBI-ProteinID: NP_009964
             NCBI-GeneID: 850401
             SGD: S000000631
-            MIPS: YCR035C
             UniProt: P25359
-STRUCTURE   PDB: 4IFD
+STRUCTURE   PDB: 5JEA 4IFD 5K36 4OO1 5C0X 5G06 5C0W
 AASEQ       394
             MAESTTLETIEIHPITFPPEVLARISPELSLQRHLSLGIRPCLRKYEEFRDVAIENNTLS
             RYADAGNIDTKNNILGSNVLKSGKTIVITSITGGIIEETSAAIKDLDDFGEEELFEVTKE

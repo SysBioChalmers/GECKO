@@ -1,18 +1,51 @@
 ENTRY       YOR048C           CDS       T00005
 NAME        RAT1, HKE1, TAP1, XRN2
-DEFINITION  Rat1p (EC:3.1.13.-)
+DEFINITION  (RefSeq) ssRNA exonuclease RAT1
 ORTHOLOGY   K12619  5'-3' exoribonuclease 2 [EC:3.1.13.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03008  Ribosome biogenesis in eukaryotes
             sce03018  RNA degradation
-CLASS       Genetic Information Processing; Translation; Ribosome biogenesis in eukaryotes [PATH:sce03008]
-            Genetic Information Processing; Folding, sorting and degradation; RNA degradation [PATH:sce03018]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03008 Ribosome biogenesis in eukaryotes
+                YOR048C (RAT1)
+              Folding, sorting and degradation
+               03018 RNA degradation
+                YOR048C (RAT1)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.13  Exoribonucleases producing 5'-phosphomonoesters
+                3.1.13.-  
+                 YOR048C (RAT1)
+            Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Other transcription-related factors
+                Transcription termination factor
+                 YOR048C (RAT1)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA degradation factors
+               5'-3' decay
+                5' exonucleases
+                 YOR048C (RAT1)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               RNases
+                YOR048C (RAT1)
+            Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              tRNA degradation factors
+               Rapid tRNA decay (RTD) pathway factors
+                YOR048C (RAT1)
 POSITION    XV:complement(418630..421650)
 MOTIF       Pfam: XRN_N
-DBLINKS     NCBI-GI: 6324622
+DBLINKS     NCBI-ProteinID: NP_014691
             NCBI-GeneID: 854213
             SGD: S000005574
-            MIPS: YOR048C
             UniProt: Q02792
 AASEQ       1006
             MGVPSFFRWLSRKYPKIISPVLEEQPQIVDGVILPLDYSASNPNGELDNLYLDMNGIVHP

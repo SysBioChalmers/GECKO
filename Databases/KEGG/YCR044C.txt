@@ -1,13 +1,12 @@
 ENTRY       YCR044C           CDS       T00005
 NAME        PER1, COS16
-DEFINITION  Per1p
+DEFINITION  (RefSeq) Per1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    III:complement(206877..207950)
 MOTIF       Pfam: Per1
-DBLINKS     NCBI-GI: 6319892
+DBLINKS     NCBI-ProteinID: NP_009973
             NCBI-GeneID: 850411
             SGD: S000000640
-            MIPS: YCR044C
             UniProt: P25625
 AASEQ       357
             MRLAVVVTLLVHCFLVTCSPGDNLDEFIDCTYACEYNRRCPNSQINYIDPETNMFHDIEF

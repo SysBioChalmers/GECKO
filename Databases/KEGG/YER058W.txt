@@ -1,12 +1,18 @@
 ENTRY       YER058W           CDS       T00005
 NAME        PET117
-DEFINITION  Pet117p
+DEFINITION  (RefSeq) Pet117p
+ORTHOLOGY   K18188  protein PET117
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial quality control factors
+              Mitochondrial respiratory chain complex assembly factors
+               Complex-IV assembly factors
+                YER058W (PET117)
 POSITION    V:271768..272091
-DBLINKS     NCBI-GI: 6320900
+MOTIF       Pfam: PET117 Phage_cap_E
+DBLINKS     NCBI-ProteinID: NP_010979
             NCBI-GeneID: 856786
             SGD: S000000860
-            MIPS: YER058W
             UniProt: Q02771
 AASEQ       107
             MSRASKITFAASCLITAATVVGVHYVQEMERETLHQGPIKDAKRVEEKRLRKTNGVASLD

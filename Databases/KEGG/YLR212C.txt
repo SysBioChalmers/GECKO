@@ -1,15 +1,26 @@
 ENTRY       YLR212C           CDS       T00005
 NAME        TUB4
-DEFINITION  Tub4p
+DEFINITION  (RefSeq) gamma-tubulin
 ORTHOLOGY   K10389  tubulin gamma
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centrosome formation and ciliogenesis proteins
+               Microtubules and associated factors
+                gamma-tubulin ring complex
+                 YLR212C (TUB4)
+            Cytoskeleton proteins [BR:sce04812]
+             Eukaryotic cytoskeleton proteins
+              Microtubules
+               Tubulins
+                YLR212C (TUB4)
 POSITION    XII:complement(564860..566281)
-MOTIF       Pfam: Tubulin Tubulin_C Misat_Tub_SegII
-DBLINKS     NCBI-GI: 6323241
+MOTIF       Pfam: Tubulin Tubulin_C Misat_Tub_SegII Tubulin_3 Tubulin_2
+DBLINKS     NCBI-ProteinID: NP_013313
             NCBI-GeneID: 850909
             SGD: S000004202
-            MIPS: YLR212C
             UniProt: P53378
+STRUCTURE   PDB: 5FLZ 5FM1
 AASEQ       473
             MGGEIITLQAGQCGNHVGKFLWSQLAKEHAIGTDGLSQLPDSSTERDDDTKPFFRENSRN
             KFTPRAIMMDSEPSVIADVENTFRGFFDPRNTWVASDGASAGNSWANGYDIGTRNQDDIL

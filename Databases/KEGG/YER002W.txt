@@ -1,14 +1,18 @@
 ENTRY       YER002W           CDS       T00005
 NAME        NOP16
-DEFINITION  Nop16p
+DEFINITION  (RefSeq) Nop16p
 ORTHOLOGY   K14839  nucleolar protein 16
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               Other pre-60S particles
+                YER002W (NOP16)
 POSITION    V:156803..157498
-MOTIF       Pfam: Nop16 DUF4142
-DBLINKS     NCBI-GI: 398364299
+MOTIF       Pfam: Nop16 Trypan_glycop
+DBLINKS     NCBI-ProteinID: NP_010917
             NCBI-GeneID: 856719
             SGD: S000000804
-            MIPS: YER002W
             UniProt: P40007
 AASEQ       231
             MTSVRKRKMNRSSVGKATRRNKDKQRKINIQSNPIIAANWDYSLTMAQNYKKLGLRAKLQ

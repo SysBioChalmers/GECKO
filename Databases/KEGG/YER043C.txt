@@ -1,17 +1,36 @@
 ENTRY       YER043C           CDS       T00005
 NAME        SAH1
-DEFINITION  adenosylhomocysteinase (EC:3.3.1.1)
+DEFINITION  (RefSeq) adenosylhomocysteinase
 ORTHOLOGY   K01251  adenosylhomocysteinase [EC:3.3.1.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00270  Cysteine and methionine metabolism
             sce01100  Metabolic pathways
-CLASS       Metabolism; Amino acid metabolism; Cysteine and methionine metabolism [PATH:sce00270]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Amino acid metabolism
+               00270 Cysteine and methionine metabolism
+                YER043C (SAH1)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.3  Acting on ether bonds
+               3.3.1  Thioether and trialkylsulfonium hydrolases
+                3.3.1.1  adenosylhomocysteinase
+                 YER043C (SAH1)
+            Protein phosphatases and associated proteins [BR:sce01009]
+             Protein Ser/ Thr phosphatases
+              Phosphoprotein phosphatases (PPPs)
+               Protein phosphatase-1
+                PP1-interacting proteins (PIPs)
+                 YER043C (SAH1)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of other body fluids (saliva and urine)
+               YER043C (SAH1)
 POSITION    V:complement(235770..237119)
-MOTIF       Pfam: AdoHcyase AdoHcyase_NAD 2-Hacid_dh_C TrkA_N IlvN ELFV_dehydrog
-DBLINKS     NCBI-GI: 398364417
+MOTIF       Pfam: AdoHcyase AdoHcyase_NAD 2-Hacid_dh_C TrkA_N IlvN PALP
+DBLINKS     NCBI-ProteinID: NP_010961
             NCBI-GeneID: 856766
             SGD: S000000845
-            MIPS: YER043C
             UniProt: P39954
 AASEQ       449
             MSAPAQNYKIADISLAAFGRKEIELAEHEMPGLMAIRKAYGDVQPLKGARIAGCLHMTIQ

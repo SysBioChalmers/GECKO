@@ -1,14 +1,13 @@
 ENTRY       YDR492W           CDS       T00005
 NAME        IZH1
-DEFINITION  Izh1p
+DEFINITION  (RefSeq) PAQR-type receptor
 ORTHOLOGY   K07297  adiponectin receptor
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:1434924..1435874
-MOTIF       Pfam: HlyIII DUF613
-DBLINKS     NCBI-GI: 6320699
+MOTIF       Pfam: HlyIII DUF4118
+DBLINKS     NCBI-ProteinID: NP_010780
             NCBI-GeneID: 852102
             SGD: S000002900
-            MIPS: YDR492W
             UniProt: Q03419
 AASEQ       316
             MSITTTRRRNQDSVCCKATRASIKVEAVSGQTVFEKQKLLHNFDELPEWQKDNDKILTGY

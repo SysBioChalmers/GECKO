@@ -1,16 +1,28 @@
 ENTRY       YNL129W           CDS       T00005
 NAME        NRK1
-DEFINITION  ribosylnicotinamide kinase (EC:2.7.1.22 2.7.1.173)
+DEFINITION  (RefSeq) ribosylnicotinamide kinase
 ORTHOLOGY   K10524  nicotinamide/nicotinate riboside kinase [EC:2.7.1.22 2.7.1.173]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00760  Nicotinate and nicotinamide metabolism
-CLASS       Metabolism; Metabolism of cofactors and vitamins; Nicotinate and nicotinamide metabolism [PATH:sce00760]
+            sce01100  Metabolic pathways
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Metabolism of cofactors and vitamins
+               00760 Nicotinate and nicotinamide metabolism
+                YNL129W (NRK1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.1  Phosphotransferases with an alcohol group as acceptor
+                2.7.1.22  ribosylnicotinamide kinase
+                 YNL129W (NRK1)
+                2.7.1.173  nicotinate riboside kinase
+                 YNL129W (NRK1)
 POSITION    XIV:381480..382202
-MOTIF       Pfam: AAA_18 PRK AAA_17 DUF927 CPT AAA_33 AAA_22 Spermine_synth AAA_28 Zeta_toxin
-DBLINKS     NCBI-GI: 6324200
+MOTIF       Pfam: AAA_18 PRK Cytidylate_kin AAA_33 CPT Spermine_synth DUF927 AAA_22 AAA_28
+DBLINKS     NCBI-ProteinID: NP_014270
             NCBI-GeneID: 855594
             SGD: S000005073
-            MIPS: YNL129W
             UniProt: P53915
 AASEQ       240
             MTSKKVILVALSGCSSSGKTTIAKLTASLFTKATLIHEDDFYKHDNEVPVDAKYNIQNWD

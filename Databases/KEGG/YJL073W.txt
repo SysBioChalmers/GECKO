@@ -1,16 +1,23 @@
 ENTRY       YJL073W           CDS       T00005
 NAME        JEM1, KAR8
-DEFINITION  Jem1p
+DEFINITION  (RefSeq) Jem1p
 ORTHOLOGY   K09523  DnaJ homolog subfamily C member 3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04141  Protein processing in endoplasmic reticulum
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Protein processing in endoplasmic reticulum [PATH:sce04141]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04141 Protein processing in endoplasmic reticulum
+                YJL073W (JEM1)
+            Chaperones and folding catalysts [BR:sce03110]
+             Heat shock proteins
+              HSP40 / DNAJ
+               YJL073W (JEM1)
 POSITION    X:303181..305118
-MOTIF       Pfam: DnaJ
-DBLINKS     NCBI-GI: 398364465
+MOTIF       Pfam: DnaJ CTD_bind
+DBLINKS     NCBI-ProteinID: NP_012462
             NCBI-GeneID: 853372
             SGD: S000003609
-            MIPS: YJL073W
             UniProt: P40358
 AASEQ       645
             MILISGYCLLVYSVILPVLISASKLCDLAELQRLNKNLKVDTESLPKYQWIAGQLEQNCM

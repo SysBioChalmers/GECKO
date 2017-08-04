@@ -1,14 +1,18 @@
 ENTRY       YJL208C           CDS       T00005
 NAME        NUC1
-DEFINITION  Nuc1p (EC:3.1.30.-)
+DEFINITION  (RefSeq) ribonuclease
 ORTHOLOGY   K01173  endonuclease G, mitochondrial
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial DNA transcription, translation, and replication factors
+              Mitochondrial DNA replication factors
+               Mitochondrial DNA maintenance factors
+                YJL208C (NUC1)
 POSITION    X:complement(40194..41183)
-MOTIF       Pfam: Endonuclease_NS FAM150
-DBLINKS     NCBI-GI: 6322253
+MOTIF       Pfam: Endonuclease_NS
+DBLINKS     NCBI-ProteinID: NP_012327
             NCBI-GeneID: 853222
             SGD: S000003744
-            MIPS: YJL208C
             UniProt: P08466
 AASEQ       329
             MCSRILLSGLVGLGAGTGLTYLLLNKHSPTQIIETPYPPTQKPNSNIQSHSFNVDPSGFF

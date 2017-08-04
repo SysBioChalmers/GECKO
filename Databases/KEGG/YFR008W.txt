@@ -1,13 +1,12 @@
 ENTRY       YFR008W           CDS       T00005
 NAME        FAR7
-DEFINITION  Far7p
+DEFINITION  (RefSeq) Far7p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VI:160535..161200
-MOTIF       Pfam: Lin-8
-DBLINKS     NCBI-GI: 14318530
+MOTIF       Pfam: AMPKBI
+DBLINKS     NCBI-ProteinID: NP_116663
             NCBI-GeneID: 850559
             SGD: S000001904
-            MIPS: YFR008W
             UniProt: P43592
 AASEQ       221
             MSDQINVLSMQQQQQQQQQQQQVYMSPQAENLNHMYLLVNKLVKQLRENQAEKAKILRNI

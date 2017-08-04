@@ -1,18 +1,31 @@
 ENTRY       YGR227W           CDS       T00005
 NAME        DIE2, ALG10
-DEFINITION  dolichyl-P-Glc:Glc(2)Man(9)GlcNAc(2)-PP-dolichol alpha-1,2-glucosyltransferase (EC:2.4.1.256)
+DEFINITION  (RefSeq) dolichyl-P-Glc:Glc(2)Man(9)GlcNAc(2)-PP-dolichol alpha-1,2-glucosyltransferase
 ORTHOLOGY   K03850  alpha-1,2-glucosyltransferase [EC:2.4.1.256]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00510  N-Glycan biosynthesis
             sce01100  Metabolic pathways
 MODULE      sce_M00055  N-glycan precursor biosynthesis
-CLASS       Metabolism; Glycan biosynthesis and metabolism; N-Glycan biosynthesis [PATH:sce00510]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Glycan biosynthesis and metabolism
+               00510 N-Glycan biosynthesis
+                YGR227W (DIE2)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.4  Glycosyltransferases
+               2.4.1  Hexosyltransferases
+                2.4.1.256  dolichyl-P-Glc:Glc2Man9GlcNAc2-PP-dolichol alpha-1,2-glucosyltransferase
+                 YGR227W (DIE2)
+            Glycosyltransferases [BR:sce01003]
+             N-Glycan biosynthesis
+              Dol-linked oligosaccharide
+               YGR227W (DIE2)
 POSITION    VII:947420..948997
 MOTIF       Pfam: DIE2_ALG10
-DBLINKS     NCBI-GI: 330443574
+DBLINKS     NCBI-ProteinID: NP_011743
             NCBI-GeneID: 853142
             SGD: S000003459
-            MIPS: YGR227W
             UniProt: P50076
 AASEQ       525
             MDAKKNTGEANNDVLEEEAAIQLIAPGIARNLTQEVITGIFCNVVIYPLLLIYFVLTFRY

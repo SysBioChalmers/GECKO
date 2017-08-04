@@ -1,12 +1,11 @@
 ENTRY       YPL216W           CDS       T00005
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) hypothetical protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:143821..147129
-MOTIF       Pfam: WAC_Acf1_DNA_bd WHIM2 DDT DUF1935 WHIM1
-DBLINKS     NCBI-GI: 6325040
+MOTIF       Pfam: WAC_Acf1_DNA_bd WSD DDT
+DBLINKS     NCBI-ProteinID: NP_015108
             NCBI-GeneID: 855885
             SGD: S000006137
-            MIPS: YPL216W
             UniProt: Q08964
 AASEQ       1102
             MVLLNRRKIQPKEIGQSADSFSETPWVIKESSERINDYDSDLKKLDFYKRDIFTCEISGK

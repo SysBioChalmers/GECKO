@@ -1,14 +1,19 @@
 ENTRY       YDR181C           CDS       T00005
 NAME        SAS4
-DEFINITION  Sas4p
+DEFINITION  (RefSeq) Sas4p
 ORTHOLOGY   K11402  something about silencing protein 4
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Histone modification proteins
+               HAT complexes
+                SAS complex
+                 YDR181C (SAS4)
 POSITION    IV:complement(825910..827355)
-MOTIF       Pfam: SAS4
-DBLINKS     NCBI-GI: 6320387
+MOTIF       Pfam: SAS4 PI3K_1B_p101
+DBLINKS     NCBI-ProteinID: NP_010467
             NCBI-GeneID: 851762
             SGD: S000002589
-            MIPS: YDR181C
             UniProt: Q04003
 AASEQ       481
             MGIFQSIEEANNTSERLLRSEIKNSHGEFEKFDFDTEEYEINPKRKLRLVSRINPNAGHL

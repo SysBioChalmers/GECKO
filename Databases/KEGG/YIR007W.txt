@@ -1,12 +1,12 @@
 ENTRY       YIR007W           CDS       T00005
-DEFINITION  hydrolase (EC:3.2.1.-)
+NAME        EGH1
+DEFINITION  (RefSeq) hydrolase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IX:370704..372998
-MOTIF       Pfam: Cellulase Glyco_hydro_35 Glyco_hydro_14
-DBLINKS     NCBI-GI: 398364581
+MOTIF       Pfam: Cellulase Glyco_hydro_35 Glyco_hydro_14 SIR2_2
+DBLINKS     NCBI-ProteinID: NP_012272
             NCBI-GeneID: 854824
             SGD: S000001446
-            MIPS: YIR007W
             UniProt: P40566
 AASEQ       764
             MPAKIHISADGQFCDKDGNEIQLRGVNLDPSVKIPAKPFLSTHAPIENDTFFEDADKVSF

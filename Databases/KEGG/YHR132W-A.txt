@@ -1,13 +1,12 @@
 ENTRY       YHR132W-A         CDS       T00005
 NAME        IGO2
-DEFINITION  Igo2p
+DEFINITION  (RefSeq) phosphatase regulator
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VIII:370054..370449
-MOTIF       Pfam: Endosulfine Act-Frag_cataly
-DBLINKS     NCBI-GI: 6862571
+MOTIF       Pfam: Endosulfine
+DBLINKS     NCBI-ProteinID: NP_036194
             NCBI-GeneID: 856534
             SGD: S000007496
-            MIPS: YHR132W-A
             UniProt: Q9P305
 AASEQ       131
             MSEDLSPTSSRVDLSNPHGFTKEGVDLSKLSPQELKLYKMYGKLPSKKDLLRHKMQDRQY

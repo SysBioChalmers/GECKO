@@ -1,13 +1,12 @@
 ENTRY       YKL224C           CDS       T00005
 NAME        PAU16
-DEFINITION  Pau16p
+DEFINITION  (RefSeq) seripauperin PAU16
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XI:complement(1810..2181)
 MOTIF       Pfam: SRP1_TIP1
-DBLINKS     NCBI-GI: 6322625
+DBLINKS     NCBI-ProteinID: NP_012698
             NCBI-GeneID: 853656
             SGD: S000001707
-            MIPS: YKL224C
             UniProt: P35994
 AASEQ       123
             MVKLTSIAAGVAAIAAGVAAAPATTTLSPSDERVNLVELGVYVSDIRAHLAQYYLFQAAH

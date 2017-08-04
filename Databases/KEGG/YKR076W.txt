@@ -1,15 +1,15 @@
 ENTRY       YKR076W           CDS       T00005
 NAME        ECM4, GTO2
-DEFINITION  Ecm4p (EC:1.8.5.1 2.5.1.18)
+DEFINITION  (RefSeq) S-glutathionyl-(chloro)hydroquinone reductase
 ORTHOLOGY   K07393  putative glutathione S-transferase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XI:582283..583395
-MOTIF       Pfam: GST_N_2 GST_C_2 GST_N_3 GST_C GST_C_3
-DBLINKS     NCBI-GI: 398365369
+MOTIF       Pfam: GST_N_2 GST_C_2 GST_C GST_C_3
+DBLINKS     NCBI-ProteinID: NP_013002
             NCBI-GeneID: 853951
             SGD: S000001784
-            MIPS: YKR076W
             UniProt: P36156
+STRUCTURE   PDB: 5LKB 5LKD
 AASEQ       370
             MSKQWASGTNGAFKRQVSSFRETISKQHPIYKPAKGRYWLYVSLACPWAHRTLITRALKG
             LTSVIGCSVVHWHLDEKGWRFLDMEKQLEDSEDFLEHWHDVAGGIRTAKEDSSKSFAEIK

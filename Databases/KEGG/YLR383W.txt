@@ -1,13 +1,12 @@
 ENTRY       YLR383W           CDS       T00005
 NAME        SMC6, RHC18
-DEFINITION  DNA repair protein SMC6
+DEFINITION  (RefSeq) DNA repair protein SMC6
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XII:885288..888632
-MOTIF       Pfam: AAA_23 SMC_N AAA_29 AAA_21 ABC_tran
-DBLINKS     NCBI-GI: 6323415
+MOTIF       Pfam: AAA_23 SMC_N AAA_15 AAA_21 AAA_29 ABC_tran DUF1664
+DBLINKS     NCBI-ProteinID: NP_013487
             NCBI-GeneID: 851099
             SGD: S000004375
-            MIPS: YLR383W
             UniProt: Q12749
 AASEQ       1114
             MISTTISGKRPIEQVDDELLSLTAQQENEEQQQQRKRRRHQFAPMTQFNSNTLDEDSGFR

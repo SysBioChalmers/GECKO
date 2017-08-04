@@ -1,12 +1,11 @@
 ENTRY       YIL177C           CDS       T00005
-DEFINITION  Y' element ATP-dependent helicase (EC:3.6.4.12)
+DEFINITION  (RefSeq) Y' element ATP-dependent helicase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IX:complement(join(483..4598,4987..6147))
-MOTIF       Pfam: DEAD Helicase_C
-DBLINKS     NCBI-GI: 6322017
+MOTIF       Pfam: Sir1 Helicase_C
+DBLINKS     NCBI-ProteinID: NP_012092
             NCBI-GeneID: 854630
             SGD: S000001439
-            MIPS: YIL177C
             UniProt: P40434
 AASEQ       1758
             MKVSDRRKFEKANFDEFESALNNKNDLVHCPSITLFESIPTEVRSFYEDEKSGLIKVVKF

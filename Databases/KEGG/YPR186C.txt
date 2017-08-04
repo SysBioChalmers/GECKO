@@ -1,13 +1,12 @@
 ENTRY       YPR186C           CDS       T00005
 NAME        PZF1, TFC2
-DEFINITION  Pzf1p
+DEFINITION  (RefSeq) Pzf1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:complement(909733..911022)
-MOTIF       Pfam: zf-C2H2 zf-C2H2_4 zf-H2C2_2 zf-C2H2_jaz zf-met CpXC zf-C2HC_2 zf-C2H2_2
-DBLINKS     NCBI-GI: 6325444
+MOTIF       Pfam: zf-C2H2 zf-C2H2_4 zf-H2C2_2 zf-C2H2_jaz zf-met CpXC zf-C2H2_6 zf-C2H2_8 zf-C2HC_2 zf-C2H2_2
+DBLINKS     NCBI-ProteinID: NP_015512
             NCBI-GeneID: 856316
             SGD: S000006390
-            MIPS: YPR186C
             UniProt: P39933
 AASEQ       429
             MGGEVLNNEGMPLAELKQETIPISRSESSESLNSLTSTRSSSSNRPKTYFCDYDGCDKAF

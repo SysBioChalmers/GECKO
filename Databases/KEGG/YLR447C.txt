@@ -1,20 +1,27 @@
 ENTRY       YLR447C           CDS       T00005
 NAME        VMA6
-DEFINITION  Vma6p (EC:3.6.3.14)
-ORTHOLOGY   K02146  V-type H+-transporting ATPase subunit AC39 [EC:3.6.3.14]
+DEFINITION  (RefSeq) H(+)-transporting V0 sector ATPase subunit D
+ORTHOLOGY   K02146  V-type H+-transporting ATPase subunit d
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00190  Oxidative phosphorylation
             sce01100  Metabolic pathways
             sce04145  Phagosome
-CLASS       Metabolism; Energy metabolism; Oxidative phosphorylation [PATH:sce00190]
-            Cellular Processes; Transport and catabolism; Phagosome [PATH:sce04145]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Energy metabolism
+               00190 Oxidative phosphorylation
+                YLR447C (VMA6)
+             Cellular Processes
+              Transport and catabolism
+               04145 Phagosome
+                YLR447C (VMA6)
 POSITION    XII:complement(1026856..1027893)
 MOTIF       Pfam: vATP-synt_AC39
-DBLINKS     NCBI-GI: 398366327
+DBLINKS     NCBI-ProteinID: NP_013552
             NCBI-GeneID: 851168
             SGD: S000004439
-            MIPS: YLR447C
             UniProt: P32366
+STRUCTURE   PDB: 5TJ5 3J9T 3J9U 3J9V
 AASEQ       345
             MEGVYFNIDNGFIEGVVRGYRNGLLSNNQYINLTQCDTLEDLKLQLSSTDYGNFLSSVSS
             ESLTTSLIQEYASSKLYHEFNYIRDQSSGSTRKFMDYITYGYMIDNVALMITGTIHDRDK

@@ -1,13 +1,12 @@
 ENTRY       YHR003C           CDS       T00005
 NAME        TCD1
-DEFINITION  Tcd1p
+DEFINITION  (RefSeq) tRNA threonylcarbamoyladenosine dehydratase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VIII:complement(110028..111317)
-MOTIF       Pfam: ThiF Shikimate_DH NAD_binding_7 TrkA_N Saccharop_dh ApbA UDPG_MGDP_dh_N XdhC_C Glyco_hydro_17 DAO 2-Hacid_dh_C ELFV_dehydrog
-DBLINKS     NCBI-GI: 6321790
+MOTIF       Pfam: ThiF Shikimate_DH Sacchrp_dh_NADP NAD_binding_7 TrkA_N UDPG_MGDP_dh_N ApbA Pyr_redox_2 PAC2 2-Hacid_dh_C
+DBLINKS     NCBI-ProteinID: NP_011866
             NCBI-GeneID: 856392
             SGD: S000001045
-            MIPS: YHR003C
             UniProt: P38756
 AASEQ       429
             MANNTWKLIATTALISVFSTQLAKSVWKEYKLSCAANKNKTVSRPRQYDDHLFREQLARN

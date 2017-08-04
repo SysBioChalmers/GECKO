@@ -1,14 +1,21 @@
 ENTRY       YPL012W           CDS       T00005
 NAME        RRP12
-DEFINITION  Rrp12p
+DEFINITION  (RefSeq) mRNA-binding protein RRP12
 ORTHOLOGY   K14794  ribosomal RNA-processing protein 12
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              90S particles
+               Other 90S particles
+                YPL012W (RRP12)
+              Pre-60S particles
+               Other pre-60S particles
+                YPL012W (RRP12)
 POSITION    XVI:529723..533409
-MOTIF       Pfam: NUC173
-DBLINKS     NCBI-GI: 6325245
+MOTIF       Pfam: NUC173 BEN Cnd1 DUF2207
+DBLINKS     NCBI-ProteinID: NP_015313
             NCBI-GeneID: 856095
             SGD: S000005933
-            MIPS: YPL012W
             UniProt: Q12754
 AASEQ       1228
             MDQDKVAFLLELEDKLAKIRSQVNSKLENQKHIAIILTAVEENIAGQATNDVSKNIVNYI

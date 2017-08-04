@@ -1,13 +1,12 @@
 ENTRY       YOR129C           CDS       T00005
 NAME        AFI1
-DEFINITION  Afi1p
+DEFINITION  (RefSeq) Afi1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:complement(566877..569558)
 MOTIF       Pfam: Afi1 SPA
-DBLINKS     NCBI-GI: 6324703
+DBLINKS     NCBI-ProteinID: NP_014772
             NCBI-GeneID: 854296
             SGD: S000005655
-            MIPS: YOR129C
             UniProt: Q99222
 AASEQ       893
             MLRRELNNSISNRSIENESFPFERPNVSYIISAEFDNKLGPILKHQYPKDIPGFNQFSHE

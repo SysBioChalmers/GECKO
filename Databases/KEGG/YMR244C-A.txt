@@ -1,13 +1,18 @@
 ENTRY       YMR244C-A         CDS       T00005
 NAME        COA6
-DEFINITION  Coa6p
+DEFINITION  (RefSeq) Coa6p
+ORTHOLOGY   K18179  cytochrome c oxidase assembly factor 6
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial quality control factors
+              Mitochondrial respiratory chain complex assembly factors
+               Complex-IV assembly factors
+                YMR244C-A (COA6)
 POSITION    XIII:complement(758517..758831)
-MOTIF       Pfam: COX6B Pet191_N
-DBLINKS     NCBI-GI: 6323902
+MOTIF       Pfam: COX6B
+DBLINKS     NCBI-ProteinID: NP_013972
             NCBI-GeneID: 855287
             SGD: S000004857
-            MIPS: YMR244C-A
             UniProt: Q3E846
 AASEQ       104
             MGLFSFDGGKKESQPPNTRSQRKLCWESRDAFFQCLDKADILDAMDPKNSKSIKSHCKVE

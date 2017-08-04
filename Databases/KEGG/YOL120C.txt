@@ -1,18 +1,28 @@
 ENTRY       YOL120C           CDS       T00005
 NAME        RPL18A, RP28A
-DEFINITION  ribosomal 60S subunit protein L18A
+DEFINITION  (RefSeq) ribosomal 60S subunit protein L18A
 ORTHOLOGY   K02883  large subunit ribosomal protein L18e
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03010  Ribosome
-CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+MODULE      sce_M00177  Ribosome, eukaryotes
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03010 Ribosome
+                YOL120C (RPL18A)
+            Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Eukaryotes
+               Large subunit
+                YOL120C (RPL18A)
+              Archaea
+                YOL120C (RPL18A)
 POSITION    XV:complement(join(93395..93843,94291..94402))
-MOTIF       Pfam: Ribosomal_L18e
-DBLINKS     NCBI-GI: 6324452
+MOTIF       Pfam: Ribosomal_L18 Ribosomal_L27A
+DBLINKS     NCBI-ProteinID: NP_014521
             NCBI-GeneID: 854029
             SGD: S000005480
-            MIPS: YOL120C
             UniProt: P0CX49 P0CX50
-STRUCTURE   PDB: 3U5E 3U5I 3O58 3O5H 4BYN 4BYU 4B6A 3IZS 1S1I
 AASEQ       186
             MGIDHTSKQHKRSGHRTAPKSDNVYLKLLVKLYTFLARRTDAPFNKVVLKALFLSKINRP
             PVSVSRIARALKQEGAANKTVVVVGTVTDDARIFEFPKTTVAALRFTAGARAKIVKAGGE

@@ -1,13 +1,12 @@
 ENTRY       YDL248W           CDS       T00005
 NAME        COS7
-DEFINITION  Cos7p
+DEFINITION  (RefSeq) Cos7p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:1802..2953
-MOTIF       Pfam: DUP Erf4
-DBLINKS     NCBI-GI: 6319953
+MOTIF       Pfam: DUP Erf4 Uso1_p115_head
+DBLINKS     NCBI-ProteinID: NP_010033
             NCBI-GeneID: 851348
             SGD: S000002407
-            MIPS: YDL248W
             UniProt: Q07788
 AASEQ       383
             MKENEVKDEKSVDVLSFKQLESQKIVLPQDLFRSSFTWFCYEIYKSLAFRIWMLLWLPLS

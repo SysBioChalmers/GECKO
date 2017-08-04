@@ -1,14 +1,13 @@
 ENTRY       YKL020C           CDS       T00005
 NAME        SPT23
-DEFINITION  Spt23p
-ORTHOLOGY   K06867
+DEFINITION  (RefSeq) Spt23p
+ORTHOLOGY   K06867  uncharacterized protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XI:complement(398832..402080)
-MOTIF       Pfam: Ank Ank_2 Ank_3 Ank_4 Ank_5 TIG
-DBLINKS     NCBI-GI: 6322832
+MOTIF       Pfam: Ank Ank_2 Ank_3 Ank_4 Ank_5 TIG RHD_dimer
+DBLINKS     NCBI-ProteinID: NP_012905
             NCBI-GeneID: 853848
             SGD: S000001503
-            MIPS: YKL020C
             UniProt: P35210
 AASEQ       1082
             MMSGTGNVSSMLHSYSANIQHNDGSPDLDLLESELLDIALLNSGSSLQDPGLLSLNQEKM

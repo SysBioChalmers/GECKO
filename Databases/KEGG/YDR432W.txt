@@ -1,16 +1,31 @@
 ENTRY       YDR432W           CDS       T00005
 NAME        NPL3, MTR13, MTS1, NAB1, NOP3
-DEFINITION  Npl3p
+DEFINITION  (RefSeq) mRNA-binding protein NPL3
 ORTHOLOGY   K14651  transcription initiation factor TFIID subunit 15
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03022  Basal transcription factors
-CLASS       Genetic Information Processing; Transcription; Basal transcription factors [PATH:sce03022]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03022 Basal transcription factors
+                YDR432W (NPL3)
+            Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Basal transcription factors
+                TFIID
+                 YDR432W (NPL3)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Transport factors
+                Ran-mediated transport factors
+                 YDR432W (NPL3)
 POSITION    IV:1328783..1330027
-MOTIF       Pfam: RRM_1 RRM_6 RRM_5 RNA_bind
-DBLINKS     NCBI-GI: 398366591
+MOTIF       Pfam: RRM_1 RRM_occluded RRM_5 RRM_7
+DBLINKS     NCBI-ProteinID: NP_010720
             NCBI-GeneID: 852042
             SGD: S000002840
-            MIPS: YDR432W
             UniProt: Q01560
 STRUCTURE   PDB: 2JVR 2JVO 2OSQ 2OSR
 AASEQ       414

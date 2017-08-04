@@ -1,19 +1,29 @@
 ENTRY       YLR056W           CDS       T00005
 NAME        ERG3, PSO6, SYR1
-DEFINITION  C-5 sterol desaturase (EC:1.3.3.-)
-ORTHOLOGY   K00227  lathosterol oxidase [EC:1.14.21.6]
+DEFINITION  (RefSeq) C-5 sterol desaturase
+ORTHOLOGY   K00227  Delta7-sterol 5-desaturase [EC:1.14.19.20]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00100  Steroid biosynthesis
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
+            sce01130  Biosynthesis of antibiotics
 MODULE      sce_M00102  Ergocalciferol biosynthesis
-CLASS       Metabolism; Lipid metabolism; Steroid biosynthesis [PATH:sce00100]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Lipid metabolism
+               00100 Steroid biosynthesis
+                YLR056W (ERG3)
+            Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.14  Acting on paired donors, with incorporation or reduction of molecular oxygen
+               1.14.19  With oxidation of a pair of donors resulting in the reduction of O2 to two molecules of water
+                1.14.19.20  Delta7-sterol 5(6)-desaturase
+                 YLR056W (ERG3)
 POSITION    XII:253861..254958
-MOTIF       Pfam: FA_hydroxylase
-DBLINKS     NCBI-GI: 6323085
+MOTIF       Pfam: FA_hydroxylase CitMHS
+DBLINKS     NCBI-ProteinID: NP_013157
             NCBI-GeneID: 850745
             SGD: S000004046
-            MIPS: YLR056W
             UniProt: P32353
 AASEQ       365
             MDLVLEVADHYVLDDLYAKVLPASLAANIPVKWQKLLGLNSGFSNSTILQETLNSKNAVK

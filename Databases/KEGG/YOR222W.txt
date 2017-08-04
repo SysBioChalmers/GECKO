@@ -1,14 +1,17 @@
 ENTRY       YOR222W           CDS       T00005
 NAME        ODC2
-DEFINITION  Odc2p
+DEFINITION  (RefSeq) mitochondrial 2-oxodicarboxylate carrier
 ORTHOLOGY   K15110  solute carrier family 25 (mitochondrial 2-oxodicarboxylate transporter), member 21
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Solute Carrier Family (SLC)
+              SLC25: Mitochondrial carrier
+               YOR222W (ODC2)
 POSITION    XV:758330..759253
 MOTIF       Pfam: Mito_carr
-DBLINKS     NCBI-GI: 6324796
+DBLINKS     NCBI-ProteinID: NP_014865
             NCBI-GeneID: 854397
             SGD: S000005748
-            MIPS: YOR222W
             UniProt: Q99297
 AASEQ       307
             MSSDSNAKPLPFIYQFISGAVAGISELTVMYPLDVVKTRFQLEVTTPTAAAVGKQVERYN

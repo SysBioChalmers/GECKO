@@ -1,13 +1,12 @@
 ENTRY       YDR185C           CDS       T00005
 NAME        UPS3, GEP2
-DEFINITION  Ups3p
+DEFINITION  (RefSeq) Ups3p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(831934..832473)
 MOTIF       Pfam: PRELI
-DBLINKS     NCBI-GI: 6320391
+DBLINKS     NCBI-ProteinID: NP_010471
             NCBI-GeneID: 851766
             SGD: S000002593
-            MIPS: YDR185C
             UniProt: Q04006
 AASEQ       179
             MKSFQKSYEFDYPWEKVTTANWMKYPNKISTHVIAVDVLRRELKEHGDVLLTERLITIRQ

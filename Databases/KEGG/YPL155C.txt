@@ -1,13 +1,12 @@
 ENTRY       YPL155C           CDS       T00005
 NAME        KIP2
-DEFINITION  Kip2p
+DEFINITION  (RefSeq) Kip2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:complement(257216..259336)
-MOTIF       Pfam: Kinesin Fib_alpha
-DBLINKS     NCBI-GI: 6325102
+MOTIF       Pfam: Kinesin Microtub_bd
+DBLINKS     NCBI-ProteinID: NP_015170
             NCBI-GeneID: 855948
             SGD: S000006076
-            MIPS: YPL155C
             UniProt: P28743
 AASEQ       706
             MIQKMSPSLRRPSTRSSSGSSNIPQSPSVRSTSSFSNLTRNSIRSTSNSGSQSISASSTR

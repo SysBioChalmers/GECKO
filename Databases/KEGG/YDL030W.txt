@@ -1,16 +1,29 @@
 ENTRY       YDL030W           CDS       T00005
 NAME        PRP9
-DEFINITION  Prp9p
+DEFINITION  (RefSeq) SF3a splicing factor complex subunit PRP9
 ORTHOLOGY   K12827  splicing factor 3A subunit 3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03040  Spliceosome
-CLASS       Genetic Information Processing; Transcription; Spliceosome [PATH:sce03040]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03040 Spliceosome
+                YDL030W (PRP9)
+            Spliceosome [BR:sce03041]
+             Complex A
+              U2 snRNP components
+               U2 snRNP specific factors
+                YDL030W (PRP9)
+             Complex B
+                YDL030W (PRP9)
+             Complex C
+               U2 SnRNP specific factors
+                YDL030W (PRP9)
 POSITION    IV:397537..399129
-MOTIF       Pfam: DUF3449 zf-C2H2_jaz zf-met zf-C2H2_2 zf-C2H2_4 zf-U1 zf-DBF
-DBLINKS     NCBI-GI: 6320174
+MOTIF       Pfam: DUF3449 PRP9_N SF3A3 zf-C2H2_jaz zf-met zf-C2H2_4 zf-C2H2_2 zf-U1
+DBLINKS     NCBI-ProteinID: NP_010254
             NCBI-GeneID: 851531
             SGD: S000002188
-            MIPS: YDL030W
             UniProt: P19736
 STRUCTURE   PDB: 4DGW
 AASEQ       530

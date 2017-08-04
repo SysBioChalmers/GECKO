@@ -1,16 +1,24 @@
 ENTRY       YGL098W           CDS       T00005
 NAME        USE1, SLT1
-DEFINITION  Use1p
+DEFINITION  (RefSeq) SNAP receptor USE1
 ORTHOLOGY   K08507  unconventional SNARE in the endoplasmic reticulum protein 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04130  SNARE interactions in vesicular transport
-CLASS       Genetic Information Processing; Folding, sorting and degradation; SNARE interactions in vesicular transport [PATH:sce04130]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04130 SNARE interactions in vesicular transport
+                YGL098W (USE1)
+            Membrane trafficking [BR:sce04131]
+             SNARE
+              SNAP-25[C] (Qc)
+               Use1
+                YGL098W (USE1)
 POSITION    VII:317342..318079
-MOTIF       Pfam: Use1 MRP-L28 DUF1980 RanGAP1_C
-DBLINKS     NCBI-GI: 6321340
+MOTIF       Pfam: Use1 MRP-L28 DUF1980 NRho
+DBLINKS     NCBI-ProteinID: NP_011417
             NCBI-GeneID: 852780
             SGD: S000003066
-            MIPS: YGL098W
             UniProt: P53146
 AASEQ       245
             MAETSNDPFLSYVLSSKQLTNLNRLRRKAVTKQLGSSDDNKVSEEFLRYQHTYQREAFEY

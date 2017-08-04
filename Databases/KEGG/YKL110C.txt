@@ -1,14 +1,18 @@
 ENTRY       YKL110C           CDS       T00005
 NAME        KTI12, TOT4
-DEFINITION  Kti12p
+DEFINITION  (RefSeq) Kti12p
 ORTHOLOGY   K15456  protein KTI12
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              tRNA modification factors
+               Elongator related proteins
+                YKL110C (KTI12)
 POSITION    XI:complement(228939..229880)
-MOTIF       Pfam: KTI12 AAA_18 AAA_33 AAA_17 APS_kinase 6PF2K AAA AAA_16 AAA_22 AAA_28 AAA_14 SRPRB NTPase_1 NACHT MobB Elong_Iki1 RNA_helicase UPF0079 Mg_chelatase
-DBLINKS     NCBI-GI: 6322739
+MOTIF       Pfam: KTI12 AAA_18 AAA_33 AAA_17 APS_kinase 6PF2K AAA AAA_28 AAA_22 SRPRB AAA_16 AAA_14 NACHT TsaE MMR_HSR1 NTPase_1 cobW Mg_chelatase
+DBLINKS     NCBI-ProteinID: NP_012812
             NCBI-GeneID: 853750
             SGD: S000001593
-            MIPS: YKL110C
             UniProt: P34253
 AASEQ       313
             MPLVLFTGYPCSGKTTLAKHLVQLLQSKIDATPSLSKYSITYHSDESLGIKHSDYITSQD

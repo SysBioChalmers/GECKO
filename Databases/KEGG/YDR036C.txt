@@ -1,6 +1,6 @@
 ENTRY       YDR036C           CDS       T00005
 NAME        EHD3
-DEFINITION  Ehd3p (EC:3.1.2.4)
+DEFINITION  (RefSeq) Ehd3p
 ORTHOLOGY   K05605  3-hydroxyisobutyryl-CoA hydrolase [EC:3.1.2.4]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00280  Valine, leucine and isoleucine degradation
@@ -8,16 +8,31 @@ PATHWAY     sce00280  Valine, leucine and isoleucine degradation
             sce00640  Propanoate metabolism
             sce01100  Metabolic pathways
             sce01200  Carbon metabolism
-CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
-            Metabolism; Carbohydrate metabolism; Propanoate metabolism [PATH:sce00640]
-            Metabolism; Amino acid metabolism; Valine, leucine and isoleucine degradation [PATH:sce00280]
-            Metabolism; Metabolism of other amino acids; beta-Alanine metabolism [PATH:sce00410]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01200 Carbon metabolism
+                YDR036C (EHD3)
+              Carbohydrate metabolism
+               00640 Propanoate metabolism
+                YDR036C (EHD3)
+              Amino acid metabolism
+               00280 Valine, leucine and isoleucine degradation
+                YDR036C (EHD3)
+              Metabolism of other amino acids
+               00410 beta-Alanine metabolism
+                YDR036C (EHD3)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.2  Thioester hydrolases
+                3.1.2.4  3-hydroxyisobutyryl-CoA hydrolase
+                 YDR036C (EHD3)
 POSITION    IV:complement(523211..524713)
-MOTIF       Pfam: ECH ECH_C
-DBLINKS     NCBI-GI: 6320241
+MOTIF       Pfam: ECH_2 ECH_1
+DBLINKS     NCBI-ProteinID: NP_010321
             NCBI-GeneID: 851606
             SGD: S000002443
-            MIPS: YDR036C
             UniProt: P28817
 AASEQ       500
             MLRNTLKCAQLSSKYGFKTTTRTFMTTQPQLNVTDAPPVLFTVQDTARVITLNRPKKLNA

@@ -1,17 +1,20 @@
 ENTRY       YLR459W           CDS       T00005
 NAME        GAB1, CDC91
-DEFINITION  Gab1p
+DEFINITION  (RefSeq) GPI-anchor transamidase subunit GAB1
 ORTHOLOGY   K05293  phosphatidylinositol glycan, class U
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
-PATHWAY     sce00563  Glycosylphosphatidylinositol(GPI)-anchor biosynthesis
+PATHWAY     sce00563  Glycosylphosphatidylinositol (GPI)-anchor biosynthesis
             sce01100  Metabolic pathways
-CLASS       Metabolism; Glycan biosynthesis and metabolism; Glycosylphosphatidylinositol(GPI)-anchor biosynthesis [PATH:sce00563]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Glycan biosynthesis and metabolism
+               00563 Glycosylphosphatidylinositol(GPI)-anchor biosynthesis
+                YLR459W (GAB1)
 POSITION    XII:1057334..1058518
 MOTIF       Pfam: PIG-U
-DBLINKS     NCBI-GI: 6323492
+DBLINKS     NCBI-ProteinID: NP_013564
             NCBI-GeneID: 851181
             SGD: S000004451
-            MIPS: YLR459W
             UniProt: P41733
 AASEQ       394
             MDSTALKVALGCIAIRLAVNSLFPSLQQQLDQSVEFSTPVTSFRSLQEGIYLLRNNIQVY

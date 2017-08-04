@@ -1,21 +1,34 @@
 ENTRY       YMR208W           CDS       T00005
 NAME        ERG12, RAR1
-DEFINITION  mevalonate kinase (EC:2.7.1.36)
+DEFINITION  (RefSeq) mevalonate kinase
 ORTHOLOGY   K00869  mevalonate kinase [EC:2.7.1.36]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00900  Terpenoid backbone biosynthesis
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
+            sce01130  Biosynthesis of antibiotics
             sce04146  Peroxisome
 MODULE      sce_M00095  C5 isoprenoid biosynthesis, mevalonate pathway
-CLASS       Metabolism; Metabolism of terpenoids and polyketides; Terpenoid backbone biosynthesis [PATH:sce00900]
-            Cellular Processes; Transport and catabolism; Peroxisome [PATH:sce04146]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Metabolism of terpenoids and polyketides
+               00900 Terpenoid backbone biosynthesis
+                YMR208W (ERG12)
+             Cellular Processes
+              Transport and catabolism
+               04146 Peroxisome
+                YMR208W (ERG12)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.1  Phosphotransferases with an alcohol group as acceptor
+                2.7.1.36  mevalonate kinase
+                 YMR208W (ERG12)
 POSITION    XIII:684467..685798
-MOTIF       Pfam: GHMP_kinases_N GHMP_kinases_C
-DBLINKS     NCBI-GI: 6323864
+MOTIF       Pfam: GHMP_kinases_N GHMP_kinases_C GalKase_gal_bdg
+DBLINKS     NCBI-ProteinID: NP_013935
             NCBI-GeneID: 855248
             SGD: S000004821
-            MIPS: YMR208W
             UniProt: P07277
 AASEQ       443
             MSLPFLTSAPGKVIIFGEHSAVYNKPAVAASVSALRTYLLISESSAPDTIELDFPDISFN

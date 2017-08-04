@@ -1,14 +1,19 @@
 ENTRY       YBR233W           CDS       T00005
 NAME        PBP2, HEK1
-DEFINITION  Pbp2p
-ORTHOLOGY   K13162  poly(rC)-binding protein 2/3/4
+DEFINITION  (RefSeq) Pbp2p
+ORTHOLOGY   K18738  heterogeneous nuclear rnp K-like protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Factors involved in mRNA localization
+                Cargo complex
+                 YBR233W (PBP2)
 POSITION    II:683428..684669
-MOTIF       Pfam: KH_1 KH_3 KH_2 KH_4
-DBLINKS     NCBI-GI: 398365639
+MOTIF       Pfam: KH_1 KH_2 KH_4
+DBLINKS     NCBI-ProteinID: NP_009792
             NCBI-GeneID: 852533
             SGD: S000000437
-            MIPS: YBR233W
             UniProt: P38151
 AASEQ       413
             MSTETTKPSITTTPTTVLVSPNTLKRKKGEDTSEEQLEAEIKRVALKDADSHSDNDHDSP

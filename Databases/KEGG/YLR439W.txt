@@ -1,14 +1,18 @@
 ENTRY       YLR439W           CDS       T00005
 NAME        MRPL4
-DEFINITION  mitochondrial 54S ribosomal protein YmL4
-ORTHOLOGY   K17428  large subunit ribosomal protein L47, mitochondrial
+DEFINITION  (RefSeq) mitochondrial 54S ribosomal protein YmL4
+ORTHOLOGY   K17428  large subunit ribosomal protein L47
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Mitochondria/ Chloroplast
+               Large subunit
+                YLR439W (MRPL4)
 POSITION    XII:1014491..1015450
 MOTIF       Pfam: MRP-L47
-DBLINKS     NCBI-GI: 6323472
+DBLINKS     NCBI-ProteinID: NP_013544
             NCBI-GeneID: 851160
             SGD: S000004431
-            MIPS: YLR439W
             UniProt: P36517
 AASEQ       319
             MWKRSFHSQGGPLRARTKFTKPKPKQPVLPKDKIRPPTQLTHHSNNLRITEPIPPTTSNL

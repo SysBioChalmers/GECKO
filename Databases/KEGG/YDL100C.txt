@@ -1,17 +1,26 @@
 ENTRY       YDL100C           CDS       T00005
 NAME        GET3, ARR4
-DEFINITION  guanine nucleotide exchange factor GET3 (EC:3.6.-.- 3.6.3.16)
+DEFINITION  (RefSeq) guanine nucleotide exchange factor GET3
 ORTHOLOGY   K01551  arsenite-transporting ATPase [EC:3.6.3.16]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.3  Acting on acid anhydrides to catalyse transmembrane movement of substances
+                3.6.3.16  arsenite-transporting ATPase
+                 YDL100C (GET3)
+            Transporters [BR:sce02000]
+             Other Transporters
+              Others
+               YDL100C (GET3)
 POSITION    IV:complement(282112..283176)
-MOTIF       Pfam: ArsA_ATPase CbiA AAA_31 Fer4_NifH SRP54 AAA_25 PhoH NACHT
-DBLINKS     NCBI-GI: 6320103
+MOTIF       Pfam: ArsA_ATPase AAA_31 CbiA ParA Fer4_NifH SRP54 AAA_25 AAA_24 NACHT PhoH
+DBLINKS     NCBI-ProteinID: NP_010183
             NCBI-GeneID: 851458
             SGD: S000002258
-            MIPS: YDL100C
             UniProt: Q12154
-STRUCTURE   PDB: 2WOJ 3ZS9 3H84 3A36 3B2E 3ZS8 3SJA 3A37 3SJC 3SJB 3IDQ
-                 3VLC 3SJD
+STRUCTURE   PDB: 2WOJ 4XTR 3ZS9 3H84 4XVU 4XWO 5BW8 3A36 3B2E 3ZS8 3SJA
+                 3A37 3SJC 3SJB 3IDQ 3VLC 3SJD 4PWX 5BWK
 AASEQ       354
             MDLTVEPNLHSLITSTTHKWIFVGGKGGVGKTTSSCSIAIQMALSQPNKQFLLISTDPAH
             NLSDAFGEKFGKDARKVTGMNNLSCMEIDPSAALKDMNDMAVSRANNNGSDGQGDDLGSL

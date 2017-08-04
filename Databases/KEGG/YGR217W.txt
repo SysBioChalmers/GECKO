@@ -1,13 +1,12 @@
 ENTRY       YGR217W           CDS       T00005
 NAME        CCH1
-DEFINITION  Cch1p
+DEFINITION  (RefSeq) Cch1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:924696..930815
-MOTIF       Pfam: Ion_trans
-DBLINKS     NCBI-GI: 398366203
+MOTIF       Pfam: Ion_trans GPHH EF-hand_1
+DBLINKS     NCBI-ProteinID: NP_011733
             NCBI-GeneID: 853131
             SGD: S000003449
-            MIPS: YGR217W
             UniProt: P50077
 AASEQ       2039
             MQGRKRTLTEPFEPNTNPFGDNAAVMTENVEDNSETDGNRLESKPQALVPPALNIVPPES

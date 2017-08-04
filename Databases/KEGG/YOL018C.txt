@@ -1,16 +1,24 @@
 ENTRY       YOL018C           CDS       T00005
 NAME        TLG2
-DEFINITION  Tlg2p
+DEFINITION  (RefSeq) Tlg2p
 ORTHOLOGY   K08489  syntaxin 16
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04130  SNARE interactions in vesicular transport
-CLASS       Genetic Information Processing; Folding, sorting and degradation; SNARE interactions in vesicular transport [PATH:sce04130]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04130 SNARE interactions in vesicular transport
+                YOL018C (TLG2)
+            Membrane trafficking [BR:sce04131]
+             SNARE
+              Syntaxin (Qa)
+               Stx-TGN / EE
+                YOL018C (TLG2)
 POSITION    XV:complement(290881..292074)
-MOTIF       Pfam: SNARE Syntaxin NIF DUF3357 Recep_L_domain
-DBLINKS     NCBI-GI: 6324555
+MOTIF       Pfam: SNARE NIF Recep_L_domain Spore_YhcN_YlaJ
+DBLINKS     NCBI-ProteinID: NP_014624
             NCBI-GeneID: 854142
             SGD: S000005378
-            MIPS: YOL018C
             UniProt: Q08144
 AASEQ       397
             MFRDRTNLFLSYRRTFPHNITFSSGKAPLGDDQDIEMGTYPMMNMSHDISARLTDERKNK

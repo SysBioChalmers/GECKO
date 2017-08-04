@@ -1,19 +1,30 @@
 ENTRY       YBR026C           CDS       T00005
 NAME        ETR1, MRF1, MRF1'
-DEFINITION  Etr1p (EC:1.3.1.38 1.3.1.10)
+DEFINITION  (RefSeq) Etr1p
 ORTHOLOGY   K07512  mitochondrial trans-2-enoyl-CoA reductase [EC:1.3.1.38]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00062  Fatty acid elongation
             sce01100  Metabolic pathways
             sce01212  Fatty acid metabolism
-CLASS       Metabolism; Overview; Fatty acid metabolism [PATH:sce01212]
-            Metabolism; Lipid metabolism; Fatty acid elongation [PATH:sce00062]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01212 Fatty acid metabolism
+                YBR026C (ETR1)
+              Lipid metabolism
+               00062 Fatty acid elongation
+                YBR026C (ETR1)
+            Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.3  Acting on the CH-CH group of donors
+               1.3.1  With NAD+ or NADP+ as acceptor
+                1.3.1.38  trans-2-enoyl-CoA reductase (NADPH)
+                 YBR026C (ETR1)
 POSITION    II:complement(292877..294019)
-MOTIF       Pfam: ADH_zinc_N Ribosomal_L27e CwfJ_C_2 CtnDOT_TraJ
-DBLINKS     NCBI-GI: 6319500
+MOTIF       Pfam: ADH_zinc_N Ribosomal_L27e FIBP DUF4974
+DBLINKS     NCBI-ProteinID: NP_009582
             NCBI-GeneID: 852314
             SGD: S000000230
-            MIPS: YBR026C
             UniProt: P38071
 AASEQ       380
             MLPTFKRYMSSSAHQIPKHFKSLIYSTHEVEDCTKVLSVKNYTPKQDLSQSIVLKTLAFP

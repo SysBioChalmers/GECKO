@@ -1,15 +1,24 @@
 ENTRY       YJL132W           CDS       T00005
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) hypothetical protein
 ORTHOLOGY   K01127  glycosylphosphatidylinositol phospholipase D [EC:3.1.4.50]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
-PATHWAY     sce00563  Glycosylphosphatidylinositol(GPI)-anchor biosynthesis
-CLASS       Metabolism; Glycan biosynthesis and metabolism; Glycosylphosphatidylinositol(GPI)-anchor biosynthesis [PATH:sce00563]
+PATHWAY     sce00563  Glycosylphosphatidylinositol (GPI)-anchor biosynthesis
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Glycan biosynthesis and metabolism
+               00563 Glycosylphosphatidylinositol(GPI)-anchor biosynthesis
+                YJL132W
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.4  Phosphoric-diester hydrolases
+                3.1.4.50  glycosylphosphatidylinositol phospholipase D
+                 YJL132W
 POSITION    X:161914..164166
-MOTIF       Pfam: Zn_dep_PLPC DUF2974
-DBLINKS     NCBI-GI: 6322329
+MOTIF       Pfam: Zn_dep_PLPC DUF2974 DUF1566
+DBLINKS     NCBI-ProteinID: NP_012403
             NCBI-GeneID: 853309
             SGD: S000003668
-            MIPS: YJL132W
             UniProt: P47014
 AASEQ       750
             MSIISSWLLVSIICLTTSIVTKLQAAGVTTHLFYLTRGAPLSLKENYYPWLKAGSFFPDA

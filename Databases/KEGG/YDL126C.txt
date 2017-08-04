@@ -1,17 +1,30 @@
 ENTRY       YDL126C           CDS       T00005
 NAME        CDC48
-DEFINITION  AAA family ATPase CDC48
+DEFINITION  (RefSeq) AAA family ATPase CDC48
 ORTHOLOGY   K13525  transitional endoplasmic reticulum ATPase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04141  Protein processing in endoplasmic reticulum
 MODULE      sce_M00400  p97-Ufd1-Npl4 complex
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Protein processing in endoplasmic reticulum [PATH:sce04141]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04141 Protein processing in endoplasmic reticulum
+                YDL126C (CDC48)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Transport factors
+                Ran-mediated transport factors
+                 YDL126C (CDC48)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of haemopoietic cells  (B-cell, T-cell, DC-cell, reticulocyte, and mast cell)
+               YDL126C (CDC48)
 POSITION    IV:complement(236157..238664)
-MOTIF       Pfam: AAA CDC48_N RuvB_N AAA_2 AAA_5 AAA_16 AAA_33 AAA_17 AAA_22 TIP49 CDC48_2 AAA_14 IstB_IS21 AAA_19 RNA_helicase AAA_25 Mg_chelatase Zeta_toxin AAA_24 KaiC ABC_tran ResIII AAA_18 Sigma54_activat AAA_28 PhoH Parvo_NS1 Sigma54_activ_2 DUF815 AAA_11 AAA_3 Vps4_C Bac_DnaA Arch_ATPase DUF2075 UFD1
-DBLINKS     NCBI-GI: 6320077
+MOTIF       Pfam: AAA CDC48_N RuvB_N AAA_2 AAA_16 AAA_5 AAA_33 TIP49 CDC48_2 AAA_22 RNA_helicase AAA_14 Mg_chelatase IstB_IS21 Vps4_C ATPase AAA_24 AAA_18 ABC_tran Sigma54_activat AAA_25 Parvo_NS1 PhoH Bac_DnaA AAA_28 DUF815 AAA_3 AAA_17 AAA_11 TsaE ResIII DUF2075 UFD1 eIF-1a
+DBLINKS     NCBI-ProteinID: NP_010157
             NCBI-GeneID: 851431
             SGD: S000002284
-            MIPS: YDL126C
             UniProt: P25694
 AASEQ       835
             MGEEHKPLLDASGVDPREEDKTATAILRRKKKDNMLLVDDAINDDNSVIAINSNTMDKLE

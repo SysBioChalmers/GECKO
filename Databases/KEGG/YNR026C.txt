@@ -1,13 +1,24 @@
 ENTRY       YNR026C           CDS       T00005
 NAME        SEC12, SED2
-DEFINITION  Sec12p
+DEFINITION  (RefSeq) Sar family guanine nucleotide exchange factor SEC12
+ORTHOLOGY   K14003  prolactin regulatory element-binding protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04141  Protein processing in endoplasmic reticulum
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04141 Protein processing in endoplasmic reticulum
+                YNR026C (SEC12)
+            Membrane trafficking [BR:sce04131]
+             Endoplasmic reticulum (ER) - Golgi transport
+              Forward pathways
+               Coat protein complex II (COP-II)
+                YNR026C (SEC12)
 POSITION    XIV:complement(673274..674689)
-MOTIF       Pfam: WD40
-DBLINKS     NCBI-GI: 6324353
+MOTIF       Pfam: WD40 IL17R_fnIII_D1
+DBLINKS     NCBI-ProteinID: NP_014423
             NCBI-GeneID: 855760
             SGD: S000005309
-            MIPS: YNR026C
             UniProt: P11655
 STRUCTURE   PDB: 4H5I 4H5J
 AASEQ       471

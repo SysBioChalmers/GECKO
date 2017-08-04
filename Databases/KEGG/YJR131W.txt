@@ -1,6 +1,6 @@
 ENTRY       YJR131W           CDS       T00005
 NAME        MNS1
-DEFINITION  Mns1p (EC:3.2.1.113)
+DEFINITION  (RefSeq) mannosyl-oligosaccharide 1,2-alpha-mannosidase
 ORTHOLOGY   K01230  mannosyl-oligosaccharide alpha-1,2-mannosidase [EC:3.2.1.113]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00510  N-Glycan biosynthesis
@@ -9,15 +9,33 @@ PATHWAY     sce00510  N-Glycan biosynthesis
             sce04141  Protein processing in endoplasmic reticulum
 MODULE      sce_M00073  N-glycan precursor trimming
             sce_M00074  N-glycan biosynthesis, high-mannose type
-CLASS       Metabolism; Glycan biosynthesis and metabolism; N-Glycan biosynthesis [PATH:sce00510]
-            Metabolism; Glycan biosynthesis and metabolism; Various types of N-glycan biosynthesis [PATH:sce00513]
-            Genetic Information Processing; Folding, sorting and degradation; Protein processing in endoplasmic reticulum [PATH:sce04141]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Glycan biosynthesis and metabolism
+               00510 N-Glycan biosynthesis
+                YJR131W (MNS1)
+               00513 Various types of N-glycan biosynthesis
+                YJR131W (MNS1)
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04141 Protein processing in endoplasmic reticulum
+                YJR131W (MNS1)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.2  Glycosylases
+               3.2.1  Glycosidases, i.e. enzymes that hydrolyse O- and S-glycosyl compounds
+                3.2.1.113  mannosyl-oligosaccharide 1,2-alpha-mannosidase
+                 YJR131W (MNS1)
+            Membrane trafficking [BR:sce04131]
+             Endoplasmic reticulum (ER) - Golgi transport
+              Forward pathways
+               ER-Golgi intermediate compartment (ERGIC) proteins
+                YJR131W (MNS1)
 POSITION    X:667644..669293
 MOTIF       Pfam: Glyco_hydro_47
-DBLINKS     NCBI-GI: 398365531
+DBLINKS     NCBI-ProteinID: NP_012665
             NCBI-GeneID: 853595
             SGD: S000003892
-            MIPS: YJR131W
             UniProt: P32906
 STRUCTURE   PDB: 1DL2 1G6I
 AASEQ       549

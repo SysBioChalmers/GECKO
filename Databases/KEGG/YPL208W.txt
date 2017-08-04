@@ -1,12 +1,12 @@
 ENTRY       YPL208W           CDS       T00005
 NAME        RKM1
-DEFINITION  Rkm1p (EC:2.1.1.-)
+DEFINITION  (RefSeq) protein-lysine N-methyltransferase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:157842..159593
-DBLINKS     NCBI-GI: 6325048
+MOTIF       Pfam: SET
+DBLINKS     NCBI-ProteinID: NP_015116
             NCBI-GeneID: 855893
             SGD: S000006129
-            MIPS: YPL208W
             UniProt: Q08961
 AASEQ       583
             MSSDALKALLQWGASFGVIVPEELKFLYTDLKGIICVCEKDIDNPSIKIPPEIVISRNLP

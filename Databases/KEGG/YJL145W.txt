@@ -1,13 +1,18 @@
 ENTRY       YJL145W           CDS       T00005
 NAME        SFH5
-DEFINITION  Sfh5p
+DEFINITION  (RefSeq) Sfh5p
+ORTHOLOGY   K19996  phosphatidylinositol transfer protein SFH5
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Exocytosis
+              Others
+               Others
+                YJL145W (SFH5)
 POSITION    X:145160..146044
 MOTIF       Pfam: CRAL_TRIO CRAL_TRIO_N
-DBLINKS     NCBI-GI: 6322316
+DBLINKS     NCBI-ProteinID: NP_012390
             NCBI-GeneID: 853296
             SGD: S000003681
-            MIPS: YJL145W
             UniProt: P47008
 AASEQ       294
             MKFDNDSEKQVFDKLKKAIPGIIKEKCAGYDELYGYKLNPEGLTQEEVDKYYDEKIADRL

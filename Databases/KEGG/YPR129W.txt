@@ -1,13 +1,19 @@
 ENTRY       YPR129W           CDS       T00005
 NAME        SCD6, LSM13
-DEFINITION  Scd6p
+DEFINITION  (RefSeq) Scd6p
+ORTHOLOGY   K18749  protein LSM14
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               mRNA cycle factors
+                Common to processing body (P body) and stress granule
+                 YPR129W (SCD6)
 POSITION    XVI:792687..793736
-MOTIF       Pfam: LSM14 FDF SM-ATX
-DBLINKS     NCBI-GI: 6325386
+MOTIF       Pfam: LSM14 FDF SM-ATX Vac_ImportDeg
+DBLINKS     NCBI-ProteinID: NP_015454
             NCBI-GeneID: 856247
             SGD: S000006333
-            MIPS: YPR129W
             UniProt: P45978
 AASEQ       349
             MSQYIGKTISLISVTDNRYVGLLEDIDSEKGTVTLKEVRCFGTEGRKNWGPEEIYPNPTV

@@ -1,13 +1,12 @@
 ENTRY       YLL005C           CDS       T00005
 NAME        SPO75
-DEFINITION  Spo75p
+DEFINITION  (RefSeq) Spo75p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XII:complement(137940..140546)
-MOTIF       Pfam: DUF221 RSN1_TM DUF3779
-DBLINKS     NCBI-GI: 6323024
+MOTIF       Pfam: RSN1_7TM RSN1_TM PHM7_ext
+DBLINKS     NCBI-ProteinID: NP_013096
             NCBI-GeneID: 850655
             SGD: S000003928
-            MIPS: YLL005C
             UniProt: Q07798
 AASEQ       868
             MNATKELTFNLLNKFQDKERFGSAQRHAGISLKGFISGILFSFLYFLFQLSLFIILRSRF

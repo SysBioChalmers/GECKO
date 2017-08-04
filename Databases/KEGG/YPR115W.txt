@@ -1,13 +1,12 @@
 ENTRY       YPR115W           CDS       T00005
 NAME        RGC1
-DEFINITION  Rgc1p
+DEFINITION  (RefSeq) Rgc1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:754877..758128
-MOTIF       Pfam: PH
-DBLINKS     NCBI-GI: 6325372
+MOTIF       Pfam: PH DUF3243
+DBLINKS     NCBI-ProteinID: NP_015440
             NCBI-GeneID: 856231
             SGD: S000006319
-            MIPS: YPR115W
             UniProt: Q06108
 AASEQ       1083
             MSDYFTFPKQENGGISKQPATPGSTRSSSRNLELPKNYRSFGGSSDELASMYSADSQYLM

@@ -1,13 +1,12 @@
 ENTRY       YKL034W           CDS       T00005
 NAME        TUL1
-DEFINITION  ubiquitin-protein ligase TUL1 (EC:6.3.2.-)
+DEFINITION  (RefSeq) ubiquitin-protein ligase TUL1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XI:371829..374105
-MOTIF       Pfam: zf-RING_2 zf-rbx1 zf-RING_5 zf-C3HC4_3 zf-C3HC4 zf-C3HC4_2 zf-Apc11 zf-RING_UBOX FANCL_C zf-RING_4 zf-Nse zf-RING_6
-DBLINKS     NCBI-GI: 6322817
+MOTIF       Pfam: zf-rbx1 zf-RING_2 zf-C3HC4_2 zf-RING_5 zf-RING_UBOX zf-C3HC4 Prok-RING_4 zf-RING_11 zf-ANAPC11 Zn_ribbon_17 zf-C3HC4_3 FANCL_C zf-RING_4 zf-Nse
+DBLINKS     NCBI-ProteinID: NP_012890
             NCBI-GeneID: 853832
             SGD: S000001517
-            MIPS: YKL034W
             UniProt: P36096
 AASEQ       758
             MEIDGNTLVFIIVILFLFFSSPGGDGVSSQYEFNQLQRLKQQFRTEHNTFVNMTYTDSFR

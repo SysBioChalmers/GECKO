@@ -1,12 +1,11 @@
 ENTRY       YGR111W           CDS       T00005
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) hypothetical protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:715828..717030
-MOTIF       Pfam: Acetyltransf_7 Acetyltransf_3 TLD Acetyltransf_1 YcfA Acetyltransf_9
-DBLINKS     NCBI-GI: 6321549
+MOTIF       Pfam: Acetyltransf_7 TLD Acetyltransf_9
+DBLINKS     NCBI-ProteinID: NP_011626
             NCBI-GeneID: 853008
             SGD: S000003343
-            MIPS: YGR111W
             UniProt: P53265
 AASEQ       400
             MTASSNDDDLIFECYSDPELKRWTHLANAKAWKGILTVQQYADREQLLGSSEISQKNKSN

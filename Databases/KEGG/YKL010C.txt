@@ -1,16 +1,29 @@
 ENTRY       YKL010C           CDS       T00005
 NAME        UFD4
-DEFINITION  putative ubiquitin-protein ligase UFD4
-ORTHOLOGY   K10590  E3 ubiquitin-protein ligase TRIP12 [EC:6.3.2.19]
+DEFINITION  (RefSeq) putative ubiquitin-protein ligase UFD4
+ORTHOLOGY   K10590  E3 ubiquitin-protein ligase TRIP12 [EC:2.3.2.26]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04120  Ubiquitin mediated proteolysis
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Ubiquitin mediated proteolysis [PATH:sce04120]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04120 Ubiquitin mediated proteolysis
+                YKL010C (UFD4)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.3  Acyltransferases
+               2.3.2  Aminoacyltransferases
+                2.3.2.26  HECT-type E3 ubiquitin transferase
+                 YKL010C (UFD4)
+            Ubiquitin system [BR:sce04121]
+             Ubiquitin ligases (E3)
+              HECT type E3
+               YKL010C (UFD4)
 POSITION    XI:complement(421424..425875)
 MOTIF       Pfam: HECT
-DBLINKS     NCBI-GI: 398364789
+DBLINKS     NCBI-ProteinID: NP_012915
             NCBI-GeneID: 853859
             SGD: S000001493
-            MIPS: YKL010C
             UniProt: P33202
 AASEQ       1483
             MSENNSHNLDEHESHSENSDYMMDTQVEDDYDEDGHVQGEYSYYPDEDEDEHMLSSVGSF

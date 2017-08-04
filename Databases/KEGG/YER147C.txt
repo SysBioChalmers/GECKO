@@ -1,17 +1,26 @@
 ENTRY       YER147C           CDS       T00005
 NAME        SCC4
-DEFINITION  Scc4p
+DEFINITION  (RefSeq) cohesin-loading factor complex subunit SCC4
 ORTHOLOGY   K06673  cohesin loading factor subunit SCC4
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
-CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YER147C (SCC4)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Sister chromatid cohesion proteins
+               Adherin complex
+                YER147C (SCC4)
 POSITION    V:complement(462968..464842)
 MOTIF       Pfam: Cohesin_load
-DBLINKS     NCBI-GI: 398364903
+DBLINKS     NCBI-ProteinID: NP_011074
             NCBI-GeneID: 856890
             SGD: S000000949
-            MIPS: YER147C
             UniProt: P40090
+STRUCTURE   PDB: 4XDN
 AASEQ       624
             MENLGDKLSISQVYHLAQEYRDHAYSIANKIGSEEGLKQYYGLMNMSIQMFQLLKTKCTL
             SVLEDSKVTFEMVELLIQETYNFDLAELYISSLKERLQTHQSDTDLVEEIMRCEFLLLHD

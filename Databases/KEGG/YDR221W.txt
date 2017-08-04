@@ -1,13 +1,12 @@
 ENTRY       YDR221W           CDS       T00005
 NAME        GTB1
-DEFINITION  Gtb1p
+DEFINITION  (RefSeq) Gtb1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:907330..909438
-MOTIF       Pfam: PRKCSH-like PRKCSH_1 PRKCSH Ldl_recept_a RED_C
-DBLINKS     NCBI-GI: 398366171
+MOTIF       Pfam: PRKCSH-like PRKCSH_1 PRKCSH T4SS Fez1 IFT20
+DBLINKS     NCBI-ProteinID: NP_010507
             NCBI-GeneID: 851807
             SGD: S000002629
-            MIPS: YDR221W
             UniProt: Q04924
 AASEQ       702
             MVSMFSLFLLLIEQSPLVASLQQSQRHIVGVPWEKQHLYDSNEPDLTKWHCLNHEDIVLD

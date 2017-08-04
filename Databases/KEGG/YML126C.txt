@@ -1,6 +1,6 @@
 ENTRY       YML126C           CDS       T00005
 NAME        ERG13, HMGS
-DEFINITION  hydroxymethylglutaryl-CoA synthase (EC:2.3.3.10)
+DEFINITION  (RefSeq) hydroxymethylglutaryl-CoA synthase
 ORTHOLOGY   K01641  hydroxymethylglutaryl-CoA synthase [EC:2.3.3.10]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00072  Synthesis and degradation of ketone bodies
@@ -9,17 +9,33 @@ PATHWAY     sce00072  Synthesis and degradation of ketone bodies
             sce00900  Terpenoid backbone biosynthesis
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
+            sce01130  Biosynthesis of antibiotics
 MODULE      sce_M00095  C5 isoprenoid biosynthesis, mevalonate pathway
-CLASS       Metabolism; Carbohydrate metabolism; Butanoate metabolism [PATH:sce00650]
-            Metabolism; Lipid metabolism; Synthesis and degradation of ketone bodies [PATH:sce00072]
-            Metabolism; Amino acid metabolism; Valine, leucine and isoleucine degradation [PATH:sce00280]
-            Metabolism; Metabolism of terpenoids and polyketides; Terpenoid backbone biosynthesis [PATH:sce00900]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Carbohydrate metabolism
+               00650 Butanoate metabolism
+                YML126C (ERG13)
+              Lipid metabolism
+               00072 Synthesis and degradation of ketone bodies
+                YML126C (ERG13)
+              Amino acid metabolism
+               00280 Valine, leucine and isoleucine degradation
+                YML126C (ERG13)
+              Metabolism of terpenoids and polyketides
+               00900 Terpenoid backbone biosynthesis
+                YML126C (ERG13)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.3  Acyltransferases
+               2.3.3  Acyl groups converted into alkyl groups on transfer
+                2.3.3.10  hydroxymethylglutaryl-CoA synthase
+                 YML126C (ERG13)
 POSITION    XIII:complement(19060..20535)
 MOTIF       Pfam: HMG_CoA_synt_C HMG_CoA_synt_N
-DBLINKS     NCBI-GI: 6323509
+DBLINKS     NCBI-ProteinID: NP_013580
             NCBI-GeneID: 854913
             SGD: S000004595
-            MIPS: YML126C
             UniProt: P54839
 AASEQ       491
             MKLSTKLCWCGIKGRLRPQKQQQLHNTNLQMTELKKQKTAEQKTRPQNVGIKGIQIYIPT

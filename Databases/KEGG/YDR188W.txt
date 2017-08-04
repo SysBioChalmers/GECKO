@@ -1,16 +1,27 @@
 ENTRY       YDR188W           CDS       T00005
 NAME        CCT6, HTR3, TCP20, TCP6
-DEFINITION  Cct6p
+DEFINITION  (RefSeq) chaperonin-containing T-complex subunit CCT6
 ORTHOLOGY   K09498  T-complex protein 1 subunit zeta
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chaperones and folding catalysts [BR:sce03110]
+             Heat shock proteins
+              HSP60 / Chaperonin
+               YDR188W (CCT6)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of haemopoietic cells  (B-cell, T-cell, DC-cell, reticulocyte, and mast cell)
+               YDR188W (CCT6)
+              Exosomal proteins of colorectal cancer cells
+               YDR188W (CCT6)
+              Exosomal proteins of bladder cancer cells
+               YDR188W (CCT6)
 POSITION    IV:836421..838061
 MOTIF       Pfam: Cpn60_TCP1
-DBLINKS     NCBI-GI: 398366021
+DBLINKS     NCBI-ProteinID: NP_010474
             NCBI-GeneID: 851768
             SGD: S000002596
-            MIPS: YDR188W
             UniProt: P39079
-STRUCTURE   PDB: 4APK 4AOL 4D8Q 4D8R 3P9D 3P9E
+STRUCTURE   PDB: 5GW5 5GW4
 AASEQ       546
             MSLQLLNPKAESLRRDAALKVNVTSAEGLQSVLETNLGPKGTLKMLVDGAGNIKLTKDGK
             VLLTEMQIQSPTAVLIARAAAAQDEITGDGTTTVVCLVGELLRQAHRFIQEGVHPRIITD

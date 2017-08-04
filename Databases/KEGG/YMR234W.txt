@@ -1,16 +1,36 @@
 ENTRY       YMR234W           CDS       T00005
 NAME        RNH1
-DEFINITION  Rnh1p (EC:3.1.26.4)
+DEFINITION  (RefSeq) RNA-DNA hybrid ribonuclease
 ORTHOLOGY   K03469  ribonuclease HI [EC:3.1.26.4]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03030  DNA replication
-CLASS       Genetic Information Processing; Replication and repair; DNA replication [PATH:sce03030]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Replication and repair
+               03030 DNA replication
+                YMR234W (RNH1)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.26  Endoribonucleases producing 5'-phosphomonoesters
+                3.1.26.4  ribonuclease H
+                 YMR234W (RNH1)
+            DNA replication proteins [BR:sce03032]
+             Eukaryotic Type
+              DNA Replication Elongation Factors
+               RNase H
+                YMR234W (RNH1)
+             Prokaryotic Type
+               Elongation factors (bacterial)
+                RNase H
+                 YMR234W (RNH1)
+               Elongation factors (archaeal)
+                 YMR234W (RNH1)
 POSITION    XIII:740266..741312
-MOTIF       Pfam: RNase_H Cauli_VI
-DBLINKS     NCBI-GI: 6323890
+MOTIF       Pfam: RNase_H Cauli_VI RVT_3 PilM_2
+DBLINKS     NCBI-ProteinID: NP_013961
             NCBI-GeneID: 855274
             SGD: S000004847
-            MIPS: YMR234W
             UniProt: Q04740
 STRUCTURE   PDB: 1QHK
 AASEQ       348

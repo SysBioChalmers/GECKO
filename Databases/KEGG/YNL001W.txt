@@ -1,16 +1,19 @@
 ENTRY       YNL001W           CDS       T00005
 NAME        DOM34
-DEFINITION  Dom34p (EC:3.1.-.-)
+DEFINITION  (RefSeq) ribosome dissociation factor DOM34
 ORTHOLOGY   K06965  protein pelota
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03015  mRNA surveillance pathway
-CLASS       Genetic Information Processing; Translation; mRNA surveillance pathway [PATH:sce03015]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03015 mRNA surveillance pathway
+                YNL001W (DOM34)
 POSITION    XIV:627456..628616
-MOTIF       Pfam: eRF1_2 eRF1_3 eRF1_1 Cass2 RNA12
-DBLINKS     NCBI-GI: 6324327
+MOTIF       Pfam: eRF1_2 eRF1_3 eRF1_1 RNA12 SNF2_N
+DBLINKS     NCBI-ProteinID: NP_014397
             NCBI-GeneID: 855731
             SGD: S000004946
-            MIPS: YNL001W
             UniProt: P33309
 STRUCTURE   PDB: 3J16 3IZQ 2VGM 2VGN
 AASEQ       386

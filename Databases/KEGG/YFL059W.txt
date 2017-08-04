@@ -1,16 +1,25 @@
 ENTRY       YFL059W           CDS       T00005
 NAME        SNZ3
-DEFINITION  Snz3p
-ORTHOLOGY   K06215  pyridoxine biosynthesis protein [EC:4.-.-.-]
+DEFINITION  (RefSeq) pyridoxine biosynthesis protein SNZ3
+ORTHOLOGY   K06215  pyridoxal 5'-phosphate synthase pdxS subunit [EC:4.3.3.6]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00750  Vitamin B6 metabolism
-CLASS       Metabolism; Metabolism of cofactors and vitamins; Vitamin B6 metabolism [PATH:sce00750]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Metabolism of cofactors and vitamins
+               00750 Vitamin B6 metabolism
+                YFL059W (SNZ3)
+            Enzymes [BR:sce01000]
+             4. Lyases
+              4.3  Carbon-nitrogen lyases
+               4.3.3  Amine-lyases
+                4.3.3.6  pyridoxal 5'-phosphate synthase (glutamine hydrolysing)
+                 YFL059W (SNZ3)
 POSITION    VI:11363..12259
-MOTIF       Pfam: SOR_SNZ ThiG NanE NMO His_biosynth T4SS IGPS
-DBLINKS     NCBI-GI: 14318460
+MOTIF       Pfam: SOR_SNZ ThiG NanE NMO His_biosynth TMP-TENI
+DBLINKS     NCBI-ProteinID: NP_116596
             NCBI-GeneID: 850485
             SGD: S000001835
-            MIPS: YFL059W
             UniProt: P43545
 AASEQ       298
             MSEFKVKTGLAQMLKGGVIMDVVTPEQAIIAERAGACAVMALERIPADMRKSGQVCRMSD

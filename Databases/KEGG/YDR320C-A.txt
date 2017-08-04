@@ -1,14 +1,19 @@
 ENTRY       YDR320C-A         CDS       T00005
 NAME        DAD4, HSK2
-DEFINITION  Dad4p
+DEFINITION  (RefSeq) Dad4p
 ORTHOLOGY   K11569  DASH complex subunit DAD4
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centromeric chromatin formation proteins
+               Kinetochore proteins
+                DASH complex
+                 YDR320C-A (DAD4)
 POSITION    IV:complement(1108280..1108498)
-MOTIF       Pfam: DASH_Dad4 DUF3251 NPV_P10 DivIC
-DBLINKS     NCBI-GI: 398366483
+MOTIF       Pfam: DASH_Dad4 DivIC DUF3251 Img2
+DBLINKS     NCBI-ProteinID: NP_710144
             NCBI-GeneID: 851919
             SGD: S000007604
-            MIPS: YDR320C-A
             UniProt: P69851
 AASEQ       72
             MENPHEQVQANILSRIIGNVKRLNESVAILNQELVTINNRNKNLEIMGAICDNYHSSVQF

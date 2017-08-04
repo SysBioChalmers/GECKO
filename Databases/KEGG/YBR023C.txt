@@ -1,16 +1,29 @@
 ENTRY       YBR023C           CDS       T00005
 NAME        CHS3, CAL1, CSD2, DIT101, KTI2
-DEFINITION  chitin synthase CHS3 (EC:2.4.1.16)
+DEFINITION  (RefSeq) chitin synthase CHS3
 ORTHOLOGY   K00698  chitin synthase [EC:2.4.1.16]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00520  Amino sugar and nucleotide sugar metabolism
-CLASS       Metabolism; Carbohydrate metabolism; Amino sugar and nucleotide sugar metabolism [PATH:sce00520]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Carbohydrate metabolism
+               00520 Amino sugar and nucleotide sugar metabolism
+                YBR023C (CHS3)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.4  Glycosyltransferases
+               2.4.1  Hexosyltransferases
+                2.4.1.16  chitin synthase
+                 YBR023C (CHS3)
+            Glycosyltransferases [BR:sce01003]
+             Polysaccharide
+              Structural polysaccharide
+               YBR023C (CHS3)
 POSITION    II:complement(284428..287925)
-MOTIF       Pfam: Chitin_synth_2 Glyco_trans_2_3 Glyco_tranf_2_3 Cyt-b5 Glyco_transf_21 Glycos_transf_2
-DBLINKS     NCBI-GI: 6319497
+MOTIF       Pfam: Chitin_synth_2 Glyco_tranf_2_3 Glyco_trans_2_3 Glyco_transf_21 Glycos_transf_2
+DBLINKS     NCBI-ProteinID: NP_009579
             NCBI-GeneID: 852311
             SGD: S000000227
-            MIPS: YBR023C
             UniProt: P29465
 AASEQ       1165
             MTGLNGDDPDDYYLNLNQDEESLLRSRHSVGSGAPHRQGSLVRPERSRLNNPDNPHFYYA

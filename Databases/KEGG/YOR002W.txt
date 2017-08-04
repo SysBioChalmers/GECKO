@@ -1,18 +1,31 @@
 ENTRY       YOR002W           CDS       T00005
 NAME        ALG6
-DEFINITION  dolichyl-P-Glc:Man(9)GlcNAc(2)-PP-dolichol alpha-1,3-glucosyltransferase (EC:2.4.1.267)
+DEFINITION  (RefSeq) dolichyl-P-Glc:Man(9)GlcNAc(2)-PP-dolichol alpha-1,3-glucosyltransferase
 ORTHOLOGY   K03848  alpha-1,3-glucosyltransferase [EC:2.4.1.267]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00510  N-Glycan biosynthesis
             sce01100  Metabolic pathways
 MODULE      sce_M00055  N-glycan precursor biosynthesis
-CLASS       Metabolism; Glycan biosynthesis and metabolism; N-Glycan biosynthesis [PATH:sce00510]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Glycan biosynthesis and metabolism
+               00510 N-Glycan biosynthesis
+                YOR002W (ALG6)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.4  Glycosyltransferases
+               2.4.1  Hexosyltransferases
+                2.4.1.267  dolichyl-P-Glc:Man9GlcNAc2-PP-dolichol alpha-1,3-glucosyltransferase
+                 YOR002W (ALG6)
+            Glycosyltransferases [BR:sce01003]
+             N-Glycan biosynthesis
+              Dol-linked oligosaccharide
+               YOR002W (ALG6)
 POSITION    XV:329417..331051
 MOTIF       Pfam: Alg6_Alg8
-DBLINKS     NCBI-GI: 6324575
+DBLINKS     NCBI-ProteinID: NP_014644
             NCBI-GeneID: 854163
             SGD: S000005528
-            MIPS: YOR002W
             UniProt: Q12001
 AASEQ       544
             MAIGKRLLVNKPAEESFYASPMYDFLYPFRPVGNQWLPEYIIFVCAVILRCTIGLGPYSG

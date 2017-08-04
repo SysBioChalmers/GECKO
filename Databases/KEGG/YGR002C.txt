@@ -1,14 +1,26 @@
 ENTRY       YGR002C           CDS       T00005
 NAME        SWC4, EAF2, GOD1
-DEFINITION  Swc4p
+DEFINITION  (RefSeq) Swc4p
 ORTHOLOGY   K11324  DNA methyltransferase 1-associated protein 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Histone modification proteins
+               HAT complexes
+                TIP60 complex
+                 YGR002C (SWC4)
+                NuA4 complex
+                 YGR002C (SWC4)
+              Chromatin remodeling factors
+               SRCAP complex
+                YGR002C (SWC4)
+               SWR1 complex
+                YGR002C (SWC4)
 POSITION    VII:complement(498476..499906)
-MOTIF       Pfam: Myb_DNA-bind_6 Myb_DNA-binding
-DBLINKS     NCBI-GI: 6321439
+MOTIF       Pfam: SANT_DAMP1_like Myb_DNA-bind_6 Myb_DNA-binding
+DBLINKS     NCBI-ProteinID: NP_011516
             NCBI-GeneID: 852885
             SGD: S000003234
-            MIPS: YGR002C
             UniProt: P53201
 AASEQ       476
             MSSSDIFDVLNIKQKSRSPTNGQVSVPSSSAANRPKPQVTGMQRELFNLLGENQPPVVIK

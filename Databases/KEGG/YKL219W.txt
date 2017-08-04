@@ -1,13 +1,12 @@
 ENTRY       YKL219W           CDS       T00005
 NAME        COS9
-DEFINITION  Cos9p
+DEFINITION  (RefSeq) Cos9p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XI:14485..15708
-MOTIF       Pfam: DUP TctA
-DBLINKS     NCBI-GI: 6322630
+MOTIF       Pfam: DUP
+DBLINKS     NCBI-ProteinID: NP_012703
             NCBI-GeneID: 853661
             SGD: S000001702
-            MIPS: YKL219W
             UniProt: P36034
 AASEQ       407
             MQIVRSCNSNNKPLIPSSNWHIAIRMRGDGVKDRSIDVLSLKHFESQKVVLPQDLFMDNF

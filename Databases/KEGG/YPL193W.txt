@@ -1,16 +1,20 @@
 ENTRY       YPL193W           CDS       T00005
 NAME        RSA1
-DEFINITION  Rsa1p
+DEFINITION  (RefSeq) Rsa1p
 ORTHOLOGY   K14853  ribosome assembly protein 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               Other pre-60S particles
+                YPL193W (RSA1)
 POSITION    XVI:181403..182548
-MOTIF       Pfam: NUFIP1 APC_CDC26
-DBLINKS     NCBI-GI: 6325063
+MOTIF       Pfam: NUFIP1
+DBLINKS     NCBI-ProteinID: NP_015131
             NCBI-GeneID: 855908
             SGD: S000006114
-            MIPS: YPL193W
             UniProt: Q08932
-STRUCTURE   PDB: 2M3F
+STRUCTURE   PDB: 4NUT 2MJF 2M3F
 AASEQ       381
             MNYNNFENSKGDGHSRLPKPTYSGTLSDGYDESKIKRQKTDSAFNAAYSPHMYPNSPYYE
             GSWNTGYTPQLHHVAPHNQYFHPIQPSTQYNYTSPPNYTENYIPPVHQNISYAPALNLQK

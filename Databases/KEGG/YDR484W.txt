@@ -1,13 +1,18 @@
 ENTRY       YDR484W           CDS       T00005
 NAME        VPS52, SAC2
-DEFINITION  Vps52p
+DEFINITION  (RefSeq) Vps52p
+ORTHOLOGY   K20298  vacuolar protein sorting-associated protein 52
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endosome - Golgi transport
+              Tethering complex
+               GARP complex
+                YDR484W (VPS52)
 POSITION    IV:1422763..1424688
 MOTIF       Pfam: Vps52
-DBLINKS     NCBI-GI: 6320692
+DBLINKS     NCBI-ProteinID: NP_010772
             NCBI-GeneID: 852095
             SGD: S000002892
-            MIPS: YDR484W
             UniProt: P39904
 AASEQ       641
             MDVLKEVLSLDQDKFDQLKETSRDKTNETDDPFENYLKDCKFKAPSNKDQSPFAKLKSLQ

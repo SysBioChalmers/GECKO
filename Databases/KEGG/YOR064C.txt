@@ -1,14 +1,19 @@
 ENTRY       YOR064C           CDS       T00005
 NAME        YNG1, YOR29-15
-DEFINITION  Yng1p
+DEFINITION  (RefSeq) Yng1p
 ORTHOLOGY   K11379  protein YNG1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Histone modification proteins
+               HAT complexes
+                NuA3 complex
+                 YOR064C (YNG1)
 POSITION    XV:complement(446079..446738)
-MOTIF       Pfam: PHD ING Ecl1 zf-HC5HC2H
-DBLINKS     NCBI-GI: 6324638
+MOTIF       Pfam: PHD zf-HC5HC2H Ecl1 FliD_N ING
+DBLINKS     NCBI-ProteinID: NP_014707
             NCBI-GeneID: 854230
             SGD: S000005590
-            MIPS: YOR064C
             UniProt: Q08465
 STRUCTURE   PDB: 2JMI 2JMJ
 AASEQ       219

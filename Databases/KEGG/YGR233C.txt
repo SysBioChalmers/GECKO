@@ -1,16 +1,19 @@
 ENTRY       YGR233C           CDS       T00005
 NAME        PHO81, VAC6
-DEFINITION  Pho81p
+DEFINITION  (RefSeq) Pho81p
 ORTHOLOGY   K06653  CDK inhibitor PHO81
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
-CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YGR233C (PHO81)
 POSITION    VII:complement(954674..958210)
-MOTIF       Pfam: Ank_2 Ank SPX Ank_3 Ank_4 Ank_5 Apc15p
-DBLINKS     NCBI-GI: 398366247
+MOTIF       Pfam: Ank_2 Ank Ank_3 Ank_4 SPX Ank_5 Nrap_D4
+DBLINKS     NCBI-ProteinID: NP_011749
             NCBI-GeneID: 853148
             SGD: S000003465
-            MIPS: YGR233C
             UniProt: P17442
 AASEQ       1178
             MKFGKYLEARQLELAEYNSHFIDYKALKKLIKQLAIPTLKASSDLDLHLTLDDIDEKIIH

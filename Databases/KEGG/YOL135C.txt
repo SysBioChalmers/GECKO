@@ -1,16 +1,21 @@
 ENTRY       YOL135C           CDS       T00005
 NAME        MED7
-DEFINITION  Med7p
+DEFINITION  (RefSeq) mediator complex subunit MED7
 ORTHOLOGY   K15148  mediator of RNA polymerase II transcription subunit 7
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Mediator complex
+                Middle
+                 YOL135C (MED7)
 POSITION    XV:complement(69376..70044)
-MOTIF       Pfam: Med7
-DBLINKS     NCBI-GI: 6324437
+MOTIF       Pfam: Med7 SRA1 PBC
+DBLINKS     NCBI-ProteinID: NP_014506
             NCBI-GeneID: 853985
             SGD: S000005495
-            MIPS: YOL135C
             UniProt: Q08278
-STRUCTURE   PDB: 3FBI 1YKH 1YKE
+STRUCTURE   PDB: 3FBI 1YKH 1YKE 5SVA
 AASEQ       222
             MSNDPGNEVSSLYPPPPPYVKFFTQSNLEKLPKYKEKKAASAKQTAPNNSNGGSEEEITC
             ALDYLIPPPMPKNQQYRAFGSIWQVKDQLPDLESMGLTQLYKKSTENESTNYQYKIQELR

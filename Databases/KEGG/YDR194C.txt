@@ -1,16 +1,27 @@
 ENTRY       YDR194C           CDS       T00005
 NAME        MSS116
-DEFINITION  Mss116p (EC:3.6.4.13)
+DEFINITION  (RefSeq) ATP-dependent RNA helicase
 ORTHOLOGY   K17679  ATP-dependent RNA helicase MSS116, mitochondrial [EC:3.6.4.13]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.4  Acting on acid anhydrides to facilitate cellular and subcellular movement
+                3.6.4.13  RNA helicase
+                 YDR194C (MSS116)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial DNA transcription, translation, and replication factors
+              Mitochondrial DNA replication factors
+               Mitochondrial DNA maintenance factors
+                YDR194C (MSS116)
 POSITION    IV:complement(845952..847946)
-MOTIF       Pfam: DEAD Helicase_C ResIII Helicase_C_2 DUF2201 AAA_30
-DBLINKS     NCBI-GI: 6320400
+MOTIF       Pfam: DEAD Helicase_C ResIII DUF2201 AAA_30 Pox_A30L_A26L
+DBLINKS     NCBI-ProteinID: NP_010480
             NCBI-GeneID: 851775
             SGD: S000002602
-            MIPS: YDR194C
             UniProt: P15424
-STRUCTURE   PDB: 3I5X 3SQW 3I62 3I61 3SQX 3I5Y 4DB2 4DB4
+STRUCTURE   PDB: 3I5X 3SQW 3I62 3I61 3SQX 4TYW 4TZ0 3I5Y 4TYY 4TYN 4DB2
+                 4TZ6 4DB4
 AASEQ       664
             MLTSILIKGRTPVLASRNLLAALSNCNHITWAVSRRLYNDGNRDQRNFGRNQRNNNSNRY
             RNSRFNSRPRTRSREDDDEVHFDKTTFSKLIHVPKEDNSKEVTLDSLLEEGVLDKEIHKA

@@ -1,14 +1,24 @@
 ENTRY       YOR034C           CDS       T00005
 NAME        AKR2
-DEFINITION  Akr2p (EC:2.3.1.-)
-ORTHOLOGY   K06867
+DEFINITION  (RefSeq) putative palmitoyltransferase AKR2
+ORTHOLOGY   K20032  palmitoyltransferase ZDHHC13/17 [EC:2.3.1.225]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.3  Acyltransferases
+               2.3.1  Transferring groups other than aminoacyl groups
+                2.3.1.225  protein S-acyltransferase
+                 YOR034C (AKR2)
+            Membrane trafficking [BR:sce04131]
+             SNARE
+              SNARE associated proteins
+               Palmitoyltransferases
+                YOR034C (AKR2)
 POSITION    XV:complement(394837..397086)
-MOTIF       Pfam: Ank_2 Ank Ank_4 Ank_5 zf-DHHC Ank_3 MoeZ_MoeB
-DBLINKS     NCBI-GI: 6324608
+MOTIF       Pfam: Ank_2 DHHC Ank_4 Ank Ank_3 Ank_5 DUF1449
+DBLINKS     NCBI-ProteinID: NP_014677
             NCBI-GeneID: 854199
             SGD: S000005560
-            MIPS: YOR034C
             UniProt: Q12013
 AASEQ       749
             MTSMSIIDDENVKKTSNGAAVVTDVAQHAVSDSDNNKAQLLGDGSNTEYVVDIFIEAAKD

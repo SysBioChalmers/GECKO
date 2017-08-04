@@ -1,18 +1,47 @@
 ENTRY       YMR239C           CDS       T00005
 NAME        RNT1
-DEFINITION  Rnt1p (EC:3.1.26.3)
+DEFINITION  (RefSeq) ribonuclease III
 ORTHOLOGY   K03685  ribonuclease III [EC:3.1.26.3]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03008  Ribosome biogenesis in eukaryotes
-CLASS       Genetic Information Processing; Translation; Ribosome biogenesis in eukaryotes [PATH:sce03008]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03008 Ribosome biogenesis in eukaryotes
+                YMR239C (RNT1)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.26  Endoribonucleases producing 5'-phosphomonoesters
+                3.1.26.3  ribonuclease III
+                 YMR239C (RNT1)
+            Messenger RNA biogenesis [BR:sce03019]
+             Prokaryotic Type
+              Bacterial mRNA degradation factors
+               RNA degradosome components
+                Ribonucreases
+                 YMR239C (RNT1)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              90S particles
+               RNase
+                YMR239C (RNT1)
+             Prokaryotic Type
+              rRNA processing factors
+               YMR239C (RNT1)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              RNA silencing
+               microRNA pathway
+                Microprocessor complex
+                 YMR239C (RNT1)
 POSITION    XIII:complement(748262..749677)
-MOTIF       Pfam: Ribonuclease_3 Ribonucleas_3_3 dsrm DUF2854
-DBLINKS     NCBI-GI: 6323895
+MOTIF       Pfam: Ribonuclease_3 Ribonucleas_3_3 dsrm
+DBLINKS     NCBI-ProteinID: NP_013966
             NCBI-GeneID: 855280
             SGD: S000004852
-            MIPS: YMR239C
             UniProt: Q02555
-STRUCTURE   PDB: 1T4O 2LUP 2LUQ 2LBS 1T4N 1T4L
+STRUCTURE   PDB: 4OOG 1T4O 5T16 2LUP 2LUQ 2LBS 1T4N 1T4L
 AASEQ       471
             MGSKVAGKKKTQNDNKLDNENGSQQRENINTKTLLKGNLKISNYKYLEVIQLEHAVTKLV
             ESYNKIIELSPNLVAYNEAVNNQDRVPVQILPSLSRYQLKLAAELKTLHDLKKDAILTEI

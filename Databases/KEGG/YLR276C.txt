@@ -1,14 +1,24 @@
 ENTRY       YLR276C           CDS       T00005
 NAME        DBP9
-DEFINITION  Dbp9p (EC:3.6.4.13 3.6.4.12)
+DEFINITION  (RefSeq) ATP-dependent DNA/RNA helicase
 ORTHOLOGY   K14810  ATP-dependent RNA helicase DDX56/DBP9 [EC:3.6.4.13]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.4  Acting on acid anhydrides to facilitate cellular and subcellular movement
+                3.6.4.13  RNA helicase
+                 YLR276C (DBP9)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               Helicases
+                YLR276C (DBP9)
 POSITION    XII:complement(695046..696830)
-MOTIF       Pfam: DEAD Helicase_C ResIII DnaI_N DUF3334
-DBLINKS     NCBI-GI: 6323306
+MOTIF       Pfam: DEAD Helicase_C ResIII CMS1 CFIA_Pcf11
+DBLINKS     NCBI-ProteinID: NP_013378
             NCBI-GeneID: 850982
             SGD: S000004266
-            MIPS: YLR276C
             UniProt: Q06218
 AASEQ       594
             MSYEKKSVEGAYIDDSTTFEAFHLDSRLLQAIKNIGFQYPTLIQSHAIPLALQQKRDIIA

@@ -1,13 +1,12 @@
 ENTRY       YJL103C           CDS       T00005
 NAME        GSM1
-DEFINITION  Gsm1p
+DEFINITION  (RefSeq) Gsm1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    X:complement(229025..230881)
-MOTIF       Pfam: Zn_clus PSD1 PAS
-DBLINKS     NCBI-GI: 6322358
+MOTIF       Pfam: Zn_clus PAS PSD1
+DBLINKS     NCBI-ProteinID: NP_012432
             NCBI-GeneID: 853341
             SGD: S000003639
-            MIPS: YJL103C
             UniProt: P42950
 AASEQ       618
             MTKKLPSELKQTRKSIQTACEFCHTKHIQCDVGRPCQNCLKRNIGKFCRDKKRKSRKRIE

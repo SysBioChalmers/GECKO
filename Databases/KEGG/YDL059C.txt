@@ -1,16 +1,25 @@
 ENTRY       YDL059C           CDS       T00005
 NAME        RAD59
-DEFINITION  Rad59p
+DEFINITION  (RefSeq) Rad59p
 ORTHOLOGY   K10959  DNA repair protein RAD59
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03440  Homologous recombination
-CLASS       Genetic Information Processing; Replication and repair; Homologous recombination [PATH:sce03440]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Replication and repair
+               03440 Homologous recombination
+                YDL059C (RAD59)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              DSBR (double strand breaks repair)
+               HR (homologous recombination)
+                Rad52 family proteins
+                 YDL059C (RAD59)
 POSITION    IV:complement(344237..344953)
-MOTIF       Pfam: Rad52_Rad22 DUF2634
-DBLINKS     NCBI-GI: 6320144
+MOTIF       Pfam: Rad52_Rad22
+DBLINKS     NCBI-ProteinID: NP_010224
             NCBI-GeneID: 851500
             SGD: S000002217
-            MIPS: YDL059C
             UniProt: Q12223
 AASEQ       238
             MTIQAKPSSSISYDSTTYGTAPGLDIKEFQIIEDWNGRPASAWSVQRIGLLQSKIERYTY

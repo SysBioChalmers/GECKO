@@ -1,16 +1,37 @@
 ENTRY       YMR036C           CDS       T00005
 NAME        MIH1
-DEFINITION  Mih1p (EC:3.1.3.48)
+DEFINITION  (RefSeq) putative tyrosine protein phosphatase MIH1
 ORTHOLOGY   K02555  M-phase inducer tyrosine phosphatase [EC:3.1.3.48]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
-PATHWAY     sce04111  Cell cycle - yeast
-CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
+PATHWAY     sce04011  MAPK signaling pathway - yeast
+            sce04111  Cell cycle - yeast
+MODULE      sce_M00691  DNA damage-induced cell cycle checkpoints
+            sce_M00693  Cell cycle - G2/M transition
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YMR036C (MIH1)
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YMR036C (MIH1)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.3  Phosphoric-monoester hydrolases
+                3.1.3.48  protein-tyrosine-phosphatase
+                 YMR036C (MIH1)
+            Protein phosphatases and associated proteins [BR:sce01009]
+             Protein Tyrosine phosphatases (PTPs)
+              Class III PTPs
+               CDC25s
+                YMR036C (MIH1)
 POSITION    XIII:complement(341856..343520)
-MOTIF       Pfam: Rhodanese
-DBLINKS     NCBI-GI: 6323679
+MOTIF       Pfam: Rhodanese Astro_capsid_N
+DBLINKS     NCBI-ProteinID: NP_013750
             NCBI-GeneID: 855052
             SGD: S000004639
-            MIPS: YMR036C
             UniProt: P23748
 AASEQ       554
             MNNIFHGTEDECANEDVLSFQKISLKSPFGKKKNIFRNVQTFFKSKSKHSNVDDDLINKE

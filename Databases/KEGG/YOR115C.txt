@@ -1,13 +1,22 @@
 ENTRY       YOR115C           CDS       T00005
 NAME        TRS33
-DEFINITION  Trs33p
+DEFINITION  (RefSeq) Trs33p
+ORTHOLOGY   K20304  trafficking protein particle complex subunit 6
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endosome - Golgi transport
+              Tethering complex
+               TRAPP complex II
+                YOR115C (TRS33)
+             Endoplasmic reticulum (ER) - Golgi transport
+              Forward pathways
+               TRAPP complex I
+                YOR115C (TRS33)
 POSITION    XV:complement(538659..539465)
 MOTIF       Pfam: TRAPP
-DBLINKS     NCBI-GI: 398365193
+DBLINKS     NCBI-ProteinID: NP_014758
             NCBI-GeneID: 854282
             SGD: S000005641
-            MIPS: YOR115C
             UniProt: Q99394
 AASEQ       268
             MSSTHSNNVGHPQSSPQGPLTEQQRAQQQYQIFENSLPKVSQSVYQMLLNEMVPLAMGIE

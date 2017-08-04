@@ -1,13 +1,12 @@
 ENTRY       YDR006C           CDS       T00005
 NAME        SOK1
-DEFINITION  Sok1p
+DEFINITION  (RefSeq) Sok1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(458542..461247)
-MOTIF       Pfam: Tcp11
-DBLINKS     NCBI-GI: 398364967
+MOTIF       Pfam: Tcp11 SRP9-21
+DBLINKS     NCBI-ProteinID: NP_010289
             NCBI-GeneID: 851569
             SGD: S000002413
-            MIPS: YDR006C
             UniProt: P40317
 AASEQ       901
             MDQPRTHSGPTTASNPAPSSTNSSSAPSATNSKQERSSSSLSKPSSVVPSKDSPDGDAIA

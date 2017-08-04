@@ -1,16 +1,29 @@
 ENTRY       YAL061W           CDS       T00005
 NAME        BDH2
-DEFINITION  putative dehydrogenase BDH2 (EC:1.1.1.303)
-ORTHOLOGY   K00004  (R,R)-butanediol dehydrogenase / diacetyl reductase [EC:1.1.1.4 1.1.1.303]
+DEFINITION  (RefSeq) putative dehydrogenase BDH2
+ORTHOLOGY   K00004  (R,R)-butanediol dehydrogenase / meso-butanediol dehydrogenase / diacetyl reductase [EC:1.1.1.4 1.1.1.- 1.1.1.303]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00650  Butanoate metabolism
-CLASS       Metabolism; Carbohydrate metabolism; Butanoate metabolism [PATH:sce00650]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Carbohydrate metabolism
+               00650 Butanoate metabolism
+                YAL061W (BDH2)
+            Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.1  Acting on the CH-OH group of donors
+               1.1.1  With NAD+ or NADP+ as acceptor
+                1.1.1.4  (R,R)-butanediol dehydrogenase
+                 YAL061W (BDH2)
+                1.1.1.303  diacetyl reductase [(R)-acetoin forming]
+                 YAL061W (BDH2)
+                1.1.1.-  
+                 YAL061W (BDH2)
 POSITION    I:33448..34701
-MOTIF       Pfam: ADH_N ADH_zinc_N ADH_zinc_N_2 Pyr_redox_3 Shikimate_DH F420_oxidored 2-Hacid_dh_C Pyr_redox NAD_binding_7 DAO ThiF TrkA_N
-DBLINKS     NCBI-GI: 6319257
+MOTIF       Pfam: ADH_N ADH_zinc_N Glu_dehyd_C Pyr_redox_3 ADH_zinc_N_2 2-Hacid_dh_C Shikimate_DH F420_oxidored NAD_binding_7 Pyr_redox DAO
+DBLINKS     NCBI-ProteinID: NP_009340
             NCBI-GeneID: 851238
             SGD: S000000057
-            MIPS: YAL061W
             UniProt: P39713
 AASEQ       417
             MRALAYFGKGNIRFTNHLKEPHIVAPDELVIDIEWCGICGTDLHEYTDGPIFFPEDGHTH

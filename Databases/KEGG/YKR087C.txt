@@ -1,13 +1,12 @@
 ENTRY       YKR087C           CDS       T00005
 NAME        OMA1
-DEFINITION  Oma1p (EC:3.4.24.-)
+DEFINITION  (RefSeq) metalloendopeptidase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XI:complement(603195..604232)
 MOTIF       Pfam: Peptidase_M48
-DBLINKS     NCBI-GI: 50593425
+DBLINKS     NCBI-ProteinID: NP_013013
             NCBI-GeneID: 853962
             SGD: S000001795
-            MIPS: YKR087C
             UniProt: P36163
 AASEQ       345
             MLRNIIRFKGFGKGTSGGFLKPVSFRVQLTRCYRYDNGPSYRRFNNGEYSQKSSFKSILL

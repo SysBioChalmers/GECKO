@@ -1,14 +1,25 @@
 ENTRY       YPL082C           CDS       T00005
-NAME        MOT1, BUR3, LPF4
-DEFINITION  Mot1p (EC:3.6.4.- 3.6.1.-)
+NAME        MOT1, BUR3, END10, LPF4
+DEFINITION  (RefSeq) DNA-binding ATPase
 ORTHOLOGY   K15192  TATA-binding protein-associated factor [EC:3.6.4.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.4  Acting on acid anhydrides to facilitate cellular and subcellular movement
+                3.6.4.-  
+                 YPL082C (MOT1)
+            Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Other transcription-related factors
+                Others
+                 YPL082C (MOT1)
 POSITION    XVI:complement(398480..404083)
-MOTIF       Pfam: DUF3535 SNF2_N Helicase_C HEAT
-DBLINKS     NCBI-GI: 6325175
+MOTIF       Pfam: DUF3535 SNF2_N Helicase_C HEAT ResIII MMS19_N U3snoRNP10 ERCC3_RAD25_C GUN4_N
+DBLINKS     NCBI-ProteinID: NP_015243
             NCBI-GeneID: 856023
             SGD: S000006003
-            MIPS: YPL082C
             UniProt: P32333
 AASEQ       1867
             MTSRVSRLDRQVILIETGSTQVVRNMAADQMGDLAKQHPEDILSLLSRVYPFLLVKKWET

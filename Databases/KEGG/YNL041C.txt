@@ -1,13 +1,18 @@
 ENTRY       YNL041C           CDS       T00005
 NAME        COG6, COD2, SEC37
-DEFINITION  Cog6p
+DEFINITION  (RefSeq) Golgi transport complex subunit COG6
+ORTHOLOGY   K20293  conserved oligomeric Golgi complex subunit 6
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endosome - Golgi transport
+              Tethering complex
+               Conserved oligomeric Golgi (COG) complex
+                YNL041C (COG6)
 POSITION    XIV:complement(549468..551987)
-MOTIF       Pfam: COG6 Fic_N
-DBLINKS     NCBI-GI: 6324287
+MOTIF       Pfam: COG6 Phage_CP76
+DBLINKS     NCBI-ProteinID: NP_014357
             NCBI-GeneID: 855687
             SGD: S000004986
-            MIPS: YNL041C
             UniProt: P53959
 AASEQ       839
             MDFVVDYQTYAMADTATPELPEPEPRLNLTSDAQSQPTGKLDLQFKLPDLQRYSNNNATL

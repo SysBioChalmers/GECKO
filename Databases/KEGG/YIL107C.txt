@@ -1,16 +1,25 @@
 ENTRY       YIL107C           CDS       T00005
 NAME        PFK26
-DEFINITION  Pfk26p (EC:2.7.1.105)
+DEFINITION  (RefSeq) Pfk26p
 ORTHOLOGY   K00900  6-phosphofructo-2-kinase [EC:2.7.1.105]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00051  Fructose and mannose metabolism
-CLASS       Metabolism; Carbohydrate metabolism; Fructose and mannose metabolism [PATH:sce00051]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Carbohydrate metabolism
+               00051 Fructose and mannose metabolism
+                YIL107C (PFK26)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.1  Phosphotransferases with an alcohol group as acceptor
+                2.7.1.105  6-phosphofructo-2-kinase
+                 YIL107C (PFK26)
 POSITION    IX:complement(163278..165761)
-MOTIF       Pfam: 6PF2K His_Phos_1 AAA_33 AAA_17 AAA_18 APS_kinase Zeta_toxin
-DBLINKS     NCBI-GI: 6322084
+MOTIF       Pfam: 6PF2K His_Phos_1 AAA_33 AAA_18 APS_kinase AAA_17 KTI12
+DBLINKS     NCBI-ProteinID: NP_012159
             NCBI-GeneID: 854699
             SGD: S000001369
-            MIPS: YIL107C
             UniProt: P40433
 AASEQ       827
             MFKPVDFSETSPVPPDIDLAPTQSPHHVAPSQDSSYDLLSRSSDDKIDAEKGPHDELSKH

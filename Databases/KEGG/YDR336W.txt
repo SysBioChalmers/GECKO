@@ -1,12 +1,12 @@
 ENTRY       YDR336W           CDS       T00005
-DEFINITION  hypothetical protein
+NAME        MRX8
+DEFINITION  (RefSeq) Mrx8p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:1145092..1146036
-MOTIF       Pfam: MMR_HSR1 FeoB_N Dynamin_N DUF258 AIG1 SRPRB GTP_EFTU Miro
-DBLINKS     NCBI-GI: 398366499
+MOTIF       Pfam: MMR_HSR1 FeoB_N RsgA_GTPase Dynamin_N AIG1 SRPRB Roc
+DBLINKS     NCBI-ProteinID: NP_010623
             NCBI-GeneID: 851936
             SGD: S000002744
-            MIPS: YDR336W
             UniProt: Q05473
 AASEQ       314
             MEQLCKRYVHTPAAFIQNIVANTKRTTLATQLSVEKAKKKVPKTALKKKLNSRPKERLPN

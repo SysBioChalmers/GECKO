@@ -1,13 +1,12 @@
 ENTRY       YML079W           CDS       T00005
-DEFINITION  hypothetical protein
-ORTHOLOGY   K09705  hypothetical protein
+DEFINITION  (RefSeq) hypothetical protein
+ORTHOLOGY   K09705  uncharacterized protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:110247..110852
-MOTIF       Pfam: Cupin_5 EIIA-man
-DBLINKS     NCBI-GI: 6323561
+MOTIF       Pfam: Cupin_5
+DBLINKS     NCBI-ProteinID: NP_013632
             NCBI-GeneID: 854896
             SGD: S000004544
-            MIPS: YML079W
             UniProt: Q03629
 STRUCTURE   PDB: 1XE7 1XE8
 AASEQ       201

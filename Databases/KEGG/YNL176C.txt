@@ -1,13 +1,12 @@
 ENTRY       YNL176C           CDS       T00005
 NAME        TDA7
-DEFINITION  Tda7p
+DEFINITION  (RefSeq) Tda7p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIV:complement(305070..306980)
-MOTIF       Pfam: SKG6 Syndecan
-DBLINKS     NCBI-GI: 330443706
+MOTIF       Pfam: DUF1191 Syndecan
+DBLINKS     NCBI-ProteinID: NP_014223
             NCBI-GeneID: 855545
             SGD: S000005120
-            MIPS: YNL176C
             UniProt: P53882
 AASEQ       636
             MNSNSTIGRTTLGESDTISLSFSEPSSSLNSRSTDVVFASTSTLVPQQGSLTSLPPVSST

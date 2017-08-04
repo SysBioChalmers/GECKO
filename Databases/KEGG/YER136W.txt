@@ -1,14 +1,17 @@
 ENTRY       YER136W           CDS       T00005
 NAME        GDI1, SEC19
-DEFINITION  Gdi1p
+DEFINITION  (RefSeq) Gdi1p
 ORTHOLOGY   K17255  Rab GDP dissociation inhibitor
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Exosome [BR:sce04147]
+             Exosomal proteins
+              Proteins found in most exosomes
+               YER136W (GDI1)
 POSITION    V:439616..440971
 MOTIF       Pfam: GDI NAD_binding_8
-DBLINKS     NCBI-GI: 6320983
+DBLINKS     NCBI-ProteinID: NP_011062
             NCBI-GeneID: 856876
             SGD: S000000938
-            MIPS: YER136W
             UniProt: P39958
 STRUCTURE   PDB: 2BCG 1UKV 3CPI 3CPJ 3CPH
 AASEQ       451

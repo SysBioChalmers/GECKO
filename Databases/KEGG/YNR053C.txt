@@ -1,16 +1,24 @@
 ENTRY       YNR053C           CDS       T00005
 NAME        NOG2, NUG2
-DEFINITION  Nog2p
+DEFINITION  (RefSeq) putative GTPase NOG2
 ORTHOLOGY   K14537  nuclear GTP-binding protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03008  Ribosome biogenesis in eukaryotes
-CLASS       Genetic Information Processing; Translation; Ribosome biogenesis in eukaryotes [PATH:sce03008]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03008 Ribosome biogenesis in eukaryotes
+                YNR053C (NOG2)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               GTPases
+                YNR053C (NOG2)
 POSITION    XIV:complement(join(721120..721770,722303..723112))
-MOTIF       Pfam: NGP1NT MMR_HSR1 FeoB_N Dynamin_N Arf GTP_EFTU DUF258 SusD-like_3
-DBLINKS     NCBI-GI: 6324381
+MOTIF       Pfam: NGP1NT MMR_HSR1 FeoB_N Arf GTP_EFTU Dynamin_N RsgA_GTPase SusD-like_3
+DBLINKS     NCBI-ProteinID: NP_014451
             NCBI-GeneID: 855789
             SGD: S000005336
-            MIPS: YNR053C
             UniProt: P53742
 AASEQ       486
             MGTGKKEKSRRIREGDTKDGNLRVKGENFYRDSKRVKFLNMYTSGKEIRNKKGNLIRAAS

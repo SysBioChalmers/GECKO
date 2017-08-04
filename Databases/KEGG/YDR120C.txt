@@ -1,14 +1,26 @@
 ENTRY       YDR120C           CDS       T00005
 NAME        TRM1
-DEFINITION  Trm1p (EC:2.1.1.216)
+DEFINITION  (RefSeq) tRNA (guanine26-N2)-dimethyltransferase
 ORTHOLOGY   K00555  tRNA (guanine26-N2/guanine27-N2)-dimethyltransferase [EC:2.1.1.215 2.1.1.216]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.1  Transferring one-carbon groups
+               2.1.1  Methyltransferases
+                2.1.1.215  tRNA (guanine26-N2/guanine27-N2)-dimethyltransferase
+                 YDR120C (TRM1)
+                2.1.1.216  tRNA (guanine26-N2)-dimethyltransferase
+                 YDR120C (TRM1)
+            Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              tRNA modification factors
+               Methyltransferases
+                YDR120C (TRM1)
 POSITION    IV:complement(691549..693261)
-MOTIF       Pfam: TRM Met_10 Cons_hypoth95 MTS
-DBLINKS     NCBI-GI: 398365717
+MOTIF       Pfam: TRM Met_10 Cons_hypoth95
+DBLINKS     NCBI-ProteinID: NP_010405
             NCBI-GeneID: 851698
             SGD: S000002527
-            MIPS: YDR120C
             UniProt: P15565
 AASEQ       570
             MEGFFRIPLKRANLHGMLKAAISKIKANFTAYGAPRINIEDFNIVKEGKAEILFPKKETV

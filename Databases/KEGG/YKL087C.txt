@@ -1,16 +1,25 @@
 ENTRY       YKL087C           CDS       T00005
 NAME        CYT2
-DEFINITION  cytochrome c1 heme lyase CYT2 (EC:4.4.1.-)
+DEFINITION  (RefSeq) cytochrome c1 heme lyase CYT2
 ORTHOLOGY   K01764  cytochrome c heme-lyase [EC:4.4.1.17]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00860  Porphyrin and chlorophyll metabolism
-CLASS       Metabolism; Metabolism of cofactors and vitamins; Porphyrin and chlorophyll metabolism [PATH:sce00860]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Metabolism of cofactors and vitamins
+               00860 Porphyrin and chlorophyll metabolism
+                YKL087C (CYT2)
+            Enzymes [BR:sce01000]
+             4. Lyases
+              4.4  Carbon-sulfur lyases
+               4.4.1  Carbon-sulfur lyases (only sub-subclass identified to date)
+                4.4.1.17  holocytochrome-c synthase
+                 YKL087C (CYT2)
 POSITION    XI:complement(277189..277863)
 MOTIF       Pfam: Cyto_heme_lyase
-DBLINKS     NCBI-GI: 6322763
+DBLINKS     NCBI-ProteinID: NP_012836
             NCBI-GeneID: 853775
             SGD: S000001570
-            MIPS: YKL087C
             UniProt: Q00873
 AASEQ       224
             MMSSDQQGKCPVDEETKKLWLREHGNEAHPGATAPGNQLECSANPQDNDKTPEYHTTVDL

@@ -1,20 +1,44 @@
 ENTRY       YFR019W           CDS       T00005
 NAME        FAB1, SVL7
-DEFINITION  1-phosphatidylinositol-3-phosphate 5-kinase (EC:2.7.1.150)
+DEFINITION  (RefSeq) 1-phosphatidylinositol-3-phosphate 5-kinase
 ORTHOLOGY   K00921  1-phosphatidylinositol-3-phosphate 5-kinase [EC:2.7.1.150]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00562  Inositol phosphate metabolism
             sce04070  Phosphatidylinositol signaling system
             sce04145  Phagosome
-CLASS       Metabolism; Carbohydrate metabolism; Inositol phosphate metabolism [PATH:sce00562]
-            Environmental Information Processing; Signal transduction; Phosphatidylinositol signaling system [PATH:sce04070]
-            Cellular Processes; Transport and catabolism; Phagosome [PATH:sce04145]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Carbohydrate metabolism
+               00562 Inositol phosphate metabolism
+                YFR019W (FAB1)
+             Environmental Information Processing
+              Signal transduction
+               04070 Phosphatidylinositol signaling system
+                YFR019W (FAB1)
+             Cellular Processes
+              Transport and catabolism
+               04145 Phagosome
+                YFR019W (FAB1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.1  Phosphotransferases with an alcohol group as acceptor
+                2.7.1.150  1-phosphatidylinositol-3-phosphate 5-kinase
+                 YFR019W (FAB1)
+            Membrane trafficking [BR:sce04131]
+             Endocytosis
+              Macropinocytosis
+               Kinases
+                YFR019W (FAB1)
+             Endosome - Golgi transport
+              Others
+               Others
+                YFR019W (FAB1)
 POSITION    VI:184502..191338
 MOTIF       Pfam: PIP5K Cpn60_TCP1 FYVE DUF3391
-DBLINKS     NCBI-GI: 330443539
+DBLINKS     NCBI-ProteinID: NP_116674
             NCBI-GeneID: 850574
             SGD: S000001915
-            MIPS: YFR019W
             UniProt: P34756
 AASEQ       2278
             MSSEEPHASISFPDGSHVRSSSTGTSSVNTIDATLSRPNYIKKPSLHIMSTSTTSTTTDL

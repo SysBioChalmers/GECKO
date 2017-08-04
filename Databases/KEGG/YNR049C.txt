@@ -1,13 +1,18 @@
 ENTRY       YNR049C           CDS       T00005
 NAME        MSO1
-DEFINITION  Mso1p
+DEFINITION  (RefSeq) Mso1p
+ORTHOLOGY   K19992  protein MSO1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Exocytosis
+              Others
+               Others
+                YNR049C (MSO1)
 POSITION    XIV:complement(713023..713655)
-MOTIF       Pfam: Mso1_Sec1_bdg MIP-T3 DUF605
-DBLINKS     NCBI-GI: 398365805
+MOTIF       Pfam: Mso1_Sec1_bdg MIP-T3 KAR9
+DBLINKS     NCBI-ProteinID: NP_014447
             NCBI-GeneID: 855785
             SGD: S000005332
-            MIPS: YNR049C
             UniProt: P53604
 AASEQ       210
             MMSQVSHSQEGSGRFWNKFKSSTKSLSTSLAHLSIKAEKDGDTVNTTLVHKGLVKFYENQ

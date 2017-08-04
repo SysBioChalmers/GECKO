@@ -1,13 +1,12 @@
 ENTRY       YKL119C           CDS       T00005
 NAME        VPH2, CLS10, VMA12
-DEFINITION  Vph2p
+DEFINITION  (RefSeq) Vph2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XI:complement(218570..219217)
-MOTIF       Pfam: Vma12 DUF3169 2TM DUF3278 MscS_TM
-DBLINKS     NCBI-GI: 6322731
+MOTIF       Pfam: Vma12 DUF3169 LapA_dom
+DBLINKS     NCBI-ProteinID: NP_012803
             NCBI-GeneID: 853741
             SGD: S000001602
-            MIPS: YKL119C
             UniProt: P32341
 AASEQ       215
             MFEIKLNDRITEFLRKFKNSAKSNEGIDEDIDLFLKRHAIPMQSLLFYVKEYRKDSDLQC

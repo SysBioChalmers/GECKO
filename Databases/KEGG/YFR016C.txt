@@ -1,12 +1,11 @@
 ENTRY       YFR016C           CDS       T00005
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) hypothetical protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VI:complement(177042..180743)
-MOTIF       Pfam: Glutaredoxin
-DBLINKS     NCBI-GI: 14318538
+MOTIF       Pfam: Glutaredoxin SH3BGR
+DBLINKS     NCBI-ProteinID: NP_116671
             NCBI-GeneID: 850570
             SGD: S000001912
-            MIPS: YFR016C
             UniProt: P43597
 AASEQ       1233
             MVESLTVENQEHNVQPPSVTSAGDSYSTLATDLPLPSTNDIIESRDQLTESDLDEAINAT

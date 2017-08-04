@@ -1,25 +1,39 @@
 ENTRY       YER178W           CDS       T00005
 NAME        PDA1
-DEFINITION  pyruvate dehydrogenase (acetyl-transferring) subunit E1 alpha (EC:1.2.4.1)
-ORTHOLOGY   K00161  pyruvate dehydrogenase E1 component subunit alpha [EC:1.2.4.1]
+DEFINITION  (RefSeq) pyruvate dehydrogenase (acetyl-transferring) subunit E1 alpha
+ORTHOLOGY   K00161  pyruvate dehydrogenase E1 component alpha subunit [EC:1.2.4.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00010  Glycolysis / Gluconeogenesis
             sce00020  Citrate cycle (TCA cycle)
             sce00620  Pyruvate metabolism
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
+            sce01130  Biosynthesis of antibiotics
             sce01200  Carbon metabolism
 MODULE      sce_M00307  Pyruvate oxidation, pyruvate => acetyl-CoA
-CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
-            Metabolism; Carbohydrate metabolism; Glycolysis / Gluconeogenesis [PATH:sce00010]
-            Metabolism; Carbohydrate metabolism; Citrate cycle (TCA cycle) [PATH:sce00020]
-            Metabolism; Carbohydrate metabolism; Pyruvate metabolism [PATH:sce00620]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01200 Carbon metabolism
+                YER178W (PDA1)
+              Carbohydrate metabolism
+               00010 Glycolysis / Gluconeogenesis
+                YER178W (PDA1)
+               00020 Citrate cycle (TCA cycle)
+                YER178W (PDA1)
+               00620 Pyruvate metabolism
+                YER178W (PDA1)
+            Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.2  Acting on the aldehyde or oxo group of donors
+               1.2.4  With a disulfide as acceptor
+                1.2.4.1  pyruvate dehydrogenase (acetyl-transferring)
+                 YER178W (PDA1)
 POSITION    V:546817..548079
 MOTIF       Pfam: E1_dh DXP_synthase_N KRTAP7
-DBLINKS     NCBI-GI: 398365125
+DBLINKS     NCBI-ProteinID: NP_011105
             NCBI-GeneID: 856925
             SGD: S000000980
-            MIPS: YER178W
             UniProt: P16387
 AASEQ       420
             MLAASFKRQPSQLVRGLGAVLRTPTRIGHVRTMATLKTTDKKAPEDIEGSDTVQIELPES

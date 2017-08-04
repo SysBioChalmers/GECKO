@@ -1,13 +1,12 @@
 ENTRY       YDL048C           CDS       T00005
 NAME        STP4
-DEFINITION  Stp4p
+DEFINITION  (RefSeq) Stp4p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(366739..368211)
-MOTIF       Pfam: zf-C2H2_6 zf-C2H2_4 zf-C2H2 zf-H2C2_2 zf-C2H2_jaz Rad50_zn_hook zf-Di19
-DBLINKS     NCBI-GI: 6320155
+MOTIF       Pfam: zf-C2H2_4 zf-C2H2_6 zf-C2H2 zf-C2H2_jaz zf-H2C2_2 zf-Di19
+DBLINKS     NCBI-ProteinID: NP_010235
             NCBI-GeneID: 851512
             SGD: S000002206
-            MIPS: YDL048C
             UniProt: Q07351
 AASEQ       490
             MLVSSSFASSIDSVMSHETMSLRRNPPFIDTPEKMPNPTASPNGTIHHLIDPSLPLLSST

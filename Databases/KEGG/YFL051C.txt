@@ -1,12 +1,11 @@
 ENTRY       YFL051C           CDS       T00005
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) hypothetical protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VI:complement(30058..30540)
-MOTIF       Pfam: PA14 Colipase_C
-DBLINKS     NCBI-GI: 14318468
+MOTIF       Pfam: PA14
+DBLINKS     NCBI-ProteinID: NP_116576
             NCBI-GeneID: 850493
             SGD: S000001843
-            MIPS: YFL051C
             UniProt: P43552
 AASEQ       160
             MSIPHSVFSALLVFVALATTTLASTEACLPTNKREDGMNINFYEYTIGDQTTYLEPEYMG

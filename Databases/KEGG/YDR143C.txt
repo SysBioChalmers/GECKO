@@ -1,13 +1,12 @@
 ENTRY       YDR143C           CDS       T00005
 NAME        SAN1
-DEFINITION  ubiquitin-protein ligase SAN1
+DEFINITION  (RefSeq) ubiquitin-protein ligase SAN1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(742042..743874)
-MOTIF       Pfam: zf-RING_2 zf-rbx1 zf-C3HC4_2 zf-C3HC4_3 zf-RING_UBOX zf-RING_5 zf-C3HC4 zf-C3HC4_4 zf-Apc11 Prok-RING_4
-DBLINKS     NCBI-GI: 398365819
+MOTIF       Pfam: zf-RING_2 zf-rbx1 zf-C3HC4_2 Prok-RING_4 zf-RING_UBOX zf-C3HC4_3 zf-C3HC4 zf-C3HC4_4 zf-RING_5 zf-ANAPC11 DUF1644 zf-RING_11 zf-RING_10
+DBLINKS     NCBI-ProteinID: NP_010427
             NCBI-GeneID: 851721
             SGD: S000002550
-            MIPS: YDR143C
             UniProt: P22470
 AASEQ       610
             MSESGQEQNRGTNTSPNNAENNNNSNAASGPLNGGAEQTRNITVSIQYSYFTPERLAHLS

@@ -1,12 +1,12 @@
 ENTRY       YER184C           CDS       T00005
-DEFINITION  hypothetical protein
+NAME        TOG1
+DEFINITION  (RefSeq) Tog1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    V:complement(556296..558680)
 MOTIF       Pfam: Fungal_trans Zn_clus DASH_Ask1
-DBLINKS     NCBI-GI: 6321032
+DBLINKS     NCBI-ProteinID: NP_011111
             NCBI-GeneID: 856933
             SGD: S000000986
-            MIPS: YER184C
             UniProt: P39961
 AASEQ       794
             MAAKRGLAKQKSRVTKACDRCHRKKIKCNSKKPCFGCIGSQSKCTYRNQFREPIEAFFNY

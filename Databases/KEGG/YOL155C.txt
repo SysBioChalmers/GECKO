@@ -1,12 +1,12 @@
 ENTRY       YOL155C           CDS       T00005
 NAME        HPF1
-DEFINITION  Hpf1p
+DEFINITION  (RefSeq) mannoprotein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:complement(28703..31606)
-DBLINKS     NCBI-GI: 6324418
+MOTIF       Pfam: Hyphal_reg_CWP
+DBLINKS     NCBI-ProteinID: NP_014487
             NCBI-GeneID: 854010
             SGD: S000005515
-            MIPS: YOL155C
             UniProt: Q05164
 AASEQ       967
             MFNRFNKLQAALALVLYSQSALGQYYTNSSSIASNSSTAVSSTSSGSVSISSSIELTSST

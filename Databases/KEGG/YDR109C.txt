@@ -1,12 +1,11 @@
 ENTRY       YDR109C           CDS       T00005
-DEFINITION  putative phosphotransferase (EC:2.7.1.-)
+DEFINITION  (RefSeq) putative phosphotransferase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(673520..675667)
-MOTIF       Pfam: FGGY_C FGGY_N BcrAD_BadFG
-DBLINKS     NCBI-GI: 398365649
+MOTIF       Pfam: FGGY_C FGGY_N BcrAD_BadFG DEDD_Tnp_IS110
+DBLINKS     NCBI-ProteinID: NP_010394
             NCBI-GeneID: 851687
             SGD: S000002516
-            MIPS: YDR109C
             UniProt: Q04585
 AASEQ       715
             MKSRKRQNNMQNETREPAVLSSQETSISRISPQDPEAKFYVGVDVGTGSARACVIDQSGN

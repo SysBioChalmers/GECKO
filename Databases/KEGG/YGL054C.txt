@@ -1,13 +1,22 @@
 ENTRY       YGL054C           CDS       T00005
 NAME        ERV14
-DEFINITION  Erv14p
+DEFINITION  (RefSeq) cornichon family protein
+ORTHOLOGY   K20368  protein cornichon
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endoplasmic reticulum (ER) - Golgi transport
+              Forward pathways
+               ER-Golgi intermediate compartment (ERGIC) proteins
+                YGL054C (ERV14)
+            Transporters [BR:sce02000]
+             Other Transporters
+              Accessory factors involved in transport [TC:8]
+               YGL054C (ERV14)
 POSITION    VII:complement(400871..401287)
 MOTIF       Pfam: Cornichon
-DBLINKS     NCBI-GI: 6321384
+DBLINKS     NCBI-ProteinID: NP_011461
             NCBI-GeneID: 852826
             SGD: S000003022
-            MIPS: YGL054C
             UniProt: P53173
 AASEQ       138
             MGAWLFILAVVVNCINLFGQVHFTILYADLEADYINPIELCSKVNKLITPEAALHGALSL

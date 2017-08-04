@@ -1,14 +1,37 @@
 ENTRY       YNL021W           CDS       T00005
 NAME        HDA1
-DEFINITION  Hda1p (EC:3.5.1.98)
-ORTHOLOGY   K11407  histone deacetylase 6/10 [EC:3.5.1.98]
+DEFINITION  (RefSeq) histone deacetylase HDA1
+ORTHOLOGY   K11407  histone deacetylase 6 [EC:3.5.1.98]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.5  Acting on carbon-nitrogen bonds, other than peptide bonds
+               3.5.1  In linear amides
+                3.5.1.98  histone deacetylase
+                 YNL021W (HDA1)
+            Protein phosphatases and associated proteins [BR:sce01009]
+             Protein Ser/ Thr phosphatases
+              Phosphoprotein phosphatases (PPPs)
+               Protein phosphatase-1
+                PP1-interacting proteins (PIPs)
+                 YNL021W (HDA1)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               mRNA cycle factors
+                Stress granule specific factors
+                 YNL021W (HDA1)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Histone modification proteins
+               HDACs (histone deacetylases)
+                Class II HDACs
+                 YNL021W (HDA1)
 POSITION    XIV:593227..595347
 MOTIF       Pfam: Hist_deacetyl Arb2
-DBLINKS     NCBI-GI: 6324307
+DBLINKS     NCBI-ProteinID: NP_014377
             NCBI-GeneID: 855710
             SGD: S000004966
-            MIPS: YNL021W
             UniProt: P53973
 AASEQ       706
             MDSVMVKKEVLENPDHDLKRKLEENKEEENSLSTTSKSKRQVIVPVCMPKIHYSPLKTGL

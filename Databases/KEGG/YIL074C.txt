@@ -1,24 +1,43 @@
 ENTRY       YIL074C           CDS       T00005
 NAME        SER33
-DEFINITION  phosphoglycerate dehydrogenase SER33 (EC:1.1.1.95)
+DEFINITION  (RefSeq) phosphoglycerate dehydrogenase SER33
 ORTHOLOGY   K00058  D-3-phosphoglycerate dehydrogenase [EC:1.1.1.95]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00260  Glycine, serine and threonine metabolism
             sce00680  Methane metabolism
             sce01100  Metabolic pathways
+            sce01130  Biosynthesis of antibiotics
             sce01200  Carbon metabolism
             sce01230  Biosynthesis of amino acids
 MODULE      sce_M00020  Serine biosynthesis, glycerate-3P => serine
-CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
-            Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
-            Metabolism; Energy metabolism; Methane metabolism [PATH:sce00680]
-            Metabolism; Amino acid metabolism; Glycine, serine and threonine metabolism [PATH:sce00260]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01200 Carbon metabolism
+                YIL074C (SER33)
+               01230 Biosynthesis of amino acids
+                YIL074C (SER33)
+              Energy metabolism
+               00680 Methane metabolism
+                YIL074C (SER33)
+              Amino acid metabolism
+               00260 Glycine, serine and threonine metabolism
+                YIL074C (SER33)
+            Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.1  Acting on the CH-OH group of donors
+               1.1.1  With NAD+ or NADP+ as acceptor
+                1.1.1.95  phosphoglycerate dehydrogenase
+                 YIL074C (SER33)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of other body fluids (saliva and urine)
+               YIL074C (SER33)
 POSITION    IX:complement(221081..222490)
-MOTIF       Pfam: 2-Hacid_dh_C 2-Hacid_dh NAD_binding_2 AdoHcyase_NAD Acetyltransf_1 ACT
-DBLINKS     NCBI-GI: 6322116
+MOTIF       Pfam: 2-Hacid_dh_C 2-Hacid_dh NAD_binding_2 AdoHcyase_NAD ACT XdhC_C
+DBLINKS     NCBI-ProteinID: NP_012191
             NCBI-GeneID: 854736
             SGD: S000001336
-            MIPS: YIL074C
             UniProt: P40510
 AASEQ       469
             MSYSAADNLQDSFQRAMNFSGSPGAVSTSPTQSFMNTLPRRVSITKQPKALKPFSTGDMN

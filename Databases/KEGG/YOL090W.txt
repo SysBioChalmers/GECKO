@@ -1,16 +1,25 @@
 ENTRY       YOL090W           CDS       T00005
 NAME        MSH2, PMS5
-DEFINITION  mismatch repair ATPase MSH2
+DEFINITION  (RefSeq) mismatch repair ATPase MSH2
 ORTHOLOGY   K08735  DNA mismatch repair protein MSH2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03430  Mismatch repair
-CLASS       Genetic Information Processing; Replication and repair; Mismatch repair [PATH:sce03430]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Replication and repair
+               03430 Mismatch repair
+                YOL090W (MSH2)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              SSBR (single strand breaks repair)
+               MMR (mismatch exicision repair)
+                Mismatch and loop recognition factors
+                 YOL090W (MSH2)
 POSITION    XV:147382..150276
-MOTIF       Pfam: MutS_V MutS_III MutS_II MutS_IV MutS_I
-DBLINKS     NCBI-GI: 6324482
+MOTIF       Pfam: MutS_V MutS_III MutS_II MutS_IV MutS_I AAA_27
+DBLINKS     NCBI-ProteinID: NP_014551
             NCBI-GeneID: 854063
             SGD: S000005450
-            MIPS: YOL090W
             UniProt: P25847
 AASEQ       964
             MSSTRPELKFSDVSEERNFYKKYTGLPKKPLKTIRLVDKGDYYTVIGSDAIFVADSVYHT

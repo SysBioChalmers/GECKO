@@ -1,14 +1,17 @@
 ENTRY       YCR075C           CDS       T00005
 NAME        ERS1
-DEFINITION  Ers1p
+DEFINITION  (RefSeq) cystinosin-like protein ERS1
 ORTHOLOGY   K12386  cystinosin
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of other body fluids (saliva and urine)
+               YCR075C (ERS1)
 POSITION    III:complement(248033..248815)
 MOTIF       Pfam: PQ-loop
-DBLINKS     NCBI-GI: 6319919
+DBLINKS     NCBI-ProteinID: NP_010000
             NCBI-GeneID: 850438
             SGD: S000000671
-            MIPS: YCR075C
             UniProt: P17261
 AASEQ       260
             MVSLDDILGIVYVTSWSISMYPPIITNWRHKSASAISMDFVMLNTAGYSYLVISIFLQLY

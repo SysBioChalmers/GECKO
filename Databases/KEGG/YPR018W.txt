@@ -1,14 +1,21 @@
 ENTRY       YPR018W           CDS       T00005
 NAME        RLF2, CAC1
-DEFINITION  Rlf2p
+DEFINITION  (RefSeq) Rlf2p
+ORTHOLOGY   K10750  chromatin assembly factor 1 subunit A
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Nucleosome assembly factors
+               Histone chaperones
+                CAF-1
+                 YPR018W (RLF2)
 POSITION    XVI:594476..596296
-MOTIF       Pfam: CAF1A CAF-1_p150
-DBLINKS     NCBI-GI: 6325275
+MOTIF       Pfam: CAF1A Golgin_A5 WRNPLPNID
+DBLINKS     NCBI-ProteinID: NP_015343
             NCBI-GeneID: 856129
             SGD: S000006222
-            MIPS: YPR018W
             UniProt: Q12495
+STRUCTURE   PDB: 5EJO 5JBM
 AASEQ       606
             MEQHLKSIPLQDDTKKKGILSFFQNTTTVKSNKFLTKEKDVITLDDPKEDVSGPMIETVK
             QETMKSINKECADEMKTTPKKANAEDKLLCYKNSPIQSTKYDRNTNKQVPNGNIIAIETK

@@ -1,13 +1,12 @@
 ENTRY       YIL045W           CDS       T00005
 NAME        PIG2
-DEFINITION  Pig2p
+DEFINITION  (RefSeq) putative protein phosphatase regulator PIG2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IX:271161..272777
-MOTIF       Pfam: CBM_21 DUF1589
-DBLINKS     NCBI-GI: 398364427
+MOTIF       Pfam: CBM_21 CBM53 DUF1589
+DBLINKS     NCBI-ProteinID: NP_012219
             NCBI-GeneID: 854766
             SGD: S000001307
-            MIPS: YIL045W
             UniProt: P40187
 AASEQ       538
             MATTTQPQNILMDEPLNLPNNSAHNNNYGNINANIRTFAGMSMHMHPARLNSLEFLHKPR

@@ -1,17 +1,25 @@
 ENTRY       YFL017C           CDS       T00005
 NAME        GNA1, PAT1
-DEFINITION  glucosamine 6-phosphate N-acetyltransferase (EC:2.3.1.4)
+DEFINITION  (RefSeq) glucosamine 6-phosphate N-acetyltransferase
 ORTHOLOGY   K00621  glucosamine-phosphate N-acetyltransferase [EC:2.3.1.4]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00520  Amino sugar and nucleotide sugar metabolism
-            sce01110  Biosynthesis of secondary metabolites
-CLASS       Metabolism; Carbohydrate metabolism; Amino sugar and nucleotide sugar metabolism [PATH:sce00520]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Carbohydrate metabolism
+               00520 Amino sugar and nucleotide sugar metabolism
+                YFL017C (GNA1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.3  Acyltransferases
+               2.3.1  Transferring groups other than aminoacyl groups
+                2.3.1.4  glucosamine-phosphate N-acetyltransferase
+                 YFL017C (GNA1)
 POSITION    VI:complement(103983..104462)
-MOTIF       Pfam: Acetyltransf_1 Acetyltransf_7 Acetyltransf_10 Acetyltransf_9 Acetyltransf_3 Acetyltransf_4 Acetyltransf_CG FR47
-DBLINKS     NCBI-GI: 14318503
+MOTIF       Pfam: Acetyltransf_1 Acetyltransf_7 Acetyltransf_10 Acetyltransf_9 DUF2635 SNAP-25 Acetyltransf_3 Acetyltransf_4
+DBLINKS     NCBI-ProteinID: NP_116637
             NCBI-GeneID: 850529
             SGD: S000001877
-            MIPS: YFL017C
             UniProt: P43577
 STRUCTURE   PDB: 1I12 1I1D 1I21
 AASEQ       159

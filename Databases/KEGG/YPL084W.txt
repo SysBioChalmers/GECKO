@@ -1,13 +1,12 @@
 ENTRY       YPL084W           CDS       T00005
 NAME        BRO1, ASI6, LPF2, NPI3, VPS31
-DEFINITION  Bro1p
+DEFINITION  (RefSeq) Bro1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:394038..396572
 MOTIF       Pfam: BRO1 ALIX_LYPXL_bnd
-DBLINKS     NCBI-GI: 6325173
+DBLINKS     NCBI-ProteinID: NP_015241
             NCBI-GeneID: 856021
             SGD: S000006005
-            MIPS: YPL084W
             UniProt: P48582
 STRUCTURE   PDB: 1ZB1
 AASEQ       844

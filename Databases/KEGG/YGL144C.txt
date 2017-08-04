@@ -1,13 +1,12 @@
 ENTRY       YGL144C           CDS       T00005
 NAME        ROG1
-DEFINITION  putative lipase ROG1 (EC:3.1.-.-)
+DEFINITION  (RefSeq) putative lipase ROG1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:complement(232450..234507)
-MOTIF       Pfam: DUF676 Lipase_3 PGAP1 Abhydrolase_5 Abhydro_lipase
-DBLINKS     NCBI-GI: 6321294
+MOTIF       Pfam: DUF676 PGAP1 Lipase_3 Abhydro_lipase
+DBLINKS     NCBI-ProteinID: NP_011371
             NCBI-GeneID: 852733
             SGD: S000003112
-            MIPS: YGL144C
             UniProt: P53118
 AASEQ       685
             MSLTPTNEILFHYKSSVKVGELERYVITYHLYDGEEIPPDLNLNSLWLKVRNMNPLSYRA

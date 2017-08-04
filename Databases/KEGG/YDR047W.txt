@@ -1,18 +1,27 @@
 ENTRY       YDR047W           CDS       T00005
 NAME        HEM12, HEM6
-DEFINITION  uroporphyrinogen decarboxylase HEM12 (EC:4.1.1.37)
+DEFINITION  (RefSeq) uroporphyrinogen decarboxylase HEM12
 ORTHOLOGY   K01599  uroporphyrinogen decarboxylase [EC:4.1.1.37]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00860  Porphyrin and chlorophyll metabolism
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
-CLASS       Metabolism; Metabolism of cofactors and vitamins; Porphyrin and chlorophyll metabolism [PATH:sce00860]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Metabolism of cofactors and vitamins
+               00860 Porphyrin and chlorophyll metabolism
+                YDR047W (HEM12)
+            Enzymes [BR:sce01000]
+             4. Lyases
+              4.1  Carbon-carbon lyases
+               4.1.1  Carboxy-lyases
+                4.1.1.37  uroporphyrinogen decarboxylase
+                 YDR047W (HEM12)
 POSITION    IV:551860..552948
 MOTIF       Pfam: URO-D
-DBLINKS     NCBI-GI: 398365257
+DBLINKS     NCBI-ProteinID: NP_010332
             NCBI-GeneID: 851617
             SGD: S000002454
-            MIPS: YDR047W
             UniProt: P32347
 AASEQ       362
             MGNFPAPKNDLILRAAKGEKVERPPCWIMRQAGRYLPEYHEVKNNRDFFQTCRDAEIASE

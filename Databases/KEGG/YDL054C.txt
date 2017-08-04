@@ -1,13 +1,12 @@
 ENTRY       YDL054C           CDS       T00005
 NAME        MCH1
-DEFINITION  Mch1p
+DEFINITION  (RefSeq) Mch1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(359825..361285)
 MOTIF       Pfam: MFS_1
-DBLINKS     NCBI-GI: 6320149
+DBLINKS     NCBI-ProteinID: NP_010229
             NCBI-GeneID: 851506
             SGD: S000002212
-            MIPS: YDL054C
             UniProt: Q07376
 AASEQ       486
             MPLSKVEHYLSYHTRLLLPHVLSLQSSHRVAYIFSLLSAVSTGFITLISLYSQPWQKHLN

@@ -1,16 +1,24 @@
 ENTRY       YHL031C           CDS       T00005
 NAME        GOS1
-DEFINITION  Gos1p
+DEFINITION  (RefSeq) Gos1p
 ORTHOLOGY   K08495  golgi SNAP receptor complex member 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04130  SNARE interactions in vesicular transport
-CLASS       Genetic Information Processing; Folding, sorting and degradation; SNARE interactions in vesicular transport [PATH:sce04130]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04130 SNARE interactions in vesicular transport
+                YHL031C (GOS1)
+            Membrane trafficking [BR:sce04131]
+             SNARE
+              SNAP-25[N] (Qb)
+               Gos1 (Gos28)
+                YHL031C (GOS1)
 POSITION    VIII:complement(38815..39486)
-MOTIF       Pfam: V-SNARE_C Globin Sec34 Sec20
-DBLINKS     NCBI-GI: 6321756
+MOTIF       Pfam: V-SNARE_C Globin Sec20 U3snoRNP10 NADH_dehy_S2_C Syntaxin-6_N Muted
+DBLINKS     NCBI-ProteinID: NP_011832
             NCBI-GeneID: 856354
             SGD: S000001023
-            MIPS: YHL031C
             UniProt: P38736
 AASEQ       223
             MSSQPSFVTIRGKAISLETQTESLLSKYSTFAQTTSSEQTGQEKKIDKQLEGILGQRQDV

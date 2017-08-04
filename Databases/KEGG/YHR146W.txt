@@ -1,12 +1,12 @@
 ENTRY       YHR146W           CDS       T00005
 NAME        CRP1
-DEFINITION  Crp1p
+DEFINITION  (RefSeq) Crp1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VIII:390300..391697
-DBLINKS     NCBI-GI: 6321940
+MOTIF       Pfam: AMPK1_CBM
+DBLINKS     NCBI-ProteinID: NP_012016
             NCBI-GeneID: 856551
             SGD: S000001189
-            MIPS: YHR146W
             UniProt: P38845
 AASEQ       465
             MSSELMFNYTFSWPAGPKDVILTGTFDDWRGTLPLVKTAKGNFEITMPVKLANKDDTFQF

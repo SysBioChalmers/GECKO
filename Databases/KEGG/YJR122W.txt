@@ -1,14 +1,12 @@
 ENTRY       YJR122W           CDS       T00005
 NAME        IBA57, CAF17
-DEFINITION  Iba57p (EC:2.1.-.-)
-ORTHOLOGY   K06980
+DEFINITION  (RefSeq) Iba57p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    X:649776..651269
-MOTIF       Pfam: GCV_T GCV_T_C
-DBLINKS     NCBI-GI: 6322582
+MOTIF       Pfam: GCV_T_C
+DBLINKS     NCBI-ProteinID: NP_012656
             NCBI-GeneID: 853586
             SGD: S000003883
-            MIPS: YJR122W
             UniProt: P47158
 AASEQ       497
             MFISRRCRIKGFTLKNLLWFRSSSTRFVSTESPDASAITKPDGIFNYSLLENRTYIRIRG

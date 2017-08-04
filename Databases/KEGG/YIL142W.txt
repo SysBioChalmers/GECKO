@@ -1,16 +1,32 @@
 ENTRY       YIL142W           CDS       T00005
 NAME        CCT2, BIN3, TCP2
-DEFINITION  Cct2p
+DEFINITION  (RefSeq) chaperonin-containing T-complex subunit CCT2
 ORTHOLOGY   K09494  T-complex protein 1 subunit beta
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chaperones and folding catalysts [BR:sce03110]
+             Heat shock proteins
+              HSP60 / Chaperonin
+               YIL142W (CCT2)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centrosome formation and ciliogenesis proteins
+               BBS-CCT complex
+                YIL142W (CCT2)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of haemopoietic cells  (B-cell, T-cell, DC-cell, reticulocyte, and mast cell)
+               YIL142W (CCT2)
+              Exosomal proteins of colorectal cancer cells
+               YIL142W (CCT2)
+              Exosomal proteins of bladder cancer cells
+               YIL142W (CCT2)
 POSITION    IX:83302..84885
-MOTIF       Pfam: Cpn60_TCP1 Transposase_23
-DBLINKS     NCBI-GI: 6322049
+MOTIF       Pfam: Cpn60_TCP1 DUF1104 DLD
+DBLINKS     NCBI-ProteinID: NP_012124
             NCBI-GeneID: 854664
             SGD: S000001404
-            MIPS: YIL142W
             UniProt: P39076
-STRUCTURE   PDB: 4APK 4AOL 4D8Q 4D8R 3P9D 3P9E
+STRUCTURE   PDB: 5GW5 5GW4
 AASEQ       527
             MSVQIFGDQVTEERAENARLSAFVGAIAVGDLVKSTLGPKGMDKLLQSASSNTCMVTNDG
             ATILKSIPLDNPAAKVLVNISKVQDDEVGDGTTSVTVLSAELLREAEKLIDQSKIHPQTI

@@ -1,12 +1,11 @@
 ENTRY       YCR023C           CDS       T00005
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) hypothetical protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    III:complement(158538..160373)
-MOTIF       Pfam: MFS_1 Sugar_tr MFS_2 TRI12
-DBLINKS     NCBI-GI: 10383787
+MOTIF       Pfam: MFS_1 Sugar_tr TRI12
+DBLINKS     NCBI-ProteinID: NP_009952
             NCBI-GeneID: 850387
             SGD: S000000617
-            MIPS: YCR023C
             UniProt: P25351
 AASEQ       611
             MARQKLTFKEQMDGFPWVQLVVVSLVRFSEPIAFSSLFPYVYFMVRDFNIAPNDAQVSKY

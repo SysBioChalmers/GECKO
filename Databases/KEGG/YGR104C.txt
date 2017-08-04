@@ -1,16 +1,21 @@
 ENTRY       YGR104C           CDS       T00005
 NAME        SRB5, MED18
-DEFINITION  Srb5p
+DEFINITION  (RefSeq) Srb5p
 ORTHOLOGY   K15136  mediator of RNA polymerase II transcription subunit 18, fungi type
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Mediator complex
+                Head
+                 YGR104C (SRB5)
 POSITION    VII:complement(697445..698368)
-MOTIF       Pfam: Med18
-DBLINKS     NCBI-GI: 398365691
+MOTIF       Pfam: Med18 DUF5349
+DBLINKS     NCBI-ProteinID: NP_011618
             NCBI-GeneID: 852996
             SGD: S000003336
-            MIPS: YGR104C
             UniProt: P32585
-STRUCTURE   PDB: 2HZM 2HZS 4GWP 3RJ1 4GWQ 3J1O
+STRUCTURE   PDB: 2HZM 2HZS 4GWP 3RJ1 4GWQ 4V1O 5SVA 3J1O
 AASEQ       307
             MVQQLSLFGSIGDDGYDLLISTLTTISGNPPLLYNSLCTVWKPNPSYDVENVNSRNQLVE
             PNRIKLSKEVPFSYLIDETMMDKPLNFRILKSFTNDKIPLNYAMTRNILHNTVPQVTNFN

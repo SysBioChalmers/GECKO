@@ -1,12 +1,12 @@
 ENTRY       YLR346C           CDS       T00005
-DEFINITION  hypothetical protein
+NAME        CIS1
+DEFINITION  (RefSeq) Cis1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XII:complement(822287..822592)
-MOTIF       Pfam: Hormone_4 DUF2011
-DBLINKS     NCBI-GI: 6323378
+MOTIF       Pfam: DUF2011 Hormone_4
+DBLINKS     NCBI-ProteinID: NP_013450
             NCBI-GeneID: 851060
             SGD: S000004338
-            MIPS: YLR346C
             UniProt: Q06139
 AASEQ       101
             MQSISNCPIGLVSKNTINSASTIAEWVACPWKYINVVGSGRYVSNKPDKITRYDLLKAAQ

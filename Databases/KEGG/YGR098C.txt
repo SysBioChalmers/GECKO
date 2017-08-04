@@ -1,19 +1,39 @@
 ENTRY       YGR098C           CDS       T00005
 NAME        ESP1
-DEFINITION  Esp1p (EC:3.4.22.49)
+DEFINITION  (RefSeq) separase
 ORTHOLOGY   K02365  separase [EC:3.4.22.49]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
             sce04113  Meiosis - yeast
-CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
-            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YGR098C (ESP1)
+               04113 Meiosis - yeast
+                YGR098C (ESP1)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.4  Acting on peptide bonds (peptidases)
+               3.4.22  Cysteine endopeptidases
+                3.4.22.49  separase
+                 YGR098C (ESP1)
+            Peptidases [BR:sce01002]
+             Cysteine Peptidases
+              Family C50: separase family
+               YGR098C (ESP1)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Sister chromatid separation proteins
+               Separase
+                YGR098C (ESP1)
 POSITION    VII:complement(682566..687458)
 MOTIF       Pfam: Peptidase_C50
-DBLINKS     NCBI-GI: 398365661
+DBLINKS     NCBI-ProteinID: NP_011612
             NCBI-GeneID: 852990
             SGD: S000003330
-            MIPS: YGR098C
             UniProt: Q03018
+STRUCTURE   PDB: 5U1T 5U1S
 AASEQ       1630
             MMVKQEEPLNEISPNTPMTSKSYLLNDTLSKVHHSGQTRPLTSVLSGDASSNSIGILAMH
             NNIIRDFTKIASNNIDLAIEDITTVDHSLNSIYSLLKSHHMWGHINSTVKQHLMIIVKLI

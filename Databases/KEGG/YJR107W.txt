@@ -1,13 +1,12 @@
 ENTRY       YJR107W           CDS       T00005
-DEFINITION  putative lipase (EC:3.1.1.-)
-ORTHOLOGY   K01066  esterase / lipase [EC:3.1.1.-]
+NAME        LIH1
+DEFINITION  (RefSeq) putative lipase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    X:627340..628326
-MOTIF       Pfam: Lipase_3 Abhydrolase_6 DUF2974 Abhydrolase_5 Cutinase
-DBLINKS     NCBI-GI: 330443623
+MOTIF       Pfam: Lipase_3 Hydrolase_4 Abhydrolase_6
+DBLINKS     NCBI-ProteinID: NP_012641
             NCBI-GeneID: 853571
             SGD: S000003868
-            MIPS: YJR107W
             UniProt: P47145
 AASEQ       328
             MPVVHCSSNLPITPYIYERLVYFIKASSISSCISDNLLLVNKTFNDGGCPPHINFCNDEI

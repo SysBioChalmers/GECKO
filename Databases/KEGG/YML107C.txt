@@ -1,13 +1,12 @@
 ENTRY       YML107C           CDS       T00005
 NAME        PML39
-DEFINITION  Pml39p
+DEFINITION  (RefSeq) Pml39p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:complement(55265..56269)
 MOTIF       Pfam: zf-C3HC Rsm1
-DBLINKS     NCBI-GI: 37362681
+DBLINKS     NCBI-ProteinID: NP_013600
             NCBI-GeneID: 854864
             SGD: S000004575
-            MIPS: YML107C
             UniProt: Q03760
 AASEQ       334
             MEKDALEVRLKSIRHSLDKNTKLLPGKYRNTLGERLITKWRYKKKSHNGSSMLPEKCKSH

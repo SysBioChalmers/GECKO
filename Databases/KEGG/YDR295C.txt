@@ -1,13 +1,12 @@
 ENTRY       YDR295C           CDS       T00005
 NAME        HDA2, PLO2
-DEFINITION  Hda2p
+DEFINITION  (RefSeq) Hda2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(1052623..1054647)
-MOTIF       Pfam: HDA2-3 DivIC TarH
-DBLINKS     NCBI-GI: 398366441
+MOTIF       Pfam: HDA2-3 YscO TarH Mod_r
+DBLINKS     NCBI-ProteinID: NP_010581
             NCBI-GeneID: 851889
             SGD: S000002703
-            MIPS: YDR295C
             UniProt: Q06629
 AASEQ       674
             MSRKNSKKLKVYYLPVTLTQFQKDLSEILISLHAKSFKASIIGEPQADAVNKPSGLPAGP

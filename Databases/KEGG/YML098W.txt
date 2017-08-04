@@ -1,16 +1,25 @@
 ENTRY       YML098W           CDS       T00005
 NAME        TAF13, FUN81, TAF19
-DEFINITION  Taf13p
+DEFINITION  (RefSeq) Taf13p
 ORTHOLOGY   K03127  transcription initiation factor TFIID subunit 13
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03022  Basal transcription factors
-CLASS       Genetic Information Processing; Transcription; Basal transcription factors [PATH:sce03022]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03022 Basal transcription factors
+                YML098W (TAF13)
+            Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Basal transcription factors
+                TFIID
+                 YML098W (TAF13)
 POSITION    XIII:77267..77770
-MOTIF       Pfam: TFIID-18kDa Histone TAF NOA36 PBP1_TM CDC45
-DBLINKS     NCBI-GI: 6323540
+MOTIF       Pfam: TFIID-18kDa TAF TFIID-31kDa Histone
+DBLINKS     NCBI-ProteinID: NP_013611
             NCBI-GeneID: 854875
             SGD: S000004564
-            MIPS: YML098W
             UniProt: P11747
 AASEQ       167
             MSRKLKKTNLFNKDVSSLLYAYGDVPQPLQATVQCLDELVSGYLVDVCTNAFHTAQNSQR

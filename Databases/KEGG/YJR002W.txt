@@ -1,16 +1,30 @@
 ENTRY       YJR002W           CDS       T00005
 NAME        MPP10
-DEFINITION  Mpp10p
+DEFINITION  (RefSeq) rRNA-processing protein MPP10
 ORTHOLOGY   K14559  U3 small nucleolar RNA-associated protein MPP10
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03008  Ribosome biogenesis in eukaryotes
-CLASS       Genetic Information Processing; Translation; Ribosome biogenesis in eukaryotes [PATH:sce03008]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03008 Ribosome biogenesis in eukaryotes
+                YJR002W (MPP10)
+            Protein phosphatases and associated proteins [BR:sce01009]
+             Protein Ser/ Thr phosphatases
+              Phosphoprotein phosphatases (PPPs)
+               Protein phosphatase-1
+                PP1-interacting proteins (PIPs)
+                 YJR002W (MPP10)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              90S particles
+               U3 small nucleolar RNA-associated proteins
+                YJR002W (MPP10)
 POSITION    X:438865..440646
 MOTIF       Pfam: Mpp10
-DBLINKS     NCBI-GI: 398364731
+DBLINKS     NCBI-ProteinID: NP_012535
             NCBI-GeneID: 853458
             SGD: S000003762
-            MIPS: YJR002W
             UniProt: P47083
 AASEQ       593
             MSELFGVLKSNAGRIILKDPSATSKDVKAYIDSVINTCKNGSITKKAELDEITVDGLDAN

@@ -1,13 +1,13 @@
 ENTRY       YCR054C           CDS       T00005
 NAME        CTR86
-DEFINITION  Ctr86p
+DEFINITION  (RefSeq) Ctr86p
+ORTHOLOGY   K19323  ataxin-10
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    III:complement(218376..220067)
-MOTIF       Pfam: Atx10homo_assoc Cut8_M
-DBLINKS     NCBI-GI: 6319902
+MOTIF       Pfam: Atx10homo_assoc
+DBLINKS     NCBI-ProteinID: NP_009983
             NCBI-GeneID: 850421
             SGD: S000000650
-            MIPS: YCR054C
             UniProt: P25355
 AASEQ       563
             MPMNNFLDEFNLFDSIITMMKNDPCCVEDYEPIVENLNRIFQRTFNDEEHRKSMANSQLF

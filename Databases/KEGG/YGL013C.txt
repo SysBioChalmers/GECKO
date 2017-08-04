@@ -1,13 +1,12 @@
 ENTRY       YGL013C           CDS       T00005
 NAME        PDR1, AMY1, ANT1, BOR2, CYH3, NRA2, SMR2, TIL1, TPE1, TPE3
-DEFINITION  Pdr1p
+DEFINITION  (RefSeq) drug-responsive transcription factor PDR1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:complement(469092..472298)
 MOTIF       Pfam: Fungal_trans Zn_clus
-DBLINKS     NCBI-GI: 6321425
+DBLINKS     NCBI-ProteinID: NP_011502
             NCBI-GeneID: 852871
             SGD: S000002981
-            MIPS: YGL013C
             UniProt: P12383
 AASEQ       1068
             MRGLTPKNGVHIETGPDTESSADSSNFSTGFSGKIRKPRSKVSKACDNCRKRKIKCNGKF

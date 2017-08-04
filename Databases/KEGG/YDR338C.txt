@@ -1,13 +1,16 @@
 ENTRY       YDR338C           CDS       T00005
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) hypothetical protein
 ORTHOLOGY   K03327  multidrug resistance protein, MATE family
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Solute Carrier Family (SLC)
+              SLC47: Multidrug and Toxin Extrusion (MATE) family
+               YDR338C
 POSITION    IV:complement(1147379..1149466)
 MOTIF       Pfam: MatE
-DBLINKS     NCBI-GI: 6320545
+DBLINKS     NCBI-ProteinID: NP_010625
             NCBI-GeneID: 851938
             SGD: S000002746
-            MIPS: YDR338C
             UniProt: Q05497
 AASEQ       695
             MAGILSKTLSEVHPSLRTNGMGIGNTHRRISLGFLPPNKKNPLVRKFRARTRNIDQRSFR

@@ -1,13 +1,12 @@
 ENTRY       YPL125W           CDS       T00005
 NAME        KAP120, LPH2
-DEFINITION  Kap120p
+DEFINITION  (RefSeq) Kap120p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:313388..316486
-MOTIF       Pfam: IBN_N
-DBLINKS     NCBI-GI: 6325132
+MOTIF       Pfam: IBN_N Stn1_C
+DBLINKS     NCBI-ProteinID: NP_015200
             NCBI-GeneID: 855978
             SGD: S000006046
-            MIPS: YPL125W
             UniProt: Q02932
 AASEQ       1032
             MASSLNELNLVQVLEQASNPQHIRSDVQKLAEQQLRQWETQAGFHYLLQSIYLNLSNSLQ

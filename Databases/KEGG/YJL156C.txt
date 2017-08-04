@@ -1,13 +1,12 @@
 ENTRY       YJL156C           CDS       T00005
 NAME        SSY5, RAA3
-DEFINITION  Ssy5p
+DEFINITION  (RefSeq) Ssy5p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    X:complement(126853..128952)
-MOTIF       Pfam: Peptidase_S64 CLAMP
-DBLINKS     NCBI-GI: 269970308
+MOTIF       Pfam: Peptidase_S64
+DBLINKS     NCBI-ProteinID: NP_012379
             NCBI-GeneID: 853285
             SGD: S000003692
-            MIPS: YJL156C
             UniProt: P47002
 AASEQ       699
             MVRFFGLNKKKNEEKENTDLPADNEQNAAETSSSNVSGNEERIDPNSHDTNPENANNDDA

@@ -1,18 +1,28 @@
 ENTRY       YNL280C           CDS       T00005
 NAME        ERG24
-DEFINITION  delta(14)-sterol reductase (EC:1.3.1.70)
-ORTHOLOGY   K00222  delta14-sterol reductase [EC:1.3.1.70]
+DEFINITION  (RefSeq) delta(14)-sterol reductase
+ORTHOLOGY   K00222  Delta14-sterol reductase [EC:1.3.1.70]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00100  Steroid biosynthesis
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
-CLASS       Metabolism; Lipid metabolism; Steroid biosynthesis [PATH:sce00100]
+            sce01130  Biosynthesis of antibiotics
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Lipid metabolism
+               00100 Steroid biosynthesis
+                YNL280C (ERG24)
+            Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.3  Acting on the CH-CH group of donors
+               1.3.1  With NAD+ or NADP+ as acceptor
+                1.3.1.70  Delta14-sterol reductase
+                 YNL280C (ERG24)
 POSITION    XIV:complement(109095..110411)
 MOTIF       Pfam: ERG4_ERG24 DUF1295
-DBLINKS     NCBI-GI: 6324049
+DBLINKS     NCBI-ProteinID: NP_014119
             NCBI-GeneID: 855441
             SGD: S000005224
-            MIPS: YNL280C
             UniProt: P32462
 AASEQ       438
             MVSALNPRTTEFEFGGLIGALGISIGLPVFTIILNQMIRPDYFIKGFFQNFDIVELWNGI

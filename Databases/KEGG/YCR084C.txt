@@ -1,16 +1,24 @@
 ENTRY       YCR084C           CDS       T00005
 NAME        TUP1, AAR1, AER2, AMM1, CRT4, CYC9, FLK1, ROX4, SFL2, UMR7
-DEFINITION  Tup1p
+DEFINITION  (RefSeq) chromatin-silencing transcriptional regulator TUP1
 ORTHOLOGY   K06666  glucose repression regulatory protein TUP1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
-PATHWAY     sce04111  Cell cycle - yeast
-CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
+PATHWAY     sce04011  MAPK signaling pathway - yeast
+            sce04111  Cell cycle - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YCR084C (TUP1)
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YCR084C (TUP1)
 POSITION    III:complement(260311..262452)
-MOTIF       Pfam: WD40 Tup_N
-DBLINKS     NCBI-GI: 6319926
+MOTIF       Pfam: WD40 Tup_N ANAPC4_WD40 Nup160 WD40_like Ge1_WD40
+DBLINKS     NCBI-ProteinID: NP_010007
             NCBI-GeneID: 850445
             SGD: S000000680
-            MIPS: YCR084C
             UniProt: P16649
 STRUCTURE   PDB: 3VP9 3VP8 1ERJ
 AASEQ       713

@@ -1,17 +1,20 @@
 ENTRY       YGL187C           CDS       T00005
 NAME        COX4
-DEFINITION  cytochrome c oxidase subunit IV (EC:1.9.3.1)
+DEFINITION  (RefSeq) cytochrome c oxidase subunit IV
 ORTHOLOGY   K02265  cytochrome c oxidase subunit 5b
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00190  Oxidative phosphorylation
             sce01100  Metabolic pathways
-CLASS       Metabolism; Energy metabolism; Oxidative phosphorylation [PATH:sce00190]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Energy metabolism
+               00190 Oxidative phosphorylation
+                YGL187C (COX4)
 POSITION    VII:complement(149704..150171)
 MOTIF       Pfam: COX5B
-DBLINKS     NCBI-GI: 6321251
+DBLINKS     NCBI-ProteinID: NP_011328
             NCBI-GeneID: 852688
             SGD: S000003155
-            MIPS: YGL187C
             UniProt: P04037
 STRUCTURE   PDB: 2ODX
 AASEQ       155

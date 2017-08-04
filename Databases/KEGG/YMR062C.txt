@@ -1,23 +1,38 @@
 ENTRY       YMR062C           CDS       T00005
 NAME        ARG7, ECM40
-DEFINITION  glutamate N-acetyltransferase (EC:2.3.1.1 2.3.1.35)
+DEFINITION  (RefSeq) glutamate N-acetyltransferase
 ORTHOLOGY   K00620  glutamate N-acetyltransferase / amino-acid N-acetyltransferase [EC:2.3.1.35 2.3.1.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
-PATHWAY     sce00330  Arginine and proline metabolism
+PATHWAY     sce00220  Arginine biosynthesis
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
+            sce01130  Biosynthesis of antibiotics
             sce01210  2-Oxocarboxylic acid metabolism
             sce01230  Biosynthesis of amino acids
 MODULE      sce_M00028  Ornithine biosynthesis, glutamate => ornithine
-CLASS       Metabolism; Overview; 2-Oxocarboxylic acid metabolism [PATH:sce01210]
-            Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
-            Metabolism; Amino acid metabolism; Arginine and proline metabolism [PATH:sce00330]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01210 2-Oxocarboxylic acid metabolism
+                YMR062C (ARG7)
+               01230 Biosynthesis of amino acids
+                YMR062C (ARG7)
+              Amino acid metabolism
+               00220 Arginine biosynthesis
+                YMR062C (ARG7)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.3  Acyltransferases
+               2.3.1  Transferring groups other than aminoacyl groups
+                2.3.1.1  amino-acid N-acetyltransferase
+                 YMR062C (ARG7)
+                2.3.1.35  glutamate N-acetyltransferase
+                 YMR062C (ARG7)
 POSITION    XIII:complement(395054..396379)
 MOTIF       Pfam: ArgJ
-DBLINKS     NCBI-GI: 6323707
+DBLINKS     NCBI-ProteinID: NP_013778
             NCBI-GeneID: 855084
             SGD: S000004666
-            MIPS: YMR062C
             UniProt: Q04728
 AASEQ       441
             MRISSTLLQRSKQLIDKYALYVPKTGSFPKGFEVGYTASGVKKNGSLDLGVILNTNKSRP

@@ -1,13 +1,18 @@
 ENTRY       YGL238W           CDS       T00005
 NAME        CSE1, KAP109
-DEFINITION  Cse1p
+DEFINITION  (RefSeq) importin-alpha export receptor
+ORTHOLOGY   K18423  exportin-2 (importin alpha re-exporter)
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centrosome formation and ciliogenesis proteins
+               Spindle formation proteins
+                YGL238W (CSE1)
 POSITION    VII:49552..52434
 MOTIF       Pfam: Cse1 CAS_CSE1 IBN_N Xpo1
-DBLINKS     NCBI-GI: 6321198
+DBLINKS     NCBI-ProteinID: NP_011276
             NCBI-GeneID: 852612
             SGD: S000003207
-            MIPS: YGL238W
             UniProt: P33307
 STRUCTURE   PDB: 1Z3H 1WA5
 AASEQ       960

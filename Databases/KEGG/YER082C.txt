@@ -1,14 +1,18 @@
 ENTRY       YER082C           CDS       T00005
 NAME        UTP7, KRE31
-DEFINITION  Utp7p
+DEFINITION  (RefSeq) Utp7p
 ORTHOLOGY   K14768  U3 small nucleolar RNA-associated protein 7
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              90S particles
+               U3 small nucleolar RNA-associated proteins
+                YER082C (UTP7)
 POSITION    V:complement(324272..325936)
 MOTIF       Pfam: BING4CT WD40
-DBLINKS     NCBI-GI: 6320926
+DBLINKS     NCBI-ProteinID: NP_011005
             NCBI-GeneID: 856815
             SGD: S000000884
-            MIPS: YER082C
             UniProt: P40055
 AASEQ       554
             MGHKKNGHRRQIKERENQNKFERSTYTNNAKNNHTQTKDKKLRAGLKKIDEQYKKAVSSA

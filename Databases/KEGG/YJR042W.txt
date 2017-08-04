@@ -1,18 +1,32 @@
 ENTRY       YJR042W           CDS       T00005
 NAME        NUP85, RAT9
-DEFINITION  Nup85p
+DEFINITION  (RefSeq) Nup85p
 ORTHOLOGY   K14304  nuclear pore complex protein Nup85
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03013  RNA transport
-CLASS       Genetic Information Processing; Translation; RNA transport [PATH:sce03013]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03013 RNA transport
+                YJR042W (NUP85)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Transport factors
+                Nuclear pore complex
+                 YJR042W (NUP85)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centrosome formation and ciliogenesis proteins
+               Spindle formation proteins
+                YJR042W (NUP85)
 POSITION    X:514055..516289
 MOTIF       Pfam: Nucleopor_Nup85
-DBLINKS     NCBI-GI: 6322502
+DBLINKS     NCBI-ProteinID: NP_012576
             NCBI-GeneID: 853499
             SGD: S000003803
-            MIPS: YJR042W
             UniProt: P46673
-STRUCTURE   PDB: 3F3F 3F3P 3EWE 3F3G
+STRUCTURE   PDB: 3F3F 3F3P 3EWE 3F3G 4XMM 4XMN
 AASEQ       744
             MTIDDSNRLLMDVDQFDFLDDGTAQLSNNKTDEEEQLYKRDPVSGAILVPMTVNDQPIEK
             NGDKMPLKFKLGPLSYQNMAFITAKDKYKLYPVRIPRLDTSKEFSAYVSGLFEIYRDLGD

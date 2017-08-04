@@ -1,13 +1,12 @@
 ENTRY       YIL057C           CDS       T00005
 NAME        RGI2
-DEFINITION  Rgi2p
+DEFINITION  (RefSeq) Rgi2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IX:complement(247902..248396)
-MOTIF       Pfam: DUF2578 DIX COX7a
-DBLINKS     NCBI-GI: 398364397
+MOTIF       Pfam: RGI1 DIX
+DBLINKS     NCBI-ProteinID: NP_012207
             NCBI-GeneID: 854753
             SGD: S000001319
-            MIPS: YIL057C
             UniProt: P40188
 AASEQ       164
             MTKKDKKAKGPKMSTITTKSGESLKVFEDLHDFETYLKGETEDQEFDHVHCQLKYYPPFV

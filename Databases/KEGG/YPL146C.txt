@@ -1,14 +1,18 @@
 ENTRY       YPL146C           CDS       T00005
 NAME        NOP53
-DEFINITION  Nop53p
+DEFINITION  (RefSeq) Nop53p
 ORTHOLOGY   K14840  nucleolar protein 53
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               Other pre-60S particles
+                YPL146C (NOP53)
 POSITION    XVI:complement(276162..277529)
-MOTIF       Pfam: Nop53
-DBLINKS     NCBI-GI: 6325111
+MOTIF       Pfam: Nop53 FBPase
+DBLINKS     NCBI-ProteinID: NP_015179
             NCBI-GeneID: 855957
             SGD: S000006067
-            MIPS: YPL146C
             UniProt: Q12080
 AASEQ       455
             MAPTNLTKKPSQYKQSSRKGKKAWRKNIDLSDVEQYMEKKIDHEITHGTSDITSLQNDAL

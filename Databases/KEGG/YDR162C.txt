@@ -1,13 +1,12 @@
 ENTRY       YDR162C           CDS       T00005
 NAME        NBP2
-DEFINITION  Nbp2p
+DEFINITION  (RefSeq) Nbp2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(780390..781100)
-MOTIF       Pfam: SH3_9 SH3_1 SH3_2 Nanovirus_C8
-DBLINKS     NCBI-GI: 398365895
+MOTIF       Pfam: SH3_1 SH3_9 SH3_2 Nanovirus_C8
+DBLINKS     NCBI-ProteinID: NP_010446
             NCBI-GeneID: 851740
             SGD: S000002569
-            MIPS: YDR162C
             UniProt: Q12163
 STRUCTURE   PDB: 1YN8 2LCS
 AASEQ       236

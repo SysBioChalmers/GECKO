@@ -1,17 +1,26 @@
 ENTRY       YLR409C           CDS       T00005
 NAME        UTP21
-DEFINITION  Utp21p
+DEFINITION  (RefSeq) rRNA-processing protein UTP21
 ORTHOLOGY   K14554  U3 small nucleolar RNA-associated protein 21
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03008  Ribosome biogenesis in eukaryotes
-CLASS       Genetic Information Processing; Translation; Ribosome biogenesis in eukaryotes [PATH:sce03008]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03008 Ribosome biogenesis in eukaryotes
+                YLR409C (UTP21)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              90S particles
+               U3 small nucleolar RNA-associated proteins
+                YLR409C (UTP21)
 POSITION    XII:complement(934414..937233)
-MOTIF       Pfam: Utp21 WD40 eIF2A Nucleoporin_N Cytochrom_D1
-DBLINKS     NCBI-GI: 398366151
+MOTIF       Pfam: Utp21 ANAPC4_WD40 WD40 PQQ_2 Cytochrom_D1
+DBLINKS     NCBI-ProteinID: NP_013513
             NCBI-GeneID: 851125
             SGD: S000004401
-            MIPS: YLR409C
             UniProt: Q06078
+STRUCTURE   PDB: 4NSX 5TZS 5JPQ
 AASEQ       939
             MSIDLKKRKVEEDVRSRGKNSKIFSPFRIIGNVSNGVPFATGTLGSTFYIVTCVGKTFQI
             YDANTLHLLFVSEKETPSSIVALSAHFHYVYAAYENKVGIYKRGIEEHLLELETDANVEH

@@ -1,16 +1,28 @@
 ENTRY       YNL284C           CDS       T00005
 NAME        MRPL10, MRPL18
-DEFINITION  mitochondrial 54S ribosomal protein YmL10/YmL18
+DEFINITION  (RefSeq) mitochondrial 54S ribosomal protein YmL10/YmL18
 ORTHOLOGY   K02876  large subunit ribosomal protein L15
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03010  Ribosome
-CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03010 Ribosome
+                YNL284C (MRPL10)
+            Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Mitochondria/ Chloroplast
+               Large subunit
+                YNL284C (MRPL10)
+              Bacteria
+                YNL284C (MRPL10)
+              Archaea
+                YNL284C (MRPL10)
 POSITION    XIV:complement(103134..104102)
-MOTIF       Pfam: Ribosomal_L18e
-DBLINKS     NCBI-GI: 6324045
+MOTIF       Pfam: Ribosomal_L27A
+DBLINKS     NCBI-ProteinID: NP_014115
             NCBI-GeneID: 855436
             SGD: S000005228
-            MIPS: YNL284C
             UniProt: P36520
 AASEQ       322
             MKAERQTGLRNSFTTVIGRKLINTFVPSMMLTSVAGNDIFFRGLFKSPVLAFQSYRYVSI

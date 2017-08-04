@@ -1,13 +1,17 @@
 ENTRY       YOR266W           CDS       T00005
 NAME        PNT1
-DEFINITION  Pnt1p
+DEFINITION  (RefSeq) Pnt1p
 ORTHOLOGY   K17799  pentamidine resistance factor, mitochondrial
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial protein import machinery
+              Inner mambrane
+               Other inner membrane factors
+                YOR266W (PNT1)
 POSITION    XV:821023..822294
-DBLINKS     NCBI-GI: 398366001
+DBLINKS     NCBI-ProteinID: NP_014909
             NCBI-GeneID: 854440
             SGD: S000005792
-            MIPS: YOR266W
             UniProt: P38969
 AASEQ       423
             MDSRVALVRKYIAPSVIKSDSIQLHGLVKAPLFKALNSRYKLGSLQIVQDVDWNAKTTPS

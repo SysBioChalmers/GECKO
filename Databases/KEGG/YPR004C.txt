@@ -1,14 +1,17 @@
 ENTRY       YPR004C           CDS       T00005
 NAME        AIM45
-DEFINITION  Aim45p
+DEFINITION  (RefSeq) Aim45p
 ORTHOLOGY   K03522  electron transfer flavoprotein alpha subunit
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of breast cancer cells
+               YPR004C (AIM45)
 POSITION    XVI:complement(564007..565041)
-MOTIF       Pfam: ETF_alpha ETF
-DBLINKS     NCBI-GI: 6325261
+MOTIF       Pfam: ETF ETF_alpha DUF4671
+DBLINKS     NCBI-ProteinID: NP_015329
             NCBI-GeneID: 856112
             SGD: S000006208
-            MIPS: YPR004C
             UniProt: Q12480
 AASEQ       344
             MFKSLAAVLPRASKAKFLQKNYASTLAFIESSKDGSVSRSSLSLLAAAQKLSNPITAVIT

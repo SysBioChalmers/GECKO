@@ -1,13 +1,18 @@
 ENTRY       YPR105C           CDS       T00005
 NAME        COG4, COD1, SEC38, SGF1
-DEFINITION  Cog4p
+DEFINITION  (RefSeq) Golgi transport complex subunit COG4
+ORTHOLOGY   K20291  conserved oligomeric Golgi complex subunit 4
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endosome - Golgi transport
+              Tethering complex
+               Conserved oligomeric Golgi (COG) complex
+                YPR105C (COG4)
 POSITION    XVI:complement(736984..739569)
 MOTIF       Pfam: COG4 Staphostatin_A
-DBLINKS     NCBI-GI: 6325362
+DBLINKS     NCBI-ProteinID: NP_015430
             NCBI-GeneID: 856220
             SGD: S000006309
-            MIPS: YPR105C
             UniProt: Q06096
 AASEQ       861
             MEGQKSNASWESSIIEGQLSKNLARYTLLLDKLSTLSQIDKLSEVIANDYAKQSKQLNAF

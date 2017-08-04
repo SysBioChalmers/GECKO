@@ -1,13 +1,18 @@
 ENTRY       YMR218C           CDS       T00005
 NAME        TRS130
-DEFINITION  Trs130p
+DEFINITION  (RefSeq) transport protein particle complex II subunit TRS130
+ORTHOLOGY   K20307  trafficking protein particle complex subunit 10
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endosome - Golgi transport
+              Tethering complex
+               TRAPP complex II
+                YMR218C (TRS130)
 POSITION    XIII:complement(703579..706887)
-MOTIF       Pfam: TRAPPC10 Foie-gras_1
-DBLINKS     NCBI-GI: 6323874
+MOTIF       Pfam: TRAPPC10
+DBLINKS     NCBI-ProteinID: NP_013945
             NCBI-GeneID: 855258
             SGD: S000004831
-            MIPS: YMR218C
             UniProt: Q03660
 AASEQ       1102
             MDKEIYCGSVPVSYFDPFDLFESLRPEFQQILPLDNIHWKAFDGTVRTVNRLPIELIPEG

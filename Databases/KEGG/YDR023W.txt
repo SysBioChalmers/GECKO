@@ -1,17 +1,37 @@
 ENTRY       YDR023W           CDS       T00005
 NAME        SES1
-DEFINITION  serine--tRNA ligase SES1 (EC:6.1.1.11)
+DEFINITION  (RefSeq) serine--tRNA ligase SES1
 ORTHOLOGY   K01875  seryl-tRNA synthetase [EC:6.1.1.11]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00970  Aminoacyl-tRNA biosynthesis
 MODULE      sce_M00359  Aminoacyl-tRNA biosynthesis, eukaryotes
-CLASS       Genetic Information Processing; Translation; Aminoacyl-tRNA biosynthesis [PATH:sce00970]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               00970 Aminoacyl-tRNA biosynthesis
+                YDR023W (SES1)
+            Enzymes [BR:sce01000]
+             6. Ligases
+              6.1  Forming carbon-oxygen bonds
+               6.1.1  Ligases forming aminoacyl-tRNA and related compounds
+                6.1.1.11  serine---tRNA ligase
+                 YDR023W (SES1)
+            Amino acid related enzymes [BR:sce01007]
+             Aminoacyl-tRNA synthetase
+              Class II (G/C)
+               YDR023W (SES1)
+            Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              Aminoacyl-tRNA synthetases (AARSs)
+               Other AARSs
+                YDR023W (SES1)
+             Prokaryotic Type
+                YDR023W (SES1)
 POSITION    IV:489508..490896
-MOTIF       Pfam: tRNA-synt_2b Seryl_tRNA_N DUF342 CDC37_C
-DBLINKS     NCBI-GI: 6320226
+MOTIF       Pfam: tRNA-synt_2b Seryl_tRNA_N MAP7 FapA
+DBLINKS     NCBI-ProteinID: NP_010306
             NCBI-GeneID: 851587
             SGD: S000002430
-            MIPS: YDR023W
             UniProt: P07284
 AASEQ       462
             MLDINQFIEDKGGNPELIRQSQKARNASVEIVDEIISDYKDWVKTRFELDELNKKFNKLQ

@@ -1,14 +1,19 @@
 ENTRY       YOR163W           CDS       T00005
 NAME        DDP1
-DEFINITION  polyphosphatase DDP1 (EC:3.6.1.52 3.6.1.60)
-ORTHOLOGY   K01529   [EC:3.6.1.-]
+DEFINITION  (RefSeq) polyphosphatase DDP1
+ORTHOLOGY   K07766  diphosphoinositol-polyphosphate diphosphatase [EC:3.6.1.52]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.1  In phosphorus-containing anhydrides
+                3.6.1.52  diphosphoinositol-polyphosphate diphosphatase
+                 YOR163W (DDP1)
 POSITION    XV:642741..643307
 MOTIF       Pfam: NUDIX
-DBLINKS     NCBI-GI: 6324737
+DBLINKS     NCBI-ProteinID: NP_014806
             NCBI-GeneID: 854334
             SGD: S000005689
-            MIPS: YOR163W
             UniProt: Q99321
 AASEQ       188
             MGKTADNHGPVRSETAREGRENQVYSPVTGARLVAGCICLTPDKKQVLMITSSAHKKRWI

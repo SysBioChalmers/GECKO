@@ -1,15 +1,26 @@
 ENTRY       YAL019W           CDS       T00005
 NAME        FUN30
-DEFINITION  Fun30p (EC:3.6.4.12 3.6.1.-)
+DEFINITION  (RefSeq) DNA-dependent ATPase FUN30
 ORTHOLOGY   K14439  SWI/SNF-related matrix-associated actin-dependent regulator of chromatin subfamily A containing DEAD/H box 1 [EC:3.6.4.12]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.4  Acting on acid anhydrides to facilitate cellular and subcellular movement
+                3.6.4.12  DNA helicase
+                 YAL019W (FUN30)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Chromatin remodeling factors
+               Other chromatin remodeling factors
+                YAL019W (FUN30)
 POSITION    I:114919..118314
-MOTIF       Pfam: SNF2_N Helicase_C AAA_22
-DBLINKS     NCBI-GI: 6319300
+MOTIF       Pfam: SNF2_N Helicase_C ResIII DEAD
+DBLINKS     NCBI-ProteinID: NP_009383
             NCBI-GeneID: 851214
             SGD: S000000017
-            MIPS: YAL019W
             UniProt: P31380
+STRUCTURE   PDB: 5GN1
 AASEQ       1131
             MSGSHSNDEDDVVQVPETSSPTKVASSSPLKPTSPTVPDASVASLRSRFTFKPSDPSEGA
             HTSKPLPSGSPEVALVNLAREFPDFSQTLVQAVFKSNSFNLQSARERLTRLRQQRQNWTW

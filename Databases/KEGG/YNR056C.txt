@@ -1,13 +1,17 @@
 ENTRY       YNR056C           CDS       T00005
 NAME        BIO5
-DEFINITION  Bio5p
+DEFINITION  (RefSeq) Bio5p
+ORTHOLOGY   K19565  8-amino-7-oxononanoate transporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Other Transporters
+              Electrochemical potential-driven transporters [TC:2]
+               YNR056C (BIO5)
 POSITION    XIV:complement(731618..733303)
 MOTIF       Pfam: AA_permease_2 AA_permease ABC_membrane_3
-DBLINKS     NCBI-GI: 398365833
+DBLINKS     NCBI-ProteinID: NP_014454
             NCBI-GeneID: 855793
             SGD: S000005339
-            MIPS: YNR056C
             UniProt: P53744
 AASEQ       561
             MNRVGAVFLFVYERNFFLSIVPDRHRTEIRMSSSERSEVKFDKHFNWWSLLGIAFSLSCS

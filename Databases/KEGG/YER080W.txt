@@ -1,13 +1,12 @@
 ENTRY       YER080W           CDS       T00005
 NAME        AIM9, FMP29
-DEFINITION  Aim9p
+DEFINITION  (RefSeq) Aim9p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    V:319963..321846
 MOTIF       Pfam: APH Choline_kinase
-DBLINKS     NCBI-GI: 6320924
+DBLINKS     NCBI-ProteinID: NP_011003
             NCBI-GeneID: 856813
             SGD: S000000882
-            MIPS: YER080W
             UniProt: P40053
 AASEQ       627
             MIRYTVAGHSRRCVVGASKRVGAIKCITVAATKRFISNKPNEVFTKLTNDNDPKRDAFFK

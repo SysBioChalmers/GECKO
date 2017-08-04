@@ -1,17 +1,36 @@
 ENTRY       YGR274C           CDS       T00005
-NAME        TAF1, TAF130, TAF145
-DEFINITION  Taf1p (EC:2.3.1.48)
+NAME        TAF1, KAT4, TAF130, TAF145
+DEFINITION  (RefSeq) Taf1p
 ORTHOLOGY   K03125  transcription initiation factor TFIID subunit 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03022  Basal transcription factors
-CLASS       Genetic Information Processing; Transcription; Basal transcription factors [PATH:sce03022]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03022 Basal transcription factors
+                YGR274C (TAF1)
+            Protein kinases [BR:sce01001]
+             Serine/threonine protein kinases: Atypical group
+              TAF1 family
+               YGR274C (TAF1)
+            Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Basal transcription factors
+                TFIID
+                 YGR274C (TAF1)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Histone modification proteins
+               HATs (histone acetyltransferases)
+                YGR274C (TAF1)
 POSITION    VII:complement(1039895..1043095)
 MOTIF       Pfam: DUF3591 zf-CCHC_6 zf-CCHC
-DBLINKS     NCBI-GI: 6321713
+DBLINKS     NCBI-ProteinID: NP_011790
             NCBI-GeneID: 853191
             SGD: S000003506
-            MIPS: YGR274C
             UniProt: P46677
+STRUCTURE   PDB: 4OY2
 AASEQ       1066
             MVKQQGSGKTNLANEDEAYEAIFGGEFGSLEIGSYIGGDEGANSKDYTEHLPDAVDFEDE
             DELADDDDDLPEESDANLHPAMMTMGAYDDVNENGAVLGIDSNSLNMQLPEINGDLSQQF

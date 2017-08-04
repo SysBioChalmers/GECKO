@@ -1,15 +1,21 @@
 ENTRY       YLR015W           CDS       T00005
 NAME        BRE2, CPS60
-DEFINITION  Bre2p
+DEFINITION  (RefSeq) Bre2p
 ORTHOLOGY   K14967  COMPASS component BRE2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Histone modification proteins
+               HMT complexes
+                COMPASS/SET1 complex (yeast)
+                 YLR015W (BRE2)
 POSITION    XII:175227..176744
-MOTIF       Pfam: SPRY
-DBLINKS     NCBI-GI: 6323043
+MOTIF       Pfam: Ectoine_synth
+DBLINKS     NCBI-ProteinID: NP_013115
             NCBI-GeneID: 850702
             SGD: S000004005
-            MIPS: YLR015W
             UniProt: P43132
+STRUCTURE   PDB: 4RT4
 AASEQ       505
             MKLGIIPYQEGTDIVYKNALQGQQEGKRPNLPQMEATHQIKSSVQGTSYEFVRTEDIPLN
             RRHFVYRPCSANPFFTILGYGCTEYPFDHSGMSVMDRSEGLSISRDGNDLVSVPDQYGWR

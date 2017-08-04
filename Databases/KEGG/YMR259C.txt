@@ -1,13 +1,12 @@
 ENTRY       YMR259C           CDS       T00005
 NAME        TRM732
-DEFINITION  Trm732p
+DEFINITION  (RefSeq) tRNA methylation protein TRM732
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:complement(784621..788883)
-MOTIF       Pfam: DUF2428 HEAT_2
-DBLINKS     NCBI-GI: 6323915
+MOTIF       Pfam: DUF2428 HEAT TAF6_C
+DBLINKS     NCBI-ProteinID: NP_013986
             NCBI-GeneID: 855301
             SGD: S000004872
-            MIPS: YMR259C
             UniProt: Q03496
 AASEQ       1420
             MTTDVQFSSQEIELFRVKEFLIANNPAKINNENKDAVLTQIEHDFRYLIQYIKDGLPNLN

@@ -1,14 +1,24 @@
 ENTRY       YBL024W           CDS       T00005
 NAME        NCL1, TRM4
-DEFINITION  Ncl1p (EC:2.1.1.202)
+DEFINITION  (RefSeq) tRNA (cytosine-C5-)-methyltransferase
 ORTHOLOGY   K15334  multisite-specific tRNA:(cytosine-C5)-methyltransferase [EC:2.1.1.202]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.1  Transferring one-carbon groups
+               2.1.1  Methyltransferases
+                2.1.1.202  multisite-specific tRNA:(cytosine-C5)-methyltransferase
+                 YBL024W (NCL1)
+            Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              tRNA modification factors
+               Methyltransferases
+                YBL024W (NCL1)
 POSITION    II:172534..174588
-MOTIF       Pfam: Nol1_Nop2_Fmu FtsJ Methyltransf_18 RrnaAD
-DBLINKS     NCBI-GI: 6319447
+MOTIF       Pfam: Methyltr_RsmB-F FtsJ LicD
+DBLINKS     NCBI-ProteinID: NP_009529
             NCBI-GeneID: 852257
             SGD: S000000120
-            MIPS: YBL024W
             UniProt: P38205
 AASEQ       684
             MARRKNFKKGNKKTFGARDDSRAQKNWSELVKENEKWEKYYKTLALFPEDQWEEFKKTCQ

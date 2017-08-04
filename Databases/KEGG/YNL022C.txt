@@ -1,14 +1,23 @@
 ENTRY       YNL022C           CDS       T00005
 NAME        RCM1
-DEFINITION  Rcm1p
-ORTHOLOGY   K15264  putative methyltransferase [EC:2.1.1.-]
+DEFINITION  (RefSeq) rRNA (cytosine-C5-)-methyltransferase RCM1
+ORTHOLOGY   K15264  25S rRNA (cytosine2278-C5)-methyltransferase [EC:2.1.1.311]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.1  Transferring one-carbon groups
+               2.1.1  Methyltransferases
+                2.1.1.311  25S rRNA (cytosine2278-C5)-methyltransferase
+                 YNL022C (RCM1)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Other ribosome biogenesis factors
+               YNL022C (RCM1)
 POSITION    XIV:complement(591427..592899)
-MOTIF       Pfam: Nol1_Nop2_Fmu Methyltransf_26 Methyltransf_15
-DBLINKS     NCBI-GI: 398365407
+MOTIF       Pfam: Methyltr_RsmB-F Methyltransf_15
+DBLINKS     NCBI-ProteinID: NP_014376
             NCBI-GeneID: 855709
             SGD: S000004967
-            MIPS: YNL022C
             UniProt: P53972
 AASEQ       490
             MNFYRDATWVLEDIEKEAAKERISGSMQTLVLKSCKRYKLKSNPKHIYAVLDSCWKYKPY

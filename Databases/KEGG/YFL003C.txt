@@ -1,14 +1,19 @@
 ENTRY       YFL003C           CDS       T00005
 NAME        MSH4
-DEFINITION  MutS family protein MSH4
+DEFINITION  (RefSeq) MutS family protein MSH4
 ORTHOLOGY   K08740  DNA mismatch repair protein MSH4
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              SSBR (single strand breaks repair)
+               MMR (mismatch exicision repair)
+                MutS homologs specialized for meiosis
+                 YFL003C (MSH4)
 POSITION    VI:complement(134521..137157)
 MOTIF       Pfam: MutS_V MutS_III MutS_II MutS_IV
-DBLINKS     NCBI-GI: 14318519
+DBLINKS     NCBI-ProteinID: NP_116652
             NCBI-GeneID: 850545
             SGD: S000001891
-            MIPS: YFL003C
             UniProt: P40965
 AASEQ       878
             MSESNLSSFISTNYFNLRSAANSSNSISKPSTKKSIRNQKSPTNISSWALKKKTLQIAET

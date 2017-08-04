@@ -1,18 +1,44 @@
 ENTRY       YBR257W           CDS       T00005
 NAME        POP4
-DEFINITION  Pop4p
+DEFINITION  (RefSeq) RNase P/RNase MRP complex subunit
 ORTHOLOGY   K03538  ribonuclease P protein subunit POP4 [EC:3.1.26.5]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03008  Ribosome biogenesis in eukaryotes
             sce03013  RNA transport
-CLASS       Genetic Information Processing; Translation; RNA transport [PATH:sce03013]
-            Genetic Information Processing; Translation; Ribosome biogenesis in eukaryotes [PATH:sce03008]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03013 RNA transport
+                YBR257W (POP4)
+               03008 Ribosome biogenesis in eukaryotes
+                YBR257W (POP4)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.26  Endoribonucleases producing 5'-phosphomonoesters
+                3.1.26.5  ribonuclease P
+                 YBR257W (POP4)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               RNases
+                RNase MRP
+                 YBR257W (POP4)
+            Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              5'processing factors
+               Ribonucrease P
+                YBR257W (POP4)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial DNA transcription, translation, and replication factors
+              Mitochondrial transcription and translation factors
+               RNase MRP
+                YBR257W (POP4)
 POSITION    II:728885..729724
 MOTIF       Pfam: UPF0086 DUF3245
-DBLINKS     NCBI-GI: 6319734
+DBLINKS     NCBI-ProteinID: NP_009816
             NCBI-GeneID: 852560
             SGD: S000000461
-            MIPS: YBR257W
             UniProt: P38336
 AASEQ       279
             MDRTQTFIKDCLFTKCLEDPEKPFNENRFQDTLLLLPTDGGLTSRLQRQQRKSKLNLDNL

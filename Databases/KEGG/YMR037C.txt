@@ -1,18 +1,38 @@
 ENTRY       YMR037C           CDS       T00005
 NAME        MSN2
-DEFINITION  Msn2p
+DEFINITION  (RefSeq) stress-responsive transcriptional activator MSN2
 ORTHOLOGY   K09468  zinc finger protein MSN2/4
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04011  MAPK signaling pathway - yeast
             sce04113  Meiosis - yeast
-CLASS       Environmental Information Processing; Signal transduction; MAPK signaling pathway - yeast [PATH:sce04011]
-            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+            sce04138  Autophagy - yeast
+            sce04213  Longevity regulating pathway - multiple species
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YMR037C (MSN2)
+             Cellular Processes
+              Transport and catabolism
+               04138 Autophagy - yeast
+                YMR037C (MSN2)
+              Cell growth and death
+               04113 Meiosis - yeast
+                YMR037C (MSN2)
+             Organismal Systems
+              Aging
+               04213 Longevity regulating pathway - multiple species
+                YMR037C (MSN2)
+            Transcription factors [BR:sce03000]
+             Eukaryotic Type
+              Zinc finger
+               Cys2His2 metabolic regulators in fungi
+                YMR037C (MSN2)
 POSITION    XIII:complement(344403..346517)
-MOTIF       Pfam: zf-C2H2 zf-C2H2_4 zf-H2C2_2 zf-C2H2_jaz zf-met zf-C2H2_6 zf-BED
-DBLINKS     NCBI-GI: 6323680
+MOTIF       Pfam: zf-C2H2 zf-H2C2_2 zf-C2H2_jaz zf-C2H2_4 zf-met zf-C2HE zf-C2H2_6 zf-Di19
+DBLINKS     NCBI-ProteinID: NP_013751
             NCBI-GeneID: 855053
             SGD: S000004640
-            MIPS: YMR037C
             UniProt: P33748
 AASEQ       704
             MTVDHDFNSEDILFPIESMSSIQYVENNNPNNINNDVIPYSLDIKNTVLDSADLNDIQNQ

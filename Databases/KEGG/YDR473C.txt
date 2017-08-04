@@ -1,17 +1,26 @@
 ENTRY       YDR473C           CDS       T00005
 NAME        PRP3, RNA3
-DEFINITION  Prp3p
+DEFINITION  (RefSeq) U4/U6-U5 snRNP complex subunit PRP3
 ORTHOLOGY   K12843  U4/U6 small nuclear ribonucleoprotein PRP3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03040  Spliceosome
-CLASS       Genetic Information Processing; Transcription; Spliceosome [PATH:sce03040]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03040 Spliceosome
+                YDR473C (PRP3)
+            Spliceosome [BR:sce03041]
+             Complex B
+              U4/U6.U5 tri-snRNP components
+               U4/U6 snRNP specific factors
+                YDR473C (PRP3)
 POSITION    IV:complement(1404445..1405854)
-MOTIF       Pfam: PRP3 DUF1115 DUF3641
-DBLINKS     NCBI-GI: 398366629
+MOTIF       Pfam: PRP3 DUF1115
+DBLINKS     NCBI-ProteinID: NP_010761
             NCBI-GeneID: 852084
             SGD: S000002881
-            MIPS: YDR473C
             UniProt: Q03338
+STRUCTURE   PDB: 4YHV 4YHU 4YHW 5GAN 5GAP 3JCM
 AASEQ       469
             MPPRNTYEKGNPKRQNSPYYKPSFLRREETTNDEEKFQGHGLKTELHSALKSSNLNLIRR
             TYQTGENPYLSDPHDRGSSSRFNRRYERGLKFYQKGEISKRIAQERTLQKQQEEEELKRK

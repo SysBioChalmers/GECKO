@@ -1,14 +1,18 @@
 ENTRY       YDR175C           CDS       T00005
 NAME        RSM24
-DEFINITION  mitochondrial 37S ribosomal protein RSM24
-ORTHOLOGY   K17413  small subunit ribosomal protein S35, mitochondrial
+DEFINITION  (RefSeq) mitochondrial 37S ribosomal protein RSM24
+ORTHOLOGY   K17413  small subunit ribosomal protein S35
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Mitochondria/ Chloroplast
+               Small subunit
+                YDR175C (RSM24)
 POSITION    IV:complement(813193..814152)
 MOTIF       Pfam: MRP-S28
-DBLINKS     NCBI-GI: 6320380
+DBLINKS     NCBI-ProteinID: NP_010460
             NCBI-GeneID: 851755
             SGD: S000002582
-            MIPS: YDR175C
             UniProt: Q03976
 AASEQ       319
             MKVPLGLWKVSRGNLWSTQKRVLTMSRCLNSDAGNEAKTVREGPAFSADLYMHPEKWKGL

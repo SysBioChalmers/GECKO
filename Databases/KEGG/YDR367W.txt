@@ -1,13 +1,12 @@
 ENTRY       YDR367W           CDS       T00005
 NAME        KEI1
-DEFINITION  Kei1p
+DEFINITION  (RefSeq) Kei1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:join(1212848..1212877,1212979..1213614)
 MOTIF       Pfam: Kei1
-DBLINKS     NCBI-GI: 6320575
+DBLINKS     NCBI-ProteinID: NP_010655
             NCBI-GeneID: 851973
             SGD: S000002775
-            MIPS: YDR367W
             UniProt: Q06346
 AASEQ       221
             MRSSLLTLPKSFLGFMPLYLAVEIVLGISILNKCSGAYGILALFTGHPLDFMQWIAYLWS

@@ -1,13 +1,24 @@
 ENTRY       YDR227W           CDS       T00005
 NAME        SIR4, ASD1, STE9, UTH2
-DEFINITION  Sir4p
+DEFINITION  (RefSeq) chromatin-silencing protein SIR4
 ORTHOLOGY   K11123  regulatory protein SIR4
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       DNA replication proteins [BR:sce03032]
+             Eukaryotic Type
+              DNA Replication Termination Factors
+               Telomere proteins
+                SIR proteins
+                 YDR227W (SIR4)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Histone modification proteins
+               Sir proteins
+                YDR227W (SIR4)
 POSITION    IV:917571..921647
-DBLINKS     NCBI-GI: 6320433
+MOTIF       Pfam: SIR4_SID
+DBLINKS     NCBI-ProteinID: NP_010513
             NCBI-GeneID: 851813
             SGD: S000002635
-            MIPS: YDR227W
             UniProt: P11978
 STRUCTURE   PDB: 1PL5 4IAO 1NYH
 AASEQ       1358

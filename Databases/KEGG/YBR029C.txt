@@ -1,20 +1,33 @@
 ENTRY       YBR029C           CDS       T00005
 NAME        CDS1, CDG1
-DEFINITION  phosphatidate cytidylyltransferase (EC:2.7.7.41)
+DEFINITION  (RefSeq) phosphatidate cytidylyltransferase
 ORTHOLOGY   K00981  phosphatidate cytidylyltransferase [EC:2.7.7.41]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00564  Glycerophospholipid metabolism
             sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
             sce04070  Phosphatidylinositol signaling system
 MODULE      sce_M00093  Phosphatidylethanolamine (PE) biosynthesis, PA => PS => PE
-CLASS       Metabolism; Lipid metabolism; Glycerophospholipid metabolism [PATH:sce00564]
-            Environmental Information Processing; Signal transduction; Phosphatidylinositol signaling system [PATH:sce04070]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Lipid metabolism
+               00564 Glycerophospholipid metabolism
+                YBR029C (CDS1)
+             Environmental Information Processing
+              Signal transduction
+               04070 Phosphatidylinositol signaling system
+                YBR029C (CDS1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.7  Nucleotidyltransferases
+                2.7.7.41  phosphatidate cytidylyltransferase
+                 YBR029C (CDS1)
 POSITION    II:complement(296369..297742)
 MOTIF       Pfam: CTP_transf_1
-DBLINKS     NCBI-GI: 6319503
+DBLINKS     NCBI-ProteinID: NP_009585
             NCBI-GeneID: 852317
             SGD: S000000233
-            MIPS: YBR029C
             UniProt: P38221
 AASEQ       457
             MSDNPEMKPHGTSKEIVESVTDATSKAIDKLQEELHKDASESVTPVTKESTAATKESRKY

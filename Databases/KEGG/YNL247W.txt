@@ -1,16 +1,36 @@
 ENTRY       YNL247W           CDS       T00005
-DEFINITION  cysteine--tRNA ligase (EC:6.1.1.16)
+DEFINITION  (RefSeq) cysteine--tRNA ligase
 ORTHOLOGY   K01883  cysteinyl-tRNA synthetase [EC:6.1.1.16]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00970  Aminoacyl-tRNA biosynthesis
 MODULE      sce_M00359  Aminoacyl-tRNA biosynthesis, eukaryotes
-CLASS       Genetic Information Processing; Translation; Aminoacyl-tRNA biosynthesis [PATH:sce00970]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               00970 Aminoacyl-tRNA biosynthesis
+                YNL247W
+            Enzymes [BR:sce01000]
+             6. Ligases
+              6.1  Forming carbon-oxygen bonds
+               6.1.1  Ligases forming aminoacyl-tRNA and related compounds
+                6.1.1.16  cysteine---tRNA ligase
+                 YNL247W
+            Amino acid related enzymes [BR:sce01007]
+             Aminoacyl-tRNA synthetase
+              Class I (G)
+               YNL247W
+            Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              Aminoacyl-tRNA synthetases (AARSs)
+               Other AARSs
+                YNL247W
+             Prokaryotic Type
+                YNL247W
 POSITION    XIV:182875..185178
-MOTIF       Pfam: tRNA-synt_1e tRNA-synt_1g tRNA-synt_1 tRNA-synt_1f
-DBLINKS     NCBI-GI: 6324082
+MOTIF       Pfam: tRNA-synt_1e tRNA-synt_1g tRNA-synt_1f tRNA-synt_1 Phage_int_SAM_5 RNA_pol_Rpb1_3 ECH_2
+DBLINKS     NCBI-ProteinID: NP_014152
             NCBI-GeneID: 855474
             SGD: S000005191
-            MIPS: YNL247W
             UniProt: P53852
 AASEQ       767
             MNIFIKALRRYTIMSTPKIVQPKWKVPTPQAKETVLKLYNSLTRSKVEFIPQSGNRGVTW

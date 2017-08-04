@@ -1,13 +1,18 @@
 ENTRY       YHR114W           CDS       T00005
 NAME        BZZ1, LSB7
-DEFINITION  Bzz1p
+DEFINITION  (RefSeq) Bzz1p
+ORTHOLOGY   K20121  formin-binding protein 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endocytosis
+              Bin/Amphiphysin/Rvs (BAR) family proteins
+               F-BAR proteins
+                YHR114W (BZZ1)
 POSITION    VIII:338083..339984
-MOTIF       Pfam: SH3_9 SH3_1 FCH SH3_2 GvpH DAHP_synth_2
-DBLINKS     NCBI-GI: 6321906
+MOTIF       Pfam: SH3_9 SH3_1 FCH SH3_2 SH3_3
+DBLINKS     NCBI-ProteinID: NP_011982
             NCBI-GeneID: 856514
             SGD: S000001156
-            MIPS: YHR114W
             UniProt: P38822
 STRUCTURE   PDB: 1ZUU 2A28
 AASEQ       633

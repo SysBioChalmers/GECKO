@@ -1,13 +1,12 @@
 ENTRY       YIL051C           CDS       T00005
 NAME        MMF1, IBM1
-DEFINITION  Mmf1p
+DEFINITION  (RefSeq) isoleucine biosynthesis protein MMF1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IX:complement(257843..258280)
-MOTIF       Pfam: Ribonuc_L-PSP
-DBLINKS     NCBI-GI: 398364411
+MOTIF       Pfam: Ribonuc_L-PSP Mt_ATP-synt_D
+DBLINKS     NCBI-ProteinID: NP_012213
             NCBI-GeneID: 854760
             SGD: S000001313
-            MIPS: YIL051C
             UniProt: P40185
 STRUCTURE   PDB: 3QUW
 AASEQ       145

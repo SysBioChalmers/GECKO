@@ -1,13 +1,12 @@
 ENTRY       YPR106W           CDS       T00005
 NAME        ISR1
-DEFINITION  Isr1p (EC:2.7.11.1)
+DEFINITION  (RefSeq) putative protein kinase ISR1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:740061..741392
 MOTIF       Pfam: Pkinase Pkinase_Tyr Kinase-like APH RIO1
-DBLINKS     NCBI-GI: 6325363
+DBLINKS     NCBI-ProteinID: NP_015431
             NCBI-GeneID: 856221
             SGD: S000006310
-            MIPS: YPR106W
             UniProt: Q06098
 AASEQ       443
             MNSTPPTSPVTRVSDGSFPSISNNSKGFAYRQPQKHKSNFAYSHLVSPVEEPTAKFSEAF

@@ -1,13 +1,12 @@
 ENTRY       YGR279C           CDS       T00005
 NAME        SCW4
-DEFINITION  Scw4p (EC:3.2.1.-)
+DEFINITION  (RefSeq) putative family 17 glucosidase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:complement(1048798..1049958)
-MOTIF       Pfam: Glyco_hydro_17 DUF3337
-DBLINKS     NCBI-GI: 6321718
+MOTIF       Pfam: Glyco_hydro_17 SPX
+DBLINKS     NCBI-ProteinID: NP_011795
             NCBI-GeneID: 853196
             SGD: S000003511
-            MIPS: YGR279C
             UniProt: P53334
 AASEQ       386
             MRLSNLIASASLLSAATLAAPANHEHKDKRAVVTTTVQKQTTIIVNGAASTPVAALEENA

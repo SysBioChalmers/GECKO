@@ -1,13 +1,12 @@
 ENTRY       YKR013W           CDS       T00005
 NAME        PRY2, YFW12
-DEFINITION  Pry2p
+DEFINITION  (RefSeq) sterol-binding protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XI:463959..464948
-MOTIF       Pfam: CAP DUF748 SBF
-DBLINKS     NCBI-GI: 398364919
+MOTIF       Pfam: CAP
+DBLINKS     NCBI-ProteinID: NP_012938
             NCBI-GeneID: 853882
             SGD: S000001721
-            MIPS: YKR013W
             UniProt: P36110
 AASEQ       329
             MKFSKVSLLAASASVALSAPVAVTVTQHVHQAATVVVQGIVRVENGQTLTTFITKGTQTA

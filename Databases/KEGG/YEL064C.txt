@@ -1,14 +1,17 @@
 ENTRY       YEL064C           CDS       T00005
 NAME        AVT2
-DEFINITION  Avt2p
+DEFINITION  (RefSeq) Avt2p
 ORTHOLOGY   K14997  solute carrier family 38 (sodium-coupled neutral amino acid transporter), member 11
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Solute Carrier Family (SLC)
+              SLC38: System A and System N sodium-coupled neutral amino acid transporter
+               YEL064C (AVT2)
 POSITION    V:complement(29797..31239)
-MOTIF       Pfam: Aa_trans
-DBLINKS     NCBI-GI: 6320771
+MOTIF       Pfam: Aa_trans DUF5392
+DBLINKS     NCBI-ProteinID: NP_010850
             NCBI-GeneID: 856645
             SGD: S000000790
-            MIPS: YEL064C
             UniProt: P39981
 AASEQ       480
             MSELGEYSKLENKELRTEFELTNFPFPGTTDNDSDDGSQGQNSLNIITPDMDDTLVNDVL

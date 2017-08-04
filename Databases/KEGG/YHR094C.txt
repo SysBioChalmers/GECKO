@@ -1,16 +1,24 @@
 ENTRY       YHR094C           CDS       T00005
 NAME        HXT1, HOR4
-DEFINITION  Hxt1p
+DEFINITION  (RefSeq) hexose transporter HXT1
 ORTHOLOGY   K08139  MFS transporter, SP family, sugar:H+ symporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04113  Meiosis - yeast
-CLASS       Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04113 Meiosis - yeast
+                YHR094C (HXT1)
+            Transporters [BR:sce02000]
+             Major Facilitator Superfamily (MFS)
+              Sugar transporters
+               Sugar porter (SP) family [TC:2.A.1.1]
+                YHR094C (HXT1)
 POSITION    VIII:complement(290913..292625)
-MOTIF       Pfam: Sugar_tr MFS_1 TPR_19
-DBLINKS     NCBI-GI: 6321886
+MOTIF       Pfam: Sugar_tr MFS_1
+DBLINKS     NCBI-ProteinID: NP_011962
             NCBI-GeneID: 856494
             SGD: S000001136
-            MIPS: YHR094C
             UniProt: P32465
 AASEQ       570
             MNSTPDLISPQKSNSSNSYELESGRSKAMNTPEGKNESFHDNLSESQVQPAVAPPNTGKG

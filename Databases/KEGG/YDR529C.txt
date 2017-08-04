@@ -1,20 +1,23 @@
 ENTRY       YDR529C           CDS       T00005
 NAME        QCR7, COR4, CRO1, UCR7
-DEFINITION  ubiquinol--cytochrome-c reductase subunit 7
+DEFINITION  (RefSeq) ubiquinol--cytochrome-c reductase subunit 7
 ORTHOLOGY   K00417  ubiquinol-cytochrome c reductase subunit 7
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00190  Oxidative phosphorylation
             sce01100  Metabolic pathways
 MODULE      sce_M00152  Cytochrome bc1 complex
-CLASS       Metabolism; Energy metabolism; Oxidative phosphorylation [PATH:sce00190]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Energy metabolism
+               00190 Oxidative phosphorylation
+                YDR529C (QCR7)
 POSITION    IV:complement(1496165..1496548)
 MOTIF       Pfam: UCR_14kD
-DBLINKS     NCBI-GI: 6320738
+DBLINKS     NCBI-ProteinID: NP_010818
             NCBI-GeneID: 852142
             SGD: S000002937
-            MIPS: YDR529C
             UniProt: P00128
-STRUCTURE   PDB: 3CX5 2IBZ 1KB9 1EZV 3CXH 1P84 1KYO
+STRUCTURE   PDB: 3CX5 2IBZ 1KB9 1EZV 3CXH 1P84 1KYO 4PD4
 AASEQ       127
             MPQSFTSIARIGDYILKSPVLSKLCVPVANQFINLAGYKKLGLKFDDLIAEENPIMQTAL
             RRLPEDESYARAYRIIRAHQTELTHHLLPRNEWIKAQEDVPYLLPYILEAEAAAKEKDEL

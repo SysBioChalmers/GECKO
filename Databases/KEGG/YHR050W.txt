@@ -1,14 +1,17 @@
 ENTRY       YHR050W           CDS       T00005
 NAME        SMF2
-DEFINITION  divalent metal ion transporter SMF2
+DEFINITION  (RefSeq) divalent metal ion transporter SMF2
 ORTHOLOGY   K12346  metal iron transporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Other Transporters
+              Electrochemical potential-driven transporters [TC:2]
+               YHR050W (SMF2)
 POSITION    VIII:207654..209303
 MOTIF       Pfam: Nramp
-DBLINKS     NCBI-GI: 6321841
+DBLINKS     NCBI-ProteinID: NP_011917
             NCBI-GeneID: 856447
             SGD: S000001092
-            MIPS: YHR050W
             UniProt: P38778
 AASEQ       549
             MTSQEYEPIQWSDESQTNNDSVNDAYADVNTTHESRRRTTLQPNSTSQSMIGTLRKYARF

@@ -1,14 +1,17 @@
 ENTRY       YEL004W           CDS       T00005
 NAME        YEA4
-DEFINITION  Yea4p
+DEFINITION  (RefSeq) Yea4p
 ORTHOLOGY   K15278  solute carrier family 35 (UDP-xylose/UDP-N-acetylglucosamine transporter), member B4
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Solute Carrier Family (SLC)
+              SLC35: Nucleoside-sugar transporter
+               YEL004W (YEA4)
 POSITION    V:146951..147979
-MOTIF       Pfam: UAA TPT DUF914 DUF3671 DUF2254 Zip
-DBLINKS     NCBI-GI: 6320833
+MOTIF       Pfam: UAA TPT DUF2304 DUF2254
+DBLINKS     NCBI-ProteinID: NP_010912
             NCBI-GeneID: 856714
             SGD: S000000730
-            MIPS: YEL004W
             UniProt: P40004
 AASEQ       342
             MWNSLKAFALVFGGCCSNVITFETLMSNETGSINNLITFCQFLFVTCQGLPEFLDVHQPF

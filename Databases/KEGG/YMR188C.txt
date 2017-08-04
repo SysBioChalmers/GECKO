@@ -1,16 +1,28 @@
 ENTRY       YMR188C           CDS       T00005
 NAME        MRPS17
-DEFINITION  mitochondrial 37S ribosomal protein MRPS17
+DEFINITION  (RefSeq) mitochondrial 37S ribosomal protein MRPS17
 ORTHOLOGY   K02961  small subunit ribosomal protein S17
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03010  Ribosome
-CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03010 Ribosome
+                YMR188C (MRPS17)
+            Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Mitochondria/ Chloroplast
+               Small subunit
+                YMR188C (MRPS17)
+              Bacteria
+                YMR188C (MRPS17)
+              Archaea
+                YMR188C (MRPS17)
 POSITION    XIII:complement(636291..637004)
 MOTIF       Pfam: Ribosomal_S17
-DBLINKS     NCBI-GI: 6323842
+DBLINKS     NCBI-ProteinID: NP_013913
             NCBI-GeneID: 855226
             SGD: S000004800
-            MIPS: YMR188C
             UniProt: Q03246
 AASEQ       237
             MARQNFLGLVVSQGKMQKTVKVRVETKVFNKKINKELFHRRDYLVHDEGEISREGDLVRI

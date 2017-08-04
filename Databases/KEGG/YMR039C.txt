@@ -1,13 +1,12 @@
 ENTRY       YMR039C           CDS       T00005
 NAME        SUB1, TSP1
-DEFINITION  Sub1p
+DEFINITION  (RefSeq) chromatin-binding transcription coactivator SUB1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:complement(348644..349522)
 MOTIF       Pfam: PC4
-DBLINKS     NCBI-GI: 6323682
+DBLINKS     NCBI-ProteinID: NP_013753
             NCBI-GeneID: 855055
             SGD: S000004642
-            MIPS: YMR039C
             UniProt: P54000
 AASEQ       292
             MSYYNRYRNKRRSDNGGGNLSNSNNNNGGMPSGLSASDAIFDLGKNKRVTVRQFRNINLI

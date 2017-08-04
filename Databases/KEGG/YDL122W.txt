@@ -1,14 +1,28 @@
 ENTRY       YDL122W           CDS       T00005
 NAME        UBP1
-DEFINITION  Ubp1p (EC:3.4.19.12 3.1.2.15)
-ORTHOLOGY   K11870  ubiquitin carboxyl-terminal hydrolase 1 [EC:3.1.2.15]
+DEFINITION  (RefSeq) ubiquitin-specific protease UBP1
+ORTHOLOGY   K11870  ubiquitin carboxyl-terminal hydrolase 1 [EC:3.4.19.12]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.4  Acting on peptide bonds (peptidases)
+               3.4.19  Omega peptidases
+                3.4.19.12  ubiquitinyl hydrolase 1
+                 YDL122W (UBP1)
+            Peptidases [BR:sce01002]
+             Cysteine Peptidases
+              Family C19: ubiquitin-specific protease family
+               YDL122W (UBP1)
+            Ubiquitin system [BR:sce04121]
+             Deubiquitinating enzyme (DUB)
+              Ubiquitin-specific proteases (UBPs)
+               UBP/USP
+                YDL122W (UBP1)
 POSITION    IV:242552..244981
-MOTIF       Pfam: UCH UCH_1 DUF1528
-DBLINKS     NCBI-GI: 6320081
+MOTIF       Pfam: UCH UCH_1 TraI_2_C
+DBLINKS     NCBI-ProteinID: NP_010161
             NCBI-GeneID: 851435
             SGD: S000002280
-            MIPS: YDL122W
             UniProt: P25037
 AASEQ       809
             MDLFIESKINSLLQFLFGSRQDFLRNFKTWSNNNNNLSIYLLIFGIVVFFYKKPDHLNYI

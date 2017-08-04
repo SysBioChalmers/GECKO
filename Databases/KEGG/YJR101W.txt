@@ -1,16 +1,30 @@
 ENTRY       YJR101W           CDS       T00005
 NAME        RSM26
-DEFINITION  mitochondrial 37S ribosomal protein RSM26
+DEFINITION  (RefSeq) mitochondrial 37S ribosomal protein RSM26
 ORTHOLOGY   K04564  superoxide dismutase, Fe-Mn family [EC:1.15.1.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04146  Peroxisome
-CLASS       Cellular Processes; Transport and catabolism; Peroxisome [PATH:sce04146]
+            sce04213  Longevity regulating pathway - multiple species
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04146 Peroxisome
+                YJR101W (RSM26)
+             Organismal Systems
+              Aging
+               04213 Longevity regulating pathway - multiple species
+                YJR101W (RSM26)
+            Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.15  Acting on superoxide as acceptor
+               1.15.1  Acting on superoxide as acceptor (only sub-subclass identified to date)
+                1.15.1.1  superoxide dismutase
+                 YJR101W (RSM26)
 POSITION    X:618234..619034
 MOTIF       Pfam: Sod_Fe_C Pik1
-DBLINKS     NCBI-GI: 6322561
+DBLINKS     NCBI-ProteinID: NP_012635
             NCBI-GeneID: 853565
             SGD: S000003862
-            MIPS: YJR101W
             UniProt: P47141
 AASEQ       266
             MLVFKRGIHVVPKLPNSKALLQNGVPNILSSSGFKTVWFDYQRYLCDKLTLATAGQSLES

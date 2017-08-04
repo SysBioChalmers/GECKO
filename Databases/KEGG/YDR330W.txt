@@ -1,13 +1,12 @@
 ENTRY       YDR330W           CDS       T00005
 NAME        UBX5
-DEFINITION  Ubx5p
+DEFINITION  (RefSeq) Ubx5p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:1127872..1129374
 MOTIF       Pfam: Thioredoxin_7 UBX UBA_4 C2-set
-DBLINKS     NCBI-GI: 6320537
+DBLINKS     NCBI-ProteinID: NP_010617
             NCBI-GeneID: 851930
             SGD: S000002738
-            MIPS: YDR330W
             UniProt: Q06682
 AASEQ       500
             MSEGKVDEFMAITGADDAAIATQFIEMADGNLNTAISLFFENGGAALLSSNNTPTPSNST

@@ -1,13 +1,18 @@
 ENTRY       YOL108C           CDS       T00005
 NAME        INO4
-DEFINITION  Ino4p
+DEFINITION  (RefSeq) Ino4p
 ORTHOLOGY   K09102  heteromeric Ino2p/Ino4p transcription factor
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription factors [BR:sce03000]
+             Eukaryotic Type
+              Basic helix-loop-helix (bHLH)
+               INO
+                YOL108C (INO4)
 POSITION    XV:complement(111431..111886)
-DBLINKS     NCBI-GI: 6324464
+MOTIF       Pfam: PLC-beta_C
+DBLINKS     NCBI-ProteinID: NP_014533
             NCBI-GeneID: 854042
             SGD: S000005468
-            MIPS: YOL108C
             UniProt: P13902
 AASEQ       151
             MTNDIKEIQTIQPGLSEIKEIKGELANVKKRKRRSKKINKLTDGQIRINHVSSEKKRREL

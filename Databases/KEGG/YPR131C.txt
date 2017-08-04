@@ -1,14 +1,24 @@
 ENTRY       YPR131C           CDS       T00005
 NAME        NAT3, NAA20, RAD56
-DEFINITION  Nat3p (EC:2.3.1.88)
-ORTHOLOGY   K00670  peptide alpha-N-acetyltransferase [EC:2.3.1.88]
+DEFINITION  (RefSeq) peptide alpha-N-acetyltransferase complex B subunit NAT3
+ORTHOLOGY   K17972  N-terminal acetyltransferase B complex catalytic subunit [EC:2.3.1.254]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.3  Acyltransferases
+               2.3.1  Transferring groups other than aminoacyl groups
+                2.3.1.254  N-terminal methionine Nalpha-acetyltransferase NatB
+                 YPR131C (NAT3)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial quality control factors
+              Mitochondrial dynamics
+               Actin cytoskeleton organization
+                YPR131C (NAT3)
 POSITION    XVI:complement(793911..794498)
-MOTIF       Pfam: Acetyltransf_1 FR47 Acetyltransf_7 Acetyltransf_10 Acetyltransf_8
-DBLINKS     NCBI-GI: 31126970
+MOTIF       Pfam: Acetyltransf_1 FR47 Acetyltransf_7 Acetyltransf_10
+DBLINKS     NCBI-ProteinID: NP_015456
             NCBI-GeneID: 856249
             SGD: S000006335
-            MIPS: YPR131C
             UniProt: Q06504
 AASEQ       195
             MTTIQPFEPVDLFKTNNVNLDILTENFPLEFYFEYMIIWPDLFFKSSEMTVDPTFKHNIS

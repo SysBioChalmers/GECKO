@@ -1,16 +1,25 @@
 ENTRY       YMR006C           CDS       T00005
 NAME        PLB2
-DEFINITION  Plb2p (EC:3.1.1.5)
+DEFINITION  (RefSeq) lysophospholipase
 ORTHOLOGY   K13333  lysophospholipase [EC:3.1.1.5]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00564  Glycerophospholipid metabolism
-CLASS       Metabolism; Lipid metabolism; Glycerophospholipid metabolism [PATH:sce00564]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Lipid metabolism
+               00564 Glycerophospholipid metabolism
+                YMR006C (PLB2)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.1  Carboxylic-ester hydrolases
+                3.1.1.5  lysophospholipase
+                 YMR006C (PLB2)
 POSITION    XIII:complement(277561..279681)
-MOTIF       Pfam: PLA2_B Pex14_N
-DBLINKS     NCBI-GI: 6323648
+MOTIF       Pfam: PLA2_B IBR
+DBLINKS     NCBI-ProteinID: NP_013719
             NCBI-GeneID: 855018
             SGD: S000004608
-            MIPS: YMR006C
             UniProt: Q03674
 AASEQ       706
             MQLRNILQASSLISGLSLAADSSSTTGDGYAPSIIPCPSDDTSLVRNASGLSTAETDWLK

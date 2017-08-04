@@ -1,16 +1,19 @@
 ENTRY       YKL197C           CDS       T00005
 NAME        PEX1, PAS1
-DEFINITION  AAA family ATPase peroxin 1
+DEFINITION  (RefSeq) AAA family ATPase peroxin 1
 ORTHOLOGY   K13338  peroxin-1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04146  Peroxisome
-CLASS       Cellular Processes; Transport and catabolism; Peroxisome [PATH:sce04146]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04146 Peroxisome
+                YKL197C (PEX1)
 POSITION    XI:complement(70734..73865)
-MOTIF       Pfam: AAA PEX-1N AAA_16 AAA_14 NACHT AAA_22 Arch_ATPase AAA_17 RNA_helicase T2SE AAA_2 AAA_25 RuvB_N AAA_18 Zeta_toxin IstB_IS21 KAP_NTPase AAA_5 AAA_33 UPF0079 cobW TIP49 ATP-synt_ab AAA_3 Cytidylate_kin2
-DBLINKS     NCBI-GI: 6322651
+MOTIF       Pfam: AAA PEX-1N AAA_16 AAA_14 AAA_22 NACHT TsaE RNA_helicase AAA_2 AAA_33 RuvB_N AAA_18 ATPase_2 AAA_5 IstB_IS21 AAA_25 KAP_NTPase T2SSE TIP49 AAA_3 cobW Vps4_C AAA_17 Mg_chelatase
+DBLINKS     NCBI-ProteinID: NP_012724
             NCBI-GeneID: 853636
             SGD: S000001680
-            MIPS: YKL197C
             UniProt: P24004
 AASEQ       1043
             MTTTKRLKFENLRIQFSNAIVGNFLRLPHSIINVLESTNYAIQEFGIAVHSHNSDIPIVH

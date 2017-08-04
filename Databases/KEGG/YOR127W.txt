@@ -1,13 +1,19 @@
 ENTRY       YOR127W           CDS       T00005
 NAME        RGA1, DBM1, THE1
-DEFINITION  Rga1p
+DEFINITION  (RefSeq) Rga1p
+ORTHOLOGY   K19839  Rho-type GTPase-activating protein 1/2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04011  MAPK signaling pathway - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YOR127W (RGA1)
 POSITION    XV:561170..564193
-MOTIF       Pfam: RhoGAP LIM APG6 IncA Seryl_tRNA_N EMP24_GP25L
-DBLINKS     NCBI-GI: 6324701
+MOTIF       Pfam: RhoGAP LIM APG6 Seryl_tRNA_N Syntaxin-6_N JIP_LZII V_ATPase_I TolA_bind_tri
+DBLINKS     NCBI-ProteinID: NP_014770
             NCBI-GeneID: 854294
             SGD: S000005653
-            MIPS: YOR127W
             UniProt: P39083
 AASEQ       1007
             MASTAPNEQFPSCVRCKEFITTGHAYELGCDRWHTHCFACYKCEKPLSCESDFLVLGTGA

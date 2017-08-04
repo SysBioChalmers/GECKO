@@ -1,14 +1,24 @@
 ENTRY       YLR321C           CDS       T00005
 NAME        SFH1
-DEFINITION  Sfh1p
+DEFINITION  (RefSeq) Sfh1p
 ORTHOLOGY   K11770  chromatin structure-remodeling complex subunit SFH1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Coactivators
+                RSC complex
+                 YLR321C (SFH1)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Chromatin remodeling factors
+               RSC complex
+                YLR321C (SFH1)
 POSITION    XII:complement(776584..777864)
 MOTIF       Pfam: SNF5
-DBLINKS     NCBI-GI: 6323354
+DBLINKS     NCBI-ProteinID: NP_013425
             NCBI-GeneID: 851032
             SGD: S000004313
-            MIPS: YLR321C
             UniProt: Q06168
 AASEQ       426
             MSHQNQLIPQAYISNFHNRLTNEDDGIPIFTMAQQTRQHKRAKVVNYAEYDNDLFDEFNM

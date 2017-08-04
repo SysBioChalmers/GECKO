@@ -1,17 +1,26 @@
 ENTRY       YGR091W           CDS       T00005
 NAME        PRP31
-DEFINITION  Prp31p
+DEFINITION  (RefSeq) U4/U6-U5 snRNP complex subunit PRP31
 ORTHOLOGY   K12844  U4/U6 small nuclear ribonucleoprotein PRP31
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03040  Spliceosome
-CLASS       Genetic Information Processing; Transcription; Spliceosome [PATH:sce03040]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03040 Spliceosome
+                YGR091W (PRP31)
+            Spliceosome [BR:sce03041]
+             Complex B
+              U4/U6.U5 tri-snRNP components
+               U4/U6 snRNP specific factors
+                YGR091W (PRP31)
 POSITION    VII:666341..667825
-MOTIF       Pfam: Nop Prp31_C NOSIC
-DBLINKS     NCBI-GI: 6321528
+MOTIF       Pfam: Nop Prp31_C
+DBLINKS     NCBI-ProteinID: NP_011605
             NCBI-GeneID: 852983
             SGD: S000003323
-            MIPS: YGR091W
             UniProt: P49704
+STRUCTURE   PDB: 5GAN 5GAP 3JCM
 AASEQ       494
             MSSEEDYFDELEYDLADEVNEEKEDIQTKKLTTVNCQTEKFNPFEILPESIELFRTLALI
             SPDRLSLSETAQILPKIVDLKRILQQQEIDFIKLLPFFNEIIPLIKSNIKLMHNFLISLY

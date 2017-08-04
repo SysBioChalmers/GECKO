@@ -1,16 +1,25 @@
 ENTRY       YMR167W           CDS       T00005
 NAME        MLH1, PMS2
-DEFINITION  mismatch repair ATPase MLH1
+DEFINITION  (RefSeq) mismatch repair ATPase MLH1
 ORTHOLOGY   K08734  DNA mismatch repair protein MLH1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03430  Mismatch repair
-CLASS       Genetic Information Processing; Replication and repair; Mismatch repair [PATH:sce03430]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Replication and repair
+               03430 Mismatch repair
+                YMR167W (MLH1)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              SSBR (single strand breaks repair)
+               MMR (mismatch exicision repair)
+                MutL homologs
+                 YMR167W (MLH1)
 POSITION    XIII:594886..597195
-MOTIF       Pfam: DNA_mis_repair HATPase_c_3 HATPase_c
-DBLINKS     NCBI-GI: 6323819
+MOTIF       Pfam: Mlh1_C DNA_mis_repair HATPase_c_3 HATPase_c
+DBLINKS     NCBI-ProteinID: NP_013890
             NCBI-GeneID: 855203
             SGD: S000004777
-            MIPS: YMR167W
             UniProt: P38920
 STRUCTURE   PDB: 4E4W 4FMN 4FMO
 AASEQ       769

@@ -1,18 +1,27 @@
 ENTRY       YGL147C           CDS       T00005
 NAME        RPL9A
-DEFINITION  ribosomal 60S subunit protein L9A
+DEFINITION  (RefSeq) ribosomal 60S subunit protein L9A
 ORTHOLOGY   K02940  large subunit ribosomal protein L9e
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03010  Ribosome
-CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+MODULE      sce_M00177  Ribosome, eukaryotes
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03010 Ribosome
+                YGL147C (RPL9A)
+            Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Eukaryotes
+               Large subunit
+                YGL147C (RPL9A)
 POSITION    VII:complement(227754..228329)
 MOTIF       Pfam: Ribosomal_L6
-DBLINKS     NCBI-GI: 398364407
+DBLINKS     NCBI-ProteinID: NP_011368
             NCBI-GeneID: 852730
             SGD: S000003115
-            MIPS: YGL147C
             UniProt: P05738
-STRUCTURE   PDB: 3U5E 3U5I 3O58 3O5H 4BYN 4BYU 3J16 4B6A 3IZS 1S1I
+STRUCTURE   PDB: 3J16
 AASEQ       191
             MKYIQTEQQIEVPEGVTVSIKSRIVKVVGPRGTLTKNLKHIDVTFTKVNNQLIKVAVHNG
             GRKHVAALRTVKSLVDNMITGVTKGYKYKMRYVYAHFPINVNIVEKDGAKFIEVRNFLGD

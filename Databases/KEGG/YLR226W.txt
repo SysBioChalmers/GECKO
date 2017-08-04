@@ -1,13 +1,18 @@
 ENTRY       YLR226W           CDS       T00005
 NAME        BUR2, CST4
-DEFINITION  Bur2p
+DEFINITION  (RefSeq) Bur2p
 ORTHOLOGY   K15563  protein BUR2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Other transcription-related factors
+                BUR kinase complex
+                 YLR226W (BUR2)
 POSITION    XII:589354..590541
-DBLINKS     NCBI-GI: 6323255
+DBLINKS     NCBI-ProteinID: NP_013327
             NCBI-GeneID: 850923
             SGD: S000004216
-            MIPS: YLR226W
             UniProt: Q05949
 AASEQ       395
             MSATSSSGDVKKFQAVPKPTSNASPPPASSGFNARTLWPDLIETPENQWVFECKDIIEKI

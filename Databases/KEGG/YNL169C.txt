@@ -1,18 +1,28 @@
 ENTRY       YNL169C           CDS       T00005
 NAME        PSD1
-DEFINITION  phosphatidylserine decarboxylase 1 (EC:4.1.1.65)
+DEFINITION  (RefSeq) phosphatidylserine decarboxylase 1
 ORTHOLOGY   K01613  phosphatidylserine decarboxylase [EC:4.1.1.65]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00564  Glycerophospholipid metabolism
             sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
 MODULE      sce_M00093  Phosphatidylethanolamine (PE) biosynthesis, PA => PS => PE
-CLASS       Metabolism; Lipid metabolism; Glycerophospholipid metabolism [PATH:sce00564]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Lipid metabolism
+               00564 Glycerophospholipid metabolism
+                YNL169C (PSD1)
+            Enzymes [BR:sce01000]
+             4. Lyases
+              4.1  Carbon-carbon lyases
+               4.1.1  Carboxy-lyases
+                4.1.1.65  phosphatidylserine decarboxylase
+                 YNL169C (PSD1)
 POSITION    XIV:complement(316169..317671)
 MOTIF       Pfam: PS_Dcarbxylase NADH_oxidored Peptidase_M23
-DBLINKS     NCBI-GI: 6324160
+DBLINKS     NCBI-ProteinID: NP_014230
             NCBI-GeneID: 855552
             SGD: S000005113
-            MIPS: YNL169C
             UniProt: P39006
 AASEQ       500
             MSIMPVKNALAQGRTLLMGRMPAVKFSTRMQLRNRTAVLWNRKFSTRLFVQQRRSSGEIV

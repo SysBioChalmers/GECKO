@@ -1,13 +1,12 @@
 ENTRY       YNL063W           CDS       T00005
 NAME        MTQ1
-DEFINITION  Mtq1p (EC:2.1.1.-)
+DEFINITION  (RefSeq) S-adenosylmethionine-dependent methyltransferase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIV:507758..508702
-MOTIF       Pfam: MTS Methyltransf_26 Methyltransf_31 Cons_hypoth95 Methyltransf_18 TRM Met_10 PrmA UPF0020 Methyltransf_11 Methyltransf_25 Methyltransf_12
-DBLINKS     NCBI-GI: 6324266
+MOTIF       Pfam: MTS Methyltransf_31 Cons_hypoth95 Methyltransf_25 TRM PrmA Met_10 Methyltransf_12 ATP13
+DBLINKS     NCBI-ProteinID: NP_014336
             NCBI-GeneID: 855662
             SGD: S000005007
-            MIPS: YNL063W
             UniProt: P53944
 AASEQ       314
             MPRISTSLIRKASRIRPGLHLLLPECRTLEQAKLEYKWLTEELPPDKSIRWACLQRYKHV

@@ -1,14 +1,18 @@
 ENTRY       YJR041C           CDS       T00005
 NAME        URB2, NPA2
-DEFINITION  Urb2p
+DEFINITION  (RefSeq) Urb2p
 ORTHOLOGY   K14862  nucleolar pre-ribosomal-associated protein 2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               Other pre-60S particles
+                YJR041C (URB2)
 POSITION    X:complement(510239..513763)
-MOTIF       Pfam: Urb2 Reovirus_M2
-DBLINKS     NCBI-GI: 398364931
+MOTIF       Pfam: Urb2
+DBLINKS     NCBI-ProteinID: NP_012575
             NCBI-GeneID: 853498
             SGD: S000003802
-            MIPS: YJR041C
             UniProt: P47108
 AASEQ       1174
             MGDLTEELSIPDNAQDLSKLLRSTSTKPHQIAEIVSKFDKLETYFPKKEIFVLDLLIDRL

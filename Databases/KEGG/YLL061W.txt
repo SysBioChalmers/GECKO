@@ -1,14 +1,17 @@
 ENTRY       YLL061W           CDS       T00005
 NAME        MMP1
-DEFINITION  Mmp1p
+DEFINITION  (RefSeq) S-methylmethionine permease MMP1
 ORTHOLOGY   K16261  yeast amino acid transporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Other Transporters
+              Electrochemical potential-driven transporters [TC:2]
+               YLL061W (MMP1)
 POSITION    XII:17956..19707
 MOTIF       Pfam: AA_permease AA_permease_2
-DBLINKS     NCBI-GI: 6322967
+DBLINKS     NCBI-ProteinID: NP_013039
             NCBI-GeneID: 850665
             SGD: S000003984
-            MIPS: YLL061W
             UniProt: Q12372
 AASEQ       583
             MDEFESTKLSKVQFSTSVLSTPSNEGNNLIHRFKNSFKRNDSPAIQEGLLYSELSEEEKI

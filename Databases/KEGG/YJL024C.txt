@@ -1,14 +1,20 @@
 ENTRY       YJL024C           CDS       T00005
 NAME        APS3, YKS7
-DEFINITION  Aps3p
+DEFINITION  (RefSeq) Aps3p
 ORTHOLOGY   K12399  AP-3 complex subunit sigma
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endosome - Lysosome transport
+              Others
+               AP-3 complex
+                YJL024C (APS3)
+             Endosome - Golgi transport
+                YJL024C (APS3)
 POSITION    X:complement(join(395931..396493,396571..396592))
 MOTIF       Pfam: Clat_adaptor_s MSP7_C
-DBLINKS     NCBI-GI: 398364633
+DBLINKS     NCBI-ProteinID: NP_012510
             NCBI-GeneID: 853429
             SGD: S000003561
-            MIPS: YJL024C
             UniProt: P47064
 AASEQ       194
             MIHAVLIFNKKCQPRLVKFYTPVDLPKQKLLLEQVYELISQRNSDFQSSFLVTPPSLLLS

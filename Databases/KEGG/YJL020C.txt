@@ -1,13 +1,18 @@
 ENTRY       YJL020C           CDS       T00005
 NAME        BBC1, MTI1, YJL021C
-DEFINITION  Bbc1p
+DEFINITION  (RefSeq) Bbc1p
+ORTHOLOGY   K20521  myosin tail region-interacting protein MTI1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Others
+              Actin-binding proteins
+               Nucleation-promoting factors (NPFs)
+                YJL020C (BBC1)
 POSITION    X:complement(398937..402410)
 MOTIF       Pfam: SH3_1 SH3_2 SH3_9
-DBLINKS     NCBI-GI: 14627173
+DBLINKS     NCBI-ProteinID: NP_012514
             NCBI-GeneID: 853433
             SGD: S000003557
-            MIPS: YJL020C
             UniProt: P47068
 STRUCTURE   PDB: 1TG0 1ZUK 1WDX
 AASEQ       1157

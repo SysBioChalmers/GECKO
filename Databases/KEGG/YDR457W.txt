@@ -1,16 +1,29 @@
 ENTRY       YDR457W           CDS       T00005
 NAME        TOM1
-DEFINITION  E3 ubiquitin-protein ligase TOM1 (EC:6.3.2.-)
-ORTHOLOGY   K10592  E3 ubiquitin-protein ligase HUWE1 [EC:6.3.2.19]
+DEFINITION  (RefSeq) E3 ubiquitin-protein ligase TOM1
+ORTHOLOGY   K10592  E3 ubiquitin-protein ligase HUWE1 [EC:2.3.2.26]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04120  Ubiquitin mediated proteolysis
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Ubiquitin mediated proteolysis [PATH:sce04120]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04120 Ubiquitin mediated proteolysis
+                YDR457W (TOM1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.3  Acyltransferases
+               2.3.2  Aminoacyltransferases
+                2.3.2.26  HECT-type E3 ubiquitin transferase
+                 YDR457W (TOM1)
+            Ubiquitin system [BR:sce04121]
+             Ubiquitin ligases (E3)
+              HECT type E3
+               YDR457W (TOM1)
 POSITION    IV:1369790..1379596
 MOTIF       Pfam: HECT DUF908 DUF913 DUF4414
-DBLINKS     NCBI-GI: 398366613
+DBLINKS     NCBI-ProteinID: NP_010745
             NCBI-GeneID: 852068
             SGD: S000002865
-            MIPS: YDR457W
             UniProt: Q03280
 AASEQ       3268
             MVLFTRCEKARKEKLAAGYKPLVDYLIDCDTPTFLERIEAIQEWDRSRDDLYVWIPILDR

@@ -1,16 +1,40 @@
 ENTRY       YDL192W           CDS       T00005
 NAME        ARF1
-DEFINITION  Arf1p
+DEFINITION  (RefSeq) Arf family GTPase ARF1
 ORTHOLOGY   K07937  ADP-ribosylation factor 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04144  Endocytosis
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04144 Endocytosis
+                YDL192W (ARF1)
+            Membrane trafficking [BR:sce04131]
+             Endocytosis
+              Lipid raft mediated endocytosis
+               GRAF1-dependent endocytosis
+                YDL192W (ARF1)
+              Arf GTPases and associated proteins
+               Arf GTPases
+                YDL192W (ARF1)
+             Endosome - Golgi transport
+                YDL192W (ARF1)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Proteins found in most exosomes
+               YDL192W (ARF1)
+            GTP-binding proteins [BR:sce04031]
+             Small (Monomeric) G-proteins
+              Arf/Sar Family
+               Arf [OT]
+                YDL192W (ARF1)
 POSITION    IV:116321..116866
-MOTIF       Pfam: Arf Ras SRPRB G-alpha Gtr1_RagA Miro MMR_HSR1 GTP_EFTU SRP54 AAA_33 ABC_tran 6PF2K DBD_Tnp_Mut Thymidylate_kin
-DBLINKS     NCBI-GI: 6320009
+MOTIF       Pfam: Arf Roc Ras SRPRB G-alpha Gtr1_RagA MMR_HSR1 SRP54 AAA_33 ABC_tran GTP_EFTU 6PF2K AAA_18 Thymidylate_kin
+DBLINKS     NCBI-ProteinID: NP_010089
             NCBI-GeneID: 851335
             SGD: S000002351
-            MIPS: YDL192W
             UniProt: P11076
-STRUCTURE   PDB: 3TJZ 2KSQ 2K5U
+STRUCTURE   PDB: 3TJZ 4Q66 5A1U 5A1W 5A1V 5A1Y 5A1X 2KSQ 2K5U
 AASEQ       181
             MGLFASKLFSNLFGNKEMRILMVGLDGAGKTTVLYKLKLGEVITTIPTIGFNVETVQYKN
             ISFTVWDVGGQDRIRSLWRHYYRNTEGVIFVVDSNDRSRIGEAREVMQRMLNEDELRNAA

@@ -1,6 +1,6 @@
 ENTRY       YLR146C           CDS       T00005
 NAME        SPE4
-DEFINITION  spermine synthase (EC:2.5.1.22)
+DEFINITION  (RefSeq) spermine synthase
 ORTHOLOGY   K00802  spermine synthase [EC:2.5.1.22]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00270  Cysteine and methionine metabolism
@@ -8,16 +8,29 @@ PATHWAY     sce00270  Cysteine and methionine metabolism
             sce00410  beta-Alanine metabolism
             sce00480  Glutathione metabolism
             sce01100  Metabolic pathways
-CLASS       Metabolism; Amino acid metabolism; Cysteine and methionine metabolism [PATH:sce00270]
-            Metabolism; Amino acid metabolism; Arginine and proline metabolism [PATH:sce00330]
-            Metabolism; Metabolism of other amino acids; beta-Alanine metabolism [PATH:sce00410]
-            Metabolism; Metabolism of other amino acids; Glutathione metabolism [PATH:sce00480]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Amino acid metabolism
+               00270 Cysteine and methionine metabolism
+                YLR146C (SPE4)
+               00330 Arginine and proline metabolism
+                YLR146C (SPE4)
+              Metabolism of other amino acids
+               00410 beta-Alanine metabolism
+                YLR146C (SPE4)
+               00480 Glutathione metabolism
+                YLR146C (SPE4)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.5  Transferring alkyl or aryl groups, other than methyl groups
+               2.5.1  Transferring alkyl or aryl groups, other than methyl groups (only sub-subclass identified to date)
+                2.5.1.22  spermine synthase
+                 YLR146C (SPE4)
 POSITION    XII:complement(432823..433725)
-MOTIF       Pfam: Spermine_synth Methyltransf_18 Methyltransf_23 Methyltransf_26 Methyltransf_12 Methyltransf_3 MTS
-DBLINKS     NCBI-GI: 6323175
+MOTIF       Pfam: Spermine_synth Spermine_synt_N Methyltransf_31 Methyltransf_23 Methyltransf_12 Methyltransf_3 Methyltransf_25 MTS
+DBLINKS     NCBI-ProteinID: NP_013247
             NCBI-GeneID: 850838
             SGD: S000004136
-            MIPS: YLR146C
             UniProt: Q12455
 AASEQ       300
             MVNNSQHPYIKDGWFREINDKSFPGQAFTMTVDSILYEARSEFQDILIFRNKVYGTVLVL

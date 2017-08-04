@@ -1,13 +1,12 @@
 ENTRY       YPL219W           CDS       T00005
 NAME        PCL8
-DEFINITION  Pcl8p
+DEFINITION  (RefSeq) Pcl8p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:136750..138228
 MOTIF       Pfam: Cyclin
-DBLINKS     NCBI-GI: 6325037
+DBLINKS     NCBI-ProteinID: NP_015105
             NCBI-GeneID: 855882
             SGD: S000006140
-            MIPS: YPL219W
             UniProt: Q08966
 AASEQ       492
             MANDQDPNKSLINDALTRSMSEFYDDDDDNDSDMCRANDEGEDVFDLPLKVGVSQSRNFS

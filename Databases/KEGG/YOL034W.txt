@@ -1,13 +1,12 @@
 ENTRY       YOL034W           CDS       T00005
 NAME        SMC5
-DEFINITION  DNA repair ATPase SMC5
+DEFINITION  (RefSeq) DNA repair ATPase SMC5
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:259923..263204
-MOTIF       Pfam: SMC_N AAA_23 AAA_21 AAA_29 Phe_tRNA-synt_N AAA_25 AAA_33 ABC_tran
-DBLINKS     NCBI-GI: 6324539
+MOTIF       Pfam: SMC_N AAA_23 Phe_tRNA-synt_N AAA_29 AAA_21 AAA_25 ABC_tran AAA_27 AAA_33 NACHT
+DBLINKS     NCBI-ProteinID: NP_014608
             NCBI-GeneID: 854123
             SGD: S000005394
-            MIPS: YOL034W
             UniProt: Q08204
 STRUCTURE   PDB: 3HTK
 AASEQ       1093

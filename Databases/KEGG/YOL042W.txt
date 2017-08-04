@@ -1,13 +1,12 @@
 ENTRY       YOL042W           CDS       T00005
 NAME        NGL1
-DEFINITION  Ngl1p (EC:3.1.-.-)
+DEFINITION  (RefSeq) RNA exonuclease
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:249825..250916
 MOTIF       Pfam: Exo_endo_phos
-DBLINKS     NCBI-GI: 6324531
+DBLINKS     NCBI-ProteinID: NP_014600
             NCBI-GeneID: 854115
             SGD: S000005402
-            MIPS: YOL042W
             UniProt: Q08213
 AASEQ       363
             MFTRRFIPVVQSTKQNIGKYVRKDARFTLLTYNMLSPSYMWPQVYTYVAEPYKNWSYRHR

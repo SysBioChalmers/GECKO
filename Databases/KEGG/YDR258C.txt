@@ -1,13 +1,12 @@
 ENTRY       YDR258C           CDS       T00005
 NAME        HSP78
-DEFINITION  chaperone ATPase HSP78
+DEFINITION  (RefSeq) chaperone ATPase HSP78
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(971808..974243)
-MOTIF       Pfam: AAA_2 ClpB_D2-small AAA AAA_5 AAA_16 AAA_22 AAA_14 Arch_ATPase IstB_IS21 Sigma54_activat AAA_17 AAA_18 NACHT MMR_HSR1 Zeta_toxin ABC_tran MobB AAA_28 AAA_29 DUF258 T2SE PduV-EutP Torsin TBPIP DUF1090
-DBLINKS     NCBI-GI: 398366295
+MOTIF       Pfam: AAA_2 ClpB_D2-small AAA AAA_5 AAA_16 ATPase_2 AAA_22 TniB Sigma54_activat AAA_14 IstB_IS21 NACHT AAA_18 TsaE ABC_tran RsgA_GTPase Zeta_toxin PduV-EutP AAA_28 AAA_29 AAA_25 Torsin T2SSE TBPIP CENP-F_leu_zip
+DBLINKS     NCBI-ProteinID: NP_010544
             NCBI-GeneID: 851845
             SGD: S000002666
-            MIPS: YDR258C
             UniProt: P33416
 AASEQ       811
             MLRQATKAPIQKYLQRTQLLRRSTPRIYTIVQCKRSICSFNARPRVANKLLSDIKTNALN

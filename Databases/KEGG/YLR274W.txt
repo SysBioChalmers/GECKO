@@ -1,22 +1,47 @@
 ENTRY       YLR274W           CDS       T00005
 NAME        MCM5, BOB1, CDC46
-DEFINITION  Mcm5p (EC:3.6.4.12)
+DEFINITION  (RefSeq) MCM DNA helicase complex subunit MCM5
 ORTHOLOGY   K02209  DNA replication licensing factor MCM5 [EC:3.6.4.12]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03030  DNA replication
             sce04111  Cell cycle - yeast
             sce04113  Meiosis - yeast
 MODULE      sce_M00285  MCM complex
-CLASS       Genetic Information Processing; Replication and repair; DNA replication [PATH:sce03030]
-            Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
-            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Replication and repair
+               03030 DNA replication
+                YLR274W (MCM5)
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YLR274W (MCM5)
+               04113 Meiosis - yeast
+                YLR274W (MCM5)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.4  Acting on acid anhydrides to facilitate cellular and subcellular movement
+                3.6.4.12  DNA helicase
+                 YLR274W (MCM5)
+            DNA replication proteins [BR:sce03032]
+             Eukaryotic Type
+              DNA Replication Initiation Factors
+               pre-RC (pre-replication complex)
+                YLR274W (MCM5)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centrosome formation and ciliogenesis proteins
+               Centrosome duplication proteins
+                Other centrosome duplication proteins
+                 YLR274W (MCM5)
 POSITION    XII:691555..693882
-MOTIF       Pfam: MCM MCM_N AAA_5 Mg_chelatase AAA_3 DUF1822 PPV_E1_N Mg_chelatase_2
-DBLINKS     NCBI-GI: 6323304
+MOTIF       Pfam: MCM MCM_OB MCM_N AAA_5 Mg_chelatase AAA_3 DUF1822 AAA
+DBLINKS     NCBI-ProteinID: NP_013376
             NCBI-GeneID: 850980
             SGD: S000004264
-            MIPS: YLR274W
             UniProt: P29496
+STRUCTURE   PDB: 3JC6 3JA8 5UDB 3JC5 3JC7 5U8T 5U8S 5H7I
 AASEQ       775
             MSFDRPEIYSAPVLQGESPNDDDNTEIIKSFKNFILEFRLDSQFIYRDQLRNNILVKNYS
             LTVNMEHLIGYNEDIYKKLSDEPSDIIPLFETAITQVAKRISILSRAQSANNNDKDPENT

@@ -1,13 +1,12 @@
 ENTRY       YLR035C           CDS       T00005
 NAME        MLH2
-DEFINITION  mismatch repair protein MLH2
+DEFINITION  (RefSeq) mismatch repair protein MLH2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XII:complement(212369..214456)
-MOTIF       Pfam: DNA_mis_repair HATPase_c HATPase_c_3
-DBLINKS     NCBI-GI: 6323063
+MOTIF       Pfam: DNA_mis_repair HATPase_c_3 HATPase_c
+DBLINKS     NCBI-ProteinID: NP_013135
             NCBI-GeneID: 850722
             SGD: S000004025
-            MIPS: YLR035C
             UniProt: Q07980
 AASEQ       695
             MTIHQLSPESQWKIVSSSFIYGPVAAVRELLDNSIDSGAKKVFIDVDSTTGGCEYISVKD

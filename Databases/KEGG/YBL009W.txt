@@ -1,14 +1,28 @@
 ENTRY       YBL009W           CDS       T00005
 NAME        ALK2
-DEFINITION  Alk2p (EC:2.7.11.1)
+DEFINITION  (RefSeq) protein kinase ALK2
 ORTHOLOGY   K16315  serine/threonine-protein kinase haspin [EC:2.7.11.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.11  Protein-serine/threonine kinases
+                2.7.11.1  non-specific serine/threonine protein kinase
+                 YBL009W (ALK2)
+            Protein kinases [BR:sce01001]
+             Serine/threonine protein kinases: Other group
+              Haspin family
+               YBL009W (ALK2)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centrosome formation and ciliogenesis proteins
+               Kinases and associated factors
+                YBL009W (ALK2)
 POSITION    II:207194..209224
-MOTIF       Pfam: DUF3635
-DBLINKS     NCBI-GI: 6319462
+MOTIF       Pfam: Haspin_kinase
+DBLINKS     NCBI-ProteinID: NP_009544
             NCBI-GeneID: 852274
             SGD: S000000105
-            MIPS: YBL009W
             UniProt: P32789
 AASEQ       676
             MNFDAVADQQMTDRRYFALEVAESDDADSSLNSSSMGSPAVDVGRKVYKITSHKGSAEDE

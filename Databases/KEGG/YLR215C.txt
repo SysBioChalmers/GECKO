@@ -1,13 +1,12 @@
 ENTRY       YLR215C           CDS       T00005
 NAME        CDC123
-DEFINITION  Cdc123p
+DEFINITION  (RefSeq) cell proliferation protein CDC123
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XII:complement(570776..571858)
-MOTIF       Pfam: D123 Inhibitor_I53
-DBLINKS     NCBI-GI: 6323244
+MOTIF       Pfam: D123 DUF4343 Inhibitor_I53
+DBLINKS     NCBI-ProteinID: NP_013316
             NCBI-GeneID: 850912
             SGD: S000004205
-            MIPS: YLR215C
             UniProt: Q05791
 AASEQ       360
             MSSQEYTTFIDIPVTRAQVEHCSYSFWSSLYPKYVPKSIVLKSLPKKFIQYLEQDGIKLP

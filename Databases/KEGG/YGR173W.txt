@@ -1,14 +1,13 @@
 ENTRY       YGR173W           CDS       T00005
 NAME        RBG2, GIR1
-DEFINITION  Rbg2p
-ORTHOLOGY   K06944
+DEFINITION  (RefSeq) Rbg2p
+ORTHOLOGY   K06944  uncharacterized protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:843854..844960
-MOTIF       Pfam: MMR_HSR1 TGS FeoB_N Dynamin_N Miro AIG1 SRPRB MCM Ras
-DBLINKS     NCBI-GI: 6321612
+MOTIF       Pfam: MMR_HSR1_Xtn MMR_HSR1 TGS FeoB_N Dynamin_N AIG1 SRPRB Roc AAA_16 MCM
+DBLINKS     NCBI-ProteinID: NP_011689
             NCBI-GeneID: 853083
             SGD: S000003405
-            MIPS: YGR173W
             UniProt: P53295
 AASEQ       368
             MGIIDKIKAIEEEMARTQKNKATEHHLGLLKGKLARYRQQLLADEAGSGGGGGSGFEVAK

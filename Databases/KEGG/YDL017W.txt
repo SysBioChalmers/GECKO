@@ -1,18 +1,37 @@
 ENTRY       YDL017W           CDS       T00005
 NAME        CDC7, LSD6, SAS1
-DEFINITION  Cdc7p (EC:2.7.11.1)
+DEFINITION  (RefSeq) serine/threonine protein kinase CDC7
 ORTHOLOGY   K02214  cell division control protein 7 [EC:2.7.11.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
             sce04113  Meiosis - yeast
-CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
-            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YDL017W (CDC7)
+               04113 Meiosis - yeast
+                YDL017W (CDC7)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.11  Protein-serine/threonine kinases
+                2.7.11.1  non-specific serine/threonine protein kinase
+                 YDL017W (CDC7)
+            Protein kinases [BR:sce01001]
+             Serine/threonine protein kinases: Other group
+              CDC7 family
+               YDL017W (CDC7)
+            DNA replication proteins [BR:sce03032]
+             Eukaryotic Type
+              DNA Replication Initiation Factors
+               DDK (Dbf-4 dependent kinase)
+                YDL017W (CDC7)
 POSITION    IV:424209..425732
-MOTIF       Pfam: Pkinase Pkinase_Tyr Kinase-like APH
-DBLINKS     NCBI-GI: 398364829
+MOTIF       Pfam: Pkinase Pkinase_Tyr APH FTA2
+DBLINKS     NCBI-ProteinID: NP_010267
             NCBI-GeneID: 851545
             SGD: S000002175
-            MIPS: YDL017W
             UniProt: P06243
 AASEQ       507
             MTSKTKNIDDIPPEIKEEMIQLYHDLPGIENEYKLIDKIGEGTFSSVYKAKDITGKITKK

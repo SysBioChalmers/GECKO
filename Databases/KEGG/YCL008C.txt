@@ -1,16 +1,28 @@
 ENTRY       YCL008C           CDS       T00005
-NAME        STP22, VPL15, VPS23
-DEFINITION  Stp22p
+NAME        STP22, AGS1, VPL15, VPS23
+DEFINITION  (RefSeq) ubiquitin-binding ESCRT-I subunit protein STP22
 ORTHOLOGY   K12183  ESCRT-I complex subunit TSG101
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04144  Endocytosis
-CLASS       Cellular Processes; Transport and catabolism; Endocytosis [PATH:sce04144]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04144 Endocytosis
+                YCL008C (STP22)
+            Membrane trafficking [BR:sce04131]
+             Endosome - Lysosome transport
+              Endosomal sorting complexes required for transport (ESCRT)
+               ESCRT-I complex
+                YCL008C (STP22)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Proteins found in most exosomes
+               YCL008C (STP22)
 POSITION    III:complement(105696..106853)
-MOTIF       Pfam: UEV Vps23_core UQ_con MHC_II_beta
-DBLINKS     NCBI-GI: 42759852
+MOTIF       Pfam: UEV Vps23_core UQ_con RWD MHC_II_beta E2F_CC-MB
+DBLINKS     NCBI-ProteinID: NP_009919
             NCBI-GeneID: 850349
             SGD: S000000514
-            MIPS: YCL008C
             UniProt: P25604
 STRUCTURE   PDB: 3R3Q 1UZX 3R42 2F6M 2P22 2F66 2CAZ
 AASEQ       385

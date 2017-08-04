@@ -1,16 +1,27 @@
 ENTRY       YML063W           CDS       T00005
 NAME        RPS1B, PLC2, RP10B
-DEFINITION  ribosomal 40S subunit protein S1B
+DEFINITION  (RefSeq) ribosomal 40S subunit protein S1B
 ORTHOLOGY   K02984  small subunit ribosomal protein S3Ae
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03010  Ribosome
-CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+MODULE      sce_M00177  Ribosome, eukaryotes
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03010 Ribosome
+                YML063W (RPS1B)
+            Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Eukaryotes
+               Small subunit
+                YML063W (RPS1B)
+              Archaea
+                YML063W (RPS1B)
 POSITION    XIII:146482..147249
-MOTIF       Pfam: Ribosomal_S3Ae Abhydro_lipase Inhibitor_I9
-DBLINKS     NCBI-GI: 6323577
+MOTIF       Pfam: Ribosomal_S3Ae Ribosomal_L22 Abhydro_lipase
+DBLINKS     NCBI-ProteinID: NP_013648
             NCBI-GeneID: 854939
             SGD: S000004528
-            MIPS: YML063W
             UniProt: P23248
 AASEQ       255
             MAVGKNKRLSRGKKGLKKKVVDPFTRKEWFDIKAPSTFENRNVGKTLVNKSTGLKNASDA

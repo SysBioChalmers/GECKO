@@ -1,14 +1,38 @@
 ENTRY       YOR204W           CDS       T00005
 NAME        DED1, SPP81
-DEFINITION  Ded1p (EC:3.6.4.13)
+DEFINITION  (RefSeq) DEAD-box ATP-dependent RNA helicase DED1
 ORTHOLOGY   K11594  ATP-dependent RNA helicase DDX3X [EC:3.6.4.13]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.4  Acting on acid anhydrides to facilitate cellular and subcellular movement
+                3.6.4.13  RNA helicase
+                 YOR204W (DED1)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Transport factors
+                eIF4F and regulatory proteins
+                 YOR204W (DED1)
+               mRNA cycle factors
+                Common to processing body (P body) and stress granule
+                 YOR204W (DED1)
+            Spliceosome [BR:sce03041]
+             Other splicing related proteins
+              Spliceosome associated proteins (SAPs)
+               RNA helicase-like proteins
+                YOR204W (DED1)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              RNA silencing
+               RISC (RNA-induced silencing complex)
+                YOR204W (DED1)
 POSITION    XV:722911..724725
-MOTIF       Pfam: DEAD Helicase_C CMS1 MethyTransf_Reg
-DBLINKS     NCBI-GI: 398365729
+MOTIF       Pfam: DEAD Helicase_C ResIII ERCC3_RAD25_C CMS1
+DBLINKS     NCBI-ProteinID: NP_014847
             NCBI-GeneID: 854379
             SGD: S000005730
-            MIPS: YOR204W
             UniProt: P06634
 AASEQ       604
             MAELSEQVQNLSINDNNENGYVPPHLRGKPRSARNNSSNYNNNNGGYNGGRGGGSFFSNN

@@ -1,20 +1,56 @@
 ENTRY       YDL134C           CDS       T00005
-NAME        PPH21, PPH1
-DEFINITION  Pph21p (EC:3.1.3.16)
+NAME        PPH21
+DEFINITION  (RefSeq) phosphoprotein phosphatase 2A catalytic subunit PPH21
 ORTHOLOGY   K04382  serine/threonine-protein phosphatase 2A catalytic subunit [EC:3.1.3.16]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03015  mRNA surveillance pathway
             sce04111  Cell cycle - yeast
             sce04113  Meiosis - yeast
-CLASS       Genetic Information Processing; Translation; mRNA surveillance pathway [PATH:sce03015]
-            Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
-            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+            sce04136  Autophagy - other
+            sce04138  Autophagy - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03015 mRNA surveillance pathway
+                YDL134C (PPH21)
+             Cellular Processes
+              Transport and catabolism
+               04138 Autophagy - yeast
+                YDL134C (PPH21)
+               04136 Autophagy - other eukaryotes
+                YDL134C (PPH21)
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YDL134C (PPH21)
+               04113 Meiosis - yeast
+                YDL134C (PPH21)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.3  Phosphoric-monoester hydrolases
+                3.1.3.16  protein-serine/threonine phosphatase
+                 YDL134C (PPH21)
+            Protein phosphatases and associated proteins [BR:sce01009]
+             Protein Ser/ Thr phosphatases
+              Phosphoprotein phosphatases (PPPs)
+               Protein phosphatase-2 (PP2A)
+                Catalytic subunits
+                 YDL134C (PPH21)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centromeric chromatin formation proteins
+               Other centromeric chromatin formation proteins
+                PP2A (protein phosphatase 2A)
+                 YDL134C (PPH21)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of haemopoietic cells  (B-cell, T-cell, DC-cell, reticulocyte, and mast cell)
+               YDL134C (PPH21)
 POSITION    IV:complement(219662..220771)
 MOTIF       Pfam: Metallophos
-DBLINKS     NCBI-GI: 6320067
+DBLINKS     NCBI-ProteinID: NP_010147
             NCBI-GeneID: 851421
             SGD: S000002292
-            MIPS: YDL134C
             UniProt: P23594
 AASEQ       369
             MDTDLDVPMQDAVTEQLTPTVSEDMDLNNNSSDNNAEEFSVDDLKPGSSGIADHKSSKPL

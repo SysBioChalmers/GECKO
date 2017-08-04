@@ -1,13 +1,12 @@
 ENTRY       YLR437C           CDS       T00005
 NAME        DIF1
-DEFINITION  Dif1p
+DEFINITION  (RefSeq) Dif1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XII:complement(1011622..1012023)
-MOTIF       Pfam: RNR_inhib Med15
-DBLINKS     NCBI-GI: 398366279
+MOTIF       Pfam: RNR_inhib Spt20
+DBLINKS     NCBI-ProteinID: NP_013541
             NCBI-GeneID: 851157
             SGD: S000004429
-            MIPS: YLR437C
             UniProt: O13577
 AASEQ       133
             MDAQLEWASSLVPKRQLQQQQQQQEQQQQQQQDFHKDQLMTVGMRIRQRVDQGYASRTPS

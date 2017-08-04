@@ -1,18 +1,31 @@
 ENTRY       YGR124W           CDS       T00005
 NAME        ASN2
-DEFINITION  asparagine synthase (glutamine-hydrolyzing) 2 (EC:6.3.5.4)
+DEFINITION  (RefSeq) asparagine synthase (glutamine-hydrolyzing) 2
 ORTHOLOGY   K01953  asparagine synthase (glutamine-hydrolysing) [EC:6.3.5.4]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00250  Alanine, aspartate and glutamate metabolism
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
-CLASS       Metabolism; Amino acid metabolism; Alanine, aspartate and glutamate metabolism [PATH:sce00250]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Amino acid metabolism
+               00250 Alanine, aspartate and glutamate metabolism
+                YGR124W (ASN2)
+            Enzymes [BR:sce01000]
+             6. Ligases
+              6.3  Forming carbon-nitrogen bonds
+               6.3.5  Carbon-nitrogen ligases with glutamine as amido-N-donor
+                6.3.5.4  asparagine synthase (glutamine-hydrolysing)
+                 YGR124W (ASN2)
+            Peptidases [BR:sce01002]
+             Cysteine Peptidases
+              Family C44
+               YGR124W (ASN2)
 POSITION    VII:739944..741662
-MOTIF       Pfam: Asn_synthase GATase_7 GATase_6 DUF3700 GATase_2 NAD_synthase
-DBLINKS     NCBI-GI: 6321563
+MOTIF       Pfam: Asn_synthase GATase_7 GATase_6 DUF3700 NAD_synthase
+DBLINKS     NCBI-ProteinID: NP_011640
             NCBI-GeneID: 853025
             SGD: S000003356
-            MIPS: YGR124W
             UniProt: P49090
 AASEQ       572
             MCGIFAAFKHEDIHNFKPKALQLSKKIRHRGPDWSGNAVMNSTIFVHERLAIVGLDSGAQ

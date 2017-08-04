@@ -1,18 +1,28 @@
 ENTRY       YJR073C           CDS       T00005
 NAME        OPI3, PEM2
-DEFINITION  bifunctional phosphatidyl-N-methylethanolamine N-methyltransferase/phosphatidyl-N-dimethylethanolamine N-methyltransferase (EC:2.1.1.71 2.1.1.17)
+DEFINITION  (RefSeq) bifunctional phosphatidyl-N-methylethanolamine N-methyltransferase/phosphatidyl-N-dimethylethanolamine N-methyltransferase
 ORTHOLOGY   K00550  methylene-fatty-acyl-phospholipid synthase [EC:2.1.1.16]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00564  Glycerophospholipid metabolism
             sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
 MODULE      sce_M00091  Phosphatidylcholine (PC) biosynthesis, PE => PC
-CLASS       Metabolism; Lipid metabolism; Glycerophospholipid metabolism [PATH:sce00564]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Lipid metabolism
+               00564 Glycerophospholipid metabolism
+                YJR073C (OPI3)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.1  Transferring one-carbon groups
+               2.1.1  Methyltransferases
+                2.1.1.16  methylene-fatty-acyl-phospholipid synthase
+                 YJR073C (OPI3)
 POSITION    X:complement(572315..572935)
 MOTIF       Pfam: PEMT
-DBLINKS     NCBI-GI: 6322533
+DBLINKS     NCBI-ProteinID: NP_012607
             NCBI-GeneID: 853536
             SGD: S000003834
-            MIPS: YJR073C
             UniProt: P05375
 AASEQ       206
             MKESVQEIIQQLIHSVDLQSSKFQLAIVCTMFNPIFWNIVARMEYHKHSLTKMCGGARKG

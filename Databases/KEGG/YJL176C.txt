@@ -1,14 +1,24 @@
 ENTRY       YJL176C           CDS       T00005
-NAME        SWI3, TYE2
-DEFINITION  Swi3p
+NAME        SWI3, HAF2, TYE2
+DEFINITION  (RefSeq) Swi3p
 ORTHOLOGY   K11772  SWI/SNF complex subunit SWI3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Coactivators
+                SWI/SNF complex
+                 YJL176C (SWI3)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Chromatin remodeling factors
+               SWI/SNF complex
+                YJL176C (SWI3)
 POSITION    X:complement(92053..94530)
-MOTIF       Pfam: SWIRM Myb_DNA-binding Myb_DNA-bind_6
-DBLINKS     NCBI-GI: 6322286
+MOTIF       Pfam: SWIRM SWIRM-assoc_1 Myb_DNA-binding Myb_DNA-bind_6 Myb_DNA-bind_7
+DBLINKS     NCBI-ProteinID: NP_012359
             NCBI-GeneID: 853264
             SGD: S000003712
-            MIPS: YJL176C
             UniProt: P32591
 STRUCTURE   PDB: 2FQ3
 AASEQ       825

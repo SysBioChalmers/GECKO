@@ -1,13 +1,12 @@
 ENTRY       YMR098C           CDS       T00005
 NAME        ATP25
-DEFINITION  Atp25p
+DEFINITION  (RefSeq) Atp25p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:complement(460771..462609)
-MOTIF       Pfam: mRNA_stabil Oligomerisation
-DBLINKS     NCBI-GI: 6323745
+MOTIF       Pfam: mRNA_stabil RsfS Myb_DNA-bind_5
+DBLINKS     NCBI-ProteinID: NP_013816
             NCBI-GeneID: 855123
             SGD: S000004704
-            MIPS: YMR098C
             UniProt: Q03153
 AASEQ       612
             MNKFCLLPFHGKRIGVANIPFTILFKKGPYFLHSHITAVYYSTKGKNDSHEQSRVSKKST

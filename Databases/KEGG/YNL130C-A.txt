@@ -1,13 +1,12 @@
 ENTRY       YNL130C-A         CDS       T00005
 NAME        DGR1
-DEFINITION  Dgr1p
+DEFINITION  (RefSeq) Dgr1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIV:complement(381245..381391)
-MOTIF       Pfam: FKS1_dom1
-DBLINKS     NCBI-GI: 33438866
+MOTIF       Pfam: IMD
+DBLINKS     NCBI-ProteinID: NP_878154
             NCBI-GeneID: 1466512
             SGD: S000028579
-            MIPS: YNL130C-A
             UniProt: Q3E808
 AASEQ       48
             MQVGFVSQTNCRSFPACIVFLFQMSQRQRSFNANLRVFKSKCKKIYIG

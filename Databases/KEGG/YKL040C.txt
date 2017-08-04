@@ -1,13 +1,12 @@
 ENTRY       YKL040C           CDS       T00005
 NAME        NFU1, NUB1
-DEFINITION  Nfu1p
+DEFINITION  (RefSeq) Nfu1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XI:complement(361058..361828)
-MOTIF       Pfam: NifU Nfu_N HOOK YojJ
-DBLINKS     NCBI-GI: 398364601
+MOTIF       Pfam: NifU Nfu_N YojJ
+DBLINKS     NCBI-ProteinID: NP_012884
             NCBI-GeneID: 853826
             SGD: S000001523
-            MIPS: YKL040C
             UniProt: P32860
 STRUCTURE   PDB: 2LTL
 AASEQ       256

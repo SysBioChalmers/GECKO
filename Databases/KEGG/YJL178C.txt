@@ -1,13 +1,23 @@
 ENTRY       YJL178C           CDS       T00005
 NAME        ATG27, ETF1
-DEFINITION  Atg27p
+DEFINITION  (RefSeq) Atg27p
+ORTHOLOGY   K21141  autophagy-related protein 27
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04138  Autophagy - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04138 Autophagy - yeast
+                YJL178C (ATG27)
+            Transporters [BR:sce02000]
+             Other Transporters
+              Others
+               YJL178C (ATG27)
 POSITION    X:complement(89282..90097)
 MOTIF       Pfam: ATG27
-DBLINKS     NCBI-GI: 42742253
+DBLINKS     NCBI-ProteinID: NP_012357
             NCBI-GeneID: 853261
             SGD: S000003714
-            MIPS: YJL178C
             UniProt: P46989
 AASEQ       271
             MVSKTWICGFISIITVVQALSCEKHDVLKKYQVGKFSSLTSTERDTPPSTTIEKWWINVC

@@ -1,14 +1,19 @@
 ENTRY       YPL152W           CDS       T00005
 NAME        RRD2, YPA2
-DEFINITION  peptidylprolyl isomerase RRD2 (EC:5.2.1.8)
+DEFINITION  (RefSeq) peptidylprolyl isomerase RRD2
 ORTHOLOGY   K17605  serine/threonine-protein phosphatase 2A activator
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Protein phosphatases and associated proteins [BR:sce01009]
+             Protein Ser/ Thr phosphatases
+              Phosphoprotein phosphatases (PPPs)
+               Protein phosphatase-2 (PP2A)
+                Other PP2-interacting proteins
+                 YPL152W (RRD2)
 POSITION    XVI:265028..266104
 MOTIF       Pfam: PTPA
-DBLINKS     NCBI-GI: 6325105
+DBLINKS     NCBI-ProteinID: NP_015173
             NCBI-GeneID: 855951
             SGD: S000006073
-            MIPS: YPL152W
             UniProt: Q12461
 STRUCTURE   PDB: 2IXN
 AASEQ       358

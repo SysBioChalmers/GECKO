@@ -1,13 +1,12 @@
 ENTRY       YDR051C           CDS       T00005
 NAME        DET1
-DEFINITION  Det1p (EC:3.1.3.- 5.4.2.1)
+DEFINITION  (RefSeq) acid phosphatase DET1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(557056..558060)
 MOTIF       Pfam: His_Phos_1
-DBLINKS     NCBI-GI: 398365273
+DBLINKS     NCBI-ProteinID: NP_010336
             NCBI-GeneID: 851621
             SGD: S000002458
-            MIPS: YDR051C
             UniProt: Q99288
 AASEQ       334
             MCEENVHVSEDVAGSHGSFTNARPRLIVLIRHGESESNKNKEVNGYIPNHLISLTKTGQI

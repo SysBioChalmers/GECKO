@@ -1,13 +1,24 @@
 ENTRY       YJL154C           CDS       T00005
 NAME        VPS35, GRD9, VPT7
-DEFINITION  Vps35p
+DEFINITION  (RefSeq) retromer subunit VPS35
+ORTHOLOGY   K18468  vacuolar protein sorting-associated protein 35
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04144  Endocytosis
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04144 Endocytosis
+                YJL154C (VPS35)
+            Membrane trafficking [BR:sce04131]
+             Endosome - Lysosome transport
+              Rab GTPases and associated proteins
+               Retromer subcomplex
+                YJL154C (VPS35)
 POSITION    X:complement(131101..133935)
 MOTIF       Pfam: Vps35
-DBLINKS     NCBI-GI: 6322307
+DBLINKS     NCBI-ProteinID: NP_012381
             NCBI-GeneID: 853287
             SGD: S000003690
-            MIPS: YJL154C
             UniProt: P34110
 AASEQ       944
             MAYADSPENAIAVIKQRTALMNRCLSQHKLMESLQHTSIMLTELRNPNLSPKKYYELYVI

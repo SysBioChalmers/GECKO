@@ -1,13 +1,12 @@
 ENTRY       YJR083C           CDS       T00005
 NAME        ACF4
-DEFINITION  Acf4p
+DEFINITION  (RefSeq) Acf4p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    X:complement(582608..583537)
-MOTIF       Pfam: TPD52 DUF3634 Tropomyosin_1
-DBLINKS     NCBI-GI: 6322542
+MOTIF       Pfam: DUF3634 Cep57_CLD_2 Tropomyosin_1
+DBLINKS     NCBI-ProteinID: NP_012616
             NCBI-GeneID: 853545
             SGD: S000003843
-            MIPS: YJR083C
             UniProt: P47129
 AASEQ       309
             MSEDQRVISQPIELHKLSIVDKHSQGQQQQPHQKQHEVQPESKSPRVTTPLKPKRLAIPI

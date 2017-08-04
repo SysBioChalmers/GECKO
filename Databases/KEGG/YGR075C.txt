@@ -1,16 +1,27 @@
 ENTRY       YGR075C           CDS       T00005
 NAME        PRP38
-DEFINITION  Prp38p
+DEFINITION  (RefSeq) U4/U6-U5 snRNP complex subunit PRP38
 ORTHOLOGY   K12851  pre-mRNA-splicing factor 38
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03040  Spliceosome
-CLASS       Genetic Information Processing; Transcription; Spliceosome [PATH:sce03040]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03040 Spliceosome
+                YGR075C (PRP38)
+            Spliceosome [BR:sce03041]
+             Complex B
+              U4/U6.U5 tri-snRNP components
+               U4/U6.U5 tri-snRNP related factors
+                YGR075C (PRP38)
+             Complex C
+               U4/U6.U5 tri-SnRNP related factors
+                YGR075C (PRP38)
 POSITION    VII:complement(636147..636875)
-MOTIF       Pfam: PRP38
-DBLINKS     NCBI-GI: 398365533
+MOTIF       Pfam: PRP38 FAM163
+DBLINKS     NCBI-ProteinID: NP_011589
             NCBI-GeneID: 852966
             SGD: S000003307
-            MIPS: YGR075C
             UniProt: Q00723
 AASEQ       242
             MAVNEFQVESNISPKQLNNQSVSLVIPRLTRDKIHNSMYYKVNLSNESLRGNTMVELLKV

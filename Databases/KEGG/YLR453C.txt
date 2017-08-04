@@ -1,14 +1,19 @@
 ENTRY       YLR453C           CDS       T00005
 NAME        RIF2
-DEFINITION  Rif2p
+DEFINITION  (RefSeq) Rif2p
 ORTHOLOGY   K11119  RAP1-interacting factor 2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       DNA replication proteins [BR:sce03032]
+             Eukaryotic Type
+              DNA Replication Termination Factors
+               Telomere proteins
+                RIF proteins
+                 YLR453C (RIF2)
 POSITION    XII:complement(1041799..1042986)
-MOTIF       Pfam: SPARC_Ca_bdg PHP_C
-DBLINKS     NCBI-GI: 398366349
+MOTIF       Pfam: PHP_C
+DBLINKS     NCBI-ProteinID: NP_013558
             NCBI-GeneID: 851174
             SGD: S000004445
-            MIPS: YLR453C
             UniProt: Q06208
 STRUCTURE   PDB: 4BJ1 4BJ6 4BJ5
 AASEQ       395

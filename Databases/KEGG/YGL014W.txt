@@ -1,13 +1,12 @@
 ENTRY       YGL014W           CDS       T00005
 NAME        PUF4, YGL023
-DEFINITION  Puf4p
+DEFINITION  (RefSeq) Puf4p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:466141..468807
-MOTIF       Pfam: PUF
-DBLINKS     NCBI-GI: 6321424
+MOTIF       Pfam: PUF Virul_Fac
+DBLINKS     NCBI-ProteinID: NP_011501
             NCBI-GeneID: 852870
             SGD: S000002982
-            MIPS: YGL014W
             UniProt: P25339
 STRUCTURE   PDB: 3BWT 3BX2 3BX3 4DZS
 AASEQ       888

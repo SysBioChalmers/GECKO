@@ -1,14 +1,18 @@
 ENTRY       YKR063C           CDS       T00005
 NAME        LAS1
-DEFINITION  Las1p
+DEFINITION  (RefSeq) rRNA-processing protein LAS1
 ORTHOLOGY   K16912  ribosomal biogenesis protein LAS1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               5-FMC complex
+                YKR063C (LAS1)
 POSITION    XI:complement(560789..562297)
 MOTIF       Pfam: Las1
-DBLINKS     NCBI-GI: 398365293
+DBLINKS     NCBI-ProteinID: NP_012989
             NCBI-GeneID: 853937
             SGD: S000001771
-            MIPS: YKR063C
             UniProt: P36146
 AASEQ       502
             MIPPRIVPWRDFAELEELKLWFYPKSKGTIEDKRQRAVQRVQSYRLKGSQYLPHVVDSTA

@@ -1,14 +1,23 @@
 ENTRY       YGR133W           CDS       T00005
 NAME        PEX4, PAS2, UBC10
-DEFINITION  E2 ubiquitin-protein ligase peroxin 4 (EC:6.3.2.19)
-ORTHOLOGY   K10689  peroxin-4 [EC:6.3.2.19]
+DEFINITION  (RefSeq) E2 ubiquitin-protein ligase peroxin 4
+ORTHOLOGY   K10689  peroxin-4 [EC:2.3.2.23]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.3  Acyltransferases
+               2.3.2  Aminoacyltransferases
+                2.3.2.23  E2 ubiquitin-conjugating enzyme
+                 YGR133W (PEX4)
+            Ubiquitin system [BR:sce04121]
+             Ubiquitin-conjugating enzymes (E2)
+              Ubiquitin-conjugating enzymes
+               YGR133W (PEX4)
 POSITION    VII:756896..757447
-MOTIF       Pfam: UQ_con Prok-E2_B RWD UEV
-DBLINKS     NCBI-GI: 6321572
+MOTIF       Pfam: UQ_con RWD UFC1 UEV
+DBLINKS     NCBI-ProteinID: NP_011649
             NCBI-GeneID: 853034
             SGD: S000003365
-            MIPS: YGR133W
             UniProt: P29340
 STRUCTURE   PDB: 2Y9M 4BWF 2Y9P
 AASEQ       183

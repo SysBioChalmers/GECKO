@@ -1,13 +1,12 @@
 ENTRY       YOR273C           CDS       T00005
 NAME        TPO4
-DEFINITION  Tpo4p
+DEFINITION  (RefSeq) Tpo4p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:complement(834452..836431)
-MOTIF       Pfam: MFS_1
-DBLINKS     NCBI-GI: 6324847
+MOTIF       Pfam: MFS_1 Sugar_tr
+DBLINKS     NCBI-ProteinID: NP_014916
             NCBI-GeneID: 854447
             SGD: S000005799
-            MIPS: YOR273C
             UniProt: Q12256
 AASEQ       659
             MPSSLTKTESNSDPRTNIQQVPKALDKNVTNSGNLDSTSSSTGSITEDEKRSEPNADSNN

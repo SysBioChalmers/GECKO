@@ -1,12 +1,12 @@
 ENTRY       YHR103W           CDS       T00005
 NAME        SBE22
-DEFINITION  Sbe22p
+DEFINITION  (RefSeq) Sbe22p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VIII:320414..322972
-DBLINKS     NCBI-GI: 6321895
+MOTIF       Pfam: SBE2
+DBLINKS     NCBI-ProteinID: NP_011971
             NCBI-GeneID: 856503
             SGD: S000001145
-            MIPS: YHR103W
             UniProt: P38814
 AASEQ       852
             MTSIQERGTSAHLHSLKEGEASDRSSEMLPKQRSIIGSHVQRPPSQTTLGRSRAGSNTMN

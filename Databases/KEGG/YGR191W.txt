@@ -1,14 +1,17 @@
 ENTRY       YGR191W           CDS       T00005
 NAME        HIP1
-DEFINITION  Hip1p
+DEFINITION  (RefSeq) histidine permease
 ORTHOLOGY   K16261  yeast amino acid transporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Other Transporters
+              Electrochemical potential-driven transporters [TC:2]
+               YGR191W (HIP1)
 POSITION    VII:880420..882231
 MOTIF       Pfam: AA_permease AA_permease_2
-DBLINKS     NCBI-GI: 6321629
+DBLINKS     NCBI-ProteinID: NP_011707
             NCBI-GeneID: 853104
             SGD: S000003423
-            MIPS: YGR191W
             UniProt: P06775
 AASEQ       603
             MPRNPLKKEYWADVVDGFKPATSPAFENEKESTTFVTELTSKTDSAFPLSSKDSPGINQT

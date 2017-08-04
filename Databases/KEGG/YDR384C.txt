@@ -1,14 +1,13 @@
 ENTRY       YDR384C           CDS       T00005
 NAME        ATO3
-DEFINITION  Ato3p
-ORTHOLOGY   K07034
+DEFINITION  (RefSeq) putative ammonium permease ATO3
+ORTHOLOGY   K07034  uncharacterized protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(1241204..1242031)
 MOTIF       Pfam: Grp1_Fun34_YaaH
-DBLINKS     NCBI-GI: 6320592
+DBLINKS     NCBI-ProteinID: NP_010672
             NCBI-GeneID: 851992
             SGD: S000002792
-            MIPS: YDR384C
             UniProt: Q12359
 AASEQ       275
             MTSSASSPQDLEKGVNTLENIETLPQQGSIAGVSQGFPNIQEIYSDRDFITLGSSTYRRR

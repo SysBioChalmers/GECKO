@@ -1,21 +1,12 @@
 ENTRY       YJR155W           CDS       T00005
 NAME        AAD10
-DEFINITION  Aad10p (EC:1.1.1.-)
-ORTHOLOGY   K00100   [EC:1.1.1.-]
+DEFINITION  (RefSeq) putative aryl-alcohol dehydrogenase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
-PATHWAY     sce00051  Fructose and mannose metabolism
-            sce00591  Linoleic acid metabolism
-            sce00650  Butanoate metabolism
-            sce01100  Metabolic pathways
-CLASS       Metabolism; Carbohydrate metabolism; Fructose and mannose metabolism [PATH:sce00051]
-            Metabolism; Carbohydrate metabolism; Butanoate metabolism [PATH:sce00650]
-            Metabolism; Lipid metabolism; Linoleic acid metabolism [PATH:sce00591]
 POSITION    X:727405..728271
 MOTIF       Pfam: Aldo_ket_red
-DBLINKS     NCBI-GI: 6322615
+DBLINKS     NCBI-ProteinID: NP_012689
             NCBI-GeneID: 853620
             SGD: S000003916
-            MIPS: YJR155W
             UniProt: P47182
 AASEQ       288
             MASRKLRDQIVIATKFTTDYKGYDVGKGKSANFCGNHKRSLHVSVRDSLRKLQTDWIDIL

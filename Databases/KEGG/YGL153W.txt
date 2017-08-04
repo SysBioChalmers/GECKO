@@ -1,16 +1,19 @@
 ENTRY       YGL153W           CDS       T00005
 NAME        PEX14
-DEFINITION  Pex14p
+DEFINITION  (RefSeq) Pex14p
 ORTHOLOGY   K13343  peroxin-14
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04146  Peroxisome
-CLASS       Cellular Processes; Transport and catabolism; Peroxisome [PATH:sce04146]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04146 Peroxisome
+                YGL153W (PEX14)
 POSITION    VII:216273..217298
-MOTIF       Pfam: Pex14_N IncA ECH_C zf-C4H2 Reo_sigmaC FlgN Snapin_Pallidin YkuI_C APG6
-DBLINKS     NCBI-GI: 398364395
+MOTIF       Pfam: Pex14_N HAP1_N IncA zf-C4H2 YkuI_C ECH_2 Reo_sigmaC FlgN V_ATPase_I
+DBLINKS     NCBI-ProteinID: NP_011362
             NCBI-GeneID: 852724
             SGD: S000003121
-            MIPS: YGL153W
             UniProt: P53112
 AASEQ       341
             MSDVVSKDRKALFDSAVSFLKDESIKDAPLLKKIEFLKSKGLTEKEIEIAMKEPKKDGIV

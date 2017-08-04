@@ -1,23 +1,43 @@
 ENTRY       YDR111C           CDS       T00005
 NAME        ALT2
-DEFINITION  alanine transaminase ALT2 (EC:2.6.1.2)
+DEFINITION  (RefSeq) alanine transaminase ALT2
 ORTHOLOGY   K00814  alanine transaminase [EC:2.6.1.2]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
-PATHWAY     sce00250  Alanine, aspartate and glutamate metabolism
+PATHWAY     sce00220  Arginine biosynthesis
+            sce00250  Alanine, aspartate and glutamate metabolism
             sce01100  Metabolic pathways
             sce01200  Carbon metabolism
             sce01210  2-Oxocarboxylic acid metabolism
             sce01230  Biosynthesis of amino acids
-CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
-            Metabolism; Overview; 2-Oxocarboxylic acid metabolism [PATH:sce01210]
-            Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
-            Metabolism; Amino acid metabolism; Alanine, aspartate and glutamate metabolism [PATH:sce00250]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01200 Carbon metabolism
+                YDR111C (ALT2)
+               01210 2-Oxocarboxylic acid metabolism
+                YDR111C (ALT2)
+               01230 Biosynthesis of amino acids
+                YDR111C (ALT2)
+              Amino acid metabolism
+               00250 Alanine, aspartate and glutamate metabolism
+                YDR111C (ALT2)
+               00220 Arginine biosynthesis
+                YDR111C (ALT2)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.6  Transferring nitrogenous groups
+               2.6.1  Transaminases
+                2.6.1.2  alanine transaminase
+                 YDR111C (ALT2)
+            Amino acid related enzymes [BR:sce01007]
+             Aminotransferase (transaminase)
+              Class I
+               YDR111C (ALT2)
 POSITION    IV:complement(678241..679764)
 MOTIF       Pfam: Aminotran_1_2 OAS1_C Beta_elim_lyase
-DBLINKS     NCBI-GI: 6320317
+DBLINKS     NCBI-ProteinID: NP_010396
             NCBI-GeneID: 851690
             SGD: S000002518
-            MIPS: YDR111C
             UniProt: P52892
 AASEQ       507
             MTMTHQQDLKGVFTAKDLDFKPAGKITKKDLNTGVTKAEYAVRGAIPTRADELKEELKKN

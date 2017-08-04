@@ -1,13 +1,12 @@
 ENTRY       YKR102W           CDS       T00005
 NAME        FLO10
-DEFINITION  Flo10p
+DEFINITION  (RefSeq) Flo10p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XI:646356..649865
-MOTIF       Pfam: PA14 PA14_2
-DBLINKS     NCBI-GI: 6322955
+MOTIF       Pfam: PA14 Flocculin_t3 GLEYA
+DBLINKS     NCBI-ProteinID: NP_013028
             NCBI-GeneID: 853977
             SGD: S000001810
-            MIPS: YKR102W
             UniProt: P36170
 AASEQ       1169
             MPVAARYIFLTGLFLLSVANVALGTTEACLPAGEKKNGMTINFYQYSLKDSSTYSNPSYM

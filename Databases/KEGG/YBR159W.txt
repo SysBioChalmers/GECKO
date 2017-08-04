@@ -1,6 +1,6 @@
 ENTRY       YBR159W           CDS       T00005
 NAME        IFA38
-DEFINITION  ketoreductase (EC:1.1.1.330)
+DEFINITION  (RefSeq) ketoreductase
 ORTHOLOGY   K10251  17beta-estradiol 17-dehydrogenase / very-long-chain 3-oxoacyl-CoA reductase [EC:1.1.1.62 1.1.1.330]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00062  Fatty acid elongation
@@ -9,15 +9,33 @@ PATHWAY     sce00062  Fatty acid elongation
             sce01110  Biosynthesis of secondary metabolites
             sce01212  Fatty acid metabolism
 MODULE      sce_M00415  Fatty acid biosynthesis, elongation, endoplasmic reticulum
-CLASS       Metabolism; Overview; Fatty acid metabolism [PATH:sce01212]
-            Metabolism; Lipid metabolism; Fatty acid elongation [PATH:sce00062]
-            Metabolism; Lipid metabolism; Biosynthesis of unsaturated fatty acids [PATH:sce01040]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01212 Fatty acid metabolism
+                YBR159W (IFA38)
+              Lipid metabolism
+               00062 Fatty acid elongation
+                YBR159W (IFA38)
+               01040 Biosynthesis of unsaturated fatty acids
+                YBR159W (IFA38)
+            Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.1  Acting on the CH-OH group of donors
+               1.1.1  With NAD+ or NADP+ as acceptor
+                1.1.1.62  17beta-estradiol 17-dehydrogenase
+                 YBR159W (IFA38)
+                1.1.1.330  very-long-chain 3-oxoacyl-CoA reductase
+                 YBR159W (IFA38)
+            Lipid biosynthesis proteins [BR:sce01004]
+             Fatty acid synthase
+              Component type
+               YBR159W (IFA38)
 POSITION    II:558685..559728
-MOTIF       Pfam: adh_short adh_short_C2 KR NAD_binding_10 Polysacc_synt_2 3HCDH_N NAD_binding_2
-DBLINKS     NCBI-GI: 6319635
+MOTIF       Pfam: adh_short adh_short_C2 KR Polysacc_synt_2 Sacchrp_dh_NADP NAD_binding_10 3HCDH_N NAD_binding_2
+DBLINKS     NCBI-ProteinID: NP_009717
             NCBI-GeneID: 852456
             SGD: S000000363
-            MIPS: YBR159W
             UniProt: P38286
 AASEQ       347
             MTFMQQLQEAGERFRCINGLLWVVFGLGVLKCTTLSLRFLALIFDLFLLPAVNFDKYGAK

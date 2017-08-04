@@ -1,16 +1,49 @@
 ENTRY       YJR045C           CDS       T00005
 NAME        SSC1, ENS1
-DEFINITION  Hsp70 family ATPase SSC1
+DEFINITION  (RefSeq) Hsp70 family ATPase SSC1
 ORTHOLOGY   K04043  molecular chaperone DnaK
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03018  RNA degradation
-CLASS       Genetic Information Processing; Folding, sorting and degradation; RNA degradation [PATH:sce03018]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               03018 RNA degradation
+                YJR045C (SSC1)
+            Messenger RNA biogenesis [BR:sce03019]
+             Prokaryotic Type
+              Bacterial mRNA degradation factors
+               Other RNA degradation factors
+                Chaperones
+                 YJR045C (SSC1)
+            Chaperones and folding catalysts [BR:sce03110]
+             Heat shock proteins
+              HSP70 / DNAK
+               YJR045C (SSC1)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial protein import machinery
+              Inner mambrane
+               MINOS/MitOS complex
+                YJR045C (SSC1)
+              Matrix
+               MMC/PAM proteins
+                YJR045C (SSC1)
+            Transporters [BR:sce02000]
+             Other Transporters
+              Pores ion channels [TC:1]
+               YJR045C (SSC1)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of haemopoietic cells  (B-cell, T-cell, DC-cell, reticulocyte, and mast cell)
+               YJR045C (SSC1)
+              Exosomal proteins of breast cancer cells
+               YJR045C (SSC1)
+              Exosomal proteins of colorectal cancer cells
+               YJR045C (SSC1)
 POSITION    X:complement(519638..521602)
-MOTIF       Pfam: HSP70 MreB_Mbl FGGY_C FlxA BcrAD_BadFG Hydantoinase_A DUF2797 Gp-FAR-1 Endotoxin_N
-DBLINKS     NCBI-GI: 6322505
+MOTIF       Pfam: HSP70 MreB_Mbl FGGY_C DUF4473
+DBLINKS     NCBI-ProteinID: NP_012579
             NCBI-GeneID: 853503
             SGD: S000003806
-            MIPS: YJR045C
             UniProt: P0CS90
 AASEQ       654
             MLAAKNILNRSSLSSSFRIATRLQSTKVQGSVIGIDLGTTNSAVAIMEGKVPKIIENAEG

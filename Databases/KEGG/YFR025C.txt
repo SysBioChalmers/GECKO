@@ -1,6 +1,6 @@
 ENTRY       YFR025C           CDS       T00005
 NAME        HIS2
-DEFINITION  histidinol-phosphatase (EC:3.1.3.15)
+DEFINITION  (RefSeq) histidinol-phosphatase
 ORTHOLOGY   K04486  histidinol-phosphatase (PHP family) [EC:3.1.3.15]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00340  Histidine metabolism
@@ -8,14 +8,25 @@ PATHWAY     sce00340  Histidine metabolism
             sce01110  Biosynthesis of secondary metabolites
             sce01230  Biosynthesis of amino acids
 MODULE      sce_M00026  Histidine biosynthesis, PRPP => histidine
-CLASS       Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
-            Metabolism; Amino acid metabolism; Histidine metabolism [PATH:sce00340]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01230 Biosynthesis of amino acids
+                YFR025C (HIS2)
+              Amino acid metabolism
+               00340 Histidine metabolism
+                YFR025C (HIS2)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.3  Phosphoric-monoester hydrolases
+                3.1.3.15  histidinol-phosphatase
+                 YFR025C (HIS2)
 POSITION    VI:complement(203743..204750)
 MOTIF       Pfam: PHP
-DBLINKS     NCBI-GI: 14318548
+DBLINKS     NCBI-ProteinID: NP_116681
             NCBI-GeneID: 850581
             SGD: S000001921
-            MIPS: YFR025C
             UniProt: P38635
 AASEQ       335
             MHSHHSHSGDYSAHGTDPLDSVVDQVVNLNFHTYCLTEHIPRIEAKFIYPEEQSLGKNPE

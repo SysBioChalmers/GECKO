@@ -1,13 +1,12 @@
 ENTRY       YHR053C           CDS       T00005
 NAME        CUP1-1, CUP1
-DEFINITION  Cup1-1p
+DEFINITION  (RefSeq) metallothionein CUP1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VIII:complement(212535..212720)
 MOTIF       Pfam: Yeast_MT
-DBLINKS     NCBI-GI: 6321846
+DBLINKS     NCBI-ProteinID: NP_011922
             NCBI-GeneID: 856450
             SGD: S000001095
-            MIPS: YHR053C
             UniProt: P0CX80 P0CX81
 STRUCTURE   PDB: 1FMY 1AQQ 1AQR 1AQS 1AOO
 AASEQ       61

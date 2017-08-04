@@ -1,12 +1,12 @@
 ENTRY       YER182W           CDS       T00005
 NAME        FMP10
-DEFINITION  Fmp10p
+DEFINITION  (RefSeq) Fmp10p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    V:552525..553259
-DBLINKS     NCBI-GI: 398365153
+MOTIF       Pfam: Phage_holin_5_2
+DBLINKS     NCBI-ProteinID: NP_011109
             NCBI-GeneID: 856931
             SGD: S000000984
-            MIPS: YER182W
             UniProt: P40098
 AASEQ       244
             MFKRIAIAQIRTYTNGVVFKTASKPKRRWIPWTIFGGSFLGGWYLTQHMTFTDLLAYWRY

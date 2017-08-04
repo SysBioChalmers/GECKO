@@ -1,13 +1,12 @@
 ENTRY       YKR049C           CDS       T00005
 NAME        FMP46
-DEFINITION  Fmp46p (EC:1.-.-.-)
+DEFINITION  (RefSeq) putative redox protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XI:complement(526830..527231)
-MOTIF       Pfam: DUF1687 ATP-gua_PtransN
-DBLINKS     NCBI-GI: 398365163
+MOTIF       Pfam: DUF1687
+DBLINKS     NCBI-ProteinID: NP_012975
             NCBI-GeneID: 853923
             SGD: S000001757
-            MIPS: YKR049C
             UniProt: P36141
 STRUCTURE   PDB: 1WPI
 AASEQ       133

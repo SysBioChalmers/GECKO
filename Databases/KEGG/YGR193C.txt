@@ -1,13 +1,12 @@
 ENTRY       YGR193C           CDS       T00005
 NAME        PDX1
-DEFINITION  Pdx1p
+DEFINITION  (RefSeq) Pdx1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:complement(884509..885741)
-MOTIF       Pfam: Biotin_lipoyl E3_binding Biotin_lipoyl_2 HlyD_3
-DBLINKS     NCBI-GI: 6321632
+MOTIF       Pfam: Biotin_lipoyl E3_binding LisH
+DBLINKS     NCBI-ProteinID: NP_011709
             NCBI-GeneID: 853107
             SGD: S000003425
-            MIPS: YGR193C
             UniProt: P16451
 AASEQ       410
             MLSAISKVSTLKSCTRYLTKCNYHASAKLLAVKTFSMPAMSPTMEKGGIVSWKYKVGEPF

@@ -1,16 +1,24 @@
 ENTRY       YDR325W           CDS       T00005
 NAME        YCG1, TIE1, YCS5
-DEFINITION  Ycg1p
+DEFINITION  (RefSeq) condensin subunit YCG1
 ORTHOLOGY   K06678  condensin complex subunit 3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
-CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YDR325W (YCG1)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Chromosome condensation proteins
+               Condensin I
+                YDR325W (YCG1)
 POSITION    IV:1117126..1120233
-MOTIF       Pfam: Cnd3 HEAT_2
-DBLINKS     NCBI-GI: 27469361
+MOTIF       Pfam: Cnd3 HEAT_2 Cnd1
+DBLINKS     NCBI-ProteinID: NP_010612
             NCBI-GeneID: 851925
             SGD: S000002733
-            MIPS: YDR325W
             UniProt: Q06680
 AASEQ       1035
             MQDPDGIDINTKIFNSVAEVFQKAQGSYAGHRKHIAVLKKIQSKAVEQGYEDAFNFWFDK

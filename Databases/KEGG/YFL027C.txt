@@ -1,13 +1,18 @@
 ENTRY       YFL027C           CDS       T00005
 NAME        GYP8
-DEFINITION  Gyp8p
+DEFINITION  (RefSeq) Gyp8p
+ORTHOLOGY   K20372  TBC1 domain family member 20
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endoplasmic reticulum (ER) - Golgi transport
+              Forward pathways
+               Rab associated proteins
+                YFL027C (GYP8)
 POSITION    VI:complement(80419..81912)
 MOTIF       Pfam: RabGAP-TBC
-DBLINKS     NCBI-GI: 16740526
+DBLINKS     NCBI-ProteinID: NP_444296
             NCBI-GeneID: 850517
             SGD: S000001867
-            MIPS: YFL027C
             UniProt: P43570
 AASEQ       497
             MPLRSLFHTNQSSHDKDALTRGGYNAYLESLSRCDSGKAEEQKGKVISKLLEKKDVRALR

@@ -1,14 +1,17 @@
 ENTRY       YNL321W           CDS       T00005
 NAME        VNX1
-DEFINITION  Vnx1p
+DEFINITION  (RefSeq) Vnx1p
 ORTHOLOGY   K07300  Ca2+:H+ antiporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Other Transporters
+              Electrochemical potential-driven transporters [TC:2]
+               YNL321W (VNX1)
 POSITION    XIV:34696..37422
-MOTIF       Pfam: Na_Ca_ex DUF307
-DBLINKS     NCBI-GI: 6324008
+MOTIF       Pfam: Na_Ca_ex YccF
+DBLINKS     NCBI-ProteinID: NP_014078
             NCBI-GeneID: 855395
             SGD: S000005265
-            MIPS: YNL321W
             UniProt: P42839
 AASEQ       908
             MAKNNHISASGNSTSGDHRLKEEVLTPTTSASTPHRIFSVDDDPKEIQNDIRYLEGLHEG

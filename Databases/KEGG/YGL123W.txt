@@ -1,18 +1,26 @@
 ENTRY       YGL123W           CDS       T00005
 NAME        RPS2, RPS4, SUP138, SUP38, SUP44
-DEFINITION  ribosomal 40S subunit protein S2
+DEFINITION  (RefSeq) ribosomal 40S subunit protein S2
 ORTHOLOGY   K02981  small subunit ribosomal protein S2e
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03010  Ribosome
-CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+MODULE      sce_M00177  Ribosome, eukaryotes
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03010 Ribosome
+                YGL123W (RPS2)
+            Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Eukaryotes
+               Small subunit
+                YGL123W (RPS2)
 POSITION    VII:277617..278381
 MOTIF       Pfam: Ribosomal_S5 Ribosomal_S5_C
-DBLINKS     NCBI-GI: 6321315
+DBLINKS     NCBI-ProteinID: NP_011392
             NCBI-GeneID: 852754
             SGD: S000003091
-            MIPS: YGL123W
             UniProt: P25443
-STRUCTURE   PDB: 3U5C 3U5G 3O2Z 3O30 4BYL 4BYT 3IZB 1S1H
 AASEQ       254
             MSAPEAQQQKRGGFGGRNRGRPNRRGPRNTEEKGWVPVTKLGRLVKAGKITTIEEIFLHS
             LPVKEFQIIDTLLPGLQDEVMNIKPVQKQTRAGQRTRFKAVVVVGDSNGHVGLGIKTAKE

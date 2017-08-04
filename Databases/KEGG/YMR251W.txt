@@ -1,13 +1,12 @@
 ENTRY       YMR251W           CDS       T00005
 NAME        GTO3
-DEFINITION  Gto3p (EC:2.5.1.18)
+DEFINITION  (RefSeq) omega-class glutathione transferase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:772915..774015
-MOTIF       Pfam: GST_N_2 GST_C_2 GldM_N GST_C GST_C_3
-DBLINKS     NCBI-GI: 6323906
+MOTIF       Pfam: GST_N_2 GST_C_2
+DBLINKS     NCBI-ProteinID: NP_013977
             NCBI-GeneID: 855292
             SGD: S000004863
-            MIPS: YMR251W
             UniProt: Q04806
 AASEQ       366
             MSEKSASNNKAEFKRQSSPFREIISADHPIYKPAKGRYWLYVALPCPWAQRTLITRALKG

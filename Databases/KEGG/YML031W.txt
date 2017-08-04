@@ -1,16 +1,25 @@
 ENTRY       YML031W           CDS       T00005
 NAME        NDC1
-DEFINITION  Ndc1p
+DEFINITION  (RefSeq) Ndc1p
 ORTHOLOGY   K14315  nucleoporin NDC1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03013  RNA transport
-CLASS       Genetic Information Processing; Translation; RNA transport [PATH:sce03013]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03013 RNA transport
+                YML031W (NDC1)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Transport factors
+                Nuclear pore complex
+                 YML031W (NDC1)
 POSITION    XIII:214189..216156
 MOTIF       Pfam: Ndc1_Nup
-DBLINKS     NCBI-GI: 6323610
+DBLINKS     NCBI-ProteinID: NP_013681
             NCBI-GeneID: 854977
             SGD: S000004493
-            MIPS: YML031W
             UniProt: P32500
 AASEQ       655
             MIQTPRELLNPRYTYHTIFSDVCKTRFNHLVTRLFFICSIIQTVVISLLALPHSPLWELA

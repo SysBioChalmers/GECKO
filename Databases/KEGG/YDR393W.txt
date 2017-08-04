@@ -1,13 +1,18 @@
 ENTRY       YDR393W           CDS       T00005
 NAME        SHE9, MDM33
-DEFINITION  She9p
+DEFINITION  (RefSeq) She9p
+ORTHOLOGY   K17983  sensitive to high expression protein 9, mitochondrial
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial quality control factors
+              Mitochondrial dynamics
+               Morphogenesis factors
+                YDR393W (SHE9)
 POSITION    IV:1259901..1261271
-MOTIF       Pfam: She9_MDM33 PsbH
-DBLINKS     NCBI-GI: 6320601
+MOTIF       Pfam: She9_MDM33 DUF2371 PsbH
+DBLINKS     NCBI-ProteinID: NP_010681
             NCBI-GeneID: 852002
             SGD: S000002801
-            MIPS: YDR393W
             UniProt: Q04172
 AASEQ       456
             MLRYYGATRNLPLVFSINKLMLRASSFTRPFHYSSYSLQNGDTPDKGSTNKNEIRTPNNA

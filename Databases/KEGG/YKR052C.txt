@@ -1,14 +1,22 @@
 ENTRY       YKR052C           CDS       T00005
 NAME        MRS4
-DEFINITION  Mrs4p
+DEFINITION  (RefSeq) Fe(2+) transporter
 ORTHOLOGY   K15113  solute carrier family 25 (mitochondrial iron transporter), member 28/37
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial DNA transcription, translation, and replication factors
+              Mitochondrial transcription and translation factors
+               Other mitochondrial DNA transcription and translation factors
+                YKR052C (MRS4)
+            Transporters [BR:sce02000]
+             Solute Carrier Family (SLC)
+              SLC25: Mitochondrial carrier
+               YKR052C (MRS4)
 POSITION    XI:complement(532550..533464)
 MOTIF       Pfam: Mito_carr
-DBLINKS     NCBI-GI: 6322905
+DBLINKS     NCBI-ProteinID: NP_012978
             NCBI-GeneID: 853926
             SGD: S000001760
-            MIPS: YKR052C
             UniProt: P23500
 AASEQ       304
             MNTSELSIAEEIDYEALPSHAPLHSQLLAGAFAGIMEHSLMFPIDALKTRVQAAGLNKAA

@@ -1,16 +1,21 @@
 ENTRY       YKL125W           CDS       T00005
 NAME        RRN3
-DEFINITION  Rrn3p
+DEFINITION  (RefSeq) rDNA-binding RNA polymerase I transcriptional factor
 ORTHOLOGY   K15216  RNA polymerase I-specific transcription initiation factor RRN3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase I system
+               Other transcription-related factors
+                Transcription initiation factors
+                 YKL125W (RRN3)
 POSITION    XI:208247..210130
-MOTIF       Pfam: RRN3 DUF2457
-DBLINKS     NCBI-GI: 6322724
+MOTIF       Pfam: RRN3 Nop14
+DBLINKS     NCBI-ProteinID: NP_012797
             NCBI-GeneID: 853734
             SGD: S000001608
-            MIPS: YKL125W
             UniProt: P36070
-STRUCTURE   PDB: 3TJ1
+STRUCTURE   PDB: 3TJ1 5N61 5G5L 5N5Y 5N5Z 5N60
 AASEQ       627
             MMAFENTSKRPPQDFVAPIDQKKRKVQFSDSTGLVTLQPEEIKDEVFSAAMYSRFVKSAL
             DDLDKNDSTQIGIIANQVALPSKNPERINDKNLNILLDILSSNINRIESSRGTFLIQSII

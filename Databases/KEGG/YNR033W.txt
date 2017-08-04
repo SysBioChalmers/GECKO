@@ -1,16 +1,25 @@
 ENTRY       YNR033W           CDS       T00005
 NAME        ABZ1
-DEFINITION  4-amino-4-deoxychorismate synthase (EC:2.6.1.85)
+DEFINITION  (RefSeq) 4-amino-4-deoxychorismate synthase
 ORTHOLOGY   K13950  para-aminobenzoate synthetase [EC:2.6.1.85]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00790  Folate biosynthesis
-CLASS       Metabolism; Metabolism of cofactors and vitamins; Folate biosynthesis [PATH:sce00790]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Metabolism of cofactors and vitamins
+               00790 Folate biosynthesis
+                YNR033W (ABZ1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.6  Transferring nitrogenous groups
+               2.6.1  Transaminases
+                2.6.1.85  aminodeoxychorismate synthase
+                 YNR033W (ABZ1)
 POSITION    XIV:687635..689998
 MOTIF       Pfam: Chorismate_bind GATase Anth_synt_I_N Peptidase_C26
-DBLINKS     NCBI-GI: 6324361
+DBLINKS     NCBI-ProteinID: NP_014431
             NCBI-GeneID: 855768
             SGD: S000005316
-            MIPS: YNR033W
             UniProt: P37254
 AASEQ       787
             MLSDTIDTKQQQQQLHVLFIDSYDSFTYNVVRLIEQQTDISPGVNAVHVTTVHSDTFQSM

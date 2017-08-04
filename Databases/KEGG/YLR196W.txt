@@ -1,14 +1,21 @@
 ENTRY       YLR196W           CDS       T00005
 NAME        PWP1
-DEFINITION  Pwp1p
+DEFINITION  (RefSeq) rRNA-processing protein PWP1
 ORTHOLOGY   K14791  periodic tryptophan protein 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              90S particles
+               Other 90S particles
+                YLR196W (PWP1)
+              Pre-60S particles
+               Other pre-60S particles
+                YLR196W (PWP1)
 POSITION    XII:543968..545698
-MOTIF       Pfam: WD40 Nup160
-DBLINKS     NCBI-GI: 6323225
+MOTIF       Pfam: WD40 Nup160 SUKH_6 WD40_like PQQ_3
+DBLINKS     NCBI-ProteinID: NP_013297
             NCBI-GeneID: 850893
             SGD: S000004186
-            MIPS: YLR196W
             UniProt: P21304
 AASEQ       576
             MISATNWVPRGFSSEFPEKYVLDDEEVERINQLAQLNLDDAKATLEEAEGESGVEDDAAT

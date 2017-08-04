@@ -1,17 +1,45 @@
 ENTRY       YML049C           CDS       T00005
 NAME        RSE1
-DEFINITION  Rse1p
+DEFINITION  (RefSeq) U2 snRNP complex subunit RSE1
 ORTHOLOGY   K12830  splicing factor 3B subunit 3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03040  Spliceosome
-CLASS       Genetic Information Processing; Transcription; Spliceosome [PATH:sce03040]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03040 Spliceosome
+                YML049C (RSE1)
+            Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Coactivators
+                SAGA/TFTC/STAGA complex
+                 YML049C (RSE1)
+            Spliceosome [BR:sce03041]
+             Complex A
+              U2 snRNP components
+               U2 snRNP specific factors
+                YML049C (RSE1)
+             Complex B
+                YML049C (RSE1)
+             Complex C
+               U2 SnRNP specific factors
+                YML049C (RSE1)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Histone modification proteins
+               HAT complexes
+                STAGA complex
+                 YML049C (RSE1)
+                TFTC complex
+                 YML049C (RSE1)
 POSITION    XIII:complement(174220..178305)
-MOTIF       Pfam: CPSF_A BSP_II
-DBLINKS     NCBI-GI: 6323592
+MOTIF       Pfam: MMS1_N CPSF_A BBS2_N
+DBLINKS     NCBI-ProteinID: NP_013663
             NCBI-GeneID: 854956
             SGD: S000004513
-            MIPS: YML049C
             UniProt: Q04693
+STRUCTURE   PDB: 5LQW
 AASEQ       1361
             MWGGGKMAVVSLSPHTAKMRKLFGQASTTMAYDGLKREAERRTRSDHNITMVAKDDELYL
             YHLTLKKQTNFVHSCIGHFVDLEAGSKREQSQLCVATETHLELYDTADGELKLIAKFQNL

@@ -1,13 +1,12 @@
 ENTRY       YHR195W           CDS       T00005
 NAME        NVJ1, VAB36
-DEFINITION  Nvj1p
+DEFINITION  (RefSeq) Nvj1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VIII:490747..491712
-MOTIF       Pfam: Trypan_PARP LssY_C
-DBLINKS     NCBI-GI: 398364995
+MOTIF       Pfam: Trypan_PARP
+DBLINKS     NCBI-ProteinID: NP_012065
             NCBI-GeneID: 856602
             SGD: S000001238
-            MIPS: YHR195W
             UniProt: P38881
 AASEQ       321
             MTRPPLVRGIFSLGLSVAVLKGVEKTVRKHLERQGWIEPQKVDYELIFTIDRLKNLVDNK

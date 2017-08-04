@@ -1,6 +1,6 @@
 ENTRY       YOR340C           CDS       T00005
 NAME        RPA43
-DEFINITION  Rpa43p
+DEFINITION  (RefSeq) DNA-directed RNA polymerase I subunit RPA43
 ORTHOLOGY   K03004  DNA-directed RNA polymerase I subunit RPA43
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00230  Purine metabolism
@@ -8,17 +8,31 @@ PATHWAY     sce00230  Purine metabolism
             sce01100  Metabolic pathways
             sce03020  RNA polymerase
 MODULE      sce_M00182  RNA polymerase I, eukaryotes
-CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
-            Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
-            Genetic Information Processing; Transcription; RNA polymerase [PATH:sce03020]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Nucleotide metabolism
+               00230 Purine metabolism
+                YOR340C (RPA43)
+               00240 Pyrimidine metabolism
+                YOR340C (RPA43)
+             Genetic Information Processing
+              Transcription
+               03020 RNA polymerase
+                YOR340C (RPA43)
+            Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase I system
+               RNA polymerase I
+                Pol I specific subunits
+                 YOR340C (RPA43)
 POSITION    XV:complement(959202..960182)
-MOTIF       Pfam: SHS2_Rpb7-N RicinB_lectin_2
-DBLINKS     NCBI-GI: 6324916
+MOTIF       Pfam: SHS2_Rpb7-N
+DBLINKS     NCBI-ProteinID: NP_014985
             NCBI-GeneID: 854518
             SGD: S000005867
-            MIPS: YOR340C
             UniProt: P46669
-STRUCTURE   PDB: 4C2M 4C3I 2RF4 4C3H 4C3J
+STRUCTURE   PDB: 4C2M 4C3I 2RF4 4C3H 4C3J 5N61 5M5W 5M3F 5M5X 5M5Y 5M3M
+                 5M64 5G5L 5LMX 5N5Y 5N5Z 5N60
 AASEQ       326
             MSQVKRANENRETARFIKKHKKQVTNPIDEKNGTSNCIVRVPIALYVSLAPMYLENPLQG
             VMKQHLNPLVMKYNNKVGGVVLGYEGLKILDADPLSKEDTSEKLIKITPDTPFGFTWCHV

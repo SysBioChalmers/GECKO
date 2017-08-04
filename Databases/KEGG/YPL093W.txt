@@ -1,16 +1,24 @@
 ENTRY       YPL093W           CDS       T00005
 NAME        NOG1
-DEFINITION  Nog1p
+DEFINITION  (RefSeq) putative GTPase NOG1
 ORTHOLOGY   K06943  nucleolar GTP-binding protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03008  Ribosome biogenesis in eukaryotes
-CLASS       Genetic Information Processing; Translation; Ribosome biogenesis in eukaryotes [PATH:sce03008]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03008 Ribosome biogenesis in eukaryotes
+                YPL093W (NOG1)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               GTPases
+                YPL093W (NOG1)
 POSITION    XVI:370978..372921
-MOTIF       Pfam: NOGCT NOG1 MMR_HSR1 FeoB_N Gtr1_RagA Miro
-DBLINKS     NCBI-GI: 6325164
+MOTIF       Pfam: NOGCT NOG1 MMR_HSR1 FeoB_N Gtr1_RagA AAA_16 Roc
+DBLINKS     NCBI-ProteinID: NP_015232
             NCBI-GeneID: 856012
             SGD: S000006014
-            MIPS: YPL093W
             UniProt: Q02892
 AASEQ       647
             MQLSWKDIPTVAPANDLLDIVLNRTQRKTPTVIRPGFKITRIRAFYMRKVKYTGEGFVEK

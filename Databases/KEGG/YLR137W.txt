@@ -1,13 +1,12 @@
 ENTRY       YLR137W           CDS       T00005
 NAME        RKM5
-DEFINITION  Rkm5p (EC:2.1.1.-)
+DEFINITION  (RefSeq) S-adenosylmethionine-dependent methyltransferase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XII:417006..418109
-MOTIF       Pfam: Methyltransf_16 DUF390
-DBLINKS     NCBI-GI: 6323166
+MOTIF       Pfam: Methyltransf_16
+DBLINKS     NCBI-ProteinID: NP_013238
             NCBI-GeneID: 850828
             SGD: S000004127
-            MIPS: YLR137W
             UniProt: Q12367
 AASEQ       367
             MAFKLWLLDEETIYEHVFERYTQLEGQSGKLAQDLGIQDRRGGVLEITFEPSGLEGGRKK

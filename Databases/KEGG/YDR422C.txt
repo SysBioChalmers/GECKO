@@ -1,13 +1,12 @@
 ENTRY       YDR422C           CDS       T00005
 NAME        SIP1
-DEFINITION  Sip1p
+DEFINITION  (RefSeq) Sip1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(1315326..1317773)
-MOTIF       Pfam: AMPKBI SAB
-DBLINKS     NCBI-GI: 398366583
+MOTIF       Pfam: AMPKBI AMPK1_CBM
+DBLINKS     NCBI-ProteinID: NP_010710
             NCBI-GeneID: 852032
             SGD: S000002830
-            MIPS: YDR422C
             UniProt: P32578
 AASEQ       815
             MGNSPSTQDPSHSTKKEHGHHFHDAFNKDRQGSITSQLFNNRKSTHKRRASHTSEHNGAI

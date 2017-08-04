@@ -1,12 +1,12 @@
 ENTRY       YKL100C           CDS       T00005
-DEFINITION  hypothetical protein (EC:3.4.23.-)
+NAME        YPF1
+DEFINITION  (RefSeq) aspartic endopeptidase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XI:complement(253697..255460)
-MOTIF       Pfam: Peptidase_A22B DUF3815 LrgA
-DBLINKS     NCBI-GI: 6322749
+MOTIF       Pfam: Peptidase_A22B RhoGEF
+DBLINKS     NCBI-ProteinID: NP_012822
             NCBI-GeneID: 853761
             SGD: S000001583
-            MIPS: YKL100C
             UniProt: P34248
 AASEQ       587
             MDKYLNSFVDHLSEWSSRAFRNNSSSANQSASNKELEQVFEQINAIVENHNNKLTTAFDK

@@ -1,13 +1,12 @@
 ENTRY       YHR122W           CDS       T00005
 NAME        CIA2
-DEFINITION  Cia2p
+DEFINITION  (RefSeq) iron-sulfur cluster assembly protein CIA2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VIII:353625..354320
-MOTIF       Pfam: DUF59
-DBLINKS     NCBI-GI: 6321914
+MOTIF       Pfam: FeS_assembly_P
+DBLINKS     NCBI-ProteinID: NP_011990
             NCBI-GeneID: 856522
             SGD: S000001164
-            MIPS: YHR122W
             UniProt: P38829
 AASEQ       231
             MSEFLNENPDILEENQLPTRKEDSTKDLLLGGFSNEATLERRSLLLKIDHSLKSQVLQDI

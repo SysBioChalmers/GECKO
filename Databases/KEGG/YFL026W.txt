@@ -1,17 +1,26 @@
 ENTRY       YFL026W           CDS       T00005
 NAME        STE2
-DEFINITION  Ste2p
+DEFINITION  (RefSeq) alpha-factor pheromone receptor STE2
 ORTHOLOGY   K11213  pheromone alpha factor receptor
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04011  MAPK signaling pathway - yeast
-CLASS       Environmental Information Processing; Signal transduction; MAPK signaling pathway - yeast [PATH:sce04011]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YFL026W (STE2)
+            G protein-coupled receptors [BR:sce04030]
+             Others
+              Chemoreception
+               Fungal mating pheromone
+                YFL026W (STE2)
 POSITION    VI:82580..83875
-MOTIF       Pfam: STE2
-DBLINKS     NCBI-GI: 330443535
+MOTIF       Pfam: STE2 Mannosyl_trans4
+DBLINKS     NCBI-ProteinID: NP_116627
             NCBI-GeneID: 850518
             SGD: S000001868
-            MIPS: YFL026W
             UniProt: D6VTK4
+STRUCTURE   PDB: 2K9P
 AASEQ       431
             MSDAAPSLSNLFYDPTYNPGQSTINYTSIYGNGSTITFDELQGLVNSTVTQAIMFGVRCG
             AAALTLIVMWMTSRSRKTPIFIINQVSLFLIILHSALYFKYLLSNYSSVTYALTGFPQFI

@@ -1,16 +1,39 @@
 ENTRY       YER144C           CDS       T00005
 NAME        UBP5
-DEFINITION  Ubp5p (EC:3.4.19.12 3.1.2.15)
-ORTHOLOGY   K11839  ubiquitin carboxyl-terminal hydrolase 8 [EC:3.1.2.15]
+DEFINITION  (RefSeq) putative ubiquitin-specific protease UBP5
+ORTHOLOGY   K11839  ubiquitin carboxyl-terminal hydrolase 8 [EC:3.4.19.12]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04144  Endocytosis
-CLASS       Cellular Processes; Transport and catabolism; Endocytosis [PATH:sce04144]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04144 Endocytosis
+                YER144C (UBP5)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.4  Acting on peptide bonds (peptidases)
+               3.4.19  Omega peptidases
+                3.4.19.12  ubiquitinyl hydrolase 1
+                 YER144C (UBP5)
+            Peptidases [BR:sce01002]
+             Cysteine Peptidases
+              Family C19: ubiquitin-specific protease family
+               YER144C (UBP5)
+            Membrane trafficking [BR:sce04131]
+             Endosome - Lysosome transport
+              Others
+               Others
+                YER144C (UBP5)
+            Ubiquitin system [BR:sce04121]
+             Deubiquitinating enzyme (DUB)
+              Ubiquitin-specific proteases (UBPs)
+               UBP/USP
+                YER144C (UBP5)
 POSITION    V:complement(457806..460223)
-MOTIF       Pfam: UCH UCH_1 Rhodanese
-DBLINKS     NCBI-GI: 398364885
+MOTIF       Pfam: UCH UCH_1 Rhodanese zf-MIZ
+DBLINKS     NCBI-ProteinID: NP_011071
             NCBI-GeneID: 856887
             SGD: S000000946
-            MIPS: YER144C
             UniProt: P39944
 AASEQ       805
             MGSEQALSEVVESAKERFGRLRHLVQKFLDDDDVPQECLPLLQECAEIWSSYVDACQDIT

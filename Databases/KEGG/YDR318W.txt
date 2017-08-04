@@ -1,14 +1,21 @@
 ENTRY       YDR318W           CDS       T00005
 NAME        MCM21, CTF5
-DEFINITION  Mcm21p
+DEFINITION  (RefSeq) Mcm21p
 ORTHOLOGY   K11552  central kinetochore subunit Mal2/MCM21
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centromeric chromatin formation proteins
+               Kinetochore proteins
+                Mis6 complex
+                 YDR318W (MCM21)
+                COMA complex
+                 YDR318W (MCM21)
 POSITION    IV:join(1103758..1103809,1103893..1104947)
-MOTIF       Pfam: CENP-O AAA_13 DivIC Seryl_tRNA_N Laminin_II Myosin_tail_1 DUF948 Ax_dynein_light Atg14 Tropomyosin_1 DivIVA Prefoldin_2 IncA
-DBLINKS     NCBI-GI: 398366481
+MOTIF       Pfam: CENP-O JIP_LZII AAA_13 Laminin_II DivIC Ax_dynein_light Atg14 FlaC_arch IncA DivIVA
+DBLINKS     NCBI-ProteinID: NP_010604
             NCBI-GeneID: 851916
             SGD: S000002726
-            MIPS: YDR318W
             UniProt: Q06675
 AASEQ       368
             MSRIDDLQQDIESLLSEINSLEESREKLKAKIKDKRKNEESANPIVQEFEDLFDQFPQLN

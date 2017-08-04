@@ -1,12 +1,12 @@
 ENTRY       YKR091W           CDS       T00005
-NAME        SRL3
-DEFINITION  Srl3p
+NAME        SRL3, WHI7
+DEFINITION  (RefSeq) DNA-binding protein SRL3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XI:611525..612265
-DBLINKS     NCBI-GI: 50593426
+MOTIF       Pfam: Mfa1
+DBLINKS     NCBI-ProteinID: NP_013017
             NCBI-GeneID: 853966
             SGD: S000001799
-            MIPS: YKR091W
             UniProt: P36167
 AASEQ       246
             MFLKTPNWETVNETPKSRVLTINELISPNLDTESNSLLATPARKYFKTSISEAQDSPTSA

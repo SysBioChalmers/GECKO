@@ -1,14 +1,13 @@
 ENTRY       YBR103W           CDS       T00005
 NAME        SIF2, EMB1
-DEFINITION  Sif2p
+DEFINITION  (RefSeq) Sif2p
 ORTHOLOGY   K04508  transducin (beta)-like 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    II:447709..449316
-MOTIF       Pfam: WD40 LisH RAB3GAP2_N eIF2A Nup160
-DBLINKS     NCBI-GI: 6319579
+MOTIF       Pfam: WD40 ANAPC4_WD40 LisH WD40_like RAB3GAP2_N eIF2A WD40_3
+DBLINKS     NCBI-ProteinID: NP_009661
             NCBI-GeneID: 852399
             SGD: S000000307
-            MIPS: YBR103W
             UniProt: P38262
 STRUCTURE   PDB: 1R5M
 AASEQ       535

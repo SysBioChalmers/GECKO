@@ -1,12 +1,11 @@
 ENTRY       YDR210W-A         CDS       T00005
-DEFINITION  gag protein
+DEFINITION  (RefSeq) gag protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:872112..873428
-MOTIF       Pfam: TYA UBN2
-DBLINKS     NCBI-GI: 7839153
+MOTIF       Pfam: TYA Retrotran_gag_2
+DBLINKS     NCBI-ProteinID: NP_058143
             NCBI-GeneID: 851792
             SGD: S000007392
-            MIPS: YDR210W-A
             UniProt: Q03483
 AASEQ       438
             MESQQLHQNPHSQHGSAYASVTSKEVPSNQDPLAVSASNLPEFDRDSTKVNSQEETTPGT

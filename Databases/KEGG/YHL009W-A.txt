@@ -1,12 +1,11 @@
 ENTRY       YHL009W-A         CDS       T00005
-DEFINITION  gag protein
+DEFINITION  (RefSeq) gag protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VIII:85909..87150
-MOTIF       Pfam: DUF4208
-DBLINKS     NCBI-GI: 7839179
+MOTIF       Pfam: CorA
+DBLINKS     NCBI-ProteinID: NP_058134
             NCBI-GeneID: 856379
             SGD: S000007371
-            MIPS: YHL009W-A
             UniProt: Q6Q5P6
 AASEQ       413
             MATPVRDETRNVIDDNISARIQSKVKTNDTVRQTPSSLRKVSIKDEQVKQYQRNLNRFKT

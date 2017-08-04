@@ -1,13 +1,19 @@
 ENTRY       YER155C           CDS       T00005
 NAME        BEM2, IPL2, SUP9, TSL1
-DEFINITION  Bem2p
+DEFINITION  (RefSeq) Bem2p
+ORTHOLOGY   K19844  GTPase-activating protein BEM2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04011  MAPK signaling pathway - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YER155C (BEM2)
 POSITION    V:complement(476345..482848)
-MOTIF       Pfam: RhoGAP RasGEF RasGEF_N
-DBLINKS     NCBI-GI: 398364959
+MOTIF       Pfam: RhoGAP RasGEF_N RasGEF PH PH_9
+DBLINKS     NCBI-ProteinID: NP_011082
             NCBI-GeneID: 856899
             SGD: S000000957
-            MIPS: YER155C
             UniProt: P39960
 AASEQ       2167
             MKGLLWSKNRKSSTASASSSSTSTSHKTTTASTASSSSPSSSSQTIRNSTSGASPYMHSH

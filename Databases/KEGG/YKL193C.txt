@@ -1,14 +1,19 @@
 ENTRY       YKL193C           CDS       T00005
 NAME        SDS22, EGP1
-DEFINITION  Sds22p
+DEFINITION  (RefSeq) type 1 protein phosphatase-activating protein SDS22
 ORTHOLOGY   K17550  protein phosphatase 1 regulatory subunit 7
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Protein phosphatases and associated proteins [BR:sce01009]
+             Protein Ser/ Thr phosphatases
+              Phosphoprotein phosphatases (PPPs)
+               Protein phosphatase-1
+                PP1-interacting proteins (PIPs)
+                 YKL193C (SDS22)
 POSITION    XI:complement(78866..79882)
-MOTIF       Pfam: LRR_4 LRR_8 LRR_1 LRR_9 LRR_6 LRR_7 LRR_5
-DBLINKS     NCBI-GI: 6322655
+MOTIF       Pfam: LRR_4 LRR_8 LRR_9 LRR_6 LRR_1 LRR_5 2H-phosphodiest
+DBLINKS     NCBI-ProteinID: NP_012728
             NCBI-GeneID: 853641
             SGD: S000001676
-            MIPS: YKL193C
             UniProt: P36047
 AASEQ       338
             MDKNSVNKDSEEKDERHKIEVVDDTNPDFITADSELTQDLPDDVEVIDLVHLKIKSLEDL

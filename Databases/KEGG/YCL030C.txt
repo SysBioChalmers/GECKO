@@ -1,6 +1,6 @@
 ENTRY       YCL030C           CDS       T00005
 NAME        HIS4
-DEFINITION  trifunctional histidinol dehydrogenase/phosphoribosyl-AMP cyclohydrolase/phosphoribosyl-ATP diphosphatase (EC:3.6.1.31 3.5.4.19 1.1.1.23)
+DEFINITION  (RefSeq) trifunctional histidinol dehydrogenase/phosphoribosyl-AMP cyclohydrolase/phosphoribosyl-ATP diphosphatase
 ORTHOLOGY   K14152  phosphoribosyl-ATP pyrophosphohydrolase / phosphoribosyl-AMP cyclohydrolase / histidinol dehydrogenase [EC:3.6.1.31 3.5.4.19 1.1.1.23]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00340  Histidine metabolism
@@ -8,14 +8,34 @@ PATHWAY     sce00340  Histidine metabolism
             sce01110  Biosynthesis of secondary metabolites
             sce01230  Biosynthesis of amino acids
 MODULE      sce_M00026  Histidine biosynthesis, PRPP => histidine
-CLASS       Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
-            Metabolism; Amino acid metabolism; Histidine metabolism [PATH:sce00340]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01230 Biosynthesis of amino acids
+                YCL030C (HIS4)
+              Amino acid metabolism
+               00340 Histidine metabolism
+                YCL030C (HIS4)
+            Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.1  Acting on the CH-OH group of donors
+               1.1.1  With NAD+ or NADP+ as acceptor
+                1.1.1.23  histidinol dehydrogenase
+                 YCL030C (HIS4)
+             3. Hydrolases
+              3.5  Acting on carbon-nitrogen bonds, other than peptide bonds
+               3.5.4  In cyclic amidines
+                3.5.4.19  phosphoribosyl-AMP cyclohydrolase
+                 YCL030C (HIS4)
+              3.6  Acting on acid anhydrides
+               3.6.1  In phosphorus-containing anhydrides
+                3.6.1.31  phosphoribosyl-ATP diphosphatase
+                 YCL030C (HIS4)
 POSITION    III:complement(65934..68333)
 MOTIF       Pfam: Histidinol_dh PRA-CH PRA-PH
-DBLINKS     NCBI-GI: 10383761
+DBLINKS     NCBI-ProteinID: NP_009900
             NCBI-GeneID: 850327
             SGD: S000000535
-            MIPS: YCL030C
             UniProt: P00815
 AASEQ       799
             MVLPILPLIDDLASWNSKKEYVSLVGQVLLDGSSLSNEEILQFSKEEEVPLVALSLPSGK

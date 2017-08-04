@@ -1,14 +1,24 @@
 ENTRY       YHR065C           CDS       T00005
 NAME        RRP3
-DEFINITION  RNA-dependent ATPase RRP3 (EC:3.6.4.- 3.6.4.13)
+DEFINITION  (RefSeq) RNA-dependent ATPase RRP3
 ORTHOLOGY   K14777  ATP-dependent RNA helicase DDX47/RRP3 [EC:3.6.4.13]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.4  Acting on acid anhydrides to facilitate cellular and subcellular movement
+                3.6.4.13  RNA helicase
+                 YHR065C (RRP3)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              90S particles
+               Helicases
+                YHR065C (RRP3)
 POSITION    VIII:complement(227532..229037)
-MOTIF       Pfam: DEAD Helicase_C ResIII
-DBLINKS     NCBI-GI: 37362659
+MOTIF       Pfam: DEAD Helicase_C ResIII AAA_30 AAA_19 DUF4692
+DBLINKS     NCBI-ProteinID: NP_011932
             NCBI-GeneID: 856462
             SGD: S000001107
-            MIPS: YHR065C
             UniProt: P38712
 AASEQ       501
             MSKIVKRKEKKANDELTSLAEKIRAKALENQKKLIEAEKEGGSESDSEEDATAEKKKVLK

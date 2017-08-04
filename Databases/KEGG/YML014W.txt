@@ -1,14 +1,24 @@
 ENTRY       YML014W           CDS       T00005
 NAME        TRM9, KTI1
-DEFINITION  Trm9p (EC:2.1.1.229)
+DEFINITION  (RefSeq) tRNA (carboxymethyluridine(34)-5-O)-methyltransferase
 ORTHOLOGY   K15444  tRNA (uracil-5-)-methyltransferase TRM9 [EC:2.1.1.229]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.1  Transferring one-carbon groups
+               2.1.1  Methyltransferases
+                2.1.1.229  tRNA (carboxymethyluridine34-5-O)-methyltransferase
+                 YML014W (TRM9)
+            Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              tRNA modification factors
+               Methyltransferases
+                YML014W (TRM9)
 POSITION    XIII:243225..244064
-MOTIF       Pfam: Methyltransf_11 Methyltransf_12 Methyltransf_23 Methyltransf_31 Methyltransf_25 Methyltransf_18 Cytochrom_C
-DBLINKS     NCBI-GI: 6323627
+MOTIF       Pfam: Methyltransf_11 Methyltransf_25 Methyltransf_12 Methyltransf_23 Methyltransf_31
+DBLINKS     NCBI-ProteinID: NP_013698
             NCBI-GeneID: 854994
             SGD: S000004476
-            MIPS: YML014W
             UniProt: P49957
 AASEQ       279
             MEINQAAEKEQEYVHKVYNEIAPHFSQTRYKPWPIVTQFLKTRPMGSIGIDVGCGNGKYL

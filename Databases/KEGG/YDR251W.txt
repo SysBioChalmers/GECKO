@@ -1,13 +1,12 @@
 ENTRY       YDR251W           CDS       T00005
 NAME        PAM1
-DEFINITION  Pam1p
+DEFINITION  (RefSeq) Pam1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:960614..963106
-MOTIF       Pfam: ApbA_C Ax_dynein_light
-DBLINKS     NCBI-GI: 398366273
+MOTIF       Pfam: ApbA_C
+DBLINKS     NCBI-ProteinID: NP_010537
             NCBI-GeneID: 851838
             SGD: S000002659
-            MIPS: YDR251W
             UniProt: P37304
 AASEQ       830
             MTSALRVLVCGDHPNLILYTSRFQHAKNIEFYLVNNSKNANYEVSSLFYGTERFQIQNHF

@@ -1,20 +1,30 @@
 ENTRY       YPR162C           CDS       T00005
 NAME        ORC4
-DEFINITION  origin recognition complex subunit 4
+DEFINITION  (RefSeq) origin recognition complex subunit 4
 ORTHOLOGY   K02606  origin recognition complex subunit 4
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
             sce04113  Meiosis - yeast
 MODULE      sce_M00284  Origin recognition complex
-CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
-            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YPR162C (ORC4)
+               04113 Meiosis - yeast
+                YPR162C (ORC4)
+            DNA replication proteins [BR:sce03032]
+             Eukaryotic Type
+              DNA Replication Initiation Factors
+               pre-RC (pre-replication complex)
+                YPR162C (ORC4)
 POSITION    XVI:complement(866715..868304)
-MOTIF       Pfam: ORC4_C AAA_16 Arch_ATPase Ins_allergen_rp
-DBLINKS     NCBI-GI: 6325420
+MOTIF       Pfam: ORC4_C AAA_22 AAA_14 AAA
+DBLINKS     NCBI-ProteinID: NP_015488
             NCBI-GeneID: 856291
             SGD: S000006366
-            MIPS: YPR162C
             UniProt: P54791
+STRUCTURE   PDB: 5UDB
 AASEQ       529
             MTISEARLSPQVNLLPIKRHSNEEVEETAAILKKRTIDNEKCKDSDPGFGSLQRRLLQQL
             YGTLPTDEKIIFTYLQDCQQEIDRIIKQSIIQKESHSVILVGPRQSYKTYLLDYELSLLQ

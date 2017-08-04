@@ -1,14 +1,19 @@
 ENTRY       YMR270C           CDS       T00005
 NAME        RRN9
-DEFINITION  Rrn9p
+DEFINITION  (RefSeq) Rrn9p
 ORTHOLOGY   K15220  RNA polymerase I-specific transcription initiation factor RRN9
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase I system
+               Other transcription-related factors
+                Transcription initiation factors
+                 YMR270C (RRN9)
 POSITION    XIII:complement(805326..806423)
 MOTIF       Pfam: RRN9
-DBLINKS     NCBI-GI: 6323926
+DBLINKS     NCBI-ProteinID: NP_013997
             NCBI-GeneID: 855312
             SGD: S000004883
-            MIPS: YMR270C
             UniProt: P53437
 AASEQ       365
             MSDLDEESQIETQIDAPIEDIIRGSELTTTTADKETLKSANELLDSLEHSHRVDLSLHLY

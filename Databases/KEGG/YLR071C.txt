@@ -1,14 +1,19 @@
 ENTRY       YLR071C           CDS       T00005
 NAME        RGR1, MED14
-DEFINITION  Rgr1p
+DEFINITION  (RefSeq) Rgr1p
 ORTHOLOGY   K15156  mediator of RNA polymerase II transcription subunit 14
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Mediator complex
+                Tail
+                 YLR071C (RGR1)
 POSITION    XII:complement(275378..278626)
-MOTIF       Pfam: Med14
-DBLINKS     NCBI-GI: 6323100
+MOTIF       Pfam: Med14 CDT1
+DBLINKS     NCBI-ProteinID: NP_013172
             NCBI-GeneID: 850760
             SGD: S000004061
-            MIPS: YLR071C
             UniProt: P19263
 AASEQ       1082
             MTTTIGSPQMLANEERLSNEMHALKNRSEQNGQEQQGPVKNTQLHGPSATDPETTATQKE

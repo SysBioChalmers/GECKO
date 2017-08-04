@@ -1,14 +1,30 @@
 ENTRY       YKL013C           CDS       T00005
 NAME        ARC19
-DEFINITION  Arc19p
+DEFINITION  (RefSeq) Arc19p
 ORTHOLOGY   K05755  actin related protein 2/3 complex, subunit 4
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04144  Endocytosis
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04144 Endocytosis
+                YKL013C (ARC19)
+            Membrane trafficking [BR:sce04131]
+             Others
+              Actin-binding proteins
+               Arp2/3 complex
+                YKL013C (ARC19)
+            Cytoskeleton proteins [BR:sce04812]
+             Eukaryotic cytoskeleton proteins
+              Actin filaments / Microfilaments
+               Actin-binding proteins
+                Arp2/3 complex
+                 YKL013C (ARC19)
 POSITION    XI:complement(417508..418023)
 MOTIF       Pfam: ARPC4
-DBLINKS     NCBI-GI: 6322839
+DBLINKS     NCBI-ProteinID: NP_012912
             NCBI-GeneID: 853856
             SGD: S000001496
-            MIPS: YKL013C
             UniProt: P33204
 AASEQ       171
             MSQSLRPYLTAVRYSLEAALTLSNFSSQEVERHNRPEVEVPNTSAELLLQPMHISRNENE

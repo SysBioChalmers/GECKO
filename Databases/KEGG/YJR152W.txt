@@ -1,14 +1,18 @@
 ENTRY       YJR152W           CDS       T00005
 NAME        DAL5, UREP1
-DEFINITION  Dal5p
+DEFINITION  (RefSeq) allantoate permease
 ORTHOLOGY   K08192  MFS transporter, ACS family, allantoate permease
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Major Facilitator Superfamily (MFS)
+              Organic acid transporters
+               Anion:cation symporter (ACS) family [TC:2.A.1.14]
+                YJR152W (DAL5)
 POSITION    X:719666..721297
-MOTIF       Pfam: MFS_1 ESSS DUF1228
-DBLINKS     NCBI-GI: 398365637
+MOTIF       Pfam: MFS_1 MFS_4
+DBLINKS     NCBI-ProteinID: NP_012686
             NCBI-GeneID: 853617
             SGD: S000003913
-            MIPS: YJR152W
             UniProt: P15365
 AASEQ       543
             MSADASTNSNASLDEKNLNITSEAEIKNEDVTAEPVLSTVLSPNGKIVYISDKVDEAMKL

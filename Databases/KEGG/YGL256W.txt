@@ -1,6 +1,6 @@
 ENTRY       YGL256W           CDS       T00005
 NAME        ADH4, NRC465, ZRG5
-DEFINITION  alcohol dehydrogenase ADH4 (EC:1.1.1.190 1.1.1.1)
+DEFINITION  (RefSeq) alcohol dehydrogenase ADH4
 ORTHOLOGY   K13954  alcohol dehydrogenase [EC:1.1.1.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00010  Glycolysis / Gluconeogenesis
@@ -8,17 +8,29 @@ PATHWAY     sce00010  Glycolysis / Gluconeogenesis
             sce00350  Tyrosine metabolism
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
-            sce01220  Degradation of aromatic compounds
-CLASS       Metabolism; Overview; Degradation of aromatic compounds [PATH:sce01220]
-            Metabolism; Carbohydrate metabolism; Glycolysis / Gluconeogenesis [PATH:sce00010]
-            Metabolism; Lipid metabolism; Fatty acid degradation [PATH:sce00071]
-            Metabolism; Amino acid metabolism; Tyrosine metabolism [PATH:sce00350]
+            sce01130  Biosynthesis of antibiotics
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Carbohydrate metabolism
+               00010 Glycolysis / Gluconeogenesis
+                YGL256W (ADH4)
+              Lipid metabolism
+               00071 Fatty acid degradation
+                YGL256W (ADH4)
+              Amino acid metabolism
+               00350 Tyrosine metabolism
+                YGL256W (ADH4)
+            Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.1  Acting on the CH-OH group of donors
+               1.1.1  With NAD+ or NADP+ as acceptor
+                1.1.1.1  alcohol dehydrogenase
+                 YGL256W (ADH4)
 POSITION    VII:15159..16307
 MOTIF       Pfam: Fe-ADH Fe-ADH_2 Lamprin
-DBLINKS     NCBI-GI: 269970305
+DBLINKS     NCBI-ProteinID: NP_011258
             NCBI-GeneID: 852636
             SGD: S000003225
-            MIPS: YGL256W
             UniProt: P10127
 AASEQ       382
             MSSVTGFYIPPISFFGEGALEETADYIKNKDYKKALIVTDPGIAAIGLSGRVQKMLEERD

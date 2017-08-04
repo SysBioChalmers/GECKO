@@ -1,14 +1,24 @@
 ENTRY       YGL243W           CDS       T00005
 NAME        TAD1
-DEFINITION  Tad1p (EC:3.5.4.4)
+DEFINITION  (RefSeq) tRNA-specific adenosine deaminase
 ORTHOLOGY   K15440  tRNA-specific adenosine deaminase 1 [EC:3.5.4.34]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.5  Acting on carbon-nitrogen bonds, other than peptide bonds
+               3.5.4  In cyclic amidines
+                3.5.4.34  tRNAAla(adenine37) deaminase
+                 YGL243W (TAD1)
+            Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              tRNA modification factors
+               Deaminases
+                YGL243W (TAD1)
 POSITION    VII:43307..44509
 MOTIF       Pfam: A_deamin CCDC92
-DBLINKS     NCBI-GI: 6321194
+DBLINKS     NCBI-ProteinID: NP_011271
             NCBI-GeneID: 852608
             SGD: S000003212
-            MIPS: YGL243W
             UniProt: P53065
 AASEQ       400
             MVSCQGTRPCIVNLLTMPSEDKLGEEISTRVINEYSKLKSACRPIIRPSGIREWTILAGV

@@ -1,16 +1,29 @@
 ENTRY       YJL106W           CDS       T00005
 NAME        IME2, SME1
-DEFINITION  Ime2p (EC:2.7.11.1)
+DEFINITION  (RefSeq) protein kinase IME2
 ORTHOLOGY   K12765  meiosis induction protein kinase IME2/SME1 [EC:2.7.11.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04113  Meiosis - yeast
-CLASS       Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04113 Meiosis - yeast
+                YJL106W (IME2)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.11  Protein-serine/threonine kinases
+                2.7.11.1  non-specific serine/threonine protein kinase
+                 YJL106W (IME2)
+            Protein kinases [BR:sce01001]
+             Serine/threonine protein kinases: CMGC group
+              RCK family [OT]
+               YJL106W (IME2)
 POSITION    X:221390..223327
-MOTIF       Pfam: Pkinase Pkinase_Tyr Pox_ser-thr_kin Kdo
-DBLINKS     NCBI-GI: 6322355
+MOTIF       Pfam: Pkinase Pkinase_Tyr Pox_ser-thr_kin Haspin_kinase Kdo
+DBLINKS     NCBI-ProteinID: NP_012429
             NCBI-GeneID: 853338
             SGD: S000003642
-            MIPS: YJL106W
             UniProt: P32581
 AASEQ       645
             MVEKRSRQSSSSGSEFSVPPDVDNPPLSIPLKTLSDRYQLIEKLGAGSFGCVTLAKAQFP

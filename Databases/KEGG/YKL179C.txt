@@ -1,14 +1,18 @@
 ENTRY       YKL179C           CDS       T00005
 NAME        COY1
-DEFINITION  Coy1p
+DEFINITION  (RefSeq) Coy1p
 ORTHOLOGY   K09313  homeobox protein cut-like
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription factors [BR:sce03000]
+             Eukaryotic Type
+              Helix-turn-helix
+               Homeo domain only, Cut
+                YKL179C (COY1)
 POSITION    XI:complement(110464..112503)
-MOTIF       Pfam: CASP_C FUSC Mnd1
-DBLINKS     NCBI-GI: 6322669
+MOTIF       Pfam: CASP_C FUSC
+DBLINKS     NCBI-ProteinID: NP_012742
             NCBI-GeneID: 853675
             SGD: S000001662
-            MIPS: YKL179C
             UniProt: P34237
 AASEQ       679
             MDTSVYSHALDIWAKADLTNLQRELDADVIEIKDKETLSLNSRKSLATETKKFKKLEPEE

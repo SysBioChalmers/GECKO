@@ -1,14 +1,13 @@
 ENTRY       YJL105W           CDS       T00005
 NAME        SET4
-DEFINITION  Set4p
-ORTHOLOGY   K07117
+DEFINITION  (RefSeq) Set4p
+ORTHOLOGY   K07117  uncharacterized protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    X:225055..226737
-MOTIF       Pfam: SET PHD PHD_2
-DBLINKS     NCBI-GI: 6322356
+MOTIF       Pfam: PHD SET PHD_2 YycH Prok-RING_1 Bac_small_YrzI
+DBLINKS     NCBI-ProteinID: NP_012430
             NCBI-GeneID: 853339
             SGD: S000003641
-            MIPS: YJL105W
             UniProt: P42948
 AASEQ       560
             MTSPESLSSRHIRQGRTYTTTDKVISRSSSYSSNSSMSKDYGDHTPLSVSSAASETLPSP

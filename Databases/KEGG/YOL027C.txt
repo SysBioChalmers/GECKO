@@ -1,14 +1,28 @@
 ENTRY       YOL027C           CDS       T00005
 NAME        MDM38, MKH1
-DEFINITION  Mdm38p
+DEFINITION  (RefSeq) ribosome-binding protein MDM38
 ORTHOLOGY   K17800  LETM1 and EF-hand domain-containing protein 1, mitochondrial
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04139  Mitophagy - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04139 Mitophagy - yeast
+                YOL027C (MDM38)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial protein import machinery
+              Inner mambrane
+               Other inner membrane factors
+                YOL027C (MDM38)
+            Transporters [BR:sce02000]
+             Other Transporters
+              Electrochemical potential-driven transporters [TC:2]
+               YOL027C (MDM38)
 POSITION    XV:complement(272003..273724)
 MOTIF       Pfam: LETM1
-DBLINKS     NCBI-GI: 6324546
+DBLINKS     NCBI-ProteinID: NP_014615
             NCBI-GeneID: 854130
             SGD: S000005387
-            MIPS: YOL027C
             UniProt: Q08179
 STRUCTURE   PDB: 3SKQ
 AASEQ       573

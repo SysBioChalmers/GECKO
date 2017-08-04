@@ -1,13 +1,12 @@
 ENTRY       YDL049C           CDS       T00005
 NAME        KNH1
-DEFINITION  Knh1p
+DEFINITION  (RefSeq) Knh1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(365068..365874)
-MOTIF       Pfam: KRE9 GPI-anchored SusE DUF932
-DBLINKS     NCBI-GI: 6320154
+MOTIF       Pfam: KRE9 GPI-anchored
+DBLINKS     NCBI-ProteinID: NP_010234
             NCBI-GeneID: 851511
             SGD: S000002207
-            MIPS: YDL049C
             UniProt: P50112
 AASEQ       268
             MLIVLFLTLFCSVVFRTAYCDVAIVAPEPNSVYDLSGTSQAVVKVKWMHTDNTPQEKDFV

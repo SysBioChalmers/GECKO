@@ -1,13 +1,12 @@
 ENTRY       YJL131C           CDS       T00005
 NAME        AIM23
-DEFINITION  Aim23p
+DEFINITION  (RefSeq) Aim23p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    X:complement(164278..165348)
-MOTIF       Pfam: mIF3 PBP_like_2
-DBLINKS     NCBI-GI: 6322330
+MOTIF       Pfam: mIF3
+DBLINKS     NCBI-ProteinID: NP_012404
             NCBI-GeneID: 853310
             SGD: S000003667
-            MIPS: YJL131C
             UniProt: P47015
 AASEQ       356
             MLKVPLSDVLSQKMLFLKSFRYFHCTKYFSRDNASSTTDIFRNAMKRKRELANLKEQSHG

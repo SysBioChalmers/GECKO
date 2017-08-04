@@ -1,16 +1,25 @@
 ENTRY       YPL096W           CDS       T00005
 NAME        PNG1
-DEFINITION  Png1p (EC:3.5.1.52)
+DEFINITION  (RefSeq) peptide-N4-(N-acetyl-beta-glucosaminyl)asparagine amidase
 ORTHOLOGY   K01456  peptide-N4-(N-acetyl-beta-glucosaminyl)asparagine amidase [EC:3.5.1.52]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04141  Protein processing in endoplasmic reticulum
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Protein processing in endoplasmic reticulum [PATH:sce04141]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04141 Protein processing in endoplasmic reticulum
+                YPL096W (PNG1)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.5  Acting on carbon-nitrogen bonds, other than peptide bonds
+               3.5.1  In linear amides
+                3.5.1.52  peptide-N4-(N-acetyl-beta-glucosaminyl)asparagine amidase
+                 YPL096W (PNG1)
 POSITION    XVI:366927..368018
 MOTIF       Pfam: Rad4 Transglut_core Desulfoferrod_N
-DBLINKS     NCBI-GI: 6325161
+DBLINKS     NCBI-ProteinID: NP_015229
             NCBI-GeneID: 856009
             SGD: S000006017
-            MIPS: YPL096W
             UniProt: Q02890
 STRUCTURE   PDB: 1X3Z 1X3W 3ESW
 AASEQ       363

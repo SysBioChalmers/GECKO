@@ -1,14 +1,28 @@
 ENTRY       YER098W           CDS       T00005
 NAME        UBP9
-DEFINITION  Ubp9p (EC:3.4.19.12 3.1.2.15)
-ORTHOLOGY   K11872  ubiquitin carboxyl-terminal hydrolase 9/13 [EC:3.1.2.15]
+DEFINITION  (RefSeq) putative ubiquitin-specific protease UBP9
+ORTHOLOGY   K11872  ubiquitin carboxyl-terminal hydrolase 9/13 [EC:3.4.19.12]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.4  Acting on peptide bonds (peptidases)
+               3.4.19  Omega peptidases
+                3.4.19.12  ubiquitinyl hydrolase 1
+                 YER098W (UBP9)
+            Peptidases [BR:sce01002]
+             Cysteine Peptidases
+              Family C19: ubiquitin-specific protease family
+               YER098W (UBP9)
+            Ubiquitin system [BR:sce04121]
+             Deubiquitinating enzyme (DUB)
+              Ubiquitin-specific proteases (UBPs)
+               UBP/USP
+                YER098W (UBP9)
 POSITION    V:355466..357730
 MOTIF       Pfam: UCH UCH_1
-DBLINKS     NCBI-GI: 6320945
+DBLINKS     NCBI-ProteinID: NP_011024
             NCBI-GeneID: 856835
             SGD: S000000900
-            MIPS: YER098W
             UniProt: P39967
 AASEQ       754
             MIKRWLSVNRKKSHPEKNTQGNDEINRKATSLKKTKGSGDPSIAKSPSAKSSTSSIPSNL

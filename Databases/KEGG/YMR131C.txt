@@ -1,14 +1,18 @@
 ENTRY       YMR131C           CDS       T00005
 NAME        RRB1
-DEFINITION  Rrb1p
+DEFINITION  (RefSeq) ribosome biosynthesis protein RRB1
 ORTHOLOGY   K14848  ribosome assembly protein RRB1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               Other pre-60S particles
+                YMR131C (RRB1)
 POSITION    XIII:complement(533163..534698)
-MOTIF       Pfam: WD40 CAF1C_H4-bd PRCC
-DBLINKS     NCBI-GI: 6323779
+MOTIF       Pfam: CAF1C_H4-bd WD40 ANAPC4_WD40
+DBLINKS     NCBI-ProteinID: NP_013850
             NCBI-GeneID: 855161
             SGD: S000004738
-            MIPS: YMR131C
             UniProt: Q04225
 AASEQ       511
             MSKRSIEVNEEQDRVVSAKTESHSVPAIPASEEQDAPKNDLEEQLSDEFDSDGEIIEIDG

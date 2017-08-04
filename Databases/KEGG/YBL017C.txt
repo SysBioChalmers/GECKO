@@ -1,13 +1,12 @@
 ENTRY       YBL017C           CDS       T00005
 NAME        PEP1, VPS10, VPT1
-DEFINITION  Pep1p
+DEFINITION  (RefSeq) type I sorting receptor
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    II:complement(186844..191583)
-MOTIF       Pfam: BNR BNR_2 PSII_BNR
-DBLINKS     NCBI-GI: 6319454
+MOTIF       Pfam: Sortilin-Vps10 Sortilin_C BNR BNR_2 PSII_BNR
+DBLINKS     NCBI-ProteinID: NP_009536
             NCBI-GeneID: 852264
             SGD: S000000113
-            MIPS: YBL017C
             UniProt: P32319
 AASEQ       1579
             MILLHFVYSLWALLLIPLTNAEEFTPKVTKTIAQDSFDILSFDDSNTLIRKQDTSVTISF

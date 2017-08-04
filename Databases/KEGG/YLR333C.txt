@@ -1,16 +1,27 @@
 ENTRY       YLR333C           CDS       T00005
 NAME        RPS25B
-DEFINITION  ribosomal 40S subunit protein S25B
+DEFINITION  (RefSeq) ribosomal 40S subunit protein S25B
 ORTHOLOGY   K02975  small subunit ribosomal protein S25e
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03010  Ribosome
-CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+MODULE      sce_M00177  Ribosome, eukaryotes
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03010 Ribosome
+                YLR333C (RPS25B)
+            Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Eukaryotes
+               Small subunit
+                YLR333C (RPS25B)
+              Archaea
+                YLR333C (RPS25B)
 POSITION    XII:complement(795573..795899)
-MOTIF       Pfam: Ribosomal_S25 Ftsk_gamma EAP30 HTH_CodY MerR
-DBLINKS     NCBI-GI: 6323365
+MOTIF       Pfam: Ribosomal_S25 Ftsk_gamma EAP30 HTH_CodY
+DBLINKS     NCBI-ProteinID: NP_013437
             NCBI-GeneID: 851045
             SGD: S000004325
-            MIPS: YLR333C
             UniProt: P0C0T4
 AASEQ       108
             MPPKQQLSKAAKAAAALAGGKKSKKKWSKKSMKDRAQHAVILDQEKYDRILKEVPTYRYV

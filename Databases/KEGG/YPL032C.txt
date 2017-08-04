@@ -1,13 +1,12 @@
 ENTRY       YPL032C           CDS       T00005
 NAME        SVL3
-DEFINITION  Svl3p
+DEFINITION  (RefSeq) Svl3p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:complement(488887..491364)
-MOTIF       Pfam: ApbA_C ApbA
-DBLINKS     NCBI-GI: 6325225
+MOTIF       Pfam: ApbA_C DUF743 Golgin_A5
+DBLINKS     NCBI-ProteinID: NP_015293
             NCBI-GeneID: 856075
             SGD: S000005953
-            MIPS: YPL032C
             UniProt: Q03088
 AASEQ       825
             MSSSSLRVLAIGNNPNILFYTSRFQLAKNIDLYHVNDSKSCQFEIETEYYGKDRFELENH

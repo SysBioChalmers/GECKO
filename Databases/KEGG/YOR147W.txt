@@ -1,13 +1,18 @@
 ENTRY       YOR147W           CDS       T00005
 NAME        MDM32
-DEFINITION  Mdm32p
+DEFINITION  (RefSeq) Mdm32p
+ORTHOLOGY   K17980  mitochondrial distribution and morphology protein 32
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial quality control factors
+              Mitochondrial dynamics
+               Morphogenesis factors
+                YOR147W (MDM32)
 POSITION    XV:606607..608475
 MOTIF       Pfam: MDM31_MDM32 YMF19
-DBLINKS     NCBI-GI: 398365393
+DBLINKS     NCBI-ProteinID: NP_014790
             NCBI-GeneID: 854318
             SGD: S000005673
-            MIPS: YOR147W
             UniProt: Q12171
 AASEQ       622
             MLITRLRVPTIKRPLLPITSHLVRHCIRTYVATNHGNVRPFITPYKSSLPVRCLIAQRHI

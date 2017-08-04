@@ -1,14 +1,18 @@
 ENTRY       YNL180C           CDS       T00005
 NAME        RHO5, YNS0
-DEFINITION  Rho5p
+DEFINITION  (RefSeq) Rho family GTPase RHO5
 ORTHOLOGY   K07975  Rho family, other
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       GTP-binding proteins [BR:sce04031]
+             Small (Monomeric) G-proteins
+              Rho Family
+               Others
+                YNL180C (RHO5)
 POSITION    XIV:complement(299654..300649)
-MOTIF       Pfam: Ras Miro Arf GTP_EFTU
-DBLINKS     NCBI-GI: 6324149
+MOTIF       Pfam: Ras Roc Arf GTP_EFTU
+DBLINKS     NCBI-ProteinID: NP_014219
             NCBI-GeneID: 855541
             SGD: S000005124
-            MIPS: YNL180C
             UniProt: P53879
 AASEQ       331
             MRSIKCVIIGDGAVGKTSLLISYTTNSFPTDYVPTVFDNYSTTIAIPNGTASSPLELDNG

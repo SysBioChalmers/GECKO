@@ -1,14 +1,18 @@
 ENTRY       YDL148C           CDS       T00005
 NAME        NOP14, UTP2
-DEFINITION  Nop14p
+DEFINITION  (RefSeq) snoRNA-binding rRNA-processing protein NOP14
 ORTHOLOGY   K14766  nucleolar protein 14
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              90S particles
+               U3 small nucleolar RNA-associated proteins
+                YDL148C (NOP14)
 POSITION    IV:complement(188154..190586)
 MOTIF       Pfam: Nop14 Bromo_TP
-DBLINKS     NCBI-GI: 6320053
+DBLINKS     NCBI-ProteinID: NP_010133
             NCBI-GeneID: 851407
             SGD: S000002307
-            MIPS: YDL148C
             UniProt: Q99207
 AASEQ       810
             MAGSQLKNLKAALKARGLTGQTNVKSKNKKNSKRQAKEYDREEKKKAIAEIREEFNPFEI

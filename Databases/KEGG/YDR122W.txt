@@ -1,14 +1,28 @@
 ENTRY       YDR122W           CDS       T00005
 NAME        KIN1
-DEFINITION  Kin1p (EC:2.7.11.1)
-ORTHOLOGY   K08286  protein-serine/threonine kinase [EC:2.7.11.-]
+DEFINITION  (RefSeq) serine/threonine protein kinase KIN1
+ORTHOLOGY   K19852  serine/threonine protein kinase KIN1/2 [EC:2.7.11.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.11  Protein-serine/threonine kinases
+                2.7.11.1  non-specific serine/threonine protein kinase
+                 YDR122W (KIN1)
+            Protein kinases [BR:sce01001]
+             Serine/threonine protein kinases: CAMK group
+              CAMKL family
+               YDR122W (KIN1)
+            Membrane trafficking [BR:sce04131]
+             Exocytosis
+              Calcium ion-dependent exocytosis
+               Kinases and associated proteins
+                YDR122W (KIN1)
 POSITION    IV:694700..697894
-MOTIF       Pfam: Pkinase Pkinase_Tyr KA1 Kinase-like Kdo APH
-DBLINKS     NCBI-GI: 6320327
+MOTIF       Pfam: Pkinase Pkinase_Tyr KA1 Kinase-like APH Kdo Haspin_kinase RIO1
+DBLINKS     NCBI-ProteinID: NP_010407
             NCBI-GeneID: 851700
             SGD: S000002529
-            MIPS: YDR122W
             UniProt: P13185
 AASEQ       1064
             MDDYHVNTAFSMGRGNQQDDGNSESNSMHTQPSTMAPATLRMMGKSPQQQQQQNTPLMPP

@@ -1,14 +1,17 @@
 ENTRY       YIL006W           CDS       T00005
 NAME        YIA6, NDT1
-DEFINITION  Yia6p
+DEFINITION  (RefSeq) NAD+ transporter
 ORTHOLOGY   K15115  solute carrier family 25 (mitochondrial folate transporter), member 32
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Solute Carrier Family (SLC)
+              SLC25: Mitochondrial carrier
+               YIL006W (YIA6)
 POSITION    IX:344062..345183
 MOTIF       Pfam: Mito_carr
-DBLINKS     NCBI-GI: 6322185
+DBLINKS     NCBI-ProteinID: NP_012260
             NCBI-GeneID: 854811
             SGD: S000001268
-            MIPS: YIL006W
             UniProt: P40556
 AASEQ       373
             MTQTDNPVPNCGLLPEQQYCSADHEEPLLLHEEQLIFPDHSSQLSSADIIEPIKMNSSTE

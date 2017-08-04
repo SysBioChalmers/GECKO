@@ -1,16 +1,25 @@
 ENTRY       YCR048W           CDS       T00005
 NAME        ARE1, SAT2
-DEFINITION  Are1p (EC:2.3.1.26)
+DEFINITION  (RefSeq) sterol acyltransferase
 ORTHOLOGY   K00637  sterol O-acyltransferase [EC:2.3.1.26]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00100  Steroid biosynthesis
-CLASS       Metabolism; Lipid metabolism; Steroid biosynthesis [PATH:sce00100]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Lipid metabolism
+               00100 Steroid biosynthesis
+                YCR048W (ARE1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.3  Acyltransferases
+               2.3.1  Transferring groups other than aminoacyl groups
+                2.3.1.26  sterol O-acyltransferase
+                 YCR048W (ARE1)
 POSITION    III:211929..213761
-MOTIF       Pfam: MBOAT
-DBLINKS     NCBI-GI: 6319896
+MOTIF       Pfam: MBOAT DUF4698
+DBLINKS     NCBI-ProteinID: NP_009978
             NCBI-GeneID: 850415
             SGD: S000000644
-            MIPS: YCR048W
             UniProt: P25628
 AASEQ       610
             MTETKDLLQDEEFLKIRRLNSAEANKRHSVTYDNVILPQESMEVSPRSSTTSLVEPVEST

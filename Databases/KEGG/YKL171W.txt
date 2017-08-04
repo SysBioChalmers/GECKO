@@ -1,14 +1,19 @@
 ENTRY       YKL171W           CDS       T00005
 NAME        NNK1
-DEFINITION  Nnk1p (EC:2.7.11.1)
+DEFINITION  (RefSeq) protein kinase NNK1
 ORTHOLOGY   K08286  protein-serine/threonine kinase [EC:2.7.11.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.11  Protein-serine/threonine kinases
+                2.7.11.-  
+                 YKL171W (NNK1)
 POSITION    XI:127475..130261
-MOTIF       Pfam: Pkinase Pkinase_Tyr Kinase-like
-DBLINKS     NCBI-GI: 6322677
+MOTIF       Pfam: Pkinase Pkinase_Tyr Kinase-like Kdo
+DBLINKS     NCBI-ProteinID: NP_012750
             NCBI-GeneID: 853683
             SGD: S000001654
-            MIPS: YKL171W
             UniProt: P36003
 AASEQ       928
             MFTSQRQLRQNGSPMSSSRSSQHSSGTASPISDSPASNRSYGRDLRGLMGIDIPANEPAF

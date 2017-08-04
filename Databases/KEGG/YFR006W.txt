@@ -1,13 +1,22 @@
 ENTRY       YFR006W           CDS       T00005
-DEFINITION  putative Xaa-Pro dipeptidase (EC:3.4.-.-)
+DEFINITION  (RefSeq) putative Xaa-Pro dipeptidase
 ORTHOLOGY   K14213  Xaa-Pro dipeptidase [EC:3.4.13.9]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.4  Acting on peptide bonds (peptidases)
+               3.4.13  Dipeptidases
+                3.4.13.9  Xaa-Pro dipeptidase
+                 YFR006W
+            Peptidases [BR:sce01002]
+             Metallo Peptidases
+              Family M24
+               YFR006W
 POSITION    VI:156145..157752
 MOTIF       Pfam: Peptidase_M24 AMP_N
-DBLINKS     NCBI-GI: 14318528
+DBLINKS     NCBI-ProteinID: NP_116661
             NCBI-GeneID: 850556
             SGD: S000001902
-            MIPS: YFR006W
             UniProt: P43590
 AASEQ       535
             MCLEPISLVVFGSLVFFFGLVKYFKRGERQRTRGILQPEYKDKYYYSKEKGEEMGEVANV

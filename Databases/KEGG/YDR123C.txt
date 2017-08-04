@@ -1,14 +1,18 @@
 ENTRY       YDR123C           CDS       T00005
 NAME        INO2, DIE1, SCS1
-DEFINITION  Ino2p
+DEFINITION  (RefSeq) Ino2p
 ORTHOLOGY   K09102  heteromeric Ino2p/Ino4p transcription factor
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription factors [BR:sce03000]
+             Eukaryotic Type
+              Basic helix-loop-helix (bHLH)
+               INO
+                YDR123C (INO2)
 POSITION    IV:complement(698554..699468)
 MOTIF       Pfam: HLH
-DBLINKS     NCBI-GI: 6320328
+DBLINKS     NCBI-ProteinID: NP_010408
             NCBI-GeneID: 851701
             SGD: S000002530
-            MIPS: YDR123C
             UniProt: P26798
 AASEQ       304
             MQQATGNELLGILDLDNDIDFETAYQMLSSNFDDQMSAHIHENTFSATSPPLLTHELGII

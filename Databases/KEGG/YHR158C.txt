@@ -1,13 +1,12 @@
 ENTRY       YHR158C           CDS       T00005
 NAME        KEL1
-DEFINITION  Kel1p
+DEFINITION  (RefSeq) Kel1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VIII:complement(413685..417179)
-MOTIF       Pfam: Kelch_3 Kelch_5 Kelch_4 Kelch_6 Kelch_1 Kelch_2
-DBLINKS     NCBI-GI: 6321952
+MOTIF       Pfam: Kelch_5 Kelch_4 Kelch_3 Kelch_6 Kelch_1 Kelch_2
+DBLINKS     NCBI-ProteinID: NP_012028
             NCBI-GeneID: 856563
             SGD: S000001201
-            MIPS: YHR158C
             UniProt: P38853
 AASEQ       1164
             MAGFSFAKKFTHKKHGKTPSDASISDQSREASLSTPPNEKFFTKQETPQKGRQFSQGYHS

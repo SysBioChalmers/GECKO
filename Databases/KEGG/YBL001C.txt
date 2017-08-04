@@ -1,13 +1,12 @@
 ENTRY       YBL001C           CDS       T00005
 NAME        ECM15
-DEFINITION  Ecm15p
+DEFINITION  (RefSeq) Ecm15p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    II:complement(237153..237467)
-MOTIF       Pfam: DUF77
-DBLINKS     NCBI-GI: 6319472
+MOTIF       Pfam: Thiamine_BP
+DBLINKS     NCBI-ProteinID: NP_009554
             NCBI-GeneID: 852285
             SGD: S000000097
-            MIPS: YBL001C
             UniProt: P35195
 STRUCTURE   PDB: 1LXJ
 AASEQ       104

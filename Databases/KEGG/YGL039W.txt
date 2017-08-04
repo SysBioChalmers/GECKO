@@ -1,12 +1,11 @@
 ENTRY       YGL039W           CDS       T00005
-DEFINITION  carbonyl reductase (NADPH-dependent) (EC:1.1.1.-)
+DEFINITION  (RefSeq) carbonyl reductase (NADPH-dependent)
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:423961..425007
-MOTIF       Pfam: Epimerase 3Beta_HSD NAD_binding_4 adh_short NAD_binding_10 KR Polysacc_synt_2 NmrA adh_short_C2
-DBLINKS     NCBI-GI: 6321399
+MOTIF       Pfam: Epimerase 3Beta_HSD NAD_binding_4 GDP_Man_Dehyd KR adh_short NAD_binding_10 Polysacc_synt_2 NmrA
+DBLINKS     NCBI-ProteinID: NP_011476
             NCBI-GeneID: 852844
             SGD: S000003007
-            MIPS: YGL039W
             UniProt: P53183
 AASEQ       348
             MTTEKTVVFVSGATGFIALHVVDDLLKTGYKVIGSGRSQEKNDGLLKKFKSNPNLSMEIV

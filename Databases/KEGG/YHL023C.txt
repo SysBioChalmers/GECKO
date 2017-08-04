@@ -1,13 +1,13 @@
 ENTRY       YHL023C           CDS       T00005
 NAME        NPR3, RMD11
-DEFINITION  Npr3p
+DEFINITION  (RefSeq) Npr3p
+ORTHOLOGY   K20406  nitrogen permease regulator 3-like protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VIII:complement(59123..62563)
 MOTIF       Pfam: NPR3
-DBLINKS     NCBI-GI: 6321764
+DBLINKS     NCBI-ProteinID: NP_011840
             NCBI-GeneID: 856362
             SGD: S000001015
-            MIPS: YHL023C
             UniProt: P38742
 AASEQ       1146
             MDECLPNSCLLGVHLVISTHSGPQIVYHYPPSNTAFLTNNPTKHQHLYGNHANLNKNTST

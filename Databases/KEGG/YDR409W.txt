@@ -1,18 +1,30 @@
 ENTRY       YDR409W           CDS       T00005
 NAME        SIZ1, ULL1
-DEFINITION  SUMO ligase SIZ1 (EC:6.3.2.-)
-ORTHOLOGY   K04706  E3 SUMO-protein ligase PIAS1 [EC:6.3.2.-]
+DEFINITION  (RefSeq) SUMO ligase SIZ1
+ORTHOLOGY   K04706  E3 SUMO-protein ligase PIAS1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04120  Ubiquitin mediated proteolysis
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Ubiquitin mediated proteolysis [PATH:sce04120]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04120 Ubiquitin mediated proteolysis
+                YDR409W (SIZ1)
+            Ubiquitin system [BR:sce04121]
+             Ubiquitin ligases (E3)
+              UBL E3 ligases
+               YDR409W (SIZ1)
+            Cytoskeleton proteins [BR:sce04812]
+             Eukaryotic cytoskeleton proteins
+              Septins
+               Septin associated proteins
+                YDR409W (SIZ1)
 POSITION    IV:1289406..1292120
-MOTIF       Pfam: PINIT zf-MIZ SAP zf-Nse zf-RING_UBOX
-DBLINKS     NCBI-GI: 398366573
+MOTIF       Pfam: PINIT zf-MIZ SAP zf-Nse zf-RING_UBOX zf-C3HC4_2
+DBLINKS     NCBI-ProteinID: NP_010697
             NCBI-GeneID: 852018
             SGD: S000002817
-            MIPS: YDR409W
             UniProt: Q04195
-STRUCTURE   PDB: 3I2D 2RNN
+STRUCTURE   PDB: 3I2D 5JNE 2RNN
 AASEQ       904
             MINLEDYWEDETPGPDREPTNELRNEVEETITLMELLKVSELKDICRSVSFPVSGRKAVL
             QDLIRNFLQNALVVGKSDPYRVQAVKFLIERIRKNEPLPVYKDLWNALRKGTPLSAITVR

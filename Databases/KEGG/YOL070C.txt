@@ -1,12 +1,12 @@
 ENTRY       YOL070C           CDS       T00005
 NAME        NBA1
-DEFINITION  Nba1p
+DEFINITION  (RefSeq) Nba1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:complement(197220..198725)
-DBLINKS     NCBI-GI: 6324502
+MOTIF       Pfam: CAMSAP_CC1
+DBLINKS     NCBI-ProteinID: NP_014571
             NCBI-GeneID: 854084
             SGD: S000005431
-            MIPS: YOL070C
             UniProt: Q08229
 AASEQ       501
             MSEEREENGISRATLNTQRLSAMIDSLNNEKDDRLFPSPTTTRTMITEEKADQSDVFKPP

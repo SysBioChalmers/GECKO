@@ -1,21 +1,33 @@
 ENTRY       YNL316C           CDS       T00005
 NAME        PHA2
-DEFINITION  prephenate dehydratase PHA2 (EC:4.2.1.51)
+DEFINITION  (RefSeq) prephenate dehydratase PHA2
 ORTHOLOGY   K04518  prephenate dehydratase [EC:4.2.1.51]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00400  Phenylalanine, tyrosine and tryptophan biosynthesis
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
+            sce01130  Biosynthesis of antibiotics
             sce01230  Biosynthesis of amino acids
 MODULE      sce_M00024  Phenylalanine biosynthesis, chorismate => phenylalanine
-CLASS       Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
-            Metabolism; Amino acid metabolism; Phenylalanine, tyrosine and tryptophan biosynthesis [PATH:sce00400]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01230 Biosynthesis of amino acids
+                YNL316C (PHA2)
+              Amino acid metabolism
+               00400 Phenylalanine, tyrosine and tryptophan biosynthesis
+                YNL316C (PHA2)
+            Enzymes [BR:sce01000]
+             4. Lyases
+              4.2  Carbon-oxygen lyases
+               4.2.1  Hydro-lyases
+                4.2.1.51  prephenate dehydratase
+                 YNL316C (PHA2)
 POSITION    XIV:complement(42071..43075)
 MOTIF       Pfam: PDT
-DBLINKS     NCBI-GI: 37362685
+DBLINKS     NCBI-ProteinID: NP_014083
             NCBI-GeneID: 855400
             SGD: S000005260
-            MIPS: YNL316C
             UniProt: P32452
 AASEQ       334
             MASKTLRVLFLGPKGTYSHQAALQQFQSTSDVEYLPAASIPQCFNQLENDTSIDYSVVPL

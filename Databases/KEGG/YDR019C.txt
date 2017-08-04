@@ -1,21 +1,40 @@
 ENTRY       YDR019C           CDS       T00005
 NAME        GCV1, GSD1
-DEFINITION  glycine decarboxylase subunit T (EC:2.1.2.10)
+DEFINITION  (RefSeq) glycine decarboxylase subunit T
 ORTHOLOGY   K00605  aminomethyltransferase [EC:2.1.2.10]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00260  Glycine, serine and threonine metabolism
+            sce00630  Glyoxylate and dicarboxylate metabolism
             sce00670  One carbon pool by folate
             sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01130  Biosynthesis of antibiotics
             sce01200  Carbon metabolism
-CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
-            Metabolism; Amino acid metabolism; Glycine, serine and threonine metabolism [PATH:sce00260]
-            Metabolism; Metabolism of cofactors and vitamins; One carbon pool by folate [PATH:sce00670]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01200 Carbon metabolism
+                YDR019C (GCV1)
+              Carbohydrate metabolism
+               00630 Glyoxylate and dicarboxylate metabolism
+                YDR019C (GCV1)
+              Amino acid metabolism
+               00260 Glycine, serine and threonine metabolism
+                YDR019C (GCV1)
+              Metabolism of cofactors and vitamins
+               00670 One carbon pool by folate
+                YDR019C (GCV1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.1  Transferring one-carbon groups
+               2.1.2  Hydroxymethyl-, formyl- and related transferases
+                2.1.2.10  aminomethyltransferase
+                 YDR019C (GCV1)
 POSITION    IV:complement(484163..485365)
 MOTIF       Pfam: GCV_T GCV_T_C
-DBLINKS     NCBI-GI: 6320222
+DBLINKS     NCBI-ProteinID: NP_010302
             NCBI-GeneID: 851582
             SGD: S000002426
-            MIPS: YDR019C
             UniProt: P48015
 AASEQ       400
             MSIIKKIVFKRFNSTLKKTALHDLHVSLGGTMVPYAGYSMPVLYKGQTHIESHNWTRTNA

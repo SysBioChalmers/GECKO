@@ -1,13 +1,12 @@
 ENTRY       YOR051C           CDS       T00005
 NAME        ETT1, NRO1, YOR29-02
-DEFINITION  Ett1p
+DEFINITION  (RefSeq) Ett1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:complement(424846..426084)
-MOTIF       Pfam: Nro1 TPR_19 FAST_1 TPR_11 TPR_12
-DBLINKS     NCBI-GI: 6324625
+MOTIF       Pfam: Nro1 FAST_1 TPR_19
+DBLINKS     NCBI-ProteinID: NP_014694
             NCBI-GeneID: 854216
             SGD: S000005577
-            MIPS: YOR051C
             UniProt: Q08421
 AASEQ       412
             MAKRPLGLGKQSREKKRKVESVEKKSDEPSRESTPVRSQMSVELDDDADLDDELAQLKGL

@@ -1,14 +1,24 @@
 ENTRY       YDR264C           CDS       T00005
 NAME        AKR1
-DEFINITION  Akr1p (EC:2.3.1.-)
-ORTHOLOGY   K06867
+DEFINITION  (RefSeq) palmitoyltransferase AKR1
+ORTHOLOGY   K20032  palmitoyltransferase ZDHHC13/17 [EC:2.3.1.225]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.3  Acyltransferases
+               2.3.1  Transferring groups other than aminoacyl groups
+                2.3.1.225  protein S-acyltransferase
+                 YDR264C (AKR1)
+            Membrane trafficking [BR:sce04131]
+             SNARE
+              SNARE associated proteins
+               Palmitoyltransferases
+                YDR264C (AKR1)
 POSITION    IV:complement(996029..998323)
-MOTIF       Pfam: Ank_2 Ank Ank_5 Ank_4 zf-DHHC Ank_3
-DBLINKS     NCBI-GI: 6320470
+MOTIF       Pfam: Ank_2 DHHC Ank_4 Ank_3 Ank Ank_5
+DBLINKS     NCBI-ProteinID: NP_010550
             NCBI-GeneID: 851857
             SGD: S000002672
-            MIPS: YDR264C
             UniProt: P39010
 AASEQ       764
             MVNELENVPRASTLTNEEQTVDPSNNDSQEDISLGDSNEITSLASLKAIRSGNEEESGNE

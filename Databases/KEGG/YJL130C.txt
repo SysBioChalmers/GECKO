@@ -1,20 +1,36 @@
 ENTRY       YJL130C           CDS       T00005
 NAME        URA2
-DEFINITION  bifunctional carbamoylphosphate synthetase/aspartate transcarbamylase (EC:2.1.3.2 6.3.5.5)
+DEFINITION  (RefSeq) bifunctional carbamoylphosphate synthetase/aspartate transcarbamylase
 ORTHOLOGY   K11541  carbamoyl-phosphate synthase / aspartate carbamoyltransferase [EC:6.3.5.5 2.1.3.2]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00240  Pyrimidine metabolism
             sce00250  Alanine, aspartate and glutamate metabolism
             sce01100  Metabolic pathways
 MODULE      sce_M00051  Uridine monophosphate biosynthesis, glutamine (+ PRPP) => UMP
-CLASS       Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
-            Metabolism; Amino acid metabolism; Alanine, aspartate and glutamate metabolism [PATH:sce00250]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Nucleotide metabolism
+               00240 Pyrimidine metabolism
+                YJL130C (URA2)
+              Amino acid metabolism
+               00250 Alanine, aspartate and glutamate metabolism
+                YJL130C (URA2)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.1  Transferring one-carbon groups
+               2.1.3  Carboxy- and carbamoyltransferases
+                2.1.3.2  aspartate carbamoyltransferase
+                 YJL130C (URA2)
+             6. Ligases
+              6.3  Forming carbon-nitrogen bonds
+               6.3.5  Carbon-nitrogen ligases with glutamine as amido-N-donor
+                6.3.5.5  carbamoyl-phosphate synthase (glutamine-hydrolysing)
+                 YJL130C (URA2)
 POSITION    X:complement(165723..172367)
-MOTIF       Pfam: CPSase_L_D2 CPSase_sm_chain GATase OTCace_N CPSase_L_D3 CPSase_L_chain OTCace ATP-grasp_4 ATPgrasp_Ter MGS Dala_Dala_lig_C ATP-grasp RimK ATP-grasp_3 Peptidase_C26 TrkA_N
-DBLINKS     NCBI-GI: 330443609
+MOTIF       Pfam: CPSase_L_D2 CPSase_sm_chain OTCace_N GATase CPSase_L_D3 OTCace MGS ATPgrasp_Ter Dala_Dala_lig_C ATP-grasp ATP-grasp_3 Peptidase_C26 RimK TrkA_N
+DBLINKS     NCBI-ProteinID: NP_012405
             NCBI-GeneID: 853311
             SGD: S000003666
-            MIPS: YJL130C
             UniProt: P07259
 AASEQ       2214
             MATIAPTAPITPPMESTGDRLVTLELKDGTVLQGYSFGAEKSVAGELVFQTGMVGYPESV

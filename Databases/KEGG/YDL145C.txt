@@ -1,14 +1,24 @@
 ENTRY       YDL145C           CDS       T00005
 NAME        COP1, RET1, SEC33, SOO1
-DEFINITION  Cop1p
-ORTHOLOGY   K05236  coatomer protein complex, subunit alpha (xenin)
+DEFINITION  (RefSeq) coatomer subunit alpha
+ORTHOLOGY   K05236  coatomer subunit alpha
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endoplasmic reticulum (ER) - Golgi transport
+              Retrieval pathways
+               Coat protein complex I (COP-I)
+                YDL145C (COP1)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of other body fluids (saliva and urine)
+               YDL145C (COP1)
+              Exosomal proteins of bladder cancer cells
+               YDL145C (COP1)
 POSITION    IV:complement(194571..198176)
-MOTIF       Pfam: Coatomer_WDAD COPI_C WD40 eIF2A Nup160 TPR_1 APP_N
-DBLINKS     NCBI-GI: 6320056
+MOTIF       Pfam: Coatomer_WDAD COPI_C WD40 ANAPC4_WD40 eIF2A Nup160 TPR_1
+DBLINKS     NCBI-ProteinID: NP_010136
             NCBI-GeneID: 851410
             SGD: S000002304
-            MIPS: YDL145C
             UniProt: P53622
 STRUCTURE   PDB: 3MKQ 3MV2 3MV3
 AASEQ       1201

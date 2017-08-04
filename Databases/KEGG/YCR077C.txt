@@ -1,19 +1,32 @@
 ENTRY       YCR077C           CDS       T00005
 NAME        PAT1, MRT1
-DEFINITION  Pat1p
+DEFINITION  (RefSeq) Pat1p
 ORTHOLOGY   K12617  DNA topoisomerase 2-associated protein PAT1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03018  RNA degradation
 MODULE      sce_M00395  Decapping complex
-CLASS       Genetic Information Processing; Folding, sorting and degradation; RNA degradation [PATH:sce03018]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               03018 RNA degradation
+                YCR077C (PAT1)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               mRNA cycle factors
+                P-body specific factors
+                 YCR077C (PAT1)
+              mRNA degradation factors
+               5'-3' decay
+                Decapping complex
+                 YCR077C (PAT1)
 POSITION    III:complement(250238..252628)
-MOTIF       Pfam: PAT1
-DBLINKS     NCBI-GI: 330443486
+MOTIF       Pfam: PAT1 Med4
+DBLINKS     NCBI-ProteinID: NP_010002
             NCBI-GeneID: 850440
             SGD: S000000673
-            MIPS: YCR077C
             UniProt: P25644
-STRUCTURE   PDB: 4BRW 4N0A 4C8Q
+STRUCTURE   PDB: 4OGP 4OJJ 4BRW 4N0A 4C8Q
 AASEQ       796
             MSFFGLENSGNARDGPLDFEESYKGYGEHELEENDYLNDETFGDNVQVGTDFDFGNPHSS
             GSSGNAIGGNGVGATARSYVAATAEGISGPRTDGTAAAGPLDLKPMESLWSTAPPPAMAP

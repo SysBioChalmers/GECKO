@@ -1,14 +1,27 @@
 ENTRY       YMR089C           CDS       T00005
 NAME        YTA12, RCA1
-DEFINITION  m-AAA protease subunit YTA12 (EC:3.4.24.-)
+DEFINITION  (RefSeq) m-AAA protease subunit YTA12
 ORTHOLOGY   K08956  AFG3 family protein [EC:3.4.24.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.4  Acting on peptide bonds (peptidases)
+               3.4.24  Metalloendopeptidases
+                3.4.24.-  
+                 YMR089C (YTA12)
+            Peptidases [BR:sce01002]
+             Metallo Peptidases
+              Family M41: FtsH endopeptidase family
+               YMR089C (YTA12)
+            Chaperones and folding catalysts [BR:sce03110]
+             Other chaperones and cochaperones
+              AAA proteases
+               YMR089C (YTA12)
 POSITION    XIII:complement(445609..448086)
-MOTIF       Pfam: Peptidase_M41 AAA FtsH_ext AAA_17 Mito_fiss_reg AAA_5 TIP49 RuvB_N AAA_2 AAA_19 AAA_22 IstB_IS21 AAA_16 AAA_33 AAA_25
-DBLINKS     NCBI-GI: 6323736
+MOTIF       Pfam: Peptidase_M41 AAA FtsH_ext AAA_5 RuvB_N DUF2407_C TIP49 AAA_2 AAA_17 AAA_16 AAA_22 IstB_IS21 AAA_33
+DBLINKS     NCBI-ProteinID: NP_013807
             NCBI-GeneID: 855114
             SGD: S000004695
-            MIPS: YMR089C
             UniProt: P40341
 AASEQ       825
             MLLLSWSRIATKVVRRPVRFRSYYGLTHIKSLHTQYRLLNRLQENKSGNKNEDNNEDAKL

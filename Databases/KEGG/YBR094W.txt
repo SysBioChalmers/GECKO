@@ -1,13 +1,12 @@
 ENTRY       YBR094W           CDS       T00005
 NAME        PBY1
-DEFINITION  Pby1p (EC:6.3.2.25)
+DEFINITION  (RefSeq) putative tubulin tyrosine ligase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    II:432036..434297
-MOTIF       Pfam: TTL SurE ATP-grasp_4 ATPgrasp_YheCD Nro1
-DBLINKS     NCBI-GI: 330443445
+MOTIF       Pfam: TTL SurE ATPgrasp_YheCD Herpes_BLLF1
+DBLINKS     NCBI-ProteinID: NP_009652
             NCBI-GeneID: 852391
             SGD: S000000298
-            MIPS: YBR094W
             UniProt: P38254
 AASEQ       753
             MRVLITNDDGPLSDQFSPYIRPFIQHIKRNYPEWKITVCVPHVQKSWVGKAHLAGKNLTA

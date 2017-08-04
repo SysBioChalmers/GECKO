@@ -1,13 +1,12 @@
 ENTRY       YPL054W           CDS       T00005
 NAME        LEE1
-DEFINITION  Lee1p
+DEFINITION  (RefSeq) Lee1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:455759..456664
-MOTIF       Pfam: zf-CCCH zf-CCCH_2
-DBLINKS     NCBI-GI: 6325203
+MOTIF       Pfam: zf-CCCH Torus zf-CCCH_3 zf-CCCH_2
+DBLINKS     NCBI-ProteinID: NP_015271
             NCBI-GeneID: 856053
             SGD: S000005975
-            MIPS: YPL054W
             UniProt: Q02799
 AASEQ       301
             MDAFENMSVSNHPGGNARRNSQSANEMLASQIQDFQNIPRSFNDSNANVNLSKNCTVGNQ

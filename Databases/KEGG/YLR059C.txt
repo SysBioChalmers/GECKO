@@ -1,16 +1,36 @@
 ENTRY       YLR059C           CDS       T00005
 NAME        REX2, YNT20
-DEFINITION  Rex2p (EC:3.1.-.-)
+DEFINITION  (RefSeq) Rex2p
 ORTHOLOGY   K13288  oligoribonuclease [EC:3.1.-.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03008  Ribosome biogenesis in eukaryotes
-CLASS       Genetic Information Processing; Translation; Ribosome biogenesis in eukaryotes [PATH:sce03008]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03008 Ribosome biogenesis in eukaryotes
+                YLR059C (REX2)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.-  Acting on ester bonds
+                3.1.-.-  
+                 YLR059C (REX2)
+            Messenger RNA biogenesis [BR:sce03019]
+             Prokaryotic Type
+              Bacterial mRNA degradation factors
+               RNA degradosome components
+                Ribonucreases
+                 YLR059C (REX2)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               RNases
+                YLR059C (REX2)
 POSITION    XII:complement(259738..260547)
 MOTIF       Pfam: RNase_T
-DBLINKS     NCBI-GI: 6323088
+DBLINKS     NCBI-ProteinID: NP_013160
             NCBI-GeneID: 850748
             SGD: S000004049
-            MIPS: YLR059C
             UniProt: P54964
 AASEQ       269
             MKWLLFPARIVARTRPNLFSLYRRSVSQYLRPRTIQNLQSMAQTPELKTKLFKPLVWIDC

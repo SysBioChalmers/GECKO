@@ -1,14 +1,18 @@
 ENTRY       YLR312W-A         CDS       T00005
 NAME        MRPL15
-DEFINITION  mitochondrial 54S ribosomal protein YmL15
-ORTHOLOGY   K17437  large subunit ribosomal protein L15, mitochondrial
+DEFINITION  (RefSeq) mitochondrial 54S ribosomal protein YmL15
+ORTHOLOGY   K17437  large subunit ribosomal protein L15
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Mitochondria/ Chloroplast
+               Large subunit
+                YLR312W-A (MRPL15)
 POSITION    XII:759480..760241
 MOTIF       Pfam: Ribonucleas_3_3 Ribonuclease_3
-DBLINKS     NCBI-GI: 116006497
+DBLINKS     NCBI-ProteinID: NP_013416
             NCBI-GeneID: 851022
             SGD: S000004304
-            MIPS: YLR312W-A
             UniProt: P36523
 AASEQ       253
             MENSMMFISRSLRRPVTALNCNLQSVRTVIYLHKGPRINGLRRDPESYLRNPSGVLFTEV

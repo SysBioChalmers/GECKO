@@ -1,14 +1,24 @@
 ENTRY       YBR182C           CDS       T00005
 NAME        SMP1
-DEFINITION  Smp1p
-ORTHOLOGY   K09265  MADS-box transcription factor, other eukaryote
+DEFINITION  (RefSeq) Smp1p
+ORTHOLOGY   K19807  transcription factor SMP1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04011  MAPK signaling pathway - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YBR182C (SMP1)
+            Transcription factors [BR:sce03000]
+             Eukaryotic Type
+              beta-Scaffold factors with minor groove contacts
+               MADS-box regulators of differentiation, Yeast regulators
+                YBR182C (SMP1)
 POSITION    II:complement(593506..594864)
-MOTIF       Pfam: SRF-TF DUF3739
-DBLINKS     NCBI-GI: 398365331
+MOTIF       Pfam: SRF-TF Borrelia_orfD
+DBLINKS     NCBI-ProteinID: NP_009741
             NCBI-GeneID: 852480
             SGD: S000000386
-            MIPS: YBR182C
             UniProt: P38128
 AASEQ       452
             MGRRKIEIEPIKDDRNRTVTFIKRKAGLFKKAHELSVLCQVDIAVIILGSNNTFYEYSSV

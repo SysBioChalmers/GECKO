@@ -1,6 +1,6 @@
 ENTRY       YBR248C           CDS       T00005
 NAME        HIS7
-DEFINITION  imidazoleglycerol-phosphate synthase (EC:4.1.3.- 2.4.2.-)
+DEFINITION  (RefSeq) imidazoleglycerol-phosphate synthase
 ORTHOLOGY   K01663  glutamine amidotransferase / cyclase [EC:2.4.2.- 4.1.3.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00340  Histidine metabolism
@@ -8,14 +8,30 @@ PATHWAY     sce00340  Histidine metabolism
             sce01110  Biosynthesis of secondary metabolites
             sce01230  Biosynthesis of amino acids
 MODULE      sce_M00026  Histidine biosynthesis, PRPP => histidine
-CLASS       Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
-            Metabolism; Amino acid metabolism; Histidine metabolism [PATH:sce00340]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01230 Biosynthesis of amino acids
+                YBR248C (HIS7)
+              Amino acid metabolism
+               00340 Histidine metabolism
+                YBR248C (HIS7)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.4  Glycosyltransferases
+               2.4.2  Pentosyltransferases
+                2.4.2.-  
+                 YBR248C (HIS7)
+             4. Lyases
+              4.1  Carbon-carbon lyases
+               4.1.3  Oxo-acid-lyases
+                4.1.3.-  
+                 YBR248C (HIS7)
 POSITION    II:complement(714807..716465)
-MOTIF       Pfam: His_biosynth GATase SNO GATase_3 Peptidase_C26 DJ-1_PfpI
-DBLINKS     NCBI-GI: 398365721
+MOTIF       Pfam: His_biosynth GATase SNO GATase_3 Peptidase_C26 NMO BPL_N
+DBLINKS     NCBI-ProteinID: NP_009807
             NCBI-GeneID: 852550
             SGD: S000000452
-            MIPS: YBR248C
             UniProt: P33734
 STRUCTURE   PDB: 1JVN 1OX6 1OX4 1OX5
 AASEQ       552

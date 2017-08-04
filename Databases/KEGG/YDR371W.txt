@@ -1,17 +1,26 @@
 ENTRY       YDR371W           CDS       T00005
 NAME        CTS2
-DEFINITION  Cts2p (EC:3.2.1.14)
+DEFINITION  (RefSeq) putative chitinase
 ORTHOLOGY   K01183  chitinase [EC:3.2.1.14]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00520  Amino sugar and nucleotide sugar metabolism
-            sce01110  Biosynthesis of secondary metabolites
-CLASS       Metabolism; Carbohydrate metabolism; Amino sugar and nucleotide sugar metabolism [PATH:sce00520]
+            sce01100  Metabolic pathways
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Carbohydrate metabolism
+               00520 Amino sugar and nucleotide sugar metabolism
+                YDR371W (CTS2)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.2  Glycosylases
+               3.2.1  Glycosidases, i.e. enzymes that hydrolyse O- and S-glycosyl compounds
+                3.2.1.14  chitinase
+                 YDR371W (CTS2)
 POSITION    IV:1219413..1220948
 MOTIF       Pfam: Glyco_hydro_18
-DBLINKS     NCBI-GI: 6320579
+DBLINKS     NCBI-ProteinID: NP_010659
             NCBI-GeneID: 851977
             SGD: S000002779
-            MIPS: YDR371W
             UniProt: Q06350
 AASEQ       511
             MVGHSAQHRSKSSLVSHLLILLIFITIIIEMCLYNKIFKNQRSDDIRDNFNNGGHRVPSN

@@ -1,13 +1,18 @@
 ENTRY       YLR403W           CDS       T00005
 NAME        SFP1
-DEFINITION  Sfp1p
+DEFINITION  (RefSeq) zinc-coordinating transcription factor SFP1
+ORTHOLOGY   K19487  transcription factor SFP1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription factors [BR:sce03000]
+             Eukaryotic Type
+              Zinc finger
+               Cys2His2 developmental/cell cycle regulators, Others
+                YLR403W (SFP1)
 POSITION    XII:925568..927619
-MOTIF       Pfam: zf-C2H2_4 zf-C2H2_jaz zf-C2H2 zf-H2C2_2
-DBLINKS     NCBI-GI: 6323435
+MOTIF       Pfam: zf-C2H2_aberr zf-C2H2_4 zf-C2H2 zf-H2C2_2 PBP1_TM
+DBLINKS     NCBI-ProteinID: NP_013507
             NCBI-GeneID: 851119
             SGD: S000004395
-            MIPS: YLR403W
             UniProt: P32432
 AASEQ       683
             MDFTTMTMASNMATSTTTTATSAHASINSSSNFNIDIDSNQNTPSILINNNSDSSNGKNT

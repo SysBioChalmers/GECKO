@@ -1,14 +1,18 @@
 ENTRY       YFR001W           CDS       T00005
 NAME        LOC1
-DEFINITION  Loc1p
+DEFINITION  (RefSeq) Loc1p
 ORTHOLOGY   K14817  60S ribosomal subunit assembly/export protein LOC1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce01110  Biosynthesis of secondary metabolites
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               Export and cytoplasmic maturation factors
+                YFR001W (LOC1)
 POSITION    VI:149110..149724
-DBLINKS     NCBI-GI: 14318523
+DBLINKS     NCBI-ProteinID: NP_116656
             NCBI-GeneID: 850551
             SGD: S000001897
-            MIPS: YFR001W
             UniProt: P43586
 AASEQ       204
             MAPKKPSKRQNLRREVAPEVFQDSQARNQLANVPHLTEKSAQRKPSKTKVKKEQSLARLY

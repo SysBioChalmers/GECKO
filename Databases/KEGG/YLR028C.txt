@@ -1,21 +1,42 @@
 ENTRY       YLR028C           CDS       T00005
 NAME        ADE16
-DEFINITION  bifunctional phosphoribosylaminoimidazolecarboxamide formyltransferase/IMP cyclohydrolase ADE16 (EC:2.1.2.3 3.5.4.10)
+DEFINITION  (RefSeq) bifunctional phosphoribosylaminoimidazolecarboxamide formyltransferase/IMP cyclohydrolase ADE16
 ORTHOLOGY   K00602  phosphoribosylaminoimidazolecarboxamide formyltransferase / IMP cyclohydrolase [EC:2.1.2.3 3.5.4.10]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00230  Purine metabolism
             sce00670  One carbon pool by folate
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
+            sce01130  Biosynthesis of antibiotics
 MODULE      sce_M00048  Inosine monophosphate biosynthesis, PRPP + glutamine => IMP
-CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
-            Metabolism; Metabolism of cofactors and vitamins; One carbon pool by folate [PATH:sce00670]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Nucleotide metabolism
+               00230 Purine metabolism
+                YLR028C (ADE16)
+              Metabolism of cofactors and vitamins
+               00670 One carbon pool by folate
+                YLR028C (ADE16)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.1  Transferring one-carbon groups
+               2.1.2  Hydroxymethyl-, formyl- and related transferases
+                2.1.2.3  phosphoribosylaminoimidazolecarboxamide formyltransferase
+                 YLR028C (ADE16)
+             3. Hydrolases
+              3.5  Acting on carbon-nitrogen bonds, other than peptide bonds
+               3.5.4  In cyclic amidines
+                3.5.4.10  IMP cyclohydrolase
+                 YLR028C (ADE16)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of other body fluids (saliva and urine)
+               YLR028C (ADE16)
 POSITION    XII:complement(199540..201315)
 MOTIF       Pfam: AICARFT_IMPCHas MGS DKCLD
-DBLINKS     NCBI-GI: 6323056
+DBLINKS     NCBI-ProteinID: NP_013128
             NCBI-GeneID: 850715
             SGD: S000004018
-            MIPS: YLR028C
             UniProt: P54113
 AASEQ       591
             MGKYTKTAILSVYDKTGLLDLAKGLVENNVRILASGGTANMVREAGFPVDDVSSITHAPE

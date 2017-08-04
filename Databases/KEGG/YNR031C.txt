@@ -1,16 +1,29 @@
 ENTRY       YNR031C           CDS       T00005
 NAME        SSK2
-DEFINITION  Ssk2p (EC:2.7.11.25)
+DEFINITION  (RefSeq) mitogen-activated protein kinase kinase kinase SSK2
 ORTHOLOGY   K11230  mitogen-activated protein kinase kinase kinase [EC:2.7.11.25]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04011  MAPK signaling pathway - yeast
-CLASS       Environmental Information Processing; Signal transduction; MAPK signaling pathway - yeast [PATH:sce04011]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YNR031C (SSK2)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.11  Protein-serine/threonine kinases
+                2.7.11.25  mitogen-activated protein kinase kinase kinase
+                 YNR031C (SSK2)
+            Protein kinases [BR:sce01001]
+             Serine/threonine protein kinases: STE group
+              Other families
+               YNR031C (SSK2)
 POSITION    XIV:complement(680694..685433)
-MOTIF       Pfam: Pkinase Pkinase_Tyr Kinase-like APH
-DBLINKS     NCBI-GI: 6324358
+MOTIF       Pfam: Pkinase Pkinase_Tyr Kinase-like APH SH3_9
+DBLINKS     NCBI-ProteinID: NP_014428
             NCBI-GeneID: 855765
             SGD: S000005314
-            MIPS: YNR031C
             UniProt: P53599
 AASEQ       1579
             MSHSDYFNYKPYGDSTEKPSSSKMRQSSSSSSSRLRSESLGRNSNTTQARVASSPISPGL

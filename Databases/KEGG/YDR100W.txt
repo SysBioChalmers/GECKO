@@ -1,13 +1,12 @@
 ENTRY       YDR100W           CDS       T00005
 NAME        TVP15
-DEFINITION  Tvp15p
+DEFINITION  (RefSeq) Tvp15p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:655013..655444
 MOTIF       Pfam: COPI_assoc Grp1_Fun34_YaaH
-DBLINKS     NCBI-GI: 398365601
+DBLINKS     NCBI-ProteinID: NP_010385
             NCBI-GeneID: 851677
             SGD: S000002507
-            MIPS: YDR100W
             UniProt: Q03860
 AASEQ       143
             MSVIPPKFFKIANISIGCIDIIAALSQLTYIFTNLNVFLLAVYGLALSVPIVYLEFKVPS

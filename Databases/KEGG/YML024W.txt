@@ -1,18 +1,28 @@
 ENTRY       YML024W           CDS       T00005
 NAME        RPS17A, RP51A, RPL51A
-DEFINITION  ribosomal 40S subunit protein S17A
+DEFINITION  (RefSeq) ribosomal 40S subunit protein S17A
 ORTHOLOGY   K02962  small subunit ribosomal protein S17e
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03010  Ribosome
-CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+MODULE      sce_M00177  Ribosome, eukaryotes
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03010 Ribosome
+                YML024W (RPS17A)
+            Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Eukaryotes
+               Small subunit
+                YML024W (RPS17A)
+              Archaea
+                YML024W (RPS17A)
 POSITION    XIII:join(225889..225891,226290..226697)
 MOTIF       Pfam: Ribosomal_S17e
-DBLINKS     NCBI-GI: 6323617
+DBLINKS     NCBI-ProteinID: NP_013688
             NCBI-GeneID: 854984
             SGD: S000004486
-            MIPS: YML024W
             UniProt: P02407
-STRUCTURE   PDB: 3U5C 3U5G 3O2Z 3O30 4BYL 4BYT 3IZB
 AASEQ       136
             MGRVRTKTVKRASKALIERYYPKLTLDFQTNKRLCDEIATIQSKRLRNKIAGYTTHLMKR
             IQKGPVRGISFKLQEEERERKDQYVPEVSALDLSRSNGVLNVDNQTSDLVKSLGLKLPLS

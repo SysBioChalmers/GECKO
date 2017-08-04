@@ -1,14 +1,28 @@
 ENTRY       YER177W           CDS       T00005
 NAME        BMH1, APR6
-DEFINITION  Bmh1p
+DEFINITION  (RefSeq) 14-3-3 family protein BMH1
 ORTHOLOGY   K06630  14-3-3 protein epsilon
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04011  MAPK signaling pathway - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YER177W (BMH1)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              Check point factors
+               Other check point factors
+                YER177W (BMH1)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Proteins found in most exosomes
+               YER177W (BMH1)
 POSITION    V:545611..546414
-MOTIF       Pfam: 14-3-3 DUF885 FlaF
-DBLINKS     NCBI-GI: 398365115
+MOTIF       Pfam: 14-3-3 FlaF
+DBLINKS     NCBI-ProteinID: NP_011104
             NCBI-GeneID: 856924
             SGD: S000000979
-            MIPS: YER177W
             UniProt: P29311
 AASEQ       267
             MSTSREDSVYLAKLAEQAERYEEMVENMKTVASSGQELSVEERNLLSVAYKNVIGARRAS

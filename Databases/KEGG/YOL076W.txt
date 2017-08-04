@@ -1,13 +1,18 @@
 ENTRY       YOL076W           CDS       T00005
 NAME        MDM20, DEC1, NAA25
-DEFINITION  Mdm20p
+DEFINITION  (RefSeq) Mdm20p
+ORTHOLOGY   K17973  N-terminal acetyltransferase B complex non-catalytic subunit
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial quality control factors
+              Mitochondrial dynamics
+               Actin cytoskeleton organization
+                YOL076W (MDM20)
 POSITION    XV:187024..189414
 MOTIF       Pfam: NatB_MDM20 TPR_7
-DBLINKS     NCBI-GI: 6324497
+DBLINKS     NCBI-ProteinID: NP_014566
             NCBI-GeneID: 854079
             SGD: S000005436
-            MIPS: YOL076W
             UniProt: Q12387
 AASEQ       796
             MSDKIQEEILGLVSRSNFKQCYAKLGQLQKQFPNALYFKILETYVKFKQSPGKFDYNKLL

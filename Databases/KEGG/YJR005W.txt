@@ -1,13 +1,12 @@
 ENTRY       YJR005W           CDS       T00005
 NAME        APL1, YAP80
-DEFINITION  Apl1p
+DEFINITION  (RefSeq) Apl1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    X:445923..448025
-MOTIF       Pfam: Adaptin_N HEAT_2 FANCI_S2
-DBLINKS     NCBI-GI: 398364751
+MOTIF       Pfam: Adaptin_N Cnd1
+DBLINKS     NCBI-ProteinID: NP_012538
             NCBI-GeneID: 853461
             SGD: S000003765
-            MIPS: YJR005W
             UniProt: P27351
 AASEQ       700
             MSDQKVFARYKANEIVTDLQHFGVKKFKSNITRRKNALRKIIANLVLGNYGEMSVLFSEL

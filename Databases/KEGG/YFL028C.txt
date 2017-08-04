@@ -1,16 +1,25 @@
 ENTRY       YFL028C           CDS       T00005
 NAME        CAF16
-DEFINITION  putative ATP-binding cassette family ATPase CAF16
+DEFINITION  (RefSeq) putative ATP-binding cassette family ATPase CAF16
 ORTHOLOGY   K12608  CCR4-NOT complex subunit CAF16
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03018  RNA degradation
-CLASS       Genetic Information Processing; Folding, sorting and degradation; RNA degradation [PATH:sce03018]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               03018 RNA degradation
+                YFL028C (CAF16)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA degradation factors
+               3'-5' decay
+                Ccr4-NOT complex
+                 YFL028C (CAF16)
 POSITION    VI:complement(79344..80213)
-MOTIF       Pfam: ABC_tran AAA_21 SMC_N AAA_15 AAA_29 AAA_17 AAA_10 AAA_24 DUF258 Dynamin_N AAA_23 FtsK_SpoIIIE AAA_18
-DBLINKS     NCBI-GI: 14318491
+MOTIF       Pfam: ABC_tran AAA_21 SMC_N AAA_29 AAA_15 AAA_23 RsgA_GTPase AAA_24 Dynamin_N AAA_18 AAA_10 MMR_HSR1 AAA_27
+DBLINKS     NCBI-ProteinID: NP_116625
             NCBI-GeneID: 850516
             SGD: S000001866
-            MIPS: YFL028C
             UniProt: P43569
 AASEQ       289
             MVSQFAIEVRNLTYKFKESSDPSVVDINLQIPWNTRSLVVGANGAGKSTLLKLLSGKHLC

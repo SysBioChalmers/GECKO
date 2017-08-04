@@ -1,14 +1,23 @@
 ENTRY       YDR430C           CDS       T00005
 NAME        CYM1, MOP112
-DEFINITION  Cym1p (EC:3.4.24.-)
-ORTHOLOGY   K06972
+DEFINITION  (RefSeq) Cym1p
+ORTHOLOGY   K06972  presequence protease [EC:3.4.24.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.4  Acting on peptide bonds (peptidases)
+               3.4.24  Metalloendopeptidases
+                3.4.24.-  
+                 YDR430C (CYM1)
+            Peptidases [BR:sce01002]
+             Metallo Peptidases
+              Family M16: pitrilysin family
+               YDR430C (CYM1)
 POSITION    IV:complement(1325501..1328470)
-MOTIF       Pfam: M16C_assoc Peptidase_M16_C Peptidase_M16 Glucodextran_N
-DBLINKS     NCBI-GI: 6320639
+MOTIF       Pfam: M16C_assoc Peptidase_M16_C Peptidase_M16
+DBLINKS     NCBI-ProteinID: NP_010718
             NCBI-GeneID: 852041
             SGD: S000002838
-            MIPS: YDR430C
             UniProt: P32898
 AASEQ       989
             MLRFQRFASSYAQAQAVRKYPVGGIFHGYEVRRILPVPELRLTAVDLVHSQTGAEHLHID

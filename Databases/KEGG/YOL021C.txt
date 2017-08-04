@@ -1,19 +1,34 @@
 ENTRY       YOL021C           CDS       T00005
 NAME        DIS3, MTR17, RRP44
-DEFINITION  Dis3p (EC:3.1.26.- 3.1.13.-)
+DEFINITION  (RefSeq) exosome catalytic subunit DIS3
 ORTHOLOGY   K12585  exosome complex exonuclease DIS3/RRP44 [EC:3.1.13.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03018  RNA degradation
 MODULE      sce_M00391  Exosome, eukaryotes
-CLASS       Genetic Information Processing; Folding, sorting and degradation; RNA degradation [PATH:sce03018]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               03018 RNA degradation
+                YOL021C (DIS3)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.13  Exoribonucleases producing 5'-phosphomonoesters
+                3.1.13.-  
+                 YOL021C (DIS3)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA degradation factors
+               3'-5' decay
+                Exosome cofactors
+                 YOL021C (DIS3)
 POSITION    XV:complement(282421..285426)
-MOTIF       Pfam: RNB PIN_4 OB_RNB
-DBLINKS     NCBI-GI: 6324552
+MOTIF       Pfam: Rrp44_CSD1 RNB Rrp44_S1 PIN_4 OB_RNB
+DBLINKS     NCBI-ProteinID: NP_014621
             NCBI-GeneID: 854138
             SGD: S000005381
-            MIPS: YOL021C
             UniProt: Q08162
-STRUCTURE   PDB: 2VNU 4IFD 2WP8
+STRUCTURE   PDB: 2VNU 5JEA 4IFD 2WP8 5K36 5C0X 5G06 5C0W
 AASEQ       1001
             MSVPAIAPRRKRLADGLSVTQKVFVRSRNGGATKIVREHYLRSDIPCLSRSCTKCPQIVV
             PDAQNELPKFILSDSPLELSAPIGKHYVVLDTNVVLQAIDLLENPNCFFDVIVPQIVLDE

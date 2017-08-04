@@ -1,16 +1,24 @@
 ENTRY       YLR022C           CDS       T00005
 NAME        SDO1
-DEFINITION  Sdo1p
+DEFINITION  (RefSeq) guanine nucleotide exchange factor SDO1
 ORTHOLOGY   K14574  ribosome maturation protein SDO1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03008  Ribosome biogenesis in eukaryotes
-CLASS       Genetic Information Processing; Translation; Ribosome biogenesis in eukaryotes [PATH:sce03008]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03008 Ribosome biogenesis in eukaryotes
+                YLR022C (SDO1)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               Export and cytoplasmic maturation factors
+                YLR022C (SDO1)
 POSITION    XII:complement(184174..184926)
-MOTIF       Pfam: SBDS_C SBDS
-DBLINKS     NCBI-GI: 6323050
+MOTIF       Pfam: SBDS SBDS_C
+DBLINKS     NCBI-ProteinID: NP_013122
             NCBI-GeneID: 850709
             SGD: S000004012
-            MIPS: YLR022C
             UniProt: Q07953
 AASEQ       250
             MPINQPSGQIKLTNVSLVRLKKARKRFEVACYQNKVQDYRKGIEKDLDEVLQIHQVFMNV

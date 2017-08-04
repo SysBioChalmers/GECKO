@@ -1,12 +1,11 @@
 ENTRY       YMR187C           CDS       T00005
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) hypothetical protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:complement(634689..635984)
-MOTIF       Pfam: RINGv
-DBLINKS     NCBI-GI: 6323841
+MOTIF       Pfam: RINGv Sprouty
+DBLINKS     NCBI-ProteinID: NP_013912
             NCBI-GeneID: 855225
             SGD: S000004799
-            MIPS: YMR187C
             UniProt: Q03236
 AASEQ       431
             MTPPHFFLSLIKKRCICWICLEESTYDSTWLQHTCGCNLQIHKRCYIRWLYQMHVELFLP

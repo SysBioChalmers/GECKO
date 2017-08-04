@@ -1,13 +1,24 @@
 ENTRY       YDR067C           CDS       T00005
 NAME        OCA6
-DEFINITION  Oca6p (EC:3.1.3.48)
+DEFINITION  (RefSeq) protein-tyrosine-phosphatase
+ORTHOLOGY   K18046  tyrosine-protein phosphatase OCA6 [EC:3.1.3.48]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.3  Phosphoric-monoester hydrolases
+                3.1.3.48  protein-tyrosine-phosphatase
+                 YDR067C (OCA6)
+            Protein phosphatases and associated proteins [BR:sce01009]
+             Protein Tyrosine phosphatases (PTPs)
+              Class I PTPs (Dual specificity phosphatases)
+               Atypical DSPs
+                YDR067C (OCA6)
 POSITION    IV:complement(582791..583465)
 MOTIF       Pfam: Y_phosphatase2
-DBLINKS     NCBI-GI: 6320272
+DBLINKS     NCBI-ProteinID: NP_010352
             NCBI-GeneID: 851639
             SGD: S000002474
-            MIPS: YDR067C
             UniProt: Q12454
 AASEQ       224
             MTLVTPLQFSTVQPNLYRGSYPREINLPFLRTLRLKYILSLTPEPLSTDPLMVKFCEENN

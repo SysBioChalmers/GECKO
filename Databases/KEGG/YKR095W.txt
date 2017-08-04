@@ -1,18 +1,25 @@
 ENTRY       YKR095W           CDS       T00005
 NAME        MLP1, MPL1
-DEFINITION  Mlp1p
+DEFINITION  (RefSeq) Mlp1p
 ORTHOLOGY   K09291  nucleoprotein TPR
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03013  RNA transport
-            sce04011  MAPK signaling pathway - yeast
-CLASS       Genetic Information Processing; Translation; RNA transport [PATH:sce03013]
-            Environmental Information Processing; Signal transduction; MAPK signaling pathway - yeast [PATH:sce04011]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03013 RNA transport
+                YKR095W (MLP1)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Transport factors
+                Nuclear pore complex
+                 YKR095W (MLP1)
 POSITION    XI:619805..625432
 MOTIF       Pfam: TPR_MLP1_2
-DBLINKS     NCBI-GI: 6322948
+DBLINKS     NCBI-ProteinID: NP_013021
             NCBI-GeneID: 853970
             SGD: S000001803
-            MIPS: YKR095W
             UniProt: Q02455
 AASEQ       1875
             MSDHDTPMESIQNGENSDERLNAIASFFGCSLEQVKSFDGDVVKHLNDKLLQFNELKSEN

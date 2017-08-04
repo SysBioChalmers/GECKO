@@ -1,16 +1,28 @@
 ENTRY       YLL042C           CDS       T00005
 NAME        ATG10, APG10
-DEFINITION  Atg10p (EC:6.3.2.-)
-ORTHOLOGY   K08338  ubiquitin-like-conjugating enzyme ATG10, fungi type [EC:6.3.2.19]
+DEFINITION  (RefSeq) E2-like conjugating enzyme
+ORTHOLOGY   K08338  ubiquitin-like-conjugating enzyme ATG10
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
-PATHWAY     sce04140  Regulation of autophagy
-CLASS       Cellular Processes; Transport and catabolism; Regulation of autophagy [PATH:sce04140]
+PATHWAY     sce04138  Autophagy - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04138 Autophagy - yeast
+                YLL042C (ATG10)
+            Ubiquitin system [BR:sce04121]
+             Ubiquitin-conjugating enzymes (E2)
+              UBL-conjugating enzymes
+               YLL042C (ATG10)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial quality control factors
+              Mitophagy factors
+               Autophagy-related proteins
+                YLL042C (ATG10)
 POSITION    XII:complement(52087..52590)
 MOTIF       Pfam: Autophagy_act_C
-DBLINKS     NCBI-GI: 6322986
+DBLINKS     NCBI-ProteinID: NP_013058
             NCBI-GeneID: 850684
             SGD: S000003965
-            MIPS: YLL042C
             UniProt: Q07879
 STRUCTURE   PDB: 4EBR 4GSK
 AASEQ       167

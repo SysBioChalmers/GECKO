@@ -1,16 +1,26 @@
 ENTRY       YLR045C           CDS       T00005
 NAME        STU2
-DEFINITION  Stu2p
+DEFINITION  (RefSeq) Stu2p
 ORTHOLOGY   K16803  cytoskeleton-associated protein 5
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centrosome formation and ciliogenesis proteins
+               Spindle formation proteins
+                YLR045C (STU2)
+            Cytoskeleton proteins [BR:sce04812]
+             Eukaryotic cytoskeleton proteins
+              Microtubules
+               Tubulin-binding proteins
+                XMAP215
+                 YLR045C (STU2)
 POSITION    XII:complement(235037..237703)
 MOTIF       Pfam: NeuB
-DBLINKS     NCBI-GI: 6323074
+DBLINKS     NCBI-ProteinID: NP_013146
             NCBI-GeneID: 850734
             SGD: S000004035
-            MIPS: YLR045C
             UniProt: P46675
-STRUCTURE   PDB: 2QK1 4FFB
+STRUCTURE   PDB: 2QK1 4U3J 4FFB
 AASEQ       888
             MSGEEEVDYTTLPLEERLTYKLWKARLEAYKELNQLFRNSVGDISRDDNIQIYWRDPTLF
             AQYITDSNVVAQEQAIVALNSLIDAFASSSLKNAHNITLISTWTPLLVEKGLTSSRATTK

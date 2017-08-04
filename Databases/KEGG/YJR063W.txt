@@ -1,6 +1,6 @@
 ENTRY       YJR063W           CDS       T00005
 NAME        RPA12, RRN4
-DEFINITION  Rpa12p
+DEFINITION  (RefSeq) DNA-directed RNA polymerase I core subunit RPA12
 ORTHOLOGY   K03000  DNA-directed RNA polymerase I subunit RPA12
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00230  Purine metabolism
@@ -8,17 +8,31 @@ PATHWAY     sce00230  Purine metabolism
             sce01100  Metabolic pathways
             sce03020  RNA polymerase
 MODULE      sce_M00182  RNA polymerase I, eukaryotes
-CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
-            Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
-            Genetic Information Processing; Transcription; RNA polymerase [PATH:sce03020]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Nucleotide metabolism
+               00230 Purine metabolism
+                YJR063W (RPA12)
+               00240 Pyrimidine metabolism
+                YJR063W (RPA12)
+             Genetic Information Processing
+              Transcription
+               03020 RNA polymerase
+                YJR063W (RPA12)
+            Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase I system
+               RNA polymerase I
+                Pol I specific subunits
+                 YJR063W (RPA12)
 POSITION    X:555195..555572
-MOTIF       Pfam: TFIIS_C RNA_POL_M_15KD Lar_restr_allev DZR zinc_ribbon_2 TF_Zn_Ribbon Terminase_GpA zf-H2C2_2 Stc1 Zn_Tnp_IS1595 DUF2387 zf-DNA_Pol DUF2072 CpXC Nop10p Ogr_Delta Baculo_LEF5_C Elf1 zf-TFIIB zf-C4_Topoisom
-DBLINKS     NCBI-GI: 6322523
+MOTIF       Pfam: TFIIS_C RNA_POL_M_15KD DZR TF_Zn_Ribbon zinc_ribbon_2 IBR Zn_Tnp_IS1595 zf-H2C2_2 Ogr_Delta Nop10p Terminase_GpA Lar_restr_allev GATA tRNA-synt_1f DUF2072 DUF3797 Nudix_N_2 zinc_ribbon_6 CpXC zf-CSL zf-TFIIB
+DBLINKS     NCBI-ProteinID: NP_012597
             NCBI-GeneID: 853526
             SGD: S000003824
-            MIPS: YJR063W
             UniProt: P32529
-STRUCTURE   PDB: 4C2M 4C3I 4C3H 4C3J
+STRUCTURE   PDB: 4C2M 4C3I 4C3H 4C3J 5N61 5M5W 5M3F 5M5X 5M5Y 5M3M 5M64
+                 5G5L 5LMX 5N5Y 5N5Z 5N60
 AASEQ       125
             MSVVGSLIFCLDCGDLLENPNAVLGSNVECSQCKAIYPKSQFSNLKVVTTTADDAFPSSL
             RAKKSVVKTSLKKNELKDGATIKEKCPQCGNEEMNYHTLQLRSADEGATVFYTCTSCGYK

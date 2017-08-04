@@ -1,13 +1,22 @@
 ENTRY       YOL057W           CDS       T00005
-DEFINITION  dipeptidyl-peptidase III (EC:3.4.14.4)
+DEFINITION  (RefSeq) dipeptidyl-peptidase III
 ORTHOLOGY   K01277  dipeptidyl-peptidase III [EC:3.4.14.4]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.4  Acting on peptide bonds (peptidases)
+               3.4.14  Dipeptidyl-peptidases and tripeptidyl-peptidases
+                3.4.14.4  dipeptidyl-peptidase III
+                 YOL057W
+            Peptidases [BR:sce01002]
+             Metallo Peptidases
+              Family M49: dipeptidyl-peptidase III family
+               YOL057W
 POSITION    XV:220767..222902
 MOTIF       Pfam: Peptidase_M49 Ubiquitin_2 DUF1027
-DBLINKS     NCBI-GI: 6324515
+DBLINKS     NCBI-ProteinID: NP_014584
             NCBI-GeneID: 854097
             SGD: S000005418
-            MIPS: YOL057W
             UniProt: Q08225
 STRUCTURE   PDB: 3CSK
 AASEQ       711

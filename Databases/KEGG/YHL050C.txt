@@ -1,12 +1,11 @@
 ENTRY       YHL050C           CDS       T00005
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) hypothetical protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VIII:complement(join(445..1897,2671..3311))
-MOTIF       Pfam: DEAD WCOR413
-DBLINKS     NCBI-GI: 6321737
+MOTIF       Pfam: DEAD WCOR413 Menin
+DBLINKS     NCBI-ProteinID: NP_011813
             NCBI-GeneID: 856335
             SGD: S000001042
-            MIPS: YHL050C
             UniProt: P38721
 AASEQ       697
             MADTPSVAVQAPPGYGKTELFHLPLIALASKGDVEYVSFLFVPYTVLLANCMIRLGRCGC

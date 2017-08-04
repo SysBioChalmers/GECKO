@@ -1,15 +1,24 @@
 ENTRY       YIL007C           CDS       T00005
 NAME        NAS2
-DEFINITION  Nas2p
+DEFINITION  (RefSeq) Nas2p
 ORTHOLOGY   K06693  26S proteasome non-ATPase regulatory subunit 9
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Proteasome [BR:sce03051]
+             Eukaryotic proteasome
+              Regulatory particles
+               PA700 (19S proteasome)
+                non-ATPase subunits
+                 YIL007C (NAS2)
+              Proteasome interacting proteins (PIPs)
+               Other PIPs
+                YIL007C (NAS2)
 POSITION    IX:complement(342994..343656)
 MOTIF       Pfam: PDZ PDZ_2 GRASP55_65
-DBLINKS     NCBI-GI: 398364521
+DBLINKS     NCBI-ProteinID: NP_012259
             NCBI-GeneID: 854810
             SGD: S000001269
-            MIPS: YIL007C
             UniProt: P40555
+STRUCTURE   PDB: 4O06 3WHJ 3WHL
 AASEQ       220
             MEEEELSKLLANVKIDPSLTSRISQIDSFKLSELMVLKTDIETQLEAYFSVLEQQGIGMD
             SALVTPDGYPRSDVDVLQVTMIRKNVNMLKNDLNHLLQRSHVLLNQHFDNMNVKSNQDAR

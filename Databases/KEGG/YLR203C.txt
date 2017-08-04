@@ -1,14 +1,22 @@
 ENTRY       YLR203C           CDS       T00005
 NAME        MSS51
-DEFINITION  Mss51p
+DEFINITION  (RefSeq) Mss51p
 ORTHOLOGY   K17656  mitochondrial splicing suppressor protein 51
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial DNA transcription, translation, and replication factors
+              Mitochondrial transcription and translation factors
+               Other mitochondrial DNA transcription and translation factors
+                YLR203C (MSS51)
+             Mitochondrial quality control factors
+              Mitochondrial respiratory chain complex assembly factors
+               Complex-IV assembly factors
+                YLR203C (MSS51)
 POSITION    XII:complement(550650..551960)
 MOTIF       Pfam: zf-Mss51 YL1_C
-DBLINKS     NCBI-GI: 6323232
+DBLINKS     NCBI-ProteinID: NP_013304
             NCBI-GeneID: 850900
             SGD: S000004193
-            MIPS: YLR203C
             UniProt: P32335
 AASEQ       436
             MTVLYAPSGATQLYFHLLRKSPHNRLVVSHQTRRHLMGFVRNALGLDPPPSPEDPTPENR

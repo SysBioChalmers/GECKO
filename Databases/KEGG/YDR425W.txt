@@ -1,13 +1,12 @@
 ENTRY       YDR425W           CDS       T00005
 NAME        SNX41
-DEFINITION  Snx41p
+DEFINITION  (RefSeq) Snx41p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:1320064..1321941
-MOTIF       Pfam: PX
-DBLINKS     NCBI-GI: 6320633
+MOTIF       Pfam: PX zf-RING_9
+DBLINKS     NCBI-ProteinID: NP_010713
             NCBI-GeneID: 852035
             SGD: S000002833
-            MIPS: YDR425W
             UniProt: Q04053
 AASEQ       625
             MDYNIFEAVHEQQSSTSDMDLSEEDNNPFVGTHHLYASGIGTTIGEARPENENSPPSSSS

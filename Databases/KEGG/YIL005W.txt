@@ -1,17 +1,31 @@
 ENTRY       YIL005W           CDS       T00005
 NAME        EPS1
-DEFINITION  protein disulfide isomerase EPS1 (EC:5.3.4.1)
+DEFINITION  (RefSeq) protein disulfide isomerase EPS1
 ORTHOLOGY   K13996  protein disulfide-isomerase [EC:5.3.4.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04141  Protein processing in endoplasmic reticulum
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Protein processing in endoplasmic reticulum [PATH:sce04141]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04141 Protein processing in endoplasmic reticulum
+                YIL005W (EPS1)
+            Enzymes [BR:sce01000]
+             5. Isomerases
+              5.3  Intramolecular oxidoreductases
+               5.3.4  Transposing S-S bonds
+                5.3.4.1  protein disulfide-isomerase
+                 YIL005W (EPS1)
+            Chaperones and folding catalysts [BR:sce03110]
+             Protein folding catalysts
+              Protein disulfide isomerase
+               YIL005W (EPS1)
 POSITION    IX:345692..347797
-MOTIF       Pfam: Thioredoxin Thioredoxin_6 Thioredoxin_8
-DBLINKS     NCBI-GI: 6322186
+MOTIF       Pfam: Thioredoxin Thioredoxin_6 OST3_OST6 Thioredoxin_2
+DBLINKS     NCBI-ProteinID: NP_012261
             NCBI-GeneID: 854812
             SGD: S000001267
-            MIPS: YIL005W
             UniProt: P40557
+STRUCTURE   PDB: 4TW5
 AASEQ       701
             MKMNLKRLVVTFFSCITFLLKFTIAAAEPPEGFPEPLNPTNFKEELSKGLHIIDFYSPYC
             PHCKHLAPVWMETWEEFKEESKTLNITFSQVNCIESADLCGDENIEYFPEIRLYNPSGYI

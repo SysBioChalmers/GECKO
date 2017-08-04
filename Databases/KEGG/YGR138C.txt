@@ -1,13 +1,12 @@
 ENTRY       YGR138C           CDS       T00005
 NAME        TPO2
-DEFINITION  Tpo2p
+DEFINITION  (RefSeq) spermine transporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:complement(763762..765606)
-MOTIF       Pfam: MFS_1 Sugar_tr Myc_N
-DBLINKS     NCBI-GI: 6321577
+MOTIF       Pfam: MFS_1 Sugar_tr
+DBLINKS     NCBI-ProteinID: NP_011654
             NCBI-GeneID: 853039
             SGD: S000003370
-            MIPS: YGR138C
             UniProt: P53283
 AASEQ       614
             MSDQESVVSFNSQNTSMVDVEGQQPQQYVPSKTNSRANQLKLTKTETVKSLQDLGVTSAA

@@ -1,13 +1,12 @@
 ENTRY       YNL137C           CDS       T00005
 NAME        NAM9, MNA6
-DEFINITION  mitochondrial 37S ribosomal protein NAM9
+DEFINITION  (RefSeq) mitochondrial 37S ribosomal protein NAM9
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIV:complement(368595..370055)
-MOTIF       Pfam: S4 XPG_I_2 S4_2 MHC_I
-DBLINKS     NCBI-GI: 398364685
+MOTIF       Pfam: S4 S4_2 MHC_I
+DBLINKS     NCBI-ProteinID: NP_014262
             NCBI-GeneID: 855585
             SGD: S000005081
-            MIPS: YNL137C
             UniProt: P27929
 AASEQ       486
             MPRKANLLKSLARGRVRTSFNKYNLFNLYKKGGVDLKSKSLYQQKWTAKQETRAYHGEHL

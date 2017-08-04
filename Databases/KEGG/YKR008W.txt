@@ -1,14 +1,24 @@
 ENTRY       YKR008W           CDS       T00005
 NAME        RSC4
-DEFINITION  Rsc4p
+DEFINITION  (RefSeq) Rsc4p
 ORTHOLOGY   K11759  chromatin structure-remodeling complex subunit RSC4
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Coactivators
+                RSC complex
+                 YKR008W (RSC4)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Chromatin remodeling factors
+               RSC complex
+                YKR008W (RSC4)
 POSITION    XI:452201..454078
 MOTIF       Pfam: Bromodomain
-DBLINKS     NCBI-GI: 398364889
+DBLINKS     NCBI-ProteinID: NP_012933
             NCBI-GeneID: 853877
             SGD: S000001716
-            MIPS: YKR008W
             UniProt: Q02206
 STRUCTURE   PDB: 2R0Y 2R0S 2R10 2R0V
 AASEQ       625

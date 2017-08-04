@@ -1,18 +1,36 @@
 ENTRY       YER172C           CDS       T00005
 NAME        BRR2, PRP44, RSS1, SLT22, SNU246
-DEFINITION  Brr2p (EC:3.6.4.13)
+DEFINITION  (RefSeq) ATP-dependent RNA helicase BRR2
 ORTHOLOGY   K12854  pre-mRNA-splicing helicase BRR2 [EC:3.6.4.13]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03040  Spliceosome
-CLASS       Genetic Information Processing; Transcription; Spliceosome [PATH:sce03040]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03040 Spliceosome
+                YER172C (BRR2)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.4  Acting on acid anhydrides to facilitate cellular and subcellular movement
+                3.6.4.13  RNA helicase
+                 YER172C (BRR2)
+            Spliceosome [BR:sce03041]
+             Complex B
+              U4/U6.U5 tri-snRNP components
+               U5 snRNP specific factors
+                YER172C (BRR2)
+             Complex C
+               U5 SnRNP specific factors
+                YER172C (BRR2)
 POSITION    V:complement(529530..536021)
-MOTIF       Pfam: Sec63 DEAD ResIII Helicase_C AAA_22 PhoH FtsK_SpoIIIE
-DBLINKS     NCBI-GI: 6321020
+MOTIF       Pfam: Sec63 DEAD ResIII Helicase_C AAA_22 AAA_30 PhoH DUF87 HGTP_anticodon2
+DBLINKS     NCBI-ProteinID: NP_011099
             NCBI-GeneID: 856919
             SGD: S000000974
-            MIPS: YER172C
             UniProt: P32639
-STRUCTURE   PDB: 3IM1 3IM2 3HIB 4BGD
+STRUCTURE   PDB: 3IM1 3IM2 3HIB 5DCA 4BGD 5M52 5GAN 5GAO 5GAP 5LJ5 3JCM
+                 5M5P 5LQW
 AASEQ       2163
             MTEHETKDKAKKIREIYRYDEMSNKVLKVDKRFMNTSQNPQRDAEISQPKSMSGRISAKD
             MGQGLCNNINKGLKENDVAVEKTGKSASLKKIQQHNTILNSSSDFRLHYYPKDPSNVETY

@@ -1,13 +1,12 @@
 ENTRY       YCR020C           CDS       T00005
 NAME        PET18, HIT2
-DEFINITION  Pet18p
+DEFINITION  (RefSeq) Pet18p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    III:complement(154012..154659)
-MOTIF       Pfam: TENA_THI-4
-DBLINKS     NCBI-GI: 6319866
+MOTIF       Pfam: TENA_THI-4 Sterile
+DBLINKS     NCBI-ProteinID: NP_009947
             NCBI-GeneID: 850382
             SGD: S000000613
-            MIPS: YCR020C
             UniProt: P25362
 AASEQ       215
             MSCTTDKLIQKYDALVRKTTEHKFAKELCAGTLKDRSLYIYLSQDLQFFETSLRLICKTT

@@ -1,13 +1,12 @@
 ENTRY       YBR215W           CDS       T00005
 NAME        HPC2
-DEFINITION  Hpc2p
+DEFINITION  (RefSeq) Hpc2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    II:join(653356..653368,653453..655317)
 MOTIF       Pfam: HUN
-DBLINKS     NCBI-GI: 398365543
+DBLINKS     NCBI-ProteinID: NP_009774
             NCBI-GeneID: 852516
             SGD: S000000419
-            MIPS: YBR215W
             UniProt: Q01448
 AASEQ       625
             MDQKAIVLDNSKSGSKQTKSSGKMQTQTDTNAEVLNTDNSIKKETGSDSEDLFNKFSNKK

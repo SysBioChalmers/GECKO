@@ -1,15 +1,21 @@
 ENTRY       YNR010W           CDS       T00005
 NAME        CSE2, MED9
-DEFINITION  Cse2p
+DEFINITION  (RefSeq) Cse2p
 ORTHOLOGY   K15150  mediator of RNA polymerase II transcription subunit 9, fungi type
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Mediator complex
+                Middle
+                 YNR010W (CSE2)
 POSITION    XIV:643744..644193
-MOTIF       Pfam: Med9 Filament Syntaxin DUF972 DUF1409
-DBLINKS     NCBI-GI: 398365587
+MOTIF       Pfam: Med9 Filament INT_SG_DDX_CT_C YabB Wx5_PLAF3D7
+DBLINKS     NCBI-ProteinID: NP_014407
             NCBI-GeneID: 855744
             SGD: S000005293
-            MIPS: YNR010W
             UniProt: P33308
+STRUCTURE   PDB: 5SVA
 AASEQ       149
             MNLQNNVLNQIHQILLPTNPTLDKPNAEATKEEFSSAENRDEKDYLTNQQPKNLSTPSTS
             SNGEFIPHIFYSLHQIRKDPNNLSNQLETLTGSIRHRLKLCKSLISENEDTKDLLSKSPS

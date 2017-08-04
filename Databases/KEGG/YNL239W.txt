@@ -1,14 +1,23 @@
 ENTRY       YNL239W           CDS       T00005
 NAME        LAP3, BLH1, GAL6, YCP1
-DEFINITION  Lap3p (EC:3.4.22.40)
+DEFINITION  (RefSeq) bleomycin hydrolase
 ORTHOLOGY   K01372  bleomycin hydrolase [EC:3.4.22.40]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.4  Acting on peptide bonds (peptidases)
+               3.4.22  Cysteine endopeptidases
+                3.4.22.40  bleomycin hydrolase
+                 YNL239W (LAP3)
+            Peptidases [BR:sce01002]
+             Cysteine Peptidases
+              Family C1: papain family
+               YNL239W (LAP3)
 POSITION    XIV:200569..201933
 MOTIF       Pfam: Peptidase_C1_2 Peptidase_C1
-DBLINKS     NCBI-GI: 27808714
+DBLINKS     NCBI-ProteinID: NP_014160
             NCBI-GeneID: 855482
             SGD: S000005183
-            MIPS: YNL239W
             UniProt: Q01532
 STRUCTURE   PDB: 2E01 3GCB 2E00 1A6R 2E03 2DZZ 2E02 1GCB 2DZY
 AASEQ       454

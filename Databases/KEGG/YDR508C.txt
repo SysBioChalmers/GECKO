@@ -1,14 +1,17 @@
 ENTRY       YDR508C           CDS       T00005
 NAME        GNP1
-DEFINITION  Gnp1p
+DEFINITION  (RefSeq) glutamine permease GNP1
 ORTHOLOGY   K16261  yeast amino acid transporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Other Transporters
+              Electrochemical potential-driven transporters [TC:2]
+               YDR508C (GNP1)
 POSITION    IV:complement(1466453..1468444)
 MOTIF       Pfam: AA_permease AA_permease_2
-DBLINKS     NCBI-GI: 6320717
+DBLINKS     NCBI-ProteinID: NP_010796
             NCBI-GeneID: 852121
             SGD: S000002916
-            MIPS: YDR508C
             UniProt: P48813
 AASEQ       663
             MTLGNRRHGRNNEGSSNMNMNRNDLDDVSHYEMKEIQPKEKQIGSIEPENEVEYFEKTVE

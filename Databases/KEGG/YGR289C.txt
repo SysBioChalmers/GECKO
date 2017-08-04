@@ -1,14 +1,18 @@
 ENTRY       YGR289C           CDS       T00005
 NAME        MAL11, AGT1
-DEFINITION  Mal11p
+DEFINITION  (RefSeq) alpha-glucoside permease
 ORTHOLOGY   K08141  MFS transporter, SP family, general alpha glucoside:H+ symporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Major Facilitator Superfamily (MFS)
+              Sugar transporters
+               Sugar porter (SP) family [TC:2.A.1.1]
+                YGR289C (MAL11)
 POSITION    VII:complement(1073963..1075813)
 MOTIF       Pfam: Sugar_tr MFS_1
-DBLINKS     NCBI-GI: 398366431
+DBLINKS     NCBI-ProteinID: NP_011805
             NCBI-GeneID: 853207
             SGD: S000003521
-            MIPS: YGR289C
             UniProt: P53048
 AASEQ       616
             MKNIISLVSKKKAASKNEDKNISESSRDIVNQQEVFNTEDFEEGKKDSAFELDHLEFTTN

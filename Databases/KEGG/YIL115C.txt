@@ -1,12 +1,19 @@
 ENTRY       YIL115C           CDS       T00005
 NAME        NUP159, NUP158, RAT7
-DEFINITION  Nup159p
+DEFINITION  (RefSeq) FG-nucleoporin NUP159
+ORTHOLOGY   K18715  nucleoporin NUP159
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Transport factors
+                Nuclear pore complex
+                 YIL115C (NUP159)
 POSITION    IX:complement(144327..148709)
-DBLINKS     NCBI-GI: 6322076
+MOTIF       Pfam: NUP214
+DBLINKS     NCBI-ProteinID: NP_012151
             NCBI-GeneID: 854691
             SGD: S000001377
-            MIPS: YIL115C
             UniProt: P40477
 STRUCTURE   PDB: 1XIP 3PBP 3RRM 3TKN
 AASEQ       1460

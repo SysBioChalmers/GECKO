@@ -1,13 +1,12 @@
 ENTRY       YBR129C           CDS       T00005
 NAME        OPY1
-DEFINITION  Opy1p
+DEFINITION  (RefSeq) Opy1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    II:complement(494353..495339)
-MOTIF       Pfam: PH PH_11
-DBLINKS     NCBI-GI: 6319605
+MOTIF       Pfam: PH
+DBLINKS     NCBI-ProteinID: NP_009687
             NCBI-GeneID: 852426
             SGD: S000000333
-            MIPS: YBR129C
             UniProt: P38271
 AASEQ       328
             MIAGATAPSSQHEILIASNLIKKPSTSQNKTPTAQSSSGNNGAADGAPQGYHHHHHHHRH

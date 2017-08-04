@@ -1,13 +1,12 @@
 ENTRY       YPL253C           CDS       T00005
 NAME        VIK1
-DEFINITION  Vik1p
+DEFINITION  (RefSeq) Vik1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:complement(71063..73006)
-MOTIF       Pfam: Reo_sigmaC
-DBLINKS     NCBI-GI: 6325002
+MOTIF       Pfam: Microtub_bd Reo_sigmaC BRCA-2_OB3
+DBLINKS     NCBI-ProteinID: NP_015070
             NCBI-GeneID: 855822
             SGD: S000006174
-            MIPS: YPL253C
             UniProt: Q12045
 STRUCTURE   PDB: 2O0A 4ETP
 AASEQ       647

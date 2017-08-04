@@ -1,29 +1,57 @@
 ENTRY       YMR323W           CDS       T00005
 NAME        ERR3
-DEFINITION  phosphopyruvate hydratase ERR3 (EC:4.2.1.11)
+DEFINITION  (RefSeq) phosphopyruvate hydratase ERR3
 ORTHOLOGY   K01689  enolase [EC:4.2.1.11]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00010  Glycolysis / Gluconeogenesis
             sce00680  Methane metabolism
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
+            sce01130  Biosynthesis of antibiotics
             sce01200  Carbon metabolism
             sce01230  Biosynthesis of amino acids
             sce03018  RNA degradation
 MODULE      sce_M00001  Glycolysis (Embden-Meyerhof pathway), glucose => pyruvate
             sce_M00002  Glycolysis, core module involving three-carbon compounds
             sce_M00003  Gluconeogenesis, oxaloacetate => fructose-6P
-CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
-            Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
-            Metabolism; Carbohydrate metabolism; Glycolysis / Gluconeogenesis [PATH:sce00010]
-            Metabolism; Energy metabolism; Methane metabolism [PATH:sce00680]
-            Genetic Information Processing; Folding, sorting and degradation; RNA degradation [PATH:sce03018]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01200 Carbon metabolism
+                YMR323W (ERR3)
+               01230 Biosynthesis of amino acids
+                YMR323W (ERR3)
+              Carbohydrate metabolism
+               00010 Glycolysis / Gluconeogenesis
+                YMR323W (ERR3)
+              Energy metabolism
+               00680 Methane metabolism
+                YMR323W (ERR3)
+             Genetic Information Processing
+              Folding, sorting and degradation
+               03018 RNA degradation
+                YMR323W (ERR3)
+            Enzymes [BR:sce01000]
+             4. Lyases
+              4.2  Carbon-oxygen lyases
+               4.2.1  Hydro-lyases
+                4.2.1.11  phosphopyruvate hydratase
+                 YMR323W (ERR3)
+            Messenger RNA biogenesis [BR:sce03019]
+             Prokaryotic Type
+              Bacterial mRNA degradation factors
+               RNA degradosome components
+                Other RNA degradosome components
+                 YMR323W (ERR3)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Proteins found in most exosomes
+               YMR323W (ERR3)
 POSITION    XIII:920088..921401
 MOTIF       Pfam: Enolase_C Enolase_N MR_MLE_C MAAL_C
-DBLINKS     NCBI-GI: 398366127
+DBLINKS     NCBI-ProteinID: NP_014056
             NCBI-GeneID: 855373
             SGD: S000004942
-            MIPS: YMR323W
             UniProt: P42222
 AASEQ       437
             MSITKVHARTVYDSRGNPTVEVEITTENGLFRAIVPSGASTGIHEAVELRDGNKSEWMGK

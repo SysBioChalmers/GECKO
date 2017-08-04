@@ -1,14 +1,17 @@
 ENTRY       YBR235W           CDS       T00005
 NAME        VHC1
-DEFINITION  Vhc1p
+DEFINITION  (RefSeq) Vhc1p
 ORTHOLOGY   K14429  solute carrier family 12 (potassium/chloride transporters), member 9
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Solute Carrier Family (SLC)
+              SLC12: Electroneutral cation-coupled Cl cotransporter
+               YBR235W (VHC1)
 POSITION    II:686901..690263
-MOTIF       Pfam: AA_permease Adap_comp_sub
-DBLINKS     NCBI-GI: 398365653
+MOTIF       Pfam: AA_permease SLC12
+DBLINKS     NCBI-ProteinID: NP_009794
             NCBI-GeneID: 852537
             SGD: S000000439
-            MIPS: YBR235W
             UniProt: P38329
 AASEQ       1120
             MVSRFYQIPGTHRPSSAISSSNESSSLLSARRISQTYFNYQATPECQKVSSKYDPDNPNK

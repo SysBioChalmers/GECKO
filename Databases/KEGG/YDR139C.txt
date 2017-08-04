@@ -1,14 +1,17 @@
 ENTRY       YDR139C           CDS       T00005
 NAME        RUB1
-DEFINITION  NEDD8 family protein RUB1
+DEFINITION  (RefSeq) NEDD8 family protein RUB1
 ORTHOLOGY   K12158  ubiquitin-like protein Nedd8
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ubiquitin system [BR:sce04121]
+             Ubiquitins and Ubiquitin-like proteins
+              Ubiquitin-like proteins (UBLs)
+               YDR139C (RUB1)
 POSITION    IV:complement(join(733618..733702,733776..733924))
-MOTIF       Pfam: ubiquitin Rad60-SLD Ubiquitin_2 TUG-UBL1
-DBLINKS     NCBI-GI: 398365789
+MOTIF       Pfam: ubiquitin Rad60-SLD Ubiquitin_2
+DBLINKS     NCBI-ProteinID: NP_010423
             NCBI-GeneID: 851717
             SGD: S000002546
-            MIPS: YDR139C
             UniProt: Q03919
 AASEQ       77
             MIVKVKTLTGKEISVELKESDLVYHIKELLEEKEGIPPSQQRLIFQGKQIDDKLTVTDAH

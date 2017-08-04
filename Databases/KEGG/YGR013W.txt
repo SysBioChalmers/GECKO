@@ -1,13 +1,12 @@
 ENTRY       YGR013W           CDS       T00005
 NAME        SNU71
-DEFINITION  Snu71p
+DEFINITION  (RefSeq) Snu71p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:514554..516416
-MOTIF       Pfam: FOP_dimer PWI
-DBLINKS     NCBI-GI: 6321450
+MOTIF       Pfam: FOP_dimer pXO2-72 PWI GET2
+DBLINKS     NCBI-ProteinID: NP_011527
             NCBI-GeneID: 852896
             SGD: S000003245
-            MIPS: YGR013W
             UniProt: P53207
 AASEQ       620
             MRDIVFVSPQLYLSSQEGWKSDSAKSGFIPILKNDLQRFQDSLKHIVDARNSLSETLLNS

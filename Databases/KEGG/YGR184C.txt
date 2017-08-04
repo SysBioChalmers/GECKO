@@ -1,14 +1,24 @@
 ENTRY       YGR184C           CDS       T00005
 NAME        UBR1, PTR1
-DEFINITION  E3 ubiquitin-protein ligase UBR1 (EC:6.3.2.-)
-ORTHOLOGY   K10625  E3 ubiquitin-protein ligase UBR1 [EC:6.3.2.19]
+DEFINITION  (RefSeq) E3 ubiquitin-protein ligase UBR1
+ORTHOLOGY   K10625  E3 ubiquitin-protein ligase UBR1 [EC:2.3.2.27]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.3  Acyltransferases
+               2.3.2  Aminoacyltransferases
+                2.3.2.27  RING-type E3 ubiquitin transferase
+                 YGR184C (UBR1)
+            Ubiquitin system [BR:sce04121]
+             Ubiquitin ligases (E3)
+              Single Ring-finger type E3
+               UBR box proteins
+                YGR184C (UBR1)
 POSITION    VII:complement(859901..865753)
-MOTIF       Pfam: zf-UBR ClpS
-DBLINKS     NCBI-GI: 6321623
+MOTIF       Pfam: zf-UBR ClpS zf-RING_2 APP_E2
+DBLINKS     NCBI-ProteinID: NP_011700
             NCBI-GeneID: 853096
             SGD: S000003416
-            MIPS: YGR184C
             UniProt: P19812
 STRUCTURE   PDB: 3NIS 3NIL 3NIK 3NIM 3NIH 3NII 3NIJ 3NIN 3NIT
 AASEQ       1950

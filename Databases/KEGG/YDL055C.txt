@@ -1,20 +1,30 @@
 ENTRY       YDL055C           CDS       T00005
 NAME        PSA1, MPG1, SRB1, VIG9
-DEFINITION  mannose-1-phosphate guanylyltransferase (EC:2.7.7.13)
+DEFINITION  (RefSeq) mannose-1-phosphate guanylyltransferase
 ORTHOLOGY   K00966  mannose-1-phosphate guanylyltransferase [EC:2.7.7.13]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00051  Fructose and mannose metabolism
             sce00520  Amino sugar and nucleotide sugar metabolism
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
-CLASS       Metabolism; Carbohydrate metabolism; Fructose and mannose metabolism [PATH:sce00051]
-            Metabolism; Carbohydrate metabolism; Amino sugar and nucleotide sugar metabolism [PATH:sce00520]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Carbohydrate metabolism
+               00051 Fructose and mannose metabolism
+                YDL055C (PSA1)
+               00520 Amino sugar and nucleotide sugar metabolism
+                YDL055C (PSA1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.7  Nucleotidyltransferases
+                2.7.7.13  mannose-1-phosphate guanylyltransferase
+                 YDL055C (PSA1)
 POSITION    IV:complement(355674..356759)
-MOTIF       Pfam: NTP_transferase NTP_transf_3 Hexapep Hexapep_2 CTP_transf_3
-DBLINKS     NCBI-GI: 6320148
+MOTIF       Pfam: NTP_transferase NTP_transf_3 Hexapep Fucokinase Hexapep_2 DUF4954 CTP_transf_3
+DBLINKS     NCBI-ProteinID: NP_010228
             NCBI-GeneID: 851504
             SGD: S000002213
-            MIPS: YDL055C
             UniProt: P41940
 AASEQ       361
             MKGLILVGGYGTRLRPLTLTVPKPLVEFGNRPMILHQIEALANAGVTDIVLAVNYRPEVM

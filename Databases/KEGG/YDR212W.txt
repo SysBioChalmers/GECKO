@@ -1,16 +1,32 @@
 ENTRY       YDR212W           CDS       T00005
 NAME        TCP1, CCT1
-DEFINITION  Tcp1p
+DEFINITION  (RefSeq) chaperonin-containing T-complex alpha subunit TCP1
 ORTHOLOGY   K09493  T-complex protein 1 subunit alpha
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chaperones and folding catalysts [BR:sce03110]
+             Heat shock proteins
+              HSP60 / Chaperonin
+               YDR212W (TCP1)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centrosome formation and ciliogenesis proteins
+               BBS-CCT complex
+                YDR212W (TCP1)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of haemopoietic cells  (B-cell, T-cell, DC-cell, reticulocyte, and mast cell)
+               YDR212W (TCP1)
+              Exosomal proteins of colorectal cancer cells
+               YDR212W (TCP1)
+              Exosomal proteins of bladder cancer cells
+               YDR212W (TCP1)
 POSITION    IV:887232..888911
-MOTIF       Pfam: Cpn60_TCP1
-DBLINKS     NCBI-GI: 6320418
+MOTIF       Pfam: Cpn60_TCP1 Sua5_yciO_yrdC
+DBLINKS     NCBI-ProteinID: NP_010498
             NCBI-GeneID: 851798
             SGD: S000002620
-            MIPS: YDR212W
             UniProt: P12612
-STRUCTURE   PDB: 4APK 4AOL 4D8Q 4D8R 3P9D 3P9E
+STRUCTURE   PDB: 5GW5 5GW4
 AASEQ       559
             MSQLFNNSRSDTLFLGGEKISGDDIRNQNVLATMAVANVVKSSLGPVGLDKMLVDDIGDF
             TVTNDGATILSLLDVQHPAGKILVELAQQQDREIGDGTTSVVIIASELLKRANELVKNKI

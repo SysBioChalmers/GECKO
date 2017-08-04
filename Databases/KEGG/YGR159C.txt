@@ -1,14 +1,24 @@
 ENTRY       YGR159C           CDS       T00005
 NAME        NSR1, SHE5
-DEFINITION  Nsr1p
+DEFINITION  (RefSeq) Nsr1p
 ORTHOLOGY   K11294  nucleolin
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              90S particles
+               Other 90S particles
+                YGR159C (NSR1)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Nucleosome assembly factors
+               Histone chaperones
+                Other Histone chaperones and regulators
+                 YGR159C (NSR1)
 POSITION    VII:complement(806412..807656)
-MOTIF       Pfam: RRM_1 RRM_6 RRM_5 Nup35_RRM_2 MIP-T3 CDC27
-DBLINKS     NCBI-GI: 6321599
+MOTIF       Pfam: RRM_1 Nup35_RRM_2 GOLD_2
+DBLINKS     NCBI-ProteinID: NP_011675
             NCBI-GeneID: 853064
             SGD: S000003391
-            MIPS: YGR159C
             UniProt: P27476
 AASEQ       414
             MAKTTKVKGNKKEVKASKQAKEEKAKAVSSSSSESSSSSSSSSESESESESESESSSSSS

@@ -1,13 +1,11 @@
 ENTRY       YFR029W           CDS       T00005
 NAME        PTR3, RAA2, SSY3
-DEFINITION  Ptr3p
+DEFINITION  (RefSeq) Ptr3p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VI:210937..212973
-MOTIF       Pfam: zf-RING_UBOX
-DBLINKS     NCBI-GI: 14318552
+DBLINKS     NCBI-ProteinID: NP_116685
             NCBI-GeneID: 850587
             SGD: S000001925
-            MIPS: YFR029W
             UniProt: P43606
 AASEQ       678
             MHSHRQKWGRQTDIARVLDDIEHDLYLPQRLSLDGATGTDESHVQYGIVKDCSVLTCGCC

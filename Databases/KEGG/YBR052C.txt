@@ -1,13 +1,12 @@
 ENTRY       YBR052C           CDS       T00005
 NAME        RFS1
-DEFINITION  Rfs1p
+DEFINITION  (RefSeq) flavodoxin-like fold family protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    II:complement(338720..339352)
-MOTIF       Pfam: FMN_red Flavodoxin_1
-DBLINKS     NCBI-GI: 6319526
+MOTIF       Pfam: FMN_red 5_3_exonuc_N
+DBLINKS     NCBI-ProteinID: NP_009608
             NCBI-GeneID: 852341
             SGD: S000000256
-            MIPS: YBR052C
             UniProt: P38234
 AASEQ       210
             MPKVAILIYSVDDIIATLAENEKKGIEIAGGEAEIFQVPDVSYKTEYATEEGKEAAKVAK

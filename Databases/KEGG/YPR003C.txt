@@ -1,12 +1,11 @@
 ENTRY       YPR003C           CDS       T00005
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) hypothetical protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:complement(561504..563768)
-MOTIF       Pfam: Sulfate_transp STAS Sulfate_tra_GLY STAS_2 DUF1072 Spore_YabQ
-DBLINKS     NCBI-GI: 6325260
+MOTIF       Pfam: Sulfate_transp STAS MFS_MOT1 DUF1072
+DBLINKS     NCBI-ProteinID: NP_015328
             NCBI-GeneID: 856111
             SGD: S000006207
-            MIPS: YPR003C
             UniProt: P53394
 AASEQ       754
             MTSNNSLLGRGRMSYSSTAPPRFKRSVDQRDTFSDNFDYDKDSSNRGRTYIAASNSTTGV

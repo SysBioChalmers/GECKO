@@ -1,13 +1,12 @@
 ENTRY       YBR078W           CDS       T00005
 NAME        ECM33
-DEFINITION  Ecm33p
+DEFINITION  (RefSeq) Ecm33p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    II:join(393123..393180,393511..394742)
-MOTIF       Pfam: Recep_L_domain LRR_9 DUF4339
-DBLINKS     NCBI-GI: 330443439
+MOTIF       Pfam: Recep_L_domain LRR_9
+DBLINKS     NCBI-ProteinID: NP_009634
             NCBI-GeneID: 852370
             SGD: S000000282
-            MIPS: YBR078W
             UniProt: P38248
 AASEQ       429
             MQFKNALTATAILSASALAANSTTSIPSSCSIGTSATATAQADLDKISGCSTIVGNLTIT

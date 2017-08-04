@@ -1,16 +1,24 @@
 ENTRY       YOR008C           CDS       T00005
 NAME        SLG1, HCS77, WSC1
-DEFINITION  Slg1p
+DEFINITION  (RefSeq) Slg1p
 ORTHOLOGY   K11244  cell wall integrity and stress response component
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04011  MAPK signaling pathway - yeast
-CLASS       Environmental Information Processing; Signal transduction; MAPK signaling pathway - yeast [PATH:sce04011]
+            sce04139  Mitophagy - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YOR008C (SLG1)
+             Cellular Processes
+              Transport and catabolism
+               04139 Mitophagy - yeast
+                YOR008C (SLG1)
 POSITION    XV:complement(341278..342414)
-MOTIF       Pfam: WSC DUF456 Gly-zipper_Omp EphA2_TM Sec3_C Gly-zipper_YMGG SLD3 Rick_17kDa_Anti
-DBLINKS     NCBI-GI: 6324581
+MOTIF       Pfam: WSC DUF1191 Gly-zipper_Omp TMEM154 DUF456 EphA2_TM Utp14 Gly-zipper_YMGG
+DBLINKS     NCBI-ProteinID: NP_014650
             NCBI-GeneID: 854170
             SGD: S000005534
-            MIPS: YOR008C
             UniProt: P54867
 AASEQ       378
             MRPNKTSLLLALLSILSQANAYEYVNCFSSLPSDFSKADSYNWQSSSHCNSECSAKGASY

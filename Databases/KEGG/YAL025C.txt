@@ -1,14 +1,18 @@
 ENTRY       YAL025C           CDS       T00005
 NAME        MAK16
-DEFINITION  Mak16p
+DEFINITION  (RefSeq) ribosome biosynthesis protein MAK16
 ORTHOLOGY   K14831  protein MAK16
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               Other pre-60S particles
+                YAL025C (MAK16)
 POSITION    I:complement(100225..101145)
-MOTIF       Pfam: Mak16 Ribosomal_L28e Nop14 TFIIF_alpha
-DBLINKS     NCBI-GI: 330443376
+MOTIF       Pfam: Ribosomal_L28e Mak16 BUD22 IMUP Ribosomal_L24e PYC_OADA TFIIF_alpha
+DBLINKS     NCBI-ProteinID: NP_009377
             NCBI-GeneID: 851208
             SGD: S000000023
-            MIPS: YAL025C
             UniProt: P10962
 AASEQ       306
             MSDEIVWQVINQSFCSHRIKAPNGQNFCRNEYNVTGLCTRQSCPLANSKYATVKCDNGKL

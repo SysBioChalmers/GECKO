@@ -1,13 +1,12 @@
 ENTRY       YIL050W           CDS       T00005
 NAME        PCL7
-DEFINITION  Pcl7p
+DEFINITION  (RefSeq) Pcl7p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IX:258913..259770
-MOTIF       Pfam: Cyclin
-DBLINKS     NCBI-GI: 398364413
+MOTIF       Pfam: Cyclin SAUGI
+DBLINKS     NCBI-ProteinID: NP_012214
             NCBI-GeneID: 854761
             SGD: S000001312
-            MIPS: YIL050W
             UniProt: P40186
 AASEQ       285
             MELSSPSKKTTTSPINIPGGNRDNLIIGPHSHSFKTDPFSSNNSSLLSKISTNPSLESPF

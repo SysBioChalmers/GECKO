@@ -1,14 +1,19 @@
 ENTRY       YGR234W           CDS       T00005
 NAME        YHB1, YHB4
-DEFINITION  Yhb1p (EC:1.14.12.17)
+DEFINITION  (RefSeq) flavohemoglobin
 ORTHOLOGY   K05916  nitric oxide dioxygenase [EC:1.14.12.17]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.14  Acting on paired donors, with incorporation or reduction of molecular oxygen
+               1.14.12  With NADH or NADPH as one donor, and incorporation of two atoms of oxygen into the other donor
+                1.14.12.17  nitric oxide dioxygenase
+                 YGR234W (YHB1)
 POSITION    VII:959904..961103
-MOTIF       Pfam: FAD_binding_6 Globin NAD_binding_1 Protoglobin
-DBLINKS     NCBI-GI: 6321673
+MOTIF       Pfam: Globin FAD_binding_6 NAD_binding_1 Protoglobin Fzo_mitofusin
+DBLINKS     NCBI-ProteinID: NP_011750
             NCBI-GeneID: 853149
             SGD: S000003466
-            MIPS: YGR234W
             UniProt: P39676
 STRUCTURE   PDB: 4G1V 4G1B
 AASEQ       399

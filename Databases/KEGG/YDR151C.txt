@@ -1,13 +1,12 @@
 ENTRY       YDR151C           CDS       T00005
 NAME        CTH1
-DEFINITION  Cth1p
+DEFINITION  (RefSeq) putative mRNA-binding protein CTH1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(764178..765155)
-MOTIF       Pfam: zf-CCCH zf-CCCH_2
-DBLINKS     NCBI-GI: 6320355
+MOTIF       Pfam: zf-CCCH Torus
+DBLINKS     NCBI-ProteinID: NP_010435
             NCBI-GeneID: 851729
             SGD: S000002558
-            MIPS: YDR151C
             UniProt: P47976
 AASEQ       325
             MMPNVAPNSYYLNIPNANSTSTTTSSIFSDLNKEYESKIKEIEEYYIKTLLNENTDNDDS

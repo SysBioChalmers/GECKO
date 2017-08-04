@@ -1,13 +1,19 @@
 ENTRY       YPR075C           CDS       T00005
 NAME        OPY2
-DEFINITION  Opy2p
+DEFINITION  (RefSeq) Opy2p
+ORTHOLOGY   K19850  protein OPY2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04011  MAPK signaling pathway - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YPR075C (OPY2)
 POSITION    XVI:complement(695737..696819)
-MOTIF       Pfam: Opy2 Herpes_gE LRR19-TM Plasmodium_Vir DUF4366 TMEM154 DUF1191 FAM176
-DBLINKS     NCBI-GI: 6325333
+MOTIF       Pfam: Opy2 FAM176 Amnionless DUF1191 TMEM51
+DBLINKS     NCBI-ProteinID: NP_015400
             NCBI-GeneID: 856191
             SGD: S000006279
-            MIPS: YPR075C
             UniProt: Q06810
 AASEQ       360
             MSSSSKASASSSLSSTATSSTSATRGSDGCVVCDSTASCPVCASGEYCVMTSLTCDKCPS

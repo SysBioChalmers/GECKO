@@ -1,13 +1,12 @@
 ENTRY       YAL028W           CDS       T00005
 NAME        FRT2, HPH2
-DEFINITION  Frt2p
+DEFINITION  (RefSeq) Frt2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    I:92900..94486
-MOTIF       Pfam: Hph Sec8_exocyst
-DBLINKS     NCBI-GI: 6319291
+MOTIF       Pfam: Hph
+DBLINKS     NCBI-ProteinID: NP_009374
             NCBI-GeneID: 851205
             SGD: S000000026
-            MIPS: YAL028W
             UniProt: P39734
 AASEQ       528
             MQNAQIKSSSKGSGIDGTDRNSKDGVEKRPLEDVKQMIDAGTPDVGHKSTVETKPNVGWQ

@@ -1,16 +1,31 @@
 ENTRY       YOL059W           CDS       T00005
 NAME        GPD2, GPD3
-DEFINITION  glycerol-3-phosphate dehydrogenase (NAD(+)) GPD2 (EC:1.1.1.8)
+DEFINITION  (RefSeq) glycerol-3-phosphate dehydrogenase (NAD(+)) GPD2
 ORTHOLOGY   K00006  glycerol-3-phosphate dehydrogenase (NAD+) [EC:1.1.1.8]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00564  Glycerophospholipid metabolism
-CLASS       Metabolism; Lipid metabolism; Glycerophospholipid metabolism [PATH:sce00564]
+            sce01110  Biosynthesis of secondary metabolites
+            sce04011  MAPK signaling pathway - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Lipid metabolism
+               00564 Glycerophospholipid metabolism
+                YOL059W (GPD2)
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YOL059W (GPD2)
+            Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.1  Acting on the CH-OH group of donors
+               1.1.1  With NAD+ or NADP+ as acceptor
+                1.1.1.8  glycerol-3-phosphate dehydrogenase (NAD+)
+                 YOL059W (GPD2)
 POSITION    XV:217126..218448
-MOTIF       Pfam: NAD_Gly3P_dh_N NAD_Gly3P_dh_C Semialdhyde_dh
-DBLINKS     NCBI-GI: 6324513
+MOTIF       Pfam: NAD_Gly3P_dh_N NAD_Gly3P_dh_C
+DBLINKS     NCBI-ProteinID: NP_014582
             NCBI-GeneID: 854095
             SGD: S000005420
-            MIPS: YOL059W
             UniProt: P41911
 AASEQ       440
             MLAVRRLTRYTFLKRTHPVLYTRRAYKILPSRSTFLRRSLLQTQLHSKMTAHTNIKQHKH

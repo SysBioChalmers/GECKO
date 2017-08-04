@@ -1,16 +1,25 @@
 ENTRY       YGL172W           CDS       T00005
 NAME        NUP49, NSP49
-DEFINITION  Nup49p
+DEFINITION  (RefSeq) FG-nucleoporin NUP49
 ORTHOLOGY   K14307  nucleoporin p58/p45
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03013  RNA transport
-CLASS       Genetic Information Processing; Translation; RNA transport [PATH:sce03013]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03013 RNA transport
+                YGL172W (NUP49)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Transport factors
+                Nuclear pore complex
+                 YGL172W (NUP49)
 POSITION    VII:180700..182118
-MOTIF       Pfam: Nucleoporin_FG
-DBLINKS     NCBI-GI: 6321266
+MOTIF       Pfam: Nucleoporin_FG Use1 Fibin
+DBLINKS     NCBI-ProteinID: NP_011343
             NCBI-GeneID: 852703
             SGD: S000003140
-            MIPS: YGL172W
             UniProt: Q02199
 AASEQ       472
             MFGLNKASSTPAGGLFGQASGASTGNANTGFSFGGTQTGQNTGPSTGGLFGAKPAGSTGG

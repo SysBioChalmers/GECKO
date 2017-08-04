@@ -1,18 +1,28 @@
 ENTRY       YER005W           CDS       T00005
 NAME        YND1, APY1, YEJ5
-DEFINITION  Ynd1p (EC:3.6.1.5)
+DEFINITION  (RefSeq) apyrase
 ORTHOLOGY   K14642  golgi apyrase [EC:3.6.1.5]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00230  Purine metabolism
             sce00240  Pyrimidine metabolism
-CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
-            Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Nucleotide metabolism
+               00230 Purine metabolism
+                YER005W (YND1)
+               00240 Pyrimidine metabolism
+                YER005W (YND1)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.1  In phosphorus-containing anhydrides
+                3.6.1.5  apyrase
+                 YER005W (YND1)
 POSITION    V:160550..162442
-MOTIF       Pfam: GDA1_CD39 Ppx-GppA
-DBLINKS     NCBI-GI: 398364305
+MOTIF       Pfam: GDA1_CD39 NSs Ppx-GppA
+DBLINKS     NCBI-ProteinID: NP_010920
             NCBI-GeneID: 856722
             SGD: S000000807
-            MIPS: YER005W
             UniProt: P40009
 AASEQ       630
             MLIENTNDRFGIVIDAGSSGSRIHVFKWQDTESLLHATNQDSQSILQSVPHIHQEKDWTF

@@ -1,12 +1,12 @@
 ENTRY       YJR129C           CDS       T00005
-DEFINITION  hypothetical protein
+NAME        EFM3
+DEFINITION  (RefSeq) protein-lysine N-methyltransferase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    X:complement(664000..665019)
-MOTIF       Pfam: Methyltransf_16 Methyltransf_23 RrnaAD MTS Methyltransf_12 Methyltransf_28 DREV Methyltransf_18 DUF2439
-DBLINKS     NCBI-GI: 330443625
+MOTIF       Pfam: Methyltransf_16 Methyltransf_23 Methyltransf_28 Methyltransf_12 RrnaAD DREV Methyltransf_25 MTS DUF1932
+DBLINKS     NCBI-ProteinID: NP_012663
             NCBI-GeneID: 853593
             SGD: S000003890
-            MIPS: YJR129C
             UniProt: P47163
 AASEQ       339
             MNEDLFYDRLHQRCPGKYLLEELETSKSNDVLHASRFVCEMELVQKTNAYYCKTIVKMLL

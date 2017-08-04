@@ -1,14 +1,19 @@
 ENTRY       YHR038W           CDS       T00005
 NAME        RRF1, FIL1, KIM4
-DEFINITION  Rrf1p
+DEFINITION  (RefSeq) Rrf1p
 ORTHOLOGY   K02838  ribosome recycling factor
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Translation factors [BR:sce03012]
+             Eukaryotic Type
+              Release factors
+               YHR038W (RRF1)
+             Prokaryotic Type
+               YHR038W (RRF1)
 POSITION    VIII:184066..184758
-MOTIF       Pfam: RRF Cor1 Pox_polyA_pol_N
-DBLINKS     NCBI-GI: 6321827
+MOTIF       Pfam: RRF DUF2884 Pox_polyA_pol_N Cor1
+DBLINKS     NCBI-ProteinID: NP_011903
             NCBI-GeneID: 856433
             SGD: S000001080
-            MIPS: YHR038W
             UniProt: P38771
 AASEQ       230
             MILTTARLNCRPVTVPRLFNRSFSQSFIILKKKSSTPTEKVEEDEIDVNELLKKAETQFK

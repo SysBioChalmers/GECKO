@@ -1,14 +1,17 @@
 ENTRY       YPL134C           CDS       T00005
 NAME        ODC1
-DEFINITION  Odc1p
+DEFINITION  (RefSeq) mitochondrial 2-oxodicarboxylate carrier
 ORTHOLOGY   K15110  solute carrier family 25 (mitochondrial 2-oxodicarboxylate transporter), member 21
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Solute Carrier Family (SLC)
+              SLC25: Mitochondrial carrier
+               YPL134C (ODC1)
 POSITION    XVI:complement(298571..299503)
 MOTIF       Pfam: Mito_carr Tim17
-DBLINKS     NCBI-GI: 6325123
+DBLINKS     NCBI-ProteinID: NP_015191
             NCBI-GeneID: 855969
             SGD: S000006055
-            MIPS: YPL134C
             UniProt: Q03028
 AASEQ       310
             MTSIDNRPLPFIYQFTAGAIAGVSELLVMYPLDVVKTRMQLQVTTKGHPAVVAAKAAVDH

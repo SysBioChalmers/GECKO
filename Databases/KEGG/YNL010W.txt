@@ -1,12 +1,11 @@
 ENTRY       YNL010W           CDS       T00005
-DEFINITION  hypothetical protein (EC:3.1.3.-)
+DEFINITION  (RefSeq) putative phosphoric monoester hydrolase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIV:613635..614360
-MOTIF       Pfam: HAD Put_Phosphatase HAD_2 UMPH-1 SpoU_sub_bind
-DBLINKS     NCBI-GI: 398365467
+MOTIF       Pfam: HAD Put_Phosphatase UMPH-1 Hydrolase HAD_2 SpoU_sub_bind
+DBLINKS     NCBI-ProteinID: NP_014388
             NCBI-GeneID: 855722
             SGD: S000004955
-            MIPS: YNL010W
             UniProt: P53981
 AASEQ       241
             MVKAVIFTDFDGTVTLEDSNDYLTDTLGFGKEKRLKVFEGVLDDTKSFRQGFMEMLESIH

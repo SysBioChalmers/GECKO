@@ -1,13 +1,19 @@
 ENTRY       YOR373W           CDS       T00005
 NAME        NUD1
-DEFINITION  Nud1p
+DEFINITION  (RefSeq) Nud1p
+ORTHOLOGY   K20237  protein NUD1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04392  Hippo signaling pathway -multiple species
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04392 Hippo signaling pathway - multiple species
+                YOR373W (NUD1)
 POSITION    XV:1036834..1039389
 MOTIF       Pfam: LRR_4 LRR_8 LRR_9
-DBLINKS     NCBI-GI: 398366419
+DBLINKS     NCBI-ProteinID: NP_015018
             NCBI-GeneID: 854555
             SGD: S000005900
-            MIPS: YOR373W
             UniProt: P32336
 AASEQ       851
             MDMDTQEAELSSQLENLTINSPRKLRSNAHSNSGKVFKEYESNHDFQDSNFTSQVVEPAI

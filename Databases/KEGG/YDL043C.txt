@@ -1,16 +1,29 @@
 ENTRY       YDL043C           CDS       T00005
 NAME        PRP11, RNA11
-DEFINITION  Prp11p
+DEFINITION  (RefSeq) Prp11p
 ORTHOLOGY   K12826  splicing factor 3A subunit 2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03040  Spliceosome
-CLASS       Genetic Information Processing; Transcription; Spliceosome [PATH:sce03040]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03040 Spliceosome
+                YDL043C (PRP11)
+            Spliceosome [BR:sce03041]
+             Complex A
+              U2 snRNP components
+               U2 snRNP specific factors
+                YDL043C (PRP11)
+             Complex B
+                YDL043C (PRP11)
+             Complex C
+               U2 SnRNP specific factors
+                YDL043C (PRP11)
 POSITION    IV:complement(375680..376480)
-MOTIF       Pfam: zf-met zf-U1 zf-C2H2_2 DUF3505 DUF1929
-DBLINKS     NCBI-GI: 6320161
+MOTIF       Pfam: SF3A2 zf-met zf-U1 zf-C2H2_2 Fimbrial_K88
+DBLINKS     NCBI-ProteinID: NP_010241
             NCBI-GeneID: 851518
             SGD: S000002201
-            MIPS: YDL043C
             UniProt: Q07350
 STRUCTURE   PDB: 4DGW
 AASEQ       266

@@ -1,14 +1,24 @@
 ENTRY       YFR037C           CDS       T00005
 NAME        RSC8, SWH3
-DEFINITION  Rsc8p
+DEFINITION  (RefSeq) Rsc8p
 ORTHOLOGY   K11762  chromatin structure-remodeling complex subunit RSC8
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Coactivators
+                RSC complex
+                 YFR037C (RSC8)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Chromatin remodeling factors
+               RSC complex
+                YFR037C (RSC8)
 POSITION    VI:complement(227513..229186)
-MOTIF       Pfam: SWIRM ZZ Myb_DNA-binding Myb_DNA-bind_6 Elf1
-DBLINKS     NCBI-GI: 398364371
+MOTIF       Pfam: SWIRM ZZ Myb_DNA-binding SWIRM-assoc_1 Myb_DNA-bind_6 zf-UBR zf-CCHC_2 Elf1
+DBLINKS     NCBI-ProteinID: NP_116695
             NCBI-GeneID: 850598
             SGD: S000001933
-            MIPS: YFR037C
             UniProt: P43609
 AASEQ       557
             MSDTEKDKDVPMVDSHEATEEPPTTSTNTPSFPHLAQEQAKEESATLGAEVAHKKINYEQ

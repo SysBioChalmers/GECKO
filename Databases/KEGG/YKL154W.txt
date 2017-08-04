@@ -1,16 +1,27 @@
 ENTRY       YKL154W           CDS       T00005
 NAME        SRP102
-DEFINITION  Srp102p
+DEFINITION  (RefSeq) Signal recognition particle receptor subunit beta
 ORTHOLOGY   K12272  signal recognition particle receptor subunit beta
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03060  Protein export
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Protein export [PATH:sce03060]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               03060 Protein export
+                YKL154W (SRP102)
+            Secretion system [BR:sce02044]
+             Sec (secretion) system
+              Eukaryotic Sec-SRP protein
+               YKL154W (SRP102)
+            GTP-binding proteins [BR:sce04031]
+             Small (Monomeric) G-proteins
+              Unclassified
+               YKL154W (SRP102)
 POSITION    XI:161601..162335
-MOTIF       Pfam: SRPRB Arf MMR_HSR1 GTP_EFTU FeoB_N Gtr1_RagA ATP_bind_1 Dynamin_N Miro AAA_23 AAA_16 AAA_22 MobB Zeta_toxin AAA_21 Arch_ATPase AAA_18
-DBLINKS     NCBI-GI: 6322695
+MOTIF       Pfam: SRPRB Arf MMR_HSR1 FeoB_N GTP_EFTU ATP_bind_1 AAA_22 AAA_15 DUF2009 DUF2572 AAA_16 DUF1870
+DBLINKS     NCBI-ProteinID: NP_012768
             NCBI-GeneID: 853702
             SGD: S000001637
-            MIPS: YKL154W
             UniProt: P36057
 STRUCTURE   PDB: 1NRJ 2GED
 AASEQ       244

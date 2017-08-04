@@ -1,13 +1,11 @@
 ENTRY       YIL117C           CDS       T00005
 NAME        PRM5
-DEFINITION  Prm5p
+DEFINITION  (RefSeq) pheromone-regulated protein PRM5
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IX:complement(140613..141569)
-MOTIF       Pfam: Herpes_gE
-DBLINKS     NCBI-GI: 6322074
+DBLINKS     NCBI-ProteinID: NP_012149
             NCBI-GeneID: 854689
             SGD: S000001379
-            MIPS: YIL117C
             UniProt: P40476
 AASEQ       318
             MTVITIAKRGLPKLTTSTSSTTTASSSSTITSVASSSSSLPLLSNSTSSSIIPSITPPSR

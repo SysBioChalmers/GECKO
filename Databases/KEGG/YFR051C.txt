@@ -1,14 +1,20 @@
 ENTRY       YFR051C           CDS       T00005
 NAME        RET2
-DEFINITION  Ret2p
+DEFINITION  (RefSeq) coatomer subunit delta
+ORTHOLOGY   K20471  coatomer subunit delta
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endoplasmic reticulum (ER) - Golgi transport
+              Retrieval pathways
+               Coat protein complex I (COP-I)
+                YFR051C (RET2)
 POSITION    VI:complement(250163..251803)
-MOTIF       Pfam: Clat_adaptor_s Adap_comp_sub CDC37_N DUF4469
-DBLINKS     NCBI-GI: 398364409
+MOTIF       Pfam: Clat_adaptor_s Adap_comp_sub AAA_assoc CDC37_N
+DBLINKS     NCBI-ProteinID: NP_116709
             NCBI-GeneID: 850612
             SGD: S000001947
-            MIPS: YFR051C
             UniProt: P43621
+STRUCTURE   PDB: 5FJZ 5FJX 5FJW 5FK0
 AASEQ       546
             MVVLAASITTRQGKPLLSRQFKDLSKDRVLELLSNFQNLVSEISSDHTFVEDKHVRYVYR
             PFDNYYIILITNRQSNIIKDLATLNLFSQTINSYLSSFQDQEIFHNAFEILSSFDEIVSM

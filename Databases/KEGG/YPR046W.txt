@@ -1,13 +1,12 @@
 ENTRY       YPR046W           CDS       T00005
 NAME        MCM16
-DEFINITION  Mcm16p
+DEFINITION  (RefSeq) Mcm16p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:656799..657344
-MOTIF       Pfam: UbiD YihI
-DBLINKS     NCBI-GI: 6325303
+MOTIF       Pfam: Baculo_LEF5
+DBLINKS     NCBI-ProteinID: NP_015371
             NCBI-GeneID: 856159
             SGD: S000006250
-            MIPS: YPR046W
             UniProt: Q12262
 AASEQ       181
             MTNSSEKQWERIQQLEKEHVEVYRELLITLDRLYLIRKHNHAVILSHTQQRLLEIRHQLQ

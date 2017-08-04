@@ -1,16 +1,19 @@
 ENTRY       YDL072C           CDS       T00005
 NAME        YET3
-DEFINITION  Yet3p
+DEFINITION  (RefSeq) Yet3p
 ORTHOLOGY   K14009  B-cell receptor-associated protein 31
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04141  Protein processing in endoplasmic reticulum
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Protein processing in endoplasmic reticulum [PATH:sce04141]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04141 Protein processing in endoplasmic reticulum
+                YDL072C (YET3)
 POSITION    IV:complement(329836..330447)
-MOTIF       Pfam: Bap31 BofA Osmo_CC DivIC
-DBLINKS     NCBI-GI: 6320131
+MOTIF       Pfam: Bap31 Osmo_CC Spc24 CRA CorA
+DBLINKS     NCBI-ProteinID: NP_010211
             NCBI-GeneID: 851487
             SGD: S000002230
-            MIPS: YDL072C
             UniProt: Q07451
 AASEQ       203
             MSLYYTLVFAILVVEIFMFSILALPIPSRYRRPLTLLLLKPFKSSTVQVAIKCVLGFILL

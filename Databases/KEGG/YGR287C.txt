@@ -1,19 +1,29 @@
 ENTRY       YGR287C           CDS       T00005
 NAME        IMA1
-DEFINITION  Ima1p (EC:3.2.1.10 3.2.1.20)
-ORTHOLOGY   K01187  alpha-glucosidase [EC:3.2.1.20]
+DEFINITION  (RefSeq) oligo-1,6-glucosidase IMA1
+ORTHOLOGY   K01182  oligo-1,6-glucosidase [EC:3.2.1.10]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00052  Galactose metabolism
             sce00500  Starch and sucrose metabolism
             sce01100  Metabolic pathways
-CLASS       Metabolism; Carbohydrate metabolism; Galactose metabolism [PATH:sce00052]
-            Metabolism; Carbohydrate metabolism; Starch and sucrose metabolism [PATH:sce00500]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Carbohydrate metabolism
+               00052 Galactose metabolism
+                YGR287C (IMA1)
+               00500 Starch and sucrose metabolism
+                YGR287C (IMA1)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.2  Glycosylases
+               3.2.1  Glycosidases, i.e. enzymes that hydrolyse O- and S-glycosyl compounds
+                3.2.1.10  oligo-1,6-glucosidase
+                 YGR287C (IMA1)
 POSITION    VII:complement(1067222..1068991)
-MOTIF       Pfam: Alpha-amylase hDGE_amylase
-DBLINKS     NCBI-GI: 398366423
+MOTIF       Pfam: Alpha-amylase Malt_amylase_C hDGE_amylase
+DBLINKS     NCBI-ProteinID: NP_011803
             NCBI-GeneID: 853204
             SGD: S000003519
-            MIPS: YGR287C
             UniProt: P53051
 STRUCTURE   PDB: 3AJ7 3AXI 3A47 3A4A 3AXH
 AASEQ       589

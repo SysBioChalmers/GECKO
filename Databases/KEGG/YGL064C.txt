@@ -1,14 +1,24 @@
 ENTRY       YGL064C           CDS       T00005
 NAME        MRH4
-DEFINITION  Mrh4p (EC:3.6.4.13)
+DEFINITION  (RefSeq) ATP-dependent RNA helicase
 ORTHOLOGY   K17678  ATP-dependent RNA helicase MRH4, mitochondrial [EC:3.6.4.13]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.4  Acting on acid anhydrides to facilitate cellular and subcellular movement
+                3.6.4.13  RNA helicase
+                 YGL064C (MRH4)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial DNA transcription, translation, and replication factors
+              Mitochondrial DNA replication factors
+               Mitochondrial DNA maintenance factors
+                YGL064C (MRH4)
 POSITION    VII:complement(381523..383208)
 MOTIF       Pfam: DEAD Helicase_C ResIII AAA_22
-DBLINKS     NCBI-GI: 6321374
+DBLINKS     NCBI-ProteinID: NP_011451
             NCBI-GeneID: 852816
             SGD: S000003032
-            MIPS: YGL064C
             UniProt: P53166
 AASEQ       561
             MSLFFKPVISPQWSFPVLLKIGVRSYAGGPRTKHKGNSPLASVPTGSSNKNRKQKAKGKK

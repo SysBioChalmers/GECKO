@@ -1,17 +1,31 @@
 ENTRY       YKL028W           CDS       T00005
 NAME        TFA1
-DEFINITION  Tfa1p
+DEFINITION  (RefSeq) transcription factor TFIIE subunit TFA1
 ORTHOLOGY   K03136  transcription initiation factor TFIIE subunit alpha
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03022  Basal transcription factors
-CLASS       Genetic Information Processing; Transcription; Basal transcription factors [PATH:sce03022]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03022 Basal transcription factors
+                YKL028W (TFA1)
+            Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Basal transcription factors
+                TFIIE
+                 YKL028W (TFA1)
+             Prokaryotic type
+              Archaeal type
+                TFE
+                 YKL028W (TFA1)
 POSITION    XI:385758..387206
-MOTIF       Pfam: TFIIE_alpha TF_Zn_Ribbon
-DBLINKS     NCBI-GI: 398364645
+MOTIF       Pfam: TFIIE_alpha TF_Zn_Ribbon HDV_ag
+DBLINKS     NCBI-ProteinID: NP_012897
             NCBI-GeneID: 853840
             SGD: S000001511
-            MIPS: YKL028W
             UniProt: P36100
+STRUCTURE   PDB: 5FYW 5FMF 5FZ5 5SVA
 AASEQ       482
             MDRPIDDIVKNLLKFVVRGFYGGSFVLVLDAILFHSVLAEDDLKQLLSINKTELGPLIAR
             LRSDRLISIHKQREYPPNSKSVERVYYYVKYPHAIDAIKWKVHQVVQRLKDDLDKNSEPN

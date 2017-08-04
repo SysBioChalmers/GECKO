@@ -1,21 +1,38 @@
 ENTRY       YPL153C           CDS       T00005
 NAME        RAD53, LSD1, MEC2, SPK1
-DEFINITION  Rad53p (EC:2.7.12.1 2.7.11.1)
+DEFINITION  (RefSeq) serine/threonine/tyrosine protein kinase RAD53
 ORTHOLOGY   K02831  ser/thr/tyr protein kinase RAD53 [EC:2.7.11.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
             sce04113  Meiosis - yeast
-CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
-            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+MODULE      sce_M00691  DNA damage-induced cell cycle checkpoints
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YPL153C (RAD53)
+               04113 Meiosis - yeast
+                YPL153C (RAD53)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.11  Protein-serine/threonine kinases
+                2.7.11.-  
+                 YPL153C (RAD53)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              Check point factors
+               Other check point factors
+                YPL153C (RAD53)
 POSITION    XVI:complement(261727..264192)
-MOTIF       Pfam: Pkinase Pkinase_Tyr FHA Kinase-like Kdo APH RIO1 Fis1_TPR_C
-DBLINKS     NCBI-GI: 6325104
+MOTIF       Pfam: Pkinase Pkinase_Tyr FHA Yop-YscD_cpl Kinase-like Kdo APH RIO1 Fis1_TPR_C
+DBLINKS     NCBI-ProteinID: NP_015172
             NCBI-GeneID: 855950
             SGD: S000006074
-            MIPS: YPL153C
             UniProt: P22216
-STRUCTURE   PDB: 1G6G 2YGV 2JQI 2A0T 1J4P 1J4Q 1J4K 1J4L 1J4O 1K3J 1K3N
-                 1K3Q 1K2M 1K2N 1G3G 1FHQ 1FHR 1DMZ 1QU5
+STRUCTURE   PDB: 1G6G 5T2S 4PDP 5T2F 4PDS 2YGV 2JQI 2A0T 1J4P 1J4Q 1J4K
+                 1J4L 1J4O 1K3J 1K3N 1K3Q 1K2M 1K2N 1G3G 1FHQ 1FHR 1DMZ
+                 1QU5
 AASEQ       821
             MENITQPTQQSTQATQRFLIEKFSQEQIGENIVCRVICTTGQIPIRDLSADISQVLKEKR
             SIKKVWTFGRNPACDYHLGNISRLSNKHFQILLGEDGNLLLNDISTNGTWLNGQKVEKNS

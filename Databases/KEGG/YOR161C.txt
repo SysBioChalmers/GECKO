@@ -1,13 +1,12 @@
 ENTRY       YOR161C           CDS       T00005
 NAME        PNS1
-DEFINITION  Pns1p
+DEFINITION  (RefSeq) Pns1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:complement(636939..638558)
-MOTIF       Pfam: Choline_transpo ESSS
-DBLINKS     NCBI-GI: 398365483
+MOTIF       Pfam: Choline_transpo
+DBLINKS     NCBI-ProteinID: NP_014804
             NCBI-GeneID: 854332
             SGD: S000005687
-            MIPS: YOR161C
             UniProt: Q12412
 AASEQ       539
             MPLNEKYERPPQPPPAYDPNHRPPSSSENSAAANVNDGQTPYHFRQDQYYNLNSKTSGAP

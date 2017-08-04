@@ -1,13 +1,22 @@
 ENTRY       YML012W           CDS       T00005
 NAME        ERV25
-DEFINITION  Erv25p
+DEFINITION  (RefSeq) Erv25p
+ORTHOLOGY   K20352  p24 family protein delta-1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endoplasmic reticulum (ER) - Golgi transport
+              Forward pathways
+               p24 family proteins
+                YML012W (ERV25)
+            Transporters [BR:sce02000]
+             Other Transporters
+              Others
+               YML012W (ERV25)
 POSITION    XIII:246116..246751
 MOTIF       Pfam: EMP24_GP25L
-DBLINKS     NCBI-GI: 6323630
+DBLINKS     NCBI-ProteinID: NP_013701
             NCBI-GeneID: 854997
             SGD: S000004473
-            MIPS: YML012W
             UniProt: P54837
 AASEQ       211
             MQVLQLWLTTLISLVVAVQGLHFDIAASTDPEQVCIRDFVTEGQLVVADIHSDGSVGDGQ

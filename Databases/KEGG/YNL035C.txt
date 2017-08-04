@@ -1,12 +1,11 @@
 ENTRY       YNL035C           CDS       T00005
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) hypothetical protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIV:complement(568522..569691)
-MOTIF       Pfam: WD40
-DBLINKS     NCBI-GI: 6324293
+MOTIF       Pfam: WD40 ANAPC4_WD40
+DBLINKS     NCBI-ProteinID: NP_014363
             NCBI-GeneID: 855695
             SGD: S000004980
-            MIPS: YNL035C
             UniProt: P53962
 AASEQ       389
             MASYSLVESNSFGSENWCLKLQPSYKHGLLTGLSNGEIRLLDWSTGKSVQKIKASETAIN

@@ -1,15 +1,47 @@
 ENTRY       YEL056W           CDS       T00005
 NAME        HAT2
-DEFINITION  Hat2p (EC:2.3.1.48)
+DEFINITION  (RefSeq) Hat2p
 ORTHOLOGY   K10752  histone-binding protein RBBP4
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Nucleosome assembly factors
+               Histone chaperones
+                CAF-1
+                 YEL056W (HAT2)
+              Histone modification proteins
+               HAT complexes
+                HATB complex
+                 YEL056W (HAT2)
+               HDAC complexes
+                Sin3A-HDAC complex
+                 YEL056W (HAT2)
+               Polycomb group proteins
+                PRC2-EZH1 complex
+                 YEL056W (HAT2)
+                PRC2-EZH2 complex
+                 YEL056W (HAT2)
+              Centromeric chromatin formation proteins
+               Kinetochore proteins
+                MIS16-MIS18 complex
+                 YEL056W (HAT2)
+              Heterochromatin formation proteins
+               Other heterochromatin formation proteins
+                YEL056W (HAT2)
+              Chromatin remodeling factors
+               NuRD complex
+                YEL056W (HAT2)
+               NuRF complex
+                YEL056W (HAT2)
+               NuRF complex (fruit fly)
+                YEL056W (HAT2)
 POSITION    V:47168..48373
-MOTIF       Pfam: CAF1C_H4-bd WD40 DUF4249
-DBLINKS     NCBI-GI: 398364231
+MOTIF       Pfam: CAF1C_H4-bd WD40
+DBLINKS     NCBI-ProteinID: NP_010858
             NCBI-GeneID: 856654
             SGD: S000000782
-            MIPS: YEL056W
             UniProt: P39984
+STRUCTURE   PDB: 4PSW 4PSX
 AASEQ       401
             MENQEKPLSVDEEYDLWKSNVPLMYDFVSETRLTWPSLTVQWLPTPVQELDGGFIKQELI
             IGTHTSGEEENYLKFAEINLPKEILSNEDPQEEAGEEYQSSLPAPRSNIRITAKYEHEEE

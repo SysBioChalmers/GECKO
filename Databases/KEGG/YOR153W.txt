@@ -1,16 +1,24 @@
 ENTRY       YOR153W           CDS       T00005
 NAME        PDR5, LEM1, STS1, YDR1
-DEFINITION  ATP-binding cassette multidrug transporter PDR5
+DEFINITION  (RefSeq) ATP-binding cassette multidrug transporter PDR5
 ORTHOLOGY   K08711  ATP-binding cassette, subfamily G (WHITE), member 2, PDR
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce02010  ABC transporters
-CLASS       Environmental Information Processing; Membrane transport; ABC transporters [PATH:sce02010]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Membrane transport
+               02010 ABC transporters
+                YOR153W (PDR5)
+            Transporters [BR:sce02000]
+             ABC Transporters, Eukaryotic Type
+              ABCG (White) subfamily
+               ABCG2, 3 subgroups
+                YOR153W (PDR5)
 POSITION    XV:619840..624375
-MOTIF       Pfam: ABC2_membrane ABC_tran PDR_CDR ABC_trans_N AAA_25 AAA_16 cobW DUF258 ABC2_membrane_3 AAA_18 AAA_19 AAA_33 AAA_29 SMC_N AAA_23 AAA_21 AAA_22 AAA_17 UPF0079 AAA_28
-DBLINKS     NCBI-GI: 398365429
+MOTIF       Pfam: ABC2_membrane ABC_tran PDR_CDR ABC_trans_N AAA_16 AAA_25 AAA_18 RsgA_GTPase AAA_21 AAA_29 SMC_N AAA_33 AAA_23 cobW OCD_Mu_crystall AAA_22 DnaB_C AAA_28 MSC
+DBLINKS     NCBI-ProteinID: NP_014796
             NCBI-GeneID: 854324
             SGD: S000005679
-            MIPS: YOR153W
             UniProt: P33302
 AASEQ       1511
             MPEAKLNNNVNDVTSYSSASSSTENAADLHNYNGFDEHTEARIQKLARTLTAQSMQNSTQ

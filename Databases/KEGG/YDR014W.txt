@@ -1,12 +1,12 @@
 ENTRY       YDR014W           CDS       T00005
 NAME        RAD61, WPL1
-DEFINITION  Rad61p
+DEFINITION  (RefSeq) Rad61p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:474046..475989
-DBLINKS     NCBI-GI: 6320217
+MOTIF       Pfam: Wap1
+DBLINKS     NCBI-ProteinID: NP_010297
             NCBI-GeneID: 851577
             SGD: S000002421
-            MIPS: YDR014W
             UniProt: Q99359
 AASEQ       647
             MRAYGKRGPVLRTPFRSNKGLPSSSDVEFSDDDVNSVIPDVSSTISSSIADHPIEGLLDE

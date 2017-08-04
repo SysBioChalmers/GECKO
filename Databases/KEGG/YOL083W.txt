@@ -1,13 +1,12 @@
 ENTRY       YOL083W           CDS       T00005
 NAME        ATG34
-DEFINITION  Atg34p
+DEFINITION  (RefSeq) Atg34p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:165714..166952
-MOTIF       Pfam: ATG19_autophagy
-DBLINKS     NCBI-GI: 6324489
+MOTIF       Pfam: ATG19_autophagy FpoO
+DBLINKS     NCBI-ProteinID: NP_014558
             NCBI-GeneID: 854071
             SGD: S000005443
-            MIPS: YOL083W
             UniProt: Q12292
 STRUCTURE   PDB: 2KZK
 AASEQ       412

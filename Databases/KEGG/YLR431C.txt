@@ -1,13 +1,22 @@
 ENTRY       YLR431C           CDS       T00005
 NAME        ATG23, CVT23
-DEFINITION  Atg23p
+DEFINITION  (RefSeq) Atg23p
 ORTHOLOGY   K17909  autophagy-related protein 23
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04138  Autophagy - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04138 Autophagy - yeast
+                YLR431C (ATG23)
+            Transporters [BR:sce02000]
+             Other Transporters
+              Others
+               YLR431C (ATG23)
 POSITION    XII:complement(1000342..1001703)
-DBLINKS     NCBI-GI: 6323463
+DBLINKS     NCBI-ProteinID: NP_013535
             NCBI-GeneID: 851151
             SGD: S000004423
-            MIPS: YLR431C
             UniProt: Q06671
 AASEQ       453
             MELNQVLEKKEQILQYLGTLVGLHEKALSDVNSASQVTSIRKDITICLNDLCRINDLLVS

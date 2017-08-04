@@ -1,16 +1,42 @@
 ENTRY       YGL112C           CDS       T00005
 NAME        TAF6, TAF60
-DEFINITION  Taf6p
+DEFINITION  (RefSeq) Taf6p
 ORTHOLOGY   K03131  transcription initiation factor TFIID subunit 6
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03022  Basal transcription factors
-CLASS       Genetic Information Processing; Transcription; Basal transcription factors [PATH:sce03022]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03022 Basal transcription factors
+                YGL112C (TAF6)
+            Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Basal transcription factors
+                TFIID
+                 YGL112C (TAF6)
+               Coactivators
+                SAGA/TFTC/STAGA complex
+                 YGL112C (TAF6)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Histone modification proteins
+               HAT complexes
+                PCAF complex
+                 YGL112C (TAF6)
+                STAGA complex
+                 YGL112C (TAF6)
+                TFTC complex
+                 YGL112C (TAF6)
+                SAGA complex
+                 YGL112C (TAF6)
+                SLIK complex
+                 YGL112C (TAF6)
 POSITION    VII:complement(298178..299728)
-MOTIF       Pfam: TAF DUF1546 Histone TAF4 CENP-S TFIID-31kDa CBFD_NFYB_HMF
-DBLINKS     NCBI-GI: 6321326
+MOTIF       Pfam: TAF TAF6_C Histone TAF4 TFIID-31kDa DUF348 CBFD_NFYB_HMF
+DBLINKS     NCBI-ProteinID: NP_011403
             NCBI-GeneID: 852766
             SGD: S000003080
-            MIPS: YGL112C
             UniProt: P53040
 AASEQ       516
             MSTQQQSYTIWSPQDTVKDVAESLGLENINDDVLKALAMDVEYRILEIIEQAVKFKRHSK

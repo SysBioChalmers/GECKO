@@ -1,14 +1,21 @@
 ENTRY       YJR077C           CDS       T00005
 NAME        MIR1
-DEFINITION  Mir1p
+DEFINITION  (RefSeq) Mir1p
 ORTHOLOGY   K15102  solute carrier family 25 (mitochondrial phosphate transporter), member 3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Solute Carrier Family (SLC)
+              SLC25: Mitochondrial carrier
+               YJR077C (MIR1)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of other body fluids (saliva and urine)
+               YJR077C (MIR1)
 POSITION    X:complement(577255..578190)
 MOTIF       Pfam: Mito_carr
-DBLINKS     NCBI-GI: 6322537
+DBLINKS     NCBI-ProteinID: NP_012611
             NCBI-GeneID: 853540
             SGD: S000003838
-            MIPS: YJR077C
             UniProt: P23641
 AASEQ       311
             MSVSAAPAIPQYSVSDYMKFALAGAIGCGSTHSSMVPIDVVKTRIQLEPTVYNKGMVGSF

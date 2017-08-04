@@ -1,14 +1,17 @@
 ENTRY       YDR361C           CDS       T00005
 NAME        BCP1
-DEFINITION  Bcp1p
+DEFINITION  (RefSeq) protein-transporting protein BCP1
 ORTHOLOGY   K15262  protein BCP1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Other ribosome biogenesis factors
+               YDR361C (BCP1)
 POSITION    IV:complement(1195412..1196263)
 MOTIF       Pfam: BCIP
-DBLINKS     NCBI-GI: 398366521
+DBLINKS     NCBI-ProteinID: NP_010648
             NCBI-GeneID: 851963
             SGD: S000002769
-            MIPS: YDR361C
             UniProt: Q06338
 AASEQ       283
             MVQAIKLNDLKNRKRKNVEEENGSDESEIDISSTDSENEEEQNGEEEIVNIDFDFFGGNP

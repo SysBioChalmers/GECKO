@@ -1,13 +1,12 @@
 ENTRY       YLR457C           CDS       T00005
 NAME        NBP1
-DEFINITION  Nbp1p
+DEFINITION  (RefSeq) Nbp1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XII:complement(1055812..1056771)
-MOTIF       Pfam: NBP1 COX5B DUF4140 Tweety
-DBLINKS     NCBI-GI: 398366373
+MOTIF       Pfam: NBP1 Taxilin DUF4776 AAA_23 Tweety
+DBLINKS     NCBI-ProteinID: NP_013562
             NCBI-GeneID: 851180
             SGD: S000004449
-            MIPS: YLR457C
             UniProt: P52919
 AASEQ       319
             MLKSVQGLWKDFFGIRDDGRKREYGSLDEVRKRSALRSRRKQMRPTGKSVLKRPRKVTDR

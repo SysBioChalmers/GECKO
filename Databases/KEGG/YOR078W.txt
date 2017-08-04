@@ -1,14 +1,18 @@
 ENTRY       YOR078W           CDS       T00005
 NAME        BUD21, UTP16, YOR29-29
-DEFINITION  Bud21p
+DEFINITION  (RefSeq) Bud21p
 ORTHOLOGY   K14770  U3 small nucleolar RNA-associated protein 16
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              90S particles
+               U3 small nucleolar RNA-associated proteins
+                YOR078W (BUD21)
 POSITION    XV:472725..473369
-MOTIF       Pfam: U3_snoRNA_assoc DUF4414
-DBLINKS     NCBI-GI: 6324652
+MOTIF       Pfam: U3_snoRNA_assoc
+DBLINKS     NCBI-ProteinID: NP_014721
             NCBI-GeneID: 854245
             SGD: S000005604
-            MIPS: YOR078W
             UniProt: Q08492
 AASEQ       214
             MSNGHVKFDADESQASASAVTDRQDDVLVISKKDKEVHSSSDEESDDDDAPQEEGLHSGK

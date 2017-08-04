@@ -1,12 +1,12 @@
 ENTRY       YMR154C           CDS       T00005
 NAME        RIM13, CPL1
-DEFINITION  Rim13p (EC:3.4.22.-)
+DEFINITION  (RefSeq) Rim13p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:complement(565999..568182)
-DBLINKS     NCBI-GI: 6323804
+MOTIF       Pfam: Peptidase_C2
+DBLINKS     NCBI-ProteinID: NP_013875
             NCBI-GeneID: 855186
             SGD: S000004763
-            MIPS: YMR154C
             UniProt: Q03792
 AASEQ       727
             MNDWHEFNAAIKSIYCNAEGDSSSIINRLVGLAMKSEDSTFIEAVLVLKENVSKVDKQLR

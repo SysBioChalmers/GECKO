@@ -1,13 +1,12 @@
 ENTRY       YPR042C           CDS       T00005
 NAME        PUF2
-DEFINITION  Puf2p
+DEFINITION  (RefSeq) Puf2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:complement(650435..653662)
-MOTIF       Pfam: PUF RRM_1 RRM_5 RRM_6
-DBLINKS     NCBI-GI: 6325299
+MOTIF       Pfam: PUF RRM_1
+DBLINKS     NCBI-ProteinID: NP_015367
             NCBI-GeneID: 856155
             SGD: S000006246
-            MIPS: YPR042C
             UniProt: Q12221
 AASEQ       1075
             MDNKRLYNGNLSNIPEVIDPGITIPIYEEDIRNDTRMNTNARSVRVSDKRGRSSSTSPQK

@@ -1,14 +1,18 @@
 ENTRY       YGL087C           CDS       T00005
 NAME        MMS2
-DEFINITION  E2 ubiquitin-conjugating protein MMS2
+DEFINITION  (RefSeq) E2 ubiquitin-conjugating protein MMS2
 ORTHOLOGY   K10704  ubiquitin-conjugating enzyme E2 variant
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              TLS (translesion DNA synthesis) factors
+               Rad6 epistasis group
+                YGL087C (MMS2)
 POSITION    VII:complement(join(346406..346808,346894..346904))
 MOTIF       Pfam: UQ_con RWD
-DBLINKS     NCBI-GI: 6321351
+DBLINKS     NCBI-ProteinID: NP_011428
             NCBI-GeneID: 852793
             SGD: S000003055
-            MIPS: YGL087C
             UniProt: P53152
 STRUCTURE   PDB: 1JAT 2GMI
 AASEQ       137

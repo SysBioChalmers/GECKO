@@ -1,13 +1,18 @@
 ENTRY       YMR094W           CDS       T00005
 NAME        CTF13
-DEFINITION  Ctf13p
+DEFINITION  (RefSeq) Ctf13p
 ORTHOLOGY   K11576  centromere DNA-binding protein complex CBF3 subunit C
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centromeric chromatin formation proteins
+               Kinetochore proteins
+                CBF3 complex
+                 YMR094W (CTF13)
 POSITION    XIII:455825..457261
-DBLINKS     NCBI-GI: 6323741
+DBLINKS     NCBI-ProteinID: NP_013812
             NCBI-GeneID: 855119
             SGD: S000004700
-            MIPS: YMR094W
             UniProt: P35203
 AASEQ       478
             MPSFNPVRFLELPIDIRKEVYFHLDGNFCGAHPYPIDILYKSNDVELPGKPSYKRSKRSK

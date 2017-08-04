@@ -1,14 +1,33 @@
 ENTRY       YDR392W           CDS       T00005
 NAME        SPT3
-DEFINITION  Spt3p
+DEFINITION  (RefSeq) transcriptional regulator SPT3
 ORTHOLOGY   K11313  transcription initiation protein SPT3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Coactivators
+                SAGA/TFTC/STAGA complex
+                 YDR392W (SPT3)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Histone modification proteins
+               HAT complexes
+                PCAF complex
+                 YDR392W (SPT3)
+                STAGA complex
+                 YDR392W (SPT3)
+                TFTC complex
+                 YDR392W (SPT3)
+                SAGA complex
+                 YDR392W (SPT3)
+                SLIK complex
+                 YDR392W (SPT3)
 POSITION    IV:1258696..1259709
-MOTIF       Pfam: TFIID-18kDa Synaptobrevin
-DBLINKS     NCBI-GI: 6320600
+MOTIF       Pfam: TFIID-18kDa FAM193_C Synaptobrevin
+DBLINKS     NCBI-ProteinID: NP_010680
             NCBI-GeneID: 852001
             SGD: S000002800
-            MIPS: YDR392W
             UniProt: P06844
 AASEQ       337
             MMDKHKYRVEIQQMMFVSGEINDPPVETTSLIEDIVRGQVIEILLQSNKTAHLRGSRSIL

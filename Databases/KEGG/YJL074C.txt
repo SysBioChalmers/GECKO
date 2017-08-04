@@ -1,19 +1,35 @@
 ENTRY       YJL074C           CDS       T00005
 NAME        SMC3
-DEFINITION  cohesin subunit SMC3
+DEFINITION  (RefSeq) cohesin subunit SMC3
 ORTHOLOGY   K06669  structural maintenance of chromosome 3 (chondroitin sulfate proteoglycan 6)
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
             sce04113  Meiosis - yeast
-CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
-            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YJL074C (SMC3)
+               04113 Meiosis - yeast
+                YJL074C (SMC3)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Sister chromatid cohesion proteins
+               Cohesin complex
+                YJL074C (SMC3)
+              Meiosis-specific sister chromatid cohesion proteins
+                YJL074C (SMC3)
+            Proteoglycans [BR:sce00535]
+             Extracellular matrix (ECM) proteoglycans
+              Basement membrane proteoglycans
+               YJL074C (SMC3)
 POSITION    X:complement(299157..302849)
-MOTIF       Pfam: SMC_N SMC_hinge AAA_21 AAA_23 AAA_15 AAA_29 Myosin_tail_1
-DBLINKS     NCBI-GI: 6322387
+MOTIF       Pfam: SMC_N SMC_hinge AAA_23 AAA_21 AAA_15 AAA_29
+DBLINKS     NCBI-ProteinID: NP_012461
             NCBI-GeneID: 853371
             SGD: S000003610
-            MIPS: YJL074C
             UniProt: P47037
+STRUCTURE   PDB: 4UX3
 AASEQ       1230
             MYIKRVIIKGFKTYRNETIIDNFSPHQNVIIGSNGSGKSNFFAAIRFVLSDDYSNLKREE
             RQGLIHQGSGGSVMSASVEIVFHDPDHSMILPSGVLSRGDDEVTIRRTVGLKKDDYQLND

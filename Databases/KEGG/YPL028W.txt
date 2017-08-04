@@ -1,6 +1,6 @@
 ENTRY       YPL028W           CDS       T00005
 NAME        ERG10, LPB3, TSM0115
-DEFINITION  acetyl-CoA C-acetyltransferase (EC:2.3.1.9)
+DEFINITION  (RefSeq) acetyl-CoA C-acetyltransferase
 ORTHOLOGY   K00626  acetyl-CoA C-acetyltransferase [EC:2.3.1.9]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00071  Fatty acid degradation
@@ -15,27 +15,56 @@ PATHWAY     sce00071  Fatty acid degradation
             sce00900  Terpenoid backbone biosynthesis
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
+            sce01130  Biosynthesis of antibiotics
             sce01200  Carbon metabolism
             sce01212  Fatty acid metabolism
 MODULE      sce_M00095  C5 isoprenoid biosynthesis, mevalonate pathway
-CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
-            Metabolism; Overview; Fatty acid metabolism [PATH:sce01212]
-            Metabolism; Carbohydrate metabolism; Pyruvate metabolism [PATH:sce00620]
-            Metabolism; Carbohydrate metabolism; Glyoxylate and dicarboxylate metabolism [PATH:sce00630]
-            Metabolism; Carbohydrate metabolism; Propanoate metabolism [PATH:sce00640]
-            Metabolism; Carbohydrate metabolism; Butanoate metabolism [PATH:sce00650]
-            Metabolism; Lipid metabolism; Fatty acid degradation [PATH:sce00071]
-            Metabolism; Lipid metabolism; Synthesis and degradation of ketone bodies [PATH:sce00072]
-            Metabolism; Amino acid metabolism; Valine, leucine and isoleucine degradation [PATH:sce00280]
-            Metabolism; Amino acid metabolism; Lysine degradation [PATH:sce00310]
-            Metabolism; Amino acid metabolism; Tryptophan metabolism [PATH:sce00380]
-            Metabolism; Metabolism of terpenoids and polyketides; Terpenoid backbone biosynthesis [PATH:sce00900]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01200 Carbon metabolism
+                YPL028W (ERG10)
+               01212 Fatty acid metabolism
+                YPL028W (ERG10)
+              Carbohydrate metabolism
+               00620 Pyruvate metabolism
+                YPL028W (ERG10)
+               00630 Glyoxylate and dicarboxylate metabolism
+                YPL028W (ERG10)
+               00640 Propanoate metabolism
+                YPL028W (ERG10)
+               00650 Butanoate metabolism
+                YPL028W (ERG10)
+              Lipid metabolism
+               00071 Fatty acid degradation
+                YPL028W (ERG10)
+               00072 Synthesis and degradation of ketone bodies
+                YPL028W (ERG10)
+              Amino acid metabolism
+               00280 Valine, leucine and isoleucine degradation
+                YPL028W (ERG10)
+               00310 Lysine degradation
+                YPL028W (ERG10)
+               00380 Tryptophan metabolism
+                YPL028W (ERG10)
+              Metabolism of terpenoids and polyketides
+               00900 Terpenoid backbone biosynthesis
+                YPL028W (ERG10)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.3  Acyltransferases
+               2.3.1  Transferring groups other than aminoacyl groups
+                2.3.1.9  acetyl-CoA C-acetyltransferase
+                 YPL028W (ERG10)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of other body fluids (saliva and urine)
+               YPL028W (ERG10)
 POSITION    XVI:498096..499292
 MOTIF       Pfam: Thiolase_N Thiolase_C ketoacyl-synt
-DBLINKS     NCBI-GI: 6325229
+DBLINKS     NCBI-ProteinID: NP_015297
             NCBI-GeneID: 856079
             SGD: S000005949
-            MIPS: YPL028W
             UniProt: P41338
 AASEQ       398
             MSQNVYIVSTARTPIGSFQGSLSSKTAVELGAVALKGALAKVPELDASKDFDEIIFGNVL

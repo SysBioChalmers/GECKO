@@ -1,13 +1,12 @@
 ENTRY       YOR271C           CDS       T00005
 NAME        FSF1
-DEFINITION  Fsf1p
+DEFINITION  (RefSeq) Fsf1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:complement(831059..832042)
 MOTIF       Pfam: Mtc
-DBLINKS     NCBI-GI: 6324845
+DBLINKS     NCBI-ProteinID: NP_014914
             NCBI-GeneID: 854445
             SGD: S000005797
-            MIPS: YOR271C
             UniProt: Q12029
 AASEQ       327
             MASSVPGPIDLPESRYDLSTYWGRIRHCAEISDPTMLLTTEKDLAHAREIISAYRHGELK

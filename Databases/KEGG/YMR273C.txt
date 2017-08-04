@@ -1,13 +1,12 @@
 ENTRY       YMR273C           CDS       T00005
 NAME        ZDS1, CES1, CKM1, NRC1, OSS1
-DEFINITION  Zds1p
+DEFINITION  (RefSeq) Zds1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:complement(811233..813980)
 MOTIF       Pfam: Zds_C
-DBLINKS     NCBI-GI: 6323929
+DBLINKS     NCBI-ProteinID: NP_014000
             NCBI-GeneID: 855316
             SGD: S000004886
-            MIPS: YMR273C
             UniProt: P50111
 AASEQ       915
             MSNRDNESMLRTTSSDKAIASQRDKRKSEVLIAAQSLDNEIRSVKNLKRLSIGSMDLLID

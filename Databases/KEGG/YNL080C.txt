@@ -1,13 +1,12 @@
 ENTRY       YNL080C           CDS       T00005
 NAME        EOS1
-DEFINITION  Eos1p
+DEFINITION  (RefSeq) Eos1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIV:complement(476932..478032)
 MOTIF       Pfam: EOS1
-DBLINKS     NCBI-GI: 6324249
+DBLINKS     NCBI-ProteinID: NP_014319
             NCBI-GeneID: 855644
             SGD: S000005024
-            MIPS: YNL080C
             UniProt: P53938
 AASEQ       366
             MTWILSTGMGPHEDKYAKHERATFKKTYSSMKTLSLNHLTAKQHMLMALCRDISLLPPLT

@@ -1,13 +1,12 @@
 ENTRY       YGR198W           CDS       T00005
 NAME        YPP1
-DEFINITION  Ypp1p
+DEFINITION  (RefSeq) Ypp1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:894693..897146
-MOTIF       Pfam: TPR_2 TPR_14 TPR_17 TPR_16
-DBLINKS     NCBI-GI: 398366107
+MOTIF       Pfam: TPR_2 TPR_14 TPR_17 TPR_12
+DBLINKS     NCBI-ProteinID: NP_011714
             NCBI-GeneID: 853112
             SGD: S000003430
-            MIPS: YGR198W
             UniProt: P46951
 STRUCTURE   PDB: 4N5C
 AASEQ       817

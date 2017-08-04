@@ -1,20 +1,31 @@
 ENTRY       YFL045C           CDS       T00005
 NAME        SEC53, ALG4
-DEFINITION  phosphomannomutase SEC53 (EC:5.4.2.8)
+DEFINITION  (RefSeq) phosphomannomutase SEC53
 ORTHOLOGY   K17497  phosphomannomutase [EC:5.4.2.8]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00051  Fructose and mannose metabolism
             sce00520  Amino sugar and nucleotide sugar metabolism
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
-CLASS       Metabolism; Carbohydrate metabolism; Fructose and mannose metabolism [PATH:sce00051]
-            Metabolism; Carbohydrate metabolism; Amino sugar and nucleotide sugar metabolism [PATH:sce00520]
+            sce01130  Biosynthesis of antibiotics
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Carbohydrate metabolism
+               00051 Fructose and mannose metabolism
+                YFL045C (SEC53)
+               00520 Amino sugar and nucleotide sugar metabolism
+                YFL045C (SEC53)
+            Enzymes [BR:sce01000]
+             5. Isomerases
+              5.4  Intramolecular transferases
+               5.4.2  Phosphotransferases (phosphomutases)
+                5.4.2.8  phosphomannomutase
+                 YFL045C (SEC53)
 POSITION    VI:complement(43628..44392)
-MOTIF       Pfam: PMM Hydrolase_3 TMPIT Hydrolase
-DBLINKS     NCBI-GI: 14318474
+MOTIF       Pfam: PMM Hydrolase_3 Hydrolase
+DBLINKS     NCBI-ProteinID: NP_116609
             NCBI-GeneID: 850499
             SGD: S000001849
-            MIPS: YFL045C
             UniProt: P07283
 AASEQ       254
             MSIAEFAYKEKPETLVLFDVDGTLTPARLTVSEEVRKTLAKLRNKCCIGFVGGSDLSKQL

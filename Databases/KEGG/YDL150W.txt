@@ -1,6 +1,6 @@
 ENTRY       YDL150W           CDS       T00005
 NAME        RPC53, RPC4
-DEFINITION  Rpc53p
+DEFINITION  (RefSeq) DNA-directed RNA polymerase III subunit C53
 ORTHOLOGY   K03026  DNA-directed RNA polymerase III subunit RPC4
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00230  Purine metabolism
@@ -8,16 +8,30 @@ PATHWAY     sce00230  Purine metabolism
             sce01100  Metabolic pathways
             sce03020  RNA polymerase
 MODULE      sce_M00181  RNA polymerase III, eukaryotes
-CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
-            Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
-            Genetic Information Processing; Transcription; RNA polymerase [PATH:sce03020]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Nucleotide metabolism
+               00230 Purine metabolism
+                YDL150W (RPC53)
+               00240 Pyrimidine metabolism
+                YDL150W (RPC53)
+             Genetic Information Processing
+              Transcription
+               03020 RNA polymerase
+                YDL150W (RPC53)
+            Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase III system
+               RNA polymerase III
+                Pol III specific subunits
+                 YDL150W (RPC53)
 POSITION    IV:183343..184611
-MOTIF       Pfam: RNA_pol_Rpc4 Ald_Xan_dh_C2
-DBLINKS     NCBI-GI: 6320050
+MOTIF       Pfam: RNA_pol_Rpc4
+DBLINKS     NCBI-ProteinID: NP_010131
             NCBI-GeneID: 851404
             SGD: S000002309
-            MIPS: YDL150W
             UniProt: P25441
+STRUCTURE   PDB: 5FJ8 5FJ9 5FJA
 AASEQ       422
             MSSNKGNGRLPSLKDSSSNGGGSAKPSLKFKPKAVARKSKEEREAAASKVKLEEESKRGN
             DKKHFNNKNKRVTGAGGQQRRMAKYLNNTHVISSGPLAAGNFVSEKGDLRRGFIKSEGSG

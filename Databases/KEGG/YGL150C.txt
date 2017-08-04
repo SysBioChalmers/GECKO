@@ -1,14 +1,26 @@
 ENTRY       YGL150C           CDS       T00005
 NAME        INO80
-DEFINITION  chromatin-remodeling ATPase INO80 (EC:3.6.4.12)
+DEFINITION  (RefSeq) chromatin-remodeling ATPase INO80
 ORTHOLOGY   K11665  DNA helicase INO80 [EC:3.6.4.12]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.4  Acting on acid anhydrides to facilitate cellular and subcellular movement
+                3.6.4.12  DNA helicase
+                 YGL150C (INO80)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Chromatin remodeling factors
+               INO80 complex
+                YGL150C (INO80)
+               INO80 complex (yeast)
+                YGL150C (INO80)
 POSITION    VII:complement(221104..225573)
-MOTIF       Pfam: SNF2_N DBINO Helicase_C
-DBLINKS     NCBI-GI: 6321289
+MOTIF       Pfam: SNF2_N DBINO Helicase_C DEAD Fe_hyd_lg_C
+DBLINKS     NCBI-ProteinID: NP_011365
             NCBI-GeneID: 852728
             SGD: S000003118
-            MIPS: YGL150C
             UniProt: P53115
 AASEQ       1489
             MSLAVLLNKEDKDISDFSKTTAGKSAKKNSRERVADVAPTRVLDKKQAYLSQLNSEFNRI

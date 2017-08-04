@@ -1,18 +1,31 @@
 ENTRY       YGR202C           CDS       T00005
 NAME        PCT1, BSR2, CCT1
-DEFINITION  choline-phosphate cytidylyltransferase (EC:2.7.7.15)
+DEFINITION  (RefSeq) choline-phosphate cytidylyltransferase
 ORTHOLOGY   K00968  choline-phosphate cytidylyltransferase [EC:2.7.7.15]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
-PATHWAY     sce00564  Glycerophospholipid metabolism
+PATHWAY     sce00440  Phosphonate and phosphinate metabolism
+            sce00564  Glycerophospholipid metabolism
             sce01100  Metabolic pathways
 MODULE      sce_M00090  Phosphatidylcholine (PC) biosynthesis, choline => PC
-CLASS       Metabolism; Lipid metabolism; Glycerophospholipid metabolism [PATH:sce00564]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Lipid metabolism
+               00564 Glycerophospholipid metabolism
+                YGR202C (PCT1)
+              Metabolism of other amino acids
+               00440 Phosphonate and phosphinate metabolism
+                YGR202C (PCT1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.7  Nucleotidyltransferases
+                2.7.7.15  choline-phosphate cytidylyltransferase
+                 YGR202C (PCT1)
 POSITION    VII:complement(903474..904748)
-MOTIF       Pfam: CTP_transf_2
-DBLINKS     NCBI-GI: 6321641
+MOTIF       Pfam: CTP_transf_like
+DBLINKS     NCBI-ProteinID: NP_011718
             NCBI-GeneID: 853116
             SGD: S000003434
-            MIPS: YGR202C
             UniProt: P13259
 AASEQ       424
             MANPTTGKSSIRAKLSNSSLSNLFKKNKNKRQREETEEQDNEDKDESKNQDENKDTQLTP

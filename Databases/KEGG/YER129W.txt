@@ -1,14 +1,29 @@
 ENTRY       YER129W           CDS       T00005
 NAME        SAK1, PAK1
-DEFINITION  Sak1p (EC:2.7.11.1)
-ORTHOLOGY   K07359  calcium/calmodulin-dependent protein kinase kinase [EC:2.7.11.17]
+DEFINITION  (RefSeq) serine/threonine protein kinase SAK1
+ORTHOLOGY   K21157  SNF1-activating kinase 1 [EC:2.7.11.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04138  Autophagy - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04138 Autophagy - yeast
+                YER129W (SAK1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.11  Protein-serine/threonine kinases
+                2.7.11.1  non-specific serine/threonine protein kinase
+                 YER129W (SAK1)
+            Protein kinases [BR:sce01001]
+             Serine/threonine protein kinases: Other group
+              Other families
+               YER129W (SAK1)
 POSITION    V:417281..420709
 MOTIF       Pfam: Pkinase Pkinase_Tyr Kinase-like
-DBLINKS     NCBI-GI: 398364785
+DBLINKS     NCBI-ProteinID: NP_011055
             NCBI-GeneID: 856866
             SGD: S000000931
-            MIPS: YER129W
             UniProt: P38990
 AASEQ       1142
             MDRSDKKVNVEEVNVPSNLQIELEKSGTSSSVSLRSPTKSSATNLAGMAEGARDNASIAS

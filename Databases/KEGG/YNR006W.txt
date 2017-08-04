@@ -1,21 +1,30 @@
 ENTRY       YNR006W           CDS       T00005
 NAME        VPS27, DID7, GRD11, SSV17, VPL23, VPT27
-DEFINITION  Vps27p
+DEFINITION  (RefSeq) ESCRT-0 subunit protein VPS27
 ORTHOLOGY   K12182  hepatocyte growth factor-regulated tyrosine kinase substrate
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04144  Endocytosis
             sce04145  Phagosome
 MODULE      sce_M00408  ESCRT-0 complex
-CLASS       Cellular Processes; Transport and catabolism; Endocytosis [PATH:sce04144]
-            Cellular Processes; Transport and catabolism; Phagosome [PATH:sce04145]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04144 Endocytosis
+                YNR006W (VPS27)
+               04145 Phagosome
+                YNR006W (VPS27)
+            Membrane trafficking [BR:sce04131]
+             Endosome - Lysosome transport
+              Endosomal sorting complexes required for transport (ESCRT)
+               ESCRT-0 complex
+                YNR006W (VPS27)
 POSITION    XIV:636986..638854
-MOTIF       Pfam: VHS FYVE FYVE_2 UIM zf-AN1
-DBLINKS     NCBI-GI: 398365557
+MOTIF       Pfam: VHS FYVE UIM FYVE_2 PAZ_siRNAbind GAT
+DBLINKS     NCBI-ProteinID: NP_014403
             NCBI-GeneID: 855739
             SGD: S000005289
-            MIPS: YNR006W
             UniProt: P40343
-STRUCTURE   PDB: 1VFY 2PJW 1Q0V
+STRUCTURE   PDB: 1VFY 5UCL 2PJW 1Q0V
 AASEQ       622
             MSVSTPSELDALIEQATSESIPNGDLDLPIALEISDVLRSRRVNPKDSMRCIKKRILNTA
             DNPNTQLSSWKLTNICVKNGGTPFIKEICSREFMDTMEHVILREDSNEELSELVKTILYE

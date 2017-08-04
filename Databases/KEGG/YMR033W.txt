@@ -1,16 +1,30 @@
 ENTRY       YMR033W           CDS       T00005
 NAME        ARP9, RSC12, SWP59
-DEFINITION  Arp9p
+DEFINITION  (RefSeq) Arp9p
 ORTHOLOGY   K11768  actin-related protein 9
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Coactivators
+                SWI/SNF complex
+                 YMR033W (ARP9)
+                RSC complex
+                 YMR033W (ARP9)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Chromatin remodeling factors
+               RSC complex
+                YMR033W (ARP9)
+               SWI/SNF complex
+                YMR033W (ARP9)
 POSITION    XIII:join(337788..337817,337904..339277)
-MOTIF       Pfam: Actin FtsA
-DBLINKS     NCBI-GI: 6323676
+MOTIF       Pfam: Actin FtsA DUF3391
+DBLINKS     NCBI-ProteinID: NP_013747
             NCBI-GeneID: 855049
             SGD: S000004636
-            MIPS: YMR033W
             UniProt: Q05123
-STRUCTURE   PDB: 4I6M
+STRUCTURE   PDB: 4I6M 3WEE
 AASEQ       467
             MAPFRQDSILIIYPRSQTTLVQFGLNEETFTVPELEIPTQIYRTTRQDGSYTYHSTNKDN
             KAELIKPIQNGEIIDISAFTQFLRLIFVSILSDRANKNQDAFEAELSNIPLLLITHHSWS

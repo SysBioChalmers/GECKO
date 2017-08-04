@@ -1,12 +1,24 @@
 ENTRY       YHR109W           CDS       T00005
 NAME        CTM1
-DEFINITION  Ctm1p (EC:2.1.1.59)
+DEFINITION  (RefSeq) cytochrome c lysine N-methyltransferase
+ORTHOLOGY   K18804  [cytochrome c]-lysine N-methyltransferase [EC:2.1.1.59]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00310  Lysine degradation
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Amino acid metabolism
+               00310 Lysine degradation
+                YHR109W (CTM1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.1  Transferring one-carbon groups
+               2.1.1  Methyltransferases
+                2.1.1.59  [cytochrome c]-lysine N-methyltransferase
+                 YHR109W (CTM1)
 POSITION    VIII:330310..332067
-DBLINKS     NCBI-GI: 6321901
+DBLINKS     NCBI-ProteinID: NP_011977
             NCBI-GeneID: 856509
             SGD: S000001151
-            MIPS: YHR109W
             UniProt: P38818
 AASEQ       585
             MEEVFRFYSNSRNIFIHKSLSLKPSTIDDPKSGYGLFVEPSKFKNDELKSETIQLLRIPK

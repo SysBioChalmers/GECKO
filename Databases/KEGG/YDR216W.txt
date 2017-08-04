@@ -1,16 +1,20 @@
 ENTRY       YDR216W           CDS       T00005
 NAME        ADR1
-DEFINITION  Adr1p
+DEFINITION  (RefSeq) DNA-binding transcription factor ADR1
 ORTHOLOGY   K09466  zinc finger protein ADR1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription factors [BR:sce03000]
+             Eukaryotic Type
+              Zinc finger
+               Cys2His2 metabolic regulators in fungi
+                YDR216W (ADR1)
 POSITION    IV:895035..899006
-MOTIF       Pfam: zf-C2H2 zf-C2H2_4 zf-H2C2_2 zf-met zf-C2H2_jaz
-DBLINKS     NCBI-GI: 398366161
+MOTIF       Pfam: zf-C2H2 zf-met zf-H2C2_2 zf-C2H2_4 Peptidase_M43 B3
+DBLINKS     NCBI-ProteinID: NP_010502
             NCBI-GeneID: 851802
             SGD: S000002624
-            MIPS: YDR216W
             UniProt: P07248
-STRUCTURE   PDB: 2ADR 1ARD 1ARE 1ARF
+STRUCTURE   PDB: 5A7U 2ADR 1ARD 1ARE 1ARF
 AASEQ       1323
             MANVEKPNDCSGFPVVDLNSCFSNGFNNEKQEIEMETDDSPILLMSSSASRENSNTFSVI
             QRTPDGKIITTNNNMNSKINKQLDKLPENLRLNGRTPSGKLRSFVCEVCTRAFARQEHLK

@@ -1,18 +1,25 @@
 ENTRY       YIL149C           CDS       T00005
 NAME        MLP2
-DEFINITION  Mlp2p
+DEFINITION  (RefSeq) Mlp2p
 ORTHOLOGY   K09291  nucleoprotein TPR
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03013  RNA transport
-            sce04011  MAPK signaling pathway - yeast
-CLASS       Genetic Information Processing; Translation; RNA transport [PATH:sce03013]
-            Environmental Information Processing; Signal transduction; MAPK signaling pathway - yeast [PATH:sce04011]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03013 RNA transport
+                YIL149C (MLP2)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Transport factors
+                Nuclear pore complex
+                 YIL149C (MLP2)
 POSITION    IX:complement(63028..68067)
-MOTIF       Pfam: TPR_MLP1_2 CENP-F_leu_zip
-DBLINKS     NCBI-GI: 398364229
+MOTIF       Pfam: Lebercilin CALCOCO1 TPR_MLP1_2 DUF5082
+DBLINKS     NCBI-ProteinID: NP_012117
             NCBI-GeneID: 854657
             SGD: S000001411
-            MIPS: YIL149C
             UniProt: P40457
 AASEQ       1679
             MEDKISEFLNVPFESLQGVTYPVLRKLYKKIAKFERSEEEVTKLNVLVDEIKSQYYSRIS

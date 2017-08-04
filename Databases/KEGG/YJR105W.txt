@@ -1,17 +1,26 @@
 ENTRY       YJR105W           CDS       T00005
 NAME        ADO1
-DEFINITION  adenosine kinase (EC:2.7.1.20)
+DEFINITION  (RefSeq) adenosine kinase
 ORTHOLOGY   K00856  adenosine kinase [EC:2.7.1.20]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00230  Purine metabolism
             sce01100  Metabolic pathways
-CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Nucleotide metabolism
+               00230 Purine metabolism
+                YJR105W (ADO1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.1  Phosphotransferases with an alcohol group as acceptor
+                2.7.1.20  adenosine kinase
+                 YJR105W (ADO1)
 POSITION    X:623581..624603
 MOTIF       Pfam: PfkB Phos_pyr_kin
-DBLINKS     NCBI-GI: 6322565
+DBLINKS     NCBI-ProteinID: NP_012639
             NCBI-GeneID: 853569
             SGD: S000003866
-            MIPS: YJR105W
             UniProt: P47143
 AASEQ       340
             MTAPLVVLGNPLLDFQADVTAEYLAKYSLKENDAILVDAKSGDAKMAIFDELLQMPETKL

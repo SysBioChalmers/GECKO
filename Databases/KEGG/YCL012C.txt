@@ -1,13 +1,12 @@
 ENTRY       YCL012C           CDS       T00005
 NAME        YCL011C-A
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) hypothetical protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    III:complement(join(101317..101633,101701..101788))
-MOTIF       Pfam: DUF2015
-DBLINKS     NCBI-GI: 42759851
+MOTIF       Pfam: DUF2015 LST1
+DBLINKS     NCBI-ProteinID: NP_976246
             NCBI-GeneID: 2746859
             SGD: S000029705
-            MIPS: YCL012C
             UniProt: Q8J0M4
 AASEQ       134
             MKSLFYLKLLLWVVLLSLCLLMAHRKTKVADKFRALRSRIQLRFNRHIRLNDSFADDLEN

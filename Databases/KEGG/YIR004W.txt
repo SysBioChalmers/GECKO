@@ -1,13 +1,12 @@
 ENTRY       YIR004W           CDS       T00005
 NAME        DJP1, ICS1, PAS22
-DEFINITION  Djp1p
+DEFINITION  (RefSeq) Djp1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IX:363221..364519
-MOTIF       Pfam: DnaJ-X DnaJ
-DBLINKS     NCBI-GI: 6322194
+MOTIF       Pfam: DnaJ-X DnaJ Condensin2nSMC
+DBLINKS     NCBI-ProteinID: NP_012269
             NCBI-GeneID: 854820
             SGD: S000001443
-            MIPS: YIR004W
             UniProt: P40564
 AASEQ       432
             MVVDTEYYDLLGVSTTASSIEIKKAYRKKSIQEHPDKNPNDPTATERFQAISEAYQVLGD

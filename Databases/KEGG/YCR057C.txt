@@ -1,16 +1,24 @@
 ENTRY       YCR057C           CDS       T00005
 NAME        PWP2, UTP1, YCR055C, YCR058C
-DEFINITION  Pwp2p
+DEFINITION  (RefSeq) snoRNA-binding rRNA-processing protein PWP2
 ORTHOLOGY   K14558  periodic tryptophan protein 2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03008  Ribosome biogenesis in eukaryotes
-CLASS       Genetic Information Processing; Translation; Ribosome biogenesis in eukaryotes [PATH:sce03008]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03008 Ribosome biogenesis in eukaryotes
+                YCR057C (PWP2)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              90S particles
+               U3 small nucleolar RNA-associated proteins
+                YCR057C (PWP2)
 POSITION    III:complement(220457..223228)
-MOTIF       Pfam: WD40 Utp12 eIF2A Nbas_N Nup160 CPSF_A Proteasome_A_N
-DBLINKS     NCBI-GI: 6319903
+MOTIF       Pfam: WD40 ANAPC4_WD40 Utp12 eIF2A Ge1_WD40 Nbas_N WD40_like Nup160 WD40_3
+DBLINKS     NCBI-ProteinID: NP_009984
             NCBI-GeneID: 850422
             SGD: S000000653
-            MIPS: YCR057C
             UniProt: P25635
 AASEQ       923
             MKSDFKFSNLLGTVYRQGNITFSDDGKQLLSPVGNRVSVFDLINNKSFTFEYEHRKNIAA

@@ -1,18 +1,35 @@
 ENTRY       YKR035W-A         CDS       T00005
 NAME        DID2, CHM1, FTI1, VPL30, VPS46
-DEFINITION  Did2p
+DEFINITION  (RefSeq) Did2p
 ORTHOLOGY   K12197  charged multivesicular body protein 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04144  Endocytosis
-CLASS       Cellular Processes; Transport and catabolism; Endocytosis [PATH:sce04144]
+MODULE      sce_M00412  ESCRT-III complex
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04144 Endocytosis
+                YKR035W-A (DID2)
+            Membrane trafficking [BR:sce04131]
+             Endosome - Lysosome transport
+              Endosomal sorting complexes required for transport (ESCRT)
+               ESCRT-III complex
+                YKR035W-A (DID2)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of haemopoietic cells  (B-cell, T-cell, DC-cell, reticulocyte, and mast cell)
+               YKR035W-A (DID2)
+              Exosomal proteins of other body fluids (saliva and urine)
+               YKR035W-A (DID2)
+              Exosomal proteins of colorectal cancer cells
+               YKR035W-A (DID2)
 POSITION    XI:507939..508553
-MOTIF       Pfam: Snf7 DUF2580 FKBP_C
-DBLINKS     NCBI-GI: 398365065
+MOTIF       Pfam: Snf7 T7SS_ESX_EspC DUF948
+DBLINKS     NCBI-ProteinID: NP_012961
             NCBI-GeneID: 853906
             SGD: S000006435
-            MIPS: YKR035W-A
             UniProt: P69771
-STRUCTURE   PDB: 3GGZ
+STRUCTURE   PDB: 3GGZ 5H7P
 AASEQ       204
             MSRNSAAGLENTLFQLKFTSKQLQKQANKASKEEKQETNKLKRALNENEDISRIYASNAI
             RKKNERLQLLKLASRVDSVASRVQTAVTMRQVSASMGQVCKGMDKALQNMNLQQITMIMD

@@ -1,13 +1,12 @@
 ENTRY       YMR029C           CDS       T00005
 NAME        FAR8
-DEFINITION  Far8p
+DEFINITION  (RefSeq) Far8p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:complement(328660..330231)
-MOTIF       Pfam: Striatin Mto2_bdg Herpes_BLRF2
-DBLINKS     NCBI-GI: 6323671
+MOTIF       Pfam: Striatin Mto2_bdg Ax_dynein_light SOGA Herpes_BLRF2 Jnk-SapK_ap_N
+DBLINKS     NCBI-ProteinID: NP_013742
             NCBI-GeneID: 855044
             SGD: S000004631
-            MIPS: YMR029C
             UniProt: Q05040
 AASEQ       523
             MAINQAHVHPHYTLPGVMHYLQTEFTKNERDRITWELERSEMKARIAELEGENRDLKHQL

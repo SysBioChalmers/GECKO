@@ -1,16 +1,24 @@
 ENTRY       YOR310C           CDS       T00005
 NAME        NOP58, NOP5
-DEFINITION  Nop58p
+DEFINITION  (RefSeq) RNA-processing protein NOP58
 ORTHOLOGY   K14565  nucleolar protein 58
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03008  Ribosome biogenesis in eukaryotes
-CLASS       Genetic Information Processing; Translation; Ribosome biogenesis in eukaryotes [PATH:sce03008]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03008 Ribosome biogenesis in eukaryotes
+                YOR310C (NOP58)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Sno RNPs
+               Box C/D snoRNPs
+                YOR310C (NOP58)
 POSITION    XV:complement(896825..898360)
-MOTIF       Pfam: Nop NOSIC NOP5NT
-DBLINKS     NCBI-GI: 6324886
+MOTIF       Pfam: Nop NOP5NT DUF4604
+DBLINKS     NCBI-ProteinID: NP_014955
             NCBI-GeneID: 854487
             SGD: S000005837
-            MIPS: YOR310C
             UniProt: Q12499
 AASEQ       511
             MAYVLTETSAGYALLKASDKKIYKSSSLIQDLDSSDKVLKEFKIAAFSKFNSAANALEEA

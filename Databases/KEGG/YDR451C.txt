@@ -1,16 +1,24 @@
 ENTRY       YDR451C           CDS       T00005
 NAME        YHP1
-DEFINITION  Yhp1p
+DEFINITION  (RefSeq) Yhp1p
 ORTHOLOGY   K12411  homeobox protein YOX1/YHP1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
-CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YDR451C (YHP1)
+            Transcription factors [BR:sce03000]
+             Eukaryotic Type
+              Helix-turn-helix
+               Homeo domain only, not assigned
+                YDR451C (YHP1)
 POSITION    IV:complement(1361120..1362181)
 MOTIF       Pfam: Homeobox Homeobox_KN
-DBLINKS     NCBI-GI: 398366607
+DBLINKS     NCBI-ProteinID: NP_010739
             NCBI-GeneID: 852062
             SGD: S000002859
-            MIPS: YDR451C
             UniProt: Q04116
 AASEQ       353
             MESRNTVLPSLPNIITGTSNSPFQLHTLPNTNFPSDDQGDIRLPPLAASAHIVRPVVNIY

@@ -1,18 +1,27 @@
 ENTRY       YDL191W           CDS       T00005
 NAME        RPL35A, SOS1
-DEFINITION  ribosomal 60S subunit protein L35A
+DEFINITION  (RefSeq) ribosomal 60S subunit protein L35A
 ORTHOLOGY   K02918  large subunit ribosomal protein L35e
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03010  Ribosome
-CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+MODULE      sce_M00177  Ribosome, eukaryotes
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03010 Ribosome
+                YDL191W (RPL35A)
+            Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Eukaryotes
+               Large subunit
+                YDL191W (RPL35A)
 POSITION    IV:join(117664..117666,118158..118517)
-MOTIF       Pfam: Ribosomal_L29 MRP-L47 HTH_12 DUF4600
-DBLINKS     NCBI-GI: 6320065
+MOTIF       Pfam: Ribosomal_L29 FAM167 MRP-L47
+DBLINKS     NCBI-ProteinID: NP_010145
             NCBI-GeneID: 851336
             SGD: S000002350
-            MIPS: YDL191W
             UniProt: P0CX84 P0CX85
-STRUCTURE   PDB: 3U5E 3U5I 3O58 3O5H 4BYN 4BYU 4B6A 2WW9 3IZS 2WWA 1S1I
+STRUCTURE   PDB: 2WW9 2WWA
 AASEQ       120
             MAGVKAYELRTKSKEQLASQLVDLKKELAELKVQKLSRPSLPKIKTVRKSIACVLTVINE
             QQREAVRQLYKGKKYQPKDLRAKKTRALRRALTKFEASQVTEKQRKKQIAFPQRKYAIKA

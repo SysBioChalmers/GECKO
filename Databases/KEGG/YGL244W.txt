@@ -1,15 +1,21 @@
 ENTRY       YGL244W           CDS       T00005
 NAME        RTF1, CSL3
-DEFINITION  Rtf1p
+DEFINITION  (RefSeq) Rtf1p
 ORTHOLOGY   K15178  RNA polymerase-associated protein RTF1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Other transcription-related factors
+                PAF1 complex
+                 YGL244W (RTF1)
 POSITION    VII:41498..43174
 MOTIF       Pfam: Plus-3
-DBLINKS     NCBI-GI: 6321193
+DBLINKS     NCBI-ProteinID: NP_011270
             NCBI-GeneID: 852607
             SGD: S000003213
-            MIPS: YGL244W
             UniProt: P53064
+STRUCTURE   PDB: 5EMX 5E8B
 AASEQ       558
             MSDLDEDLLALAGADESEEEDQVLTTTSAKRAKNNDQSLSKKRRIEVGSVEDDDEEDDYN
             PYSVGNADYGSEEEEEANPFPLEGKYKDESDREHLESLPEMERETLLFERSQIMQKYQER

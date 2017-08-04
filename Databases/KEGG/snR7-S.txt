@@ -1,0 +1,29 @@
+ENTRY       snR7-S            ncRNA     T00005
+DEFINITION  (RefSeq) SNR7-S
+ORTHOLOGY   K14279  U5 spliceosomal RNA
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce03013  RNA transport
+            sce03040  Spliceosome
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03040 Spliceosome
+                snR7-S
+              Translation
+               03013 RNA transport
+                snR7-S
+            Spliceosome [BR:sce03041]
+             Spliceosomal RNAs
+              snR7-S
+            Non-coding RNAs [BR:sce03100]
+             Spliceosomal RNA
+              snRNA
+               snR7-S
+POSITION    VII:complement(939494..939672)
+DBLINKS     NCBI-GeneID: 9164900
+            SGD: S000006496
+NTSEQ       179
+            aagcagctttacagatcaatggcggagggaggtcaacatcaagaactgtgggccttttat
+            tgcctatagaacttataacgaacatggttcttgccttttaccagaaccatccgggtgttg
+            tctccatagaaacaggtaaagctgtccgttactgtgggcttgccatattttttggaact
+///

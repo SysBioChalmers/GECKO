@@ -1,13 +1,12 @@
 ENTRY       YMR163C           CDS       T00005
 NAME        INP2
-DEFINITION  Inp2p
+DEFINITION  (RefSeq) Inp2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:complement(584271..586388)
-MOTIF       Pfam: Vezatin
-DBLINKS     NCBI-GI: 6323815
+MOTIF       Pfam: Vezatin LEM
+DBLINKS     NCBI-ProteinID: NP_013886
             NCBI-GeneID: 855198
             SGD: S000004773
-            MIPS: YMR163C
             UniProt: Q03824
 AASEQ       705
             MTTNSRPSALQAPGLQIFSMLKSSEEDGFMSSSLTLDSDNIIGVTENNRQEFYSTWRKPS

@@ -1,14 +1,13 @@
 ENTRY       YER007C-A         CDS       T00005
 NAME        TMA20
-DEFINITION  Tma20p
+DEFINITION  (RefSeq) Tma20p
 ORTHOLOGY   K07575  PUA domain protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    V:complement(join(166237..166771,166875..166885))
 MOTIF       Pfam: PUA DUF1947
-DBLINKS     NCBI-GI: 398364311
+DBLINKS     NCBI-ProteinID: NP_010923
             NCBI-GeneID: 856725
             SGD: S000002957
-            MIPS: YER007C-A
             UniProt: P89886
 AASEQ       181
             MFKKFTREDVHSRSKVKSSIQRTLKAKLVKQYPKIEDVIDELIPKKSQIELIKCEDKIQL

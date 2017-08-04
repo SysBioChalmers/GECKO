@@ -1,13 +1,12 @@
 ENTRY       YGR089W           CDS       T00005
 NAME        NNF2
-DEFINITION  Nnf2p
+DEFINITION  (RefSeq) Nnf2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:656960..659770
-MOTIF       Pfam: DivIC Dna2 DUF1664
-DBLINKS     NCBI-GI: 6321526
+MOTIF       Pfam: DivIC DUF1664
+DBLINKS     NCBI-ProteinID: NP_011603
             NCBI-GeneID: 852980
             SGD: S000003321
-            MIPS: YGR089W
             UniProt: P53253
 AASEQ       936
             MEEQFTNQKKVSHLQSLMNTKRSEQPTEFAKKHRFKDTLALFLVFLSFNHFTSLCLLVSF

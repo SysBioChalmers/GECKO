@@ -1,13 +1,12 @@
 ENTRY       YCL045C           CDS       T00005
 NAME        EMC1
-DEFINITION  Emc1p
+DEFINITION  (RefSeq) Emc1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    III:complement(44623..46905)
-MOTIF       Pfam: DUF1620 Spore_III_AB
-DBLINKS     NCBI-GI: 6319804
+MOTIF       Pfam: DUF1620
+DBLINKS     NCBI-ProteinID: NP_009884
             NCBI-GeneID: 850312
             SGD: S000000550
-            MIPS: YCL045C
             UniProt: P25574
 AASEQ       760
             MKITCTDLVYVFILLFLNTSCVQAVFSDDAFITDWQLANLGPWEKVIPDSRDRNRVLILS

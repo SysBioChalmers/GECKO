@@ -1,13 +1,12 @@
 ENTRY       YOR084W           CDS       T00005
 NAME        LPX1
-DEFINITION  Lpx1p (EC:3.1.1.-)
+DEFINITION  (RefSeq) triglyceride lipase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:480587..481750
-MOTIF       Pfam: Abhydrolase_6 Abhydrolase_1 Abhydrolase_5 Esterase Peptidase_S9
-DBLINKS     NCBI-GI: 6324658
+MOTIF       Pfam: Abhydrolase_6 Abhydrolase_1 Hydrolase_4 Esterase Peptidase_S9 PGAP1
+DBLINKS     NCBI-ProteinID: NP_014727
             NCBI-GeneID: 854251
             SGD: S000005610
-            MIPS: YOR084W
             UniProt: Q12405
 STRUCTURE   PDB: 2Y6U 2Y6V
 AASEQ       387

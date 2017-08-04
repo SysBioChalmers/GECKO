@@ -1,13 +1,22 @@
 ENTRY       YBR254C           CDS       T00005
 NAME        TRS20
-DEFINITION  Trs20p
+DEFINITION  (RefSeq) TRAPP subunit TRS20
+ORTHOLOGY   K20301  trafficking protein particle complex subunit 2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endosome - Golgi transport
+              Tethering complex
+               TRAPP complex II
+                YBR254C (TRS20)
+             Endoplasmic reticulum (ER) - Golgi transport
+              Forward pathways
+               TRAPP complex I
+                YBR254C (TRS20)
 POSITION    II:complement(723736..724263)
 MOTIF       Pfam: Sedlin_N Sybindin
-DBLINKS     NCBI-GI: 6319731
+DBLINKS     NCBI-ProteinID: NP_009813
             NCBI-GeneID: 852556
             SGD: S000000458
-            MIPS: YBR254C
             UniProt: P38334
 AASEQ       175
             MPQYFAIIGKKDNPVYEIEFTNAENPQGFPQDLKELNPFILHASLDIVEDLQWQINPTSQ

@@ -1,13 +1,12 @@
 ENTRY       YDR267C           CDS       T00005
 NAME        CIA1
-DEFINITION  Cia1p
+DEFINITION  (RefSeq) iron-sulfur cluster assembly protein CIA1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(1002510..1003502)
-MOTIF       Pfam: WD40 CRT10 IKI3 Coatomer_WDAD AnfO_nitrog
-DBLINKS     NCBI-GI: 398366361
+MOTIF       Pfam: WD40 ANAPC4_WD40 CRT10 Coatomer_WDAD IKI3
+DBLINKS     NCBI-ProteinID: NP_010553
             NCBI-GeneID: 851860
             SGD: S000002675
-            MIPS: YDR267C
             UniProt: Q05583
 STRUCTURE   PDB: 2HES
 AASEQ       330

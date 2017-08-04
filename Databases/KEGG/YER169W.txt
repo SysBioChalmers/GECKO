@@ -1,13 +1,18 @@
 ENTRY       YER169W           CDS       T00005
-NAME        RPH1
-DEFINITION  Rph1p
+NAME        RPH1, KDM4
+DEFINITION  (RefSeq) Rph1p
+ORTHOLOGY   K19799  DNA damage-responsive transcriptional repressor RPH1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription factors [BR:sce03000]
+             Eukaryotic Type
+              Zinc finger
+               Cys2His2 metabolic regulators in fungi
+                YER169W (RPH1)
 POSITION    V:523369..525759
-MOTIF       Pfam: JmjC JmjN zf-H2C2_2 zf-C2H2 zf-C2H2_4 zf-C2H2_6 MEF2_binding
-DBLINKS     NCBI-GI: 6321017
+MOTIF       Pfam: JmjC JmjN zf-H2C2_2 zf-C2H2 zf-C2H2_4 zf-C2H2_6 Zn-ribbon_8 DZR MEF2_binding
+DBLINKS     NCBI-ProteinID: NP_011096
             NCBI-GeneID: 856916
             SGD: S000000971
-            MIPS: YER169W
             UniProt: P39956
 STRUCTURE   PDB: 3OPT 3OPW
 AASEQ       796

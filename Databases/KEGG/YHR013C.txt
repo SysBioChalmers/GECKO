@@ -1,15 +1,26 @@
 ENTRY       YHR013C           CDS       T00005
 NAME        ARD1, NAA10
-DEFINITION  Ard1p (EC:2.3.1.88)
-ORTHOLOGY   K00670  peptide alpha-N-acetyltransferase [EC:2.3.1.88]
+DEFINITION  (RefSeq) peptide alpha-N-acetyltransferase complex A subunit ARD1
+ORTHOLOGY   K20791  N-alpha-acetyltransferase 10/11 [EC:2.3.1.255]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.3  Acyltransferases
+               2.3.1  Transferring groups other than aminoacyl groups
+                2.3.1.255  N-terminal amino-acid Nalpha-acetyltransferase NatA
+                 YHR013C (ARD1)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Sister chromatid cohesion proteins
+               Other sister chromatid cohesion factors
+                YHR013C (ARD1)
 POSITION    VIII:complement(130730..131446)
-MOTIF       Pfam: Acetyltransf_1 FR47 Acetyltransf_10 Acetyltransf_3 Acetyltransf_7 Acetyltransf_9 DUF3749
-DBLINKS     NCBI-GI: 6321801
+MOTIF       Pfam: Acetyltransf_1 Acetyltransf_10 FR47 Acetyltransf_7 Acetyltransf_9 Acetyltransf_3 Acetyltransf_15
+DBLINKS     NCBI-ProteinID: NP_011877
             NCBI-GeneID: 856404
             SGD: S000001055
-            MIPS: YHR013C
             UniProt: P07347
+STRUCTURE   PDB: 4XNH 4HNY 4HNX 4HNW 4XPD 4Y49
 AASEQ       238
             MPINIRRATINDIICMQNANLHNLPENYMMKYYMYHILSWPEASFVATTTTLDCEDSDEQ
             DENDKLELTLDGTNDGRTIKLDPTYLAPGEKLVGYVLVKMNDDPDQQNEPPNGHITSLSV

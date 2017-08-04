@@ -1,14 +1,24 @@
 ENTRY       YPL266W           CDS       T00005
 NAME        DIM1, CDH1
-DEFINITION  Dim1p (EC:2.1.1.183)
+DEFINITION  (RefSeq) putative dimethyladenosine transferase
 ORTHOLOGY   K14191  18S rRNA (adenine1779-N6/adenine1780-N6)-dimethyltransferase [EC:2.1.1.183]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.1  Transferring one-carbon groups
+               2.1.1  Methyltransferases
+                2.1.1.183  18S rRNA (adenine1779-N6/adenine1780-N6)-dimethyltransferase
+                 YPL266W (DIM1)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-40S particles
+               Export and cytoplasmic maturation factors
+                YPL266W (DIM1)
 POSITION    XVI:39121..40077
-MOTIF       Pfam: RrnaAD Methyltransf_26 Methyltransf_18 Met_10 Methyltransf_11 PCMT MTS Methyltransf_31 CMAS Methyltransf_2 Methyltransf_23 Methyltransf_12 PRMT5 Ubie_methyltran UPF0020
-DBLINKS     NCBI-GI: 6324989
+MOTIF       Pfam: RrnaAD Methyltransf_25 Methyltransf_11 PCMT Met_10 CMAS Methyltransf_23 Methyltransf_12 PRMT5 MTS Methyltransf_18 Methyltransf_28 RuvB_N Methyltransf_31
+DBLINKS     NCBI-ProteinID: NP_015057
             NCBI-GeneID: 855862
             SGD: S000006187
-            MIPS: YPL266W
             UniProt: P41819
 AASEQ       318
             MGKAAKKKYSGATSSKQVSAEKHLSSVFKFNTDLGQHILKNPLVAQGIVDKAQIRPSDVV

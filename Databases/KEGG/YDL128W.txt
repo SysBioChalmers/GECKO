@@ -1,14 +1,17 @@
 ENTRY       YDL128W           CDS       T00005
 NAME        VCX1, HUM1, MNR1
-DEFINITION  Vcx1p
+DEFINITION  (RefSeq) Vcx1p
 ORTHOLOGY   K07300  Ca2+:H+ antiporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Other Transporters
+              Electrochemical potential-driven transporters [TC:2]
+               YDL128W (VCX1)
 POSITION    IV:232652..233887
 MOTIF       Pfam: Na_Ca_ex
-DBLINKS     NCBI-GI: 6320075
+DBLINKS     NCBI-ProteinID: NP_010155
             NCBI-GeneID: 851429
             SGD: S000002286
-            MIPS: YDL128W
             UniProt: Q99385
 STRUCTURE   PDB: 4K1C
 AASEQ       411

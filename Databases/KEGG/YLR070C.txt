@@ -1,17 +1,26 @@
 ENTRY       YLR070C           CDS       T00005
 NAME        XYL2
-DEFINITION  D-xylulose reductase XYL2 (EC:1.1.1.9)
+DEFINITION  (RefSeq) D-xylulose reductase XYL2
 ORTHOLOGY   K05351  D-xylulose reductase [EC:1.1.1.9]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00040  Pentose and glucuronate interconversions
             sce01100  Metabolic pathways
-CLASS       Metabolism; Carbohydrate metabolism; Pentose and glucuronate interconversions [PATH:sce00040]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Carbohydrate metabolism
+               00040 Pentose and glucuronate interconversions
+                YLR070C (XYL2)
+            Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.1  Acting on the CH-OH group of donors
+               1.1.1  With NAD+ or NADP+ as acceptor
+                1.1.1.9  D-xylulose reductase
+                 YLR070C (XYL2)
 POSITION    XII:complement(274141..275211)
-MOTIF       Pfam: ADH_zinc_N ADH_N ADH_zinc_N_2
-DBLINKS     NCBI-GI: 6323099
+MOTIF       Pfam: ADH_zinc_N ADH_N Glu_dehyd_C ADH_zinc_N_2 AlaDh_PNT_C Pyr_redox_2 UDPG_MGDP_dh_N
+DBLINKS     NCBI-ProteinID: NP_013171
             NCBI-GeneID: 850759
             SGD: S000004060
-            MIPS: YLR070C
             UniProt: Q07993
 AASEQ       356
             MTDLTTQEAIVLERPGKITLTNVSIPKISDPNEVIIQIKATGICGSDIHYYTHGRIANYV

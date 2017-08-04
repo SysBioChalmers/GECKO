@@ -1,16 +1,32 @@
 ENTRY       YOR244W           CDS       T00005
-NAME        ESA1, TAS1
-DEFINITION  Esa1p (EC:2.3.1.48)
+NAME        ESA1, KAT5, TAS1
+DEFINITION  (RefSeq) NuA4 histone acetyltransferase complex catalytic subunit ESA1
 ORTHOLOGY   K11304  histone acetyltransferase HTATIP [EC:2.3.1.48]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.3  Acyltransferases
+               2.3.1  Transferring groups other than aminoacyl groups
+                2.3.1.48  histone acetyltransferase
+                 YOR244W (ESA1)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Histone modification proteins
+               HATs (histone acetyltransferases)
+                YOR244W (ESA1)
+               HAT complexes
+                TIP60 complex
+                 YOR244W (ESA1)
+                NuA4 complex
+                 YOR244W (ESA1)
 POSITION    XV:792531..793868
-MOTIF       Pfam: MOZ_SAS Tudor-knot Spc97_Spc98 Acetyltransf_1
-DBLINKS     NCBI-GI: 398365911
+MOTIF       Pfam: MOZ_SAS Tudor-knot Acetyltransf_7 Acetyltransf_1 HTH_Mga
+DBLINKS     NCBI-ProteinID: NP_014887
             NCBI-GeneID: 854418
             SGD: S000005770
-            MIPS: YOR244W
             UniProt: Q08649
-STRUCTURE   PDB: 3TO7 3TO9 1FY7 3TO6 1MJA 1MJ9 1MJB 2RNZ 2RO0
+STRUCTURE   PDB: 3TO7 3TO9 1FY7 3TO6 1MJA 1MJ9 1MJB 5J9T 5J9W 5J9U 5J9Q
+                 2RNZ 2RO0
 AASEQ       445
             MSHDGKEEPGIAKKINSVDDIIIKCQCWVQKNDEERLAEILSINTRKAPPKFYVHYVNYN
             KRLDEWITTDRINLDKEVLYPKLKATDEDNKKQKKKKATNTSETPQDSLQDGVDGFSREN

@@ -1,16 +1,29 @@
 ENTRY       YOR056C           CDS       T00005
 NAME        NOB1, YOR29-07
-DEFINITION  Nob1p (EC:3.1.-.-)
+DEFINITION  (RefSeq) rRNA-binding endoribonuclease
 ORTHOLOGY   K11883  RNA-binding protein NOB1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03008  Ribosome biogenesis in eukaryotes
-CLASS       Genetic Information Processing; Translation; Ribosome biogenesis in eukaryotes [PATH:sce03008]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03008 Ribosome biogenesis in eukaryotes
+                YOR056C (NOB1)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-40S particles
+               Export and cytoplasmic maturation factors
+                YOR056C (NOB1)
+            Proteasome [BR:sce03051]
+             Eukaryotic proteasome
+              Assembling factors
+               Other assembling factors
+                YOR056C (NOB1)
 POSITION    XV:complement(430247..431626)
-MOTIF       Pfam: NOB1_Zn_bind
-DBLINKS     NCBI-GI: 6324630
+MOTIF       Pfam: PIN_6 NOB1_Zn_bind
+DBLINKS     NCBI-ProteinID: NP_014699
             NCBI-GeneID: 854221
             SGD: S000005582
-            MIPS: YOR056C
             UniProt: Q08444
 AASEQ       459
             MTENQTAHVRALILDATPLITQSYTHYQNYAQSFYTTPTVFQEIKDAQARKNLEIWQSLG

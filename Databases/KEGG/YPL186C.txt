@@ -1,12 +1,12 @@
 ENTRY       YPL186C           CDS       T00005
 NAME        UIP4
-DEFINITION  Uip4p
+DEFINITION  (RefSeq) Uip4p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:complement(194512..195426)
-DBLINKS     NCBI-GI: 6325071
+MOTIF       Pfam: AMPK1_CBM DUF5484
+DBLINKS     NCBI-ProteinID: NP_015138
             NCBI-GeneID: 855916
             SGD: S000006107
-            MIPS: YPL186C
             UniProt: Q08926
 AASEQ       304
             MVTIVFDHPAEDFPELKIAGEFTNWEGVPMKINTSSGKWEYKFDESSVTKHNDKDKVHFK

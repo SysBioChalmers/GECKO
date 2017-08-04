@@ -1,17 +1,26 @@
 ENTRY       YNR057C           CDS       T00005
 NAME        BIO4
-DEFINITION  dethiobiotin synthase (EC:6.3.3.3)
+DEFINITION  (RefSeq) dethiobiotin synthase
 ORTHOLOGY   K01935  dethiobiotin synthetase [EC:6.3.3.3]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00780  Biotin metabolism
             sce01100  Metabolic pathways
-CLASS       Metabolism; Metabolism of cofactors and vitamins; Biotin metabolism [PATH:sce00780]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Metabolism of cofactors and vitamins
+               00780 Biotin metabolism
+                YNR057C (BIO4)
+            Enzymes [BR:sce01000]
+             6. Ligases
+              6.3  Forming carbon-nitrogen bonds
+               6.3.3  Cyclo-ligases
+                6.3.3.3  dethiobiotin synthase
+                 YNR057C (BIO4)
 POSITION    XIV:complement(733356..734069)
-MOTIF       Pfam: AAA_26 CbiA DUF1611
-DBLINKS     NCBI-GI: 6324385
+MOTIF       Pfam: AAA_26 DUF1611
+DBLINKS     NCBI-ProteinID: NP_014455
             NCBI-GeneID: 855794
             SGD: S000005340
-            MIPS: YNR057C
             UniProt: P53630
 AASEQ       237
             MNSKSQQQEQQPIVFVTGTDTDVGKTFVSTLLVHKWKAAYWKPVQTGIESDQGDSETLKN

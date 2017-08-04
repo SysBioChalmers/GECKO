@@ -1,17 +1,27 @@
 ENTRY       YGR060W           CDS       T00005
 NAME        ERG25
-DEFINITION  methylsterol monooxygenase (EC:1.14.13.72)
+DEFINITION  (RefSeq) methylsterol monooxygenase
 ORTHOLOGY   K07750  methylsterol monooxygenase [EC:1.14.13.72]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00100  Steroid biosynthesis
             sce01100  Metabolic pathways
-CLASS       Metabolism; Lipid metabolism; Steroid biosynthesis [PATH:sce00100]
+            sce01130  Biosynthesis of antibiotics
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Lipid metabolism
+               00100 Steroid biosynthesis
+                YGR060W (ERG25)
+            Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.14  Acting on paired donors, with incorporation or reduction of molecular oxygen
+               1.14.13  With NADH or NADPH as one donor, and incorporation of one atom of oxygen into the other donor
+                1.14.13.72  methylsterol monooxygenase
+                 YGR060W (ERG25)
 POSITION    VII:610564..611493
-MOTIF       Pfam: FA_hydroxylase FDC-SP
-DBLINKS     NCBI-GI: 398365435
+MOTIF       Pfam: FA_hydroxylase
+DBLINKS     NCBI-ProteinID: NP_011574
             NCBI-GeneID: 852951
             SGD: S000003292
-            MIPS: YGR060W
             UniProt: P53045
 AASEQ       309
             MSAVFNNATLSGLVQASTYSQTLQNVAHYQPQLNFMEKYWAAWYSYMNNDVLATGLMFFL

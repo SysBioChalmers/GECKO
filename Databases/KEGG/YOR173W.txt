@@ -1,13 +1,12 @@
 ENTRY       YOR173W           CDS       T00005
 NAME        DCS2
-DEFINITION  Dcs2p
+DEFINITION  (RefSeq) 5'-(N(7)-methyl 5'-triphosphoguanosine)-(mRNA) diphosphatase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:657264..658325
-MOTIF       Pfam: DcpS DcpS_C HIT
-DBLINKS     NCBI-GI: 116006500
+MOTIF       Pfam: DcpS_C DcpS
+DBLINKS     NCBI-ProteinID: NP_014816
             NCBI-GeneID: 854344
             SGD: S000005699
-            MIPS: YOR173W
             UniProt: Q12123
 AASEQ       353
             MGSQDLASLIGRFKYVRVLDSNPHTKVISLLGSIDGKDAVLTAEKTHFIFDETVRRPSQS

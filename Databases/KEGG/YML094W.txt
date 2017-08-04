@@ -1,14 +1,17 @@
 ENTRY       YML094W           CDS       T00005
 NAME        GIM5, PFD5
-DEFINITION  Gim5p
+DEFINITION  (RefSeq) Gim5p
 ORTHOLOGY   K04797  prefoldin alpha subunit
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chaperones and folding catalysts [BR:sce03110]
+             Heat shock proteins
+              GimC
+               YML094W (GIM5)
 POSITION    XIII:join(82275..82290,82374..82849)
-MOTIF       Pfam: Prefoldin SYCE1
-DBLINKS     NCBI-GI: 6323544
+MOTIF       Pfam: Prefoldin SYCE1 DUF406
+DBLINKS     NCBI-ProteinID: NP_013616
             NCBI-GeneID: 854879
             SGD: S000004559
-            MIPS: YML094W
             UniProt: Q04493
 AASEQ       163
             MSSQKIDLTKLNPEQLNAVKQQFDQELQHFTQSLQALTMAKGKFTECIDDIKTVSQAGNE

@@ -1,14 +1,17 @@
 ENTRY       YJL093C           CDS       T00005
 NAME        TOK1, DUK1, YKC1, YPK1
-DEFINITION  Tok1p
+DEFINITION  (RefSeq) Tok1p
 ORTHOLOGY   K05389  potassium channel subfamily K, other eukaryote
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ion channels [BR:sce04040]
+             Voltage-gated cation channels
+              K+ channel, KCNK, K2px.x
+               YJL093C (TOK1)
 POSITION    X:complement(254737..256812)
 MOTIF       Pfam: Ion_trans_2
-DBLINKS     NCBI-GI: 6322368
+DBLINKS     NCBI-ProteinID: NP_012442
             NCBI-GeneID: 853352
             SGD: S000003629
-            MIPS: YJL093C
             UniProt: P40310
 AASEQ       691
             MTRFMNSFAKQTLGYGNMATVEQESSAQAVDSHSNNTPKQAKGVLAEELKDALRFRDERV

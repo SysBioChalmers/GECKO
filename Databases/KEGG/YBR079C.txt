@@ -1,18 +1,26 @@
 ENTRY       YBR079C           CDS       T00005
 NAME        RPG1, TIF32
-DEFINITION  Rpg1p
+DEFINITION  (RefSeq) translation initiation factor eIF3 core subunit A
 ORTHOLOGY   K03254  translation initiation factor 3 subunit A
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03013  RNA transport
-CLASS       Genetic Information Processing; Translation; RNA transport [PATH:sce03013]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03013 RNA transport
+                YBR079C (RPG1)
+            Translation factors [BR:sce03012]
+             Eukaryotic Type
+              Initiation factors
+               eIF-3
+                YBR079C (RPG1)
 POSITION    II:complement(395383..398277)
 MOTIF       Pfam: PCI
-DBLINKS     NCBI-GI: 6319553
+DBLINKS     NCBI-ProteinID: NP_009635
             NCBI-GeneID: 852371
             SGD: S000000283
-            MIPS: YBR079C
             UniProt: P38249
-STRUCTURE   PDB: 4K51
+STRUCTURE   PDB: 4K51 4U1D 4U1C
 AASEQ       964
             MAPPPFRPENAIKRADELISVGEKQAALQSLHDFITARRIRWATPSTVEPVVFKFLEIGV
             ELKKGKLLKDGLHQYKKLIQGSTEGLVSVGAVARKFIDLVESKIASEQTRADELQKQEID

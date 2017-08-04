@@ -1,14 +1,19 @@
 ENTRY       YMR041C           CDS       T00005
 NAME        ARA2
-DEFINITION  D-arabinose 1-dehydrogenase (NAD(P)(+)) ARA2 (EC:1.1.1.116)
+DEFINITION  (RefSeq) D-arabinose 1-dehydrogenase (NAD(P)(+)) ARA2
 ORTHOLOGY   K00062  D-arabinose 1-dehydrogenase [EC:1.1.1.116]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.1  Acting on the CH-OH group of donors
+               1.1.1  With NAD+ or NADP+ as acceptor
+                1.1.1.116  D-arabinose 1-dehydrogenase (NAD+)
+                 YMR041C (ARA2)
 POSITION    XIII:complement(350966..351973)
 MOTIF       Pfam: Aldo_ket_red
-DBLINKS     NCBI-GI: 6323684
+DBLINKS     NCBI-ProteinID: NP_013755
             NCBI-GeneID: 855057
             SGD: S000004644
-            MIPS: YMR041C
             UniProt: Q04212
 AASEQ       335
             MVNEKVNPFDLASVSPLVLGGAILNQQYTDEPESIPLEDIIKYAFSHGINAIDTSPYYGP

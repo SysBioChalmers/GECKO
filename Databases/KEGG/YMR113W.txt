@@ -1,18 +1,27 @@
 ENTRY       YMR113W           CDS       T00005
 NAME        FOL3
-DEFINITION  dihydrofolate synthase (EC:6.3.2.12 6.3.2.17)
-ORTHOLOGY   K01930  folylpolyglutamate synthase [EC:6.3.2.17]
+DEFINITION  (RefSeq) dihydrofolate synthase
+ORTHOLOGY   K20457  dihydrofolate synthase [EC:6.3.2.12]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00790  Folate biosynthesis
             sce01100  Metabolic pathways
 MODULE      sce_M00126  Tetrahydrofolate biosynthesis, GTP => THF
-CLASS       Metabolism; Metabolism of cofactors and vitamins; Folate biosynthesis [PATH:sce00790]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Metabolism of cofactors and vitamins
+               00790 Folate biosynthesis
+                YMR113W (FOL3)
+            Enzymes [BR:sce01000]
+             6. Ligases
+              6.3  Forming carbon-nitrogen bonds
+               6.3.2  Acid-D-amino-acid ligases (peptide synthases)
+                6.3.2.12  dihydrofolate synthase
+                 YMR113W (FOL3)
 POSITION    XIII:494999..496282
 MOTIF       Pfam: Mur_ligase_M Mur_ligase_C
-DBLINKS     NCBI-GI: 6323760
+DBLINKS     NCBI-ProteinID: NP_013831
             NCBI-GeneID: 855140
             SGD: S000004719
-            MIPS: YMR113W
             UniProt: Q12676
 AASEQ       427
             MAIELGLSRITKLLEHLGNPQNSLRVLHIAGTNGKGSVCTYLSSVLQQKSYQIGKFTTPH

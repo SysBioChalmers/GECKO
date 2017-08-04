@@ -1,16 +1,25 @@
 ENTRY       YLR187W           CDS       T00005
 NAME        SKG3
-DEFINITION  Skg3p
+DEFINITION  (RefSeq) Skg3p
 ORTHOLOGY   K12609  CCR4-NOT transcriptional complex subunit CAF120
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03018  RNA degradation
-CLASS       Genetic Information Processing; Folding, sorting and degradation; RNA degradation [PATH:sce03018]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               03018 RNA degradation
+                YLR187W (SKG3)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA degradation factors
+               3'-5' decay
+                Ccr4-NOT complex
+                 YLR187W (SKG3)
 POSITION    XII:524865..527945
-MOTIF       Pfam: PH
-DBLINKS     NCBI-GI: 6323216
+MOTIF       Pfam: PH PPV_E1_N
+DBLINKS     NCBI-ProteinID: NP_013288
             NCBI-GeneID: 850884
             SGD: S000004177
-            MIPS: YLR187W
             UniProt: Q06315
 AASEQ       1026
             MKRIFSGVKSPKLSAPPKVFKNDESPSTPSSPKFDQGLRSLSASASRLFSNSISTPGSPT

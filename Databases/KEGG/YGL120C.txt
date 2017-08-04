@@ -1,18 +1,43 @@
 ENTRY       YGL120C           CDS       T00005
 NAME        PRP43
-DEFINITION  Prp43p (EC:3.6.4.13)
+DEFINITION  (RefSeq) DEAH-box ATP-dependent RNA helicase PRP43
 ORTHOLOGY   K12820  pre-mRNA-splicing factor ATP-dependent RNA helicase DHX15/PRP43 [EC:3.6.4.13]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03040  Spliceosome
-CLASS       Genetic Information Processing; Transcription; Spliceosome [PATH:sce03040]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03040 Spliceosome
+                YGL120C (PRP43)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.4  Acting on acid anhydrides to facilitate cellular and subcellular movement
+                3.6.4.13  RNA helicase
+                 YGL120C (PRP43)
+            Spliceosome [BR:sce03041]
+             Complex A
+              U2 snRNP components
+               U2 related factors
+                YGL120C (PRP43)
+             Complex B
+                YGL120C (PRP43)
+             Complex C
+              U4/U6.U5 tri-snRNP components
+               U4/U6.U5 tri-SnRNP related factors
+                YGL120C (PRP43)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              90S particles
+               Helicases
+                YGL120C (PRP43)
 POSITION    VII:complement(281634..283937)
-MOTIF       Pfam: HA2 OB_NTP_bind Helicase_C DEAD AAA_22 SRP54 Flavi_DEAD ResIII AAA_23 T2SE AAA_30 PhoH AAA_29
-DBLINKS     NCBI-GI: 6321318
+MOTIF       Pfam: HA2 OB_NTP_bind Helicase_C DEAD AAA_22 SRP54 AAA_19 Flavi_DEAD AAA_30 AAA_23 ResIII T2SSE DUF2075
+DBLINKS     NCBI-ProteinID: NP_011395
             NCBI-GeneID: 852757
             SGD: S000003088
-            MIPS: YGL120C
             UniProt: P53131
-STRUCTURE   PDB: 2XAU 3KX2
+STRUCTURE   PDB: 2XAU 3KX2 5JPT 5I8Q
 AASEQ       767
             MGSKRRFSSEHPDPVETSIPEQAAEIAEELSKQHPLPSEEPLVHHDAGEFKGLQRHHTSA
             EEAQKLEDGKINPFTGREFTPKYVDILKIRRELPVHAQRDEFLKLYQNNQIMVFVGETGS

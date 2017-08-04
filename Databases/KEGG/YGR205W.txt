@@ -1,6 +1,6 @@
 ENTRY       YGR205W           CDS       T00005
 NAME        TDA10
-DEFINITION  Tda10p (EC:2.7.-.-)
+DEFINITION  (RefSeq) putative ATP-dependent kinase
 ORTHOLOGY   K15918  D-glycerate 3-kinase [EC:2.7.1.31]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00260  Glycine, serine and threonine metabolism
@@ -8,15 +8,33 @@ PATHWAY     sce00260  Glycine, serine and threonine metabolism
             sce00630  Glyoxylate and dicarboxylate metabolism
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
-CLASS       Metabolism; Carbohydrate metabolism; Glyoxylate and dicarboxylate metabolism [PATH:sce00630]
-            Metabolism; Lipid metabolism; Glycerolipid metabolism [PATH:sce00561]
-            Metabolism; Amino acid metabolism; Glycine, serine and threonine metabolism [PATH:sce00260]
+            sce01130  Biosynthesis of antibiotics
+            sce01200  Carbon metabolism
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01200 Carbon metabolism
+                YGR205W (TDA10)
+              Carbohydrate metabolism
+               00630 Glyoxylate and dicarboxylate metabolism
+                YGR205W (TDA10)
+              Lipid metabolism
+               00561 Glycerolipid metabolism
+                YGR205W (TDA10)
+              Amino acid metabolism
+               00260 Glycine, serine and threonine metabolism
+                YGR205W (TDA10)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.1  Phosphotransferases with an alcohol group as acceptor
+                2.7.1.31  glycerate 3-kinase
+                 YGR205W (TDA10)
 POSITION    VII:909213..910085
-MOTIF       Pfam: AAA_14 AAA_17 SRP54 RNA_helicase AAA_18 AAA_10
-DBLINKS     NCBI-GI: 398366141
+MOTIF       Pfam: SRP54 RNA_helicase ResIII AAA_14 ATPase_2
+DBLINKS     NCBI-ProteinID: NP_011721
             NCBI-GeneID: 853119
             SGD: S000003437
-            MIPS: YGR205W
             UniProt: P42938
 STRUCTURE   PDB: 1ODF
 AASEQ       290

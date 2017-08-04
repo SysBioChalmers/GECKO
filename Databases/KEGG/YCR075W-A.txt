@@ -1,13 +1,14 @@
 ENTRY       YCR075W-A         CDS       T00005
-DEFINITION  hypothetical protein
+NAME        EGO2
+DEFINITION  (RefSeq) Ego2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    III:248975..249202
 MOTIF       Pfam: DUF3215
-DBLINKS     NCBI-GI: 33438776
+DBLINKS     NCBI-ProteinID: NP_878058
             NCBI-GeneID: 1466399
             SGD: S000028519
-            MIPS: YCR075W-A
             UniProt: Q3E830
+STRUCTURE   PDB: 4XPM
 AASEQ       75
             MEAEKQSDIKGTIAFDTHGNVIESTGVGSQRIEDIGDLSKVTLDAEGFAQVQGDSLLVHL
             YKRNDITLAVYTSAQ

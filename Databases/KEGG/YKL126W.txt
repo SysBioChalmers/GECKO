@@ -1,14 +1,23 @@
 ENTRY       YKL126W           CDS       T00005
 NAME        YPK1, SLI2
-DEFINITION  Ypk1p (EC:2.7.11.1)
+DEFINITION  (RefSeq) serine/threonine protein kinase YPK1
 ORTHOLOGY   K13303  serum/glucocorticoid-regulated kinase 2 [EC:2.7.11.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.11  Protein-serine/threonine kinases
+                2.7.11.1  non-specific serine/threonine protein kinase
+                 YKL126W (YPK1)
+            Protein kinases [BR:sce01001]
+             Serine/threonine protein kinases: AGC group
+              SGK family [OT]
+               YKL126W (YPK1)
 POSITION    XI:205707..207749
-MOTIF       Pfam: Pkinase Pkinase_Tyr Pkinase_C Kinase-like Kdo APH
-DBLINKS     NCBI-GI: 6322723
+MOTIF       Pfam: Pkinase Pkinase_Tyr Pkinase_C Haspin_kinase Kinase-like FOXO_KIX_bdg Kdo APH
+DBLINKS     NCBI-ProteinID: NP_012796
             NCBI-GeneID: 853733
             SGD: S000001609
-            MIPS: YKL126W
             UniProt: P12688
 AASEQ       680
             MYSWKSKFKFGKSKEEKEAKHSGFFHSSKKEEQQNNQATAGEHDASITRSSLDRKGTINP

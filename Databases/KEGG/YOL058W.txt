@@ -1,22 +1,39 @@
 ENTRY       YOL058W           CDS       T00005
 NAME        ARG1, ARG10
-DEFINITION  argininosuccinate synthase (EC:6.3.4.5)
+DEFINITION  (RefSeq) argininosuccinate synthase
 ORTHOLOGY   K01940  argininosuccinate synthase [EC:6.3.4.5]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
-PATHWAY     sce00250  Alanine, aspartate and glutamate metabolism
-            sce00330  Arginine and proline metabolism
+PATHWAY     sce00220  Arginine biosynthesis
+            sce00250  Alanine, aspartate and glutamate metabolism
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
+            sce01130  Biosynthesis of antibiotics
             sce01230  Biosynthesis of amino acids
-CLASS       Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
-            Metabolism; Amino acid metabolism; Alanine, aspartate and glutamate metabolism [PATH:sce00250]
-            Metabolism; Amino acid metabolism; Arginine and proline metabolism [PATH:sce00330]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01230 Biosynthesis of amino acids
+                YOL058W (ARG1)
+              Amino acid metabolism
+               00250 Alanine, aspartate and glutamate metabolism
+                YOL058W (ARG1)
+               00220 Arginine biosynthesis
+                YOL058W (ARG1)
+            Enzymes [BR:sce01000]
+             6. Ligases
+              6.3  Forming carbon-nitrogen bonds
+               6.3.4  Other carbon-nitrogen ligases
+                6.3.4.5  argininosuccinate synthase
+                 YOL058W (ARG1)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of other body fluids (saliva and urine)
+               YOL058W (ARG1)
 POSITION    XV:219211..220473
-MOTIF       Pfam: Arginosuc_synth Asn_synthase QueC tRNA_Me_trans
-DBLINKS     NCBI-GI: 330443730
+MOTIF       Pfam: Arginosuc_synth QueC tRNA_Me_trans
+DBLINKS     NCBI-ProteinID: NP_014583
             NCBI-GeneID: 854096
             SGD: S000005419
-            MIPS: YOL058W
             UniProt: P22768
 AASEQ       420
             MSKGKVCLAYSGGLDTSVILAWLLDQGYEVVAFMANVGQEEDFDAAKEKALKIGACKFVC

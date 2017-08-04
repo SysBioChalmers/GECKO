@@ -1,17 +1,26 @@
 ENTRY       YGR194C           CDS       T00005
 NAME        XKS1
-DEFINITION  xylulokinase (EC:2.7.1.17)
+DEFINITION  (RefSeq) xylulokinase
 ORTHOLOGY   K00854  xylulokinase [EC:2.7.1.17]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00040  Pentose and glucuronate interconversions
             sce01100  Metabolic pathways
-CLASS       Metabolism; Carbohydrate metabolism; Pentose and glucuronate interconversions [PATH:sce00040]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Carbohydrate metabolism
+               00040 Pentose and glucuronate interconversions
+                YGR194C (XKS1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.1  Phosphotransferases with an alcohol group as acceptor
+                2.7.1.17  xylulokinase
+                 YGR194C (XKS1)
 POSITION    VII:complement(886073..887875)
 MOTIF       Pfam: FGGY_N FGGY_C
-DBLINKS     NCBI-GI: 398366095
+DBLINKS     NCBI-ProteinID: NP_011710
             NCBI-GeneID: 853108
             SGD: S000003426
-            MIPS: YGR194C
             UniProt: P42826
 AASEQ       600
             MLCSVIQRQTREVSNTMSLDSYYLGFDLSTQQLKCLAINQDLKIVHSETVEFEKDLPHYH

@@ -1,16 +1,19 @@
 ENTRY       YDR142C           CDS       T00005
 NAME        PEX7, PAS7, PEB1
-DEFINITION  Pex7p
+DEFINITION  (RefSeq) Pex7p
 ORTHOLOGY   K13341  peroxin-7
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04146  Peroxisome
-CLASS       Cellular Processes; Transport and catabolism; Peroxisome [PATH:sce04146]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04146 Peroxisome
+                YDR142C (PEX7)
 POSITION    IV:complement(740473..741600)
 MOTIF       Pfam: WD40
-DBLINKS     NCBI-GI: 6320346
+DBLINKS     NCBI-ProteinID: NP_010426
             NCBI-GeneID: 851720
             SGD: S000002549
-            MIPS: YDR142C
             UniProt: P39108
 STRUCTURE   PDB: 3W15
 AASEQ       375

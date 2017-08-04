@@ -1,18 +1,30 @@
 ENTRY       YBL013W           CDS       T00005
 NAME        FMT1
-DEFINITION  Fmt1p (EC:2.1.2.9)
+DEFINITION  (RefSeq) methionyl-tRNA formyltransferase
 ORTHOLOGY   K00604  methionyl-tRNA formyltransferase [EC:2.1.2.9]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00670  One carbon pool by folate
             sce00970  Aminoacyl-tRNA biosynthesis
-CLASS       Metabolism; Metabolism of cofactors and vitamins; One carbon pool by folate [PATH:sce00670]
-            Genetic Information Processing; Translation; Aminoacyl-tRNA biosynthesis [PATH:sce00970]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Metabolism of cofactors and vitamins
+               00670 One carbon pool by folate
+                YBL013W (FMT1)
+             Genetic Information Processing
+              Translation
+               00970 Aminoacyl-tRNA biosynthesis
+                YBL013W (FMT1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.1  Transferring one-carbon groups
+               2.1.2  Hydroxymethyl-, formyl- and related transferases
+                2.1.2.9  methionyl-tRNA formyltransferase
+                 YBL013W (FMT1)
 POSITION    II:202056..203261
 MOTIF       Pfam: Formyl_trans_N Formyl_trans_C
-DBLINKS     NCBI-GI: 41629674
+DBLINKS     NCBI-ProteinID: NP_009540
             NCBI-GeneID: 852270
             SGD: S000000109
-            MIPS: YBL013W
             UniProt: P32785
 AASEQ       401
             MVKMRRITPTRLLFTCRYISNNASPPVQPLNVLFFGSDTFSNFSLQALNELRQNNGSCGI

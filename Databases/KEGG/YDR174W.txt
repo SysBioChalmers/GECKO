@@ -1,13 +1,12 @@
 ENTRY       YDR174W           CDS       T00005
 NAME        HMO1, HSM2
-DEFINITION  Hmo1p
+DEFINITION  (RefSeq) Hmo1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:812110..812850
-MOTIF       Pfam: HMG_box HMG_box_2 DUF3086
-DBLINKS     NCBI-GI: 6320379
+MOTIF       Pfam: HMG_box HMG_box_2 DUF1074 Transketolase_N
+DBLINKS     NCBI-ProteinID: NP_010459
             NCBI-GeneID: 851754
             SGD: S000002581
-            MIPS: YDR174W
             UniProt: Q03973
 AASEQ       246
             MTTDPSVKLKSAKDSLVSSLFELSKAANQTASSIVDFYNAIGDDEEEKIEAFTTLTESLQ

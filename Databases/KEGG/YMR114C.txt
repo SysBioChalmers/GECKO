@@ -1,12 +1,11 @@
 ENTRY       YMR114C           CDS       T00005
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) putative peptide hydrolase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:complement(496343..497449)
-MOTIF       Pfam: DUF159
-DBLINKS     NCBI-GI: 6323761
+MOTIF       Pfam: SRAP
+DBLINKS     NCBI-ProteinID: NP_013832
             NCBI-GeneID: 855141
             SGD: S000004720
-            MIPS: YMR114C
             UniProt: Q04471
 AASEQ       368
             MCGRFALAYDSGDLPQLLRDWNLPVNTPKDASSNSQHPHDEEDTKDQPTVSKDIFKASYN

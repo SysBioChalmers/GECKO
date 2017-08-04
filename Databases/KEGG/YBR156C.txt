@@ -1,13 +1,12 @@
 ENTRY       YBR156C           CDS       T00005
 NAME        SLI15
-DEFINITION  Sli15p
+DEFINITION  (RefSeq) Sli15p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    II:complement(551104..553200)
 MOTIF       Pfam: INCENP_ARK-bind
-DBLINKS     NCBI-GI: 398365137
+DBLINKS     NCBI-ProteinID: NP_009714
             NCBI-GeneID: 852453
             SGD: S000000360
-            MIPS: YBR156C
             UniProt: P38283
 AASEQ       698
             MDWAIKAARKKTQRKPGSTRSIIETLDDLNNLTTDAHSEINQRLYESSEWLRNNVYMNTL

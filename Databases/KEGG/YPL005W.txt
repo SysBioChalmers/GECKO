@@ -1,13 +1,18 @@
 ENTRY       YPL005W           CDS       T00005
 NAME        AEP3
-DEFINITION  Aep3p
+DEFINITION  (RefSeq) Aep3p
+ORTHOLOGY   K18155  ATPase expression protein 3, mitochondrial
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial DNA transcription, translation, and replication factors
+              Mitochondrial transcription and translation factors
+               Other mitochondrial DNA transcription and translation factors
+                YPL005W (AEP3)
 POSITION    XVI:548486..550306
-MOTIF       Pfam: PPR_2 ydhR
-DBLINKS     NCBI-GI: 6325252
+MOTIF       Pfam: PPR_2 PPR_3 ydhR
+DBLINKS     NCBI-ProteinID: NP_015320
             NCBI-GeneID: 856102
             SGD: S000005926
-            MIPS: YPL005W
             UniProt: Q12089
 AASEQ       606
             MNTLRCLTQALSKSGREAPKLYQKVIFPGLFREGIPIANVKKVDEKIIDSPTSTSVNGEA

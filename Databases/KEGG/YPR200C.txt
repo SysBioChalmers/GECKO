@@ -1,13 +1,13 @@
 ENTRY       YPR200C           CDS       T00005
 NAME        ARR2, ACR2
-DEFINITION  Arr2p
+DEFINITION  (RefSeq) Arr2p
+ORTHOLOGY   K18064  arsenical-resistance protein 2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:complement(939279..939671)
-MOTIF       Pfam: Rhodanese
-DBLINKS     NCBI-GI: 6325458
+MOTIF       Pfam: Rhodanese PHB_acc_N
+DBLINKS     NCBI-ProteinID: NP_015526
             NCBI-GeneID: 856330
             SGD: S000006404
-            MIPS: YPR200C
             UniProt: Q06597
 AASEQ       130
             MVSFITSRQLKGLIENQRKDFQVVDLRREDFARDHITNAWHVPVTAQITEKQLNQLIKGL

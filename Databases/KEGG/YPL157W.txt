@@ -1,16 +1,25 @@
 ENTRY       YPL157W           CDS       T00005
 NAME        TGS1
-DEFINITION  Tgs1p (EC:2.1.1.-)
+DEFINITION  (RefSeq) RNA methyltransferase
 ORTHOLOGY   K14292  trimethylguanosine synthase [EC:2.1.1.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03013  RNA transport
-CLASS       Genetic Information Processing; Translation; RNA transport [PATH:sce03013]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03013 RNA transport
+                YPL157W (TGS1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.1  Transferring one-carbon groups
+               2.1.1  Methyltransferases
+                2.1.1.-  
+                 YPL157W (TGS1)
 POSITION    XVI:254814..255761
-MOTIF       Pfam: Methyltransf_15 Methyltransf_26 UPF0020 Methyltransf_31 Methyltransf_18 Methyltransf_25 Cons_hypoth95 Methyltransf_23 MethyltransfD12
-DBLINKS     NCBI-GI: 6325100
+MOTIF       Pfam: Methyltransf_15 Methyltransf_31 UPF0020 Methyltransf_25 Cons_hypoth95 MethyltransfD12 Methyltransf_23 Methyltransf_11
+DBLINKS     NCBI-ProteinID: NP_015168
             NCBI-GeneID: 855946
             SGD: S000006078
-            MIPS: YPL157W
             UniProt: Q12052
 AASEQ       315
             MGRTFIHASKIKHAARKRKHHSNFRTLIKLLNNDAYKIESSKPLKNGKLFKYWKNRRRLF

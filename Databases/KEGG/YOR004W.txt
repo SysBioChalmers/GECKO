@@ -1,14 +1,18 @@
 ENTRY       YOR004W           CDS       T00005
 NAME        UTP23
-DEFINITION  Utp23p
+DEFINITION  (RefSeq) rRNA-binding ribosome biosynthesis protein UTP23
 ORTHOLOGY   K14773  U3 small nucleolar RNA-associated protein 23
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              90S particles
+               U3 small nucleolar RNA-associated proteins
+                YOR004W (UTP23)
 POSITION    XV:333592..334356
 MOTIF       Pfam: Fcf1
-DBLINKS     NCBI-GI: 6324577
+DBLINKS     NCBI-ProteinID: NP_014646
             NCBI-GeneID: 854165
             SGD: S000005530
-            MIPS: YOR004W
             UniProt: Q12339
 STRUCTURE   PDB: 4MJ7
 AASEQ       254

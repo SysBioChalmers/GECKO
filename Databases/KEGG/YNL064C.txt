@@ -1,16 +1,28 @@
 ENTRY       YNL064C           CDS       T00005
-NAME        YDJ1, HSP40, MAS5
-DEFINITION  Ydj1p
+NAME        YDJ1, HSP40, MAB3, MAS5
+DEFINITION  (RefSeq) type I HSP40 co-chaperone YDJ1
 ORTHOLOGY   K09503  DnaJ homolog subfamily A member 2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04141  Protein processing in endoplasmic reticulum
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Protein processing in endoplasmic reticulum [PATH:sce04141]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04141 Protein processing in endoplasmic reticulum
+                YNL064C (YDJ1)
+            Chaperones and folding catalysts [BR:sce03110]
+             Heat shock proteins
+              HSP40 / DNAJ
+               YNL064C (YDJ1)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial protein import machinery
+              Endoplasmic reticulum membrane and cytosol
+               Other ER-memrane and cytosol factors
+                YNL064C (YDJ1)
 POSITION    XIV:complement(505868..507097)
-MOTIF       Pfam: DnaJ CTDII DnaJ_CXXCXGXG HypA
-DBLINKS     NCBI-GI: 6324265
+MOTIF       Pfam: DnaJ_C DnaJ DnaJ_CXXCXGXG Anti-TRAP
+DBLINKS     NCBI-ProteinID: NP_014335
             NCBI-GeneID: 855661
             SGD: S000005008
-            MIPS: YNL064C
             UniProt: P25491
 STRUCTURE   PDB: 1XAO 1NLT
 AASEQ       409

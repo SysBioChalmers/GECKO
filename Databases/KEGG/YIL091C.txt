@@ -1,14 +1,18 @@
 ENTRY       YIL091C           CDS       T00005
 NAME        UTP25
-DEFINITION  Utp25p
+DEFINITION  (RefSeq) rRNA-binding ribosome biosynthesis protein UTP25
 ORTHOLOGY   K14774  U3 small nucleolar RNA-associated protein 25
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              90S particles
+               U3 small nucleolar RNA-associated proteins
+                YIL091C (UTP25)
 POSITION    IX:complement(191030..193195)
-MOTIF       Pfam: DUF1253 DEAD
-DBLINKS     NCBI-GI: 6322100
+MOTIF       Pfam: UTP25 DEAD ResIII
+DBLINKS     NCBI-ProteinID: NP_012175
             NCBI-GeneID: 854717
             SGD: S000001353
-            MIPS: YIL091C
             UniProt: P40498
 AASEQ       721
             MSDSSVREKNDNFRGYRKRGRQELRKIKRSSARTEGGSTETLEDVAEDIDHRSDEDEVSD

@@ -1,13 +1,13 @@
 ENTRY       YLR310C           CDS       T00005
 NAME        CDC25, CTN1
-DEFINITION  Cdc25p
+DEFINITION  (RefSeq) Ras family guanine nucleotide exchange factor CDC25
+ORTHOLOGY   K03099  son of sevenless
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XII:complement(752224..756993)
-MOTIF       Pfam: RasGEF RasGEF_N SH3_1 SH3_9 SH3_2 SOG2
-DBLINKS     NCBI-GI: 6323341
+MOTIF       Pfam: RasGEF RasGEF_N SH3_1 SH3_9 SH3_2
+DBLINKS     NCBI-ProteinID: NP_013413
             NCBI-GeneID: 851019
             SGD: S000004301
-            MIPS: YLR310C
             UniProt: P04821
 AASEQ       1589
             MSDTNTSIPNTSSAREAGNASQTPSISSSSNTSTTTNTESSSASLSSSPSTSELTSIRPI

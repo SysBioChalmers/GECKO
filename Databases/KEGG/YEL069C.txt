@@ -1,16 +1,24 @@
 ENTRY       YEL069C           CDS       T00005
-NAME        HXT13
-DEFINITION  Hxt13p
+NAME        HXT13, HLT1
+DEFINITION  (RefSeq) hexose transporter HXT13
 ORTHOLOGY   K08139  MFS transporter, SP family, sugar:H+ symporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04113  Meiosis - yeast
-CLASS       Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04113 Meiosis - yeast
+                YEL069C (HXT13)
+            Transporters [BR:sce02000]
+             Major Facilitator Superfamily (MFS)
+              Sugar transporters
+               Sugar porter (SP) family [TC:2.A.1.1]
+                YEL069C (HXT13)
 POSITION    V:complement(21537..23231)
-MOTIF       Pfam: Sugar_tr MFS_1 TRI12 ATG22 Cytochrom_B_N Pox_A14
-DBLINKS     NCBI-GI: 6320766
+MOTIF       Pfam: Sugar_tr MFS_1 TRI12 Pox_A14
+DBLINKS     NCBI-ProteinID: NP_010845
             NCBI-GeneID: 856640
             SGD: S000000795
-            MIPS: YEL069C
             UniProt: P39924
 AASEQ       564
             MSSAQSSIDSDGDVRDADIHVAPPVEKEWSDGFDDNEVINGDNVEPPKRGLIGYLVIYLL

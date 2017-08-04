@@ -1,19 +1,31 @@
 ENTRY       YNL267W           CDS       T00005
 NAME        PIK1, PIK120, PIK41
-DEFINITION  1-phosphatidylinositol 4-kinase (EC:2.7.1.67)
-ORTHOLOGY   K00888  phosphatidylinositol 4-kinase [EC:2.7.1.67]
+DEFINITION  (RefSeq) 1-phosphatidylinositol 4-kinase
+ORTHOLOGY   K19801  phosphatidylinositol 4-kinase B [EC:2.7.1.67]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00562  Inositol phosphate metabolism
             sce01100  Metabolic pathways
             sce04070  Phosphatidylinositol signaling system
-CLASS       Metabolism; Carbohydrate metabolism; Inositol phosphate metabolism [PATH:sce00562]
-            Environmental Information Processing; Signal transduction; Phosphatidylinositol signaling system [PATH:sce04070]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Carbohydrate metabolism
+               00562 Inositol phosphate metabolism
+                YNL267W (PIK1)
+             Environmental Information Processing
+              Signal transduction
+               04070 Phosphatidylinositol signaling system
+                YNL267W (PIK1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.1  Phosphotransferases with an alcohol group as acceptor
+                2.7.1.67  1-phosphatidylinositol 4-kinase
+                 YNL267W (PIK1)
 POSITION    XIV:140878..144078
-MOTIF       Pfam: PI3_PI4_kinase Pik1 PI3Ka
-DBLINKS     NCBI-GI: 6324062
+MOTIF       Pfam: PI3_PI4_kinase Pik1 PI3Ka DUF148 Na_Ca_ex_C
+DBLINKS     NCBI-ProteinID: NP_014132
             NCBI-GeneID: 855454
             SGD: S000005211
-            MIPS: YNL267W
             UniProt: P39104
 STRUCTURE   PDB: 2JU0
 AASEQ       1066

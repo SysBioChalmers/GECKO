@@ -1,14 +1,19 @@
 ENTRY       YCR082W           CDS       T00005
 NAME        AHC2
-DEFINITION  Ahc2p
+DEFINITION  (RefSeq) Ahc2p
 ORTHOLOGY   K11371  ADA HAT complex component 2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Histone modification proteins
+               HAT complexes
+                ADA-HAT complex
+                 YCR082W (AHC2)
 POSITION    III:258883..259269
-MOTIF       Pfam: YkuI_C FliJ COG2 RED_N ArsC DUF1955
-DBLINKS     NCBI-GI: 6319924
+MOTIF       Pfam: YkuI_C FliJ DUF1955 RED_N DUF4646
+DBLINKS     NCBI-ProteinID: NP_010005
             NCBI-GeneID: 850443
             SGD: S000000678
-            MIPS: YCR082W
             UniProt: P25649
 AASEQ       128
             MITPKGTHDAVAKFQKTDLHQDLDYIVLQQRRTQLETLINERESFVKNLCSLFHKIQNTK

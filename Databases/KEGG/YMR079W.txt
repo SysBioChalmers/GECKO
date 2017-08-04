@@ -1,13 +1,12 @@
 ENTRY       YMR079W           CDS       T00005
 NAME        SEC14, PIT1
-DEFINITION  Sec14p
+DEFINITION  (RefSeq) phosphatidylinositol/phosphatidylcholine transfer protein SEC14
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:join(424989..424997,425154..426059)
-MOTIF       Pfam: CRAL_TRIO CRAL_TRIO_N CRAL_TRIO_2
-DBLINKS     NCBI-GI: 6323725
+MOTIF       Pfam: CRAL_TRIO CRAL_TRIO_N CRAL_TRIO_2 DUF1769
+DBLINKS     NCBI-ProteinID: NP_013796
             NCBI-GeneID: 855103
             SGD: S000004684
-            MIPS: YMR079W
             UniProt: P24280
 STRUCTURE   PDB: 1AUA
 AASEQ       304

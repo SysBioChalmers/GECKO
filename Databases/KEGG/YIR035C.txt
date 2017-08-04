@@ -1,13 +1,11 @@
 ENTRY       YIR035C           CDS       T00005
-DEFINITION  sepiapterin reductase family protein (EC:1.-.-.-)
-ORTHOLOGY   K00540   [EC:1.-.-.-]
+DEFINITION  (RefSeq) sepiapterin reductase family protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IX:complement(421026..421790)
-MOTIF       Pfam: adh_short adh_short_C2 KR Epimerase TrkA_N tRNA_m1G_MT NAD_binding_10
-DBLINKS     NCBI-GI: 398364733
+MOTIF       Pfam: adh_short adh_short_C2 KR Epimerase TrkA_N GDP_Man_Dehyd
+DBLINKS     NCBI-ProteinID: NP_012301
             NCBI-GeneID: 854853
             SGD: S000001474
-            MIPS: YIR035C
             UniProt: P40579
 STRUCTURE   PDB: 3KZV
 AASEQ       254

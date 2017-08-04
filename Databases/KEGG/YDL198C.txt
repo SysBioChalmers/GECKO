@@ -1,13 +1,12 @@
 ENTRY       YDL198C           CDS       T00005
 NAME        GGC1, SHM1, YHM1
-DEFINITION  Ggc1p
+DEFINITION  (RefSeq) Ggc1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(103649..104551)
 MOTIF       Pfam: Mito_carr
-DBLINKS     NCBI-GI: 6320003
+DBLINKS     NCBI-ProteinID: NP_010083
             NCBI-GeneID: 851329
             SGD: S000002357
-            MIPS: YDL198C
             UniProt: P38988
 AASEQ       300
             MPHTDKKQSGLARLLGSASAGIMEIAVFHPVDTISKRLMSNHTKITSGQELNRVIFRDHF

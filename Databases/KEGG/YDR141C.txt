@@ -1,13 +1,12 @@
 ENTRY       YDR141C           CDS       T00005
 NAME        DOP1
-DEFINITION  Dop1p
+DEFINITION  (RefSeq) Dop1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(734901..739997)
 MOTIF       Pfam: Dopey_N
-DBLINKS     NCBI-GI: 6320345
+DBLINKS     NCBI-ProteinID: NP_010425
             NCBI-GeneID: 851719
             SGD: S000002548
-            MIPS: YDR141C
             UniProt: Q03921
 AASEQ       1698
             MSLPLKPLTIDSNNKQLDSKQKKFRANVERALERFDSVTEWADYIASLGTLLKALQSWSP

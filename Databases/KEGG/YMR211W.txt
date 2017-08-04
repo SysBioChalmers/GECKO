@@ -1,13 +1,12 @@
 ENTRY       YMR211W           CDS       T00005
 NAME        DML1
-DEFINITION  Dml1p
+DEFINITION  (RefSeq) Dml1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:689083..690510
-MOTIF       Pfam: Misat_Tub_SegII Tubulin_3 Tubulin
-DBLINKS     NCBI-GI: 6323867
+MOTIF       Pfam: Misat_Tub_SegII Tubulin_3 Tubulin DUF2475
+DBLINKS     NCBI-ProteinID: NP_013938
             NCBI-GeneID: 855251
             SGD: S000004824
-            MIPS: YMR211W
             UniProt: Q03652
 AASEQ       475
             MHEVVTISVSQRANHLTTQFFNIQEGYLQLSKEQQVNDSKIFLNSVVDKVSKTISYAPRA

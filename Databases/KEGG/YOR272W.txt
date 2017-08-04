@@ -1,15 +1,20 @@
 ENTRY       YOR272W           CDS       T00005
 NAME        YTM1, CST14
-DEFINITION  Ytm1p
+DEFINITION  (RefSeq) Ytm1p
 ORTHOLOGY   K14863  ribosome biogenesis protein YTM1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               Other pre-60S particles
+                YOR272W (YTM1)
 POSITION    XV:832813..834195
-MOTIF       Pfam: WD40 NLE Nup160
-DBLINKS     NCBI-GI: 398366023
+MOTIF       Pfam: WD40 NLE Nup160 ANAPC4_WD40 Phyto-Amp
+DBLINKS     NCBI-ProteinID: NP_014915
             NCBI-GeneID: 854446
             SGD: S000005798
-            MIPS: YOR272W
             UniProt: Q12024
+STRUCTURE   PDB: 5DTC
 AASEQ       460
             MTEDKSQVKIRFFTREKDELLHVQDTPMYAPISLKRYGLSEIVNHLLGSEKPVPFDFLIE
             GELLRTSLHDYLTKKGLSSEASLNVEYTRAILPPSYLNSFSNEDWVSSLDVGDGSKHIIS

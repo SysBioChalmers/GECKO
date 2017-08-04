@@ -1,13 +1,12 @@
 ENTRY       YOR178C           CDS       T00005
 NAME        GAC1
-DEFINITION  Gac1p
+DEFINITION  (RefSeq) protein phosphatase regulator GAC1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:complement(667860..670241)
-MOTIF       Pfam: CBM_21
-DBLINKS     NCBI-GI: 398365583
+MOTIF       Pfam: CBM_21 CBM53
+DBLINKS     NCBI-ProteinID: NP_014821
             NCBI-GeneID: 854350
             SGD: S000005704
-            MIPS: YOR178C
             UniProt: P28006
 AASEQ       793
             MVIQTATTLSPAKARPSFPHNDLIKSMSDSLISRPTHPPIRKLKSSLKISHPEPISRSKS

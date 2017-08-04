@@ -1,17 +1,27 @@
 ENTRY       YEL058W           CDS       T00005
 NAME        PCM1, AGM1
-DEFINITION  phosphoacetylglucosamine mutase PCM1 (EC:5.4.2.3)
+DEFINITION  (RefSeq) phosphoacetylglucosamine mutase PCM1
 ORTHOLOGY   K01836  phosphoacetylglucosamine mutase [EC:5.4.2.3]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00520  Amino sugar and nucleotide sugar metabolism
-            sce01110  Biosynthesis of secondary metabolites
-CLASS       Metabolism; Carbohydrate metabolism; Amino sugar and nucleotide sugar metabolism [PATH:sce00520]
+            sce01100  Metabolic pathways
+            sce01130  Biosynthesis of antibiotics
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Carbohydrate metabolism
+               00520 Amino sugar and nucleotide sugar metabolism
+                YEL058W (PCM1)
+            Enzymes [BR:sce01000]
+             5. Isomerases
+              5.4  Intramolecular transferases
+               5.4.2  Phosphotransferases (phosphomutases)
+                5.4.2.3  phosphoacetylglucosamine mutase
+                 YEL058W (PCM1)
 POSITION    V:43252..44925
-MOTIF       Pfam: PGM_PMM_I PGM_PMM_II PGM_PMM_IV PGM_PMM_III
-DBLINKS     NCBI-GI: 6320777
+MOTIF       Pfam: PGM_PMM_I PGM_PMM_IV PGM_PMM_III PGM_PMM_II
+DBLINKS     NCBI-ProteinID: NP_010856
             NCBI-GeneID: 856652
             SGD: S000000784
-            MIPS: YEL058W
             UniProt: P38628
 AASEQ       557
             MKVDYEQLCKLYDDTCRTKNVQFSYGTAGFRTLAKNLDTVMFSTGILAVLRSLKLQGQYV

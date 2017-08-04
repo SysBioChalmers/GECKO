@@ -1,16 +1,28 @@
 ENTRY       YHR147C           CDS       T00005
 NAME        MRPL6
-DEFINITION  mitochondrial 54S ribosomal protein YmL16
+DEFINITION  (RefSeq) mitochondrial 54S ribosomal protein YmL16
 ORTHOLOGY   K02933  large subunit ribosomal protein L6
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03010  Ribosome
-CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03010 Ribosome
+                YHR147C (MRPL6)
+            Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Mitochondria/ Chloroplast
+               Large subunit
+                YHR147C (MRPL6)
+              Bacteria
+                YHR147C (MRPL6)
+              Archaea
+                YHR147C (MRPL6)
 POSITION    VIII:complement(392639..393283)
-MOTIF       Pfam: Ribosomal_L6
-DBLINKS     NCBI-GI: 6321941
+MOTIF       Pfam: Ribosomal_L6 DUF4352
+DBLINKS     NCBI-ProteinID: NP_012017
             NCBI-GeneID: 856552
             SGD: S000001190
-            MIPS: YHR147C
             UniProt: P32904
 AASEQ       214
             MSFIQRRLLSQTLFLRSQVGSLPLYISPEVQVSINALSMPRIIRKGRTSMNISQNITVKG

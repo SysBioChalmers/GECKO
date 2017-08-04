@@ -1,12 +1,11 @@
 ENTRY       YDL114W           CDS       T00005
-DEFINITION  short-chain dehydrogenase/reductase (EC:1.-.-.-)
+DEFINITION  (RefSeq) short-chain dehydrogenase/reductase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:255604..256530
-MOTIF       Pfam: adh_short KR adh_short_C2 Epimerase RmlD_sub_bind
-DBLINKS     NCBI-GI: 6320089
+MOTIF       Pfam: adh_short adh_short_C2 KR Epimerase PAC4
+DBLINKS     NCBI-ProteinID: NP_010169
             NCBI-GeneID: 851444
             SGD: S000002272
-            MIPS: YDL114W
             UniProt: Q07530
 AASEQ       308
             MVRKNKINRASGTTKHLKDFPSVILSLPSYNPSILSKNATALITGGSSGLGFELAKELSR

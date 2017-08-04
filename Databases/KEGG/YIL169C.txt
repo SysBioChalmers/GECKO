@@ -1,12 +1,12 @@
 ENTRY       YIL169C           CDS       T00005
-DEFINITION  hypothetical protein
+NAME        CSS1
+DEFINITION  (RefSeq) Css1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IX:complement(23119..26106)
-MOTIF       Pfam: Myosin_tail_1
-DBLINKS     NCBI-GI: 6322022
+MOTIF       Pfam: Hyphal_reg_CWP
+DBLINKS     NCBI-ProteinID: NP_012097
             NCBI-GeneID: 854637
             SGD: S000001431
-            MIPS: YIL169C
             UniProt: P40442
 AASEQ       995
             MFNRLNKFQAALALALYSQSALGQYYSNSTSISSNSSSTSVVSSSSGSVSISSSIAETSS

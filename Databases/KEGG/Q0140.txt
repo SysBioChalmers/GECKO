@@ -1,13 +1,12 @@
 ENTRY       Q0140             CDS       T00005
 NAME        VAR1
-DEFINITION  Var1p
+DEFINITION  (RefSeq) mitochondrial 37S ribosomal protein VAR1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    MT:48901..50097
-MOTIF       Pfam: VAR1 Ribosomal_S3_C
-DBLINKS     NCBI-GI: 6226534
+MOTIF       Pfam: VAR1
+DBLINKS     NCBI-ProteinID: NP_009320
             NCBI-GeneID: 854586
             SGD: S000007275
-            MIPS: Q0140
             UniProt: P02381
 AASEQ       398
             MKLKLLNMILSMMNKTNNNNNIIINNTLDSLMNKKLLLKNMLLDMNNKKMNNMKRMLNNN

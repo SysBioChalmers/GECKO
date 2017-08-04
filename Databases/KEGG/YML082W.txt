@@ -1,5 +1,5 @@
 ENTRY       YML082W           CDS       T00005
-DEFINITION  putative cystathionine gamma-synthase (EC:2.5.1.48)
+DEFINITION  (RefSeq) putative cystathionine gamma-synthase
 ORTHOLOGY   K01739  cystathionine gamma-synthase [EC:2.5.1.48]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00270  Cysteine and methionine metabolism
@@ -7,17 +7,33 @@ PATHWAY     sce00270  Cysteine and methionine metabolism
             sce00920  Sulfur metabolism
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
+            sce01130  Biosynthesis of antibiotics
             sce01230  Biosynthesis of amino acids
-CLASS       Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
-            Metabolism; Energy metabolism; Sulfur metabolism [PATH:sce00920]
-            Metabolism; Amino acid metabolism; Cysteine and methionine metabolism [PATH:sce00270]
-            Metabolism; Metabolism of other amino acids; Selenocompound metabolism [PATH:sce00450]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01230 Biosynthesis of amino acids
+                YML082W
+              Energy metabolism
+               00920 Sulfur metabolism
+                YML082W
+              Amino acid metabolism
+               00270 Cysteine and methionine metabolism
+                YML082W
+              Metabolism of other amino acids
+               00450 Selenocompound metabolism
+                YML082W
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.5  Transferring alkyl or aryl groups, other than methyl groups
+               2.5.1  Transferring alkyl or aryl groups, other than methyl groups (only sub-subclass identified to date)
+                2.5.1.48  cystathionine gamma-synthase
+                 YML082W
 POSITION    XIII:101862..103811
-MOTIF       Pfam: Cys_Met_Meta_PP
-DBLINKS     NCBI-GI: 6323557
+MOTIF       Pfam: Cys_Met_Meta_PP NBD94 RVT_connect
+DBLINKS     NCBI-ProteinID: NP_013628
             NCBI-GeneID: 854892
             SGD: S000004547
-            MIPS: YML082W
             UniProt: Q04533
 AASEQ       649
             MVSAQVATELGQPIPLDTQHAVSVCFPTWKSVISYVEKDPKVLGCLKSGYPRFWIHPSIQ

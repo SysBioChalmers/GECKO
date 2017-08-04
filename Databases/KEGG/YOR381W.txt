@@ -1,14 +1,19 @@
 ENTRY       YOR381W           CDS       T00005
 NAME        FRE3
-DEFINITION  Fre3p (EC:1.16.1.7 1.16.1.-)
+DEFINITION  (RefSeq) ferric-chelate reductase
 ORTHOLOGY   K00521  ferric-chelate reductase [EC:1.16.1.7]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.16  Oxidizing metal ions
+               1.16.1  With NAD+ or NADP+ as acceptor
+                1.16.1.7  ferric-chelate reductase (NADH)
+                 YOR381W (FRE3)
 POSITION    XV:1055545..1057680
-MOTIF       Pfam: NAD_binding_6 FAD_binding_8 Ferric_reduct PRESAN FAD_binding_6
-DBLINKS     NCBI-GI: 6324957
+MOTIF       Pfam: NAD_binding_6 FAD_binding_8 Ferric_reduct
+DBLINKS     NCBI-ProteinID: NP_015026
             NCBI-GeneID: 854563
             SGD: S000005908
-            MIPS: YOR381W
             UniProt: Q08905
 AASEQ       711
             MYWVLLCGSILLCCLSGASASPAKTKMYGKLPLVLTDACMGVLGEVTWEYSSDDLYSSPA

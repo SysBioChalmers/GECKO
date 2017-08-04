@@ -1,17 +1,26 @@
 ENTRY       YOR196C           CDS       T00005
 NAME        LIP5
-DEFINITION  putative lipoate synthase (EC:2.8.1.8)
-ORTHOLOGY   K03644  lipoic acid synthetase [EC:2.8.1.8]
+DEFINITION  (RefSeq) putative lipoate synthase
+ORTHOLOGY   K03644  lipoyl synthase [EC:2.8.1.8]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00785  Lipoic acid metabolism
             sce01100  Metabolic pathways
-CLASS       Metabolism; Metabolism of cofactors and vitamins; Lipoic acid metabolism [PATH:sce00785]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Metabolism of cofactors and vitamins
+               00785 Lipoic acid metabolism
+                YOR196C (LIP5)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.8  Transferring sulfur-containing groups
+               2.8.1  Sulfurtransferases
+                2.8.1.8  lipoyl synthase
+                 YOR196C (LIP5)
 POSITION    XV:complement(715593..716837)
-MOTIF       Pfam: Radical_SAM Phyto-Amp
-DBLINKS     NCBI-GI: 6324770
+MOTIF       Pfam: LIAS_N Radical_SAM Spore_GerAC Phyto-Amp
+DBLINKS     NCBI-ProteinID: NP_014839
             NCBI-GeneID: 854371
             SGD: S000005722
-            MIPS: YOR196C
             UniProt: P32875
 AASEQ       414
             MYRRSVGVLFVGRNTRWISSTIRCGTSATRPIRSNALNTDSDNASVRVPVGNSTEVENAT

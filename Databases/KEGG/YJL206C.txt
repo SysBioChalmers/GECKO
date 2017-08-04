@@ -1,12 +1,11 @@
 ENTRY       YJL206C           CDS       T00005
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) hypothetical protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    X:complement(47659..49935)
-MOTIF       Pfam: Fungal_trans Zn_clus Surf_Ag_VNR CENP-L
-DBLINKS     NCBI-GI: 6322255
+MOTIF       Pfam: Fungal_trans Zn_clus POTRA
+DBLINKS     NCBI-ProteinID: NP_012329
             NCBI-GeneID: 853224
             SGD: S000003741
-            MIPS: YJL206C
             UniProt: P39529
 AASEQ       758
             MTPKESGKPISCAMKKLKGKRSKILVLSRDAGTNELKPTKGRAHRACIACRKRKVRCSGN

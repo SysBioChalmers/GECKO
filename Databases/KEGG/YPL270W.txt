@@ -1,14 +1,18 @@
 ENTRY       YPL270W           CDS       T00005
 NAME        MDL2
-DEFINITION  ATP-binding cassette permease MDL2
+DEFINITION  (RefSeq) ATP-binding cassette permease MDL2
 ORTHOLOGY   K02021  putative ABC transport system ATP-binding protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             ABC Transporters, Eukaryotic Type
+              Other subfamilies
+               Other putative ABC transporters
+                YPL270W (MDL2)
 POSITION    XVI:30482..32803
-MOTIF       Pfam: ABC_membrane ABC_tran AAA_22 AAA_16 AAA_21 ABC_ATPase AAA_17 AAA DUF258 AAA_29 AAA_25 AAA_5 AAA_14
-DBLINKS     NCBI-GI: 37362699
+MOTIF       Pfam: ABC_membrane ABC_tran SMC_N AAA_16 AAA_22 AAA AAA_29 AAA_5 RsgA_GTPase
+DBLINKS     NCBI-ProteinID: NP_015053
             NCBI-GeneID: 855858
             SGD: S000006191
-            MIPS: YPL270W
             UniProt: P33311
 AASEQ       773
             MLNGRLPLLRLGICRNMLSRPRLAKLPSIRFRSLVTPSSSQLIPLSRLCLRSPAVGKSLI

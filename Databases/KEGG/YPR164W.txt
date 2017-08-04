@@ -1,13 +1,11 @@
 ENTRY       YPR164W           CDS       T00005
 NAME        MMS1, RTT108, SLM6
-DEFINITION  Mms1p
+DEFINITION  (RefSeq) Mms1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:870703..874926
-MOTIF       Pfam: MMS1_N
-DBLINKS     NCBI-GI: 6325422
+DBLINKS     NCBI-ProteinID: NP_015490
             NCBI-GeneID: 856293
             SGD: S000006368
-            MIPS: YPR164W
             UniProt: Q06211
 AASEQ       1407
             MLGLRTHGLDRYEHYIRRPSDFGKLELQDWLNHKSFRVSPNLLIDSSTTREWNEPELFYQ

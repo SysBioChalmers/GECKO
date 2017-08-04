@@ -1,14 +1,18 @@
 ENTRY       YER040W           CDS       T00005
 NAME        GLN3
-DEFINITION  Gln3p
+DEFINITION  (RefSeq) nitrogen-responsive transcriptional regulator GLN3
 ORTHOLOGY   K09184  GATA-binding protein, other eukaryote
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription factors [BR:sce03000]
+             Eukaryotic Type
+              Zinc finger
+               Cys4 GATA-factors
+                YER040W (GLN3)
 POSITION    V:229795..231987
 MOTIF       Pfam: GATA TF_Zn_Ribbon
-DBLINKS     NCBI-GI: 398364401
+DBLINKS     NCBI-ProteinID: NP_010958
             NCBI-GeneID: 856763
             SGD: S000000842
-            MIPS: YER040W
             UniProt: P18494
 AASEQ       730
             MQDDPENSKLYDLLNSHLDVHGRSNEEPRQTGDSRSQSSGNTGENEEDIAFASGLNGGTF

@@ -1,6 +1,6 @@
 ENTRY       YJR006W           CDS       T00005
 NAME        POL31, HUS2, HYS2, SDP5
-DEFINITION  Pol31p (EC:2.7.7.7)
+DEFINITION  (RefSeq) DNA-directed DNA polymerase delta subunit POL31
 ORTHOLOGY   K02328  DNA polymerase delta subunit 2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00230  Purine metabolism
@@ -11,19 +11,45 @@ PATHWAY     sce00230  Purine metabolism
             sce03420  Nucleotide excision repair
             sce03430  Mismatch repair
             sce03440  Homologous recombination
-CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
-            Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
-            Genetic Information Processing; Replication and repair; DNA replication [PATH:sce03030]
-            Genetic Information Processing; Replication and repair; Base excision repair [PATH:sce03410]
-            Genetic Information Processing; Replication and repair; Nucleotide excision repair [PATH:sce03420]
-            Genetic Information Processing; Replication and repair; Mismatch repair [PATH:sce03430]
-            Genetic Information Processing; Replication and repair; Homologous recombination [PATH:sce03440]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Nucleotide metabolism
+               00230 Purine metabolism
+                YJR006W (POL31)
+               00240 Pyrimidine metabolism
+                YJR006W (POL31)
+             Genetic Information Processing
+              Replication and repair
+               03030 DNA replication
+                YJR006W (POL31)
+               03410 Base excision repair
+                YJR006W (POL31)
+               03420 Nucleotide excision repair
+                YJR006W (POL31)
+               03430 Mismatch repair
+                YJR006W (POL31)
+               03440 Homologous recombination
+                YJR006W (POL31)
+            DNA replication proteins [BR:sce03032]
+             Eukaryotic Type
+              DNA Replication Elongation Factors
+               DNA polymerase delta complex
+                YJR006W (POL31)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              SSBR (single strand breaks repair)
+               BER (base exicision repair)
+                Long Patch-BER factors
+                 DNA polymerase delta complex
+                  YJR006W (POL31)
+               MMR (mismatch exicision repair)
+                DNA polymerase delta complex
+                 YJR006W (POL31)
 POSITION    X:449202..450665
 MOTIF       Pfam: DNA_pol_E_B
-DBLINKS     NCBI-GI: 6322465
+DBLINKS     NCBI-ProteinID: NP_012539
             NCBI-GeneID: 853462
             SGD: S000003766
-            MIPS: YJR006W
             UniProt: P46957
 AASEQ       487
             MDALLTKFNEDRSLQDENLSQPRTRVRIVDDNLYNKSNPFQLCYKKRDYGSQYYHIYQYR

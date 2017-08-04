@@ -1,13 +1,12 @@
 ENTRY       YML118W           CDS       T00005
 NAME        NGL3
-DEFINITION  Ngl3p (EC:3.1.-.-)
+DEFINITION  (RefSeq) 3'-5' poly(A) RNA exonuclease
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:32334..33851
-MOTIF       Pfam: Exo_endo_phos
-DBLINKS     NCBI-GI: 6323517
+MOTIF       Pfam: Exo_endo_phos UPF0258
+DBLINKS     NCBI-ProteinID: NP_013588
             NCBI-GeneID: 854921
             SGD: S000004587
-            MIPS: YML118W
             UniProt: Q03210
 AASEQ       505
             MDSQVEGKISPSQKESSSTSGLVSPSEDGPAHQKIHRDQLSVDQIKKIREERAQKRQVRR

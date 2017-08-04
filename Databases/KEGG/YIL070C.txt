@@ -1,14 +1,17 @@
 ENTRY       YIL070C           CDS       T00005
 NAME        MAM33
-DEFINITION  Mam33p
+DEFINITION  (RefSeq) Mam33p
 ORTHOLOGY   K15414  complement component 1 Q subcomponent-binding protein, mitochondrial
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Glycosaminoglycan binding proteins [BR:sce00536]
+             Hyaluronan
+              Extracellular matrix or blood plasma proteins
+               YIL070C (MAM33)
 POSITION    IX:complement(230272..231072)
 MOTIF       Pfam: MAM33
-DBLINKS     NCBI-GI: 6322119
+DBLINKS     NCBI-ProteinID: NP_012194
             NCBI-GeneID: 854740
             SGD: S000001332
-            MIPS: YIL070C
             UniProt: P40513
 STRUCTURE   PDB: 3QV0
 AASEQ       266

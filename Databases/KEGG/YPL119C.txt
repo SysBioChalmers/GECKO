@@ -1,14 +1,38 @@
 ENTRY       YPL119C           CDS       T00005
 NAME        DBP1, LPH8
-DEFINITION  Dbp1p (EC:3.6.4.13)
+DEFINITION  (RefSeq) putative DEAD-box ATP-dependent RNA helicase DBP1
 ORTHOLOGY   K11594  ATP-dependent RNA helicase DDX3X [EC:3.6.4.13]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.4  Acting on acid anhydrides to facilitate cellular and subcellular movement
+                3.6.4.13  RNA helicase
+                 YPL119C (DBP1)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Transport factors
+                eIF4F and regulatory proteins
+                 YPL119C (DBP1)
+               mRNA cycle factors
+                Common to processing body (P body) and stress granule
+                 YPL119C (DBP1)
+            Spliceosome [BR:sce03041]
+             Other splicing related proteins
+              Spliceosome associated proteins (SAPs)
+               RNA helicase-like proteins
+                YPL119C (DBP1)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              RNA silencing
+               RISC (RNA-induced silencing complex)
+                YPL119C (DBP1)
 POSITION    XVI:complement(324411..326264)
-MOTIF       Pfam: DEAD Helicase_C ResIII CMS1 DUF1253
-DBLINKS     NCBI-GI: 6325138
+MOTIF       Pfam: DEAD Helicase_C ResIII ERCC3_RAD25_C CMS1
+DBLINKS     NCBI-ProteinID: NP_015206
             NCBI-GeneID: 855984
             SGD: S000006040
-            MIPS: YPL119C
             UniProt: P24784
 AASEQ       617
             MADLPQKVSNLSINNKENGGGGGKSSYVPPHLRSRGKPSFERSTPKQEDKVTGGDFFRRA

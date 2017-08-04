@@ -1,16 +1,25 @@
 ENTRY       YNL278W           CDS       T00005
 NAME        CAF120
-DEFINITION  Caf120p
+DEFINITION  (RefSeq) Caf120p
 ORTHOLOGY   K12609  CCR4-NOT transcriptional complex subunit CAF120
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03018  RNA degradation
-CLASS       Genetic Information Processing; Folding, sorting and degradation; RNA degradation [PATH:sce03018]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               03018 RNA degradation
+                YNL278W (CAF120)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA degradation factors
+               3'-5' decay
+                Ccr4-NOT complex
+                 YNL278W (CAF120)
 POSITION    XIV:113271..116453
 MOTIF       Pfam: PH
-DBLINKS     NCBI-GI: 6324051
+DBLINKS     NCBI-ProteinID: NP_014121
             NCBI-GeneID: 855443
             SGD: S000005222
-            MIPS: YNL278W
             UniProt: P53836
 AASEQ       1060
             MRIFSGDNKVVDSLASNPGLMSPSNFGGDFGSRLKVNVTSKKKLNDSSPTSPMESSPVSP

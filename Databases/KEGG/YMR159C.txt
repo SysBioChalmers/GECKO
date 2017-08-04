@@ -1,16 +1,24 @@
 ENTRY       YMR159C           CDS       T00005
 NAME        ATG16, APG15, APG16, CVT11, SAP18
-DEFINITION  Atg16p
-ORTHOLOGY   K08340  autophagy-related protein 16, fungi type
+DEFINITION  (RefSeq) Atg16p
+ORTHOLOGY   K08340  autophagy-related protein 16
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
-PATHWAY     sce04140  Regulation of autophagy
-CLASS       Cellular Processes; Transport and catabolism; Regulation of autophagy [PATH:sce04140]
+PATHWAY     sce04138  Autophagy - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04138 Autophagy - yeast
+                YMR159C (ATG16)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial quality control factors
+              Mitophagy factors
+               Autophagy-related proteins
+                YMR159C (ATG16)
 POSITION    XIII:complement(574476..574928)
-MOTIF       Pfam: ATG16 Fib_alpha DUF2877 Calici_MSP AF0941-like Atg14 Macoilin V_ATPase_I TMF_TATA_bd DUF641
-DBLINKS     NCBI-GI: 6323811
+MOTIF       Pfam: ATG16 Fez1 TMF_DNA_bd ACCA Atg14 Nsp1_C DUF641
+DBLINKS     NCBI-ProteinID: NP_013882
             NCBI-GeneID: 855194
             SGD: S000004769
-            MIPS: YMR159C
             UniProt: Q03818
 STRUCTURE   PDB: 2DYO 2DYM 3A7O 3W1S 3A7P
 AASEQ       150

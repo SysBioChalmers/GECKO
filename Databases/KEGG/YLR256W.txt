@@ -1,14 +1,18 @@
 ENTRY       YLR256W           CDS       T00005
 NAME        HAP1, CYP1
-DEFINITION  Hap1p
+DEFINITION  (RefSeq) Hap1p
 ORTHOLOGY   K09247  heme activator protein 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription factors [BR:sce03000]
+             Eukaryotic Type
+              Zinc finger
+               Cys6 metabolic regulators in fungi
+                YLR256W (HAP1)
 POSITION    XII:646415..650923
-MOTIF       Pfam: Zn_clus
-DBLINKS     NCBI-GI: 6323285
+MOTIF       Pfam: Zn_clus Fungal_trans SUIM_assoc Inj_translocase
+DBLINKS     NCBI-ProteinID: NP_013357
             NCBI-GeneID: 850958
             SGD: S000004246
-            MIPS: YLR256W
             UniProt: P0CE41
 STRUCTURE   PDB: 1HWT 2HAP 1QP9 1PYC
 AASEQ       1502

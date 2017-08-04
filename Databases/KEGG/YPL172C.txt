@@ -1,20 +1,40 @@
 ENTRY       YPL172C           CDS       T00005
 NAME        COX10
-DEFINITION  Cox10p (EC:2.5.1.-)
+DEFINITION  (RefSeq) protoheme IX farnesyltransferase
 ORTHOLOGY   K02257  protoheme IX farnesyltransferase [EC:2.5.1.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00190  Oxidative phosphorylation
             sce00860  Porphyrin and chlorophyll metabolism
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
-CLASS       Metabolism; Energy metabolism; Oxidative phosphorylation [PATH:sce00190]
-            Metabolism; Metabolism of cofactors and vitamins; Porphyrin and chlorophyll metabolism [PATH:sce00860]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Energy metabolism
+               00190 Oxidative phosphorylation
+                YPL172C (COX10)
+              Metabolism of cofactors and vitamins
+               00860 Porphyrin and chlorophyll metabolism
+                YPL172C (COX10)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.5  Transferring alkyl or aryl groups, other than methyl groups
+               2.5.1  Transferring alkyl or aryl groups, other than methyl groups (only sub-subclass identified to date)
+                2.5.1.-  
+                 YPL172C (COX10)
+            Prenyltransferases [BR:sce01006]
+             Compound prenylation
+              Protoheme farnesyltransferase
+               YPL172C (COX10)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial quality control factors
+              Mitochondrial respiratory chain complex assembly factors
+               Complex-IV assembly factors
+                YPL172C (COX10)
 POSITION    XVI:complement(224353..225741)
 MOTIF       Pfam: UbiA
-DBLINKS     NCBI-GI: 6325085
+DBLINKS     NCBI-ProteinID: NP_015153
             NCBI-GeneID: 855931
             SGD: S000006093
-            MIPS: YPL172C
             UniProt: P21592
 AASEQ       462
             MSYFPRTYAHLMRNVLAHNKGNIYLQIGTQLHDTQIKIRFNGVRYISRNHGGKQQHINTA

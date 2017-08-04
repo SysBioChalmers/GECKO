@@ -1,12 +1,11 @@
 ENTRY       YBR284W           CDS       T00005
-DEFINITION  metallo-dependent hydrolase superfamily protein (EC:3.5.4.-)
+DEFINITION  (RefSeq) metallo-dependent hydrolase superfamily protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    II:771239..773632
-MOTIF       Pfam: A_deaminase
-DBLINKS     NCBI-GI: 398365879
+MOTIF       Pfam: A_deaminase DUF383
+DBLINKS     NCBI-ProteinID: NP_009843
             NCBI-GeneID: 852587
             SGD: S000000488
-            MIPS: YBR284W
             UniProt: P38150
 AASEQ       797
             MVQNNESVFFVECDSYKESPSTSPIRLDDLDGNDAVSDQGLAFDGDVGITSQARVRNPRA

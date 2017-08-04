@@ -1,14 +1,24 @@
 ENTRY       YNL016W           CDS       T00005
 NAME        PUB1, RNP1
-DEFINITION  Pub1p
+DEFINITION  (RefSeq) Pub1p
 ORTHOLOGY   K13201  nucleolysin TIA-1/TIAR
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               mRNA cycle factors
+                Stress granule specific factors
+                 YNL016W (PUB1)
+            Spliceosome [BR:sce03041]
+             Other splicing related proteins
+              Spliceosome associated proteins (SAPs)
+               RNA binding proteins (RBPs)
+                YNL016W (PUB1)
 POSITION    XIV:602907..604268
-MOTIF       Pfam: RRM_1 RRM_6 RRM_5 Nup35_RRM_2 Limkain-b1
-DBLINKS     NCBI-GI: 6324312
+MOTIF       Pfam: RRM_1 RRM_occluded RRM_5 Nup35_RRM_2 Limkain-b1 RRM_3
+DBLINKS     NCBI-ProteinID: NP_014382
             NCBI-GeneID: 855716
             SGD: S000004961
-            MIPS: YNL016W
             UniProt: P32588
 STRUCTURE   PDB: 3MD1 3MD3 2LA4
 AASEQ       453

@@ -1,17 +1,30 @@
 ENTRY       YJL124C           CDS       T00005
 NAME        LSM1, SPB8
-DEFINITION  Lsm1p
+DEFINITION  (RefSeq) Lsm1p
 ORTHOLOGY   K12620  U6 snRNA-associated Sm-like protein LSm1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03018  RNA degradation
 MODULE      sce_M00397  Lsm 1-7 complex
-CLASS       Genetic Information Processing; Folding, sorting and degradation; RNA degradation [PATH:sce03018]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               03018 RNA degradation
+                YJL124C (LSM1)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               mRNA cycle factors
+                P-body specific factors
+                 YJL124C (LSM1)
+              mRNA degradation factors
+               5'-3' decay
+                Lsm complex
+                 YJL124C (LSM1)
 POSITION    X:complement(187126..187644)
 MOTIF       Pfam: LSM
-DBLINKS     NCBI-GI: 6322337
+DBLINKS     NCBI-ProteinID: NP_012411
             NCBI-GeneID: 853318
             SGD: S000003660
-            MIPS: YJL124C
             UniProt: P47017
 STRUCTURE   PDB: 4C92 4M75 4C8Q
 AASEQ       172

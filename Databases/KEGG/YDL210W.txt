@@ -1,13 +1,12 @@
 ENTRY       YDL210W           CDS       T00005
 NAME        UGA4
-DEFINITION  Uga4p
+DEFINITION  (RefSeq) Uga4p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:84270..85985
-MOTIF       Pfam: AA_permease_2 AA_permease
-DBLINKS     NCBI-GI: 6319991
+MOTIF       Pfam: AA_permease_2 AA_permease Shisa
+DBLINKS     NCBI-ProteinID: NP_010071
             NCBI-GeneID: 851317
             SGD: S000002369
-            MIPS: YDL210W
             UniProt: P32837
 AASEQ       571
             MSMSSKNENKISVEQRISTDIGQAYQLQGLGSNLRSIRSKTGAGEVNYIDAAKSVNDNQL

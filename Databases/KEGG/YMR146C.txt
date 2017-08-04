@@ -1,18 +1,26 @@
 ENTRY       YMR146C           CDS       T00005
 NAME        TIF34
-DEFINITION  Tif34p
+DEFINITION  (RefSeq) translation initiation factor eIF3 subunit I
 ORTHOLOGY   K03246  translation initiation factor 3 subunit I
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03013  RNA transport
-CLASS       Genetic Information Processing; Translation; RNA transport [PATH:sce03013]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03013 RNA transport
+                YMR146C (TIF34)
+            Translation factors [BR:sce03012]
+             Eukaryotic Type
+              Initiation factors
+               eIF-3
+                YMR146C (TIF34)
 POSITION    XIII:complement(557481..558524)
-MOTIF       Pfam: WD40 eIF2A Nup160
-DBLINKS     NCBI-GI: 6323795
+MOTIF       Pfam: WD40 ANAPC4_WD40 eIF2A Nup160 Urotensin_II
+DBLINKS     NCBI-ProteinID: NP_013866
             NCBI-GeneID: 855177
             SGD: S000004754
-            MIPS: YMR146C
             UniProt: P40217
-STRUCTURE   PDB: 3ZWL
+STRUCTURE   PDB: 4U1E 3ZWL
 AASEQ       347
             MKAIKLTGHERPLTQVKYNKEGDLLFSCSKDSSASVWYSLNGERLGTLDGHTGTIWSIDV
             DCFTKYCVTGSADYSIKLWDVSNGQCVATWKSPVPVKRVEFSPCGNYFLAILDNVMKNPG

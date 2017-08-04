@@ -1,13 +1,11 @@
 ENTRY       YDL044C           CDS       T00005
 NAME        MTF2, NAM1
-DEFINITION  Mtf2p
+DEFINITION  (RefSeq) Mtf2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(373967..375289)
-MOTIF       Pfam: BsuPI
-DBLINKS     NCBI-GI: 6320160
+DBLINKS     NCBI-ProteinID: NP_010240
             NCBI-GeneID: 851517
             SGD: S000002202
-            MIPS: YDL044C
             UniProt: P10849
 AASEQ       440
             MIRTSSILKNCNYRYIHCIHRCLLNEANLKDRKTHNVERVSNEKTFEQALEEERKVFGEL

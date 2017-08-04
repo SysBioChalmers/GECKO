@@ -1,15 +1,18 @@
 ENTRY       YDR480W           CDS       T00005
 NAME        DIG2, RST2
-DEFINITION  Dig2p
+DEFINITION  (RefSeq) Dig2p
 ORTHOLOGY   K11242  down-regulator of invasive growth 2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04011  MAPK signaling pathway - yeast
-CLASS       Environmental Information Processing; Signal transduction; MAPK signaling pathway - yeast [PATH:sce04011]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YDR480W (DIG2)
 POSITION    IV:1417399..1418370
-DBLINKS     NCBI-GI: 6320688
+DBLINKS     NCBI-ProteinID: NP_010768
             NCBI-GeneID: 852091
             SGD: S000002888
-            MIPS: YDR480W
             UniProt: Q03373
 AASEQ       323
             MNKEEQEDPQQEQISTVQENDPRNLQQLGMLLVSPGLDEDRLSEKMISKIKKSRDIEKNQ

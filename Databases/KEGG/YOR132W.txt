@@ -1,13 +1,12 @@
 ENTRY       YOR132W           CDS       T00005
 NAME        VPS17, PEP21, VPT3
-DEFINITION  Vps17p
+DEFINITION  (RefSeq) retromer subunit VPS17
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:573175..574830
 MOTIF       Pfam: PX Vps5
-DBLINKS     NCBI-GI: 398365299
+DBLINKS     NCBI-ProteinID: NP_014775
             NCBI-GeneID: 854300
             SGD: S000005658
-            MIPS: YOR132W
             UniProt: P32913
 AASEQ       551
             MTSAVPYDPYDDLDNNPFAEPQEEDSEPAATTTDGSSSMSEERVGTEQTAASVQDNGTAN

@@ -1,14 +1,24 @@
 ENTRY       YDL112W           CDS       T00005
 NAME        TRM3
-DEFINITION  Trm3p (EC:2.1.1.34)
+DEFINITION  (RefSeq) tRNA (guanosine(18)-2'-O)-methyltransferase
 ORTHOLOGY   K15333  tRNA guanosine-2'-O-methyltransferase [EC:2.1.1.34]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.1  Transferring one-carbon groups
+               2.1.1  Methyltransferases
+                2.1.1.34  tRNA (guanosine18-2'-O)-methyltransferase
+                 YDL112W (TRM3)
+            Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              tRNA modification factors
+               Methyltransferases
+                YDL112W (TRM3)
 POSITION    IV:258915..263225
-MOTIF       Pfam: SpoU_methylase IL32
-DBLINKS     NCBI-GI: 6320091
+MOTIF       Pfam: SpoU_methylase FlaC_arch RICTOR_M
+DBLINKS     NCBI-ProteinID: NP_010171
             NCBI-GeneID: 851446
             SGD: S000002270
-            MIPS: YDL112W
             UniProt: Q07527
 AASEQ       1436
             MVGGALICKYLPREEQLKLISDLIQNDSLEEVLELIETSPLDITTDSNIETPIFEKITEQ

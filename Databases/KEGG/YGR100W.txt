@@ -1,13 +1,21 @@
 ENTRY       YGR100W           CDS       T00005
 NAME        MDR1, GYP2, MIC1
-DEFINITION  Mdr1p
+DEFINITION  (RefSeq) Mdr1p
+ORTHOLOGY   K19951  TBC1 domain family member 8/9
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Exocytosis
+              Small GTPases and associated proteins
+               Rab associated proteins
+                YGR100W (MDR1)
+             Endosome - Golgi transport
+              Rab GTPases and associated proteins
+                YGR100W (MDR1)
 POSITION    VII:690245..693097
-MOTIF       Pfam: RabGAP-TBC GRAM EF-hand_7 EF-hand_6 EF-hand_1
-DBLINKS     NCBI-GI: 6321537
+MOTIF       Pfam: RabGAP-TBC GRAM EF-hand_6 EF-hand_7 EF-hand_1 Vps36_ESCRT-II
+DBLINKS     NCBI-ProteinID: NP_011614
             NCBI-GeneID: 852992
             SGD: S000003332
-            MIPS: YGR100W
             UniProt: P53258
 AASEQ       950
             MSFFDSLRQKAPFLDKLADSFTPTLTRDEKFRLKYKLPANENILEDTNAEVSFATSIKDG

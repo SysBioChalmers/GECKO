@@ -1,20 +1,44 @@
 ENTRY       YIL143C           CDS       T00005
 NAME        SSL2, LOM3, RAD25
-DEFINITION  Ssl2p (EC:3.6.4.12)
+DEFINITION  (RefSeq) TFIIH/NER complex ATPase/helicase subunit SSL2
 ORTHOLOGY   K10843  DNA excision repair protein ERCC-3 [EC:3.6.4.12]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03022  Basal transcription factors
             sce03420  Nucleotide excision repair
 MODULE      sce_M00290  Holo-TFIIH complex
-CLASS       Genetic Information Processing; Transcription; Basal transcription factors [PATH:sce03022]
-            Genetic Information Processing; Replication and repair; Nucleotide excision repair [PATH:sce03420]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03022 Basal transcription factors
+                YIL143C (SSL2)
+              Replication and repair
+               03420 Nucleotide excision repair
+                YIL143C (SSL2)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.4  Acting on acid anhydrides to facilitate cellular and subcellular movement
+                3.6.4.12  DNA helicase
+                 YIL143C (SSL2)
+            Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Basal transcription factors
+                TFIIH
+                 YIL143C (SSL2)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              SSBR (single strand breaks repair)
+               NER (nucleotide excision repair)
+                TFIIH complex
+                 YIL143C (SSL2)
 POSITION    IX:complement(80510..83041)
-MOTIF       Pfam: Helicase_C_3 ResIII SNF2_N Helicase_C DEAD SBP_bac_6 AAA_34 eRF1_1
-DBLINKS     NCBI-GI: 6322048
+MOTIF       Pfam: ERCC3_RAD25_C Helicase_C_3 ResIII Helicase_C SNF2_N DEAD Cas_Csm6 SBP_bac_6
+DBLINKS     NCBI-ProteinID: NP_012123
             NCBI-GeneID: 854663
             SGD: S000001405
-            MIPS: YIL143C
             UniProt: Q00578
+STRUCTURE   PDB: 5FMF 5SVA
 AASEQ       843
             MTDVEGYQPKSKGKIFPDMGESFFSSDEDSPATDAEIDENYDDNRETSEGRGERDTGAMV
             TGLKKPRKKTKSSRHTAADSSMNQMDAKDKALLQDTNSDIPADFVPDSVSGMFRSHDFSY

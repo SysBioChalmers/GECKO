@@ -1,13 +1,12 @@
 ENTRY       YFL042C           CDS       T00005
-NAME        YFL043C
-DEFINITION  hypothetical protein
+NAME        LAM5, LTC2, YFL043C
+DEFINITION  (RefSeq) Lam5p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VI:complement(45720..47744)
-MOTIF       Pfam: GRAM
-DBLINKS     NCBI-GI: 14318476
+MOTIF       Pfam: DUF4782 GRAM
+DBLINKS     NCBI-ProteinID: NP_116611
             NCBI-GeneID: 850501
             SGD: S000001852
-            MIPS: YFL042C
             UniProt: P43560
 AASEQ       674
             MSDVDNWEPVSDNEDSTDSVKQLGPPFEHASNNDNAGDTEAESLQEVPLNTETNDVRKNL

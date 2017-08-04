@@ -1,13 +1,19 @@
 ENTRY       YDR293C           CDS       T00005
 NAME        SSD1, CLA1, MCS1, RLT1, SRK1
-DEFINITION  Ssd1p
+DEFINITION  (RefSeq) mRNA-binding translational repressor SSD1
+ORTHOLOGY   K18748  protein SSD1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Factors involved in mRNA localization
+                Other mRNA localization factors
+                 YDR293C (SSD1)
 POSITION    IV:complement(1045640..1049392)
-MOTIF       Pfam: RNB OB_RNB
-DBLINKS     NCBI-GI: 6320499
+MOTIF       Pfam: RNB OB_RNB Rrp44_CSD1 Rrp44_S1
+DBLINKS     NCBI-ProteinID: NP_010579
             NCBI-GeneID: 851887
             SGD: S000002701
-            MIPS: YDR293C
             UniProt: P24276
 AASEQ       1250
             MSKNSNVNNNRSQEPNNMFVQTTGGGKNAPKQIHVAHRRSQSELTNLMIEQFTLQKQLEQ

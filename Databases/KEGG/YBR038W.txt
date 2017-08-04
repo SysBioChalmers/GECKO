@@ -1,16 +1,29 @@
 ENTRY       YBR038W           CDS       T00005
 NAME        CHS2
-DEFINITION  chitin synthase CHS2 (EC:2.4.1.16)
+DEFINITION  (RefSeq) chitin synthase CHS2
 ORTHOLOGY   K00698  chitin synthase [EC:2.4.1.16]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00520  Amino sugar and nucleotide sugar metabolism
-CLASS       Metabolism; Carbohydrate metabolism; Amino sugar and nucleotide sugar metabolism [PATH:sce00520]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Carbohydrate metabolism
+               00520 Amino sugar and nucleotide sugar metabolism
+                YBR038W (CHS2)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.4  Glycosyltransferases
+               2.4.1  Hexosyltransferases
+                2.4.1.16  chitin synthase
+                 YBR038W (CHS2)
+            Glycosyltransferases [BR:sce01003]
+             Polysaccharide
+              Structural polysaccharide
+               YBR038W (CHS2)
 POSITION    II:311898..314789
-MOTIF       Pfam: Chitin_synth_1 Chitin_synth_1N Chitin_synth_2 Glyco_tranf_2_3 Glyco_trans_2_3 Ant_C
-DBLINKS     NCBI-GI: 6319512
+MOTIF       Pfam: Chitin_synth_1 Chitin_synth_2 Chitin_synth_1N Glyco_tranf_2_3 Glyco_trans_2_3 Ant_C
+DBLINKS     NCBI-ProteinID: NP_009594
             NCBI-GeneID: 852326
             SGD: S000000242
-            MIPS: YBR038W
             UniProt: P14180
 AASEQ       963
             MTRNPFMVEPSNGSPNRRGASNLSKFYANANSNSRWANPSEESLEDSYDQSNVFQGLPAS

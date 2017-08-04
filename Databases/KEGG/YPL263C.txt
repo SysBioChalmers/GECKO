@@ -1,13 +1,12 @@
 ENTRY       YPL263C           CDS       T00005
 NAME        KEL3
-DEFINITION  Kel3p
+DEFINITION  (RefSeq) Kel3p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:complement(44551..46506)
-MOTIF       Pfam: Kelch_3 Kelch_4 DUF4110 Kelch_6 Kelch_1 Kelch_5 Kelch_2
-DBLINKS     NCBI-GI: 6324992
+MOTIF       Pfam: Kelch_4 Kelch_3 DUF4110 Kelch_6 Kelch_1 Kelch_5 Kelch_2 BUD22
+DBLINKS     NCBI-ProteinID: NP_015060
             NCBI-GeneID: 855865
             SGD: S000006184
-            MIPS: YPL263C
             UniProt: Q08979
 AASEQ       651
             MAKKNKKDKEAKKARAELKNQKNQKKQEKKFQKNKNKSLNGEEDDESDQDLDEILSSFSK

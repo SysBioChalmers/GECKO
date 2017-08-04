@@ -1,17 +1,30 @@
 ENTRY       YHR144C           CDS       T00005
 NAME        DCD1
-DEFINITION  Dcd1p (EC:3.5.4.12)
+DEFINITION  (RefSeq) deoxycytidine monophosphate deaminase
 ORTHOLOGY   K01493  dCMP deaminase [EC:3.5.4.12]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00240  Pyrimidine metabolism
             sce01100  Metabolic pathways
-CLASS       Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Nucleotide metabolism
+               00240 Pyrimidine metabolism
+                YHR144C (DCD1)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.5  Acting on carbon-nitrogen bonds, other than peptide bonds
+               3.5.4  In cyclic amidines
+                3.5.4.12  dCMP deaminase
+                 YHR144C (DCD1)
+            Secretion system [BR:sce02044]
+             Type II secretion system
+              Competence-related DNA transformation transporter (DNA-T) core components [MD:M00429]
+               YHR144C (DCD1)
 POSITION    VIII:complement(387788..388726)
-MOTIF       Pfam: dCMP_cyt_deam_1 DUF2762 Cupredoxin_1 XOO_2897-deam
-DBLINKS     NCBI-GI: 6321938
+MOTIF       Pfam: dCMP_cyt_deam_1 MafB19-deam APOBEC_N Cupredoxin_1 Holin_BhlA
+DBLINKS     NCBI-ProteinID: NP_012014
             NCBI-GeneID: 856548
             SGD: S000001187
-            MIPS: YHR144C
             UniProt: P06773
 AASEQ       312
             MLIGVSGTKFCGCEDVINMLVDHFHFELLNHLDNPEEILDYATKNYTKNSVIFLEKLSLL

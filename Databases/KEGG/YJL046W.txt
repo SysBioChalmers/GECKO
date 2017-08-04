@@ -1,17 +1,26 @@
 ENTRY       YJL046W           CDS       T00005
 NAME        AIM22, LIP3, RRG3
-DEFINITION  putative lipoate--protein ligase (EC:2.7.7.63)
-ORTHOLOGY   K03800  lipoate-protein ligase A [EC:2.7.7.63]
+DEFINITION  (RefSeq) putative lipoate--protein ligase
+ORTHOLOGY   K03800  lipoate---protein ligase [EC:6.3.1.20]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00785  Lipoic acid metabolism
             sce01100  Metabolic pathways
-CLASS       Metabolism; Metabolism of cofactors and vitamins; Lipoic acid metabolism [PATH:sce00785]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Metabolism of cofactors and vitamins
+               00785 Lipoic acid metabolism
+                YJL046W (AIM22)
+            Enzymes [BR:sce01000]
+             6. Ligases
+              6.3  Forming carbon-nitrogen bonds
+               6.3.1  Acid-D-ammonia (or amine) ligases (amide synthases)
+                6.3.1.20  lipoate---protein ligase
+                 YJL046W (AIM22)
 POSITION    X:352386..353615
-MOTIF       Pfam: BPL_LplA_LipB
-DBLINKS     NCBI-GI: 83578101
+MOTIF       Pfam: BPL_LplA_LipB FBA_2
+DBLINKS     NCBI-ProteinID: NP_012489
             NCBI-GeneID: 853401
             SGD: S000003582
-            MIPS: YJL046W
             UniProt: P47051
 AASEQ       409
             MSMMLSNWALSPRYVGQRNLIHCTTLFHTLTRWAKDADDKYHDINSMYENMFTPSNDNVS

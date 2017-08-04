@@ -1,16 +1,25 @@
 ENTRY       YER179W           CDS       T00005
 NAME        DMC1, ISC2
-DEFINITION  Dmc1p
+DEFINITION  (RefSeq) recombinase DMC1
 ORTHOLOGY   K10872  meiotic recombination protein DMC1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04113  Meiosis - yeast
-CLASS       Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04113 Meiosis - yeast
+                YER179W (DMC1)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              DSBR (double strand breaks repair)
+               HR (homologous recombination)
+                RecA family proteins
+                 YER179W (DMC1)
 POSITION    V:join(548421..548552,548645..549517)
-MOTIF       Pfam: Rad51 AAA_25 RecA KaiC HHH_5 RNA_pol_A_CTD AAA_22 PAXNEB
-DBLINKS     NCBI-GI: 6321027
+MOTIF       Pfam: Rad51 RecA AAA_25 ATPase HHH_5 RNA_pol_A_CTD PAXNEB
+DBLINKS     NCBI-ProteinID: NP_011106
             NCBI-GeneID: 856926
             SGD: S000000981
-            MIPS: YER179W
             UniProt: P25453
 AASEQ       334
             MSVTGTEIDSDTAKNILSVDELQNYGINASDLQKLKSGGIYTVNTVLSTTRRHLCKIKGL

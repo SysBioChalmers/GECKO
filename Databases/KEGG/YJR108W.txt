@@ -1,12 +1,12 @@
 ENTRY       YJR108W           CDS       T00005
 NAME        ABM1
-DEFINITION  Abm1p
+DEFINITION  (RefSeq) Abm1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    X:628712..629083
-DBLINKS     NCBI-GI: 6322568
+MOTIF       Pfam: Trans_coact
+DBLINKS     NCBI-ProteinID: NP_012642
             NCBI-GeneID: 853572
             SGD: S000003869
-            MIPS: YJR108W
             UniProt: P47146
 AASEQ       123
             MSWRYSILTVDGSFKIFIPWEIFLTWNFLSAAWLNSTESNTYIHYSTCWGTSDYTLNISV

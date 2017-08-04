@@ -1,13 +1,18 @@
 ENTRY       YFR038W           CDS       T00005
 NAME        IRC5
-DEFINITION  Irc5p (EC:3.6.4.-)
+DEFINITION  (RefSeq) putative ATPase
+ORTHOLOGY   K19001  ATP-dependent DNA helicase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Chromatin remodeling factors
+               Other chromatin remodeling factors
+                YFR038W (IRC5)
 POSITION    VI:229380..231941
-MOTIF       Pfam: SNF2_N Helicase_C DEAD
-DBLINKS     NCBI-GI: 42742173
+MOTIF       Pfam: SNF2_N Helicase_C ResIII DEAD ERCC3_RAD25_C CCSAP
+DBLINKS     NCBI-ProteinID: NP_116696
             NCBI-GeneID: 850599
             SGD: S000001934
-            MIPS: YFR038W
             UniProt: P43610
 AASEQ       853
             MSRCSNAALMTVVEDAVGARVAARTRNMSNGVNYREKEVNDLTADISDSDSDLDSEDNKH

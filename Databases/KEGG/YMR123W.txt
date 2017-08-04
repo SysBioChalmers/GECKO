@@ -1,13 +1,12 @@
 ENTRY       YMR123W           CDS       T00005
 NAME        PKR1
-DEFINITION  Pkr1p
+DEFINITION  (RefSeq) Pkr1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:513593..513961
-MOTIF       Pfam: Pkr1 ATG22 Nucleoside_tran YfhO DUF4446 DUF4131
-DBLINKS     NCBI-GI: 6323771
+MOTIF       Pfam: Pkr1 PigN DUF2838 Wzy_C FAM176 Herpes_LMP1 ycf70 CFIA_Pcf11
+DBLINKS     NCBI-ProteinID: NP_013842
             NCBI-GeneID: 855153
             SGD: S000004730
-            MIPS: YMR123W
             UniProt: Q03880
 AASEQ       122
             MANFFVRLWESVFEPGTSPQLIIATHVSFVALLLTLIWLIYATNGNIHFYALFCISLLLW

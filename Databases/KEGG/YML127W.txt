@@ -1,13 +1,23 @@
 ENTRY       YML127W           CDS       T00005
 NAME        RSC9
-DEFINITION  Rsc9p
+DEFINITION  (RefSeq) Rsc9p
 ORTHOLOGY   K11763  chromatin structure-remodeling complex subunit RSC9
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Coactivators
+                RSC complex
+                 YML127W (RSC9)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Chromatin remodeling factors
+               RSC complex
+                YML127W (RSC9)
 POSITION    XIII:17064..18809
-DBLINKS     NCBI-GI: 6323508
+DBLINKS     NCBI-ProteinID: NP_013579
             NCBI-GeneID: 854912
             SGD: S000004596
-            MIPS: YML127W
             UniProt: Q03124
 AASEQ       581
             MNSLASNTPLNGTPVSEAPATSSEPVNMFETMVANPIKVSRLQSNGVLTGPAANTKSIHY

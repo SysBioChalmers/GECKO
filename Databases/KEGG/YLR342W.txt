@@ -1,18 +1,34 @@
 ENTRY       YLR342W           CDS       T00005
 NAME        FKS1, CND1, CWH53, ETG1, GSC1, PBR1
-DEFINITION  Fks1p (EC:2.4.1.34)
+DEFINITION  (RefSeq) 1,3-beta-D-glucan synthase
 ORTHOLOGY   K00706  1,3-beta-glucan synthase [EC:2.4.1.34]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00500  Starch and sucrose metabolism
             sce04011  MAPK signaling pathway - yeast
-CLASS       Metabolism; Carbohydrate metabolism; Starch and sucrose metabolism [PATH:sce00500]
-            Environmental Information Processing; Signal transduction; MAPK signaling pathway - yeast [PATH:sce04011]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Carbohydrate metabolism
+               00500 Starch and sucrose metabolism
+                YLR342W (FKS1)
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YLR342W (FKS1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.4  Glycosyltransferases
+               2.4.1  Hexosyltransferases
+                2.4.1.34  1,3-beta-glucan synthase
+                 YLR342W (FKS1)
+            Glycosyltransferases [BR:sce01003]
+             Polysaccharide
+              Structural polysaccharide
+               YLR342W (FKS1)
 POSITION    XII:809997..815627
 MOTIF       Pfam: Glucan_synthase FKS1_dom1
-DBLINKS     NCBI-GI: 6323374
+DBLINKS     NCBI-ProteinID: NP_013446
             NCBI-GeneID: 851055
             SGD: S000004334
-            MIPS: YLR342W
             UniProt: P38631
 AASEQ       1876
             MNTDQQPYQGQTDYTQGPGNGQSQEQDYDQYGQPLYPSQADGYYDPNVAAGTEADMYGQQ

@@ -1,13 +1,19 @@
 ENTRY       YLR452C           CDS       T00005
 NAME        SST2
-DEFINITION  Sst2p
+DEFINITION  (RefSeq) GTPase-activating protein SST2
+ORTHOLOGY   K19838  GTPase-activating protein SST2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04011  MAPK signaling pathway - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YLR452C (SST2)
 POSITION    XII:complement(1039270..1041366)
 MOTIF       Pfam: RGS DEP
-DBLINKS     NCBI-GI: 6323485
+DBLINKS     NCBI-ProteinID: NP_013557
             NCBI-GeneID: 851173
             SGD: S000004444
-            MIPS: YLR452C
             UniProt: P11972
 AASEQ       698
             MVDKNRTLHELSSKNFSRTPNGLIFTNDLKTVYSIFLICLDLKEKKHSSDTKSFLLTAFT

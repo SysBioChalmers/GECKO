@@ -1,16 +1,24 @@
 ENTRY       YJL109C           CDS       T00005
 NAME        UTP10
-DEFINITION  Utp10p
+DEFINITION  (RefSeq) snoRNA-binding rRNA-processing protein UTP10
 ORTHOLOGY   K14550  U3 small nucleolar RNA-associated protein 10
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03008  Ribosome biogenesis in eukaryotes
-CLASS       Genetic Information Processing; Translation; Ribosome biogenesis in eukaryotes [PATH:sce03008]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03008 Ribosome biogenesis in eukaryotes
+                YJL109C (UTP10)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              90S particles
+               U3 small nucleolar RNA-associated proteins
+                YJL109C (UTP10)
 POSITION    X:complement(212000..217309)
-MOTIF       Pfam: BP28CT U3snoRNP10
-DBLINKS     NCBI-GI: 6322352
+MOTIF       Pfam: BP28CT U3snoRNP10 IFT20 UME
+DBLINKS     NCBI-ProteinID: NP_012426
             NCBI-GeneID: 853335
             SGD: S000003645
-            MIPS: YJL109C
             UniProt: P42945
 AASEQ       1769
             MSSLSDQLAQVASNNATVALDRKRRQKLHSASLIYNSKTAATQDYDFIFENASKALEELS

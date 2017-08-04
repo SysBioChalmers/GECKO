@@ -1,16 +1,20 @@
 ENTRY       YGL105W           CDS       T00005
 NAME        ARC1
-DEFINITION  Arc1p
+DEFINITION  (RefSeq) Arc1p
 ORTHOLOGY   K15437  aminoacyl tRNA synthase complex-interacting multifunctional protein 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              Aminoacyl-tRNA synthetases (AARSs)
+               Multi-aminoacyl-tRNA synthetase complex (MSC)
+                YGL105W (ARC1)
 POSITION    VII:307437..308567
-MOTIF       Pfam: tRNA_bind ParcG Suf NARP1
-DBLINKS     NCBI-GI: 6321333
+MOTIF       Pfam: tRNA_bind NARP1 ParcG Peptidase_U32_C
+DBLINKS     NCBI-ProteinID: NP_011410
             NCBI-GeneID: 852773
             SGD: S000003073
-            MIPS: YGL105W
             UniProt: P46672
-STRUCTURE   PDB: 2HQT 2HRK 2HSN 2HSM
+STRUCTURE   PDB: 4R1J 2HQT 2HRK 2HSN 2HSM
 AASEQ       376
             MSDLVTKFESLIISKYPVSFTKEQSAQAAQWESVLKSGQIQPHLDQLNLVLRDNTFIVST
             LYPTSTDVHVFEVALPLIKDLVASSKDVKSTYTTYRHILRWIDYMQNLLEVSSTDKLEIN

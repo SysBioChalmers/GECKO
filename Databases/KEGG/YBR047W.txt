@@ -1,12 +1,12 @@
 ENTRY       YBR047W           CDS       T00005
 NAME        FMP23
-DEFINITION  Fmp23p
+DEFINITION  (RefSeq) Fmp23p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    II:331833..332360
-DBLINKS     NCBI-GI: 6319521
+MOTIF       Pfam: FMP23
+DBLINKS     NCBI-ProteinID: NP_009603
             NCBI-GeneID: 852336
             SGD: S000000251
-            MIPS: YBR047W
             UniProt: P38231
 AASEQ       175
             MLINHLSKIRTVRHFSNIKPVLSKEVSRRVIVAPASHFKTSSPNVKSNIPIHEYKQLPED

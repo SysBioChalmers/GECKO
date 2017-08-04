@@ -1,14 +1,17 @@
 ENTRY       YOL122C           CDS       T00005
 NAME        SMF1, SBS1
-DEFINITION  Smf1p
+DEFINITION  (RefSeq) divalent metal ion transporter SMF1
 ORTHOLOGY   K12346  metal iron transporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Other Transporters
+              Electrochemical potential-driven transporters [TC:2]
+               YOL122C (SMF1)
 POSITION    XV:complement(89692..91419)
-MOTIF       Pfam: Nramp TMEM154 PASTA
-DBLINKS     NCBI-GI: 6324450
+MOTIF       Pfam: Nramp PASTA TMEM173
+DBLINKS     NCBI-ProteinID: NP_014519
             NCBI-GeneID: 854027
             SGD: S000005482
-            MIPS: YOL122C
             UniProt: P38925
 AASEQ       575
             MVNVGPSHAAVAVDASEARKRNISEEVFELRDKKDSTVVIEGEAPVRTFTSSSSNHERED

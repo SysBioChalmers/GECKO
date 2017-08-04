@@ -1,13 +1,12 @@
 ENTRY       YOR281C           CDS       T00005
 NAME        PLP2
-DEFINITION  Plp2p
+DEFINITION  (RefSeq) Plp2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:complement(846269..847129)
-MOTIF       Pfam: Phosducin APG6 RUN
-DBLINKS     NCBI-GI: 398366059
+MOTIF       Pfam: Phosducin RUN
+DBLINKS     NCBI-ProteinID: NP_014924
             NCBI-GeneID: 854456
             SGD: S000005807
-            MIPS: YOR281C
             UniProt: Q12017
 AASEQ       286
             MQNEPMFQVQVDESEDSEWNDILRAKGVIPERAPSPTAKLEEALEEAIAKQHENRLEDKD

@@ -1,16 +1,25 @@
 ENTRY       YGR156W           CDS       T00005
 NAME        PTI1
-DEFINITION  Pti1p
+DEFINITION  (RefSeq) cleavage polyadenylation factor subunit PTI1
 ORTHOLOGY   K14407  cleavage stimulation factor subunit 2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03015  mRNA surveillance pathway
-CLASS       Genetic Information Processing; Translation; mRNA surveillance pathway [PATH:sce03015]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03015 mRNA surveillance pathway
+                YGR156W (PTI1)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA processing factors
+               3' end processing
+                Cleavage stimulation factor (CSTF) complex
+                 YGR156W (PTI1)
 POSITION    VII:800546..801823
-MOTIF       Pfam: CSTF2_hinge CSTF_C RRM_1 RRM_6 MarR
-DBLINKS     NCBI-GI: 6321595
+MOTIF       Pfam: CSTF2_hinge CSTF_C RRM_1 MarR
+DBLINKS     NCBI-ProteinID: NP_011672
             NCBI-GeneID: 853060
             SGD: S000003388
-            MIPS: YGR156W
             UniProt: P39927
 AASEQ       425
             MTDPRRRTGRHFLTPENLSSTLQITNLPPEWNQDIITSVVAGSGPVIDIKAKNDPRTGKL

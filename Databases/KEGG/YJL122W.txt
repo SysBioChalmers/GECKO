@@ -1,14 +1,18 @@
 ENTRY       YJL122W           CDS       T00005
 NAME        ALB1
-DEFINITION  Alb1p
+DEFINITION  (RefSeq) Alb1p
 ORTHOLOGY   K14814  ribosome biogenesis protein ALB1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               Export and cytoplasmic maturation factors
+                YJL122W (ALB1)
 POSITION    X:189716..190243
-MOTIF       Pfam: Alb1 YidC_periplas
-DBLINKS     NCBI-GI: 6322339
+MOTIF       Pfam: Alb1
+DBLINKS     NCBI-ProteinID: NP_012413
             NCBI-GeneID: 853320
             SGD: S000003658
-            MIPS: YJL122W
             UniProt: P47019
 AASEQ       175
             MPSKNSINRPKLTSNLHHKVHSLNKKRAQRERAGLLKPARSSVNSKSGEIKSVALDLYFQ

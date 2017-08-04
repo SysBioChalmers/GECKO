@@ -1,19 +1,36 @@
 ENTRY       YPR056W           CDS       T00005
 NAME        TFB4
-DEFINITION  Tfb4p
+DEFINITION  (RefSeq) TFIIH/NER complex subunit TFB4
 ORTHOLOGY   K03143  transcription initiation factor TFIIH subunit 3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03022  Basal transcription factors
             sce03420  Nucleotide excision repair
 MODULE      sce_M00290  Holo-TFIIH complex
-CLASS       Genetic Information Processing; Transcription; Basal transcription factors [PATH:sce03022]
-            Genetic Information Processing; Replication and repair; Nucleotide excision repair [PATH:sce03420]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03022 Basal transcription factors
+                YPR056W (TFB4)
+              Replication and repair
+               03420 Nucleotide excision repair
+                YPR056W (TFB4)
+            Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Basal transcription factors
+                TFIIH
+                 YPR056W (TFB4)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              SSBR (single strand breaks repair)
+               NER (nucleotide excision repair)
+                TFIIH complex
+                 YPR056W (TFB4)
 POSITION    XVI:671126..672142
-MOTIF       Pfam: Tfb4 VWA_2 Med11 Atg14
-DBLINKS     NCBI-GI: 6325313
+MOTIF       Pfam: Tfb4 FbpA Rad50_zn_hook
+DBLINKS     NCBI-ProteinID: NP_015381
             NCBI-GeneID: 856169
             SGD: S000006260
-            MIPS: YPR056W
             UniProt: Q12004
 AASEQ       338
             MDAISDPTFKHARSRKQVTEESPSLLTVIIEIAPKLWTTFDEEGNEKGSIIKVLEALIVF

@@ -1,13 +1,12 @@
 ENTRY       YBR017C           CDS       T00005
 NAME        KAP104
-DEFINITION  Kap104p
+DEFINITION  (RefSeq) Kap104p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    II:complement(270947..273703)
-MOTIF       Pfam: HEAT HEAT_EZ HEAT_2 Cnd1 Vac14_Fab1_bd IBN_N
-DBLINKS     NCBI-GI: 6319491
+MOTIF       Pfam: HEAT HEAT_EZ HEAT_2 Cnd1 Vac14_Fab1_bd IBN_N DUF2457
+DBLINKS     NCBI-ProteinID: NP_009573
             NCBI-GeneID: 852305
             SGD: S000000221
-            MIPS: YBR017C
             UniProt: P38217
 AASEQ       918
             MASTWKPAEDYVLQLATLLQNCMSPNPEIRNNAMEAMENFQLQPEFLNYLCYILIEGESD

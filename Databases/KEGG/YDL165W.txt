@@ -1,16 +1,29 @@
 ENTRY       YDL165W           CDS       T00005
 NAME        CDC36, DNA19, NOT2
-DEFINITION  CCR4-NOT core subunit CDC36
+DEFINITION  (RefSeq) CCR4-NOT core subunit CDC36
 ORTHOLOGY   K12605  CCR4-NOT transcription complex subunit 2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03018  RNA degradation
-CLASS       Genetic Information Processing; Folding, sorting and degradation; RNA degradation [PATH:sce03018]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               03018 RNA degradation
+                YDL165W (CDC36)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               mRNA cycle factors
+                P-body specific factors
+                 YDL165W (CDC36)
+              mRNA degradation factors
+               3'-5' decay
+                Ccr4-NOT complex
+                 YDL165W (CDC36)
 POSITION    IV:164290..164865
-MOTIF       Pfam: NOT2_3_5 Imm43
-DBLINKS     NCBI-GI: 6320036
+MOTIF       Pfam: NOT2_3_5
+DBLINKS     NCBI-ProteinID: NP_010116
             NCBI-GeneID: 851389
             SGD: S000002324
-            MIPS: YDL165W
             UniProt: P06100
 STRUCTURE   PDB: 4BY6
 AASEQ       191

@@ -1,17 +1,26 @@
 ENTRY       YOL010W           CDS       T00005
 NAME        RCL1
-DEFINITION  Rcl1p
+DEFINITION  (RefSeq) rRNA-processing endoribonuclease
 ORTHOLOGY   K11108  RNA 3'-terminal phosphate cyclase-like protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03008  Ribosome biogenesis in eukaryotes
-CLASS       Genetic Information Processing; Translation; Ribosome biogenesis in eukaryotes [PATH:sce03008]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03008 Ribosome biogenesis in eukaryotes
+                YOL010W (RCL1)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              90S particles
+               Other 90S particles
+                YOL010W (RCL1)
 POSITION    XV:307938..309041
-MOTIF       Pfam: RTC RTC_insert
-DBLINKS     NCBI-GI: 6324564
+MOTIF       Pfam: RTC RTC_insert CAT_RBD
+DBLINKS     NCBI-ProteinID: NP_014633
             NCBI-GeneID: 854152
             SGD: S000005370
-            MIPS: YOL010W
             UniProt: Q08096
+STRUCTURE   PDB: 4CLQ 5TZS
 AASEQ       367
             MSSSAPKYTTFQGSQNFRLRIVLATLSGKPIKIEKIRSGDLNPGLKDYEVSFLRLIESVT
             NGSVIEISYTGTTVIYRPGIIVGGASTHICPSSKPVGYFVEPMLYLAPFSKKKFSILFKG

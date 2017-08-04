@@ -1,13 +1,20 @@
 ENTRY       YJR132W           CDS       T00005
 NAME        NMD5, KAP119
-DEFINITION  Nmd5p
+DEFINITION  (RefSeq) Nmd5p
+ORTHOLOGY   K20223  importin-7
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-40S particles
+               Export and cytoplasmic maturation factors
+                YJR132W (NMD5)
+              Pre-60S particles
+                YJR132W (NMD5)
 POSITION    X:669522..672668
 MOTIF       Pfam: IBN_N
-DBLINKS     NCBI-GI: 330443627
+DBLINKS     NCBI-ProteinID: NP_012666
             NCBI-GeneID: 853596
             SGD: S000003893
-            MIPS: YJR132W
             UniProt: P46970
 AASEQ       1048
             MDITELLQCFACTLDHNAAVRTNAETHLKNASKVPGFLGACLDIIAADEVPENIKLSASL

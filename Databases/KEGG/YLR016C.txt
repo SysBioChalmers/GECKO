@@ -1,16 +1,22 @@
 ENTRY       YLR016C           CDS       T00005
 NAME        PML1
-DEFINITION  Pml1p
+DEFINITION  (RefSeq) Pml1p
 ORTHOLOGY   K13108  smad nuclear-interacting protein 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Spliceosome [BR:sce03041]
+             Complex B
+              Other components
+               RES complex
+                YLR016C (PML1)
+             Complex C
+                YLR016C (PML1)
 POSITION    XII:complement(176802..177416)
-MOTIF       Pfam: FHA
-DBLINKS     NCBI-GI: 6323044
+MOTIF       Pfam: FHA Yop-YscD_cpl
+DBLINKS     NCBI-ProteinID: NP_013116
             NCBI-GeneID: 850703
             SGD: S000004006
-            MIPS: YLR016C
             UniProt: Q07930
-STRUCTURE   PDB: 3ELS 3ELV 2JKD
+STRUCTURE   PDB: 3ELS 3ELV 2JKD 5LQW 2MY3 2MKC
 AASEQ       204
             MFHRRKRPYNTRNYGHDDKKFKSQYIDIMPDFSPSGLLELESNNKEGIALKHVEPQDAIS
             PDNYMDMLGLEARDRTMYELVIYRKNDKDKGPWKRYDLNGRSCYLVGRELGHSLDTDLDD

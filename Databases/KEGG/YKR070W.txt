@@ -1,12 +1,11 @@
 ENTRY       YKR070W           CDS       T00005
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) hypothetical protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XI:573574..574632
-MOTIF       Pfam: Hydrolase_like Hydrolase_6 Hydrolase HAD_2
-DBLINKS     NCBI-GI: 6322923
+MOTIF       Pfam: Hydrolase_like Hydrolase_6 HAD_2
+DBLINKS     NCBI-ProteinID: NP_012996
             NCBI-GeneID: 853944
             SGD: S000001778
-            MIPS: YKR070W
             UniProt: P36151
 STRUCTURE   PDB: 3KC2 3RF6
 AASEQ       352

@@ -1,13 +1,49 @@
 ENTRY       YDR516C           CDS       T00005
 NAME        EMI2
-DEFINITION  putative glucokinase (EC:2.7.1.2)
+DEFINITION  (RefSeq) putative glucokinase
+ORTHOLOGY   K00844  hexokinase [EC:2.7.1.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00010  Glycolysis / Gluconeogenesis
+            sce00051  Fructose and mannose metabolism
+            sce00052  Galactose metabolism
+            sce00500  Starch and sucrose metabolism
+            sce00520  Amino sugar and nucleotide sugar metabolism
+            sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
+            sce01130  Biosynthesis of antibiotics
+            sce01200  Carbon metabolism
+MODULE      sce_M00001  Glycolysis (Embden-Meyerhof pathway), glucose => pyruvate
+            sce_M00549  Nucleotide sugar biosynthesis, glucose => UDP-glucose
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01200 Carbon metabolism
+                YDR516C (EMI2)
+              Carbohydrate metabolism
+               00010 Glycolysis / Gluconeogenesis
+                YDR516C (EMI2)
+               00051 Fructose and mannose metabolism
+                YDR516C (EMI2)
+               00052 Galactose metabolism
+                YDR516C (EMI2)
+               00500 Starch and sucrose metabolism
+                YDR516C (EMI2)
+               00520 Amino sugar and nucleotide sugar metabolism
+                YDR516C (EMI2)
+              Biosynthesis of other secondary metabolites
+               00524 Neomycin, kanamycin and gentamicin biosynthesis
+                YDR516C (EMI2)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.1  Phosphotransferases with an alcohol group as acceptor
+                2.7.1.1  hexokinase
+                 YDR516C (EMI2)
 POSITION    IV:complement(1474974..1476476)
 MOTIF       Pfam: Hexokinase_2 Hexokinase_1
-DBLINKS     NCBI-GI: 398366669
+DBLINKS     NCBI-ProteinID: NP_010804
             NCBI-GeneID: 852128
             SGD: S000002924
-            MIPS: YDR516C
             UniProt: Q04409
 AASEQ       500
             MSFENLHKVNAEALEDAVVEICSSLQVDAAKLDELTAYFIECMEKGLNNTSVGEEKTVDK

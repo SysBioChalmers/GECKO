@@ -1,16 +1,24 @@
 ENTRY       YDL106C           CDS       T00005
 NAME        PHO2, BAS2, GRF10
-DEFINITION  Pho2p
+DEFINITION  (RefSeq) Pho2p
 ORTHOLOGY   K02646  regulatory protein PHO2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
-CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YDL106C (PHO2)
+            Transcription factors [BR:sce03000]
+             Eukaryotic Type
+              Helix-turn-helix
+               Homeo domain only, not assigned
+                YDL106C (PHO2)
 POSITION    IV:complement(270222..271901)
-MOTIF       Pfam: Homeobox
-DBLINKS     NCBI-GI: 6320097
+MOTIF       Pfam: Homeobox Sigma70_ner
+DBLINKS     NCBI-ProteinID: NP_010177
             NCBI-GeneID: 851452
             SGD: S000002264
-            MIPS: YDL106C
             UniProt: P07269
 AASEQ       559
             MMEEFSYDHDFNTHFATDLDYLQHDQQQQQQQQHDQQHNQQQQPQPQPIQTQNLEHDHDQ

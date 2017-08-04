@@ -1,16 +1,31 @@
 ENTRY       YDR301W           CDS       T00005
 NAME        CFT1, YHH1
-DEFINITION  Cft1p
+DEFINITION  (RefSeq) Cft1p
 ORTHOLOGY   K14401  cleavage and polyadenylation specificity factor subunit 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03015  mRNA surveillance pathway
-CLASS       Genetic Information Processing; Translation; mRNA surveillance pathway [PATH:sce03015]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03015 mRNA surveillance pathway
+                YDR301W (CFT1)
+            Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Other transcription-related factors
+                Transcription termination factor
+                 YDR301W (CFT1)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA processing factors
+               3' end processing
+                Cleavage and polyadenylation specificity factor (CPSF) complex
+                 YDR301W (CFT1)
 POSITION    IV:1063352..1067425
 MOTIF       Pfam: CPSF_A
-DBLINKS     NCBI-GI: 6320507
+DBLINKS     NCBI-ProteinID: NP_010587
             NCBI-GeneID: 851895
             SGD: S000002709
-            MIPS: YDR301W
             UniProt: Q06632
 AASEQ       1357
             MNVYDDVLDATVVSHSLATHFTTSDYEELLVVRTNILSVYRPTRDGKLYLTDEFKFHGLI

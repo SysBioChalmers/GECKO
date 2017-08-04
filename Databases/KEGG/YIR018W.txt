@@ -1,13 +1,18 @@
 ENTRY       YIR018W           CDS       T00005
 NAME        YAP5
-DEFINITION  Yap5p
+DEFINITION  (RefSeq) Yap5p
+ORTHOLOGY   K09043  AP-1-like transcription factor
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription factors [BR:sce03000]
+             Eukaryotic Type
+              Basic leucine zipper (bZIP)
+               AP-1(-like) components, Fungal regulators
+                YIR018W (YAP5)
 POSITION    IX:384609..385346
-MOTIF       Pfam: bZIP_1 DUF641 Ribosomal_L20 Glutaredoxin2_C DUF4515 V_ATPase_I Exonuc_VII_L Orbi_VP5 DUF342 DUF4407 CR6_interact Rota_VP2 HSP70
-DBLINKS     NCBI-GI: 6322208
+MOTIF       Pfam: bZIP_1 MAD DUF641 Ribosomal_L20 DUF4515 GIT_CC SlyX Glutaredoxin2_C Exonuc_VII_L GvpL_GvpF Atg14 MCC-bdg_PDZ DUF4407 HIP1_clath_bdg Jnk-SapK_ap_N APG6 FapA V_ATPase_I HSP70
+DBLINKS     NCBI-ProteinID: NP_012283
             NCBI-GeneID: 854835
             SGD: S000001457
-            MIPS: YIR018W
             UniProt: P40574
 AASEQ       245
             MALPLIKPKESEESHLALLSKIHVSKNWKLPPRLPHRAAQRRKRVHRLHEDYETEENDEE

@@ -1,14 +1,24 @@
 ENTRY       YIL103W           CDS       T00005
 NAME        DPH1
-DEFINITION  Dph1p
+DEFINITION  (RefSeq) Dph1p
 ORTHOLOGY   K07561  2-(3-amino-3-carboxypropyl)histidine synthase [EC:2.5.1.108]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.5  Transferring alkyl or aryl groups, other than methyl groups
+               2.5.1  Transferring alkyl or aryl groups, other than methyl groups (only sub-subclass identified to date)
+                2.5.1.108  2-(3-amino-3-carboxypropyl)histidine synthase
+                 YIL103W (DPH1)
+            Translation factors [BR:sce03012]
+             Eukaryotic Type
+              Elongation factors
+               Elongation associated factors
+                YIL103W (DPH1)
 POSITION    IX:171751..173028
 MOTIF       Pfam: Diphthamide_syn
-DBLINKS     NCBI-GI: 6322088
+DBLINKS     NCBI-ProteinID: NP_012163
             NCBI-GeneID: 854703
             SGD: S000001365
-            MIPS: YIL103W
             UniProt: P40487
 AASEQ       425
             MSGSTESKKQPRRRFIGRKSGNSNNDKLTTVAENGNEIIHKQKSRIALGRSVNHVPEDIL

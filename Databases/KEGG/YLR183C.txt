@@ -1,13 +1,12 @@
 ENTRY       YLR183C           CDS       T00005
 NAME        TOS4
-DEFINITION  Tos4p
+DEFINITION  (RefSeq) Tos4p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XII:complement(520543..522012)
-MOTIF       Pfam: FHA Erp_C
-DBLINKS     NCBI-GI: 6323212
+MOTIF       Pfam: FHA
+DBLINKS     NCBI-ProteinID: NP_013284
             NCBI-GeneID: 850880
             SGD: S000004173
-            MIPS: YLR183C
             UniProt: Q06266
 AASEQ       489
             MSSQFPSSPYRTVDPYSPPNYKQQPNCPSSNYEKAGKTASESIGNFGKGDYPTPFPSSSI

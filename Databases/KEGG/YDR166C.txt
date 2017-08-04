@@ -1,14 +1,18 @@
 ENTRY       YDR166C           CDS       T00005
 NAME        SEC5
-DEFINITION  Sec5p
+DEFINITION  (RefSeq) exocyst subunit SEC5
 ORTHOLOGY   K17637  exocyst complex component 2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Exocytosis
+              Tethering complex
+               Exocyst complex
+                YDR166C (SEC5)
 POSITION    IV:complement(786306..789221)
-MOTIF       Pfam: Sec5 Vps51 DUF2982
-DBLINKS     NCBI-GI: 398365919
+MOTIF       Pfam: Sec5 Vps51 DUF2982 YlqD
+DBLINKS     NCBI-ProteinID: NP_010450
             NCBI-GeneID: 851744
             SGD: S000002573
-            MIPS: YDR166C
             UniProt: P89102
 AASEQ       971
             MDRFQIGDEQLLRFYQLKTINPTHSWAQDSSKLNNEEATSNELGVETSFDILKDFKYGNQ

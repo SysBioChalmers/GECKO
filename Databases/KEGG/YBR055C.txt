@@ -1,17 +1,29 @@
 ENTRY       YBR055C           CDS       T00005
 NAME        PRP6, RNA6, TSM7269
-DEFINITION  Prp6p
+DEFINITION  (RefSeq) U4/U6-U5 snRNP complex subunit PRP6
 ORTHOLOGY   K12855  pre-mRNA-processing factor 6
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03040  Spliceosome
-CLASS       Genetic Information Processing; Transcription; Spliceosome [PATH:sce03040]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03040 Spliceosome
+                YBR055C (PRP6)
+            Spliceosome [BR:sce03041]
+             Complex B
+              U4/U6.U5 tri-snRNP components
+               U5 snRNP specific factors
+                YBR055C (PRP6)
+             Complex C
+               U5 SnRNP specific factors
+                YBR055C (PRP6)
 POSITION    II:complement(344602..347301)
-MOTIF       Pfam: PRP1_N TPR_14 TPR_11 TPR_16 TPR_19 TPR_2 TPR_12 TPR_8
-DBLINKS     NCBI-GI: 6319529
+MOTIF       Pfam: PRP1_N TPR_14 TPR_19 TPR_16 TPR_12 TPR_8 SPO22
+DBLINKS     NCBI-ProteinID: NP_009611
             NCBI-GeneID: 852344
             SGD: S000000259
-            MIPS: YBR055C
             UniProt: P19735
+STRUCTURE   PDB: 5GAN 5GAP 3JCM
 AASEQ       899
             MERPSFLDQEPPAGYVPGIGRGATGFSTKEKQVVSNDDKGRRIPKRYRENLNNHLQSQPK
             DDEDDEAANVFKTLELKLAQKKKKRANEKDDDNSVDSSNVKRQFADLKESLAAVTESEWM

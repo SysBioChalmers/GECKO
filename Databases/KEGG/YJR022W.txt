@@ -1,21 +1,41 @@
 ENTRY       YJR022W           CDS       T00005
 NAME        LSM8
-DEFINITION  Lsm8p
+DEFINITION  (RefSeq) U4/U6-U5 snRNP complex subunit LSM8
 ORTHOLOGY   K12627  U6 snRNA-associated Sm-like protein LSm8
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03018  RNA degradation
             sce03040  Spliceosome
 MODULE      sce_M00396  Lsm 2-8 complex
-CLASS       Genetic Information Processing; Transcription; Spliceosome [PATH:sce03040]
-            Genetic Information Processing; Folding, sorting and degradation; RNA degradation [PATH:sce03018]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03040 Spliceosome
+                YJR022W (LSM8)
+              Folding, sorting and degradation
+               03018 RNA degradation
+                YJR022W (LSM8)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               mRNA cycle factors
+                P-body specific factors
+                 YJR022W (LSM8)
+              mRNA degradation factors
+               5'-3' decay
+                Lsm complex
+                 YJR022W (LSM8)
+            Spliceosome [BR:sce03041]
+             Complex B
+              U4/U6.U5 tri-snRNP components
+               LSm proteins
+                YJR022W (LSM8)
 POSITION    X:469784..470113
-MOTIF       Pfam: LSM
-DBLINKS     NCBI-GI: 37362670
+MOTIF       Pfam: LSM AP4E_app_platf
+DBLINKS     NCBI-ProteinID: NP_012556
             NCBI-GeneID: 853479
             SGD: S000003783
-            MIPS: YJR022W
             UniProt: P47093
-STRUCTURE   PDB: 4M7D 4M7A 4M78 4M77
+STRUCTURE   PDB: 4M7D 4M7A 4M78 4M77 5GAN 3JCM
 AASEQ       109
             MSATLKDYLNKRVVIIKVDGECLIASLNGFDKNTNLFITNVFNRISKEFICKAQLLRGSE
             IALVGLIDAENDDSLAPIDEKKVPMLKDTKNKIENEHVIWEKVYESKTK

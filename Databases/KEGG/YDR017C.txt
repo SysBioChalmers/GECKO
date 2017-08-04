@@ -1,13 +1,30 @@
 ENTRY       YDR017C           CDS       T00005
 NAME        KCS1
-DEFINITION  inositol polyphosphate kinase KCS1 (EC:2.7.4.21)
+DEFINITION  (RefSeq) inositol polyphosphate kinase KCS1
+ORTHOLOGY   K07756  inositol-hexakisphosphate 5-kinase [EC:2.7.4.21]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04070  Phosphatidylinositol signaling system
+            sce04138  Autophagy - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04070 Phosphatidylinositol signaling system
+                YDR017C (KCS1)
+             Cellular Processes
+              Transport and catabolism
+               04138 Autophagy - yeast
+                YDR017C (KCS1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.4  Phosphotransferases with a phosphate group as acceptor
+                2.7.4.21  inositol-hexakisphosphate kinase
+                 YDR017C (KCS1)
 POSITION    IV:complement(479115..482267)
 MOTIF       Pfam: IPK
-DBLINKS     NCBI-GI: 398365025
+DBLINKS     NCBI-ProteinID: NP_010300
             NCBI-GeneID: 851580
             SGD: S000002424
-            MIPS: YDR017C
             UniProt: Q12494
 AASEQ       1050
             MDTSHEIHDKIPDTLREQQQHLRQKESEGCITTLKDLNVPETKKLSSVLHGRKASTYLRI

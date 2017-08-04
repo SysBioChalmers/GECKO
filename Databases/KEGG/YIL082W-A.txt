@@ -1,13 +1,12 @@
 ENTRY       YIL082W-A         CDS       T00005
-DEFINITION  gag-pol fusion protein (EC:2.7.7.49 2.7.7.7 3.4.23.- 3.1.26.4)
+DEFINITION  (RefSeq) gag-pol fusion protein
 ORTHOLOGY   K07497  putative transposase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IX:join(205635..206485,206487..210132)
-MOTIF       Pfam: Peptidase_A2B RVT_1 rve Retrotrans_gag Asp_protease_2 zf-H2C2 Asp_protease zf-CCHC gag-asp_proteas zf-CCHC_5 DUF1758
-DBLINKS     NCBI-GI: 6322110
+MOTIF       Pfam: Peptidase_A2B RVT_1 rve Retrotrans_gag Asp_protease_2 gag-asp_proteas Asp_protease zf-H2C2 zf-CCHC DUF4939 RVP_2 DUF1758
+DBLINKS     NCBI-ProteinID: NP_012184
             NCBI-GeneID: 854728
             SGD: S000003537
-            MIPS: YIL082W-A
             UniProt: Q7LHG5
 AASEQ       1498
             MSFMDQIPGGGNYPKLPVECLPNFPIQPSLTFRGRNDSHKLKNFISEIMLNMSMISWPND

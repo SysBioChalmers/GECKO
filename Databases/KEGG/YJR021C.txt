@@ -1,13 +1,12 @@
 ENTRY       YJR021C           CDS       T00005
 NAME        REC107, MER2
-DEFINITION  Rec107p
+DEFINITION  (RefSeq) Rec107p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    X:complement(join(468555..469183,469264..469579))
-MOTIF       Pfam: Mer2 Cnl2_NKP2 DUF1335 Interferon
-DBLINKS     NCBI-GI: 6322481
+MOTIF       Pfam: Mer2 Cnl2_NKP2 Interferon Spc7 DUF4404
+DBLINKS     NCBI-ProteinID: NP_012555
             NCBI-GeneID: 853478
             SGD: S000003782
-            MIPS: YJR021C
             UniProt: P21651
 AASEQ       314
             MVARGRTDEISTDVSEANSEHSLMITETSSPFRSIFSHSGKVANAGALEESDKQILEWAG

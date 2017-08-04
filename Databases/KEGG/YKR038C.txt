@@ -1,14 +1,26 @@
 ENTRY       YKR038C           CDS       T00005
 NAME        KAE1
-DEFINITION  Kae1p (EC:3.4.24.-)
-ORTHOLOGY   K15900  tRNA threonylcarbamoyladenosine biosynthesis protein
+DEFINITION  (RefSeq) tRNA N6-adenosine threonylcarbamoyltransferase
+ORTHOLOGY   K01409  N6-L-threonylcarbamoyladenine synthase [EC:2.3.1.234]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.3  Acyltransferases
+               2.3.1  Transferring groups other than aminoacyl groups
+                2.3.1.234  N6-L-threonylcarbamoyladenine synthase
+                 YKR038C (KAE1)
+            Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              tRNA modification factors
+               KEOPS/EKC complex
+                YKR038C (KAE1)
+             Prokaryotic Type
+                YKR038C (KAE1)
 POSITION    XI:complement(511999..513159)
-MOTIF       Pfam: Peptidase_M22 CmcH_NodU
-DBLINKS     NCBI-GI: 37362674
+MOTIF       Pfam: Peptidase_M22 Carbam_trans_N
+DBLINKS     NCBI-ProteinID: NP_012964
             NCBI-GeneID: 853910
             SGD: S000001746
-            MIPS: YKR038C
             UniProt: P36132
 AASEQ       386
             MVNLNTIPPKNGRDYYIALGLEGSANKLGVGIVKHPLLPKHANSDLSYDCEAEMLSNIRD

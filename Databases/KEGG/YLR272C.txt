@@ -1,16 +1,24 @@
 ENTRY       YLR272C           CDS       T00005
 NAME        YCS4, LOC7
-DEFINITION  Ycs4p
+DEFINITION  (RefSeq) condensin subunit YCS4
 ORTHOLOGY   K06677  condensin complex subunit 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
-CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YLR272C (YCS4)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Chromosome condensation proteins
+               Condensin I
+                YLR272C (YCS4)
 POSITION    XII:complement(683672..687202)
-MOTIF       Pfam: Cnd1 Cnd1_N HEAT_2 HEAT HEAT_EZ
-DBLINKS     NCBI-GI: 6323302
+MOTIF       Pfam: Cnd1 Cnd1_N HEAT HEAT_2 RTP1_C1
+DBLINKS     NCBI-ProteinID: NP_013374
             NCBI-GeneID: 850977
             SGD: S000004262
-            MIPS: YLR272C
             UniProt: Q06156
 AASEQ       1176
             MSGFSLSEYLTKFQTTDRESYPRLQDPSRELNVIIDQLAVSPEQIDASPDSLEALIDLCH

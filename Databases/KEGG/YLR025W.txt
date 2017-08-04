@@ -1,17 +1,35 @@
 ENTRY       YLR025W           CDS       T00005
 NAME        SNF7, DID1, RNS4, VPL5, VPS32
-DEFINITION  Snf7p
+DEFINITION  (RefSeq) ESCRT-III subunit protein SNF7
 ORTHOLOGY   K12194  charged multivesicular body protein 4
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04144  Endocytosis
-CLASS       Cellular Processes; Transport and catabolism; Endocytosis [PATH:sce04144]
+MODULE      sce_M00412  ESCRT-III complex
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04144 Endocytosis
+                YLR025W (SNF7)
+            Membrane trafficking [BR:sce04131]
+             Endosome - Lysosome transport
+              Endosomal sorting complexes required for transport (ESCRT)
+               ESCRT-III complex
+                YLR025W (SNF7)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of haemopoietic cells  (B-cell, T-cell, DC-cell, reticulocyte, and mast cell)
+               YLR025W (SNF7)
+              Exosomal proteins of other body fluids (saliva and urine)
+               YLR025W (SNF7)
+              Exosomal proteins of colorectal cancer cells
+               YLR025W (SNF7)
 POSITION    XII:194452..195174
-MOTIF       Pfam: Snf7 CHASE3 DUF4388 DUF948 Integrase_1 Cupin_8 Mus7
-DBLINKS     NCBI-GI: 6323053
+MOTIF       Pfam: Snf7 DUF4388 CHASE3 FAM194 Cupin_8
+DBLINKS     NCBI-ProteinID: NP_013125
             NCBI-GeneID: 850712
             SGD: S000004015
-            MIPS: YLR025W
             UniProt: P39929
+STRUCTURE   PDB: 5FD9 5FD7
 AASEQ       240
             MWSSLFGWTSSNAKNKESPTKAIVRLREHINLLSKKQSHLRTQITNQENEARIFLTKGNK
             VMAKNALKKKKTIEQLLSKVEGTMESMEQQLFSIESANLNLETMRAMQEGAKAMKTIHSG

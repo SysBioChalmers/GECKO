@@ -1,16 +1,17 @@
 ENTRY       YBL020W           CDS       T00005
 NAME        RFT1
-DEFINITION  Rft1p
-ORTHOLOGY   K06316  oligosaccharidyl-lipid flippase family
+DEFINITION  (RefSeq) glycolipid translocation protein
+ORTHOLOGY   K06316  oligosaccharide translocation protein RFT1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
-PATHWAY     sce00510  N-Glycan biosynthesis
-CLASS       Metabolism; Glycan biosynthesis and metabolism; N-Glycan biosynthesis [PATH:sce00510]
+BRITE       Transporters [BR:sce02000]
+             Other Transporters
+              Electrochemical potential-driven transporters [TC:2]
+               YBL020W (RFT1)
 POSITION    II:182401..184125
-MOTIF       Pfam: Rft-1
-DBLINKS     NCBI-GI: 6319451
+MOTIF       Pfam: Rft-1 MatE
+DBLINKS     NCBI-ProteinID: NP_009533
             NCBI-GeneID: 852261
             SGD: S000000116
-            MIPS: YBL020W
             UniProt: P38206
 AASEQ       574
             MAKKNSQLPSTSEQILERSTTGATFLMMGQLFTKLVTFILNNLLIRFLSPRIFGITAFLE

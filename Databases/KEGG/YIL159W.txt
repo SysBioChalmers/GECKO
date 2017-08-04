@@ -1,13 +1,24 @@
 ENTRY       YIL159W           CDS       T00005
 NAME        BNR1
-DEFINITION  Bnr1p
+DEFINITION  (RefSeq) formin BNR1
+ORTHOLOGY   K17971  BNI1-related protein 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04011  MAPK signaling pathway - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YIL159W (BNR1)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial quality control factors
+              Mitochondrial dynamics
+               Actin cytoskeleton organization
+                YIL159W (BNR1)
 POSITION    IX:41825..45952
-MOTIF       Pfam: FH2 Cytochrom_B_N_2
-DBLINKS     NCBI-GI: 6322032
+MOTIF       Pfam: FH2 MetRS-N
+DBLINKS     NCBI-ProteinID: NP_012107
             NCBI-GeneID: 854647
             SGD: S000001421
-            MIPS: YIL159W
             UniProt: P40450
 AASEQ       1375
             MDSSPNKKTYRYPRRSLSLHARDRVSEARKLEELNLNDGLVAAGLQLVGVALEKQGTGSH

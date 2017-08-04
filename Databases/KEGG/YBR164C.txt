@@ -1,14 +1,23 @@
 ENTRY       YBR164C           CDS       T00005
 NAME        ARL1, DLP2
-DEFINITION  Arl1p
+DEFINITION  (RefSeq) Arf family GTPase ARL1
 ORTHOLOGY   K07942  ADP-ribosylation factor-like protein 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endosome - Golgi transport
+              Arf GTPases and associated proteins
+               Arf GTPases
+                YBR164C (ARL1)
+            GTP-binding proteins [BR:sce04031]
+             Small (Monomeric) G-proteins
+              Arf/Sar Family
+               Arl1/Arl5 [OT]
+                YBR164C (ARL1)
 POSITION    II:complement(567875..568426)
-MOTIF       Pfam: Arf SRPRB Ras Gtr1_RagA G-alpha Miro GTP_EFTU MMR_HSR1 ABC_tran ArgK
-DBLINKS     NCBI-GI: 398365213
+MOTIF       Pfam: Arf Roc SRPRB Ras G-alpha Gtr1_RagA GTP_EFTU MMR_HSR1 ABC_tran ArgK AAA_18 AAA_24
+DBLINKS     NCBI-ProteinID: NP_009723
             NCBI-GeneID: 852462
             SGD: S000000368
-            MIPS: YBR164C
             UniProt: P38116
 STRUCTURE   PDB: 1MOZ
 AASEQ       183

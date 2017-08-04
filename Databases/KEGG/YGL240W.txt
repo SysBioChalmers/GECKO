@@ -1,21 +1,39 @@
 ENTRY       YGL240W           CDS       T00005
 NAME        DOC1, APC10
-DEFINITION  anaphase promoting complex subunit DOC1
+DEFINITION  (RefSeq) anaphase promoting complex subunit DOC1
 ORTHOLOGY   K03357  anaphase-promoting complex subunit 10
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
             sce04113  Meiosis - yeast
             sce04120  Ubiquitin mediated proteolysis
 MODULE      sce_M00389  APC/C complex
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Ubiquitin mediated proteolysis [PATH:sce04120]
-            Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
-            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04120 Ubiquitin mediated proteolysis
+                YGL240W (DOC1)
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YGL240W (DOC1)
+               04113 Meiosis - yeast
+                YGL240W (DOC1)
+            Ubiquitin system [BR:sce04121]
+             Ubiquitin ligases (E3)
+              Multi subunit Ring-finger type E3
+               APC/C
+                Other subunits
+                 YGL240W (DOC1)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Sister chromatid separation proteins
+               APC/C complex
+                YGL240W (DOC1)
 POSITION    VII:48613..49365
-MOTIF       Pfam: APC10 F5_F8_type_C
-DBLINKS     NCBI-GI: 37362650
+MOTIF       Pfam: ANAPC10 F5_F8_type_C
+DBLINKS     NCBI-ProteinID: NP_011274
             NCBI-GeneID: 852611
             SGD: S000003209
-            MIPS: YGL240W
             UniProt: P53068
 STRUCTURE   PDB: 1GQP
 AASEQ       250

@@ -1,14 +1,14 @@
 ENTRY       YOR166C           CDS       T00005
 NAME        SWT1
-DEFINITION  Swt1p
+DEFINITION  (RefSeq) mRNA-processing endoribonuclease
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:complement(647126..648502)
-MOTIF       Pfam: PIN_4
-DBLINKS     NCBI-GI: 398365521
+MOTIF       Pfam: PIN_4 Borrelia_REV
+DBLINKS     NCBI-ProteinID: NP_014809
             NCBI-GeneID: 854337
             SGD: S000005692
-            MIPS: YOR166C
             UniProt: Q12104
+STRUCTURE   PDB: 4PQZ
 AASEQ       458
             MTDEKRAFPKGNNHIRSETFNGSVSHKISESIKDIASLRPHGKYTVQDIDNIIASTSSHE
             NRGQSGDSNGCINHDEEGDIPMCDLNDESDVEMISEYLSSQREMEAQSVANYMPKINDDL

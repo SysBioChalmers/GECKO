@@ -1,16 +1,26 @@
 ENTRY       YMR193W           CDS       T00005
 NAME        MRPL24
-DEFINITION  mitochondrial 54S ribosomal protein YmL24/YmL14
+DEFINITION  (RefSeq) mitochondrial 54S ribosomal protein YmL24/YmL14
 ORTHOLOGY   K02902  large subunit ribosomal protein L28
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03010  Ribosome
-CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03010 Ribosome
+                YMR193W (MRPL24)
+            Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Mitochondria/ Chloroplast
+               Large subunit
+                YMR193W (MRPL24)
+              Bacteria
+                YMR193W (MRPL24)
 POSITION    XIII:650036..650812
-MOTIF       Pfam: Ribosomal_L28 DUF4108
-DBLINKS     NCBI-GI: 6323847
+MOTIF       Pfam: Ribosomal_L28
+DBLINKS     NCBI-ProteinID: NP_013918
             NCBI-GeneID: 855231
             SGD: S000004806
-            MIPS: YMR193W
             UniProt: P36525
 AASEQ       258
             MQKIFRPFQLTRGFTSSVKNFRQWRLIETRKIAKQPNYQVGDAKPLHMPKERKKFPDYKY

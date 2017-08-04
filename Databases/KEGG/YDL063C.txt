@@ -1,13 +1,11 @@
 ENTRY       YDL063C           CDS       T00005
 NAME        SYO1
-DEFINITION  Syo1p
+DEFINITION  (RefSeq) Syo1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(338272..340134)
-MOTIF       Pfam: HEAT_2
-DBLINKS     NCBI-GI: 6320141
+DBLINKS     NCBI-ProteinID: NP_010220
             NCBI-GeneID: 851497
             SGD: S000002221
-            MIPS: YDL063C
             UniProt: Q07395
 AASEQ       620
             MGRSKKRSRASSSRLNPLRKAGSNDNNKDTNVVNKKLQPLLQNLSSVVPNDRSIALSSIS

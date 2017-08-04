@@ -1,13 +1,12 @@
 ENTRY       YMR171C           CDS       T00005
 NAME        EAR1
-DEFINITION  Ear1p
+DEFINITION  (RefSeq) Ear1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:complement(603868..605520)
-MOTIF       Pfam: SPRY
-DBLINKS     NCBI-GI: 6323823
+MOTIF       Pfam: SPRY DUF1201
+DBLINKS     NCBI-ProteinID: NP_013894
             NCBI-GeneID: 855207
             SGD: S000004781
-            MIPS: YMR171C
             UniProt: Q03212
 AASEQ       550
             MSFKFLIESLLLGSISGQIRCGRSSVIPRGDVSYGGDDTDELNMDIMLFAFGTLIVVYIV

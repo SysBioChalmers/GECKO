@@ -1,13 +1,12 @@
 ENTRY       YKR064W           CDS       T00005
 NAME        OAF3
-DEFINITION  Oaf3p
+DEFINITION  (RefSeq) Oaf3p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XI:562547..565138
-MOTIF       Pfam: Zn_clus
-DBLINKS     NCBI-GI: 6322917
+MOTIF       Pfam: Zn_clus RB_B
+DBLINKS     NCBI-ProteinID: NP_012990
             NCBI-GeneID: 853938
             SGD: S000001772
-            MIPS: YKR064W
             UniProt: P36023
 AASEQ       863
             MGYDSQVRTKKRHRITVVCTNCKKRKSKCDRTKPCGTCVRLGDVDSCVYLTDSSGQPESS

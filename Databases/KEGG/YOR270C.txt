@@ -1,20 +1,31 @@
 ENTRY       YOR270C           CDS       T00005
 NAME        VPH1
-DEFINITION  Vph1p (EC:3.6.3.14)
-ORTHOLOGY   K02154  V-type H+-transporting ATPase subunit I [EC:3.6.3.14]
+DEFINITION  (RefSeq) H(+)-transporting V0 sector ATPase subunit A
+ORTHOLOGY   K02154  V-type H+-transporting ATPase subunit a
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00190  Oxidative phosphorylation
             sce01100  Metabolic pathways
             sce04145  Phagosome
-CLASS       Metabolism; Energy metabolism; Oxidative phosphorylation [PATH:sce00190]
-            Cellular Processes; Transport and catabolism; Phagosome [PATH:sce04145]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Energy metabolism
+               00190 Oxidative phosphorylation
+                YOR270C (VPH1)
+             Cellular Processes
+              Transport and catabolism
+               04145 Phagosome
+                YOR270C (VPH1)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of other body fluids (saliva and urine)
+               YOR270C (VPH1)
 POSITION    XV:complement(828052..830574)
 MOTIF       Pfam: V_ATPase_I
-DBLINKS     NCBI-GI: 398366015
+DBLINKS     NCBI-ProteinID: NP_014913
             NCBI-GeneID: 854444
             SGD: S000005796
-            MIPS: YOR270C
             UniProt: P32563
+STRUCTURE   PDB: 5TJ5 3J9T 5I1M 3J9U 3J9V
 AASEQ       840
             MAEKEEAIFRSAEMALVQFYIPQEISRDSAYTLGQLGLVQFRDLNSKVRAFQRTFVNEIR
             RLDNVERQYRYFYSLLKKHDIKLYEGDTDKYLDGSGELYVPPSGSVIDDYVRNASYLEER

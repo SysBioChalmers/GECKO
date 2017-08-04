@@ -1,14 +1,22 @@
 ENTRY       YNL121C           CDS       T00005
 NAME        TOM70, MAS70, MOM72, OMP1
-DEFINITION  Tom70p
+DEFINITION  (RefSeq) protein channel TOM70
 ORTHOLOGY   K17768  mitochondrial import receptor subunit TOM70
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial protein import machinery
+              Outer membrane
+               Transporter outer membrane (TOM) complex
+                YNL121C (TOM70)
+            Transporters [BR:sce02000]
+             Other Transporters
+              Others
+               YNL121C (TOM70)
 POSITION    XIV:complement(398684..400537)
-MOTIF       Pfam: TPR_11 TPR_16 TPR_2 TPR_1 TPR_12 TPR_14 TPR_17 TPR_19 TPR_8 Apc3 TPR_7 DUF4230 DUF3808 SPO22 SCIMP
-DBLINKS     NCBI-GI: 398364773
+MOTIF       Pfam: TPR_1 TPR_2 TPR_16 TPR_12 TPR_8 TPR_14 TPR_11 TPR_19 ANAPC3 TPR_17 TPR_7 TPR_9 HrpB1_HrpK SCIMP Exonuc_VII_S TPR_21 DUF3808
+DBLINKS     NCBI-ProteinID: NP_014278
             NCBI-GeneID: 855602
             SGD: S000005065
-            MIPS: YNL121C
             UniProt: P07213
 STRUCTURE   PDB: 2GW1
 AASEQ       617

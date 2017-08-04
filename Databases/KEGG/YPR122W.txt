@@ -1,14 +1,23 @@
 ENTRY       YPR122W           CDS       T00005
 NAME        AXL1, FUS5, STE22
-DEFINITION  Axl1p (EC:3.4.24.-)
-ORTHOLOGY   K01422   [EC:3.4.99.-]
+DEFINITION  (RefSeq) Axl1p
+ORTHOLOGY   K01422  protease AXL1 [EC:3.4.24.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.4  Acting on peptide bonds (peptidases)
+               3.4.24  Metalloendopeptidases
+                3.4.24.-  
+                 YPR122W (AXL1)
+            Peptidases [BR:sce01002]
+             Metallo Peptidases
+              Family M16: pitrilysin family
+               YPR122W (AXL1)
 POSITION    XVI:782045..785671
 MOTIF       Pfam: Peptidase_M16 Peptidase_M16_C
-DBLINKS     NCBI-GI: 6325379
+DBLINKS     NCBI-ProteinID: NP_015447
             NCBI-GeneID: 856240
             SGD: S000006326
-            MIPS: YPR122W
             UniProt: P40851
 AASEQ       1208
             MSLREVTNYEVSFYIPLSYSNRTHKVCKLPNGILALIISDPTDTSSSCSLTVCTGSHNDP

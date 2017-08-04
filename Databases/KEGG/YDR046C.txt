@@ -1,13 +1,12 @@
 ENTRY       YDR046C           CDS       T00005
 NAME        BAP3, PAP1
-DEFINITION  Bap3p
+DEFINITION  (RefSeq) amino acid transporter BAP3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(548762..550576)
 MOTIF       Pfam: AA_permease AA_permease_2
-DBLINKS     NCBI-GI: 398365249
+DBLINKS     NCBI-ProteinID: NP_010331
             NCBI-GeneID: 851616
             SGD: S000002453
-            MIPS: YDR046C
             UniProt: P41815
 AASEQ       604
             MSDPIVTSSKMEKSAEFEVTDSALYNNFNTSTTASLTPEIKEHSEESRNGLVHRFVDSFR

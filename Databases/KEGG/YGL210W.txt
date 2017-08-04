@@ -1,16 +1,37 @@
 ENTRY       YGL210W           CDS       T00005
 NAME        YPT32
-DEFINITION  Ypt32p
+DEFINITION  (RefSeq) Rab family GTPase YPT32
 ORTHOLOGY   K07905  Ras-related protein Rab-11B
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04144  Endocytosis
-CLASS       Cellular Processes; Transport and catabolism; Endocytosis [PATH:sce04144]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04144 Endocytosis
+                YGL210W (YPT32)
+            Membrane trafficking [BR:sce04131]
+             Protein recycling
+              Rab GTPases and associated proteins
+               Rab GTPases
+                YGL210W (YPT32)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of haemopoietic cells  (B-cell, T-cell, DC-cell, reticulocyte, and mast cell)
+               YGL210W (YPT32)
+              Exosomal proteins of other body fluids (saliva and urine)
+               YGL210W (YPT32)
+              Exosomal proteins of colorectal cancer cells
+               YGL210W (YPT32)
+            GTP-binding proteins [BR:sce04031]
+             Small (Monomeric) G-proteins
+              Rab Family
+               Rab11/25 [OT]
+                YGL210W (YPT32)
 POSITION    VII:93792..94460
-MOTIF       Pfam: Ras Miro Arf MMR_HSR1 AAA_15 GTP_EFTU Gtr1_RagA DUF258 KAP_NTPase SRPRB AAA_22 FeoB_N ABC_tran AAA_16 TraG_N AAA_29 PduV-EutP Septin AAA_14
-DBLINKS     NCBI-GI: 6321228
+MOTIF       Pfam: Ras Roc Arf MMR_HSR1 GTP_EFTU KAP_NTPase Gtr1_RagA RsgA_GTPase SRPRB AAA_16 AAA_22 ABC_tran FeoB_N AAA_24 AAA_29 PduV-EutP Septin
+DBLINKS     NCBI-ProteinID: NP_011305
             NCBI-GeneID: 852662
             SGD: S000003178
-            MIPS: YGL210W
             UniProt: P51996
 STRUCTURE   PDB: 3RWO 3RWM
 AASEQ       222

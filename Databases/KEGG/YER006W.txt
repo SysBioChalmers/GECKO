@@ -1,16 +1,24 @@
 ENTRY       YER006W           CDS       T00005
 NAME        NUG1
-DEFINITION  Nug1p
+DEFINITION  (RefSeq) RNA-binding GTPase NUG1
 ORTHOLOGY   K14538  nuclear GTP-binding protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03008  Ribosome biogenesis in eukaryotes
-CLASS       Genetic Information Processing; Translation; Ribosome biogenesis in eukaryotes [PATH:sce03008]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03008 Ribosome biogenesis in eukaryotes
+                YER006W (NUG1)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               GTPases
+                YER006W (NUG1)
 POSITION    V:162723..164285
-MOTIF       Pfam: GN3L_Grn1 MMR_HSR1 FeoB_N Dynamin_N GTP_EFTU AIG1 DUF258 Miro cobW AAA_18 ArgK MobB AAA_16 AAA_17
-DBLINKS     NCBI-GI: 6320842
+MOTIF       Pfam: GN3L_Grn1 MMR_HSR1 FeoB_N Dynamin_N RsgA_GTPase AIG1 GTP_EFTU cobW AAA_18 ArgK
+DBLINKS     NCBI-ProteinID: NP_010921
             NCBI-GeneID: 856723
             SGD: S000000808
-            MIPS: YER006W
             UniProt: P40010
 AASEQ       520
             MRVRKRQSRRTSTKLKEGIKKKASAHRKKEKKMAKKDVTWRSRSKKDPGIPSNFPYKAKI

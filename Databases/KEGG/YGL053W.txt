@@ -1,13 +1,12 @@
 ENTRY       YGL053W           CDS       T00005
 NAME        PRM8
-DEFINITION  Prm8p
+DEFINITION  (RefSeq) pheromone-regulated DUP240 family protein PRM8
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:402589..403302
-MOTIF       Pfam: DUP DUF2207 SUR7 APCDDC
-DBLINKS     NCBI-GI: 6321385
+MOTIF       Pfam: DUP APCDDC
+DBLINKS     NCBI-ProteinID: NP_011462
             NCBI-GeneID: 852828
             SGD: S000003021
-            MIPS: YGL053W
             UniProt: P53174
 AASEQ       237
             MQTPSENTNAKSDSLDEPGAYLIEENVALPKDIFHSYLSYWIYEAAHCTPVMLLSLVIGV

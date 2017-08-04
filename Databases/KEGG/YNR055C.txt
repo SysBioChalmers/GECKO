@@ -1,13 +1,12 @@
 ENTRY       YNR055C           CDS       T00005
 NAME        HOL1
-DEFINITION  Hol1p
+DEFINITION  (RefSeq) Hol1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIV:complement(728426..730186)
 MOTIF       Pfam: MFS_1
-DBLINKS     NCBI-GI: 398365829
+DBLINKS     NCBI-ProteinID: NP_014453
             NCBI-GeneID: 855792
             SGD: S000005338
-            MIPS: YNR055C
             UniProt: P53389
 AASEQ       586
             MDKYTNRDHPDYIPGTFNIYSSQNLENGIIYESKLKKTSSGVVLIPQPSYSPNDPLNWSS

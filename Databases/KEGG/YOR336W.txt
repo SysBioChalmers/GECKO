@@ -1,16 +1,29 @@
 ENTRY       YOR336W           CDS       T00005
 NAME        KRE5
-DEFINITION  Kre5p
+DEFINITION  (RefSeq) Kre5p
 ORTHOLOGY   K11718  UDP-glucose:glycoprotein glucosyltransferase [EC:2.4.1.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04141  Protein processing in endoplasmic reticulum
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Protein processing in endoplasmic reticulum [PATH:sce04141]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04141 Protein processing in endoplasmic reticulum
+                YOR336W (KRE5)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.4  Glycosyltransferases
+               2.4.1  Hexosyltransferases
+                2.4.1.-  
+                 YOR336W (KRE5)
+            Glycosyltransferases [BR:sce01003]
+             Others
+              Quality control
+               YOR336W (KRE5)
 POSITION    XV:949773..953870
-MOTIF       Pfam: UDP-g_GGTase
-DBLINKS     NCBI-GI: 6324912
+MOTIF       Pfam: UDP-g_GGTase Stealth_CR2
+DBLINKS     NCBI-ProteinID: NP_014981
             NCBI-GeneID: 854514
             SGD: S000005863
-            MIPS: YOR336W
             UniProt: P22023
 AASEQ       1365
             MRLLALVLLLLCAPLRAWTYSLRYGIPESAQVWSILVHLLGDVDNQLLTNLYPLVTGLDD

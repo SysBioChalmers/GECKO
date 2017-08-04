@@ -1,13 +1,20 @@
 ENTRY       YPL195W           CDS       T00005
 NAME        APL5, YKS4
-DEFINITION  Apl5p
+DEFINITION  (RefSeq) Apl5p
+ORTHOLOGY   K12396  AP-3 complex subunit delta
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endosome - Lysosome transport
+              Others
+               AP-3 complex
+                YPL195W (APL5)
+             Endosome - Golgi transport
+                YPL195W (APL5)
 POSITION    XVI:176223..179021
-MOTIF       Pfam: Adaptin_N Cnd1 HEAT_2 Vac14_Fab1_bd
-DBLINKS     NCBI-GI: 6325061
+MOTIF       Pfam: Adaptin_N Cnd1 HEAT_2 Cnd3 Vac14_Fab1_bd
+DBLINKS     NCBI-ProteinID: NP_015129
             NCBI-GeneID: 855906
             SGD: S000006116
-            MIPS: YPL195W
             UniProt: Q08951
 AASEQ       932
             MTSLYAPGAEDIRQRLRPFGFFFEKSLKDLIKGIRSHNETPEKLDQFFKQVLSECREEVN

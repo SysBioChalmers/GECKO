@@ -1,16 +1,25 @@
 ENTRY       YOR360C           CDS       T00005
 NAME        PDE2, SRA5
-DEFINITION  Pde2p (EC:3.1.4.17)
+DEFINITION  (RefSeq) 3',5'-cyclic-nucleotide phosphodiesterase PDE2
 ORTHOLOGY   K01120  3',5'-cyclic-nucleotide phosphodiesterase [EC:3.1.4.17]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00230  Purine metabolism
-CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Nucleotide metabolism
+               00230 Purine metabolism
+                YOR360C (PDE2)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.4  Phosphoric-diester hydrolases
+                3.1.4.17  3',5'-cyclic-nucleotide phosphodiesterase
+                 YOR360C (PDE2)
 POSITION    XV:complement(1013241..1014821)
-MOTIF       Pfam: PDEase_I HD DUF3105 DNA_ligase_IV Elong_Iki1
-DBLINKS     NCBI-GI: 6324936
+MOTIF       Pfam: PDEase_I HD DUF3105
+DBLINKS     NCBI-ProteinID: NP_015005
             NCBI-GeneID: 854542
             SGD: S000005887
-            MIPS: YOR360C
             UniProt: P06776
 AASEQ       526
             MSTLFLIGIHEIEKSQTIVQNEHYFDRVIELQDLDSLMVALYKDRVSPFPNVHNFETGVS

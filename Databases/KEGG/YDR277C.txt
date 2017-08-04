@@ -1,12 +1,12 @@
 ENTRY       YDR277C           CDS       T00005
 NAME        MTH1, BPC1, DGT1, HTR1
-DEFINITION  Mth1p
+DEFINITION  (RefSeq) Mth1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(1014401..1015702)
-DBLINKS     NCBI-GI: 398366383
+MOTIF       Pfam: STD1 DNA_pol_B_thumb Pollen_Ole_e_I
+DBLINKS     NCBI-ProteinID: NP_010563
             NCBI-GeneID: 851870
             SGD: S000002685
-            MIPS: YDR277C
             UniProt: P35198
 AASEQ       433
             MFVSPPPATSKNQVLQRRPLESTNSNHGFASSLQAIPENTMSGSDNASFQSLPLSMSSSQ

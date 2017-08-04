@@ -1,14 +1,17 @@
 ENTRY       YPR021C           CDS       T00005
 NAME        AGC1
-DEFINITION  Agc1p
+DEFINITION  (RefSeq) amino acid transporter AGC1
 ORTHOLOGY   K15105  solute carrier family 25 (mitochondrial aspartate/glutamate transporter), member 12/13
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Solute Carrier Family (SLC)
+              SLC25: Mitochondrial carrier
+               YPR021C (AGC1)
 POSITION    XVI:complement(600649..603357)
 MOTIF       Pfam: Mito_carr
-DBLINKS     NCBI-GI: 6325278
+DBLINKS     NCBI-ProteinID: NP_015346
             NCBI-GeneID: 856132
             SGD: S000006225
-            MIPS: YPR021C
             UniProt: Q12482
 AASEQ       902
             MEQINSNSRKKKQQLEVFKYFASVLTKEDKPISISNGMLDMPTVNSSKLTAGNGKPDTEK

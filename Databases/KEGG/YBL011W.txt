@@ -1,19 +1,36 @@
 ENTRY       YBL011W           CDS       T00005
 NAME        SCT1, GAT2
-DEFINITION  bifunctional glycerol-3-phosphate/glycerone-phosphate O-acyltransferase SCT1 (EC:2.3.1.42 2.3.1.15)
+DEFINITION  (RefSeq) bifunctional glycerol-3-phosphate/glycerone-phosphate O-acyltransferase SCT1
 ORTHOLOGY   K13507  glycerol-3-phosphate O-acyltransferase / dihydroxyacetone phosphate acyltransferase [EC:2.3.1.15 2.3.1.42]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00561  Glycerolipid metabolism
             sce00564  Glycerophospholipid metabolism
             sce01100  Metabolic pathways
-CLASS       Metabolism; Lipid metabolism; Glycerolipid metabolism [PATH:sce00561]
-            Metabolism; Lipid metabolism; Glycerophospholipid metabolism [PATH:sce00564]
+            sce01110  Biosynthesis of secondary metabolites
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Lipid metabolism
+               00561 Glycerolipid metabolism
+                YBL011W (SCT1)
+               00564 Glycerophospholipid metabolism
+                YBL011W (SCT1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.3  Acyltransferases
+               2.3.1  Transferring groups other than aminoacyl groups
+                2.3.1.15  glycerol-3-phosphate 1-O-acyltransferase
+                 YBL011W (SCT1)
+                2.3.1.42  glycerone-phosphate O-acyltransferase
+                 YBL011W (SCT1)
+            Lipid biosynthesis proteins [BR:sce01004]
+             Phospholipid acyltransferase
+              GPAT
+               YBL011W (SCT1)
 POSITION    II:203538..205817
 MOTIF       Pfam: Acyltransferase
-DBLINKS     NCBI-GI: 6319459
+DBLINKS     NCBI-ProteinID: NP_009542
             NCBI-GeneID: 852271
             SGD: S000000107
-            MIPS: YBL011W
             UniProt: P32784
 AASEQ       759
             MPAPKLTEKFASSKSTQKTTNYSSIEAKSVKTSADQAYIYQEPSATKKILYSIATWLLYN

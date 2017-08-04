@@ -1,14 +1,18 @@
 ENTRY       YPR055W           CDS       T00005
 NAME        SEC8
-DEFINITION  Sec8p
+DEFINITION  (RefSeq) exocyst subunit SEC8
 ORTHOLOGY   K06111  exocyst complex component 4
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Exocytosis
+              Tethering complex
+               Exocyst complex
+                YPR055W (SEC8)
 POSITION    XVI:667676..670873
-MOTIF       Pfam: Sec8_exocyst Sec5
-DBLINKS     NCBI-GI: 6325312
+MOTIF       Pfam: Sec8_exocyst Sec5 T3SSipB
+DBLINKS     NCBI-ProteinID: NP_015380
             NCBI-GeneID: 856168
             SGD: S000006259
-            MIPS: YPR055W
             UniProt: P32855
 AASEQ       1065
             MDYLKPAQKGRRRGLSINSLSETQQSAMNSSLDHLQNDLNRINLQWNRILSDNTNPLELA

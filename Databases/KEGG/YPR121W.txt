@@ -1,13 +1,12 @@
 ENTRY       YPR121W           CDS       T00005
 NAME        THI22
-DEFINITION  putative phosphomethylpyrimidine kinase
+DEFINITION  (RefSeq) putative phosphomethylpyrimidine kinase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:778583..780301
-MOTIF       Pfam: Phos_pyr_kin TENA_THI-4 PfkB DUF244
-DBLINKS     NCBI-GI: 330443752
+MOTIF       Pfam: Phos_pyr_kin TENA_THI-4 PfkB HK
+DBLINKS     NCBI-ProteinID: NP_015446
             NCBI-GeneID: 856239
             SGD: S000006325
-            MIPS: YPR121W
             UniProt: Q06490
 AASEQ       572
             MVIILLGLCTLGFPRTAFCPSIMTNSTVSINTPPPYLTLACNEKLPTVMSIAGSDSSGGA

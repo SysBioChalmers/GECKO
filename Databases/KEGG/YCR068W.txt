@@ -1,17 +1,37 @@
 ENTRY       YCR068W           CDS       T00005
 NAME        ATG15, AUT5, CVT17
-DEFINITION  Atg15p (EC:3.1.1.3)
+DEFINITION  (RefSeq) triglyceride lipase ATG15
 ORTHOLOGY   K17900  lipase ATG15 [EC:3.1.1.3]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00561  Glycerolipid metabolism
             sce01100  Metabolic pathways
-CLASS       Metabolism; Lipid metabolism; Glycerolipid metabolism [PATH:sce00561]
+            sce04138  Autophagy - yeast
+MODULE      sce_M00098  Acylglycerol degradation
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Lipid metabolism
+               00561 Glycerolipid metabolism
+                YCR068W (ATG15)
+             Cellular Processes
+              Transport and catabolism
+               04138 Autophagy - yeast
+                YCR068W (ATG15)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.1  Carboxylic-ester hydrolases
+                3.1.1.3  triacylglycerol lipase
+                 YCR068W (ATG15)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial quality control factors
+              Mitophagy factors
+               Autophagy-related proteins
+                YCR068W (ATG15)
 POSITION    III:237214..238776
-MOTIF       Pfam: Lipase_3 Abhydrolase_6 UPF0227 Abhydrolase_5
-DBLINKS     NCBI-GI: 10383802
+MOTIF       Pfam: Lipase_3 Abhydrolase_6 UPF0227 Abhydrolase_1 Hydrolase_4
+DBLINKS     NCBI-ProteinID: NP_009994
             NCBI-GeneID: 850432
             SGD: S000000664
-            MIPS: YCR068W
             UniProt: P25641
 AASEQ       520
             MLHKSPSRKRFASPLHLGCILTLTVLCLIAYYFALPDYLSVGKSSSRGAMDQKSDGTFRL

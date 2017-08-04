@@ -1,13 +1,26 @@
 ENTRY       YMR231W           CDS       T00005
 NAME        PEP5, END1, VAM1, VPL9, VPS11, VPT11
-DEFINITION  Pep5p
+DEFINITION  (RefSeq) tethering complex subunit PEP5
+ORTHOLOGY   K20179  vacuolar protein sorting-associated protein 11
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04138  Autophagy - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04138 Autophagy - yeast
+                YMR231W (PEP5)
+            Membrane trafficking [BR:sce04131]
+             Endosome - Lysosome transport
+              Tethering complex
+               CORVET complex
+                YMR231W (PEP5)
+               Hops complex
+                YMR231W (PEP5)
 POSITION    XIII:733545..736634
-MOTIF       Pfam: VPS11_C zf-C3HC4_2 zf-RING_2 zf-Apc11 zf-rbx1 zf-RING_5 zf-C3HC4 zf-RING_UBOX zf-C3HC4_4 FANCL_C zf-C3HC4_3 PHD Prok-RING_1
-DBLINKS     NCBI-GI: 6323887
+MOTIF       Pfam: VPS11_C zf-C3H2C3 Clathrin zf-RING_UBOX zf-RING_2 zf-RING_5 zf-ANAPC11 zf-rbx1 zf-C3HC4_2 Zn_ribbon_17 PHD zf-C3HC4 HPS3_N zf-C3HC4_4 Pellino FANCL_C zf-RING_11 Prok-RING_1
+DBLINKS     NCBI-ProteinID: NP_013958
             NCBI-GeneID: 855271
             SGD: S000004844
-            MIPS: YMR231W
             UniProt: P12868
 AASEQ       1029
             MSLSSWRQFQLFENIPIRDPNFGGDSLLYSDPTLCAATIVDPQTLIIAVNSNIIKVVKLN

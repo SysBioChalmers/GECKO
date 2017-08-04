@@ -1,13 +1,18 @@
 ENTRY       YLR190W           CDS       T00005
 NAME        MMR1
-DEFINITION  Mmr1p
+DEFINITION  (RefSeq) Mmr1p
+ORTHOLOGY   K17976  mitochondrial MYO2 receptor-related protein 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial quality control factors
+              Mitochondrial dynamics
+               Retention of mitochondria
+                YLR190W (MMR1)
 POSITION    XII:535214..536689
-MOTIF       Pfam: MMR1 Synaptonemal_3 DUF573
-DBLINKS     NCBI-GI: 6323219
+MOTIF       Pfam: MMR1 Med9 Synaptonemal_3
+DBLINKS     NCBI-ProteinID: NP_013291
             NCBI-GeneID: 850887
             SGD: S000004180
-            MIPS: YLR190W
             UniProt: Q06324
 AASEQ       491
             MNSPTMKSEQLTPKLSPMSFCLDDQRNAGSFQNLLNSPTKLKLDTGPIGNSLLYPTSLSK

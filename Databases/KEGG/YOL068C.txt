@@ -1,17 +1,42 @@
 ENTRY       YOL068C           CDS       T00005
 NAME        HST1
-DEFINITION  Hst1p (EC:3.5.1.-)
+DEFINITION  (RefSeq) histone deacetylase HST1
 ORTHOLOGY   K11121  NAD-dependent histone deacetylase SIR2 [EC:3.5.1.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00760  Nicotinate and nicotinamide metabolism
             sce01100  Metabolic pathways
-CLASS       Metabolism; Metabolism of cofactors and vitamins; Nicotinate and nicotinamide metabolism [PATH:sce00760]
+            sce04213  Longevity regulating pathway - multiple species
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Metabolism of cofactors and vitamins
+               00760 Nicotinate and nicotinamide metabolism
+                YOL068C (HST1)
+             Organismal Systems
+              Aging
+               04213 Longevity regulating pathway - multiple species
+                YOL068C (HST1)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.5  Acting on carbon-nitrogen bonds, other than peptide bonds
+               3.5.1  In linear amides
+                3.5.1.-  
+                 YOL068C (HST1)
+            DNA replication proteins [BR:sce03032]
+             Eukaryotic Type
+              DNA Replication Termination Factors
+               Telomere proteins
+                SIR proteins
+                 YOL068C (HST1)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Histone modification proteins
+               Sir proteins
+                YOL068C (HST1)
 POSITION    XV:complement(200368..201879)
-MOTIF       Pfam: SIR2 DUF592
-DBLINKS     NCBI-GI: 6324504
+MOTIF       Pfam: SIR2 DUF592 TPP_enzyme_M DUF3072
+DBLINKS     NCBI-ProteinID: NP_014573
             NCBI-GeneID: 854086
             SGD: S000005429
-            MIPS: YOL068C
             UniProt: P53685
 AASEQ       503
             MNILLMQRIVSFILVVSQGRYFHVGELTMTMLKRPQEEESDNNATKKLKTRLTYPCILGK

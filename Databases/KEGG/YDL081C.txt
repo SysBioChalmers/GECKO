@@ -1,18 +1,26 @@
 ENTRY       YDL081C           CDS       T00005
 NAME        RPP1A, RPLA1
-DEFINITION  ribosomal protein P1A
+DEFINITION  (RefSeq) ribosomal protein P1A
 ORTHOLOGY   K02942  large subunit ribosomal protein LP1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03010  Ribosome
-CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+MODULE      sce_M00177  Ribosome, eukaryotes
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03010 Ribosome
+                YDL081C (RPP1A)
+            Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Eukaryotes
+               Large subunit
+                YDL081C (RPP1A)
 POSITION    IV:complement(309802..310122)
-MOTIF       Pfam: Ribosomal_60s
-DBLINKS     NCBI-GI: 6320122
+MOTIF       Pfam: Ribosomal_60s WRNPLPNID
+DBLINKS     NCBI-ProteinID: NP_010202
             NCBI-GeneID: 851478
             SGD: S000002239
-            MIPS: YDL081C
             UniProt: P05318
-STRUCTURE   PDB: 3IZS
 AASEQ       106
             MSTESALSYAALILADSEIEISSEKLLTLTNAANVPVENIWADIFAKALDGQNLKDLLVN
             FSAGAAAPAGVAGGVAGGEAGEAEAEKEEEEAKEESDDDMGFGLFD

@@ -1,13 +1,12 @@
 ENTRY       YKR103W           CDS       T00005
 NAME        NFT1
-DEFINITION  putative multidrug transporter NFT1
+DEFINITION  (RefSeq) putative multidrug transporter NFT1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XI:653080..656736
-MOTIF       Pfam: ABC_membrane ABC_tran AAA_23 SMC_N AAA_29 DUF258 T2SE AAA_25
-DBLINKS     NCBI-GI: 398365539
+MOTIF       Pfam: ABC_membrane ABC_tran AAA_23 SMC_N AAA_21 RsgA_GTPase AAA_29 AAA_15
+DBLINKS     NCBI-ProteinID: NP_013029
             NCBI-GeneID: 853978
             SGD: S000001811
-            MIPS: YKR103W
             UniProt: P0CE68
 AASEQ       1218
             MIKNGTCPYWERDDLSECARREYIEFKFPLFILLTGMIYAFCKVFRAFYLRGKNHTNEAP

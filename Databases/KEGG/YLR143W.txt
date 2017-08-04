@@ -1,14 +1,24 @@
 ENTRY       YLR143W           CDS       T00005
 NAME        DPH6
-DEFINITION  Dph6p (EC:6.3.1.14)
+DEFINITION  (RefSeq) diphthine--ammonia ligase
 ORTHOLOGY   K06927  diphthine-ammonia ligase [EC:6.3.1.14]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             6. Ligases
+              6.3  Forming carbon-nitrogen bonds
+               6.3.1  Acid-D-ammonia (or amine) ligases (amide synthases)
+                6.3.1.14  diphthine---ammonia ligase
+                 YLR143W (DPH6)
+            Translation factors [BR:sce03012]
+             Eukaryotic Type
+              Elongation factors
+               Elongation associated factors
+                YLR143W (DPH6)
 POSITION    XII:427329..429386
-MOTIF       Pfam: ATP_bind_4 Ribonuc_L-PSP
-DBLINKS     NCBI-GI: 6323172
+MOTIF       Pfam: Diphthami_syn_2 Ribonuc_L-PSP PHtD_u1
+DBLINKS     NCBI-ProteinID: NP_013244
             NCBI-GeneID: 850835
             SGD: S000004133
-            MIPS: YLR143W
             UniProt: Q12429
 AASEQ       685
             MKFIALISGGKDSFYNIFHCLKNNHELIALGNIYPKESEEQELDSFMFQTVGHDLIDYYS

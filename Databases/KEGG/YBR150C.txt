@@ -1,13 +1,12 @@
 ENTRY       YBR150C           CDS       T00005
 NAME        TBS1
-DEFINITION  Tbs1p
+DEFINITION  (RefSeq) Tbs1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    II:complement(541209..544493)
-MOTIF       Pfam: Fungal_trans Zn_clus BUD22
-DBLINKS     NCBI-GI: 6319626
+MOTIF       Pfam: Fungal_trans Zn_clus UPF0506
+DBLINKS     NCBI-ProteinID: NP_009708
             NCBI-GeneID: 852447
             SGD: S000000354
-            MIPS: YBR150C
             UniProt: P38114
 AASEQ       1094
             MNMDSGITSSHGSMDKTQKQSSEWAANQKHNQRVENTRVLMGPAVPAMPPVPSNFPPVPT

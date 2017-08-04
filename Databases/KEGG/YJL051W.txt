@@ -1,12 +1,12 @@
 ENTRY       YJL051W           CDS       T00005
 NAME        IRC8
-DEFINITION  Irc8p
+DEFINITION  (RefSeq) Irc8p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    X:339787..342255
-DBLINKS     NCBI-GI: 6322410
+MOTIF       Pfam: DUF1741
+DBLINKS     NCBI-ProteinID: NP_012484
             NCBI-GeneID: 853396
             SGD: S000003587
-            MIPS: YJL051W
             UniProt: P47046
 AASEQ       822
             MCHNSVRSGNKAGFLGIKFGSALLSIATGAIAIALLCKFHDHEAVLIVIVCSTLLYGIPS

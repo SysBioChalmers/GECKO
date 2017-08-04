@@ -1,13 +1,18 @@
 ENTRY       YNL084C           CDS       T00005
 NAME        END3
-DEFINITION  End3p
+DEFINITION  (RefSeq) End3p
+ORTHOLOGY   K20048  actin cytoskeleton-regulatory complex protein END3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endocytosis
+              Clathrin-mediated endocytosis
+               Other core components
+                YNL084C (END3)
 POSITION    XIV:complement(470053..471102)
-MOTIF       Pfam: EF-hand_4 End3 EF-hand_1 Erp_C EF-hand_8 Sugarporin_N
-DBLINKS     NCBI-GI: 6324245
+MOTIF       Pfam: EF-hand_4 End3 EF-hand_1 HMMR_N DUF5314
+DBLINKS     NCBI-ProteinID: NP_014315
             NCBI-GeneID: 855640
             SGD: S000005028
-            MIPS: YNL084C
             UniProt: P39013
 AASEQ       349
             MPKLEQFEIKKYWQIFSGLKPIENKVNHDQVLPILYNSKLDSSVLNKIWFLADIDDDDNL

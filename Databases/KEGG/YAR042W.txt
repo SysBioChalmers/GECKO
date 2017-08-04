@@ -1,14 +1,18 @@
 ENTRY       YAR042W           CDS       T00005
 NAME        SWH1, OSH1, YAR044W
-DEFINITION  Swh1p
-ORTHOLOGY   K06867
+DEFINITION  (RefSeq) oxysterol-binding protein related protein SWH1
+ORTHOLOGY   K20456  oxysterol-binding protein 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endoplasmic reticulum (ER) - Golgi transport
+              Others
+               Oxysterol-binding proteins
+                YAR042W (SWH1)
 POSITION    I:192619..196185
-MOTIF       Pfam: Oxysterol_BP Ank_2 Ank_5 Ank Ank_4 Ank_3 PH_8 PH PH_11
-DBLINKS     NCBI-GI: 85666110
+MOTIF       Pfam: Oxysterol_BP Ank_5 Ank_4 PH Ank_3 Ank_2 Ank PH_8 CREPT
+DBLINKS     NCBI-ProteinID: NP_009421
             NCBI-GeneID: 851286
             SGD: S000000081
-            MIPS: YAR042W
             UniProt: P35845
 AASEQ       1188
             MEQPDLSSVAISKPLLKLKLLDALRQGSFPNLQDLLKKQFQPLDDPNVQQVLHLMLHYAV

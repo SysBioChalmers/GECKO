@@ -1,14 +1,19 @@
 ENTRY       YDR155C           CDS       T00005
 NAME        CPR1, CPH1, CYP1
-DEFINITION  peptidylprolyl isomerase CPR1 (EC:5.2.1.8)
+DEFINITION  (RefSeq) peptidylprolyl isomerase CPR1
 ORTHOLOGY   K01802  peptidylprolyl isomerase [EC:5.2.1.8]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             5. Isomerases
+              5.2  cis-trans-Isomerases
+               5.2.1  cis-trans Isomerases (only sub-subclass identified to date)
+                5.2.1.8  peptidylprolyl isomerase
+                 YDR155C (CPR1)
 POSITION    IV:complement(768512..769000)
-MOTIF       Pfam: Pro_isomerase
-DBLINKS     NCBI-GI: 6320359
+MOTIF       Pfam: Pro_isomerase Thioredoxin_3
+DBLINKS     NCBI-ProteinID: NP_010439
             NCBI-GeneID: 851733
             SGD: S000002562
-            MIPS: YDR155C
             UniProt: P14832
 STRUCTURE   PDB: 1VDN 1IST
 AASEQ       162

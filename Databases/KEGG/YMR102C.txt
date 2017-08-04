@@ -1,12 +1,17 @@
 ENTRY       YMR102C           CDS       T00005
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) hypothetical protein
+ORTHOLOGY   K20241  WD repeat-containing protein 44
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Protein recycling
+              Rab GTPases and associated proteins
+               Rab11 associated proteins
+                YMR102C
 POSITION    XIII:complement(469848..472352)
-MOTIF       Pfam: WD40 TF_Zn_Ribbon
-DBLINKS     NCBI-GI: 6323749
+MOTIF       Pfam: WD40 ANAPC4_WD40 Ge1_WD40 DUF3283 TF_Zn_Ribbon
+DBLINKS     NCBI-ProteinID: NP_013820
             NCBI-GeneID: 855128
             SGD: S000004708
-            MIPS: YMR102C
             UniProt: Q03177
 AASEQ       834
             MTNMAEDKTSISKVHSEFSNSSNTTGSEEESRSHQESFDGESSSGESKSKSKLNLEYSAD

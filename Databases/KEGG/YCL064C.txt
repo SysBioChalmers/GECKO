@@ -1,28 +1,44 @@
 ENTRY       YCL064C           CDS       T00005
 NAME        CHA1
-DEFINITION  L-serine/L-threonine ammonia-lyase CHA1 (EC:4.3.1.17 4.3.1.19)
-ORTHOLOGY   K01752  L-serine dehydratase [EC:4.3.1.17]
-            K01754  threonine dehydratase [EC:4.3.1.19]
+DEFINITION  (RefSeq) L-serine/L-threonine ammonia-lyase CHA1
+ORTHOLOGY   K17989  L-serine/L-threonine ammonia-lyase [EC:4.3.1.17 4.3.1.19]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00260  Glycine, serine and threonine metabolism
             sce00270  Cysteine and methionine metabolism
             sce00290  Valine, leucine and isoleucine biosynthesis
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
+            sce01130  Biosynthesis of antibiotics
             sce01200  Carbon metabolism
             sce01230  Biosynthesis of amino acids
 MODULE      sce_M00570  Isoleucine biosynthesis, threonine => 2-oxobutanoate => isoleucine
-CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
-            Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
-            Metabolism; Amino acid metabolism; Glycine, serine and threonine metabolism [PATH:sce00260]
-            Metabolism; Amino acid metabolism; Cysteine and methionine metabolism [PATH:sce00270]
-            Metabolism; Amino acid metabolism; Valine, leucine and isoleucine biosynthesis [PATH:sce00290]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01200 Carbon metabolism
+                YCL064C (CHA1)
+               01230 Biosynthesis of amino acids
+                YCL064C (CHA1)
+              Amino acid metabolism
+               00260 Glycine, serine and threonine metabolism
+                YCL064C (CHA1)
+               00270 Cysteine and methionine metabolism
+                YCL064C (CHA1)
+               00290 Valine, leucine and isoleucine biosynthesis
+                YCL064C (CHA1)
+            Enzymes [BR:sce01000]
+             4. Lyases
+              4.3  Carbon-nitrogen lyases
+               4.3.1  Ammonia-lyases
+                4.3.1.17  L-serine ammonia-lyase
+                 YCL064C (CHA1)
+                4.3.1.19  threonine ammonia-lyase
+                 YCL064C (CHA1)
 POSITION    III:complement(15798..16880)
 MOTIF       Pfam: PALP
-DBLINKS     NCBI-GI: 63535562
+DBLINKS     NCBI-ProteinID: NP_001018030
             NCBI-GeneID: 850295
             SGD: S000000569
-            MIPS: YCL064C
             UniProt: P25379
 AASEQ       360
             MSIVYNKTPLLRQFFPGKASAQFFLKYECLQPSGSFKSRGIGNLIMKSAIRIQKDGKRSP

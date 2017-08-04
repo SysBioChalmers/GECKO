@@ -1,13 +1,12 @@
 ENTRY       YJL047C           CDS       T00005
 NAME        RTT101, CUL8
-DEFINITION  cullin RTT101
+DEFINITION  (RefSeq) cullin RTT101
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    X:complement(349580..352108)
-MOTIF       Pfam: Cullin Cullin_Nedd8 TetR_C_8
-DBLINKS     NCBI-GI: 398364539
+MOTIF       Pfam: Cullin_Nedd8
+DBLINKS     NCBI-ProteinID: NP_012488
             NCBI-GeneID: 853400
             SGD: S000003583
-            MIPS: YJL047C
             UniProt: P47050
 AASEQ       842
             MINESVSKREGFHESISRETSASNALGLYNKFNDERNPRYRTMIAELHEFFHLTLAETIT

@@ -1,17 +1,25 @@
 ENTRY       YIL043C           CDS       T00005
 NAME        CBR1, CBR5
-DEFINITION  Cbr1p (EC:1.6.2.2)
+DEFINITION  (RefSeq) Cbr1p
 ORTHOLOGY   K00326  cytochrome-b5 reductase [EC:1.6.2.2]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00520  Amino sugar and nucleotide sugar metabolism
-            sce01110  Biosynthesis of secondary metabolites
-CLASS       Metabolism; Carbohydrate metabolism; Amino sugar and nucleotide sugar metabolism [PATH:sce00520]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Carbohydrate metabolism
+               00520 Amino sugar and nucleotide sugar metabolism
+                YIL043C (CBR1)
+            Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.6  Acting on NADH or NADPH
+               1.6.2  With a heme protein as acceptor
+                1.6.2.2  cytochrome-b5 reductase
+                 YIL043C (CBR1)
 POSITION    IX:complement(274072..274926)
-MOTIF       Pfam: NAD_binding_1 FAD_binding_6 NAD_binding_6 FAD_binding_9
-DBLINKS     NCBI-GI: 86558908
+MOTIF       Pfam: NAD_binding_1 FAD_binding_6 NAD_binding_6
+DBLINKS     NCBI-ProteinID: NP_012221
             NCBI-GeneID: 854768
             SGD: S000001305
-            MIPS: YIL043C
             UniProt: P38626
 AASEQ       284
             MAIDAQKLVVVIVIVVVPLLFKFIIGPKTKPVLDPKRNDFQSFPLVEKTILTHNTSMYKF

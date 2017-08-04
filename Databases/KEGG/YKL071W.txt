@@ -1,12 +1,11 @@
 ENTRY       YKL071W           CDS       T00005
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) hypothetical protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XI:305114..305884
-MOTIF       Pfam: adh_short_C2 adh_short KR Epimerase DUF1776
-DBLINKS     NCBI-GI: 6322779
+MOTIF       Pfam: adh_short adh_short_C2 KR DUF1776
+DBLINKS     NCBI-ProteinID: NP_012852
             NCBI-GeneID: 853792
             SGD: S000001554
-            MIPS: YKL071W
             UniProt: P36086
 AASEQ       256
             MNTSSRITYFIIGGSRGIGFNLVKILSASTGNTVITSIRGSPSLPKNKQVEDLAKIRKNI

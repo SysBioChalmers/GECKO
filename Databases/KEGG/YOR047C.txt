@@ -1,12 +1,12 @@
 ENTRY       YOR047C           CDS       T00005
 NAME        STD1, MSN3, SFS3
-DEFINITION  Std1p
+DEFINITION  (RefSeq) Std1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:complement(416347..417681)
-DBLINKS     NCBI-GI: 6324621
+MOTIF       Pfam: STD1
+DBLINKS     NCBI-ProteinID: NP_014690
             NCBI-GeneID: 854212
             SGD: S000005573
-            MIPS: YOR047C
             UniProt: Q02794
 AASEQ       444
             MFVSPPPATARNQVLGKRKSKRHDENPKNVQPNADTEMTNSVPSIGFNSNLPHNNQEINT

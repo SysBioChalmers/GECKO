@@ -1,17 +1,20 @@
 ENTRY       YNL299W           CDS       T00005
 NAME        TRF5
-DEFINITION  non-canonical poly(A) polymerase TRF5 (EC:2.7.7.-)
+DEFINITION  (RefSeq) non-canonical poly(A) polymerase TRF5
 ORTHOLOGY   K12596  poly(A) RNA polymerase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03018  RNA degradation
 MODULE      sce_M00393  TRAMP complex
-CLASS       Genetic Information Processing; Folding, sorting and degradation; RNA degradation [PATH:sce03018]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               03018 RNA degradation
+                YNL299W (TRF5)
 POSITION    XIV:66517..68445
 MOTIF       Pfam: NTP_transf_2 PAP_assoc
-DBLINKS     NCBI-GI: 81360384
+DBLINKS     NCBI-ProteinID: NP_014100
             NCBI-GeneID: 855417
             SGD: S000005243
-            MIPS: YNL299W
             UniProt: P48561
 AASEQ       642
             MTRLKAKYSPTKGKRKEDKHTKRMRKSSFTRTQKMLEVFNDNRSHFNKYESLAIDVEDDD

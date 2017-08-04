@@ -1,14 +1,18 @@
 ENTRY       YPL083C           CDS       T00005
 NAME        SEN54
-DEFINITION  Sen54p
+DEFINITION  (RefSeq) tRNA splicing endonuclease subunit SEN54
 ORTHOLOGY   K15326  tRNA-splicing endonuclease subunit Sen54
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              tRNA spricing factors
+               tRNA splicing endonucleases
+                YPL083C (SEN54)
 POSITION    XVI:complement(396702..398105)
-MOTIF       Pfam: tRNA_int_end_N2 STOP
-DBLINKS     NCBI-GI: 6325174
+MOTIF       Pfam: tRNA_int_end_N2 SH3BGR
+DBLINKS     NCBI-ProteinID: NP_015242
             NCBI-GeneID: 856022
             SGD: S000006004
-            MIPS: YPL083C
             UniProt: Q02825
 AASEQ       467
             MQFAGKKTDQVTTSNPGFEEEEEEEEELQQDWSQLASLVSKNAALSLPKRGEKDYEPDGT

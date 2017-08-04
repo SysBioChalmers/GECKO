@@ -1,16 +1,24 @@
 ENTRY       YPL126W           CDS       T00005
 NAME        NAN1, UTP17
-DEFINITION  Nan1p
+DEFINITION  (RefSeq) Nan1p
 ORTHOLOGY   K14552  NET1-associated nuclear protein 1 (U3 small nucleolar RNA-associated protein 17)
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03008  Ribosome biogenesis in eukaryotes
-CLASS       Genetic Information Processing; Translation; Ribosome biogenesis in eukaryotes [PATH:sce03008]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03008 Ribosome biogenesis in eukaryotes
+                YPL126W (NAN1)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              90S particles
+               U3 small nucleolar RNA-associated proteins
+                YPL126W (NAN1)
 POSITION    XVI:310210..312900
-MOTIF       Pfam: WD40
-DBLINKS     NCBI-GI: 6325131
+MOTIF       Pfam: WD40 DCAF15_WD40
+DBLINKS     NCBI-ProteinID: NP_015199
             NCBI-GeneID: 855977
             SGD: S000006047
-            MIPS: YPL126W
             UniProt: Q02931
 AASEQ       896
             MTQSLGIEQYKLSVVSGGKPALNNLSSVTGNKNIARLSQDQRNYIIPFNNQIKVYSVETR

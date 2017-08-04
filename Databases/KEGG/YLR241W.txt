@@ -1,12 +1,12 @@
 ENTRY       YLR241W           CDS       T00005
-DEFINITION  hypothetical protein
+NAME        CSC1
+DEFINITION  (RefSeq) Csc1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XII:620473..622821
-MOTIF       Pfam: DUF221 RSN1_TM DUF4463
-DBLINKS     NCBI-GI: 6323270
+MOTIF       Pfam: RSN1_7TM RSN1_TM PHM7_cyt
+DBLINKS     NCBI-ProteinID: NP_013342
             NCBI-GeneID: 850942
             SGD: S000004231
-            MIPS: YLR241W
             UniProt: Q06538
 AASEQ       782
             MTSYIERLKSAASYLDTVPDEHHDFRKPTAKVVTTQLTIATSLGIFALLSFSILLKKWPR

@@ -1,16 +1,24 @@
 ENTRY       YNR072W           CDS       T00005
-NAME        HXT17
-DEFINITION  Hxt17p
+NAME        HXT17, HLT4
+DEFINITION  (RefSeq) hexose transporter HXT17
 ORTHOLOGY   K08139  MFS transporter, SP family, sugar:H+ symporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04113  Meiosis - yeast
-CLASS       Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04113 Meiosis - yeast
+                YNR072W (HXT17)
+            Transporters [BR:sce02000]
+             Major Facilitator Superfamily (MFS)
+              Sugar transporters
+               Sugar porter (SP) family [TC:2.A.1.1]
+                YNR072W (HXT17)
 POSITION    XIV:772657..774351
-MOTIF       Pfam: Sugar_tr MFS_1 TRI12 ATG22 Cytochrom_B_N
-DBLINKS     NCBI-GI: 6324400
+MOTIF       Pfam: Sugar_tr MFS_1 TRI12 Pox_A14 Ni_hydr_CYTB
+DBLINKS     NCBI-ProteinID: NP_014470
             NCBI-GeneID: 855809
             SGD: S000005355
-            MIPS: YNR072W
             UniProt: P53631
 AASEQ       564
             MQSSTESDRDIQDGPDADIHVAPPVEKEWSDGFDDNEVINGDNVEPPKRGLIGYLVIYLL

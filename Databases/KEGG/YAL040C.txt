@@ -1,18 +1,23 @@
 ENTRY       YAL040C           CDS       T00005
 NAME        CLN3, DAF1, FUN10, WHI1
-DEFINITION  Cln3p
+DEFINITION  (RefSeq) cyclin CLN3
 ORTHOLOGY   K06646  G1/S-specific cyclin CLN3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
             sce04113  Meiosis - yeast
-CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
-            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+MODULE      sce_M00692  Cell cycle - G1/S transition
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YAL040C (CLN3)
+               04113 Meiosis - yeast
+                YAL040C (CLN3)
 POSITION    I:complement(65778..67520)
 MOTIF       Pfam: Cyclin_N
-DBLINKS     NCBI-GI: 6319277
+DBLINKS     NCBI-ProteinID: NP_009360
             NCBI-GeneID: 851191
             SGD: S000000038
-            MIPS: YAL040C
             UniProt: P13365
 AASEQ       580
             MAILKDTIIRYANARYATASGTSTATAASVSAASCPNLPLLLQKRRAIASAKSKNPNLVK

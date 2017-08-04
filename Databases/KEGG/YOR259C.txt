@@ -1,19 +1,28 @@
 ENTRY       YOR259C           CDS       T00005
 NAME        RPT4, CRL13, PCS1, SUG2
-DEFINITION  proteasome regulatory particle base subunit RPT4
+DEFINITION  (RefSeq) proteasome regulatory particle base subunit RPT4
 ORTHOLOGY   K03064  26S proteasome regulatory subunit T4
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03050  Proteasome
 MODULE      sce_M00341  Proteasome, 19S regulatory particle (PA700)
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Proteasome [PATH:sce03050]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               03050 Proteasome
+                YOR259C (RPT4)
+            Proteasome [BR:sce03051]
+             Eukaryotic proteasome
+              Regulatory particles
+               PA700 (19S proteasome)
+                ATPase subunits
+                 YOR259C (RPT4)
 POSITION    XV:complement(812395..813708)
-MOTIF       Pfam: AAA AAA_16 AAA_5 AAA_2 AAA_22 RuvB_N AAA_19 AAA_17 UPF0079 RNA_helicase TIP49 AAA_25 Mg_chelatase AAA_33 IstB_IS21 AAA_24 AAA_14 AAA_28 AAA_18 KaiC PhoH Zeta_toxin Parvo_NS1 AAA_11 AAA_3 NACHT
-DBLINKS     NCBI-GI: 398365977
+MOTIF       Pfam: AAA AAA_16 AAA_5 AAA_2 RuvB_N TsaE AAA_22 RNA_helicase TIP49 Mg_chelatase AAA_33 AAA_24 AAA_18 IstB_IS21 Fib_alpha AAA_28 ATPase AAA_14 PhoH Prot_ATP_ID_OB AAA_25 AAA_11 Parvo_NS1 AAA_3 NACHT
+DBLINKS     NCBI-ProteinID: NP_014902
             NCBI-GeneID: 854433
             SGD: S000005785
-            MIPS: YOR259C
             UniProt: P53549
-STRUCTURE   PDB: 4B4T 4C0V
+STRUCTURE   PDB: 5MP9 5MPA 4CR2 4CR4 4CR3 5A5B
 AASEQ       437
             MSEEQDPLLAGLGETSGDNHTQQSHEQQPEQPQETEEHHEEEPSRVDPEQEAHNKALNQF
             KRKLLEHRRYDDQLKQRRQNIRDLEKLYDKTENDIKALQSIGQLIGEVMKELSEEKYIVK

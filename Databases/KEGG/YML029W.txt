@@ -1,16 +1,19 @@
 ENTRY       YML029W           CDS       T00005
 NAME        USA1
-DEFINITION  Usa1p
+DEFINITION  (RefSeq) Usa1p
 ORTHOLOGY   K14024  U1 SNP1-associating protein 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04141  Protein processing in endoplasmic reticulum
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Protein processing in endoplasmic reticulum [PATH:sce04141]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04141 Protein processing in endoplasmic reticulum
+                YML029W (USA1)
 POSITION    XIII:217362..219878
-MOTIF       Pfam: ubiquitin Rad60-SLD Rad60-SLD_2 DUF2407
-DBLINKS     NCBI-GI: 6323612
+MOTIF       Pfam: ubiquitin Rad60-SLD DUF2407 Rad60-SLD_2
+DBLINKS     NCBI-ProteinID: NP_013683
             NCBI-GeneID: 854979
             SGD: S000004491
-            MIPS: YML029W
             UniProt: Q03714
 AASEQ       838
             MSEYLAQTPCKFTIWSSEIDLIRTNLLVNAHPLSTVGRLLQYIHYQIYKQLRAIYQPEEQ

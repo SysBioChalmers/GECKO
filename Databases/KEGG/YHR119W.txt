@@ -1,16 +1,36 @@
 ENTRY       YHR119W           CDS       T00005
-NAME        SET1, YTX1
-DEFINITION  Set1p (EC:2.1.1.43)
+NAME        SET1, KMT2, YTX1
+DEFINITION  (RefSeq) histone methyltransferase SET1
 ORTHOLOGY   K11422  histone-lysine N-methyltransferase SETD1 [EC:2.1.1.43]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00310  Lysine degradation
-CLASS       Metabolism; Amino acid metabolism; Lysine degradation [PATH:sce00310]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Amino acid metabolism
+               00310 Lysine degradation
+                YHR119W (SET1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.1  Transferring one-carbon groups
+               2.1.1  Methyltransferases
+                2.1.1.43  histone-lysine N-methyltransferase
+                 YHR119W (SET1)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Histone modification proteins
+               HMTs (histone methyltransferases)
+                HKMTs (histone lysine methyltransferases)
+                 YHR119W (SET1)
+               HMT complexes
+                COMPASS/SET1 complex
+                 YHR119W (SET1)
+                COMPASS/SET1 complex (yeast)
+                 YHR119W (SET1)
 POSITION    VIII:346043..349285
 MOTIF       Pfam: N-SET SET SET_assoc
-DBLINKS     NCBI-GI: 6321911
+DBLINKS     NCBI-ProteinID: NP_011987
             NCBI-GeneID: 856519
             SGD: S000001161
-            MIPS: YHR119W
             UniProt: P38827
 STRUCTURE   PDB: 2J8A
 AASEQ       1080

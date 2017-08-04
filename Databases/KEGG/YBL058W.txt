@@ -1,16 +1,19 @@
 ENTRY       YBL058W           CDS       T00005
 NAME        SHP1, UBX1
-DEFINITION  Shp1p
+DEFINITION  (RefSeq) protein phosphatase regulator SHP1
 ORTHOLOGY   K14012  UBX domain-containing protein 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04141  Protein processing in endoplasmic reticulum
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Protein processing in endoplasmic reticulum [PATH:sce04141]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04141 Protein processing in endoplasmic reticulum
+                YBL058W (SHP1)
 POSITION    II:111437..112708
-MOTIF       Pfam: SEP UBX UBA_4 FbpA
-DBLINKS     NCBI-GI: 6319413
+MOTIF       Pfam: SEP UBX UBA_4 CAMSAP_CC1 FbpA
+DBLINKS     NCBI-ProteinID: NP_009495
             NCBI-GeneID: 852222
             SGD: S000000154
-            MIPS: YBL058W
             UniProt: P34223
 AASEQ       423
             MAEIPDETIQQFMALTNVSHNIAVQYLSEFGDLNEALNSYYASQTDDQKDRREEAHWNRQ

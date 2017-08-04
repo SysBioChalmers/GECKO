@@ -1,17 +1,30 @@
 ENTRY       YJL060W           CDS       T00005
 NAME        BNA3
-DEFINITION  Bna3p (EC:2.6.1.7)
+DEFINITION  (RefSeq) kynurenine--oxoglutarate transaminase
 ORTHOLOGY   K14264  kynurenine aminotransferase [EC:2.6.1.7]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00380  Tryptophan metabolism
             sce01100  Metabolic pathways
-CLASS       Metabolism; Amino acid metabolism; Tryptophan metabolism [PATH:sce00380]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Amino acid metabolism
+               00380 Tryptophan metabolism
+                YJL060W (BNA3)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.6  Transferring nitrogenous groups
+               2.6.1  Transaminases
+                2.6.1.7  kynurenine---oxoglutarate transaminase
+                 YJL060W (BNA3)
+            Amino acid related enzymes [BR:sce01007]
+             Aminotransferase (transaminase)
+              Class I
+               YJL060W (BNA3)
 POSITION    X:323386..324720
-MOTIF       Pfam: Aminotran_1_2 DegT_DnrJ_EryC1 Cys_Met_Meta_PP Aminotran_5 Aminotran_3 Beta_elim_lyase DUF2240
-DBLINKS     NCBI-GI: 398364493
+MOTIF       Pfam: Aminotran_1_2 DegT_DnrJ_EryC1 Cys_Met_Meta_PP Aminotran_5 Aminotran_3 DUF2240
+DBLINKS     NCBI-ProteinID: NP_012475
             NCBI-GeneID: 853386
             SGD: S000003596
-            MIPS: YJL060W
             UniProt: P47039
 STRUCTURE   PDB: 3B46
 AASEQ       444

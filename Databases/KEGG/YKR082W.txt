@@ -1,16 +1,30 @@
 ENTRY       YKR082W           CDS       T00005
 NAME        NUP133, RAT3
-DEFINITION  Nup133p
+DEFINITION  (RefSeq) Nup133p
 ORTHOLOGY   K14300  nuclear pore complex protein Nup133
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03013  RNA transport
-CLASS       Genetic Information Processing; Translation; RNA transport [PATH:sce03013]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03013 RNA transport
+                YKR082W (NUP133)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Transport factors
+                Nuclear pore complex
+                 YKR082W (NUP133)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centrosome formation and ciliogenesis proteins
+               Spindle formation proteins
+                YKR082W (NUP133)
 POSITION    XI:592825..596298
-MOTIF       Pfam: Nucleoporin_C Nucleoporin_N
-DBLINKS     NCBI-GI: 398365403
+MOTIF       Pfam: Nucleoporin_N
+DBLINKS     NCBI-ProteinID: NP_013008
             NCBI-GeneID: 853957
             SGD: S000001790
-            MIPS: YKR082W
             UniProt: P36161
 STRUCTURE   PDB: 3KFO
 AASEQ       1157

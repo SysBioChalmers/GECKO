@@ -1,18 +1,44 @@
 ENTRY       YPR165W           CDS       T00005
 NAME        RHO1
-DEFINITION  Rho1p
+DEFINITION  (RefSeq) Rho family GTPase RHO1
 ORTHOLOGY   K04513  Ras homolog gene family, member A
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04011  MAPK signaling pathway - yeast
             sce04144  Endocytosis
-CLASS       Environmental Information Processing; Signal transduction; MAPK signaling pathway - yeast [PATH:sce04011]
-            Cellular Processes; Transport and catabolism; Endocytosis [PATH:sce04144]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YPR165W (RHO1)
+             Cellular Processes
+              Transport and catabolism
+               04144 Endocytosis
+                YPR165W (RHO1)
+            Membrane trafficking [BR:sce04131]
+             Endocytosis
+              Lipid raft mediated endocytosis
+               RhoA-dependent endocytosis
+                YPR165W (RHO1)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of haemopoietic cells  (B-cell, T-cell, DC-cell, reticulocyte, and mast cell)
+               YPR165W (RHO1)
+              Exosomal proteins of other body fluids (saliva and urine)
+               YPR165W (RHO1)
+              Exosomal proteins of colorectal cancer cells
+               YPR165W (RHO1)
+              Exosomal proteins of bladder cancer cells
+               YPR165W (RHO1)
+            GTP-binding proteins [BR:sce04031]
+             Small (Monomeric) G-proteins
+              Rho Family
+               RhoA/B/C [OT]
+                YPR165W (RHO1)
 POSITION    XVI:875368..875997
-MOTIF       Pfam: Ras Miro Arf GTP_EFTU Gtr1_RagA LEA_5 SRPRB
-DBLINKS     NCBI-GI: 6325423
+MOTIF       Pfam: Ras Roc Arf GTP_EFTU LEA_5 SRPRB Gtr1_RagA
+DBLINKS     NCBI-ProteinID: NP_015491
             NCBI-GeneID: 856294
             SGD: S000006369
-            MIPS: YPR165W
             UniProt: P06780
 STRUCTURE   PDB: 3A58
 AASEQ       209

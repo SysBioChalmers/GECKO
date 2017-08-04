@@ -1,17 +1,29 @@
 ENTRY       YPL002C           CDS       T00005
 NAME        SNF8, VPL14, VPS22
-DEFINITION  Snf8p
+DEFINITION  (RefSeq) ESCRT-II subunit protein SNF8
 ORTHOLOGY   K12188  ESCRT-II complex subunit VPS22
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04144  Endocytosis
 MODULE      sce_M00410  ESCRT-II complex
-CLASS       Cellular Processes; Transport and catabolism; Endocytosis [PATH:sce04144]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04144 Endocytosis
+                YPL002C (SNF8)
+            Membrane trafficking [BR:sce04131]
+             Endosome - Lysosome transport
+              Endosomal sorting complexes required for transport (ESCRT)
+               ESCRT-II complex
+                YPL002C (SNF8)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of other body fluids (saliva and urine)
+               YPL002C (SNF8)
 POSITION    XVI:complement(553627..554328)
 MOTIF       Pfam: EAP30
-DBLINKS     NCBI-GI: 6325255
+DBLINKS     NCBI-ProteinID: NP_015323
             NCBI-GeneID: 856105
             SGD: S000005923
-            MIPS: YPL002C
             UniProt: Q12483
 STRUCTURE   PDB: 1W7P 1U5T
 AASEQ       233

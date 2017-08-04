@@ -1,14 +1,18 @@
 ENTRY       YDR312W           CDS       T00005
 NAME        SSF2
-DEFINITION  Ssf2p
+DEFINITION  (RefSeq) rRNA-binding ribosome biosynthesis protein
 ORTHOLOGY   K14859  ribosome biogenesis protein SSF1/2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               Other pre-60S particles
+                YDR312W (SSF2)
 POSITION    IV:1087581..1088942
-MOTIF       Pfam: Brix
-DBLINKS     NCBI-GI: 398366473
+MOTIF       Pfam: Brix DUF4407 DUF1284
+DBLINKS     NCBI-ProteinID: NP_010598
             NCBI-GeneID: 851907
             SGD: S000002720
-            MIPS: YDR312W
             UniProt: Q12153
 AASEQ       453
             MAKRRQKKRTHAQITPEQERDIPKSMVIRVGQTSLANHSLNQLVKDFRQIMQPHTAVKLK

@@ -1,14 +1,17 @@
 ENTRY       YGR257C           CDS       T00005
 NAME        MTM1
-DEFINITION  Mtm1p
+DEFINITION  (RefSeq) Mtm1p
 ORTHOLOGY   K15119  solute carrier family 25, member 39/40
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Solute Carrier Family (SLC)
+              SLC25: Mitochondrial carrier
+               YGR257C (MTM1)
 POSITION    VII:complement(1006205..1007305)
 MOTIF       Pfam: Mito_carr
-DBLINKS     NCBI-GI: 398366325
+DBLINKS     NCBI-ProteinID: NP_011773
             NCBI-GeneID: 853173
             SGD: S000003489
-            MIPS: YGR257C
             UniProt: P53320
 AASEQ       366
             MSDRNTSNSLTLKERMLSAGAGSVLTSLILTPMDVVRIRLQQQQMIPDCSCDGAAEVPNA

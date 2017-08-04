@@ -1,14 +1,18 @@
 ENTRY       YDR197W           CDS       T00005
 NAME        CBS2, CBP7
-DEFINITION  Cbs2p
+DEFINITION  (RefSeq) Cbs2p
 ORTHOLOGY   K17665  cytochrome b translational activator protein CBS2, mitochondrial
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial DNA transcription, translation, and replication factors
+              Mitochondrial transcription and translation factors
+               Other mitochondrial DNA transcription and translation factors
+                YDR197W (CBS2)
 POSITION    IV:851228..852397
 MOTIF       Pfam: ApbA_C ApbA
-DBLINKS     NCBI-GI: 6320403
+DBLINKS     NCBI-ProteinID: NP_010483
             NCBI-GeneID: 851778
             SGD: S000002605
-            MIPS: YDR197W
             UniProt: P14905
 AASEQ       389
             MSSSIPRVYSLGNSAMTYLLALRIAQLPSQPKVPSVVLLLNDQKKLNRFLNNDSKIIVKS

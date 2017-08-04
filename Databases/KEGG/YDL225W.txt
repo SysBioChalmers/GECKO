@@ -1,14 +1,19 @@
 ENTRY       YDL225W           CDS       T00005
 NAME        SHS1, SEP7
-DEFINITION  septin SHS1
+DEFINITION  (RefSeq) septin SHS1
 ORTHOLOGY   K16946  seventh homolog of septin 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Cytoskeleton proteins [BR:sce04812]
+             Eukaryotic cytoskeleton proteins
+              Septins
+               Septins
+                Group 3
+                 YDL225W (SHS1)
 POSITION    IV:52445..54100
-MOTIF       Pfam: Septin AAA_22 AAA_33 AIG1 Synaptobrevin AAA RNA_helicase AAA_16 AAA_18 Dynamin_N
-DBLINKS     NCBI-GI: 6319976
+MOTIF       Pfam: Septin AAA_22 AAA_24 AAA_33 Synaptobrevin AIG1 AAA Pox_A32 RNA_helicase AAA_16 DUF4692
+DBLINKS     NCBI-ProteinID: NP_010056
             NCBI-GeneID: 851373
             SGD: S000002384
-            MIPS: YDL225W
             UniProt: Q07657
 AASEQ       551
             MSTASTPPINLFRRKKEHKRGITYTMLLCGPAGTGKTAFANNLLETKIFPHKYQYGKSNA

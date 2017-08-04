@@ -1,14 +1,19 @@
 ENTRY       YDL220C           CDS       T00005
 NAME        CDC13, EST4
-DEFINITION  Cdc13p
+DEFINITION  (RefSeq) telomere-binding protein CDC13
 ORTHOLOGY   K11115  cell division control protein 13
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       DNA replication proteins [BR:sce03032]
+             Eukaryotic Type
+              DNA Replication Termination Factors
+               Telomere proteins
+                Telomere specific RPA-like complex
+                 YDL220C (CDC13)
 POSITION    IV:complement(62244..65018)
-MOTIF       Pfam: POT1 DUF4110
-DBLINKS     NCBI-GI: 6319981
+MOTIF       Pfam: CDC13_N POT1
+DBLINKS     NCBI-ProteinID: NP_010061
             NCBI-GeneID: 851306
             SGD: S000002379
-            MIPS: YDL220C
             UniProt: P32797
 STRUCTURE   PDB: 4HCE 3OIQ 3OIP 3NWS 3NWT 1S40 1KXL
 AASEQ       924

@@ -1,0 +1,48 @@
+ENTRY       YFL038C           CDS       T00005
+NAME        YPT1
+DEFINITION  (RefSeq) Rab family GTPase YPT1
+ORTHOLOGY   K07874  Ras-related protein Rab-1A
+ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endoplasmic reticulum (ER) - Golgi transport
+              Forward pathways
+               Rab GTPases
+                YFL038C (YPT1)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of haemopoietic cells  (B-cell, T-cell, DC-cell, reticulocyte, and mast cell)
+               YFL038C (YPT1)
+              Exosomal proteins of other body fluids (saliva and urine)
+               YFL038C (YPT1)
+              Exosomal proteins of colorectal cancer cells
+               YFL038C (YPT1)
+            GTP-binding proteins [BR:sce04031]
+             Small (Monomeric) G-proteins
+              Rab Family
+               Rab1/35 [OT]
+                YFL038C (YPT1)
+POSITION    VI:complement(55366..55986)
+MOTIF       Pfam: Ras Roc Arf Gtr1_RagA GTP_EFTU MMR_HSR1 SRPRB RsgA_GTPase Septin AAA_5 PcfK ABC_tran AAA_16 AAA_29 AAA AAA_22
+DBLINKS     NCBI-ProteinID: NP_116615
+            NCBI-GeneID: 850505
+            SGD: S000001856
+            UniProt: P01123
+STRUCTURE   PDB: 2BCG 1UKV 1YZN 3CUE
+AASEQ       206
+            MNSEYDYLFKLLLIGNSGVGKSCLLLRFSDDTYTNDYISTIGVDFKIKTVELDGKTVKLQ
+            IWDTAGQERFRTITSSYYRGSHGIIIVYDVTDQESFNGVKMWLQEIDRYATSTVLKLLVG
+            NKCDLKDKRVVEYDVAKEFADANKMPFLETSALDSTNVEDAFLTMARQIKESMSQQNLNE
+            TTQKKEDKGNVNLKGQSLTNTGGGCC
+NTSEQ       621
+            atgaatagcgagtacgattacctgttcaaactgctgttgatcgggaattccggtgtcggg
+            aagtcctgtttacttttgaggttttcggacgacacatataccaacgactacatctccaca
+            attggagtggacttcaagattaagactgtagaactggacggcaagactgtaaagctacag
+            atttgggacactgcaggtcaagaacgtttccgtactatcacttcatcttactaccgtggt
+            tcgcatgggatcattatcgtgtatgatgtcactgaccaagaatccttcaacggcgtgaag
+            atgtggctgcaagagattgatcggtatgcaacctcaacagtgttgaagctattggtaggt
+            aacaagtgtgatttaaaggacaagcgtgtcgtggaatatgacgtggcaaaggaatttgcg
+            gacgcgaataagatgccgttcttagagactagtgctttggactccaccaacgtcgaggat
+            gcgtttttaaccatggctagacaaatcaaggaaagtatgtcccaacaaaacctgaacgaa
+            accactcagaagaaggaagacaaagggaacgtcaacctgaagggacagagtttaaccaac
+            accggtgggggctgctgttga
+///

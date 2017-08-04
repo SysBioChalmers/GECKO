@@ -1,13 +1,24 @@
 ENTRY       YHL025W           CDS       T00005
 NAME        SNF6
-DEFINITION  Snf6p
+DEFINITION  (RefSeq) Snf6p
 ORTHOLOGY   K11773  SWI/SNF complex component SNF6
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Coactivators
+                SWI/SNF complex
+                 YHL025W (SNF6)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Chromatin remodeling factors
+               SWI/SNF complex
+                YHL025W (SNF6)
 POSITION    VIII:54851..55849
-DBLINKS     NCBI-GI: 6321762
+MOTIF       Pfam: Med3
+DBLINKS     NCBI-ProteinID: NP_011838
             NCBI-GeneID: 856360
             SGD: S000001017
-            MIPS: YHL025W
             UniProt: P18888
 AASEQ       332
             MGVIKKKRSHHGKASRQQYYSGVQVGGVGSMGAINNNIPSLTSFAEENNYQYGYSGSSAG

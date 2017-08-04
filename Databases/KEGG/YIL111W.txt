@@ -1,17 +1,20 @@
 ENTRY       YIL111W           CDS       T00005
 NAME        COX5B
-DEFINITION  cytochrome c oxidase subunit Vb (EC:1.9.3.1)
+DEFINITION  (RefSeq) cytochrome c oxidase subunit Vb
 ORTHOLOGY   K02263  cytochrome c oxidase subunit 4
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00190  Oxidative phosphorylation
             sce01100  Metabolic pathways
-CLASS       Metabolism; Energy metabolism; Oxidative phosphorylation [PATH:sce00190]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Energy metabolism
+               00190 Oxidative phosphorylation
+                YIL111W (COX5B)
 POSITION    IX:join(155222,155311..155765)
-MOTIF       Pfam: COX4 N1221
-DBLINKS     NCBI-GI: 6322080
+MOTIF       Pfam: COX4 DUF1641
+DBLINKS     NCBI-ProteinID: NP_012155
             NCBI-GeneID: 854695
             SGD: S000001373
-            MIPS: YIL111W
             UniProt: P00425
 AASEQ       151
             MLRTSLTKGARLTGTRFVQTKALSKATLTDLPERWENMPNLEQKEIADNLTERQKLPWKT

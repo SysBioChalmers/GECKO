@@ -1,14 +1,24 @@
 ENTRY       YKR101W           CDS       T00005
 NAME        SIR1
-DEFINITION  Sir1p
+DEFINITION  (RefSeq) Sir1p
 ORTHOLOGY   K11120  regulatory protein SIR1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       DNA replication proteins [BR:sce03032]
+             Eukaryotic Type
+              DNA Replication Termination Factors
+               Telomere proteins
+                SIR proteins
+                 YKR101W (SIR1)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Histone modification proteins
+               Sir proteins
+                YKR101W (SIR1)
 POSITION    XI:640540..642504
-MOTIF       Pfam: Sir1 OTT_1508_deam
-DBLINKS     NCBI-GI: 398365529
+MOTIF       Pfam: Sir1
+DBLINKS     NCBI-ProteinID: NP_013027
             NCBI-GeneID: 853976
             SGD: S000001809
-            MIPS: YKR101W
             UniProt: P21691
 STRUCTURE   PDB: 1ZBX 1Z1A 1ZHI
 AASEQ       654

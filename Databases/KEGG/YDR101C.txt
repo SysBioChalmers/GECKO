@@ -1,16 +1,25 @@
 ENTRY       YDR101C           CDS       T00005
 NAME        ARX1
-DEFINITION  Arx1p (EC:3.-.-.-)
+DEFINITION  (RefSeq) putative hydrolase
 ORTHOLOGY   K14813  metalloprotease ARX1 [EC:3.-.-.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.-  
+               3.-.-  
+                3.-.-.-  
+                 YDR101C (ARX1)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               Export and cytoplasmic maturation factors
+                YDR101C (ARX1)
 POSITION    IV:complement(655686..657467)
-MOTIF       Pfam: Peptidase_M24
-DBLINKS     NCBI-GI: 6320306
+MOTIF       Pfam: Peptidase_M24 UvsW
+DBLINKS     NCBI-ProteinID: NP_010386
             NCBI-GeneID: 851678
             SGD: S000002508
-            MIPS: YDR101C
             UniProt: Q03862
-STRUCTURE   PDB: 4B6A
 AASEQ       593
             MALAISHEDTQILLKDKNILQESVLNKYRTAGQIAQTALKYVTSLINDSYHSKTTQRQLT
             VPELCLLTDSFILTRLEQYYKNKVNERGIAIPTTIDIDQISGGWCPEIDDTQNLLNWNKG

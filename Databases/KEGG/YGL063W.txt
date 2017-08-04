@@ -1,14 +1,24 @@
 ENTRY       YGL063W           CDS       T00005
 NAME        PUS2
-DEFINITION  pseudouridine synthase PUS2 (EC:5.4.99.44 4.2.1.70)
-ORTHOLOGY   K15452  tRNA pseudouridine synthase 2 [EC:5.4.99.-]
+DEFINITION  (RefSeq) pseudouridine synthase PUS2
+ORTHOLOGY   K15452  mitochondrial tRNA pseudouridine27/28 synthase [EC:5.4.99.44]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             5. Isomerases
+              5.4  Intramolecular transferases
+               5.4.99  Transferring other groups
+                5.4.99.44  mitochondrial tRNA pseudouridine27/28 synthase
+                 YGL063W (PUS2)
+            Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              tRNA modification factors
+               Psudouridine synthases
+                YGL063W (PUS2)
 POSITION    VII:383654..384766
 MOTIF       Pfam: PseudoU_synth_1
-DBLINKS     NCBI-GI: 398364673
+DBLINKS     NCBI-ProteinID: NP_011452
             NCBI-GeneID: 852817
             SGD: S000003031
-            MIPS: YGL063W
             UniProt: P53167
 AASEQ       370
             MLLGYCGSGYYGMQYNPPHKTIEGEILTKLFDVGAISEENSLAPKKNSFMAAARTDKGVH

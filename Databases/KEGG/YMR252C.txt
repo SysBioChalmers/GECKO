@@ -1,12 +1,11 @@
 ENTRY       YMR252C           CDS       T00005
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) hypothetical protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:complement(775315..775719)
-MOTIF       Pfam: FlaA
-DBLINKS     NCBI-GI: 6323908
+MOTIF       Pfam: FlaA Cellulase-like
+DBLINKS     NCBI-ProteinID: NP_013979
             NCBI-GeneID: 855294
             SGD: S000004865
-            MIPS: YMR252C
             UniProt: Q04814
 AASEQ       134
             MFGKVFVSYIRTRIGFKPLSTIYTPVSSSSLSFDKEACFPFKKWHELNMSQKQEFIQRFV

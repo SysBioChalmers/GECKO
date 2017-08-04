@@ -1,13 +1,27 @@
 ENTRY       YFL048C           CDS       T00005
 NAME        EMP47
-DEFINITION  Emp47p
+DEFINITION  (RefSeq) Emp47p
+ORTHOLOGY   K10080  lectin, mannose-binding 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04141  Protein processing in endoplasmic reticulum
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04141 Protein processing in endoplasmic reticulum
+                YFL048C (EMP47)
+            Membrane trafficking [BR:sce04131]
+             Endoplasmic reticulum (ER) - Golgi transport
+              Forward pathways
+               ER-Golgi intermediate compartment (ERGIC) proteins
+                YFL048C (EMP47)
+            Lectins [BR:sce04091]
+             L-type lectins
+              YFL048C (EMP47)
 POSITION    VI:complement(38843..40180)
-MOTIF       Pfam: Lectin_leg-like FliD_N
-DBLINKS     NCBI-GI: 14318471
+MOTIF       Pfam: Lectin_leg-like YebO
+DBLINKS     NCBI-ProteinID: NP_116606
             NCBI-GeneID: 850496
             SGD: S000001846
-            MIPS: YFL048C
             UniProt: P43555
 STRUCTURE   PDB: 2A6Z 2A70 2A6Y 2A71
 AASEQ       445

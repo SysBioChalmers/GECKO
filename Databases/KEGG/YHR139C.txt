@@ -1,13 +1,11 @@
 ENTRY       YHR139C           CDS       T00005
 NAME        SPS100
-DEFINITION  Sps100p
+DEFINITION  (RefSeq) Sps100p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VIII:complement(378219..379199)
-MOTIF       Pfam: Asparaginase
-DBLINKS     NCBI-GI: 6321931
+DBLINKS     NCBI-ProteinID: NP_012007
             NCBI-GeneID: 856541
             SGD: S000001181
-            MIPS: YHR139C
             UniProt: P13130
 AASEQ       326
             MKFTSVLAFFLATLTASATPLYKRQNVTSGGGTVPVIITGGPAVSGSQSNVTTTTLFNST

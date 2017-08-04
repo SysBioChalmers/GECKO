@@ -1,17 +1,27 @@
 ENTRY       YMR099C           CDS       T00005
-DEFINITION  glucose-6-phosphate 1-epimerase (EC:5.1.3.15)
+DEFINITION  (RefSeq) glucose-6-phosphate 1-epimerase
 ORTHOLOGY   K01792  glucose-6-phosphate 1-epimerase [EC:5.1.3.15]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00010  Glycolysis / Gluconeogenesis
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
-CLASS       Metabolism; Carbohydrate metabolism; Glycolysis / Gluconeogenesis [PATH:sce00010]
+            sce01130  Biosynthesis of antibiotics
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Carbohydrate metabolism
+               00010 Glycolysis / Gluconeogenesis
+                YMR099C
+            Enzymes [BR:sce01000]
+             5. Isomerases
+              5.1  Racemases and epimerases
+               5.1.3  Acting on carbohydrates and derivatives
+                5.1.3.15  glucose-6-phosphate 1-epimerase
+                 YMR099C
 POSITION    XIII:complement(463934..464827)
 MOTIF       Pfam: Aldose_epim
-DBLINKS     NCBI-GI: 6323746
+DBLINKS     NCBI-ProteinID: NP_013817
             NCBI-GeneID: 855125
             SGD: S000004705
-            MIPS: YMR099C
             UniProt: Q03161
 STRUCTURE   PDB: 2CIR 2CIS 2CIQ
 AASEQ       297

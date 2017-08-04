@@ -1,13 +1,25 @@
 ENTRY       YNL333W           CDS       T00005
 NAME        SNZ2
-DEFINITION  Snz2p
+DEFINITION  (RefSeq) pyridoxine biosynthesis protein SNZ2
+ORTHOLOGY   K06215  pyridoxal 5'-phosphate synthase pdxS subunit [EC:4.3.3.6]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00750  Vitamin B6 metabolism
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Metabolism of cofactors and vitamins
+               00750 Vitamin B6 metabolism
+                YNL333W (SNZ2)
+            Enzymes [BR:sce01000]
+             4. Lyases
+              4.3  Carbon-nitrogen lyases
+               4.3.3  Amine-lyases
+                4.3.3.6  pyridoxal 5'-phosphate synthase (glutamine hydrolysing)
+                 YNL333W (SNZ2)
 POSITION    XIV:13267..14163
-MOTIF       Pfam: SOR_SNZ ThiG NanE NMO His_biosynth T4SS IGPS
-DBLINKS     NCBI-GI: 6323996
+MOTIF       Pfam: SOR_SNZ ThiG NanE NMO His_biosynth TMP-TENI
+DBLINKS     NCBI-ProteinID: NP_014066
             NCBI-GeneID: 855383
             SGD: S000005277
-            MIPS: YNL333W
             UniProt: P53824
 AASEQ       298
             MSEFKVKTGLAQMLKGGVIMDVVTPEQAIIAERAGACAVMALERIPADMRKSGQVCRMSD

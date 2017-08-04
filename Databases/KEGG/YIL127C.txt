@@ -1,13 +1,12 @@
 ENTRY       YIL127C           CDS       T00005
 NAME        RRT14
-DEFINITION  Rrt14p
+DEFINITION  (RefSeq) Rrt14p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IX:complement(117024..117644)
-MOTIF       Pfam: SpoU_sub_bind
-DBLINKS     NCBI-GI: 6322064
+MOTIF       Pfam: RRT14 SpoU_sub_bind NICE-3
+DBLINKS     NCBI-ProteinID: NP_012139
             NCBI-GeneID: 854679
             SGD: S000001389
-            MIPS: YIL127C
             UniProt: P40470
 AASEQ       206
             MSSSLSQTSKYQATSVVNGLLSNLLPGVPKIRANNGKTSVNNGSKAQLIDRNLKKRVQLQ

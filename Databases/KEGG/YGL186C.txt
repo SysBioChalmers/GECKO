@@ -1,13 +1,12 @@
 ENTRY       YGL186C           CDS       T00005
 NAME        TPN1
-DEFINITION  Tpn1p
+DEFINITION  (RefSeq) Tpn1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:complement(151037..152776)
 MOTIF       Pfam: Transp_cyt_pur
-DBLINKS     NCBI-GI: 6321252
+DBLINKS     NCBI-ProteinID: NP_011329
             NCBI-GeneID: 852689
             SGD: S000003154
-            MIPS: YGL186C
             UniProt: P53099
 AASEQ       579
             MNRDNMDTTKRKEDHTKHTTDVIEFYEEGTAASSLNIATEKANSSPSILRRIINRAAWLS

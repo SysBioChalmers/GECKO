@@ -1,13 +1,29 @@
 ENTRY       YIL138C           CDS       T00005
 NAME        TPM2
-DEFINITION  Tpm2p
+DEFINITION  (RefSeq) tropomyosin TPM2
+ORTHOLOGY   K17945  tropomyosin, fungi type
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Exocytosis
+              Tethering complex
+               Exocyst complex assembly proteins
+                YIL138C (TPM2)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial quality control factors
+              Mitochondrial dynamics
+               Actin cytoskeleton organization
+                YIL138C (TPM2)
+            Cytoskeleton proteins [BR:sce04812]
+             Eukaryotic cytoskeleton proteins
+              Actin filaments / Microfilaments
+               Actin-binding proteins
+                Tropomyosins
+                 YIL138C (TPM2)
 POSITION    IX:complement(89230..89715)
-MOTIF       Pfam: Tropomyosin_1 Tropomyosin APG6 KLRAQ TMF_DNA_bd WXG100 GAS Laminin_II TelA CENP-F_leu_zip Filament AAA_13 DivIC Myosin_tail_1 ERM EzrA BLOC1_2 Cortex-I_coil ATG16 Laminin_I DUF3584 Nup54 Mnd1 AAA_27 Lectin_N Atg14 FliJ HAP1_N DUF3450 Seryl_tRNA_N Ax_dynein_light MbeD_MobD TPR_MLP1_2 Uds1 Taxilin Spc7 ISG65-75 IFT57 T2SM PEPcase Fib_alpha DUF869 Sec2p CAGE1 Mod_r GOLGA2L5 DUF4201
-DBLINKS     NCBI-GI: 398364241
+MOTIF       Pfam: Tropomyosin_1 Tropomyosin KLRAQ Spc7 GAS TMF_DNA_bd Laminin_II WXG100 ATG16 APG6 IFT57 CENP-F_leu_zip Atg14 Taxilin TelA Laminin_I EzrA BLOC1_2 MscS_porin Uso1_p115_C DUF1664 FlaC_arch DUF3584 DivIC T2SSM DUF724 DUF3450 ERM Mnd1 Ax_dynein_light Filament Lectin_N Fez1 Cast DUF4795 KELK OmpH AAA_13 FliD_C ABC_tran_CTD DUF3037 STAT_alpha MbeD_MobD Seryl_tRNA_N Muted BBP1_C APG17 DUF4201 XhlA ZYG-11_interact DUF2353 Exonuc_VII_S Rho_Binding DUF745 PEPcase TMPIT
+DBLINKS     NCBI-ProteinID: NP_012128
             NCBI-GeneID: 854668
             SGD: S000001400
-            MIPS: YIL138C
             UniProt: P40414
 AASEQ       161
             MEKIKEKLNSLKLESESWQEKYEELREQLKELEQSNTEKENEIKSLSAKNEQLDSEVEKL

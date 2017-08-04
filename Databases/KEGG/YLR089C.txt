@@ -1,23 +1,43 @@
 ENTRY       YLR089C           CDS       T00005
 NAME        ALT1
-DEFINITION  alanine transaminase ALT1 (EC:2.6.1.2)
+DEFINITION  (RefSeq) alanine transaminase ALT1
 ORTHOLOGY   K00814  alanine transaminase [EC:2.6.1.2]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
-PATHWAY     sce00250  Alanine, aspartate and glutamate metabolism
+PATHWAY     sce00220  Arginine biosynthesis
+            sce00250  Alanine, aspartate and glutamate metabolism
             sce01100  Metabolic pathways
             sce01200  Carbon metabolism
             sce01210  2-Oxocarboxylic acid metabolism
             sce01230  Biosynthesis of amino acids
-CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
-            Metabolism; Overview; 2-Oxocarboxylic acid metabolism [PATH:sce01210]
-            Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
-            Metabolism; Amino acid metabolism; Alanine, aspartate and glutamate metabolism [PATH:sce00250]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01200 Carbon metabolism
+                YLR089C (ALT1)
+               01210 2-Oxocarboxylic acid metabolism
+                YLR089C (ALT1)
+               01230 Biosynthesis of amino acids
+                YLR089C (ALT1)
+              Amino acid metabolism
+               00250 Alanine, aspartate and glutamate metabolism
+                YLR089C (ALT1)
+               00220 Arginine biosynthesis
+                YLR089C (ALT1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.6  Transferring nitrogenous groups
+               2.6.1  Transaminases
+                2.6.1.2  alanine transaminase
+                 YLR089C (ALT1)
+            Amino acid related enzymes [BR:sce01007]
+             Aminotransferase (transaminase)
+              Class I
+               YLR089C (ALT1)
 POSITION    XII:complement(318237..320015)
-MOTIF       Pfam: Aminotran_1_2 Beta_elim_lyase MTD
-DBLINKS     NCBI-GI: 6323118
+MOTIF       Pfam: Aminotran_1_2 Beta_elim_lyase
+DBLINKS     NCBI-ProteinID: NP_013190
             NCBI-GeneID: 850778
             SGD: S000004079
-            MIPS: YLR089C
             UniProt: P52893
 AASEQ       592
             MLSLSAKNHFTVSNSITHVIKSYHIRTLTSSAEKMPHITTPFSTSASSTKLKAFRKVRPV

@@ -1,14 +1,13 @@
 ENTRY       YKL189W           CDS       T00005
 NAME        HYM1
-DEFINITION  Hym1p
+DEFINITION  (RefSeq) Hym1p
 ORTHOLOGY   K08272  calcium binding protein 39
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XI:84704..85903
-MOTIF       Pfam: Mo25 DUF1436 DUF3510 YqbF
-DBLINKS     NCBI-GI: 6322659
+MOTIF       Pfam: Mo25 YqbF
+DBLINKS     NCBI-ProteinID: NP_012732
             NCBI-GeneID: 853646
             SGD: S000001672
-            MIPS: YKL189W
             UniProt: P32464
 AASEQ       399
             MFKKYKNQDLDMAFWWKKNPKTPSDYARLIIEQLNKFSSPSLTQDNKRKVQEECTKYLIG

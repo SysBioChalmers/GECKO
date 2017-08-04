@@ -1,18 +1,31 @@
 ENTRY       YPL050C           CDS       T00005
 NAME        MNN9
-DEFINITION  Mnn9p
-ORTHOLOGY   K05529  mannan polymerase complexes MNN9 subunit [EC:2.4.1.-]
+DEFINITION  (RefSeq) mannosyltransferase complex subunit MNN9
+ORTHOLOGY   K05529  mannan polymerase complexes MNN9 subunit [EC:2.4.1.232]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00513  Various types of N-glycan biosynthesis
             sce01100  Metabolic pathways
 MODULE      sce_M00074  N-glycan biosynthesis, high-mannose type
-CLASS       Metabolism; Glycan biosynthesis and metabolism; Various types of N-glycan biosynthesis [PATH:sce00513]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Glycan biosynthesis and metabolism
+               00513 Various types of N-glycan biosynthesis
+                YPL050C (MNN9)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.4  Glycosyltransferases
+               2.4.1  Hexosyltransferases
+                2.4.1.232  initiation-specific alpha-1,6-mannosyltransferase
+                 YPL050C (MNN9)
+            Glycosyltransferases [BR:sce01003]
+             Glycan extension
+              Yeast mannan chain
+               YPL050C (MNN9)
 POSITION    XVI:complement(460779..461966)
 MOTIF       Pfam: Anp1 Glycos_transf_2
-DBLINKS     NCBI-GI: 6325207
+DBLINKS     NCBI-ProteinID: NP_015275
             NCBI-GeneID: 856057
             SGD: S000005971
-            MIPS: YPL050C
             UniProt: P39107
 STRUCTURE   PDB: 3ZF8
 AASEQ       395

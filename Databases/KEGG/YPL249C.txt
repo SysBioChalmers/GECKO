@@ -1,13 +1,12 @@
 ENTRY       YPL249C           CDS       T00005
 NAME        GYP5
-DEFINITION  Gyp5p
+DEFINITION  (RefSeq) Gyp5p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:complement(76669..79353)
-MOTIF       Pfam: RabGAP-TBC
-DBLINKS     NCBI-GI: 6325007
+MOTIF       Pfam: RabGAP-TBC GIT_CC
+DBLINKS     NCBI-ProteinID: NP_015075
             NCBI-GeneID: 855827
             SGD: S000006170
-            MIPS: YPL249C
             UniProt: Q12344
 AASEQ       894
             MSSDKSIEKNTDTIASEVHEGDNHSNNLGSMEEEIKSTPSDQYEEIAIIPTEPLHSDKEL

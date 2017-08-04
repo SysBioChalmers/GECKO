@@ -1,14 +1,24 @@
 ENTRY       YDR087C           CDS       T00005
 NAME        RRP1
-DEFINITION  Rrp1p
+DEFINITION  (RefSeq) Rrp1p
 ORTHOLOGY   K14849  ribosomal RNA-processing protein 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Protein phosphatases and associated proteins [BR:sce01009]
+             Protein Ser/ Thr phosphatases
+              Phosphoprotein phosphatases (PPPs)
+               Protein phosphatase-1
+                PP1-interacting proteins (PIPs)
+                 YDR087C (RRP1)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               Other pre-60S particles
+                YDR087C (RRP1)
 POSITION    IV:complement(617470..618306)
-MOTIF       Pfam: Nop52 DUF3139 TAN
-DBLINKS     NCBI-GI: 398365509
+MOTIF       Pfam: Nop52 TAN
+DBLINKS     NCBI-ProteinID: NP_010372
             NCBI-GeneID: 851660
             SGD: S000002494
-            MIPS: YDR087C
             UniProt: P35178
 AASEQ       278
             METSNFVKQLSSNNRKTRVNALEALKKYLTAKQFKENKQIEFNKLWKGLYYAMWFSDRPR

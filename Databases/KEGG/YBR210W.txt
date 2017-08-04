@@ -1,13 +1,22 @@
 ENTRY       YBR210W           CDS       T00005
 NAME        ERV15
-DEFINITION  Erv15p
+DEFINITION  (RefSeq) Erv15p
+ORTHOLOGY   K20368  protein cornichon
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endoplasmic reticulum (ER) - Golgi transport
+              Forward pathways
+               ER-Golgi intermediate compartment (ERGIC) proteins
+                YBR210W (ERV15)
+            Transporters [BR:sce02000]
+             Other Transporters
+              Accessory factors involved in transport [TC:8]
+               YBR210W (ERV15)
 POSITION    II:645550..645978
-MOTIF       Pfam: Cornichon DUF1634
-DBLINKS     NCBI-GI: 6319687
+MOTIF       Pfam: Cornichon
+DBLINKS     NCBI-ProteinID: NP_009769
             NCBI-GeneID: 852511
             SGD: S000000414
-            MIPS: YBR210W
             UniProt: P38312
 AASEQ       142
             MSGTGLSLFVTGLILNCLNSICQIYFTILYGDLEADYINSIELCKRVNRLSVPEAILQAF

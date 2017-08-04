@@ -1,16 +1,30 @@
 ENTRY       YJL155C           CDS       T00005
 NAME        FBP26
-DEFINITION  Fbp26p (EC:3.1.3.46)
-ORTHOLOGY   K01103  6-phosphofructo-2-kinase / fructose-2,6-bisphosphatase [EC:2.7.1.105 3.1.3.46]
+DEFINITION  (RefSeq) fructose-2,6-bisphosphatase
+ORTHOLOGY   K19029  6-phosphofructo-2-kinase / fructose-2,6-biphosphatase 2 [EC:2.7.1.105 3.1.3.46]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00051  Fructose and mannose metabolism
-CLASS       Metabolism; Carbohydrate metabolism; Fructose and mannose metabolism [PATH:sce00051]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Carbohydrate metabolism
+               00051 Fructose and mannose metabolism
+                YJL155C (FBP26)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.1  Phosphotransferases with an alcohol group as acceptor
+                2.7.1.105  6-phosphofructo-2-kinase
+                 YJL155C (FBP26)
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.3  Phosphoric-monoester hydrolases
+                3.1.3.46  fructose-2,6-bisphosphate 2-phosphatase
+                 YJL155C (FBP26)
 POSITION    X:complement(129285..130643)
-MOTIF       Pfam: 6PF2K His_Phos_1 AAA_33 AAA_17 DUF3768
-DBLINKS     NCBI-GI: 6322306
+MOTIF       Pfam: 6PF2K His_Phos_1 AAA_33 Roc DUF3768 AAA_14
+DBLINKS     NCBI-ProteinID: NP_012380
             NCBI-GeneID: 853286
             SGD: S000003691
-            MIPS: YJL155C
             UniProt: P32604
 AASEQ       452
             MGYSTISNDNDIKVCVIMVGLPARGKSFISQKIIRYLSWLSIKAKCFNVGNYRRDVSGNV

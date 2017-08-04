@@ -1,14 +1,33 @@
 ENTRY       YEL060C           CDS       T00005
 NAME        PRB1, CVT1
-DEFINITION  Prb1p (EC:3.4.21.48)
+DEFINITION  (RefSeq) proteinase B
 ORTHOLOGY   K01336  cerevisin [EC:3.4.21.48]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04138  Autophagy - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04138 Autophagy - yeast
+                YEL060C (PRB1)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.4  Acting on peptide bonds (peptidases)
+               3.4.21  Serine endopeptidases
+                3.4.21.48  cerevisin
+                 YEL060C (PRB1)
+            Peptidases [BR:sce01002]
+             Serine Peptidases
+              Family S8: subtilisin family
+               YEL060C (PRB1)
+            Chaperones and folding catalysts [BR:sce03110]
+             Intramolecular chaperones
+              Subtilisin family
+               YEL060C (PRB1)
 POSITION    V:complement(40046..41953)
 MOTIF       Pfam: Peptidase_S8 Inhibitor_I9
-DBLINKS     NCBI-GI: 6320775
+DBLINKS     NCBI-ProteinID: NP_010854
             NCBI-GeneID: 856649
             SGD: S000000786
-            MIPS: YEL060C
             UniProt: P09232
 AASEQ       635
             MKLENTLFTLGALGSISAALVIPNLENAADHHELINKEDHHERPRKVEFTKDDDEEPSDS

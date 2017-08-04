@@ -1,19 +1,36 @@
 ENTRY       YPR025C           CDS       T00005
 NAME        CCL1
-DEFINITION  Ccl1p
+DEFINITION  (RefSeq) TFIIH complex kinase subunit CCL1
 ORTHOLOGY   K06634  cyclin H
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03022  Basal transcription factors
             sce03420  Nucleotide excision repair
 MODULE      sce_M00290  Holo-TFIIH complex
-CLASS       Genetic Information Processing; Transcription; Basal transcription factors [PATH:sce03022]
-            Genetic Information Processing; Replication and repair; Nucleotide excision repair [PATH:sce03420]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03022 Basal transcription factors
+                YPR025C (CCL1)
+              Replication and repair
+               03420 Nucleotide excision repair
+                YPR025C (CCL1)
+            Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Basal transcription factors
+                TFIIH
+                 YPR025C (CCL1)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              SSBR (single strand breaks repair)
+               NER (nucleotide excision repair)
+                TFIIH complex
+                 YPR025C (CCL1)
 POSITION    XVI:complement(613377..614558)
-MOTIF       Pfam: Cyclin_N TFIIB MRP-L28 GvpK
-DBLINKS     NCBI-GI: 6325282
+MOTIF       Pfam: Cyclin_C_2 Cyclin_N TFIIB MRP-L28
+DBLINKS     NCBI-ProteinID: NP_015350
             NCBI-GeneID: 856136
             SGD: S000006229
-            MIPS: YPR025C
             UniProt: P37366
 AASEQ       393
             MTDIQLNGKSTLDTPSATMSAKEKEAKLKSADENNKPPNYKRISDDDLYRHSSQYRMWSY

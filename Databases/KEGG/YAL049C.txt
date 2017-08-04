@@ -1,13 +1,12 @@
 ENTRY       YAL049C           CDS       T00005
 NAME        AIM2
-DEFINITION  Aim2p
+DEFINITION  (RefSeq) protein AIM2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    I:complement(51855..52595)
-MOTIF       Pfam: DLH Abhydrolase_5 Abhydrolase_2
-DBLINKS     NCBI-GI: 6319267
+MOTIF       Pfam: DLH
+DBLINKS     NCBI-ProteinID: NP_009350
             NCBI-GeneID: 851248
             SGD: S000000047
-            MIPS: YAL049C
             UniProt: P39721
 AASEQ       246
             MASNQPGKCCFEGVCHDGTPKGRREEIFGLDTYAAGSTSPKEKVIVILTDVYGNKFNNVL

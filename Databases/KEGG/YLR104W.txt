@@ -1,13 +1,12 @@
 ENTRY       YLR104W           CDS       T00005
 NAME        LCL2
-DEFINITION  Lcl2p
+DEFINITION  (RefSeq) Lcl2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XII:346585..346980
-MOTIF       Pfam: DUF4094 DUF2633
-DBLINKS     NCBI-GI: 6323133
+MOTIF       Pfam: SUIM_assoc
+DBLINKS     NCBI-ProteinID: NP_013205
             NCBI-GeneID: 850794
             SGD: S000004094
-            MIPS: YLR104W
             UniProt: Q08045
 AASEQ       131
             MSQSRWSIVLIFALFIFGSTGVNAFFNFGHHQQQQQQQQQSYEDQVLNNPCDGYLCPDTL

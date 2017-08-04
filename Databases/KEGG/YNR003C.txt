@@ -1,6 +1,6 @@
 ENTRY       YNR003C           CDS       T00005
 NAME        RPC34
-DEFINITION  Rpc34p
+DEFINITION  (RefSeq) DNA-directed RNA polymerase III subunit C34
 ORTHOLOGY   K03025  DNA-directed RNA polymerase III subunit RPC6
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00230  Purine metabolism
@@ -8,16 +8,30 @@ PATHWAY     sce00230  Purine metabolism
             sce01100  Metabolic pathways
             sce03020  RNA polymerase
 MODULE      sce_M00181  RNA polymerase III, eukaryotes
-CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
-            Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
-            Genetic Information Processing; Transcription; RNA polymerase [PATH:sce03020]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Nucleotide metabolism
+               00230 Purine metabolism
+                YNR003C (RPC34)
+               00240 Pyrimidine metabolism
+                YNR003C (RPC34)
+             Genetic Information Processing
+              Transcription
+               03020 RNA polymerase
+                YNR003C (RPC34)
+            Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase III system
+               RNA polymerase III
+                Pol III specific subunits
+                 YNR003C (RPC34)
 POSITION    XIV:complement(634344..635297)
-MOTIF       Pfam: RNA_pol_Rpc34 HTH_36 Rrf2 B-block_TFIIIC
-DBLINKS     NCBI-GI: 6324330
+MOTIF       Pfam: RNA_pol_Rpc34 Rrf2 B-block_TFIIIC CDC13_N HTH_46 RPA_C
+DBLINKS     NCBI-ProteinID: NP_014400
             NCBI-GeneID: 855737
             SGD: S000005286
-            MIPS: YNR003C
             UniProt: P32910
+STRUCTURE   PDB: 5FJ8 5FJ9 5FJA
 AASEQ       317
             MSGMIENGLQLSDNAKTLHSQMMSKGIGALFTQQELQKQMGIGSLTDLMSIVQELLDKNL
             IKLVKQNDELKFQGVLESEAQKKATMSAEEALVYSYIEASGREGIWSKTIKARTNLHQHV

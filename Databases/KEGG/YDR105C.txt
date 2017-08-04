@@ -1,13 +1,12 @@
 ENTRY       YDR105C           CDS       T00005
 NAME        TMS1
-DEFINITION  Tms1p
+DEFINITION  (RefSeq) Tms1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(665349..666770)
-MOTIF       Pfam: Serinc
-DBLINKS     NCBI-GI: 398365623
+MOTIF       Pfam: Serinc TMEM173 DUF872
+DBLINKS     NCBI-ProteinID: NP_010390
             NCBI-GeneID: 851682
             SGD: S000002512
-            MIPS: YDR105C
             UniProt: Q12116
 AASEQ       473
             MGAVISLPVSMAGSFVASCFGGCCSNLVTKTASSLGSSSLGTRLLYAVWLLLNSLISWVS

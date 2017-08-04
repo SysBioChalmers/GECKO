@@ -1,19 +1,29 @@
 ENTRY       YIL172C           CDS       T00005
 NAME        IMA3
-DEFINITION  Ima3p (EC:3.2.1.10 3.2.1.20)
-ORTHOLOGY   K01187  alpha-glucosidase [EC:3.2.1.20]
+DEFINITION  (RefSeq) oligo-1,6-glucosidase IMA3
+ORTHOLOGY   K01182  oligo-1,6-glucosidase [EC:3.2.1.10]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00052  Galactose metabolism
             sce00500  Starch and sucrose metabolism
             sce01100  Metabolic pathways
-CLASS       Metabolism; Carbohydrate metabolism; Galactose metabolism [PATH:sce00052]
-            Metabolism; Carbohydrate metabolism; Starch and sucrose metabolism [PATH:sce00500]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Carbohydrate metabolism
+               00052 Galactose metabolism
+                YIL172C (IMA3)
+               00500 Starch and sucrose metabolism
+                YIL172C (IMA3)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.2  Glycosylases
+               3.2.1  Glycosidases, i.e. enzymes that hydrolyse O- and S-glycosyl compounds
+                3.2.1.10  oligo-1,6-glucosidase
+                 YIL172C (IMA3)
 POSITION    IX:complement(16784..18553)
-MOTIF       Pfam: Alpha-amylase hDGE_amylase
-DBLINKS     NCBI-GI: 6322021
+MOTIF       Pfam: Alpha-amylase Malt_amylase_C hDGE_amylase
+DBLINKS     NCBI-ProteinID: NP_012096
             NCBI-GeneID: 854635
             SGD: S000001434
-            MIPS: YIL172C
             UniProt: P0CW40 P0CW41
 AASEQ       589
             MTISSAHPETEPKWWKEATIYQIYPASFKDSNNDGWGDMKGIASKLEYIKELGTDAIWIS

@@ -1,16 +1,29 @@
 ENTRY       YPL020C           CDS       T00005
 NAME        ULP1, NIB1
-DEFINITION  Ulp1p (EC:3.4.22.68)
+DEFINITION  (RefSeq) SUMO protease ULP1
 ORTHOLOGY   K08592  sentrin-specific protease 1 [EC:3.4.22.68]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.4  Acting on peptide bonds (peptidases)
+               3.4.22  Cysteine endopeptidases
+                3.4.22.68  Ulp1 peptidase
+                 YPL020C (ULP1)
+            Peptidases [BR:sce01002]
+             Cysteine Peptidases
+              Family C48: Ulp1 endopeptidase family
+               YPL020C (ULP1)
+            Ubiquitin system [BR:sce04121]
+             Deubiquitinating enzyme (DUB)
+              UBL-specific proteases (ULPs)
+               YPL020C (ULP1)
 POSITION    XVI:complement(512313..514178)
 MOTIF       Pfam: Peptidase_C48 NYD-SP28_assoc
-DBLINKS     NCBI-GI: 6325237
+DBLINKS     NCBI-ProteinID: NP_015305
             NCBI-GeneID: 856087
             SGD: S000005941
-            MIPS: YPL020C
             UniProt: Q02724
-STRUCTURE   PDB: 1EUV 2HL9 2HL8 2HKP
+STRUCTURE   PDB: 1EUV 2HL9 2HL8 2HKP 5H2X 5H2W 5H2V
 AASEQ       621
             MSVEVDKHRNTLQYHKKNPYSPLFSPISTYRCYPRVLNNPSESRRSASFSGIYKKRTNTS
             RFNYLNDRRVLSMEESMKDGSDRASKAGFIGGIRETLWNSGKYLWHTFVKNEPRNFDGSE

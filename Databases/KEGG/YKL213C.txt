@@ -1,16 +1,19 @@
 ENTRY       YKL213C           CDS       T00005
 NAME        DOA1, UFD3, ZZZ4
-DEFINITION  Doa1p
+DEFINITION  (RefSeq) Doa1p
 ORTHOLOGY   K14018  phospholipase A-2-activating protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04141  Protein processing in endoplasmic reticulum
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Protein processing in endoplasmic reticulum [PATH:sce04141]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04141 Protein processing in endoplasmic reticulum
+                YKL213C (DOA1)
 POSITION    XI:complement(31960..34107)
-MOTIF       Pfam: PUL PFU WD40 BBS2_Mid Proteasom_PSMB
-DBLINKS     NCBI-GI: 6322636
+MOTIF       Pfam: PUL PFU WD40 BBS2_Mid WD40_like ANAPC4_WD40 Proteasom_PSMB
+DBLINKS     NCBI-ProteinID: NP_012709
             NCBI-GeneID: 853667
             SGD: S000001696
-            MIPS: YKL213C
             UniProt: P36037
 STRUCTURE   PDB: 3ODT 3GAE 3L3F 3PST 3PSP
 AASEQ       715

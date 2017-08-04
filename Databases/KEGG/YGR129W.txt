@@ -1,17 +1,28 @@
 ENTRY       YGR129W           CDS       T00005
 NAME        SYF2, NTC31
-DEFINITION  Syf2p
+DEFINITION  (RefSeq) Syf2p
 ORTHOLOGY   K12868  pre-mRNA-splicing factor SYF2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03040  Spliceosome
-CLASS       Genetic Information Processing; Transcription; Spliceosome [PATH:sce03040]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03040 Spliceosome
+                YGR129W (SYF2)
+            Spliceosome [BR:sce03041]
+             Complex B
+              Other components
+               Prp19-related factors
+                YGR129W (SYF2)
+             Complex C
+                YGR129W (SYF2)
 POSITION    VII:750400..751047
-MOTIF       Pfam: SYF2 Dehydrin
-DBLINKS     NCBI-GI: 398365803
+MOTIF       Pfam: SYF2
+DBLINKS     NCBI-ProteinID: NP_011645
             NCBI-GeneID: 853030
             SGD: S000003361
-            MIPS: YGR129W
             UniProt: P53277
+STRUCTURE   PDB: 5GMK 5MPS 5WSG 5MQ0
 AASEQ       215
             MDFYKLDEKLKELKRKRVDVSIKSRKLADREIQEVSANRKPRVYSMEDVNDADESVGDTE
             SPEKEKAFHYTVQEYDAWERRHPQGKTGQSQRGGISYDQLAKLSYEKTLRNLATQTQNSS

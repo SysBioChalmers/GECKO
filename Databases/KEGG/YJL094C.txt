@@ -1,13 +1,12 @@
 ENTRY       YJL094C           CDS       T00005
 NAME        KHA1
-DEFINITION  Kha1p
+DEFINITION  (RefSeq) Kha1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    X:complement(251821..254442)
-MOTIF       Pfam: Na_H_Exchanger DUF485
-DBLINKS     NCBI-GI: 6322367
+MOTIF       Pfam: Na_H_Exchanger
+DBLINKS     NCBI-ProteinID: NP_012441
             NCBI-GeneID: 853351
             SGD: S000003630
-            MIPS: YJL094C
             UniProt: P40309
 AASEQ       873
             MANTVGGILSGVNPFHYNSSSPLTLFLFQACLILLVCNLIHIPFSMMRQPKVISEVISGV

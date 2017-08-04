@@ -1,13 +1,12 @@
 ENTRY       YDR081C           CDS       T00005
 NAME        PDC2
-DEFINITION  Pdc2p
+DEFINITION  (RefSeq) Pdc2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(607304..610081)
 MOTIF       Pfam: DDE_1 HTH_Tnp_Tc5
-DBLINKS     NCBI-GI: 6320286
+DBLINKS     NCBI-ProteinID: NP_010366
             NCBI-GeneID: 851654
             SGD: S000002488
-            MIPS: YDR081C
             UniProt: P32896
 AASEQ       925
             MLSIQQRYNICLMAERHPKWTQLELAKWAYETFQLPKIPSQGTISRLLARKSTYMNCKEH

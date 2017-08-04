@@ -1,16 +1,30 @@
 ENTRY       YFR010W           CDS       T00005
 NAME        UBP6
-DEFINITION  Ubp6p (EC:3.4.19.12 3.1.2.15)
-ORTHOLOGY   K11843  ubiquitin carboxyl-terminal hydrolase 14 [EC:3.1.2.15]
+DEFINITION  (RefSeq) ubiquitin-specific protease UBP6
+ORTHOLOGY   K11843  ubiquitin carboxyl-terminal hydrolase 14 [EC:3.4.19.12]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.4  Acting on peptide bonds (peptidases)
+               3.4.19  Omega peptidases
+                3.4.19.12  ubiquitinyl hydrolase 1
+                 YFR010W (UBP6)
+            Peptidases [BR:sce01002]
+             Cysteine Peptidases
+              Family C19: ubiquitin-specific protease family
+               YFR010W (UBP6)
+            Ubiquitin system [BR:sce04121]
+             Deubiquitinating enzyme (DUB)
+              Ubiquitin-specific proteases (UBPs)
+               UBP/USP
+                YFR010W (UBP6)
 POSITION    VI:165067..166566
-MOTIF       Pfam: UCH UCH_1 ubiquitin Peptidase_M66
-DBLINKS     NCBI-GI: 14318532
+MOTIF       Pfam: UCH UCH_1 ubiquitin
+DBLINKS     NCBI-ProteinID: NP_116665
             NCBI-GeneID: 850562
             SGD: S000001906
-            MIPS: YFR010W
             UniProt: P43593
-STRUCTURE   PDB: 1VJV
+STRUCTURE   PDB: 1VJV 5A5B
 AASEQ       499
             MSGETFEFNIRHSGKVYPITLSTDATSADLKSKAEELTQVPSARQKYMVKGGLSGEESIK
             IYPLIKPGSTVMLLGTPDANLISKPAKKNNFIEDLAPEQQVQQFAQLPVGFKNMGNTCYL

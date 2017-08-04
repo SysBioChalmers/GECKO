@@ -1,13 +1,12 @@
 ENTRY       YJL123C           CDS       T00005
 NAME        MTC1
-DEFINITION  Mtc1p
+DEFINITION  (RefSeq) Mtc1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    X:complement(188004..189440)
-MOTIF       Pfam: DUF2413 alpha-hel2
-DBLINKS     NCBI-GI: 6322338
+MOTIF       Pfam: DUF5427 Nha1_C Myc_N
+DBLINKS     NCBI-ProteinID: NP_012412
             NCBI-GeneID: 853319
             SGD: S000003659
-            MIPS: YJL123C
             UniProt: P47018
 AASEQ       478
             MSENKNSEAEDVFEFLDSLPEAKNGGKMVNTDVKGSQEGVKGGSNSVAGKTGNDGKKGDD

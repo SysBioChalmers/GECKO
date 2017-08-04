@@ -1,18 +1,27 @@
 ENTRY       YDR025W           CDS       T00005
 NAME        RPS11A
-DEFINITION  ribosomal 40S subunit protein S11A
+DEFINITION  (RefSeq) ribosomal 40S subunit protein S11A
 ORTHOLOGY   K02949  small subunit ribosomal protein S11e
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03010  Ribosome
-CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+MODULE      sce_M00177  Ribosome, eukaryotes
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03010 Ribosome
+                YDR025W (RPS11A)
+            Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Eukaryotes
+               Small subunit
+                YDR025W (RPS11A)
 POSITION    IV:join(491515..491559,491899..492324)
-MOTIF       Pfam: Ribosomal_S17
-DBLINKS     NCBI-GI: 398365071
+MOTIF       Pfam: Ribosomal_S17_N Ribosomal_S17 DUF922
+DBLINKS     NCBI-ProteinID: NP_010308
             NCBI-GeneID: 851589
             SGD: S000002432
-            MIPS: YDR025W
             UniProt: P0CX47 P0CX48
-STRUCTURE   PDB: 3U5C 3U5G 3O2Z 3O30 4BYL 4BYT 3IZB 1S1H
+STRUCTURE   PDB: 5TZS
 AASEQ       156
             MSTELTVQSERAFQKQPHIFNNPKVKTSKRTKRWYKNAGLGFKTPKTAIEGSYIDKKCPF
             TGLVSIRGKILTGTVVSTKMHRTIVIRRAYLHYIPKYNRYEKRHKNVPVHVSPAFRVQVG

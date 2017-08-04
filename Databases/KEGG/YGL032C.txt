@@ -1,12 +1,12 @@
 ENTRY       YGL032C           CDS       T00005
 NAME        AGA2
-DEFINITION  Aga2p
+DEFINITION  (RefSeq) Aga2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:complement(436570..436833)
-DBLINKS     NCBI-GI: 398364827
+MOTIF       Pfam: AGA2
+DBLINKS     NCBI-ProteinID: NP_011483
             NCBI-GeneID: 852851
             SGD: S000003000
-            MIPS: YGL032C
             UniProt: P32781
 AASEQ       87
             MQLLRCFSIFSVIASVLAQELTTICEQIPSPTLESTPYSLSTTTILANGKAMQGVFEYYK

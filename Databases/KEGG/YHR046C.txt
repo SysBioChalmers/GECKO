@@ -1,20 +1,31 @@
 ENTRY       YHR046C           CDS       T00005
 NAME        INM1
-DEFINITION  inositol monophosphate 1-phosphatase INM1 (EC:3.1.3.25)
+DEFINITION  (RefSeq) inositol monophosphate 1-phosphatase INM1
 ORTHOLOGY   K01092  myo-inositol-1(or 4)-monophosphatase [EC:3.1.3.25]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00562  Inositol phosphate metabolism
             sce01100  Metabolic pathways
-            sce01110  Biosynthesis of secondary metabolites
             sce04070  Phosphatidylinositol signaling system
-CLASS       Metabolism; Carbohydrate metabolism; Inositol phosphate metabolism [PATH:sce00562]
-            Environmental Information Processing; Signal transduction; Phosphatidylinositol signaling system [PATH:sce04070]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Carbohydrate metabolism
+               00562 Inositol phosphate metabolism
+                YHR046C (INM1)
+             Environmental Information Processing
+              Signal transduction
+               04070 Phosphatidylinositol signaling system
+                YHR046C (INM1)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.3  Phosphoric-monoester hydrolases
+                3.1.3.25  inositol-phosphate phosphatase
+                 YHR046C (INM1)
 POSITION    VIII:complement(197398..198285)
-MOTIF       Pfam: Inositol_P DUF1953
-DBLINKS     NCBI-GI: 6321836
+MOTIF       Pfam: Inositol_P
+DBLINKS     NCBI-ProteinID: NP_011912
             NCBI-GeneID: 856442
             SGD: S000001088
-            MIPS: YHR046C
             UniProt: P38710
 AASEQ       295
             MTIDLASIEKFLCELATEKVGPIIKSKSGTQKDYDLKTGSRSVDIVTAIDKQVEKLIWES

@@ -1,14 +1,18 @@
 ENTRY       YJR097W           CDS       T00005
 NAME        JJJ3, DPH4
-DEFINITION  Jjj3p
+DEFINITION  (RefSeq) Jjj3p
 ORTHOLOGY   K17867  diphthamide biosynthesis protein 4
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Translation factors [BR:sce03012]
+             Eukaryotic Type
+              Elongation factors
+               Elongation associated factors
+                YJR097W (JJJ3)
 POSITION    X:612413..612931
-MOTIF       Pfam: DnaJ zf-CSL Cullin RPT
-DBLINKS     NCBI-GI: 398365323
+MOTIF       Pfam: DnaJ zf-CSL
+DBLINKS     NCBI-ProteinID: NP_012631
             NCBI-GeneID: 853560
             SGD: S000003858
-            MIPS: YJR097W
             UniProt: P47138
 AASEQ       172
             MSLVNSLTHYEILRIPSDATQDEIKKAYRNRLLNTHPDKLSKSIHDTVSNVTINKIQDAY

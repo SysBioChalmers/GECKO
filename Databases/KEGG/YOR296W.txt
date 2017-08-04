@@ -1,12 +1,11 @@
 ENTRY       YOR296W           CDS       T00005
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) hypothetical protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:870202..874071
-MOTIF       Pfam: Membr_traf_MHD C2 LUC7 DUF4535
-DBLINKS     NCBI-GI: 6324870
+MOTIF       Pfam: Membr_traf_MHD C2 DUF810 LUC7
+DBLINKS     NCBI-ProteinID: NP_014939
             NCBI-GeneID: 854471
             SGD: S000005822
-            MIPS: YOR296W
             UniProt: Q08748
 AASEQ       1289
             MNRTVSTLSSTVSDVSVEIPSICNVINTELPTSDVYLYTLKLILLDYINEPRFKEAALLS

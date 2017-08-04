@@ -1,13 +1,18 @@
 ENTRY       YPL010W           CDS       T00005
 NAME        RET3
-DEFINITION  Ret3p
+DEFINITION  (RefSeq) coatomer subunit zeta
+ORTHOLOGY   K20472  coatomer subunit zeta
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endoplasmic reticulum (ER) - Golgi transport
+              Retrieval pathways
+               Coat protein complex I (COP-I)
+                YPL010W (RET3)
 POSITION    XVI:535018..535587
 MOTIF       Pfam: Clat_adaptor_s
-DBLINKS     NCBI-GI: 6325247
+DBLINKS     NCBI-ProteinID: NP_015315
             NCBI-GeneID: 856097
             SGD: S000005931
-            MIPS: YPL010W
             UniProt: P53600
 AASEQ       189
             MSSLSLYTVQAVLILDQQGERIYAKYYQPPHRSDEGHQLLFNSVKKQKEFEKQLYRKTHK

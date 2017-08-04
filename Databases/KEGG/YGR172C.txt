@@ -1,13 +1,18 @@
 ENTRY       YGR172C           CDS       T00005
 NAME        YIP1
-DEFINITION  Yip1p
+DEFINITION  (RefSeq) transporter YIP1
+ORTHOLOGY   K20363  protein transport protein YIP1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endoplasmic reticulum (ER) - Golgi transport
+              Forward pathways
+               Rab associated proteins
+                YGR172C (YIP1)
 POSITION    VII:complement(842845..843591)
 MOTIF       Pfam: Yip1
-DBLINKS     NCBI-GI: 398366019
+DBLINKS     NCBI-ProteinID: NP_011688
             NCBI-GeneID: 853082
             SGD: S000003404
-            MIPS: YGR172C
             UniProt: P53039
 AASEQ       248
             MSFYNTSNNANNGGGFYQPSAQFAVPQGSMSFQNTVGSSNTGNDNNLGVAPDPLPVGILH

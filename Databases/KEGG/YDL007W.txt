@@ -1,19 +1,28 @@
 ENTRY       YDL007W           CDS       T00005
 NAME        RPT2, YHS4, YTA5
-DEFINITION  proteasome regulatory particle base subunit RPT2
+DEFINITION  (RefSeq) proteasome regulatory particle base subunit RPT2
 ORTHOLOGY   K03062  26S proteasome regulatory subunit T2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03050  Proteasome
 MODULE      sce_M00341  Proteasome, 19S regulatory particle (PA700)
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Proteasome [PATH:sce03050]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               03050 Proteasome
+                YDL007W (RPT2)
+            Proteasome [BR:sce03051]
+             Eukaryotic proteasome
+              Regulatory particles
+               PA700 (19S proteasome)
+                ATPase subunits
+                 YDL007W (RPT2)
 POSITION    IV:438047..439360
-MOTIF       Pfam: AAA AAA_22 AAA_2 DUF815 AAA_5 AAA_16 RuvB_N AAA_28 AAA_14 AAA_17 AAA_18 IstB_IS21 AAA_19 Zeta_toxin AAA_3 AAA_33 NB-ARC TIP49 NTPase_1 AAA_25 RNA_helicase PhoH Mg_chelatase AAA_24 KaiC NACHT
-DBLINKS     NCBI-GI: 6320197
+MOTIF       Pfam: AAA AAA_2 DUF815 AAA_22 AAA_5 AAA_16 RuvB_N AAA_28 AAA_33 AAA_3 AAA_14 IstB_IS21 AAA_18 TIP49 AAA_25 RNA_helicase NTPase_1 Mg_chelatase ATPase PhoH NB-ARC Zeta_toxin AAA_24
+DBLINKS     NCBI-ProteinID: NP_010277
             NCBI-GeneID: 851557
             SGD: S000002165
-            MIPS: YDL007W
             UniProt: P40327
-STRUCTURE   PDB: 4B4T 4C0V
+STRUCTURE   PDB: 5MP9 5MPA 4CR2 4CR4 4CR3 5A5B
 AASEQ       437
             MGQGVSSGQDKKKKKGSNQKPKYEPPVQSKFGRKKRKGGPATAEKLPNIYPSTRCKLKLL
             RMERIKDHLLLEEEFVSNSEILKPFEKKQEEEKKQLEEIRGNPLSIGTLEEIIDDDHAIV

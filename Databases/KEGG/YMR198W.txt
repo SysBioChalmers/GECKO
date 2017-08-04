@@ -1,13 +1,12 @@
 ENTRY       YMR198W           CDS       T00005
 NAME        CIK1
-DEFINITION  Cik1p
+DEFINITION  (RefSeq) Cik1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:659745..661529
-MOTIF       Pfam: DUF489
-DBLINKS     NCBI-GI: 6323854
+MOTIF       Pfam: Microtub_bd Med9 Cep57_MT_bd DUF2525 DUF4527 DUF489 DUF2205
+DBLINKS     NCBI-ProteinID: NP_013925
             NCBI-GeneID: 855238
             SGD: S000004811
-            MIPS: YMR198W
             UniProt: Q01649
 AASEQ       594
             MNNSKIPKLSFHSDPNNVTRDFPKTKRQKVQKREMDMILTPNNNKLNILHSSGSGIRRCY

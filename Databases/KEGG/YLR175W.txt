@@ -1,17 +1,39 @@
 ENTRY       YLR175W           CDS       T00005
 NAME        CBF5
-DEFINITION  pseudouridine synthase CBF5 (EC:5.4.99.-)
+DEFINITION  (RefSeq) pseudouridine synthase CBF5
 ORTHOLOGY   K11131  H/ACA ribonucleoprotein complex subunit 4 [EC:5.4.99.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03008  Ribosome biogenesis in eukaryotes
 MODULE      sce_M00425  H/ACA ribonucleoprotein complex
-CLASS       Genetic Information Processing; Translation; Ribosome biogenesis in eukaryotes [PATH:sce03008]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03008 Ribosome biogenesis in eukaryotes
+                YLR175W (CBF5)
+            Enzymes [BR:sce01000]
+             5. Isomerases
+              5.4  Intramolecular transferases
+               5.4.99  Transferring other groups
+                5.4.99.-  
+                 YLR175W (CBF5)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Sno RNPs
+               Box H/ACA snoRNPs
+                YLR175W (CBF5)
+             Prokaryotic Type
+                YLR175W (CBF5)
+            DNA replication proteins [BR:sce03032]
+             Eukaryotic Type
+              DNA Replication Termination Factors
+               Telomerase complex (animals)
+                Dyskerin complex
+                 YLR175W (CBF5)
 POSITION    XII:506134..507585
-MOTIF       Pfam: DKCLD TruB_N PUA GAGA_bind
-DBLINKS     NCBI-GI: 6323204
+MOTIF       Pfam: DKCLD TruB_C_2 TruB_N PUA GAGA_bind
+DBLINKS     NCBI-ProteinID: NP_013276
             NCBI-GeneID: 850872
             SGD: S000004165
-            MIPS: YLR175W
             UniProt: P33322
 STRUCTURE   PDB: 3U28 3ZV0 3UAI
 AASEQ       483

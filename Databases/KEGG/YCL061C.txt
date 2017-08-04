@@ -1,16 +1,24 @@
 ENTRY       YCL061C           CDS       T00005
 NAME        MRC1, YCL060C
-DEFINITION  Mrc1p
+DEFINITION  (RefSeq) chromatin-modulating protein MRC1
 ORTHOLOGY   K11272  mediator of replication checkpoint protein 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
-CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YCL061C (MRC1)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Sister chromatid cohesion proteins
+               Tof1-Csm3-Mrc1 checkpoint complex
+                YCL061C (MRC1)
 POSITION    III:complement(18816..22106)
-MOTIF       Pfam: MRC1 hNIFK_binding
-DBLINKS     NCBI-GI: 10383754
+MOTIF       Pfam: MRC1
+DBLINKS     NCBI-ProteinID: NP_009871
             NCBI-GeneID: 850297
             SGD: S000000566
-            MIPS: YCL061C
             UniProt: P25588
 AASEQ       1096
             MDDALHALSSLTAKKRTTTYKKVAVPILDENDNTNGNGPNDIDNPPELTGNGFLFANATL

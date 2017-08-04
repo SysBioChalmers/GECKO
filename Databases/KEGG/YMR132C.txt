@@ -1,13 +1,12 @@
 ENTRY       YMR132C           CDS       T00005
 NAME        JLP2
-DEFINITION  Jlp2p
+DEFINITION  (RefSeq) Jlp2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:complement(534944..535570)
-MOTIF       Pfam: DUF814 Lipl32 DUF3551 PWWP
-DBLINKS     NCBI-GI: 6323780
+MOTIF       Pfam: DUF814 Lipl32 DUF3551
+DBLINKS     NCBI-ProteinID: NP_013851
             NCBI-GeneID: 855162
             SGD: S000004739
-            MIPS: YMR132C
             UniProt: P40206
 AASEQ       208
             MVYFYESKPTEYSTPYQIVMGKDKFENDLLIKWSYRELNYVWFHADKYSSGHVYLKLRPN

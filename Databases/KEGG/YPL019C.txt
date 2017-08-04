@@ -1,13 +1,12 @@
 ENTRY       YPL019C           CDS       T00005
 NAME        VTC3, PHM2
-DEFINITION  Vtc3p
+DEFINITION  (RefSeq) vacuolar transporter chaperone
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:complement(514511..517018)
-MOTIF       Pfam: VTC SPX DUF202
-DBLINKS     NCBI-GI: 6325238
+MOTIF       Pfam: VTC DUF202 SPX NMN_transporter
+DBLINKS     NCBI-ProteinID: NP_015306
             NCBI-GeneID: 856088
             SGD: S000005940
-            MIPS: YPL019C
             UniProt: Q02725
 AASEQ       835
             MLFGIKLANDVYPPWKDSYIDYERLKKLLKESVIHDGRSSVDSWSERNESDFVEALDKEL

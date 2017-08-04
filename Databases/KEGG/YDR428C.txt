@@ -1,19 +1,30 @@
 ENTRY       YDR428C           CDS       T00005
 NAME        BNA7
-DEFINITION  arylformamidase (EC:3.5.1.9 3.1.-.-)
+DEFINITION  (RefSeq) arylformamidase
 ORTHOLOGY   K14263  kynurenine formamidase [EC:3.5.1.9]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00380  Tryptophan metabolism
             sce00630  Glyoxylate and dicarboxylate metabolism
             sce01100  Metabolic pathways
-CLASS       Metabolism; Carbohydrate metabolism; Glyoxylate and dicarboxylate metabolism [PATH:sce00630]
-            Metabolism; Amino acid metabolism; Tryptophan metabolism [PATH:sce00380]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Carbohydrate metabolism
+               00630 Glyoxylate and dicarboxylate metabolism
+                YDR428C (BNA7)
+              Amino acid metabolism
+               00380 Tryptophan metabolism
+                YDR428C (BNA7)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.5  Acting on carbon-nitrogen bonds, other than peptide bonds
+               3.5.1  In linear amides
+                3.5.1.9  arylformamidase
+                 YDR428C (BNA7)
 POSITION    IV:complement(1323454..1324239)
-MOTIF       Pfam: Abhydrolase_3 DUF2424 Abhydrolase_6 Abhydrolase_5 Abhydrolase_1 DUF900 DUF915 DUF2305 UPF0565
-DBLINKS     NCBI-GI: 398366589
+MOTIF       Pfam: Abhydrolase_3 Say1_Mug180 LIDHydrolase DUF900 DUF915 AbiH Abhydrolase_1
+DBLINKS     NCBI-ProteinID: NP_010716
             NCBI-GeneID: 852038
             SGD: S000002836
-            MIPS: YDR428C
             UniProt: Q04066
 STRUCTURE   PDB: 1VKH
 AASEQ       261

@@ -1,18 +1,39 @@
 ENTRY       YER148W           CDS       T00005
 NAME        SPT15, BTF1, TBP1
-DEFINITION  Spt15p
+DEFINITION  (RefSeq) TATA-binding protein
 ORTHOLOGY   K03120  transcription initiation factor TFIID TATA-box-binding protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03022  Basal transcription factors
-CLASS       Genetic Information Processing; Transcription; Basal transcription factors [PATH:sce03022]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03022 Basal transcription factors
+                YER148W (SPT15)
+            Transcription factors [BR:sce03000]
+             Eukaryotic Type
+              beta-Scaffold factors with minor groove contacts
+               TATA-binding proteins
+                YER148W (SPT15)
+            Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Basal transcription factors
+                TFIID
+                 YER148W (SPT15)
+              RNA polymerase III system
+                TFIIIB
+                 YER148W (SPT15)
+              RNA polymerase I system
+                SL1/TIF-1B
+                 YER148W (SPT15)
 POSITION    V:465303..466025
-MOTIF       Pfam: TBP DUF3378
-DBLINKS     NCBI-GI: 398364911
+MOTIF       Pfam: TBP DUF3378 DUF4295
+DBLINKS     NCBI-ProteinID: NP_011075
             NCBI-GeneID: 856891
             SGD: S000000950
-            MIPS: YER148W
             UniProt: P13393
-STRUCTURE   PDB: 1YTB 1NH2 4B0A 1RM1 1YTF 1TBP 1NGM 1TBA
+STRUCTURE   PDB: 1YTB 1NH2 4B0A 1RM1 1YTF 1TBP 1NGM 5FYW 5FMF 4V1N 5FZ5
+                 4V1O 5SVA 1TBA
 AASEQ       240
             MADEERLKEFKEANKIVFDPNTRQVWENQNRDGTKPATTFQSEEDIKRAAPESEKDTSAT
             SGIVPTLQNIVATVTLGCRLDLKTVALHARNAEYNPKRFAAVIMRIREPKTTALIFASGK

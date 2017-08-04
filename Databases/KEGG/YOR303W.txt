@@ -1,20 +1,31 @@
 ENTRY       YOR303W           CDS       T00005
 NAME        CPA1
-DEFINITION  carbamoyl-phosphate synthase (glutamine-hydrolyzing) CPA1 (EC:6.3.5.5)
+DEFINITION  (RefSeq) carbamoyl-phosphate synthase (glutamine-hydrolyzing) CPA1
 ORTHOLOGY   K01956  carbamoyl-phosphate synthase small subunit [EC:6.3.5.5]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00240  Pyrimidine metabolism
             sce00250  Alanine, aspartate and glutamate metabolism
             sce01100  Metabolic pathways
 MODULE      sce_M00051  Uridine monophosphate biosynthesis, glutamine (+ PRPP) => UMP
-CLASS       Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
-            Metabolism; Amino acid metabolism; Alanine, aspartate and glutamate metabolism [PATH:sce00250]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Nucleotide metabolism
+               00240 Pyrimidine metabolism
+                YOR303W (CPA1)
+              Amino acid metabolism
+               00250 Alanine, aspartate and glutamate metabolism
+                YOR303W (CPA1)
+            Enzymes [BR:sce01000]
+             6. Ligases
+              6.3  Forming carbon-nitrogen bonds
+               6.3.5  Carbon-nitrogen ligases with glutamine as amido-N-donor
+                6.3.5.5  carbamoyl-phosphate synthase (glutamine-hydrolysing)
+                 YOR303W (CPA1)
 POSITION    XV:882899..884134
 MOTIF       Pfam: GATase CPSase_sm_chain Peptidase_C26 DJ-1_PfpI
-DBLINKS     NCBI-GI: 398366173
+DBLINKS     NCBI-ProteinID: NP_014947
             NCBI-GeneID: 854479
             SGD: S000005829
-            MIPS: YOR303W
             UniProt: P07258
 AASEQ       411
             MSSAATKATFCIQNGPSFEGISFGANKSVAGETVFTTSLVGYPESMTDPSYRGQILVFTQ

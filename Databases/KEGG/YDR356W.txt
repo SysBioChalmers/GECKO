@@ -1,13 +1,12 @@
 ENTRY       YDR356W           CDS       T00005
 NAME        SPC110, NUF1, XCM1
-DEFINITION  Spc110p
+DEFINITION  (RefSeq) Spc110p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:1186107..1188941
-MOTIF       Pfam: Reo_sigmaC
-DBLINKS     NCBI-GI: 398366517
+MOTIF       Pfam: PKcGMP_CC Fib_alpha Reo_sigmaC TPR_MLP1_2
+DBLINKS     NCBI-ProteinID: NP_010643
             NCBI-GeneID: 851957
             SGD: S000002764
-            MIPS: YDR356W
             UniProt: P32380
 STRUCTURE   PDB: 4DS7
 AASEQ       944

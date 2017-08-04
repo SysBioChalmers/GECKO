@@ -1,13 +1,11 @@
 ENTRY       Q0255             CDS       T00005
-NAME        ORF1
-DEFINITION  maturase-like protein
+DEFINITION  (RefSeq) maturase-like protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    MT:join(74495..75622,75663..75872,75904..75984)
 MOTIF       Pfam: LAGLIDADG_1 NUMOD1 Endonuc_subdom
-DBLINKS     NCBI-GI: 6226541
+DBLINKS     NCBI-ProteinID: NP_009327
             NCBI-GeneID: 854623
             SGD: S000007282
-            MIPS: Q0255
             UniProt: P03881
 AASEQ       472
             MIKWTMINIYLLLMFLIIKNNNNNNNYNNITKYNKDMDLYSIQSPYIKNMNIIKRGYHTS

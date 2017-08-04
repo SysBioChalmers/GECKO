@@ -1,14 +1,17 @@
 ENTRY       YOR348C           CDS       T00005
 NAME        PUT4
-DEFINITION  Put4p
+DEFINITION  (RefSeq) proline permease PUT4
 ORTHOLOGY   K16261  yeast amino acid transporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Other Transporters
+              Electrochemical potential-driven transporters [TC:2]
+               YOR348C (PUT4)
 POSITION    XV:complement(986899..988782)
-MOTIF       Pfam: AA_permease AA_permease_2
-DBLINKS     NCBI-GI: 6324924
+MOTIF       Pfam: AA_permease AA_permease_2 NCE101
+DBLINKS     NCBI-ProteinID: NP_014993
             NCBI-GeneID: 854530
             SGD: S000005875
-            MIPS: YOR348C
             UniProt: P15380
 AASEQ       627
             MVNILPFHKNNRHSAGVVTCADDVSGDGSGGDTKKEEDVVQVTESPSSGSRNNHRSDNEK

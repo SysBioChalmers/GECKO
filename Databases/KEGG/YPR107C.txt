@@ -1,16 +1,31 @@
 ENTRY       YPR107C           CDS       T00005
 NAME        YTH1
-DEFINITION  Yth1p
+DEFINITION  (RefSeq) cleavage polyadenylation factor RNA-binding subunit YTH1
 ORTHOLOGY   K14404  cleavage and polyadenylation specificity factor subunit 4
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03015  mRNA surveillance pathway
-CLASS       Genetic Information Processing; Translation; mRNA surveillance pathway [PATH:sce03015]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03015 mRNA surveillance pathway
+                YPR107C (YTH1)
+            Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Other transcription-related factors
+                Transcription termination factor
+                 YPR107C (YTH1)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA processing factors
+               3' end processing
+                Cleavage and polyadenylation specificity factor (CPSF) complex
+                 YPR107C (YTH1)
 POSITION    XVI:complement(741438..742064)
-MOTIF       Pfam: zf-CCCH
-DBLINKS     NCBI-GI: 6325364
+MOTIF       Pfam: zf-CCCH Torus zf-CCCH_3
+DBLINKS     NCBI-ProteinID: NP_015432
             NCBI-GeneID: 856222
             SGD: S000006311
-            MIPS: YPR107C
             UniProt: Q06102
 AASEQ       208
             MSLIHPDTAKYPFKFEPFLRQEYSFSLDPDRPICEFYNSREGPKSCPRGPLCPKKHVLPI

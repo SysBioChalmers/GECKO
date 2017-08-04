@@ -1,18 +1,27 @@
 ENTRY       YKL132C           CDS       T00005
 NAME        RMA1
-DEFINITION  putative tetrahydrofolate synthase (EC:6.3.2.17)
-ORTHOLOGY   K01930  folylpolyglutamate synthase [EC:6.3.2.17]
+DEFINITION  (RefSeq) putative tetrahydrofolate synthase
+ORTHOLOGY   K20457  dihydrofolate synthase [EC:6.3.2.12]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00790  Folate biosynthesis
             sce01100  Metabolic pathways
 MODULE      sce_M00126  Tetrahydrofolate biosynthesis, GTP => THF
-CLASS       Metabolism; Metabolism of cofactors and vitamins; Folate biosynthesis [PATH:sce00790]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Metabolism of cofactors and vitamins
+               00790 Folate biosynthesis
+                YKL132C (RMA1)
+            Enzymes [BR:sce01000]
+             6. Ligases
+              6.3  Forming carbon-nitrogen bonds
+               6.3.2  Acid-D-amino-acid ligases (peptide synthases)
+                6.3.2.12  dihydrofolate synthase
+                 YKL132C (RMA1)
 POSITION    XI:complement(193574..194866)
-MOTIF       Pfam: Mur_ligase_M
-DBLINKS     NCBI-GI: 6322718
+MOTIF       Pfam: Pox_D3 Mur_ligase_M
+DBLINKS     NCBI-ProteinID: NP_012790
             NCBI-GeneID: 853727
             SGD: S000001615
-            MIPS: YKL132C
             UniProt: P36001
 AASEQ       430
             MDDISGRQTLPRINRLLEHVGNPQDSLSILHIAGTNGKETVSKFLTSILQHPGQQRQRVL

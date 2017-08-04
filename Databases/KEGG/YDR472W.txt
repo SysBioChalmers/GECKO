@@ -1,13 +1,22 @@
 ENTRY       YDR472W           CDS       T00005
 NAME        TRS31
-DEFINITION  Trs31p
+DEFINITION  (RefSeq) TRAPP subunit TRS31
+ORTHOLOGY   K20280  trafficking protein particle complex subunit 5
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endosome - Golgi transport
+              Tethering complex
+               TRAPP complex II
+                YDR472W (TRS31)
+             Endoplasmic reticulum (ER) - Golgi transport
+              Forward pathways
+               TRAPP complex I
+                YDR472W (TRS31)
 POSITION    IV:1403322..1404173
 MOTIF       Pfam: TRAPP
-DBLINKS     NCBI-GI: 398366627
+DBLINKS     NCBI-ProteinID: NP_010760
             NCBI-GeneID: 852083
             SGD: S000002880
-            MIPS: YDR472W
             UniProt: Q03337
 STRUCTURE   PDB: 3CUE
 AASEQ       283

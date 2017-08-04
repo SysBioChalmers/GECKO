@@ -1,12 +1,12 @@
 ENTRY       YPR083W           CDS       T00005
 NAME        MDM36
-DEFINITION  Mdm36p
+DEFINITION  (RefSeq) Mdm36p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:704854..706593
-DBLINKS     NCBI-GI: 6325340
+MOTIF       Pfam: AAA_14
+DBLINKS     NCBI-ProteinID: NP_015408
             NCBI-GeneID: 856198
             SGD: S000006287
-            MIPS: YPR083W
             UniProt: Q06820
 AASEQ       579
             MDENGTVKPGYELKGLNSGNSRSNMDKDPIVSKFHRAGLNDSADEEDTDINGNRNTSWIT

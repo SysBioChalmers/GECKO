@@ -1,12 +1,11 @@
 ENTRY       YDL144C           CDS       T00005
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) hypothetical protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(198662..199732)
-MOTIF       Pfam: ApbA_C ApbA Pyr_redox Phenol_hyd_sub
-DBLINKS     NCBI-GI: 37362628
+MOTIF       Pfam: ApbA_C ApbA Pyr_redox DAO
+DBLINKS     NCBI-ProteinID: NP_010137
             NCBI-GeneID: 851411
             SGD: S000002303
-            MIPS: YDL144C
             UniProt: Q07589
 AASEQ       356
             MSRILVIGAGGVGVITALSLWLKKESDVSLVVRSDYDRVLKHGYTIESCDYGRLEGWRPH

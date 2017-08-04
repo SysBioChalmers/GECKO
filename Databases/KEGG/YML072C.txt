@@ -1,13 +1,12 @@
 ENTRY       YML072C           CDS       T00005
 NAME        TCB3
-DEFINITION  Tcb3p
+DEFINITION  (RefSeq) Tcb3p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:complement(124730..129367)
-MOTIF       Pfam: C2 O-ag_pol_Wzy
-DBLINKS     NCBI-GI: 6323568
+MOTIF       Pfam: C2
+DBLINKS     NCBI-ProteinID: NP_013639
             NCBI-GeneID: 854903
             SGD: S000004537
-            MIPS: YML072C
             UniProt: Q03640
 AASEQ       1545
             MTGIKAQVHPPPDSTLFHEEEKKKVGGNLPQKVINQQERGSDHAPSGHHQYHQLINHDAN

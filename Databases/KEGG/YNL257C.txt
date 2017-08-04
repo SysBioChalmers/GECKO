@@ -1,12 +1,12 @@
 ENTRY       YNL257C           CDS       T00005
-NAME        SIP3
-DEFINITION  Sip3p
+NAME        SIP3, LAM3
+DEFINITION  (RefSeq) Sip3p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIV:complement(160631..164320)
-DBLINKS     NCBI-GI: 6324072
+MOTIF       Pfam: DUF4782 PH BAR_3
+DBLINKS     NCBI-ProteinID: NP_014142
             NCBI-GeneID: 855464
             SGD: S000005201
-            MIPS: YNL257C
             UniProt: P38717
 AASEQ       1229
             MSVHGRDPKKRQLRLISVAFKEASIDSPSFRASVNFFQTRVDALEDWIEKTVDFFDQKYK

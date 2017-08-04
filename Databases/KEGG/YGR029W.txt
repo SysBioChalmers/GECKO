@@ -1,14 +1,24 @@
 ENTRY       YGR029W           CDS       T00005
 NAME        ERV1
-DEFINITION  Erv1p (EC:1.8.3.2)
+DEFINITION  (RefSeq) flavin-linked sulfhydryl oxidase
 ORTHOLOGY   K17783  mitochondrial FAD-linked sulfhydryl oxidase [EC:1.8.3.2]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.8  Acting on a sulfur group of donors
+               1.8.3  With oxygen as acceptor
+                1.8.3.2  thiol oxidase
+                 YGR029W (ERV1)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial protein import machinery
+              Inter membrane space
+               Mitochondrial intermembrane space assembly (MIA) complex
+                YGR029W (ERV1)
 POSITION    VII:join(543553..543638,543722..544205)
 MOTIF       Pfam: Evr1_Alr
-DBLINKS     NCBI-GI: 398365231
+DBLINKS     NCBI-ProteinID: NP_011543
             NCBI-GeneID: 852916
             SGD: S000003261
-            MIPS: YGR029W
             UniProt: P27882
 STRUCTURE   PDB: 3W4Y 4E0H 4E0I
 AASEQ       189

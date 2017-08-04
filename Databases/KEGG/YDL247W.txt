@@ -1,14 +1,18 @@
 ENTRY       YDL247W           CDS       T00005
 NAME        MPH2
-DEFINITION  Mph2p
+DEFINITION  (RefSeq) alpha-glucoside permease
 ORTHOLOGY   K08141  MFS transporter, SP family, general alpha glucoside:H+ symporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Major Facilitator Superfamily (MFS)
+              Sugar transporters
+               Sugar porter (SP) family [TC:2.A.1.1]
+                YDL247W (MPH2)
 POSITION    IV:5985..7814
-MOTIF       Pfam: Sugar_tr MFS_1 MFS_2 DUF1431
-DBLINKS     NCBI-GI: 6319954
+MOTIF       Pfam: Sugar_tr MFS_1 MFS_2
+DBLINKS     NCBI-ProteinID: NP_010034
             NCBI-GeneID: 851350
             SGD: S000002406
-            MIPS: YDL247W
             UniProt: P0CD99
 AASEQ       609
             MKNLSFLINRRKENTSDSNVYPGKAKSHEPSWIEMDDQTKKDGLDIVHVEFSPDTRAPSD

@@ -1,12 +1,11 @@
 ENTRY       YJL163C           CDS       T00005
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) hypothetical protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    X:complement(111666..113333)
-MOTIF       Pfam: MFS_1
-DBLINKS     NCBI-GI: 6322298
+MOTIF       Pfam: MFS_1 DUF3099 DUF788
+DBLINKS     NCBI-ProteinID: NP_012372
             NCBI-GeneID: 853276
             SGD: S000003699
-            MIPS: YJL163C
             UniProt: P46996
 AASEQ       555
             MSNEDETTRLMSSDEMDYLLETAGINALEEIISQNDSTGINLDTNETAQDSSYDSIRRSP

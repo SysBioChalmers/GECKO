@@ -1,14 +1,17 @@
 ENTRY       YJR001W           CDS       T00005
 NAME        AVT1
-DEFINITION  Avt1p
+DEFINITION  (RefSeq) Avt1p
 ORTHOLOGY   K15015  solute carrier family 32 (vesicular inhibitory amino acid transporter)
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Solute Carrier Family (SLC)
+              SLC32: Vesicular inhibitory amino acid transporter
+               YJR001W (AVT1)
 POSITION    X:436802..438610
 MOTIF       Pfam: Aa_trans HpaB
-DBLINKS     NCBI-GI: 6322460
+DBLINKS     NCBI-ProteinID: NP_012534
             NCBI-GeneID: 853457
             SGD: S000003761
-            MIPS: YJR001W
             UniProt: P47082
 AASEQ       602
             MPEQEPLSPNGRKRSEVHYISIPLNRGSAFSPDDSVSQFQSDGFMTRRQSILDHPVGSFK

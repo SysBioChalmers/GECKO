@@ -1,14 +1,19 @@
 ENTRY       YGL093W           CDS       T00005
 NAME        SPC105
-DEFINITION  Spc105p
+DEFINITION  (RefSeq) Spc105p
 ORTHOLOGY   K11563  kinetochore protein Spc7/SPC105
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centromeric chromatin formation proteins
+               Kinetochore proteins
+                NMS complex
+                 YGL093W (SPC105)
 POSITION    VII:334886..337639
-MOTIF       Pfam: Spc7 PilO BLOC1_2
-DBLINKS     NCBI-GI: 6321345
+MOTIF       Pfam: Spc7 PilO Spc7_C2
+DBLINKS     NCBI-ProteinID: NP_011422
             NCBI-GeneID: 852787
             SGD: S000003061
-            MIPS: YGL093W
             UniProt: P53148
 AASEQ       917
             MNVDERSRIGGREKDAGPGKGILKQNQSSQMTSSFLENPGVRIPTRIITKKEVLDGSNTT

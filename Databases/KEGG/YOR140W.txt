@@ -1,13 +1,12 @@
 ENTRY       YOR140W           CDS       T00005
 NAME        SFL1
-DEFINITION  Sfl1p
+DEFINITION  (RefSeq) Sfl1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:586981..589281
-MOTIF       Pfam: HSF_DNA-bind
-DBLINKS     NCBI-GI: 398365337
+MOTIF       Pfam: HSF_DNA-bind FAST_2
+DBLINKS     NCBI-ProteinID: NP_014783
             NCBI-GeneID: 854307
             SGD: S000005666
-            MIPS: YOR140W
             UniProt: P20134
 AASEQ       766
             MSEEETVSAPAPASTPAPAGTDVGSGGAAAGIANAGAEGGDGAEDVKKHGSKMLVGPRPP

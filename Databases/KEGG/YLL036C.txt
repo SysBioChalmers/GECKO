@@ -1,20 +1,48 @@
 ENTRY       YLL036C           CDS       T00005
 NAME        PRP19, PSO4
-DEFINITION  E3 ubiquitin-protein ligase PRP19
-ORTHOLOGY   K10599  pre-mRNA-processing factor 19 [EC:6.3.2.19]
+DEFINITION  (RefSeq) E3 ubiquitin-protein ligase PRP19
+ORTHOLOGY   K10599  pre-mRNA-processing factor 19 [EC:2.3.2.27]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03040  Spliceosome
             sce04120  Ubiquitin mediated proteolysis
-CLASS       Genetic Information Processing; Transcription; Spliceosome [PATH:sce03040]
-            Genetic Information Processing; Folding, sorting and degradation; Ubiquitin mediated proteolysis [PATH:sce04120]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03040 Spliceosome
+                YLL036C (PRP19)
+              Folding, sorting and degradation
+               04120 Ubiquitin mediated proteolysis
+                YLL036C (PRP19)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.3  Acyltransferases
+               2.3.2  Aminoacyltransferases
+                2.3.2.27  RING-type E3 ubiquitin transferase
+                 YLL036C (PRP19)
+            Spliceosome [BR:sce03041]
+             Complex B
+              Other components
+               Prp19 complex
+                YLL036C (PRP19)
+             Complex C
+               Prp19-CDC5 complex
+                YLL036C (PRP19)
+            Ubiquitin system [BR:sce04121]
+             Ubiquitin ligases (E3)
+              U-box type E3
+               YLL036C (PRP19)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              Other factors with a suspected DNA repair function
+               PSO4 complex
+                YLL036C (PRP19)
 POSITION    XII:complement(66745..68256)
-MOTIF       Pfam: Prp19 U-box Med24_N Lactonase
-DBLINKS     NCBI-GI: 6322992
+MOTIF       Pfam: Prp19 U-box GIT_CC Lactonase
+DBLINKS     NCBI-ProteinID: NP_013064
             NCBI-GeneID: 850623
             SGD: S000003959
-            MIPS: YLL036C
             UniProt: P32523
-STRUCTURE   PDB: 2BAY 3LRV 1N87
+STRUCTURE   PDB: 2BAY 4ZB4 3LRV 5GMK 5LJ5 5WSG 5MQ0 1N87
 AASEQ       503
             MLCAISGKVPRRPVLSPKSRTIFEKSLLEQYVKDTGNDPITNEPLSIEEIVEIVPSAQQA
             SLTESTNSATLKANYSIPNLLTSLQNEWDAIMLENFKLRSTLDSLTKKLSTVMYERDAAK

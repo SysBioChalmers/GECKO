@@ -1,13 +1,12 @@
 ENTRY       YIL119C           CDS       T00005
 NAME        RPI1
-DEFINITION  Rpi1p
+DEFINITION  (RefSeq) Rpi1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IX:complement(136654..137877)
-MOTIF       Pfam: Myb_DNA-bind_4 Scs3p
-DBLINKS     NCBI-GI: 398364259
+MOTIF       Pfam: Myb_DNA-bind_4 betaPIX_CC
+DBLINKS     NCBI-ProteinID: NP_012147
             NCBI-GeneID: 854687
             SGD: S000001381
-            MIPS: YIL119C
             UniProt: P23250
 AASEQ       407
             MYLEYLQPKLNLMDESSTISKNFPDYSPNLNTPITSNFNEETGSDCSLVTPRIISSSNSN

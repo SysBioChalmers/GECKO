@@ -1,13 +1,18 @@
 ENTRY       YBL055C           CDS       T00005
-DEFINITION  3'-5'-exodeoxyribonuclease (EC:3.1.21.-)
+DEFINITION  (RefSeq) 3'-5'-exodeoxyribonuclease
 ORTHOLOGY   K03424  TatD DNase family protein [EC:3.1.21.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.21  Endodeoxyribonucleases producing 5'-phosphomonoesters
+                3.1.21.-  
+                 YBL055C
 POSITION    II:complement(115573..116829)
-MOTIF       Pfam: TatD_DNase DUF3929
-DBLINKS     NCBI-GI: 6319416
+MOTIF       Pfam: TatD_DNase
+DBLINKS     NCBI-ProteinID: NP_009498
             NCBI-GeneID: 852225
             SGD: S000000151
-            MIPS: YBL055C
             UniProt: P34220
 STRUCTURE   PDB: 3E2V
 AASEQ       418

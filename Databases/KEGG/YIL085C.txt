@@ -1,14 +1,23 @@
 ENTRY       YIL085C           CDS       T00005
 NAME        KTR7
-DEFINITION  Ktr7p (EC:2.4.1.-)
+DEFINITION  (RefSeq) putative mannosyltransferase
 ORTHOLOGY   K03854  mannosyltransferase [EC:2.4.1.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.4  Glycosyltransferases
+               2.4.1  Hexosyltransferases
+                2.4.1.-  
+                 YIL085C (KTR7)
+            Glycosyltransferases [BR:sce01003]
+             Glycan extension
+              Yeast mannan chain
+               YIL085C (KTR7)
 POSITION    IX:complement(200490..202043)
 MOTIF       Pfam: Glyco_transf_15
-DBLINKS     NCBI-GI: 398364323
+DBLINKS     NCBI-ProteinID: NP_012181
             NCBI-GeneID: 854724
             SGD: S000001347
-            MIPS: YIL085C
             UniProt: P40504
 AASEQ       517
             MAIRLNPKVRRFLLDKCRQKRYGFLFLGCIFAILYCMGTWPFFAKDIVHDPNNLPYSLQD

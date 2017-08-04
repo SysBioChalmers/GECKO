@@ -1,13 +1,12 @@
 ENTRY       YIL042C           CDS       T00005
 NAME        PKP1
-DEFINITION  Pkp1p (EC:2.7.11.2)
+DEFINITION  (RefSeq) protein kinase PKP1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IX:complement(275108..276292)
-MOTIF       Pfam: BCDHK_Adom3 HATPase_c HATPase_c_3 HATPase_c_2
-DBLINKS     NCBI-GI: 6322147
+MOTIF       Pfam: BCDHK_Adom3 HATPase_c HATPase_c_3
+DBLINKS     NCBI-ProteinID: NP_012222
             NCBI-GeneID: 854769
             SGD: S000001304
-            MIPS: YIL042C
             UniProt: P40530
 AASEQ       394
             MWKIMRSWKCGGMRWAHRQRPSHELLSQLSFDQHYKIRSNIELLIQDYASKPIAPLNYEY

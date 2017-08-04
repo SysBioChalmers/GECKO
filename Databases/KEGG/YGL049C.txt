@@ -1,16 +1,34 @@
 ENTRY       YGL049C           CDS       T00005
-DEFINITION  Tif4632p
+NAME        TIF4632
+DEFINITION  (RefSeq) translation initiation factor eIF4G
 ORTHOLOGY   K03260  translation initiation factor 4G
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03013  RNA transport
 MODULE      sce_M00428  eIF4F complex
-CLASS       Genetic Information Processing; Translation; RNA transport [PATH:sce03013]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03013 RNA transport
+                YGL049C (TIF4632)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Transport factors
+                eIF4F and regulatory proteins
+                 YGL049C (TIF4632)
+               mRNA cycle factors
+                Stress granule specific factors
+                 YGL049C (TIF4632)
+            Translation factors [BR:sce03012]
+             Eukaryotic Type
+              Initiation factors
+               eIF-4
+                YGL049C (TIF4632)
 POSITION    VII:complement(406860..409604)
 MOTIF       Pfam: MIF4G eIF_4G1
-DBLINKS     NCBI-GI: 6321389
+DBLINKS     NCBI-ProteinID: NP_011466
             NCBI-GeneID: 852833
             SGD: S000003017
-            MIPS: YGL049C
             UniProt: P39936
 AASEQ       914
             MTDQRGPPPPHPQQANGYKKFPPHDNQYSGANNSQPNNHYNENLYSAREPHNNKQYQSKN

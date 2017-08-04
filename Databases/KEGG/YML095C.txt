@@ -1,16 +1,25 @@
 ENTRY       YML095C           CDS       T00005
 NAME        RAD10
-DEFINITION  Rad10p
+DEFINITION  (RefSeq) Rad10p
 ORTHOLOGY   K10849  DNA excision repair protein ERCC-1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03420  Nucleotide excision repair
-CLASS       Genetic Information Processing; Replication and repair; Nucleotide excision repair [PATH:sce03420]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Replication and repair
+               03420 Nucleotide excision repair
+                YML095C (RAD10)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              SSBR (single strand breaks repair)
+               NER (nucleotide excision repair)
+                Other NER factors
+                 YML095C (RAD10)
 POSITION    XIII:complement(81481..82113)
 MOTIF       Pfam: Rad10 Calreticulin
-DBLINKS     NCBI-GI: 6323543
+DBLINKS     NCBI-ProteinID: NP_013614
             NCBI-GeneID: 854878
             SGD: S000004560
-            MIPS: YML095C
             UniProt: P06838
 AASEQ       210
             MNNTDPTSFESILAGVAKLRKEKSGADTTGSQSLEIDASKLQQQEPQTSRRINSNQVINA

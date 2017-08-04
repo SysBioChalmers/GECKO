@@ -1,14 +1,35 @@
 ENTRY       YAR018C           CDS       T00005
 NAME        KIN3, FUN52, NPK1
-DEFINITION  Kin3p (EC:2.7.11.1)
-ORTHOLOGY   K08857  NIMA (never in mitosis gene a)-related kinase [EC:2.7.11.1]
+DEFINITION  (RefSeq) serine/threonine protein kinase KIN3
+ORTHOLOGY   K20872  NIMA (never in mitosis gene a)-related kinase 2 [EC:2.7.11.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.11  Protein-serine/threonine kinases
+                2.7.11.1  non-specific serine/threonine protein kinase
+                 YAR018C (KIN3)
+            Protein kinases [BR:sce01001]
+             Serine/threonine protein kinases: Other group
+              NEK family
+               YAR018C (KIN3)
+            Protein phosphatases and associated proteins [BR:sce01009]
+             Protein Ser/ Thr phosphatases
+              Phosphoprotein phosphatases (PPPs)
+               Protein phosphatase-1
+                PP1-interacting proteins (PIPs)
+                 YAR018C (KIN3)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centromeric chromatin formation proteins
+               SAC (spindle assembly checkpoint) factors
+                Protein kinases
+                 YAR018C (KIN3)
 POSITION    I:complement(170396..171703)
-MOTIF       Pfam: Pkinase Pkinase_Tyr Kinase-like Phage_GPO ACCA SHNi-TPR
-DBLINKS     NCBI-GI: 6319327
+MOTIF       Pfam: Pkinase Pkinase_Tyr PPP5 HHA Kinase-like Mfa1
+DBLINKS     NCBI-ProteinID: NP_009410
             NCBI-GeneID: 851273
             SGD: S000000071
-            MIPS: YAR018C
             UniProt: P22209
 AASEQ       435
             MHRRQFFQEYRSPQQQQGHPPRSEYQVLEEIGRGSFGSVRKVIHIPTKKLLVRKDIKYGH

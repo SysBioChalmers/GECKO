@@ -1,11 +1,12 @@
 ENTRY       YLR224W           CDS       T00005
-DEFINITION  hypothetical protein
+NAME        UCC1
+DEFINITION  (RefSeq) Ucc1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XII:586464..587573
-DBLINKS     NCBI-GI: 6323253
+MOTIF       Pfam: NuA4
+DBLINKS     NCBI-ProteinID: NP_013325
             NCBI-GeneID: 850921
             SGD: S000004214
-            MIPS: YLR224W
             UniProt: Q05947
 AASEQ       369
             MNQSDSSLMDLPLEIHLSLLEYVPNELRAVNKYFYVLHNHSYKEKSLAWIAEDNYIWAVV

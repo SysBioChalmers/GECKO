@@ -1,13 +1,12 @@
 ENTRY       YML128C           CDS       T00005
 NAME        MSC1
-DEFINITION  Msc1p
+DEFINITION  (RefSeq) Msc1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:complement(15135..16676)
-MOTIF       Pfam: Ish1 ICEA DUF2624 MscS_porin
-DBLINKS     NCBI-GI: 6323507
+MOTIF       Pfam: Ish1 ICEA PEX-2N
+DBLINKS     NCBI-ProteinID: NP_013578
             NCBI-GeneID: 854911
             SGD: S000004597
-            MIPS: YML128C
             UniProt: Q03104
 AASEQ       513
             MKQFKLVNAVSASFVLIGLVLANSDSVFDKWTQEDLADYLRDNKKSLEKYATDSIEDLKT

@@ -1,18 +1,41 @@
 ENTRY       YBR160W           CDS       T00005
 NAME        CDC28, CDK1, HSL5, SRM5
-DEFINITION  Cdc28p (EC:2.7.11.22)
+DEFINITION  (RefSeq) cyclin-dependent serine/threonine-protein kinase CDC28
 ORTHOLOGY   K04563  cyclin-dependent kinase [EC:2.7.11.22]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
-PATHWAY     sce04111  Cell cycle - yeast
+PATHWAY     sce04011  MAPK signaling pathway - yeast
+            sce04111  Cell cycle - yeast
             sce04113  Meiosis - yeast
-CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
-            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+MODULE      sce_M00692  Cell cycle - G1/S transition
+            sce_M00693  Cell cycle - G2/M transition
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YBR160W (CDC28)
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YBR160W (CDC28)
+               04113 Meiosis - yeast
+                YBR160W (CDC28)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.11  Protein-serine/threonine kinases
+                2.7.11.22  cyclin-dependent kinase
+                 YBR160W (CDC28)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA processing factors
+               5' end processing
+                Capping factors
+                 YBR160W (CDC28)
 POSITION    II:560078..560974
-MOTIF       Pfam: Pkinase Pkinase_Tyr Kinase-like APH Seadorna_VP7 Kdo
-DBLINKS     NCBI-GI: 398365175
+MOTIF       Pfam: Pkinase Pkinase_Tyr Kinase-like APH Haspin_kinase Kdo Seadorna_VP7
+DBLINKS     NCBI-ProteinID: NP_009718
             NCBI-GeneID: 852457
             SGD: S000000364
-            MIPS: YBR160W
             UniProt: P00546
 AASEQ       298
             MSGELANYKRLEKVGEGTYGVVYKALDLRPGQGQRVVALKKIRLESEDEGVPSTAIREIS

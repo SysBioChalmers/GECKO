@@ -1,12 +1,11 @@
 ENTRY       YJR028W           CDS       T00005
-DEFINITION  gag protein
+DEFINITION  (RefSeq) gag protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    X:478344..479666
-MOTIF       Pfam: TYA UBN2 UBN2_2
-DBLINKS     NCBI-GI: 6322488
+MOTIF       Pfam: TYA Retrotran_gag_2
+DBLINKS     NCBI-ProteinID: NP_012563
             NCBI-GeneID: 853485
             SGD: S000003789
-            MIPS: YJR028W
             UniProt: P47099
 AASEQ       440
             MESQQLSQHSHISHGSACASVTSKEVHTNQDPLDVSASKTEECEKASTKANSQQTTTPAS

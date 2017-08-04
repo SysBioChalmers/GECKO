@@ -1,13 +1,12 @@
 ENTRY       YIL121W           CDS       T00005
 NAME        QDR2
-DEFINITION  Qdr2p
+DEFINITION  (RefSeq) cation transporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IX:132244..133872
-MOTIF       Pfam: MFS_1 Gly-zipper_Omp
-DBLINKS     NCBI-GI: 6322070
+MOTIF       Pfam: MFS_1 Sugar_tr
+DBLINKS     NCBI-ProteinID: NP_012145
             NCBI-GeneID: 854685
             SGD: S000001383
-            MIPS: YIL121W
             UniProt: P40474
 AASEQ       542
             MAGATSSIIRENDFEDELAESMQSYNRETADKLALTRTESVKPEPEITAPPHSRFSRSFK

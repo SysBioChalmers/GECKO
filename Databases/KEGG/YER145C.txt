@@ -1,14 +1,17 @@
 ENTRY       YER145C           CDS       T00005
 NAME        FTR1
-DEFINITION  Ftr1p
+DEFINITION  (RefSeq) high-affinity iron permease FTR1
 ORTHOLOGY   K07243  high-affinity iron transporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Other Transporters
+              Electrochemical potential-driven transporters [TC:2]
+               YER145C (FTR1)
 POSITION    V:complement(460526..461740)
 MOTIF       Pfam: FTR1
-DBLINKS     NCBI-GI: 6320993
+DBLINKS     NCBI-ProteinID: NP_011072
             NCBI-GeneID: 856888
             SGD: S000000947
-            MIPS: YER145C
             UniProt: P40088
 AASEQ       404
             MPNKVFNVAVFFVVFRECLEAVIVISVLLSFLKQAIGEHDRALYRKLRIQVWVGVLLGFI

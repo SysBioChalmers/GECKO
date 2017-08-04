@@ -1,16 +1,19 @@
 ENTRY       YJL076W           CDS       T00005
 NAME        NET1, CFI1, ESC5, SRM8
-DEFINITION  Net1p
+DEFINITION  (RefSeq) Net1p
 ORTHOLOGY   K06687  nucleolar protein involved in exit from mitosis
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
-CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YJL076W (NET1)
 POSITION    X:295245..298814
 MOTIF       Pfam: Cytokin_check_N
-DBLINKS     NCBI-GI: 6322385
+DBLINKS     NCBI-ProteinID: NP_012459
             NCBI-GeneID: 853369
             SGD: S000003612
-            MIPS: YJL076W
             UniProt: P47035
 AASEQ       1189
             MYKLQVVLVPPSLQATMPIQFGYGPTIAESSQLLPNRTNMAQSAGDASLQYANLRSANVS

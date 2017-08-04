@@ -1,18 +1,43 @@
 ENTRY       YBL018C           CDS       T00005
 NAME        POP8
-DEFINITION  Pop8p (EC:3.1.26.5)
+DEFINITION  (RefSeq) ribonuclease P
 ORTHOLOGY   K14528  ribonuclease P/MRP protein subunit POP8 [EC:3.1.26.5]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03008  Ribosome biogenesis in eukaryotes
             sce03013  RNA transport
-CLASS       Genetic Information Processing; Translation; RNA transport [PATH:sce03013]
-            Genetic Information Processing; Translation; Ribosome biogenesis in eukaryotes [PATH:sce03008]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03013 RNA transport
+                YBL018C (POP8)
+               03008 Ribosome biogenesis in eukaryotes
+                YBL018C (POP8)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.26  Endoribonucleases producing 5'-phosphomonoesters
+                3.1.26.5  ribonuclease P
+                 YBL018C (POP8)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               RNases
+                RNase MRP
+                 YBL018C (POP8)
+            Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              5'processing factors
+               Ribonucrease P
+                YBL018C (POP8)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial DNA transcription, translation, and replication factors
+              Mitochondrial transcription and translation factors
+               RNase MRP
+                YBL018C (POP8)
 POSITION    II:complement(join(185998..186352,186428..186474))
-MOTIF       Pfam: DUF1890
-DBLINKS     NCBI-GI: 6319453
+DBLINKS     NCBI-ProteinID: NP_009535
             NCBI-GeneID: 852263
             SGD: S000000114
-            MIPS: YBL018C
             UniProt: P38208
 AASEQ       133
             MGKKTFREWQYFKLSITSFDQDVDDAHAIDQMTWRQWLNNALKRSYGIFGEGVEYSFLHV

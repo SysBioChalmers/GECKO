@@ -1,15 +1,21 @@
 ENTRY       YHR090C           CDS       T00005
 NAME        YNG2, EAF4, NBN1
-DEFINITION  Yng2p
+DEFINITION  (RefSeq) histone acetyltransferase YNG2
 ORTHOLOGY   K11396  chromatin modification-related protein YNG2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Histone modification proteins
+               HAT complexes
+                NuA4 complex
+                 YHR090C (YNG2)
 POSITION    VIII:complement(283777..284625)
 MOTIF       Pfam: ING PHD zf-HC5HC2H
-DBLINKS     NCBI-GI: 6321882
+DBLINKS     NCBI-ProteinID: NP_011958
             NCBI-GeneID: 856490
             SGD: S000001132
-            MIPS: YHR090C
             UniProt: P38806
+STRUCTURE   PDB: 5J9T 5J9W 5J9U 5J9Q 2MUM
 AASEQ       282
             MDPSLVLEQTIQDVSNLPSEFRYLLEEIGSNDLKLIEEKKKYEQKESQIHKFIRQQGSIP
             KHPQEDGLDKEIKESLLKCQSLQREKCVLANTALFLIARHLNKLEKNIALLEEDGVLAPV

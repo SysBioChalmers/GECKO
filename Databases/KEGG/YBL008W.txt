@@ -1,14 +1,19 @@
 ENTRY       YBL008W           CDS       T00005
 NAME        HIR1
-DEFINITION  Hir1p
+DEFINITION  (RefSeq) Hir1p
 ORTHOLOGY   K11293  protein HIRA/HIR1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Nucleosome assembly factors
+               Histone chaperones
+                Other Histone chaperones and regulators
+                 YBL008W (HIR1)
 POSITION    II:209653..212175
-MOTIF       Pfam: WD40 HIRA_B Hira Nbas_N
-DBLINKS     NCBI-GI: 330443419
+MOTIF       Pfam: WD40 ANAPC4_WD40 HIRA_B Hira PD40 Ge1_WD40 WD40_like Nbas_N
+DBLINKS     NCBI-ProteinID: NP_009545
             NCBI-GeneID: 852275
             SGD: S000000104
-            MIPS: YBL008W
             UniProt: P32479
 AASEQ       840
             MKVVKFPWLAHREESRKYEIYTVDVSHDGKRLATGGLDGKIRIWSIDSILRCMELESLTP

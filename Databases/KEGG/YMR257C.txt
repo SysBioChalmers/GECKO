@@ -1,14 +1,17 @@
 ENTRY       YMR257C           CDS       T00005
 NAME        PET111
-DEFINITION  Pet111p
+DEFINITION  (RefSeq) Pet111p
 ORTHOLOGY   K17667  protein PET111, mitochondrial
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial DNA transcription, translation, and replication factors
+              Mitochondrial transcription and translation factors
+               Other mitochondrial DNA transcription and translation factors
+                YMR257C (PET111)
 POSITION    XIII:complement(779629..782031)
-MOTIF       Pfam: TPR_15
-DBLINKS     NCBI-GI: 6323913
+DBLINKS     NCBI-ProteinID: NP_013984
             NCBI-GeneID: 855299
             SGD: S000004870
-            MIPS: YMR257C
             UniProt: P08468
 AASEQ       800
             MLQRRFISSSGIKRLLHRESNKVMHTVFFKVRYYSTELIKKKHKEDIEDWVKAQLKDSST

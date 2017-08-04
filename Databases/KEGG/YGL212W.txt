@@ -1,16 +1,29 @@
 ENTRY       YGL212W           CDS       T00005
 NAME        VAM7, VPL24, VPS43
-DEFINITION  Vam7p
+DEFINITION  (RefSeq) Vam7p
 ORTHOLOGY   K08502  regulator of vacuolar morphogenesis
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04130  SNARE interactions in vesicular transport
-CLASS       Genetic Information Processing; Folding, sorting and degradation; SNARE interactions in vesicular transport [PATH:sce04130]
+            sce04138  Autophagy - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04130 SNARE interactions in vesicular transport
+                YGL212W (VAM7)
+             Cellular Processes
+              Transport and catabolism
+               04138 Autophagy - yeast
+                YGL212W (VAM7)
+            Membrane trafficking [BR:sce04131]
+             SNARE
+              SNAP-25[C] (Qc)
+               STX8
+                YGL212W (VAM7)
 POSITION    VII:91432..92382
-MOTIF       Pfam: PX SNARE
-DBLINKS     NCBI-GI: 6321226
+MOTIF       Pfam: PX
+DBLINKS     NCBI-ProteinID: NP_011303
             NCBI-GeneID: 852660
             SGD: S000003180
-            MIPS: YGL212W
             UniProt: P32912
 STRUCTURE   PDB: 1KMD
 AASEQ       316

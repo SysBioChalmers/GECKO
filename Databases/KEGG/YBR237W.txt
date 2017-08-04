@@ -1,16 +1,32 @@
 ENTRY       YBR237W           CDS       T00005
 NAME        PRP5, RNA5
-DEFINITION  DEAD-box RNA helicase PRP5 (EC:3.6.4.13 3.6.1.-)
+DEFINITION  (RefSeq) DEAD-box RNA helicase PRP5
 ORTHOLOGY   K12811  ATP-dependent RNA helicase DDX46/PRP5 [EC:3.6.4.13]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03040  Spliceosome
-CLASS       Genetic Information Processing; Transcription; Spliceosome [PATH:sce03040]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03040 Spliceosome
+                YBR237W (PRP5)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.4  Acting on acid anhydrides to facilitate cellular and subcellular movement
+                3.6.4.13  RNA helicase
+                 YBR237W (PRP5)
+            Spliceosome [BR:sce03041]
+             Complex A
+              U2 snRNP components
+               U2 related factors
+                YBR237W (PRP5)
+             Complex B
+                YBR237W (PRP5)
 POSITION    II:691969..694518
-MOTIF       Pfam: DEAD Helicase_C SNF2_N
-DBLINKS     NCBI-GI: 6319714
+MOTIF       Pfam: DEAD Helicase_C ResIII
+DBLINKS     NCBI-ProteinID: NP_009796
             NCBI-GeneID: 852539
             SGD: S000000441
-            MIPS: YBR237W
             UniProt: P21372
 STRUCTURE   PDB: 4LJY 4LK2
 AASEQ       849

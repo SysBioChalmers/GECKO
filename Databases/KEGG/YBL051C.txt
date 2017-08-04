@@ -1,13 +1,12 @@
 ENTRY       YBL051C           CDS       T00005
 NAME        PIN4, MDT1
-DEFINITION  Pin4p
+DEFINITION  (RefSeq) Pin4p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    II:complement(122753..124759)
-MOTIF       Pfam: RRM_6 RRM_1 RRM_5 RRM_2
-DBLINKS     NCBI-GI: 6319420
+MOTIF       Pfam: RRM_1 RRM_2 DUF3465
+DBLINKS     NCBI-ProteinID: NP_009502
             NCBI-GeneID: 852229
             SGD: S000000147
-            MIPS: YBL051C
             UniProt: P34217
 AASEQ       668
             METSSFENAPPAAINDAQDNNINTETNDQETNQQSIETRDAIDKENGVQTETGENSAKNA

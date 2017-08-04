@@ -1,12 +1,11 @@
 ENTRY       YGR161C-D         CDS       T00005
-DEFINITION  gag-pol fusion protein (EC:2.7.7.49 2.7.7.7 3.4.23.- 3.1.26.4)
+DEFINITION  (RefSeq) gag-pol fusion protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:complement(join(817747..821709,821711..823015))
-MOTIF       Pfam: TYA RVT_2 rve UBN2 gag_pre-integrs
-DBLINKS     NCBI-GI: 398365961
+MOTIF       Pfam: TYA RVT_2 rve gag_pre-integrs Retrotran_gag_2
+DBLINKS     NCBI-ProteinID: NP_058165
             NCBI-GeneID: 853068
             SGD: S000007368
-            MIPS: YGR161C-D
             UniProt: Q12316
 AASEQ       1755
             MESQQLSNYPHISHGSACASVTSKEVHTNQDPLDVSASKIQEYDKASTKANSQQTTTPAS

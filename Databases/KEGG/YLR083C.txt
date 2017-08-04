@@ -1,14 +1,17 @@
 ENTRY       YLR083C           CDS       T00005
 NAME        EMP70, TMN1
-DEFINITION  Emp70p
+DEFINITION  (RefSeq) Emp70p
 ORTHOLOGY   K17086  transmembrane 9 superfamily member 2/4
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of haemopoietic cells  (B-cell, T-cell, DC-cell, reticulocyte, and mast cell)
+               YLR083C (EMP70)
 POSITION    XII:complement(294091..296094)
 MOTIF       Pfam: EMP70
-DBLINKS     NCBI-GI: 6323112
+DBLINKS     NCBI-ProteinID: NP_013184
             NCBI-GeneID: 850772
             SGD: S000004073
-            MIPS: YLR083C
             UniProt: P32802
 AASEQ       667
             MIYKMAHVQLLLLYFFVSTVKAFYLPGVAPTTYRENDNIPLLVNHLTPSMNYQHKDEDGN

@@ -1,13 +1,12 @@
 ENTRY       YML130C           CDS       T00005
 NAME        ERO1
-DEFINITION  Ero1p (EC:1.8.4.-)
+DEFINITION  (RefSeq) ER oxidoreductin
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:complement(11483..13174)
-MOTIF       Pfam: ERO1
-DBLINKS     NCBI-GI: 6323505
+MOTIF       Pfam: ERO1 AIM5
+DBLINKS     NCBI-ProteinID: NP_013576
             NCBI-GeneID: 854909
             SGD: S000004599
-            MIPS: YML130C
             UniProt: Q03103
 STRUCTURE   PDB: 3M31 1RP4 1RQ1 3NVJ
 AASEQ       563

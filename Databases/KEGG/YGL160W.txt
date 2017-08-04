@@ -1,13 +1,12 @@
 ENTRY       YGL160W           CDS       T00005
 NAME        AIM14, YNO1
-DEFINITION  Aim14p (EC:1.16.1.-)
+DEFINITION  (RefSeq) putative metalloreductase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:200561..202273
-MOTIF       Pfam: NAD_binding_6 Ferric_reduct FAD_binding_8
-DBLINKS     NCBI-GI: 6321278
+MOTIF       Pfam: NAD_binding_6 Ferric_reduct FAD_binding_8 DUF417
+DBLINKS     NCBI-ProteinID: NP_011355
             NCBI-GeneID: 852716
             SGD: S000003128
-            MIPS: YGL160W
             UniProt: P53109
 AASEQ       570
             MKESPLITLVKRHSETHFANIKYGYYVLIISLVYLIGLALLRAFGRRTPSRSSSAFKNKI

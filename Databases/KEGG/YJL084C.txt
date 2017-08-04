@@ -1,13 +1,18 @@
 ENTRY       YJL084C           CDS       T00005
 NAME        ALY2, ART3
-DEFINITION  Aly2p
+DEFINITION  (RefSeq) Aly2p
+ORTHOLOGY   K20061  arrestin-related trafficking adapter 3/6
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endocytosis
+              Clathrin-mediated endocytosis
+               GPCR adaptor proteins
+                YJL084C (ALY2)
 POSITION    X:complement(274862..278002)
 MOTIF       Pfam: Arrestin_C Arrestin_N
-DBLINKS     NCBI-GI: 6322377
+DBLINKS     NCBI-ProteinID: NP_012451
             NCBI-GeneID: 853361
             SGD: S000003620
-            MIPS: YJL084C
             UniProt: P47029
 AASEQ       1046
             MPMDQSISSPLFPMEKDIDIPLDATPLAQSSSLQLFIHLAEPVVFLQGFDPQKTEYPSVV

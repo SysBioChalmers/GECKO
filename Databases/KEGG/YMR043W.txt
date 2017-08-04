@@ -1,18 +1,29 @@
 ENTRY       YMR043W           CDS       T00005
 NAME        MCM1, FUN80
-DEFINITION  Mcm1p
+DEFINITION  (RefSeq) transcription factor MCM1
 ORTHOLOGY   K12412  pheromone receptor transcription factor
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04011  MAPK signaling pathway - yeast
             sce04111  Cell cycle - yeast
-CLASS       Environmental Information Processing; Signal transduction; MAPK signaling pathway - yeast [PATH:sce04011]
-            Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YMR043W (MCM1)
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YMR043W (MCM1)
+            Transcription factors [BR:sce03000]
+             Eukaryotic Type
+              beta-Scaffold factors with minor groove contacts
+               MADS-box regulators of differentiation, Yeast regulators
+                YMR043W (MCM1)
 POSITION    XIII:353871..354731
-MOTIF       Pfam: SRF-TF
-DBLINKS     NCBI-GI: 6323686
+MOTIF       Pfam: SRF-TF SUIM_assoc CAC1F_C
+DBLINKS     NCBI-ProteinID: NP_013757
             NCBI-GeneID: 855060
             SGD: S000004646
-            MIPS: YMR043W
             UniProt: P11746
 STRUCTURE   PDB: 1MNM
 AASEQ       286

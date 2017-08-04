@@ -1,18 +1,28 @@
 ENTRY       YGR170W           CDS       T00005
 NAME        PSD2
-DEFINITION  phosphatidylserine decarboxylase 2 (EC:4.1.1.65)
+DEFINITION  (RefSeq) phosphatidylserine decarboxylase 2
 ORTHOLOGY   K01613  phosphatidylserine decarboxylase [EC:4.1.1.65]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00564  Glycerophospholipid metabolism
             sce01100  Metabolic pathways
+            sce01110  Biosynthesis of secondary metabolites
 MODULE      sce_M00093  Phosphatidylethanolamine (PE) biosynthesis, PA => PS => PE
-CLASS       Metabolism; Lipid metabolism; Glycerophospholipid metabolism [PATH:sce00564]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Lipid metabolism
+               00564 Glycerophospholipid metabolism
+                YGR170W (PSD2)
+            Enzymes [BR:sce01000]
+             4. Lyases
+              4.1  Carbon-carbon lyases
+               4.1.1  Carboxy-lyases
+                4.1.1.65  phosphatidylserine decarboxylase
+                 YGR170W (PSD2)
 POSITION    VII:837142..840558
-MOTIF       Pfam: PS_Dcarbxylase C2
-DBLINKS     NCBI-GI: 6321609
+MOTIF       Pfam: PS_Dcarbxylase C2 Herpes_capsid
+DBLINKS     NCBI-ProteinID: NP_011686
             NCBI-GeneID: 853080
             SGD: S000003402
-            MIPS: YGR170W
             UniProt: P53037
 AASEQ       1138
             MRIIKGRKRGKNKKPTLILKIHVIQAENIEALKTFNCNPVCFVTTNTFYSQKTNKLKNSN

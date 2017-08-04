@@ -1,12 +1,18 @@
 ENTRY       YAR002W           CDS       T00005
 NAME        NUP60
-DEFINITION  Nup60p
+DEFINITION  (RefSeq) FG-nucleoporin NUP60
+ORTHOLOGY   K18718  nucleoporin NUP60
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Transport factors
+                Nuclear pore complex
+                 YAR002W (NUP60)
 POSITION    I:152257..153876
-DBLINKS     NCBI-GI: 6319318
+DBLINKS     NCBI-ProteinID: NP_009401
             NCBI-GeneID: 851263
             SGD: S000000063
-            MIPS: YAR002W
             UniProt: P39705
 AASEQ       539
             MHRKSLRRASATVPSAPYRKQIISNAHNKPSLFSKIKTFFTQKDSARVSPRNNVANKQPR

@@ -1,21 +1,38 @@
 ENTRY       YMR125W           CDS       T00005
 NAME        STO1, CBC1, CBP80, GCR3, SUT1
-DEFINITION  Sto1p
+DEFINITION  (RefSeq) Sto1p
 ORTHOLOGY   K12882  nuclear cap-binding protein subunit 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03013  RNA transport
             sce03015  mRNA surveillance pathway
             sce03040  Spliceosome
 MODULE      sce_M00399  Cap binding complex
-CLASS       Genetic Information Processing; Transcription; Spliceosome [PATH:sce03040]
-            Genetic Information Processing; Translation; RNA transport [PATH:sce03013]
-            Genetic Information Processing; Translation; mRNA surveillance pathway [PATH:sce03015]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03040 Spliceosome
+                YMR125W (STO1)
+              Translation
+               03013 RNA transport
+                YMR125W (STO1)
+               03015 mRNA surveillance pathway
+                YMR125W (STO1)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA processing factors
+               5' end processing
+                Cap binding complex
+                 YMR125W (STO1)
+            Spliceosome [BR:sce03041]
+             Common components
+              Common spliceosomal components
+               Cap binding complex
+                YMR125W (STO1)
 POSITION    XIII:join(517539..517563,517886..520446)
-MOTIF       Pfam: MIF4G_like_2 MIF4G_like MIF4G
-DBLINKS     NCBI-GI: 6579194
+MOTIF       Pfam: MIF4G_like MIF4G_like_2 MIF4G
+DBLINKS     NCBI-ProteinID: NP_013844
             NCBI-GeneID: 855155
             SGD: S000004732
-            MIPS: YMR125W
             UniProt: P34160
 STRUCTURE   PDB: 3UKY
 AASEQ       861

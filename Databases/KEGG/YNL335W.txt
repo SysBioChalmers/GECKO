@@ -1,13 +1,25 @@
 ENTRY       YNL335W           CDS       T00005
 NAME        DDI3
-DEFINITION  Ddi3p
+DEFINITION  (RefSeq) cyanamide hydratase
+ORTHOLOGY   K06035  cyanamide hydratase [EC:4.2.1.69]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00791  Atrazine degradation
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Xenobiotics biodegradation and metabolism
+               00791 Atrazine degradation
+                YNL335W (DDI3)
+            Enzymes [BR:sce01000]
+             4. Lyases
+              4.2  Carbon-oxygen lyases
+               4.2.1  Hydro-lyases
+                4.2.1.69  cyanamide hydratase
+                 YNL335W (DDI3)
 POSITION    XIV:11452..12129
 MOTIF       Pfam: HD
-DBLINKS     NCBI-GI: 6323994
+DBLINKS     NCBI-ProteinID: NP_014064
             NCBI-GeneID: 855381
             SGD: S000005279
-            MIPS: YNL335W
             UniProt: P0CH63 P0CH64
 AASEQ       225
             MSQYGFVRVPREVEKAIPVVNAPRPRAVVPPPNSETARLVREYAAKELTAPVLNHSLRVF

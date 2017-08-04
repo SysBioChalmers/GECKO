@@ -1,13 +1,12 @@
 ENTRY       YOR081C           CDS       T00005
 NAME        TGL5, STC2
-DEFINITION  Tgl5p (EC:3.1.1.3)
+DEFINITION  (RefSeq) Tgl5p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:complement(476939..479188)
-MOTIF       Pfam: DUF3336 Patatin Imm25
-DBLINKS     NCBI-GI: 6324655
+MOTIF       Pfam: DUF3336 Patatin
+DBLINKS     NCBI-ProteinID: NP_014724
             NCBI-GeneID: 854248
             SGD: S000005607
-            MIPS: YOR081C
             UniProt: Q12043
 AASEQ       749
             MSNTLPVTEFLLSKYYELSNTPATDSSSLFKWLYHKTLSRKQLLISDLSSQKKHAISYDQ

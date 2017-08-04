@@ -1,18 +1,28 @@
 ENTRY       YJL030W           CDS       T00005
 NAME        MAD2
-DEFINITION  Mad2p
+DEFINITION  (RefSeq) spindle checkpoint protein MAD2
 ORTHOLOGY   K02537  mitotic spindle assembly checkpoint protein MAD2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
             sce04113  Meiosis - yeast
-CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
-            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YJL030W (MAD2)
+               04113 Meiosis - yeast
+                YJL030W (MAD2)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centromeric chromatin formation proteins
+               SAC (spindle assembly checkpoint) factors
+                Core SAC proteins
+                 YJL030W (MAD2)
 POSITION    X:387657..388247
-MOTIF       Pfam: HORMA ATG13 V-set_CD47 DUF1649 Ribosomal_S3Ae DUF4279 RBD-FIP
-DBLINKS     NCBI-GI: 398364605
+MOTIF       Pfam: HORMA ATG101 V-set_CD47 ATG13
+DBLINKS     NCBI-ProteinID: NP_012504
             NCBI-GeneID: 853422
             SGD: S000003567
-            MIPS: YJL030W
             UniProt: P40958
 AASEQ       196
             MSQSISLKGSTRTVTEFFEYSINSILYQRGVYPAEDFVTVKKYDLTLLKTHDDELKDYIR

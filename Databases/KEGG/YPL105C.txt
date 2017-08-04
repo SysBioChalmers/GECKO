@@ -1,13 +1,22 @@
 ENTRY       YPL105C           CDS       T00005
 NAME        SYH1, MYR1
-DEFINITION  Syh1p
+DEFINITION  (RefSeq) Syh1p
+ORTHOLOGY   K18730  PERQ amino acid-rich with GYF domain-containing protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Transport factors
+                eIF4F and regulatory proteins
+                 YPL105C (SYH1)
+               Surveillance factors
+                Other surveillance  factors
+                 YPL105C (SYH1)
 POSITION    XVI:complement(352863..355412)
 MOTIF       Pfam: GYF DUF4339
-DBLINKS     NCBI-GI: 6325152
+DBLINKS     NCBI-ProteinID: NP_015220
             NCBI-GeneID: 855999
             SGD: S000006026
-            MIPS: YPL105C
             UniProt: Q02875
 AASEQ       849
             MNPINSLAFDLHSVKLADANSDTAALSNSNTPTMNNAALLQRPSSIMDSIGVQRVPSPFV

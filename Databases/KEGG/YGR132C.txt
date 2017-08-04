@@ -1,14 +1,26 @@
 ENTRY       YGR132C           CDS       T00005
 NAME        PHB1
-DEFINITION  Phb1p
+DEFINITION  (RefSeq) prohibitin subunit PHB1
 ORTHOLOGY   K17080  prohibitin 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial quality control factors
+              Mitochondrial dynamics
+               Mitochondrial movement
+                YGR132C (PHB1)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of haemopoietic cells  (B-cell, T-cell, DC-cell, reticulocyte, and mast cell)
+               YGR132C (PHB1)
+              Exosomal proteins of breast cancer cells
+               YGR132C (PHB1)
+              Exosomal proteins of colorectal cancer cells
+               YGR132C (PHB1)
 POSITION    VII:complement(755589..756452)
-MOTIF       Pfam: Band_7 Band_7_1
-DBLINKS     NCBI-GI: 398365815
+MOTIF       Pfam: Band_7 YdfA_immunity Band_7_1
+DBLINKS     NCBI-ProteinID: NP_011648
             NCBI-GeneID: 853033
             SGD: S000003364
-            MIPS: YGR132C
             UniProt: P40961
 AASEQ       287
             MSNSAKLIDVITKVALPIGIIASGIQYSMYDVKGGSRGVIFDRINGVKQQVVGEGTHFLV

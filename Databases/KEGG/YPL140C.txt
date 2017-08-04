@@ -1,16 +1,34 @@
 ENTRY       YPL140C           CDS       T00005
 NAME        MKK2, LPI6, SSP33
-DEFINITION  Mkk2p (EC:2.7.12.2)
+DEFINITION  (RefSeq) putative mitogen-activated protein kinase kinase MKK2
 ORTHOLOGY   K08294  mitogen-activated protein kinase kinase [EC:2.7.12.2]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04011  MAPK signaling pathway - yeast
-CLASS       Environmental Information Processing; Signal transduction; MAPK signaling pathway - yeast [PATH:sce04011]
+            sce04139  Mitophagy - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YPL140C (MKK2)
+             Cellular Processes
+              Transport and catabolism
+               04139 Mitophagy - yeast
+                YPL140C (MKK2)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.12  Dual-specificity kinases (those acting on Ser/Thr and Tyr residues)
+                2.7.12.2  mitogen-activated protein kinase kinase
+                 YPL140C (MKK2)
+            Protein kinases [BR:sce01001]
+             Serine/threonine protein kinases: STE group
+              STE7 family
+               YPL140C (MKK2)
 POSITION    XVI:complement(287514..289034)
-MOTIF       Pfam: Pkinase Pkinase_Tyr Kinase-like Kdo APH Seadorna_VP7
-DBLINKS     NCBI-GI: 6325117
+MOTIF       Pfam: Pkinase Pkinase_Tyr Kinase-like FTA2 Kdo APH Haspin_kinase Seadorna_VP7
+DBLINKS     NCBI-ProteinID: NP_015185
             NCBI-GeneID: 855963
             SGD: S000006061
-            MIPS: YPL140C
             UniProt: P32491
 AASEQ       506
             MASMFRPPESNRSHQKTPKLTLPVNLVQNAKSTNDGQHLNRSPYSSVNESPYSNNSTSAT

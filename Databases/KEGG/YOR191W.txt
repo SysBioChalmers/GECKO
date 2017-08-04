@@ -1,13 +1,12 @@
 ENTRY       YOR191W           CDS       T00005
 NAME        ULS1, DIS1, RIS1, TID4
-DEFINITION  Uls1p (EC:3.6.4.- 3.6.1.-)
+DEFINITION  (RefSeq) translocase ULS1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:692475..697334
-MOTIF       Pfam: SNF2_N Helicase_C zf-RING_5 zf-C3HC4_2 zf-RING_2 zf-RING_UBOX zf-C3HC4 Prok-RING_4
-DBLINKS     NCBI-GI: 6324765
+MOTIF       Pfam: SNF2_N Helicase_C zf-RING_5 zf-RING_UBOX ResIII zf-RING_2 zf-C3HC4_3 Prok-RING_4 zf-C3HC4_2 zf-C3HC4
+DBLINKS     NCBI-ProteinID: NP_014834
             NCBI-GeneID: 854363
             SGD: S000005717
-            MIPS: YOR191W
             UniProt: Q08562
 AASEQ       1619
             MAAVPTIDLTLADSDNEDIFHSFSSSTSVDKIDIRKENGKLRMAGLEVAQSNDDAARQAF

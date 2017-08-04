@@ -1,14 +1,30 @@
 ENTRY       YBR080C           CDS       T00005
 NAME        SEC18, ANU4
-DEFINITION  Sec18p
+DEFINITION  (RefSeq) AAA family ATPase SEC18
 ORTHOLOGY   K06027  vesicle-fusing ATPase [EC:3.6.4.6]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04138  Autophagy - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04138 Autophagy - yeast
+                YBR080C (SEC18)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.4  Acting on acid anhydrides to facilitate cellular and subcellular movement
+                3.6.4.6  vesicle-fusing ATPase
+                 YBR080C (SEC18)
+            Membrane trafficking [BR:sce04131]
+             SNARE
+              SNARE associated proteins
+               Others
+                YBR080C (SEC18)
 POSITION    II:complement(398614..400890)
-MOTIF       Pfam: AAA CDC48_N AAA_22 CDC48_2 AAA_17 AAA_19 AAA_16 TIP49 AAA_5 Mg_chelatase AAA_33 AAA_18 AAA_14 IstB_IS21 PhoH RNA_helicase NACHT AAA_2 RuvB_N DUF2075 NB-ARC ABC_tran Sigma54_activat AAA_24 Zeta_toxin KaiC ResIII AAA_10 IPT AAA_3
-DBLINKS     NCBI-GI: 398364665
+MOTIF       Pfam: AAA CDC48_2 AAA_22 AAA_16 CDC48_N AAA_33 TIP49 Mg_chelatase AAA_5 AAA_24 NACHT RNA_helicase PhoH AAA_2 AAA_18 RuvB_N TsaE NB-ARC Sigma54_activat ABC_tran IstB_IS21 DUF2075 AAA_30 ATPase_2 AAA_11 ATPase IPT AAA_3 Vps4_C
+DBLINKS     NCBI-ProteinID: NP_009636
             NCBI-GeneID: 852372
             SGD: S000000284
-            MIPS: YBR080C
             UniProt: P18759
 STRUCTURE   PDB: 1CR5
 AASEQ       758

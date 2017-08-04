@@ -1,18 +1,26 @@
 ENTRY       YGR006W           CDS       T00005
 NAME        PRP18
-DEFINITION  Prp18p
+DEFINITION  (RefSeq) mRNA splicing protein PRP18
 ORTHOLOGY   K12817  pre-mRNA-splicing factor 18
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03040  Spliceosome
-CLASS       Genetic Information Processing; Transcription; Spliceosome [PATH:sce03040]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03040 Spliceosome
+                YGR006W (PRP18)
+            Spliceosome [BR:sce03041]
+             Complex C
+              Other components
+               Step II factors
+                YGR006W (PRP18)
 POSITION    VII:506070..506825
-MOTIF       Pfam: Prp18
-DBLINKS     NCBI-GI: 41629693
+MOTIF       Pfam: Prp18 zf-CpG_bind_C
+DBLINKS     NCBI-ProteinID: NP_011520
             NCBI-GeneID: 852889
             SGD: S000003238
-            MIPS: YGR006W
             UniProt: P33411
-STRUCTURE   PDB: 1DVK
+STRUCTURE   PDB: 1DVK 5MPS 5WSG 5MQ0
 AASEQ       251
             MDLDLASILKGEISKKKKELANSKGVQPPCTEKFQPHESANIDETPRQVEQESTDEENLS
             DNQSDDIRTTISKLENRPERIQEAIAQDKTISVIIDPSQIGSTEGKPLLSMKCNLYIHEI

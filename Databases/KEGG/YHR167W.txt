@@ -1,13 +1,19 @@
 ENTRY       YHR167W           CDS       T00005
 NAME        THP2
-DEFINITION  Thp2p
+DEFINITION  (RefSeq) Thp2p
+ORTHOLOGY   K18713  THO complex subunit THP2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Transport factors
+                TREX complex
+                 YHR167W (THP2)
 POSITION    VIII:439342..440127
-MOTIF       Pfam: THP2 MutS_III GldM_N DUF2310
-DBLINKS     NCBI-GI: 6321961
+MOTIF       Pfam: THP2 DivIVA Wtap
+DBLINKS     NCBI-ProteinID: NP_012037
             NCBI-GeneID: 856572
             SGD: S000001210
-            MIPS: YHR167W
             UniProt: O13539
 AASEQ       261
             MTKEEGRTYFESLCEEEQSLQESQTHLLNILDILSVLADPRSSDDLLTESLKKLPDLHRE

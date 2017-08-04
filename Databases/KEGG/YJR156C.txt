@@ -1,13 +1,20 @@
 ENTRY       YJR156C           CDS       T00005
 NAME        THI11
-DEFINITION  Thi11p
+DEFINITION  (RefSeq) 4-amino-5-hydroxymethyl-2-methylpyrimidine phosphate synthase
+ORTHOLOGY   K18278  pyrimidine precursor biosynthesis enzyme
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00730  Thiamine metabolism
+            sce01100  Metabolic pathways
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Metabolism of cofactors and vitamins
+               00730 Thiamine metabolism
+                YJR156C (THI11)
 POSITION    X:complement(728574..729596)
-MOTIF       Pfam: NMT1 NMT1_2 2Fe-2S_thioredx Phosphonate-bd PBP_like
-DBLINKS     NCBI-GI: 398365659
+MOTIF       Pfam: NMT1 NMT1_2 2Fe-2S_thioredx Phosphonate-bd FMN_red
+DBLINKS     NCBI-ProteinID: NP_012690
             NCBI-GeneID: 853621
             SGD: S000003917
-            MIPS: YJR156C
             UniProt: P47183
 AASEQ       340
             MSTDKITFLLNWQPTPYHIPIFLAQTKGYFKEQGLDIAILEPTNPSDVTELIGSGKVDMG

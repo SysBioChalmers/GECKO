@@ -1,15 +1,30 @@
 ENTRY       YDR335W           CDS       T00005
 NAME        MSN5, KAP142, STE21
-DEFINITION  Msn5p
+DEFINITION  (RefSeq) karyopherin MSN5
 ORTHOLOGY   K14289  exportin-5
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03013  RNA transport
-CLASS       Genetic Information Processing; Translation; RNA transport [PATH:sce03013]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03013 RNA transport
+                YDR335W (MSN5)
+            Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              tRNA transport factors
+               tRNA export factors
+                YDR335W (MSN5)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              RNA silencing
+               microRNA pathway
+                Other miRNA pathway proteins
+                 YDR335W (MSN5)
 POSITION    IV:1141168..1144842
-DBLINKS     NCBI-GI: 6320542
+MOTIF       Pfam: Orbi_VP6
+DBLINKS     NCBI-ProteinID: NP_010622
             NCBI-GeneID: 851935
             SGD: S000002743
-            MIPS: YDR335W
             UniProt: P52918
 AASEQ       1224
             MDSTGASQIVSALDVIYSPKSNNSQRQEAQKFLDEVKLCSESPFWGYEIALQNPTNSILK

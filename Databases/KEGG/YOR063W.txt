@@ -1,18 +1,26 @@
 ENTRY       YOR063W           CDS       T00005
 NAME        RPL3, MAK8, TCM1, YOR29-14
-DEFINITION  ribosomal 60S subunit protein L3
+DEFINITION  (RefSeq) ribosomal 60S subunit protein L3
 ORTHOLOGY   K02925  large subunit ribosomal protein L3e
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03010  Ribosome
-CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+MODULE      sce_M00177  Ribosome, eukaryotes
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03010 Ribosome
+                YOR063W (RPL3)
+            Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Eukaryotes
+               Large subunit
+                YOR063W (RPL3)
 POSITION    XV:444686..445849
 MOTIF       Pfam: Ribosomal_L3
-DBLINKS     NCBI-GI: 6324637
+DBLINKS     NCBI-ProteinID: NP_014706
             NCBI-GeneID: 854229
             SGD: S000005589
-            MIPS: YOR063W
             UniProt: P14126
-STRUCTURE   PDB: 3U5E 3U5I 3O58 3O5H 4BYN 4BYU 4B6A 3IZS 1S1I
 AASEQ       387
             MSHRKYEAPRHGHLGFLPRKRAASIRARVKAFPKDDRSKPVALTSFLGYKAGMTTIVRDL
             DRPGSKFHKREVVEAVTVVDTPPVVVVGVVGYVETPRGLRSLTTVWAEHLSDEVKRRFYK

@@ -1,13 +1,17 @@
 ENTRY       YBR086C           CDS       T00005
 NAME        IST2
-DEFINITION  Ist2p
+DEFINITION  (RefSeq) Ist2p
+ORTHOLOGY   K19327  anoctamin-10
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ion channels [BR:sce04040]
+             Chloride channels
+              Calcium activated chloride channel
+               YBR086C (IST2)
 POSITION    II:complement(420201..423041)
-MOTIF       Pfam: Anoctamin Dehydrin
-DBLINKS     NCBI-GI: 27808701
+MOTIF       Pfam: Anoctamin
+DBLINKS     NCBI-ProteinID: NP_009643
             NCBI-GeneID: 852382
             SGD: S000000290
-            MIPS: YBR086C
             UniProt: P38250
 AASEQ       946
             MSQTITSLDPNCVIVFNKTSSANEKSLNVEFKRLNIHSIIEPGHDLQTSYAFIRIHQDNA

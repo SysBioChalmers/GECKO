@@ -1,17 +1,31 @@
 ENTRY       YHR089C           CDS       T00005
 NAME        GAR1
-DEFINITION  Gar1p
+DEFINITION  (RefSeq) H/ACA snoRNP pseudouridylase subunit GAR1
 ORTHOLOGY   K11128  H/ACA ribonucleoprotein complex subunit 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03008  Ribosome biogenesis in eukaryotes
 MODULE      sce_M00425  H/ACA ribonucleoprotein complex
-CLASS       Genetic Information Processing; Translation; Ribosome biogenesis in eukaryotes [PATH:sce03008]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03008 Ribosome biogenesis in eukaryotes
+                YHR089C (GAR1)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Sno RNPs
+               Box H/ACA snoRNPs
+                YHR089C (GAR1)
+            DNA replication proteins [BR:sce03032]
+             Eukaryotic Type
+              DNA Replication Termination Factors
+               Telomerase complex (animals)
+                Dyskerin complex
+                 YHR089C (GAR1)
 POSITION    VIII:complement(282681..283298)
 MOTIF       Pfam: Gar1
-DBLINKS     NCBI-GI: 6321881
+DBLINKS     NCBI-ProteinID: NP_011957
             NCBI-GeneID: 856489
             SGD: S000001131
-            MIPS: YHR089C
             UniProt: P28007
 STRUCTURE   PDB: 3U28 3UAI
 AASEQ       205

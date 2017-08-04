@@ -1,13 +1,12 @@
 ENTRY       YER011W           CDS       T00005
 NAME        TIR1, SRP1
-DEFINITION  Tir1p
+DEFINITION  (RefSeq) GPI-anchored mannoprotein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    V:175248..176012
-MOTIF       Pfam: SRP1_TIP1 PIR
-DBLINKS     NCBI-GI: 6320848
+MOTIF       Pfam: SRP1_TIP1 PIR SOG2
+DBLINKS     NCBI-ProteinID: NP_010927
             NCBI-GeneID: 856729
             SGD: S000000813
-            MIPS: YER011W
             UniProt: P10863
 AASEQ       254
             MAYTKIALFAAIAALASAQTQDQINELNVILNDVKSHLQEYISLASDSSSGFSLSSMPAG

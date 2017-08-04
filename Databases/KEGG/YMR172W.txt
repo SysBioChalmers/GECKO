@@ -1,13 +1,24 @@
 ENTRY       YMR172W           CDS       T00005
 NAME        HOT1
-DEFINITION  Hot1p
+DEFINITION  (RefSeq) Hot1p
+ORTHOLOGY   K19815  high-osmolarity-induced transcription protein 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04011  MAPK signaling pathway - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YMR172W (HOT1)
+            Transcription factors [BR:sce03000]
+             Eukaryotic Type
+              Other transcription factors
+               Others
+                YMR172W (HOT1)
 POSITION    XIII:605981..608140
-MOTIF       Pfam: GCR1_C Nup54 HSBP1 CDH
-DBLINKS     NCBI-GI: 6323824
+MOTIF       Pfam: GCR1_C HSBP1 CDH
+DBLINKS     NCBI-ProteinID: NP_013895
             NCBI-GeneID: 855208
             SGD: S000004783
-            MIPS: YMR172W
             UniProt: Q03213
 AASEQ       719
             MSGMGIAILCIVRTKIYRITISFDYSTLMSPFFLFLMMPTTLKDGYRMNSQVNEDAIGIN

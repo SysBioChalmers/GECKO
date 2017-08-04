@@ -1,13 +1,18 @@
 ENTRY       YIL140W           CDS       T00005
 NAME        AXL2, BUD10, SRO4
-DEFINITION  Axl2p
+DEFINITION  (RefSeq) Axl2p
+ORTHOLOGY   K18637  axial budding pattern protein 2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Cytoskeleton proteins [BR:sce04812]
+             Eukaryotic cytoskeleton proteins
+              Septins
+               Septin associated proteins
+                YIL140W (AXL2)
 POSITION    IX:85366..87837
-MOTIF       Pfam: SKG6 He_PIG Rifin_STEVOR Amnionless DUF4448 FAM110_C
-DBLINKS     NCBI-GI: 6322051
+MOTIF       Pfam: SKG6 He_PIG TMEM154 DUF4448 RIFIN Stevor FAM110_C
+DBLINKS     NCBI-ProteinID: NP_012126
             NCBI-GeneID: 854666
             SGD: S000001402
-            MIPS: YIL140W
             UniProt: P38928
 AASEQ       823
             MTQLQISLLLTATISLLHLVVATPYEAYPIGKQYPPVARVNESFTFQISNDTYKSSVDKT

@@ -1,14 +1,18 @@
 ENTRY       YNL090W           CDS       T00005
 NAME        RHO2
-DEFINITION  Rho2p
+DEFINITION  (RefSeq) Rho family GTPase RHO2
 ORTHOLOGY   K07975  Rho family, other
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       GTP-binding proteins [BR:sce04031]
+             Small (Monomeric) G-proteins
+              Rho Family
+               Others
+                YNL090W (RHO2)
 POSITION    XIV:456565..457143
-MOTIF       Pfam: Ras Miro Arf PduV-EutP SRPRB AAA_21
-DBLINKS     NCBI-GI: 398364927
+MOTIF       Pfam: Ras Roc Arf PduV-EutP SRPRB AAA_21
+DBLINKS     NCBI-ProteinID: NP_014309
             NCBI-GeneID: 855634
             SGD: S000005034
-            MIPS: YNL090W
             UniProt: P06781
 AASEQ       192
             MSEKAVRRKLVIIGDGACGKTSLLYVFTLGKFPEQYHPTVFENYVTDCRVDGIKVSLTLW

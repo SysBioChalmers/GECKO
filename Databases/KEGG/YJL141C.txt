@@ -1,14 +1,23 @@
 ENTRY       YJL141C           CDS       T00005
 NAME        YAK1
-DEFINITION  Yak1p (EC:2.7.12.1)
-ORTHOLOGY   K08825  dual-specificity tyrosine-(Y)-phosphorylation regulated kinase [EC:2.7.12.1]
+DEFINITION  (RefSeq) serine/threonine protein kinase YAK1
+ORTHOLOGY   K18670  dual specificity protein kinase YAK1 [EC:2.7.12.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.12  Dual-specificity kinases (those acting on Ser/Thr and Tyr residues)
+                2.7.12.1  dual-specificity kinase
+                 YJL141C (YAK1)
+            Protein kinases [BR:sce01001]
+             Serine/threonine protein kinases: CMGC group
+              DYRK family [OT]
+               YJL141C (YAK1)
 POSITION    X:complement(147967..150390)
 MOTIF       Pfam: Pkinase Pkinase_Tyr RIO1 APH Choline_kinase
-DBLINKS     NCBI-GI: 6322320
+DBLINKS     NCBI-ProteinID: NP_012394
             NCBI-GeneID: 853300
             SGD: S000003677
-            MIPS: YJL141C
             UniProt: P14680
 AASEQ       807
             MNSSNNNDSSSSNSNMNNSLSPTLVTHSDASMGSGRASPDNSHMGRGIWNPSYVNQGSQR

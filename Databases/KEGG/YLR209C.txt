@@ -1,6 +1,6 @@
 ENTRY       YLR209C           CDS       T00005
 NAME        PNP1
-DEFINITION  purine-nucleoside phosphorylase (EC:2.4.2.1)
+DEFINITION  (RefSeq) purine-nucleoside phosphorylase
 ORTHOLOGY   K03783  purine-nucleoside phosphorylase [EC:2.4.2.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00230  Purine metabolism
@@ -8,15 +8,27 @@ PATHWAY     sce00230  Purine metabolism
             sce00760  Nicotinate and nicotinamide metabolism
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
-CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
-            Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
-            Metabolism; Metabolism of cofactors and vitamins; Nicotinate and nicotinamide metabolism [PATH:sce00760]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Nucleotide metabolism
+               00230 Purine metabolism
+                YLR209C (PNP1)
+               00240 Pyrimidine metabolism
+                YLR209C (PNP1)
+              Metabolism of cofactors and vitamins
+               00760 Nicotinate and nicotinamide metabolism
+                YLR209C (PNP1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.4  Glycosyltransferases
+               2.4.2  Pentosyltransferases
+                2.4.2.1  purine-nucleoside phosphorylase
+                 YLR209C (PNP1)
 POSITION    XII:complement(560797..561732)
 MOTIF       Pfam: PNP_UDP_1
-DBLINKS     NCBI-GI: 6323238
+DBLINKS     NCBI-ProteinID: NP_013310
             NCBI-GeneID: 850906
             SGD: S000004199
-            MIPS: YLR209C
             UniProt: Q05788
 AASEQ       311
             MSDILNVSQQREAITKAAAYISAILEPHFKNTTNFEPPRTLIICGSGLGGISTKLSRDNP

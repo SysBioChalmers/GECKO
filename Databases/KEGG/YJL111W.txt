@@ -1,16 +1,27 @@
 ENTRY       YJL111W           CDS       T00005
 NAME        CCT7, TCP7
-DEFINITION  Cct7p
+DEFINITION  (RefSeq) chaperonin-containing T-complex subunit CCT7
 ORTHOLOGY   K09499  T-complex protein 1 subunit eta
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chaperones and folding catalysts [BR:sce03110]
+             Heat shock proteins
+              HSP60 / Chaperonin
+               YJL111W (CCT7)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of haemopoietic cells  (B-cell, T-cell, DC-cell, reticulocyte, and mast cell)
+               YJL111W (CCT7)
+              Exosomal proteins of colorectal cancer cells
+               YJL111W (CCT7)
+              Exosomal proteins of bladder cancer cells
+               YJL111W (CCT7)
 POSITION    X:207877..209529
 MOTIF       Pfam: Cpn60_TCP1
-DBLINKS     NCBI-GI: 6322350
+DBLINKS     NCBI-ProteinID: NP_012424
             NCBI-GeneID: 853333
             SGD: S000003647
-            MIPS: YJL111W
             UniProt: P42943
-STRUCTURE   PDB: 4APK 4AOL 4D8Q 4D8R 3P9D 3P9E
+STRUCTURE   PDB: 5GW5 5GW4
 AASEQ       550
             MNFGSQTPTIVVLKEGTDASQGKGQIISNINACVAVQEALKPTLGPLGSDILIVTSNQKT
             TISNDGATILKLLDVVHPAAKTLVDISRAQDAEVGDGTTSVTILAGELMKEAKPFLEEGI

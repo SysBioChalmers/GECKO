@@ -1,13 +1,12 @@
 ENTRY       YPR128C           CDS       T00005
 NAME        ANT1
-DEFINITION  Ant1p
+DEFINITION  (RefSeq) Ant1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:complement(791218..792204)
-MOTIF       Pfam: Mito_carr FliO Adeno_E3B
-DBLINKS     NCBI-GI: 6325385
+MOTIF       Pfam: Mito_carr DUF2700
+DBLINKS     NCBI-ProteinID: NP_015453
             NCBI-GeneID: 856246
             SGD: S000006332
-            MIPS: YPR128C
             UniProt: Q06497
 AASEQ       328
             MLTLESALTGAVASAMANIAVYPLDLSKTIIQSQVSPSSSEDSNEGKVLPNRRYKNVVDC

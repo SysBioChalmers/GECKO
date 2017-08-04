@@ -1,13 +1,18 @@
 ENTRY       YDR470C           CDS       T00005
 NAME        UGO1
-DEFINITION  Ugo1p
+DEFINITION  (RefSeq) Ugo1p
+ORTHOLOGY   K17967  mitochondrial fusion and transport protein UGO1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial quality control factors
+              Mitochondrial dynamics
+               Fission and Fusion factors
+                YDR470C (UGO1)
 POSITION    IV:complement(1399706..1401214)
-MOTIF       Pfam: Mito_carr NBP1 Myc_N
-DBLINKS     NCBI-GI: 330443513
+MOTIF       Pfam: Mito_carr
+DBLINKS     NCBI-ProteinID: NP_010758
             NCBI-GeneID: 852081
             SGD: S000002878
-            MIPS: YDR470C
             UniProt: Q03327
 AASEQ       502
             MNNNNVTEATSRAQIRPYYDPDSFNAGYSAVFKPDEGVVDPHGYTIASKLNVINSSPTTK

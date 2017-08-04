@@ -1,14 +1,13 @@
 ENTRY       YAL036C           CDS       T00005
 NAME        RBG1, FUN11
-DEFINITION  Rbg1p
-ORTHOLOGY   K06944
+DEFINITION  (RefSeq) GTP-binding protein RBG1
+ORTHOLOGY   K06944  uncharacterized protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    I:complement(75043..76152)
-MOTIF       Pfam: TGS MMR_HSR1 FeoB_N ArgK Miro
-DBLINKS     NCBI-GI: 6319281
+MOTIF       Pfam: MMR_HSR1_Xtn TGS MMR_HSR1 FeoB_N ArgK
+DBLINKS     NCBI-ProteinID: NP_009364
             NCBI-GeneID: 851195
             SGD: S000000034
-            MIPS: YAL036C
             UniProt: P39729
 STRUCTURE   PDB: 4A9A
 AASEQ       369

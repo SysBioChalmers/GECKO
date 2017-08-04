@@ -1,13 +1,12 @@
 ENTRY       YHR204W           CDS       T00005
 NAME        MNL1, HTM1
-DEFINITION  Mnl1p (EC:3.2.1.-)
+DEFINITION  (RefSeq) alpha-1,2-mannosidase MNL1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VIII:506319..508709
 MOTIF       Pfam: Glyco_hydro_47
-DBLINKS     NCBI-GI: 398365055
+DBLINKS     NCBI-ProteinID: NP_012074
             NCBI-GeneID: 856611
             SGD: S000001247
-            MIPS: YHR204W
             UniProt: P38888
 AASEQ       796
             MVCCLWVLLALLLHLDHVACEDDAYSFTSKELKAYKQEVKELFYFGFDNYLEHGYPYDEV

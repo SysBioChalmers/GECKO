@@ -1,13 +1,12 @@
 ENTRY       YOR359W           CDS       T00005
 NAME        VTS1
-DEFINITION  Vts1p
+DEFINITION  (RefSeq) Vts1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:1011189..1012760
-MOTIF       Pfam: SAM_2 SAM_1
-DBLINKS     NCBI-GI: 398366369
+MOTIF       Pfam: SAM_2 SAM_1 YusW
+DBLINKS     NCBI-ProteinID: NP_015004
             NCBI-GeneID: 854541
             SGD: S000005886
-            MIPS: YOR359W
             UniProt: Q08831
 STRUCTURE   PDB: 2D3D 2F8K 2FE9 2ESE 2ES6 2B6G
 AASEQ       523

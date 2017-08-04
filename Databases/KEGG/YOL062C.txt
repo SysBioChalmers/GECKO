@@ -1,13 +1,24 @@
 ENTRY       YOL062C           CDS       T00005
 NAME        APM4, AMP1
-DEFINITION  Apm4p
+DEFINITION  (RefSeq) Apm4p
+ORTHOLOGY   K11826  AP-2 complex subunit mu-1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04144  Endocytosis
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04144 Endocytosis
+                YOL062C (APM4)
+            Membrane trafficking [BR:sce04131]
+             Endocytosis
+              Clathrin-mediated endocytosis
+               AP-2 complex
+                YOL062C (APM4)
 POSITION    XV:complement(210520..211995)
 MOTIF       Pfam: Adap_comp_sub Clat_adaptor_s
-DBLINKS     NCBI-GI: 6324510
+DBLINKS     NCBI-ProteinID: NP_014579
             NCBI-GeneID: 854092
             SGD: S000005423
-            MIPS: YOL062C
             UniProt: Q99186
 AASEQ       491
             MISGVLVYSSRGELVLNKFFKNSLKRSISDIFRVQVINNLDVRSPVLTLGSTTFHHIRSR

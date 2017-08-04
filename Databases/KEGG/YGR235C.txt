@@ -1,14 +1,18 @@
 ENTRY       YGR235C           CDS       T00005
-NAME        MOS2, MCS29, MIO27
-DEFINITION  Mos2p
+NAME        MIC26, MCS29, MIO27, MOS2
+DEFINITION  (RefSeq) Mic26p
 ORTHOLOGY   K17786  mitochondrial organizing structure protein 2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial protein import machinery
+              Inner mambrane
+               MINOS/MitOS complex (yeast)
+                YGR235C (MIC26)
 POSITION    VII:complement(961360..962061)
 MOTIF       Pfam: ApoO DUF1870
-DBLINKS     NCBI-GI: 6321674
+DBLINKS     NCBI-ProteinID: NP_011751
             NCBI-GeneID: 853150
             SGD: S000003467
-            MIPS: YGR235C
             UniProt: P50087
 AASEQ       233
             MTKDFYRQLDPVEEKIVPPENAIVISSEAKEATVNEKEAKQGVLSQRVMKYIGENELVDG

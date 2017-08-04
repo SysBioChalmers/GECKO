@@ -1,13 +1,12 @@
 ENTRY       YGL101W           CDS       T00005
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) hypothetical protein
 ORTHOLOGY   K07023  putative hydrolases of HD superfamily
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:312193..312840
-MOTIF       Pfam: HD_3 HD HD_2 CAAP1
-DBLINKS     NCBI-GI: 6321337
+MOTIF       Pfam: HD_3 HD HD_2
+DBLINKS     NCBI-ProteinID: NP_011414
             NCBI-GeneID: 852777
             SGD: S000003069
-            MIPS: YGL101W
             UniProt: P53144
 AASEQ       215
             MTAVNIWKPEDNIPREILAILSKPHPNYQLAFLNIIQLLKTQRRTGWVDHGIDPCESISD

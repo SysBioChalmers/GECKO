@@ -1,23 +1,41 @@
 ENTRY       YLR299W           CDS       T00005
 NAME        ECM38, CIS2
-DEFINITION  gamma-glutamyltransferase (EC:2.3.2.2 3.4.19.13)
-ORTHOLOGY   K00681  gamma-glutamyltranspeptidase [EC:2.3.2.2]
+DEFINITION  (RefSeq) gamma-glutamyltransferase
+ORTHOLOGY   K00681  gamma-glutamyltranspeptidase / glutathione hydrolase [EC:2.3.2.2 3.4.19.13]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00430  Taurine and hypotaurine metabolism
             sce00460  Cyanoamino acid metabolism
             sce00480  Glutathione metabolism
-            sce00590  Arachidonic acid metabolism
             sce01100  Metabolic pathways
-CLASS       Metabolism; Lipid metabolism; Arachidonic acid metabolism [PATH:sce00590]
-            Metabolism; Metabolism of other amino acids; Taurine and hypotaurine metabolism [PATH:sce00430]
-            Metabolism; Metabolism of other amino acids; Cyanoamino acid metabolism [PATH:sce00460]
-            Metabolism; Metabolism of other amino acids; Glutathione metabolism [PATH:sce00480]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Metabolism of other amino acids
+               00430 Taurine and hypotaurine metabolism
+                YLR299W (ECM38)
+               00460 Cyanoamino acid metabolism
+                YLR299W (ECM38)
+               00480 Glutathione metabolism
+                YLR299W (ECM38)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.3  Acyltransferases
+               2.3.2  Aminoacyltransferases
+                2.3.2.2  gamma-glutamyltransferase
+                 YLR299W (ECM38)
+             3. Hydrolases
+              3.4  Acting on peptide bonds (peptidases)
+               3.4.19  Omega peptidases
+                3.4.19.13  glutathione hydrolase
+                 YLR299W (ECM38)
+            Peptidases [BR:sce01002]
+             Threonine Peptidases
+              Family T3: gamma-glutamyltransferase family
+               YLR299W (ECM38)
 POSITION    XII:726069..728051
 MOTIF       Pfam: G_glu_transpept
-DBLINKS     NCBI-GI: 6323330
+DBLINKS     NCBI-ProteinID: NP_013402
             NCBI-GeneID: 851006
             SGD: S000004290
-            MIPS: YLR299W
             UniProt: Q05902
 AASEQ       660
             MLLCNRKVPKTLNTCFILHIFTLLTLGVLVSGMPSKMVSFASQETLQRINNLLRGSANRD

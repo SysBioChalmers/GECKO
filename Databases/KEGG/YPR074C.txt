@@ -1,25 +1,40 @@
 ENTRY       YPR074C           CDS       T00005
 NAME        TKL1
-DEFINITION  transketolase TKL1 (EC:2.2.1.1)
+DEFINITION  (RefSeq) transketolase TKL1
 ORTHOLOGY   K00615  transketolase [EC:2.2.1.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00030  Pentose phosphate pathway
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
+            sce01130  Biosynthesis of antibiotics
             sce01200  Carbon metabolism
             sce01230  Biosynthesis of amino acids
 MODULE      sce_M00004  Pentose phosphate pathway (Pentose phosphate cycle)
             sce_M00007  Pentose phosphate pathway, non-oxidative phase, fructose 6P => ribose 5P
-CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
-            Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
-            Metabolism; Carbohydrate metabolism; Pentose phosphate pathway [PATH:sce00030]
-            Metabolism; Metabolism of terpenoids and polyketides; Biosynthesis of ansamycins
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01200 Carbon metabolism
+                YPR074C (TKL1)
+               01230 Biosynthesis of amino acids
+                YPR074C (TKL1)
+              Carbohydrate metabolism
+               00030 Pentose phosphate pathway
+                YPR074C (TKL1)
+              Metabolism of terpenoids and polyketides
+               01051 Biosynthesis of ansamycins
+                YPR074C (TKL1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.2  Transferring aldehyde or ketonic groups
+               2.2.1  Transketolases and transaldolases
+                2.2.1.1  transketolase
+                 YPR074C (TKL1)
 POSITION    XVI:complement(692796..694838)
-MOTIF       Pfam: Transketolase_N Transket_pyr Transketolase_C DXP_synthase_N TPP_enzyme_C E1_dh
-DBLINKS     NCBI-GI: 6325331
+MOTIF       Pfam: Transketolase_N Transket_pyr Transketolase_C DXP_synthase_N TPP_enzyme_C E1_dh XFP_C
+DBLINKS     NCBI-ProteinID: NP_015399
             NCBI-GeneID: 856188
             SGD: S000006278
-            MIPS: YPR074C
             UniProt: P23254
 STRUCTURE   PDB: 1GPU 1TRK 1TKB 1NGS 1AY0 1TKA 1TKC
 AASEQ       680

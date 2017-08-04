@@ -1,13 +1,13 @@
 ENTRY       YJR138W           CDS       T00005
 NAME        IML1, SEA1
-DEFINITION  Iml1p
+DEFINITION  (RefSeq) Iml1p
+ORTHOLOGY   K20404  DEP domain-containing protein 5
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    X:684567..689321
-MOTIF       Pfam: DUF3608 DEP
-DBLINKS     NCBI-GI: 6322598
+MOTIF       Pfam: IML1 DEP
+DBLINKS     NCBI-ProteinID: NP_012672
             NCBI-GeneID: 853603
             SGD: S000003899
-            MIPS: YJR138W
             UniProt: P47170
 AASEQ       1584
             MFAKLHGKKQRPISSINSQTPRTSNTTHANSISLSSGNLIVGSNRNLRQKKEQFGSQQRA

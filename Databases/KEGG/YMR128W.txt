@@ -1,14 +1,24 @@
 ENTRY       YMR128W           CDS       T00005
 NAME        ECM16, DHR1
-DEFINITION  Ecm16p (EC:3.6.4.13)
+DEFINITION  (RefSeq) ATP-dependent RNA helicase ECM16
 ORTHOLOGY   K14780  ATP-dependent RNA helicase DHX37/DHR1 [EC:3.6.4.13]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.4  Acting on acid anhydrides to facilitate cellular and subcellular movement
+                3.6.4.13  RNA helicase
+                 YMR128W (ECM16)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              90S particles
+               Helicases
+                YMR128W (ECM16)
 POSITION    XIII:523696..527499
-MOTIF       Pfam: HA2 OB_NTP_bind Helicase_C DEAD AAA_22 KaiC T2SE BSP FtsK_SpoIIIE HTH_37 AAA_19
-DBLINKS     NCBI-GI: 6323776
+MOTIF       Pfam: HA2 OB_NTP_bind Helicase_C DEAD AAA_22 ATPase AAA_30 AAA_19 DUF4704 BSP PhoH HTH_37 T2SSE
+DBLINKS     NCBI-ProteinID: NP_013847
             NCBI-GeneID: 855158
             SGD: S000004735
-            MIPS: YMR128W
             UniProt: Q04217
 AASEQ       1267
             MGTYRKRFNEKARSGHMAKLKELKRIRNKQFTRQDENDERVENPDSAPAESSTTEPNANA

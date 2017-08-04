@@ -1,13 +1,12 @@
 ENTRY       YKR088C           CDS       T00005
 NAME        TVP38
-DEFINITION  Tvp38p
+DEFINITION  (RefSeq) Tvp38p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XI:complement(604405..605418)
-MOTIF       Pfam: SNARE_assoc DUF872 Peptidase_M50 UPF0182
-DBLINKS     NCBI-GI: 398365439
+MOTIF       Pfam: SNARE_assoc TctB
+DBLINKS     NCBI-ProteinID: NP_013014
             NCBI-GeneID: 853963
             SGD: S000001796
-            MIPS: YKR088C
             UniProt: P36164
 AASEQ       337
             MSQSYEAGNANMGQGEDDEFDGYFEDFDNDIMPNSNNGQRVGTNAGLSFNDEVNVNDDDF

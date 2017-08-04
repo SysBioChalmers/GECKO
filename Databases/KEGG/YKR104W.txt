@@ -1,13 +1,12 @@
 ENTRY       YKR104W           CDS       T00005
 NAME        NFT1
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) hypothetical protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XI:656836..657756
-MOTIF       Pfam: ABC_tran SMC_N AAA_21 MMR_HSR1 AAA_29 DUF258 Zeta_toxin Miro AAA_23 ResIII Sigma54_activat DUF87
-DBLINKS     NCBI-GI: 6322957
+MOTIF       Pfam: ABC_tran SMC_N AAA_21 MMR_HSR1 AAA_29 RsgA_GTPase AAA_15 AAA_23 Sigma54_activat AAA_24 DUF87 Zeta_toxin
+DBLINKS     NCBI-ProteinID: NP_013030
             NCBI-GeneID: 853979
             SGD: S000001812
-            MIPS: YKR104W
             UniProt: P0CE69
 AASEQ       306
             MSSVERIKEYTDIPSESNGYISPPANWPQTGDVELKNLSLRYSPHSSKALDNVSFKVKAG

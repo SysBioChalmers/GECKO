@@ -1,13 +1,12 @@
 ENTRY       YPL100W           CDS       T00005
 NAME        ATG21, HSV1, MAI1
-DEFINITION  Atg21p
+DEFINITION  (RefSeq) Atg21p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:361872..363362
 MOTIF       Pfam: WD40
-DBLINKS     NCBI-GI: 6325157
+DBLINKS     NCBI-ProteinID: NP_015225
             NCBI-GeneID: 856004
             SGD: S000006021
-            MIPS: YPL100W
             UniProt: Q02887
 AASEQ       496
             MKVLQFNQDATCCVVAASSHQISIFNCDPFGKCFEIDTKNSKKKTSNNNGSASNSESRNN

@@ -1,13 +1,12 @@
 ENTRY       YBR187W           CDS       T00005
 NAME        GDT1
-DEFINITION  Gdt1p
+DEFINITION  (RefSeq) putative ribosome biosynthesis protein GDT1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    II:602634..603476
-MOTIF       Pfam: UPF0016 MFS_1 Ada3 DUF1673
-DBLINKS     NCBI-GI: 6319664
+MOTIF       Pfam: UPF0016 Ion_trans
+DBLINKS     NCBI-ProteinID: NP_009746
             NCBI-GeneID: 852485
             SGD: S000000391
-            MIPS: YBR187W
             UniProt: P38301
 AASEQ       280
             MGNMIKKASLIALLPLFTAAAAAATDAETSMESGSSSHLKSFLMSVSMIGLSEIGDKTFL

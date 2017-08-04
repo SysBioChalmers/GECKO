@@ -1,14 +1,18 @@
 ENTRY       YDR026C           CDS       T00005
-NAME        NSI1
-DEFINITION  Nsi1p
+NAME        NSI1, YTT1
+DEFINITION  (RefSeq) Nsi1p
 ORTHOLOGY   K09424  Myb-like DNA-binding protein REB1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription factors [BR:sce03000]
+             Eukaryotic Type
+              Helix-turn-helix
+               Tryptophan clusters Myb, Myb-like factors
+                YDR026C (NSI1)
 POSITION    IV:complement(492556..494268)
-MOTIF       Pfam: Myb_DNA-binding Myb_DNA-bind_6
-DBLINKS     NCBI-GI: 398365077
+MOTIF       Pfam: Myb_DNA-binding Myb_DNA-bind_6 DUF1376 Rap1_C
+DBLINKS     NCBI-ProteinID: NP_010309
             NCBI-GeneID: 851590
             SGD: S000002433
-            MIPS: YDR026C
             UniProt: Q12457
 AASEQ       570
             MDSVSNLKSTNFQNNNDPKESVEEAVLRYVGVDLKNHIKKTKKKLKKQKKRKHGSKMSHE

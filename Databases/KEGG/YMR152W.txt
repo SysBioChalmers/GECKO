@@ -1,13 +1,12 @@
 ENTRY       YMR152W           CDS       T00005
 NAME        YIM1
-DEFINITION  Yim1p
+DEFINITION  (RefSeq) Yim1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:563096..564193
-MOTIF       Pfam: ADH_zinc_N_2 ADH_zinc_N ADH_N DUF2855
-DBLINKS     NCBI-GI: 6323801
+MOTIF       Pfam: ADH_zinc_N_2 ADH_zinc_N ADH_N
+DBLINKS     NCBI-ProteinID: NP_013872
             NCBI-GeneID: 855183
             SGD: S000004760
-            MIPS: YMR152W
             UniProt: P28625
 AASEQ       365
             MSDEIVTNKSVTYVNNTTPVTITSSELDLRSCYQDDEVVIEVHAAALNPIDFITHQLCNS

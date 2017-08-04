@@ -1,16 +1,19 @@
 ENTRY       YJL013C           CDS       T00005
 NAME        MAD3
-DEFINITION  Mad3p
+DEFINITION  (RefSeq) Mad3p
 ORTHOLOGY   K06680  spindle assembly checkpoint component MAD3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
-CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YJL013C (MAD3)
 POSITION    X:complement(409493..411040)
-MOTIF       Pfam: Mad3_BUB1_I Mad3_BUB1_II
-DBLINKS     NCBI-GI: 398364669
+MOTIF       Pfam: Mad3_BUB1_I Mad3_BUB1_II Mad3_BUB1_I_2 EST1
+DBLINKS     NCBI-ProteinID: NP_012521
             NCBI-GeneID: 853439
             SGD: S000003550
-            MIPS: YJL013C
             UniProt: P47074
 STRUCTURE   PDB: 2I3T
 AASEQ       515

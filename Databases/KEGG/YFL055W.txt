@@ -1,14 +1,17 @@
 ENTRY       YFL055W           CDS       T00005
 NAME        AGP3
-DEFINITION  Agp3p
+DEFINITION  (RefSeq) Agp3p
 ORTHOLOGY   K16261  yeast amino acid transporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Other Transporters
+              Electrochemical potential-driven transporters [TC:2]
+               YFL055W (AGP3)
 POSITION    VI:17004..18680
 MOTIF       Pfam: AA_permease AA_permease_2
-DBLINKS     NCBI-GI: 14318464
+DBLINKS     NCBI-ProteinID: NP_116600
             NCBI-GeneID: 850489
             SGD: S000001839
-            MIPS: YFL055W
             UniProt: P43548
 AASEQ       558
             MAVLNLKRETVDIEETAKKDIKPYFASNVEAVDIDEDPDVSRYDPQTGVKRALKNRHISL

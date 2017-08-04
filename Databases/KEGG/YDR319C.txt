@@ -1,13 +1,12 @@
 ENTRY       YDR319C           CDS       T00005
 NAME        YFT2, FIT2A
-DEFINITION  Yft2p
+DEFINITION  (RefSeq) Yft2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(1105003..1105827)
-MOTIF       Pfam: Scs3p PAP2
-DBLINKS     NCBI-GI: 6320525
+MOTIF       Pfam: Scs3p
+DBLINKS     NCBI-ProteinID: NP_010605
             NCBI-GeneID: 851917
             SGD: S000002727
-            MIPS: YDR319C
             UniProt: Q06676
 AASEQ       274
             MIRQLNYWSRKAYLIYPFQVFVGALLSIVVSSETLNHQKETCALLKSSNIFNVIFAYKAN

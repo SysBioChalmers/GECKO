@@ -1,14 +1,24 @@
 ENTRY       YDR206W           CDS       T00005
 NAME        EBS1
-DEFINITION  Ebs1p
+DEFINITION  (RefSeq) Ebs1p
 ORTHOLOGY   K11132  telomere elongation protein [EC:2.7.7.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.7  Nucleotidyltransferases
+                2.7.7.-  
+                 YDR206W (EBS1)
+            DNA replication proteins [BR:sce03032]
+             Eukaryotic Type
+              DNA Replication Termination Factors
+               Telomerase complex (fungi)
+                YDR206W (EBS1)
 POSITION    IV:862054..864708
 MOTIF       Pfam: EST1_DNA_bind EST1 WaaY
-DBLINKS     NCBI-GI: 398366093
+DBLINKS     NCBI-ProteinID: NP_010492
             NCBI-GeneID: 851787
             SGD: S000002614
-            MIPS: YDR206W
             UniProt: Q03466
 AASEQ       884
             MEPSNTQKEDLPTAFNGIKSQLNSILKSNQLFQDYALLNGFLAFVHSKLNAAILTSIESQ

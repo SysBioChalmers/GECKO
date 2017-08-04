@@ -1,16 +1,25 @@
 ENTRY       YMR106C           CDS       T00005
 NAME        YKU80, HDF2
-DEFINITION  Yku80p (EC:3.6.4.12)
+DEFINITION  (RefSeq) ATP-dependent DNA helicase YKU80
 ORTHOLOGY   K10885  ATP-dependent DNA helicase 2 subunit 2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03450  Non-homologous end-joining
-CLASS       Genetic Information Processing; Replication and repair; Non-homologous end-joining [PATH:sce03450]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Replication and repair
+               03450 Non-homologous end-joining
+                YMR106C (YKU80)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              DSBR (double strand breaks repair)
+               NHEJ (non-homologous end-joining)
+                DNA-PK complex
+                 YMR106C (YKU80)
 POSITION    XIII:complement(478301..480190)
 MOTIF       Pfam: Ku_N Ku Ku_C
-DBLINKS     NCBI-GI: 6323753
+DBLINKS     NCBI-ProteinID: NP_013824
             NCBI-GeneID: 855132
             SGD: S000004712
-            MIPS: YMR106C
             UniProt: Q04437
 AASEQ       629
             MSSESTTFIVDVSPSMMKNNNVSKSMAYLEYTLLNKSKKSRKTDWISCYLANCPVSENSQ

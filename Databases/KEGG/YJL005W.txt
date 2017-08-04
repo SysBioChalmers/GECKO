@@ -1,18 +1,36 @@
 ENTRY       YJL005W           CDS       T00005
 NAME        CYR1, CDC35, FIL1, HSR1, SRA4, TSM0185
-DEFINITION  adenylate cyclase (EC:4.6.1.1)
+DEFINITION  (RefSeq) adenylate cyclase
 ORTHOLOGY   K01768  adenylate cyclase [EC:4.6.1.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00230  Purine metabolism
             sce04113  Meiosis - yeast
-CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
-            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+            sce04213  Longevity regulating pathway - multiple species
+MODULE      sce_M00695  cAMP signaling
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Nucleotide metabolism
+               00230 Purine metabolism
+                YJL005W (CYR1)
+             Cellular Processes
+              Cell growth and death
+               04113 Meiosis - yeast
+                YJL005W (CYR1)
+             Organismal Systems
+              Aging
+               04213 Longevity regulating pathway - multiple species
+                YJL005W (CYR1)
+            Enzymes [BR:sce01000]
+             4. Lyases
+              4.6  Phosphorus-oxygen lyases
+               4.6.1  Phosphorus-oxygen lyases (only sub-subclass identified to date)
+                4.6.1.1  adenylate cyclase
+                 YJL005W (CYR1)
 POSITION    X:425157..431237
-MOTIF       Pfam: PP2C LRR_4 LRR_8 Guanylate_cyc LRR_1 Ad_cyc_g-alpha RA PP2C_2
-DBLINKS     NCBI-GI: 398364701
+MOTIF       Pfam: PP2C LRR_8 Guanylate_cyc LRR_4 Ad_cyc_g-alpha LRR_9 PP2C_2
+DBLINKS     NCBI-ProteinID: NP_012529
             NCBI-GeneID: 853452
             SGD: S000003542
-            MIPS: YJL005W
             UniProt: P08678
 AASEQ       2026
             MSSKPDTGSEISGPQRQEEQEQQIEQSSPTEANDRSIHDEVPKVKKRHEQNSGHKSRRNS

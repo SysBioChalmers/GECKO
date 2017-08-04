@@ -1,17 +1,26 @@
 ENTRY       YFL025C           CDS       T00005
 NAME        BST1, PER17
-DEFINITION  Bst1p (EC:3.1.-.-)
+DEFINITION  (RefSeq) Bst1p
 ORTHOLOGY   K05294  glycosylphosphatidylinositol deacylase [EC:3.-.-.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
-PATHWAY     sce00563  Glycosylphosphatidylinositol(GPI)-anchor biosynthesis
+PATHWAY     sce00563  Glycosylphosphatidylinositol (GPI)-anchor biosynthesis
             sce01100  Metabolic pathways
-CLASS       Metabolism; Glycan biosynthesis and metabolism; Glycosylphosphatidylinositol(GPI)-anchor biosynthesis [PATH:sce00563]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Glycan biosynthesis and metabolism
+               00563 Glycosylphosphatidylinositol(GPI)-anchor biosynthesis
+                YFL025C (BST1)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.-  
+               3.-.-  
+                3.-.-.-  
+                 YFL025C (BST1)
 POSITION    VI:complement(84145..87234)
-MOTIF       Pfam: PGAP1 Abhydrolase_6 Abhydrolase_5 DUF676 Abhydrolase_1
-DBLINKS     NCBI-GI: 14318494
+MOTIF       Pfam: PGAP1 Abhydrolase_6 Abhydrolase_1 DUF676 Abhydrolase_5 Hydrolase_4
+DBLINKS     NCBI-ProteinID: NP_116628
             NCBI-GeneID: 850519
             SGD: S000001869
-            MIPS: YFL025C
             UniProt: P43571
 AASEQ       1029
             MGIRRLVSVITRPIINKVNSSGQYSRVLATREDQDKASPKYMNNDKIAKKPYTYRLFSIL

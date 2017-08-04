@@ -1,13 +1,12 @@
 ENTRY       YKL121W           CDS       T00005
 NAME        DGR2
-DEFINITION  Dgr2p
+DEFINITION  (RefSeq) Dgr2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XI:214142..216700
-MOTIF       Pfam: WD40
-DBLINKS     NCBI-GI: 6322728
+MOTIF       Pfam: WD40 ANAPC4_WD40 Ge1_WD40 Frtz
+DBLINKS     NCBI-ProteinID: NP_012801
             NCBI-GeneID: 853738
             SGD: S000001604
-            MIPS: YKL121W
             UniProt: P32330
 AASEQ       852
             MFKSKTSTLSYDETPNSNEGDRNATPVNPKEKSQTKHLNIPGDRSRHSSIADSKRSSSRY

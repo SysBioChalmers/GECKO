@@ -1,13 +1,12 @@
 ENTRY       YOR298W           CDS       T00005
 NAME        MUM3
-DEFINITION  Mum3p
+DEFINITION  (RefSeq) Mum3p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:875599..877038
-MOTIF       Pfam: Acyltransferase
-DBLINKS     NCBI-GI: 6324872
+MOTIF       Pfam: Acyltransf_C AdoMet_Synthase Acyltransferase
+DBLINKS     NCBI-ProteinID: NP_014941
             NCBI-GeneID: 854473
             SGD: S000005824
-            MIPS: YOR298W
             UniProt: Q08750
 AASEQ       479
             MGFVDFFETYMVGSRVQFKQLDISDWLSLTPRLLILFGYFYLHSFFTAINQFLQFINTNS

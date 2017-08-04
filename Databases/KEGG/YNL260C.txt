@@ -1,13 +1,12 @@
 ENTRY       YNL260C           CDS       T00005
 NAME        LTO1
-DEFINITION  Lto1p
+DEFINITION  (RefSeq) ribosome biosynthesis protein LTO1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIV:complement(156859..157455)
 MOTIF       Pfam: Yae1_N
-DBLINKS     NCBI-GI: 6324069
+DBLINKS     NCBI-ProteinID: NP_014139
             NCBI-GeneID: 855461
             SGD: S000005204
-            MIPS: YNL260C
             UniProt: P53846
 AASEQ       198
             MVRNRFIRKMKKNLFKSNHLSYLKSKWKVKITGQIKMDFDNLLNLEEQYYQEGFLEGQNE

@@ -1,17 +1,41 @@
 ENTRY       YKL101W           CDS       T00005
 NAME        HSL1, ELM2, NIK1
-DEFINITION  Hsl1p (EC:2.7.11.- 2.7.11.1)
-ORTHOLOGY   K02515  serine/threonine-protein kinase HSL1,negative regulator of Swe1 kinase [EC:2.7.11.-]
+DEFINITION  (RefSeq) protein kinase HSL1
+ORTHOLOGY   K02515  serine/threonine-protein kinase HSL1, negative regulator of Swe1 kinase [EC:2.7.11.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
-PATHWAY     sce04111  Cell cycle - yeast
-CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
+PATHWAY     sce04011  MAPK signaling pathway - yeast
+            sce04111  Cell cycle - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YKL101W (HSL1)
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YKL101W (HSL1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.11  Protein-serine/threonine kinases
+                2.7.11.-  
+                 YKL101W (HSL1)
+            Protein kinases [BR:sce01001]
+             Serine/threonine protein kinases: CAMK group
+              CAMKL family
+               YKL101W (HSL1)
+            Cytoskeleton proteins [BR:sce04812]
+             Eukaryotic cytoskeleton proteins
+              Septins
+               Septin associated proteins
+                YKL101W (HSL1)
 POSITION    XI:248920..253476
-MOTIF       Pfam: Pkinase Pkinase_Tyr APH Kdo
-DBLINKS     NCBI-GI: 330443652
+MOTIF       Pfam: Pkinase Pkinase_Tyr Kdo APH Choline_kinase
+DBLINKS     NCBI-ProteinID: NP_012821
             NCBI-GeneID: 853760
             SGD: S000001584
-            MIPS: YKL101W
             UniProt: P34244
+STRUCTURE   PDB: 5G04
 AASEQ       1518
             MTGHVSKTSHVPKGRPSSLAKKAAKRAMAKVNSNPKRASGHLERVVQSVNDATKRLSQPD
             STVSVATKSSKRKSRDTVGPWKLGKTLGKGSSGRVRLAKNMETGQLAAIKIVPKKKAFVH

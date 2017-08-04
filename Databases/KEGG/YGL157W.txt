@@ -1,13 +1,12 @@
 ENTRY       YGL157W           CDS       T00005
 NAME        ARI1
-DEFINITION  carbonyl reductase (NADPH-dependent) ARI1 (EC:1.1.1.-)
+DEFINITION  (RefSeq) carbonyl reductase (NADPH-dependent) ARI1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:209006..210049
-MOTIF       Pfam: Epimerase 3Beta_HSD NAD_binding_4 NAD_binding_10 adh_short KR adh_short_C2 NmrA
-DBLINKS     NCBI-GI: 398364383
+MOTIF       Pfam: Epimerase 3Beta_HSD NAD_binding_4 GDP_Man_Dehyd KR adh_short NAD_binding_10 Polysacc_synt_2
+DBLINKS     NCBI-ProteinID: NP_011358
             NCBI-GeneID: 852720
             SGD: S000003125
-            MIPS: YGL157W
             UniProt: P53111
 AASEQ       347
             MTTDTTVFVSGATGFIALHIMNDLLKAGYTVIGSGRSQEKNDGLLKKFNNNPKLSMEIVE

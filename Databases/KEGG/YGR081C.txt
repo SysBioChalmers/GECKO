@@ -1,14 +1,18 @@
 ENTRY       YGR081C           CDS       T00005
 NAME        SLX9
-DEFINITION  Slx9p
+DEFINITION  (RefSeq) Slx9p
 ORTHOLOGY   K14804  ribosome biogenesis protein SLX9
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-40S particles
+               Other pre-40S particles
+                YGR081C (SLX9)
 POSITION    VII:complement(643148..643780)
-MOTIF       Pfam: SLX9 DASH_Spc19
-DBLINKS     NCBI-GI: 398365569
+MOTIF       Pfam: SLX9 DUF3837 DASH_Spc19
+DBLINKS     NCBI-ProteinID: NP_011595
             NCBI-GeneID: 852972
             SGD: S000003313
-            MIPS: YGR081C
             UniProt: P53251
 AASEQ       210
             MVAKKRNTLRSKVSARNSQNFGPDVANNGILDESYDIESDPRAFLHQPKETKKEKLLNRQ

@@ -1,20 +1,23 @@
 ENTRY       YJL166W           CDS       T00005
 NAME        QCR8, COR5
-DEFINITION  ubiquinol--cytochrome-c reductase subunit 8
+DEFINITION  (RefSeq) ubiquinol--cytochrome-c reductase subunit 8
 ORTHOLOGY   K00418  ubiquinol-cytochrome c reductase subunit 8
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00190  Oxidative phosphorylation
             sce01100  Metabolic pathways
 MODULE      sce_M00152  Cytochrome bc1 complex
-CLASS       Metabolism; Energy metabolism; Oxidative phosphorylation [PATH:sce00190]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Energy metabolism
+               00190 Oxidative phosphorylation
+                YJL166W (QCR8)
 POSITION    X:106434..106718
-MOTIF       Pfam: UcrQ DUF2741
-DBLINKS     NCBI-GI: 6322295
+MOTIF       Pfam: UcrQ Cyt_b-c1_8
+DBLINKS     NCBI-ProteinID: NP_012369
             NCBI-GeneID: 853273
             SGD: S000003702
-            MIPS: YJL166W
             UniProt: P08525
-STRUCTURE   PDB: 3CX5 2IBZ 1KB9 1EZV 3CXH 1P84 1KYO
+STRUCTURE   PDB: 3CX5 2IBZ 1KB9 1EZV 3CXH 1P84 1KYO 4PD4
 AASEQ       94
             MGPPSGKTYMGWWGHMGGPKQKGITSYAVSPYAQKPLQGIFHNAVFNSFRRFKSQFLYVL
             IPAGIYWYWWKNGNEYNEFLYSKAGREELERVNV

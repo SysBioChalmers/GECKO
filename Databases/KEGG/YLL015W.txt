@@ -1,13 +1,12 @@
 ENTRY       YLL015W           CDS       T00005
 NAME        BPT1
-DEFINITION  ATP-binding cassette bilirubin transporter BPT1
+DEFINITION  (RefSeq) ATP-binding cassette bilirubin transporter BPT1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XII:116432..121111
-MOTIF       Pfam: ABC_membrane ABC_tran SMC_N AAA_29 MMR_HSR1 AAA_17 AAA_16 AAA_23 AAA_33 AAA_10 DUF87 Dynamin_N UPF0079 NACHT
-DBLINKS     NCBI-GI: 6323014
+MOTIF       Pfam: ABC_membrane ABC_tran SMC_N AAA_21 MMR_HSR1 AAA_29 RsgA_GTPase AAA_22 DUF87 Dynamin_N TsaE
+DBLINKS     NCBI-ProteinID: NP_013086
             NCBI-GeneID: 850645
             SGD: S000003938
-            MIPS: YLL015W
             UniProt: P14772
 AASEQ       1559
             MSSLEVVDGCPYGYRPYPDSGTNALNPCFISVISAWQAVFFLLIGSYQLWKLYKNNKVPP

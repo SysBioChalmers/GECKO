@@ -1,17 +1,26 @@
 ENTRY       YIR029W           CDS       T00005
 NAME        DAL2, ALC1
-DEFINITION  allantoicase (EC:3.5.3.4)
+DEFINITION  (RefSeq) allantoicase
 ORTHOLOGY   K01477  allantoicase [EC:3.5.3.4]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00230  Purine metabolism
             sce01100  Metabolic pathways
-CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Nucleotide metabolism
+               00230 Purine metabolism
+                YIR029W (DAL2)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.5  Acting on carbon-nitrogen bonds, other than peptide bonds
+               3.5.3  In linear amidines
+                3.5.3.4  allantoicase
+                 YIR029W (DAL2)
 POSITION    IX:410807..411838
 MOTIF       Pfam: Allantoicase
-DBLINKS     NCBI-GI: 6322220
+DBLINKS     NCBI-ProteinID: NP_012295
             NCBI-GeneID: 854847
             SGD: S000001468
-            MIPS: YIR029W
             UniProt: P25335
 STRUCTURE   PDB: 1O59 1SG3
 AASEQ       343

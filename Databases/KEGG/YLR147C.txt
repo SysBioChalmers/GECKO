@@ -1,18 +1,49 @@
 ENTRY       YLR147C           CDS       T00005
 NAME        SMD3, SLT16
-DEFINITION  Smd3p
+DEFINITION  (RefSeq) mRNA splicing protein SMD3
 ORTHOLOGY   K11088  small nuclear ribonucleoprotein D3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03040  Spliceosome
-MODULE      sce_M00398  Sm core complex
-CLASS       Genetic Information Processing; Transcription; Spliceosome [PATH:sce03040]
+            sce04139  Mitophagy - yeast
+MODULE      sce_M00351  Spliceosome, U1-snRNP
+            sce_M00398  Sm core complex
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03040 Spliceosome
+                YLR147C (SMD3)
+             Cellular Processes
+              Transport and catabolism
+               04139 Mitophagy - yeast
+                YLR147C (SMD3)
+            Spliceosome [BR:sce03041]
+             Complex A
+              U1 snRNP components
+               Sm proteins
+                YLR147C (SMD3)
+              U2 snRNP components
+                YLR147C (SMD3)
+             Complex B
+              U1 snRNP components
+                YLR147C (SMD3)
+              U4/U6.U5 tri-snRNP components
+                YLR147C (SMD3)
+             Complex C
+              U2 snRNP components
+                YLR147C (SMD3)
+            DNA replication proteins [BR:sce03032]
+             Eukaryotic Type
+              DNA Replication Termination Factors
+               Telomerase complex (fungi)
+                Sm core complex
+                 YLR147C (SMD3)
 POSITION    XII:complement(434158..434463)
 MOTIF       Pfam: LSM
-DBLINKS     NCBI-GI: 6323176
+DBLINKS     NCBI-ProteinID: NP_013248
             NCBI-GeneID: 850839
             SGD: S000004137
-            MIPS: YLR147C
             UniProt: P43321
+STRUCTURE   PDB: 5GMK 5GAN 5GAO 5GAM 5LJ3 5LJ5 3JCM 5MPS 5WSG 5MQ0 5LQW
 AASEQ       101
             MTMNGIPVKLLNEAQGHIVSLELTTGATYRGKLVESEDSMNVQLRDVIATEPQGAVTHMD
             QIFVRGSQIKFIVVPDLLKNAPLFKKNSSRPMPPIRGPKRR

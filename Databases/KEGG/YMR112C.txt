@@ -1,16 +1,21 @@
 ENTRY       YMR112C           CDS       T00005
 NAME        MED11
-DEFINITION  Med11p
+DEFINITION  (RefSeq) Med11p
 ORTHOLOGY   K15132  mediator of RNA polymerase II transcription subunit 11, fungi type
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Mediator complex
+                Head
+                 YMR112C (MED11)
 POSITION    XIII:complement(494100..494495)
-MOTIF       Pfam: Med11 Baculo_PEP_C TFIIF_beta Bacillus_HBL Tup_N DUF4015 Apolipoprotein HALZ GAS Med2 Fzo_mitofusin
-DBLINKS     NCBI-GI: 6323759
+MOTIF       Pfam: Med11 Baculo_PEP_C DUF4015 DASH_Dad3
+DBLINKS     NCBI-ProteinID: NP_013830
             NCBI-GeneID: 855139
             SGD: S000004718
-            MIPS: YMR112C
             UniProt: Q99278
-STRUCTURE   PDB: 3R84 4H62 4GWP 3RJ1 4GWQ 3J1O
+STRUCTURE   PDB: 3R84 4H62 4GWP 3RJ1 4GWQ 4V1O 5SVA 3J1O
 AASEQ       131
             MQVLNTKSETKQENETMQPPYIQERLKSLNDIETQLCSMLQEASQVTFIFGELKRGNESV
             KPQFENHVKQFYERLDKSTTQLRKEIQLLDENVGTRLLPINVNKKALGQDTEKMEEQLDL

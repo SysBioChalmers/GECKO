@@ -1,13 +1,12 @@
 ENTRY       YDR005C           CDS       T00005
 NAME        MAF1
-DEFINITION  Maf1p
+DEFINITION  (RefSeq) RNA polymerase III-inhibiting protein MAF1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(join(456836..458017,458098..458103))
 MOTIF       Pfam: Maf1 SRRM_C
-DBLINKS     NCBI-GI: 6320208
+DBLINKS     NCBI-ProteinID: NP_010288
             NCBI-GeneID: 851568
             SGD: S000002412
-            MIPS: YDR005C
             UniProt: P41910
 AASEQ       395
             MKFIDELDIERVNQTLNFETNDCKIVGSCDIFTTKAVASDRKLYKTIDQHLDTILQENEN

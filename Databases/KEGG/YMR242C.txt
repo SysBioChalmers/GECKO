@@ -1,18 +1,26 @@
 ENTRY       YMR242C           CDS       T00005
 NAME        RPL20A, RPL18A2
-DEFINITION  ribosomal 60S subunit protein L20A
+DEFINITION  (RefSeq) ribosomal 60S subunit protein L20A
 ORTHOLOGY   K02882  large subunit ribosomal protein L18Ae
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03010  Ribosome
-CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+MODULE      sce_M00177  Ribosome, eukaryotes
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03010 Ribosome
+                YMR242C (RPL20A)
+            Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Eukaryotes
+               Large subunit
+                YMR242C (RPL20A)
 POSITION    XIII:complement(join(753225..753742,754220))
-MOTIF       Pfam: Ribosomal_L18ae
-DBLINKS     NCBI-GI: 154199621
+MOTIF       Pfam: Ribosomal_L18A
+DBLINKS     NCBI-ProteinID: NP_013969
             NCBI-GeneID: 855283
             SGD: S000004855
-            MIPS: YMR242C
             UniProt: P0CX23 P0CX24
-STRUCTURE   PDB: 3U5E 3U5I 4BYN 4BYU 4B6A
 AASEQ       172
             MAHFKEYQVIGRRLPTESVPEPKLFRMRIFASNEVIAKSRYWYFLQKLHKVKKASGEIVS
             INQINEAHPTKVKNFGVWVRYDSRSGTHNMYKEIRDVSRVAAVETLYQDMAARHRARFRS

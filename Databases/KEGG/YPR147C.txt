@@ -1,12 +1,11 @@
 ENTRY       YPR147C           CDS       T00005
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) hypothetical protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:complement(825645..826559)
-MOTIF       Pfam: DUF2305 Abhydrolase_6 Ndr DUF1057 Abhydrolase_5 Abhydrolase_3 DUF1749 Peptidase_S9 COesterase EAP30
-DBLINKS     NCBI-GI: 6325405
+MOTIF       Pfam: LIDHydrolase Abhydrolase_6 Ndr DUF1057 Hydrolase_4 Abhydrolase_3 Abhydrolase_1 DUF1749 Peptidase_S9 YqfD Ser_hydrolase
+DBLINKS     NCBI-ProteinID: NP_015473
             NCBI-GeneID: 856270
             SGD: S000006351
-            MIPS: YPR147C
             UniProt: Q06522
 AASEQ       304
             MTVKEYTKSKLPCSILNIKPTVTKSGEDAPLLVWIPGNPGLLYYYQEMLHHLHLKHPDWE

@@ -1,19 +1,45 @@
 ENTRY       YPR182W           CDS       T00005
 NAME        SMX3
-DEFINITION  Smx3p
+DEFINITION  (RefSeq) mRNA splicing protein SMX3
 ORTHOLOGY   K11098  small nuclear ribonucleoprotein F
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03040  Spliceosome
-MODULE      sce_M00398  Sm core complex
-CLASS       Genetic Information Processing; Transcription; Spliceosome [PATH:sce03040]
+MODULE      sce_M00351  Spliceosome, U1-snRNP
+            sce_M00398  Sm core complex
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03040 Spliceosome
+                YPR182W (SMX3)
+            Spliceosome [BR:sce03041]
+             Complex A
+              U1 snRNP components
+               Sm proteins
+                YPR182W (SMX3)
+              U2 snRNP components
+                YPR182W (SMX3)
+             Complex B
+              U1 snRNP components
+                YPR182W (SMX3)
+              U4/U6.U5 tri-snRNP components
+                YPR182W (SMX3)
+             Complex C
+              U2 snRNP components
+                YPR182W (SMX3)
+            DNA replication proteins [BR:sce03032]
+             Eukaryotic Type
+              DNA Replication Termination Factors
+               Telomerase complex (fungi)
+                Sm core complex
+                 YPR182W (SMX3)
 POSITION    XVI:900194..900454
-MOTIF       Pfam: LSM DUF2871
-DBLINKS     NCBI-GI: 6325440
+MOTIF       Pfam: LSM
+DBLINKS     NCBI-ProteinID: NP_015508
             NCBI-GeneID: 856312
             SGD: S000006386
-            MIPS: YPR182W
             UniProt: P54999
-STRUCTURE   PDB: 1N9R 1N9S
+STRUCTURE   PDB: 1N9R 5GMK 1N9S 5GAN 5GAO 5GAM 5LJ3 5LJ5 3JCM 5MPS 5WSG
+                 5MQ0 5LQW
 AASEQ       86
             MSESSDISAMQPVNPKPFLKGLVNHRVGVKLKFNSTEYRGTLVSTDNYFNLQLNEAEEFV
             AGVSHGTLGEIFIRCNNVLYIRELPN

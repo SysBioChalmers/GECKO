@@ -1,16 +1,32 @@
 ENTRY       YJR064W           CDS       T00005
 NAME        CCT5, TCP5
-DEFINITION  Cct5p
+DEFINITION  (RefSeq) chaperonin-containing T-complex subunit CCT5
 ORTHOLOGY   K09497  T-complex protein 1 subunit epsilon
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chaperones and folding catalysts [BR:sce03110]
+             Heat shock proteins
+              HSP60 / Chaperonin
+               YJR064W (CCT5)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centrosome formation and ciliogenesis proteins
+               BBS-CCT complex
+                YJR064W (CCT5)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of haemopoietic cells  (B-cell, T-cell, DC-cell, reticulocyte, and mast cell)
+               YJR064W (CCT5)
+              Exosomal proteins of colorectal cancer cells
+               YJR064W (CCT5)
+              Exosomal proteins of bladder cancer cells
+               YJR064W (CCT5)
 POSITION    X:555914..557602
 MOTIF       Pfam: Cpn60_TCP1
-DBLINKS     NCBI-GI: 6322524
+DBLINKS     NCBI-ProteinID: NP_012598
             NCBI-GeneID: 853527
             SGD: S000003825
-            MIPS: YJR064W
             UniProt: P40413
-STRUCTURE   PDB: 4APK 4AOL 4D8Q 4D8R 3P9D 3P9E
+STRUCTURE   PDB: 5GW5 5GW4
 AASEQ       562
             MAARPQQPPMEMPDLSNAIVAQDEMGRPFIIVKDQGNKKRQHGLEAKKSHILAARSVASI
             IKTSLGPRGLDKILISPDGEITITNDGATILSQMELDNEIAKLLVQLSKSQDDEIGDGTT

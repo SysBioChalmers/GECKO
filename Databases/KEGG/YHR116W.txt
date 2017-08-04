@@ -1,13 +1,18 @@
 ENTRY       YHR116W           CDS       T00005
 NAME        COX23
-DEFINITION  Cox23p
+DEFINITION  (RefSeq) Cox23p
+ORTHOLOGY   K18185  cytochrome c oxidase assembly protein subunit 23
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial quality control factors
+              Mitochondrial respiratory chain complex assembly factors
+               Complex-IV assembly factors
+                YHR116W (COX23)
 POSITION    VIII:341665..342120
-MOTIF       Pfam: CHCH DUF1903 Pet191_N
-DBLINKS     NCBI-GI: 6321908
+MOTIF       Pfam: CHCH MTCP1 Pet191_N COX17
+DBLINKS     NCBI-ProteinID: NP_011984
             NCBI-GeneID: 856516
             SGD: S000001158
-            MIPS: YHR116W
             UniProt: P38824
 AASEQ       151
             MEKPSPTRRQTSSLSTISNGMTMTNDNRDTTNTNSGSTSSNNSQPSSSSTPPAASGPVTD

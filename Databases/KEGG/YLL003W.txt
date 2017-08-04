@@ -1,13 +1,12 @@
 ENTRY       YLL003W           CDS       T00005
 NAME        SFI1
-DEFINITION  Sfi1p
+DEFINITION  (RefSeq) Sfi1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XII:143201..146041
-MOTIF       Pfam: Sfi1 Sfi1_C
-DBLINKS     NCBI-GI: 6323026
+MOTIF       Pfam: Sfi1 Sfi1_C Radial_spoke_3
+DBLINKS     NCBI-ProteinID: NP_013098
             NCBI-GeneID: 850657
             SGD: S000003926
-            MIPS: YLL003W
             UniProt: Q12369
 STRUCTURE   PDB: 2DOQ 2GV5
 AASEQ       946

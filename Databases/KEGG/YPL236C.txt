@@ -1,14 +1,23 @@
 ENTRY       YPL236C           CDS       T00005
 NAME        ENV7
-DEFINITION  Env7p (EC:2.7.11.1)
+DEFINITION  (RefSeq) putative serine/threonine protein kinase ENV7
 ORTHOLOGY   K08856  serine/threonine kinase 16 [EC:2.7.11.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.11  Protein-serine/threonine kinases
+                2.7.11.1  non-specific serine/threonine protein kinase
+                 YPL236C (ENV7)
+            Protein kinases [BR:sce01001]
+             Serine/threonine protein kinases: Other group
+              NAK family [OT]
+               YPL236C (ENV7)
 POSITION    XVI:complement(101608..102702)
 MOTIF       Pfam: Pkinase Pkinase_Tyr Kinase-like
-DBLINKS     NCBI-GI: 6325020
+DBLINKS     NCBI-ProteinID: NP_015088
             NCBI-GeneID: 855840
             SGD: S000006157
-            MIPS: YPL236C
             UniProt: Q12003
 AASEQ       364
             MISIVLELFQNLCCCRGFSDATIRVNDKRYRIQRLLGEGGMSFVYLVQLSKNSLIIDNGI

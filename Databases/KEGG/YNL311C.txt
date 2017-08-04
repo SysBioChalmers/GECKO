@@ -1,13 +1,12 @@
 ENTRY       YNL311C           CDS       T00005
 NAME        SKP2
-DEFINITION  putative SCF ubiquitin ligase complex subunit SKP2
+DEFINITION  (RefSeq) putative SCF ubiquitin ligase complex subunit SKP2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIV:complement(49397..51688)
-MOTIF       Pfam: F-box-like F-box
-DBLINKS     NCBI-GI: 6324018
+MOTIF       Pfam: F-box F-box-like F-box_4
+DBLINKS     NCBI-ProteinID: NP_014088
             NCBI-GeneID: 855405
             SGD: S000005255
-            MIPS: YNL311C
             UniProt: P42843
 AASEQ       763
             MKRLQLFGRSKYFSLVSSAAKEEEEEEEGCADAKSLLHSTSHDIKSRSLRFNDKSSLMCL

@@ -1,14 +1,18 @@
 ENTRY       YKL011C           CDS       T00005
 NAME        CCE1, MGT1
-DEFINITION  Cce1p (EC:3.1.-.-)
+DEFINITION  (RefSeq) cruciform cutting endonuclease
 ORTHOLOGY   K17676  cruciform cutting endonuclease 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial DNA transcription, translation, and replication factors
+              Mitochondrial DNA replication factors
+               Mitochondrial DNA maintenance factors
+                YKL011C (CCE1)
 POSITION    XI:complement(420155..421216)
 MOTIF       Pfam: Ydc2-catalyt
-DBLINKS     NCBI-GI: 6322841
+DBLINKS     NCBI-ProteinID: NP_012914
             NCBI-GeneID: 853858
             SGD: S000001494
-            MIPS: YKL011C
             UniProt: Q03702
 AASEQ       353
             MSTAQKAKILQLIDSCCQNAKSTQLKSLSFVIGAVNGTTKEAKRTYIQEQCEFLEKLRQQ

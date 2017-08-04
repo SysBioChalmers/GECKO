@@ -1,14 +1,27 @@
 ENTRY       YIL031W           CDS       T00005
 NAME        ULP2, SMT4
-DEFINITION  Ulp2p (EC:3.4.22.68)
+DEFINITION  (RefSeq) SUMO protease ULP2
 ORTHOLOGY   K08596  sentrin-specific protease 7 [EC:3.4.22.68]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.4  Acting on peptide bonds (peptidases)
+               3.4.22  Cysteine endopeptidases
+                3.4.22.68  Ulp1 peptidase
+                 YIL031W (ULP2)
+            Peptidases [BR:sce01002]
+             Cysteine Peptidases
+              Family C48: Ulp1 endopeptidase family
+               YIL031W (ULP2)
+            Ubiquitin system [BR:sce04121]
+             Deubiquitinating enzyme (DUB)
+              UBL-specific proteases (ULPs)
+               YIL031W (ULP2)
 POSITION    IX:292633..295737
-MOTIF       Pfam: Peptidase_C48
-DBLINKS     NCBI-GI: 6322158
+MOTIF       Pfam: Peptidase_C48 Peptidase_C39
+DBLINKS     NCBI-ProteinID: NP_012233
             NCBI-GeneID: 854780
             SGD: S000001293
-            MIPS: YIL031W
             UniProt: P40537
 AASEQ       1034
             MSARKRKFNSLKPLDTLNSSRASSPRSSASLPPKRYNTFRKDPKIVDHLNNASTKDFLPV

@@ -1,14 +1,20 @@
 ENTRY       YAL034W-A         CDS       T00005
 NAME        MTW1, DSN3, NSL2
-DEFINITION  Mtw1p
+DEFINITION  (RefSeq) MIND complex subunit MTW1
 ORTHOLOGY   K11559  kinetochore protein Mis12/MTW1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centromeric chromatin formation proteins
+               Kinetochore proteins
+                NMS complex
+                 MIND kinetochore complex
+                  YAL034W-A (MTW1)
 POSITION    I:79718..80587
-MOTIF       Pfam: Mis12 TetR_C_4
-DBLINKS     NCBI-GI: 6319283
+MOTIF       Pfam: Mis12
+DBLINKS     NCBI-ProteinID: NP_009367
             NCBI-GeneID: 851197
             SGD: S000000032
-            MIPS: YAL034W-A
             UniProt: P39731
 AASEQ       289
             MSAPTMRSTSILTEHLGYPPISLVDDIINAVNEIMYKCTAAMEKYLLSKSKIGEEDYGEE

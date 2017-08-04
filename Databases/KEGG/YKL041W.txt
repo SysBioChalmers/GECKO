@@ -1,16 +1,29 @@
 ENTRY       YKL041W           CDS       T00005
 NAME        VPS24, DID3, VPL26
-DEFINITION  Vps24p
+DEFINITION  (RefSeq) ESCRT-III subunit protein VPS24
 ORTHOLOGY   K12193  charged multivesicular body protein 3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04144  Endocytosis
-CLASS       Cellular Processes; Transport and catabolism; Endocytosis [PATH:sce04144]
+MODULE      sce_M00412  ESCRT-III complex
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04144 Endocytosis
+                YKL041W (VPS24)
+            Membrane trafficking [BR:sce04131]
+             Endosome - Lysosome transport
+              Endosomal sorting complexes required for transport (ESCRT)
+               ESCRT-III complex
+                YKL041W (VPS24)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of other body fluids (saliva and urine)
+               YKL041W (VPS24)
 POSITION    XI:360143..360817
-MOTIF       Pfam: Snf7 PAS_7 TAF8_C ATP-synt_F6 Eno-Rase_FAD_bd
-DBLINKS     NCBI-GI: 6322810
+MOTIF       Pfam: Snf7 PAS_7 Eno-Rase_FAD_bd EMP70 Peptidase_S46 MukF_C
+DBLINKS     NCBI-ProteinID: NP_012883
             NCBI-GeneID: 853825
             SGD: S000001524
-            MIPS: YKL041W
             UniProt: P36095
 AASEQ       224
             MDYIKKAIWGPDPKEQQRRIRSVLRKNGRNIEKSLRELTVLQNKTQQLIKKSAKKNDVRT

@@ -1,13 +1,18 @@
 ENTRY       YGR284C           CDS       T00005
 NAME        ERV29
-DEFINITION  Erv29p
+DEFINITION  (RefSeq) Erv29p
+ORTHOLOGY   K20369  ER-derived vesicles protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endoplasmic reticulum (ER) - Golgi transport
+              Forward pathways
+               ER-Golgi intermediate compartment (ERGIC) proteins
+                YGR284C (ERV29)
 POSITION    VII:complement(1060658..1061590)
 MOTIF       Pfam: SURF4
-DBLINKS     NCBI-GI: 398366413
+DBLINKS     NCBI-ProteinID: NP_011800
             NCBI-GeneID: 853201
             SGD: S000003516
-            MIPS: YGR284C
             UniProt: P53337
 AASEQ       310
             MSYRGPIGNFGGMPMSSSQGPYSGGAQFRSNQNQSTSGILKQWKHSFEKFASRIEGLTDN

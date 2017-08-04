@@ -1,17 +1,30 @@
 ENTRY       YFR044C           CDS       T00005
 NAME        DUG1
-DEFINITION  metallodipeptidase (EC:3.4.13.-)
+DEFINITION  (RefSeq) metallodipeptidase
 ORTHOLOGY   K15428  Cys-Gly metallodipeptidase DUG1 [EC:3.4.13.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00480  Glutathione metabolism
             sce01100  Metabolic pathways
-CLASS       Metabolism; Metabolism of other amino acids; Glutathione metabolism [PATH:sce00480]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Metabolism of other amino acids
+               00480 Glutathione metabolism
+                YFR044C (DUG1)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.4  Acting on peptide bonds (peptidases)
+               3.4.13  Dipeptidases
+                3.4.13.-  
+                 YFR044C (DUG1)
+            Peptidases [BR:sce01002]
+             Metallo Peptidases
+              Family M20
+               YFR044C (DUG1)
 POSITION    VI:complement(239992..241437)
-MOTIF       Pfam: Peptidase_M20 M20_dimer DUF848 DASH_Ask1
-DBLINKS     NCBI-GI: 14318569
+MOTIF       Pfam: Peptidase_M20 M20_dimer Peptidase_M28
+DBLINKS     NCBI-ProteinID: NP_116702
             NCBI-GeneID: 850605
             SGD: S000001940
-            MIPS: YFR044C
             UniProt: P43616
 STRUCTURE   PDB: 4G1P
 AASEQ       481

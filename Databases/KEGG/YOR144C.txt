@@ -1,13 +1,18 @@
 ENTRY       YOR144C           CDS       T00005
 NAME        ELG1, RTT110
-DEFINITION  Elg1p
+DEFINITION  (RefSeq) Elg1p
 ORTHOLOGY   K11134  telomere length regulation protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       DNA replication proteins [BR:sce03032]
+             Eukaryotic Type
+              DNA Replication Termination Factors
+               Other telomere regulation proteins
+                ELG1-RFC complex
+                 YOR144C (ELG1)
 POSITION    XV:complement(602717..605092)
-DBLINKS     NCBI-GI: 398365367
+DBLINKS     NCBI-ProteinID: NP_014787
             NCBI-GeneID: 854315
             SGD: S000005670
-            MIPS: YOR144C
             UniProt: Q12050
 AASEQ       791
             MKRHVSLSDILTGNKRKVRRQDALQITIDDENDTESGTFDARTAKHDDSSVIFLNHSVVK

@@ -1,13 +1,12 @@
 ENTRY       YGR239C           CDS       T00005
 NAME        PEX21
-DEFINITION  Pex21p
+DEFINITION  (RefSeq) Pex21p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:complement(969187..970053)
-MOTIF       Pfam: DUF4289
-DBLINKS     NCBI-GI: 398366261
+MOTIF       Pfam: OS-D AAA_15
+DBLINKS     NCBI-ProteinID: NP_011755
             NCBI-GeneID: 853154
             SGD: S000003471
-            MIPS: YGR239C
             UniProt: P50091
 STRUCTURE   PDB: 3W15
 AASEQ       288

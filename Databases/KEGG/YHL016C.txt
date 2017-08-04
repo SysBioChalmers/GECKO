@@ -1,13 +1,17 @@
 ENTRY       YHL016C           CDS       T00005
 NAME        DUR3
-DEFINITION  Dur3p
+DEFINITION  (RefSeq) Dur3p
+ORTHOLOGY   K20989  urea-proton symporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Other Transporters
+              Electrochemical potential-driven transporters [TC:2]
+               YHL016C (DUR3)
 POSITION    VIII:complement(72037..74244)
 MOTIF       Pfam: SSF
-DBLINKS     NCBI-GI: 6321771
+DBLINKS     NCBI-ProteinID: NP_011847
             NCBI-GeneID: 856370
             SGD: S000001008
-            MIPS: YHL016C
             UniProt: P33413
 AASEQ       735
             MGEFKPPLPQGAGYAIVLGLGAVFAGMMVLTTYLLKRYQKEIITAEEFTTAGRSVKTGLV

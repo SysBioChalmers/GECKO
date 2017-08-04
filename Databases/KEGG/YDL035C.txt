@@ -1,16 +1,29 @@
 ENTRY       YDL035C           CDS       T00005
 NAME        GPR1
-DEFINITION  Gpr1p
+DEFINITION  (RefSeq) Gpr1p
 ORTHOLOGY   K12762  G protein-coupled receptor GPR1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04113  Meiosis - yeast
-CLASS       Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+            sce04213  Longevity regulating pathway - multiple species
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04113 Meiosis - yeast
+                YDL035C (GPR1)
+             Organismal Systems
+              Aging
+               04213 Longevity regulating pathway - multiple species
+                YDL035C (GPR1)
+            G protein-coupled receptors [BR:sce04030]
+             Others
+              Other
+               Carbon/amino acid receptor
+                YDL035C (GPR1)
 POSITION    IV:complement(389172..392057)
-MOTIF       Pfam: Git3 Git3_C
-DBLINKS     NCBI-GI: 6320170
+MOTIF       Pfam: Git3 GPR_Gpa2_C PNTB
+DBLINKS     NCBI-ProteinID: NP_010249
             NCBI-GeneID: 851527
             SGD: S000002193
-            MIPS: YDL035C
             UniProt: Q12361
 AASEQ       961
             MITEGFPPNLNALKGSSLLEKRVDSLRQLNTTTVNQLLGLPGMTSTFTAPQLLQLRIIAI

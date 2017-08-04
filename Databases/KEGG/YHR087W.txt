@@ -1,13 +1,12 @@
 ENTRY       YHR087W           CDS       T00005
 NAME        RTC3, HGI1
-DEFINITION  Rtc3p
+DEFINITION  (RefSeq) Rtc3p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VIII:280820..281155
 MOTIF       Pfam: SBDS
-DBLINKS     NCBI-GI: 6321879
+DBLINKS     NCBI-ProteinID: NP_011955
             NCBI-GeneID: 856487
             SGD: S000001129
-            MIPS: YHR087W
             UniProt: P38804
 STRUCTURE   PDB: 1NYN
 AASEQ       111

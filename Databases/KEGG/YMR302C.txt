@@ -1,13 +1,12 @@
 ENTRY       YMR302C           CDS       T00005
 NAME        YME2, PRP12, RNA12
-DEFINITION  Yme2p
+DEFINITION  (RefSeq) Yme2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:complement(870073..872625)
-MOTIF       Pfam: RNA12 RRM_1 Arch_ATPase AAA_14 Hydrolase_3
-DBLINKS     NCBI-GI: 6323960
+MOTIF       Pfam: RNA12 RRM_1 ATPase_2 AAA_14 Hydrolase_3 CP12
+DBLINKS     NCBI-ProteinID: NP_014031
             NCBI-GeneID: 855348
             SGD: S000004917
-            MIPS: YMR302C
             UniProt: P32843
 AASEQ       850
             MLLVRTTSLNVSRMPVPCLARGIGILKGKYRLANLMNAQPSVRHVSSEIQQKDQQAGESN

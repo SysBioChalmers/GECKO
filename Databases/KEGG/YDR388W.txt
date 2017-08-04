@@ -1,13 +1,31 @@
 ENTRY       YDR388W           CDS       T00005
 NAME        RVS167
-DEFINITION  Rvs167p
+DEFINITION  (RefSeq) amphiphysin
+ORTHOLOGY   K12562  amphiphysin
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04144  Endocytosis
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04144 Endocytosis
+                YDR388W (RVS167)
+            Membrane trafficking [BR:sce04131]
+             Endocytosis
+              Clathrin-mediated endocytosis
+               Other core components
+                YDR388W (RVS167)
+              Bin/Amphiphysin/Rvs (BAR) family proteins
+               N-BAR proteins
+                YDR388W (RVS167)
+             Others
+              Actin-binding proteins
+               Nucleation-promoting factors (NPFs)
+                YDR388W (RVS167)
 POSITION    IV:1250186..1251634
-MOTIF       Pfam: BAR SH3_1 SH3_9 SH3_2 Vps5
-DBLINKS     NCBI-GI: 6320596
+MOTIF       Pfam: BAR SH3_1 SH3_9 SH3_2
+DBLINKS     NCBI-ProteinID: NP_010676
             NCBI-GeneID: 851996
             SGD: S000002796
-            MIPS: YDR388W
             UniProt: P39743
 AASEQ       482
             MSFKGFTKAVSRAPQSFRQKFKMGEQTEDPVYEDAERRFQELEQETKKLSEESKRYSTAV

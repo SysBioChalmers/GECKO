@@ -1,18 +1,27 @@
 ENTRY       YNL178W           CDS       T00005
 NAME        RPS3, SUF14
-DEFINITION  ribosomal 40S subunit protein S3
+DEFINITION  (RefSeq) ribosomal 40S subunit protein S3
 ORTHOLOGY   K02985  small subunit ribosomal protein S3e
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03010  Ribosome
-CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+MODULE      sce_M00177  Ribosome, eukaryotes
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03010 Ribosome
+                YNL178W (RPS3)
+            Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Eukaryotes
+               Small subunit
+                YNL178W (RPS3)
 POSITION    XIV:302680..303402
 MOTIF       Pfam: Ribosomal_S3_C KH_2
-DBLINKS     NCBI-GI: 398364505
+DBLINKS     NCBI-ProteinID: NP_014221
             NCBI-GeneID: 855543
             SGD: S000005122
-            MIPS: YNL178W
             UniProt: P05750
-STRUCTURE   PDB: 4BSZ 3U5C 3U5G 3O2Z 3O30 4BYL 4BYT 3IZB 1S1H
+STRUCTURE   PDB: 4BSZ
 AASEQ       240
             MVALISKKRKLVADGVFYAELNEFFTRELAEEGYSGVEVRVTPTKTEVIIRATRTQDVLG
             ENGRRINELTLLVQKRFKYAPGTIVLYAERVQDRGLSAVAQAESMKFKLLNGLAIRRAAY

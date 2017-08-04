@@ -1,13 +1,18 @@
 ENTRY       YKR020W           CDS       T00005
 NAME        VPS51, API3, VPS67, WHI6
-DEFINITION  Vps51p
+DEFINITION  (RefSeq) Vps51p
+ORTHOLOGY   K20297  vacuolar protein sorting-associated protein 51
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endosome - Golgi transport
+              Tethering complex
+               GARP complex
+                YKR020W (VPS51)
 POSITION    XI:478338..478832
-MOTIF       Pfam: Vps51 GnsAB
-DBLINKS     NCBI-GI: 6322872
+MOTIF       Pfam: Vps51 DUF4050 FolB HBS1_N DUF4140
+DBLINKS     NCBI-ProteinID: NP_012945
             NCBI-GeneID: 853890
             SGD: S000001728
-            MIPS: YKR020W
             UniProt: P36116
 STRUCTURE   PDB: 2C5K 2C5I
 AASEQ       164

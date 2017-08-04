@@ -1,13 +1,12 @@
 ENTRY       YKR072C           CDS       T00005
 NAME        SIS2, HAL3
-DEFINITION  phosphopantothenoylcysteine decarboxylase complex subunit SIS2
+DEFINITION  (RefSeq) phosphopantothenoylcysteine decarboxylase complex subunit SIS2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XI:complement(576435..578123)
-MOTIF       Pfam: Flavoprotein
-DBLINKS     NCBI-GI: 6322925
+MOTIF       Pfam: Flavoprotein VID27 PPP4R2 Afi1 Nop14 Amelogenin
+DBLINKS     NCBI-ProteinID: NP_012998
             NCBI-GeneID: 853946
             SGD: S000001780
-            MIPS: YKR072C
             UniProt: P36024
 AASEQ       562
             MTAVASTSGKQDADHNQSIECPRFSRGQKEILLDHEDAKGKDSIINSPVSGRQSISPTLS

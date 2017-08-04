@@ -1,16 +1,25 @@
 ENTRY       YDR530C           CDS       T00005
 NAME        APA2
-DEFINITION  Apa2p (EC:2.7.7.53)
+DEFINITION  (RefSeq) bifunctional AP-4-A phosphorylase/ADP sulfurylase
 ORTHOLOGY   K00988  ATP adenylyltransferase [EC:2.7.7.53]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00230  Purine metabolism
-CLASS       Metabolism; Nucleotide metabolism; Purine metabolism [PATH:sce00230]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Nucleotide metabolism
+               00230 Purine metabolism
+                YDR530C (APA2)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.7  Nucleotidyltransferases
+                2.7.7.53  ATP adenylyltransferase
+                 YDR530C (APA2)
 POSITION    IV:complement(1496791..1497768)
-MOTIF       Pfam: ATP_transf HIT
-DBLINKS     NCBI-GI: 6320739
+MOTIF       Pfam: ATP_transf DUF4931 DUF4922 HIT
+DBLINKS     NCBI-ProteinID: NP_010819
             NCBI-GeneID: 852143
             SGD: S000002938
-            MIPS: YDR530C
             UniProt: P22108
 STRUCTURE   PDB: 4I5T 4I5V 4I5W
 AASEQ       325

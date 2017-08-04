@@ -1,13 +1,12 @@
 ENTRY       YCL069W           CDS       T00005
 NAME        VBA3
-DEFINITION  Vba3p
+DEFINITION  (RefSeq) basic amino acid transporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    III:9706..11082
-MOTIF       Pfam: MFS_1 TRI12 Sugar_tr
-DBLINKS     NCBI-GI: 6319783
+MOTIF       Pfam: MFS_1 TRI12 OATP
+DBLINKS     NCBI-ProteinID: NP_009864
             NCBI-GeneID: 850290
             SGD: S000000574
-            MIPS: YCL069W
             UniProt: P25594
 AASEQ       458
             MNMLIVGRVVASVGGSGLQTLCFVIGCTMVGERSRPLVISILSCAFAVAAIVGPIIGGAF

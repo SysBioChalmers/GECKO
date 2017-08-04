@@ -1,13 +1,12 @@
 ENTRY       YDL167C           CDS       T00005
 NAME        NRP1
-DEFINITION  Nrp1p
+DEFINITION  (RefSeq) Nrp1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(160995..163154)
-MOTIF       Pfam: zf-RanBP RRM_1 RRM_6 DZR
-DBLINKS     NCBI-GI: 6320034
+MOTIF       Pfam: zf-RanBP RRM_1 DUF3993
+DBLINKS     NCBI-ProteinID: NP_010114
             NCBI-GeneID: 851387
             SGD: S000002326
-            MIPS: YDL167C
             UniProt: P32770
 AASEQ       719
             MHYVVLELQVAHLPDTPKDQCRIANIAFQIVNAETLVCHYGTNSLPSIEVNGTTKSLESA

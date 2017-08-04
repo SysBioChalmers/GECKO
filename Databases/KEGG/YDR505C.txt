@@ -1,13 +1,12 @@
 ENTRY       YDR505C           CDS       T00005
 NAME        PSP1, GIN5
-DEFINITION  Psp1p
+DEFINITION  (RefSeq) Psp1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(1456695..1459220)
 MOTIF       Pfam: PSP1
-DBLINKS     NCBI-GI: 330443515
+DBLINKS     NCBI-ProteinID: NP_010793
             NCBI-GeneID: 852116
             SGD: S000002913
-            MIPS: YDR505C
             UniProt: P50896
 AASEQ       841
             MDLPTVNSTTSISDNVDLKNYYEDLLFKNNSGKSLSDLPRKLNDNSNNSGSDTVDPLAGL

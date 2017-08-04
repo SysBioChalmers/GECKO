@@ -1,13 +1,12 @@
 ENTRY       YGR120C           CDS       T00005
 NAME        COG2, SEC35
-DEFINITION  Cog2p
+DEFINITION  (RefSeq) Golgi transport complex subunit COG2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:complement(730033..730821)
-MOTIF       Pfam: COG2 Syntaxin_2 BLOC1_2 DUF2779 DUF948 AAA_31 Med30 Rsd_AlgQ Exonuc_VII_L
-DBLINKS     NCBI-GI: 37362655
+MOTIF       Pfam: COG2 Syntaxin_2 PhaP_Bmeg DUF948 IMD
+DBLINKS     NCBI-ProteinID: NP_011635
             NCBI-GeneID: 853017
             SGD: S000003352
-            MIPS: YGR120C
             UniProt: P53271
 STRUCTURE   PDB: 2JQQ
 AASEQ       262

@@ -1,13 +1,12 @@
 ENTRY       YER176W           CDS       T00005
 NAME        ECM32, HEL1, MTT1
-DEFINITION  Ecm32p (EC:3.6.4.13 3.6.4.12)
+DEFINITION  (RefSeq) Ecm32p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    V:541690..545055
-MOTIF       Pfam: AAA_12 AAA_11 AAA_19 AAA_30 Viral_helicase1 UvrD_C_2 PhoH AAA AAA_16 DEAD AAA_22
-DBLINKS     NCBI-GI: 6321024
+MOTIF       Pfam: AAA_12 AAA_11 AAA_19 AAA_30 Viral_helicase1 ResIII PhoH UPF1_Zn_bind UvrD_C_2 AAA DEAD AAA_16 L_protein_N AAA_22
+DBLINKS     NCBI-ProteinID: NP_011103
             NCBI-GeneID: 856923
             SGD: S000000978
-            MIPS: YER176W
             UniProt: P32644
 AASEQ       1121
             MDFQCRTCSQAYDAEQMMKHLSSTRHKTVFDTSNDEDICCEECQDKNIHQLQIIRFGGED

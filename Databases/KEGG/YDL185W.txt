@@ -1,21 +1,34 @@
 ENTRY       YDL185W           CDS       T00005
 NAME        VMA1, CLS8, TFP1
-DEFINITION  Vma1p (EC:3.6.3.14 3.1.-.-)
+DEFINITION  (RefSeq) H(+)-transporting V1 sector ATPase subunit A
 ORTHOLOGY   K02145  V-type H+-transporting ATPase subunit A [EC:3.6.3.14]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00190  Oxidative phosphorylation
             sce01100  Metabolic pathways
             sce04145  Phagosome
-CLASS       Metabolism; Energy metabolism; Oxidative phosphorylation [PATH:sce00190]
-            Cellular Processes; Transport and catabolism; Phagosome [PATH:sce04145]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Energy metabolism
+               00190 Oxidative phosphorylation
+                YDL185W (VMA1)
+             Cellular Processes
+              Transport and catabolism
+               04145 Phagosome
+                YDL185W (VMA1)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.3  Acting on acid anhydrides to catalyse transmembrane movement of substances
+                3.6.3.14  H+-transporting two-sector ATPase
+                 YDL185W (VMA1)
 POSITION    IV:126787..130002
-MOTIF       Pfam: ATP-synt_ab Hom_end_hint Hom_end ATP-synt_ab_C ATP-synt_ab_N LAGLIDADG_3 Hint_2 Hint DASH_Spc34
-DBLINKS     NCBI-GI: 6320016
+MOTIF       Pfam: ATP-synt_ab Hom_end_hint Hom_end ATP-synt_ab_Xtn ATP-synt_ab_N LAGLIDADG_3 Hint_2 Hint
+DBLINKS     NCBI-ProteinID: NP_010096
             NCBI-GeneID: 851342
             SGD: S000002344
-            MIPS: YDL185W
             UniProt: P17255
-STRUCTURE   PDB: 1GPP 1DFA 1JVA 1EF0 1VDE 1UM2 1LWT 1LWS
+STRUCTURE   PDB: 1GPP 1DFA 1JVA 1EF0 1VDE 1UM2 1LWT 1LWS 5D80 3J9T 5BW9
+                 3J9U 3J9V
 AASEQ       1071
             MAGAIENARKEIKRISLEDHAESEYGAIYSVSGPVVIAENMIGCAMYELVKVGHDNLVGE
             VIRIDGDKATIQVYEETAGLTVGDPVLRTGKPLSVELGPGLMETIYDGIQRPLKAIKEES

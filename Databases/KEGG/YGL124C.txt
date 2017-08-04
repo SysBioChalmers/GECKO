@@ -1,13 +1,24 @@
 ENTRY       YGL124C           CDS       T00005
 NAME        MON1, AUT12
-DEFINITION  Mon1p
+DEFINITION  (RefSeq) Mon1p
+ORTHOLOGY   K20195  vacuolar fusion protein MON1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04138  Autophagy - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04138 Autophagy - yeast
+                YGL124C (MON1)
+            Membrane trafficking [BR:sce04131]
+             Endosome - Lysosome transport
+              Others
+               Others
+                YGL124C (MON1)
 POSITION    VII:complement(274780..276714)
 MOTIF       Pfam: Mon1
-DBLINKS     NCBI-GI: 330443551
+DBLINKS     NCBI-ProteinID: NP_011391
             NCBI-GeneID: 852753
             SGD: S000003092
-            MIPS: YGL124C
             UniProt: P53129
 AASEQ       644
             MNLNESYLDAEIPKGQLKHSKSGNFEGIPIVATTSEPTTSVNLDETFFKKAPIAMPICDD

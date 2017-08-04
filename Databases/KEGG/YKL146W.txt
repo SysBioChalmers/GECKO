@@ -1,14 +1,23 @@
 ENTRY       YKL146W           CDS       T00005
 NAME        AVT3
-DEFINITION  Avt3p
+DEFINITION  (RefSeq) Avt3p
 ORTHOLOGY   K14209  solute carrier family 36 (proton-coupled amino acid transporter)
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04138  Autophagy - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04138 Autophagy - yeast
+                YKL146W (AVT3)
+            Transporters [BR:sce02000]
+             Solute Carrier Family (SLC)
+              SLC36: Proton-coupled amino acid transporter
+               YKL146W (AVT3)
 POSITION    XI:171783..173861
 MOTIF       Pfam: Aa_trans
-DBLINKS     NCBI-GI: 6322702
+DBLINKS     NCBI-ProteinID: NP_012776
             NCBI-GeneID: 853710
             SGD: S000001629
-            MIPS: YKL146W
             UniProt: P36062
 AASEQ       692
             MNGKEVSSGSGRTQSNNNKKNNNGGSTGISHASGSPLTDGNGGNSNGNSRSRSRSRKSSG

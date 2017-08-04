@@ -1,13 +1,12 @@
 ENTRY       YKL042W           CDS       T00005
 NAME        SPC42
-DEFINITION  Spc42p
+DEFINITION  (RefSeq) Spc42p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XI:358475..359566
-MOTIF       Pfam: Spc42p Atg14 Pox_A_type_inc DUF4116 WEMBL TMF_DNA_bd APG6
-DBLINKS     NCBI-GI: 398364591
+MOTIF       Pfam: Spc42p DUF4116 GAS Pox_A_type_inc WEMBL DUF724 APG6 Fez1 BST2 TMF_DNA_bd
+DBLINKS     NCBI-ProteinID: NP_012882
             NCBI-GeneID: 853824
             SGD: S000001525
-            MIPS: YKL042W
             UniProt: P36094
 STRUCTURE   PDB: 2Q6Q
 AASEQ       363

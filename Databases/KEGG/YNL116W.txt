@@ -1,13 +1,12 @@
 ENTRY       YNL116W           CDS       T00005
 NAME        DMA2, CHF2
-DEFINITION  ubiquitin-conjugating protein DMA2 (EC:6.3.2.-)
+DEFINITION  (RefSeq) ubiquitin-conjugating protein DMA2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIV:408341..409909
-MOTIF       Pfam: FHA zf-RING_2 zf-rbx1 zf-RING_5 zf-C3HC4 zf-Apc11 Sec_GG
-DBLINKS     NCBI-GI: 398364793
+MOTIF       Pfam: FHA zf-RING_11 zf-RING_2 Yop-YscD_cpl zf-RING_5 zf-C3HC4 zf-ANAPC11 Sec_GG zf-rbx1 zf-C3HC4_2
+DBLINKS     NCBI-ProteinID: NP_014283
             NCBI-GeneID: 855607
             SGD: S000005060
-            MIPS: YNL116W
             UniProt: P53924
 AASEQ       522
             MYTPIPANTPAPTAPTSSMTSNSSSASNANTTSSSGINPRNRASGTPSNERARPASGISS

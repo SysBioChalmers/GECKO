@@ -1,14 +1,22 @@
 ENTRY       YFL016C           CDS       T00005
 NAME        MDJ1
-DEFINITION  Mdj1p
+DEFINITION  (RefSeq) Mdj1p
 ORTHOLOGY   K03686  molecular chaperone DnaJ
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chaperones and folding catalysts [BR:sce03110]
+             Heat shock proteins
+              HSP40 / DNAJ
+               YFL016C (MDJ1)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial protein import machinery
+              Matrix
+               Other matrix factors
+                YFL016C (MDJ1)
 POSITION    VI:complement(104701..106236)
-MOTIF       Pfam: DnaJ CTDII DnaJ_CXXCXGXG HypA Cytochrome_C7 DUF2318
-DBLINKS     NCBI-GI: 14318504
+MOTIF       Pfam: DnaJ_C DnaJ DnaJ_CXXCXGXG DUF2318 HypA
+DBLINKS     NCBI-ProteinID: NP_116638
             NCBI-GeneID: 850530
             SGD: S000001878
-            MIPS: YFL016C
             UniProt: P35191
 AASEQ       511
             MAFQQGVLSRCSGVFRHHVGHSRHINNILYRHAIAFASIAPRIPKSSFHTSAIRNNEAFK

@@ -1,6 +1,6 @@
 ENTRY       YKL182W           CDS       T00005
 NAME        FAS1
-DEFINITION  tetrafunctional fatty acid synthase subunit FAS1 (EC:2.3.1.86 1.3.1.9 2.3.1.39 2.3.1.38 4.2.1.59 3.1.2.14)
+DEFINITION  (RefSeq) tetrafunctional fatty acid synthase subunit FAS1
 ORTHOLOGY   K00668  fatty acid synthase subunit beta, fungi type [EC:2.3.1.86]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00061  Fatty acid biosynthesis
@@ -8,14 +8,29 @@ PATHWAY     sce00061  Fatty acid biosynthesis
             sce01212  Fatty acid metabolism
 MODULE      sce_M00082  Fatty acid biosynthesis, initiation
             sce_M00083  Fatty acid biosynthesis, elongation
-CLASS       Metabolism; Overview; Fatty acid metabolism [PATH:sce01212]
-            Metabolism; Lipid metabolism; Fatty acid biosynthesis [PATH:sce00061]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01212 Fatty acid metabolism
+                YKL182W (FAS1)
+              Lipid metabolism
+               00061 Fatty acid biosynthesis
+                YKL182W (FAS1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.3  Acyltransferases
+               2.3.1  Transferring groups other than aminoacyl groups
+                2.3.1.86  fatty-acyl-CoA synthase
+                 YKL182W (FAS1)
+            Lipid biosynthesis proteins [BR:sce01004]
+             Fatty acid synthase
+              Yeast type
+               YKL182W (FAS1)
 POSITION    XI:100671..106826
-MOTIF       Pfam: Acyl_transf_1 MaoC_dehydratas DUF1729 MaoC_dehydrat_N NMO
-DBLINKS     NCBI-GI: 6322666
+MOTIF       Pfam: Acyl_transf_1 MaoC_dehydratas DUF1729 MaoC_dehydrat_N SAT NMO
+DBLINKS     NCBI-ProteinID: NP_012739
             NCBI-GeneID: 853653
             SGD: S000001665
-            MIPS: YKL182W
             UniProt: P07149
 STRUCTURE   PDB: 2UV8 3HMJ 2PFF 2VKZ
 AASEQ       2051

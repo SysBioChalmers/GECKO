@@ -1,14 +1,13 @@
 ENTRY       YBL061C           CDS       T00005
 NAME        SKT5, CAL2, CHS4, CSD4
-DEFINITION  Skt5p
-ORTHOLOGY   K07126
+DEFINITION  (RefSeq) Skt5p
+ORTHOLOGY   K07126  uncharacterized protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    II:complement(105316..107406)
 MOTIF       Pfam: Sel1
-DBLINKS     NCBI-GI: 6319410
+DBLINKS     NCBI-ProteinID: NP_009492
             NCBI-GeneID: 852218
             SGD: S000000157
-            MIPS: YBL061C
             UniProt: P34226
 AASEQ       696
             MASSPQVHPYKKHLMQSQHINFDNRGLQFQNSSLKVGQDFSDNKENRENRDNEDFSTADL

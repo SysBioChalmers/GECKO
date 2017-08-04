@@ -1,14 +1,13 @@
 ENTRY       YOL002C           CDS       T00005
 NAME        IZH2, PHO36
-DEFINITION  Izh2p
+DEFINITION  (RefSeq) PAQR-type receptor
 ORTHOLOGY   K07297  adiponectin receptor
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:complement(323411..324364)
 MOTIF       Pfam: HlyIII
-DBLINKS     NCBI-GI: 27808716
+DBLINKS     NCBI-ProteinID: NP_014641
             NCBI-GeneID: 854160
             SGD: S000005362
-            MIPS: YOL002C
             UniProt: Q12442
 AASEQ       317
             MSTLLERTKSVQELKKRAAGKTSANPAEVAKAKKVLRRLYSWDEIPEWQRDNDFILHGYV

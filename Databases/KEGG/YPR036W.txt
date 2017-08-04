@@ -1,21 +1,27 @@
 ENTRY       YPR036W           CDS       T00005
 NAME        VMA13, CLS11
-DEFINITION  Vma13p (EC:3.6.3.14)
-ORTHOLOGY   K02144  V-type H+-transporting ATPase 54 kD subunit [EC:3.6.3.14]
+DEFINITION  (RefSeq) H(+)-transporting V1 sector ATPase subunit H
+ORTHOLOGY   K02144  V-type H+-transporting ATPase subunit H
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00190  Oxidative phosphorylation
             sce01100  Metabolic pathways
             sce04145  Phagosome
-CLASS       Metabolism; Energy metabolism; Oxidative phosphorylation [PATH:sce00190]
-            Cellular Processes; Transport and catabolism; Phagosome [PATH:sce04145]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Energy metabolism
+               00190 Oxidative phosphorylation
+                YPR036W (VMA13)
+             Cellular Processes
+              Transport and catabolism
+               04145 Phagosome
+                YPR036W (VMA13)
 POSITION    XVI:643836..645272
 MOTIF       Pfam: V-ATPase_H_N V-ATPase_H_C
-DBLINKS     NCBI-GI: 6325293
+DBLINKS     NCBI-ProteinID: NP_015361
             NCBI-GeneID: 856148
             SGD: S000006240
-            MIPS: YPR036W
             UniProt: P41807
-STRUCTURE   PDB: 1HO8
+STRUCTURE   PDB: 1HO8 5D80 3J9T 5BW9 3J9U 3J9V
 AASEQ       478
             MGATKILMDSTHFNEIRSIIRSRSVAWDALARSEELSEIDASTAKALESILVKKNIGDGL
             SSSNNAHSGFKVNGKTLIPLIHLLSTSDNEDCKKSVQNLIAELLSSDKYGDDTVKFFQED

@@ -1,14 +1,25 @@
 ENTRY       YER041W           CDS       T00005
 NAME        YEN1
-DEFINITION  Yen1p (EC:3.1.-.-)
+DEFINITION  (RefSeq) crossover junction endodeoxyribonuclease
 ORTHOLOGY   K15339  holliday junction resolvase YEN1 [EC:3.1.-.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.-  Acting on ester bonds
+                3.1.-.-  
+                 YER041W (YEN1)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              DSBR (double strand breaks repair)
+               HR (homologous recombination)
+                Other HR factors
+                 YER041W (YEN1)
 POSITION    V:232461..234740
-MOTIF       Pfam: XPG_I XPG_N
-DBLINKS     NCBI-GI: 330443522
+MOTIF       Pfam: XPG_I XPG_N Gal4_dimer
+DBLINKS     NCBI-ProteinID: NP_010959
             NCBI-GeneID: 856764
             SGD: S000000843
-            MIPS: YER041W
             UniProt: P40028
 AASEQ       759
             MGVSQIWEFLKPYLQDSRIPLRKFVIDFNKSQKRAPRIAIDAYGWLFECGFIQNIDISAR

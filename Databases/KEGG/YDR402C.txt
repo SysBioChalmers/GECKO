@@ -1,18 +1,29 @@
 ENTRY       YDR402C           CDS       T00005
 NAME        DIT2, CYP56
-DEFINITION  Dit2p (EC:1.14.14.-)
+DEFINITION  (RefSeq) putative cytochrome P450
 ORTHOLOGY   K00493  unspecific monooxygenase [EC:1.14.14.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00071  Fatty acid degradation
             sce00380  Tryptophan metabolism
-CLASS       Metabolism; Lipid metabolism; Fatty acid degradation [PATH:sce00071]
-            Metabolism; Amino acid metabolism; Tryptophan metabolism [PATH:sce00380]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Lipid metabolism
+               00071 Fatty acid degradation
+                YDR402C (DIT2)
+              Amino acid metabolism
+               00380 Tryptophan metabolism
+                YDR402C (DIT2)
+            Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.14  Acting on paired donors, with incorporation or reduction of molecular oxygen
+               1.14.14  With reduced flavin or flavoprotein as one donor, and incorporation of one atom of oxygen into the other donor
+                1.14.14.1  unspecific monooxygenase
+                 YDR402C (DIT2)
 POSITION    IV:complement(1272234..1273703)
 MOTIF       Pfam: p450
-DBLINKS     NCBI-GI: 6320610
+DBLINKS     NCBI-ProteinID: NP_010690
             NCBI-GeneID: 852011
             SGD: S000002810
-            MIPS: YDR402C
             UniProt: P21595
 AASEQ       489
             MELLKLLCLILFLTLSYVAFAIIVPPLNFPKNIPTIPFYVVFLPVIFPIDQTELYDLYIR

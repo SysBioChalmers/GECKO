@@ -1,16 +1,24 @@
 ENTRY       YNL283C           CDS       T00005
 NAME        WSC2, STA3
-DEFINITION  Wsc2p
+DEFINITION  (RefSeq) Wsc2p
 ORTHOLOGY   K11244  cell wall integrity and stress response component
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04011  MAPK signaling pathway - yeast
-CLASS       Environmental Information Processing; Signal transduction; MAPK signaling pathway - yeast [PATH:sce04011]
+            sce04139  Mitophagy - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YNL283C (WSC2)
+             Cellular Processes
+              Transport and catabolism
+               04139 Mitophagy - yeast
+                YNL283C (WSC2)
 POSITION    XIV:complement(105184..106695)
-MOTIF       Pfam: WSC LRR19-TM DUF2613 SKG6 EphA2_TM Syndecan
-DBLINKS     NCBI-GI: 6324046
+MOTIF       Pfam: WSC SKG6 LRR19-TM
+DBLINKS     NCBI-ProteinID: NP_014116
             NCBI-GeneID: 855438
             SGD: S000005227
-            MIPS: YNL283C
             UniProt: P53832
 AASEQ       503
             MHLDLIHKSFILVWLIYIRAALADQFTYKACYSASDIRKLGLTYKGVYEYQSVSYCQNEC

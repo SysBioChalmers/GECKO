@@ -1,12 +1,12 @@
 ENTRY       YDR240C           CDS       T00005
 NAME        SNU56, MUD10
-DEFINITION  Snu56p
+DEFINITION  (RefSeq) Snu56p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(943674..945152)
-DBLINKS     NCBI-GI: 6320447
+MOTIF       Pfam: DUF247 KH_1
+DBLINKS     NCBI-ProteinID: NP_010526
             NCBI-GeneID: 851827
             SGD: S000002648
-            MIPS: YDR240C
             UniProt: Q03782
 AASEQ       492
             MRPRRRGLAYHHTKPKGQLSQGHYPTTSNDGQRRKVGNSEAFQSFDIWKNLDRIRSTKKN

@@ -1,13 +1,12 @@
 ENTRY       YCR040W           CDS       T00005
 NAME        MATALPHA1, ALPHA1
-DEFINITION  Matalpha1p
+DEFINITION  (RefSeq) transcriptional co-activator mating type protein alpha
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    III:200442..200969
-MOTIF       Pfam: MAT_Alpha1
-DBLINKS     NCBI-GI: 63535564
+MOTIF       Pfam: MATalpha_HMGbox Radial_spoke_3
+DBLINKS     NCBI-ProteinID: NP_009869
             NCBI-GeneID: 850407
             SGD: S000000636
-            MIPS: YCR040W
             UniProt: P0CY07 P0CY06
 AASEQ       175
             MFTSKPAFKIKNKASKSYRNTAVSKKLKEKRLAEHVRPSCFNIIRPLKKDIQIPVPSSRF

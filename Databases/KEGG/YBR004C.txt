@@ -1,18 +1,31 @@
 ENTRY       YBR004C           CDS       T00005
 NAME        GPI18
-DEFINITION  Gpi18p (EC:2.4.1.-)
+DEFINITION  (RefSeq) GPI-anchor transamidase GPI18
 ORTHOLOGY   K07542  phosphatidylinositol glycan, class V [EC:2.4.1.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
-PATHWAY     sce00563  Glycosylphosphatidylinositol(GPI)-anchor biosynthesis
+PATHWAY     sce00563  Glycosylphosphatidylinositol (GPI)-anchor biosynthesis
             sce01100  Metabolic pathways
 MODULE      sce_M00065  GPI-anchor biosynthesis, core oligosaccharide
-CLASS       Metabolism; Glycan biosynthesis and metabolism; Glycosylphosphatidylinositol(GPI)-anchor biosynthesis [PATH:sce00563]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Glycan biosynthesis and metabolism
+               00563 Glycosylphosphatidylinositol(GPI)-anchor biosynthesis
+                YBR004C (GPI18)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.4  Glycosyltransferases
+               2.4.1  Hexosyltransferases
+                2.4.1.-  
+                 YBR004C (GPI18)
+            Glycosyltransferases [BR:sce01003]
+             GPI-anchor biosynthesis
+              Core oligosaccharide
+               YBR004C (GPI18)
 POSITION    II:complement(244366..245667)
 MOTIF       Pfam: Mannosyl_trans2
-DBLINKS     NCBI-GI: 330443421
+DBLINKS     NCBI-ProteinID: NP_009558
             NCBI-GeneID: 852289
             SGD: S000000208
-            MIPS: YBR004C
             UniProt: P38211
 AASEQ       433
             MIVGLTLYFVLFRSIQYLLVFLTPIRQFDTSTSLLLNELCSSPSEINSYWNKYFWNKLLS

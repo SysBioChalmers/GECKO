@@ -1,13 +1,12 @@
 ENTRY       YGL242C           CDS       T00005
-DEFINITION  hypothetical protein
-ORTHOLOGY   K06867
+DEFINITION  (RefSeq) hypothetical protein
+ORTHOLOGY   K06867  uncharacterized protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:complement(44652..45197)
-MOTIF       Pfam: Ank Ank_2 Ank_5 Ank_3 Ank_4
-DBLINKS     NCBI-GI: 6321195
+MOTIF       Pfam: Ank Ank_3 Ank_2 Ank_5 Ank_4
+DBLINKS     NCBI-ProteinID: NP_011272
             NCBI-GeneID: 852609
             SGD: S000003211
-            MIPS: YGL242C
             UniProt: P53066
 AASEQ       181
             MNTEGASLSEQLLDAARRNNLDLLETVFDSLDNDPEKIAKLINESKEPLGNTALHLCCKY

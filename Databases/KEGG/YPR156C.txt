@@ -1,13 +1,12 @@
 ENTRY       YPR156C           CDS       T00005
 NAME        TPO3
-DEFINITION  Tpo3p
+DEFINITION  (RefSeq) spermine transporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:complement(837909..839777)
 MOTIF       Pfam: MFS_1 Sugar_tr
-DBLINKS     NCBI-GI: 6325414
+DBLINKS     NCBI-ProteinID: NP_015482
             NCBI-GeneID: 856279
             SGD: S000006360
-            MIPS: YPR156C
             UniProt: Q06451
 AASEQ       622
             MNRQESINSFNSDETSSLSDVESQQPQQYIPSESGSKSNMAPNQLKLTRTETVKSLQDMG

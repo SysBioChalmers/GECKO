@@ -1,13 +1,12 @@
 ENTRY       YMR135C           CDS       T00005
 NAME        GID8, DCR1
-DEFINITION  glucose-induced degradation complex subunit GID8
+DEFINITION  (RefSeq) glucose-induced degradation complex subunit GID8
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:complement(538689..540056)
-MOTIF       Pfam: CLTH
-DBLINKS     NCBI-GI: 6323784
+MOTIF       Pfam: CLTH LIG3_BRCT
+DBLINKS     NCBI-ProteinID: NP_013854
             NCBI-GeneID: 855166
             SGD: S000004742
-            MIPS: YMR135C
             UniProt: P40208
 AASEQ       455
             MTISTLSNETTKSGSCSGQGKNGGKDFTYGKKCFTKEEWKEQVAKYSAMGELYANKTIHY

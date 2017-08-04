@@ -1,13 +1,13 @@
 ENTRY       YLR237W           CDS       T00005
 NAME        THI7, THI10
-DEFINITION  Thi7p
+DEFINITION  (RefSeq) thiamine transporter THI7
+ORTHOLOGY   K03457  nucleobase:cation symporter-1, NCS1 family
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XII:612367..614163
 MOTIF       Pfam: Transp_cyt_pur
-DBLINKS     NCBI-GI: 6323266
+DBLINKS     NCBI-ProteinID: NP_013338
             NCBI-GeneID: 850938
             SGD: S000004227
-            MIPS: YLR237W
             UniProt: Q05998
 AASEQ       598
             MSFGSKVSRALRFLEIPVKDRASVSFLKNPDLQPIKSANQTWGFWSNFAYWGVMSFSVGT

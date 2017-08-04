@@ -1,14 +1,28 @@
 ENTRY       YOL004W           CDS       T00005
 NAME        SIN3, CPE1, GAM2, RPD1, SDI1, SDS16, UME4
-DEFINITION  Sin3p
+DEFINITION  (RefSeq) transcriptional regulator SIN3
 ORTHOLOGY   K11644  paired amphipathic helix protein Sin3a
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04139  Mitophagy - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04139 Mitophagy - yeast
+                YOL004W (SIN3)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Histone modification proteins
+               HDAC complexes
+                Sin3A-HDAC complex
+                 YOL004W (SIN3)
+              Heterochromatin formation proteins
+               Other heterochromatin formation proteins
+                YOL004W (SIN3)
 POSITION    XV:316938..321548
-MOTIF       Pfam: PAH Sin3_corepress
-DBLINKS     NCBI-GI: 6324570
+MOTIF       Pfam: Sin3a_C PAH Sin3_corepress AAA_21
+DBLINKS     NCBI-ProteinID: NP_014639
             NCBI-GeneID: 854158
             SGD: S000005364
-            MIPS: YOL004W
             UniProt: P22579
 AASEQ       1536
             MSQVWHNSNSQSNDVATSNDATGSNERNEKEPSLQGNKPGFVQQQQRITLPSLSALSTKE

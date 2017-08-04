@@ -1,13 +1,12 @@
 ENTRY       YJR136C           CDS       T00005
 NAME        TTI2
-DEFINITION  Tti2p
+DEFINITION  (RefSeq) Tti2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    X:complement(677441..678706)
-MOTIF       Pfam: DUF2454
-DBLINKS     NCBI-GI: 398365561
+MOTIF       Pfam: Tti2
+DBLINKS     NCBI-ProteinID: NP_012670
             NCBI-GeneID: 853601
             SGD: S000003897
-            MIPS: YJR136C
             UniProt: P47168
 AASEQ       421
             MTAVTDIIDELNDSSLSSTRLRELCLQLRKKTDTGCAITVSDEVNLIESLSYHSISPGVD

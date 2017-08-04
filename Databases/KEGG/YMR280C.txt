@@ -1,14 +1,18 @@
 ENTRY       YMR280C           CDS       T00005
 NAME        CAT8, DIL1, MSP8
-DEFINITION  Cat8p
+DEFINITION  (RefSeq) DNA-binding transcription factor CAT8
 ORTHOLOGY   K09240  transcriptional regulatory protein CAT8
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription factors [BR:sce03000]
+             Eukaryotic Type
+              Zinc finger
+               Cys6 metabolic regulators in fungi
+                YMR280C (CAT8)
 POSITION    XIII:complement(827028..831329)
-MOTIF       Pfam: Fungal_trans Zn_clus bZIP_1 bZIP_2
-DBLINKS     NCBI-GI: 6323936
+MOTIF       Pfam: Fungal_trans Zn_clus bZIP_1 Pox_EPC_I2-L1 bZIP_2
+DBLINKS     NCBI-ProteinID: NP_014007
             NCBI-GeneID: 855323
             SGD: S000004893
-            MIPS: YMR280C
             UniProt: P39113
 AASEQ       1433
             MANNNSDRQGLEPRVIRTLGSQALSGPSISNRTSSSEANPHFSKNVKEAMIKTASPTPLS

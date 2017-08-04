@@ -1,18 +1,27 @@
 ENTRY       YJL153C           CDS       T00005
 NAME        INO1, APR1
-DEFINITION  inositol-3-phosphate synthase INO1 (EC:5.5.1.4)
+DEFINITION  (RefSeq) inositol-3-phosphate synthase INO1
 ORTHOLOGY   K01858  myo-inositol-1-phosphate synthase [EC:5.5.1.4]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00562  Inositol phosphate metabolism
             sce01100  Metabolic pathways
-            sce01110  Biosynthesis of secondary metabolites
-CLASS       Metabolism; Carbohydrate metabolism; Inositol phosphate metabolism [PATH:sce00562]
+            sce01130  Biosynthesis of antibiotics
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Carbohydrate metabolism
+               00562 Inositol phosphate metabolism
+                YJL153C (INO1)
+            Enzymes [BR:sce01000]
+             5. Isomerases
+              5.5  Intramolecular lyases
+               5.5.1  Intramolecular lyases (only sub-subclass identified to date)
+                5.5.1.4  inositol-3-phosphate synthase
+                 YJL153C (INO1)
 POSITION    X:complement(134332..135933)
 MOTIF       Pfam: NAD_binding_5 Inos-1-P_synth
-DBLINKS     NCBI-GI: 37362665
+DBLINKS     NCBI-ProteinID: NP_012382
             NCBI-GeneID: 853288
             SGD: S000003689
-            MIPS: YJL153C
             UniProt: P11986
 STRUCTURE   PDB: 1P1J 1P1H 1RM0 1P1K 1JKI 1P1I 1JKF 1P1F 1LA2
 AASEQ       533

@@ -1,13 +1,12 @@
 ENTRY       YBL060W           CDS       T00005
 NAME        YEL1
-DEFINITION  Yel1p
+DEFINITION  (RefSeq) Arf family guanine nucleotide exchange factor YEL1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    II:107932..109995
-MOTIF       Pfam: Sec7
-DBLINKS     NCBI-GI: 6319411
+MOTIF       Pfam: Sec7 PH_9
+DBLINKS     NCBI-ProteinID: NP_009493
             NCBI-GeneID: 852219
             SGD: S000000156
-            MIPS: YBL060W
             UniProt: P34225
 AASEQ       687
             MCASLNEVKKNDTYGVSQKGYNDNFSESEGVLHGSKSMPTSMKNMLQSPTMVNMCDILQN

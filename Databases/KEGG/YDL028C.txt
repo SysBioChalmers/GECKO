@@ -1,16 +1,35 @@
 ENTRY       YDL028C           CDS       T00005
 NAME        MPS1, PAC8, RPK1
-DEFINITION  Mps1p (EC:2.7.12.2 2.7.12.1)
+DEFINITION  (RefSeq) serine/threonine/tyrosine protein kinase MPS1
 ORTHOLOGY   K08866  serine/threonine-protein kinase TTK/MPS1 [EC:2.7.12.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
-CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YDL028C (MPS1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.12  Dual-specificity kinases (those acting on Ser/Thr and Tyr residues)
+                2.7.12.1  dual-specificity kinase
+                 YDL028C (MPS1)
+            Protein kinases [BR:sce01001]
+             Serine/threonine protein kinases: Other group
+              TTK family
+               YDL028C (MPS1)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centromeric chromatin formation proteins
+               SAC (spindle assembly checkpoint) factors
+                Protein kinases
+                 YDL028C (MPS1)
 POSITION    IV:complement(400997..403291)
-MOTIF       Pfam: Pkinase Pkinase_Tyr APH
-DBLINKS     NCBI-GI: 330443507
+MOTIF       Pfam: Pkinase Pkinase_Tyr APH FTA2 DUF4370
+DBLINKS     NCBI-ProteinID: NP_010256
             NCBI-GeneID: 851533
             SGD: S000002186
-            MIPS: YDL028C
             UniProt: P54199
 AASEQ       764
             MSTNSFHDYVDLKSRTNTRQFSDDEEFTTPPKLSNFGSALLSHTEKTSASEILSSHNNDK

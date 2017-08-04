@@ -1,14 +1,23 @@
 ENTRY       YMR138W           CDS       T00005
 NAME        CIN4, GTP1, UGX1
-DEFINITION  Cin4p
+DEFINITION  (RefSeq) Arf family GTPase CIN4
 ORTHOLOGY   K07943  ADP-ribosylation factor-like protein 2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centrosome formation and ciliogenesis proteins
+               Other centriole associated proteins
+                YMR138W (CIN4)
+            GTP-binding proteins [BR:sce04031]
+             Small (Monomeric) G-proteins
+              Arf/Sar Family
+               Arl2/Arl3
+                YMR138W (CIN4)
 POSITION    XIII:545155..545730
-MOTIF       Pfam: Arf G-alpha Ras Gtr1_RagA MMR_HSR1 Miro GTP_EFTU SRPRB ArgK cobW FeoB_N AAA_16 PFK DUF258
-DBLINKS     NCBI-GI: 6323787
+MOTIF       Pfam: Arf G-alpha Roc Ras Gtr1_RagA MMR_HSR1 GTP_EFTU RsgA_GTPase ArgK SRPRB cobW FeoB_N AAA_29
+DBLINKS     NCBI-ProteinID: NP_013858
             NCBI-GeneID: 855169
             SGD: S000004746
-            MIPS: YMR138W
             UniProt: P39110
 AASEQ       191
             MGLLSIIRKQKLRDKEIRCLILGLDNSGKSTIVNKLLPKDEQNNDGIMPTVGFQIHSLMI

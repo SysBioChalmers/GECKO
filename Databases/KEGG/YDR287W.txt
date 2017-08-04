@@ -1,20 +1,31 @@
 ENTRY       YDR287W           CDS       T00005
 NAME        INM2
-DEFINITION  inositol monophosphate 1-phosphatase INM2 (EC:3.1.3.25)
+DEFINITION  (RefSeq) inositol monophosphate 1-phosphatase INM2
 ORTHOLOGY   K01092  myo-inositol-1(or 4)-monophosphatase [EC:3.1.3.25]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00562  Inositol phosphate metabolism
             sce01100  Metabolic pathways
-            sce01110  Biosynthesis of secondary metabolites
             sce04070  Phosphatidylinositol signaling system
-CLASS       Metabolism; Carbohydrate metabolism; Inositol phosphate metabolism [PATH:sce00562]
-            Environmental Information Processing; Signal transduction; Phosphatidylinositol signaling system [PATH:sce04070]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Carbohydrate metabolism
+               00562 Inositol phosphate metabolism
+                YDR287W (INM2)
+             Environmental Information Processing
+              Signal transduction
+               04070 Phosphatidylinositol signaling system
+                YDR287W (INM2)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.3  Phosphoric-monoester hydrolases
+                3.1.3.25  inositol-phosphate phosphatase
+                 YDR287W (INM2)
 POSITION    IV:1035995..1036873
 MOTIF       Pfam: Inositol_P Gamma-thionin
-DBLINKS     NCBI-GI: 398366417
+DBLINKS     NCBI-ProteinID: NP_010573
             NCBI-GeneID: 851881
             SGD: S000002695
-            MIPS: YDR287W
             UniProt: Q05533
 AASEQ       292
             MVLTRQVLEEVENTFIELLRSKIGPLVKSHAGTNFCSYDDKANGVDLVTALDKQIESIIK

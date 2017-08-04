@@ -1,13 +1,18 @@
 ENTRY       YDR150W           CDS       T00005
 NAME        NUM1, PAC12
-DEFINITION  Num1p
+DEFINITION  (RefSeq) Num1p
+ORTHOLOGY   K17978  nuclear migration protein NUM1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial quality control factors
+              Mitochondrial dynamics
+               Retention of mitochondria
+                YDR150W (NUM1)
 POSITION    IV:755628..763874
-MOTIF       Pfam: Mcp5_PH
-DBLINKS     NCBI-GI: 6320353
+MOTIF       Pfam: Mcp5_PH PH PH_2
+DBLINKS     NCBI-ProteinID: NP_010434
             NCBI-GeneID: 851727
             SGD: S000002557
-            MIPS: YDR150W
             UniProt: Q00402
 AASEQ       2748
             MSHNNRHKKNNDKDSSAGQYANSIDNSLSQESVSTNGVTRMANLKADECGSGDEGDKTKR

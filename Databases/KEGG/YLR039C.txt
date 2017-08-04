@@ -1,13 +1,18 @@
 ENTRY       YLR039C           CDS       T00005
 NAME        RIC1
-DEFINITION  Ric1p
+DEFINITION  (RefSeq) Ric1p
+ORTHOLOGY   K20476  RAB6A-GEF complex partner protein 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endoplasmic reticulum (ER) - Golgi transport
+              Retrieval pathways
+               Rab associated proteins
+                YLR039C (RIC1)
 POSITION    XII:complement(225426..228596)
-MOTIF       Pfam: RIC1
-DBLINKS     NCBI-GI: 6323068
+MOTIF       Pfam: RIC1 HPS3_N
+DBLINKS     NCBI-ProteinID: NP_013140
             NCBI-GeneID: 850728
             SGD: S000004029
-            MIPS: YLR039C
             UniProt: P40395
 AASEQ       1056
             MFIKQSEKNTPKCLYKKKGKVRVLLTGSCKKLNTWKMHLWPVSPPQLLRIPPRNAELGEG

@@ -1,17 +1,25 @@
 ENTRY       Q0275             CDS       T00005
 NAME        COX3, OXI2
-DEFINITION  cytochrome c oxidase subunit 3 (EC:1.9.3.1)
+DEFINITION  (RefSeq) cytochrome c oxidase subunit 3
 ORTHOLOGY   K02262  cytochrome c oxidase subunit 3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00190  Oxidative phosphorylation
             sce01100  Metabolic pathways
-CLASS       Metabolism; Energy metabolism; Oxidative phosphorylation [PATH:sce00190]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Energy metabolism
+               00190 Oxidative phosphorylation
+                Q0275 (COX3)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial DNA transcription, translation, and replication factors
+              Mitochondrial DNA-encoded proteins
+               Cytochrome c oxidase
+                Q0275 (COX3)
 POSITION    MT:79213..80022
 MOTIF       Pfam: COX3
-DBLINKS     NCBI-GI: 6226542
+DBLINKS     NCBI-ProteinID: NP_009328
             NCBI-GeneID: 854627
             SGD: S000007283
-            MIPS: Q0275
             UniProt: P00420
 AASEQ       269
             MTHLERSRHQQHPFHMVMPSPWPIVVSFALLSLALSTALTMHGYIGNMNMVYLALFVLLT

@@ -1,13 +1,12 @@
 ENTRY       YGL181W           CDS       T00005
 NAME        GTS1, FHT1, LSR1
-DEFINITION  Gts1p
+DEFINITION  (RefSeq) Gts1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:157906..159096
-MOTIF       Pfam: ArfGap UBA Med15 PAT1
-DBLINKS     NCBI-GI: 6321257
+MOTIF       Pfam: ArfGap UBA Med15 TFIIA Pilosulin
+DBLINKS     NCBI-ProteinID: NP_011334
             NCBI-GeneID: 852694
             SGD: S000003149
-            MIPS: YGL181W
             UniProt: P40956
 AASEQ       396
             MRFRSSSHSLKHVDRELKELINSSENANKCGECGNFYPTWCSVNLGVFLCGRCASVHRKV

@@ -1,13 +1,22 @@
 ENTRY       YGR201C           CDS       T00005
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) hypothetical protein
 ORTHOLOGY   K03233  elongation factor 1-gamma
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Factors involved in mRNA localization
+                Trans-acting binding proteins
+                 YGR201C
+            Translation factors [BR:sce03012]
+             Eukaryotic Type
+              Elongation factors
+               YGR201C
 POSITION    VII:complement(902520..903197)
-MOTIF       Pfam: GST_C GST_C_2 GST_N
-DBLINKS     NCBI-GI: 398366121
+MOTIF       Pfam: GST_C GST_C_2 GST_N GST_N_3
+DBLINKS     NCBI-ProteinID: NP_011717
             NCBI-GeneID: 853115
             SGD: S000003433
-            MIPS: YGR201C
             UniProt: P42936
 AASEQ       225
             MSDGTLFTDLKERKLIRTIVPRGLVRSLKLDVKLADPSDAQQLYEREFPLRKYPTFVGPH

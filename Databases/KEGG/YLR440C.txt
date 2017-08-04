@@ -1,13 +1,18 @@
 ENTRY       YLR440C           CDS       T00005
 NAME        SEC39, DSL3
-DEFINITION  Sec39p
+DEFINITION  (RefSeq) Sec39p
+ORTHOLOGY   K20475  protein transport protein SEC39
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endoplasmic reticulum (ER) - Golgi transport
+              Retrieval pathways
+               NRZ (DSL1) complex
+                YLR440C (SEC39)
 POSITION    XII:complement(1015568..1017697)
 MOTIF       Pfam: Sec39
-DBLINKS     NCBI-GI: 398366305
+DBLINKS     NCBI-ProteinID: NP_013545
             NCBI-GeneID: 851161
             SGD: S000004432
-            MIPS: YLR440C
             UniProt: Q12745
 STRUCTURE   PDB: 3K8P
 AASEQ       709

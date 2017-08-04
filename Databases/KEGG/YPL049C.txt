@@ -1,15 +1,18 @@
 ENTRY       YPL049C           CDS       T00005
 NAME        DIG1, RST1
-DEFINITION  Dig1p
+DEFINITION  (RefSeq) Dig1p
 ORTHOLOGY   K11241  down-regulator of invasive growth 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04011  MAPK signaling pathway - yeast
-CLASS       Environmental Information Processing; Signal transduction; MAPK signaling pathway - yeast [PATH:sce04011]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Signal transduction
+               04011 MAPK signaling pathway - yeast
+                YPL049C (DIG1)
 POSITION    XVI:complement(462481..463839)
-DBLINKS     NCBI-GI: 6325208
+DBLINKS     NCBI-ProteinID: NP_015276
             NCBI-GeneID: 856058
             SGD: S000005970
-            MIPS: YPL049C
             UniProt: Q03063
 AASEQ       452
             MAVSARLRTTAEDTSIAKSTQDPIGDTEISVANAKGSSDSNIKNSPGGNSVGQESELEHV

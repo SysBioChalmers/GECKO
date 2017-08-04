@@ -1,13 +1,26 @@
 ENTRY       YDL193W           CDS       T00005
 NAME        NUS1
-DEFINITION  Nus1p (EC:2.5.1.31)
+DEFINITION  (RefSeq) ditrans,polycis-polyprenyl diphosphate synthase
+ORTHOLOGY   K19177  dehydrodolichyl diphosphate syntase complex subunit NUS1 [EC:2.5.1.87]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00900  Terpenoid backbone biosynthesis
+            sce01110  Biosynthesis of secondary metabolites
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Metabolism of terpenoids and polyketides
+               00900 Terpenoid backbone biosynthesis
+                YDL193W (NUS1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.5  Transferring alkyl or aryl groups, other than methyl groups
+               2.5.1  Transferring alkyl or aryl groups, other than methyl groups (only sub-subclass identified to date)
+                2.5.1.87  ditrans,polycis-polyprenyl diphosphate synthase [(2E,6E)-farnesyl diphosphate specific]
+                 YDL193W (NUS1)
 POSITION    IV:114672..115799
-MOTIF       Pfam: Prenyltransf DUF1673 ATG27 Thia_YuaJ
-DBLINKS     NCBI-GI: 6320008
+MOTIF       Pfam: Prenyltransf
+DBLINKS     NCBI-ProteinID: NP_010088
             NCBI-GeneID: 851334
             SGD: S000002352
-            MIPS: YDL193W
             UniProt: Q12063
 AASEQ       375
             MPTMIKKDDKAMEPPNEKPHRKIERDDVPESSNHIPPPESGVLKGGKVNSKTRALKAVTS

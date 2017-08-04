@@ -1,16 +1,21 @@
 ENTRY       YOL051W           CDS       T00005
 NAME        GAL11, ABE1, MED15, RAR3, SDS4, SPT13
-DEFINITION  Gal11p
+DEFINITION  (RefSeq) Gal11p
 ORTHOLOGY   K15158  mediator of RNA polymerase II transcription subunit 15, fungi type
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Mediator complex
+                Tail
+                 YOL051W (GAL11)
 POSITION    XV:234940..238185
-MOTIF       Pfam: Med15_fungi
-DBLINKS     NCBI-GI: 6324522
+MOTIF       Pfam: Med15_fungi KIX_2
+DBLINKS     NCBI-ProteinID: NP_014591
             NCBI-GeneID: 854106
             SGD: S000005411
-            MIPS: YOL051W
             UniProt: P19659
-STRUCTURE   PDB: 2LPB 2KO4 2K0N
+STRUCTURE   PDB: 2LPB 2K0N
 AASEQ       1081
             MSAAPVQDKDTLSNAERAKNVNGLLQVLMDINTLNGGSSDTADKIRIHAKNFEAALFAKS
             SSKKEYMDSMNEKVAVMRNTYNTRKNAVTAAAANNNIKPVEQHHINNLKNSGNSANNMNV

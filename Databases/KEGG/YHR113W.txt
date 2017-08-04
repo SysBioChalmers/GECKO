@@ -1,14 +1,23 @@
 ENTRY       YHR113W           CDS       T00005
 NAME        APE4
-DEFINITION  Ape4p (EC:3.4.11.21)
+DEFINITION  (RefSeq) aspartyl aminopeptidase
 ORTHOLOGY   K01267  aspartyl aminopeptidase [EC:3.4.11.21]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.4  Acting on peptide bonds (peptidases)
+               3.4.11  Aminopeptidases
+                3.4.11.21  aspartyl aminopeptidase
+                 YHR113W (APE4)
+            Peptidases [BR:sce01002]
+             Metallo Peptidases
+              Family M18
+               YHR113W (APE4)
 POSITION    VIII:336337..337809
 MOTIF       Pfam: Peptidase_M18 Peptidase_M42
-DBLINKS     NCBI-GI: 6321905
+DBLINKS     NCBI-ProteinID: NP_011981
             NCBI-GeneID: 856513
             SGD: S000001155
-            MIPS: YHR113W
             UniProt: P38821
 AASEQ       490
             MFRIQLRTMSSKTCKSDYPKEFVSFLNSSHSPYHTVHNIKKHLVSNGFKELSERDSWAGH

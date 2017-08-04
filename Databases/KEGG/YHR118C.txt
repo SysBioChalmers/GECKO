@@ -1,20 +1,30 @@
 ENTRY       YHR118C           CDS       T00005
 NAME        ORC6
-DEFINITION  origin recognition complex subunit 6
+DEFINITION  (RefSeq) origin recognition complex subunit 6
 ORTHOLOGY   K02608  origin recognition complex subunit 6
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
             sce04113  Meiosis - yeast
 MODULE      sce_M00284  Origin recognition complex
-CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
-            Cellular Processes; Cell growth and death; Meiosis - yeast [PATH:sce04113]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YHR118C (ORC6)
+               04113 Meiosis - yeast
+                YHR118C (ORC6)
+            DNA replication proteins [BR:sce03032]
+             Eukaryotic Type
+              DNA Replication Initiation Factors
+               pre-RC (pre-replication complex)
+                YHR118C (ORC6)
 POSITION    VIII:complement(344321..345628)
 MOTIF       Pfam: ORC6
-DBLINKS     NCBI-GI: 6321910
+DBLINKS     NCBI-ProteinID: NP_011986
             NCBI-GeneID: 856518
             SGD: S000001160
-            MIPS: YHR118C
             UniProt: P38826
+STRUCTURE   PDB: 5UDB
 AASEQ       435
             MSMQQVQHCVAEVLRLDPQEKPDWSSGYLKKLTNATSILYNTSLNKVMLKQDEEVARCHI
             CAYIASQKMNEKHMPDLCYYIDSIPLEPKKAKHLMNLFRQSLSNSSPMKQFAWTPSPKKN

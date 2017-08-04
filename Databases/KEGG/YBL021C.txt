@@ -1,13 +1,12 @@
 ENTRY       YBL021C           CDS       T00005
 NAME        HAP3
-DEFINITION  Hap3p
+DEFINITION  (RefSeq) Hap3p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    II:complement(181660..182094)
 MOTIF       Pfam: CBFD_NFYB_HMF Histone
-DBLINKS     NCBI-GI: 6319450
+DBLINKS     NCBI-ProteinID: NP_009532
             NCBI-GeneID: 852260
             SGD: S000000117
-            MIPS: YBL021C
             UniProt: P13434
 AASEQ       144
             MNTNESEHVSTSPEDTQENGGNASSSGSLQQISTLREQDRWLPINNVARLMKNTLPPSAK

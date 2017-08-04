@@ -1,14 +1,18 @@
 ENTRY       YBR008C           CDS       T00005
 NAME        FLR1
-DEFINITION  Flr1p
+DEFINITION  (RefSeq) Flr1p
 ORTHOLOGY   K08158  MFS transporter, DHA1 family, multidrug resistance protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Major Facilitator Superfamily (MFS)
+              Drug transporters
+               Drug:H+ antiporter-1 (12 spanner) (DHA1) family [TC:2.A.1.2]
+                YBR008C (FLR1)
 POSITION    II:complement(252563..254209)
-MOTIF       Pfam: MFS_1 TRI12
-DBLINKS     NCBI-GI: 6319480
+MOTIF       Pfam: MFS_1 TRI12 AF-4
+DBLINKS     NCBI-ProteinID: NP_009562
             NCBI-GeneID: 852293
             SGD: S000000212
-            MIPS: YBR008C
             UniProt: P38124
 AASEQ       548
             MVYTSTYRHTIVVDLLEYLGIVSNLETLQSAREDETRKPENTDKKECKPDYDIECGPNRS

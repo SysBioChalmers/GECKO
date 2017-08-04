@@ -1,13 +1,30 @@
 ENTRY       YOR181W           CDS       T00005
 NAME        LAS17, BEE1
-DEFINITION  Las17p
+DEFINITION  (RefSeq) actin-binding protein LAS17
+ORTHOLOGY   K05747  Wiskott-Aldrich syndrome protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04144  Endocytosis
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04144 Endocytosis
+                YOR181W (LAS17)
+            Membrane trafficking [BR:sce04131]
+             Others
+              Actin-binding proteins
+               Nucleation-promoting factors (NPFs)
+                YOR181W (LAS17)
+            Cytoskeleton proteins [BR:sce04812]
+             Eukaryotic cytoskeleton proteins
+              Actin filaments / Microfilaments
+               Actin-binding proteins
+                WASP / WAVE
+                 YOR181W (LAS17)
 POSITION    XV:675939..677840
-MOTIF       Pfam: WH1 WH2
-DBLINKS     NCBI-GI: 6324755
+MOTIF       Pfam: WH1 WH2 DCP1
+DBLINKS     NCBI-ProteinID: NP_014824
             NCBI-GeneID: 854353
             SGD: S000005707
-            MIPS: YOR181W
             UniProt: Q12446
 AASEQ       633
             MGLLNSSDKEIIKRALPKASNKIIDVTVARLYIAYPDKNEWQYTGLSGALALVDDLVGNT

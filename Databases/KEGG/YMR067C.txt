@@ -1,13 +1,12 @@
 ENTRY       YMR067C           CDS       T00005
 NAME        UBX4, CUI1
-DEFINITION  Ubx4p
+DEFINITION  (RefSeq) Ubx4p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:complement(404323..405573)
-MOTIF       Pfam: TUG-UBL1 UBX RA CreD
-DBLINKS     NCBI-GI: 6323712
+MOTIF       Pfam: TUG-UBL1 UBX VGLL4
+DBLINKS     NCBI-ProteinID: NP_013783
             NCBI-GeneID: 855089
             SGD: S000004671
-            MIPS: YMR067C
             UniProt: P54730
 AASEQ       416
             MPMVTVKYNFQLFKCKVSLNSTLNDVLHQSIQFFQLHTSSNDWSLIHLDKPVPLDLPWRL

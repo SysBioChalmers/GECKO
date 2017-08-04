@@ -1,20 +1,23 @@
 ENTRY       YPR191W           CDS       T00005
 NAME        QCR2, COR2, UCR2
-DEFINITION  ubiquinol--cytochrome-c reductase subunit 2
+DEFINITION  (RefSeq) ubiquinol--cytochrome-c reductase subunit 2
 ORTHOLOGY   K00415  ubiquinol-cytochrome c reductase core subunit 2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00190  Oxidative phosphorylation
             sce01100  Metabolic pathways
 MODULE      sce_M00152  Cytochrome bc1 complex
-CLASS       Metabolism; Energy metabolism; Oxidative phosphorylation [PATH:sce00190]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Energy metabolism
+               00190 Oxidative phosphorylation
+                YPR191W (QCR2)
 POSITION    XVI:919381..920487
 MOTIF       Pfam: Peptidase_M16 Peptidase_M16_C
-DBLINKS     NCBI-GI: 6325449
+DBLINKS     NCBI-ProteinID: NP_015517
             NCBI-GeneID: 856321
             SGD: S000006395
-            MIPS: YPR191W
             UniProt: P07257
-STRUCTURE   PDB: 3CX5 2IBZ 1KB9 1EZV 3CXH 1P84 1KYO
+STRUCTURE   PDB: 3CX5 2IBZ 1KB9 1EZV 3CXH 1P84 1KYO 4PD4
 AASEQ       368
             MLSAARLQFAQGSVRRLTVSARDAPTKISTLAVKVHGGSRYATKDGVAHLLNRFNFQNTN
             TRSALKLVRESELLGGTFKSTLDREYITLKATFLKDDLPYYVNALADVLYKTAFKPHELT

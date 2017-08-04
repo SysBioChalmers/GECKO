@@ -1,16 +1,24 @@
 ENTRY       YPR041W           CDS       T00005
 NAME        TIF5, SUI5
-DEFINITION  Tif5p
+DEFINITION  (RefSeq) translation initiation factor eIF5
 ORTHOLOGY   K03262  translation initiation factor 5
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03013  RNA transport
-CLASS       Genetic Information Processing; Translation; RNA transport [PATH:sce03013]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03013 RNA transport
+                YPR041W (TIF5)
+            Translation factors [BR:sce03012]
+             Eukaryotic Type
+              Initiation factors
+               eIF-5
+                YPR041W (TIF5)
 POSITION    XVI:648704..649921
-MOTIF       Pfam: eIF-5_eIF-2B W2
-DBLINKS     NCBI-GI: 6325298
+MOTIF       Pfam: eIF-5_eIF-2B W2 End3
+DBLINKS     NCBI-ProteinID: NP_015366
             NCBI-GeneID: 856154
             SGD: S000006245
-            MIPS: YPR041W
             UniProt: P38431
 STRUCTURE   PDB: 2FUL
 AASEQ       405

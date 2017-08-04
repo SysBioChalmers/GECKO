@@ -1,13 +1,12 @@
 ENTRY       YBR066C           CDS       T00005
 NAME        NRG2
-DEFINITION  Nrg2p
+DEFINITION  (RefSeq) Nrg2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    II:complement(370037..370699)
-MOTIF       Pfam: zf-H2C2_2 zf-C2H2 zf-C2H2_4 C2 zf-RING-like
-DBLINKS     NCBI-GI: 6319540
+MOTIF       Pfam: zf-C2H2 zf-C2H2_4 zf-H2C2_2 zf-met
+DBLINKS     NCBI-ProteinID: NP_009622
             NCBI-GeneID: 852358
             SGD: S000000270
-            MIPS: YBR066C
             UniProt: P38082
 AASEQ       220
             MSIGYKDNLMSTILAKDRKCEFPINFECSPSQITLMPEMFSFNNERKYQTLIPLMKTSHL

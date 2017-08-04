@@ -1,14 +1,18 @@
 ENTRY       YKL021C           CDS       T00005
 NAME        MAK11
-DEFINITION  Mak11p
+DEFINITION  (RefSeq) Mak11p
 ORTHOLOGY   K14830  protein MAK11
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               Other pre-60S particles
+                YKL021C (MAK11)
 POSITION    XI:complement(397344..398750)
-MOTIF       Pfam: WD40 Nup160 Nucleoporin_N
-DBLINKS     NCBI-GI: 398364695
+MOTIF       Pfam: WD40 Nup160 DUF4829 MRP-S32
+DBLINKS     NCBI-ProteinID: NP_012904
             NCBI-GeneID: 853847
             SGD: S000001504
-            MIPS: YKL021C
             UniProt: P20484
 AASEQ       468
             MLLNTTYTVFIFFLLRIIKFKIKAENFLEHEKLKTHGTSSRKDPKGQVKNSCRKMSAIGD

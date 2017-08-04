@@ -1,13 +1,12 @@
 ENTRY       YER048W-A         CDS       T00005
 NAME        ISD11
-DEFINITION  Isd11p
+DEFINITION  (RefSeq) Isd11p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    V:250718..251002
-MOTIF       Pfam: Complex1_LYR Complex1_LYR_1 MIF4G DUF1851 DUF3038
-DBLINKS     NCBI-GI: 6320889
+MOTIF       Pfam: Complex1_LYR Complex1_LYR_1 Complex1_LYR_2 MIF4G DUF3038
+DBLINKS     NCBI-ProteinID: NP_010968
             NCBI-GeneID: 856774
             SGD: S000007237
-            MIPS: YER048W-A
             UniProt: Q6Q560
 AASEQ       94
             MPGFTAPTRRQVLSLYKEFIKNANQFNNYNFREYFLSKTRTTFRKNMNQQDPKVLMNLFK

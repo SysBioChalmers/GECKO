@@ -1,12 +1,12 @@
 ENTRY       YGR250C           CDS       T00005
-DEFINITION  hypothetical protein
+NAME        RIE1
+DEFINITION  (RefSeq) Rie1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:complement(991176..993521)
-MOTIF       Pfam: RRM_1 RRM_6 RRM_5
-DBLINKS     NCBI-GI: 398366299
+MOTIF       Pfam: RRM_1
+DBLINKS     NCBI-ProteinID: NP_011766
             NCBI-GeneID: 853165
             SGD: S000003482
-            MIPS: YGR250C
             UniProt: P53316
 AASEQ       781
             MNIAEEPSDEVISSGPEDTDICSQQTSASAEAGDQSIKIERKTSTGLQLEQLANTNLLTI

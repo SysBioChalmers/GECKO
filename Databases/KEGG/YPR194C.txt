@@ -1,13 +1,12 @@
 ENTRY       YPR194C           CDS       T00005
 NAME        OPT2
-DEFINITION  Opt2p
+DEFINITION  (RefSeq) Opt2p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:complement(924304..926937)
 MOTIF       Pfam: OPT
-DBLINKS     NCBI-GI: 6325452
+DBLINKS     NCBI-ProteinID: NP_015520
             NCBI-GeneID: 856324
             SGD: S000006398
-            MIPS: YPR194C
             UniProt: Q06593
 AASEQ       877
             MSETVKDKVIIDEKVSTKGTVDYAEGAEYSERLSNHSSDFSQWYTDEQILHFMKKLGYEN

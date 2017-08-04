@@ -1,18 +1,34 @@
 ENTRY       YOR308C           CDS       T00005
 NAME        SNU66
-DEFINITION  Snu66p
+DEFINITION  (RefSeq) U4/U6-U5 snRNP complex subunit SNU66
 ORTHOLOGY   K11984  U4/U6.U5 tri-snRNP-associated protein 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03040  Spliceosome
-CLASS       Genetic Information Processing; Transcription; Spliceosome [PATH:sce03040]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03040 Spliceosome
+                YOR308C (SNU66)
+            Spliceosome [BR:sce03041]
+             Complex B
+              U4/U6.U5 tri-snRNP components
+               U4/U6.U5 tri-snRNP specific factors
+                YOR308C (SNU66)
+             Complex C
+               U4/U6.U5 tri-SnRNP specific factors
+                YOR308C (SNU66)
+            Ubiquitin system [BR:sce04121]
+             Ubiquitin ligases (E3)
+              Single Ring-finger type E3
+               Other single Ring-finger type E3
+                YOR308C (SNU66)
 POSITION    XV:complement(894624..896387)
 MOTIF       Pfam: SART-1
-DBLINKS     NCBI-GI: 398366193
+DBLINKS     NCBI-ProteinID: NP_014953
             NCBI-GeneID: 854485
             SGD: S000005835
-            MIPS: YOR308C
             UniProt: Q12420
-STRUCTURE   PDB: 3PLV
+STRUCTURE   PDB: 3PLV 5GAN 5GAO
 AASEQ       587
             MNKTENLSIEETNEIREKLGMKPIPVFQEKNTDHKESLSIEETNELRASLGLKLIPPQQN
             FNSSPPNVHNTSKIDELREKITKFQKKANAPLRMAHLLEETNVNDDSSWLENMDAIPSSH

@@ -1,13 +1,12 @@
 ENTRY       YGL107C           CDS       T00005
 NAME        RMD9
-DEFINITION  Rmd9p
+DEFINITION  (RefSeq) Rmd9p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:complement(304333..306273)
-MOTIF       Pfam: PPR Rsa3
-DBLINKS     NCBI-GI: 6321331
+MOTIF       Pfam: PPR Rsa3 PPR_2
+DBLINKS     NCBI-ProteinID: NP_011408
             NCBI-GeneID: 852771
             SGD: S000003075
-            MIPS: YGL107C
             UniProt: P53140
 AASEQ       646
             MMLRRNAVRSLKTMEISVSNVVNSGSIAMLRGKLANVVLSDRTYHSSPIFHKNVPKGVLD

@@ -1,14 +1,19 @@
 ENTRY       YDL154W           CDS       T00005
 NAME        MSH5
-DEFINITION  MutS family protein MSH5
+DEFINITION  (RefSeq) MutS family protein MSH5
 ORTHOLOGY   K08741  DNA mismatch repair protein MSH5
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              SSBR (single strand breaks repair)
+               MMR (mismatch exicision repair)
+                MutS homologs specialized for meiosis
+                 YDL154W (MSH5)
 POSITION    IV:178334..181039
-MOTIF       Pfam: MutS_V MutS_III AAA_29
-DBLINKS     NCBI-GI: 6320047
+MOTIF       Pfam: MutS_V MutS_III AAA_29 AAA_14 DUF4828
+DBLINKS     NCBI-ProteinID: NP_010127
             NCBI-GeneID: 851401
             SGD: S000002313
-            MIPS: YDL154W
             UniProt: Q12175
 AASEQ       901
             MSHEWLISASETMRSIGNGEGLRDKGAVVANNDGEFNEGDTNREEDSSTIFSFDFDEEIV

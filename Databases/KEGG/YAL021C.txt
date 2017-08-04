@@ -1,16 +1,35 @@
 ENTRY       YAL021C           CDS       T00005
 NAME        CCR4, FUN27, NUT21
-DEFINITION  Ccr4p (EC:3.1.13.4)
-ORTHOLOGY   K12603  CCR4-NOT transcription complex subunit 6
+DEFINITION  (RefSeq) CCR4-NOT core exoribonuclease subunit CCR4
+ORTHOLOGY   K12603  CCR4-NOT transcription complex subunit 6 [EC:3.1.13.4]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03018  RNA degradation
-CLASS       Genetic Information Processing; Folding, sorting and degradation; RNA degradation [PATH:sce03018]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               03018 RNA degradation
+                YAL021C (CCR4)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.13  Exoribonucleases producing 5'-phosphomonoesters
+                3.1.13.4  poly(A)-specific ribonuclease
+                 YAL021C (CCR4)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               mRNA cycle factors
+                P-body specific factors
+                 YAL021C (CCR4)
+              mRNA degradation factors
+               3'-5' decay
+                Ccr4-NOT complex
+                 YAL021C (CCR4)
 POSITION    I:complement(110846..113359)
-MOTIF       Pfam: Exo_endo_phos LRR_4 LRR_1 LRR_8 LRR_7 LRR_6
-DBLINKS     NCBI-GI: 6319298
+MOTIF       Pfam: Exo_endo_phos LRR_8 LRR_4 LRR_1
+DBLINKS     NCBI-ProteinID: NP_009381
             NCBI-GeneID: 851212
             SGD: S000000019
-            MIPS: YAL021C
             UniProt: P31384
 STRUCTURE   PDB: 4B8C
 AASEQ       837

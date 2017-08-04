@@ -1,13 +1,12 @@
 ENTRY       YGL183C           CDS       T00005
 NAME        MND1
-DEFINITION  Mnd1p
+DEFINITION  (RefSeq) Mnd1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:complement(join(156543..157199,157283..157285))
-MOTIF       Pfam: Mnd1 Snf7
-DBLINKS     NCBI-GI: 27808704
+MOTIF       Pfam: Mnd1 DUF4407 Snf7 DHHA1
+DBLINKS     NCBI-ProteinID: NP_011332
             NCBI-GeneID: 852692
             SGD: S000003151
-            MIPS: YGL183C
             UniProt: P53102
 AASEQ       219
             MGPKRQTVSLQEKKNRILNFFQETYTFYNIKELEKSIPKKCGISPMIVKDLVQQMIDEDG

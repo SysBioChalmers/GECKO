@@ -1,15 +1,21 @@
 ENTRY       YAL001C           CDS       T00005
 NAME        TFC3, FUN24, TSV115
-DEFINITION  Tfc3p
+DEFINITION  (RefSeq) transcription factor TFIIIC subunit TFC3
 ORTHOLOGY   K15204  transcription factor C subunit 3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase III system
+               Basal transcription factors
+                TFIIIC, fungi type
+                 YAL001C (TFC3)
 POSITION    I:complement(join(147594..151006,151097..151166))
-MOTIF       Pfam: B-block_TFIIIC
-DBLINKS     NCBI-GI: 6319317
+MOTIF       Pfam: B-block_TFIIIC DM13
+DBLINKS     NCBI-ProteinID: NP_009400
             NCBI-GeneID: 851262
             SGD: S000000001
-            MIPS: YAL001C
             UniProt: P34111
+STRUCTURE   PDB: 5AIM
 AASEQ       1160
             MVLTIYPDELVQIVSDKIASNKGKITLNQLWDISGKYFDLSDKKVKQFVLSCVILKKDIE
             VYCDGAITTKNVTDIIGDANHSYSVGITEDSLWTLLTGYTKKESTIGNSAFELLLEVAKS

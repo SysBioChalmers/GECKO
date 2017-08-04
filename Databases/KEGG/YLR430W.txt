@@ -1,14 +1,25 @@
 ENTRY       YLR430W           CDS       T00005
 NAME        SEN1, CIK3, NRD2
-DEFINITION  putative DNA/RNA helicase SEN1 (EC:3.6.4.-)
+DEFINITION  (RefSeq) putative DNA/RNA helicase SEN1
 ORTHOLOGY   K10706  senataxin [EC:3.6.4.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.4  Acting on acid anhydrides to facilitate cellular and subcellular movement
+                3.6.4.-  
+                 YLR430W (SEN1)
+            Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Other transcription-related factors
+                Transcription termination factor
+                 YLR430W (SEN1)
 POSITION    XII:993434..1000129
-MOTIF       Pfam: SEN1_N AAA_11 AAA_12 AAA_19 AAA_30
-DBLINKS     NCBI-GI: 398366241
+MOTIF       Pfam: SEN1_N AAA_11 AAA_12 AAA_19 AAA_30 UvrD-helicase Viral_helicase1 AAA ResIII
+DBLINKS     NCBI-ProteinID: NP_013534
             NCBI-GeneID: 851150
             SGD: S000004422
-            MIPS: YLR430W
             UniProt: Q00416
 AASEQ       2231
             MNSNNPDNNNSNNINNNNKDKDIAPNSDVQLATVYTKAKSYIPQIEQVYQGTNPNIQEAK

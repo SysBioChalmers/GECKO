@@ -1,6 +1,6 @@
 ENTRY       YPL017C           CDS       T00005
 NAME        IRC15
-DEFINITION  Irc15p
+DEFINITION  (RefSeq) Irc15p
 ORTHOLOGY   K00382  dihydrolipoamide dehydrogenase [EC:1.8.1.4]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00010  Glycolysis / Gluconeogenesis
@@ -8,24 +8,51 @@ PATHWAY     sce00010  Glycolysis / Gluconeogenesis
             sce00260  Glycine, serine and threonine metabolism
             sce00280  Valine, leucine and isoleucine degradation
             sce00620  Pyruvate metabolism
+            sce00630  Glyoxylate and dicarboxylate metabolism
+            sce00640  Propanoate metabolism
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
+            sce01130  Biosynthesis of antibiotics
             sce01200  Carbon metabolism
 MODULE      sce_M00009  Citrate cycle (TCA cycle, Krebs cycle)
             sce_M00011  Citrate cycle, second carbon oxidation, 2-oxoglutarate => oxaloacetate
             sce_M00307  Pyruvate oxidation, pyruvate => acetyl-CoA
-CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
-            Metabolism; Carbohydrate metabolism; Glycolysis / Gluconeogenesis [PATH:sce00010]
-            Metabolism; Carbohydrate metabolism; Citrate cycle (TCA cycle) [PATH:sce00020]
-            Metabolism; Carbohydrate metabolism; Pyruvate metabolism [PATH:sce00620]
-            Metabolism; Amino acid metabolism; Glycine, serine and threonine metabolism [PATH:sce00260]
-            Metabolism; Amino acid metabolism; Valine, leucine and isoleucine degradation [PATH:sce00280]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01200 Carbon metabolism
+                YPL017C (IRC15)
+              Carbohydrate metabolism
+               00010 Glycolysis / Gluconeogenesis
+                YPL017C (IRC15)
+               00020 Citrate cycle (TCA cycle)
+                YPL017C (IRC15)
+               00620 Pyruvate metabolism
+                YPL017C (IRC15)
+               00630 Glyoxylate and dicarboxylate metabolism
+                YPL017C (IRC15)
+               00640 Propanoate metabolism
+                YPL017C (IRC15)
+              Amino acid metabolism
+               00260 Glycine, serine and threonine metabolism
+                YPL017C (IRC15)
+               00280 Valine, leucine and isoleucine degradation
+                YPL017C (IRC15)
+            Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.8  Acting on a sulfur group of donors
+               1.8.1  With NAD+ or NADP+ as acceptor
+                1.8.1.4  dihydrolipoyl dehydrogenase
+                 YPL017C (IRC15)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of breast cancer cells
+               YPL017C (IRC15)
 POSITION    XVI:complement(518734..520233)
-MOTIF       Pfam: Pyr_redox_dim Pyr_redox_2 Pyr_redox FAD_oxidored Pyr_redox_3 Thi4 HI0933_like NAD_binding_8 FAD_binding_2 DAO AlaDh_PNT_C FAD_binding_3 3HCDH_N GIDA TrkA_N Lycopene_cycl UDPG_MGDP_dh_N XdhC_C adh_short_C2 2-Hacid_dh_C NAD_Gly3P_dh_N
-DBLINKS     NCBI-GI: 6325240
+MOTIF       Pfam: Pyr_redox_2 Pyr_redox_dim Pyr_redox FAD_oxidored Pyr_redox_3 Thi4 HI0933_like NAD_binding_8 AlaDh_PNT_C FAD_binding_2 DAO FAD_binding_3 3HCDH_N GIDA XdhC_C TrkA_N 2-Hacid_dh_C NAD_Gly3P_dh_N Lycopene_cycl
+DBLINKS     NCBI-ProteinID: NP_015308
             NCBI-GeneID: 856090
             SGD: S000005938
-            MIPS: YPL017C
             UniProt: Q02733
 AASEQ       499
             MGGEDEILSTMEDFAAVYDVLVIGCGPGGFTAAMQASQAGLLTACVDQRASLGGAYLVDG

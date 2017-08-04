@@ -1,13 +1,12 @@
 ENTRY       YPL183C           CDS       T00005
 NAME        RTT10, ERE2, TRM734
-DEFINITION  Rtt10p
+DEFINITION  (RefSeq) Rtt10p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:complement(199495..202536)
-MOTIF       Pfam: WD40 Nup160
-DBLINKS     NCBI-GI: 6325074
+MOTIF       Pfam: WD40 CPSF_A
+DBLINKS     NCBI-ProteinID: NP_015142
             NCBI-GeneID: 855919
             SGD: S000006104
-            MIPS: YPL183C
             UniProt: Q08924
 AASEQ       1013
             MKDLSHYGPALCVKFYNDYVLAGYGPFIHVYDYHSATLINKCRLFHYNKVHGLSLSSEGK

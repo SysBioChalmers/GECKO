@@ -1,13 +1,18 @@
 ENTRY       YFR024C-A         CDS       T00005
 NAME        LSB3, YFR024C
-DEFINITION  Lsb3p
+DEFINITION  (RefSeq) Lsb3p
+ORTHOLOGY   K20523  SH3 domain-containing YSC84-like protein 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Others
+              Actin-binding proteins
+               Nucleation-promoting factors (NPFs)
+                YFR024C-A (LSB3)
 POSITION    VI:complement(join(201960..203292,203387..203433))
-MOTIF       Pfam: DUF500 SH3_1 SH3_9 SH3_2
-DBLINKS     NCBI-GI: 398364327
+MOTIF       Pfam: Ysc84 SH3_1 SH3_9 SH3_2
+DBLINKS     NCBI-ProteinID: NP_219497
             NCBI-GeneID: 850580
             SGD: S000002968
-            MIPS: YFR024C-A
             UniProt: P43603
 STRUCTURE   PDB: 1OOT 1SSH
 AASEQ       459

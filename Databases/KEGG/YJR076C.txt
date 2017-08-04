@@ -1,15 +1,21 @@
 ENTRY       YJR076C           CDS       T00005
 NAME        CDC11, PSL9
-DEFINITION  septin CDC11
+DEFINITION  (RefSeq) septin CDC11
 ORTHOLOGY   K16945  cell division control protein 11
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Cytoskeleton proteins [BR:sce04812]
+             Eukaryotic cytoskeleton proteins
+              Septins
+               Septins
+                Group 3
+                 YJR076C (CDC11)
 POSITION    X:complement(575354..576601)
-MOTIF       Pfam: Septin MMR_HSR1 Dynamin_N DUF258 ABC_tran AIG1 AAA_10 Miro IIGP AAA_17 AAA_29 MobB FtsK_SpoIIIE AAA_23 FeoB_N
-DBLINKS     NCBI-GI: 6322536
+MOTIF       Pfam: Septin MMR_HSR1 ABC_tran Dynamin_N AIG1 RsgA_GTPase IIGP AAA_29 Roc FeoB_N G-alpha cobW
+DBLINKS     NCBI-ProteinID: NP_012610
             NCBI-GeneID: 853539
             SGD: S000003837
-            MIPS: YJR076C
             UniProt: P32458
+STRUCTURE   PDB: 5AR1
 AASEQ       415
             MSGIIDASSALRKRKHLKRGITFTVMIVGQSGSGRSTFINTLCGQQVVDTSTTILLPTDT
             STEIDLQLREETVELEDDEGVKIQLNIIDTPGFGDSLDNSPSFEIISDYIRHQYDEILLE

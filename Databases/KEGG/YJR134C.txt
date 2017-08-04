@@ -1,13 +1,12 @@
 ENTRY       YJR134C           CDS       T00005
 NAME        SGM1
-DEFINITION  Sgm1p
+DEFINITION  (RefSeq) Sgm1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    X:complement(673729..675852)
-MOTIF       Pfam: TMF_TATA_bd TMF_DNA_bd AAA_13 MtrG IncA
-DBLINKS     NCBI-GI: 398365551
+MOTIF       Pfam: TMF_TATA_bd TMF_DNA_bd Lebercilin DUF1664 IncA DUF4407
+DBLINKS     NCBI-ProteinID: NP_012668
             NCBI-GeneID: 853598
             SGD: S000003895
-            MIPS: YJR134C
             UniProt: P47166
 AASEQ       707
             MSKKLSLEERLSLATKKGRKKNKRSTSNLSSPSPVVLSNNEQESARTSIDDAAAGVVSID

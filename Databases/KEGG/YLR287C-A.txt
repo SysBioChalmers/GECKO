@@ -1,18 +1,33 @@
 ENTRY       YLR287C-A         CDS       T00005
 NAME        RPS30A
-DEFINITION  ribosomal 40S subunit protein S30A
+DEFINITION  (RefSeq) ribosomal 40S subunit protein S30A
 ORTHOLOGY   K02983  small subunit ribosomal protein S30e
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03010  Ribosome
-CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+MODULE      sce_M00177  Ribosome, eukaryotes
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03010 Ribosome
+                YLR287C-A (RPS30A)
+            Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Eukaryotes
+               Small subunit
+                YLR287C-A (RPS30A)
+              Archaea
+                YLR287C-A (RPS30A)
+            Ubiquitin system [BR:sce04121]
+             Ubiquitins and Ubiquitin-like proteins
+              Ubiquitin-like proteins (UBLs)
+               YLR287C-A (RPS30A)
 POSITION    XII:complement(join(712537..712725,713156..713158))
 MOTIF       Pfam: Ribosomal_S30
-DBLINKS     NCBI-GI: 6323318
+DBLINKS     NCBI-ProteinID: NP_013390
             NCBI-GeneID: 850994
             SGD: S000004278
-            MIPS: YLR287C-A
             UniProt: P0CX33 P0CX34
-STRUCTURE   PDB: 3U5C 3U5G 4BYL 4BYT 3J16 3IZB
+STRUCTURE   PDB: 3J16
 AASEQ       63
             MAKVHGSLARAGKVKSQTPKVEKTEKPKKPKGRAYKRLLYTRRFVNVTLVNGKRRMNPGP
             SVQ

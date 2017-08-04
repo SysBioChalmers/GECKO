@@ -1,13 +1,12 @@
 ENTRY       YLR114C           CDS       T00005
 NAME        AVL9
-DEFINITION  Avl9p
+DEFINITION  (RefSeq) Avl9p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XII:complement(374944..377238)
-MOTIF       Pfam: Avl9 DUF2347 SPA DENN
-DBLINKS     NCBI-GI: 6323143
+MOTIF       Pfam: Avl9 DUF2347 SPA DENN Afi1
+DBLINKS     NCBI-ProteinID: NP_013215
             NCBI-GeneID: 850805
             SGD: S000004104
-            MIPS: YLR114C
             UniProt: Q12500
 AASEQ       764
             MDEHEEAVIFGICLVDFHHKRGPEIEYWYGLPEGTQSAELWPNLPFQALPDGSHSFEETF

@@ -1,16 +1,19 @@
 ENTRY       YAL024C           CDS       T00005
 NAME        LTE1, MSI2
-DEFINITION  Lte1p
+DEFINITION  (RefSeq) mitotic regulator LTE1
 ORTHOLOGY   K06681  Gdp/GTP exchange factor required for growth at low temperatures
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
-CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YAL024C (LTE1)
 POSITION    I:complement(101565..105872)
 MOTIF       Pfam: RasGEF RasGEF_N
-DBLINKS     NCBI-GI: 6319295
+DBLINKS     NCBI-ProteinID: NP_009378
             NCBI-GeneID: 851209
             SGD: S000000022
-            MIPS: YAL024C
             UniProt: P07866
 AASEQ       1435
             MEIFSQKDYYPTPSSNVISYESDCVSKPVNSADLPALIVHLSSPLEGVDYNASADFFLIY

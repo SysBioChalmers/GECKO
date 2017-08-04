@@ -1,17 +1,26 @@
 ENTRY       YMR301C           CDS       T00005
 NAME        ATM1
-DEFINITION  ATP-binding cassette Fe/S cluster precursor transporter ATM1
+DEFINITION  (RefSeq) ATP-binding cassette Fe/S cluster precursor transporter ATM1
 ORTHOLOGY   K05663  mitochondrial ABC transporter ATM
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce02010  ABC transporters
-CLASS       Environmental Information Processing; Membrane transport; ABC transporters [PATH:sce02010]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Environmental Information Processing
+              Membrane transport
+               02010 ABC transporters
+                YMR301C (ATM1)
+            Transporters [BR:sce02000]
+             ABC Transporters, Eukaryotic Type
+              ABCB (MDR/TAP) subfamily
+               ABCB6, 7 subgroups
+                YMR301C (ATM1)
 POSITION    XIII:complement(867555..869627)
-MOTIF       Pfam: ABC_membrane ABC_tran AAA_21 SMC_N ABC_ATPase AAA_16 AAA_29 AAA_17 AAA_22 SbcCD_C AAA_10 AAA_25 AAA_23 DUF87 DUF258
-DBLINKS     NCBI-GI: 6323959
+MOTIF       Pfam: ABC_membrane ABC_tran SMC_N AAA_29 ABC_ATPase AAA_21 AAA_22 AAA_16 AAA_30 DUF87 SbcCD_C AAA_24 AAA_23 AAA_25 Zeta_toxin
+DBLINKS     NCBI-ProteinID: NP_014030
             NCBI-GeneID: 855347
             SGD: S000004916
-            MIPS: YMR301C
             UniProt: P40416
+STRUCTURE   PDB: 4MYC 4MYH
 AASEQ       690
             MLLLPRCPVIGRIVRSKFRSGLIRNHSPVIFTVSKLSTQRPLLFNSAVNLWNQAQKDITH
             KKSVEQFSSAPKVKTQVKKTSKAPTLSELKILKDLFRYIWPKGNNKVRIRVLIALGLLIS

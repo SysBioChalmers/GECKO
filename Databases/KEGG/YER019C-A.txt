@@ -1,21 +1,32 @@
 ENTRY       YER019C-A         CDS       T00005
 NAME        SBH2, SEB2
-DEFINITION  Sbh2p
+DEFINITION  (RefSeq) Arf family guanine nucleotide exchange factor SBH2
 ORTHOLOGY   K09481  protein transport protein SEC61 subunit beta
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03060  Protein export
             sce04141  Protein processing in endoplasmic reticulum
             sce04145  Phagosome
 MODULE      sce_M00401  Sec61 complex
-CLASS       Genetic Information Processing; Folding, sorting and degradation; Protein export [PATH:sce03060]
-            Genetic Information Processing; Folding, sorting and degradation; Protein processing in endoplasmic reticulum [PATH:sce04141]
-            Cellular Processes; Transport and catabolism; Phagosome [PATH:sce04145]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               03060 Protein export
+                YER019C-A (SBH2)
+               04141 Protein processing in endoplasmic reticulum
+                YER019C-A (SBH2)
+             Cellular Processes
+              Transport and catabolism
+               04145 Phagosome
+                YER019C-A (SBH2)
+            Secretion system [BR:sce02044]
+             Sec (secretion) system
+              Eukaryotic Sec-SRP protein
+               YER019C-A (SBH2)
 POSITION    V:complement(194273..194539)
-MOTIF       Pfam: Sec61_beta Cas_Csx9
-DBLINKS     NCBI-GI: 6320857
+MOTIF       Pfam: Sec61_beta
+DBLINKS     NCBI-ProteinID: NP_010936
             NCBI-GeneID: 856740
             SGD: S000002127
-            MIPS: YER019C-A
             UniProt: P52871
 STRUCTURE   PDB: 2WW9 2WWA
 AASEQ       88

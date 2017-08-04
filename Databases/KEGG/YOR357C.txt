@@ -1,14 +1,19 @@
 ENTRY       YOR357C           CDS       T00005
 NAME        SNX3, GRD19
-DEFINITION  Snx3p
+DEFINITION  (RefSeq) Snx3p
 ORTHOLOGY   K17918  sorting nexin-3/12
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce04144  Endocytosis
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04144 Endocytosis
+                YOR357C (SNX3)
 POSITION    XV:complement(1009224..1009712)
 MOTIF       Pfam: PX
-DBLINKS     NCBI-GI: 398366363
+DBLINKS     NCBI-ProteinID: NP_015002
             NCBI-GeneID: 854539
             SGD: S000005884
-            MIPS: YOR357C
             UniProt: Q08826
 STRUCTURE   PDB: 1OCS 1OCU
 AASEQ       162

@@ -1,14 +1,19 @@
 ENTRY       YGL061C           CDS       T00005
 NAME        DUO1
-DEFINITION  Duo1p
+DEFINITION  (RefSeq) Duo1p
 ORTHOLOGY   K11570  DASH complex subunit DUO1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centromeric chromatin formation proteins
+               Kinetochore proteins
+                DASH complex
+                 YGL061C (DUO1)
 POSITION    VII:complement(388968..389711)
-MOTIF       Pfam: DASH_Duo1
-DBLINKS     NCBI-GI: 6321377
+MOTIF       Pfam: DASH_Duo1 ApoLp-III T4SS
+DBLINKS     NCBI-ProteinID: NP_011454
             NCBI-GeneID: 852819
             SGD: S000003029
-            MIPS: YGL061C
             UniProt: P53168
 AASEQ       247
             MSEQSQLDDSTIDKLIPQIFNEMRSNLNNTTNKFPKSTGGGASDNISANSNSIRSFNSIT

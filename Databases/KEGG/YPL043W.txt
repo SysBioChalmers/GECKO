@@ -1,16 +1,24 @@
 ENTRY       YPL043W           CDS       T00005
 NAME        NOP4, NOP77
-DEFINITION  Nop4p
+DEFINITION  (RefSeq) mRNA-binding ribosome biosynthesis protein NOP4
 ORTHOLOGY   K14573  nucleolar protein 4
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03008  Ribosome biogenesis in eukaryotes
-CLASS       Genetic Information Processing; Translation; Ribosome biogenesis in eukaryotes [PATH:sce03008]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03008 Ribosome biogenesis in eukaryotes
+                YPL043W (NOP4)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               Other pre-60S particles
+                YPL043W (NOP4)
 POSITION    XVI:469939..471996
-MOTIF       Pfam: RRM_1 RRM_6 RRM_5
-DBLINKS     NCBI-GI: 6325213
+MOTIF       Pfam: RRM_1 RRM_7
+DBLINKS     NCBI-ProteinID: NP_015282
             NCBI-GeneID: 856063
             SGD: S000005964
-            MIPS: YPL043W
             UniProt: P37838
 AASEQ       685
             MEETIENVEVPSSNVSKQNDDGLDMKTLFVRSIPQDVTDEQLADFFSNFAPIKHAVVVKD

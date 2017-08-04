@@ -1,18 +1,27 @@
 ENTRY       YBL039C           CDS       T00005
 NAME        URA7
-DEFINITION  CTP synthase URA7 (EC:6.3.4.2)
+DEFINITION  (RefSeq) CTP synthase URA7
 ORTHOLOGY   K01937  CTP synthase [EC:6.3.4.2]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00240  Pyrimidine metabolism
             sce01100  Metabolic pathways
 MODULE      sce_M00052  Pyrimidine ribonucleotide biosynthesis, UMP => UDP/UTP,CDP/CTP
-CLASS       Metabolism; Nucleotide metabolism; Pyrimidine metabolism [PATH:sce00240]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Nucleotide metabolism
+               00240 Pyrimidine metabolism
+                YBL039C (URA7)
+            Enzymes [BR:sce01000]
+             6. Ligases
+              6.3  Forming carbon-nitrogen bonds
+               6.3.4  Other carbon-nitrogen ligases
+                6.3.4.2  CTP synthase (glutamine hydrolysing)
+                 YBL039C (URA7)
 POSITION    II:complement(143989..145728)
-MOTIF       Pfam: CTP_synth_N GATase Peptidase_C26 CbiA
-DBLINKS     NCBI-GI: 6319432
+MOTIF       Pfam: CTP_synth_N GATase Peptidase_C26
+DBLINKS     NCBI-ProteinID: NP_009514
             NCBI-GeneID: 852241
             SGD: S000000135
-            MIPS: YBL039C
             UniProt: P28274
 AASEQ       579
             MKYVVVSGGVISGIGKGVLASSTGMLMKTLGLKVTSIKIDPYMNIDAGTMSPLEHGECFV

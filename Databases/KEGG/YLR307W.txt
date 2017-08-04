@@ -1,17 +1,26 @@
 ENTRY       YLR307W           CDS       T00005
 NAME        CDA1
-DEFINITION  chitin deacetylase CDA1 (EC:3.5.1.41)
+DEFINITION  (RefSeq) chitin deacetylase CDA1
 ORTHOLOGY   K01452  chitin deacetylase [EC:3.5.1.41]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00520  Amino sugar and nucleotide sugar metabolism
-            sce01110  Biosynthesis of secondary metabolites
-CLASS       Metabolism; Carbohydrate metabolism; Amino sugar and nucleotide sugar metabolism [PATH:sce00520]
+            sce01100  Metabolic pathways
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Carbohydrate metabolism
+               00520 Amino sugar and nucleotide sugar metabolism
+                YLR307W (CDA1)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.5  Acting on carbon-nitrogen bonds, other than peptide bonds
+               3.5.1  In linear amides
+                3.5.1.41  chitin deacetylase
+                 YLR307W (CDA1)
 POSITION    XII:745620..746525
 MOTIF       Pfam: Polysacc_deac_1 Glyco_hydro_57
-DBLINKS     NCBI-GI: 6323338
+DBLINKS     NCBI-ProteinID: NP_013410
             NCBI-GeneID: 851016
             SGD: S000004298
-            MIPS: YLR307W
             UniProt: Q06702
 AASEQ       301
             MKIFNTIQSVLFAAFFLKQGNCLASNGSTALMGEVDMQTPFPEWLTEFTNLTQWPGIDPP

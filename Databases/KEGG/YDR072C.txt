@@ -1,13 +1,12 @@
 ENTRY       YDR072C           CDS       T00005
-NAME        IPT1, KTI6, SYR4
-DEFINITION  inositolphosphotransferase (EC:2.-.-.-)
+NAME        IPT1, KTI6, MIC2, SYR4
+DEFINITION  (RefSeq) inositolphosphotransferase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(589761..591344)
-MOTIF       Pfam: PAP2
-DBLINKS     NCBI-GI: 398365415
+MOTIF       Pfam: PAP2_3 PAP2
+DBLINKS     NCBI-ProteinID: NP_010357
             NCBI-GeneID: 851644
             SGD: S000002479
-            MIPS: YDR072C
             UniProt: P38954
 AASEQ       527
             MNVIFSLASFVKNMYNASLNQRNLISLPFNFMLNFAPVFIWLSIFKRAGLIPIRLRPDIH

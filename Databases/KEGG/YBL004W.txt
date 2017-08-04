@@ -1,14 +1,18 @@
 ENTRY       YBL004W           CDS       T00005
 NAME        UTP20
-DEFINITION  Utp20p
+DEFINITION  (RefSeq) Utp20p
 ORTHOLOGY   K14772  U3 small nucleolar RNA-associated protein 20
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              90S particles
+               U3 small nucleolar RNA-associated proteins
+                YBL004W (UTP20)
 POSITION    II:227636..235117
-MOTIF       Pfam: DRIM
-DBLINKS     NCBI-GI: 14270688
+MOTIF       Pfam: DRIM DUF3361
+DBLINKS     NCBI-ProteinID: NP_009551
             NCBI-GeneID: 852282
             SGD: S000000100
-            MIPS: YBL004W
             UniProt: P35194
 AASEQ       2493
             MAKQRQTTKSSKRYRYSSFKARIDDLKIEPARNLEKRVHDYVESSHFLASFDQWKEINLS

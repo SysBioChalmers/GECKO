@@ -1,16 +1,30 @@
 ENTRY       YPL232W           CDS       T00005
 NAME        SSO1
-DEFINITION  Sso1p
+DEFINITION  (RefSeq) syntaxin
 ORTHOLOGY   K08486  syntaxin 1B/2/3
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04130  SNARE interactions in vesicular transport
-CLASS       Genetic Information Processing; Folding, sorting and degradation; SNARE interactions in vesicular transport [PATH:sce04130]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               04130 SNARE interactions in vesicular transport
+                YPL232W (SSO1)
+            Membrane trafficking [BR:sce04131]
+             SNARE
+              Syntaxin (Qa)
+               Stx-PM
+                YPL232W (SSO1)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of epithelial cells
+               YPL232W (SSO1)
+              Exosomal proteins of other body fluids (saliva and urine)
+               YPL232W (SSO1)
 POSITION    XVI:107275..108147
-MOTIF       Pfam: SNARE Syntaxin Synaptobrevin Rifin_STEVOR Baculo_PEP_C T2SF AATase DUF3753 Lsr2 DUF4094 Allexi_40kDa
-DBLINKS     NCBI-GI: 6325024
+MOTIF       Pfam: Syntaxin SNARE Synaptobrevin DUF2207 AATase Pox_EPC_I2-L1 T2SSF Allexi_40kDa
+DBLINKS     NCBI-ProteinID: NP_015092
             NCBI-GeneID: 855844
             SGD: S000006153
-            MIPS: YPL232W
             UniProt: P32867
 STRUCTURE   PDB: 3B5N 1FIO
 AASEQ       290

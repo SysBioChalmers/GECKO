@@ -1,13 +1,12 @@
 ENTRY       YBR040W           CDS       T00005
 NAME        FIG1
-DEFINITION  Fig1p
+DEFINITION  (RefSeq) Fig1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    II:316968..317864
-MOTIF       Pfam: Fig1 SUR7 Hum_adeno_E3A
-DBLINKS     NCBI-GI: 6319514
+MOTIF       Pfam: Fig1 SUR7
+DBLINKS     NCBI-ProteinID: NP_009596
             NCBI-GeneID: 852328
             SGD: S000000244
-            MIPS: YBR040W
             UniProt: P38224
 AASEQ       298
             MVAISMIWFFTKRMPRIFALAFNLISIFLLIFLLIGCYNPSNQSTFLVKYKFDDNSPFYT

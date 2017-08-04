@@ -1,13 +1,18 @@
 ENTRY       YIL157C           CDS       T00005
 NAME        COA1
-DEFINITION  Coa1p
+DEFINITION  (RefSeq) Coa1p
+ORTHOLOGY   K18173  cytochrome c oxidase assembly factor 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial quality control factors
+              Mitochondrial respiratory chain complex assembly factors
+               Complex-IV assembly factors
+                YIL157C (COA1)
 POSITION    IX:complement(46949..47542)
 MOTIF       Pfam: Coa1 DUF3511
-DBLINKS     NCBI-GI: 6322034
+DBLINKS     NCBI-ProteinID: NP_012109
             NCBI-GeneID: 854649
             SGD: S000001419
-            MIPS: YIL157C
             UniProt: P40452
 AASEQ       197
             MMLRLVTKGLPKVTPSAAKAVLVRGSLLHSFSTSARFNNSVAEDEAKIVLKDKNRPLRID

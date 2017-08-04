@@ -1,16 +1,19 @@
 ENTRY       YBR135W           CDS       T00005
 NAME        CKS1
-DEFINITION  Cks1p
+DEFINITION  (RefSeq) cyclin-dependent protein kinase regulatory subunit CKS1
 ORTHOLOGY   K02219  cyclin-dependent kinase regulatory subunit CKS1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04111  Cell cycle - yeast
-CLASS       Cellular Processes; Cell growth and death; Cell cycle - yeast [PATH:sce04111]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Cell growth and death
+               04111 Cell cycle - yeast
+                YBR135W (CKS1)
 POSITION    II:504854..505306
-MOTIF       Pfam: CKS
-DBLINKS     NCBI-GI: 398364999
+MOTIF       Pfam: CKS SUIM_assoc
+DBLINKS     NCBI-ProteinID: NP_009693
             NCBI-GeneID: 852432
             SGD: S000000339
-            MIPS: YBR135W
             UniProt: P20486
 STRUCTURE   PDB: 3QY2 4LPA 1QB3
 AASEQ       150

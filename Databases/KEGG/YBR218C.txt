@@ -1,6 +1,6 @@
 ENTRY       YBR218C           CDS       T00005
 NAME        PYC2
-DEFINITION  pyruvate carboxylase 2 (EC:6.4.1.1)
+DEFINITION  (RefSeq) pyruvate carboxylase 2
 ORTHOLOGY   K01958  pyruvate carboxylase [EC:6.4.1.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00020  Citrate cycle (TCA cycle)
@@ -8,16 +8,29 @@ PATHWAY     sce00020  Citrate cycle (TCA cycle)
             sce01100  Metabolic pathways
             sce01200  Carbon metabolism
             sce01230  Biosynthesis of amino acids
-CLASS       Metabolism; Overview; Carbon metabolism [PATH:sce01200]
-            Metabolism; Overview; Biosynthesis of amino acids [PATH:sce01230]
-            Metabolism; Carbohydrate metabolism; Citrate cycle (TCA cycle) [PATH:sce00020]
-            Metabolism; Carbohydrate metabolism; Pyruvate metabolism [PATH:sce00620]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Overview
+               01200 Carbon metabolism
+                YBR218C (PYC2)
+               01230 Biosynthesis of amino acids
+                YBR218C (PYC2)
+              Carbohydrate metabolism
+               00020 Citrate cycle (TCA cycle)
+                YBR218C (PYC2)
+               00620 Pyruvate metabolism
+                YBR218C (PYC2)
+            Enzymes [BR:sce01000]
+             6. Ligases
+              6.4  Forming carbon-carbon bonds
+               6.4.1  Ligases that form carbon-carbon bonds (only sub-subclass identified to date)
+                6.4.1.1  pyruvate carboxylase
+                 YBR218C (PYC2)
 POSITION    II:complement(658707..662249)
-MOTIF       Pfam: CPSase_L_D2 PYC_OADA CPSase_L_chain Biotin_carb_C HMGL-like Biotin_lipoyl ATPgrasp_Ter ATP-grasp_4 Biotin_lipoyl_2 Dala_Dala_lig_C ATP-grasp ATP-grasp_3 RimK HlyD HlyD_2 RnfC_N
-DBLINKS     NCBI-GI: 6319695
+MOTIF       Pfam: CPSase_L_D2 PYC_OADA Biotin_carb_N Biotin_carb_C HMGL-like Biotin_lipoyl ATPgrasp_Ter Biotin_lipoyl_2 Dala_Dala_lig_C ATP-grasp ATP-grasp_3 HlyD_D23 ATP-grasp_4 RnfC_N ATPgrasp_ST
+DBLINKS     NCBI-ProteinID: NP_009777
             NCBI-GeneID: 852519
             SGD: S000000422
-            MIPS: YBR218C
             UniProt: P32327
 AASEQ       1180
             MSSSKKLAGLRDNFSLLGEKNKILVANRGEIPIRIFRSAHELSMRTIAIYSHEDRLSMHR

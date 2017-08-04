@@ -1,13 +1,12 @@
 ENTRY       YLR132C           CDS       T00005
 NAME        USB1
-DEFINITION  Usb1p (EC:3.1.4.-)
+DEFINITION  (RefSeq) phosphoric diester hydrolase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XII:complement(407283..408155)
-MOTIF       Pfam: HVSL HHH_4
-DBLINKS     NCBI-GI: 6323161
+MOTIF       Pfam: HVSL
+DBLINKS     NCBI-ProteinID: NP_013233
             NCBI-GeneID: 850823
             SGD: S000004122
-            MIPS: YLR132C
             UniProt: Q12208
 AASEQ       290
             MEFISADYSSSDGSDTESESSNKSEVQIEYTEKTCIQKADSTDLPAIPDSIILKYHIPPN

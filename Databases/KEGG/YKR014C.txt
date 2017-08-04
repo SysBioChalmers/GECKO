@@ -1,18 +1,44 @@
 ENTRY       YKR014C           CDS       T00005
 NAME        YPT52
-DEFINITION  Ypt52p
+DEFINITION  (RefSeq) Rab family GTPase YPT52
 ORTHOLOGY   K07889  Ras-related protein Rab-5C
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce04144  Endocytosis
             sce04145  Phagosome
-CLASS       Cellular Processes; Transport and catabolism; Endocytosis [PATH:sce04144]
-            Cellular Processes; Transport and catabolism; Phagosome [PATH:sce04145]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04144 Endocytosis
+                YKR014C (YPT52)
+               04145 Phagosome
+                YKR014C (YPT52)
+            Membrane trafficking [BR:sce04131]
+             Endocytosis
+              Rab GTPases and associated proteins
+               Rab GTPases
+                YKR014C (YPT52)
+             Endosome - Lysosome transport
+                YKR014C (YPT52)
+            Exosome [BR:sce04147]
+             Exosomal proteins
+              Exosomal proteins of haemopoietic cells  (B-cell, T-cell, DC-cell, reticulocyte, and mast cell)
+               YKR014C (YPT52)
+              Exosomal proteins of other body fluids (saliva and urine)
+               YKR014C (YPT52)
+              Exosomal proteins of colorectal cancer cells
+               YKR014C (YPT52)
+              Exosomal proteins of bladder cancer cells
+               YKR014C (YPT52)
+            GTP-binding proteins [BR:sce04031]
+             Small (Monomeric) G-proteins
+              Rab Family
+               Rab5/17/22/31 [OT]
+                YKR014C (YPT52)
 POSITION    XI:complement(465367..466071)
-MOTIF       Pfam: Ras Miro Arf Gtr1_RagA MMR_HSR1 GTP_EFTU AAA_16 DUF258 AAA_14 RNA_helicase FYDLN_acid
-DBLINKS     NCBI-GI: 6322866
+MOTIF       Pfam: Ras Roc Arf MMR_HSR1 Gtr1_RagA GTP_EFTU RsgA_GTPase Raptor_N AAA_16 IF3_N TniB
+DBLINKS     NCBI-ProteinID: NP_012939
             NCBI-GeneID: 853884
             SGD: S000001722
-            MIPS: YKR014C
             UniProt: P36018
 AASEQ       234
             MLQFKLVLLGDSSVGKSSIVHRFVKDTFDELRESTIGAAFLSQSITIHPNDGNETKDVVI

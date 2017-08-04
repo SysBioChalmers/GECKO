@@ -1,13 +1,17 @@
 ENTRY       YMR319C           CDS       T00005
 NAME        FET4
-DEFINITION  Fet4p
+DEFINITION  (RefSeq) Fet4p
+ORTHOLOGY   K19792  low-affinity ferrous iron transport protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Other Transporters
+              Others
+               YMR319C (FET4)
 POSITION    XIII:complement(912880..914538)
 MOTIF       Pfam: Iron_permease
-DBLINKS     NCBI-GI: 6323981
+DBLINKS     NCBI-ProteinID: NP_014052
             NCBI-GeneID: 855369
             SGD: S000004938
-            MIPS: YMR319C
             UniProt: P40988
 AASEQ       552
             MGKIAEFLGNPGARPDVHHRAPTVDCKQYEEFGDSNDYKNDDVVRVVSHSDESTDDELCN

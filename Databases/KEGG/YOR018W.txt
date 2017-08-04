@@ -1,13 +1,18 @@
 ENTRY       YOR018W           CDS       T00005
 NAME        ROD1, ART4
-DEFINITION  Rod1p
+DEFINITION  (RefSeq) Rod1p
+ORTHOLOGY   K20062  arrestin-related trafficking adapter 4/5/7
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endocytosis
+              Clathrin-mediated endocytosis
+               GPCR adaptor proteins
+                YOR018W (ROD1)
 POSITION    XV:364369..366882
 MOTIF       Pfam: Arrestin_C Arrestin_N LDB19
-DBLINKS     NCBI-GI: 6324592
+DBLINKS     NCBI-ProteinID: NP_014661
             NCBI-GeneID: 854183
             SGD: S000005544
-            MIPS: YOR018W
             UniProt: Q02805
 AASEQ       837
             MFSSSSRPSKEPLLFDIRLRNLDNDVLLIKGPPDEASSVLLSGTIVLSITEPIQIKSLAL

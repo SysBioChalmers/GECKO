@@ -1,13 +1,12 @@
 ENTRY       YGR028W           CDS       T00005
 NAME        MSP1, YTA4
-DEFINITION  Msp1p
+DEFINITION  (RefSeq) Msp1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:542203..543291
-MOTIF       Pfam: AAA AAA_14 AAA_16 AAA_17 AAA_22 RuvB_N AAA_2 AAA_5 AAA_33 Zeta_toxin Sigma54_activ_2 AAA_18 IstB_IS21 Mg_chelatase RNA_helicase DUF815 AAA_25 Bac_DnaA NACHT AAA_28 AAA_24 ABC_tran Rad17 TIP49 AAA_3 Arch_ATPase Sigma54_activat AAA_19 Viral_helicase1 Parvo_NS1 SKI NB-ARC UPF0079 AAA_11 IPT KaiC
-DBLINKS     NCBI-GI: 398365223
+MOTIF       Pfam: AAA AAA_14 AAA_16 RuvB_N AAA_5 AAA_2 AAA_22 AAA_18 AAA_33 Sigma54_activ_2 IstB_IS21 TniB Mg_chelatase RNA_helicase DUF815 Zeta_toxin Bac_DnaA AAA_24 NACHT ABC_tran Rad17 AAA_28 AAA_17 TIP49 AAA_25 Hydin_ADK Sigma54_activat AAA_3 ATPase_2 TsaE Viral_helicase1 Parvo_NS1 NB-ARC IPT
+DBLINKS     NCBI-ProteinID: NP_011542
             NCBI-GeneID: 852915
             SGD: S000003260
-            MIPS: YGR028W
             UniProt: P28737
 AASEQ       362
             MSRKFDLKTITDLSVLVGTGISLYYLVSRLLNDVESGPLSGKSRESKAKQSLQWEKLVKR

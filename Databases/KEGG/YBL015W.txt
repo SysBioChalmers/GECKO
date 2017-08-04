@@ -1,16 +1,25 @@
 ENTRY       YBL015W           CDS       T00005
 NAME        ACH1
-DEFINITION  Ach1p (EC:3.1.2.1)
+DEFINITION  (RefSeq) acetyl-CoA hydrolase
 ORTHOLOGY   K01067  acetyl-CoA hydrolase [EC:3.1.2.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00620  Pyruvate metabolism
-CLASS       Metabolism; Carbohydrate metabolism; Pyruvate metabolism [PATH:sce00620]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Carbohydrate metabolism
+               00620 Pyruvate metabolism
+                YBL015W (ACH1)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.2  Thioester hydrolases
+                3.1.2.1  acetyl-CoA hydrolase
+                 YBL015W (ACH1)
 POSITION    II:194122..195702
 MOTIF       Pfam: AcetylCoA_hydro AcetylCoA_hyd_C CitF CoA_trans
-DBLINKS     NCBI-GI: 6319456
+DBLINKS     NCBI-ProteinID: NP_009538
             NCBI-GeneID: 852266
             SGD: S000000111
-            MIPS: YBL015W
             UniProt: P32316
 AASEQ       526
             MTISNLLKQRVRYAPYLKKVKEAHELIPLFKNGQYLGWSGFTGVGTPKAVPEALIDHVEK

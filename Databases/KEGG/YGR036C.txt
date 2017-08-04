@@ -1,16 +1,25 @@
 ENTRY       YGR036C           CDS       T00005
 NAME        CAX4, CWH8
-DEFINITION  Cax4p (EC:3.6.1.43)
+DEFINITION  (RefSeq) Cax4p
 ORTHOLOGY   K07252  dolichyldiphosphatase [EC:3.6.1.43]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00510  N-Glycan biosynthesis
-CLASS       Metabolism; Glycan biosynthesis and metabolism; N-Glycan biosynthesis [PATH:sce00510]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Glycan biosynthesis and metabolism
+               00510 N-Glycan biosynthesis
+                YGR036C (CAX4)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.1  In phosphorus-containing anhydrides
+                3.6.1.43  dolichyldiphosphatase
+                 YGR036C (CAX4)
 POSITION    VII:complement(558149..558868)
-MOTIF       Pfam: PAP2
-DBLINKS     NCBI-GI: 398365285
+MOTIF       Pfam: PAP2 DUF2721 DUF212
+DBLINKS     NCBI-ProteinID: NP_011550
             NCBI-GeneID: 852924
             SGD: S000003268
-            MIPS: YGR036C
             UniProt: P53223
 AASEQ       239
             MNSTAAAINPNPNVIPFDDTYILYDSHDFLSFLSAYFSLMPILVLAFYLSWFIITRELEA

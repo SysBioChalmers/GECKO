@@ -1,16 +1,31 @@
 ENTRY       YBR236C           CDS       T00005
 NAME        ABD1
-DEFINITION  Abd1p (EC:2.1.1.56)
+DEFINITION  (RefSeq) mRNA (guanine-N7)-methyltransferase
 ORTHOLOGY   K00565  mRNA (guanine-N7-)-methyltransferase [EC:2.1.1.56]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03015  mRNA surveillance pathway
-CLASS       Genetic Information Processing; Translation; mRNA surveillance pathway [PATH:sce03015]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03015 mRNA surveillance pathway
+                YBR236C (ABD1)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.1  Transferring one-carbon groups
+               2.1.1  Methyltransferases
+                2.1.1.56  mRNA (guanine-N7)-methyltransferase
+                 YBR236C (ABD1)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA processing factors
+               5' end processing
+                Capping factors
+                 YBR236C (ABD1)
 POSITION    II:complement(690383..691693)
-MOTIF       Pfam: Pox_MCEL Methyltransf_23 Methyltransf_12 Methyltransf_11 Methyltransf_18 Methyltransf_31 Methyltransf_25 NNMT_PNMT_TEMT Methyltransf_26 Methyltransf_4 CMAS TPMT MetW
-DBLINKS     NCBI-GI: 398365663
+MOTIF       Pfam: Pox_MCEL Methyltransf_25 Methyltransf_12 Methyltransf_11 Methyltransf_23 Methyltransf_31 NNMT_PNMT_TEMT CMAS TPMT Methyltransf_4 MetW
+DBLINKS     NCBI-ProteinID: NP_009795
             NCBI-GeneID: 852538
             SGD: S000000440
-            MIPS: YBR236C
             UniProt: P32783
 AASEQ       436
             MSTKPEKPIWMSQEDYDRQYGSITGDESSTVSKKDSKVTANAPGDGNGSLPVLQSSSILT

@@ -1,17 +1,26 @@
 ENTRY       YPR082C           CDS       T00005
 NAME        DIB1, SNU16
-DEFINITION  Dib1p
+DEFINITION  (RefSeq) U4/U6-U5 snRNP complex subunit DIB1
 ORTHOLOGY   K12859  U5 snRNP protein, DIM1 family
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03040  Spliceosome
-CLASS       Genetic Information Processing; Transcription; Spliceosome [PATH:sce03040]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03040 Spliceosome
+                YPR082C (DIB1)
+            Spliceosome [BR:sce03041]
+             Complex B
+              U4/U6.U5 tri-snRNP components
+               U5 snRNP specific factors
+                YPR082C (DIB1)
 POSITION    XVI:complement(704225..704656)
-MOTIF       Pfam: DIM1
-DBLINKS     NCBI-GI: 6325339
+MOTIF       Pfam: DIM1 Thioredoxin
+DBLINKS     NCBI-ProteinID: NP_015407
             NCBI-GeneID: 856197
             SGD: S000006286
-            MIPS: YPR082C
             UniProt: Q06819
+STRUCTURE   PDB: 5GAN 5GAP 3JCM
 AASEQ       143
             MASVLLPQLRTGWHVDQAIVTETKRLVVIRFGRKNDRQCMIMDELLSSIAERVRNFAVIY
             LCDIDEVSDFDEMYELTDPMTVMFFYHNKHMMCDFGTGNNNKLNFIVDDKQEMIDILETI

@@ -1,13 +1,30 @@
 ENTRY       YJL137C           CDS       T00005
 NAME        GLG2
-DEFINITION  glycogenin glucosyltransferase GLG2 (EC:2.4.1.186)
+DEFINITION  (RefSeq) glycogenin glucosyltransferase GLG2
+ORTHOLOGY   K00750  glycogenin [EC:2.4.1.186]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00500  Starch and sucrose metabolism
+            sce01100  Metabolic pathways
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Carbohydrate metabolism
+               00500 Starch and sucrose metabolism
+                YJL137C (GLG2)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.4  Glycosyltransferases
+               2.4.1  Hexosyltransferases
+                2.4.1.186  glycogenin glucosyltransferase
+                 YJL137C (GLG2)
+            Glycosyltransferases [BR:sce01003]
+             Polysaccharide
+              Storage polysaccharide
+               YJL137C (GLG2)
 POSITION    X:complement(154985..156127)
 MOTIF       Pfam: Glyco_transf_8
-DBLINKS     NCBI-GI: 6322324
+DBLINKS     NCBI-ProteinID: NP_012398
             NCBI-GeneID: 853304
             SGD: S000003673
-            MIPS: YJL137C
             UniProt: P47011
 AASEQ       380
             MAKKVAICTLLYSRDYLPGALTLAYQLQKLLKHAVVEDEITLCLLIEKKLFGDEFKPQEI

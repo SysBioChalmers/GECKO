@@ -1,13 +1,12 @@
 ENTRY       YLL046C           CDS       T00005
 NAME        RNP1
-DEFINITION  Rnp1p
+DEFINITION  (RefSeq) Rnp1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XII:complement(46714..47463)
-MOTIF       Pfam: RRM_1 RRM_6 RRM_5 DUF2361
-DBLINKS     NCBI-GI: 6322982
+MOTIF       Pfam: RRM_1
+DBLINKS     NCBI-ProteinID: NP_013054
             NCBI-GeneID: 850680
             SGD: S000003969
-            MIPS: YLL046C
             UniProt: P32385
 AASEQ       249
             MLIEEIEFYNVNGKKTTTVVPENTKIKKRVLNDRRTLYVGNLPKNCRKQDLRDLFEPNYG

@@ -1,13 +1,12 @@
 ENTRY       YBR194W           CDS       T00005
 NAME        AIM4, SOY1
-DEFINITION  Aim4p
+DEFINITION  (RefSeq) Aim4p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    II:610038..610409
-MOTIF       Pfam: NpwBP FAM75
-DBLINKS     NCBI-GI: 398365399
+MOTIF       Pfam: NpwBP DUF3509
+DBLINKS     NCBI-ProteinID: NP_009753
             NCBI-GeneID: 852493
             SGD: S000000398
-            MIPS: YBR194W
             UniProt: P38305
 AASEQ       123
             MDQKKDPSNNLTERRVSKVQRPNKKKVRNQVESLSRNLERNKEGQLLQTVSKGHLEADSG

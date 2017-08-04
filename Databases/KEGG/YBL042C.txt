@@ -1,13 +1,12 @@
 ENTRY       YBL042C           CDS       T00005
 NAME        FUI1
-DEFINITION  Fui1p
+DEFINITION  (RefSeq) uridine permease
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    II:complement(138341..140260)
 MOTIF       Pfam: Transp_cyt_pur
-DBLINKS     NCBI-GI: 6319429
+DBLINKS     NCBI-ProteinID: NP_009511
             NCBI-GeneID: 852238
             SGD: S000000138
-            MIPS: YBL042C
             UniProt: P38196
 AASEQ       639
             MPVSDSGFDNSSKTMKDDTIPTEDYEEITKESEMGDATKITSKIDANVIEKKDTDSENNI

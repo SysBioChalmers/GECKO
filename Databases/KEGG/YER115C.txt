@@ -1,13 +1,11 @@
 ENTRY       YER115C           CDS       T00005
 NAME        SPR6
-DEFINITION  Spr6p
+DEFINITION  (RefSeq) Spr6p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    V:complement(394292..394867)
-MOTIF       Pfam: Tn7_Tnp_TnsA_C
-DBLINKS     NCBI-GI: 6320961
+DBLINKS     NCBI-ProteinID: NP_011040
             NCBI-GeneID: 856851
             SGD: S000000917
-            MIPS: YER115C
             UniProt: Q01684
 AASEQ       191
             MAVSNIWQSYSSSNLHWIYPLYTNNCSQNVKSSFTAEILLKRRCNDIQDILNDRMIELLL

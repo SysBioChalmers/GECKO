@@ -1,16 +1,42 @@
 ENTRY       YDR145W           CDS       T00005
 NAME        TAF12, TAF61, TAF68
-DEFINITION  Taf12p
+DEFINITION  (RefSeq) Taf12p
 ORTHOLOGY   K03126  transcription initiation factor TFIID subunit 12
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03022  Basal transcription factors
-CLASS       Genetic Information Processing; Transcription; Basal transcription factors [PATH:sce03022]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03022 Basal transcription factors
+                YDR145W (TAF12)
+            Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Basal transcription factors
+                TFIID
+                 YDR145W (TAF12)
+               Coactivators
+                SAGA/TFTC/STAGA complex
+                 YDR145W (TAF12)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Histone modification proteins
+               HAT complexes
+                PCAF complex
+                 YDR145W (TAF12)
+                STAGA complex
+                 YDR145W (TAF12)
+                TFTC complex
+                 YDR145W (TAF12)
+                SAGA complex
+                 YDR145W (TAF12)
+                SLIK complex
+                 YDR145W (TAF12)
 POSITION    IV:746738..748357
 MOTIF       Pfam: TFIID_20kDa Histone
-DBLINKS     NCBI-GI: 6320349
+DBLINKS     NCBI-ProteinID: NP_010429
             NCBI-GeneID: 851723
             SGD: S000002552
-            MIPS: YDR145W
             UniProt: Q03761
 AASEQ       539
             MSSNPENSGVNANNNTGTGNADAITGAQQNMVLQPRQLQEMAAKFRTLLTEARNVGETTP

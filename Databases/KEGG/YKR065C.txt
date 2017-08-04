@@ -1,14 +1,18 @@
 ENTRY       YKR065C           CDS       T00005
 NAME        PAM17, FMP18
-DEFINITION  Pam17p
+DEFINITION  (RefSeq) Pam17p
 ORTHOLOGY   K17806  mitochondrial import inner membrane translocase subunit TIM23
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial protein import machinery
+              Matrix
+               MMC/PAM proteins
+                YKR065C (PAM17)
 POSITION    XI:complement(565299..565892)
-MOTIF       Pfam: Pam17 BPD_transp_2
-DBLINKS     NCBI-GI: 398365305
+MOTIF       Pfam: Pam17 BPD_transp_2 DUF3481
+DBLINKS     NCBI-ProteinID: NP_012991
             NCBI-GeneID: 853939
             SGD: S000001773
-            MIPS: YKR065C
             UniProt: P36147
 AASEQ       197
             MFTSAIRLSSQRLFASQPSVTAAALRSTATTLPLRSYSQPASLQDSSILTWSDFFKLRKQ

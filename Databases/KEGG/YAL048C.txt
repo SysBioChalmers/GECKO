@@ -1,14 +1,33 @@
 ENTRY       YAL048C           CDS       T00005
 NAME        GEM1, GON1
-DEFINITION  Gem1p (EC:3.6.5.-)
-ORTHOLOGY   K07870  Ras homolog gene family, member T1
+DEFINITION  (RefSeq) ERMES complex Ca(2+)-binding regulatory GTPase GEM1
+ORTHOLOGY   K07870  mitochondrial Rho GTPase 1 [EC:3.6.5.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.5  Acting on GTP to facilitate cellular and subcellular movement
+                3.6.5.-  
+                 YAL048C (GEM1)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial protein import machinery
+              Endoplasmic reticulum membrane and cytosol
+               Other ER-memrane and cytosol factors
+                YAL048C (GEM1)
+             Mitochondrial quality control factors
+              Mitochondrial dynamics
+               Morphogenesis factors
+                YAL048C (GEM1)
+            GTP-binding proteins [BR:sce04031]
+             Small (Monomeric) G-proteins
+              Rho Family
+               Miro
+                YAL048C (GEM1)
 POSITION    I:complement(52801..54789)
-MOTIF       Pfam: Miro EF_assoc_2 EF_assoc_1 Ras MMR_HSR1 EF-hand_7 EF-hand_1 Dynamin_N Arf DUF258 AAA_24 EF-hand_5 EF-hand_6 Septin MobB
-DBLINKS     NCBI-GI: 6319268
+MOTIF       Pfam: EF_assoc_2 Ras EF_assoc_1 Roc MMR_HSR1 Dynamin_N EF-hand_1 Arf EF-hand_7 AAA_16 EF-hand_6 EF-hand_5 RsgA_GTPase Septin EF-hand_8
+DBLINKS     NCBI-ProteinID: NP_009351
             NCBI-GeneID: 851249
             SGD: S000000046
-            MIPS: YAL048C
             UniProt: P39722
 AASEQ       662
             MTKETIRVVICGDEGVGKSSLIVSLTKAEFIPTIQDVLPPISIPRDFSSSPTYSPKNTVL

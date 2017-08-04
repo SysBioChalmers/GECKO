@@ -1,14 +1,28 @@
 ENTRY       YKR098C           CDS       T00005
 NAME        UBP11
-DEFINITION  Ubp11p (EC:3.4.19.12 3.1.2.15)
-ORTHOLOGY   K11871  ubiquitin carboxyl-terminal hydrolase 7/11 [EC:3.1.2.15]
+DEFINITION  (RefSeq) ubiquitin-specific protease UBP11
+ORTHOLOGY   K11871  ubiquitin carboxyl-terminal hydrolase 7/11 [EC:3.4.19.12]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.4  Acting on peptide bonds (peptidases)
+               3.4.19  Omega peptidases
+                3.4.19.12  ubiquitinyl hydrolase 1
+                 YKR098C (UBP11)
+            Peptidases [BR:sce01002]
+             Cysteine Peptidases
+              Family C19: ubiquitin-specific protease family
+               YKR098C (UBP11)
+            Ubiquitin system [BR:sce04121]
+             Deubiquitinating enzyme (DUB)
+              Ubiquitin-specific proteases (UBPs)
+               UBP/USP
+                YKR098C (UBP11)
 POSITION    XI:complement(633026..635179)
-MOTIF       Pfam: UCH UCH_1 PCNA_C Zip
-DBLINKS     NCBI-GI: 6322951
+MOTIF       Pfam: UCH UCH_1 SelP_N PCNA_C
+DBLINKS     NCBI-ProteinID: NP_013024
             NCBI-GeneID: 853973
             SGD: S000001806
-            MIPS: YKR098C
             UniProt: P36026
 AASEQ       717
             MLLNPDQILNLVRKVYEVDIKQFYSQLRLKNLRGLLDHAAHLFNVYLRDLEINQEMEALT

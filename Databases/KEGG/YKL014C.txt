@@ -1,14 +1,18 @@
 ENTRY       YKL014C           CDS       T00005
 NAME        URB1, NPA1
-DEFINITION  Urb1p
+DEFINITION  (RefSeq) Urb1p
 ORTHOLOGY   K14861  nucleolar pre-ribosomal-associated protein 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               Other pre-60S particles
+                YKL014C (URB1)
 POSITION    XI:complement(411619..416913)
-MOTIF       Pfam: Npa1
-DBLINKS     NCBI-GI: 398364755
+MOTIF       Pfam: Npa1 NopRA1
+DBLINKS     NCBI-ProteinID: NP_012911
             NCBI-GeneID: 853855
             SGD: S000001497
-            MIPS: YKL014C
             UniProt: P34241
 AASEQ       1764
             MSNHSEAYGSRDQRREKYTQGKEFEDGTLETLESIISAVEDETLSKDYQPLIVFFQRGFG

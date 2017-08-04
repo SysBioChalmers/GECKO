@@ -1,13 +1,12 @@
 ENTRY       YDR055W           CDS       T00005
 NAME        PST1, HPF2
-DEFINITION  Pst1p
+DEFINITION  (RefSeq) Pst1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:563527..564861
-MOTIF       Pfam: Recep_L_domain LRR_9 DUF4339
-DBLINKS     NCBI-GI: 6320260
+MOTIF       Pfam: Recep_L_domain LRR_9
+DBLINKS     NCBI-ProteinID: NP_010340
             NCBI-GeneID: 851625
             SGD: S000002462
-            MIPS: YDR055W
             UniProt: Q12355
 AASEQ       444
             MQLHSLIASTALLITSALAATSSSSSIPSSCTISSHATATAQSDLDKYSRCDTLVGNLTI

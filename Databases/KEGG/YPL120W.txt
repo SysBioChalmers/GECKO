@@ -1,18 +1,29 @@
 ENTRY       YPL120W           CDS       T00005
 NAME        VPS30, APG6, ATG6, VPT30
-DEFINITION  Vps30p
-ORTHOLOGY   K08334  beclin 1
+DEFINITION  (RefSeq) beclin 1
+ORTHOLOGY   K08334  beclin
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
-PATHWAY     sce04140  Regulation of autophagy
-CLASS       Cellular Processes; Transport and catabolism; Regulation of autophagy [PATH:sce04140]
+PATHWAY     sce04136  Autophagy - other
+            sce04138  Autophagy - yeast
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Cellular Processes
+              Transport and catabolism
+               04138 Autophagy - yeast
+                YPL120W (VPS30)
+               04136 Autophagy - other eukaryotes
+                YPL120W (VPS30)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial quality control factors
+              Mitophagy factors
+               Autophagy-related proteins
+                YPL120W (VPS30)
 POSITION    XVI:322071..323744
-MOTIF       Pfam: APG6 Tower
-DBLINKS     NCBI-GI: 6325137
+MOTIF       Pfam: APG6
+DBLINKS     NCBI-ProteinID: NP_015205
             NCBI-GeneID: 855983
             SGD: S000006041
-            MIPS: YPL120W
             UniProt: Q02948
-STRUCTURE   PDB: 3VP7
+STRUCTURE   PDB: 3VP7 5DFZ
 AASEQ       557
             MKCQTCHLPLQLDPSLEGLSLTQRNLLLSNNSIITATNENVISNKGIEAADNCGPQIPKE
             RLRRLGEIQNIKDLNLKDDKLITDSFVFLNHDDDDNANITSNSREDQRYGNANGNDNKKA

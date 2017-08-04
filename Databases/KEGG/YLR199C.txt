@@ -1,14 +1,18 @@
 ENTRY       YLR199C           CDS       T00005
 NAME        PBA1, POC1
-DEFINITION  Pba1p
+DEFINITION  (RefSeq) Pba1p
 ORTHOLOGY   K11879  proteasome chaperone 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Proteasome [BR:sce03051]
+             Eukaryotic proteasome
+              Assembling factors
+               Assembling chaperones
+                YLR199C (PBA1)
 POSITION    XII:complement(join(547853..548677,548764..548769))
 MOTIF       Pfam: POC1
-DBLINKS     NCBI-GI: 37362679
+DBLINKS     NCBI-ProteinID: NP_013300
             NCBI-GeneID: 850896
             SGD: S000004189
-            MIPS: YLR199C
             UniProt: Q05778
 STRUCTURE   PDB: 4G4S
 AASEQ       276

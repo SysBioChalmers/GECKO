@@ -1,13 +1,12 @@
 ENTRY       YJL129C           CDS       T00005
 NAME        TRK1
-DEFINITION  Trk1p
+DEFINITION  (RefSeq) Trk1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    X:complement(173599..177306)
-MOTIF       Pfam: TrkH Zip
-DBLINKS     NCBI-GI: 6322332
+MOTIF       Pfam: TrkH Vps54
+DBLINKS     NCBI-ProteinID: NP_012406
             NCBI-GeneID: 853312
             SGD: S000003665
-            MIPS: YJL129C
             UniProt: P12685
 AASEQ       1235
             MHFRRTMSRVPTLASLEIRYKKSFGHKFRDFIALCGHYFAPVKKYIFPSFIAVHYFYTIS

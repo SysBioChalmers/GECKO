@@ -1,18 +1,44 @@
 ENTRY       YFL017W-A         CDS       T00005
 NAME        SMX2, SNP2, YFL018W-A
-DEFINITION  Smx2p
+DEFINITION  (RefSeq) mRNA splicing protein SMX2
 ORTHOLOGY   K11099  small nuclear ribonucleoprotein G
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03040  Spliceosome
-MODULE      sce_M00398  Sm core complex
-CLASS       Genetic Information Processing; Transcription; Spliceosome [PATH:sce03040]
+MODULE      sce_M00351  Spliceosome, U1-snRNP
+            sce_M00398  Sm core complex
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03040 Spliceosome
+                YFL017W-A (SMX2)
+            Spliceosome [BR:sce03041]
+             Complex A
+              U1 snRNP components
+               Sm proteins
+                YFL017W-A (SMX2)
+              U2 snRNP components
+                YFL017W-A (SMX2)
+             Complex B
+              U1 snRNP components
+                YFL017W-A (SMX2)
+              U4/U6.U5 tri-snRNP components
+                YFL017W-A (SMX2)
+             Complex C
+              U2 snRNP components
+                YFL017W-A (SMX2)
+            DNA replication proteins [BR:sce03032]
+             Eukaryotic Type
+              DNA Replication Termination Factors
+               Telomerase complex (fungi)
+                Sm core complex
+                 YFL017W-A (SMX2)
 POSITION    VI:103699..103932
 MOTIF       Pfam: LSM
-DBLINKS     NCBI-GI: 14318502
+DBLINKS     NCBI-ProteinID: NP_116636
             NCBI-GeneID: 850528
             SGD: S000002965
-            MIPS: YFL017W-A
             UniProt: P40204
+STRUCTURE   PDB: 5GMK 5GAN 5GAO 5GAM 5LJ3 5LJ5 3JCM 5MPS 5WSG 5MQ0 5LQW
 AASEQ       77
             MVSTPELKKYMDKKILLNINGSRKVAGILRGYDIFLNVVLDDAMEINGEDPANNHQLGLQ
             TVIRGNSIISLEALDAI

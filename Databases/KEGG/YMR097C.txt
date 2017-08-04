@@ -1,14 +1,22 @@
 ENTRY       YMR097C           CDS       T00005
 NAME        MTG1
-DEFINITION  Mtg1p
-ORTHOLOGY   K06948
+DEFINITION  (RefSeq) putative GTPase MTG1
+ORTHOLOGY   K19828  mitochondrial GTPase 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Other ribosome biogenesis factors
+               YMR097C (MTG1)
+            Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial DNA transcription, translation, and replication factors
+              Mitochondrial transcription and translation factors
+               Other mitochondrial DNA transcription and translation factors
+                YMR097C (MTG1)
 POSITION    XIII:complement(459424..460527)
-MOTIF       Pfam: MMR_HSR1 DUF258 AAA_29 GTP_EFTU Dynamin_N FeoB_N ArgK AAA_17 AAA_18 AAA_25 NTPase_1 AIG1 Septin AAA_23 AAA_22 IIGP
-DBLINKS     NCBI-GI: 6323744
+MOTIF       Pfam: MMR_HSR1 RsgA_GTPase AAA_29 GTP_EFTU AAA_18 FeoB_N ArgK NTPase_1 AAA_22 AIG1 Septin AAA_23 AAA_24 IIGP AAA_30 AAA_25 AAA_16
+DBLINKS     NCBI-ProteinID: NP_013815
             NCBI-GeneID: 855122
             SGD: S000004703
-            MIPS: YMR097C
             UniProt: Q03151
 AASEQ       367
             MHINVRGTRKIISNVSSFTPRYEFPKYSMPLTDFKGHQVKALKTFEKLLPQMNMIIELRD

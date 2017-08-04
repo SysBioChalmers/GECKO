@@ -1,13 +1,12 @@
 ENTRY       YFR007W           CDS       T00005
 NAME        YFH7, AIM12
-DEFINITION  Yfh7p (EC:2.7.1.-)
+DEFINITION  (RefSeq) Yfh7p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VI:159299..160360
-MOTIF       Pfam: AAA_17 AAA_33 AAA_18 AAA_5 Zeta_toxin PRK AAA_16 6PF2K KTI12 AAA_22 MMR_HSR1 Mg_chelatase RNA_helicase AAA ABC_tran MobB T2SE cobW NB-ARC NACHT AAA_28 DUF570 NTPase_1 AAA_29 CPT Sigma54_activat ArgK
-DBLINKS     NCBI-GI: 14318529
+MOTIF       Pfam: AAA_16 PRK AAA_33 AAA_5 AAA_18 Zeta_toxin 6PF2K KTI12 Mg_chelatase RNA_helicase AAA_22 AAA Microtub_bd MMR_HSR1 ABC_tran T2SSE NB-ARC G-alpha NACHT AAA_17 AAA_28 AAA_30 NTPase_1 PrpR_N cobW AAA_24 AAA_29 CPT APS_kinase ArgK Sigma54_activat
+DBLINKS     NCBI-ProteinID: NP_116662
             NCBI-GeneID: 850558
             SGD: S000001903
-            MIPS: YFR007W
             UniProt: P43591
 STRUCTURE   PDB: 2GA8 2GAA
 AASEQ       353

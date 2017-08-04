@@ -1,14 +1,19 @@
 ENTRY       YDR443C           CDS       T00005
-NAME        SSN2, MED13, NUT8, RYE3, SCA1, SRB9, UME2
-DEFINITION  Ssn2p
+NAME        SSN2, MED13, NUT8, RYE3, SCA1, SRB9, SSX5, UME2
+DEFINITION  (RefSeq) Ssn2p
 ORTHOLOGY   K15165  mediator of RNA polymerase II transcription subunit 13, fungi type
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription machinery [BR:sce03021]
+             Eukaryotic type
+              RNA polymerase II system
+               Mediator complex
+                CDK-module
+                 YDR443C (SSN2)
 POSITION    IV:complement(1345676..1349938)
-MOTIF       Pfam: Med13_C
-DBLINKS     NCBI-GI: 398366601
+MOTIF       Pfam: Med13_C DUF2967 Topo_C_assoc
+DBLINKS     NCBI-ProteinID: NP_010731
             NCBI-GeneID: 852053
             SGD: S000002851
-            MIPS: YDR443C
             UniProt: P38931
 AASEQ       1420
             MSSDASTYRLEDVLSSFYRVEKIKKINYHQYISKAQNDQWSIQMEFMLRKQDPKTLVALL

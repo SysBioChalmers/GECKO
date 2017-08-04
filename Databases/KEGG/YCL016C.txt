@@ -1,15 +1,20 @@
 ENTRY       YCL016C           CDS       T00005
 NAME        DCC1
-DEFINITION  Dcc1p
+DEFINITION  (RefSeq) Dcc1p
 ORTHOLOGY   K11271  sister chromatid cohesion protein DCC1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Sister chromatid cohesion proteins
+               CTF18-RFC complex
+                YCL016C (DCC1)
 POSITION    III:complement(94621..95763)
-MOTIF       Pfam: DUF2036
-DBLINKS     NCBI-GI: 10383774
+MOTIF       Pfam: Dcc1
+DBLINKS     NCBI-ProteinID: NP_009913
             NCBI-GeneID: 850344
             SGD: S000000521
-            MIPS: YCL016C
             UniProt: P25559
+STRUCTURE   PDB: 5MSN 5MSM
 AASEQ       380
             MSINLHSAPEYDPSYKLIQLTPELLDIIQDPVQNHQLRFKSLDKDKSEVVLCSHDKTWVL
             KQRKHSNTVLLMREFVPEQPITFDETLLFGLSKPYMDVVGFAKTESEFETRETHGELNLN

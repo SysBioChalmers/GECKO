@@ -1,14 +1,21 @@
 ENTRY       YDR497C           CDS       T00005
 NAME        ITR1
-DEFINITION  Itr1p
+DEFINITION  (RefSeq) myo-inositol transporter ITR1
 ORTHOLOGY   K08150  MFS transporter, SP family, solute carrier family 2 (myo-inositol transporter), member 13
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Solute Carrier Family (SLC)
+              SLC2: Facilitative GLUT transporter
+               YDR497C (ITR1)
+             Major Facilitator Superfamily (MFS)
+              Sugar transporters
+               Sugar porter (SP) family [TC:2.A.1.1]
+                YDR497C (ITR1)
 POSITION    IV:complement(1443713..1445467)
-MOTIF       Pfam: Sugar_tr MFS_1 MFS_3 DUF1673
-DBLINKS     NCBI-GI: 6320705
+MOTIF       Pfam: Sugar_tr MFS_1 MFS_3 Herpes_teg_N
+DBLINKS     NCBI-ProteinID: NP_010785
             NCBI-GeneID: 852108
             SGD: S000002905
-            MIPS: YDR497C
             UniProt: P30605
 AASEQ       584
             MGIHIPYLTSKTSQSNVGDAVGNADSVEFNSEHDSPSKRGKITLESHEIQRAPASDDEDR

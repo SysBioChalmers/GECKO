@@ -1,12 +1,24 @@
 ENTRY       YNL092W           CDS       T00005
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) S-adenosylmethionine-dependent methyltransferase
+ORTHOLOGY   K19787  carnosine N-methyltransferase [EC:2.1.1.22]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+PATHWAY     sce00340  Histidine metabolism
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Amino acid metabolism
+               00340 Histidine metabolism
+                YNL092W
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.1  Transferring one-carbon groups
+               2.1.1  Methyltransferases
+                2.1.1.22  carnosine N-methyltransferase
+                 YNL092W
 POSITION    XIV:450871..452073
-MOTIF       Pfam: N2227 Methyltransf_23 Methyltransf_11 Methyltransf_12 TPMT Methyltransf_18
-DBLINKS     NCBI-GI: 6324237
+MOTIF       Pfam: N2227 Methyltransf_11 Methyltransf_23 Methyltransf_12 TPMT
+DBLINKS     NCBI-ProteinID: NP_014307
             NCBI-GeneID: 855632
             SGD: S000005036
-            MIPS: YNL092W
             UniProt: P53934
 AASEQ       400
             MDENEFDNQRENKAVARVIISFLKYEEYALKEIYNLRVKKWASISDRQKDMVPNYTKYLA

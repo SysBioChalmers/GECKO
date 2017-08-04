@@ -1,14 +1,28 @@
 ENTRY       YNL020C           CDS       T00005
 NAME        ARK1
-DEFINITION  Ark1p (EC:2.7.11.1)
+DEFINITION  (RefSeq) serine/threonine protein kinase ARK1
 ORTHOLOGY   K08853  AP2-associated kinase [EC:2.7.11.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             2. Transferases
+              2.7  Transferring phosphorus-containing groups
+               2.7.11  Protein-serine/threonine kinases
+                2.7.11.1  non-specific serine/threonine protein kinase
+                 YNL020C (ARK1)
+            Protein kinases [BR:sce01001]
+             Serine/threonine protein kinases: Other group
+              NAK family [OT]
+               YNL020C (ARK1)
+            Membrane trafficking [BR:sce04131]
+             Endocytosis
+              Clathrin-mediated endocytosis
+               Kinases
+                YNL020C (ARK1)
 POSITION    XIV:complement(595623..597539)
-MOTIF       Pfam: Pkinase Pkinase_Tyr Kinase-like APH DUF1548
-DBLINKS     NCBI-GI: 6324308
+MOTIF       Pfam: Pkinase Pkinase_Tyr Kinase-like DUF1548
+DBLINKS     NCBI-ProteinID: NP_014378
             NCBI-GeneID: 855711
             SGD: S000004965
-            MIPS: YNL020C
             UniProt: P53974
 AASEQ       638
             MNQPQIGTYNVGTQLTVGSHQVEIIKYLTSGGFAQVYSALINPPDPHSNSSVACLKRVIV

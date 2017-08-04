@@ -1,14 +1,13 @@
 ENTRY       YPL165C           CDS       T00005
 NAME        SET6
-DEFINITION  Set6p (EC:2.1.1.-)
-ORTHOLOGY   K07117
+DEFINITION  (RefSeq) Set6p
+ORTHOLOGY   K07117  uncharacterized protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:complement(237956..239077)
 MOTIF       Pfam: SET
-DBLINKS     NCBI-GI: 6325092
+DBLINKS     NCBI-ProteinID: NP_015160
             NCBI-GeneID: 855938
             SGD: S000006086
-            MIPS: YPL165C
             UniProt: Q12529
 AASEQ       373
             MTIDGDVHEISPFFQVRQTKWGGRACFSNGNIPKGTTVLQVSNFTGTSISYEFRKEVCHN

@@ -1,14 +1,20 @@
 ENTRY       YNL059C           CDS       T00005
 NAME        ARP5
-DEFINITION  Arp5p
+DEFINITION  (RefSeq) Arp5p
 ORTHOLOGY   K11672  actin-related protein 5
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Chromatin remodeling factors
+               INO80 complex
+                YNL059C (ARP5)
+               INO80 complex (yeast)
+                YNL059C (ARP5)
 POSITION    XIV:complement(512668..514935)
 MOTIF       Pfam: Actin
-DBLINKS     NCBI-GI: 6324269
+DBLINKS     NCBI-ProteinID: NP_014339
             NCBI-GeneID: 855665
             SGD: S000005004
-            MIPS: YNL059C
             UniProt: P53946
 AASEQ       755
             MSSRDASLTPLKAVVIDDPPLRQTPEPFDEQSAYNPQSPIAIDFGSSKLRAGFVNHATPT

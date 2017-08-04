@@ -1,14 +1,18 @@
 ENTRY       YMR012W           CDS       T00005
 NAME        CLU1, TIF31
-DEFINITION  Clu1p
+DEFINITION  (RefSeq) translation initiation factor 3 subunit CLU1
 ORTHOLOGY   K03255  protein TIF31
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Translation factors [BR:sce03012]
+             Eukaryotic Type
+              Initiation factors
+               Initiation associated factors
+                YMR012W (CLU1)
 POSITION    XIII:291134..294967
-MOTIF       Pfam: CLU eIF3_p135 CLU_N TPR_12
-DBLINKS     NCBI-GI: 6323654
+MOTIF       Pfam: CLU eIF3_p135 CLU_N TPR_12 DUF727 TPR_10 RE_MjaI Imm68
+DBLINKS     NCBI-ProteinID: NP_013725
             NCBI-GeneID: 855025
             SGD: S000004614
-            MIPS: YMR012W
             UniProt: Q03690
 AASEQ       1277
             MSEKKEEVKNATVKVTVKLPKEDNHSHNTKHLKKTQSSKNNDISFEIGKESKIQTVLDVL

@@ -1,13 +1,12 @@
 ENTRY       YGR224W           CDS       T00005
 NAME        AZR1
-DEFINITION  Azr1p
+DEFINITION  (RefSeq) azole transporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:942806..944647
-MOTIF       Pfam: MFS_1 TRI12 MFS_3
-DBLINKS     NCBI-GI: 398366219
+MOTIF       Pfam: MFS_1 TRI12 MFS_3 Pam17
+DBLINKS     NCBI-ProteinID: NP_011740
             NCBI-GeneID: 853139
             SGD: S000003456
-            MIPS: YGR224W
             UniProt: P50080
 AASEQ       613
             MKGEPKTYSMSDLSYYGEKAQQQNEKQQKQYVVRRNSTQSTSKQNVSVVLEDNASESNEL

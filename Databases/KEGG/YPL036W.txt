@@ -1,16 +1,25 @@
 ENTRY       YPL036W           CDS       T00005
 NAME        PMA2
-DEFINITION  H(+)-exporting P2-type ATPase PMA2 (EC:3.6.3.6)
+DEFINITION  (RefSeq) H(+)-exporting P2-type ATPase PMA2
 ORTHOLOGY   K01535  H+-transporting ATPase [EC:3.6.3.6]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00190  Oxidative phosphorylation
-CLASS       Metabolism; Energy metabolism; Oxidative phosphorylation [PATH:sce00190]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Energy metabolism
+               00190 Oxidative phosphorylation
+                YPL036W (PMA2)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.3  Acting on acid anhydrides to catalyse transmembrane movement of substances
+                3.6.3.6  H+-exporting ATPase
+                 YPL036W (PMA2)
 POSITION    XVI:482843..485686
-MOTIF       Pfam: E1-E2_ATPase Hydrolase HAD Cation_ATPase_N Hydrolase_3 Hydrolase_like2 DUF1930
-DBLINKS     NCBI-GI: 6325221
+MOTIF       Pfam: E1-E2_ATPase Hydrolase Cation_ATPase_N Hydrolase_3 Cation_ATPase SIS_2 DUF1930
+DBLINKS     NCBI-ProteinID: NP_015289
             NCBI-GeneID: 856071
             SGD: S000005957
-            MIPS: YPL036W
             UniProt: P19657
 AASEQ       947
             MSSTEAKQYKEKPSKEYLHASDGDDPANNSAASSSSSSSTSTSASSSAAAVPRKAAAASA

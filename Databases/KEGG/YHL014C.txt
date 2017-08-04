@@ -1,14 +1,19 @@
 ENTRY       YHL014C           CDS       T00005
 NAME        YLF2, YLF1
-DEFINITION  Ylf2p
-ORTHOLOGY   K06942
+DEFINITION  (RefSeq) Ylf2p
+ORTHOLOGY   K19788  obg-like ATPase 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centrosome formation and ciliogenesis proteins
+               Centrosome duplication proteins
+                Regulators of centriole replication
+                 YHL014C (YLF2)
 POSITION    VIII:complement(76097..77314)
-MOTIF       Pfam: YchF-GTPase_C MMR_HSR1 FeoB_N TGS AAA_14 AAA_23
-DBLINKS     NCBI-GI: 6321773
+MOTIF       Pfam: YchF-GTPase_C MMR_HSR1 FeoB_N TGS
+DBLINKS     NCBI-ProteinID: NP_011849
             NCBI-GeneID: 856372
             SGD: S000001006
-            MIPS: YHL014C
             UniProt: P38746
 AASEQ       405
             MNIGGGKFLLGRISNNPTSGIVGLANVGKSTFFQAITNSKLGNPANYPFATIDAECAKVN

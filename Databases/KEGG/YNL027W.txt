@@ -1,13 +1,18 @@
 ENTRY       YNL027W           CDS       T00005
 NAME        CRZ1, HAL8, TCN1
-DEFINITION  Crz1p
+DEFINITION  (RefSeq) DNA-binding transcription factor CRZ1
+ORTHOLOGY   K21543  transcription factor CRZ1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transcription factors [BR:sce03000]
+             Eukaryotic Type
+              Zinc finger
+               Other Cys2His2 zinc factors
+                YNL027W (CRZ1)
 POSITION    XIV:579580..581616
-MOTIF       Pfam: zf-C2H2 zf-C2H2_4 zf-H2C2_2 zf-met zf-C2H2_jaz Zn_ribbon_recom DUF3381 zf-Di19 zf-BED
-DBLINKS     NCBI-GI: 6324301
+MOTIF       Pfam: zf-C2H2 zf-H2C2_2 zf-C2H2_4 zf-C2H2_6 zf-met zf-C2H2_jaz Zn_ribbon_recom zf-Di19
+DBLINKS     NCBI-ProteinID: NP_014371
             NCBI-GeneID: 855704
             SGD: S000004972
-            MIPS: YNL027W
             UniProt: P53968
 AASEQ       678
             MSFSNGNMASYMTSSNGEEQSINNKNDIDDNSAYRRNNFRNSSNSGSHTFQLSDLDLDVD

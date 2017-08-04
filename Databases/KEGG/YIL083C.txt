@@ -1,18 +1,27 @@
 ENTRY       YIL083C           CDS       T00005
 NAME        CAB2
-DEFINITION  phosphopantothenate--cysteine ligase CAB2 (EC:6.3.2.5)
+DEFINITION  (RefSeq) phosphopantothenate--cysteine ligase CAB2
 ORTHOLOGY   K01922  phosphopantothenate-cysteine ligase [EC:6.3.2.5]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00770  Pantothenate and CoA biosynthesis
             sce01100  Metabolic pathways
 MODULE      sce_M00120  Coenzyme A biosynthesis, pantothenate => CoA
-CLASS       Metabolism; Metabolism of cofactors and vitamins; Pantothenate and CoA biosynthesis [PATH:sce00770]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Metabolism of cofactors and vitamins
+               00770 Pantothenate and CoA biosynthesis
+                YIL083C (CAB2)
+            Enzymes [BR:sce01000]
+             6. Ligases
+              6.3  Forming carbon-nitrogen bonds
+               6.3.2  Acid-D-amino-acid ligases (peptide synthases)
+                6.3.2.5  phosphopantothenate---cysteine ligase
+                 YIL083C (CAB2)
 POSITION    IX:complement(203556..204653)
 MOTIF       Pfam: DFP
-DBLINKS     NCBI-GI: 330443594
+DBLINKS     NCBI-ProteinID: NP_012183
             NCBI-GeneID: 854726
             SGD: S000001345
-            MIPS: YIL083C
             UniProt: P40506
 AASEQ       365
             MPPLPVLNRPQIHTSVTEISHAIDRTIKEELFPVAYTTEEEQYFKTNPKPAYIDELIKDA

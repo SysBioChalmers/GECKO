@@ -1,14 +1,17 @@
 ENTRY       YEL003W           CDS       T00005
 NAME        GIM4, PFD2
-DEFINITION  Gim4p
+DEFINITION  (RefSeq) tubulin-binding prefolding complex subunit GIM4
 ORTHOLOGY   K09549  prefoldin subunit 2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chaperones and folding catalysts [BR:sce03110]
+             Heat shock proteins
+              GimC
+               YEL003W (GIM4)
 POSITION    V:join(148176..148194,148283..148599)
-MOTIF       Pfam: Prefoldin_2 DUF2383 APG6 DUF4600 BLOC1_2
-DBLINKS     NCBI-GI: 154199604
+MOTIF       Pfam: Prefoldin_2 DUF2383 BLOC1_2 Occludin_ELL
+DBLINKS     NCBI-ProteinID: NP_010913
             NCBI-GeneID: 856715
             SGD: S000000729
-            MIPS: YEL003W
             UniProt: P40005
 AASEQ       111
             MEQRNNVFQAKYNEYKQILEELQTKIIELGHDKDEHTIVIKTLKDAEPTRKCYRMIGGAL

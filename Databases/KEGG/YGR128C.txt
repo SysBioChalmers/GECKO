@@ -1,16 +1,29 @@
 ENTRY       YGR128C           CDS       T00005
 NAME        UTP8
-DEFINITION  Utp8p
+DEFINITION  (RefSeq) Utp8p
 ORTHOLOGY   K14547  U3 small nucleolar RNA-associated protein 8
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03008  Ribosome biogenesis in eukaryotes
-CLASS       Genetic Information Processing; Translation; Ribosome biogenesis in eukaryotes [PATH:sce03008]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03008 Ribosome biogenesis in eukaryotes
+                YGR128C (UTP8)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              90S particles
+               U3 small nucleolar RNA-associated proteins
+                YGR128C (UTP8)
+            Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              tRNA transport factors
+               tRNA export factors
+                YGR128C (UTP8)
 POSITION    VII:complement(747950..750091)
-MOTIF       Pfam: Utp8
-DBLINKS     NCBI-GI: 398365801
+MOTIF       Pfam: Utp8 VIT
+DBLINKS     NCBI-ProteinID: NP_011644
             NCBI-GeneID: 853029
             SGD: S000003360
-            MIPS: YGR128C
             UniProt: P53276
 AASEQ       713
             MPSLSQPFRLATLPKIASLSNFSLQADYVQVADGTFNESTNNITLGISGSSISQYIINPT

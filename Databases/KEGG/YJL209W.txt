@@ -1,13 +1,17 @@
 ENTRY       YJL209W           CDS       T00005
 NAME        CBP1
-DEFINITION  Cbp1p
+DEFINITION  (RefSeq) Cbp1p
 ORTHOLOGY   K17660  cytochrome b pre-mRNA-processing protein 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial DNA transcription, translation, and replication factors
+              Mitochondrial transcription and translation factors
+               Other mitochondrial DNA transcription and translation factors
+                YJL209W (CBP1)
 POSITION    X:38005..39969
-DBLINKS     NCBI-GI: 6322252
+DBLINKS     NCBI-ProteinID: NP_012326
             NCBI-GeneID: 853221
             SGD: S000003745
-            MIPS: YJL209W
             UniProt: P07252
 AASEQ       654
             MFLPRLVRYRTERFIKMVPTRTLRRINHSSRDPIQKQVLALIKANANLNDNDKLKIRKYW

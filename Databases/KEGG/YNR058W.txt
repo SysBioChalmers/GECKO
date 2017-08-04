@@ -1,17 +1,30 @@
 ENTRY       YNR058W           CDS       T00005
 NAME        BIO3
-DEFINITION  adenosylmethionine-8-amino-7-oxononanoate transaminase (EC:2.6.1.62)
-ORTHOLOGY   K00833  adenosylmethionine-8-amino-7-oxononanoate aminotransferase [EC:2.6.1.62]
+DEFINITION  (RefSeq) adenosylmethionine-8-amino-7-oxononanoate transaminase
+ORTHOLOGY   K00833  adenosylmethionine---8-amino-7-oxononanoate aminotransferase [EC:2.6.1.62]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00780  Biotin metabolism
             sce01100  Metabolic pathways
-CLASS       Metabolism; Metabolism of cofactors and vitamins; Biotin metabolism [PATH:sce00780]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Metabolism of cofactors and vitamins
+               00780 Biotin metabolism
+                YNR058W (BIO3)
+            Enzymes [BR:sce01000]
+             2. Transferases
+              2.6  Transferring nitrogenous groups
+               2.6.1  Transaminases
+                2.6.1.62  adenosylmethionine---8-amino-7-oxononanoate transaminase
+                 YNR058W (BIO3)
+            Amino acid related enzymes [BR:sce01007]
+             Aminotransferase (transaminase)
+              Class III
+               YNR058W (BIO3)
 POSITION    XIV:734291..735733
-MOTIF       Pfam: Aminotran_3 Beta_elim_lyase BAG
-DBLINKS     NCBI-GI: 6324386
+MOTIF       Pfam: Aminotran_3 Beta_elim_lyase
+DBLINKS     NCBI-ProteinID: NP_014456
             NCBI-GeneID: 855795
             SGD: S000005341
-            MIPS: YNR058W
             UniProt: P50277
 AASEQ       480
             MSQEISYTPDVAELLDFDKKHIWHPYTSLSSPLNVYPVKSAHGCKLVLDTDSPVDVEVID

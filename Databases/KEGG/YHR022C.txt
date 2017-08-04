@@ -1,13 +1,12 @@
 ENTRY       YHR022C           CDS       T00005
-DEFINITION  hypothetical protein
-ORTHOLOGY   K06883
+DEFINITION  (RefSeq) hypothetical protein
+ORTHOLOGY   K06883  uncharacterized protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VIII:complement(149575..150345)
-MOTIF       Pfam: Ras Miro GTP_EFTU ATP_bind_1 SRPRB Gtr1_RagA
-DBLINKS     NCBI-GI: 6321811
+MOTIF       Pfam: Ras Roc GTP_EFTU ATP_bind_1 MMR_HSR1
+DBLINKS     NCBI-ProteinID: NP_011887
             NCBI-GeneID: 856417
             SGD: S000001064
-            MIPS: YHR022C
             UniProt: P38763
 AASEQ       256
             MSVRLSYGASLASIPRCFDLKSSKITVMGDDHSGKTSLVRSWLGSSFQISDANRYRVSDL

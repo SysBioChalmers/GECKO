@@ -1,16 +1,33 @@
 ENTRY       YDR416W           CDS       T00005
 NAME        SYF1, NTC90
-DEFINITION  Syf1p
+DEFINITION  (RefSeq) mRNA splicing protein SYF1
 ORTHOLOGY   K12867  pre-mRNA-splicing factor SYF1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03040  Spliceosome
-CLASS       Genetic Information Processing; Transcription; Spliceosome [PATH:sce03040]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Transcription
+               03040 Spliceosome
+                YDR416W (SYF1)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA surveillance and transport factors
+               Transport factors
+                Other transport factors
+                 YDR416W (SYF1)
+            Spliceosome [BR:sce03041]
+             Complex B
+              Other components
+               Prp19-related factors
+                YDR416W (SYF1)
+             Complex C
+                YDR416W (SYF1)
 POSITION    IV:1298432..1301011
-DBLINKS     NCBI-GI: 6320624
+DBLINKS     NCBI-ProteinID: NP_010704
             NCBI-GeneID: 852025
             SGD: S000002824
-            MIPS: YDR416W
             UniProt: Q04048
+STRUCTURE   PDB: 5GMK 5LJ3 5LJ5 5MPS 5WSG 5MQ0 5LQW
 AASEQ       859
             MSAYIAMKGVITNVDENIRNDEDVAFEYEIQKTPQNILTWKRYIEYWKEEGRTDKQIRWL
             YERFCSQFVTDTSIWEDYIRWESTKEVVETSRIFWLFQRCLKSCVRDCDRICLSYLELAI

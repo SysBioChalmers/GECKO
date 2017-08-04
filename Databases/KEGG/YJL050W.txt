@@ -1,19 +1,52 @@
 ENTRY       YJL050W           CDS       T00005
 NAME        MTR4, DOB1
-DEFINITION  Mtr4p (EC:3.6.4.13)
+DEFINITION  (RefSeq) ATP-dependent RNA helicase MTR4
 ORTHOLOGY   K12598  ATP-dependent RNA helicase DOB1 [EC:3.6.4.13]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03018  RNA degradation
 MODULE      sce_M00393  TRAMP complex
-CLASS       Genetic Information Processing; Folding, sorting and degradation; RNA degradation [PATH:sce03018]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               03018 RNA degradation
+                YJL050W (MTR4)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.4  Acting on acid anhydrides to facilitate cellular and subcellular movement
+                3.6.4.13  RNA helicase
+                 YJL050W (MTR4)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA degradation factors
+               3'-5' decay
+                TRAMP complex
+                 YJL050W (MTR4)
+            Spliceosome [BR:sce03041]
+             Complex B
+              U4/U6.U5 tri-snRNP components
+               U4/U6.U5 tri-snRNP related factors
+                YJL050W (MTR4)
+             Complex C
+               U4/U6.U5 tri-SnRNP related factors
+                YJL050W (MTR4)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Pre-60S particles
+               Helicases
+                YJL050W (MTR4)
+            Transfer RNA biogenesis [BR:sce03016]
+             Eukaryotic Type
+              tRNA degradation factors
+               TRAMP complex
+                YJL050W (MTR4)
 POSITION    X:342522..345743
-MOTIF       Pfam: rRNA_proc-arch DSHCT DEAD Helicase_C T2SE
-DBLINKS     NCBI-GI: 6322411
+MOTIF       Pfam: rRNA_proc-arch DSHCT DEAD Helicase_C T2SSE AAA_22 DUF4047
+DBLINKS     NCBI-ProteinID: NP_012485
             NCBI-GeneID: 853397
             SGD: S000003586
-            MIPS: YJL050W
             UniProt: P47047
-STRUCTURE   PDB: 2XGJ 3L9O
+STRUCTURE   PDB: 4U4C 2XGJ 4QU4
 AASEQ       1073
             MDSTDLFDVFEETPVELPTDSNGEKNADTNVGDTPDHTQDKKHGLEEEKEEHEENNSENK
             KIKSNKSKTEDKNKKVVVPVLADSFEQEASREVDASKGLTNSETLQVEQDGKVRLSHQVR

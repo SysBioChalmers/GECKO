@@ -1,14 +1,17 @@
 ENTRY       YHR032W           CDS       T00005
 NAME        ERC1
-DEFINITION  Erc1p
+DEFINITION  (RefSeq) Erc1p
 ORTHOLOGY   K03327  multidrug resistance protein, MATE family
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Solute Carrier Family (SLC)
+              SLC47: Multidrug and Toxin Extrusion (MATE) family
+               YHR032W (ERC1)
 POSITION    VIII:173344..175089
 MOTIF       Pfam: MatE Polysacc_synt_C MMPL
-DBLINKS     NCBI-GI: 6321821
+DBLINKS     NCBI-ProteinID: NP_011897
             NCBI-GeneID: 856427
             SGD: S000001074
-            MIPS: YHR032W
             UniProt: P38767
 AASEQ       581
             MSKQFSHTTNDRRSSIIYSTSVGKAGLFTPADYIPQESEENLIEGEEQEGSEEEPSYTGN

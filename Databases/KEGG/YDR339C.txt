@@ -1,16 +1,24 @@
 ENTRY       YDR339C           CDS       T00005
 NAME        FCF1, UTP24
-DEFINITION  Fcf1p
+DEFINITION  (RefSeq) rRNA-processing protein FCF1
 ORTHOLOGY   K14566  U3 small nucleolar RNA-associated protein 24
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03008  Ribosome biogenesis in eukaryotes
-CLASS       Genetic Information Processing; Translation; Ribosome biogenesis in eukaryotes [PATH:sce03008]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03008 Ribosome biogenesis in eukaryotes
+                YDR339C (FCF1)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              90S particles
+               U3 small nucleolar RNA-associated proteins
+                YDR339C (FCF1)
 POSITION    IV:complement(1149951..1150520)
-MOTIF       Pfam: Fcf1
-DBLINKS     NCBI-GI: 6320546
+MOTIF       Pfam: Fcf1 Imm-NTF2
+DBLINKS     NCBI-ProteinID: NP_010626
             NCBI-GeneID: 851939
             SGD: S000002747
-            MIPS: YDR339C
             UniProt: Q05498
 AASEQ       189
             MGKAKKTRKFGLVKRTLNTKKDQRLKKNQENIKTKEDPELTRNIPQVSSALFFQYNQAIK

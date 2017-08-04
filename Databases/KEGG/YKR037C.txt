@@ -1,14 +1,19 @@
 ENTRY       YKR037C           CDS       T00005
 NAME        SPC34
-DEFINITION  Spc34p
+DEFINITION  (RefSeq) Spc34p
 ORTHOLOGY   K11573  DASH complex subunit SPC34
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centromeric chromatin formation proteins
+               Kinetochore proteins
+                DASH complex
+                 YKR037C (SPC34)
 POSITION    XI:complement(510910..511797)
 MOTIF       Pfam: DASH_Spc34 Occludin_ELL
-DBLINKS     NCBI-GI: 398365081
+DBLINKS     NCBI-ProteinID: NP_012963
             NCBI-GeneID: 853909
             SGD: S000001745
-            MIPS: YKR037C
             UniProt: P36131
 AASEQ       295
             MGESLDRCIDDINRAVDSMSTLYFKPPGIFHNAILQGASNKASIRKDITRLIKDCNHDEA

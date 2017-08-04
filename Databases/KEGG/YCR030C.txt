@@ -1,13 +1,21 @@
 ENTRY       YCR030C           CDS       T00005
 NAME        SYP1, YCR029C-A
-DEFINITION  Syp1p
+DEFINITION  (RefSeq) Syp1p
+ORTHOLOGY   K20042  F-BAR domain only protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endocytosis
+              Clathrin-mediated endocytosis
+               Other core components
+                YCR030C (SYP1)
+              Bin/Amphiphysin/Rvs (BAR) family proteins
+               F-BAR proteins
+                YCR030C (SYP1)
 POSITION    III:complement(173826..176438)
-MOTIF       Pfam: muHD FCH
-DBLINKS     NCBI-GI: 10383792
+MOTIF       Pfam: muHD FCH SRP40_C
+DBLINKS     NCBI-ProteinID: NP_009959
             NCBI-GeneID: 850396
             SGD: S000000626
-            MIPS: YCR030C
             UniProt: P25623
 STRUCTURE   PDB: 3G9G 3G9H
 AASEQ       870

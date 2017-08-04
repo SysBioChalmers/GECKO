@@ -1,16 +1,24 @@
 ENTRY       YMR093W           CDS       T00005
 NAME        UTP15
-DEFINITION  Utp15p
+DEFINITION  (RefSeq) snoRNA-binding rRNA-processing protein UTP15
 ORTHOLOGY   K14549  U3 small nucleolar RNA-associated protein 15
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03008  Ribosome biogenesis in eukaryotes
-CLASS       Genetic Information Processing; Translation; Ribosome biogenesis in eukaryotes [PATH:sce03008]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03008 Ribosome biogenesis in eukaryotes
+                YMR093W (UTP15)
+            Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              90S particles
+               U3 small nucleolar RNA-associated proteins
+                YMR093W (UTP15)
 POSITION    XIII:454015..455556
-MOTIF       Pfam: UTP15_C WD40 DUF4633
-DBLINKS     NCBI-GI: 6323740
+MOTIF       Pfam: UTP15_C WD40 ANAPC4_WD40
+DBLINKS     NCBI-ProteinID: NP_013811
             NCBI-GeneID: 855118
             SGD: S000004699
-            MIPS: YMR093W
             UniProt: Q04305
 AASEQ       513
             MSTARPRIITSKAPLLPQQTTPEQRYWRQYTSAQLVKEHNSVTHISFNPQHPHDFAVTSS

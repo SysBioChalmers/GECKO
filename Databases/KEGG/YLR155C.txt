@@ -1,20 +1,31 @@
 ENTRY       YLR155C           CDS       T00005
 NAME        ASP3-1, ASP3
-DEFINITION  asparaginase ASP3-1 (EC:3.5.1.1)
+DEFINITION  (RefSeq) asparaginase ASP3-1
 ORTHOLOGY   K01424  L-asparaginase [EC:3.5.1.1]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00250  Alanine, aspartate and glutamate metabolism
             sce00460  Cyanoamino acid metabolism
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
-CLASS       Metabolism; Amino acid metabolism; Alanine, aspartate and glutamate metabolism [PATH:sce00250]
-            Metabolism; Metabolism of other amino acids; Cyanoamino acid metabolism [PATH:sce00460]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Amino acid metabolism
+               00250 Alanine, aspartate and glutamate metabolism
+                YLR155C (ASP3-1)
+              Metabolism of other amino acids
+               00460 Cyanoamino acid metabolism
+                YLR155C (ASP3-1)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.5  Acting on carbon-nitrogen bonds, other than peptide bonds
+               3.5.1  In linear amides
+                3.5.1.1  asparaginase
+                 YLR155C (ASP3-1)
 POSITION    XII:complement(469317..470405)
 MOTIF       Pfam: Asparaginase PRAI
-DBLINKS     NCBI-GI: 6323184
+DBLINKS     NCBI-ProteinID: NP_013256
             NCBI-GeneID: 850850
             SGD: S000004145
-            MIPS: YLR155C
             UniProt: P0CZ17 P0CX77 P0CX78 P0CX79
 AASEQ       362
             MRSLNTLLLSLFVAMSSGAPLLKIREEKNSSLPSIKIFGTGGTIASKGSTSATTAGYSVG

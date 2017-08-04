@@ -1,13 +1,12 @@
 ENTRY       YMR063W           CDS       T00005
 NAME        RIM9
-DEFINITION  Rim9p
+DEFINITION  (RefSeq) Rim9p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:397077..397796
-MOTIF       Pfam: SUR7 DUF2207
-DBLINKS     NCBI-GI: 6323708
+MOTIF       Pfam: SUR7
+DBLINKS     NCBI-ProteinID: NP_013779
             NCBI-GeneID: 855085
             SGD: S000004667
-            MIPS: YMR063W
             UniProt: Q04734
 AASEQ       239
             MVSMIHIVVFLLAITTMFEILPLITVPVTKYLSLSSFRNHYYGLFGWCVRGQNQELMCTK

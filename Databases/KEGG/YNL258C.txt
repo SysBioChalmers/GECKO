@@ -1,13 +1,25 @@
 ENTRY       YNL258C           CDS       T00005
 NAME        DSL1, RNS1
-DEFINITION  Dsl1p
+DEFINITION  (RefSeq) Dsl1p
+ORTHOLOGY   K11578  protein transport protein DSL1/ZW10
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Membrane trafficking [BR:sce04131]
+             Endoplasmic reticulum (ER) - Golgi transport
+              Retrieval pathways
+               NRZ (DSL1) complex
+                YNL258C (DSL1)
+            Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Centromeric chromatin formation proteins
+               SAC (spindle assembly checkpoint) factors
+                Motor proteins
+                 RZZ complex
+                  YNL258C (DSL1)
 POSITION    XIV:complement(158109..160373)
-MOTIF       Pfam: Dsl1_N Dsl1_C COPI_C
-DBLINKS     NCBI-GI: 6324071
+MOTIF       Pfam: Dsl1_C Dsl1_N COPI_C VPS13_C
+DBLINKS     NCBI-ProteinID: NP_014141
             NCBI-GeneID: 855463
             SGD: S000005202
-            MIPS: YNL258C
             UniProt: P53847
 STRUCTURE   PDB: 3ETU
 AASEQ       754

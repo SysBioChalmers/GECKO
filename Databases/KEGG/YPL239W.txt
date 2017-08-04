@@ -1,14 +1,13 @@
 ENTRY       YPL239W           CDS       T00005
 NAME        YAR1
-DEFINITION  Yar1p
-ORTHOLOGY   K06867
+DEFINITION  (RefSeq) Yar1p
+ORTHOLOGY   K06867  uncharacterized protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:99484..100086
-MOTIF       Pfam: Ank_2 Ank Ank_4 Ank_5 Ank_3 TPK_catalytic
-DBLINKS     NCBI-GI: 6325017
+MOTIF       Pfam: Ank_2 Ank_5 Ank_4 Ank_3 Ank MCC-bdg_PDZ
+DBLINKS     NCBI-ProteinID: NP_015085
             NCBI-GeneID: 855837
             SGD: S000006160
-            MIPS: YPL239W
             UniProt: P46683
 STRUCTURE   PDB: 4BSZ
 AASEQ       200

@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% updateDatabases
+% [swissprot,kegg] = updateDatabases
 % Updates all databases for protein matching (KEGG and Swiss-Prot).
 %
 % Note: Before using this script, one should manually download from 
@@ -8,13 +8,34 @@
 %       Entry - Protein names - Gene names - EC number - Sequence
 %       OBS: filter with the Swiss-Prot option
 % 
-% Benjamín Sánchez. Last edited: 2017-04-18
+% Benjamín Sánchez & Cheng Zhang. Last edited: 2017-04-18
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function updateDatabases
+function [swissprot,kegg] = updateDatabases
 
-%Retrieve Swissprot Data (uniprot code - protein name - gene names - EC number - MW - sequence):
+%Build Swissprot table:
 cd ../../Databases
+swissprot = buildSWISSPROTtable;
+
+%Download KEGG data from internet:
+cd KEGG
+downloadKEGGdata('sce')
+
+%Build KEGG table
+kegg = buildKEGGtable;
+
+%Save both databases as .mat files:
+cd ..
+save('ProtDatabase.mat','swissprot','kegg');
+cd ../Matlab_Module/get_enzyme_data
+
+end
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+function swissprot = buildSWISSPROTtable
+
+%Build Swissprot table (uniprot code - protein name - gene names - EC number - MW - sequence):
 fileID_uni        = fopen('uniprot-organism%3Ayeast.tab');
 swissprot         = textscan(fileID_uni,'%s %s %s %s %s %s','delimiter','\t');
 swissprot         = [swissprot{1} swissprot{2} swissprot{3} swissprot{4} swissprot{5}];
@@ -31,11 +52,43 @@ for i = 1:length(swissprot)
     swissprot{i,4} = strrep(swissprot{i,4},';','');
     swissprot{i,5} = MW;
     swissprot{i,6} = sequence;
-    disp(['Updating Swiss-Prot database: Ready with protein ' uni])
+    disp(['Building Swiss-Prot database: Ready with protein ' uni])
+end
+cd ../../Databases
+
 end
 
-%Retrieve KEGG info (uniprot code - protein name - systematic gene name - EC number - MW - pathway - sequence):
-cd ../../Databases/KEGG
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+function downloadKEGGdata(organism)
+
+base      = 'http://rest.kegg.jp/';
+operation = 'list/';
+gene_list = urlread([base operation organism]);
+gene_list = regexpi(gene_list, '[^\n]+','match')'; 
+gene_id   = regexpi(gene_list,['(?<=' organism ':)\S+'],'match');
+
+% Retrieve information for every gene in the list
+operation = 'get/';
+for i = 1:numel(gene_id)
+    try
+        gene = urlread([base operation organism ':' gene_id{i}{1}]);
+        fid  = fopen([gene_id{i}{1} '.txt'],'w');
+        fprintf(fid,'%s',gene);
+        fclose(fid);
+        disp(['Downloading KEGG data for ' gene_id{i}{1}])
+    catch    
+        display(['Cannot find ' gene_id{i}{1} ' in KEGG']);
+    end
+end
+
+end
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+function kegg = buildKEGGtable
+
+%Build KEGG table (uniprot code - protein name - systematic gene name - EC number - MW - pathway - sequence):
 file_names      = dir();
 file_names(1:2) = [];
 kegg            = cell(100000,7);
@@ -51,10 +104,12 @@ for i = 1:length(file_names)
     text = text{1};
     cd ../../Matlab_Module/get_enzyme_data
     
-    uni      = '';
-    sequence = '';
-    MW       = 0;
-    pathway  = '';
+    uni       = '';
+    prot_name = '';
+    EC_names  = '';
+    sequence  = '';
+    MW        = 0;
+    pathway   = '';
     for j = 1:length(text)
         line = text{j};
         if length(line) > 10
@@ -62,15 +117,21 @@ for i = 1:length(file_names)
             if strcmp(line(1:8),'UniProt:')
                 uni = line(10:end);
                 
-            %2nd & 4th column: protein name and EC number
+            %2nd column: protein name
             elseif strcmp(line(1:10),'DEFINITION')
-                pos_EC    = strfind(line,'EC:');
-                if isempty(pos_EC)
-                    prot_name = lower(line(13:end));
-                    EC_names  = '';
+                if strcmp(line(13:20),'(RefSeq)')
+                    prot_name = lower(line(22:end));
                 else
-                    prot_name = lower(line(13:pos_EC-3));
-                    EC_names  = line(pos_EC+3:end-1);
+                    prot_name = lower(line(13:end));
+                    disp([gene_name ': no RefSeq'])
+                    pause
+                end
+            
+            %4th column: EC number
+            elseif strcmp(line(1:10),'ORTHOLOGY')
+                pos_EC = strfind(line,'[EC:');
+                if ~isempty(pos_EC)
+                    EC_names = line(pos_EC+4:end-1);
                 end
                 
             %5th column and 7th column: MW & sequence
@@ -88,7 +149,7 @@ for i = 1:length(file_names)
                 end
                 MW = calculateMW(sequence);
                 
-                %6th column: pathway
+            %6th column: pathway
             elseif strcmp(line(1:7),'PATHWAY')
                 start    = strfind(line,'sce');
                 pathway  = line(start(1):end);
@@ -121,11 +182,6 @@ for i = 1:length(file_names)
     disp(['Updating KEGG database: Ready with gene ' gene_name])
 end
 kegg(n+1:end,:)         = [];
-
-%Save all databases as .mat files:
-cd ..
-save('ProtDatabase.mat','kegg','swissprot');
-cd ../Matlab_Module/get_enzyme_data
 
 end
 

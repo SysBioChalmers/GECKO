@@ -1,13 +1,12 @@
 ENTRY       YNL224C           CDS       T00005
 NAME        SQS1, PFA1
-DEFINITION  Sqs1p
+DEFINITION  (RefSeq) Sqs1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIV:complement(224796..227099)
-MOTIF       Pfam: G-patch SYF2 G-patch_2
-DBLINKS     NCBI-GI: 6324105
+MOTIF       Pfam: G-patch R3H G-patch_2
+DBLINKS     NCBI-ProteinID: NP_014175
             NCBI-GeneID: 855497
             SGD: S000005168
-            MIPS: YNL224C
             UniProt: P53866
 AASEQ       767
             MAKRHSHYQGSRRRHARGSNSKKAGRGNAKGIQGRKIKKKPTPTNSWHNSSIPLGEGDLD

@@ -1,14 +1,19 @@
 ENTRY       YJR070C           CDS       T00005
 NAME        LIA1, MMD1
-DEFINITION  Lia1p (EC:1.14.99.29)
+DEFINITION  (RefSeq) Lia1p
 ORTHOLOGY   K06072  deoxyhypusine monooxygenase [EC:1.14.99.29]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.14  Acting on paired donors, with incorporation or reduction of molecular oxygen
+               1.14.99  Miscellaneous
+                1.14.99.29  deoxyhypusine monooxygenase
+                 YJR070C (LIA1)
 POSITION    X:complement(569621..570598)
-MOTIF       Pfam: HEAT_2 HEAT_PBS HEAT HEAT_EZ
-DBLINKS     NCBI-GI: 6322531
+MOTIF       Pfam: HEAT_2 HEAT_PBS HEAT
+DBLINKS     NCBI-ProteinID: NP_012604
             NCBI-GeneID: 853534
             SGD: S000003831
-            MIPS: YJR070C
             UniProt: P47120
 AASEQ       325
             MSTNFEKHFQENVDECTLEQLRDILVNKSGKTVLANRFRALFNLKTVAEEFATKPEEAKK

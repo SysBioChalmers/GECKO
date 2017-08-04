@@ -1,14 +1,25 @@
 ENTRY       YIR002C           CDS       T00005
 NAME        MPH1
-DEFINITION  Mph1p (EC:3.6.4.12)
+DEFINITION  (RefSeq) 3'-5' DNA helicase
 ORTHOLOGY   K14635  ATP-dependent DNA helicase MPH1 [EC:3.6.4.12]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.6  Acting on acid anhydrides
+               3.6.4  Acting on acid anhydrides to facilitate cellular and subcellular movement
+                3.6.4.12  DNA helicase
+                 YIR002C (MPH1)
+            DNA repair and recombination proteins [BR:sce03400]
+             Eukaryotic Type
+              DSBR (double strand breaks repair)
+               HR (homologous recombination)
+                Other HR factors
+                 YIR002C (MPH1)
 POSITION    IX:complement(357415..360396)
-MOTIF       Pfam: Helicase_C DEAD ResIII AAA_22 PhoH STAT_int
-DBLINKS     NCBI-GI: 6322192
+MOTIF       Pfam: ResIII Helicase_C DEAD AAA_22 PhoH
+DBLINKS     NCBI-ProteinID: NP_012267
             NCBI-GeneID: 854818
             SGD: S000001441
-            MIPS: YIR002C
             UniProt: P40562
 AASEQ       993
             MASADDYFSDFEDDELDKLYEKAINKSVKETITRRAVPVQKDLHDNVLPGQKTVYEEIQR

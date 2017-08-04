@@ -1,19 +1,29 @@
 ENTRY       YBR299W           CDS       T00005
 NAME        MAL32
-DEFINITION  Mal32p (EC:3.2.1.20)
-ORTHOLOGY   K01187  alpha-glucosidase [EC:3.2.1.20]
+DEFINITION  (RefSeq) alpha-glucosidase MAL32
+ORTHOLOGY   K01182  oligo-1,6-glucosidase [EC:3.2.1.10]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00052  Galactose metabolism
             sce00500  Starch and sucrose metabolism
             sce01100  Metabolic pathways
-CLASS       Metabolism; Carbohydrate metabolism; Galactose metabolism [PATH:sce00052]
-            Metabolism; Carbohydrate metabolism; Starch and sucrose metabolism [PATH:sce00500]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Carbohydrate metabolism
+               00052 Galactose metabolism
+                YBR299W (MAL32)
+               00500 Starch and sucrose metabolism
+                YBR299W (MAL32)
+            Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.2  Glycosylases
+               3.2.1  Glycosidases, i.e. enzymes that hydrolyse O- and S-glycosyl compounds
+                3.2.1.10  oligo-1,6-glucosidase
+                 YBR299W (MAL32)
 POSITION    II:805351..807105
-MOTIF       Pfam: Alpha-amylase hDGE_amylase
-DBLINKS     NCBI-GI: 398365967
+MOTIF       Pfam: Alpha-amylase Malt_amylase_C hDGE_amylase
+DBLINKS     NCBI-ProteinID: NP_009858
             NCBI-GeneID: 852602
             SGD: S000000503
-            MIPS: YBR299W
             UniProt: P38158
 AASEQ       584
             MTISDHPETEPKWWKEATIYQIYPASFKDSNNDGWGDLKGITSKLQYIKDLGVDAIWVCP

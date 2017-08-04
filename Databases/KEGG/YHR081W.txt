@@ -1,17 +1,27 @@
 ENTRY       YHR081W           CDS       T00005
 NAME        LRP1, RRP47
-DEFINITION  Lrp1p
+DEFINITION  (RefSeq) Lrp1p
 ORTHOLOGY   K12592  exosome complex protein LRP1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03018  RNA degradation
-CLASS       Genetic Information Processing; Folding, sorting and degradation; RNA degradation [PATH:sce03018]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Folding, sorting and degradation
+               03018 RNA degradation
+                YHR081W (LRP1)
+            Messenger RNA biogenesis [BR:sce03019]
+             Eukaryotic Type
+              mRNA degradation factors
+               3'-5' decay
+                Exosome cofactors
+                 YHR081W (LRP1)
 POSITION    VIII:267538..268092
-MOTIF       Pfam: Sas10_Utp3 DUF885 FliT Rpp20 HD_3 FliD_N
-DBLINKS     NCBI-GI: 6321873
+MOTIF       Pfam: Sas10_Utp3
+DBLINKS     NCBI-ProteinID: NP_011949
             NCBI-GeneID: 856481
             SGD: S000001123
-            MIPS: YHR081W
             UniProt: P38801
+STRUCTURE   PDB: 4WFC 4WFD 5C0W
 AASEQ       184
             MEDIEKIKPYVRSFSKALDELKPEIEKLTSKSLDEQLLLLSDERAKLELINRYAYVLSSL
             MFANMKVLGVKDMSPILGELKRVKSYMDKAKQYDNRITKSNEKSQAEQEKAKNIISNVLD

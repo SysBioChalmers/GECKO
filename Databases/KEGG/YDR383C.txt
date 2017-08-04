@@ -1,12 +1,12 @@
 ENTRY       YDR383C           CDS       T00005
 NAME        NKP1
-DEFINITION  Nkp1p
+DEFINITION  (RefSeq) Nkp1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IV:complement(1239960..1240676)
-DBLINKS     NCBI-GI: 398366549
+MOTIF       Pfam: FTA4
+DBLINKS     NCBI-ProteinID: NP_010671
             NCBI-GeneID: 851991
             SGD: S000002791
-            MIPS: YDR383C
             UniProt: Q12493
 AASEQ       238
             MTDTYNSISNFIENELTALLSSDDYLMDDLAGELPNEVCRLLKAQVIEKRKDAMSRGKQD

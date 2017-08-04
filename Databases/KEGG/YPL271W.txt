@@ -1,18 +1,21 @@
 ENTRY       YPL271W           CDS       T00005
 NAME        ATP15
-DEFINITION  F1F0 ATP synthase subunit epsilon (EC:3.6.3.14)
-ORTHOLOGY   K02135  F-type H+-transporting ATPase subunit epsilon [EC:3.6.3.14]
+DEFINITION  (RefSeq) F1F0 ATP synthase subunit epsilon
+ORTHOLOGY   K02135  F-type H+-transporting ATPase subunit epsilon
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00190  Oxidative phosphorylation
             sce01100  Metabolic pathways
 MODULE      sce_M00158  F-type ATPase, eukaryotes
-CLASS       Metabolism; Energy metabolism; Oxidative phosphorylation [PATH:sce00190]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Energy metabolism
+               00190 Oxidative phosphorylation
+                YPL271W (ATP15)
 POSITION    XVI:30079..30267
-MOTIF       Pfam: ATP-synt_Eps DUF2984
-DBLINKS     NCBI-GI: 6324984
+MOTIF       Pfam: ATP-synt_Eps
+DBLINKS     NCBI-ProteinID: NP_015052
             NCBI-GeneID: 855857
             SGD: S000006192
-            MIPS: YPL271W
             UniProt: P21306
 STRUCTURE   PDB: 3ZIA 3OEE 2HLD 3OEH 2XOK 3OE7 3OFN 2WPD 3FKS 3ZRY 4B2Q
 AASEQ       62

@@ -1,13 +1,12 @@
 ENTRY       YER120W           CDS       T00005
 NAME        SCS2
-DEFINITION  Scs2p
+DEFINITION  (RefSeq) phosphatidylinositol-binding protein SCS2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    V:401135..401869
-MOTIF       Pfam: Motile_Sperm
-DBLINKS     NCBI-GI: 398364741
+MOTIF       Pfam: Motile_Sperm TMEM131_like
+DBLINKS     NCBI-ProteinID: NP_011046
             NCBI-GeneID: 856856
             SGD: S000000922
-            MIPS: YER120W
             UniProt: P40075
 AASEQ       244
             MSAVEISPDVLVYKSPLTEQSTEYASISNNSDQTIAFKVKTTAPKFYCVRPNAAVVAPGE

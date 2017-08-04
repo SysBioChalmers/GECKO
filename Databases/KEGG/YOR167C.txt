@@ -1,18 +1,29 @@
 ENTRY       YOR167C           CDS       T00005
 NAME        RPS28A, RPS33A
-DEFINITION  ribosomal 40S subunit protein S28A
+DEFINITION  (RefSeq) ribosomal 40S subunit protein S28A
 ORTHOLOGY   K02979  small subunit ribosomal protein S28e
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce03010  Ribosome
-CLASS       Genetic Information Processing; Translation; Ribosome [PATH:sce03010]
+MODULE      sce_M00177  Ribosome, eukaryotes
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Genetic Information Processing
+              Translation
+               03010 Ribosome
+                YOR167C (RPS28A)
+            Ribosome [BR:sce03011]
+             Ribosomal Proteins
+              Eukaryotes
+               Small subunit
+                YOR167C (RPS28A)
+              Archaea
+                YOR167C (RPS28A)
 POSITION    XV:complement(648804..649007)
-MOTIF       Pfam: Ribosomal_S28e
-DBLINKS     NCBI-GI: 6324741
+MOTIF       Pfam: Ribosomal_S28e S_layer_C
+DBLINKS     NCBI-ProteinID: NP_014810
             NCBI-GeneID: 854338
             SGD: S000005693
-            MIPS: YOR167C
             UniProt: Q3E7X9
-STRUCTURE   PDB: 3U5C 3U5G 3O2Z 3O30 4BYL 4BYT 3IZB
+STRUCTURE   PDB: 5TZS
 AASEQ       67
             MDNKTPVTLAKVIKVLGRTGSRGGVTQVRVEFLEDTSRTIVRNVKGPVRENDILVLMESE
             REARRLR

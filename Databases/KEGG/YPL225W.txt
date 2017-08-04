@@ -1,12 +1,11 @@
 ENTRY       YPL225W           CDS       T00005
-DEFINITION  hypothetical protein
+DEFINITION  (RefSeq) hypothetical protein
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:126006..126446
-MOTIF       Pfam: Polysacc_synt_4 YcbB CBAH
-DBLINKS     NCBI-GI: 6325031
+MOTIF       Pfam: Polysacc_synt_4
+DBLINKS     NCBI-ProteinID: NP_015099
             NCBI-GeneID: 855876
             SGD: S000006146
-            MIPS: YPL225W
             UniProt: Q08971
 STRUCTURE   PDB: 2JYN
 AASEQ       146

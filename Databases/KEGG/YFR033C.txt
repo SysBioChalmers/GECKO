@@ -1,20 +1,23 @@
 ENTRY       YFR033C           CDS       T00005
 NAME        QCR6, COR3, UCR6
-DEFINITION  ubiquinol--cytochrome-c reductase subunit 6
+DEFINITION  (RefSeq) ubiquinol--cytochrome-c reductase subunit 6
 ORTHOLOGY   K00416  ubiquinol-cytochrome c reductase subunit 6
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00190  Oxidative phosphorylation
             sce01100  Metabolic pathways
 MODULE      sce_M00152  Cytochrome bc1 complex
-CLASS       Metabolism; Energy metabolism; Oxidative phosphorylation [PATH:sce00190]
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Energy metabolism
+               00190 Oxidative phosphorylation
+                YFR033C (QCR6)
 POSITION    VI:complement(224326..224769)
-MOTIF       Pfam: UCR_hinge RAB3GAP2_C Nop14 Cwf_Cwc_15 CDC45 Tom22 DUF2457 DUF3530 CENP-T TrbC_Ftype RRN3 Vfa1 Sigma70_ner Daxx DUF506 Rhabdo_ncap Mpp10 DUF1510 YL1
-DBLINKS     NCBI-GI: 398364365
+MOTIF       Pfam: UCR_hinge Sigma70_ner Nop14 RAB3GAP2_C Mpp10 CDC45 RRN3 DNA_pol_phi DUF1510 BUD22 CPSF100_C Vfa1 DUF913 GCIP YL1 Cnd2 RNA_pol_Rpc4
+DBLINKS     NCBI-ProteinID: NP_116691
             NCBI-GeneID: 850593
             SGD: S000001929
-            MIPS: YFR033C
             UniProt: P00127
-STRUCTURE   PDB: 3CX5 2IBZ 1KB9 1EZV 3CXH 1P84 1KYO
+STRUCTURE   PDB: 3CX5 2IBZ 1KB9 1EZV 3CXH 1P84 1KYO 4PD4
 AASEQ       147
             MGMLELVGEYWEQLKITVVPVVAAAEDDDNEQHEEKAAEGEEKEEENGDEDEDEDEDEDD
             DDDDDEDEEEEEEVTDQLEDLREHFKNTEEGKALVHHYEECAERVKIQQQQPGYADLEHK

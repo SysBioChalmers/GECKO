@@ -1,13 +1,12 @@
 ENTRY       YML011C           CDS       T00005
 NAME        RAD33
-DEFINITION  Rad33p
+DEFINITION  (RefSeq) Rad33p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:complement(246895..247428)
 MOTIF       Pfam: Rad33
-DBLINKS     NCBI-GI: 6323631
+DBLINKS     NCBI-ProteinID: NP_013702
             NCBI-GeneID: 854998
             SGD: S000004472
-            MIPS: YML011C
             UniProt: Q04231
 AASEQ       177
             MSKSTNVSYERVELFENPKVPIEVEDEILEKYAESSLDHDMTVNELPRFFKDLQLEPTIW

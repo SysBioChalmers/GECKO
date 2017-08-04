@@ -1,13 +1,16 @@
 ENTRY       YJR004C           CDS       T00005
 NAME        SAG1, AG(ALPHA)1
-DEFINITION  Sag1p
+DEFINITION  (RefSeq) Sag1p
+ORTHOLOGY   K19898  alpha-agglutinin
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Glycosylphosphatidylinositol (GPI)-anchored proteins [BR:sce00537]
+             Others
+              YJR004C (SAG1)
 POSITION    X:complement(442909..444861)
 MOTIF       Pfam: Candida_ALS_N
-DBLINKS     NCBI-GI: 6322463
+DBLINKS     NCBI-ProteinID: NP_012537
             NCBI-GeneID: 853460
             SGD: S000003764
-            MIPS: YJR004C
             UniProt: P20840
 AASEQ       650
             MFTFLKIILWLFSLALASAININDITFSNLEITPLTANKQPDQGWTATFDFSIADASSIR

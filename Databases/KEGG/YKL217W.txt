@@ -1,14 +1,18 @@
 ENTRY       YKL217W           CDS       T00005
 NAME        JEN1
-DEFINITION  Jen1p
+DEFINITION  (RefSeq) Jen1p
 ORTHOLOGY   K08178  MFS transporter, SHS family, lactate transporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Major Facilitator Superfamily (MFS)
+              Organic acid transporters
+               Sialate:H+ symporter (SHS) family [TC:2.A.1.12]
+                YKL217W (JEN1)
 POSITION    XI:22234..24084
 MOTIF       Pfam: Sugar_tr MFS_1
-DBLINKS     NCBI-GI: 6322632
+DBLINKS     NCBI-ProteinID: NP_012705
             NCBI-GeneID: 853663
             SGD: S000001700
-            MIPS: YKL217W
             UniProt: P36035
 AASEQ       616
             MSSSITDEKISGEQQQPAGRKLYYNTSTFAEPPLVDGEGNPINYEPEVYNPDHEKLYHNP

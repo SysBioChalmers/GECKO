@@ -1,14 +1,17 @@
 ENTRY       YPL060W           CDS       T00005
 NAME        MFM1, LPE10
-DEFINITION  Mfm1p
+DEFINITION  (RefSeq) Mfm1p
 ORTHOLOGY   K16075  magnesium transporter
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Transporters [BR:sce02000]
+             Other Transporters
+              Pores ion channels [TC:1]
+               YPL060W (MFM1)
 POSITION    XVI:434523..435764
-MOTIF       Pfam: DUF1469
-DBLINKS     NCBI-GI: 6325197
+MOTIF       Pfam: CorA DUF2207
+DBLINKS     NCBI-ProteinID: NP_015265
             NCBI-GeneID: 856045
             SGD: S000005981
-            MIPS: YPL060W
             UniProt: Q02783
 AASEQ       413
             MRAFPRVLPFRHQRSYNNILLRTVRLFGSSLSSFDFSRQMPKVDPDNTAAMLLQKNLIQR

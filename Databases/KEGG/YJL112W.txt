@@ -1,13 +1,18 @@
 ENTRY       YJL112W           CDS       T00005
 NAME        MDV1, FIS2, GAG3, NET2
-DEFINITION  Mdv1p
+DEFINITION  (RefSeq) Mdv1p
+ORTHOLOGY   K17970  mitochondrial division protein 1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Mitochondrial biogenesis [BR:sce03029]
+             Mitochondrial quality control factors
+              Mitochondrial dynamics
+               Fission and Fusion factors
+                YJL112W (MDV1)
 POSITION    X:205305..207449
-MOTIF       Pfam: WD40 Mdv1 Nup160
-DBLINKS     NCBI-GI: 6322349
+MOTIF       Pfam: Mdv1 WD40 Nup160 ANAPC4_WD40 Pil1 APG6 PQQ_2 SOAR
+DBLINKS     NCBI-ProteinID: NP_012423
             NCBI-GeneID: 853332
             SGD: S000003648
-            MIPS: YJL112W
             UniProt: P47025
 STRUCTURE   PDB: 2PQN 2XU6 3UUX
 AASEQ       714

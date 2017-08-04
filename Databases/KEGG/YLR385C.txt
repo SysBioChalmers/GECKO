@@ -1,13 +1,18 @@
 ENTRY       YLR385C           CDS       T00005
 NAME        SWC7, AWS1
-DEFINITION  Swc7p
+DEFINITION  (RefSeq) Swc7p
 ORTHOLOGY   K11683  SWR1-complex protein 7
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Chromatin remodeling factors
+               SWR1 complex
+                YLR385C (SWC7)
 POSITION    XII:complement(892992..893390)
-DBLINKS     NCBI-GI: 6323417
+MOTIF       Pfam: SWC7
+DBLINKS     NCBI-ProteinID: NP_013489
             NCBI-GeneID: 851101
             SGD: S000004377
-            MIPS: YLR385C
             UniProt: Q06707
 AASEQ       132
             MDCPSNVVLLLLQLVLQRQQTLAHRDKSVDLQTLLKDPVIDNDVLVEFKTHKLVQLYGPQ

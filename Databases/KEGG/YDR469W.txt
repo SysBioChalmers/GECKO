@@ -1,14 +1,19 @@
 ENTRY       YDR469W           CDS       T00005
 NAME        SDC1, CPS25, SAF19
-DEFINITION  Sdc1p
+DEFINITION  (RefSeq) Sdc1p
 ORTHOLOGY   K14968  COMPASS component SDC1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Chromosome [BR:sce03036]
+             Eukaryotic Type
+              Histone modification proteins
+               HMT complexes
+                COMPASS/SET1 complex (yeast)
+                 YDR469W (SDC1)
 POSITION    IV:1399015..1399542
-MOTIF       Pfam: Dpy-30
-DBLINKS     NCBI-GI: 398366625
+MOTIF       Pfam: Dpy-30 DUF3224
+DBLINKS     NCBI-ProteinID: NP_010757
             NCBI-GeneID: 852080
             SGD: S000002877
-            MIPS: YDR469W
             UniProt: Q03323
 AASEQ       175
             MNESENSPQHNEVTVPMVEDTSSNADIPMEQIQREDNKNYDKHDNECFDMNGNHNNNSDN

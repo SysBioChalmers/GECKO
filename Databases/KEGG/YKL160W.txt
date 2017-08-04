@@ -1,13 +1,12 @@
 ENTRY       YKL160W           CDS       T00005
 NAME        ELF1
-DEFINITION  Elf1p
+DEFINITION  (RefSeq) Elf1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XI:153269..153706
-MOTIF       Pfam: Elf1 NOA36 Ribosomal_L37ae CDC45
-DBLINKS     NCBI-GI: 6322689
+MOTIF       Pfam: Elf1 NOA36 Ribosomal_L37ae DNA_pol_phi
+DBLINKS     NCBI-ProteinID: NP_012762
             NCBI-GeneID: 853697
             SGD: S000001643
-            MIPS: YKL160W
             UniProt: P36053
 AASEQ       145
             MGKRKKSTRKPTKRLVQKLDTKFNCLFCNHEKSVSCTLDKKNSIGTLSCKICGQSFQTRI

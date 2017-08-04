@@ -1,18 +1,28 @@
 ENTRY       YLR142W           CDS       T00005
 NAME        PUT1
-DEFINITION  proline dehydrogenase (EC:1.5.99.8)
+DEFINITION  (RefSeq) proline dehydrogenase
 ORTHOLOGY   K00318  proline dehydrogenase [EC:1.5.-.-]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 PATHWAY     sce00330  Arginine and proline metabolism
             sce01100  Metabolic pathways
             sce01110  Biosynthesis of secondary metabolites
-CLASS       Metabolism; Amino acid metabolism; Arginine and proline metabolism [PATH:sce00330]
+            sce01130  Biosynthesis of antibiotics
+BRITE       KEGG Orthology (KO) [BR:sce00001]
+             Metabolism
+              Amino acid metabolism
+               00330 Arginine and proline metabolism
+                YLR142W (PUT1)
+            Enzymes [BR:sce01000]
+             1. Oxidoreductases
+              1.5  Acting on the CH-NH group of donors
+               1.5.-  Acting on the CH-NH group of donors
+                1.5.-.-  
+                 YLR142W (PUT1)
 POSITION    XII:425186..426616
 MOTIF       Pfam: Pro_dh
-DBLINKS     NCBI-GI: 6323171
+DBLINKS     NCBI-ProteinID: NP_013243
             NCBI-GeneID: 850833
             SGD: S000004132
-            MIPS: YLR142W
             UniProt: P09368
 AASEQ       476
             MIASKSSLLVTKSRIPSLCFPLIKRSYVSKTPTHSNTAANLMVETPAANANGNSVMAPPN

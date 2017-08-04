@@ -1,12 +1,12 @@
 ENTRY       YOL044W           CDS       T00005
 NAME        PEX15, PAS21
-DEFINITION  Pex15p
+DEFINITION  (RefSeq) Pex15p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XV:247150..248301
-DBLINKS     NCBI-GI: 6324529
+MOTIF       Pfam: Casc1
+DBLINKS     NCBI-ProteinID: NP_014598
             NCBI-GeneID: 854113
             SGD: S000005404
-            MIPS: YOL044W
             UniProt: Q08215
 AASEQ       383
             MAASEIMNNLPMHSLDSSLRDLLNDDLFIESDESTKSVNDQRSEVFQECVNLFIKRDIKD

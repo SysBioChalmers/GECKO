@@ -1,13 +1,12 @@
 ENTRY       YMR204C           CDS       T00005
 NAME        INP1
-DEFINITION  Inp1p
+DEFINITION  (RefSeq) Inp1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XIII:complement(670063..671325)
 MOTIF       Pfam: Inp1 Dfp1_Him1_M
-DBLINKS     NCBI-GI: 6323860
+DBLINKS     NCBI-ProteinID: NP_013931
             NCBI-GeneID: 855244
             SGD: S000004817
-            MIPS: YMR204C
             UniProt: Q03694
 AASEQ       420
             MVLSRGETKKNSVRLTAKQEKKPQSTFQTLKQSLKLSNNKKLKQDSTQHSNDTNKSVKAK

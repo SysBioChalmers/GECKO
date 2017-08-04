@@ -1,13 +1,12 @@
 ENTRY       YIL154C           CDS       T00005
 NAME        IMP2', IMP2
-DEFINITION  Imp2'p
+DEFINITION  (RefSeq) Imp2'p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    IX:complement(53981..55021)
-MOTIF       Pfam: COPI_C
-DBLINKS     NCBI-GI: 398364225
+MOTIF       Pfam: Usp DUF1777 BUD22 DNA_pol_phi
+DBLINKS     NCBI-ProteinID: NP_012112
             NCBI-GeneID: 854652
             SGD: S000001416
-            MIPS: YIL154C
             UniProt: P32351
 AASEQ       346
             MQKSILLTKPDGTQSNLHSIKTETPTTVEFDSEQMERGHRERGRSKKKRGERDSNVSSLS

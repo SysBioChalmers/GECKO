@@ -1,12 +1,12 @@
 ENTRY       YBR108W           CDS       T00005
 NAME        AIM3
-DEFINITION  Aim3p
+DEFINITION  (RefSeq) Aim3p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    II:454822..457665
-DBLINKS     NCBI-GI: 330443449
+MOTIF       Pfam: AIM3
+DBLINKS     NCBI-ProteinID: NP_009666
             NCBI-GeneID: 852405
             SGD: S000000312
-            MIPS: YBR108W
             UniProt: P38266
 AASEQ       947
             MGFWENNKDSITSGLKSAGKYGYQGTKYVAKTGYKASKKHYNNSKARRERKSGKKNSSDE

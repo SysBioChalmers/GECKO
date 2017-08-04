@@ -1,13 +1,12 @@
 ENTRY       YLR024C           CDS       T00005
 NAME        UBR2
-DEFINITION  putative ubiquitin-protein ligase UBR2 (EC:6.3.2.-)
+DEFINITION  (RefSeq) putative ubiquitin-protein ligase UBR2
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XII:complement(187663..193281)
-MOTIF       Pfam: zf-UBR
-DBLINKS     NCBI-GI: 6323052
+MOTIF       Pfam: zf-UBR zf-rbx1
+DBLINKS     NCBI-ProteinID: NP_013124
             NCBI-GeneID: 850711
             SGD: S000004014
-            MIPS: YLR024C
             UniProt: Q07963
 AASEQ       1872
             MEDSDLSITNIRDFLTELPKLAKCEYSETTSYLLWKTLNLRLKHSDNDINWRSLVSILNS

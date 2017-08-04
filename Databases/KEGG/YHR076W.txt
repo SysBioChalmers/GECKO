@@ -1,14 +1,24 @@
 ENTRY       YHR076W           CDS       T00005
 NAME        PTC7
-DEFINITION  Ptc7p (EC:3.1.3.16)
-ORTHOLOGY   K17508  protein phosphatase 2C homolog 7 [EC:3.1.3.16]
+DEFINITION  (RefSeq) type 2C protein phosphatase PTC7
+ORTHOLOGY   K17508  protein phosphatase PTC7 [EC:3.1.3.16]
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Enzymes [BR:sce01000]
+             3. Hydrolases
+              3.1  Acting on ester bonds
+               3.1.3  Phosphoric-monoester hydrolases
+                3.1.3.16  protein-serine/threonine phosphatase
+                 YHR076W (PTC7)
+            Protein phosphatases and associated proteins [BR:sce01009]
+             Protein Ser/ Thr phosphatases
+              Mg2+- or Mn2+- dependent protein phosphatases (PPMs)
+               PPM1 phosphatases (PP2C)
+                YHR076W (PTC7)
 POSITION    VIII:join(251101..251155,251249..252225)
-MOTIF       Pfam: SpoIIE PP2C PP2C_2 NLBH
-DBLINKS     NCBI-GI: 154199605
+MOTIF       Pfam: SpoIIE PP2C PP2C_2 PPC
+DBLINKS     NCBI-ProteinID: NP_011943
             NCBI-GeneID: 856475
             SGD: S000001118
-            MIPS: YHR076W
             UniProt: P38797
 AASEQ       343
             MFANVGFRTLRVSRGPLYGSCSQIISFSKRTFYSSAKSGYQSNNSHGDAYSSGSQSGPFT

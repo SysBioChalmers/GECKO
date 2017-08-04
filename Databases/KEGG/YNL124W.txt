@@ -1,14 +1,18 @@
 ENTRY       YNL124W           CDS       T00005
 NAME        NAF1
-DEFINITION  Naf1p
+DEFINITION  (RefSeq) RNA-binding snoRNP assembly protein
 ORTHOLOGY   K14763  H/ACA ribonucleoprotein complex non-core subunit NAF1
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
+BRITE       Ribosome biogenesis [BR:sce03009]
+             Eukaryotic Type
+              Sno RNPs
+               Box H/ACA snoRNPs
+                YNL124W (NAF1)
 POSITION    XIV:392892..394370
-MOTIF       Pfam: Gar1 NTR2 RAP1
-DBLINKS     NCBI-GI: 398364753
+MOTIF       Pfam: Gar1 AF-4
+DBLINKS     NCBI-ProteinID: NP_014275
             NCBI-GeneID: 855599
             SGD: S000005068
-            MIPS: YNL124W
             UniProt: P53919
 STRUCTURE   PDB: 2V3M
 AASEQ       492

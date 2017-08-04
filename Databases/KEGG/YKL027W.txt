@@ -1,13 +1,12 @@
 ENTRY       YKL027W           CDS       T00005
 NAME        TCD2
-DEFINITION  Tcd2p
+DEFINITION  (RefSeq) tRNA threonylcarbamoyladenosine dehydratase
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XI:387562..388905
-MOTIF       Pfam: ThiF Shikimate_DH TrkA_N NAD_binding_7 Saccharop_dh ApbA
-DBLINKS     NCBI-GI: 6322825
+MOTIF       Pfam: ThiF Sacchrp_dh_NADP Shikimate_DH TrkA_N NAD_binding_7 UDPG_MGDP_dh_N
+DBLINKS     NCBI-ProteinID: NP_012898
             NCBI-GeneID: 853841
             SGD: S000001510
-            MIPS: YKL027W
             UniProt: P36101
 AASEQ       447
             MVEKDTWKLITATALFTVAVTTITDYAWTSWQAQKQVIAQQKNKNKGGQTKSDTDKYHQY

@@ -1,13 +1,12 @@
 ENTRY       YPL066W           CDS       T00005
 NAME        RGL1
-DEFINITION  Rgl1p
+DEFINITION  (RefSeq) Rgl1p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    XVI:426233..427672
-MOTIF       Pfam: Arrestin_C PhosphMutase
-DBLINKS     NCBI-GI: 6325191
+MOTIF       Pfam: Arrestin_C
+DBLINKS     NCBI-ProteinID: NP_015259
             NCBI-GeneID: 856039
             SGD: S000005987
-            MIPS: YPL066W
             UniProt: Q12194
 AASEQ       479
             MTHPVISLKPSYNSVIRGCPGLPDTLPRIECQLRVRSNNSLPFKLVKIEIVLKTIEIYFN

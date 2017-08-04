@@ -1,13 +1,12 @@
 ENTRY       YGR275W           CDS       T00005
 NAME        RTT102
-DEFINITION  Rtt102p
+DEFINITION  (RefSeq) Rtt102p
 ORGANISM    sce  Saccharomyces cerevisiae (budding yeast)
 POSITION    VII:1043276..1043749
-MOTIF       Pfam: Rtt102p DUF3610
-DBLINKS     NCBI-GI: 398366377
+MOTIF       Pfam: Rtt102p STAT_alpha
+DBLINKS     NCBI-ProteinID: NP_011791
             NCBI-GeneID: 853192
             SGD: S000003507
-            MIPS: YGR275W
             UniProt: P53330
 STRUCTURE   PDB: 4I6M
 AASEQ       157
