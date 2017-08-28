@@ -2,7 +2,7 @@
 % model = manualModifications(model)
 % 
 %
-% Benjamín J. Sánchez. Last edited: 2017-01-17
+% Benjamín J. Sánchez. Last edited: 2017-08-28
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function model = manualModifications(model)
@@ -230,14 +230,23 @@ end
 % (2017-01-16):
 rxns_tochange = {'r_0322No1','r_0322_REVNo1','r_0990No1','r_0990_REVNo1'};
 for i = 1:length(rxns_tochange)
-    rxn_name = rxns_tochange{i};
-    pos_rxn  = strcmp(model.rxns,rxn_name);
+    rxn_id  = rxns_tochange{i};
+    pos_rxn = strcmp(model.rxns,rxn_id);
     model.S(strcmp(model.mets,'prot_P14540'),pos_rxn) = 0;
-    model.rxns{pos_rxn} = rxn_name(1:end-3);
+    model.rxns{pos_rxn}     = rxn_id(1:end-3);
+    model.rxnNames{pos_rxn} = model.rxnNames{pos_rxn}(1:end-6);
 end
 
 % Remove protein P40009 (Golgi apyrase) from missanotated rxns (2016-12-14):
 model = removeRxns(model,'r_0227No3');
+
+% Remove 2 proteins from missanotated rxns: Q12122 from cytosolic rxn (it's
+% only mitochondrial) & P48570 from mitochondrial rxn (it's only cytosolic).
+% Also rename r_0543No2 to r_0543No1 (for consistency) (2017-08-28):
+model = removeRxns(model,'r_0543No1');
+model = removeRxns(model,'r_1838No2');
+model.rxnNames{strcmp(model.rxns,'r_0543No2')} = 'homocitrate synthase (No1)';
+model.rxns{strcmp(model.rxns,'r_0543No2')}     = 'r_0543No1';
 
 % Remove repeated reactions (2017-01-16):
 rem_rxn = false(size(model.rxns));
@@ -256,9 +265,9 @@ model = removeRxns(model,model.rxns(rem_rxn));
 arm_pos = zeros(size(model.rxns));
 p       = 0;
 for i = 1:length(model.rxns)
-    rxn_name = model.rxns{i};
-    if ~isempty(strfind(rxn_name,'arm_'))
-        rxn_code  = rxn_name(5:end);
+    rxn_id = model.rxns{i};
+    if ~isempty(strfind(rxn_id,'arm_'))
+        rxn_code  = rxn_id(5:end);
         k         = 0;
         for j = 1:length(model.rxns)
             if ~isempty(strfind(model.rxns{j},[rxn_code 'No']))
@@ -268,9 +277,10 @@ for i = 1:length(model.rxns)
         end
         if k == 1
             %Condense both reactions in one:
-            new_name   = model.rxns{pos};
+            new_id     = model.rxns{pos};
+            new_name   = model.rxnNames{pos};
             stoich     = model.S(:,i) + model.S(:,pos);
-            model      = addReaction(model,new_name,model.mets,stoich,true,0,1000);
+            model      = addReaction(model,{new_id,new_name},model.mets,stoich,true,0,1000);
             p          = p + 1;
             arm_pos(p) = i;
             disp(['Merging reactions: ' model.rxns{i} ' & ' model.rxns{pos}])
