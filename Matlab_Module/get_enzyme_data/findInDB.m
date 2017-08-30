@@ -26,7 +26,7 @@ for i = 1:length(gene_sets)
                 if ~isempty(DB{k,4})
                     new_EC_set = strsplit(DB{k,4},' ');
                     for l = 1:length(new_EC_set)
-                        EC_set{j}  = ['EC' new_EC_set{l} ' '];
+                        EC_set{j} = [EC_set{j} 'EC' new_EC_set{l} ' '];
                     end
                 end
             end
