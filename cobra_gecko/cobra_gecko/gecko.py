@@ -86,7 +86,7 @@ class GeckoModel(Model):
         pd.Series
             g protein / g DW for the measured proteins
         """
-        # measurements should are quantitative fractions of the total measured proteins, normalize to unit-length
+        # measurements should be quantitative fractions of the total measured proteins, normalized to unit-length
         fraction = fraction / fraction.sum()
         fraction_measured = self.enzyme_properties['abundance'][list(fraction.index)].sum()
         p_measured = self.p_total * fraction_measured
