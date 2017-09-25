@@ -6,6 +6,7 @@ import pandas as pd
 import re
 import numpy as np
 from six import iteritems
+from itertools import chain
 
 from cobra import Reaction, Metabolite
 
@@ -16,7 +17,7 @@ class GeckoHandler(object):
     def __init__(self, model, enzyme_properties=None, p_total=0.4005, p_base=0.4005, f=0.4461, sigma=0.5,
                  c_base=0.4067, biomass_reaction='r_4041', protein_pool_exchange='prot_pool_exchange',
                  common_protein_pool='prot_pool'):
-        """Mixin for adjusting gecko-cobra models.
+        """Convenience class for adjusting gecko-cobra models.
 
         Parameters
         ----------
@@ -26,9 +27,9 @@ class GeckoHandler(object):
             A data frame that defined molecular weight (g/mol) 'mw', for 'uniprot' proteins and their average
             'abundance' in ppm.
         p_total : float
-            total protein fraction in cell in g/gDW
+            total protein fraction in cell in g protein / g DW
         p_base : float
-            protein content at dilution rate 0.1 / h in g/gDW
+            protein content at dilution rate 0.1 / h in g protein / g DW.
         f : float
             The fraction of measured proteins versus total proteins in genome (p_model / p_total) (g / g)
         sigma : float
@@ -71,7 +72,20 @@ class GeckoHandler(object):
         self.fm_mass_fraction_matched = None
 
     def fraction_to_ggdw(self, fraction):
-        """Convert protein measurements in fraction of total to g/gDW"""
+        """Convert protein measurements in mass fraction of total to g protein / g DW
+
+        Parameters
+        ----------
+        fraction : pd.Series
+            Data of protein measurements which are absolute quantitative fractions of the total amount of these
+            measured proteins. Normalized to sum == 1.
+
+        Returns
+        -------
+        pd.Series
+            g protein / g DW for the measured proteins
+        """
+        fraction = fraction / fraction.sum()
         fraction_measured = self.enzyme_properties['abundance'][list(fraction.index)].sum()
         p_measured = self.p_total * fraction_measured
         return fraction.apply(lambda x: x * p_measured)
@@ -123,7 +137,7 @@ class GeckoHandler(object):
             if draw_reaction_id not in self.model.reactions:
                 draw_rxn = Reaction(draw_reaction_id)
                 protein_pool = self.model.metabolites.get_by_id('prot_{}_c'.format(enzyme_id))
-                metabolites = {self.common_protein_pool: self.enzyme_properties.loc[enzyme_id, 'mw'],
+                metabolites = {self.common_protein_pool: -self.enzyme_properties.loc[enzyme_id, 'mw'] / 1000.,
                                protein_pool: 1}
                 draw_rxn.add_metabolites(metabolites)
                 new_reactions.append(draw_rxn)
@@ -182,7 +196,8 @@ class GeckoHandler(object):
             The set of proteins that have a defined separate pool exchange reaction.
         """
 
-        return frozenset(re.findall(self.protein_exchange_re, rxn.id)[0] for rxn in self.protein_exchanges)
+        return frozenset(chain.from_iterable(re.findall(self.protein_exchange_re, rxn.id)
+                         for rxn in self.protein_exchanges))
 
     @property
     def pool_enzymes(self):
@@ -194,8 +209,8 @@ class GeckoHandler(object):
             The set of proteins that have a defined draw reaction.
         """
 
-        return frozenset(re.findall(self.pool_protein_exchange_re, rxn.id)[0]
-                         for rxn in self.protein_exchanges)
+        return frozenset(chain.from_iterable(re.findall(self.pool_protein_exchange_re, rxn.id)
+                         for rxn in self.protein_exchanges))
 
     @property
     def protein_exchanges(self):
@@ -206,12 +221,10 @@ class GeckoHandler(object):
         frozenset
             Set of protein exchange reactions (individual and common protein pool reactions)
         """
-        return (frozenset(rxn for rxn in self.model.reactions if re.match(self.protein_exchange_re, rxn.id)) -
+        return (frozenset(rxn for rxn in self.model.reactions
+                          if (re.match(self.protein_exchange_re, rxn.id) or
+                              re.match(self.pool_protein_exchange_re, rxn.id))) -
                 {self.protein_pool_exchange})
-
-
-def first_non_empty(matches):
-    return [m for m in matches if len(m) > 0][0]
 
 
 def gecko_model(model=None, protein_measurements=None, enzyme_properties=None, p_total=0.4005, p_base=0.4005, f=0.4461,
