@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+"""Implement the GeckoModel which subclasses cobrapy's Model."""
 from __future__ import absolute_import
 
 import pandas as pd
@@ -14,51 +14,60 @@ from geckopy.data import PROTEIN_PROPERTIES, COBRA_MODELS
 
 
 class GeckoModel(Model):
-    def __init__(self, model=None, protein_measurements=None, protein_properties=None, p_total=0.4005, p_base=0.4005,
-                 f=0.4461, sigma=0.5, c_base=0.4067, biomass_reaction='r_4041',
-                 protein_pool_exchange='prot_pool_exchange', common_protein_pool='prot_pool'):
-        """Convenience class for adjusting gecko-cobra models.
+    """Class for representing GECKO models.
 
-        Parameters
-        ----------
-        model : cobra.Model
-            A cobra model to apply enzyme constraints to.
-        protein_properties : pd.DataFrame
-            A data frame that defined molecular weight (g/mol) 'mw', for 'uniprot' proteins and their average
-            'abundance' in ppm.
-        p_total : float
-            total protein fraction in cell in g protein / g DW. Can be set to a different value than
-            p_total to take the higher fraction of ribosomal proteins at higher growth rates into account.
-        p_base : float
-            protein content at dilution rate 0.1 / h in g protein / g DW.
-        f : float
-            The fraction of measured proteins versus total proteins in genome (p_model / p_total) (g / g)
-        sigma : float
-            The parameter adjusting how much of a protein pool can take part in reactions.
-        c_base : float
-            The carbohydrate content at dilution rate 0.1 / h
-        biomass_reaction : str
-            The identifier for the biomass reaction
-        protein_pool_exchange : str
-            The identifier of the protein pool exchange reaction
-        common_protein_pool : str
-            The identifier of the metabolite representing the common protein pool
-        """
+    Adds convenience methods for working with GECKO models to the general cobrapy Model.
+
+    Parameters
+    ----------
+    model : cobra.Model
+        A cobra model to apply enzyme constraints to. If missing, use one of the shipped models, single-protein pool
+        if no protein measurements are supplied, otherwise a model with individual enzyme pools for all measured
+        proteins.
+    protein_measurements : pd.Series
+        The measured protein abundances in fraction of total.
+    protein_properties : pd.DataFrame
+        A data frame that defined molecular weight (g/mol) 'mw', for 'uniprot' proteins and their average
+        'abundance' in ppm.
+    p_total : float
+        total protein fraction in cell in g protein / g DW. Can be set to a different value than
+        p_total to take the higher fraction of ribosomal proteins at higher growth rates into account.
+    p_base : float
+        protein content at dilution rate 0.1 / h in g protein / g DW.
+    f : float
+        The fraction of measured proteins versus total proteins in genome (p_model / p_total) (g / g)
+    sigma : float
+        The parameter adjusting how much of a protein pool can take part in reactions.
+    c_base : float
+        The carbohydrate content at dilution rate 0.1 / h
+    biomass_reaction_id : str
+        The identifier for the biomass reaction
+    protein_pool_exchange_id : str
+        The identifier of the protein pool exchange reaction
+    common_protein_pool_id : str
+        The identifier of the metabolite representing the common protein pool
+
+    """
+
+    def __init__(self, model=None, protein_measurements=None, protein_properties=None, p_total=0.4005, p_base=0.4005,
+                 f=0.4461, sigma=0.5, c_base=0.4067, biomass_reaction_id='r_4041',
+                 protein_pool_exchange_id='prot_pool_exchange', common_protein_pool_id='prot_pool'):
+        """Create a new GECKO model."""
         if model is None and protein_measurements is None:
             model = COBRA_MODELS['batch'].copy()
         elif model is None:
             model = COBRA_MODELS['full'].copy()
         super(GeckoModel, self).__init__(id_or_model=model, name=model.name)
-        self.biomass_reaction = self.reactions.get_by_id(biomass_reaction)
+        self.biomass_reaction = self.reactions.get_by_id(biomass_reaction_id)
         self.protein_properties = protein_properties or PROTEIN_PROPERTIES
         try:
-            self.common_protein_pool = self.metabolites.get_by_id(common_protein_pool)
+            self.common_protein_pool = self.metabolites.get_by_id(common_protein_pool_id)
         except KeyError:
-            self.common_protein_pool = Metabolite(common_protein_pool)
+            self.common_protein_pool = Metabolite(common_protein_pool_id)
         try:
-            self.protein_pool_exchange = self.reactions.get_by_id(protein_pool_exchange)
+            self.protein_pool_exchange = self.reactions.get_by_id(protein_pool_exchange_id)
         except KeyError:
-            self.protein_pool_exchange = Reaction(protein_pool_exchange)
+            self.protein_pool_exchange = Reaction(protein_pool_exchange_id)
             self.protein_pool_exchange.add_metabolites({self.common_protein_pool: 1.})
             self.add_reactions([self.protein_pool_exchange])
         self.protein_exchange_re = re.compile(r'^prot_(.*)_exchange$')
@@ -79,7 +88,7 @@ class GeckoModel(Model):
             self.apply_measurements(protein_measurements)
 
     def fraction_to_ggdw(self, fraction):
-        """Convert protein measurements in mass fraction of total to g protein / g DW
+        """Convert protein measurements in mass fraction of total to g protein / g DW.
 
         Parameters
         ----------
@@ -91,6 +100,7 @@ class GeckoModel(Model):
         -------
         pd.Series
             g protein / g DW for the measured proteins
+
         """
         # measurements should be quantitative fractions of the total measured proteins, normalized to unit-length
         fraction = fraction / fraction.sum()
@@ -105,6 +115,7 @@ class GeckoModel(Model):
         ----------
         measurements : pd.Series
             Protein abundances in fraction of total (normalized to sum to 1)
+
         """
         ggdw = self.fraction_to_ggdw(measurements)
         # * section 2.5
@@ -134,7 +145,7 @@ class GeckoModel(Model):
         self.adjust_biomass_composition()
 
     def constrain_pool(self):
-        """Constrain common protein pool
+        """Constrain the draw reactions for the unmeasured (common protein pool) enzymes.
 
         Proteins without their own protein pool are collectively constrained by the common protein pool. Remove
         protein pools for all proteins that don't have measurements, along with corresponding draw reactions,
@@ -171,6 +182,7 @@ class GeckoModel(Model):
 
         After changing the protein and carbohydrate content based on measurements, adjust the corresponding
         coefficients of the biomass reaction.
+
         """
         for met in self.biomass_reaction.metabolites:
             coefficient = self.biomass_reaction.metabolites[met]
@@ -194,42 +206,51 @@ class GeckoModel(Model):
 
     @property
     def unmeasured(self):
-        """Unmeasured enzymes
+        """Get the identifiers of the unmeasured enzymes.
 
         Returns
         -------
         list
             The unmeasured enzymes, protein identifiers.
+
         """
         return list(self.concentrations[self.concentrations.isnull()].index)
 
     @property
     def enzymes(self):
+        """Get all enzymes.
+
+        Returns
+        -------
+        frozenset
+           The set of all enzymes identifiers.
+
+        """
         return self.individual_enzymes.union(self.pool_enzymes)
 
     @property
     def individual_enzymes(self):
-        """Enzymes with their individual abundance pool.
+        """Get the identifiers for the enzymes with their individual abundance pool.
 
         Returns
         -------
         frozenset
             The set of proteins that have a defined separate pool exchange reaction.
-        """
 
+        """
         return frozenset(chain.from_iterable(re.findall(self.protein_exchange_re, rxn.id)
                                              for rxn in self.protein_exchanges))
 
     @property
     def pool_enzymes(self):
-        """Enzymes
+        """Get enzymes modeled by common protein pool.
 
         Returns
         -------
         frozenset
             The set of proteins that have a defined draw reaction.
-        """
 
+        """
         return frozenset(chain.from_iterable(re.findall(self.pool_protein_exchange_re, rxn.id)
                                              for rxn in self.protein_exchanges))
 
@@ -241,9 +262,9 @@ class GeckoModel(Model):
         -------
         frozenset
             Set of protein exchange reactions (individual and common protein pool reactions)
+
         """
         return (frozenset(rxn for rxn in self.reactions
                           if (re.match(self.protein_exchange_re, rxn.id) or
                               re.match(self.pool_protein_exchange_re, rxn.id))) -
                 {self.protein_pool_exchange})
-
