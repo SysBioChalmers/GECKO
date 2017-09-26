@@ -22,7 +22,7 @@ except:
     from urllib.request import urlopen
 
 
-GITHUB_REPO = 'hredestig/python_boilerplate'
+GITHUB_REPO = 'SysBioChalmers/GECKO'
 TRAVIS_CONFIG_FILE = os.path.join(
     os.path.dirname(os.path.abspath(__file__)), '.travis.yml')
 
