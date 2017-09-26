@@ -30,8 +30,7 @@ class GeckoModel(Model):
         A data frame that defined molecular weight (g/mol) 'mw', for 'uniprot' proteins and their average
         'abundance' in ppm.
     p_total : float
-        total protein fraction in cell in g protein / g DW. Can be set to a different value than
-        p_total to take the higher fraction of ribosomal proteins at higher growth rates into account.
+        measured total protein fraction in cell in g protein / g DW.
     p_base : float
         protein content at dilution rate 0.1 / h in g protein / g DW.
     sigma : float
@@ -71,19 +70,17 @@ class GeckoModel(Model):
         self.protein_exchange_re = re.compile(r'^prot_(.*)_exchange$')
         self.pool_protein_exchange_re = re.compile(r'^draw_prot_(.*)$')
         self.concentrations = pd.Series(np.nan, index=self.enzymes)
+        # FIXME: Sensible deafult if not measured?
         self.p_total = p_total
         self.c_base = c_base
         self.p_base = p_base
-        self.f_mass_fraction_measured_matched_to_total = (
-            self.protein_properties.loc[self.enzymes].prod(axis=1).sum() /
-            self.protein_properties.prod(axis=1).sum()
-        )
         self.sigma_saturation_factor = sigma
         self.fp_fraction_protein = self.p_total / self.p_base
         self.fc_carbohydrate_content = (self.c_base + self.p_base - self.p_total) / self.c_base
+        self.fn_mass_fraction_unmeasured_matched = None
         self.fs_matched_adjusted = None
         self.p_measured = None
-        self.fn_mass_fraction_unmeasured_matched = None
+        self.f_mass_fraction_measured_matched_to_total = None
         self.fm_mass_fraction_matched = None
         if protein_measurements is not None:
             self.apply_measurements(protein_measurements)
@@ -130,17 +127,17 @@ class GeckoModel(Model):
             else:
                 self.concentrations[enzyme_id] = value
                 rxn.bounds = 0, mmol_gdw
-        # 2. p_measured is aggregate mass of al matched enzymes
+        # 2. p_measured is aggregate mass of all matched enzymes
         self.p_measured = self.concentrations.sum()
         # 3. fm, mass fraction of measured proteins in the model over total
         self.fm_mass_fraction_matched = self.p_measured / self.p_total
         # 4. mass fraction of unmeasured proteins in the model over all proteins not matched to model
-        properties_unmeasured = self.protein_properties.loc[self.unmeasured]
         self.fn_mass_fraction_unmeasured_matched = (
-            (properties_unmeasured['abundance'] * properties_unmeasured['mw']).sum() /
-            (self.protein_properties['abundance'] * self.protein_properties['mw']).sum())
-        self.f_mass_fraction_measured_matched_to_total = self.fn_mass_fraction_unmeasured_matched / (
-            1 - self.fm_mass_fraction_matched)
+            self.protein_properties.loc[self.unmeasured].prod(axis=1).sum() /
+            self.protein_properties.prod(axis=1).sum()
+        )
+        self.f_mass_fraction_measured_matched_to_total = (
+            self.fn_mass_fraction_unmeasured_matched / (1 - self.fm_mass_fraction_matched))
         # 5. constrain unmeasured proteins by common pool
         self.constrain_pool()
         self.adjust_biomass_composition()
@@ -157,7 +154,8 @@ class GeckoModel(Model):
         # * section 2.5.1
         # 1. and 2. introduce `prot_pool` and exchange reaction done in __init__
         # 3. limiting total usage with the unmeasured amount of protein
-        self.fs_matched_adjusted = ((self.p_total - self.p_measured) * self.f_mass_fraction_measured_matched_to_total *
+        self.fs_matched_adjusted = ((self.p_total - self.p_measured) / self.p_base *
+                                    self.f_mass_fraction_measured_matched_to_total *
                                     self.sigma_saturation_factor)
         self.reactions.prot_pool_exchange.bounds = 0, self.fs_matched_adjusted
         # 4. Remove other enzyme usage reactions and replace with pool exchange reactions
