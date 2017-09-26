@@ -3,7 +3,7 @@
 
 from setuptools import setup
 
-with open('README.rst') as readme_file:
+with open('README.md') as readme_file:
     readme = readme_file.read()
 
 with open('HISTORY.rst') as history_file:
@@ -32,7 +32,7 @@ setup(
                  'cobra_gecko'},
     include_package_data=True,
     install_requires=requirements,
-    license="Apache Software License 2.0",
+    license="custom..",
     zip_safe=False,
     keywords='cobra_gecko',
     classifiers=[
