@@ -10,11 +10,11 @@ from itertools import chain
 
 from cobra import Reaction, Metabolite, Model
 
-from cobra_gecko.data import ENZYME_PROPERTIES, COBRA_MODELS
+from cobra_gecko.data import PROTEIN_PROPERTIES, COBRA_MODELS
 
 
 class GeckoModel(Model):
-    def __init__(self, model, enzyme_properties=None, p_total=0.4005, p_base=0.4005, f=0.4461, sigma=0.5,
+    def __init__(self, model, protein_properties=None, p_total=0.4005, p_base=0.4005, f=0.4461, sigma=0.5,
                  c_base=0.4067, biomass_reaction='r_4041', protein_pool_exchange='prot_pool_exchange',
                  common_protein_pool='prot_pool'):
         """Convenience class for adjusting gecko-cobra models.
@@ -23,7 +23,7 @@ class GeckoModel(Model):
         ----------
         model : cobra.Model
             A cobra model to apply enzyme constraints to.
-        enzyme_properties : pd.DataFrame
+        protein_properties : pd.DataFrame
             A data frame that defined molecular weight (g/mol) 'mw', for 'uniprot' proteins and their average
             'abundance' in ppm.
         p_total : float
@@ -46,7 +46,7 @@ class GeckoModel(Model):
         """
         super(GeckoModel, self).__init__(id_or_model=model.copy(), name=model.name)
         self.biomass_reaction = self.reactions.get_by_id(biomass_reaction)
-        self.enzyme_properties = enzyme_properties or ENZYME_PROPERTIES
+        self.protein_properties = protein_properties or PROTEIN_PROPERTIES
         try:
             self.common_protein_pool = self.metabolites.get_by_id(common_protein_pool)
         except KeyError:
@@ -88,7 +88,7 @@ class GeckoModel(Model):
         """
         # measurements should be quantitative fractions of the total measured proteins, normalized to unit-length
         fraction = fraction / fraction.sum()
-        fraction_measured = self.enzyme_properties['abundance'][list(fraction.index)].sum()
+        fraction_measured = self.protein_properties['abundance'][list(fraction.index)].sum()
         p_measured = self.p_total * fraction_measured
         return fraction.apply(lambda x: x * p_measured)
 
@@ -105,7 +105,7 @@ class GeckoModel(Model):
         # 1. define mmmol_gdw as ub for measured enzymes
         for enzyme_id, value in iteritems(ggdw):
             try:
-                mmol_gdw = value / (self.enzyme_properties.loc[enzyme_id, 'mw'] / 1000)
+                mmol_gdw = value / (self.protein_properties.loc[enzyme_id, 'mw'] / 1000)
                 rxn = self.reactions.get_by_id('prot_{}_exchange'.format(enzyme_id))
             except KeyError:
                 pass
@@ -117,10 +117,10 @@ class GeckoModel(Model):
         # 3. fm, mass fraction of measured proteins in the model over total
         self.fm_mass_fraction_matched = self.p_measured / self.p_total
         # 4. mass fraction of unmeasured proteins in the model over all proteins not matched to model
-        properties_unmeasured = self.enzyme_properties.loc[self.unmeasured]
+        properties_unmeasured = self.protein_properties.loc[self.unmeasured]
         self.fn_mass_fraction_unmeasured_matched = (
             (properties_unmeasured['abundance'] * properties_unmeasured['mw']).sum() /
-            (self.enzyme_properties['abundance'] * self.enzyme_properties['mw']).sum())
+            (self.protein_properties['abundance'] * self.protein_properties['mw']).sum())
         self.f_mass_fraction_measured_matched_to_total = self.fn_mass_fraction_unmeasured_matched / (
             1 - self.fm_mass_fraction_matched)
         # 5. constrain unmeasured proteins by common pool
@@ -149,7 +149,7 @@ class GeckoModel(Model):
             if draw_reaction_id not in self.reactions:
                 draw_rxn = Reaction(draw_reaction_id)
                 protein_pool = self.metabolites.get_by_id('prot_{}_c'.format(enzyme_id))
-                metabolites = {self.common_protein_pool: -self.enzyme_properties.loc[enzyme_id, 'mw'] / 1000.,
+                metabolites = {self.common_protein_pool: -self.protein_properties.loc[enzyme_id, 'mw'] / 1000.,
                                protein_pool: 1}
                 draw_rxn.add_metabolites(metabolites)
                 new_reactions.append(draw_rxn)

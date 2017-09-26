@@ -1,4 +1,4 @@
-.PHONY: clean clean-test clean-pyc clean-build docs help fixtures
+.PHONY: clean clean-test clean-pyc clean-build docs help copy-models protein-properties
 .DEFAULT_GOAL := help
 define BROWSER_PYSCRIPT
 import os, webbrowser, sys
@@ -77,7 +77,9 @@ dist: clean ## builds source and wheel package
 install: clean ## install the package to the active Python's site-packages
 	python setup.py install
 
-fixtures: ## prepare necessary data files from downloads
+copy-models: ## copy the latest model from main repository to package directory
 	cp `find ../Models -name 'ecYeast7*[0-9].xml' | sort | head -n1` cobra_gecko/data_files/ecYeast7.xml
 	cp `find ../Models -name 'ecYeast7*_batch.xml' | sort | head -n1` cobra_gecko/data_files/ecYeast7_batch.xml
-	python fixtures/enzyme-properties.py
+
+protein-properties: ## generate the protein properties file from new downloads
+	python fixtures/protein-properties.py

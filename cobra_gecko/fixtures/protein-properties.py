@@ -20,7 +20,7 @@ def retrieve(url, f_name):
             f.write(u.read().decode())
 
 
-def enzyme_properties():
+def protein_properties():
     tmpdir = mkdtemp()
     retrieve(('ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/idmapping'
               '/by_organism/YEAST_559292_idmapping.dat.gz'),
@@ -51,8 +51,8 @@ def enzyme_properties():
     enzyme = enzyme[['uniprot', 'mw', 'abundance']]
     enzyme.index = enzyme.uniprot
     enzyme = enzyme[['mw', 'abundance']][(enzyme.notnull())]
-    enzyme.to_csv(os.path.join(DATADIR, 'enzymes.txt'))
+    enzyme.to_csv(os.path.join(DATADIR, 'proteins.txt'))
 
 
 if '__main__' in __name__:
-    enzyme_properties()
+    protein_properties()

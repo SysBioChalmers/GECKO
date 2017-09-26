@@ -24,5 +24,5 @@ class ModelList(object):
 - pax abundance in ppm
 - molecular weight (or average molecular weight)
 """
-ENZYME_PROPERTIES = pd.read_csv(os.path.join(os.path.dirname(__file__), 'data_files/enzymes.txt'), index_col=0)
+PROTEIN_PROPERTIES = pd.read_csv(os.path.join(os.path.dirname(__file__), 'data_files/proteins.txt'), index_col=0)
 COBRA_MODELS = ModelList()
