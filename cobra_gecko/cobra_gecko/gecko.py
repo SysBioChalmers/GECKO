@@ -143,14 +143,18 @@ class GeckoModel(Model):
                                     self.sigma_saturation_factor)
         self.reactions.prot_pool_exchange.bounds = 0, self.fs_matched_adjusted
         # 4. Remove other enzyme usage reactions and replace with pool exchange reactions
+        average_mmw = self.protein_properties['mw'].mean() / 1000.
         for enzyme_id in self.unmeasured:
             to_remove.extend(self.reactions.query('prot_{}_exchange'.format(enzyme_id)))
             draw_reaction_id = 'draw_prot_{}'.format(enzyme_id)
             if draw_reaction_id not in self.reactions:
                 draw_rxn = Reaction(draw_reaction_id)
                 protein_pool = self.metabolites.get_by_id('prot_{}_c'.format(enzyme_id))
-                metabolites = {self.common_protein_pool: -self.protein_properties.loc[enzyme_id, 'mw'] / 1000.,
-                               protein_pool: 1}
+                try:
+                    mmw = self.protein_properties.loc[enzyme_id, 'mw'] / 1000.
+                except KeyError:
+                    mmw = average_mmw
+                metabolites = {self.common_protein_pool: -mmw, protein_pool: 1}
                 draw_rxn.add_metabolites(metabolites)
                 new_reactions.append(draw_rxn)
         self.add_reactions(new_reactions)

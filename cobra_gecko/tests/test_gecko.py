@@ -13,4 +13,6 @@ def test_gecko_adjustment():
     model = gecko_model(protein_measurements=pd.Series(measurements))
     sol = model.optimize()
     assert sol.objective_value > 0.05
+    assert len(model.enzymes) - len(model.pool_enzymes) - len(in_model) == 0
+    # fraction_measured = model.protein_properties['abundance'][list(fraction.index)].sum()
     # assert all(rxn.ub == props[] for rxn in )
