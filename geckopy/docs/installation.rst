@@ -12,9 +12,9 @@ To install cobra gecko, run this command in your terminal:
 
 .. code-block:: console
 
-    $ pip install cobra_gecko
+    $ pip install geckopy
 
-This is the preferred method to install cobra gecko, as it will always install the most recent stable release. 
+This is the preferred method to install cobra gecko, as it will always install the most recent stable release.
 
 If you don't have `pip`_ installed, this `Python installation guide`_ can guide
 you through the process.
@@ -32,13 +32,13 @@ You can either clone the public repository:
 
 .. code-block:: console
 
-    $ git clone git://github.com/BenjaSanchez/cobra_gecko
+    $ git clone git://github.com/BenjaSanchez/geckopy
 
 Or download the `tarball`_:
 
 .. code-block:: console
 
-    $ curl  -OL https://github.com/BenjaSanchez/cobra_gecko/tarball/master
+    $ curl  -OL https://github.com/BenjaSanchez/geckopy/tarball/master
 
 Once you have a copy of the source, you can install it with:
 
@@ -47,5 +47,5 @@ Once you have a copy of the source, you can install it with:
     $ python setup.py install
 
 
-.. _Github repo: https://github.com/BenjaSanchez/cobra_gecko
-.. _tarball: https://github.com/BenjaSanchez/cobra_gecko/tarball/master
+.. _Github repo: https://github.com/BenjaSanchez/geckopy
+.. _tarball: https://github.com/BenjaSanchez/geckopy/tarball/master

@@ -31,9 +31,9 @@ easy_install-2.7 SOAPpy
 
 See the supporting information of [Sánchez et al. (2017)]([citation](https://dx.doi.org/10.15252/msb.20167411))
 
-## Using the cobra_gecko Python package for obtaining an adjusted GECKO model object
+## Using the geckopy Python package for obtaining an adjusted GECKO model object
 
-If all you need is the ecYeast7 model to use together with cobrapy you can use the `cobra_gecko` Python package.
+If all you need is the ecYeast7 model to use together with cobrapy you can use the `geckopy` Python package.
 
 ### Required software
 
@@ -43,13 +43,13 @@ If all you need is the ecYeast7 model to use together with cobrapy you can use t
 ### Installation
 
 ```
-pip install cobra_gecko
+pip install geckopy
 ```
 
 ### Usage
 
 ```python
-from cobra_gecko import gecko_model
+from geckopy import gecko_model
 import pandas
 model = gecko_model
 some_measurements = pandas.Series({'P00549': 0.1, 'P31373': 0.1, 'P31382': 0.1})

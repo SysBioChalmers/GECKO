@@ -2,8 +2,8 @@
 
 from __future__ import absolute_import
 
-from cobra_gecko import data
-from cobra_gecko.gecko import GeckoModel, gecko_model
+from geckopy import data
+from geckopy.gecko import GeckoModel, gecko_model
 
 __author__ = 'Benjamin Sanchez'
 __email__ = 'bensan@chalmers.se'

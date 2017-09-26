@@ -15,7 +15,7 @@ Types of Contributions
 Report Bugs
 ~~~~~~~~~~~
 
-Report bugs at https://github.com/Biosustain/cobra_gecko/issues.
+Report bugs at https://github.com/SysBioChalmers/GECKO/issues
 
 If you are reporting a bug, please include:
 
@@ -45,7 +45,7 @@ articles, and such.
 Submit Feedback
 ~~~~~~~~~~~~~~~
 
-The best way to send feedback is to file an issue at https://github.com/Biosustain/cobra_gecko/issues.
+The best way to send feedback is to file an issue at https://github.com/SysBioChalmers/GECKO
 
 If you are proposing a feature:
 
@@ -57,17 +57,17 @@ If you are proposing a feature:
 Get Started!
 ------------
 
-Ready to contribute? Here's how to set up `cobra_gecko` for local development.
+Ready to contribute? Here's how to set up `geckopy` for local development.
 
-1. Fork the `cobra_gecko` repo on GitHub.
+1. Fork the `GECKO` repo on GitHub.
 2. Clone your fork locally::
 
-    git clone git@github.com:your_name_here/cobra_gecko.git
+    git clone git@github.com:SysBioChalmers/GECKO.git
 
 3. Install your local copy into a virtualenv. Assuming you have virtualenvwrapper installed, this is how you set up your fork for local development::
 
-    mkvirtualenv cobra_gecko
-    cd cobra_gecko/
+    mkvirtualenv geckopy
+    cd GECKO/geckopy/
     python setup.py develop
 
 4. Create a branch for local development::

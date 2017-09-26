@@ -42,7 +42,7 @@ clean-test: ## remove test and coverage artifacts
 	rm -rf .tox/ htmlcov/ .coverage
 
 lint: ## check style with flake8
-	flake8 cobra_gecko tests
+	flake8 geckopy tests
 
 test: ## run tests quickly with the default Python
 	pytest
@@ -51,14 +51,14 @@ test-all: ## run tests on every Python version with tox
 	tox
 
 coverage: ## check code coverage quickly with the default Python
-		coverage run --source cobra_gecko `which py.test`
+		coverage run --source geckopy `which py.test`
 		coverage report -m
 		coverage html
 		$(BROWSER) htmlcov/index.html
 
 docs: ## generate Sphinx HTML documentation, including API docs
-	rm -f docs/cobra_gecko.rst docs/modules.rst
-	sphinx-apidoc -o docs/ cobra_gecko
+	rm -f docs/geckopy.rst docs/modules.rst
+	sphinx-apidoc -o docs/ geckopy
 	$(MAKE) -C docs clean
 	$(MAKE) -C docs html
 	$(BROWSER) docs/_build/html/index.html
@@ -78,8 +78,8 @@ install: clean ## install the package to the active Python's site-packages
 	python setup.py install
 
 copy-models: ## copy the latest model from main repository to package directory
-	cp `find ../Models -name 'ecYeast7*[0-9].xml' | sort | head -n1` cobra_gecko/data_files/ecYeast7.xml
-	cp `find ../Models -name 'ecYeast7*_batch.xml' | sort | head -n1` cobra_gecko/data_files/ecYeast7_batch.xml
+	cp `find ../Models -name 'ecYeast7*[0-9].xml' | sort | head -n1` geckopy/data_files/ecYeast7.xml
+	cp `find ../Models -name 'ecYeast7*_batch.xml' | sort | head -n1` geckopy/data_files/ecYeast7_batch.xml
 
 protein-properties: ## generate the protein properties file from new downloads
 	python fixtures/protein-properties.py

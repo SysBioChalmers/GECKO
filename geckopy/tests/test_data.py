@@ -2,7 +2,7 @@
 
 from cobra import Model
 
-from cobra_gecko import data
+from geckopy import data
 
 
 def test_data():

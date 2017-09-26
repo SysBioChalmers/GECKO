@@ -6,7 +6,7 @@ import os
 from tempfile import mkdtemp
 
 
-DATADIR = os.path.join(os.path.dirname(__file__), '../cobra_gecko/data_files')
+DATADIR = os.path.join(os.path.dirname(__file__), '../geckopy/data_files')
 
 
 def retrieve(url, f_name):

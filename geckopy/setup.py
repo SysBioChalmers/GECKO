@@ -18,23 +18,23 @@ test_requirements = [
 ]
 
 setup(
-    name='cobra_gecko',
+    name='geckopy',
     version='0.0.1',
     description="Methods for using the GECKO model with cobrapy",
     long_description=readme + '\n\n' + history,
     author="Bejamin Sanchez",
     author_email='bensan@chalmers.se',
-    url='https://github.com/Biosustain/cobra_gecko',
+    url='https://github.com/Biosustain/geckopy',
     packages=[
-        'cobra_gecko',
+        'geckopy',
     ],
-    package_dir={'cobra_gecko':
-                 'cobra_gecko'},
+    package_dir={'geckopy':
+                 'geckopy'},
     include_package_data=True,
     install_requires=requirements,
     license="custom..",
     zip_safe=False,
-    keywords='cobra_gecko',
+    keywords='geckopy',
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
         'Intended Audience :: Developers',

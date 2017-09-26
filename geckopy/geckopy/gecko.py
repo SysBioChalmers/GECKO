@@ -10,13 +10,13 @@ from itertools import chain
 
 from cobra import Reaction, Metabolite, Model
 
-from cobra_gecko.data import PROTEIN_PROPERTIES, COBRA_MODELS
+from geckopy.data import PROTEIN_PROPERTIES, COBRA_MODELS
 
 
 class GeckoModel(Model):
-    def __init__(self, model, protein_properties=None, p_total=0.4005, p_base=0.4005, f=0.4461, sigma=0.5,
-                 c_base=0.4067, biomass_reaction='r_4041', protein_pool_exchange='prot_pool_exchange',
-                 common_protein_pool='prot_pool'):
+    def __init__(self, model=None, protein_measurements=None, protein_properties=None, p_total=0.4005, p_base=0.4005,
+                 f=0.4461, sigma=0.5, c_base=0.4067, biomass_reaction='r_4041',
+                 protein_pool_exchange='prot_pool_exchange', common_protein_pool='prot_pool'):
         """Convenience class for adjusting gecko-cobra models.
 
         Parameters
@@ -44,7 +44,11 @@ class GeckoModel(Model):
         common_protein_pool : str
             The identifier of the metabolite representing the common protein pool
         """
-        super(GeckoModel, self).__init__(id_or_model=model.copy(), name=model.name)
+        if model is None and protein_measurements is None:
+            model = COBRA_MODELS['batch'].copy()
+        elif model is None:
+            model = COBRA_MODELS['full'].copy()
+        super(GeckoModel, self).__init__(id_or_model=model, name=model.name)
         self.biomass_reaction = self.reactions.get_by_id(biomass_reaction)
         self.protein_properties = protein_properties or PROTEIN_PROPERTIES
         try:
@@ -71,6 +75,8 @@ class GeckoModel(Model):
         self.p_measured = None
         self.fn_mass_fraction_unmeasured_matched = None
         self.fm_mass_fraction_matched = None
+        if protein_measurements is not None:
+            self.apply_measurements(protein_measurements)
 
     def fraction_to_ggdw(self, fraction):
         """Convert protein measurements in mass fraction of total to g protein / g DW
@@ -241,46 +247,3 @@ class GeckoModel(Model):
                               re.match(self.pool_protein_exchange_re, rxn.id))) -
                 {self.protein_pool_exchange})
 
-
-def gecko_model(model=None, protein_measurements=None, enzyme_properties=None, p_total=0.4005, p_base=0.4005, f=0.4461,
-                sigma=0.5, c_base=0.4067, biomass_reaction='r_4041', protein_pool_exchange='prot_pool_exchange',
-                common_protein_pool='prot_pool'):
-    """Enzyme constrained metabolic model of yeast.
-
-    Get and adjust an instance of the ecYeast7 model and adjust based on proteomics data.
-
-    Parameters
-    ----------
-    model : cobra.Model
-        A cobra model to apply enzyme constraints to.
-    protein_measurements : pd.Series
-        A series with protein measurements in fraction of total.
-    enzyme_properties : pd.DataFrame
-        A data frame that defined molecular weight (g/mol) 'mw', for 'uniprot' proteins and their average
-        'abundance' in ppm.
-    p_total : float
-        total protein fraction in cell in g/gDW
-    p_base : float
-        protein content at dilution rate 0.1 / h in g/gDW
-    f : float
-        The fraction of measured proteins versus total proteins in genome (p_model / p_total) (g / g)
-    sigma : float
-        The parameter adjusting how much of a protein pool can take part in reactions.
-    c_base : float
-        The carbohydrate content at dilution rate 0.1 / h
-    biomass_reaction : str
-        The identifier for the biomass reaction
-    protein_pool_exchange : str
-        The identifier of the protein pool exchange reaction
-    common_protein_pool : str
-        The identifier of the metabolite representing the common protein pool
-    """
-    if model is None and protein_measurements is None:
-        model = COBRA_MODELS['batch']
-    elif model is None:
-        model = COBRA_MODELS['full']
-    model = GeckoModel(model, enzyme_properties, p_total, p_base, f, sigma, c_base, biomass_reaction,
-                       protein_pool_exchange, common_protein_pool)
-    if protein_measurements is not None:
-        model.apply_measurements(protein_measurements)
-    return model

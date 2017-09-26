@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from cobra_gecko import gecko_model
+from geckopy import gecko_model
 
 import pandas as pd
 

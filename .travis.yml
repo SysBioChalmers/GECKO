@@ -52,7 +52,7 @@ matrix:
 
 # command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
 install:
-  - cd cobra_gecko
+  - cd geckopy
   - make copy-models
   - bash ci/travis/setup.sh
 
@@ -71,7 +71,7 @@ deploy:
   on:
     tags: true
     branch: master
-    repo: Biosustain/cobra_gecko
+    repo: Biosustain/geckopy
     condition: $TRAVIS_PYTHON_VERSION == "3.6"
 
 notifications:
