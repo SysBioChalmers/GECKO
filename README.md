@@ -49,10 +49,9 @@ pip install geckopy
 ### Usage
 
 ```python
-from geckopy import gecko_model
+from geckopy import GeckoModel
 import pandas
-model = gecko_model
 some_measurements = pandas.Series({'P00549': 0.1, 'P31373': 0.1, 'P31382': 0.1})
-model = gecko_model(measurements=some_measurements)
+model = GeckoModel(protein_measurements=some_measurements)
 model.optimize()
 ```

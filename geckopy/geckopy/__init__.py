@@ -3,7 +3,7 @@
 from __future__ import absolute_import
 
 from geckopy import data
-from geckopy.gecko import GeckoModel, gecko_model
+from geckopy.gecko import GeckoModel
 
 __author__ = 'Benjamin Sanchez'
 __email__ = 'bensan@chalmers.se'
