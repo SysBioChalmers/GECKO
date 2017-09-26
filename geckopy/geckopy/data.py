@@ -28,12 +28,14 @@ class ModelList(object):
 
         """
         key = dict(batch='ecYeast7_batch', full='ecYeast7')[item]
-        file_name = os.path.join(os.path.dirname(__file__), 'data_files/{}.xml'.format(key))
-        model = read_sbml_model(file_name)
-        for rxn in model.reactions:
-            if rxn.upper_bound == inf:
-                rxn.upper_bound = 1000
-        return model
+        if key not in self.models:
+            file_name = os.path.join(os.path.dirname(__file__), 'data_files/{}.xml'.format(key))
+            model = read_sbml_model(file_name)
+            for rxn in model.reactions:
+                if isinf(rxn.upper_bound):
+                    rxn.upper_bound = 1000
+            self.models[key] = model
+        return self.models[key]
 
 
 """Should have, for all proteins in model
