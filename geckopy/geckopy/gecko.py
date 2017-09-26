@@ -34,8 +34,6 @@ class GeckoModel(Model):
         p_total to take the higher fraction of ribosomal proteins at higher growth rates into account.
     p_base : float
         protein content at dilution rate 0.1 / h in g protein / g DW.
-    f : float
-        The fraction of measured proteins versus total proteins in genome (p_model / p_total) (g / g)
     sigma : float
         The parameter adjusting how much of a protein pool can take part in reactions.
     c_base : float
@@ -50,9 +48,9 @@ class GeckoModel(Model):
     """
 
     def __init__(self, model=None, protein_measurements=None, protein_properties=None, p_total=0.4005, p_base=0.4005,
-                 f=0.4461, sigma=0.5, c_base=0.4067, biomass_reaction_id='r_4041',
+                 sigma=0.5, c_base=0.4067, biomass_reaction_id='r_4041',
                  protein_pool_exchange_id='prot_pool_exchange', common_protein_pool_id='prot_pool'):
-        """Create a new GECKO model."""
+        """Get a new GECKO model object."""
         if model is None and protein_measurements is None:
             model = COBRA_MODELS['batch'].copy()
         elif model is None:
@@ -76,7 +74,10 @@ class GeckoModel(Model):
         self.p_total = p_total
         self.c_base = c_base
         self.p_base = p_base
-        self.f_mass_fraction_measured_matched_to_total = f
+        self.f_mass_fraction_measured_matched_to_total = (
+            self.protein_properties.loc[self.enzymes].prod(axis=1).sum() /
+            self.protein_properties.prod(axis=1).sum()
+        )
         self.sigma_saturation_factor = sigma
         self.fp_fraction_protein = self.p_total / self.p_base
         self.fc_carbohydrate_content = (self.c_base + self.p_base - self.p_total) / self.c_base
@@ -182,7 +183,6 @@ class GeckoModel(Model):
 
         After changing the protein and carbohydrate content based on measurements, adjust the corresponding
         coefficients of the biomass reaction.
-
         """
         for met in self.biomass_reaction.metabolites:
             coefficient = self.biomass_reaction.metabolites[met]
