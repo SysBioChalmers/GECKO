@@ -78,8 +78,8 @@ install: clean ## install the package to the active Python's site-packages
 	python setup.py install
 
 copy-models: ## copy the latest model from main repository to package directory
-	cp `find ../Models -name 'ecYeast7*[0-9].xml' | sort | head -n1` geckopy/data_files/ecYeast7.xml
-	cp `find ../Models -name 'ecYeast7*_batch.xml' | sort | head -n1` geckopy/data_files/ecYeast7_batch.xml
+	cp `find ../Models -name 'ecYeast7*[0-9].xml' | sort | head -n1` geckopy/data_files/ecYeast7_multi-pool.xml
+	cp `find ../Models -name 'ecYeast7*_batch.xml' | sort | head -n1` geckopy/data_files/ecYeast7_single-pool.xml
 
 protein-properties: ## generate the protein properties file from new downloads
 	python fixtures/protein-properties.py

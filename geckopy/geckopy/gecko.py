@@ -5,7 +5,7 @@ from __future__ import absolute_import
 import pandas as pd
 import re
 import numpy as np
-from six import iteritems
+from six import iteritems, string_types
 from itertools import chain
 
 from cobra import Reaction, Metabolite, Model
@@ -20,10 +20,9 @@ class GeckoModel(Model):
 
     Parameters
     ----------
-    model : cobra.Model
-        A cobra model to apply enzyme constraints to. If missing, use one of the shipped models, single-protein pool
-        if no protein measurements are supplied, otherwise a model with individual enzyme pools for all measured
-        proteins.
+    model : cobra.Model, str
+        A cobra model to apply enzyme constraints to. Can be 'single-pool' for the bundled ecYeast7 model using only
+        a single pool for all enzymes, or 'multi-pool' for the model that has separate pools for all measured enzymes.
     protein_measurements : pd.Series
         The measured protein abundances in fraction of total.
     protein_properties : pd.DataFrame
@@ -62,15 +61,12 @@ class GeckoModel(Model):
 
     """
 
-    def __init__(self, model=None, protein_measurements=None, protein_properties=None, p_total=0.448, p_base=0.4005,
+    def __init__(self, model, protein_measurements=None, protein_properties=None, p_total=0.448, p_base=0.4005,
                  sigma=0.46, c_base=0.4067, gam=31., amino_acid_polymerization_cost=16.965,
                  carbohydrate_polymerization_cost=5.210, biomass_reaction_id='r_4041',
                  protein_pool_exchange_id='prot_pool_exchange', common_protein_pool_id='prot_pool'):
         """Get a new GECKO model object."""
-        if model is None and protein_measurements is None:
-            model = COBRA_MODELS['batch'].copy()
-        elif model is None:
-            model = COBRA_MODELS['full'].copy()
+        model = model or COBRA_MODELS[model].copy()
         super(GeckoModel, self).__init__(id_or_model=model, name=model.name)
         self.biomass_reaction = self.reactions.get_by_id(biomass_reaction_id)
         self.protein_properties = protein_properties or PROTEIN_PROPERTIES
