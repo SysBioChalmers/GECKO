@@ -16,7 +16,7 @@ from geckopy.data import PROTEIN_PROPERTIES, COBRA_MODELS
 class GeckoModel(Model):
     """Class for representing GECKO models.
 
-    Adds convenience methods for working with GECKO models to the general cobrapy Model.
+    Implement a model class for Genome-scale model to account for Enzyme Constraints, using Kinetics and Omics [1]_.
 
     Parameters
     ----------
@@ -30,13 +30,21 @@ class GeckoModel(Model):
         A data frame that defined molecular weight (g/mol) 'mw', for 'uniprot' proteins and their average
         'abundance' in ppm.
     p_total : float
-        measured total protein fraction in cell in g protein / g DW.
+        measured total protein fraction in cell in g protein / g DW. Should be measured for each experiment,
+        the default here is taken from [1]_.
     p_base : float
-        protein content at dilution rate 0.1 / h in g protein / g DW.
+        protein content at dilution rate 0.1 / h in g protein / g DW. Default taken from [2]_.
     sigma : float
-        The parameter adjusting how much of a protein pool can take part in reactions.
+        The parameter adjusting how much of a protein pool can take part in reactions. Fitted parameter, default is
+        optimized for experiment in [1]_.
+    gam : float
+        The growth associated maintenance cost in mmol / gDW. Default taken from [2]_.
+    amino_acid_polymerization_cost : float
+        The cost for turning amino-acids in proteins in mmol / gDW. Default taken from [2]_.
+    carbohydrate_polymerization_cost : float
+        The cost for turning monosaccharides in polysaccharides in mmol / gDW. Default taken from [2]_.
     c_base : float
-        The carbohydrate content at dilution rate 0.1 / h
+        The carbohydrate content at dilution rate 0.1 / h. Default taken from [2]_.
     biomass_reaction_id : str
         The identifier for the biomass reaction
     protein_pool_exchange_id : str
@@ -44,10 +52,19 @@ class GeckoModel(Model):
     common_protein_pool_id : str
         The identifier of the metabolite representing the common protein pool
 
+    References
+    ----------
+    .. [1] Benjamin J. Sanchez, Cheng Zhang, Avlant Nilsson, Petri-Jaan Lahtvee, Eduard J. Kerkhoven, Jens Nielsen (
+       2017). Improving the phenotype predictions of a yeast genome-scale metabolic model by incorporating enzymatic
+       constraints. [Molecular Systems Biology, 13(8): 935, http://www.dx.doi.org/10.15252/msb.20167411
+
+       [2] J. Förster, I. Famili, B. Ø. Palsson and J. Nielsen, Genome Res., 2003, 244–253.
+
     """
 
-    def __init__(self, model=None, protein_measurements=None, protein_properties=None, p_total=0.4005, p_base=0.4005,
-                 sigma=0.5, c_base=0.4067, biomass_reaction_id='r_4041',
+    def __init__(self, model=None, protein_measurements=None, protein_properties=None, p_total=0.448, p_base=0.4005,
+                 sigma=0.46, c_base=0.4067, gam=31., amino_acid_polymerization_cost=16.965,
+                 carbohydrate_polymerization_cost=5.210, biomass_reaction_id='r_4041',
                  protein_pool_exchange_id='prot_pool_exchange', common_protein_pool_id='prot_pool'):
         """Get a new GECKO model object."""
         if model is None and protein_measurements is None:
@@ -70,7 +87,9 @@ class GeckoModel(Model):
         self.protein_exchange_re = re.compile(r'^prot_(.*)_exchange$')
         self.pool_protein_exchange_re = re.compile(r'^draw_prot_(.*)$')
         self.concentrations = pd.Series(np.nan, index=self.enzymes)
-        # FIXME: Sensible deafult if not measured?
+        self.gam = gam
+        self.amino_acid_polymerization_cost = amino_acid_polymerization_cost
+        self.carbohydrate_polymerization_cost = carbohydrate_polymerization_cost
         self.p_total = p_total
         self.c_base = c_base
         self.p_base = p_base
@@ -176,7 +195,7 @@ class GeckoModel(Model):
         self.add_reactions(new_reactions)
         self.remove_reactions(to_remove)
 
-    def adjust_biomass_composition(self, gam=31.):
+    def adjust_biomass_composition(self):
         """Adjust the biomass composition.
 
         After changing the protein and carbohydrate content based on measurements, adjust the corresponding
@@ -195,7 +214,9 @@ class GeckoModel(Model):
             is_p = 'phosphate' in met.name
 
             if is_atp or is_adp or is_h2o or is_h or is_p:
-                coefficient = sign * (gam + 16.965 * self.fp_fraction_protein + 5.210 * self.fc_carbohydrate_content)
+                coefficient = sign * (self.gam +
+                                      self.amino_acid_polymerization_cost * self.fp_fraction_protein +
+                                      self.carbohydrate_polymerization_cost * self.fc_carbohydrate_content)
             elif is_aa:
                 coefficient = self.fp_fraction_protein * coefficient
             elif is_ch:
