@@ -144,13 +144,14 @@ class GeckoModel(Model):
         self.p_base = p_base
         self.fp_fraction_protein = self.p_total / self.p_base
         self.fc_carbohydrate_content = (self.c_base + self.p_base - self.p_total) / self.c_base
-        ggdw = ggdw or self.fraction_to_ggdw(fractions)
+        ggdw = self.fraction_to_ggdw(fractions) if ggdw is None else ggdw
         # * section 2.5
         # 1. define mmmol_gdw as ub for measured enzymes
         for enzyme_id, value in iteritems(ggdw):
             try:
                 mmol_gdw = value / (self.protein_properties.loc[enzyme_id, 'mw'] / 1000)
                 rxn = self.reactions.get_by_id('prot_{}_exchange'.format(enzyme_id))
+                rxn.annotation['uniprot'] = enzyme_id
             except KeyError:
                 pass
             else:
@@ -194,6 +195,7 @@ class GeckoModel(Model):
             draw_reaction_id = 'draw_prot_{}'.format(enzyme_id)
             if draw_reaction_id not in self.reactions:
                 draw_rxn = Reaction(draw_reaction_id)
+                draw_rxn.annotation['uniprot'] = enzyme_id
                 protein_pool = self.metabolites.get_by_id('prot_{}_c'.format(enzyme_id))
                 try:
                     mmw = self.protein_properties.loc[enzyme_id, 'mw'] / 1000.
