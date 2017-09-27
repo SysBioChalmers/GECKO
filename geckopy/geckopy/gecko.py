@@ -5,7 +5,7 @@ from __future__ import absolute_import
 import pandas as pd
 import re
 import numpy as np
-from six import iteritems
+from six import iteritems, string_types
 from itertools import chain
 
 from cobra import Reaction, Metabolite, Model
@@ -59,7 +59,7 @@ class GeckoModel(Model):
                  carbohydrate_polymerization_cost=5.210, biomass_reaction_id='r_4041',
                  protein_pool_exchange_id='prot_pool_exchange', common_protein_pool_id='prot_pool'):
         """Get a new GECKO model object."""
-        model = model or COBRA_MODELS[model].copy()
+        model = COBRA_MODELS[model].copy() if isinstance(model, string_types) else model
         super(GeckoModel, self).__init__(id_or_model=model, name=model.name)
         self.biomass_reaction = self.reactions.get_by_id(biomass_reaction_id)
         self.protein_properties = protein_properties or PROTEIN_PROPERTIES
@@ -284,6 +284,34 @@ class GeckoModel(Model):
                                              for rxn in self.protein_exchanges))
 
     @property
+    def individual_protein_exchanges(self):
+        """Individual protein-exchange reactions.
+
+        Returns
+        -------
+        frozenset
+            Set of protein exchange reactions with individual pools
+
+        """
+        return (frozenset(rxn for rxn in self.reactions
+                          if re.match(self.protein_exchange_re, rxn.id)) -
+                {self.protein_pool_exchange})
+
+    @property
+    def pool_protein_exchanges(self):
+        """Protein-exchange reactions by single pool.
+
+        Returns
+        -------
+        frozenset
+            Set of protein exchange reactions for single pool reactions.
+
+        """
+        return (frozenset(rxn for rxn in self.reactions
+                          if re.match(self.pool_protein_exchange_re, rxn.id)) -
+                {self.protein_pool_exchange})
+
+    @property
     def protein_exchanges(self):
         """Protein-exchange reactions.
 
@@ -293,7 +321,4 @@ class GeckoModel(Model):
             Set of protein exchange reactions (individual and common protein pool reactions)
 
         """
-        return (frozenset(rxn for rxn in self.reactions
-                          if (re.match(self.protein_exchange_re, rxn.id) or
-                              re.match(self.pool_protein_exchange_re, rxn.id))) -
-                {self.protein_pool_exchange})
+        return self.individual_protein_exchanges.union(self.pool_protein_exchanges)
