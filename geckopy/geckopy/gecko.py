@@ -184,7 +184,12 @@ class GeckoModel(Model):
         # * section 2.5.1
         # 1. and 2. introduce `prot_pool` and exchange reaction done in __init__
         # 3. limiting total usage with the unmeasured amount of protein
-        self.fs_matched_adjusted = ((self.p_total - self.p_measured) / self.p_base *
+        # looks like the matlab code:
+        # self.fs_matched_adjusted = ((self.p_total - self.p_measured) / self.p_base *
+        #                             self.f_mass_fraction_measured_matched_to_total *
+        #                             self.sigma_saturation_factor)
+        # but this gives results more like reported:
+        self.fs_matched_adjusted = ((self.p_total - self.p_measured) *
                                     self.f_mass_fraction_measured_matched_to_total *
                                     self.sigma_saturation_factor)
         self.reactions.prot_pool_exchange.bounds = 0, self.fs_matched_adjusted
