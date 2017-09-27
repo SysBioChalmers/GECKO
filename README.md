@@ -53,6 +53,6 @@ from geckopy import GeckoModel
 import pandas
 some_measurements = pandas.Series({'P00549': 0.1, 'P31373': 0.1, 'P31382': 0.1})
 model = GeckoModel('multi-pool')
-model.apply_measurements(some_measurements)
+model.limit_proteins(some_measurements)
 model.optimize()
 ```

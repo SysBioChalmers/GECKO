@@ -5,7 +5,7 @@ from __future__ import absolute_import
 import pandas as pd
 import re
 import numpy as np
-from six import iteritems, string_types
+from six import iteritems
 from itertools import chain
 
 from cobra import Reaction, Metabolite, Model
@@ -23,16 +23,9 @@ class GeckoModel(Model):
     model : cobra.Model, str
         A cobra model to apply enzyme constraints to. Can be 'single-pool' for the bundled ecYeast7 model using only
         a single pool for all enzymes, or 'multi-pool' for the model that has separate pools for all measured enzymes.
-    protein_measurements : pd.Series
-        The measured protein abundances in fraction of total.
     protein_properties : pd.DataFrame
         A data frame that defined molecular weight (g/mol) 'mw', for 'uniprot' proteins and their average
         'abundance' in ppm.
-    p_total : float
-        measured total protein fraction in cell in g protein / g DW. Should be measured for each experiment,
-        the default here is taken from [1]_.
-    p_base : float
-        protein content at dilution rate 0.1 / h in g protein / g DW. Default taken from [2]_.
     sigma : float
         The parameter adjusting how much of a protein pool can take part in reactions. Fitted parameter, default is
         optimized for experiment in [1]_.
@@ -61,7 +54,7 @@ class GeckoModel(Model):
 
     """
 
-    def __init__(self, model, protein_measurements=None, protein_properties=None, p_total=0.448, p_base=0.4005,
+    def __init__(self, model, protein_properties=None,
                  sigma=0.46, c_base=0.4067, gam=31., amino_acid_polymerization_cost=16.965,
                  carbohydrate_polymerization_cost=5.210, biomass_reaction_id='r_4041',
                  protein_pool_exchange_id='prot_pool_exchange', common_protein_pool_id='prot_pool'):
@@ -86,19 +79,17 @@ class GeckoModel(Model):
         self.gam = gam
         self.amino_acid_polymerization_cost = amino_acid_polymerization_cost
         self.carbohydrate_polymerization_cost = carbohydrate_polymerization_cost
-        self.p_total = p_total
         self.c_base = c_base
-        self.p_base = p_base
         self.sigma_saturation_factor = sigma
-        self.fp_fraction_protein = self.p_total / self.p_base
-        self.fc_carbohydrate_content = (self.c_base + self.p_base - self.p_total) / self.c_base
+        self.fp_fraction_protein = None
+        self.fc_carbohydrate_content = None
+        self.p_total = None
+        self.p_base = None
         self.fn_mass_fraction_unmeasured_matched = None
         self.fs_matched_adjusted = None
         self.p_measured = None
         self.f_mass_fraction_measured_matched_to_total = None
         self.fm_mass_fraction_matched = None
-        if protein_measurements is not None:
-            self.apply_measurements(protein_measurements)
 
     def fraction_to_ggdw(self, fraction):
         """Convert protein measurements in mass fraction of total to g protein / g DW.
@@ -121,16 +112,39 @@ class GeckoModel(Model):
         p_measured = self.p_total * fraction_measured
         return fraction.apply(lambda x: x * p_measured)
 
-    def apply_measurements(self, measurements):
+    def limit_proteins(self, fractions=None, ggdw=None, p_total=0.448, p_base=0.4005):
         """Apply proteomics measurements to model.
+
+        Apply measurements in the form of fractions of total of the measured proteins, or directly as g / gDW. Must
+        supply exactly one of `fractions` or `ggdw`.
 
         Parameters
         ----------
-        measurements : pd.Series
-            Protein abundances in fraction of total (normalized to sum to 1)
+        fractions : pd.Series
+            Protein abundances in fraction of total (normalized to sum to 1). Ignored if `ggdw` is also supplied.
+        ggdw : pd.Series
+            Protein abundances in g / gDW
+        p_total : float
+            measured total protein fraction in cell in g protein / g DW. Should be measured for each experiment,
+            the default here is taken from [1]_.
+        p_base : float
+            protein content at dilution rate 0.1 / h in g protein / g DW. Default taken from [2]_.
+
+        References
+        ----------
+        .. [1] Benjamin J. Sanchez, Cheng Zhang, Avlant Nilsson, Petri-Jaan Lahtvee, Eduard J. Kerkhoven, Jens Nielsen (
+           2017). Improving the phenotype predictions of a yeast genome-scale metabolic model by incorporating enzymatic
+           constraints. [Molecular Systems Biology, 13(8): 935, http://www.dx.doi.org/10.15252/msb.20167411
+
+           [2] J. Förster, I. Famili, B. Ø. Palsson and J. Nielsen, Genome Res., 2003, 244–253.
+
 
         """
-        ggdw = self.fraction_to_ggdw(measurements)
+        self.p_total = p_total
+        self.p_base = p_base
+        self.fp_fraction_protein = self.p_total / self.p_base
+        self.fc_carbohydrate_content = (self.c_base + self.p_base - self.p_total) / self.c_base
+        ggdw = ggdw or self.fraction_to_ggdw(fractions)
         # * section 2.5
         # 1. define mmmol_gdw as ub for measured enzymes
         for enzyme_id, value in iteritems(ggdw):
