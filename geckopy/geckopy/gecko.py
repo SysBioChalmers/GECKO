@@ -21,8 +21,8 @@ class GeckoModel(Model):
     Parameters
     ----------
     model : cobra.Model, str
-        A cobra model to apply enzyme constraints to. Can be 'single-pool' for the bundled ecYeast7 model using only
-        a single pool for all enzymes, or 'multi-pool' for the model that has separate pools for all measured enzymes.
+        A cobra model to apply protein constraints to. Can be 'single-pool' for the bundled ecYeast7 model using only
+        a single pool for all proteins, or 'multi-pool' for the model that has separate pools for all measured proteins.
     protein_properties : pd.DataFrame
         A data frame that defined molecular weight (g/mol) 'mw', for 'uniprot' proteins and their average
         'abundance' in ppm.
@@ -75,7 +75,7 @@ class GeckoModel(Model):
             self.add_reactions([self.protein_pool_exchange])
         self.protein_exchange_re = re.compile(r'^prot_(.*)_exchange$')
         self.pool_protein_exchange_re = re.compile(r'^draw_prot_(.*)$')
-        self.concentrations = pd.Series(np.nan, index=self.enzymes)
+        self.concentrations = pd.Series(np.nan, index=self.proteins)
         self.gam = gam
         self.amino_acid_polymerization_cost = amino_acid_polymerization_cost
         self.carbohydrate_polymerization_cost = carbohydrate_polymerization_cost
@@ -146,24 +146,24 @@ class GeckoModel(Model):
         self.fc_carbohydrate_content = (self.c_base + self.p_base - self.p_total) / self.c_base
         ggdw = self.fraction_to_ggdw(fractions) if ggdw is None else ggdw
         # * section 2.5
-        # 1. define mmmol_gdw as ub for measured enzymes
-        for enzyme_id, value in iteritems(ggdw):
+        # 1. define mmmol_gdw as ub for measured proteins
+        for protein_id, value in iteritems(ggdw):
             try:
-                mmol_gdw = value / (self.protein_properties.loc[enzyme_id, 'mw'] / 1000)
-                rxn = self.reactions.get_by_id('prot_{}_exchange'.format(enzyme_id))
-                rxn.annotation['uniprot'] = enzyme_id
+                mmol_gdw = value / (self.protein_properties.loc[protein_id, 'mw'] / 1000)
+                rxn = self.reactions.get_by_id('prot_{}_exchange'.format(protein_id))
+                rxn.annotation['uniprot'] = protein_id
             except KeyError:
                 pass
             else:
-                self.concentrations[enzyme_id] = value
+                self.concentrations[protein_id] = value
                 rxn.bounds = 0, mmol_gdw
-        # 2. p_measured is aggregate mass of all matched enzymes
+        # 2. p_measured is aggregate mass of all matched proteins
         self.p_measured = self.concentrations.sum()
         # 3. fm, mass fraction of measured proteins in the model over total
         self.fm_mass_fraction_matched = self.p_measured / self.p_total
         # 4. mass fraction of unmeasured proteins in the model over all proteins not matched to model
         self.fn_mass_fraction_unmeasured_matched = (
-            self.protein_properties.loc[self.unmeasured].prod(axis=1).sum() /
+            self.protein_properties.loc[self.unmeasured_proteins].prod(axis=1).sum() /
             self.protein_properties.prod(axis=1).sum()
         )
         self.f_mass_fraction_measured_matched_to_total = (
@@ -173,7 +173,7 @@ class GeckoModel(Model):
         self.adjust_biomass_composition()
 
     def constrain_pool(self):
-        """Constrain the draw reactions for the unmeasured (common protein pool) enzymes.
+        """Constrain the draw reactions for the unmeasured (common protein pool) proteins.
 
         Proteins without their own protein pool are collectively constrained by the common protein pool. Remove
         protein pools for all proteins that don't have measurements, along with corresponding draw reactions,
@@ -195,15 +195,15 @@ class GeckoModel(Model):
         self.reactions.prot_pool_exchange.bounds = 0, self.fs_matched_adjusted
         # 4. Remove other enzyme usage reactions and replace with pool exchange reactions
         average_mmw = self.protein_properties['mw'].mean() / 1000.
-        for enzyme_id in self.unmeasured:
-            to_remove.extend(self.reactions.query('prot_{}_exchange'.format(enzyme_id)))
-            draw_reaction_id = 'draw_prot_{}'.format(enzyme_id)
+        for protein_id in self.unmeasured_proteins:
+            to_remove.extend(self.reactions.query('prot_{}_exchange'.format(protein_id)))
+            draw_reaction_id = 'draw_prot_{}'.format(protein_id)
             if draw_reaction_id not in self.reactions:
                 draw_rxn = Reaction(draw_reaction_id)
-                draw_rxn.annotation['uniprot'] = enzyme_id
-                protein_pool = self.metabolites.get_by_id('prot_{}_c'.format(enzyme_id))
+                draw_rxn.annotation['uniprot'] = protein_id
+                protein_pool = self.metabolites.get_by_id('prot_{}_c'.format(protein_id))
                 try:
-                    mmw = self.protein_properties.loc[enzyme_id, 'mw'] / 1000.
+                    mmw = self.protein_properties.loc[protein_id, 'mw'] / 1000.
                 except KeyError:
                     mmw = average_mmw
                 metabolites = {self.common_protein_pool: -mmw, protein_pool: 1}
@@ -241,32 +241,44 @@ class GeckoModel(Model):
             self.biomass_reaction.metabolites[met] = coefficient
 
     @property
-    def unmeasured(self):
-        """Get the identifiers of the unmeasured enzymes.
-
-        Returns
-        -------
-        list
-            The unmeasured enzymes, protein identifiers.
-
-        """
-        return list(self.concentrations[self.concentrations.isnull()].index)
-
-    @property
-    def enzymes(self):
-        """Get all enzymes.
+    def measured_proteins(self):
+        """Get the identifiers of the measured proteins.
 
         Returns
         -------
         frozenset
-           The set of all enzymes identifiers.
+            The identifiers for the unmeasured proteins.
 
         """
-        return self.individual_enzymes.union(self.pool_enzymes)
+        return frozenset(self.concentrations[self.concentrations.notnull()].index)
 
     @property
-    def individual_enzymes(self):
-        """Get the identifiers for the enzymes with their individual abundance pool.
+    def unmeasured_proteins(self):
+        """Get the identifiers of the proteins .
+
+        Returns
+        -------
+        frozenset
+            The protein identifiers for the measured proteins.
+
+        """
+        return frozenset(self.concentrations[self.concentrations.isnull()].index)
+
+    @property
+    def proteins(self):
+        """Get all proteins.
+
+        Returns
+        -------
+        frozenset
+           The set of all proteins identifiers.
+
+        """
+        return self.individual_proteins.union(self.pool_proteins)
+
+    @property
+    def individual_proteins(self):
+        """Get the identifiers for the proteins with their individual abundance pool.
 
         Returns
         -------
@@ -278,8 +290,8 @@ class GeckoModel(Model):
                                              for rxn in self.protein_exchanges))
 
     @property
-    def pool_enzymes(self):
-        """Get enzymes modeled by common protein pool.
+    def pool_proteins(self):
+        """Get proteins modeled by common protein pool.
 
         Returns
         -------
