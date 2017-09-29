@@ -45,3 +45,19 @@ def test_gecko_adjustment_sanchez_etal():
     biomass = pd.Series(dict((m.id, v) for m, v in model.reactions.r_4041.metabolites.items()))
     # FIXME: poor match with provided model for ATP, ADP, H+, H20, P
     assert sum((biomass - sanchez_biomass).abs()) < 20
+
+
+def test_adjust_pool_bounds():
+    essential = {'P00498': 0., 'P00815': 0.}
+    in_model = {'P00549': 0.1, 'P31373': 0.1, 'P31382': 0.1, 'P39708': 0.1, 'P39714': 0.1, 'P39726': 0.1, 'Q01574': 0.1}
+    expected = set('prot_{}_exchange'.format(pool_id) for pool_id in essential)
+    measurements = pd.concat([pd.Series(in_model), pd.Series(essential)])
+    model = GeckoModel('multi-pool')
+    model.limit_proteins(fractions=pd.Series(measurements))
+    assert model.slim_optimize() < 1e-3
+    model.adjust_pool_bounds(inplace=False)
+    assert model.slim_optimize() < 1e-3
+    adjustment = model.adjust_pool_bounds(inplace=True)
+    observed = set(adjustment['reaction'])
+    assert abs(model.slim_optimize() - 0.05) < 1e-3
+    assert expected == observed
