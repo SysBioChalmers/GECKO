@@ -6,6 +6,7 @@ import pandas as pd
 import re
 import numpy as np
 from six import iteritems, string_types
+from sympy import S
 from itertools import chain
 
 from cobra import Reaction, Metabolite, Model
@@ -81,6 +82,7 @@ class GeckoModel(Model):
         self.carbohydrate_polymerization_cost = carbohydrate_polymerization_cost
         self.c_base = c_base
         self.sigma_saturation_factor = sigma
+        self.measured_ggdw = None
         self.fp_fraction_protein = None
         self.fc_carbohydrate_content = None
         self.p_total = None
@@ -144,10 +146,10 @@ class GeckoModel(Model):
         self.p_base = p_base
         self.fp_fraction_protein = self.p_total / self.p_base
         self.fc_carbohydrate_content = (self.c_base + self.p_base - self.p_total) / self.c_base
-        ggdw = self.fraction_to_ggdw(fractions) if ggdw is None else ggdw
+        self.measured_ggdw = self.fraction_to_ggdw(fractions) if ggdw is None else ggdw
         # * section 2.5
         # 1. define mmmol_gdw as ub for measured proteins
-        for protein_id, value in iteritems(ggdw):
+        for protein_id, value in iteritems(self.measured_ggdw):
             try:
                 mmol_gdw = value / (self.protein_properties.loc[protein_id, 'mw'] / 1000)
                 rxn = self.reactions.get_by_id('prot_{}_exchange'.format(protein_id))
@@ -239,6 +241,55 @@ class GeckoModel(Model):
             elif is_ch:
                 coefficient = self.fc_carbohydrate_content * coefficient
             self.biomass_reaction.metabolites[met] = coefficient
+
+    def adjust_pool_bounds(self, min_objective=0.05, inplace=False, tolerance=1e-9):
+        """Adjust protein pool bounds minimally to make model feasible.
+
+        Bounds from measurements can make the model non-viable or even infeasible. Adjust these minimally by minimizing
+        the positive deviation from the measured values.
+
+        Parameters
+        ----------
+        min_objective : float
+            The minimum value of for the ojective for calling the model viable.
+        inplace : bool
+            Apply the adjustments to the model.
+        tolerance : float
+            Minimum non-zero value. Solver specific value.
+
+        Returns
+        -------
+        pd.DataFrame
+            Data frame with the series 'original' bounds and the new 'adjusted' bound, and the optimized 'addition'.
+
+        """
+        with self as model:
+            problem = model.problem
+            constraint_objective = problem.Constraint(model.objective.expression, name='constraint_objective',
+                                                      lb=min_objective)
+            to_add = [constraint_objective]
+            new_objective = S.Zero
+            for pool in model.individual_protein_exchanges:
+                ub_diff = problem.Variable('pool_diff_' + pool.id, lb=0, ub=None)
+                current_ub = problem.Variable('measured_bound_' + pool.id, lb=pool.upper_bound, ub=pool.upper_bound)
+                constraint = problem.Constraint(pool.forward_variable - current_ub - ub_diff, ub=0,
+                                                name='pool_ub_' + pool.id)
+                to_add.extend([ub_diff, current_ub, constraint])
+                new_objective += ub_diff
+                pool.bounds = 0, 1000.
+            model.add_cons_vars(to_add)
+            model.objective = problem.Objective(new_objective, direction='min')
+            model.slim_optimize(error_value=None)
+            primal_values = model.solver.primal_values
+        adjustments = [(pool.id, primal_values['pool_diff_' + pool.id], pool.upper_bound)
+                       for pool in model.individual_protein_exchanges
+                       if primal_values['pool_diff_' + pool.id] > tolerance]
+        result = pd.DataFrame(adjustments, columns=['reaction', 'addition', 'original'])
+        result['adjusted'] = result['addition'] + result['original']
+        if inplace:
+            for adj in result.itertuples():
+                model.reactions.get_by_id(adj.reaction).upper_bound = adj.adjusted
+        return result
 
     @property
     def measured_proteins(self):
