@@ -8,7 +8,7 @@
 %       Entry - Protein names - Gene names - EC number - Sequence
 %       OBS: filter with the Swiss-Prot option
 % 
-% Benjamín Sánchez & Cheng Zhang. Last edited: 2017-04-18
+% Benjamín Sánchez & Cheng Zhang. Last edited: 2017-10-18
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function [swissprot,kegg] = updateDatabases
@@ -17,15 +17,20 @@ function [swissprot,kegg] = updateDatabases
 cd ../../Databases
 swissprot = buildSWISSPROTtable;
 
-%Download KEGG data from internet:
+%Download KEGG data:
+mkdir KEGG
 cd KEGG
 downloadKEGGdata('sce')
 
 %Build KEGG table
 kegg = buildKEGGtable;
 
-%Save both databases as .mat files:
+%Remove KEGG files for compliance of repository:
+delete *.txt
 cd ..
+rmdir KEGG
+
+%Save both databases as .mat files:
 save('ProtDatabase.mat','swissprot','kegg');
 cd ../Matlab_Module/get_enzyme_data
 
@@ -68,9 +73,10 @@ gene_list = urlread([base operation organism]);
 gene_list = regexpi(gene_list, '[^\n]+','match')'; 
 gene_id   = regexpi(gene_list,['(?<=' organism ':)\S+'],'match');
 
-% Retrieve information for every gene in the list
+% Retrieve information for every gene in the list (with a maximum of 10,000
+% to avoid bulk downloads)
 operation = 'get/';
-for i = 1:numel(gene_id)
+for i = 1:min([numel(gene_id),10000])
     try
         gene = urlread([base operation organism ':' gene_id{i}{1}]);
         fid  = fopen([gene_id{i}{1} '.txt'],'w');
