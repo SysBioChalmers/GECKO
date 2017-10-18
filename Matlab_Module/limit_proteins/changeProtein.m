@@ -2,13 +2,18 @@
 % model = changeProtein(model,p,fs,options,GAM)
 % 
 %
-% Benjamín J. Sánchez. Last edited: 2017-01-18
+% Benjamín J. Sánchez. Last edited: 2017-10-02
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function model = changeProtein(model,Ptot,fs,GAM)
+function model = changeProtein(model,Ptot,fs,GAM,change_comp)
 
 if nargin < 4
     GAM = 31;      %63.3% eff OXPHO - no H2O in prot/carb
+end
+
+%Option for changing composition & GAM (=true) or only GAM (=false):
+if nargin < 5
+    change_comp = true;
 end
 
 % Change Protein total amount:
@@ -44,11 +49,11 @@ for i = 1:length(model.mets)
             S_ix = sign(S_ix)*(GAM + 16.965*fP + 5.210*fC);
         
         %Variable aa content in biomass eq:
-        elseif isaa
+        elseif isaa && change_comp
             S_ix = fP*S_ix;
             
         %Variable carb content in biomass eq:
-        elseif isCH
+        elseif isCH && change_comp
             S_ix = fC*S_ix;
         end
         
