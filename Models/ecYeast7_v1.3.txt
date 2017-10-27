@@ -4,8 +4,6 @@ r_0026	s_0294[c] + s_0991[c]  -> s_0180[c] + s_1029[c] 		  0.00	   Inf	  0.00
 r_0043	s_0215[c] + 0.5 s_1275[c]  -> s_0212[c] 		  0.00	   Inf	  0.00
 r_0044	s_0214[m] + s_0799[m]  -> s_0157[m] + s_0460[m] 		  0.00	   Inf	  0.00
 r_0070	s_0290[m] + s_0807[m]  -> s_0287[m] + s_0532[m] + s_0799[m] 		  0.00	   Inf	  0.00
-r_0076	s_0526[c] + s_0803[c]  -> s_0543[c] + s_1322[c] 	(YER037W OR YGL224C)	  0.00	   Inf	  0.00
-r_0078	s_0803[c] + s_1545[c]  -> s_1322[c] + s_1556[c] 	(YER037W OR YGL224C)	  0.00	   Inf	  0.00
 r_0086	s_1423[c]  -> s_0311[c] + s_0803[c] 		  0.00	   Inf	  0.00
 r_0087	s_1422[c]  -> s_1423[c] 		  0.00	   Inf	  0.00
 r_0094	s_0955[c] + s_1368[c]  -> s_0352[c] + s_0456[c] + s_0529[c] + 4 s_0794[c] 		  0.00	   Inf	  0.00
@@ -18,7 +16,6 @@ r_0484	2 s_0752[m] + s_0838[m]  -> s_0756[m] + 2 s_0807[m] 	YPL059W	  0.00	   In
 r_0500	s_0529[c] + s_0952[c]  -> s_0373[c] + s_1003[c] 		  0.00	   Inf	  0.00
 r_0695	s_0120[c] + s_1051[c]  -> s_0794[c] + s_1196[c] + s_1487[c] 	YDR403W	  0.00	   Inf	  0.00
 r_0696	s_0062[c] + s_0803[c] + s_1198[c]  -> s_0063[c] + 2 s_0794[c] + s_1203[c] 		  0.00	   Inf	  0.00
-r_0906	s_0794[c] + s_1188[c]  -> s_0456[c] + s_1307[c] 	((YKL088W AND YKR072C AND YOR054C) OR (YKL088W AND YKR072C) OR (YKL088W AND YOR054C) OR YKL088W)	  0.00	   Inf	  0.00
 r_0970	s_0434[c] + s_1616[c]  -> s_0586[c] + s_0803[c] + s_1620[c] 	YGR209C	  0.00	   Inf	  0.00
 r_0971	s_0539[c] + s_1616[c]  -> s_0590[c] + s_0803[c] + s_1620[c] 	YGR209C	  0.00	   Inf	  0.00
 r_0972	s_0785[c] + s_1616[c]  -> s_0617[c] + s_0803[c] + s_1620[c] 	YGR209C	  0.00	   Inf	  0.00
@@ -2412,7 +2409,13 @@ r_0073No1	pmet_r_0073[c] + 7.3099e-06 prot_Q06685[c]  -> 2 s_0794[c] + s_1158[c]
 r_0073No2	pmet_r_0073[c] + 0.00034722 prot_Q99321[c]  -> 2 s_0794[c] + s_1158[c] + s_1322[c] 		  0.00	   Inf	  0.00
 r_0074No1	s_0279[c] + s_0434[c] + 2 s_0794[c] + 0.0092593 prot_Q12494[c]  -> s_0263[c] + s_0394[c] + s_0803[c] 		  0.00	   Inf	  0.00
 r_0075No1	s_0303[c] + s_1322[c] + 0.0010684 prot_Q07938[c]  -> s_0383[c] + s_1422[c] 		  0.00	   Inf	  0.00
+arm_r_0076	s_0526[c] + s_0803[c]  -> pmet_r_0076[c] 		  0.00	   Inf	  0.00
+r_0076No1	pmet_r_0076[c] + 3.3347e-07 prot_P40025[c]  -> s_0543[c] + s_1322[c] 		  0.00	   Inf	  0.00
+r_0076No2	pmet_r_0076[c] + 3.3347e-07 prot_P53078[c]  -> s_0543[c] + s_1322[c] 		  0.00	   Inf	  0.00
 r_0077No1	s_0803[c] + s_0849[c] + 3.3347e-07 prot_Q99312[c]  -> s_0856[c] + s_1322[c] 		  0.00	   Inf	  0.00
+arm_r_0078	s_0803[c] + s_1545[c]  -> pmet_r_0078[c] 		  0.00	   Inf	  0.00
+r_0078No1	3.3347e-07 prot_P40025[c] + pmet_r_0078[c]  -> s_1322[c] + s_1556[c] 		  0.00	   Inf	  0.00
+r_0078No2	3.3347e-07 prot_P53078[c] + pmet_r_0078[c]  -> s_1322[c] + s_1556[c] 		  0.00	   Inf	  0.00
 r_0079No1	s_0301[c] + s_0434[c] + s_0803[c] + s_0999[c] + 5.5965e-05 prot_P38972[c]  -> s_0302[c] + s_0394[c] + s_0794[c] + s_0991[c] + s_1322[c] 		  0.00	   Inf	  0.00
 arm_r_0080	s_0306[c] + 2 s_0794[c] + s_1212[c]  -> pmet_r_0080[c] 		  0.00	   Inf	  0.00
 r_0080No1	pmet_r_0080[c] + 1.7361e-06 prot_P53128[c]  -> s_0322[c] + s_1207[c] 		  0.00	   Inf	  0.00
@@ -3331,6 +3334,11 @@ r_0903No2	0.00064599 prot_Q08975[c] + pmet_r_0903[c]  -> s_0267[c] + s_0394[c] 	
 r_0903No3	0.00064599 prot_Q06490[c] + pmet_r_0903[c]  -> s_0267[c] + s_0394[c] 		  0.00	   Inf	  0.00
 r_0904No1	s_0019[c] + s_0434[c] + 8.1699e-05 prot_P24521[c]  -> s_0018[c] + s_0394[c] 		  0.00	   Inf	  0.00
 r_0905No1	s_0017[c] + s_0539[c] + s_0981[c] + 9.5785e-05 prot_P40506[c]  -> s_0526[c] + s_0633[c] + s_0794[c] + s_1188[c] 		  0.00	   Inf	  0.00
+arm_r_0906	s_0794[c] + s_1188[c]  -> pmet_r_0906[c] 		  0.00	   Inf	  0.00
+r_0906No1	pmet_r_0906[c] + 9.5785e-05 prot_P36076[c] + 9.5785e-05 prot_P36024[c] + 9.5785e-05 prot_Q08438[c]  -> s_0456[c] + s_1307[c] 		  0.00	   Inf	  0.00
+r_0906No2	pmet_r_0906[c] + 9.5785e-05 prot_P36076[c] + 9.5785e-05 prot_P36024[c]  -> s_0456[c] + s_1307[c] 		  0.00	   Inf	  0.00
+r_0906No3	pmet_r_0906[c] + 9.5785e-05 prot_P36076[c] + 9.5785e-05 prot_Q08438[c]  -> s_0456[c] + s_1307[c] 		  0.00	   Inf	  0.00
+r_0906No4	pmet_r_0906[c] + 9.5785e-05 prot_P36076[c]  -> s_0456[c] + s_1307[c] 		  0.00	   Inf	  0.00
 arm_r_0907	s_0415[c]  -> pmet_r_0907[c] 		  0.00	   Inf	  0.00
 r_0907No1	1.292e-06 prot_P33401[c] + pmet_r_0907[c]  -> s_1408[c] 		  0.00	   Inf	  0.00
 r_0907No2	1.292e-06 prot_P37012[c] + pmet_r_0907[c]  -> s_1408[c] 		  0.00	   Inf	  0.00
@@ -6349,7 +6357,9 @@ prot_P36001_exchange	 -> prot_P36001[c] 		  0.00	   Inf	  0.00
 prot_P36010_exchange	 -> prot_P36010[c] 		  0.00	   Inf	  0.00
 prot_P36013_exchange	 -> prot_P36013[c] 		  0.00	   Inf	  0.00
 prot_P36014_exchange	 -> prot_P36014[c] 		  0.00	   Inf	  0.00
+prot_P36024_exchange	 -> prot_P36024[c] 		  0.00	   Inf	  0.00
 prot_P36051_exchange	 -> prot_P36051[c] 		  0.00	   Inf	  0.00
+prot_P36076_exchange	 -> prot_P36076[c] 		  0.00	   Inf	  0.00
 prot_P36107_exchange	 -> prot_P36107[c] 		  0.00	   Inf	  0.00
 prot_P36126_exchange	 -> prot_P36126[c] 		  0.00	   Inf	  0.00
 prot_P36136_exchange	 -> prot_P36136[c] 		  0.00	   Inf	  0.00
@@ -6451,6 +6461,7 @@ prot_P40009_exchange	 -> prot_P40009[c] 		  0.00	   Inf	  0.00
 prot_P40012_exchange	 -> prot_P40012[c] 		  0.00	   Inf	  0.00
 prot_P40015_exchange	 -> prot_P40015[c] 		  0.00	   Inf	  0.00
 prot_P40017_exchange	 -> prot_P40017[c] 		  0.00	   Inf	  0.00
+prot_P40025_exchange	 -> prot_P40025[c] 		  0.00	   Inf	  0.00
 prot_P40047_exchange	 -> prot_P40047[c] 		  0.00	   Inf	  0.00
 prot_P40054_exchange	 -> prot_P40054[c] 		  0.00	   Inf	  0.00
 prot_P40099_exchange	 -> prot_P40099[c] 		  0.00	   Inf	  0.00
@@ -6558,6 +6569,7 @@ prot_P52911_exchange	 -> prot_P52911[c] 		  0.00	   Inf	  0.00
 prot_P53037_exchange	 -> prot_P53037[c] 		  0.00	   Inf	  0.00
 prot_P53045_exchange	 -> prot_P53045[c] 		  0.00	   Inf	  0.00
 prot_P53051_exchange	 -> prot_P53051[c] 		  0.00	   Inf	  0.00
+prot_P53078_exchange	 -> prot_P53078[c] 		  0.00	   Inf	  0.00
 prot_P53090_exchange	 -> prot_P53090[c] 		  0.00	   Inf	  0.00
 prot_P53101_exchange	 -> prot_P53101[c] 		  0.00	   Inf	  0.00
 prot_P53128_exchange	 -> prot_P53128[c] 		  0.00	   Inf	  0.00
@@ -6687,6 +6699,7 @@ prot_Q08108_exchange	 -> prot_Q08108[c] 		  0.00	   Inf	  0.00
 prot_Q08220_exchange	 -> prot_Q08220[c] 		  0.00	   Inf	  0.00
 prot_Q08224_exchange	 -> prot_Q08224[c] 		  0.00	   Inf	  0.00
 prot_Q08227_exchange	 -> prot_Q08227[c] 		  0.00	   Inf	  0.00
+prot_Q08438_exchange	 -> prot_Q08438[c] 		  0.00	   Inf	  0.00
 prot_Q08548_exchange	 -> prot_Q08548[c] 		  0.00	   Inf	  0.00
 prot_Q08558_exchange	 -> prot_Q08558[c] 		  0.00	   Inf	  0.00
 prot_Q08645_exchange	 -> prot_Q08645[c] 		  0.00	   Inf	  0.00

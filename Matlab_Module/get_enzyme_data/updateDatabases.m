@@ -8,7 +8,7 @@
 %       Entry - Protein names - Gene names - EC number - Sequence
 %       OBS: filter with the Swiss-Prot option
 % 
-% Benjamín Sánchez & Cheng Zhang. Last edited: 2017-10-18
+% Benjamín Sánchez & Cheng Zhang. Last edited: 2017-10-24
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function [swissprot,kegg] = updateDatabases
@@ -134,7 +134,7 @@ for i = 1:length(file_names)
                 end
             
             %4th column: EC number
-            elseif strcmp(line(1:10),'ORTHOLOGY')
+            elseif strcmp(line(1:9),'ORTHOLOGY')
                 pos_EC = strfind(line,'[EC:');
                 if ~isempty(pos_EC)
                     EC_names = line(pos_EC+4:end-1);
