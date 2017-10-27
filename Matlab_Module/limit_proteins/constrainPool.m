@@ -2,7 +2,7 @@
 % model = constrainPool(model,non_measured,UB)
 % 
 %
-% Benjamín J. Sánchez. Last edited: 2016-04-20
+% Benjamín J. Sánchez. Last edited: 2017-10-27
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function model = constrainPool(model,non_measured,UB)
@@ -20,11 +20,11 @@ for i = 1:length(model.enzymes)
     end
 end
 
-%Update metComps (last position is for the newly created protein pool):
-model.metComps(end+1) = 2;      %For simplification the protein pool is in cytosol
-
 %Finally, constraint enzyme pool by fixed value:
 model = addReaction(model,'prot_pool_exchange',{'prot_pool'},1,false,0,UB);
+
+%Update metComps (last position is for the newly created protein pool):
+model.metComps(end) = 2;      %The protein pool is defined in the cytosol
 
 end
 

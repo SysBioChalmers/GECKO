@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % model = saveECmodelSBML(model,name)
 %
-% Benjamín J. Sánchez. Last edited: 2017-04-12
+% Benjamín J. Sánchez. Last edited: 2017-10-25
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function model = saveECmodelSBML(model,name)
@@ -18,13 +18,13 @@ end
 
 %Remove unused fields:
 model = rmfield(model,'metComps');
-model = rmfield(model,'comps');
-model = rmfield(model,'compNames');
 
 if nargin == 2
-    %Fix gene names;
-    model.genes   = regexprep(model.genes,'-','_');
-    model.grRules = regexprep(model.grRules,'-','_');
+    %Reformat gene structure:
+    model.genes = regexprep(model.genes2,'-','_');
+    model.rules = regexprep(model.grRules,'-','_');
+	model       = rmfield(model,'genes2');
+    model       = rmfield(model,'grRules');
     
     %Save model:
     model.id = 'ecYeast7';
