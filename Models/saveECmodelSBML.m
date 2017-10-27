@@ -21,10 +21,15 @@ model = rmfield(model,'metComps');
 
 if nargin == 2
     %Reformat gene structure:
-    model.genes = regexprep(model.genes2,'-','_');
-    model.rules = regexprep(model.grRules,'-','_');
+    model.genes = strrep(model.genes2,'-','_');
+    model.rules = strrep(model.grRules,'-','_');
 	model       = rmfield(model,'genes2');
     model       = rmfield(model,'grRules');
+    
+    %Reformat metFormulas:
+    model.metFormulas = strrep(model.metFormulas,'(','');
+    model.metFormulas = strrep(model.metFormulas,')n','');
+    model.metFormulas = strrep(model.metFormulas,')','');
     
     %Save model:
     model.id = 'ecYeast7';
