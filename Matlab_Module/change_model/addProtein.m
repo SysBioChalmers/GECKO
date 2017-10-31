@@ -12,20 +12,15 @@
 % OUTPUTS:
 % model             Model with the added protein
 % 
-% Cheng Zhang. Last edited: 2016-12-21
+% Cheng Zhang. Last edited: 2017-10-30
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function model = addProtein(model,P,kegg,swissprot)
 
-%Add exchange reaction of protein: -> P
-prot_name    = ['prot_' P];
-exchange_rxn = ['prot_' P '_exchange'];
-model        = addReaction(model,exchange_rxn,{prot_name},1,true,0,1000,0);
-
 %Update model.enzyme vector:
+prot_name     = ['prot_' P];
 model.enzymes = [model.enzymes;P];
 pos_e         = strcmp(model.enzymes,P);        %position in model.enzymes
-pos_m         = strcmp(model.mets,prot_name);   %position in model.mets
 
 %Update model.MWs & model.sequences vectors:
 match_geneName = false;
@@ -49,8 +44,8 @@ for i = 1:length(swissprot)
     end
     %Sequence:
     if strcmp(P,swissprot{i,1}) && ~isempty(swissprot{i,6}) && ~match_seq
-        match_seq               = true;
-        model.sequence{pos_e,1} = swissprot{i,6};
+        match_seq                = true;
+        model.sequences{pos_e,1} = swissprot{i,6};
     end
 end
 if ~match_geneName
@@ -60,7 +55,7 @@ if ~match_MW
     model.MWs(pos_e,1) = mean(cell2mat(swissprot(:,5)))/1000;	%average g/mmol
 end
 if ~match_seq
-    model.sequence{pos_e,1} = '-';
+    model.sequences{pos_e,1} = '-';
 end
 
 %Update model.genes & model.pathways vectors:
@@ -70,8 +65,8 @@ for i = 1:length(kegg)
     if strcmp(P,kegg{i,1})
         %Gene:
         if ~isempty(kegg{i,3}) && ~match_gen
-            match_gen             = true;
-            model.genes2{pos_e,1} = kegg{i,3};
+            match_gen            = true;
+            model.genes{pos_e,1} = kegg{i,3};
         end
         %Pathway:
         if ~isempty(kegg{i,6}) && ~match_path
@@ -85,20 +80,41 @@ for i = 1:length(kegg)
         end
         %Sequence (if nothing found in uniprot):
         if ~isempty(kegg{i,7}) && ~match_seq
-            match_seq               = true;
-            model.sequence(pos_e,1) = kegg{i,7};
+            match_seq                = true;
+            model.sequences(pos_e,1) = kegg{i,7};
         end
     end
 end
 if ~match_gen
-    model.genes2{pos_e,1} = '-';
+    unknowns = ~cellfun(@isempty,strfind(model.genes,'unknown_'));
+    if sum(unknowns) == 0
+        idx = 0;
+    else
+        unknowns  = model.genes(unknowns);
+        pos_final = strfind(unknowns{end},'_')+1;
+        idx       = str2double(unknowns{end}(pos_final:end));
+    end
+    model.genes{pos_e,1} = ['unknown_' num2str(idx+1)];
 end
 if ~match_path
     model.pathways{pos_e,1} = '-';
 end
 
+%Add exchange reaction of protein: -> P
+model = addReaction(model, ...                      %model
+                    ['prot_' P '_exchange'], ...    %rxn name
+                    {prot_name}, ...                %metabolites
+                    1, ...                          %stoichiometry
+                    true, ...                       %reversibility
+                    0, ...                          %LB
+                    Inf, ...                        %UB
+                    0, ...                          %c
+                    {''}, ...                       %subsystem
+                    model.genes{pos_e,1});          %gene rule
+
 %Update metComps:
-model.metComps(pos_m) = 2;      %For simplification all proteins are in cytosol
+pos_m = strcmp(model.mets,prot_name);   %position in model.mets
+model.metComps(pos_m) = 2;              %For simplification all proteins are in cytosol
 
 end
 
