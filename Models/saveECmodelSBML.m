@@ -19,6 +19,12 @@ model = rmfield(model,'metComps');
 
 %Format gene field:
 model.genes = strrep(model.genes,'-','_');
+for i = 1:length(model.rxns)
+    if ~isempty(model.rules{i})
+        model.rules{i} = strrep(model.rules{i},'-','_');
+    end
+end
+model = rmfield(model,'grRules');
 
 %Format metFormulas:
 model.metFormulas = strrep(model.metFormulas,'(','');
