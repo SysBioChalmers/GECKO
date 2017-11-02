@@ -17,11 +17,13 @@ for i = 1:length(model.mets)
 end
 model = rmfield(model,'metComps');
 
-%Format gene field:
-model.genes = strrep(model.genes,'-','_');
+%Format gene rule field:
 for i = 1:length(model.rxns)
     if ~isempty(model.rules{i})
-        model.rules{i} = strrep(model.rules{i},'-','_');
+        pos = find(strcmp(model.genes,model.rules{i}));
+        if ~isempty(pos)
+            model.rules{i} = ['x(' num2str(pos) ')'];
+        end
     end
 end
 model = rmfield(model,'grRules');
