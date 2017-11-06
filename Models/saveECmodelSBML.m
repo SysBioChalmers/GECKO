@@ -38,6 +38,21 @@ model.id = name;
 writeCbModel(model,'sbml',[name '.xml']);
 writeCbModel(model,'text',[name '.txt']);
 
+%Remove lines of the sort "<fbc:geneProductAssociation/>" from xml file:
+copyfile([name '.xml'],'backup.xml')
+fin  = fopen('backup.xml', 'r');
+fout = fopen([name '.xml'], 'w');
+still_reading = true;
+while still_reading
+  inline = fgets(fin);
+  if ~ischar(inline)
+      still_reading = false;
+  elseif isempty(strfind(inline,'<fbc:geneProductAssociation/>'))
+      fwrite(fout, inline);
+  end
+end
+fclose('all');
+delete('backup.xml');
 
 end
 
