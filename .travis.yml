@@ -10,12 +10,11 @@ git:
 cache:
   pip: true
 
-#TODO: enable this once travis builds are running on main repository
-#branches:
-#  only:
-#    - master
-#    - devel
-#    - "/v\\d+\\.\\d+\\.\\d+/"
+branches:
+  only:
+    - master
+    - devel
+    - "/v\\d+\\.\\d+\\.\\d+/"
 
 matrix:
   fast_finish: true
@@ -64,3 +63,15 @@ notifications:
   email:
     on_success: never
     on_failure: always
+
+deploy:
+  provider: pypi
+  distributions: sdist bdist_wheel
+  user: BenjaSanchez
+  password:
+      secure: "uelFyCjWIqILU8ZDOfXtjC5U5gMxYiBvCbKPevczr8DdBnkQnqxofmPMnr3zWGejTFlQiCGWH9igY9n8auANLy2nOU1eli7rletSGVrlrWvg2U0SvroR84RISDWzbCcbjte6GPWmFEMIEPcFOON6IPJj6EeTrdVcBVxZn+9LRLPIJPdmT+pdOZlnZu3HvP2jdfoVHpZIlg6dzxI/5Aqn8MifCJs9JZ6tewaGwr7Z6hhSCAUzZiZ9mfMzKEN9Gpsd7pMrC6YAtPfvmlE3zwQLd2hirDuGCKP7U/mYgfUkmgriCpszew8ynJ1pu9SgstdcYTczPe0MPpCBjQuNXQ/PzHXHAdCqxWA3yhdO9/YEvFtjONIX6KRGw36/uQQUdowMdxPh3Lq9NX0QQ751Q/Mz98ODbtIULOfXazeHCmbEzmvLrbEmL3kyVWcu3PASIRNsVjRELdvqS64mTEnmlbd0yhw2fJfjxz3ttH+sjazuV2/ebesIC6ZUNy2zNJzwczwpFUDHxqFWvypXkitaLoxaFNElaxKbgI61alab+q3XwY7VZ4JZDg++Pjcjw84mARwsY9a0IlvhuD/NRDtOsouueU5usLc9DM63Wk9/ioo9GIbOs9RNRJ4sxy5VOFhnUhXnVdNM/sbT4RPib8iRBjEFXEmM0AC6o47WBsZTXsSUGCs="
+  on:
+    tags: true
+    branch: master
+    repo: SysBioChalmers/GECKO
+    condition: $TRAVIS_PYTHON_VERSION == "3.6"
