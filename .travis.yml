@@ -14,7 +14,7 @@ branches:
   only:
     - master
     - devel
-    - "/v\\d+\\.\\d+\\.\\d+/"
+    - "/v\\d+\\.\\d+/"
 
 matrix:
   fast_finish: true
@@ -57,7 +57,7 @@ install:
 
 # command to run tests
 script:
-  - tox -e "${TOXENV}"
+  - travis_wait tox -e "${TOXENV}"
 
 notifications:
   email:
