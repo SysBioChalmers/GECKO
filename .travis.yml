@@ -1,75 +1,61 @@
-# Config file for automatic testing at travis-ci.org
-# This file will be regenerated if you run travis_pypi_setup.py
-
 language: python
 sudo: false
-
 git:
   depth: 2
-
 cache:
   pip: true
-
 branches:
   only:
-    - master
-    - devel
-    - "/v\\d+\\.\\d+/"
-
+  - master
+  - devel
+  - "/v\\d+\\.\\d+/"
 matrix:
   fast_finish: true
   include:
-    - os: linux
-      python: 3.5
-      env:
-        - TOXENV=flake8
-    - os: linux
-      python: 2.7
-      env:
-        - TOXENV=py27
-    - os: linux
-      python: 3.4
-      env:
-        - TOXENV=py34
-    - os: linux
-      python: 3.5
-      env:
-        - TOXENV=py35
-    - os: linux
-      python: 3.6
-      env:
-        - TOXENV=py36
-    - os: osx
-      language: generic
-      env:
-        - TOXENV=py27
-    - os: osx
-      language: generic
-      env:
-        - TOXENV=py36
-
-
-# command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
+  - os: linux
+    python: 3.5
+    env:
+    - TOXENV=flake8
+  - os: linux
+    python: 2.7
+    env:
+    - TOXENV=py27
+  - os: linux
+    python: 3.4
+    env:
+    - TOXENV=py34
+  - os: linux
+    python: 3.5
+    env:
+    - TOXENV=py35
+  - os: linux
+    python: 3.6
+    env:
+    - TOXENV=py36
+  - os: osx
+    language: generic
+    env:
+    - TOXENV=py27
+  - os: osx
+    language: generic
+    env:
+    - TOXENV=py36
 install:
-  - cd geckopy
-  - make copy-models
-  - bash ci/travis/setup.sh
-
-# command to run tests
+- cd geckopy
+- make copy-models
+- bash ci/travis/setup.sh
 script:
-  - travis_wait tox -e "${TOXENV}"
-
+- travis_wait tox -e "${TOXENV}"
 notifications:
   email:
     on_success: never
     on_failure: always
-
 deploy:
   provider: pypi
   distributions: sdist bdist_wheel
   user: BenjaSanchez
   password:
-    secure: "ZbFWpKrEXWIm+fS8sDHOXFS4ajKpdkqur4U+kHfW/zacP0ICBsFFEWAuweoIKMTPccri5V59YFWJcJ0dIw2r4xuJxAu4nUxdFKJzhTq/GQcGB5ynXRtkT4HhbJMIlCnCxUbh/GUUB6a30SKkQlk7AEUskvtfClE3nwaUSK101aw360ZC0NKsU425b9gjZbHcilDWh81YVxb6WQLwhbm9trMhXYfyZvLUBdlm9q3oL7pgOVkylm/DurSz7KfsJD4AfHsupD7+88y/HlhO7EvpEn2nYlj3hYvz5Kkr1ZuwdwYmNRmR1aNbd7SYgGqC9ZNgYSyg7cGzK6pB6dzGslMXLOOsP14EWx6QPRTKTWnhSAjttgGvyKKFjr7SaZgMdu16f/TU1Cx8KfzXY9efFSAWEweY74WO+8NA3kq917CPigllze6tOwIewkYOpcqmEA3NglXTbvErWNSZAnolEquPG3ZK7FpdJYr8kSugLC5UKyklankOE2ko8tAwvhLyv16Kh3AjOsGPW1mxK/judNuxLAuVqrjI5tWWDEdMrLyudLsIvNy50dVY4s6cA8dBkXdp7OA3vb1YmGWZvsMwWYpueDWfTbC+Gg5rJDdL/OxLILN5FGP01HkSlAPbzE4ZKqa+3xkvVId6aaRBt8j8CSDFlJUE2j4mIG/uLlUtPqZ4Yjc="
+    secure: HhLelTYSq6yDwy/yVYfJrJ83TyUja8EgQQyx01Acc+ZKKruO5MpU/eH78dksJ6DorgwpQ4h0PiC33PFOydi104MHThn0/7H3MQNbX4eIMGnMpzCrl6MTw/wYSMrim5Zgssp+IwYekRME4kx8NvSg+vk4IDwKwVQFfKlq6iOGYtM74LpGvnu2TiV0OrQ0a0T1yAGTTOamhub6KU+iamC6/CWi0yKnq5o/hri2Nv4PHuBhVmpFeX+Ex+kRPzAB/t/VyXirg6GNpIueJs5xcjPmARBxo1eOfrHHQMqEY6+lYPyjBlm8stGxlcNDydXqu4PxwMHEOQrNKXUKIkPoA9J5zqdxF1t2I631uKljK/l/Y/ZrsbYPHGGWsl2lzieb7yY+TktJ7EEmu4OEFkqRUw3Si7DBA3237/PgF8+CjleQNEiJoPkAfm55h/YM7Hzrc4C41f6thkRxfTRr0CDfOXSZaOcxIvOJ+4xs3/t4YljBhs5IBV8X/8LBu7zjZN2UdbiD8sYjQA3MQCty3YcK5knZ09KepPll5nIpM7vUA4X5MLmijWW0dgQShBip2+Rg4JSv9qXf7IUBdHgDvMHp96DR+nqxK2IdnDo7eB09cQZLtUNCByndr0Y9ycdSM2D0c7wE1mIqk/TmXjLNF6dW9QjrcAt+4DZ4r25YlqY6WHOGMps=
   on:
     tags: true
     branch: master
