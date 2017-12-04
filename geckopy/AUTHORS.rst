@@ -11,3 +11,4 @@ Contributors
 ------------
 
 @hredestig
+@Midnighter
