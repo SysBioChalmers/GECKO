@@ -13,52 +13,45 @@ matrix:
   fast_finish: true
   include:
   - os: linux
-    python: 3.5
+    python: '3.5'
     env:
     - TOXENV=flake8
   - os: linux
-    python: 2.7
+    python: '2.7'
     env:
     - TOXENV=py27
   - os: linux
-    python: 3.4
+    python: '3.4'
     env:
     - TOXENV=py34
   - os: linux
-    python: 3.5
+    python: '3.5'
     env:
     - TOXENV=py35
   - os: linux
-    python: 3.6
+    python: '3.6'
     env:
     - TOXENV=py36
-  - os: osx
-    language: generic
-    env:
-    - TOXENV=py27
-  - os: osx
-    language: generic
-    env:
-    - TOXENV=py36
-install:
+before_install:
 - cd geckopy
 - make copy-models
-- bash ci/travis/setup.sh
+install:
+- pip install --upgrade pip setuptools wheel
 script:
-- travis_wait tox -e "${TOXENV}"
+- travis_wait tox
 notifications:
   email:
     on_success: never
     on_failure: always
 deploy:
   provider: pypi
-  distributions: sdist bdist_wheel
   skip_cleanup: true
+  distributions: sdist bdist_wheel
   user: BenjaSanchez
   password:
     secure: HhLelTYSq6yDwy/yVYfJrJ83TyUja8EgQQyx01Acc+ZKKruO5MpU/eH78dksJ6DorgwpQ4h0PiC33PFOydi104MHThn0/7H3MQNbX4eIMGnMpzCrl6MTw/wYSMrim5Zgssp+IwYekRME4kx8NvSg+vk4IDwKwVQFfKlq6iOGYtM74LpGvnu2TiV0OrQ0a0T1yAGTTOamhub6KU+iamC6/CWi0yKnq5o/hri2Nv4PHuBhVmpFeX+Ex+kRPzAB/t/VyXirg6GNpIueJs5xcjPmARBxo1eOfrHHQMqEY6+lYPyjBlm8stGxlcNDydXqu4PxwMHEOQrNKXUKIkPoA9J5zqdxF1t2I631uKljK/l/Y/ZrsbYPHGGWsl2lzieb7yY+TktJ7EEmu4OEFkqRUw3Si7DBA3237/PgF8+CjleQNEiJoPkAfm55h/YM7Hzrc4C41f6thkRxfTRr0CDfOXSZaOcxIvOJ+4xs3/t4YljBhs5IBV8X/8LBu7zjZN2UdbiD8sYjQA3MQCty3YcK5knZ09KepPll5nIpM7vUA4X5MLmijWW0dgQShBip2+Rg4JSv9qXf7IUBdHgDvMHp96DR+nqxK2IdnDo7eB09cQZLtUNCByndr0Y9ycdSM2D0c7wE1mIqk/TmXjLNF6dW9QjrcAt+4DZ4r25YlqY6WHOGMps=
   on:
     tags: true
-    branch: master
     repo: SysBioChalmers/GECKO
-    condition: $TRAVIS_PYTHON_VERSION == "3.6"
+    python: '3.6'
+    condition: $TRAVIS_OS_NAME == "linux"
