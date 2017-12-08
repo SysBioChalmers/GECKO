@@ -1,13 +1,15 @@
+.. image:: GECKO.png
+
 The **GECKO** toolbox is a Matlab/Python package for enhancing a
 **G**\ enome-scale model to account for **E**\ nzyme **C**\ onstraints,
 using **K**\ inetics and **O**\ mics. It is the companion software to
 the publication:
 
-*Benjamin J. Sanchez, Cheng Zhang, Avlant Nilsson, Petri-Jaan Lahtvee,
-Eduard J. Kerkhoven, Jens Nielsen (2017). Improving the phenotype
+Benjamin J. Sanchez, Cheng Zhang, Avlant Nilsson, Petri-Jaan Lahtvee,
+Eduard J. Kerkhoven, Jens Nielsen (2017). *Improving the phenotype
 predictions of a yeast genome-scale metabolic model by incorporating
-enzymatic constraints. `Molecular Systems Biology, 13(8):
-935 <http://www.dx.doi.org/10.15252/msb.20167411>`__*
+enzymatic constraints.* `Molecular Systems Biology, 13(8):
+935 <http://www.dx.doi.org/10.15252/msb.20167411>`__
 
 The software comes in two flavors, Python and Matlab scripts to fetch
 online data and build the published ecYeast7 GECKO models, and a Python
@@ -17,7 +19,7 @@ model object, optionally adjusted for provided proteomics data.
 
 Last update: 2017-12-08
 
-This repository is administered by Benjamin J. Sanchez (`@BenjaSanchez cobrapy <https://github.com/benjasanchez>`__), Division of Systems and Synthetic Biology, Department of Biology and Biological Engineering, Chalmers University of Technology.
+This repository is administered by Benjamin J. Sanchez (`@BenjaSanchez <https://github.com/benjasanchez>`__), Division of Systems and Synthetic Biology, Department of Biology and Biological Engineering, Chalmers University of Technology.
 
 Building a GECKO model
 ----------------------------------
