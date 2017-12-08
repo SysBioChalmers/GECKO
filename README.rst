@@ -7,7 +7,7 @@ the following publication:
 Eduard J. Kerkhoven, Jens Nielsen (2017). Improving the phenotype
 predictions of a yeast genome-scale metabolic model by incorporating
 enzymatic constraints. `Molecular Systems Biology, 13(8):
-935 <http://www.dx.doi.org/10.15252/msb.20167411>`__*
+935 <http://www.dx.doi.org/10.15252/msb.20167411>`__ *
 
 GECKO was written by Benjamin J. Sanchez (@BenjaSanchez), Division of
 Systems and Synthetic Biology, Department of Biology and Biological
@@ -20,16 +20,16 @@ package which can be used with
 `cobrapy <https://opencobra.github.io/cobrapy/>`__ to obtain a ecYeast7
 model object, optionally adjusted for provided proteomics data.
 
+
 Scripts for building a GECKO model
 ----------------------------------
 
-Only tested on Windows, probably works on other platforms as well with
-adjusted installation procedure.
 
-Required software for running the Python scripts
+
+Required software for the Python module
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  `Python <https://www.python.org/>`__ 2.7
+-  `Python 2.7 <https://www.python.org/>`__
 -  setuptools for python 2.7, accessible
    `here <http://www.lfd.uci.edu/~gohlke/pythonlibs/#setuptools>`__
 -  SOAPpy: for this, open command prompt as admin, and then do:
@@ -39,8 +39,9 @@ Required software for running the Python scripts
     cd C:\Python27\Scripts
     easy_install-2.7 SOAPpy
 
-Required software for using the Matlab scripts
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Required software for the Matlab module
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  `MATLAB <http://www.mathworks.com/>`__ (7.5 or higher) + Optimization
    Toolbox.
@@ -52,11 +53,13 @@ Required software for using the Matlab scripts
    Aditionally, you should add the cobra folder to your MATLAB search
    path.
 
+
 Usage
------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 See the supporting information of `Sanchez et al.
-(2017) <%5Bcitation%5D(https://dx.doi.org/10.15252/msb.20167411)>`__
+(2017) <https://dx.doi.org/10.15252/msb.20167411>`__
+
 
 Using the geckopy Python package for obtaining an adjusted GECKO model object
 -----------------------------------------------------------------------------
