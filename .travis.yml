@@ -8,7 +8,7 @@ branches:
   only:
   - master
   - devel
-  - "/v\\d+\\.\\d+/"
+  - "/v\\d+\\.\\d+\\.\\d+/"
 matrix:
   fast_finish: true
   include:
