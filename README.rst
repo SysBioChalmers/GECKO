@@ -1,18 +1,13 @@
 The **GECKO** toolbox is a Matlab/Python package for enhancing a
 **G**\ enome-scale model to account for **E**\ nzyme **C**\ onstraints,
 using **K**\ inetics and **O**\ mics. It is the companion software to
-the following publication:
+the publication:
 
 *Benjamin J. Sanchez, Cheng Zhang, Avlant Nilsson, Petri-Jaan Lahtvee,
 Eduard J. Kerkhoven, Jens Nielsen (2017). Improving the phenotype
 predictions of a yeast genome-scale metabolic model by incorporating
 enzymatic constraints. `Molecular Systems Biology, 13(8):
-935 <http://www.dx.doi.org/10.15252/msb.20167411>`__ *
-
-GECKO was written by Benjamin J. Sanchez (@BenjaSanchez), Division of
-Systems and Synthetic Biology, Department of Biology and Biological
-Engineering, Chalmers University of Technology, and Cheng Zhang, Science
-for Life Laboratory, KTH - Royal Institute of Technology.
+935 <http://www.dx.doi.org/10.15252/msb.20167411>`__*
 
 The software comes in two flavors, Python and Matlab scripts to fetch
 online data and build the published ecYeast7 GECKO models, and a Python
@@ -20,18 +15,19 @@ package which can be used with
 `cobrapy <https://opencobra.github.io/cobrapy/>`__ to obtain a ecYeast7
 model object, optionally adjusted for provided proteomics data.
 
+Last update: 2017-12-08
 
-Scripts for building a GECKO model
+This repository is administered by Benjamin J. Sanchez (`@BenjaSanchez cobrapy <https://github.com/benjasanchez>`__), Division of Systems and Synthetic Biology, Department of Biology and Biological Engineering, Chalmers University of Technology.
+
+Building a GECKO model
 ----------------------------------
 
 
-
-Required software for the Python module
+Required software - Python module
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  `Python 2.7 <https://www.python.org/>`__
--  setuptools for python 2.7, accessible
-   `here <http://www.lfd.uci.edu/~gohlke/pythonlibs/#setuptools>`__
+-  `setuptools for python 2.7 <http://www.lfd.uci.edu/~gohlke/pythonlibs/#setuptools>`__
 -  SOAPpy: for this, open command prompt as admin, and then do:
 
 ::
@@ -40,7 +36,7 @@ Required software for the Python module
     easy_install-2.7 SOAPpy
 
 
-Required software for the Matlab module
+Required software - Matlab module
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  `MATLAB <http://www.mathworks.com/>`__ (7.5 or higher) + Optimization
@@ -61,17 +57,19 @@ See the supporting information of `Sanchez et al.
 (2017) <https://dx.doi.org/10.15252/msb.20167411>`__
 
 
-Using the geckopy Python package for obtaining an adjusted GECKO model object
+Integrating proteomic data to the yeast model
 -----------------------------------------------------------------------------
 
 If all you need is the ecYeast7 model to use together with cobrapy you
 can use the ``geckopy`` Python package.
+
 
 Required software
 ~~~~~~~~~~~~~~~~~
 
 -  Python 2.7, 3.4, 3.5 or 3.6
 -  cobrapy
+
 
 Installation
 ~~~~~~~~~~~~
@@ -80,7 +78,6 @@ Installation
 
     pip install geckopy
 
-.. usage-1:
 
 Usage
 ~~~~~
@@ -93,3 +90,10 @@ Usage
     model = GeckoModel('multi-pool')
     model.limit_proteins(some_measurements)
     model.optimize()
+
+Contributors
+-----------------------------------------------------------------------------
+
+* Cheng Zhang, Science for Life Laboratory, KTH - Royal Institute of Technology
+* `Benjamin J. Sanchez <https://www.chalmers.se/en/staff/Pages/bensan.aspx>`__ (`@BenjaSanchez <https://github.com/benjasanchez>`__), Chalmers University of Technology, Gothenburg Sweden
+
