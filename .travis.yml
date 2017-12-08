@@ -36,7 +36,7 @@ before_install:
 - cd geckopy
 - make copy-models
 install:
-- pip install --upgrade pip setuptools wheel
+- pip install --upgrade pip setuptools wheel tox
 script:
 - travis_wait tox
 notifications:
