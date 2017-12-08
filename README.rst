@@ -96,6 +96,7 @@ Usage
 Contributors
 -----------------------------------------------------------------------------
 
-* Cheng Zhang, Science for Life Laboratory, KTH - Royal Institute of Technology
+* Moritz Emanuel Beber (`@Midnighter <https://github.com/Midnighter>`__), Danish Technical University, Lyngby Denmark
+* Henning Redestig (`@hredestig <https://github.com/hredestig>`__), Danish Technical University, Lyngby Denmark
 * `Benjamin J. Sanchez <https://www.chalmers.se/en/staff/Pages/bensan.aspx>`__ (`@BenjaSanchez <https://github.com/benjasanchez>`__), Chalmers University of Technology, Gothenburg Sweden
-
+* Cheng Zhang, Science for Life Laboratory, KTH - Royal Institute of Technology
