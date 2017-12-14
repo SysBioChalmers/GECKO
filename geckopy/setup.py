@@ -3,7 +3,7 @@
 
 from setuptools import setup
 
-with open('README.md') as readme_file:
+with open('README.rst') as readme_file:
     readme = readme_file.read()
 
 with open('HISTORY.rst') as history_file:
@@ -22,7 +22,7 @@ setup(
     version='1.1.1',
     description="Methods for using the GECKO model with cobrapy",
     long_description=readme + '\n\n' + history,
-    author="Bejamin Sanchez",
+    author="Benjamin Sanchez",
     author_email='bensan@chalmers.se',
     url='https://github.com/SysBioChalmers/GECKO/tree/master/geckopy',
     packages=[
