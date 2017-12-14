@@ -11,11 +11,11 @@ Last update: 2017-12-08
 This repository is administered by Benjamin J. Sanchez (`@BenjaSanchez <https://github.com/benjasanchez>`_), Division of Systems and Synthetic Biology, Department of Biology and Biological Engineering, Chalmers University of Technology.
 
 Building a GECKO model
-----------------------------------
+----------------------
 
 
 Required software - Python module
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - `Python 2.7 <https://www.python.org/>`_
 - `setuptools for python 2.7 <http://www.lfd.uci.edu/~gohlke/pythonlibs/#setuptools>`_
@@ -27,20 +27,20 @@ Required software - Python module
 
 
 Required software - Matlab module
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - `MATLAB <http://www.mathworks.com/>`_ (7.5 or higher) + Optimization Toolbox.
 - The `COBRA toolbox for MATLAB <https://github.com/opencobra/cobratoolbox>`_. Note that `libSBML <http://sbml.org/Software/libSBML>`_ and the `SBML toolbox <http://sbml.org/Software/SBMLToolbox>`_ should both be installed. Both of them are free of charge for academic users. Aditionally, you should add the cobra folder to your MATLAB search path.
 
 
 Usage
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~
 
 See the supporting information of `Sanchez et al. (2017) <https://dx.doi.org/10.15252/msb.20167411>`_
 
 
 Integrating proteomic data to the yeast model
------------------------------------------------------------------------------
+---------------------------------------------
 
 If all you need is the ecYeast7 model to use together with cobrapy you can use the ``geckopy`` Python package.
 
@@ -73,7 +73,7 @@ Usage
    model.optimize()
 
 Contributors
------------------------------------------------------------------------------
+------------
 
 - Moritz Emanuel Beber (`@Midnighter <https://github.com/Midnighter>`_), Danish Technical University, Lyngby Denmark
 - Henning Redestig (`@hredestig <https://github.com/hredestig>`_), Danish Technical University, Lyngby Denmark
