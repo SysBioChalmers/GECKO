@@ -48,7 +48,7 @@
  % Benjamin J. Sanchez. Last edited: 2016-03-01
  % Ivan Domenzain.      Last edited: 2018-01-16
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- function kcats = matchKcats_newCriteria(model_data, org_name)
+ function kcats = matchKcats(model_data, org_name)
  %Load BRENDA data:
   KCAT_file          = 'max_KCAT.txt';
   SA_file            = 'max_SA.txt';
@@ -59,6 +59,7 @@
  phylDistStruct =  KEGG_struct;
  %Get the KEGG code for the model's organism
  org_index      = find_inKEGG(org_name,phylDistStruct.names);
+ %org_index =      find_inKEGG(org_name,names)
  %Extract relevant info from model_data:
  substrates = model_data.substrates;
  products   = model_data.products;
@@ -411,8 +412,7 @@
  end
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  function phylDistStruct =  KEGG_struct
-     load('phylDist.mat')
-     cd ../Matlab_Module/get_enzyme_data
+     load('PhylDist.mat')
      phylDistStruct.ids   = transpose(phylDistStruct.ids);
      phylDistStruct.names = transpose(phylDistStruct.names);
      
@@ -422,6 +422,7 @@
              phylDistStruct.names{i} = phylDistStruct.names{i}(1:pos-1);
          end
      end
+     cd ../Matlab_Module/get_enzyme_data
  end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  function [KCATcell, SAcell] = loadBRENDAdata(KCAT_file,SA_file,MW_file )
