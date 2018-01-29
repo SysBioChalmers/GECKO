@@ -139,13 +139,13 @@ for i = 1:length(model.rxns)
           end
         % HMG-CoA reductase (P12683-P12684/EC1.1.1.34): Only kcat available 
         % in BRENDA was for Rattus Norvegicus. Value corrected with max. 
-        % s.a. in S.cerevisiae, checked in original source (I.F.Durr & 
-        % H.Rudney, J. Biol. Chem. 1960 235:2572-2578
-        % http://www.jbc.org/content/235/9/2572) (2015-08-31).
+        % s.a. in Rattus norvegicus [0.03 umol/min/mg, Mw=226 kDa] from
+        % BRENDA (2018-01-27)
           if (strcmpi('prot_P12683',model.mets(int_pos(j)))  || ...
               strcmpi('prot_P12684',model.mets(int_pos(j)))) && ...
               (~isempty(strfind(model.rxnNames{i},'hydroxymethylglutaryl')))
-             model.S(int_pos(j),i) = -(13.5*0.001*60*1e3/1e3*MW_set)^-1;
+             %model.S(int_pos(j),i) = -(13.5*0.002*60*1e3/1e3*MW_set)^-1;
+             model.S(int_pos(j),i) = -(0.03*226000*0.06)^-1;
           end
         % amidophosphoribosyltransferase [P04046/EC2.4.2.14]
         % No Kcat reported on BRENDA, the maximum S.A. (E. coli is taken
@@ -160,14 +160,15 @@ for i = 1:length(model.rxns)
         % both measurements are for native enzymes
           if strcmpi('prot_P00924',model.mets(int_pos(j)))  && ...
              (~isempty(strfind(model.rxnNames{i},'enolase'))) 
-               model.S(int_pos(j),i) = -1/(230*3600);
+               model.S(int_pos(j),i) = -1/(71.4*3600);
           end           
        % [4.1.1.-, 4.1.1.43, 4.1.1.72, 4.1.1.74] Pyruvate decarboxylase 
        %  Resulted to be a growth limiting enzyme but the Kcat
-       % value seems to be the best candidate for this reaction
+       % value seems to be the best candidate for this reaction (rev)
         if strcmpi('prot_P06169',model.mets(int_pos(j))) && ...
            (~isempty(strfind(model.rxnNames{i},'pyruvate decarboxylase')))
-           model.S(int_pos(j),i) = -1/(145*3600); 
+           %model.S(int_pos(j),i) = -1/(145*3600); 
+           model.S(int_pos(j),i) = -1/(73.1*3600); 
         end         
        % 1,3-beta-glucan synthase component FKS1 (P38631/EC2.4.1.34): Retrieved value
        % was from Staphylococcus aureus. Value changed with s.a. in S.cerevisiae
@@ -184,10 +185,17 @@ for i = 1:length(model.rxns)
          if strcmpi('prot_Q06817',model.mets(int_pos(j))) && ...
             (~isempty(strfind(model.rxnNames{i},'glycyl-tRNA synthetase')))
             model.S(int_pos(j),i) = -1/(15.9*3600); 
-         end       
+         end
+       % [Q00955//EC6.4.1.2] Acetyl-CoA carboxylase
+       % Assigned value was 1.23 (1/s), S.A. was used instead (6
+       % umol/min/mg) from BRENDA (2018-01-22).
+         if strcmpi('prot_Q00955',model.mets(int_pos(j))) && ...
+            (~isempty(strfind(model.rxnNames{i},'Acetyl-CoA carboxylase')))
+            model.S(int_pos(j),i) = -(6*60*1e3/1e3*MW_set)^-1;
+         end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% MANUAL CURATION FOR CARBON SOURCES
        % alpha,alpha-trehalase (P32356/EC3.2.1.28): The growth on
-       % alpha,alpha-trehalaso was the extremely highly overpredicted, the
+       % alpha,alpha-trehalose was extremely highly overpredicted, the
        % minimum substrate specific kcat value (0.67 1/s) is chosen instead
        % (Metarhizium flavoviride) 
        % from BRENDA (2018-01-22).
@@ -195,16 +203,58 @@ for i = 1:length(model.rxns)
               strcmpi('prot_P48016',model.mets(int_pos(j)))) && ...
              (~isempty(strfind(model.rxnNames{i},'alpha,alpha-trehalase')))
              model.S(int_pos(j),i) = -(0.67*60*1e3/1e3*MW_set)^-1;    
-          end               
+         end
+        % alcohol dehydrogenase (ethanol to acetaldehyde)[P00331/EC1.1.1.1] 
+        % Growth on ethanol was extremely highly overpredicted, the
+        % specific Kcat value for ethanol found in BRENDA is 143 (1/s) @pH
+        % 8.0 and 25 C, and 432.3 @20?C and pH 9.0 
+       % from BRENDA (2018-01-22).
+         if strcmpi('prot_P00331',model.mets(int_pos(j))) && ...
+             (~isempty(strfind(model.rxnNames{i},...
+                      'alcohol dehydrogenase (ethanol to acetaldehyde)')))
+             model.S(int_pos(j),i) = -(143*3600)^-1;  
+         end
+        % Glycerol dehydrogenase [P14065/EC1.1.1.1] 
+        % Growth on glycerol was highly overpredicted, the minimum S.A. 
+        % value for  glycerol found in BRENDA is 0.54 (umol/ming/mg) and
+        % the maximal is 15.7, both for Schizosaccharomyces pombe. The MW
+        % is 57 kDa. From BRENDA (2018-01-26).
+         if strcmpi('prot_P14065',model.mets(int_pos(j))) && ...
+             (~isempty(strfind(model.rxnNames{i},...
+                      'glycerol dehydrogenase (NADP-dependent)')))
+             model.S(int_pos(j),i) = -(0.54*57000*0.06)^-1;  
+         end
+        % alpha-glucosidase [EC3.2.1.10/EC3.2.1.20] 
+        % Growth on maltose is still underpredicted, for this reason all
+        % the isoenzymes catalysing its conversion are set up to the
+        % maximal glucosidase rate for maltose (3.2.1.20) <- 709 1/s for 
+        % Schizosaccharomyces pombe, a value of 1278 is also available for 
+        % Sulfolobus acidocaldarius.
+        % From BRENDA (2018-01-28).
+         if ~isempty(strfind(model.rxnNames{i},'alpha-glucosidase'))
+             %model.S(int_pos(j),i) = -(709*3600)^-1; 
+             model.S(int_pos(j),i) = -(1278*3600)^-1; 
+         end
+        % Acetyl-CoA synthase [P52910||Q01574//EC6.2.1.1] 
+        % Growth on ethanol and acetate was overpredicted, the common
+        % enzyme for their usage as carbon source is Acetyl-CoA synthase.
+        % values for other organism were used but the S.A. for S.
+        % cerevisiae is 1.241 [umol/min/mg]
+        % From BRENDA (2018-01-28).
+         if (strcmpi('prot_Q01574',model.mets(int_pos(j)))  || ...
+              strcmpi('prot_P52910',model.mets(int_pos(j)))) && ...
+             (~isempty(strfind(model.rxnNames{i},'acetyl-CoA synthetase')))
+             model.S(int_pos(j),i) = -(1.241*60*1e3/1e3*MW_set)^-1;    
+         end 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% MANUAL CURATION FOR TOP USED ENZYMES:
           % atp synthase mitochondrial (P07251-P00830/EC3.6.3.14): No Kcat 
-          % reported for S. cerevisiae, value for Geobacillus stearothermophilus
+          % reported for S. cerevisiae, value for Bacillus sp.
           % for ATP is used instead 217 [1/s]
           % from BRENDA (2017-01-18).
           if (strcmpi('prot_P07251',model.mets(int_pos(j))) || ...
               strcmpi('prot_P00830',model.mets(int_pos(j))))&& ...
              (~isempty(strfind(model.rxnNames{i},'ATP synthase (No1)')))
-             model.S(int_pos(j),i) = -(217*3600)^-1; 
+             model.S(int_pos(j),i) = -(390*3600)^-1; 
           end
           % glyceraldehyde-3-phosphate dehydrogenase 1 (gapdh 1) 
           % (P00360/EC1.2.1.12): The maximum catalytic value available for
@@ -215,7 +265,7 @@ for i = 1:length(model.rxns)
           if strcmpi('prot_P00360',model.mets(int_pos(j))) &&...
              ~isempty(strfind(model.rxnNames{i},...
                                'glyceraldehyde-3-phosphate dehydrogenase'))
-              model.S(int_pos(j),i) = -(199*3600)^-1;
+                %model.S(int_pos(j),i) = -(100*1e3/1e3*MW_set)^-1;
           end
           % transaldolase (reversible) (P15019/EC2.2.1.2): 
           % The protein usage is represents around 10% of the used proteome
@@ -240,7 +290,7 @@ for i = 1:length(model.rxns)
            % 20% of the used proteome on batch simulation for several
            % carbon sources. Sce S.A. is used instead [200 umol/min/mg]
            % from BRENDA (2018-01-18)
-          if strcmpi('prot_P802358',model.mets(int_pos(j))) && ...
+          if strcmpi('prot_P80235',model.mets(int_pos(j))) && ...
              (~isempty(strfind(model.rxnNames{i},'carnitine O-acetyltransferase')))
              model.S(int_pos(j),i) = -(200*60*1e3/1e3*MW_set)^-1;    %22 [umol/min/mg]
           end
@@ -250,7 +300,6 @@ for i = 1:length(model.rxns)
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%% Other manual changes: %%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 % Remove protein P14540 (Fructose-bisphosphate aldolase) from missanotated rxns
 % (2017-01-16):
  rxns_tochange = {'D-fructose 1-phosphate D-glyceraldehyde-3-phosphate-lyase (No1)';...
