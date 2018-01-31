@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % model = manualModifications(model)
 % 
-% Benjam?n J. S?nchez. Last edited: 2017-10-29
+% Benjamin J. Sanchez. Last edited: 2017-10-29
 % Ivan Domenzain.      Last edited: 2018-01-24
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
