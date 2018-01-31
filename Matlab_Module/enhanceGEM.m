@@ -1,11 +1,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % [ecModel,model_data,kcats] = enhanceGEM(model,toolbox,name)
 %
-% Benjam?n J. S?nchez. Last edited: 2017-04-12
+% Benjamin J. Sanchez. Last edited: 2017-04-12
 %Ivan Domenzain.       Last edited: 2018-01-25
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [ecModel,model_data,kcats] = enhanceGEM(model,toolbox,org_name)
-Protdatabase  = 'ProtDatabase.mat';
+function [ecModel,model_data,kcats] = enhanceGEM(model,toolbox,name)
+
 %Provide your organism scientific name
 org_name      = 'saccharomyces cerevisiae';
 org_code      = 'sce';
@@ -38,10 +38,10 @@ sigma         = 0.51;      %Optimized for glucose
 Ptot          = 0.5;       %Assumed constant
 ecModel_batch = constrainEnzymes(ecModel,Ptot,sigma);
 
-Save output models:
- cd ../../models
- save([name '.mat'],'ecModel','model_data','kcats')
- save([name '_batch.mat'],'ecModel_batch')
+%Save output models:
+cd ../../models
+save([name '.mat'],'ecModel','model_data','kcats')
+save([name '_batch.mat'],'ecModel_batch')
 saveECmodelSBML(ecModel,name);
 saveECmodelSBML(ecModel_batch,[name '_batch']);
 cd ../Matlab_Module
