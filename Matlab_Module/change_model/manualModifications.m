@@ -1,8 +1,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % model = manualModifications(model)
 % 
-%
-% Benjamín J. Sánchez. Last edited: 2017-10-29
+% Benjam?n J. S?nchez. Last edited: 2017-10-29
+% Ivan Domenzain.      Last edited: 2018-01-24
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function model = manualModifications(model)
@@ -78,175 +78,256 @@ for i = 1:length(model.rxns)
     %Update int_pos:
     S        = full(model.S);
     subs_pos = find(S(:,i) < 0);
+    %Get the proteins that are part of the i-th rxn
     prot_pos = find(~cellfun(@isempty,strfind(model.mets,'prot_')));
     int_pos  = intersect(subs_pos,prot_pos)';
     
     %Individual Changes:
     for j = 1:length(int_pos)
-        %INITIAL MANUAL CURATION:
-        % Aconitase (P19414/EC 4.2.1.3): The rxn is represented as a two step rxn in Yeast
-        % 7.5, so the kcat must be multiplied by 2 (2015-11-05)
-        if ~isempty(strfind(model.rxns{i},'r_0280')) || ...  %mitochondrion
-           ~isempty(strfind(model.rxns{i},'r_0302')) || ...  %mitochondrion
-           ~isempty(strfind(model.rxns{i},'r_0303')) || ...  %cytoplasm
-           ~isempty(strfind(model.rxns{i},'r_2305'))         %cytoplasm
-            model.S(int_pos(j),i) = model.S(int_pos(j),i)/2;
-        end
-        %MANUAL CURATION FOR TOP USED ENZYMES:
-        % FAS (P07149+P19097/EC2.3.1.86): No kcat available in BRENDA (it was using ECs of
-        % subunits: EC3.1.2.14 and EC2.3.1.41).Value corrected with max. s.a. in S.cerevisiae
-        % for NADPH in BRENDA (2015-08-25)
-        if ~isempty(strfind(model.rxns{i},'r_2140'))
-            model.S(int_pos(j),i) = -(3/14*60*1e3/1e3*MW_set)^-1;    %3/14 [umol/min/mg]
-        elseif ~isempty(strfind(model.rxns{i},'r_2141'))
-            model.S(int_pos(j),i) = -(3/16*60*1e3/1e3*MW_set)^-1;    %3/16 [umol/min/mg]
-        end
-        % Glycogen Synthase (P27472/EC2.4.1.11): No kcat available in BRENDA (it was using
-        % the kcat from the subunit glycogenin glucosyltransferase (P47011/EC2.4.1.186) in
-        % O.cuniculus). Value corrected with max. s.a. in S.cerevisiae (2015-08-27)
-        if ~isempty(strfind(model.rxns{i},'r_0510'))
-            model.S(int_pos(j),i) = -(90.5*60*1e3/1e3*MW_set)^-1;    %90.5 [umol/min/mg]
-        end
-        % Ketol-acid Reductoisomerase (P06168/EC1.1.1.86) - 2-acetyllactic acid: Substrate
-        % name in BRENDA was a synonim as name in model. Changed manually (2015-08-28).
-        if ~isempty(strfind(model.rxns{i},'r_0096'))
-            model.S(int_pos(j),i) = -(18.3*3600)^-1;    %BRENDA: 2-acetolactate
-        end
-        % Ketol-acid Reductoisomerase (P06168/EC1.1.1.86) - (S)-2-acetyl-2-hydroxybutanoate:
-        % Substrate name in BRENDA was a synonim as name in model. Changed manually
+%%%%%%%%%%%%%%%%%%%%%%%%% INITIAL MANUAL CURATION: %%%%%%%%%%%%%%%%%%%%%%%%
+         % Aconitase (P19414/EC 4.2.1.3): The rxn is represented as a two 
+         % step rxn in Yeast7.5, so the kcat must be multiplied by 2 
+         %(2015-11-05)
+         if strcmpi('prot_P19414',model.mets(int_pos(j))) && ...
+            (~isempty(strfind(model.rxnNames{i},'cis-aconitate(3-) to isocitrate')) || ...
+             ~isempty(strfind(model.rxnNames{i},'citrate to cis-aconitate(3-) (')) || ...
+             ~isempty(strfind(model.rxnNames{i},'citrate to cis-aconitate(3-) (')) || ...
+             ~isempty(strfind(model.rxnNames{i},'citrate to cis-aconitate(3-), cytoplasmic')))             
+             model.S(int_pos(j),i) = model.S(int_pos(j),i)/2;
+         end
+%%%%%%%%%%%%%%%%%%%%%%%%%% MANUAL CURATION FOR TOP GROWTH LIMITING ENZYMES:       
+        % [1.2.1.12] Kcat (Sce & natural substrate) 29 [1/s] is a highly 
+        % growthRate limiting value, S.A. 100 (Sce)
+          if strcmpi('prot_P00359',model.mets(int_pos(j))) &&...
+             ~isempty(strfind(model.rxnNames{i},...
+                               'glyceraldehyde-3-phosphate dehydrogenase'))
+              model.S(int_pos(j),i) = -(100*1e3/1e3*MW_set)^-1;
+          end
+        % FAS (P07149+P19097/EC2.3.1.86): No kcat available in BRENDA 
+        % (it was using ECs of subunits: EC3.1.2.14 and EC2.3.1.41).Value 
+        % corrected with max. s.a. in S.cerevisiae for NADPH in BRENDA 
+        % (2015-08-25)
+          if (strcmpi('prot_P07149',model.mets(int_pos(j)))  || ...
+              strcmpi('prot_P19097',model.mets(int_pos(j))))
+            if ~isempty(strfind(model.rxnNames{i},...
+                                   'fatty-acyl-CoA synthase (n-C16:0CoA)')) 
+                model.S(int_pos(j),i) = -(3/14*60*1e3/1e3*MW_set)^-1;    %3/14 [umol/min/mg]
+            elseif ~isempty(strfind(model.rxnNames{i},...
+                                  'fatty-acyl-CoA synthase (n-C18:0CoA)'))
+                model.S(int_pos(j),i) = -(3/16*60*1e3/1e3*MW_set)^-1;    %3/16 [umol/min/mg]
+            end
+          end
+        % Ketol-acid Reductoisomerase (P06168/EC1.1.1.86) - 2-acetyllactic 
+        % acid: Substrate name in BRENDA was a synonim as name in model. 
+        % Changed manually (2015-08-28).
+          if strcmpi('prot_P06168',model.mets(int_pos(j))) 
+              if (~isempty(strfind(model.rxnNames{i},...
+                                  'acetohydroxy acid isomeroreductase (')))
+                 model.S(int_pos(j),i) = -(18.3*3600)^-1;    %BRENDA: 2-acetolactate
+              elseif (~isempty(strfind(model.rxnNames{i},...
+                  'ketol-acid reductoisomerase (2-aceto-2-hydroxybutanoate) (')))
+                 model.S(int_pos(j),i) = -(78.3*3600)^-1;    %BRENDA: 2-aceto-2-hydroxybutyrate
+              end     
+          end
+        % Phosphoribosylformylglycinamidine synthase (P38972/EC6.3.5.3): 
+        % Only kcat available in BRENDA was for NH4 in E.coli. Value 
+        % corrected with max. s.a. in E.coli
         % (2015-08-28).
-        if ~isempty(strfind(model.rxns{i},'r_0669'))
-            model.S(int_pos(j),i) = -(78.3*3600)^-1;    %BRENDA: 2-aceto-2-hydroxybutyrate
-        end
-        % Phosphoribosylformylglycinamidine synthase (P38972/EC6.3.5.3): Only kcat available
-        % in BRENDA was for NH4 in E.coli. Value corrected with max. s.a. in E.coli
-        % (2015-08-28).
-        if ~isempty(strfind(model.rxns{i},'r_0079'))
-            model.S(int_pos(j),i) = -(2*60*1e3/1e3*MW_set)^-1;   %2 [umol/min/mg]
-        end
-        % HMG-CoA reductase (P12683-P12684/EC1.1.1.34): Only kcat available in BRENDA was
-        % for Rattus Norvegicus. Value corrected with max. s.a. in S.cerevisiae, checked in
-        % original source (I.F.Durr & H.Rudney, J. Biol. Chem. 1960 235:2572-2578
-        % http://www.jbc.org/content/235/9/2572) (2015-08-31).
-        if ~isempty(strfind(model.rxns{i},'r_0558'))
-            model.S(int_pos(j),i) = -(13.5*0.002*60*1e3/1e3*MW_set)^-1;     %13.5 units*0.002 umol = 0.027 [umol/min/mg]
-        end
-        % FPP synthase (P08524/EC2.5.1.1): The recommended EC is 2.5.1.10. Value corrected
-        % with s.a. in S.cerevisiae from BRENDA (2015-08-31).
-        if ~isempty(strfind(model.rxns{i},'r_0355')) || ...
-           ~isempty(strfind(model.rxns{i},'r_0462'))
-            model.S(int_pos(j),i) = -(2.33*60*1e3/1e3*MW_set)^-1;    %2.33 [umol/min/mg]
-        end        
-        % Amino-acid N-acetyltransferase (P40360-Q04728/EC2.3.1.1): Only kcat available
-        % in BRENDA was for Mycobacterium tuberculosis. Value corrected with s.a. in
-        % E.coli from BRENDA (2015-08-31).
-        if ~isempty(strfind(model.rxns{i},'r_0761'))
-            model.S(int_pos(j),i) = -(133*60*1e3/1e3*MW_set)^-1;    %133 [umol/min/mg]
-        end        
-        % Glutamate N-acetyltransferase (Q04728/EC2.3.1.1): Missanotated EC (should be
-        % 2.3.1.35), and no kcats for the correct EC. Value corrected with s.a. in
-        % S.cerevisiae from BRENDA (2015-08-31).
-        if ~isempty(strfind(model.rxns{i},'r_0818'))
-            model.S(int_pos(j),i) = -(22*60*1e3/1e3*MW_set)^-1;    %22 [umol/min/mg]
-        end
-        %MANUAL CURATION FOR CARBON SOURCES
-        % alpha,alpha-trehalase (P32356/EC3.2.1.28): The available kcat values were not for
-        % S.cerevisiae. Value corrected with s.a. in S.cerevisiae, checked in original source
-        % (N.Biswas &  A.K.Ghosh, BBA. 1996 1290(1):95-100) (2015-09-02)
-        if ~isempty(strfind(model.rxns{i},'r_0194'))
-            model.S(int_pos(j),i) = -(22*60*1e3/1e3*MW_set)^-1;    %22 [umol/min/mg]
-        end
-        %MANUAL CURATION FOR STRESS DATA
-        % 1. Ribose-phosphate pyrophosphokinase (Q12265/EC2.7.6.1): Substrate name
-        % (ribose-5-phosphate)in BRENDA was a synonim as name in model so it was using ATP
-        % as substrate instead (100 times lower). Changed manually (2015-10-05).
-        if ~isempty(strfind(model.rxns{i},'r_0916'))
-            model.S(int_pos(j),i) = -(60.68*3600)^-1;    %BRENDA: D-ribose 5-phosphate
-        end
-        % 2. Glutamine synthetase (P32288/EC6.3.1.2): No data in BRENDA for yeast or fungi.
-        % S.A. retrieved from manual search (Mitchell & Magasanik, Journal of Bio.Chem. 
-        % 1983, 258:119-124) (2015-10-05).
-        if ~isempty(strfind(model.rxns{i},'r_0476'))
-            model.S(int_pos(j),i) = -(236*60*1e3/1e3*MW_set)^-1;    %236 [umol/min/mg]
-        end
-        % 3. Chorismate synthase (P28777/EC4.2.3.5): Only available kcat was for N. crassa.
-        % Replaced with s.a. of E.coli, from BRENDA (2015-10-05).
-        if ~isempty(strfind(model.rxns{i},'r_0279'))
-            model.S(int_pos(j),i) = -(14.8*60*1e3/1e3*MW_set)^-1;    %14.8 [umol/min/mg]
-        end
-        % 4. Homoaconitase, mitochondrial (P49367/EC4.2.1.36): Only available kcats are for
-        % Methanocaldococcus jannaschii. Instead, we used a study in yeast (Strassman &
-        % Ceci, Journal of Bio.Chem. 1966, 241:5401-5407) that shows that aconitase is
-        % 0.062/0.005 = 12.4 times faster than homo-aconitase. Aconitase's kcat (143.3 1/s)
-        % is taken from manual data and multiplied by 2 to represent both parts of the
-        % reaction (2015-11-05).
-        if ~isempty(strfind(model.rxns{i},'r_0027')) || ...
-           ~isempty(strfind(model.rxns{i},'r_0542'))
-            model.S(int_pos(j),i) = -(143.3*2/12.4*3600)^-1;    %Aconitase: 143.3 [1/s]
-        end
-        % 5. Formyltetrahydrofolate synthetase (P07245/EC6.3.4.3): kcat of S.cerevisiae in
-        % BRENDA was hidden as 'additional information'. Fixed by going to the original
-        % reference (Mejillano et al, Biochemistry 1989, 28:5136-5145) (2015-11-11).
-        if ~isempty(strfind(model.rxns{i},'r_0446'))
-            model.S(int_pos(j),i) = -(200*3600)^-1;             %200 [1/s]
-        end
-        % 5. Methenyltetrahydrofolate cyclohydrolase (P07245/EC6.3.4.3): Missanotated EC
-        % (should be 3.5.4.9), value corrected with only kcat available (2015-11-11).
-        if ~isempty(strfind(model.rxns{i},'r_0725'))
-            model.S(int_pos(j),i) = -(134*3600)^-1;             %134 [1/s] - Homo sapiens
-        end
-        % 5. Methylenetetrahydrofolate dehydrogenase (P07245/EC6.3.4.3): Missanotated EC
-        % (should be 1.5.1.5), and no kcats for the correct EC. Value corrected with s.a.
-        % in S.cerevisiae from BRENDA (2015-11-11).
-        if ~isempty(strfind(model.rxns{i},'r_0732'))
-            model.S(int_pos(j),i) = -(259*60*1e3/1e3*MW_set)^-1;    %259 [umol/min/mg]
-        end
-        % 6. Phosphoserine transaminase (P33330/EC2.6.1.52): Only values were for E.coli
-        % with fusion proteins. Value changed with s.a. found with manual search (Hirsch
-        % & Greenberg, Journal of Bio.Chem. 1967, 242:2283-2287) (2015-11-11).
-        if ~isempty(strfind(model.rxns{i},'r_0918'))
-            model.S(int_pos(j),i) = -(78*60*1e3/1e3*MW_set)^-1;    %78 [umol/min/mg]
-        end
-        %ADITIONAL CURATION FOR CHEMOSTAT GROWTH
-        % Succinate-semialdehyde dehydrogenase (P38067/EC1.2.1.16): Retrieved value was
-        % from E.coli under extreme conditions. Value changed with s.a. in S.cerevisiae
-        % from BRENDA (2017-02-13).
-        if ~isempty(strfind(model.rxns{i},'r_1023'))
-            model.S(int_pos(j),i) = -(0.66*60*1e3/1e3*MW_set)^-1;   %0.66 [umol/min/mg]
-        end
-        % 1,3-beta-glucan synthase component FKS1 (P38631/EC2.4.1.34): Retrieved value
-        % was from Staphylococcus aureus. Value changed with s.a. in S.cerevisiae
-        % from BRENDA (2017-03-05).
-        if ~isempty(strfind(model.rxns{i},'r_0005'))
-            model.S(int_pos(j),i) = -(4*60*1e3/1e3*MW_set)^-1;   %4 [umol/min/mg]
-        end
-    end
+          if strcmpi('prot_P38972',model.mets(int_pos(j))) && ...
+             (~isempty(strfind(model.rxnNames{i},'phosphoribosylformyl glycinamidine synthetase')))
+             model.S(int_pos(j),i) = -(2.15*141418*60/1000)^-1;    
+          end
+        % HMG-CoA reductase (P12683-P12684/EC1.1.1.34): Only kcat available 
+        % in BRENDA was for Rattus Norvegicus. Value corrected with max. 
+        % s.a. in Rattus norvegicus [0.03 umol/min/mg, Mw=226 kDa] from
+        % BRENDA (2018-01-27)
+          if (strcmpi('prot_P12683',model.mets(int_pos(j)))  || ...
+              strcmpi('prot_P12684',model.mets(int_pos(j)))) && ...
+              (~isempty(strfind(model.rxnNames{i},'hydroxymethylglutaryl')))
+             %model.S(int_pos(j),i) = -(13.5*0.002*60*1e3/1e3*MW_set)^-1;
+             model.S(int_pos(j),i) = -(0.03*226000*0.06)^-1;
+          end
+        % amidophosphoribosyltransferase [P04046/EC2.4.2.14]
+        % No Kcat reported on BRENDA, the maximum S.A. (E. coli is taken
+        % instead)
+          if strcmpi('prot_P04046',model.mets(int_pos(j))) && ...
+             (~isempty(strfind(model.rxnNames{i},'phosphoribosylpyrophosphate amidotransferase')))
+             model.S(int_pos(j),i) = -(17.2*194000*60/1000)^-1;
+          end
+        % Enolase (1&2) [4.2.1.11] 71.4 (1/s) is the Kcat reported for 
+        % 2-phospho-D-glycerate
+        % 230 (1/s) is the Kcat reported for 2-phosphoglycerate
+        % both measurements are for native enzymes
+          if strcmpi('prot_P00924',model.mets(int_pos(j)))  && ...
+             (~isempty(strfind(model.rxnNames{i},'enolase'))) 
+               model.S(int_pos(j),i) = -1/(71.4*3600);
+          end           
+       % [4.1.1.-, 4.1.1.43, 4.1.1.72, 4.1.1.74] Pyruvate decarboxylase 
+       %  Resulted to be a growth limiting enzyme but the Kcat
+       % value seems to be the best candidate for this reaction (rev)
+        if strcmpi('prot_P06169',model.mets(int_pos(j))) && ...
+           (~isempty(strfind(model.rxnNames{i},'pyruvate decarboxylase')))
+           %model.S(int_pos(j),i) = -1/(145*3600); 
+           model.S(int_pos(j),i) = -1/(73.1*3600); 
+        end         
+       % 1,3-beta-glucan synthase component FKS1 (P38631/EC2.4.1.34): Retrieved value
+       % was from Staphylococcus aureus. Value changed with s.a. in S.cerevisiae
+       % from BRENDA (2017-03-05).
+         if strcmpi('prot_P38631',model.mets(int_pos(j))) && ...
+           (~isempty(strfind(model.rxnNames{i},'1,3-beta-glucan synthase (')))
+            model.S(int_pos(j),i) = -(4*60*1e3/1e3*MW_set)^-1;    %4 [umol/min/mg]
+            disp(['P38631' ' modified'])         
+         end
+       % [Q06817//EC6.1.1.14] glycyl-tRNA synthetase
+       %  Resulted to be a growth limiting enzyme, maximum catalytic value
+       % found by the automatic algorithm was 15.9 1/s
+       % from BRENDA (2018-01-22).
+         if strcmpi('prot_Q06817',model.mets(int_pos(j))) && ...
+            (~isempty(strfind(model.rxnNames{i},'glycyl-tRNA synthetase')))
+            model.S(int_pos(j),i) = -1/(15.9*3600); 
+         end
+       % [Q00955//EC6.4.1.2] Acetyl-CoA carboxylase
+       % Assigned value was 1.23 (1/s), S.A. was used instead (6
+       % umol/min/mg) from BRENDA (2018-01-22).
+         if strcmpi('prot_Q00955',model.mets(int_pos(j))) && ...
+            (~isempty(strfind(model.rxnNames{i},'Acetyl-CoA carboxylase')))
+            model.S(int_pos(j),i) = -(6*60*1e3/1e3*MW_set)^-1;
+         end
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% MANUAL CURATION FOR CARBON SOURCES
+       % alpha,alpha-trehalase (P32356/EC3.2.1.28): The growth on
+       % alpha,alpha-trehalose was extremely highly overpredicted, the
+       % minimum substrate specific kcat value (0.67 1/s) is chosen instead
+       % (Metarhizium flavoviride) 
+       % from BRENDA (2018-01-22).
+         if (strcmpi('prot_P32356',model.mets(int_pos(j)))  || ...
+              strcmpi('prot_P48016',model.mets(int_pos(j)))) && ...
+             (~isempty(strfind(model.rxnNames{i},'alpha,alpha-trehalase')))
+             model.S(int_pos(j),i) = -(0.67*60*1e3/1e3*MW_set)^-1;    
+         end
+        % alcohol dehydrogenase (ethanol to acetaldehyde)[P00331/EC1.1.1.1] 
+        % Growth on ethanol was extremely highly overpredicted, the
+        % specific Kcat value for ethanol found in BRENDA is 143 (1/s) @pH
+        % 8.0 and 25 C, and 432.3 @20?C and pH 9.0 
+       % from BRENDA (2018-01-22).
+         if strcmpi('prot_P00331',model.mets(int_pos(j))) && ...
+             (~isempty(strfind(model.rxnNames{i},...
+                      'alcohol dehydrogenase (ethanol to acetaldehyde)')))
+             model.S(int_pos(j),i) = -(143*3600)^-1;  
+         end
+        % Glycerol dehydrogenase [P14065/EC1.1.1.1] 
+        % Growth on glycerol was highly overpredicted, the minimum S.A. 
+        % value for  glycerol found in BRENDA is 0.54 (umol/ming/mg) and
+        % the maximal is 15.7, both for Schizosaccharomyces pombe. The MW
+        % is 57 kDa. From BRENDA (2018-01-26).
+         if strcmpi('prot_P14065',model.mets(int_pos(j))) && ...
+             (~isempty(strfind(model.rxnNames{i},...
+                      'glycerol dehydrogenase (NADP-dependent)')))
+             model.S(int_pos(j),i) = -(0.54*57000*0.06)^-1;  
+         end
+        % alpha-glucosidase [EC3.2.1.10/EC3.2.1.20] 
+        % Growth on maltose is still underpredicted, for this reason all
+        % the isoenzymes catalysing its conversion are set up to the
+        % maximal glucosidase rate for maltose (3.2.1.20) <- 709 1/s for 
+        % Schizosaccharomyces pombe, a value of 1278 is also available for 
+        % Sulfolobus acidocaldarius.
+        % From BRENDA (2018-01-28).
+         if ~isempty(strfind(model.rxnNames{i},'alpha-glucosidase'))
+             %model.S(int_pos(j),i) = -(709*3600)^-1; 
+             model.S(int_pos(j),i) = -(1278*3600)^-1; 
+         end
+        % Acetyl-CoA synthase [P52910||Q01574//EC6.2.1.1] 
+        % Growth on ethanol and acetate was overpredicted, the common
+        % enzyme for their usage as carbon source is Acetyl-CoA synthase.
+        % values for other organism were used but the S.A. for S.
+        % cerevisiae is 1.241 [umol/min/mg]
+        % From BRENDA (2018-01-28).
+         if (strcmpi('prot_Q01574',model.mets(int_pos(j)))  || ...
+              strcmpi('prot_P52910',model.mets(int_pos(j)))) && ...
+             (~isempty(strfind(model.rxnNames{i},'acetyl-CoA synthetase')))
+             model.S(int_pos(j),i) = -(1.241*60*1e3/1e3*MW_set)^-1;    
+         end 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% MANUAL CURATION FOR TOP USED ENZYMES:
+          % atp synthase mitochondrial (P07251-P00830/EC3.6.3.14): No Kcat 
+          % reported for S. cerevisiae, value for Bacillus sp.
+          % for ATP is used instead 217 [1/s]
+          % from BRENDA (2017-01-18).
+          if (strcmpi('prot_P07251',model.mets(int_pos(j))) || ...
+              strcmpi('prot_P00830',model.mets(int_pos(j))))&& ...
+             (~isempty(strfind(model.rxnNames{i},'ATP synthase (No1)')))
+             model.S(int_pos(j),i) = -(390*3600)^-1; 
+          end
+          % glyceraldehyde-3-phosphate dehydrogenase 1 (gapdh 1) 
+          % (P00360/EC1.2.1.12): The maximum catalytic value available for
+          % Sce (S.A. = 100 umol/min/mg) was taking ~10-12% of the
+          % simulated proteome, so the highest Kcat value available for the
+          % natural substrate is chosen instead (for H. sapiens
+          % from BRENDA (2017-01-18).
+          if strcmpi('prot_P00360',model.mets(int_pos(j))) &&...
+             ~isempty(strfind(model.rxnNames{i},...
+                               'glyceraldehyde-3-phosphate dehydrogenase'))
+                %model.S(int_pos(j),i) = -(100*1e3/1e3*MW_set)^-1;
+          end
+          % transaldolase (reversible) (P15019/EC2.2.1.2): 
+          % The protein usage is represents around 10% of the used proteome
+          % on several carbon sources (batch simulations). The highest S.A.
+          % was used instead (60*75000*60/1000) [1/hr] for E. coli
+          % from BRENDA (2017-01-18).
+          if strcmpi('prot_P15019',model.mets(int_pos(j))) &&...
+             ~isempty(strfind(model.rxnNames{i},...
+                               'transaldolase (reversible)'))
+              model.S(int_pos(j),i) = -(60*75000*60/1000)^-1;
+          end
+           % Glutamate N-acetyltransferase (Q04728/EC2.3.1.1): Missanotated 
+           % EC (should be 2.3.1.35), and no kcats for the correct EC. were
+           % found. Value corrected with s.a. in S.cerevisiae 
+           % from BRENDA (2015-08-31).
+          if strcmpi('prot_Q04728',model.mets(int_pos(j))) && ...
+             (~isempty(strfind(model.rxnNames{i},'ornithine transacetylase (No1)')))
+             model.S(int_pos(j),i) = -(22*60*1e3/1e3*MW_set)^-1;    %22 [umol/min/mg]
+          end
+           % P80235/EC 2.3.1.7 - carnitine O-acetyltransferase 
+           % The assigned Kcat was for Mus musculus and resulted to take
+           % 20% of the used proteome on batch simulation for several
+           % carbon sources. Sce S.A. is used instead [200 umol/min/mg]
+           % from BRENDA (2018-01-18)
+          if strcmpi('prot_P80235',model.mets(int_pos(j))) && ...
+             (~isempty(strfind(model.rxnNames{i},'carnitine O-acetyltransferase')))
+             model.S(int_pos(j),i) = -(200*60*1e3/1e3*MW_set)^-1;    %22 [umol/min/mg]
+          end
+          
+     end
     disp(['Improving model with curated data: Ready with rxn #' num2str(i)])
 end
 
-% Other manual changes:
-
+%%%%%%%%%%%%%%%%%%%%%%%%% Other manual changes: %%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Remove protein P14540 (Fructose-bisphosphate aldolase) from missanotated rxns
 % (2017-01-16):
-rxns_tochange = {'r_0322No1','r_0322_REVNo1','r_0990No1','r_0990_REVNo1'};
-for i = 1:length(rxns_tochange)
-    rxn_id  = rxns_tochange{i};
-    pos_rxn = strcmp(model.rxns,rxn_id);
-    model.S(strcmp(model.mets,'prot_P14540'),pos_rxn) = 0;
-    model.rxns{pos_rxn}     = rxn_id(1:end-3);
-    model.rxnNames{pos_rxn} = model.rxnNames{pos_rxn}(1:end-6);
-end
-
+ rxns_tochange = {'D-fructose 1-phosphate D-glyceraldehyde-3-phosphate-lyase (No1)';...
+                  'sedoheptulose 1,7-bisphosphate D-glyceraldehyde-3-phosphate-lyase (No1)';...
+                  'D-fructose 1-phosphate D-glyceraldehyde-3-phosphate-lyase (reversible) (No1)';...
+                  'sedoheptulose 1,7-bisphosphate D-glyceraldehyde-3-phosphate-lyase (reversible) (No1)'};
+ for i = 1:length(rxns_tochange)
+     rxn_name = rxns_tochange{i};
+     pos_rxn  = find(strcmpi(model.rxnNames,rxn_name));
+     rxn_id   = model.rxns{pos_rxn};
+     model.S(strcmpi(model.mets,'prot_P14540'),pos_rxn) = 0;
+     model.rxns{pos_rxn} = rxn_id(1:end-3);
+ end
+ 
 % Remove protein P40009 (Golgi apyrase) from missanotated rxns (2016-12-14):
-model = removeRxns(model,'r_0227No3');
+% model = removeRxns(model,{'r_0227No3'});
+  pos_rxn = find(~cellfun(@isempty,strfind(model.rxnNames,'ATPase, cytosolic (No3)')));
+  if ~isempty(pos_rxn) && pos_rxn~=0
+     model = removeRxns(model,model.rxns(pos_rxn));
+  end
 
-% Remove 2 proteins from missanotated rxns: Q12122 from cytosolic rxn (it's
-% only mitochondrial) & P48570 from mitochondrial rxn (it's only cytosolic).
-% Also rename r_0543No2 to r_0543No1 (for consistency) (2017-08-28):
-model = removeRxns(model,'r_0543No1');
-model = removeRxns(model,'r_1838No2');
-model.rxnNames{strcmp(model.rxns,'r_0543No2')} = 'homocitrate synthase (No1)';
-model.rxns{strcmp(model.rxns,'r_0543No2')}     = 'r_0543No1';
+% % Remove 2 proteins from missanotated rxns: Q12122 from cytosolic rxn (it's
+% % only mitochondrial) & P48570 from mitochondrial rxn (it's only cytosolic).
+% % Also rename r_0543No2 to r_0543No1 (for consistency) (2017-08-28):
+% model = removeRxns(model,'r_0543No1');
+% model = removeRxns(model,'r_1838No2');
+% model.rxnNames{strcmp(model.rxns,'r_0543No2')} = 'homocitrate synthase (No1)';
+% model.rxns{strcmp(model.rxns,'r_0543No2')}     = 'r_0543No1';
 
 % Remove repeated reactions (2017-01-16):
 rem_rxn = false(size(model.rxns));

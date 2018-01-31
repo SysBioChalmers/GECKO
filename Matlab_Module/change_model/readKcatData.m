@@ -21,7 +21,7 @@ function eModel = readKcatData(model_data,kcats)
 %Get kcat value for both directions:
 Fkcat = kcats.forw.kcats;
 Bkcat = kcats.back.kcats;
-rev   = model_data.model.rev;
+rev   = boolean(model_data.model.rev);
 kcats = [Fkcat;Bkcat(rev,:)];
 
 %Get model:
