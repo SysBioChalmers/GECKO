@@ -297,15 +297,18 @@
  else
      matches        = length(kcat);
      [kcat,MaxIndx] = max(kcat);
-     if SA
-         % If the match correspond to a SA*Mw value for the model's
-         % organism the kcat will be corrected with the sequence based Mw
-         if strcmpi(organism,org_cell(MaxIndx))
-             kcat = kcat*MW/MW_BRENDA(MaxIndx);
-         end
-     end        
+%      if SA
+%          % If the match correspond to a SA*Mw value for the model's
+%          % organism the kcat will be corrected with the sequence based Mw
+%          if strcmpi(organism,org_cell(MaxIndx))
+%              kcat = kcat*MW/MW_BRENDA(MaxIndx);
+%          end
+%      end        
  end
- 
+ %Avoid SA*Mw values over the diffusion limit rate  [Bar-Even et al. 2011]
+ if kcat>(1E7*3600)
+     kcat = 1E7*3600;
+ end
  end
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  %Extract the indexes of the entries in the BRENDA data that meet the 
@@ -354,8 +357,7 @@
      for j=1:length(EC_indexes)
  
          %Assigns a KEGG index for those found on the KEGG struct
-         orgs_index = find(strcmpi(orgs_cell(EC_indexes(j)),...
-                                             phylDist.names),1);
+         orgs_index = find(strcmpi(orgs_cell(EC_indexes(j)),phylDist.names),1);
          if ~isempty(orgs_index)
              KEGG_indexes = [KEGG_indexes; orgs_index];
              temp         = [temp;EC_indexes(j)];
@@ -366,11 +368,10 @@
              while isempty(orgs_index) && k<length(phylDist.names)
                  str = phylDist.names{k};
                  org = orgs_cell{EC_indexes(j)};
-                 if strcmpi(org(1:strfind(org,' ')-1),...
-                         str(1:strfind(str,' ')-1))
-                     orgs_index = k; 
+                 if strcmpi(org(1:strfind(org,' ')-1),str(1:strfind(str,' ')-1))
+                     orgs_index   = k; 
                      KEGG_indexes = [KEGG_indexes;k];
-                     temp = [temp;EC_indexes(j)];
+                     temp         = [temp;EC_indexes(j)];
                  end
                  k = k+1;
              end
@@ -453,7 +454,7 @@
          if ~isempty(org_index)
              SAcell{1} = [SAcell{1};SA{1}(i)];
              SAcell{2} = [SAcell{2};SA{3}(i)];
-             SAcell{3} = [SAcell{3}; SA{4}(i)* mwEC{2}(org_index)]; %[1/hr]
+             SAcell{3} = [SAcell{3}; SA{4}(i)*mwEC{2}(org_index)]; %[1/hr]
              SAcell{4} = [SAcell{4}; mwEC{2}(org_index)];
          end
          previousEC = SA{1}(i);
