@@ -1,5 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% function [limKcats,limRxns,breakFlag] = findTopLimitations(model,prevUnicodes,prevRxns)
+% function [limKcats,limRxns,breakFlag] = TopLimitingKcat(model,prevUnicodes,...
+%                                                                  prevRxns)
 %
 % Function that gets an EC model and returns the top growth limiting Kcat 
 % value in  the network based on a sensitivity analysis on each of the 
@@ -9,9 +10,9 @@
 % basis (relaxing all of its matched kcats) and gets the top growth
 % limiting one, if any.
 %
-% Ivan Domenzain    Last edited. 2018-02-02
+% Ivan Domenzain    Last edited. 2018-02-07
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [limKcats,limRxns,breakFlag] = findTopLimitations(model,prevUnicodes,prevRxns)
+function [limitations,breakFlag] = findTopLimitations(model,prevUnicodes,option)
                                                        
     %Get an initial simulation optimizing for biomass production
     base_sol = solveLP(model); 
@@ -21,9 +22,9 @@ function [limKcats,limRxns,breakFlag] = findTopLimitations(model,prevUnicodes,pr
     enz_indxs = enz_indxs(1:end-1);
     %Extract the enzyme usage pseudoreactions indexes
     enzUsageIndxs = find(~cellfun(@isempty,strfind(model.rxns,'prot_'))); 
-    
-    
-    breakFlag          = false;
+    enzUsageIndxs = enzUsageIndxs(1:end-1);
+    limitations   = [];
+    breakFlag     = false;
     %If the model is growing, analyse the individual kcat values of the flux
     %carrier enzymes
     if base_sol.f ~= 0
@@ -60,10 +61,17 @@ function [limKcats,limRxns,breakFlag] = findTopLimitations(model,prevUnicodes,pr
                 end
             end
         end
+        limitations = limKcats;
     %If the model is not growing, analyse all of the kinetic parameters
     %associated to each of the metabolic reactions.
-    else
-        limRxns = findLimitingRxn(model,enz_indxs,enzUsageIndxs);
+    elseif option == 1
+        limRxns     = findLimitingRxn(model,enz_indxs,enzUsageIndxs);
+        limitations = limRxns;
+        breakFlag   = true;
+    elseif option == 2
+        limEnz      = findLimitingEnz(model,enz_indxs,enzUsageIndxs);
+        limitations = limEnz;
+        breakFlag   = true;
     end
 end
    
@@ -124,7 +132,7 @@ function [limRxns] = findLimitingRxn(model,enz_indxs,enzUsageIndxs)
     
     limRxns   = cell(1,3); 
     for i=1:(enzUsageIndxs(1)-1)
-        disp(['Relaxing Kcat coefficients for Rxn#' num2str(i)])
+        %disp(['Relaxing Kcat coefficients for Rxn#' num2str(i)])
         temp_model = model;
         %Search if there are nonZero Kcat coefficients matched to the
         %i-th reaction
@@ -137,7 +145,8 @@ function [limRxns] = findLimitingRxn(model,enz_indxs,enzUsageIndxs)
             new_sol             = solveLP(temp_model);
             deltaGR             = abs(new_sol.f);
             if deltaGR>0
-                disp('limiting rxn found')
+                disp(['limiting rxn found: #' num2str(i)])
+                disp(deltaGR)
                 limRxns{1} = [limRxns{1}; model.rxnNames(i)];
                 limRxns{2} = [limRxns{2}; i];
                 limRxns{3} = [limRxns{3}; deltaGR];
@@ -151,16 +160,36 @@ function [limRxns] = findLimitingRxn(model,enz_indxs,enzUsageIndxs)
     end
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Function that receives a string and a cell array and returns the indexes
-% in which the string appears on the array.
-function matching = indexes_string(cell_array,str,flag)
-    matching  = strfind(cell_array,str);
-    if flag
-        matching = find(~cellfun(@isempty,matching),1);
-    else
-        matching = find(~cellfun(@isempty,matching));
+function [limEnz] = findLimitingEnz(model,enz_indxs,enzUsageIndxs)
+    
+    limEnz   = cell(1,3); 
+    for i=1:length(enz_indxs)
+        enzPos = enz_indxs(i);
+        %disp(['Relaxing Kcat coefficients for Enzyme #' num2str(i)])
+        temp_model = model;
+        %Search if there are nonZero Kcat coefficients matched to the
+        %i-th enzyme
+        nonZero = find(temp_model.S(enzPos,1:enzUsageIndxs(1)-1));
+        if ~isempty(nonZero)
+            %Flexibilize all non-zero coefficients and check if any growth 
+            %can be obtained
+            temp_model.S(enzPos,nonZero) = temp_model.S(enzPos,nonZero)./1e6;
+                      
+            new_sol  = solveLP(temp_model);
+            deltaGR  = abs(new_sol.f);
+            
+            if deltaGR>0
+                disp(['limiting enzyme found: #' num2str(i)])
+                disp(deltaGR)
+                limEnz{1} = [limEnz{1}; model.metNames(i)];
+                limEnz{2} = [limEnz{2}; i];
+                limEnz{3} = [limEnz{3}; deltaGR];
+            end
+        end
+    end
+    %If limiting rxns were found, sort them according to the growthRate
+    %difference
+    if ~isempty(limEnz{3})
+        limEnz = sortByCCoeff(limEnz,limEnz{3});
     end
 end
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
