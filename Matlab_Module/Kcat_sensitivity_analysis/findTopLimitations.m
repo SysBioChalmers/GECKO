@@ -138,10 +138,11 @@ function [limRxns] = findLimitingRxn(model,enz_indxs,enzUsageIndxs)
         %i-th reaction
         nonZero = find(temp_model.S(enz_indxs,i));
         if ~isempty(nonZero)
+            disp(['Analyzing rxn: #' num2str(i)])
             %Flexibilize all non-zero coefficients in the i-th
             %metabolic reaction and check if any growth can be obtained
             pos                 = enz_indxs(nonZero);
-            temp_model.S(pos,i) = temp_model.S(pos,i)/1000;
+            temp_model.S(pos,i) = temp_model.S(pos,i)./1e6;
             new_sol             = solveLP(temp_model);
             deltaGR             = abs(new_sol.f);
             if deltaGR>0
@@ -171,6 +172,7 @@ function [limEnz] = findLimitingEnz(model,enz_indxs,enzUsageIndxs)
         %i-th enzyme
         nonZero = find(temp_model.S(enzPos,1:enzUsageIndxs(1)-1));
         if ~isempty(nonZero)
+            disp(['Analyzing enzyme: #' num2str(i)])
             %Flexibilize all non-zero coefficients and check if any growth 
             %can be obtained
             temp_model.S(enzPos,nonZero) = temp_model.S(enzPos,nonZero)./1e6;
