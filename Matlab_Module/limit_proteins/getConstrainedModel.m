@@ -1,13 +1,15 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% function ecModel_batch = getConstrainedModel(ecModel);
+%function [ecModel_batch,OptSigma] = getConstrainedModel(ecModel,sigma,...
+%                                                              Ptot,gR_exp)
 %
 % Function that gets a model with kinetic data and returns an enzyme 
 % constrained model, either with individual enzyme levels or with the total
 % measured protein content.
 %
-% Ivan Domenzain    Last edited. 2018-02-07
+% Ivan Domenzain    Last edited. 2018-02-09
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function ecModel_batch = getConstrainedModel(ecModel,sigma,Ptot,gR_exp)
+function [ecModel_batch,OptSigma] = getConstrainedModel(ecModel,sigma,...
+                                                               Ptot,gR_exp)
 	
 	%Get a preliminary enzyme constrained model for performing the Kcats 
 	%sensitivity analysis
