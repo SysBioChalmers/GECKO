@@ -7,10 +7,9 @@
 function [ecModel,model_data,kcats] = enhanceGEM(model,toolbox,name)
 
 %Provide your organism scientific name
-org_name      = 'saccharomyces cerevisiae';
-org_code      = 'sce';
+org_name = 'saccharomyces cerevisiae';
+org_code = 'sce';
 format short e
-
 if strcmp(toolbox,'COBRA')
    initCobraToolbox
 end
@@ -33,10 +32,12 @@ ecModel = readKcatData(model_data,kcats);
 ecModel = manualModifications(ecModel);
 
 %Constrain model to batch conditions:
+sigma  = 0.5;      %Optimized for glucose
+Ptot   = 0.5;      %Assumed constant
+gR_exp = 0.41;     %[g/gDw h] Max batch gRate on minimal glucose media
 cd ../limit_proteins
-sigma         = 0.51;      %Optimized for glucose
-Ptot          = 0.5;       %Assumed constant
-ecModel_batch = constrainEnzymes(ecModel,Ptot,sigma);
+[ecModel_batch,OptSigma] = getConstrainedModel(ecModel,sigma,Ptot,gR_exp);
+disp(['Sigma factor (fitted for growth on glucose): ' num2str(OptSigma)])
 
 %Save output models:
 cd ../../models
