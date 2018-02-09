@@ -36,7 +36,9 @@ function ecModel = modifyKcats(ecModel,ecModelBatch,gRexp)
             cd (current)
             %Saves the parameter modification information
             modifications = [modifications; data];
-            error         = data{1,9};
+            if ~isempty(data{1,9})
+                error = data{1,9};
+            end
             %Add a string with the uniprot code and the rxn number in order
             %to keep track of the modified coefficients
             str            = {horzcat(data{1},'_',num2str(limKcat{3}))};
