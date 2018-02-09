@@ -44,13 +44,14 @@ function ecModel = modifyKcats(ecModel,ecModelBatch,gRexp)
             disp(horzcat('  Protein:',data{1},' Rxn#:',num2str(limKcat{1,3}), ...
                                                   ' name: ',limKcat{6}{1}))
                                               
-            disp(['  previous value:' num2str(data{1,7}) ' new value:' ...
-                  num2str(data{1,8}) ' gRate CC:' num2str(limKcat{1,5}) ...
+            disp(['  prev_value:' num2str(data{1,7}) ' new_value:' ...
+                  num2str(data{1,8}) ' gRCC:' num2str(limKcat{1,5}) ...
                                                    ' Err:' num2str(error)])            
             i = i+1;            
         else
             break
         end
+        fprintf('\n')
     end  
     cd (current)
     %Create a .txt file with all the modifications that were done on the

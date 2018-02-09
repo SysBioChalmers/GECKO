@@ -109,7 +109,7 @@ function kcatIndxs = findLimitingKcat(model,base_sol,enzUsageIndxs)
                 temp_model = model;
                 coeffPos   = enz_rxnsCoeffs(j);
                 temp_model.S(enzPos,coeffPos) = ...
-                    model.S(enzPos,coeffPos)/1000;
+                                             model.S(enzPos,coeffPos)/1000;
                 new_sol   = solveLP(temp_model);
                 gRCC      = (new_sol.f - base_sol.f)/base_sol.f;
                 
