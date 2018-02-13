@@ -87,10 +87,9 @@ while p < x+1      %if bracket exist in geneset, means there still exist multi-g
                     GRbracketRtemp2 = setdiff(GRbracketRtemp2,min(GRbracketRtemp2));
                     tempSTR2 = [tempSTR2(1:A(k,1)-1) '[' tempSTR2(A(k,1)+1:length(tempSTR2))];
                 end
-        end  
-        subSTRcell = strsplit(subSTR,' ');            
+        end             
         for m = 1:length(model.genes)
-            if ~isempty(find(strcmpi(model.genes{m},subSTRcell), 1))
+            if ~isempty(strfind(subSTR,model.genes{m})) 
                 TempGenesets{length(TempGenesets)+1,1} = model.genes{m};
             end    
         end 
@@ -176,18 +175,16 @@ while p < x+1      %if bracket exist in geneset, means there still exist multi-g
                             tempSTR2 = [tempSTR2(1:A2(k,1)-1) '[' tempSTR2(A2(k,1)+1:length(tempSTR2))];
                         end
                     end
-                    subSTRcell = strsplit(subSTR2,' ');
                     for m = 1:length(model.genes)
-                        if ~isempty(find(strcmpi(model.genes{m},subSTRcell), 1))                              
+                        if ~isempty(strfind(subSTR2,model.genes{m}))                
                             TempGenesets2{length(TempGenesets2)+1,1} = model.genes{m};                
                         end    
                     end
                 else
-                    subSTR2    = STR2;
-                    subSTRcell = strsplit(subSTR2,' ');
-                    j2         = 0;                    
+                    subSTR2 = STR2;
+                    j2 = 0;
                     for m = 1:length(model.genes)
-                        if ~isempty(find(strcmpi(model.genes{m},subSTRcell), 1))
+                        if ~isempty(strfind(subSTR2,model.genes{m}))
                             TempGenesets2{j2+1,1} = model.genes{m};
                             j2 = j2+1;                                            
                         end    
@@ -238,7 +235,7 @@ while p < x+1      %if bracket exist in geneset, means there still exist multi-g
             for m = 1:length(model.genes)
                 %String comparison between model.genes{m} and each of the
                 %different genes in the grRule
-                if ~isempty(find(strcmpi(model.genes{m},subString), 1))
+                if any(find(strcmpi(model.genes{m},subString)))
                      n = n+1;                
                      TempGenesets{n,1} = model.genes{m};
                  end                   

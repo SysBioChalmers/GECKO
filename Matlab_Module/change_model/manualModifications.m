@@ -160,15 +160,15 @@ for i = 1:length(model.rxns)
         % both measurements are for native enzymes
           if strcmpi('prot_P00924',model.mets(int_pos(j)))  && ...
              (~isempty(strfind(model.rxnNames{i},'enolase'))) 
-               model.S(int_pos(j),i) = -1/(230*3600);
+               model.S(int_pos(j),i) = -1/(71.4*3600);
           end           
        % [4.1.1.-, 4.1.1.43, 4.1.1.72, 4.1.1.74] Pyruvate decarboxylase 
        %  Resulted to be a growth limiting enzyme but the Kcat
        % value seems to be the best candidate for this reaction (rev)
         if strcmpi('prot_P06169',model.mets(int_pos(j))) && ...
            (~isempty(strfind(model.rxnNames{i},'pyruvate decarboxylase')))
-           model.S(int_pos(j),i) = -1/(145*3600); 
-           %model.S(int_pos(j),i) = -1/(73.1*3600); 
+           %model.S(int_pos(j),i) = -1/(145*3600); 
+           model.S(int_pos(j),i) = -1/(73.1*3600); 
         end         
        % 1,3-beta-glucan synthase component FKS1 (P38631/EC2.4.1.34): Retrieved value
        % was from Staphylococcus aureus. Value changed with s.a. in S.cerevisiae
@@ -265,12 +265,7 @@ for i = 1:length(model.rxns)
           if strcmpi('prot_P00360',model.mets(int_pos(j))) &&...
              ~isempty(strfind(model.rxnNames{i},...
                                'glyceraldehyde-3-phosphate dehydrogenase'))
-                model.S(int_pos(j),i) = -(100*1e3/1e3*MW_set)^-1;
-          end
-          if strcmpi('prot_P00358',model.mets(int_pos(j))) &&...
-             ~isempty(strfind(model.rxnNames{i},...
-                               'glyceraldehyde-3-phosphate dehydrogenase'))
-                model.S(int_pos(j),i) = -(100*1e3/1e3*MW_set)^-1;
+                %model.S(int_pos(j),i) = -(100*1e3/1e3*MW_set)^-1;
           end
           % transaldolase (reversible) (P15019/EC2.2.1.2): 
           % The protein usage is represents around 10% of the used proteome
@@ -326,13 +321,13 @@ end
      model = removeRxns(model,model.rxns(pos_rxn));
   end
 
-% Remove 2 proteins from missanotated rxns: Q12122 from cytosolic rxn (it's
-% only mitochondrial) & P48570 from mitochondrial rxn (it's only cytosolic).
-% Also rename r_0543No2 to r_0543No1 (for consistency) (2017-08-28):
-model = removeRxns(model,'r_0543No1');
-model = removeRxns(model,'r_1838No2');
-model.rxnNames{strcmp(model.rxns,'r_0543No2')} = 'homocitrate synthase (No1)';
-model.rxns{strcmp(model.rxns,'r_0543No2')}     = 'r_0543No1';
+% % Remove 2 proteins from missanotated rxns: Q12122 from cytosolic rxn (it's
+% % only mitochondrial) & P48570 from mitochondrial rxn (it's only cytosolic).
+% % Also rename r_0543No2 to r_0543No1 (for consistency) (2017-08-28):
+% model = removeRxns(model,'r_0543No1');
+% model = removeRxns(model,'r_1838No2');
+% model.rxnNames{strcmp(model.rxns,'r_0543No2')} = 'homocitrate synthase (No1)';
+% model.rxns{strcmp(model.rxns,'r_0543No2')}     = 'r_0543No1';
 
 % Remove repeated reactions (2017-01-16):
 rem_rxn = false(size(model.rxns));
