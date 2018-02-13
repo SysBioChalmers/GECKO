@@ -2,14 +2,13 @@
 % model = constrainEnzymes(model,Ptotal,sigma,pIDs,data)
 % 
 %
-% Benjamín J. Sánchez. Last edited: 2017-01-17
+% Benjam?n J. S?nchez. Last edited: 2017-01-17
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 function model = constrainEnzymes(model,Ptot,sigma,pIDs,data)
 
 %Current values:
 f       = 0.4461; %Yeast 7.6 (all enzymes) [g(Pmodel)/g(Ptot)]
-Pbase   = 0.4005; %Value from biomass comp. (Förster data @ 0.1 1/h)
+Pbase   = 0.4005; %Value from biomass comp. (F?rster data @ 0.1 1/h)
 
 %No UB will be changed if no data is available -> pool = all enzymes(FBAwMC)
 if nargin == 3
@@ -68,12 +67,12 @@ disp(['Total protein in model = '            num2str(Ptot)                   ' g
 
 
 %Plot histogram:
-figure
-hist(concs_measured*1e3,10.^(-3:0.5:3))
-set(gca,'xscale','log')
-xlim([1e-3,1e3])
-xlabel('Protein amount [mg/gDW]');
-ylabel('Frequency');
+% figure
+% hist(concs_measured*1e3,10.^(-3:0.5:3))
+% set(gca,'xscale','log')
+% xlim([1e-3,1e3])
+% xlabel('Protein amount [mg/gDW]');
+% ylabel('Frequency');
 
 end
 

@@ -15,7 +15,7 @@
 %           *count(3):   #exchange/transport rxns with no GPRs
 %           *count(4):   #other rxns
 % 
-% Benjamín Sánchez. Last edited: 2017-03-05
+% Benjam?n S?nchez. Last edited: 2017-03-05
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function model_data = getEnzymeCodes(model)
@@ -29,14 +29,14 @@ cd ../Matlab_Module/get_enzyme_data
 swissprot = standardizeDatabase(swissprot);
 kegg      = standardizeDatabase(kegg);
 
-[m,n]      = size(model.S);
+ [m,n]      = size(model.S);
 substrates = cell(n,20);
 products   = cell(n,20);
 uniprots   = cell(n,20);
 EC_numbers = cell(n,20);
-MWs        = zeros(n,20);
-isrev      = zeros(n,1);
-count      = zeros(4,1);
+ MWs        = zeros(n,20);
+ isrev      = zeros(n,1);
+ count      = zeros(4,1);
 rgmat      = full(model.rxnGeneMat);
 
 for i = 1:n

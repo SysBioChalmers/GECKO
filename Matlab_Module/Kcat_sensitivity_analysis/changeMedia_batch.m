@@ -22,7 +22,7 @@ elseif strcmpi(media,'Min')
 end
 if nargin < 4   
     %UB parameter (manually optimized for glucose on Min+AA):
-    b = 0.08;
+    b = 0.07;
     %UB parameter (manually optimized for glucose complex media):
     c = 2;
 end

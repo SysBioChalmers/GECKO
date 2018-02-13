@@ -5,7 +5,7 @@
 % INPUT:    A yeast model as a .mat structure.
 % OUTPUT:   The corrected model.
 %
-% Benjamín J. Sánchez. Last edited: 2016-03-09
+% Benjam?n J. S?nchez. Last edited: 2016-03-09
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function model = modelCorrections(model)
@@ -50,16 +50,16 @@ for i = 1:length(model.rxns)
 end
 
 %Delete empty fields of model that won't be used later:
-model = rmfield(model,'metCharge');
-model = rmfield(model,'subSystems');
-model = rmfield(model,'confidenceScores');
-model = rmfield(model,'rxnReferences');
-model = rmfield(model,'rxnECNumbers');
-model = rmfield(model,'rxnNotes');
-model = rmfield(model,'metChEBIID');
-model = rmfield(model,'metKEGGID');
-model = rmfield(model,'metPubChemID');
-model = rmfield(model,'metInChIString');
+%model = rmfield(model,'metCharge');
+% model = rmfield(model,'subSystems');
+% model = rmfield(model,'confidenceScores');
+% model = rmfield(model,'rxnReferences');
+% model = rmfield(model,'rxnECNumbers');
+% model = rmfield(model,'rxnNotes');
+% model = rmfield(model,'metChEBIID');
+% model = rmfield(model,'metKEGGID');
+% model = rmfield(model,'metPubChemID');
+% model = rmfield(model,'metInChIString');
 
 end
 
