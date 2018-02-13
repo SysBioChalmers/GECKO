@@ -2,7 +2,7 @@
 % [uni,EC] = findInDB(rxn_pos,model,DB)
 % Matches the uniprot and EC number for a given rxn into a given database.
 %
-% Benjamín J. Sánchez. Last edited: 2017-08-10
+% Benjam?n J. S?nchez. Last edited: 2017-08-10
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function [uni,EC,MW] = findInDB(rxn_pos,model,DB)
@@ -20,17 +20,19 @@ for i = 1:length(gene_sets)
     uni_set  = cell(size(gene_set));
     EC_set   = cell(size(gene_set));
     for j = 1:length(gene_set)
-        for k = 1:length(DB)
-            if sum(strcmp(DB{k,3},gene_set{j})) > 0
-                uni_set{j} = DB{k,1};
-                if ~isempty(DB{k,4})
-                    new_EC_set = strsplit(DB{k,4},' ');
-                    for l = 1:length(new_EC_set)
-                        EC_set{j} = [EC_set{j} 'EC' new_EC_set{l} ' '];
-                    end
+        %Find each gene in protDatabase
+        geneIndx = find(strcmp(DB(:,3),gene_set{j}));
+        if ~isempty(geneIndx)
+            uni_set{j} = DB{geneIndx,1};
+            %If an associated EC number was found
+            if ~isempty(DB{geneIndx,4})
+                new_EC_set = strsplit(DB{geneIndx,4},' ');
+                for l = 1:length(new_EC_set)
+                   EC_set{j} = [EC_set{j} 'EC' new_EC_set{l} ' '];
                 end
             end
         end
+        
         if isempty(EC_set{j})
             EC_set{j} = '';
         else
