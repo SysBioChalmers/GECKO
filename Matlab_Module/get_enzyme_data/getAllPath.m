@@ -12,13 +12,13 @@
 % FinalGenesets     All gene sets with only "ANDs" (cell array)
 % FinalReactions    New reaction IDs (cell array)
 % 
-% Cheng Zhang. Last edited: 2015-04-03
+% Cheng Zhang.    Last edited: 2015-04-03
+% Ivan Domenzain. Last edited: 2018-02-13
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function [FinalGenesets, FinalReactions] = getAllPath(model,reaction)
 i = ismember(model.rxns,reaction);        %get index of the selected reaction
-
-FinalGenesets = cell(1,1);
+FinalGenesets  = cell(1,1);
 FinalReactions = cell(1,1);
 
 x = 0;      %total number of NewGenesets
