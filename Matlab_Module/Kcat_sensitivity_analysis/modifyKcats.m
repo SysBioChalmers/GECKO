@@ -17,10 +17,8 @@ function ecModel = modifyKcats(ecModel,ecModelBatch,gRexp)
     modifications  = []; error = -100; i=1; 
     current        = pwd; 
     %Load BRENDA data:
-    KCAT_file          = 'max_KCAT.txt';
-    SA_file            = 'max_SA.txt';
-    MW_file            = 'max_MW.txt';
-    [BRENDA,SA_cell]   = loadBRENDAdata(KCAT_file,SA_file,MW_file);
+    cd ../get_enzyme_data
+    [BRENDA,SA_cell] = loadBRENDAdata;
     
     %Iterates while growth rate is being underpredicted
     disp('********************Limiting Kcats curation********************')

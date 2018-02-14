@@ -1,10 +1,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- function [KCATcell, SAcell] = loadBRENDAdata(KCAT_file,SA_file,MW_file )
-     current = pwd;
+ function [KCATcell, SAcell] = loadBRENDAdata
      cd ../../Databases
+     KCAT_file      = 'max_KCAT.txt';
+     SA_file        = 'max_SA.txt';
+     MW_file        = 'max_MW.txt';
      %Extract BRENDA DATA from files information
      scallingFactor = 3600;   %[1/s] -> [1/h]
-     KCATcell      = openDataFile(KCAT_file,scallingFactor); 
+     KCATcell       = openDataFile(KCAT_file,scallingFactor); 
      scallingFactor = 60;     %[umol/min/mg] -> [mmol/h/g]
      SA             = openDataFile(SA_file,scallingFactor); 
      scallingFactor = 1/1000; %[g/mol] -> [g/mmol]
@@ -27,12 +29,16 @@
          if ~isempty(org_index)
              SAcell{1} = [SAcell{1};SA{1}(i)];
              SAcell{2} = [SAcell{2};SA{3}(i)];
-             SAcell{3} = [SAcell{3}; SA{4}(i)* mwEC{2}(org_index)]; %[1/hr]
+             SAcell{3} = [SAcell{3}; SA{4}(i)*mwEC{2}(org_index)]; %[1/hr]
              SAcell{4} = [SAcell{4}; mwEC{2}(org_index)];
          end
          previousEC = SA{1}(i);
      end
-     cd (current)
+ end
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ function string_cells = stringSplit(cell_array)
+         string_cells = {strsplit(cell_array,'//')};
+         string_cells = string_cells{1}(1);
  end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  function data_cell = openDataFile(fileName,scallingFactor)
@@ -45,8 +51,3 @@
      data_cell{3}  = cellfun(@stringSplit, data_cell{3});
  end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function string_cells = stringSplit(cell_array)
-        string_cells = {strsplit(cell_array,'//')};
-        string_cells = string_cells{1}(1);
-end
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
