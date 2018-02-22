@@ -114,7 +114,14 @@ model = addReaction(model, ...                      %model
 
 %Update metComps:
 pos_m = strcmp(model.mets,prot_name);   %position in model.mets
-model.metComps(pos_m) = 2;              %For simplification all proteins are in cytosol
+if ~isfield(model,'compNames')
+    cytIndex = find(strcmpi(model.compNames,'cytosol'),1);
+    if ~isempty(cytIndex)
+        model.metComps(pos_m) = 2;              %For simplification all proteins are in cytosol
+    else
+        model.metComps(pos_m) = 1; 
+    end
+end
 
 end
 
