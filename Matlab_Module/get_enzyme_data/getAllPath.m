@@ -24,6 +24,7 @@ FinalReactions = cell(1,1);
 x = 0;      %total number of NewGenesets
 NewGenesets = cell(1,1);
 NewReactions = cell(1,1);
+
 STR = model.grRules{i};
 p = 0;
 q = 0;
@@ -90,7 +91,7 @@ while p < x+1      %if bracket exist in geneset, means there still exist multi-g
         end           
         subSTRcell = strsplit(subSTR,' ');
         for m = 1:length(model.genes)        
-            if ~isempty(find(strcmp(model.genes{m},subSTRcell))) 
+            if sum(strcmp(model.genes{m},subSTRcell))>0 
                 TempGenesets{length(TempGenesets)+1,1} = model.genes{m};
             end    
         end 
@@ -178,7 +179,7 @@ while p < x+1      %if bracket exist in geneset, means there still exist multi-g
                     end
                     subSTRcell = strsplit(subSTR2,' ');
                     for m = 1:length(model.genes)
-                        if ~isempty(find(strcmp(model.genes{m},subSTRcell)))                
+                        if sum(strcmp(model.genes{m},subSTRcell))>0                
                             TempGenesets2{length(TempGenesets2)+1,1} = model.genes{m};                
                         end    
                     end
@@ -187,7 +188,7 @@ while p < x+1      %if bracket exist in geneset, means there still exist multi-g
                     subSTRcell = strsplit(subSTR2,' ');
                     j2         = 0;
                     for m = 1:length(model.genes)
-                        if ~isempty(find(strcmp(model.genes{m},subSTRcell)))
+                        if sum(strcmp(model.genes{m},subSTRcell))>0
                             TempGenesets2{j2+1,1} = model.genes{m};
                             j2 = j2+1;                                            
                         end    
@@ -238,7 +239,7 @@ while p < x+1      %if bracket exist in geneset, means there still exist multi-g
             for m = 1:length(model.genes)
                 %String comparison between model.genes{m} and each of the
                 %different genes in the grRule
-                if ~isempty(find(strcmpi(model.genes{m},subString)))
+                if sum(strcmpi(model.genes{m},subString))>0
                      n = n+1;                
                      TempGenesets{n,1} = model.genes{m};
                  end                   
