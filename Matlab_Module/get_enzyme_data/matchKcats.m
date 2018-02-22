@@ -355,24 +355,36 @@
      for j=1:length(EC_indexes)
  
          %Assigns a KEGG index for those found on the KEGG struct
-         orgs_index = find(strcmpi(orgs_cell(EC_indexes(j)),phylDist.names),1);
+         orgs_index = find(~cellfun(@isempty,strfind(phylDist.names,orgs_cell(EC_indexes(j)))),1);
+         %orgs_index = find(strcmpi(orgs_cell(EC_indexes(j)),phylDist.names),1);
          if ~isempty(orgs_index)
              KEGG_indexes = [KEGG_indexes; orgs_index];
              temp         = [temp;EC_indexes(j)];
          %For values related to organisms without KEGG code, then it will
          %look for KEGG code for the first organism with the same genus
          else
-             k=1;
-             while isempty(orgs_index) && k<length(phylDist.names)
-                 str = phylDist.names{k};
-                 org = orgs_cell{EC_indexes(j)};
-                 if strcmpi(org(1:strfind(org,' ')-1),str(1:strfind(str,' ')-1))
-                     orgs_index   = k; 
-                     KEGG_indexes = [KEGG_indexes;k];
-                     temp         = [temp;EC_indexes(j)];
+             genus      = orgs_cell{EC_indexes(j)};
+             blankPos   = strfind(genus,' ');
+             if ~isempty(blankPos)
+                 genus      = genus(1:blankPos(1)-1);
+                 orgs_index = find(~cellfun(@isempty,strfind(phylDist.names,genus)),1);
+                 if ~isempty(orgs_index)
+                    KEGG_indexes = [KEGG_indexes;orgs_index];
+                    temp         = [temp;EC_indexes(j)];
                  end
-                 k = k+1;
              end
+%              k=1;
+%              while isempty(orgs_index) && k<length(phylDist.names)
+%                  str = phylDist.names{k};
+%                  org = orgs_cell{EC_indexes(j)};
+%                  
+%                  if strcmpi(org(1:strfind(org,' ')-1),str(1:strfind(str,' ')-1))
+%                      orgs_index   = k; 
+%                      KEGG_indexes = [KEGG_indexes;k];
+%                      temp         = [temp;EC_indexes(j)];
+%                  end
+%                  k = k+1;
+%              end
          end
      end
      %Update the EC_indexes cell array
