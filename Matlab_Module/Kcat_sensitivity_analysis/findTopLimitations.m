@@ -64,14 +64,15 @@ function [limitations,breakFlag] = findTopLimitations(model,prevUnicodes,option)
         limitations = limKcats;
     %If the model is not growing, analyse all of the kinetic parameters
     %associated to each of the metabolic reactions.
-    elseif option == 1
-        limRxns     = findLimitingRxn(model,enz_indxs,enzUsageIndxs);
-        limitations = limRxns;
-        breakFlag   = true;
-    elseif option == 2
-        limEnz      = findLimitingEnz(model,enz_indxs,enzUsageIndxs);
-        limitations = limEnz;
-        breakFlag   = true;
+    else
+        breakFlag = true;
+        if option == 1
+            limRxns     = findLimitingRxn(model,enz_indxs,enzUsageIndxs);
+            limitations = limRxns;
+        elseif option == 2
+            limEnz      = findLimitingEnz(model,enz_indxs,enzUsageIndxs);
+            limitations = limEnz;
+        end
     end
 end
    
@@ -142,7 +143,7 @@ function [limRxns] = findLimitingRxn(model,enz_indxs,enzUsageIndxs)
             %Flexibilize all non-zero coefficients in the i-th
             %metabolic reaction and check if any growth can be obtained
             pos                 = enz_indxs(nonZero);
-            temp_model.S(pos,i) = temp_model.S(pos,i)./1e6;
+            temp_model.S(pos,i) = temp_model.S(pos,i)/1e6;
             new_sol             = solveLP(temp_model);
             deltaGR             = abs(new_sol.f);
             if deltaGR>0
@@ -175,7 +176,7 @@ function [limEnz] = findLimitingEnz(model,enz_indxs,enzUsageIndxs)
             disp(['Analyzing enzyme: #' num2str(i)])
             %Flexibilize all non-zero coefficients and check if any growth 
             %can be obtained
-            temp_model.S(enzPos,nonZero) = temp_model.S(enzPos,nonZero)./1e6;
+            temp_model.S(enzPos,nonZero) = temp_model.S(enzPos,nonZero)/1e6;
                       
             new_sol  = solveLP(temp_model);
             deltaGR  = abs(new_sol.f);
