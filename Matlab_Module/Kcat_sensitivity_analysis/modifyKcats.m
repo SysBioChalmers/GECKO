@@ -26,6 +26,7 @@ function ecModel = modifyKcats(ecModel,ecModelBatch,gRexp)
         cd (current)
         %Get the top growth rate-limiting enzyme (uniprot code basis)
         [limKcat,breakFlag] = findTopLimitations(ecModelBatch,modified_kcats,0);
+        
         if breakFlag == false
             disp(['*Iteration #' num2str(i)])
             [ecModelBatch,data] = changeKcat(ecModelBatch,limKcat,gRexp,...
@@ -70,17 +71,17 @@ function ecModel = modifyKcats(ecModel,ecModelBatch,gRexp)
         %If the model is not growing then the analysis is performed in all
         %the Kcats matched either to: option 1 -> each of the enzymatic
         %rxns, option 2 -> each of the individual enzymes
-        [limRxns,breakFlag] = findTopLimitations(ecModelBatch,modified_kcats,1);
+        [limRxns,breakFlag]  = findTopLimitations(ecModelBatch,modified_kcats,1);
         [limEnz, breakFlag]  = findTopLimitations(ecModelBatch,modified_kcats,2);
 
         if ~isempty(limRxns)
             varNamesTable = {'rxnNames','rxnPos','gRControlCoeff'};
-            modifications = cell2table(modifications,'VariableNames',varNamesTable);
+            modifications = cell2table(limRxns,'VariableNames',varNamesTable);
             writetable(modifications, 'LimitingRxns.txt');
         end
         if ~isempty(limEnz)
             varNamesTable = {'EnzNames','EnzPos','gRControlCoeff'};
-            modifications = cell2table(modifications,'VariableNames',varNamesTable);
+            modifications = cell2table(limEnz,'VariableNames',varNamesTable);
             writetable(modifications, 'LimitingEnzymes.txt');
         end
     end
