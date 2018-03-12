@@ -79,3 +79,8 @@ Contributors
 - Henning Redestig (`@hredestig <https://github.com/hredestig>`_), Danish Technical University, Lyngby Denmark
 - Benjamin J. Sanchez (`@BenjaSanchez <https://github.com/benjasanchez>`_), Chalmers University of Technology, Gothenburg Sweden
 - Cheng Zhang, Science for Life Laboratory, KTH - Royal Institute of Technology
+
+
+.. image:: https://badges.gitter.im/SysBioChalmers/GECKO.svg
+   :alt: Join the chat at https://gitter.im/SysBioChalmers/GECKO
+   :target: https://gitter.im/SysBioChalmers/GECKO?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
