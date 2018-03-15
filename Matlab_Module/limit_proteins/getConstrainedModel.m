@@ -36,6 +36,8 @@ function [ecModel_batch,OptSigma] = getConstrainedModel(ecModel,sigma,...
 	%Simulate growth on minimal glucose media and export the top ten used 
 	%enzymes to the file "topUsedEnzymes.txt" in the containing folder
 	cd ../Kcat_sensitivity_analysis
-	solution = solveLP(ecModel_batch);
+    c_source          = 'D-glucose exchange (reversible)';
+	[ecModel_batch,~] = changeMedia_batch(ecModel_batch,c_source,'Min');
+	solution = solveLP(ecModel_batch,1);
 	topUsedEnzymes(solution.x,ecModel_batch,'Min_glucose');
 end
