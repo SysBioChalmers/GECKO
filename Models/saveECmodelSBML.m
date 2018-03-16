@@ -47,7 +47,7 @@ while still_reading
   inline = fgets(fin);
   if ~ischar(inline)
       still_reading = false;
-  elseif isempty(strfind(inline,'<fbc:geneProductAssociation/>'))
+  elseif ~contains(inline,'<fbc:geneProductAssociation/>')
       fwrite(fout, inline);
   end
 end
