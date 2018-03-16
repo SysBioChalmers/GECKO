@@ -12,7 +12,7 @@
 % OUTPUTS:
 % model             Model with the added protein
 % 
-% Cheng Zhang. Last edited: 2017-10-30
+% Cheng Zhang & Benjamín Sánchez. Last edited: 2018-03-15
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function model = addProtein(model,P,kegg,swissprot)
@@ -114,8 +114,8 @@ model = addReaction(model, ...                      %model
 
 %Update metComps:
 pos_m = strcmp(model.mets,prot_name);   %position in model.mets
-if ~isfield(model,'compNames')
-    cytIndex = find(strcmpi(model.compNames,'cytosol'),1);
+if isfield(model,'compNames')
+    cytIndex = find(strcmpi(model.compNames,'cytoplasm'),1);
     if ~isempty(cytIndex)
         model.metComps(pos_m) = 2;              %For simplification all proteins are in cytosol
     else
