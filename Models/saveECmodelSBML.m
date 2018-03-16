@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % model = saveECmodelSBML(model,name)
 %
-% Benjamín J. Sánchez. Last edited: 2017-10-28
+% Benjamín J. Sánchez. Last edited: 2018-03-16
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function saveECmodelSBML(model,name)

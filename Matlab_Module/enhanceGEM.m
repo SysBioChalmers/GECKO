@@ -1,14 +1,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % [ecModel,model_data,kcats] = enhanceGEM(model,toolbox,name)
 %
-% Benjamin J. Sanchez. Last edited: 2017-04-12
-%Ivan Domenzain.       Last edited: 2018-01-25
+% Benjamin J. Sanchez & Ivan Domenzain. Last edited: 2018-03-16
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function [ecModel,model_data,kcats] = enhanceGEM(model,toolbox,name)
 
 %Provide your organism scientific name
 org_name = 'saccharomyces cerevisiae';
-org_code = 'sce';
 format short e
 if strcmp(toolbox,'COBRA')
    initCobraToolbox
@@ -25,7 +23,7 @@ model = standardizeModel(model,toolbox);
 model_data = getEnzymeCodes(model);
 kcats      = matchKcats(model_data, org_name);
 cd ../../Models
-save([org_code '_enzData.mat'],'model_data','kcats')
+save([name '_enzData.mat'],'model_data','kcats')
 %Integrate enzymes in the model:
 cd ../Matlab_Module/change_model
 ecModel = readKcatData(model_data,kcats);
@@ -41,7 +39,7 @@ disp(['Sigma factor (fitted for growth on glucose): ' num2str(OptSigma)])
 
 %Save output models:
 cd ../../models
-save([name '.mat'],'ecModel','model_data','kcats')
+save([name '.mat'],'ecModel')
 save([name '_batch.mat'],'ecModel_batch')
 saveECmodelSBML(ecModel,name);
 saveECmodelSBML(ecModel_batch,[name '_batch']);
