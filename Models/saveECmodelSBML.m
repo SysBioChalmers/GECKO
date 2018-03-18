@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % model = saveECmodelSBML(model,name)
 %
-% Benjamín J. Sánchez. Last edited: 2018-03-16
+% Benjamín J. Sánchez. Last edited: 2018-03-18
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function saveECmodelSBML(model,name)
@@ -34,7 +34,6 @@ model.metFormulas = strrep(model.metFormulas,')n','');
 model.metFormulas = strrep(model.metFormulas,')','');
 
 %Save model:
-model.id = name;
 writeCbModel(model,'sbml',[name '.xml']);
 writeCbModel(model,'text',[name '.txt']);
 
