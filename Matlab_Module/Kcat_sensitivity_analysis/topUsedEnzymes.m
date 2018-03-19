@@ -1,14 +1,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% function T = topUsedEnzymes(fluxes,model,conditions)
+% function T = topUsedEnzymes(fluxes,model,conditions,name)
 %
 % Function that gets an ecModel_batch and a matrix of pFBA solution vectors 
 % and calculate the top ten enzyme usages for every solution (conditions)
 % in a mass-wise way. The results are written in the topUsedEnzymes.txt
 % file and stored in the container folder.
 %
-% Ivan Domenzain    Last edited. 2018-03-15
+% Ivan Domenzain    Last edited. 2018-03-18
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function T = topUsedEnzymes(fluxes,model,conditions)
+function T = topUsedEnzymes(fluxes,model,conditions,name)
     % Extract enzymes information from the model 
     MWs        = model.MWs;
     enzymes    = model.enzymes;
@@ -41,7 +41,7 @@ function T = topUsedEnzymes(fluxes,model,conditions)
     end
     %Write the top-ten used enzyme names and their percentage usages for
     %every condition on the output file
-    writetable(outputFile,'topUsedEnzymes.txt')
+    writetable(outputFile,['../../Models/' name '/data/' name '_topUsedEnzymes.txt'])
 end
 
 

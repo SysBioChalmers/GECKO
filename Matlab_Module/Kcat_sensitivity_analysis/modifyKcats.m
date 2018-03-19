@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% function ecModel = modifyKcats(ecModel,ecModel_batch,PDB,limKcats,gRexp)
+% function ecModel = modifyKcats(ecModel,ecModel_batch,gRexp,name)
 %
 % Function that gets the limiting Kcat values in an EC model (according to
 % a sensitivity analysis), then it modifies each of those values according to 
@@ -9,9 +9,9 @@
 % The algorithm iterates until the model grows at the same rate provided 
 % by the user (batch growth on glucose minimal media recommended)
 %
-% Ivan Domenzain    Last edited. 2018-02-04
+% Ivan Domenzain    Last edited. 2018-03-18
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function ecModel = modifyKcats(ecModel,ecModelBatch,gRexp)
+function ecModel = modifyKcats(ecModel,ecModelBatch,gRexp,name)
     
     modified_kcats = []; modifiedRxns = [];
     modifications  = []; error = -100; i=1; 
@@ -65,24 +65,24 @@ function ecModel = modifyKcats(ecModel,ecModelBatch,gRexp)
                          'error','gRControlCoeff'};
 
         modifications = cell2table(modifications,'VariableNames',varNamesTable);
-        writetable(modifications, 'KcatModifications.txt');
+        writetable(modifications,['../../Models/' name '/data/' name '_kcatModifications.txt']);
         
     else
         %If the model is not growing then the analysis is performed in all
         %the Kcats matched either to: option 1 -> each of the enzymatic
         %rxns, option 2 -> each of the individual enzymes
-        [limRxns,breakFlag]  = findTopLimitations(ecModelBatch,modified_kcats,1);
-        [limEnz, breakFlag]  = findTopLimitations(ecModelBatch,modified_kcats,2);
+        [limRxns,breakFlag] = findTopLimitations(ecModelBatch,modified_kcats,1);
+        [limEnz, breakFlag] = findTopLimitations(ecModelBatch,modified_kcats,2);
 
         if ~isempty(limRxns)
             varNamesTable = {'rxnNames','rxnPos','gRControlCoeff'};
             modifications = cell2table(limRxns,'VariableNames',varNamesTable);
-            writetable(modifications, 'LimitingRxns.txt');
+            writetable(modifications,['../../Models/' name '/data/' name '_limitingRxns.txt']);
         end
         if ~isempty(limEnz)
             varNamesTable = {'EnzNames','EnzPos','gRControlCoeff'};
             modifications = cell2table(limEnz,'VariableNames',varNamesTable);
-            writetable(modifications, 'LimitingEnzymes.txt');
+            writetable(modifications,['../../Models/' name '/data/' name '_limitingEnzymes.txt']);
         end
     end
         

@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % [ecModel,model_data,kcats] = enhanceGEM(model,toolbox,name,version)
 %
-% Benjamin J. Sanchez & Ivan Domenzain. Last edited: 2018-03-18
+% Benjamin J. Sanchez & Ivan Domenzain. Last edited: 2018-03-19
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function [ecModel,model_data,kcats] = enhanceGEM(model,toolbox,name,version)
 
@@ -22,10 +22,9 @@ model = standardizeModel(model,toolbox);
 %Retrieve kcats & MWs for each rxn in model:
 model_data = getEnzymeCodes(model);
 kcats      = matchKcats(model_data,org_name);
-cd ../../Models
-save([name '_enzData.mat'],'model_data','kcats','version')
+save(['../../Models/' name '/data/' name '_enzData.mat'],'model_data','kcats','version')
 %Integrate enzymes in the model:
-cd ../Matlab_Module/change_model
+cd ../change_model
 ecModel = readKcatData(model_data,kcats);
 ecModel = manualModifications(ecModel);
 
@@ -34,17 +33,17 @@ sigma  = 0.5;      %Optimized for glucose
 Ptot   = 0.5;      %Assumed constant
 gR_exp = 0.41;     %[g/gDw h] Max batch gRate on minimal glucose media
 cd ../limit_proteins
-[ecModel_batch,OptSigma] = getConstrainedModel(ecModel,sigma,Ptot,gR_exp);
+[ecModel_batch,OptSigma] = getConstrainedModel(ecModel,sigma,Ptot,gR_exp,name);
 disp(['Sigma factor (fitted for growth on glucose): ' num2str(OptSigma)])
 
 %Save output models:
 cd ../../models
 ecModel.description       = [name '_' version];
 ecModel_batch.description = [name '_batch_' version];
-save([name '.mat'],'ecModel')
-save([name '_batch.mat'],'ecModel_batch')
-saveECmodelSBML(ecModel,name);
-saveECmodelSBML(ecModel_batch,[name '_batch']);
+save([name '/' name '.mat'],'ecModel')
+save([name '/' name '_batch.mat'],'ecModel_batch')
+saveECmodelSBML(ecModel,name,false);
+saveECmodelSBML(ecModel_batch,name,true);
 cd ../Matlab_Module
 
 end

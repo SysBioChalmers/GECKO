@@ -1,10 +1,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% model = saveECmodelSBML(model,name)
+% model = saveECmodelSBML(model,name,isBatch)
 %
-% Benjamín J. Sánchez. Last edited: 2018-03-18
+% Benjamín J. Sánchez. Last edited: 2018-03-19
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function saveECmodelSBML(model,name)
+function saveECmodelSBML(model,name,isBatch)
 
 %Introduce compartments to both metabolite ID and name:
 comps     = model.comps;
@@ -33,14 +33,20 @@ model.metFormulas = strrep(model.metFormulas,'(','');
 model.metFormulas = strrep(model.metFormulas,')n','');
 model.metFormulas = strrep(model.metFormulas,')','');
 
+%Batch case: modify name
+folder = name;
+if isBatch
+    name = [name '_batch'];
+end
+
 %Save model:
-writeCbModel(model,'sbml',[name '.xml']);
-writeCbModel(model,'text',[name '.txt']);
+writeCbModel(model,'sbml',[folder '/' name '.xml']);
+writeCbModel(model,'text',[folder '/' name '.txt']);
 
 %Remove lines of the sort "<fbc:geneProductAssociation/>" from xml file:
-copyfile([name '.xml'],'backup.xml')
+copyfile([folder '/' name '.xml'],'backup.xml')
 fin  = fopen('backup.xml', 'r');
-fout = fopen([name '.xml'], 'w');
+fout = fopen([folder '/' name '.xml'], 'w');
 still_reading = true;
 while still_reading
   inline = fgets(fin);
