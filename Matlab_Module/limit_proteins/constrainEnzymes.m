@@ -1,8 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % model = constrainEnzymes(model,Ptotal,sigma,pIDs,data)
 % 
-%
-% Benjamín J. Sánchez. Last edited: 2017-01-17
+% Benjamín J. Sánchez. Last edited: 2018-03-19
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function model = constrainEnzymes(model,Ptot,sigma,pIDs,data)
@@ -55,7 +54,6 @@ if sum(strcmp(model.rxns,'prot_pool_exchange')) == 0
 end
 
 model = fixedModifications(model);
-
 model = changeProtein(model,Ptot,fs);
 
 %Display some metrics:
@@ -67,13 +65,15 @@ disp(['Total enzymes not measured = '        num2str(sum(~measured))         ' e
 disp(['Total protein in model = '            num2str(Ptot)                   ' g/gDW'])
 
 
-%Plot histogram:
-figure
-hist(concs_measured*1e3,10.^(-3:0.5:3))
-set(gca,'xscale','log')
-xlim([1e-3,1e3])
-xlabel('Protein amount [mg/gDW]');
-ylabel('Frequency');
+%Plot histogram (if there are measurements):
+if sum(concs_measured) > 0
+    figure
+    hist(concs_measured*1e3,10.^(-3:0.5:3))
+    set(gca,'xscale','log')
+    xlim([1e-3,1e3])
+    xlabel('Protein amount [mg/gDW]');
+    ylabel('Frequency');
+end
 
 end
 
