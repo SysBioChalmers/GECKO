@@ -1,3 +1,6 @@
+.. image:: GECKO.png
+   :align: center
+
 Welcome to GECKO's documentation!
 =================================
 
