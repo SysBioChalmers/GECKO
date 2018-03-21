@@ -76,10 +76,11 @@ Usage
 Contributors
 ------------
 
+- Benjamin J. Sanchez (`@BenjaSanchez <https://github.com/benjasanchez>`_), Chalmers University of Technology, Gothenburg Sweden
+- Ivan Domenzain (`@IVANDOMENZAIN <https://github.com/IVANDOMENZAIN>`_), Chalmers University of Technology, Gothenburg Sweden
 - Moritz Emanuel Beber (`@Midnighter <https://github.com/Midnighter>`_), Danish Technical University, Lyngby Denmark
 - Henning Redestig (`@hredestig <https://github.com/hredestig>`_), Danish Technical University, Lyngby Denmark
-- Benjamin J. Sanchez (`@BenjaSanchez <https://github.com/benjasanchez>`_), Chalmers University of Technology, Gothenburg Sweden
-- Cheng Zhang, Science for Life Laboratory, KTH - Royal Institute of Technology
+- Cheng Zhang, Science for Life Laboratory, KTH - Royal Institute of Technology, Stockholm Sweden
 
 .. |Build Status| image:: https://travis-ci.org/SysBioChalmers/GECKO.svg?branch=master
    :target: https://travis-ci.org/SysBioChalmers/GECKO
