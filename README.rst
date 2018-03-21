@@ -1,10 +1,6 @@
-.. image:: GECKO.png
-   :align: center
+|GECKO|
 
-.. image:: https://badges.gitter.im/SysBioChalmers/GECKO.svg
-   :alt: Join the chat at https://gitter.im/SysBioChalmers/GECKO
-   :target: https://gitter.im/SysBioChalmers/GECKO?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
-
+|Build Status| |PyPI| |Gitter|
 
 The **GECKO** toolbox is a Matlab/Python package for enhancing a **G**\ enome-scale model to account for **E**\ nzyme **C**\ onstraints, using **K**\ inetics and **O**\ mics. It is the companion software to the publication:
 
@@ -85,3 +81,13 @@ Contributors
 - Henning Redestig (`@hredestig <https://github.com/hredestig>`_), Danish Technical University, Lyngby Denmark
 - Benjamin J. Sanchez (`@BenjaSanchez <https://github.com/benjasanchez>`_), Chalmers University of Technology, Gothenburg Sweden
 - Cheng Zhang, Science for Life Laboratory, KTH - Royal Institute of Technology
+
+.. |GECKO| image:: GECKO.png
+   :align: center
+.. |Build Status| image:: https://travis-ci.org/SysBioChalmers/GECKO.svg?branch=master
+   :target: https://travis-ci.org/SysBioChalmers/GECKO
+.. |PyPI| image:: https://badge.fury.io/py/geckopy.svg
+   :target: https://badge.fury.io/py/geckopy
+.. |Gitter| image:: https://badges.gitter.im/SysBioChalmers/GECKO.svg
+   :alt: Join the chat at https://gitter.im/SysBioChalmers/GECKO
+   :target: https://gitter.im/SysBioChalmers/GECKO?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
