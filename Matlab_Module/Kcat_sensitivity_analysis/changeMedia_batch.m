@@ -19,6 +19,9 @@ function [model,pos] = changeMedia_batch(model,c_source,media,flux)
 % Give the carbon source (c_source) input variable with the following
 % format: c_source  = 'D-glucose exchange (reversible)'
 
+% first block any uptake
+pos           = getUptakeIndexes(model,c_source);
+model.ub(pos) = 0;
 
 % Block O2 and glucose production (for avoiding multiple solutions):
 model.ub(strcmp(model.rxnNames,'oxygen exchange'))    = 0;
@@ -38,7 +41,7 @@ elseif strcmpi(media,'Min')
 end
 
 %UB parameter (manually optimized for glucose on Min+AA):
-b = 0.1;
+b = 0.08;
 %UB parameter (manually optimized for glucose complex media):
 c = 2;
 
@@ -54,9 +57,16 @@ if nargin < 5   %Limited protein
     flux(1) = 1000;
 end
 
-%Consumption positions:
-pos(1)  = find(strcmpi(model.rxnNames,c_source));
-if N>1
+%Fix values as UBs:
+for i = 1:N
+    model.ub(pos(i)) = flux(i);
+end
+
+end
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function pos = getUptakeIndexes(model,c_source)
+    pos(1)  = find(strcmpi(model.rxnNames,c_source));
     pos(2)  = find(strcmpi(model.rxnNames,'L-alanine exchange (reversible)'));
     pos(3)  = find(strcmpi(model.rxnNames,'L-arginine exchange (reversible)'));
     pos(4)  = find(strcmpi(model.rxnNames,'L-asparagine exchange (reversible)'));
@@ -77,18 +87,9 @@ if N>1
     pos(19) = find(strcmpi(model.rxnNames,'L-tryptophan exchange (reversible)'));
     pos(20) = find(strcmpi(model.rxnNames,'L-tyrosine exchange (reversible)'));
     pos(21) = find(strcmpi(model.rxnNames,'L-valine exchange (reversible)'));
-    if N>21
-        pos(22) = find(strcmpi(model.rxnNames,'2''-deoxyadenosine exchange (reversible)'));
-        pos(23) = find(strcmpi(model.rxnNames,'2''-deoxyguanosine exchange (reversible)'));
-        pos(24) = find(strcmpi(model.rxnNames,'thymidine exchange (reversible)'));
-        pos(25) = find(strcmpi(model.rxnNames,'deoxycytidine exchange (reversible)'));
-    end
+    pos(22) = find(strcmpi(model.rxnNames,'2''-deoxyadenosine exchange (reversible)'));
+    pos(23) = find(strcmpi(model.rxnNames,'2''-deoxyguanosine exchange (reversible)'));
+    pos(24) = find(strcmpi(model.rxnNames,'thymidine exchange (reversible)'));
+    pos(25) = find(strcmpi(model.rxnNames,'deoxycytidine exchange (reversible)'));
+    pos(26) = find(strcmpi(model.rxnNames,'D-glucose exchange (reversible)'));
 end
-%Fix values as UBs:
-for i = 1:N
-    model.ub(pos(i)) = flux(i);
-end
-
-end
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
