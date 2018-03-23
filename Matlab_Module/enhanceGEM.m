@@ -25,15 +25,15 @@ kcats      = matchKcats(model_data,org_name);
 save(['../../Models/' name '/data/' name '_enzData.mat'],'model_data','kcats','version')
 %Integrate enzymes in the model:
 cd ../change_model
-ecModel = readKcatData(model_data,kcats);
-ecModel = manualModifications(ecModel);
+ecModel                 = readKcatData(model_data,kcats);
+[ecModel,modifications] = manualModifications(ecModel);
 
 %Constrain model to batch conditions:
 sigma  = 0.5;      %Optimized for glucose
 Ptot   = 0.5;      %Assumed constant
 gR_exp = 0.41;     %[g/gDw h] Max batch gRate on minimal glucose media
 cd ../limit_proteins
-[ecModel_batch,OptSigma] = getConstrainedModel(ecModel,sigma,Ptot,gR_exp,name);
+[ecModel_batch,OptSigma] = getConstrainedModel(ecModel,sigma,Ptot,gR_exp,modifications,name);
 disp(['Sigma factor (fitted for growth on glucose): ' num2str(OptSigma)])
 
 %Save output models:

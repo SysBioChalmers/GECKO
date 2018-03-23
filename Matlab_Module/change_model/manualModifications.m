@@ -475,12 +475,7 @@ end
 function modified = mapModifiedRxns(modifications,model)
     modified = [];
     for i=1:length(modifications{1})
-        rxnIndex = find(strcmp(model.rxnNames,modifications{2}(i)));
-        if length(rxnIndex)>1
-            disp(rxnIndex)
-            disp(model.rxnNames(rxnIndex))
-            rxnIndex = rxnIndex(1);
-        end
+        rxnIndex = find(strcmp(model.rxnNames,modifications{2}(i)),1);
         str      = {horzcat(modifications{1}{i},'_',num2str(rxnIndex))};
         modified = [modified; str];
     end
