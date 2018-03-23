@@ -31,6 +31,15 @@ model.ub(strcmp(model.rxnNames,'D-glucose exchange')) = 0;
 pos_rev = strcmpi(model.rxnNames,c_source(1:strfind(c_source,...
                                             ' (reversible)')-1));
 model.ub(pos_rev) = 0;
+%For growth on fructose and mannose the transport takes place in a passive
+%way. [Boles & Hollenberg, 2006]
+if strcmp(c_source,'D-fructose exchange (reversible)')
+    model.S(strcmp(model.mets,'s_0796'),strcmp(model.rxns,'r_1134')) = 0;
+    model.S(strcmp(model.mets,'s_0794'),strcmp(model.rxns,'r_1134')) = 0;
+elseif strcmp(c_source,'D-mannose exchange (reversible)')
+    model.S(strcmp(model.mets,'s_0796'),strcmp(model.rxns,'r_1139')) = 0;
+    model.S(strcmp(model.mets,'s_0794'),strcmp(model.rxns,'r_1139')) = 0;
+end
 %The media will define which rxns to fix:
 if strcmpi(media,'YEP')
     N = 25;     %Aminoacids + Nucleotides
