@@ -88,20 +88,17 @@ for i = 1:length(model.rxns)
     for j = 1:length(int_pos)
         enzName = model.mets(int_pos(j));
         %%%%%%%%%%%%%%%%%% MANUAL CURATION FOR TOP GROWTH LIMITING ENZYMES:  
-        [newValue,modifications] = curation_growthLimiting(reaction,i,...
-                                             enzName,MW_set,modifications);
+        [newValue,modifications] = curation_growthLimiting(reaction,enzName,MW_set,modifications);
         if ~isempty(newValue)
             model.S(int_pos(j),i) = newValue;
         else
             %%%%%%%%%%%%%%%%%%%% MANUAL CURATION FOR CARBON SOURCES
-            [newValue,modifications] = curation_carbonSources(reaction,i,...
-                                             enzName,MW_set,modifications);
+            [newValue,modifications] = curation_carbonSources(reaction,enzName,MW_set,modifications);
             if ~isempty(newValue)
                 model.S(int_pos(j),i) = newValue;
             else
                 %%%%%%%%%%%%%%% MANUAL CURATION FOR TOP USED ENZYMES:
-                [newValue,modifications] = curation_topUsedEnz(reaction,i,...
-                                             enzName,MW_set,modifications);
+                [newValue,modifications] = curation_topUsedEnz(reaction,enzName,MW_set,modifications);
                 if ~isempty(newValue)
                     model.S(int_pos(j),i) = newValue;
                 end
@@ -179,27 +176,16 @@ model.ub(strcmp(model.rxnNames,'oxygen exchange'))    = 0;
 model.ub(strcmp(model.rxnNames,'D-glucose exchange')) = 0;
 % Remove incorrect pathways:
 model         = removeIncorrectPathways(model);
+% Map the index of the modified Kcat values to the new model (after rxns
+% removals).
 modifications = mapModifiedRxns(modifications,model);
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Modify the top growth limiting enzymes that were detected by the
 % modifyKcats.m script in a preliminary run. 
-function [newValue,modifications] = curation_growthLimiting(reaction,i,enzName,MW_set,modifications)  
+function [newValue,modifications] = curation_growthLimiting(reaction,enzName,MW_set,modifications)  
         newValue = [];
         reaction = string(reaction);
-%         % (P38604//[5.4.99.7]) Lanostherol synthase Kcat 0.00182 [1/s] is the
-%         % highest growthRate limiting value, automatic algorithm suggested
-%         % the value 4.076 coming from S.A. in Bos taurus
-%          if strcmpi('prot_P38604',enzName) && ~isempty(strfind(reaction,'lanosterol'))
-%              newValue = -(4.07633333333333*3600)^-1;
-%          end
-%         % Phosphoribosylformylglycinamidine synthase (P38972/EC6.3.5.3): 
-%         % Only kcat available in BRENDA was for NH4 in E.coli. Value 
-%         % corrected with max. s.a. in E.coli
-%         % (2015-08-28).
-%           if strcmpi('prot_P38972',enzName) && (~isempty(strfind(reaction,'phosphoribosylformyl')))
-%              newValue = -(2.15*141418*60/1000)^-1;
-%           end
         % Ketol-acid Reductoisomerase (P06168/EC1.1.1.86) - 2-acetyllactic 
         % acid: Substrate name in BRENDA was a synonim as name in model. 
         % Changed manually (2015-08-28).
@@ -208,9 +194,6 @@ function [newValue,modifications] = curation_growthLimiting(reaction,i,enzName,M
                  newValue         = -(18.3*3600)^-1;    %BRENDA: 2-acetolactate
                  modifications{1} = [modifications{1}; string('P06168')];
                  modifications{2} = [modifications{2}; reaction];
-%              elseif (~isempty(strfind(reaction,...
-%                  'ketol-acid reductoisomerase (2-aceto-2-hydroxybutanoate) (')))
-%                 newValue = -(78.3*3600)^-1;    %BRENDA: 2-aceto-2-hydroxybutyrate
               end
           end
         % HMG-CoA reductase (P12683-P12684/EC1.1.1.34): Only kcat available 
@@ -223,13 +206,6 @@ function [newValue,modifications] = curation_growthLimiting(reaction,i,enzName,M
              modifications{1} = [modifications{1}; string('P12683')];
              modifications{2} = [modifications{2}; reaction];
           end
-%         % 1,3-beta-glucan synthase component FKS1 (P38631/EC2.4.1.34): Retrieved value
-%         % was from Staphylococcus aureus. Value changed with s.a. in S.cerevisiae
-%         % from BRENDA (2017-03-05).
-%           if strcmpi('prot_P38631',enzName) && ...
-%             (~isempty(strfind(reaction,'beta-glucan synthase (')))
-%              newValue = -(4*60*1e3/1e3*MW_set)^-1;    %4 [umol/min/mg] 
-%           end
         % [1.2.1.12] Kcat (Sce & natural substrate) 29 [1/s] is a highly 
         % growthRate limiting value, S.A. 100 (Sce)
           %enzIDs = {'prot_P00359','prot_P00360','prot_P00358'};
@@ -252,7 +228,7 @@ function [newValue,modifications] = curation_growthLimiting(reaction,i,enzName,M
               end
           end
         % [4.1.1.-, 4.1.1.43, 4.1.1.72, 4.1.1.74] Pyruvate decarboxylase 
-        %  Resulted to be a growth limiting enzyme but the Kcat
+        % Resulted to be a growth limiting enzyme but the Kcat
         % value seems to be the best candidate for this reaction (rev)
          if strcmpi('prot_P06169',enzName) && (~isempty(strfind(reaction,'pyruvate decarboxylase')))
             %newValue = -1/(73.1*3600); 
@@ -268,15 +244,13 @@ function [newValue,modifications] = curation_growthLimiting(reaction,i,enzName,M
               modifications{1} = [modifications{1}; string('Q00955')];
               modifications{2} = [modifications{2}; reaction];
           end
- 
-
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Modify those kcats involved in extreme misspredictions for growth on 
 % several carbon sources. This values were obtained by specific searches on
 % the involved pathways for the identification of the ec numbers and then
 % its associated Kcat values were gotten from BRENDA.
-function [newValue,modifications] = curation_carbonSources(reaction,i,enzName,MW_set,modifications)
+function [newValue,modifications] = curation_carbonSources(reaction,enzName,MW_set,modifications)
         newValue = [];
         reaction = string(reaction);
        % alpha,alpha-trehalase (P32356/EC3.2.1.28): The growth on
@@ -320,27 +294,15 @@ function [newValue,modifications] = curation_carbonSources(reaction,i,enzName,MW
         % Sulfolobus acidocaldarius.
         % From BRENDA (2018-01-28).
          if ~isempty(strfind(reaction,'alpha-glucosidase'))
-             %newValue = -(709*3600)^-1; 
-             newValue = -(1278*3600)^-1; 
+              newValue = -(1278*3600)^-1; 
          end
-        % Acetyl-CoA synthase [P52910||Q01574//EC6.2.1.1] 
-        % Growth on ethanol and acetate was overpredicted, the common
-        % enzyme for their usage as carbon source is Acetyl-CoA synthase.
-        % values for other organism were used but the S.A. for S.
-        % cerevisiae is 1.241 [umol/min/mg]
-        % From BRENDA (2018-01-28).
-%          if (strcmpi('prot_Q01574',enzName)  || ...
-%               strcmpi('prot_P52910',enzName)) && ...
-%              (~isempty(strfind(reaction,'acetyl-CoA synthetase')))
-%              newValue = -(1.241*60*1e3/1e3*MW_set)^-1; 
-%          end 
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % After the growth limiting Kcats analysis and the curation for several
 % carbon sources, a simulation for the model growing on minimal glucose
 % media yielded a list of the top used enzymes (mass-wise), those that were
 % taking more than 10% of the total proteome are chosen for manual curation
-function [newValue,modifications] = curation_topUsedEnz(reaction,i,enzName,MW_set,modifications)
+function [newValue,modifications] = curation_topUsedEnz(reaction,enzName,MW_set,modifications)
         newValue = [];
         reaction = string(reaction);
           % amidophosphoribosyltransferase [P04046/EC2.4.2.14]
