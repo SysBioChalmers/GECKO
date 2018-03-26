@@ -1,7 +1,7 @@
 .. image:: GECKO.png
    :align: center
 
-|Build Status| |PyPI| |Gitter|
+|Current Version| |Build Status| |PyPI Version| |Gitter|
 
 About GECKO
 -----------
@@ -81,9 +81,11 @@ Contributors
 - Benjamin J. Sanchez (`@BenjaSanchez <https://github.com/benjasanchez>`_), Chalmers University of Technology, Gothenburg Sweden
 - Cheng Zhang, Science for Life Laboratory, KTH - Royal Institute of Technology
 
+.. |Current Version| image:: https://badge.fury.io/gh/sysbiochalmers%2Fgecko.svg
+   :target: https://badge.fury.io/gh/sysbiochalmers%2Fgecko
 .. |Build Status| image:: https://travis-ci.org/SysBioChalmers/GECKO.svg?branch=master
    :target: https://travis-ci.org/SysBioChalmers/GECKO
-.. |PyPI| image:: https://badge.fury.io/py/geckopy.svg
+.. |PyPI Version| image:: https://badge.fury.io/py/geckopy.svg
    :target: https://badge.fury.io/py/geckopy
 .. |Gitter| image:: https://badges.gitter.im/SysBioChalmers/GECKO.svg
    :alt: Join the chat at https://gitter.im/SysBioChalmers/GECKO
