@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% function ecModel = modifyKcats(ecModel,ecModel_batch,gRexp,name)
+% function ecModel = modifyKcats(ecModel,ecModel_const,gRexp,modified_kcats,name)
 %
 % Function that gets the limiting Kcat values in an EC model (according to
 % a sensitivity analysis), then it modifies each of those values according to 
@@ -9,20 +9,33 @@
 % The algorithm iterates until the model grows at the same rate provided 
 % by the user (batch growth on glucose minimal media recommended)
 %
+% INPUTS
+%   - ecModel:       Enzyme-constrained GEM 
+%   - ecModel_const: Enzyme-constrained GEM with the total protein pool
+%                    global constraint.
+%   - gRexp:         Maximal experimental growth rate on glucose minimal 
+%                    media for simulation outputs comparison
+%   - modified_kcats: Cell array containing IDs for the previously manually 
+%                    modified kcats ('UniprotCode_rxnIndex')
+%   - name:          String containing the name for the model files
+%                    provided by the user.
+% OUTPUTS
+%   - ecModel:       Enzyme-constrained GEM with the automatically curated
+%                    Kinetic parameters.
+%
 % Ivan Domenzain    Last edited. 2018-03-18
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function ecModel = modifyKcats(ecModel,ecModelBatch,gRexp,name)
+function ecModel = modifyKcats(ecModel,ecModelBatch,gRexp,modified_kcats,name)
     
-    modified_kcats = []; modifiedRxns = [];
-    modifications  = []; error = -100; i=1; 
-    current        = pwd; 
+    modifications  = []; error = -100; i=1; current = pwd; 
     %Load BRENDA data:
     cd ../get_enzyme_data
     [BRENDA,SA_cell] = loadBRENDAdata;
-    
     %Iterates while growth rate is being underpredicted
     disp('********************Limiting Kcats curation********************')
-    while error<=0
+    % Tolerance of 5% underprediction for allowing a sigma factor 
+    % readjustment
+    while error<=-5
         cd (current)
         %Get the top growth rate-limiting enzyme (uniprot code basis)
         [limKcat,breakFlag] = findTopLimitations(ecModelBatch,modified_kcats,0);
@@ -45,9 +58,9 @@ function ecModel = modifyKcats(ecModel,ecModelBatch,gRexp,name)
             disp(horzcat('  Protein:',data{1},' Rxn#:',num2str(limKcat{1,3}), ...
                                                   ' name: ',limKcat{6}{1}))
                                               
-            disp(['  prev_value:' num2str(data{1,7}) ' new_value:' ...
+            disp(['  prev_Kcat:' num2str(data{1,7}) ' new_Kcat:' ...
                   num2str(data{1,8}) ' gRCC:' num2str(limKcat{1,5}) ...
-                                                   ' Err:' num2str(error)])            
+                                                   ' Err:' num2str(error) '%'])            
             i = i+1;            
         else
             break
@@ -71,8 +84,8 @@ function ecModel = modifyKcats(ecModel,ecModelBatch,gRexp,name)
         %If the model is not growing then the analysis is performed in all
         %the Kcats matched either to: option 1 -> each of the enzymatic
         %rxns, option 2 -> each of the individual enzymes
-        [limRxns,breakFlag] = findTopLimitations(ecModelBatch,modified_kcats,1);
-        [limEnz, breakFlag] = findTopLimitations(ecModelBatch,modified_kcats,2);
+        [limRxns,~] = findTopLimitations(ecModelBatch,modified_kcats,1);
+        [limEnz, ~] = findTopLimitations(ecModelBatch,modified_kcats,2);
 
         if ~isempty(limRxns)
             varNamesTable = {'rxnNames','rxnPos','gRControlCoeff'};

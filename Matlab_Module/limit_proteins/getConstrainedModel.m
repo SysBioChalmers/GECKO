@@ -1,13 +1,22 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %function [ecModel_batch,OptSigma] = getConstrainedModel(ecModel,sigma,Ptot,gR_exp,name)
 %
-% Function that gets a model with kinetic data and returns an enzyme 
+% Function that gets a GEM with kinetic data and returns an enzyme 
 % constrained model, either with individual enzyme levels or with the total
 % measured protein content.
+% 
+% The model parameters are automatically curated (querying the BRENDA
+% files) for reaching the experimental maximal growth rate on glucose
+% minimal media (if it was overconstrained). Then, a parameter fitting on
+% the average saturation factor for enzymes is performed for the same
+% conditions. Finally the fitted model is simulated on the same conditions
+% and the top ten used enzymes (mass-wise) are saved in a file as an
+% output, this can be used for suggesting further parameter curation
+% targets (enzyme usages > 10% of the total proteome).
 %
 % Ivan Domenzain    Last edited. 2018-03-18
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [ecModel_batch,OptSigma] = getConstrainedModel(ecModel,sigma,Ptot,gR_exp,name)
+function [ecModel_batch,OptSigma] = getConstrainedModel(ecModel,sigma,Ptot,gR_exp,modifications,name)
 	
 	%Get a preliminary enzyme constrained model for performing the Kcats 
 	%sensitivity analysis
@@ -22,7 +31,7 @@ function [ecModel_batch,OptSigma] = getConstrainedModel(ecModel,sigma,Ptot,gR_ex
 	%the algorithm will iterate changing the top growth limiting value 
 	%according to the maximum value available in BRENDA for the same 
 	%EC number until the growth rate is no longer underpredicted 
-	ecModel = modifyKcats(ecModel,ecModel_batch,0.41,name);
+	ecModel = modifyKcats(ecModel,ecModel_batch,0.41,modifications,name);
 	
 	%The sigma factor is reffited for minimal glucose media 
 	OptSigma = sigmaFitter(ecModel,Ptot,gR_exp);
