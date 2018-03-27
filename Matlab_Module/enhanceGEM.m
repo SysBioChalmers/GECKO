@@ -3,21 +3,20 @@
 %
 % Benjamin J. Sanchez & Ivan Domenzain. Last edited: 2018-03-19
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [ecModel,model_data,kcats] = enhanceGEM(model,toolbox,name,version)
+%function [ecModel,model_data,kcats] = enhanceGEM(model,toolbox,name,version)
 
 %Provide your organism scientific name
-org_name = 'saccharomyces cerevisiae';
+org_name = 'kluyveromyces marxianus';
 format short e
 if strcmp(toolbox,'COBRA')
-   initCobraToolbox
+   %initCobraToolbox
 end
-
 %Update yeast 7 model with all recommended changes:
 cd get_enzyme_data
-model = modelCorrections(model);
+model = modelCorrectionsYli(model);
 
 %Add some RAVEN fields for easier visualization later on:
-model = standardizeModel(model,toolbox);
+%model = standardizeModel(model,toolbox);
 
 %Retrieve kcats & MWs for each rxn in model:
 model_data = getEnzymeCodes(model);
@@ -25,15 +24,17 @@ kcats      = matchKcats(model_data,org_name);
 save(['../../Models/' name '/data/' name '_enzData.mat'],'model_data','kcats','version')
 %Integrate enzymes in the model:
 cd ../change_model
-ecModel                 = readKcatData(model_data,kcats);
-[ecModel,modifications] = manualModifications(ecModel);
+ecModel = readKcatData(model_data,kcats);
+[ecModel,modified] = manualModificationsKma(ecModel);
+%[ecModel,modifications] = manualModifications(ecModel);
 
 %Constrain model to batch conditions:
 sigma  = 0.5;      %Optimized for glucose
-Ptot   = 0.5;      %Assumed constant
-gR_exp = 0.41;     %[g/gDw h] Max batch gRate on minimal glucose media
+Ptot   = 0.3886;      %Assumed constant
+gR_exp = 0.395;     %[g/gDw h] Max batch gRate on minimal glucose media
 cd ../limit_proteins
-[ecModel_batch,OptSigma] = getConstrainedModel(ecModel,sigma,Ptot,gR_exp,modifications,name);
+%ecModel_batch = constrainEnzymes(ecModel,Ptot,sigma);
+[ecModel_batch,OptSigma] = getConstrainedModel(ecModel,sigma,Ptot,gR_exp,modified,name);
 disp(['Sigma factor (fitted for growth on glucose): ' num2str(OptSigma)])
 
 %Save output models:
@@ -46,6 +47,6 @@ saveECmodelSBML(ecModel,name,false);
 saveECmodelSBML(ecModel_batch,name,true);
 cd ../Matlab_Module
 
-end
+%end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
