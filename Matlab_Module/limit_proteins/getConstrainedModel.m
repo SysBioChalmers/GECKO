@@ -7,12 +7,12 @@
 % 
 % The model parameters are automatically curated (querying the BRENDA
 % files) for reaching the experimental maximal growth rate on glucose
-% minimal media (if it was overconstrained). Then, a parameter fitting on
-% the average saturation factor for enzymes is performed for the same
-% conditions. Finally the fitted model is simulated on the same conditions
-% and the top ten used enzymes (mass-wise) are saved in a file as an
-% output, this can be used for suggesting further parameter curation
-% targets (enzyme usages > 10% of the total proteome).
+% minimal media (if it was overconstrained). Then, the average saturation 
+% factor for enzymes is fitted for the same growth conditions. Finally the 
+% fitted model is simulated on the same conditions and the top ten used 
+% enzymes (mass-wise) are saved in a file as an output, this can be used for 
+% suggesting further parameter curation targets 
+% (enzyme usages > 10% of the total proteome).
 %
 % Ivan Domenzain    Last edited. 2018-03-27
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -30,16 +30,21 @@ function [ecModel_batch,OptSigma] = getConstrainedModel(ecModel,sigma,Ptot,gR_ex
         solution          = solveLP(ecModel_batch,1);
         ObjIndex          = find(ecModel_batch.c);
         % If the model is overconstrained
-        if (gR_exp-sol.x(ObjIndex))>0 
+        if (gR_exp-solution.x(ObjIndex))>0 
+            disp('***************************************************************')
+            disp('                The ECmodel is overconstrained                 ')
             %Perform a sensitivity analysis on the individual Kcat coefficients,
             %the algorithm will iterate changing the top growth limiting value 
             %according to the maximum value available in BRENDA for the same 
             %EC number until the growth rate is no longer underpredicted 
             ecModel = modifyKcats(ecModel,ecModel_batch,0.41,modifications,name);
         else
-            disp('The ECmodel is not overconstrained')
+            disp('***************************************************************')
+            disp('              The ECmodel is not overconstrained               ')
         end
-        %The sigma factor is reffited for minimal glucose media 
+        %The sigma factor is reffited for minimal glucose media
+        disp('***************************************************************')
+        disp('         Fitting the average enzymes saturation factor           ')
         OptSigma = sigmaFitter(ecModel,Ptot,gR_exp);
         %The ecModel with new modified Kcat values is constrained with the 
         %optimal sigma value found
