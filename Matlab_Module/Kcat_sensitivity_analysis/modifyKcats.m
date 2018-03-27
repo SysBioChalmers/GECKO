@@ -131,7 +131,7 @@ function [model,data] = changeKcat(model,limKcats,gR_exp,BRENDA,SA_cell)
         % After changing the i-th kcat limiting value a simulation is
         % performed and the growth rate and absolute error are saved 
         model_sim            = model;
-        gR_pos               = find(strcmpi(model_sim.rxnNames,'biomass exchange (No1)'));
+        gR_pos               = find(strcmpi(model_sim.rxnNames,'growth'));
         model_sim.c          = zeros(size(model_sim.c));
         model_sim.c(gR_pos)  = 1;
         solution             = solveLP(model_sim);

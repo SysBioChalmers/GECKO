@@ -1,15 +1,15 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% model = changeProtein(model,Ptot,fs,Pbase,GAM,change_comp)
+% model = changeProtein(model,p,fs,options,GAM)
 % 
 %
-% Benjam?n J. S?nchez. Last edited: 2017-10-02
+% Benjamín J. Sánchez. Last edited: 2017-10-02
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function model = changeProtein(model,Ptot,fs,Pbase,GAM,change_comp)
+function model = changeProtein(model,Ptot,fs,GAM,change_comp)
 
-%if nargin < 4
-%    GAM = 31;      %63.3% eff OXPHO - no H2O in prot/carb
-%end
+if nargin < 4
+    GAM = 31;      %63.3% eff OXPHO - no H2O in prot/carb
+end
 
 %Option for changing composition & GAM (=true) or only GAM (=false):
 if nargin < 5
@@ -17,7 +17,8 @@ if nargin < 5
 end
 
 % Change Protein total amount:
-Cbase = 0.4067;         %Value from biomass comp. (F?rster data @ 0.1 1/h)
+Pbase = 0.4005;         %Value from biomass comp. (Förster data @ 0.1 1/h)
+Cbase = 0.4067;         %Value from biomass comp. (Förster data @ 0.1 1/h)
 P_pos = strcmp(model.rxns,'prot_pool_exchange');
 if sum(P_pos) == 0
     disp('Metabolic model')

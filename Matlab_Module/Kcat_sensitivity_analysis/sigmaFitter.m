@@ -31,7 +31,7 @@ function OptSigma = sigmaFitter(model,Ptot,gR_exp)
         %model_batch  = changeCultureMedia(model);
         model_batch  = constrainEnzymes(model,Ptot,sigma);
         % Change to minimal glucose media
-        gR_pos        = find(strcmpi(model_batch.rxnNames,'biomass exchange (No1)'));
+        gR_pos        = find(strcmpi(model_batch.rxnNames,'growth'));
         model_batch.c = zeros(size(model_batch.c));
         model_batch.c(gR_pos) = 1;
         solution               = solveLP(model_batch);
