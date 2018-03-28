@@ -12,13 +12,13 @@
 % FinalGenesets     All gene sets with only "ANDs" (cell array)
 % FinalReactions    New reaction IDs (cell array)
 % 
-% Cheng Zhang. Last edited: 2015-04-03
+% Cheng Zhang.    Last edited: 2015-04-03
+% Ivan Domenzain. Last edited: 2018-02-13
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function [FinalGenesets, FinalReactions] = getAllPath(model,reaction)
 i = ismember(model.rxns,reaction);        %get index of the selected reaction
-
-FinalGenesets = cell(1,1);
+FinalGenesets  = cell(1,1);
 FinalReactions = cell(1,1);
 
 x = 0;      %total number of NewGenesets
@@ -50,8 +50,7 @@ while p < x+1      %if bracket exist in geneset, means there still exist multi-g
     A = zeros(length(GRbracketLtemp),1);    %ready for saving corresponding dual index of left brackets
     B = zeros(length(GRbracketRtemp),1);    %ready for saving corresponding dual index of right brackets
     TempGenesets = cell(1,1);
-    if ~isempty(A)      %if there are inner brackets 
-            
+    if ~isempty(A)      %if there are inner brackets          
         tempSTR = STR;
         for k = 1:length(A)     %identification of all dual brackets
             B(k,1) = min(GRbracketRtemp);   %iteratively get the index of corresponding dual right brackets
@@ -88,9 +87,10 @@ while p < x+1      %if bracket exist in geneset, means there still exist multi-g
                     GRbracketRtemp2 = setdiff(GRbracketRtemp2,min(GRbracketRtemp2));
                     tempSTR2 = [tempSTR2(1:A(k,1)-1) '[' tempSTR2(A(k,1)+1:length(tempSTR2))];
                 end
-        end             
-        for m = 1:length(model.genes)
-            if ~isempty(strfind(subSTR,model.genes{m}))               
+        end           
+        subSTRcell = strsplit(subSTR,' ');
+        for m = 1:length(model.genes)        
+            if ~isempty(find(strcmp(model.genes{m},subSTRcell))) 
                 TempGenesets{length(TempGenesets)+1,1} = model.genes{m};
             end    
         end 
@@ -176,16 +176,18 @@ while p < x+1      %if bracket exist in geneset, means there still exist multi-g
                             tempSTR2 = [tempSTR2(1:A2(k,1)-1) '[' tempSTR2(A2(k,1)+1:length(tempSTR2))];
                         end
                     end
+                    subSTRcell = strsplit(subSTR2,' ');
                     for m = 1:length(model.genes)
-                        if ~isempty(strfind(subSTR2,model.genes{m}))                
+                        if ~isempty(find(strcmp(model.genes{m},subSTRcell)))                
                             TempGenesets2{length(TempGenesets2)+1,1} = model.genes{m};                
                         end    
                     end
                 else
-                    subSTR2 = STR2;
-                    j2 = 0;
+                    subSTR2    = STR2;
+                    subSTRcell = strsplit(subSTR2,' ');
+                    j2         = 0;
                     for m = 1:length(model.genes)
-                        if ~isempty(strfind(subSTR2,model.genes{m}))
+                        if ~isempty(find(strcmp(model.genes{m},subSTRcell)))
                             TempGenesets2{j2+1,1} = model.genes{m};
                             j2 = j2+1;                                            
                         end    
@@ -232,12 +234,16 @@ while p < x+1      %if bracket exist in geneset, means there still exist multi-g
         subSTR = STR;        
         if ~isempty(strfind(subSTR,' or '))|| ~isempty(strfind(subSTR,' OR '))
             n = 0;
+            subString = strsplit(subSTR,' OR ');
             for m = 1:length(model.genes)
-                if ~isempty(strfind(subSTR,model.genes{m}))
-                    n = n+1;                
-                    TempGenesets{n,1} = model.genes{m};                
-                end    
+                %String comparison between model.genes{m} and each of the
+                %different genes in the grRule
+                if ~isempty(find(strcmpi(model.genes{m},subString)))
+                     n = n+1;                
+                     TempGenesets{n,1} = model.genes{m};
+                 end                   
             end 
+            
             for k = 1:length(TempGenesets)
                 q = q+1;
                 FinalGenesets{q,1} = TempGenesets{k,1};
