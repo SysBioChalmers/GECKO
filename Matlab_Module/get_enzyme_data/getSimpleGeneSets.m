@@ -10,9 +10,6 @@ function genesSets = getSimpleGeneSets(originalSTR)
     genesSets = cell(1,1);
     % If gene rule is not empty split in all its different isoenzymes
     if ~isempty(originalSTR)
-        originalSTR = strtrim(originalSTR);
-        originalSTR = strrep(originalSTR,' OR ',' or ');
-        originalSTR = strrep(originalSTR,' AND ',' and ');
         %Remove all brackets
         originalSTR = strrep(originalSTR,'(','');
         originalSTR = strrep(originalSTR,')','');
