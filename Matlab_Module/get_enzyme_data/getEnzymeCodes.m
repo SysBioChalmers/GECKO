@@ -21,6 +21,10 @@
 
 function model_data = getEnzymeCodes(model)
 
+%Standardize grRules to avoid wrong enzyme codes assignments to reactions
+[grRules,~]   = standardizeGrRules(model);
+model.grRules = grRules;
+
 cd ../../Databases
 data      = load('ProtDatabase.mat');
 swissprot = data.swissprot;
@@ -67,7 +71,7 @@ for i = 1:n
             count(1) = count(1) + isrev(i);
         else
             %Find match in KEGG:
-            [new_uni,new_EC,new_MW] = findInDB(model.grRules{i},swissprot);
+            [new_uni,new_EC,new_MW] = findInDB(model.grRules{i},kegg);
             if ~isempty(union_string(new_EC))
                 count(2) = count(2) + isrev(i);
             else
