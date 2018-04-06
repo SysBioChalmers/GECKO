@@ -10,9 +10,9 @@
 #INPUTS:
 #1) Organism KEGG codes (as many as you want). Full list at:
 #   http://rest.kegg.jp/list/organism
-organism_codes= ['sce',...,...,...]
+organism_codes= ['kmx']
 #2) Path for storing all generated files:
-output_path = '.../GECKO/KEGG'
+output_path = '/Users/ivand/Desktop/KMX'
 #3) Last organism processed (if the program was interrupted)
 #   Starting form scratch?, leave empty:
 last_organism = ''

@@ -8,9 +8,9 @@
 
 #INPUTS:
 #1) Path in which all BRENDA queries are (from script retrieveBRENDA.py):
-input_path = 'path_1'
+input_path = '/Users/ivand/Desktop/BRENDA'
 #2) Path in which you wish to store all EC files:
-output_path = 'path_2'
+output_path = '/Users/ivand/Desktop/ECfiles'
 
 ################################################################################
 

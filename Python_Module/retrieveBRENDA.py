@@ -9,7 +9,7 @@
 
 #INPUTS:
 #1) Path in which you wish to store all BRENDA queries:
-output_path = 'path_1'
+output_path = '/Users/ivand/Desktop/BRENDA'
 #2) Last field processed (if the program was interrupted), e.g. 'KM'. If you
 #   want to start from scratch, leave empty:
 last_field = ''
@@ -17,9 +17,9 @@ last_field = ''
 #   If you want to start from scratch, leave empty:
 last_EC = ''
 #4) E-mail in BRENDA:
-email = 'email@email.com'
+email = 'ivand@chalmers.se'
 #5) Password in BRENDA:
-password = 'password'
+password = '4<M42L(2Jj'
 
 ################################################################################
 
@@ -121,7 +121,7 @@ password    = hashlib.sha256(password).hexdigest()
 credentials = email + ',' + password
 
 #Information to retrieve: km, M.W., pathway, sequence, specific activity and kcat.
-fields = ['KM','MW','PATH','SEQ','SA','KCAT']
+fields = ['KM','MW','PATH','SA','KCAT']
 import time
 
 #Loop that retrieves all fields. Starts by the last one queried:
