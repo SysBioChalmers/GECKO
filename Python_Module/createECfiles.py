@@ -19,7 +19,7 @@ import os
 prev_path = os.getcwd()
 os.chdir(input_path)
 dir_files = os.listdir(input_path)
-
+dir_files.sort()
 #Main loop: Adds each BRENDA file's info to the corresponding EC file.
 previous  = ''
 for i in dir_files:
