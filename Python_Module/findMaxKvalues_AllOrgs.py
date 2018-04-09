@@ -11,11 +11,11 @@
 #   * metabolic pathways
 
 # Benjamin Sanchez. Last edited: 2015-08-26
-# Ivan Domenzain.   Last edited: 2017-06-01
+# Ivan Domenzain.   Last edited: 2018-04-09
 ################################################################################
 #INPUTS:
 #1) Enzymatic parameters
-features_list = ['KCAT', 'KM', 'SA', 'MW']
+features_list = ['KCAT','SA', 'MW']
 #2) Path in which the EC files are stored (from script createECfiles.py):
 input_path = '/Users/ivand/Desktop/ECfiles'
 #3) Path in which you wish to store the final table:
@@ -240,7 +240,7 @@ def EC_string(csv_fid, feature_name):
     for row in csv_fid:
         if row[0] != '':
             row[4] = row[4].lower()
-            mutant = max(row[4].find('mutant'),row[4].find('mutated'))
+            mutant = max(row[4].find('mutant'),row[4].find('mutated'),row[4].find('recombinant'))
             #Ignore invalid values:
             if row[2] != '-999' and mutant == -1:
                 #Only allow Kcats <= 1e7 [Bar-Even et al. 2011]
@@ -279,7 +279,7 @@ import os
 prev_path = os.getcwd()
 os.chdir(input_path)
 dir_files = os.listdir(input_path)
-
+dir_files.sort()
 import urllib2
 import csv
 organism_list,taxonomy,organism_code = orgs_list(dir_files)
