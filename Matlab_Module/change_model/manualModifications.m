@@ -243,6 +243,28 @@ function [newValue,modifications] = curation_growthLimiting(reaction,enzName,MW_
               newValue      = -(6*60*1e3/1e3*MW_set)^-1;
               modifications{1} = [modifications{1}; string('Q00955')];
               modifications{2} = [modifications{2}; reaction];
+          end        
+        % [P52867//EC2.4.1.109] mannosyltransferase
+        % Assigned value was 0.0053 (1/s) for Sce, however this value yields 
+        % a growth control coefficient 0f 0.9316. The highest kinetic 
+        % parameter reported for this EC number is the one that was
+        % assigned, a wild card is introduced into the EC number and the highest 
+        % value for a similar metabolite was chosen instead:
+        % 70.9 [1/s] reported for  EC2.4.1.83 in Saccharomyces cerevisiae
+        % from BRENDA (2018-04-10).
+          if strcmpi('prot_P52867',enzName) && (~isempty(strfind(reaction,'dolichyl-phosphate-mannose--protein mannosyltransferase')))
+              newValue         = -(70.9*3600)^-1;
+              modifications{1} = [modifications{1}; string('P52867')];
+              modifications{2} = [modifications{2}; reaction];
+          end         
+        % [P52867//EC2.5.1.6] methionine adenosyltransferase. Highly growth
+        % limiting enzyme. No reported value for S. cerevisiae, Kcat for
+        % Rattus norvegicus used instead <- 0.583 [1/s].
+        % from BRENDA (2018-04-10).
+          if strcmpi('prot_P10659',enzName) && (~isempty(strfind(reaction,'methionine adenosyltransferase')))
+              newValue         = -(0.583*3600)^-1;
+              modifications{1} = [modifications{1}; string('P10659')];
+              modifications{2} = [modifications{2}; reaction];
           end
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
