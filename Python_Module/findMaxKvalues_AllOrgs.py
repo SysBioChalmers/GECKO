@@ -11,15 +11,15 @@
 #   * metabolic pathways
 
 # Benjamin Sanchez. Last edited: 2015-08-26
-# Ivan Domenzain.   Last edited: 2018-04-09
+# Ivan Domenzain.   Last edited: 2018-04-10
 ################################################################################
 #INPUTS:
 #1) Enzymatic parameters
 features_list = ['KCAT','SA', 'MW']
 #2) Path in which the EC files are stored (from script createECfiles.py):
-input_path = '/Users/ivand/Desktop/ECfiles'
+input_path = '.../temp/path_2'
 #3) Path in which you wish to store the final table:
-output_path = '/Users/ivand/Documents/GitHub/GECKO/Databases'
+output_path = '.../GECKO/Databases'
 ################################################################################
 
 #sub_max_std: Recieves a list of substrates///organism_info///values, returns

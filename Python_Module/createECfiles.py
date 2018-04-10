@@ -3,14 +3,14 @@
 # createECfiles
 # Reads all data in kinetic_data and creates all EC files.
 #
-# Benjamin Sanchez. Last edited: 2015-03-26
+# Benjamin Sanchez. Last edited: 2018-04-10
 ################################################################################
 
 #INPUTS:
 #1) Path in which all BRENDA queries are (from script retrieveBRENDA.py):
-input_path = '/Users/ivand/Desktop/BRENDA'
+input_path = '.../temp/path_1'
 #2) Path in which you wish to store all EC files:
-output_path = '/Users/ivand/Desktop/ECfiles'
+output_path = '.../temp/path_2'
 
 ################################################################################
 

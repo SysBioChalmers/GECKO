@@ -4,12 +4,12 @@
 # Acces the web client and retrieves all EC data from BRENDA. Creates files with
 # BRENDA output for all organisms and EC numbers for which there is data.
 #
-# Benjamin Sanchez. Last edited: 2015-10-15
+# Benjamin Sanchez. Last edited: 2018-04-10
 ################################################################################
 
 #INPUTS:
 #1) Path in which you wish to store all BRENDA queries:
-output_path = '/Users/ivand/Desktop/BRENDA'
+output_path = '.../temp/path_1'
 #2) Last field processed (if the program was interrupted), e.g. 'KM'. If you
 #   want to start from scratch, leave empty:
 last_field = ''
@@ -17,9 +17,9 @@ last_field = ''
 #   If you want to start from scratch, leave empty:
 last_EC = ''
 #4) E-mail in BRENDA:
-email = 'ivand@chalmers.se'
+email = 'email@email.com'
 #5) Password in BRENDA:
-password = '4<M42L(2Jj'
+password = 'password'
 
 ################################################################################
 
