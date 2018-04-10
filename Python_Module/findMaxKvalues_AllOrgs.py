@@ -240,7 +240,7 @@ def EC_string(csv_fid, feature_name):
     for row in csv_fid:
         if row[0] != '':
             row[4] = row[4].lower()
-            mutant = max(row[4].find('mutant'),row[4].find('mutated'),row[4].find('recombinant'))
+            mutant = max(row[4].find('mutant'),row[4].find('mutated'))
             #Ignore invalid values:
             if row[2] != '-999' and mutant == -1:
                 #Only allow Kcats <= 1e7 [Bar-Even et al. 2011]
