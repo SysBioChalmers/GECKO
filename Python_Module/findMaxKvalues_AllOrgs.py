@@ -11,13 +11,13 @@
 #   * metabolic pathways
 
 # Benjamin Sanchez. Last edited: 2015-08-26
-# Ivan Domenzain.   Last edited: 2017-06-01
+# Ivan Domenzain.   Last edited: 2018-04-10
 ################################################################################
 #INPUTS:
 #1) Enzymatic parameters
-features_list = ['KCAT', 'KM', 'SA', 'MW']
+features_list = ['KCAT','SA', 'MW']
 #2) Path in which the EC files are stored (from script createECfiles.py):
-input_path = '.../GECKO/EC_FILES'
+input_path = '.../temp/path_2'
 #3) Path in which you wish to store the final table:
 output_path = '.../GECKO/Databases'
 ################################################################################
@@ -128,12 +128,12 @@ def brenda_orgs_list(dir):
         #Uncomment and indent properly if you want to exclude any name longer
         #two words (mutants for example, but not exclusively)
         
-                    second_blank = row[1].find(' ',row[1].find(' ')+1)
+                    #second_blank = row[1].find(' ',row[1].find(' ')+1)
 
-                    if second_blank == -1:
-                        org_name = row[1].lower()
-                    else:
-                        org_name=row[1][0:second_blank]
+                    #if second_blank == -1:
+                    org_name = row[1].lower()
+                    #else:
+                    #    org_name=row[1][0:second_blank]
                 
                     if brenda_orgs.count(org_name)==0:
                         brenda_orgs.append(org_name)
@@ -247,14 +247,14 @@ def EC_string(csv_fid, feature_name):
                 if row[0] == feature_name and float(row[2]) <= 1e7:
                     #Looks for the organism in the organism merged list
                     #in order to include taxonomical info if available
-                    org_index = organism_list.index(row[1].lower())
-                    if  org_index != -1:
+                    try:
+                        org_index  = organism_list.index(row[1].lower())
                         org_string = organism_list[org_index]+'//'+\
-                            taxonomy[org_index]+ '//'+ organism_code[org_index]
+                                     taxonomy[org_index]+ '//'+ organism_code[org_index]
                             
                         data_string.append(row[3].lower() + '///' +\
                                             org_string + '////' + row[2])
-                    else:
+                    except:
                         print 'Organism not found in KEGG or BRENDA'
         
             #Gets the associated not engineered pathways to the
@@ -279,7 +279,7 @@ import os
 prev_path = os.getcwd()
 os.chdir(input_path)
 dir_files = os.listdir(input_path)
-
+dir_files.sort()
 import urllib2
 import csv
 organism_list,taxonomy,organism_code = orgs_list(dir_files)

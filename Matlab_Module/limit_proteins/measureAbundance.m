@@ -9,7 +9,7 @@ function [f,count] = measureAbundance(enzymes,abundance_file)
 
 %Read downloaded data of abundance:
 fID       = fopen(abundance_file);
-data      = textscan(fID,'%s %s %f','delimiter','\t','HeaderLines',9);
+data      = textscan(fID,'%s %s %f','delimiter','\t','HeaderLines',12);
 genes     = data{2};
 abundance = data{3};
 fclose(fID);

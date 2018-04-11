@@ -3,14 +3,14 @@
 # createECfiles
 # Reads all data in kinetic_data and creates all EC files.
 #
-# Benjamin Sanchez. Last edited: 2015-03-26
+# Benjamin Sanchez. Last edited: 2018-04-10
 ################################################################################
 
 #INPUTS:
 #1) Path in which all BRENDA queries are (from script retrieveBRENDA.py):
-input_path = 'path_1'
+input_path = '.../temp/path_1'
 #2) Path in which you wish to store all EC files:
-output_path = 'path_2'
+output_path = '.../temp/path_2'
 
 ################################################################################
 
@@ -19,7 +19,7 @@ import os
 prev_path = os.getcwd()
 os.chdir(input_path)
 dir_files = os.listdir(input_path)
-
+dir_files.sort()
 #Main loop: Adds each BRENDA file's info to the corresponding EC file.
 previous  = ''
 for i in dir_files:
