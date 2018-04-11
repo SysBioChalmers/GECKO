@@ -4,15 +4,15 @@
 # Access the KEGG API and retrieves all data available for each protein-coding
 # gene of the "n" organisms specified. Creates a file for each succesful query.
 
-# Ivan Domenzain. Last edited: 2017-05-12
+# Ivan Domenzain. Last edited: 2018-04-10
 ################################################################################
 
 #INPUTS:
 #1) Organism KEGG codes (as many as you want). Full list at:
 #   http://rest.kegg.jp/list/organism
-organism_codes= ['sce',...,...,...]
+organism_codes = ['sce',...,...,...]
 #2) Path for storing all generated files:
-output_path = '.../GECKO/KEGG'
+output_path = '.../GECKO/Databases/KEGG'
 #3) Last organism processed (if the program was interrupted)
 #   Starting form scratch?, leave empty:
 last_organism = ''
