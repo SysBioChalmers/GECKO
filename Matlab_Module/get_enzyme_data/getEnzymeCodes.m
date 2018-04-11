@@ -22,7 +22,7 @@
 function model_data = getEnzymeCodes(model)
 
 %Standardize grRules to avoid wrong enzyme codes assignments to reactions
-[grRules,~]   = standardizeGrRules(model);
+[grRules,~]   = standardizeGrRules(model,true);
 model.grRules = grRules;
 
 cd ../../Databases
