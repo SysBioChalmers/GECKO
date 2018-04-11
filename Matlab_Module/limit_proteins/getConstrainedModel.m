@@ -37,14 +37,14 @@ function [ecModel_batch,OptSigma] = getConstrainedModel(ecModel,sigma,Ptot,gR_ex
             %the algorithm will iterate changing the top growth limiting value 
             %according to the maximum value available in BRENDA for the same 
             %EC number until the growth rate is no longer underpredicted 
-            ecModel = modifyKcats(ecModel,ecModel_batch,0.41,modifications,name);
+            ecModel = modifyKcats(ecModel,ecModel_batch,gR_exp,modifications,name);
         else
             disp('***************************************************************')
             disp('              The ECmodel is not overconstrained               ')
         end
         %The sigma factor is reffited for minimal glucose media
         disp('***************************************************************')
-        disp('         Fitting the average enzymes saturation factor           ')
+        disp('        Fitting the average enzymes saturation factor          ')
         OptSigma = sigmaFitter(ecModel,Ptot,gR_exp);
         %The ecModel with new modified Kcat values is constrained with the 
         %optimal sigma value found

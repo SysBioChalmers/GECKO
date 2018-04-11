@@ -27,7 +27,7 @@ function [limitations,breakFlag] = findTopLimitations(model,prevUnicodes,option)
     breakFlag     = false;
     %If the model is growing, analyse the individual kcat values of the flux
     %carrier enzymes
-    if base_sol.f ~= 0
+    if ~isempty(base_sol.f)% ~= 0
         %First, find the growth limiting Kcats in the Batch model
         limKcats = findLimitingKcat(model,base_sol,enzUsageIndxs);
         if ~isempty(limKcats{1})
@@ -40,7 +40,7 @@ function [limitations,breakFlag] = findTopLimitations(model,prevUnicodes,option)
             while j<=length(limKcats{1})
                 %The top limiting coefficient is identified with its corresponding
                 %uniprot code and the rxn index in the model because there might 
-                %be promiscous enzymes can diferent reactions at different rates
+                %be promiscous enzymes catalysing different reactions at different rates
                 Protname = [limKcats{1}{j}(6:end) '_' num2str(limKcats{3}(j))];
                 if ~ismember(Protname,prevUnicodes)
                     pos = j;
@@ -51,17 +51,22 @@ function [limitations,breakFlag] = findTopLimitations(model,prevUnicodes,option)
             end
 
             for i=1:length(limKcats)
-                if pos ~=0
+                if pos~=0
                     limKcats{i} = limKcats{1,i}(pos);
                 else
                     % If all the significant Limiting Kcats have been previously
-                    % modified then the iterations are stopped
+                    % modified then the iterations should be stopped
                     limKcats{i} = [];
                     breakFlag   = true;
                 end
             end
         end
-        limitations = limKcats;
+        
+        if ~isempty(limKcats{1})
+            limitations = limKcats;
+        else
+            breakFlag = true;
+        end
     %If the model is not growing, analyse all of the kinetic parameters
     %associated to each of the metabolic reactions.
     else
@@ -109,19 +114,19 @@ function kcatIndxs = findLimitingKcat(model,base_sol,enzUsageIndxs)
             for j=1:length(enz_rxnsCoeffs)-1
                 temp_model = model;
                 coeffPos   = enz_rxnsCoeffs(j);
-                temp_model.S(enzPos,coeffPos) = ...
-                                             model.S(enzPos,coeffPos)/1000;
-                new_sol   = solveLP(temp_model);
-                gRCC      = (new_sol.f - base_sol.f)/base_sol.f;
-                
-                if abs(gRCC) > 1e-2
-                    Kcat         = (-1/model.S(enzPos,coeffPos))/3600;
-                    kcatIndxs{1} = [kcatIndxs{1}; enzName];
-                    kcatIndxs{2} = [kcatIndxs{2}; enzPos];
-                    kcatIndxs{3} = [kcatIndxs{3}; coeffPos];
-                    kcatIndxs{4} = [kcatIndxs{4}; Kcat];
-                    kcatIndxs{5} = [kcatIndxs{5}; gRCC];
-                    kcatIndxs{6} = [kcatIndxs{6}; model.rxnNames(coeffPos)];
+                temp_model.S(enzPos,coeffPos) = model.S(enzPos,coeffPos)/1000;
+                new_sol    = solveLP(temp_model);
+                if ~isempty(new_sol.f)
+                    gRCC       = (new_sol.f - base_sol.f)/base_sol.f;
+                    if abs(gRCC) > 1e-2
+                        Kcat         = (-1/model.S(enzPos,coeffPos))/3600;
+                        kcatIndxs{1} = [kcatIndxs{1}; enzName];
+                        kcatIndxs{2} = [kcatIndxs{2}; enzPos];
+                        kcatIndxs{3} = [kcatIndxs{3}; coeffPos];
+                        kcatIndxs{4} = [kcatIndxs{4}; Kcat];
+                        kcatIndxs{5} = [kcatIndxs{5}; gRCC];
+                        kcatIndxs{6} = [kcatIndxs{6}; model.rxnNames(coeffPos)];
+                    end
                 end
             end
         end

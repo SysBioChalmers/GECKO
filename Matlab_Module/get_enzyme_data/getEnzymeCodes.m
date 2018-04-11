@@ -15,10 +15,15 @@
 %           *count(3):   #exchange/transport rxns with no GPRs
 %           *count(4):   #other rxns
 % 
-% Benjamín Sánchez. Last edited: 2017-03-05
+% Benjamin Sanchez. Last edited: 2017-03-05
+% Ivan Domenzain.   Last edited: 2018-03-30
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function model_data = getEnzymeCodes(model)
+
+%Standardize grRules to avoid wrong enzyme codes assignments to reactions
+[grRules,~]   = standardizeGrRules(model,true);
+model.grRules = grRules;
 
 cd ../../Databases
 data      = load('ProtDatabase.mat');
@@ -59,40 +64,41 @@ for i = 1:n
     %isrev(i) = 0 if rxn is blocked, = 1 if non-reversible, and = 2 if
     %reversible:
     isrev(i) = dir + inv;
-    
-    %Find match in Swissprot:
-    [new_uni,new_EC,new_MW] = findInDB(i,model,swissprot);
-    if ~isempty(union_string(new_EC))
-        count(1) = count(1) + isrev(i);
-    else
-        %Find match in KEGG:
-        [new_uni,new_EC,new_MW] = findInDB(i,model,kegg);
+    if ~isempty(model.grRules{i})
+        %Find match in Swissprot:
+        [new_uni,new_EC,new_MW] = findInDB(model.grRules{i},swissprot);
         if ~isempty(union_string(new_EC))
-            count(2) = count(2) + isrev(i);
+            count(1) = count(1) + isrev(i);
         else
-            %Check if rxn is an exchange/transport rxn with no GPRs:
-            GPRs       = sum(rgmat(i,:));
-            rxn_name   = lower(model.rxnNames{i});
-            exchange   = ~isempty(strfind(rxn_name,'exchange'));
-            uptake     = ~isempty(strfind(rxn_name,'uptake'));
-            production = ~isempty(strfind(rxn_name,'production'));
-            transport  = ~isempty(strfind(rxn_name,'transport'));
-            if (exchange || uptake || production || transport) && GPRs == 0
-                count(3) = count(3) + isrev(i);
+            %Find match in KEGG:
+            [new_uni,new_EC,new_MW] = findInDB(model.grRules{i},kegg);
+            if ~isempty(union_string(new_EC))
+                count(2) = count(2) + isrev(i);
             else
-                count(4) = count(4) + isrev(i);
+                %Check if rxn is an exchange/transport rxn with no GPRs:
+                GPRs       = sum(rgmat(i,:));
+                rxn_name   = lower(model.rxnNames{i});
+                exchange   = ~isempty(strfind(rxn_name,'exchange'));
+                uptake     = ~isempty(strfind(rxn_name,'uptake'));
+                production = ~isempty(strfind(rxn_name,'production'));
+                transport  = ~isempty(strfind(rxn_name,'transport'));
+                if (exchange || uptake || production || transport) && GPRs == 0
+                    count(3) = count(3) + isrev(i);
+                else
+                    count(4) = count(4) + isrev(i);
+                end
             end
         end
-    end
     
-    for j = 1:length(new_uni)
-        uniprots{i,j} = new_uni{j};
-        if isempty(new_EC{j})
-            EC_numbers{i,j} = union_string(new_EC);
-        else
-            EC_numbers{i,j} = new_EC{j};
+        for j = 1:length(new_uni)
+            uniprots{i,j} = new_uni{j};
+            if isempty(new_EC{j})
+                EC_numbers{i,j} = union_string(new_EC);
+            else
+                EC_numbers{i,j} = new_EC{j};
+            end
+            MWs(i,j) = new_MW(j);
         end
-        MWs(i,j) = new_MW(j);
     end
     disp(['Getting enzyme codes: Ready with rxn ' int2str(i)])
 end
