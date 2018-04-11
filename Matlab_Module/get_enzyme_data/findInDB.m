@@ -1,22 +1,22 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% [uni,EC] = findInDB(rxn_pos,model,DB)
+% [uni,EC] = findInDB(grRule,DB)
 % Matches the uniprot and EC number for a given rxn into a given database.
 %
-% Benjamín J. Sánchez. Last edited: 2017-08-10
+% Benjamin J. Sanchez. Last edited: 2017-08-10
+% Ivan Domenzain.      Last edited: 2018-03-29
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function [uni,EC,MW] = findInDB(rxn_pos,model,DB)
+function [uni,EC,MW] = findInDB(grRule,DB)
 
 %Find simple gene sets for reaction:
-[gene_sets,~] = getAllPath(model,model.rxns(rxn_pos));
+gene_sets     = getSimpleGeneSets(grRule);
 uni           = cell(size(gene_sets));
 EC            = cell(size(gene_sets));
 MW            = zeros(size(gene_sets));
 
 for i = 1:length(gene_sets)
     %Split the gene set and match each gene:
-    gene_sets{i} = strrep(gene_sets{i},'and','AND');
-    gene_set = strsplit(gene_sets{i},' AND ');
+    gene_set = strsplit(gene_sets{i},' and ');
     uni_set  = cell(size(gene_set));
     EC_set   = cell(size(gene_set));
     for j = 1:length(gene_set)

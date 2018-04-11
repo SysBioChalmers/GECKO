@@ -1,16 +1,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% [ecModel,model_data,kcats] = enhanceGEM(model,toolbox,name)
+% [ecModel,model_data,kcats] = enhanceGEM(model,toolbox,name,version)
 %
-% Benjamin J. Sanchez. Last edited: 2017-04-12
-%Ivan Domenzain.       Last edited: 2018-01-25
+% Benjamin J. Sanchez & Ivan Domenzain. Last edited: 2018-03-19
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [ecModel,model_data,kcats] = enhanceGEM(model,toolbox,name)
+function [ecModel,model_data,kcats] = enhanceGEM(model,toolbox,name,version)
 
 %Provide your organism scientific name
-org_name      = 'saccharomyces cerevisiae';
-org_code      = 'sce';
+org_name = 'saccharomyces cerevisiae';
 format short e
-
 if strcmp(toolbox,'COBRA')
    initCobraToolbox
 end
@@ -24,26 +21,29 @@ model = standardizeModel(model,toolbox);
 
 %Retrieve kcats & MWs for each rxn in model:
 model_data = getEnzymeCodes(model);
-kcats      = matchKcats(model_data, org_name);
-cd ../../Models
-save([org_code '_enzData.mat'],'model_data','kcats')
+kcats      = matchKcats(model_data,org_name);
+save(['../../Models/' name '/data/' name '_enzData.mat'],'model_data','kcats','version')
 %Integrate enzymes in the model:
-cd ../Matlab_Module/change_model
-ecModel = readKcatData(model_data,kcats);
-ecModel = manualModifications(ecModel);
+cd ../change_model
+ecModel                 = readKcatData(model_data,kcats);
+[ecModel,modifications] = manualModifications(ecModel);
 
 %Constrain model to batch conditions:
+sigma  = 0.5;      %Optimized for glucose
+Ptot   = 0.5;      %Assumed constant
+gR_exp = 0.41;     %[g/gDw h] Max batch gRate on minimal glucose media
 cd ../limit_proteins
-sigma         = 0.51;      %Optimized for glucose
-Ptot          = 0.5;       %Assumed constant
-ecModel_batch = constrainEnzymes(ecModel,Ptot,sigma);
+[ecModel_batch,OptSigma] = getConstrainedModel(ecModel,sigma,Ptot,gR_exp,modifications,name);
+disp(['Sigma factor (fitted for growth on glucose): ' num2str(OptSigma)])
 
 %Save output models:
 cd ../../models
-save([name '.mat'],'ecModel','model_data','kcats')
-save([name '_batch.mat'],'ecModel_batch')
-saveECmodelSBML(ecModel,name);
-saveECmodelSBML(ecModel_batch,[name '_batch']);
+ecModel.description       = [name '_' version];
+ecModel_batch.description = [name '_batch_' version];
+save([name '/' name '.mat'],'ecModel')
+save([name '/' name '_batch.mat'],'ecModel_batch')
+saveECmodelSBML(ecModel,name,false);
+saveECmodelSBML(ecModel_batch,name,true);
 cd ../Matlab_Module
 
 end

@@ -4,12 +4,12 @@
 # Acces the web client and retrieves all EC data from BRENDA. Creates files with
 # BRENDA output for all organisms and EC numbers for which there is data.
 #
-# Benjamin Sanchez. Last edited: 2015-10-15
+# Benjamin Sanchez. Last edited: 2018-04-10
 ################################################################################
 
 #INPUTS:
 #1) Path in which you wish to store all BRENDA queries:
-output_path = 'path_1'
+output_path = '.../temp/path_1'
 #2) Last field processed (if the program was interrupted), e.g. 'KM'. If you
 #   want to start from scratch, leave empty:
 last_field = ''
@@ -121,7 +121,7 @@ password    = hashlib.sha256(password).hexdigest()
 credentials = email + ',' + password
 
 #Information to retrieve: km, M.W., pathway, sequence, specific activity and kcat.
-fields = ['KM','MW','PATH','SEQ','SA','KCAT']
+fields = ['KM','MW','PATH','SA','KCAT']
 import time
 
 #Loop that retrieves all fields. Starts by the last one queried:

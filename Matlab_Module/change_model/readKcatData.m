@@ -23,17 +23,13 @@ Fkcat = kcats.forw.kcats;
 Bkcat = kcats.back.kcats;
 rev   = boolean(model_data.model.rev);
 kcats = [Fkcat;Bkcat(rev,:)];
-
 %Get model:
 model = model_data.model;
-
 %Predefine ECnumber and uniprots for enzyme model:
 ECnumbers = [model_data.EC_numbers ; model_data.EC_numbers(rev,:)];
 uniprots  = [model_data.uniprots   ; model_data.uniprots(rev,:)  ];
-
 %Convert to irreversible model (will split in 2 any reversible rxn):
 model = convertToIrreversibleModel(model);
-
 %Convert original model to enzyme model according to uniprots and kcats:
 eModel = convertToEnzymeModel(model,uniprots,kcats);
 
