@@ -1,7 +1,7 @@
 .. image:: GECKO.png
    :align: center
 
-|Current Version| |Build Status| |PyPI Version| |Gitter|
+|Current Version| |Build Status| |PyPI Version| |Docs Status| |Gitter|
 
 About GECKO
 -----------
@@ -87,6 +87,9 @@ Contributors
    :target: https://travis-ci.org/SysBioChalmers/GECKO
 .. |PyPI Version| image:: https://badge.fury.io/py/geckopy.svg
    :target: https://badge.fury.io/py/geckopy
+.. |Docs Status| image:: https://readthedocs.org/projects/geckotoolbox/badge/?version=latest
+   :alt: Documentation Status
+   :target: http://geckotoolbox.readthedocs.io/
 .. |Gitter| image:: https://badges.gitter.im/SysBioChalmers/GECKO.svg
    :alt: Join the chat at https://gitter.im/SysBioChalmers/GECKO
    :target: https://gitter.im/SysBioChalmers/GECKO?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
