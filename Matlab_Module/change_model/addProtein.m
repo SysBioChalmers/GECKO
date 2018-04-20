@@ -12,7 +12,7 @@
 % OUTPUTS:
 % model             Model with the added protein
 % 
-% Cheng Zhang & Benjamín Sánchez. Last edited: 2018-03-15
+% Cheng Zhang & Benjam?n S?nchez. Last edited: 2018-03-15
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function model = addProtein(model,P,kegg,swissprot)
@@ -58,7 +58,7 @@ if ~match_seq
     model.sequences{pos_e,1} = '-';
 end
 
-%Update model.genes & model.pathways vectors:
+%Update model.enzGenes & model.pathways vectors:
 match_gen  = false;
 match_path = false;
 for i = 1:length(kegg)
@@ -66,7 +66,7 @@ for i = 1:length(kegg)
         %Gene:
         if ~isempty(kegg{i,3}) && ~match_gen
             match_gen            = true;
-            model.genes{pos_e,1} = kegg{i,3};
+            model.enzGenes{pos_e,1} = kegg{i,3};
         end
         %Pathway:
         if ~isempty(kegg{i,6}) && ~match_path
@@ -86,15 +86,15 @@ for i = 1:length(kegg)
     end
 end
 if ~match_gen
-    unknowns = ~cellfun(@isempty,strfind(model.genes,'unknown_'));
+    unknowns = ~cellfun(@isempty,strfind(model.enzGenes,'unknown_'));
     if sum(unknowns) == 0
         idx = 0;
     else
-        unknowns  = model.genes(unknowns);
+        unknowns  = model.enzGenes(unknowns);
         pos_final = strfind(unknowns{end},'_')+1;
         idx       = str2double(unknowns{end}(pos_final:end));
     end
-    model.genes{pos_e,1} = ['unknown_' num2str(idx+1)];
+    model.enzGenes{pos_e,1} = ['unknown_' num2str(idx+1)];
 end
 if ~match_path
     model.pathways{pos_e,1} = '-';
@@ -110,7 +110,7 @@ model = addReaction(model, ...                      %model
                     Inf, ...                        %UB
                     0, ...                          %c
                     {''}, ...                       %subsystem
-                    model.genes{pos_e,1});          %gene rule
+                    model.enzGenes{pos_e,1});          %gene rule
 
 %Update metComps:
 pos_m = strcmp(model.mets,prot_name);   %position in model.mets

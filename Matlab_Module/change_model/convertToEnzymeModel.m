@@ -78,7 +78,7 @@ eModel.rules      = cell(size(eModel.rxns));
 eModel.rxnGeneMat = rxnGeneMat;
 %Create additional fields in model:
 eModel.enzymes    = cell(0,1);
-eModel.genes      = cell(0,1);
+eModel.enzGenes   = cell(0,1);
 eModel.geneNames  = cell(0,1);
 eModel.MWs        = zeros(0,1);
 eModel.sequences  = cell(0,1);
