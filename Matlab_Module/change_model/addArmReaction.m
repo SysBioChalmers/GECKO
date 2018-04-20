@@ -25,12 +25,22 @@ UB       = model.ub(rxnIndex);
 obj      = model.c(rxnIndex);
 coeffsS  = model.S(sub_pos,rxnIndex)';
 coeffsP  = model.S(pro_pos,rxnIndex)';
+grRule   = model.grRules(rxnIndex);
+
+if isfield(model,'subSystems')
+    subSystem = model.subSystems(rxnIndex);
+else
+    subSystem = '';
+end
 
 %Create new rxn:
 mets   = [metS,['pmet_' rxn]];
 coeffs = [coeffsS,1];
 name   = {['arm_' rxn],[model.rxnNames{rxnIndex} ' (arm)']};
-model  = addReaction(model,name,mets,coeffs,true,LB,UB,obj);
+model  = addReaction(model,name,mets,coeffs,true,LB,UB,obj,subSystem);
+%The COBRA function just adds empty grRules to the new reaction so the
+%right rule needs to be added manually
+model.grRules(end) = grRule;
 
 %Change old rxn:
 name   = {rxn,model.rxnNames{rxnIndex}};
