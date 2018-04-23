@@ -23,19 +23,22 @@ model.enzymes = [model.enzymes;P];
 pos_e         = strcmp(model.enzymes,P);        %position in model.enzymes
 
 %Update model.MWs & model.sequences vectors:
+match_gen      = false;
 match_geneName = false;
 match_MW       = false;
 match_seq      = false;
 for i = 1:length(swissprot)
     %Gene name:
     if strcmp(P,swissprot{i,1}) && ~isempty(swissprot{i,3}) && ~match_geneName
-        match_geneName  = true;
-        geneName        = swissprot{i,3};
-        pos_space       = strfind(geneName,' ');
-        if isempty(pos_space)
-            pos_space = length(geneName)+1;
+        match_geneName     = true;
+        geneName           = swissprot{i,3};
+        geneIDs            = strsplit(geneName,' ');
+        [geneSwissprot,ia] = intersect(geneIDs,model.genes);
+        if ~isempty(ia)
+                match_gen               = true;
+                model.enzGenes{pos_e,1} = geneSwissprot;
         end
-        model.geneNames{pos_e,1} = geneName(1:pos_space(1)-1);
+        model.geneNames{pos_e,1} = geneIDs{1};
     end
     %Molecular Weight:
     if strcmp(P,swissprot{i,1}) && swissprot{i,5} ~= 0 && ~match_MW
@@ -59,7 +62,6 @@ if ~match_seq
 end
 
 %Update model.enzGenes & model.pathways vectors:
-match_gen  = false;
 match_path = false;
 for i = 1:length(kegg)
     if strcmp(P,kegg{i,1})
