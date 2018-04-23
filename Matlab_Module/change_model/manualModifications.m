@@ -75,7 +75,7 @@ for i = 1:length(model.rxns)
             kvalues = kcats(j)./stoich{j};
             rxnID   = model.rxns{i};
             rxnName = model.rxnNames{i};
-            model   = addEnzymesToRxn(model,kvalues,rxnID,newMets,{rxnID,rxnName});
+            model   = addEnzymesToRxn(model,kvalues,rxnID,newMets,{rxnID,rxnName},1);
         end
     end
     %Update int_pos:
@@ -149,15 +149,7 @@ for i = 1:length(model.rxns)
 end
 % Remove saved arm reactions:
 model = removeRxns(model,model.rxns(arm_pos(1:p)));
-%Change gene rules:
-for i = 1:length(model.rules)
-    if ~isempty(model.rules{i})
-        %Change gene ids:
-        model.rules{i} = strrep(model.rules{i},'x(','');
-        model.rules{i} = strrep(model.rules{i},')','');
-        model.rules{i} = model.genes{str2double(model.rules{i})};
-    end
-end
+
 % Remove unused enzymes after manual curation (2017-01-16):
 rem_enz = false(size(model.enzymes));
 for i = 1:length(model.enzymes)
