@@ -13,7 +13,7 @@
 % OUTPUTS:
 % model             Modified GEM structure (1x1 struct)
 % 
-% Cheng Zhang. Last edited: 2016-03-22
+% Cheng Zhang & Ivan Domenzain. Last edited: 2018-04-24
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function model = addEnzymesToRxn(model,kvalues,rxn,newMets,newRxnName,n)
@@ -39,13 +39,15 @@ for i = 1:length(newMets)
     metS    = [metS,newMets{i}];
     coeffsS = [coeffsS,-1/kvalues(i)];
 end
-mets   = [metS,metP];
-coeffs = [coeffsS,coeffsP];
-model  = addReaction(model,newRxnName,mets,coeffs,true,LB,UB,obj,subSystem,'','','',false);
+mets    = [metS,metP];
+coeffs  = [coeffsS,coeffsP];
+model   = addReaction(model,newRxnName,mets,coeffs,true,LB,UB,obj,subSystem,'','','',false);
 if n==1
     %For reactions with no isoenzymes
-    model.grRules(end) = grRule;
+    model.grRules(rxnIndex) = grRule;
 end
+newRxnPos              = find(strcmpi(model,newRxnName(2)));
+model.rules(newRxnPos) = [];
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

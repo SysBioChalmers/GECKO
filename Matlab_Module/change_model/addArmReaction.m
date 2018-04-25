@@ -9,7 +9,7 @@
 % OUTPUTS:
 % model             Modified GEM structure (1x1 struct)
 % 
-% Cheng Zhang. Last edited: 2016-12-21
+% Cheng Zhang & Ivan Domenzain. Last edited: 2018-04-24
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function model = addArmReaction(model,rxn)
@@ -40,12 +40,13 @@ name   = {['arm_' rxn],[model.rxnNames{rxnIndex} ' (arm)']};
 model  = addReaction(model,name,mets,coeffs,true,LB,UB,obj,subSystem);
 %The COBRA function just adds empty grRules to the new reaction so the
 %right rule needs to be added manually
-model.grRules(end) = grRule;
-
+newRxnIndex                = find(strcmpi(model.rxns,['arm_' rxn]));
+model.grRules(newRxnIndex) = grRule;
+model.rules(newRxnIndex)   = [];
 %Change old rxn:
 name   = {rxn,model.rxnNames{rxnIndex}};
 model  = addReaction(model,name,[['pmet_' rxn], metP],[-1,coeffsP]);
-
+model.rules(rxnIndex) = [];
 %Update metComps:
 pos = strcmp(model.mets,['pmet_' rxn]);
 if sum(sub_pos) > 0
