@@ -20,6 +20,7 @@ eModel  = irrevModel;
 enzymes = cell(5000,1);
 [m,n]   = size(uniprots);
 y       = 0;
+
 for i = 1:m
     rxnID = irrevModel.rxns{i};
     x     = 0;
@@ -76,9 +77,10 @@ cd ../Matlab_Module/get_enzyme_data
 eModel.rules      = cell(size(eModel.rxns));
 [~,rxnGeneMat]    = standardizeGrRules(eModel);
 eModel.rxnGeneMat = rxnGeneMat;
+eModel.AllGenes   = eModel.genes;
 %Create additional fields in model:
 eModel.enzymes    = cell(0,1);
-eModel.enzGenes   = cell(0,1);
+eModel.genes      = cell(0,1);
 eModel.geneNames  = cell(0,1);
 eModel.MWs        = zeros(0,1);
 eModel.sequences  = cell(0,1);

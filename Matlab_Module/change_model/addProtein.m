@@ -27,16 +27,17 @@ match_gen      = false;
 match_geneName = false;
 match_MW       = false;
 match_seq      = false;
+gene           = [];
 for i = 1:length(swissprot)
     %Gene name:
     if strcmp(P,swissprot{i,1}) && ~isempty(swissprot{i,3}) && ~match_geneName
         match_geneName     = true;
         geneName           = swissprot{i,3};
         geneIDs            = strsplit(geneName,' ');
-        [geneSwissprot,ia] = intersect(geneIDs,model.genes);
+        [geneSwissprot,ia] = intersect(geneIDs,model.AllGenes);
         if ~isempty(ia)
-                match_gen               = true;
-                model.enzGenes{pos_e,1} = geneSwissprot;
+                match_gen  = true;
+                gene       = geneSwissprot;
         end
         model.geneNames{pos_e,1} = geneIDs{1};
     end
@@ -61,14 +62,14 @@ if ~match_seq
     model.sequences{pos_e,1} = '-';
 end
 
-%Update model.enzGenes & model.pathways vectors:
+%Update model.genes & model.pathways vectors:
 match_path = false;
 for i = 1:length(kegg)
     if strcmp(P,kegg{i,1})
         %Gene:
         if ~isempty(kegg{i,3}) && ~match_gen
-            match_gen            = true;
-            model.enzGenes{pos_e,1} = kegg{i,3};
+            match_gen = true;
+            gene      = kegg{i,3};
         end
         %Pathway:
         if ~isempty(kegg{i,6}) && ~match_path
@@ -88,15 +89,15 @@ for i = 1:length(kegg)
     end
 end
 if ~match_gen
-    unknowns = ~cellfun(@isempty,strfind(model.enzGenes,'unknown_'));
+    unknowns = ~cellfun(@isempty,strfind(model.genes,'unknown_'));
     if sum(unknowns) == 0
         idx = 0;
     else
-        unknowns  = model.enzGenes(unknowns);
+        unknowns  = model.genes(unknowns);
         pos_final = strfind(unknowns{end},'_')+1;
         idx       = str2double(unknowns{end}(pos_final:end));
     end
-    model.enzGenes{pos_e,1} = ['unknown_' num2str(idx+1)];
+    gene = ['unknown_' num2str(idx+1)];
 end
 if ~match_path
     model.pathways{pos_e,1} = '-';
@@ -112,8 +113,12 @@ model = addReaction(model, ...                      %model
                     Inf, ...                        %UB
                     0, ...                          %c
                     {''}, ...                       %subsystem
-                    model.enzGenes{pos_e,1});          %gene rule
-
+                    gene);                          %gene rule
+gene                     = char(gene);               
+model.genes{pos_e,1}     = gene;
+newRxnPos                = find(strcmpi(model.rxnNames,['prot_' P '_exchange']));
+model.rules{newRxnPos}   = gene;
+model.grRules{newRxnPos} = gene;
 %Update metComps:
 pos_m = strcmp(model.mets,prot_name);   %position in model.mets
 if isfield(model,'compNames')
