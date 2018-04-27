@@ -16,10 +16,10 @@
 
 function eModel = convertToEnzymeModel(irrevModel,uniprots,kcats)
 
-eModel  = irrevModel;
-enzymes = cell(5000,1);
-[m,n]   = size(uniprots);
-y       = 0;
+eModel       = irrevModel;
+enzymes      = cell(5000,1);
+[m,n]        = size(uniprots);
+y            = 0;
 
 for i = 1:m
     rxnID = irrevModel.rxns{i};
@@ -72,12 +72,12 @@ data      = load('ProtDatabase.mat');
 swissprot = data.swissprot;
 kegg      = data.kegg;
 
-%Reset gene rules:
+%Update rxnGeneMat and save original model's genes
 cd ../Matlab_Module/get_enzyme_data
-eModel.rules      = cell(size(eModel.rxns));
 [~,rxnGeneMat]    = standardizeGrRules(eModel);
 eModel.rxnGeneMat = rxnGeneMat;
 eModel.AllGenes   = eModel.genes;
+
 %Create additional fields in model:
 eModel.enzymes    = cell(0,1);
 eModel.genes      = cell(0,1);
@@ -89,7 +89,7 @@ cd ../change_model
 for i = 1:length(enzymes)
     eModel = addProtein(eModel,enzymes{i},kegg,swissprot);
 end
-
+eModel.rules = eModel.grRules;
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

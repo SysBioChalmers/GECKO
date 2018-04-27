@@ -117,8 +117,8 @@ model = addReaction(model, ...                      %model
 gene                     = char(gene);               
 model.genes{pos_e,1}     = gene;
 newRxnPos                = find(strcmpi(model.rxnNames,['prot_' P '_exchange']));
-model.rules{newRxnPos}   = gene;
 model.grRules{newRxnPos} = gene;
+
 %Update metComps:
 pos_m = strcmp(model.mets,prot_name);   %position in model.mets
 if isfield(model,'compNames')

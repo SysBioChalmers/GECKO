@@ -13,11 +13,10 @@
 % OUTPUTS:
 % model             Modified GEM structure (1x1 struct)
 % 
-% Cheng Zhang & Ivan Domenzain. Last edited: 2018-04-24
+% Cheng Zhang & Ivan Domenzain. Last edited: 2018-04-27
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function model = addEnzymesToRxn(model,kvalues,rxn,newMets,newRxnName,n)
-
 %Define all neccesary parts for new (or changed) rxn:
 rxnIndex  = find(ismember(model.rxns,rxn)); 
 metS      = model.mets(model.S(:,rxnIndex) < 0)';
@@ -33,7 +32,6 @@ if isfield(model,'subSystems')
 else
     subSystem = '';
 end
-
 %Include enzyme in reaction:
 for i = 1:length(newMets)
     metS    = [metS,newMets{i}];
@@ -42,12 +40,14 @@ end
 mets    = [metS,metP];
 coeffs  = [coeffsS,coeffsP];
 model   = addReaction(model,newRxnName,mets,coeffs,true,LB,UB,obj,subSystem,'','','',false);
-if n==1
-    %For reactions with no isoenzymes
-    model.grRules(rxnIndex) = grRule;
+%Assign grRule for rxns with no Isoenzymes and empty rules to any rxn
+newRxnPos = find(strcmpi(model.rxns,newRxnName{1}));
+if ~isempty(newRxnPos)
+    if n<2
+        %For reactions with no isoenzymes
+        model.grRules(newRxnPos) = grRule;
+    end
 end
-newRxnPos              = find(strcmpi(model,newRxnName(2)));
-model.rules(newRxnPos) = [];
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
