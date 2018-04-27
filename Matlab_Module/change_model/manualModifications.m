@@ -2,7 +2,7 @@
 % model = manualModifications(model)
 % 
 % Benjamin J. Sanchez. Last edited: 2017-10-29
-% Ivan Domenzain.      Last edited: 2018-01-24
+% Ivan Domenzain.      Last edited: 2018-04-27
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function [model,modifications] = manualModifications(model)
@@ -69,13 +69,13 @@ for i = 1:length(model.rxns)
                 if sum(strcmp(model.enzymes,uniprots{j}{k})) == 0
                     model = addProtein(model,uniprots{j}{k},kegg,swissprot);
                 end
-                newMets{k}       = ['prot_' newMets{k}];
+                newMets{k}       = ['prot_' newMets{k}];     
             end
             %Add new protein stoich. coeffs to rxn:
             kvalues = kcats(j)./stoich{j};
             rxnID   = model.rxns{i};
             rxnName = model.rxnNames{i};
-            model   = addEnzymesToRxn(model,kvalues,rxnID,newMets,{rxnID,rxnName},1);
+            model   = addEnzymesToRxn(model,kvalues,rxnID,newMets,{rxnID,rxnName},2);
         end
     end
     %Update int_pos:
@@ -128,6 +128,7 @@ for i = 1:length(model.rxns)
     rxn_id = model.rxns{i};
     if ~isempty(strfind(rxn_id,'arm_'))
         rxn_code  = rxn_id(5:end);
+        grRule    = model.grRules(i);
         k         = 0;
         for j = 1:length(model.rxns)
             if ~isempty(strfind(model.rxns{j},[rxn_code 'No']))
@@ -141,8 +142,11 @@ for i = 1:length(model.rxns)
             new_name   = model.rxnNames{pos};
             stoich     = model.S(:,i) + model.S(:,pos);
             model      = addReaction(model,{new_id,new_name},model.mets,stoich,true,0,1000);
+            newPos     = find(strcmpi(model.rxnNames,new_name));
             p          = p + 1;
             arm_pos(p) = i;
+            %Transfer grRule of the arm reaction to the merged one
+            model.grRules(newPos) = grRule;
             disp(['Merging reactions: ' model.rxns{i} ' & ' model.rxns{pos}])
         end
     end
@@ -168,6 +172,12 @@ model.ub(strcmp(model.rxnNames,'oxygen exchange'))    = 0;
 model.ub(strcmp(model.rxnNames,'D-glucose exchange')) = 0;
 % Remove incorrect pathways:
 model         = removeIncorrectPathways(model);
+% Provide consistency between grRules and rules fields
+model.rules  = model.grRules;
+%Integrate modifications into rxnGeneMat
+cd ../get_enzyme_data
+[~,rxnGeneMat]   = standardizeGrRules(model);
+model.rxnGeneMat = rxnGeneMat;
 % Map the index of the modified Kcat values to the new model (after rxns
 % removals).
 modifications = mapModifiedRxns(modifications,model);
