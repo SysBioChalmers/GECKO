@@ -12,7 +12,7 @@
 % OUTPUTS:
 % model             Model with the added protein
 % 
-% Cheng Zhang & Benjam?n S?nchez. Last edited: 2018-03-15
+% Cheng Zhang & Benjamin J. Sanchez. Last edited: 2018-03-15
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function model = addProtein(model,P,kegg,swissprot)
