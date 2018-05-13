@@ -28,7 +28,7 @@ class ModelList(object):
         Parameters
         ----------
         item : basestring
-            Either 'single-pool' for the single-protein pool ecYeast7 model or 'multi-pool' for individually modeled
+            Either 'single-pool' for the single-protein pool ecYeastGEM model or 'multi-pool' for individually modeled
             protein pools.
 
         """
@@ -38,6 +38,9 @@ class ModelList(object):
             raise KeyError('model name must be one of {}'.format(', '.join(list(self.model_files))))
         if file_name not in self.models:
             model = read_sbml_model(os.path.join(os.path.dirname(__file__), 'data_files/{}'.format(file_name)))
+			for met in model.metabolites:
+				met.id = met.id.replace('__91__', '_')
+				met.id = met.id.replace('__93__', '')
             for rxn in model.reactions:
                 if isinf(rxn.upper_bound):
                     rxn.upper_bound = 1000
