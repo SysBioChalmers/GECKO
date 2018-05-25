@@ -126,7 +126,7 @@ arm_pos = zeros(size(model.rxns));
 p       = 0;
 for i = 1:length(model.rxns)
     rxn_id = model.rxns{i};
-    if ~isempty(strfind(rxn_id,'arm_'))
+    if contains(rxn_id,'arm_')
         rxn_code  = rxn_id(5:end);
         grRule    = model.grRules(i);
         k         = 0;
@@ -142,7 +142,7 @@ for i = 1:length(model.rxns)
             new_name   = model.rxnNames{pos};
             stoich     = model.S(:,i) + model.S(:,pos);
             model      = addReaction(model,{new_id,new_name},model.mets,stoich,true,0,1000);
-            newPos     = find(strcmpi(model.rxnNames,new_name));
+            newPos     = strcmpi(model.rxnNames,new_name);
             p          = p + 1;
             arm_pos(p) = i;
             %Transfer grRule of the arm reaction to the merged one
@@ -192,9 +192,9 @@ function [newValue,modifications] = curation_growthLimiting(reaction,enzName,MW_
         % acid: Substrate name in BRENDA was a synonim as name in model. 
         % Changed manually (2015-08-28).
           if strcmpi('prot_P06168',enzName) 
-              if (~isempty(strfind(reaction,'acetohydroxy acid isomeroreductase (')))
+              if (contains(reaction,'acetohydroxy acid isomeroreductase ('))
                  newValue         = -(18.3*3600)^-1;    %BRENDA: 2-acetolactate
-                 modifications{1} = [modifications{1}; string('P06168')];
+                 modifications{1} = [modifications{1}; 'P06168'];
                  modifications{2} = [modifications{2}; reaction];
               end
           end
@@ -203,47 +203,47 @@ function [newValue,modifications] = curation_growthLimiting(reaction,enzName,MW_
         % s.a. in Rattus norvegicus [0.03 umol/min/mg, Mw=226 kDa] from
         % BRENDA (2018-01-27)
           if (strcmpi('prot_P12683',enzName)||strcmpi('prot_P12684',enzName)) && ...
-                      (~isempty(strfind(reaction,'hydroxymethylglutaryl')))
+                      (contains(reaction,'hydroxymethylglutaryl'))
              newValue         = -(0.03*226000*0.06)^-1;
-             modifications{1} = [modifications{1}; string('P12683')];
+             modifications{1} = [modifications{1}; 'P12683'];
              modifications{2} = [modifications{2}; reaction];
           end
         % [1.2.1.12] Kcat (Sce & natural substrate) 29 [1/s] is a highly 
         % growthRate limiting value, S.A. 100 (Sce)
           %enzIDs = {'prot_P00359','prot_P00360','prot_P00358'};
-          if ~isempty(strfind(reaction,'glyceraldehyde-3-phosphate dehydrogenase'))
+          if contains(reaction,'glyceraldehyde-3-phosphate dehydrogenase')
               if (strcmpi('prot_P00360',enzName))
                   newValue     = -(29*3600)^-1;
                  %newValue = -(100*1e3/1e3*MW_set)^-1;
-                 modifications{1} = [modifications{1}; string('P00360')];
+                 modifications{1} = [modifications{1}; 'P00360'];
                  modifications{2} = [modifications{2}; reaction];
               elseif strcmpi('prot_P00358',enzName)
                   newValue      = -(16.7*3600)^-1;
                   %newValue = -(100*1e3/1e3*MW_set)^-1;
-                  modifications{1} = [modifications{1}; string('P00358')];
+                  modifications{1} = [modifications{1}; 'P00358'];
                   modifications{2} = [modifications{2}; reaction];
               elseif strcmpi('prot_P00359',enzName)
                   newValue      = -(9.1*3600)^-1;
                   %newValue = -(100*1e3/1e3*MW_set)^-1;
-                  modifications{1} = [modifications{1}; string('P00359')];
+                  modifications{1} = [modifications{1}; 'P00359'];
                   modifications{2} = [modifications{2}; reaction];
               end
           end
         % [4.1.1.-, 4.1.1.43, 4.1.1.72, 4.1.1.74] Pyruvate decarboxylase 
         % Resulted to be a growth limiting enzyme but the Kcat
         % value seems to be the best candidate for this reaction (rev)
-         if strcmpi('prot_P06169',enzName) && (~isempty(strfind(reaction,'pyruvate decarboxylase')))
+         if strcmpi('prot_P06169',enzName) && (contains(reaction,'pyruvate decarboxylase'))
             %newValue = -1/(73.1*3600); 
             newValue         = -1/(145*3600);
-            modifications{1} = [modifications{1}; string('P06169')];
+            modifications{1} = [modifications{1}; 'P06169'];
             modifications{2} = [modifications{2}; reaction];
          end 
         % [Q00955//EC6.4.1.2] Acetyl-CoA carboxylase
         % Assigned value was 1.23 (1/s), S.A. was used instead (6
         % umol/min/mg) from BRENDA (2018-01-22).
-          if strcmpi('prot_Q00955',enzName) && (~isempty(strfind(reaction,'acetyl-CoA carboxylase')))
+          if strcmpi('prot_Q00955',enzName) && (contains(reaction,'acetyl-CoA carboxylase'))
               newValue      = -(6*60*1e3/1e3*MW_set)^-1;
-              modifications{1} = [modifications{1}; string('Q00955')];
+              modifications{1} = [modifications{1}; 'Q00955'];
               modifications{2} = [modifications{2}; reaction];
           end        
         % [P52867//EC2.4.1.109] mannosyltransferase
@@ -254,18 +254,18 @@ function [newValue,modifications] = curation_growthLimiting(reaction,enzName,MW_
         % value for a similar metabolite was chosen instead:
         % 70.9 [1/s] reported for  EC2.4.1.83 in Saccharomyces cerevisiae
         % from BRENDA (2018-04-10).
-          if strcmpi('prot_P52867',enzName) && (~isempty(strfind(reaction,'dolichyl-phosphate-mannose--protein mannosyltransferase')))
+          if strcmpi('prot_P52867',enzName) && (contains(reaction,'dolichyl-phosphate-mannose--protein mannosyltransferase'))
               newValue         = -(70.9*3600)^-1;
-              modifications{1} = [modifications{1}; string('P52867')];
+              modifications{1} = [modifications{1}; 'P52867'];
               modifications{2} = [modifications{2}; reaction];
           end         
         % [P52867//EC2.5.1.6] methionine adenosyltransferase. Highly growth
         % limiting enzyme. No reported value for S. cerevisiae, Kcat for
         % Rattus norvegicus used instead <- 0.583 [1/s].
         % from BRENDA (2018-04-10).
-          if strcmpi('prot_P10659',enzName) && (~isempty(strfind(reaction,'methionine adenosyltransferase')))
+          if strcmpi('prot_P10659',enzName) && (contains(reaction,'methionine adenosyltransferase'))
               newValue         = -(0.583*3600)^-1;
-              modifications{1} = [modifications{1}; string('P10659')];
+              modifications{1} = [modifications{1}; 'P10659'];
               modifications{2} = [modifications{2}; reaction];
           end
 end
@@ -283,9 +283,9 @@ function [newValue,modifications] = curation_carbonSources(reaction,enzName,MW_s
        % (Metarhizium flavoviride) 
        % from BRENDA (2018-01-22).
          if (strcmpi('prot_P32356',enzName)  || strcmpi('prot_P48016',enzName)) && ...
-                      (~isempty(strfind(reaction,'alpha,alpha-trehalase')))
+                      (contains(reaction,'alpha,alpha-trehalase'))
              newValue      = -(0.67*60*1e3/1e3*MW_set)^-1; 
-             modifications{1} = [modifications{1}; string('P48016')];
+             modifications{1} = [modifications{1}; 'P48016'];
              modifications{2} = [modifications{2}; reaction];
          end
         % alcohol dehydrogenase (ethanol to acetaldehyde)[P00331/EC1.1.1.1] 
@@ -293,10 +293,9 @@ function [newValue,modifications] = curation_carbonSources(reaction,enzName,MW_s
         % specific Kcat value for ethanol found in BRENDA is 143 (1/s) @pH
         % 8.0 and 25 C, and 432.3 @20?C and pH 9.0 
        % from BRENDA (2018-01-22).
-         if strcmpi('prot_P00331',enzName) && (~isempty(strfind(reaction,...
-                      'alcohol dehydrogenase (ethanol to acetaldehyde)')))
+         if strcmpi('prot_P00331',enzName) && (contains(reaction,'alcohol dehydrogenase (ethanol to acetaldehyde)'))
              newValue      = -(143*3600)^-1;
-             modifications{1} = [modifications{1}; string('P00331')];
+             modifications{1} = [modifications{1}; 'P00331'];
              modifications{2} = [modifications{2}; reaction];
          end
         % Glycerol dehydrogenase [P14065/EC1.1.1.1] 
@@ -304,10 +303,9 @@ function [newValue,modifications] = curation_carbonSources(reaction,enzName,MW_s
         % value for  glycerol found in BRENDA is 0.54 (umol/ming/mg) and
         % the maximal is 15.7, both for Schizosaccharomyces pombe. The MW
         % is 57 kDa. From BRENDA (2018-01-26).
-         if strcmpi('prot_P14065',enzName) && (~isempty(strfind(reaction,...
-                      'glycerol dehydrogenase (NADP-dependent)')))
+         if strcmpi('prot_P14065',enzName) && (contains(reaction,'glycerol dehydrogenase (NADP-dependent)'))
              newValue      = -(0.54*57000*0.06)^-1; 
-             modifications{1} = [modifications{1}; string('P14065')];
+             modifications{1} = [modifications{1}; 'P14065'];
              modifications{2} = [modifications{2}; reaction];
          end
         % alpha-glucosidase [EC3.2.1.10/EC3.2.1.20] 
@@ -317,7 +315,7 @@ function [newValue,modifications] = curation_carbonSources(reaction,enzName,MW_s
         % Schizosaccharomyces pombe, a value of 1278 is also available for 
         % Sulfolobus acidocaldarius.
         % From BRENDA (2018-01-28).
-         if ~isempty(strfind(reaction,'alpha-glucosidase'))
+         if contains(reaction,'alpha-glucosidase')
               newValue = -(1278*3600)^-1; 
          end
 end
@@ -333,9 +331,9 @@ function [newValue,modifications] = curation_topUsedEnz(reaction,enzName,MW_set,
           % No Kcat reported on BRENDA, the maximum S.A. (E. coli is taken
           % instead)
           if strcmpi('prot_P04046',enzName) && ...
-                  (~isempty(strfind(reaction,'phosphoribosylpyrophosphate amidotransferase')))
+                  (contains(reaction,'phosphoribosylpyrophosphate amidotransferase'))
               newValue      = -(17.2*194000*60/1000)^-1;
-              modifications{1} = [modifications{1}; string('P04046')];
+              modifications{1} = [modifications{1}; 'P04046'];
               modifications{2} = [modifications{2}; reaction];
           end
           % Glutamate N-acetyltransferase (Q04728/EC2.3.1.1): Missanotated 
@@ -343,9 +341,9 @@ function [newValue,modifications] = curation_topUsedEnz(reaction,enzName,MW_set,
           % found. Value corrected with s.a. in S.cerevisiae 
           % from BRENDA (2015-08-31).
           if strcmpi('prot_Q04728',enzName) && ...
-             (~isempty(strfind(reaction,'ornithine transacetylase (No1)')))
+             (contains(reaction,'ornithine transacetylase (No1)'))
              newValue      = -(22*60*1e3/1e3*MW_set)^-1; %22 [umol/min/mg]
-             modifications{1} = [modifications{1}; string('Q04728')];
+             modifications{1} = [modifications{1}; 'Q04728'];
              modifications{2} = [modifications{2}; reaction];
           end
           % atp synthase mitochondrial (P07251-P00830/EC3.6.3.14): No Kcat 
@@ -353,9 +351,9 @@ function [newValue,modifications] = curation_topUsedEnz(reaction,enzName,MW_set,
           % for ATP is used instead 217 [1/s]
           % from BRENDA (2017-01-18).
           if (strcmpi('prot_P07251',enzName) || strcmpi('prot_P00830',enzName))&& ...
-             (~isempty(strfind(reaction,'ATP synthase (No1)')))
+             (contains(reaction,'ATP synthase (No1)'))
              newValue      = -(390*3600)^-1;
-             modifications{1} = [modifications{1}; string('P07251')];
+             modifications{1} = [modifications{1}; 'P07251'];
              modifications{2} = [modifications{2}; reaction];
           end
           % transaldolase (reversible) (P15019/EC2.2.1.2): 
@@ -363,19 +361,18 @@ function [newValue,modifications] = curation_topUsedEnz(reaction,enzName,MW_set,
           % on several carbon sources (batch simulations). The highest S.A.
           % was used instead (60*75000*60/1000) [1/hr] for E. coli
           % from BRENDA (2017-01-18).
-          if strcmpi('prot_P15019',enzName) && ~isempty(strfind(reaction,...
-                                               'transaldolase (reversible)'))
+          if strcmpi('prot_P15019',enzName) && contains(reaction,'transaldolase (reversible)')
               newValue      = -(60*75000*60/1000)^-1;
-              modifications{1} = [modifications{1}; string('P15019')];
+              modifications{1} = [modifications{1}; 'P15019'];
               modifications{2} = [modifications{2}; reaction];
           end
           % [Q06817//EC6.1.1.14] glycyl-tRNA synthetase
           %  Resulted to be a growth limiting enzyme, maximum catalytic value
           % found by the automatic algorithm was 15.9 1/s
           % from BRENDA (2018-01-22).
-          if strcmpi('prot_Q06817',enzName) && (~isempty(strfind(reaction,'glycyl-tRNA synthetase')))
+          if strcmpi('prot_Q06817',enzName) && (contains(reaction,'glycyl-tRNA synthetase'))
               newValue      = -1/(15.9*3600);
-              modifications{1} = [modifications{1}; string('Q06817')];
+              modifications{1} = [modifications{1}; 'Q06817'];
               modifications{2} = [modifications{2}; reaction];
           end
            % P80235/EC 2.3.1.7 - carnitine O-acetyltransferase 
@@ -384,9 +381,9 @@ function [newValue,modifications] = curation_topUsedEnz(reaction,enzName,MW_set,
            % carbon sources. Sce S.A. is used instead [200 umol/min/mg]
            % from BRENDA (2018-01-18)
           if strcmpi('prot_P80235',enzName) && ...
-             (~isempty(strfind(reaction,'carnitine O-acetyltransferase')))
+             (contains(reaction,'carnitine O-acetyltransferase'))
              newValue      = -(200*60*1e3/1e3*MW_set)^-1; %22 [umol/min/mg]
-             modifications{1} = [modifications{1}; string('P80235')];
+             modifications{1} = [modifications{1}; 'P80235'];
              modifications{2} = [modifications{2}; reaction];
           end 
         % FAS (P07149+P19097/EC2.3.1.86): No kcat available in BRENDA
@@ -394,23 +391,23 @@ function [newValue,modifications] = curation_topUsedEnz(reaction,enzName,MW_set,
         % corrected with max. s.a. in S.cerevisiae for NADPH in BRENDA
         % (2015-08-25)
         if (strcmpi('prot_P07149',enzName)||strcmpi('prot_P19097',enzName))
-            if ~isempty(strfind(reaction,'fatty-acyl-CoA synthase (n-C16:0CoA)'))
+            if contains(reaction,'fatty-acyl-CoA synthase (n-C16:0CoA)')
                 newValue = -(3/14*60*1e3/1e3*MW_set)^-1;    %3/14 [umol/min/mg]
-            elseif ~isempty(strfind(reaction,'fatty-acyl-CoA synthase (n-C18:0CoA)'))
+            elseif contains(reaction,'fatty-acyl-CoA synthase (n-C18:0CoA)')
                 newValue = -(3/16*60*1e3/1e3*MW_set)^-1;    %3/16 [umol/min/mg]
             end
-            modifications{1} = [modifications{1}; string('P07149')];
+            modifications{1} = [modifications{1}; 'P07149'];
             modifications{2} = [modifications{2}; reaction];
-            modifications{1} = [modifications{1}; string('P19097')];
+            modifications{1} = [modifications{1}; 'P19097'];
             modifications{2} = [modifications{2}; reaction];
         end
         % Enolase (1&2) [4.2.1.11] 71.4 (1/s) is the Kcat reported for 
         % 2-phospho-D-glycerate
         % 230 (1/s) is the Kcat reported for 2-phosphoglycerate
         % both measurements are for native enzymes
-          if strcmpi('prot_P00924',enzName)  && (~isempty(strfind(reaction,'enolase'))) 
+          if strcmpi('prot_P00924',enzName)  && (contains(reaction,'enolase')) 
                newValue      = -1/(230*3600);
-               modifications{1} = [modifications{1}; string('P00924')];
+               modifications{1} = [modifications{1}; 'P00924'];
                modifications{2} = [modifications{2}; reaction];
           end
 end
