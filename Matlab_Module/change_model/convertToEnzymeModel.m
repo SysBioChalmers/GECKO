@@ -76,15 +76,14 @@ kegg      = data.kegg;
 cd ../Matlab_Module/get_enzyme_data
 [~,rxnGeneMat]    = standardizeGrRules(eModel);
 eModel.rxnGeneMat = rxnGeneMat;
-eModel.AllGenes   = eModel.genes;
 
 %Create additional fields in model:
-eModel.enzymes    = cell(0,1);
-eModel.genes      = cell(0,1);
-eModel.geneNames  = cell(0,1);
-eModel.MWs        = zeros(0,1);
-eModel.sequences  = cell(0,1);
-eModel.pathways   = cell(0,1);
+eModel.enzymes   = cell(0,1);
+eModel.enzGenes  = cell(0,1);
+eModel.enzNames  = cell(0,1);
+eModel.MWs       = zeros(0,1);
+eModel.sequences = cell(0,1);
+eModel.pathways  = cell(0,1);
 cd ../change_model
 for i = 1:length(enzymes)
     eModel = addProtein(eModel,enzymes{i},kegg,swissprot);

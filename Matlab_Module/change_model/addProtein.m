@@ -12,7 +12,7 @@
 % OUTPUTS:
 % model             Model with the added protein
 % 
-% Cheng Zhang & Benjamin J. Sanchez. Last edited: 2018-03-15
+% Cheng Zhang & Benjamin J. Sanchez. Last edited: 2018-05-25
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function model = addProtein(model,P,kegg,swissprot)
@@ -24,22 +24,22 @@ pos_e         = strcmp(model.enzymes,P);        %position in model.enzymes
 
 %Update model.MWs & model.sequences vectors:
 match_gen      = false;
-match_geneName = false;
+match_enzName = false;
 match_MW       = false;
 match_seq      = false;
 gene           = [];
 for i = 1:length(swissprot)
     %Gene name:
-    if strcmp(P,swissprot{i,1}) && ~isempty(swissprot{i,3}) && ~match_geneName
-        match_geneName     = true;
-        geneName           = swissprot{i,3};
-        geneIDs            = strsplit(geneName,' ');
-        [geneSwissprot,ia] = intersect(geneIDs,model.AllGenes);
-        if ~isempty(ia)
-                match_gen  = true;
-                gene       = geneSwissprot;
+    if strcmp(P,swissprot{i,1}) && ~isempty(swissprot{i,3}) && ~match_enzName
+        match_enzName     = true;
+        geneNames         = swissprot{i,3};
+        geneIDs           = strsplit(geneNames,' ');
+        [geneSwissprot,~] = intersect(geneIDs,model.genes);
+        if ~isempty(geneSwissprot)
+            match_gen = true;
+            gene      = geneSwissprot;
         end
-        model.geneNames{pos_e,1} = geneIDs{1};
+        model.enzNames{pos_e,1} = geneIDs{1};
     end
     %Molecular Weight:
     if strcmp(P,swissprot{i,1}) && swissprot{i,5} ~= 0 && ~match_MW
@@ -52,8 +52,8 @@ for i = 1:length(swissprot)
         model.sequences{pos_e,1} = swissprot{i,6};
     end
 end
-if ~match_geneName
-    model.geneNames{pos_e,1} = '-';
+if ~match_enzName
+    model.enzNames{pos_e,1} = '-';
 end
 if ~match_MW
     model.MWs(pos_e,1) = mean(cell2mat(swissprot(:,5)))/1000;	%average g/mmol
@@ -93,7 +93,7 @@ if ~match_gen
     if sum(unknowns) == 0
         idx = 0;
     else
-        unknowns  = model.genes(unknowns);
+        unknowns  = model.enzGenes(unknowns);
         pos_final = strfind(unknowns{end},'_')+1;
         idx       = str2double(unknowns{end}(pos_final:end));
     end
@@ -115,8 +115,8 @@ model = addReaction(model, ...                      %model
                     {''}, ...                       %subsystem
                     gene);                          %gene rule
 gene                     = char(gene);               
-model.genes{pos_e,1}     = gene;
-newRxnPos                = find(strcmpi(model.rxnNames,['prot_' P '_exchange']));
+model.enzGenes{pos_e,1}  = gene;
+newRxnPos                = strcmpi(model.rxnNames,['prot_' P '_exchange']);
 model.grRules{newRxnPos} = gene;
 
 %Update metComps:
@@ -124,7 +124,7 @@ pos_m = strcmp(model.mets,prot_name);   %position in model.mets
 if isfield(model,'compNames')
     cytIndex = find(strcmpi(model.compNames,'cytoplasm'),1);
     if ~isempty(cytIndex)
-        model.metComps(pos_m) = 2;              %For simplification all proteins are in cytosol
+        model.metComps(pos_m) = 2;	%For simplification all proteins are in cytosol
     else
         model.metComps(pos_m) = 1; 
     end
