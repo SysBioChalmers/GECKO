@@ -43,7 +43,9 @@ end
 writeCbModel(model,'sbml',[folder '/' name '.xml']);
 writeCbModel(model,'text',[folder '/' name '.txt']);
 
-%Remove lines of the sort "<fbc:geneProductAssociation/>" from xml file:
+%Remove lines of the sort "<fbc:geneProductAssociation/>" from xml file, and
+%convert notation "e-005" to "e-05 " in stoich. coeffs. to avoid
+%inconsistencies between Windows and MAC:
 copyfile([folder '/' name '.xml'],'backup.xml')
 fin  = fopen('backup.xml', 'r');
 fout = fopen([folder '/' name '.xml'], 'w');
@@ -53,6 +55,7 @@ while still_reading
   if ~ischar(inline)
       still_reading = false;
   elseif ~contains(inline,'<fbc:geneProductAssociation/>')
+      inline = strrep(inline,'-00','-0');
       fwrite(fout, inline);
   end
 end
