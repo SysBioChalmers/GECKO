@@ -2,7 +2,7 @@
 % model = manualModifications(model)
 % 
 % Benjamin J. Sanchez. Last edited: 2017-10-29
-% Ivan Domenzain.      Last edited: 2018-04-27
+% Ivan Domenzain.      Last edited: 2018-05-28
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function [model,modifications] = manualModifications(model)
@@ -134,20 +134,20 @@ for i = 1:length(model.rxns)
             if ~isempty(strfind(model.rxns{j},[rxn_code 'No']))
                 k      = k + 1;
                 pos    = j;
-                grRule = model.grRules(j);
+                grRule = model.grRules{j};
             end
         end
         if k == 1
             %Condense both reactions in one:
-            new_id     = model.rxns{pos};
-            new_name   = model.rxnNames{pos};
-            stoich     = model.S(:,i) + model.S(:,pos);
-            model      = addReaction(model,{new_id,new_name},model.mets,stoich,true,0,1000);
-            newPos     = strcmpi(model.rxnNames,new_name);
+            model = addReaction(model,model.rxns{pos}, ...
+                                'reactionName', model.rxnNames{pos}, ...
+                                'metaboliteList', model.mets, ...
+                                'stoichCoeffList', model.S(:,i) + model.S(:,pos), ...
+                                'lowerBound', 0, ...
+                                'upperBound', 1000);
+            model.grRules{pos} = grRule;
             p          = p + 1;
             arm_pos(p) = i;
-            %Transfer grRule of the arm reaction to the merged one
-            model.grRules(newPos) = grRule;
             disp(['Merging reactions: ' model.rxns{i} ' & ' model.rxns{pos}])
         end
     end
@@ -172,16 +172,17 @@ end
 % Block O2 and glucose production (for avoiding multiple solutions):
 model.ub(strcmp(model.rxnNames,'oxygen exchange'))    = 0;
 model.ub(strcmp(model.rxnNames,'D-glucose exchange')) = 0;
+
 % Remove incorrect pathways:
 model = removeIncorrectPathways(model);
+
 % Provide consistency between grRules and rules fields
-model.rules  = model.grRules;
+model.rules = model.grRules;
+
 %Integrate modifications into rxnGeneMat
-cd ../get_enzyme_data
-[~,rxnGeneMat]   = standardizeGrRules(model);
-model.rxnGeneMat = rxnGeneMat;
-% Map the index of the modified Kcat values to the new model (after rxns
-% removals).
+model = buildRxnGeneMat(model);
+
+% Map the index of the modified Kcat values to the new model (after rxns removals)
 modifications = mapModifiedRxns(modifications,model);
 
 end

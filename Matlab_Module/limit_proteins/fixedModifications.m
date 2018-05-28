@@ -5,10 +5,15 @@ function model = fixedModifications(model,chemostat)
 NGAM = 0.7;
 
 %Add NGAM reaction:
-%           ATP  +  H2O  ->  ADP  +   H+   +  PO4
-mets      = {'s_0434','s_0803','s_0394','s_0794','s_1322'};
-coefs     = [-1,-1,1,1,1];
-[model,~] = addReaction(model,'NGAM',mets,coefs,false,NGAM,NGAM);
+%            ATP  +  H2O  ->  ADP  +   H+   +  PO4
+mets   = {'s_0434','s_0803','s_0394','s_0794','s_1322'};
+coeffs = [-1,-1,1,1,1];
+model  = addReaction(model,'NGAM', ...
+                     'metaboliteList', mets, ...
+                     'stoichCoeffList', coeffs, ...
+                     'reversible', false, ...
+                     'lowerBound', NGAM, ...
+                     'upperBound', NGAM);
 
 if nargin == 2    
     %Limit measured excretions:

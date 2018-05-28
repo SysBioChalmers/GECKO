@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % model = saveECmodelSBML(model,name,isBatch)
 %
-% Benjamín J. Sánchez. Last edited: 2018-03-19
+% Benjamín J. Sánchez. Last edited: 2018-05-28
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function saveECmodelSBML(model,name,isBatch)
@@ -18,7 +18,7 @@ end
 model = rmfield(model,'metComps');
 
 %Format gene rule field:
-model.rules = strrep(model.rules,'and','&');
+model.rules = strrep(model.grRules,'and','&');
 model.rules = strrep(model.rules,'or','|');
 for i = 1:length(model.genes)
     if contains(model.genes{i},'-')

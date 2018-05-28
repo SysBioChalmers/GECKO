@@ -9,7 +9,7 @@
 % OUTPUTS:
 % model             Modified GEM structure (1x1 struct)
 % 
-% Cheng Zhang & Ivan Domenzain. Last edited: 2018-04-24
+% Cheng Zhang & Ivan Domenzain. Last edited: 2018-05-28
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function model = addArmReaction(model,rxn)
@@ -25,28 +25,33 @@ UB       = model.ub(rxnIndex);
 obj      = model.c(rxnIndex);
 coeffsS  = model.S(sub_pos,rxnIndex)';
 coeffsP  = model.S(pro_pos,rxnIndex)';
-grRule   = model.grRules(rxnIndex);
+grRule   = model.grRules{rxnIndex};
 
+subSystem = '';
 if isfield(model,'subSystems')
-    subSystem = model.subSystems(rxnIndex);
-else
-    subSystem = '';
+    if ~isempty(model.subSystems{rxnIndex}{1})
+        subSystem = model.subSystems{rxnIndex};
+    end
 end
 
 %Create new rxn:
-mets   = [metS,['pmet_' rxn]];
-coeffs = [coeffsS,1];
-name   = {['arm_' rxn],[model.rxnNames{rxnIndex} ' (arm)']};
-model  = addReaction(model,name,mets,coeffs,true,LB,UB,obj,subSystem);
-%The COBRA function just adds empty grRules to the new reaction so the
-%right rule needs to be added manually
-newRxnIndex                = find(strcmpi(model.rxns,['arm_' rxn]));
-model.grRules(newRxnIndex) = grRule;
-model.rules(newRxnIndex)   = [];
+rxnID = ['arm_' rxn];
+model = addReaction(model,rxnID, ...
+                    'reactionName', [model.rxnNames{rxnIndex} ' (arm)'], ...
+                    'metaboliteList', [metS,['pmet_' rxn]], ...
+                    'stoichCoeffList', [coeffsS,1], ...
+                    'lowerBound', LB, ...
+                    'upperBound', UB, ...
+                    'objectiveCoef', obj, ...
+                    'subSystem', subSystem);
+model.grRules{strcmp(model.rxns,rxnID)} = grRule;
+
 %Change old rxn:
-name   = {rxn,model.rxnNames{rxnIndex}};
-model  = addReaction(model,name,[['pmet_' rxn], metP],[-1,coeffsP]);
-model.rules(rxnIndex) = [];
+model = addReaction(model,rxn, ...
+                    'reactionName', model.rxnNames{rxnIndex}, ...
+                    'metaboliteList', [['pmet_' rxn], metP], ...
+                    'stoichCoeffList', [-1,coeffsP]);
+
 %Update metComps:
 pos = strcmp(model.mets,['pmet_' rxn]);
 if sum(sub_pos) > 0

@@ -13,13 +13,13 @@
 % OUTPUTS:
 % model             Modified GEM structure (1x1 struct)
 % 
-% Cheng Zhang & Ivan Domenzain. Last edited: 2018-05-24
+% Cheng Zhang & Ivan Domenzain. Last edited: 2018-05-28
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function model = addEnzymesToRxn(model,kvalues,rxn,newMets,newRxnName,kegg,swissprot)
 
 %Define all neccesary parts for new (or changed) rxn:
-rxnIndex  = find(ismember(model.rxns,rxn)); 
+rxnIndex  = strcmp(model.rxns,rxn); 
 metS      = model.mets(model.S(:,rxnIndex) < 0)';
 metP      = model.mets(model.S(:,rxnIndex) > 0)';
 LB        = model.lb(rxnIndex);
@@ -29,10 +29,11 @@ coeffsS   = model.S(model.S(:,rxnIndex)<0,rxnIndex)';
 coeffsP   = model.S(model.S(:,rxnIndex)>0,rxnIndex)';
 genes     = cell(size(newMets));
 
+subSystem = '';
 if isfield(model,'subSystems')
-    subSystem = model.subSystems(rxnIndex);
-else
-    subSystem = '';
+    if ~isempty(model.subSystems{rxnIndex}{1})
+        subSystem = model.subSystems{rxnIndex};
+    end
 end
 
 %Find genes either in swissprot or in kegg and with them construct the gene rule:
@@ -49,9 +50,15 @@ end
 grRule = strjoin(genes,' and ');
 
 %Include enzyme in reaction:
-mets   = [metS,newMets,metP];
-coeffs = [coeffsS,-kvalues.^-1,coeffsP];
-model  = addReaction(model,newRxnName,mets,coeffs,true,LB,UB,obj,subSystem,grRule,'','',false);
+model = addReaction(model,newRxnName{1}, ...
+                    'reactionName', newRxnName{2}, ...
+                    'metaboliteList', [metS,newMets,metP], ...
+                    'stoichCoeffList', [coeffsS,-kvalues.^-1,coeffsP], ...
+                    'lowerBound', LB, ...
+                    'upperBound', UB, ...
+                    'objectiveCoef', obj, ...
+                    'subSystem', subSystem);
+model.grRules{strcmp(model.rxns,newRxnName{1})} = grRule;
 
 end
 

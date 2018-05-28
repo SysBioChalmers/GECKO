@@ -12,7 +12,7 @@
 % OUTPUTS:
 % model             Model with the added protein
 % 
-% Cheng Zhang & Benjamin J. Sanchez. Last edited: 2018-05-25
+% Cheng Zhang & Benjamin J. Sanchez. Last edited: 2018-05-28
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function model = addProtein(model,P,kegg,swissprot)
@@ -37,7 +37,7 @@ for i = 1:length(swissprot)
         [geneSwissprot,~] = intersect(geneIDs,model.genes);
         if ~isempty(geneSwissprot)
             match_gen = true;
-            gene      = geneSwissprot;
+            gene      = geneSwissprot{1};
         end
         model.enzNames{pos_e,1} = geneIDs{1};
     end
@@ -104,20 +104,14 @@ if ~match_path
 end
 
 %Add exchange reaction of protein: -> P
-model = addReaction(model, ...                      %model
-                    ['prot_' P '_exchange'], ...    %rxn name
-                    {prot_name}, ...                %metabolites
-                    1, ...                          %stoichiometry
-                    true, ...                       %reversibility
-                    0, ...                          %LB
-                    Inf, ...                        %UB
-                    0, ...                          %c
-                    {''}, ...                       %subsystem
-                    gene);                          %gene rule
-gene                     = char(gene);               
-model.enzGenes{pos_e,1}  = gene;
-newRxnPos                = strcmpi(model.rxnNames,['prot_' P '_exchange']);
-model.grRules{newRxnPos} = gene;
+rxnID = ['prot_' P '_exchange'];
+model = addReaction(model,rxnID, ...
+                    'metaboliteList', {prot_name}, ...
+                    'stoichCoeffList', 1, ...
+                    'lowerBound', 0, ...
+                    'upperBound', Inf);
+model.grRules{strcmp(model.rxns,rxnID)} = gene;
+model.enzGenes{pos_e,1} = gene;
 
 %Update metComps:
 pos_m = strcmp(model.mets,prot_name);   %position in model.mets
