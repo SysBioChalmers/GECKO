@@ -18,8 +18,8 @@ swissprot     = data.swissprot;
 kegg          = data.kegg;
 fclose(fID);
 cd ../Matlab_Module/change_model
-modifications{1} = [];
-modifications{2} = [];
+modifications{1} = cell(0,1);
+modifications{2} = cell(0,1);
 
 %Construct curated complexes:
 uniprots = cell(size(kcats));

@@ -23,6 +23,7 @@ model = standardizeModel(model,toolbox);
 model_data = getEnzymeCodes(model);
 kcats      = matchKcats(model_data,org_name);
 save(['../../Models/' name '/data/' name '_enzData.mat'],'model_data','kcats','version')
+
 %Integrate enzymes in the model:
 cd ../change_model
 ecModel                 = readKcatData(model_data,kcats);
