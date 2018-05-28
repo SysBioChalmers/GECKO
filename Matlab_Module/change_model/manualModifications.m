@@ -128,13 +128,13 @@ p       = 0;
 for i = 1:length(model.rxns)
     rxn_id = model.rxns{i};
     if contains(rxn_id,'arm_')
-        rxn_code  = rxn_id(5:end);
-        grRule    = model.grRules(i);
-        k         = 0;
+        rxn_code = rxn_id(5:end);
+        k        = 0;
         for j = 1:length(model.rxns)
             if ~isempty(strfind(model.rxns{j},[rxn_code 'No']))
-                k   = k + 1;
-                pos = j;
+                k      = k + 1;
+                pos    = j;
+                grRule = model.grRules(j);
             end
         end
         if k == 1
