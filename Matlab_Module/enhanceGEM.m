@@ -38,7 +38,7 @@ cd ../limit_proteins
 disp(['Sigma factor (fitted for growth on glucose): ' num2str(OptSigma)])
 
 %Save output models:
-cd ../../models
+cd ../../Models
 ecModel.description       = [name '_' version];
 ecModel_batch.description = [name '_batch_' version];
 save([name '/' name '.mat'],'ecModel')

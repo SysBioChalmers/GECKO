@@ -103,6 +103,12 @@ if ~match_path
     model.pathways{pos_e,1} = '-';
 end
 
+%Add gene to gene list if non-existing previously:
+if ~ismember(gene,model.genes)
+    model.enzNames(pos_e,1)
+    model = addGenes(model,{gene},'geneNames',model.enzNames(pos_e,1));
+end
+
 %Add exchange reaction of protein: -> P
 rxnID = ['prot_' P '_exchange'];
 model = addReaction(model,rxnID, ...
