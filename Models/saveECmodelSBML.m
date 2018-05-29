@@ -65,7 +65,11 @@ while still_reading
   if ~ischar(inline)
       still_reading = false;
   else
-      inline = strrep(inline,'-00','-0');
+      if ~isempty(regexp(inline,'-00[0-9]','once'))
+          inline = strrep(inline,'-00','-0');
+      elseif ~isempty(regexp(inline,'-01[0-9]','once'))
+          inline = strrep(inline,'-01','-1');
+      end
       fwrite(fout, inline);
   end
 end
