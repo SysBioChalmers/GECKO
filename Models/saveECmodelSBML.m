@@ -34,6 +34,16 @@ model.metFormulas = strrep(model.metFormulas,'(','');
 model.metFormulas = strrep(model.metFormulas,')n','');
 model.metFormulas = strrep(model.metFormulas,')','');
 
+%Format S matrix: avoid long decimals
+for i = 1:length(model.mets)
+    for j = 1:length(model.rxns)
+        if model.S(i,j) ~= 0
+            orderMagn    = ceil(log10(abs(model.S(i,j))));
+            model.S(i,j) = round(model.S(i,j),6-orderMagn);
+        end
+    end
+end
+
 %Batch case: modify name
 folder = name;
 if isBatch
