@@ -5,7 +5,7 @@
 % INPUT:    A yeast model as a .mat structure.
 % OUTPUT:   The corrected model.
 %
-% Benjamín J. Sánchez. Last edited: 2016-03-09
+% Benjamín J. Sánchez. Last edited: 2018-05-28
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function model = modelCorrections(model)
@@ -46,6 +46,20 @@ for i = 1:length(model.rxns)
     if (model.lb(i) < 0 && model.ub(i) > 0) || ...
        ~isempty(strfind(model.rxnNames{i},'exchange'))
         model.rev(i) = true;
+    end
+end
+
+%Add geneNames from swissprot:
+data      = load('../../Databases/ProtDatabase.mat');
+swissprot = data.swissprot(:,3);
+model.geneNames = cell(size(model.genes));
+for i = 1:length(swissprot)
+    swissprot{i} = strsplit(swissprot{i},' ');
+    for j = 1:length(model.genes)
+        if ismember(model.genes{j},swissprot{i})
+            model.geneNames{j} = swissprot{i}{1}; %First occurence is the gene name
+            disp(['Adding gene names: Ready with gene ' model.genes{j}])
+        end
     end
 end
 

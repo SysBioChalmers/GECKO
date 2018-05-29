@@ -9,7 +9,7 @@
 % OUTPUTS:
 % model             Modified GEM structure (1x1 struct)
 % 
-% Cheng Zhang. Last edited: 2016-12-21
+% Cheng Zhang & Ivan Domenzain. Last edited: 2018-05-28
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function model = addArmReaction(model,rxn)
@@ -25,16 +25,32 @@ UB       = model.ub(rxnIndex);
 obj      = model.c(rxnIndex);
 coeffsS  = model.S(sub_pos,rxnIndex)';
 coeffsP  = model.S(pro_pos,rxnIndex)';
+grRule   = model.grRules{rxnIndex};
+
+subSystem = '';
+if isfield(model,'subSystems')
+    if ~isempty(model.subSystems{rxnIndex}{1})
+        subSystem = model.subSystems{rxnIndex};
+    end
+end
 
 %Create new rxn:
-mets   = [metS,['pmet_' rxn]];
-coeffs = [coeffsS,1];
-name   = {['arm_' rxn],[model.rxnNames{rxnIndex} ' (arm)']};
-model  = addReaction(model,name,mets,coeffs,true,LB,UB,obj);
+rxnID = ['arm_' rxn];
+model = addReaction(model,rxnID, ...
+                    'reactionName', [model.rxnNames{rxnIndex} ' (arm)'], ...
+                    'metaboliteList', [metS,['pmet_' rxn]], ...
+                    'stoichCoeffList', [coeffsS,1], ...
+                    'lowerBound', LB, ...
+                    'upperBound', UB, ...
+                    'objectiveCoef', obj, ...
+                    'subSystem', subSystem);
+model.grRules{strcmp(model.rxns,rxnID)} = grRule;
 
 %Change old rxn:
-name   = {rxn,model.rxnNames{rxnIndex}};
-model  = addReaction(model,name,[['pmet_' rxn], metP],[-1,coeffsP]);
+model = addReaction(model,rxn, ...
+                    'reactionName', model.rxnNames{rxnIndex}, ...
+                    'metaboliteList', [['pmet_' rxn], metP], ...
+                    'stoichCoeffList', [-1,coeffsP]);
 
 %Update metComps:
 pos = strcmp(model.mets,['pmet_' rxn]);
