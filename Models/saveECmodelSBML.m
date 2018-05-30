@@ -34,6 +34,16 @@ model.metFormulas = strrep(model.metFormulas,'(','');
 model.metFormulas = strrep(model.metFormulas,')n','');
 model.metFormulas = strrep(model.metFormulas,')','');
 
+%Format S matrix: avoid long decimals
+for i = 1:length(model.mets)
+    for j = 1:length(model.rxns)
+        if model.S(i,j) ~= 0
+            orderMagn    = ceil(log10(abs(model.S(i,j))));
+            model.S(i,j) = round(model.S(i,j),6-orderMagn);
+        end
+    end
+end
+
 %Batch case: modify name
 folder = name;
 if isBatch
@@ -55,7 +65,11 @@ while still_reading
   if ~ischar(inline)
       still_reading = false;
   else
-      inline = strrep(inline,'-00','-0');
+      if ~isempty(regexp(inline,'-00[0-9]','once'))
+          inline = strrep(inline,'-00','-0');
+      elseif ~isempty(regexp(inline,'-01[0-9]','once'))
+          inline = strrep(inline,'-01','-1');
+      end
       fwrite(fout, inline);
   end
 end
