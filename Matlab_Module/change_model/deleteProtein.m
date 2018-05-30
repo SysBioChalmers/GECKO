@@ -8,25 +8,29 @@
 % OUTPUTS:
 % model             Model with the deleted protein
 % 
-% Cheng Zhang. Last edited: 2017-10-30
+% Benjamín Sánchez. Last edited: 2018-05-28
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function model = deleteProtein(model,P)
 
 %Find position:
-enz_pos = strcmp(model.enzymes,P);
-met_pos = strcmp(model.mets,['prot_' P]);
+enz_pos   = strcmp(model.enzymes,P);
+met_pos   = strcmp(model.mets,['prot_' P]);
+gene_name = model.enzGenes(enz_pos);
 
 %Delete enzyme fields:
 model.enzymes(enz_pos)   = [];
-model.genes(enz_pos)     = [];
-model.geneNames(enz_pos) = [];
+model.enzGenes(enz_pos)  = [];
+model.enzNames(enz_pos)  = [];
 model.MWs(enz_pos)       = [];
 model.sequences(enz_pos) = [];
 model.pathways(enz_pos)  = [];
 
 %Delete metabolite also:
 model = removeMetabolites(model,model.mets(met_pos));
+
+%Delete gene also:
+model = deleteModelGenes(model,gene_name);
 
 end
 

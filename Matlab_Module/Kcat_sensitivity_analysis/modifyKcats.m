@@ -78,6 +78,7 @@ function ecModel = modifyKcats(ecModel,ecModelBatch,gRexp,modified_kcats,name)
                          'error','gRControlCoeff'};
 
         modifications = cell2table(modifications,'VariableNames',varNamesTable);
+        modifications = truncateValues(modifications,4);
         writetable(modifications,['../../Models/' name '/data/' name '_kcatModifications.txt']);
         
     else
@@ -90,11 +91,13 @@ function ecModel = modifyKcats(ecModel,ecModelBatch,gRexp,modified_kcats,name)
         if ~isempty(limRxns)
             varNamesTable = {'rxnNames','rxnPos','gRControlCoeff'};
             modifications = cell2table(limRxns,'VariableNames',varNamesTable);
+            modifications = truncateValues(modifications,4);
             writetable(modifications,['../../Models/' name '/data/' name '_limitingRxns.txt']);
         end
         if ~isempty(limEnz)
             varNamesTable = {'EnzNames','EnzPos','gRControlCoeff'};
             modifications = cell2table(limEnz,'VariableNames',varNamesTable);
+            modifications = truncateValues(modifications,4);
             writetable(modifications,['../../Models/' name '/data/' name '_limitingEnzymes.txt']);
         end
     end

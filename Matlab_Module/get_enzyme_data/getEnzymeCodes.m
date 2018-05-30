@@ -78,10 +78,10 @@ for i = 1:n
                 %Check if rxn is an exchange/transport rxn with no GPRs:
                 GPRs       = sum(rgmat(i,:));
                 rxn_name   = lower(model.rxnNames{i});
-                exchange   = ~isempty(strfind(rxn_name,'exchange'));
-                uptake     = ~isempty(strfind(rxn_name,'uptake'));
-                production = ~isempty(strfind(rxn_name,'production'));
-                transport  = ~isempty(strfind(rxn_name,'transport'));
+                exchange   = contains(rxn_name,'exchange');
+                uptake     = contains(rxn_name,'uptake');
+                production = contains(rxn_name,'production');
+                transport  = contains(rxn_name,'transport');
                 if (exchange || uptake || production || transport) && GPRs == 0
                     count(3) = count(3) + isrev(i);
                 else

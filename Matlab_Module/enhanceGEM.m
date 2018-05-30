@@ -23,6 +23,7 @@ model = standardizeModel(model,toolbox);
 model_data = getEnzymeCodes(model);
 kcats      = matchKcats(model_data,org_name);
 save(['../../Models/' name '/data/' name '_enzData.mat'],'model_data','kcats','version')
+
 %Integrate enzymes in the model:
 cd ../change_model
 ecModel                 = readKcatData(model_data,kcats);
@@ -37,7 +38,7 @@ cd ../limit_proteins
 disp(['Sigma factor (fitted for growth on glucose): ' num2str(OptSigma)])
 
 %Save output models:
-cd ../../models
+cd ../../Models
 ecModel.description       = [name '_' version];
 ecModel_batch.description = [name '_batch_' version];
 save([name '/' name '.mat'],'ecModel')
