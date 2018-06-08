@@ -1,21 +1,22 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % model = constrainEnzymes(model,Ptotal,sigma,pIDs,data)
 % 
-% Benjamín J. Sánchez. Last edited: 2018-03-19
+% Benjam?n J. S?nchez. Last edited: 2018-03-19
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function model = constrainEnzymes(model,Ptot,sigma,pIDs,data)
+function [model,enzUsages,modifications] = constrainEnzymes(model,Ptot,sigma,pIDs,data)
 
 %Current values:
 f       = 0.4461; %Yeast 7.6 (all enzymes) [g(Pmodel)/g(Ptot)]
-Pbase   = 0.4005; %Value from biomass comp. (Förster data @ 0.1 1/h)
+Pbase   = 0.4005; %Value from biomass comp. (F?rster data @ 0.1 1/h)
 
 %No UB will be changed if no data is available -> pool = all enzymes(FBAwMC)
 if nargin == 3
     pIDs = {};
     data = [];
 end
-
+%Remove zeros or negative values
+data = cleanDataset(data);
 %Assign concentrations as UBs [mmol/gDW]:
 model.concs = nan(size(model.enzymes));      %OBS: min value is zero!!
 disp('Matching data to enzymes in model...')
@@ -64,6 +65,7 @@ disp(['Total protein amount not measured = ' num2str(Ptot - Pmeasured)       ' g
 disp(['Total enzymes not measured = '        num2str(sum(~measured))         ' enzymes'])
 disp(['Total protein in model = '            num2str(Ptot)                   ' g/gDW'])
 
+[model,enzUsages,modifications] = flexibilizeProteins(model,0.1,2);
 
 %Plot histogram (if there are measurements):
 if sum(concs_measured) > 0
@@ -76,5 +78,12 @@ if sum(concs_measured) > 0
 end
 
 end
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function data = cleanDataset(data)
+for i=1:length(data)
+    if data(i)<=0
+        data(i) = NaN;
+    end
+end
+end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
