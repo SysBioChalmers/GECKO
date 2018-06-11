@@ -99,6 +99,7 @@ end
 function [model,enzUsages] = getNewBounds(model,gRate,protIndxs,flexProts,gPos)
 %Now that the model is growing at least at the specified dilution rate
 %lets fix the growth rate and minimize enzymes usage
+objectiveVector      = model.c;
 model.lb(gPos)       = 0.99*gRate;
 model.ub(gPos)       = 1.01*gRate;
 model.c(:)           = 0;
@@ -117,6 +118,8 @@ for i=1:length(protIndxs)
     end
     enzUsages(i) = optSolution(index)/model.ub(index);
 end
+model.c   = objectiveVector;
+enzUsages = enzUsages(find(enzUsages));
 end
     
     
