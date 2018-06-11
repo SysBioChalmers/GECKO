@@ -17,23 +17,25 @@
 % OUTPUTS:
 %       optSigma    The optimal sigma value obtained
 %
-% Ivan Domenzain.   Last edited 2017-11-10
+% Ivan Domenzain.   Last edited 2018-06-11
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function OptSigma = sigmaFitter(model,Ptot,gR_exp)
-    gRate_sim = [];error = []; sigParam = [];
+    gRate_sim = cell(0,1);
+    error     = cell(0,1);
+    sigParam  = cell(0,1);
     c_source  = 'D-glucose exchange (reversible)';
     [model,~] = changeMedia_batch(model,c_source,'Min');
     cd ../limit_proteins
     for i=40:60
         % Constrains the ecModel with the current sigma factor
-        sigma        = i/100;
+        sigma = i/100;
         %model_batch  = changeCultureMedia(model);
-        model_batch  = constrainEnzymes(model,Ptot,sigma);
+        [model_batch,~,~] = constrainEnzymes(model,Ptot,sigma);
         % Change to minimal glucose media
-        gR_pos        = find(strcmpi(model_batch.rxnNames,'growth'));
-        model_batch.c = zeros(size(model_batch.c));
-        model_batch.c(gR_pos) = 1;
+        gR_pos            = find(strcmpi(model_batch.rxnNames,'growth'));
+        model_batch.c     = zeros(size(model_batch.c));
+        model_batch.c(gR_pos)  = 1;
         solution               = solveLP(model_batch);
         model_batch.lb(gR_pos) = 0.999*solution.x(gR_pos);
         model_batch.ub(gR_pos) = solution.x(gR_pos);
@@ -44,8 +46,8 @@ function OptSigma = sigmaFitter(model,Ptot,gR_exp)
         disp(sigma)
         disp(((gR_exp-solution.x(gR_pos))/gR_exp)*100)
     end
-    [minError, minIndx] = min(error);
-    OptSigma            = sigParam(minIndx);
+    [~, minIndx] = min(error);
+    OptSigma     = sigParam(minIndx);
     figure
     plot(sigParam,error,'LineWidth',5)
     title('Sigma fitting for growth on glucose minimal media')
