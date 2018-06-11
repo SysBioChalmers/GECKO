@@ -4,7 +4,7 @@
 % Benjam?n J. S?nchez. Last edited: 2018-03-19
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function [model,enzUsages,modifications] = constrainEnzymes(model,Ptot,sigma,pIDs,data)
+function [model,enzUsages,modifications] = constrainEnzymes(model,Ptot,sigma,pIDs,data,gRate,GlucUptake)
 
 %Current values:
 f       = 0.4461; %Yeast 7.6 (all enzymes) [g(Pmodel)/g(Ptot)]
@@ -12,8 +12,10 @@ Pbase   = 0.4005; %Value from biomass comp. (F?rster data @ 0.1 1/h)
 
 %No UB will be changed if no data is available -> pool = all enzymes(FBAwMC)
 if nargin == 3
-    pIDs = {};
-    data = [];
+    pIDs          = cell(0,1);
+    data          = cell(0,1);
+    enzUsages     = cell(0,1);
+    modifications = cell(0,1);
 end
 %Remove zeros or negative values
 data = cleanDataset(data);
@@ -65,18 +67,30 @@ disp(['Total protein amount not measured = ' num2str(Ptot - Pmeasured)       ' g
 disp(['Total enzymes not measured = '        num2str(sum(~measured))         ' enzymes'])
 disp(['Total protein in model = '            num2str(Ptot)                   ' g/gDW'])
 
-[model,enzUsages,modifications] = flexibilizeProteins(model,0.1,2);
-
-%Plot histogram (if there are measurements):
-if sum(concs_measured) > 0
-    figure
-    hist(concs_measured*1e3,10.^(-3:0.5:3))
-    set(gca,'xscale','log')
-    xlim([1e-3,1e3])
-    xlabel('Protein amount [mg/gDW]');
-    ylabel('Frequency');
+if nargin >5 
+    [model,enzUsages,modifications] = flexibilizeProteins(model,gRate,GlucUptake);
+    plotHistogram(enzUsages,'Enzyme usage [-]',[0,1],'Enzyme usages','usages')
 end
 
+%Plot histogram (if there are measurements):
+plotHistogram(concs_measured,'Protein amount [mg/gDW]',[1e-3,1e3],'Modelled Protein abundances','abundances')
+
+end
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function plotHistogram(variable,xlabelStr,xlimits,titleStr,option)
+if sum(variable) > 0
+    figure
+    if strcmpi(option,'abundances')
+        hist(variable*1e3,10.^(-3:0.5:3))
+        set(gca,'xscale','log')
+    else
+        hist(variable,(0:0.05:1))
+    end
+    xlim(xlimits)
+    xlabel(xlabelStr)
+    ylabel('Frequency');
+    title(titleStr)
+end
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function data = cleanDataset(data)
