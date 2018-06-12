@@ -1,14 +1,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % model = constrainEnzymes(model,Ptotal,sigma,pIDs,data)
 % 
-% Benjam?n J. S?nchez. Last edited: 2018-03-19
+% Benjamín J. Sánchez. Last edited: 2018-03-19
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function [model,enzUsages,modifications] = constrainEnzymes(model,Ptot,sigma,pIDs,data,gRate,GlucUptake)
 
 %Current values:
 f       = 0.4461; %Yeast 7.6 (all enzymes) [g(Pmodel)/g(Ptot)]
-Pbase   = 0.4005; %Value from biomass comp. (F?rster data @ 0.1 1/h)
+Pbase   = 0.4005; %Value from biomass comp. (Förster data @ 0.1 1/h)
 
 %No UB will be changed if no data is available -> pool = all enzymes(FBAwMC)
 if nargin == 3

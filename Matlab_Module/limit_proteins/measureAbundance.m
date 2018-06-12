@@ -2,7 +2,7 @@
 % [f,count] = measureAbundance(model,abundance_file)
 % 
 %
-% Benjam?n J. S?nchez. Last edited: 2016-03-18
+% Benjamín J. Sánchez. Last edited: 2016-03-18
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function [f,count] = measureAbundance(enzymes,abundance_file)
