@@ -21,9 +21,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function OptSigma = sigmaFitter(model,Ptot,gR_exp)
-    gRate_sim = cell(0,1);
-    error     = cell(0,1);
-    sigParam  = cell(0,1);
+    gRate_sim = [];
+    error     = []; 
+    sigParam  = [];
     c_source  = 'D-glucose exchange (reversible)';
     [model,~] = changeMedia_batch(model,c_source,'Min');
     cd ../limit_proteins
