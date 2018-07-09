@@ -34,7 +34,7 @@ modifications = {};
 
 % set minimal glucose medium
 Csource      = 'D-glucose exchange (reversible)';
-glucUptkIndx = find(strcmpi(model.rxnNames,Csource));
+glucUptkIndx = strcmpi(model.rxnNames,Csource);
 cd ../Kcat_sensitivity_analysis
 [model,~]    = changeMedia_batch(model,Csource,'Min');
 %constrain glucose uptake if an experimental measurement is provided
@@ -53,9 +53,9 @@ if ~isempty(measuredIndxs)
     while growth<0.99*gRate
         [limIndex,flag] = findLimitingUBs(model,measuredIndxs,flexFactor,1);
         if ~flag
-            [limIndex,flag] = findLimitingUBs(model,measuredIndxs,flexFactor,2);
+            [limIndex,~] = findLimitingUBs(model,measuredIndxs,flexFactor,2);
         end
-        %Flexibilize the top growth limiting protein on the original eModel
+        %Flexibilize the top growth limiting protein on the original ecModel
         flexProts          = [flexProts; model.rxns(limIndex)];
         model.ub(limIndex) = Inf;
         sol                = solveLP(model);
@@ -103,7 +103,7 @@ objectiveVector      = model.c;
 model.lb(gPos)       = 0.99*gRate;
 model.ub(gPos)       = 1.01*gRate;
 model.c(:)           = 0;
-protIndexes          = find(contains(model.rxnNames,'prot_'));
+protIndexes          = contains(model.rxnNames,'prot_');
 model.c(protIndexes) = -1;
 optSolution          = solveLP(model,1);
 optSolution          = optSolution.x;
@@ -119,7 +119,7 @@ for i=1:length(protIndxs)
     enzUsages(i) = optSolution(index)/model.ub(index);
 end
 model.c   = objectiveVector;
-enzUsages = enzUsages(find(enzUsages));
+enzUsages = enzUsages(enzUsages > 0);
 end
     
     

@@ -11,7 +11,7 @@ function [maxIndex,flag] = findLimitingUBs(model,protIndxs,flexFactor,option)
 %               every iteration
 %   option      1 if the sensitivity analysis is done on the individual
 %               enzyme exchanges or 2, if it is done on a reaction basis, 
-%               for cases in which the limitation might be an enzyme c
+%               for cases in which the limitation might be an enzyme
 %               complex rather than an individual enzyme.
 %
 %   maxIndex    Index of the corresponding limiting enzyme exchange
@@ -40,7 +40,7 @@ switch option
         % flexibilize ub for every protein exchange in a temporal model
         for i=1:length(protIndxs)
             index = protIndxs(i);
-            %The analyis is run just on those enzymes which usage is equal or
+            %The analyis runs just on those enzymes which usage is equal or
             %very close to its respective upper bound 
             if ((model.ub(index)-solution.x(index))/model.ub(index))<=tolerance
                 tempModel           = model;
@@ -68,10 +68,9 @@ switch option
     case 2
        solution = solution.x;
        coeffs   = zeros(length(model.rxns),1); 
-       protRxns = find(contains(model.rxnNames,'prot_'));
-       for i=1:protRxns(1)%length(model.rxns)
+       for i=1:length(model.rxns)
            %for flux carrying reactions
-           if solution(i)~=0
+           if solution(i)~=0 && ~contains(model.rxnNames{i},'prot_')
                tempModel   = model;
                measurement = false;
                protIndexes = extractProteinExchanges(i,model);
@@ -113,7 +112,7 @@ end
 function indexes = extractProteinExchanges(rxn,model)
 indexes   = {};
 rxn_mets  = model.mets(full(model.S(:,rxn)) < 0);
-rxn_prots = find(~cellfun(@isempty,strfind(rxn_mets,'prot_')));
+rxn_prots = find(contains(rxn_mets,'prot_'));
 % If there are measured proteins associated with the rxn their respective
 % upper bounds are flexibilized
 for j = 1:length(rxn_prots)
