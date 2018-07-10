@@ -29,7 +29,7 @@ function [model,enzUsages,modifications] = flexibilizeProteins(model,gRate,glucU
 current       = pwd;
 flexFactor    = 100;
 flexProts     = {};
-enzUsages     = {};
+enzUsages     = [];
 modifications = {};
 
 % set minimal glucose medium

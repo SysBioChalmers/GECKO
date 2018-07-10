@@ -13,8 +13,8 @@ Pbase   = 0.4005; %Value from biomass comp. (Förster data @ 0.1 1/h)
 %No UB will be changed if no data is available -> pool = all enzymes(FBAwMC)
 if nargin == 3
     pIDs          = cell(0,1);
-    data          = cell(0,1);
-    enzUsages     = cell(0,1);
+    data          = zeros(0,1);
+    enzUsages     = zeros(0,1);
     modifications = cell(0,1);
 end
 %Remove zeros or negative values
