@@ -2,11 +2,11 @@
 % [f,count] = measureAbundance(model,abundance_file)
 % 
 %
-% Benjamín J. Sánchez. Last edited: 2016-03-18
+% BenjamÃ­n J. SÃ¡nchez. Last edited: 2016-03-18
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function [f,count] = measureAbundance(enzymes,abundance_file)
-
+current = pwd;
 %Read downloaded data of abundance:
 fID       = fopen(abundance_file);
 data      = textscan(fID,'%s %s %f','delimiter','\t','HeaderLines',12);
@@ -15,6 +15,7 @@ abundance = data{3};
 fclose(fID);
 
 %Load KEGG data:
+cd ../../Databases
 data      = load('ProtDatabase.mat');
 swissprot = data.swissprot;
 
@@ -47,7 +48,7 @@ end
 
 f     = Pmodel/Ptot;
 count = [length(counter);sum(counter(:,1))];
-
+cd (current)
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -20,7 +20,7 @@ function [ecModel_batch,OptSigma] = getConstrainedModel(ecModel,sigma,Ptot,gR_ex
 	current = pwd;
 	%Get a preliminary enzyme constrained model for performing the Kcats 
 	%sensitivity analysis
-	ecModel_batch = constrainEnzymes(ecModel,Ptot,sigma);
+	[ecModel_batch,~,~] = constrainEnzymes(ecModel,Ptot,sigma);
 	solution      = solveLP(ecModel_batch,1);
     if ~isempty(solution.f)
         %Set the media according to the media of the experimental measurement
@@ -48,7 +48,7 @@ function [ecModel_batch,OptSigma] = getConstrainedModel(ecModel,sigma,Ptot,gR_ex
         OptSigma = sigmaFitter(ecModel,Ptot,gR_exp);
         %The ecModel with new modified Kcat values is constrained with the 
         %optimal sigma value found
-        ecModel_batch = constrainEnzymes(ecModel,Ptot,OptSigma);
+        [ecModel_batch,~,~] = constrainEnzymes(ecModel,Ptot,OptSigma);
         %Simulate growth on minimal glucose media and export the top ten used 
         %enzymes to the file "topUsedEnzymes.txt" in the containing folder
         cd (current)
