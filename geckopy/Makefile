@@ -78,8 +78,8 @@ install: clean ## install the package to the active Python's site-packages
 	python setup.py install
 
 copy-models: ## copy the latest model from main repository to package directory
-	cp `find ../Models/ecYeastGEM -name 'ecYeastGEM.xml' | sort | head -n1` geckopy/data_files/ecYeastGEM_multi-pool.xml
-	cp `find ../Models/ecYeastGEM -name 'ecYeastGEM_batch.xml' | sort | head -n1` geckopy/data_files/ecYeastGEM_single-pool.xml
+	cp ../Models/ecYeastGEM/ecYeastGEM.xml geckopy/data_files/ecYeastGEM_multi-pool.xml
+	cp ../Models/ecYeastGEM/ecYeastGEM_batch.xml geckopy/data_files/ecYeastGEM_single-pool.xml
 
 protein-properties: ## generate the protein properties file from new downloads
 	python fixtures/protein-properties.py
