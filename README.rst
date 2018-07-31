@@ -12,7 +12,7 @@ Benjamin J. Sanchez, Cheng Zhang, Avlant Nilsson, Petri-Jaan Lahtvee, Eduard J. 
 
 The software comes in two flavors, Python and Matlab scripts to fetch online data and build the published ecYeast7 GECKO models, and a Python package which can be used with `cobrapy <https://opencobra.github.io/cobrapy/>`_ to obtain a ecYeast7 model object, optionally adjusted for provided proteomics data.
 
-Last update: 2018-03-21
+Last update: 2018-07-31
 
 This repository is administered by Benjamin J. Sanchez (`@BenjaSanchez <https://github.com/benjasanchez>`_), Division of Systems and Synthetic Biology, Department of Biology and Biological Engineering, Chalmers University of Technology.
 
@@ -35,7 +35,9 @@ Required software - Matlab module
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - `MATLAB <http://www.mathworks.com/>`_ (7.5 or higher) + Optimization Toolbox.
-- The `COBRA toolbox for MATLAB <https://github.com/opencobra/cobratoolbox>`_. Note that `libSBML <http://sbml.org/Software/libSBML>`_ and the `SBML toolbox <http://sbml.org/Software/SBMLToolbox>`_ should both be installed. Both of them are free of charge for academic users. Aditionally, you should add the cobra folder to your MATLAB search path.
+- The `COBRA toolbox for MATLAB <https://github.com/opencobra/cobratoolbox>`_.
+- The `RAVEN toolbox for MATLAB <https://github.com/SysBioChalmers/RAVEN>`_.
+- The `libSBML MATLAB API <https://sourceforge.net/projects/sbml/files/libsbml/MATLAB%20Interface>`_ (version 5.17.0 is recommended).
 
 Usage
 ~~~~~
