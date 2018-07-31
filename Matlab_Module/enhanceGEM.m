@@ -1,18 +1,16 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % [ecModel,model_data,kcats] = enhanceGEM(model,toolbox,name,version)
 %
-% Benjamin J. Sanchez & Ivan Domenzain. Last edited: 2018-03-19
+% Benjamin J. Sanchez & Ivan Domenzain. Last edited: 2018-07-31
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function [ecModel,model_data,kcats] = enhanceGEM(model,toolbox,name,version)
 
 %Provide your organism scientific name
 org_name = 'saccharomyces cerevisiae';
 format short e
-if strcmp(toolbox,'COBRA')
-   initCobraToolbox
-end
+initCobraToolbox
 
-%Update yeast 7 model with all recommended changes:
+%Update model with all recommended changes:
 cd get_enzyme_data
 model = modelCorrections(model);
 
