@@ -48,7 +48,7 @@ def test_gecko_adjustment_sanchez_etal():
 
 
 def test_adjust_pool_bounds():
-    essential = {'P00498': 0., 'P00815': 0.}
+    essential = {'P00498': 0.}
     in_model = {'P00549': 0.1, 'P31373': 0.1, 'P31382': 0.1, 'P39708': 0.1, 'P39714': 0.1, 'P39726': 0.1, 'Q01574': 0.1}
     expected = set('prot_{}_exchange'.format(pool_id) for pool_id in essential)
     measurements = pd.concat([pd.Series(in_model), pd.Series(essential)])
