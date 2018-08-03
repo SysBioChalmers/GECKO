@@ -445,7 +445,7 @@ function model = otherChanges(model)
     model = removeRxns(model,'r_0543No1');
     model = removeRxns(model,'r_1838No2');
     index = find(strcmp(model.rxns,'r_0543No2'));
-    if isempty(index)
+    if ~isempty(index)
         model.rxnNames{index} = 'homocitrate synthase (No1)';
         model.rxns{index}     = 'r_0543No1';
     end
