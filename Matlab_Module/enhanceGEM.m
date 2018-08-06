@@ -10,14 +10,14 @@ org_name = 'saccharomyces cerevisiae';
 format short e
 initCobraToolbox
 
-%Update model with all recommended changes:
-cd get_enzyme_data
-model = modelCorrections(model);
-
 %Add RAVEN fields for easier visualization later on:
+cd get_enzyme_data
 if strcmp(toolbox,'COBRA')
     model = ravenCobraWrapper(model);
 end
+
+%Remove blocked rxns + correct model.rev:
+model = preprocessModel(model);
 
 %Retrieve kcats & MWs for each rxn in model:
 model_data = getEnzymeCodes(model);
