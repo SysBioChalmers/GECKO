@@ -14,8 +14,10 @@ initCobraToolbox
 cd get_enzyme_data
 model = modelCorrections(model);
 
-%Add some RAVEN fields for easier visualization later on:
-model = standardizeModel(model,toolbox);
+%Add RAVEN fields for easier visualization later on:
+if strcmp(toolbox,'COBRA')
+    model = ravenCobraWrapper(model);
+end
 
 %Retrieve kcats & MWs for each rxn in model:
 model_data = getEnzymeCodes(model);
