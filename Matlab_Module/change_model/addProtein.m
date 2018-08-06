@@ -106,7 +106,9 @@ end
 %Add gene to gene list if non-existing previously:
 if ~ismember(gene,model.genes)
     model.enzNames(pos_e,1)
-    model = addGenes(model,{gene},'geneNames',model.enzNames(pos_e,1));
+    geneToAdd.genes = {gene};
+    geneToAdd.geneShortNames = model.enzNames(pos_e,1);
+    model = addGenesRaven(model,geneToAdd);
 end
 
 %Add exchange reaction of protein: -> P
@@ -121,13 +123,11 @@ model.enzGenes{pos_e,1} = gene;
 
 %Update metComps:
 pos_m = strcmp(model.mets,prot_name);   %position in model.mets
-if isfield(model,'compNames')
-    cytIndex = find(strcmpi(model.compNames,'cytoplasm'),1);
-    if ~isempty(cytIndex)
-        model.metComps(pos_m) = 2;	%For simplification all proteins are in cytosol
-    else
-        model.metComps(pos_m) = 1; 
-    end
+cytIndex = find(strcmpi(model.compNames,'cytoplasm'),1);
+if ~isempty(cytIndex)
+    model.metComps(pos_m) = 2;	%For simplification all proteins are in cytosol
+else
+    model.metComps(pos_m) = 1;
 end
 
 end

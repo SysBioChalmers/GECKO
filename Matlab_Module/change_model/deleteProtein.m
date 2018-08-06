@@ -27,10 +27,10 @@ model.sequences(enz_pos) = [];
 model.pathways(enz_pos)  = [];
 
 %Delete metabolite also:
-model = removeMetabolites(model,model.mets(met_pos));
+model = removeMets(model,model.mets(met_pos),true,true);
 
 %Delete gene also:
-model = deleteModelGenes(model,gene_name);
+model = removeGenes(model,gene_name);
 
 end
 

@@ -21,7 +21,7 @@ for i = 1:length(model.enzymes)
                             'lowerBound', 0, ...
                             'upperBound', Inf);
         model.grRules{strcmp(model.rxns,rxnID)} = model.enzGenes{i};
-        model = removeRxns(model,['prot_' model.enzymes{i} '_exchange']);
+        model = removeReactions(model,{['prot_' model.enzymes{i} '_exchange']});
     end
 end
 
