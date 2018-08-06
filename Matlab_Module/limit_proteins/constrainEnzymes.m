@@ -56,7 +56,6 @@ if sum(strcmp(model.rxns,'prot_pool_exchange')) == 0
     model = constrainPool(model,~measured,1000);
 end
 
-model = fixedModifications(model);
 model = changeProtein(model,Ptot,fs);
 
 %Display some metrics:
