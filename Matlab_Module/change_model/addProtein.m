@@ -125,7 +125,7 @@ model.enzGenes{pos_e,1} = gene;
 pos_m = strcmp(model.mets,prot_name);   %position in model.mets
 cytIndex = find(strcmpi(model.compNames,'cytoplasm'),1);
 if ~isempty(cytIndex)
-    model.metComps(pos_m) = 2;	%For simplification all proteins are in cytosol
+    model.metComps(pos_m) = cytIndex;	%For simplification all proteins are in cytosol
 else
     model.metComps(pos_m) = 1;
 end
