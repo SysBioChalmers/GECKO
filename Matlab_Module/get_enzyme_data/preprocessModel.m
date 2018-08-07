@@ -10,6 +10,14 @@
 
 function model = preprocessModel(model)
 
+%Remove gene rules from pseudoreactions (if any):
+for i = 1:length(model.rxns)
+    if endsWith(model.rxnNames{i},' pseudoreaction')
+        model.grRules{i}      = '';
+        model.rxnGeneMat(i,:) = zeros(1,length(model.genes));
+    end
+end
+
 %Delete blocked rxns (LB = UB = 0):
 to_remove = boolean((model.lb == 0).*(model.ub == 0));
 model     = removeReactions(model,model.rxns(to_remove),true,true,true);
