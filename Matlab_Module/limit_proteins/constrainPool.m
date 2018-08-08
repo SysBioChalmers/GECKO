@@ -1,8 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % model = constrainPool(model,non_measured,UB)
 % 
-%
-% Benjamín J. Sánchez. Last edited: 2018-05-28
+% Benjamín J. Sánchez. Last edited: 2018-08-08
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function model = constrainPool(model,non_measured,UB)
@@ -34,7 +33,12 @@ model = addReaction(model,'prot_pool_exchange', ...
                     'upperBound', UB);
 
 %Update metComps (last position is for the newly created protein pool):
-model.metComps(end) = 2;      %The protein pool is defined in the cytosol
+cytIndex = find(strcmpi(model.compNames,'cytoplasm'),1);
+if ~isempty(cytIndex)
+    model.metComps(end) = cytIndex;	%For simplification all proteins are in cytosol
+else
+    model.metComps(end) = 1;
+end
 
 end
 
