@@ -1,38 +1,20 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% model = saveECmodelSBML(model,name,isBatch)
+% model = saveECmodelSBML(model,toolbox,name,version)
 %
-% Benjamín J. Sánchez. Last edited: 2018-05-28
+% Benjamín J. Sánchez. Last edited: 2018-08-07
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function saveECmodelSBML(model,name,isBatch)
+function saveECmodelSBML(model,toolbox,name,version)
 
-%Introduce compartments to both metabolite ID and name:
-comps     = model.comps;
-compNames = model.compNames;
-for i = 1:length(model.mets)
-    comp_ID           = comps{model.metComps(i)};
-    comp_name         = compNames{model.metComps(i)};
-    model.mets{i}     = [model.mets{i} '[' comp_ID ']'];
-    model.metNames{i} = [model.metNames{i} ' [' comp_name ']'];
-end
-model = rmfield(model,'metComps');
-
-%Format gene rule field:
-model.rules = strrep(model.grRules,'and','&');
-model.rules = strrep(model.rules,'or','|');
-for i = 1:length(model.genes)
-    if contains(model.genes{i},'-')
-        model.rules = strrep(model.rules,model.genes{i},['x(' num2str(i) ')']);
-    end
-end
-for i = 1:length(model.genes)
-    model.rules = strrep(model.rules,model.genes{i},['x(' num2str(i) ')']);
+%Define file path for storage:
+if endsWith(name,'_batch')
+    file_name = [name(1:strfind(name,'_batch')-1) '/' name];
+else
+    file_name = [name '/' name];
 end
 
-%Format metFormulas:
-model.metFormulas = strrep(model.metFormulas,'(','');
-model.metFormulas = strrep(model.metFormulas,')n','');
-model.metFormulas = strrep(model.metFormulas,')','');
+%Model description:
+model.description = [name '_' version];
 
 %Format S matrix: avoid long decimals
 for i = 1:length(model.mets)
@@ -44,21 +26,38 @@ for i = 1:length(model.mets)
     end
 end
 
-%Batch case: modify name
-folder = name;
-if isBatch
-    name = [name '_batch'];
+%Remove model.fields (added by COBRA functions)
+if isfield(model,'rules')
+    model = rmfield(model,'rules');
 end
 
-%Save model:
-writeCbModel(model,'sbml',[folder '/' name '.xml']);
-writeCbModel(model,'text',[folder '/' name '.txt']);
+%Save model as mat:
+S.(name) = model;
+save([file_name '.mat'], '-struct', 'S')
+
+%Transform model back to COBRA for saving purposes:
+if strcmp(toolbox,'COBRA')
+    model = ravenCobraWrapper(model);    
+    %Remove fields from COBRA model (temporal):
+    model = rmfield(model,'metCharges');
+    model = rmfield(model,'metChEBIID');
+    model = rmfield(model,'metKEGGID');
+    model = rmfield(model,'rxnConfidenceScores');
+    model = rmfield(model,'rxnECNumbers');
+    model = rmfield(model,'rxnKEGGID');
+    model = rmfield(model,'rxnReferences');
+    model = rmfield(model,'subSystems');
+end
+
+%Save model as sbml and text:
+writeCbModel(model,'sbml',[file_name '.xml']);
+writeCbModel(model,'text',[file_name '.txt']);
 
 %Convert notation "e-005" to "e-05 " in stoich. coeffs. to avoid
 %inconsistencies between Windows and MAC:
-copyfile([folder '/' name '.xml'],'backup.xml')
+copyfile([file_name '.xml'],'backup.xml')
 fin  = fopen('backup.xml', 'r');
-fout = fopen([folder '/' name '.xml'], 'w');
+fout = fopen([file_name '.xml'], 'w');
 still_reading = true;
 while still_reading
   inline = fgets(fin);

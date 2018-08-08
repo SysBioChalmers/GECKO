@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % [ecModel,model_data,kcats] = enhanceGEM(model,toolbox,name,version)
 %
-% Benjamin J. Sanchez & Ivan Domenzain. Last edited: 2018-07-31
+% Benjamin J. Sanchez & Ivan Domenzain. Last edited: 2018-08-07
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function [ecModel,model_data,kcats] = enhanceGEM(model,toolbox,name,version)
 
@@ -39,12 +39,8 @@ disp(['Sigma factor (fitted for growth on glucose): ' num2str(OptSigma)])
 
 %Save output models:
 cd ../../Models
-ecModel.description       = [name '_' version];
-ecModel_batch.description = [name '_batch_' version];
-save([name '/' name '.mat'],'ecModel')
-save([name '/' name '_batch.mat'],'ecModel_batch')
-saveECmodelSBML(ecModel,name,false);
-saveECmodelSBML(ecModel_batch,name,true);
+saveECmodelSBML(ecModel,toolbox,name,version);
+saveECmodelSBML(ecModel_batch,toolbox,[name '_batch'],version);
 cd ../Matlab_Module
 
 end
