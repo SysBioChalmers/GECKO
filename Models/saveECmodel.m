@@ -1,10 +1,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% model = saveECmodelSBML(model,toolbox,name,version)
+% model = saveECmodel(model,toolbox,name,version)
 %
 % Benjamín J. Sánchez. Last edited: 2018-08-07
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function saveECmodelSBML(model,toolbox,name,version)
+function saveECmodel(model,toolbox,name,version)
 
 %Define file path for storage:
 if endsWith(name,'_batch')

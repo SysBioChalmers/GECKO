@@ -39,8 +39,8 @@ disp(['Sigma factor (fitted for growth on glucose): ' num2str(OptSigma)])
 
 %Save output models:
 cd ../../Models
-saveECmodelSBML(ecModel,toolbox,name,version);
-saveECmodelSBML(ecModel_batch,toolbox,[name '_batch'],version);
+saveECmodel(ecModel,toolbox,name,version);
+saveECmodel(ecModel_batch,toolbox,[name '_batch'],version);
 cd ../Matlab_Module
 
 end
