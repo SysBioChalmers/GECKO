@@ -6,9 +6,9 @@
 
 function model = scaleBioMass(model,Ptot,GAM,scale_comp)
 
-%Fix GAM if not provided:
+%Fit GAM if not provided:
 if nargin < 3
-    GAM = 31;      %63.3% eff OXPHO - no H2O in prot/carb
+    GAM = fitGAM(model);
 end
 
 %Option for changing composition & GAM (=true, default) or only GAM (=false):

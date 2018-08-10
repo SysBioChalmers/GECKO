@@ -1,13 +1,23 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% model = constrainEnzymes(model,Ptot,f,sigma,pIDs,data,gRate,GlucUptake)
+% model = constrainEnzymes(model,Ptot,sigma,f,GAM,pIDs,data,gRate,GlucUptake)
 % 
 % Benjamín J. Sánchez. Last edited: 2018-08-10
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function [model,enzUsages,modifications] = constrainEnzymes(model,Ptot,f,sigma,pIDs,data,gRate,GlucUptake)
+function [model,enzUsages,modifications] = constrainEnzymes(model,Ptot,sigma,f,GAM,pIDs,data,gRate,GlucUptake)
+
+%Compute f if not provided:
+if nargin < 4
+    [f,~] = measureAbundance(ecModel.enzymes);
+end
+
+%Fit GAM if not provided:
+if nargin < 5
+    GAM = fitGAM(model);
+end
 
 %No UB will be changed if no data is available -> pool = all enzymes(FBAwMC)
-if nargin == 4
+if nargin < 6
     pIDs          = cell(0,1);
     data          = zeros(0,1);
     enzUsages     = zeros(0,1);
@@ -57,7 +67,7 @@ if sum(strcmp(model.rxns,'prot_pool_exchange')) == 0
 end
 
 %Modify protein/carb content and GAM:
-model = scaleBioMass(model,Ptot);
+model = scaleBioMass(model,Ptot,GAM);
 
 %Display some metrics:
 disp(['Total protein amount measured = '     num2str(Pmeasured)              ' g/gDW'])
@@ -67,7 +77,7 @@ disp(['Total protein amount not measured = ' num2str(Ptot - Pmeasured)       ' g
 disp(['Total enzymes not measured = '        num2str(sum(~measured))         ' enzymes'])
 disp(['Total protein in model = '            num2str(Ptot)                   ' g/gDW'])
 
-if nargin > 6
+if nargin > 7
     [model,enzUsages,modifications] = flexibilizeProteins(model,gRate,GlucUptake);
     plotHistogram(enzUsages,'Enzyme usage [-]',[0,1],'Enzyme usages','usages')
 end
