@@ -15,13 +15,13 @@
 % (enzyme usages > 10% of the total proteome).
 %
 % Ivan Domenzain        2018-03-27
-% Benjamín Sánchez	2018-08-09
+% Benjamín Sánchez	2018-08-10
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function [ecModel_batch,OptSigma] = getConstrainedModel(ecModel,sigma,Ptot,gR_exp,modifications,name)
 	current = pwd;
     
     %Get f (estimated mass fraction of enzymes in model)
-    [f,~] = measureAbundance(ecModel.enzymes,'prot_abundance.txt');
+    [f,~] = measureAbundance(ecModel.enzymes);
     
     %Get a preliminary enzyme constrained model for performing the Kcats
     %sensitivity analysis

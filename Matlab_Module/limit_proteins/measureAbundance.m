@@ -1,13 +1,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% [f,count] = measureAbundance(model,abundance_file)
+% [f,count] = measureAbundance(enzymes)
 % 
-% Benjamín J. Sánchez. Last edited: 2018-08-09
+% Benjamín J. Sánchez. Last edited: 2018-08-10
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function [f,count] = measureAbundance(enzymes,abundance_file)
-current = pwd;
+function [f,count] = measureAbundance(enzymes)
+
 %Read downloaded data of abundance:
-fID       = fopen(abundance_file);
+fID       = fopen('../../Databases/prot_abundance.txt');
 data      = textscan(fID,'%s %s %f','delimiter','\t','HeaderLines',12);
 genes     = data{2};
 genes     = strrep(genes,'4932.','');
@@ -15,8 +15,7 @@ abundance = data{3};
 fclose(fID);
 
 %Load swissprot data:
-cd ../../Databases
-data      = load('ProtDatabase.mat');
+data      = load('../../Databases/ProtDatabase.mat');
 swissprot = data.swissprot;
 for i = 1:length(swissprot)
     swissprot{i,3} = strsplit(swissprot{i,3},' ');
@@ -47,7 +46,7 @@ end
 
 f     = sum(concs(counter))/sum(concs);
 count = [length(counter);sum(counter)];
-cd (current)
+
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
