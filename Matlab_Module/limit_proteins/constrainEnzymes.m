@@ -1,17 +1,16 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% model = constrainEnzymes(model,Ptotal,sigma,pIDs,data)
+% model = constrainEnzymes(model,Ptot,f,sigma,pIDs,data,gRate,GlucUptake)
 % 
-% Benjamín J. Sánchez. Last edited: 2018-03-19
+% Benjamín J. Sánchez. Last edited: 2018-08-09
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function [model,enzUsages,modifications] = constrainEnzymes(model,Ptot,sigma,pIDs,data,gRate,GlucUptake)
+function [model,enzUsages,modifications] = constrainEnzymes(model,Ptot,f,sigma,pIDs,data,gRate,GlucUptake)
 
 %Current values:
-f       = 0.4461; %Yeast 7.6 (all enzymes) [g(Pmodel)/g(Ptot)]
-Pbase   = 0.4005; %Value from biomass comp. (Förster data @ 0.1 1/h)
+Pbase = 0.4005; %Value from biomass comp. (Förster data @ 0.1 1/h)
 
 %No UB will be changed if no data is available -> pool = all enzymes(FBAwMC)
-if nargin == 3
+if nargin == 4
     pIDs          = cell(0,1);
     data          = zeros(0,1);
     enzUsages     = zeros(0,1);
@@ -66,7 +65,7 @@ disp(['Total protein amount not measured = ' num2str(Ptot - Pmeasured)       ' g
 disp(['Total enzymes not measured = '        num2str(sum(~measured))         ' enzymes'])
 disp(['Total protein in model = '            num2str(Ptot)                   ' g/gDW'])
 
-if nargin >5 
+if nargin > 6
     [model,enzUsages,modifications] = flexibilizeProteins(model,gRate,GlucUptake);
     plotHistogram(enzUsages,'Enzyme usage [-]',[0,1],'Enzyme usages','usages')
 end

@@ -11,16 +11,18 @@
 %                   enhanceGEM.m script
 %       Ptot        Total protein amount in the model (Experimental)
 %                   [g/gDw]
+%       f           Estimated mass fraction of enzymes in model [g/g]
 %       gR_exp      Experimental growth rate on glucose minimal media 
 %                   [g/gDw hr]
 %
 % OUTPUTS:
 %       optSigma    The optimal sigma value obtained
 %
-% Ivan Domenzain.   Last edited 2018-06-11
+% Ivan Domenzain        2018-06-11
+% Benjamín Sánchez	2018-08-09
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function OptSigma = sigmaFitter(model,Ptot,gR_exp)
+function OptSigma = sigmaFitter(model,Ptot,f,gR_exp)
     gRate_sim = [];
     error     = []; 
     sigParam  = [];
@@ -31,7 +33,7 @@ function OptSigma = sigmaFitter(model,Ptot,gR_exp)
         % Constrains the ecModel with the current sigma factor
         sigma = i/100;
         %model_batch  = changeCultureMedia(model);
-        [model_batch,~,~] = constrainEnzymes(model,Ptot,sigma);
+        [model_batch,~,~] = constrainEnzymes(model,Ptot,f,sigma);
         % Change to minimal glucose media
         gR_pos            = find(strcmpi(model_batch.rxnNames,'growth'));
         model_batch.c     = zeros(size(model_batch.c));
