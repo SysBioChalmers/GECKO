@@ -198,12 +198,14 @@ function [newValue,modifications] = curation_growthLimiting(reaction,enzName,MW_
               end
           end
         % HMG-CoA reductase (P12683-P12684/EC1.1.1.34): Only kcat available 
-        % in BRENDA was for Rattus Norvegicus. Value corrected with max. 
-        % s.a. in Rattus norvegicus [0.03 umol/min/mg, Mw=226 kDa] from
-        % BRENDA (2018-01-27)
+        % in BRENDA was for Rattus Norvegicus. Value corrected with a
+        % s.a. from the Haloferax volcanii enzyme expressed in E. coli (max 
+        % value available in BRENDA for a microorganism, without counting
+        % recombinant proteins) (2018-08-11). Ref: Bischoff & Rodwell 1996
+        % https://www.ncbi.nlm.nih.gov/pmc/articles/PMC177616/
           if (strcmpi('prot_P12683',enzName)||strcmpi('prot_P12684',enzName)) && ...
                       contains(reaction,'hydroxymethylglutaryl')
-             newValue         = -(0.03*226000*0.06)^-1;
+             newValue         = -(24*60*1e3/1e3*MW_set)^-1;
              modifications{1} = [modifications{1}; 'P12683'];
              modifications{2} = [modifications{2}; reaction];
           end
