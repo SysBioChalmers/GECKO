@@ -1,10 +1,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % model = saveECmodel(model,toolbox,name,version)
 %
-% Benjamín J. Sánchez. Last edited: 2018-08-07
+% BenjamÃ­n J. SÃ¡nchez. Last edited: 2018-08-11
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function saveECmodel(model,toolbox,name,version)
+function model = saveECmodel(model,toolbox,name,version)
 
 %Define file path for storage:
 if endsWith(name,'_batch')
@@ -37,21 +37,21 @@ save([file_name '.mat'], '-struct', 'S')
 
 %Transform model back to COBRA for saving purposes:
 if strcmp(toolbox,'COBRA')
-    model = ravenCobraWrapper(model);    
+    model_cobra = ravenCobraWrapper(model);    
     %Remove fields from COBRA model (temporal):
-    model = rmfield(model,'metCharges');
-    model = rmfield(model,'metChEBIID');
-    model = rmfield(model,'metKEGGID');
-    model = rmfield(model,'rxnConfidenceScores');
-    model = rmfield(model,'rxnECNumbers');
-    model = rmfield(model,'rxnKEGGID');
-    model = rmfield(model,'rxnReferences');
-    model = rmfield(model,'subSystems');
+    model_cobra = rmfield(model_cobra,'metCharges');
+    model_cobra = rmfield(model_cobra,'metChEBIID');
+    model_cobra = rmfield(model_cobra,'metKEGGID');
+    model_cobra = rmfield(model_cobra,'rxnConfidenceScores');
+    model_cobra = rmfield(model_cobra,'rxnECNumbers');
+    model_cobra = rmfield(model_cobra,'rxnKEGGID');
+    model_cobra = rmfield(model_cobra,'rxnReferences');
+    model_cobra = rmfield(model_cobra,'subSystems');
 end
 
 %Save model as sbml and text:
-writeCbModel(model,'sbml',[file_name '.xml']);
-writeCbModel(model,'text',[file_name '.txt']);
+writeCbModel(model_cobra,'sbml',[file_name '.xml']);
+writeCbModel(model_cobra,'text',[file_name '.txt']);
 
 %Convert notation "e-005" to "e-05 " in stoich. coeffs. to avoid
 %inconsistencies between Windows and MAC:
