@@ -1,15 +1,15 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % [GAM,fitting,results] = fitGAM(model)
 % 
-% Benjamín Sánchez. Last update: 2018-08-10
+% Benjamín Sánchez. Last update: 2018-08-13
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function GAM = fitGAM(model)
 
 %Load chemostat data:
 fid = fopen('../../Databases/chemostatData.tsv','r');
-chemostatData = textscan(fid,'%f32 %f32 %f32 %f32','Delimiter','\t','HeaderLines',1);
-chemostatData = [chemostatData{1} chemostatData{2} chemostatData{3} chemostatData{4}];
+exp_data = textscan(fid,'%f32 %f32 %f32 %f32','Delimiter','\t','HeaderLines',1);
+exp_data = [exp_data{1} exp_data{2} exp_data{3} exp_data{4}];
 fclose(fid);
 
 %GAMs to span:
@@ -17,13 +17,29 @@ disp('Estimating GAM:')
 GAM = 20:5:50;
 
 %1st iteration:
-GAM = iteration(model,GAM,chemostatData);
+GAM = iteration(model,GAM,exp_data);
 
 %2nd iteration:
-GAM = iteration(model,GAM-10:1:GAM+10,chemostatData);
+GAM = iteration(model,GAM-10:1:GAM+10,exp_data);
 
 %3rd iteration:
-GAM = iteration(model,GAM-1:0.1:GAM+1,chemostatData);
+GAM = iteration(model,GAM-1:0.1:GAM+1,exp_data);
+
+%Plot fit:
+mod_data = simulateChemostat(model,exp_data,GAM);
+figure
+hold on
+cols = [0,1,0;0,0,1;1,0,0];
+b    = zeros(1,length(exp_data(1,:))-1);
+for i = 1:length(exp_data(1,:))-1
+    b(i) = plot(mod_data(:,1),mod_data(:,i+1),'Color',cols(i,:),'LineWidth',2);
+    plot(exp_data(:,1),exp_data(:,i+1),'o','Color',cols(i,:),'MarkerFaceColor',cols(i,:))
+end
+title('GAM fitting for growth on glucose minimal media')
+xlabel('Dilution rate [1/h]')
+ylabel('Exchange fluxes [mmol/gDWh]')
+legend(b,'Glucose consumption','O2 consumption','CO2 production','Location','northwest')
+hold off
 
 end
 
