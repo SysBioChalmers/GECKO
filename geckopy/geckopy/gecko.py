@@ -29,17 +29,21 @@ class GeckoModel(Model):
         'abundance' in ppm.
     sigma : float
         The parameter adjusting how much of a protein pool can take part in reactions. Fitted parameter, default is
-        optimized for experiment in [1]_.
+        optimized for chemostat experiment in [1]_.
     gam : float
-        The growth associated maintenance cost in mmol / gDW. Default taken from [2]_.
+        The growth associated maintenance cost in mmol / gDW. Default fitted for yeast 8.1.3.
     amino_acid_polymerization_cost : float
-        The cost for turning amino-acids in proteins in mmol / gDW. Default taken from [2]_.
+        The cost for turning amino-acids in proteins in mmol / g. Default taken from [2]_.
     carbohydrate_polymerization_cost : float
-        The cost for turning monosaccharides in polysaccharides in mmol / gDW. Default taken from [2]_.
+        The cost for turning monosaccharides in polysaccharides in mmol / g. Default taken from [2]_.
     c_base : float
-        The carbohydrate content at dilution rate 0.1 / h. Default taken from [2]_.
+        The carbohydrate content at dilution rate 0.1 / h. Default taken from yeast 8.1.3.
     biomass_reaction_id : str
         The identifier for the biomass reaction
+    protein_reaction_id : str
+        The identifier for the protein reaction
+    carbohydrate_reaction_id : str
+        The identifier for the carbohydrate reaction
     protein_pool_exchange_id : str
         The identifier of the protein pool exchange reaction
     common_protein_pool_id : str
@@ -56,13 +60,16 @@ class GeckoModel(Model):
     """
 
     def __init__(self, model, protein_properties=None,
-                 sigma=0.46, c_base=0.4067, gam=31., amino_acid_polymerization_cost=16.965,
-                 carbohydrate_polymerization_cost=5.210, biomass_reaction_id='r_4041',
+                 sigma=0.46, c_base=0.3855, gam=36.6, amino_acid_polymerization_cost=37.7,
+                 carbohydrate_polymerization_cost=12.8, biomass_reaction_id='r_4041',
+                 protein_reaction_id='r_4047', carbohydrate_reaction_id='r_4048',
                  protein_pool_exchange_id='prot_pool_exchange', common_protein_pool_id='prot_pool'):
         """Get a new GECKO model object."""
         model = COBRA_MODELS[model].copy() if isinstance(model, string_types) else model
         super(GeckoModel, self).__init__(id_or_model=model, name=model.name)
         self.biomass_reaction = self.reactions.get_by_id(biomass_reaction_id)
+        self.protein_reaction = self.reactions.get_by_id(protein_reaction_id)
+        self.carbohydrate_reaction = self.reactions.get_by_id(carbohydrate_reaction_id)
         self.protein_properties = protein_properties or PROTEIN_PROPERTIES
         try:
             self.common_protein_pool = self.metabolites.get_by_id(common_protein_pool_id)
@@ -86,6 +93,7 @@ class GeckoModel(Model):
         self.fp_fraction_protein = None
         self.fc_carbohydrate_content = None
         self.p_total = None
+        self.c_total = None
         self.p_base = None
         self.fn_mass_fraction_unmeasured_matched = None
         self.fs_matched_adjusted = None
@@ -114,7 +122,7 @@ class GeckoModel(Model):
         p_measured = self.p_total * fraction_measured
         return fraction.apply(lambda x: x * p_measured)
 
-    def limit_proteins(self, fractions=None, ggdw=None, p_total=0.448, p_base=0.4005):
+    def limit_proteins(self, fractions=None, ggdw=None, p_total=0.448, p_base=0.46):
         """Apply proteomics measurements to model.
 
         Apply measurements in the form of fractions of total of the measured proteins, or directly as g / gDW. Must
@@ -130,7 +138,7 @@ class GeckoModel(Model):
             measured total protein fraction in cell in g protein / g DW. Should be measured for each experiment,
             the default here is taken from [1]_.
         p_base : float
-            protein content at dilution rate 0.1 / h in g protein / g DW. Default taken from [2]_.
+            protein content at dilution rate 0.1 / h in g protein / g DW. Default taken from yeast 8.1.3.
 
         References
         ----------
@@ -138,14 +146,13 @@ class GeckoModel(Model):
            2017). Improving the phenotype predictions of a yeast genome-scale metabolic model by incorporating enzymatic
            constraints. [Molecular Systems Biology, 13(8): 935, http://www.dx.doi.org/10.15252/msb.20167411
 
-           [2] J. Förster, I. Famili, B. Ø. Palsson and J. Nielsen, Genome Res., 2003, 244–253.
-
 
         """
         self.p_total = p_total
         self.p_base = p_base
+        self.c_total = self.c_base + self.p_base - self.p_total
         self.fp_fraction_protein = self.p_total / self.p_base
-        self.fc_carbohydrate_content = (self.c_base + self.p_base - self.p_total) / self.c_base
+        self.fc_carbohydrate_content = self.c_total / self.c_base
         self.measured_ggdw = self.fraction_to_ggdw(fractions) if ggdw is None else ggdw
         # * section 2.5
         # 1. define mmmol_gdw as ub for measured proteins
@@ -220,27 +227,30 @@ class GeckoModel(Model):
         After changing the protein and carbohydrate content based on measurements, adjust the corresponding
         coefficients of the biomass reaction.
         """
+        for met in self.protein_reaction.metabolites:
+            is_prot = 'protein' in met.name
+            if not is_prot:
+                coefficient = self.fp_fraction_protein * self.protein_reaction.metabolites[met]
+                self.protein_reaction.metabolites[met] = coefficient
+
+        for met in self.carbohydrate_reaction.metabolites:
+            is_carb = 'carbohydrate' in met.name
+            if not is_carb:
+                coefficient = self.fc_carbohydrate_content * self.carbohydrate_reaction.metabolites[met]
+                self.carbohydrate_reaction.metabolites[met] = coefficient
+
         for met in self.biomass_reaction.metabolites:
-            coefficient = self.biomass_reaction.metabolites[met]
-            sign = -1 if coefficient < 0 else 1
-            is_aa = 'tRNA' in met.name
-            is_ch = any(x in met.name for x in {'(1->3)-beta-D-glucan', '(1->6)-beta-D-glucan',
-                                                'chitin', 'glycogen', 'mannan', 'trehalose'})
+            sign = -1 if self.biomass_reaction.metabolites[met] < 0 else 1
             is_atp = 'ATP' in met.name
             is_adp = 'ADP' in met.name
             is_h2o = 'H2O' in met.name
             is_h = 'H+' in met.name
             is_p = 'phosphate' in met.name
-
             if is_atp or is_adp or is_h2o or is_h or is_p:
                 coefficient = sign * (self.gam +
-                                      self.amino_acid_polymerization_cost * self.fp_fraction_protein +
-                                      self.carbohydrate_polymerization_cost * self.fc_carbohydrate_content)
-            elif is_aa:
-                coefficient = self.fp_fraction_protein * coefficient
-            elif is_ch:
-                coefficient = self.fc_carbohydrate_content * coefficient
-            self.biomass_reaction.metabolites[met] = coefficient
+                                      self.amino_acid_polymerization_cost * self.p_total +
+                                      self.carbohydrate_polymerization_cost * self.c_total)
+                self.biomass_reaction.metabolites[met] = coefficient
 
     def adjust_pool_bounds(self, min_objective=0.05, inplace=False, tolerance=1e-9):
         """Adjust protein pool bounds minimally to make model feasible.
