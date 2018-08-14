@@ -42,11 +42,13 @@ if strcmp(toolbox,'COBRA')
     model_cobra = rmfield(model_cobra,'metCharges');
     model_cobra = rmfield(model_cobra,'metChEBIID');
     model_cobra = rmfield(model_cobra,'metKEGGID');
+	model_cobra = rmfield(model_cobra,'metSBOTerms');
     model_cobra = rmfield(model_cobra,'rxnConfidenceScores');
     model_cobra = rmfield(model_cobra,'rxnECNumbers');
     model_cobra = rmfield(model_cobra,'rxnKEGGID');
     model_cobra = rmfield(model_cobra,'rxnReferences');
     model_cobra = rmfield(model_cobra,'subSystems');
+	model_cobra = rmfield(model_cobra,'rxnSBOTerms');
 end
 
 %Save model as sbml and text:
