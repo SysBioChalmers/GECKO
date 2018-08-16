@@ -17,11 +17,9 @@
 function eModel = convertToEnzymeModel(irrevModel,uniprots,kcats)
 
 %Load databases:
-cd ../../Databases
-data      = load('ProtDatabase.mat');
+data      = load('../../databases/ProtDatabase.mat');
 swissprot = data.swissprot;
 kegg      = data.kegg;
-cd ../Matlab_Module/change_model
 
 eModel  = irrevModel;
 enzymes = cell(5000,1);
@@ -79,7 +77,6 @@ eModel.enzNames  = cell(0,1);
 eModel.MWs       = zeros(0,1);
 eModel.sequences = cell(0,1);
 eModel.pathways  = cell(0,1);
-cd ../change_model
 for i = 1:length(enzymes)
     eModel = addProtein(eModel,enzymes{i},kegg,swissprot);
 end

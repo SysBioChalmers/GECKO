@@ -35,8 +35,9 @@ modifications = {};
 % set minimal glucose medium
 Csource      = 'D-glucose exchange (reversible)';
 glucUptkIndx = strcmpi(model.rxnNames,Csource);
-cd ../Kcat_sensitivity_analysis
+cd ../kcat_sensitivity_analysis
 [model,~]    = changeMedia_batch(model,Csource,'Min');
+cd ../limit_proteins
 %constrain glucose uptake if an experimental measurement is provided
 if nargin>2
     model.ub(glucUptkIndx) = 1.001*glucUptakeExp;

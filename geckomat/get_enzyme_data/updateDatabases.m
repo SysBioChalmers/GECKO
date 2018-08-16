@@ -14,25 +14,21 @@
 function [swissprot,kegg] = updateDatabases
 
 %Build Swissprot table:
-cd ../../Databases
 swissprot = buildSWISSPROTtable;
 
 %Download KEGG data:
-mkdir KEGG
-cd KEGG
+mkdir ../../databases/KEGG
 downloadKEGGdata('sce')
 
 %Build KEGG table
 kegg = buildKEGGtable;
 
 %Remove KEGG files for compliance of repository:
-delete *.txt
-cd ..
-rmdir KEGG
+delete ../../databases/KEGG/*.txt
+rmdir ../../databases/KEGG
 
 %Save both databases as .mat files:
-save('ProtDatabase.mat','swissprot','kegg');
-cd ../Matlab_Module/get_enzyme_data
+save('../../databases/ProtDatabase.mat','swissprot','kegg');
 
 end
 
@@ -41,12 +37,11 @@ end
 function swissprot = buildSWISSPROTtable
 
 %Build Swissprot table (uniprot code - protein name - gene names - EC number - MW - sequence):
-fileID_uni        = fopen('uniprot-organism%3Ayeast.tab');
+fileID_uni        = fopen('../../databases/uniprot-organism%3Ayeast.tab');
 swissprot         = textscan(fileID_uni,'%s %s %s %s %s %s','delimiter','\t');
 swissprot         = [swissprot{1} swissprot{2} swissprot{3} swissprot{4} swissprot{5}];
 swissprot(1,:)    = [];
 fclose(fileID_uni);
-cd ../Matlab_Module/get_enzyme_data
 for i = 1:length(swissprot)
     %Leave protein name as lower case, remove ';' from ECs & calculate MW:
     prot_name      = lower(swissprot{i,2});
@@ -59,7 +54,6 @@ for i = 1:length(swissprot)
     swissprot{i,6} = sequence;
     disp(['Building Swiss-Prot database: Ready with protein ' uni])
 end
-cd ../../Databases
 
 end
 
@@ -79,7 +73,7 @@ operation = 'get/';
 for i = 1:min([numel(gene_id),10000])
     try
         gene = urlread([base operation organism ':' gene_id{i}{1}]);
-        fid  = fopen([gene_id{i}{1} '.txt'],'w');
+        fid  = fopen(['../../databases/KEGG/' gene_id{i}{1} '.txt'],'w');
         fprintf(fid,'%s',gene);
         fclose(fid);
         disp(['Downloading KEGG data for ' gene_id{i}{1}])
@@ -95,7 +89,7 @@ end
 function kegg = buildKEGGtable
 
 %Build KEGG table (uniprot code - protein name - systematic gene name - EC number - MW - pathway - sequence):
-file_names      = dir();
+file_names      = dir('../../databases/KEGG/');
 file_names(1:2) = [];
 kegg            = cell(100000,7);
 n               = 0;
@@ -104,11 +98,10 @@ for i = 1:length(file_names)
     %3rd column: systematic gene name
     gene_name = file_name(1:end-4);
     %Retrieve all data as a cell with all rows:
-    fID  = fopen(file_name);
+    fID  = fopen(['../../databases/KEGG/' file_name]);
     text = textscan(fID,'%s','delimiter','\t');
     fclose(fID);
     text = text{1};
-    cd ../../Matlab_Module/get_enzyme_data
     
     uni       = '';
     prot_name = '';
@@ -184,7 +177,6 @@ for i = 1:length(file_names)
     kegg{n,5} = MW;
     kegg{n,6} = pathway;
     kegg{n,7} = sequence;
-    cd ../../Databases/KEGG
     disp(['Updating KEGG database: Ready with gene ' gene_name])
 end
 kegg(n+1:end,:)         = [];

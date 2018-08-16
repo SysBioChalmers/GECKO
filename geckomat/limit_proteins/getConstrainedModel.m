@@ -32,7 +32,7 @@ function [ecModel_batch,OptSigma] = getConstrainedModel(ecModel,sigma,Ptot,gR_ex
 	solution            = solveLP(ecModel_batch,1);
     if ~isempty(solution.f)
         %Set the media according to the media of the experimental measurement
-        cd ../Kcat_sensitivity_analysis
+        cd ../kcat_sensitivity_analysis
         c_source          = 'D-glucose exchange (reversible)';
         [ecModel_batch,~] = changeMedia_batch(ecModel_batch,c_source,'Min');
         solution          = solveLP(ecModel_batch,1);
@@ -56,15 +56,17 @@ function [ecModel_batch,OptSigma] = getConstrainedModel(ecModel,sigma,Ptot,gR_ex
         OptSigma = sigmaFitter(ecModel,Ptot,gR_exp,f,GAM);
         %The ecModel with new modified Kcat values is constrained with the 
         %optimal sigma value found
+        cd ../limit_proteins
         [ecModel_batch,~,~] = constrainEnzymes(ecModel,Ptot,OptSigma,f,GAM);
         %Simulate growth on minimal glucose media and export the top ten used 
         %enzymes to the file "topUsedEnzymes.txt" in the containing folder
         cd (current)
-        cd ../Kcat_sensitivity_analysis
+        cd ../kcat_sensitivity_analysis
         c_source          = 'D-glucose exchange (reversible)';
         [ecModel_batch,~] = changeMedia_batch(ecModel_batch,c_source,'Min');
         solution          = solveLP(ecModel_batch,1);
         topUsedEnzymes(solution.x,ecModel_batch,'Min_glucose',name);
+        cd ../limit_proteins
     else
         disp('ecModel with enzymes pool constraint is not feasible')
     end

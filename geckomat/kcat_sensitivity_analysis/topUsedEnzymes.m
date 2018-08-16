@@ -42,7 +42,7 @@ function T = topUsedEnzymes(fluxes,model,conditions,name)
     %Write the top-ten used enzyme names and their percentage usages for
     %every condition on the output file
     outputFile = truncateValues(outputFile,1);
-    writetable(outputFile,['../../Models/' name '/data/' name '_topUsedEnzymes.txt'])
+    writetable(outputFile,['../../models/' name '/data/' name '_topUsedEnzymes.txt'])
 end
 
 

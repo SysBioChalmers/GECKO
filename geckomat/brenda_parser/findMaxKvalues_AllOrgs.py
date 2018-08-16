@@ -19,7 +19,7 @@ features_list = ['KCAT','SA', 'MW']
 #2) Path in which the EC files are stored (from script createECfiles.py):
 input_path = '.../temp/path_2'
 #3) Path in which you wish to store the final table:
-output_path = '.../GECKO/Databases'
+output_path = '.../GECKO/databases'
 ################################################################################
 
 #sub_max_std: Recieves a list of substrates///organism_info///values, returns

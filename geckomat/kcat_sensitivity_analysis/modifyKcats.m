@@ -31,6 +31,7 @@ function ecModel = modifyKcats(ecModel,ecModelBatch,gRexp,modified_kcats,name)
     %Load BRENDA data:
     cd ../get_enzyme_data
     [BRENDA,SA_cell] = loadBRENDAdata;
+    cd ../kcat_sensitivity_analysis
     %Iterates while growth rate is being underpredicted
     disp('********************Limiting Kcats curation********************')
     % Tolerance of 5% underprediction for allowing a sigma factor 
@@ -79,7 +80,7 @@ function ecModel = modifyKcats(ecModel,ecModelBatch,gRexp,modified_kcats,name)
 
         modifications = cell2table(modifications,'VariableNames',varNamesTable);
         modifications = truncateValues(modifications,4);
-        writetable(modifications,['../../Models/' name '/data/' name '_kcatModifications.txt']);
+        writetable(modifications,['../../models/' name '/data/' name '_kcatModifications.txt']);
         
     else
         %If the model is not growing then the analysis is performed in all
@@ -92,13 +93,13 @@ function ecModel = modifyKcats(ecModel,ecModelBatch,gRexp,modified_kcats,name)
             varNamesTable = {'rxnNames','rxnPos','gRControlCoeff'};
             modifications = cell2table(limRxns,'VariableNames',varNamesTable);
             modifications = truncateValues(modifications,4);
-            writetable(modifications,['../../Models/' name '/data/' name '_limitingRxns.txt']);
+            writetable(modifications,['../../models/' name '/data/' name '_limitingRxns.txt']);
         end
         if ~isempty(limEnz)
             varNamesTable = {'EnzNames','EnzPos','gRControlCoeff'};
             modifications = cell2table(limEnz,'VariableNames',varNamesTable);
             modifications = truncateValues(modifications,4);
-            writetable(modifications,['../../Models/' name '/data/' name '_limitingEnzymes.txt']);
+            writetable(modifications,['../../models/' name '/data/' name '_limitingEnzymes.txt']);
         end
     end
         
@@ -151,8 +152,7 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function  [ECnumber, Mw] = findECnumber(Unicode)
     current = pwd;
-    cd ../../Databases
-    load ('ProtDatabase.mat')
+    load ('../../databases/ProtDatabase.mat')
     DB1{1} = swissprot(:,1);DB1{2} = swissprot(:,4);DB1{3} = swissprot(:,5);
     DB2{1} = kegg(:,1);     DB2{2} = kegg(:,4);     DB2{3} = kegg(:,5);
     ECnumber = {};

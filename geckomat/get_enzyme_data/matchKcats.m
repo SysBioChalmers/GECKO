@@ -50,10 +50,9 @@
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  function kcats = matchKcats(model_data, org_name)
  %Load BRENDA data:
-  current            = pwd;       
-  [KCATcell, SAcell] = loadBRENDAdata;
-
- %Creates a Structure with KEGG codes for organisms, names and taxonomical 
+ [KCATcell, SAcell] = loadBRENDAdata;
+ 
+ %Creates a Structure with KEGG codes for organisms, names and taxonomical
  %distance matrix and extract the organism index in the KEGG struct
  phylDistStruct =  KEGG_struct;
  %Get the KEGG code for the model's organism
@@ -63,7 +62,7 @@
  products   = model_data.products;
  EC_numbers = model_data.EC_numbers;
  MWs        = model_data.MWs;
- model      = model_data.model; 
+ model      = model_data.model;
  %Create initially empty outputs:
  [mM,nM]      = size(EC_numbers);
  forw.kcats   = zeros(mM,nM);
@@ -406,7 +405,7 @@
  end
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  function phylDistStruct =  KEGG_struct
-     load('PhylDist.mat')
+     load('../../databases/PhylDist.mat')
      phylDistStruct.ids   = transpose(phylDistStruct.ids);
      phylDistStruct.names = transpose(phylDistStruct.names);
      
@@ -416,5 +415,4 @@
              phylDistStruct.names{i} = phylDistStruct.names{i}(1:pos-1);
          end
      end
-     cd ../Matlab_Module/get_enzyme_data
  end

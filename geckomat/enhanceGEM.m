@@ -22,7 +22,7 @@ model = preprocessModel(model);
 %Retrieve kcats & MWs for each rxn in model:
 model_data = getEnzymeCodes(model);
 kcats      = matchKcats(model_data,org_name);
-save(['../../Models/' name '/data/' name '_enzData.mat'],'model_data','kcats','version')
+save(['../../models/' name '/data/' name '_enzData.mat'],'model_data','kcats','version')
 
 %Integrate enzymes in the model:
 cd ../change_model
@@ -38,10 +38,10 @@ cd ../limit_proteins
 disp(['Sigma factor (fitted for growth on glucose): ' num2str(OptSigma)])
 
 %Save output models:
-cd ../../Models
+cd ../../models
 ecModel = saveECmodel(ecModel,toolbox,name,version);
 saveECmodel(ecModel_batch,toolbox,[name '_batch'],version);
-cd ../Matlab_Module
+cd ../geckomat
 
 end
 
