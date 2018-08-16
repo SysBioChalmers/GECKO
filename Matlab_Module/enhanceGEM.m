@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % [ecModel,model_data,kcats] = enhanceGEM(model,toolbox,name,version)
 %
-% Benjamin J. Sanchez & Ivan Domenzain. Last edited: 2018-07-31
+% Benjamín J. Sánchez & Ivan Domenzain. Last edited: 2018-08-11
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function [ecModel,model_data,kcats] = enhanceGEM(model,toolbox,name,version)
 
@@ -10,12 +10,14 @@ org_name = 'saccharomyces cerevisiae';
 format short e
 initCobraToolbox
 
-%Update model with all recommended changes:
+%Add RAVEN fields for easier visualization later on:
 cd get_enzyme_data
-model = modelCorrections(model);
+if strcmp(toolbox,'COBRA')
+    model = ravenCobraWrapper(model);
+end
 
-%Add some RAVEN fields for easier visualization later on:
-model = standardizeModel(model,toolbox);
+%Remove blocked rxns + correct model.rev:
+model = preprocessModel(model);
 
 %Retrieve kcats & MWs for each rxn in model:
 model_data = getEnzymeCodes(model);
@@ -37,12 +39,8 @@ disp(['Sigma factor (fitted for growth on glucose): ' num2str(OptSigma)])
 
 %Save output models:
 cd ../../Models
-ecModel.description       = [name '_' version];
-ecModel_batch.description = [name '_batch_' version];
-save([name '/' name '.mat'],'ecModel')
-save([name '/' name '_batch.mat'],'ecModel_batch')
-saveECmodelSBML(ecModel,name,false);
-saveECmodelSBML(ecModel_batch,name,true);
+ecModel = saveECmodel(ecModel,toolbox,name,version);
+saveECmodel(ecModel_batch,toolbox,[name '_batch'],version);
 cd ../Matlab_Module
 
 end

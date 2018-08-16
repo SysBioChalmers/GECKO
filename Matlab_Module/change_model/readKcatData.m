@@ -13,7 +13,8 @@
 % OUTPUT:
 % eModel            modified model accounting for enzymes
 % 
-% Cheng Zhang. Last edited: 2015-12-03
+% Cheng Zhang               2015-12-03
+% Benjamín J. Sánchez     2018-08-11
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function eModel = readKcatData(model_data,kcats)
@@ -23,23 +24,18 @@ Fkcat = kcats.forw.kcats;
 Bkcat = kcats.back.kcats;
 rev   = boolean(model_data.model.rev);
 kcats = [Fkcat;Bkcat(rev,:)];
-%Get model:
-model = model_data.model;
-%Predefine ECnumber and uniprots for enzyme model:
-ECnumbers = [model_data.EC_numbers ; model_data.EC_numbers(rev,:)];
-uniprots  = [model_data.uniprots   ; model_data.uniprots(rev,:)  ];
+
+%Update uniprots with both directions:
+uniprots = [model_data.uniprots; model_data.uniprots(rev,:)];
+
 %Convert to irreversible model with RAVEN function (will split in 2 any reversible rxn):
-model = convertToIrrev(model);
+model = convertToIrrev(model_data.model);
+
 %Convert original model to enzyme model according to uniprots and kcats:
 eModel = convertToEnzymeModel(model,uniprots,kcats);
 
 %Leave all UB = +Inf:
 eModel.ub(eModel.ub == 1000) = +Inf;
-
-%Add backup data to model:
-eModel.rxnUniprots  = uniprots;
-eModel.rxnECnumbers = ECnumbers;
-eModel.rxnKcats     = kcats;
 
 end
 

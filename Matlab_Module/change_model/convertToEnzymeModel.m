@@ -64,18 +64,13 @@ for i = 1:m
                 eModel = addEnzymesToRxn(eModel,kvalues,rxnID,newMets,{newID,newName},kegg,swissprot); 
             end
         end
-        eModel = removeRxns(eModel,{rxnID});  %Remove the original rxn
+        eModel = removeReactions(eModel,{rxnID});  %Remove the original rxn
     end
 end
 
 %Eliminate repeated uniprots from enzymes vector:
 enzymes(y+1:end) = [];
 enzymes          = unique(enzymes)';
-
-%Update rxnGeneMat:
-cd ../get_enzyme_data
-[~,rxnGeneMat]    = standardizeGrRules(eModel);
-eModel.rxnGeneMat = rxnGeneMat;
 
 %Create additional fields in model:
 eModel.enzymes   = cell(0,1);
@@ -88,7 +83,7 @@ cd ../change_model
 for i = 1:length(enzymes)
     eModel = addProtein(eModel,enzymes{i},kegg,swissprot);
 end
-eModel.rules = eModel.grRules;
+
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

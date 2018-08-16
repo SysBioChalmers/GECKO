@@ -14,14 +14,22 @@
 % suggesting further parameter curation targets 
 % (enzyme usages > 10% of the total proteome).
 %
-% Ivan Domenzain    Last edited. 2018-03-27
+% Ivan Domenzain        2018-03-27
+% Benjamín Sánchez	2018-08-10
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function [ecModel_batch,OptSigma] = getConstrainedModel(ecModel,sigma,Ptot,gR_exp,modifications,name)
 	current = pwd;
-	%Get a preliminary enzyme constrained model for performing the Kcats 
-	%sensitivity analysis
-	[ecModel_batch,~,~] = constrainEnzymes(ecModel,Ptot,sigma);
-	solution      = solveLP(ecModel_batch,1);
+    
+    %Get f (estimated mass fraction of enzymes in model)
+    [f,~] = measureAbundance(ecModel.enzymes);
+    
+    %Fit GAM (growth associated maintenance):
+    GAM = fitGAM(ecModel);
+    
+    %Get a preliminary enzyme constrained model for performing the Kcats
+    %sensitivity analysis
+    [ecModel_batch,~,~] = constrainEnzymes(ecModel,Ptot,sigma,f,GAM);
+	solution            = solveLP(ecModel_batch,1);
     if ~isempty(solution.f)
         %Set the media according to the media of the experimental measurement
         cd ../Kcat_sensitivity_analysis
@@ -45,10 +53,10 @@ function [ecModel_batch,OptSigma] = getConstrainedModel(ecModel,sigma,Ptot,gR_ex
         %The sigma factor is reffited for minimal glucose media
         disp('***************************************************************')
         disp('        Fitting the average enzymes saturation factor          ')
-        OptSigma = sigmaFitter(ecModel,Ptot,gR_exp);
+        OptSigma = sigmaFitter(ecModel,Ptot,gR_exp,f,GAM);
         %The ecModel with new modified Kcat values is constrained with the 
         %optimal sigma value found
-        [ecModel_batch,~,~] = constrainEnzymes(ecModel,Ptot,OptSigma);
+        [ecModel_batch,~,~] = constrainEnzymes(ecModel,Ptot,OptSigma,f,GAM);
         %Simulate growth on minimal glucose media and export the top ten used 
         %enzymes to the file "topUsedEnzymes.txt" in the containing folder
         cd (current)

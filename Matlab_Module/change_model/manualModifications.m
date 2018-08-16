@@ -121,7 +121,7 @@ for i = 1:length(model.rxns)-1
         end
     end
 end
-model = removeRxns(model,model.rxns(rem_rxn));
+model = removeReactions(model,model.rxns(rem_rxn),true);
 % Merge arm reactions to reactions with only one isozyme (2017-01-17):
 arm_pos = zeros(size(model.rxns));
 p       = 0;
@@ -153,7 +153,7 @@ for i = 1:length(model.rxns)
     end
 end
 % Remove saved arm reactions:
-model = removeRxns(model,model.rxns(arm_pos(1:p)));
+model = removeReactions(model,model.rxns(arm_pos(1:p)),true);
 
 % Remove unused enzymes after manual curation (2017-01-16):
 rem_enz = false(size(model.enzymes));
@@ -175,12 +175,6 @@ model.ub(strcmp(model.rxnNames,'D-glucose exchange')) = 0;
 
 % Remove incorrect pathways:
 model = removeIncorrectPathways(model);
-
-% Provide consistency between grRules and rules fields
-model.rules = model.grRules;
-
-%Integrate modifications into rxnGeneMat
-model = buildRxnGeneMat(model);
 
 % Map the index of the modified Kcat values to the new model (after rxns removals)
 modifications = mapModifiedRxns(modifications,model);
@@ -204,12 +198,14 @@ function [newValue,modifications] = curation_growthLimiting(reaction,enzName,MW_
               end
           end
         % HMG-CoA reductase (P12683-P12684/EC1.1.1.34): Only kcat available 
-        % in BRENDA was for Rattus Norvegicus. Value corrected with max. 
-        % s.a. in Rattus norvegicus [0.03 umol/min/mg, Mw=226 kDa] from
-        % BRENDA (2018-01-27)
+        % in BRENDA was for Rattus Norvegicus. Value corrected with a
+        % s.a. from the Haloferax volcanii enzyme expressed in E. coli (max 
+        % value available in BRENDA for a microorganism, without counting
+        % recombinant proteins) (2018-08-11). Ref: Bischoff & Rodwell 1996
+        % https://www.ncbi.nlm.nih.gov/pmc/articles/PMC177616/
           if (strcmpi('prot_P12683',enzName)||strcmpi('prot_P12684',enzName)) && ...
                       contains(reaction,'hydroxymethylglutaryl')
-             newValue         = -(0.03*226000*0.06)^-1;
+             newValue         = -(24*60*1e3/1e3*MW_set)^-1;
              modifications{1} = [modifications{1}; 'P12683'];
              modifications{2} = [modifications{2}; reaction];
           end
@@ -436,14 +432,14 @@ function model = otherChanges(model)
     % Remove protein P40009 (Golgi apyrase) from missanotated rxns (2016-12-14):
       pos_rxn = find(~cellfun(@isempty,strfind(model.rxnNames,'ATPase, cytosolic (No3)')));
       if ~isempty(pos_rxn) && pos_rxn~=0
-         model = removeRxns(model,model.rxns(pos_rxn));
+         model = removeReactions(model,model.rxns(pos_rxn));
       end
       
     % Remove 2 proteins from missanotated rxns: Q12122 from cytosolic rxn (it's
     % only mitochondrial) & P48570 from mitochondrial rxn (it's only cytosolic).
     % Also rename r_0543No2 to r_0543No1 (for consistency) (2017-08-28):
-    model = removeRxns(model,'r_0543No1');
-    model = removeRxns(model,'r_1838No2');
+    model = removeReactions(model,{'r_0543No1'});
+    model = removeReactions(model,{'r_1838No2'});
     index = find(strcmp(model.rxns,'r_0543No2'));
     if ~isempty(index)
         model.rxnNames{index} = 'homocitrate synthase (No1)';

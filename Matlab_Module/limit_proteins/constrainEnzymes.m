@@ -1,22 +1,29 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% model = constrainEnzymes(model,Ptotal,sigma,pIDs,data)
+% model = constrainEnzymes(model,Ptot,sigma,f,GAM,pIDs,data,gRate,GlucUptake)
 % 
-% Benjamín J. Sánchez. Last edited: 2018-03-19
+% Benjamín J. Sánchez. Last edited: 2018-08-10
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function [model,enzUsages,modifications] = constrainEnzymes(model,Ptot,sigma,pIDs,data,gRate,GlucUptake)
+function [model,enzUsages,modifications] = constrainEnzymes(model,Ptot,sigma,f,GAM,pIDs,data,gRate,GlucUptake)
 
-%Current values:
-f       = 0.4461; %Yeast 7.6 (all enzymes) [g(Pmodel)/g(Ptot)]
-Pbase   = 0.4005; %Value from biomass comp. (Förster data @ 0.1 1/h)
+%Compute f if not provided:
+if nargin < 4
+    [f,~] = measureAbundance(ecModel.enzymes);
+end
+
+%Fit GAM if not provided:
+if nargin < 5
+    GAM = fitGAM(model);
+end
 
 %No UB will be changed if no data is available -> pool = all enzymes(FBAwMC)
-if nargin == 3
+if nargin < 6
     pIDs          = cell(0,1);
     data          = zeros(0,1);
     enzUsages     = zeros(0,1);
     modifications = cell(0,1);
 end
+
 %Remove zeros or negative values
 data = cleanDataset(data);
 %Assign concentrations as UBs [mmol/gDW]:
@@ -40,8 +47,11 @@ measured       = ~isnan(model.concs);
 concs_measured = model.concs(measured);
 Pmeasured      = sum(concs_measured);
 
+%Get protein content in biomass pseudoreaction:
+[~,Pbase,~,~,~,~] = sumBioMass(model);
+
 if Pmeasured > 0
-    %Calculate fraction of non measured proteins in model out of remaining mass:    
+    %Calculate fraction of non measured proteins in model out of remaining mass:
     [fn,~] = measureAbundance(model.enzymes(~measured),'prot_abundance.txt');
     fm     = Pmeasured/Ptot;
     f      = fn/(1-fm);
@@ -53,11 +63,11 @@ end
 
 %Constrain the rest of enzymes with the pool assumption:
 if sum(strcmp(model.rxns,'prot_pool_exchange')) == 0
-    model = constrainPool(model,~measured,1000);
+    model = constrainPool(model,~measured,fs*Pbase);
 end
 
-model = fixedModifications(model);
-model = changeProtein(model,Ptot,fs);
+%Modify protein/carb content and GAM:
+model = scaleBioMass(model,Ptot,GAM);
 
 %Display some metrics:
 disp(['Total protein amount measured = '     num2str(Pmeasured)              ' g/gDW'])
@@ -67,7 +77,7 @@ disp(['Total protein amount not measured = ' num2str(Ptot - Pmeasured)       ' g
 disp(['Total enzymes not measured = '        num2str(sum(~measured))         ' enzymes'])
 disp(['Total protein in model = '            num2str(Ptot)                   ' g/gDW'])
 
-if nargin >5 
+if nargin > 7
     [model,enzUsages,modifications] = flexibilizeProteins(model,gRate,GlucUptake);
     plotHistogram(enzUsages,'Enzyme usage [-]',[0,1],'Enzyme usages','usages')
 end
