@@ -37,7 +37,7 @@ end
 function swissprot = buildSWISSPROTtable
 
 %Build Swissprot table (uniprot code - protein name - gene names - EC number - MW - sequence):
-fileID_uni        = fopen('../../databases/uniprot-organism%3Ayeast.tab');
+fileID_uni        = fopen('../../databases/uniprot.tab');
 swissprot         = textscan(fileID_uni,'%s %s %s %s %s %s','delimiter','\t');
 swissprot         = [swissprot{1} swissprot{2} swissprot{3} swissprot{4} swissprot{5}];
 swissprot(1,:)    = [];
