@@ -8,8 +8,8 @@ About GECKO
 
 The **GECKO** toolbox is a Matlab/Python package for enhancing a **G**\ enome-scale model to account for **E**\ nzyme **C**\ onstraints, using **K**\ inetics and **O**\ mics. It is the companion software to `this <http://www.dx.doi.org/10.15252/msb.20167411>`_ publication, and it has two main parts:
 
-* `geckomat`: Matlab+Python scripts to fetch online data and build/simulate enzyme-constrained models.
-* `geckopy`: a Python package which can be used with `cobrapy <https://opencobra.github.io/cobrapy/>`_ to obtain a ecYeastGEM model object, optionally adjusted for provided proteomics data.
+- `geckomat`: Matlab+Python scripts to fetch online data and build/simulate enzyme-constrained models.
+- `geckopy`: a Python package which can be used with `cobrapy <https://opencobra.github.io/cobrapy/>`_ to obtain a ecYeastGEM model object, optionally adjusted for provided proteomics data.
 
 Last update: 2018-08-17
 
@@ -42,20 +42,26 @@ Usage
 ~~~~~
 
 - **For creating an enzyme constrained model:**
-	- Update the following data files in ``/databases`` with your organism infomation:
-		- ``databases/chemostatData.tsv``: Chemostat data for estimating GAM.
-		- ``databases/manual_data.txt``: Manual kcat data from eventual manual curations.
-		- ``databases/prot_abundance.txt``: Data from Pax-DB.
-		- ``databases/uniprot.tab``: Data from uniprot.
-	- Adapt the following functions in ``/geckomat`` to your organism:
-		- ``geckomat/get_enzyme_data/preprocessModel.m``
-		- ``geckomat/change_model/manualModifications.m``
-		- ``geckomat/change_model/removeIncorrectPathways.m``
-		- ``geckomat/limit_proteins/sumBioMass.m``
-		- ``geckomat/limit_proteins/scaleBioMass.m``
-		- ``geckomat/kcat_sensitivity_analysis/changeMedia_batch.m``
-	- Run ``geckomat/get_enzyme_data/updateDatabases.m`` to update ``ProtDatabase.mat``.
-	- Run ``geckomat/enhanceGEM.m`` with your metabolic model as input.
+
+  - Update the following data files in ``/databases`` with your organism infomation:
+  
+    - ``databases/chemostatData.tsv``: Chemostat data for estimating GAM.
+    - ``databases/manual_data.txt``: Manual kcat data from eventual manual curations.
+    - ``databases/prot_abundance.txt``: Data from Pax-DB.
+    - ``databases/uniprot.tab``: Data from uniprot.
+	
+  - Adapt the following functions in ``/geckomat`` to your organism:
+  
+    - ``geckomat/get_enzyme_data/preprocessModel.m``
+    - ``geckomat/change_model/manualModifications.m``
+    - ``geckomat/change_model/removeIncorrectPathways.m``
+    - ``geckomat/limit_proteins/sumBioMass.m``
+    - ``geckomat/limit_proteins/scaleBioMass.m``
+    - ``geckomat/kcat_sensitivity_analysis/changeMedia_batch.m``
+	
+  - Run ``geckomat/get_enzyme_data/updateDatabases.m`` to update ``ProtDatabase.mat``.
+  - Run ``geckomat/enhanceGEM.m`` with your metabolic model as input.
+  
 - **For performing simulations with an enzyme-constrained model:** Enzyme-constrained models can be used as any other metabolic model, with toolboxes such as COBRA or RAVEN. For more information on rxn/met naming convention, see the supporting information of `Sanchez et al. (2017) <https://dx.doi.org/10.15252/msb.20167411>`_
 
 geckopy: Integrating proteomic data to ecYeastGEM
