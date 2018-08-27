@@ -45,18 +45,18 @@ Usage
 
   - Update the following data files in ``/databases`` with your organism infomation:
   
-    - ``databases/chemostatData.tsv``: Chemostat data for estimating GAM.
-    - ``databases/manual_data.txt``: Manual kcat data from eventual manual curations.
-    - ``databases/prot_abundance.txt``: Data from Pax-DB.
-    - ``databases/uniprot.tab``: Data from uniprot.
+    - ``databases/chemostatData.tsv``: Chemostat data for estimating GAM	(optional).
+    - ``databases/manual_data.txt``: Kcat data from eventual manual curations	(optional).
+    - ``databases/prot_abundance.txt``: Protein abundance Data from Pax-DB.
+    - ``databases/uniprot.tab``: Gene-proteins data from uniprot.
 	
   - Adapt the following functions in ``/geckomat`` to your organism:
   
     - ``geckomat/get_enzyme_data/preprocessModel.m``
-    - ``geckomat/change_model/manualModifications.m``
+    - ``geckomat/change_model/manualModifications.m``	(optional)
     - ``geckomat/change_model/removeIncorrectPathways.m``
-    - ``geckomat/limit_proteins/sumBioMass.m``
-    - ``geckomat/limit_proteins/scaleBioMass.m``
+    - ``geckomat/limit_proteins/sumBioMass.m``	(If chemostat data is provided)
+    - ``geckomat/limit_proteins/scaleBioMass.m``	(If chemostat data is provided)
     - ``geckomat/kcat_sensitivity_analysis/changeMedia_batch.m``
 	
   - Run ``geckomat/get_enzyme_data/updateDatabases.m`` to update ``ProtDatabase.mat``.
