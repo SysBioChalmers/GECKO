@@ -6,19 +6,18 @@
 About GECKO
 -----------
 
-The **GECKO** toolbox is a Matlab/Python package for enhancing a **G**\ enome-scale model to account for **E**\ nzyme **C**\ onstraints, using **K**\ inetics and **O**\ mics. It is the companion software to the publication:
+The **GECKO** toolbox is a Matlab/Python package for enhancing a **G**\ enome-scale model to account for **E**\ nzyme **C**\ onstraints, using **K**\ inetics and **O**\ mics. It is the companion software to `this <http://www.dx.doi.org/10.15252/msb.20167411>`_ publication, and it has two main parts:
 
-Benjamin J. Sanchez, Cheng Zhang, Avlant Nilsson, Petri-Jaan Lahtvee, Eduard J. Kerkhoven, Jens Nielsen (2017). *Improving the phenotype predictions of a yeast genome-scale metabolic model by incorporating enzymatic constraints.* `Molecular Systems Biology, 13(8):935 <http://www.dx.doi.org/10.15252/msb.20167411>`_
+- ``geckomat``: Matlab+Python scripts to fetch online data and build/simulate enzyme-constrained models.
+- ``geckopy``: a Python package which can be used with `cobrapy <https://opencobra.github.io/cobrapy/>`_ to obtain a ecYeastGEM model object, optionally adjusted for provided proteomics data.
 
-The software comes in two flavors, Python and Matlab scripts to fetch online data and build the published ecYeast7 GECKO models, and a Python package which can be used with `cobrapy <https://opencobra.github.io/cobrapy/>`_ to obtain a ecYeast7 model object, optionally adjusted for provided proteomics data.
-
-Last update: 2018-07-31
+Last update: 2018-08-17
 
 This repository is administered by Benjamin J. Sanchez (`@BenjaSanchez <https://github.com/benjasanchez>`_), Division of Systems and Synthetic Biology, Department of Biology and Biological Engineering, Chalmers University of Technology.
 
 
-Building a GECKO model
-----------------------
+geckomat: Building enzyme-constrained models
+--------------------------------------------
 
 Required software - Python module
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -27,9 +26,9 @@ Required software - Python module
 - `setuptools for python 2.7 <http://www.lfd.uci.edu/~gohlke/pythonlibs/#setuptools>`_
 - SOAPpy:
 
-::
+  ::
 
-   easy_install-2.7 SOAPpy
+     easy_install-2.7 SOAPpy
 
 Required software - Matlab module
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -42,13 +41,33 @@ Required software - Matlab module
 Usage
 ~~~~~
 
-See the supporting information of `Sanchez et al. (2017) <https://dx.doi.org/10.15252/msb.20167411>`_
+- **For creating an enzyme constrained model:**
 
+  - Update the following data files in ``/databases`` with your organism infomation:
+  
+    - ``databases/chemostatData.tsv``: Chemostat data for estimating GAM	(optional).
+    - ``databases/manual_data.txt``: Kcat data from eventual manual curations	(optional).
+    - ``databases/prot_abundance.txt``: Protein abundance Data from Pax-DB.
+    - ``databases/uniprot.tab``: Gene-proteins data from uniprot.
+	
+  - Adapt the following functions in ``/geckomat`` to your organism:
+  
+    - ``geckomat/get_enzyme_data/preprocessModel.m``
+    - ``geckomat/change_model/manualModifications.m``	(optional)
+    - ``geckomat/change_model/removeIncorrectPathways.m``
+    - ``geckomat/limit_proteins/sumBioMass.m``	(If chemostat data is provided)
+    - ``geckomat/limit_proteins/scaleBioMass.m``	(If chemostat data is provided)
+    - ``geckomat/kcat_sensitivity_analysis/changeMedia_batch.m``
+	
+  - Run ``geckomat/get_enzyme_data/updateDatabases.m`` to update ``ProtDatabase.mat``.
+  - Run ``geckomat/enhanceGEM.m`` with your metabolic model as input.
+  
+- **For performing simulations with an enzyme-constrained model:** Enzyme-constrained models can be used as any other metabolic model, with toolboxes such as COBRA or RAVEN. For more information on rxn/met naming convention, see the supporting information of `Sanchez et al. (2017) <https://dx.doi.org/10.15252/msb.20167411>`_
 
-Integrating proteomic data to the yeast GECKO model
----------------------------------------------------
+geckopy: Integrating proteomic data to ecYeastGEM
+-------------------------------------------------
 
-If all you need is the ecYeast7 model to use together with cobrapy you can use the ``geckopy`` Python package.
+If all you need is the ecYeastGEM model to use together with cobrapy you can use the ``geckopy`` Python package.
 
 Required software
 ~~~~~~~~~~~~~~~~~

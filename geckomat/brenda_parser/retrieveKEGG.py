@@ -12,7 +12,7 @@
 #   http://rest.kegg.jp/list/organism
 organism_codes = ['sce',...,...,...]
 #2) Path for storing all generated files:
-output_path = '.../GECKO/Databases/KEGG'
+output_path = '.../GECKO/databases/KEGG'
 #3) Last organism processed (if the program was interrupted)
 #   Starting form scratch?, leave empty:
 last_organism = ''

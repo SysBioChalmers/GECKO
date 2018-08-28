@@ -7,7 +7,7 @@
 function GAM = fitGAM(model)
 
 %Load chemostat data:
-fid = fopen('../../Databases/chemostatData.tsv','r');
+fid = fopen('../../databases/chemostatData.tsv','r');
 exp_data = textscan(fid,'%f32 %f32 %f32 %f32','Delimiter','\t','HeaderLines',1);
 exp_data = [exp_data{1} exp_data{2} exp_data{3} exp_data{4}];
 fclose(fid);

@@ -1,9 +1,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  function [KCATcell, SAcell] = loadBRENDAdata
-     cd ../../Databases
-     KCAT_file      = 'max_KCAT.txt';
-     SA_file        = 'max_SA.txt';
-     MW_file        = 'max_MW.txt';
+     KCAT_file      = '../../databases/max_KCAT.txt';
+     SA_file        = '../../databases/max_SA.txt';
+     MW_file        = '../../databases/max_MW.txt';
      %Extract BRENDA DATA from files information
      scallingFactor = 3600;   %[1/s] -> [1/h]
      KCATcell       = openDataFile(KCAT_file,scallingFactor); 

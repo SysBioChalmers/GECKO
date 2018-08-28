@@ -8,16 +8,14 @@
 function [model,modifications] = manualModifications(model)
 
 %Read manual data:
-cd ../../Databases
-fID           = fopen('manual_data.txt');
+fID           = fopen('../../databases/manual_data.txt');
 data          = textscan(fID,'%s %s %s %s %f','delimiter','\t');
 structure     = data{2};
 kcats         = data{5}.*3600;
-data          = load('ProtDatabase.mat');
+data          = load('../../databases/ProtDatabase.mat');
 swissprot     = data.swissprot;
 kegg          = data.kegg;
 fclose(fID);
-cd ../Matlab_Module/change_model
 modifications{1} = cell(0,1);
 modifications{2} = cell(0,1);
 

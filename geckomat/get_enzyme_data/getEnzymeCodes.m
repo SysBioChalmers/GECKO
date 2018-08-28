@@ -25,11 +25,9 @@ function model_data = getEnzymeCodes(model)
 [grRules,~]   = standardizeGrRules(model,true);
 model.grRules = grRules;
 
-cd ../../Databases
-data      = load('ProtDatabase.mat');
+data      = load('../../databases/ProtDatabase.mat');
 swissprot = data.swissprot;
 kegg      = data.kegg;
-cd ../Matlab_Module/get_enzyme_data
 
 swissprot = standardizeDatabase(swissprot);
 kegg      = standardizeDatabase(kegg);
