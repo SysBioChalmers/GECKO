@@ -1,6 +1,19 @@
 History
 =======
 
+1.3.1 (2018-08-28)
+------------------
+* Features:
+    * Adapted the pipeline to work with `yeast-GEM <https://github.com/SysBioChalmers/yeast-GEM>`_, including loading, processing and saving the model. Current model is constructed from yeast `v8.1.3 <https://github.com/SysBioChalmers/yeast-GEM/releases/tag/v8.1.3>`_ (PR #39).
+    * When constructing ``ecModel_batch``, lipid fraction is now scaled together with protein and carbohydrate fractions (PR #39).
+* Fixes:
+    * ``geckopy`` tests flexibilized to comply with yeast-GEM (PR #39).
+* Refactoring:
+    * Reorganized the repo, making a division between ``geckomat`` (Matlab part for generation + simulation of ecModels) and ``geckopy`` (Python part for simulations of ecYeastGEM) (PR #40).
+    * Parameters ``f`` (mass fraction of enzymes in model), ``Pbase``, ``Cbase``, ``Lbase`` (biomass composition) and ``GAM`` (growth-associated ATP maintenance) are now automatically computed (PR #39).
+    * Added `RAVEN <https://github.com/SysBioChalmers/RAVEN>`_ as a dependency for ``geckomat`` (PR #38).
+    * Changed most COBRA functions in pipeline to RAVEN functions (PR #39).
+
 1.3.0 (2018-08-01)
 ------------------
 * Features:
