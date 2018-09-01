@@ -5,6 +5,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function [ecModel,model_data,kcats] = enhanceGEM(model,toolbox,name,version)
 
+if nargin < 3
+    name    = '';
+end
+if nargin < 4
+    version = '';
+end
+
 %Provide your organism scientific name
 org_name = 'saccharomyces cerevisiae';
 
@@ -15,31 +22,12 @@ if strcmp(toolbox,'COBRA')
     model = ravenCobraWrapper(model);
 end
 
-%Get name and version (if not provided):
-if nargin < 4
-    name    = '';
-    version = '';
-    if isfield(model,'id')
-        id = strsplit(model.id,'_v');
-        if length(id) == 2
-            name    = id{1};
-            name    = ['ec' upper(name(1)) name(2:end)];
-            version = id{2};
-        end
-    end
-    while isempty(name)
-        name = input('Please enter the desired ecModel name: ','s');
-    end
-    while isempty(version)
-        version = input('Please enter the model version: ','s');
-    end
-end
-
 %Remove blocked rxns + correct model.rev:
-cd get_enzyme_data
-model = preprocessModel(model);
+cd change_model
+[model,name,version] = preprocessModel(model,name,version);
 
 %Retrieve kcats & MWs for each rxn in model:
+cd ../get_enzyme_data
 model_data = getEnzymeCodes(model);
 kcats      = matchKcats(model_data,org_name);
 save(['../../models/' name '/data/' name '_enzData.mat'],'model_data','kcats','version')
