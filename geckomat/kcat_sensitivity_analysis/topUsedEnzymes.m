@@ -6,17 +6,11 @@
 % in a mass-wise way. The results are written in the topUsedEnzymes.txt
 % file and stored in the container folder.
 %
-% Ivan Domenzain    Last edited. 2018-03-18
+% Ivan Domenzain    Last edited. 2018-09-10
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function T = topUsedEnzymes(fluxes,model,conditions,name)
-    % Extract enzymes information from the model 
-    MWs        = model.MWs;
-    enzymes    = model.enzymes;
-    % Initialize
-    enz_usages = [];
+function topUsedEnzymes(fluxes,model,conditions,name)
     Indexes    = [];
-    topOne     = [];
-    varNames   = [];
+    varNames   = {};
     outputFile = table;
     % Find the enzyme usage reactions
     usages     = find(~cellfun(@isempty,strfind(model.rxnNames,'prot_')));
