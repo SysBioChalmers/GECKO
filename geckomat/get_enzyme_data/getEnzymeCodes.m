@@ -82,12 +82,18 @@ for i = 1:n
         if ~isempty(union_string(new_EC))
             count(1) = count(1) + isrev(i);
             DBase    = 'swissprot';
+            if ~isempty(multGenes{1})
+                multGenes{3} = DBase;
+            end
         else
             %Find match in KEGG:
             [new_uni,new_EC,new_MW,newGene,multGenes] = findInDB(model.grRules{i},kegg);
             if ~isempty(union_string(new_EC))
                 count(2) = count(2) + isrev(i);
                 DBase    = 'kegg';
+                if ~isempty(multGenes{1})
+                    multGenes{3} = DBase;
+                end
             else
                 %Check if rxn is an exchange/transport rxn with no GPRs:
                 GPRs       = sum(rgmat(i,:));
@@ -122,6 +128,8 @@ for i = 1:n
             conflicts{2} = [conflicts{2};multGenes{1}];
             %Indexes in DB
             conflicts{3} = [conflicts{3};multGenes{2}];
+            %DB name
+            conflicts{4} = [conflicts{4};multGenes{3}];
             if strcmpi(action,'add')
                 if strcmpi(DBase,'swissprot')
                     [uni,EC,MW,Genes] = addMultipleMatches(uni,EC,MW,Genes,multGenes,swissprot);
@@ -141,6 +149,11 @@ model_data.uniprots     = uniprots;
 model_data.EC_numbers   = EC_numbers;
 model_data.MWs          = MWs;
 model_data.count        = count;
+%Display error message with the multiple gene-protein matches found
+if strcmpi(action,'display') && ~isempty(conflicts{1})
+    displayErrorMessage(conflicts,swissprot,kegg)
+end
+
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function database = standardizeDatabase(database)
@@ -170,20 +183,24 @@ for i=1:length(conflicts{1})
 end
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function displayErrorMessage(conflicts,DB)
+function displayErrorMessage(conflicts,swissprot,kegg)
 STR = '\n Some  genes with multiple associated proteins were found, please';
 STR = [STR, ' revise case by case in the protDatabase.mat file:\n\n'];   
 for i=1:length(conflicts{1})
-    %indexes = 
-    proteins = DB(conflicts{2}{i},1);
-    STR = [STR, '- gene: ' conflicts{1}{i} '  Proteins: ' strjoin(proteins) '\n'];
+    if strcmpi(conflicts{4}{i},swissprot)
+        DB = swissprot;
+    else
+        DB = kegg;
+    end
+    proteins = DB(conflicts{3}{i},1);
+    STR = [STR, '- gene: ' conflicts{2}{i} '  Proteins: ' strjoin(proteins) '\n'];
 end
 STR = [STR, '\nIf a wrongly annotated case was found then call the '];
-STR = [STR, 'getEnzymeCodes.m function again with the option conflictResponse'];
+STR = [STR, 'getEnzymeCodes.m function again with the option action'];
 STR = [STR, '= ignore\n\n'];
 STR = [STR, 'If the conflicting proteins are desired to be kept as isoenzymes'];
 STR = [STR, ' then call the getEnzymeCodes.m function'];
-STR = [STR, ' again with the option conflictResponse = add\n'];
+STR = [STR, ' again with the option action = add\n'];
 error(sprintf(STR))
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
