@@ -46,15 +46,8 @@ model = addReaction(model,newRxnName{1}, ...
                     'objectiveCoef', obj, ...
                     'subSystem', subSystem);
 %Add/modify gene(s) association information if available
-if nargin == 6 && ~isempty(protGenes)
+if nargin >5 && ~isempty(protGenes)
     model.grRules{strcmp(model.rxns,newRxnName{1})} = protGenes;
-    %If new genes were found in the introduced grRule, they should be added
-    %to the model genes
-    genes    = strsplit(protGenes,' and ')';
-    newGenes = setdiff(model.genes,genes);
-    if ~isempty(newGenes)
-        model.genes = [model.genes; newGenes];
-    end
 end
 end
 
