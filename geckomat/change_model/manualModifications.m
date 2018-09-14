@@ -24,7 +24,6 @@ modifications{2} = cell(0,1);
 uniprots = cell(size(kcats));
 stoich   = cell(size(kcats));
 for i = 1:length(kcats)
-    protGenes{i} = strrep(protGenes{i},', ',' and ');
     uniprots{i}  = strsplit(structure{i},' + ');
     stoich{i}    = ones(size(uniprots{i}));
     %Separate complex strings in units and amount of each unit:
