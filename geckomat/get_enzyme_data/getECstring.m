@@ -1,8 +1,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% EC_set = getEcCodes(EC_set,ecNumbers)
+% EC_set = getECstring(EC_set,ecNumbers)
 % 
 % Provides a single string with all the EC numbers associated to a given
-% protein with according to the next format:?ECX.X.X.X ECX.X.X.X ECX.X.X.X'
+% protein with according to the next format: "ECX.X.X.X ECX.X.X.X ECX.X.X.X"
 %
 % Ivan Domenzain.      Last edited: 2018-09-06
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

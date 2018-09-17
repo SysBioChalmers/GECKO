@@ -14,7 +14,7 @@
 % eModel            modified model accounting for enzymes
 % 
 % Cheng Zhang               2015-12-03
-% Benjam??n J. S??nchez     2018-08-11
+% Benjamin J. Sanchez       2018-08-11
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function eModel = readKcatData(model_data,kcats)
