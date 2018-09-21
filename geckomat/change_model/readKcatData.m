@@ -14,7 +14,7 @@
 % eModel            modified model accounting for enzymes
 % 
 % Cheng Zhang               2015-12-03
-% Benjamín J. Sánchez     2018-08-11
+% Benjamin J. Sanchez       2018-08-11
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function eModel = readKcatData(model_data,kcats)
@@ -28,11 +28,14 @@ kcats = [Fkcat;Bkcat(rev,:)];
 %Update uniprots with both directions:
 uniprots = [model_data.uniprots; model_data.uniprots(rev,:)];
 
+%Update matched genes with both directions:
+matchedGenes = [model_data.matchedGenes; model_data.matchedGenes(rev,:)];
+
 %Convert to irreversible model with RAVEN function (will split in 2 any reversible rxn):
 model = convertToIrrev(model_data.model);
 
 %Convert original model to enzyme model according to uniprots and kcats:
-eModel = convertToEnzymeModel(model,uniprots,kcats);
+eModel = convertToEnzymeModel(model,matchedGenes,uniprots,kcats);
 
 %Leave all UB = +Inf:
 eModel.ub(eModel.ub == 1000) = +Inf;
