@@ -9,7 +9,7 @@
 % L -> Lipid fraction [g/gDW]
 % Function adapted from SLIMEr: https://github.com/SysBioChalmers/SLIMEr
 %
-% Benjamín Sánchez. Last update: 2018-08-10
+% Benjamin Sanchez. Last update: 2018-08-10
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function [X,P,C,R,D,L] = sumBioMass(model)

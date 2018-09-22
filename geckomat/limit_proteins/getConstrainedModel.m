@@ -15,7 +15,7 @@
 % (enzyme usages > 10% of the total proteome).
 %
 % Ivan Domenzain        2018-03-27
-% Benjamín Sánchez	2018-08-10
+% Benjamin Sanchez      2018-08-10
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function [ecModel_batch,OptSigma] = getConstrainedModel(ecModel,sigma,Ptot,gR_exp,modifications,name)
 	current = pwd;

@@ -20,7 +20,7 @@
 %       optSigma    The optimal sigma value obtained
 %
 % Ivan Domenzain        2018-06-11
-% Benjamín Sánchez	2018-08-10
+% Benjamin Sanchez      2018-08-10
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function OptSigma = sigmaFitter(model,Ptot,gR_exp,f,GAM)

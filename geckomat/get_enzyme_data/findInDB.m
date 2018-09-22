@@ -1,45 +1,91 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% [uni,EC] = findInDB(grRule,DB)
-% Matches the uniprot and EC number for a given rxn into a given database.
+function [uni,EC,MW,Genes,conflicts] = findInDB(grRule,DB)
+% findInDB
+%   Gets the uniprots and EC numbers for a given rxn into a given database
 %
-% Benjamin J. Sanchez. Last edited: 2017-08-10
-% Ivan Domenzain.      Last edited: 2018-03-29
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-function [uni,EC,MW] = findInDB(grRule,DB)
+%   grRule     Genes association for a given metabolic reaction
+%   DB         Cell array containing genes-> protein relationships, EC#s,MWs 
+%              and sequences coming from external databases (Swissprot or
+%              KEGG)
+%
+%   uni        Array containing all the uniprot IDs related to an isoenzyme,
+%              for a given reaction in each of its cells.
+%   EC         Array containing all the EC numbers related to an isoenzyme,
+%              for a given reaction in each of its cells.
+%   Genes      Array containing all the genes related to an isoenzyme,
+%              for a given reaction in each of its cells.
+%   conflicts  Contains those genes with multiple protein matches. 
+%
+%   Usage: [uni,EC,MW,Genes,conflicts] = findInDB(grRule,DB,action)
+%
+%   Benjamin J. Sanchez, 2017-08-10
+%   Ivan Domenzain,      2018-09-06
+%
 
 %Find simple gene sets for reaction:
-gene_sets     = getSimpleGeneSets(grRule);
-uni           = cell(size(gene_sets));
-EC            = cell(size(gene_sets));
-MW            = zeros(size(gene_sets));
+gene_sets = getSimpleGeneSets(grRule);
+%Preallocate function variables
+uni       = cell(size(gene_sets));
+EC        = cell(size(gene_sets));
+MW        = zeros(size(gene_sets));
+Genes     = cell(size(gene_sets));
+DBgenes   = DB(:,3);
+DBecNum   = DB(:,4);
+conflicts = cell(1,2);
 
 for i = 1:length(gene_sets)
     %Split the gene set and match each gene:
-    gene_set = strsplit(gene_sets{i},' and ');
-    uni_set  = cell(size(gene_set));
-    EC_set   = cell(size(gene_set));
+    gene_set  = strsplit(gene_sets{i},' and ');
+    uni_set   = cell(size(gene_set));
+    EC_set    = cell(size(gene_set));
+    genesCell = cell(size(gene_set));
     for j = 1:length(gene_set)
-        for k = 1:length(DB)
-            if sum(strcmp(DB{k,3},gene_set{j})) > 0
-                uni_set{j} = DB{k,1};
-                if ~isempty(DB{k,4})
-                    new_EC_set = strsplit(DB{k,4},' ');
-                    for l = 1:length(new_EC_set)
-                        EC_set{j} = [EC_set{j} 'EC' new_EC_set{l} ' '];
+        gene = gene_set{j};
+        %Get the indexes for all of the proteins related to gene
+        matches = cellfun(@(x) sum(strcmpi(x,gene)), DBgenes,'UniformOutput',false);
+        matches = (find(cell2mat(matches)));
+        if ~isempty(matches)
+            uni_set{j}   = DB{matches,1};
+            genesCell{j} = gene;
+            %Get the indexes of the matched protein(s) with non-empty EC#s
+            nonEmpty = matches(~cellfun(@isempty,DBecNum(matches)));
+            if ~isempty(nonEmpty)
+                [geneECs,ia] = unique(DBecNum(nonEmpty),'stable');
+                %For genes with multiple proteins associated to several
+                %non-empty ecNumbers
+                if length(geneECs)>1
+                    indexes = nonEmpty(ia);
+                    ecNum = DBecNum(indexes);
+                    %Save first match
+                    uni_set{j} = DB{indexes(1),1};
+                    EC_set{j}  = getECstring(EC_set{j},ecNum{1});
+                    %Save additional matches as potential conflicts
+                    if ~ismember(gene,conflicts{1})
+                        conflicts{1} = [conflicts{1}; {gene}];
+                        conflicts{2} = [conflicts{2}; {indexes}]; 
                     end
+                else
+                    %If there is a single unique ec number for the matched
+                    %protein(s), then choose the lightest protein
+                    [~,minW]   = min(cell2mat(DB(nonEmpty,5)));
+                    matches    = nonEmpty(minW);
+                    uni_set{j} = DB{matches,1};
+                    EC_set{j}  = getECstring(EC_set{j},DBecNum{matches});
                 end
             end
+        else
+            uni_set{j} = '';
         end
+                             
         if isempty(EC_set{j})
             EC_set{j} = '';
-        else
-            EC_set{j} = EC_set{j}(1:end-1);
         end
     end
     %Uniprot: Delete repeated and empty spaces
-    [uni_set,~] = deleteRepeated(uni_set);
-    uni_set     = uni_set(~cellfun('isempty',uni_set));
+    [uni_set,repeated] = deleteRepeated(uni_set);
+    genesCell          = genesCell(~repeated);
+    emptyIndexes       = cellfun(@isempty,uni_set);
+    uni_set            = uni_set(~emptyIndexes);
+    genesCell          = genesCell(~emptyIndexes);
     
     %EC: Find union and intersection between all units (only applies for
     %complexes, i.e. length(EC_set) > 1):
@@ -60,20 +106,17 @@ for i = 1:length(gene_sets)
         EC_set = uni_EC;
     else
         EC_set = int_EC;
-    end
-    
+    end    
     %MW: use uniprot codes + swissprot table:
     for j = 1:length(uni_set)
-        for k = 1:length(DB)
-            if strcmpi(uni_set{j},DB{k,1})
-                MW(i) = MW(i) + DB{k,5};
-            end
-        end
+        index     = strcmpi(DB(:,1),uni_set{j});
+        minWeight = min(DB{index,5});
+        MW(i)     = MW(i) + minWeight;
     end
-    
     %Add new codes as new possible isoenzymes:
-    uni{i} = strjoin(uni_set,' ');
-    EC{i}  = strjoin(EC_set,' ');
+    uni{i}   = strjoin(uni_set,' ');
+    EC{i}    = strjoin(EC_set,' ');
+    Genes{i} = strjoin(genesCell,' ');
 end
 
 %Delete repeated Uniprots (and the corresponding ECs):
@@ -84,12 +127,10 @@ MW(deleted)   = [];
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 function int_EC = intersection(prev_EC,new_EC)
 %Finds the common elements between two cell arrays, if any. Also considers
 %wildcards (e.g. if 'EC1.1.1.1' is in one array and 'EC1.1.1.-' is in the
 %other one, then 'EC1.1.1.1' is added to the intersection).
-
 int_EC = {};
 for i = 1:length(prev_EC)
     for j = 1:length(new_EC)
@@ -99,11 +140,8 @@ for i = 1:length(prev_EC)
         end
     end
 end
-
 end
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 function int_EC = compare_wild(EC)
 %Goes through a cell array of EC numbers, and erases any repetitions,
 %considering also wildcards (e.g. will erase 'EC1.2.3.-' if 'EC1.2.3.4' is
@@ -140,5 +178,4 @@ end
 int_EC = EC(non_repeated);
 
 end
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
