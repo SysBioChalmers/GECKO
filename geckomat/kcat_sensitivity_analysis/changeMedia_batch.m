@@ -13,7 +13,7 @@
 % OUTPUT:
 %   - model: The ECmodel with
 %
-% Ivan Domenzain        2018-09-22
+% Ivan Domenzain        2018-09-27
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function [model,pos] = changeMedia_batch(model,c_source,media,flux)
