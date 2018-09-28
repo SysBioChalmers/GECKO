@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % [ecModel,model_data,kcats] = enhanceGEM(model,toolbox,name,version)
 %
-% Benjamin J. Sanchez & Ivan Domenzain. Last edited: 2018-08-29
+% Benjamin J. Sanchez & Ivan Domenzain. Last edited: 2018-09-27
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function [ecModel,model_data,kcats] = enhanceGEM(model,toolbox,name,version)
 
@@ -38,11 +38,12 @@ ecModel                 = readKcatData(model_data,kcats);
 [ecModel,modifications] = manualModifications(ecModel);
 
 %Constrain model to batch conditions:
-sigma  = 0.5;      %Optimized for glucose
-Ptot   = 0.5;      %Assumed constant
-gR_exp = 0.41;     %[g/gDw h] Max batch gRate on minimal glucose media
+sigma    = 0.5;      %Optimized for glucose
+Ptot     = 0.5;      %Assumed constant
+gR_exp   = 0.41;     %[g/gDw h] Max batch gRate on minimal glucose media
+c_source = 'D-glucose exchange (reversible)'; %Rxn name for the glucose uptake reaction
 cd ../limit_proteins
-[ecModel_batch,OptSigma] = getConstrainedModel(ecModel,sigma,Ptot,gR_exp,modifications,name);
+[ecModel_batch,ecModel,OptSigma] = getConstrainedModel(ecModel,c_source,sigma,Ptot,gR_exp,modifications,name);
 disp(['Sigma factor (fitted for growth on glucose): ' num2str(OptSigma)])
 
 %Save output models:
