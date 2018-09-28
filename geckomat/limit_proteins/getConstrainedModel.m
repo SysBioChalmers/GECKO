@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%function [ecModel_batch,OptSigma] = getConstrainedModel(ecModel,sigma,Ptot,gR_exp,name)
+%function [ecModel_batch,OptSigma] = getConstrainedModel(ecModel,sigma,Ptot,obj_Val,name)
 %
 % Function that gets a GEM with kinetic data and returns an enzyme 
 % constrained model, either with individual enzyme levels or with the total
@@ -11,58 +11,58 @@
 % factor for enzymes is fitted for the same growth conditions. Finally the 
 % fitted model is simulated on the same conditions and the top ten used 
 % enzymes (mass-wise) are saved in a file as an output, this can be used for 
-% suggesting further parameter curation targets 
-% (enzyme usages > 10% of the total proteome).
+% suggesting further parameters curation (enzyme usages > 10% of the total 
+% proteome).
 %
-% Ivan Domenzain        2018-03-27
 % Benjamin Sanchez      2018-08-10
+% Ivan Domenzain        2018-09-27
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [ecModel_batch,OptSigma] = getConstrainedModel(ecModel,sigma,Ptot,gR_exp,modifications,name)
+function [ecModel_batch,ecModel,OptSigma] = getConstrainedModel(ecModel,c_source,sigma,Ptot,obj_Val,modifications,name)
 	current = pwd;
-    
     %Get f (estimated mass fraction of enzymes in model)
-    [f,~] = measureAbundance(ecModel.enzymes);
-    
+    [f,~] = measureAbundance(ecModel.enzymes);   
     %Fit GAM (growth associated maintenance):
-    GAM = fitGAM(ecModel);
-    
+    GAM   = fitGAM(ecModel);
     %Get a preliminary enzyme constrained model for performing the Kcats
     %sensitivity analysis
     [ecModel_batch,~,~] = constrainEnzymes(ecModel,Ptot,sigma,f,GAM);
 	solution            = solveLP(ecModel_batch,1);
     if ~isempty(solution.f)
-        %Set the media according to the media of the experimental measurement
+        %Set the media according to the experimental conditions
         cd ../kcat_sensitivity_analysis
-        c_source          = 'D-glucose exchange (reversible)';
         [ecModel_batch,~] = changeMedia_batch(ecModel_batch,c_source,'Min');
-        solution          = solveLP(ecModel_batch,1);
         ObjIndex          = find(ecModel_batch.c);
         % If the model is overconstrained
-        if (gR_exp-solution.x(ObjIndex))>0 
+        if (obj_Val-solution.x(ObjIndex))>0 
+            fprintf('\n')
             disp('***************************************************************')
             disp('                The ECmodel is overconstrained                 ')
-            %Perform a sensitivity analysis on the individual Kcat coefficients,
-            %the algorithm will iterate changing the top growth limiting value 
-            %according to the maximum value available in BRENDA for the same 
-            %EC number until the growth rate is no longer underpredicted 
-            ecModel = modifyKcats(ecModel,ecModel_batch,gR_exp,modifications,name);
+            %Perform a sensitivity analysis on the objective function with 
+            %respect to the individual Kcat coefficients, the algorithm will 
+            %iterate replacing the top limiting value according to the maximum 
+            %value available in BRENDA for the same EC number until the objective
+            %is no longer underpredicted 
+            [ecModel,ecModel_batch] = modifyKcats(ecModel,ecModel_batch,obj_Val,modifications,name);
         else
+            fprintf('\n')
             disp('***************************************************************')
             disp('              The ECmodel is not overconstrained               ')
-        end
-        %The sigma factor is reffited for minimal glucose media
+        end    
+        %The sigma factor is reffited for the specified conditions (constraints in the model)
+        fprintf('\n')
         disp('***************************************************************')
         disp('        Fitting the average enzymes saturation factor          ')
-        OptSigma = sigmaFitter(ecModel,Ptot,gR_exp,f,GAM);
+        %cd ../kcat_sensitivity_analysis
+        [ecModel_batch,~] = changeMedia_batch(ecModel_batch,c_source,'Min');
+        OptSigma          = sigmaFitter(ecModel_batch,Ptot,obj_Val,f);
         %The ecModel with new modified Kcat values is constrained with the 
-        %optimal sigma value found
+        %optimal sigma value
         cd ../limit_proteins
         [ecModel_batch,~,~] = constrainEnzymes(ecModel,Ptot,OptSigma,f,GAM);
-        %Simulate growth on minimal glucose media and export the top ten used 
+        %Simulate growth on minimal media and export the top ten used 
         %enzymes to the file "topUsedEnzymes.txt" in the containing folder
         cd (current)
         cd ../kcat_sensitivity_analysis
-        c_source          = 'D-glucose exchange (reversible)';
         [ecModel_batch,~] = changeMedia_batch(ecModel_batch,c_source,'Min');
         solution          = solveLP(ecModel_batch,1);
         topUsedEnzymes(solution.x,ecModel_batch,'Min_glucose',name);
