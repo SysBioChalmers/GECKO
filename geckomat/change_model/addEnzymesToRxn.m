@@ -37,15 +37,15 @@ if isfield(model,'subSystems')
 end
 
 %Include enzyme in reaction:
-rxnsToAdd.rxns=newRxnName(1);
-rxnsToAdd.rxnNames=newRxnName(2);
-rxnsToAdd.mets=[metS,newMets,metP];
-rxnsToAdd.stoichCoeffs=[coeffsS,-kvalues.^-1,coeffsP];
-rxnsToAdd.lb=LB;
-rxnsToAdd.ub=UB;
-rxnsToAdd.obj=obj;
+rxnsToAdd.rxns = newRxnName(1);
+rxnsToAdd.rxnNames = newRxnName(2);
+rxnsToAdd.mets = [metS,newMets,metP];
+rxnsToAdd.stoichCoeffs = [coeffsS,-kvalues.^-1,coeffsP];
+rxnsToAdd.lb = LB;
+rxnsToAdd.ub = UB;
+rxnsToAdd.obj = obj;
 if isfield(model,'subSystems')
-    rxnsToAdd.subSystems=subSystem;
+    rxnsToAdd.subSystems = subSystem;
 end
 model = addRxns(model,rxnsToAdd,1,'c',true);
 

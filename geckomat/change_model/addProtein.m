@@ -105,7 +105,6 @@ end
 
 %Add gene to gene list if non-existing previously:
 if ~ismember(gene,model.genes)
-    %model.enzNames(pos_e,1)
     geneToAdd.genes = {gene};
     geneToAdd.geneShortNames = model.enzNames(pos_e,1);
     model = addGenesRaven(model,geneToAdd);
