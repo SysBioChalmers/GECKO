@@ -36,21 +36,23 @@ end
 
 %Create new rxn:
 rxnID = ['arm_' rxn];
-model = addReaction(model,rxnID, ...
-                    'reactionName', [model.rxnNames{rxnIndex} ' (arm)'], ...
-                    'metaboliteList', [metS,['pmet_' rxn]], ...
-                    'stoichCoeffList', [coeffsS,1], ...
-                    'lowerBound', LB, ...
-                    'upperBound', UB, ...
-                    'objectiveCoef', obj, ...
-                    'subSystem', subSystem);
+rxnsToAdd.rxns = {rxnID};
+rxnsToAdd.rxnNames = {[model.rxnNames{rxnIndex} ' (arm)']};
+rxnsToAdd.mets = [metS,['pmet_' rxn]];
+rxnsToAdd.stoichCoeffs = [coeffsS,1];
+rxnsToAdd.lb = LB;
+rxnsToAdd.ub = UB;
+rxnsToAdd.obj = obj;
+if isfield(model,'subSystems')
+    rxnsToAdd.subSystems = subSystem;
+end
+model = addRxns(model,rxnsToAdd,1,'c',true); % All 'arm' metabolites are initially located to the cytosol
 model.grRules{strcmp(model.rxns,rxnID)} = grRule;
 
 %Change old rxn:
-model = addReaction(model,rxn, ...
-                    'reactionName', model.rxnNames{rxnIndex}, ...
-                    'metaboliteList', [['pmet_' rxn], metP], ...
-                    'stoichCoeffList', [-1,coeffsP]);
+equations.mets = [['pmet_' rxn], metP];
+equations.stoichCoeffs = [-1,coeffsP];
+model = changeRxns(model,rxn,equations,1,'c');
 
 %Update metComps:
 pos = strcmp(model.mets,['pmet_' rxn]);

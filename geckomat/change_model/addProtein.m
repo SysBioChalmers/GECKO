@@ -93,7 +93,7 @@ if ~match_gen
     if sum(unknowns) == 0
         idx = 0;
     else
-        unknowns  = model.enzGenes(unknowns);
+        unknowns  = model.genes(unknowns);
         pos_final = strfind(unknowns{end},'_')+1;
         idx       = str2double(unknowns{end}(pos_final:end));
     end
@@ -105,7 +105,7 @@ end
 
 %Add gene to gene list if non-existing previously:
 if ~ismember(gene,model.genes)
-    model.enzNames(pos_e,1)
+    %model.enzNames(pos_e,1)
     geneToAdd.genes = {gene};
     geneToAdd.geneShortNames = model.enzNames(pos_e,1);
     model = addGenesRaven(model,geneToAdd);
@@ -113,11 +113,12 @@ end
 
 %Add exchange reaction of protein: -> P
 rxnID = ['prot_' P '_exchange'];
-model = addReaction(model,rxnID, ...
-                    'metaboliteList', {prot_name}, ...
-                    'stoichCoeffList', 1, ...
-                    'lowerBound', 0, ...
-                    'upperBound', Inf);
+rxnsToAdd.rxns = {rxnID};
+rxnsToAdd.rxnNames = rxnsToAdd.rxns;
+rxnsToAdd.mets = {prot_name};
+rxnsToAdd.stoichCoeffs = 1;
+rxnsToAdd.lb = 0; % ub is taken from model's default, otherwise inf
+model = addRxns(model,rxnsToAdd); % All 'arm' metabolites are initially located to the cytosol
 model.grRules{strcmp(model.rxns,rxnID)} = gene;
 model.enzGenes{pos_e,1} = gene;
 

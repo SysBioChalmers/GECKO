@@ -29,22 +29,26 @@ obj      = model.c(rxnIndex);
 coeffsS  = model.S(model.S(:,rxnIndex)<0,rxnIndex)';
 coeffsP  = model.S(model.S(:,rxnIndex)>0,rxnIndex)';
 
-subSystem = '';
+subSystem = {''};
 if isfield(model,'subSystems')
     if ~isempty(model.subSystems{rxnIndex}{1})
-        subSystem = model.subSystems{rxnIndex};
+        subSystem = model.subSystems(rxnIndex);
     end
 end
 
 %Include enzyme in reaction:
-model = addReaction(model,newRxnName{1}, ...
-                    'reactionName', newRxnName{2}, ...
-                    'metaboliteList', [metS,newMets,metP], ...
-                    'stoichCoeffList', [coeffsS,-kvalues.^-1,coeffsP], ...
-                    'lowerBound', LB, ...
-                    'upperBound', UB, ...
-                    'objectiveCoef', obj, ...
-                    'subSystem', subSystem);
+rxnsToAdd.rxns=newRxnName(1);
+rxnsToAdd.rxnNames=newRxnName(2);
+rxnsToAdd.mets=[metS,newMets,metP];
+rxnsToAdd.stoichCoeffs=[coeffsS,-kvalues.^-1,coeffsP];
+rxnsToAdd.lb=LB;
+rxnsToAdd.ub=UB;
+rxnsToAdd.obj=obj;
+if isfield(model,'subSystems')
+    rxnsToAdd.subSystems=subSystem;
+end
+model = addRxns(model,rxnsToAdd,1,'c',true);
+
 %Add/modify gene(s) association information if available
 if nargin >5 && ~isempty(protGenes)
     model.grRules{strcmp(model.rxns,newRxnName{1})} = protGenes;
