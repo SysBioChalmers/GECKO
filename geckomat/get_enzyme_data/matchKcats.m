@@ -275,7 +275,7 @@
          for j = 1:length(EC_indexes)
              indx = EC_indexes(j);
              for k = 1:length(subs)
-                 l = boolean(strcmpi(model.metNames,subs{k}).*(model.S(:,i)~=0));
+                 l = logical(strcmpi(model.metNames,subs{k}).*(model.S(:,i)~=0));
                  if ~isempty(subs{k}) && strcmpi(subs{k},KCATcell{2}(indx))
                      if KCATcell{4}(indx) > 0 
                          coeff = min(abs(model.S(l,i)));

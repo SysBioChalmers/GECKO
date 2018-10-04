@@ -26,7 +26,7 @@ for i = 1:length(model.rxns)
 end
 
 %Delete blocked rxns (LB = UB = 0):
-to_remove = boolean((model.lb == 0).*(model.ub == 0));
+to_remove = logical((model.lb == 0).*(model.ub == 0));
 model     = removeReactions(model,model.rxns(to_remove),true,true,true);
 
 %Correct rev vector: true if LB < 0 & UB > 0, or it is an exchange reaction:
