@@ -1,4 +1,4 @@
-function [uni,EC,MW,Genes,conflicts] = findInDB(grRule,DB)
+function [uni,EC,MW,Genes,conflicts] = findInDB(grRule,DBprot,DBgenes,DBecNum,DBMW)
 % findInDB
 %   Gets the uniprots and EC numbers for a given rxn into a given database
 %
@@ -28,8 +28,6 @@ uni       = cell(size(gene_sets));
 EC        = cell(size(gene_sets));
 MW        = zeros(size(gene_sets));
 Genes     = cell(size(gene_sets));
-DBgenes   = DB(:,3);
-DBecNum   = DB(:,4);
 conflicts = cell(1,2);
 
 for i = 1:length(gene_sets)
@@ -41,10 +39,9 @@ for i = 1:length(gene_sets)
     for j = 1:length(gene_set)
         gene = gene_set{j};
         %Get the indexes for all of the proteins related to gene
-        matches = cellfun(@(x) sum(strcmpi(x,gene)), DBgenes,'UniformOutput',false);
-        matches = (find(cell2mat(matches)));
+        matches=find(sum(strcmpi(gene,DBgenes),2));
         if ~isempty(matches)
-            uni_set{j}   = DB{matches,1};
+            uni_set{j}   = DBprot{matches};
             genesCell{j} = gene;
             %Get the indexes of the matched protein(s) with non-empty EC#s
             nonEmpty = matches(~cellfun(@isempty,DBecNum(matches)));
@@ -56,7 +53,7 @@ for i = 1:length(gene_sets)
                     indexes = nonEmpty(ia);
                     ecNum = DBecNum(indexes);
                     %Save first match
-                    uni_set{j} = DB{indexes(1),1};
+                    uni_set{j} = DBprot{indexes(1)};
                     EC_set{j}  = getECstring(EC_set{j},ecNum{1});
                     %Save additional matches as potential conflicts
                     if ~ismember(gene,conflicts{1})
@@ -66,9 +63,9 @@ for i = 1:length(gene_sets)
                 else
                     %If there is a single unique ec number for the matched
                     %protein(s), then choose the lightest protein
-                    [~,minW]   = min(cell2mat(DB(nonEmpty,5)));
+                    [~,minW]   = min(cell2mat(DBMW(nonEmpty)));
                     matches    = nonEmpty(minW);
-                    uni_set{j} = DB{matches,1};
+                    uni_set{j} = DBprot{matches};
                     EC_set{j}  = getECstring(EC_set{j},DBecNum{matches});
                 end
             end
@@ -109,8 +106,8 @@ for i = 1:length(gene_sets)
     end    
     %MW: use uniprot codes + swissprot table:
     for j = 1:length(uni_set)
-        index     = strcmpi(DB(:,1),uni_set{j});
-        minWeight = min(DB{index,5});
+        index     = strcmpi(DBprot(:),uni_set{j});
+        minWeight = min(DBMW{index});
         MW(i)     = MW(i) + minWeight;
     end
     %Add new codes as new possible isoenzymes:
