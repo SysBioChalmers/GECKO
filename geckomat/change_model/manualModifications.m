@@ -141,7 +141,7 @@ for i = 1:length(model.rxns)
             %Condense both reactions in one:
             rxnsToAdd.rxnNames      = model.rxnNames(pos);
             equations.mets          = model.mets;
-            equations.stoichCoeffs  = model.S(:,i) + model.S(:,pos)1;
+            equations.stoichCoeffs  = model.S(:,i) + model.S(:,pos);
             model = changeRxns(model,model.rxns(pos),equations);
             model.grRules{pos} = grRule;
             p          = p + 1;
