@@ -1,19 +1,17 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% function OptSigma = sigmaFitter(model,Ptot,expVal,f,GAM)
+% OptSigma = sigmaFitter(model_batch,Ptot,expVal,f)
 % 
 % Function that fits the average enzyme saturation factor in an ecModel
 % according to a provided experimentally measured value for the objective
 % function (i.e. growth rate at specified conditions)
 %
 % INPUTS:
-%       model       An EC batch model with an initial sigma factor assigned
-%       model_data  The model_data structure saved by the GECKO
-%                   enhanceGEM.m script
-%       Ptot        Total protein amount in the model (Experimental)
-%                   [g/gDw]
-%       expVal      Experimentally measured value for the objective function
-%       f           Estimated mass fraction of enzymes in model [g/g]
-%       GAM         Growth associated maintenance
+%       model_batch     An EC batch model with an initial sigma factor
+%                       assigned
+%       Ptot            Total protein amount in the model (Experimental)
+%                       [g/gDw]
+%       expVal          Experimentally measured value for the objective function
+%       f               Estimated mass fraction of enzymes in model [g/g]
 %
 % OUTPUTS:
 %       optSigma    The optimal sigma value obtained
