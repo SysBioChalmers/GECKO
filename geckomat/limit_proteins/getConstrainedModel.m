@@ -50,17 +50,15 @@ function [ecModel_batch,OptSigma] = getConstrainedModel(ecModel,c_source,sigma,P
         fprintf('\n')
         disp('***************************************************************')
         disp('        Fitting the average enzymes saturation factor          ')
-        %cd ../kcat_sensitivity_analysis
         [ecModel_batch,~] = changeMedia_batch(ecModel_batch,c_source,'Min');
         OptSigma          = sigmaFitter(ecModel_batch,Ptot,obj_Val,f);
-        %The ecModel with new modified Kcat values is constrained with the 
-        %optimal sigma value
-        cd ../limit_proteins
-        [ecModel_batch,~,~] = constrainEnzymes(ecModel,Ptot,OptSigma,f);
+        enzymePos         = strcmp(ecModel_batch.rxns,'prot_pool_exchange');
+        currentEnzymeUB   = ecModel_batch.ub(enzymePos);
+        ecModel_batch     = setParam(ecModel_batch,'ub','prot_pool_exchange', ...
+                                     currentEnzymeUB*OptSigma/sigma);
+        
         %Simulate growth on minimal media and export the top ten used 
         %enzymes to the file "topUsedEnzymes.txt" in the containing folder
-        cd (current)
-        cd ../kcat_sensitivity_analysis
         [ecModel_batch,~] = changeMedia_batch(ecModel_batch,c_source,'Min');
         solution          = solveLP(ecModel_batch,1);
         topUsedEnzymes(solution.x,ecModel_batch,'Min_glucose',name);
