@@ -139,7 +139,6 @@ for i = 1:length(model.rxns)
         end
         if k == 1
             %Condense both reactions in one:
-            rxnsToAdd.rxnNames      = model.rxnNames(pos);
             equations.mets          = model.mets;
             equations.stoichCoeffs  = model.S(:,i) + model.S(:,pos);
             model = changeRxns(model,model.rxns(pos),equations);
