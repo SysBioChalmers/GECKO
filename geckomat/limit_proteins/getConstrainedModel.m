@@ -17,8 +17,8 @@
 % Benjamin Sanchez      2018-08-10
 % Ivan Domenzain        2018-09-27
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [ecModel_batch,ecModel,OptSigma] = getConstrainedModel(ecModel,c_source,sigma,Ptot,obj_Val,modifications,name)
-	current = pwd;
+function [ecModel_batch,OptSigma] = getConstrainedModel(ecModel,c_source,sigma,Ptot,obj_Val,modifications,name)
+	
     %Get f (estimated mass fraction of enzymes in model)
     [f,~] = measureAbundance(ecModel.enzymes);
     %Get a preliminary enzyme constrained model for performing the Kcats
@@ -40,7 +40,7 @@ function [ecModel_batch,ecModel,OptSigma] = getConstrainedModel(ecModel,c_source
             %iterate replacing the top limiting value according to the maximum 
             %value available in BRENDA for the same EC number until the objective
             %is no longer underpredicted 
-            [ecModel,ecModel_batch] = modifyKcats(ecModel,ecModel_batch,obj_Val,modifications,name);
+            ecModel_batch = modifyKcats(ecModel_batch,obj_Val,modifications,name);
         else
             fprintf('\n')
             disp('***************************************************************')

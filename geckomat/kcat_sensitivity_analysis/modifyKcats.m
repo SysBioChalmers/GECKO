@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% function ecModel = modifyKcats(ecModel,ecModel_const,expVal,modifiedKcats,name)
+% function ecModelBatch = modifyKcats(ecModelBatch,expVal,modifiedKcats,name)
 %
 % Function that gets the limiting Kcat values in an EC model (according to
 % a sensitivity analysis), then it modifies each of those values according to 
@@ -11,8 +11,7 @@
 % (batch growth on glucose minimal media recommended).
 %
 % INPUTS
-%   - ecModel:       Enzyme-constrained GEM 
-%   - ecModel_const: Enzyme-constrained GEM with the total protein pool
+%   - ecModelBatch:  Enzyme-constrained GEM with the total protein pool
 %                    global constraint.
 %   - expVal:        Experimentally measured value for the objective
 %                    function.
@@ -24,9 +23,9 @@
 %   - ecModel:       Enzyme-constrained GEM with the automatically curated
 %                    Kinetic parameters.
 %
-% Ivan Domenzain    Last edited. 2018-09-27
+% Ivan Domenzain    Last edited. 2018-10-09
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [ecModel,ecModelBatch] = modifyKcats(ecModel,ecModelBatch,expVal,modifiedKcats,name)
+function ecModelBatch = modifyKcats(ecModelBatch,expVal,modifiedKcats,name)
 
 changes = [];
 error   = -100; 
@@ -66,9 +65,6 @@ end
 %Create a .txt file with all the modifications that were done on the
 %individual Kcat coefficients
 if ~isempty(changes)
-    [m,n] = size(ecModel.S);
-    %Apply Kcat modifications on the ecModel stoichiometric matrix too
-    ecModel.S     = ecModelBatch.S(1:m,1:n);
     varNamesTable = {'Unicode','enz_pos','rxn_pos','Organism','Modified',...
                     'Parameter','oldValue','newValue','error','ControlCoeff'};  
     changes = cell2table(changes,'VariableNames',varNamesTable);
