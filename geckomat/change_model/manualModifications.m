@@ -139,12 +139,10 @@ for i = 1:length(model.rxns)
         end
         if k == 1
             %Condense both reactions in one:
-            model = addReaction(model,model.rxns{pos}, ...
-                                'reactionName', model.rxnNames{pos}, ...
-                                'metaboliteList', model.mets, ...
-                                'stoichCoeffList', model.S(:,i) + model.S(:,pos), ...
-                                'lowerBound', 0, ...
-                                'upperBound', 1000);
+            rxnsToAdd.rxnNames      = model.rxnNames(pos);
+            equations.mets          = model.mets;
+            equations.stoichCoeffs  = model.S(:,i) + model.S(:,pos)1;
+            model = changeRxns(model,model.rxns(pos),equations);
             model.grRules{pos} = grRule;
             p          = p + 1;
             arm_pos(p) = i;
