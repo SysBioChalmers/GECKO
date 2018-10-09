@@ -68,13 +68,13 @@ for i = 1:N
     model.ub(pos(i)) = flux(i);
 end
 %Allow uptake of essential components
-model = setParam(model, 'ub', 'r_1654_REV', 1000); % 'ammonium exchange';
-model = setParam(model, 'ub', 'r_2100_REV', 1000); % 'water exchange' ;
-model = setParam(model, 'ub', 'r_1861_REV', 1000); % 'iron(2+) exchange';
-model = setParam(model, 'ub', 'r_1992_REV', 1000); % 'oxygen exchange';
-model = setParam(model, 'ub', 'r_2005_REV', 1000); % 'phosphate exchange';
-model = setParam(model, 'ub', 'r_2060_REV', 1000); % 'sulphate exchange';
-model = setParam(model, 'ub', 'r_1832_REV', 1000); % 'H+ exchange' ;
+model = setParam(model, 'ub', 'r_1654_REV', Inf); % 'ammonium exchange';
+model = setParam(model, 'ub', 'r_2100_REV', Inf); % 'water exchange' ;
+model = setParam(model, 'ub', 'r_1861_REV', Inf); % 'iron(2+) exchange';
+model = setParam(model, 'ub', 'r_1992_REV', Inf); % 'oxygen exchange';
+model = setParam(model, 'ub', 'r_2005_REV', Inf); % 'phosphate exchange';
+model = setParam(model, 'ub', 'r_2060_REV', Inf); % 'sulphate exchange';
+model = setParam(model, 'ub', 'r_1832_REV', Inf); % 'H+ exchange' ;
 %Block bicarbonate uptake
 model = setParam(model, 'ub', 'r_1663', 0); % 'bicarbonate uptake' ;
 end
