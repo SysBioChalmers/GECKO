@@ -20,12 +20,10 @@
 function [ecModel_batch,ecModel,OptSigma] = getConstrainedModel(ecModel,c_source,sigma,Ptot,obj_Val,modifications,name)
 	current = pwd;
     %Get f (estimated mass fraction of enzymes in model)
-    [f,~] = measureAbundance(ecModel.enzymes);   
-    %Fit GAM (growth associated maintenance):
-    GAM   = fitGAM(ecModel);
+    [f,~] = measureAbundance(ecModel.enzymes);
     %Get a preliminary enzyme constrained model for performing the Kcats
     %sensitivity analysis
-    [ecModel_batch,~,~] = constrainEnzymes(ecModel,Ptot,sigma,f,GAM);
+    [ecModel_batch,~,~] = constrainEnzymes(ecModel,Ptot,sigma,f);
 	solution            = solveLP(ecModel_batch,1);
     if ~isempty(solution.f)
         %Set the media according to the experimental conditions
@@ -58,7 +56,7 @@ function [ecModel_batch,ecModel,OptSigma] = getConstrainedModel(ecModel,c_source
         %The ecModel with new modified Kcat values is constrained with the 
         %optimal sigma value
         cd ../limit_proteins
-        [ecModel_batch,~,~] = constrainEnzymes(ecModel,Ptot,OptSigma,f,GAM);
+        [ecModel_batch,~,~] = constrainEnzymes(ecModel,Ptot,OptSigma,f);
         %Simulate growth on minimal media and export the top ten used 
         %enzymes to the file "topUsedEnzymes.txt" in the containing folder
         cd (current)

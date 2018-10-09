@@ -1,14 +1,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % model = scaleBioMass(model,Ptot,GAM,scale_comp)
 % 
-% Benjamín Sánchez. Last update: 2018-08-11
+% Benjamin Sanchez. Last update: 2018-10-09
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function model = scaleBioMass(model,Ptot,GAM,scale_comp)
 
-%Fit GAM if not provided:
 if nargin < 3
-    GAM = fitGAM(model);
+    GAM = [];
 end
 
 %Option for changing composition & GAM (=true, default) or only GAM (=false):
@@ -36,13 +35,18 @@ if scale_comp
     model = rescalePseudoReaction(model,'lipid chain',fL);
 end
 
+%Fit GAM if not available:
+if isempty(GAM)
+    GAM = fitGAM(model);
+end
+
 %Change GAM:
 xr_pos = strcmp(model.rxnNames,'biomass pseudoreaction');
 for i = 1:length(model.mets)
     S_ix  = model.S(i,xr_pos);
     isGAM = sum(strcmp({'ATP','ADP','H2O','H+','phosphate'},model.metNames{i})) == 1;
     if S_ix ~= 0 && isGAM
-        %Polymerization costs from Förster et al 2003 - table S8:
+        %Polymerization costs from Forster et al 2003 - table S8:
         model.S(i,xr_pos) = sign(S_ix)*(GAM + 37.7*Ptot + 12.8*Ctot);
     end
 end
