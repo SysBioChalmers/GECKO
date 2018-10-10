@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % model = constrainEnzymes(model,Ptot,sigma,f,GAM,pIDs,data,gRate,GlucUptake)
 % 
-% Benjamin J. Sanchez. Last edited: 2018-08-10
+% Benjamin J. Sanchez. Last edited: 2018-10-09
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function [model,enzUsages,modifications] = constrainEnzymes(model,Ptot,sigma,f,GAM,pIDs,data,gRate,GlucUptake)
@@ -11,9 +11,9 @@ if nargin < 4
     [f,~] = measureAbundance(ecModel.enzymes);
 end
 
-%Fit GAM if not provided:
+%Leave GAM empty if not provided (will be fitted later):
 if nargin < 5
-    GAM = fitGAM(model);
+    GAM = [];
 end
 
 %No UB will be changed if no data is available -> pool = all enzymes(FBAwMC)

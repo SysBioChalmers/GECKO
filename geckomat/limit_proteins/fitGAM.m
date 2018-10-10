@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % [GAM,fitting,results] = fitGAM(model)
 % 
-% Benjamín Sánchez. Last update: 2018-08-13
+% Benjamin Sanchez. Last update: 2018-08-13
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function GAM = fitGAM(model)
@@ -11,6 +11,9 @@ fid = fopen('../../databases/chemostatData.tsv','r');
 exp_data = textscan(fid,'%f32 %f32 %f32 %f32','Delimiter','\t','HeaderLines',1);
 exp_data = [exp_data{1} exp_data{2} exp_data{3} exp_data{4}];
 fclose(fid);
+
+%Remove limitation on enzymes (if any):
+model = setParam(model,'ub','prot_pool_exchange',+1000);
 
 %GAMs to span:
 disp('Estimating GAM:')
