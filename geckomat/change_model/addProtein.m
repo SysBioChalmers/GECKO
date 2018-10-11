@@ -84,7 +84,7 @@ for i = 1:length(kegg)
         %Sequence (if nothing found in uniprot):
         if ~isempty(kegg{i,7}) && ~match_seq
             match_seq                = true;
-            model.sequences(pos_e,1) = kegg{i,7};
+            model.sequences(pos_e,1) = kegg(i,7);
         end
     end
 end
