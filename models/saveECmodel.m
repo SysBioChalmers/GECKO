@@ -34,30 +34,30 @@ if isfield(model,'rules')
     model = rmfield(model,'rules');
 end
 
-%Save model as mat:
-S.(struct_name) = model;
-file_name       = [root_name '/' name];
-save([file_name '.mat'], '-struct', 'S')
-
 %Transform model back to COBRA for saving purposes:
 if strcmp(toolbox,'COBRA')
-    model_cobra = ravenCobraWrapper(model);    
+    model_cobra = ravenCobraWrapper(model);
     %Remove fields from COBRA model (temporal):
     model_cobra = rmfield(model_cobra,'metCharges');
     model_cobra = rmfield(model_cobra,'metChEBIID');
     model_cobra = rmfield(model_cobra,'metKEGGID');
-	model_cobra = rmfield(model_cobra,'metSBOTerms');
+    model_cobra = rmfield(model_cobra,'metSBOTerms');
     model_cobra = rmfield(model_cobra,'rxnConfidenceScores');
     model_cobra = rmfield(model_cobra,'rxnECNumbers');
     model_cobra = rmfield(model_cobra,'rxnKEGGID');
     model_cobra = rmfield(model_cobra,'rxnReferences');
     model_cobra = rmfield(model_cobra,'subSystems');
-	model_cobra = rmfield(model_cobra,'rxnSBOTerms');
+    model_cobra = rmfield(model_cobra,'rxnSBOTerms');
+    %Save model as mat:
+    S.(struct_name) = model;
+    file_name       = [root_name '/' name];
+    save([file_name '.mat'], '-struct', 'S')
+    %Save model as sbml and text:
+    writeCbModel(model_cobra,'sbml',[file_name '.xml']);
+    writeCbModel(model_cobra,'text',[file_name '.txt']);
+else
+    exportForGit(model,name,root_name,{'xml','yml','txt','mat'});
 end
-
-%Save model as sbml and text:
-writeCbModel(model_cobra,'sbml',[file_name '.xml']);
-writeCbModel(model_cobra,'text',[file_name '.txt']);
 
 %Convert notation "e-005" to "e-05 " in stoich. coeffs. to avoid
 %inconsistencies between Windows and MAC:
@@ -66,17 +66,17 @@ fin  = fopen('backup.xml', 'r');
 fout = fopen([file_name '.xml'], 'w');
 still_reading = true;
 while still_reading
-  inline = fgets(fin);
-  if ~ischar(inline)
-      still_reading = false;
-  else
-      if ~isempty(regexp(inline,'-00[0-9]','once'))
-          inline = strrep(inline,'-00','-0');
-      elseif ~isempty(regexp(inline,'-01[0-9]','once'))
-          inline = strrep(inline,'-01','-1');
-      end
-      fwrite(fout, inline);
-  end
+    inline = fgets(fin);
+    if ~ischar(inline)
+        still_reading = false;
+    else
+        if ~isempty(regexp(inline,'-00[0-9]','once'))
+            inline = strrep(inline,'-00','-0');
+        elseif ~isempty(regexp(inline,'-01[0-9]','once'))
+            inline = strrep(inline,'-01','-1');
+        end
+        fwrite(fout, inline);
+    end
 end
 fclose('all');
 delete('backup.xml');
