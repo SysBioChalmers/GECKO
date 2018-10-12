@@ -1,6 +1,19 @@
 History
 =======
 
+1.3.2 (2018-10-12)
+------------------
+* Features:
+    * Name & version of the model are now read/stored from/as model fields (PR #42).
+    * Pipeline now works for any objective function (PR #47).
+* Fixes:
+    * Fixed bug from #39 that saved the ``.mat`` file with the wrong name (PR #42).
+    * Adapted pipeline to deal with multiple gene IDs for 1 protein / multiple protein IDs for 1 gene, for dealing with human-based GEMs (PR #43).
+    * ``changeMedia_batch.m`` modified to reflect the Y6 minimal media composition (PR #47).
+* Refactoring:
+    * Performance improvements to ``getConstrainedModel.m`` and ``sigmaFitter.m`` (PR #47).
+    * ``fitGAM.m`` is now only called from inside ``scaleBioMass.m`` (PR #47).
+
 1.3.1 (2018-08-28)
 ------------------
 * Features:
