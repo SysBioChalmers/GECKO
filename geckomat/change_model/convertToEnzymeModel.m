@@ -1,20 +1,22 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% eModel = convertToEnzymeModel(model,uniprots,kcats)
+% eModel = convertToEnzymeModel(model,Genes,uniprots,kcats)
 % Converts standard GEM to GEM accounting for enzymes as pseudo
 % metabolites, with -(1/kcat) as the corresponding stoich. coeffs.
 %
 % INPUT:
 % model             The GEM structure (1x1 struct)
+% Genes             Genes that were matched to uniprot codes for each Rxn
 % uniprots          uniprot codes of each reaction
 % kcats             kcats for each enzyme/reaction
 %
 % OUTPUT:
 % eModel            Modified GEM structure (1x1 struct)
 % 
-% Cheng Zhang. Last edited: 2018-05-24
+% Cheng Zhang.    Last edited: 2018-05-24
+% Ivan Domenzain. Last edited: 2018-09-07
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function eModel = convertToEnzymeModel(irrevModel,uniprots,kcats)
+function eModel = convertToEnzymeModel(irrevModel,Genes,uniprots,kcats)
 
 %Load databases:
 data      = load('../../databases/ProtDatabase.mat');
@@ -51,15 +53,16 @@ for i = 1:m
         %For each enzyme adds a new parallel rxn with that enzyme as pseudo metabolite.
         for j = 1:n
             if ~isempty(uniprots{i,j}) && kcats(i,j) > 0 % if kcat=0 no mets will be added
-                x       = x+1;
-                newID   = [rxnID 'No' num2str(x)];
-                newName = [irrevModel.rxnNames{i} ' (No' num2str(x) ')'];
-                kvalues = ones(size(uniprots{i,j}))*kcats(i,j);
-                newMets = cell(size(uniprots{i,j}));
+                x         = x+1;
+                newID     = [rxnID 'No' num2str(x)];
+                newName   = [irrevModel.rxnNames{i} ' (No' num2str(x) ')'];
+                kvalues   = ones(size(uniprots{i,j}))*kcats(i,j);
+                newMets   = cell(size(uniprots{i,j}));
                 for k = 1:length(newMets)
                     newMets{k} = ['prot_' uniprots{i,j}{k}];
                 end
-                eModel = addEnzymesToRxn(eModel,kvalues,rxnID,newMets,{newID,newName},kegg,swissprot); 
+                grRule = strrep(Genes{i,j},' ',' and ');
+                eModel = addEnzymesToRxn(eModel,kvalues,rxnID,newMets,{newID,newName},grRule); 
             end
         end
         eModel = removeReactions(eModel,{rxnID});  %Remove the original rxn

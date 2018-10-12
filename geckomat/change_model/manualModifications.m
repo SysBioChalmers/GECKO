@@ -11,6 +11,7 @@ function [model,modifications] = manualModifications(model)
 fID           = fopen('../../databases/manual_data.txt');
 data          = textscan(fID,'%s %s %s %s %f','delimiter','\t');
 structure     = data{2};
+protGenes     = data{4};
 kcats         = data{5}.*3600;
 data          = load('../../databases/ProtDatabase.mat');
 swissprot     = data.swissprot;
@@ -23,8 +24,8 @@ modifications{2} = cell(0,1);
 uniprots = cell(size(kcats));
 stoich   = cell(size(kcats));
 for i = 1:length(kcats)
-    uniprots{i} = strsplit(structure{i},' + ');
-    stoich{i}   = ones(size(uniprots{i}));
+    uniprots{i}  = strsplit(structure{i},' + ');
+    stoich{i}    = ones(size(uniprots{i}));
     %Separate complex strings in units and amount of each unit:
     for j = 1:length(uniprots{i})
         unit = uniprots{i}{j};
@@ -63,6 +64,7 @@ for i = 1:length(model.rxns)
             end
             %If some proteins where not present previously, add them:
             newMets = uniprots{j};
+            grRule  = protGenes{j};
             for k = 1:length(uniprots{j})
                 if sum(strcmp(model.enzymes,uniprots{j}{k})) == 0
                     model = addProtein(model,uniprots{j}{k},kegg,swissprot);
@@ -73,7 +75,7 @@ for i = 1:length(model.rxns)
             kvalues = kcats(j)./stoich{j};
             rxnID   = model.rxns{i};
             rxnName = model.rxnNames{i};
-            model   = addEnzymesToRxn(model,kvalues,rxnID,newMets,{rxnID,rxnName},kegg,swissprot);
+            model   = addEnzymesToRxn(model,kvalues,rxnID,newMets,{rxnID,rxnName},grRule);
         end
     end
     %Update int_pos:

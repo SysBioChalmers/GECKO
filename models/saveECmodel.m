@@ -1,20 +1,23 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % model = saveECmodel(model,toolbox,name,version)
 %
-% Benjamín J. Sánchez. Last edited: 2018-08-11
+% Benjamin J. Sanchez. Last edited: 2018-08-29
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function model = saveECmodel(model,toolbox,name,version)
 
 %Define file path for storage:
+struct_name = 'ecModel';
 if endsWith(name,'_batch')
-    file_name = [name(1:strfind(name,'_batch')-1) '/' name];
+    struct_name = [struct_name '_batch'];
+    root_name   = name(1:strfind(name,'_batch')-1);
 else
-    file_name = [name '/' name];
+    root_name = name;
 end
 
 %Model description:
-model.description = [name '_' version];
+model.description = [struct_name ' of ' lower(root_name(3)) root_name(4:end)];
+model.id          = [name '_v' version];
 
 %Format S matrix: avoid long decimals
 for i = 1:length(model.mets)
@@ -32,7 +35,8 @@ if isfield(model,'rules')
 end
 
 %Save model as mat:
-S.(name) = model;
+S.(struct_name) = model;
+file_name       = [root_name '/' name];
 save([file_name '.mat'], '-struct', 'S')
 
 %Transform model back to COBRA for saving purposes:
