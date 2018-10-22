@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % model = constrainPool(model,non_measured,UB)
 % 
-% Benjamín J. Sánchez. Last edited: 2018-08-08
+% Benjamï¿½n J. Sï¿½nchez. Last edited: 2018-08-08
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function model = constrainPool(model,non_measured,UB)
@@ -16,9 +16,9 @@ for i = 1:length(model.enzymes)
         rxnsToAdd.rxnNames      = rxnsToAdd.rxns;
         rxnsToAdd.mets          = {'prot_pool' ['prot_' model.enzymes{i}]};
         rxnsToAdd.stoichCoeffs  = [-model.MWs(i) 1];
-        rxnsToAdd.lb            = 0; % ub is taken from model's default, otherwise inf
-        model = addRxns(model,rxnsToAdd);
-        model.grRules{strcmp(model.rxns,rxnID)} = model.enzGenes{i};
+        rxnsToAdd.lb            = 0; % ub is taken from model default, otherwise inf
+        model = addRxns(model,rxnsToAdd,1,'c',true);
+        model.grRules{strcmp(model.rxns,rxnsToAdd.rxns)} = model.enzGenes{i};
         model = removeReactions(model,{['prot_' model.enzymes{i} '_exchange']});
     end
 end
