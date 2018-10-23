@@ -3,9 +3,10 @@ function [uni,EC,MW,Genes,conflicts] = findInDB(grRule,DBprot,DBgenes,DBecNum,DB
 %   Gets the uniprots and EC numbers for a given rxn into a given database
 %
 %   grRule     Genes association for a given metabolic reaction
-%   DB         Cell array containing genes-> protein relationships, EC#s,MWs 
-%              and sequences coming from external databases (Swissprot or
-%              KEGG)
+%   DBprot     array of uniprot IDs, taken from swissprot or kegg database
+%   DBgenes    array of genes corresponding to DBprot
+%   DBecNum    array of EC numbers corresponding to DBprot
+%   DBMW       array of molecular weights in Da corresponding to DBprot
 %
 %   uni        Array containing all the uniprot IDs related to an isoenzyme,
 %              for a given reaction in each of its cells.
@@ -15,7 +16,7 @@ function [uni,EC,MW,Genes,conflicts] = findInDB(grRule,DBprot,DBgenes,DBecNum,DB
 %              for a given reaction in each of its cells.
 %   conflicts  Contains those genes with multiple protein matches. 
 %
-%   Usage: [uni,EC,MW,Genes,conflicts] = findInDB(grRule,DB,action)
+%   Usage: [uni,EC,MW,Genes,conflicts] = findInDB(grRule,DBprot,DBgenes,DBecNum,DBMW)
 %
 %   Benjamin J. Sanchez, 2017-08-10
 %   Ivan Domenzain,      2018-09-06
