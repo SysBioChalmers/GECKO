@@ -8,9 +8,11 @@ function Cflat = flattenCell(C,strFlag)
 % CFLAT = FLATTENCELL(C,STRFLAG) if STRFLAG is TRUE, empty entries in the
 % resulting CFLAT will be replaced with empty strings {''}. Default = FALSE
 %
+% NOTE: This function is scheduled to be added to a new release of the 
+%       RAVEN toolbox, i.e. can be removed from GECKO after that:
+%       https://github.com/SysBioChalmers/RAVEN/blob/d992169e9da44ed9c441753bcf77cc83f521e953/external/MetaNetX/flattenCell.m
 %
 % Jonathan Robinson, 2018-03-07
-
 
 if nargin < 2
     strFlag = false;
@@ -38,6 +40,3 @@ end
 if ( strFlag )
     Cflat(cellfun(@isempty,Cflat)) = {''};
 end
-
-
-
