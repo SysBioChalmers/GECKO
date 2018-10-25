@@ -1,9 +1,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% [ecModel,model_data,kcats] = enhanceGEM(model,toolbox,name,version)
+% [ecModel,ecModel_batch] = enhanceGEM(model,toolbox,name,version)
 %
-% Benjamin J. Sanchez & Ivan Domenzain. Last edited: 2018-09-27
+% Benjamin J. Sanchez & Ivan Domenzain. Last edited: 2018-10-25
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [ecModel,model_data,kcats] = enhanceGEM(model,toolbox,name,version)
+function [ecModel,ecModel_batch] = enhanceGEM(model,toolbox,name,version)
 
 if nargin < 3
     name    = '';
@@ -48,7 +48,7 @@ disp(['Sigma factor (fitted for growth on glucose): ' num2str(OptSigma)])
 %Save output models:
 cd ../../models
 ecModel = saveECmodel(ecModel,toolbox,name,version);
-saveECmodel(ecModel_batch,toolbox,[name '_batch'],version);
+ecModel_batch = saveECmodel(ecModel_batch,toolbox,[name '_batch'],version);
 cd ../geckomat
 
 end
