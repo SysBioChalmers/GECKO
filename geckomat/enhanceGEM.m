@@ -30,7 +30,6 @@ cd change_model
 cd ../get_enzyme_data
 model_data = getEnzymeCodes(model);
 kcats      = matchKcats(model_data,org_name);
-save(['../../models/' name '/data/' name '_enzData.mat'],'model_data','kcats','version')
 
 %Integrate enzymes in the model:
 cd ../change_model
