@@ -70,7 +70,7 @@ if ~isempty(changes)
     changes = cell2table(changes,'VariableNames',varNamesTable);
     changes = truncateValues(changes,4);
     %Write results in a .txt for further exploration.
-    writetable(changes,['../../models/' name '/data/' name '_kcatModifications.txt']);
+    writetable(changes,['../../models/' name '/' name '_kcatModifications.txt']);
 else
     %If the model is not feasible then the analysis is performed in all the 
     %Kcats matched either to: option 1 -> each of the enzymatic rxns, 
@@ -82,13 +82,13 @@ else
         varNamesTable = {'rxnNames','rxnPos','ControlCoeff'};
         changes = cell2table(limRxns,'VariableNames',varNamesTable);
         changes = truncateValues(changes,4);
-        writetable(changes,['../../models/' name '/data/' name '_limitingRxns.txt']);
+        writetable(changes,['../../models/' name '/' name '_limitingRxns.txt']);
     end
     if ~isempty(limEnz)
         varNamesTable = {'EnzNames','EnzPos','ControlCoeff'};
         changes = cell2table(limEnz,'VariableNames',varNamesTable);
         changes = truncateValues(changes,4);
-        writetable(changes,['../../models/' name '/data/' name '_limitingEnzymes.txt']);
+        writetable(changes,['../../models/' name '/' name '_limitingEnzymes.txt']);
     end
 end
 

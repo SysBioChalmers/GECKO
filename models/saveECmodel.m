@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % model = saveECmodel(model,toolbox,name,version)
 %
-% Benjamin J. Sanchez. Last edited: 2018-08-29
+% Benjamin J. Sanchez. Last edited: 2018-10-25
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function model = saveECmodel(model,toolbox,name,version)
@@ -14,6 +14,7 @@ if endsWith(name,'_batch')
 else
     root_name = name;
 end
+file_name = [root_name '/' name];
 
 %Model description:
 model.description = [struct_name ' of ' lower(root_name(3)) root_name(4:end)];
@@ -33,11 +34,6 @@ end
 if isfield(model,'rules')
     model = rmfield(model,'rules');
 end
-
-%Save model as mat:
-S.(struct_name) = model;
-file_name       = [root_name '/' name];
-save([file_name '.mat'], '-struct', 'S')
 
 %Transform model back to COBRA for saving purposes:
 if strcmp(toolbox,'COBRA')
