@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % model = scaleBioMass(model,Ptot,GAM,scale_comp)
 % 
-% Benjamin Sanchez. Last update: 2018-10-09
+% Benjamin Sanchez. Last update: 2018-10-23
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function model = scaleBioMass(model,Ptot,GAM,scale_comp)
@@ -18,7 +18,7 @@ end
 %Compute carbohydrate and lipid new amounts, based on:
 %1. Total mass remains constant, i.e. Pbase+Cbase+Lbase = Ptot+Ctot+Ltot
 %2. Difference in mass is distributed proportionally, i.e. Ctot/Ltot = Cbase/Lbase
-[~,Pbase,Cbase,~,~,Lbase] = sumBioMass(model);
+[~,Pbase,Cbase,R,D,Lbase] = sumBioMass(model);
 Ctot = Cbase + (Pbase - Ptot)*Cbase/(Lbase+Cbase);
 Ltot = Lbase + (Pbase - Ptot)*Lbase/(Lbase+Cbase);
 
@@ -47,7 +47,8 @@ for i = 1:length(model.mets)
     isGAM = sum(strcmp({'ATP','ADP','H2O','H+','phosphate'},model.metNames{i})) == 1;
     if S_ix ~= 0 && isGAM
         %Polymerization costs from Forster et al 2003 - table S8:
-        model.S(i,xr_pos) = sign(S_ix)*(GAM + 37.7*Ptot + 12.8*Ctot);
+        GAMpol = Ptot*37.7 + Ctot*12.8 + R*26.0 + D*26.0;
+        model.S(i,xr_pos) = sign(S_ix)*(GAM + GAMpol);
     end
 end
 
