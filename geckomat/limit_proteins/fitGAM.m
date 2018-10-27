@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % [GAM,fitting,results] = fitGAM(model)
 % 
-% Benjamin Sanchez. Last update: 2018-08-13
+% Benjamin Sanchez. Last update: 2018-10-27
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function GAM = fitGAM(model)
@@ -76,7 +76,7 @@ end
 function mod_data = simulateChemostat(model,exp_data,GAM)
 
 %Modify GAM withouth changing the protein content:
-[~,Pbase,~,~,~,~] = sumBioMass(model);
+Pbase = sumProtein(model);
 model = scaleBioMass(model,Pbase,GAM,false);
 
 %Relevant positions:
