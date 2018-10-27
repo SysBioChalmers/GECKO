@@ -2944,7 +2944,7 @@ arm_r_0477	s_0557[c] + s_0999[c]  -> pmet_r_0477[c] 	YMR084W or YKL104C	  0.00	 
 r_0477No1	pmet_r_0477[c] + 7.82473e-06 prot_A2P2R3[c]  -> s_0412[c] + s_0991[c] 	YMR084W	  0.00	   Inf	  0.00
 r_0477No2	pmet_r_0477[c] + 7.82473e-06 prot_P14742[c]  -> s_0412[c] + s_0991[c] 	YKL104C	  0.00	   Inf	  0.00
 r_0478No1	s_0434[c] + s_0999[c] + s_1590[c] + 8.68056e-05 prot_P13188[c]  -> s_0423[c] + s_0633[c] + s_0747[c] 	YOR168W	  0.00	   Inf	  0.00
-r_0479No1	s_0434[c] + s_0991[c] + s_1591[c] + 7.69468e-05 prot_P46655[c]  -> s_0423[c] + s_0633[c] + s_0748[c] 	YGL245W	  0.00	   Inf	  0.00
+r_0479No1	s_0434[c] + s_0991[c] + s_1591[c] + 0.00019984 prot_P46655[c]  -> s_0423[c] + s_0633[c] + s_0748[c] 	YGL245W	  0.00	   Inf	  0.00
 r_0480No1	s_0437[m] + s_0993[m] + s_1592[m] + 0.00019984 prot_P48525[c]  -> s_0424[m] + s_0636[m] + s_0749[m] 	YOL033W	  0.00	   Inf	  0.00
 arm_r_0481	s_0754[c] + s_0794[c] + s_1212[c]  -> pmet_r_0481[c] 	(YCL035C and YPL091W) or (YDR098C and YPL091W) or (YDR513W and YPL091W) or (YER174C and YPL091W)	  0.00	   Inf	  0.00
 r_0481No1	pmet_r_0481[c] + 3.08642e-07 prot_P25373[c] + 3.08642e-07 prot_P41921[c]  -> 2 s_0750[c] + s_1207[c] 	YCL035C and YPL091W	  0.00	   Inf	  0.00
@@ -3423,7 +3423,7 @@ r_0913No1	s_1187[c] + 4.02576e-06 prot_P00912[c]  -> s_0076[c] 	YDR007W	  0.00	 
 r_0914No1	s_0327[c] + s_0434[c] + s_1003[c] + 3.96825e-05 prot_P07244[c]  -> s_0325[c] + s_0394[c] + s_0794[c] + s_1322[c] 	YGL234W	  0.00	   Inf	  0.00
 r_0915No1	s_0803[c] + s_0999[c] + s_1386[c] + 4.99481e-06 prot_P04046[c]  -> s_0327[c] + s_0633[c] + s_0991[c] 	YMR300C	  0.00	   Inf	  0.00
 arm_r_0916	s_0434[c] + s_1408[c]  -> pmet_r_0916[c] 	(YKL181W and YER099C) or (YKL181W and YHL011C) or (YKL181W and YBL068W) or (YER099C and YOL061W) or (YBL068W and YOL061W)	  0.00	   Inf	  0.00
-r_0916No1	pmet_r_0916[c] + 2.37417e-07 prot_P32895[c] + 0.000420875 prot_P38620[c]  -> s_0423[c] + s_0794[c] + s_1386[c] 	YKL181W and YER099C	  0.00	   Inf	  0.00
+r_0916No1	pmet_r_0916[c] + 0.000420875 prot_P32895[c] + 0.000420875 prot_P38620[c]  -> s_0423[c] + s_0794[c] + s_1386[c] 	YKL181W and YER099C	  0.00	   Inf	  0.00
 r_0916No2	pmet_r_0916[c] + 0.000420875 prot_P32895[c] + 0.000420875 prot_P38689[c]  -> s_0423[c] + s_0794[c] + s_1386[c] 	YKL181W and YHL011C	  0.00	   Inf	  0.00
 r_0916No3	pmet_r_0916[c] + 0.000420875 prot_P32895[c] + 0.000420875 prot_P38063[c]  -> s_0423[c] + s_0794[c] + s_1386[c] 	YKL181W and YBL068W	  0.00	   Inf	  0.00
 r_0916No4	pmet_r_0916[c] + 0.000420875 prot_P38620[c] + 0.000420875 prot_Q12265[c]  -> s_0423[c] + s_0794[c] + s_1386[c] 	YER099C and YOL061W	  0.00	   Inf	  0.00
@@ -3465,7 +3465,7 @@ r_0960No2	1.91571e-06 prot_P06169[c] + pmet_r_0960[c]  -> s_0020[c] + s_0456[c] 
 r_0960No3	4.48029e-06 prot_P16467[c] + pmet_r_0960[c]  -> s_0020[c] + s_0456[c] 	YLR134W	  0.00	   Inf	  0.00
 r_0961No1	s_0532[m] + s_1200[m] + s_1401[m] + 3.97393e-06 prot_P09624[c] + 3.97393e-06 prot_P32473[c] + 3.97393e-06 prot_P16387[c] + 3.97393e-06 prot_P16451[c] + 3.97393e-06 prot_P12695[c]  -> s_0376[m] + s_0460[m] + s_1205[m] 	YBR221C and YER178W and YFL018C and YGR193C and YNL071W	  0.00	   Inf	  0.00
 arm_r_0962	s_0394[c] + s_0794[c] + s_1360[c]  -> pmet_r_0962[c] 	YAL038W or YOR347C	  0.00	   Inf	  0.00
-r_0962No1	pmet_r_0962[c] + 4.13858e-08 prot_P00549[c]  -> s_0434[c] + s_1399[c] 	YAL038W	  0.00	   Inf	  0.00
+r_0962No1	pmet_r_0962[c] + 1.19732e-06 prot_P00549[c]  -> s_0434[c] + s_1399[c] 	YAL038W	  0.00	   Inf	  0.00
 r_0962No2	pmet_r_0962[c] + 1.19732e-06 prot_P52489[c]  -> s_0434[c] + s_1399[c] 	YOR347C	  0.00	   Inf	  0.00
 r_0963No1	s_0156[m] + s_0799[m] + s_1205[m] + s_1278[m] + 0.000204248 prot_O13525[c] + 0.000204248 prot_P27697[c] + 0.000204248 prot_P53318[c] + 0.000204248 prot_Q05779[c] + 0.000204248 prot_P49017[c] + 0.000204248 prot_P27680[c] + 0.000204248 prot_P41735[c]  -> s_0154[m] + s_0807[m] + s_1200[m] 	YDR204W and YGL119W and YGR255C and YLR201C and YML110C and YOL096C and YOR125C	  0.00	   Inf	  0.00
 r_0965No1	s_0434[c] + s_1405[c] + 0.00277778 prot_Q03778[c]  -> s_0394[c] + s_0714[c] + s_0794[c] 	YDR236C	  0.00	   Inf	  0.00
