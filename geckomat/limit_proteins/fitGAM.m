@@ -1,5 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% [GAM,fitting,results] = fitGAM(model)
+% GAM = fitGAM(model)
+% Returns a fitted GAM for the yeast model.
 % 
 % Benjamin Sanchez. Last update: 2018-10-27
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

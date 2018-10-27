@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % [X,P,C,R,D,L] = sumBioMass(model)
-% Calculates breakdown of biomass:
+% Calculates breakdown of biomass for the yeast model:
 % X -> Biomass fraction without lipids [g/gDW]
 % P -> Protein fraction [g/gDW]
 % C -> Carbohydrate fraction [g/gDW]
