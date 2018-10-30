@@ -45,19 +45,21 @@ Usage
 
   - Update the following data files in ``/databases`` with your organism infomation:
   
-    - ``databases/chemostatData.tsv``: Chemostat data for estimating GAM	(optional).
-    - ``databases/manual_data.txt``: Kcat data from eventual manual curations	(optional).
     - ``databases/prot_abundance.txt``: Protein abundance Data from Pax-DB.
     - ``databases/uniprot.tab``: Gene-proteins data from uniprot.
+    - ``databases/chemostatData.tsv``: Chemostat data for estimating GAM (optional, called by ``fitGAM.m``).
+    - ``databases/manual_data.txt``: Kcat data from eventual manual curations (optional, called by ``manualModifications.m``).
 	
   - Adapt the following functions in ``/geckomat`` to your organism:
   
-    - ``geckomat/get_enzyme_data/preprocessModel.m``
-    - ``geckomat/change_model/manualModifications.m``	(optional)
-    - ``geckomat/change_model/removeIncorrectPathways.m``
-    - ``geckomat/limit_proteins/sumBioMass.m``	(If chemostat data is provided)
-    - ``geckomat/limit_proteins/scaleBioMass.m``	(If chemostat data is provided)
+    - ``geckomat/enhanceGEM.m``
+    - ``geckomat/change_model/manualModifications.m``
+    - ``geckomat/limit_proteins/sumProtein.m``
+    - ``geckomat/limit_proteins/scaleBioMass.m``
     - ``geckomat/kcat_sensitivity_analysis/changeMedia_batch.m``
+    - ``geckomat/change_model/removeIncorrectPathways.m`` (optional, called by ``manualModifications.m``)
+    - ``geckomat/limit_proteins/sumBioMass.m`` (optional, called by ``sumProtein.m`` & ``scaleBiomass.m``)
+    - ``geckomat/limit_proteins/fitGAM.m`` (optional, called by ``scaleBiomass.m``)
 	
   - Run ``geckomat/get_enzyme_data/updateDatabases.m`` to update ``ProtDatabase.mat``.
   - Run ``geckomat/enhanceGEM.m`` with your metabolic model as input.

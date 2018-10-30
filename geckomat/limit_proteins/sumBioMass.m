@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % [X,P,C,R,D,L] = sumBioMass(model)
-% Calculates breakdown of biomass:
+% Calculates breakdown of biomass for the yeast model:
 % X -> Biomass fraction without lipids [g/gDW]
 % P -> Protein fraction [g/gDW]
 % C -> Carbohydrate fraction [g/gDW]
@@ -9,7 +9,7 @@
 % L -> Lipid fraction [g/gDW]
 % Function adapted from SLIMEr: https://github.com/SysBioChalmers/SLIMEr
 %
-% Benjamin Sanchez. Last update: 2018-08-10
+% Benjamin Sanchez. Last update: 2018-10-23
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function [X,P,C,R,D,L] = sumBioMass(model)
@@ -97,7 +97,7 @@ else
     for i = 1:length(model.mets)
         pos = strcmp(comps(:,1),model.mets{i});
         if sum(pos) == 1
-            abundance = -model.S(i,fractionPos)*comps{pos,2}/1000;
+            abundance = -model.S(i,fractionPos)*(comps{pos,2}-18)/1000;
             F         = F + abundance;
         end
     end
