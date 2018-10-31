@@ -99,8 +99,9 @@ Usage
 Contributors
 ------------
 
-- Benjamin J. Sanchez (`@BenjaSanchez <https://github.com/benjasanchez>`_), Chalmers University of Technology, Gothenburg Sweden
 - Ivan Domenzain (`@IVANDOMENZAIN <https://github.com/IVANDOMENZAIN>`_), Chalmers University of Technology, Gothenburg Sweden
+- Eduard Kerkhoven (`@edkerk <https://github.com/edkerk>`_), Chalmers University of Technology, Gothenburg Sweden
+- Benjamin J. Sanchez (`@BenjaSanchez <https://github.com/benjasanchez>`_), Chalmers University of Technology, Gothenburg Sweden
 - Moritz Emanuel Beber (`@Midnighter <https://github.com/Midnighter>`_), Danish Technical University, Lyngby Denmark
 - Henning Redestig (`@hredestig <https://github.com/hredestig>`_), Danish Technical University, Lyngby Denmark
 - Cheng Zhang, Science for Life Laboratory, KTH - Royal Institute of Technology, Stockholm Sweden
