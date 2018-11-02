@@ -1,6 +1,18 @@
 History
 =======
 
+1.3.3 (2018-11-02)
+------------------
+
+* Fixes:
+    * Fixes #15: Binary results from the model (``ecModel.mat``, ``ecModel_batch.mat`` & ``enzData.mat``) are no longer stored in repo (PR #52).
+    * Misc. fixes in the biomass composition + GAM calculations (PR #53).
+* Refactoring:
+    * Speed improvement in misc. functions (PR #49).
+    * Added ``sumProtein.m`` for easier use when creating new ecModels (PR #53).
+* Documentation:
+    * Documented better which scripts/data should be changed and which are optional when adapting geckomat to produce a new ecModel (PR #53).
+
 1.3.2 (2018-10-12)
 ------------------
 * Features:
