@@ -43,7 +43,7 @@ end
 for i = 1:length(model.rxns)
     reaction = model.rxnNames{i};
     %Find set of proteins present in rxn:
-    S        = full(model.S);
+    S        = model.S;
     subs_pos = find(S(:,i) < 0);
     prot_pos = find(~cellfun(@isempty,strfind(model.mets,'prot_')));
     int_pos  = intersect(subs_pos,prot_pos);
@@ -79,7 +79,7 @@ for i = 1:length(model.rxns)
         end
     end
     %Update int_pos:
-    S        = full(model.S);
+    S        = model.S;
     subs_pos = find(S(:,i) < 0);
     %Get the proteins that are part of the i-th rxn
     prot_pos = find(~cellfun(@isempty,strfind(model.mets,'prot_')));
