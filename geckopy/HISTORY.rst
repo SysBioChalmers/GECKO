@@ -1,6 +1,31 @@
 History
 =======
 
+1.3.3 (2018-11-02)
+------------------
+
+* Fixes:
+    * Fixes #15: Binary results from the model (``ecModel.mat``, ``ecModel_batch.mat`` & ``enzData.mat``) are no longer stored in repo (PR #52).
+    * Misc. fixes in the biomass composition + GAM calculations (PR #53).
+* Refactoring:
+    * Speed improvement in misc. functions (PR #49).
+    * Added ``sumProtein.m`` for easier use when creating new ecModels (PR #53).
+* Documentation:
+    * Documented better which scripts/data should be changed and which are optional when adapting geckomat to produce a new ecModel (PR #53).
+
+1.3.2 (2018-10-12)
+------------------
+* Features:
+    * Name & version of the model are now read/stored from/as model fields (PR #42).
+    * Pipeline now works for any objective function (PR #47).
+* Fixes:
+    * Fixed bug from #39 that saved the ``.mat`` file with the wrong name (PR #42).
+    * Adapted pipeline to deal with multiple gene IDs for 1 protein / multiple protein IDs for 1 gene, for dealing with human-based GEMs (PR #43).
+    * ``changeMedia_batch.m`` modified to reflect the Y6 minimal media composition (PR #47).
+* Refactoring:
+    * Performance improvements to ``getConstrainedModel.m`` and ``sigmaFitter.m`` (PR #47).
+    * ``fitGAM.m`` is now only called from inside ``scaleBioMass.m`` (PR #47).
+
 1.3.1 (2018-08-28)
 ------------------
 * Features:

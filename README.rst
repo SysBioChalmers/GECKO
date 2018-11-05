@@ -11,7 +11,7 @@ The **GECKO** toolbox is a Matlab/Python package for enhancing a **G**\ enome-sc
 - ``geckomat``: Matlab+Python scripts to fetch online data and build/simulate enzyme-constrained models.
 - ``geckopy``: a Python package which can be used with `cobrapy <https://opencobra.github.io/cobrapy/>`_ to obtain a ecYeastGEM model object, optionally adjusted for provided proteomics data.
 
-Last update: 2018-08-28
+Last update: 2018-11-02
 
 This repository is administered by Benjamin J. Sanchez (`@BenjaSanchez <https://github.com/benjasanchez>`_), Division of Systems and Synthetic Biology, Department of Biology and Biological Engineering, Chalmers University of Technology.
 
@@ -45,19 +45,21 @@ Usage
 
   - Update the following data files in ``/databases`` with your organism infomation:
   
-    - ``databases/chemostatData.tsv``: Chemostat data for estimating GAM	(optional).
-    - ``databases/manual_data.txt``: Kcat data from eventual manual curations	(optional).
     - ``databases/prot_abundance.txt``: Protein abundance Data from Pax-DB.
     - ``databases/uniprot.tab``: Gene-proteins data from uniprot.
+    - ``databases/chemostatData.tsv``: Chemostat data for estimating GAM (optional, called by ``fitGAM.m``).
+    - ``databases/manual_data.txt``: Kcat data from eventual manual curations (optional, called by ``manualModifications.m``).
 	
   - Adapt the following functions in ``/geckomat`` to your organism:
   
-    - ``geckomat/get_enzyme_data/preprocessModel.m``
-    - ``geckomat/change_model/manualModifications.m``	(optional)
-    - ``geckomat/change_model/removeIncorrectPathways.m``
-    - ``geckomat/limit_proteins/sumBioMass.m``	(If chemostat data is provided)
-    - ``geckomat/limit_proteins/scaleBioMass.m``	(If chemostat data is provided)
+    - ``geckomat/enhanceGEM.m``
+    - ``geckomat/change_model/manualModifications.m``
+    - ``geckomat/limit_proteins/sumProtein.m``
+    - ``geckomat/limit_proteins/scaleBioMass.m``
     - ``geckomat/kcat_sensitivity_analysis/changeMedia_batch.m``
+    - ``geckomat/change_model/removeIncorrectPathways.m`` (optional, called by ``manualModifications.m``)
+    - ``geckomat/limit_proteins/sumBioMass.m`` (optional, called by ``sumProtein.m`` & ``scaleBiomass.m``)
+    - ``geckomat/limit_proteins/fitGAM.m`` (optional, called by ``scaleBiomass.m``)
 	
   - Run ``geckomat/get_enzyme_data/updateDatabases.m`` to update ``ProtDatabase.mat``.
   - Run ``geckomat/enhanceGEM.m`` with your metabolic model as input.
@@ -97,8 +99,9 @@ Usage
 Contributors
 ------------
 
-- Benjamin J. Sanchez (`@BenjaSanchez <https://github.com/benjasanchez>`_), Chalmers University of Technology, Gothenburg Sweden
 - Ivan Domenzain (`@IVANDOMENZAIN <https://github.com/IVANDOMENZAIN>`_), Chalmers University of Technology, Gothenburg Sweden
+- Eduard Kerkhoven (`@edkerk <https://github.com/edkerk>`_), Chalmers University of Technology, Gothenburg Sweden
+- Benjamin J. Sanchez (`@BenjaSanchez <https://github.com/benjasanchez>`_), Chalmers University of Technology, Gothenburg Sweden
 - Moritz Emanuel Beber (`@Midnighter <https://github.com/Midnighter>`_), Danish Technical University, Lyngby Denmark
 - Henning Redestig (`@hredestig <https://github.com/hredestig>`_), Danish Technical University, Lyngby Denmark
 - Cheng Zhang, Science for Life Laboratory, KTH - Royal Institute of Technology, Stockholm Sweden

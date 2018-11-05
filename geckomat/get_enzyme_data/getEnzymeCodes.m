@@ -44,6 +44,16 @@ kegg      = data.kegg;
 swissprot = standardizeDatabase(swissprot);
 kegg      = standardizeDatabase(kegg);
 
+DBprotSwissprot     = swissprot(:,1);
+DBgenesSwissprot    = flattenCell(swissprot(:,3));
+DBecNumSwissprot    = swissprot(:,4);
+DBMWSwissprot       = swissprot(:,5);
+
+DBprotKEGG          = kegg(:,1);
+DBgenesKEGG         = flattenCell(kegg(:,3));
+DBecNumKEGG         = kegg(:,4);
+DBMWKEGG            = kegg(:,5);
+
 [m,n]      = size(model.S);
 substrates = cell(n,20);
 products   = cell(n,20);
@@ -78,7 +88,7 @@ for i = 1:n
     isrev(i) = dir + inv;
     if ~isempty(model.grRules{i})
         %Find match in Swissprot:
-        [new_uni,new_EC,new_MW,newGene,multGenes] = findInDB(model.grRules{i},swissprot);
+        [new_uni,new_EC,new_MW,newGene,multGenes] = findInDB(model.grRules{i},DBprotSwissprot,DBgenesSwissprot,DBecNumSwissprot,DBMWSwissprot);
         if ~isempty(union_string(new_EC))
             count(1) = count(1) + isrev(i);
             DBase    = 'swissprot';
@@ -87,7 +97,7 @@ for i = 1:n
             end
         else
             %Find match in KEGG:
-            [new_uni,new_EC,new_MW,newGene,multGenes] = findInDB(model.grRules{i},kegg);
+            [new_uni,new_EC,new_MW,newGene,multGenes] = findInDB(model.grRules{i},DBprotKEGG,DBgenesKEGG,DBecNumKEGG,DBMWKEGG);
             if ~isempty(union_string(new_EC))
                 count(2) = count(2) + isrev(i);
                 DBase    = 'kegg';

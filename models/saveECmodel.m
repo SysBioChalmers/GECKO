@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % model = saveECmodel(model,toolbox,name,version)
 %
-% Benjamin J. Sanchez. Last edited: 2018-08-29
+% Benjamin J. Sanchez. Last edited: 2018-10-25
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function model = saveECmodel(model,toolbox,name,version)
@@ -14,6 +14,7 @@ if endsWith(name,'_batch')
 else
     root_name = name;
 end
+file_name = [root_name '/' name];
 
 %Model description:
 model.description = [struct_name ' of ' lower(root_name(3)) root_name(4:end)];
@@ -34,8 +35,8 @@ if isfield(model,'rules')
     model = rmfield(model,'rules');
 end
 
-%Transform model back to COBRA for saving purposes:
 if strcmp(toolbox,'COBRA')
+    %Transform model back to COBRA for saving purposes:
     model_cobra = ravenCobraWrapper(model);
     %Remove fields from COBRA model (temporal):
     model_cobra = rmfield(model_cobra,'metCharges');
@@ -48,10 +49,6 @@ if strcmp(toolbox,'COBRA')
     model_cobra = rmfield(model_cobra,'rxnReferences');
     model_cobra = rmfield(model_cobra,'subSystems');
     model_cobra = rmfield(model_cobra,'rxnSBOTerms');
-    %Save model as mat:
-    S.(struct_name) = model;
-    file_name       = [root_name '/' name];
-    save([file_name '.mat'], '-struct', 'S')
     %Save model as sbml and text:
     writeCbModel(model_cobra,'sbml',[file_name '.xml']);
     writeCbModel(model_cobra,'text',[file_name '.txt']);
