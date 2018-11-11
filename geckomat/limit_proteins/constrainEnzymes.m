@@ -1,14 +1,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % model = constrainEnzymes(model,Ptot,sigma,f,GAM,pIDs,data,gRate,GlucUptake)
 % 
-% Benjamin J. Sanchez. Last edited: 2018-10-27
+% Benjamin J. Sanchez. Last edited: 2018-11-11
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function [model,enzUsages,modifications] = constrainEnzymes(model,Ptot,sigma,f,GAM,pIDs,data,gRate,GlucUptake)
 
 %Compute f if not provided:
 if nargin < 4
-    [f,~] = measureAbundance(ecModel.enzymes);
+    [f,~] = measureAbundance(model.enzymes);
 end
 
 %Leave GAM empty if not provided (will be fitted later):
@@ -52,7 +52,7 @@ Pbase = sumProtein(model);
 
 if Pmeasured > 0
     %Calculate fraction of non measured proteins in model out of remaining mass:
-    [fn,~] = measureAbundance(model.enzymes(~measured),'prot_abundance.txt');
+    [fn,~] = measureAbundance(model.enzymes(~measured));
     fm     = Pmeasured/Ptot;
     f      = fn/(1-fm);
     %Discount measured mass from global constrain:
