@@ -102,6 +102,7 @@ end
 if ~match_path
     model.pathways{pos_e,1} = '-';
 end
+model.enzGenes{pos_e,1} = gene;
 
 %Add gene to gene list if non-existing previously:
 if ~ismember(gene,model.genes)
@@ -112,23 +113,13 @@ end
 
 %Add exchange reaction of protein: -> P
 rxnID = ['prot_' P '_exchange'];
-rxnsToAdd.rxns = {rxnID};
-rxnsToAdd.rxnNames = rxnsToAdd.rxns;
-rxnsToAdd.mets = {prot_name};
-rxnsToAdd.stoichCoeffs = 1;
-rxnsToAdd.lb = 0; % ub is taken from model's default, otherwise inf
-model = addRxns(model,rxnsToAdd); % All 'arm' metabolites are initially located to the cytosol
-model.grRules{strcmp(model.rxns,rxnID)} = gene;
-model.enzGenes{pos_e,1} = gene;
-
-%Update metComps:
-pos_m = strcmp(model.mets,prot_name);   %position in model.mets
-cytIndex = find(strcmpi(model.compNames,'cytoplasm'),1);
-if ~isempty(cytIndex)
-    model.metComps(pos_m) = cytIndex;	%For simplification all proteins are in cytosol
-else
-    model.metComps(pos_m) = 1;
-end
+rxnToAdd.rxns         = {rxnID};
+rxnToAdd.rxnNames     = {rxnID};
+rxnToAdd.mets         = {prot_name};
+rxnToAdd.stoichCoeffs = 1;
+rxnToAdd.lb           = 0; 		%ub is taken from model's default, otherwise inf
+rxnToAdd.grRules      = {gene};
+model = addRxns(model,rxnToAdd);
 
 end
 
