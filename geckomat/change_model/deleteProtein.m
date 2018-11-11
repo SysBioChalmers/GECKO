@@ -3,12 +3,12 @@
 %
 % INPUT:
 % model             Model with enzymes
-% p                 Uniprot code of the protein
+% P                 Uniprot code of the protein
 %
 % OUTPUTS:
 % model             Model with the deleted protein
 % 
-% Benjamín Sánchez. Last edited: 2018-05-28
+% Benjamin J. Sanchez. Last edited: 2018-11-11
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function model = deleteProtein(model,P)
@@ -16,7 +16,6 @@ function model = deleteProtein(model,P)
 %Find position:
 enz_pos   = strcmp(model.enzymes,P);
 met_pos   = strcmp(model.mets,['prot_' P]);
-gene_name = model.enzGenes(enz_pos);
 
 %Delete enzyme fields:
 model.enzymes(enz_pos)   = [];
@@ -27,10 +26,7 @@ model.sequences(enz_pos) = [];
 model.pathways(enz_pos)  = [];
 
 %Delete metabolite also:
-model = removeMets(model,model.mets(met_pos),true,true);
-
-%Delete gene also:
-model = removeGenes(model,gene_name);
+model = removeMets(model,model.mets(met_pos),true,true,true);
 
 end
 
