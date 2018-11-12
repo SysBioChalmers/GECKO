@@ -18,10 +18,8 @@ end
 
 %No UB will be changed if no data is available -> pool = all enzymes(FBAwMC)
 if nargin < 6
-    pIDs          = cell(0,1);
-    data          = zeros(0,1);
-    enzUsages     = zeros(0,1);
-    modifications = cell(0,1);
+    pIDs = cell(0,1);
+    data = zeros(0,1);
 end
 
 %Remove zeros or negative values
@@ -80,6 +78,9 @@ disp(['Total protein in model = '            num2str(Ptot)                   ' g
 if nargin > 7
     [model,enzUsages,modifications] = flexibilizeProteins(model,gRate,GlucUptake);
     plotHistogram(enzUsages,'Enzyme usage [-]',[0,1],'Enzyme usages','usages')
+else
+    enzUsages     = zeros(0,1);
+    modifications = cell(0,1);
 end
 
 %Plot histogram (if there are measurements):
