@@ -63,7 +63,7 @@ end
 
 %Constrain the rest of enzymes with the pool assumption:
 if sum(strcmp(model.rxns,'prot_pool_exchange')) == 0
-    model = constrainPool(model,~measured,fs*Pbase);
+    model = constrainPool(model,~measured,full(fs*Pbase));
 end
 
 %Modify protein/carb content and GAM:

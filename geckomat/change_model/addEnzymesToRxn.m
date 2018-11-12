@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% model = addEnzymesToRxn(model,kvalues,rxn,newMets,newRxnName,kegg,swissprot)
+% model = addEnzymesToRxn(model,kvalues,rxn,newMets,newRxnName,protGenes)
 % Adds new metabolite to the left side of a selected reaction in the model.
 % If the reaction does not exist it will create a new one.
 %
@@ -15,40 +15,50 @@
 % model             Modified GEM structure (1x1 struct)
 % 
 % Cheng Zhang & Ivan Domenzain. Last edited: 2018-09-07
+% Eduard Kerkhoven & Benjamin Sanchez. Last edited: 2018-11-05
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function model = addEnzymesToRxn(model,kvalues,rxn,newMets,newRxnName,protGenes)
 
-%Define all neccesary parts for new (or changed) rxn:
+if nargin < 5
+    protGenes = '';
+end
+
+%Define all necessary parts for new (or changed) rxn:
 rxnIndex = strcmp(model.rxns,rxn); 
 metS     = model.mets(model.S(:,rxnIndex) < 0)';
 metP     = model.mets(model.S(:,rxnIndex) > 0)';
-LB       = model.lb(rxnIndex);
-UB       = model.ub(rxnIndex);    
-obj      = model.c(rxnIndex);
 coeffsS  = model.S(model.S(:,rxnIndex)<0,rxnIndex)';
 coeffsP  = model.S(model.S(:,rxnIndex)>0,rxnIndex)';
 
-subSystem = '';
-if isfield(model,'subSystems')
-    if ~isempty(model.subSystems{rxnIndex}{1})
-        subSystem = model.subSystems{rxnIndex};
-    end
+%Find default compartment:
+cytIndex = strcmpi(model.compNames,'cytoplasm');
+if sum(cytIndex) == 1
+    comp = model.comps{cytIndex};	%For simplification all proteins are in cytosol
+else
+    comp = model.comps{1};
 end
 
 %Include enzyme in reaction:
-model = addReaction(model,newRxnName{1}, ...
-                    'reactionName', newRxnName{2}, ...
-                    'metaboliteList', [metS,newMets,metP], ...
-                    'stoichCoeffList', [coeffsS,-kvalues.^-1,coeffsP], ...
-                    'lowerBound', LB, ...
-                    'upperBound', UB, ...
-                    'objectiveCoef', obj, ...
-                    'subSystem', subSystem);
-%Add/modify gene(s) association information if available
-if nargin >5 && ~isempty(protGenes)
-    model.grRules{strcmp(model.rxns,newRxnName{1})} = protGenes;
+rxnToAdd.mets         = [metS,newMets,metP];
+rxnToAdd.stoichCoeffs = [coeffsS,-kvalues.^-1,coeffsP];
+if ismember(newRxnName{1},model.rxns)
+    model = changeRxns(model,newRxnName(1),rxnToAdd,1,comp);
+else    
+    rxnToAdd.rxns     = newRxnName(1);
+    rxnToAdd.rxnNames = newRxnName(2);
+    rxnToAdd.lb       = model.lb(rxnIndex);
+    rxnToAdd.ub       = model.ub(rxnIndex);
+    rxnToAdd.obj      = model.c(rxnIndex);
+    if ~isempty(protGenes)
+        rxnToAdd.grRules = {protGenes};
+    end
+    if isfield(model,'subSystems')
+        rxnToAdd.subSystems = model.subSystems(rxnIndex);
+    end
+    model = addRxns(model,rxnToAdd,1,comp,true);
 end
+
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -13,6 +13,7 @@
 % version   The resulting version of the model (if not specified before)
 %
 % Benjamin J. Sanchez. Last edited: 2018-09-01
+% Eduard Kerkhoven. Last edited: 2018-10-16
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function [model,name,version] = preprocessModel(model,name,version)
@@ -25,8 +26,14 @@ for i = 1:length(model.rxns)
     end
 end
 
+%Swap direction of only reactions that are defined to only carry negative flux
+to_swap=model.lb < 0 & model.ub == 0;
+model.S(:,to_swap)=-model.S(:,to_swap);
+model.ub(to_swap)=-model.lb(to_swap);
+model.lb(to_swap)=0;
+
 %Delete blocked rxns (LB = UB = 0):
-to_remove = boolean((model.lb == 0).*(model.ub == 0));
+to_remove = logical((model.lb == 0).*(model.ub == 0));
 model     = removeReactions(model,model.rxns(to_remove),true,true,true);
 
 %Correct rev vector: true if LB < 0 & UB > 0, or it is an exchange reaction:

@@ -121,7 +121,7 @@ for i = 1:length(model.rxns)-1
         end
     end
 end
-model = removeReactions(model,model.rxns(rem_rxn),true);
+model = removeReactions(model,model.rxns(rem_rxn),true,true);
 % Merge arm reactions to reactions with only one isozyme (2017-01-17):
 arm_pos = zeros(size(model.rxns));
 p       = 0;
@@ -139,12 +139,9 @@ for i = 1:length(model.rxns)
         end
         if k == 1
             %Condense both reactions in one:
-            model = addReaction(model,model.rxns{pos}, ...
-                                'reactionName', model.rxnNames{pos}, ...
-                                'metaboliteList', model.mets, ...
-                                'stoichCoeffList', model.S(:,i) + model.S(:,pos), ...
-                                'lowerBound', 0, ...
-                                'upperBound', 1000);
+            equations.mets         = model.mets;
+            equations.stoichCoeffs = model.S(:,i) + model.S(:,pos);
+            model = changeRxns(model,model.rxns(pos),equations);
             model.grRules{pos} = grRule;
             p          = p + 1;
             arm_pos(p) = i;
@@ -153,7 +150,7 @@ for i = 1:length(model.rxns)
     end
 end
 % Remove saved arm reactions:
-model = removeReactions(model,model.rxns(arm_pos(1:p)),true);
+model = removeReactions(model,model.rxns(arm_pos(1:p)),true,true);
 
 % Remove unused enzymes after manual curation (2017-01-16):
 rem_enz = false(size(model.enzymes));
@@ -432,14 +429,14 @@ function model = otherChanges(model)
     % Remove protein P40009 (Golgi apyrase) from missanotated rxns (2016-12-14):
       pos_rxn = find(~cellfun(@isempty,strfind(model.rxnNames,'ATPase, cytosolic (No3)')));
       if ~isempty(pos_rxn) && pos_rxn~=0
-         model = removeReactions(model,model.rxns(pos_rxn));
+         model = removeReactions(model,model.rxns(pos_rxn),true,true);
       end
       
     % Remove 2 proteins from missanotated rxns: Q12122 from cytosolic rxn (it's
     % only mitochondrial) & P48570 from mitochondrial rxn (it's only cytosolic).
     % Also rename r_0543No2 to r_0543No1 (for consistency) (2017-08-28):
-    model = removeReactions(model,{'r_0543No1'});
-    model = removeReactions(model,{'r_1838No2'});
+    model = removeReactions(model,{'r_0543No1'},true,true);
+    model = removeReactions(model,{'r_1838No2'},true,true);
     index = find(strcmp(model.rxns,'r_0543No2'));
     if ~isempty(index)
         model.rxnNames{index} = 'homocitrate synthase (No1)';
