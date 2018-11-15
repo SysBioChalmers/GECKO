@@ -23,7 +23,7 @@ function [ecModel_batch,OptSigma] = getConstrainedModel(ecModel,c_source,sigma,P
     [f,~] = measureAbundance(ecModel.enzymes);
     %Get a preliminary enzyme constrained model for performing the Kcats
     %sensitivity analysis
-    [ecModel_batch,~,~] = constrainEnzymes(ecModel,Ptot,sigma,f);
+    ecModel_batch       = constrainPool(ecModel,'all',f*sigma*Ptot);
 	solution            = solveLP(ecModel_batch,1);
     if ~isempty(solution.f)
         %Set the media according to the experimental conditions

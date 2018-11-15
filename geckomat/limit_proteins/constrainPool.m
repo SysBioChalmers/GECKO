@@ -6,6 +6,10 @@
 
 function model = constrainPool(model,non_measured,UB)
 
+if strcmp(non_measured,'all')
+    non_measured = true(length(model.enzymes),1);
+end
+
 %Find default compartment:
 cytIndex = strcmpi(model.compNames,'cytoplasm');
 if sum(cytIndex) == 1
