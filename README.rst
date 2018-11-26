@@ -45,7 +45,7 @@ Usage
 
   - Update the following data files in ``/databases`` with your organism infomation:
   
-    - ``databases/prot_abundance.txt``: Protein abundance Data from Pax-DB. If data is not available for your organism, then a relative proteomics dataset (in molar fractions) can be used instead. The file should be added to the folder ``databases`` and being named as ``relative_proteomics.txt`` , the required format is a tab-separated file with a single header line and 2 columns; the first with gene IDs and the second with the relative abundances for each protein. 
+    - ``databases/prot_abundance.txt``: Protein abundance Data from Pax-DB. If data is not available for your organism, then a relative proteomics dataset (in molar fractions) can be used instead. The required format is a tab-separated file, named as ``databases/relative_proteomics.txt`` , with a single header line and 2 columns; the first with gene IDs and the second with the relative abundances for each protein. 
     - ``databases/uniprot.tab``: Gene-proteins data from uniprot.
     - ``databases/chemostatData.tsv``: Chemostat data for estimating GAM (optional, called by ``fitGAM.m``).
     - ``databases/manual_data.txt``: Kcat data from eventual manual curations (optional, called by ``manualModifications.m``).
