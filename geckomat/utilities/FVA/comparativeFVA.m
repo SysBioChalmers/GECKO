@@ -6,14 +6,14 @@ function [FVA_Dists,indexes,stats] = comparativeFVA(model,ecModel,c_source,chemo
 % version of it to perform the correspondent variability analysis and
 % finally compares and plots the cumulative flux variability distributions. 
 %
-%   model       MATLAB GEM structure
-%   ecModel     MATLAB ecGEM structure
-%   c_source    rxnName for the main carbon source uptake reaction (which
-%               is fixed on the model according to the obtained value from 
-%               a batch growth optimization with the ecModel)
+%   model       MATLAB GEM structure, constrained with the desired culture
+%               medium
+%   ecModel     MATLAB ecGEM structure, constrained with the desired culture
+%               medium
+%   c_source    rxnName for the main carbon source uptake reaction 
 %   chemostat   TRUE if chemostat conditions are desired
 %   blockedMets metNames of metabolites which secretion should be blocked
-%   tol         (Opt) numerical tolerance for a flux and variability range 
+%   tol         numerical tolerance for a flux and variability range 
 %               to be considered as zero
 %   
 %   FVAdists    cell containing the distributions of variability ranges for
@@ -25,38 +25,30 @@ function [FVA_Dists,indexes,stats] = comparativeFVA(model,ecModel,c_source,chemo
 % 
 % usage: [FVA_Dists,indexes,stats] = comparativeFVA(model,ecModel,c_source,chemostat,tol,blockedMets)
 % 
-% Ivan Domenzain.      Last edited: 2018-11-21
+% Ivan Domenzain.      Last edited: 2018-11-26
 
-current  = pwd;
 rangeGEM = [];
 indexes  = [];
 range_EC = [];
 
-if nargin<5
-    tol = 0;
-end
 %Get the index for all the non-objective rxns in the original irrevModel
-rxnsIndxs    = find(model.c~=1);
+rxnsIndxs = find(model.c~=1);
 %Set minimal glucose media for ecModel
-cd ../../scripts
-[ecModel,pos] = changeMedia_batch(ecModel,[c_source ' (reversible)'],'Min');
-
-%Block glucose and oxygen production
-cd (current)
+pos = find(strcmpi(ecModel.rxnNames,[c_source ' (reversible)']));
+%Block production
 if nargin>5
     model   = block_production(model,blockedMets,true);
     ecModel = block_production(ecModel,blockedMets,true);
 end
 
 %Gets the optimal value for ecirrevModel and fixes the objective value to
-%this for both irrevModels
+%this for both models
 if chemostat
     gRate   = 0.1;
-    gIndex  = find(ecModel.c,1);
     %Fix dilution rate
     [~,~, ecModel] = fixObjective(ecModel,true,gRate);
     %Fix minimal carbon source uptake rate
-    ecModel = setParam(ecModel,'obj', pos(1), -1);
+    ecModel = setParam(ecModel,'obj', pos, -1);
     [~,~,ecModel] = fixObjective(ecModel,false);
     %Fix minimal total protein usage
     index   = find(contains(ecModel.rxnNames,'prot_pool'));
@@ -72,18 +64,17 @@ else
 end
 
 %Fix carbon source uptake and growth rates for the ecModel on the original model
-carbonUptake = ecFluxDist(pos(1));
+carbonUptake = ecFluxDist(pos);
 disp([c_source ': ' num2str(carbonUptake)])
-c_source           = find(strcmpi(model.rxnNames,c_source));
+c_source           = strcmpi(model.rxnNames,c_source);
 model.lb(c_source) = -carbonUptake;
 [~,FluxDist,model] = fixObjective(model,true,gRate);
 
-% Get the variability range for each of non-objective reactions in the
-% original irrevModel
+% Get the variability range for each of the non-objective reactions in the
+% original model
 for i=1:length(rxnsIndxs) 
     indx        = rxnsIndxs(i);
     rxnID       = model.rxns(indx);
-    %mappedIndxs = rxnMapping(rxnID,irrevModel,false);
     FixedValues = [];
     range       = MAXmin_Optimizer(model,indx,FixedValues,tol);
     %If max and min were feasible then the optimization proceeds with
@@ -106,8 +97,8 @@ for i=1:length(rxnsIndxs)
             end
         end
     end
-    higher = (rangeEC-range)/range; 
-    disp(['ready with #' num2str(i) ', relative variability reduction:' num2str(higher)])
+    relative = (rangeEC-range)/range; 
+    disp(['ready with #' num2str(i) ', relative variability reduction:' num2str(relative*100) '%'])
 end
 %Plot FV cumulative distributions
 FVA_Dists  = {rangeGEM, range_EC};
