@@ -1,6 +1,11 @@
 function [y_param, stats_param] = plotCumDist(E_parameter,legends,titlestr,median)
 for i=1:length(E_parameter)
-    if nargin>3
+    
+    if nargin<4
+        median = false;
+    end
+      
+    if median
         str{i} = horzcat(legends{i},' (',num2str(length(E_parameter{i})),' / ',num2str(median(E_parameter{i})), ')');
     else
         str{i} = horzcat(legends{i},' (',num2str(length(E_parameter{i})),')');
