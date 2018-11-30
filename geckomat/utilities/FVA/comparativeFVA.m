@@ -10,7 +10,7 @@ function [FVA_Dists,indexes,stats] = comparativeFVA(model,ecModel,c_source,chemo
 %               medium
 %   ecModel     MATLAB ecGEM structure, constrained with the desired culture
 %               medium
-%   c_source    rxnName for the main carbon source uptake reaction 
+%   c_source    rxn ID for the main carbon source uptake reaction 
 %   chemostat   TRUE if chemostat conditions are desired
 %   blockedMets metNames of metabolites which secretion should be blocked
 %   tol         numerical tolerance for a flux and variability range 
@@ -34,7 +34,7 @@ range_EC = [];
 %Get the index for all the non-objective rxns in the original irrevModel
 rxnsIndxs = find(model.c~=1);
 %Set minimal glucose media for ecModel
-pos = find(strcmpi(ecModel.rxnNames,[c_source ' (reversible)']));
+pos = find(strcmpi(ecModel.rxns,[c_source '_REV']));
 %Block production
 if nargin>5
     model   = block_production(model,blockedMets,true);
@@ -66,7 +66,7 @@ end
 %Fix carbon source uptake and growth rates for the ecModel on the original model
 carbonUptake = ecFluxDist(pos);
 disp([c_source ': ' num2str(carbonUptake)])
-c_source           = strcmpi(model.rxnNames,c_source);
+c_source           = strcmpi(model.rxns,c_source);
 model.lb(c_source) = -carbonUptake;
 [~,FluxDist,model] = fixObjective(model,true,gRate);
 
@@ -79,6 +79,7 @@ for i=1:length(rxnsIndxs)
     range       = MAXmin_Optimizer(model,indx,FixedValues,tol);
     %If max and min were feasible then the optimization proceeds with
     %the ecModel
+    relative = 0;
     if ~isempty(range)
         if tol>0
             condition = ~(range<tol & abs(FluxDist)<tol);
@@ -94,17 +95,18 @@ for i=1:length(rxnsIndxs)
                 rangeGEM = [rangeGEM; range];
                 range_EC = [range_EC; rangeEC];
                 indexes  = [indexes; indx];
+                relative = (rangeEC-range)/range; 
             end
         end
     end
-    relative = (rangeEC-range)/range; 
     disp(['ready with #' num2str(i) ', relative variability reduction:' num2str(relative*100) '%'])
+
 end
 %Plot FV cumulative distributions
 FVA_Dists  = {rangeGEM, range_EC};
 legends    = {'model', 'ecModel'};
 titleStr   = 'Flux variability cumulative distribution';
-[~, stats] = plotCumDist(FVA_Dists,legends,titleStr,false);
+[~, stats] = plotCumDist(FVA_Dists,legends,titleStr);
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function [OptimalValue, optFluxDist, irrevModel] = fixObjective(irrevModel,fixed,priorValue)
