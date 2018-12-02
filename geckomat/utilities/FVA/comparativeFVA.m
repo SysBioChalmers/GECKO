@@ -1,4 +1,4 @@
-function [FVA_Dists,indexes,stats] = comparativeFVA(model,ecModel,c_source,chemostat,tol,blockedMets)
+function [FVA_Dists,indexes,stats] = comparativeFVA(model,ecModel,c_source,chemostat,tol)
 % comparativeFVA
 %  
 % This function goes through each of the rxns in a metabolic model and
@@ -6,13 +6,14 @@ function [FVA_Dists,indexes,stats] = comparativeFVA(model,ecModel,c_source,chemo
 % version of it to perform the correspondent variability analysis and
 % finally compares and plots the cumulative flux variability distributions. 
 %
-%   model       MATLAB GEM structure, constrained with the desired culture
-%               medium
+%   model       MATLAB GEM structure (reversible model), constrained with 
+%               the desired culture medium constraints
 %   ecModel     MATLAB ecGEM structure, constrained with the desired culture
 %               medium
-%   c_source    rxn ID for the main carbon source uptake reaction 
+%   c_source    rxn ID (in model) for the main carbon source uptake reaction.
+%               The rxn ID should not contain the substring "_REV" in order
+%               to avoid any confusion when mapping it to the ecModel
 %   chemostat   TRUE if chemostat conditions are desired
-%   blockedMets metNames of metabolites which secretion should be blocked
 %   tol         numerical tolerance for a flux and variability range 
 %               to be considered as zero
 %   
@@ -25,22 +26,15 @@ function [FVA_Dists,indexes,stats] = comparativeFVA(model,ecModel,c_source,chemo
 % 
 % usage: [FVA_Dists,indexes,stats] = comparativeFVA(model,ecModel,c_source,chemostat,tol,blockedMets)
 % 
-% Ivan Domenzain.      Last edited: 2018-11-26
+% Ivan Domenzain.      Last edited: 2018-11-30
 
 rangeGEM = [];
 indexes  = [];
 range_EC = [];
-
 %Get the index for all the non-objective rxns in the original irrevModel
 rxnsIndxs = find(model.c~=1);
 %Set minimal glucose media for ecModel
 pos = find(strcmpi(ecModel.rxns,[c_source '_REV']));
-%Block production
-if nargin>5
-    model   = block_production(model,blockedMets,true);
-    ecModel = block_production(ecModel,blockedMets,true);
-end
-
 %Gets the optimal value for ecirrevModel and fixes the objective value to
 %this for both models
 if chemostat
@@ -62,14 +56,12 @@ else
     ecModel = setParam(ecModel,'obj', index, -1);
     [~,ecFluxDist,ecModel] = fixObjective(ecModel,false);
 end
-
 %Fix carbon source uptake and growth rates for the ecModel on the original model
 carbonUptake = ecFluxDist(pos);
 disp([c_source ': ' num2str(carbonUptake)])
 c_source           = strcmpi(model.rxns,c_source);
 model.lb(c_source) = -carbonUptake;
 [~,FluxDist,model] = fixObjective(model,true,gRate);
-
 % Get the variability range for each of the non-objective reactions in the
 % original model
 for i=1:length(rxnsIndxs) 
@@ -100,7 +92,6 @@ for i=1:length(rxnsIndxs)
         end
     end
     disp(['ready with #' num2str(i) ', relative variability reduction:' num2str(relative*100) '%'])
-
 end
 %Plot FV cumulative distributions
 FVA_Dists  = {rangeGEM, range_EC};
@@ -133,8 +124,3 @@ if ~isempty(sol.f)
 end
 disp(['The optimal value is ' num2str(OptimalValue)])
 end
-
-
-
-
-
