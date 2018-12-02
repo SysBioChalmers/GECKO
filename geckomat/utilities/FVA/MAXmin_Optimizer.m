@@ -44,15 +44,13 @@ end
 function model = fixFluxValue(model,indexes,coeff,FixedValues)
     if length(indexes)>1
         if coeff == 1
-            %Fix basal flux level for backward reaction to avoid
-            %artificially high variability
+            %Sets an upper bound for backward reaction to avoid artificially 
+            %high variability
             model.ub(indexes(2)) = FixedValues(2);
-            %model.lb(indexes(2)) = 0.9999*FixedValues(2);
         else
-            %Fix basal flux level for forward reaction with the maximum flux 
-            %obtained in the previous stepto avoid artificially high variability
+            %Sets an upper bound for forward reaction with the maximum flux 
+            %obtained in the previous step to avoid artificially high variability
             model.ub(indexes(1)) = FixedValues;
-            %model.lb(indexes(1)) = 0.9999*FixedValues(1);
         end
     end
 end
