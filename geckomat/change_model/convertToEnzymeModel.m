@@ -12,8 +12,9 @@
 % OUTPUT:
 % eModel            Modified GEM structure (1x1 struct)
 % 
-% Cheng Zhang.    Last edited: 2018-05-24
-% Ivan Domenzain. Last edited: 2018-09-07
+% Cheng Zhang.          Last edited: 2018-05-24
+% Ivan Domenzain.       Last edited: 2018-09-07
+% Benjamin J. Sanchez.  Last edited: 2018-11-11
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function eModel = convertToEnzymeModel(irrevModel,Genes,uniprots,kcats)
@@ -66,6 +67,9 @@ for i = 1:m
             end
         end
         eModel = removeReactions(eModel,{rxnID});  %Remove the original rxn
+    end
+    if rem(i,100) == 0
+        disp(['Adding enzymes to rxns, ready with ' num2str(i) '/' num2str(m)])
     end
 end
 

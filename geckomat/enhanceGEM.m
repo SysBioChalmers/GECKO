@@ -15,9 +15,9 @@ end
 %Provide your organism scientific name
 org_name = 'saccharomyces cerevisiae';
 
-%Add RAVEN fields for easier visualization later on:
+%Convert model to RAVEN for easier visualization later on:
 format short e
-if strcmp(toolbox,'COBRA')
+if isfield(model,'rules')
     initCobraToolbox
     model = ravenCobraWrapper(model);
 end

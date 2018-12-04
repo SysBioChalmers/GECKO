@@ -1,14 +1,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % model = constrainEnzymes(model,Ptot,sigma,f,GAM,pIDs,data,gRate,GlucUptake)
 % 
-% Benjamin J. Sanchez. Last edited: 2018-10-27
+% Benjamin J. Sanchez. Last edited: 2018-11-11
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function [model,enzUsages,modifications] = constrainEnzymes(model,Ptot,sigma,f,GAM,pIDs,data,gRate,GlucUptake)
 
 %Compute f if not provided:
 if nargin < 4
-    [f,~] = measureAbundance(ecModel.enzymes);
+    [f,~] = measureAbundance(model.enzymes);
 end
 
 %Leave GAM empty if not provided (will be fitted later):
@@ -18,10 +18,8 @@ end
 
 %No UB will be changed if no data is available -> pool = all enzymes(FBAwMC)
 if nargin < 6
-    pIDs          = cell(0,1);
-    data          = zeros(0,1);
-    enzUsages     = zeros(0,1);
-    modifications = cell(0,1);
+    pIDs = cell(0,1);
+    data = zeros(0,1);
 end
 
 %Remove zeros or negative values
@@ -52,7 +50,7 @@ Pbase = sumProtein(model);
 
 if Pmeasured > 0
     %Calculate fraction of non measured proteins in model out of remaining mass:
-    [fn,~] = measureAbundance(model.enzymes(~measured),'prot_abundance.txt');
+    [fn,~] = measureAbundance(model.enzymes(~measured));
     fm     = Pmeasured/Ptot;
     f      = fn/(1-fm);
     %Discount measured mass from global constrain:
@@ -63,7 +61,7 @@ end
 
 %Constrain the rest of enzymes with the pool assumption:
 if sum(strcmp(model.rxns,'prot_pool_exchange')) == 0
-    model = constrainPool(model,~measured,fs*Pbase);
+    model = constrainPool(model,~measured,full(fs*Pbase));
 end
 
 %Modify protein/carb content and GAM:
@@ -80,6 +78,9 @@ disp(['Total protein in model = '            num2str(Ptot)                   ' g
 if nargin > 7
     [model,enzUsages,modifications] = flexibilizeProteins(model,gRate,GlucUptake);
     plotHistogram(enzUsages,'Enzyme usage [-]',[0,1],'Enzyme usages','usages')
+else
+    enzUsages     = zeros(0,1);
+    modifications = cell(0,1);
 end
 
 %Plot histogram (if there are measurements):

@@ -11,7 +11,7 @@ The **GECKO** toolbox is a Matlab/Python package for enhancing a **G**\ enome-sc
 - ``geckomat``: Matlab+Python scripts to fetch online data and build/simulate enzyme-constrained models.
 - ``geckopy``: a Python package which can be used with `cobrapy <https://opencobra.github.io/cobrapy/>`_ to obtain a ecYeastGEM model object, optionally adjusted for provided proteomics data.
 
-Last update: 2018-11-02
+Last update: 2018-12-04
 
 This repository is administered by Benjamin J. Sanchez (`@BenjaSanchez <https://github.com/benjasanchez>`_), Division of Systems and Synthetic Biology, Department of Biology and Biological Engineering, Chalmers University of Technology.
 
@@ -45,7 +45,7 @@ Usage
 
   - Update the following data files in ``/databases`` with your organism infomation:
   
-    - ``databases/prot_abundance.txt``: Protein abundance Data from Pax-DB.
+    - ``databases/prot_abundance.txt``: Protein abundance Data from Pax-DB. If data is not available for your organism, then a relative proteomics dataset (in molar fractions) can be used instead. The required format is a tab-separated file, named as ``databases/relative_proteomics.txt`` , with a single header line and 2 columns; the first with gene IDs and the second with the relative abundances for each protein. 
     - ``databases/uniprot.tab``: Gene-proteins data from uniprot.
     - ``databases/chemostatData.tsv``: Chemostat data for estimating GAM (optional, called by ``fitGAM.m``).
     - ``databases/manual_data.txt``: Kcat data from eventual manual curations (optional, called by ``manualModifications.m``).

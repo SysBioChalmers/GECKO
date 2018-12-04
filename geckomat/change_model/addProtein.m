@@ -84,7 +84,7 @@ for i = 1:length(kegg)
         %Sequence (if nothing found in uniprot):
         if ~isempty(kegg{i,7}) && ~match_seq
             match_seq                = true;
-            model.sequences(pos_e,1) = kegg{i,7};
+            model.sequences(pos_e,1) = kegg(i,7);
         end
     end
 end
@@ -93,7 +93,7 @@ if ~match_gen
     if sum(unknowns) == 0
         idx = 0;
     else
-        unknowns  = model.enzGenes(unknowns);
+        unknowns  = model.genes(unknowns);
         pos_final = strfind(unknowns{end},'_')+1;
         idx       = str2double(unknowns{end}(pos_final:end));
     end
@@ -102,10 +102,10 @@ end
 if ~match_path
     model.pathways{pos_e,1} = '-';
 end
+model.enzGenes{pos_e,1} = gene;
 
 %Add gene to gene list if non-existing previously:
 if ~ismember(gene,model.genes)
-    model.enzNames(pos_e,1)
     geneToAdd.genes = {gene};
     geneToAdd.geneShortNames = model.enzNames(pos_e,1);
     model = addGenesRaven(model,geneToAdd);
@@ -113,22 +113,13 @@ end
 
 %Add exchange reaction of protein: -> P
 rxnID = ['prot_' P '_exchange'];
-model = addReaction(model,rxnID, ...
-                    'metaboliteList', {prot_name}, ...
-                    'stoichCoeffList', 1, ...
-                    'lowerBound', 0, ...
-                    'upperBound', Inf);
-model.grRules{strcmp(model.rxns,rxnID)} = gene;
-model.enzGenes{pos_e,1} = gene;
-
-%Update metComps:
-pos_m = strcmp(model.mets,prot_name);   %position in model.mets
-cytIndex = find(strcmpi(model.compNames,'cytoplasm'),1);
-if ~isempty(cytIndex)
-    model.metComps(pos_m) = cytIndex;	%For simplification all proteins are in cytosol
-else
-    model.metComps(pos_m) = 1;
-end
+rxnToAdd.rxns         = {rxnID};
+rxnToAdd.rxnNames     = {rxnID};
+rxnToAdd.mets         = {prot_name};
+rxnToAdd.stoichCoeffs = 1;
+rxnToAdd.lb           = 0; 		%ub is taken from model's default, otherwise inf
+rxnToAdd.grRules      = {gene};
+model = addRxns(model,rxnToAdd);
 
 end
 

@@ -10,6 +10,7 @@
 % model             Modified GEM structure (1x1 struct)
 % 
 % Cheng Zhang & Ivan Domenzain. Last edited: 2018-05-28
+% Eduard Kerkhoven & Benjamin Sanchez. Last edited: 2018-11-05
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function model = addArmReaction(model,rxn)
@@ -20,45 +21,35 @@ sub_pos  = find(model.S(:,rxnIndex) < 0);
 pro_pos  = find(model.S(:,rxnIndex) > 0);
 metS     = model.mets(sub_pos)';
 metP     = model.mets(pro_pos)';
-LB       = model.lb(rxnIndex);
-UB       = model.ub(rxnIndex);
-obj      = model.c(rxnIndex);
 coeffsS  = model.S(sub_pos,rxnIndex)';
 coeffsP  = model.S(pro_pos,rxnIndex)';
-grRule   = model.grRules{rxnIndex};
 
-subSystem = '';
-if isfield(model,'subSystems')
-    if ~isempty(model.subSystems{rxnIndex}{1})
-        subSystem = model.subSystems{rxnIndex};
-    end
+%Find default compartment:
+if sum(sub_pos) > 0
+    comp = model.comps{model.metComps(sub_pos(1))};
+else
+    comp = model.comps{model.metComps(pro_pos(1))};
 end
 
 %Create new rxn:
-rxnID = ['arm_' rxn];
-model = addReaction(model,rxnID, ...
-                    'reactionName', [model.rxnNames{rxnIndex} ' (arm)'], ...
-                    'metaboliteList', [metS,['pmet_' rxn]], ...
-                    'stoichCoeffList', [coeffsS,1], ...
-                    'lowerBound', LB, ...
-                    'upperBound', UB, ...
-                    'objectiveCoef', obj, ...
-                    'subSystem', subSystem);
-model.grRules{strcmp(model.rxns,rxnID)} = grRule;
+rxnToAdd.rxns         = {['arm_' rxn]};
+rxnToAdd.rxnNames     = {[model.rxnNames{rxnIndex} ' (arm)']};
+rxnToAdd.mets         = [metS,['pmet_' rxn]];
+rxnToAdd.stoichCoeffs = [coeffsS,1];
+rxnToAdd.lb           = model.lb(rxnIndex);
+rxnToAdd.ub           = model.ub(rxnIndex);
+rxnToAdd.obj          = model.c(rxnIndex);
+rxnToAdd.grRules      = model.grRules(rxnIndex);
+if isfield(model,'subSystems')
+    rxnToAdd.subSystems = model.subSystems(rxnIndex);
+end
+model = addRxns(model,rxnToAdd,1,comp,true);
 
 %Change old rxn:
-model = addReaction(model,rxn, ...
-                    'reactionName', model.rxnNames{rxnIndex}, ...
-                    'metaboliteList', [['pmet_' rxn], metP], ...
-                    'stoichCoeffList', [-1,coeffsP]);
+equation.mets = [['pmet_' rxn], metP];
+equation.stoichCoeffs = [-1,coeffsP];
+model = changeRxns(model,rxn,equation,1,comp);
 
-%Update metComps:
-pos = strcmp(model.mets,['pmet_' rxn]);
-if sum(sub_pos) > 0
-    model.metComps(pos) = model.metComps(sub_pos(1));
-else
-    model.metComps(pos) = model.metComps(pro_pos(1));
-end
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
