@@ -1,6 +1,19 @@
 History
 =======
 
+1.3.4 (2018-12-04)
+------------------
+
+* Features:
+    * Generalization of ``measureAbundance.m`` to receive any PaxDB file, a relative proteomics dataset, or even nothing at all (PR #58).
+    * New utility: Comparative FVA between a model and its enzyme-constrained version (PR #57).
+* Fixes:
+    * Consistent definition of what data is in ``uniprot.tab`` (PR #48).
+    * Proper use of ``measureAbundance.m`` from within ``constrainEnzymes.m`` (PR #56).
+* Refactoring:
+    * Switch all functions that add/change rxns/genes from COBRA to RAVEN (PR #48).
+    * Avoid any functions from Simulink (PR #48).
+
 1.3.3 (2018-11-02)
 ------------------
 
