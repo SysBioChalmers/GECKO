@@ -61,7 +61,7 @@ function [ecModel_batch,OptSigma] = getConstrainedModel(ecModel,c_source,sigma,P
         %enzymes to the file "topUsedEnzymes.txt" in the containing folder
         [ecModel_batch,~] = changeMedia_batch(ecModel_batch,c_source,'Min');
         solution          = solveLP(ecModel_batch,1);
-        topUsedEnzymes(solution.x,ecModel_batch,'Min_glucose',name);
+        topUsedEnzymes(solution.x,ecModel_batch,{'Min_glucose'},name);
         cd ../limit_proteins
     else
         disp('ecModel with enzymes pool constraint is not feasible')
