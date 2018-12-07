@@ -64,8 +64,8 @@ if ~isempty(genes)
                   num2str(length(genes)) ' genes '])
         end
     end
-    f     = sum(concs(counter))/sum(concs);
-    count = [length(counter);sum(counter)];
+    f     = sum(concs(counter),'omitnan')/sum(concs,'omitnan');
+    count = [length(counter);sum(counter,'omitnan')];
 else
     disp('prot_abundance file is not available. A default value of f=0.5 is set instead')
     f     = 0.5;
