@@ -36,6 +36,9 @@ for i=1:100
     sigma = i/100;
     model_batch.ub(poolIndex) = sigma*Ptot*f; 
     solution  = solveLP(model_batch,1);
+    if isempty(solution.x)
+        solution.x=zeros(length(model_batch.rxns),1);
+    end
     objValues = [objValues; solution.x(objPos)];
     error     = abs(((expVal-solution.x(objPos))/expVal)*100);
     errors    = [errors; error];
