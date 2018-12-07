@@ -2,6 +2,9 @@
 % [swissprot,kegg] = updateDatabases
 % Updates all databases for protein matching (KEGG and Swiss-Prot).
 %
+% keggId    three- or four-letter species abbrevation from KEGG, see
+%           https://www.genome.jp/kegg/catalog/org_list.html
+%
 % Note: Before using this script, one should manually download from 
 %       http://www.uniprot.org/uniprot a tab delimited file for the
 %       desired organism with the following format:
@@ -11,14 +14,18 @@
 % Benjamín Sánchez & Cheng Zhang. Last edited: 2017-10-24
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function [swissprot,kegg] = updateDatabases
+function [swissprot,kegg] = updateDatabases(keggId)
+
+if nargin<1 || ~regexp(keggId,'[a-z]{3,4}')
+    error('Please specify the KEGG organism ID')
+end
 
 %Build Swissprot table:
 swissprot = buildSWISSPROTtable;
 
 %Download KEGG data:
 mkdir ../../databases/KEGG
-downloadKEGGdata('sce')
+downloadKEGGdata(keggId)
 
 %Build KEGG table
 kegg = buildKEGGtable;
@@ -52,8 +59,8 @@ for i = 1:length(swissprot)
     swissprot{i,4} = strrep(swissprot{i,4},';','');
     swissprot{i,5} = MW;
     swissprot{i,6} = sequence;
-    disp(['Building Swiss-Prot database: Ready with protein ' uni])
 end
+disp('Building Swiss-Prot database.')
 
 end
 
@@ -150,15 +157,15 @@ for i = 1:length(file_names)
                 
             %6th column: pathway
             elseif strcmp(line(1:7),'PATHWAY')
-                start    = strfind(line,'sce');
+                start    = strfind(line,keggId);
                 pathway  = line(start(1):end);
                 end_path = false;
                 for k = j+1:length(text)
-                    nospace = strrep(text{k},'sce01100  Metabolic pathways','');
+                    nospace = strrep(text{k},[keggId '01100  Metabolic pathways'],'');
                     nospace = strrep(nospace,' ','');
                     if length(nospace) > 10
-                        if strcmp(nospace(1:3),'sce') && ~end_path
-                            start    = strfind(text{k},'sce');
+                        if strcmp(nospace(1:3),keggId) && ~end_path
+                            start    = strfind(text{k},keggId);
                             pathway  = [pathway ' ' text{k}(start(1):end)];
                         else
                             end_path = true;
