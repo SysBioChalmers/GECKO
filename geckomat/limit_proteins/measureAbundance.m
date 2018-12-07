@@ -59,7 +59,7 @@ if ~isempty(genes)
             end
         end
         concs(i) = MW*abundance(i);     %g/mol(tot prot)
-        if rem(i,100) == 0
+        if rem(i,100) == 0 | i == length(genes)
             disp(['Calculating total abundance: Ready with ' num2str(i) '/' ...
                   num2str(length(genes)) ' genes '])
         end
