@@ -26,7 +26,7 @@ function [model,enzUsages,modifications] = flexibilizeProteins(model,gRate,glucU
 %
 %   Ivan Domenzain, 2018-06-11
 %
-current       = pwd;
+
 flexFactor    = 100;
 flexProts     = {};
 enzUsages     = [];
@@ -35,14 +35,10 @@ modifications = {};
 % set minimal glucose medium
 Csource      = 'D-glucose exchange (reversible)';
 glucUptkIndx = strcmpi(model.rxnNames,Csource);
-cd ../kcat_sensitivity_analysis
-[model,~]    = changeMedia_batch(model,Csource,'Min');
-cd ../limit_proteins
 %constrain glucose uptake if an experimental measurement is provided
 if nargin>2
     model.ub(glucUptkIndx) = 1.001*glucUptakeExp;
 end
-cd (current)
 % get measured protein exchange rxns indexes
 measuredIndxs = getMeasuredProtsIndexes(model);
 if ~isempty(measuredIndxs)

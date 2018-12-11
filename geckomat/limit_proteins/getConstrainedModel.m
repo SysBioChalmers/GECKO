@@ -21,6 +21,8 @@ function [ecModel_batch,OptSigma] = getConstrainedModel(ecModel,c_source,sigma,P
 	
     %Get f (estimated mass fraction of enzymes in model)
     [f,~] = measureAbundance(ecModel.enzymes);
+    %Change media to batch conditions:
+    ecModel = changeMedia_batch(ecModel,c_source);
     %Get a preliminary enzyme constrained model for performing the Kcats
     %sensitivity analysis
     [ecModel_batch,~,~] = constrainEnzymes(ecModel,Ptot,sigma,f);
@@ -28,8 +30,7 @@ function [ecModel_batch,OptSigma] = getConstrainedModel(ecModel,c_source,sigma,P
     if ~isempty(solution.f)
         %Set the media according to the experimental conditions
         cd ../kcat_sensitivity_analysis
-        [ecModel_batch,~] = changeMedia_batch(ecModel_batch,c_source,'Min');
-        ObjIndex          = find(ecModel_batch.c);
+        ObjIndex = find(ecModel_batch.c);
         % If the model is overconstrained
         if (obj_Val-solution.x(ObjIndex))>0 
             fprintf('\n')
@@ -50,7 +51,6 @@ function [ecModel_batch,OptSigma] = getConstrainedModel(ecModel,c_source,sigma,P
         fprintf('\n')
         disp('***************************************************************')
         disp('        Fitting the average enzymes saturation factor          ')
-        [ecModel_batch,~] = changeMedia_batch(ecModel_batch,c_source,'Min');
         OptSigma          = sigmaFitter(ecModel_batch,Ptot,obj_Val,f);
         enzymePos         = strcmp(ecModel_batch.rxns,'prot_pool_exchange');
         currentEnzymeUB   = ecModel_batch.ub(enzymePos);
@@ -59,7 +59,6 @@ function [ecModel_batch,OptSigma] = getConstrainedModel(ecModel,c_source,sigma,P
         
         %Simulate growth on minimal media and export the top ten used 
         %enzymes to the file "topUsedEnzymes.txt" in the containing folder
-        [ecModel_batch,~] = changeMedia_batch(ecModel_batch,c_source,'Min');
         solution          = solveLP(ecModel_batch,1);
         topUsedEnzymes(solution.x,ecModel_batch,{'Min_glucose'},name);
         cd ../limit_proteins
