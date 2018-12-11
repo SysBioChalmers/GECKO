@@ -17,7 +17,8 @@
 % Benjamin Sanchez      2018-08-10
 % Ivan Domenzain        2018-09-27
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [ecModel_batch,OptSigma] = getConstrainedModel(ecModel,c_source,sigma,Ptot,obj_Val,modifications,name)
+
+function [ecModel_batch,OptSigma] = getConstrainedModel(ecModel,c_source,sigma,Ptot,gRate,modifications,name)
 	
     %Get f (estimated mass fraction of enzymes in model)
     [f,~] = measureAbundance(ecModel.enzymes);
@@ -32,7 +33,7 @@ function [ecModel_batch,OptSigma] = getConstrainedModel(ecModel,c_source,sigma,P
         cd ../kcat_sensitivity_analysis
         ObjIndex = find(ecModel_batch.c);
         % If the model is overconstrained
-        if (obj_Val-solution.x(ObjIndex))>0 
+        if (gRate-solution.x(ObjIndex))>0 
             fprintf('\n')
             disp('***************************************************************')
             disp('                The ECmodel is overconstrained                 ')
@@ -41,7 +42,7 @@ function [ecModel_batch,OptSigma] = getConstrainedModel(ecModel,c_source,sigma,P
             %iterate replacing the top limiting value according to the maximum 
             %value available in BRENDA for the same EC number until the objective
             %is no longer underpredicted 
-            ecModel_batch = modifyKcats(ecModel_batch,obj_Val,modifications,name);
+            ecModel_batch = modifyKcats(ecModel_batch,gRate,modifications,name);
         else
             fprintf('\n')
             disp('***************************************************************')
@@ -51,7 +52,7 @@ function [ecModel_batch,OptSigma] = getConstrainedModel(ecModel,c_source,sigma,P
         fprintf('\n')
         disp('***************************************************************')
         disp('        Fitting the average enzymes saturation factor          ')
-        OptSigma          = sigmaFitter(ecModel_batch,Ptot,obj_Val,f);
+        OptSigma          = sigmaFitter(ecModel_batch,Ptot,gRate,f);
         enzymePos         = strcmp(ecModel_batch.rxns,'prot_pool_exchange');
         currentEnzymeUB   = ecModel_batch.ub(enzymePos);
         ecModel_batch     = setParam(ecModel_batch,'ub','prot_pool_exchange', ...

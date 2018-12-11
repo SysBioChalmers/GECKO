@@ -4,7 +4,7 @@
 % Benjamin J. Sanchez. Last edited: 2018-11-11
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function [model,enzUsages,modifications] = constrainEnzymes(model,Ptot,sigma,f,GAM,pIDs,data,gRate,GlucUptake)
+function [model,enzUsages,modifications] = constrainEnzymes(model,Ptot,sigma,f,GAM,pIDs,data,gRate,c_UptakeExp,c_source)
 
 %Compute f if not provided:
 if nargin < 4
@@ -76,7 +76,7 @@ disp(['Total enzymes not measured = '        num2str(sum(~measured))         ' e
 disp(['Total protein in model = '            num2str(Ptot)                   ' g/gDW'])
 
 if nargin > 7
-    [model,enzUsages,modifications] = flexibilizeProteins(model,gRate,GlucUptake);
+    [model,enzUsages,modifications] = flexibilizeProteins(model,gRate,c_UptakeExp,c_source);
     plotHistogram(enzUsages,'Enzyme usage [-]',[0,1],'Enzyme usages','usages')
 else
     enzUsages     = zeros(0,1);

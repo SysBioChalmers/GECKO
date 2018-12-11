@@ -1,4 +1,4 @@
-function [model,enzUsages,modifications] = flexibilizeProteins(model,gRate,glucUptakeExp)
+function [model,enzUsages,modifications] = flexibilizeProteins(model,gRate,c_UptakeExp,c_source)
 % flexibilizeProteins
 %   Function that takes an ecModel with proteomic constraints and, if it is
 %   overconstrained with respect to the provided experimental growth rate,
@@ -32,12 +32,10 @@ flexProts     = {};
 enzUsages     = [];
 modifications = {};
 
-% set minimal glucose medium
-Csource      = 'D-glucose exchange (reversible)';
-glucUptkIndx = strcmpi(model.rxnNames,Csource);
 %constrain glucose uptake if an experimental measurement is provided
-if nargin>2
-    model.ub(glucUptkIndx) = 1.001*glucUptakeExp;
+if nargin > 2
+    glucUptkIndx = strcmp(model.rxnNames,c_source);
+    model.ub(glucUptkIndx) = 1.001*c_UptakeExp;
 end
 % get measured protein exchange rxns indexes
 measuredIndxs = getMeasuredProtsIndexes(model);
