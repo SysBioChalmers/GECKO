@@ -1,7 +1,32 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% model = constrainEnzymes(model,Ptot,sigma,f,GAM,pIDs,data,gRate,GlucUptake)
-% 
-% Benjamin J. Sanchez. Last edited: 2018-11-11
+% [model,enzUsages,modifications] = constrainEnzymes(model,Ptot,sigma,f,GAM,pIDs,data,gRate,c_UptakeExp,c_source)
+% Main function for overlaying proteomics data on an enzyme-constrained
+% model. If chosen, also scales the protein content, optimizes GAM, and
+% flexibilizes the proteomics data.
+%
+%   model           ecModel.
+%   sigma           Average saturation factor.
+%   Ptot            Total protein content [g/gDW].
+% 	f				(Opt) Estimated mass fraction of enzymes in model.
+%	GAM				(Opt) Growth-associated maintenance value. If not
+%					provided, it will be fitted to chemostat data.
+% 	pIDs			(Opt) Protein IDs from proteomics data.
+%	data			(Opt) Protein abundances from proteomics data [mmol/gDW].
+%   gRate           Minimum growth rate the model should grow at [1/h]. For
+%                   finding the growth reaction, GECKO will choose the
+%                   non-zero coeff in the objective function.
+%   c_UptakeExp     (Opt) Experimentally measured glucose uptake rate 
+%                   [mmol/gDW h].
+%	c_source        (Opt) The name of the exchange reaction that supplies
+%                   the model with carbon.
+%
+%   model           ecModel with calibrated enzyme usage upper bounds
+%   enzUsages       Calculated enzyme usages after final calibration 
+%                   (enzyme_i demand/enzyme_i upper bound)
+%   modifications   Table with all the modified values 
+%                   (Protein ID/old value/Flexibilized value)
+%
+% Benjamin J. Sanchez	2018-12-11
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function [model,enzUsages,modifications] = constrainEnzymes(model,Ptot,sigma,f,GAM,pIDs,data,gRate,c_UptakeExp,c_source)

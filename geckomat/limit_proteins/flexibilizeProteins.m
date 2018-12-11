@@ -8,23 +8,27 @@ function [model,enzUsages,modifications] = flexibilizeProteins(model,gRate,c_Upt
 %   the usage value provided by an overall enzyme usage minimization 
 %   simulation (subject to the provided growth rate and nutrient uptake 
 %   constraints).
-%   
-%   model          ecModel with proteomic constraints (individual enzyme
-%                  levels)
-%   gRate          Growth rate [g/gDw h]observed on the experiment in which
-%                  the proteomic measurements were taken
-%   glucUptakeExp  (Opt) Experimentally measured glucose uptake rate 
-%                  [mmol/gDw h]
 %
-%   model          ecModel with calibrated enzyme usage upper bounds
-%   enzUsages      Calculated enzyme usages after final calibration 
-%                  (enzyme_i demand/enzyme_i upper bound)
-%   modifications  Table with all the modified values 
-%                  (Protein ID/old value/Flexibilized value)
+%   model           ecModel with proteomic constraints (individual enzyme
+%                   levels)
+%   gRate           Minimum growth rate the model should grow at [1/h]. For
+%                   finding the growth reaction, GECKO will choose the
+%                   non-zero coeff in the objective function.
+%   c_UptakeExp     (Opt) Experimentally measured glucose uptake rate 
+%                   [mmol/gDw h]
+%	c_source        (Opt) The name of the exchange reaction that supplies
+%                   the model with carbon.
 %
-%   Usage: [model,enzUsages,modifications] = flexibilizeProteins(model,gRate,glucUptakeExp)
+%   model           ecModel with calibrated enzyme usage upper bounds
+%   enzUsages       Calculated enzyme usages after final calibration 
+%                   (enzyme_i demand/enzyme_i upper bound)
+%   modifications   Table with all the modified values 
+%                   (Protein ID/old value/Flexibilized value)
 %
-%   Ivan Domenzain, 2018-06-11
+%   Usage: [model,enzUsages,modifications] = flexibilizeProteins(model,gRate,c_UptakeExp,c_source)
+%
+%   Ivan Domenzain          2018-06-11
+%   Benjamin J. Sanchez     2018-12-11
 %
 
 flexFactor    = 100;

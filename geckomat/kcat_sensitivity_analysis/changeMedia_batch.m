@@ -1,19 +1,20 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% model = changeMedia(model,media,flux)
+% model = changeMedia_batch(model,c_source)
 %
-% function that modifies the ecModel and makes it suitable for batch growth
-% simulations on different carbon sources.
+% Function that modifies the ecModel and makes it suitable for batch growth
+% simulations on the carbon source of choice. You can add more changes in
+% this function if you need to do so for your model.
 %
 % INPUT:
-%   - model:  An enzyme constrained model
-%   - meadia: Media type ('YEP' for complex, 'MAA' minimal with Aminoacids,
-%                          'Min' for minimal media)
-%   - flux:   (Optional) A cell array with measured uptake fluxes in mmol/gDwh
+%   model       An enzyme constrained model.
+%	c_source	The name of the exchange reaction that supplies the model
+%				with carbon.
 %
 % OUTPUT:
-%   - model: The ECmodel with
+%   model       The enzyme constrained model with modified boundaries.
 %
 % Ivan Domenzain        2018-09-27
+% Benjamin J. Sanchez	2018-12-11
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function model = changeMedia_batch(model,c_source)

@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%function [ecModel_batch,OptSigma] = getConstrainedModel(ecModel,sigma,Ptot,obj_Val,name)
+% [ecModel_batch,OptSigma] = getConstrainedModel(ecModel,c_source,sigma,Ptot,gRate,modifications,name)
 %
 % Function that gets a GEM with kinetic data and returns an enzyme 
 % constrained model, either with individual enzyme levels or with the total
@@ -14,8 +14,24 @@
 % suggesting further parameters curation (enzyme usages > 10% of the total 
 % proteome).
 %
-% Benjamin Sanchez      2018-08-10
+% INPUT:
+%   ecModel         An enzyme constrained model.
+%	c_source        The name of the exchange reaction that supplies the model
+%                   with carbon.
+%   sigma           Average saturation factor.
+%   Ptot            Total protein content [g/gDW].
+%   gRate           Minimum growth rate the model should grow at [1/h]. For
+%                   finding the growth reaction, GECKO will choose the
+%                   non-zero coeff in the objective function.
+%   modifications	List of manually changed kcats (will be skipped in the
+%                   kcat flexibilization).
+%
+% OUTPUT:
+%   ecModel_batch	The enzyme constrained model under batch conditions.
+%   OptSigma        Optimized saturation factor.
+%
 % Ivan Domenzain        2018-09-27
+% Benjamin J. Sanchez   2018-12-11
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function [ecModel_batch,OptSigma] = getConstrainedModel(ecModel,c_source,sigma,Ptot,gRate,modifications,name)
