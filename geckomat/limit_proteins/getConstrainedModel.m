@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%function [ecModel_batch,OptSigma] = getConstrainedModel(ecModel,sigma,Ptot,obj_Val,name)
+% [ecModel_batch,OptSigma] = getConstrainedModel(ecModel,c_source,sigma,Ptot,gRate,modifications,name)
 %
 % Function that gets a GEM with kinetic data and returns an enzyme 
 % constrained model, either with individual enzyme levels or with the total
@@ -14,13 +14,34 @@
 % suggesting further parameters curation (enzyme usages > 10% of the total 
 % proteome).
 %
-% Benjamin Sanchez      2018-08-10
+% INPUT:
+%   ecModel         An enzyme constrained model.
+%	c_source        The name of the exchange reaction that supplies the model
+%                   with carbon.
+%   sigma           Average saturation factor.
+%   Ptot            Total protein content [g/gDW].
+%   gRate           Minimum growth rate the model should grow at [1/h]. For
+%                   finding the growth reaction, GECKO will choose the
+%                   non-zero coeff in the objective function.
+%   modifications	List of manually changed kcats (will be skipped in the
+%                   kcat flexibilization).
+%
+% OUTPUT:
+%   ecModel_batch	The enzyme constrained model under batch conditions.
+%   OptSigma        Optimized saturation factor.
+%
 % Ivan Domenzain        2018-09-27
+% Benjamin J. Sanchez   2018-12-11
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [ecModel_batch,OptSigma] = getConstrainedModel(ecModel,c_source,sigma,Ptot,obj_Val,modifications,name)
+
+function [ecModel_batch,OptSigma] = getConstrainedModel(ecModel,c_source,sigma,Ptot,gRate,modifications,name)
 	
     %Get f (estimated mass fraction of enzymes in model)
     [f,~] = measureAbundance(ecModel.enzymes);
+    %Change media to batch conditions:
+    cd ../kcat_sensitivity_analysis
+    ecModel = changeMedia_batch(ecModel,c_source);
+    cd ../limit_proteins
     %Get a preliminary enzyme constrained model for performing the Kcats
     %sensitivity analysis
     [ecModel_batch,~,~] = constrainEnzymes(ecModel,Ptot,sigma,f);
@@ -28,10 +49,9 @@ function [ecModel_batch,OptSigma] = getConstrainedModel(ecModel,c_source,sigma,P
     if ~isempty(solution.f)
         %Set the media according to the experimental conditions
         cd ../kcat_sensitivity_analysis
-        [ecModel_batch,~] = changeMedia_batch(ecModel_batch,c_source,'Min');
-        ObjIndex          = find(ecModel_batch.c);
+        ObjIndex = find(ecModel_batch.c);
         % If the model is overconstrained
-        if (obj_Val-solution.x(ObjIndex))>0 
+        if (gRate-solution.x(ObjIndex))>0 
             fprintf('\n')
             disp('***************************************************************')
             disp('                The ECmodel is overconstrained                 ')
@@ -40,7 +60,7 @@ function [ecModel_batch,OptSigma] = getConstrainedModel(ecModel,c_source,sigma,P
             %iterate replacing the top limiting value according to the maximum 
             %value available in BRENDA for the same EC number until the objective
             %is no longer underpredicted 
-            ecModel_batch = modifyKcats(ecModel_batch,obj_Val,modifications,name);
+            ecModel_batch = modifyKcats(ecModel_batch,gRate,modifications,name);
         else
             fprintf('\n')
             disp('***************************************************************')
@@ -50,8 +70,7 @@ function [ecModel_batch,OptSigma] = getConstrainedModel(ecModel,c_source,sigma,P
         fprintf('\n')
         disp('***************************************************************')
         disp('        Fitting the average enzymes saturation factor          ')
-        [ecModel_batch,~] = changeMedia_batch(ecModel_batch,c_source,'Min');
-        OptSigma          = sigmaFitter(ecModel_batch,Ptot,obj_Val,f);
+        OptSigma          = sigmaFitter(ecModel_batch,Ptot,gRate,f);
         enzymePos         = strcmp(ecModel_batch.rxns,'prot_pool_exchange');
         currentEnzymeUB   = ecModel_batch.ub(enzymePos);
         ecModel_batch     = setParam(ecModel_batch,'ub','prot_pool_exchange', ...
@@ -59,7 +78,6 @@ function [ecModel_batch,OptSigma] = getConstrainedModel(ecModel,c_source,sigma,P
         
         %Simulate growth on minimal media and export the top ten used 
         %enzymes to the file "topUsedEnzymes.txt" in the containing folder
-        [ecModel_batch,~] = changeMedia_batch(ecModel_batch,c_source,'Min');
         solution          = solveLP(ecModel_batch,1);
         topUsedEnzymes(solution.x,ecModel_batch,{'Min_glucose'},name);
         cd ../limit_proteins
