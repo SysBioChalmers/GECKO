@@ -23,10 +23,13 @@ current = pwd;
 if isfield(model,'rules')
     model = ravenCobraWrapper(model);
 end
-irrevModel = convertToIrrev(model);
-ecModel    = irrevModel;
+irrevModel   = convertToIrrev(model);
+ecModel      = irrevModel;
+enzymesToAdd = {};
+M_mets       = generalModel.mets;
+M_enzGenes   = generalModel.enzGenes;
+M_enzymes    = generalModel.enzymes;
 %Map each of the irrevModel rxns into the general model
-enzymes = {};
 for i=1:length(irrevModel.rxns)
     rxn      = irrevModel.rxns{i};
     rxnIndxs = find(contains(generalModel.rxns,rxn)); 
@@ -41,8 +44,8 @@ for i=1:length(irrevModel.rxns)
         rxnIndxs = rxnIndxs(contains(generalModel.rxns(rxnIndxs),'_REV')); 
     end
     %Just keep the new reactions (isoenzymes, arm reactions)
-    rxnIndxs    = rxnIndxs(startsWith(generalModel.rxns(rxnIndxs),[rxn 'No'])|...
-                           strcmpi(generalModel.rxns(rxnIndxs),['arm_' rxn]));
+    rxnIndxs = rxnIndxs(startsWith(generalModel.rxns(rxnIndxs),[rxn 'No'])|...
+                        strcmpi(generalModel.rxns(rxnIndxs),['arm_' rxn]));
     ecReactions = generalModel.rxns(rxnIndxs);
     
     if ~isempty(rxnIndxs)
@@ -57,13 +60,19 @@ for i=1:length(irrevModel.rxns)
         grRules(:)         = irrevModel.grRules(i);
         rxnsToAdd.grRules  = grRules;
         %Preallocate fields concerning the metabolites involved in each rxn
-        mets           = cell(1,nR);
-        StoichCoeffs   = cell(1,nR);
-        rxnsToAdd.mets = cell(1,nR);
+        mets           = cell(nR,1);
+        StoichCoeffs   = cell(nR,1);
+        rxnsToAdd.mets = cell(nR,1);
         %Loop through each of the mapped Indexes to get metabolites information
         for j=1:length(rxnIndxs)
-            index = rxnIndxs(j);
-            metsIndxs         = find(generalModel.S(:,index));
+            index     = rxnIndxs(j);
+            metsIndxs = find(generalModel.S(:,index));
+            %Just add those enzymes (as pseudometabolites) for which a
+            %gene exists in model
+            grRule    = irrevModel.grRules{i};
+            %Exclude those proteins that are not related to the grRule for
+            %the i-th reaction in the context-specific model
+            metsIndxs = exclude_proteins(M_mets,M_enzymes,M_enzGenes,metsIndxs,grRule);
             StoichCoeffs{j}   = full(generalModel.S(metsIndxs,index));
             mets{j}           = generalModel.mets(metsIndxs);
             metNames          = generalModel.metNames(metsIndxs);
@@ -74,12 +83,12 @@ for i=1:length(irrevModel.rxns)
             rxnsToAdd.mets{j} = mets{j};
             %Avoid ambiguities checking for proteins also in the general  
             %ecModel enzymes field
-            enzNames  = strrep(enzNames,'prot_','');
-            enzNames  = intersect(enzNames,generalModel.enzymes);
-            enzymes   = [enzymes;enzNames(:)];
+            enzNames      = strrep(enzNames,'prot_','');
+            enzNames      = intersect(enzNames,generalModel.enzymes);
+            enzymesToAdd  = [enzymesToAdd;enzNames(:)];
             %Add new metabolites for each reaction
-            IA      = ismember(mets{j},ecModel.mets);
-            mets{j} = mets{j}(~IA);
+            IA       = ismember(mets{j},ecModel.mets);
+            mets{j}  = mets{j}(~IA);
             if ~isempty(mets{j})
                 metsToAdd.mets         = mets{j};
                 metsToAdd.metNames     = metNames(~IA);
@@ -99,9 +108,9 @@ for i=1:length(irrevModel.rxns)
     end
 end
 cd ../change_model
-enzymes = unique(enzymes);
+enzymesToAdd = unique(enzymesToAdd);
 %Create additional fields in ecModel:
-ecModel.enzymes  = cell(0,1);
+ecModel.enzymes   = cell(0,1);
 ecModel.enzGenes  = cell(0,1);
 ecModel.enzNames  = cell(0,1);
 ecModel.MWs       = zeros(0,1);
@@ -110,9 +119,30 @@ ecModel.pathways  = cell(0,1);
 %Load protein databases for enzyme-genes matching
 load ('../../Databases/ProtDatabase.mat')
 %Add protein usage reactions
-for i = 1:length(enzymes)
-    disp(enzymes{i})
-    ecModel = addProtein(ecModel,enzymes{i},kegg,swissprot);
+for i = 1:length(enzymesToAdd)
+    disp(enzymesToAdd{i})
+    ecModel = addProtein(ecModel,enzymesToAdd{i},kegg,swissprot);
 end
 cd (current)
 end
+
+function metsIndxs = exclude_proteins(M_mets,M_Enz,M_genes,metsIndxs,grRule)
+protIndxs = metsIndxs(contains(M_mets(metsIndxs),'prot_'));
+%Decompose grRule
+grRule = strrep(grRule,'(','');
+grRule = strrep(grRule,')','');
+grRule = strrep(grRule,' and ',' ');
+grRule = strrep(grRule,' or ',' ');
+grRule = strsplit(grRule,' ');
+%Just take those enzymes which genes are also part of the submodel
+prots = strrep(M_mets(protIndxs),'prot_','');
+for i=1:length(protIndxs)
+    protein = prots{i};
+    index   = find(strcmpi(protein,M_Enz));
+    gene    = M_genes(index);
+    if sum(strcmpi(gene,grRule))==0
+        metsIndxs = setdiff(metsIndxs, protIndxs(i));
+    end
+end
+end    
+ 
