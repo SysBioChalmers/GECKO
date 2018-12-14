@@ -106,7 +106,7 @@ for i = 1:length(model.rxns)
         end          
      end
     if rem(i,100) == 0 | i == rxns
-        disp(['Improving model with curated data: Ready with rxn #' num2str(i)])
+        disp(['Improving model with curated data: Ready with rxn ' num2str(i)])
     end
 end
 
