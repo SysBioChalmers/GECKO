@@ -62,20 +62,19 @@ for i = 1:length(model.rxns)
             for k = 1:length(prot_set)
                 model.S(int_pos(k),i) = 0;
             end
-            %If some proteins where not present previously, add them:
-            newMets = uniprots{j};
+            %Add new protein stoich. coeffs to rxn:
+            kvalues = kcats(j)./stoich{j};
+            rxnID   = model.rxns{i};
+            newMets = strcat('prot_',uniprots{j});
+            rxnName = model.rxnNames{i};
             grRule  = protGenes{j};
+            model   = addEnzymesToRxn(model,kvalues,rxnID,newMets,{rxnID,rxnName},grRule);
+            %If some proteins where not present previously, add them:
             for k = 1:length(uniprots{j})
                 if sum(strcmp(model.enzymes,uniprots{j}{k})) == 0
                     model = addProtein(model,uniprots{j}{k},kegg,swissprot);
                 end
-                newMets{k} = ['prot_' newMets{k}];     
             end
-            %Add new protein stoich. coeffs to rxn:
-            kvalues = kcats(j)./stoich{j};
-            rxnID   = model.rxns{i};
-            rxnName = model.rxnNames{i};
-            model   = addEnzymesToRxn(model,kvalues,rxnID,newMets,{rxnID,rxnName},grRule);
         end
     end
     %Update int_pos:
