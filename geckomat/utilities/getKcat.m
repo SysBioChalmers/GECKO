@@ -36,5 +36,3 @@ rxnName = ecModel.rxnNames(rxnIdx);
 MW = strcmpi(model.enzymes,protein);
 MW = model.MWs(MW);
 end
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
