@@ -43,7 +43,7 @@ end
 rxnToAdd.mets         = [metS,newMets,metP];
 rxnToAdd.stoichCoeffs = [coeffsS,-kvalues.^-1,coeffsP];
 if ismember(newRxnName{1},model.rxns)
-    model = changeRxns(model,newRxnName(1),rxnToAdd,1,comp);
+    model = changeRxns(model,newRxnName(1),rxnToAdd,1,comp,true);
 else    
     rxnToAdd.rxns     = newRxnName(1);
     rxnToAdd.rxnNames = newRxnName(2);

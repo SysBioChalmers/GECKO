@@ -39,16 +39,16 @@ if strcmp(toolbox,'COBRA')
     %Transform model back to COBRA for saving purposes:
     model_cobra = ravenCobraWrapper(model);
     %Remove fields from COBRA model (temporal):
-    model_cobra = rmfield(model_cobra,'metCharges');
-    model_cobra = rmfield(model_cobra,'metChEBIID');
-    model_cobra = rmfield(model_cobra,'metKEGGID');
-    model_cobra = rmfield(model_cobra,'metSBOTerms');
-    model_cobra = rmfield(model_cobra,'rxnConfidenceScores');
-    model_cobra = rmfield(model_cobra,'rxnECNumbers');
-    model_cobra = rmfield(model_cobra,'rxnKEGGID');
-    model_cobra = rmfield(model_cobra,'rxnReferences');
-    model_cobra = rmfield(model_cobra,'subSystems');
-    model_cobra = rmfield(model_cobra,'rxnSBOTerms');
+    model_cobra = takeOutField(model_cobra,'metCharges');
+    model_cobra = takeOutField(model_cobra,'metChEBIID');
+    model_cobra = takeOutField(model_cobra,'metKEGGID');
+    model_cobra = takeOutField(model_cobra,'metSBOTerms');
+    model_cobra = takeOutField(model_cobra,'rxnConfidenceScores');
+    model_cobra = takeOutField(model_cobra,'rxnECNumbers');
+    model_cobra = takeOutField(model_cobra,'rxnKEGGID');
+    model_cobra = takeOutField(model_cobra,'rxnReferences');
+    model_cobra = takeOutField(model_cobra,'subSystems');
+    model_cobra = takeOutField(model_cobra,'rxnSBOTerms');
     %Save model as sbml and text:
     writeCbModel(model_cobra,'sbml',[file_name '.xml']);
     writeCbModel(model_cobra,'text',[file_name '.txt']);
@@ -77,6 +77,16 @@ while still_reading
 end
 fclose('all');
 delete('backup.xml');
+
+end
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+function model = takeOutField(model,field)
+
+if isfield(model,field)
+    model = rmfield(model,field);
+end
 
 end
 
