@@ -7,7 +7,7 @@ function [FVA_Dists,indexes,stats] = comparativeFVA(model,ecModel,c_source,chemo
 % finally compares and plots the cumulative flux variability distributions. 
 %
 %   model       MATLAB GEM structure (reversible model), constrained with 
-%               the desired culture medium constraints
+%               the desired culture medium constrains
 %   ecModel     MATLAB ecGEM structure, constrained with the desired culture
 %               medium
 %   c_source    rxn ID (in model) for the main carbon source uptake reaction.
@@ -26,49 +26,56 @@ function [FVA_Dists,indexes,stats] = comparativeFVA(model,ecModel,c_source,chemo
 % 
 % usage: [FVA_Dists,indexes,stats] = comparativeFVA(model,ecModel,c_source,chemostat,tol,blockedMets)
 % 
-% Ivan Domenzain.      Last edited: 2018-11-30
+% Ivan Domenzain.      Last edited: 2019-02-08
 
 rangeGEM = [];
 indexes  = [];
 range_EC = [];
 %Get the index for all the non-objective rxns in the original irrevModel
 rxnsIndxs = find(model.c~=1);
-%Set minimal glucose media for ecModel
+%Set minimal media for ecModel
 pos = find(strcmpi(ecModel.rxns,[c_source '_REV']));
-%Gets the optimal value for ecirrevModel and fixes the objective value to
-%this for both models
+%Gets the optimal value for the objective rxn in ecirrevModel and fixes its
+%value in both models
 if chemostat
     gRate   = 0.1;
-    %Fix dilution rate
+    %Fix dilution rate in ecModel
     [~,~, ecModel] = fixObjective(ecModel,true,gRate);
-    %Fix minimal carbon source uptake rate
-    ecModel = setParam(ecModel,'obj', pos, -1);
+    %Fix minimal carbon source uptake rate in ecModel
+    ecModel       = setParam(ecModel,'obj', pos, -1);
     [~,~,ecModel] = fixObjective(ecModel,false);
-    %Fix minimal total protein usage
-    index   = find(contains(ecModel.rxnNames,'prot_pool'));
-    ecModel = setParam(ecModel,'obj', index, -1);
-    [~,ecFluxDist,ecModel] = fixObjective(ecModel,false);
+    %Fix minimal total protein usage in ecModel
+    index                  = find(contains(ecModel.rxnNames,'prot_pool'));
+    ecModel                = setParam(ecModel,'obj', index, -1);
 else
-    %Optimize growth
+    %Optimize growth for ecModel
     [gRate,~, ecModel] = fixObjective(ecModel,true);
-    %Fix minimal total protein usage
-    index   = find(contains(ecModel.rxnNames,'prot_pool'));
-    ecModel = setParam(ecModel,'obj', index, -1);
-    [~,ecFluxDist,ecModel] = fixObjective(ecModel,false);
+    %Fix minimal total protein usage in ecModel
+    index                  = find(contains(ecModel.rxnNames,'prot_pool'));
+    ecModel                = setParam(ecModel,'obj', index, -1);
 end
-%Fix carbon source uptake and growth rates for the ecModel on the original model
+%Get an optimal flux distribution for the ecModel
+[~,ecFluxDist,ecModel] = fixObjective(ecModel,false);
+%Fix optimal carbon source uptake for the ecModel in the original model 
+%(Convention: GEMs represent uptake fluxes as negative values)
 carbonUptake = ecFluxDist(pos);
 disp([c_source ': ' num2str(carbonUptake)])
 c_source           = strcmpi(model.rxns,c_source);
 model.lb(c_source) = -carbonUptake;
+%Fix optimal gRate (ecModel) in the model and get an optimal flux 
+%distribution
 [~,FluxDist,model] = fixObjective(model,true,gRate);
-% Get the variability range for each of the non-objective reactions in the
-% original model
+%Get the variability range for each of the non-objective reactions in the
+%original model
 for i=1:length(rxnsIndxs) 
-    indx        = rxnsIndxs(i);
-    rxnID       = model.rxns(indx);
-    FixedValues = [];
-    range       = MAXmin_Optimizer(model,indx,FixedValues,tol);
+    indx   = rxnsIndxs(i);
+    rxnID  = model.rxns(indx);
+    rev    = false;
+    if model.rev(indx) ==1
+        rev = true;
+    end
+    bounds = [];
+    range  = MAXmin_Optimizer(model,indx,bounds,tol);
     %If max and min were feasible then the optimization proceeds with
     %the ecModel
     relative = 0;
@@ -78,11 +85,16 @@ for i=1:length(rxnsIndxs)
         else
             condition = true;
         end
-        
+        %MAX-min proceeds for the ecModel if the FV range and optimal flux
+        %value are non-zero for the original model
         if condition 
-            mappedIndxs = rxnMapping(rxnID,ecModel,true);
-            FixedValues = ecFluxDist(mappedIndxs);
-            rangeEC     = MAXmin_Optimizer(ecModel,mappedIndxs,FixedValues,tol);
+            %Get the correspondent index(es) for the i-th reaction in the
+            %ecModel
+            mappedIndxs = rxnMapping(rxnID,ecModel,rev);
+            %Get bounds from the optimal distribution to avoid artificially
+            %induced variability
+            bounds      = ecFluxDist(mappedIndxs);
+            rangeEC     = MAXmin_Optimizer(ecModel,mappedIndxs,bounds,tol);
             if ~isempty(rangeEC)
                 rangeGEM = [rangeGEM; range];
                 range_EC = [range_EC; rangeEC];
