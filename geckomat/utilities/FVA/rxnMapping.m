@@ -9,13 +9,13 @@
 %   - model         ecModel in which the rxn is going to be searched
 %   - revFlag       True if the searched rxn is reversible
 % OUTPUTS:
-%   - mappedIndxs   Cell array that contains the index of the corresponding
+%   - mappedIndxs   vector that contains the index of the corresponding
 %                   metabolic rxn in the ecModel (the arm rxn in the case of
 %                   isoenzymes). If the original rxn is reversible then it
 %                   contains the indexes of the forward and backward rxns
 %                   respectively.
 %
-% Ivan Domenzain.      Last edited: 2018-03-15
+% Ivan Domenzain.      Last edited: 2019-02-08
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function mappedIndxs = rxnMapping(rxnID,model,revFlag)
     indexes = find(contains(model.rxns,rxnID));
