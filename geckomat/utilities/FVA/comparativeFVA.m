@@ -15,8 +15,7 @@ function [FVA_Dists,indexes,stats] = comparativeFVA(model,ecModel,c_source,chemo
 %               to avoid any confusion when mapping it to the ecModel
 %   chemostat   TRUE if chemostat conditions are desired
 %   tol         numerical tolerance for a flux and variability range 
-%               to be considered as zero
-%   
+%               to be considered as zero (default 1E-12) 
 %   FVAdists    cell containing the distributions of variability ranges for
 %               the original GEM and ecGEM
 %   rangeEC     Distribution of variability ranges for the original ecGEM
@@ -26,8 +25,10 @@ function [FVA_Dists,indexes,stats] = comparativeFVA(model,ecModel,c_source,chemo
 % 
 % usage: [FVA_Dists,indexes,stats] = comparativeFVA(model,ecModel,c_source,chemostat,tol,blockedMets)
 % 
-% Ivan Domenzain.      Last edited: 2019-02-08
-
+% Ivan Domenzain.      Last edited: 2019-03-28
+if nargin<5
+    tol = 1E-12;
+end
 rangeGEM = [];
 indexes  = [];
 range_EC = [];
@@ -80,14 +81,9 @@ for i=1:length(rxnsIndxs)
     %the ecModel
     relative = 0;
     if ~isempty(range)
-        if tol>0
-            condition = ~(range<tol & abs(FluxDist)<tol);
-        else
-            condition = true;
-        end
         %MAX-min proceeds for the ecModel if the FV range and optimal flux
         %value are non-zero for the original model
-        if condition 
+        if ~(range<tol & abs(FluxDist)<tol) 
             %Get the correspondent index(es) for the i-th reaction in the
             %ecModel
             mappedIndxs = rxnMapping(rxnID,ecModel,rev);
