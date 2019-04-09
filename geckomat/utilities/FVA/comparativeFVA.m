@@ -1,4 +1,4 @@
-function [FVA_Dists,indexes,stats] = comparativeFVA(model,ecModel,c_source,chemostat,tol)
+function [FVA_Dists,indexes,blocked,stats] = comparativeFVA(model,ecModel,c_source,chemostat,tol)
 % comparativeFVA
 %  
 % This function goes through each of the rxns in a metabolic model and
@@ -25,17 +25,20 @@ function [FVA_Dists,indexes,stats] = comparativeFVA(model,ecModel,c_source,chemo
 % 
 % usage: [FVA_Dists,indexes,stats] = comparativeFVA(model,ecModel,c_source,chemostat,tol,blockedMets)
 % 
-% Ivan Domenzain.      Last edited: 2019-03-28
+% Ivan Domenzain.      Last edited: 2019-04-09
 if nargin<5
     tol = 1E-12;
 end
 rangeGEM = [];
 indexes  = [];
+blocked  = [];
 range_EC = [];
 %Get the index for all the non-objective rxns in the original irrevModel
 rxnsIndxs = find(model.c~=1);
 %Set minimal media for ecModel
-pos = find(strcmpi(ecModel.rxns,[c_source '_REV']));
+pos        = find(strcmpi(ecModel.rxns,[c_source '_REV']));
+%Constraint all rxns in ecModel to the positive domain
+ecModel.lb = zeros(length(ecModel.lb),1);
 %Gets the optimal value for the objective rxn in ecirrevModel and fixes its
 %value in both models
 if chemostat
@@ -43,35 +46,36 @@ if chemostat
     %Fix dilution rate in ecModel
     [~,~, ecModel] = fixObjective(ecModel,true,gRate);
     %Fix minimal carbon source uptake rate in ecModel
-    ecModel       = setParam(ecModel,'obj', pos, -1);
-    [~,~,ecModel] = fixObjective(ecModel,false);
+    ecModel        = setParam(ecModel,'obj', pos, -1);
+    [~,~,ecModel]  = fixObjective(ecModel,false);
     %Fix minimal total protein usage in ecModel
-    index                  = find(contains(ecModel.rxnNames,'prot_pool'));
-    ecModel                = setParam(ecModel,'obj', index, -1);
+    index          = find(contains(ecModel.rxnNames,'prot_pool'));
+    ecModel        = setParam(ecModel,'obj', index, -1);
 else
     %Optimize growth for ecModel
     [gRate,~, ecModel] = fixObjective(ecModel,true);
     %Fix minimal total protein usage in ecModel
-    index                  = find(contains(ecModel.rxnNames,'prot_pool'));
-    ecModel                = setParam(ecModel,'obj', index, -1);
+    index              = find(contains(ecModel.rxnNames,'prot_pool'));
+    ecModel            = setParam(ecModel,'obj', index, -1);
 end
 %Get an optimal flux distribution for the ecModel
 [~,ecFluxDist,ecModel] = fixObjective(ecModel,false);
 %Fix optimal carbon source uptake for the ecModel in the original model 
 %(Convention: GEMs represent uptake fluxes as negative values)
-carbonUptake = ecFluxDist(pos);
+carbonUptake           = ecFluxDist(pos);
+c_source               = strcmpi(model.rxns,c_source);
+model.lb(c_source)     = -carbonUptake;
 disp([c_source ': ' num2str(carbonUptake)])
-c_source           = strcmpi(model.rxns,c_source);
-model.lb(c_source) = -carbonUptake;
-%Fix optimal gRate (ecModel) in the model and get an optimal flux 
+%Fix optimal gRate (from ecModel) in the model and get an optimal flux 
 %distribution
-[~,FluxDist,model] = fixObjective(model,true,gRate);
+[~,FluxDist,model]     = fixObjective(model,true,gRate);
 %Get the variability range for each of the non-objective reactions in the
 %original model
 for i=1:length(rxnsIndxs) 
-    indx   = rxnsIndxs(i);
-    rxnID  = model.rxns(indx);
-    rev    = false;
+    indx    = rxnsIndxs(i);
+    fluxVal = FluxDist(indx);
+    rxnID   = model.rxns(indx);
+    rev     = false;
     if model.rev(indx) ==1
         rev = true;
     end
@@ -83,7 +87,7 @@ for i=1:length(rxnsIndxs)
     if ~isempty(range)
         %MAX-min proceeds for the ecModel if the FV range and optimal flux
         %value are non-zero for the original model
-        if ~(range<tol & abs(FluxDist)<tol) 
+        if ~(range<tol & abs(fluxVal)<tol) 
             %Get the correspondent index(es) for the i-th reaction in the
             %ecModel
             mappedIndxs = rxnMapping(rxnID,ecModel,rev);
@@ -96,10 +100,14 @@ for i=1:length(rxnsIndxs)
                 range_EC = [range_EC; rangeEC];
                 indexes  = [indexes; indx];
                 relative = (rangeEC-range)/range; 
+                disp(['ready with #' num2str(i) ' // model Variability: ' num2str(range) ' // ecModel variability: ' num2str(rangeEC)])
             end
+
+        else
+            blocked  = [blocked; indx];
         end
     end
-    disp(['ready with #' num2str(i) ', relative variability reduction:' num2str(relative*100) '%'])
+    %disp(['ready with #' num2str(i) ', relative variability reduction:' num2str(relative*100) '%'])
 end
 %Plot FV cumulative distributions
 FVA_Dists  = {rangeGEM, range_EC};
