@@ -68,7 +68,7 @@ for i = 1:m
         end
         eModel = removeReactions(eModel,{rxnID});  %Remove the original rxn
     end
-    if rem(i,100) == 0 | i == m 
+    if rem(i,100) == 0 || i == m 
         disp(['Adding enzymes to rxns: Ready with rxn ' num2str(i)])
     end
 end

@@ -113,7 +113,7 @@
          end
      end
      %Display progress:
-    if rem(i,10) == 0 | i == mM
+    if rem(i,10) == 0 || i == mM
         disp(['Matching kcats: Ready with rxn ' num2str(i)])
     end
  end
