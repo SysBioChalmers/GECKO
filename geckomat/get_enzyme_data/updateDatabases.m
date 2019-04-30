@@ -2,7 +2,7 @@
 % [swissprot,kegg] = updateDatabases
 % Updates all databases for protein matching (KEGG and Swiss-Prot).
 %
-% keggId    three- or four-letter species abbrevation from KEGG, see
+% keggID    three- or four-letter species abbrevation from KEGG, see
 %           https://www.genome.jp/kegg/catalog/org_list.html
 %
 % Note: Before using this script, one should manually download from 
@@ -14,9 +14,9 @@
 % Benjamín Sánchez & Cheng Zhang. Last edited: 2017-10-24
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function [swissprot,kegg] = updateDatabases(keggId)
+function [swissprot,kegg] = updateDatabases(keggID)
 
-if nargin<1 || ~regexp(keggId,'[a-z]{3,4}')
+if nargin<1 || ~regexp(keggID,'[a-z]{3,4}')
     error('Please specify the KEGG organism ID')
 end
 
@@ -25,10 +25,10 @@ swissprot = buildSWISSPROTtable;
 
 %Download KEGG data:
 mkdir ../../databases/KEGG
-downloadKEGGdata(keggId)
+downloadKEGGdata(keggID)
 
 %Build KEGG table
-kegg = buildKEGGtable;
+kegg = buildKEGGtable(keggID);
 
 %Remove KEGG files for compliance of repository:
 delete ../../databases/KEGG/*.txt
@@ -66,26 +66,26 @@ end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function downloadKEGGdata(organism)
+function downloadKEGGdata(keggID)
 
 base      = 'http://rest.kegg.jp/';
 operation = 'list/';
-gene_list = urlread([base operation organism]);
+gene_list = urlread([base operation keggID]);
 gene_list = regexpi(gene_list, '[^\n]+','match')'; 
-gene_id   = regexpi(gene_list,['(?<=' organism ':)\S+'],'match');
+gene_id   = regexpi(gene_list,['(?<=' keggID ':)\S+'],'match');
 
 % Retrieve information for every gene in the list (with a maximum of 10,000
 % to avoid bulk downloads)
 operation = 'get/';
 for i = 1:min([numel(gene_id),10000])
     try
-        gene = urlread([base operation organism ':' gene_id{i}{1}]);
+        gene = urlread([base operation keggID ':' gene_id{i}{1}]);
         fid  = fopen(['../../databases/KEGG/' gene_id{i}{1} '.txt'],'w');
         fprintf(fid,'%s',gene);
         fclose(fid);
         disp(['Downloading KEGG data for ' gene_id{i}{1}])
     catch    
-        display(['Cannot find ' gene_id{i}{1} ' in KEGG']);
+        disp(['Cannot find ' gene_id{i}{1} ' in KEGG']);
     end
 end
 
@@ -93,7 +93,7 @@ end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function kegg = buildKEGGtable
+function kegg = buildKEGGtable(keggID)
 
 %Build KEGG table (uniprot code - protein name - systematic gene name - EC number - MW - pathway - sequence):
 file_names      = dir('../../databases/KEGG/');
@@ -157,15 +157,15 @@ for i = 1:length(file_names)
                 
             %6th column: pathway
             elseif strcmp(line(1:7),'PATHWAY')
-                start    = strfind(line,keggId);
+                start    = strfind(line,keggID);
                 pathway  = line(start(1):end);
                 end_path = false;
                 for k = j+1:length(text)
-                    nospace = strrep(text{k},[keggId '01100  Metabolic pathways'],'');
+                    nospace = strrep(text{k},[keggID '01100  Metabolic pathways'],'');
                     nospace = strrep(nospace,' ','');
                     if length(nospace) > 10
-                        if strcmp(nospace(1:3),keggId) && ~end_path
-                            start    = strfind(text{k},keggId);
+                        if strcmp(nospace(1:3),keggID) && ~end_path
+                            start    = strfind(text{k},keggID);
                             pathway  = [pathway ' ' text{k}(start(1):end)];
                         else
                             end_path = true;
