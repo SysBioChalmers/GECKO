@@ -104,7 +104,9 @@ for i = 1:length(model.rxns)
             end
         end          
      end
-    disp(['Improving model with curated data: Ready with rxn #' num2str(i)])
+    if rem(i,100) == 0 || i == length(model.rxns)
+        disp(['Improving model with curated data: Ready with rxn ' num2str(i)])
+    end
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%% Other manual changes: %%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -446,10 +448,10 @@ function model = otherChanges(model)
     %(2015-11-05)
     index = find(strcmpi('prot_P19414',model.mets));
     if ~isempty(index)
-        rxnIndxs = find(model.S(:,index));
+        rxnIndxs = find(model.S(index,:));
         if ~isempty(rxnIndxs)
             rxnIndxs = rxnIndxs(1:end-2);
-            model.S(rxnIndxs,index) = model.S(rxnIndxs,index)/2;
+            model.S(index,rxnIndxs) = model.S(index,rxnIndxs)/2;
         end
     end
 end
