@@ -68,7 +68,7 @@ if ~isempty(changes)
     varNamesTable = {'Unicode','enz_pos','rxn_pos','Organism','Modified',...
                     'Parameter','oldValue','newValue','error','ControlCoeff'};  
     changes = cell2table(changes,'VariableNames',varNamesTable);
-    changes = truncateValues(changes,4);
+    changes = truncateValues(changes,[7:10]);
     %Write results in a .txt for further exploration.
     writetable(changes,['../../models/' name '/' name '_kcatModifications.txt']);
 else
@@ -81,13 +81,13 @@ else
     if ~isempty(limRxns)
         varNamesTable = {'rxnNames','rxnPos','ControlCoeff'};
         changes = cell2table(limRxns,'VariableNames',varNamesTable);
-        changes = truncateValues(changes,4);
+        changes = truncateValues(changes,3);
         writetable(changes,['../../models/' name '/' name '_limitingRxns.txt']);
     end
     if ~isempty(limEnz)
         varNamesTable = {'EnzNames','EnzPos','ControlCoeff'};
         changes = cell2table(limEnz,'VariableNames',varNamesTable);
-        changes = truncateValues(changes,4);
+        changes = truncateValues(changes,3);
         writetable(changes,['../../models/' name '/' name '_limitingEnzymes.txt']);
     end
 end

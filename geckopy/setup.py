@@ -19,7 +19,7 @@ test_requirements = [
 
 setup(
     name='geckopy',
-    version='1.3.4',
+    version='1.3.5',
     description="Methods for using the GECKO model with cobrapy",
     long_description=readme + '\n\n' + history,
     author="Benjamin Sanchez",
