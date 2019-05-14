@@ -34,8 +34,6 @@ rangeGEM = [];
 indexes  = [];
 blocked  = [];
 range_EC = [];
-%Get the index for all the non-objective rxns in the original irrevModel
-rxnsIndxs = find(model.c~=1);
 %Constraint all rxns in ecModel to the positive domain
 ecModel.lb = zeros(length(ecModel.lb),1);
 %Gets main carbon source uptake reaction index from both models
@@ -68,6 +66,11 @@ disp([c_source ': ' num2str(Cuptake)])
 [model,FluxDist] = constrainModel(model,gRate,posCS,chemostat,Cuptake);
 %Get the variability range for each of the non-objective reactions in the
 %original model
+%Get the index for all the reactions that can carry a flux in the original
+%model and then run FVA on that subset
+disp('Identifying reactions that can carry a non-zero flux')
+rxnsIndxs = haveFlux(model);
+rxnsIndxs = find(rxnsIndxs);
 if ~isempty(FluxDist) & ~isempty(rxnsIndxs)
     for i=1:length(rxnsIndxs)
         indx    = rxnsIndxs(i);
