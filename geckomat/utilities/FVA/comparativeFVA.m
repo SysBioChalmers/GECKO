@@ -69,7 +69,7 @@ disp([c_source ': ' num2str(Cuptake)])
 %model and then run FVA on that subset
 disp('Identifying reactions that can carry a non-zero flux')
 rxnsIndxs = haveFlux(model);
-blocked   = rxnIndxs(rxnIndxs==0);
+blocked   = rxnsIndxs(rxnsIndxs==0);
 rxnsIndxs = find(rxnsIndxs);
 if ~isempty(FluxDist) & ~isempty(rxnsIndxs)
     for i=1:length(rxnsIndxs)
