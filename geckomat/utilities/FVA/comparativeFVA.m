@@ -89,7 +89,7 @@ if ~isempty(FluxDist) & ~isempty(rxnsIndxs)
             mappedIndxs = rxnMapping(rxnID,ecModel,rev);
             %Get bounds from the optimal distribution to avoid artificially
             %induced variability
-            bounds      = ecFluxDist(mappedIndxs);
+            bounds      = [0 0];
             rangeEC     = MAXmin_Optimizer(ecModel,mappedIndxs,bounds,tol);
             if ~isempty(rangeEC)
                 rangeGEM = [rangeGEM; range];
