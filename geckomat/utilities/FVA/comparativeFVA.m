@@ -32,7 +32,6 @@ if nargin<5
 end
 rangeGEM = [];
 indexes  = [];
-blocked  = [];
 range_EC = [];
 %Constraint all rxns in ecModel to the positive domain
 ecModel.lb = zeros(length(ecModel.lb),1);
@@ -70,13 +69,13 @@ disp([c_source ': ' num2str(Cuptake)])
 %model and then run FVA on that subset
 disp('Identifying reactions that can carry a non-zero flux')
 rxnsIndxs = haveFlux(model);
+blocked   = rxnIndxs(rxnIndxs==0);
 rxnsIndxs = find(rxnsIndxs);
 if ~isempty(FluxDist) & ~isempty(rxnsIndxs)
     for i=1:length(rxnsIndxs)
-        indx    = rxnsIndxs(i);
-        fluxVal = FluxDist(indx);
-        rxnID   = model.rxns(indx);
-        rev     = false;
+        indx  = rxnsIndxs(i);
+        rxnID = model.rxns(indx);
+        rev   = false;
         if model.rev(indx) ==1
             rev = true;
         end
@@ -85,24 +84,18 @@ if ~isempty(FluxDist) & ~isempty(rxnsIndxs)
         %If max and min were feasible then the optimization proceeds with
         %the ecModel
         if ~isempty(range)
-            %MAX-min proceeds for the ecModel if the FV range and optimal flux
-            %value are non-zero for the original model
-            if ~(range<tol & abs(fluxVal)<tol)
-                %Get the correspondent index(es) for the i-th reaction in the
-                %ecModel
-                mappedIndxs = rxnMapping(rxnID,ecModel,rev);
-                %Get bounds from the optimal distribution to avoid artificially
-                %induced variability
-                bounds      = ecFluxDist(mappedIndxs);
-                rangeEC     = MAXmin_Optimizer(ecModel,mappedIndxs,bounds,tol);
-                if ~isempty(rangeEC)
-                    rangeGEM = [rangeGEM; range];
-                    range_EC = [range_EC; rangeEC];
-                    indexes  = [indexes; indx];
-                    %disp(['ready with #' num2str(i) ' // model Variability: ' num2str(range) ' // ecModel variability: ' num2str(rangeEC)])
-                end
-            else
-                blocked  = [blocked; indx];
+            %Get the correspondent index(es) for the i-th reaction in the
+            %ecModel
+            mappedIndxs = rxnMapping(rxnID,ecModel,rev);
+            %Get bounds from the optimal distribution to avoid artificially
+            %induced variability
+            bounds      = ecFluxDist(mappedIndxs);
+            rangeEC     = MAXmin_Optimizer(ecModel,mappedIndxs,bounds,tol);
+            if ~isempty(rangeEC)
+                rangeGEM = [rangeGEM; range];
+                range_EC = [range_EC; rangeEC];
+                indexes  = [indexes; indx];
+                %disp(['ready with #' num2str(i) ' // model Variability: ' num2str(range) ' // ecModel variability: ' num2str(rangeEC)])
             end
         end
     end
