@@ -67,8 +67,8 @@ disp([c_source ': ' num2str(Cuptake)])
 %model and then run FVA on that subset
 disp('Identifying reactions that can carry a non-zero flux')
 rxnsIndxs = haveFlux(model,tol);
+rxnsIndxs = find(model.c~=1 & rxnsIndxs);
 blocked   = rxnsIndxs(rxnsIndxs==0);
-rxnsIndxs = find(rxnsIndxs);
 %Get the variability range for each of the flux carrier reactions
 if ~isempty(FluxDist) && ~isempty(rxnsIndxs)
     disp('Performing Flux Variability Analysis')
