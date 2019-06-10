@@ -29,7 +29,6 @@ function ecModelBatch = modifyKcats(ecModelBatch,expVal,modifiedKcats,name)
 
 changes = [];
 error   = -100; 
-current = pwd;
 %Load BRENDA data:
 cd ../get_enzyme_data
 [BRENDA,SA_cell] = loadBRENDAdata;
@@ -70,6 +69,7 @@ if ~isempty(changes)
     changes = cell2table(changes,'VariableNames',varNamesTable);
     changes = truncateValues(changes,[7:10]);
     %Write results in a .txt for further exploration.
+    mkdir (['../../models/' name]);
     writetable(changes,['../../models/' name '/' name '_kcatModifications.txt']);
 else
     %If the model is not feasible then the analysis is performed in all the 
