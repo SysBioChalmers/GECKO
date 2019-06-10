@@ -25,7 +25,7 @@ function [FVA_Dists,indexes,blocked,stats] = comparativeFVA(model,ecModel,c_sour
 % 
 % usage: [FVA_Dists,indexes,stats] = comparativeFVA(model,ecModel,c_source,chemostat,tol,blockedMets)
 % 
-% Ivan Domenzain.      Last edited: 2019-05-13
+% Ivan Domenzain.      Last edited: 2019-06-10
 
 if nargin<5
     tol = 1E-12;
@@ -63,15 +63,15 @@ Cuptake  = ecFluxDist(posCS_ec);
 disp([c_source ': ' num2str(Cuptake)])
 %Constrain model with values from the optimal ecModel flux distribution
 [model,FluxDist] = constrainModel(model,gRate,posCS,chemostat,Cuptake);
-%Get the variability range for each of the non-objective reactions in the
-%original model
 %Get the index for all the reactions that can carry a flux in the original
 %model and then run FVA on that subset
 disp('Identifying reactions that can carry a non-zero flux')
-rxnsIndxs = haveFlux(model);
+rxnsIndxs = haveFlux(model,tol);
 blocked   = rxnsIndxs(rxnsIndxs==0);
 rxnsIndxs = find(rxnsIndxs);
-if ~isempty(FluxDist) & ~isempty(rxnsIndxs)
+%Get the variability range for each of the flux carrier reactions
+if ~isempty(FluxDist) && ~isempty(rxnsIndxs)
+    disp('Performing Flux Variability Analysis')
     for i=1:length(rxnsIndxs)
         indx  = rxnsIndxs(i);
         rxnID = model.rxns(indx);
@@ -89,13 +89,13 @@ if ~isempty(FluxDist) & ~isempty(rxnsIndxs)
             mappedIndxs = rxnMapping(rxnID,ecModel,rev);
             %Get bounds from the optimal distribution to avoid artificially
             %induced variability
-            bounds      = [0 0];
+            bounds      = [0 0]; %ecFluxDist(mappedIndxs);
             rangeEC     = MAXmin_Optimizer(ecModel,mappedIndxs,bounds,tol);
             if ~isempty(rangeEC)
                 rangeGEM = [rangeGEM; range];
                 range_EC = [range_EC; rangeEC];
                 indexes  = [indexes; indx];
-                %disp(['ready with #' num2str(i) ' // model Variability: ' num2str(range) ' // ecModel variability: ' num2str(rangeEC)])
+                disp(['ready with #' num2str(i) ' // model Variability: ' num2str(range) ' // ecModel variability: ' num2str(rangeEC)])
             end
         end
     end
@@ -112,14 +112,14 @@ end
 function [model,FluxDist] = constrainModel(model,gRate,posCS,chemostat,Cuptake)
 %Fix optimal carbon source uptake and growth rate values from the ecModel in the 
 % original model (Convention: GEMs represent uptake fluxes as negative values)
-[~,FluxDist,model] = constrainIrrevModel(model,true,gRate);
+[~,~,model] = constrainIrrevModel(model,true,gRate);
 if chemostat 
     %Set glucose uptake rate as objective to minimize
     model = setParam(model,'obj', posCS, 1);
 else
     %Fix glucose uptake rate
     model = setParam(model,'lb', posCS,-1.0001*Cuptake);
-    model = setParam(model,'ub', posCS,-0.9999*Cuptake);
+    %model = setParam(model,'ub', posCS,-0.9999*Cuptake);
 end
 FluxDist = solveLP(model,1);
 FluxDist = FluxDist.x;
