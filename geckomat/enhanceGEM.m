@@ -22,7 +22,7 @@ function [ecModel,ecModel_batch] = enhanceGEM(model,toolbox,name,version)
 %
 %   Usage: [ecModel,ecModel_batch] = enhanceGEM(model,toolbox,name,version)
 %
-%   Ivan Domenzain. Last edited: 2019-07-12
+%   Ivan Domenzain. Last edited: 2019-07-13
 %
 
 if nargin < 3
@@ -56,7 +56,7 @@ ecModel                 = readKcatData(model_data,kcats);
 
 %Constrain model to batch conditions:
 cd ../limit_proteins
-[ecModel_batch,OptSigma] = getConstrainedModel(ecModel,parameters,modifications,name);
+[ecModel_batch,OptSigma] = getConstrainedModel(ecModel,modifications,name);
 disp(['Sigma factor (fitted for growth on glucose): ' num2str(OptSigma)])
 
 %Save output models:
@@ -66,5 +66,3 @@ ecModel_batch = saveECmodel(ecModel_batch,toolbox,[name '_batch'],version);
 cd ../geckomat
 
 end
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -2,31 +2,27 @@
 % model = scaleBioMass(model,Ptot,GAM,scale_comp)
 % 
 % Benjamin Sanchez. Last update: 2018-10-23
+% Ivan Domenzain.   Last update: 2019-07-13
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function model = scaleBioMass(model,Ptot,GAM,scale_comp)
-
 if nargin < 3
     GAM = [];
 end
-
 %Option for changing composition & GAM (=true, default) or only GAM (=false):
 if nargin < 4
     scale_comp = true;
 end
-
 %Compute carbohydrate and lipid new amounts, based on:
 %1. Total mass remains constant, i.e. Pbase+Cbase+Lbase = Ptot+Ctot+Ltot
 %2. Difference in mass is distributed proportionally, i.e. Ctot/Ltot = Cbase/Lbase
 [~,Pbase,Cbase,R,D,Lbase] = sumBioMass(model);
 Ctot = Cbase + (Pbase - Ptot)*Cbase/(Lbase+Cbase);
 Ltot = Lbase + (Pbase - Ptot)*Lbase/(Lbase+Cbase);
-
 %Compute rescaling fractions:
 fP = Ptot/Pbase;
 fC = Ctot/Cbase;
 fL = Ltot/Lbase;
-
 %Change compositions:
 if scale_comp
     model = rescalePseudoReaction(model,'protein',fP);
@@ -34,14 +30,16 @@ if scale_comp
     model = rescalePseudoReaction(model,'lipid backbone',fL);
     model = rescalePseudoReaction(model,'lipid chain',fL);
 end
-
 %Fit GAM if not available:
 if isempty(GAM)
     GAM = fitGAM(model);
 end
-
+%Get biomass pseudoreaction ID 
+cd ..
+parameters = getModelParameters;
+cd limit_proteins
 %Change GAM:
-xr_pos = strcmp(model.rxnNames,'biomass pseudoreaction');
+xr_pos = strcmp(model.rxns,parameters.bioRxn);
 for i = 1:length(model.mets)
     S_ix  = model.S(i,xr_pos);
     isGAM = sum(strcmp({'ATP','ADP','H2O','H+','phosphate'},model.metNames{i})) == 1;
@@ -51,13 +49,9 @@ for i = 1:length(model.mets)
         model.S(i,xr_pos) = sign(S_ix)*(GAM + GAMpol);
     end
 end
-
 end
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 function model = rescalePseudoReaction(model,metName,f)
-
 rxnName = [metName ' pseudoreaction'];
 rxnPos  = strcmp(model.rxnNames,rxnName);
 if sum(rxnPos) == 1
@@ -69,7 +63,4 @@ if sum(rxnPos) == 1
         end
     end
 end
-
 end
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
