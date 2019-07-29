@@ -32,10 +32,10 @@ parameters.exch_names{2}  = 'D-glucose exchange (reversible)';
 parameters.exch_names{3}  = 'oxygen exchange (reversible)';
 parameters.exch_names{4}  = 'carbon dioxide exchange';
 %biomass components pseudoreactions (proteins, carbs and lipids lumped pools)
-parameters.bio_comp{1}  = 'protein pseudoreaction';
-parameters.bio_comp{2}  = 'carbohydrate pseudoreaction';
-parameters.bio_comp{3}  = 'lipid backbone pseudoreaction';
-parameters.bio_comp{4}  = 'lipid chain pseudoreaction';
+parameters.bio_comp{1}  = 'protein';
+parameters.bio_comp{2}  = 'carbohydrate';
+parameters.bio_comp{3}  = 'lipid backbone';
+parameters.bio_comp{4}  = 'lipid chain';
 %Polymerization costs from Forster et al 2003 - table S8:
 parameters.pol_cost(1) = 37.7; %Ptot 
 parameters.pol_cost(2) = 12.8; %Ctot

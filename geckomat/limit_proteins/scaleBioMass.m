@@ -60,7 +60,8 @@ for i = 1:length(model.mets)
 end
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function model = rescalePseudoReaction(model,rxnName,f)
+function model = rescalePseudoReaction(model,metName,f)
+rxnName = [metName ' pseudoreaction'];
 rxnPos  = strcmp(model.rxnNames,rxnName);
 if sum(rxnPos) == 1
     for i = 1:length(model.mets)
