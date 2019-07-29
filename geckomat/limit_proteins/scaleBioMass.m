@@ -2,7 +2,7 @@
 % model = scaleBioMass(model,Ptot,GAM,scale_comp)
 % 
 % Benjamin Sanchez. Last update: 2018-10-23
-% Ivan Domenzain.   Last update: 2019-07-13
+% Ivan Domenzain.   Last update: 2019-07-29
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function model = scaleBioMass(model,Ptot,GAM,scale_comp)
@@ -13,6 +13,10 @@ end
 if nargin < 4
     scale_comp = true;
 end
+%Get biomass pseudoreaction ID and biomass components pseudoreactions names
+cd ..
+parameters = getModelParameters;
+cd limit_proteins
 %Compute carbohydrate and lipid new amounts, based on:
 %1. Total mass remains constant, i.e. Pbase+Cbase+Lbase = Ptot+Ctot+Ltot
 %2. Difference in mass is distributed proportionally, i.e. Ctot/Ltot = Cbase/Lbase
@@ -25,27 +29,27 @@ fC = Ctot/Cbase;
 fL = Ltot/Lbase;
 %Change compositions:
 if scale_comp
-    model = rescalePseudoReaction(model,'protein',fP);
-    model = rescalePseudoReaction(model,'carbohydrate',fC);
-    model = rescalePseudoReaction(model,'lipid backbone',fL);
-    model = rescalePseudoReaction(model,'lipid chain',fL);
+    if isfield(parameters,'bio_comp')
+        model = rescalePseudoReaction(model,parameters.bio_comp{1},fP);
+        model = rescalePseudoReaction(model,parameters.bio_comp{2},fC);
+        model = rescalePseudoReaction(model,parameters.bio_comp{3},fL);
+        model = rescalePseudoReaction(model,parameters.bio_comp{4},fL);
+    end
 end
 %Fit GAM if not available:
 if isempty(GAM)
     GAM = fitGAM(model);
 end
-%Get biomass pseudoreaction ID 
-cd ..
-parameters = getModelParameters;
-cd limit_proteins
 %Change GAM:
 xr_pos = strcmp(model.rxns,parameters.bioRxn);
 for i = 1:length(model.mets)
     S_ix  = model.S(i,xr_pos);
     isGAM = sum(strcmp({'ATP','ADP','H2O','H+','phosphate'},model.metNames{i})) == 1;
     if S_ix ~= 0 && isGAM
-        %Polymerization costs from Forster et al 2003 - table S8:
-        GAMpol = Ptot*37.7 + Ctot*12.8 + R*26.0 + D*26.0;
+        if strcmpi(parameters.keggID,'sce')
+            %Polymerization costs from Forster et al 2003 - table S8:
+            GAMpol = Ptot*37.7 + Ctot*12.8 + R*26.0 + D*26.0;
+        end
         model.S(i,xr_pos) = sign(S_ix)*(GAM + GAMpol);
     end
 end

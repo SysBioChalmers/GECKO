@@ -31,4 +31,10 @@ parameters.exch_names{1}  = 'growth';
 parameters.exch_names{2}  = 'D-glucose exchange (reversible)';
 parameters.exch_names{3}  = 'oxygen exchange (reversible)';
 parameters.exch_names{4}  = 'carbon dioxide exchange';
+%biomass components pseudoreactions (proteins, carbs and lipids lumped pools)
+parameters.bio_comp{1}  = 'protein pseudoreaction';
+parameters.bio_comp{2}  = 'carbohydrate pseudoreaction';
+parameters.bio_comp{3}  = 'lipid backbone pseudoreaction';
+parameters.bio_comp{4}  = 'lipid chain pseudoreaction';
+
 end
