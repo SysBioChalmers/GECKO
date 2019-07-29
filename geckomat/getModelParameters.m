@@ -36,5 +36,10 @@ parameters.bio_comp{1}  = 'protein pseudoreaction';
 parameters.bio_comp{2}  = 'carbohydrate pseudoreaction';
 parameters.bio_comp{3}  = 'lipid backbone pseudoreaction';
 parameters.bio_comp{4}  = 'lipid chain pseudoreaction';
+%Polymerization costs from Forster et al 2003 - table S8:
+parameters.pol_cost(1) = 37.7; %Ptot 
+parameters.pol_cost(2) = 12.8; %Ctot
+parameters.pol_cost(3) = 26.0; %RNA 
+parameters.pol_cost(4) = 26.0; %DNA
 
 end

@@ -33,7 +33,11 @@ if scale_comp
         model = rescalePseudoReaction(model,parameters.bio_comp{1},fP);
         model = rescalePseudoReaction(model,parameters.bio_comp{2},fC);
         model = rescalePseudoReaction(model,parameters.bio_comp{3},fL);
-        model = rescalePseudoReaction(model,parameters.bio_comp{4},fL);
+        %If model contain SLIMER reactions (separate pseudoreactions for 
+        %lipid chains and backbones
+        if (length(find(contains(parameters.bio_comp,'lipid')))==2)
+            model = rescalePseudoReaction(model,parameters.bio_comp{4},fL);
+        end
     end
 end
 %Fit GAM if not available:
@@ -46,17 +50,17 @@ for i = 1:length(model.mets)
     S_ix  = model.S(i,xr_pos);
     isGAM = sum(strcmp({'ATP','ADP','H2O','H+','phosphate'},model.metNames{i})) == 1;
     if S_ix ~= 0 && isGAM
-        if strcmpi(parameters.keggID,'sce')
-            %Polymerization costs from Forster et al 2003 - table S8:
-            GAMpol = Ptot*37.7 + Ctot*12.8 + R*26.0 + D*26.0;
+        GAMpol = 0;
+        if isfield(parameters,'pol_cost')
+            cost   = parameters.pol_cost;
+            GAMpol = Ptot*cost(1) + Ctot*cost(2) + R*cost(3) + D*cost(4);
         end
         model.S(i,xr_pos) = sign(S_ix)*(GAM + GAMpol);
     end
 end
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function model = rescalePseudoReaction(model,metName,f)
-rxnName = [metName ' pseudoreaction'];
+function model = rescalePseudoReaction(model,rxnName,f)
 rxnPos  = strcmp(model.rxnNames,rxnName);
 if sum(rxnPos) == 1
     for i = 1:length(model.mets)
