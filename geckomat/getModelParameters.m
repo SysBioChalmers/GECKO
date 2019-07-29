@@ -23,5 +23,12 @@ parameters.c_source    = 'D-glucose exchange (reversible)';
 parameters.bioRxn      = 'r_4041';
 %Compartment name in which the added enzymes should be located
 parameters.enzyme_comp = 'cytoplasm';
-
+%Rxn names for the most common experimentally measured "exchange" fluxes
+%For glucose and o2 uptakes add the substring: " (reversible)" at the end
+%of the corresponding rxn name. This is due to the irreversible model
+%nature of ecModels.
+parameters.exch_names{1}  = 'growth';
+parameters.exch_names{2}  = 'D-glucose exchange (reversible)';
+parameters.exch_names{3}  = 'oxygen exchange (reversible)';
+parameters.exch_names{4}  = 'carbon dioxide exchange';
 end
