@@ -3,6 +3,7 @@
 % Returns a fitted GAM for the yeast model.
 % 
 % Benjamin Sanchez. Last update: 2018-10-27
+% Ivan Domenzain.   Last update: 2019-07-29
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function GAM = fitGAM(model)
@@ -18,7 +19,7 @@ model = setParam(model,'ub','prot_pool_exchange',+1000);
 
 %GAMs to span:
 disp('Estimating GAM:')
-GAM = 20:5:50;
+GAM = 20:5:100;
 
 %1st iteration:
 GAM = iteration(model,GAM,exp_data);
@@ -75,16 +76,18 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function mod_data = simulateChemostat(model,exp_data,GAM)
-
 %Modify GAM withouth changing the protein content:
 Pbase = sumProtein(model);
 model = scaleBioMass(model,Pbase,GAM,false);
-
+cd ..
+parameters = getModelParameters;
+cd limit_proteins
 %Relevant positions:
-pos(1) = find(strcmp(model.rxnNames,'growth'));
-pos(2) = find(strcmp(model.rxnNames,'D-glucose exchange (reversible)'));
-pos(3) = find(strcmp(model.rxnNames,'oxygen exchange (reversible)'));
-pos(4) = find(strcmp(model.rxnNames,'carbon dioxide exchange'));
+exch_names  = parameters.exch_names;
+pos(1)      = find(strcmp(model.rxnNames,exch_names{1}));
+pos(2)      = find(strcmp(model.rxnNames,exch_names{2}));
+pos(3)      = find(strcmp(model.rxnNames,exch_names{3}));
+pos(4)      = find(strcmp(model.rxnNames,exch_names{4}));
 
 %Simulate chemostats:
 mod_data = zeros(size(exp_data));
