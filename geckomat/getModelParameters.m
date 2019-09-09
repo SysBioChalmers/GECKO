@@ -21,6 +21,8 @@ parameters.keggID      = 'sce';
 parameters.c_source    = 'D-glucose exchange (reversible)'; 
 %Rxn Id for biomass pseudoreaction
 parameters.bioRxn      = 'r_4041';
+%Rxn Id for non-growth associated maitenance pseudoreaction
+parameters.NGAM        = 'r_4046';
 %Compartment name in which the added enzymes should be located
 parameters.enzyme_comp = 'cytoplasm';
 %Rxn names for the most common experimentally measured "exchange" fluxes
