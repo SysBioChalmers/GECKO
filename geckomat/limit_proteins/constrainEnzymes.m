@@ -1,4 +1,4 @@
-function [model,enzUsages,modifications] = constrainEnzymes(model,f,GAM,pIDs,data,c_UptakeExp)
+ function [model,enzUsages,modifications] = constrainEnzymes(model,f,GAM,Ptot,pIDs,data,c_UptakeExp)
 % constrainEnzymes
 %
 %   Main function for overlaying proteomics data on an enzyme-constrained
@@ -9,6 +9,8 @@ function [model,enzUsages,modifications] = constrainEnzymes(model,f,GAM,pIDs,dat
 % 	f				(Opt) Estimated mass fraction of enzymes in model.
 %	GAM				(Opt) Growth-associated maintenance value. If not
 %					provided, it will be fitted to chemostat data.
+%   Ptot            (Opt) Total protein content, provide if desired content
+%                   is different from the one reported in getModelParameters [gProt/gDw]
 % 	pIDs			(Opt) Protein IDs from proteomics data.
 %	data			(Opt) Protein abundances from proteomics data [mmol/gDW].
 %   c_UptakeExp     (Opt) Experimentally measured glucose uptake rate 
@@ -29,7 +31,6 @@ function [model,enzUsages,modifications] = constrainEnzymes(model,f,GAM,pIDs,dat
 %get model parameters
 cd ..
 parameters = getModelParameters;
-Ptot       = parameters.Ptot;
 sigma      = parameters.sigma;
 gRate      = parameters.gR_exp;
 c_source   = parameters.c_source;
@@ -39,11 +40,14 @@ if nargin < 2
     [f,~] = measureAbundance(model.enzymes);
 end
 %Leave GAM empty if not provided (will be fitted later):
-if nargin < 3
-    GAM = [];
+if nargin < 4
+    Ptot = parameters.Ptot;
+    if nargin < 3
+        GAM = [];
+    end
 end
 %No UB will be changed if no data is available -> pool = all enzymes(FBAwMC)
-if nargin < 4
+if nargin < 5
     pIDs = cell(0,1);
     data = zeros(0,1);
 end
