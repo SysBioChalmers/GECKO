@@ -1,4 +1,4 @@
- function [model,enzUsages,modifications] = constrainEnzymes(model,f,GAM,Ptot,pIDs,data,c_UptakeExp)
+ function [model,enzUsages,modifications] = constrainEnzymes(model,f,GAM,Ptot,pIDs,data,gRate,c_UptakeExp)
 % constrainEnzymes
 %
 %   Main function for overlaying proteomics data on an enzyme-constrained
@@ -13,6 +13,8 @@
 %                   is different from the one reported in getModelParameters [gProt/gDw]
 % 	pIDs			(Opt) Protein IDs from proteomics data.
 %	data			(Opt) Protein abundances from proteomics data [mmol/gDW].
+%   gRate           (Opt) Experimental growth rate at which the proteomics
+%                  data were obtained [1/h]
 %   c_UptakeExp     (Opt) Experimentally measured glucose uptake rate 
 %                   [mmol/gDW h].
 %
@@ -25,14 +27,13 @@
 %   Usage: [model,enzUsages,modifications] = constrainEnzymes(model,f,GAM,pIDs,data,c_UptakeExp)
 %
 %   Benjamin J. Sanchez. Last update 2018-12-11
-%   Ivan Domenzain.      Last update 2019-07-13
+%   Ivan Domenzain.      Last update 2019-09-09
 %
 
 %get model parameters
 cd ..
 parameters = getModelParameters;
 sigma      = parameters.sigma;
-gRate      = parameters.gR_exp;
 c_source   = parameters.c_source;
 cd limit_proteins
 %Compute f if not provided:
@@ -88,8 +89,10 @@ end
 if sum(strcmp(model.rxns,'prot_pool_exchange')) == 0
     model = constrainPool(model,~measured,full(fs*Pbase));
 end
-%Modify protein/carb content and GAM:
-model = scaleBioMass(model,Ptot,GAM);
+if sum(data)==0
+    %Modify protein/carb content and GAM:
+    model = scaleBioMass(model,Ptot,GAM);
+end
 %Display some metrics:
 disp(['Total protein amount measured = '     num2str(Pmeasured)              ' g/gDW'])
 disp(['Total enzymes measured = '            num2str(sum(measured))          ' enzymes'])
