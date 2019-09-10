@@ -27,7 +27,7 @@ function [model,enzUsages,modifications] = flexibilizeProteins(model,gRate,c_Upt
 %
 %   Usage: [model,enzUsages,modifications] = flexibilizeProteins(model,gRate,c_UptakeExp,c_source)
 %
-%   Ivan Domenzain          2018-06-11
+%   Ivan Domenzain          2019-09-10
 %   Benjamin J. Sanchez     2018-12-11
 %
 
@@ -38,8 +38,8 @@ modifications = {};
 
 %constrain glucose uptake if an experimental measurement is provided
 if nargin > 2
-    glucUptkIndx = strcmp(model.rxnNames,c_source);
-    model.ub(glucUptkIndx) = 1.001*c_UptakeExp;
+    glucUptkIndx           = strcmp(model.rxnNames,c_source);
+    model.ub(glucUptkIndx) = c_UptakeExp;
 end
 % get measured protein exchange rxns indexes
 measuredIndxs = getMeasuredProtsIndexes(model);
@@ -49,7 +49,7 @@ if ~isempty(measuredIndxs)
     sol           = solveLP(model,1);
     growth        = sol.x(objIndex);
     % iterate while growth is underpredicted
-    while growth<0.99*gRate
+    while growth<gRate
         [limIndex,flag] = findLimitingUBs(model,measuredIndxs,flexFactor,1);
         if ~flag
             [limIndex,~] = findLimitingUBs(model,measuredIndxs,flexFactor,2);
