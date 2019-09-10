@@ -17,35 +17,39 @@ function [pIDs,protData,fermParameters,byProds] = load_Prot_Ferm_Data(grouping)
 %
 % Usage: [pIDs,protData,fermData,byProds] = load_Prot_Ferm_Data(grouping)
 %
-% Last modified.  Ivan Domenzain 2019-09-09
+% Last modified.  Ivan Domenzain 2019-09-10
 
 %Define dataset format
 format = '%s %s';
 for i=1:sum(grouping)
     format = [format ' %f'];
 end
-fileName  = '../../../Databases/abs_proteomics.txt';
-fID       = fopen(fileName);
-protData  = textscan(fID,format,'Delimiter','\t','HeaderLines',1);
-pIDs      = protData{1};
-protData  = protData(3:end);
+fileName = '../../../Databases/abs_proteomics.txt';
+fID      = fopen(fileName);
+protData = textscan(fID,format,'Delimiter','\t','HeaderLines',1);
+pIDs     = protData{1};
+protData = protData(3:end);
 %Load total protein content and fermentation data
-fileName   = '../../../Databases/fermentationData.txt';
-fID        = fopen(fileName);
-formatStr  = '%s';
-data       = textscan(fID,formatStr,'Delimiter','\n');
-fermData   = [];
+fileName  = '../../../Databases/fermentationData.txt';
+fID       = fopen(fileName);
+formatStr = '%s';
+data      = textscan(fID,formatStr,'Delimiter','\n');
+fermData  = [];
 for i=1:length(data{1})
-    row           = data{1}(i);
-    row           = strsplit(row{1},'\t');
-    row           = row(1:end);
-    fermData   = [fermData; row]; 
+    row      = data{1}(i);
+    row      = strsplit(row{1},'\t');
+    row      = row(1:end);
+    fermData = [fermData; row]; 
 end
 %Extract observed byProduct names from file
-byProds  = fermData(1,6:end);
-byProds  = strrep(byProds,' (mmol/gDw h)','');
-byProds  = strrep(byProds,' [mmol/gDw h]','');
-[~,n]    = size(fermData);
+[~,n] = size(fermData);
+if n>6
+    byProds  = fermData(1,7:end);
+    byProds  = strrep(byProds,' (mmol/gDw h)','');
+    byProds  = strrep(byProds,' [mmol/gDw h]','');
+else
+    byProds  = [];
+end
 fermParameters           = [];
 fermParameters.conds     = fermData(2:end,1);
 fermParameters.Ptot      = str2double(fermData(2:end,2));
@@ -53,10 +57,9 @@ fermParameters.Drate     = str2double(fermData(2:end,3));
 fermParameters.GUR       = str2double(fermData(2:end,4));
 fermParameters.CO2prod   = str2double(fermData(2:end,5));
 fermParameters.OxyUptake = str2double(fermData(2:end,6));
-if n>6
-    fermParameters.byP_flux  = str2double(fermData(2:end,7:end));
-else
-    fermParameters.byP_flux  = [];
+fermParameters.byP_flux  = byProds;
+if ~isempty(fermParameters.byP_flux)
+    fermParameters.byP_flux = str2double(fermData(2:end,7:end));
 end
 end
 
