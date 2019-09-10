@@ -1,4 +1,4 @@
- function [model,enzUsages,modifications] = constrainEnzymes(model,f,GAM,Ptot,pIDs,data,gRate,c_UptakeExp)
+ function [model,enzUsages,modifications,GAM] = constrainEnzymes(model,f,GAM,Ptot,pIDs,data,gRate,c_UptakeExp)
 % constrainEnzymes
 %
 %   Main function for overlaying proteomics data on an enzyme-constrained
@@ -23,11 +23,12 @@
 %                   (enzyme_i demand/enzyme_i upper bound)
 %   modifications   Table with all the modified values 
 %                   (Protein ID/old value/Flexibilized value)
+%   GAM             Fitted GAM value for the ecModel
 %
 %   Usage: [model,enzUsages,modifications] = constrainEnzymes(model,f,GAM,pIDs,data,c_UptakeExp)
 %
 %   Benjamin J. Sanchez. Last update 2018-12-11
-%   Ivan Domenzain.      Last update 2019-09-09
+%   Ivan Domenzain.      Last update 2019-09-10
 %
 
 %get model parameters
@@ -91,7 +92,7 @@ if sum(strcmp(model.rxns,'prot_pool_exchange')) == 0
 end
 if sum(data)==0
     %Modify protein/carb content and GAM:
-    model = scaleBioMass(model,Ptot,GAM);
+    [model,GAM] = scaleBioMass(model,Ptot,GAM);
 end
 %Display some metrics:
 disp(['Total protein amount measured = '     num2str(Pmeasured)              ' g/gDW'])
