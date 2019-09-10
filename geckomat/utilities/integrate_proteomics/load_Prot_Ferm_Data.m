@@ -36,10 +36,10 @@ formatStr  = '%s';
 data       = textscan(fID,formatStr,'Delimiter','\n');
 fermData   = [];
 for i=1:length(data{1})
-    row       = data{1}(i);
-    row       = strsplit(row{1},'\t');
-    row       = row(2:end);
-    fermData  = [fermData; row]; 
+    row           = data{1}(i);
+    row           = strsplit(row{1},'\t');
+    row           = row(1:end);
+    fermData   = [fermData; row]; 
 end
 %Extract observed byProduct names from file
 byProds  = fermData(1,6:end);
@@ -47,13 +47,14 @@ byProds  = strrep(byProds,' (mmol/gDw h)','');
 byProds  = strrep(byProds,' [mmol/gDw h]','');
 [~,n]    = size(fermData);
 fermParameters           = [];
-fermParameters.Ptot      = str2double(fermData(2:end,1));
-fermParameters.Drate     = str2double(fermData(2:end,2));
-fermParameters.GUR       = str2double(fermData(2:end,3));
-fermParameters.CO2prod   = str2double(fermData(2:end,4));
-fermParameters.OxyUptake = str2double(fermData(2:end,5));
-if n>5
-    fermParameters.byP_flux  = str2double(fermData(2:end,6:end));
+fermParameters.conds     = fermData(2:end,1);
+fermParameters.Ptot      = str2double(fermData(2:end,2));
+fermParameters.Drate     = str2double(fermData(2:end,3));
+fermParameters.GUR       = str2double(fermData(2:end,4));
+fermParameters.CO2prod   = str2double(fermData(2:end,5));
+fermParameters.OxyUptake = str2double(fermData(2:end,6));
+if n>6
+    fermParameters.byP_flux  = str2double(fermData(2:end,7:end));
 else
     fermParameters.byP_flux  = [];
 end
