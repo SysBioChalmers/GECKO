@@ -1,4 +1,4 @@
-function generate_protModels(ecModel,grouping,flexFactor,oxPhosIDs,ecModel_batch)
+function generate_protModels(ecModel,grouping,flexFactor,modelName,oxPhosIDs,ecModel_batch)
 % generate_protModels
 %
 % Function that takes an ecModel and constraints it with absolute proteomics 
@@ -9,6 +9,7 @@ function generate_protModels(ecModel,grouping,flexFactor,oxPhosIDs,ecModel_batch
 %                 experimental condition in the dataset.
 %   flexFactor    (double- optional) Flexibilization factor for carbon source 
 %                 uptake flux for automated flexibilization of protein levels.
+%   modelName     (string) Model name string (e.g. ecYeastGEM for S. cerevisiae)
 %   oxPhosIDs     (cell) IDs for the oxidative phosphorylation related. The
 %                 mean expression level across subunits is taken as the 
 %                 abundance levelapplied to each of the enzyme complexes 
@@ -27,11 +28,11 @@ current = pwd;
 %This funcion allows for flexibilization of protein absolute abundances in 
 %case that ecModelP is not feasible using the automatically flexibilized 
 %data, if flex factor is not specified then a factor of 1 is assumed.
-if nargin<5
+if nargin<6
     ecModel_batch = [];
-    if nargin<4
+    if nargin<5
         oxPhosIDs = [];
-        if nargin<3
+        if nargin<4
             flexFactor = 1.05;
         end
     end
@@ -44,6 +45,8 @@ Ptot_model = parameters.Ptot;
 c_source   = parameters.c_source;
 bioRXN     = parameters.bioRxn;
 NGAM       = parameters.NGAM;
+%create subfolder for ecModelProts output files
+mkdir('../models/prot_constrained')
 %Get oxPhos related rxn IDs
 oxPhos     = getOxPhosRxnIDs(ecModel,oxPhosIDs);
 
@@ -135,8 +138,8 @@ for i=1:length(conditions)
     end
     %Fix experimental Glucose uptake rate and save models
     cd ..
-    ecModelP = setChemostatConstraints(ecModelP,positionsEC,Drate(i),true,0.001,GUR(i));
-    save(['../../models/ecModel_Prot_' conditions{i} '.mat'],'ecModelP')
+    ecModelP = setChemostatConstraints(ecModelP,positionsEC,Drate(i),true,0.01,GUR(i));
+    save(['../../models/prot_constrained/' modelName '_Prot_' conditions{i} '.mat'],'ecModelP')
 end
 cd (current)
 end
@@ -147,12 +150,7 @@ ecFlag  = true;
 %Rescale biomass set fitted GAM for std conditions and fit non-growth
 %associated maintenance for stress conditions
 cd ..
-condModel          = setChemostatConstraints(model,pos,Drate,minProt);
-condModel.c(:)     = 0;
-prots              = find(contains(condModel.rxnNames,'prot_'));
-protPool           = find(contains(condModel.rxnNames,'prot_pool'));
-prots              = prots(prots~=protPool);
-condModel.c(prots) = -1;
+condModel = setChemostatConstraints(model,pos,Drate,minProt,0.01);
 cd integrate_proteomics
 condModel = fitNGAM(condModel,NGAM,expData,interval,ecFlag);
 end
