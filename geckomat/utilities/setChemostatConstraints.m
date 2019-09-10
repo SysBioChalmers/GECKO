@@ -19,7 +19,7 @@ function model = setChemostatConstraints(model,pos,Drate,minProt,flexF,GUR)
 %
 % model = setChemostatConstraints(model,pos,Drate,minProt,flexF,GUR)
 %
-% Last modified.  Ivan Domenzain 2019-04-23
+% Last modified.  Ivan Domenzain 2019-09-10
 
 if nargin<6
     GUR = [];
@@ -41,7 +41,6 @@ else
 end
 %Fix dilution rate 
 model.lb(gPos) = (1-flexF)*Drate;
-model.ub(gPos) = (1+flexF)*Drate;
 model.c(:)     = 0;
 %Set minimization of carbon source uptake as an objective function
 if ecFlag
@@ -49,7 +48,7 @@ if ecFlag
     model.lb(cSource) = 0;
     model.ub(cSource) = 1000;
     if ~isempty(GUR)
-        model.lb(cSource) = (1-flexF);
+        model.lb(cSource) = (1-flexF)*GUR;
     end
 else
     model.c(cSource)  = 1;
