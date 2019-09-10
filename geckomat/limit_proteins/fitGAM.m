@@ -1,12 +1,16 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% GAM = fitGAM(model)
+% GAM = fitGAM(model,verbose)
 % Returns a fitted GAM for the yeast model.
 % 
 % Benjamin Sanchez. Last update: 2018-10-27
-% Ivan Domenzain.   Last update: 2019-07-29
+% Ivan Domenzain.   Last update: 2019-09-10
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function GAM = fitGAM(model)
+function GAM = fitGAM(model,verbose)
+
+if nargin<2
+    verbose = true;
+end
 
 %Load chemostat data:
 fid = fopen('../../databases/chemostatData.tsv','r');
@@ -22,14 +26,18 @@ disp('Estimating GAM:')
 GAM = 20:5:100;
 
 %1st iteration:
-GAM = iteration(model,GAM,exp_data);
+GAM = iteration(model,GAM,exp_data,verbose);
 
 %2nd iteration:
-GAM = iteration(model,GAM-10:1:GAM+10,exp_data);
+GAM = iteration(model,GAM-10:1:GAM+10,exp_data,verbose);
 
 %3rd iteration:
-GAM = iteration(model,GAM-1:0.1:GAM+1,exp_data);
+[GAM,error] = iteration(model,GAM-1:0.1:GAM+1,exp_data,verbose);
 
+%If verbose output is not required, then the only displayed value is the optimal one
+if ~verbose
+    disp(['Fitted GAM = ' num2str(GAM) ' -> Error = ' num2str(error)])
+end
 %Plot fit:
 mod_data = simulateChemostat(model,exp_data,GAM);
 figure
@@ -45,12 +53,12 @@ xlabel('Dilution rate [1/h]')
 ylabel('Exchange fluxes [mmol/gDWh]')
 legend(b,'Glucose consumption','O2 consumption','CO2 production','Location','northwest')
 hold off
-
+disp(' ')
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function GAM = iteration(model,GAM,exp_data)
+function [GAM,error] = iteration(model,GAM,exp_data,verbose)
 
 fitting = ones(size(GAM))*1000;
 
@@ -59,16 +67,18 @@ for i = 1:length(GAM)
     mod_data   = simulateChemostat(model,exp_data,GAM(i));
     R          = (mod_data - exp_data)./exp_data;
     fitting(i) = sqrt(sum(sum(R.^2)));
-    disp(['GAM = ' num2str(GAM(i)) ' -> Error = ' num2str(fitting(i))])
+    if verbose
+        disp(['GAM = ' num2str(GAM(i)) ' -> Error = ' num2str(fitting(i))])
+    end
 end
 
 %Choose best:
-[~,best] = min(fitting);
+[error,best] = min(fitting);
 
 if best == 1 || best == length(GAM)
     error('GAM found is sub-optimal: please expand GAM search bounds.')
 else
-    GAM = GAM(best);
+    GAM   = GAM(best);
 end
 
 end

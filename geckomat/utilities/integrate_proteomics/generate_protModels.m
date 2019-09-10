@@ -174,7 +174,7 @@ if ~isempty(byProducts)
         rxnName = [byProducts{i} ' exchange'];
         BPindex = find(strcmpi(model.rxnNames,rxnName));
         if ~isempty(BPindex)
-            disp([byProducts{i} ' exchange has been constrained with an UB: ' num2str(bounds(i)) ' [mmol/gDw h]'])
+            disp([byProducts{i} ' exchange has been constrained to: ' num2str(bounds(i)) ' [mmol/gDw h]'])
             %Allow a 5% of flexibility 
             model = setParam(model,'ub',BPindex,1.05*bounds(i));
             if fixed
