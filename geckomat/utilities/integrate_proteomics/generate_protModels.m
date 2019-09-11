@@ -1,4 +1,4 @@
-function generate_protModels(ecModel,grouping,flexFactor,modelName,oxPhosIDs,ecModel_batch)
+function exchFlux_errors = generate_protModels(ecModel,grouping,flexFactor,oxPhosIDs,ecModel_batch,protBasis)
 % generate_protModels
 %
 % Function that takes an ecModel and constraints it with absolute proteomics 
@@ -17,10 +17,13 @@ function generate_protModels(ecModel,grouping,flexFactor,modelName,oxPhosIDs,ecM
 %   ecModel_batch (structure) ecModel MATLAB structure with total protein pool
 %                 constraint, if provided the process of fitting GAM for
 %                 each new protein content is speed-up.
+%   protBasis     (logical, default false) TRUE if proteomics dataset is
+%                 provided in units of [mmol/g protein]. Default units are:
+%                 [mmol/gDw]
 %
-% Usage: generate_protModels(ecModel,conditions,grouping,byProducts)
+% Usage:  exchFlux_errors = generate_protModels(ecModel,grouping,flexFactor,oxPhosIDs,ecModel_batch,protBasis)
 %
-% Last modified.  Ivan Domenzain 2019-09-10
+% Last modified.  Ivan Domenzain 2019-09-11
 
 close all
 current = pwd;
@@ -29,15 +32,17 @@ current = pwd;
 %case that ecModelP is not feasible using the automatically flexibilized 
 %data, if flex factor is not specified then a factor of 1 is assumed.
 if nargin<6
-    ecModel_batch = [];
+    protBasis = false;
     if nargin<5
-        oxPhosIDs = [];
+        ecModel_batch = [];
         if nargin<4
-            flexFactor = 1.05;
+            oxPhosIDs = [];
+            if nargin<3
+                flexFactor = 1.05;
+            end
         end
     end
 end
-
 %get model parameters
 cd ../..
 parameters = getModelParameters;
@@ -45,6 +50,7 @@ Ptot_model = parameters.Ptot;
 c_source   = parameters.c_source;
 bioRXN     = parameters.bioRxn;
 NGAM       = parameters.NGAM;
+exch_ids   = parameters.exch_names(2:end);
 %create subfolder for ecModelProts output files
 mkdir('../models/prot_constrained')
 %Get oxPhos related rxn IDs
@@ -70,13 +76,16 @@ GUR        = fermData.GUR;
 CO2prod    = fermData.CO2prod;
 OxyUptake  = fermData.OxyUptake;
 byP_flux   = fermData.byP_flux;
-
+exch_error = zeros(length(conditions),1);
 %For each condition create a protein constrained model
 for i=1:length(conditions)
     cd (current)
     disp(conditions{i})
     %Extract data for the i-th condition
     abundances = cell2mat(absValues(1:grouping(i)));
+    if protBasis %If dataset units are [fmol/ng prot] this converts them to: [mmol/gDw]
+        abundances = abundances*Ptot(i)/1000;
+    end
     absValues  = absValues(grouping(i)+1:end);
     %Filter data
     [pIDs, abundances] = filter_ProtData(uniprotIDs,abundances,1.96,true);
@@ -101,7 +110,7 @@ for i=1:length(conditions)
             cd ../limit_proteins
             %scaleBiomass gets a GAM value fitted for the provided biomass
             %composition
-            [~,GAM]   = scaleBioMass(tempModel,Ptot(i),[],true);
+            [~,GAM] = scaleBioMass(tempModel,Ptot(i),[],true);
         else
             cd ../limit_proteins
             [~,~,~,GAM] = constrainEnzymes(ecModelP,0.5,[],Ptot(i));
@@ -123,8 +132,9 @@ for i=1:length(conditions)
     f              = 0.5; %Protein mass in model/Total theoretical proteome
     flexGUR        = flexFactor*GUR(i);
     disp(['Incorporation of proteomics constraints for ' conditions{i} ' condition'])
-    [ecModelP,~,~] = constrainEnzymes(ecModelP,f,GAM,Ptot(i),pIDs,abundances,Drate(i),flexGUR);
-    
+    [ecModelP,usagesT,modificationsT,~,coverage] = constrainEnzymes(ecModelP,f,GAM,Ptot(i),pIDs,abundances,Drate(i),flexGUR);
+    disp(' ')
+    disp(['The mass ratio between measured and unmeasured protein is: ' num2str(coverage)])
     %Set chemostat conditions constraints and fit NGAM
     cd (current)
     %NGAM interval for fitting
@@ -134,13 +144,19 @@ for i=1:length(conditions)
     %Get optimal flux distribution and display exchange fluxes
     solution = solveLP(ecModelP,1);
     if ~isempty(solution.f)
-        printFluxes(ecModelP,solution.x)
+        printFluxes(ecModelP,solution.x,true,1E-4)
     end
     %Fix experimental Glucose uptake rate and save models
     cd ..
-    ecModelP = setChemostatConstraints(ecModelP,positionsEC,Drate(i),true,0.01,GUR(i));
-    save(['../../models/prot_constrained/' modelName '_Prot_' conditions{i} '.mat'],'ecModelP')
+    ecModelP      = setChemostatConstraints(ecModelP,positionsEC,Drate(i),true,0.01,GUR(i));
+    exch_error(i) = getExchanges(ecModelP,exch_ids,expData);
+    save(['../../models/prot_constrained/ecModel_Prot_' conditions{i} '.mat'],'ecModelP')
+    %save .txt file
+    writetable(usagesT,['../../models/prot_constrained/enzymeUsages_' conditions{i} '.txt'],'Delimiter','\t')
+    writetable(modificationsT,['../../models/prot_constrained/modifiedEnzymes_' conditions{i} '.txt'],'Delimiter','\t')
 end
+exchFlux_errors = table(conditions,num2cell(exch_error),'VariableNames',{'conditions' 'avg_error'});
+writetable(exchFlux_errors,'../../models/prot_constrained/exchangeFluxes_avgError.txt','Delimiter','\t')
 cd (current)
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -152,6 +168,7 @@ ecFlag  = true;
 cd ..
 condModel = setChemostatConstraints(model,pos,Drate,minProt,0.01);
 cd integrate_proteomics
+disp(' ')
 condModel = fitNGAM(condModel,NGAM,expData,interval,ecFlag);
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -197,5 +214,20 @@ for i=1:length(rxnIDs)
     isoEnzymes = isoEnzymes(~contains(isoEnzymes,'arm_'));
     oxPhos = [oxPhos; isoEnzymes];
 end
+end
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function avg_error = getExchanges(model,exch_ids,expData)
+exch_ids  = [exch_ids(1) exch_ids(3) exch_ids(2)];
+for i=1:length(exch_ids)
+    pos(i) = find(strcmp(model.rxnNames,exch_ids(i)));
+end
+sol = solveLP(model,1);
+if ~isempty(sol.x)
+    exchanges = sol.x(pos)';
+else
+    exchanges = zeros(1,length(length(pos)));
+end
+residues  = (abs(exchanges) - expData)./expData;
+avg_error = mean(abs(residues));
 end
 
