@@ -27,7 +27,7 @@ function [model,enzUsages,modifications] = flexibilizeProteins(model,gRate,c_Upt
 %
 %   Usage: [model,enzUsages,modifications] = flexibilizeProteins(model,gRate,c_UptakeExp,c_source)
 %
-%   Ivan Domenzain          2019-09-10
+%   Ivan Domenzain          2019-09-11
 %   Benjamin J. Sanchez     2018-12-11
 %
 
@@ -95,14 +95,14 @@ exchange_prots = find(contains(model.rxnNames(measuredIndxs),'_exchange'));
 measuredIndxs  = measuredIndxs(exchange_prots(1:end-1));
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [model,enzUsages] = getNewBounds(model,gRate,protIndxs,flexProts,gPos)
+function [model,usagesTable] = getNewBounds(model,gRate,protIndxs,flexProts,gPos)
 %Now that the model is growing at least at the specified dilution rate
 %lets fix the growth rate and minimize enzymes usage
 objectiveVector      = model.c;
-model.lb(gPos)       = 0.99*gRate;
-model.ub(gPos)       = 1.01*gRate;
+model.lb(gPos)       = gRate;
 model.c(:)           = 0;
 protIndexes          = contains(model.rxnNames,'prot_');
+protNames            = model.rxnNames(protIndexes);
 model.c(protIndexes) = -1;
 optSolution          = solveLP(model,1);
 optSolution          = optSolution.x;
@@ -117,8 +117,10 @@ for i=1:length(protIndxs)
     end
     enzUsages(i) = optSolution(index)/model.ub(index);
 end
-model.c   = objectiveVector;
-enzUsages = enzUsages(enzUsages > 0);
+model.c     = objectiveVector;
+protNames   = protNames(enzUsages > 0);
+enzUsages   = enzUsages(enzUsages > 0);
+usagesTable = table(protNames,num2cell(enzUsages),'VariableNames',{'prot_IDs' 'usage'});
 end
     
     
