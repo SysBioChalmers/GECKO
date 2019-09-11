@@ -1,4 +1,4 @@
- function [model,enzUsages,modifications,GAM] = constrainEnzymes(model,f,GAM,Ptot,pIDs,data,gRate,c_UptakeExp)
+ function [model,enzUsages,modifications,GAM,massCoverage] = constrainEnzymes(model,f,GAM,Ptot,pIDs,data,gRate,c_UptakeExp)
 % constrainEnzymes
 %
 %   Main function for overlaying proteomics data on an enzyme-constrained
@@ -24,8 +24,9 @@
 %   modifications   Table with all the modified values 
 %                   (Protein ID/old value/Flexibilized value)
 %   GAM             Fitted GAM value for the ecModel
+%   massCoverage    Ratio between measured and total mass of protein in the model
 %
-%   Usage: [model,enzUsages,modifications] = constrainEnzymes(model,f,GAM,pIDs,data,c_UptakeExp)
+%   Usage: [model,enzUsages,modifications, GAM,massCoverage] = constrainEnzymes(model,f,GAM,pIDs,data,c_UptakeExp)
 %
 %   Benjamin J. Sanchez. Last update 2018-12-11
 %   Ivan Domenzain.      Last update 2019-09-10
@@ -101,9 +102,10 @@ disp(['Enzymes in model with 0 g/gDW = '     num2str(sum(concs_measured==0)) ' e
 disp(['Total protein amount not measured = ' num2str(Ptot - Pmeasured)       ' g/gDW'])
 disp(['Total enzymes not measured = '        num2str(sum(~measured))         ' enzymes'])
 disp(['Total protein in model = '            num2str(Ptot)                   ' g/gDW'])
+massCoverage = Pmeasured/Ptot;
 if nargin > 7
     [model,enzUsages,modifications] = flexibilizeProteins(model,gRate,c_UptakeExp,c_source);
-    plotHistogram(enzUsages,'Enzyme usage [-]',[0,1],'Enzyme usages','usages')
+    plotHistogram(cell2mat(enzUsages.usage),'Enzyme usage [-]',[0,1],'Enzyme usages','usages')
 else
     enzUsages     = zeros(0,1);
     modifications = cell(0,1);
