@@ -90,9 +90,8 @@ diffTable = table(protein_IDs,previous_values,modified_values);
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function measuredIndxs = getMeasuredProtsIndexes(model)
-measuredIndxs  = find(contains(model.rxnNames,'prot_'));
-exchange_prots = find(contains(model.rxnNames(measuredIndxs),'_exchange'));
-measuredIndxs  = measuredIndxs(exchange_prots(1:end-1));
+measuredIndxs  = intersect(find(contains(model.rxnNames,'prot_')),find(contains(model.rxnNames,'_exchange')));
+measuredIndxs  = measuredIndxs(1:end-1);
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function [model,usagesTable] = getNewBounds(model,gRate,protIndxs,flexProts,gPos)
@@ -101,9 +100,8 @@ function [model,usagesTable] = getNewBounds(model,gRate,protIndxs,flexProts,gPos
 objectiveVector      = model.c;
 model.lb(gPos)       = gRate;
 model.c(:)           = 0;
-protIndexes          = contains(model.rxnNames,'prot_');
-protNames            = model.rxnNames(protIndexes);
-model.c(protIndexes) = -1;
+protNames            = model.rxnNames(protIndxs);
+model.c(protIndxs) = -1;
 optSolution          = solveLP(model,1);
 optSolution          = optSolution.x;
 enzUsages            = zeros(length(protIndxs),1);
@@ -118,9 +116,7 @@ for i=1:length(protIndxs)
     enzUsages(i) = optSolution(index)/model.ub(index);
 end
 model.c     = objectiveVector;
-protNames   = protNames(enzUsages > 0);
-enzUsages   = enzUsages(enzUsages > 0);
-usagesTable = table(protNames,num2cell(enzUsages),'VariableNames',{'prot_IDs' 'usage'});
+usagesTable = table(protNames,enzUsages,'VariableNames',{'prot_IDs' 'usage'});
 end
     
     

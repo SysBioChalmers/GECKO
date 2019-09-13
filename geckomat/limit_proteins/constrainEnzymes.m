@@ -105,7 +105,7 @@ disp(['Total protein in model = '            num2str(Ptot)                   ' g
 massCoverage = Pmeasured/Ptot;
 if nargin > 7
     [model,enzUsages,modifications] = flexibilizeProteins(model,gRate,c_UptakeExp,c_source);
-    plotHistogram(cell2mat(enzUsages.usage),'Enzyme usage [-]',[0,1],'Enzyme usages','usages')
+    plotHistogram(enzUsages.usage,'Enzyme usage [-]',[0,1],'Enzyme usages','usages')
 else
     enzUsages     = zeros(0,1);
     modifications = cell(0,1);
@@ -115,7 +115,11 @@ plotHistogram(concs_measured,'Protein amount [mg/gDW]',[1e-3,1e3],'Modelled Prot
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function plotHistogram(variable,xlabelStr,xlimits,titleStr,option)
+if iscell(variable)
+    cell2mat(variable);
+end
 if sum(variable) > 0
+    variable(variable==0) = 1E-15;
     figure
     if strcmpi(option,'abundances')
         hist(variable*1e3,10.^(-3:0.5:3))

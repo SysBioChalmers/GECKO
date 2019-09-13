@@ -137,10 +137,6 @@ for i=1:length(conditions)
     [ecModelP,usagesT,modificationsT,~,coverage] = constrainEnzymes(ecModelP,f,GAM,Ptot(i),pIDs,abundances,Drate(i),flexGUR);
     matchedProteins = usagesT.prot_IDs;
     disp(' ')
-    disp(['The total number of proteins in the dataset is:                ' num2str(length(initialProts))])
-    disp(['The total number of proteins in the filtered dataset is:       ' num2str(length(filteredProts))])
-    disp(['The total number of filtered proteins present in the model is: ' num2str(length(matchedProteins))])
-    disp(['The mass ratio between measured and unmeasured protein is:     ' num2str(coverage)])
     writeProtCounts(initialProts,filteredProts,matchedProteins,ecModelP.enzymes,coverage); 
     %Set chemostat conditions constraints and fit NGAM
     cd (current)
@@ -243,6 +239,12 @@ initial_prots  = length(initial_prots);
 filtered_prots = length(filtered_prots);
 matched_prots  = length(matched_prots);
 model_prots    = length(model_prots);
+
+disp(['The total number of proteins in the dataset is:                ' num2str(initial_prots)])
+disp(['The total number of proteins in the filtered dataset is:       ' num2str(filtered_prots)])
+disp(['The total number of filtered proteins present in the model is: ' num2str(matched_prots)])
+disp(['The mass ratio between measured and unmeasured protein is:     ' num2str(mass_coverage)])
+
 T = table(initial_prots,filtered_prots,matched_prots,model_prots,mass_coverage);
 writetable(T,'../../models/prot_constrained/prot_counts.txt','Delimiter','\t')
 end
