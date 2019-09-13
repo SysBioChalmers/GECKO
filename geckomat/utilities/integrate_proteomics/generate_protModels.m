@@ -245,5 +245,5 @@ matched_prots  = length(matched_prots);
 model_prots    = length(model_prots);
 mass_coverage  = length(mass_coverage);
 T = table(initial_prots,filtered_prots,matched_prots,model_prots,mass_coverage);
-writetable(T,'../../../../models/prot_constrained/prot_counts.txt','Delimiter','\t')
+writetable(T,'../../models/prot_constrained/prot_counts.txt','Delimiter','\t')
 end
