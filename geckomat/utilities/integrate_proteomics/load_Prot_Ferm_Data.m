@@ -26,7 +26,7 @@ for i=1:sum(grouping)
 end
 fileName = '../../../Databases/abs_proteomics.txt';
 fID      = fopen(fileName);
-protData = textscan(fID,format,'Delimiter','\t','HeaderLines',1);
+protData = textscan(fID,format,'Delimiter','\t','HeaderLines',1,'TreatAsEmpty',{'NA','na','NaN'});
 pIDs     = protData{1};
 protData = protData(3:end);
 %Load total protein content and fermentation data
