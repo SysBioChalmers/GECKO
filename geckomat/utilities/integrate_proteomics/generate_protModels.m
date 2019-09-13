@@ -135,13 +135,13 @@ for i=1:length(conditions)
     flexGUR = flexFactor*GUR(i);
     disp(['Incorporation of proteomics constraints for ' conditions{i} ' condition'])
     [ecModelP,usagesT,modificationsT,~,coverage] = constrainEnzymes(ecModelP,f,GAM,Ptot(i),pIDs,abundances,Drate(i),flexGUR);
-    matchedProteins = usagesT.protNames;
+    matchedProteins = usagesT.prot_IDs;
     disp(' ')
     disp(['The total number of proteins in the dataset is:                ' num2str(length(initialProts))])
     disp(['The total number of proteins in the filtered dataset is:       ' num2str(length(filteredProts))])
     disp(['The total number of filtered proteins present in the model is: ' num2str(length(matchedProteins))])
     disp(['The mass ratio between measured and unmeasured protein is:     ' num2str(coverage)])
-    writeProtCounts(initialProts,filteredProts,matchedProteins,coverage); 
+    writeProtCounts(initialProts,filteredProts,matchedProteins,ecModelP.enzymes,coverage); 
     %Set chemostat conditions constraints and fit NGAM
     cd (current)
     %NGAM interval for fitting
