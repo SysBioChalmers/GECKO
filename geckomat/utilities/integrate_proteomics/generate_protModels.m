@@ -23,7 +23,7 @@ function exchFlux_errors = generate_protModels(ecModel,grouping,flexFactor,oxPho
 %
 % Usage:  exchFlux_errors = generate_protModels(ecModel,grouping,flexFactor,oxPhosIDs,ecModel_batch,protBasis)
 %
-% Last modified.  Ivan Domenzain 2019-09-11
+% Last modified.  Ivan Domenzain 2019-09-13
 
 close all
 current = pwd;
@@ -82,13 +82,15 @@ for i=1:length(conditions)
     cd (current)
     disp(conditions{i})
     %Extract data for the i-th condition
-    abundances = cell2mat(absValues(1:grouping(i)));
-    if protBasis %If dataset units are [fmol/ng prot] this converts them to: [mmol/gDw]
-        abundances = abundances*Ptot(i)/1000;
+    abundances   = cell2mat(absValues(1:grouping(i)));
+    initialProts = uniprotIDs;
+    if protBasis %If dataset units are [mmol/g prot] this converts them to: [mmol/gDw]
+        abundances = abundances*Ptot(i);
     end
     absValues  = absValues(grouping(i)+1:end);
     %Filter data
     [pIDs, abundances] = filter_ProtData(uniprotIDs,abundances,1.96,true);
+    filteredProts      = pIDs;
     cd ..
     for j=1:length(oxPhos)
         [abundances,pIDs] = fixComplex(oxPhos{j},ecModel,abundances,pIDs);
@@ -129,12 +131,17 @@ for i=1:length(conditions)
     %Reescale biomass composition (according to the provided Ptot) and fit
     %GAM
     %Incorporate protein abundances into ecModel
-    f              = 0.5; %Protein mass in model/Total theoretical proteome
-    flexGUR        = flexFactor*GUR(i);
+    f       = 0.5; %Protein mass in model/Total theoretical proteome
+    flexGUR = flexFactor*GUR(i);
     disp(['Incorporation of proteomics constraints for ' conditions{i} ' condition'])
     [ecModelP,usagesT,modificationsT,~,coverage] = constrainEnzymes(ecModelP,f,GAM,Ptot(i),pIDs,abundances,Drate(i),flexGUR);
+    matchedProteins = usagesT.protNames;
     disp(' ')
-    disp(['The mass ratio between measured and unmeasured protein is: ' num2str(coverage)])
+    disp(['The total number of proteins in the dataset is:                ' num2str(length(initialProts))])
+    disp(['The total number of proteins in the filtered dataset is:       ' num2str(length(filteredProts))])
+    disp(['The total number of filtered proteins present in the model is: ' num2str(length(matchedProteins))])
+    disp(['The mass ratio between measured and unmeasured protein is:     ' num2str(coverage)])
+    writeProtCounts(initialProts,filteredProts,matchedProteins,coverage); 
     %Set chemostat conditions constraints and fit NGAM
     cd (current)
     %NGAM interval for fitting
@@ -230,4 +237,13 @@ end
 residues  = (abs(exchanges) - expData)./expData;
 avg_error = mean(abs(residues));
 end
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function writeProtCounts(initial_prots,filtered_prots,matched_prots,model_prots,mass_coverage)
+initial_prots  = length(initial_prots);
+filtered_prots = length(filtered_prots);
+matched_prots  = length(matched_prots);
+model_prots    = length(model_prots);
+mass_coverage  = length(mass_coverage);
+T = table(initial_prots,filtered_prots,matched_prots,model_prots,mass_coverage);
+writetable(T,'../../../../models/prot_constrained/prot_counts.txt','Delimiter','\t')
+end
