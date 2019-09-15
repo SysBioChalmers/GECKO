@@ -23,7 +23,7 @@ function exchFlux_errors = generate_protModels(ecModel,grouping,flexFactor,oxPho
 %
 % Usage:  exchFlux_errors = generate_protModels(ecModel,grouping,flexFactor,oxPhosIDs,ecModel_batch,protBasis)
 %
-% Last modified.  Ivan Domenzain 2019-09-13
+% Last modified.  Ivan Domenzain 2019-09-15
 
 close all
 current = pwd;
@@ -137,7 +137,7 @@ for i=1:length(conditions)
     [ecModelP,usagesT,modificationsT,~,coverage] = constrainEnzymes(ecModelP,f,GAM,Ptot(i),pIDs,abundances,Drate(i),flexGUR);
     matchedProteins = usagesT.prot_IDs;
     disp(' ')
-    writeProtCounts(initialProts,filteredProts,matchedProteins,ecModelP.enzymes,coverage); 
+    writeProtCounts(conditions{i},initialProts,filteredProts,matchedProteins,ecModelP.enzymes,coverage); 
     %Set chemostat conditions constraints and fit NGAM
     cd (current)
     %NGAM interval for fitting
@@ -234,7 +234,7 @@ residues  = (abs(exchanges) - expData)./expData;
 avg_error = mean(abs(residues));
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function writeProtCounts(initial_prots,filtered_prots,matched_prots,model_prots,mass_coverage)
+function writeProtCounts(condition,initial_prots,filtered_prots,matched_prots,model_prots,mass_coverage)
 initial_prots  = length(initial_prots);
 filtered_prots = length(filtered_prots);
 matched_prots  = length(matched_prots);
@@ -246,5 +246,5 @@ disp(['The total number of filtered proteins present in the model is: ' num2str(
 disp(['The mass ratio between measured and unmeasured protein is:     ' num2str(mass_coverage)])
 
 T = table(initial_prots,filtered_prots,matched_prots,model_prots,mass_coverage);
-writetable(T,'../../models/prot_constrained/prot_counts.txt','Delimiter','\t')
+writetable(T,['../../models/prot_constrained/prot_counts_' condition '.txt'],'Delimiter','\t')
 end
