@@ -29,7 +29,7 @@
 %   Usage: [model,enzUsages,modifications, GAM,massCoverage] = constrainEnzymes(model,f,GAM,pIDs,data,c_UptakeExp)
 %
 %   Benjamin J. Sanchez. Last update 2018-12-11
-%   Ivan Domenzain.      Last update 2019-09-10
+%   Ivan Domenzain.      Last update 2019-09-15
 %
 
 %get model parameters
@@ -103,12 +103,16 @@ disp(['Total protein amount not measured = ' num2str(Ptot - Pmeasured)       ' g
 disp(['Total enzymes not measured = '        num2str(sum(~measured))         ' enzymes'])
 disp(['Total protein in model = '            num2str(Ptot)                   ' g/gDW'])
 massCoverage = Pmeasured/Ptot;
+enzUsages    = [];
 if nargin > 7
     [model,enzUsages,modifications] = flexibilizeProteins(model,gRate,c_UptakeExp,c_source);
-    plotHistogram(enzUsages.usage,'Enzyme usage [-]',[0,1],'Enzyme usages','usages')
+end
+
+if isempty(enzUsages)
+    enzUsages      = table({},zeros(0,1),'VariableNames',{'prot_IDs' 'usage'});
+    modifications  = table({},zeros(0,1),zeros(0,1),'VariableNames',{'protein_IDs' 'previous_values' 'modified_values'});
 else
-    enzUsages     = zeros(0,1);
-    modifications = cell(0,1);
+     plotHistogram(enzUsages.usage,'Enzyme usage [-]',[0,1],'Enzyme usages','usages')
 end
 %Plot histogram (if there are measurements):
 plotHistogram(concs_measured,'Protein amount [mg/gDW]',[1e-3,1e3],'Modelled Protein abundances','abundances')
