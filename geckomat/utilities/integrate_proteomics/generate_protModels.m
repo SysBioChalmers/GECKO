@@ -143,15 +143,15 @@ for i=1:length(conditions)
     %NGAM interval for fitting
     interval = [0 5];
     ecModelP = setStressConditions(ecModelP,Drate(i),positionsEC,expData,NGAM,interval);
-    
+    %Fix experimental Glucose uptake rate and save models
+    cd ..
+    ecModelP = setChemostatConstraints(ecModelP,positionsEC,Drate(i),true,0.01,GUR(i));
     %Get optimal flux distribution and display exchange fluxes
     solution = solveLP(ecModelP,1);
     if ~isempty(solution.f)
-        printFluxes(ecModelP,solution.x,true,1E-4)
+        fileFluxes = ['../../models/prot_constrained/fluxes_Exch_' conditions{i} '.txt'];
+        printFluxes(ecModelP,solution.x,true,1E-4,fileFluxes)
     end
-    %Fix experimental Glucose uptake rate and save models
-    cd ..
-    ecModelP      = setChemostatConstraints(ecModelP,positionsEC,Drate(i),true,0.01,GUR(i));
     exch_error(i) = getExchanges(ecModelP,exch_ids,expData);
     save(['../../models/prot_constrained/ecModel_Prot_' conditions{i} '.mat'],'ecModelP')
     %save .txt file
