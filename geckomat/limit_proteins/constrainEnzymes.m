@@ -41,11 +41,12 @@ if nargin < 2
     [f,~] = measureAbundance(model.enzymes);
 end
 %Leave GAM empty if not provided (will be fitted later):
+if nargin < 3
+    GAM = [];
+end
+%Load Ptot if not provided:
 if nargin < 4
     Ptot = parameters.Ptot;
-    if nargin < 3
-        GAM = [];
-    end
 end
 %No UB will be changed if no data is available -> pool = all enzymes(FBAwMC)
 if nargin < 5
