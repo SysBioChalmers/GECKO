@@ -24,7 +24,7 @@
 %   modifications   Table with all the modified values 
 %                   (Protein ID/old value/Flexibilized value)
 %
-%   Usage: [model,enzUsages,modifications] = constrainEnzymes(model,f,GAM,pIDs,data,c_UptakeExp)
+%   Usage: [model,enzUsages,modifications] = constrainEnzymes(model,f,GAM,Ptot,pIDs,data,gRate,c_UptakeExp)
 %
 %   Benjamin J. Sanchez. Last update 2018-12-11
 %   Ivan Domenzain.      Last update 2019-09-09
