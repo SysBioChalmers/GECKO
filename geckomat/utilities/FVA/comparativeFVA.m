@@ -1,13 +1,13 @@
-function [FVA_Dists,indexes,stats] = comparativeFVA(model,ecModel,c_source,chemostat,tol)
+function [FVA_Dists,indexes,blocked,stats] = comparativeFVA(model,ecModel,c_source,chemostat,tol)
 % comparativeFVA
 %  
 % This function goes through each of the rxns in a metabolic model and
-% gets its flux variability range, then the rxn is mapped into an EC
-% version of it to perform the correspondent variability analysis and
+% gets its flux variability range, then the rxn is mapped into the EC
+% version of the model to perform the correspondent variability analysis and
 % finally compares and plots the cumulative flux variability distributions. 
 %
 %   model       MATLAB GEM structure (reversible model), constrained with 
-%               the desired culture medium constraints
+%               the desired culture medium constrains
 %   ecModel     MATLAB ecGEM structure, constrained with the desired culture
 %               medium
 %   c_source    rxn ID (in model) for the main carbon source uptake reaction.
@@ -15,8 +15,7 @@ function [FVA_Dists,indexes,stats] = comparativeFVA(model,ecModel,c_source,chemo
 %               to avoid any confusion when mapping it to the ecModel
 %   chemostat   TRUE if chemostat conditions are desired
 %   tol         numerical tolerance for a flux and variability range 
-%               to be considered as zero
-%   
+%               to be considered as zero (default 1E-12) 
 %   FVAdists    cell containing the distributions of variability ranges for
 %               the original GEM and ecGEM
 %   rangeEC     Distribution of variability ranges for the original ecGEM
@@ -26,72 +25,82 @@ function [FVA_Dists,indexes,stats] = comparativeFVA(model,ecModel,c_source,chemo
 % 
 % usage: [FVA_Dists,indexes,stats] = comparativeFVA(model,ecModel,c_source,chemostat,tol,blockedMets)
 % 
-% Ivan Domenzain.      Last edited: 2018-11-30
+% Ivan Domenzain.      Last edited: 2019-06-10
 
+if nargin<5
+    tol = 1E-12;
+end
 rangeGEM = [];
 indexes  = [];
 range_EC = [];
-%Get the index for all the non-objective rxns in the original irrevModel
-rxnsIndxs = find(model.c~=1);
-%Set minimal glucose media for ecModel
-pos = find(strcmpi(ecModel.rxns,[c_source '_REV']));
-%Gets the optimal value for ecirrevModel and fixes the objective value to
-%this for both models
+%Constraint all rxns in ecModel to the positive domain
+ecModel.lb = zeros(length(ecModel.lb),1);
+%Gets main carbon source uptake reaction index from both models
+posCS    = strcmpi(model.rxns,c_source);
+posCS_ec = find(strcmpi(ecModel.rxns,[c_source '_REV']));
+
+%If chemostat conditions are desired then a dilution rate is fixed for the
+%ecModel, CS uptake rate set as objective for minimization, then its
+%optimal value is fixed
 if chemostat
     gRate   = 0.1;
-    %Fix dilution rate
-    [~,~, ecModel] = fixObjective(ecModel,true,gRate);
-    %Fix minimal carbon source uptake rate
-    ecModel = setParam(ecModel,'obj', pos, -1);
-    [~,~,ecModel] = fixObjective(ecModel,false);
-    %Fix minimal total protein usage
-    index   = find(contains(ecModel.rxnNames,'prot_pool'));
-    ecModel = setParam(ecModel,'obj', index, -1);
-    [~,ecFluxDist,ecModel] = fixObjective(ecModel,false);
+    %Fix dilution rate in ecModel
+    [~,~, ecModel] = constrainIrrevModel(ecModel,true,gRate);
+    %Fix minimal carbon source uptake rate in ecModel
+    ecModel        = setParam(ecModel,'obj', posCS_ec, -1);
+    [~,~,ecModel]  = constrainIrrevModel(ecModel,false);
 else
-    %Optimize growth
-    [gRate,~, ecModel] = fixObjective(ecModel,true);
-    %Fix minimal total protein usage
-    index   = find(contains(ecModel.rxnNames,'prot_pool'));
-    ecModel = setParam(ecModel,'obj', index, -1);
-    [~,ecFluxDist,ecModel] = fixObjective(ecModel,false);
+    %For batch conditions growth is maximized and then fixed 
+    [gRate,~, ecModel] = constrainIrrevModel(ecModel,true);
 end
-%Fix carbon source uptake and growth rates for the ecModel on the original model
-carbonUptake = ecFluxDist(pos);
-disp([c_source ': ' num2str(carbonUptake)])
-c_source           = strcmpi(model.rxns,c_source);
-model.lb(c_source) = -carbonUptake;
-[~,FluxDist,model] = fixObjective(model,true,gRate);
-% Get the variability range for each of the non-objective reactions in the
-% original model
-for i=1:length(rxnsIndxs) 
-    indx        = rxnsIndxs(i);
-    rxnID       = model.rxns(indx);
-    FixedValues = [];
-    range       = MAXmin_Optimizer(model,indx,FixedValues,tol);
-    %If max and min were feasible then the optimization proceeds with
-    %the ecModel
-    relative = 0;
-    if ~isempty(range)
-        if tol>0
-            condition = ~(range<tol & abs(FluxDist)<tol);
-        else
-            condition = true;
+%Set minimal total protein usage in ecModel as objective function
+index   = find(contains(ecModel.rxnNames,'prot_pool'));
+ecModel = setParam(ecModel,'obj', index, -1);
+%Fix optimal protein usage and get an optimal flux distribution for ecModel
+[~,ecFluxDist,ecModel] = constrainIrrevModel(ecModel,true);
+%Get optimal Csource uptake rate from optimal ecModel flux distribution
+Cuptake  = ecFluxDist(posCS_ec);
+disp([c_source ': ' num2str(Cuptake)])
+%Constrain model with values from the optimal ecModel flux distribution
+[model,FluxDist] = constrainModel(model,gRate,posCS,chemostat,Cuptake);
+%Get the index for all the reactions that can carry a flux in the original
+%model and then run FVA on that subset
+disp('Identifying reactions that can carry a non-zero flux')
+rxnsIndxs = haveFlux(model,tol);
+rxnsIndxs = find(model.c~=1 & rxnsIndxs);
+blocked   = rxnsIndxs(rxnsIndxs==0);
+%Get the variability range for each of the flux carrier reactions
+if ~isempty(FluxDist) && ~isempty(rxnsIndxs)
+    disp('Performing Flux Variability Analysis')
+    for i=1:length(rxnsIndxs)
+        indx  = rxnsIndxs(i);
+        rxnID = model.rxns(indx);
+        rev   = false;
+        if model.rev(indx) ==1
+            rev = true;
         end
-        
-        if condition 
-            mappedIndxs = rxnMapping(rxnID,ecModel,true);
-            FixedValues = ecFluxDist(mappedIndxs);
-            rangeEC     = MAXmin_Optimizer(ecModel,mappedIndxs,FixedValues,tol);
+        bounds = [];
+        range  = MAXmin_Optimizer(model,indx,bounds,tol);
+        %If max and min were feasible then the optimization proceeds with
+        %the ecModel
+        if ~isempty(range)
+            %Get the correspondent index(es) for the i-th reaction in the
+            %ecModel
+            mappedIndxs = rxnMapping(rxnID,ecModel,rev);
+            %Get bounds from the optimal distribution to avoid artificially
+            %induced variability
+            bounds      = [0 0]; %ecFluxDist(mappedIndxs);
+            rangeEC     = MAXmin_Optimizer(ecModel,mappedIndxs,bounds,tol);
             if ~isempty(rangeEC)
                 rangeGEM = [rangeGEM; range];
                 range_EC = [range_EC; rangeEC];
                 indexes  = [indexes; indx];
-                relative = (rangeEC-range)/range; 
+                disp(['ready with #' num2str(i) ' // model Variability: ' num2str(range) ' // ecModel variability: ' num2str(rangeEC)])
             end
         end
     end
-    disp(['ready with #' num2str(i) ', relative variability reduction:' num2str(relative*100) '%'])
+else
+    warning('The original model is unfeasible under the provided constraints')
 end
 %Plot FV cumulative distributions
 FVA_Dists  = {rangeGEM, range_EC};
@@ -100,11 +109,34 @@ titleStr   = 'Flux variability cumulative distribution';
 [~, stats] = plotCumDist(FVA_Dists,legends,titleStr);
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [OptimalValue, optFluxDist, irrevModel] = fixObjective(irrevModel,fixed,priorValue)
-% Optimize and fixes objective value for GEM
-objIndx  = find(irrevModel.c~=0);
+function [model,FluxDist] = constrainModel(model,gRate,posCS,chemostat,Cuptake)
+%Fix optimal carbon source uptake and growth rate values from the ecModel in the 
+% original model (Convention: GEMs represent uptake fluxes as negative values)
+[~,~,model] = constrainIrrevModel(model,true,gRate);
+if chemostat 
+    %Set glucose uptake rate as objective to minimize
+    model = setParam(model,'obj', posCS, 1);
+else
+    %Fix glucose uptake rate
+    model = setParam(model,'lb', posCS,-1.0001*Cuptake);
+    %model = setParam(model,'ub', posCS,-0.9999*Cuptake);
+end
+FluxDist = solveLP(model,1);
+FluxDist = FluxDist.x;
+if ~isempty(FluxDist)
+    Cuptake = FluxDist(posCS);
+    model   = setParam(model,'lb', posCS, 1.0001*Cuptake);
+    disp(['The optimal value for ' model.rxnNames{posCS} ' is: ' num2str(Cuptake)])
+end
+end
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function [OptimalValue, optFluxDist, irrevModel] = constrainIrrevModel(irrevModel,fixed,priorValue)
+% Optimize and fixes objective value for ecModel
+objIndx      = find(irrevModel.c~=0);
+optFluxDist  = [];
+OptimalValue = 0;
 if fixed 
-    factor = 0.99999;
+    factor = 0.9999;
 else
     factor = 0;
 end
@@ -121,6 +153,8 @@ sol = solveLP(irrevModel);
 if ~isempty(sol.f)
     OptimalValue = sol.x(objIndx);
     optFluxDist  = sol.x;
+    disp(['The optimal value for ' irrevModel.rxnNames{objIndx} ' is: ' num2str(OptimalValue)])
+else
+    disp('Non feasible simulation')
 end
-disp(['The optimal value is ' num2str(OptimalValue)])
 end
