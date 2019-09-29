@@ -59,7 +59,6 @@ Usage
     - ``geckomat/kcat_sensitivity_analysis/changeMedia_batch.m`` (optional)
     - ``geckomat/change_model/removeIncorrectPathways.m`` (optional, called by ``manualModifications.m``)
     - ``geckomat/limit_proteins/sumBioMass.m`` (optional, called by ``sumProtein.m`` & ``scaleBiomass.m``)
-    - ``geckomat/limit_proteins/fitGAM.m`` (optional, called by ``scaleBiomass.m``)
 	
   - Run ``geckomat/get_enzyme_data/updateDatabases.m`` to update ``ProtDatabase.mat``.
   - Run ``geckomat/enhanceGEM.m`` with your metabolic model as input.
