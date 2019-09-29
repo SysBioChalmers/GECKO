@@ -15,7 +15,7 @@
 % model             Modified GEM structure (1x1 struct)
 % 
 % Cheng Zhang & Ivan Domenzain. Last edited: 2018-09-07
-% Eduard Kerkhoven & Benjamin Sanchez. Last edited: 2018-11-05
+% Eduard Kerkhoven & Benjamin Sanchez. Last edited: 2019-09-29
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function model = addEnzymesToRxn(model,kvalues,rxn,newMets,newRxnName,protGenes)
@@ -24,6 +24,11 @@ if nargin < 5
     protGenes = '';
 end
 
+%Get compartment name for new enzymes:
+cd ..
+parameters = getModelParameters;
+cd change_model
+
 %Define all necessary parts for new (or changed) rxn:
 rxnIndex = strcmp(model.rxns,rxn); 
 metS     = model.mets(model.S(:,rxnIndex) < 0)';
@@ -31,13 +36,9 @@ metP     = model.mets(model.S(:,rxnIndex) > 0)';
 coeffsS  = model.S(model.S(:,rxnIndex)<0,rxnIndex)';
 coeffsP  = model.S(model.S(:,rxnIndex)>0,rxnIndex)';
 
-%Find default compartment:
-cytIndex = strcmpi(model.compNames,'cytoplasm');
-if sum(cytIndex) == 1
-    comp = model.comps{cytIndex};	%For simplification all proteins are in cytosol
-else
-    comp = model.comps{1};
-end
+%Find compartment id:
+compIndex = strcmpi(model.compNames,parameters.enzyme_comp);
+comp      = model.comps{compIndex};
 
 %Include enzyme in reaction:
 rxnToAdd.mets         = [metS,newMets,metP];
