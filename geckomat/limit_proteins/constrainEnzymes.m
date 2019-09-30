@@ -15,18 +15,18 @@
 %	data			(Opt) Protein abundances from proteomics data [mmol/gDW].
 %   gRate           (Opt) Experimental growth rate at which the proteomics
 %                  data were obtained [1/h]
-%   c_UptakeExp     (Opt) Experimentally measured glucose uptake rate 
+%   c_UptakeExp     (Opt) Experimentally measured glucose uptake rate
 %                   [mmol/gDW h].
 %
 %   model           ecModel with calibrated enzyme usage upper bounds
-%   enzUsages       Calculated enzyme usages after final calibration 
+%   enzUsages       Calculated enzyme usages after final calibration
 %                   (enzyme_i demand/enzyme_i upper bound)
-%   modifications   Table with all the modified values 
+%   modifications   Table with all the modified values
 %                   (Protein ID/old value/Flexibilized value)
 %   GAM             Fitted GAM value for the ecModel
 %   massCoverage    Ratio between measured and total mass of protein in the model
 %
-%   Usage: [model,enzUsages,modifications, GAM,massCoverage] = constrainEnzymes(model,f,GAM,pIDs,data,c_UptakeExp)
+%   Usage: [model,enzUsages,modifications, GAM,massCoverage] = constrainEnzymes(model,f,GAM,Ptot,pIDs,data,gRate,c_UptakeExp)
 %
 %   Benjamin J. Sanchez. Last update 2018-12-11
 %   Ivan Domenzain.      Last update 2019-09-15
@@ -43,11 +43,12 @@ if nargin < 2
     [f,~] = measureAbundance(model.enzymes);
 end
 %Leave GAM empty if not provided (will be fitted later):
+if nargin < 3
+    GAM = [];
+end
+%Load Ptot if not provided:
 if nargin < 4
     Ptot = parameters.Ptot;
-    if nargin < 3
-        GAM = [];
-    end
 end
 %No UB will be changed if no data is available -> pool = all enzymes(FBAwMC)
 if nargin < 5
@@ -145,4 +146,3 @@ for i=1:length(data)
     end
 end
 end
-

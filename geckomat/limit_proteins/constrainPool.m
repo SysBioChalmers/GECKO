@@ -5,17 +5,13 @@
 % Ivan Domenzain.      Last edited: 2019-07-13
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function model = constrainPool(model,non_measured,UB)
-%Get enzymes compartment name
+%Get compartment name for enzyme pool:
 cd ..
 parameters = getModelParameters;
 cd limit_proteins
-%Find default compartment:
-cytIndex = strcmpi(model.compNames,parameters.enzyme_comp);
-if sum(cytIndex) == 1
-    comp = model.comps{cytIndex};	%Protein pool in cytosol
-else
-    comp = model.comps{1};
-end
+%Find compartment id:
+compIndex = strcmpi(model.compNames,parameters.enzyme_comp);
+comp      = model.comps{compIndex};
 %Define new rxns: For each enzyme, add a new rxn that draws enzyme from the
 %enzyme pool (a new metabolite), and remove previous exchange rxn. The new
 %rxns have the following stoichiometry (T is the enzyme pool):
