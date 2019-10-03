@@ -17,7 +17,7 @@ function FC = ecFlux_scanning(model,target,C_source,alpha,tol,filterG)
 %
 % Usage:  FC = compare_substrate(model,target,C_source,alpha,tol,filterG)
 %
-% Last modified.  Ivan Domenzain 2019-09-27
+% Last modified.  Ivan Domenzain 2019-10-03
 %
 
 if nargin<6
@@ -25,7 +25,8 @@ if nargin<6
 end
 
 %Simulate WT (100% growth):
-FC.flux_WT = simulateGrowth(model,target,C_source,1);
+cd ..
+FC.flux_WT = simulateGrowth(model,target,C_source,1,1);
 %Simulate forced (X% growth and the rest towards product) based on yield:
 FC.alpha = alpha;
 %initialize fluxes and K_scores matrices
@@ -33,11 +34,11 @@ v_matrix = zeros(length(model.rxns),length(alpha));
 k_matrix = zeros(length(model.rxns),length(alpha));
 for i = 1:length(alpha)
     %disp(['Iteration #' num2str(i)])
-    FC.flux_MAX   = simulateGrowth(model,target,C_source,alpha(i));
+    FC.flux_MAX   = simulateGrowth(model,target,C_source,1,alpha(i));
     v_matrix(:,i) = FC.flux_MAX;
     k_matrix(:,i) = FC.flux_MAX./FC.flux_WT;
 end
-
+cd ecFSEOF
 %Take out rxns with no grRule
 withGR   = ~cellfun(@isempty,model.grRules);
 rxnEqs   = constructEquations(model,model.rxns(withGR),true);
