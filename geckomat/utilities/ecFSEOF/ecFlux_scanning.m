@@ -17,7 +17,7 @@ function FC = ecFlux_scanning(model,target,C_source,alpha,tol,filterG)
 %
 % Usage:  FC = compare_substrate(model,target,C_source,alpha,tol,filterG)
 %
-% Last modified.  Ivan Domenzain 2019-09-20
+% Last modified.  Ivan Domenzain 2019-09-27
 %
 
 if nargin<6
@@ -38,10 +38,9 @@ for i = 1:length(alpha)
     k_matrix(:,i) = FC.flux_MAX./FC.flux_WT;
 end
 
-%Take out rxns with no grRule:
+%Take out rxns with no grRule
 withGR   = ~cellfun(@isempty,model.grRules);
-%Generate rxn equations:
-rxnEqs   =constructEquations(model,model.rxns(withGR),true);
+rxnEqs   = constructEquations(model,model.rxns(withGR),true);
 v_matrix = v_matrix(withGR,:);
 k_matrix = k_matrix(withGR,:);
 gene_rxn = model.rxnGeneMat(withGR,:);
@@ -69,7 +68,6 @@ incons_genes = sum(gene_rxn(incons_rxns,:),1) > 0;
 %Finally, inconsistent reactions are those that are not conected
 %to "inconsistent genes" from the original "inconsistent rxns" set
 incons_rxns  = sum(gene_rxn(:,incons_genes),2) > 0;
-disp(length(incons_rxns))
 %Keep results for the consistent rxns exclusively
 v_matrix     = v_matrix(~incons_rxns,:);
 k_matrix     = k_matrix(~incons_rxns,:);
@@ -110,7 +108,7 @@ FC.k_genes   = FC.k_genes(cons_genes);
 
 if filterG
 	%Filter any value between mean(alpha) and 1:
-	unchanged    = (FC.k_genes >= mean(alpha) - tol) + (FC.k_genes <= 1 + tol) == 2;
+	unchanged    = (FC.k_genes >= mean(alpha) + tol) + (FC.k_genes <= 1 - tol) == 2;
 	FC.genes     = FC.genes(~unchanged);
 	FC.geneNames = FC.geneNames(~unchanged);
 	FC.k_genes   = FC.k_genes(~unchanged);
