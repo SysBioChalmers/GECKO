@@ -1,4 +1,4 @@
-function flux = simulateGrowth(model,target,C_source,alpha,tol)
+function flux = simulateGrowth(model,target,C_source,objCoeff,alpha,tol)
 % 
 % simulateGrowth
 %
@@ -11,21 +11,27 @@ function flux = simulateGrowth(model,target,C_source,alpha,tol)
 %       model     (struct) ecModel with total protein pool constraint.
 %                 the model should come with growth pseudoreaction as 
 %                 an objective to maximize.
-%       target    (string) Rxn ID for the production target reaction, 
-%                 a exchange reaction is recommended.
+%       target    (string) Rxn ID for the objective reaction.
 %       cSource   (string) Rxn name for the main carbon source uptake 
 %                 reaction
-%       alpha     (dobule) scalling factor for production yield 
-%                 for enforced objective limits
+%       objCoeff  (integer) Coefficient for the target reaction in the
+%                 objective function
+%       alpha     (dobule) scalling factor for desired suboptimal growth
 %       tol       (double) numerical tolerance for fixing bounds
 %
 % Usage: flux = simulateGrowth(model,target,C_source,alpha,tol)
 %
-% Last modified.  Ivan Domenzain 2019-09-20
+% Last modified.  Ivan Domenzain 2019-10-03
 %
 
-if nargin<5
+if nargin<6
     tol = 1E-6;
+    if nargin<5
+        alpha = 1;
+        if nargin<4
+            objCoeff = 1;
+        end
+    end
 end
 %Fix a unit main carbon source uptake
 cSource_indx           = find(strcmpi(model.rxnNames,C_source));
@@ -38,7 +44,7 @@ growthPos = find(model.c);
 sol = solveLP(model);
 %Fix growth suboptimal and then max product:
 model.lb(growthPos) = sol.x(growthPos)*(1-tol)*alpha;
-flux                = optModel(model,posP,+1,tol,sol.x);
+flux                = optModel(model,posP,objCoeff,tol,sol.x);
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function sol = optModel(model,pos,c,tol,base_sol)
