@@ -11,7 +11,7 @@ The **GECKO** toolbox is a Matlab/Python package for enhancing a **G**\ enome-sc
 - ``geckomat``: Matlab+Python scripts to fetch online data and build/simulate enzyme-constrained models.
 - ``geckopy``: a Python package which can be used with `cobrapy <https://opencobra.github.io/cobrapy/>`_ to obtain a ecYeastGEM model object, optionally adjusted for provided proteomics data.
 
-Last update: 2019-05-03
+Last update: 2019-09-26
 
 This repository is administered by Benjamin J. Sanchez (`@BenjaSanchez <https://github.com/benjasanchez>`_), Division of Systems and Synthetic Biology, Department of Biology and Biological Engineering, Chalmers University of Technology.
 
@@ -52,14 +52,13 @@ Usage
 	
   - Adapt the following functions in ``/geckomat`` to your organism:
   
-    - ``geckomat/enhanceGEM.m``
+    - ``geckomat/getModelParameters.m``
     - ``geckomat/change_model/manualModifications.m``
     - ``geckomat/limit_proteins/sumProtein.m``
     - ``geckomat/limit_proteins/scaleBioMass.m``
     - ``geckomat/kcat_sensitivity_analysis/changeMedia_batch.m`` (optional)
     - ``geckomat/change_model/removeIncorrectPathways.m`` (optional, called by ``manualModifications.m``)
     - ``geckomat/limit_proteins/sumBioMass.m`` (optional, called by ``sumProtein.m`` & ``scaleBiomass.m``)
-    - ``geckomat/limit_proteins/fitGAM.m`` (optional, called by ``scaleBiomass.m``)
 	
   - Run ``geckomat/get_enzyme_data/updateDatabases.m`` to update ``ProtDatabase.mat``.
   - Run ``geckomat/enhanceGEM.m`` with your metabolic model as input.
