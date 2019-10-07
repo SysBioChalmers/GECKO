@@ -27,8 +27,8 @@ function [model,enzUsages,modifications] = flexibilizeProteins(model,gRate,c_Upt
 %
 %   Usage: [model,enzUsages,modifications] = flexibilizeProteins(model,gRate,c_UptakeExp,c_source)
 %
-%   Ivan Domenzain          2019-09-11
 %   Benjamin J. Sanchez     2018-12-11
+%   Ivan Domenzain          2019-10-07
 %
 
 flexFactor    = 100;
@@ -83,7 +83,11 @@ for i=1:length(originalBounds)
         proteinID       = proteinID(1:((strfind(proteinID,'_exchange'))-1));
         protein_IDs     = [protein_IDs; proteinID];
         previous_values = [previous_values; originalBounds(i)];
-        modified_values = [modified_values; newBounds(i)];
+        if newBounds(i)~=Inf
+            modified_values = [modified_values; newBounds(i)];
+        else
+            modified_values = [modified_values; originalBounds(i)];
+        end
     end
 end
 diffTable = table(protein_IDs,previous_values,modified_values);
@@ -101,7 +105,9 @@ objectiveVector      = model.c;
 model.lb(gPos)       = gRate;
 model.c(:)           = 0;
 protNames            = model.rxnNames(protIndxs);
-model.c(protIndxs) = -1;
+pool_Index           = contains(model.rxnNames,'prot_pool_');
+%Forces flux to split over measured enzymes
+model.c(pool_Index)  = -1;
 optSolution          = solveLP(model,1);
 optSolution          = optSolution.x;
 enzUsages            = zeros(length(protIndxs),1);
