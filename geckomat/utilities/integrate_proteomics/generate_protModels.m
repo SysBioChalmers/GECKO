@@ -1,4 +1,4 @@
-function exchFlux_errors = generate_protModels(ecModel,grouping,flexFactor,oxPhosIDs,ecModel_batch,protBasis)
+function exchFlux_errors = generate_protModels(ecModel,grouping,name,flexFactor,oxPhosIDs,ecModel_batch)
 % generate_protModels
 %
 % Function that takes an ecModel and constraints it with absolute proteomics 
@@ -7,6 +7,8 @@ function exchFlux_errors = generate_protModels(ecModel,grouping,flexFactor,oxPho
 %   ecModel       (structure) ecModel MATLAB structure (without the total protein pool constraint)
 %   grouping      (vector) Number of biological replicates for each
 %                 experimental condition in the dataset.
+%   name          (string) name string for the ecModel + proteomics and its
+%                 container folder (GECKO/models/prot_constrained/name/name...)
 %   flexFactor    (double- optional) Flexibilization factor for carbon source 
 %                 uptake flux for automated flexibilization of protein levels.
 %   modelName     (string) Model name string (e.g. ecYeastGEM for S. cerevisiae)
@@ -17,13 +19,10 @@ function exchFlux_errors = generate_protModels(ecModel,grouping,flexFactor,oxPho
 %   ecModel_batch (structure) ecModel MATLAB structure with total protein pool
 %                 constraint, if provided the process of fitting GAM for
 %                 each new protein content is speed-up.
-%   protBasis     (logical, default false) TRUE if proteomics dataset is
-%                 provided in units of [mmol/g protein]. Default units are:
-%                 [mmol/gDw]
 %
-% Usage:  exchFlux_errors = generate_protModels(ecModel,grouping,flexFactor,oxPhosIDs,ecModel_batch,protBasis)
+% Usage:  exchFlux_errors = generate_protModels(ecModel,grouping,name,flexFactor,oxPhosIDs,ecModel_batch)
 %
-% Last modified.  Ivan Domenzain 2019-09-15
+% Last modified.  Ivan Domenzain 2019-10-07
 
 close all
 current = pwd;
@@ -32,14 +31,11 @@ current = pwd;
 %case that ecModelP is not feasible using the automatically flexibilized 
 %data, if flex factor is not specified then a factor of 1 is assumed.
 if nargin<6
-    protBasis = false;
+    ecModel_batch = [];
     if nargin<5
-        ecModel_batch = [];
+        oxPhosIDs = [];
         if nargin<4
-            oxPhosIDs = [];
-            if nargin<3
-                flexFactor = 1.05;
-            end
+            flexFactor = 1.05;
         end
     end
 end
@@ -84,10 +80,8 @@ for i=1:length(conditions)
     %Extract data for the i-th condition
     abundances   = cell2mat(absValues(1:grouping(i)));
     initialProts = uniprotIDs;
-    if protBasis %If dataset units are [mmol/g prot] this converts them to: [mmol/gDw]
-        abundances = abundances*Ptot(i);
-    end
-    absValues  = absValues(grouping(i)+1:end);
+    abundances   = abundances*Ptot(i);
+    absValues    = absValues(grouping(i)+1:end);
     %Filter data
     [pIDs, abundances] = filter_ProtData(uniprotIDs,abundances,1.96,true);
     filteredProts      = pIDs;
@@ -147,19 +141,20 @@ for i=1:length(conditions)
     cd ..
     ecModelP = setChemostatConstraints(ecModelP,positionsEC,Drate(i),true,0.01,GUR(i));
     %Get optimal flux distribution and display exchange fluxes
+    mkdir(['../../models/prot_constrained/' name])
     solution = solveLP(ecModelP,1);
     if ~isempty(solution.f)
-        fileFluxes = ['../../models/prot_constrained/fluxes_Exch_' conditions{i} '.txt'];
+        fileFluxes = ['../../models/prot_constrained/' name '/fluxes_Exch_' conditions{i} '.txt'];
         printFluxes(ecModelP,solution.x,true,1E-4,fileFluxes)
     end
     exch_error(i) = getExchanges(ecModelP,exch_ids,expData);
-    save(['../../models/prot_constrained/ecModel_Prot_' conditions{i} '.mat'],'ecModelP')
+    save(['../../models/prot_constrained/' name '/' name '_' conditions{i} '.mat'],'ecModelP')
     %save .txt file
-    writetable(usagesT,['../../models/prot_constrained/enzymeUsages_' conditions{i} '.txt'],'Delimiter','\t')
-    writetable(modificationsT,['../../models/prot_constrained/modifiedEnzymes_' conditions{i} '.txt'],'Delimiter','\t')
+    writetable(usagesT,['../../models/prot_constrained/' name '/enzymeUsages_' conditions{i} '.txt'],'Delimiter','\t')
+    writetable(modificationsT,['../../models/prot_constrained/' name '/modifiedEnzymes_' conditions{i} '.txt'],'Delimiter','\t')
 end
 exchFlux_errors = table(conditions,num2cell(exch_error),'VariableNames',{'conditions' 'avg_error'});
-writetable(exchFlux_errors,'../../models/prot_constrained/exchangeFluxes_avgError.txt','Delimiter','\t')
+writetable(exchFlux_errors,['../../models/prot_constrained/' name '/exchangeFluxes_avgError.txt'],'Delimiter','\t')
 cd (current)
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
