@@ -11,7 +11,6 @@ function exchFlux_errors = generate_protModels(ecModel,grouping,name,flexFactor,
 %                 container folder (GECKO/models/prot_constrained/name/name...)
 %   flexFactor    (double- optional) Flexibilization factor for carbon source 
 %                 uptake flux for automated flexibilization of protein levels.
-%   modelName     (string) Model name string (e.g. ecYeastGEM for S. cerevisiae)
 %   oxPhosIDs     (cell) IDs for the oxidative phosphorylation related. The
 %                 mean expression level across subunits is taken as the 
 %                 abundance levelapplied to each of the enzyme complexes 
@@ -22,7 +21,7 @@ function exchFlux_errors = generate_protModels(ecModel,grouping,name,flexFactor,
 %
 % Usage:  exchFlux_errors = generate_protModels(ecModel,grouping,name,flexFactor,oxPhosIDs,ecModel_batch)
 %
-% Last modified.  Ivan Domenzain 2019-10-07
+% Last modified.  Ivan Domenzain 2019-10-09
 
 close all
 current = pwd;
@@ -51,7 +50,6 @@ exch_ids   = parameters.exch_names(2:end);
 mkdir('../models/prot_constrained')
 %Get oxPhos related rxn IDs
 oxPhos     = getOxPhosRxnIDs(ecModel,oxPhosIDs);
-
 %Get indexes for carbon source uptake and biomass pseudoreactions
 positionsEC(1) = find(strcmpi(ecModel.rxnNames,c_source));
 positionsEC(2) = find(strcmpi(ecModel.rxns,bioRXN));
@@ -60,7 +58,6 @@ removeFile('../Databases/relative_proteomics.txt')
 %Remove prot_abundance.txt  and relative_proteomics.txt files
 %(for f factor calculation)
 removeFile('../Databases/prot_abundance.txt')
-
 %Load absolute proteomics dataset [mmol/gDw]
 %and fermentation data (GUR, OUR, CO2 production, byProducts, Ptot, Drate)
 cd utilities/integrate_proteomics/
@@ -80,7 +77,6 @@ for i=1:length(conditions)
     %Extract data for the i-th condition
     abundances   = cell2mat(absValues(1:grouping(i)));
     initialProts = uniprotIDs;
-    abundances   = abundances*Ptot(i);
     absValues    = absValues(grouping(i)+1:end);
     %Filter data
     [pIDs, abundances] = filter_ProtData(uniprotIDs,abundances,1.96,true);
@@ -89,11 +85,9 @@ for i=1:length(conditions)
     for j=1:length(oxPhos)
         [abundances,pIDs] = fixComplex(oxPhos{j},ecModel,abundances,pIDs);
     end
-
     %Set minimal medium
     cd ../kcat_sensitivity_analysis
     ecModelP = changeMedia_batch(ecModel,c_source);
-    
     %If the relative difference between the ecModel's protein content and
     %the Ptot for i-th condition is higher than 5% then biomass should be
     %rescaled and GAM refitted to this condition.
@@ -120,10 +114,14 @@ for i=1:length(conditions)
     %Block production of non-observed metabolites before data incorporation
     %and flexibilization
     expData  = [GUR(i),CO2prod(i),OxyUptake(i)];
-    ecModelP = DataConstrains(ecModelP,byProducts,byP_flux(i,:));
-
+    ecModelP = DataConstrains(ecModelP,byProducts,byP_flux(i,:),1.1);
+    if fixGases && (sum(isempty(expData(2:end)))==0)
+        %Constrain CO2 production and oxygen uptake to minimize weird exchanges
+        ecModelP = DataConstrains(ecModelP,{'carbon dioxide' 'oxygen'},[expData(2) expData(3)],[Inf 0.9]);
+    end
     %Reescale biomass composition (according to the provided Ptot) and fit
     %GAM
+    
     %Incorporate protein abundances into ecModel
     f       = 0.5; %Protein mass in model/Total theoretical proteome
     flexGUR = flexFactor*GUR(i);
@@ -176,25 +174,26 @@ if exist(fileName,'file')~= 0
 end
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function model = DataConstrains(model,byProducts,bounds,fixed)
-if nargin <4
-    fixed = false;
-end
-if ~isempty(byProducts)
+function model = DataConstrains(model,compounds,bounds,flexBounds)
+if ~isempty(compounds)
     disp('Constraining byproducts exchange fluxes with fermentation data')
-    for i=1:length(byProducts)
+    for i=1:length(compounds)
         %Get exchange rxn index
-        rxnName = [byProducts{i} ' exchange'];
+        if ~strcmpi(compounds{i},'oxygen')
+            rxnName = [compounds{i} ' exchange'];
+        else
+            rxnName = [compounds{i} ' exchange (reversible)'];
+        end
         BPindex = find(strcmpi(model.rxnNames,rxnName));
         if ~isempty(BPindex)
-            disp([byProducts{i} ' exchange has been constrained to: ' num2str(bounds(i)) ' [mmol/gDw h]'])
-            %Allow a 5% of flexibility 
-            model = setParam(model,'ub',BPindex,1.05*bounds(i));
-            if fixed
-                model = setParam(model,'lb',BPindex,0.95*bounds(i));
+            disp([compounds{i} ' exchange has been constrained to: ' num2str(bounds(i)) ' [mmol/gDw h]'])
+            %Allow some flexibility 
+            model = setParam(model,'ub',BPindex,flexBounds(1)*bounds(i));
+            if numel(flexBounds)>1
+                model = setParam(model,'lb',BPindex,flexBounds(2)*bounds(i));
             end
         else
-            disp(['No exchange rxn for ' byProducts{i} ' was found in ecModel'])
+            disp(['No exchange rxn for ' compounds{i} ' was found in ecModel'])
         end
     end
 end
