@@ -53,11 +53,9 @@ oxPhos     = getOxPhosRxnIDs(ecModel,oxPhosIDs);
 %Get indexes for carbon source uptake and biomass pseudoreactions
 positionsEC(1) = find(strcmpi(ecModel.rxnNames,c_source));
 positionsEC(2) = find(strcmpi(ecModel.rxns,bioRXN));
-%Remove and substitute files and databases in GECKO
-removeFile('../Databases/relative_proteomics.txt')
 %Remove prot_abundance.txt  and relative_proteomics.txt files
 %(for f factor calculation)
-removeFile('../Databases/prot_abundance.txt')
+movefile ../Databases/prot_abundance.txt ../Databases/prot_abundance_temp.txt
 %Load absolute proteomics dataset [mmol/gDw]
 %and fermentation data (GUR, OUR, CO2 production, byProducts, Ptot, Drate)
 cd utilities/integrate_proteomics/
@@ -129,7 +127,8 @@ for i=1:length(conditions)
     [ecModelP,usagesT,modificationsT,~,coverage] = constrainEnzymes(ecModelP,f,GAM,Ptot(i),pIDs,abundances,Drate(i),flexGUR);
     matchedProteins = usagesT.prot_IDs;
     disp(' ')
-    writeProtCounts(conditions{i},initialProts,filteredProts,matchedProteins,ecModelP.enzymes,coverage); 
+    prot_input = {initialProts filteredProts matchedProteins ecModelP.enzymes coverage};
+    writeProtCounts(conditions{i},prot_input,name); 
     %Set chemostat conditions constraints and fit NGAM
     cd (current)
     %NGAM interval for fitting
@@ -147,7 +146,7 @@ for i=1:length(conditions)
         %If model is feasible then compute RQ and compare to experimental
         %data
         [RQ(i), error_RQ(i)]= getRQ(ecModelP,solution.x,exch_ids,expData);
-        disp(['The error in the respiratory quotient prediction is: ' error_RQ(RQ(i)*100) '%'])
+        disp(['The error in the respiratory quotient prediction is: ' num2str(error_RQ(i)*100) '%'])
     end
     save(['../../models/prot_constrained/' name '/' name '_' conditions{i} '.mat'],'ecModelP')
     %save .txt file
@@ -155,7 +154,9 @@ for i=1:length(conditions)
     writetable(modificationsT,['../../models/prot_constrained/' name '/modifiedEnzymes_' conditions{i} '.txt'],'Delimiter','\t')
 end
 RQ_predictions = table(conditions,num2cell(RQ),num2cell(error_RQ),'VariableNames',{'conditions' 'respiratory_quotient' 'error'});
-writetable(RQ_predictions,['../../models/prot_constrained/' name '/RQ_predictions.txt'],'Delimiter','\t')
+writetable(RQ_predictions,['../../models/prot_constrained/' name '/RQ_predictions_' conditions{i} '.txt'],'Delimiter','\t')
+%move prot_abundance file back
+movefile ../../Databases/prot_abundance_temp.txt ../../Databases/prot_abundance.txt
 cd (current)
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -169,12 +170,6 @@ condModel = setChemostatConstraints(model,pos,Drate,minProt,0.01);
 cd integrate_proteomics
 disp(' ')
 condModel = fitNGAM(condModel,NGAM,expData,interval,ecFlag);
-end
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function removeFile(fileName)
-if exist(fileName,'file')~= 0
-    delete(fileName)
-end
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function model = DataConstrains(model,compounds,bounds,flexBounds)
@@ -227,17 +222,17 @@ sim_RQ    = abs(exchanges(1)/exchanges(2));
 error     = (exp_RQ-sim_RQ)/exp_RQ;
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function writeProtCounts(condition,initial_prots,filtered_prots,matched_prots,model_prots,mass_coverage)
-initial_prots  = length(initial_prots);
-filtered_prots = length(filtered_prots);
-matched_prots  = length(matched_prots);
-model_prots    = length(model_prots);
-
+function writeProtCounts(condition,prot_parameters,name)
+initial_prots  = length(prot_parameters{1});
+filtered_prots = length(prot_parameters{2});
+matched_prots  = length(prot_parameters{3});
+model_prots    = length(prot_parameters{4});
+mass_coverage  = prot_parameters{5};
 disp(['The total number of proteins in the dataset is:                ' num2str(initial_prots)])
 disp(['The total number of proteins in the filtered dataset is:       ' num2str(filtered_prots)])
 disp(['The total number of filtered proteins present in the model is: ' num2str(matched_prots)])
 disp(['The mass ratio between measured and unmeasured protein is:     ' num2str(mass_coverage)])
 
 T = table(initial_prots,filtered_prots,matched_prots,model_prots,mass_coverage);
-writetable(T,['../../models/prot_constrained/prot_counts_' condition '.txt'],'Delimiter','\t')
+writetable(T,['../../models/prot_constrained/' name '/prot_counts_' condition '.txt'],'Delimiter','\t')
 end
