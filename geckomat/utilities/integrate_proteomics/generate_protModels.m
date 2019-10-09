@@ -1,4 +1,4 @@
-function exchFlux_errors = generate_protModels(ecModel,grouping,name,flexFactor,oxPhosIDs,ecModel_batch)
+function generate_protModels(ecModel,grouping,name,flexFactor,oxPhosIDs,ecModel_batch)
 % generate_protModels
 %
 % Function that takes an ecModel and constraints it with absolute proteomics 
@@ -19,7 +19,7 @@ function exchFlux_errors = generate_protModels(ecModel,grouping,name,flexFactor,
 %                 constraint, if provided the process of fitting GAM for
 %                 each new protein content is speed-up.
 %
-% Usage:  exchFlux_errors = generate_protModels(ecModel,grouping,name,flexFactor,oxPhosIDs,ecModel_batch)
+% Usage:  generate_protModels(ecModel,grouping,name,flexFactor,oxPhosIDs,ecModel_batch)
 %
 % Last modified.  Ivan Domenzain 2019-10-09
 
@@ -69,7 +69,8 @@ GUR        = fermData.GUR;
 CO2prod    = fermData.CO2prod;
 OxyUptake  = fermData.OxyUptake;
 byP_flux   = fermData.byP_flux;
-exch_error = zeros(length(conditions),1);
+error_RQ   = zeros(length(conditions),1);
+RQ         = zeros(length(conditions),1);
 %For each condition create a protein constrained model
 for i=1:length(conditions)
     cd (current)
@@ -111,17 +112,16 @@ for i=1:length(conditions)
         ecModelP = scaleBioMass(ecModelP,Ptot(i),GAM,true);
         disp(' ')
     end
+    
     %Block production of non-observed metabolites before data incorporation
     %and flexibilization
     expData  = [GUR(i),CO2prod(i),OxyUptake(i)];
     ecModelP = DataConstrains(ecModelP,byProducts,byP_flux(i,:),1.1);
-    if fixGases && (sum(isempty(expData(2:end)))==0)
-        %Constrain CO2 production and oxygen uptake to minimize weird exchanges
-        ecModelP = DataConstrains(ecModelP,{'carbon dioxide' 'oxygen'},[expData(2) expData(3)],[Inf 0.9]);
-    end
+    %Constrain CO2 production and oxygen uptake to minimize weird exchanges
+    ecModelP = DataConstrains(ecModelP,{'carbon dioxide'},expData(2),[Inf 0.9]);
+    
     %Reescale biomass composition (according to the provided Ptot) and fit
     %GAM
-    
     %Incorporate protein abundances into ecModel
     f       = 0.5; %Protein mass in model/Total theoretical proteome
     flexGUR = flexFactor*GUR(i);
@@ -144,15 +144,18 @@ for i=1:length(conditions)
     if ~isempty(solution.f)
         fileFluxes = ['../../models/prot_constrained/' name '/fluxes_Exch_' conditions{i} '.txt'];
         printFluxes(ecModelP,solution.x,true,1E-4,fileFluxes)
+        %If model is feasible then compute RQ and compare to experimental
+        %data
+        [RQ(i), error_RQ(i)]= getRQ(ecModelP,solution.x,exch_ids,expData);
+        disp(['The error in the respiratory quotient prediction is: ' error_RQ(RQ(i)*100) '%'])
     end
-    exch_error(i) = getExchanges(ecModelP,exch_ids,expData);
     save(['../../models/prot_constrained/' name '/' name '_' conditions{i} '.mat'],'ecModelP')
     %save .txt file
     writetable(usagesT,['../../models/prot_constrained/' name '/enzymeUsages_' conditions{i} '.txt'],'Delimiter','\t')
     writetable(modificationsT,['../../models/prot_constrained/' name '/modifiedEnzymes_' conditions{i} '.txt'],'Delimiter','\t')
 end
-exchFlux_errors = table(conditions,num2cell(exch_error),'VariableNames',{'conditions' 'avg_error'});
-writetable(exchFlux_errors,['../../models/prot_constrained/' name '/exchangeFluxes_avgError.txt'],'Delimiter','\t')
+RQ_predictions = table(conditions,num2cell(RQ),num2cell(error_RQ),'VariableNames',{'conditions' 'respiratory_quotient' 'error'});
+writetable(RQ_predictions,['../../models/prot_constrained/' name '/RQ_predictions.txt'],'Delimiter','\t')
 cd (current)
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -213,19 +216,15 @@ for i=1:length(rxnIDs)
 end
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function avg_error = getExchanges(model,exch_ids,expData)
-exch_ids  = [exch_ids(1) exch_ids(3) exch_ids(2)];
+function [sim_RQ,error] = getRQ(model,sol,exch_ids,expData)
+exch_ids  = [exch_ids(3) exch_ids(2)];
 for i=1:length(exch_ids)
     pos(i) = find(strcmp(model.rxnNames,exch_ids(i)));
 end
-sol = solveLP(model,1);
-if ~isempty(sol.x)
-    exchanges = sol.x(pos)';
-else
-    exchanges = zeros(1,length(length(pos)));
-end
-residues  = (abs(exchanges) - expData)./expData;
-avg_error = mean(abs(residues));
+exchanges = sol(pos)';
+exp_RQ    = abs(expData(2)/expData(3));
+sim_RQ    = abs(exchanges(1)/exchanges(2));
+error     = (exp_RQ-sim_RQ)/exp_RQ;
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function writeProtCounts(condition,initial_prots,filtered_prots,matched_prots,model_prots,mass_coverage)
