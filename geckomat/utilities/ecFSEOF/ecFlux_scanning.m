@@ -17,7 +17,7 @@ function FC = ecFlux_scanning(model,target,C_source,alpha,tol,filterG)
 %
 % Usage:  FC = compare_substrate(model,target,C_source,alpha,tol,filterG)
 %
-% Last modified.  Ivan Domenzain 2019-10-03
+% Last modified.  Ivan Domenzain 2019-10-13
 %
 
 if nargin<6
@@ -39,9 +39,10 @@ for i = 1:length(alpha)
     k_matrix(:,i) = FC.flux_MAX./FC.flux_WT;
 end
 cd ecFSEOF
-%Take out rxns with no grRule
+%Take out rxns with no grRule:
 withGR   = ~cellfun(@isempty,model.grRules);
-rxnEqs   = constructEquations(model,model.rxns(withGR),true);
+%Generate rxn equations:
+rxnEqs   =constructEquations(model,model.rxns(withGR),true);
 v_matrix = v_matrix(withGR,:);
 k_matrix = k_matrix(withGR,:);
 gene_rxn = model.rxnGeneMat(withGR,:);
@@ -109,7 +110,7 @@ FC.k_genes   = FC.k_genes(cons_genes);
 
 if filterG
 	%Filter any value between mean(alpha) and 1:
-	unchanged    = (FC.k_genes >= mean(alpha) + tol) + (FC.k_genes <= 1 - tol) == 2;
+	unchanged    = (FC.k_genes >= mean(alpha) - tol) + (FC.k_genes <= 1 + tol) == 2;
 	FC.genes     = FC.genes(~unchanged);
 	FC.geneNames = FC.geneNames(~unchanged);
 	FC.k_genes   = FC.k_genes(~unchanged);
