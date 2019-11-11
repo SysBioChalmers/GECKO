@@ -21,7 +21,7 @@ function generate_protModels(ecModel,grouping,name,flexFactor,oxPhosIDs,ecModel_
 %
 % Usage:  generate_protModels(ecModel,grouping,name,flexFactor,oxPhosIDs,ecModel_batch)
 %
-% Last modified.  Ivan Domenzain 2019-10-09
+% Last modified.  Ivan Domenzain 2019-11-11
 
 close all
 current = pwd;
@@ -47,7 +47,7 @@ bioRXN     = parameters.bioRxn;
 NGAM       = parameters.NGAM;
 exch_ids   = parameters.exch_names(2:end);
 %create subfolder for ecModelProts output files
-mkdir('../models/prot_constrained')
+mkdir(['../models/prot_constrained/' name])
 %Get oxPhos related rxn IDs
 oxPhos     = getOxPhosRxnIDs(ecModel,oxPhosIDs);
 %Get indexes for carbon source uptake and biomass pseudoreactions
@@ -55,7 +55,11 @@ positionsEC(1) = find(strcmpi(ecModel.rxnNames,c_source));
 positionsEC(2) = find(strcmpi(ecModel.rxns,bioRXN));
 %Remove prot_abundance.txt  and relative_proteomics.txt files
 %(for f factor calculation)
-movefile ../Databases/prot_abundance.txt ../Databases/prot_abundance_temp.txt
+try
+    movefile ../Databases/prot_abundance.txt ../Databases/prot_abundance_temp.txt
+catch
+    disp('prot_abundance.txt file not found in Databases folder') 
+end
 %Load absolute proteomics dataset [mmol/gDw]
 %and fermentation data (GUR, OUR, CO2 production, byProducts, Ptot, Drate)
 cd utilities/integrate_proteomics/
@@ -138,7 +142,6 @@ for i=1:length(conditions)
     cd ..
     ecModelP = setChemostatConstraints(ecModelP,positionsEC,Drate(i),true,0.01,GUR(i));
     %Get optimal flux distribution and display exchange fluxes
-    mkdir(['../../models/prot_constrained/' name])
     solution = solveLP(ecModelP,1);
     if ~isempty(solution.f)
         fileFluxes = ['../../models/prot_constrained/' name '/fluxes_Exch_' conditions{i} '.txt'];
@@ -156,7 +159,11 @@ end
 RQ_predictions = table(conditions,num2cell(RQ),num2cell(error_RQ),'VariableNames',{'conditions' 'respiratory_quotient' 'error'});
 writetable(RQ_predictions,['../../models/prot_constrained/' name '/RQ_predictions_' conditions{i} '.txt'],'Delimiter','\t')
 %move prot_abundance file back
-movefile ../../Databases/prot_abundance_temp.txt ../../Databases/prot_abundance.txt
+try
+    movefile ../../Databases/prot_abundance_temp.txt ../../Databases/prot_abundance.txt
+catch
+	disp('prot_abundance.txt file not found in Databases folder') 
+end
 cd (current)
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
