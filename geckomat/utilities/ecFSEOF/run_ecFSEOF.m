@@ -21,7 +21,7 @@ function results = run_ecFSEOF(model,rxnTarget,cSource,alphaLims,Nsteps,file1,fi
 %
 % Usage: run_ecFSEOF(ecModel,rxnTarget,cSource,alphaLims,Nsteps)
 %
-% Last modified.  Ivan Domenzain 2019-09-27
+% Last modified.  Ivan Domenzain 2019-11-13
 %
 
 if nargin < 7
@@ -30,7 +30,6 @@ if nargin < 7
 		file1 = [];
 	end
 end
-current = pwd;
 %Define alpha vector for suboptimal enforced objective values
 alphaV  = alphaLims(1):((alphaLims(2)-alphaLims(1))/(Nsteps-1)):alphaLims(2);
 %Standardize grRules and rxnGeneMat in model

@@ -21,7 +21,7 @@ function flux = simulateGrowth(model,target,C_source,objCoeff,alpha,tol)
 %
 % Usage: flux = simulateGrowth(model,target,C_source,alpha,tol)
 %
-% Last modified.  Ivan Domenzain 2019-10-03
+% Last modified.  Ivan Domenzain 2019-11-13
 %
 
 if nargin<6
@@ -49,7 +49,7 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function sol = optModel(model,pos,c,tol,base_sol)
 %Find reversible reaction for the production target, if available 
-if length(pos) == 1
+if any(pos)
     rxn_code = model.rxns{pos};
     if endsWith(rxn_code,'_REV')
         rev_pos = strcmp(model.rxns,rxn_code(1:end-4));
@@ -75,7 +75,7 @@ end
 %usage
 if ~isempty(sol.x)
     model.lb(pos)    = (1-tol)*sol.x(pos);
-    protPos          = find(contains(model.rxnNames,'prot_pool'));
+    protPos          = contains(model.rxnNames,'prot_pool_');
     model.c(:)       = 0;
     model.c(protPos) = -1;
     sol              = solveLP(model,1);
