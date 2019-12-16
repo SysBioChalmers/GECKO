@@ -1,4 +1,4 @@
-function [FVA_Dists,indexes,blocked,stats] = comparativeFVA(model,ecModel,c_source,chemostat,tol)
+function [FVA_Dists,indexes,blocked,stats] = comparativeFVA(model,ecModel,c_source,chemostat,tol,optGRate)
 % comparativeFVA
 %  
 % This function goes through each of the rxns in a metabolic model and
@@ -17,6 +17,10 @@ function [FVA_Dists,indexes,blocked,stats] = comparativeFVA(model,ecModel,c_sour
 %   chemostat   TRUE if chemostat conditions are desired
 %   tol         numerical tolerance for a flux and variability range 
 %               to be considered as zero
+%   optGRate    TRUE if optimal Growth rate should be obtained and fixed
+%               for each of the compared models, otherwise the optimal
+%               value for the ecModel is also fixed in model. DEFAULT =
+%               TRUE
 %   
 %   FVAdists    cell containing the distributions of variability ranges for
 %               the original GEM and ecGEM
@@ -28,13 +32,16 @@ function [FVA_Dists,indexes,blocked,stats] = comparativeFVA(model,ecModel,c_sour
 % 
 % usage: [FVA_Dists,indexes,stats] = comparativeFVA(model,ecModel,c_source,chemostat,tol,blockedMets)
 % 
-% Ivan Domenzain.      Last edited: 2019-12-05
+% Ivan Domenzain.      Last edited: 2019-12-16
 
 
-if nargin<5
-    tol = 1E-12;
-    if nargin<4
-        chemostat = false;
+if nargin<6
+    optGRate = true;
+    if nargin<5
+        tol = 1E-12;
+        if nargin<4
+            chemostat = false;
+        end
     end
 end
 %Initialize variables
@@ -44,29 +51,32 @@ range_EC = [];
 %Gets main carbon source uptake reaction index from both models
 posCUR_ec = find(strcmpi(ecModel.rxns,[c_source '_REV']));
 posCUR    = strcmpi(model.rxns,c_source);
+%Get original objective function index for model
+posObj    = find(model.c);
 %Gets the optimal value for ecirrevModel and fixes the objective value to
 %this for both models
 if chemostat
-    Drate   = 0.1;
+    Drate = 0.1;
     %Fix dilution rate
-    [~,~, ecModel] = fixObjective(ecModel,true,Drate);
-    %Fix minimal carbon source uptake rate
-    ecModel       = setParam(ecModel,'obj', posCUR_ec, -1);
-    [~,~,ecModel] = fixObjective(ecModel,false);
+    [gRate,~, ecModel] = fixObjective(ecModel,true,Drate);
+    %Fix minimal carbon source uptake rate in both models
+    ecModel         = setParam(ecModel,'obj', posCUR_ec, -1);
+    [CUR,~,ecModel] = fixObjective(ecModel,true);
+    model           = setParam(model,'lb', posCUR, (-1.0001*CUR));
+    model           = setParam(model,'ub', posCUR, (-0.9999*CUR));
 else
     %Optimize growth
     [gRate,~, ecModel] = fixObjective(ecModel,true);
+    if optGRate
+        [gRate,~,~] = fixObjective(model,true);
+    end
 end
 %Get a parsimonious flux distribution for the ecModel (minimization of
 %total protein usage)
-Pool_index       = find(contains(ecModel.rxnNames,'prot_pool'));
-ecModel          = setParam(ecModel,'obj', Pool_index, -1);
-[~,ecFluxDist,~] = fixObjective(ecModel,false);
-%Fix carbon source uptake and growth rates for the ecModel on the original model
-CUR              = ecFluxDist(posCUR_ec);
-model.lb(posCUR) = -CUR;
-model.ub(posCUR) = -0.9999*CUR;
-disp([c_source ': ' num2str(CUR)])
+Pool_index         = find(contains(ecModel.rxnNames,'prot_pool'));
+ecModel            = setParam(ecModel,'obj', Pool_index, -1);
+[~,ecFluxDist,~]   = fixObjective(ecModel,false);
+model              = setParam(model,'obj', posObj, 1);
 [~,FluxDist,model] = fixObjective(model,true,gRate);
 %Get the index for all the reactions that can carry a flux in the original
 %model and then run FVA on that subset
