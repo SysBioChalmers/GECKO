@@ -128,7 +128,7 @@ else
 end
 
 model.lb(objIndx) = factor*priorValue;
-model.ub(objIndx) = priorValue;
+model.ub(objIndx) = 1.0001*priorValue;
 
 sol = solveLP(model);
 if ~isempty(sol.f)
