@@ -29,7 +29,7 @@
 %   Usage: [model,enzUsages,modifications, GAM,massCoverage] = constrainEnzymes(model,f,GAM,Ptot,pIDs,data,gRate,c_UptakeExp)
 %
 %   Benjamin J. Sanchez. Last update 2018-12-11
-%   Ivan Domenzain.      Last update 2019-09-15
+%   Ivan Domenzain.      Last update 2019-12-13
 %
 
 %get model parameters
@@ -111,7 +111,7 @@ end
 
 if isempty(enzUsages)
     enzUsages      = table({},zeros(0,1),'VariableNames',{'prot_IDs' 'usage'});
-    modifications  = table({},zeros(0,1),zeros(0,1),'VariableNames',{'protein_IDs' 'previous_values' 'modified_values'});
+    modifications  = table({},zeros(0,1),zeros(0,1),'VariableNames',{'protein_IDs' 'previous_values' 'modified_values' 'flex_mass'});
 else
      plotHistogram(enzUsages.usage,'Enzyme usage [-]',[0,1],'Enzyme usages','usages')
 end

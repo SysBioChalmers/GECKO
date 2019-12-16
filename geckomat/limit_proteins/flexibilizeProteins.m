@@ -28,7 +28,7 @@ function [model,enzUsages,modifications] = flexibilizeProteins(model,gRate,c_Upt
 %   Usage: [model,enzUsages,modifications] = flexibilizeProteins(model,gRate,c_UptakeExp,c_source)
 %
 %   Benjamin J. Sanchez     2018-12-11
-%   Ivan Domenzain          2019-10-07
+%   Ivan Domenzain          2019-12-13
 %
 
 flexFactor    = 100;
@@ -69,19 +69,27 @@ if ~isempty(measuredIndxs)
     [model,enzUsages]  = getNewBounds(model,gRate,measuredIndxs,flexProts,objIndex);
     modifiedAbundances = model.ub(measuredIndxs);
     exchangedProteins  = model.rxnNames(measuredIndxs);
-    modifications      = getDifferences(abundances,modifiedAbundances,exchangedProteins);
+    modifications      = getDifferences(abundances,modifiedAbundances,exchangedProteins,model);
 end
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function diffTable = getDifferences(originalBounds,newBounds,exchangedProteins)
+function diffTable = getDifferences(originalBounds,newBounds,exchangedProteins,model)
 protein_IDs     = {};
-previous_values = {};
-modified_values = {};
+previous_values = [];
+modified_values = [];
+Mweights        = [];
 for i=1:length(originalBounds)
     if newBounds(i)>originalBounds(i)
-        proteinID       = exchangedProteins{i};
-        proteinID       = proteinID(1:((strfind(proteinID,'_exchange'))-1));
-        protein_IDs     = [protein_IDs; proteinID];
+        proteinID   = exchangedProteins{i};
+        proteinID   = proteinID(1:((strfind(proteinID,'_exchange'))-1));
+        protein_IDs = [protein_IDs; proteinID];
+
+        %Get protein MW
+        index = find(strcmpi(model.enzymes,strrep(proteinID,'prot_','')));
+        if ~isempty(index)
+            Mweights = [Mweights; model.MWs(index)];
+        end
+        %Get previous and modified usage values [mmol/gDw h]
         previous_values = [previous_values; originalBounds(i)];
         if newBounds(i)~=Inf
             modified_values = [modified_values; newBounds(i)];
@@ -90,7 +98,9 @@ for i=1:length(originalBounds)
         end
     end
 end
-diffTable = table(protein_IDs,previous_values,modified_values);
+%Calculate flexibilized mass for each protein [mmol/gDw h]*[g/mmol]>g/gDwh
+flex_Mass = (modified_values-previous_values).*Mweights;
+diffTable = table(protein_IDs,previous_values,modified_values,flex_Mass);
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function measuredIndxs = getMeasuredProtsIndexes(model)
