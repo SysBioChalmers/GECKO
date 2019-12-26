@@ -39,8 +39,8 @@ class ModelList(object):
         if file_name not in self.models:
             model = read_sbml_model(os.path.join(os.path.dirname(__file__), 'data_files/{}'.format(file_name)))
             for met in model.metabolites:
-                met.id = met.id.replace('__91__', '_')
-                met.id = met.id.replace('__93__', '')
+                met.id = met.id.replace('[', '_')
+                met.id = met.id.replace(']', '')
             for rxn in model.reactions:
                 if isinf(rxn.upper_bound):
                     rxn.upper_bound = 1000
