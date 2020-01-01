@@ -38,7 +38,7 @@ class ModelList(object):
             raise KeyError('model name must be one of {}'.format(', '.join(list(self.model_files))))
         if file_name not in self.models:
             def _f_species(sid):
-                """Converts compartment info in metabolite id to compliant notation"""
+                """Convert compartment info in metabolite id to compliant notation."""
                 return sid.replace('__91__', '_').replace('__93__', '')
             substitutions = F_REPLACE.copy()
             substitutions["F_SPECIE"] = _f_species
