@@ -115,7 +115,7 @@ os.chdir(output_path)
 import string
 import hashlib
 from SOAPpy import SOAPProxy ## for usage without WSDL file
-endpointURL = 'http://www.brenda-enzymes.org/soap/brenda_server.php'
+endpointURL = 'https://www.brenda-enzymes.org/soap/brenda_server.php'
 client      = SOAPProxy(endpointURL)
 password    = hashlib.sha256(password).hexdigest()
 credentials = email + ',' + password
