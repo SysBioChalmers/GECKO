@@ -8,7 +8,7 @@ import os
 import re
 import pandas as pd
 from math import isinf
-from cobra.io import read_sbml_model
+from cobra.io.sbml import F_REPLACE, read_sbml_model
 
 DATA_FILES = os.path.join(os.path.dirname(__file__), 'data_files')
 
@@ -37,10 +37,15 @@ class ModelList(object):
         except KeyError:
             raise KeyError('model name must be one of {}'.format(', '.join(list(self.model_files))))
         if file_name not in self.models:
-            model = read_sbml_model(os.path.join(os.path.dirname(__file__), 'data_files/{}'.format(file_name)))
-            for met in model.metabolites:
-                met.id = met.id.replace('__91__', '_')
-                met.id = met.id.replace('__93__', '')
+            def _f_species(sid):
+                """Convert compartment info in metabolite id to compliant notation."""
+                return sid.replace('__91__', '_').replace('__93__', '')
+            substitutions = F_REPLACE.copy()
+            substitutions["F_SPECIE"] = _f_species
+            model = read_sbml_model(
+                os.path.join(os.path.dirname(__file__), 'data_files/{}'.format(file_name)),
+                f_replace=substitutions,
+            )
             for rxn in model.reactions:
                 if isinf(rxn.upper_bound):
                     rxn.upper_bound = 1000
