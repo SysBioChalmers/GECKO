@@ -1,4 +1,4 @@
-function generate_protModels(ecModel,grouping,name,flexFactor,oxPhosIDs,ecModel_batch)
+function generate_protModels(ecModel,grouping,name,flexFactor,ecModel_batch)
 % generate_protModels
 %
 % Function that takes an ecModel and constraints it with absolute proteomics 
@@ -11,31 +11,23 @@ function generate_protModels(ecModel,grouping,name,flexFactor,oxPhosIDs,ecModel_
 %                 container folder (GECKO/models/prot_constrained/name/name...)
 %   flexFactor    (double- optional) Flexibilization factor for carbon source 
 %                 uptake flux for automated flexibilization of protein levels.
-%   oxPhosIDs     (cell) IDs for the oxidative phosphorylation related. The
-%                 mean expression level across subunits is taken as the 
-%                 abundance levelapplied to each of the enzyme complexes 
-%                 in these reactions to avoid overconstraining.
 %   ecModel_batch (structure) ecModel MATLAB structure with total protein pool
 %                 constraint, if provided the process of fitting GAM for
 %                 each new protein content is speed-up.
 %
 % Usage:  generate_protModels(ecModel,grouping,name,flexFactor,oxPhosIDs,ecModel_batch)
 %
-% Last modified.  Ivan Domenzain 2019-11-11
-
+% Last modified.  Ivan Domenzain 2020-01-20
 close all
 current = pwd;
 
 %This funcion allows for flexibilization of protein absolute abundances in 
 %case that ecModelP is not feasible using the automatically flexibilized 
 %data, if flex factor is not specified then a factor of 1 is assumed.
-if nargin<6
+if nargin<5
     ecModel_batch = [];
-    if nargin<5
-        oxPhosIDs = [];
-        if nargin<4
-            flexFactor = 1.05;
-        end
+    if nargin<4
+        flexFactor = 1.05;
     end
 end
 %get model parameters
@@ -46,10 +38,10 @@ c_source   = parameters.c_source;
 bioRXN     = parameters.bioRxn;
 NGAM       = parameters.NGAM;
 exch_ids   = parameters.exch_names(2:end);
+%Get oxPhos related rxn IDs
+oxPhos     = getOxPhosRxnIDs(ecModel,parameters);
 %create subfolder for ecModelProts output files
 mkdir(['../models/prot_constrained/' name])
-%Get oxPhos related rxn IDs
-oxPhos     = getOxPhosRxnIDs(ecModel,oxPhosIDs);
 %Get indexes for carbon source uptake and biomass pseudoreactions
 positionsEC(1) = find(strcmpi(ecModel.rxnNames,c_source));
 positionsEC(2) = find(strcmpi(ecModel.rxns,bioRXN));
@@ -85,8 +77,11 @@ for i=1:length(conditions)
     [pIDs, abundances] = filter_ProtData(uniprotIDs,abundances,1.96,true);
     filteredProts      = pIDs;
     cd ..
-    for j=1:length(oxPhos)
-        [abundances,pIDs] = fixComplex(oxPhos{j},ecModel,abundances,pIDs);
+    %correct oxPhos complexes abundances
+    if ~isempty(oxPhos)
+        for j=1:length(oxPhos)
+            [abundances,pIDs] = fixComplex(oxPhos{j},ecModel,abundances,pIDs);
+        end
     end
     %Set minimal medium
     cd ../kcat_sensitivity_analysis
@@ -205,28 +200,18 @@ end
 disp(' ')
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function oxPhos = getOxPhosRxnIDs(model,rxnIDs)
-if isempty(rxnIDs) %S. cerevisiae case (yeast8) 
-    rxnIDs = {'r_1021' 'r_0439' 'r_0438' 'r_0226'}; 
-end    
-oxPhos = [];
-for i=1:length(rxnIDs)
-    ID = rxnIDs{i};
-    isoEnzymes = model.rxns(find(contains(model.rxns,ID)));
-    isoEnzymes = isoEnzymes(~contains(isoEnzymes,'arm_'));
-    oxPhos = [oxPhos; isoEnzymes];
+function oxPhos = getOxPhosRxnIDs(model,parameters)
+if isfield(parameters,'oxPhos')
+    oxPhos = [];
+    for i=1:length(parameters.oxPhos)
+        ID = parameters.oxPhos{i};
+        isoEnzymes = model.rxns(find(contains(model.rxns,ID)));
+        isoEnzymes = isoEnzymes(~contains(isoEnzymes,'arm_'));
+        oxPhos = [oxPhos; isoEnzymes];
+    end
+else
+    oxPhos = [];
 end
-end
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [sim_RQ,error] = getRQ(model,sol,exch_ids,expData)
-exch_ids  = [exch_ids(3) exch_ids(2)];
-for i=1:length(exch_ids)
-    pos(i) = find(strcmp(model.rxnNames,exch_ids(i)));
-end
-exchanges = sol(pos)';
-exp_RQ    = abs(expData(2)/expData(3));
-sim_RQ    = abs(exchanges(1)/exchanges(2));
-error     = (exp_RQ-sim_RQ)/exp_RQ;
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function writeProtCounts(condition,prot_parameters,name)
