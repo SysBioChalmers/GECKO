@@ -37,7 +37,6 @@ Ptot_model = parameters.Ptot;
 c_source   = parameters.c_source;
 bioRXN     = parameters.bioRxn;
 NGAM       = parameters.NGAM;
-exch_ids   = parameters.exch_names(2:end);
 %Get oxPhos related rxn IDs
 oxPhos     = getOxPhosRxnIDs(ecModel,parameters);
 %create subfolder for ecModelProts output files
@@ -63,8 +62,6 @@ GUR        = fermData.GUR;
 CO2prod    = fermData.CO2prod;
 OxyUptake  = fermData.OxyUptake;
 byP_flux   = fermData.byP_flux;
-error_RQ   = zeros(length(conditions),1);
-RQ         = zeros(length(conditions),1);
 %For each condition create a protein constrained model
 for i=1:length(conditions)
     cd (current)
@@ -142,18 +139,12 @@ for i=1:length(conditions)
     if ~isempty(solution.f)
         fileFluxes = ['../../models/prot_constrained/' name '/fluxes_Exch_' conditions{i} '.txt'];
         printFluxes(ecModelP,solution.x,true,1E-4,fileFluxes)
-        %If model is feasible then compute RQ and compare to experimental
-        %data
-        [RQ(i), error_RQ(i)]= getRQ(ecModelP,solution.x,exch_ids,expData);
-        disp(['The error in the respiratory quotient prediction is: ' num2str(error_RQ(i)*100) '%'])
     end
     save(['../../models/prot_constrained/' name '/' name '_' conditions{i} '.mat'],'ecModelP')
     %save .txt file
     writetable(usagesT,['../../models/prot_constrained/' name '/enzymeUsages_' conditions{i} '.txt'],'Delimiter','\t')
     writetable(modificationsT,['../../models/prot_constrained/' name '/modifiedEnzymes_' conditions{i} '.txt'],'Delimiter','\t')
 end
-RQ_predictions = table(conditions,num2cell(RQ),num2cell(error_RQ),'VariableNames',{'conditions' 'respiratory_quotient' 'error'});
-writetable(RQ_predictions,['../../models/prot_constrained/' name '/RQ_predictions_' conditions{i} '.txt'],'Delimiter','\t')
 %move prot_abundance file back
 try
     movefile ../../Databases/prot_abundance_temp.txt ../../Databases/prot_abundance.txt
