@@ -114,16 +114,17 @@ for i=1:length(conditions)
     %and flexibilization
     expData  = [GUR(i),CO2prod(i),OxyUptake(i)];
     ecModelP = DataConstrains(ecModelP,byProducts,byP_flux(i,:),1.1);
-    %Constrain CO2 production and oxygen uptake to minimize weird exchanges
-    ecModelP = DataConstrains(ecModelP,{'carbon dioxide'},expData(2),[Inf 0.9]);
-    
-    %Reescale biomass composition (according to the provided Ptot) and fit
-    %GAM
-    %Incorporate protein abundances into ecModel
+    %Get model with proteomics
     f       = 0.5; %Protein mass in model/Total theoretical proteome
     flexGUR = flexFactor*GUR(i);
     disp(['Incorporation of proteomics constraints for ' conditions{i} ' condition'])
-    [ecModelP,usagesT,modificationsT,~,coverage] = constrainEnzymes(ecModelP,f,GAM,Ptot(i),pIDs,abundances,Drate(i),flexGUR);
+    try
+        %Constrain CO2 production and oxygen uptake to minimize weird exchanges
+        ecModelP = DataConstrains(ecModelP,{'carbon dioxide'},expData(2),[Inf 0.9]); 
+        [ecModelP,usagesT,modificationsT,~,coverage] = constrainEnzymes(ecModelP,f,GAM,Ptot(i),pIDs,abundances,Drate(i),flexGUR);
+    catch
+        [ecModelP,usagesT,modificationsT,~,coverage] = constrainEnzymes(ecModelP,f,GAM,Ptot(i),pIDs,abundances,Drate(i),flexGUR);
+    end
     matchedProteins = usagesT.prot_IDs;
     disp(' ')
     prot_input = {initialProts filteredProts matchedProteins ecModelP.enzymes coverage};
