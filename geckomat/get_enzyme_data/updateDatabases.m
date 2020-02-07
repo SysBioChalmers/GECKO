@@ -171,6 +171,6 @@ for i = 1:length(file_names)
     kegg{n,7} = sequence;
     disp(['Updating KEGG database: Ready with gene ' gene_name])
 end
-kegg(n+1:end,:)         = [];
+kegg(n+1:end,:) = [];
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

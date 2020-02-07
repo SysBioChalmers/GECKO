@@ -1,4 +1,6 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function eModel = convertToEnzymeModel(irrevModel,Genes,uniprots,kcats)
+%convertToEnzymeModel
+%
 % eModel = convertToEnzymeModel(model,Genes,uniprots,kcats)
 % Converts standard GEM to GEM accounting for enzymes as pseudo
 % metabolites, with -(1/kcat) as the corresponding stoich. coeffs.
@@ -13,17 +15,14 @@
 % eModel            Modified GEM structure (1x1 struct)
 % 
 % Cheng Zhang.          Last edited: 2018-05-24
-% Ivan Domenzain.       Last edited: 2018-09-07
 % Benjamin J. Sanchez.  Last edited: 2018-11-11
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-function eModel = convertToEnzymeModel(irrevModel,Genes,uniprots,kcats)
+% Ivan Domenzain.       Last edited: 2020-02-07
 
 %Load databases:
 data      = load('../../databases/ProtDatabase.mat');
 swissprot = data.swissprot;
 kegg      = data.kegg;
-
+[nrows,~] = size(kegg);
 eModel  = irrevModel;
 enzymes = cell(5000,1);
 [m,n]   = size(uniprots);
@@ -85,7 +84,11 @@ eModel.MWs       = zeros(0,1);
 eModel.sequences = cell(0,1);
 eModel.pathways  = cell(0,1);
 for i = 1:length(enzymes)
-    eModel = addProtein(eModel,enzymes{i},kegg,swissprot);
+    if nrows>1
+        eModel = addProtein(eModel,enzymes{i},kegg,swissprot);
+    else
+        eModel = addProtein(eModel,enzymes{i},[],swissprot);
+    end
 end
 
 end

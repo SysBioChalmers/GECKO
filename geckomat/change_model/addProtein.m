@@ -1,4 +1,6 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function model = addProtein(model,P,kegg,swissprot)
+%addProtein
+%
 % model = addProtein(model,P,kegg,swissprot)
 % Adds an exchange reaction for protein P and updates model.enzymes,
 % model.MWs and model.pathways to account for P.
@@ -13,9 +15,8 @@
 % model             Model with the added protein
 % 
 % Cheng Zhang & Benjamin J. Sanchez. Last edited: 2018-05-28
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Ivan Domenzain. Last edited: 2020-02-07
 
-function model = addProtein(model,P,kegg,swissprot)
 
 %Update model.enzyme vector:
 prot_name     = ['prot_' P];
@@ -64,27 +65,29 @@ end
 
 %Update model.genes & model.pathways vectors:
 match_path = false;
-for i = 1:length(kegg)
-    if strcmp(P,kegg{i,1})
-        %Gene:
-        if ~isempty(kegg{i,3}) && ~match_gen
-            match_gen = true;
-            gene      = kegg{i,3};
-        end
-        %Pathway:
-        if ~isempty(kegg{i,6}) && ~match_path
-            match_path              = true;
-            model.pathways{pos_e,1} = kegg{i,6};
-        end
-        %Molecular Weight (if nothing found in uniprot):
-        if kegg{i,5} > 0 && ~match_MW
-            match_MW           = true;
-            model.MWs(pos_e,1) = kegg{i,5}/1000;
-        end
-        %Sequence (if nothing found in uniprot):
-        if ~isempty(kegg{i,7}) && ~match_seq
-            match_seq                = true;
-            model.sequences(pos_e,1) = kegg(i,7);
+if isempty(kegg)
+    for i = 1:length(kegg)
+        if strcmp(P,kegg{i,1})
+            %Gene:
+            if ~isempty(kegg{i,3}) && ~match_gen
+                match_gen = true;
+                gene      = kegg{i,3};
+            end
+            %Pathway:
+            if ~isempty(kegg{i,6}) && ~match_path
+                match_path              = true;
+                model.pathways{pos_e,1} = kegg{i,6};
+            end
+            %Molecular Weight (if nothing found in uniprot):
+            if kegg{i,5} > 0 && ~match_MW
+                match_MW           = true;
+                model.MWs(pos_e,1) = kegg{i,5}/1000;
+            end
+            %Sequence (if nothing found in uniprot):
+            if ~isempty(kegg{i,7}) && ~match_seq
+                match_seq                = true;
+                model.sequences(pos_e,1) = kegg(i,7);
+            end
         end
     end
 end
