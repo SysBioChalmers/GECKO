@@ -33,7 +33,7 @@ Required software - Python module
 Required software - Matlab module
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- `MATLAB <http://www.mathworks.com/>`_ (7.5 or higher) + Optimization Toolbox.
+- `MATLAB <http://www.mathworks.com/>`_ 9.1 (R2016b) or higher + Optimization Toolbox.
 - The `COBRA toolbox for MATLAB <https://github.com/opencobra/cobratoolbox>`_.
 - The `RAVEN toolbox for MATLAB <https://github.com/SysBioChalmers/RAVEN>`_.
 - The `libSBML MATLAB API <https://sourceforge.net/projects/sbml/files/libsbml/MATLAB%20Interface>`_ (version 5.17.0 is recommended).
