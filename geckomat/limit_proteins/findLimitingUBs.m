@@ -23,7 +23,7 @@ function [maxIndex,flag] = findLimitingUBs(model,protIndxs,flexFactor,option)
 %
 %   Usage: [maxIndex,flag] = findLimitingUBs(model,protIndxs,flexFactor,option)
 %
-%   Ivan Domenzain, 2020-02-05
+%   Ivan Domenzain, 2020-02-20
 %
 
 %Find objective reaction and perform an initial simulation for getting the
@@ -51,8 +51,14 @@ if ~isempty(solution.x)
                     if ~isempty(newSol.f)
                         deltaUsage = newSol.x(index)-solution.x(index);
                         if deltaUsage~=0
-                            deltaGrowth  = newSol.x(objIndex)-solution.x(objIndex);
-                            ControlCoeff = deltaGrowth/deltaUsage;
+                            %Find corresponding enzyme name and MW
+                            enzyme      = strrep(model.rxnNames{index},'prot_','');
+                            enzyme      = strrep(enzyme,'_exchange','');
+                            enzIndex    = strcmpi(model.enzymes,enzyme);
+                            MWeight     = model.MWs(enzIndex);
+                            deltaGrowth = newSol.x(objIndex)-solution.x(objIndex);
+                            %Control coefficient is expressed in [g biomass/g enzyme] 
+                            ControlCoeff = deltaGrowth/(deltaUsage*MWeight);
                             coeffs(i)    = abs(ControlCoeff);
                         end
                     end
