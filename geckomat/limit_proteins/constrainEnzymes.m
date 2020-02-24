@@ -29,7 +29,7 @@
 %   Usage: [model,enzUsages,modifications, GAM,massCoverage] = constrainEnzymes(model,f,GAM,Ptot,pIDs,data,gRate,c_UptakeExp)
 %
 %   Benjamin J. Sanchez. Last update 2018-12-11
-%   Ivan Domenzain.      Last update 2019-12-13
+%   Ivan Domenzain.      Last update 2020-02-24
 %
 
 %get model parameters
@@ -37,6 +37,7 @@ cd ..
 parameters = getModelParameters;
 sigma      = parameters.sigma;
 c_source   = parameters.c_source;
+objIndex   = find(model.c==1);
 cd limit_proteins
 %Compute f if not provided:
 if nargin < 2
@@ -64,7 +65,7 @@ for i = 1:length(model.enzymes)
     match = false;
     for j = 1:length(pIDs)
         if strcmpi(pIDs{j},model.enzymes{i}) && ~match
-            model.concs(i) = data(j)*model.MWs(i); %g/gDW
+        	model.concs(i) = data(j)*model.MWs(i); %g/gDW
             rxn_name       = ['prot_' model.enzymes{i} '_exchange'];
             pos            = strcmpi(rxn_name,model.rxns);
             model.ub(pos)  = data(j);
@@ -106,7 +107,9 @@ disp(['Total protein in model = '            num2str(Ptot)                   ' g
 massCoverage = Pmeasured/Ptot;
 enzUsages    = [];
 if nargin > 7
-    [model,enzUsages,modifications] = flexibilizeProteins(model,gRate,c_UptakeExp,c_source);
+    [tempModel,enzUsages,modifications] = flexibilizeProteins(model,gRate,c_UptakeExp,c_source);
+    Pmeasured = sum(tempModel.concs(~isnan(tempModel.concs)));
+    model     = updateProtPool(tempModel,Ptot,Pmeasured,f*sigma);
 end
 
 if isempty(enzUsages)

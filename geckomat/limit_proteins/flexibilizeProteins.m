@@ -1,4 +1,4 @@
-function [model,enzUsages,modifications,gRate] = flexibilizeProteins(model,gRate,c_UptakeExp,c_source)
+function [model,enzUsages,modifications] = flexibilizeProteins(model,gRate,c_UptakeExp,c_source)
 % flexibilizeProteins
 %   Function that takes an ecModel with proteomic constraints and, if it is
 %   overconstrained with respect to the provided experimental growth rate,
@@ -28,14 +28,13 @@ function [model,enzUsages,modifications,gRate] = flexibilizeProteins(model,gRate
 %   Usage: [model,enzUsages,modifications] = flexibilizeProteins(model,gRate,c_UptakeExp,c_source)
 %
 %   Benjamin J. Sanchez     2018-12-11
-%   Ivan Domenzain          2020-02-06
+%   Ivan Domenzain          2020-02-24
 %
 
 flexFactor    = 100;
 flexProts     = {};
 enzUsages     = [];
 modifications = {};
-PoolIndex     = find(contains(model.rxnNames,'prot_pool_exchange'));
 %constrain glucose uptake if an experimental measurement is provided
 if nargin > 2
     glucUptkIndx           = strcmp(model.rxnNames,c_source);
@@ -49,32 +48,30 @@ if ~isempty(measuredIndxs)
     sol        = solveLP(model,1);
     growth     = sol.x(objIndex);
     difference = gRate-growth;
+	tempModel  = model;
     % iterate while growth is underpredicted
     while growth<gRate && difference>(-1E-6)
-        tempModel = model;
-        [limIndex,flag] = findLimitingUBs(model,measuredIndxs,flexFactor,1);
+        [limIndex,flag] = findLimitingUBs(tempModel,measuredIndxs,flexFactor,1);
         if ~flag
-            [limIndex,~] = findLimitingUBs(model,measuredIndxs,flexFactor,2);
+            [limIndex,~] = findLimitingUBs(tempModel,measuredIndxs,flexFactor,2);
         end
         if ~isempty(limIndex)
             %Flexibilize the top growth limiting protein on the original ecModel
-            flexProts = [flexProts; model.rxns(limIndex)];
-            tempModel.ub(limIndex) = Inf;
+            flexProts = [flexProts; tempModel.rxns(limIndex)];
+            tempModel.ub(limIndex) = 1000;
             sol = solveLP(tempModel);
             if ~isempty(sol.x)
             	growth = sol.x(objIndex);
                 for j=1:length(limIndex)
                     indx = limIndex(j);
-                    disp(['Modified ub for: ' model.rxnNames{indx} ' gRate: ' num2str(growth)])
+                    disp(['Modified ub for: ' tempModel.rxnNames{indx} ' gRate: ' num2str(growth)])
                 end
-                %Update model structure
-                model = tempModel;
             else
                %In case that the resulting model is a non-functional one
                %then proceed with a suboptimal growth rate (this makes the 
                %while loop to break)
                warning(['Unfeasible flexibilization of ' model.rxnNames{indx} ' UB'])
-               gRate = growth; 
+               gRate = growth;
             end
         else
             %In case that no limiting enzymes have been found then proceed 
@@ -83,33 +80,19 @@ if ~isempty(measuredIndxs)
             gRate = growth;
         end
     end
-    [model,enzUsages]  = getNewBounds(model,gRate,measuredIndxs,flexProts,objIndex);
+    [model,enzUsages]  = getNewBounds(tempModel,gRate,measuredIndxs,flexProts,objIndex,abundances);
     modifiedAbundances = model.ub(measuredIndxs);
     exchangedProteins  = model.rxnNames(measuredIndxs);
     modifications      = getDifferences(abundances,modifiedAbundances,exchangedProteins,model);
-    %Get total flexibilized protein mass
-    totalFlexMass = sum(modifications.flex_Mass);
-    %Allow 100% of saturation for protein pool enzymes
-    poolIndex = contains(model.rxnNames,'prot_pool_exchange');
-    Ppool     = model.ub(poolIndex);   
-    tempModel = setParam(model,'ub',poolIndex,2*Ppool);
-    %Get the minimal pool usage
-    tempModel = setParam(tempModel,'obj',poolIndex,-1);
-    tempModel = setParam(tempModel,'lb',objIndex,0.99*gRate);
-    sol = solveLP(tempModel);
-    if ~isempty(sol.x)
-        %Compare minimal pool usage with flex prot mass
-        minPool = sol.x(poolIndex);
-        if (Ppool - minPool)>=0.5*totalFlexMass
-            tempModel.ub(poolIndex) = Ppool-0.5*totalFlexMass;
-            disp('Successful protein flexibilization')
-            model = tempModel;
-        else
-            warning('Flexibilized protein mass exceeds available protein pool')
+    %Update model.concs field, taking flexibilized protein mass into account
+    model.concs = nan(size(model.enzymes));
+    for i = 1:length(model.enzymes)
+        rxn_name = ['prot_' model.enzymes{i} '_exchange'];
+        index    = find(strcmpi(rxn_name,model.rxns));
+        if ~isempty(index)
+            model.concs(i) = model.ub(index)*model.MWs(i); %g/gDW
         end
-    else
-        warning('Unfeasible protein flexibilization')
-    end        
+    end
 end
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -123,7 +106,6 @@ for i=1:length(originalBounds)
         proteinID   = exchangedProteins{i};
         proteinID   = proteinID(1:((strfind(proteinID,'_exchange'))-1));
         protein_IDs = [protein_IDs; proteinID];
-
         %Get protein MW
         index = find(strcmpi(model.enzymes,strrep(proteinID,'prot_','')));
         if ~isempty(index)
@@ -148,7 +130,7 @@ measuredIndxs  = intersect(find(contains(model.rxnNames,'prot_')),find(contains(
 measuredIndxs  = measuredIndxs(1:end-1);
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [model,usagesTable] = getNewBounds(model,gRate,protIndxs,flexProts,gPos)
+function [model,usagesTable] = getNewBounds(model,gRate,protIndxs,flexProts,gPos,abundances)
 %Now that the model is growing at least at the specified dilution rate
 %lets fix the growth rate and minimize enzymes usage
 objectiveVector = model.c;
@@ -157,17 +139,21 @@ model.c(:)      = 0;
 protNames       = model.rxnNames(protIndxs);
 pool_Index      = contains(model.rxnNames,'prot_pool_');
 %Forces flux to split over measured enzymes
-model.c(pool_Index)  = -1;
-optSolution          = solveLP(model,1);
-optSolution          = optSolution.x;
-enzUsages            = zeros(length(protIndxs),1);
+model.c(pool_Index) = -1;
+optSolution         = solveLP(model,1);
+optSolution         = optSolution.x;
+enzUsages           = zeros(length(protIndxs),1);
 for i=1:length(protIndxs)
     index = protIndxs(i);
     name  = model.rxns(index);
     %If protein was flexibilized set its upper bound to the simulated
     %concentration
-    if ismember(name,flexProts) && optSolution(index)>0
-        model.ub(index) = optSolution(index);
+    if ismember(name,flexProts)
+        if optSolution(index)>0
+            model.ub(index) = optSolution(index);
+        else
+            model.ub(index) = abundances(i);
+        end
     end
     enzUsages(i) = optSolution(index)/model.ub(index);
 end
