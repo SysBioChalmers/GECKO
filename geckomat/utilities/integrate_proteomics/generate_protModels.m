@@ -1,4 +1,4 @@
-function generate_protModels(ecModel,grouping,name,flexFactor,ecModel_batch)
+function generate_protModels(ecModel,grouping,name,ecModel_batch,c_source)
 % generate_protModels
 %
 % Function that takes an ecModel and constraints it with absolute proteomics 
@@ -9,15 +9,13 @@ function generate_protModels(ecModel,grouping,name,flexFactor,ecModel_batch)
 %                 experimental condition in the dataset.
 %   name          (string) name string for the ecModel + proteomics and its
 %                 container folder (GECKO/models/prot_constrained/name/name...)
-%   flexFactor    (double- optional) Flexibilization factor for carbon source 
-%                 uptake flux for automated flexibilization of protein levels.
 %   ecModel_batch (structure) ecModel MATLAB structure with total protein pool
 %                 constraint, if provided the process of fitting GAM for
 %                 each new protein content is speed-up.
 %
 % Usage:  generate_protModels(ecModel,grouping,name,flexFactor,oxPhosIDs,ecModel_batch)
 %
-% Last modified.  Ivan Domenzain 2020-01-20
+% Last modified.  Ivan Domenzain 2020-04-06
 close all
 current = pwd;
 
@@ -25,20 +23,27 @@ current = pwd;
 %case that ecModelP is not feasible using the automatically flexibilized 
 %data, if flex factor is not specified then a factor of 1 is assumed.
 if nargin<5
-    ecModel_batch = [];
+    cd ../..
+    parameters = getModelParameters;
+    Ptot_model = parameters.Ptot;
+    c_source   = parameters.c_source;
+    cd(current)
     if nargin<4
-        flexFactor = 1.05;
+        ecModel_batch = [];
     end
 end
+%Flexibilization factor for carbon source uptake rate (needed for
+%flexibilizeProteins step in constrainEnzymes).
+flexFactor = 1.05;
 %get model parameters
 cd ../..
 parameters = getModelParameters;
 Ptot_model = parameters.Ptot;
-c_source   = parameters.c_source;
 bioRXN     = parameters.bioRxn;
 NGAM       = parameters.NGAM;
+GAM        = [];
 %Get oxPhos related rxn IDs
-oxPhos     = getOxPhosRxnIDs(ecModel,parameters);
+oxPhos = getOxPhosRxnIDs(ecModel,parameters);
 %create subfolder for ecModelProts output files
 mkdir(['../models/prot_constrained/' name])
 %Get indexes for carbon source uptake and biomass pseudoreactions
@@ -47,7 +52,7 @@ positionsEC(2) = find(strcmpi(ecModel.rxns,bioRXN));
 %Remove prot_abundance.txt  and relative_proteomics.txt files
 %(for f factor calculation)
 try
-    movefile ../Databases/prot_abundance.txt ../Databases/prot_abundance_temp.txt
+    movefile ../databases/prot_abundance.txt ../databases/prot_abundance_temp.txt
 catch
     disp('prot_abundance.txt file not found in Databases folder') 
 end
@@ -82,7 +87,9 @@ for i=1:length(conditions)
     end
     %Set minimal medium
     cd ../kcat_sensitivity_analysis
-    ecModelP = changeMedia_batch(ecModel,c_source);
+    ecModelP  = changeMedia_batch(ecModel,c_source);
+    tempModel = changeMedia_batch(ecModel_batch,c_source);
+    cd ../limit_proteins
     %If the relative difference between the ecModel's protein content and
     %the Ptot for i-th condition is higher than 5% then biomass should be
     %rescaled and GAM refitted to this condition.
@@ -90,43 +97,45 @@ for i=1:length(conditions)
     %total protein pool constraint should be used
     Prot_diff = abs(Ptot_model-Ptot(i))/Ptot_model;
     if Prot_diff>=0.05
-        if ~isempty(ecModel_batch)
-            tempModel = changeMedia_batch(ecModel_batch,c_source);
-            cd ../limit_proteins
-            %scaleBiomass gets a GAM value fitted for the provided biomass
-            %composition
-            [~,GAM] = scaleBioMass(tempModel,Ptot(i),[],true);
-        else
-            cd ../limit_proteins
-            [~,~,~,GAM] = constrainEnzymes(ecModelP,0.5,[],Ptot(i));
-        end
+       [~,GAM] = scaleBioMass(tempModel,Ptot(i),[],true);
         %Then the GAM and new biomass composition are set in ecModelP, which 
         %is not functional yet but should be used for incorporation of 
         %proteomics data
         ecModelP = scaleBioMass(ecModelP,Ptot(i),GAM,true);
         disp(' ')
     end
-    
     %Block production of non-observed metabolites before data incorporation
     %and flexibilization
     expData  = [GUR(i),CO2prod(i),OxyUptake(i)];
+    flexGUR  = flexFactor*GUR(i);
     ecModelP = DataConstrains(ecModelP,byProducts,byP_flux(i,:),1.1);
-    %Get model with proteomics
-    f       = 0.5; %Protein mass in model/Total theoretical proteome
-    flexGUR = flexFactor*GUR(i);
-    disp(['Incorporation of proteomics constraints for ' conditions{i} ' condition'])
-    try
-        %Constrain CO2 production and oxygen uptake to minimize weird exchanges
-        ecModelP = DataConstrains(ecModelP,{'carbon dioxide'},expData(2),[Inf 0.9]); 
-        [ecModelP,usagesT,modificationsT,~,coverage] = constrainEnzymes(ecModelP,f,GAM,Ptot(i),pIDs,abundances,Drate(i),flexGUR);
-    catch
-        [ecModelP,usagesT,modificationsT,~,coverage] = constrainEnzymes(ecModelP,f,GAM,Ptot(i),pIDs,abundances,Drate(i),flexGUR);
+    %Get a temporary model structure with the same constraints to be used
+    %for minimal enzyme requirements analysis. For all measured enzymes
+    %(present in the dataset) a minimal usage is obtained from a FBA
+    %simulation with the ecModel_batch, then 
+    tempModel       = DataConstrains(tempModel,byProducts,byP_flux(i,:),1.1);
+    tempModel       = setParam(tempModel,'ub',positionsEC(1),flexGUR);
+    [matchedEnz,iA] = intersect(pIDs,tempModel.enzymes);
+    enzModel        = setParam(tempModel,'lb',positionsEC(2),Drate(i));
+    for j=1:length(matchedEnz)
+        rxnIndex  = find(contains(tempModel.rxnNames,matchedEnz{j}));
+        tempModel = setParam(enzModel,'obj',rxnIndex,-1);
+        tempSol   = solveLP(tempModel);
+        %Compare enzyme minimum usage with abundance value
+        if (tempSol.x(rxnIndex)-abundances(iA(j)))>0
+            %Flexibilize limiting values
+            disp(['Limiting abundance found for: ' matchedEnz{j} '/Previous value: ' num2str(abundances(iA(j))) ' /New value: ' num2str(tempSol.x(rxnIndex))])
+            abundances(iA(j)) = 1.01*tempSol.x(rxnIndex);
+        end
+        enzIndex = find(contains(tempModel.enzymes,matchedEnz{j}));
     end
+    %Get model with proteomics
+    f       = 1; %Protein mass in model/Total theoretical proteome
+    disp(['Incorporation of proteomics constraints for ' conditions{i} ' condition'])
+    [ecModelP,usagesT,modificationsT,~,coverage] = constrainEnzymes(ecModelP,f,GAM,Ptot(i),pIDs,abundances,Drate(i),flexGUR);
     matchedProteins = usagesT.prot_IDs;
-    disp(' ')
-    prot_input = {initialProts filteredProts matchedProteins ecModelP.enzymes coverage};
+    prot_input = {initialProts filteredProts matchedProteins ecModel.enzymes coverage};
     writeProtCounts(conditions{i},prot_input,name); 
-    %Set chemostat conditions constraints and fit NGAM
     cd (current)
     %NGAM interval for fitting
     interval = [0 5];
@@ -145,13 +154,14 @@ for i=1:length(conditions)
     writetable(usagesT,['../../models/prot_constrained/' name '/enzymeUsages_' conditions{i} '.txt'],'Delimiter','\t')
     writetable(modificationsT,['../../models/prot_constrained/' name '/modifiedEnzymes_' conditions{i} '.txt'],'Delimiter','\t')
 end
-%move prot_abundance file back
-try
-    movefile ../../Databases/prot_abundance_temp.txt ../../Databases/prot_abundance.txt
-catch
-	disp('prot_abundance.txt file not found in Databases folder') 
-end
 cd (current)
+%Remove prot_abundance.txt  and relative_proteomics.txt files
+%(for f factor calculation)
+try
+    movefile ../../databases/prot_abundance_temp.txt ../../databases/prot_abundance.txt
+catch
+    disp('prot_abundance_temp.txt file not found in Databases folder') 
+end
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function condModel = setStressConditions(model,Drate,pos,expData,NGAM,interval)
