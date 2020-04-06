@@ -29,7 +29,7 @@
 %   Usage: [model,enzUsages,modifications, GAM,massCoverage] = constrainEnzymes(model,f,GAM,Ptot,pIDs,data,gRate,c_UptakeExp)
 %
 %   Benjamin J. Sanchez. Last update 2018-12-11
-%   Ivan Domenzain.      Last update 2020-02-24
+%   Ivan Domenzain.      Last update 2020-03-02
 %
 
 %get model parameters
@@ -37,11 +37,14 @@ cd ..
 parameters = getModelParameters;
 sigma      = parameters.sigma;
 c_source   = parameters.c_source;
-objIndex   = find(model.c==1);
 cd limit_proteins
 %Compute f if not provided:
 if nargin < 2
     [f,~] = measureAbundance(model.enzymes);
+else
+    if isempty(f)
+       [f,~] = measureAbundance(model.enzymes);
+    end
 end
 %Leave GAM empty if not provided (will be fitted later):
 if nargin < 3
@@ -104,14 +107,13 @@ disp(['Enzymes in model with 0 g/gDW = '     num2str(sum(concs_measured==0)) ' e
 disp(['Total protein amount not measured = ' num2str(Ptot - Pmeasured)       ' g/gDW'])
 disp(['Total enzymes not measured = '        num2str(sum(~measured))         ' enzymes'])
 disp(['Total protein in model = '            num2str(Ptot)                   ' g/gDW'])
-massCoverage = Pmeasured/Ptot;
-enzUsages    = [];
+enzUsages = [];
 if nargin > 7
     [tempModel,enzUsages,modifications] = flexibilizeProteins(model,gRate,c_UptakeExp,c_source);
     Pmeasured = sum(tempModel.concs(~isnan(tempModel.concs)));
-    model     = updateProtPool(tempModel,Ptot,Pmeasured,f*sigma);
+    model     = updateProtPool(tempModel,Ptot,f*sigma);
 end
-
+massCoverage = Pmeasured/Ptot;
 if isempty(enzUsages)
     enzUsages      = table({},zeros(0,1),'VariableNames',{'prot_IDs' 'usage'});
     modifications  = table({},zeros(0,1),zeros(0,1),'VariableNames',{'protein_IDs' 'previous_values' 'modified_values' 'flex_mass'});
