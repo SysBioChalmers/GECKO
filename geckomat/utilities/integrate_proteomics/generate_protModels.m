@@ -1,4 +1,4 @@
-function generate_protModels(ecModel,grouping,name,ecModel_batch,c_source)
+function generate_protModels(ecModel,grouping,name,ecModel_batch)
 % generate_protModels
 %
 % Function that takes an ecModel and constraints it with absolute proteomics 
@@ -13,7 +13,7 @@ function generate_protModels(ecModel,grouping,name,ecModel_batch,c_source)
 %                 constraint, if provided the process of fitting GAM for
 %                 each new protein content is speed-up.
 %
-% Usage:  generate_protModels(ecModel,grouping,name,flexFactor,oxPhosIDs,ecModel_batch)
+% Usage:  generate_protModels(ecModel,grouping,name,ecModel_batch)
 %
 % Last modified.  Ivan Domenzain 2020-04-06
 close all
@@ -22,15 +22,13 @@ current = pwd;
 %This funcion allows for flexibilization of protein absolute abundances in 
 %case that ecModelP is not feasible using the automatically flexibilized 
 %data, if flex factor is not specified then a factor of 1 is assumed.
-if nargin<5
-    cd ../..
-    parameters = getModelParameters;
-    Ptot_model = parameters.Ptot;
-    c_source   = parameters.c_source;
-    cd(current)
-    if nargin<4
-        ecModel_batch = [];
-    end
+cd ../..
+parameters = getModelParameters;
+Ptot_model = parameters.Ptot;
+c_source   = parameters.c_source;
+cd(current)
+if nargin<4
+    ecModel_batch = [];
 end
 %Flexibilization factor for carbon source uptake rate (needed for
 %flexibilizeProteins step in constrainEnzymes).
