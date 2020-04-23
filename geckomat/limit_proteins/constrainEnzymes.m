@@ -116,7 +116,7 @@ end
 massCoverage = Pmeasured/Ptot;
 if isempty(enzUsages)
     enzUsages      = table({},zeros(0,1),'VariableNames',{'prot_IDs' 'usage'});
-    modifications  = table({},zeros(0,1),zeros(0,1),'VariableNames',{'protein_IDs' 'previous_values' 'modified_values' 'flex_mass'});
+    modifications  = table({},zeros(0,1),zeros(0,1),zeros(0,1),'VariableNames',{'protein_IDs' 'previous_values' 'modified_values' 'flex_mass'});
 else
      plotHistogram(enzUsages.usage,'Enzyme usage [-]',[0,1],'Enzyme usages','usages')
 end
