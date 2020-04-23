@@ -30,10 +30,8 @@ for i = 1:length(model.mets)
     end
 end
 
-%Remove model.fields (added by COBRA functions)
-if isfield(model,'rules')
-    model = rmfield(model,'rules');
-end
+%Remove model.rules (added by COBRA functions)
+model = takeOutField(model,'rules');
 
 if strcmp(toolbox,'COBRA')
     %Transform model back to COBRA for saving purposes:
