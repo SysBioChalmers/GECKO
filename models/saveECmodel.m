@@ -47,7 +47,7 @@ if strcmp(toolbox,'COBRA')
     model_cobra = takeOutField(model_cobra,'rxnECNumbers');
     model_cobra = takeOutField(model_cobra,'rxnKEGGID');
     model_cobra = takeOutField(model_cobra,'rxnReferences');
-    model_cobra = takeOutField(model_cobra,'subSystems');
+    model_cobra.subSystems = cell(size(model_cobra.rxns));
     model_cobra = takeOutField(model_cobra,'rxnSBOTerms');
     %Save model as sbml and text:
     writeCbModel(model_cobra,'sbml',[file_name '.xml']);
