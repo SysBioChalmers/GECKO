@@ -30,6 +30,9 @@ for i = 1:length(model.mets)
     end
 end
 
+%For consistency, save all high upper bounds as infinity:
+model.ub(model.ub == 1000) = Inf;
+
 %Remove model.rules (added by COBRA functions)
 model = takeOutField(model,'rules');
 
