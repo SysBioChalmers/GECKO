@@ -156,7 +156,7 @@ cd (current)
 %Remove prot_abundance.txt  and relative_proteomics.txt files
 %(for f factor calculation)
 try
-    movefile ../../databases/prot_abundance_temp.txt ../../databases/prot_abundance.txt
+    movefile ../../../databases/prot_abundance_temp.txt ../../../databases/prot_abundance.txt
 catch
     disp('prot_abundance_temp.txt file not found in Databases folder') 
 end
