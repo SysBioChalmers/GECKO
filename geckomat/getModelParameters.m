@@ -4,7 +4,7 @@ function parameters = getModelParameters
 %   Set model and organism specific parameters that are used by the
 %   ecModel generation pipeline.
 %
-%   Ivan Domenzain. Last edited: 2019-07-12
+%   Ivan Domenzain. Last edited: 2020-01-20
 %
 
 %Average enzyme saturation factor
@@ -46,7 +46,7 @@ parameters.exch_names{4} = 'carbon dioxide exchange';
 
 %Biomass components pseudoreactions (proteins, carbs and lipids lumped
 %pools). NOTE: This parameter is only used by scaleBioMass.m, so if you do
-%not use said function you don not need to define it.
+%not use said function you don not need to define it. (optional)
 parameters.bio_comp{1} = 'protein';
 parameters.bio_comp{2} = 'carbohydrate';
 parameters.bio_comp{3} = 'lipid backbone';
@@ -54,10 +54,15 @@ parameters.bio_comp{4} = 'lipid chain';
 
 %Polymerization costs from Forster et al 2003 - table S8. NOTE: This
 %parameter is only used by scaleBioMass.m, so if you do not use said
-%function you don not need to define it.
+%function you don not need to define it. (optional)
 parameters.pol_cost(1) = 37.7; %Ptot 
 parameters.pol_cost(2) = 12.8; %Ctot
 parameters.pol_cost(3) = 26.0; %RNA 
 parameters.pol_cost(4) = 26.0; %DNA
 
+%Rxn IDs for reactions in the oxidative phosphorylation pathway (optional)
+parameters.oxPhos{1} = 'r_1021';
+parameters.oxPhos{2} = 'r_0439';
+parameters.oxPhos{3} = 'r_0438';
+parameters.oxPhos{4} = 'r_0226';
 end

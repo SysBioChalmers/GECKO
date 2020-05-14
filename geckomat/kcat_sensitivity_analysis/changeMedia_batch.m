@@ -1,29 +1,31 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% model = changeMedia_batch(model,c_source)
+function model = changeMedia_batch(model,c_source,flux)
+%changeMedia_batch
+%   function that modifies the ecModel and makes it suitable for batch growth
+%   simulations on different carbon sources.
 %
-% Function that modifies the ecModel and makes it suitable for batch growth
-% simulations on the carbon source of choice. You can add more changes in
-% this function if you need to do so for your model.
+%   model       (struct) An enzyme constrained model
+%   c_source    (string) Rxn name for the main carbon source uptake reaction
+%   flux        (doule) Experimental flux value [mmol/gDw h] for the main 
+%               carbon source uptake reaction.
 %
-% INPUT:
-%   model       An enzyme constrained model.
-%	c_source	The name of the exchange reaction that supplies the model
-%				with carbon.
 %
-% OUTPUT:
-%   model       The enzyme constrained model with modified boundaries.
+%   Usage: model = changeMedia_batch(model,c_source,flux)
 %
 % Benjamin J. Sanchez	2018-12-11
-% Ivan Domenzain        2019-07-13
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function model = changeMedia_batch(model,c_source)
+% Ivan Domenzain        2019-10-09
+
+% Give the carbon source (c_source) input variable with the following
+% format: c_source  = 'D-glucose exchange (reversible)'
+if nargin<3
+    flux = 1000;
+end
 %first block any uptake
 [rxnIDs,exchange]  = getExchangeRxns(model);
 exchange           = exchange(find(contains(rxnIDs,'_REV')));
 model.ub(exchange) = 0;
 %Allow main carbon source uptake
 c_id  = model.rxns(strcmp(model.rxnNames,c_source));
-model = setParam(model,'ub',c_id,Inf);
+model = setParam(model,'ub',c_id,flux);
 %block glucose and oxygen production
 model.ub(strcmp(model.rxnNames,'oxygen exchange'))    = 0;
 model.ub(strcmp(model.rxnNames,'D-glucose exchange')) = 0;
