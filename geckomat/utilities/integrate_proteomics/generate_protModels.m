@@ -147,7 +147,13 @@ for i=1:length(conditions)
         fileFluxes = ['../../models/prot_constrained/' name '/fluxes_Exch_' conditions{i} '.txt'];
         printFluxes(ecModelP,solution.x,true,1E-4,fileFluxes)
     end
-    save(['../../models/prot_constrained/' name '/' name '_' conditions{i} '.mat'],'ecModelP')
+    cd ../change_model
+    [~,~,version] = preprocessModel(ecModelP,'','');
+    cd ../../models/prot_constrained
+    addpath('..')
+    saveECmodel(ecModelP,'COBRA',name,version);
+    rmpath('..')
+    cd ../../geckomat/limit_proteins
     %save .txt file
     writetable(usagesT,['../../models/prot_constrained/' name '/enzymeUsages_' conditions{i} '.txt'],'Delimiter','\t')
     writetable(modificationsT,['../../models/prot_constrained/' name '/modifiedEnzymes_' conditions{i} '.txt'],'Delimiter','\t')
