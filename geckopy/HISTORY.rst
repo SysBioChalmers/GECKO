@@ -28,8 +28,8 @@ History
     * ``keggID`` is now an input for ``updateDatabases.m`` (PR #62).
     * Backwards compatibility with any yeastGEM from 8.0.0 onwards (PR #66).
     * New utilities:
-	    * ``getSubset_ecModel.m``, for getting context-specific ecModels (PR #64).
-      * ``getKcat.m``, for retrieving kcats (PR #67).
+        * ``getSubset_ecModel.m``, for getting context-specific ecModels (PR #64).
+        * ``getKcat.m``, for retrieving kcats (PR #67).
 * Fixes:
     * Fixed bug in aconitase kcat & misc. error handling (PR #62).
 * Refactoring:
