@@ -1,26 +1,46 @@
 History
 =======
 
+2.0.0 (2020-05-18)
+------------------
+* Features:
+    * A main utility for constraining an ecModel with proteomics data stored in data files, and ensuring the model can grow at the provided conditions (PR #82).
+    * More constraining options in FVA utility (PR #95).
+    * An option for reducing display of ``fitGAM.m`` (PR #82).
+    * A chemostat simulation utility (PR #82).
+* Fixes:
+    * Fixes #73: Bug in ``getKcat.m`` (PR #75).
+    * Fixes #78: Updated BRENDA URL (PR #91).
+    * FVA utility: Fixed directionality bugs in ``MAX_min_Optimizer.m`` (PRs #69 & #95) & optimization bug in ``comparativeFVA.m`` (PR #95).
+    * geckopy: Updated csv reader in geckopy test (PR #83) and met id parsing (PR #93).
+    * Fixed subfolder bug in ``modifyKcats.m`` (PR #80).
+* Refactoring:
+    * Introduced ``getModelParameters.m`` for defining all input parameters, for streamlining the main ecModel generation pipeline (PR #76).
+    * Simplified constraining procedure in the FVA utility (PR #95).
+* Documentation:
+    * Improved documentation of several main functions (PR #76).
+    * Updated Matlab requirements (PR #96).
+
 1.3.5 (2019-05-03)
 ------------------
 * Features:
-    * Additional options for output tables from ``modifyKcats.m`` & ``topUsedEnzymes.m`` (PR #61)
-    * ``keggID`` is now an input for ``updateDatabases.m`` (PR #62)
-    * Backwards compatibility with any yeastGEM from 8.0.0 onwards (PR #66)
+    * Additional options for output tables from ``modifyKcats.m`` & ``topUsedEnzymes.m`` (PR #61).
+    * ``keggID`` is now an input for ``updateDatabases.m`` (PR #62).
+    * Backwards compatibility with any yeastGEM from 8.0.0 onwards (PR #66).
     * New utilities:
-	    * ``getSubset_ecModel.m``, for getting context-specific ecModels (PR #64)
-        * ``getKcat.m``, for retrieving kcats (PR #67)
+	    * ``getSubset_ecModel.m``, for getting context-specific ecModels (PR #64).
+      * ``getKcat.m``, for retrieving kcats (PR #67).
 * Fixes:
-    * Fixed bug in aconitase kcat & misc. error handling (PR #62)
+    * Fixed bug in aconitase kcat & misc. error handling (PR #62).
 * Refactoring:
-    * Speed improvements in ``topUsedEnzymes.m`` (PR #61)
-    * Reduced display of several functions (PR #62)
-    * Simplified ``changeMedia_batch.m`` and made more generic ``constrainEnzymes.m`` & ``flexibilizeProteins.m`` (PR #63)
+    * Speed improvements in ``topUsedEnzymes.m`` (PR #61).
+    * Reduced display of several functions (PR #62).
+    * Simplified ``changeMedia_batch.m`` and made more generic ``constrainEnzymes.m`` & ``flexibilizeProteins.m`` (PR #63).
 * Style:
-    * Changed EOL to LF (unix default) (PR #68)
+    * Changed EOL to LF (unix default) (PR #68).
 * Documentation:
-    * Documented input/output of ``topUsedEnzymes.m`` & ``truncateValues.m`` (PR #61)
-    * Added/updated documentation of ``changeMedia_batch.m``, ``constrainEnzymes.m``, ``flexibilizeProteins.m`` & ``getConstrainedModel.m`` (PR #63)
+    * Documented input/output of ``topUsedEnzymes.m`` & ``truncateValues.m`` (PR #61).
+    * Added/updated documentation of ``changeMedia_batch.m``, ``constrainEnzymes.m``, ``flexibilizeProteins.m`` & ``getConstrainedModel.m`` (PR #63).
 
 1.3.4 (2018-12-04)
 ------------------
