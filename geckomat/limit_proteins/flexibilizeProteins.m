@@ -27,98 +27,138 @@ function [model,enzUsages,modifications] = flexibilizeProteins(model,gRate,c_Upt
 %
 %   Usage: [model,enzUsages,modifications] = flexibilizeProteins(model,gRate,c_UptakeExp,c_source)
 %
-%   Ivan Domenzain          2018-06-11
 %   Benjamin J. Sanchez     2018-12-11
+%   Ivan Domenzain          2020-02-24
 %
 
 flexFactor    = 100;
 flexProts     = {};
 enzUsages     = [];
 modifications = {};
-
 %constrain glucose uptake if an experimental measurement is provided
 if nargin > 2
-    glucUptkIndx = strcmp(model.rxnNames,c_source);
-    model.ub(glucUptkIndx) = 1.001*c_UptakeExp;
+    glucUptkIndx           = strcmp(model.rxnNames,c_source);
+    model.ub(glucUptkIndx) = c_UptakeExp;
 end
 % get measured protein exchange rxns indexes
 measuredIndxs = getMeasuredProtsIndexes(model);
 if ~isempty(measuredIndxs)
-    abundances    = model.ub(measuredIndxs);
-    objIndex      = find(model.c==1);
-    sol           = solveLP(model,1);
-    growth        = sol.x(objIndex);
+    abundances = model.ub(measuredIndxs);
+    objIndex   = find(model.c==1);
+    sol        = solveLP(model,1);
+    growth     = sol.x(objIndex);
+    difference = gRate-growth;
+	tempModel  = model;
     % iterate while growth is underpredicted
-    while growth<0.99*gRate
-        [limIndex,flag] = findLimitingUBs(model,measuredIndxs,flexFactor,1);
+    while growth<gRate && difference>(-1E-6)
+        [limIndex,flag] = findLimitingUBs(tempModel,measuredIndxs,flexFactor,1);
         if ~flag
-            [limIndex,~] = findLimitingUBs(model,measuredIndxs,flexFactor,2);
+            [limIndex,~] = findLimitingUBs(tempModel,measuredIndxs,flexFactor,2);
         end
-        %Flexibilize the top growth limiting protein on the original ecModel
-        flexProts          = [flexProts; model.rxns(limIndex)];
-        model.ub(limIndex) = Inf;
-        sol                = solveLP(model);
-        if ~isempty(sol.x)
-           growth = sol.x(objIndex);
-           for j=1:length(limIndex)
-                indx = limIndex(j);
-                disp(['Modified ub for: ' model.rxnNames{indx} ' gRate: ' num2str(growth)])
-           end
+        if ~isempty(limIndex)
+            %Flexibilize the top growth limiting protein on the original ecModel
+            flexProts = [flexProts; tempModel.rxns(limIndex)];
+            tempModel.ub(limIndex) = 1000;
+            sol = solveLP(tempModel);
+            if ~isempty(sol.x)
+            	growth = sol.x(objIndex);
+                for j=1:length(limIndex)
+                    indx = limIndex(j);
+                    disp(['Modified ub for: ' tempModel.rxnNames{indx} ' gRate: ' num2str(growth)])
+                end
+            else
+               %In case that the resulting model is a non-functional one
+               %then proceed with a suboptimal growth rate (this makes the 
+               %while loop to break)
+               warning(['Unfeasible flexibilization of ' model.rxnNames{indx} ' UB'])
+               gRate = growth;
+            end
+        else
+            %In case that no limiting enzymes have been found then proceed 
+            %with a suboptimal growth rate (this makes the while loop to break)
+            warning('No limiting enzymes were found')
+            gRate = growth;
         end
     end
-    [model,enzUsages]  = getNewBounds(model,gRate,measuredIndxs,flexProts,objIndex);
+    [model,enzUsages]  = getNewBounds(tempModel,gRate,measuredIndxs,flexProts,objIndex,abundances);
     modifiedAbundances = model.ub(measuredIndxs);
     exchangedProteins  = model.rxnNames(measuredIndxs);
-    modifications      = getDifferences(abundances,modifiedAbundances,exchangedProteins);
+    modifications      = getDifferences(abundances,modifiedAbundances,exchangedProteins,model);
+    %Update model.concs field, taking flexibilized protein mass into account
+    model.concs = nan(size(model.enzymes));
+    for i = 1:length(model.enzymes)
+        rxn_name = ['prot_' model.enzymes{i} '_exchange'];
+        index    = find(strcmpi(rxn_name,model.rxns));
+        if ~isempty(index)
+            model.concs(i) = model.ub(index)*model.MWs(i); %g/gDW
+        end
+    end
 end
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function diffTable = getDifferences(originalBounds,newBounds,exchangedProteins)
+function diffTable = getDifferences(originalBounds,newBounds,exchangedProteins,model)
 protein_IDs     = {};
-previous_values = {};
-modified_values = {};
+previous_values = [];
+modified_values = [];
+Mweights        = [];
 for i=1:length(originalBounds)
     if newBounds(i)>originalBounds(i)
-        proteinID       = exchangedProteins{i};
-        proteinID       = proteinID(1:((strfind(proteinID,'_exchange'))-1));
-        protein_IDs     = [protein_IDs; proteinID];
+        proteinID   = exchangedProteins{i};
+        proteinID   = proteinID(1:((strfind(proteinID,'_exchange'))-1));
+        protein_IDs = [protein_IDs; proteinID];
+        %Get protein MW
+        index = find(strcmpi(model.enzymes,strrep(proteinID,'prot_','')));
+        if ~isempty(index)
+            Mweights = [Mweights; model.MWs(index)];
+        end
+        %Get previous and modified usage values [mmol/gDw h]
         previous_values = [previous_values; originalBounds(i)];
-        modified_values = [modified_values; newBounds(i)];
+        if newBounds(i)~=Inf
+            modified_values = [modified_values; newBounds(i)];
+        else
+            modified_values = [modified_values; originalBounds(i)];
+        end
     end
 end
-diffTable = table(protein_IDs,previous_values,modified_values);
+%Calculate flexibilized mass for each protein [mmol/gDw h]*[g/mmol]>g/gDwh
+flex_Mass = (modified_values-previous_values).*Mweights;
+diffTable = table(protein_IDs,previous_values,modified_values,flex_Mass);
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function measuredIndxs = getMeasuredProtsIndexes(model)
-measuredIndxs  = find(contains(model.rxnNames,'prot_'));
-exchange_prots = find(contains(model.rxnNames(measuredIndxs),'_exchange'));
-measuredIndxs  = measuredIndxs(exchange_prots(1:end-1));
+measuredIndxs  = intersect(find(contains(model.rxnNames,'prot_')),find(contains(model.rxnNames,'_exchange')));
+measuredIndxs  = measuredIndxs(1:end-1);
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [model,enzUsages] = getNewBounds(model,gRate,protIndxs,flexProts,gPos)
+function [model,usagesTable] = getNewBounds(model,gRate,protIndxs,flexProts,gPos,abundances)
 %Now that the model is growing at least at the specified dilution rate
 %lets fix the growth rate and minimize enzymes usage
-objectiveVector      = model.c;
-model.lb(gPos)       = 0.99*gRate;
-model.ub(gPos)       = 1.01*gRate;
-model.c(:)           = 0;
-protIndexes          = contains(model.rxnNames,'prot_');
-model.c(protIndexes) = -1;
-optSolution          = solveLP(model,1);
-optSolution          = optSolution.x;
-enzUsages            = zeros(length(protIndxs),1);
+objectiveVector = model.c;
+model.lb(gPos)  = 0.9999*gRate;
+model.c(:)      = 0;
+protNames       = model.rxnNames(protIndxs);
+pool_Index      = contains(model.rxnNames,'prot_pool_');
+%Forces flux to split over measured enzymes
+model.c(pool_Index) = -1;
+optSolution         = solveLP(model,1);
+optSolution         = optSolution.x;
+enzUsages           = zeros(length(protIndxs),1);
 for i=1:length(protIndxs)
     index = protIndxs(i);
     name  = model.rxns(index);
     %If protein was flexibilized set its upper bound to the simulated
     %concentration
-    if ismember(name,flexProts) && optSolution(index)>0
-        model.ub(index) = optSolution(index);
+    if ismember(name,flexProts)
+        if optSolution(index)>0
+            model.ub(index) = optSolution(index);
+        else
+            model.ub(index) = abundances(i);
+        end
     end
     enzUsages(i) = optSolution(index)/model.ub(index);
 end
-model.c   = objectiveVector;
-enzUsages = enzUsages(enzUsages > 0);
+model.c     = objectiveVector;
+usagesTable = table(protNames,enzUsages,'VariableNames',{'prot_IDs' 'usage'});
 end
     
     

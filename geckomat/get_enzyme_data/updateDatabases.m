@@ -1,23 +1,25 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% [swissprot,kegg] = updateDatabases
-% Updates all databases for protein matching (KEGG and Swiss-Prot).
+function [swissprot,kegg] = updateDatabases
+% updateDatabases
+%   Updates all databases for protein matching (KEGG and Swiss-Prot).
 %
-% keggID    three- or four-letter species abbrevation from KEGG, see
-%           https://www.genome.jp/kegg/catalog/org_list.html
-%
-% Note: Before using this script, one should manually download from 
-%       http://www.uniprot.org/uniprot a tab delimited file for the
-%       desired organism with the following format:
-%       Entry - Protein names - Gene names - EC number - Sequence
-%       OBS: filter with the Swiss-Prot option
+%    Note: Before using this script, one should manually download from 
+%          http://www.uniprot.org/uniprot a tab delimited file for the
+%          desired organism with the following format:
+%          Entry - Protein names - Gene names - EC number - Sequence
+%          OBS: filter with the Swiss-Prot option
 % 
-% Benjamín Sánchez & Cheng Zhang. Last edited: 2017-10-24
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Usage: [swissprot,kegg] = updateDatabases
+%
+% Benjamin Sanchez, Cheng Zhang, Ivan Domenzain. Last edited: 2019-07-12
+%
 
-function [swissprot,kegg] = updateDatabases(keggID)
-
-if nargin<1 || ~regexp(keggID,'[a-z]{3,4}')
-    error('Please specify the KEGG organism ID')
+current = pwd;
+cd ..
+parameters = getModelParameters;
+keggID     = parameters.keggID;
+cd (current)
+if ~regexp(keggID,'[a-z]{3,4}')
+    error('Please specify the KEGG organism ID in the script getModelParameters.m')
 end
 
 %Build Swissprot table:

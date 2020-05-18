@@ -2,13 +2,12 @@ function [kcat,rxnIdx,rxnName,MW] = getKcat(ecModel,protein)
 % getKcat
 %
 %   This function can quickly get protein related data from an ecModel,
-%   which can be useful when curating an ecModel. By providing a protein
+%   which can be useful when curating it. By providing a protein
 %   ID, the ecModel is queried to find reactions involving that protein.
 %   The output includes kcat values (in sec-1, not corrected for the fact
 %   that stoichiometric coefficients of the substrate can influence
 %   assigning the kcat by matchKcats()), index and names of reactions
 %   involving the protein, in addition to the proteins molecular weight.
-%   This func
 %
 %   Input:
 %   ecModel         enzyme-constrained model
@@ -25,14 +24,13 @@ function [kcat,rxnIdx,rxnName,MW] = getKcat(ecModel,protein)
 %
 % usage: [kcat,rxnIdx,rxnName,MW] = getKcat(ecModel,protein)
 %
-% Eduard Kerkhoven  Last edited: 2018-12-19
-
+% Ivan Domenzain  Last edited: 2019-06-14
 
 pIdx    = strcmpi(ecModel.metNames,['prot_' protein]);
 rxnIdx  = find(ecModel.S(pIdx,:) < 0);
 kcat    = -1./ecModel.S(pIdx,rxnIdx)/3600;
 rxnName = ecModel.rxnNames(rxnIdx);
 
-MW = strcmpi(model.enzymes,protein);
-MW = model.MWs(MW);
+MW = strcmpi(ecModel.enzymes,protein);
+MW = ecModel.MWs(MW);
 end
