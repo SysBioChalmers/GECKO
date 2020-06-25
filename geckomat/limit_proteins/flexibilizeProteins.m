@@ -149,7 +149,7 @@ for i=1:length(protIndxs)
     %If protein was flexibilized set its upper bound to the simulated
     %concentration
     if ismember(name,flexProts)
-        if optSolution(index)>0
+        if optSolution(index)>abundances(i)
             model.ub(index) = optSolution(index);
         else
             model.ub(index) = abundances(i);
