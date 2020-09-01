@@ -1,4 +1,4 @@
- function [model,enzUsages,modifications] = constrainEnzymes(model,f,GAM,Ptot,pIDs,data,gRate,c_UptakeExp)
+ function [model,enzUsages,modifications,GAM,massCoverage] = constrainEnzymes(model,f,GAM,Ptot,pIDs,data,gRate,c_UptakeExp)
 % constrainEnzymes
 %
 %   Main function for overlaying proteomics data on an enzyme-constrained
@@ -15,19 +15,21 @@
 %	data			(Opt) Protein abundances from proteomics data [mmol/gDW].
 %   gRate           (Opt) Experimental growth rate at which the proteomics
 %                  data were obtained [1/h]
-%   c_UptakeExp     (Opt) Experimentally measured glucose uptake rate 
+%   c_UptakeExp     (Opt) Experimentally measured glucose uptake rate
 %                   [mmol/gDW h].
 %
 %   model           ecModel with calibrated enzyme usage upper bounds
-%   enzUsages       Calculated enzyme usages after final calibration 
+%   enzUsages       Calculated enzyme usages after final calibration
 %                   (enzyme_i demand/enzyme_i upper bound)
-%   modifications   Table with all the modified values 
+%   modifications   Table with all the modified values
 %                   (Protein ID/old value/Flexibilized value)
+%   GAM             Fitted GAM value for the ecModel
+%   massCoverage    Ratio between measured and total mass of protein in the model
 %
-%   Usage: [model,enzUsages,modifications] = constrainEnzymes(model,f,GAM,Ptot,pIDs,data,gRate,c_UptakeExp)
+%   Usage: [model,enzUsages,modifications, GAM,massCoverage] = constrainEnzymes(model,f,GAM,Ptot,pIDs,data,gRate,c_UptakeExp)
 %
 %   Benjamin J. Sanchez. Last update 2018-12-11
-%   Ivan Domenzain.      Last update 2019-09-09
+%   Ivan Domenzain.      Last update 2020-03-02
 %
 
 %get model parameters
@@ -39,6 +41,10 @@ cd limit_proteins
 %Compute f if not provided:
 if nargin < 2
     [f,~] = measureAbundance(model.enzymes);
+else
+    if isempty(f)
+       [f,~] = measureAbundance(model.enzymes);
+    end
 end
 %Leave GAM empty if not provided (will be fitted later):
 if nargin < 3
@@ -62,7 +68,7 @@ for i = 1:length(model.enzymes)
     match = false;
     for j = 1:length(pIDs)
         if strcmpi(pIDs{j},model.enzymes{i}) && ~match
-            model.concs(i) = data(j)*model.MWs(i); %g/gDW
+        	model.concs(i) = data(j)*model.MWs(i); %g/gDW
             rxn_name       = ['prot_' model.enzymes{i} '_exchange'];
             pos            = strcmpi(rxn_name,model.rxns);
             model.ub(pos)  = data(j);
@@ -92,7 +98,7 @@ if sum(strcmp(model.rxns,'prot_pool_exchange')) == 0
 end
 if sum(data)==0
     %Modify protein/carb content and GAM:
-    model = scaleBioMass(model,Ptot,GAM);
+    [model,GAM] = scaleBioMass(model,Ptot,GAM);
 end
 %Display some metrics:
 disp(['Total protein amount measured = '     num2str(Pmeasured)              ' g/gDW'])
@@ -101,19 +107,29 @@ disp(['Enzymes in model with 0 g/gDW = '     num2str(sum(concs_measured==0)) ' e
 disp(['Total protein amount not measured = ' num2str(Ptot - Pmeasured)       ' g/gDW'])
 disp(['Total enzymes not measured = '        num2str(sum(~measured))         ' enzymes'])
 disp(['Total protein in model = '            num2str(Ptot)                   ' g/gDW'])
+enzUsages = [];
 if nargin > 7
-    [model,enzUsages,modifications] = flexibilizeProteins(model,gRate,c_UptakeExp,c_source);
-    plotHistogram(enzUsages,'Enzyme usage [-]',[0,1],'Enzyme usages','usages')
+    [tempModel,enzUsages,modifications] = flexibilizeProteins(model,gRate,c_UptakeExp,c_source);
+    Pmeasured = sum(tempModel.concs(~isnan(tempModel.concs)));
+    model     = updateProtPool(tempModel,Ptot,f*sigma);
+end
+massCoverage = Pmeasured/Ptot;
+if isempty(enzUsages)
+    enzUsages      = table({},zeros(0,1),'VariableNames',{'prot_IDs' 'usage'});
+    modifications  = table({},zeros(0,1),zeros(0,1),zeros(0,1),'VariableNames',{'protein_IDs' 'previous_values' 'modified_values' 'flex_mass'});
 else
-    enzUsages     = zeros(0,1);
-    modifications = cell(0,1);
+     plotHistogram(enzUsages.usage,'Enzyme usage [-]',[0,1],'Enzyme usages','usages')
 end
 %Plot histogram (if there are measurements):
 plotHistogram(concs_measured,'Protein amount [mg/gDW]',[1e-3,1e3],'Modelled Protein abundances','abundances')
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function plotHistogram(variable,xlabelStr,xlimits,titleStr,option)
+if iscell(variable)
+    cell2mat(variable);
+end
 if sum(variable) > 0
+    variable(variable==0) = 1E-15;
     figure
     if strcmpi(option,'abundances')
         hist(variable*1e3,10.^(-3:0.5:3))
@@ -135,4 +151,3 @@ for i=1:length(data)
     end
 end
 end
-
