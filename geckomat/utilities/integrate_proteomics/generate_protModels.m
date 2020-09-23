@@ -37,16 +37,16 @@ flexFactor = 1.05;
 cd ../..
 parameters = getModelParameters;
 Ptot_model = parameters.Ptot;
-bioRXN     = parameters.bioRxn;
+growthRxn  = parameters.exch_names{1};
 NGAM       = parameters.NGAM;
 GAM        = [];
 %Get oxPhos related rxn IDs
 oxPhos = getOxPhosRxnIDs(ecModel,parameters);
 %create subfolder for ecModelProts output files
 mkdir(['../models/prot_constrained/' name])
-%Get indexes for carbon source uptake and biomass pseudoreactions
+%Get indexes for carbon source uptake and growth reaction
 positionsEC(1) = find(strcmpi(ecModel.rxnNames,c_source));
-positionsEC(2) = find(strcmpi(ecModel.rxns,bioRXN));
+positionsEC(2) = find(strcmpi(ecModel.rxnNames,growthRxn));
 %Remove prot_abundance.txt  and relative_proteomics.txt files
 %(for f factor calculation)
 try
