@@ -31,7 +31,7 @@ function [model,enzUsages,modifications] = flexibilizeProteins(model,gRate,c_Upt
 %   Ivan Domenzain          2020-02-24
 %
 
-flexFactor    = 100;
+flexFactor    = 10;
 flexProts     = {};
 enzUsages     = [];
 modifications = {};
@@ -76,8 +76,11 @@ if ~isempty(measuredIndxs)
         else
             %In case that no limiting enzymes have been found then proceed 
             %with a suboptimal growth rate (this makes the while loop to break)
-            warning('No limiting enzymes were found')
-            gRate = growth;
+            warning('No limiting individual enzyme was found. All fully saturated enzymes are flexibilized by 1%')
+            ratios = sol.x(measuredIndxs)./model.ub(measuredIndxs);
+            sat_enz = find(ratios>0.9999);
+            idxs = measuredIndxs(sat_enz);
+            tempModel.ub(idxs) = tempModel.ub(idxs)*1.01;
         end
     end
     [model,enzUsages]  = getNewBounds(tempModel,gRate,measuredIndxs,flexProts,objIndex,abundances);
