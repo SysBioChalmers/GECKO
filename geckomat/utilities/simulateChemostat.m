@@ -38,7 +38,7 @@ if ecFlag
 	model.c(cSource)  = -1;
 else
     model.c(cSource)  = 1;
-    model.lb(cSource) = -Inf;
+    model.lb(cSource) = -1000;
 end
 %Run optimization
 solution = solveLP(model,1);
