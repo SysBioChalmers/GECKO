@@ -1,22 +1,21 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% [model,name,version] = preprocessModel(model,name,version)
+function [model,name,modelVer] = preprocessModel(model,name,modelVer)
+%preprocessModel
+%
 % Performs some preliminary modifications to the metabolic model & 
 % retrieves the model's name & version (either by parsing model.id or by
 % asking the user to input it), if they were not already defined.
 %
 % model     A genome-scale model in RAVEN format
 % name      The name of the model (alternatively, an empty string)
-% version   The version of the model (alternatively, an empty string)
+% modelVer  The version of the model (alternatively, an empty string)
 % 
 % model     The processed model
 % name      The resulting name of the model (if not specified before)
-% version   The resulting version of the model (if not specified before)
+% modelVer  The resulting version of the model (if not specified before)
 %
 % Benjamin J. Sanchez. Last edited: 2018-09-01
-% Eduard Kerkhoven. Last edited: 2018-10-16
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Ivan Domenzin.       Last edited: 2020-10-05
 
-function [model,name,version] = preprocessModel(model,name,version)
 
 %Remove gene rules from pseudoreactions (if any):
 for i = 1:length(model.rxns)
@@ -44,13 +43,13 @@ for i = 1:length(model.rxns)
     end
 end
 
-if isempty(name) && isempty(version) && isfield(model,'id')
+if isempty(name) && isempty(modelVer) && isfield(model,'id')
     try
         id = strsplit(model.id,'_v');
         if length(id) == 2
-            name    = id{1};
-            name    = ['ec' upper(name(1)) name(2:end)];
-            version = id{2};
+            name     = id{1};
+            name     = ['ec' upper(name(1)) name(2:end)];
+            modelVer = id{2};
         end
     catch
         disp('Not possible to parse name & version. Input manually')
@@ -59,8 +58,8 @@ end
 while isempty(name)
     name = input('Please enter the desired ecModel name: ','s');
 end
-while isempty(version)
-    version = input('Please enter the model version: ','s');
+while isempty(modelVer)
+    modelVer = input('Please enter the model version: ','s');
 end
 
 end
