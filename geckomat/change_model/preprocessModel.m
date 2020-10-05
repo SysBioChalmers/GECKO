@@ -16,7 +16,6 @@ function [model,name,modelVer] = preprocessModel(model,name,modelVer)
 % Benjamin J. Sanchez. Last edited: 2018-09-01
 % Ivan Domenzin.       Last edited: 2020-10-05
 
-
 %Remove gene rules from pseudoreactions (if any):
 for i = 1:length(model.rxns)
     if endsWith(model.rxnNames{i},' pseudoreaction')
@@ -24,17 +23,14 @@ for i = 1:length(model.rxns)
         model.rxnGeneMat(i,:) = zeros(1,length(model.genes));
     end
 end
-
 %Swap direction of only reactions that are defined to only carry negative flux
 to_swap=model.lb < 0 & model.ub == 0;
 model.S(:,to_swap)=-model.S(:,to_swap);
 model.ub(to_swap)=-model.lb(to_swap);
 model.lb(to_swap)=0;
-
 %Delete blocked rxns (LB = UB = 0):
 to_remove = logical((model.lb == 0).*(model.ub == 0));
 model     = removeReactions(model,model.rxns(to_remove),true,true,true);
-
 %Correct rev vector: true if LB < 0 & UB > 0, or it is an exchange reaction:
 model.rev = false(size(model.rxns));
 for i = 1:length(model.rxns)
@@ -43,12 +39,14 @@ for i = 1:length(model.rxns)
     end
 end
 
-if isempty(name) && isempty(modelVer) && isfield(model,'id')
+if isfield(model,'id')
     try
         id = strsplit(model.id,'_v');
-        if length(id) == 2
-            name     = id{1};
-            name     = ['ec' upper(name(1)) name(2:end)];
+        if isempty(name)
+            name = id{1};
+            name = ['ec' upper(name(1)) name(2:end)];
+        end
+        if isempty(modelVer)
             modelVer = id{2};
         end
     catch
@@ -61,7 +59,4 @@ end
 while isempty(modelVer)
     modelVer = input('Please enter the model version: ','s');
 end
-
 end
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
