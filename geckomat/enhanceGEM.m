@@ -54,6 +54,10 @@ cd ../change_model
 ecModel                 = readKcatData(model_data,kcats);
 [ecModel,modifications] = manualModifications(ecModel);
 
+%create specific subfolder for ecModel files if not present already
+if ~isdir(['../../models/' name])
+    mkdir(['../../models/' name])
+end
 %Constrain model to batch conditions:
 cd ../limit_proteins
 [ecModel_batch,OptSigma] = getConstrainedModel(ecModel,modifications,name);
