@@ -37,9 +37,6 @@ model = convertToIrrev(model_data.model);
 %Convert original model to enzyme model according to uniprots and kcats:
 eModel = convertToEnzymeModel(model,matchedGenes,uniprots,kcats);
 
-%Leave all UB = +Inf:
-eModel.ub(eModel.ub == 1000) = +Inf;
-
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

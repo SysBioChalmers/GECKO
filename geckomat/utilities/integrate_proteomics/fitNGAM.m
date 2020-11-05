@@ -23,7 +23,7 @@ if nargin<5
 end
 NGAMIndex           = find(strcmpi(model.rxns,NGAMrxn));
 model.lb(NGAMIndex) = bounds(1);
-model.ub(NGAMIndex) = Inf;
+model.ub(NGAMIndex) = +1000;
 %Relevant positions:
 if ECflag 
     cd ../..
