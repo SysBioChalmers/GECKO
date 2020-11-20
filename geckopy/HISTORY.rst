@@ -5,7 +5,7 @@ History
 ------------------
 * Fixes:
     * UBs are only changed for strictly required proteins (PR #103).
-    * Solves #101: All yeast models in the toolbox are built on the same yeast-GEM version ``_   `8.1.3 <https://github.com/SysBioChalmers/yeast-GEM/releases/tag/v8.1.3>`_ (PR #105).
+    * Solves #101: All yeast models in the toolbox are built on the same yeast-GEM version `8.1.3 <https://github.com/SysBioChalmers/yeast-GEM/releases/tag/v8.1.3>`_ (PR #105).
     * Solved bug in ``generate_protModels.m`` that constrained both the biomass and growth reactions (PR #107).
     * Updated env. list after release of pandas 1.0 (PR #110).
     * A folder for ecModels is added in case it doesn’t exist already (PR #111).
