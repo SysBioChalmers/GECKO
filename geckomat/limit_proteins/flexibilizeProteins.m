@@ -3,10 +3,10 @@ function [model,enzUsages,modifications] = flexibilizeProteins(model,gRate,c_Upt
 %   Function that takes an ecModel with proteomic constraints and, if it is
 %   overconstrained with respect to the provided experimental growth rate,
 %   iterates finding the top growth-limiting enzyme or enzyme complex. The
-%   exchange rate upper bound for each of the identified enzyme or subunits 
-%   is then set to infinity and after all iterations they are set equal to 
-%   the usage value provided by an overall enzyme usage minimization 
-%   simulation (subject to the provided growth rate and nutrient uptake 
+%   exchange rate upper bound for each of the identified enzyme or subunits
+%   is then set to +1000 and after all iterations they are set equal to
+%   the usage value provided by an overall enzyme usage minimization
+%   simulation (subject to the provided growth rate and nutrient uptake
 %   constraints).
 %
 %   model           ecModel with proteomic constraints (individual enzyme
@@ -14,15 +14,15 @@ function [model,enzUsages,modifications] = flexibilizeProteins(model,gRate,c_Upt
 %   gRate           Minimum growth rate the model should grow at [1/h]. For
 %                   finding the growth reaction, GECKO will choose the
 %                   non-zero coeff in the objective function.
-%   c_UptakeExp     (Opt) Experimentally measured glucose uptake rate 
+%   c_UptakeExp     (Opt) Experimentally measured glucose uptake rate
 %                   [mmol/gDw h]
 %	c_source        (Opt) The name of the exchange reaction that supplies
 %                   the model with carbon.
 %
 %   model           ecModel with calibrated enzyme usage upper bounds
-%   enzUsages       Calculated enzyme usages after final calibration 
+%   enzUsages       Calculated enzyme usages after final calibration
 %                   (enzyme_i demand/enzyme_i upper bound)
-%   modifications   Table with all the modified values 
+%   modifications   Table with all the modified values
 %                   (Protein ID/old value/Flexibilized value)
 %
 %   Usage: [model,enzUsages,modifications] = flexibilizeProteins(model,gRate,c_UptakeExp,c_source)
@@ -68,13 +68,13 @@ if ~isempty(measuredIndxs)
                 end
             else
                %In case that the resulting model is a non-functional one
-               %then proceed with a suboptimal growth rate (this makes the 
+               %then proceed with a suboptimal growth rate (this makes the
                %while loop to break)
                warning(['Unfeasible flexibilization of ' model.rxnNames{indx} ' UB'])
                gRate = growth;
             end
         else
-            %In case that no limiting enzymes have been found then proceed 
+            %In case that no limiting enzymes have been found then proceed
             %with a suboptimal growth rate (this makes the while loop to break)
             warning('No limiting enzymes were found')
             gRate = growth;
@@ -113,7 +113,7 @@ for i=1:length(originalBounds)
         end
         %Get previous and modified usage values [mmol/gDw h]
         previous_values = [previous_values; originalBounds(i)];
-        if newBounds(i)~=Inf
+        if newBounds(i)~=+1000
             modified_values = [modified_values; newBounds(i)];
         else
             modified_values = [modified_values; originalBounds(i)];
@@ -149,7 +149,7 @@ for i=1:length(protIndxs)
     %If protein was flexibilized set its upper bound to the simulated
     %concentration
     if ismember(name,flexProts)
-        if optSolution(index)>0
+        if optSolution(index)>abundances(i)
             model.ub(index) = optSolution(index);
         else
             model.ub(index) = abundances(i);
@@ -160,5 +160,3 @@ end
 model.c     = objectiveVector;
 usagesTable = table(protNames,enzUsages,'VariableNames',{'prot_IDs' 'usage'});
 end
-    
-    

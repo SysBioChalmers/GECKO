@@ -1,6 +1,18 @@
 History
 =======
 
+2.0.1 (2020-11-19)
+------------------
+* Fixes:
+    * UBs are only changed for strictly required proteins (PR #103).
+    * Solves #101: All yeast models in the toolbox are built on the same yeast-GEM version ``_   `8.1.3 <https://github.com/SysBioChalmers/yeast-GEM/releases/tag/v8.1.3>`_ (PR #105).
+    * Solved bug in ``generate_protModels.m`` that constrained both the biomass and growth reactions (PR #107).
+    * Updated env. list after release of pandas 1.0 (PR #110).
+    * A folder for ecModels is added in case it doesn’t exist already (PR #111).
+    * Solves #112: Avoid using the variable name ``version`` for potential conflicts with Matlab (PR #113).
+* Style:
+    * Solves #102: All UBs in repo changed from +Inf to +1000 (PR #109).
+
 2.0.0 (2020-05-18)
 ------------------
 * Features:
@@ -44,7 +56,6 @@ History
 
 1.3.4 (2018-12-04)
 ------------------
-
 * Features:
     * Generalization of ``measureAbundance.m`` to receive any PaxDB file, a relative proteomics dataset, or even nothing at all (PR #58).
     * New utility: Comparative FVA between a model and its enzyme-constrained version (PR #57).
@@ -57,7 +68,6 @@ History
 
 1.3.3 (2018-11-02)
 ------------------
-
 * Fixes:
     * Fixes #15: Binary results from the model (``ecModel.mat``, ``ecModel_batch.mat`` & ``enzData.mat``) are no longer stored in repo (PR #52).
     * Misc. fixes in the biomass composition + GAM calculations (PR #53).

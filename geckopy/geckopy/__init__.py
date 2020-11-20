@@ -7,4 +7,4 @@ from geckopy.gecko import GeckoModel
 
 __author__ = 'Benjamin Sanchez'
 __email__ = 'bensan@chalmers.se'
-__version__ = '2.0.0'
+__version__ = '2.0.1'
