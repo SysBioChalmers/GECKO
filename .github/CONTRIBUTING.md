@@ -163,10 +163,10 @@ GECKO follows [semantic versioning](https://semver.org/):
 
 When releasing, please follow these steps:
 
-1. Create a pull request from `devel` to `master`, indicating all new features/fixes/etc. and referencing every previous pull request included (examples [here](https://github.com/SysBioChalmers/GECKO/releases)). Tip: if any [issue](https://github.com/SysBioChalmers/GECKO/issues) gets solved in the release, write in the pull request description "Solves #X", where "X" is the issue number. That way the issue will be automatically closed after merge.
+1. Create a pull request from `devel` to `master`, indicating all new features/fixes/etc. and referencing every previous pull request included (examples [here](https://github.com/SysBioChalmers/GECKO/releases)). Tip: if any [issue](https://github.com/SysBioChalmers/GECKO/issues) gets solved in the release, write in the pull request description "Closes #X", where "X" is the issue number. That way the issue will be automatically closed after merge.
 2. Wait at least a day + 1 approval + passing CI.
 3. Bump to the new version x.y.z. For this, create in `devel` a single commit `chore: version X.Y.Z` with:
-  * Updated `/history.rst` by putting at the top the same description as in the PR from step 1 (use https://pandoc.org/try for transforming markdown to ReSTructured text).
+  * Updated `/geckopy/HISTORY.rst` by putting at the top the same description as in the PR from step 1 (use https://pandoc.org/try for transforming markdown to ReSTructured text).
 	* Updated version in:
     - `/docs/conf.py` (lines 57 & 59).
     - `/geckopy/setup.cfg` (line 2).
