@@ -95,6 +95,11 @@ Usage
    model.limit_proteins(some_measurements)
    model.optimize()
 
+Contributing
+------------
+
+Contributions are always welcome! Please read the `contributing guidelines <https://github.com/SysBioChalmers/GECKO/blob/devel/.github/CONTRIBUTING.md>`_ to get started.
+
 Contributors
 ------------
 
