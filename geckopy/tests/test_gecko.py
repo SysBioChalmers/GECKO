@@ -20,7 +20,7 @@ def test_basic_gecko_adjustment():
 
 
 def test_gecko_adjustment_sanchez_etal():
-    mmol_gdw = pd.Series.from_csv(os.path.join(os.path.dirname(__file__), '../geckopy/data_files/sanchez-mmol_gdw.csv'))
+    mmol_gdw = pd.read_csv(os.path.join(os.path.dirname(__file__), '../geckopy/data_files/sanchez-mmol_gdw.csv'), index_col=0, header=None, squeeze=True)
     ggdw = pd.Series(PROTEIN_PROPERTIES.loc[mmol_gdw.index, 'mw'] / 1000.) * pd.Series(mmol_gdw)
     model = GeckoModel('multi-pool')
     growth_rate_unlimited_protein = model.slim_optimize()

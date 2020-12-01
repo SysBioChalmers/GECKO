@@ -117,7 +117,7 @@ rxnToAdd.rxns         = {rxnID};
 rxnToAdd.rxnNames     = {rxnID};
 rxnToAdd.mets         = {prot_name};
 rxnToAdd.stoichCoeffs = 1;
-rxnToAdd.lb           = 0; 		%ub is taken from model's default, otherwise inf
+rxnToAdd.lb           = 0; 		%ub is taken from model's default
 rxnToAdd.grRules      = {gene};
 model = addRxns(model,rxnToAdd);
 

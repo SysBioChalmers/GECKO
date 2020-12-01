@@ -113,7 +113,9 @@
          end
      end
      %Display progress:
-     disp(['Matching kcats: Ready with rxn ' num2str(i)])
+    if rem(i,10) == 0 || i == mM
+        disp(['Matching kcats: Ready with rxn ' num2str(i)])
+    end
  end
   
  kcats.forw = forw;

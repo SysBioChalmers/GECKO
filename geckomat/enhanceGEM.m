@@ -1,19 +1,36 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% [ecModel,ecModel_batch] = enhanceGEM(model,toolbox,name,version)
+function [ecModel,ecModel_batch] = enhanceGEM(model,toolbox,name,modelVer)
+% enhanceGEM
 %
-% Benjamin J. Sanchez & Ivan Domenzain. Last edited: 2018-10-25
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [ecModel,ecModel_batch] = enhanceGEM(model,toolbox,name,version)
+%   Main function for running the GECKO pipeline. It returns an ecModel and
+%   its constrained version with an upper limit in the total protein pool
+%   usage pseudoreaction (ecModel_batch) with calibrated Kcat parameters that
+%   allow it to grow at a specified experimental growth rate.
+%
+%   model       a GEM MATLAB structure compatible with the COBRA or RAVEN
+%               toolbox.
+%   toolbox     string with the name of the prefered toolbox for model SBML
+%               export (COBRA or RAVEN)
+%   name        Desired name for the ecModel (opt, default '')
+%   modelVer    modelVer of the original GEM (opt, default '')
+%
+%
+%   ecModel        an ecModel MATLAB structure suitable for incorporation of   
+%                  proteomics data as individual enzyme usage constraints.
+%   ecModel_batch  an ecModel MATLAB structure with a global constraint on 
+%                  the total protein pool usage pseudoreaction,
+%                  proportional to the measured total protein content (Ptot)
+%
+%   Usage: [ecModel,ecModel_batch] = enhanceGEM(model,toolbox,name,modelVer)
+%
+%   Ivan Domenzain. Last edited: 2020-10-05
+%
 
 if nargin < 3
     name    = '';
 end
 if nargin < 4
-    version = '';
+    modelVer = '';
 end
-
-%Provide your organism scientific name
-org_name = 'saccharomyces cerevisiae';
 
 %Convert model to RAVEN for easier visualization later on:
 format short e
@@ -21,36 +38,35 @@ if isfield(model,'rules')
     initCobraToolbox
     model = ravenCobraWrapper(model);
 end
-
+%Get model-specific parameters
+parameters = getModelParameters;
 %Remove blocked rxns + correct model.rev:
 cd change_model
-[model,name,version] = preprocessModel(model,name,version);
+[model,name,modelVer] = preprocessModel(model,name,modelVer);
 
 %Retrieve kcats & MWs for each rxn in model:
 cd ../get_enzyme_data
 model_data = getEnzymeCodes(model);
-kcats      = matchKcats(model_data,org_name);
+kcats      = matchKcats(model_data,parameters.org_name);
 
 %Integrate enzymes in the model:
 cd ../change_model
 ecModel                 = readKcatData(model_data,kcats);
 [ecModel,modifications] = manualModifications(ecModel);
 
+%create specific subfolder for ecModel files if not present already
+if ~isdir(['../../models/' name])
+    mkdir(['../../models/' name])
+end
 %Constrain model to batch conditions:
-sigma    = 0.5;      %Optimized for glucose
-Ptot     = 0.5;      %Assumed constant
-gR_exp   = 0.41;     %[g/gDw h] Max batch gRate on minimal glucose media
-c_source = 'D-glucose exchange (reversible)'; %Rxn name for the glucose uptake reaction
 cd ../limit_proteins
-[ecModel_batch,OptSigma] = getConstrainedModel(ecModel,c_source,sigma,Ptot,gR_exp,modifications,name);
+[ecModel_batch,OptSigma] = getConstrainedModel(ecModel,modifications,name);
 disp(['Sigma factor (fitted for growth on glucose): ' num2str(OptSigma)])
 
 %Save output models:
 cd ../../models
-ecModel = saveECmodel(ecModel,toolbox,name,version);
-ecModel_batch = saveECmodel(ecModel_batch,toolbox,[name '_batch'],version);
+ecModel = saveECmodel(ecModel,toolbox,name,modelVer);
+ecModel_batch = saveECmodel(ecModel_batch,toolbox,[name '_batch'],modelVer);
 cd ../geckomat
 
 end
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

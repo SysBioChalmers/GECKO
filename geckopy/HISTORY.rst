@@ -1,9 +1,73 @@
 History
 =======
 
+2.0.1 (2020-11-19)
+------------------
+* Fixes:
+    * UBs are only changed for strictly required proteins (PR #103).
+    * Solves #101: All yeast models in the toolbox are built on the same yeast-GEM version `8.1.3 <https://github.com/SysBioChalmers/yeast-GEM/releases/tag/v8.1.3>`_ (PR #105).
+    * Solved bug in ``generate_protModels.m`` that constrained both the biomass and growth reactions (PR #107).
+    * Updated env. list after release of pandas 1.0 (PR #110).
+    * A folder for ecModels is added in case it doesn’t exist already (PR #111).
+    * Solves #112: Avoid using the variable name ``version`` for potential conflicts with Matlab (PR #113).
+* Style:
+    * Solves #102: All UBs in repo changed from +Inf to +1000 (PR #109).
+
+2.0.0 (2020-05-18)
+------------------
+* Features:
+    * A main utility for constraining an ecModel with proteomics data stored in data files, and ensuring the model can grow at the provided conditions (PR #82).
+    * More constraining options in FVA utility (PR #95).
+    * An option for reducing display of ``fitGAM.m`` (PR #82).
+    * A chemostat simulation utility (PR #82).
+* Fixes:
+    * Fixes #73: Bug in ``getKcat.m`` (PR #75).
+    * Fixes #78: Updated BRENDA URL (PR #91).
+    * FVA utility: Fixed directionality bugs in ``MAX_min_Optimizer.m`` (PRs #69 & #95) & optimization bug in ``comparativeFVA.m`` (PR #95).
+    * geckopy: Updated csv reader in geckopy test (PR #83) and met id parsing (PR #93).
+    * Fixed subfolder bug in ``modifyKcats.m`` (PR #80).
+* Refactoring:
+    * Introduced ``getModelParameters.m`` for defining all input parameters, for streamlining the main ecModel generation pipeline (PR #76).
+    * Simplified constraining procedure in the FVA utility (PR #95).
+* Documentation:
+    * Improved documentation of several main functions (PR #76).
+    * Updated Matlab requirements (PR #96).
+
+1.3.5 (2019-05-03)
+------------------
+* Features:
+    * Additional options for output tables from ``modifyKcats.m`` & ``topUsedEnzymes.m`` (PR #61).
+    * ``keggID`` is now an input for ``updateDatabases.m`` (PR #62).
+    * Backwards compatibility with any yeastGEM from 8.0.0 onwards (PR #66).
+    * New utilities:
+        * ``getSubset_ecModel.m``, for getting context-specific ecModels (PR #64).
+        * ``getKcat.m``, for retrieving kcats (PR #67).
+* Fixes:
+    * Fixed bug in aconitase kcat & misc. error handling (PR #62).
+* Refactoring:
+    * Speed improvements in ``topUsedEnzymes.m`` (PR #61).
+    * Reduced display of several functions (PR #62).
+    * Simplified ``changeMedia_batch.m`` and made more generic ``constrainEnzymes.m`` & ``flexibilizeProteins.m`` (PR #63).
+* Style:
+    * Changed EOL to LF (unix default) (PR #68).
+* Documentation:
+    * Documented input/output of ``topUsedEnzymes.m`` & ``truncateValues.m`` (PR #61).
+    * Added/updated documentation of ``changeMedia_batch.m``, ``constrainEnzymes.m``, ``flexibilizeProteins.m`` & ``getConstrainedModel.m`` (PR #63).
+
+1.3.4 (2018-12-04)
+------------------
+* Features:
+    * Generalization of ``measureAbundance.m`` to receive any PaxDB file, a relative proteomics dataset, or even nothing at all (PR #58).
+    * New utility: Comparative FVA between a model and its enzyme-constrained version (PR #57).
+* Fixes:
+    * Consistent definition of what data is in ``uniprot.tab`` (PR #48).
+    * Proper use of ``measureAbundance.m`` from within ``constrainEnzymes.m`` (PR #56).
+* Refactoring:
+    * Switch all functions that add/change rxns/genes from COBRA to RAVEN (PR #48).
+    * Avoid any functions from Simulink (PR #48).
+
 1.3.3 (2018-11-02)
 ------------------
-
 * Fixes:
     * Fixes #15: Binary results from the model (``ecModel.mat``, ``ecModel_batch.mat`` & ``enzData.mat``) are no longer stored in repo (PR #52).
     * Misc. fixes in the biomass composition + GAM calculations (PR #53).
