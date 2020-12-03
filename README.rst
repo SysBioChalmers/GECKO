@@ -112,8 +112,8 @@ Contributors
 
 .. |Current Version| image:: https://badge.fury.io/gh/sysbiochalmers%2Fgecko.svg
    :target: https://badge.fury.io/gh/sysbiochalmers%2Fgecko
-.. |Build Status| image:: https://travis-ci.org/SysBioChalmers/GECKO.svg?branch=master
-   :target: https://travis-ci.org/SysBioChalmers/GECKO
+.. |Build Status| image:: https://travis-ci.com/SysBioChalmers/GECKO.svg?branch=master
+   :target: https://travis-ci.com/SysBioChalmers/GECKO
 .. |PyPI Version| image:: https://badge.fury.io/py/geckopy.svg
    :target: https://badge.fury.io/py/geckopy
 .. |Docs Status| image:: https://readthedocs.org/projects/geckotoolbox/badge/?version=latest
