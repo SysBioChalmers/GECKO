@@ -17,18 +17,21 @@ current = pwd;
 cd ..
 parameters = getModelParameters;
 cd (current)
+kegg = cell(1,7);
 if isfield(parameters,'keggID')
     keggID = parameters.keggID;
-    %Download KEGG data:
     mkdir ../../databases/KEGG
-    downloadKEGGdata(keggID) 
-    %Build KEGG table
-    kegg = buildKEGGtable(keggID);
+    try
+        %Download KEGG data:
+        downloadKEGGdata(keggID)
+        %Build KEGG table
+        kegg = buildKEGGtable(keggID);
+    catch
+        warning(['Unsuccessful query for "' keggID '", check the presence of the provided ID in the KEGG database (https://www.genome.jp/kegg/catalog/org_list.html)'])
+    end
     %Remove KEGG files for compliance of repository:
     delete ../../databases/KEGG/*.txt
     rmdir ../../databases/KEGG
-else
-    kegg = cell(1,7);
 end
 %Build Swissprot table:
 swissprot = buildSWISSPROTtable;
