@@ -65,7 +65,7 @@ end
 
 %Update model.genes & model.pathways vectors:
 match_path = false;
-if isempty(kegg)
+if ~isempty(kegg)
     for i = 1:length(kegg)
         if strcmp(P,kegg{i,1})
             %Gene:
