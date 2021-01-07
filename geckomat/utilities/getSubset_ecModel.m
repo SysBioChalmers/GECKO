@@ -19,13 +19,20 @@ function small_ecModel = getSubset_ecModel(smallGEM,big_ecModel)
 if isfield(smallGEM,'rules')
     smallGEM = ravenCobraWrapper(smallGEM);
 end
-[~,toRemove] = setdiff(big_ecModel.genes,smallGEM.genes);
+
+%Open all exchanges, this prevents removal of well-conected reactions that
+%are blocked due to the imposed constraints on big_ecModel
 [~,idxs]     = getExchangeRxns(big_ecModel);
 big_ecModel.ub(idxs) = 1000;
 big_ecModel.lb(idxs) = 0;
+
+%Identify genes that are not present in smallGEM and remove all other model
+%components associated to them
+[~,toRemove]  = setdiff(big_ecModel.genes,smallGEM.genes);
 small_ecModel = removeGenes(big_ecModel,toRemove,true,true,true);
-%Now let's remove reactions in excess (all remaining reactions in small_ecModel
-%that are not part of the context specific model, mostly non gene-associated reactions)
+
+%Remove reactions in excess (all remaining reactions in small_ecModel
+%that are not represented in the context-specific GEM, mostly non gene-associated reactions)
 originalRxns = smallGEM.rxns;
 toKeep       = [];
 for rxn = originalRxns
@@ -38,11 +45,15 @@ idxs      = find(contains(small_ecModel.rxns,'draw_prot_') | strcmpi(small_ecMod
 toKeep    = [toKeep;idxs];
 toRemove  = setdiff((1:numel(small_ecModel.rxns))',toKeep);
 small_ecModel = removeReactions(small_ecModel,toRemove,true,true);
-%Correct enzyme related fields in order to remove enzymes that were removed
-%from the stoichiometric matrix in the first step
+
+%obtain indexes of the enzymes that remain as pseudometabolites  in the
+%reduced network
 enzymes = big_ecModel.enzymes;
 idxs    = cellfun(@(x) find(contains(small_ecModel.mets, x)), enzymes,'UniformOutput',false);
 idxs    = find(~cellfun(@isempty,idxs));
+
+%Correct enzyme related fields in order to remove enzymes that were removed
+%from the stoichiometric matrix in the removeGenes step
 small_ecModel.enzymes   = small_ecModel.enzymes(idxs);
 small_ecModel.enzNames  = small_ecModel.enzNames(idxs);
 small_ecModel.enzGenes  = small_ecModel.enzGenes(idxs);
