@@ -43,6 +43,7 @@ if strcmp(toolbox,'COBRA')
     model_cobra = takeOutField(model_cobra,'metCharges');
     model_cobra = takeOutField(model_cobra,'metChEBIID');
     model_cobra = takeOutField(model_cobra,'metKEGGID');
+    model_cobra = takeOutField(model_cobra,'metNotes');
     model_cobra = takeOutField(model_cobra,'metSBOTerms');
     model_cobra = takeOutField(model_cobra,'rxnConfidenceScores');
     model_cobra = takeOutField(model_cobra,'rxnECNumbers');
