@@ -23,7 +23,11 @@ end
 %Open all exchanges, this prevents removal of well-conected reactions that
 %are blocked due to the imposed constraints on big_ecModel
 [~,idxs]     = getExchangeRxns(big_ecModel);
-big_ecModel.ub(idxs) = 1000;
+if isfield(big_ecModel, 'annotation') && isfield(big_ecModel.annotation, 'defaultUB')
+    big_ecModel.ub(idxs) = big_ecModel.annotation.defaultUB;
+else
+    big_ecModel.ub(idxs) = 1000;
+end
 big_ecModel.lb(idxs) = 0;
 
 %Identify genes that are not present in smallGEM and remove all other model
