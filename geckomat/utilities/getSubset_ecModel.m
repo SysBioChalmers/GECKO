@@ -39,8 +39,14 @@ small_ecModel = removeGenes(big_ecModel,toRemove,true,true,true);
 %that are not represented in the context-specific GEM, mostly non gene-associated reactions)
 originalRxns = smallGEM.rxns;
 toKeep       = [];
-for rxn = originalRxns
-    idxs   = find(contains(small_ecModel.rxns,rxn));
+for i = 1:numel(originalRxns)
+    % Add backslashes before all brackets or parentheses for regex.
+    % For example, "my(2)reaction[c]" becomes "my\(2\)reaction\[c\]"
+    rxn = regexprep(originalRxns{i}, '\[|\]|\(|\)', '\\$0');
+    
+    % Find all matches with the pattern: (arm_)rxn(_REV)(No#)
+    pattern = ['(^|^arm_)' rxn '($|No\d+$|_REV($|No\d+$))'];
+    idxs = find(~cellfun(@isempty, regexp(small_ecModel.rxns, pattern)));
     toKeep = [toKeep;idxs];
 end
 %Keep enzyme-related reactions
