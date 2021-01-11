@@ -51,7 +51,9 @@ for i = 1:numel(originalRxns)
 end
 %Keep enzyme-related reactions
 toKeep    = unique(toKeep);
-idxs      = find(contains(small_ecModel.rxns,'draw_prot_') | strcmpi(small_ecModel.rxns,'prot_pool_exchange'));
+idxs      = find(startsWith(small_ecModel.rxns,'draw_prot_') | ...
+                 ismember(small_ecModel.rxns, strcat('prot_', small_ecModel.enzymes ,'_exchange')) | ...
+                 strcmpi(small_ecModel.rxns,'prot_pool_exchange'));
 toKeep    = [toKeep;idxs];
 toRemove  = setdiff((1:numel(small_ecModel.rxns))',toKeep);
 small_ecModel = removeReactions(small_ecModel,toRemove,true,true);
