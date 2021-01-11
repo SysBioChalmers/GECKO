@@ -1,5 +1,5 @@
 function small_ecModel = getSubset_ecModel(smallGEM,big_ecModel)
-%getsmall_ecModel
+%getSubset_ecModel
 %  
 % Generate a context-specific ecModel (strain/cell-line/tissue) by mapping 
 % all components in an original context-specific GEM to a general ecModel
@@ -10,9 +10,9 @@ function small_ecModel = getSubset_ecModel(smallGEM,big_ecModel)
 %   smallGEM       Reduced model (subset of the general model) for a
 %                  specific strain (microbes) or cell-line/tissues (mammals)
 % 
-%   ecModel        Enzyme-constrained version of the context-specific model
+%   small_ecModel  Enzyme-constrained version of the context-specific model
 % 
-% usage: small_ecModel = getsmall_ecModel(smallGEM,big_ecModel)
+% usage: small_ecModel = getSubset_ecModel(smallGEM,big_ecModel)
 % 
 
 %If smallGEM is in COBRA format convert to RAVEN-type
