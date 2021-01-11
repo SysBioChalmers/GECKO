@@ -61,8 +61,7 @@ small_ecModel = removeReactions(small_ecModel,toRemove,true,true);
 %obtain indexes of the enzymes that remain as pseudometabolites  in the
 %reduced network
 enzymes = big_ecModel.enzymes;
-idxs    = cellfun(@(x) find(contains(small_ecModel.mets, x)), enzymes,'UniformOutput',false);
-idxs    = find(~cellfun(@isempty,idxs));
+idxs = find(ismember(strcat('prot_', enzymes), small_ecModel.mets));
 
 %Correct enzyme related fields in order to remove enzymes that were removed
 %from the stoichiometric matrix in the removeGenes step
