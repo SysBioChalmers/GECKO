@@ -65,12 +65,9 @@ idxs = find(ismember(strcat('prot_', enzymes), small_ecModel.mets));
 
 %Correct enzyme related fields in order to remove enzymes that were removed
 %from the stoichiometric matrix in the removeGenes step
-small_ecModel.enzymes   = small_ecModel.enzymes(idxs);
-small_ecModel.enzNames  = small_ecModel.enzNames(idxs);
-small_ecModel.enzGenes  = small_ecModel.enzGenes(idxs);
-small_ecModel.MWs       = small_ecModel.MWs(idxs);
-small_ecModel.sequences = small_ecModel.sequences(idxs);
-small_ecModel.pathways  = small_ecModel.pathways(idxs);
-small_ecModel.concs     = small_ecModel.concs(idxs);
+f = {'enzymes', 'enzNames', 'enzGenes', 'MWs', 'sequences', 'pathways', 'concs'};
+f = intersect(fieldnames(small_ecModel), f);
+for i = 1:numel(f)
+    small_ecModel.(f{i}) = small_ecModel.(f{i})(idxs);
 end
  
