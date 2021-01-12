@@ -1,118 +1,76 @@
-function ecModel = getSubset_ecModel(model,generalModel)
-% getSubset_ecModel
+function small_ecModel = getSubset_ecModel(smallGEM,big_ecModel)
+%getSubset_ecModel
 %  
-% 	Get a general ecModel and a context-specific metabolic model 
-%   (strain/cell-line/tissue) and maps all of its reactions in the general 
-%   ecModel in order to get an enzyme constrained version of the context-
-%   specific model.
-%
-%   generalModel    Enzyme-constrained version of  general model of
-%                   metabolism for a given species
-%   model           Reduced model (subset of the general model) for a
-%                   specific strain (microbes) or cell-line/tissues (mammals)
-%
-%   ecModel         Enzyme-constrained version of the context-specific model
-%
-% usage: ecModel = getSubset_ecModel(model,generalModel)
+% Generate a context-specific ecModel (strain/cell-line/tissue) by mapping 
+% all components in an original context-specific GEM to a general ecModel
+% (organism or species level).
 % 
-% Ivan Domenzain.      Last edited: 2018-12-11
-%
+%   big_ecModel    Enzyme-constrained version of  general model of
+%                  metabolism for a given species
+%   smallGEM       Reduced model (subset of the general model) for a
+%                  specific strain (microbes) or cell-line/tissues (mammals)
+% 
+%   small_ecModel  Enzyme-constrained version of the context-specific model
+% 
+% usage: small_ecModel = getSubset_ecModel(smallGEM,big_ecModel)
+% 
 
-current = pwd;
-%If model is in COBRA format convert to RAVEN-type 
-if isfield(model,'rules')
-    model = ravenCobraWrapper(model);
+%If smallGEM is in COBRA format convert to RAVEN-type
+if isfield(smallGEM,'rules')
+    smallGEM = ravenCobraWrapper(smallGEM);
 end
-irrevModel = convertToIrrev(model);
-ecModel    = irrevModel;
-%Map each of the irrevModel rxns into the general model
-enzymes = {};
-for i=1:length(irrevModel.rxns)
-    rxn      = irrevModel.rxns{i};
-    rxnIndxs = find(contains(generalModel.rxns,rxn)); 
-    %Exclude the original rxn index ('avoids adding it again)
-    rxnIndxs = rxnIndxs(~strcmpi(generalModel.rxns(rxnIndxs),rxn));
-    %As the model as been converted to irreversible format, correspondent
-    %additional reactions for forward and backward reactions are added
-    %separately
-    if ~contains(rxn,'_REV')
-        rxnIndxs = rxnIndxs(~contains(generalModel.rxns(rxnIndxs),'_REV'));
-    else
-        rxnIndxs = rxnIndxs(contains(generalModel.rxns(rxnIndxs),'_REV')); 
-    end
-    %Just keep the new reactions (isoenzymes, arm reactions)
-    rxnIndxs    = rxnIndxs(startsWith(generalModel.rxns(rxnIndxs),[rxn 'No'])|...
-                           strcmpi(generalModel.rxns(rxnIndxs),['arm_' rxn]));
-    ecReactions = generalModel.rxns(rxnIndxs);
-    
-    if ~isempty(rxnIndxs)
-        nR = length(rxnIndxs);
-        grRules = cell(1,nR);
-        %Create rxnsToAdd structure
-        rxnsToAdd.rxns     = ecReactions;
-        rxnsToAdd.rxnNames = generalModel.rxnNames(rxnIndxs);
-        rxnsToAdd.lb       = generalModel.lb(rxnIndxs);
-        rxnsToAdd.ub       = generalModel.ub(rxnIndxs);
-        rxnsToAdd.c        = generalModel.lb(rxnIndxs);
-        grRules(:)         = irrevModel.grRules(i);
-        rxnsToAdd.grRules  = grRules;
-        %Preallocate fields concerning the metabolites involved in each rxn
-        mets           = cell(1,nR);
-        StoichCoeffs   = cell(1,nR);
-        rxnsToAdd.mets = cell(1,nR);
-        %Loop through each of the mapped Indexes to get metabolites information
-        for j=1:length(rxnIndxs)
-            index = rxnIndxs(j);
-            metsIndxs         = find(generalModel.S(:,index));
-            StoichCoeffs{j}   = full(generalModel.S(metsIndxs,index));
-            mets{j}           = generalModel.mets(metsIndxs);
-            metNames          = generalModel.metNames(metsIndxs);
-            compartments      = generalModel.metComps(metsIndxs);
-            compartments      = generalModel.comps(compartments);
-            bVector           = generalModel.b(metsIndxs);
-            enzNames          = mets{j}(contains(mets{j},'prot_'));
-            rxnsToAdd.mets{j} = mets{j};
-            %Avoid ambiguities checking for proteins also in the general  
-            %ecModel enzymes field
-            enzNames  = strrep(enzNames,'prot_','');
-            enzNames  = intersect(enzNames,generalModel.enzymes);
-            enzymes   = [enzymes;enzNames(:)];
-            %Add new metabolites for each reaction
-            IA      = ismember(mets{j},ecModel.mets);
-            mets{j} = mets{j}(~IA);
-            if ~isempty(mets{j})
-                metsToAdd.mets         = mets{j};
-                metsToAdd.metNames     = metNames(~IA);
-                metsToAdd.compartments = compartments(~IA);
-                metsToAdd.bVector      = bVector(~IA);
-                %Use RAVEN function for adding new metabolites
-                ecModel = addMets(ecModel,metsToAdd);
-            end
-        end
-        rxnsToAdd.stoichCoeffs = StoichCoeffs;
-        %Use RAVEN function for adding new reactions
-        ecModel = addRxns(ecModel,rxnsToAdd,1,[],false,true); 
-        disp(['Added additional rxns for: ' rxn])
-        if any(contains(rxnsToAdd.rxns,[rxn 'No']))
-            ecModel = removeReactions(ecModel,rxn);
-        end
-    end
+
+%Check if original big_ecModel contains context-dependent protein
+%constraints
+measProts = ismember(big_ecModel.rxns, strcat('prot_', big_ecModel.enzymes ,'_exchange'));
+if any(measProts)
+    warning('The provided general ecModel contains reactions constrained by context-specific proteomics data (prot_XXXX_exchange), check if these constraints are compatible with those applied to smallGEM')
 end
-cd ../change_model
-enzymes = unique(enzymes);
-%Create additional fields in ecModel:
-ecModel.enzymes  = cell(0,1);
-ecModel.enzGenes  = cell(0,1);
-ecModel.enzNames  = cell(0,1);
-ecModel.MWs       = zeros(0,1);
-ecModel.sequences = cell(0,1);
-ecModel.pathways  = cell(0,1);
-%Load protein databases for enzyme-genes matching
-load ('../../Databases/ProtDatabase.mat')
-%Add protein usage reactions
-for i = 1:length(enzymes)
-    disp(enzymes{i})
-    ecModel = addProtein(ecModel,enzymes{i},kegg,swissprot);
+
+%Open all exchanges, this prevents removal of well-conected reactions that
+%are blocked due to the imposed constraints on big_ecModel
+[~,idxs]     = getExchangeRxns(big_ecModel);
+if isfield(big_ecModel, 'annotation') && isfield(big_ecModel.annotation, 'defaultUB')
+    big_ecModel.ub(idxs) = big_ecModel.annotation.defaultUB;
+else
+    big_ecModel.ub(idxs) = 1000;
 end
-cd (current)
+big_ecModel.lb(idxs) = 0;
+
+%Identify genes that are not present in smallGEM and remove all other model
+%components associated to them
+[~,toRemove]  = setdiff(big_ecModel.genes,smallGEM.genes);
+small_ecModel = removeGenes(big_ecModel,toRemove,true,true,true);
+
+%Remove reactions in excess (all remaining reactions in small_ecModel
+%that are not represented in the context-specific GEM, mostly non 
+%gene-associated reactions).
+%The ecGEM reaction IDs are trimmed to remove prefix "arm_" and suffixes
+%"_REV" or "No#" (where # is an integer(s)). This yields the reaction IDs
+%of the original model to which they are associated.
+originalRxns = smallGEM.rxns;
+ecRxns_trim  = regexprep(small_ecModel.rxns, '^arm_|No\d+$|_REV($|No\d+$)', '');
+toKeep       = find(ismember(ecRxns_trim, originalRxns));
+
+%Keep enzyme-related reactions
+idxs      = find(startsWith(small_ecModel.rxns,'draw_prot_') | ...
+                 ismember(small_ecModel.rxns, strcat('prot_', small_ecModel.enzymes ,'_exchange')) | ...
+                 strcmpi(small_ecModel.rxns,'prot_pool_exchange'));
+toKeep        = [toKeep;idxs];
+toRemove      = setdiff((1:numel(small_ecModel.rxns))',toKeep);
+small_ecModel = removeReactions(small_ecModel,toRemove,true,true);
+
+%obtain indexes of the enzymes that remain as pseudometabolites  in the
+%reduced network
+enzymes = big_ecModel.enzymes;
+idxs    = find(ismember(strcat('prot_', enzymes), small_ecModel.mets));
+
+%Correct enzyme related fields in order to remove enzymes that were removed
+%from the stoichiometric matrix in the removeGenes step
+f = {'enzymes', 'enzNames', 'enzGenes', 'MWs', 'sequences', 'pathways', 'concs'};
+f = intersect(fieldnames(small_ecModel), f);
+for i = 1:numel(f)
+    small_ecModel.(f{i}) = small_ecModel.(f{i})(idxs);
 end
+end
+ 
