@@ -42,21 +42,21 @@ small_ecModel = removeGenes(big_ecModel,toRemove,true,true,true);
 %"_REV" or "No#" (where # is an integer(s)). This yields the reaction IDs
 %of the original model to which they are associated.
 originalRxns = smallGEM.rxns;
-ecRxns_trim = regexprep(small_ecModel.rxns, '^arm_|No\d+$|_REV($|No\d+$)', '');
-toKeep = find(ismember(ecRxns_trim, originalRxns));
+ecRxns_trim  = regexprep(small_ecModel.rxns, '^arm_|No\d+$|_REV($|No\d+$)', '');
+toKeep       = find(ismember(ecRxns_trim, originalRxns));
 
 %Keep enzyme-related reactions
 idxs      = find(startsWith(small_ecModel.rxns,'draw_prot_') | ...
                  ismember(small_ecModel.rxns, strcat('prot_', small_ecModel.enzymes ,'_exchange')) | ...
                  strcmpi(small_ecModel.rxns,'prot_pool_exchange'));
-toKeep    = [toKeep;idxs];
-toRemove  = setdiff((1:numel(small_ecModel.rxns))',toKeep);
+toKeep        = [toKeep;idxs];
+toRemove      = setdiff((1:numel(small_ecModel.rxns))',toKeep);
 small_ecModel = removeReactions(small_ecModel,toRemove,true,true);
 
 %obtain indexes of the enzymes that remain as pseudometabolites  in the
 %reduced network
 enzymes = big_ecModel.enzymes;
-idxs = find(ismember(strcat('prot_', enzymes), small_ecModel.mets));
+idxs    = find(ismember(strcat('prot_', enzymes), small_ecModel.mets));
 
 %Correct enzyme related fields in order to remove enzymes that were removed
 %from the stoichiometric matrix in the removeGenes step
@@ -64,5 +64,6 @@ f = {'enzymes', 'enzNames', 'enzGenes', 'MWs', 'sequences', 'pathways', 'concs'}
 f = intersect(fieldnames(small_ecModel), f);
 for i = 1:numel(f)
     small_ecModel.(f{i}) = small_ecModel.(f{i})(idxs);
+end
 end
  
