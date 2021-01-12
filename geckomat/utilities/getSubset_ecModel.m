@@ -36,21 +36,16 @@ big_ecModel.lb(idxs) = 0;
 small_ecModel = removeGenes(big_ecModel,toRemove,true,true,true);
 
 %Remove reactions in excess (all remaining reactions in small_ecModel
-%that are not represented in the context-specific GEM, mostly non gene-associated reactions)
+%that are not represented in the context-specific GEM, mostly non 
+%gene-associated reactions).
+%The ecGEM reaction IDs are trimmed to remove prefix "arm_" and suffixes
+%"_REV" or "No#" (where # is an integer(s)). This yields the reaction IDs
+%of the original model to which they are associated.
 originalRxns = smallGEM.rxns;
-toKeep       = [];
-for i = 1:numel(originalRxns)
-    % Add backslashes before all brackets or parentheses for regex.
-    % For example, "my(2)reaction[c]" becomes "my\(2\)reaction\[c\]"
-    rxn = regexprep(originalRxns{i}, '\[|\]|\(|\)', '\\$0');
-    
-    % Find all matches with the pattern: (arm_)rxn(_REV)(No#)
-    pattern = ['(^|^arm_)' rxn '($|No\d+$|_REV($|No\d+$))'];
-    idxs = find(~cellfun(@isempty, regexp(small_ecModel.rxns, pattern)));
-    toKeep = [toKeep;idxs];
-end
+ecRxns_trim = regexprep(small_ecModel.rxns, '^arm_|No\d+$|_REV($|No\d+$)', '');
+toKeep = find(ismember(ecRxns_trim, originalRxns));
+
 %Keep enzyme-related reactions
-toKeep    = unique(toKeep);
 idxs      = find(startsWith(small_ecModel.rxns,'draw_prot_') | ...
                  ismember(small_ecModel.rxns, strcat('prot_', small_ecModel.enzymes ,'_exchange')) | ...
                  strcmpi(small_ecModel.rxns,'prot_pool_exchange'));
