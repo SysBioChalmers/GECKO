@@ -20,6 +20,13 @@ if isfield(smallGEM,'rules')
     smallGEM = ravenCobraWrapper(smallGEM);
 end
 
+%Check if original big_ecModel contains context-dependent protein
+%constraints
+measProts = ismember(big_ecModel.rxns, strcat('prot_', big_ecModel.enzymes ,'_exchange'));
+if any(measProts)
+    warning('The provided general ecModel contains reactions constrained by context-specific proteomics data (prot_XXXX_exchange), check if these constraints are compatible with those applied to smallGEM')
+end
+
 %Open all exchanges, this prevents removal of well-conected reactions that
 %are blocked due to the imposed constraints on big_ecModel
 [~,idxs]     = getExchangeRxns(big_ecModel);
