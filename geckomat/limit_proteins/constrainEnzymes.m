@@ -63,7 +63,7 @@ end
 data = cleanDataset(data);
 %Assign concentrations as UBs [mmol/gDW]:
 model.concs = nan(size(model.enzymes));      %OBS: min value is zero!!
-disp('Matching data to enzymes in model...')
+fprintf('Matching data to enzymes in model...')
 for i = 1:length(model.enzymes)
     match = false;
     for j = 1:length(pIDs)
@@ -96,6 +96,7 @@ end
 if sum(strcmp(model.rxns,'prot_pool_exchange')) == 0
     model = constrainPool(model,~measured,full(fs*Pbase));
 end
+fprintf(' Done!\n')
 if sum(data)==0
     %Modify protein/carb content and GAM:
     [model,GAM] = scaleBioMass(model,Ptot,GAM);

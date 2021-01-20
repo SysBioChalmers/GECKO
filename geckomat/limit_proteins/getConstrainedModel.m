@@ -55,9 +55,7 @@ if ~isempty(solution.f)
     ObjIndex = find(ecModel_batch.c);
     % If the model is overconstrained
     if (gRate-solution.x(ObjIndex))>0
-        fprintf('\n')
-        disp('***************************************************************')
-        disp('                The ECmodel is overconstrained                 ')
+        disp('The ECmodel is overconstrained!')
         %Perform a sensitivity analysis on the objective function with
         %respect to the individual Kcat coefficients, the algorithm will
         %iterate replacing the top limiting value according to the maximum
@@ -65,14 +63,10 @@ if ~isempty(solution.f)
         %is no longer underpredicted
         ecModel_batch = modifyKcats(ecModel_batch,gRate,modifications,name);
     else
-        fprintf('\n')
-        disp('***************************************************************')
-        disp('              The ECmodel is not overconstrained               ')
+        disp('The ECmodel is not overconstrained.')
     end
     %The sigma factor is reffited for the specified conditions (constraints in the model)
-    fprintf('\n')
     disp('***************************************************************')
-    disp('        Fitting the average enzymes saturation factor          ')
     OptSigma          = sigmaFitter(ecModel_batch,Ptot,gRate,f);
     enzymePos         = strcmp(ecModel_batch.rxns,'prot_pool_exchange');
     currentEnzymeUB   = ecModel_batch.ub(enzymePos);

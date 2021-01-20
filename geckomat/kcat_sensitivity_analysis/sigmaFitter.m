@@ -22,6 +22,8 @@
 
 function OptSigma = sigmaFitter(model_batch,Ptot,expVal,f)
 
+fprintf('Fitting sigma factor...')
+
 objValues   = [];
 errors    = [];
 sigParam  = [];
@@ -44,8 +46,11 @@ for i=1:100
     errors    = [errors; error];
     error     = num2str(((expVal-solution.x(objPos))/expVal)*100);
     sigParam  = [sigParam; sigma];
-    disp(['Fitting sigma factor: ' num2str(sigma) '   error: ' error '%'])
+    if rem(i,5) == 0
+        fprintf('.')
+    end
 end
+fprintf(' Done!\n')
 [~, minIndx] = min(errors);
 OptSigma     = sigParam(minIndx);
 figure

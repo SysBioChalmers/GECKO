@@ -49,6 +49,9 @@
  % Ivan Domenzain.      Last edited: 2018-01-16
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  function kcats = matchKcats(model_data, org_name)
+ 
+ fprintf('Matching kcats...')
+ 
  %Load BRENDA data:
  [KCATcell, SAcell] = loadBRENDAdata;
  
@@ -113,14 +116,16 @@
          end
      end
      %Display progress:
-    if rem(i,10) == 0 || i == mM
-        disp(['Matching kcats: Ready with rxn ' num2str(i)])
+    if rem(i,100) == 0 || i == mM
+         fprintf('.')
     end
  end
   
  kcats.forw = forw;
  kcats.back = back;
  kcats.tot  = tot;
+ 
+fprintf(' Done!\n')
  
  end
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

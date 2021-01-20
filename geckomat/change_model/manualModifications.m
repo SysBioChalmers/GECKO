@@ -7,6 +7,8 @@
 
 function [model,modifications] = manualModifications(model)
 
+fprintf('Improving model with curated data...')
+
 %Read manual data:
 fID           = fopen('../../databases/manual_data.txt');
 data          = textscan(fID,'%s %s %s %s %f','delimiter','\t');
@@ -105,9 +107,11 @@ for i = 1:length(model.rxns)
         end          
      end
     if rem(i,100) == 0 || i == length(model.rxns)
-        disp(['Improving model with curated data: Ready with rxn ' num2str(i)])
+        fprintf('.')
     end
 end
+
+fprintf(' Done!\n')
 
 %%%%%%%%%%%%%%%%%%%%%%%%% Other manual changes: %%%%%%%%%%%%%%%%%%%%%%%%%%%
 model = otherChanges(model);

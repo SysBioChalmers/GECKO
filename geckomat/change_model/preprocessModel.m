@@ -16,6 +16,8 @@ function [model,name,modelVer] = preprocessModel(model,name,modelVer)
 % Benjamin J. Sanchez. Last edited: 2018-09-01
 % Ivan Domenzin.       Last edited: 2020-10-05
 
+fprintf('Getting genome-scale model ready...')
+
 %Remove gene rules from pseudoreactions (if any):
 for i = 1:length(model.rxns)
     if endsWith(model.rxnNames{i},' pseudoreaction')
@@ -50,7 +52,7 @@ if isfield(model,'id')
             modelVer = id{2};
         end
     catch
-        disp('Not possible to parse name & version. Input manually')
+        fprintf('\nNot possible to parse name & version. Input manually\n')
     end
 end
 while isempty(name)
@@ -59,4 +61,7 @@ end
 while isempty(modelVer)
     modelVer = input('Please enter the model version: ','s');
 end
+
+fprintf(' Done!\n')
+
 end

@@ -6,6 +6,8 @@
 
 function model = saveECmodel(model,toolbox,name,version)
 
+fprintf(['Saving ' name version ':\n'])
+
 %Define file path for storage:
 struct_name = 'ecModel';
 if endsWith(name,'_batch')
