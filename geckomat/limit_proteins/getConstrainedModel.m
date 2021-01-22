@@ -72,11 +72,17 @@ if ~isempty(solution.f)
     currentEnzymeUB   = ecModel_batch.ub(enzymePos);
     newEnzymeUB       = currentEnzymeUB*OptSigma/sigma;
     ecModel_batch     = setParam(ecModel_batch,'ub','prot_pool_exchange',newEnzymeUB);
-    %Simulate growth on minimal media and export the top ten used
-    %enzymes to the file "topUsedEnzymes.txt" in the containing folder
-    solution          = solveLP(ecModel_batch,1);
-    topUsedEnzymes(solution.x,ecModel_batch,{'Min_glucose'},name);
-    cd ../limit_proteins
+    %Simulate growth on minimal media and export to the output folder:
+    % 1) the exchange fluxes to the file "exchangeFluxes.txt"
+    % 2) the top ten used enzymes to the file "topUsedEnzymes.txt"
+    solution = solveLP(ecModel_batch,1);
+    if ~isempty(solution.x)
+        disp('Saving simulation results files...')
+        fluxFileName = ['../../models/' name '/' name '_exchangeFluxes.txt'];
+        printFluxes(ecModel_batch,solution.x,true,10^-6,fluxFileName);
+        topUsedEnzymes(solution.x,ecModel_batch,{'Min_glucose'},name);
+    end 
+    cd ../limit_proteins   
 else
     disp('ecModel with enzymes pool constraint is not feasible')
 end
