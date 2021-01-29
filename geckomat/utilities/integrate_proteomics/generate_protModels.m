@@ -139,7 +139,15 @@ for i=1:length(conditions)
     end
     %Get model with proteomics
     disp(['Incorporation of proteomics constraints for ' conditions{i} ' condition'])
-    [ecModelP,usagesT,modificationsT,~,coverage] = constrainEnzymes(ecModelP,f,GAM,Ptot(i),pIDs,abundances,Drate(i),flexGUR);
+    %Get sum of measured protein after filter, adding flexFactor and setting minimum value. 
+    %If this is higher than the sum of raw measured protein (sumP), then increase the total 
+    %protein content by the same ratio, so that the protein pool is receiving the similar 
+    %flexibilization as applied to the measured proteins.
+    sumPfilt = sum(abundances);
+    if sumPfilt>sumP
+        Ptot=flux.Ptot(i)*(sumPfilt/sumP);
+    end
+    [ecModelP,usagesT,modificationsT,~,coverage] = constrainEnzymes(ecModelP,f,GAM,Ptot,pIDs,abundances,flux.Drate(i),flexGUR);
     matchedProteins = usagesT.prot_IDs;
     prot_input = {initialProts filteredProts matchedProteins ecModel.enzymes coverage};
     writeProtCounts(conditions{i},prot_input,name); 
