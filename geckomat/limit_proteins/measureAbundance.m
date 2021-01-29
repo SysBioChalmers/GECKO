@@ -5,7 +5,8 @@ function [f,count] = measureAbundance(enzymes,pIDs,abundance)
 % for in an ecModel out of the total protein content in cells. An
 % integrated quantitative proteomics dataset from the https://pax-db.org/
 % database (stored in this toolbox as: 'GECKO/databases/prot_abundance.txt')
-% is used as a comparison basis.
+% is used as a comparison basis. Alternatively, arrays of pIDs and abundances
+% can be used as input.
 % 
 % Usage: [f,count] = measureAbundance(enzymes,pID,abundance)
 %
