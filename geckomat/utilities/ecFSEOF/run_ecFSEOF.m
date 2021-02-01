@@ -5,7 +5,7 @@ function results = run_ecFSEOF(model,rxnTarget,cSource,alphaLims,Nsteps,file1,fi
 % 	Function that runs Flux-scanning with Enforced Objective Function
 % 	for a specified production target.
 %   
-%		model     (struct) ecModel with total protein pool constraint
+%		model     (struct) ecModel with total protein pool constraint.
 %		rxnTarget (string) Rxn ID for the production target reaction, 
 % 				  a exchange reaction is recommended.
 %		cSource	  (string) Rxn name for the main carbon source uptake 
@@ -21,14 +21,16 @@ function results = run_ecFSEOF(model,rxnTarget,cSource,alphaLims,Nsteps,file1,fi
 %
 % Usage: run_ecFSEOF(ecModel,rxnTarget,cSource,alphaLims,Nsteps)
 %
-% Last modified.  Ivan Domenzain 2019-11-13
-%
 
 if nargin < 7
 	file2 = [];
 	if nargin < 6
 		file1 = [];
 	end
+end
+%Check model format, if COBRA model then convert to RAVEN format
+if isfield('model','rules') && ~isfield('model','metComps')
+    model = ravenCobraWrapper(model);
 end
 %Define alpha vector for suboptimal enforced objective values
 alphaV  = alphaLims(1):((alphaLims(2)-alphaLims(1))/(Nsteps-1)):alphaLims(2);
