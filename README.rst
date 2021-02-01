@@ -11,7 +11,7 @@ The **GECKO** toolbox is a Matlab/Python package for enhancing a **G**\ enome-sc
 - ``geckomat``: Matlab+Python scripts to fetch online data and build/simulate enzyme-constrained models.
 - ``geckopy``: a Python package which can be used with `cobrapy <https://opencobra.github.io/cobrapy/>`_ to obtain a ecYeastGEM model object, optionally adjusted for provided proteomics data.
 
-Last update: 2019-09-26
+Last update: 2020-11-19
 
 This repository is administered by Benjamin J. Sanchez (`@BenjaSanchez <https://github.com/benjasanchez>`_), Division of Systems and Synthetic Biology, Department of Biology and Biological Engineering, Chalmers University of Technology.
 
@@ -33,7 +33,7 @@ Required software - Python module
 Required software - Matlab module
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- `MATLAB <http://www.mathworks.com/>`_ (7.5 or higher) + Optimization Toolbox.
+- `MATLAB <http://www.mathworks.com/>`_ 9.1 (R2016b) or higher + Optimization Toolbox.
 - The `COBRA toolbox for MATLAB <https://github.com/opencobra/cobratoolbox>`_.
 - The `RAVEN toolbox for MATLAB <https://github.com/SysBioChalmers/RAVEN>`_.
 - The `libSBML MATLAB API <https://sourceforge.net/projects/sbml/files/libsbml/MATLAB%20Interface>`_ (version 5.17.0 is recommended).
@@ -44,14 +44,14 @@ Usage
 - **For creating an enzyme constrained model:**
 
   - Update the following data files in ``/databases`` with your organism infomation:
-  
-    - ``databases/prot_abundance.txt``: Protein abundance Data from Pax-DB. If data is not available for your organism, then a relative proteomics dataset (in molar fractions) can be used instead. The required format is a tab-separated file, named as ``databases/relative_proteomics.txt`` , with a single header line and 2 columns; the first with gene IDs and the second with the relative abundances for each protein. 
+
+    - ``databases/prot_abundance.txt``: Protein abundance Data from Pax-DB. If data is not available for your organism, then a relative proteomics dataset (in molar fractions) can be used instead. The required format is a tab-separated file, named as ``databases/relative_proteomics.txt`` , with a single header line and 2 columns; the first with gene IDs and the second with the relative abundances for each protein.
     - ``databases/uniprot.tab``: Gene-proteins data from uniprot.
     - ``databases/chemostatData.tsv``: Chemostat data for estimating GAM (optional, called by ``fitGAM.m``).
     - ``databases/manual_data.txt``: Kcat data from eventual manual curations (optional, called by ``manualModifications.m``).
-	
+
   - Adapt the following functions in ``/geckomat`` to your organism:
-  
+
     - ``geckomat/getModelParameters.m``
     - ``geckomat/change_model/manualModifications.m``
     - ``geckomat/limit_proteins/sumProtein.m``
@@ -59,10 +59,10 @@ Usage
     - ``geckomat/kcat_sensitivity_analysis/changeMedia_batch.m`` (optional)
     - ``geckomat/change_model/removeIncorrectPathways.m`` (optional, called by ``manualModifications.m``)
     - ``geckomat/limit_proteins/sumBioMass.m`` (optional, called by ``sumProtein.m`` & ``scaleBiomass.m``)
-	
+
   - Run ``geckomat/get_enzyme_data/updateDatabases.m`` to update ``ProtDatabase.mat``.
   - Run ``geckomat/enhanceGEM.m`` with your metabolic model as input.
-  
+
 - **For performing simulations with an enzyme-constrained model:** Enzyme-constrained models can be used as any other metabolic model, with toolboxes such as COBRA or RAVEN. For more information on rxn/met naming convention, see the supporting information of `Sanchez et al. (2017) <https://dx.doi.org/10.15252/msb.20167411>`_
 
 geckopy: Integrating proteomic data to ecYeastGEM
@@ -73,7 +73,7 @@ If all you need is the ecYeastGEM model to use together with cobrapy you can use
 Required software
 ~~~~~~~~~~~~~~~~~
 
-- Python 2.7, 3.4, 3.5 or 3.6
+- Python 3.6, 3.7 or 3.8
 - cobrapy
 
 Installation
@@ -95,6 +95,11 @@ Usage
    model.limit_proteins(some_measurements)
    model.optimize()
 
+Contributing
+------------
+
+Contributions are always welcome! Please read the `contributing guidelines <https://github.com/SysBioChalmers/GECKO/blob/devel/.github/CONTRIBUTING.md>`_ to get started.
+
 Contributors
 ------------
 
@@ -107,8 +112,8 @@ Contributors
 
 .. |Current Version| image:: https://badge.fury.io/gh/sysbiochalmers%2Fgecko.svg
    :target: https://badge.fury.io/gh/sysbiochalmers%2Fgecko
-.. |Build Status| image:: https://travis-ci.org/SysBioChalmers/GECKO.svg?branch=master
-   :target: https://travis-ci.org/SysBioChalmers/GECKO
+.. |Build Status| image:: https://travis-ci.com/SysBioChalmers/GECKO.svg?branch=master
+   :target: https://travis-ci.com/SysBioChalmers/GECKO
 .. |PyPI Version| image:: https://badge.fury.io/py/geckopy.svg
    :target: https://badge.fury.io/py/geckopy
 .. |Docs Status| image:: https://readthedocs.org/projects/geckotoolbox/badge/?version=latest

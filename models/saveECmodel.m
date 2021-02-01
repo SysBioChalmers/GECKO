@@ -30,10 +30,11 @@ for i = 1:length(model.mets)
     end
 end
 
-%Remove model.fields (added by COBRA functions)
-if isfield(model,'rules')
-    model = rmfield(model,'rules');
-end
+%For functional models, save upper bounds as +1000:
+model.ub(isinf(model.ub)) = 1000;
+
+%Remove model.rules (added by COBRA functions)
+model = takeOutField(model,'rules');
 
 if strcmp(toolbox,'COBRA')
     %Transform model back to COBRA for saving purposes:
@@ -42,12 +43,13 @@ if strcmp(toolbox,'COBRA')
     model_cobra = takeOutField(model_cobra,'metCharges');
     model_cobra = takeOutField(model_cobra,'metChEBIID');
     model_cobra = takeOutField(model_cobra,'metKEGGID');
+    model_cobra = takeOutField(model_cobra,'metNotes');
     model_cobra = takeOutField(model_cobra,'metSBOTerms');
     model_cobra = takeOutField(model_cobra,'rxnConfidenceScores');
     model_cobra = takeOutField(model_cobra,'rxnECNumbers');
     model_cobra = takeOutField(model_cobra,'rxnKEGGID');
     model_cobra = takeOutField(model_cobra,'rxnReferences');
-    model_cobra = takeOutField(model_cobra,'subSystems');
+    model_cobra.subSystems = cell(size(model_cobra.rxns));
     model_cobra = takeOutField(model_cobra,'rxnSBOTerms');
     %Save model as sbml and text:
     writeCbModel(model_cobra,'sbml',[file_name '.xml']);

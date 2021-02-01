@@ -2,10 +2,10 @@
 % model = scaleBioMass(model,Ptot,GAM,scale_comp)
 % 
 % Benjamin Sanchez. Last update: 2018-10-23
-% Ivan Domenzain.   Last update: 2019-07-29
+% Ivan Domenzain.   Last update: 2019-09-10
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function model = scaleBioMass(model,Ptot,GAM,scale_comp)
+function [model,GAM] = scaleBioMass(model,Ptot,GAM,scale_comp)
 if nargin < 3
     GAM = [];
 end
@@ -42,7 +42,7 @@ if scale_comp
 end
 %Fit GAM if not available:
 if isempty(GAM)
-    GAM = fitGAM(model);
+    GAM = fitGAM(model,false);
 end
 %Change GAM:
 xr_pos = strcmp(model.rxns,parameters.bioRxn);
