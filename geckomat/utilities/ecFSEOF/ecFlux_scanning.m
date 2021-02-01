@@ -1,12 +1,12 @@
 function FC = ecFlux_scanning(model,target,C_source,alpha,tol,filterG)
-%
+%ecFlux_scanning
 %
 %       model     (struct) ecModel with total protein pool constraint.
 %                 the model should come with growth pseudoreaction as 
 %                 an objective to maximize.
 %       target    (string) Rxn ID for the production target reaction, 
 %                 a exchange reaction is recommended.
-%       cSource   (string) Rxn name for the main carbon source uptake 
+%       cSource   (string) Rxn ID for the main carbon source uptake 
 %                 reaction
 %       alpha     (dobule) scalling factor for production yield 
 %                 for enforced objective limits
@@ -16,8 +16,6 @@ function FC = ecFlux_scanning(model,target,C_source,alpha,tol,filterG)
 %				  be filtered according to the alpha vector distribution
 %
 % Usage:  FC = compare_substrate(model,target,C_source,alpha,tol,filterG)
-%
-% Last modified.  Ivan Domenzain 2019-10-13
 %
 
 if nargin<6

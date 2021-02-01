@@ -8,8 +8,9 @@ function results = run_ecFSEOF(model,rxnTarget,cSource,alphaLims,Nsteps,file1,fi
 %		model     (struct) ecModel with total protein pool constraint.
 %		rxnTarget (string) Rxn ID for the production target reaction, 
 % 				  a exchange reaction is recommended.
-%		cSource	  (string) Rxn name for the main carbon source uptake 
-%			      reaction
+%		cSource	  (string) Rxn ID for the main carbon source uptake 
+%			      reaction (make sure that the correct directionality is
+%			      indicated).
 % 		alphaLims (vector) Minimum and maximum biomass yield [gDw/mmol Csource] 
 %				  for enforced objective limits
 %       Nsteps    (integer) Number of steps for suboptimal objective 

@@ -1,6 +1,5 @@
 function flux = simulateGrowth(model,target,C_source,objCoeff,alpha,tol)
-% 
-% simulateGrowth
+%simulateGrowth
 %
 %   Function that performs a series of LP optimizations on an ecModel,
 %   by first maximizing biomass, then fixing a suboptimal value and 
@@ -12,7 +11,7 @@ function flux = simulateGrowth(model,target,C_source,objCoeff,alpha,tol)
 %                 the model should come with growth pseudoreaction as 
 %                 an objective to maximize.
 %       target    (string) Rxn ID for the objective reaction.
-%       cSource   (string) Rxn name for the main carbon source uptake 
+%       cSource   (string) Rxn ID for the main carbon source uptake 
 %                 reaction
 %       objCoeff  (integer) Coefficient for the target reaction in the
 %                 objective function
@@ -20,8 +19,6 @@ function flux = simulateGrowth(model,target,C_source,objCoeff,alpha,tol)
 %       tol       (double) numerical tolerance for fixing bounds
 %
 % Usage: flux = simulateGrowth(model,target,C_source,alpha,tol)
-%
-% Last modified.  Ivan Domenzain 2019-11-13
 %
 
 if nargin<6
@@ -34,7 +31,7 @@ if nargin<6
     end
 end
 %Fix a unit main carbon source uptake
-cSource_indx           = find(strcmpi(model.rxnNames,C_source));
+cSource_indx           = find(strcmpi(model.rxns,C_source));
 model.lb(cSource_indx) = (1-tol);
 model.ub(cSource_indx) = (1+tol);
 %Position of target rxn:
