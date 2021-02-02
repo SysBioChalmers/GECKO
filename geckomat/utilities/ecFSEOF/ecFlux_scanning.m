@@ -43,14 +43,14 @@ withGR   = ~cellfun(@isempty,model.grRules);
 rxnEqs   = constructEquations(model,model.rxns(withGR),true);
 v_matrix = v_matrix(withGR,:);
 k_matrix = k_matrix(withGR,:);
-gene_rxn = model.rxnGeneMat(withGR,:);
+rxnGeneM = model.rxnGeneMat(withGR,:);
 FC.rxns  = [model.rxns(withGR),model.rxnNames(withGR),model.grRules(withGR),rxnEqs];
 
 %Filter out rxns that are always zero -> k=0/0=NaN:
 non_nan  = sum(~isnan(k_matrix),2) > 0;
 v_matrix = v_matrix(non_nan,:);
 k_matrix = k_matrix(non_nan,:);
-gene_rxn = gene_rxn(non_nan,:);
+rxnGeneM = rxnGeneM(non_nan,:);
 FC.rxns  = FC.rxns(non_nan,:);
 
 %Replace remaining NaNs with 1s:
@@ -64,35 +64,37 @@ always_up    = sum(k_matrix >= (1+tol),2) == length(alpha);
 %Identify those reactions with mixed patterns 
 incons_rxns  = always_down + always_up == 0;
 %Identify genes that are linked to "inconsistent rxns"
-incons_genes = sum(gene_rxn(incons_rxns,:),1) > 0;
+incons_genes = sum(rxnGeneM(incons_rxns,:),1) > 0;
 %Finally, inconsistent reactions are those that are not conected
 %to "inconsistent genes" from the original "inconsistent rxns" set
-incons_rxns  = sum(gene_rxn(:,incons_genes),2) > 0;
+incons_rxns  = sum(rxnGeneM(:,incons_genes),2) > 0;
 %Keep results for the consistent rxns exclusively
 v_matrix     = v_matrix(~incons_rxns,:);
 k_matrix     = k_matrix(~incons_rxns,:);
-gene_rxn     = gene_rxn(~incons_rxns,:);
+rxnGeneM     = rxnGeneM(~incons_rxns,:);
 FC.rxns      = FC.rxns(~incons_rxns,:);
+%Get median k score across steps
+FC.k_rxns   = mean(k_matrix,2);
 
 %Order from highest to lowest median k_score (across alphas)
-FC.k_rxns   = mean(k_matrix,2);
 [~,order]   = sort(FC.k_rxns,'descend');
 FC.k_rxns   = FC.k_rxns(order,:);
 FC.v_matrix = v_matrix(order,:);
 FC.k_matrix = k_matrix(order,:);
-gene_rxn    = gene_rxn(order,:);
+rxnGeneM    = rxnGeneM(order,:);
 FC.rxns     = FC.rxns(order,:);
 %Create list of remaining genes and filter out any inconsistent score:
 %Just those genes that are connected to the remaining rxns are
-FC.genes     = model.genes(sum(gene_rxn,1) > 0);
-FC.geneNames = model.geneShortNames(sum(gene_rxn,1) > 0);
+FC.genes     = model.genes(sum(rxnGeneM,1) > 0);
+FC.geneNames = model.geneShortNames(sum(rxnGeneM,1) > 0);
 FC.k_genes   = zeros(size(FC.genes));
-gene_rxn     = gene_rxn(:,sum(gene_rxn,1) > 0);
 cons_genes   = false(size(FC.genes));
+rxnGeneM     = rxnGeneM(:,sum(rxnGeneM,1) > 0);
+
 for i = 1:length(FC.genes)
 	%Extract all the K_scores (from rxns across alphas) conected to
 	%each remaining gene
-    k_set         = FC.k_rxns(gene_rxn(:,i) > 0);
+    k_set         = FC.k_rxns(rxnGeneM(:,i) > 0);
     %Check the kind of control that gene i-th exerts over its reactions
     always_down   = sum(k_set <= (1-tol)) == length(k_set);
     always_up     = sum(k_set >= (1+tol)) == length(k_set);
@@ -105,6 +107,7 @@ end
 FC.genes     = FC.genes(cons_genes);
 FC.geneNames = FC.geneNames(cons_genes);
 FC.k_genes   = FC.k_genes(cons_genes);
+rxnGeneM     = rxnGeneM(:,cons_genes);
 
 if filterG
 	%Filter any value between mean(alpha) and 1:
@@ -112,6 +115,15 @@ if filterG
 	FC.genes     = FC.genes(~unchanged);
 	FC.geneNames = FC.geneNames(~unchanged);
 	FC.k_genes   = FC.k_genes(~unchanged);
+    rxnGeneM     = rxnGeneM(:,~unchanged);
+    %Update results for rxns-related fields (remove remaining reactions
+    %without any associated gene in rxnGeneM)
+    toKeep      = (sum(rxnGeneM,2) > 0);
+    FC.k_rxns   = FC.k_rxns(toKeep,:);
+    FC.v_matrix = v_matrix(toKeep,:);
+    FC.k_matrix = k_matrix(toKeep,:);
+    rxnGeneM    = rxnGeneM(toKeep,:);
+    FC.rxns     = FC.rxns(toKeep,:);
 end
 
 %Order from highest to lowest k:
