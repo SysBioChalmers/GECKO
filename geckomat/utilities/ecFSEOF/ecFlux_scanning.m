@@ -75,6 +75,13 @@ rxnGeneM     = rxnGeneM(~incons_rxns,:);
 FC.rxns      = FC.rxns(~incons_rxns,:);
 %Get median k score across steps
 FC.k_rxns   = mean(k_matrix,2);
+%Remove arm_rxns from the list of rxns with K_score>1
+armUP       = startsWith(FC.rxns(:,1),'arm_') & FC.k_rxns>1;
+FC.k_rxns   = FC.k_rxns(~armUP,:);
+FC.v_matrix = v_matrix(~armUP,:);
+FC.k_matrix = k_matrix(~armUP,:);
+rxnGeneM    = rxnGeneM(~armUP,:);
+FC.rxns     = FC.rxns(~armUP,:);
 
 %Order from highest to lowest median k_score (across alphas)
 [~,order]   = sort(FC.k_rxns,'descend');
@@ -122,7 +129,6 @@ if filterG
     FC.k_rxns   = FC.k_rxns(toKeep,:);
     FC.v_matrix = v_matrix(toKeep,:);
     FC.k_matrix = k_matrix(toKeep,:);
-    rxnGeneM    = rxnGeneM(toKeep,:);
     FC.rxns     = FC.rxns(toKeep,:);
 end
 
