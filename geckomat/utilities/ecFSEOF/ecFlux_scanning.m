@@ -40,7 +40,7 @@ cd ecFSEOF
 %Take out rxns with no grRule:
 withGR   = ~cellfun(@isempty,model.grRules);
 %Generate rxn equations:
-rxnEqs   =constructEquations(model,model.rxns(withGR),true);
+rxnEqs   = constructEquations(model,model.rxns(withGR),true);
 v_matrix = v_matrix(withGR,:);
 k_matrix = k_matrix(withGR,:);
 gene_rxn = model.rxnGeneMat(withGR,:);

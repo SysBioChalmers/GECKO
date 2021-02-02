@@ -69,4 +69,10 @@ try
 catch
     warning('Output files directory not found');
 end
+%Remove redundant output fields
+results = rmfield(results,'k_rxns');
+results = rmfield(results,'rxns');
+results = rmfield(results,'genes');
+results = rmfield(results,'geneNames');
+results = rmfield(results,'k_genes');
 end
