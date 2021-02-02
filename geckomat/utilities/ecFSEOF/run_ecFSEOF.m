@@ -47,14 +47,16 @@ results.geneTable(:,1) = results.genes;
 results.geneTable(:,2) = results.geneNames;
 results.geneTable(:,3) = num2cell(results.k_genes);
 %Create rxns table (exclude enzyme usage reactions):
-enzIndxs               = find(~startsWith(results.rxns(:,1),'draw_prot_'));
-results.k_rxns         = results.k_rxns(enzIndxs);
+toKeep                 = find(~startsWith(results.rxns(:,1),'draw_prot_'));
+results.k_rxns         = results.k_rxns(toKeep);
+results.k_matrix       = results.k_matrix(toKeep,:);
+results.v_matrix       = results.v_matrix(toKeep,:);
 results.rxnsTable      = cell(length(results.k_rxns),5);
-results.rxnsTable(:,1) = results.rxns(enzIndxs,1);
-results.rxnsTable(:,2) = results.rxns(enzIndxs,2);
+results.rxnsTable(:,1) = results.rxns(toKeep,1);
+results.rxnsTable(:,2) = results.rxns(toKeep,2);
 results.rxnsTable(:,3) = num2cell(results.k_rxns);
-results.rxnsTable(:,4) = results.rxns(enzIndxs,3);
-results.rxnsTable(:,5) = results.rxns(enzIndxs,4);
+results.rxnsTable(:,4) = results.rxns(toKeep,3);
+results.rxnsTable(:,5) = results.rxns(toKeep,4);
 try
     if ~isempty(file1)
         varNames = {'gene_IDs' 'gene_names' 'K_score'}; 
