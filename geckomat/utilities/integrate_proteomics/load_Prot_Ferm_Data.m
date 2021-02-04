@@ -44,7 +44,7 @@ end
 %Extract observed byProduct names from file
 [~,n] = size(fermData);
 if n>6
-    byProds  = fermData(1,7:end);
+    byProds  = fermData(1,8:end);
     byProds  = strrep(byProds,' (mmol/gDw h)','');
     byProds  = strrep(byProds,' [mmol/gDw h]','');
 else
@@ -52,14 +52,15 @@ else
 end
 fermParameters           = [];
 fermParameters.conds     = fermData(2:end,1);
-fermParameters.Ptot      = str2double(fermData(2:end,2));
-fermParameters.Drate     = str2double(fermData(2:end,3));
-fermParameters.GUR       = str2double(fermData(2:end,4));
-fermParameters.CO2prod   = str2double(fermData(2:end,5));
-fermParameters.OxyUptake = str2double(fermData(2:end,6));
+fermParameters.c_source  = fermData(2:end,2);
+fermParameters.Ptot      = str2double(fermData(2:end,3));
+fermParameters.Drate     = str2double(fermData(2:end,4));
+fermParameters.GUR       = str2double(fermData(2:end,5));
+fermParameters.CO2prod   = str2double(fermData(2:end,6));
+fermParameters.OxyUptake = str2double(fermData(2:end,7));
 fermParameters.byP_flux  = byProds;
 if ~isempty(fermParameters.byP_flux)
-    fermParameters.byP_flux = str2double(fermData(2:end,7:end));
+    fermParameters.byP_flux = str2double(fermData(2:end,8:end));
 end
 end
 
