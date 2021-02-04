@@ -19,14 +19,6 @@ function generate_protModels(ecModel,grouping,name,ecModel_batch)
 close all
 current = pwd;
 
-%This funcion allows for flexibilization of protein absolute abundances in 
-%case that ecModelP is not feasible using the automatically flexibilized 
-%data, if flex factor is not specified then a factor of 1 is assumed.
-cd ../..
-parameters = getModelParameters;
-Ptot_model = parameters.Ptot;
-c_source   = parameters.c_source;
-cd(current)
 if nargin<4
     ecModel_batch = [];
 end
