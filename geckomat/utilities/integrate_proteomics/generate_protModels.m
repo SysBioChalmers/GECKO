@@ -68,17 +68,8 @@ for i=1:length(conditions)
     initialProts = uniprotIDs;
     absValues    = absValues(grouping(i)+1:end);
     %Filter data
-    %Calculate sample specific f-factor, before filtering data. While there
-    %might be individual proteins with too much variability, this should
-    %not affect f calculation too much, meanwhile ensuring higher coverage.
-    cd ../../limit_proteins
-    f = measureAbundance(ecModel.enzymes,uniprotIDs,mean(abundances,2,'omitnan'));
-    sumP = sum(mean(abundances,2,'omitnan'),'omitnan'); % Sum of unfiltered proteins
-    %Filter proteomics data, to only keep high quality measurements
-    cd ../utilities/integrate_proteomics
     [pIDs, abundances] = filter_ProtData(uniprotIDs,abundances,1.96,true);
     filteredProts      = pIDs;
-    disp(['Filtered out ' num2str(round((1-(numel(pIDs)/numel(uniprotIDs)))*100,1)) '% of protein measurements due to low quality.'])
     cd ..
     %correct oxPhos complexes abundances
     if ~isempty(oxPhos)
@@ -96,20 +87,15 @@ for i=1:length(conditions)
     %rescaled and GAM refitted to this condition.
     %For fitting GAM a functional model is needed therefore an ecModel with
     %total protein pool constraint should be used
-    %Prot_diff = abs(Ptot_model-Ptot(i))/Ptot_model;
-    %if Prot_diff>=0.05
-       %[~,GAM] = scaleBioMass(tempModel,Ptot(i),[],true);
+    Prot_diff = abs(Ptot_model-Ptot(i))/Ptot_model;
+    if Prot_diff>=0.05
+       [~,GAM] = scaleBioMass(tempModel,Ptot(i),[],true);
         %Then the GAM and new biomass composition are set in ecModelP, which 
         %is not functional yet but should be used for incorporation of 
         %proteomics data
-        %ecModelP = scaleBioMass(ecModelP,Ptot(i),GAM,true);
-        %disp(' ')
-    %end
-    %Use ecModel_batch to rescale the biomass and estimate the GAM
-    [~,GAM] = scaleBioMass(tempModel,Ptot(i),[],true);
-    %Rescale the ecModel that will have proteomics integrated and reuse the
-    %GAM calculated above
-    ecModelP = scaleBioMass(ecModelP,Ptot(i),GAM,true);
+        ecModelP = scaleBioMass(ecModelP,Ptot(i),GAM,true);
+        disp(' ')
+    end
     %Block production of non-observed metabolites before data incorporation
     %and flexibilization
     expData  = [GUR(i),CO2prod(i),OxyUptake(i)];
@@ -136,9 +122,9 @@ for i=1:length(conditions)
         enzIndex = find(contains(tempModel.enzymes,matchedEnz{j}));
     end
     %Get model with proteomics
-    sumPfilt = sum(abundances); % Sum of filtered proteins
-    PtotNew=Ptot(i)*(sumPfilt/sumP); % sumPfilt is higher than sumP due to adding of standard deviation and flexilizing because of too low measurement. Scale PtotNew with this ratio. 
-    [ecModelP,usagesT,modificationsT,~,coverage] = constrainEnzymes(ecModelP,f,GAM,PtotNew,pIDs,abundances,Drate(i),flexGUR);
+    f       = 1; %Protein mass in model/Total theoretical proteome
+    disp(['Incorporation of proteomics constraints for ' conditions{i} ' condition'])
+    [ecModelP,usagesT,modificationsT,~,coverage] = constrainEnzymes(ecModelP,f,GAM,Ptot(i),pIDs,abundances,Drate(i),flexGUR);
     matchedProteins = usagesT.prot_IDs;
     prot_input = {initialProts filteredProts matchedProteins ecModel.enzymes coverage};
     writeProtCounts(conditions{i},prot_input,name); 
@@ -155,8 +141,14 @@ for i=1:length(conditions)
         fileFluxes = ['../../models/prot_constrained/' name '/fluxes_Exch_' conditions{i} '.txt'];
         printFluxes(ecModelP,solution.x,true,1E-4,fileFluxes)
     end
-    save(['../../models/prot_constrained/' name '/' name '_' conditions{i} '.mat'],'ecModelP')
-    % save .txt file
+    cd ../change_model
+    [~,~,version] = preprocessModel(ecModelP,'','');
+    cd ../../models/prot_constrained
+    addpath('..')
+    saveECmodel(ecModelP,'COBRA',name,version);
+    rmpath('..')
+    cd ../../geckomat/limit_proteins
+    %save .txt file
     writetable(usagesT,['../../models/prot_constrained/' name '/enzymeUsages_' conditions{i} '.txt'],'Delimiter','\t')
     writetable(modificationsT,['../../models/prot_constrained/' name '/modifiedEnzymes_' conditions{i} '.txt'],'Delimiter','\t')
 end
