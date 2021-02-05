@@ -141,9 +141,9 @@ for i=1:length(conditions)
     %flexibilization as applied to the measured proteins.
     sumPfilt = sum(abundances);
     if sumPfilt>sumP
-        Ptot=flux.Ptot(i)*(sumPfilt/sumP);
+        flexPtot=Ptot(i)*(sumPfilt/sumP);
     end
-    [ecModelP,usagesT,modificationsT,~,coverage] = constrainEnzymes(ecModelP,f,GAM,Ptot,pIDs,abundances,flux.Drate(i),flexGUR);
+    [ecModelP,usagesT,modificationsT,~,coverage] = constrainEnzymes(ecModelP,f,GAM,flexPtot,pIDs,abundances,Drate(i),flexGUR);
     matchedProteins = usagesT.prot_IDs;
     prot_input = {initialProts filteredProts matchedProteins ecModel.enzymes coverage};
     writeProtCounts(conditions{i},prot_input,name); 
