@@ -57,7 +57,7 @@ end
 %Load absolute proteomics dataset [mmol/gDw]
 %and fermentation data (GUR, OUR, CO2 production, byProducts, Ptot, Drate)
 cd utilities/integrate_proteomics/
-[uniprotIDs,absValues,fermData,byProducts] = load_Prot_Ferm_Data(grouping);
+[initialProts,absValues,fermData,byProducts] = load_Prot_Ferm_Data(grouping);
 conditions = fermData.conds;
 Ptot       = fermData.Ptot;
 Drate      = fermData.Drate;
@@ -71,21 +71,19 @@ for i=1:length(conditions)
     disp(conditions{i})
     %Extract data for the i-th condition
     abundances   = cell2mat(absValues(1:grouping(i)));
-    initialProts = uniprotIDs;
     absValues    = absValues(grouping(i)+1:end);
     
     %Calculate sample-specific f-factor, before filtering data. While there
     %might be individual proteins with too much variability, this should
     %not affect f calculation too much, meanwhile ensuring higher coverage.
     cd ../../limit_proteins
-    f = measureAbundance(ecModel.enzymes,prot.IDs,mean(abundances,2,'omitnan'));
-    sumP = sum(mean(abundances,2,'omitnan'),'omitnan'); % Sum of measured proteome, to be used later
-    
+    f = measureAbundance(ecModel.enzymes,initialProts,mean(abundances,2,'omitnan'));
+    sumP = sum(mean(abundances,2,'omitnan'),'omitnan'); % Sum of unfiltered proteins
     %Filter proteomics data, to only keep high quality measurements
     cd ../utilities/integrate_proteomics
-    [pIDs, abundances] = filter_ProtData(prot.IDs,abundances,1.96,true);
-    
-    disp(['Filtered out ' num2str(round((1-(numel(pIDs)/numel(prot.IDs)))*100,1)) '% of protein measurements due to low quality.'])
+    [pIDs, abundances] = filter_ProtData(initialProts,abundances,1.96,true);
+    filteredProts      = pIDs;
+    disp(['Filtered out ' num2str(round((1-(numel(pIDs)/numel(initialProts)))*100,1)) '% of protein measurements due to low quality.'])
     cd ..
     %correct oxPhos complexes abundances
     if ~isempty(oxPhos)
