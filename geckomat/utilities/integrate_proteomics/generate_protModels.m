@@ -96,14 +96,12 @@ for i=1:length(conditions)
     ecModelP  = changeMedia_batch(ecModel,c_source);
     tempModel = changeMedia_batch(ecModel_batch,c_source);
     cd ../limit_proteins
-    %If the relative difference between the ecModel's protein content and
-    %the Ptot for i-th condition is higher than 5% then biomass should be
-    %rescaled and GAM refitted to this condition.
+    %If the ecModel's protein content is not the same as the Ptot for i-th
+    %condition then biomass should be rescaled and GAM refitted to this condition.
     %For fitting GAM a functional model is needed therefore an ecModel with
     %total protein pool constraint should be used
-    Prot_diff = abs(Ptot_model-Ptot(i))/Ptot_model;
-    if Prot_diff>=0.05
-       [~,GAM] = scaleBioMass(tempModel,Ptot(i),[],true);
+    if Ptot_model ~= Ptot(i)
+        [~,GAM] = scaleBioMass(tempModel,Ptot(i),[],true);
         %Then the GAM and new biomass composition are set in ecModelP, which 
         %is not functional yet but should be used for incorporation of 
         %proteomics data
