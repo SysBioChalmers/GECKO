@@ -20,7 +20,6 @@ if any(isnan(model.concs))
             tempModel = setParam(tempModel,'ub',poolIndex,newPool);
             %As bounds for CUR and growth have already been set, protein
             %pool minimization is set as an objective
-            originalC = model.c;
             tempModel = setParam(tempModel,'obj',poolIndex,-1);
             solution  = solveLP(tempModel);
             if ~isempty(solution.x)
@@ -34,7 +33,6 @@ if any(isnan(model.concs))
                 warning('Unfeasible protein flexibilization')
                 model = setParam(tempModel,'ub',poolIndex,1000);
             end
-            model.c = originalC;
         end
     else
         warning('The total measured protein mass exceeds the total protein content.')
