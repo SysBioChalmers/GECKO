@@ -38,11 +38,21 @@ if isfield(model,'rules')
     initCobraToolbox
     model = ravenCobraWrapper(model);
 end
+
+fprintf('\n***************************************************************')
+fprintf('\n   GECKO: Adding enzyme constraints to a genome-scale model')
+fprintf('\n***************************************************************\n\n')
+
 %Get model-specific parameters
 parameters = getModelParameters;
+
 %Remove blocked rxns + correct model.rev:
 cd change_model
 [model,name,modelVer] = preprocessModel(model,name,modelVer);
+
+fprintf('\n==================')
+fprintf('\nGenerating ecModel:')
+fprintf('\n==================\n')
 
 %Retrieve kcats & MWs for each rxn in model:
 cd ../get_enzyme_data
@@ -59,11 +69,17 @@ if ~isdir(['../../models/' name])
     mkdir(['../../models/' name])
 end
 %Constrain model to batch conditions:
+fprintf('\n==============================================================')
+fprintf('\nGenerating ecModel with shared pool assumption (ecModel_batch):')
+fprintf('\n==============================================================\n')
 cd ../limit_proteins
 [ecModel_batch,OptSigma] = getConstrainedModel(ecModel,modifications,name);
 disp(['Sigma factor (fitted for growth on glucose): ' num2str(OptSigma)])
 
 %Save output models:
+fprintf('\n=============')
+fprintf('\nSaving models:')
+fprintf('\n=============\n')
 cd ../../models
 ecModel = saveECmodel(ecModel,toolbox,name,modelVer);
 ecModel_batch = saveECmodel(ecModel_batch,toolbox,[name '_batch'],modelVer);

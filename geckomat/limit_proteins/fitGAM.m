@@ -31,7 +31,7 @@ else
     model = setParam(model,'ub','prot_pool_exchange',+1000);
     
     %GAMs to span:
-    disp('Estimating GAM:')
+    fprintf('Estimating GAM...')
     GAM = 20:5:100;
     
     %1st iteration:
@@ -45,6 +45,7 @@ else
     
     %If verbose output is not required, then the only displayed value is the optimal one
     if ~verbose
+        fprintf(' Done!\n')
         disp(['Fitted GAM = ' num2str(GAM) ' -> Error = ' num2str(error)])
     end
     %Plot fit:
@@ -62,7 +63,6 @@ else
     ylabel('Exchange fluxes [mmol/gDWh]')
     legend(b,'Glucose consumption','O2 consumption','CO2 production','Location','northwest')
     hold off
-    disp(' ')
 end
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -77,7 +77,9 @@ for i = 1:length(GAM)
     R          = (mod_data - exp_data)./exp_data;
     fitting(i) = sqrt(sum(sum(R.^2)));
     if verbose
-        disp(['GAM = ' num2str(GAM(i)) ' -> Error = ' num2str(fitting(i))])
+        fprintf(['\nGAM = ' num2str(GAM(i)) ' -> Error = ' num2str(fitting(i)) '\n'])
+    else
+        fprintf('.')
     end
 end
 

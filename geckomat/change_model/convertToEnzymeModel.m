@@ -19,6 +19,8 @@
 
 function eModel = convertToEnzymeModel(irrevModel,Genes,uniprots,kcats)
 
+fprintf('Adding enzymes to reactions...')
+
 %Load databases:
 data      = load('../../databases/ProtDatabase.mat');
 swissprot = data.swissprot;
@@ -69,7 +71,7 @@ for i = 1:m
         eModel = removeReactions(eModel,{rxnID});  %Remove the original rxn
     end
     if rem(i,100) == 0 || i == m 
-        disp(['Adding enzymes to rxns: Ready with rxn ' num2str(i)])
+        fprintf('.')
     end
 end
 
@@ -87,6 +89,8 @@ eModel.pathways  = cell(0,1);
 for i = 1:length(enzymes)
     eModel = addProtein(eModel,enzymes{i},kegg,swissprot);
 end
+
+fprintf(' Done!\n')
 
 end
 

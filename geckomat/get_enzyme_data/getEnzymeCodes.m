@@ -33,6 +33,8 @@ if nargin<2
     action = 'display';
 end
 
+fprintf('Retrieving EC numbers...')
+
 %Standardize grRules to avoid wrong enzyme codes assignments to reactions
 [grRules,~]   = standardizeGrRules(model,true);
 model.grRules = grRules;
@@ -150,7 +152,7 @@ for i = 1:n
         end
     end
     if rem(i,100) == 0 || i == n
-        disp(['Getting enzyme codes: Ready with rxn ' int2str(i)])
+        fprintf('.')
     end
 end
 model_data.model        = model;
@@ -165,6 +167,8 @@ model_data.count        = count;
 if strcmpi(action,'display') && ~isempty(conflicts{1})
     displayErrorMessage(conflicts,swissprot,kegg)
 end
+
+fprintf(' Done!\n')
 
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

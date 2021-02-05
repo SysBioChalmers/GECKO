@@ -45,6 +45,7 @@ if nargin==1 % Only load file if abundances are not already provided.
 end
 
 if ~isempty(abundance)
+    fprintf('Calculating total abundance...')
     %Load swissprot data:
     data      = load('../../databases/ProtDatabase.mat');
     swissprot = data.swissprot;
@@ -78,12 +79,12 @@ if ~isempty(abundance)
         end
         concs(i) = MW*abundance(i);     %g/mol(tot prot)
         if rem(i,100) == 0 || i == length(abundance)
-            disp(['Calculating total abundance: Ready with ' num2str(i) '/' ...
-                num2str(length(abundance)) ' genes '])
+            fprintf('.')
         end
     end
     f     = sum(concs(counter),'omitnan')/sum(concs,'omitnan');
     count = [length(counter);sum(counter,'omitnan')];
+    fprintf(' Done!\n')
 else
     disp('prot_abundance file is empty or not available, and no abundances were provided as input. A default value of f=0.5 is set instead')
     f     = 0.5;
