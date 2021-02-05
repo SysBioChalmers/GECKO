@@ -147,7 +147,10 @@ for i=1:length(conditions)
     addpath('..')
     saveECmodel(ecModelP,'COBRA',name,version);
     rmpath('..')
-    cd ../../geckomat/limit_proteins
+    cd(name)
+    movefile([name, '.txt'], [name, '_', conditions{i}, '.txt']);
+    movefile([name, '.xml'], [name, '_', conditions{i}, '.xml']);
+    cd ../../../geckomat/limit_proteins
     %save .txt file
     writetable(usagesT,['../../models/prot_constrained/' name '/enzymeUsages_' conditions{i} '.txt'],'Delimiter','\t')
     writetable(modificationsT,['../../models/prot_constrained/' name '/modifiedEnzymes_' conditions{i} '.txt'],'Delimiter','\t')
