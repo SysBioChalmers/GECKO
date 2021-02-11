@@ -140,9 +140,7 @@ for i=1:length(conditions)
     %protein content by the same ratio, so that the protein pool is receiving the similar 
     %flexibilization as applied to the measured proteins.
     sumPfilt = sum(abundances);
-    if sumPfilt>sumP
-        flexPtot=Ptot(i)*(sumPfilt/sumP);
-    end
+    flexPtot=Ptot(i)*(sumPfilt/sumP);
     [ecModelP,usagesT,modificationsT,~,coverage] = constrainEnzymes(ecModelP,f,GAM,flexPtot,pIDs,abundances,Drate(i),flexGUR);
     matchedProteins = usagesT.prot_IDs;
     prot_input = {initialProts filteredProts matchedProteins ecModel.enzymes coverage};
