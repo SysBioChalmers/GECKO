@@ -28,7 +28,12 @@ else
 
     %Load chemostat data:
     fid = fopen('../../databases/chemostatData.tsv','r');
-    exp_data = textscan(fid,'%f32 %f32 %f32 %f32','Delimiter','\t','HeaderLines',1);
+    cSource{1} = fgetl(fid);
+    cSource{2} = regexprep(cSource{1},'.*\t(.*)Uptake.*','$1');
+    if strcmp(cSource{1},cSource{2})
+        error("Cannot recognize headerline of 'chemostatData.tsv'.");
+    end
+    exp_data = textscan(fid,'%f32 %f32 %f32 %f32','Delimiter','\t');
     exp_data = [exp_data{1} exp_data{2} exp_data{3} exp_data{4}];
     fclose(fid);
     
@@ -63,10 +68,10 @@ else
         b(i) = plot(mod_data(:,1),mod_data(:,i+1),'Color',cols(i,:),'LineWidth',2);
         plot(exp_data(:,1),exp_data(:,i+1),'o','Color',cols(i,:),'MarkerFaceColor',cols(i,:))
     end
-    title('GAM fitting for growth on glucose minimal media')
+    title(['GAM fitting for growth on ', cSource{2}])
     xlabel('Dilution rate [1/h]')
     ylabel('Exchange fluxes [mmol/gDWh]')
-    legend(b,'Glucose consumption','O2 consumption','CO2 production','Location','northwest')
+    legend(b,[cSource{2}, ' consumption'],'O2 consumption','CO2 production','Location','northwest')
     hold off
 end
 end
