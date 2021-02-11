@@ -25,6 +25,6 @@ GAMpol = P*cost(1) + C*cost(2) + R*cost(3) + D*cost(4);
 
 bioRxn = strcmp(model.rxns,bioRxn);
 ADP = find(strcmp(model.metNames,'ADP'));
-GAMtotal = max(full(model.S(ADP,bioRxn)));
+GAEC = max(full(model.S(ADP,bioRxn)));
 
-GAMnonPol = GAMtotal - GAMpol;
+GAMnonPol = GAEC - GAMpol;
