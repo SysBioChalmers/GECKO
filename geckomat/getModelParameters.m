@@ -16,6 +16,10 @@ parameters.Ptot = 0.5;      %Assumed constant
 %Minimum growth rate the model should grow at [1/h]
 parameters.gR_exp = 0.41;     %[g/gDw h] 
 
+%Set GAM parameters (optional)
+%parameters.GAM = 100; %Use fixed GAM instead of fitting by fitGAM
+%parameters.maxGAM = 100; %Maximum allowable GAM to be used by fitGAM, default is 100;
+
 %Provide your organism scientific name
 parameters.org_name = 'saccharomyces cerevisiae';
 

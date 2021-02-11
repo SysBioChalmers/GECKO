@@ -20,7 +20,12 @@ else
     if nargin<2
         verbose = true;
     end
-    
+    if isfield(parameters,'maxGAM')
+        maxGAM = parameters.maxGAM;
+    else
+        maxGAM = 100;
+    end
+
     %Load chemostat data:
     fid = fopen('../../databases/chemostatData.tsv','r');
     exp_data = textscan(fid,'%f32 %f32 %f32 %f32','Delimiter','\t','HeaderLines',1);
@@ -32,7 +37,7 @@ else
     
     %GAMs to span:
     fprintf('Estimating GAM...')
-    GAM = 20:5:100;
+    GAM = 20:5:maxGAM;
     
     %1st iteration:
     GAM = iteration(model,GAM,exp_data,verbose);
