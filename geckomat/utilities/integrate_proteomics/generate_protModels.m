@@ -147,9 +147,15 @@ for i=1:length(conditions)
     addpath('..')
     saveECmodel(ecModelP,'COBRA',name,version);
     rmpath('..')
+    %Rename model file names to include conditions{i}
     cd(name)
-    movefile([name, '.txt'], [name, '_', conditions{i}, '.txt']);
-    movefile([name, '.xml'], [name, '_', conditions{i}, '.xml']);
+    fileNames = struct2cell(dir('.'));
+    fileNames = fileNames(1,:);
+    fileNames(cellfun(@isempty, regexp(fileNames, [name, '(\.\w{3})']))) = [];
+    for j = 1:length(fileNames)
+        newFileName = regexprep(fileNames{j},[name, '(\.\w{3})'], [name, '_', conditions{i}, '$1']);
+        movefile(fileNames{j}, newFileName);
+    end
     cd ../../../geckomat/limit_proteins
     %save .txt file
     writetable(usagesT,['../../models/prot_constrained/' name '/enzymeUsages_' conditions{i} '.txt'],'Delimiter','\t')
