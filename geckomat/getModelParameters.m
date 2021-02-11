@@ -17,7 +17,10 @@ parameters.Ptot = 0.5;      %Assumed constant
 parameters.gR_exp = 0.41;     %[g/gDw h] 
 
 %Set GAM parameters (optional)
-%parameters.GAM = 100; %Use fixed GAM instead of fitting by fitGAM
+%Note: the GAM value specified here represents only the part of growth
+%associated energy cost that cannot be attributed to the cost of polymerizing
+%the macromolecules that make up biomass. This can be determined by splitGAEC.m.
+%parameters.GAM = 100; 
 %parameters.maxGAM = 100; %Maximum allowable GAM to be used by fitGAM, default is 100;
 
 %Provide your organism scientific name
