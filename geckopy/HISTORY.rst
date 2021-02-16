@@ -1,6 +1,19 @@
 History
 =======
 
+2.0.2 (2021-02-17)
+------------------
+* Features:
+    * FSEOF implementation for ecModels in ``/geckomat/utilities/`` (PR #119).
+    * Routines for quickly generating context-specific ecModels from a general ecModel, also in ``/geckomat/utilities/`` (PR #120).
+* Fixes:
+    * Closes #116: Migrated CI to `Travis-CI.com <https://travis-ci.com/github/SysBioChalmers/GECKO>`_ (PR #118).
+    * ``prot_abundance.txt`` can now be an empty file without the pipeline erroring (PR #124).
+    * Removes storage of metabolite notes in the ecModel, which were causing an error in COBRA (PR #125).
+* Documentation/Styling/Others:
+    * Added contributing guidelines, code of conduct and PR/issue templates (PR #115).
+    * Closes #123: Simplified GECKO pipeline log (PR #128).
+
 2.0.1 (2020-11-19)
 ------------------
 * Fixes:
