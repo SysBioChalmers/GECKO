@@ -51,12 +51,12 @@ else
     GAM = iteration(model,GAM-10:1:GAM+10,exp_data,verbose);
     
     %3rd iteration:
-    [GAM,error] = iteration(model,GAM-1:0.1:GAM+1,exp_data,verbose);
+    [GAM,fitError] = iteration(model,GAM-1:0.1:GAM+1,exp_data,verbose);
     
     %If verbose output is not required, then the only displayed value is the optimal one
     if ~verbose
         fprintf(' Done!\n')
-        disp(['Fitted GAM = ' num2str(GAM) ' -> Error = ' num2str(error)])
+        disp(['Fitted GAM = ' num2str(GAM) ' -> Error = ' num2str(fitError)])
     end
     %Plot fit:
     mod_data = simulateChemostat(model,exp_data,GAM);
@@ -77,7 +77,7 @@ end
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function [GAM,error] = iteration(model,GAM,exp_data,verbose)
+function [GAM,fitError] = iteration(model,GAM,exp_data,verbose)
 
 fitting = ones(size(GAM))*1000;
 
@@ -94,7 +94,7 @@ for i = 1:length(GAM)
 end
 
 %Choose best:
-[error,best] = min(fitting);
+[fitError,best] = min(fitting);
 
 if best == 1 || best == length(GAM)
     error('GAM found is sub-optimal: please expand GAM search bounds.')
