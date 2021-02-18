@@ -167,13 +167,13 @@ When releasing, please follow these steps:
 2. Wait at least a day + 1 approval + passing CI.
 3. Bump to the new version x.y.z. For this, create in `devel` a single commit `chore: version X.Y.Z` with:
     * Updated `/geckopy/HISTORY.rst` by putting at the top the same description as in the PR from step 1 (use https://pandoc.org/try for transforming markdown to ReSTructured text).
-	  * Updated version in:
+    * Updated version in:
       - `/docs/conf.py` (lines 57 & 59).
       - `/geckopy/setup.cfg` (line 2).
       - `/geckopy/setup.py` (line 22).
       - `/geckopy/geckopy/__init__.py` (line 10).
 
-	  * Updated `/README.rst` date (line 14).
+    * Updated `/README.rst` date (line 14).
 4. Push the commit and confirm that the CI tool is still passing.
 5. Merge PR -> confirm that the CI tool is still passing.
 6. In `master`, create LOCALLY a tag `vX.Y.Z` on the latest merge commit + push said tag (in git kraken or with `git push origin vX.Y.Z`) -> confirm that the CI tool is still passing and geckopy deploys to PyPI (check [here](https://pypi.org/project/geckopy/)).
