@@ -36,7 +36,7 @@ flexProts     = {};
 enzUsages     = [];
 modifications = {};
 %constrain glucose uptake if an experimental measurement is provided
-if nargin > 2
+if nargin > 2 & ~isempty(c_source)
     glucUptkIndx           = strcmp(model.rxnNames,c_source);
     model.ub(glucUptkIndx) = c_UptakeExp;
 end

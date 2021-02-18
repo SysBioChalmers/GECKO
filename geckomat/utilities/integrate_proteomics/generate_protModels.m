@@ -19,14 +19,6 @@ function generate_protModels(ecModel,grouping,name,ecModel_batch)
 close all
 current = pwd;
 
-%This funcion allows for flexibilization of protein absolute abundances in 
-%case that ecModelP is not feasible using the automatically flexibilized 
-%data, if flex factor is not specified then a factor of 1 is assumed.
-cd ../..
-parameters = getModelParameters;
-Ptot_model = parameters.Ptot;
-c_source   = parameters.c_source;
-cd(current)
 if nargin<4
     ecModel_batch = [];
 end
@@ -45,7 +37,6 @@ oxPhos = getOxPhosRxnIDs(ecModel,parameters);
 %create subfolder for ecModelProts output files
 mkdir(['../models/prot_constrained/' name])
 %Get indexes for carbon source uptake and growth reaction
-positionsEC(1) = find(strcmpi(ecModel.rxnNames,c_source));
 positionsEC(2) = find(strcmpi(ecModel.rxnNames,growthRxn));
 %Remove prot_abundance.txt  and relative_proteomics.txt files
 %(for f factor calculation)
@@ -65,10 +56,13 @@ GUR        = fermData.GUR;
 CO2prod    = fermData.CO2prod;
 OxyUptake  = fermData.OxyUptake;
 byP_flux   = fermData.byP_flux;
+c_source   = fermData.c_source;
 %For each condition create a protein constrained model
 for i=1:length(conditions)
     cd (current)
     disp(conditions{i})
+    c_source_exch = c_source(i);
+    positionsEC(1) = find(strcmpi(ecModel.rxnNames,c_source_exch));
     %Extract data for the i-th condition
     abundances   = cell2mat(absValues(1:grouping(i)));
     initialProts = uniprotIDs;
@@ -85,8 +79,8 @@ for i=1:length(conditions)
     end
     %Set minimal medium
     cd ../kcat_sensitivity_analysis
-    ecModelP  = changeMedia_batch(ecModel,c_source);
-    tempModel = changeMedia_batch(ecModel_batch,c_source);
+    ecModelP  = changeMedia_batch(ecModel,c_source_exch);
+    tempModel = changeMedia_batch(ecModel_batch,c_source_exch);
     cd ../limit_proteins
     %If the relative difference between the ecModel's protein content and
     %the Ptot for i-th condition is higher than 5% then biomass should be
@@ -106,6 +100,7 @@ for i=1:length(conditions)
     %and flexibilization
     expData  = [GUR(i),CO2prod(i),OxyUptake(i)];
     flexGUR  = flexFactor*GUR(i);
+    ecModelP = setParam(ecModelP,'ub',positionsEC(1),flexGUR);
     ecModelP = DataConstrains(ecModelP,byProducts,byP_flux(i,:),1.1);
     %Get a temporary model structure with the same constraints to be used
     %for minimal enzyme requirements analysis. For all measured enzymes
@@ -130,7 +125,7 @@ for i=1:length(conditions)
     %Get model with proteomics
     f       = 1; %Protein mass in model/Total theoretical proteome
     disp(['Incorporation of proteomics constraints for ' conditions{i} ' condition'])
-    [ecModelP,usagesT,modificationsT,~,coverage] = constrainEnzymes(ecModelP,f,GAM,Ptot(i),pIDs,abundances,Drate(i),flexGUR);
+    [ecModelP,usagesT,modificationsT,~,coverage] = constrainEnzymes(ecModelP,f,GAM,Ptot(i),pIDs,abundances,Drate(i));
     matchedProteins = usagesT.prot_IDs;
     prot_input = {initialProts filteredProts matchedProteins ecModel.enzymes coverage};
     writeProtCounts(conditions{i},prot_input,name); 
@@ -153,7 +148,16 @@ for i=1:length(conditions)
     addpath('..')
     saveECmodel(ecModelP,'COBRA',name,version);
     rmpath('..')
-    cd ../../geckomat/limit_proteins
+    %Rename model file names to include conditions{i}
+    cd(name)
+    fileNames = struct2cell(dir('.'));
+    fileNames = fileNames(1,:);
+    fileNames(cellfun(@isempty, regexp(fileNames, [name, '(\.\w{3})']))) = [];
+    for j = 1:length(fileNames)
+        newFileName = regexprep(fileNames{j},[name, '(\.\w{3})'], [name, '_', conditions{i}, '$1']);
+        movefile(fileNames{j}, newFileName);
+    end
+    cd ../../../geckomat/limit_proteins
     %save .txt file
     writetable(usagesT,['../../models/prot_constrained/' name '/enzymeUsages_' conditions{i} '.txt'],'Delimiter','\t')
     writetable(modificationsT,['../../models/prot_constrained/' name '/modifiedEnzymes_' conditions{i} '.txt'],'Delimiter','\t')
