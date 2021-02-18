@@ -2,6 +2,8 @@
 
 function model = removeIncorrectPathways(model)
 
+fprintf('Removing incorrect pathways...')
+
 %Construct vector of non repeated pathways:
 for i = 1:length(model.enzymes)
     pathway_i = model.pathways{i};
@@ -22,11 +24,7 @@ for i = 1:length(model.enzymes)
                 strcmp(pathway,'sce00460  Cyanoamino acid metabolism') || ...
                 strcmp(pathway,'sce00680  Methane metabolism');
             
-        if weird
-            disp([model.enzymes{i} ': ' pathway])
-            disp(pathway_i)
-            disp(' ')
-        else
+        if ~weird
             pathway_new = [pathway_new pathway ' '];
         end
         
@@ -36,6 +34,10 @@ for i = 1:length(model.enzymes)
     if strcmp(model.pathways{i},'') || strcmp(model.pathways{i},'-')
         model.pathways{i} = 'sce00NNN  None';
     end
+end
+
+fprintf(' Done!\n')
+
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

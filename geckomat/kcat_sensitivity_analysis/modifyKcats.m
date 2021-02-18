@@ -59,7 +59,6 @@ while error<=-10
     else
         break
     end
-    fprintf('\n')
 end
 %Create a .txt file with all the modifications that were done on the
 %individual Kcat coefficients

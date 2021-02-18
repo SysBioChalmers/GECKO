@@ -11,7 +11,7 @@ The **GECKO** toolbox is a Matlab/Python package for enhancing a **G**\ enome-sc
 - ``geckomat``: Matlab+Python scripts to fetch online data and build/simulate enzyme-constrained models.
 - ``geckopy``: a Python package which can be used with `cobrapy <https://opencobra.github.io/cobrapy/>`_ to obtain a ecYeastGEM model object, optionally adjusted for provided proteomics data.
 
-Last update: 2020-11-19
+Last update: 2021-02-17
 
 This repository is administered by Benjamin J. Sanchez (`@BenjaSanchez <https://github.com/benjasanchez>`_), Division of Systems and Synthetic Biology, Department of Biology and Biological Engineering, Chalmers University of Technology.
 
@@ -95,6 +95,11 @@ Usage
    model.limit_proteins(some_measurements)
    model.optimize()
 
+Contributing
+------------
+
+Contributions are always welcome! Please read the `contributing guidelines <https://github.com/SysBioChalmers/GECKO/blob/devel/.github/CONTRIBUTING.md>`_ to get started.
+
 Contributors
 ------------
 
@@ -107,8 +112,8 @@ Contributors
 
 .. |Current Version| image:: https://badge.fury.io/gh/sysbiochalmers%2Fgecko.svg
    :target: https://badge.fury.io/gh/sysbiochalmers%2Fgecko
-.. |Build Status| image:: https://travis-ci.org/SysBioChalmers/GECKO.svg?branch=master
-   :target: https://travis-ci.org/SysBioChalmers/GECKO
+.. |Build Status| image:: https://travis-ci.com/SysBioChalmers/GECKO.svg?branch=master
+   :target: https://travis-ci.com/SysBioChalmers/GECKO
 .. |PyPI Version| image:: https://badge.fury.io/py/geckopy.svg
    :target: https://badge.fury.io/py/geckopy
 .. |Docs Status| image:: https://readthedocs.org/projects/geckotoolbox/badge/?version=latest

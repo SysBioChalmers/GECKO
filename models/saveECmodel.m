@@ -6,6 +6,8 @@
 
 function model = saveECmodel(model,toolbox,name,version)
 
+fprintf(['Saving ' name version ':\n'])
+
 %Define file path for storage:
 struct_name = 'ecModel';
 if endsWith(name,'_batch')
@@ -43,6 +45,7 @@ if strcmp(toolbox,'COBRA')
     model_cobra = takeOutField(model_cobra,'metCharges');
     model_cobra = takeOutField(model_cobra,'metChEBIID');
     model_cobra = takeOutField(model_cobra,'metKEGGID');
+    model_cobra = takeOutField(model_cobra,'metNotes');
     model_cobra = takeOutField(model_cobra,'metSBOTerms');
     model_cobra = takeOutField(model_cobra,'rxnConfidenceScores');
     model_cobra = takeOutField(model_cobra,'rxnECNumbers');

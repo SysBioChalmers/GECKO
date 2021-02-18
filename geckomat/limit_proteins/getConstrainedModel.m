@@ -55,9 +55,7 @@ if ~isempty(solution.f)
     ObjIndex = find(ecModel_batch.c);
     % If the model is overconstrained
     if (gRate-solution.x(ObjIndex))>0
-        fprintf('\n')
-        disp('***************************************************************')
-        disp('                The ECmodel is overconstrained                 ')
+        disp('The ECmodel is overconstrained!')
         %Perform a sensitivity analysis on the objective function with
         %respect to the individual Kcat coefficients, the algorithm will
         %iterate replacing the top limiting value according to the maximum
@@ -65,24 +63,26 @@ if ~isempty(solution.f)
         %is no longer underpredicted
         ecModel_batch = modifyKcats(ecModel_batch,gRate,modifications,name);
     else
-        fprintf('\n')
-        disp('***************************************************************')
-        disp('              The ECmodel is not overconstrained               ')
+        disp('The ECmodel is not overconstrained.')
     end
     %The sigma factor is reffited for the specified conditions (constraints in the model)
-    fprintf('\n')
     disp('***************************************************************')
-    disp('        Fitting the average enzymes saturation factor          ')
     OptSigma          = sigmaFitter(ecModel_batch,Ptot,gRate,f);
     enzymePos         = strcmp(ecModel_batch.rxns,'prot_pool_exchange');
     currentEnzymeUB   = ecModel_batch.ub(enzymePos);
     newEnzymeUB       = currentEnzymeUB*OptSigma/sigma;
     ecModel_batch     = setParam(ecModel_batch,'ub','prot_pool_exchange',newEnzymeUB);
-    %Simulate growth on minimal media and export the top ten used
-    %enzymes to the file "topUsedEnzymes.txt" in the containing folder
-    solution          = solveLP(ecModel_batch,1);
-    topUsedEnzymes(solution.x,ecModel_batch,{'Min_glucose'},name);
-    cd ../limit_proteins
+    %Simulate growth on minimal media and export to the output folder:
+    % 1) the exchange fluxes to the file "exchangeFluxes.txt"
+    % 2) the top ten used enzymes to the file "topUsedEnzymes.txt"
+    solution = solveLP(ecModel_batch,1);
+    if ~isempty(solution.x)
+        disp('Saving simulation results files...')
+        fluxFileName = ['../../models/' name '/' name '_exchangeFluxes.txt'];
+        printFluxes(ecModel_batch,solution.x,true,10^-6,fluxFileName);
+        topUsedEnzymes(solution.x,ecModel_batch,{'Min_glucose'},name);
+    end 
+    cd ../limit_proteins   
 else
     disp('ecModel with enzymes pool constraint is not feasible')
 end
