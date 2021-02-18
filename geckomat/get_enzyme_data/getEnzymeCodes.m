@@ -25,7 +25,7 @@
 %           *count(4):   #other rxns
 % 
 % Benjamin Sanchez. Last edited: 2017-03-05
-% Ivan Domenzain.   Last edited: 2018-09-07
+% Ivan Domenzain.   Last edited: 2020-02-07
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function model_data = getEnzymeCodes(model,action)
 
@@ -173,8 +173,11 @@ fprintf(' Done!\n')
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function database = standardizeDatabase(database)
-for i = 1:length(database)
-    database{i,3} = strsplit(database{i,3},' ');
+[m,~] = size(database);
+if m>1
+    for i = 1:length(database)
+        database{i,3} = strsplit(database{i,3},' ');
+    end
 end
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

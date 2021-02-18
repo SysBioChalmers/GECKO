@@ -10,41 +10,36 @@ function [swissprot,kegg] = updateDatabases
 % 
 %   Usage: [swissprot,kegg] = updateDatabases
 %
-% Benjamin Sanchez, Cheng Zhang, Ivan Domenzain. Last edited: 2019-07-12
+% Ivan Domenzain. Last edited: 2020-01-25
 %
 
 current = pwd;
 cd ..
 parameters = getModelParameters;
-keggID     = parameters.keggID;
 cd (current)
-if ~regexp(keggID,'[a-z]{3,4}')
-    error('Please specify the KEGG organism ID in the script getModelParameters.m')
+kegg = cell(1,7);
+if isfield(parameters,'keggID')
+    keggID = parameters.keggID;
+    mkdir ../../databases/KEGG
+    try
+        %Download KEGG data:
+        downloadKEGGdata(keggID)
+        %Build KEGG table
+        kegg = buildKEGGtable(keggID);
+    catch
+        warning(['Unsuccessful query for "' keggID '", check the presence of the provided ID in the KEGG database (https://www.genome.jp/kegg/catalog/org_list.html)'])
+    end
+    %Remove KEGG files for compliance of repository:
+    delete ../../databases/KEGG/*.txt
+    rmdir ../../databases/KEGG
 end
-
 %Build Swissprot table:
 swissprot = buildSWISSPROTtable;
-
-%Download KEGG data:
-mkdir ../../databases/KEGG
-downloadKEGGdata(keggID)
-
-%Build KEGG table
-kegg = buildKEGGtable(keggID);
-
-%Remove KEGG files for compliance of repository:
-delete ../../databases/KEGG/*.txt
-rmdir ../../databases/KEGG
-
 %Save both databases as .mat files:
 save('../../databases/ProtDatabase.mat','swissprot','kegg');
-
 end
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 function swissprot = buildSWISSPROTtable
-
 %Build Swissprot table (uniprot code - protein name - gene names - EC number - sequence):
 fileID_uni        = fopen('../../databases/uniprot.tab');
 swissprot         = textscan(fileID_uni,'%s %s %s %s %s','delimiter','\t');
@@ -63,19 +58,14 @@ for i = 1:length(swissprot)
     swissprot{i,6} = sequence;
 end
 disp('Building Swiss-Prot database.')
-
 end
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 function downloadKEGGdata(keggID)
-
 base      = 'http://rest.kegg.jp/';
 operation = 'list/';
 gene_list = urlread([base operation keggID]);
 gene_list = regexpi(gene_list, '[^\n]+','match')'; 
 gene_id   = regexpi(gene_list,['(?<=' keggID ':)\S+'],'match');
-
 % Retrieve information for every gene in the list (with a maximum of 10,000
 % to avoid bulk downloads)
 operation = 'get/';
@@ -90,13 +80,9 @@ for i = 1:min([numel(gene_id),10000])
         disp(['Cannot find ' gene_id{i}{1} ' in KEGG']);
     end
 end
-
 end
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 function kegg = buildKEGGtable(keggID)
-
 %Build KEGG table (uniprot code - protein name - systematic gene name - EC number - MW - pathway - sequence):
 file_names      = dir('../../databases/KEGG/');
 file_names(1:2) = [];
@@ -188,8 +174,6 @@ for i = 1:length(file_names)
     kegg{n,7} = sequence;
     disp(['Updating KEGG database: Ready with gene ' gene_name])
 end
-kegg(n+1:end,:)         = [];
-
+kegg(n+1:end,:) = [];
 end
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
