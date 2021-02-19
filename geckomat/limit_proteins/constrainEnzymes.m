@@ -90,7 +90,7 @@ if Pmeasured > 0
     enzymeConc=Ptot*f;
     %Non-measured part will be pooled
     Ppool=enzymeConc-Pmeasured;
-    fs=Ppool/Pbase;
+    fs=Ppool/Pbase*sigma;
 else
     fs = f*sigma;
 end
