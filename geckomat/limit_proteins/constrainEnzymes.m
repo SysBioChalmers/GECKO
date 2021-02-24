@@ -55,7 +55,12 @@ if nargin < 3
 end
 %Load Ptot if not provided:
 if nargin < 4
-    Ptot = parameters.Ptot;
+    if isfield(parameters,'Ptot')
+        Ptot = parameters.Ptot;
+    else
+        %Get protein content in biomass pseudoreaction:
+        Ptot = sumProtein(model);
+    end
 end
 %No UB will be changed if no data is available -> pool = all enzymes(FBAwMC)
 if nargin < 5
@@ -83,20 +88,18 @@ end
 measured       = ~isnan(model.concs);
 concs_measured = model.concs(measured);
 Pmeasured      = sum(concs_measured);
-%Get protein content in biomass pseudoreaction:
-Pbase = sumProtein(model);
+
 if Pmeasured > 0
     %Expected total enzyme concentration
     enzymeConc=Ptot*f;
     %Non-measured part will be pooled
-    Ppool=enzymeConc-Pmeasured;
-    fs=Ppool/Pbase*sigma;
+    PpoolUB=(enzymeConc-Pmeasured)*sigma;
 else
-    fs = f*sigma;
+    PpoolUB = Ptot*f*sigma;
 end
 %Constrain the rest of enzymes with the pool assumption:
 if sum(strcmp(model.rxns,'prot_pool_exchange')) == 0
-    model = constrainPool(model,~measured,full(fs*Pbase));
+    model = constrainPool(model,~measured,PpoolUB);
 end
 fprintf(' Done!\n')
 if sum(data)==0
