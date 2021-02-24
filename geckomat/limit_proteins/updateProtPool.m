@@ -1,14 +1,13 @@
-function model  = updateProtPool(model,Ptot,fs)
+function model  = updateProtPool(model,Ptot,Pmeas,f,sigma)
 %Calculate total mass of bounded enzymes
 if any(isnan(model.concs))
     poolIndex  = find(strcmpi(model.rxns,'prot_pool_exchange'));
-    Pmeasured  = sum(model.concs(~isnan(model.concs)));
-    difference = Ptot-Pmeasured;
+    difference = (Ptot*f-Pmeas);
     tempModel  = model;
-    if (difference)>=0
+    if (difference)>0
         %remove all measured enzymes mass (including flexibilizations) from
         %remaining pool
-        newPool   = (difference)*fs;
+        newPool   = difference*sigma;
         tempModel = setParam(tempModel,'ub',poolIndex,newPool);
         solution  = solveLP(tempModel);
         if ~isempty(solution.x)
@@ -16,7 +15,8 @@ if any(isnan(model.concs))
             model = tempModel;
         else
             %Allow any saturation level
-            newPool   = difference;
+            sigma     = 1;
+            newPool   = difference*sigma;
             tempModel = setParam(tempModel,'ub',poolIndex,newPool);
             %As bounds for CUR and growth have already been set, protein
             %pool minimization is set as an objective
@@ -24,21 +24,32 @@ if any(isnan(model.concs))
             tempModel = setParam(tempModel,'obj',poolIndex,-1);
             solution  = solveLP(tempModel);
             if ~isempty(solution.x)
-                fs = solution.x(poolIndex)/newPool;
+                sigma = solution.x(poolIndex)/newPool;
+                %Set minimal prot pool requirements as UB (plus a 0.1% of
+                %flexibilization to avoid overconstraining)
                 model = setParam(tempModel,'ub',poolIndex,1.001*solution.x(poolIndex));
                 disp('ecModel succesfully constrained with enzyme abundances')
-                warning(['fs has been readjusted to: ' num2str(fs)])
+                warning(['Sigma has been readjusted to: ' num2str(sigma)])
             else
-                %If the optimal fs factor is higher than one, then protein
+                %If the optimal sigma factor is higher than one, then protein
                 %pool is unbounded
-                warning('Unfeasible protein flexibilization')
+                warning('Unfeasible protein flexibilization, unconstraining protein pool for obtention of a feasible model')
                 model = setParam(tempModel,'ub',poolIndex,1000);
             end
             model.c = originalC;
         end
-    else
-        warning('The total measured protein mass exceeds the total protein content.')
+    elseif (difference)<0
+        warning('The total measured protein mass exceeds the total protein content')
+        warning('Returning an empty ecModel')
         model = [];
+    else
+         warning('The total measured protein mass is equal to the total protein content, therefore no protein pool is available for the unmeasured model enzymes')
+         warning('Setting UB = 0 for prot_pool_exchange reaction')
+         model = setParam(tempModel,'ub',poolIndex,0);
+         sol = solveLP(model);
+         if isempty(sol.x)
+             warning('The resulting ecModel is unfeasible under the imposed constraints')
+         end
     end
 end
 end

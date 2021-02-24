@@ -72,17 +72,9 @@ for i=1:length(conditions)
     %Extract data for the i-th condition
     abundances   = cell2mat(absValues(1:grouping(i)));
     absValues    = absValues(grouping(i)+1:end);
-    
-    %Calculate sample-specific f-factor, before filtering data. While there
-    %might be individual proteins with too much variability, this should
-    %not affect f calculation too much, meanwhile ensuring higher coverage.
-    cd ../../limit_proteins
-    f = measureAbundance(ecModel.enzymes,initialProts,mean(abundances,2,'omitnan'));
     sumP = sum(mean(abundances,2,'omitnan'),'omitnan'); % Sum of unfiltered proteins
     %Filter proteomics data, to only keep high quality measurements
-    cd ../utilities/integrate_proteomics
     [pIDs, abundances] = filter_ProtData(initialProts,abundances,1.96,true);
-    filteredProts      = pIDs;
     disp(['Filtered out ' num2str(round((1-(numel(pIDs)/numel(initialProts)))*100,1)) '% of protein measurements due to low quality.'])
     cd ..
     %correct oxPhos complexes abundances
@@ -91,11 +83,14 @@ for i=1:length(conditions)
             [abundances,pIDs] = fixComplex(oxPhos{j},ecModel,abundances,pIDs);
         end
     end
+    filteredProts = pIDs;
     %Set minimal medium
     cd ../kcat_sensitivity_analysis
     ecModelP  = changeMedia_batch(ecModel,c_source);
     tempModel = changeMedia_batch(ecModel_batch,c_source);
     cd ../limit_proteins
+    %Calculate f-factor, after having filtered data. 
+    f = measureAbundance(ecModel.enzymes,pIDs,abundances);
     %If the ecModel's protein content is not the same as the Ptot for i-th
     %condition then biomass should be rescaled and GAM refitted to this condition.
     %For fitting GAM a functional model is needed therefore an ecModel with
@@ -107,7 +102,7 @@ for i=1:length(conditions)
         %proteomics data
         ecModelP = scaleBioMass(ecModelP,Ptot(i),GAM,true);
         disp(' ')
-    end
+    end 
     %Block production of non-observed metabolites before data incorporation
     %and flexibilization
     expData  = [GUR(i),CO2prod(i),OxyUptake(i)];
