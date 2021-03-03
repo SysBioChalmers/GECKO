@@ -70,7 +70,6 @@ for i=1:length(conditions)
     %Extract data for the i-th condition
     abundances   = cell2mat(absValues(1:grouping(i)));
     absValues    = absValues(grouping(i)+1:end);
-    sumP = sum(mean(abundances,2,'omitnan'),'omitnan'); % Sum of unfiltered proteins
     %Filter proteomics data, to only keep high quality measurements
     [pIDs, abundances] = filter_ProtData(initialProts,abundances,1.96,true);
     disp(['Filtered out ' num2str(round((1-(numel(pIDs)/numel(initialProts)))*100,1)) '% of protein measurements due to low quality.'])
@@ -133,9 +132,7 @@ for i=1:length(conditions)
     %If this is higher than the sum of raw measured protein (sumP), then increase the total 
     %protein content by the same ratio, so that the protein pool is receiving the similar 
     %flexibilization as applied to the measured proteins.
-    sumPfilt = sum(abundances);
-    flexPtot = Ptot(i)*(sumPfilt/sumP);
-    [ecModelP,usagesT,modificationsT,~,coverage] = constrainEnzymes(ecModelP,f,GAM,flexPtot,pIDs,abundances,Drate(i),flexGUR);
+    [ecModelP,usagesT,modificationsT,~,coverage] = constrainEnzymes(ecModelP,f,GAM,Ptot(i),pIDs,abundances,Drate(i),flexGUR);
     matchedProteins = usagesT.prot_IDs;
     prot_input = {initialProts filteredProts matchedProteins ecModel.enzymes coverage};
     writeProtCounts(conditions{i},prot_input,name); 
