@@ -57,7 +57,7 @@ end
 %Load absolute proteomics dataset [mmol/gDw]
 %and fermentation data (GUR, OUR, CO2 production, byProducts, Ptot, Drate)
 cd utilities/integrate_proteomics/
-[uniprotIDs,absValues,fermData,byProducts] = load_Prot_Ferm_Data(grouping);
+[initialProts,absValues,fermData,byProducts] = load_Prot_Ferm_Data(grouping);
 conditions = fermData.conds;
 Ptot       = fermData.Ptot;
 Drate      = fermData.Drate;
@@ -71,11 +71,11 @@ for i=1:length(conditions)
     disp(conditions{i})
     %Extract data for the i-th condition
     abundances   = cell2mat(absValues(1:grouping(i)));
-    initialProts = uniprotIDs;
     absValues    = absValues(grouping(i)+1:end);
-    %Filter data
-    [pIDs, abundances] = filter_ProtData(uniprotIDs,abundances,1.96,true);
-    filteredProts      = pIDs;
+    sumP = sum(mean(abundances,2,'omitnan'),'omitnan'); % Sum of unfiltered proteins
+    %Filter proteomics data, to only keep high quality measurements
+    [pIDs, abundances] = filter_ProtData(initialProts,abundances,1.96,true);
+    disp(['Filtered out ' num2str(round((1-(numel(pIDs)/numel(initialProts)))*100,1)) '% of protein measurements due to low quality.'])
     cd ..
     %correct oxPhos complexes abundances
     if ~isempty(oxPhos)
@@ -83,25 +83,26 @@ for i=1:length(conditions)
             [abundances,pIDs] = fixComplex(oxPhos{j},ecModel,abundances,pIDs);
         end
     end
+    filteredProts = pIDs;
     %Set minimal medium
     cd ../kcat_sensitivity_analysis
     ecModelP  = changeMedia_batch(ecModel,c_source);
     tempModel = changeMedia_batch(ecModel_batch,c_source);
     cd ../limit_proteins
-    %If the relative difference between the ecModel's protein content and
-    %the Ptot for i-th condition is higher than 5% then biomass should be
-    %rescaled and GAM refitted to this condition.
+    %Calculate f-factor, after having filtered data. 
+    f = measureAbundance(ecModel.enzymes,pIDs,abundances);
+    %If the ecModel's protein content is not the same as the Ptot for i-th
+    %condition then biomass should be rescaled and GAM refitted to this condition.
     %For fitting GAM a functional model is needed therefore an ecModel with
     %total protein pool constraint should be used
-    Prot_diff = abs(Ptot_model-Ptot(i))/Ptot_model;
-    if Prot_diff>=0.05
-       [~,GAM] = scaleBioMass(tempModel,Ptot(i),[],true);
+    if Ptot_model ~= Ptot(i)
+        [~,GAM] = scaleBioMass(tempModel,Ptot(i),[],true);
         %Then the GAM and new biomass composition are set in ecModelP, which 
         %is not functional yet but should be used for incorporation of 
         %proteomics data
         ecModelP = scaleBioMass(ecModelP,Ptot(i),GAM,true);
         disp(' ')
-    end
+    end 
     %Block production of non-observed metabolites before data incorporation
     %and flexibilization
     expData  = [GUR(i),CO2prod(i),OxyUptake(i)];
@@ -128,9 +129,14 @@ for i=1:length(conditions)
         enzIndex = find(contains(tempModel.enzymes,matchedEnz{j}));
     end
     %Get model with proteomics
-    f       = 1; %Protein mass in model/Total theoretical proteome
     disp(['Incorporation of proteomics constraints for ' conditions{i} ' condition'])
-    [ecModelP,usagesT,modificationsT,~,coverage] = constrainEnzymes(ecModelP,f,GAM,Ptot(i),pIDs,abundances,Drate(i),flexGUR);
+    %Get sum of measured protein after filter, adding flexFactor and setting minimum value. 
+    %If this is higher than the sum of raw measured protein (sumP), then increase the total 
+    %protein content by the same ratio, so that the protein pool is receiving the similar 
+    %flexibilization as applied to the measured proteins.
+    sumPfilt = sum(abundances);
+    flexPtot=Ptot(i)*(sumPfilt/sumP);
+    [ecModelP,usagesT,modificationsT,~,coverage] = constrainEnzymes(ecModelP,f,GAM,flexPtot,pIDs,abundances,Drate(i),flexGUR);
     matchedProteins = usagesT.prot_IDs;
     prot_input = {initialProts filteredProts matchedProteins ecModel.enzymes coverage};
     writeProtCounts(conditions{i},prot_input,name); 
