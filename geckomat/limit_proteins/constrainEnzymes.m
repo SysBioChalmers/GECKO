@@ -29,18 +29,34 @@
 %
 %   Usage: [model,enzUsages,modifications, GAM,massCoverage] = constrainEnzymes(model,f,GAM,Ptot,pIDs,data,gRate,c_UptakeExp)
 %
-%   Benjamin J. Sanchez. Last update 2018-12-11
-%   Ivan Domenzain.      Last update 2020-03-02
-%
 
 %get model parameters
 if nargin<9
     cd ..
     parameters = getModelParameters;
     cd limit_proteins
+    %No UB will be changed if no data is available -> pool = all enzymes(FBAwMC)
+    if nargin < 5
+        pIDs = cell(0,1);
+        data = zeros(0,1);
+        %Load Ptot if not provided:
+        if nargin < 4
+            if isfield(parameters,'Ptot')
+                Ptot = parameters.Ptot;
+            else
+                %Get protein content in biomass pseudoreaction:
+                Ptot = sumProtein(model);
+            end
+            %Leave GAM empty if not provided (will be fitted later):
+            if nargin < 3
+                GAM = [];
+            end
+        end
+    end
 end
-sigma      = parameters.sigma;
-c_source   = parameters.c_source;
+
+sigma    = parameters.sigma;
+c_source = parameters.c_source;
 %Compute f if not provided:
 if nargin < 2
     [f,~] = measureAbundance(model.enzymes);
@@ -49,26 +65,11 @@ else
        [f,~] = measureAbundance(model.enzymes);
     end
 end
-%Leave GAM empty if not provided (will be fitted later):
-if nargin < 3
-    GAM = [];
-end
-%Load Ptot if not provided:
-if nargin < 4
-    if isfield(parameters,'Ptot')
-        Ptot = parameters.Ptot;
-    else
-        %Get protein content in biomass pseudoreaction:
-        Ptot = sumProtein(model);
-    end
-end
-%No UB will be changed if no data is available -> pool = all enzymes(FBAwMC)
-if nargin < 5
-    pIDs = cell(0,1);
-    data = zeros(0,1);
-end
+
 %Remove zeros or negative values
-data = cleanDataset(data);
+toFix       = data<=0;
+data(toFix) = NaN;
+
 %Assign concentrations as UBs [mmol/gDW]:
 model.concs = nan(size(model.enzymes));      %OBS: min value is zero!!
 fprintf('Matching data to enzymes in model...')
@@ -159,13 +160,5 @@ if sum(variable) > 0
     xlabel(xlabelStr)
     ylabel('Frequency');
     title(titleStr)
-end
-end
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function data = cleanDataset(data)
-for i=1:length(data)
-    if data(i)<=0
-        data(i) = NaN;
-    end
 end
 end
