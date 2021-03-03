@@ -91,7 +91,7 @@ for i=1:length(conditions)
     ecModelP  = changeMedia_batch(ecModel,c_source);
     tempModel = changeMedia_batch(ecModel_batch,c_source);
     cd ../limit_proteins  
-    if isempty(f)
+    if isempty(f) | f==0
         f = measureAbundance(ecModel.enzymes,pIDs,abundances);
     end
     %If the ecModel's protein content is not the same as the Ptot for i-th
