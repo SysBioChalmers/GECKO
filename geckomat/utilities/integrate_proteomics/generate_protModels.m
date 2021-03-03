@@ -47,13 +47,15 @@ mkdir(['../models/prot_constrained/' name])
 %Get indexes for carbon source uptake and growth reaction
 positionsEC(1) = find(strcmpi(ecModel.rxnNames,c_source));
 positionsEC(2) = find(strcmpi(ecModel.rxnNames,growthRxn));
-%Remove prot_abundance.txt  and relative_proteomics.txt files
-%(for f factor calculation)
-try
-    movefile ../databases/prot_abundance.txt ../databases/prot_abundance_temp.txt
-catch
-    disp('prot_abundance.txt file not found in Databases folder') 
+
+%Calculate f-factor from paxDB file, to be used for all conditions
+if isfile('../../databases/prot_abundance.txt')
+    f = measureAbundance(ecModel.enzymes);
+else
+	warning('prot_abundance.txt file not found in Databases folder, f factor will be calculated from each condition-specific abundance dataset instead')
+    f = [];
 end
+
 %Load absolute proteomics dataset [mmol/gDw]
 %and fermentation data (GUR, OUR, CO2 production, byProducts, Ptot, Drate)
 cd utilities/integrate_proteomics/
@@ -88,9 +90,10 @@ for i=1:length(conditions)
     cd ../kcat_sensitivity_analysis
     ecModelP  = changeMedia_batch(ecModel,c_source);
     tempModel = changeMedia_batch(ecModel_batch,c_source);
-    cd ../limit_proteins
-    %Calculate f-factor, after having filtered data. 
-    f = measureAbundance(ecModel.enzymes,pIDs,abundances);
+    cd ../limit_proteins  
+    if isempty(f)
+        f = measureAbundance(ecModel.enzymes,pIDs,abundances);
+    end
     %If the ecModel's protein content is not the same as the Ptot for i-th
     %condition then biomass should be rescaled and GAM refitted to this condition.
     %For fitting GAM a functional model is needed therefore an ecModel with
@@ -135,7 +138,7 @@ for i=1:length(conditions)
     %protein content by the same ratio, so that the protein pool is receiving the similar 
     %flexibilization as applied to the measured proteins.
     sumPfilt = sum(abundances);
-    flexPtot=Ptot(i)*(sumPfilt/sumP);
+    flexPtot = Ptot(i)*(sumPfilt/sumP);
     [ecModelP,usagesT,modificationsT,~,coverage] = constrainEnzymes(ecModelP,f,GAM,flexPtot,pIDs,abundances,Drate(i),flexGUR);
     matchedProteins = usagesT.prot_IDs;
     prot_input = {initialProts filteredProts matchedProteins ecModel.enzymes coverage};
@@ -165,13 +168,6 @@ for i=1:length(conditions)
     writetable(modificationsT,['../../models/prot_constrained/' name '/modifiedEnzymes_' conditions{i} '.txt'],'Delimiter','\t')
 end
 cd (current)
-%Remove prot_abundance.txt  and relative_proteomics.txt files
-%(for f factor calculation)
-try
-    movefile ../../../databases/prot_abundance_temp.txt ../../../databases/prot_abundance.txt
-catch
-    disp('prot_abundance_temp.txt file not found in Databases folder') 
-end
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function condModel = setStressConditions(model,Drate,pos,expData,NGAM,interval)
