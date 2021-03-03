@@ -90,10 +90,21 @@ concs_measured = model.concs(measured);
 Pmeasured      = sum(concs_measured);
 
 if Pmeasured > 0
-    %Expected total enzyme concentration
-    enzymeConc=Ptot*f;
-    %Non-measured part will be pooled
-    PpoolUB=(enzymeConc-Pmeasured)*sigma;
+    if Pmeasured > Ptot
+        error('The measured mass of protein exceeds the total amount of protein in the model, a proteomics-constrained model cannot be created using this dataset')
+    else
+        %Expected total enzyme concentration
+        enzymeConc=Ptot*f;
+        %Non-measured part will be pooled
+        PpoolMass = enzymeConc-Pmeasured;
+        %If not all enzymes are measured and there's no remaining mass for
+        %the protein pool, then assume f=1
+        if sum(measured)<length(model.enzymes) & PpoolMass<=0
+        	warning('The measured mass of protein exceeds the remaining amount of unmeasured protein in the model, assuming f=1 (all protein mass is available for metabolic enzymes) in order to get a feasible model')
+            PpoolMass = Ptot - Pmeasured;
+        end
+        PpoolUB = PpoolMass*sigma;
+    end
 else
     PpoolUB = Ptot*f*sigma;
 end
