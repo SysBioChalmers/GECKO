@@ -111,7 +111,11 @@ else
 end
 %Constrain the rest of enzymes with the pool assumption:
 if sum(strcmp(model.rxns,'prot_pool_exchange')) == 0
-    model = constrainPool(model,~measured,PpoolUB);
+    if sum(measured)<length(model.enzymes)
+        model = constrainPool(model,~measured,PpoolUB);
+    else
+        disp('All model enzymes were found in the provided dataset, no need for creatin an additional protein pool')
+    end
 end
 fprintf(' Done!\n')
 if sum(data)==0
