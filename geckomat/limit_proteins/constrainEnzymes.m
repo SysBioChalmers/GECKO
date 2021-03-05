@@ -131,7 +131,7 @@ disp(['Total enzymes not measured = '        num2str(sum(~measured))         ' e
 disp(['Total protein in model = '            num2str(Ptot)                   ' g/gDW'])
 enzUsages = [];
 if nargin > 7
-    model     = updateProtPool(model,Ptot,Pmeasured,f,sigma);
+    model     = updateProtPool(model,Ptot,Pmeasured,f,1);
     [tempModel,enzUsages,modifications] = flexibilizeProteins(model,gRate,c_UptakeExp,c_source);
     Pmeasured = sum(tempModel.concs(~isnan(tempModel.concs)));
     model     = updateProtPool(tempModel,Ptot,Pmeasured,f,sigma);
