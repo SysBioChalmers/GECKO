@@ -90,5 +90,6 @@ else
     f     = 0.5;
     count = 0;
 end
+disp(['Enzymes in the model account for ' num2str(round(f*100)) '% of the total proteome (mass-wise)'])
 end
 

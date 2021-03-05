@@ -29,18 +29,34 @@
 %
 %   Usage: [model,enzUsages,modifications, GAM,massCoverage] = constrainEnzymes(model,f,GAM,Ptot,pIDs,data,gRate,c_UptakeExp)
 %
-%   Benjamin J. Sanchez. Last update 2018-12-11
-%   Ivan Domenzain.      Last update 2020-03-02
-%
 
 %get model parameters
 if nargin<9
     cd ..
     parameters = getModelParameters;
     cd limit_proteins
+    %No UB will be changed if no data is available -> pool = all enzymes(FBAwMC)
+    if nargin < 5
+        pIDs = cell(0,1);
+        data = zeros(0,1);
+        %Load Ptot if not provided:
+        if nargin < 4
+            if isfield(parameters,'Ptot')
+                Ptot = parameters.Ptot;
+            else
+                %Get protein content in biomass pseudoreaction:
+                Ptot = sumProtein(model);
+            end
+            %Leave GAM empty if not provided (will be fitted later):
+            if nargin < 3
+                GAM = [];
+            end
+        end
+    end
 end
-sigma      = parameters.sigma;
-c_source   = parameters.c_source;
+
+sigma    = parameters.sigma;
+c_source = parameters.c_source;
 %Compute f if not provided:
 if nargin < 2
     [f,~] = measureAbundance(model.enzymes);
@@ -49,26 +65,11 @@ else
        [f,~] = measureAbundance(model.enzymes);
     end
 end
-%Leave GAM empty if not provided (will be fitted later):
-if nargin < 3
-    GAM = [];
-end
-%Load Ptot if not provided:
-if nargin < 4
-    if isfield(parameters,'Ptot')
-        Ptot = parameters.Ptot;
-    else
-        %Get protein content in biomass pseudoreaction:
-        Ptot = sumProtein(model);
-    end
-end
-%No UB will be changed if no data is available -> pool = all enzymes(FBAwMC)
-if nargin < 5
-    pIDs = cell(0,1);
-    data = zeros(0,1);
-end
+
 %Remove zeros or negative values
-data = cleanDataset(data);
+toFix       = data<=0;
+data(toFix) = NaN;
+
 %Assign concentrations as UBs [mmol/gDW]:
 model.concs = nan(size(model.enzymes));      %OBS: min value is zero!!
 fprintf('Matching data to enzymes in model...')
@@ -90,16 +91,31 @@ concs_measured = model.concs(measured);
 Pmeasured      = sum(concs_measured);
 
 if Pmeasured > 0
-    %Expected total enzyme concentration
-    enzymeConc=Ptot*f;
-    %Non-measured part will be pooled
-    PpoolUB=(enzymeConc-Pmeasured)*sigma;
+    if Pmeasured > Ptot
+        error('The measured mass of protein exceeds the total amount of protein in the model, a proteomics-constrained model cannot be created using this dataset')
+    else
+        %Expected total enzyme concentration
+        enzymeConc=Ptot*f;
+        %Non-measured part will be pooled
+        PpoolMass = enzymeConc-Pmeasured;
+        %If not all enzymes are measured and there's no remaining mass for
+        %the protein pool, then assume f=1
+        if sum(measured)<length(model.enzymes) & PpoolMass<=0
+        	warning('The measured mass of protein exceeds the remaining amount of unmeasured protein in the model, assuming f=1 (all protein mass is available for metabolic enzymes) in order to get a feasible model')
+            PpoolMass = Ptot - Pmeasured;
+        end
+        PpoolUB = PpoolMass*sigma;
+    end
 else
     PpoolUB = Ptot*f*sigma;
 end
 %Constrain the rest of enzymes with the pool assumption:
 if sum(strcmp(model.rxns,'prot_pool_exchange')) == 0
-    model = constrainPool(model,~measured,PpoolUB);
+    if sum(measured)<length(model.enzymes)
+        model = constrainPool(model,~measured,PpoolUB);
+    else
+        disp('All model enzymes were found in the provided dataset, no need for creatin an additional protein pool')
+    end
 end
 fprintf(' Done!\n')
 if sum(data)==0
@@ -115,7 +131,7 @@ disp(['Total enzymes not measured = '        num2str(sum(~measured))         ' e
 disp(['Total protein in model = '            num2str(Ptot)                   ' g/gDW'])
 enzUsages = [];
 if nargin > 7
-    model     = updateProtPool(model,Ptot,Pmeasured,f,sigma);
+    model     = updateProtPool(model,Ptot,Pmeasured,f,1);
     [tempModel,enzUsages,modifications] = flexibilizeProteins(model,gRate,c_UptakeExp,c_source);
     Pmeasured = sum(tempModel.concs(~isnan(tempModel.concs)));
     model     = updateProtPool(tempModel,Ptot,Pmeasured,f,sigma);
@@ -148,13 +164,5 @@ if sum(variable) > 0
     xlabel(xlabelStr)
     ylabel('Frequency');
     title(titleStr)
-end
-end
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function data = cleanDataset(data)
-for i=1:length(data)
-    if data(i)<=0
-        data(i) = NaN;
-    end
 end
 end
