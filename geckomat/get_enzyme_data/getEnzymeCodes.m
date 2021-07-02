@@ -26,10 +26,11 @@
 % 
 % Benjamin Sanchez. Last edited: 2017-03-05
 % Ivan Domenzain.   Last edited: 2018-09-07
+% Johan Gustafsson  Last edited: 2021-07-02 Introduced optimizations from Gecko Light
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function model_data = getEnzymeCodes(model,action)
+function model_data = getEnzymeCodes(model, action)
 
-if nargin<2
+if nargin<3
     action = 'display';
 end
 
@@ -58,7 +59,9 @@ DBMWKEGG            = kegg(:,5);
 
 [m,n]      = size(model.S);
 substrates = cell(n,20);
+substrateIndices = zeros(n,20);
 products   = cell(n,20);
+productIndices   = zeros(n,20);
 uniprots   = cell(n,20);
 Genes      = cell(n,20);
 EC_numbers = cell(n,20);
@@ -67,6 +70,27 @@ isrev      = zeros(n,1);
 count      = zeros(4,1);
 rgmat      = full(model.rxnGeneMat);
 conflicts  = cell(1,4);
+
+%Build an index from gene to prot for faster processing later
+[x,y] = size(DBgenesSwissprot);
+genesForIndex = reshape(DBgenesSwissprot, x*y, 1);
+genesForIndex = genesForIndex(~cellfun(@isempty, genesForIndex));
+genesForIndex = unique(genesForIndex); %18360
+%genesForIndexCat = categorical(genesForIndex,genesForIndex);
+geneIndex = cell(length(genesForIndex),1);
+geneHashMap = containers.Map(genesForIndex,1:length(genesForIndex));
+protIndices = 1:length(DBgenesSwissprot(:,1));
+for i = 1:y
+    tmp1 = DBgenesSwissprot(:,i);
+    sel = ~cellfun(@isempty, tmp1);
+    indices = cell2mat(values(geneHashMap,tmp1(sel)));
+    protIndicesSel = protIndices(sel);
+    for j = 1:length(indices)
+        geneIndex{indices(j)} = [geneIndex{indices(j)};protIndicesSel(j)]; 
+    end
+end
+
+
 for i = 1:n
     ks  = 1;
     kp  = 1;
@@ -74,23 +98,32 @@ for i = 1:n
     inv = 0;
     DB = '';
     %Save the substrates and products (if rxn is reversible):
-    for j = 1:m
-        if model.S(j,i) < 0 && model.ub(i) > 0
-            substrates{i,ks} = model.metNames{j};
-            ks  = ks+1;
-            dir = 1;
-        elseif model.S(j,i) > 0 && model.lb(i) < 0
-            products{i,kp} = model.metNames{j};
-            kp  = kp+1;
-            inv = 1;
-        end
+    %This code was opimized (a loop through every element was replaced)
+    %It was tested and produces the same results, but roughly 2000 times faster
+    %This part executes in roughly 0.3 seconds for all genes, so it is no
+    %longer an issue regarding performance
+    if model.ub(i) > 0
+       sel = model.S(:,i) < 0;
+       sbstrs = model.metNames(sel); 
+       substrates(i,1:length(sbstrs)) = sbstrs;
+       ind = find(sel);
+       substrateIndices(i,1:length(ind)) = ind;
+       dir = length(sbstrs) > 0;
+    end
+    if model.lb(i) < 0
+       sel = model.S(:,i) > 0;
+       prds = model.metNames(sel); 
+       products(i,1:length(prds)) = prds;
+       ind = find(sel);
+       productIndices(i,1:length(ind)) = ind;
+       inv = length(prds) > 0;
     end
     %isrev(i) = 0 if rxn is blocked, = 1 if non-reversible, and = 2 if
     %reversible:
     isrev(i) = dir + inv;
     if ~isempty(model.grRules{i})
         %Find match in Swissprot:
-        [new_uni,new_EC,new_MW,newGene,multGenes] = findInDB(model.grRules{i},DBprotSwissprot,DBgenesSwissprot,DBecNumSwissprot,DBMWSwissprot);
+        [new_uni,new_EC,new_MW,newGene,multGenes] = findInDB(model.grRules{i},DBprotSwissprot,DBgenesSwissprot,DBecNumSwissprot,DBMWSwissprot,geneIndex,geneHashMap);
         if ~isempty(union_string(new_EC))
             count(1) = count(1) + isrev(i);
             DBase    = 'swissprot';
@@ -98,8 +131,8 @@ for i = 1:n
                 multGenes{3} = DBase;
             end
         else
-            %Find match in KEGG:
-            [new_uni,new_EC,new_MW,newGene,multGenes] = findInDB(model.grRules{i},DBprotKEGG,DBgenesKEGG,DBecNumKEGG,DBMWKEGG);
+            %Find match in KEGG (skipped optimizing this step) - may be good to fix this later to get rid of the findInDBOld function:
+            [new_uni,new_EC,new_MW,newGene,multGenes] = findInDBOld(model.grRules{i},DBprotKEGG,DBgenesKEGG,DBecNumKEGG,DBMWKEGG);
             if ~isempty(union_string(new_EC))
                 count(2) = count(2) + isrev(i);
                 DBase    = 'kegg';
@@ -157,7 +190,9 @@ for i = 1:n
 end
 model_data.model        = model;
 model_data.substrates   = substrates;
+model_data.substrateIndices   = substrateIndices; %for optimizing matchKcats
 model_data.products     = products;
+model_data.productIndices     = productIndices; %for optimizing matchKcats
 model_data.matchedGenes = Genes;
 model_data.uniprots     = uniprots;
 model_data.EC_numbers   = EC_numbers;
