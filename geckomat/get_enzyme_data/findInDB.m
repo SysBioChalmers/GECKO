@@ -24,7 +24,7 @@ function [uni,EC,MW,Genes,conflicts] = findInDB(grRule,DBprot,DBgenes,DBecNum,DB
 %
 
 %Find simple gene sets for reaction:
-gene_sets = getSimpleGeneSetsLt(grRule);
+gene_sets = getSimpleGeneSets(grRule);
 %Preallocate function variables
 uni       = cell(size(gene_sets));
 EC        = cell(size(gene_sets));
@@ -91,7 +91,7 @@ for i = 1:length(gene_sets)
                     matches    = nonEmpty(minW);
                     uni_set{j} = DBprot{matches};
                     uni_set_idx{j} = matches;
-                    EC_set{j}  = getECstringLt(EC_set{j},DBecNum{matches});
+                    EC_set{j}  = getECstring(EC_set{j},DBecNum{matches});
                 end
             end
         else
@@ -104,7 +104,7 @@ for i = 1:length(gene_sets)
         end
      end
     %Uniprot: Delete repeated and empty spaces
-    [uni_set,repeated] = deleteRepeatedLt(uni_set);
+    [uni_set,repeated] = deleteRepeated(uni_set);
     uni_set_idx        = uni_set_idx(~repeated);
     genesCell          = genesCell(~repeated);
     emptyIndexes       = cellfun(@isempty,uni_set);
@@ -151,7 +151,7 @@ for i = 1:length(gene_sets)
  end
 
 %Delete repeated Uniprots (and the corresponding ECs):
-[uni,deleted] = deleteRepeatedLt(uni);
+[uni,deleted] = deleteRepeated(uni);
 EC(deleted)   = [];
 MW(deleted)   = [];
 
