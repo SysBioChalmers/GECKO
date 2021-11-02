@@ -141,9 +141,6 @@
  
  %Main loop: 
   for i = 1:mM
-      %if strcmp(model_data.model.rxns{i},'HMR_4158')
-      %    disp('set breakpoint here')
-      %end
      %Match:
      for j = 1:nM
          EC = EC_numbers{i,j};
@@ -407,48 +404,24 @@ fprintf(' Done!\n')
             for j = 1:length(X)
                 EC_indexes = [EC_indexes,EcIndexIndices{X(j)}];
             end
-            
-%            for j=1:length(EC_cell)
-%                if strfind(EC_cell{j},EC)==1
-%                    EC_indexesOld = [EC_indexesOld,j];
-%                end
-%           end         
-
-        else %Not optimized since it seems to always be empty for human
+        else %Not optimized
            for j=1:length(EC_cell)
                 if strfind(EC_cell{j},EC)==1
                     EC_indexes = [EC_indexes,j];
                 end
            end         
         end
-%         if length(EC_indexes) == length(EC_indexesOld)
-%             if ~all(EC_indexes == EC_indexesOld)
-%                 disp('vslue error')
-%             end
-%         else
-%             disp('length error')
-%         end
-
      else
          if (~isempty(ECIndexIds)) %In some cases the EC_cell is not from KCatCell
              mtch = find(strcmpi(EC,ECIndexIds));
              if (~isempty(mtch))
                  EC_indexes = EcIndexIndices{mtch};
              end
-         else %%Not optimized since it seems to always be empty for human
+         else %%Not optimized 
              if ~isempty(EC_cell)
                 EC_indexes = transpose(find(strcmpi(EC,EC_cell)));
              end
          end
-
-    %     if length(EC_indexes) == length(EC_indexesOld)
-    %         if ~all(EC_indexes == EC_indexesOld)
-    %             disp('vslue error')
-    %         end
-    %     else
-    %         disp('length error')
-    %     end
-
      end
 
  end

@@ -76,7 +76,6 @@ conflicts  = cell(1,4);
 genesForIndex = reshape(DBgenesSwissprot, x*y, 1);
 genesForIndex = genesForIndex(~cellfun(@isempty, genesForIndex));
 genesForIndex = unique(genesForIndex); %18360
-%genesForIndexCat = categorical(genesForIndex,genesForIndex);
 geneIndex = cell(length(genesForIndex),1);
 geneHashMap = containers.Map(genesForIndex,1:length(genesForIndex));
 protIndices = 1:length(DBgenesSwissprot(:,1));
