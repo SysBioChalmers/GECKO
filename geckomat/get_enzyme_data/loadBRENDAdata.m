@@ -15,34 +15,13 @@
          SAcell{i} = [];
      end
      previousEC = []; EC_indexes = [];
-     
-    %build an index on MW{1} to speed things up a bit
-    %first just extract the genus (i.e. the first part of the name)
-    MWECNum = upper(unique(MW{1}));
-    MWECNumIndices = cell(length(MWECNum),1);
-    MWECNumHashMap = containers.Map(MWECNum,1:length(MWECNum));
-    for i = 1:length(MW{1})
-         matchInd = cell2mat(values(MWECNumHashMap, MW{1}(i)));
-         MWECNumIndices{matchInd} = [MWECNumIndices{matchInd};i];
-    end
-
-     
      for i=1:length(SA{1})
          %Gets the indexes of the EC repetitions in the MW cell for every
          %new (different) EC
          if ~strcmpi(SA{1}(i), previousEC)
-             %EC_indexes2 = find(strcmpi(SA{1}(i),MW{1}));
-             key = upper(SA{1}(i));
-             if isKey(MWECNumHashMap,key) %annoyingly, this seems to be needed
-                 matchInd = cell2mat(values(MWECNumHashMap,key));
-                 EC_indexes = MWECNumIndices{matchInd};
-             else
-                 EC_indexes = [];
-             end
+             EC_indexes = find(strcmpi(SA{1}(i),MW{1}));
          end
          mwEC{1} = MW{3}(EC_indexes); mwEC{2} = MW{4}(EC_indexes);
-         %test1 = MW{3}(EC_indexes); mwEC{2} = MW{4}(EC_indexes);
-         %test2 = MW{3}(EC_indexes2); mwEC{2} = MW{4}(EC_indexes2);
          % just looks for the first match because just the maximal value for
          % each EC# / Orgaism is reported on the file
          org_index = find(strcmpi(SA{3}(i),mwEC{1}),1);
