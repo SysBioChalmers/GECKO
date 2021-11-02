@@ -1,6 +1,6 @@
-function [uni,EC,MW,Genes,conflicts] = findInDB(grRule,DBprot,DBgenes,DBecNum,DBMW, geneIndex, geneHashMap)
-% findInDB
-%   Gets the uniprots and EC numbers for a given rxn into a given database
+function [uni,EC,MW,Genes,conflicts] = findInDBOld(grRule,DBprot,DBgenes,DBecNum,DBMW)
+% findInDBOld
+%   Gets the uniprots and EC numbers for a given rxn into a given database - this is the old slow implementation, still used for KEGG
 %
 %   grRule     Genes association for a given metabolic reaction
 %   DBprot     array of uniprot IDs, taken from swissprot or kegg database
@@ -20,7 +20,6 @@ function [uni,EC,MW,Genes,conflicts] = findInDB(grRule,DBprot,DBgenes,DBecNum,DB
 %
 %   Benjamin J. Sanchez, 2017-08-10
 %   Ivan Domenzain,      2018-09-06
-%	Johan Gustafsson, 	 2021-07-02 introduced optimizations from GeckoLight
 %
 
 %Find simple gene sets for reaction:
@@ -34,40 +33,19 @@ conflicts = cell(1,2);
 
 for i = 1:length(gene_sets)
     %Split the gene set and match each gene:
-    gene_set  = strsplit(gene_sets{i},' and '); %this string splitting together with getSimpleGeneSets takes 2.6 s, that is ok.
+    gene_set  = strsplit(gene_sets{i},' and ');
     uni_set   = cell(size(gene_set));
-    uni_set_idx   = cell(size(gene_set));
     EC_set    = cell(size(gene_set));
     genesCell = cell(size(gene_set));
-    
-    %find index indices of all genes in one call
-
-    %this loop is slow
     for j = 1:length(gene_set)
-         gene = gene_set{j};
-         matches = [];
-         %Get the indexes for all of the proteins related to gene
-         if isKey(geneHashMap,gene) %annoyingly, this seems to be needed
-             matchInd = cell2mat(values(geneHashMap,gene_set(j)));
-             matches = geneIndex{matchInd};
-             %matches2=find(sum(strcmpi(gene,DBgenes),2));
-             %if (length(matches) ~= length(matches2))
-             %   disp('misfit length')
-             %end
-             %for i = 1:length(matches)
-             %   if (~all(matches == matches2))
-             %       disp('misfit numbers')
-             %   end
-             %end
-         end
-%    end %remove later
-         %matches=find(sum(strcmpi(gene,DBgenes),2));
-         if ~isempty(matches)
+        gene = gene_set{j};
+        %Get the indexes for all of the proteins related to gene
+        matches=find(sum(strcmpi(gene,DBgenes),2));
+        if ~isempty(matches)
             uni_set{j}   = DBprot{matches};
-            uni_set_idx{j} = matches;
             genesCell{j} = gene;
             %Get the indexes of the matched protein(s) with non-empty EC#s
-           nonEmpty = matches(~cellfun(@isempty,DBecNum(matches)));
+            nonEmpty = matches(~cellfun(@isempty,DBecNum(matches)));
             if ~isempty(nonEmpty)
                 [geneECs,ia] = unique(DBecNum(nonEmpty),'stable');
                 %For genes with multiple proteins associated to several
@@ -77,7 +55,6 @@ for i = 1:length(gene_sets)
                     ecNum = DBecNum(indexes);
                     %Save first match
                     uni_set{j} = DBprot{indexes(1)};
-                    uni_set_idx{j} = indexes(1);
                     EC_set{j}  = getECstring(EC_set{j},ecNum{1});
                     %Save additional matches as potential conflicts
                     if ~ismember(gene,conflicts{1})
@@ -90,28 +67,24 @@ for i = 1:length(gene_sets)
                     [~,minW]   = min(cell2mat(DBMW(nonEmpty)));
                     matches    = nonEmpty(minW);
                     uni_set{j} = DBprot{matches};
-                    uni_set_idx{j} = matches;
                     EC_set{j}  = getECstring(EC_set{j},DBecNum{matches});
                 end
             end
         else
             uni_set{j} = '';
-            uni_set_idx{j} = NaN;
         end
                              
         if isempty(EC_set{j})
             EC_set{j} = '';
         end
-     end
+    end
     %Uniprot: Delete repeated and empty spaces
     [uni_set,repeated] = deleteRepeated(uni_set);
-    uni_set_idx        = uni_set_idx(~repeated);
     genesCell          = genesCell(~repeated);
     emptyIndexes       = cellfun(@isempty,uni_set);
     uni_set            = uni_set(~emptyIndexes);
-    uni_set_idx        = uni_set_idx(~emptyIndexes);
     genesCell          = genesCell(~emptyIndexes);
-
+    
     %EC: Find union and intersection between all units (only applies for
     %complexes, i.e. length(EC_set) > 1):
     uni_EC = strsplit(EC_set{1},' ');
@@ -134,13 +107,7 @@ for i = 1:length(gene_sets)
     end    
     %MW: use uniprot codes + swissprot table:
     for j = 1:length(uni_set)
-        %index2     = strcmpi(DBprot(:),uni_set{j});
-        index = uni_set_idx{j};
-        %if (length(find(index2)) ~= length(index))
-        %    disp('Length error')
-        %elseif (~all(index == find(index2)))
-        %    disp('value error')
-        %end
+        index     = strcmpi(DBprot(:),uni_set{j});
         minWeight = min(DBMW{index});
         MW(i)     = MW(i) + minWeight;
     end
@@ -148,7 +115,7 @@ for i = 1:length(gene_sets)
     uni{i}   = strjoin(uni_set,' ');
     EC{i}    = strjoin(EC_set,' ');
     Genes{i} = strjoin(genesCell,' ');
- end
+end
 
 %Delete repeated Uniprots (and the corresponding ECs):
 [uni,deleted] = deleteRepeated(uni);
