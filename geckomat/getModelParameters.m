@@ -22,6 +22,9 @@ parameters.org_name = 'saccharomyces cerevisiae';
 %Provide your organism KEGG ID
 parameters.keggID = 'sce';
 
+%Provide your organism taxonomic ID, will be used to query Uniprot
+parameters.taxonID = '559292';
+
 %The name of the exchange reaction that supplies the model with carbon (rxnNames)
 parameters.c_source = 'D-glucose exchange (reversible)'; 
 
