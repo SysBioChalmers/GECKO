@@ -104,20 +104,26 @@ end
 %6: Sort reactions, so that reversible and isoenzymic reactions are kept near
 model=sortIdentifiers(model);
 
-%7: Make ec-extension structure, one for each kcat value
-emptyCell    = cell(numel(model.rxns)*5,1); %Prepare plenty of space
-emptyVect    = zeros(numel(model.rxns)*5,1);
-ec.rxns      = emptyCell;
-ec.eccodes   = emptyCell; % Can also be parsed from model. Only needed for classic GECKO matching
-ec.rxnEnzMat = zeros(numel(model.rxns)*5,numel(model.genes)); % Non-zeros will indicate the number of subunits
-%ec.reverse   = logical(emptyVect); % Whether reaction is in reverse. Might be unnecessary, can also be gathered from the reaction ID ('_REV')
+%7: Make ec-extension structure, one for gene-associated reaction.
+rxnWithGene  = find(sum(model.rxnGeneMat,2));
+ec.rxns      = model.rxns(rxnWithGene);
+emptyCell    = cell(numel(rxnWithGene),1);
+emptyVect    = zeros(numel(rxnWithGene),1);
+if isfield(model,'eccodes')
+    ec.eccodes = model.eccodes(rxnWithGene);
+else
+    ec.eccodes = emptyCell;
+    %TODO: loading of external ec-code database, possibly from uniprot, which
+    %should directly be parsed to the model, so that the eccodeDB entries match
+    %model.rxns. This is problematic, because Uniprot can contain multiple
+    %eccodes, while eccodes might not exactly match the reactions that are
+    %catalyzed. Only needed for classic GECKO matching, might just copy how it
+    %was dealt with there
+end
+ec.rxnEnzMat = zeros(numel(rxnWithGene),numel(model.genes)); % Non-zeros will indicate the number of subunits
 ec.kcat      = emptyVect;
-ec.source    = emptyCell; % Strings, like 'dlkcat', 'manual', 'kcatdb'
-% (referring to BRENDA and/or SABIO-RK). Should be standardized for
-% applyKcatConstraints to function. Can alternatively be numeric (with each
-% number having a dedicated meaning), to avoid spelling mistakes and users
-% defining other types of sources?
-ec.notes     = emptyCell;
+ec.source    = emptyCell; % Strings, like 'dlkcat', 'manual', 'brenda', etc.
+ec.notes     = emptyCell; % Additional comments
 
 %8: Gather enzyme information via UniprotDB
 [Lia,Locb]      = ismember(model.genes,uniprotDB.genes);
@@ -134,28 +140,12 @@ ec.concs        = nan(numel(ec.genes),1); % To be filled with proteomics data wh
 %     uniprotDB = extractMiriam(model.geneMiriams,'uniprot');
 % end
 
-
-%Extract model provided eccodes
-%TODO: loading of external ec-code database, possibly from uniprot, which
-%should directly be parsed to the model, so that the eccodeDB entries match
-%model.rxns. This is problematic, because Uniprot can contain multiple
-%eccodes, while eccodes might not exactly match the reactions that are
-%catalyzed. Only needed for classic GECKO matching, might just copy how it
-%was dealt with there
-%ec.eccodes      = uniprotDB.eccodes(Locb);
-
 %9: Only parse rxns associated to genes
-rxnWithGene = find(sum(model.rxnGeneMat,2));
-ecCount=1;
 for r=1:numel(rxnWithGene)
     ec.rxns(r) = model.rxns(rxnWithGene(r));
     rxnGenes   = model.genes(find(model.rxnGeneMat(rxnWithGene(r),:)));
     [~,locEnz] = ismember(rxnGenes,ec.genes); % Could also parse directly from rxnGeneMat, but some genes might be missing from Uniprot DB
     ec.rxnEnzMat(r,locEnz) = 1; %Assume 1 copy per subunit or enzyme, can be modified later
-end
-%Remove empty fields
-for f=fieldnames(ec)'
-    ec.(f{:})(ecCount-1:end,:)=[];
 end
 
 %10: Add proteins as pseudometabolites
@@ -177,8 +167,6 @@ model = addMets(model,pool);
 
 %12: Add protein draw reactions.
 if ~geckoLight
-    %TODO: Separate function to switch to exchange reactions for proteomics
-    %data
     drawRxns.rxns            = strcat('draw_',proteinMets.mets);
     drawRxns.mets            = cell(numel(drawRxns.rxns),1);
     drawRxns.stoichCoeffs    = cell(numel(drawRxns.rxns),1);
@@ -187,7 +175,7 @@ if ~geckoLight
         drawRxns.stoichCoeffs{i} = [1,-(ec.mw(uniprotSortId(i)))/1000];
     end
     drawRxns.lb              = zeros(numel(drawRxns.rxns),1);
-    drawRxns.grRules         = ec.gene(uniprotSortId);
+    drawRxns.grRules         = ec.genes(uniprotSortId);
     model = addRxns(model,drawRxns);
 end
 
