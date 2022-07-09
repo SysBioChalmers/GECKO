@@ -4,19 +4,17 @@ classdef GECKOInstaller
 %   Run GECKOInstaller.install to install (will set up the path in MATLAB)
 %   Run GECKOInstaller.uninstall to clear the path from MATLAB
 %   To install, you first need to cd to the GECKO root.
-%
-% Johan Gustafsson, 2022-07-07
-%
+
     methods (Static)
         function install
             sourceDir = fileparts(which(mfilename));
-            paths = GECKOInstaller.GetFilteredSubPaths(sourceDir, '.*\.git.*');
+            paths = GECKOInstaller.GetFilteredSubPaths(sourceDir, FILE_FILTER);
             addpath(paths);
             savepath;
         end
         function uninstall
             sourceDir = fileparts(which(mfilename));
-            paths = GECKOInstaller.GetFilteredSubPaths(sourceDir, '.*\.git.*');
+            paths = GECKOInstaller.GetFilteredSubPaths(sourceDir, FILE_FILTER);
             rmpath(paths);
             savepath;
         end
@@ -40,4 +38,8 @@ classdef GECKOInstaller
             newPaths = strcat(char(join(pathsLeft,';')),';');
         end
     end
+    
+    properties (Constant)
+      FILE_FILTER = '.*\.git.*';
+   end
 end
