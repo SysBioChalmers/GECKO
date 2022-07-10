@@ -33,7 +33,7 @@ classdef GECKOInstaller
 				error('The path in which GECKO resides may not contain semicolons for this installation to work!');
 			end
             paths = genpath(path_);
-            splitPaths = strsplit(paths, ';');
+            splitPaths = strsplit(paths, GECKOInstaller.PATH_SEPARATOR);
             %remove the last, it is empty
             splitPaths = splitPaths(1,1:end-1);
             matches = regexp(splitPaths, filter_, 'match');
