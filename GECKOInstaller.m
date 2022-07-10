@@ -8,13 +8,13 @@ classdef GECKOInstaller
     methods (Static)
         function install
             sourceDir = fileparts(which(mfilename));
-            paths = GECKOInstaller.GetFilteredSubPaths(sourceDir, FILE_FILTER);
+            paths = GECKOInstaller.GetFilteredSubPaths(sourceDir, GECKOInstaller.FILE_FILTER);
             addpath(paths);
             savepath;
         end
         function uninstall
             sourceDir = fileparts(which(mfilename));
-            paths = GECKOInstaller.GetFilteredSubPaths(sourceDir, FILE_FILTER);
+            paths = GECKOInstaller.GetFilteredSubPaths(sourceDir, GECKOInstaller.FILE_FILTER);
             rmpath(paths);
             savepath;
         end
@@ -27,7 +27,11 @@ classdef GECKOInstaller
 		end
 
         function newPaths = GetFilteredSubPaths(path_, filter_)
-            % Will fail if you have a directory containing ';'
+			%Check that there are no semicolons in the path - that will cause 
+			%problems since that is the separator used to separate paths
+			if contains(path_, ';')
+				error('The path in which GECKO resides may not contain semicolons for this installation to work!');
+			end
             paths = genpath(path_);
             splitPaths = strsplit(paths, ';');
             %remove the last, it is empty
