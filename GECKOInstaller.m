@@ -27,24 +27,24 @@ classdef GECKOInstaller
 		end
 
         function newPaths = GetFilteredSubPaths(path_, filter_)
+            pathSep = pathsep();
 			%Check that there are no semicolons in the path - that will cause 
 			%problems since that is the separator used to separate paths
-			if contains(path_, ';')
+			if contains(path_, pathSep)
 				error('The path in which GECKO resides may not contain semicolons for this installation to work!');
 			end
             paths = genpath(path_);
-            splitPaths = strsplit(paths, GECKOInstaller.PATH_SEPARATOR);
+            splitPaths = strsplit(paths, pathSep);
             %remove the last, it is empty
             splitPaths = splitPaths(1,1:end-1);
             matches = regexp(splitPaths, filter_, 'match');
             okPaths = cellfun(@isempty, matches);
             pathsLeft = splitPaths(1,okPaths);
-            newPaths = strcat(char(join(pathsLeft, GECKOInstaller.PATH_SEPARATOR)), GECKOInstaller.PATH_SEPARATOR);
+            newPaths = strcat(char(join(pathsLeft, pathSep)), pathSep);
         end
     end
     
     properties (Constant)
       FILE_FILTER = '.*\.git.*';
-      PATH_SEPARATOR = ';';
    end
 end
