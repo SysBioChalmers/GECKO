@@ -28,8 +28,8 @@ classdef GECKOInstaller
 
         function newPaths = GetFilteredSubPaths(path_, filter_)
             pathSep = pathsep();
-			%Check that there are no semicolons in the path - that will cause 
-			%problems since that is the separator used to separate paths
+			%Check that there are no separators in the path - that will cause 
+            %problems since the separator is used to separate paths in a string
 			if contains(path_, pathSep)
 				error('The path in which GECKO resides may not contain semicolons for this installation to work!');
 			end
