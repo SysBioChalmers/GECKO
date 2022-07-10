@@ -39,7 +39,7 @@ classdef GECKOInstaller
             matches = regexp(splitPaths, filter_, 'match');
             okPaths = cellfun(@isempty, matches);
             pathsLeft = splitPaths(1,okPaths);
-            newPaths = strcat(char(join(pathsLeft,';')),';');
+            newPaths = strcat(char(join(pathsLeft, GECKOInstaller.PATH_SEPARATOR)), GECKOInstaller.PATH_SEPARATOR);
         end
     end
     
