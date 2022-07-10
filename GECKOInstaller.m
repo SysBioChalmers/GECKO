@@ -45,5 +45,6 @@ classdef GECKOInstaller
     
     properties (Constant)
       FILE_FILTER = '.*\.git.*';
+      PATH_SEPARATOR = ';';
    end
 end
