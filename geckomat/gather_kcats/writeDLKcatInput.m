@@ -39,8 +39,6 @@ elseif numel(ecRxns)~=numel(model.ec.rxns)
     error('Length of ecRxns is not the same as model.ec.rxns')
 end
 [geckoPath, ~] = findGECKOroot();
-    ecRxns = true(numel(model.ec.rxns),1);
-ecRxns(4:10)=0;
 
 % Identify reactions for which kcat should be predicted (entry in model.ec.rxns)
 rxnsToInclude = model.ec.rxns(ecRxns);
@@ -83,7 +81,6 @@ end
 [proteins, ecRxns] = find(transpose(model.ec.rxnEnzMat(ecRxns(reactions),:)));
 
 % Prepare output
-clear out
 out(1,:) = model.metNames(substrates(ecRxns));
 if isfield(model,'metSmiles')
     out(2,:) = model.metSmiles(substrates(ecRxns));
