@@ -3,13 +3,22 @@ function DLKcatIDs = writeDLKcatInput(model,inFile,ecRxns)
 %   Prepares the input file that can be used by DLKcat
 %
 % Input:
-%   model       an ec-model in RAVEN format
-%   inFile      name and path of the DLKcat input file to be written.
-%               (Opt, default is 'DLKcatInput.tsv' in the current working
-%               directory)
-%   ecRxns      for which reactions (from model.ec.rxns) DLKcat should
-%               predict kcat values, provided as logical vector with same
-%               length as model.ec.rxns. (Opt, default is all reactions)
+%   model           an ec-model in RAVEN format
+%   inFile          name and path of the DLKcat input file to be written.
+%                   (Opt, default is 'DLKcatInput.tsv' in the current
+%                   working directory)
+%   ecRxns          for which reactions (from model.ec.rxns) DLKcat should
+%                   predict kcat values, provided as logical vector with
+%                   same length as model.ec.rxns. (Opt, default is all
+%                   reactions)
+%   ignoreMets      cell array with metabolite names that should not be
+%                   included in the DLKcat input file. (Opt, default it
+%                   loads the list in GECKO/databases/DLKcatIgnoreMets.tsv)
+%   currencyMets    cell array (with 2 columns) with pairs of currency 
+%                   metabolites (identified by their metabolite name) that
+%                   that should not be included in the DLKcat input file
+%                   for reactions where both . (Opt, default it
+%                   loads the list in GECKO/databases/DLKcatIgnoreMets.tsv)
 %
 % Output:
 %   DLKcatIDs   vector that specify reaction identifiers and genes and for
@@ -18,46 +27,60 @@ function DLKcatIDs = writeDLKcatInput(model,inFile,ecRxns)
 %
 
 if nargin<2
-    inFile='DLKcatInput.tsv';
+    inFile = 'DLKcatInput.tsv';
 elseif endsWith(inFile,filesep()) % Append file name if only path is given
-    inFile=fullfile(inFile,'DLKcatInput.tsv');
+    inFile = fullfile(inFile,'DLKcatInput.tsv');
 end
 if nargin<3
-    ecRxns=true(numel(model.ec.rxns),1);
+    ecRxns = true(numel(model.ec.rxns),1);
 elseif ~logical(ecRxns)
     error('ecRxns should be provided as logical vector')
 elseif numel(ecRxns)~=numel(model.ec.rxns)
     error('Length of ecRxns is not the same as model.ec.rxns')
 end
 [geckoPath, ~] = findGECKOroot();
+    ecRxns = true(numel(model.ec.rxns),1);
+ecRxns(4:10)=0;
 
 % Identify reactions for which kcat should be predicted (entry in model.ec.rxns)
-rxnsToInclude=model.ec.rxns(ecRxns);
-ecRxns=find(ecRxns); % Change to indices
+rxnsToInclude = model.ec.rxns(ecRxns);
+ecRxns        = find(ecRxns); % Change to indices
 % Map back to original reactions, to extract substrates
-[sanityCheck,rxnIdxs]=ismember(rxnsToInclude,model.rxns);
+[sanityCheck,rxnIdxs] = ismember(rxnsToInclude,model.rxns);
 if ~all(sanityCheck)
     error('Not all reactions in model.ec.rxns are found in model.rxns')
 end
 
-% Specify currency metabolites that should be ignored as substrates
-%TODO: rename to ignoreMets, can also include e.g. large metabolites
-fID          = fopen(fullfile(geckoPath,'databases','smallMets.tsv'));
-smallMets    = textscan(fID,'%s','delimiter','\t');
-fclose(fID);
-fID          = fopen(fullfile(geckoPath,'databases','currencyMets.tsv'));
-currencyMets = textscan(fID,'%s','delimiter','\t');
-fclose(fID);
-%TODO: currencyMets check as substrate and product
-ignoreMets   = [smallMets{1}; currencyMets{1}];
-ignoreMets   = find(ismember(model.metNames,ignoreMets));
+% Ignore selected metabolites (metal ions, proteins etc.)
+if nargin<4
+    fID          = fopen(fullfile(geckoPath,'databases','DLKcatIgnoreMets.tsv'));
+    ignoreMets   = textscan(fID,'%s','delimiter','\t');
+    fclose(fID);
+    ignoreMets   = ignoreMets{1};
+end
+ignoreMets   = logical(ismember(model.metNames,ignoreMets));
+reducedS     = model.S;
+reducedS(ignoreMets,:) = 0;
+% Ignore currency metabolites if they occur in pairs
+if nargin<5
+    fID          = fopen(fullfile(geckoPath,'databases','DLKcatCurrencyMets.tsv'));
+    currencyMets = textscan(fID,'%s %s','delimiter','\t');
+    fclose(fID);
+    currencyMets    = [currencyMets{1}, currencyMets{2}];
+end
+for i=1:size(currencyMets,1)
+    subs = find(strcmp(currencyMets(i,1),model.metNames));
+    prod = find(strcmp(currencyMets(i,2),model.metNames));
+    [~,subsRxns]=find(reducedS(subs,:));
+    [~,prodRxns]=find(reducedS(prod,:));
+    pairRxns = intersect(subsRxns,prodRxns);
+    reducedS([subs;prod],pairRxns) = 0;
+end
+
 % Enumerate all substrates for each reaction
-[substrates, reactions] = find(model.S(:,rxnIdxs)<0);
-toIgnore                = ismember(substrates,ignoreMets);
-substrates(toIgnore)    = [];
-reactions(toIgnore)     = [];
+[substrates, reactions] = find(reducedS(:,rxnIdxs)<0);
 % Enumerate all proteins for each reaction
-[proteins,ecRxns] = find(transpose(model.ec.rxnEnzMat(ecRxns(reactions),:)));
+[proteins, ecRxns] = find(transpose(model.ec.rxnEnzMat(ecRxns(reactions),:)));
 
 % Prepare output
 clear out
