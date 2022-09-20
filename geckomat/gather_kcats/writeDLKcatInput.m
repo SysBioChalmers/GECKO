@@ -50,13 +50,14 @@ if ~all(sanityCheck)
 end
 
 % Ignore selected metabolites (metal ions, proteins etc.)
+metsNoSpecialChars = lower(regexprep(model.metNames,'[^0-9a-zA-Z]+',''));
 if nargin<4
     fID          = fopen(fullfile(geckoPath,'databases','DLKcatIgnoreMets.tsv'));
     ignoreMets   = textscan(fID,'%s','delimiter','\t');
     fclose(fID);
-    ignoreMets   = ignoreMets{1};
+    ignoreMets   = lower(regexprep(ignoreMets{1},'[^0-9a-zA-Z]+',''));
 end
-ignoreMets   = logical(ismember(model.metNames,ignoreMets));
+ignoreMets   = logical(ismember(metsNoSpecialChars,ignoreMets));
 reducedS     = model.S;
 reducedS(ignoreMets,:) = 0;
 % Ignore currency metabolites if they occur in pairs
@@ -64,11 +65,11 @@ if nargin<5
     fID          = fopen(fullfile(geckoPath,'databases','DLKcatCurrencyMets.tsv'));
     currencyMets = textscan(fID,'%s %s','delimiter','\t');
     fclose(fID);
-    currencyMets    = [currencyMets{1}, currencyMets{2}];
+    currencyMets    = lower(regexprep([currencyMets{1}, currencyMets{2}],'[^0-9a-zA-Z]+',''));
 end
 for i=1:size(currencyMets,1)
-    subs = find(strcmp(currencyMets(i,1),model.metNames));
-    prod = find(strcmp(currencyMets(i,2),model.metNames));
+    subs = find(strcmp(currencyMets(i,1),metsNoSpecialChars));
+    prod = find(strcmp(currencyMets(i,2),metsNoSpecialChars));
     [~,subsRxns]=find(reducedS(subs,:));
     [~,prodRxns]=find(reducedS(prod,:));
     pairRxns = intersect(subsRxns,prodRxns);
