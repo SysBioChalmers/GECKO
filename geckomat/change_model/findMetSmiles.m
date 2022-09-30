@@ -21,9 +21,11 @@ for i = 1:numel(uniqueNames)
         progress = pad(progress,3,'left');
         fprintf('\b\b\b\b\b\b\b\b\b\b\b\b\b%s%% complete',progress);
     end
-    try
-        uniqueSmiles{i,1} = strtrim(webread(['https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/' uniqueNames{i} '/property/CanonicalSMILES/TXT']));
-    end
+        smileResult       = webread(['https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/' uniqueNames{i} '/property/CanonicalSMILES/TXT']);
+        %Sometimes multiple lines are given, with alternative SMILES. Only
+        %keep the first suggestion.
+        smileResult       = regexp(smileResult,'(^\S*)\n','once','tokens');
+        uniqueSmiles{i,1} = smileResult{1,1};
 end
 fprintf('\b\b\b\b\b\b\b\b\b\b\b\b\bdone.\n');
 
