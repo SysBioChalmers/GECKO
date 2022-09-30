@@ -1,4 +1,4 @@
-function DLKcatIDs = writeDLKcatInput(model,inFile,ecRxns)
+function writeDLKcatInput(model,inFile,ecRxns)
 % writeDLKcatInput
 %   Prepares the input file that can be used by DLKcat
 %
@@ -19,11 +19,6 @@ function DLKcatIDs = writeDLKcatInput(model,inFile,ecRxns)
 %                   that should not be included in the DLKcat input file
 %                   for reactions where both . (Opt, default it
 %                   loads the list in GECKO/databases/DLKcatIgnoreMets.tsv)
-%
-% Output:
-%   DLKcatIDs   vector that specify reaction identifiers and genes and for
-%               each line in the DLKcat input file that is written. To be
-%               used for matching the DLKcat results back to the model.
 %
 
 if nargin<2
@@ -82,23 +77,20 @@ end
 [proteins, ecRxns] = find(transpose(model.ec.rxnEnzMat(ecRxns(reactions),:)));
 
 % Prepare output
-out(1,:) = model.metNames(substrates(ecRxns));
+out(1,:) = model.rxns(rxnIdxs(reactions(ecRxns)));
+out(2,:) = model.ec.genes(proteins);
+out(3,:) = model.metNames(substrates(ecRxns));
 if isfield(model,'metSmiles')
-    out(2,:) = model.metSmiles(substrates(ecRxns));
+    out(4,:) = model.metSmiles(substrates(ecRxns));
 else
-    out(2,:) = cell(numel(substrates(ecRxns)),1);
+    out(4,:) = cell(numel(substrates(ecRxns)),1);
 end
-out(2,cellfun(@isempty,out(2,:))) = {'None'};
-out(3,:) = model.ec.sequence(proteins);
-out = [{'Substrate Name';'Substrate SMILES';'Protein Sequence'}, out];
+out(4,cellfun(@isempty,out(4,:))) = {'None'};
+out(5,:) = model.ec.sequence(proteins);
+out = [{'Reaction ID';'Gene ID';'Substrate Name';'Substrate SMILES';'Protein Sequence'}, out];
 
 % Write file
 fID = fopen(inFile,'w');
-fprintf(fID,'%s\t%s\t%s\n',out{:});
+fprintf(fID,'%s\t%s\t%s\t%s\t%s\n',out{:});
 fclose(fID);
-
-% Define DLKcatIDs output
-DLKcatIDs.rxns       = model.rxns(rxnIdxs(reactions(ecRxns)));
-DLKcatIDs.genes      = model.ec.genes(proteins);
-DLKcatIDs.substrates = transpose(out(1,2:end));
 end
