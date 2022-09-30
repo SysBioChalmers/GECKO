@@ -16,16 +16,18 @@ uniqueSmiles(1:numel(uniqueNames),1) = {''};
 fprintf('Querying PubChem for SMILES by metabolite names...   0%% complete');
 numUnique = numel(uniqueNames);
 for i = 1:numel(uniqueNames)
-    if rem(i-1,floor(numUnique/100)) == 0
+    if rem(i-1,floor(numUnique/100+1)) == 0
         progress = num2str(floor(100*(i/numUnique)));
         progress = pad(progress,3,'left');
         fprintf('\b\b\b\b\b\b\b\b\b\b\b\b\b%s%% complete',progress);
     end
-        smileResult       = webread(['https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/' uniqueNames{i} '/property/CanonicalSMILES/TXT']);
-        %Sometimes multiple lines are given, with alternative SMILES. Only
-        %keep the first suggestion.
-        smileResult       = regexp(smileResult,'(^\S*)\n','once','tokens');
-        uniqueSmiles{i,1} = smileResult{1,1};
+        try
+            smileResult       = webread(['https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/' uniqueNames{i} '/property/CanonicalSMILES/TXT']);
+            %Sometimes multiple lines are given, with alternative SMILES. Only
+            %keep the first suggestion.
+            smileResult       = regexp(smileResult,'(^\S*)\n','once','tokens');
+            uniqueSmiles{i,1} = smileResult{1,1};
+        end
 end
 fprintf('\b\b\b\b\b\b\b\b\b\b\b\b\bdone.\n');
 
