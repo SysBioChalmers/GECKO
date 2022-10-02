@@ -17,7 +17,12 @@ classdef (Abstract) ModelAdapter
         %end
         
 		function model = manualModifications(obj,model) %default is to do nothing
-		end
+        end
+        
+        %The genes returned here should match the gene id set in the parameter params.uniprotGeneIdField
+        function genes = getUniprotCompatibleGenes(obj,model)
+            genes = model.genes;
+        end
     end
 
     %To have the params public is a bit "ugly", but very practical 

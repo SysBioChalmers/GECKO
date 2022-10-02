@@ -22,6 +22,11 @@ classdef YeastGEMAdapter < ModelAdapter
 
 			%Provide your organism taxonomic ID, will be used to query Uniprot
 			obj.params.taxonID = '559292';
+            
+            %Field for Uniprot gene id - should match the gene ids used in the 
+            %GPRs. Note that this is a field in the web request to uniprot - 
+            %it has to match one of the fields there
+            obj.params.uniprotGeneIdField = 'gene_oln';
 
 			%The name of the exchange reaction that supplies the model with carbon (rxnNames)
 			obj.params.c_source = 'D-glucose exchange (reversible)'; 

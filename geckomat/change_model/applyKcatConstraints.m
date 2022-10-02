@@ -41,14 +41,14 @@ if all(model.ec.kcat==0)
 end
 
 %Clear existing incorporation of enzyme usage
-% TODO: modify for geckoLight 
-%if ~model.ec.geckoLight
-protMetIdx = startsWith(model.mets,'prot_') & ~strcmp(model.mets,'prot_pool');
-metabolRxn = unique(model.ec.rxns(updateRxns));
-metabolRxn = ismember(model.rxns,metabolRxn);
-model.S(protMetIdx,metabolRxn) = 0;
-
-if ~model.ec.geckoLight %For normal GECKO formulation, where each enzyme is explicitly considered
+if ~model.ec.geckoLight
+    protMetIdx = startsWith(model.mets,'prot_') & ~strcmp(model.mets,'prot_pool');
+    metabolRxn = unique(model.ec.rxns(updateRxns));
+    metabolRxn = ismember(model.rxns,metabolRxn);
+    model.S(protMetIdx,metabolRxn) = 0;
+end %no clearing needed for GECKO Light, will be overwritten below
+%For normal GECKO formulation (full model), where each enzyme is explicitly considered
+if ~model.ec.geckoLight 
     %Make vector where column 1 = rxn; 2 = enzyme; 3 = subunit copies; 4 = kcat
     newKcats=zeros(numel(updateRxns)*10,4);
     updateRxns=find(updateRxns);
@@ -79,22 +79,42 @@ if ~model.ec.geckoLight %For normal GECKO formulation, where each enzyme is expl
     model.S(linearIndices) = -newKcats(:,4); %Substrate = negative
     
 else %GECKO light formulation, where prot_pool represents all usages
-    newKcats=zeros(numel(updateRxns),1);
-    for i=1:numel(updateRxns)
-        %TODO:The current code is incorrect, it takes the sum of all
-        %enzymes that are associated. But there could be isoenzymes, so not
-        %all enzymes are necessarily required. Not sure how this can easily
-        %be parsed (without running expandModel).
-        enzymes     = find(model.ec.rxnEnzMat(i,:));
-        MW          = sum(model.ec.mw(enzymes));
-        newKcats(i) = MW/model.ec.kcat(i);
-        %TODO:Correct units.
-    end
-    %All draw directly from protein pool
+    nextIndex = 1;
     prot_pool_idx = find(ismember(model.mets,'prot_pool'));
-
-    [~,rxnIds] = ismember(model.ec.rxns(updateRxns),model.rxns);
-    model.S(prot_pool_idx,rxnIds) = -newKcats; %Substrate = negative
+    for i = 1:numel(model.rxns)
+        if nextIndex <= length(model.ec.rxns) && strcmp(model.rxns(i), model.ec.rxns(nextIndex))
+            updated = false;
+            newMWKcats=[];
+            %Reactions with isozymes will have several rows in ec.rxns etc.
+            %Loop through all reactions, and for each reaction look at all isozymes
+            %Then use the lowest MW/kcat among the isozymes - when optimizing, that
+            %is the one that will be used anyway.
+            while true
+                if updateRxns(nextIndex)
+                    updated = true;
+                end
+                enzymes     = find(model.ec.rxnEnzMat(nextIndex,:));
+%                if nextIndex == 3049 || any(enzymes == 3049)
+%                    apa = 13;
+%                end
+%                disp(enzymes)
+%                disp(nextIndex)
+                MW          = sum(model.ec.mw(enzymes).* model.ec.rxnEnzMat(nextIndex,:)); %multiply MW with number of subunits
+                newMWKcats = [newMWKcats MW/model.ec.kcat(nextIndex)]; %Light model: protein usage is MW/kcat
+                
+                nextIndex = nextIndex + 1;
+                if  nextIndex > length(model.ec.rxns) || ~strcmp(model.rxns(i), model.ec.rxns(nextIndex))
+                    break;
+                end
+            end
+            if (updated)
+                %Light model: always use the "cheapest" isozyme, that is what the 
+                %optimization will choose anyway unless isozymes are individually constrained.
+                %TODO:Check that the units are correct.
+                model.S(prot_pool_idx, i) = min(newMWKcats) * 3600; %per second -> per hour
+            end
+        end
+    end
 end
 end
 
