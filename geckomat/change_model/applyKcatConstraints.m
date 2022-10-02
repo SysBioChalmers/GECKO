@@ -93,13 +93,8 @@ else %GECKO light formulation, where prot_pool represents all usages
                 if updateRxns(nextIndex)
                     updated = true;
                 end
-                enzymes     = find(model.ec.rxnEnzMat(nextIndex,:));
-%                if nextIndex == 3049 || any(enzymes == 3049)
-%                    apa = 13;
-%                end
-%                disp(enzymes)
-%                disp(nextIndex)
-                MW          = sum(model.ec.mw(enzymes).* model.ec.rxnEnzMat(nextIndex,:)); %multiply MW with number of subunits
+                enzymes = find(model.ec.rxnEnzMat(nextIndex,:));
+                MW = sum(model.ec.mw(enzymes).* model.ec.rxnEnzMat(nextIndex,:)); %multiply MW with number of subunits
                 newMWKcats = [newMWKcats MW/model.ec.kcat(nextIndex)]; %Light model: protein usage is MW/kcat
                 
                 nextIndex = nextIndex + 1;
