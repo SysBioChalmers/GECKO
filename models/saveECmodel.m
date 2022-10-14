@@ -54,10 +54,11 @@ if strcmp(toolbox,'COBRA')
     model_cobra.subSystems = cell(size(model_cobra.rxns));
     model_cobra = takeOutField(model_cobra,'rxnSBOTerms');
     %Save model as sbml and text:
+    writeCbModel(model_cobra,'mat',[file_name '.mat']);
     writeCbModel(model_cobra,'sbml',[file_name '.xml']);
     writeCbModel(model_cobra,'text',[file_name '.txt']);
 else
-    exportForGit(model,name,root_name,{'xml','yml','txt','mat'});
+    exportForGit(model,name,root_name,{'xml','yml','txt','mat'},false,false);
 end
 
 %Convert notation "e-005" to "e-05 " in stoich. coeffs. to avoid
