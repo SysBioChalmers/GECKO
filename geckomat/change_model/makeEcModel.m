@@ -11,7 +11,7 @@ function model = makeEcModel(model,modelAdapter,geckoLight)
 %   model        a model in RAVEN format
 %   modelAdapter A modelAdapter, an instance of a class inheriting the 
 %                ModelAdapter class, e.g., YeastAdapter.
-%   geckoLight   true if a simplified GECKO light model should be generated.
+%   geckoLight   true (or 1) if a simplified GECKO light model should be generated.
 %                Optional, default is false.
 %
 % Ouput:
