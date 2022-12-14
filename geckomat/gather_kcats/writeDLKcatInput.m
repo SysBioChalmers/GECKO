@@ -1,4 +1,4 @@
-function DLKcatIDs = writeDLKcatInput(model,inFile,ecRxns)
+function writeDLKcatInput(model,inFile,ecRxns,ignoreMets,currencyMets)
 % writeDLKcatInput
 %   Prepares the input file that can be used by DLKcat
 %
@@ -19,11 +19,6 @@ function DLKcatIDs = writeDLKcatInput(model,inFile,ecRxns)
 %                   that should not be included in the DLKcat input file
 %                   for reactions where both . (Opt, default it
 %                   loads the list in GECKO/databases/DLKcatIgnoreMets.tsv)
-%
-% Output:
-%   DLKcatIDs   vector that specify reaction identifiers and genes and for
-%               each line in the DLKcat input file that is written. To be
-%               used for matching the DLKcat results back to the model.
 %
 
 if nargin<2
@@ -49,27 +44,38 @@ if ~all(sanityCheck)
     error('Not all reactions in model.ec.rxns are found in model.rxns')
 end
 
-% Ignore selected metabolites (metal ions, proteins etc.)
+% Ignore selected metabolites (metal ions, proteins etc.). First check by
+% name (case insensitive, without white spaces and special characters),
+% then also try to match with metSmiles (if available).
 metsNoSpecialChars = lower(regexprep(model.metNames,'[^0-9a-zA-Z]+',''));
 if nargin<4
-    fID          = fopen(fullfile(geckoPath,'databases','DLKcatIgnoreMets.tsv'));
-    ignoreMets   = textscan(fID,'%s','delimiter','\t');
+    fID        = fopen(fullfile(geckoPath,'databases','DLKcatIgnoreMets.tsv'));
+    fileData   = textscan(fID,'%s %s','delimiter','\t');
     fclose(fID);
-    ignoreMets   = lower(regexprep(ignoreMets{1},'[^0-9a-zA-Z]+',''));
+    [ignoreMets, ignoreSmiles] = deal(fileData{[1,2]});
+    ignoreMets = lower(regexprep(ignoreMets,'[^0-9a-zA-Z]+',''));
 end
-ignoreMets   = logical(ismember(metsNoSpecialChars,ignoreMets));
-reducedS     = model.S;
-reducedS(ignoreMets,:) = 0;
-% Ignore currency metabolites if they occur in pairs
+ignoreMetsIdx  = logical(ismember(metsNoSpecialChars,ignoreMets));
+if isfield(model,'metSmiles')
+    ignoreMetsIdx = ignoreMetsIdx | logical(ismember(model.metSmiles,ignoreSmiles));
+end
+reducedS = model.S;
+reducedS(ignoreMetsIdx,:) = 0;
+
+% Ignore currency metabolites if they occur in pairs. First check by
+% name (case insensitive, without white spaces and special characters),
+% then also try to match with metSmiles (if available).
 if nargin<5
-    fID          = fopen(fullfile(geckoPath,'databases','DLKcatCurrencyMets.tsv'));
-    currencyMets = textscan(fID,'%s %s','delimiter','\t');
+    fID      = fopen(fullfile(geckoPath,'databases','DLKcatCurrencyMets.tsv'));
+    fileData = textscan(fID,'%s %s %s %s','delimiter','\t');
     fclose(fID);
-    currencyMets    = lower(regexprep([currencyMets{1}, currencyMets{2}],'[^0-9a-zA-Z]+',''));
+    [currMets(:,1), currMets(:,2), currSmiles(:,1), currSmiles(:,2)] = deal(fileData{[1,3,2,4]});
+    [currMets(:,1), currMets(:,2)] = deal(fileData{[1,2]});
+    currMets = lower(regexprep(currMets,'[^0-9a-zA-Z]+',''));
 end
-for i=1:size(currencyMets,1)
-    subs = find(strcmp(currencyMets(i,1),metsNoSpecialChars));
-    prod = find(strcmp(currencyMets(i,2),metsNoSpecialChars));
+for i=1:size(currMets,1)
+    subs = find(strcmp(currMets(i,1),metsNoSpecialChars));
+    prod = find(strcmp(currMets(i,2),metsNoSpecialChars));
     [~,subsRxns]=find(reducedS(subs,:));
     [~,prodRxns]=find(reducedS(prod,:));
     pairRxns = intersect(subsRxns,prodRxns);
@@ -82,23 +88,20 @@ end
 [proteins, ecRxns] = find(transpose(model.ec.rxnEnzMat(ecRxns(reactions),:)));
 
 % Prepare output
-out(1,:) = model.metNames(substrates(ecRxns));
+out(1,:) = model.rxns(rxnIdxs(reactions(ecRxns)));
+out(2,:) = model.ec.genes(proteins);
+out(3,:) = model.metNames(substrates(ecRxns));
 if isfield(model,'metSmiles')
-    out(2,:) = model.metSmiles(substrates(ecRxns));
+    out(4,:) = model.metSmiles(substrates(ecRxns));
 else
-    out(2,:) = cell(numel(substrates(ecRxns)),1);
+    out(4,:) = cell(numel(substrates(ecRxns)),1);
 end
-out(2,cellfun(@isempty,out(2,:))) = {'None'};
-out(3,:) = model.ec.sequence(proteins);
-out = [{'Substrate Name';'Substrate SMILES';'Protein Sequence'}, out];
+out(4,cellfun(@isempty,out(4,:))) = {'None'};
+out(5,:) = model.ec.sequence(proteins);
+out = [{'Reaction ID';'Gene ID';'Substrate Name';'Substrate SMILES';'Protein Sequence'}, out];
 
 % Write file
 fID = fopen(inFile,'w');
-fprintf(fID,'%s\t%s\t%s\n',out{:});
+fprintf(fID,'%s\t%s\t%s\t%s\t%s\n',out{:});
 fclose(fID);
-
-% Define DLKcatIDs output
-DLKcatIDs.rxns       = model.rxns(rxnIdxs(reactions(ecRxns)));
-DLKcatIDs.genes      = model.ec.genes(proteins);
-DLKcatIDs.substrates = transpose(out(1,2:end));
 end
