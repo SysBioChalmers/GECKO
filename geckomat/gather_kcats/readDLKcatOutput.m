@@ -1,4 +1,4 @@
-function kcatList = readDLKcatOutput(model,outFile,DLKcatIDs)
+function kcatList = readDLKcatOutput(model,outFile)
 % readDLKcatOutput
 %   Reads the DLKcat output file and constructs a kcatList structure, that
 %   can be used by selectKcatValue() to populate the ec-model with kcat
@@ -20,7 +20,7 @@ function kcatList = readDLKcatOutput(model,outFile,DLKcatIDs)
 %
 
 fID          = fopen(outFile);
-DLKcatOutput = textscan(fID,'%s %s %s %s %s %s\n','Delimiter','\t','HeaderLines',1);
+DLKcatOutput = textscan(fID,'%s %s %s %s %s %s','Delimiter','\t','HeaderLines',1);
 fclose(fID);
 
 % Check that DLKcat output file and model match (not fool proof, but good enough)
