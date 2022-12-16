@@ -1,5 +1,4 @@
 function complexInfo = getComplexData(organism, writeFile)
-
 % getComplexData
 %
 %   Download portal complex database with curated stochiomtery
@@ -22,25 +21,36 @@ function complexInfo = getComplexData(organism, writeFile)
 %   Usage
 %         complexInfo = getComplexData('Saccharomyces cerevisiae',true)
 
-if isequal(organism, 'all')
-    organism = [];
+if nargin<1
+    organism = 'all';
+end
+switch organism
+    case 'all'
+        organism = [];
+        % Below: switch to a valid name in complex portal
+    case {'Saccharomyces cerevisiae','sce'}
+        organism = 'Saccharomyces cerevisiae (strain ATCC 204508 / S288c)';
+    case {'Schizosaccharomyces pombe','spo'}
+        organism = 'Schizosaccharomyces pombe (strain 972 / ATCC 24843)';
+    case {'Escherichia coli','eco'}
+        organism = 'Escherichia coli (strain K12)';
 end
 
 if nargin < 2
     writeFile = false;
 end
 
-complexInfo = [];
-
-% Switch to a valid name in complex portal 
-if ~isempty(organism)
-    if strcmp(organism,'Saccharomyces cerevisiae')
-        organism = 'Saccharomyces cerevisiae (strain ATCC 204508 / S288c)';
-    elseif strcmp(organism,'Schizosaccharomyces pombe')
-        organism = 'Schizosaccharomyces pombe (strain 972 / ATCC 24843)';
-    elseif strcmp(organism,'Escherichia coli')
-        organism = 'Escherichia coli (strain K12)';
-    end 
+switch writeFile
+    case {true,'true'}
+        writeFile = true;
+        geckoPath = findGECKOroot();
+        filePath = fullfile(geckoPath,'databases','complex_data.json');
+    case {false,'false'}
+        writeFile = false;
+        % Nothing to do
+    otherwise
+        filePath = fullfile(writeFile,'complex_data.json');
+        writeFile = true;
 end
 
 try
@@ -53,7 +63,7 @@ try
 
 catch ME
     if (strcmp(ME.identifier,'MATLAB:webservices:HTTP404StatusCodeError'))
-        disp('Cannot connect to the complex portal, perhaps the server is not responding');
+        error('Cannot connect to the complex portal, perhaps the server is not responding');
     end
 end
 
@@ -129,11 +139,9 @@ complexInfo = cell2struct(complexData, rowHeadings, 2);
 if writeFile == true
     % Convert to a JSON file
     jsontxt = jsonencode(cell2table(complexData, 'VariableNames', rowHeadings));
-
     % Write to a JSON file
-    fid = fopen('../../databases/complex_data.json', 'w');
+    fid = fopen(filePath, 'w');
     fprintf(fid, '%s', jsontxt);
     fclose(fid);
 end
-
 end
