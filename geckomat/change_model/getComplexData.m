@@ -153,7 +153,7 @@ else
 end
 end
 % Expand complexes of complexes
-complexComplex = [complexData{:,7}]==2;
+complexComplex = find([complexData{:,7}]==2);
 if ~isempty(complexComplex)
     for i=1:numel(complexComplex)
         subComplex    = complexData{complexComplex(i),5};
