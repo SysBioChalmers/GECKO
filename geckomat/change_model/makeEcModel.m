@@ -263,7 +263,7 @@ if ~geckoLight
     drawRxns.stoichCoeffs    = cell(numel(drawRxns.rxns),1);
     for i=1:numel(drawRxns.mets)
         drawRxns.mets{i}         = {'prot_pool',proteinMets.mets{i}};
-        drawRxns.stoichCoeffs{i} = [1,-(ec.mw(uniprotSortId(i)))/1000];
+        drawRxns.stoichCoeffs{i} = [-(ec.mw(uniprotSortId(i)))/1000,1];
     end
     drawRxns.lb              = zeros(numel(drawRxns.rxns),1);
     drawRxns.grRules         = ec.genes(uniprotSortId);
@@ -273,7 +273,7 @@ end
 %13: Add protein pool reaction (with open UB)
 poolRxn.rxns            = 'prot_pool_exchange';
 poolRxn.mets            = {'prot_pool'};
-poolRxn.stoichCoeffs    = {-1};
+poolRxn.stoichCoeffs    = {1};
 poolRxn.lb              = 0;
 model = addRxns(model,poolRxn);
 
