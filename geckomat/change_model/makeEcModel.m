@@ -192,19 +192,17 @@ else
     %For light models, we need to split up all GPRs
     ec.rxnEnzMat = zeros(numel(ec.rxns),numel(ec.genes)); % Non-zeros will indicate the number of subunits
     nextIndex = 1;
-    rxnToCheck={};
+    %For full model generation, the GPRs are controlled in expandModel, but 
+    %here we need to make an explicit format check
+    indexes2check = findPotentialErrors(model.grRules,false,model);
+    if ~isempty(indexes2check) 
+        disp('For Human-GEM, these reactions can be corrected using simplifyGrRules.');
+    end
+    
     for i=1:prevNumRxns
         %ind is the index in the model, not to confuse with the index in the ec struct (i),
         %which only contains reactions with GPRs.
         ind = rxnWithGene(i); 
-        %Check that it doesn't contain nested 'and' and 'or' relations and
-        %print a warning if it does
-        %TODO: This warning is not right - should do something similar to the old GECKO, i.e., 
-        %warn if you have another form of the GPR than (subunit1 and subunit2 and ...) or (subunit3 and subunit4 and ...) or ...
-        %Same problem in expandModel
-        if ~isempty(strfind(model.grRules{ind},' and '))
-            rxnToCheck{end+1,1}=model.rxns{ind};
-        end
         %Get rid of all '(' and ')' since I'm not looking at complex stuff
         %anyways
         geneString=model.grRules{ind};
@@ -232,11 +230,6 @@ else
             end
             nextIndex = nextIndex + 1;
         end
-    end
-    
-    if ~isempty(rxnToCheck) 
-        warning(['The following reactions contain nested and/or-relations, which might not have been interpreted correctly:%s\n' ...
-            strjoin(rxnToCheck,', ')],'');
     end
 end
 %10: Add proteins as pseudometabolites
@@ -279,3 +272,49 @@ model = addRxns(model,poolRxn);
 
 model.ec=ec;
 end
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Function that gets the model field grRules and returns the indexes of the
+%rules in which the pattern ") and (" is present.
+%Copied from standardizeGrRules
+% TODO: Make this an accessible function in a separate file in RAVEN and remove this
+%implementation.
+function indexes2check = findPotentialErrors(grRules,embedded,model)
+indxs_l       = find(~cellfun(@isempty,strfind(grRules,') and (')));
+indxs_l_L     = find(~cellfun(@isempty,strfind(grRules,') and')));
+indxs_l_R     = find(~cellfun(@isempty,strfind(grRules,'and (')));
+indexes2check = vertcat(indxs_l,indxs_l_L,indxs_l_R);
+indexes2check = unique(indexes2check);
+
+if ~isempty(indexes2check)
+    
+    if embedded
+        EM = 'Potentially problematic ") AND (" in the grRules for reaction(s): ';
+        dispEM(EM,false,model.rxns(indexes2check),true)
+    else
+        STR = 'Potentially problematic ") AND (", ") AND" or "AND ("relat';
+        STR = [STR,'ionships found in\n\n'];
+        for i=1:length(indexes2check)
+            index = indexes2check(i);
+            STR = [STR '  - grRule #' model.rxns{index} ': ' grRules{index} '\n'];
+        end
+        STR = [STR,'\n This kind of relationships should only be present '];
+        STR = [STR,'in  reactions catalysed by complexes of isoenzymes e'];
+        STR = [STR,'.g.\n\n  - (G1 or G2) and (G3 or G4)\n\n For these c'];
+        STR = [STR,'ases modify the grRules manually, writing all the po'];
+        STR = [STR,'ssible combinations e.g.\n\n  - (G1 and G3) or (G1 a'];
+        STR = [STR,'nd G4) or (G2 and G3) or (G2 and G4)\n\n For other c'];
+        STR = [STR,'ases modify the correspondent grRules avoiding:\n\n '];
+        STR = [STR,' 1) Overall container brackets, e.g.\n        "(G1 a'];
+        STR = [STR,'nd G2)" should be "G1 and G2"\n\n  2) Single unit en'];
+        STR = [STR,'zymes enclosed into brackets, e.g.\n        "(G1)" s'];
+        STR = [STR,'hould be "G1"\n\n  3) The use of uppercases for logi'];
+        STR = [STR,'cal operators, e.g.\n        "G1 OR G2" should be "G'];
+        STR = [STR,'1 or G2"\n\n  4) Unbalanced brackets, e.g.\n        '];
+        STR = [STR,'"((G1 and G2) or G3" should be "(G1 and G2) or G3"\n'];
+        warning(sprintf(STR))
+    end
+end
+end
+
