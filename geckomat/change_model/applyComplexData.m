@@ -28,7 +28,7 @@ if nargin<2
     geckoPath = findGECKOroot();
     complexInfo = fullfile(geckoPath,'databases','complex_data.json');
 end
-if isstring(complexInfo)
+if ischar(complexInfo) || isstring(complexInfo)
     jsonStr = fileread(complexInfo);
     complexData = jsondecode(jsonStr);
 else
