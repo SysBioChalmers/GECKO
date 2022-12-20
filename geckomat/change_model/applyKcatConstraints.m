@@ -49,28 +49,29 @@ if ~model.ec.geckoLight
 end %no clearing needed for GECKO Light, will be overwritten below
 %For normal GECKO formulation (full model), where each enzyme is explicitly considered
 if ~model.ec.geckoLight 
-    %Make vector where column 1 = rxn; 2 = enzyme; 3 = subunit copies; 4 = kcat
-    newKcats=zeros(numel(updateRxns)*10,4);
+    %Column 1 = rxn idx; 2 = enzyme idx; 3 = subunit copies; 4 = kcat; 5 = MW
+    newKcats=zeros(numel(updateRxns)*10,5);
     updateRxns=find(updateRxns);
     kcatFirst=0;
     for i=1:numel(updateRxns)
-        enzymes   = find(model.ec.rxnEnzMat(i,:));
+        j=updateRxns(i);
+        enzymes   = find(model.ec.rxnEnzMat(j,:));
         kcatLast  = kcatFirst+numel(enzymes);
         kcatFirst = kcatFirst+1;
-        newKcats(kcatFirst:kcatLast,1) = updateRxns(i);
+        newKcats(kcatFirst:kcatLast,1) = j;
         newKcats(kcatFirst:kcatLast,2) = enzymes;
-        newKcats(kcatFirst:kcatLast,3) = model.ec.rxnEnzMat(i,enzymes);
-        newKcats(kcatFirst:kcatLast,4) = model.ec.kcat(i);
+        newKcats(kcatFirst:kcatLast,3) = model.ec.rxnEnzMat(j,enzymes);
+        newKcats(kcatFirst:kcatLast,4) = model.ec.kcat(j);
+        newKcats(kcatFirst:kcatLast,5) = model.ec.mw(enzymes);
         kcatFirst = kcatLast;
     end
     newKcats(kcatLast+1:end,:)=[];
     
-    newKcats(:,4) = newKcats(:,4) * 3600; %per second -> per hour
-    newKcats(:,4) = newKcats(:,4).^-1; %Inverse: hours per reaction
-    newKcats(:,4) = newKcats(:,4)*1000; %In umol instead of mmol
-    newKcats(:,4) = newKcats(:,3).*newKcats(:,4); %Multicopy subunits.
-    %Unit of enzyme usage is umol/gDW/h, while metabolic flux is in mmol/gDW/h.
-    %This prevents very low fluxes.
+    sel = newKcats(:,4) ~= 0; %assign zero cost instead of inf when kcat == 0
+    newKcats(sel,4) = newKcats(sel,4) * 3600; %per second -> per hour
+    newKcats(sel,4) = newKcats(sel,5) ./ newKcats(sel,4); %MW/kcat
+    newKcats(sel,4) = newKcats(sel,3) .* newKcats(sel,4); %Multicopy subunits.
+    newKcats(~sel,4) = 0;
     
     %Replace rxns and enzymes with their location in model
     [~,newKcats(:,1)] = ismember(model.ec.rxns(newKcats(:,1)),model.rxns);
@@ -94,9 +95,12 @@ else %GECKO light formulation, where prot_pool represents all usages
                     updated = true;
                 end
                 enzymes = find(model.ec.rxnEnzMat(nextIndex,:));
-                MW = sum(model.ec.mw(enzymes).* model.ec.rxnEnzMat(nextIndex,:)); %multiply MW with number of subunits
-                newMWKcats = [newMWKcats MW/model.ec.kcat(nextIndex)]; %Light model: protein usage is MW/kcat
-                
+                if model.ec.kcat(nextIndex) == 0
+                    newMWKcats = [newMWKcats 0];
+                else
+                    MW = sum(model.ec.mw(enzymes).* model.ec.rxnEnzMat(nextIndex,:)); %multiply MW with number of subunits
+                    newMWKcats = [newMWKcats MW/model.ec.kcat(nextIndex)]; %Light model: protein usage is MW/kcat
+                end                
                 nextIndex = nextIndex + 1;
                 if  nextIndex > length(model.ec.rxns) || ~strcmp(model.rxns(i), model.ec.rxns(nextIndex))
                     break;
