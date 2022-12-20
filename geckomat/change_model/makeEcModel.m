@@ -179,11 +179,8 @@ ec.concs        = nan(numel(ec.genes),1); % To be filled with proteomics data wh
 if ~geckoLight
     ec.rxnEnzMat = zeros(numel(rxnWithGene),numel(ec.genes)); % Non-zeros will indicate the number of subunits
     for r=1:numel(rxnWithGene)
-        ec.rxns(r) = model.rxns(rxnWithGene(r)); %why is this needed, already set above? Test to remove later
         rxnGenes   = model.genes(find(model.rxnGeneMat(rxnWithGene(r),:)));
         [~,locEnz] = ismember(rxnGenes,ec.genes); % Could also parse directly from rxnGeneMat, but some genes might be missing from Uniprot DB
-        %Changed because this allows for a selection of zero genes - all genes are not always found in 
-        %locEnz = ismember(ec.genes, rxnGenes); % Could also parse directly from rxnGeneMat, but some genes might be missing from Uniprot DB
         if locEnz ~= 0
             ec.rxnEnzMat(r,locEnz) = 1; %Assume 1 copy per subunit or enzyme, can be modified later
         end
@@ -256,7 +253,7 @@ if ~geckoLight
     drawRxns.stoichCoeffs    = cell(numel(drawRxns.rxns),1);
     for i=1:numel(drawRxns.mets)
         drawRxns.mets{i}         = {'prot_pool',proteinMets.mets{i}};
-        drawRxns.stoichCoeffs{i} = [-(ec.mw(uniprotSortId(i)))/1000,1];
+        drawRxns.stoichCoeffs{i} = [-1,1];
     end
     drawRxns.lb              = zeros(numel(drawRxns.rxns),1);
     drawRxns.grRules         = ec.genes(uniprotSortId);
