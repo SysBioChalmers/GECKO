@@ -63,9 +63,8 @@ else
     ec.geckoLight=false;
 end
 
-[geckoPath, prevDir] = findGECKOroot();
-uniprotDB = loadDatabases(modelAdapter);
-
+uniprotDB = loadDatabases(modelAdapter,'uniprot');
+uniprotDB = uniprotDB.uniprot;
 
 %1: Remove gene rules from pseudoreactions (if any):
 for i = 1:length(model.rxns)
