@@ -31,7 +31,7 @@ end
 rxnEnzMat = model.ec.rxnEnzMat;
 genes = model.ec.genes;
 
-data      = loadDatabases(modelAdapter,'both');
+data      = loadDatabases(modelAdapter,'both',false);
 uniprot   = data.uniprot;
 kegg      = data.kegg;
 
@@ -51,22 +51,8 @@ eccodes   = cell(n,1);
 conflicts = cell(1,4);
 
 %Build an index from gene to prot for faster processing later
-[x,y] = size(DBgenesUniprot);
-genesForIndex = reshape(DBgenesUniprot, x*y, 1);
-genesForIndex = genesForIndex(~cellfun(@isempty, genesForIndex));
-genesForIndex = unique(genesForIndex);
-geneIndex = cell(length(genesForIndex),1);
-geneHashMap = containers.Map(genesForIndex,1:length(genesForIndex));
-protIndices = 1:length(DBgenesUniprot(:,1));
-for i = 1:y
-    tmp1 = DBgenesUniprot(:,i);
-    sel = ~cellfun(@isempty, tmp1);
-    indices = cell2mat(values(geneHashMap,tmp1(sel)));
-    protIndicesSel = protIndices(sel);
-    for j = 1:length(indices)
-        geneIndex{indices(j)} = [geneIndex{indices(j)};protIndicesSel(j)]; 
-    end
-end
+[geneIndexUniprot,geneHashMapUniprot] = hashGeneToProt(DBgenesUniprot);
+[geneIndexKEGG,geneHashMapKEGG]       = hashGeneToProt(DBgenesKEGG);
 
 rxnEnzMat = logical(rxnEnzMat);
 
@@ -74,7 +60,7 @@ for i = 1:n
     gns = genes(rxnEnzMat(i,:).');
     if ~isempty(gns)
         %Find match in Uniprot:
-        [new_EC,multGenes] = findECInDB(gns,DBprotUniprot,DBgenesUniprot,DBecNumUniprot,DBMWUniprot,geneIndex,geneHashMap);
+        [new_EC,multGenes] = findECInDB(gns,DBprotUniprot,DBgenesUniprot,DBecNumUniprot,DBMWUniprot,geneIndexUniprot,geneHashMapUniprot);
         if ~isempty(new_EC)
             DBase    = 'uniprot';
             if ~isempty(multGenes{1})
@@ -82,7 +68,7 @@ for i = 1:n
             end
         else
             %Find match in KEGG
-            [new_EC,multGenes] = findECInDB(gns,DBprotKEGG,DBgenesKEGG,DBecNumKEGG,DBMWKEGG,geneIndex,geneHashMap);
+            [new_EC,multGenes] = findECInDB(gns,DBprotKEGG,DBgenesKEGG,DBecNumKEGG,DBMWKEGG,geneIndexKEGG,geneHashMapKEGG);
             if ~isempty(new_EC)
                 DBase    = 'kegg';
                 if ~isempty(multGenes{1})
@@ -113,9 +99,6 @@ for i = 1:n
             %}
         end
     end
-    if rem(i,500) == 0 || i == n
-        fprintf('.')
-    end
 end
 
 %Display error message with the multiple gene-protein matches found
@@ -130,7 +113,7 @@ else
     %but this was at the moment simpler to implement.
     model.ec.eccodes(ecRxns) = eccodes(ecRxns);
 end
-
+end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %I don't understand this part, skipping it for now
 %{
@@ -170,3 +153,22 @@ STR = [STR, ' again with the option action = add\n'];
 error(sprintf(STR))
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function [geneIndex,geneHashMap]=hashGeneToProt(proteinDB)
+
+[x,y] = size(proteinDB);
+genesForIndex = reshape(proteinDB, x*y, 1);
+genesForIndex = genesForIndex(~cellfun(@isempty, genesForIndex));
+genesForIndex = unique(genesForIndex);
+geneIndex = cell(length(genesForIndex),1);
+geneHashMap = containers.Map(genesForIndex,1:length(genesForIndex));
+protIndices = 1:length(proteinDB(:,1));
+for i = 1:y
+    tmp1 = proteinDB(:,i);
+    sel = ~cellfun(@isempty, tmp1);
+    indices = cell2mat(values(geneHashMap,tmp1(sel)));
+    protIndicesSel = protIndices(sel);
+    for j = 1:length(indices)
+        geneIndex{indices(j)} = [geneIndex{indices(j)};protIndicesSel(j)]; 
+    end
+end
+end

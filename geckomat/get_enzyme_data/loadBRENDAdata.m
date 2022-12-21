@@ -7,6 +7,7 @@
      MW_file        = fullfile(geckoPath,'databases','max_MW.txt');
     
      %Extract BRENDA DATA from files information
+     KCATcell       = openDataFile(KCAT_file,1);
      scalingFactor = 1/60;    %[umol/min/mg] -> [mmol/s/g]    Old: 60 [umol/min/mg] -> [mmol/h/g]
      SA            = openDataFile(SA_file,scalingFactor);
      scalingFactor = 1/1000;  %[g/mol] -> [g/mmol]
@@ -60,11 +61,10 @@
      if ~isempty(SAcell{1})
         SAcell{1} = extractAfter(SAcell{1},2);
      end
-
  end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  function string_cells = stringSplit(cell_array)
-         string_cells = {textscan(cell_array,'%q','Delimiter','//')};
+         string_cells = textscan(cell_array,'%q','Delimiter','//');
          string_cells = string_cells{1}(1);
  end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

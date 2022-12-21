@@ -8,7 +8,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function EC_set = getECstring(EC_set,ecNumbers)
 %In case of several ec numbers for the same protein
-new_EC_set = strsplit(ecNumbers,' ');
+new_EC_set = replace(strsplit(ecNumbers,' '),';','');
 for l = 1:length(new_EC_set)
     EC_set = [EC_set 'EC' new_EC_set{l}];
     if l<length(new_EC_set)

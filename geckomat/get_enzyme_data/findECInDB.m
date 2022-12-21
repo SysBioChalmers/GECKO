@@ -57,7 +57,7 @@ for j = 1:length(gene_set)
             else
                 %If there is a single unique ec number for the matched
                 %protein(s), then choose the lightest protein
-                [~,minW]   = min(cell2mat(DBMW(nonEmpty)));
+                [~,minW]   = min(DBMW(nonEmpty));
                 matches    = nonEmpty(minW);
                 EC_set{j}  = getECstring(EC_set{j},DBecNum{matches});
             end
@@ -159,4 +159,3 @@ end
 int_EC = EC(non_repeated);
 
 end
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

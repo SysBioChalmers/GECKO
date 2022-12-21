@@ -1,4 +1,4 @@
-function databases = loadDatabases(modelAdapter,selectDatabase)
+function databases = loadDatabases(modelAdapter,selectDatabase,verbose)
 % loadDatabases
 %   Load or downloads (if necessary) the organism-specific KEGG and UniProt
 %   databases that are required to extract protein information.
@@ -9,6 +9,7 @@ function databases = loadDatabases(modelAdapter,selectDatabase)
 %                   organism code (keggID, for KEGG)
 %   selectDatabase  which databases should be loaded, either 'uniprot',
 %                   'kegg' or 'both'
+%   verbose         true or false whether progress should be reported
 %
 % Output:
 %   databases       contains .uniprot and .kegg structures, dependent on
@@ -19,25 +20,31 @@ function databases = loadDatabases(modelAdapter,selectDatabase)
 if nargin<2
     selectDatabase = 'both';
 end
+if nargin<3
+    verbose = true;
+end
+
 geckoPath = findGECKOroot();
 param=modelAdapter.getParameters();
 keggID=param.keggID;
 taxonID=num2str(param.taxonID);
 
-weboptions('Timeout',10);
+%weboptions('Timeout',10);
 warning('off', 'MATLAB:MKDIR:DirectoryExists');
 
 %% Uniprot
 if any(strcmp(selectDatabase,{'uniprot','both'}))
     filePath = fullfile(geckoPath,'databases','uniprot',[num2str(taxonID) '.tsv']);
     if ~exist(filePath,'file')
-        disp(['Downloading Uniprot data for taxonomic ID ' taxonID '. This can take a few minutes.'])
+        if verbose
+            disp(['Downloading Uniprot data for taxonomic ID ' taxonID '. This can take a few minutes.'])
+        end
         mkdir(fullfile(geckoPath,'databases','uniprot'));
         url = ['https://rest.uniprot.org/uniprotkb/stream?query=taxonomy_id:' num2str(taxonID) ...
             '&fields=accession%2C' param.uniprotGeneIdField ...
             '%2Cgene_primary%2Cec%2Cmass%2Csequence&format=tsv&compressed=false&sort=protein_name%20asc'];
-        websave(filePath,url);
-    else
+        urlwrite(url,filePath);
+    elseif verbose
         disp(['Loading existing Uniprot database file for taxonomic ID ' taxonID '.'])
     end
 
@@ -56,13 +63,13 @@ if any(strcmp(selectDatabase,{'kegg','both'}))
     filePath = fullfile(geckoPath,'databases','kegg',[keggID '.tsv']);
     if ~exist(filePath,'file')
         mkdir(fullfile(geckoPath,'databases','kegg'));
-        downloadKEGG(keggID,filePath);
-    else
+        downloadKEGG(keggID,filePath,verbose);
+    elseif verbose
         disp(['Loading existing KEGG database file for organism code ' keggID '.'])
     end
 
     fid         = fopen(filePath,'r');
-    fileContent = textscan(fid,'%s %s %s %s %s %s','Delimiter','\t','HeaderLines',0);
+    fileContent = textscan(fid,'%s %s %s %s %s %s','Delimiter',',','HeaderLines',0);
     fclose(fid);
 
     databases.kegg.uniprot    = fileContent{1};
@@ -74,9 +81,11 @@ if any(strcmp(selectDatabase,{'kegg','both'}))
 end
 end
 
-function downloadKEGG(keggID, filePath)
+function downloadKEGG(keggID, filePath, verbose)
 %% Download gene information
-fprintf('Downloading KEGG data for organism code %s...   0%% complete',keggID);
+if verbose
+    fprintf('Downloading KEGG data for organism code %s...   0%% complete',keggID);
+end
 gene_list = webread(['http://rest.kegg.jp/list/' keggID]);
 gene_list = regexpi(gene_list, '[^\n]+','match')';
 gene_id   = regexpi(gene_list,['(?<=' keggID ':)\S+'],'match');
@@ -87,9 +96,11 @@ queries = ceil(numel(gene_id)/genesPerQuery);
 keggGenes  = cell(numel(gene_id),1);
 for i = 1:queries
     % Report progress
-    progress=num2str(floor(100*i/queries));
-    progress=pad(progress,3,'left');
-    fprintf('\b\b\b\b\b\b\b\b\b\b\b\b\b%s%% complete',progress);
+    if verbose
+        progress=num2str(floor(100*i/queries));
+        progress=pad(progress,3,'left');
+        fprintf('\b\b\b\b\b\b\b\b\b\b\b\b\b%s%% complete',progress);
+    end
     % Download batches of genes
     firstIdx = i*genesPerQuery-(genesPerQuery-1);
     lastIdx  = i*genesPerQuery;
@@ -129,10 +140,10 @@ sequence  = regexprep(keggGenes,'.*AASEQ\s+\d+\s+([A-Z\s])+?\s+NTSEQ.*','$1');
 sequence(startsWith(sequence,'ENTRY ')) = {''};
 sequence  = regexprep(sequence,'\s*','');
 
-MW = zeros(numel(sequence),1);
+MW = cell(numel(sequence),1);
 for i=1:numel(sequence)
     if ~isempty(sequence{i})
-        MW(i) = calculateMW(sequence{i});
+        MW{i} = num2str(round(calculateMW(sequence{i})));
     end
 end
 
@@ -142,10 +153,11 @@ pathway   = strrep(pathway,[keggID '01100  Metabolic pathways'],'');
 pathway   = regexprep(pathway,'\n','');
 pathway   = regexprep(pathway,'           ','');
 
-out = [uni, gene_name, EC_names, num2cell(MW), pathway, sequence];
+out = [uni, gene_name, EC_names, MW, pathway, sequence];
+out = cell2table(out);
 
-fID = fopen(filePath,'w');
-fprintf(fID,'%s\t%s\t%s\t%f\t%s\t%s\n',out{:});
-fclose(fID);
-fprintf('\b\b\b\b\b\b\b\b\b\b\b\b\b100%% complete\n');
+writetable(out, filePath, 'FileType', 'text', 'WriteVariableNames',false);
+if verbose
+    fprintf('\b\b\b\b\b\b\b\b\b\b\b\b\b100%% complete\n');
+end
 end
