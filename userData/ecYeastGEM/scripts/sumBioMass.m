@@ -60,10 +60,8 @@ comps = {'s_0404'	89.09       'P'     % A     Alanine         ala
 [R,X] = getFraction(model,comps,'R',X);
 [D,X] = getFraction(model,comps,'D',X);
 [L,X] = getFraction(model,comps,'L',X);
-%Get biomass pseudoreaction ID 
-cd ..
+%Get biomass pseudoreaction ID
 parameters = getModelParameters;
-cd limit_proteins
 %Add up any remaining components:
 bioPos = strcmp(model.rxns,parameters.bioRxn);
 for i = 1:length(model.mets)

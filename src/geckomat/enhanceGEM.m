@@ -60,9 +60,9 @@ end
 
 % Validtae if there is a defined path where save the output
 if ~isfield(parameters, 'outputPath')
-    [~,values] = fileattrib('../../userData/output/');
+    [~,values] = fileattrib('../../userData/');
     % Add to parameters the full path
-    parameters.outputPath = [values.Name '/'  name '/'];
+    parameters.outputPath = [values.Name '/' name '/output/'];
 else
     [~,values] = fileattrib(parameters.outputPath);
     %Update to a full path

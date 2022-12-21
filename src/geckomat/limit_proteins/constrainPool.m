@@ -4,11 +4,8 @@
 % Benjamin J. Sanchez. Last edited: 2018-11-11
 % Ivan Domenzain.      Last edited: 2019-07-13
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function model = constrainPool(model,non_measured,UB)
-%Get compartment name for enzyme pool:
-cd ..
-parameters = getModelParameters;
-cd limit_proteins
+function model = constrainPool(model,non_measured,UB,parameters)
+
 %Find compartment id:
 compIndex = strcmpi(model.compNames,parameters.enzyme_comp);
 comp      = model.comps{compIndex};

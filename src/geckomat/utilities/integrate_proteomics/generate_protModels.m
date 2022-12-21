@@ -54,9 +54,9 @@ end
 
 % Validtae if there is a defined path where save the output
 if ~isfield(parameters, 'outputPath')
-    [~,values] = fileattrib('../../userData/output/prot_constrained/');
+    [~,values] = fileattrib('../../userData/');
     % Add to parameters the full path
-    parameters.outputPath = [values.Name '/'  name '/'];
+    parameters.outputPath = [values.Name '/' name '/output/prot_constrained/'];
 else
     [~,values] = fileattrib(parameters.outputPath);
     %Update to a full path
