@@ -38,13 +38,13 @@ c_source   = parameters.c_source;
 sigma      = parameters.sigma;
 Ptot       = parameters.Ptot;
 gRate      = parameters.gR_exp;
-customPath = parameters.customPath;
+userDataPath = parameters.userDataPath;
 outputPath = parameters.outputPath;
 
 %Get f (estimated mass fraction of enzymes in model)
-[f,~] = measureAbundance(ecModel.enzymes,customPath);
+[f,~] = measureAbundance(ecModel.enzymes,userDataPath);
 %Change media to batch conditions:
-cd([customPath '/scripts/'])
+cd([userDataPath '/scripts/'])
 ecModel = changeMedia_batch(ecModel,c_source);
 cd(current)
 %Get a preliminary enzyme constrained model for performing the Kcats

@@ -45,6 +45,6 @@ classdef GECKOInstaller
     end
     
     properties (Constant)
-      FILE_FILTER = '.*\.git|.idea|custom.*';
+      FILE_FILTER = '.*\.git|.idea|userData.*';
    end
 end

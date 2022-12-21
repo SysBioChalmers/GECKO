@@ -37,14 +37,14 @@ current = pwd;
 %get model parameters
 sigma      = parameters.sigma;
 c_source   = parameters.c_source;
-customPath = parameters.customPath;
+userDataPath = parameters.userDataPath;
 
 %Compute f if not provided:
 if nargin < 3
-    [f,~] = measureAbundance(model.enzymes,customPath);
+    [f,~] = measureAbundance(model.enzymes,userDataPath);
 else
     if isempty(f)
-       [f,~] = measureAbundance(model.enzymes,customPath);
+       [f,~] = measureAbundance(model.enzymes,userDataPath);
     end
 end
 %Leave GAM empty if not provided (will be fitted later):
@@ -82,12 +82,12 @@ measured       = ~isnan(model.concs);
 concs_measured = model.concs(measured);
 Pmeasured      = sum(concs_measured);
 %Get protein content in biomass pseudoreaction:
-cd([parameters.customPath '/scripts/'])
+cd([parameters.userDataPath '/scripts/'])
 Pbase = sumProtein(model);
 cd(current)
 if Pmeasured > 0
     %Calculate fraction of non measured proteins in model out of remaining mass:
-    [fn,~] = measureAbundance(model.enzymes(~measured),customPath);
+    [fn,~] = measureAbundance(model.enzymes(~measured),userDataPath);
     fm     = Pmeasured/Ptot;
     f      = fn/(1-fm);
     %Discount measured mass from global constrain:
@@ -102,7 +102,7 @@ end
 fprintf(' Done!\n')
 if sum(data)==0
     %Modify protein/carb content and GAM:
-    cd([parameters.customPath '/scripts/'])
+    cd([parameters.userDataPath '/scripts/'])
     [model,GAM] = scaleBioMass(model,Ptot,parameters,GAM);
 end
 %Display some metrics:

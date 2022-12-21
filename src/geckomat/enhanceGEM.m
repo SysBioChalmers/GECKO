@@ -48,19 +48,19 @@ if nargin < 5
 end
 
 % Validtae if there is a defined path where organism/model specific scripts are
-if ~isfield(parameters, 'customPath')
-    [~,values] = fileattrib('../../custom/');
+if ~isfield(parameters, 'userDataPath')
+    [~,values] = fileattrib('../../userData/');
     % Add to parameters the full path
-    parameters.customPath = [values.Name '/' name '/'];
+    parameters.userDataPath = [values.Name '/' name '/'];
 else
-    [~,values] = fileattrib(parameters.customPath);
+    [~,values] = fileattrib(parameters.userDataPath);
     %Update to a full path
-    parameters.customPath = [values.Name '/' name '/'];
+    parameters.userDataPath = [values.Name '/' name '/'];
 end
 
 % Validtae if there is a defined path where save the output
 if ~isfield(parameters, 'outputPath')
-    [~,values] = fileattrib('../../ecModels/');
+    [~,values] = fileattrib('../../userData/output/');
     % Add to parameters the full path
     parameters.outputPath = [values.Name '/'  name '/'];
 else
@@ -95,13 +95,13 @@ fprintf('\n==================\n')
 
 %Retrieve kcats & MWs for each rxn in model:
 cd([current '/get_enzyme_data'])
-model_data = getEnzymeCodes(model,parameters.customPath);
+model_data = getEnzymeCodes(model,parameters.userDataPath);
 kcats      = matchKcats(model_data,parameters.org_name);
 
 %Integrate enzymes in the model:
 cd([current '/change_model'])
 ecModel                 = readKcatData(model_data,kcats,parameters);
-cd([parameters.customPath 'scripts/'])
+cd([parameters.userDataPath 'scripts/'])
 [ecModel,modifications] = manualModifications(ecModel,parameters);
 
 %Constrain model to batch conditions:

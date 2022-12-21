@@ -177,7 +177,7 @@ model.ub(strcmp(model.rxnNames,'oxygen exchange'))    = 0;
 model.ub(strcmp(model.rxnNames,'D-glucose exchange')) = 0;
 
 % Remove incorrect pathways:
-cd([parameters.customPath '/scripts'])
+cd([parameters.userDataPath '/scripts'])
 model = removeIncorrectPathways(model);
 
 % Map the index of the modified Kcat values to the new model (after rxns removals)

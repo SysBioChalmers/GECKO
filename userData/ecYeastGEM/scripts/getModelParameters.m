@@ -73,9 +73,9 @@ parameters.oxPhos{4} = 'r_0226';
 %If not defined, in GECKO/projects/ must exits a folder (named as name input
 %for enhanceGEM.m funtion, and integrate_proteomicsData.m) containing data and scripts subfolders.
 %Not add to the path the 'name dir'. GECKO automatically joins the name to the path.
-% parameters.customPath = '~/to/path';
+% parameters.userDataPath = '~/to/userData/path';
 
 %Path for save the results (optional)
-% parameters.outputPath = '~/to/path';
+% parameters.outputPath = '/to/userData/output/path';
 
 end

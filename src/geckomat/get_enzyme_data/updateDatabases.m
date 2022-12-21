@@ -21,18 +21,18 @@ if ~regexp(keggID,'[a-z]{3,4}')
 end
 
 % Validtae if there is a defined path where organism/model specific scripts are
-if ~isfield(parameters, 'customPath')
-    [~,values] = fileattrib('../../../custom/');
+if ~isfield(parameters, 'userDataPath')
+    [~,values] = fileattrib('../../../userData/');
     % Add to parameters the full path
-    parameters.customPath = [values.Name '/' name '/'];
+    parameters.userDataPath = [values.Name '/' name '/'];
 else
-    [~,values] = fileattrib(parameters.customPath);
+    [~,values] = fileattrib(parameters.userDataPath);
     %Update to a full path
-    parameters.customPath = [values.Name '/' name '/'];
+    parameters.userDataPath = [values.Name '/' name '/'];
 end
 
 %Build Swissprot table:
-swissprot = buildSWISSPROTtable(parameters.customPath);
+swissprot = buildSWISSPROTtable(parameters.userDataPath);
 
 %Download KEGG data:
 mkdir ../../../data/databases/KEGG
@@ -46,7 +46,7 @@ delete ../../../data/databases/KEGG/*.txt
 rmdir ../../../data/databases/KEGG
 
 %Save both databases as .mat files:
-save([parameters.customPath 'data/ProtDatabase.mat'],'swissprot','kegg');
+save([parameters.userDataPath 'data/ProtDatabase.mat'],'swissprot','kegg');
 
 end
 

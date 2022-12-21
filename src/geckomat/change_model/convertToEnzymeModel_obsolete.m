@@ -22,7 +22,7 @@ function eModel = convertToEnzymeModel(irrevModel,Genes,uniprots,kcats,parameter
 fprintf('Adding enzymes to reactions...')
 
 %Load databases:
-data      = load([parameters.customPath '/data/ProtDatabase.mat']);
+data      = load([parameters.userDataPath '/data/ProtDatabase.mat']);
 swissprot = data.swissprot;
 kegg      = data.kegg;
 

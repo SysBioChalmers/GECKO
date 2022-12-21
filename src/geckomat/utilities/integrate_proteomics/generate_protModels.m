@@ -42,19 +42,19 @@ NGAM       = parameters.NGAM;
 GAM        = [];
 
 % Validtae if there is a defined path where organism/model specific scripts are
-if ~isfield(parameters, 'customPath')
-    [~,values] = fileattrib('../../custom/');
+if ~isfield(parameters, 'userDataPath')
+    [~,values] = fileattrib('../../userData/');
     % Add to parameters the full path
-    parameters.customPath = [values.Name '/' name '/'];
+    parameters.userDataPath = [values.Name '/' name '/'];
 else
-    [~,values] = fileattrib(parameters.customPath);
+    [~,values] = fileattrib(parameters.userDataPath);
     %Update to a full path
-    parameters.customPath = [values.Name '/' name '/'];
+    parameters.userDataPath = [values.Name '/' name '/'];
 end
 
 % Validtae if there is a defined path where save the output
 if ~isfield(parameters, 'outputPath')
-    [~,values] = fileattrib('../../ecModels/prot_constrained/');
+    [~,values] = fileattrib('../../userData/output/prot_constrained/');
     % Add to parameters the full path
     parameters.outputPath = [values.Name '/'  name '/'];
 else
@@ -78,8 +78,8 @@ growthRxn_ID = ecModel.rxns(find(strcmpi(ecModel.rxnNames,growthRxn)));
 %Remove prot_abundance.txt  and relative_proteomics.txt files
 %(for f factor calculation)
 try
-    movefile([parameters.customPath 'data/prot_abundance.txt'], ...
-        [parameters.customPath 'data/prot_abundance_temp.txt']);
+    movefile([parameters.userDataPath 'data/prot_abundance.txt'], ...
+        [parameters.userDataPath 'data/prot_abundance_temp.txt']);
 catch
     disp('prot_abundance.txt file not found in Databases folder') 
 end
@@ -118,7 +118,7 @@ for i=1:length(conditions)
         end
     end
     %Set minimal medium
-    cd([parameters.customPath 'scripts'])
+    cd([parameters.userDataPath 'scripts'])
     ecModelP  = changeMedia_batch(ecModel,c_source);
     tempModel = changeMedia_batch(ecModel_batch,c_source);
 
@@ -133,7 +133,7 @@ for i=1:length(conditions)
         %Then the GAM and new biomass composition are set in ecModelP, which
         %is not functional yet but should be used for incorporation of
         %proteomics data
-        cd([parameters.customPath 'scripts'])
+        cd([parameters.userDataPath 'scripts'])
         ecModelP = scaleBioMass(ecModelP,Ptot(i),parameters,GAM,true);
         disp(' ')
     end
@@ -198,8 +198,8 @@ end
 %Remove prot_abundance.txt  and relative_proteomics.txt files
 %(for f factor calculation)
 try
-    movefile([parameters.customPath 'data/prot_abundance_temp.txt'], ...
-        [parameters.customPath 'data/prot_abundance.txt']);
+    movefile([parameters.userDataPath 'data/prot_abundance_temp.txt'], ...
+        [parameters.userDataPath 'data/prot_abundance.txt']);
 catch
     disp('prot_abundance_temp.txt file not found in Databases folder') 
 end

@@ -27,7 +27,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function ecModelBatch = modifyKcats(ecModelBatch,expVal,modifiedKcats,name,parameters)
 
-customPath = parameters.customPath;
+userDataPath = parameters.userDataPath;
 outputPath = parameters.outputPath;
 
 changes = [];
@@ -45,7 +45,7 @@ while error<=-10
     [limKcat,breakFlag] = findTopLimitations(ecModelBatch,modifiedKcats,0);   
     if breakFlag == false
         disp(['*Iteration #' num2str(i)])
-        [ecModelBatch,data] = changeKcat(ecModelBatch,limKcat,expVal,BRENDA,SA_cell,customPath);
+        [ecModelBatch,data] = changeKcat(ecModelBatch,limKcat,expVal,BRENDA,SA_cell,userDataPath);
         %Saves the parameter modification information
         changes = [changes; data];
         if ~isempty(data{1,9})
