@@ -1,64 +1,65 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% eccodes = getECCodes(rxnEnzMat, genes, modelAdapter, action)
-% Retrieves the enzyme codes for each of the reactions for a given genome
-% scale model (GEM). This function was adapted from the previous GetEnzymeCodes in GECKO 2.
+function model = getECfromDatabase(model, modelAdapter, action, ecRxns)
+% getECfromDatabase
+%   Populates the model.ec.eccodes field with enzyme codes that are
+%   extracted from UniProt and KEGG databases, as assigned to the proteins
+%   that catalyze the specific reactions.
 %
-% INPUT:    enzGeneMap      From the ec structure in the model
-%           genes           From the ec structure in the model
-%           modelAdapter    Model adapter (for example an instance of YeastGEMAdapter)
-%           action:         Response action if multiple proteins with
-%                           different EC numbers are found for a given gene in
-%                           a metabolic reaction.
-%                           - 'display' Displays all found multiplicities.
-%                           - 'ignore'  Ignore multiplicities and use the
-%                              protein with the lowest index in the database.
-%                           - 'add'     Adds all the multiple proteins as
-%                                       isoenzymes for the given reaction.
-%           
-% OUTPUTS:  eccodes - can be a single EC code or several separated by ';'
-% 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function eccodes = getECCodes(rxnEnzMap, genes, modelAdapter, action)
+% Input:
+%   model           ec-model in GECKO 3 format
+%   modelAdapter    model adapter (for example YeastGEMAdapter)
+%   action          response action if multiple proteins with different EC
+%                   numbers are found for a given gene in a metabolic
+%                   reaction (optional, default 'display')
+%                   - 'display' displays all found multiplicities
+%                   - 'ignore'  ignore multiplicities and use the protein
+%                               with the lowest index in the database.
+%                   - 'add'     adds all the multiple proteins as
+%                               isoenzymes for the given reaction
+%   ecRxns          logical of length model.ec.rxns that specifies for
+%                   which reactions the existing model.ec.eccodes entry
+%                   should be kept and not modified by this function
+%                   (optional, by default all model.ec.eccodes entries
+%                   are populated by this function)
+%
+% Output:
+%   model           ec-model with populated model.ec.eccodes
 
-if nargin<4
+if nargin<3
     action = 'display';
 end
 
-fprintf('Retrieving EC numbers...')
+rxnEnzMat = model.ec.rxnEnzMat;
+genes = model.ec.genes;
 
-data      = load(modelAdapter.getFilePath('ProtDatabase.mat'));
-swissprot = data.swissprot;
+data      = loadDatabases(modelAdapter,'both');
+uniprot   = data.uniprot;
 kegg      = data.kegg;
 
-swissprot = standardizeDatabase(swissprot);
-kegg      = standardizeDatabase(kegg);
+DBprotUniprot   = data.uniprot.ID;
+DBgenesUniprot  = data.uniprot.genes;
+DBecNumUniprot  = data.uniprot.eccodes;
+DBMWUniprot     = data.uniprot.MW;
 
-DBprotSwissprot     = swissprot(:,1);
-DBgenesSwissprot    = flattenCell(swissprot(:,3));
-DBecNumSwissprot    = swissprot(:,4);
-DBMWSwissprot       = swissprot(:,5);
+DBprotKEGG      = data.kegg.uniprot;
+DBgenesKEGG     = data.kegg.genes;
+DBecNumKEGG     = data.kegg.eccodes;
+DBMWKEGG        = data.kegg.MW;
 
-DBprotKEGG          = kegg(:,1);
-DBgenesKEGG         = flattenCell(kegg(:,3));
-DBecNumKEGG         = kegg(:,4);
-DBMWKEGG            = kegg(:,5);
+n = size(rxnEnzMat,1);
 
-n = size(rxnEnzMap,1);
-
-eccodes = cell(n,1);
-
-conflicts  = cell(1,4);
+eccodes   = cell(n,1);
+conflicts = cell(1,4);
 
 %Build an index from gene to prot for faster processing later
-[x,y] = size(DBgenesSwissprot);
-genesForIndex = reshape(DBgenesSwissprot, x*y, 1);
+[x,y] = size(DBgenesUniprot);
+genesForIndex = reshape(DBgenesUniprot, x*y, 1);
 genesForIndex = genesForIndex(~cellfun(@isempty, genesForIndex));
-genesForIndex = unique(genesForIndex); %18360
+genesForIndex = unique(genesForIndex);
 geneIndex = cell(length(genesForIndex),1);
 geneHashMap = containers.Map(genesForIndex,1:length(genesForIndex));
-protIndices = 1:length(DBgenesSwissprot(:,1));
+protIndices = 1:length(DBgenesUniprot(:,1));
 for i = 1:y
-    tmp1 = DBgenesSwissprot(:,i);
+    tmp1 = DBgenesUniprot(:,i);
     sel = ~cellfun(@isempty, tmp1);
     indices = cell2mat(values(geneHashMap,tmp1(sel)));
     protIndicesSel = protIndices(sel);
@@ -67,20 +68,20 @@ for i = 1:y
     end
 end
 
-rxnEnzMap = logical(rxnEnzMap);
+rxnEnzMat = logical(rxnEnzMat);
 
 for i = 1:n
-    gns = genes(rxnEnzMap(i,:).');
+    gns = genes(rxnEnzMat(i,:).');
     if ~isempty(gns)
-        %Find match in Swissprot:
-        [new_EC,multGenes] = findECInDB(gns,DBprotSwissprot,DBgenesSwissprot,DBecNumSwissprot,DBMWSwissprot,geneIndex,geneHashMap);
+        %Find match in Uniprot:
+        [new_EC,multGenes] = findECInDB(gns,DBprotUniprot,DBgenesUniprot,DBecNumUniprot,DBMWUniprot,geneIndex,geneHashMap);
         if ~isempty(new_EC)
-            DBase    = 'swissprot';
+            DBase    = 'uniprot';
             if ~isempty(multGenes{1})
                 multGenes{3} = DBase;
             end
         else
-            %Find match in KEGG (skipped optimizing this step) - may be good to fix this later to get rid of the findInDBOld function:
+            %Find match in KEGG
             [new_EC,multGenes] = findECInDB(gns,DBprotKEGG,DBgenesKEGG,DBecNumKEGG,DBMWKEGG,geneIndex,geneHashMap);
             if ~isempty(new_EC)
                 DBase    = 'kegg';
@@ -119,25 +120,17 @@ end
 
 %Display error message with the multiple gene-protein matches found
 if strcmpi(action,'display') && ~isempty(conflicts{1})
-    displayErrorMessage(conflicts,swissprot,kegg)
+    displayErrorMessage(conflicts,uniprot,kegg)
 end
 
-fprintf(' Done!\n')
+if nargin<4 || all(ecRxns)
+    model.ec.eccodes = eccodes;
+else
+    %Probably faster to subset with ecRxns in the beginning of the script,
+    %but this was at the moment simpler to implement.
+    model.ec.eccodes(ecRxns) = eccodes(ecRxns);
+end
 
-end
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function database = standardizeDatabase(database)
-for i = 1:length(database)
-    database{i,3} = strsplit(database{i,3},' ');
-end
-end
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function str = union_string(cell_array)
-%Receives any 1xn cell array and returns the union of all non empty
-%elements as a string
-nonempty = ~cellfun(@isempty,cell_array);
-str      = strjoin(cell_array(nonempty)',' ');
-end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %I don't understand this part, skipping it for now
 %{
@@ -156,23 +149,23 @@ end
 end
 %}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function displayErrorMessage(conflicts,swissprot,kegg)
-STR = '\n Some  genes with multiple associated proteins were found, please';
-STR = [STR, ' revise case by case in the protDatabase.mat file:\n\n'];   
+function displayErrorMessage(conflicts,uniprot,kegg)
+STR = '\n Some genes with multiple associated proteins were found, please';
+STR = [STR, ' revise case by case in the uniprot and kegg files:\n\n'];   
 for i=1:length(conflicts{1})
-    if strcmpi(conflicts{4}{i},swissprot)
-        DB = swissprot;
+    if strcmpi(conflicts{4}{i},uniprot)
+        DB = uniprot.ID;
     else
-        DB = kegg;
+        DB = kegg.uniprot;
     end
-    proteins = DB(conflicts{3}{i},1);
+    proteins = DB(conflicts{3}{i});
     STR = [STR, '- gene: ' conflicts{2}{i} '  Proteins: ' strjoin(proteins) '\n'];
 end
 STR = [STR, '\nIf a wrongly annotated case was found then call the '];
-STR = [STR, 'getEnzymeCodes.m function again with the option action'];
+STR = [STR, 'getECfromDatabase.m function again with the option action'];
 STR = [STR, '= ignore\n\n'];
 STR = [STR, 'If the conflicting proteins are desired to be kept as isoenzymes'];
-STR = [STR, ' then call the getEnzymeCodes.m function'];
+STR = [STR, ' then call the getECfromDatabase.m function'];
 STR = [STR, ' again with the option action = add\n'];
 error(sprintf(STR))
 end
