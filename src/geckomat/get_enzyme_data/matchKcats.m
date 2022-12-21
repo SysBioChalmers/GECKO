@@ -515,7 +515,8 @@ fprintf(' Done!\n')
  end
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  function phylDistStruct =  KEGG_struct
-     load('../../../data/databases/PhylDist.mat')
+     geckoPath = findGECKOroot();
+     load(fullfile(geckoPath,'databases','PhylDist.mat'))
      phylDistStruct.ids   = transpose(phylDistStruct.ids);
      phylDistStruct.names = transpose(phylDistStruct.names);
      

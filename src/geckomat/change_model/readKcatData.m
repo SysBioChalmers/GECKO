@@ -35,7 +35,7 @@ matchedGenes = [model_data.matchedGenes; model_data.matchedGenes(rev,:)];
 model = convertToIrrev(model_data.model);
 
 %Convert original model to enzyme model according to uniprots and kcats:
-eModel = convertToEnzymeModel(model,matchedGenes,uniprots,kcats,path);
+eModel = convertToEnzymeModel_obsolete(model,matchedGenes,uniprots,kcats,path);
 
 end
 

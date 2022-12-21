@@ -95,7 +95,7 @@ function mod_data = simulateChemostat(model,exp_data,GAM,parameters)
 cd([parameters.userDataPath '/scripts'])
 Pbase = sumProtein(model);
 model = scaleBioMass(model,Pbase,parameters,GAM,false);
-cd([parameters.geckomat '/limit_proteins'])
+
 %Relevant positions:
 exch_names  = parameters.exch_names;
 pos(1)      = find(strcmp(model.rxnNames,exch_names{1}));

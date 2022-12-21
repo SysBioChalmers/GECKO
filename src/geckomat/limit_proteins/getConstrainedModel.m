@@ -44,16 +44,16 @@ outputPath = parameters.outputPath;
 %Get f (estimated mass fraction of enzymes in model)
 [f,~] = measureAbundance(ecModel.enzymes,userDataPath);
 %Change media to batch conditions:
-cd([userDataPath '/scripts/'])
+cd(fullfile(parameters.userDataPath,'scripts'))
 ecModel = changeMedia_batch(ecModel,c_source);
-cd(current)
+
 %Get a preliminary enzyme constrained model for performing the Kcats
 %sensitivity analysis
 [ecModel_batch,~,~] = constrainEnzymes(ecModel,parameters,f);
 solution            = solveLP(ecModel_batch,1);
 if ~isempty(solution.f)
     %Set the media according to the experimental conditions
-    cd ../kcat_sensitivity_analysis
+
     ObjIndex = find(ecModel_batch.c);
     % If the model is overconstrained
     if (gRate-solution.x(ObjIndex))>0
@@ -80,11 +80,11 @@ if ~isempty(solution.f)
     solution = solveLP(ecModel_batch,1);
     if ~isempty(solution.x)
         disp('Saving simulation results files...')
-        fluxFileName = [outputPath name '_exchangeFluxes.txt'];
+        fluxFileName = fullfile(outputPath, [name '_exchangeFluxes.txt']);
         printFluxes(ecModel_batch,solution.x,true,10^-6,fluxFileName);
         topUsedEnzymes(solution.x,ecModel_batch,{'Min_glucose'},name,true,parameters);
     end 
-    cd ../limit_proteins   
+
 else
     disp('ecModel with enzymes pool constraint is not feasible')
 end

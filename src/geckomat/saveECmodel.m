@@ -1,4 +1,4 @@
-function model = saveECmodel(model,toolbox,name,version,path,condition)
+function model = saveECmodel(model,toolbox,name,version,path)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Input:
@@ -18,12 +18,6 @@ function model = saveECmodel(model,toolbox,name,version,path,condition)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 fprintf(['Saving ' name '_' version ':\n'])
-
-% if a condition is defined then save the model as condition
-if nargin == 6
-    path = [path condition '/'];
-    name = condition;
-end
 
 %Model description:
 model.description = ['Enzyme-constrained model of ' version];
@@ -61,18 +55,17 @@ if strcmp(toolbox,'COBRA')
     model_cobra.subSystems = cell(size(model_cobra.rxns));
     model_cobra = takeOutField(model_cobra,'rxnSBOTerms');
     %Save model as sbml and text:
-    writeCbModel(model_cobra,'mat',[path name '.mat']);
-    writeCbModel(model_cobra,'sbml',[path name '.xml']);
-    writeCbModel(model_cobra,'text',[path name '.txt']);
+    writeCbModel(model_cobra,'sbml',fullfile(path,name,'.xml'));
+    writeCbModel(model_cobra,'text',fullfile(path,name,'.txt'));
 else
-    exportForGit(model,name,path,{'xml','yml','txt','mat'},false,false);
+    exportForGit(model,name,path,{'xml','yml','txt'},false,false);
 end
 
 %Convert notation "e-005" to "e-05 " in stoich. coeffs. to avoid
 %inconsistencies between Windows and MAC:
-copyfile([path name '.xml'],'backup.xml')
+copyfile(fullfile(path,[name '.xml']),'backup.xml')
 fin  = fopen('backup.xml', 'r');
-fout = fopen([path name '.xml'], 'w');
+fout = fopen(fullfile(path,[name '.xml']), 'w');
 still_reading = true;
 while still_reading
     inline = fgets(fin);

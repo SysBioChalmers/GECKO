@@ -26,7 +26,7 @@ function [model, foundComplex, proposedComplex] = applyComplexData(model, comple
                     
 if nargin<2
     geckoPath = findGECKOroot();
-    complexInfo = fullfile(geckoPath,'databases','complex_data.json');
+    complexInfo = fullfile(geckoPath,'data','databases','complex_data.json');
 end
 if ischar(complexInfo) || isstring(complexInfo)
     jsonStr = fileread(complexInfo);

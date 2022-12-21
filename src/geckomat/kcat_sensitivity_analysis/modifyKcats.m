@@ -33,9 +33,9 @@ outputPath = parameters.outputPath;
 changes = [];
 error   = -100; 
 %Load BRENDA data:
-cd ../get_enzyme_data
+
 [BRENDA,SA_cell] = loadBRENDAdata;
-cd ../kcat_sensitivity_analysis
+
 %Iterates while the objective value is being underpredicted
 disp('******************* Limiting Kcats curation *******************')
 i=1; 
@@ -71,7 +71,7 @@ if ~isempty(changes)
     changes = cell2table(changes,'VariableNames',varNamesTable);
     changes = truncateValues(changes,[7:10]);
     %Write results in a .txt for further exploration.
-    writetable(changes,[outputPath name '_kcatModifications.txt']);
+    writetable(changes,fullfile(outputPath, [name '_kcatModifications.txt']));
 else
     %If the model is not feasible then the analysis is performed in all the 
     %Kcats matched either to: option 1 -> each of the enzymatic rxns, 
@@ -83,13 +83,13 @@ else
         varNamesTable = {'rxnNames','rxnPos','ControlCoeff'};
         changes = cell2table(limRxns,'VariableNames',varNamesTable);
         changes = truncateValues(changes,3);
-        writetable(changes,[outputPath name '_limitingRxns.txt']);
+        writetable(changes,fullfile(outputPath, [name '_limitingRxns.txt']));
     end
     if ~isempty(limEnz)
         varNamesTable = {'EnzNames','EnzPos','ControlCoeff'};
         changes = cell2table(limEnz,'VariableNames',varNamesTable);
         changes = truncateValues(changes,3);
-        writetable(changes,[outputPath name '_limitingEnzymes.txt']);
+        writetable(changes,fullfile(outputPath, [name '_limitingEnzymes.txt']));
     end
 end
 
@@ -138,7 +138,7 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function  [ECnumber, Mw] = findECnumber(Unicode,path)
 current = pwd;
-load([path '/data/ProtDatabase.mat']);
+load(fullfile(path,'data','ProtDatabase.mat'));
 DB1{1} = swissprot(:,1);DB1{2} = swissprot(:,4);DB1{3} = swissprot(:,5);
 DB2{1} = kegg(:,1);     DB2{2} = kegg(:,4);     DB2{3} = kegg(:,5);
 ECnumber = {};

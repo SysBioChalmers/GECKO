@@ -39,7 +39,6 @@ if scale_comp
 end
 %Fit GAM if not available:
 if isempty(GAM)
-    cd([parameters.geckomat '/limit_proteins'])
     GAM = fitGAM(model,parameters,false);
 end
 %Change GAM:

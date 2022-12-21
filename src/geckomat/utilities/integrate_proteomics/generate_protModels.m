@@ -18,10 +18,6 @@ function generate_protModels(ecModel,grouping,name,ecModel_batch,parameters)
 close all
 current = pwd;
 
-% Save geckomat path as a parameter to return after use organism specific
-% scripts
-cd ../..
-parameters.geckomat = pwd;
 
 if nargin < 4
    error('ecModel_batch must be specified');
@@ -41,26 +37,26 @@ growthRxn  = parameters.exch_names{1};
 NGAM       = parameters.NGAM;
 GAM        = [];
 
-% Validtae if there is a defined path where organism/model specific scripts are
+geckoPath = findGECKOroot();
+
+% Validate if there is a defined path where organism/model specific scripts are
 if ~isfield(parameters, 'userDataPath')
-    [~,values] = fileattrib('../../userData/');
     % Add to parameters the full path
-    parameters.userDataPath = [values.Name '/' name '/'];
+    parameters.userDataPath = fullfile(geckoPath,'userData',name);
 else
     [~,values] = fileattrib(parameters.userDataPath);
     %Update to a full path
-    parameters.userDataPath = [values.Name '/' name '/'];
+    parameters.userDataPath = fullfile(values.Name,name);
 end
 
 % Validtae if there is a defined path where save the output
 if ~isfield(parameters, 'outputPath')
-    [~,values] = fileattrib('../../userData/');
     % Add to parameters the full path
-    parameters.outputPath = [values.Name '/' name '/output/prot_constrained/'];
+    parameters.outputPath = fullfile(geckoPath,'userData',name,'output','prot_constrained');
 else
     [~,values] = fileattrib(parameters.outputPath);
     %Update to a full path
-    parameters.outputPath = [values.Name '/prot_constrained/' name '/'];
+    parameters.outputPath = fullfile(values.Name,'prot_constrained',name);
 end
 
 %Flexibilization factor for carbon source uptake rate (needed for
@@ -78,8 +74,8 @@ growthRxn_ID = ecModel.rxns(find(strcmpi(ecModel.rxnNames,growthRxn)));
 %Remove prot_abundance.txt  and relative_proteomics.txt files
 %(for f factor calculation)
 try
-    movefile([parameters.userDataPath 'data/prot_abundance.txt'], ...
-        [parameters.userDataPath 'data/prot_abundance_temp.txt']);
+    movefile(fullfile(parameters.userDataPath,'data','prot_abundance.txt'), ...
+        fullfile(parameters.userDataPath,'data','prot_abundance_temp.txt'));
 catch
     disp('prot_abundance.txt file not found in Databases folder') 
 end
@@ -97,12 +93,14 @@ byP_flux   = fermData.byP_flux;
 %For each condition create a protein constrained model
 for i=1:length(conditions)
     cd(current)
+    disp(conditions{i})
+
+    filePath = fullfile(parameters.outputPath,conditions{i});
     %create specific subfolder for ecModelProts output files if not present already
-    if ~isfolder([parameters.outputPath conditions{i}])
-        mkdir([parameters.outputPath conditions{i}])
+    if ~isfolder(filePath)
+        mkdir(filePath)
     end
 
-    disp(conditions{i})
     %Extract data for the i-th condition
     abundances   = cell2mat(absValues(1:grouping(i)));
     initialProts = uniprotIDs;
@@ -118,7 +116,7 @@ for i=1:length(conditions)
         end
     end
     %Set minimal medium
-    cd([parameters.userDataPath 'scripts'])
+    cd(fullfile(parameters.userDataPath, 'scripts'))
     ecModelP  = changeMedia_batch(ecModel,c_source);
     tempModel = changeMedia_batch(ecModel_batch,c_source);
 
@@ -133,7 +131,7 @@ for i=1:length(conditions)
         %Then the GAM and new biomass composition are set in ecModelP, which
         %is not functional yet but should be used for incorporation of
         %proteomics data
-        cd([parameters.userDataPath 'scripts'])
+        cd(fullfile(parameters.userDataPath, 'scripts'))
         ecModelP = scaleBioMass(ecModelP,Ptot(i),parameters,GAM,true);
         disp(' ')
     end
@@ -165,11 +163,10 @@ for i=1:length(conditions)
     %Get model with proteomics
     f       = 1; %Protein mass in model/Total theoretical proteome
     disp(['Incorporation of proteomics constraints for ' conditions{i} ' condition'])
-    cd([parameters.geckomat '/limit_proteins'])
     [ecModelP,usagesT,modificationsT,~,coverage] = constrainEnzymes(ecModelP,parameters,f,GAM,Ptot(i),pIDs,abundances,Drate(i),flexGUR);
     matchedProteins = usagesT.prot_IDs;
     prot_input = {initialProts filteredProts matchedProteins ecModel.enzymes coverage};
-    writeProtCounts(prot_input,parameters.outputPath,conditions{i});
+    writeProtCounts(prot_input,filePath);
     cd(current)
     %NGAM interval for fitting
     interval = [0 5];
@@ -183,23 +180,21 @@ for i=1:length(conditions)
     %Get optimal flux distribution and display exchange fluxes
     solution = solveLP(ecModelP,1);
     if ~isempty(solution.f)
-        fileFluxes = [parameters.outputPath conditions{i} '/fluxes_Exch.txt'];
-        printFluxes(ecModelP,solution.x,true,1E-4,fileFluxes)
+        printFluxes(ecModelP,solution.x,true,1E-4,fullfile(filePath,'fluxes_Exch.txt'))
     end
     cd ../change_model
     [~,~,version] = preprocessModel(ecModelP,'','');
-    cd(parameters.geckomat)
-    saveECmodel(ecModelP,'RAVEN',name,version,parameters.outputPath,conditions{i});
+    saveECmodel(ecModelP,'RAVEN',conditions{i},version,filePath);
     %save .txt file
-    writetable(usagesT,[parameters.outputPath conditions{i} '/enzymeUsages.txt'],'Delimiter','\t')
-    writetable(modificationsT,[parameters.outputPath conditions{i} '/modifiedEnzymes.txt'],'Delimiter','\t')
+    writetable(usagesT,fullfile(filePath,'enzymeUsages.txt'),'Delimiter','\t')
+    writetable(modificationsT,fullfile(filePath,'modifiedEnzymes.txt'),'Delimiter','\t')
 end
 
 %Remove prot_abundance.txt  and relative_proteomics.txt files
 %(for f factor calculation)
 try
-    movefile([parameters.userDataPath 'data/prot_abundance_temp.txt'], ...
-        [parameters.userDataPath 'data/prot_abundance.txt']);
+    movefile(fullfile(parameters.userDataPath,'data','prot_abundance_temp.txt'), ...
+        fullfile(parameters.userDataPath,'data','prot_abundance.txt'));
 catch
     disp('prot_abundance_temp.txt file not found in Databases folder') 
 end
@@ -257,7 +252,7 @@ else
 end
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function writeProtCounts(prot_parameters,path,condition)
+function writeProtCounts(prot_parameters,path)
 initial_prots  = length(prot_parameters{1});
 filtered_prots = length(prot_parameters{2});
 matched_prots  = length(prot_parameters{3});
@@ -269,5 +264,5 @@ disp(['The total number of filtered proteins present in the model is: ' num2str(
 disp(['The mass ratio between measured and unmeasured protein is:     ' num2str(mass_coverage)])
 
 T = table(initial_prots,filtered_prots,matched_prots,model_prots,mass_coverage);
-writetable(T,[path condition '/prot_counts.txt'],'Delimiter','\t')
+writetable(T,fullfile(path,'prot_counts.txt'),'Delimiter','\t')
 end

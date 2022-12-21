@@ -25,12 +25,6 @@ function [ecModel,ecModel_batch] = enhanceGEM(model,toolbox,parameters,name,mode
 %   Ivan Domenzain. Last edited: 2020-10-05
 %
 
-current = pwd;
-
-% Save geckomat path as a parameter to return after use organism specific
-% scripts
-parameters.geckomat = current;
-
 if nargin < 3
     error('Not enough input arguments, parameters are required');
 end
@@ -47,26 +41,26 @@ if nargin < 5
     end
 end
 
+geckoPath = findGECKOroot();
+
 % Validtae if there is a defined path where organism/model specific scripts are
 if ~isfield(parameters, 'userDataPath')
-    [~,values] = fileattrib('../../userData/');
     % Add to parameters the full path
-    parameters.userDataPath = [values.Name '/' name '/'];
+    parameters.userDataPath = fullfile(geckoPath,'userData',name);
 else
     [~,values] = fileattrib(parameters.userDataPath);
     %Update to a full path
-    parameters.userDataPath = [values.Name '/' name '/'];
+    parameters.userDataPath = fullfile(values.Name,name);
 end
 
 % Validtae if there is a defined path where save the output
 if ~isfield(parameters, 'outputPath')
-    [~,values] = fileattrib('../../userData/');
     % Add to parameters the full path
-    parameters.outputPath = [values.Name '/' name '/output/'];
+    parameters.outputPath = fullfile(geckoPath,'userData',name,'output');
 else
     [~,values] = fileattrib(parameters.outputPath);
     %Update to a full path
-    parameters.outputPath = [values.Name '/' name '/'];
+    parameters.outputPath = fullfile(values.Name,name);
 end
 
 %create specific subfolder for ecModel files if not present already
@@ -75,7 +69,7 @@ if ~isfolder(parameters.outputPath)
 end
 
 %Convert model to RAVEN for easier visualization later on:
-format short e
+
 if isfield(model,'rules')
     initCobraToolbox
     model = ravenCobraWrapper(model);
@@ -86,7 +80,7 @@ fprintf('\n   GECKO: Adding enzyme constraints to a genome-scale model')
 fprintf('\n***************************************************************\n\n')
 
 %Remove blocked rxns + correct model.rev:
-cd([current '/change_model'])
+
 [model,~,~] = preprocessModel(model,name,modelVer);
 
 fprintf('\n==================')
@@ -94,21 +88,21 @@ fprintf('\nGenerating ecModel:')
 fprintf('\n==================\n')
 
 %Retrieve kcats & MWs for each rxn in model:
-cd([current '/get_enzyme_data'])
+
 model_data = getEnzymeCodes(model,parameters.userDataPath);
 kcats      = matchKcats(model_data,parameters.org_name);
 
 %Integrate enzymes in the model:
-cd([current '/change_model'])
+
 ecModel                 = readKcatData(model_data,kcats,parameters);
-cd([parameters.userDataPath 'scripts/'])
+cd(fullfile(parameters.userDataPath,'scripts'))
 [ecModel,modifications] = manualModifications(ecModel,parameters);
 
 %Constrain model to batch conditions:
 fprintf('\n==============================================================')
 fprintf('\nGenerating ecModel with shared pool assumption (ecModel_batch):')
 fprintf('\n==============================================================\n')
-cd([current '/limit_proteins'])
+
 [ecModel_batch,OptSigma] = getConstrainedModel(ecModel,modifications,name,parameters);
 disp(['Sigma factor (fitted for growth on glucose): ' num2str(OptSigma)])
 
@@ -116,7 +110,7 @@ disp(['Sigma factor (fitted for growth on glucose): ' num2str(OptSigma)])
 fprintf('\n=============')
 fprintf('\nSaving models:')
 fprintf('\n=============\n')
-cd(current)
+
 ecModel = saveECmodel(ecModel,toolbox,name,modelVer,parameters.outputPath);
 ecModel_batch = saveECmodel(ecModel_batch,toolbox,[name '_batch'],modelVer,parameters.outputPath);
 

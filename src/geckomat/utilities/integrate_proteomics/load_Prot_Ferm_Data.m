@@ -24,13 +24,13 @@ format = '%s %s';
 for i=1:sum(grouping)
     format = [format ' %f'];
 end
-fileName = [parameters.userDataPath 'data/abs_proteomics.txt'];
+fileName = fullfile(parameters.userDataPath,'data','abs_proteomics.txt');
 fID      = fopen(fileName);
 protData = textscan(fID,format,'Delimiter','\t','HeaderLines',1,'TreatAsEmpty',{'NA','na','NaN'});
 pIDs     = protData{1};
 protData = protData(3:end);
 %Load total protein content and fermentation data
-fileName  = [parameters.userDataPath 'data/fermentationData.txt'];
+fileName  = fullfile(parameters.userDataPath,'data','fermentationData.txt');
 fID       = fopen(fileName);
 formatStr = '%s';
 data      = textscan(fID,formatStr,'Delimiter','\n');

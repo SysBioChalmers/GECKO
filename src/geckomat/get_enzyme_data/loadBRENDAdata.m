@@ -1,8 +1,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  function [KCATcell, SAcell] = loadBRENDAdata
-     KCAT_file      = '../../../data/databases/max_KCAT.txt';
-     SA_file        = '../../../data/databases/max_SA.txt';
-     MW_file        = '../../../data/databases/max_MW.txt';
+     geckoPath      = findGECKOroot;
+     KCAT_file      = fullfile(geckoPath,'databases','max_KCAT.txt');
+     SA_file        = fullfile(geckoPath,'databases','max_SA.txt');
+     MW_file        = fullfile(geckoPath,'databases','max_MW.txt');
      %Extract BRENDA DATA from files information
      scallingFactor = 3600;   %[1/s] -> [1/h]
      KCATcell       = openDataFile(KCAT_file,scallingFactor); 

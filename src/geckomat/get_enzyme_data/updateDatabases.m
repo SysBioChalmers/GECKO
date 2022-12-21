@@ -13,40 +13,38 @@ function [swissprot,kegg] = updateDatabases(name,parameters)
 % Benjamin Sanchez, Cheng Zhang, Ivan Domenzain. Last edited: 2019-07-12
 %
 
-current = pwd;
-
 keggID     = parameters.keggID;
 if ~regexp(keggID,'[a-z]{3,4}')
     error('Please specify the KEGG organism ID in the script getModelParameters.m')
 end
 
+geckoPath = findGECKOroot();
+
 % Validtae if there is a defined path where organism/model specific scripts are
 if ~isfield(parameters, 'userDataPath')
-    [~,values] = fileattrib('../../../userData/');
     % Add to parameters the full path
-    parameters.userDataPath = [values.Name '/' name '/'];
+    parameters.userDataPath = fullfile(geckoPath,'userData',name);
 else
     [~,values] = fileattrib(parameters.userDataPath);
     %Update to a full path
-    parameters.userDataPath = [values.Name '/' name '/'];
+    parameters.userDataPath = fullfile(values.Name,name);
 end
 
 %Build Swissprot table:
 swissprot = buildSWISSPROTtable(parameters.userDataPath);
 
 %Download KEGG data:
-mkdir ../../../data/databases/KEGG
+mkdir(fullfile(geckoPath,'databases','KEGG'))
 downloadKEGGdata(keggID)
 
 %Build KEGG table
 kegg = buildKEGGtable(keggID);
 
 %Remove KEGG files for compliance of repository:
-delete ../../../data/databases/KEGG/*.txt
-rmdir ../../../data/databases/KEGG
+rmdir(fullfile(geckoPath,'databases','KEGG'))
 
 %Save both databases as .mat files:
-save([parameters.userDataPath 'data/ProtDatabase.mat'],'swissprot','kegg');
+save(fullfile(parameters.userDataPath,'data','ProtDatabase.mat'),'swissprot','kegg');
 
 end
 
@@ -55,7 +53,7 @@ end
 function swissprot = buildSWISSPROTtable(path)
 
 %Build Swissprot table (uniprot code - protein name - gene names - EC number - sequence):
-fileID_uni        = fopen([path 'data/uniprot.tab']);
+fileID_uni        = fopen(fullfile(path,'data','uniprot.tab'));
 swissprot         = textscan(fileID_uni,'%s %s %s %s %s','delimiter','\t');
 swissprot         = [swissprot{1} swissprot{2} swissprot{3} swissprot{4} swissprot{5}];
 swissprot(1,:)    = [];
@@ -84,14 +82,14 @@ operation = 'list/';
 gene_list = urlread([base operation keggID]);
 gene_list = regexpi(gene_list, '[^\n]+','match')'; 
 gene_id   = regexpi(gene_list,['(?<=' keggID ':)\S+'],'match');
-
+geckoPath = findGECKOroot();
 % Retrieve information for every gene in the list (with a maximum of 10,000
 % to avoid bulk downloads)
 operation = 'get/';
 for i = 1:min([numel(gene_id),10000])
     try
         gene = urlread([base operation keggID ':' gene_id{i}{1}]);
-        fid  = fopen(['../../../data/databases/KEGG/' gene_id{i}{1} '.txt'],'w');
+        fid  = fopen(fullfile(geckoPath,'databases','KEGG',[gene_id{i}{1} '.txt']),'w');
         fprintf(fid,'%s',gene);
         fclose(fid);
         disp(['Downloading KEGG data for ' gene_id{i}{1}])
@@ -105,9 +103,9 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function kegg = buildKEGGtable(keggID)
-
+geckoPath = findGECKOroot();
 %Build KEGG table (uniprot code - protein name - systematic gene name - EC number - MW - pathway - sequence):
-file_names      = dir('../../../data/databases/KEGG/');
+file_names      = dir(fullfile(geckoPath,'databases','KEGG'));
 file_names(1:2) = [];
 kegg            = cell(100000,7);
 n               = 0;
@@ -116,7 +114,7 @@ for i = 1:length(file_names)
     %3rd column: systematic gene name
     gene_name = file_name(1:end-4);
     %Retrieve all data as a cell with all rows:
-    fID  = fopen(['../../../data/databases/KEGG/' file_name]);
+    fID  = fopen(fullfile(geckoPath,'databases','KEGG',file_name));
     text = textscan(fID,'%s','delimiter','\t');
     fclose(fID);
     text = text{1};

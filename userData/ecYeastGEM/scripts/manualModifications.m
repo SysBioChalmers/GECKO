@@ -70,7 +70,6 @@ for i = 1:length(model.rxns)
             newMets = strcat('prot_',uniprots{j});
             rxnName = model.rxnNames{i};
             grRule  = protGenes{j};
-            cd([parameters.geckomat '/change_model'])
             model   = addEnzymesToRxn(model,kvalues,rxnID,newMets,{rxnID,rxnName},parameters,grRule);
             %If some proteins where not present previously, add them:
             for k = 1:length(uniprots{j})
