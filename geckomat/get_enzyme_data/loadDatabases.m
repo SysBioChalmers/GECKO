@@ -25,34 +25,37 @@ keggID=param.keggID;
 taxonID=num2str(param.taxonID);
 
 weboptions('Timeout',10);
+warning('off', 'MATLAB:MKDIR:DirectoryExists');
 
 %% Uniprot
 if any(strcmp(selectDatabase,{'uniprot','both'}))
     filePath = fullfile(geckoPath,'databases','uniprot',[num2str(taxonID) '.tsv']);
     if ~exist(filePath,'file')
         disp(['Downloading Uniprot data for taxonomic ID ' taxonID '. This can take a few minutes.'])
+        mkdir(fullfile(geckoPath,'databases','uniprot'));
         url = ['https://rest.uniprot.org/uniprotkb/stream?query=taxonomy_id:' num2str(taxonID) ...
             '&fields=accession%2C' param.uniprotGeneIdField ...
-            '%2Cgene_primary%2Cec%2Cxref_geneid%2Cxref_refseq%2Cmass%2Csequence&format=tsv&compressed=false&sort=protein_name%20asc'];
+            '%2Cgene_primary%2Cec%2Cmass%2Csequence&format=tsv&compressed=false&sort=protein_name%20asc'];
         websave(filePath,url);
     else
         disp(['Loading existing Uniprot database file for taxonomic ID ' taxonID '.'])
     end
 
     fid         = fopen(filePath,'r');
-    fileContent = textscan(fid,'%s %s %s %s %s %s %s %s','Delimiter','\t','HeaderLines',1);
+    fileContent = textscan(fid,'%s %s %s %s %s %s','Delimiter','\t','HeaderLines',1);
     fclose(fid);
     databases.uniprot.ID      = fileContent{1};
     databases.uniprot.genes   = fileContent{2};
     databases.uniprot.eccodes = fileContent{4};
-    databases.uniprot.MW      = str2double(fileContent{7});
-    databases.uniprot.seq     = fileContent{8};
+    databases.uniprot.MW      = str2double(fileContent{5});
+    databases.uniprot.seq     = fileContent{6};
 end
 
 %% KEGG
 if any(strcmp(selectDatabase,{'kegg','both'}))
     filePath = fullfile(geckoPath,'databases','kegg',[keggID '.tsv']);
     if ~exist(filePath,'file')
+        mkdir(fullfile(geckoPath,'databases','kegg'));
         downloadKEGG(keggID,filePath);
     else
         disp(['Loading existing KEGG database file for organism code ' keggID '.'])
