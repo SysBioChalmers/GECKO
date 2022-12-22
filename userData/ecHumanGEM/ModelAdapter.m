@@ -1,6 +1,6 @@
-classdef HumanGEMAdapter < ModelAdapter 
+classdef ModelAdapter < defaultModelAdapter 
     methods
-        function obj = HumanGEMAdapter()
+        function obj = ModelAdapter()
             %Set initial values of the parameters - they can be changed by the user
             
             %these parameters are just copied from getParams in ecModels
