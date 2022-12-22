@@ -1,25 +1,40 @@
-function databases = loadDatabases(selectDatabase)
+function databases = loadDatabases(selectDatabase,taxonID,geneIdField,keggID,filePath)
 % loadDatabases
-%   Load or downloads (if necessary) the organism-specific KEGG and UniProt
-%   databases that are required to extract protein information.
+%   Loads (and downloads if necessary) the organism-specific KEGG and
+%   UniProt databases that are required to extract protein information. The
+%   taxonID and keggID are taken from the ModelAdapter, unless they are
+%   specified specifically as input. The filePath needs to be given if
+%   taxonID and/or keggID are specified.
 %
 % Input:
 %   selectDatabase  which databases should be loaded, either 'uniprot',
-%                   'kegg' or 'both'
+%                   'kegg' or 'both' (optional, default 'both')
+%   taxonID         taxonomic ID for UniProt, overwrites ModelAdapter
+%   geneIdField     UniProt field where gene identifiers can be found,
+%                   overwrites ModelAdapter (for instance 'gene_oln', see
+%                   https://www.uniprot.org/help/return_fields)
+%   keggID          organism code for KEGG, overwrites ModelAdapter
+%   filePath        directory where downloaded database files should be
+%                   stored. Is only required when taxonID and/or keggID are
+%                   specified, otherwise the path in ModelAdapter is used.
 %
 % Output:
 %   databases       contains .uniprot and .kegg structures, dependent on
 %                   which databases were selected.
 %
-% Usage: databases = loadDatabases(selectDatabase)
-
-global GECKOModelAdapter
-params=checkGECKOModelAdapter(GECKOModelAdapter);
-keggID=param.keggID;
-taxonID=param.keggID;
+% Usage: databases = loadDatabases(selectDatabase,taxonID,geneIdField,keggID,filePath)
 
 if nargin<1
     selectDatabase = 'both';
+end
+if nargin<2
+    global GECKOModelAdapter
+    params  = checkGECKOModelAdapter(GECKOModelAdapter);
+    keggID  = params.keggID;
+    taxonID = params.taxonID;
+    filePath = fullfile(params.path,'data');
+else
+    params.uniprotGeneIdField = geneIdField;
 end
 
 weboptions('Timeout',10);
@@ -27,19 +42,19 @@ warning('off', 'MATLAB:MKDIR:DirectoryExists');
 
 %% Uniprot
 if any(strcmp(selectDatabase,{'uniprot','both'}))
-    filePath = fullfile(params.path,'data','uniprot.tsv');
-    if ~exist(filePath,'file')
+    uniprotPath = fullfile(filePath,'uniprot.tsv');
+    if ~exist(uniprotPath,'file')
         if isempty(taxonID)
             error('No taxonID is specified, unable to download UniProt DB')
         end
         disp(['Downloading Uniprot data for taxonomic ID ' taxonID '. This can take a few minutes.'])
         url = ['https://rest.uniprot.org/uniprotkb/stream?query=taxonomy_id:' num2str(taxonID) ...
-            '&fields=accession%2C' param.uniprotGeneIdField ...
+            '&fields=accession%2C' params.uniprotGeneIdField ...
             '%2Cgene_primary%2Cec%2Cmass%2Csequence&format=tsv&compressed=false&sort=protein_name%20asc'];
-        urlwrite(url,filePath);
+        urlwrite(url,uniprotPath);
     end
 
-    fid         = fopen(filePath,'r');
+    fid         = fopen(uniprotPath,'r');
     fileContent = textscan(fid,'%s %s %s %s %s %s','Delimiter','\t','HeaderLines',1);
     fclose(fid);
     databases.uniprot.ID      = fileContent{1};
@@ -51,15 +66,15 @@ end
 
 %% KEGG
 if any(strcmp(selectDatabase,{'kegg','both'}))
-    filePath = fullfile(params.path,'data','kegg.tsv');
-    if ~exist(filePath,'file')
+    keggPath = fullfile(filePath,'kegg.tsv');
+    if ~exist(keggPath,'file')
         if isempty(keggID)
             error('No keggID is specified, unable to download KEGG DB')
         end
-        downloadKEGG(keggID,filePath,verbose);
+        downloadKEGG(keggID,keggPath);
     end
 
-    fid         = fopen(filePath,'r');
+    fid         = fopen(keggPath,'r');
     fileContent = textscan(fid,'%s %s %s %s %s %s','Delimiter',',','HeaderLines',0);
     fclose(fid);
 
@@ -72,11 +87,9 @@ if any(strcmp(selectDatabase,{'kegg','both'}))
 end
 end
 
-function downloadKEGG(keggID, filePath, verbose)
+function downloadKEGG(keggID, filePath)
 %% Download gene information
-if verbose
-    fprintf('Downloading KEGG data for organism code %s...   0%% complete',keggID);
-end
+fprintf('Downloading KEGG data for organism code %s...   0%% complete',keggID);
 gene_list = webread(['http://rest.kegg.jp/list/' keggID]);
 gene_list = regexpi(gene_list, '[^\n]+','match')';
 gene_id   = regexpi(gene_list,['(?<=' keggID ':)\S+'],'match');
@@ -87,11 +100,9 @@ queries = ceil(numel(gene_id)/genesPerQuery);
 keggGenes  = cell(numel(gene_id),1);
 for i = 1:queries
     % Report progress
-    if verbose
-        progress=num2str(floor(100*i/queries));
-        progress=pad(progress,3,'left');
-        fprintf('\b\b\b\b\b\b\b\b\b\b\b\b\b%s%% complete',progress);
-    end
+    progress=num2str(floor(100*i/queries));
+    progress=pad(progress,3,'left');
+    fprintf('\b\b\b\b\b\b\b\b\b\b\b\b\b%s%% complete',progress);
     % Download batches of genes
     firstIdx = i*genesPerQuery-(genesPerQuery-1);
     lastIdx  = i*genesPerQuery;
@@ -148,7 +159,5 @@ out = [uni, gene_name, EC_names, MW, pathway, sequence];
 out = cell2table(out);
 
 writetable(out, filePath, 'FileType', 'text', 'WriteVariableNames',false);
-if verbose
-    fprintf('\b\b\b\b\b\b\b\b\b\b\b\b\b100%% complete\n');
-end
+fprintf('\b\b\b\b\b\b\b\b\b\b\b\b\b100%% complete\n');
 end
