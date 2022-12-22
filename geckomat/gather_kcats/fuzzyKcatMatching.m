@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% [kcats, kcatInfo] = fuzzyKcatMatching(model, modelAdapter, ecRxns)
+% [kcatList, kcatInfo] = fuzzyKcatMatching(model, modelAdapter, ecRxns)
 % Matchs the model EC numbers and substrates to the BRENDA database, to
 % return the corresponding kcats for each reaction.
 %
@@ -48,7 +48,7 @@
 %                          using s.a. (1x1)
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [kcats, kcatInfo] = fuzzyKcatMatching(model, modelAdapter, ecRxns)
+function [kcatList, kcatInfo] = fuzzyKcatMatching(model, modelAdapter, ecRxns)
 
 if nargin<3
     ecRxns = true(numel(model.ec.rxns),1);
@@ -153,6 +153,22 @@ for i = 1:mM
         fprintf('.')
     end
 end
+
+kcatList.source      = 'fuzzyMatch';
+kcatList.rxns        = model.ec.rxns(ecRxns);
+kcatList.genes       = model.ec.genes(ecRxns);
+kcatList.substrates  = substrates;
+kcatList.kcats       = kcats;
+kcatList.eccodes     = eccodes;
+kcatList.wildcardLvl = kcatInfo.info.wcLevel;
+kcatList.origin      = NaN(numel(model.ec.rxns),1);
+% This can be refactored, iterativeMatch and their nested functions can
+% just directly report the origin number.
+origin = [kcatInfo.info.org_s kcatInfo.info.rest_s kcatInfo.info.org_ns kcatInfo.info.rest_ns kcatInfo.info.org_sa kcatInfo.info.rest_sa];
+for i=1:6
+    kcatList.origin(find(origin(:,i))) = i;
+end
+
 fprintf('\n')
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

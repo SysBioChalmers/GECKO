@@ -7,18 +7,18 @@ function writeDLKcatInput(model,inFile,ecRxns,ignoreMets,currencyMets)
 %   inFile          name and path of the DLKcat input file to be written.
 %                   (Opt, default is 'DLKcatInput.tsv' in the current
 %                   working directory)
-%   ecRxns          for which reactions (from model.ec.rxns) DLKcat should
-%                   predict kcat values, provided as logical vector with
-%                   same length as model.ec.rxns. (Opt, default is all
-%                   reactions)
+%   ecRxns          logical of length model.ec.rxns that specifies for
+%                   which reactions DLKcat should predict kcat values
+%                   (optional, by default all model.ec.eccodes entries
+%                   are populated by this function)
 %   ignoreMets      cell array with metabolite names that should not be
-%                   included in the DLKcat input file. (Opt, default it
-%                   loads the list in GECKO/databases/DLKcatIgnoreMets.tsv)
+%                   included in the DLKcat input file. (optional, default
+%                   it loads GECKO/databases/DLKcatIgnoreMets.tsv)
 %   currencyMets    cell array (with 2 columns) with pairs of currency 
 %                   metabolites (identified by their metabolite name) that
 %                   that should not be included in the DLKcat input file
-%                   for reactions where both . (Opt, default it
-%                   loads the list in GECKO/databases/DLKcatIgnoreMets.tsv)
+%                   for reactions where both are involved. (optional,
+%                   default it loads GECKO/databases/DLKcatIgnoreMets.tsv)
 %
 
 if nargin<2
