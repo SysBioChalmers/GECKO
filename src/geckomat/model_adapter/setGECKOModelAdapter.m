@@ -21,7 +21,7 @@ elseif startsWith(path,'userData/') % Likely in GECKO folder
 end
 
 global GECKOModelAdapter;
-evalc('run(path);');
+run(path);
 GECKOModelAdapter = ans;
 disp([path ' is set as GECKOModelAdapter'])
 end
