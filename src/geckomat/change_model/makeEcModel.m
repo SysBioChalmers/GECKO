@@ -1,4 +1,4 @@
-function model = makeEcModel(model,modelAdapter,geckoLight)
+function model = makeEcModel(model,geckoLight)
 % makeEcModel
 %   Expands a conventional genome-scale model (in RAVEN format) with enzyme
 %   information and prepares the reactions for integration of enzyme usage
@@ -9,8 +9,6 @@ function model = makeEcModel(model,modelAdapter,geckoLight)
 %
 % Input:
 %   model        a model in RAVEN format
-%   modelAdapter A modelAdapter, an instance of a class inheriting the 
-%                ModelAdapter class, e.g., YeastAdapter.
 %   geckoLight   true if a simplified GECKO light model should be generated.
 %                Optional, default is false.
 %
@@ -51,6 +49,9 @@ function model = makeEcModel(model,modelAdapter,geckoLight)
 %   incorporates protein pseudometabolites in reactions as enzyme usages by
 %   applying the specified kcats as constraints.
 
+global GECKOModelAdapter
+checkGECKOModelAdapter(GECKOModelAdapter);
+
 if nargin<3
     geckoLight=false;
 elseif ~islogical(geckoLight) && ~(geckoLight == 0) && ~(geckoLight == 1)
@@ -64,8 +65,7 @@ else
 end
 
 [geckoPath, prevDir] = findGECKOroot();
-uniprotDB = loadDatabases(modelAdapter);
-
+uniprotDB = loadDatabases(GECKOModelAdapter);
 
 %1: Remove gene rules from pseudoreactions (if any):
 for i = 1:length(model.rxns)
@@ -160,7 +160,7 @@ else
 end
     
 %8: Gather enzyme information via UniprotDB
-uniprotCompatibleGenes = modelAdapter.getUniprotCompatibleGenes(model);
+uniprotCompatibleGenes = GECKOModelAdapter.getUniprotCompatibleGenes(model);
 [Lia,Locb]      = ismember(uniprotCompatibleGenes,uniprotDB.genes);
 ec.genes        = model.genes(Lia); %Will often be duplicate of model.genes, but is done here to prevent issues when it is not.
 ec.enzymes      = uniprotDB.ID(Locb(Lia));

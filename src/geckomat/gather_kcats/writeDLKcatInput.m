@@ -1,39 +1,26 @@
-function writeDLKcatInput(model,inFile,ecRxns,ignoreMets,currencyMets)
+function writeDLKcatInput(model,ecRxns)
 % writeDLKcatInput
-%   Prepares the input file that can be used by DLKcat
+%   Prepares the input for DLKcat, and writes it to data/DLKcatInput.tsv
+%   in the obj.params.path specified in the ModelAdapter.
 %
 % Input:
 %   model           an ec-model in RAVEN format
-%   inFile          name and path of the DLKcat input file to be written.
-%                   (Opt, default is 'DLKcatInput.tsv' in the current
-%                   working directory)
 %   ecRxns          for which reactions (from model.ec.rxns) DLKcat should
 %                   predict kcat values, provided as logical vector with
 %                   same length as model.ec.rxns. (Opt, default is all
 %                   reactions)
-%   ignoreMets      cell array with metabolite names that should not be
-%                   included in the DLKcat input file. (Opt, default it
-%                   loads the list in GECKO/databases/DLKcatIgnoreMets.tsv)
-%   currencyMets    cell array (with 2 columns) with pairs of currency 
-%                   metabolites (identified by their metabolite name) that
-%                   that should not be included in the DLKcat input file
-%                   for reactions where both . (Opt, default it
-%                   loads the list in GECKO/databases/DLKcatIgnoreMets.tsv)
-%
+
+global GECKOModelAdapter
+params=checkGECKOModelAdapter(GECKOModelAdapter);
+[geckoPath, ~] = findGECKOroot();
 
 if nargin<2
-    inFile = 'DLKcatInput.tsv';
-elseif endsWith(inFile,filesep()) % Append file name if only path is given
-    inFile = fullfile(inFile,'DLKcatInput.tsv');
-end
-if nargin<3
     ecRxns = true(numel(model.ec.rxns),1);
 elseif ~logical(ecRxns)
     error('ecRxns should be provided as logical vector')
 elseif numel(ecRxns)~=numel(model.ec.rxns)
     error('Length of ecRxns is not the same as model.ec.rxns')
 end
-[geckoPath, ~] = findGECKOroot();
 
 % Identify reactions for which kcat should be predicted (entry in model.ec.rxns)
 rxnsToInclude = model.ec.rxns(ecRxns);
@@ -49,7 +36,11 @@ end
 % then also try to match with metSmiles (if available).
 metsNoSpecialChars = lower(regexprep(model.metNames,'[^0-9a-zA-Z]+',''));
 if nargin<4
-    fID        = fopen(fullfile(geckoPath,'databases','DLKcatIgnoreMets.tsv'));
+    if exist(fullfile(params.path,'data','DLKcatIgnoreMets.tsv'),'file')
+        fID        = fopen(fullfile(params.path,'data','DLKcatIgnoreMets.tsv'));
+    else
+        fID        = fopen(fullfile(geckoPath,'databases','DLKcatIgnoreMets.tsv'));
+    end
     fileData   = textscan(fID,'%s %s','delimiter','\t');
     fclose(fID);
     [ignoreMets, ignoreSmiles] = deal(fileData{[1,2]});
@@ -66,16 +57,20 @@ reducedS(ignoreMetsIdx,:) = 0;
 % name (case insensitive, without white spaces and special characters),
 % then also try to match with metSmiles (if available).
 if nargin<5
-    fID      = fopen(fullfile(geckoPath,'databases','DLKcatCurrencyMets.tsv'));
+    if exist(fullfile(params.path,'data','DLKcatCurrencyMets.tsv'),'file')
+        fID        = fopen(fullfile(params.path,'data','DLKcatCurrencyMets.tsv'));
+    else
+        fID      = fopen(fullfile(geckoPath,'databases','DLKcatCurrencyMets.tsv'));
+    end
     fileData = textscan(fID,'%s %s %s %s','delimiter','\t');
     fclose(fID);
-    [currMets(:,1), currMets(:,2), currSmiles(:,1), currSmiles(:,2)] = deal(fileData{[1,3,2,4]});
-    [currMets(:,1), currMets(:,2)] = deal(fileData{[1,2]});
-    currMets = lower(regexprep(currMets,'[^0-9a-zA-Z]+',''));
+    [currencyMets(:,1), currencyMets(:,2), currSmiles(:,1), currSmiles(:,2)] = deal(fileData{[1,3,2,4]});
+    [currencyMets(:,1), currencyMets(:,2)] = deal(fileData{[1,2]});
+    currencyMets = lower(regexprep(currencyMets,'[^0-9a-zA-Z]+',''));
 end
-for i=1:size(currMets,1)
-    subs = find(strcmp(currMets(i,1),metsNoSpecialChars));
-    prod = find(strcmp(currMets(i,2),metsNoSpecialChars));
+for i=1:size(currencyMets,1)
+    subs = find(strcmp(currencyMets(i,1),metsNoSpecialChars));
+    prod = find(strcmp(currencyMets(i,2),metsNoSpecialChars));
     [~,subsRxns]=find(reducedS(subs,:));
     [~,prodRxns]=find(reducedS(prod,:));
     pairRxns = intersect(subsRxns,prodRxns);
@@ -101,7 +96,7 @@ out(5,:) = model.ec.sequence(proteins);
 out = [{'Reaction ID';'Gene ID';'Substrate Name';'Substrate SMILES';'Protein Sequence'}, out];
 
 % Write file
-fID = fopen(inFile,'w');
+fID = fopen(fullfile(params.path,'data','DLKcatInput.tsv'),'w');
 fprintf(fID,'%s\t%s\t%s\t%s\t%s\n',out{:});
 fclose(fID);
 end

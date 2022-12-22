@@ -6,7 +6,10 @@ function kcatList = readDLKcatOutput(model,outFile)
 %
 % Input:
 %   model       an ec-model in RAVEN format
-%   outFile     name and path of the DLKcat output file
+%   outFile     name and path of the DLKcat output file. If nothing is
+%               provided, an attempt will be made to read
+%               data/DLKcatOutput.tsv from the obj.params.path folder
+%               specified in the ModelAdapter.
 %
 % Output:
 %   kcatList    structure array with list of DLKcat derived kcat values,
@@ -19,7 +22,14 @@ function kcatList = readDLKcatOutput(model,outFile)
 %               eccode      empty, as these are not used by DLKcat
 %
 
-fID          = fopen(outFile);
+global GECKOModelAdapter
+params=checkGECKOModelAdapter(GECKOModelAdapter);
+
+if nargin<2
+    fID      = fopen(fullfile(params.path,'data','DLKcatOutput.tsv'),'r');
+else
+    fID      = fopen(outFile);
+end
 DLKcatOutput = textscan(fID,'%s %s %s %s %s %s','Delimiter','\t','HeaderLines',1);
 fclose(fID);
 
