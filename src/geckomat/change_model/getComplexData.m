@@ -1,7 +1,8 @@
-function complexInfo = getComplexData(organism, writeFile)
+function complexInfo = getComplexData(organism)
 % getComplexData
 %   Download curated complex stochiometries from the EMBL-EBI Complex
-%   Portal database.
+%   Portal database. Writes data/ComplexPortal.json in the the
+%   obj.params.path specified in the ModelAdapter.
 %
 % Input:
 %   organism    the organism for which complex information should be
@@ -12,11 +13,6 @@ function complexInfo = getComplexData(organism, writeFile)
 %               - 'Saccharomyces cerevisiae'
 %               See a list of all available organisms here:
 %               https://www.ebi.ac.uk/complexportal/complex/organisms
-%   outputFile  location of the output file, possible values:
-%               - true: write to GECKO/databases/complex_data.json
-%               - false: do not write output file (default)
-%               - any other path to where the complex_data.json file should
-%                 be written
 %
 % Output:
 %   complexInfo structure with data downloaded from Complex Portal.
@@ -33,7 +29,10 @@ function complexInfo = getComplexData(organism, writeFile)
 %                          2 if complex consists of sub-complexes, whose
 %                            subunit stochiometries are given
 % Usage
-%   complexInfo = getComplexData('Saccharomyces cerevisiae','complex_data.json')
+%   complexInfo = getComplexData('Saccharomyces cerevisiae')
+
+global GECKOModelAdapter
+params=checkGECKOModelAdapter(GECKOModelAdapter);
 
 if nargin<1
     organism = 'all';
@@ -48,23 +47,6 @@ switch organism
         organism = 'Schizosaccharomyces pombe (strain 972 / ATCC 24843)';
     case {'Escherichia coli','eco'}
         organism = 'Escherichia coli (strain K12)';
-end
-
-if nargin < 2
-    writeFile = false;
-end
-
-switch writeFile
-    case {true,'true'}
-        writeFile = true;
-        geckoPath = findGECKOroot();
-        filePath = fullfile(geckoPath,'databases','complex_data.json');
-    case {false,'false'}
-        writeFile = false;
-        % Nothing to do
-    otherwise
-        filePath = fullfile(writeFile,'complex_data.json');
-        writeFile = true;
 end
 
 weboptions.Timeout = 20;
@@ -99,58 +81,58 @@ for i = 1:data.size
     end
 
 
-if ~isempty(temp)
-    complexData(i,1) = {temp.complexAc};
-    complexData(i,2) = {temp.name};
-    complexData(i,3) = {temp.species};
+    if ~isempty(temp)
+        complexData(i,1) = {temp.complexAc};
+        complexData(i,2) = {temp.name};
+        complexData(i,3) = {temp.species};
 
-    idxIntType = find(strcmpi({temp.participants.interactorType}, 'protein'));
+        idxIntType = find(strcmpi({temp.participants.interactorType}, 'protein'));
 
-    % Some complex reported are 'stable complex', then, save the id
-    % complex and but set the genes and protein to a empty string.
-    if numel(idxIntType) > 0
-        complexData(i,4) = {{temp.participants(idxIntType).name}};
-        complexData(i,5) = {{temp.participants(idxIntType).identifier}};
-    else
-        complexData(i,4) = {{temp.participants.name}};
-        complexData(i,5) = {{temp.participants.identifier}};
-    end
-
-    % Portal complex has two stochiometry values, a minimum and
-    % maximum value. Only minimum will be store. In some cases,
-    % some complex does not have stochiometry coefficient, then, it
-    % will be fill with zeros
-    if ~cellfun('isempty',{temp.participants.stochiometry})
-        % For some reason, if there is only one protein in the complex
-        % split function does nor return a cell nx2, instead is 2x1,
-        % then assign an incorrect stochiometry
-        switch numel(idxIntType)
-            case 0 % Contains complexes
-                stochiometry = split({temp.participants.stochiometry}.', ',');
-                complexData(i,7) = {2};
-            case 1 % Contains one protein
-                stochiometry = split({temp.participants(idxIntType).stochiometry}.', ',').';
-                complexData(i,7) = {1};
-            otherwise
-                stochiometry = split({temp.participants(idxIntType).stochiometry}.', ',');
-                complexData(i,7) = {1};
+        % Some complex reported are 'stable complex', then, save the id
+        % complex and but set the genes and protein to a empty string.
+        if numel(idxIntType) > 0
+            complexData(i,4) = {{temp.participants(idxIntType).name}};
+            complexData(i,5) = {{temp.participants(idxIntType).identifier}};
+        else
+            complexData(i,4) = {{temp.participants.name}};
+            complexData(i,5) = {{temp.participants.identifier}};
         end
-        values = str2double(erase(stochiometry(:,1),"minValue: ")).';
-        complexData(i,6) = {values};
+
+        % Portal complex has two stochiometry values, a minimum and
+        % maximum value. Only minimum will be store. In some cases,
+        % some complex does not have stochiometry coefficient, then, it
+        % will be fill with zeros
+        if ~cellfun('isempty',{temp.participants.stochiometry})
+            % For some reason, if there is only one protein in the complex
+            % split function does nor return a cell nx2, instead is 2x1,
+            % then assign an incorrect stochiometry
+            switch numel(idxIntType)
+                case 0 % Contains complexes
+                    stochiometry = split({temp.participants.stochiometry}.', ',');
+                    complexData(i,7) = {2};
+                case 1 % Contains one protein
+                    stochiometry = split({temp.participants(idxIntType).stochiometry}.', ',').';
+                    complexData(i,7) = {1};
+                otherwise
+                    stochiometry = split({temp.participants(idxIntType).stochiometry}.', ',');
+                    complexData(i,7) = {1};
+            end
+            values = str2double(erase(stochiometry(:,1),"minValue: ")).';
+            complexData(i,6) = {values};
+        else
+            complexData(i,6) = {repelem(0,numel(complexData{i,4}))};
+            complexData(i,7) = {0};
+        end
     else
-        complexData(i,6) = {repelem(0,numel(complexData{i,4}))};
+        %
+        complexData(i,1) = {complexID};
+        complexData(i,2) = {' '};
+        complexData(i,3) = {' '};
+        complexData(i,4) = {' '};
+        complexData(i,5) = {' '};
+        complexData(i,6) = {0};
         complexData(i,7) = {0};
     end
-else
-    %
-    complexData(i,1) = {complexID};
-    complexData(i,2) = {' '};
-    complexData(i,3) = {' '};
-    complexData(i,4) = {' '};
-    complexData(i,5) = {' '};
-    complexData(i,6) = {0};
-    complexData(i,7) = {0};
-end
 end
 % Expand complexes of complexes
 complexComplex = find([complexData{:,7}]==2);
@@ -179,12 +161,10 @@ rowHeadings = {'complexID','name','species','geneName','protID','stochiometry','
 
 complexInfo = cell2struct(complexData, rowHeadings, 2);
 
-if writeFile == true
-    % Convert to a JSON file
-    jsontxt = jsonencode(cell2table(complexData, 'VariableNames', rowHeadings));
-    % Write to a JSON file
-    fid = fopen(filePath, 'w');
-    fprintf(fid, '%s', jsontxt);
-    fclose(fid);
-end
+% Convert to a JSON file
+jsontxt = jsonencode(cell2table(complexData, 'VariableNames', rowHeadings));
+% Write to a JSON file
+fid = fopen(fullfile(params.path,'data','ComplexPortal.json');, 'w');
+fprintf(fid, '%s', jsontxt);
+fclose(fid);
 end

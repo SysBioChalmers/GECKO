@@ -1,4 +1,12 @@
-function [uniprotDB,keggDB] = loadDatabases(modelAdapter,taxonID,keggID)
+function [uniprotDB,keggDB] = loadDatabases(taxonID,keggID)
+
+if nargin<1
+    %Use organism from GECKOModelAdapter
+    global GECKOModelAdapter
+    param=checkGECKOModelAdapter;
+    keggID=param.keggID;
+    taxonID=param.keggID;
+end
 
 geckoPath = findGECKOroot();
 param=modelAdapter.getParameters();
