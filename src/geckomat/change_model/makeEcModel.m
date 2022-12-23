@@ -103,7 +103,7 @@ else
     ec.geckoLight=false;
 end
 
-uniprotDB = loadDatabases(GECKOModelAdapter);
+uniprotDB = loadDatabases('uniprot');
 uniprotDB = uniprotDB.uniprot;
 
 %1: Remove gene rules from pseudoreactions (if any):

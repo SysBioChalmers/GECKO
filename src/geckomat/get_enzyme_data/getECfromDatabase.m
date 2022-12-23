@@ -34,22 +34,20 @@ rxnEnzMat = model.ec.rxnEnzMat;
 genes = model.ec.genes;
 
 try
-    data    = loadDatabases('both',false);
+    data    = loadDatabases('both');
     uniprot = data.uniprot;
     kegg    = data.kegg;
 catch % KEGG DB might not exist, continue with only UniProt
-    data    = loadDatabases('uniprot',false);
+    data    = loadDatabases('uniprot');
     uniprot = data.uniprot;
     kegg    = [];
 end
 
-DBprotUniprot   = data.uniprot.ID;
 DBgenesUniprot  = data.uniprot.genes;
 DBecNumUniprot  = data.uniprot.eccodes;
 DBMWUniprot     = data.uniprot.MW;
 
 if ~isempty(kegg)
-    DBprotKEGG      = data.kegg.uniprot;
     DBgenesKEGG     = data.kegg.genes;
     DBecNumKEGG     = data.kegg.eccodes;
     DBMWKEGG        = data.kegg.MW;

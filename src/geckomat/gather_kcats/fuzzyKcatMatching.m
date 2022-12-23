@@ -63,9 +63,9 @@ substrates   = cell(numel(ecRxns),1);
 substrCoeffs = cell(numel(ecRxns),1);
 originalRxns = getIndexes(model,model.ec.rxns(ecRxns),'rxns');
 for i = 1:length(ecRxns)
-    sel = model.S(:,originalRxns(i)) < 0;
+    sel = find(model.S(:,originalRxns(i)) < 0);
     substrates{i}  = model.metNames(sel); 
-    substrCoeffs{i} = -model.S(sel,i);
+    substrCoeffs{i} = -model.S(sel,originalRxns(i));
 end
 
 %Load BRENDA data:
@@ -159,7 +159,6 @@ end
 
 kcatList.source      = 'brenda';
 kcatList.rxns        = model.ec.rxns(ecRxns);
-kcatList.genes       = model.ec.genes(ecRxns);
 kcatList.substrates  = substrates;
 kcatList.kcats       = kcats;
 kcatList.eccodes     = eccodes;

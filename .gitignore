@@ -1,11 +1,22 @@
-# Compiled source #
-###################
-*.com
-*.class
-*.dll
-*.exe
-*.o
-*.so
+# Matlab generated files #
+##########################
+*.asv
+*.m~
+*.mex*
+*.mlappinstall
+*.mltbx
+helpsearch*/
+
+# Other #
+#########
+geckopy/geckopy/data_files/*.xml
+*~
+*.mat
+*.xls*
+*.doc*
+*.ppt*
+# Only allowed .mat file
+!phylDist.mat
 
 # Packages #
 ############
@@ -36,25 +47,6 @@
 ehthumbs.db
 Thumbs.db
 
-# Matlab generated files #
-##########################
-*.asv
-*.m~
-*.mex*
-*.mlappinstall
-*.mltbx
-helpsearch*/
-
 # Python stuff #
 ################
 .idea/
-
-# documentation builds #
-########################
-docs/_*
-
-# Other #
-#########
-geckopy/geckopy/data_files/*.xml
-*~
-geckomat/*.mat
