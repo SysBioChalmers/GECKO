@@ -42,12 +42,10 @@ if nargin < 3
     criteria = 'max';
 end
 
-% Remove zero kcat values
+% Remove zero kcat values. Only adjusting fields that are used later.
 removeZero                      = kcatList.kcats == 0;
 kcatList.kcats(removeZero)      = [];
 kcatList.rxns(removeZero)       = [];
-kcatList.genes(removeZero)      = [];
-kcatList.substrates(removeZero) = [];
 
 % Map to model.ec.rxns
 [sanityCheck,idxInModel] = ismember(kcatList.rxns,model.ec.rxns);
