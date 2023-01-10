@@ -15,12 +15,10 @@ function kcatList = readDLKcatOutput(model,outFile)
 %   kcatList    structure array with list of DLKcat derived kcat values,
 %               with separate entries for each kcat value
 %               source      'DLKcat'           
-%               rxns        reaction identifiers, matching model.rxns
-%               genes       gene identifiers, matching model.genes
-%               substrate   substrates, matching model.mets
+%               rxns        reaction identifiers
+%               genes       gene identifiers
+%               substrate   substrate names
 %               kcat        predicted kcat value in /sec
-%               eccode      empty, as these are not used by DLKcat
-%
 
 global GECKOModelAdapter
 params=checkGECKOModelAdapter(GECKOModelAdapter);
@@ -58,5 +56,4 @@ kcatList.rxns       = rxns;
 kcatList.genes      = genes;
 kcatList.substrates = subs;
 kcatList.kcats      = kcats;
-kcatList.eccodes(1:numel(kcats),1) = {''};
 end
