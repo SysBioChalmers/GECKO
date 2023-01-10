@@ -4,7 +4,7 @@ function writeDLKcatInput(model,ecRxns)
 %   in the obj.params.path specified in the ModelAdapter.
 %
 % Input:
-%   model           an ec-model in RAVEN format
+%   model           an ec-model
 %   ecRxns          for which reactions (from model.ec.rxns) DLKcat should
 %                   predict kcat values, provided as logical vector with
 %                   same length as model.ec.rxns. (Opt, default is all
