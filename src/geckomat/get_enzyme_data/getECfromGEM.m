@@ -22,6 +22,9 @@ rxnIdxs = getIndexes(model,model.ec.rxns,'rxns');
 if nargin<2 || all(ecRxns)
     model.ec.eccodes = model.eccodes(rxnIdxs);
 else
+    if ~isfield(model.ec,'eccodes')
+        model.ec.eccodes(1:numel(model.ec.rxns),1) = {''};
+    end
     model.ec.eccodes(ecRxns) = model.eccodes(rxnIdxs(ecRxns));
 end
 end
