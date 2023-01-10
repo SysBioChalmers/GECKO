@@ -164,7 +164,7 @@ complexInfo = cell2struct(complexData, rowHeadings, 2);
 % Convert to a JSON file
 jsontxt = jsonencode(cell2table(complexData, 'VariableNames', rowHeadings));
 % Write to a JSON file
-fid = fopen(fullfile(params.path,'data','ComplexPortal.json');, 'w');
+fid = fopen(fullfile(params.path,'data','ComplexPortal.json'), 'w');
 fprintf(fid, '%s', jsontxt);
 fclose(fid);
 end
