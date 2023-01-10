@@ -103,6 +103,16 @@ else
     ec.geckoLight=false;
 end
 
+%Check for conflicting reaction and metabolite identifiers
+conflictId = startsWith(model.mets,'prot_');
+if any(conflictId)
+    error('The identifiers in model.mets are not allowed to start with ''prot_''.')
+end
+conflictId = startsWith(model.rxns,'draw_');
+if any(conflictId)
+    error('The identifiers in model.rxns are not allowed to start with ''draw_''.')
+end
+
 uniprotDB = loadDatabases('uniprot');
 uniprotDB = uniprotDB.uniprot;
 
