@@ -58,6 +58,9 @@ if nargin<3
 end
 ecRxns=find(ecRxns); % Get indices instead of logical
 
+if ~isfield(model.ec,'eccodes')
+    error('No EC codes defined in model.ec.eccodes. First run getECfromGEM() and/or getECfromDatabase().')
+end
 eccodes      = model.ec.eccodes(ecRxns);
 substrates   = cell(numel(ecRxns),1);
 substrCoeffs = cell(numel(ecRxns),1);
