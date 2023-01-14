@@ -1,6 +1,6 @@
-classdef ModelAdapter < defaultModelAdapter 
+classdef YeastGEMAdapter < ModelAdapter 
     methods
-        function obj = ModelAdapter()
+        function obj = YeastGEMAdapter()
             %Set initial values of the obj.params - they can be changed by the user
             
             %Directory where all model-specific files and scripts are kept.
