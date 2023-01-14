@@ -152,7 +152,8 @@ end
 
 %4: Make irreversible model (appends _REV to reaction IDs to indicate reverse
 %reactions)
-model=convertToIrrev(model);
+rxnsWithGenes = sum(model.rxnGeneMat,2);
+model=convertToIrrev(model, model.rxns(logical(rxnsWithGenes)));
 
 %5: Expand model, to separate isoenzymes (appends _EXP_* to reaction IDs to
 %indicate duplication)
