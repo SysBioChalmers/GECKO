@@ -116,6 +116,9 @@ end
 if nargin<4 || all(ecRxns)
     model.ec.eccodes = eccodes;
 else
+    if ~isfield(model.ec,'eccodes')
+        model.ec.eccodes(1:numel(model.ec.rxns),1) = {''};
+    end
     %Probably faster to subset with ecRxns in the beginning of the script,
     %but this was at the moment simpler to implement.
     model.ec.eccodes(ecRxns) = eccodes(ecRxns);
