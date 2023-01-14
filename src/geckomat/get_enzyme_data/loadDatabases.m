@@ -1,4 +1,4 @@
-function databases = loadDatabases(selectDatabase,taxonID,geneIdField,keggID,filePath)
+function databases = loadDatabases(selectDatabase,modelAdapter,taxonID,geneIdField,keggID,filePath)
 % loadDatabases
 %   Loads (and downloads if necessary) the organism-specific KEGG and
 %   UniProt databases that are required to extract protein information. The
@@ -9,6 +9,8 @@ function databases = loadDatabases(selectDatabase,taxonID,geneIdField,keggID,fil
 % Input:
 %   selectDatabase  which databases should be loaded, either 'uniprot',
 %                   'kegg' or 'both' (optional, default 'both')
+%   modelAdapter    Model adapter. Optional, default will use the default 
+%                   model adapter (send in [] for default).
 %   taxonID         taxonomic ID for UniProt, overwrites ModelAdapter
 %   geneIdField     UniProt field where gene identifiers can be found,
 %                   overwrites ModelAdapter (for instance 'gene_oln', see
@@ -27,9 +29,17 @@ function databases = loadDatabases(selectDatabase,taxonID,geneIdField,keggID,fil
 if nargin<1
     selectDatabase = 'both';
 end
-if nargin<2
-    global GECKOModelAdapter
-    params  = checkGECKOModelAdapter(GECKOModelAdapter);
+
+if nargin < 2 || isempty(modelAdapter)
+    modelAdapter = ModelAdapterManager.getDefaultAdapter();
+    if isempty(modelAdapter)
+        error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
+    end
+end
+
+params = modelAdapter.getParameters();
+
+if nargin<3
     keggID  = params.keggID;
     taxonID = params.taxonID;
     filePath = fullfile(params.path,'data');

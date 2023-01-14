@@ -1,4 +1,4 @@
-function model = makeEcModel(model,geckoLight)
+function model = makeEcModel(model,geckoLight, modelAdapter)
 % makeEcModel
 %   Expands a conventional genome-scale model (in RAVEN format) with enzyme
 %   information and prepares the reactions for integration of enzyme usage
@@ -11,6 +11,8 @@ function model = makeEcModel(model,geckoLight)
 %   model        a model in RAVEN format
 %   geckoLight   true if a simplified GECKO light model should be generated.
 %                Optional, default is false.
+%   modelAdapter Model adapter. Optional, default will use the default 
+%                model adapter (send in [] for default).
 %
 % Ouput:
 %   model           a model with a model.ec structure where enzyme and kcat
@@ -88,14 +90,19 @@ function model = makeEcModel(model,geckoLight)
 % The rxnEnzMat maps the model.ec.rxns entries to genes and is therefore of
 % the same size as for the full model.
 
-global GECKOModelAdapter
-checkGECKOModelAdapter(GECKOModelAdapter);
-
-if nargin<3
+if nargin<2
     geckoLight=false;
 elseif ~islogical(geckoLight) && ~(geckoLight == 0) && ~(geckoLight == 1)
     error('geckoLight should be either true or false')
 end
+
+if nargin < 3 || isempty(modelAdapter)
+    modelAdapter = ModelAdapterManager.getDefaultAdapter();
+    if isempty(modelAdapter)
+        error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
+    end
+end
+
 
 if geckoLight
     ec.geckoLight=true;
@@ -113,7 +120,7 @@ if any(conflictId)
     error('The identifiers in model.rxns are not allowed to start with ''draw_''.')
 end
 
-uniprotDB = loadDatabases('uniprot');
+uniprotDB = loadDatabases('uniprot', modelAdapter);
 uniprotDB = uniprotDB.uniprot;
 
 %1: Remove gene rules from pseudoreactions (if any):
@@ -190,7 +197,7 @@ else
 end
     
 %8: Gather enzyme information via UniprotDB
-uniprotCompatibleGenes = GECKOModelAdapter.getUniprotCompatibleGenes(model);
+uniprotCompatibleGenes = modelAdapter.getUniprotCompatibleGenes(model);
 [Lia,Locb]      = ismember(uniprotCompatibleGenes,uniprotDB.genes);
 ec.genes        = model.genes(Lia); %Will often be duplicate of model.genes, but is done here to prevent issues when it is not.
 ec.enzymes      = uniprotDB.ID(Locb(Lia));
