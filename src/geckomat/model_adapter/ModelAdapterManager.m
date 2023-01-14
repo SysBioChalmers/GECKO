@@ -45,7 +45,10 @@ classdef ModelAdapterManager
         end
         
         function setDefaultAdapterFromPath(adapterPath, addToMatlabPath)
-            setDefaultAdapter(ModelAdapterManager.getAdapterFromPath(adapterPath, addToMatlabPath));
+            if nargin < 2
+                addToMatlabPath = [];
+            end
+            ModelAdapterManager.setDefaultAdapter(ModelAdapterManager.getAdapterFromPath(adapterPath, addToMatlabPath));
         end
         
     end
