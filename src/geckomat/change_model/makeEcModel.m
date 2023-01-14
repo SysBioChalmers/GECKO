@@ -1,4 +1,4 @@
-function model = makeEcModel(model,geckoLight, modelAdapter)
+function model = makeEcModel(model, geckoLight, modelAdapter)
 % makeEcModel
 %   Expands a conventional genome-scale model (in RAVEN format) with enzyme
 %   information and prepares the reactions for integration of enzyme usage
@@ -10,9 +10,9 @@ function model = makeEcModel(model,geckoLight, modelAdapter)
 % Input:
 %   model        a model in RAVEN format
 %   geckoLight   true if a simplified GECKO light model should be generated.
-%                Optional, default is false.
-%   modelAdapter Model adapter. Optional, default will use the default 
-%                model adapter (send in [] for default).
+%                (Optional, default is false).
+%   modelAdapter a loaded model adapter (Optional, will otherwise use the
+%                default model adapter).
 %
 % Ouput:
 %   model           a model with a model.ec structure where enzyme and kcat
@@ -102,7 +102,6 @@ if nargin < 3 || isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
     end
 end
-
 
 if geckoLight
     ec.geckoLight=true;

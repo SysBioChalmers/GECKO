@@ -38,11 +38,13 @@
 
 %% Initiate model reconstruction
 % Load the model with RAVEN's importModel
-modelY = importModel(fullfile(findGECKOroot,'userData','ecYeastGEM','models','yeast-GEM.xml'));
+modelRoot = fullfile(findGECKOroot,'userData','ecYeastGEM');
+modelY = importModel(fullfile(modelRoot,'models','yeast-GEM.xml'));
 
 % Set the ModelAdapter correctly
-setGECKOModelAdapter('userData/ecYeastGEM/ModelAdapter.m')
+ModelAdapterManager.setDefaultAdapterFromPath(fullfile(modelRoot));
 
+% Prepare ec-model
 ecModel = makeEcModel(modelY);
 % Read makeEcModel documentation to get a list of all it does: it prepare
 % the new model.ec structure and prepares the S-matrix by splitting
@@ -70,7 +72,9 @@ ecModel  = applyKcatConstraints(ecModel);
 
 % (2) fuzzy matching
 % Requires EC-codes
-ecModel  = getECfromDatabase(ecModel);
-kcatList = fuzzyKcatMatching(ecModel);
-ecModel  = selectKcatValue(ecModel,kcatList);
-ecModel  = applyKcatConstraints(ecModel);
+ecModel_fuzzy   = getECfromGEM(ecModel);
+kcatList        = fuzzyKcatMatching(ecModel_fuzzy);
+ecModel_fuzzy   = selectKcatValue(ecModel_fuzzy, kcatList);
+ecModel_fuzzy   = applyKcatConstraints(ecModel_fuzzy);
+
+sol = solveLP(ecModel_fuzzy)

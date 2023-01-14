@@ -1,4 +1,4 @@
-function kcatList = fuzzyKcatMatching(model, ecRxns)
+function kcatList = fuzzyKcatMatching(model, ecRxns, modelAdapter)
 % fuzzyKcatMatching
 %   Matchs the model EC numbers and substrates to the BRENDA database, to
 %   return the corresponding kcats for each reaction. If no exact match is
@@ -35,14 +35,19 @@ function kcatList = fuzzyKcatMatching(model, ecRxns)
 %                           4: any organism, any substrate, kcat
 %                           5: correct organism, specific activity
 %                           6: any organism, specific activity
-
-global GECKOModelAdapter
-params=checkGECKOModelAdapter(GECKOModelAdapter);
-
 if nargin<3
     ecRxns = true(numel(model.ec.rxns),1);
 end
 ecRxns=find(ecRxns); % Get indices instead of logical
+
+if nargin < 4 || isempty(modelAdapter)
+    modelAdapter = ModelAdapterManager.getDefaultAdapter();
+    if isempty(modelAdapter)
+        error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
+    end
+end
+
+params = modelAdapter.params;
 
 if ~isfield(model.ec,'eccodes')
     error('No EC codes defined in model.ec.eccodes. First run getECfromGEM() and/or getECfromDatabase().')
