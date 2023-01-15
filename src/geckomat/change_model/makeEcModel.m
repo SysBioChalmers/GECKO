@@ -196,7 +196,7 @@ else
 end
     
 %8: Gather enzyme information via UniprotDB
-uniprotCompatibleGenes = modelAdapter.getUniprotCompatibleGenes(model);
+uniprotCompatibleGenes = modelAdapter.getUniprotCompatibleGenes(model.genes);
 [Lia,Locb]      = ismember(uniprotCompatibleGenes,uniprotDB.genes);
 ec.genes        = model.genes(Lia); %Will often be duplicate of model.genes, but is done here to prevent issues when it is not.
 ec.enzymes      = uniprotDB.ID(Locb(Lia));

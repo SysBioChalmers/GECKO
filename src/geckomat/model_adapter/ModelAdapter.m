@@ -20,8 +20,8 @@ classdef (Abstract) ModelAdapter
         end
         
         %The genes returned here should match the gene id set in the parameter params.uniprotGeneIdField
-        function genes = getUniprotCompatibleGenes(obj,model)
-            genes = model.genes;
+        function genes = getUniprotCompatibleGenes(obj,inGenes)
+            genes = inGenes;
         end
     end
 

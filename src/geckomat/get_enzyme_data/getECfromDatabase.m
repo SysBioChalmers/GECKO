@@ -35,13 +35,13 @@ if nargin < 4 || isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
     end
 end
-params = modelAdapter.params;
+params = modelAdapter.getParameters();
 
 rxnEnzMat = model.ec.rxnEnzMat;
-genes = model.ec.genes;
+genes = modelAdapter.getUniprotCompatibleGenes(model.ec.genes);
 
 try
-    data    = loadDatabases('both');
+    data    = loadDatabases('both', modelAdapter);
     uniprot = data.uniprot;
     kegg    = data.kegg;
 catch % KEGG DB might not exist, continue with only UniProt
@@ -100,7 +100,7 @@ for i = 1:n
             %Indexes in DB
             conflicts{3} = [conflicts{3};multGenes{2}];
             %DB name
-            conflicts{4} = [conflicts{4};multGenes{3}];
+            conflicts{4} = [conflicts{4};{multGenes{3}}];
 
             %{ I don't understand the purpose of this, let's skip it for now
             %if strcmpi(action,'add')
@@ -150,10 +150,10 @@ end
 %}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function displayErrorMessage(conflicts,uniprot,kegg)
-STR = '\n Some genes with multiple associated proteins were found, please';
+STR = ['\n ' num2str(length(conflicts{1})) ' genes with multiple associated proteins were found, please'];
 STR = [STR, ' revise case by case in the uniprot and kegg files:\n\n'];
 for i=1:length(conflicts{1})
-    if strcmpi(conflicts{4}{i},uniprot)
+    if strcmpi(conflicts{4}{i},'uniprot')
         DB = uniprot.ID;
     else
         DB = kegg.uniprot;

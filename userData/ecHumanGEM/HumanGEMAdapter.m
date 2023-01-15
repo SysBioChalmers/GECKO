@@ -54,11 +54,6 @@ classdef HumanGEMAdapter < ModelAdapter
 			%result = strcat(GeckoLightInstall.getGeckoLightMainPath(), 'data/humanGEM/', filename);
         end
         
-        function result = aupa(obj, filename)
-			result = filename; % TODO: Look at how this should be solved - look at the GeckoLight solution below
-			%result = strcat(GeckoLightInstall.getGeckoLightMainPath(), 'data/humanGEM/', filename);
-		end
-		
 		function [spont,spontRxnNames] = getSpontaneousReactions(obj,model)
 			rxns_tsv = importTsvFile(strcat(HumanGEMAdapter.getHumanGEMRootPath(),'model/reactions.tsv'));
 			spont = rxns_tsv.spontaneous;
@@ -68,7 +63,7 @@ classdef HumanGEMAdapter < ModelAdapter
         %Ensembl gene ids are not available in uniprot (ensembl returns transcripts, not genes)
         %Therefore, we collect gene symbols from uniprot, and need to convert the ensembl genes
         %here to gene symbols as well
-        function genes = getUniprotCompatibleGenes(obj,model)
+        function genes = getUniprotCompatibleGenes(obj,inGenes)
             % get the path
             tmpfile = fullfile(HumanGEMAdapter.getHumanGEMRootPath(),'model','genes.tsv');
 
@@ -78,7 +73,7 @@ classdef HumanGEMAdapter < ModelAdapter
             clear tmp
 
             %convert genes
-            genes = model.genes;
+            genes = inGenes;
             [~,ia,ib] = intersect(genes, conv_key(:,1));
             genes(ia) = conv_key(ib,5);
             
