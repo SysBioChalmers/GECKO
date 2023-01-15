@@ -63,15 +63,18 @@ if any(strcmp(selectDatabase,{'uniprot','both'}))
             '%2Cgene_primary%2Cec%2Cmass%2Csequence&format=tsv&compressed=false&sort=protein_name%20asc'];
         urlwrite(url,uniprotPath);
     end
-
-    fid         = fopen(uniprotPath,'r');
-    fileContent = textscan(fid,'%s %s %s %s %s %s','Delimiter','\t','HeaderLines',1);
-    fclose(fid);
-    databases.uniprot.ID      = fileContent{1};
-    databases.uniprot.genes   = fileContent{2};
-    databases.uniprot.eccodes = fileContent{4};
-    databases.uniprot.MW      = str2double(fileContent{5});
-    databases.uniprot.seq     = fileContent{6};
+    if exist(uniprotPath,'file')
+        fid         = fopen(uniprotPath,'r');
+        fileContent = textscan(fid,'%s %s %s %s %s %s','Delimiter','\t','HeaderLines',1);
+        fclose(fid);
+        databases.uniprot.ID      = fileContent{1};
+        databases.uniprot.genes   = fileContent{2};
+        databases.uniprot.eccodes = fileContent{4};
+        databases.uniprot.MW      = str2double(fileContent{5});
+        databases.uniprot.seq     = fileContent{6};
+    else
+        databases.uniprot = [];
+    end
 end
 
 %% KEGG
@@ -79,21 +82,23 @@ if any(strcmp(selectDatabase,{'kegg','both'}))
     keggPath = fullfile(filePath,'kegg.tsv');
     if ~exist(keggPath,'file')
         if isempty(keggID)
-            error('No keggID is specified, unable to download KEGG DB')
+            warning('No keggID is specified, unable to download KEGG DB')
         end
         downloadKEGG(keggID,keggPath);
     end
-
-    fid         = fopen(keggPath,'r');
-    fileContent = textscan(fid,'%s %s %s %s %s %s','Delimiter',',','HeaderLines',0);
-    fclose(fid);
-
-    databases.kegg.uniprot    = fileContent{1};
-    databases.kegg.genes      = fileContent{2};
-    databases.kegg.eccodes    = fileContent{3};
-    databases.kegg.MW         = str2double(fileContent{4});
-    databases.kegg.pathway    = fileContent{5};
-    databases.kegg.seq        = fileContent{6};
+    if exist(keggPath,'file')
+        fid         = fopen(keggPath,'r');
+        fileContent = textscan(fid,'%s %s %s %s %s %s','Delimiter',',','HeaderLines',0);
+        fclose(fid);
+        databases.kegg.uniprot    = fileContent{1};
+        databases.kegg.genes      = fileContent{2};
+        databases.kegg.eccodes    = fileContent{3};
+        databases.kegg.MW         = str2double(fileContent{4});
+        databases.kegg.pathway    = fileContent{5};
+        databases.kegg.seq        = fileContent{6};
+    else
+        databases.kegg = [];
+    end
 end
 end
 

@@ -40,15 +40,9 @@ params = modelAdapter.getParameters();
 rxnEnzMat = model.ec.rxnEnzMat;
 genes = modelAdapter.getUniprotCompatibleGenes(model.ec.genes);
 
-try
-    data    = loadDatabases('both', modelAdapter);
-    uniprot = data.uniprot;
-    kegg    = data.kegg;
-catch % KEGG DB might not exist, continue with only UniProt
-    data    = loadDatabases('uniprot');
-    uniprot = data.uniprot;
-    kegg    = [];
-end
+data    = loadDatabases('both', modelAdapter);
+uniprot = data.uniprot;
+kegg    = data.kegg;
 
 DBgenesUniprot  = data.uniprot.genes;
 DBecNumUniprot  = data.uniprot.eccodes;
