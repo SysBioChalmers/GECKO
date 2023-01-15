@@ -152,7 +152,10 @@ end
 
 %4: Make irreversible model (appends _REV to reaction IDs to indicate reverse
 %reactions)
-model=convertToIrrev(model);
+[~,exchRxns] = getExchangeRxns(model);
+nonExchRxns = model.rxns;
+nonExchRxns(exchRxns) = [];
+model=convertToIrrev(model, nonExchRxns);
 
 %5: Expand model, to separate isoenzymes (appends _EXP_* to reaction IDs to
 %indicate duplication)
