@@ -17,7 +17,14 @@ if ~isfield(model,'eccodes')
     error('The model has no eccodes field.')
 end
 
-rxnIdxs = getIndexes(model,model.ec.rxns,'rxns');
+%Need to remove the prefix of GECKO light rxn names in the ec structure
+if ~model.ec.geckoLight
+    rxnNames = model.ec.rxns;
+else
+    rxnNames = extractAfter(model.ec.rxns, 4);
+end
+
+rxnIdxs = getIndexes(model,rxnNames,'rxns');
 
 if nargin<2 || all(ecRxns)
     model.ec.eccodes = model.eccodes(rxnIdxs);

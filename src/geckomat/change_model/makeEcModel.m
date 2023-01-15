@@ -185,7 +185,33 @@ else
     cpys = numOrs + 1;
     prevNumRxns = length(numOrs);
     cpyIndices = repelem(rxnWithGene, cpys);
-    ec.rxns      = model.rxns(cpyIndices);
+    %loop through and add a prefix with an isozyme index to the rxns
+    %we just give a fixed-length number as prefix, and assume that 999 is enough
+    tmpRxns = model.rxns(cpyIndices); %now they have no prefix
+    newRxns = tmpRxns;
+    
+    %add the prefix
+    nextIndex = 1;
+    for i = 1:numel(model.rxns)
+        localRxnIndex = 1;
+        if nextIndex <= length(tmpRxns) && strcmp(model.rxns(i), tmpRxns(nextIndex))
+            while true
+                tmp = compose('%03d_',localRxnIndex);
+                newRxns{nextIndex} = [tmp{1} tmpRxns{nextIndex}];
+                localRxnIndex = localRxnIndex + 1;
+                if (localRxnIndex >= 1000)
+                    error('Increase index size to 10000 - error in the code.'); %this should never happen, we don't have > 999 isozymes
+                end
+                nextIndex = nextIndex + 1;
+                if  nextIndex > length(tmpRxns) || ~strcmp(model.rxns(i), tmpRxns(nextIndex))
+                    break;
+                end
+            end
+        end
+    end
+
+    ec.rxns      = newRxns;
+    
     emptyCell    = cell(numel(ec.rxns),1);
     emptyVect    = zeros(numel(ec.rxns),1);
 

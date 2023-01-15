@@ -82,8 +82,10 @@ if ~model.ec.geckoLight
 else %GECKO light formulation, where prot_pool represents all usages
     nextIndex = 1;
     prot_pool_idx = find(ismember(model.mets,'prot_pool'));
+    %first remove the prefix of all rxns
+    modRxns = extractAfter(model.ec.rxns,4);
     for i = 1:numel(model.rxns)
-        if nextIndex <= length(model.ec.rxns) && strcmp(model.rxns(i), model.ec.rxns(nextIndex))
+        if nextIndex <= length(model.ec.rxns) && strcmp(model.rxns(i), modRxns(nextIndex))
             updated = false;
             newMWKcats=[];
             %Reactions with isozymes will have several rows in ec.rxns etc.
@@ -102,7 +104,7 @@ else %GECKO light formulation, where prot_pool represents all usages
                     newMWKcats = [newMWKcats MW/model.ec.kcat(nextIndex)]; %Light model: protein usage is MW/kcat
                 end                
                 nextIndex = nextIndex + 1;
-                if  nextIndex > length(model.ec.rxns) || ~strcmp(model.rxns(i), model.ec.rxns(nextIndex))
+                if  nextIndex > length(model.ec.rxns) || ~strcmp(model.rxns(i), modRxns(nextIndex))
                     break;
                 end
             end

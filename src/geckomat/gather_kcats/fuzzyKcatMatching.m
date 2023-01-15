@@ -57,7 +57,14 @@ end
 eccodes      = model.ec.eccodes(ecRxns);
 substrates   = cell(numel(ecRxns),1);
 substrCoeffs = cell(numel(ecRxns),1);
-originalRxns = getIndexes(model,model.ec.rxns(ecRxns),'rxns');
+
+%Need to remove the prefix of GECKO light rxn names in the ec structure
+if ~model.ec.geckoLight
+    rxnNames = model.ec.rxns;
+else
+    rxnNames = extractAfter(model.ec.rxns, 4);
+end
+originalRxns = getIndexes(model,rxnNames(ecRxns),'rxns');
 for i = 1:length(ecRxns)
     sel = find(model.S(:,originalRxns(i)) < 0);
     substrates{i}  = model.metNames(sel); 
