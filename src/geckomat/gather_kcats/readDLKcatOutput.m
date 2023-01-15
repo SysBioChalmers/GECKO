@@ -1,15 +1,17 @@
-function kcatList = readDLKcatOutput(model,outFile)
+function kcatList = readDLKcatOutput(model, outFile, modelAdapter)
 % readDLKcatOutput
 %   Reads the DLKcat output file and constructs a kcatList structure, that
 %   can be used by selectKcatValue() to populate the ec-model with kcat
 %   values.
 %
 % Input:
-%   model       an ec-model in RAVEN format
-%   outFile     name and path of the DLKcat output file. If nothing is
-%               provided, an attempt will be made to read
-%               data/DLKcatOutput.tsv from the obj.params.path folder
-%               specified in the ModelAdapter.
+%   model           an ec-model in RAVEN format
+%   outFile         name and path of the DLKcat output file. If nothing is
+%                   provided, an attempt will be made to read
+%                   data/DLKcatOutput.tsv from the obj.params.path folder
+%                   specified in the modelAdapter.
+%   modelAdapter    a loaded model adapter (Optional, will otherwise use the
+%                   default model adapter).
 %
 % Output:
 %   kcatList    structure array with list of DLKcat derived kcat values,
@@ -20,8 +22,13 @@ function kcatList = readDLKcatOutput(model,outFile)
 %               substrate   substrate names
 %               kcat        predicted kcat value in /sec
 
-global GECKOModelAdapter
-params=checkGECKOModelAdapter(GECKOModelAdapter);
+if nargin < 3 || isempty(modelAdapter)
+    modelAdapter = ModelAdapterManager.getDefaultAdapter();
+    if isempty(modelAdapter)
+        error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
+    end
+end
+params = modelAdapter.params;
 
 if nargin<2
     fID      = fopen(fullfile(params.path,'data','DLKcatOutput.tsv'),'r');

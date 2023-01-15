@@ -1,4 +1,4 @@
-function model = getECfromDatabase(model, action, ecRxns)
+function model = getECfromDatabase(model, action, ecRxns, modelAdapter)
 % getECfromDatabase
 %   Populates the model.ec.eccodes field with enzyme codes that are
 %   extracted from UniProt and KEGG databases, as assigned to the proteins
@@ -19,16 +19,23 @@ function model = getECfromDatabase(model, action, ecRxns)
 %                   should be kept and not modified by this function
 %                   (optional, by default all model.ec.eccodes entries
 %                   are populated by this function)
+%   modelAdapter    a loaded model adapter (Optional, will otherwise use the
+%                   default model adapter).
 %
 % Output:
 %   model           ec-model with populated model.ec.eccodes
 
-if nargin<2
+if nargin < 2
     action = 'display';
 end
 
-global GECKOModelAdapter
-params=checkGECKOModelAdapter(GECKOModelAdapter);
+if nargin < 4 || isempty(modelAdapter)
+    modelAdapter = ModelAdapterManager.getDefaultAdapter();
+    if isempty(modelAdapter)
+        error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
+    end
+end
+params = modelAdapter.params;
 
 rxnEnzMat = model.ec.rxnEnzMat;
 genes = model.ec.genes;
@@ -113,7 +120,7 @@ if strcmpi(action,'display') && ~isempty(conflicts{1})
     displayErrorMessage(conflicts,uniprot,kegg)
 end
 
-if nargin<4 || all(ecRxns)
+if nargin < 3 || all(ecRxns)
     model.ec.eccodes = eccodes;
 else
     if ~isfield(model.ec,'eccodes')

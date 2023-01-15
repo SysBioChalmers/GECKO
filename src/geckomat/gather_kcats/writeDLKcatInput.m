@@ -1,4 +1,4 @@
-function writeDLKcatInput(model,ecRxns)
+function writeDLKcatInput(model, ecRxns, modelAdapter)
 % writeDLKcatInput
 %   Prepares the input for DLKcat, and writes it to data/DLKcatInput.tsv
 %   in the obj.params.path specified in the ModelAdapter.
@@ -9,9 +9,9 @@ function writeDLKcatInput(model,ecRxns)
 %                   predict kcat values, provided as logical vector with
 %                   same length as model.ec.rxns. (Opt, default is all
 %                   reactions)
+%   modelAdapter    a loaded model adapter (Optional, will otherwise use the
+%                   default model adapter).
 
-global GECKOModelAdapter
-params=checkGECKOModelAdapter(GECKOModelAdapter);
 [geckoPath, ~] = findGECKOroot();
 
 if nargin<2
@@ -21,6 +21,14 @@ elseif ~logical(ecRxns)
 elseif numel(ecRxns)~=numel(model.ec.rxns)
     error('Length of ecRxns is not the same as model.ec.rxns')
 end
+
+if nargin < 3 || isempty(modelAdapter)
+    modelAdapter = ModelAdapterManager.getDefaultAdapter();
+    if isempty(modelAdapter)
+        error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
+    end
+end
+params = modelAdapter.params;
 
 % Identify reactions for which kcat should be predicted (entry in model.ec.rxns)
 rxnsToInclude = model.ec.rxns(ecRxns);

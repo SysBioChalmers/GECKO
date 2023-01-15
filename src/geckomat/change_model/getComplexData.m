@@ -1,42 +1,49 @@
-function complexInfo = getComplexData(organism)
+function complexInfo = getComplexData(organism, modelAdapter)
 % getComplexData
 %   Download curated complex stochiometries from the EMBL-EBI Complex
 %   Portal database. Writes data/ComplexPortal.json in the the
 %   obj.params.path specified in the ModelAdapter.
 %
 % Input:
-%   organism    the organism for which complex information should be
-%               downloaded, e.g.:
-%               - 'all' for all data in Complex Portal (default)
-%               - 'Homo sapiens'
-%               - 'Mus musculus'
-%               - 'Saccharomyces cerevisiae'
-%               See a list of all available organisms here:
-%               https://www.ebi.ac.uk/complexportal/complex/organisms
-%
+%   organism        the organism for which complex information should be
+%                   downloaded, e.g.:
+%                   - 'all' for all data in Complex Portal (default)
+%                   - 'Homo sapiens'
+%                   - 'Mus musculus'
+%                   - 'Saccharomyces cerevisiae'
+%                   See a list of all available organisms here:
+%                   https://www.ebi.ac.uk/complexportal/complex/organisms
+%   modelAdapter    a loaded model adapter (Optional, will otherwise use the
+%                   default model adapter).
 % Output:
-%   complexInfo structure with data downloaded from Complex Portal.
-%               Contains the following fields:
-%               - complexID: id of the complex on Complex Portal
-%               - name: name of the complex on Complex Portal
-%               - species: organism containing the complex
-%               - geneName: names of the genes in the complex
-%               - protID: Uniprot IDs of the proteins in the complex
-%               - stochiometry: the complex stochiometry given in the same
-%                 order as the genes and proteins in geneName and protID
-%               - defined: 0 if Complex Portal has no defined stochiometry
-%                          1 if defined subunit stochiometry is given
-%                          2 if complex consists of sub-complexes, whose
-%                            subunit stochiometries are given
+%   complexInfo     structure with data downloaded from Complex Portal.
+%                   Contains the following fields:
+%                   - complexID: id of the complex on Complex Portal
+%                   - name: name of the complex on Complex Portal
+%                   - species: organism containing the complex
+%                   - geneName: names of the genes in the complex
+%                   - protID: Uniprot IDs of the proteins in the complex
+%                   - stochiometry: the complex stochiometry given in the same
+%                     order as the genes and proteins in geneName and protID
+%                   - defined:  0 if Complex Portal has no defined stochiometry
+%                               1 if defined subunit stochiometry is given
+%                               2 if complex consists of sub-complexes, whose
+%                                 subunit stochiometries are given
 % Usage
-%   complexInfo = getComplexData('Saccharomyces cerevisiae')
-
-global GECKOModelAdapter
-params=checkGECKOModelAdapter(GECKOModelAdapter);
+%   complexInfo = getComplexData('Saccharomyces cerevisiae', modelAdapter);
 
 if nargin<1
     organism = 'all';
 end
+
+if nargin < 2 || isempty(modelAdapter)
+    modelAdapter = ModelAdapterManager.getDefaultAdapter();
+    if isempty(modelAdapter)
+        error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
+    end
+end
+
+params = modelAdapter.params;
 switch organism
     case 'all'
         organism = [];

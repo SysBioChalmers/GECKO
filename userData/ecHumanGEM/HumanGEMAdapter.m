@@ -1,6 +1,6 @@
-classdef ModelAdapter < defaultModelAdapter 
+classdef HumanGEMAdapter < ModelAdapter 
     methods
-        function obj = ModelAdapter()
+        function obj = HumanGEMAdapter()
             %Set initial values of the parameters - they can be changed by the user
             
             %Directory where all model-specific files and scripts are kept.
@@ -52,10 +52,15 @@ classdef ModelAdapter < defaultModelAdapter
         function result = getFilePath(obj, filename)
 			result = filename; % TODO: Look at how this should be solved - look at the GeckoLight solution below
 			%result = strcat(GeckoLightInstall.getGeckoLightMainPath(), 'data/humanGEM/', filename);
+        end
+        
+        function result = aupa(obj, filename)
+			result = filename; % TODO: Look at how this should be solved - look at the GeckoLight solution below
+			%result = strcat(GeckoLightInstall.getGeckoLightMainPath(), 'data/humanGEM/', filename);
 		end
 		
 		function [spont,spontRxnNames] = getSpontaneousReactions(obj,model)
-			rxns_tsv = importTsvFile(strcat(getHumanGEMRootPath(),'model/reactions.tsv'));
+			rxns_tsv = importTsvFile(strcat(HumanGEMAdapter.getHumanGEMRootPath(),'model/reactions.tsv'));
 			spont = rxns_tsv.spontaneous;
 			spontRxnNames = rxns_tsv.rxns;
         end
@@ -65,7 +70,7 @@ classdef ModelAdapter < defaultModelAdapter
         %here to gene symbols as well
         function genes = getUniprotCompatibleGenes(obj,model)
             % get the path
-            tmpfile = fullfile(getHumanGEMRootPath(),'model','genes.tsv');
+            tmpfile = fullfile(HumanGEMAdapter.getHumanGEMRootPath(),'model','genes.tsv');
 
             % import as structure, convert to table, and extract header
             tmp = struct2table(importTsvFile(tmpfile));
@@ -89,6 +94,18 @@ classdef ModelAdapter < defaultModelAdapter
 			%So, there are some of these in ecModels - it is a bit unclear if any of these are relevant here
 			%we do nothing for now.
 			%In general, manual modifications should be done to the model before sending it in.
-		end
+        end
+    end
+    
+    methods(Static)
+        function path = getHumanGEMRootPath()
+            path = fileparts(which('Human-GEM.mat'));%This file should be on the path
+            path = strrep(path, '\', '/'); %get rid of backslashes in Windows
+            if ~endsWith(path, '/')
+                path = strcat(path,'/');
+            end
+            %Now remove the model/ at the end
+            path = (path(1:strlength(path)-6));
+        end
 	end
 end
