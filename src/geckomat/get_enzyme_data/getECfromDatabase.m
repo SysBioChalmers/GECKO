@@ -40,33 +40,26 @@ params = modelAdapter.getParameters();
 rxnEnzMat = model.ec.rxnEnzMat;
 genes = modelAdapter.getUniprotCompatibleGenes(model.ec.genes);
 
-try
-    data    = loadDatabases('both', modelAdapter);
-    uniprot = data.uniprot;
-    kegg    = data.kegg;
-catch % KEGG DB might not exist, continue with only UniProt
-    data    = loadDatabases('uniprot');
-    uniprot = data.uniprot;
-    kegg    = [];
-end
+data    = loadDatabases('both', modelAdapter);
+uniprot = data.uniprot;
+kegg    = data.kegg;
 
 DBgenesUniprot  = data.uniprot.genes;
 DBecNumUniprot  = data.uniprot.eccodes;
 DBMWUniprot     = data.uniprot.MW;
+%Build an index from gene to prot for faster processing later
+[geneIndexUniprot,geneHashMapUniprot] = hashGeneToProt(DBgenesUniprot);
 
 if ~isempty(kegg)
     DBgenesKEGG     = data.kegg.genes;
     DBecNumKEGG     = data.kegg.eccodes;
     DBMWKEGG        = data.kegg.MW;
+    [geneIndexKEGG,geneHashMapKEGG]       = hashGeneToProt(DBgenesKEGG);
 end
 n = size(rxnEnzMat,1);
 
 eccodes   = cell(n,1);
 conflicts = cell(1,4);
-
-%Build an index from gene to prot for faster processing later
-[geneIndexUniprot,geneHashMapUniprot] = hashGeneToProt(DBgenesUniprot);
-[geneIndexKEGG,geneHashMapKEGG]       = hashGeneToProt(DBgenesKEGG);
 
 rxnEnzMat = logical(rxnEnzMat);
 

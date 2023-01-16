@@ -102,6 +102,7 @@ if nargin < 3 || isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
     end
 end
+params = modelAdapter.getParameters();
 
 if geckoLight
     ec.geckoLight=true;
@@ -224,6 +225,10 @@ end
 %8: Gather enzyme information via UniprotDB
 uniprotCompatibleGenes = modelAdapter.getUniprotCompatibleGenes(model.genes);
 [Lia,Locb]      = ismember(uniprotCompatibleGenes,uniprotDB.genes);
+if any(~Lia)
+    disp(['Cannot find ' num2str(numel(find(~Lia))) ' of ' num2str(numel(uniprotCompatibleGenes)) ...
+          ' genes in local UniProt DB, these will not be enzyme-constrained.'])
+end
 ec.genes        = model.genes(Lia); %Will often be duplicate of model.genes, but is done here to prevent issues when it is not.
 ec.enzymes      = uniprotDB.ID(Locb(Lia));
 ec.mw           = uniprotDB.MW(Locb(Lia));

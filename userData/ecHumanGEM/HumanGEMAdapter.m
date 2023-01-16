@@ -23,11 +23,13 @@ classdef HumanGEMAdapter < ModelAdapter
 			%Provide your organism scientific name
 			obj.params.org_name = 'homo sapiens';
 
-			%Provide your organism KEGG ID
+			%Provide your organism KEGG ID, selected at
+			%https://www.genome.jp/kegg/catalog/org_list.html
 			obj.params.keggID = 'hsa';
-            
-            %Taxon id for Uniprot
-            obj.params.taxonID = '9606';
+
+			%Provide your organism UniProt proteome, selected at
+			%https://www.uniprot.org/proteomes/
+			obj.params.uniprotID = 'UP000005640';
             
             %Field for Uniprot gene id - should match the gene ids used in the 
             %GPRs. Note that this is a field in the web request to uniprot - 
@@ -36,7 +38,12 @@ classdef HumanGEMAdapter < ModelAdapter
             %convert the GPRs and match them to gene ids
             obj.params.uniprotGeneIdField = 'gene_primary';
 
-			%The name of the exchange reaction that supplies the model with carbon (rxnNames)
+            %Whether only reviewed data from UniProt should be considered.
+            %Reviewed data has highest confidence, but coverage might be (very)
+            %low for non-model organisms
+            obj.params.uniprotReviewed = true;
+            
+            %The name of the exchange reaction that supplies the model with carbon (rxnNames)
 			obj.params.c_source = 'MAR09034'; 
 
 			%Experimental carbon source uptake (optional)
