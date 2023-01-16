@@ -20,11 +20,22 @@ sum(skipped)%0
 
 tic
 fullECModel = makeEcModel(modExp, false, humanAdapter);
-toc %Elapsed time is 42.902675 seconds.
+toc %Elapsed time is 14.860279 seconds.
 
 tic
 lightECModel = makeEcModel(modExp, true, humanAdapter);
-toc %Elapsed time is 27.191455 seconds.
+toc %Elapsed time is 3.297782 seconds.
+
+lightECModel = getECfromGEM(lightECModel);
+
+kcatList = fuzzyKcatMatching(lightECModel, [], humanAdapter);
+
+ligthECModelWithoutEC = lightECModel;
+ligthECModelWithoutEC.ec.eccodes = [];
+ltECWithNewEC = getECfromDatabase(ligthECModelWithoutEC, 'display', [], humanAdapter);%Doesn't work so well, conflicts in uniprot db
+
+
+
 
 %just fill the light model with random kcats for now
 lightECModelFilledIn = lightECModel;
