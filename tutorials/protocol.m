@@ -60,12 +60,12 @@ ecModel = makeEcModel(modelY);
 
 % (1) DLKcat
 % Requires metabolite SMILES:
-model.metSmiles = findMetSmiles(model.metNames);
+ecModel.metSmiles = findMetSmiles(ecModel.metNames);
 % Currently, a DLKcatInput.tsv file is written that can be used by DLKcat,
 % and the DLKcatOutput.tsv file can be loaded into MATLAB again. Feiran is
 % also working on providing DLKcat as a package that can directly be called
 % by GECKO/MATLAB.
-writeDLKcatInput(model);
+writeDLKcatInput(ecModel);
 kcatList = readDLKcatOutput(model);
 ecModel  = selectKcatValue(ecModel,kcatList);
 ecModel  = applyKcatConstraints(ecModel);
