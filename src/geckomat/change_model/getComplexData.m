@@ -32,15 +32,15 @@ function complexInfo = getComplexData(organism, modelAdapter)
 % Usage
 %   complexInfo = getComplexData('Saccharomyces cerevisiae', modelAdapter);
 
-if nargin<1
-    organism = 'all';
-end
-
 if nargin < 2 || isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefaultAdapter();
     if isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
     end
+end
+
+if nargin<1
+    organism = modelAdapter.getParameters().complex_org_name;
 end
 
 params = modelAdapter.params;

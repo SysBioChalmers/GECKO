@@ -22,6 +22,9 @@ classdef HumanGEMAdapter < ModelAdapter
 
 			%Provide your organism scientific name
 			obj.params.org_name = 'homo sapiens';
+            
+            %Matching name for Complex Portal
+            obj.params.complex_org_name = 'Homo sapiens';
 
 			%Provide your organism KEGG ID, selected at
 			%https://www.genome.jp/kegg/catalog/org_list.html
@@ -45,6 +48,9 @@ classdef HumanGEMAdapter < ModelAdapter
             
             %The name of the exchange reaction that supplies the model with carbon (rxnNames)
 			obj.params.c_source = 'MAR09034'; 
+
+            %The name of the exchange reaction that supplies the model with carbon (rxnNames)
+			obj.params.bioRxn = 'MAR13082'; 
 
 			%Experimental carbon source uptake (optional)
 			obj.params.c_UptakeExp = 0.641339301; %[mmol/gDw h]/Average across NCI60 cell lines

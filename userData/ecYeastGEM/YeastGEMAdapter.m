@@ -22,6 +22,9 @@ classdef YeastGEMAdapter < ModelAdapter
 
 			%Provide your organism scientific name
 			obj.params.org_name = 'saccharomyces cerevisiae';
+            
+            %Matching name for Complex Portal
+            obj.params.complex_org_name = 'Saccharomyces cerevisiae';
 
 			%Provide your organism KEGG ID, selected at
 			%https://www.genome.jp/kegg/catalog/org_list.html

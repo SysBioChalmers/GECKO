@@ -24,9 +24,21 @@ function [model, foundComplex, proposedComplex] = applyComplexData(model, comple
 % Usage:
 %   [model, foundComplex, proposedComplex] = applyComplexData(ecModel, complexInfo, modelAdapter);
 
-if nargin<2
-    complexInfo = fullfile(params.path,'data','ComplexPortal.json');
+if nargin < 3 || isempty(modelAdapter)
+    modelAdapter = ModelAdapterManager.getDefaultAdapter();
+    if isempty(modelAdapter)
+        error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
+    end
 end
+params = modelAdapter.params;
+
+if nargin<2 || isempty(complexInfo)
+    complexInfo = fullfile(params.path,'data','ComplexPortal.json');
+    if ~isfile(complexInfo)
+        complexInfo = getComplexData([], modelAdapter);
+    end
+end
+
 if ischar(complexInfo) || isstring(complexInfo)
     jsonStr = fileread(complexInfo);
     complexData = jsondecode(jsonStr);
@@ -34,92 +46,83 @@ else
     complexData = complexInfo;
 end
 
-if nargin < 3 || isempty(modelAdapter)
-    modelAdapter = ModelAdapterManager.getDefaultAdapter();
-    if isempty(modelAdapter)
-        error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
-    end
-end
-
-params = modelAdapter.params;
 
 foundComplex = cell(0,7);
 proposedComplex = cell(0,8);
 
-for i = 1:numel(model.ec.rxns)
+%Remove prefixes on rxn names for gecko light
+if ~model.ec.geckoLight
+    rxnNames = model.ec.rxns;
+else
+    rxnNames = extractAfter(model.ec.rxns,4);
+end
 
-    idxRxn = find(strcmpi(model.rxns, model.ec.rxns{i}));
-
-    genes = split(model.grRules(idxRxn), 'and');
-    genes = strtrim(genes);
-
+for i = 1:numel(rxnNames)
     bestComplexIdx = 0;
     bestMatch = 0;
     protIdsComplex = [];
-    protIdsModel = [];
 
-    if numel(genes) > 1
+    %if numel(genes) > 1
+    idxProts = model.ec.rxnEnzMat(i,:) ~= 0;
 
-        [~,~,idxProts] = intersect(genes,model.ec.genes, 'stable');
+    if any(idxProts)
+        protIdsModel = model.ec.enzymes(idxProts);
 
-        if ~isempty(idxProts)
-            protIdsModel = model.ec.enzymes(idxProts);
+        for j = 1:height(complexData)
 
-            for j = 1:height(complexData)
-                
-                protIdsComplex = complexData(j).protID;
+            protIdsComplex = complexData(j).protID;
 
-                countMatch = ismember(protIdsModel,protIdsComplex);
+            countMatch = ismember(protIdsModel,protIdsComplex);
 
-                % Let´s use the complex data as reference
-                match = sum(countMatch,'all')/numel(protIdsComplex);
+            % Let´s use the complex data as reference
+            match = sum(countMatch,'all')/numel(protIdsComplex);
 
-                % Check if the protID match with the complex data based on match % higher than
-                % 75%. Pick the highest match.
-                if match >= 0.75 && match > bestMatch
-                    bestComplexIdx = j;
-                    bestMatch = match*100;
-                    % In some cases all the model proteins are in the
-                    % complex data, but they are less than those in the
-                    % complex data.
-                    if match == 1 && numel(protIdsModel) == numel(protIdsComplex)
-                        break
-                    end
+            % Check if the protID match with the complex data based on match % higher than
+            % 75%. Pick the highest match.
+            if match >= 0.75 && match > bestMatch
+                bestComplexIdx = j;
+                bestMatch = match*100;
+                % In some cases all the model proteins are in the
+                % complex data, but they are less than those in the
+                % complex data.
+                if match == 1 && numel(protIdsModel) == numel(protIdsComplex)
+                    break
                 end
-            end
-
-            if bestMatch >= 75
-                % Only get data with full match in the model and the
-                % complex data. In some cases all the model proteins are in
-                % the complex data, but they are less than those in complex data
-                if bestMatch == 100 && numel(complexData(bestComplexIdx).protID) == numel(protIdsComplex)
-                    foundComplex(end+1,1) = {model.ec.rxns{i}};
-                    foundComplex(end,2) = {complexData(bestComplexIdx).complexID};
-                    foundComplex(end,3) = {complexData(bestComplexIdx).name};
-                    foundComplex(end,4) = {complexData(bestComplexIdx).geneName};
-                    foundComplex(end,5) = {protIdsModel};
-                    foundComplex(end,6) = {complexData(bestComplexIdx).protID};
-                    foundComplex(end,7) = {complexData(bestComplexIdx).stochiometry};
-
-                    % Some complex match in 100% but there is not stochiometry
-                    % reported. In this case, assign a value of 1.
-                    assignS = [complexData(bestComplexIdx).stochiometry];
-                    assignS(assignS == 0) = 1;
-                    model.ec.rxnEnzMat(i,idxProts) = assignS;
-                else
-                    proposedComplex(end+1,1) = {model.ec.rxns{i}};
-                    proposedComplex(end,2) = {complexData(bestComplexIdx).complexID};
-                    proposedComplex(end,3) = {complexData(bestComplexIdx).name};
-                    proposedComplex(end,4) = {complexData(bestComplexIdx).geneName};
-                    proposedComplex(end,5) = {protIdsModel};
-                    proposedComplex(end,6) = {complexData(bestComplexIdx).protID};
-                    proposedComplex(end,7) = {complexData(bestComplexIdx).stochiometry};
-                    proposedComplex(end,8) = {bestMatch};
-                end
-
             end
         end
+
+        if bestMatch >= 75
+            % Only get data with full match in the model and the
+            % complex data. In some cases all the model proteins are in
+            % the complex data, but they are less than those in complex data
+            if bestMatch == 100 && numel(complexData(bestComplexIdx).protID) == numel(protIdsComplex)
+                foundComplex(end+1,1) = {model.ec.rxns{i}};
+                foundComplex(end,2) = {complexData(bestComplexIdx).complexID};
+                foundComplex(end,3) = {complexData(bestComplexIdx).name};
+                foundComplex(end,4) = {complexData(bestComplexIdx).geneName};
+                foundComplex(end,5) = {protIdsModel};
+                foundComplex(end,6) = {complexData(bestComplexIdx).protID};
+                foundComplex(end,7) = {complexData(bestComplexIdx).stochiometry};
+
+                % Some complex match in 100% but there is not stochiometry
+                % reported. In this case, assign a value of 1.
+                assignS = [complexData(bestComplexIdx).stochiometry];
+                assignS(assignS == 0) = 1;
+                model.ec.rxnEnzMat(i,idxProts) = assignS;
+            else
+                proposedComplex(end+1,1) = {model.ec.rxns{i}};
+                proposedComplex(end,2) = {complexData(bestComplexIdx).complexID};
+                proposedComplex(end,3) = {complexData(bestComplexIdx).name};
+                proposedComplex(end,4) = {complexData(bestComplexIdx).geneName};
+                proposedComplex(end,5) = {protIdsModel};
+                proposedComplex(end,6) = {complexData(bestComplexIdx).protID};
+                proposedComplex(end,7) = {complexData(bestComplexIdx).stochiometry};
+                proposedComplex(end,8) = {bestMatch};
+            end
+
+        end
     end
+%    end
     
 end
 
