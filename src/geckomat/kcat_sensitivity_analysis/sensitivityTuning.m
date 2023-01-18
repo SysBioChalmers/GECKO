@@ -1,10 +1,18 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% function model = sensitivityTuning(model, desiredGrowthRate, modelAdapter)
-%
-% Function that relaxes the most limiting kcats until a certain growth rate 
-% is reached.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function model = sensitivityTuning(model, desiredGrowthRate, modelAdapter)
+% sensitivityTuning
+%    Function that relaxes the most limiting kcats until a certain growth rate 
+%    is reached. The function will update kcats in model.ec.kcat.
+%    
+% Input:
+%   model              an ecModel in GECKO 3 version
+%   desiredGrowthRate  kcats will be relaxed until this growth rate is reached
+%   modelAdapter       a loaded model adapter (Optional, will otherwise use the
+%                      default model adapter).
+% Output:
+%   model              ecModel with updated model.ec.kcat
+%
+% Usage:
+%   model = sensitivityTuning(model, 0.07, humanGEMAdapter)
 
 if nargin < 3 || isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefaultAdapter();
