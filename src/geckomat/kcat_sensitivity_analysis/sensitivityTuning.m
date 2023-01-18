@@ -24,24 +24,55 @@ m.c = double(strcmp(m.rxns, params.bioRxn));%biomass_human set objective functio
 %To avoid numerical issues, make sure no kcat is below 0.1
 %This is not desirable to do, but unfortunately necessary - otherwise the 
 %solver says the solution is infeasible
-m.ec.kcat(m.ec.kcat < 0.1) = 0.1;
-m = applyKcatConstraints(m);
+%m.ec.kcat(m.ec.kcat < 0.1) = 0.1;
+%m = applyKcatConstraints(m);
 
 if ~m.ec.geckoLight
-    error('not impl')
+    %for the full model, we first find the draw reaction with the most flux
+    drawRxns = startsWith(m.rxns, 'draw_prot_');
+    iteration = 1;
+    while true
+        res = solveLP(m,0); %skip parsimonius, only takes time
+        lastGrowth = -res.f;
+        if (lastGrowth >= desiredGrowthRate)
+            break;
+        end
+        %If you get an error here, it is likely due to numerical issues in the solver
+        %The trick where we don't allow low kcats is to fix that, but maybe
+        %it is not enough.
+        disp(['Iteration ' num2str(iteration) ': Growth: ' num2str(lastGrowth)]) 
+        iteration = iteration + 1;
+        %find the highest draw_prot rxn flux
+        drawFluxes = zeros(length(drawRxns),1);
+        drawFluxes(drawRxns) = res.x(drawRxns);
+        [~,sel] = max(drawFluxes);
+        %Now get the metabolite
+        metSel = m.S(:,sel) > 0;
+        %now find the reaction with the largest consumption of this protein
+        protFluxes = m.S(metSel,:).' .* res.x; %negative
+        [~,rxnSel] = min(protFluxes);
+        rxn = m.rxns(rxnSel);
+        targetSubRxn = strcmp(m.ec.rxns, rxn);
+        m.ec.kcat(targetSubRxn) = m.ec.kcat(targetSubRxn) .* 10;
+        m = applyKcatConstraints(m,targetSubRxn);
+    end
+    
 else
     origRxns = extractAfter(m.ec.rxns,4);
     iteration = 1;
-    while lastGrowth < desiredGrowthRate
-        protPoolStoich = m.S(strcmp(m.mets, 'prot_pool'),:).';
+    while true
         res = solveLP(m,0); %skip parsimonius, only takes time
         lastGrowth = -res.f;
+        if (lastGrowth >= desiredGrowthRate)
+            break;
+        end
         %If you get an error here, it is likely due to numerical issues in the solver
         %The trick where we don't allow low kcats is to fix that, but maybe
         %it is not enough.
         disp(['Iteration ' num2str(iteration) ': Growth: ' num2str(lastGrowth)]) 
         iteration = iteration + 1;
         %find the highest protein usage flux
+        protPoolStoich = m.S(strcmp(m.mets, 'prot_pool'),:).';
         [~,sel] = min(res.x .* protPoolStoich); %max consumption
         rxn = m.rxns(sel.');
         targetSubRxns = strcmp(origRxns, rxn);
