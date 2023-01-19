@@ -59,7 +59,7 @@ if ~exist(fullfile(DLKcatPath,'DLKcat.py'),'file')
 end
 
 if ispc
-    [~,pythonCheck] = system('wsl python --version');
+    [~,pythonCheck] = system('python3 --version');
     if ~startsWith(pythonCheck,'Python 3.')
         error('python 3 is not available via WSL')
     end
@@ -72,9 +72,9 @@ if ispc
              '=== Preparing DLKcat environment...\n\n'])    
     system([WSLcommand ' pipenv install -r requirements.txt'],'-echo');
     fprintf('\n=== Running DLKcat prediction, this may take several minutes...\n\n')    
-    system([WSLcommand ' pipenv run python DLKcat.py ' WSLpath.Input ' ' WSLpath.Output],'-echo');
+    system([WSLcommand ' pipenv run python3 DLKcat.py ' WSLpath.Input ' ' WSLpath.Output],'-echo');
 else
-    [~,pythonCheck] = system('python --version');
+    [~,pythonCheck] = system('python3 --version');
     if ~startsWith(pythonCheck,'Python 3.')
         error('python 3 is not available')
     end
@@ -83,7 +83,7 @@ else
     fprintf('=== Preparing DLKcat environment...\n\n')    
     system('pipenv install -r requirements.txt','-echo');
     fprintf('\n=== Running DLKcat prediction, this may take several minutes...\n\n')    
-    system(['pipenv run python DLKcat.py ' DLKcatInput ' ' DLKcatOutput],'-echo');
+    system(['pipenv run python3 DLKcat.py ' DLKcatInput ' ' DLKcatOutput],'-echo');
     cd(currentPath);
 end
 end
