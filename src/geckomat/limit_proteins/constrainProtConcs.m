@@ -13,9 +13,6 @@ function model = constrainProtConcs(model)
 %
 % Note: to populate model.ec.concs you should run getProteomics.s
 
-% Here some implementation of ModelAdapter, to find default userData
-% folder?
-
 %Enzyme with NaN entry in model.ec.concs => draw from prot_pool
 %Enzyme with numeric entry in model.ec.concs => exchange reaction with
 %enzyme level as UB
@@ -25,7 +22,7 @@ usageRxns = strcat('usage_prot_',model.ec.enzymes);
 [~, usageRxnsIdx] = ismember(usageRxns, model.rxns);
 
 if any(usageRxnsIdx == 0)
-    error('Usage reactions are not defined for all enzymes. This is donw by makeEcModel.')
+    error('Usage reactions are not defined for all enzymes. This is done by makeEcModel.')
 end
 %Get index of protein pool exchange rxn
 protPoolIdx = ismember(model.rxns,'prot_pool_exchange');
