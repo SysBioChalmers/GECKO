@@ -22,12 +22,17 @@ classdef HumanGEMAdapter < ModelAdapter
 
 			%Provide your organism scientific name
 			obj.params.org_name = 'homo sapiens';
-
-			%Provide your organism KEGG ID
-			obj.params.keggID = 'hsa';
             
-            %Taxon id for Uniprot
-            obj.params.taxonID = '9606';
+            %Matching name for Complex Portal
+            obj.params.complex_org_name = 'Homo sapiens';
+
+			%Provide your organism KEGG ID, selected at
+			%https://www.genome.jp/kegg/catalog/org_list.html
+			obj.params.keggID = 'hsa';
+
+			%Provide your organism UniProt proteome, selected at
+			%https://www.uniprot.org/proteomes/
+			obj.params.uniprotID = 'UP000005640';
             
             %Field for Uniprot gene id - should match the gene ids used in the 
             %GPRs. Note that this is a field in the web request to uniprot - 
@@ -36,8 +41,16 @@ classdef HumanGEMAdapter < ModelAdapter
             %convert the GPRs and match them to gene ids
             obj.params.uniprotGeneIdField = 'gene_primary';
 
-			%The name of the exchange reaction that supplies the model with carbon (rxnNames)
+            %Whether only reviewed data from UniProt should be considered.
+            %Reviewed data has highest confidence, but coverage might be (very)
+            %low for non-model organisms
+            obj.params.uniprotReviewed = true;
+            
+            %The name of the exchange reaction that supplies the model with carbon (rxnNames)
 			obj.params.c_source = 'MAR09034'; 
+
+            %The name of the exchange reaction that supplies the model with carbon (rxnNames)
+			obj.params.bioRxn = 'MAR13082'; 
 
 			%Experimental carbon source uptake (optional)
 			obj.params.c_UptakeExp = 0.641339301; %[mmol/gDw h]/Average across NCI60 cell lines
@@ -54,11 +67,6 @@ classdef HumanGEMAdapter < ModelAdapter
 			%result = strcat(GeckoLightInstall.getGeckoLightMainPath(), 'data/humanGEM/', filename);
         end
         
-        function result = aupa(obj, filename)
-			result = filename; % TODO: Look at how this should be solved - look at the GeckoLight solution below
-			%result = strcat(GeckoLightInstall.getGeckoLightMainPath(), 'data/humanGEM/', filename);
-		end
-		
 		function [spont,spontRxnNames] = getSpontaneousReactions(obj,model)
 			rxns_tsv = importTsvFile(strcat(HumanGEMAdapter.getHumanGEMRootPath(),'model/reactions.tsv'));
 			spont = rxns_tsv.spontaneous;
@@ -68,7 +76,7 @@ classdef HumanGEMAdapter < ModelAdapter
         %Ensembl gene ids are not available in uniprot (ensembl returns transcripts, not genes)
         %Therefore, we collect gene symbols from uniprot, and need to convert the ensembl genes
         %here to gene symbols as well
-        function genes = getUniprotCompatibleGenes(obj,model)
+        function genes = getUniprotCompatibleGenes(obj,inGenes)
             % get the path
             tmpfile = fullfile(HumanGEMAdapter.getHumanGEMRootPath(),'model','genes.tsv');
 
@@ -78,7 +86,7 @@ classdef HumanGEMAdapter < ModelAdapter
             clear tmp
 
             %convert genes
-            genes = model.genes;
+            genes = inGenes;
             [~,ia,ib] = intersect(genes, conv_key(:,1));
             genes(ia) = conv_key(ib,5);
             

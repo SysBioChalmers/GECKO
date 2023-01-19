@@ -11,6 +11,8 @@ function kcatList = fuzzyKcatMatching(model, ecRxns, modelAdapter)
 %   ecRxns      for which reactions (from model.ec.rxns) kcat values should
 %               be found, provided as logical vector with same length as
 %               model.ec.rxns. (Opt, default is all reactions)
+%   modelAdapter a loaded model adapter (Optional, will otherwise use the
+%               default model adapter).
 %
 % Output
 %   kcatList    structure array with list of BRENDA derived kcat values,
@@ -35,12 +37,12 @@ function kcatList = fuzzyKcatMatching(model, ecRxns, modelAdapter)
 %                           4: any organism, any substrate, kcat
 %                           5: correct organism, specific activity
 %                           6: any organism, specific activity
-if nargin<3
+if nargin<2 || isempty(ecRxns)
     ecRxns = true(numel(model.ec.rxns),1);
 end
 ecRxns=find(ecRxns); % Get indices instead of logical
 
-if nargin < 4 || isempty(modelAdapter)
+if nargin < 3 || isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefaultAdapter();
     if isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
@@ -55,7 +57,14 @@ end
 eccodes      = model.ec.eccodes(ecRxns);
 substrates   = cell(numel(ecRxns),1);
 substrCoeffs = cell(numel(ecRxns),1);
-originalRxns = getIndexes(model,model.ec.rxns(ecRxns),'rxns');
+
+%Need to remove the prefix of GECKO light rxn names in the ec structure
+if ~model.ec.geckoLight
+    rxnNames = model.ec.rxns;
+else
+    rxnNames = extractAfter(model.ec.rxns, 4);
+end
+originalRxns = getIndexes(model,rxnNames(ecRxns),'rxns');
 for i = 1:length(ecRxns)
     sel = find(model.S(:,originalRxns(i)) < 0);
     substrates{i}  = model.metNames(sel); 

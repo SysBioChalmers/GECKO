@@ -35,38 +35,31 @@ if nargin < 4 || isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
     end
 end
-params = modelAdapter.params;
+params = modelAdapter.getParameters();
 
 rxnEnzMat = model.ec.rxnEnzMat;
-genes = model.ec.genes;
+genes = modelAdapter.getUniprotCompatibleGenes(model.ec.genes);
 
-try
-    data    = loadDatabases('both');
-    uniprot = data.uniprot;
-    kegg    = data.kegg;
-catch % KEGG DB might not exist, continue with only UniProt
-    data    = loadDatabases('uniprot');
-    uniprot = data.uniprot;
-    kegg    = [];
-end
+data    = loadDatabases('both', modelAdapter);
+uniprot = data.uniprot;
+kegg    = data.kegg;
 
 DBgenesUniprot  = data.uniprot.genes;
 DBecNumUniprot  = data.uniprot.eccodes;
 DBMWUniprot     = data.uniprot.MW;
+%Build an index from gene to prot for faster processing later
+[geneIndexUniprot,geneHashMapUniprot] = hashGeneToProt(DBgenesUniprot);
 
 if ~isempty(kegg)
     DBgenesKEGG     = data.kegg.genes;
     DBecNumKEGG     = data.kegg.eccodes;
     DBMWKEGG        = data.kegg.MW;
+    [geneIndexKEGG,geneHashMapKEGG]       = hashGeneToProt(DBgenesKEGG);
 end
 n = size(rxnEnzMat,1);
 
 eccodes   = cell(n,1);
 conflicts = cell(1,4);
-
-%Build an index from gene to prot for faster processing later
-[geneIndexUniprot,geneHashMapUniprot] = hashGeneToProt(DBgenesUniprot);
-[geneIndexKEGG,geneHashMapKEGG]       = hashGeneToProt(DBgenesKEGG);
 
 rxnEnzMat = logical(rxnEnzMat);
 
@@ -100,7 +93,7 @@ for i = 1:n
             %Indexes in DB
             conflicts{3} = [conflicts{3};multGenes{2}];
             %DB name
-            conflicts{4} = [conflicts{4};multGenes{3}];
+            conflicts{4} = [conflicts{4};{multGenes{3}}];
 
             %{ I don't understand the purpose of this, let's skip it for now
             %if strcmpi(action,'add')
@@ -150,10 +143,10 @@ end
 %}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function displayErrorMessage(conflicts,uniprot,kegg)
-STR = '\n Some genes with multiple associated proteins were found, please';
+STR = ['\n ' num2str(length(conflicts{1})) ' genes with multiple associated proteins were found, please'];
 STR = [STR, ' revise case by case in the uniprot and kegg files:\n\n'];
 for i=1:length(conflicts{1})
-    if strcmpi(conflicts{4}{i},uniprot)
+    if strcmpi(conflicts{4}{i},'uniprot')
         DB = uniprot.ID;
     else
         DB = kegg.uniprot;

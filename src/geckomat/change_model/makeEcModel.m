@@ -102,6 +102,7 @@ if nargin < 3 || isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
     end
 end
+params = modelAdapter.getParameters();
 
 if geckoLight
     ec.geckoLight=true;
@@ -188,7 +189,33 @@ else
     cpys = numOrs + 1;
     prevNumRxns = length(numOrs);
     cpyIndices = repelem(rxnWithGene, cpys);
-    ec.rxns      = model.rxns(cpyIndices);
+    %loop through and add a prefix with an isozyme index to the rxns
+    %we just give a fixed-length number as prefix, and assume that 999 is enough
+    tmpRxns = model.rxns(cpyIndices); %now they have no prefix
+    newRxns = tmpRxns;
+    
+    %add the prefix
+    nextIndex = 1;
+    for i = 1:numel(model.rxns)
+        localRxnIndex = 1;
+        if nextIndex <= length(tmpRxns) && strcmp(model.rxns(i), tmpRxns(nextIndex))
+            while true
+                tmp = compose('%03d_',localRxnIndex);
+                newRxns{nextIndex} = [tmp{1} tmpRxns{nextIndex}];
+                localRxnIndex = localRxnIndex + 1;
+                if (localRxnIndex >= 1000)
+                    error('Increase index size to 10000 - error in the code.'); %this should never happen, we don't have > 999 isozymes
+                end
+                nextIndex = nextIndex + 1;
+                if  nextIndex > length(tmpRxns) || ~strcmp(model.rxns(i), tmpRxns(nextIndex))
+                    break;
+                end
+            end
+        end
+    end
+
+    ec.rxns      = newRxns;
+    
     emptyCell    = cell(numel(ec.rxns),1);
     emptyVect    = zeros(numel(ec.rxns),1);
 
@@ -199,8 +226,12 @@ else
 end
     
 %8: Gather enzyme information via UniprotDB
-uniprotCompatibleGenes = modelAdapter.getUniprotCompatibleGenes(model);
+uniprotCompatibleGenes = modelAdapter.getUniprotCompatibleGenes(model.genes);
 [Lia,Locb]      = ismember(uniprotCompatibleGenes,uniprotDB.genes);
+if any(~Lia)
+    disp(['Cannot find ' num2str(numel(find(~Lia))) ' of ' num2str(numel(uniprotCompatibleGenes)) ...
+          ' genes in local UniProt DB, these will not be enzyme-constrained.'])
+end
 ec.genes        = model.genes(Lia); %Will often be duplicate of model.genes, but is done here to prevent issues when it is not.
 ec.enzymes      = uniprotDB.ID(Locb(Lia));
 ec.mw           = uniprotDB.MW(Locb(Lia));

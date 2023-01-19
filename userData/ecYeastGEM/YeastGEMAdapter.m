@@ -22,17 +22,27 @@ classdef YeastGEMAdapter < ModelAdapter
 
 			%Provide your organism scientific name
 			obj.params.org_name = 'saccharomyces cerevisiae';
+            
+            %Matching name for Complex Portal
+            obj.params.complex_org_name = 'Saccharomyces cerevisiae';
 
-			%Provide your organism KEGG ID
+			%Provide your organism KEGG ID, selected at
+			%https://www.genome.jp/kegg/catalog/org_list.html
 			obj.params.keggID = 'sce';
 
-			%Provide your organism taxonomic ID, will be used to query Uniprot
-			obj.params.taxonID = '559292';
+			%Provide your organism UniProt proteome, selected at
+			%https://www.uniprot.org/proteomes/
+			obj.params.uniprotID = 'UP000002311';
             
             %Field for Uniprot gene id - should match the gene ids used in the 
             %GPRs. Note that this is a field in the web request to uniprot - 
             %it has to match one of the fields there
             obj.params.uniprotGeneIdField = 'gene_oln';
+
+            %Whether only reviewed data from UniProt should be considered.
+            %Reviewed data has highest confidence, but coverage might be (very)
+            %low for non-model organisms
+            obj.params.uniprotReviewed = true;			
 
 			%The name of the exchange reaction that supplies the model with carbon (rxnNames)
 			obj.params.c_source = 'D-glucose exchange (reversible)'; 

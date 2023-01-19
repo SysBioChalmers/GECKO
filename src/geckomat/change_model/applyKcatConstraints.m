@@ -62,7 +62,7 @@ if ~model.ec.geckoLight
         newKcats(kcatFirst:kcatLast,2) = enzymes;
         newKcats(kcatFirst:kcatLast,3) = model.ec.rxnEnzMat(j,enzymes);
         newKcats(kcatFirst:kcatLast,4) = model.ec.kcat(j);
-        newKcats(kcatFirst:kcatLast,5) = model.ec.mw(enzymes);
+        newKcats(kcatFirst:kcatLast,5) = model.ec.mw(enzymes)/1000; % g/mol -> g/mmol
         kcatFirst = kcatLast;
     end
     newKcats(kcatLast+1:end,:)=[];
@@ -82,8 +82,10 @@ if ~model.ec.geckoLight
 else %GECKO light formulation, where prot_pool represents all usages
     nextIndex = 1;
     prot_pool_idx = find(ismember(model.mets,'prot_pool'));
+    %first remove the prefix of all rxns
+    modRxns = extractAfter(model.ec.rxns,4);
     for i = 1:numel(model.rxns)
-        if nextIndex <= length(model.ec.rxns) && strcmp(model.rxns(i), model.ec.rxns(nextIndex))
+        if nextIndex <= length(model.ec.rxns) && strcmp(model.rxns(i), modRxns(nextIndex))
             updated = false;
             newMWKcats=[];
             %Reactions with isozymes will have several rows in ec.rxns etc.
@@ -96,21 +98,24 @@ else %GECKO light formulation, where prot_pool represents all usages
                 end
                 enzymes = find(model.ec.rxnEnzMat(nextIndex,:));
                 if model.ec.kcat(nextIndex) == 0
-                    newMWKcats = [newMWKcats 0];
+                    %newMWKcats = [newMWKcats 0]; - if some are missing, just ignore those
                 else
                     MW = sum(model.ec.mw(enzymes).* model.ec.rxnEnzMat(nextIndex,:)); %multiply MW with number of subunits
                     newMWKcats = [newMWKcats MW/model.ec.kcat(nextIndex)]; %Light model: protein usage is MW/kcat
                 end                
                 nextIndex = nextIndex + 1;
-                if  nextIndex > length(model.ec.rxns) || ~strcmp(model.rxns(i), model.ec.rxns(nextIndex))
+                if  nextIndex > length(model.ec.rxns) || ~strcmp(model.rxns(i), modRxns(nextIndex))
                     break;
                 end
             end
             if (updated)
+                if isempty(newMWKcats)
+                    newMWKcats = 0; %no cost
+                end
                 %Light model: always use the "cheapest" isozyme, that is what the 
                 %optimization will choose anyway unless isozymes are individually constrained.
                 %TODO:Check that the units are correct.
-                model.S(prot_pool_idx, i) = -min(newMWKcats) * 3600; %per second -> per hour
+                model.S(prot_pool_idx, i) = -min(newMWKcats) /3600/1000; %per second -> per hour, g/mol -> g/mmol
             end
         end
     end
