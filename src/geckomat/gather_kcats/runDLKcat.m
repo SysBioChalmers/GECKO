@@ -59,7 +59,7 @@ if ~exist(fullfile(DLKcatPath,'DLKcat.py'),'file')
 end
 
 if ispc
-    [~,pythonCheck] = system('python3 --version');
+    [~,pythonCheck] = system('wsl python3 --version');
     if ~startsWith(pythonCheck,'Python 3.')
         error('python 3 is not available via WSL')
     end
