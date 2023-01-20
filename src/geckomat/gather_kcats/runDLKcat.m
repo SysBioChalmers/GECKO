@@ -58,32 +58,52 @@ if ~exist(fullfile(DLKcatPath,'DLKcat.py'),'file')
     delete(fullfile(DLKcatPath,'dlkcat_package.zip'));
 end
 
-if ispc
-    [~,pythonCheck] = system('wsl python3 --version');
-    if ~startsWith(pythonCheck,'Python 3.')
-        error('python 3 is not available via WSL')
-    end
-    WSLpath.DLKcat = getWSLpath(DLKcatPath);
-    WSLpath.Input  = getWSLpath(DLKcatInput);
-    WSLpath.Output = getWSLpath(DLKcatOutput);
-    WSLcommand = ['wsl --shell-type login --cd ' WSLpath.DLKcat '/'];
-    fprintf(['=== Below, status messages from WSL are shown.\n'...
-             '=== Warnings about bogus screen size can safely be ignored.\n'...
-             '=== Preparing DLKcat environment...\n\n'])    
-    system([WSLcommand ' pipenv install -r requirements.txt'],'-echo');
-    fprintf('\n=== Running DLKcat prediction, this may take several minutes...\n\n')    
-    system([WSLcommand ' pipenv run python3 DLKcat.py ' WSLpath.Input ' ' WSLpath.Output],'-echo');
-else
-    [~,pythonCheck] = system('python3 --version');
-    if ~startsWith(pythonCheck,'Python 3.')
-        error('python 3 is not available')
-    end
-    currentPath = pwd();
-    cd(DLKcatPath);
-    fprintf('=== Preparing DLKcat environment...\n\n')    
-    system('pipenv install -r requirements.txt','-echo');
-    fprintf('\n=== Running DLKcat prediction, this may take several minutes...\n\n')    
-    system(['pipenv run python3 DLKcat.py ' DLKcatInput ' ' DLKcatOutput],'-echo');
-    cd(currentPath);
+%% Check and install requirements
+% Python
+[checks.python.status, checks.python.out] = system('python --version');
+if ~startsWith(checks.python.out,"Python 3.")
+    error('Cannot find Python 3.')
 end
+
+% pip
+[checks.pip.status, checks.pip.out] = system('pip --version');
+if checks.pip.status ~= 0
+    status = system('python -m ensurepip --upgrade')
+    if status == 0
+        [checks.pip.status, checks.pip.out] = system('pip --version');
+    end
+    if status ~= 0 || checks.pip.status ~=0
+        error('Cannot find pip and automated installation failed')
+    end
+end
+
+% pipenv
+[checks.pipenv.status, checks.pipenv.out] = system('pipenv --version');
+if checks.pipenv.status ~= 0
+    status = system('pip install pipenv');
+    if status == 0
+        [checks.pipenv.status, checks.pipenv.out] = system('pipenv --version');
+        if checks.pipenv.status ~= 0
+            % If installation was succesful, but pipenv cannot be run
+            % from prompt, the problem could be that the Python package
+            % dir is not in PATH.
+            [~,packageDir]=system('python -m site --user-site');
+            packageDir=strip(regexprep(packageDir,'site-packages','Scripts'));
+            setenv('PATH',[getenv("PATH") ";packageDir"]);
+            [checks.pipenv.status, checks.pipenv.out] = system('pipenv --version');
+            if checks.pipenv.status ~= 0
+                error('After installing pipenv, it cannot be found in the PATH')
+            end
+        end
+    else
+        error('Unable to install pipenv')
+    end
+end
+currPath = pwd();
+cd(DLKcatPath);
+fprintf('=== Preparing DLKcat environment...\n\n')
+system('pipenv install -r requirements.txt')
+fprintf('\n=== Running DLKcat prediction, this may take several minutes...\n\n')
+system(['pipenv run python DLKcat.py ' DLKcatInput ' ' DLKcatOutput],'-echo');
+cd(currPath);
 end
