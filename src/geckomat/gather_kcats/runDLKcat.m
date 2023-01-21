@@ -68,7 +68,7 @@ if ismac
         [~, zPath] = system("awk '/PATH=/{print}' ~/.zprofile");
         zPath = strip(strsplit(zPath,':'));
         zPath = zPath(contains(zPath,'Python.framework'));
-        zPath = regexprep(zPath{1}, 'Path="', '');
+        zPath = regexprep(zPath{1}, 'PATH="', '');
         setenv('PATH', strcat(zPath, ':', getenv("PATH")));
     catch
     end
