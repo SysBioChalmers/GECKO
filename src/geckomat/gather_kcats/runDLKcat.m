@@ -136,15 +136,15 @@ end
 if ispc
     [~,packageDir]=system([pythonPath 'python' three ' -m site --user-site']);
     packageDir=strip(regexprep(packageDir,'site-packages','Scripts'));
-    setenv('PATH',strcat(getenv("PATH"), ';',  packageDir));
+    setenv('PATH',strcat(getenv("PATH"), ';',  packageDir, ';', pythonPath, 'Scripts/'));
 else
     [~,packageDir]=system([pythonPath 'python' three ' -m site --user-base']);
     setenv('PATH',strcat(getenv("PATH"), ':',  packageDir, '/bin/'));
 end
 
 % pip
+pipThree = three;
 if isempty(pipPath)
-    pipThree = three;
     [checks.pip.status, checks.pip.out] = system(['pip' pipThree ' --version']);
     if checks.pip.status ~= 0
         disp('=== Installing pip...')  
