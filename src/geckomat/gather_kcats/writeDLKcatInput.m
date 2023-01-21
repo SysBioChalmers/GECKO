@@ -16,7 +16,7 @@ function writeDLKcatInput(model, ecRxns, modelAdapter, onlyWithSmiles)
 
 [geckoPath, ~] = findGECKOroot();
 
-if nargin<2
+if nargin<2 || isempty(ecRxns)
     ecRxns = true(numel(model.ec.rxns),1);
 elseif ~logical(ecRxns)
     error('ecRxns should be provided as logical vector')

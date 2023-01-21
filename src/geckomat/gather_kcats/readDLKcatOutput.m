@@ -30,7 +30,7 @@ if nargin < 3 || isempty(modelAdapter)
 end
 params = modelAdapter.params;
 
-if nargin<2
+if nargin<2 || isempty(outFile)
     fID      = fopen(fullfile(params.path,'data','DLKcatOutput.tsv'),'r');
 else
     fID      = fopen(outFile);
