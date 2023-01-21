@@ -1,4 +1,4 @@
-function runDLKcat(DLKcatInput, DLKcatOutput, modelAdapter, DLKcatPath)
+function runDLKcat(DLKcatInput, DLKcatOutput, modelAdapter, DLKcatPath, pythonPath, pipPath)
 % runDLKcat
 %   Runs DLKcat to predict kcat values.
 %
@@ -18,6 +18,10 @@ function runDLKcat(DLKcatInput, DLKcatOutput, modelAdapter, DLKcatPath)
 %                   the default model adapter)
 %   DLKcatPath      path where DLKcat is/will be installed. (Optional,
 %                   defaults to GECKO/dlkcat)
+%   pythonPath      path to python binary. (Optional, defaults to use the
+%                   python that is                                              available via terminal)
+%   pipPath         path to pip binary. (Optional, defaults to use the pip
+%                   that is available via terminal)
 %
 %   NOTE: Requires Python 3 to be installed. If not present, it will also
 %   install pip, pipenv and other DLKcat dependencies.
@@ -25,7 +29,15 @@ function runDLKcat(DLKcatInput, DLKcatOutput, modelAdapter, DLKcatPath)
 %Get the GECKO path
 geckoPath=findGECKOroot();
 
-if nargin < 4
+if nargin < 6 || isempty(pipPath)
+    pipPath = '';
+end
+
+if nargin < 5 || isempty(pythonPath)
+    pythonPath = '';
+end
+
+if nargin < 4 || isempty(DLKcatPath)
     DLKcatPath = fullfile(geckoPath,'dlkcat');
 end
 
@@ -60,65 +72,96 @@ end
 
 %% Check and install requirements
 % On Mac, python might not be properly loaded if MATLAB is started via
-% launcher and not terminal. This is a dirty solution if runDLKcat is run
-% multiple times in one MATLAB instance, as it always appends the path, but
-% its fine.
-if ismac
-    try
-        [~, zPath] = system("awk '/PATH=/{print}' ~/.zprofile");
-        zPath = strip(strsplit(zPath,':'));
-        zPath = zPath(contains(zPath,'Python.framework'));
-        zPath = regexprep(zPath{1}, 'PATH="', '');
-        setenv('PATH', strcat(zPath, ':', getenv("PATH")));
-    catch
+% launcher and not terminal. 
+if ismac && isempty(pythonPath)
+    global MACZPROFILEPATH
+    if isempty(MACZPROFILEPATH)
+        try
+            [~, zPath] = system("awk '/PATH=/{print}' ~/.zprofile");
+            zPath = strip(strsplit(zPath,':'));
+            zPath = zPath(contains(zPath,'Python.framework'));
+            zPath = regexprep(zPath{1}, 'PATH="', '');
+            setenv('PATH', strcat(zPath, ':', getenv("PATH")));
+            MACZPROFILEPATH = 'set';
+        catch
+        end
     end
 end
 
 % Python
 three = ''; %suffix (python vs. python3)
-[checks.python.status, checks.python.out] = system('python --version');
-if checks.python.status ~= 0 || ~startsWith(checks.python.out,'Python 3.')
-    [checks.python.status, checks.python.out] = system('python3 --version');
-    if checks.python.status == 0
-        three = '3';
-        if ispc
-            [~, pythPath] = system('where python3');
-            pythPath = regexprep(pythPath,'\n.*','');
+if isempty(pythonPath)
+    [checks.python.status, checks.python.out] = system('python --version');
+    if checks.python.status ~= 0 || ~startsWith(checks.python.out,'Python 3.')
+        [checks.python.status, checks.python.out] = system('python3 --version');
+        if checks.python.status == 0
+            three = '3';
+            if ispc
+                [~, pythonPath] = system('where python3');
+                pythonPath = regexprep(pythonPath,'\n.*','');
+            else
+                [~, pythonPath] = system('which python3');
+            end
         else
-            [~, pythPath] = system('which python3');
+            error('Cannot find Python 3.')
         end
-    else
-        error('Cannot find Python 3.')
+    elseif startsWith(checks.python.out,'Python 3.')
+        if ispc
+            [~, pythonPath] = system('where python');
+            pythonPath = regexprep(pythonPath,'\n.*','');
+        else
+            [~, pythonPath] = system('which python');
+        end
     end
-elseif startsWith(checks.python.out,'Python 3.')
-    if ispc
-        [~, pythPath] = system('where python');
-        pythPath = regexprep(pythPath,'\n.*','');
+else
+    if endsWith(pythonPath,'.exe')
+        pythonPath = pythonPath(1:end-4);
+    end
+    if endsWith(pythonPath,'python3')
+        three = '3';
+        pythonPath = pythonPath(1:end-7);
+    elseif endsWith(pythonPath,'python')
+        pythonPath = pythonPath(1:end-6);
     else
-        [~, pythPath] = system('which python');
+        error('pythonPath should end with either "python", "python.exe", "python3" or "python3.exe".')
     end
 end
 
-% add the Python package dir if not in PATH.
+% add the Python package dir to PATH.
 if ispc
-    [~,packageDir]=system(['python' three ' -m site --user-site']);
+    [~,packageDir]=system([pythonPath 'python' three ' -m site --user-site']);
     packageDir=strip(regexprep(packageDir,'site-packages','Scripts'));
     setenv('PATH',strcat(getenv("PATH"), ';',  packageDir));
 else
-    [~,packageDir]=system(['python' three ' -m site --user-base']);
+    [~,packageDir]=system([pythonPath 'python' three ' -m site --user-base']);
     setenv('PATH',strcat(getenv("PATH"), ':',  packageDir, '/bin/'));
 end
 
 % pip
-[checks.pip.status, checks.pip.out] = system(['pip' three ' --version']);
-if checks.pip.status ~= 0
-    disp('=== Installing pip...')  
-    status = system(['python' three ' -m ensurepip --upgrade']);
-    if status == 0
-        [checks.pip.status, checks.pip.out] = system(['pip' three ' --version']);
+if isempty(pipPath)
+    pipThree = three;
+    [checks.pip.status, checks.pip.out] = system(['pip' pipThree ' --version']);
+    if checks.pip.status ~= 0
+        disp('=== Installing pip...')  
+        status = system([pythonPath 'python' three ' -m ensurepip --upgrade']);
+        if status == 0
+            [checks.pip.status, checks.pip.out] = system(['pip' pipThree ' --version']);
+        end
+        if status ~= 0 || checks.pip.status ~=0
+            error('Cannot find pip and automated installation failed')
+        end
     end
-    if status ~= 0 || checks.pip.status ~=0
-        error('Cannot find pip and automated installation failed')
+else
+    if endsWith(pipPath,'.exe')
+        pipPath = pipPath(1:end-4);
+    end
+    if endsWith(pipPath,'pip3')
+        pipThree = '3';
+        pipPath = pipPath(1:end-4);
+    elseif endsWith(pipPath,'pip')
+        pipPath = pipPath(1:end-3);
+    else
+        error('pipPath should end with either "pip", "pip.exe", "pip3" or "pip3.exe".')
     end
 end
 
@@ -126,7 +169,7 @@ end
 [checks.pipenv.status, checks.pipenv.out] = system('pipenv --version');
 if checks.pipenv.status ~= 0
     disp('=== Installing pipenv...')    
-    status = system(['pip' three ' install pipenv']);
+    status = system([pipPath 'pip' pipThree ' install pipenv']);
     if status == 0
         [checks.pipenv.status, checks.pipenv.out] = system('pipenv --version');
         if checks.pipenv.status ~= 0
@@ -146,11 +189,14 @@ cd(DLKcatPath);
 [checks.dlkcatenv.status, checks.dlkcatenv.out] = system('pipenv --py');
 if checks.dlkcatenv.status ~= 0
     disp('=== Preparing DLKcat environment...')
-    system(['pipenv install -r requirements.txt --python ' pythPath], '-echo');
+    system(['pipenv install -r requirements.txt --python ' pythonPath], '-echo');
 end
 disp('=== Running DLKcat prediction, this may take several minutes...')
+% In the next line, pythonPath does not need to be specified, because it is
+% already mentioned when building the virtualenv.
 dlkcat.status = system(['pipenv run python' three ' DLKcat.py ' DLKcatInput ' ' DLKcatOutput],'-echo');
 cd(currPath);
+
 if dlkcat.status ~= 0
     error(['DLKcat encountered an error. This may be due to issues with the ' ...
            'pipenv. It may help to run system(''pipenv --rm'') in your ' ...
