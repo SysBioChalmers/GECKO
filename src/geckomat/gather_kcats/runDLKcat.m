@@ -149,6 +149,12 @@ if checks.dlkcatenv.status ~= 0
     system(['pipenv install -r requirements.txt --python ' pythPath], '-echo');
 end
 disp('=== Running DLKcat prediction, this may take several minutes...')
-system(['pipenv run python' three ' DLKcat.py ' DLKcatInput ' ' DLKcatOutput],'-echo');
+dlkcat.status = system(['pipenv run python' three ' DLKcat.py ' DLKcatInput ' ' DLKcatOutput],'-echo');
 cd(currPath);
+if dlkcat.status ~= 0
+    error(['DLKcat encountered an error. This may be due to issues with the ' ...
+           'pipenv. It may help to run system(''pipenv --rm'') in your ' ...
+           'dlkcat folder (do not skip this step), and afterwards completely ' ...
+           'delete the dlkcat folder and rerun runDLKcat().'])
+end
 end
