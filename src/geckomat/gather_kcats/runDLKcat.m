@@ -19,7 +19,7 @@ function runDLKcat(DLKcatInput, DLKcatOutput, modelAdapter, DLKcatPath, pythonPa
 %   DLKcatPath      path where DLKcat is/will be installed. (Optional,
 %                   defaults to GECKO/dlkcat)
 %   pythonPath      path to python binary. (Optional, defaults to use the
-%                   python that is                                              available via terminal)
+%                   python that is available via terminal)
 %   pipPath         path to pip binary. (Optional, defaults to use the pip
 %                   that is available via terminal)
 %
@@ -86,6 +86,11 @@ if ismac && isempty(pythonPath)
         catch
         end
     end
+end
+
+binEnd = '';
+if ispc
+    binEnd = '.exe';
 end
 
 % Python
@@ -166,9 +171,10 @@ else
 end
 
 % pipenv
-[checks.pipenv.status, checks.pipenv.out] = system('pipenv --version');
-if checks.pipenv.status ~= 0
-    disp('=== Installing pipenv...')    
+% Always install fresh, as it is otherwise too tricky to match pipenv
+% binary with the correct python and pip versions if multiple python and
+% pip versions are present.
+disp('=== Installing pipenv...')    
     status = system([pipPath 'pip' pipThree ' install pipenv']);
     if status == 0
         [checks.pipenv.status, checks.pipenv.out] = system('pipenv --version');
@@ -181,7 +187,6 @@ if checks.pipenv.status ~= 0
     else
         error('Unable to install pipenv')
     end
-end
 
 currPath = pwd();
 cd(DLKcatPath);
@@ -189,12 +194,12 @@ cd(DLKcatPath);
 [checks.dlkcatenv.status, checks.dlkcatenv.out] = system('pipenv --py');
 if checks.dlkcatenv.status ~= 0
     disp('=== Preparing DLKcat environment...')
-    system(['pipenv install -r requirements.txt --python ' pythonPath], '-echo');
+    system(['pipenv install -r requirements.txt --python ' pythonPath 'python' three binEnd], '-echo');
 end
 disp('=== Running DLKcat prediction, this may take several minutes...')
 % In the next line, pythonPath does not need to be specified, because it is
 % already mentioned when building the virtualenv.
-dlkcat.status = system(['pipenv run python' three ' DLKcat.py ' DLKcatInput ' ' DLKcatOutput],'-echo');
+dlkcat.status = system(['pipenv run python DLKcat.py ' DLKcatInput ' ' DLKcatOutput],'-echo');
 cd(currPath);
 
 if dlkcat.status ~= 0
