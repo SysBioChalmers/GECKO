@@ -19,8 +19,8 @@ function runDLKcat(DLKcatInput, DLKcatOutput, modelAdapter, DLKcatPath)
 %   DLKcatPath      path where DLKcat is/will be installed. (Optional,
 %                   defaults to GECKO/dlkcat)
 %
-%   NOTE: Requires Python 3 and pip to be installed. On Windows, also
-%         Windows Subsystem for Linux (WSL) is required.
+%   NOTE: Requires Python 3 to be installed. If not present, it will also
+%   install pip, pipenv and other DLKcat dependencies.
 
 %Get the GECKO path
 geckoPath=findGECKOroot();
@@ -59,96 +59,79 @@ if ~exist(fullfile(DLKcatPath,'DLKcat.py'),'file')
 end
 
 %% Check and install requirements
-
-if ispc
-    % Python
-    [checks.python.status, checks.python.out] = system('python --version');
-    if ~startsWith(checks.python.out,"Python 3.")
+% Python
+three = ''; %suffix (python vs. python3)
+[checks.python.status, checks.python.out] = system('python --version');
+if checks.python.status ~= 0
+    [checks.python.status, checks.python.out] = system('python3 --version');
+    if checks.python.status == 1
+        three = 3;
+        if ispc
+            [~, pythPath] = system('where python3');
+            pythPath = regexprep(pythPath,'\n.*','');
+        else
+            [~, pythPath] = system('which python3');
+        end
+    else
         error('Cannot find Python 3.')
     end
-
-    % pip
-    [checks.pip.status, checks.pip.out] = system('pip --version');
-    if checks.pip.status ~= 0
-        status = system('python -m ensurepip --upgrade')
-        if status == 0
-            [checks.pip.status, checks.pip.out] = system('pip --version');
-        end
-        if status ~= 0 || checks.pip.status ~=0
-            error('Cannot find pip and automated installation failed')
-        end
+elseif startsWith(checks.python.out,'Python 3.')
+    if ispc
+        [~, pythPath] = system('where python');
+        pythPath = regexprep(pythPath,'\n.*','');
+    else
+        [~, pythPath] = system('which python');
     end
+end
 
-    % pipenv
-    [checks.pipenv.status, checks.pipenv.out] = system('pipenv --version');
-    if checks.pipenv.status ~= 0
-        status = system('pip install pipenv');
-        if status == 0
-            [checks.pipenv.status, checks.pipenv.out] = system('pipenv --version');
-            if checks.pipenv.status ~= 0
-                % If installation was succesful, but pipenv cannot be run
-                % from prompt, the problem could be that the Python package
-                % dir is not in PATH.
-                [~,packageDir]=system('python -m site --user-site');
+% pip
+[checks.pip.status, checks.pip.out] = system(['pip' three ' --version']);
+if checks.pip.status ~= 0
+    disp('=== Installing pip...')  
+    status = system(['python' three ' -m ensurepip --upgrade']);
+    if status == 0
+        [checks.pip.status, checks.pip.out] = system(['pip' three ' --version']);
+    end
+    if status ~= 0 || checks.pip.status ~=0
+        error('Cannot find pip and automated installation failed')
+    end
+end
+
+% pipenv
+[checks.pipenv.status, checks.pipenv.out] = system('pipenv --version');
+if checks.pipenv.status ~= 0
+    disp('=== Installing pipenv...')    
+    status = system(['pip' three ' install pipenv']);
+    if status == 0
+        [checks.pipenv.status, checks.pipenv.out] = system('pipenv --version');
+        if checks.pipenv.status ~= 0
+            % If installation was succesful, but pipenv cannot be run
+            % from prompt, the problem could be that the Python package
+            % dir is not in PATH.
+            if ispc
+                [~,packageDir]=system(['python' three ' -m site --user-site']);
                 packageDir=strip(regexprep(packageDir,'site-packages','Scripts'));
                 setenv('PATH',strcat(getenv("PATH"), ';',  packageDir));
-                [checks.pipenv.status, checks.pipenv.out] = system('pipenv --version');
-                if checks.pipenv.status ~= 0
-                    error('After installing pipenv, it cannot be found in the PATH')
-                end
+            else
+                [~,packageDir]=system(['python' three ' -m site --user-base']);
+                packageDir=strip(regexprep(packageDir,'site-packages','Scripts'));
+                setenv('PATH',strcat(getenv("PATH"), ';',  packageDir, '/bin/'));
             end
-        else
-            error('Unable to install pipenv')
-        end
-    end
-
-else
-    % Python
-    [checks.python.status, checks.python.out] = system('python3 --version');
-    if ~startsWith(checks.python.out,"Python 3.")
-        error('Cannot find Python 3.')
-    end
-
-    % pip
-    [checks.pip.status, checks.pip.out] = system('pip3 --version');
-    if checks.pip.status ~= 0
-        status = system('python3 -m ensurepip --upgrade')
-        if status == 0
-            [checks.pip.status, checks.pip.out] = system('pip3 --version');
-        end
-        if status ~= 0 || checks.pip.status ~=0
-            error('Cannot find pip and automated installation failed')
-        end
-    end
-
-    % pipenv
-    [checks.pipenv.status, checks.pipenv.out] = system('pipenv --version');
-    if checks.pipenv.status ~= 0
-        status = system('pip3 install --user pipenv');
-        if status == 0
             [checks.pipenv.status, checks.pipenv.out] = system('pipenv --version');
             if checks.pipenv.status ~= 0
-                % If installation was succesful, but pipenv cannot be run
-                % from prompt, the problem could be that the Python package
-                % dir is not in PATH.
-                [~,packageDir]=system('python3 -m site --user-base');
-                setenv('PATH', strcat(getenv("PATH"), ':', packageDir, '/bin/' ));
-                [checks.pipenv.status, checks.pipenv.out] = system('pipenv --version');
-                if checks.pipenv.status ~= 0
-                    error('After installing pipenv, it cannot be found in the PATH')
-                end
+                error('After installing pipenv, it cannot be found in the PATH')
             end
-        else
-            error('Unable to install pipenv')
         end
+    else
+        error('Unable to install pipenv')
     end
 end
 
 currPath = pwd();
 cd(DLKcatPath);
-fprintf('=== Preparing DLKcat environment...\n\n')
-system('pipenv install -r requirements.txt')
-fprintf('\n=== Running DLKcat prediction, this may take several minutes...\n\n')
-system(['pipenv run python DLKcat.py ' DLKcatInput ' ' DLKcatOutput],'-echo');
+disp('=== Preparing DLKcat environment...')
+system(['pipenv --python ' pythPath ' install -r requirements.txt'],'-echo');
+disp('=== Running DLKcat prediction, this may take several minutes...')
+system(['pipenv --python ' pythPath ' run python' three ' DLKcat.py ' DLKcatInput ' ' DLKcatOutput],'-echo');
 cd(currPath);
 end
