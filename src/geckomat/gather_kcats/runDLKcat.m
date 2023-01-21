@@ -59,13 +59,28 @@ if ~exist(fullfile(DLKcatPath,'DLKcat.py'),'file')
 end
 
 %% Check and install requirements
+% On Mac, python might not be properly loaded if MATLAB is started via
+% launcher and not terminal. This is a dirty solution if runDLKcat is run
+% multiple times in one MATLAB instance, as it always appends the path, but
+% its fine.
+if ismac
+    try
+        [~, zPath] = system("awk '/PATH=/{print}' ~/.zprofile");
+        zPath = strip(strsplit(zPath,':'));
+        zPath = zPath(contains(zPath,'Python.framework'));
+        zPath = regexprep(zPath{1}, 'Path="', '');
+        setenv('PATH', strcat(zPath, ':', getenv("PATH")));
+    catch
+    end
+end
+
 % Python
 three = ''; %suffix (python vs. python3)
 [checks.python.status, checks.python.out] = system('python --version');
-if checks.python.status ~= 0
+if checks.python.status ~= 0 || ~startsWith(checks.python.out,'Python 3.')
     [checks.python.status, checks.python.out] = system('python3 --version');
-    if checks.python.status == 1
-        three = 3;
+    if checks.python.status == 0
+        three = '3';
         if ispc
             [~, pythPath] = system('where python3');
             pythPath = regexprep(pythPath,'\n.*','');
@@ -82,6 +97,16 @@ elseif startsWith(checks.python.out,'Python 3.')
     else
         [~, pythPath] = system('which python');
     end
+end
+
+% add the Python package dir if not in PATH.
+if ispc
+    [~,packageDir]=system(['python' three ' -m site --user-site']);
+    packageDir=strip(regexprep(packageDir,'site-packages','Scripts'));
+    setenv('PATH',strcat(getenv("PATH"), ';',  packageDir));
+else
+    [~,packageDir]=system(['python' three ' -m site --user-base']);
+    setenv('PATH',strcat(getenv("PATH"), ':',  packageDir, '/bin/'));
 end
 
 % pip
@@ -105,18 +130,6 @@ if checks.pipenv.status ~= 0
     if status == 0
         [checks.pipenv.status, checks.pipenv.out] = system('pipenv --version');
         if checks.pipenv.status ~= 0
-            % If installation was succesful, but pipenv cannot be run
-            % from prompt, the problem could be that the Python package
-            % dir is not in PATH.
-            if ispc
-                [~,packageDir]=system(['python' three ' -m site --user-site']);
-                packageDir=strip(regexprep(packageDir,'site-packages','Scripts'));
-                setenv('PATH',strcat(getenv("PATH"), ';',  packageDir));
-            else
-                [~,packageDir]=system(['python' three ' -m site --user-base']);
-                packageDir=strip(regexprep(packageDir,'site-packages','Scripts'));
-                setenv('PATH',strcat(getenv("PATH"), ';',  packageDir, '/bin/'));
-            end
             [checks.pipenv.status, checks.pipenv.out] = system('pipenv --version');
             if checks.pipenv.status ~= 0
                 error('After installing pipenv, it cannot be found in the PATH')
@@ -129,9 +142,13 @@ end
 
 currPath = pwd();
 cd(DLKcatPath);
-disp('=== Preparing DLKcat environment...')
-system(['pipenv --python ' pythPath ' install -r requirements.txt'],'-echo');
+
+[checks.dlkcatenv.status, checks.dlkcatenv.out] = system('pipenv --py');
+if checks.dlkcatenv.status ~= 0
+    disp('=== Preparing DLKcat environment...')
+    system(['pipenv install -r requirements.txt --python ' pythPath], '-echo');
+end
 disp('=== Running DLKcat prediction, this may take several minutes...')
-system(['pipenv --python ' pythPath ' run python' three ' DLKcat.py ' DLKcatInput ' ' DLKcatOutput],'-echo');
+system(['pipenv run python' three ' DLKcat.py ' DLKcatInput ' ' DLKcatOutput],'-echo');
 cd(currPath);
 end
