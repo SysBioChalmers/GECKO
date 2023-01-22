@@ -42,8 +42,9 @@ function model = makeEcModel(model, geckoLight, modelAdapter)
 %       each reaction.
 %   10. [Skipped with geckoLight:] Add proteins as pseudometabolites.
 %   11. Add prot_pool pseudometabolite.
-%   12. [Skipped with geckoLight:] Add draw reactions for the protein
-%       pseudometabolites.
+%   12. [Skipped with geckoLight:] Add usage reactions for the protein
+%       pseudometabolites, replenishing from the protein pool (default, can
+%       be changed to consider proteomics data at later stage)
 %   13. Add protein pool reaction, without upper bound.
 %
 %   Note that while protein pseudometabolites, draw & pool reactions might
@@ -115,9 +116,9 @@ conflictId = startsWith(model.mets,'prot_');
 if any(conflictId)
     error('The identifiers in model.mets are not allowed to start with ''prot_''.')
 end
-conflictId = startsWith(model.rxns,'draw_');
+conflictId = startsWith(model.rxns,{'usage_prot_','prot_pool'});
 if any(conflictId)
-    error('The identifiers in model.rxns are not allowed to start with ''draw_''.')
+    error('The identifiers in model.rxns are not allowed to start with ''usage_prot'' or ''prot_pool''.')
 end
 
 uniprotDB = loadDatabases('uniprot', modelAdapter);
@@ -312,21 +313,21 @@ pool.compartments = 'c';
 pool.metNotes     = 'Enzyme-usage protein pool';
 model = addMets(model,pool);
 
-%12: Add protein draw reactions.
+%13: Add protein usage reactions.
 if ~geckoLight
-    drawRxns.rxns            = strcat('draw_',proteinMets.mets);
-    drawRxns.mets            = cell(numel(drawRxns.rxns),1);
-    drawRxns.stoichCoeffs    = cell(numel(drawRxns.rxns),1);
-    for i=1:numel(drawRxns.mets)
-        drawRxns.mets{i}         = {'prot_pool',proteinMets.mets{i}};
-        drawRxns.stoichCoeffs{i} = [-1,1];
+    usageRxns.rxns            = strcat('usage_',proteinMets.mets);
+    usageRxns.mets            = cell(numel(usageRxns.rxns),1);
+    usageRxns.stoichCoeffs    = cell(numel(usageRxns.rxns),1);
+    for i=1:numel(usageRxns.mets)
+        usageRxns.mets{i}         = {'prot_pool',proteinMets.mets{i}};
+        usageRxns.stoichCoeffs{i} = [-1,1];
     end
-    drawRxns.lb              = zeros(numel(drawRxns.rxns),1);
-    drawRxns.grRules         = ec.genes(uniprotSortId);
-    model = addRxns(model,drawRxns);
+    usageRxns.lb              = zeros(numel(usageRxns.rxns),1);
+    usageRxns.grRules         = ec.genes(uniprotSortId);
+    model = addRxns(model,usageRxns);
 end
 
-%13: Add protein pool reaction (with open UB)
+%12: Add protein pool reaction (with open UB)
 poolRxn.rxns            = 'prot_pool_exchange';
 poolRxn.mets            = {'prot_pool'};
 poolRxn.stoichCoeffs    = {1};

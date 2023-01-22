@@ -73,14 +73,16 @@ for i = 1:n
             if ~isempty(multGenes{1})
                 multGenes{3} = DBase;
             end
-        elseif ~isempty(kegg)
+        end
+        if isempty(new_EC) || endsWith(new_EC,'-') %No if-else to allow wildcard check
             %Find match in KEGG
-            [new_EC,multGenes] = findECInDB(gns,DBecNumKEGG,DBMWKEGG,geneIndexKEGG,geneHashMapKEGG);
-            if ~isempty(new_EC)
+            [new_EC_kegg,multGenes] = findECInDB(gns,DBecNumKEGG,DBMWKEGG,geneIndexKEGG,geneHashMapKEGG);
+            if ~isempty(new_EC_kegg)
                 DBase    = 'kegg';
                 if ~isempty(multGenes{1})
                     multGenes{3} = DBase;
                 end
+                new_EC=new_EC_kegg;
             end
         end
         eccodes{i} = new_EC;

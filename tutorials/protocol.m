@@ -17,7 +17,7 @@
 %     Should GECKO also be distributed as MATLAB Add-On, just like RAVEN?
 %   - GECKO should be added to the MATLAB path.
 % - On Uniprot:
-%   - Search a proteome for your species and note the Organism ID / TaxId
+%   - Search a proteome for your species and note the proteome ID
 %   - Check which gene identifiers are used in the model, and see where
 %     this is represented in Uniprot. E.g. for yeast, the genes are in
 %     "Gene Names (Ordered locus)", which via the API can be gather via
@@ -87,3 +87,8 @@ ecModel_fuzzy   = selectKcatValue(ecModel_fuzzy, kcatList);
 ecModel_fuzzy   = applyKcatConstraints(ecModel_fuzzy);
 
 sol = solveLP(ecModel_fuzzy)
+
+%% Contrain with proteomics data
+% Load proteomics
+ecModel_fuzzy = readProteomics(ecModel_fuzzy);
+ecModel_fuzzy = constrainProtConcs(ecModel_fuzzy);
