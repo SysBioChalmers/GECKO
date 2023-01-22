@@ -1,4 +1,4 @@
-function writeDLKcatInput(model, ecRxns, modelAdapter)
+function writeDLKcatInput(model, ecRxns, modelAdapter, onlyWithSmiles)
 % writeDLKcatInput
 %   Prepares the input for DLKcat, and writes it to data/DLKcatInput.tsv
 %   in the obj.params.path specified in the ModelAdapter.
@@ -11,10 +11,12 @@ function writeDLKcatInput(model, ecRxns, modelAdapter)
 %                   reactions)
 %   modelAdapter    a loaded model adapter (Optional, will otherwise use the
 %                   default model adapter).
+%   onlyWithSmiles  logical whether to only include metabolites with SMILES
+%                   (optional, default true)
 
 [geckoPath, ~] = findGECKOroot();
 
-if nargin<2
+if nargin<2 || isempty(ecRxns)
     ecRxns = true(numel(model.ec.rxns),1);
 elseif ~logical(ecRxns)
     error('ecRxns should be provided as logical vector')
@@ -29,6 +31,10 @@ if nargin < 3 || isempty(modelAdapter)
     end
 end
 params = modelAdapter.params;
+
+if nargin<6
+    onlyWithSmiles=true;
+end
 
 % Identify reactions for which kcat should be predicted (entry in model.ec.rxns)
 rxnsToInclude = model.ec.rxns(ecRxns);
@@ -99,8 +105,12 @@ if isfield(model,'metSmiles')
 else
     out(4,:) = cell(numel(substrates(ecRxns)),1);
 end
-out(4,cellfun(@isempty,out(4,:))) = {'None'};
 out(5,:) = model.ec.sequence(proteins);
+if onlyWithSmiles
+    out(:,cellfun(@isempty,out(4,:))) = [];
+else
+    out(4,cellfun(@isempty,out(4,:))) = {'None'};
+end
 out = [{'Reaction ID';'Gene ID';'Substrate Name';'Substrate SMILES';'Protein Sequence'}, out];
 
 % Write file

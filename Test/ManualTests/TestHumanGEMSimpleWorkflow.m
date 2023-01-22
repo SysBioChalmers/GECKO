@@ -59,6 +59,13 @@ constructEquations(lightECModel)
 find(lightECModel.S(length(lightECModel.mets),:) < -10^12)
 constructEquations(lightECModel, lightECModel.rxns(851))
 
+%run dlKcat
+%ModelAdapterManager.setDefaultAdapter(humanAdapter); %dlkcat functions currently do not well support sending in an adapter - fix later
+fullECModel.metSmiles = findMetSmiles(fullECModel.metNames);
+writeDLKcatInput(fullECModel, [], humanAdapter);
+runDLKcat([], [], humanAdapter, [], 'C:/Python38/Python38/python.exe', 'C:/Python38/Python38/Scripts/pip.exe');
+kcatListDlKcat = readDLKcatOutput(fullECModel, [], humanAdapter);
+
 lightECModel.ec.mw(strcmp(lightECModel.ec.rxns, '001_MAR03875')) %25195, reasonable
 lightECModel.ec.kcat(strcmp(lightECModel.ec.rxns, '001_MAR03875')) %8.8300e-05, very small
 

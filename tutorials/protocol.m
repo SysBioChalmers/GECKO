@@ -43,6 +43,7 @@ modelY = importModel(fullfile(modelRoot,'models','yeast-GEM.xml'));
 
 % Set the ModelAdapter correctly
 ModelAdapterManager.setDefaultAdapterFromPath(fullfile(modelRoot));
+ModelAdapter = ModelAdapterManager.getDefaultAdapter();
 
 % Prepare ec-model
 ecModel = makeEcModel(modelY);
@@ -50,6 +51,12 @@ ecModel = makeEcModel(modelY);
 % the new model.ec structure and prepares the S-matrix by splitting
 % reversible reactions, isozymes etc.
 % Can also make a geckoLight model with makeEcModel(..,..,true);
+
+% Store model in YAML format. Might be good to write a small wrapper
+% function, so you do not need to provide the path from ModelAdapter.
+% writeYAMLmodel is a RAVEN 2.7.10 function
+writeYAMLmodel(ecModel,fullfile(ModelAdapter.params.path,'models','ecYeastGEM'));
+
 
 %% Gather kcat values
 % Different approaches are possible: (1) DLKcat; (2) fuzzy matching; (3)
@@ -60,13 +67,15 @@ ecModel = makeEcModel(modelY);
 
 % (1) DLKcat
 % Requires metabolite SMILES:
-model.metSmiles = findMetSmiles(model.metNames);
+ecModel.metSmiles = findMetSmiles(ecModel.metNames);
 % Currently, a DLKcatInput.tsv file is written that can be used by DLKcat,
 % and the DLKcatOutput.tsv file can be loaded into MATLAB again. Feiran is
 % also working on providing DLKcat as a package that can directly be called
 % by GECKO/MATLAB.
-writeDLKcatInput(model);
-kcatList = readDLKcatOutput(model);
+
+writeDLKcatInput(ecModel);
+runDLKcat();
+kcatList = readDLKcatOutput(ecModel);
 ecModel  = selectKcatValue(ecModel,kcatList);
 ecModel  = applyKcatConstraints(ecModel);
 
