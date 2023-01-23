@@ -1,4 +1,4 @@
-function writeDLKcatInput(model, ecRxns, modelAdapter, onlyWithSmiles)
+function writtenTable = writeDLKcatInput(model, ecRxns, modelAdapter, onlyWithSmiles)
 % writeDLKcatInput
 %   Prepares the input for DLKcat, and writes it to data/DLKcatInput.tsv
 %   in the obj.params.path specified in the ModelAdapter.
@@ -13,6 +13,9 @@ function writeDLKcatInput(model, ecRxns, modelAdapter, onlyWithSmiles)
 %                   default model adapter).
 %   onlyWithSmiles  logical whether to only include metabolites with SMILES
 %                   (optional, default true)
+%
+% Output:
+%   writtenTable    The table written, mainly to be used for testing purposes.
 
 [geckoPath, ~] = findGECKOroot();
 
@@ -32,15 +35,23 @@ if nargin < 3 || isempty(modelAdapter)
 end
 params = modelAdapter.params;
 
-if nargin<6
+if nargin<4
     onlyWithSmiles=true;
 end
 
 % Identify reactions for which kcat should be predicted (entry in model.ec.rxns)
 rxnsToInclude = model.ec.rxns(ecRxns);
 ecRxns        = find(ecRxns); % Change to indices
+
+if ~model.ec.geckoLight
+   origRxns = model.ec.rxns;
+else
+   origRxns = extractAfter(model.ec.rxns,4);
+end
+origRxnsToInclude = origRxns(ecRxns);
+
 % Map back to original reactions, to extract substrates
-[sanityCheck,rxnIdxs] = ismember(rxnsToInclude,model.rxns);
+[sanityCheck,origRxnIdxs] = ismember(origRxnsToInclude,model.rxns);
 if ~all(sanityCheck)
     error('Not all reactions in model.ec.rxns are found in model.rxns')
 end
@@ -91,13 +102,21 @@ for i=1:size(currencyMets,1)
     reducedS([subs;prod],pairRxns) = 0;
 end
 
+%filter out the reactions we're not interested in - will solve the problem for both full and light
+clearedRedS = reducedS(:,origRxnIdxs);
+rxnsToClear = true(length(origRxnIdxs),1);
+rxnsToClear(ecRxns) = false;
+clearedRedS(:,rxnsToClear) = 0;
+
 % Enumerate all substrates for each reaction
-[substrates, reactions] = find(reducedS(:,rxnIdxs)<0);
+[substrates, reactions] = find(clearedRedS<0); %the reactions here are in model.ec.rxns space
+
 % Enumerate all proteins for each reaction
-[proteins, ecRxns] = find(transpose(model.ec.rxnEnzMat(ecRxns(reactions),:)));
+[proteins, ecRxns] = find(transpose(model.ec.rxnEnzMat(reactions,:)));
 
 % Prepare output
-out(1,:) = model.rxns(rxnIdxs(reactions(ecRxns)));
+out(1,:) = model.ec.rxns(reactions(ecRxns));
+%out(1,:) = model.rxns(origRxnIdxs(reactionsTrans(ecRxns)));
 out(2,:) = model.ec.genes(proteins);
 out(3,:) = model.metNames(substrates(ecRxns));
 if isfield(model,'metSmiles')
@@ -105,6 +124,7 @@ if isfield(model,'metSmiles')
 else
     out(4,:) = cell(numel(substrates(ecRxns)),1);
 end
+
 out(5,:) = model.ec.sequence(proteins);
 if onlyWithSmiles
     out(:,cellfun(@isempty,out(4,:))) = [];
@@ -117,4 +137,6 @@ out = [{'Reaction ID';'Gene ID';'Substrate Name';'Substrate SMILES';'Protein Seq
 fID = fopen(fullfile(params.path,'data','DLKcatInput.tsv'),'w');
 fprintf(fID,'%s\t%s\t%s\t%s\t%s\n',out{:});
 fclose(fID);
+
+writtenTable = out;
 end
