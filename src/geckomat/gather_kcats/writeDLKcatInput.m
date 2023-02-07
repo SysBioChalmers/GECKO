@@ -1,6 +1,6 @@
 function writtenTable = writeDLKcatInput(model, ecRxns, modelAdapter, onlyWithSmiles)
 % writeDLKcatInput
-%   Prepares the input for DLKcat, and writes it to data/DLKcatInput.tsv
+%   Prepares the input for DLKcat, and writes it to data/DLKcat.tsv
 %   in the obj.params.path specified in the ModelAdapter.
 %
 % Input:
@@ -131,11 +131,12 @@ if onlyWithSmiles
 else
     out(4,cellfun(@isempty,out(4,:))) = {'None'};
 end
-out = [{'Reaction ID';'Gene ID';'Substrate Name';'Substrate SMILES';'Protein Sequence'}, out];
+out(6,:) = cell(numel(out(1,:)),1);
+out(6,:) = {'NA'};
 
 % Write file
-fID = fopen(fullfile(params.path,'data','DLKcatInput.tsv'),'w');
-fprintf(fID,'%s\t%s\t%s\t%s\t%s\n',out{:});
+fID = fopen(fullfile(params.path,'data','DLKcat.tsv'),'w');
+fprintf(fID,'%s\t%s\t%s\t%s\t%s\t%s\n',out{:});
 fclose(fID);
 
 writtenTable = out;
