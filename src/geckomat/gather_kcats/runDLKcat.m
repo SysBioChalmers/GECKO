@@ -118,18 +118,17 @@ if isempty(pythonPath)
             [~, pythonPath] = system('which python');
         end
     end
+end
+if endsWith(pythonPath,'.exe')
+    pythonPath = pythonPath(1:end-4);
+end
+if endsWith(pythonPath,'python3')
+    three = '3';
+    pythonPath = pythonPath(1:end-7);
+elseif endsWith(pythonPath,'python')
+    pythonPath = pythonPath(1:end-6);
 else
-    if endsWith(pythonPath,'.exe')
-        pythonPath = pythonPath(1:end-4);
-    end
-    if endsWith(pythonPath,'python3')
-        three = '3';
-        pythonPath = pythonPath(1:end-7);
-    elseif endsWith(pythonPath,'python')
-        pythonPath = pythonPath(1:end-6);
-    else
-        error('pythonPath should end with either "python", "python.exe", "python3" or "python3.exe".')
-    end
+    error('pythonPath should end with either "python", "python.exe", "python3" or "python3.exe".')
 end
 
 % add the Python package dir to PATH.
