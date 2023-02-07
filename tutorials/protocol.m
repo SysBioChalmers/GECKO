@@ -13,9 +13,13 @@
 %     model-specific files, e.g. userData/ecYeastGEM/model/yeast-GEM.xml
 % - Install RAVEN & GECKO
 %   - RAVEN can be installed in many different ways, refer to GitHub Wiki.
+checkInstallation % To confirm that RAVEN is functioning
+
 %   - GECKO can be installed via cloning or direct download of ZIP file.
 %     Should GECKO also be distributed as MATLAB Add-On, just like RAVEN?
 %   - GECKO should be added to the MATLAB path.
+GECKOInstaller.install % Adds the appropriate folders to MATLAB
+
 % - On Uniprot:
 %   - Search a proteome for your species and note the proteome ID
 %   - Check which gene identifiers are used in the model, and see where
@@ -24,8 +28,8 @@
 %     "gene_oln" according to https://www.uniprot.org/help/return_fields
 % - On KEGG:
 %   - Find the organism code of your species
-% - Prepare a ModelAdapter file with some of the above information and
-%   more.
+% - Modify the ModelAdapter file in the appropriate userData subfolder 
+%   with some of the above information and more.
 
 %% Summary
 % Pipeline can look different dependent on user preferences. Getting an
@@ -38,10 +42,13 @@
 
 %% Initiate model reconstruction
 % Load the model with RAVEN's importModel
+% For yeast-GEM, the model is already in userData/ecYeastGEM/models/
+% Define modelRoot as userData/ecYeastGEM
 modelRoot = fullfile(findGECKOroot,'userData','ecYeastGEM');
 modelY = importModel(fullfile(modelRoot,'models','yeast-GEM.xml'));
 
-% Set the ModelAdapter correctly
+% Set the ModelAdapter correctly. This loads the ModelAdapter file that is
+% in userData/ecYeastGEM/
 ModelAdapterManager.setDefaultAdapterFromPath(fullfile(modelRoot));
 ModelAdapter = ModelAdapterManager.getDefaultAdapter();
 
@@ -50,13 +57,14 @@ ecModel = makeEcModel(modelY);
 % Read makeEcModel documentation to get a list of all it does: it prepare
 % the new model.ec structure and prepares the S-matrix by splitting
 % reversible reactions, isozymes etc.
+
 % Can also make a geckoLight model with makeEcModel(..,..,true);
 
 % Store model in YAML format. Might be good to write a small wrapper
 % function, so you do not need to provide the path from ModelAdapter.
 % writeYAMLmodel is a RAVEN 2.7.10 function
-writeYAMLmodel(ecModel,fullfile(ModelAdapter.params.path,'models','ecYeastGEM'));
 
+writeYAMLmodel(ecModel,fullfile(ModelAdapter.params.path,'models','ecYeastGEM'));
 
 %% Gather kcat values
 % Different approaches are possible: (1) DLKcat; (2) fuzzy matching; (3)
@@ -68,23 +76,33 @@ writeYAMLmodel(ecModel,fullfile(ModelAdapter.params.path,'models','ecYeastGEM'))
 % (1) DLKcat
 % Requires metabolite SMILES:
 ecModel.metSmiles = findMetSmiles(ecModel.metNames);
+
 % Currently, a DLKcatInput.tsv file is written that can be used by DLKcat,
-% and the DLKcatOutput.tsv file can be loaded into MATLAB again. Feiran is
-% also working on providing DLKcat as a package that can directly be called
-% by GECKO/MATLAB.
+% and the DLKcatOutput.tsv file can be loaded into MATLAB again. runDLKcat
+% will attempt to download, install and run DLKcat, but this might not work
+% for all systems. In that case, the user will be directed to manually
+% download, install and DLKcat via the GECKO-provided DLKcat package
 
 writeDLKcatInput(ecModel);
 runDLKcat();
-kcatList = readDLKcatOutput(ecModel);
-ecModel  = selectKcatValue(ecModel,kcatList);
-ecModel  = applyKcatConstraints(ecModel);
+kcatList_DLKcat = readDLKcatOutput(ecModel);
+ecModel         = selectKcatValue(ecModel,kcatList_DLKcat);
+ecModel         = applyKcatConstraints(ecModel);
 
 % (2) fuzzy matching
-% Requires EC-codes
-ecModel_fuzzy   = getECfromGEM(ecModel);
-kcatList        = fuzzyKcatMatching(ecModel_fuzzy);
-ecModel_fuzzy   = selectKcatValue(ecModel_fuzzy, kcatList);
+% Requires EC-codes. Can be either gathered from the model.eccodes field,
+% or from the Uniprot (and KEGG) data
+ecModel         = getECfromGEM(ecModel);
+%ecModel_fuzzy   = getECfromDatabase(ecModel);
+kcatList_fuzzy  = fuzzyKcatMatching(ecModel);
+ecModel_fuzzy   = selectKcatValue(ecModel, kcatList_fuzzy);
 ecModel_fuzzy   = applyKcatConstraints(ecModel_fuzzy);
+
+% (3) combine fuzzy matching and DLkcat
+% Assumes that you've run both step (1) and step (2)
+kcatList_merged = mergeDlkcatAndFuzzyKcats(kcatList_DLKcat, kcatList_fuzzy);
+ecModel_merged  = selectKcatValue(ecModel, kcatList_merged);
+ecModel_merged  = applyKcatConstraints(ecModel_merged);
 
 sol = solveLP(ecModel_fuzzy)
 
