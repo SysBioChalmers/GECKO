@@ -38,7 +38,6 @@ else
     uniprotRev = '';
 end
 
-weboptions('Timeout',10);
 warning('off', 'MATLAB:MKDIR:DirectoryExists');
 
 %% Uniprot
@@ -52,7 +51,7 @@ if any(strcmp(selectDatabase,{'uniprot','both'}))
         url = ['https://rest.uniprot.org/uniprotkb/stream?query=' uniprotRev ...
                'proteome:' num2str(uniprotID) '&fields=accession%2C' geneIdField ...
             '%2Cgene_primary%2Cec%2Cmass%2Csequence&format=tsv&compressed=false&sort=protein_name%20asc'];
-        urlwrite(url,uniprotPath);
+        urlwrite(url,uniprotPath,'Timeout',30);
     end
     if exist(uniprotPath,'file')
         fid         = fopen(uniprotPath,'r');
@@ -97,7 +96,8 @@ end
 function downloadKEGG(keggID, filePath)
 %% Download gene information
 fprintf('Downloading KEGG data for organism code %s...   0%% complete',keggID);
-gene_list = webread(['http://rest.kegg.jp/list/' keggID]);
+options = weboptions('Timeout',30);
+gene_list = webread(['http://rest.kegg.jp/list/' keggID],options);
 gene_list = regexpi(gene_list, '[^\n]+','match')';
 gene_id   = regexpi(gene_list,['(?<=' keggID ':)\S+'],'match');
 
@@ -118,7 +118,7 @@ for i = 1:queries
     end
     url      = ['http://rest.kegg.jp/get/' keggID ':' strjoin([gene_id{firstIdx:lastIdx}],['+' keggID ':'])];
 
-    out      = webread(url);
+    out      = webread(url,options);
     outSplit = strsplit(out,['///' 10]); %10 is new line character
     if numel(outSplit) < lastIdx-firstIdx+2
         error('KEGG returns less genes per query') %Reduce genesPerQuery
@@ -144,10 +144,6 @@ gene_name = regexprep(keggGenes,'ENTRY\s+(\S+?)\s.+','$1');
 
 EC_names  = regexprep(keggGenes,'.*ORTHOLOGY.*\[EC:(.*?)\].*','$1');
 EC_names(startsWith(EC_names,'ENTRY ')) = {''};
-
-sequence  = regexprep(keggGenes,'.*AASEQ\s+\d+\s+([A-Z\s])+?\s+NTSEQ.*','$1');
-sequence(startsWith(sequence,'ENTRY ')) = {''};
-sequence  = regexprep(sequence,'\s*','');
 
 MW = cell(numel(sequence),1);
 for i=1:numel(sequence)
