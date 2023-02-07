@@ -116,9 +116,12 @@ conflictId = startsWith(model.mets,'prot_');
 if any(conflictId)
     error('The identifiers in model.mets are not allowed to start with ''prot_''.')
 end
-conflictId = startsWith(model.rxns,{'usage_prot_','prot_pool'});
+conflictId = startsWith(model.rxns,{'usage_prot_','prot_pool'}) | ...
+             endsWith(model.rxns,'_REV') | ...
+             ~cellfun(@isempty,regexp(model.rxns,'_EXP_\d+$'));
 if any(conflictId)
-    error('The identifiers in model.rxns are not allowed to start with ''usage_prot'' or ''prot_pool''.')
+    error(['The identifiers in model.rxns are not allowed to start with ''usage_prot'' ' ...
+           'or ''prot_pool'', or end with ''_REV'' or ''_EXP_[digit]''.'])
 end
 
 uniprotDB = loadDatabases('uniprot', modelAdapter);
@@ -137,12 +140,6 @@ to_swap=model.lb < 0 & model.ub == 0;
 model.S(:,to_swap)=-model.S(:,to_swap);
 model.ub(to_swap)=-model.lb(to_swap);
 model.lb(to_swap)=0;
-
-%Delete blocked rxns (LB = UB = 0). Best not to do, as you cannot unblock
-%these reactions later once removed. Better to do this once you run
-%analysis.
-% to_remove = logical((model.lb == 0).*(model.ub == 0));
-% model     = removeReactions(model,model.rxns(to_remove),true,true,true);
 
 %3: Correct rev vector: true if LB < 0 & UB > 0, or it is an exchange reaction:
 model.rev = false(size(model.rxns));
