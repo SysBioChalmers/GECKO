@@ -1,4 +1,4 @@
-function [model, rxnUpdated, rxnNotMatch] = applyCustomKcats(model, modelAdapter)
+function [model, rxnUpdated, notMatch] = applyCustomKcats(model, modelAdapter)
 % applyCustomKcats
 %   Apply user defined kcats
 %
@@ -10,13 +10,13 @@ function [model, rxnUpdated, rxnNotMatch] = applyCustomKcats(model, modelAdapter
 % Output:
 %   model                ecModel where kcats for defined proteins have been
 %                             changed
-%   rxnUpdated        list of updated reactions, new kcats were applied 
-%   rxnNotMatch      list of reaction which the custom information provided does not have 
-%                             full match (100%) based on GPR rules, suggested to be curated by the
-%                             user
+%   rxnUpdated        ids list of updated reactions, new kcats were applied
+%   notMatch            table with the list of reactions which the custom information provided
+%                             does not have full match (> 50%) based on GPR rules. Then, they are 
+%                             suggested to be curated by the user
 %
 % Usage:
-%   [model, rxnUpdated, rxnNotMatch] = applyComplexData(model, modelAdapter);
+%   [model, rxnUpdated, notMatch] = applyComplexData(model, modelAdapter);
 
 if nargin < 2 || isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefaultAdapter();
@@ -32,12 +32,13 @@ fclose(fID);
 
 rxnToUpdate = false(length(model.ec.rxns),1);
 rxnNotMatch = false(length(model.ec.rxns),1);
+evaluatedRule = cell(length(model.ec.rxns),1);
+enzInModel = cell(length(model.ec.rxns),1);
 
 % Implementation for full GECKO formulation
 if ~model.ec.geckoLight
     for i = 1:numel(customKcats{1})
         prots = strtrim(strsplit(customKcats{1}{i}, '+'));
-
 
         % Find the index for the enzymes which kcat will be changed. In
         % case the protein is not in the model generate a warning.
@@ -64,10 +65,22 @@ if ~model.ec.geckoLight
                 % Get all the enzymes involved in the reaction
                 allEnzInRxn = find(model.ec.rxnEnzMat(rxnIdxs(j),:));
 
-                % Only keep reactions that have full match with the gene
-                % rule
-                [C,ia,ib] = intersect(enzIdx, allEnzInRxn);
-                if numel(ia) == numel(enzIdx) && numel(ib) == numel(allEnzInRxn)
+                C = intersect(enzIdx, allEnzInRxn);
+
+                % Determine the match percentaje bewteen the rules
+                if numel(C) == numel(enzIdx) && numel(C) == numel(allEnzInRxn)
+                    match = 1;
+                else
+                    if numel(enzIdx) < numel(allEnzInRxn)
+                        match = numel(C) / numel(allEnzInRxn);
+                    else
+                        match = numel(C) / numel(enzIdx);
+                    end
+                end
+
+                % Update the kcat value stored in the model, if match 100%,
+                % otherwhise if >= 0.5 inform to the user to be validated
+                if match == 1
                     rxnToUpdate(rxnIdxs(j)) = 1;
                     model.ec.kcat(rxnIdxs(j)) = customKcats{4}(i);
 
@@ -77,18 +90,28 @@ if ~model.ec.geckoLight
                     else
                         model.ec.notes{rxnIdxs(j), 1} = [model.ec.notes{rxnIdxs(j), 1} ', kcat modified manually'];
                     end
-                else
+                elseif match >= 0.5 && match < 1
                     rxnNotMatch(rxnIdxs(j)) = 1;
-                    disp(['Reaction ' model.ec.rxns{rxnIdxs(j)} ' does not have full match with the custom data: ' customKcats{1}{i}]);
+                    evaluatedRule{rxnIdxs(j), 1} = customKcats{1}{i};
+                    enzInModel{rxnIdxs(j), 1} = strjoin(model.ec.enzymes(allEnzInRxn), ' + ');
                 end
             end
         end
     end
-    
+
     % Apply the new kcat values to the model
     model = applyKcatConstraints(model, rxnToUpdate);
+
     rxnUpdated = model.ec.rxns(find(rxnToUpdate));
-    rxnNotMatch = model.ec.rxns(find(rxnNotMatch));
+
+    idRxns = model.ec.rxns(find(rxnNotMatch));
+    fullIdx = cellfun(@(x) find(strcmpi(model.rxns, x)), idRxns);
+    rxnsNames = model.rxnNames(fullIdx);
+    evaluatedRule = evaluatedRule(~cellfun('isempty', evaluatedRule));
+    enzInModel = enzInModel(~cellfun('isempty', enzInModel));
+    rules = model.grRules(fullIdx);
+    notMatch = table(idRxns, rxnsNames, evaluatedRule, enzInModel, rules, ...
+        'VariableNames',{'rxns', 'name', 'custom enzymes', 'enzymes in model', 'rules'});
 
 end
 
