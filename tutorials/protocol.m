@@ -41,16 +41,16 @@ GECKOInstaller.install % Adds the appropriate folders to MATLAB
 % -> ...
 
 %% Initiate model reconstruction
-% Load the model with RAVEN's importModel
-% For yeast-GEM, the model is already in userData/ecYeastGEM/models/
-% Define modelRoot as userData/ecYeastGEM
-modelRoot = fullfile(findGECKOroot,'userData','ecYeastGEM');
-modelY = importModel(fullfile(modelRoot,'models','yeast-GEM.xml'));
 
 % Set the ModelAdapter correctly. This loads the ModelAdapter file that is
-% in userData/ecYeastGEM/
+% in userData/ecYeastGEM/. First define modelRoot as userData/ecYeastGEM
+modelRoot = fullfile(findGECKOroot,'userData','ecYeastGEM');
 ModelAdapterManager.setDefaultAdapterFromPath(fullfile(modelRoot));
 ModelAdapter = ModelAdapterManager.getDefaultAdapter();
+
+% Load the model with RAVEN's importModel
+% For yeast-GEM, the model is already in userData/ecYeastGEM/models/
+modelY = importModel(fullfile(modelRoot,'models','yeast-GEM.xml'));
 
 % Prepare ec-model
 ecModel = makeEcModel(modelY);
@@ -63,8 +63,18 @@ ecModel = makeEcModel(modelY);
 % Store model in YAML format. Might be good to write a small wrapper
 % function, so you do not need to provide the path from ModelAdapter.
 % writeYAMLmodel is a RAVEN 2.7.10 function
-
 writeYAMLmodel(ecModel,fullfile(ModelAdapter.params.path,'models','ecYeastGEM'));
+ecModel=readYAMLmodel(fullfile(ModelAdapter.params.path,'models','ecYeastGEM.yml'));
+
+%% Gather complex data
+% For species with data in ComplexPortal, you can gather that information
+% with getComplexData (no need to repeat for yeast-GEM, already stored in
+% data subfolder)
+% complexInfo = getComplexData();
+[ecModel, foundComplex, proposedComplex] = applyComplexData(ecModel);
+
+% Describe manual curation. Albert has a function to also apply text file
+% with curated complex data.
 
 %% Gather kcat values
 % Different approaches are possible: (1) DLKcat; (2) fuzzy matching; (3)
@@ -92,10 +102,10 @@ ecModel         = applyKcatConstraints(ecModel);
 % (2) fuzzy matching
 % Requires EC-codes. Can be either gathered from the model.eccodes field,
 % or from the Uniprot (and KEGG) data
-ecModel         = getECfromGEM(ecModel);
-%ecModel_fuzzy   = getECfromDatabase(ecModel);
+%ecModel         = getECfromGEM(ecModel);
+ecModel         = getECfromDatabase(ecModel);
 kcatList_fuzzy  = fuzzyKcatMatching(ecModel);
-ecModel_fuzzy   = selectKcatValue(ecModel, kcatList_fuzzy);
+ecModel_fuzzy   = selectKcatValue(ecModel_fuzzy, kcatList_fuzzy);
 ecModel_fuzzy   = applyKcatConstraints(ecModel_fuzzy);
 
 % (3) combine fuzzy matching and DLkcat
@@ -104,7 +114,35 @@ kcatList_merged = mergeDlkcatAndFuzzyKcats(kcatList_DLKcat, kcatList_fuzzy);
 ecModel_merged  = selectKcatValue(ecModel, kcatList_merged);
 ecModel_merged  = applyKcatConstraints(ecModel_merged);
 
-sol = solveLP(ecModel_fuzzy)
+writeYAMLmodel(ecModel_merged,fullfile(ModelAdapter.params.path,'models','ecYeastGEM'));
+
+% Solve without proteome constraint
+sol = solveLP(ecModel_merged,1)
+printFluxes(ecModel_merged, sol.x)
+% RAVEN currently gives warning about _REV in reaction identifiers when ,1
+% is used in solveLP, this will be removed in next RAVEN release
+
+%% Tune kcat values to reach max growth rate
+% Protein = 0.5; enzyme = 0.5; saturation = 0.5; = 0.125
+ecModel_merged = setProtPoolSize(ecModel_merged,125);
+% Unlimited glucose uptake
+ecModel_merged = setParam(ecModel_merged,'lb','r_1714',-1000);
+sol = solveLP(ecModel_merged)
+% Growth rate is not high enough (0.01 instead of 0.41). Let increase the
+% kcat values of reactions with the most-used enzymes by 2-fold in each
+% iteration. Most-used enzymes (% of protein pool) are most-limiting growth.
+% A reaction might have its kcat increased multiple times. TunedKcats gives
+% an overview of what kcat values were changed
+[ecModelTuned, tunedKcats] = sensitivityTuning(ecModel_merged,[],[],2);
+
+
+%% Set realistic conditions
+% Model-specific reactions/scripts can be defined for this, but this is so
+% specific that it does not make much sense to make a generic function like
+% changeMedia_yeast
+
+
+
 
 %% Contrain with proteomics data
 % Load proteomics
