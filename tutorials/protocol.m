@@ -124,7 +124,7 @@ printFluxes(ecModel_merged, sol.x)
 
 %% Tune kcat values to reach max growth rate
 % Protein = 0.5; enzyme = 0.5; saturation = 0.5; = 0.125
-ecModel_merged = setProtPoolSize(ecModel_merged,125);
+ecModel_merged = constrainPool(ecModel_merged);
 % Unlimited glucose uptake
 ecModel_merged = setParam(ecModel_merged,'lb','r_1714',-1000);
 sol = solveLP(ecModel_merged)
@@ -135,6 +135,9 @@ sol = solveLP(ecModel_merged)
 % an overview of what kcat values were changed
 [ecModelTuned, tunedKcats] = sensitivityTuning(ecModel_merged,[],[],2);
 
+% Tune sigma-factor (not sure why this is done, as it is set to 0.5 default
+% and it just reaches the same here again?
+[ecModelTuned, optSigma] = sigmaFitter(ecModelTuned);
 
 %% Set realistic conditions
 % Model-specific reactions/scripts can be defined for this, but this is so
@@ -143,8 +146,8 @@ sol = solveLP(ecModel_merged)
 
 
 
-
 %% Contrain with proteomics data
 % Load proteomics
-ecModel_fuzzy = readProteomics(ecModel_fuzzy);
-ecModel_fuzzy = constrainProtConcs(ecModel_fuzzy);
+ecModelProt = readProteomics(ecModelTuned);
+ecModelProt = constrainProtConcs(ecModelProt);
+sol=solveLP(ecModelProt)
