@@ -7,6 +7,11 @@ function [model, rxnUpdated, notMatch] = applyCustomKcats(model, modelAdapter)
 %   modelAdapter    a loaded model adapter (Optional, will otherwise use the
 %                             default model adapter).
 %
+%   A file data/customKcats.tsv will be read from the obj.params.path
+%   folder specified in the modelAdapter. A set of reactions can be defined
+%   for specific changes (e.g. r_0001). Reactions id should be comma
+%   separated (e.g. r_0001, r_0002).
+%
 % Output:
 %   model                ecModel where kcats for defined proteins have been
 %                             changed
@@ -27,7 +32,7 @@ end
 params = modelAdapter.params;
 
 fID = fopen(fullfile(params.path, 'data', 'customKcats.tsv'), 'r');
-customKcats = textscan(fID, '%s %s %s %f %s %s %s', 'Delimiter', '\t', 'HeaderLines', 1);
+customKcats = textscan(fID, '%s %s %s %f %q %s %s', 'Delimiter', '\t', 'HeaderLines', 1);
 fclose(fID);
 
 rxnToUpdate = false(length(model.ec.rxns),1);
@@ -49,8 +54,15 @@ if ~model.ec.geckoLight
             disp( ['Protein(s) ' customKcats{1}{i} ' were not found in the model.']);
         end
 
-        % Find all the reactions index where the enzyme is used
-        temp_rxnIdxs = arrayfun(@(x) find(model.ec.rxnEnzMat(:, x)), enzIdx, 'UniformOutput', false);
+        % if not specific reactions are defined, find all the reaction
+        % index where the enzyme is used
+        if isempty(customKcats{5}{i}) 
+            temp_rxnIdxs = arrayfun(@(x) find(model.ec.rxnEnzMat(:, x)), enzIdx, 'UniformOutput', false);
+        % otherwhise, If a set of reactions if defined, only get the index for those
+        else 
+            rxns = strtrim(strsplit(customKcats{5}{i}, ','));
+            temp_rxnIdxs = arrayfun(@(x) find(strcmpi(model.ec.rxns, x)), rxns, 'UniformOutput', false);
+        end
 
         if ~isempty(temp_rxnIdxs)
             rxnIdxs = [];
