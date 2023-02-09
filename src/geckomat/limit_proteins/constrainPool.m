@@ -1,37 +1,56 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% model = constrainPool(model,non_measured,UB)
-% 
-% Benjamin J. Sanchez. Last edited: 2018-11-11
-% Ivan Domenzain.      Last edited: 2019-07-13
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function model = constrainPool(model,non_measured,UB,parameters)
+function model = constrainPool(model, Ptot, f, sigma, modelAdapter)
+% constrainPool
+%   Draw all enzyme usages from the total protein pool, discarding any
+%   constraints based on specific protein concentrations.
+%
+% Input:
+%   model           an ec-model
+%   Ptot            Total cellular protein content in g/gDCW. If not
+%                   specified, the value will be read from the model
+%                   adapter. If not specified in model adapter, 0.5 g/gDCW
+%                   is assumed.
+%   f               Estimated fraction of enzymes in the model. If not
+%                   specified, the value will be read from the model
+%                   adapter. If not specified in model adapter, 0.5 is
+%                   assumed.
+%   sigma           Estimated saturation factor. If not specified, the
+%                   value will be read from the model adapter. If not
+%                   specified in model adapter, 0.5 is assumed.
+%   modelAdapter    a loaded model adapter (Optional, will otherwise use the
+%                   default model adapter).
+%
+% Output:
+%   model           an ec-model constraint by total protein
 
-%Find compartment id:
-compIndex = strcmpi(model.compNames,parameters.enzyme_comp);
-comp      = model.comps{compIndex};
-%Define new rxns: For each enzyme, add a new rxn that draws enzyme from the
-%enzyme pool (a new metabolite), and remove previous exchange rxn. The new
-%rxns have the following stoichiometry (T is the enzyme pool):
-% MW[i]*P[T] -> P[i]
-for i = 1:length(model.enzymes)
-    if non_measured(i)
-        rxnToAdd.rxns         = {['draw_prot_' model.enzymes{i}]};
-        rxnToAdd.rxnNames     = rxnToAdd.rxns;
-        rxnToAdd.mets         = {'prot_pool' ['prot_' model.enzymes{i}]};
-        rxnToAdd.stoichCoeffs = [-model.MWs(i) 1];
-        rxnToAdd.lb           = 0; % ub is taken from model default
-        rxnToAdd.grRules      = model.enzGenes(i);
-        model = addRxns(model,rxnToAdd,1,comp,true);
-        model = removeReactions(model,{['prot_' model.enzymes{i} '_exchange']});
-    end
+%Get indices of usage reactions 
+usageRxns = strcat('usage_prot_',model.ec.enzymes);
+[~, usageRxnsIdx] = ismember(usageRxns, model.rxns);
+
+if any(usageRxnsIdx == 0)
+    error('Usage reactions are not defined for all enzymes. This is done by makeEcModel.')
 end
-%Finally, constraint enzyme pool by fixed value:
-rxnToAdd.rxns         = {'prot_pool_exchange'};
-rxnToAdd.rxnNames     = rxnToAdd.rxns;
-rxnToAdd.mets         = {'prot_pool'};
-rxnToAdd.stoichCoeffs = 1;
-rxnToAdd.lb           = 0;
-rxnToAdd.ub           = UB;
-rxnToAdd.grRules      = {''};
-model = addRxns(model,rxnToAdd);
+%Get index of protein pool exchange rxn
+protPoolIdx = find(ismember(model.mets,'prot_pool'));
+if ~any(protPoolIdx)
+    error('Cannot find protein pool pseudometabolite.')
+end
+
+%Set all reactions to draw from prot_pool
+model.S(protPoolIdx, usageRxnsIdx) = -1;
+model.ub(usageRxnsIdx) = Inf;
+
+if nargin<5
+    modelAdapter = [];
+end
+if nargin<4
+    sigma = [];
+end
+if nargin<3
+    f = [];
+end
+if nargin<2
+    Ptot = [];
+end
+
+model = setProtPoolSize(model, Ptot, f, sigma, modelAdapter);
 end
