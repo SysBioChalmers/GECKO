@@ -30,7 +30,7 @@ end
 params = modelAdapter.getParameters();
 
 if nargin < 2 || isempty(protData)
-    protData = fullfile(params.path,'data','proteomics.txt');
+    protData = fullfile(params.path,'data','proteomics.tsv');
 end
 
 switch class(protData)

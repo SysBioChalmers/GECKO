@@ -1,22 +1,20 @@
-function [f,count] = calculateFfactor(model, protData, modelAdapter)
+function f = calculateFfactor(model, protData, enzymes, modelAdapter)
 % calculateFfactor
 %
 % Computes the f factor, as a proxy to the mass fraction of proteins accounted 
-% for in an ecModel out of the total protein content in cells. An
-% integrated quantitative proteomics dataset from the https://pax-db.org/
-% database (stored in this toolbox as: 'GECKO/databases/prot_abundance.txt')
-% is used as a comparison basis.
-% 
-% Usage: [f,count] = measureAbundance(enzymes)
-%
+% for in an ecModel out of the total protein content in cells.
 
-if nargin < 3 || isempty(modelAdapter)
+if nargin < 4 || isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefaultAdapter();
     if isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
     end
 end
 params = modelAdapter.getParameters();
+
+if nargin < 3 || isempty(enzymes)
+    enzymes = model.ec.enzymes;
+end
 
 % Gather proteome data in protData structure
 if nargin < 2 || isempty(protData)
@@ -66,8 +64,8 @@ protData.abundance = protData.level .* protData.MW;
 totalProt = sum(protData.abundance);
 
 % Get enzymes in model
-enzymes = ismember(protData.uniprot,model.ec.enzymes);
-totalEnz = sum(protData.abundance(enzymes));
+enzymesInModel = ismember(protData.uniprot,enzymes);
+totalEnz = sum(protData.abundance(enzymesInModel));
 
 f = totalEnz/totalProt;
 end

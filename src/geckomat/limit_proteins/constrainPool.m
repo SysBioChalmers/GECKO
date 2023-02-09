@@ -29,7 +29,7 @@ usageRxns = strcat('usage_prot_',model.ec.enzymes);
 if any(usageRxnsIdx == 0)
     error('Usage reactions are not defined for all enzymes. This is done by makeEcModel.')
 end
-%Get index of protein pool exchange rxn
+%Get index of protein pool metabolite
 protPoolIdx = find(ismember(model.mets,'prot_pool'));
 if ~any(protPoolIdx)
     error('Cannot find protein pool pseudometabolite.')
