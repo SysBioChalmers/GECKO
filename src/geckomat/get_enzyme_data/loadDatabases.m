@@ -32,6 +32,7 @@ keggID      = params.keggID;
 uniprotID   = params.uniprotID;
 filePath    = fullfile(params.path,'data');
 geneIdField = params.uniprotGeneIdField;
+uniprotIDtype = params.uniprotIDtype;
 if params.uniprotReviewed
     uniprotRev = 'reviewed:true+AND+';
 else
@@ -47,9 +48,9 @@ if any(strcmp(selectDatabase,{'uniprot','both'}))
         if isempty(uniprotID)
             warning('No uniprotID is specified, unable to download UniProt DB')
         end
-        disp(['Downloading Uniprot data for proteome ' uniprotID '. This can take a few minutes.'])
+        disp(['Downloading Uniprot data for ' uniprotIDtype ' ' uniprotID '. This can take a few minutes.'])
         url = ['https://rest.uniprot.org/uniprotkb/stream?query=' uniprotRev ...
-               'proteome:' num2str(uniprotID) '&fields=accession%2C' geneIdField ...
+               uniprotIDtype ':' num2str(uniprotID) '&fields=accession%2C' geneIdField ...
             '%2Cgene_primary%2Cec%2Cmass%2Csequence&format=tsv&compressed=false&sort=protein_name%20asc'];
         urlwrite(url,uniprotPath,'Timeout',30);
     end

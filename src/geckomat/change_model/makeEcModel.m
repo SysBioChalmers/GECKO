@@ -313,6 +313,7 @@ model = addMets(model,pool);
 %13: Add protein usage reactions.
 if ~geckoLight
     usageRxns.rxns            = strcat('usage_',proteinMets.mets);
+    usageRxns.rxnNames        = usageRxns.rxns;
     usageRxns.mets            = cell(numel(usageRxns.rxns),1);
     usageRxns.stoichCoeffs    = cell(numel(usageRxns.rxns),1);
     for i=1:numel(usageRxns.mets)
@@ -326,6 +327,7 @@ end
 
 %12: Add protein pool reaction (with open UB)
 poolRxn.rxns            = 'prot_pool_exchange';
+poolRxn.rxnNames        = poolRxns.rxns;
 poolRxn.mets            = {'prot_pool'};
 poolRxn.stoichCoeffs    = {1};
 poolRxn.lb              = 0;

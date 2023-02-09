@@ -1,4 +1,4 @@
-function model = readProteomics(model, protData, modelAdapter)
+function [model, protData] = readProteomics(model, protData, modelAdapter)
 % readProteomics
 %   Reads absolute proteomics data, from either a file or protData
 %   structure. The proteins should be annotated with Uniprot IDs, while the
@@ -52,4 +52,8 @@ model.ec.concs=nan(numel(model.ec.enzymes),1);
 
 [a,b] = ismember(uniprot, model.ec.enzymes);
 model.ec.concs(b(a)) = level(a);
+
+clear protData
+protData.uniprot = uniprot;
+protData.level = level;
 end

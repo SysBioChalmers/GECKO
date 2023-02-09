@@ -2,8 +2,8 @@ function model = constrainProtConcs(model)
 % constrainProtConcs
 %   Constrain enzyme usages by their concentration as provided in
 %   model.ec.concs. For enzymes with non-NaN entries in model.ec.concs,
-%   their protein pool draw reaction is replaced with a protein exchange
-%   reaction, bound by the 
+%   their enzyme usage reaction will no longer draw from the protein pool,
+%   but is rather constraint by the measured protein abundance.
 %
 % Input:
 %   model       an ec-model with enzyne levels in model.ec.concs
