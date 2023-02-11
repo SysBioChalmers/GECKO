@@ -45,7 +45,7 @@ GECKOInstaller.install % Adds the appropriate folders to MATLAB
 % Set the ModelAdapter correctly. This loads the ModelAdapter file that is
 % in userData/ecYeastGEM/. First define modelRoot as userData/ecYeastGEM
 modelRoot = fullfile(findGECKOroot,'userData','ecYeastGEM');
-ModelAdapterManager.setDefaultAdapterFromPath(fullfile(modelRoot));
+ModelAdapterManager.setDefaultAdapterFromPath(fullfile(modelRoot), 'true'); 
 ModelAdapter = ModelAdapterManager.getDefaultAdapter();
 
 % Load the model with RAVEN's importModel
