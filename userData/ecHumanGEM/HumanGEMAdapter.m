@@ -60,6 +60,9 @@ classdef HumanGEMAdapter < ModelAdapter
 
 			%Compartment name in which the added enzymes should be located
 			obj.params.enzyme_comp = 'Cytosol';
+            
+            %The pool size, fitted to NCI60 cell lines
+            obj.params.standardProtPoolSize = 22.38315; %This is the value used in Gecko light
         end
 		
         function result = getFilePath(obj, filename)

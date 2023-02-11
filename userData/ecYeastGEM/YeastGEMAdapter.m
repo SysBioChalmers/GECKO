@@ -87,6 +87,9 @@ classdef YeastGEMAdapter < ModelAdapter
 			obj.params.oxPhos{2} = 'r_0439';
 			obj.params.oxPhos{3} = 'r_0438';
 			obj.params.oxPhos{4} = 'r_0226';
+    
+            %The pool size, fitted to data
+            obj.params.standardProtPoolSize = 10000; %TODO: This value should be fitted to data, just grabbed a number for now
 
 
 			%TODO: I'm not sure why this param exists for Human-GEM but not for Yeast-GEM - investigate.

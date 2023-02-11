@@ -2,33 +2,20 @@
 
 GECKORoot = findGECKOroot();
 
-humanAdapter = ModelAdapterManager.getAdapterFromPath(fullfile(GECKORoot, 'userData', 'ecHumanGEM'));
+yeastAdapter = ModelAdapterManager.getAdapterFromPath(fullfile(GECKORoot, 'userData', 'ecYeastGEM'));
 
-%test that the path stuff works
-%humanAdapterTemp = ModelAdapterManager.getAdapterFromPath(fullfile(GECKORoot, 'userData', 'ecHumanGEMTemp'), false); %should give warning + error
-%humanAdapterTemp = ModelAdapterManager.getAdapterFromPath(fullfile(GECKORoot, 'userData', 'ecHumanGEMTemp'), true);
-%humanAdapterTemp.getParameters
-HumanGEMRoot = HumanGEMAdapter.getHumanGEMRootPath();
-
-ihuman = load(fullfile(HumanGEMRoot, 'model', 'Human-GEM.mat')).ihuman;
-modSimp = simplifyModel(ihuman,false,false,true,true); %remove dead-end reactions
-modExp = modSimp;
-tic
-[modExp.grRules,skipped] = simplifyGrRules(modExp.grRules,true);
-toc %Elapsed time is 183.114703 seconds.
-sum(skipped)%0
+%ihuman = load(fullfile(GECKORoot, 'model', 'Human-GEM.mat')).ihuman;
+yeastGEM = load('C:/Code/Components/yeast-GEM/yeast-GEM/model/yeast-GEM.mat').model;
 
 tic
-fullECModel = makeEcModel(modExp, false, humanAdapter);
-toc %Elapsed time is 14.860279 seconds.
+fullECModel = makeEcModel(yeastGEM, false, yeastAdapter);
+toc
 
 tic
-lightECModel = makeEcModel(modExp, true, humanAdapter);
-toc %Elapsed time is 3.297782 seconds.
+lightECModel = makeEcModel(yeastGEM, true, yeastAdapter);
+toc
 
 lightECModel = getECfromGEM(lightECModel);
-%lightECModel2 = getECfromDatabase(lightECModel, 'display', [], humanAdapter);
-
 fullECModel = getECfromGEM(fullECModel);
 
 %Show the differences between the model ec codes and the ones derived from the databases
@@ -36,8 +23,8 @@ fullECModel = getECfromGEM(fullECModel);
 %table(lightECModel.ec.eccodes(sel), lightECModel2.ec.eccodes(sel))
 
 tic
-%complexInfo = getComplexData('Homo sapiens', humanAdapter);
-[lightECModel, foundComplex, proposedComplex] = applyComplexData(lightECModel, [], humanAdapter);
+%complexInfo = getComplexData('Homo sapiens', yeastAdapter);
+[lightECModel, foundComplex, proposedComplex] = applyComplexData(lightECModel, [], yeastAdapter);
 toc %Elapsed time is 62.289315 seconds - a bit slow, should be easy to optimize at some point.
 %look at complex II - why does it not match in complexPortal?
 %xxx = strcmp(lightECModel.ec.rxns, '001_MAR04652');
@@ -46,12 +33,12 @@ toc %Elapsed time is 62.289315 seconds - a bit slow, should be easy to optimize 
 %lightECModel.ec.enzymes(protSel)
 
 tic
-%complexInfo = getComplexData('Homo sapiens', humanAdapter);
-[fullECModel, foundComplex, proposedComplex] = applyComplexData(fullECModel, [], humanAdapter);
+%complexInfo = getComplexData('Homo sapiens', yeastAdapter);
+[fullECModel, foundComplex, proposedComplex] = applyComplexData(fullECModel, [], yeastAdapter);
 toc %Elapsed time is 62.289315 seconds - a bit slow, should be easy to optimize at some point.
 
 
-kcatListLightFuzzy = fuzzyKcatMatching(lightECModel, [], humanAdapter);
+kcatListLightFuzzy = fuzzyKcatMatching(lightECModel, [], yeastAdapter);
 %lightECModel = selectKcatValue(lightECModel,kcatList);
 %lightECModel = applyKcatConstraints(lightECModel);
 %constructEquations(lightECModel)
@@ -60,11 +47,11 @@ kcatListLightFuzzy = fuzzyKcatMatching(lightECModel, [], humanAdapter);
 %constructEquations(lightECModel, lightECModel.rxns(851))
 
 %run dlKcat
-%ModelAdapterManager.setDefaultAdapter(humanAdapter); %dlkcat functions currently do not well support sending in an adapter - fix later
+%ModelAdapterManager.setDefaultAdapter(yeastAdapter); %dlkcat functions currently do not well support sending in an adapter - fix later
 fullECModel.metSmiles = findMetSmiles(fullECModel.metNames);
-testFull = writeDLKcatInput(fullECModel, [], humanAdapter);
-runDLKcat([], [], humanAdapter, [], 'C:/Python38/Python38/python.exe', 'C:/Python38/Python38/Scripts/pip.exe');
-kcatListFullDlKcat = readDLKcatOutput(fullECModel, [], humanAdapter);
+testFull = writeDLKcatInput(fullECModel, [], yeastAdapter);
+runDLKcat([], [], yeastAdapter, [], 'C:/Python38/Python38/python.exe', 'C:/Python38/Python38/Scripts/pip.exe');
+kcatListFullDlKcat = readDLKcatOutput(fullECModel, [], yeastAdapter);
 
 %fullECModel2 = fullECModel;
 %fullECModel2.metSmiles = [];
@@ -77,9 +64,9 @@ kcatListFullDlKcat = readDLKcatOutput(fullECModel, [], humanAdapter);
 
 
 lightECModel.metSmiles = findMetSmiles(lightECModel.metNames);
-testLight = writeDLKcatInput(lightECModel, [], humanAdapter);
-runDLKcat([], [], humanAdapter, [], 'C:/Python38/Python38/python.exe', 'C:/Python38/Python38/Scripts/pip.exe');
-kcatListLightDlKcat = readDLKcatOutput(lightECModel, [], humanAdapter);
+testLight = writeDLKcatInput(lightECModel, [], yeastAdapter);
+runDLKcat([], [], yeastAdapter, [], 'C:/Python38/Python38/python.exe', 'C:/Python38/Python38/Scripts/pip.exe');
+kcatListLightDlKcat = readDLKcatOutput(lightECModel, [], yeastAdapter);
 
 %now join the fuzzy and dlkcat ckats for light
 mergedKcatListLight = mergeDlkcatAndFuzzyKcats(kcatListLightDlKcat, kcatListLightFuzzy);
@@ -97,32 +84,27 @@ histogram(log10(coeffs)) %looks like the current coeffs should be multiplied by 
 %lightECModel.ec.kcat(strcmp(lightECModel.ec.rxns, '001_MAR03875')) %8.8300e-05, very small
 
 %set protein pool constraint
-lightECModelMerged = setProtPoolSize(lightECModelMerged, [], humanAdapter);
+lightECModelMerged = setProtPoolSize(lightECModelMerged, [], yeastAdapter);
 
-lightECModelTuned = sensitivityTuning(lightECModel, 0.07, humanAdapter);
+
+
+lightECModelTuned = sensitivityTuning(lightECModel, 0.07, yeastAdapter);
 
 
 %full
-kcatListFullFuzzy = fuzzyKcatMatching(fullECModel, [], humanAdapter);
+kcatListFullFuzzy = fuzzyKcatMatching(fullECModel, [], yeastAdapter);
 
 mergedKcatListFull = mergeDlkcatAndFuzzyKcats(kcatListFullDlKcat, kcatListFullFuzzy);
 
 fullECModelMerged = selectKcatValue(fullECModel,mergedKcatListFull);
 fullECModelMerged = applyKcatConstraints(fullECModelMerged);
 %set protein pool constraint
-fullECModelMerged = setProtPoolSize(fullECModelMerged, [], humanAdapter);
+fullECModelMerged = setProtPoolSize(fullECModelMerged, [], yeastAdapter);
+tunedFullModel = BayesianSensitivityTuning(fullECModelMerged,yeastAdapter,150);
 
+tunedLightModel = BayesianSensitivityTuning(lightECModelMerged,yeastAdapter,150);
 
-
-
-%Now merge the kcats from dlkcat and fuzzy
-mergedKcatList = mergeDlkcatAndFuzzyKcats(kcatListFullDlKcat, kcatListFullFuzzy);
-fullECModelMerged  = selectKcatValue(fullECModelMerged,mergedKcatList);
-fullECModelMerged = applyKcatConstraints(fullECModelMerged);
-
-fullECModelMerged = setProtPoolSize(fullECModelMerged, [], humanAdapter);
-
-fullECModelTuned = sensitivityTuning(fullECModelMerged, 0.07, humanAdapter);
+%fullECModelTuned = sensitivityTuning(fullECModelMerged, 0.07, yeastAdapter);
 
 
 
