@@ -115,7 +115,14 @@ end
 if endsWith(pythonPath,'.exe')
     pythonPath = pythonPath(1:end-4);
 end
-if endsWith(pythonPath,'python3')
+if endsWith(strtrim(pythonPath),'python3')
+    three = '3';
+    pythonPath = strtrim(pythonPath);
+    pythonPath = pythonPath(1:end-7);
+elseif endsWith(strtrim(pythonPath),'python')
+    pythonPath = strtrim(pythonPath);
+    pythonPath = pythonPath(1:end-6);
+else
     three = '3';
     pythonPath = pythonPath(1:end-7);
 elseif endsWith(pythonPath,'python')
