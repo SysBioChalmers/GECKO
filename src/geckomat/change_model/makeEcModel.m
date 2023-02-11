@@ -327,7 +327,7 @@ end
 
 %12: Add protein pool reaction (with open UB)
 poolRxn.rxns            = 'prot_pool_exchange';
-poolRxn.rxnNames        = poolRxns.rxns;
+poolRxn.rxnNames        = poolRxn.rxns;
 poolRxn.mets            = {'prot_pool'};
 poolRxn.stoichCoeffs    = {1};
 poolRxn.lb              = 0;
