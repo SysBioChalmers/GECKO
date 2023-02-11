@@ -123,11 +123,6 @@ elseif endsWith(strtrim(pythonPath),'python')
     pythonPath = strtrim(pythonPath);
     pythonPath = pythonPath(1:end-6);
 else
-    three = '3';
-    pythonPath = pythonPath(1:end-7);
-elseif endsWith(pythonPath,'python')
-    pythonPath = pythonPath(1:end-6);
-else
     error('pythonPath should end with either "python", "python.exe", "python3" or "python3.exe".')
 end
 
