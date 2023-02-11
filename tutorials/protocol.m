@@ -105,7 +105,7 @@ ecModel         = applyKcatConstraints(ecModel);
 %ecModel         = getECfromGEM(ecModel);
 ecModel         = getECfromDatabase(ecModel);
 kcatList_fuzzy  = fuzzyKcatMatching(ecModel);
-ecModel_fuzzy   = selectKcatValue(ecModel_fuzzy, kcatList_fuzzy);
+ecModel_fuzzy   = selectKcatValue(ecModel, kcatList_fuzzy);
 ecModel_fuzzy   = applyKcatConstraints(ecModel_fuzzy);
 
 % (3) combine fuzzy matching and DLkcat

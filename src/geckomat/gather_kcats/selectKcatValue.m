@@ -57,7 +57,7 @@ idxInModelUnique = unique(idxInModel);
 selectedKcats    = zeros(numel(idxInModelUnique),1);
 selectedSource   = cell(numel(selectedKcats),1);
 if ~isfield(kcatList,'kcatSource')
-    kcatList.kcatSource = cell(numel(selectedKcats),1);
+    kcatList.kcatSource = cell(numel(kcatList.kcats),1);
     kcatList.kcatSource(:) = {kcatList.source};
 end
 for i=1:numel(idxInModelUnique)
