@@ -111,6 +111,13 @@ else
     ec.geckoLight=false;
 end
 
+%Check if model is in RAVEN format
+if any(isfield(model,{'rules','modelID'}))
+    error(['The model is likely loaded using COBRA Toolbox readCbModel(). Instead, use ' ...
+           'RAVEN Toolbox importModel(). Alternatively, you can also convert the ', ...
+           'model in MATLAB using ravenCobraWrapper().'])
+end
+
 %Check for conflicting reaction and metabolite identifiers
 conflictId = startsWith(model.mets,'prot_');
 if any(conflictId)

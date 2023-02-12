@@ -114,7 +114,6 @@ else %GECKO light formulation, where prot_pool represents all usages
                 end
                 %Light model: always use the "cheapest" isozyme, that is what the 
                 %optimization will choose anyway unless isozymes are individually constrained.
-                %this scaling centers coeffs around 1, which is desirable for numerical purposes
                 model.S(prot_pool_idx, i) = -min(newMWKcats)/3600; % 3600: per second -> per hour
             end
         end
