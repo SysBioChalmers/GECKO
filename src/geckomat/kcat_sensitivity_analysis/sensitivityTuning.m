@@ -39,13 +39,14 @@ m.c = double(strcmp(m.rxns, params.bioRxn));% Make sure that growth is maximized
 %solver says the solution is infeasible
 %m.ec.kcat(m.ec.kcat < 0.1) = 0.1;
 %m = applyKcatConstraints(m);
+[~,hs] = solveLP(m);
 
 if ~m.ec.geckoLight
     %for the full model, we first find the draw reaction with the most flux
     drawRxns = startsWith(m.rxns, 'usage_prot_');
     iteration = 1;
     while true
-        res = solveLP(m,0); %skip parsimonius, only takes time
+        [res,hs] = solveLP(m,0,[],hs); %skip parsimonius, only takes time
         lastGrowth = -res.f;
         if (lastGrowth >= desiredGrowthRate)
             break;
