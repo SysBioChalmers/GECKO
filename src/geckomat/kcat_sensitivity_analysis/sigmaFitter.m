@@ -1,64 +1,80 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% OptSigma = sigmaFitter(model_batch,Ptot,expVal,f)
-% 
-% Function that fits the average enzyme saturation factor in an ecModel
-% according to a provided experimentally measured value for the objective
-% function (i.e. growth rate at specified conditions)
+function [model, sigma] = sigmaFitter(model, growthRate, Ptot, f, makePlot, modelAdapter)
+% sigmaFitter
+%   Function that fits the average enzyme saturation factor in an ecModel
+%   according to a provided experimentally measured value for the objective
+%   function (i.e. growth rate at specified conditions)
 %
 % INPUTS:
-%       model_batch     An EC batch model with an initial sigma factor
-%                       assigned
-%       Ptot            Total protein amount in the model (Experimental)
-%                       [g/gDw]
-%       expVal          Experimentally measured value for the objective function
-%       f               Estimated mass fraction of enzymes in model [g/g]
+%   model           ec-model
+%   growthRate      growth rate that should be reached. If not
+%                   specified, the value will be read from the model
+%                   adapter.
+%   Ptot            Total cellular protein content in g/gDCW. If not
+%                   specified, the value will be read from the model
+%                   adapter. If not specified in model adapter, 0.5 g/gDCW
+%                   is assumed.
+%   f               Estimated fraction of enzymes in the model. If not
+%                   specified, the value will be read from the model
+%                   adapter. If not specified in model adapter, 0.5 is
+%                   assumed.
+%   makePlot        Logical whether a plot should be made. Default true.
+%   modelAdapter    a loaded model adapter (Optional, will otherwise use the
+%                   default model adapter).
 %
-% OUTPUTS:
-%       optSigma    The optimal sigma value obtained
-%
-% Benjamin Sanchez      2018-08-10
-% Ivan Domenzain        2018-09-27
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Output:
+%   model           ec-model with protein pool exchange upper bound adapted
+%                   to the optimal sigma-factor
+%   sigma           optimal sigma-factor
 
-function OptSigma = sigmaFitter(model_batch,Ptot,expVal,f)
+if nargin < 6 || isempty(modelAdapter)
+    modelAdapter = ModelAdapterManager.getDefaultAdapter();
+    if isempty(modelAdapter)
+        error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
+    end
+end
 
-fprintf('Fitting sigma factor...')
+if nargin<5 || isempty(makePlot)
+    makePlot = true;
+end
+if nargin<4 || isempty(f)
+    f = modelAdapter.getParameters().f;
+end
+if nargin<3 || isempty(Ptot)
+    Ptot = modelAdapter.getParameters().Ptot;
+end
+if nargin<2 || isempty(growthRate)
+    growthRate = modelAdapter.getParameters().gR_exp;
+end
 
-objValues   = [];
+objValues = [];
 errors    = [];
 sigParam  = [];
-poolIndex = find(strcmpi(model_batch.rxnNames,'prot_pool_exchange'));
-objPos    = find(model_batch.c);
+objPos    = find(model.c);
 %Relax bounds for the objective function
-model_batch.lb(objPos) = 0;
-model_batch.ub(objPos) = 1000;
-
+model.lb(objPos) = 0;
+model.ub(objPos) = 1000;
+hsSol=[];
 for i=1:100
     %Constrains the ecModel with the i-th sigma factor
     sigma = i/100;
-    model_batch.ub(poolIndex) = sigma*Ptot*f; 
-    solution  = solveLP(model_batch,1);
+    model = setProtPoolSize(model, Ptot, f, sigma, modelAdapter);
+    [solution, hsSol]  = solveLP(model,0,[],hsSol);
     if isempty(solution.x)
-        solution.x=zeros(length(model_batch.rxns),1);
+        solution.x=zeros(length(model.rxns),1);
     end
     objValues = [objValues; solution.x(objPos)];
-    error     = abs(((expVal-solution.x(objPos))/expVal)*100);
+    error     = abs(((growthRate-solution.x(objPos))/growthRate)*100);
     errors    = [errors; error];
-    error     = num2str(((expVal-solution.x(objPos))/expVal)*100);
+    error     = num2str(((growthRate-solution.x(objPos))/growthRate)*100);
     sigParam  = [sigParam; sigma];
-    if rem(i,5) == 0
-        fprintf('.')
-    end
 end
-fprintf(' Done!\n')
 [~, minIndx] = min(errors);
-OptSigma     = sigParam(minIndx);
-figure
-plot(sigParam,errors,'LineWidth',5)
-title('Sigma fitting for growth on glucose minimal media')
-xlabel('Average enzyme saturation [-]')
-ylabel('Absolute relative error [%]')
-
+sigma     = sigParam(minIndx);
+if makePlot
+    figure
+    plot(sigParam,errors,'LineWidth',5)
+    title('Sigma fitting')
+    xlabel('Average enzyme saturation [-]')
+    ylabel('Absolute relative error [%]')
 end
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+end

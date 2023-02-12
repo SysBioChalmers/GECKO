@@ -8,7 +8,7 @@ function kcatList = readDLKcatOutput(model, outFile, modelAdapter)
 %   model           an ec-model in RAVEN format
 %   outFile         name and path of the DLKcat output file. If nothing is
 %                   provided, an attempt will be made to read
-%                   data/DLKcatOutput.tsv from the obj.params.path folder
+%                   data/DLKcat.tsv from the obj.params.path folder
 %                   specified in the modelAdapter.
 %   modelAdapter    a loaded model adapter (Optional, will otherwise use the
 %                   default model adapter).
@@ -31,7 +31,7 @@ end
 params = modelAdapter.params;
 
 if nargin<2 || isempty(outFile)
-    fID      = fopen(fullfile(params.path,'data','DLKcatOutput.tsv'),'r');
+    fID      = fopen(fullfile(params.path,'data','DLKcat.tsv'),'r');
 else
     fID      = fopen(outFile);
 end
@@ -40,6 +40,12 @@ fclose(fID);
 
 % Check that DLKcat output file and model match (not fool proof, but good enough)
 [rxns, genes, subs, kcats] = deal(DLKcatOutput{[1,2,3,6]});
+
+% Check if it contains any kcat values
+if all(cellfun(@isempty,kcats))
+    error(['DLKcat file does not contain any kcat values. First run DLKcat prediction, ' ...
+           'either using runDLKcat() or by manually running DLKcat.py in the terminal.'])
+end
 
 % Check that all substrates are in the model
 if ~all(ismember(subs,model.metNames))

@@ -15,10 +15,15 @@ classdef YeastGEMAdapter < ModelAdapter
 			obj.params.sigma = 0.5;
 
 			%Total protein content in the cell [g protein/gDw]
-			obj.params.Ptot = 0.5;      %Assumed constant
+			obj.params.Ptot = 0.5;
 
-			%Minimum growth rate the model should grow at [1/h]
-			obj.params.gR_exp = 0.41;     %[g/gDw h] 
+			%Fraction of enzymes in the model [g enzyme/g protein]
+            %Can also be estimated from proteomics data with 
+			obj.params.f = 0.5;
+            
+            %Growth rate the model should be able to reach when not
+            %constraint by nutrient uptake (e.g. max growth rate) [1/h]
+			obj.params.gR_exp = 0.41;
 
 			%Provide your organism scientific name
 			obj.params.org_name = 'saccharomyces cerevisiae';
@@ -30,9 +35,11 @@ classdef YeastGEMAdapter < ModelAdapter
 			%https://www.genome.jp/kegg/catalog/org_list.html
 			obj.params.keggID = 'sce';
 
-			%Provide your organism UniProt proteome, selected at
-			%https://www.uniprot.org/proteomes/
-			obj.params.uniprotID = 'UP000002311';
+			%Provide what identifier should be used to query UniProt.
+            %Select proteome IDs at https://www.uniprot.org/proteomes/
+            %or taxonomy IDs at https://www.uniprot.org/taxonomy.
+            obj.params.uniprotIDtype = 'taxonomy_id'; % 'proteome' or 'taxonomy_id'
+			obj.params.uniprotID = '559292'; % should match the ID type
             
             %Field for Uniprot gene id - should match the gene ids used in the 
             %GPRs. Note that this is a field in the web request to uniprot - 

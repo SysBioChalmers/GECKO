@@ -55,18 +55,28 @@ end
 % Make vector with single kcat value per reaction
 idxInModelUnique = unique(idxInModel);
 selectedKcats    = zeros(numel(idxInModelUnique),1);
+selectedSource   = cell(numel(selectedKcats),1);
+if ~isfield(kcatList,'kcatSource')
+    kcatList.kcatSource = cell(numel(kcatList.kcats),1);
+    kcatList.kcatSource(:) = {kcatList.source};
+end
 for i=1:numel(idxInModelUnique)
     ind = idxInModelUnique(i);
+    idxMatch = find(idxInModel == ind);
     % Choose the maximum number
     switch criteria
         case 'max'
-            selectedKcats(i) = max(kcatList.kcats(idxInModel == ind));
+            [selectedKcats(i),j] = max(kcatList.kcats(idxMatch));
+            selectedSource(i)    = kcatList.kcatSource(idxMatch(j));
         case 'min'
-            selectedKcats(i) = min(kcatList.kcats(idxInModel == ind));
+            [selectedKcats(i),j] = min(kcatList.kcats(idxMatch));
+            selectedSource(i)    = kcatList.kcatSource(idxMatch(j));
         case 'median'
-            selectedKcats(i) = median(kcatList.kcats(idxInModel == ind));
+            [selectedKcats(i),j] = median(kcatList.kcats(idxMatch));
+            selectedSource(i)    = kcatList.kcatSource(idxMatch(j));
         case 'mean'
-            selectedKcats(i) = mean(kcatList.kcats(idxInModel == ind));
+            [selectedKcats(i),j] = mean(kcatList.kcats(idxMatch));
+            selectedSource(i)    = kcatList.kcatSource(idxMatch(j));
         otherwise
             error('Invalid criteria specified')
     end
@@ -76,19 +86,22 @@ end
 switch overwrite
     case 'true'
         model.ec.kcat(idxInModelUnique) = selectedKcats;
+        model.ec.source(idxInModelUnique) = selectedSource;
     case 'false'
         emptyKcats = find(model.ec.kcat == 0);
         [idxInModelUnique,whickKcats] = intersect(idxInModelUnique,emptyKcats,'stable');
-        selectedKcats=selectedKcats(whickKcats);
-        model.ec.kcat(idxInModelUnique) = selectedKcats;
+        model.ec.kcat(idxInModelUnique) = selectedKcats(whickKcats);
+        model.ec.source(idxInModelUnique) = selectedSource(whickKcats);
+        
     case 'ifHigher'
         higherKcats = model.ec.kcat(idxInModelUnique) < selectedKcats;
         selectedKcats(~higherKcats) = [];
+        selectedSource(~higherKcats) = [];
         idxInModelUnique(~higherKcats) = [];
         model.ec.kcat(idxInModelUnique) = selectedKcats;
+        model.ec.source(idxInModelUnique) = selectedSource;
     otherwise
         error('Invalid overwrite flag specified')
 end
-model.ec.source(idxInModelUnique) = {kcatList.source};
 rxnIdx = idxInModelUnique;
 end
