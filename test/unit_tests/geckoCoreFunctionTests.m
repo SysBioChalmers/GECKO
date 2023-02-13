@@ -10,12 +10,12 @@ end
 %phylDistStruct.ids = {'tst';'fls'};
 %phylDistStruct.names = {'testus testus';'testus falsus'};
 %phylDistStruct.distMat = [0 1; 1 0];
-%save(fullfile(geckoPath,'Test','UnitTests','ecTestGEM','data','PhylDist.mat'), 'phylDistStruct')
+%save(fullfile(geckoPath,'test','unit_tests','ecTestGEM','data','PhylDist.mat'), 'phylDistStruct')
 
 
 function testmakeEcModelFullModel_tc0001(testCase)
     geckoPath = findGECKOroot;
-    adapter = ModelAdapterManager.getAdapterFromPath(fullfile(geckoPath,'Test','UnitTests','ecTestGEM'));
+    adapter = ModelAdapterManager.getAdapterFromPath(fullfile(geckoPath,'test','unit_tests','ecTestGEM'));
     model = getGeckoTestModel();
     ecModel = makeEcModel(model, false, adapter);
     
@@ -59,7 +59,7 @@ end
 
 function testmakeEcModelLightModel_tc0002(testCase)
     geckoPath = findGECKOroot;
-    adapter = ModelAdapterManager.getAdapterFromPath(fullfile(geckoPath,'Test','UnitTests','ecTestGEM'));
+    adapter = ModelAdapterManager.getAdapterFromPath(fullfile(geckoPath,'test','unit_tests','ecTestGEM'));
     model = getGeckoTestModel();
     ecModel = makeEcModel(model, true, adapter);
     
@@ -105,7 +105,7 @@ end
 
 function testapplyComplexDataFullModel_tc0003(testCase)
     geckoPath = findGECKOroot;
-    adapter = ModelAdapterManager.getAdapterFromPath(fullfile(geckoPath,'Test','UnitTests','ecTestGEM'));
+    adapter = ModelAdapterManager.getAdapterFromPath(fullfile(geckoPath,'test','unit_tests','ecTestGEM'));
     model = getGeckoTestModel();
     ecModel = makeEcModel(model, false, adapter);
     ecModel = applyComplexData(ecModel, [], adapter);
@@ -122,7 +122,7 @@ end
 
 function testapplyComplexDataLightModel_tc0004(testCase)
     geckoPath = findGECKOroot;
-    adapter = ModelAdapterManager.getAdapterFromPath(fullfile(geckoPath,'Test','UnitTests','ecTestGEM'));
+    adapter = ModelAdapterManager.getAdapterFromPath(fullfile(geckoPath,'test','unit_tests','ecTestGEM'));
     model = getGeckoTestModel();
     ecModel = makeEcModel(model, true, adapter);
     ecModel = applyComplexData(ecModel, [], adapter);
@@ -140,7 +140,7 @@ end
 %For both full and light
 function testsetProtPoolSize_tc0005(testCase)
     geckoPath = findGECKOroot;
-    adapter = ModelAdapterManager.getAdapterFromPath(fullfile(geckoPath,'Test','UnitTests','ecTestGEM'));
+    adapter = ModelAdapterManager.getAdapterFromPath(fullfile(geckoPath,'test','unit_tests','ecTestGEM'));
     model = getGeckoTestModel();
     ecModel = makeEcModel(model, false, adapter);
     ecModel = setProtPoolSize(ecModel, [], adapter);
@@ -160,7 +160,7 @@ end
 function testgetECfromGEM_tc0006(testCase)
     %full
     geckoPath = findGECKOroot;
-    adapter = ModelAdapterManager.getAdapterFromPath(fullfile(geckoPath,'Test','UnitTests','ecTestGEM'));
+    adapter = ModelAdapterManager.getAdapterFromPath(fullfile(geckoPath,'test','unit_tests','ecTestGEM'));
     model = getGeckoTestModel();
     ecModel = makeEcModel(model, false, adapter);
     ecModel2 = getECfromGEM(ecModel);
@@ -186,7 +186,7 @@ end
 function testgetECfromDatabase_tc0007(testCase)
     %full
     geckoPath = findGECKOroot;
-    adapter = ModelAdapterManager.getAdapterFromPath(fullfile(geckoPath,'Test','UnitTests','ecTestGEM'));
+    adapter = ModelAdapterManager.getAdapterFromPath(fullfile(geckoPath,'test','unit_tests','ecTestGEM'));
     model = getGeckoTestModel();
     ecModel = makeEcModel(model, false, adapter);
     ecModel2 = getECfromDatabase(ecModel, 'display', [], adapter);
@@ -210,23 +210,23 @@ end
 
 function testModelAdapterManager_tc0008(testCase)
     geckoPath = findGECKOroot;
-    adapter = ModelAdapterManager.getAdapterFromPath(fullfile(geckoPath,'Test','UnitTests','ecTestGEM'));
+    adapter = ModelAdapterManager.getAdapterFromPath(fullfile(geckoPath,'test','unit_tests','ecTestGEM'));
     verifyTrue(testCase,~isempty(adapter))
     ModelAdapterManager.setDefaultAdapter(adapter);
     verifyTrue(testCase,~isempty(ModelAdapterManager.getDefaultAdapter()))
     ModelAdapterManager.setDefaultAdapter([]);
     verifyTrue(testCase,isempty(ModelAdapterManager.getDefaultAdapter()))
-    ModelAdapterManager.setDefaultAdapterFromPath(fullfile(geckoPath,'Test','UnitTests','ecTestGEM'));
+    ModelAdapterManager.setDefaultAdapterFromPath(fullfile(geckoPath,'test','unit_tests','ecTestGEM'));
     verifyTrue(testCase,~isempty(ModelAdapterManager.getDefaultAdapter()))
 end
 
 function testsaveECModel_tc0009(testCase)
     geckoPath = findGECKOroot;
-    adapter = ModelAdapterManager.getAdapterFromPath(fullfile(geckoPath,'Test','UnitTests','ecTestGEM'));
+    adapter = ModelAdapterManager.getAdapterFromPath(fullfile(geckoPath,'test','unit_tests','ecTestGEM'));
     model = getGeckoTestModel();
     ecModel = makeEcModel(model, false, adapter);
-    ecModelFilledIn = saveECmodel(ecModel,'RAVEN','tmpTest','1',fullfile(geckoPath,'Test','UnitTests','ecTestGEM'));
-    loadedEcModel = readYAMLmodel(fullfile(geckoPath,'Test','UnitTests','ecTestGEM','tmpTest.yml'), false);
+    ecModelFilledIn = saveECmodel(ecModel,'RAVEN','tmpTest','1',fullfile(geckoPath,'test','unit_tests','ecTestGEM'));
+    loadedEcModel = readYAMLmodel(fullfile(geckoPath,'test','unit_tests','ecTestGEM','tmpTest.yml'), false);
     verifyEqual(testCase, ecModelFilledIn, loadedEcModel)
 end
 
@@ -234,7 +234,7 @@ end
 function testfuzzyKcatMatching_tc0010(testCase)
     %full
     geckoPath = findGECKOroot;
-    adapter = ModelAdapterManager.getAdapterFromPath(fullfile(geckoPath,'Test','UnitTests','ecTestGEM'));
+    adapter = ModelAdapterManager.getAdapterFromPath(fullfile(geckoPath,'test','unit_tests','ecTestGEM'));
     model = getGeckoTestModel();
     %First all rxns, full model
     ecModel = makeEcModel(model, false, adapter);

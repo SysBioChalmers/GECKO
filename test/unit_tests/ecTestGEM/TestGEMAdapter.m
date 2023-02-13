@@ -7,7 +7,7 @@ classdef TestGEMAdapter < ModelAdapter
             %Is assumed to follow the GECKO-defined folder structure. The
             %code below refers to userData/ecYeastGEM in the GECKO path.
             geckoPath = findGECKOroot;
-            obj.params.path = fullfile(geckoPath,'Test','UnitTests','ecTestGEM');
+            obj.params.path = fullfile(geckoPath,'test','unit_tests','ecTestGEM');
 
             %these paramteres are just copied from getParams in ecModels
 			
