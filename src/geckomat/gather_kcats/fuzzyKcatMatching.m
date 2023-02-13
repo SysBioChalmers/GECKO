@@ -76,8 +76,7 @@ end
 
 %Creates a Structure with KEGG codes for organisms, names and taxonomical
 %distance matrix and extract the organism index in the KEGG struct
-geckoPath = findGECKOroot;
-phylDistStruct =  KEGG_struct(fullfile(geckoPath,'databases','PhylDist.mat'));
+phylDistStruct =  KEGG_struct(modelAdapter.getPhylDistStructPath());
 %Get the KEGG code for the model's organism
 org_name       = params.org_name;
 org_index      = find_inKEGG(org_name,phylDistStruct.names);
@@ -162,7 +161,7 @@ kcatList.substrates  = substrates;
 kcatList.kcats       = kcats;
 kcatList.eccodes     = eccodes;
 kcatList.wildcardLvl = kcatInfo.info.wcLevel;
-kcatList.origin      = NaN(numel(model.ec.rxns),1);
+kcatList.origin      = NaN(numel(model.ec.rxns(ecRxns)),1);
 % This can be refactored, iterativeMatch and their nested functions can
 % just directly report the origin number.
 origin = [kcatInfo.info.org_s kcatInfo.info.rest_s kcatInfo.info.org_ns kcatInfo.info.rest_ns kcatInfo.info.org_sa kcatInfo.info.rest_sa];

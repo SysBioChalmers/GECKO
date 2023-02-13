@@ -1,10 +1,17 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [KCATcell, SAcell] = loadBRENDAdata
-% TODO: potential refactor with DLKcat derived BRENDA data
-geckoPath      = findGECKOroot;
-KCAT_file      = fullfile(geckoPath,'databases','max_KCAT.txt');
-SA_file        = fullfile(geckoPath,'databases','max_SA.txt');
-MW_file        = fullfile(geckoPath,'databases','max_MW.txt');
+function [KCATcell, SAcell] = loadBRENDAdata(modelAdapter)
+
+if nargin < 1 || isempty(modelAdapter)
+    modelAdapter = ModelAdapterManager.getDefaultAdapter();
+    if isempty(modelAdapter)
+        error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
+    end
+end
+
+basePath      = modelAdapter.getBrendaDBFolder();
+KCAT_file      = fullfile(basePath,'max_KCAT.txt');
+SA_file        = fullfile(basePath,'max_SA.txt');
+MW_file        = fullfile(basePath,'max_MW.txt');
 
 %Extract BRENDA DATA from files information
 KCATcell       = openDataFile(KCAT_file,1);

@@ -15,6 +15,7 @@ tic
 lightECModel = makeEcModel(yeastGEM, true, yeastAdapter);
 toc
 
+lightECModel2 = getECfromDatabase(lightECModel, 'display', [], yeastAdapter); 
 lightECModel = getECfromGEM(lightECModel);
 fullECModel = getECfromGEM(fullECModel);
 
@@ -23,19 +24,12 @@ fullECModel = getECfromGEM(fullECModel);
 %table(lightECModel.ec.eccodes(sel), lightECModel2.ec.eccodes(sel))
 
 tic
-%complexInfo = getComplexData('Homo sapiens', yeastAdapter);
 [lightECModel, foundComplex, proposedComplex] = applyComplexData(lightECModel, [], yeastAdapter);
-toc %Elapsed time is 62.289315 seconds - a bit slow, should be easy to optimize at some point.
-%look at complex II - why does it not match in complexPortal?
-%xxx = strcmp(lightECModel.ec.rxns, '001_MAR04652');
-%protSel = lightECModel.ec.rxnEnzMat(xxx,:) > 0;
-%sum(protSel) %4 - ok
-%lightECModel.ec.enzymes(protSel)
+toc 
 
 tic
-%complexInfo = getComplexData('Homo sapiens', yeastAdapter);
 [fullECModel, foundComplex, proposedComplex] = applyComplexData(fullECModel, [], yeastAdapter);
-toc %Elapsed time is 62.289315 seconds - a bit slow, should be easy to optimize at some point.
+toc 
 
 
 kcatListLightFuzzy = fuzzyKcatMatching(lightECModel, [], yeastAdapter);
@@ -52,16 +46,6 @@ fullECModel.metSmiles = findMetSmiles(fullECModel.metNames);
 testFull = writeDLKcatInput(fullECModel, [], yeastAdapter);
 runDLKcat([], [], yeastAdapter, [], 'C:/Python38/Python38/python.exe', 'C:/Python38/Python38/Scripts/pip.exe');
 kcatListFullDlKcat = readDLKcatOutput(fullECModel, [], yeastAdapter);
-
-%fullECModel2 = fullECModel;
-%fullECModel2.metSmiles = [];
-%fullECModel2.metSmiles = findMetSmiles(fullECModel2.metNames);
-%all(strcmp(fullECModel2.metSmiles, fullECModel.metSmiles))
-%sel = ~strcmp(fullECModel2.metSmiles, fullECModel.metSmiles)
-%fullECModel2.metNames(sel)
-%fullECModel.metNames(sel)
-%table(fullECModel2.metSmiles(sel),fullECModel.metSmiles(sel))
-
 
 lightECModel.metSmiles = findMetSmiles(lightECModel.metNames);
 testLight = writeDLKcatInput(lightECModel, [], yeastAdapter);

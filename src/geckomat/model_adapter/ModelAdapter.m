@@ -23,6 +23,15 @@ classdef (Abstract) ModelAdapter
         function genes = getUniprotCompatibleGenes(obj,inGenes)
             genes = inGenes;
         end
+        
+        function folder = getBrendaDBFolder(obj)
+            folder = fullfile(findGECKOroot(),'databases');
+        end
+        
+        function x = getPhylDistStructPath(obj)
+            x =  fullfile(findGECKOroot(),'databases','PhylDist.mat');
+        end
+        
     end
 
     %To have the params public is a bit "ugly", but very practical 
