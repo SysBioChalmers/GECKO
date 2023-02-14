@@ -194,7 +194,6 @@ disp('=== Running DLKcat prediction, this may take several minutes...')
 % In the next line, pythonPath does not need to be specified, because it is
 % already mentioned when building the virtualenv.
 dlkcat.status = system(['pipenv run python DLKcat.py ' DLKcatFile ' DLKcatOutput.tsv'],'-echo');
-cd(currPath);
 
 if dlkcat.status == 0
     movefile('DLKcatOutput.tsv',DLKcatFile);
