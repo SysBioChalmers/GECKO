@@ -1,13 +1,13 @@
-classdef ModelAdapter < defaultModelAdapter 
+classdef yourModelAdapter < ModelAdapter
     methods
-        function obj = ModelAdapter()
+        function obj = yourModelAdapter()
             %Set initial values of the obj.params - they can be changed by the user
             
             %Directory where all model-specific files and scripts are kept.
             %Is assumed to follow the GECKO-defined folder structure. The
             %code below refers to userData/ecYeastGEM in the GECKO path.
             geckoPath = findGECKOroot;
-            obj.params.path = fullfile(geckoPath,'userData','ecYeastGEM');
+            obj.params.path = fullfile(geckoPath,'userData','yourModel');
 
             %these paramteres are just copied from getParams in ecModels
 			
