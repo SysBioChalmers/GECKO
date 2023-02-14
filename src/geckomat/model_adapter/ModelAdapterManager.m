@@ -62,10 +62,4 @@ classdef ModelAdapterManager
             out = defaultAdapter;
         end
     end
-
-    %To have the params public is a bit "ugly", but very practical 
-    %if we want to change a parameter
-    properties (Access = private) 
-        params;
-    end
 end
