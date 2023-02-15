@@ -7,26 +7,27 @@ function [model, rxnsMissingGPR, standardMW, standardKcat] = getStandardKcat(mod
 %   model           an ecModel in GECKO 3 version
 %   modelAdapter    a loaded model adapter (Optional, will otherwise use the
 %                   default model adapter).
-%   threshold     a threshold to determine when use a kcat value based on
-%                      the mean kcat of the reactions in the same subSystem or 
-%                      based on the median value of all the kcat in the
-%                      model. Second option is used when the number of
-%                      reactions in a determined subSystem is < threshold.
-%                      (default = 10)
+%   threshold       a threshold to determine when use a kcat value based on
+%                   the mean kcat of the reactions in the same subSystem or
+%                   based on the median value of all the kcat in the model.
+%                   Second option is used when the number of reactions in a
+%                   determined subSystem is < threshold. (Optional, default = 10)
 %
 % Output:
-%   model          ecModel where kcats for defined proteins have been
-%                       changed
-%   rxnsMissingGPR   a list of update rxns index with a standard value 
-%   standardMW        the standard MW value calculated
-%   standardKcat       the standard Kcat value calculated 
+%   model           ecModel where model.ec is expanded with a standard
+%                   protein with standard kcat and standard MW, assigned to
+%                   reactions without gene associations.
+%   rxnsMissingGPR  a list of update rxns index with a standard value
+%   standardMW      the standard MW value calculated
+%   standardKcat    the standard Kcat value calculated
 %
-%   A pseudometabolite named 'prot_standard' will be added as well as a gene 
-%   and enzyme named 'standard'
+%   A pseudometabolite named 'prot_standard' will be added as well as a gene
+%   and enzyme named 'standard'. While model.ec.kcat is populated,
+%   applyKcatConstraints would still need to be run to apply the new
+%   constraints to the S-matrix.
 %
 % Usage:
 %    [model, rxnsMissingGPR, standardMW, standardKcat] = getStandardKcat(model, modelAdapter, threshold);
-
 
 if nargin < 2 || isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefaultAdapter();
@@ -81,7 +82,7 @@ numRxnsSubSystem = splitapply(@numel, model.ec.rxns(rxnsKcatZero), enzSubSystem_
 lowerThanTresh = numRxnsSubSystem < threshold;
 kcatSubSystem(lowerThanTresh) = standardKcat;
 
-% Find reactions without GPR 
+% Find reactions without GPR
 rxnsMissingGPR = find(cellfun(@isempty, model.grRules));
 
 % Get and remove exchange, transport, spontaneous and pseudo reactions
@@ -96,26 +97,32 @@ rxnsMissingGPR(ismember(rxnsMissingGPR, find(spontaneousRxns))) = [];
 rxnsMissingGPR(ismember(rxnsMissingGPR, find(pseudoRxns))) = [];
 
 % Add a new metabolite named prot_standard
-proteinStdMets.mets                = 'prot_standard';
-proteinStdMets.metNames       = proteinStdMets.mets;
+proteinStdMets.mets         = 'prot_standard';
+proteinStdMets.metNames     = proteinStdMets.mets;
 proteinStdMets.compartments = 'c';
-proteinStdMets.metNotes        = 'Standard enzyme-usage pseudometabolite';
+if isfield(model,'metNotes')
+    proteinStdMets.metNotes     = 'Standard enzyme-usage pseudometabolite';
+end
 
 model = addMets(model, proteinStdMets);
 
-% Add a new gene to be conssitent with ec field named standard
+% Add a new gene to be consistent with ec field named standard
 proteinStdGenes.genes = 'standard';
-proteinStdGenes.geneShortNames = 'std';
+if isfield(model,'geneShortNames')
+    proteinStdGenes.geneShortNames = 'std';
+end
 
 model = addGenesRaven(model, proteinStdGenes);
 
 % Update .ec structure in model
-model.ec.genes(end+1)        = {'standard'};
+model.ec.genes(end+1)      = {'standard'};
 model.ec.enzymes(end+1)    = {'standard'};
-model.ec.mw(end+1)            = standardMW;
+model.ec.mw(end+1)         = standardMW;
 model.ec.sequence(end+1)   = {''};
 % Additional info
-model.ec.concs(end+1)        = nan();
+if isfield(model.ec,'concs')
+    model.ec.concs(end+1)  = nan();
+end
 
 % Expand the enzyme rxns matrix
 model.ec.rxnEnzMat =  [model.ec.rxnEnzMat, zeros(length(model.ec.rxns), 1)]; % 1 new enzyme
@@ -129,19 +136,17 @@ for i = 1:numel(rxnsMissingGPR)
     kcatSubSystemIdx =  strcmpi(enzSubSystem_names, model.subSystems{rxnIdx});
 
     % Update .ec structure in model
-    model.ec.rxns(end+1)        = model.rxns(rxnIdx);
+    model.ec.rxns(end+1)     = model.rxns(rxnIdx);
     if all(kcatSubSystemIdx)
-        model.ec.kcat(end+1)       = kcatSubSystem(kcatSubSystemIdx);
+        model.ec.kcat(end+1) = kcatSubSystem(kcatSubSystemIdx);
     else
-        model.ec.kcat(end+1)       = standardKcat;
+        model.ec.kcat(end+1) = standardKcat;
     end
-    model.ec.source(end+1)     = {'Standard kcat'};
-    model.ec.notes(end+1)        = {''};
-    model.ec.eccodes(end+1)   = {''};
+    model.ec.source(end+1)   = {'Standard kcat'};
+    model.ec.notes(end+1)    = {''};
+    model.ec.eccodes(end+1)  = {''};
 
     % Update the enzyme rxns matrix
     model.ec.rxnEnzMat(numRxns+i, stdMetIdx) = 1;
 end
-
 end
-
