@@ -112,15 +112,10 @@ classdef YeastGEMAdapter < ModelAdapter
 		function [spont,spontRxnNames] = getSpontaneousReactions(obj,model)
 			%TODO: I'm not sure if this information exists in Yeast-GEM - if it does, it should be returned in this function
 			%For now, we say none of them are spontaneous.
-			spont = false(length(model.rxns), 1);
-			spontRxnNames = rxns_tsv.rxns;
+			spont = contains(model.rxnNames,'spontaneous');
+			spontRxnNames = {''};%rxns_tsv.rxns; For now, create an empty cell
 			%rxns_tsv = importTsvFile(strcat(getHumanGEMRootPath(),'model/reactions.tsv'));
 			%spont = rxns_tsv.spontaneous;
-		end
-		
-		function model = manualModifications(obj,model) %default is to do nothing
-			%TODO: There are a lot of modifications in the function manualModifications that I suspect are
-			%specific to Yeast-GEM. They should probably be inserted here.
 		end
 	end
 end
