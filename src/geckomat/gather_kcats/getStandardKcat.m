@@ -23,12 +23,6 @@ function [model, rxnsMissingGPR, standardMW, standardKcat] = getStandardKcat(mod
 %
 %   A pseudometabolite named 'prot_standard' will be added as well as a gene 
 %   and enzyme named 'standard'
-%   
-%   Either all reactions matching the set of proteins will have their kcat
-%   updated. Alternatively, a set of reactions can be defined for specific
-%   changes (e.g. r_0001). Reaction identifiers should be comma separated
-%   (e.g. r_0001, r_0002), and not contain the _REV and/or _EXP_1 suffices
-%   that makeEcModel introduces.
 %
 % Usage:
 %    [model, rxnsMissingGPR, standardMW, standardKcat] = getStandardKcat(model, modelAdapter, threshold);
