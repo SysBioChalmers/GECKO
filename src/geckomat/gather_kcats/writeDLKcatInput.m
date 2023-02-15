@@ -1,4 +1,4 @@
-function writtenTable = writeDLKcatInput(model, ecRxns, modelAdapter, onlyWithSmiles)
+function writtenTable = writeDLKcatInput(model, ecRxns, modelAdapter, onlyWithSmiles, filename)
 % writeDLKcatInput
 %   Prepares the input for DLKcat, and writes it to data/DLKcat.tsv
 %   in the obj.params.path specified in the ModelAdapter.
@@ -13,6 +13,8 @@ function writtenTable = writeDLKcatInput(model, ecRxns, modelAdapter, onlyWithSm
 %                   default model adapter).
 %   onlyWithSmiles  logical whether to only include metabolites with SMILES
 %                   (optional, default true)
+%   filename        Filename (Optional). Normally this parameter should not be 
+%                   supplied, but it is useful for test cases.
 %
 % Output:
 %   writtenTable    The table written, mainly to be used for testing purposes.
@@ -39,6 +41,12 @@ if nargin<4
     onlyWithSmiles=true;
 end
 
+if nargin<5
+    filename = fullfile(params.path,'data','DLKcat.tsv');
+end
+
+
+
 % Identify reactions for which kcat should be predicted (entry in model.ec.rxns)
 rxnsToInclude = model.ec.rxns(ecRxns);
 ecRxns        = find(ecRxns); % Change to indices
@@ -60,7 +68,8 @@ end
 % name (case insensitive, without white spaces and special characters),
 % then also try to match with metSmiles (if available).
 metsNoSpecialChars = lower(regexprep(model.metNames,'[^0-9a-zA-Z]+',''));
-if nargin<4
+ignoreMets = {};
+if onlyWithSmiles
     if exist(fullfile(params.path,'data','DLKcatIgnoreMets.tsv'),'file')
         fID        = fopen(fullfile(params.path,'data','DLKcatIgnoreMets.tsv'));
     else
@@ -81,7 +90,8 @@ reducedS(ignoreMetsIdx,:) = 0;
 % Ignore currency metabolites if they occur in pairs. First check by
 % name (case insensitive, without white spaces and special characters),
 % then also try to match with metSmiles (if available).
-if nargin<5
+currencyMets = {};
+if nargin<6
     if exist(fullfile(params.path,'data','DLKcatCurrencyMets.tsv'),'file')
         fID        = fopen(fullfile(params.path,'data','DLKcatCurrencyMets.tsv'));
     else
@@ -135,7 +145,7 @@ out(6,:) = cell(numel(out(1,:)),1);
 out(6,:) = {'NA'};
 
 % Write file
-fID = fopen(fullfile(params.path,'data','DLKcat.tsv'),'w');
+fID = fopen(filename,'w');
 fprintf(fID,'%s\t%s\t%s\t%s\t%s\t%s\n',out{:});
 fclose(fID);
 
