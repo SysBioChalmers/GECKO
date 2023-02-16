@@ -17,7 +17,7 @@ function [model, rxnsMissingGPR, standardMW, standardKcat] = getStandardKcat(mod
 %   model           ecModel where model.ec is expanded with a standard
 %                   protein with standard kcat and standard MW, assigned to
 %                   reactions without gene associations.
-%   rxnsMissingGPR  a list of update rxns index with a standard value
+%   rxnsMissingGPR  a list of updated rxns identifiers with a standard value
 %   standardMW      the standard MW value calculated
 %   standardKcat    the standard Kcat value calculated
 %
@@ -161,4 +161,6 @@ for i = 1:numel(rxnsMissingGPR)
     % Update the enzyme rxns matrix
     model.ec.rxnEnzMat(numRxns+i, stdMetIdx) = 1;
 end
+% Get the rxns identifiers of the updated rxns
+rxnsMissingGPR = model.rxns(rxnsMissingGPR);
 end
