@@ -55,8 +55,11 @@ standardMW = median(databases.uniprot.MW, 'omitnan');
 % a subSystem have a number of reactions lower than a treshold, the kcat
 % value will be the median of the kcat in all the reactions of the model.
 
+% Remove from the list those with kcat zero
+rxnsKcatZero = model.ec.kcat > 0;
+
 % Get the kcat value based on all the kcats in the model
-standardKcat = median(model.ec.kcat, 'omitnan');
+standardKcat = median(model.ec.kcat(rxnsKcatZero), 'omitnan');
 
 enzSubSystems = cell(numel(model.ec.rxns), 1);
 
@@ -65,9 +68,6 @@ for i = 1:numel(model.ec.rxns)
     idx = strcmpi(model.rxns, model.ec.rxns{i});
     enzSubSystems(i,1) = model.subSystems{idx};
 end
-
-% Remove from the list those with kcat zero
-rxnsKcatZero = model.ec.kcat > 0;
 
 % Determine the subSystems in model.ec
 [enzSubSystem_group, enzSubSystem_names] = findgroups(enzSubSystems(rxnsKcatZero));
