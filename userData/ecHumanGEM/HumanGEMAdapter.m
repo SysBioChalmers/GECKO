@@ -99,13 +99,6 @@ classdef HumanGEMAdapter < ModelAdapter
             %Also replace empty strings with something else to avoid matches on empty strings in uniprot
             genes(strcmp(genes, '')) = {'<<<EMPTY>>>'};
         end
-
-        
-		function model = manualModifications(obj,model) %default is to do nothing
-			%So, there are some of these in ecModels - it is a bit unclear if any of these are relevant here
-			%we do nothing for now.
-			%In general, manual modifications should be done to the model before sending it in.
-        end
     end
     
     methods(Static)
