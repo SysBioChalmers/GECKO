@@ -114,6 +114,18 @@ end
 
 model = addGenesRaven(model, proteinStdGenes);
 
+% Add a protein usage reaction
+if ~model.ec.geckoLight
+    proteinStdUsageRxn.rxns            = {'usage_prot_standard'};
+    proteinStdUsageRxn.rxnNames        = proteinStdUsageRxn.rxns;
+    proteinStdUsageRxn.mets         = {'prot_pool', proteinStdMets.mets};
+    proteinStdUsageRxn.stoichCoeffs = [-1, 1];
+    proteinStdUsageRxn.lb              = 0;
+    proteinStdUsageRxn.grRules         = proteinStdGenes.genes;
+    
+    model = addRxns(model, proteinStdUsageRxn);
+end
+
 % Update .ec structure in model
 model.ec.genes(end+1)      = {'standard'};
 model.ec.enzymes(end+1)    = {'standard'};
