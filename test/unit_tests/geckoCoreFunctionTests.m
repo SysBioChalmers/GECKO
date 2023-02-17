@@ -143,17 +143,17 @@ function testsetProtPoolSize_tc0005(testCase)
     adapter = ModelAdapterManager.getAdapterFromPath(fullfile(geckoPath,'test','unit_tests','ecTestGEM'));
     model = getGeckoTestModel();
     ecModel = makeEcModel(model, false, adapter);
-    ecModel = setProtPoolSize(ecModel, [], adapter);
-    verifyEqual(testCase,ecModel.ub(length(ecModel.rxns)),10000)
-    ecModel = setProtPoolSize(ecModel, 3);
-    verifyEqual(testCase,ecModel.ub(length(ecModel.rxns)),3)
+    ecModel = setProtPoolSize(ecModel, [], [], [], adapter);
+    verifyEqual(testCase,ecModel.ub(length(ecModel.rxns)),1000)
+    ecModel = setProtPoolSize(ecModel, 1, 5, 1);
+    verifyEqual(testCase,ecModel.ub(length(ecModel.rxns)),5000)
 
     %light
     ecModel = makeEcModel(model, true, adapter);
-    ecModel = setProtPoolSize(ecModel, [], adapter);
-    verifyEqual(testCase,ecModel.ub(length(ecModel.rxns)),10000)
-    ecModel = setProtPoolSize(ecModel, 3);
-    verifyEqual(testCase,ecModel.ub(length(ecModel.rxns)),3)
+    ecModel = setProtPoolSize(ecModel, [], [], [], adapter);
+    verifyEqual(testCase,ecModel.ub(length(ecModel.rxns)),1000)
+    ecModel = setProtPoolSize(ecModel, 1, 5, 1);
+    verifyEqual(testCase,ecModel.ub(length(ecModel.rxns)),5000)
 end
 
 %For both full and light
@@ -286,9 +286,61 @@ function testfuzzyKcatMatching_tc0010(testCase)
     verifyEqual(testCase,kcatListLightFuzzy.eccodes, {'1.1.1.1'})
     verifyEqual(testCase,kcatListLightFuzzy.wildcardLvl, [0])
     verifyEqual(testCase,kcatListLightFuzzy.origin, [2])
-    
 end
 
+%also tests reading and to a certain extent writing of DLKcat files, but not the DLKCat algorithm
+function testmergeDlkcatAndFuzzyKcats_tc0011(testCase)
+    geckoPath = findGECKOroot;
+    adapter = ModelAdapterManager.getAdapterFromPath(fullfile(geckoPath,'test','unit_tests','ecTestGEM'));
+    model = getGeckoTestModel();
+    %add an extra R3 reaction to be able to check that wildcards go in if there is no kcat in the dlkcat list
+    rxnsToAdd = struct();
+    rxnsToAdd.rxns = {'R2a';'R3b'};
+    rxnsToAdd.grRules = {'G1 and G2 or G3';'G4'};
+    rxnsToAdd.equations = {'m1[c] => m2[c]'; 'm1[c] => m2[c]'};
+    model = addRxns(model,rxnsToAdd, 3);
+    model.eccodes{9} = '1.1.2.1';%no eccode for R2a, let dlkcat populate that
+    
+
+    %we only test with full, the model is not really involved in this code
+    ecModel = makeEcModel(model, false, adapter);
+    ecModel = getECfromGEM(ecModel);
+    kcatListFuzzy = fuzzyKcatMatching(ecModel, [], adapter);
+    %test to write a DLKcat
+    filepath = fullfile(adapter.getParameters().path,'data','DLKcat_input_test.tsv');
+    if exist(filepath, 'file')==2
+      delete(filepath);
+    end
+    verifyTrue(testCase,~(exist(filepath, 'file')==2))
+    writtenTable = writeDLKcatInput(ecModel, [], adapter, false, filepath);
+    verifyTrue(testCase,exist(filepath, 'file')==2) %check that we write a file, we don't check the contents
+    if exist(filepath, 'file')==2 %clean up
+      delete(filepath);
+    end
+    verifyEqual(testCase,writtenTable(1,:), {'R2_EXP_1','R2_EXP_1','R2_EXP_2','R2_REV_EXP_1','R2_REV_EXP_1','R2_REV_EXP_2','R2a_EXP_1','R2a_EXP_1','R2a_EXP_2','R3','R3b','R5'})
+    verifyEqual(testCase,writtenTable(2,:), {'G1','G2','G3','G1','G2','G3','G1','G2','G3','G4','G4','G5'})
+    verifyEqual(testCase,writtenTable(3,:), {'m1','m1','m1','m2','m2','m2','m1','m1','m1','m1','m1','m2'})
+    %skip line 4, not set here since our fake metabolites don't have any smiles - could perhaps be fixed at some point
+    verifyEqual(testCase,writtenTable(5,:), {'MRAL','MNTD','MSYN','MRAL','MNTD','MSYN','MRAL','MNTD','MSYN','MDFM','MDFM','MLFK'})
+    %skip line 6, always set to 'NA' it seems
+    
+    %Create a suitable kcatlist from dlkcat
+    dlkcatList = struct();
+    dlkcatList.source = 'DLKcat';
+    dlkcatList.rxns = {'R2_EXP_1';'R2_EXP_1';'R2_EXP_2';'R2_REV_EXP_1';'R2_REV_EXP_1';'R2_REV_EXP_2';'R2a_EXP_1';'R2a_EXP_1';'R2a_EXP_2';'R3';'R5'};
+    dlkcatList.genes = {'G1';'G2';'G3';'G1';'G2';'G3';'G1';'G2';'G3';'G4';'G5'};
+    dlkcatList.substrates = {'m1';'m1';'m1';'m2';'m2';'m2';'m1';'m1';'m1';'m1';'m2'};
+    dlkcatList.kcats = [1001;1002;1003;1004;1005;1006;1007;1008;1009;1010;1011];
+    mergedList = mergeDlkcatAndFuzzyKcats(dlkcatList, kcatListFuzzy, 6, 6, 1);%allow for use of wildcards
+    verifyEqual(testCase,mergedList.kcatSource, {'brenda';'brenda';'brenda';'brenda';'brenda';'DLKcat';'DLKcat';'DLKcat';'DLKcat';'DLKcat'})
+    verifyEqual(testCase,mergedList.rxns, {'R2_EXP_1';'R2_EXP_2';'R2_REV_EXP_1';'R2_REV_EXP_2';'R3b';'R2a_EXP_1';'R2a_EXP_1';'R2a_EXP_2';'R3';'R5'})
+    verifyEqual(testCase,mergedList.genes, {[];[];[];[];[];'G1';'G2';'G3';'G4';'G5'})
+    verifyEqual(testCase,mergedList.substrates, {{'m1'};{'m1'};{'m2'};{'m2'};{'m1'};'m1';'m1';'m1';'m1';'m2'})
+    verifyEqual(testCase,mergedList.kcats, [1;1;10;10;100;1007;1008;1009;1010;1011])
+    verifyEqual(testCase,mergedList.eccodes, {'1.1.1.1';'1.1.1.1';'1.1.1.1';'1.1.1.1';'1.1.2.1';[];[];[];[];[]})
+    verifyEqual(testCase,mergedList.wildcardLvl, [0;0;0;0;1;NaN;NaN;NaN;NaN;NaN])
+    verifyEqual(testCase,mergedList.origin, [1;1;2;2;1;NaN;NaN;NaN;NaN;NaN])%origin is 2 for testus falsus, 1 for the wildcard match which matches well on species and substrate
+end
 
 
 
