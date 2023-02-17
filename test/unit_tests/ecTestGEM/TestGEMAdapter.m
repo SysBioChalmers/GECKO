@@ -59,7 +59,7 @@ classdef TestGEMAdapter < ModelAdapter
 			obj.params.enzyme_comp = 'c';
 
             %The pool size, fitted to data
-            obj.params.standardProtPoolSize = 10000;
+            obj.params.f = 4;
 
         end
 		
