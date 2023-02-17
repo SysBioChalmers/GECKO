@@ -85,8 +85,8 @@ mergedKcatList.rxns = [kcatListFuzzy.rxns(fuzzyRxns);kcatListDlkcat.rxns(prio2)]
 mergedKcatList.genes = [cell(sum(fuzzyRxns),1);kcatListDlkcat.genes(prio2)];
 mergedKcatList.substrates = [kcatListFuzzy.substrates(fuzzyRxns);kcatListDlkcat.substrates(prio2)];
 mergedKcatList.kcats = [kcatListFuzzy.kcats(fuzzyRxns);kcatListDlkcat.kcats(prio2)];
-mergedKcatList.eccodes = [kcatListFuzzy.eccodes(fuzzyRxns);cell(sum(fuzzyRxns),1)];
-mergedKcatList.wildcardLvl = [kcatListFuzzy.wildcardLvl(fuzzyRxns);nan(sum(fuzzyRxns),1)];
-mergedKcatList.origin = [kcatListFuzzy.origin(fuzzyRxns);nan(sum(fuzzyRxns),1)];
+mergedKcatList.eccodes = [kcatListFuzzy.eccodes(fuzzyRxns);cell(sum(prio2),1)];
+mergedKcatList.wildcardLvl = [kcatListFuzzy.wildcardLvl(fuzzyRxns);nan(sum(prio2),1)];
+mergedKcatList.origin = [kcatListFuzzy.origin(fuzzyRxns);nan(sum(prio2),1)];
 
 end
