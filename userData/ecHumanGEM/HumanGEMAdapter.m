@@ -8,9 +8,10 @@ classdef HumanGEMAdapter < ModelAdapter
             %code below refers to userData/ecYeastGEM in the GECKO path.
             geckoPath = findGECKOroot;
             obj.params.path = fullfile(geckoPath,'userData','ecHumanGEM');
+
+			%Path to the conventional GEM that this ecModel will be based on.
+			obj.params.convGEM = fullfile(obj.params.path,'models','Human-GEM.xml');
             
-            %these parameters are just copied from getParams in ecModels
-			
             %Average enzyme saturation factor
 			obj.params.sigma = 0.5;
 

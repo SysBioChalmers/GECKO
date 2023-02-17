@@ -9,16 +9,16 @@ classdef YeastGEMAdapter < ModelAdapter
             geckoPath = findGECKOroot;
             obj.params.path = fullfile(geckoPath,'userData','ecYeastGEM');
 
-            %these paramteres are just copied from getParams in ecModels
-			
-            %Average enzyme saturation factor
+			%Path to the conventional GEM that this ecModel will be based on.
+			obj.params.convGEM = fullfile(obj.params.path,'models','yeast-GEM.xml');
+
+			%Average enzyme saturation factor
 			obj.params.sigma = 0.5;
 
 			%Total protein content in the cell [g protein/gDw]
 			obj.params.Ptot = 0.5;
 
 			%Fraction of enzymes in the model [g enzyme/g protein]
-            %Can also be estimated from proteomics data with 
 			obj.params.f = 0.5;
             
             %Growth rate the model should be able to reach when not

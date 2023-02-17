@@ -1,71 +1,55 @@
-function model = saveECmodel(model,toolbox,name,version,path)
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function saveECmodel(model,modelAdapter,format,filename)
+% saveECmodel
+%   Saves the model in either YAML format (= default and preferred, as all
+%   model content is reserved) and/or SBML format (= more widely compatible
+%   with other constraint-based modelling tools, can be used for running
+%   simulations like FBA etc., but this model cannot be loaded back into
+%   MATLAB for applying further GECKO functions, as model.ec is lost).
+%
 % Input:
-%       model: an ecModel to save
-%
-%       toolbox: toolbox version to save. 'RAVEN' or 'COBRA'
-%
-%       name: the file name
-%
-%       version: model version
-%
-% Usage:
-%
-%       model = saveECmodel(model,toolbox,path,name,version)
-%
-% Benjamin J. Sanchez. Last edited: 2018-10-25
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   model           an ec-model in GECKO3 format
+%   modelAdapter    a loaded model adapter, from where the model folder is
+%                   read (Optional, will otherwise use the default model adapter).
+%   format          file format, either as string if the model should be
+%                   saved in one format, e.g. 'yaml', or cell array if
+%                   multiple formats {'yaml','sbml'}. (Optional, default
+%                   'yaml').
+%   filename        overwrites whatever path is specified in modelAdapter,
+%                   or if no modelAdapter is specified. Otherwise, the file
+%                   is stored as ecModel in param.path.
 
-fprintf(['Saving ' name '_' version ':\n'])
 
-%Model description:
-model.description = ['Enzyme-constrained model of ' version];
-model.id          = [name];
-
-%Format S matrix: avoid long decimals
-for i = 1:length(model.mets)
-    for j = 1:length(model.rxns)
-        if model.S(i,j) ~= 0
-            orderMagn    = ceil(log10(abs(model.S(i,j))));
-            model.S(i,j) = round(model.S(i,j),6-orderMagn);
-        end
+if nargin < 2 || isempty(modelAdapter)
+    modelAdapter = ModelAdapterManager.getDefaultAdapter();
+    if isempty(modelAdapter)
+        error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
     end
 end
+params = modelAdapter.getParameters();
+if nargin < 3 || isempty(format)
+    format = 'yaml';
+end
+if nargin < 4 || isempty (format)
+    filename = 'ecModel';
+end
+filename = fullfile(params.path,'models',filename);
 
-%For functional models, save upper bounds as +1000:
-model.ub(isinf(model.ub)) = 1000;
+%Model description:
+model.description = ['Enzyme-constrained model of ' model.id];
 
-%Remove model.rules (added by COBRA functions)
-model = takeOutField(model,'rules');
+if contains(format,{'yaml','yml'})
+    writeYAMLmodel(model,[filename '.yml']);
+end
 
-if strcmp(toolbox,'COBRA')
-    %Transform model back to COBRA for saving purposes:
-    model_cobra = ravenCobraWrapper(model);
-    %Remove fields from COBRA model (temporal):
-    model_cobra = takeOutField(model_cobra,'metCharges');
-    model_cobra = takeOutField(model_cobra,'metChEBIID');
-    model_cobra = takeOutField(model_cobra,'metKEGGID');
-    model_cobra = takeOutField(model_cobra,'metNotes');
-    model_cobra = takeOutField(model_cobra,'metSBOTerms');
-    model_cobra = takeOutField(model_cobra,'rxnConfidenceScores');
-    model_cobra = takeOutField(model_cobra,'rxnECNumbers');
-    model_cobra = takeOutField(model_cobra,'rxnKEGGID');
-    model_cobra = takeOutField(model_cobra,'rxnReferences');
-    model_cobra.subSystems = cell(size(model_cobra.rxns));
-    model_cobra = takeOutField(model_cobra,'rxnSBOTerms');
-    %Save model as sbml and text:
-    writeCbModel(model_cobra,'sbml',fullfile(path,name,'.xml'));
-    writeCbModel(model_cobra,'text',fullfile(path,name,'.txt'));
-else
-    exportForGit(model,name,path,{'xml','yml','txt'},false,false);
+if contains(format,{'xml','sbml'})
+    exportModel(model,[filename '.xml']);
 end
 
 %Convert notation "e-005" to "e-05 " in stoich. coeffs. to avoid
 %inconsistencies between Windows and MAC:
-copyfile(fullfile(path,[name '.xml']),'backup.xml')
+copyfile([filename '.xml']),'backup.xml')
 fin  = fopen('backup.xml', 'r');
-fout = fopen(fullfile(path,[name '.xml']), 'w');
+fout = fopen([filename '.xml']), 'w');
 still_reading = true;
 while still_reading
     inline = fgets(fin);
@@ -82,17 +66,4 @@ while still_reading
 end
 fclose('all');
 delete('backup.xml');
-
 end
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-function model = takeOutField(model,field)
-
-if isfield(model,field)
-    model = rmfield(model,field);
-end
-
-end
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -9,9 +9,10 @@ classdef yourModelAdapter < ModelAdapter
             geckoPath = findGECKOroot;
             obj.params.path = fullfile(geckoPath,'userData','yourModel');
 
-            %these paramteres are just copied from getParams in ecModels
-			
-            %Average enzyme saturation factor
+			%Path to the conventional GEM that this ecModel will be based on.
+			obj.params.convGEM = fullfile(obj.params.path,'models','yourModel.xml');
+
+			%Average enzyme saturation factor
 			obj.params.sigma = 0.5;
 
 			%Total protein content in the cell [g protein/gDw]
