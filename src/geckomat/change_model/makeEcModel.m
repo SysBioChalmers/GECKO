@@ -180,12 +180,14 @@ rxnWithGene  = find(sum(model.rxnGeneMat,2));
 if ~geckoLight
     ec.rxns      = model.rxns(rxnWithGene);
     emptyCell    = cell(numel(rxnWithGene),1);
+    emptyCell(:) = {''};
     emptyVect    = zeros(numel(rxnWithGene),1);
     
     ec.kcat      = emptyVect;
     ec.source    = emptyCell; % Strings, like 'dlkcat', 'manual', 'brenda', etc.
     ec.notes     = emptyCell; % Additional comments
     ec.eccodes   = emptyCell;
+    ec.concs     = emptyVect;
 else
     %Different strategy for GECKO light: Each reaction can exist multiple times in 
     %ec.rxns and similar fields - one time per isozyme. The number of copies is
@@ -222,12 +224,14 @@ else
     ec.rxns      = newRxns;
     
     emptyCell    = cell(numel(ec.rxns),1);
+    emptyCell(:) = {''};
     emptyVect    = zeros(numel(ec.rxns),1);
 
     ec.kcat      = emptyVect;
     ec.source    = emptyCell; % Strings, like 'dlkcat', 'manual', 'brenda', etc.
     ec.notes     = emptyCell; % Additional comments
     ec.eccodes   = emptyCell;
+    ec.concs     = emptyVect;
 end
     
 %8: Gather enzyme information via UniprotDB
@@ -305,7 +309,9 @@ if ~geckoLight
     proteinMets.mets         = strcat('prot_',proteinMets.mets);
     proteinMets.metNames     = proteinMets.mets;
     proteinMets.compartments = 'c';
-    proteinMets.metMiriams   = repmat({struct('name',{{'sbo'}},'value',{{'SBO:0000252'}})},numel(proteinMets.mets),1);
+    if isfield(model,'metMiriams')
+        proteinMets.metMiriams   = repmat({struct('name',{{'sbo'}},'value',{{'SBO:0000252'}})},numel(proteinMets.mets),1);
+    end
     proteinMets.metNotes     = repmat({'Enzyme-usage pseudometabolite'},numel(proteinMets.mets),1);
     model = addMets(model,proteinMets);
 end

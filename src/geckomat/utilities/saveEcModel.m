@@ -43,27 +43,26 @@ end
 
 if contains(format,{'xml','sbml'})
     exportModel(model,[filename '.xml']);
-end
-
-%Convert notation "e-005" to "e-05 " in stoich. coeffs. to avoid
-%inconsistencies between Windows and MAC:
-copyfile([filename '.xml']),'backup.xml')
-fin  = fopen('backup.xml', 'r');
-fout = fopen([filename '.xml']), 'w');
-still_reading = true;
-while still_reading
-    inline = fgets(fin);
-    if ~ischar(inline)
-        still_reading = false;
-    else
-        if ~isempty(regexp(inline,'-00[0-9]','once'))
-            inline = strrep(inline,'-00','-0');
-        elseif ~isempty(regexp(inline,'-01[0-9]','once'))
-            inline = strrep(inline,'-01','-1');
+    %Convert notation "e-005" to "e-05 " in stoich. coeffs. to avoid
+    %inconsistencies between Windows and MAC:
+    copyfile([filename '.xml'],'backup.xml')
+    fin  = fopen('backup.xml', 'r');
+    fout = fopen([filename '.xml'], 'w');
+    still_reading = true;
+    while still_reading
+        inline = fgets(fin);
+        if ~ischar(inline)
+            still_reading = false;
+        else
+            if ~isempty(regexp(inline,'-00[0-9]','once'))
+                inline = strrep(inline,'-00','-0');
+            elseif ~isempty(regexp(inline,'-01[0-9]','once'))
+                inline = strrep(inline,'-01','-1');
+            end
+            fwrite(fout, inline);
         end
-        fwrite(fout, inline);
     end
+    fclose('all');
+    delete('backup.xml');
 end
-fclose('all');
-delete('backup.xml');
 end
