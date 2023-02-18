@@ -450,5 +450,15 @@ function testKcats_tc0011(testCase)
     verifyEqual(testCase,res.f,lres.f,"AbsTol",10^-10) 
 end
 
+%Does not test the data download, only operates from a stored file
+function testfindMetSmiles_tc0012(testCase)
+    geckoPath = findGECKOroot;
+    adapter = ModelAdapterManager.getAdapterFromPath(fullfile(geckoPath,'test','unit_tests','ecTestGEM'));
+    model = getGeckoTestModel();
+    ecModel = makeEcModel(model, false, adapter);
+    ecModel = findMetSmiles(ecModel, adapter);
+
+    verifyEqual(testCase,ecModel.metSmiles,{'C(C1C)O';'C1C(=NC2)';'C(C1C)O';'C1C(=NC2)';'';'';'';'';'';''})
+end
 
 
