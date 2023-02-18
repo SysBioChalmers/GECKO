@@ -12,6 +12,7 @@ function model = applyKcatConstraints(model,updateRxns)
 %               be given as either a logical vector of length
 %               model.ec.rxns, a vector of model.ec.rxns indices, or a
 %               (cell array of) string(s) with model.ec.rxns identifiers.
+%               For light models, these reactions should match model.rxns.
 %
 % Output:
 %   model       ec-model where reactions are constrained by enzyme usage
@@ -20,15 +21,22 @@ function model = applyKcatConstraints(model,updateRxns)
 %
 % Usage: model = applyKcatConstraints(model,updateRxns);
 
+%these lines are for the nargin lines below only
+if (model.ec.geckoLight)
+    rxns = model.rxns;
+else
+    rxns = model.ec.rxns;
+end
+
 if nargin<2
-    updateRxns = true(numel(model.ec.rxns),1);
+    updateRxns = true(numel(rxns),1);
 elseif isnumeric(updateRxns)
-    updateRxnsLog = false(numel(model.ec.rxns),1);
+    updateRxnsLog = false(numel(rxns),1);
     updateRxnsLog(updateRxns) = true;
     updateRxns = updateRxnsLog;
 elseif iscellstr(updateRxns) || ischar(updateRxns) || isstring(updateRxns)
     updateRxnsIds = convertCharArray(updateRxns);
-    updateRxns = ismember(model.ec.rxns,updateRxnsIds);
+    updateRxns = ismember(rxns,updateRxnsIds);
 end
     
 if ~isfield(model,'ec')
@@ -93,14 +101,14 @@ else %GECKO light formulation, where prot_pool represents all usages
             %Then use the lowest MW/kcat among the isozymes - when optimizing, that
             %is the one that will be used anyway.
             while true
-                if updateRxns(nextIndex)
+                if updateRxns(i)
                     updated = true;
                 end
                 enzymes = find(model.ec.rxnEnzMat(nextIndex,:));
                 if model.ec.kcat(nextIndex) == 0
                     %newMWKcats = [newMWKcats 0]; - if some are missing, just ignore those
                 else
-                    MW = sum(model.ec.mw(enzymes).* model.ec.rxnEnzMat(nextIndex,:)); %multiply MW with number of subunits
+                    MW = sum(model.ec.mw(enzymes) .* model.ec.rxnEnzMat(nextIndex,enzymes).'); %multiply MW with number of subunits
                     newMWKcats = [newMWKcats MW/model.ec.kcat(nextIndex)]; %Light model: protein usage is MW/kcat
                 end                
                 nextIndex = nextIndex + 1;

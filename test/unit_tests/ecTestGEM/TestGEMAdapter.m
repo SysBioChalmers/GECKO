@@ -30,8 +30,10 @@ classdef TestGEMAdapter < ModelAdapter
 			%https://www.genome.jp/kegg/catalog/org_list.html
 			obj.params.keggID = 'tst'; %This will not work and will not be used
 
-			%Provide your organism UniProt proteome, selected at
-			%https://www.uniprot.org/proteomes/
+			%Provide what identifier should be used to query UniProt.
+            %Select proteome IDs at https://www.uniprot.org/proteomes/
+            %or taxonomy IDs at https://www.uniprot.org/taxonomy.
+            obj.params.uniprotIDtype = 'taxonomy_id'; % 'proteome' or 'taxonomy_id' - will not be used
 			obj.params.uniprotID = 'TE00000000'; %This will not work and will not be used
             
             %Field for Uniprot gene id - should match the gene ids used in the 
@@ -57,7 +59,7 @@ classdef TestGEMAdapter < ModelAdapter
 			obj.params.enzyme_comp = 'c';
 
             %The pool size, fitted to data
-            obj.params.standardProtPoolSize = 10000;
+            obj.params.f = 4;
 
         end
 		

@@ -1,4 +1,4 @@
-function writtenTable = writeDLKcatInput(model, ecRxns, modelAdapter, onlyWithSmiles)
+function writtenTable = writeDLKcatInput(model, ecRxns, modelAdapter, onlyWithSmiles, filename)
 % writeDLKcatInput
 %   Prepares the input for DLKcat, and writes it to data/DLKcat.tsv
 %   in the obj.params.path specified in the ModelAdapter.
@@ -13,6 +13,8 @@ function writtenTable = writeDLKcatInput(model, ecRxns, modelAdapter, onlyWithSm
 %                   default model adapter).
 %   onlyWithSmiles  logical whether to only include metabolites with SMILES
 %                   (optional, default true)
+%   filename        Filename (Optional). Normally this parameter should not be 
+%                   supplied, but it is useful for test cases.
 %
 % Output:
 %   writtenTable    The table written, mainly to be used for testing purposes.
@@ -26,6 +28,7 @@ elseif ~logical(ecRxns)
 elseif numel(ecRxns)~=numel(model.ec.rxns)
     error('Length of ecRxns is not the same as model.ec.rxns')
 end
+ecRxns = find(ecRxns); % Change to indices
 
 if nargin < 3 || isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefaultAdapter();
@@ -35,13 +38,13 @@ if nargin < 3 || isempty(modelAdapter)
 end
 params = modelAdapter.params;
 
-if nargin<4
+if nargin<4 || isempty(onlyWithSmiles)
     onlyWithSmiles=true;
 end
 
-% Identify reactions for which kcat should be predicted (entry in model.ec.rxns)
-rxnsToInclude = model.ec.rxns(ecRxns);
-ecRxns        = find(ecRxns); % Change to indices
+if nargin<5 || isempty(filename)
+    filename = fullfile(params.path,'data','DLKcat.tsv');
+end
 
 if ~model.ec.geckoLight
    origRxns = model.ec.rxns;
@@ -60,17 +63,16 @@ end
 % name (case insensitive, without white spaces and special characters),
 % then also try to match with metSmiles (if available).
 metsNoSpecialChars = lower(regexprep(model.metNames,'[^0-9a-zA-Z]+',''));
-if nargin<4
-    if exist(fullfile(params.path,'data','DLKcatIgnoreMets.tsv'),'file')
-        fID        = fopen(fullfile(params.path,'data','DLKcatIgnoreMets.tsv'));
-    else
-        fID        = fopen(fullfile(geckoPath,'databases','DLKcatIgnoreMets.tsv'));
-    end
-    fileData   = textscan(fID,'%s %s','delimiter','\t');
-    fclose(fID);
-    [ignoreMets, ignoreSmiles] = deal(fileData{[1,2]});
-    ignoreMets = lower(regexprep(ignoreMets,'[^0-9a-zA-Z]+',''));
+if exist(fullfile(params.path,'data','DLKcatIgnoreMets.tsv'),'file')
+    fID        = fopen(fullfile(params.path,'data','DLKcatIgnoreMets.tsv'));
+else
+    fID        = fopen(fullfile(geckoPath,'databases','DLKcatIgnoreMets.tsv'));
 end
+fileData   = textscan(fID,'%s %s','delimiter','\t');
+fclose(fID);
+[ignoreMets, ignoreSmiles] = deal(fileData{[1,2]});
+ignoreMets = lower(regexprep(ignoreMets,'[^0-9a-zA-Z]+',''));
+
 ignoreMetsIdx  = logical(ismember(metsNoSpecialChars,ignoreMets));
 if isfield(model,'metSmiles')
     ignoreMetsIdx = ignoreMetsIdx | logical(ismember(model.metSmiles,ignoreSmiles));
@@ -81,21 +83,24 @@ reducedS(ignoreMetsIdx,:) = 0;
 % Ignore currency metabolites if they occur in pairs. First check by
 % name (case insensitive, without white spaces and special characters),
 % then also try to match with metSmiles (if available).
-if nargin<5
-    if exist(fullfile(params.path,'data','DLKcatCurrencyMets.tsv'),'file')
-        fID        = fopen(fullfile(params.path,'data','DLKcatCurrencyMets.tsv'));
-    else
-        fID      = fopen(fullfile(geckoPath,'databases','DLKcatCurrencyMets.tsv'));
-    end
-    fileData = textscan(fID,'%s %s %s %s','delimiter','\t');
-    fclose(fID);
-    [currencyMets(:,1), currencyMets(:,2), currSmiles(:,1), currSmiles(:,2)] = deal(fileData{[1,3,2,4]});
-    [currencyMets(:,1), currencyMets(:,2)] = deal(fileData{[1,2]});
-    currencyMets = lower(regexprep(currencyMets,'[^0-9a-zA-Z]+',''));
+if exist(fullfile(params.path,'data','DLKcatCurrencyMets.tsv'),'file')
+    fID = fopen(fullfile(params.path,'data','DLKcatCurrencyMets.tsv'));
+else
+    fID = fopen(fullfile(geckoPath,'databases','DLKcatCurrencyMets.tsv'));
 end
+fileData = textscan(fID,'%s %s %s %s','delimiter','\t');
+fclose(fID);
+[currencyMets(:,1), currencyMets(:,2), currSmiles(:,1), currSmiles(:,2)] = deal(fileData{[1,3,2,4]});
+[currencyMets(:,1), currencyMets(:,2)] = deal(fileData{[1,2]});
+currencyMets = lower(regexprep(currencyMets,'[^0-9a-zA-Z]+',''));
+
 for i=1:size(currencyMets,1)
     subs = find(strcmp(currencyMets(i,1),metsNoSpecialChars));
     prod = find(strcmp(currencyMets(i,2),metsNoSpecialChars));
+    if isfield(model,'metSmiles')
+        subs = subs | logical(ismember(model.metSmiles,currSmiles(i,1)));
+        prod = prod | logical(ismember(model.metSmiles,currSmiles(i,2)));
+    end
     [~,subsRxns]=find(reducedS(subs,:));
     [~,prodRxns]=find(reducedS(prod,:));
     pairRxns = intersect(subsRxns,prodRxns);
@@ -116,7 +121,6 @@ clearedRedS(:,rxnsToClear) = 0;
 
 % Prepare output
 out(1,:) = model.ec.rxns(reactions(ecRxns));
-%out(1,:) = model.rxns(origRxnIdxs(reactionsTrans(ecRxns)));
 out(2,:) = model.ec.genes(proteins);
 out(3,:) = model.metNames(substrates(ecRxns));
 if isfield(model,'metSmiles')
@@ -135,7 +139,7 @@ out(6,:) = cell(numel(out(1,:)),1);
 out(6,:) = {'NA'};
 
 % Write file
-fID = fopen(fullfile(params.path,'data','DLKcat.tsv'),'w');
+fID = fopen(filename,'w');
 fprintf(fID,'%s\t%s\t%s\t%s\t%s\t%s\n',out{:});
 fclose(fID);
 

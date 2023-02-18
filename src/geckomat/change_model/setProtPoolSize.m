@@ -26,7 +26,7 @@ function model = setProtPoolSize(model, Ptot, f, sigma, modelAdapter)
 
 if nargin < 5 || isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefaultAdapter();
-    if isempty(modelAdapter) && (nargin<2 || isempty(poolSize))
+    if isempty(modelAdapter) && (nargin<2 || isempty(Ptot) || isempty(f) || isempty(sigma))
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
     end
 end

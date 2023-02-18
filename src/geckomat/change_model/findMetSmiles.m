@@ -1,13 +1,12 @@
-function metSmiles = findMetSmiles(metNames, modelAdapter)
+function model = findMetSmiles(model, modelAdapter)
 % findMetSMILES
 %   Queries PubChem by metabolite names to obtain SMILES.
 %
 % Input:
-%   metNames    array with metabolite names (e.g. model.metNames)
+%   model       Input model, where we query for the model.metNames mets
 %
 % Ouput:
-%   metSmiles   array with matching SMILES. If model.metNames is used as
-%               input, metSmiles can be specified as model.metSmiles.
+%   model       Output model where the field model.metSmiles is set.
 %
 
 if nargin < 2 || isempty(modelAdapter)
@@ -18,7 +17,7 @@ if nargin < 2 || isempty(modelAdapter)
 end
 params = modelAdapter.params;
 
-[uniqueNames, ~, uniqueIdx] = unique(metNames);
+[uniqueNames, ~, uniqueIdx] = unique(model.metNames);
 uniqueSmiles(1:numel(uniqueNames),1) = {''};
 protMets = startsWith(uniqueNames,'prot_');
 
@@ -74,7 +73,7 @@ if any(~metMatch & ~protMets)
     fprintf('\b\b\b\b\b\b\b\b\b\b\b\b\bdone.\n');
 end
 
-metSmiles = uniqueSmiles(uniqueIdx);
+model.metSmiles = uniqueSmiles(uniqueIdx);
 out = [uniqueNames(~protMets), uniqueSmiles(~protMets)]';
 fID = fopen(smilesDBfile,'w');
 fprintf(fID,'%s\t%s\n',out{:});

@@ -72,7 +72,7 @@ for i = 1:length(ecRxns)
 end
 
 %Load BRENDA data:
-[KCATcell, SAcell] = loadBRENDAdata();
+[KCATcell, SAcell] = loadBRENDAdata(modelAdapter);
 
 %Creates a Structure with KEGG codes for organisms, names and taxonomical
 %distance matrix and extract the organism index in the KEGG struct
