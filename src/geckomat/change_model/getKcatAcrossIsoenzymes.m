@@ -6,13 +6,17 @@ function model = getKcatAcrossIsoenzymes(model)
 %   is then used to fill in model.ec.kcat.
 %
 % Input:
-%   model       ecModel
+%   model       an ecModel in GECKO 3 version, not geckoLight
 %
 % Output:
-%   model       ecModel
+%   model       an ecModel in GECKO 3 version with kcat values assigned to
+%               isoenzymes in model.ec.kcat
 %
 % Usage: model = getKcatAcrossIsoenzymes(model);
 
+if model.ec.geckoLight
+    error('Provided model is a GECKO light version, this function is not relevant for such models')
+end
 if all(model.ec.kcat==0)
     warning('No kcat values are provided in model.ec.kcat, model remains unchanged.')
     return
