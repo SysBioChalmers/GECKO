@@ -10,8 +10,8 @@ classdef HumanGEMAdapter < ModelAdapter
             obj.params.path = fullfile(geckoPath,'userData','ecHumanGEM');
 
 			%Path to the conventional GEM that this ecModel will be based on.
-			obj.params.convGEM = fullfile(obj.params.path,'models','Human-GEM.xml');
-            
+			obj.params.convGEM = fullfile(HumanGEMAdapter.getHumanGEMRootPath(),'model','Human-GEM.xml');
+
             %Average enzyme saturation factor
 			obj.params.sigma = 0.5;
 
