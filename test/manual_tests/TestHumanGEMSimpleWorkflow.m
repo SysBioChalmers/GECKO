@@ -61,7 +61,7 @@ kcatListLightFuzzy = fuzzyKcatMatching(lightECModel, [], humanAdapter);
 
 %run dlKcat
 %ModelAdapterManager.setDefaultAdapter(humanAdapter); %dlkcat functions currently do not well support sending in an adapter - fix later
-fullECModel.metSmiles = findMetSmiles(fullECModel.metNames);
+fullECModel = findMetSmiles(fullECModel, humanAdapter);
 testFull = writeDLKcatInput(fullECModel, [], humanAdapter);
 runDLKcat([], [], humanAdapter, [], 'C:/Python38/Python38/python.exe', 'C:/Python38/Python38/Scripts/pip.exe');
 kcatListFullDlKcat = readDLKcatOutput(fullECModel, [], humanAdapter);
@@ -76,7 +76,7 @@ kcatListFullDlKcat = readDLKcatOutput(fullECModel, [], humanAdapter);
 %table(fullECModel2.metSmiles(sel),fullECModel.metSmiles(sel))
 
 
-lightECModel.metSmiles = findMetSmiles(lightECModel.metNames);
+lightECModel = findMetSmiles(lightECModel, humanAdapter);
 testLight = writeDLKcatInput(lightECModel, [], humanAdapter);
 runDLKcat([], [], humanAdapter, [], 'C:/Python38/Python38/python.exe', 'C:/Python38/Python38/Scripts/pip.exe');
 kcatListLightDlKcat = readDLKcatOutput(lightECModel, [], humanAdapter);
