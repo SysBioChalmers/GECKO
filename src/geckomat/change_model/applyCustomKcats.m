@@ -75,74 +75,85 @@ rxnToUpdate = false(length(model.ec.rxns),1);
 rxnNotMatch = false(length(model.ec.rxns),1);
 evaluatedRule = cell(length(model.ec.rxns),1);
 enzInModel = cell(length(model.ec.rxns),1);
+ecRxnNoSuffix = regexprep(model.ec.rxns,'_EXP_\d+$','');
 
 % Implementation for full GECKO formulation
 if ~model.ec.geckoLight
     for i = 1:numel(customKcats.proteins)
-        prots = strtrim(strsplit(customKcats.proteins{i}, '+'));
-
-        % Find the index for the enzymes which kcat will be changed. In
-        % case the protein is not in the model generate a warning.
-        try
-            enzIdx = cellfun(@(x) find(strcmpi(model.ec.enzymes, x)), prots);
-        catch
-            enzIdx = [];
-            disp( ['Protein(s) ' customKcats.proteins{i} ' were not found in the model.']);
-        end
-
-        % if not specific reactions are defined, find all the reaction
-        % index where the enzyme is used
-        if isempty(customKcats.rxns{i})
-            temp_rxnIdxs = arrayfun(@(x) find(model.ec.rxnEnzMat(:, x)), enzIdx, 'UniformOutput', false);
-            % otherwhise, If a set of reactions if defined, only get the index for those
+        if isempty(customKcats.proteins{i})
+            %If only reaction ID(s) is/are specified (and no proteins),
+            %then apply the kcat to all isoenzymic reactions
+            rxns    = strtrim(strsplit(customKcats.rxns{i}, ','));
+            rxnIdxs = contains(ecRxnNoSuffix,rxns);
+            rxnToUpdate(rxnIdxs) = 1;
+            model.ec.kcat(rxnIdxs) = customKcats.kcat(i);
         else
-            rxns = strtrim(strsplit(customKcats.rxns{i}, ','));
-            temp_rxnIdxs = arrayfun(@(x) find(strcmpi(model.ec.rxns, x)), rxns, 'UniformOutput', false);
-        end
+            prots = strtrim(strsplit(customKcats.proteins{i}, '+'));
 
-        if ~isempty(temp_rxnIdxs)
-            rxnIdxs = [];
-            for j = 1:numel(temp_rxnIdxs)
-                rxnIdxs = [rxnIdxs; temp_rxnIdxs{j}];
+            % Find the index for the enzymes which kcat will be changed. In
+            % case the protein is not in the model generate a warning.
+            try
+                enzIdx = cellfun(@(x) find(strcmpi(model.ec.enzymes, x)), prots);
+            catch
+                enzIdx = [];
+                disp( ['Protein(s) ' customKcats.proteins{i} ' were not found in the model.']);
             end
-            %rxnIdxs = cell2mat(temp_rxnIdxs);%arrayfun(@(x) horzcat(rxnIdxs, x), temp_rxnIdxs);
-            % Check when multiple proteins are involved, since it can return same rxn n times
-            rxnIdxs = unique(rxnIdxs); %unique(rxnIdxs{1, :});
 
-            for j = 1:numel(rxnIdxs)
-                % Get all the enzymes involved in the reaction
-                allEnzInRxn = find(model.ec.rxnEnzMat(rxnIdxs(j),:));
+            % if not specific reactions are defined, find all the reaction
+            % index where the enzyme is used
+            if isempty(customKcats.rxns{i})
+                temp_rxnIdxs = arrayfun(@(x) find(model.ec.rxnEnzMat(:, x)), enzIdx, 'UniformOutput', false);
+                % otherwhise, If a set of reactions if defined, only get the index for those
+                % but ignore any _EXP_ suffixes
+            else
+                rxns = strtrim(strsplit(customKcats.rxns{i}, ','));
+                temp_rxnIdxs = arrayfun(@(x) find(strcmpi(ecRxnNoSuffix, x)), rxns, 'UniformOutput', false);
+            end
 
-                C = intersect(enzIdx, allEnzInRxn);
-
-                % Determine the match percentaje bewteen the rules
-                if numel(C) == numel(enzIdx) && numel(C) == numel(allEnzInRxn)
-                    match = 1;
-                else
-                    if numel(enzIdx) < numel(allEnzInRxn)
-                        match = numel(C) / numel(allEnzInRxn);
-                    else
-                        match = numel(C) / numel(enzIdx);
-                    end
+            if ~isempty(temp_rxnIdxs)
+                rxnIdxs = [];
+                for j = 1:numel(temp_rxnIdxs)
+                    rxnIdxs = [rxnIdxs; temp_rxnIdxs{j}];
                 end
+                %rxnIdxs = cell2mat(temp_rxnIdxs);%arrayfun(@(x) horzcat(rxnIdxs, x), temp_rxnIdxs);
+                % Check when multiple proteins are involved, since it can return same rxn n times
+                rxnIdxs = unique(rxnIdxs); %unique(rxnIdxs{1, :});
 
-                % Update the kcat value stored in the model, if match 100%,
-                % otherwhise if >= 0.5 inform to the user to be validated
-                if match == 1
-                    rxnToUpdate(rxnIdxs(j)) = 1;
-                    model.ec.kcat(rxnIdxs(j)) = customKcats.kcat(i);
+                for j = 1:numel(rxnIdxs)
+                    % Get all the enzymes involved in the reaction
+                    allEnzInRxn = find(model.ec.rxnEnzMat(rxnIdxs(j),:));
 
-                    % Add note mentioning manual kcat change
-                    model.ec.source{rxnIdxs(j),1} = 'custom';
-                    if  isempty(model.ec.notes{rxnIdxs(j), 1}) && isfield(customKcats,'notes') && ~isempty(customKcats.notes{i})
-                        model.ec.notes{rxnIdxs(j), 1} = customKcats.notes{i};
+                    C = intersect(enzIdx, allEnzInRxn);
+
+                    % Determine the match percentage bewteen the rules
+                    if numel(C) == numel(enzIdx) && numel(C) == numel(allEnzInRxn)
+                        match = 1;
                     else
-                        model.ec.notes{rxnIdxs(j), 1} = [model.ec.notes{rxnIdxs(j), 1} ', ' customKcats.notes{i}];
+                        if numel(enzIdx) < numel(allEnzInRxn)
+                            match = numel(C) / numel(allEnzInRxn);
+                        else
+                            match = numel(C) / numel(enzIdx);
+                        end
                     end
-                elseif match >= 0.5 && match < 1
-                    rxnNotMatch(rxnIdxs(j)) = 1;
-                    evaluatedRule{rxnIdxs(j), 1} = customKcats.proteins{i};
-                    enzInModel{rxnIdxs(j), 1} = strjoin(model.ec.enzymes(allEnzInRxn), ' + ');
+
+                    % Update the kcat value stored in the model, if match 100%,
+                    % otherwhise if >= 0.5 inform to the user to be validated
+                    if match == 1
+                        rxnToUpdate(rxnIdxs(j)) = 1;
+                        model.ec.kcat(rxnIdxs(j)) = customKcats.kcat(i);
+
+                        % Add note mentioning manual kcat change
+                        model.ec.source{rxnIdxs(j),1} = 'custom';
+                        if  isempty(model.ec.notes{rxnIdxs(j), 1}) && isfield(customKcats,'notes') && ~isempty(customKcats.notes{i})
+                            model.ec.notes{rxnIdxs(j), 1} = customKcats.notes{i};
+                        else
+                            model.ec.notes{rxnIdxs(j), 1} = [model.ec.notes{rxnIdxs(j), 1} ', ' customKcats.notes{i}];
+                        end
+                    elseif match >= 0.5 && match < 1
+                        rxnNotMatch(rxnIdxs(j)) = 1;
+                        evaluatedRule{rxnIdxs(j), 1} = customKcats.proteins{i};
+                        enzInModel{rxnIdxs(j), 1} = strjoin(model.ec.enzymes(allEnzInRxn), ' + ');
+                    end
                 end
             end
         end
