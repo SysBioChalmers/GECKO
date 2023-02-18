@@ -77,8 +77,8 @@ P06169	YLR044C	PDC1	145		GECKO v2 manualModifications.m growth limiting	1
 Q00955	YNR016C	ACC1	25		GECKO v2 manualModifications.m growth limiting	1
 P52867	YDL093W	PMT5	70.9		GECKO v2 manualModifications.m growth limiting	1
 P10659	YLR180W	SAM1	0.583		GECKO v2 manualModifications.m growth limiting	1
-P32356	YDR001C	NTH1	0.67		GECKO v2 manualModifications.m curation carbon source	1
-P48016	YPR026W	ATH1	0.67		GECKO v2 manualModifications.m curation carbon source	1
+P35172	YBR001C	NTH1	0.67	r_0193	GECKO v2 manualModifications.m curation carbon source	1
+P48016	YPR026W	ATH1	0.67	r_0193	GECKO v2 manualModifications.m curation carbon source	1
 P00331	YMR303C	ADH2	143		GECKO v2 manualModifications.m curation carbon source	1
 P14065	YOR120W	GCY1	0.54		GECKO v2 manualModifications.m curation carbon source	1
 P04046	YMR300C	ADE4	55.6		GECKO v2 manualModifications.m topUsed	1
@@ -90,11 +90,4 @@ P07149 + P19097	YKL182W and YPL231W	FAS1 and FAS2	8.57	r_2140	GECKO v2 manualMod
 P07149 + P19097	YKL182W and YPL231W	FAS1 and FAS2	7.5	r_2141	GECKO v2 manualModifications.m topUsed	1 + 1
 P00924	YGR254W	ENO1	230		GECKO v2 manualModifications.m topUsed	1
 P19414	YLR304C	ACO1	143		GECKO v2 manualModifications.m other changes - two step process	1
-P38158	YBR299W	MAL32	1278		GECKO v2 manualModifications.m curation carbon source	1
-P53051	YGR287C	IMA1	1278		GECKO v2 manualModifications.m curation carbon source	1
-P53341	YGR292W	MAL12	1278		GECKO v2 manualModifications.m curation carbon source	1
-P08019	YIL099W	SGA1	1278		GECKO v2 manualModifications.m curation carbon source	1
-P0CW40	YIL172C	IMA3	1278		GECKO v2 manualModifications.m curation carbon source	1
-P40884	YJL216C	IMA5	1278		GECKO v2 manualModifications.m curation carbon source	1
-P0CW41	YJL221C	IMA4	1278		GECKO v2 manualModifications.m curation carbon source	1
-Q06625	YPR184W	GDB1	1278		GECKO v2 manualModifications.m curation carbon source	1
+			1278	r_0198, r_4378, r_4420	GECKO v2 manualModifications.m curation carbon source	

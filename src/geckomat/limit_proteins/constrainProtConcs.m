@@ -6,7 +6,7 @@ function model = constrainProtConcs(model)
 %   but is rather constraint by the measured protein abundance.
 %
 % Input:
-%   model       an ec-model with enzyne levels in model.ec.concs
+%   model       an ec-model with enzyme levels in model.ec.concs
 %
 % Output:
 %   model       an ec-model constraint with available protein levels
