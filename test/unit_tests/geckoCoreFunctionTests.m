@@ -288,8 +288,10 @@ function testfuzzyKcatMatching_tc0010(testCase)
     verifyEqual(testCase,kcatListLightFuzzy.origin, [2])
 end
 
-%also tests reading and to a certain extent writing of DLKcat files, but not the DLKCat algorithm
-function testmergeDlkcatAndFuzzyKcats_tc0011(testCase)
+%Tests mergeDlkcatAndFuzzyKcats, selectKcatValue, and applyKcatConstraints.
+%Also to a certain extent tests writing of DLKcat files, but not the DLKCat algorithm or reading of the output
+%In addition it tests that the small test model has the same growth rate for both full and light
+function testKcats_tc0011(testCase)
     geckoPath = findGECKOroot;
     adapter = ModelAdapterManager.getAdapterFromPath(fullfile(geckoPath,'test','unit_tests','ecTestGEM'));
     model = getGeckoTestModel();
@@ -301,10 +303,11 @@ function testmergeDlkcatAndFuzzyKcats_tc0011(testCase)
     model = addRxns(model,rxnsToAdd, 3);
     model.eccodes{9} = '1.1.2.1';%no eccode for R2a, let dlkcat populate that
     
-
     %we only test with full, the model is not really involved in this code
     ecModel = makeEcModel(model, false, adapter);
     ecModel = getECfromGEM(ecModel);
+    ecModel = applyComplexData(ecModel, [], adapter);
+
     kcatListFuzzy = fuzzyKcatMatching(ecModel, [], adapter);
     %test to write a DLKcat
     filepath = fullfile(adapter.getParameters().path,'data','DLKcat_input_test.tsv');
@@ -332,6 +335,12 @@ function testmergeDlkcatAndFuzzyKcats_tc0011(testCase)
     dlkcatList.substrates = {'m1';'m1';'m1';'m2';'m2';'m2';'m1';'m1';'m1';'m1';'m2'};
     dlkcatList.kcats = [1001;1002;1003;1004;1005;1006;1007;1008;1009;1010;1011];
     mergedList = mergeDlkcatAndFuzzyKcats(dlkcatList, kcatListFuzzy, 6, 6, 1);%allow for use of wildcards
+    
+    %What we expect is that all R2, which have a good match (some with bad substrate) will be taken from fuzzy.
+    %Furthermore, R3b will be taken from fuzzy, since we don't manage to predict it in dlkcat (we didn't include it in the dlkcat kcat list)
+    %All R2a are missing the ec code, and therefore will be taken from dlkcat. 
+    %R3 is a wildcard match with a value in the dlkcat list, and will thus be taken from dlkcat since it has higher prio
+    %R5 doesn't have a kcat match in "brenda", and therefore uses dlkcat
     verifyEqual(testCase,mergedList.kcatSource, {'brenda';'brenda';'brenda';'brenda';'brenda';'DLKcat';'DLKcat';'DLKcat';'DLKcat';'DLKcat'})
     verifyEqual(testCase,mergedList.rxns, {'R2_EXP_1';'R2_EXP_2';'R2_REV_EXP_1';'R2_REV_EXP_2';'R3b';'R2a_EXP_1';'R2a_EXP_1';'R2a_EXP_2';'R3';'R5'})
     verifyEqual(testCase,mergedList.genes, {[];[];[];[];[];'G1';'G2';'G3';'G4';'G5'})
@@ -340,6 +349,105 @@ function testmergeDlkcatAndFuzzyKcats_tc0011(testCase)
     verifyEqual(testCase,mergedList.eccodes, {'1.1.1.1';'1.1.1.1';'1.1.1.1';'1.1.1.1';'1.1.2.1';[];[];[];[];[]})
     verifyEqual(testCase,mergedList.wildcardLvl, [0;0;0;0;1;NaN;NaN;NaN;NaN;NaN])
     verifyEqual(testCase,mergedList.origin, [1;1;2;2;1;NaN;NaN;NaN;NaN;NaN])%origin is 2 for testus falsus, 1 for the wildcard match which matches well on species and substrate
+
+    %now test select
+    %we expect the highest kcat value to be chosen in the R2a_EXP_1 case, i.e., use 1008, discard 1007
+    ecModel = selectKcatValue(ecModel, mergedList);
+    %{'R2_EXP_1';'R2_EXP_2';'R2_REV_EXP_1';'R2_REV_EXP_1';'R2_REV_EXP_2';'R2a_EXP_1';'R2a_EXP_2';'R3';'R3b';'R5'};
+    expectedKcats = [1;1;10;10;1008;1009;1010;100;1011];
+    verifyEqual(testCase,ecModel.ec.kcat, expectedKcats)
+    
+    %and apply - first full
+    %Test a subset first
+    ecModel = applyKcatConstraints(ecModel,{'R3';'R5'});
+    %This should lead to a protein cost on reaction R3 (P4) and R5 (P5)
+    verifyEqual(testCase,full(ecModel.S(ismember(ecModel.mets, {'prot_P1';'prot_P2';'prot_P3';'prot_P4';'prot_P5'}),strcmp(ecModel.rxns, 'R1'))), [0;0;0;0;0],"AbsTol",10^-10) 
+    verifyEqual(testCase,full(ecModel.S(ismember(ecModel.mets, {'prot_P1';'prot_P2';'prot_P3';'prot_P4';'prot_P5'}),strcmp(ecModel.rxns, 'R1_REV'))), [0;0;0;0;0],"AbsTol",10^-10)
+    verifyEqual(testCase,full(ecModel.S(ismember(ecModel.mets, {'prot_P1';'prot_P2';'prot_P3';'prot_P4';'prot_P5'}),strcmp(ecModel.rxns, 'R2_EXP_1'))), [0;0;0;0;0],"AbsTol",10^-10)
+    verifyEqual(testCase,full(ecModel.S(ismember(ecModel.mets, {'prot_P1';'prot_P2';'prot_P3';'prot_P4';'prot_P5'}),strcmp(ecModel.rxns, 'R2_EXP_2'))), [0;0;0;0;0],"AbsTol",10^-10)
+    verifyEqual(testCase,full(ecModel.S(ismember(ecModel.mets, {'prot_P1';'prot_P2';'prot_P3';'prot_P4';'prot_P5'}),strcmp(ecModel.rxns, 'R2_REV_EXP_1'))), [0;0;0;0;0],"AbsTol",10^-10)
+    verifyEqual(testCase,full(ecModel.S(ismember(ecModel.mets, {'prot_P1';'prot_P2';'prot_P3';'prot_P4';'prot_P5'}),strcmp(ecModel.rxns, 'R2_REV_EXP_2'))), [0;0;0;0;0],"AbsTol",10^-10)
+    verifyEqual(testCase,full(ecModel.S(ismember(ecModel.mets, {'prot_P1';'prot_P2';'prot_P3';'prot_P4';'prot_P5'}),strcmp(ecModel.rxns, 'R2a_EXP_1'))), [0;0;0;0;0],"AbsTol",10^-10)
+    verifyEqual(testCase,full(ecModel.S(ismember(ecModel.mets, {'prot_P1';'prot_P2';'prot_P3';'prot_P4';'prot_P5'}),strcmp(ecModel.rxns, 'R2a_EXP_2'))), [0;0;0;0;0],"AbsTol",10^-10)
+    verifyEqual(testCase,full(ecModel.S(ismember(ecModel.mets, {'prot_P1';'prot_P2';'prot_P3';'prot_P4';'prot_P5'}),strcmp(ecModel.rxns, 'R3'))), [0;0;0;-40000/1010/3600;0],"AbsTol",10^-10) %MW 40000 (P4/G4), kcat 1010
+    verifyEqual(testCase,full(ecModel.S(ismember(ecModel.mets, {'prot_P1';'prot_P2';'prot_P3';'prot_P4';'prot_P5'}),strcmp(ecModel.rxns, 'R3b'))), [0;0;0;0;0],"AbsTol",10^-10) %MW 40000 (P4/G4), kcat 1010
+    verifyEqual(testCase,full(ecModel.S(ismember(ecModel.mets, {'prot_P1';'prot_P2';'prot_P3';'prot_P4';'prot_P5'}),strcmp(ecModel.rxns, 'R4'))), [0;0;0;0;0],"AbsTol",10^-10)
+    verifyEqual(testCase,full(ecModel.S(ismember(ecModel.mets, {'prot_P1';'prot_P2';'prot_P3';'prot_P4';'prot_P5'}),strcmp(ecModel.rxns, 'R5'))), [0;0;0;0;-50000/1011/3600],"AbsTol",10^-10) %MW 50000 (P5/G5), kcat 1011
+    verifyEqual(testCase,full(ecModel.S(ismember(ecModel.mets, {'prot_P1';'prot_P2';'prot_P3';'prot_P4';'prot_P5'}),strcmp(ecModel.rxns, 'S1'))), [0;0;0;0;0],"AbsTol",10^-10)
+    verifyEqual(testCase,full(ecModel.S(ismember(ecModel.mets, {'prot_P1';'prot_P2';'prot_P3';'prot_P4';'prot_P5'}),strcmp(ecModel.rxns, 'S2'))), [0;0;0;0;0],"AbsTol",10^-10)
+    %Now all
+    ecModel = applyKcatConstraints(ecModel);
+    
+    verifyEqual(testCase,full(ecModel.S(ismember(ecModel.mets, {'prot_P1';'prot_P2';'prot_P3';'prot_P4';'prot_P5'}),strcmp(ecModel.rxns, 'R1'))), [0;0;0;0;0],"AbsTol",10^-10)
+    verifyEqual(testCase,full(ecModel.S(ismember(ecModel.mets, {'prot_P1';'prot_P2';'prot_P3';'prot_P4';'prot_P5'}),strcmp(ecModel.rxns, 'R1_REV'))), [0;0;0;0;0],"AbsTol",10^-10)
+    verifyEqual(testCase,full(ecModel.S(ismember(ecModel.mets, {'prot_P1';'prot_P2';'prot_P3';'prot_P4';'prot_P5'}),strcmp(ecModel.rxns, 'R2_EXP_1'))), [-10000/1/3600;-(2*20000)/1/3600;0;0;0],"AbsTol",10^-10) %MW 10000 + 2*20000 (P1 + 2*P2), kcat 1
+    verifyEqual(testCase,full(ecModel.S(ismember(ecModel.mets, {'prot_P1';'prot_P2';'prot_P3';'prot_P4';'prot_P5'}),strcmp(ecModel.rxns, 'R2_EXP_2'))), [0;0;-30000/1/3600;0;0],"AbsTol",10^-10) %MW 30000 (P3), kcat 1
+    verifyEqual(testCase,full(ecModel.S(ismember(ecModel.mets, {'prot_P1';'prot_P2';'prot_P3';'prot_P4';'prot_P5'}),strcmp(ecModel.rxns, 'R2_REV_EXP_1'))), [-10000/10/3600;-(2*20000)/10/3600;0;0;0],"AbsTol",10^-10) %MW 10000 + 2*20000 (P1 + 2*P2), kcat 10
+    verifyEqual(testCase,full(ecModel.S(ismember(ecModel.mets, {'prot_P1';'prot_P2';'prot_P3';'prot_P4';'prot_P5'}),strcmp(ecModel.rxns, 'R2_REV_EXP_2'))), [0;0;-30000/10/3600;0;0],"AbsTol",10^-10) %MW 30000 (P3), kcat 10
+    verifyEqual(testCase,full(ecModel.S(ismember(ecModel.mets, {'prot_P1';'prot_P2';'prot_P3';'prot_P4';'prot_P5'}),strcmp(ecModel.rxns, 'R2a_EXP_1'))), [-10000/1008/3600;-(2*20000)/1008/3600;0;0;0],"AbsTol",10^-10) %no ec code, so kcat from dlkcat, use the max kcat for both prot, i.e., max of 1007 and 1008
+    verifyEqual(testCase,full(ecModel.S(ismember(ecModel.mets, {'prot_P1';'prot_P2';'prot_P3';'prot_P4';'prot_P5'}),strcmp(ecModel.rxns, 'R2a_EXP_2'))), [0;0;-30000/1009/3600;0;0],"AbsTol",10^-10) %no ec code, so kcat from dlkcat
+    verifyEqual(testCase,full(ecModel.S(ismember(ecModel.mets, {'prot_P1';'prot_P2';'prot_P3';'prot_P4';'prot_P5'}),strcmp(ecModel.rxns, 'R3'))), [0;0;0;-40000/1010/3600;0],"AbsTol",10^-10) %MW 40000 (P4/G4), kcat 1010
+    verifyEqual(testCase,full(ecModel.S(ismember(ecModel.mets, {'prot_P1';'prot_P2';'prot_P3';'prot_P4';'prot_P5'}),strcmp(ecModel.rxns, 'R3b'))), [0;0;0;-40000/100/3600;0],"AbsTol",10^-10) %MW 40000 (P4/G4), kcat 1010
+    verifyEqual(testCase,full(ecModel.S(ismember(ecModel.mets, {'prot_P1';'prot_P2';'prot_P3';'prot_P4';'prot_P5'}),strcmp(ecModel.rxns, 'R4'))), [0;0;0;0;0],"AbsTol",10^-10)
+    verifyEqual(testCase,full(ecModel.S(ismember(ecModel.mets, {'prot_P1';'prot_P2';'prot_P3';'prot_P4';'prot_P5'}),strcmp(ecModel.rxns, 'R5'))), [0;0;0;0;-50000/1011/3600],"AbsTol",10^-10) %MW 50000 (P5/G5), kcat 1011
+    verifyEqual(testCase,full(ecModel.S(ismember(ecModel.mets, {'prot_P1';'prot_P2';'prot_P3';'prot_P4';'prot_P5'}),strcmp(ecModel.rxns, 'S1'))), [0;0;0;0;0],"AbsTol",10^-10)
+    verifyEqual(testCase,full(ecModel.S(ismember(ecModel.mets, {'prot_P1';'prot_P2';'prot_P3';'prot_P4';'prot_P5'}),strcmp(ecModel.rxns, 'S2'))), [0;0;0;0;0],"AbsTol",10^-10)
+
+    %now apply for light
+    %%%%%%%%%%%%%%%%%%%
+    
+    lecModel = makeEcModel(model, true, adapter);
+    lecModel = getECfromGEM(lecModel);
+    lecModel = applyComplexData(lecModel, [], adapter);
+    kcatListFuzzy = fuzzyKcatMatching(lecModel, [], adapter);
+    
+    %Create a suitable kcatlist from dlkcat
+    dlkcatList = struct();
+    dlkcatList.source = 'DLKcat';
+    dlkcatList.rxns = {'001_R2';'001_R2';'002_R2';'001_R3';'001_R5';'001_R2a';'001_R2a';'002_R2a';'001_R2_REV';'001_R2_REV';'002_R2_REV'};
+    dlkcatList.genes = {'G1';'G2';'G3';'G4';'G5';'G1';'G2';'G3';'G1';'G2';'G3'};
+    dlkcatList.substrates = {'m1';'m1';'m1';'m1';'m2';'m1';'m1';'m1';'m2';'m2';'m2'};
+    dlkcatList.kcats = [1001;1002;1003;1010;1011;1007;1008;1009;1004;1005;1006];
+
+    mergedList = mergeDlkcatAndFuzzyKcats(dlkcatList, kcatListFuzzy, 6, 6, 1);%allow for use of wildcards
+    lecModel = selectKcatValue(lecModel, mergedList);
+    
+    %and apply - first full
+    %Test a subset first
+    lecModel = applyKcatConstraints(lecModel,{'R3';'R5'});
+    %This should lead to a protein cost on reaction R3 (P4) and R5 (P5)
+    verifyEqual(testCase,full(lecModel.S(strcmp(lecModel.mets, 'prot_pool'),strcmp(lecModel.rxns, 'R1'))),0,"AbsTol",10^-10) 
+    verifyEqual(testCase,full(lecModel.S(strcmp(lecModel.mets, 'prot_pool'),strcmp(lecModel.rxns, 'R2'))),0,"AbsTol",10^-10) 
+    verifyEqual(testCase,full(lecModel.S(strcmp(lecModel.mets, 'prot_pool'),strcmp(lecModel.rxns, 'R2_REV'))),0,"AbsTol",10^-10) 
+    verifyEqual(testCase,full(lecModel.S(strcmp(lecModel.mets, 'prot_pool'),strcmp(lecModel.rxns, 'R2a'))),0,"AbsTol",10^-10) 
+    verifyEqual(testCase,full(lecModel.S(strcmp(lecModel.mets, 'prot_pool'),strcmp(lecModel.rxns, 'R3'))),-40000/1010/3600,"AbsTol",10^-10) 
+    verifyEqual(testCase,full(lecModel.S(strcmp(lecModel.mets, 'prot_pool'),strcmp(lecModel.rxns, 'R3b'))),0,"AbsTol",10^-10) 
+    verifyEqual(testCase,full(lecModel.S(strcmp(lecModel.mets, 'prot_pool'),strcmp(lecModel.rxns, 'R4'))),0,"AbsTol",10^-10) 
+    verifyEqual(testCase,full(lecModel.S(strcmp(lecModel.mets, 'prot_pool'),strcmp(lecModel.rxns, 'R5'))),-50000/1011/3600,"AbsTol",10^-10) 
+    verifyEqual(testCase,full(lecModel.S(strcmp(lecModel.mets, 'prot_pool'),strcmp(lecModel.rxns, 'S1'))),0,"AbsTol",10^-10) 
+    verifyEqual(testCase,full(lecModel.S(strcmp(lecModel.mets, 'prot_pool'),strcmp(lecModel.rxns, 'S2'))),0,"AbsTol",10^-10) 
+    %Now all
+    lecModel = applyKcatConstraints(lecModel);
+    
+    %This should be the same as for full, with the difference that the R2 reactions are just one reaction where the minimum cost is chosen among isozymes
+    verifyEqual(testCase,full(lecModel.S(strcmp(lecModel.mets, 'prot_pool'),strcmp(lecModel.rxns, 'R1'))),0,"AbsTol",10^-10) 
+    verifyEqual(testCase,full(lecModel.S(strcmp(lecModel.mets, 'prot_pool'),strcmp(lecModel.rxns, 'R2'))),-min(10000/1/3600 + (2*20000)/1/3600, 30000/1/3600),"AbsTol",10^-10) 
+    verifyEqual(testCase,full(lecModel.S(strcmp(lecModel.mets, 'prot_pool'),strcmp(lecModel.rxns, 'R2_REV'))),-min(10000/10/3600 + (2*20000)/10/3600, 30000/10/3600),"AbsTol",10^-10) 
+    verifyEqual(testCase,full(lecModel.S(strcmp(lecModel.mets, 'prot_pool'),strcmp(lecModel.rxns, 'R2a'))),-min(10000/1008/3600+(2*20000)/1008/3600, 30000/1009/3600),"AbsTol",10^-10) 
+    verifyEqual(testCase,full(lecModel.S(strcmp(lecModel.mets, 'prot_pool'),strcmp(lecModel.rxns, 'R3'))),-40000/1010/3600,"AbsTol",10^-10)
+    verifyEqual(testCase,full(lecModel.S(strcmp(lecModel.mets, 'prot_pool'),strcmp(lecModel.rxns, 'R3b'))),-40000/100/3600,"AbsTol",10^-10) 
+    verifyEqual(testCase,full(lecModel.S(strcmp(lecModel.mets, 'prot_pool'),strcmp(lecModel.rxns, 'R4'))),0,"AbsTol",10^-10) 
+    verifyEqual(testCase,full(lecModel.S(strcmp(lecModel.mets, 'prot_pool'),strcmp(lecModel.rxns, 'R5'))),-50000/1011/3600,"AbsTol",10^-10) 
+    verifyEqual(testCase,full(lecModel.S(strcmp(lecModel.mets, 'prot_pool'),strcmp(lecModel.rxns, 'S1'))),0,"AbsTol",10^-10) 
+    verifyEqual(testCase,full(lecModel.S(strcmp(lecModel.mets, 'prot_pool'),strcmp(lecModel.rxns, 'S2'))),0,"AbsTol",10^-10) 
+    
+    %Finally test if full and light has the same growth rate
+    ecModel = setProtPoolSize(ecModel, [], [], [], adapter);
+    lecModel = setProtPoolSize(lecModel, [], [], [], adapter);
+    
+    res = solveLP(ecModel,1);
+    lres = solveLP(lecModel,1);
+    verifyEqual(testCase,res.f,lres.f,"AbsTol",10^-10) 
 end
 
 
