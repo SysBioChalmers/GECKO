@@ -34,30 +34,37 @@ classdef YeastGEMAdapter < ModelAdapter
 			%Provide your organism KEGG ID, selected at
 			%https://www.genome.jp/kegg/catalog/org_list.html
 			obj.params.keggID = 'sce';
+            % Field for KEGG gene identifier; should match the gene
+            % identifiers used in the model. With 'kegg', it takes the
+            % default KEGG Entry identifier (for example YER023W here:
+            % https://www.genome.jp/dbget-bin/www_bget?sce:YER023W).
+            % Alternatively, gene identifiers from the "Other DBs" section
+            % of the KEGG page can be selected. For example "NCBI-GeneID",
+            % "UniProt", or "Ensembl". Not all DB entries are available for
+            % all organisms and/or genes.
+            obj.params.keggGeneIdentifier = 'kegg';
 
 			%Provide what identifier should be used to query UniProt.
             %Select proteome IDs at https://www.uniprot.org/proteomes/
             %or taxonomy IDs at https://www.uniprot.org/taxonomy.
-            obj.params.uniprotIDtype = 'taxonomy_id'; % 'proteome' or 'taxonomy_id'
+            obj.params.uniprotIDtype = 'taxonomy_ic'; % 'proteome' or 'taxonomy_id'
 			obj.params.uniprotID = '559292'; % should match the ID type
-            
             %Field for Uniprot gene id - should match the gene ids used in the 
-            %GPRs. Note that this is a field in the web request to uniprot - 
-            %it has to match one of the fields there
+            %model. It should be one of the "Returned Field" entries under
+            %"Names & Taxonomy" at this page: https://www.uniprot.org/help/return_fields
             obj.params.uniprotGeneIdField = 'gene_oln';
-
             %Whether only reviewed data from UniProt should be considered.
             %Reviewed data has highest confidence, but coverage might be (very)
             %low for non-model organisms
-            obj.params.uniprotReviewed = true;			
+            obj.params.uniprotReviewed = true;
 
-			%The name of the exchange reaction that supplies the model with carbon (rxnNames)
-			obj.params.c_source = 'D-glucose exchange (reversible)'; 
+			%Reaction ID for glucose exchange reaction (or other preferred carbon source)
+			obj.params.c_source = 'r_1714'; 
 
-			%Rxn Id for biomass pseudoreaction
+			%Reaction ID for biomass pseudoreaction
 			obj.params.bioRxn = 'r_4041';
 
-			%Rxn Id for non-growth associated maitenance pseudoreaction
+			%Reaction ID for non-growth associated maitenance pseudoreaction
 			obj.params.NGAM = 'r_4046';
 
 			%Compartment name in which the added enzymes should be located
@@ -95,13 +102,6 @@ classdef YeastGEMAdapter < ModelAdapter
 			obj.params.oxPhos{3} = 'r_0438';
 			obj.params.oxPhos{4} = 'r_0226';
     
-            %The pool size, fitted to data
-            obj.params.standardProtPoolSize = 10000; %TODO: This value should be fitted to data, just grabbed a number for now
-
-
-			%TODO: I'm not sure why this param exists for Human-GEM but not for Yeast-GEM - investigate.
-			%Experimental carbon source uptake (optional)
-			%obj.params.c_UptakeExp = 0.641339301; %[mmol/gDw h]/Average across NCI60 cell lines
         end
 		
         function result = getFilePath(obj, filename)
