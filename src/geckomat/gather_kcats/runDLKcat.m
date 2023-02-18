@@ -54,9 +54,7 @@ if ~exist(fullfile(DLKcatPath,'DLKcat.py'),'file')
         mkdir(fullfile(DLKcatPath));
     end
     disp('=== Downloading DLKcat...')
-    %OneDrive URL below is temporary and expires 18 Feb. To be replaced
-    %with URL to GitHub once GECKO3 is released.
-    packageURL = 'https://chalmers-my.sharepoint.com/:u:/g/personal/eduardk_chalmers_se/ESrmFfgjTCVNgihPOIgEPg0BfTuOPuj4Deav-jWWG-Royg?e=iAIUta&download=1';
+    packageURL = 'https://github.com/SysBioChalmers/GECKO/raw/dlkcatPackage/dlkcat.zip';
     %packageURL = 'https://github.com/SysBioChalmers/GECKO/releases/download/v3.0.0/dlkcat_package.zip';
     websave(fullfile(DLKcatPath,'dlkcat_package.zip'),packageURL);
     unzip(fullfile(DLKcatPath,'dlkcat_package.zip'),DLKcatPath);

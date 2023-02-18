@@ -168,7 +168,7 @@ function testgetECfromGEM_tc0006(testCase)
     verifyEqual(testCase,ecModel2.ec.eccodes,expEccodes)
     %for selected rxns only
     ecModel2 = getECfromGEM(ecModel,ismember(ecModel.ec.rxns, {'R2_EXP_1';'R3'}));
-    expEccodes = {'1.1.1.1';[];[];[];'1.1.2.1';[]};
+    expEccodes = {'1.1.1.1';'';'';'';'1.1.2.1';''};
     verifyEqual(testCase,ecModel2.ec.eccodes,expEccodes)
     
     %light
@@ -178,7 +178,7 @@ function testgetECfromGEM_tc0006(testCase)
     verifyEqual(testCase,ecModel2.ec.eccodes,expEccodes)
     %for selected rxns only
     ecModel2 = getECfromGEM(ecModel,ismember(ecModel.ec.rxns, {'001_R2';'001_R3'}));
-    expEccodes = {'1.1.1.1';[];'1.1.2.1';[];[];[]};
+    expEccodes = {'1.1.1.1';'';'1.1.2.1';'';'';''};
     verifyEqual(testCase,ecModel2.ec.eccodes,expEccodes)
 end
 
@@ -194,7 +194,7 @@ function testgetECfromDatabase_tc0007(testCase)
     verifyEqual(testCase,ecModel2.ec.eccodes,expEccodes)
     %for selected rxns only
     ecModel2 = getECfromDatabase(ecModel, 'display', ismember(ecModel.ec.rxns, {'R2_EXP_1';'R3'}), adapter);
-    expEccodes = {'1.1.1.1';[];[];[];'1.1.2.1';[]};
+    expEccodes = {'1.1.1.1';'';'';'';'1.1.2.1';''};
     verifyEqual(testCase,ecModel2.ec.eccodes,expEccodes)
     
     %light
@@ -204,7 +204,7 @@ function testgetECfromDatabase_tc0007(testCase)
     verifyEqual(testCase,ecModel2.ec.eccodes,expEccodes)
     %for selected rxns only
     ecModel2 = getECfromDatabase(ecModel, 'display', ismember(ecModel.ec.rxns, {'001_R2';'001_R3'}), adapter);
-    expEccodes = {'1.1.1.1';[];'1.1.2.1';[];[];[]};
+    expEccodes = {'1.1.1.1';'';'1.1.2.1';'';'';''};
     verifyEqual(testCase,ecModel2.ec.eccodes,expEccodes)
 end
 
@@ -225,9 +225,9 @@ function testsaveECModel_tc0009(testCase)
     adapter = ModelAdapterManager.getAdapterFromPath(fullfile(geckoPath,'test','unit_tests','ecTestGEM'));
     model = getGeckoTestModel();
     ecModel = makeEcModel(model, false, adapter);
-    ecModelFilledIn = saveECmodel(ecModel,'RAVEN','tmpTest','1',fullfile(geckoPath,'test','unit_tests','ecTestGEM'));
-    loadedEcModel = readYAMLmodel(fullfile(geckoPath,'test','unit_tests','ecTestGEM','tmpTest.yml'), false);
-    verifyEqual(testCase, ecModelFilledIn, loadedEcModel)
+    saveEcModel(ecModel);
+    loadedEcModel = loadEcModel();
+    verifyEqual(testCase, ecModel, loadedEcModel)
 end
 
 
@@ -288,7 +288,7 @@ function testfuzzyKcatMatching_tc0010(testCase)
     verifyEqual(testCase,kcatListLightFuzzy.origin, [2])
 end
 
-%Tests mergeDlkcatAndFuzzyKcats, selectKcatValue, and applyKcatConstraints.
+%Tests mergeDLKcatAndFuzzyKcats, selectKcatValue, and applyKcatConstraints.
 %Also to a certain extent tests writing of DLKcat files, but not the DLKCat algorithm or reading of the output
 %In addition it tests that the small test model has the same growth rate for both full and light
 function testKcats_tc0011(testCase)
@@ -334,7 +334,7 @@ function testKcats_tc0011(testCase)
     dlkcatList.genes = {'G1';'G2';'G3';'G1';'G2';'G3';'G1';'G2';'G3';'G4';'G5'};
     dlkcatList.substrates = {'m1';'m1';'m1';'m2';'m2';'m2';'m1';'m1';'m1';'m1';'m2'};
     dlkcatList.kcats = [1001;1002;1003;1004;1005;1006;1007;1008;1009;1010;1011];
-    mergedList = mergeDlkcatAndFuzzyKcats(dlkcatList, kcatListFuzzy, 6, 6, 1);%allow for use of wildcards
+    mergedList = mergeDLKcatAndFuzzyKcats(dlkcatList, kcatListFuzzy, 6, 6, 1);%allow for use of wildcards
     
     %What we expect is that all R2, which have a good match (some with bad substrate) will be taken from fuzzy.
     %Furthermore, R3b will be taken from fuzzy, since we don't manage to predict it in dlkcat (we didn't include it in the dlkcat kcat list)
@@ -409,7 +409,7 @@ function testKcats_tc0011(testCase)
     dlkcatList.substrates = {'m1';'m1';'m1';'m1';'m2';'m1';'m1';'m1';'m2';'m2';'m2'};
     dlkcatList.kcats = [1001;1002;1003;1010;1011;1007;1008;1009;1004;1005;1006];
 
-    mergedList = mergeDlkcatAndFuzzyKcats(dlkcatList, kcatListFuzzy, 6, 6, 1);%allow for use of wildcards
+    mergedList = mergeDLKcatAndFuzzyKcats(dlkcatList, kcatListFuzzy, 6, 6, 1);%allow for use of wildcards
     lecModel = selectKcatValue(lecModel, mergedList);
     
     %and apply - first full

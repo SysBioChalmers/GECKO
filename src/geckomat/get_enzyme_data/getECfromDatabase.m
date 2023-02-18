@@ -59,6 +59,7 @@ end
 n = size(rxnEnzMat,1);
 
 eccodes   = cell(n,1);
+eccodes(:)= {''};
 conflicts = cell(1,4);
 
 rxnEnzMat = logical(rxnEnzMat);
