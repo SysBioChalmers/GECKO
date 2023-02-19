@@ -20,7 +20,7 @@ params = modelAdapter.params;
 [uniqueNames, ~, uniqueIdx] = unique(model.metNames);
 uniqueSmiles(1:numel(uniqueNames),1) = {''};
 protMets = startsWith(uniqueNames,'prot_');
-
+metMatch = false(length(uniqueNames),1);
 fprintf('Check for local SMILES database... ')
 smilesDBfile = (fullfile(params.path,'data','smilesDB.tsv'));
 if exist(smilesDBfile,'file')
