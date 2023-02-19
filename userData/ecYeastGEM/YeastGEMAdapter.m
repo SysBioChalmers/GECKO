@@ -6,8 +6,7 @@ classdef YeastGEMAdapter < ModelAdapter
             %Directory where all model-specific files and scripts are kept.
             %Is assumed to follow the GECKO-defined folder structure. The
             %code below refers to userData/ecYeastGEM in the GECKO path.
-            geckoPath = findGECKOroot;
-            obj.params.path = fullfile(geckoPath,'userData','ecYeastGEM');
+            obj.params.path = fullfile(findGECKOroot,'userData','ecYeastGEM');
 
 			%Path to the conventional GEM that this ecModel will be based on.
 			obj.params.convGEM = fullfile(obj.params.path,'models','yeast-GEM.xml');
@@ -47,7 +46,7 @@ classdef YeastGEMAdapter < ModelAdapter
 			%Provide what identifier should be used to query UniProt.
             %Select proteome IDs at https://www.uniprot.org/proteomes/
             %or taxonomy IDs at https://www.uniprot.org/taxonomy.
-            obj.params.uniprotIDtype = 'taxonomy_ic'; % 'proteome' or 'taxonomy_id'
+            obj.params.uniprotIDtype = 'taxonomy_id'; % 'proteome' or 'taxonomy_id'
 			obj.params.uniprotID = '559292'; % should match the ID type
             %Field for Uniprot gene id - should match the gene ids used in the 
             %model. It should be one of the "Returned Field" entries under

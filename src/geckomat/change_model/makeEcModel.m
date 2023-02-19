@@ -29,23 +29,20 @@ function model = makeEcModel(model, geckoLight, modelAdapter)
 %   5.  [Skipped with geckoLight:] Expand model to split reactions with
 %       'OR' in grRules (each reaction is then catalyzed by one enzyme
 %       (complex).
-%   6.  [Skipped with geckoLight:] Sort identifiers (so that split
-%       reactions remain close to each other, not real function, just makes
-%       it tidier.
-%   7.  Make empty model.ec structure, that will contain enzyme and kcat
+%   6.  Make empty model.ec structure, that will contain enzyme and kcat
 %       information. One entry per reaction, where isoenzymes have multiple
 %       entries. This model.ec structure will later be populated with kcat
 %       values. For geckoLight the structure is different, where each
 %       reaction can have multiple isozymes.
-%   8.  Add enzyme information fields to model.ec structure: MW, sequence.
-%   9.  Populate model.ec structure (from step 8) with information from
+%   7.  Add enzyme information fields to model.ec structure: MW, sequence.
+%   8.  Populate model.ec structure (from step 8) with information from
 %       each reaction.
-%   10. [Skipped with geckoLight:] Add proteins as pseudometabolites.
-%   11. Add prot_pool pseudometabolite.
-%   12. [Skipped with geckoLight:] Add usage reactions for the protein
+%   9. [Skipped with geckoLight:] Add proteins as pseudometabolites.
+%   10. Add prot_pool pseudometabolite.
+%   11. [Skipped with geckoLight:] Add usage reactions for the protein
 %       pseudometabolites, replenishing from the protein pool (default, can
 %       be changed to consider proteomics data at later stage)
-%   13. Add protein pool reaction, without upper bound.
+%   12. Add protein pool reaction, without upper bound.
 %
 %   Note that while protein pseudometabolites, draw & pool reactions might
 %   be added to the model, the enzyme usage is not yet incorporated in each
@@ -168,13 +165,12 @@ model=convertToIrrev(model, nonExchRxns);
 if ~geckoLight
     model=expandModel(model);
 end
-
-%6: Sort reactions, so that reversible and isoenzymic reactions are kept near
+% Sort reactions, so that reversible and isoenzymic reactions are kept near
 if ~geckoLight
     model=sortIdentifiers(model);
 end
 
-%7: Make ec-extension structure, one for gene-associated reaction.
+%6: Make ec-extension structure, one for gene-associated reaction.
 %   The structure is different for light and full models
 rxnWithGene  = find(sum(model.rxnGeneMat,2));
 if ~geckoLight
@@ -234,7 +230,7 @@ else
     ec.concs     = emptyVect;
 end
     
-%8: Gather enzyme information via UniprotDB
+%7: Gather enzyme information via UniprotDB
 uniprotCompatibleGenes = modelAdapter.getUniprotCompatibleGenes(model.genes);
 [Lia,Locb]      = ismember(uniprotCompatibleGenes,uniprotDB.genes);
 if any(~Lia)
@@ -248,7 +244,7 @@ ec.sequence     = uniprotDB.seq(Locb(Lia));
 %Additional info
 ec.concs        = nan(numel(ec.genes),1); % To be filled with proteomics data when available
 
-%9: Only parse rxns associated to genes
+%8: Only parse rxns associated to genes
 if ~geckoLight
     ec.rxnEnzMat = zeros(numel(rxnWithGene),numel(ec.genes)); % Non-zeros will indicate the number of subunits
     for r=1:numel(rxnWithGene)
@@ -303,7 +299,7 @@ else
     end
 end
 
-%10: Add proteins as pseudometabolites
+%9: Add proteins as pseudometabolites
 if ~geckoLight
     [proteinMets.mets, uniprotSortId] = sort(ec.enzymes);
     proteinMets.mets         = strcat('prot_',proteinMets.mets);
@@ -316,14 +312,14 @@ if ~geckoLight
     model = addMets(model,proteinMets);
 end
 
-%11: Add protein pool pseudometabolite
+%10: Add protein pool pseudometabolite
 pool.mets         = 'prot_pool';
 pool.metNames     = pool.mets;
 pool.compartments = 'c';
 pool.metNotes     = 'Enzyme-usage protein pool';
 model = addMets(model,pool);
 
-%13: Add protein usage reactions.
+%11: Add protein usage reactions.
 if ~geckoLight
     usageRxns.rxns            = strcat('usage_',proteinMets.mets);
     usageRxns.rxnNames        = usageRxns.rxns;

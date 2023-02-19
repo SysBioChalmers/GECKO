@@ -1,9 +1,7 @@
 %this is tcm0001
 
-GECKORoot = findGECKOroot();
-
 yeastAdapter = ModelAdapterManager.getAdapterFromPath(fullfile(GECKORoot, 'userData', 'ecYeastGEM'));
-yeastGEM = load('C:/Code/Components/yeast-GEM/yeast-GEM/model/yeast-GEM.mat').model; %This folder needs to be modified
+yeastGEM = importModel(fullfile(modelRoot,'models','yeast-GEM.xml'));
 
 %Full model
 %%%%%%%%%%%%
