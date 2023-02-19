@@ -95,8 +95,8 @@ fclose(fID);
 currencyMets = lower(regexprep(currencyMets,'[^0-9a-zA-Z]+',''));
 
 for i=1:size(currencyMets,1)
-    subs = find(strcmp(currencyMets(i,1),metsNoSpecialChars));
-    prod = find(strcmp(currencyMets(i,2),metsNoSpecialChars));
+    subs = strcmp(currencyMets(i,1),metsNoSpecialChars);
+    prod = strcmp(currencyMets(i,2),metsNoSpecialChars);
     if isfield(model,'metSmiles')
         subs = subs | logical(ismember(model.metSmiles,currSmiles(i,1)));
         prod = prod | logical(ismember(model.metSmiles,currSmiles(i,2)));
