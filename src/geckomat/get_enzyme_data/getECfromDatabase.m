@@ -75,7 +75,7 @@ for i = 1:n
                 multGenes{3} = DBase;
             end
         end
-        if isempty(new_EC) || endsWith(new_EC,'-') %No if-else to allow wildcard check
+        if ~isempty(kegg) && (isempty(new_EC) || endsWith(new_EC,'-'))
             %Find match in KEGG
             [new_EC_kegg,multGenes] = findECInDB(gns,DBecNumKEGG,DBMWKEGG,geneIndexKEGG,geneHashMapKEGG);
             if ~isempty(new_EC_kegg)
@@ -126,25 +126,7 @@ else
     %but this was at the moment simpler to implement.
     model.ec.eccodes(ecRxns) = eccodes(ecRxns);
 end
-end
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%I don't understand this part, skipping it for now
-%{
-function [uni,EC,MW,genes] = addMultipleMatches(uni,EC,MW,genes,conflicts,DB)
-for i=1:length(conflicts{1})
-    indexes = conflicts{2}{i};
-    for j=2:length(indexes)
-        indx  = indexes(j);
-        uni   = [uni; DB{indx,1}];
-        ECset = getECstring('',DB{indx,4});
-        EC    = [EC; {ECset}];
-        MW    = [MW; DB{indx,5}];
-        genes = [genes; conflicts{1}{i}];
-    end
-end
-end
-%}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 function displayErrorMessage(conflicts,uniprot,kegg)
 STR = ['\n ' num2str(length(conflicts{1})) ' genes with multiple associated proteins were found, please'];
 STR = [STR, ' revise case by case in the uniprot and kegg files:\n\n'];
@@ -165,7 +147,7 @@ STR = [STR, ' then call the getECfromDatabase.m function'];
 STR = [STR, ' again with the option action = add\n'];
 error(sprintf(STR))
 end
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 function [geneIndex,geneHashMap]=hashGeneToProt(proteinDB)
 
 [x,y] = size(proteinDB);
@@ -183,5 +165,6 @@ for i = 1:y
     for j = 1:length(indices)
         geneIndex{indices(j)} = [geneIndex{indices(j)};protIndicesSel(j)];
     end
+end
 end
 end

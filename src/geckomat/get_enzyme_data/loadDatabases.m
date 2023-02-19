@@ -150,7 +150,7 @@ sequence  = regexprep(sequence,'\s*','');
 keggGene  = regexprep(keggData,'ENTRY\s+(\S+?)\s.+','$1');
 
 switch keggGeneIdentifier
-    case 'kegg'
+    case {'kegg',''}
         gene_name = keggGene;
     otherwise
         % In case there are special characters:
