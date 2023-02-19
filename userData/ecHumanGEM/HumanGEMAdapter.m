@@ -13,13 +13,13 @@ classdef HumanGEMAdapter < ModelAdapter
 			obj.params.convGEM = fullfile(HumanGEMAdapter.getHumanGEMRootPath(),'model','Human-GEM.xml');
 
             %Average enzyme saturation factor
-			obj.params.sigma = 0.5;
+			obj.params.sigma = 0.1; %This was changed to a low number to give a reasonable growth rate - this should be investigated more
 
 			%Total protein content in the cell [g protein/gDw]
 			obj.params.Ptot = 0.505717472;  %Average across NCI60 cell lines
 
 			%Fraction of enzymes in the model [g enzyme/g protein]
-			obj.params.f = 0.5;
+			obj.params.f = 0.412; %estimated as TPM of model genes / all genes in GTEx
 
 			%Minimum growth rate the model should grow at [1/h]
 			obj.params.gR_exp = 0.020663429; %[g/gDw h]/Average across NCI60 cell lines
@@ -76,8 +76,6 @@ classdef HumanGEMAdapter < ModelAdapter
 			%Compartment name in which the added enzymes should be located
 			obj.params.enzyme_comp = 'Cytosol';
             
-            %The pool size, fitted to NCI60 cell lines
-            obj.params.standardProtPoolSize = 22.38315; %This is the value used in Gecko light
         end
 		
         function result = getFilePath(obj, filename)

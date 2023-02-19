@@ -40,13 +40,17 @@ m.c = double(strcmp(m.rxns, params.bioRxn));% Make sure that growth is maximized
 %m.ec.kcat(m.ec.kcat < 0.1) = 0.1;
 %m = applyKcatConstraints(m);
 [~,hs] = solveLP(m);
-
+lastGrowth = 0;
 if ~m.ec.geckoLight
     %for the full model, we first find the draw reaction with the most flux
     drawRxns = startsWith(m.rxns, 'usage_prot_');
     iteration = 1;
     while true
         [res,hs] = solveLP(m,0,[],hs); %skip parsimonius, only takes time
+        if (lastGrowth == -res.f)
+            disp('No growth increase from increased kcats - check if the constraints on the uptake reactions are too tight!')
+            break;
+        end
         lastGrowth = -res.f;
         if (lastGrowth >= desiredGrowthRate)
             break;
@@ -77,6 +81,10 @@ else
     iteration = 1;
     while true
         res = solveLP(m,0); %skip parsimonius, only takes time
+        if (lastGrowth == -res.f)
+            disp('No growth increase from increased kcats - check if the constraints on the uptake reactions are too tight!')
+            break;
+        end
         lastGrowth = -res.f;
         if (lastGrowth >= desiredGrowthRate)
             break;
@@ -89,18 +97,22 @@ else
         %find the highest protein usage flux
         protPoolStoich = m.S(strcmp(m.mets, 'prot_pool'),:).';
         [~,sel] = min(res.x .* protPoolStoich); %max consumption
-        kcatList = [kcatList, find(sel)];
+        kcatList = [kcatList, sel];
         rxn = m.rxns(sel.');
         targetSubRxns = strcmp(origRxns, rxn);
         m.ec.kcat(targetSubRxns) = m.ec.kcat(targetSubRxns) .* foldChange;
-        m = applyKcatConstraints(m,targetSubRxns);
+        m = applyKcatConstraints(m,rxn);
     end
 end
 
 kcatList        = unique(kcatList);
 tunedKcats.rxns = m.rxns(kcatList);
 tunedKcats.rxnNames = m.rxnNames(kcatList);
-[~, rxnIdx]     = ismember(tunedKcats.rxns,m.ec.rxns);
+if ~model.ec.geckoLight
+    [~, rxnIdx]     = ismember(tunedKcats.rxns,m.ec.rxns);
+else
+    [~, rxnIdx]     = ismember(tunedKcats.rxns,origRxns);
+end
 tunedKcats.enzymes = cell(numel(kcatList),1);
 for i=1:numel(rxnIdx)
     [~, metIdx]     = find(m.ec.rxnEnzMat(rxnIdx(i),:));

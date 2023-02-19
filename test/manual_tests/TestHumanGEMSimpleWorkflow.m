@@ -1,5 +1,86 @@
 %This code requires that Human-GEM is installed
 
+%this is tcm0002
+
+GECKORoot = findGECKOroot();
+
+humanAdapter = ModelAdapterManager.getAdapterFromPath(fullfile(GECKORoot, 'userData', 'ecHumanGEM'));
+
+HumanGEMRoot = HumanGEMAdapter.getHumanGEMRootPath();
+
+ihuman = load(fullfile(HumanGEMRoot, 'model', 'Human-GEM.mat')).ihuman;
+modSimp = simplifyModel(ihuman,false,false,true,true); %remove dead-end reactions
+modExp = modSimp;
+[modExp.grRules,skipped] = simplifyGrRules(modExp.grRules,true);
+
+%Full model
+%%%%%%%%%%%%
+
+fullECModel = makeEcModel(modExp, false, humanAdapter);
+[fullECModel, foundComplex, proposedComplex] = applyComplexData(fullECModel, [], humanAdapter);
+
+%Run DLKcat
+fullECModel = findMetSmiles(fullECModel, humanAdapter);
+writeDLKcatInput(fullECModel, [], humanAdapter);
+runDLKcat([], humanAdapter);
+kcatListFullDlKcat = readDLKcatOutput(fullECModel, [], humanAdapter);
+
+%Run fuzzy matching
+kcatListFullFuzzy = fuzzyKcatMatching(fullECModel, [], humanAdapter);
+
+mergedKcatListFull = mergeDLKcatAndFuzzyKcats(kcatListFullDlKcat, kcatListFullFuzzy);
+
+fullECModelMerged = selectKcatValue(fullECModel,mergedKcatListFull);
+fullECModelMerged = applyKcatConstraints(fullECModelMerged);
+%set protein pool constraint
+fullECModelMerged = setProtPoolSize(fullECModelMerged, [], [], [], humanAdapter);
+
+%We avoid simulating growth etc. here, it gets complicated with the media
+
+%Light model
+%%%%%%%%%%%%
+
+lightECModel = makeEcModel(modExp, true, humanAdapter);
+[lightECModel, foundComplex, proposedComplex] = applyComplexData(lightECModel, [], humanAdapter);
+
+%Run DLKcat
+lightECModel = findMetSmiles(lightECModel, humanAdapter);
+writeDLKcatInput(lightECModel, [], humanAdapter);
+runDLKcat([], humanAdapter);
+kcatListLightDlKcat = readDLKcatOutput(lightECModel, [], humanAdapter);
+
+%Run fuzzy matching
+kcatListLightFuzzy = fuzzyKcatMatching(lightECModel, [], humanAdapter);
+
+mergedKcatListLight = mergeDLKcatAndFuzzyKcats(kcatListLightDlKcat, kcatListLightFuzzy);
+
+lightECModelMerged = selectKcatValue(lightECModel, mergedKcatListLight);
+lightECModelMerged = applyKcatConstraints(lightECModelMerged);
+%set protein pool constraint
+lightECModelMerged = setProtPoolSize(lightECModelMerged, [], [], [], humanAdapter);
+
+%We avoid simulating growth etc. here, it gets complicated with the media
+
+%export metabolic genes to figure out the fraction of metabolic enzymes of the total gene expression
+%[metabolicGenesHuman,~] = getGenesFromGrRules(ihuman.grRules);
+%length(metabolicGenesHuman)%3067
+%t = table(metabolicGenesHuman);
+%writetable(t, 'metabolicGenesHuman.txt', 'WriteVariableNames', true);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 GECKORoot = findGECKOroot();
 
 humanAdapter = ModelAdapterManager.getAdapterFromPath(fullfile(GECKORoot, 'userData', 'ecHumanGEM'));
