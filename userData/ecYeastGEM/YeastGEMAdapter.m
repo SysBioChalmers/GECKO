@@ -104,11 +104,6 @@ classdef YeastGEMAdapter < ModelAdapter
     
         end
 		
-        function result = getFilePath(obj, filename)
-			result = filename; % TODO: Look at how this should be solved - look at the GeckoLight solution below
-			%result = strcat(GeckoLightInstall.getGeckoLightMainPath(), 'data/humanGEM/', filename);
-		end
-		
 		function [spont,spontRxnNames] = getSpontaneousReactions(obj,model)
 			%TODO: I'm not sure if this information exists in Yeast-GEM - if it does, it should be returned in this function
 			%For now, we say none of them are spontaneous.

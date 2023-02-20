@@ -78,11 +78,6 @@ classdef HumanGEMAdapter < ModelAdapter
             
         end
 		
-        function result = getFilePath(obj, filename)
-			result = filename; % TODO: Look at how this should be solved - look at the GeckoLight solution below
-			%result = strcat(GeckoLightInstall.getGeckoLightMainPath(), 'data/humanGEM/', filename);
-        end
-        
 		function [spont,spontRxnNames] = getSpontaneousReactions(obj,model)
 			rxns_tsv = importTsvFile(strcat(HumanGEMAdapter.getHumanGEMRootPath(),'model/reactions.tsv'));
 			spont = rxns_tsv.spontaneous;
