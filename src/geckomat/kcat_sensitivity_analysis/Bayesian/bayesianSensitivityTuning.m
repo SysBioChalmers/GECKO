@@ -1,5 +1,5 @@
-function ecModel = BayesianSensitivityTuning(ecModel,modelAdapter,maxIterations)
-% BayesianSensitivityTuning
+function ecModel = bayesianSensitivityTuning(ecModel,modelAdapter,maxIterations)
+% bayesianSensitivityTuning
 %   Modifies kcats to better fit experimental data. Currently only works with 
 %   light models.
 %
