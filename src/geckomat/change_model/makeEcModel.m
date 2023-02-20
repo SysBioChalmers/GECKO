@@ -1,4 +1,4 @@
-function model = makeEcModel(model, geckoLight, modelAdapter)
+function [model, noUniprot] = makeEcModel(model, geckoLight, modelAdapter)
 % makeEcModel
 %   Expands a conventional genome-scale model (in RAVEN format) with enzyme
 %   information and prepares the reactions for integration of enzyme usage
@@ -20,6 +20,8 @@ function model = makeEcModel(model, geckoLight, modelAdapter)
 %                   their draw reactions are added to the model, but their
 %                   usage is not yet implemented (due to absent kcat values
 %                   at this stage).
+%   noUniprot       genes for which no information could be found in the
+%                   Uniprot database
 %
 % The function goes through the following steps:
 %   1.  Remove gene associations from pseudoreactions.
@@ -232,10 +234,11 @@ end
     
 %7: Gather enzyme information via UniprotDB
 uniprotCompatibleGenes = modelAdapter.getUniprotCompatibleGenes(model.genes);
-[Lia,Locb]      = ismember(uniprotCompatibleGenes,uniprotDB.genes);
-if any(~Lia)
-    disp(['Cannot find ' num2str(numel(find(~Lia))) ' of ' num2str(numel(uniprotCompatibleGenes)) ...
-          ' genes in local UniProt DB, these will not be enzyme-constrained.'])
+[Lia,Locb] = ismember(uniprotCompatibleGenes,uniprotDB.genes);
+noUniprot  = uniprotCompatibleGenes(~Lia);
+if ~isempty(noUniprot)
+    disp(['The ' num2str(numel(noUniprot)) ' genes reported in noUniprot cannot '...
+          'be found in the local UniProt DB, these will not be enzyme-constrained.'])
 end
 ec.genes        = model.genes(Lia); %Will often be duplicate of model.genes, but is done here to prevent issues when it is not.
 ec.enzymes      = uniprotDB.ID(Locb(Lia));
