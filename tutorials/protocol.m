@@ -85,7 +85,7 @@ ecModel=readYAMLmodel(fullfile(ModelAdapter.params.path,'models','ecYeastGEM.yml
 
 % (1) DLKcat
 % Requires metabolite SMILES:
-ecModel.metSmiles = findMetSmiles(ecModel.metNames);
+ecModel = findMetSmiles(ecModel);
 
 % Currently, a DLKcatInput.tsv file is written that can be used by DLKcat,
 % and the DLKcatOutput.tsv file can be loaded into MATLAB again. runDLKcat
