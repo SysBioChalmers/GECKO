@@ -461,4 +461,32 @@ function testfindMetSmiles_tc0012(testCase)
     verifyEqual(testCase,ecModel.metSmiles,{'C(C1C)O';'C1C(=NC2)';'C(C1C)O';'C1C(=NC2)';'';'';'';'';'';''})
 end
 
+%Tests readProteomics, constrainProtConcs, flexibilizeProtConcs, and getConcControlCoeffs.
+function testProteomcisIntegration_tc0013(testCase)
+    geckoPath = findGECKOroot;
+    adapter = ModelAdapterManager.getAdapterFromPath(fullfile(geckoPath,'test','unit_tests','ecTestGEM'));
+    model = getGeckoTestModel();
+    ecModel = makeEcModel(model, false, adapter);
+    ecModel = getECfromGEM(ecModel);
+    ecModel = applyComplexData(ecModel, [], adapter);
+    kcatListFuzzy = fuzzyKcatMatching(ecModel, [], adapter);
+    ecModel  = selectKcatValue(ecModel, kcatListFuzzy);
+    ecModel  = applyKcatConstraints(ecModel);
+    ecModel  = setProtPoolSize(ecModel);
+
+    % test that proteomics data is correct loaded into model.ec.concs
+    ecModel = readProteomics(ecModel);
+    verifyEqual(testCase,ecModel.ec.concs,[0.7292388;0.03692241;0.318175;5.1959184;0.15647268])
+
+    % test that usage protein are correctly constraint
+    [~, usageRxnIdx] = ismember(strcat('usage_prot_', ecModel.ec.enzymes), ecModel.rxns);
+    ecModel = constrainProtConcs(ecModel);
+    verifyEqual(testCase,ecModel.ub(usageRxnIdx),ecModel.ec.concs)
+
+    % test that usage protein are correctly constraint. Sol.f give 0.1127,
+    % increse objective up to 0.15
+    [ecModel, proteins, frequence] =  flexibilizeProtConcs(ecModel, 0.15);
+    newUB = ecModel.ec.concs.*(1+(frequence*0.5));
+    verifyEqual(testCase,ecModel.ub(usageRxnIdx),newUB)
+end
 
