@@ -1,0 +1,53 @@
+Function/File (in geckomat)	Verification	Comments
+BrendaParser/*	Not explicitly tested - The code has existed for a long time	
+change_model/applyComplexData.m	"tc0003, tc0004"	
+change_model/applyKcatConstraints.m	tc0011	
+change_model/findMetSmiles.m	tc0012	
+change_model/getComplexData.m	"tc0003, tc0004 - File download not covered by test cases but is tested manually and works."	
+change_model/makeEcModel.m	"tc0001, tc0002"	
+change_model/setProtPoolSize.m	tc0005	
+change_model/getKcatAcrossIsoenzymes.m		
+gather_kcats/fuzzyKcatMatching.m	tc0010	
+gather_kcats/getStandardKcat.m		
+gather_kcats/mergeDlkcatAndFuzzyKcats.m	tc0011	
+gather_kcats/readDLKcatOutput.m	"tcm0001, tcm0002 - The test doesn't really check the function, only that some output is read"	
+gather_kcats/runDLKcat.m	"tcm0001, tcm0002 - The test doesn't really check the function, only that we get something"	
+gather_kcats/selectKcatValue.m	tc0011 - we did not test all possible parameterizations here	
+gather_kcats/writeDLKcatInput.m	partly by tc0011	
+get_enzyme_data/calculateMW.m	Not explicitly tested - The code has existed for a long time	
+get_enzyme_data/findECInDB.m	Called from getECfromDatabase - tested when that function is tested.	
+get_enzyme_data/getECfromDatabase.m	tc0007 - does not test download of the databases - this is tested in the manual workflows for Yeast-GEM and Human-GEM	
+get_enzyme_data/getECfromGEM.m	tc0006	
+get_enzyme_data/getECstring.m	Called from findECInDB - tested when that function is tested.	
+get_enzyme_data/loadBRENDAdata.m	Called from fuzzyKcatMatching - tested when that function is tested.	
+get_enzyme_data/loadDatabases.m	Called from getECfromDatabase - tested when that function is tested.	
+kcat_sensitivity_analysis/Bayesian/*	"Has only been tested by running it manually, not tested by test cases"	
+kcat_sensitivity_analysis/findMaxValue.m	Not explicitly tested - The code has existed for a long time	
+kcat_sensitivity_analysis/findTopLimitations.m	Not explicitly tested - The code has existed for a long time	
+kcat_sensitivity_analysis/sensitivityTuning.m	tcm0001	
+kcat_sensitivity_analysis/sigmaFitter.m	Not explicitly tested - The code has existed for a long time	
+kcat_sensitivity_analysis/topUsedEnzymes.m	Not explicitly tested - The code has existed for a long time	Not sure this works anymore - written for the old model structure?
+kcat_sensitivity_analysis/truncateValues.m	Not explicitly tested - The code has existed for a long time	
+limit_proteins/constrainProtConcs.m		
+limit_proteins/findLimitingUBs.m		
+limit_proteins/fitGAM.m		
+limit_proteins/flexibilizeProteins.m		
+limit_proteins/measureAbundance.m		
+limit_proteins/readProteomics.m		
+limit_proteins/updateProtPool.m		
+model_adapter/ModelAdapter.m	"Base class for adapters, not explicitly tested."	
+model_adapter/ModelAdapterManager.m	tc0008	
+utilities/*	"Not explicitly tested - The code has existed for a long time. There are a lot of functions in here, unclear which of them are still useful and functional."	
+utilities/loadConventionalGEM.m		
+utilities/loadEcModel.m		
+utilities/saveEcModel.m		
+userdata/ecHumanGEM/HumanGEMAdapter.m	"tcm0002 - does not test all aspects of the adapter, but some."	
+userdata/ecYeastGEM/YeastGEMAdapter.m	"tcm0001 - does not test all aspects of the adapter, but some."	
+userdata/ecYeastGEM/code/changeMedia_batch.m	Not explicitly tested - The code has existed for a long time	
+userdata/ecYeastGEM/code/getModelParameters_obsolete.m	Not used	
+userdata/ecYeastGEM/code/manualModifications.m	Not explicitly tested - The code has existed for a long time	
+userdata/ecYeastGEM/code/removeIncorrectPathways.m	Not explicitly tested - The code has existed for a long time	
+userdata/ecYeastGEM/code/scaleBioMass.m	Not explicitly tested - The code has existed for a long time	
+userdata/ecYeastGEM/code/sumBioMass.m	Not explicitly tested - The code has existed for a long time	
+userdata/ecYeastGEM/code/sumProtein.m	Not explicitly tested - The code has existed for a long time	
+enhanceGEM.m	Not explicitly tested - The code has existed for a long time	"Probably not relevant anymore, remove?"
