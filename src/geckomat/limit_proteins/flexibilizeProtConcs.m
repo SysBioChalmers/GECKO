@@ -87,7 +87,7 @@ if any(protConcs)
             protUsageIdx = strcmpi(model.rxns, strcat('usage_prot_', proteins(maxIdx)));
 
             % replace the UB
-            model.ub(protUsageIdx) = model.ub(protUsageIdx) * (1+increase);
+            model.ub(protUsageIdx) = model.ec.concs(maxIdx) * (1+increase);
 
             % Get the new growth rate
             sol = solveLP(model);
