@@ -1,4 +1,4 @@
-function loadConventionalGEM(filename, modelAdapter)
+function model = loadConventionalGEM(filename, modelAdapter)
 % loadConventionalGEM
 %   Loads the conventional GEM (non-ecModel) from the location specified in
 %   the modelAdapter. By default, it looks in the models/ subdirectory of 

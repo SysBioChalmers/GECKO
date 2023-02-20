@@ -221,15 +221,22 @@ function testModelAdapterManager_tc0008(testCase)
 end
 
 function testsaveECModel_tc0009(testCase)
+    % Test a round of model saving and loading
     geckoPath = findGECKOroot;
     adapter = ModelAdapterManager.getAdapterFromPath(fullfile(geckoPath,'test','unit_tests','ecTestGEM'));
     model = getGeckoTestModel();
     ecModel = makeEcModel(model, false, adapter);
     saveEcModel(ecModel);
     loadedEcModel = loadEcModel();
+    delete(fullfile(adapter.params.path,'models','ecModel.yml'));
     verifyEqual(testCase, ecModel, loadedEcModel)
-end
 
+    % Test loading of conventional GEM
+    loadedModel = loadConventionalGEM('',adapter);
+    model=rmfield(model,{'annotation','date','description','version'});
+    model.geneShortNames=model.genes;
+    verifyEqual(testCase, model, loadedModel)
+end
 
 function testfuzzyKcatMatching_tc0010(testCase)
     %full
@@ -392,6 +399,11 @@ function testKcats_tc0011(testCase)
     verifyEqual(testCase,full(ecModel.S(ismember(ecModel.mets, {'prot_P1';'prot_P2';'prot_P3';'prot_P4';'prot_P5'}),strcmp(ecModel.rxns, 'R5'))), [0;0;0;0;-50000/1011/3600],"AbsTol",10^-10) %MW 50000 (P5/G5), kcat 1011
     verifyEqual(testCase,full(ecModel.S(ismember(ecModel.mets, {'prot_P1';'prot_P2';'prot_P3';'prot_P4';'prot_P5'}),strcmp(ecModel.rxns, 'S1'))), [0;0;0;0;0],"AbsTol",10^-10)
     verifyEqual(testCase,full(ecModel.S(ismember(ecModel.mets, {'prot_P1';'prot_P2';'prot_P3';'prot_P4';'prot_P5'}),strcmp(ecModel.rxns, 'S2'))), [0;0;0;0;0],"AbsTol",10^-10)
+
+    %Check getKcatAcrossIsoenzymes
+    ecModel.ec.kcat(2)=0;
+    ecModel=getKcatAcrossIsoenzymes(ecModel);
+    verifyEqual(testCase,ecModel.ec.kcat, [1;1;10;10;1008;1009;1010;100;1011])
 
     %now apply for light
     %%%%%%%%%%%%%%%%%%%

@@ -6,11 +6,11 @@ classdef TestGEMAdapter < ModelAdapter
             %Directory where all model-specific files and scripts are kept.
             %Is assumed to follow the GECKO-defined folder structure. The
             %code below refers to userData/ecYeastGEM in the GECKO path.
-            geckoPath = findGECKOroot;
-            obj.params.path = fullfile(geckoPath,'test','unit_tests','ecTestGEM');
+            obj.params.path = fullfile(findGECKOroot,'test','unit_tests','ecTestGEM');
 
-            %these paramteres are just copied from getParams in ecModels
-			
+			%Path to the conventional GEM that this ecModel will be based on.
+			obj.params.convGEM = fullfile(obj.params.path,'models','testModel.xml');
+
             %Average enzyme saturation factor
 			obj.params.sigma = 0.5;
 
