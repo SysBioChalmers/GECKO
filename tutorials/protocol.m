@@ -124,7 +124,7 @@ printFluxes(ecModel_merged, sol.x)
 
 %% Tune kcat values to reach max growth rate
 % Protein = 0.5; enzyme = 0.5; saturation = 0.5; = 0.125
-ecModel_merged = constrainPool(ecModel_merged);
+ecModel_merged = setProtPoolSize(ecModel_merged);
 % Unlimited glucose uptake
 ecModel_merged = setParam(ecModel_merged,'lb','r_1714',-1000);
 sol = solveLP(ecModel_merged)
