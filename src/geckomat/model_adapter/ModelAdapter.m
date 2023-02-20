@@ -1,7 +1,6 @@
 %Abstract Base class for adapters for different species
 classdef (Abstract) ModelAdapter 
 	methods (Abstract)
-        result = getFilePath(obj, filename)
 		[spont,spontRxnNames] = getSpontaneousReactions(obj,model);
     end
 	methods

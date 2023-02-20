@@ -84,7 +84,7 @@ ecModel=readYAMLmodel(fullfile(ModelAdapter.params.path,'models','ecYeastGEM.yml
 
 % (1) DLKcat
 % Requires metabolite SMILES:
-ecModel.metSmiles = findMetSmiles(ecModel.metNames);
+ecModel = findMetSmiles(ecModel);
 
 % Currently, a DLKcatInput.tsv file is written that can be used by DLKcat,
 % and the DLKcatOutput.tsv file can be loaded into MATLAB again. runDLKcat
@@ -109,7 +109,7 @@ ecModel_fuzzy   = applyKcatConstraints(ecModel_fuzzy);
 
 % (3) combine fuzzy matching and DLkcat
 % Assumes that you've run both step (1) and step (2)
-kcatList_merged = mergeDlkcatAndFuzzyKcats(kcatList_DLKcat, kcatList_fuzzy);
+kcatList_merged = mergeDLKcatAndFuzzyKcats(kcatList_DLKcat, kcatList_fuzzy);
 ecModel_merged  = selectKcatValue(ecModel, kcatList_merged);
 ecModel_merged  = applyKcatConstraints(ecModel_merged);
 
@@ -123,7 +123,7 @@ printFluxes(ecModel_merged, sol.x)
 
 %% Tune kcat values to reach max growth rate
 % Protein = 0.5; enzyme = 0.5; saturation = 0.5; = 0.125
-ecModel_merged = constrainPool(ecModel_merged);
+ecModel_merged = setProtPoolSize(ecModel_merged);
 % Unlimited glucose uptake
 ecModel_merged = setParam(ecModel_merged,'lb','r_1714',-1000);
 sol = solveLP(ecModel_merged)

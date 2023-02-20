@@ -1,4 +1,4 @@
-function [model, protData] = readProteomics(model, protData, modelAdapter)
+function [model, protData] = readProteomics(model, condition, protData, modelAdapter)
 % readProteomics
 %   Reads absolute proteomics data, from either a file or protData
 %   structure. The proteins should be annotated with Uniprot IDs, while the
@@ -8,10 +8,15 @@ function [model, protData] = readProteomics(model, protData, modelAdapter)
 %
 % Input:
 %   model           an ec-model
+%   condition       a condition to be set as protein levels. It must be a
+%                   number (Optional, default = 1)
 %   protData        either string where to find the input file, or a
 %                   structure with the following fields:
 %                   protData.uniprot  Uniprot identifiers
-%                   protData.level    Protein levels in mmol/gDCW
+%                   protData.level    Protein levels in mmol/gDCW. 
+%                   If it is a file multiple conditions can be load.
+%                   However, only the condition defined will be used in
+%                   model.ec.concs
 %   modelAdapter    a loaded model adapter (Optional, will otherwise use
 %                   the default model adapter)
 % Output:
@@ -21,7 +26,7 @@ function [model, protData] = readProteomics(model, protData, modelAdapter)
 % Note: to also constrain the model with the content of model.ec.concs, you
 % should run constrainProtConcs.
 
-if nargin < 3 || isempty(modelAdapter)
+if nargin < 4 || isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefaultAdapter();
     if isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
@@ -29,17 +34,32 @@ if nargin < 3 || isempty(modelAdapter)
 end
 params = modelAdapter.getParameters();
 
-if nargin < 2 || isempty(protData)
+if nargin < 3 || isempty(protData)
     protData = fullfile(params.path,'data','proteomics.tsv');
+end
+
+if nargin < 2
+    condition = 1;
+end
+
+% Chack if condition is a numeric type and define the set data to used
+if isnumeric(condition)
+    n = 1 + condition;
+    % Repeat the predefined format as many conditions
+    format = join(repmat({'%s'},1,n),' ');
+    % If there is more than n columns, skip them
+    format = [format{:} '%*[^\n]']; 
+else
+    error('Condition must be a number')
 end
 
 switch class(protData)
     case {'char','string'}
         fID = fopen(fullfile(protData),'r');
-        fileContent = textscan(fID, '%s %s', 'HeaderLines', 1);
+        fileContent = textscan(fID, format, 'HeaderLines', 1);
         fclose(fID);
         uniprot = fileContent{1};
-        level   = str2double(fileContent{2});
+        level   = str2double(fileContent{n});
     case 'struct'
         uniprot = protData.uniprot;
         level   = protData.level;

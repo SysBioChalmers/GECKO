@@ -66,7 +66,12 @@ enzSubSystems = cell(numel(model.ec.rxns), 1);
 % Get the subSystem for the rxns with a GPR
 for i = 1:numel(model.ec.rxns)
     idx = strcmpi(model.rxns, model.ec.rxns{i});
-    enzSubSystems(i,1) = model.subSystems{idx};
+    % In case there is more than one subSystem select the first one
+    if length(model.subSystems{idx}) > 1
+        enzSubSystems(i,1) = model.subSystems{idx}(1);
+    else
+        enzSubSystems(i,1) = model.subSystems{idx};
+    end
 end
 
 % Determine the subSystems in model.ec
