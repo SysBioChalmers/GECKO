@@ -7,7 +7,7 @@ function [enz, controlCoeffs] = getConcControlCoeffs(model, proteins, foldChange
 %   proteins        a list of proteins to calculate the coefficients. (Optional,
 %                   default = model.ec.enzymes)
 %   foldChange      a value how much increase the protein concentration.
-%                   (Optional, default = 0.1)
+%                   (Optional, default = 0.5)
 %   limit           a value to determine limiting protein usage reactions.
 %                   Calculate as usage/concentration (Optional, default = 0)
 %
@@ -23,7 +23,7 @@ if nargin < 4
 end
 
 if nargin < 3
-    foldChange = 0.1;
+    foldChange = 0.5;
 end
 
 if nargin < 2

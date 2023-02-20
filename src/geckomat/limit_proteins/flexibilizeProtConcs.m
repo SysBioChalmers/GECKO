@@ -1,37 +1,53 @@
-function model = flexibilizeProtConcs(model, foldChange, expGrowth, modelAdapter)
+function [model, proteins, frequence] = flexibilizeProtConcs(model, expGrowth, foldChange, iterationsPerEnzyme, modelAdapter)
 % flexibilizeProtConcs
 %   Flexibilize protein concentration of an ecModel with constrained with
 %   proteomcis data
 %
 % Input:
-%   model           an ecModel in GECKO 3 version
-%   foldChange      a value how much increase the protein concentration.
-%                   (Optional, default = 0.1)
-%   expGrowth       Estimaed experimental growth rate. If not specified,
-%                   the value will be read from the model adapter.
-%   modelAdapter    a loaded model adapter (Optional, will otherwise use the
-%                   default model adapter).
+%   model                 an ecModel in GECKO 3 version
+%   expGrowth             Estimaed experimental growth rate. If not specified,
+%                         the value will be read from the model adapter.
+%   foldChange            a value how much increase the protein concentration.
+%                         (Optional, default = 0.5)
+%   iterationsPerEnzyme   the number of iterations that an enzyme can be increased.
+%                         A zero number can be defined. if zero is defined no limit
+%                         will be set, and it will increase the protein concentration
+%                         until reach de defined growth rate (Optional, default = 5)
+%   modelAdapter          a loaded model adapter (Optional, will otherwise use the
+%                         default model adapter).
 %
 % Output:
-%   enz             a logical vector of enzymes analyzed
-%   controlCoeffs   a vector array with the coefficients
+%   model                 ecModel where the UB of measured protein have been increased
+%                         to allow reach a defined growth rate.
+%   proteins              a vector array with proteins evaluated
+%   frequence             a vector array with a number of n times the UB was increase.
+%                         Then new UB is [Ei] * 1.foldChange^n
 %
 % Usage:
-%    [enz, controlCoeffs] = getConcControlCoeffs(model, proteins, foldChange, limit);
+%    [model, proteins, frequence] = flexibilizeProtConcs(model, expGrowth, foldChange, iterationsPerEnzyme, modelAdapter);
 
-if nargin < 4 || isempty(modelAdapter)
+if nargin < 5 || isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefaultAdapter();
     if isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
     end
 end
 
-if nargin < 3 || isempty(expGrowth)
+if nargin < 4
+    iterationsPerEnzyme = 5;
+end
+
+if nargin < 3
+    foldChange = 0.5;
+end
+
+if nargin < 2 || isempty(expGrowth)
     expGrowth = modelAdapter.getParameters().gR_exp;
 end
 
-if nargin < 2
-    foldChange = 0.1;
+% If a zero value is defined, not iteration limit will be set
+if iterationsPerEnzyme == 0
+    iterationsPerEnzyme = inf;
 end
 
 % In case the model have not been protein constrained
@@ -62,7 +78,7 @@ if any(protConcs)
         frequence(maxIdx) = frequence(maxIdx) + 1;
 
         % Allow to increase the UB maximum five times
-        if frequence(maxIdx) <= 5
+        if frequence(maxIdx) <= iterationsPerEnzyme
 
             % Set how much will increase the UB
             increase = foldChange*frequence(maxIdx);
@@ -79,10 +95,9 @@ if any(protConcs)
 
             disp(['Protein ' proteins{maxIdx} ' UB adjusted. Grow: ' num2str(predGrowth)])
         else
-            disp( ['Protein '  proteins{maxIdx} ' seems to be problematic. Consider changing the kcat '])
+            disp( ['Limit have been reached. Protein '  proteins{maxIdx} ' seems to be problematic. Consider changing the kcat '])
             break
         end
-
     end
 else
     error('Protein concentrations have not been defined. Please run readProteomics and constrainProtConcs')
