@@ -110,7 +110,7 @@ ecModel_fuzzy   = applyKcatConstraints(ecModel_fuzzy);
 
 % (3) combine fuzzy matching and DLkcat
 % Assumes that you've run both step (1) and step (2)
-kcatList_merged = mergeDlkcatAndFuzzyKcats(kcatList_DLKcat, kcatList_fuzzy);
+kcatList_merged = mergeDLKcatAndFuzzyKcats(kcatList_DLKcat, kcatList_fuzzy);
 ecModel_merged  = selectKcatValue(ecModel, kcatList_merged);
 ecModel_merged  = applyKcatConstraints(ecModel_merged);
 
