@@ -29,14 +29,14 @@ kcat_sensitivity_analysis/sensitivityTuning.m	tcm0001
 kcat_sensitivity_analysis/sigmaFitter.m	Not explicitly tested - The code has existed for a long time	
 kcat_sensitivity_analysis/topUsedEnzymes.m	Not explicitly tested - The code has existed for a long time	Not sure this works anymore - written for the old model structure?
 kcat_sensitivity_analysis/truncateValues.m	Not explicitly tested - The code has existed for a long time	
-limit_proteins/constrainProtConcs.m		
+limit_proteins/constrainProtConcs.m	tc0013
 limit_proteins/findLimitingUBs.m	Not explicitly tested - The code has existed for a long time	"Probably not relevant anymore, remove?"
 limit_proteins/fitGAM.m		
 limit_proteins/flexibilizeProteins.m	Not explicitly tested - The code has existed for a long time	"Probably not relevant anymore, remove?"
 limit_proteins/measureAbundance.m		
-limit_proteins/readProteomics.m		
-limit_proteins/flexibilizeProtConcs.m		
-limit_proteins/getConcControlCoeffs.m		
+limit_proteins/readProteomics.m	tc0013
+limit_proteins/flexibilizeProtConcs.m	tc0013
+limit_proteins/getConcControlCoeffs.m	tc0013
 limit_proteins/updateProtPool.m		
 model_adapter/ModelAdapter.m	"Base class for adapters, not explicitly tested."	
 model_adapter/ModelAdapterManager.m	tc0008	
