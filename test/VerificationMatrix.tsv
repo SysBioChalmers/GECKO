@@ -7,6 +7,7 @@ change_model/getComplexData.m	"tc0003, tc0004 - File download not covered by tes
 change_model/makeEcModel.m	"tc0001, tc0002"	
 change_model/setProtPoolSize.m	tc0005	
 change_model/getKcatAcrossIsoenzymes.m		
+change_model/applyCustomKcats.m		
 gather_kcats/fuzzyKcatMatching.m	tc0010	
 gather_kcats/getStandardKcat.m		
 gather_kcats/mergeDlkcatAndFuzzyKcats.m	tc0011	
@@ -29,11 +30,13 @@ kcat_sensitivity_analysis/sigmaFitter.m	Not explicitly tested - The code has exi
 kcat_sensitivity_analysis/topUsedEnzymes.m	Not explicitly tested - The code has existed for a long time	Not sure this works anymore - written for the old model structure?
 kcat_sensitivity_analysis/truncateValues.m	Not explicitly tested - The code has existed for a long time	
 limit_proteins/constrainProtConcs.m		
-limit_proteins/findLimitingUBs.m		
+limit_proteins/findLimitingUBs.m	Not explicitly tested - The code has existed for a long time	"Probably not relevant anymore, remove?"
 limit_proteins/fitGAM.m		
-limit_proteins/flexibilizeProteins.m		
+limit_proteins/flexibilizeProteins.m	Not explicitly tested - The code has existed for a long time	"Probably not relevant anymore, remove?"
 limit_proteins/measureAbundance.m		
 limit_proteins/readProteomics.m		
+limit_proteins/flexibilizeProtConcs.m		
+limit_proteins/getConcControlCoeffs.m		
 limit_proteins/updateProtPool.m		
 model_adapter/ModelAdapter.m	"Base class for adapters, not explicitly tested."	
 model_adapter/ModelAdapterManager.m	tc0008	
@@ -44,8 +47,8 @@ utilities/saveEcModel.m
 userdata/ecHumanGEM/HumanGEMAdapter.m	"tcm0002 - does not test all aspects of the adapter, but some."	
 userdata/ecYeastGEM/YeastGEMAdapter.m	"tcm0001 - does not test all aspects of the adapter, but some."	
 userdata/ecYeastGEM/code/changeMedia_batch.m	Not explicitly tested - The code has existed for a long time	
-userdata/ecYeastGEM/code/getModelParameters_obsolete.m	Not used	
-userdata/ecYeastGEM/code/manualModifications.m	Not explicitly tested - The code has existed for a long time	
+userdata/ecYeastGEM/code/getModelParameters_obsolete.m	Deprecated	
+userdata/ecYeastGEM/code/manualModifications.m	Deprecated	
 userdata/ecYeastGEM/code/removeIncorrectPathways.m	Not explicitly tested - The code has existed for a long time	
 userdata/ecYeastGEM/code/scaleBioMass.m	Not explicitly tested - The code has existed for a long time	
 userdata/ecYeastGEM/code/sumBioMass.m	Not explicitly tested - The code has existed for a long time	
