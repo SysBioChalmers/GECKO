@@ -193,7 +193,7 @@ else
     numOrs = count(model.grRules(rxnWithGene), ' or ');
     cpys = numOrs + 1;
     prevNumRxns = length(numOrs);
-    cpyIndices = repelem(rxnWithGene, cpys);
+    cpyIndices = repelem(rxnWithGene, cpys).'; %.' only matter when number of rxns is 1
     %loop through and add a prefix with an isozyme index to the rxns
     %we just give a fixed-length number as prefix, and assume that 999 is enough
     tmpRxns = model.rxns(cpyIndices); %now they have no prefix
