@@ -33,11 +33,11 @@ if nargin < 5 || isempty(modelAdapter)
     end
 end
 
-if nargin < 4
+if nargin < 4 || isempty(iterationsPerEnzyme)
     iterationsPerEnzyme = 5;
 end
 
-if nargin < 3
+if nargin < 3 || isempty(foldChange)
     foldChange = 0.5;
 end
 
@@ -57,7 +57,7 @@ sol = solveLP(model);
 predGrowth = abs(sol.f);
 
 % Get those proteins with a concentration defined
-protConcs = ~isnan(model.ec.concs);
+protConcs = find(~isnan(model.ec.concs));
 
 % Get enzymes names with a concentration value
 proteins = model.ec.enzymes(protConcs);
@@ -87,7 +87,7 @@ if any(protConcs)
             protUsageIdx = strcmpi(model.rxns, strcat('usage_prot_', proteins(maxIdx)));
 
             % replace the UB
-            model.ub(protUsageIdx) = model.ec.concs(maxIdx) * (1+increase);
+            model.ub(protUsageIdx) = model.ec.concs(protConcs(maxIdx)) * (1+increase);
 
             % Get the new growth rate
             sol = solveLP(model);

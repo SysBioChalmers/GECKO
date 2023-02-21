@@ -1174,53 +1174,53 @@ propionate	CCC(=O)[O-]
 propionyl-CoA	CCC(=O)SCCNC(=O)CCNC(=O)C(C(C)(C)COP(=O)(O)OP(=O)(O)OCC1C(C(C(O1)N2C=NC3=C(N=CN=C32)N)O)OP(=O)(O)O)O
 propyl acetate	CCCOC(=O)C
 protein	
-protoporphyrin	
-protoporphyrinogen	
-pseudouridine 5'-phosphate	
-putrescine	
-pyridoxal	
-pyridoxal 5'-phosphate	
-pyridoxamine	
-pyridoxamine 5'-phosphate	
-pyridoxine	
-pyridoxine 5'-phosphate	
-pyruvate	
-quinaldic acid	
-quinolinate	
-quinone	
-raffinose	
-riboflavin	
+protoporphyrin	CC1=C(C2=CC3=NC(=CC4=NC(=CC5=C(C(=C(N5)C=C1N2)C=C)C)C(=C4CCC(=O)O)C)C(=C3C)CCC(=O)O)C=C
+protoporphyrinogen	CC1=C2CC3=C(C(=C(N3)CC4=C(C(=C(N4)CC5=C(C(=C(N5)CC(=C1CCC(=O)O)N2)CCC(=O)O)C)C=C)C)C=C)C
+pseudouridine 5'-phosphate	C1=C(C(=O)NC(=O)N1)C2C(C(C(O2)COP(=O)(O)O)O)O
+putrescine	C(CCN)CN
+pyridoxal	CC1=NC=C(C(=C1O)C=O)CO
+pyridoxal 5'-phosphate	CC1=NC=C(C(=C1O)C=O)COP(=O)(O)O
+pyridoxamine	CC1=NC=C(C(=C1O)CN)CO
+pyridoxamine 5'-phosphate	CC1=NC=C(C(=C1O)CN)COP(=O)(O)O
+pyridoxine	CC1=NC=C(C(=C1O)CO)CO
+pyridoxine 5'-phosphate	CC1=NC=C(C(=C1O)CO)COP(=O)(O)O
+pyruvate	CC(=O)C(=O)[O-]
+quinaldic acid	C1=CC=C2C(=C1)C=CC(=N2)C(=O)O
+quinolinate	C1=CC(=C(N=C1)C(=O)O)C(=O)O
+quinone	C1=CC(=O)C=CC1=O
+raffinose	C(C1C(C(C(C(O1)OCC2C(C(C(C(O2)OC3(C(C(C(O3)CO)O)O)CO)O)O)O)O)O)O)O
+riboflavin	CC1=CC2=C(C=C1C)N(C3=NC(=O)NC(=O)C3=N2)CC(C(C(CO)O)O)O
 ribonucleoside 5'-phosphate	
 ribonucleoside 5'-triphosphate	
-ribose-5-phosphate	
-sedoheptulose 1,7-bisphosphate	
-sedoheptulose 7-phosphate	
-shikimate	
-siroheme	
-sirohydrochlorin	
+ribose-5-phosphate	C(C(C(C(C=O)O)O)O)OP(=O)(O)O
+sedoheptulose 1,7-bisphosphate	C(C(C(C(C(C(=O)COP(=O)(O)O)O)O)O)O)OP(=O)(O)O
+sedoheptulose 7-phosphate	C(C(C(C(C(C(=O)CO)O)O)O)O)OP(=O)(O)O
+shikimate	C1C(C(C(C=C1C(=O)O)O)O)O
+siroheme	CC1(C(C2=CC3=NC(=CC4=C(C(=C([N-]4)C=C5C(C(C(=N5)C=C1[N-]2)CCC(=O)O)(C)CC(=O)O)CC(=O)O)CCC(=O)O)C(=C3CC(=O)O)CCC(=O)O)CCC(=O)O)CC(=O)O.[Fe+2]
+sirohydrochlorin	CC1(C(C2=NC1=CC3=NC(=CC4=C(C(=C(N4)C=C5C(=C(C(=C2)N5)CC(=O)O)CCC(=O)O)CCC(=O)O)CC(=O)O)C(C3CCC(=O)O)(C)CC(=O)O)CCC(=O)O)CC(=O)O
 sn-2-acyl-1-lysophosphatidylinositol (16:1)	
 sn-2-acyl-1-lysophosphatidylinositol (18:1)	
 sn-2-acyl-1-lysophosphatidylinositol backbone	
-sn-glycero-3-phosphocholine	
-sn-glycero-3-phosphoethanolamine	
-sn-glycero-3-phosphoserine	
-sodium	
-spermidine	
-spermine	
-sphinganine	
-sphinganine 1-phosphate	
-squalene	
-stachyose	
-stearate	
-stearoyl-CoA	
+sn-glycero-3-phosphocholine	C[N+](C)(C)CCOP(=O)([O-])OCC(CO)O
+sn-glycero-3-phosphoethanolamine	C(COP(=O)(O)OCC(CO)O)N
+sn-glycero-3-phosphoserine	C(C(COP(=O)(O)OCC(C(=O)O)N)O)O
+sodium	[Na]
+spermidine	C(CCNCCCN)CN
+spermine	C(CCNCCCN)CNCCCN
+sphinganine	CCCCCCCCCCCCCCCC(C(CO)N)O
+sphinganine 1-phosphate	CCCCCCCCCCCCCCCC(C(COP(=O)(O)O)N)O
+squalene	CC(=CCCC(=CCCC(=CCCC=C(C)CCC=C(C)CCC=C(C)C)C)C)C
+stachyose	C(C1C(C(C(C(O1)OCC2C(C(C(C(O2)OCC3C(C(C(C(O3)OC4(C(C(C(O4)CO)O)O)CO)O)O)O)O)O)O)O)O)O)O
+stearate	CCCCCCCCCCCCCCCCCC(=O)[O-]
+stearoyl-CoA	CCCCCCCCCCCCCCCCCC(=O)SCCNC(=O)CCNC(=O)C(C(C)(C)COP(=O)(O)OP(=O)(O)OCC1C(C(C(O1)N2C=NC3=C(N=CN=C32)N)O)OP(=O)(O)O)O
 sterols	
-succinate	
-succinic semialdehyde	
-succinyl-CoA	
-sucrose	
-sulphate	
-sulphite	
-superoxide	
+succinate	C(CC(=O)[O-])C(=O)[O-]
+succinic semialdehyde	C(CC(=O)O)C=O
+succinyl-CoA	CC(C)(COP(=O)(O)OP(=O)(O)OCC1C(C(C(O1)N2C=NC3=C(N=CN=C32)N)O)OP(=O)(O)O)C(C(=O)NCCC(=O)NCCSC(=O)CCC(=O)O)O
+sucrose	C(C1C(C(C(C(O1)OC2(C(C(C(O2)CO)O)O)CO)O)O)O)O
+sulphate	[O-]S(=O)(=O)[O-]
+sulphite	[O-]S(=O)[O-]
+superoxide	[O-][O]
 tRNA(Ala)	
 tRNA(Arg)	
 tRNA(Asn)	
@@ -1241,20 +1241,20 @@ tRNA(Thr)
 tRNA(Trp)	
 tRNA(Tyr)	
 tRNA(Val)	
-taurine	
-taurocholate	
-taurocholic acid	
-tetracosanoyl-CoA	
-tetradecaprenyl diphosphate	
-tetrahydropteroyltri-L-glutamic acid	
-tetrathionate	
-thiamine	
-thiamine(1+) triphosphate(4-)	
-thiocyanate	
+taurine	C(CS(=O)(=O)O)N
+taurocholate	CC(CCC(=O)NCCS(=O)(=O)O)C1CCC2C1(C(CC3C2C(CC4C3(CCC(C4)O)C)O)O)C
+taurocholic acid	CC(CCC(=O)NCCS(=O)(=O)O)C1CCC2C1(C(CC3C2C(CC4C3(CCC(C4)O)C)O)O)C
+tetracosanoyl-CoA	CCCCCCCCCCCCCCCCCCCCCCCC(=O)SCCNC(=O)CCNC(=O)C(C(C)(C)COP(=O)(O)OP(=O)(O)OCC1C(C(C(O1)N2C=NC3=C(N=CN=C32)N)O)OP(=O)(O)O)O
+tetradecaprenyl diphosphate	CC(=CCCC(=CCCC(=CCCC(=CCCC(=CCCC(=CCCC(=CCCC(=CCCC(=CCCC(=CCCC(=CCCC(=CCCC(=CCCC(=CCOP(=O)(O)OP(=O)(O)O)C)C)C)C)C)C)C)C)C)C)C)C)C)C
+tetrahydropteroyltri-L-glutamic acid	C1C(NC2=C(N1)N=C(NC2=O)N)CNC3=CC=C(C=C3)C(=O)NC(CCC(=O)NC(CCC(=O)NC(CCC(=O)O)C(=O)O)C(=O)O)C(=O)O
+tetrathionate	[O-]S(=O)(=O)SSS(=O)(=O)[O-]
+thiamine	CC1=C(SC=[N+]1CC2=CN=C(N=C2N)C)CCO
+thiamine(1+) triphosphate(4-)	CC1=C(SC=[N+]1CC2=CN=C(N=C2N)C)CCOP(=O)([O-])OP(=O)([O-])OP(=O)([O-])[O-]
+thiocyanate	C(#N)[S-]
 thiosulfate	
-thymidine	
-thymidine 3'-monophosphate	
-thymidine 5'-monophosphate	
+thymidine	CC1=CN(C(=O)NC1=O)C2CC(C(O2)CO)O
+thymidine 3'-monophosphate	CC1=CN(C(=O)NC1=O)C2CC(C(O2)CO)OP(=O)(O)O
+thymidine 5'-monophosphate	CC1=CN(C(=O)NC1=O)C2CC(C(O2)COP(=O)(O)O)O
 trans-2,cis-5-dodecadienoyl-CoA	
 trans-2,cis-5-tetradecadienoyl-CoA	
 trans-2,cis-7-hexadecadienoyl-CoA	
@@ -1265,28 +1265,28 @@ trans-2,trans-4-dodecadienoyl-CoA
 trans-2,trans-4-tetradecadienoyl-CoA	
 trans-3,cis-5-dodecadienoyl-CoA	
 trans-3,cis-5-tetradecadienoyl-CoA	
-trans-3-Chloroacrylic acid	
-trans-3-Chloroallyl aldehyde	
-trans-4-hydroxy-L-proline	
-trans-aconitate	
+trans-3-Chloroacrylic acid	C(=CCl)C(=O)O
+trans-3-Chloroallyl aldehyde	C(=CCl)C=O
+trans-4-hydroxy-L-proline	C1C(CNC1C(=O)O)O
+trans-aconitate	C(C(=CC(=O)O)C(=O)O)C(=O)O
 trans-but-2-enoyl-ACP	
-trans-dec-2-enoyl-CoA	
-trans-docos-2-enoyl-CoA	
-trans-dodec-2-enoyl-CoA	
+trans-dec-2-enoyl-CoA	CCCCCCCC=CC(=O)SCCNC(=O)CCNC(=O)C(C(C)(C)COP(=O)(O)OP(=O)(O)OCC1C(C(C(O1)N2C=NC3=C(N=CN=C32)N)O)OP(=O)(O)O)O
+trans-docos-2-enoyl-CoA	CCCCCCCCCCCCCCCCCCCC=CC(=O)SCCNC(=O)CCNC(=O)C(C(C)(C)COP(=O)([O-])OP(=O)([O-])OCC1C(C(C(O1)N2C=NC3=C(N=CN=C32)N)O)OP(=O)([O-])[O-])O
+trans-dodec-2-enoyl-CoA	CCCCCCCCCC=CC(=O)SCCNC(=O)CCNC(=O)C(C(C)(C)COP(=O)(O)OP(=O)(O)OCC1C(C(C(O1)N2C=NC3=C(N=CN=C32)N)O)OP(=O)(O)O)O
 trans-dodec-3-enoyl-CoA	
 trans-hex-2-enoyl-ACP	
-trans-hex-2-enoyl-CoA	
-trans-hexacos-2-enoyl-CoA	
-trans-hexadec-2-enoyl-CoA	
+trans-hex-2-enoyl-CoA	CCCC=CC(=O)SCCNC(=O)CCNC(=O)C(C(C)(C)COP(=O)(O)OP(=O)(O)OCC1C(C(C(O1)N2C=NC3=C(N=CN=C32)N)O)OP(=O)(O)O)O
+trans-hexacos-2-enoyl-CoA	CCCCCCCCCCCCCCCCCCCCCCCC=CC(=O)SCCNC(=O)CCNC(=O)C(C(C)(C)COP(=O)(O)OP(=O)(O)OCC1C(C(C(O1)N2C=NC3=C(N=CN=C32)N)O)OP(=O)(O)O)O
+trans-hexadec-2-enoyl-CoA	CCCCCCCCCCCCCC=CC(=O)SCCNC(=O)CCNC(=O)C(C(C)(C)COP(=O)(O)OP(=O)(O)OCC1C(C(C(O1)N2C=NC3=C(N=CN=C32)N)O)OP(=O)(O)O)O
 trans-icos-2-enoyl-CoA	
 trans-oct-2-enoyl-ACP	
-trans-oct-2-enoyl-CoA	
-trans-octadec-2-enoyl-CoA	
+trans-oct-2-enoyl-CoA	CCCCCC=CC(=O)SCCNC(=O)CCNC(=O)C(C(C)(C)COP(=O)(O)OP(=O)(O)OCC1C(C(C(O1)N2C=NC3=C(N=CN=C32)N)O)OP(=O)(O)O)O
+trans-octadec-2-enoyl-CoA	CCCCCCCCCCCCCCCC=CC(=O)SCCNC(=O)CCNC(=O)C(C(C)(C)COP(=O)(O)OP(=O)(O)OCC1C(C(C(O1)N2C=NC3=C(N=CN=C32)N)O)OP(=O)(O)O)O
 trans-tetracos-2-enoyl-CoA	
-trans-tetradec-2-enoyl-CoA	
+trans-tetradec-2-enoyl-CoA	CCCCCCCCCCCC=CC(=O)SCCNC(=O)CCNC(=O)C(C(C)(C)COP(=O)(O)OP(=O)(O)OCC1C(C(C(O1)N2C=NC3=C(N=CN=C32)N)O)OP(=O)(O)O)O
 trans-tetradec-3-enoyl-CoA	
-trehalose	
-tridecaprenyl diphosphate	
+trehalose	C(C1C(C(C(C(O1)OC2C(C(C(C(O2)CO)O)O)O)O)O)O)O
+tridecaprenyl diphosphate	CC(=CCCC(=CCCC(=CCCC(=CCCC(=CCCC(=CCCC(=CCCC(=CCCC(=CCCC(=CCCC(=CCCC(=CCCC(=CCOP(=O)(O)OP(=O)(O)O)C)C)C)C)C)C)C)C)C)C)C)C)C
 triglyceride (1-16:0, 2-16:1, 3-16:0)	
 triglyceride (1-16:0, 2-16:1, 3-16:1)	
 triglyceride (1-16:0, 2-16:1, 3-18:0)	
@@ -1320,30 +1320,30 @@ triglyceride (1-18:1, 2-18:1, 3-16:1)
 triglyceride (1-18:1, 2-18:1, 3-18:0)	
 triglyceride (1-18:1, 2-18:1, 3-18:1)	
 triglyceride backbone	
-trimethylenediamine	
-triphosphate	
-trithionate	
-tryptophol	
-turanose	
-tyrosol	
+trimethylenediamine	C(CN)CN
+triphosphate	OP(=O)(O)OP(=O)(O)OP(=O)(O)O
+trithionate	[O-]S(=O)(=O)SS(=O)(=O)[O-]
+tryptophol	C1=CC=C2C(=C1)C(=CN2)CCO
+turanose	C(C1C(C(C(C(O1)OC(C(C(CO)O)O)C(=O)CO)O)O)O)O
+tyrosol	C1=CC(=CC=C1CCO)O
 tyrosyl acetate	
-ubiquinol-6	
-ubiquinone-6	
-undecaprenyl diphosphate	
-uracil	
-urea	
-urea-1-carboxylic acid	
-ureidoglycolic acid	
-uridine	
-uridine 2'-phosphate	
-uroporphyrinogen III	
-xanthosine	
-xanthosine-5-phosphate	
-xylitol	
-zymosterol	
-zymosterol intermediate 1a	
-zymosterol intermediate 1b	
-zymosterol intermediate 1c	
-zymosterol intermediate 2	
-zymosteryl oleate	
-zymosteryl palmitoleate	
+ubiquinol-6	CC1=C(C(=C(C(=C1O)OC)OC)O)CC=C(C)CCC=C(C)CCC=C(C)CCC=C(C)CCC=C(C)CCC=C(C)C
+ubiquinone-6	CC1=C(C(=O)C(=C(C1=O)OC)OC)CC=C(C)CCC=C(C)CCC=C(C)CCC=C(C)CCC=C(C)CCC=C(C)C
+undecaprenyl diphosphate	CC(=CCCC(=CCCC(=CCCC(=CCCC(=CCCC(=CCCC(=CCCC(=CCCC(=CCCC(=CCCC(=CCOP(=O)(O)OP(=O)(O)O)C)C)C)C)C)C)C)C)C)C)C
+uracil	C1=CNC(=O)NC1=O
+urea	C(=O)(N)N
+urea-1-carboxylic acid	C(=O)(N)NC(=O)O
+ureidoglycolic acid	C(C(=O)O)(NC(=O)N)O
+uridine	C1=CN(C(=O)NC1=O)C2C(C(C(O2)CO)O)O
+uridine 2'-phosphate	C1=CN(C(=O)NC1=O)C2C(C(C(O2)CO)O)OP(=O)(O)O
+uroporphyrinogen III	C1C2=C(C(=C(N2)CC3=C(C(=C(N3)CC4=C(C(=C(N4)CC5=C(C(=C1N5)CCC(=O)O)CC(=O)O)CC(=O)O)CCC(=O)O)CC(=O)O)CCC(=O)O)CC(=O)O)CCC(=O)O
+xanthosine	C1=NC2=C(N1C3C(C(C(O3)CO)O)O)NC(=O)NC2=O
+xanthosine-5-phosphate	C1=NC2=C(N1C3C(C(C(O3)COP(=O)(O)O)O)O)NC(=O)NC2=O
+xylitol	C(C(C(C(CO)O)O)O)O
+zymosterol	CC(CCC=C(C)C)C1CCC2C1(CCC3=C2CCC4C3(CCC(C4)O)C)C
+zymosterol intermediate 1a	CC(CCC=C(C)C)C1CCC2C1(CCC3=C2CCC4C3(CCC(C4CO)O)C)C
+zymosterol intermediate 1b	CC(CCC=C(C)C)C1CCC2C1(CCC3=C2CCC4C3(CCC(C4C=O)O)C)C
+zymosterol intermediate 1c	CC(CCC=C(C)C)C1CCC2C1(CCC3=C2CCC4C3(CCC(C4C(=O)C)O)C)C
+zymosterol intermediate 2	CC(CCC=C(C)C)C1CCC2C1(CCC3=C2CCC4C3(CCC(=O)C4)C)C
+zymosteryl oleate	CCCCCCCCC=CCCCCCCCC(=O)OC1CCC2(C(C1)CCC3=C2CCC4(C3CCC4C(C)CCC=C(C)C)C)C
+zymosteryl palmitoleate	CCCCCCC=CCCCCCCCC(=O)OC1CCC2(C(C1)CCC3=C2CCC4(C3CCC4C(C)CCC=C(C)C)C)C

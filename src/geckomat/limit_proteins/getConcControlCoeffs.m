@@ -18,15 +18,15 @@ function [enz, controlCoeffs] = getConcControlCoeffs(model, proteins, foldChange
 % Usage:
 %    [enz, controlCoeffs] = getConcControlCoeffs(model, proteins, foldChange, limit);
 
-if nargin < 4
+if nargin < 4 || isempty(limit)
     limit = 0;
 end
 
-if nargin < 3
+if nargin < 3 || isempty(foldChange)
     foldChange = 0.5;
 end
 
-if nargin < 2
+if nargin < 2 || isempty(proteins)
     proteins = model.ec.enzymes;
 end
 
@@ -34,7 +34,7 @@ end
 enz = false(length(proteins),1);
 controlCoeffs = zeros(length(proteins),1);
 
-sol = solveLP(model);
+[sol,hs] = solveLP(model);
 initialGrowth = abs(sol.f);
 
 % Get enzyme index
@@ -62,7 +62,7 @@ for i = 1:numel(proteins)
         tempModel.ub(protUsageRxnIdx(i)) = newConc;
 
         % Get the new growth rate after the adjustment
-        tempSol = solveLP(tempModel);
+        [tempSol,hs] = solveLP(tempModel,0,[],hs);
         tempGrowth = abs(tempSol.f);
         
         % Calculate the coeff

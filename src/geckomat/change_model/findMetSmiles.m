@@ -1,12 +1,16 @@
 function model = findMetSmiles(model, modelAdapter)
 % findMetSMILES
-%   Queries PubChem by metabolite names to obtain SMILES.
+%   Queries PubChem by metabolite names to obtain SMILES. Matches will also
+%   be stored in userData/***/data/smilesDB.tsv, that will also be queried
+%   first next time the function is run. If the model already has a
+%   metSmiles field, then non-empty entries will not be overwritten.
 %
 % Input:
-%   model       Input model, where we query for the model.metNames mets
+%   model       Input model, whose model.metNames field is used to find the
+%               relevant SMILES
 %
 % Ouput:
-%   model       Output model where the field model.metSmiles is set.
+%   model       Output model with model.metSmiles specified.
 %
 
 if nargin < 2 || isempty(modelAdapter)
@@ -72,8 +76,13 @@ if any(~metMatch & ~protMets)
     end
     fprintf('\b\b\b\b\b\b\b\b\b\b\b\b\bdone.\n');
 end
-
-model.metSmiles = uniqueSmiles(uniqueIdx);
+newSmiles = uniqueSmiles(uniqueIdx);
+if ~isfield(model,'metSmiles') || all(cellfun(@isempty,model.metSmiles))
+    model.metSmiles = newSmiles;
+else
+    emptySmiles = cellfun(@isempty,model.metSmiles);
+    model.metSmiles(emptySmiles) = newSmiles(emptySmiles);
+end
 out = [uniqueNames(~protMets), uniqueSmiles(~protMets)]';
 fID = fopen(smilesDBfile,'w');
 fprintf(fID,'%s\t%s\n',out{:});

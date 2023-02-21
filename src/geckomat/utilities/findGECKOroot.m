@@ -7,11 +7,7 @@ function [geckoPath, prevDir] = findGECKOroot()
 
 ST=dbstack('-completenames');
 prevDir = pwd();
-if length(ST)>1
-    geckoPath=ST(2).file; % In case findGECKOroot is run via another function
-else
-    geckoPath=ST(1).file;
-end
+geckoPath = ST(strcmp({ST.name},'findGECKOroot')).file;
 rootFound = 0;
 while rootFound == 0
     isRoot = exist(fullfile(geckoPath,'GECKO.png'),'file');

@@ -43,28 +43,33 @@ GECKOInstaller.install % Adds the appropriate folders to MATLAB
 %% Initiate model reconstruction
 
 % Set the ModelAdapter correctly. This loads the ModelAdapter file that is
-% in userData/ecYeastGEM/. First define modelRoot as userData/ecYeastGEM
-modelRoot = fullfile(findGECKOroot,'userData','ecYeastGEM');
-ModelAdapterManager.setDefaultAdapterFromPath(fullfile(modelRoot), 'true'); 
+% in userData/ecYeastGEM/.
+ModelAdapterManager.setDefaultAdapterFromPath(fullfile(findGECKOroot,'userData','ecYeastGEM'), 'true'); 
 ModelAdapter = ModelAdapterManager.getDefaultAdapter();
 
-% Load the model with RAVEN's importModel
-% For yeast-GEM, the model is already in userData/ecYeastGEM/models/
-modelY = importModel(fullfile(modelRoot,'models','yeast-GEM.xml'));
+% If the location to the conventional GEM was already set in the modelAdapter,
+% as obj.param.convGEM, then loadConventionalGEM can directly be used. If
+% the model is stored somewhere else (and not specified in obj.param.convGEM),
+% you can also use RAVEN's importModel(). In that case you will never use
+% loadConventionalGEM and the obj.param.convGEM never has to be specified.
+modelY = loadConventionalGEM();
+% modelY = importModel(fullfile(modelRoot,'models','yeast-GEM.xml')); %Alternative
 
 % Prepare ec-model
-ecModel = makeEcModel(modelY);
+ecModel = makeEcModel(modelY,false,ModelAdapter);
 % Read makeEcModel documentation to get a list of all it does: it prepare
 % the new model.ec structure and prepares the S-matrix by splitting
 % reversible reactions, isozymes etc.
 
 % Can also make a geckoLight model with makeEcModel(..,..,true);
 
-% Store model in YAML format. Might be good to write a small wrapper
-% function, so you do not need to provide the path from ModelAdapter.
-% writeYAMLmodel is a RAVEN 2.7.10 function
-writeYAMLmodel(ecModel,fullfile(ModelAdapter.params.path,'models','ecYeastGEM'));
-ecModel=readYAMLmodel(fullfile(ModelAdapter.params.path,'models','ecYeastGEM.yml'));
+% Store model in YAML format. Requires RAVEN 2.7.12. saveEcModel and
+% loadEcModel take the obj.param.path, and assume that the model will be in
+% the models subfolder, and named ecModel.yml. Alternatives names can be
+% provided. RAVEN's readYAMLmodel and writeYAMLmodel can also be used, but
+% then require specifying the whole path.
+saveEcModel(ecModel,ModelAdapter,'yml','ecYeastGEM');
+ecModel=loadEcModel('ecYeastGEM.yml',ModelAdapter);
 
 %% Gather complex data
 % For species with data in ComplexPortal, you can gather that information
@@ -73,8 +78,6 @@ ecModel=readYAMLmodel(fullfile(ModelAdapter.params.path,'models','ecYeastGEM.yml
 % complexInfo = getComplexData();
 [ecModel, foundComplex, proposedComplex] = applyComplexData(ecModel);
 
-% Describe manual curation. Albert has a function to also apply text file
-% with curated complex data.
 
 %% Gather kcat values
 % Different approaches are possible: (1) DLKcat; (2) fuzzy matching; (3)
@@ -87,67 +90,68 @@ ecModel=readYAMLmodel(fullfile(ModelAdapter.params.path,'models','ecYeastGEM.yml
 % Requires metabolite SMILES:
 ecModel = findMetSmiles(ecModel);
 
-% Currently, a DLKcatInput.tsv file is written that can be used by DLKcat,
-% and the DLKcatOutput.tsv file can be loaded into MATLAB again. runDLKcat
-% will attempt to download, install and run DLKcat, but this might not work
-% for all systems. In that case, the user will be directed to manually
-% download, install and DLKcat via the GECKO-provided DLKcat package
+% A DLKcat.tsv file is written, which is later populated by DLKcat with
+% kcat values. If the file already exists, it will not be overwritten, to
+% avoid losing existing kcat values (unless 'overwrite' was set as 'true'
+% when running writeDLKcatInput.
+% runDLKcat will attempt to download, install and run DLKcat, but this
+% might not work for all systems. In that case, the user will be directed
+% to manually download, install and DLKcat via the GECKO-provided DLKcat package
 
 writeDLKcatInput(ecModel);
 runDLKcat();
 kcatList_DLKcat = readDLKcatOutput(ecModel);
-ecModel         = selectKcatValue(ecModel,kcatList_DLKcat);
-ecModel         = applyKcatConstraints(ecModel);
 
 % (2) fuzzy matching
 % Requires EC-codes. Can be either gathered from the model.eccodes field,
 % or from the Uniprot (and KEGG) data
-%ecModel         = getECfromGEM(ecModel);
+ecModel         = getECfromGEM(ecModel);
 ecModel         = getECfromDatabase(ecModel);
 kcatList_fuzzy  = fuzzyKcatMatching(ecModel);
-ecModel_fuzzy   = selectKcatValue(ecModel, kcatList_fuzzy);
-ecModel_fuzzy   = applyKcatConstraints(ecModel_fuzzy);
 
 % (3) combine fuzzy matching and DLkcat
 % Assumes that you've run both step (1) and step (2)
 kcatList_merged = mergeDLKcatAndFuzzyKcats(kcatList_DLKcat, kcatList_fuzzy);
+% In kcat list, multiple kcat values might be provided for each reaction,
+% for instance because of multiple substrates (as coming from DLKcat).
+% selectKcatValue selects one kcat value per reaction and populates
+% model.ec.kcat.
 ecModel_merged  = selectKcatValue(ecModel, kcatList_merged);
+% To modify the S-matrix, to actually implement the kcat/MW constraints,
+% you run applyKcatConstraints.
 ecModel_merged  = applyKcatConstraints(ecModel_merged);
 
-writeYAMLmodel(ecModel_merged,fullfile(ModelAdapter.params.path,'models','ecYeastGEM'));
+%% Do some first simulations
+% Set glucose unlimited
+ecModel_merged = setParam(ecModel_merged,'lb','r_1714',-1000);
+% Set total protein constraint
+ecModel_merged = setProtPoolSize(ecModel_merged);
 
-% Solve without proteome constraint
 sol = solveLP(ecModel_merged,1)
 printFluxes(ecModel_merged, sol.x)
-% RAVEN currently gives warning about _REV in reaction identifiers when ,1
-% is used in solveLP, this will be removed in next RAVEN release
-
+% Growth rate is not high enough (0.01 instead of 0.41).
 %% Tune kcat values to reach max growth rate
-% Protein = 0.5; enzyme = 0.5; saturation = 0.5; = 0.125
-ecModel_merged = setProtPoolSize(ecModel_merged);
-% Unlimited glucose uptake
-ecModel_merged = setParam(ecModel_merged,'lb','r_1714',-1000);
-sol = solveLP(ecModel_merged)
-% Growth rate is not high enough (0.01 instead of 0.41). Let increase the
-% kcat values of reactions with the most-used enzymes by 2-fold in each
-% iteration. Most-used enzymes (% of protein pool) are most-limiting growth.
-% A reaction might have its kcat increased multiple times. TunedKcats gives
-% an overview of what kcat values were changed
-[ecModelTuned, tunedKcats] = sensitivityTuning(ecModel_merged,[],[],2);
+% Let's increase the kcat values of reactions with the most-used enzymes by
+% 2-fold in each iteration. Most-used enzymes (% of protein pool) are most-
+% limiting growth. A reaction might have its kcat increased multiple times.
+% TunedKcats gives an overview of what kcat values were changed
+[ecModelTuned, tunedKcats] = sensitivityTuning(ecModel_merged);
 
 % Tune sigma-factor (not sure why this is done, as it is set to 0.5 default
 % and it just reaches the same here again?
 [ecModelTuned, optSigma] = sigmaFitter(ecModelTuned);
 
-%% Set realistic conditions
-% Model-specific reactions/scripts can be defined for this, but this is so
-% specific that it does not make much sense to make a generic function like
-% changeMedia_yeast
-
-
-
 %% Contrain with proteomics data
 % Load proteomics
 ecModelProt = readProteomics(ecModelTuned);
 ecModelProt = constrainProtConcs(ecModelProt);
+sol=solveLP(ecModelProt)
+[ecModelFlex, proteins, frequence] = flexibilizeProtConcs(ecModelProt);
+
+% The above fails, because some kcats are just very wrong. Manual curation
+% of the kcat values fixes this. Apply these custom kcats here:
+ecModelProt = applyCustomKcats(ecModelProt);
+ecModelProt = applyKcatConstraints(ecModelProt);
+
+% Now the model should predict growth at 0.4.
 sol=solveLP(ecModelProt)

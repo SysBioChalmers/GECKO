@@ -1,4 +1,4 @@
-function writtenTable = writeDLKcatInput(model, ecRxns, modelAdapter, onlyWithSmiles, filename)
+function writtenTable = writeDLKcatInput(model, ecRxns, modelAdapter, onlyWithSmiles, filename, overwrite)
 % writeDLKcatInput
 %   Prepares the input for DLKcat, and writes it to data/DLKcat.tsv
 %   in the obj.params.path specified in the ModelAdapter.
@@ -15,6 +15,9 @@ function writtenTable = writeDLKcatInput(model, ecRxns, modelAdapter, onlyWithSm
 %                   (optional, default true)
 %   filename        Filename (Optional). Normally this parameter should not be 
 %                   supplied, but it is useful for test cases.
+%   overwrite       logical whether existing file should be overwritten.
+%                   (Optional, default false, to prevent overwriting file
+%                   that already contains DLKcat-predicted kcat values).
 %
 % Output:
 %   writtenTable    The table written, mainly to be used for testing purposes.
@@ -44,6 +47,12 @@ end
 
 if nargin<5 || isempty(filename)
     filename = fullfile(params.path,'data','DLKcat.tsv');
+end
+
+if nargin<6 || isempty(overwrite) || overwrite % If is true
+    if exist(filename,'file')
+        error([filename ' already exists, either delete it first, or set the overwrite input argument as true'])
+    end
 end
 
 if ~model.ec.geckoLight
