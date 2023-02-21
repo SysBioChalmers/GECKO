@@ -7,14 +7,14 @@ jobs:
     runs-on: self-hosted
 
     steps:
+      - name: Fetch GECKO
+        uses: actions/checkout@v3
+
       - name: Fetch RAVEN
         uses: actions/checkout@v3
         with:
           repository: "SysBioChalmers/RAVEN"
           path: "RAVEN"
-
-      - name: Fetch GECKO
-        uses: actions/checkout@v3
 
       - name: Run tests
         id: matlab-test
