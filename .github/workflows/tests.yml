@@ -19,7 +19,7 @@ jobs:
       - name: Run tests
         id: matlab-test
         run: |
-          TEST_RESULTS=$(/usr/local/bin/matlab -nodisplay -nosplash -nodesktop -r "addpath(genpath('RAVEN')); checkInstallation; GECKOInstaller.install; runtests('geckoCoreFunctionTests')")
+          TEST_RESULTS=$(/usr/local/bin/matlab -nodisplay -nosplash -nodesktop -r "warning('off', 'MATLAB:rmpath:DirNotFound'); rmpath(genpath('/home/m/ecModels-dependencies/RAVEN')); addpath(genpath('RAVEN')); checkInstallation; GECKOInstaller.install; runtests('geckoCoreFunctionTests')")
           PARSED_RESULTS=$(echo $TEST_RESULTS | awk -F'com\\.' '{ n = split($2, v, "(___+)|(===+)|(---+)"); for (i = 0; ++i <= n;) { print v[i] } }')
           PARSED_RESULTS="${PARSED_RESULTS//'%'/'%25'}"
           PARSED_RESULTS="${PARSED_RESULTS//$'\n'/'<br>'}"
