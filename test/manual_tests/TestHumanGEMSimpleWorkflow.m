@@ -21,11 +21,13 @@ fullECModel = makeEcModel(modExp, false, humanAdapter);
 
 %Run DLKcat
 fullECModel = findMetSmiles(fullECModel, humanAdapter);
-writeDLKcatInput(fullECModel, [], humanAdapter);
+writeDLKcatInput(fullECModel, [], humanAdapter, [], [], true);
 runDLKcat([], humanAdapter);
 kcatListFullDlKcat = readDLKcatOutput(fullECModel, [], humanAdapter);
 
 %Run fuzzy matching
+%ecModel         = getECfromDatabase(ecModel, 'display', [], humanAdapter);
+ecModel         = getECfromGEM(ecModel);
 kcatListFullFuzzy = fuzzyKcatMatching(fullECModel, [], humanAdapter);
 
 mergedKcatListFull = mergeDLKcatAndFuzzyKcats(kcatListFullDlKcat, kcatListFullFuzzy);
@@ -45,11 +47,12 @@ lightECModel = makeEcModel(modExp, true, humanAdapter);
 
 %Run DLKcat
 lightECModel = findMetSmiles(lightECModel, humanAdapter);
-writeDLKcatInput(lightECModel, [], humanAdapter);
+writeDLKcatInput(lightECModel, [], humanAdapter, [], [], true);
 runDLKcat([], humanAdapter);
 kcatListLightDlKcat = readDLKcatOutput(lightECModel, [], humanAdapter);
 
 %Run fuzzy matching
+lightECModel = getECfromGEM(lightECModel);
 kcatListLightFuzzy = fuzzyKcatMatching(lightECModel, [], humanAdapter);
 
 mergedKcatListLight = mergeDLKcatAndFuzzyKcats(kcatListLightDlKcat, kcatListLightFuzzy);

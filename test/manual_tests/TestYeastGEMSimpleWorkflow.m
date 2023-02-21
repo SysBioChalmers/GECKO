@@ -1,7 +1,9 @@
 %this is tcm0001
 
+GECKORoot = findGECKOroot();
+
 yeastAdapter = ModelAdapterManager.getAdapterFromPath(fullfile(GECKORoot, 'userData', 'ecYeastGEM'));
-yeastGEM = importModel(fullfile(modelRoot,'models','yeast-GEM.xml'));
+yeastGEM = importModel(fullfile(yeastAdapter.getParameters().path,'models','yeast-GEM.xml'));
 
 %Full model
 %%%%%%%%%%%%
@@ -11,11 +13,13 @@ fullECModel = makeEcModel(yeastGEM, false, yeastAdapter);
 
 %Run DLKcat
 fullECModel = findMetSmiles(fullECModel, yeastAdapter);
-writeDLKcatInput(fullECModel, [], yeastAdapter);
+writeDLKcatInput(fullECModel, [], yeastAdapter, [], [], true);
 runDLKcat([], yeastAdapter);
 kcatListFullDlKcat = readDLKcatOutput(fullECModel, [], yeastAdapter);
 
 %Run fuzzy matching
+%fullECModel = getECfromDatabase(fullECModel, 'display', [], yeastAdapter);
+fullECModel = getECfromGEM(fullECModel);
 kcatListFullFuzzy = fuzzyKcatMatching(fullECModel, [], yeastAdapter);
 
 mergedKcatListFull = mergeDLKcatAndFuzzyKcats(kcatListFullDlKcat, kcatListFullFuzzy);
@@ -45,11 +49,12 @@ lightECModel = makeEcModel(yeastGEM, true, yeastAdapter);
 
 %Run DLKcat
 lightECModel = findMetSmiles(lightECModel, yeastAdapter);
-writeDLKcatInput(lightECModel, [], yeastAdapter);
+writeDLKcatInput(lightECModel, [], yeastAdapter, [], [], true);
 runDLKcat([], yeastAdapter);
 kcatListLightDlKcat = readDLKcatOutput(lightECModel, [], yeastAdapter);
 
 %Run fuzzy matching
+lightECModel = getECfromGEM(lightECModel);
 kcatListLightFuzzy = fuzzyKcatMatching(lightECModel, [], yeastAdapter);
 
 mergedKcatListLight = mergeDLKcatAndFuzzyKcats(kcatListLightDlKcat, kcatListLightFuzzy);
