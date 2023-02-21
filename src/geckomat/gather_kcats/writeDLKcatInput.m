@@ -49,7 +49,7 @@ if nargin<5 || isempty(filename)
     filename = fullfile(params.path,'data','DLKcat.tsv');
 end
 
-if nargin<6 || isempty(overwrite) || overwrite % If is true
+if nargin<6 || isempty(overwrite) || ~overwrite % If is true
     if exist(filename,'file')
         error([filename ' already exists, either delete it first, or set the overwrite input argument as true'])
     end
