@@ -1,4 +1,4 @@
-function kcatList = fuzzyKcatMatching(model, ecRxns, modelAdapter,forceWClvl)
+function kcatList = fuzzyKcatMatching(model, ecRxns, modelAdapter, forceWClvl)
 % fuzzyKcatMatching
 %   Matchs the model EC numbers and substrates to the BRENDA database, to
 %   return the corresponding kcats for each reaction. If no exact match is

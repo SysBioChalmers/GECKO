@@ -121,6 +121,13 @@ ecModel_merged  = selectKcatValue(ecModel, kcatList_merged);
 % you run applyKcatConstraints.
 ecModel_merged  = applyKcatConstraints(ecModel_merged);
 
+% Additional kcats. In previous work, kcat values of various reactions were
+% manual curated. Here we will apply those custom kcats.
+ecModel_merged = applyCustomKcats(ecModel_merged); % Populate model.ec.kcats
+ecModel_merged = applyKcatConstraints(ecModel_merged);
+
+ecModel_merged = getKcatAcrossIsoenzymes(ecModel_merged);
+
 %% Do some first simulations
 % Set glucose unlimited
 ecModel_merged = setParam(ecModel_merged,'lb','r_1714',-1000);
@@ -143,15 +150,10 @@ printFluxes(ecModel_merged, sol.x)
 
 %% Contrain with proteomics data
 % Load proteomics
-ecModelProt = readProteomics(ecModelTuned);
+protData = loadProtData(3); %Number of replicates
+ecModelProt = fillProtConcs(ecModelTuned,protData);
 ecModelProt = constrainProtConcs(ecModelProt);
 sol=solveLP(ecModelProt)
-[ecModelFlex, proteins, frequence] = flexibilizeProtConcs(ecModelProt);
 
-% The above fails, because some kcats are just very wrong. Manual curation
-% of the kcat values fixes this. Apply these custom kcats here:
-ecModelProt = applyCustomKcats(ecModelProt);
-ecModelProt = applyKcatConstraints(ecModelProt);
+[ecModelFlex, flexProt] = flexibilizeProtConcs(ecModelProt,0.1,10);
 
-% Now the model should predict growth at 0.4.
-sol=solveLP(ecModelProt)
