@@ -89,7 +89,7 @@ if checks.image.status == 0 && ~contains(checks.image.out,'dlkcat')
         error('Fail to load the image')
     end
 elseif checks.image.status ~= 0
-    error('Docker is installed. Check if the docker desktop app is running')
+    error('Looks like Docker is installed, but make ensure that the docker desktop app is running.')
 end
 
 % Copy the input file for needed for the docker image to run DLKcat
