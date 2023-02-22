@@ -126,8 +126,13 @@ ecModel_merged  = applyKcatConstraints(ecModel_merged);
 ecModel_merged = applyCustomKcats(ecModel_merged); % Populate model.ec.kcats
 ecModel_merged = applyKcatConstraints(ecModel_merged);
 
+% Sometimes isoenzymes are not assigned kcat values. This is resolved here
 ecModel_merged = getKcatAcrossIsoenzymes(ecModel_merged);
 
+% Reactions without gene association have no protein cost. To counter this,
+% a standard kcat and MW are assigned to those reactions (except for e.g.
+% exchange and pseudoreactions).
+ecModel_merged = getStandardKcat(ecModel_merged);
 %% Do some first simulations
 % Set glucose unlimited
 ecModel_merged = setParam(ecModel_merged,'lb','r_1714',-1000);
@@ -153,7 +158,24 @@ printFluxes(ecModel_merged, sol.x)
 protData = loadProtData(3); %Number of replicates
 ecModelProt = fillProtConcs(ecModelTuned,protData);
 ecModelProt = constrainProtConcs(ecModelProt);
-sol=solveLP(ecModelProt)
 
-[ecModelFlex, flexProt] = flexibilizeProtConcs(ecModelProt,0.1,10);
+% Load matching flux data
+fluxData = loadFluxData();
+ecModelProtFlux = constrainFluxData(ecModelProt,fluxData);
+sol=solveLP(ecModelProtFlux)
+% Growth rate of 0.1 is by far not reached, flexibilize protein
+% concentrations
+[ecModelFlex, flexProt] = flexibilizeProtConcs(ecModelProtFlux,0.1,10);
 
+% It gets stuck at 0.0889. It seems like protein abundances are not
+% preventing the model to reach 0.1. First look if the conventional GEM is
+% able to reach 0.1 with the same constraints:
+modelY = constrainFluxData(modelY,fluxData);
+sol=solveLP(modelY)
+% It also only reaches 0.0889! So the metabolic network would not be able
+% to adhere to all measured constraints. Perhaps there is something
+% incorrect with the measurements? For now, we will limit the growth rate
+% to 0.08885 in our search:
+[ecModelFlex, flexProt] = flexibilizeProtConcs(ecModelProtFlux,0.08885,10);
+
+% Growth is reached!
