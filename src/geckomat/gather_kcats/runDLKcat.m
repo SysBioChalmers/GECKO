@@ -76,6 +76,7 @@ if ismac && isempty(pythonPath)
             MACZPROFILEPATH = 'set';
         catch
         end
+        setenv('PATH', strcat('/usr/local/bin', ':', getenv("PATH")));
     end
 end
 

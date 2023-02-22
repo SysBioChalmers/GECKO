@@ -47,7 +47,7 @@ end
 % On Mac, docker might not be properly loaded if MATLAB is started via
 % launcher and not terminal.
 if ismac
-    setenv('PATH', strcat('/usr/local/bin/', ':', getenv("PATH")));
+    setenv('PATH', strcat('/usr/local/bin', ':', getenv("PATH")));
 end
 
 % Check if docker is installed
