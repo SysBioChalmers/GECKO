@@ -95,11 +95,13 @@ rxnsMissingGPR = find(cellfun(@isempty, model.grRules));
 transportRxns = getTransportRxns(model);
 [spontaneousRxns, ~] = modelAdapter.getSpontaneousReactions(model);
 pseudoRxns = contains(model.rxnNames,'pseudoreaction');
+slimeRxns = contains(model.rxnNames,'SLIME rxn');
 
 rxnsMissingGPR(ismember(rxnsMissingGPR, exchangeRxns)) = [];
 rxnsMissingGPR(ismember(rxnsMissingGPR, find(transportRxns))) = [];
 rxnsMissingGPR(ismember(rxnsMissingGPR, find(spontaneousRxns))) = [];
 rxnsMissingGPR(ismember(rxnsMissingGPR, find(pseudoRxns))) = [];
+rxnsMissingGPR(ismember(rxnsMissingGPR, find(slimeRxns))) = [];
 
 % Add a new metabolite named prot_standard
 proteinStdMets.mets         = 'prot_standard';
