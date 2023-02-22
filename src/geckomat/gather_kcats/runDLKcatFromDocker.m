@@ -77,7 +77,7 @@ cd(DLKcatPath);
 if checks.image.status == 0 && ~contains(checks.image.out,'dlkcat')
     % Check if the image file is already dowloaded
     if ~exist(fullfile(DLKcatPath,'dlkcat_docker.tar.gz'),'file')
-        disp('=== Downloading DLKcat docker image, this may take several minutes...')
+        disp('=== Downloading DLKcat docker image, this may take more than 20 minutes, depending on your internet connection speed...')
         packageURL = 'https://github.com/SysBioChalmers/GECKO/raw/dlkcatPackage/dlkcat_docker.tar.gz';
         websave(fullfile(DLKcatPath,'dlkcat_docker.tar.gz'),packageURL);
     end
