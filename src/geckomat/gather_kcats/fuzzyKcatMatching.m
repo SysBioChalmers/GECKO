@@ -1,4 +1,4 @@
-function kcatList = fuzzyKcatMatching(model, ecRxns, modelAdapter)
+function kcatList = fuzzyKcatMatching(model, ecRxns, modelAdapter,forceWClvl)
 % fuzzyKcatMatching
 %   Matchs the model EC numbers and substrates to the BRENDA database, to
 %   return the corresponding kcats for each reaction. If no exact match is
@@ -7,12 +7,13 @@ function kcatList = fuzzyKcatMatching(model, ecRxns, modelAdapter)
 %   activities; (d) wildcards in the EC number.
 %
 % Input
-%   model       an ec-model, containing model.ec.eccodes field
-%   ecRxns      for which reactions (from model.ec.rxns) kcat values should
-%               be found, provided as logical vector with same length as
-%               model.ec.rxns. (Opt, default is all reactions)
+%   model        an ec-model, containing model.ec.eccodes field
+%   ecRxns       for which reactions (from model.ec.rxns) kcat values should
+%                be found, provided as logical vector with same length as
+%                model.ec.rxns. (Opt, default is all reactions)
 %   modelAdapter a loaded model adapter (Optional, will otherwise use the
-%               default model adapter).
+%                default model adapter).
+%   forceWClvl   force a minimum wildcard level (Optional, default 0). 
 %
 % Output
 %   kcatList    structure array with list of BRENDA derived kcat values,
@@ -37,8 +38,18 @@ function kcatList = fuzzyKcatMatching(model, ecRxns, modelAdapter)
 %                           4: any organism, any substrate, kcat
 %                           5: correct organism, specific activity
 %                           6: any organism, specific activity
+%
+%   Note that if a wildcard is used, origin levels 1 and 2 are ignored. The
+%   last digits in the E.C. number indicate the substrate specificity, so
+%   if this should be ignored, then correct substrate matches should not be
+%   prioritized.
+
 if nargin<2 || isempty(ecRxns)
     ecRxns = true(numel(model.ec.rxns),1);
+elseif isnumeric(ecRxns)
+    ecRxnsVec = false(numel(model.ec.rxns),1);
+    ecRxnsVec(ecRxns) = true;
+    ecRxns = ecRxnsVec;
 end
 ecRxns=find(ecRxns); % Get indices instead of logical
 
@@ -48,8 +59,11 @@ if nargin < 3 || isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
     end
 end
-
 params = modelAdapter.params;
+
+if nargin < 4 || isempty(forceWClvl)
+    forceWClvl = 0;
+end
 
 if ~isfield(model.ec,'eccodes')
     error('No EC codes defined in model.ec.eccodes. First run getECfromGEM() and/or getECfromDatabase().')
@@ -134,6 +148,15 @@ kcatInfo.stats.matrix   = zeros(6,5);
 EcIndexIndices = cell(length(ECIndexIds),1);
 for i = 1:length(EcIndexIndices)
     EcIndexIndices{i} = find(ic == i).';
+end
+
+%Apply force wildcard level
+while forceWClvl > 0
+    eccodes=regexprep(eccodes,['(.)*(\.\d+)(\.-)*$'],'$1\.-$3');
+    forceWClvl = forceWClvl - 1;
+end
+if forceWClvl == 1
+    eccodes = regexprep(eccodes,'.*','-\.-\.-\.-');
 end
 
 %Main loop:
@@ -261,13 +284,13 @@ origin = 0;
 %First try to match organism and substrate:
 [kcat,matches] = matchKcat(EC,subs,substrCoeff,KCATcell,name,true,false,...
     phylDist,org_index,SAcell,stringMatchesEC_cell,[]);
-if matches > 0
+if matches > 0 && ~wild % If wildcard, ignore substrate match
     origin = 1;
     %If no match, try the closest organism but match the substrate:
 else
     [kcat,matches] = matchKcat(EC,subs,substrCoeff,KCATcell,'',true,false,...
         phylDist,org_index,SAcell,stringMatchesEC_cell,[]);
-    if matches > 0
+    if matches > 0 && ~wild % If wildcard, ignore substrate match
         origin = 2;
         %If no match, try to match organism but with any substrate:
     else
