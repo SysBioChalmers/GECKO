@@ -12,9 +12,16 @@ function [model, tunedKcats] = sensitivityTuning(model, desiredGrowthRate, model
 %                      (Opt, default 10)
 % Output:
 %   model              ecModel with updated model.ec.kcat
+%   tunedKcats         structure with information on tuned kcat values
+%                      rxns     identifiers of reactions with tuned kcat
+%                               values
+%                      rxnNames names of the reactions in tunedKcats.rxns
+%                      enzymes  enzymes that catalyze the reactions in
+%                               tunedKcats.rxns, whose kcat value has been
+%                               tuned.
+%                      oldKcat  kcat values in the input model
+%                      newKcat  kcat values in the output model, after tuning
 %
-% Usage:
-%   model = sensitivityTuning(model, 0.07, humanGEMAdapter)
 
 if nargin < 4 || isempty(foldChange)
     foldChange = 10;
