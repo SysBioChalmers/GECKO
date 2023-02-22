@@ -129,7 +129,7 @@ ecModel_merged = setProtPoolSize(ecModel_merged);
 
 sol = solveLP(ecModel_merged,1)
 printFluxes(ecModel_merged, sol.x)
-% Growth rate is not high enough (0.01 instead of 0.41).
+% Growth rate is not high enough (0.0989 instead of 0.41).
 %% Tune kcat values to reach max growth rate
 % Let's increase the kcat values of reactions with the most-used enzymes by
 % 2-fold in each iteration. Most-used enzymes (% of protein pool) are most-
