@@ -17,7 +17,7 @@ function runDLKcatFromDocker(deleteImage, DLKcatFile, modelAdapter, DLKcatPath)
 %   DLKcatPath      path where DLKcat is/will be installed. (Optional,
 %                   defaults to GECKO/dlkcat)
 %
-%   NOTE: 1. Requires Docker to be installed. Visit "https://www.docker.com"
+%   NOTE: 1. Requires Docker to be installed, and docker desktop running. Visit "https://www.docker.com"
 %         2. Runtime will depend on whether the image is to be downloaded or not.
 
 %Get the GECKO path
