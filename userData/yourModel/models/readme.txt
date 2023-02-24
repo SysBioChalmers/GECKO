@@ -1,1 +1,0 @@
-Here GECKO will save the reconstructed and modified ec-models. You can also this location to store your own ec-model versions.
