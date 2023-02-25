@@ -1,8 +1,8 @@
 function [model, tunedKcats] = sensitivityTuning(model, desiredGrowthRate, modelAdapter, foldChange)
 % sensitivityTuning
-%    Function that relaxes the most limiting kcats until a certain growth rate 
+%    Function that relaxes the most limiting kcats until a certain growth rate
 %    is reached. The function will update kcats in model.ec.kcat.
-%    
+%
 % Input:
 %   model              an ecModel in GECKO 3 version
 %   desiredGrowthRate  kcats will be relaxed until this growth rate is reached
@@ -12,9 +12,16 @@ function [model, tunedKcats] = sensitivityTuning(model, desiredGrowthRate, model
 %                      (Opt, default 10)
 % Output:
 %   model              ecModel with updated model.ec.kcat
+%   tunedKcats         structure with information on tuned kcat values
+%                      rxns     identifiers of reactions with tuned kcat
+%                               values
+%                      rxnNames names of the reactions in tunedKcats.rxns
+%                      enzymes  enzymes that catalyze the reactions in
+%                               tunedKcats.rxns, whose kcat value has been
+%                               tuned.
+%                      oldKcat  kcat values in the input model
+%                      newKcat  kcat values in the output model, after tuning
 %
-% Usage:
-%   model = sensitivityTuning(model, 0.07, humanGEMAdapter)
 
 if nargin < 4 || isempty(foldChange)
     foldChange = 10;
@@ -34,11 +41,6 @@ kcatList = [];
 m = model;
 m.c = double(strcmp(m.rxns, params.bioRxn));% Make sure that growth is maximized
 
-%To avoid numerical issues, make sure no kcat is below 0.1
-%This is not desirable to do, but unfortunately necessary - otherwise the 
-%solver says the solution is infeasible
-%m.ec.kcat(m.ec.kcat < 0.1) = 0.1;
-%m = applyKcatConstraints(m);
 [~,hs] = solveLP(m);
 lastGrowth = 0;
 if ~m.ec.geckoLight
@@ -58,24 +60,24 @@ if ~m.ec.geckoLight
         %If you get an error here, it is likely due to numerical issues in the solver
         %The trick where we don't allow low kcats is to fix that, but maybe
         %it is not enough.
-        disp(['Iteration ' num2str(iteration) ': Growth: ' num2str(lastGrowth)]) 
-        iteration = iteration + 1;
+        disp(['Iteration ' num2str(iteration) ': Growth: ' num2str(lastGrowth)])
+        iteration            = iteration + 1;
         %find the highest draw_prot rxn flux
-        drawFluxes = zeros(length(drawRxns),1);
+        drawFluxes           = zeros(length(drawRxns),1);
         drawFluxes(drawRxns) = res.x(drawRxns);
-        [~,sel] = max(drawFluxes);
+        [~,sel]              = max(drawFluxes);
         %Now get the metabolite
-        metSel = m.S(:,sel) > 0;
+        metSel               = m.S(:,sel) > 0;
         %now find the reaction with the largest consumption of this protein
-        protFluxes = m.S(metSel,:).' .* res.x; %negative
-        [~,rxnSel] = min(protFluxes);
-        kcatList = [kcatList, rxnSel];
-        rxn = m.rxns(rxnSel);
-        targetSubRxn = strcmp(m.ec.rxns, rxn);
+        protFluxes           = m.S(metSel,:).' .* res.x; %negative
+        [~,rxnSel]           = min(protFluxes);
+        kcatList             = [kcatList, rxnSel];
+        rxn                  = m.rxns(rxnSel);
+        targetSubRxn         = strcmp(m.ec.rxns, rxn);
         m.ec.kcat(targetSubRxn) = m.ec.kcat(targetSubRxn) .* foldChange;
-        m = applyKcatConstraints(m,targetSubRxn);
+        m                    = applyKcatConstraints(m,targetSubRxn);
     end
-    
+
 else
     origRxns = extractAfter(m.ec.rxns,4);
     iteration = 1;
@@ -92,16 +94,16 @@ else
         %If you get an error here, it is likely due to numerical issues in the solver
         %The trick where we don't allow low kcats is to fix that, but maybe
         %it is not enough.
-        disp(['Iteration ' num2str(iteration) ': Growth: ' num2str(lastGrowth)]) 
-        iteration = iteration + 1;
+        disp(['Iteration ' num2str(iteration) ': Growth: ' num2str(lastGrowth)])
+        iteration       = iteration + 1;
         %find the highest protein usage flux
-        protPoolStoich = m.S(strcmp(m.mets, 'prot_pool'),:).';
-        [~,sel] = min(res.x .* protPoolStoich); %max consumption
-        kcatList = [kcatList, sel];
-        rxn = m.rxns(sel.');
-        targetSubRxns = strcmp(origRxns, rxn);
+        protPoolStoich  = m.S(strcmp(m.mets, 'prot_pool'),:).';
+        [~,sel]         = min(res.x .* protPoolStoich); %max consumption
+        kcatList        = [kcatList, sel];
+        rxn             = m.rxns(sel.');
+        targetSubRxns   = strcmp(origRxns, rxn);
         m.ec.kcat(targetSubRxns) = m.ec.kcat(targetSubRxns) .* foldChange;
-        m = applyKcatConstraints(m,rxn);
+        m               = applyKcatConstraints(m,rxn);
     end
 end
 
@@ -113,14 +115,13 @@ if ~model.ec.geckoLight
 else
     [~, rxnIdx]     = ismember(tunedKcats.rxns,origRxns);
 end
-tunedKcats.enzymes = cell(numel(kcatList),1);
+tunedKcats.enzymes  = cell(numel(kcatList),1);
 for i=1:numel(rxnIdx)
     [~, metIdx]     = find(m.ec.rxnEnzMat(rxnIdx(i),:));
     tunedKcats.enzymes{i}   = strjoin(m.ec.enzymes(metIdx),';');
 end
-tunedKcats.oldKcat = model.ec.kcat(rxnIdx);
-tunedKcats.newKcat = m.ec.kcat(rxnIdx);
+tunedKcats.oldKcat  = model.ec.kcat(rxnIdx);
+tunedKcats.newKcat  = m.ec.kcat(rxnIdx);
 
 model = m;
-
 end

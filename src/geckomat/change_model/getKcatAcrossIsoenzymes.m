@@ -37,6 +37,6 @@ newKcatIdx  = newKcatIdx(newKcat);
 newKcat     = noKcatVal(newKcat);
 
 model.ec.kcat(newKcatIdx) = newKcat;
-model.ec.source = 'isozymes';
+model.ec.source(newKcatIdx) = {'isozymes'};
 end
 

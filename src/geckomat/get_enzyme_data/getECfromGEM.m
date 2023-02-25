@@ -14,7 +14,7 @@ function model = getECfromGEM(model, ecRxns)
 %   model           ec-model with populated model.ec.eccodes
 
 if ~isfield(model,'eccodes')
-    error('The model has no eccodes field.')
+    error('The model has no model.eccodes field.')
 end
 
 %Need to remove the prefix of GECKO light rxn names in the ec structure
