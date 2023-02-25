@@ -45,6 +45,9 @@ GECKOInstaller.install % Adds the appropriate folders to MATLAB
 % Set the ModelAdapter correctly. This loads the ModelAdapter file that is
 % in userData/ecYeastGEM/.
 ModelAdapterManager.setDefaultAdapterFromPath(fullfile(findGECKOroot,'userData','ecYeastGEM'), 'true'); 
+% If you explicitly want to set the ModelAdapter as input parameter for
+% many of the GECKO functions, you can get the ModelAdapter structure with
+% the following command that should be run after the first.
 ModelAdapter = ModelAdapterManager.getDefaultAdapter();
 
 % If the location to the conventional GEM was already set in the modelAdapter,
@@ -56,7 +59,7 @@ modelY = loadConventionalGEM();
 % modelY = importModel(fullfile(modelRoot,'models','yeast-GEM.xml')); %Alternative
 
 % Prepare ec-model
-ecModel = makeEcModel(modelY,false,ModelAdapter);
+[ecModel, noUniprot] = makeEcModel(modelY,false,ModelAdapter);
 % Read makeEcModel documentation to get a list of all it does: it prepare
 % the new model.ec structure and prepares the S-matrix by splitting
 % reversible reactions, isozymes etc.
@@ -69,7 +72,7 @@ ecModel = makeEcModel(modelY,false,ModelAdapter);
 % provided. RAVEN's readYAMLmodel and writeYAMLmodel can also be used, but
 % then require specifying the whole path.
 saveEcModel(ecModel,ModelAdapter,'yml','ecYeastGEM');
-ecModel=loadEcModel('ecYeastGEM.yml',ModelAdapter);
+ecModel=loadEcModel('ecYeastGEM.yml');
 
 %% Gather complex data
 % For species with data in ComplexPortal, you can gather that information
@@ -133,6 +136,9 @@ ecModel_merged = getKcatAcrossIsoenzymes(ecModel_merged);
 % a standard kcat and MW are assigned to those reactions (except for e.g.
 % exchange and pseudoreactions).
 ecModel_merged = getStandardKcat(ecModel_merged);
+% Re-apply the updated model.ec.kcats
+ecModel_merged = applyKcatConstraints(ecModel_merged);
+
 %% Do some first simulations
 % Set glucose unlimited
 ecModel_merged = setParam(ecModel_merged,'lb','r_1714',-1000);
@@ -157,12 +163,13 @@ printFluxes(ecModel_merged, sol.x)
 % Load proteomics
 protData = loadProtData(3); %Number of replicates
 ecModelProt = fillProtConcs(ecModelTuned,protData);
+ecModelProt = updateProtPool(ecModelProt);
 ecModelProt = constrainProtConcs(ecModelProt);
 
 % Load matching flux data
 fluxData = loadFluxData();
 ecModelProtFlux = constrainFluxData(ecModelProt,fluxData);
-sol=solveLP(ecModelProtFlux)
+sol = solveLP(ecModelProtFlux)
 % Growth rate of 0.1 is by far not reached, flexibilize protein
 % concentrations
 [ecModelFlex, flexProt] = flexibilizeProtConcs(ecModelProtFlux,0.1,10);
@@ -171,7 +178,7 @@ sol=solveLP(ecModelProtFlux)
 % preventing the model to reach 0.1. First look if the conventional GEM is
 % able to reach 0.1 with the same constraints:
 modelY = constrainFluxData(modelY,fluxData);
-sol=solveLP(modelY)
+sol = solveLP(modelY)
 % It also only reaches 0.0889! So the metabolic network would not be able
 % to adhere to all measured constraints. Perhaps there is something
 % incorrect with the measurements? For now, we will limit the growth rate
