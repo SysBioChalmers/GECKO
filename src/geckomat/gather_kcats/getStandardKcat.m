@@ -80,7 +80,13 @@ enzSubSystems = cell(numel(model.ec.rxns), 1);
 
 % Get the subSystem for the rxns with a GPR
 for i = 1:numel(model.ec.rxns)
-    idx = strcmpi(model.rxns, model.ec.rxns{i});
+    if ~model.ec.geckoLight
+        idx = strcmpi(model.rxns, model.ec.rxns{i});
+    else
+        % Remove prefix
+        rxnId = model.ec.rxns{i}(5:end);
+        idx = strcmpi(model.rxns, rxnId); 
+    end
     % In case there is more than one subSystem select the first one
     if length(model.subSystems{idx}) > 1
         enzSubSystems(i,1) = model.subSystems{idx}(1);
@@ -118,15 +124,17 @@ rxnsMissingGPR(ismember(rxnsMissingGPR, find(spontaneousRxns))) = [];
 rxnsMissingGPR(ismember(rxnsMissingGPR, find(pseudoRxns))) = [];
 rxnsMissingGPR(ismember(rxnsMissingGPR, find(slimeRxns))) = [];
 
-% Add a new metabolite named prot_standard
-proteinStdMets.mets         = 'prot_standard';
-proteinStdMets.metNames     = proteinStdMets.mets;
-proteinStdMets.compartments = 'c';
-if isfield(model,'metNotes')
-    proteinStdMets.metNotes     = 'Standard enzyme-usage pseudometabolite';
-end
+% Add a new metabolite named prot_standard if not a light version
+if ~model.ec.geckoLight
+    proteinStdMets.mets         = 'prot_standard';
+    proteinStdMets.metNames     = proteinStdMets.mets;
+    proteinStdMets.compartments = 'c';
+    if isfield(model,'metNotes')
+        proteinStdMets.metNotes     = 'Standard enzyme-usage pseudometabolite';
+    end
 
-model = addMets(model, proteinStdMets);
+    model = addMets(model, proteinStdMets);
+end
 
 % Add a new gene to be consistent with ec field named standard
 proteinStdGenes.genes = 'standard';
@@ -136,7 +144,7 @@ end
 
 model = addGenesRaven(model, proteinStdGenes);
 
-% Add a protein usage reaction
+% Add a protein usage reaction if not a light version
 if ~model.ec.geckoLight
     proteinStdUsageRxn.rxns            = {'usage_prot_standard'};
     proteinStdUsageRxn.rxnNames        = proteinStdUsageRxn.rxns;
@@ -170,7 +178,13 @@ for i = 1:numel(rxnsMissingGPR)
     kcatSubSystemIdx =  strcmpi(enzSubSystem_names, model.subSystems{rxnIdx});
 
     % Update .ec structure in model
-    model.ec.rxns(end+1)     = model.rxns(rxnIdx);
+    if ~model.ec.geckoLight
+        model.ec.rxns(end+1)     = model.rxns(rxnIdx);
+     % Add prefix in case is light version
+    else
+        model.ec.rxns{end+1}     = ['001_' model.rxns{rxnIdx}];
+    end
+
     if all(kcatSubSystemIdx)
         model.ec.kcat(end+1) = kcatSubSystem(kcatSubSystemIdx);
     else
