@@ -161,7 +161,7 @@ for i = 1:numel(rxnsMissingGPR)
     else
         model.ec.kcat(end+1) = standardKcat;
     end
-    model.ec.source(end+1)   = {'Standard kcat'};
+    model.ec.source(end+1)   = {'standard'};
     model.ec.notes(end+1)    = {''};
     model.ec.eccodes(end+1)  = {''};
 
