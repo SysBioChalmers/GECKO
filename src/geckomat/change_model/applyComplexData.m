@@ -1,4 +1,4 @@
-function [model, foundComplex, proposedComplex] = applyComplexData(model, complexInfo, modelAdapter)
+function [model, foundComplex, proposedComplex] = applyComplexData(model, complexInfo, modelAdapter, verbose)
 % applyComplexData
 %   Apply stochiometry for complex in an ecModel
 %
@@ -10,6 +10,8 @@ function [model, foundComplex, proposedComplex] = applyComplexData(model, comple
 %                   specified in the modelAdapter.
 %   modelAdapter    a loaded model adapter (Optional, will otherwise use the
 %                   default model adapter).
+%   verbose         logical if a summary should be shown in the Command
+%                   Window (Optional, default true)
 %
 % Output:
 %   model           ecModel where model.ec.rxnEnzMat is populated with
@@ -23,6 +25,10 @@ function [model, foundComplex, proposedComplex] = applyComplexData(model, comple
 %
 % Usage:
 %   [model, foundComplex, proposedComplex] = applyComplexData(ecModel, complexInfo, modelAdapter);
+
+if nargin < 4 || isempty(verbose)
+    verbose = true;
+end
 
 if nargin < 3 || isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefaultAdapter();
@@ -131,6 +137,7 @@ rowHeadings = {'rxn', 'complexID','name','genes','protID_model','protID_complex'
 foundComplex = cell2table(foundComplex, 'VariableNames', rowHeadings);
 
 proposedComplex = cell2table(proposedComplex, 'VariableNames', [rowHeadings 'match']);
-
-disp(['A total of ' int2str(numel(foundComplex(:,1))) ' complex have full match, and ' int2str(numel(proposedComplex(:,1))) ' proposed.'])
+if verbose
+    disp(['A total of ' int2str(numel(foundComplex(:,1))) ' complex have full match, and ' int2str(numel(proposedComplex(:,1))) ' proposed.'])
+end
 end

@@ -284,13 +284,13 @@ origin = 0;
 %First try to match organism and substrate:
 [kcat,matches] = matchKcat(EC,subs,substrCoeff,KCATcell,name,true,false,...
     phylDist,org_index,SAcell,stringMatchesEC_cell,[]);
-if matches > 0 && ~wild % If wildcard, ignore substrate match
+if matches > 0
     origin = 1;
     %If no match, try the closest organism but match the substrate:
 else
     [kcat,matches] = matchKcat(EC,subs,substrCoeff,KCATcell,'',true,false,...
         phylDist,org_index,SAcell,stringMatchesEC_cell,[]);
-    if matches > 0 && ~wild % If wildcard, ignore substrate match
+    if matches > 0
         origin = 2;
         %If no match, try to match organism but with any substrate:
     else

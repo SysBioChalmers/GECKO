@@ -1,4 +1,4 @@
-function model = findMetSmiles(model, modelAdapter)
+function model = findMetSmiles(model, modelAdapter, verbose)
 % findMetSMILES
 %   Queries PubChem by metabolite names to obtain SMILES. Matches will also
 %   be stored in userData/***/data/smilesDB.tsv, that will also be queried
@@ -6,13 +6,18 @@ function model = findMetSmiles(model, modelAdapter)
 %   metSmiles field, then non-empty entries will not be overwritten.
 %
 % Input:
-%   model       Input model, whose model.metNames field is used to find the
-%               relevant SMILES
-%
+%   model        Input model, whose model.metNames field is used to find the
+%                relevant SMILES
+%   modelAdapter a loaded model adapter (Optional, will otherwise use the
+%                default model adapter).
+%   verbose      logical whether progress should be reported (Optional,
+%                default true)
 % Ouput:
 %   model       Output model with model.metSmiles specified.
 %
-
+if nargin < 3 || isempty(verbose)
+    verbose = true;
+end
 if nargin < 2 || isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefaultAdapter();
     if isempty(modelAdapter)
@@ -25,7 +30,7 @@ params = modelAdapter.params;
 uniqueSmiles(1:numel(uniqueNames),1) = {''};
 protMets = startsWith(uniqueNames,'prot_');
 metMatch = false(length(uniqueNames),1);
-fprintf('Check for local SMILES database... ')
+if verbose; fprintf('Check for local SMILES database... '); end
 smilesDBfile = (fullfile(params.path,'data','smilesDB.tsv'));
 if exist(smilesDBfile,'file')
     fID = fopen(smilesDBfile,'r');
@@ -35,19 +40,19 @@ if exist(smilesDBfile,'file')
     smilesDB.smile = raw{2};
     [metMatch, metIdx] = ismember(uniqueNames,smilesDB.names);
     uniqueSmiles(metMatch) = smilesDB.smile(metIdx(metMatch));
-    fprintf('done.\n')
+    if verbose; fprintf('done.\n'); end
 else
-    fprintf('not found.\n')
+    if verbose; fprintf('not found.\n'); end
 end
 
 if any(~metMatch & ~protMets)
-    fprintf('Querying PubChem for SMILES by metabolite names...   0%% complete');
+    if verbose; fprintf('Querying PubChem for SMILES by metabolite names...   0%% complete'); end
     numUnique = numel(uniqueNames);
     for i = 1:numel(uniqueNames)
         if metMatch(i) || protMets(i)
             break;
         end
-        if rem(i-1,floor(numUnique/100+1)) == 0
+        if verbose && rem(i-1,floor(numUnique/100+1)) == 0
             progress = num2str(floor(100*(i/numUnique)));
             progress = pad(progress,3,'left');
             fprintf('\b\b\b\b\b\b\b\b\b\b\b\b\b%s%% complete',progress);
@@ -74,7 +79,7 @@ if any(~metMatch & ~protMets)
             end
         end
     end
-    fprintf('\b\b\b\b\b\b\b\b\b\b\b\b\bdone.\n');
+    if verbose; fprintf('\b\b\b\b\b\b\b\b\b\b\b\b\bdone.\n'); end
 end
 newSmiles = uniqueSmiles(uniqueIdx);
 if ~isfield(model,'metSmiles') || all(cellfun(@isempty,model.metSmiles))
