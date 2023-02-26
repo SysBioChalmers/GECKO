@@ -52,26 +52,36 @@ if any(~metMatch & ~protMets)
             progress = pad(progress,3,'left');
             fprintf('\b\b\b\b\b\b\b\b\b\b\b\b\b%s%% complete',progress);
         end
-        retry = true;
-        while retry
+        retry = 0;
+        while retry < 10
             try
-                retry = false;
                 smileResult       = webread(['https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/' uniqueNames{i} '/property/CanonicalSMILES/TXT']);
                 %Sometimes multiple lines are given, with alternative SMILES. Only
                 %keep the first suggestion.
                 smileResult       = regexp(smileResult,'(^\S*)\n','once','tokens');
                 uniqueSmiles{i,1} = smileResult{1,1};
+                % Append one line each time, in case internet connection is lost
+                % halfway. Open & close file each time to avoid leaving the file
+                % open when breaking the function.
+                out = [uniqueNames(i), uniqueSmiles(i)];
+                fID = fopen(smilesDBfile,'a');
+                fprintf(fID,'%s\t%s\n',out{:});
+                fclose(fID);
+                break % success? look at next metabolite
             catch exception
                 %Sometimes the call fails, for example since the server is busy. In those cases
-                %we should retry until we get a response. Some errors however are because the metabolite
+                %we will try 10 times. Some errors however are because the metabolite
                 %name doesn't exist in the database (404) or some other error (the metabolite contains
                 %a slash or similar, 400) - in those cases we need to give up, otherwise the function
                 %will enter an infinite loop.
-                if ~(strcmp(exception.identifier, 'MATLAB:webservices:HTTP404StatusCodeError') || ...
+                if (strcmp(exception.identifier, 'MATLAB:webservices:HTTP404StatusCodeError') || ...
                         strcmp(exception.identifier, 'MATLAB:webservices:HTTP400StatusCodeError'))
-                    retry = true;
+                    break
+                else
+                    retry = retry + 1;
                 end
             end
+            error('Cannot reach PubChem. Check your internet connection and try again.')
         end
     end
     fprintf('\b\b\b\b\b\b\b\b\b\b\b\b\bdone.\n');
@@ -83,8 +93,4 @@ else
     emptySmiles = cellfun(@isempty,model.metSmiles);
     model.metSmiles(emptySmiles) = newSmiles(emptySmiles);
 end
-out = [uniqueNames(~protMets), uniqueSmiles(~protMets)]';
-fID = fopen(smilesDBfile,'w');
-fprintf(fID,'%s\t%s\n',out{:});
-fclose(fID);
 end
