@@ -1,4 +1,4 @@
-function [model, flexProt] = flexibilizeProtConcs(model, expGrowth, foldChange, iterPerEnzyme, modelAdapter)
+function [model, flexProt] = flexibilizeProtConcs(model, expGrowth, foldChange, iterPerEnzyme, modelAdapter, verbose)
 % flexibilizeProtConcs
 %   Flexibilize protein concentration of an ecModel with constrained with
 %   proteomics data. The upper bound of the protein usage reaction is
@@ -16,6 +16,8 @@ function [model, flexProt] = flexibilizeProtConcs(model, expGrowth, foldChange, 
 %                   until reach de defined growth rate (Optional, default = 5)
 %   modelAdapter    a loaded model adapter (Optional, will otherwise use the
 %                   default model adapter).
+%   verbose         logical whether progress should be reported (Optional,
+%                   default true)
 %
 % Output:
 %   model           ecModel where the UB of measured protein have been increased
@@ -30,7 +32,9 @@ function [model, flexProt] = flexibilizeProtConcs(model, expGrowth, foldChange, 
 %
 % Usage:
 %    [model, flexProt] = flexibilizeProtConcs(model, expGrowth, foldChange, iterPerEnzyme, modelAdapter)
-
+if nargin < 6 || isempty(verbose)
+    verbose = true;
+end
 if nargin < 5 || isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefaultAdapter();
     if isempty(modelAdapter)
@@ -100,9 +104,11 @@ if any(protConcs)
             sol = solveLP(model,0,[],hs);
             predGrowth = abs(sol.f);
 
-            disp(['Protein ' proteins{maxIdx} ' UB adjusted. Grow: ' num2str(predGrowth)])
+            if verbose
+                disp(['Protein ' proteins{maxIdx} ' UB adjusted. Grow: ' num2str(predGrowth)])
+            end
         else
-            disp( ['Limit has been reached. Protein '  proteins{maxIdx} ' seems to be problematic. Consider changing the kcat '])
+            disp(['Limit has been reached. Protein '  proteins{maxIdx} ' seems to be problematic. Consider changing the kcat '])
             flexBreak=true;
             break
         end

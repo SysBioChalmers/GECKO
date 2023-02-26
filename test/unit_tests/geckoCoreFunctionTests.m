@@ -108,7 +108,7 @@ function testapplyComplexDataFullModel_tc0003(testCase)
     adapter = ModelAdapterManager.getAdapterFromPath(fullfile(geckoPath,'test','unit_tests','ecTestGEM'));
     model = getGeckoTestModel();
     ecModel = makeEcModel(model, false, adapter);
-    ecModel = applyComplexData(ecModel, [], adapter);
+    ecModel = applyComplexData(ecModel, [], adapter, false);
     
     expRxnEnzMat = sparse(6, 5);
     expRxnEnzMat(1,1:2) = [1 2];
@@ -125,7 +125,7 @@ function testapplyComplexDataLightModel_tc0004(testCase)
     adapter = ModelAdapterManager.getAdapterFromPath(fullfile(geckoPath,'test','unit_tests','ecTestGEM'));
     model = getGeckoTestModel();
     ecModel = makeEcModel(model, true, adapter);
-    ecModel = applyComplexData(ecModel, [], adapter);
+    ecModel = applyComplexData(ecModel, [], adapter, false);
     
     expRxnEnzMat = sparse(6, 5);
     expRxnEnzMat(1,1:2) = [1 2];
@@ -232,7 +232,7 @@ function testsaveECModel_tc0009(testCase)
     verifyEqual(testCase, ecModel, loadedEcModel)
 
     % Test loading of conventional GEM
-    loadedModel = loadConventionalGEM('',adapter);
+    evalc('loadedModel = loadConventionalGEM('''',adapter);'); % Avoid throwing or warnings
     model=rmfield(model,{'annotation','date','description','version'});
     model.geneShortNames=model.genes;
     verifyEqual(testCase, model, loadedModel)
@@ -313,7 +313,7 @@ function testKcats_tc0011(testCase)
     %we only test with full, the model is not really involved in this code
     ecModel = makeEcModel(model, false, adapter);
     ecModel = getECfromGEM(ecModel);
-    ecModel = applyComplexData(ecModel, [], adapter);
+    ecModel = applyComplexData(ecModel, [], adapter, false);
 
     kcatListFuzzy = fuzzyKcatMatching(ecModel, [], adapter);
     %test to write a DLKcat
@@ -410,7 +410,7 @@ function testKcats_tc0011(testCase)
     
     lecModel = makeEcModel(model, true, adapter);
     lecModel = getECfromGEM(lecModel);
-    lecModel = applyComplexData(lecModel, [], adapter);
+    lecModel = applyComplexData(lecModel, [], adapter, false);
     kcatListFuzzy = fuzzyKcatMatching(lecModel, [], adapter);
     
     %Create a suitable kcatlist from dlkcat
@@ -468,7 +468,7 @@ function testfindMetSmiles_tc0012(testCase)
     adapter = ModelAdapterManager.getAdapterFromPath(fullfile(geckoPath,'test','unit_tests','ecTestGEM'));
     model = getGeckoTestModel();
     ecModel = makeEcModel(model, false, adapter);
-    ecModel = findMetSmiles(ecModel, adapter);
+    ecModel = findMetSmiles(ecModel, adapter, false);
 
     verifyEqual(testCase,ecModel.metSmiles,{'C(C1C)O';'C1C(=NC2)';'C(C1C)O';'C1C(=NC2)';'';'';'';'';'';''})
 end
@@ -480,14 +480,19 @@ function testProteomcisIntegration_tc0013(testCase)
     model = getGeckoTestModel();
     ecModel = makeEcModel(model, false, adapter);
     ecModel = getECfromGEM(ecModel);
-    ecModel = applyComplexData(ecModel, [], adapter);
+    ecModel = applyComplexData(ecModel, [], adapter, false);
     kcatListFuzzy = fuzzyKcatMatching(ecModel, [], adapter);
     ecModel  = selectKcatValue(ecModel, kcatListFuzzy);
     ecModel  = applyKcatConstraints(ecModel);
     ecModel  = setProtPoolSize(ecModel);
 
-    % test that proteomics data is correct loaded into model.ec.concs
-    ecModel = readProteomics(ecModel);
+    % test that proteomics data is correct loaded into protData
+    protData = loadProtData(1);
+    verifyEqual(testCase,protData.abundances,[0.7292388;0.03692241;0.318175;5.1959184;0.15647268])
+    verifyEqual(testCase,protData.uniprotIDs,{'P1';'P2';'P3';'P4';'P5'})
+
+    % test to protData is correct included in the model
+    ecModel = fillProtConcs(ecModel,protData);
     verifyEqual(testCase,ecModel.ec.concs,[0.7292388;0.03692241;0.318175;5.1959184;0.15647268])
 
     % test that usage protein are correctly constraint
@@ -496,9 +501,9 @@ function testProteomcisIntegration_tc0013(testCase)
     verifyEqual(testCase,ecModel.ub(usageRxnIdx),ecModel.ec.concs)
 
     % test that usage protein are correctly constraint. Sol.f give 0.1127,
-    % increse objective up to 0.15
-    [ecModel, proteins, frequence] =  flexibilizeProtConcs(ecModel, 0.15);
-    newUB = ecModel.ec.concs.*(1+(frequence*0.5));
-    verifyEqual(testCase,ecModel.ub(usageRxnIdx),newUB)
+    % increse objective up to 0.5
+    [ecModel, flexProt] =  flexibilizeProtConcs(ecModel, 0.4,[],[],[],false);
+    [~, usageRxnIdx] = ismember(strcat('usage_prot_', flexProt.uniprotIDs), ecModel.rxns);
+    verifyEqual(testCase,ecModel.ub(usageRxnIdx),flexProt.flexConcs)
 end
 
