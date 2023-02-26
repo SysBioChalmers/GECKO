@@ -1,7 +1,17 @@
-function [model, rxnsMissingGPR, standardMW, standardKcat] = getStandardKcat(model, modelAdapter, threshold)
+function [model, rxnsMissingGPR, standardMW, standardKcat, rxnsNoKcat] = getStandardKcat(model, modelAdapter, threshold, fillZeroKcat)
 % getStandardKcat
-%   Calculate an standard kcat to rxns which a GPR have not been found in the
-%   model
+%   Calculate an standard kcat and standard molecular weight (MW) that can be
+%   used to apply enzyme constraints to reactions without any associated genes.
+%   This is done by adding those reactions to model.ec, assign a "standard"
+%   pseudoenzyme with the standard MW (median of all proteins in the organism)
+%   and standard kcat (media from all kcat, or subsystem specific kcat).
+%
+%   In addition, reactions that are annotated with an enzyme (and therefore
+%   already in model.ec), but not assigned any reaction-specific kcat value
+%   (their model.ec.kcat entry is either 0 or NaN), can be assigned standard
+%   kcat values by a similar approach. However, those reactions will not be
+%   linked to the "standard" pseudoenzyme, but will use the enzyme that they had
+%   already been associated with.
 %
 % Input:
 %   model           an ecModel in GECKO 3 version
@@ -12,6 +22,8 @@ function [model, rxnsMissingGPR, standardMW, standardKcat] = getStandardKcat(mod
 %                   based on the median value of all the kcat in the model.
 %                   Second option is used when the number of reactions in a
 %                   determined subSystem is < threshold. (Optional, default = 10)
+%   fillZeroKcat    logical whether zero kcat values should be replaced with
+%                   standard kcat values. (Optional, default = true).
 %
 % Output:
 %   model           ecModel where model.ec is expanded with a standard
@@ -20,14 +32,13 @@ function [model, rxnsMissingGPR, standardMW, standardKcat] = getStandardKcat(mod
 %   rxnsMissingGPR  a list of updated rxns identifiers with a standard value
 %   standardMW      the standard MW value calculated
 %   standardKcat    the standard Kcat value calculated
+%   rxnsNoKcat      a list of rxns identifiers whose zero kcat has been replaced
 %
-%   A pseudometabolite named 'prot_standard' will be added as well as a gene
-%   and enzyme named 'standard'. While model.ec.kcat is populated,
-%   applyKcatConstraints would still need to be run to apply the new
-%   constraints to the S-matrix.
+%   While model.ec.kcat is populated, applyKcatConstraints would still need to
+%   be run to apply the new constraints to the S-matrix.
 %
 % Usage:
-%    [model, rxnsMissingGPR, standardMW, standardKcat] = getStandardKcat(model, modelAdapter, threshold);
+%    [model, rxnsMissingGPR, standardMW, standardKcat] = getStandardKcat(model, modelAdapter, threshold, fillZeroKcat);
 
 if nargin < 2 || isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefaultAdapter();
@@ -36,8 +47,12 @@ if nargin < 2 || isempty(modelAdapter)
     end
 end
 
-if nargin < 3
+if nargin < 3 || isempty(threshold)
     threshold = 10;
+end
+
+if nargin < 4 || isempty(fillZeroKcat)
+    fillZeroKcat = true;
 end
 
 % Maybe this can be an input ???
@@ -65,7 +80,13 @@ enzSubSystems = cell(numel(model.ec.rxns), 1);
 
 % Get the subSystem for the rxns with a GPR
 for i = 1:numel(model.ec.rxns)
-    idx = strcmpi(model.rxns, model.ec.rxns{i});
+    if ~model.ec.geckoLight
+        idx = strcmpi(model.rxns, model.ec.rxns{i});
+    else
+        % Remove prefix
+        rxnId = model.ec.rxns{i}(5:end);
+        idx = strcmpi(model.rxns, rxnId); 
+    end
     % In case there is more than one subSystem select the first one
     if length(model.subSystems{idx}) > 1
         enzSubSystems(i,1) = model.subSystems{idx}(1);
@@ -95,21 +116,25 @@ rxnsMissingGPR = find(cellfun(@isempty, model.grRules));
 transportRxns = getTransportRxns(model);
 [spontaneousRxns, ~] = modelAdapter.getSpontaneousReactions(model);
 pseudoRxns = contains(model.rxnNames,'pseudoreaction');
+slimeRxns = contains(model.rxnNames,'SLIME rxn');
 
 rxnsMissingGPR(ismember(rxnsMissingGPR, exchangeRxns)) = [];
 rxnsMissingGPR(ismember(rxnsMissingGPR, find(transportRxns))) = [];
 rxnsMissingGPR(ismember(rxnsMissingGPR, find(spontaneousRxns))) = [];
 rxnsMissingGPR(ismember(rxnsMissingGPR, find(pseudoRxns))) = [];
+rxnsMissingGPR(ismember(rxnsMissingGPR, find(slimeRxns))) = [];
 
-% Add a new metabolite named prot_standard
-proteinStdMets.mets         = 'prot_standard';
-proteinStdMets.metNames     = proteinStdMets.mets;
-proteinStdMets.compartments = 'c';
-if isfield(model,'metNotes')
-    proteinStdMets.metNotes     = 'Standard enzyme-usage pseudometabolite';
+% Add a new metabolite named prot_standard if not a light version
+if ~model.ec.geckoLight
+    proteinStdMets.mets         = 'prot_standard';
+    proteinStdMets.metNames     = proteinStdMets.mets;
+    proteinStdMets.compartments = 'c';
+    if isfield(model,'metNotes')
+        proteinStdMets.metNotes     = 'Standard enzyme-usage pseudometabolite';
+    end
+
+    model = addMets(model, proteinStdMets);
 end
-
-model = addMets(model, proteinStdMets);
 
 % Add a new gene to be consistent with ec field named standard
 proteinStdGenes.genes = 'standard';
@@ -119,7 +144,7 @@ end
 
 model = addGenesRaven(model, proteinStdGenes);
 
-% Add a protein usage reaction
+% Add a protein usage reaction if not a light version
 if ~model.ec.geckoLight
     proteinStdUsageRxn.rxns            = {'usage_prot_standard'};
     proteinStdUsageRxn.rxnNames        = proteinStdUsageRxn.rxns;
@@ -153,13 +178,19 @@ for i = 1:numel(rxnsMissingGPR)
     kcatSubSystemIdx =  strcmpi(enzSubSystem_names, model.subSystems{rxnIdx});
 
     % Update .ec structure in model
-    model.ec.rxns(end+1)     = model.rxns(rxnIdx);
+    if ~model.ec.geckoLight
+        model.ec.rxns(end+1)     = model.rxns(rxnIdx);
+     % Add prefix in case is light version
+    else
+        model.ec.rxns{end+1}     = ['001_' model.rxns{rxnIdx}];
+    end
+
     if all(kcatSubSystemIdx)
         model.ec.kcat(end+1) = kcatSubSystem(kcatSubSystemIdx);
     else
         model.ec.kcat(end+1) = standardKcat;
     end
-    model.ec.source(end+1)   = {'Standard kcat'};
+    model.ec.source(end+1)   = {'standard'};
     model.ec.notes(end+1)    = {''};
     model.ec.eccodes(end+1)  = {''};
 
@@ -168,4 +199,11 @@ for i = 1:numel(rxnsMissingGPR)
 end
 % Get the rxns identifiers of the updated rxns
 rxnsMissingGPR = model.rxns(rxnsMissingGPR);
+
+if fillZeroKcat
+    zeroKcat = model.ec.kcat == 0 | isnan(model.ec.kcat);
+    model.ec.kcat(zeroKcat) = standardKcat;
+    rxnsNoKcat = model.ec.rxns(zeroKcat);
+else
+    rxnsNoKcat = [];
 end

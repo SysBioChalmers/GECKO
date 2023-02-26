@@ -37,9 +37,8 @@ function [model, noUniprot] = makeEcModel(model, geckoLight, modelAdapter)
 %       values. For geckoLight the structure is different, where each
 %       reaction can have multiple isozymes.
 %   7.  Add enzyme information fields to model.ec structure: MW, sequence.
-%   8.  Populate model.ec structure (from step 8) with information from
-%       each reaction.
-%   9. [Skipped with geckoLight:] Add proteins as pseudometabolites.
+%   8.  Populate model.ec structure with information from each reaction.
+%   9.  [Skipped with geckoLight:] Add proteins as pseudometabolites.
 %   10. Add prot_pool pseudometabolite.
 %   11. [Skipped with geckoLight:] Add usage reactions for the protein
 %       pseudometabolites, replenishing from the protein pool (default, can
@@ -103,6 +102,14 @@ if nargin < 3 || isempty(modelAdapter)
     end
 end
 params = modelAdapter.getParameters();
+compartmentID = params.enzyme_comp;
+compartmentID = strcmp(model.compNames,params.enzyme_comp);
+if ~any(compartmentID)
+    error(['Compartment ' params.enzyme_comp ' (specified in params.enzyme_comp) '...
+           'cannot be found in model.compNames'])
+end
+compartmentID = model.comps(compartmentID);
+
 
 if geckoLight
     ec.geckoLight=true;
@@ -237,8 +244,10 @@ uniprotCompatibleGenes = modelAdapter.getUniprotCompatibleGenes(model.genes);
 [Lia,Locb] = ismember(uniprotCompatibleGenes,uniprotDB.genes);
 noUniprot  = uniprotCompatibleGenes(~Lia);
 if ~isempty(noUniprot)
-    disp(['The ' num2str(numel(noUniprot)) ' genes reported in noUniprot cannot '...
-          'be found in the local UniProt DB, these will not be enzyme-constrained.'])
+    warning(['The ' num2str(numel(noUniprot)) ' gene(s) reported in noUniprot cannot '...
+          'be found in data/uniprot.tsv, these will not be enzyme-constrained. '...
+          'If you intend to use different Uniprot data (e.g. from a different proteome '...
+          'identifier), make sure you first delete the existing data/uniprot.tsv file.'])
 end
 ec.genes        = model.genes(Lia); %Will often be duplicate of model.genes, but is done here to prevent issues when it is not.
 ec.enzymes      = uniprotDB.ID(Locb(Lia));
@@ -307,7 +316,7 @@ if ~geckoLight
     [proteinMets.mets, uniprotSortId] = sort(ec.enzymes);
     proteinMets.mets         = strcat('prot_',proteinMets.mets);
     proteinMets.metNames     = proteinMets.mets;
-    proteinMets.compartments = 'c';
+    proteinMets.compartments = compartmentID;
     if isfield(model,'metMiriams')
         proteinMets.metMiriams   = repmat({struct('name',{{'sbo'}},'value',{{'SBO:0000252'}})},numel(proteinMets.mets),1);
     end
@@ -318,7 +327,7 @@ end
 %10: Add protein pool pseudometabolite
 pool.mets         = 'prot_pool';
 pool.metNames     = pool.mets;
-pool.compartments = 'c';
+pool.compartments = compartmentID;
 pool.metNotes     = 'Enzyme-usage protein pool';
 model = addMets(model,pool);
 

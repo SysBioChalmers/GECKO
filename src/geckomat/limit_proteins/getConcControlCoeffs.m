@@ -7,7 +7,7 @@ function [enz, controlCoeffs] = getConcControlCoeffs(model, proteins, foldChange
 %   proteins        a list of proteins to calculate the coefficients. (Optional,
 %                   default = model.ec.enzymes)
 %   foldChange      a value how much increase the protein concentration.
-%                   (Optional, default = 0.5)
+%                   (Optional, default = 2)
 %   limit           a value to determine limiting protein usage reactions.
 %                   Calculate as usage/concentration (Optional, default = 0)
 %
@@ -23,7 +23,7 @@ if nargin < 4 || isempty(limit)
 end
 
 if nargin < 3 || isempty(foldChange)
-    foldChange = 0.5;
+    foldChange = 2;
 end
 
 if nargin < 2 || isempty(proteins)
@@ -58,7 +58,7 @@ for i = 1:numel(proteins)
         % the time, without other change
         tempModel = model;
         % Increase the concentration by flexfactor
-        newConc = prevConc*(1+foldChange);
+        newConc = prevConc*(foldChange);
         tempModel.ub(protUsageRxnIdx(i)) = newConc;
 
         % Get the new growth rate after the adjustment
