@@ -50,7 +50,7 @@ if any(~metMatch & ~protMets)
     numUnique = numel(uniqueNames);
     for i = 1:numel(uniqueNames)
         if metMatch(i) || protMets(i)
-            break;
+            continue;
         end
         if verbose && rem(i-1,floor(numUnique/100+1)) == 0
             progress = num2str(floor(100*(i/numUnique)));
@@ -76,11 +76,12 @@ if any(~metMatch & ~protMets)
             catch exception
                 %Sometimes the call fails, for example since the server is busy. In those cases
                 %we will try 10 times. Some errors however are because the metabolite
-                %name doesn't exist in the database (404) or some other error (the metabolite contains
-                %a slash or similar, 400) - in those cases we need to give up, otherwise the function
-                %will enter an infinite loop.
+                %name does no exist in the database (404) or some other error (the metabolite contains
+                %a slash or similar, 400 or 500). In those cases we can
+                %immediately give up.
                 if (strcmp(exception.identifier, 'MATLAB:webservices:HTTP404StatusCodeError') || ...
-                        strcmp(exception.identifier, 'MATLAB:webservices:HTTP400StatusCodeError'))
+                    strcmp(exception.identifier, 'MATLAB:webservices:HTTP400StatusCodeError') || ...
+                    strcmp(exception.identifier, 'MATLAB:webservices:HTTP500StatusCodeError'))  
                     break
                 else
                     retry = retry + 1;
