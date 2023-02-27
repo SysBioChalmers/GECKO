@@ -32,7 +32,7 @@ protMets = startsWith(uniqueNames,'prot_');
 metMatch = false(length(uniqueNames),1);
 if verbose; fprintf('Check for local SMILES database... '); end
 smilesDBfile = (fullfile(params.path,'data','smilesDB.tsv'));
-if exist(smilesDBfile,'file')
+if exist(smilesDBfile,'file')==2
     fID = fopen(smilesDBfile,'r');
     raw = textscan(fID,'%s %s','Delimiter','\t','HeaderLines',0);
     fclose(fID);
