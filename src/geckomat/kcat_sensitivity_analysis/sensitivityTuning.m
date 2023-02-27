@@ -1,4 +1,4 @@
-function [model, tunedKcats] = sensitivityTuning(model, desiredGrowthRate, modelAdapter, foldChange)
+function [model, tunedKcats] = sensitivityTuning(model, desiredGrowthRate, modelAdapter, foldChange, verbose)
 % sensitivityTuning
 %    Function that relaxes the most limiting kcats until a certain growth rate
 %    is reached. The function will update kcats in model.ec.kcat.
@@ -10,6 +10,9 @@ function [model, tunedKcats] = sensitivityTuning(model, desiredGrowthRate, model
 %                      default model adapter).
 %   foldChange         kcat values will be increased by this fold-change.
 %                      (Opt, default 10)
+%   verbose            logical whether progress should be reported (Optional,
+%                      default true)
+%
 % Output:
 %   model              ecModel with updated model.ec.kcat
 %   tunedKcats         structure with information on tuned kcat values
@@ -22,7 +25,9 @@ function [model, tunedKcats] = sensitivityTuning(model, desiredGrowthRate, model
 %                      oldKcat  kcat values in the input model
 %                      newKcat  kcat values in the output model, after tuning
 %
-
+if nargin < 5 || isempty(verbose)
+    verbose = true;
+end
 if nargin < 4 || isempty(foldChange)
     foldChange = 10;
 end
@@ -60,7 +65,7 @@ if ~m.ec.geckoLight
         %If you get an error here, it is likely due to numerical issues in the solver
         %The trick where we don't allow low kcats is to fix that, but maybe
         %it is not enough.
-        disp(['Iteration ' num2str(iteration) ': Growth: ' num2str(lastGrowth)])
+        if verbose; disp(['Iteration ' num2str(iteration) ': Growth: ' num2str(lastGrowth)]); end
         iteration            = iteration + 1;
         %find the highest draw_prot rxn flux
         drawFluxes           = zeros(length(drawRxns),1);
@@ -94,7 +99,7 @@ else
         %If you get an error here, it is likely due to numerical issues in the solver
         %The trick where we don't allow low kcats is to fix that, but maybe
         %it is not enough.
-        disp(['Iteration ' num2str(iteration) ': Growth: ' num2str(lastGrowth)])
+        if verbose; disp(['Iteration ' num2str(iteration) ': Growth: ' num2str(lastGrowth)]); end
         iteration       = iteration + 1;
         %find the highest protein usage flux
         protPoolStoich  = m.S(strcmp(m.mets, 'prot_pool'),:).';
