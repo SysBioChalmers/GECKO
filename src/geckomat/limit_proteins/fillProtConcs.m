@@ -1,7 +1,7 @@
 function model = fillProtConcs(model, protData)
 % fillProtConcs
 %   Uses the protein concentrations from protData to fill model.ec.concs.
-%   Protein levels should be provided in mmol/gDCW. If no data is provided
+%   Protein levels should be provided in ug/gDCW. If no data is provided
 %   a particular protein, its level is NaN. Existing entries in
 %   model.ec.concs are overwritten.
 %
