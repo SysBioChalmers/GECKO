@@ -186,3 +186,6 @@ sol = solveLP(modelY)
 [ecModelFlex, flexProt] = flexibilizeProtConcs(ecModelProtFlux,0.08885,10);
 
 % Growth is reached!
+%ecModelProtFlux = bayesianSensitivityTuning(ecModelProtFlux);
+
+%% Perform simulations
