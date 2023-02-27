@@ -30,7 +30,7 @@ parfor i=1:numel(rxnIDmap)
     tmpModel = ecModel;
     tmpModel.c = zeros(numel(tmpModel.rxns),1);
 
-    rxnsToOptim = find(rxnIDmap == 1);
+    rxnsToOptim = find(rxnIDmap == i);
     rxnsOptIDs  = ecModel.rxns(rxnsToOptim);
     rxnsToMin = endsWith(rxnsOptIDs,'_REV') | contains(rxnsOptIDs,'_REV_EXP_');
     rxnsToMax = rxnsToOptim(~rxnsToMin);
