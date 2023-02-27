@@ -67,19 +67,16 @@ for i=1:numel(idxInModelUnique)
     switch criteria
         case 'max'
             [selectedKcats(i),j] = max(kcatList.kcats(idxMatch));
-            selectedSource(i)    = kcatList.kcatSource(idxMatch(j));
         case 'min'
             [selectedKcats(i),j] = min(kcatList.kcats(idxMatch));
-            selectedSource(i)    = kcatList.kcatSource(idxMatch(j));
         case 'median'
             [selectedKcats(i),j] = median(kcatList.kcats(idxMatch));
-            selectedSource(i)    = kcatList.kcatSource(idxMatch(j));
         case 'mean'
             [selectedKcats(i),j] = mean(kcatList.kcats(idxMatch));
-            selectedSource(i)    = kcatList.kcatSource(idxMatch(j));
         otherwise
             error('Invalid criteria specified')
     end
+    selectedSource(i)    = kcatList.kcatSource(idxMatch(j));
 end
 
 % Populate model.ec.kcat

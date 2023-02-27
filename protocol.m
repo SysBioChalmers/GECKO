@@ -45,6 +45,9 @@ GECKOInstaller.install % Adds the appropriate folders to MATLAB
 % Set the ModelAdapter correctly. This loads the ModelAdapter file that is
 % in userData/ecYeastGEM/.
 ModelAdapterManager.setDefaultAdapterFromPath(fullfile(findGECKOroot,'userData','ecYeastGEM'), 'true'); 
+% If you explicitly want to set the ModelAdapter as input parameter for
+% many of the GECKO functions, you can get the ModelAdapter structure with
+% the following command that should be run after the first.
 ModelAdapter = ModelAdapterManager.getDefaultAdapter();
 
 % If the location to the conventional GEM was already set in the modelAdapter,
@@ -56,7 +59,7 @@ modelY = loadConventionalGEM();
 % modelY = importModel(fullfile(modelRoot,'models','yeast-GEM.xml')); %Alternative
 
 % Prepare ec-model
-ecModel = makeEcModel(modelY,false,ModelAdapter);
+[ecModel, noUniprot] = makeEcModel(modelY,false,ModelAdapter);
 % Read makeEcModel documentation to get a list of all it does: it prepare
 % the new model.ec structure and prepares the S-matrix by splitting
 % reversible reactions, isozymes etc.
@@ -69,7 +72,7 @@ ecModel = makeEcModel(modelY,false,ModelAdapter);
 % provided. RAVEN's readYAMLmodel and writeYAMLmodel can also be used, but
 % then require specifying the whole path.
 saveEcModel(ecModel,ModelAdapter,'yml','ecYeastGEM');
-ecModel=loadEcModel('ecYeastGEM.yml',ModelAdapter);
+ecModel=loadEcModel('ecYeastGEM.yml');
 
 %% Gather complex data
 % For species with data in ComplexPortal, you can gather that information
@@ -121,6 +124,21 @@ ecModel_merged  = selectKcatValue(ecModel, kcatList_merged);
 % you run applyKcatConstraints.
 ecModel_merged  = applyKcatConstraints(ecModel_merged);
 
+% Additional kcats. In previous work, kcat values of various reactions were
+% manual curated. Here we will apply those custom kcats.
+ecModel_merged = applyCustomKcats(ecModel_merged); % Populate model.ec.kcats
+ecModel_merged = applyKcatConstraints(ecModel_merged);
+
+% Sometimes isoenzymes are not assigned kcat values. This is resolved here
+ecModel_merged = getKcatAcrossIsoenzymes(ecModel_merged);
+
+% Reactions without gene association have no protein cost. To counter this,
+% a standard kcat and MW are assigned to those reactions (except for e.g.
+% exchange and pseudoreactions).
+ecModel_merged = getStandardKcat(ecModel_merged);
+% Re-apply the updated model.ec.kcats
+ecModel_merged = applyKcatConstraints(ecModel_merged);
+
 %% Do some first simulations
 % Set glucose unlimited
 ecModel_merged = setParam(ecModel_merged,'lb','r_1714',-1000);
@@ -129,7 +147,7 @@ ecModel_merged = setProtPoolSize(ecModel_merged);
 
 sol = solveLP(ecModel_merged,1)
 printFluxes(ecModel_merged, sol.x)
-% Growth rate is not high enough (0.01 instead of 0.41).
+% Growth rate is not high enough (0.0989 instead of 0.41).
 %% Tune kcat values to reach max growth rate
 % Let's increase the kcat values of reactions with the most-used enzymes by
 % 2-fold in each iteration. Most-used enzymes (% of protein pool) are most-
@@ -143,15 +161,28 @@ printFluxes(ecModel_merged, sol.x)
 
 %% Contrain with proteomics data
 % Load proteomics
-ecModelProt = readProteomics(ecModelTuned);
+protData = loadProtData(3); %Number of replicates
+ecModelProt = fillProtConcs(ecModelTuned,protData);
+ecModelProt = updateProtPool(ecModelProt);
 ecModelProt = constrainProtConcs(ecModelProt);
-sol=solveLP(ecModelProt)
-[ecModelFlex, proteins, frequence] = flexibilizeProtConcs(ecModelProt);
 
-% The above fails, because some kcats are just very wrong. Manual curation
-% of the kcat values fixes this. Apply these custom kcats here:
-ecModelProt = applyCustomKcats(ecModelProt);
-ecModelProt = applyKcatConstraints(ecModelProt);
+% Load matching flux data
+fluxData = loadFluxData();
+ecModelProtFlux = constrainFluxData(ecModelProt,fluxData);
+sol = solveLP(ecModelProtFlux)
+% Growth rate of 0.1 is by far not reached, flexibilize protein
+% concentrations
+[ecModelFlex, flexProt] = flexibilizeProtConcs(ecModelProtFlux,0.1,10);
 
-% Now the model should predict growth at 0.4.
-sol=solveLP(ecModelProt)
+% It gets stuck at 0.0889. It seems like protein abundances are not
+% preventing the model to reach 0.1. First look if the conventional GEM is
+% able to reach 0.1 with the same constraints:
+modelY = constrainFluxData(modelY,fluxData);
+sol = solveLP(modelY)
+% It also only reaches 0.0889! So the metabolic network would not be able
+% to adhere to all measured constraints. Perhaps there is something
+% incorrect with the measurements? For now, we will limit the growth rate
+% to 0.08885 in our search:
+[ecModelFlex, flexProt] = flexibilizeProtConcs(ecModelProtFlux,0.08885,10);
+
+% Growth is reached!
