@@ -32,7 +32,7 @@ GECKOInstaller.install % Adds the appropriate folders to MATLAB
 %   with some of the above information and more.
 
 %% Summary
-% Pipeline can look different dependent on user preferences. Getting an
+% The pipeline can look different dependent on user preferences. Getting an
 % all-DLKcat model would look something like:
 % makeEcModel -> findMetSmiles -> writeDLKcatInput -> readDLKcatOutput ->
 % selectKcatValue -> applyKcatConstraints -> ...

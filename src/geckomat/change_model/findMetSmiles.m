@@ -48,6 +48,7 @@ end
 if any(~metMatch & ~protMets)
     if verbose; fprintf('Querying PubChem for SMILES by metabolite names...   0%% complete'); end
     numUnique = numel(uniqueNames);
+    webOptions = weboptions('Timeout', 30);
     for i = 1:numel(uniqueNames)
         if metMatch(i) || protMets(i)
             continue;
@@ -60,7 +61,7 @@ if any(~metMatch & ~protMets)
         retry = 0;
         while retry < 10
             try
-                smileResult       = webread(['https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/' uniqueNames{i} '/property/CanonicalSMILES/TXT']);
+                smileResult       = webread(['https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/' uniqueNames{i} '/property/CanonicalSMILES/TXT'], webOptions);
                 %Sometimes multiple lines are given, with alternative SMILES. Only
                 %keep the first suggestion.
                 smileResult       = regexp(smileResult,'(^\S*)\n','once','tokens');

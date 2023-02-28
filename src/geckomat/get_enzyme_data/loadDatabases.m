@@ -99,8 +99,8 @@ end
 function downloadKEGG(keggID, filePath, keggGeneIdentifier)
 %% Download gene information
 fprintf('Downloading KEGG data for organism code %s...   0%% complete',keggID);
-options = weboptions('Timeout',30);
-gene_list = webread(['http://rest.kegg.jp/list/' keggID],options);
+webOptions = weboptions('Timeout',30);
+gene_list = webread(['http://rest.kegg.jp/list/' keggID],webOptions);
 gene_list = regexpi(gene_list, '[^\n]+','match')';
 gene_id   = regexpi(gene_list,['(?<=' keggID ':)\S+'],'match');
 
