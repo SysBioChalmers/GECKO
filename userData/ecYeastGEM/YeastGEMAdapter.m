@@ -69,6 +69,8 @@ classdef YeastGEMAdapter < ModelAdapter
 			%Compartment name in which the added enzymes should be located
 			obj.params.enzyme_comp = 'cytoplasm';
 
+			%% Custom yeast-GEM only parameters, for yeast-GEM only functions
+			
 			%Rxn names for the most common experimentally measured "exchange" fluxes
 			%For glucose and o2 uptakes add the substring: " (reversible)" at the end
 			%of the corresponding rxn name. This is due to the irreversible model
@@ -95,7 +97,7 @@ classdef YeastGEMAdapter < ModelAdapter
 			obj.params.pol_cost(3) = 26.0; %RNA 
 			obj.params.pol_cost(4) = 26.0; %DNA
 
-			%Rxn IDs for reactions in the oxidative phosphorylation pathway (optional)
+			%Rxn IDs for reactions in the oxidative phosphorylation pathway
 			obj.params.oxPhos{1} = 'r_1021';
 			obj.params.oxPhos{2} = 'r_0439';
 			obj.params.oxPhos{3} = 'r_0438';
