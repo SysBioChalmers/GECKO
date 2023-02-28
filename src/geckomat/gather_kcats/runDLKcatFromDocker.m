@@ -3,7 +3,7 @@ function runDLKcatFromDocker(deleteImage, DLKcatFile, modelAdapter, DLKcatPath)
 %   Runs DLKcat to predict kcat values from a Docker image
 %
 % Input
-%   deleteImage      true or false if delete the docker image tar.gz file.
+%   deleteImage      true or false if delete the Docker image tar.gz file.
 %                   (Optional, default = false)
 %   DLKcatFile      path to the DLKcat.tsv file (including file name), as
 %                   written by writeDLKcatFile. Once DLKcat is succesfully
@@ -17,7 +17,7 @@ function runDLKcatFromDocker(deleteImage, DLKcatFile, modelAdapter, DLKcatPath)
 %   DLKcatPath      path where DLKcat is/will be installed. (Optional,
 %                   defaults to GECKO/dlkcat)
 %
-%   NOTE: 1. Requires Docker to be installed, and docker desktop running. Visit "https://www.docker.com"
+%   NOTE: 1. Requires Docker to be installed, and Docker Desktop running. Visit "https://www.docker.com"
 %         2. Runtime will depend on whether the image is to be downloaded or not.
 
 %Get the GECKO path
@@ -44,27 +44,27 @@ if nargin < 1 || isempty(DLKcatPath)
 end
 
 %% Check and install requirements
-% On Mac, docker might not be properly loaded if MATLAB is started via
+% On macOS, Docker might not be properly loaded if MATLAB is started via
 % launcher and not terminal.
 if ismac
     setenv('PATH', strcat('/usr/local/bin', ':', getenv("PATH")));
 end
 
-% Check if docker is installed
+% Check if Docker is installed
 [checks.docker.status, checks.docker.out] = system('docker --version');
 if checks.docker.status ~= 0
-    error('Cannot find Docker. Make sure it is installed')
+    error('Cannot find Docker. Make sure it is installed.')
 end
-
+webOptions = weboptions('Timeout',30);
 % Dowload DLKcat package
 if ~exist(fullfile(DLKcatPath,'DLKcat.py'),'file')
     if ~exist(fullfile(DLKcatPath),'dir')
         mkdir(fullfile(DLKcatPath));
     end
-    disp('=== Downloading DLKcat ...')
+    disp('Downloading Docker image of DLKcat')
     packageURL = 'https://github.com/SysBioChalmers/GECKO/raw/dlkcatPackage/dlkcat.zip';
     %packageURL = 'https://github.com/SysBioChalmers/GECKO/releases/download/v3.0.0/dlkcat_package.zip';
-    websave(fullfile(DLKcatPath,'dlkcat_package.zip'),packageURL);
+    websave(fullfile(DLKcatPath,'dlkcat_package.zip'),packageURL,webOptions);
     unzip(fullfile(DLKcatPath,'dlkcat_package.zip'),geckoPath);
     delete(fullfile(DLKcatPath,'dlkcat_package.zip'));
 end
@@ -77,9 +77,9 @@ cd(DLKcatPath);
 if checks.image.status == 0 && ~contains(checks.image.out,'dlkcat')
     % Check if the image file is already dowloaded
     if ~exist(fullfile(DLKcatPath,'dlkcat_docker.tar.gz'),'file')
-        disp('=== Downloading DLKcat docker image, this may take more than 20 minutes, depending on your internet connection speed...')
+        disp('Downloading DLKcat Docker image, this may take more than 20 minutes, depending on the internet connection speed.')
         packageURL = 'https://github.com/SysBioChalmers/GECKO/raw/dlkcatPackage/dlkcat_docker.tar.gz';
-        websave(fullfile(DLKcatPath,'dlkcat_docker.tar.gz'),packageURL);
+        websave(fullfile(DLKcatPath,'dlkcat_docker.tar.gz'),packageURL,webOptions);
     end
     [checks.dockerload.status, checks.dockerload.out] = system('docker load --input dlkcat_docker.tar.gz');
     if deleteImage
@@ -89,13 +89,13 @@ if checks.image.status == 0 && ~contains(checks.image.out,'dlkcat')
         error('Fail to load the image')
     end
 elseif checks.image.status ~= 0
-    error('Looks like Docker is installed, but make ensure that the docker desktop app is running.')
+    error('Looks like Docker is installed, but make ensure that the Docker Desktop app is running.')
 end
 
 % Copy the input file for needed for the docker image to run DLKcat
 copyfile(DLKcatFile,fullfile(DLKcatPath, 'data/DLKcat.tsv'));
 
-disp('=== Running DLKcat prediction, this may take several minutes...')
+disp('Running DLKcat prediction, this may take many minutes')
 % In the next line, pythonPath does not need to be specified, because it is
 % already mentioned when building the virtualenv.
 dlkcat.status = system('docker compose -f docker-compose.yaml up dlkcat-cont', '-echo');

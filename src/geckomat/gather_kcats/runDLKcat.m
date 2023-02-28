@@ -53,10 +53,11 @@ if ~exist(fullfile(DLKcatPath,'DLKcat.py'),'file')
     if ~exist(fullfile(DLKcatPath),'dir')
         mkdir(fullfile(DLKcatPath));
     end
-    disp('=== Downloading DLKcat...')
+    disp('Downloading DLKcat')
     packageURL = 'https://github.com/SysBioChalmers/GECKO/raw/dlkcatPackage/dlkcat.zip';
     %packageURL = 'https://github.com/SysBioChalmers/GECKO/releases/download/v3.0.0/dlkcat_package.zip';
-    websave(fullfile(DLKcatPath,'dlkcat_package.zip'),packageURL);
+    webOptions = weboptions('Timeout',30);
+    websave(fullfile(DLKcatPath,'dlkcat_package.zip'),packageURL,webOptions);
     unzip(fullfile(DLKcatPath,'dlkcat_package.zip'),geckoPath);
     delete(fullfile(DLKcatPath,'dlkcat_package.zip'));
 end
@@ -140,7 +141,7 @@ pipThree = three;
 if isempty(pipPath)
     [checks.pip.status, checks.pip.out] = system(['pip' pipThree ' --version']);
     if checks.pip.status ~= 0
-        disp('=== Installing pip...')  
+        disp('Installing pip')  
         status = system([pythonPath 'python' three ' -m ensurepip --upgrade']);
         if status == 0
             [checks.pip.status, checks.pip.out] = system(['pip' pipThree ' --version']);
@@ -167,7 +168,7 @@ end
 % Always install fresh, as it is otherwise too tricky to match pipenv
 % binary with the correct python and pip versions if multiple python and
 % pip versions are present.
-disp('=== Installing pipenv...')    
+disp('Installing pipenv')    
     status = system([pipPath 'pip' pipThree ' install pipenv']);
     if status == 0
         [checks.pipenv.status, checks.pipenv.out] = system('pipenv --version');
@@ -186,10 +187,10 @@ cd(DLKcatPath);
 
 [checks.dlkcatenv.status, checks.dlkcatenv.out] = system('pipenv --py');
 if checks.dlkcatenv.status ~= 0
-    disp('=== Preparing DLKcat environment...')
+    disp('Preparing DLKcat environment')
     system(['pipenv install -r requirements.txt --python ' pythonPath 'python' three binEnd], '-echo');
 end
-disp('=== Running DLKcat prediction, this may take several minutes...')
+disp('Running DLKcat prediction, this may many minutes')
 % In the next line, pythonPath does not need to be specified, because it is
 % already mentioned when building the virtualenv.
 dlkcat.status = system(['pipenv run python DLKcat.py ' DLKcatFile ' DLKcatOutput.tsv'],'-echo');
