@@ -55,7 +55,7 @@ end
 if checks.docker.status ~= 0
     error('Cannot find Docker. Make sure it is installed')
 end
-
+webOptions = weboptions('Timeout',30);
 % Dowload DLKcat package
 if ~exist(fullfile(DLKcatPath,'DLKcat.py'),'file')
     if ~exist(fullfile(DLKcatPath),'dir')
@@ -64,7 +64,7 @@ if ~exist(fullfile(DLKcatPath,'DLKcat.py'),'file')
     disp('=== Downloading DLKcat ...')
     packageURL = 'https://github.com/SysBioChalmers/GECKO/raw/dlkcatPackage/dlkcat.zip';
     %packageURL = 'https://github.com/SysBioChalmers/GECKO/releases/download/v3.0.0/dlkcat_package.zip';
-    websave(fullfile(DLKcatPath,'dlkcat_package.zip'),packageURL);
+    websave(fullfile(DLKcatPath,'dlkcat_package.zip'),packageURL,webOptions);
     unzip(fullfile(DLKcatPath,'dlkcat_package.zip'),geckoPath);
     delete(fullfile(DLKcatPath,'dlkcat_package.zip'));
 end
@@ -79,7 +79,7 @@ if checks.image.status == 0 && ~contains(checks.image.out,'dlkcat')
     if ~exist(fullfile(DLKcatPath,'dlkcat_docker.tar.gz'),'file')
         disp('=== Downloading DLKcat docker image, this may take more than 20 minutes, depending on your internet connection speed...')
         packageURL = 'https://github.com/SysBioChalmers/GECKO/raw/dlkcatPackage/dlkcat_docker.tar.gz';
-        websave(fullfile(DLKcatPath,'dlkcat_docker.tar.gz'),packageURL);
+        websave(fullfile(DLKcatPath,'dlkcat_docker.tar.gz'),packageURL,webOptions);
     end
     [checks.dockerload.status, checks.dockerload.out] = system('docker load --input dlkcat_docker.tar.gz');
     if deleteImage

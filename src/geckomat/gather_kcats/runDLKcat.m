@@ -56,7 +56,8 @@ if ~exist(fullfile(DLKcatPath,'DLKcat.py'),'file')
     disp('=== Downloading DLKcat...')
     packageURL = 'https://github.com/SysBioChalmers/GECKO/raw/dlkcatPackage/dlkcat.zip';
     %packageURL = 'https://github.com/SysBioChalmers/GECKO/releases/download/v3.0.0/dlkcat_package.zip';
-    websave(fullfile(DLKcatPath,'dlkcat_package.zip'),packageURL);
+    webOptions = weboptions('Timeout',30);
+    websave(fullfile(DLKcatPath,'dlkcat_package.zip'),packageURL,webOptions);
     unzip(fullfile(DLKcatPath,'dlkcat_package.zip'),geckoPath);
     delete(fullfile(DLKcatPath,'dlkcat_package.zip'));
 end
