@@ -68,20 +68,14 @@ end
 if ~isempty(SAcell{1})
     SAcell{1} = extractAfter(SAcell{1},2);
 end
-end
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function string_cells = stringSplit(cell_array)
-string_cells = textscan(cell_array,'%q','Delimiter','//');
-string_cells = string_cells{1}(1);
-end
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 function data_cell = openDataFile(fileName,scalingFactor)
 fID          = fopen(fileName);
-data_cell    = textscan(fID,'%s %s %s %f  %s','delimiter','\t');
+data_cell    = textscan(fID,'%q %q %q %f %q','delimiter','\t');
 fclose(fID);
 data_cell{4} = data_cell{4}*scalingFactor;
 %Split string for each organism in the BRENDA data
 %{name, taxonomy, KEGG code}
-data_cell{3}  = cellfun(@stringSplit, data_cell{3});
+data_cell{3}  = regexprep(data_cell{3},'\/\/.*','');
 end
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+end
