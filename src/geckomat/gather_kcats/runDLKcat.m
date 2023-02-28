@@ -57,7 +57,7 @@ if ~exist(fullfile(DLKcatPath,'DLKcat.py'),'file')
     packageURL = 'https://github.com/SysBioChalmers/GECKO/raw/dlkcatPackage/dlkcat.zip';
     %packageURL = 'https://github.com/SysBioChalmers/GECKO/releases/download/v3.0.0/dlkcat_package.zip';
     websave(fullfile(DLKcatPath,'dlkcat_package.zip'),packageURL);
-    unzip(fullfile(DLKcatPath,'dlkcat_package.zip'),DLKcatPath);
+    unzip(fullfile(DLKcatPath,'dlkcat_package.zip'),geckoPath);
     delete(fullfile(DLKcatPath,'dlkcat_package.zip'));
 end
 
@@ -76,6 +76,7 @@ if ismac && isempty(pythonPath)
             MACZPROFILEPATH = 'set';
         catch
         end
+        setenv('PATH', strcat('/usr/local/bin', ':', getenv("PATH")));
     end
 end
 
