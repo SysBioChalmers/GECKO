@@ -56,6 +56,8 @@ mappedFlux = mapRxnsToConv(ecModel,model,[minFlux maxFlux]);
 
 minFlux=mappedFlux(:,1);
 maxFlux=mappedFlux(:,2);
+close(h)
+
 function nUpdateWaitbar(~)
 waitbar(p/N, h);
 p = p + 1;
