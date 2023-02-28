@@ -56,14 +56,16 @@ switch organism
         organism = 'Escherichia coli (strain K12)';
 end
 
-weboptions.Timeout = 20;
+
+webOptions = weboptions('Timeout', 30);
+
 try
     url1 = 'https://www.ebi.ac.uk/intact/complex-ws/search/*';
     if ~isempty(organism)
         url1 = [url1 '?facets=species_f&filters=species_f:("' organism '")'];
     end
 
-    data = webread(url1);
+    data = webread(url1,webOptions);
 catch ME
     if (strcmp(ME.identifier,'MATLAB:webservices:HTTP404StatusCodeError'))
         error('Cannot connect to the Complex Portal, perhaps the server is not responding');
@@ -79,7 +81,7 @@ for i = 1:data.size
     disp(['Retrieving information for ' complexID '. Complex ' int2str(i) ' of ' int2str(data.size)]);
 
     try
-        temp = webread([url2 complexID]);
+        temp = webread([url2 complexID],webOptions);
     catch ME
         if (strcmp(ME.identifier,'MATLAB:webservices:HTTP404StatusCodeError'))
             warning(['Cannot retrieve the information for ' complexID]);
