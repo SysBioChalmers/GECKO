@@ -4,12 +4,12 @@ function [minFlux, maxFlux] = ecFVA(ecModel, model)
 %   reactions are combined to construct ouput minFlux and maxFlux vectors,
 %   which follow the same order of model.rxns. The output from this
 %   function does not include enzyme usage reactions, to observe these, on
-%   could consider running flux variability directly on the ecModel.                                  
+%   could consider running flux variability directly on the ecModel.
 %
 %    ecModel    will be used in the flux variability analysis
 %    model      non-ecModel variant of the ecModel, to which the minFlux
 %               and maxFlux will be mapped
-%    
+%
 %    minFlux    vector of minimum flux rates, corresponding to model.rxns
 %    maxFlux    vector of maximum flux rates, corresponding to model.rxns
 %
@@ -21,12 +21,14 @@ rxnIDs = regexprep(ecModel.rxns,'(_REV)?(_EXP_\d+)?','');
 solMaxAll = zeros(numel(ecModel.rxns),numel(convRxnID));
 solMinAll = solMaxAll;
 
-progress = floor(1:numel(convRxnID)/10:numel(convRxnID));
+D = parallel.pool.DataQueue;
+h = waitbar(0, 'Please wait ...');
+afterEach(D, @nUpdateWaitbar);
 
-parfor i=1:numel(rxnIDmap)
-    if any(i==progress)
-        fprintf('.')
-    end
+N = numel(rxnIDmap);
+p = 1;
+
+parfor i=1:N
     tmpModel = ecModel;
     tmpModel.c = zeros(numel(tmpModel.rxns),1);
 
@@ -44,8 +46,8 @@ parfor i=1:numel(rxnIDmap)
     tmpModel.c(rxnsToMin) = 1;
     solMin=solveLP(tmpModel);
     solMinAll(:,i)=solMin.x;
+    send(D, i);
 end
-fprintf('\n')
 
 minFlux=min(solMinAll,[],2);
 maxFlux=max(solMaxAll,[],2);
@@ -54,4 +56,10 @@ mappedFlux = mapRxnsToConv(ecModel,model,[minFlux maxFlux]);
 
 minFlux=mappedFlux(:,1);
 maxFlux=mappedFlux(:,2);
+function nUpdateWaitbar(~)
+waitbar(p/N, h);
+p = p + 1;
 end
+end
+
+
