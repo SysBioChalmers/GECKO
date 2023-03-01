@@ -1,1 +1,0 @@
-.. include:: ../.github/SUPPORT.rst
