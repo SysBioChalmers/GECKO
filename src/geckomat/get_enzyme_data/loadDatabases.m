@@ -125,7 +125,7 @@ for i = 1:queries
     while retry
         try
             retry = false;
-            out   = webread(url,options);
+            out   = webread(url,webOptions);
         catch
             retry = true;
         end
