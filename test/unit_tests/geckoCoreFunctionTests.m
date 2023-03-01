@@ -247,14 +247,14 @@ function testfuzzyKcatMatching_tc0010(testCase)
     ecModel = makeEcModel(model, false, adapter);
     ecModel = getECfromGEM(ecModel);
     kcatListLightFuzzy = fuzzyKcatMatching(ecModel, [], adapter);
-    expKcats = [1;1;10;10;100;10];%substrate is more important than organism, and wildcard comes last
+    expKcats = [1;1;10;10;100;1];%substrate is more important than organism, and wildcard comes last
     verifyEqual(testCase,kcatListLightFuzzy.kcats, expKcats)
     expEcRxns = {'R2_EXP_1';'R2_EXP_2';'R2_REV_EXP_1';'R2_REV_EXP_2';'R3';'R5'};
     verifyEqual(testCase,kcatListLightFuzzy.rxns, expEcRxns)
     verifyEqual(testCase,kcatListLightFuzzy.substrates, {{'m1'};{'m1'};{'m2'};{'m2'};{'m1'};{'m2'}})
     verifyEqual(testCase,kcatListLightFuzzy.eccodes, {'1.1.1.1';'1.1.1.1';'1.1.1.1';'1.1.1.1';'1.1.2.1';'1.1.1.3'})
     verifyEqual(testCase,kcatListLightFuzzy.wildcardLvl, [0;0;0;0;1;1])
-    verifyEqual(testCase,kcatListLightFuzzy.origin, [1;1;2;2;1;2])
+    verifyEqual(testCase,kcatListLightFuzzy.origin, [1;1;2;2;3;3])
     %Some rxns, full model
     ecModel = makeEcModel(model, false, adapter);
     ecModel = getECfromGEM(ecModel);
@@ -272,14 +272,14 @@ function testfuzzyKcatMatching_tc0010(testCase)
     ecModel = makeEcModel(model, true, adapter);
     ecModel = getECfromGEM(ecModel);
     kcatListLightFuzzy = fuzzyKcatMatching(ecModel, [], adapter);
-    expKcats = [1;1;100;10;10;10];%substrate is more important than organism, and wildcard comes last
+    expKcats = [1;1;100;1;10;10];%substrate is more important than organism, and wildcard comes last
     verifyEqual(testCase,kcatListLightFuzzy.kcats, expKcats)
     expEcRxns = {'001_R2';'002_R2';'001_R3';'001_R5';'001_R2_REV';'002_R2_REV'};
     verifyEqual(testCase,kcatListLightFuzzy.rxns, expEcRxns)
     verifyEqual(testCase,kcatListLightFuzzy.substrates, {{'m1'};{'m1'};{'m1'};{'m2'};{'m2'};{'m2'}})
     verifyEqual(testCase,kcatListLightFuzzy.eccodes, {'1.1.1.1';'1.1.1.1';'1.1.2.1';'1.1.1.3';'1.1.1.1';'1.1.1.1'})
     verifyEqual(testCase,kcatListLightFuzzy.wildcardLvl, [0;0;1;1;0;0])
-    verifyEqual(testCase,kcatListLightFuzzy.origin, [1;1;1;2;2;2])
+    verifyEqual(testCase,kcatListLightFuzzy.origin, [1;1;3;3;2;2])
     
     %some rxns, light model
     ecModel = makeEcModel(model, true, adapter);
@@ -355,7 +355,7 @@ function testKcats_tc0011(testCase)
     verifyEqual(testCase,mergedList.kcats, [1;1;10;10;100;1007;1008;1009;1010;1011])
     verifyEqual(testCase,mergedList.eccodes, {'1.1.1.1';'1.1.1.1';'1.1.1.1';'1.1.1.1';'1.1.2.1';[];[];[];[];[]})
     verifyEqual(testCase,mergedList.wildcardLvl, [0;0;0;0;1;NaN;NaN;NaN;NaN;NaN])
-    verifyEqual(testCase,mergedList.origin, [1;1;2;2;1;NaN;NaN;NaN;NaN;NaN])%origin is 2 for testus falsus, 1 for the wildcard match which matches well on species and substrate
+    verifyEqual(testCase,mergedList.origin, [1;1;2;2;3;NaN;NaN;NaN;NaN;NaN])%origin is 2 for testus falsus, 1 for the wildcard match which matches well on species and substrate
 
     %now test select
     %we expect the highest kcat value to be chosen in the R2a_EXP_1 case, i.e., use 1008, discard 1007

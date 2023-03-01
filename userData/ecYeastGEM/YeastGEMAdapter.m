@@ -69,6 +69,8 @@ classdef YeastGEMAdapter < ModelAdapter
 			% Compartment name in which the added enzymes should be located
 			obj.params.enzyme_comp = 'cytoplasm';
 
+			%% Custom parameters, for yeast-GEM-only functions that are in ecYeastGEM/code
+			
 			% Rxn names for the most common experimentally measured "exchange" fluxes
 			% For glucose and o2 uptakes add the substring: " (reversible)" at the end
 			% of the corresponding rxn name. This is due to the irreversible model
@@ -95,7 +97,7 @@ classdef YeastGEMAdapter < ModelAdapter
 			obj.params.pol_cost(3) = 26.0; % RNA 
 			obj.params.pol_cost(4) = 26.0; % DNA
 
-			% Rxn IDs for reactions in the oxidative phosphorylation pathway (optional)
+			% Rxn IDs for reactions in the oxidative phosphorylation pathway
 			obj.params.oxPhos{1} = 'r_1021';
 			obj.params.oxPhos{2} = 'r_0439';
 			obj.params.oxPhos{3} = 'r_0438';
@@ -104,12 +106,8 @@ classdef YeastGEMAdapter < ModelAdapter
         end
 		
 		function [spont,spontRxnNames] = getSpontaneousReactions(obj,model)
-			%TODO: I'm not sure if this information exists in Yeast-GEM - if it does, it should be returned in this function
-			%For now, we say none of them are spontaneous.
 			spont = contains(model.rxnNames,'spontaneous');
-			spontRxnNames = {''};%rxns_tsv.rxns; For now, create an empty cell
-			%rxns_tsv = importTsvFile(strcat(getHumanGEMRootPath(),'model/reactions.tsv'));
-			%spont = rxns_tsv.spontaneous;
+			spontRxnNames = model.rxnNames(spont);
 		end
 	end
 end

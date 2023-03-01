@@ -69,41 +69,6 @@ classdef yourModelAdapter < ModelAdapter
 
 			% Compartment name in which the added enzymes should be located
 			obj.params.enzyme_comp = 'cytoplasm';
-
-			% Rxn names for the most common experimentally measured "exchange" fluxes
-			% For glucose and o2 uptakes add the substring: " (reversible)" at the end
-			% of the corresponding rxn name. This is due to the irreversible model
-			% nature of ecModels. NOTE: This parameter is only used by fitGAM.m, so if
-			% you do not use said function you don not need to define it.
-			obj.params.exch_names{1} = 'growth';
-			obj.params.exch_names{2} = 'D-glucose exchange (reversible)';
-			obj.params.exch_names{3} = 'oxygen exchange (reversible)';
-			obj.params.exch_names{4} = 'carbon dioxide exchange';
-
-			% Biomass components pseudoreactions (proteins, carbs and lipids lumped
-			% pools). NOTE: This parameter is only used by scaleBioMass.m, so if you do
-			% not use said function you don not need to define it. (optional)
-			obj.params.bio_comp{1} = 'protein';
-			obj.params.bio_comp{2} = 'carbohydrate';
-			obj.params.bio_comp{3} = 'lipid backbone';
-			obj.params.bio_comp{4} = 'lipid chain';
-
-			% Polymerization costs from Forster et al 2003 - table S8. NOTE: This
-			% parameter is only used by scaleBioMass.m, so if you do not use said
-			% function you don not need to define it. (optional)
-			obj.params.pol_cost(1) = 37.7; % Ptot 
-			obj.params.pol_cost(2) = 12.8; % Ctot
-			obj.params.pol_cost(3) = 26.0; % RNA 
-			obj.params.pol_cost(4) = 26.0; % DNA
-
-			% Rxn IDs for reactions in the oxidative phosphorylation pathway (optional)
-			obj.params.oxPhos{1} = 'r_1021';
-			obj.params.oxPhos{2} = 'r_0439';
-			obj.params.oxPhos{3} = 'r_0438';
-			obj.params.oxPhos{4} = 'r_0226';
-
-			% Experimental carbon source uptake (optional)
-			% obj.params.c_UptakeExp = 0.641339301; %[mmol/gDw h]/Average across NCI60 cell lines
         end
 		
 		function [spont,spontRxnNames] = getSpontaneousReactions(obj,model)
