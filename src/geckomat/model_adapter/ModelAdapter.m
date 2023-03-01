@@ -37,6 +37,7 @@ classdef (Abstract) ModelAdapter
 
                 uniprotIDs  = strings(numel(modelGenes),1);
                 uniprotIDs(a)  = uniprots(b(a));
+                disp('The model genes are matched to Uniprot via the table at data/uniprotConversion.tsv')
             else
                 uniprotIDs = modelGenes;
             end
