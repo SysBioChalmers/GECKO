@@ -242,6 +242,12 @@ end
 %7: Gather enzyme information via UniprotDB
 uniprotCompatibleGenes = modelAdapter.getUniprotCompatibleGenes(model.genes);
 [Lia,Locb] = ismember(uniprotCompatibleGenes,uniprotDB.genes);
+
+uniprot = modelAdapter.getUniprotIDsFromTable(uniprotCompatibleGenes);
+if ~isequal(uniprot,uniprotCompatibleGenes)
+    uniprot(cellfun(@isempty,uniprot)) = {''};
+    [Lia,Locb] = ismember(uniprot,uniprotDB.ID);
+end
 noUniprot  = uniprotCompatibleGenes(~Lia);
 if ~isempty(noUniprot)
     warning(['The ' num2str(numel(noUniprot)) ' gene(s) reported in noUniprot cannot '...
