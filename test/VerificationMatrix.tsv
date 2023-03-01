@@ -12,7 +12,7 @@ gather_kcats/fuzzyKcatMatching.m	tc0010
 gather_kcats/getStandardKcat.m		
 gather_kcats/mergeDlkcatAndFuzzyKcats.m	tc0011	
 gather_kcats/readDLKcatOutput.m	tcm0001, tcm0002 - The test doesn't really check the function, only that some output is read	
-gather_kcats/runDLKcat.m	tcm0001, tcm0002 - The test doesn't really check the function, only that we get something	
+gather_kcats/runDLKcat.m	tcm0001, tcm0002 - The test doesn't really check the function, only that we get something
 gather_kcats/selectKcatValue.m	tc0011 - we did not test all possible parameterizations here	
 gather_kcats/writeDLKcatInput.m	partly by tc0011	
 get_enzyme_data/calculateMW.m	Not explicitly tested - The code has existed for a long time	
