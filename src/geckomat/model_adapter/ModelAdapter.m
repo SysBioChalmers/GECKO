@@ -37,6 +37,8 @@ classdef (Abstract) ModelAdapter
 
                 uniprotIDs  = strings(numel(modelGenes),1);
                 uniprotIDs(a)  = uniprots(b(a));
+            else
+                uniprotIDs = modelGenes;
             end
         end
 
