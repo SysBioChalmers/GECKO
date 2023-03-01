@@ -72,6 +72,8 @@ classdef yourModelAdapter < ModelAdapter
         end
 		
 		function [spont,spontRxnNames] = getSpontaneousReactions(obj,model)
+            % Indicates how spontaneous reactions are identified. Here it
+            % is done by the reaction have 'spontaneous' in its name.
 			spont = contains(model.rxnNames,'spontaneous');
 			spontRxnNames = model.rxnNames(spont);
 		end
