@@ -48,7 +48,7 @@ if nargin < 4 || isempty(iterPerEnzyme)
 end
 
 if nargin < 3 || isempty(foldChange)
-    foldChange = 0.5;
+    foldChange = 2;
 end
 
 if nargin < 2 || isempty(expGrowth)
