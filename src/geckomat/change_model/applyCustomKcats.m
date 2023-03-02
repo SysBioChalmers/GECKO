@@ -169,6 +169,12 @@ if ~model.ec.geckoLight
 
     rxnUpdated = model.ec.rxns(find(rxnToUpdate));
 
+    % Remove from notMatch those reactions already updated
+    remove = and(rxnToUpdate, rxnNotMatch);
+    rxnNotMatch(remove) = 0;
+    evaluatedRule(remove) = '';
+    enzInModel(remove) = '';
+
     idRxns = model.ec.rxns(find(rxnNotMatch));
     fullIdx = cellfun(@(x) find(strcmpi(model.rxns, x)), idRxns);
     rxnsNames = model.rxnNames(fullIdx);
