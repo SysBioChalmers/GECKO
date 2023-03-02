@@ -77,7 +77,7 @@ rxnsKcatZero = model.ec.kcat > 0;
 standardKcat = median(model.ec.kcat(rxnsKcatZero), 'omitnan');
 
 % If the model have subSystems assigned calculate kcat based on subSystem
-if ~isempty([model.subSystems{~cellfun(@isempty, model.subSystems)}])
+if isfield(model,'subSystems') & ~isempty([model.subSystems{~cellfun(@isempty, model.subSystems)}])
 
     standard = false;
     enzSubSystems = cell(numel(model.ec.rxns), 1);
