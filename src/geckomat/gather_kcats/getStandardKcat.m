@@ -76,37 +76,52 @@ rxnsKcatZero = model.ec.kcat > 0;
 % Get the kcat value based on all the kcats in the model
 standardKcat = median(model.ec.kcat(rxnsKcatZero), 'omitnan');
 
-enzSubSystems = cell(numel(model.ec.rxns), 1);
+% If the model have subSystems assigned calculate kcat based on subSystem
+if ~isempty([model.subSystems{~cellfun(@isempty, model.subSystems)}])
 
-% Get the subSystem for the rxns with a GPR
-for i = 1:numel(model.ec.rxns)
-    if ~model.ec.geckoLight
-        idx = strcmpi(model.rxns, model.ec.rxns{i});
-    else
-        % Remove prefix
-        rxnId = model.ec.rxns{i}(5:end);
-        idx = strcmpi(model.rxns, rxnId); 
+    standard = false;
+    enzSubSystems = cell(numel(model.ec.rxns), 1);
+
+    % Get the subSystem for the rxns with a GPR
+    for i = 1:numel(model.ec.rxns)
+        if ~model.ec.geckoLight
+            idx = strcmpi(model.rxns, model.ec.rxns{i});
+        else
+            % Remove prefix
+            rxnId = model.ec.rxns{i}(5:end);
+            idx = strcmpi(model.rxns, rxnId);
+        end
+        % In case there is more than one subSystem select the first one
+        if length(model.subSystems{idx}) > 1
+            enzSubSystems(i,1) = model.subSystems{idx}(1);
+        else
+            enzSubSystems(i,1) = model.subSystems{idx};
+        end
     end
-    % In case there is more than one subSystem select the first one
-    if length(model.subSystems{idx}) > 1
-        enzSubSystems(i,1) = model.subSystems{idx}(1);
+
+    % if reactions in model.ec.rxns have a susbSystem assigned, else assign
+    % standard value
+    if ~isempty([enzSubSystems{~cellfun(@isempty, enzSubSystems)}])
+        % Determine the subSystems in model.ec
+        [enzSubSystem_group, enzSubSystem_names] = findgroups(enzSubSystems(rxnsKcatZero));
+
+        % Calculate the mean kcat value for each subSystem in model.ec
+        kcatSubSystem = splitapply(@mean, model.ec.kcat(rxnsKcatZero), enzSubSystem_group);
+
+        % Calculate the number of reactions for each subSystem in model.ec
+        numRxnsSubSystem = splitapply(@numel, model.ec.rxns(rxnsKcatZero), enzSubSystem_group);
+
+        % Find subSystems which contains < threshold rxns and assign a standard value
+        lowerThanTresh = numRxnsSubSystem < threshold;
+        kcatSubSystem(lowerThanTresh) = standardKcat;
     else
-        enzSubSystems(i,1) = model.subSystems{idx};
+        standard = true;
+        disp('No subSystem-specific kcat values can be calculated')
     end
+else
+    standard = true;
+    disp('No subSystem-specific kcat values can be calculated')
 end
-
-% Determine the subSystems in model.ec
-[enzSubSystem_group, enzSubSystem_names] = findgroups(enzSubSystems(rxnsKcatZero));
-
-% Calculate the mean kcat value for each subSystem in model.ec
-kcatSubSystem = splitapply(@mean, model.ec.kcat(rxnsKcatZero), enzSubSystem_group);
-
-% Calculate the number of reactions for each subSystem in model.ec
-numRxnsSubSystem = splitapply(@numel, model.ec.rxns(rxnsKcatZero), enzSubSystem_group);
-
-% Find subSystems which contains < threshold rxns and assign a standard value
-lowerThanTresh = numRxnsSubSystem < threshold;
-kcatSubSystem(lowerThanTresh) = standardKcat;
 
 % Find reactions without GPR
 rxnsMissingGPR = find(cellfun(@isempty, model.grRules));
@@ -152,7 +167,7 @@ if ~model.ec.geckoLight
     proteinStdUsageRxn.stoichCoeffs = [-1, 1];
     proteinStdUsageRxn.lb              = 0;
     proteinStdUsageRxn.grRules         = proteinStdGenes.genes;
-    
+
     model = addRxns(model, proteinStdUsageRxn);
 end
 
@@ -175,21 +190,26 @@ stdMetIdx = find(strcmpi(model.ec.enzymes, 'standard'));
 
 for i = 1:numel(rxnsMissingGPR)
     rxnIdx = rxnsMissingGPR(i);
-    kcatSubSystemIdx =  strcmpi(enzSubSystem_names, model.subSystems{rxnIdx});
 
     % Update .ec structure in model
     if ~model.ec.geckoLight
         model.ec.rxns(end+1)     = model.rxns(rxnIdx);
-     % Add prefix in case is light version
+        % Add prefix in case is light version
     else
         model.ec.rxns{end+1}     = ['001_' model.rxns{rxnIdx}];
     end
 
-    if all(kcatSubSystemIdx)
-        model.ec.kcat(end+1) = kcatSubSystem(kcatSubSystemIdx);
+    if ~standard
+        kcatSubSystemIdx =  strcmpi(enzSubSystem_names, model.subSystems{rxnIdx});
+        if all(kcatSubSystemIdx)
+            model.ec.kcat(end+1) = kcatSubSystem(kcatSubSystemIdx);
+        else
+            model.ec.kcat(end+1) = standardKcat;
+        end
     else
         model.ec.kcat(end+1) = standardKcat;
     end
+
     model.ec.source(end+1)   = {'standard'};
     model.ec.notes(end+1)    = {''};
     model.ec.eccodes(end+1)  = {''};
@@ -206,4 +226,6 @@ if fillZeroKcat
     rxnsNoKcat = model.ec.rxns(zeroKcat);
 else
     rxnsNoKcat = [];
+end
+
 end
