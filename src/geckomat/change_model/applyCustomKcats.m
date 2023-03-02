@@ -120,7 +120,7 @@ if ~model.ec.geckoLight
                 for j = 1:numel(temp_rxnIdxs)
                     rxnIdxs = [rxnIdxs; temp_rxnIdxs{j}];
                 end
-                %rxnIdxs = cell2mat(temp_rxnIdxs);%arrayfun(@(x) horzcat(rxnIdxs, x), temp_rxnIdxs);
+
                 % Check when multiple proteins are involved, since it can return same rxn n times
                 rxnIdxs = unique(rxnIdxs); %unique(rxnIdxs{1, :});
 
