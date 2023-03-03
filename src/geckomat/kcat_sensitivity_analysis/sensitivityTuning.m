@@ -70,9 +70,9 @@ if ~m.ec.geckoLight
         %find the highest draw_prot rxn flux
         drawFluxes           = zeros(length(drawRxns),1);
         drawFluxes(drawRxns) = res.x(drawRxns);
-        [~,sel]              = max(drawFluxes);
+        [~,sel]              = min(drawFluxes); % since bounds -1000 to 0
         %Now get the metabolite
-        metSel               = m.S(:,sel) > 0;
+        metSel               = m.S(:,sel) < 0; % negative coeff
         %now find the reaction with the largest consumption of this protein
         protFluxes           = m.S(metSel,:).' .* res.x; %negative
         [~,rxnSel]           = min(protFluxes);

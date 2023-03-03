@@ -34,12 +34,12 @@ end
 protCons = ~isnan(model.ec.concs);
 
 %Set all reactions to draw from prot_pool
-model.S(protPoolIdx, usageRxnsIdx(~protCons)) = -1;
-model.ub(usageRxnsIdx(protCons)) = Inf;
+model.S(protPoolIdx, usageRxnsIdx(~protCons)) = 1;
+model.lb(usageRxnsIdx(protCons)) = -1000;
 
 %If non-NaN in model.ec.concs, then constrain by UB
 if any(protCons)
     model.S(protPoolIdx, usageRxnsIdx(protCons)) = 0;
-    model.ub(usageRxnsIdx(protCons)) = model.ec.concs(protCons);
+    model.lb(usageRxnsIdx(protCons)) = -model.ec.concs(protCons);
 end
 end

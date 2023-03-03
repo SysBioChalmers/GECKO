@@ -338,10 +338,11 @@ if ~geckoLight
     usageRxns.mets            = cell(numel(usageRxns.rxns),1);
     usageRxns.stoichCoeffs    = cell(numel(usageRxns.rxns),1);
     for i=1:numel(usageRxns.mets)
-        usageRxns.mets{i}         = {'prot_pool',proteinMets.mets{i}};
+        usageRxns.mets{i}         = {proteinMets.mets{i}, 'prot_pool'};
         usageRxns.stoichCoeffs{i} = [-1,1];
     end
-    usageRxns.lb              = zeros(numel(usageRxns.rxns),1);
+    usageRxns.lb              = zeros(numel(usageRxns.rxns),1) - 1000;
+    usageRxns.ub              = zeros(numel(usageRxns.rxns),1);
     usageRxns.grRules         = ec.genes(uniprotSortId);
     model = addRxns(model,usageRxns);
 end
@@ -350,8 +351,9 @@ end
 poolRxn.rxns            = 'prot_pool_exchange';
 poolRxn.rxnNames        = poolRxn.rxns;
 poolRxn.mets            = {'prot_pool'};
-poolRxn.stoichCoeffs    = {1};
-poolRxn.lb              = 0;
+poolRxn.stoichCoeffs    = {-1};
+poolRxn.lb              = -1000;
+poolRxn.ub              = 0;
 model = addRxns(model,poolRxn);
 
 model.ec=ec;

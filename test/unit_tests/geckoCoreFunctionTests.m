@@ -73,7 +73,7 @@ function testmakeEcModelLightModel_tc0002(testCase)
     expMetNames = [model.metNames;'prot_pool'];
     verifyEqual(testCase,ecModel.metNames,expMetNames)
     %check S matrix
-    expS = [model.S model.S(:,2:3)*-1 sparse(length(model.mets),1);sparse(1,length(ecModel.rxns)-1) 1];
+    expS = [model.S model.S(:,2:3)*-1 sparse(length(model.mets),1);sparse(1,length(ecModel.rxns)-1) -1];
     verifyEqual(testCase,ecModel.S,expS)
     
     %2) Check the ec structure
@@ -144,16 +144,16 @@ function testsetProtPoolSize_tc0005(testCase)
     model = getGeckoTestModel();
     ecModel = makeEcModel(model, false, adapter);
     ecModel = setProtPoolSize(ecModel, [], [], [], adapter);
-    verifyEqual(testCase,ecModel.ub(length(ecModel.rxns)),1000)
+    verifyEqual(testCase,ecModel.lb(length(ecModel.rxns)),-1000)
     ecModel = setProtPoolSize(ecModel, 1, 5, 1);
-    verifyEqual(testCase,ecModel.ub(length(ecModel.rxns)),5000)
+    verifyEqual(testCase,ecModel.lb(length(ecModel.rxns)),-5000)
 
     %light
     ecModel = makeEcModel(model, true, adapter);
     ecModel = setProtPoolSize(ecModel, [], [], [], adapter);
-    verifyEqual(testCase,ecModel.ub(length(ecModel.rxns)),1000)
+    verifyEqual(testCase,ecModel.lb(length(ecModel.rxns)),-1000)
     ecModel = setProtPoolSize(ecModel, 1, 5, 1);
-    verifyEqual(testCase,ecModel.ub(length(ecModel.rxns)),5000)
+    verifyEqual(testCase,ecModel.lb(length(ecModel.rxns)),-5000)
 end
 
 %For both full and light
@@ -498,12 +498,12 @@ function testProteomcisIntegration_tc0013(testCase)
     % test that usage protein are correctly constraint
     [~, usageRxnIdx] = ismember(strcat('usage_prot_', ecModel.ec.enzymes), ecModel.rxns);
     ecModel = constrainProtConcs(ecModel);
-    verifyEqual(testCase,ecModel.ub(usageRxnIdx),ecModel.ec.concs)
+    verifyEqual(testCase,ecModel.lb(usageRxnIdx),-ecModel.ec.concs)
 
     % test that usage protein are correctly constraint. Sol.f give 0.1127,
     % increse objective up to 0.5
     [ecModel, flexProt] =  flexibilizeProtConcs(ecModel, 0.4,[],[],[],false);
     [~, usageRxnIdx] = ismember(strcat('usage_prot_', flexProt.uniprotIDs), ecModel.rxns);
-    verifyEqual(testCase,ecModel.ub(usageRxnIdx),flexProt.flexConcs)
+    verifyEqual(testCase,ecModel.lb(usageRxnIdx),-flexProt.flexConcs)
 end
 

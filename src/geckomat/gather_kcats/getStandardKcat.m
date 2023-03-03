@@ -163,9 +163,10 @@ model = addGenesRaven(model, proteinStdGenes);
 if ~model.ec.geckoLight
     proteinStdUsageRxn.rxns            = {'usage_prot_standard'};
     proteinStdUsageRxn.rxnNames        = proteinStdUsageRxn.rxns;
-    proteinStdUsageRxn.mets         = {'prot_pool', proteinStdMets.mets};
+    proteinStdUsageRxn.mets         = {proteinStdMets.mets, 'prot_pool'};
     proteinStdUsageRxn.stoichCoeffs = [-1, 1];
-    proteinStdUsageRxn.lb              = 0;
+    proteinStdUsageRxn.lb              = -1000;
+    proteinStdUsageRxn.ub              = 0;
     proteinStdUsageRxn.grRules         = proteinStdGenes.genes;
 
     model = addRxns(model, proteinStdUsageRxn);
