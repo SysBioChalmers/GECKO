@@ -74,7 +74,7 @@ for i = 1:numel(rxnNames)
     if any(idxProts)
         protIdsModel = model.ec.enzymes(idxProts);
 
-        for j = 1:height(complexData)
+        for j = 1:size(complexData, 1)
 
             protIdsComplex = complexData(j).protID;
 
