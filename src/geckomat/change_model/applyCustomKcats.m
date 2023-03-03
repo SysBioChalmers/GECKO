@@ -120,7 +120,7 @@ if ~model.ec.geckoLight
                 for j = 1:numel(temp_rxnIdxs)
                     rxnIdxs = [rxnIdxs; temp_rxnIdxs{j}];
                 end
-                %rxnIdxs = cell2mat(temp_rxnIdxs);%arrayfun(@(x) horzcat(rxnIdxs, x), temp_rxnIdxs);
+
                 % Check when multiple proteins are involved, since it can return same rxn n times
                 rxnIdxs = unique(rxnIdxs); %unique(rxnIdxs{1, :});
 
@@ -168,6 +168,12 @@ if ~model.ec.geckoLight
     model = applyKcatConstraints(model, rxnToUpdate);
 
     rxnUpdated = model.ec.rxns(find(rxnToUpdate));
+
+    % Remove from notMatch those reactions already updated
+    remove = and(rxnToUpdate, rxnNotMatch);
+    rxnNotMatch(remove) = 0;
+    evaluatedRule(remove) = '';
+    enzInModel(remove) = '';
 
     idRxns = model.ec.rxns(find(rxnNotMatch));
     fullIdx = cellfun(@(x) find(strcmpi(model.rxns, x)), idRxns);
