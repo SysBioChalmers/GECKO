@@ -42,6 +42,9 @@ end
 
 warning('off', 'MATLAB:MKDIR:DirectoryExists');
 
+databases.uniprot = [];
+databases.kegg = [];
+
 %% Uniprot
 if any(strcmp(selectDatabase,{'uniprot','both'}))
     uniprotPath = fullfile(filePath,'uniprot.tsv');

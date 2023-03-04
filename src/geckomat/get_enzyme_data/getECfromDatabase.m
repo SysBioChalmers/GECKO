@@ -1,4 +1,4 @@
-function model = getECfromDatabase(model, action, ecRxns, modelAdapter)
+function model = getECfromDatabase(model, ecRxns, action, modelAdapter)
 % getECfromDatabase
 %   Populates the model.ec.eccodes field with enzyme codes that are
 %   extracted from UniProt and KEGG databases, as assigned to the proteins
@@ -6,6 +6,11 @@ function model = getECfromDatabase(model, action, ecRxns, modelAdapter)
 %
 % Input:
 %   model           ec-model in GECKO 3 format
+%   ecRxns          logical of length model.ec.rxns that specifies for
+%                   which reactions the existing model.ec.eccodes entry
+%                   should be kept and not modified by this function
+%                   (optional, by default all model.ec.eccodes entries
+%                   are populated by this function)
 %   action          response action if multiple proteins with different EC
 %                   numbers are found for a given gene in a metabolic
 %                   reaction (optional, default 'display')
@@ -14,11 +19,6 @@ function model = getECfromDatabase(model, action, ecRxns, modelAdapter)
 %                               with the lowest index in the database.
 %                   - 'add'     adds all the multiple proteins as
 %                               isoenzymes for the given reaction
-%   ecRxns          logical of length model.ec.rxns that specifies for
-%                   which reactions the existing model.ec.eccodes entry
-%                   should be kept and not modified by this function
-%                   (optional, by default all model.ec.eccodes entries
-%                   are populated by this function)
 %   modelAdapter    a loaded model adapter (Optional, will otherwise use the
 %                   default model adapter).
 %
@@ -44,9 +44,18 @@ data    = loadDatabases('both', modelAdapter);
 uniprot = data.uniprot;
 kegg    = data.kegg;
 
+modelGenes = modelAdapter.getUniprotIDsFromTable(model.genes);
 DBgenesUniprot  = data.uniprot.genes;
-DBecNumUniprot  = data.uniprot.eccodes;
-DBMWUniprot     = data.uniprot.MW;
+if ~isequal(modelGenes,model.genes)
+    [Lia,Locb] = ismember(modelGenes,uniprot.ID);
+    DBgenesUniprot(Locb(Lia)) = model.genes(Lia);
+    keepEntry = unique(Locb(Lia));
+    DBgenesUniprot = DBgenesUniprot(keepEntry);
+else
+    keepEntry = true(numel(DBgenesUniprot),1);
+end
+DBecNumUniprot  = data.uniprot.eccodes(keepEntry);
+DBMWUniprot     = data.uniprot.MW(keepEntry);
 %Build an index from gene to prot for faster processing later
 [geneIndexUniprot,geneHashMapUniprot] = hashGeneToProt(DBgenesUniprot);
 

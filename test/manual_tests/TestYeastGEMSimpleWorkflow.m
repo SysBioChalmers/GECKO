@@ -18,7 +18,7 @@ runDLKcat([], yeastAdapter);
 kcatListFullDlKcat = readDLKcatOutput(fullECModel, [], yeastAdapter);
 
 %Run fuzzy matching
-%fullECModel = getECfromDatabase(fullECModel, 'display', [], yeastAdapter);
+%fullECModel = getECfromDatabase(fullECModel, [], 'display', yeastAdapter);
 fullECModel = getECfromGEM(fullECModel);
 kcatListFullFuzzy = fuzzyKcatMatching(fullECModel, [], yeastAdapter);
 

@@ -189,21 +189,21 @@ function testgetECfromDatabase_tc0007(testCase)
     adapter = ModelAdapterManager.getAdapterFromPath(fullfile(geckoPath,'test','unit_tests','ecTestGEM'));
     model = getGeckoTestModel();
     ecModel = makeEcModel(model, false, adapter);
-    ecModel2 = getECfromDatabase(ecModel, 'display', [], adapter);
+    ecModel2 = getECfromDatabase(ecModel, [], 'display', adapter);
     expEccodes = {'1.1.1.1';'1.1.1.1';'1.1.1.1';'1.1.1.1';'1.1.2.1';'1.1.1.3'};
     verifyEqual(testCase,ecModel2.ec.eccodes,expEccodes)
     %for selected rxns only
-    ecModel2 = getECfromDatabase(ecModel, 'display', ismember(ecModel.ec.rxns, {'R2_EXP_1';'R3'}), adapter);
+    ecModel2 = getECfromDatabase(ecModel, ismember(ecModel.ec.rxns, {'R2_EXP_1';'R3'}),'display', adapter);
     expEccodes = {'1.1.1.1';'';'';'';'1.1.2.1';''};
     verifyEqual(testCase,ecModel2.ec.eccodes,expEccodes)
     
     %light
     ecModel = makeEcModel(model, true, adapter);
-    ecModel2 = getECfromDatabase(ecModel, 'display', [], adapter);
+    ecModel2 = getECfromDatabase(ecModel, [], 'display', adapter);
     expEccodes = {'1.1.1.1';'1.1.1.1';'1.1.2.1';'1.1.1.3';'1.1.1.1';'1.1.1.1'};
     verifyEqual(testCase,ecModel2.ec.eccodes,expEccodes)
     %for selected rxns only
-    ecModel2 = getECfromDatabase(ecModel, 'display', ismember(ecModel.ec.rxns, {'001_R2';'001_R3'}), adapter);
+    ecModel2 = getECfromDatabase(ecModel, ismember(ecModel.ec.rxns, {'001_R2';'001_R3'}), 'display', adapter);
     expEccodes = {'1.1.1.1';'';'1.1.2.1';'';'';''};
     verifyEqual(testCase,ecModel2.ec.eccodes,expEccodes)
 end

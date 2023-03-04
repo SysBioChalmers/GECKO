@@ -137,7 +137,7 @@ if any(conflictId)
            'or ''prot_pool'', or end with ''_REV'' or ''_EXP_[digit]''.'])
 end
 
-uniprotDB = loadDatabases('uniprot', modelAdapter);
+uniprotDB = loadDatabases('both', modelAdapter);
 uniprotDB = uniprotDB.uniprot;
 
 %1: Remove gene rules from pseudoreactions (if any):
