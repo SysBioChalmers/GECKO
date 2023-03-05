@@ -3,20 +3,18 @@
 
 |Current Version| |Tests passing| |Gitter| |Zenodo|
 
-About GECKO
+About GECKO 3
 -----------
 
 The **GECKO** toolbox is able to enhance a **G**\ enome-scale model to account for **E**\ nzyme **C**\ onstraints, using **K**\ inetics and **O**\ mics. The resulting enzyme-constrained model (**ecModel**) can be used to perform simulations where enzyme allocation is either drawn from a total protein pool, or constrained by measured protein levels from proteomics data.
 
-**Note:** Due to significant refactoring of the code, ecModels generated with GECKO versions 1 or 2 are not compatible with GECKO 3, and *vice versa*. The latest GECKO 2 release is available `here <https://github.com/SysBioChalmers/GECKO/releases/tag/v2.0.3>`_, while the ``gecko2`` branch is retained.
+**Note:** Regarding code and model compatibility with earlier GECKO versions (before 3.0), see `Notes on GECKO 1 and 2`_.
 
 **Citation**
 
 - A GECKO 3 publication is currently under consideration, citation information will appear here in due course.
 - For GECKO release 2, please cite `Domenzain et al. (2022) <https://doi.org/10.1038/s41467-022-31421-1>`_.
 - For GECKO release 1, please cite `Sánchez et al. (2017) <https://doi.org/10.15252/msb.20167411>`_.
-
-Last update: 2023-03-05
 
 Required software
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -65,6 +63,18 @@ Getting started
 
 In the GECKO folder, ``protocols.m`` contains instructions on how to reconstruct and analyze an ecModel for *S. cerevisiae*.
 
+Notes on GECKO 1 and 2
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Due to significant refactoring of the code, GECKO version 3 is generally not backwards compatible with earlier versions.
+
+- Most notably, GECKO 3 ecModels have a `.ec` structure containing all enzyme and kcat information.
+- In addition, enzymes are incorporated as MW/kcat in GECKO 3, while this was 1/kcat in GECKO 1 and 2.
+- Most functions in GECKO 3 do not work on ecModels generated with GECKO versions 1 or 2.
+- ecModels generated in GECKO 3 do not work with functions from GECKO versions 1 or 2.
+- At this moment, there are no Python functions to work with GECKO 3 formatted ecModels.
+- The last GECKO 2 release (2.0.3) is available `here <https://github.com/SysBioChalmers/GECKO/releases/tag/v2.0.3>`_.
+- The ``gecko2`` branch remains available for any potential fixes.
+
 Contributing
 ------------
 
@@ -79,3 +89,5 @@ Contributions are always welcome! Please read the `contributing guidelines <http
    :target: https://gitter.im/SysBioChalmers/GECKO?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
 .. |Zenodo| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.7699818.svg
    :target: https://doi.org/10.5281/zenodo.7699818
+   
+Notes regarding 
