@@ -1,28 +1,26 @@
-%This code requires that Human-GEM is installed
-
-%this is tcm0002
+% This code requires that Human-GEM is installed
 
 GECKORoot = findGECKOroot();
 
 humanAdapter = ModelAdapterManager.getAdapterFromPath(fullfile(GECKORoot, 'userData', 'ecHumanGEM'));
-
 HumanGEMRoot = HumanGEMAdapter.getHumanGEMRootPath();
 
 ihuman = load(fullfile(HumanGEMRoot, 'model', 'Human-GEM.mat')).ihuman;
-modSimp = simplifyModel(ihuman,false,false,true,true); %remove dead-end reactions
+% Remove dead-end reactions
+modSimp = simplifyModel(ihuman,false,false,true,true);
 modExp = modSimp;
 [modExp.grRules,skipped] = simplifyGrRules(modExp.grRules,true);
 
-%Full model
+% Full model
 %%%%%%%%%%%%
 
 fullECModel = makeEcModel(modExp, false, humanAdapter);
 [fullECModel, foundComplex, proposedComplex] = applyComplexData(fullECModel, [], humanAdapter);
 
-%Run DLKcat
+% Run DLKcat
 fullECModel = findMetSmiles(fullECModel, humanAdapter);
 writeDLKcatInput(fullECModel, [], humanAdapter, [], [], true);
-runDLKcat([], humanAdapter);
+runDLKcat(humanAdapter);
 kcatListFullDlKcat = readDLKcatOutput(fullECModel, [], humanAdapter);
 
 %Run fuzzy matching
@@ -48,7 +46,7 @@ lightECModel = makeEcModel(modExp, true, humanAdapter);
 %Run DLKcat
 lightECModel = findMetSmiles(lightECModel, humanAdapter);
 writeDLKcatInput(lightECModel, [], humanAdapter, [], [], true);
-runDLKcat([], humanAdapter);
+runDLKcat(humanAdapter);
 kcatListLightDlKcat = readDLKcatOutput(lightECModel, [], humanAdapter);
 
 %Run fuzzy matching
@@ -143,11 +141,10 @@ kcatListLightFuzzy = fuzzyKcatMatching(lightECModel, [], humanAdapter);
 %find(lightECModel.S(length(lightECModel.mets),:) < -10^12)
 %constructEquations(lightECModel, lightECModel.rxns(851))
 
-%run dlKcat
-%ModelAdapterManager.setDefaultAdapter(humanAdapter); %dlkcat functions currently do not well support sending in an adapter - fix later
+% Run dlKcat
 fullECModel = findMetSmiles(fullECModel, humanAdapter);
 testFull = writeDLKcatInput(fullECModel, [], humanAdapter);
-runDLKcat([], [], humanAdapter, [], 'C:/Python38/Python38/python.exe', 'C:/Python38/Python38/Scripts/pip.exe');
+runDLKcat(humanAdapter);
 kcatListFullDlKcat = readDLKcatOutput(fullECModel, [], humanAdapter);
 
 %fullECModel2 = fullECModel;
@@ -162,7 +159,7 @@ kcatListFullDlKcat = readDLKcatOutput(fullECModel, [], humanAdapter);
 
 lightECModel = findMetSmiles(lightECModel, humanAdapter);
 testLight = writeDLKcatInput(lightECModel, [], humanAdapter);
-runDLKcat([], [], humanAdapter, [], 'C:/Python38/Python38/python.exe', 'C:/Python38/Python38/Scripts/pip.exe');
+runDLKcat(humanAdapter);
 kcatListLightDlKcat = readDLKcatOutput(lightECModel, [], humanAdapter);
 
 %now join the fuzzy and dlkcat ckats for light
@@ -170,36 +167,33 @@ mergedKcatListLight = mergeDlkcatAndFuzzyKcats(kcatListLightDlKcat, kcatListLigh
 lightECModelMerged  = selectKcatValue(lightECModel,mergedKcatListLight);
 lightECModelMerged = applyKcatConstraints(lightECModelMerged);
 
-%plot the coefficients
+% plot the coefficients
 coeffs = -full(lightECModelMerged.S(length(lightECModelMerged.mets), 1:(length(lightECModelMerged.rxns)-1))).';
 coeffs(coeffs == 0) = [];
 length(coeffs)
-histogram(log10(coeffs)) %looks like the current coeffs should be multiplied by 1000 - center is around 10^-3
-
+histogram(log10(coeffs)) % looks like the current coeffs should be multiplied by 1000 - center is around 10^-3
 
 %lightECModel.ec.mw(strcmp(lightECModel.ec.rxns, '001_MAR03875')) %25195, reasonable
 %lightECModel.ec.kcat(strcmp(lightECModel.ec.rxns, '001_MAR03875')) %8.8300e-05, very small
 
-%set protein pool constraint
+% set protein pool constraint
 lightECModelMerged = setProtPoolSize(lightECModelMerged, [], humanAdapter);
-
 lightECModelTuned = sensitivityTuning(lightECModel, 0.07, humanAdapter);
 
-
-%full
+% full
 kcatListFullFuzzy = fuzzyKcatMatching(fullECModel, [], humanAdapter);
-
 mergedKcatListFull = mergeDlkcatAndFuzzyKcats(kcatListFullDlKcat, kcatListFullFuzzy);
 
 fullECModelMerged = selectKcatValue(fullECModel,mergedKcatListFull);
 fullECModelMerged = applyKcatConstraints(fullECModelMerged);
-%set protein pool constraint
+
+% set protein pool constraint
 fullECModelMerged = setProtPoolSize(fullECModelMerged, [], humanAdapter);
 
 
 
 
-%Now merge the kcats from dlkcat and fuzzy
+% Now merge the kcats from dlkcat and fuzzy
 mergedKcatList = mergeDlkcatAndFuzzyKcats(kcatListFullDlKcat, kcatListFullFuzzy);
 fullECModelMerged  = selectKcatValue(fullECModelMerged,mergedKcatList);
 fullECModelMerged = applyKcatConstraints(fullECModelMerged);
@@ -209,21 +203,20 @@ fullECModelMerged = setProtPoolSize(fullECModelMerged, [], humanAdapter);
 fullECModelTuned = sensitivityTuning(fullECModelMerged, 0.07, humanAdapter);
 
 
-
-
 constructEquations(fullECModel, 'prot_pool_exchange')
 constructEquations(fullECModel, 'MAR12341_EXP_1')
 constructEquations(fullECModel, 'draw_prot_Q9Y6K0')
+
 %where is prot_Q9Y6K0 used?
 fullECModel.S(strcmp(fullECModel.metNames,'prot_Q9Y6K0'),:)
 fullECModel.rxns(3346)
 
-%good example
+% good example
 constructEquations(fullECModel, 'MAR00468_EXP_2')
 constructEquations(fullECModel, 'MAR00468_EXP_1')
 constructEquations(lightECModel, 'MAR00468')
 
-%look at the coefficients in light and full
+% look at the coefficients in light and full
 sel = startsWith(fullECModel.rxns, 'draw');
 constructEquations(fullECModel, fullECModel.rxns(~sel))
 
@@ -232,5 +225,5 @@ kcatListFull.kcats(strcmp(kcatListFull.rxns,'MAR00468_EXP_1'))
 kcatListFull.rxns(kcatListFull.kcats ~= 0)
 
 fullECModel.ec.kcat(strcmp(fullECModel.ec.rxns, 'MAR00468_EXP_1'))
-lightECModel.ec.kcat(strcmp(lightECModel.ec.rxns, '001_MAR00468'))%ok
+lightECModel.ec.kcat(strcmp(lightECModel.ec.rxns, '001_MAR00468')) % ok
 

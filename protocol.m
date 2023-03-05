@@ -97,9 +97,7 @@ ecModel = findMetSmiles(ecModel);
 % kcat values. If the file already exists, it will not be overwritten, to
 % avoid losing existing kcat values (unless 'overwrite' was set as 'true'
 % when running writeDLKcatInput.
-% runDLKcat will attempt to download, install and run DLKcat, but this
-% might not work for all systems. In that case, the user will be directed
-% to manually download, install and DLKcat via the GECKO-provided DLKcat package
+% runDLKcat will run DLKcat using a Docker image.
 
 writeDLKcatInput(ecModel);
 runDLKcat();
