@@ -7,7 +7,12 @@ classdef ModelAdapterManager
                 addToMatlabPath = true;
             end
             
-            potentialAdapterFiles = dir(fullfile(adapterPath,'*.m')); %gets all wav files in struct
+            if endsWith(adapterPath,'.m') % Assume it is the adapter file, not path
+                adapter = feval(adapterPath(1:end-2));
+                return
+            end
+            potentialAdapterFiles = dir(fullfile(adapterPath,'*.m'));
+
             %Check that there is only one .m file
             if length(potentialAdapterFiles) ~= 1
                 error('getAdapterFromPath: One, and only one .m file is expected in the folder. This file is expected to contain a ModelAdapter.');

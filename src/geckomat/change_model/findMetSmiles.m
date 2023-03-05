@@ -1,4 +1,4 @@
-function model = findMetSmiles(model, modelAdapter, verbose)
+function [model,noSMILES] = findMetSmiles(model, modelAdapter, verbose)
 % findMetSMILES
 %   Queries PubChem by metabolite names to obtain SMILES. Matches will also
 %   be stored in userData/***/data/smilesDB.tsv, that will also be queried
@@ -14,6 +14,7 @@ function model = findMetSmiles(model, modelAdapter, verbose)
 %                default true)
 % Ouput:
 %   model       Output model with model.metSmiles specified.
+%   noSMILES    metabolite names for which no SMILES could be found.
 %
 if nargin < 3 || isempty(verbose)
     verbose = true;
@@ -94,6 +95,11 @@ if any(~metMatch & ~protMets)
     if verbose; fprintf('\b\b\b\b\b\b\b\b\b\b\b\b\bdone.\n'); end
 end
 newSmiles = uniqueSmiles(uniqueIdx);
+noSMILES = cellfun(@isempty,uniqueSmiles);
+successRatio = numel(find(noSMILES))/numel(uniqueSmiles);
+fprintf('SMILES could be found for %s%% of the unique metabolite names.\n',num2str(successRatio*100,'%.0f'))
+noSMILES = uniqueNames(noSMILES);
+
 if ~isfield(model,'metSmiles') || all(cellfun(@isempty,model.metSmiles))
     model.metSmiles = newSmiles;
 else
