@@ -6,18 +6,21 @@ function model = fillProtConcs(model, protData)
 %   model.ec.concs are overwritten.
 %
 % Input:
-%   model           an ec-model
-%   protData        structure with proteome data, from loadProtFluxData
-%                   uniprotIDs      cell arrray with Uniprot IDs matching
-%                                   protData.abundances
-%                   abundances      matrix of proteomics data
+%   model       an ecModel in GECKO 3 format (with ecModel.ec structure)
+%   protData    structure with proteome data, from loadProtFluxData
+%               uniprotIDs      cell arrray with Uniprot IDs matching
+%                               protData.abundances
+%               abundances      matrix of proteomics data
 %
 % Output:
-%   model           an ec-model where model.ec.concs is populated with
-%                   protein concentrations.
+%   model       an ecModel where model.ec.concs is populated with protein
+%               concentrations.
 %
 % Note: to also constrain the model with the content of model.ec.concs, you
 % should run constrainProtConcs.
+%
+% Usage:
+%   model = fillProtConcs(model, protData)
 
 uniprotIDs = protData.uniprotIDs;
 abundances = protData.abundances;

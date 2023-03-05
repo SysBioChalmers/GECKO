@@ -1,8 +1,8 @@
 function complexInfo = getComplexData(organism, modelAdapter)
 % getComplexData
 %   Download curated complex stochiometries from the EMBL-EBI Complex
-%   Portal database. Writes data/ComplexPortal.json in the the
-%   obj.params.path specified in the ModelAdapter.
+%   Portal database. Writes data/ComplexPortal.json in the obj.params.path
+%   specified in the model adapter.
 %
 % Input:
 %   organism        the organism for which complex information should be
@@ -30,7 +30,7 @@ function complexInfo = getComplexData(organism, modelAdapter)
 %                               2 if complex consists of sub-complexes, whose
 %                                 subunit stochiometries are given
 % Usage
-%   complexInfo = getComplexData('Saccharomyces cerevisiae', modelAdapter);
+%   complexInfo = getComplexData(organism, modelAdapter);
 
 if nargin < 2 || isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefaultAdapter();
@@ -176,4 +176,5 @@ jsontxt = jsonencode(cell2table(complexData, 'VariableNames', rowHeadings));
 fid = fopen(fullfile(params.path,'data','ComplexPortal.json'), 'w');
 fprintf(fid, '%s', jsontxt);
 fclose(fid);
+fprintf('Model-specific ComplexPortal database stored at %s\n',fullfile(params.path,'data','ComplexPortal.json'));
 end

@@ -13,6 +13,13 @@ function model = loadConventionalGEM(filename, modelAdapter)
 %                   modelAdapter)
 %   modelAdapter    a loaded model adapter, from where the model folder is
 %                   read (Optional, will otherwise use the default model adapter).
+%
+% Output:
+%   model           model in RAVEN format
+%
+% Usage:
+%   model = loadConventionalGEM(filename, modelAdapter)
+
 
 if nargin < 2 || isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefaultAdapter();

@@ -6,12 +6,13 @@ function [minFlux, maxFlux] = ecFVA(ecModel, model)
 %   function does not include enzyme usage reactions, to observe these, on
 %   could consider running flux variability directly on the ecModel.
 %
-%    ecModel    will be used in the flux variability analysis
-%    model      non-ecModel variant of the ecModel, to which the minFlux
+% Input:
+%   ecModel     an ecModel in GECKO 3 format (with ecModel.ec structure)
+%   model       non-ecModel variant of the ecModel, to which the minFlux
 %               and maxFlux will be mapped
-%
-%    minFlux    vector of minimum flux rates, corresponding to model.rxns
-%    maxFlux    vector of maximum flux rates, corresponding to model.rxns
+% Output:
+%   minFlux     vector of minimum flux rates, corresponding to model.rxns
+%   maxFlux     vector of maximum flux rates, corresponding to model.rxns
 %
 % Usage: [minFlux, maxFlux] = ecFVA(ecModel, model)
 

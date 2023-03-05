@@ -18,6 +18,8 @@ function fluxData = loadFluxData(fluxDataFile, modelAdapter)
 %                   exchMets    exchanged metabolites, matching exchFluxes
 %                   exchRxnIDs  exchange reaction IDs, matching exchMets
 %
+% Usage:
+%   fluxData = loadFluxData(fluxDataFile, modelAdapter)
 
 if nargin < 2 || isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefaultAdapter();

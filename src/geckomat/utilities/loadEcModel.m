@@ -1,4 +1,4 @@
-function model=loadEcModel(filename, modelAdapter)
+function model = loadEcModel(filename, modelAdapter)
 % loadEcModel
 %   Loads the ecModel that matches the modelAdapter. By default, it loads
 %   the models/ecModel.yml in the directory specified as param.path in
@@ -14,7 +14,10 @@ function model=loadEcModel(filename, modelAdapter)
 %                   read (Optional, will otherwise use the default model adapter).
 %
 % Output:
-%   model           ecModel in GECKO3 format
+%   model           an ecModel in GECKO 3 format (with ecModel.ec structure)
+%
+% Usage:
+%   model = loadEcModel(filename, modelAdapter)
 
 if nargin < 2 || isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefaultAdapter();

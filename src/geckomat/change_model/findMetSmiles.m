@@ -6,15 +6,14 @@ function [model,noSMILES] = findMetSmiles(model, modelAdapter, verbose)
 %   metSmiles field, then non-empty entries will not be overwritten.
 %
 % Input:
-%   model        Input model, whose model.metNames field is used to find the
-%                relevant SMILES
+%   model        a model whose metNames field is used to find the relevant SMILES
 %   modelAdapter a loaded model adapter (Optional, will otherwise use the
 %                default model adapter).
 %   verbose      logical whether progress should be reported (Optional,
 %                default true)
 % Ouput:
-%   model       Output model with model.metSmiles specified.
-%   noSMILES    metabolite names for which no SMILES could be found.
+%   model        model with model.metSmiles specified.
+%   noSMILES     metabolite names for which no SMILES could be found.
 %
 if nargin < 3 || isempty(verbose)
     verbose = true;
@@ -92,7 +91,10 @@ if any(~metMatch & ~protMets)
             error('Cannot reach PubChem. Check your internet connection and try again.')
         end
     end
-    if verbose; fprintf('\b\b\b\b\b\b\b\b\b\b\b\b\bdone.\n'); end
+    if verbose;
+        fprintf('\b\b\b\b\b\b\b\b\b\b\b\b\bdone.\n');
+        fprintf('Model-specific SMILES database stored at %s\n',smilesDBfile);
+    end
 end
 newSmiles = uniqueSmiles(uniqueIdx);
 noSMILES = cellfun(@isempty,uniqueSmiles);

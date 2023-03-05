@@ -1,9 +1,9 @@
 function [enz, controlCoeffs] = getConcControlCoeffs(model, proteins, foldChange, limit)
 % getConcControlCoeffs
-%   Calculate an control coefficients of protein usage
+%   Calculate an control coefficients of protein usage.
 %
 % Input:
-%   model           an ecModel in GECKO 3 version
+%   model           an ecModel in GECKO 3 format (with ecModel.ec structure)
 %   proteins        a list of proteins to calculate the coefficients. (Optional,
 %                   default = model.ec.enzymes)
 %   foldChange      a value how much increase the protein concentration.

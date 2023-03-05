@@ -4,7 +4,7 @@ function writtenTable = writeDLKcatInput(model, ecRxns, modelAdapter, onlyWithSm
 %   in the obj.params.path specified in the ModelAdapter.
 %
 % Input:
-%   model           an ec-model
+%   model           an ecModel in GECKO 3 format (with ecModel.ec structure)
 %   ecRxns          for which reactions (from model.ec.rxns) DLKcat should
 %                   predict kcat values, provided as logical vector with
 %                   same length as model.ec.rxns. (Opt, default is all
@@ -21,6 +21,9 @@ function writtenTable = writeDLKcatInput(model, ecRxns, modelAdapter, onlyWithSm
 %
 % Output:
 %   writtenTable    The table written, mainly to be used for testing purposes.
+%
+% Usage:
+%   writtenTable = writeDLKcatInput(model, ecRxns, modelAdapter, onlyWithSmiles, filename, overwrite)
 
 [geckoPath, ~] = findGECKOroot();
 
@@ -151,6 +154,7 @@ out(6,:) = {'NA'};
 fID = fopen(filename,'w');
 fprintf(fID,'%s\t%s\t%s\t%s\t%s\t%s\n',out{:});
 fclose(fID);
+fprintf('Model-specific DLKcat input stored at %s\n',filename);
 
 writtenTable = out;
 end

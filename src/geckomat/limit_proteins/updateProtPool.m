@@ -4,14 +4,16 @@ function [model, newPtot]  = updateProtPool(model, Ptot, modelAdapter)
 %   model.ec.concs).
 %
 % Input:
-%   model           an ec-model
+%   model           an ecModel in GECKO 3 format (with ecModel.ec structure)
 %   Ptot            total protein content, overwrites modelAdapter value
 %   modelAdapter    a loaded model adapter (Optional,
 %
 % Output:
-%   model           an ec-model where model.ec.concs is populated with
-%                   protein concentrations.
-%
+%   model           an ecModel where model.ec.concs is populated with
+%                   protein concentrations
+%   newPtot         new Ptot
+% Usage:
+%   [model, newPtot]  = updateProtPool(model, Ptot, modelAdapter)
 
 if nargin < 3 || isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefaultAdapter();
@@ -39,4 +41,5 @@ if PdiffEnz > 0
 else
     error('The total measured protein mass exceeds the total protein content.')
 end
+newPtot = PdiffEnz / 1000 / params.f
 end

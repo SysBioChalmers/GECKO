@@ -3,7 +3,7 @@ function model = constrainFluxData(model, fluxData, condition, maxMinGrowth, loo
 %   Constrains fluxes
 %
 % Input:
-%   model           an ec-model
+%   model           an ecModel in GECKO 3 format (with ecModel.ec structure)
 %   fluxData        structure with flux data
 %                   conds       sampling condition
 %                   Ptot        total protein (g/gDCW)
@@ -37,7 +37,10 @@ function model = constrainFluxData(model, fluxData, condition, maxMinGrowth, loo
 %
 %
 % Output:
-%   model           an ec-model where fluxes are constraint
+%   model           an ecModel where fluxes are constraint
+%
+% Usage:
+%   model = constrainFluxData(model, fluxData, condition, maxMinGrowth, looseStrictFlux, modelAdapter)
 
 if nargin < 6 || isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefaultAdapter();

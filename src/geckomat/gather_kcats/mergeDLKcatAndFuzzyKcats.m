@@ -26,7 +26,6 @@ function mergedKcatList = mergeDLKcatAndFuzzyKcats(kcatListDLKcat, kcatListFuzzy
 % Output:
 %   mergedKcatList  The merged list of kcats
 %   
-%
 % The origin parameter:
 %   1: correct organism, correct substrate, kcat
 %   2: any organism, correct substrate, kcat
@@ -41,6 +40,9 @@ function mergedKcatList = mergeDLKcatAndFuzzyKcats(kcatListDLKcat, kcatListFuzzy
 %                   with NAD+ or NADP+ as acceptor
 %   2: 1.1.-.-      oxidoreductase, acting on the CH-OH group of donors
 %   3: 1.-.-.-      oxidoreductase
+%
+% Usage:
+%   mergedKcatList = mergeDLKcatAndFuzzyKcats(kcatListDLKcat, kcatListFuzzy, topOriginLimit, bottomOriginLimit, wildcardLimit)
 
 if nargin < 5
     wildcardLimit = 3;

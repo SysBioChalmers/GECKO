@@ -2,26 +2,26 @@ function [model, flexProt] = flexibilizeProtConcs(model, expGrowth, foldChange, 
 % flexibilizeProtConcs
 %   Flexibilize protein concentration of an ecModel with constrained with
 %   proteomics data. The upper bound of the protein usage reaction is
-%   changed, while the 
+%   changed, while the concentrations in ecModel.ec.concs remain unchanged.
 %
 % Input:
-%   model           an ecModel in GECKO 3 version
-%   expGrowth       Estimaed experimental growth rate. If not specified,
-%                   the value will be read from the model adapter.
-%   foldChange      a value how much increase the protein concentration.
+%   model           an ecModel in GECKO 3 format (with ecModel.ec structure)
+%   expGrowth       estimated experimental growth rate. If not specified,
+%                   the value will be read from the model adapter
+%   foldChange      a value how much increase the protein concentration
 %                   (Optional, default = 2)
 %   iterPerEnzyme   the number of iterations that an enzyme can be increased.
 %                   A zero number can be defined. if zero is defined no limit
 %                   will be set, and it will increase the protein concentration
 %                   until reach de defined growth rate (Optional, default = 5)
 %   modelAdapter    a loaded model adapter (Optional, will otherwise use the
-%                   default model adapter).
+%                   default model adapter)
 %   verbose         logical whether progress should be reported (Optional,
 %                   default true)
 %
 % Output:
 %   model           ecModel where the UB of measured protein have been increased
-%                   to allow reach a defined growth rate.
+%                   to allow reach a defined growth rate
 %   flexProt        array with information about flexibilized proteins
 %                   uniprotIDs  enzymes whose usage UB was flexibilized
 %                   oldConcs    original concentrations, from mode.ec.concs
@@ -31,7 +31,8 @@ function [model, flexProt] = flexibilizeProtConcs(model, expGrowth, foldChange, 
 %                               step-wise flexibilized
 %
 % Usage:
-%    [model, flexProt] = flexibilizeProtConcs(model, expGrowth, foldChange, iterPerEnzyme, modelAdapter)
+%   [model, flexProt] = flexibilizeProtConcs(model, expGrowth, foldChange, iterPerEnzyme, modelAdapter, verbose)
+
 if nargin < 6 || isempty(verbose)
     verbose = true;
 end

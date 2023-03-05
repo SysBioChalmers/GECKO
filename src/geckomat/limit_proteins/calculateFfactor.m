@@ -1,8 +1,21 @@
 function f = calculateFfactor(model, protData, enzymes, modelAdapter)
 % calculateFfactor
+%   Computes the f factor, as a proxy to the mass fraction of proteins
+%   accounted for in an ecModel out of the total protein content in cells.
 %
-% Computes the f factor, as a proxy to the mass fraction of proteins accounted 
-% for in an ecModel out of the total protein content in cells.
+% Input:
+%   model        an ecModel in GECKO 3 format (with ecModel.ec structure)
+%   protData     structure with proteome data, from loadProtData (Optional,
+%                by default it instead attempts to load data/paxDB.tsv)
+%   enzymes      list of enzymes (Optional, default model.ec.enzymes)
+%   modelAdapter a loaded model adapter (Optional, will otherwise use the
+%                default model adapter).
+%
+% Output:
+%   f            f-factor
+%
+% Usage:
+%   f = calculateFfactor(model, protData, enzymes, modelAdapter)
 
 if nargin < 4 || isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefaultAdapter();
@@ -20,10 +33,8 @@ end
 if nargin < 2 || isempty(protData)
     if exist(fullfile(params.path,'data','paxDB.tsv'),'file')
         protData = fullfile(params.path,'data','paxDB.tsv');
-    elseif exist(fullfile(params.path,'data','proteomics.tsv'),'file')
-        protData = fullfile(params.path,'data','proteomics.tsv');
     else
-        disep('No proteomics data is provided or can be found. Default f value of 0.5 is returned.')
+        disp('No proteomics data is provided or can be found. Default f value of 0.5 is returned.')
         f = 0.5;
     end
 end
@@ -32,7 +43,7 @@ end
 uniprotDB = loadDatabases('uniprot', modelAdapter);
 uniprotDB = uniprotDB.uniprot;
 
-if endsWith(protData,'paxDB.tsv')
+if ischar(protData) && endsWith(protData,'paxDB.tsv')
     fID         = fopen(fullfile(protData),'r');
     fileContent = textscan(fID,'%s','delimiter','\n');
     headerLines = sum(startsWith(fileContent{1},'#'));
@@ -52,8 +63,6 @@ if endsWith(protData,'paxDB.tsv')
     clear protData
     protData.uniprot = uniprot;
     protData.level   = level;
-else
-    [~, protData] = readProteomics(model, protData);
 end
 
 % Get MW and abundance (unit does not matter, f is fraction)

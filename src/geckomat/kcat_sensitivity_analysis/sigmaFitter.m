@@ -5,7 +5,7 @@ function [model, sigma] = sigmaFitter(model, growthRate, Ptot, f, makePlot, mode
 %   function (i.e. growth rate at specified conditions)
 %
 % INPUTS:
-%   model           ec-model
+%   model           an ecModel in GECKO 3 format (with ecModel.ec structure)
 %   growthRate      growth rate that should be reached. If not
 %                   specified, the value will be read from the model
 %                   adapter.
@@ -22,9 +22,12 @@ function [model, sigma] = sigmaFitter(model, growthRate, Ptot, f, makePlot, mode
 %                   default model adapter).
 %
 % Output:
-%   model           ec-model with protein pool exchange upper bound adapted
+%   model           ecModel with protein pool exchange upper bound adapted
 %                   to the optimal sigma-factor
 %   sigma           optimal sigma-factor
+%
+% Usage:
+%   [model, sigma] = sigmaFitter(model, growthRate, Ptot, f, makePlot, modelAdapter)
 
 if nargin < 6 || isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefaultAdapter();

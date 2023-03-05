@@ -14,20 +14,21 @@ function usageData = enzymeUsage(ecModel,fluxes,zero)
 %       enzymes field than this order is used, otherwise it is given
 %       alphabetically.
 %
-%  Input:
-%   ecModel     a full GECKO3 ecModel
+% Input:
+%   ecModel     an ecModel in GECKO 3 format (with ecModel.ec structure)
 %   fluxes      vector of fluxes, for instance sol.x
 %   zero        logical whether also enzymes with zero absolute usage
 %               should be included (Optional, default true)
 %
-%  Output:
+% Output:
 %   usageData   structure with enzyme usage data
 %               capUsage    vector of enzyme capacity usages
 %               absUsage    vector of absolute enzyme usages
 %               UB          vector of enzyme exchange reaction upper bounds
 %               protID      string array of matching protein IDs
 %
-% Usage: usageData = enzymeUsage(ecModel,fluxes,zero)
+% Usage:
+%   usageData = enzymeUsage(ecModel,fluxes,zero)
 
 if nargin<3
     zero=true;

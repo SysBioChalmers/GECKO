@@ -11,7 +11,8 @@ function usageReport = reportEnzymeUsage(ecModel, usageData, highCapUsage)
 %  Output:
 %   usageReport     table with summary information
 %
-% Usage: usageReport = reportEnzymeUsage(ecModel, usageData, highCapUsage)
+% Usage:
+%   usageReport = reportEnzymeUsage(ecModel, usageData, highCapUsage)
 
 if nargin < 3 || isempty(highCapUsage)
     highCapUsage = 0.9

@@ -1,9 +1,11 @@
 function [model, rxnUpdated, notMatch] = applyCustomKcats(model, customKcats, modelAdapter)
 % applyCustomKcats
-%   Apply user defined kcats
+%   Apply user defined kcats.  Reads data/customKcats.tsv in the obj.params.path
+%   specified in the model adapter. Alternatively, a customKcats structure can
+%   provided, as specified below.
 %
 % Input:
-%   model           an ecModel in GECKO 3 version
+%   model           an ecModel in GECKO 3 format (with ecModel.ec structure)
 %   customKcats     structure with custom kcat information. If nothing
 %                   is provided, an attempt will be made to read
 %                   data/customKcats.tsv from the obj.params.path folder
@@ -20,9 +22,7 @@ function [model, rxnUpdated, notMatch] = applyCustomKcats(model, customKcats, mo
 %                   based on GPR rules. Then, they are suggested to be
 %                   curated by the user
 %
-%   A file data/customKcats.tsv will be read from the obj.params.path
-%   folder specified in the modelAdapter. Alternatively, a customKcats
-%   structure can be defined with the following fields:
+%   customKcats structure:
 %   - proteins    protein identifiers, multiple for the same kcat (in case
 %                 of a protein complex) are separated by ' + '
 %   - genes       gene identifiers (optional, not used in matching)
@@ -41,7 +41,7 @@ function [model, rxnUpdated, notMatch] = applyCustomKcats(model, customKcats, mo
 %   that makeEcModel introduces.
 %
 % Usage:
-%   [model, rxnUpdated, notMatch] = applyComplexData(model, customKcats, modelAdapter);
+%   [model, rxnUpdated, notMatch] = applyCustomKcats(model, customKcats, modelAdapter);
 
 if nargin < 3 || isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefaultAdapter();
@@ -73,7 +73,7 @@ if isfile(customKcats)
     customKcats.notes       = fileContent{6};
     customKcats.stoicho     = fileContent{7};
 elseif ~all(strcmp(fieldnames(customKcats),{'proteins','kcat','notes','stoicho'}))
-    error('The customKcats file does not have all the required fields in the header.');
+    error(['The customKcats file at ' customKcats ' does not have all the required fields in the header.']);
 end
 
 rxnToUpdate = false(length(model.ec.rxns),1);

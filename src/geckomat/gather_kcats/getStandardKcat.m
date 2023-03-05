@@ -14,7 +14,7 @@ function [model, rxnsMissingGPR, standardMW, standardKcat, rxnsNoKcat] = getStan
 %   already been associated with.
 %
 % Input:
-%   model           an ecModel in GECKO 3 version
+%   model           an ecModel in GECKO 3 format (with ecModel.ec structure)
 %   modelAdapter    a loaded model adapter (Optional, will otherwise use the
 %                   default model adapter).
 %   threshold       a threshold to determine when use a kcat value based on
@@ -38,7 +38,7 @@ function [model, rxnsMissingGPR, standardMW, standardKcat, rxnsNoKcat] = getStan
 %   be run to apply the new constraints to the S-matrix.
 %
 % Usage:
-%    [model, rxnsMissingGPR, standardMW, standardKcat] = getStandardKcat(model, modelAdapter, threshold, fillZeroKcat);
+%    [model, rxnsMissingGPR, standardMW, standardKcat, rxnsNoKcat] = getStandardKcat(model, modelAdapter, threshold, fillZeroKcat);
 
 if nargin < 2 || isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefaultAdapter();

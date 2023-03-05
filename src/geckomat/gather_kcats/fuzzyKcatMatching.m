@@ -6,8 +6,8 @@ function kcatList = fuzzyKcatMatching(model, ecRxns, modelAdapter, forceWClvl)
 %   organism; (b) different substrate; (c) calculated from specific
 %   activities; (d) wildcards in the EC number.
 %
-% Input
-%   model        an ec-model, containing model.ec.eccodes field
+% Input:
+%   model        an ecModel in GECKO 3 format (with ecModel.ec structure)
 %   ecRxns       for which reactions (from model.ec.rxns) kcat values should
 %                be found, provided as logical vector with same length as
 %                model.ec.rxns. (Opt, default is all reactions)
@@ -15,7 +15,7 @@ function kcatList = fuzzyKcatMatching(model, ecRxns, modelAdapter, forceWClvl)
 %                default model adapter).
 %   forceWClvl   force a minimum wildcard level (Optional, default 0). 
 %
-% Output
+% Output:
 %   kcatList    structure array with list of BRENDA derived kcat values,
 %               with separate entries for each kcat value
 %               source      'brenda'           
@@ -43,6 +43,9 @@ function kcatList = fuzzyKcatMatching(model, ecRxns, modelAdapter, forceWClvl)
 %   last digits in the E.C. number indicate the substrate specificity, so
 %   if this should be ignored, then correct substrate matches should not be
 %   prioritized.
+%
+% Usage:
+%   kcatList = fuzzyKcatMatching(model, ecRxns, modelAdapter, forceWClvl)
 
 if nargin<2 || isempty(ecRxns)
     ecRxns = true(numel(model.ec.rxns),1);

@@ -14,7 +14,8 @@ function databases = loadDatabases(selectDatabase,modelAdapter)
 %   databases       contains .uniprot and .kegg structures, dependent on
 %                   which databases were selected.
 %
-% Usage: databases = loadDatabases(selectDatabase,modelAdapter)
+% Usage:
+%   databases = loadDatabases(selectDatabase,modelAdapter)
 
 if nargin<1
     selectDatabase = 'both';
@@ -56,7 +57,12 @@ if any(strcmp(selectDatabase,{'uniprot','both'}))
         url = ['https://rest.uniprot.org/uniprotkb/stream?query=' uniprotRev ...
                uniprotIDtype ':' num2str(uniprotID) '&fields=accession%2C' uniprotGeneIdField ...
             '%2Cec%2Cmass%2Csequence&format=tsv&compressed=false&sort=protein_name%20asc'];
-        urlwrite(url,uniprotPath,'Timeout',30);
+        try
+            urlwrite(url,uniprotPath,'Timeout',30);
+            fprintf('Model-specific KEGG database stored at %s\n',uniprotPath);
+        catch
+            error(['Download failed, check your internet connection and try again, or manually download: ' url])
+        end
     end
     if exist(uniprotPath,'file')
         fid         = fopen(uniprotPath,'r');
@@ -192,4 +198,5 @@ out = cell2table(out);
 
 writetable(out, filePath, 'FileType', 'text', 'WriteVariableNames',false);
 fprintf('\b\b\b\b\b\b\b\b\b\b\b\b\b100%% complete\n');
+fprintf('Model-specific KEGG database stored at %s\n',filePath);
 end
