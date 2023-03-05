@@ -176,4 +176,5 @@ jsontxt = jsonencode(cell2table(complexData, 'VariableNames', rowHeadings));
 fid = fopen(fullfile(params.path,'data','ComplexPortal.json'), 'w');
 fprintf(fid, '%s', jsontxt);
 fclose(fid);
+fprintf('Model-specific ComplexPortal database stored at %s\n',fullfile(params.path,'data','ComplexPortal.json'));
 end

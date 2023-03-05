@@ -92,7 +92,10 @@ if any(~metMatch & ~protMets)
             error('Cannot reach PubChem. Check your internet connection and try again.')
         end
     end
-    if verbose; fprintf('\b\b\b\b\b\b\b\b\b\b\b\b\bdone.\n'); end
+    if verbose;
+        fprintf('\b\b\b\b\b\b\b\b\b\b\b\b\bdone.\n');
+        fprintf('Model-specific SMILES database stored at %s\n',smilesDBfile);
+    end
 end
 newSmiles = uniqueSmiles(uniqueIdx);
 noSMILES = cellfun(@isempty,uniqueSmiles);

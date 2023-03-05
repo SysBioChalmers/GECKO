@@ -73,7 +73,7 @@ if isfile(customKcats)
     customKcats.notes       = fileContent{6};
     customKcats.stoicho     = fileContent{7};
 elseif ~all(strcmp(fieldnames(customKcats),{'proteins','kcat','notes','stoicho'}))
-    error('The customKcats file does not have all the required fields in the header.');
+    error(['The customKcats file at ' customKcats ' does not have all the required fields in the header.']);
 end
 
 rxnToUpdate = false(length(model.ec.rxns),1);

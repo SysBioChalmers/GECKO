@@ -57,6 +57,7 @@ if any(strcmp(selectDatabase,{'uniprot','both'}))
                uniprotIDtype ':' num2str(uniprotID) '&fields=accession%2C' uniprotGeneIdField ...
             '%2Cec%2Cmass%2Csequence&format=tsv&compressed=false&sort=protein_name%20asc'];
         urlwrite(url,uniprotPath,'Timeout',30);
+        fprintf('Model-specific KEGG database stored at %s\n',uniprotPath);
     end
     if exist(uniprotPath,'file')
         fid         = fopen(uniprotPath,'r');
@@ -192,4 +193,5 @@ out = cell2table(out);
 
 writetable(out, filePath, 'FileType', 'text', 'WriteVariableNames',false);
 fprintf('\b\b\b\b\b\b\b\b\b\b\b\b\b100%% complete\n');
+fprintf('Model-specific KEGG database stored at %s\n',filePath);
 end

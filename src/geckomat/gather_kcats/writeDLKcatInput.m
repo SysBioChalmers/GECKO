@@ -21,6 +21,9 @@ function writtenTable = writeDLKcatInput(model, ecRxns, modelAdapter, onlyWithSm
 %
 % Output:
 %   writtenTable    The table written, mainly to be used for testing purposes.
+%
+% Usage:
+%   writtenTable = writeDLKcatInput(model, ecRxns, modelAdapter, onlyWithSmiles, filename, overwrite)
 
 [geckoPath, ~] = findGECKOroot();
 
@@ -151,6 +154,7 @@ out(6,:) = {'NA'};
 fID = fopen(filename,'w');
 fprintf(fID,'%s\t%s\t%s\t%s\t%s\t%s\n',out{:});
 fclose(fID);
+fprintf('Model-specific DLKcat input stored at %s\n',filename);
 
 writtenTable = out;
 end
