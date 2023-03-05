@@ -1,7 +1,7 @@
 .. image:: GECKO.png
    :align: center
 
-|Current Version| |Tests passing| |Gitter|
+|Current Version| |Tests passing| |Gitter| |Zenodo|
 
 About GECKO
 -----------
@@ -83,3 +83,5 @@ Contributions are always welcome! Please read the `contributing guidelines <http
 .. |Gitter| image:: https://badges.gitter.im/SysBioChalmers/GECKO.svg
    :alt: Join the chat at https://gitter.im/SysBioChalmers/GECKO
    :target: https://gitter.im/SysBioChalmers/GECKO?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
+.. |Zenodo| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.7699818.svg
+   :target: https://doi.org/10.5281/zenodo.7699818
