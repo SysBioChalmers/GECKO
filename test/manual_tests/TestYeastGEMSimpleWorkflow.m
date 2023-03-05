@@ -14,7 +14,7 @@ fullECModel = makeEcModel(yeastGEM, false, yeastAdapter);
 %Run DLKcat
 fullECModel = findMetSmiles(fullECModel, yeastAdapter);
 writeDLKcatInput(fullECModel, [], yeastAdapter, [], [], true);
-runDLKcat([], yeastAdapter);
+runDLKcat(yeastAdapter);
 kcatListFullDlKcat = readDLKcatOutput(fullECModel, [], yeastAdapter);
 
 %Run fuzzy matching
@@ -50,7 +50,7 @@ lightECModel = makeEcModel(yeastGEM, true, yeastAdapter);
 %Run DLKcat
 lightECModel = findMetSmiles(lightECModel, yeastAdapter);
 writeDLKcatInput(lightECModel, [], yeastAdapter, [], [], true);
-runDLKcat([], yeastAdapter);
+runDLKcat(yeastAdapter);
 kcatListLightDlKcat = readDLKcatOutput(lightECModel, [], yeastAdapter);
 
 %Run fuzzy matching

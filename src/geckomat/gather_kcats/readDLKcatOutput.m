@@ -46,8 +46,7 @@ fclose(fID);
 
 % Check if it contains any kcat values
 if all(cellfun(@isempty,kcats))
-    error(['DLKcat file does not contain any kcat values. First run DLKcat prediction, ' ...
-           'either using runDLKcat() or by manually running DLKcat.py in the terminal.'])
+    error('DLKcat file does not contain any kcat values, please run runDLKcat() first.')
 end
 
 % Check that all substrates are in the model
