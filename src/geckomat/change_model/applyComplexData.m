@@ -74,14 +74,23 @@ for i = 1:numel(rxnNames)
     if any(idxProts)
         protIdsModel = model.ec.enzymes(idxProts);
 
-        for j = 1:height(complexData)
+        for j = 1:size(complexData, 1)
 
             protIdsComplex = complexData(j).protID;
 
-            countMatch = ismember(protIdsModel,protIdsComplex);
+            C = intersect(protIdsModel, protIdsComplex);
 
-            % Let´s use the complex data as reference
-            match = sum(countMatch,'all')/numel(protIdsComplex);
+            % Determine the match percentage bewteen the proteins in the
+            % model and the proteins in complex data
+            if numel(C) == numel(protIdsModel) && numel(C) == numel(protIdsComplex)
+                match = 1;
+            else
+                if numel(protIdsModel) < numel(protIdsComplex)
+                    match = numel(C) / numel(protIdsComplex);
+                else
+                    match = numel(C) / numel(protIdsModel);
+                end
+            end
 
             % Check if the protID match with the complex data based on match % higher than
             % 75%. Pick the highest match.

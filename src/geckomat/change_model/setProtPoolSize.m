@@ -41,6 +41,6 @@ if nargin<2 || isempty(Ptot)
     Ptot = modelAdapter.getParameters().Ptot;
 end
 
-model.ub(strcmp(model.rxns, 'prot_pool_exchange')) = Ptot*f*sigma*1000;
+model.lb(strcmp(model.rxns, 'prot_pool_exchange')) = -(Ptot*f*sigma*1000);
 end
 

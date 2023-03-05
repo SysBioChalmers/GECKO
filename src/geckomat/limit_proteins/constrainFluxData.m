@@ -70,6 +70,9 @@ elseif ~isnumeric(condition)
     end
 end
 
+% Select the exchange fluxes of specified condition
+fluxData.exchFluxes = fluxData.exchFluxes(condition,:);
+
 %Set original c-source to zero
 model = setParam(model,'eq',params.c_source,0);
 %Set growth
@@ -82,7 +85,7 @@ switch maxMinGrowth
         model = setParam(model,'ub',params.bioRxn,1000);
 end
 
-negFlux = le(fluxData.exchFluxes,0); % less than or equal to 0
+negFlux = lt(fluxData.exchFluxes,0); % less than 0
 ub = fluxData.exchFluxes(~negFlux);
 posFlux = fluxData.exchRxnIDs(~negFlux);
 lb = fluxData.exchFluxes(negFlux);
