@@ -1,11 +1,11 @@
 function kcatList = readDLKcatOutput(model, outFile, modelAdapter)
 % readDLKcatOutput
 %   Reads the DLKcat output file and constructs a kcatList structure, that
-%   can be used by selectKcatValue() to populate the ec-model with kcat
+%   can be used by selectKcatValue() to populate the ecModel with kcat
 %   values.
 %
 % Input:
-%   model           an ec-model in RAVEN format
+%   model           an ecModel in GECKO 3 format (with ecModel.ec structure)
 %   outFile         name and path of the DLKcat output file. If nothing is
 %                   provided, an attempt will be made to read
 %                   data/DLKcat.tsv from the obj.params.path folder
@@ -21,6 +21,9 @@ function kcatList = readDLKcatOutput(model, outFile, modelAdapter)
 %               genes       gene identifiers
 %               substrate   substrate names
 %               kcat        predicted kcat value in /sec
+%
+% Usage:
+%   kcatList = readDLKcatOutput(model, outFile, modelAdapter)
 
 if nargin < 3 || isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefaultAdapter();

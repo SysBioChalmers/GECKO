@@ -7,7 +7,7 @@ function saveECmodel(model,modelAdapter,format,filename)
 %   MATLAB for applying further GECKO functions, as model.ec is lost).
 %
 % Input:
-%   model           an ec-model in GECKO3 format
+%   model           an ecModel in GECKO 3 format (with ecModel.ec structure)
 %   modelAdapter    a loaded model adapter, from where the model folder is
 %                   read (Optional, will otherwise use the default model adapter).
 %   format          file format, either as string if the model should be
@@ -17,6 +17,9 @@ function saveECmodel(model,modelAdapter,format,filename)
 %   filename        overwrites whatever path is specified in modelAdapter,
 %                   or if no modelAdapter is specified. Otherwise, the file
 %                   is stored as ecModel in param.path.
+%
+% Usage:
+%   saveECmodel(model,modelAdapter,format,filename)
 
 
 if nargin < 2 || isempty(modelAdapter)

@@ -58,7 +58,7 @@ ModelAdapter = ModelAdapterManager.getDefaultAdapter();
 modelY = loadConventionalGEM();
 % modelY = importModel(fullfile(modelRoot,'models','yeast-GEM.xml')); %Alternative
 
-% Prepare ec-model
+% Prepare ecModel
 [ecModel, noUniprot] = makeEcModel(modelY,false,ModelAdapter);
 % Read makeEcModel documentation to get a list of all it does: it prepare
 % the new model.ec structure and prepares the S-matrix by splitting

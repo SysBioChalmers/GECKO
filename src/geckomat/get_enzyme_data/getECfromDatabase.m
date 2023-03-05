@@ -5,7 +5,7 @@ function model = getECfromDatabase(model, ecRxns, action, modelAdapter)
 %   that catalyze the specific reactions.
 %
 % Input:
-%   model           ec-model in GECKO 3 format
+%   model           an ecModel in GECKO 3 format (with ecModel.ec structure)
 %   ecRxns          logical of length model.ec.rxns that specifies for
 %                   which reactions the existing model.ec.eccodes entry
 %                   should be kept and not modified by this function
@@ -23,7 +23,10 @@ function model = getECfromDatabase(model, ecRxns, action, modelAdapter)
 %                   default model adapter).
 %
 % Output:
-%   model           ec-model with populated model.ec.eccodes
+%   model           ecModel with populated model.ec.eccodes
+%
+% Usage:
+%   model = getECfromDatabase(model, ecRxns, action, modelAdapter)
 
 if nargin < 2
     action = 'display';

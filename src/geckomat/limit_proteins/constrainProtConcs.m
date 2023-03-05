@@ -6,12 +6,16 @@ function model = constrainProtConcs(model)
 %   but is rather constraint by the measured protein abundance.
 %
 % Input:
-%   model       an ec-model with enzyme levels in model.ec.concs
+%   model   an ecModel in GECKO 3 format (with ecModel.ec structure) with enzyme
+%           concentrations in model.ec.concs
 %
 % Output:
-%   model       an ec-model constraint with available protein levels
+%   model   an ecModel constraint with available enzyme concentrations
 %
 % Note: to populate model.ec.concs you should run getProteomics.
+%
+% Usage:
+%   model = constrainProtConcs(model)
 
 %Enzyme with NaN entry in model.ec.concs => draw from prot_pool
 %Enzyme with numeric entry in model.ec.concs => exchange reaction with

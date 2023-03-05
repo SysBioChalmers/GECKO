@@ -2,7 +2,7 @@ function runDLKcat(DLKcatFile, modelAdapter, DLKcatPath, pythonPath, pipPath)
 % runDLKcat
 %   Runs DLKcat to predict kcat values.
 %
-% Input
+% Input:
 %   DLKcatFile      path to the DLKcat.tsv file (including file name), as
 %                   written by writeDLKcatFile. Once DLKcat is succesfully
 %                   run, the DLKcatFile will be overwritten with the DLKcat

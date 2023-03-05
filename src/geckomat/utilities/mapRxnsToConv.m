@@ -1,4 +1,4 @@
-function [mappedFlux, enzUsageFlux, usageEnz] = mapRxnsToConv(ecModel,model,fluxVect)
+function [mappedFlux, enzUsageFlux, usageEnz] = mapRxnsToConv(ecModel, model, fluxVect)
 % mapRxnsToConv
 %   A vector (or matrix) of fluxes is mapped to the reactions in the
 %   conventional starting model that was used to construct the ecModel. It
@@ -6,15 +6,20 @@ function [mappedFlux, enzUsageFlux, usageEnz] = mapRxnsToConv(ecModel,model,flux
 %   that was used to initate ecModel reconstruction.
 %
 % Input:
-%   ecModel         ecModel that was used to obtain fluxVect
+%   ecModel         an ecModel in GECKO 3 format (with ecModel.ec structure),
+%                   that was used to obtain fluxVect
 %   model           the starting model for ecModel, to which the reactions
 %                   should be mapped
 %   fluxVect        vector or matrix of flux values, matching ecModel.rxns
 %
+% Output:
 %   mappedFlux      vector or matrix of flux values, matching model.rxns
 %   enzUsageFlux    vector or matrix of flux values from enzyme usage
 %                   reactions, as these are absent from mappedFlux
 %   usageEnz        cell array with protein IDs, matching enzUsageFlux
+%
+% Usage:
+%   [mappedFlux, enzUsageFlux, usageEnz] = mapRxnsToConv(ecModel, model, fluxVect)
 
 fluxes = fluxVect;
 rxnIDs = ecModel.rxns;

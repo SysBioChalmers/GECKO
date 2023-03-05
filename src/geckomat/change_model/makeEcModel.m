@@ -3,7 +3,7 @@ function [model, noUniprot] = makeEcModel(model, geckoLight, modelAdapter)
 %   Expands a conventional genome-scale model (in RAVEN format) with enzyme
 %   information and prepares the reactions for integration of enzyme usage
 %   coefficients. This function contains all the steps that need to be done
-%   to get a basic ec-model, without incorporating any kcat values or
+%   to get a basic ecModel, without incorporating any kcat values or
 %   constraints yet. This function should only have to be run once for a
 %   model.
 %
@@ -15,13 +15,13 @@ function [model, noUniprot] = makeEcModel(model, geckoLight, modelAdapter)
 %                default model adapter).
 %
 % Ouput:
-%   model           a model with a model.ec structure where enzyme and kcat
-%                   information are stored. Protein pseudometabolites and
-%                   their draw reactions are added to the model, but their
-%                   usage is not yet implemented (due to absent kcat values
-%                   at this stage).
-%   noUniprot       genes for which no information could be found in the
-%                   Uniprot database
+%   model        an ecModel in GECKO 3 format, with a model.ec structure where
+%                enzyme and kcat information are stored. Protein pseudo-
+%                metabolites and their draw reactions are added to the model,
+%                but their usage is not yet implemented (due to absent kcat
+%                values at this stage).
+%   noUniprot    genes for which no information could be found in the
+%                Uniprot database
 %
 % The function goes through the following steps:
 %   1.  Remove gene associations from pseudoreactions.
@@ -88,6 +88,9 @@ function [model, noUniprot] = makeEcModel(model, geckoLight, modelAdapter)
 % enzymes, mw, sequence and concs are the same here as in the full model.
 % The rxnEnzMat maps the model.ec.rxns entries to genes and is therefore of
 % the same size as for the full model.
+%
+% Usage:
+%   [model, noUniprot] = makeEcModel(model, geckoLight, modelAdapter)
 
 if nargin<2
     geckoLight=false;

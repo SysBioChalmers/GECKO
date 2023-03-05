@@ -14,7 +14,8 @@ function databases = loadDatabases(selectDatabase,modelAdapter)
 %   databases       contains .uniprot and .kegg structures, dependent on
 %                   which databases were selected.
 %
-% Usage: databases = loadDatabases(selectDatabase,modelAdapter)
+% Usage:
+%   databases = loadDatabases(selectDatabase,modelAdapter)
 
 if nargin<1
     selectDatabase = 'both';

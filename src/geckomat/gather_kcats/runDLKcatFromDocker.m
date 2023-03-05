@@ -2,7 +2,7 @@ function runDLKcatFromDocker(deleteImage, DLKcatFile, modelAdapter, DLKcatPath)
 % runDLKcatFromDocker
 %   Runs DLKcat to predict kcat values from a Docker image
 %
-% Input
+% Input:
 %   deleteImage      true or false if delete the Docker image tar.gz file.
 %                   (Optional, default = false)
 %   DLKcatFile      path to the DLKcat.tsv file (including file name), as

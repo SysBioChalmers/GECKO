@@ -4,7 +4,7 @@ function [model, tunedKcats] = sensitivityTuning(model, desiredGrowthRate, model
 %    is reached. The function will update kcats in model.ec.kcat.
 %
 % Input:
-%   model              an ecModel in GECKO 3 version
+%   model               an ecModel in GECKO 3 format (with ecModel.ec structure)
 %   desiredGrowthRate  kcats will be relaxed until this growth rate is reached
 %   modelAdapter       a loaded model adapter (Optional, will otherwise use the
 %                      default model adapter).
@@ -25,6 +25,9 @@ function [model, tunedKcats] = sensitivityTuning(model, desiredGrowthRate, model
 %                      oldKcat  kcat values in the input model
 %                      newKcat  kcat values in the output model, after tuning
 %
+% Usage:
+%   [model, tunedKcats] = sensitivityTuning(model, desiredGrowthRate, modelAdapter, foldChange, verbose)
+
 if nargin < 5 || isempty(verbose)
     verbose = true;
 end

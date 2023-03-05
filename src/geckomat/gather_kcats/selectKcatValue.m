@@ -8,7 +8,7 @@ function [model, rxnIdx] = selectKcatValue(model,kcatList,criteria,overwrite)
 %   readGotEnzymesOutput, readManualKcatList.
 %
 % Input:
-%   model       an ec-model in RAVEN format
+%   model       an ecModel in GECKO 3 format (with ecModel.ec structure)
 %   kcatList    structure array with separate entries for each kcat value
 %               source      e.g. 'DLKcat' or 'gotenzymes'           
 %               rxns        reaction identifiers, matching model.rxns
@@ -24,10 +24,11 @@ function [model, rxnIdx] = selectKcatValue(model,kcatList,criteria,overwrite)
 %               default 'true')
 %
 % Output:
-%   model       ec-model with updated model.ec.kcat and model.ec.source
+%   model       ecModel with updated model.ec.kcat and model.ec.source
 %   rxnIdx      list of reaction indices (matching model.ec.rxns), to
 %               indicate which kcat values have been changed.
-%   
+% Usage:
+%   [model, rxnIdx] = selectKcatValue(model,kcatList,criteria,overwrite)
 
 if nargin < 4
     overwrite = 'true';
