@@ -23,8 +23,8 @@ writeDLKcatInput(fullECModel, [], humanAdapter, [], [], true);
 runDLKcat(humanAdapter);
 kcatListFullDlKcat = readDLKcatOutput(fullECModel, [], humanAdapter);
 
-% Run fuzzy matching
-%ecModel         = getECfromDatabase(ecModel, 'display', [], humanAdapter);
+%Run fuzzy matching
+%ecModel         = getECfromDatabase(ecModel, [], 'display', humanAdapter);
 ecModel         = getECfromGEM(ecModel);
 kcatListFullFuzzy = fuzzyKcatMatching(fullECModel, [], humanAdapter);
 
@@ -109,7 +109,7 @@ lightECModel = makeEcModel(modExp, true, humanAdapter);
 toc %Elapsed time is 3.297782 seconds.
 
 lightECModel = getECfromGEM(lightECModel);
-%lightECModel2 = getECfromDatabase(lightECModel, 'display', [], humanAdapter);
+%lightECModel2 = getECfromDatabase(lightECModel, [], 'display', humanAdapter);
 
 fullECModel = getECfromGEM(fullECModel);
 

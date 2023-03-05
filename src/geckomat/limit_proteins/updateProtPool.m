@@ -25,7 +25,7 @@ if nargin < 2 || isempty(Ptot)
     Ptot = params.Ptot;
 end
 
-originalUB = model.ub(strcmp(model.rxns,'prot_pool_exchange'));
+originalLB = model.lb(strcmp(model.rxns,'prot_pool_exchange'));
 PmeasEnz = sum(model.ec.concs,'omitnan');
 PtotEnz = Ptot * 1000 * params.f;
 PdiffEnz = PtotEnz - PmeasEnz;

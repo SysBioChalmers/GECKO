@@ -73,7 +73,7 @@ function testmakeEcModelLightModel_tc0002(testCase)
     expMetNames = [model.metNames;'prot_pool'];
     verifyEqual(testCase,ecModel.metNames,expMetNames)
     %check S matrix
-    expS = [model.S model.S(:,2:3)*-1 sparse(length(model.mets),1);sparse(1,length(ecModel.rxns)-1) 1];
+    expS = [model.S model.S(:,2:3)*-1 sparse(length(model.mets),1);sparse(1,length(ecModel.rxns)-1) -1];
     verifyEqual(testCase,ecModel.S,expS)
     
     %2) Check the ec structure
@@ -144,16 +144,16 @@ function testsetProtPoolSize_tc0005(testCase)
     model = getGeckoTestModel();
     ecModel = makeEcModel(model, false, adapter);
     ecModel = setProtPoolSize(ecModel, [], [], [], adapter);
-    verifyEqual(testCase,ecModel.ub(length(ecModel.rxns)),1000)
+    verifyEqual(testCase,ecModel.lb(length(ecModel.rxns)),-1000)
     ecModel = setProtPoolSize(ecModel, 1, 5, 1);
-    verifyEqual(testCase,ecModel.ub(length(ecModel.rxns)),5000)
+    verifyEqual(testCase,ecModel.lb(length(ecModel.rxns)),-5000)
 
     %light
     ecModel = makeEcModel(model, true, adapter);
     ecModel = setProtPoolSize(ecModel, [], [], [], adapter);
-    verifyEqual(testCase,ecModel.ub(length(ecModel.rxns)),1000)
+    verifyEqual(testCase,ecModel.lb(length(ecModel.rxns)),-1000)
     ecModel = setProtPoolSize(ecModel, 1, 5, 1);
-    verifyEqual(testCase,ecModel.ub(length(ecModel.rxns)),5000)
+    verifyEqual(testCase,ecModel.lb(length(ecModel.rxns)),-5000)
 end
 
 %For both full and light
@@ -189,21 +189,21 @@ function testgetECfromDatabase_tc0007(testCase)
     adapter = ModelAdapterManager.getAdapterFromPath(fullfile(geckoPath,'test','unit_tests','ecTestGEM'));
     model = getGeckoTestModel();
     ecModel = makeEcModel(model, false, adapter);
-    ecModel2 = getECfromDatabase(ecModel, 'display', [], adapter);
+    ecModel2 = getECfromDatabase(ecModel, [], 'display', adapter);
     expEccodes = {'1.1.1.1';'1.1.1.1';'1.1.1.1';'1.1.1.1';'1.1.2.1';'1.1.1.3'};
     verifyEqual(testCase,ecModel2.ec.eccodes,expEccodes)
     %for selected rxns only
-    ecModel2 = getECfromDatabase(ecModel, 'display', ismember(ecModel.ec.rxns, {'R2_EXP_1';'R3'}), adapter);
+    ecModel2 = getECfromDatabase(ecModel, ismember(ecModel.ec.rxns, {'R2_EXP_1';'R3'}),'display', adapter);
     expEccodes = {'1.1.1.1';'';'';'';'1.1.2.1';''};
     verifyEqual(testCase,ecModel2.ec.eccodes,expEccodes)
     
     %light
     ecModel = makeEcModel(model, true, adapter);
-    ecModel2 = getECfromDatabase(ecModel, 'display', [], adapter);
+    ecModel2 = getECfromDatabase(ecModel, [], 'display', adapter);
     expEccodes = {'1.1.1.1';'1.1.1.1';'1.1.2.1';'1.1.1.3';'1.1.1.1';'1.1.1.1'};
     verifyEqual(testCase,ecModel2.ec.eccodes,expEccodes)
     %for selected rxns only
-    ecModel2 = getECfromDatabase(ecModel, 'display', ismember(ecModel.ec.rxns, {'001_R2';'001_R3'}), adapter);
+    ecModel2 = getECfromDatabase(ecModel, ismember(ecModel.ec.rxns, {'001_R2';'001_R3'}), 'display', adapter);
     expEccodes = {'1.1.1.1';'';'1.1.2.1';'';'';''};
     verifyEqual(testCase,ecModel2.ec.eccodes,expEccodes)
 end
@@ -247,14 +247,14 @@ function testfuzzyKcatMatching_tc0010(testCase)
     ecModel = makeEcModel(model, false, adapter);
     ecModel = getECfromGEM(ecModel);
     kcatListLightFuzzy = fuzzyKcatMatching(ecModel, [], adapter);
-    expKcats = [1;1;10;10;100;10];%substrate is more important than organism, and wildcard comes last
+    expKcats = [1;1;10;10;100;1];%substrate is more important than organism, and wildcard comes last
     verifyEqual(testCase,kcatListLightFuzzy.kcats, expKcats)
     expEcRxns = {'R2_EXP_1';'R2_EXP_2';'R2_REV_EXP_1';'R2_REV_EXP_2';'R3';'R5'};
     verifyEqual(testCase,kcatListLightFuzzy.rxns, expEcRxns)
     verifyEqual(testCase,kcatListLightFuzzy.substrates, {{'m1'};{'m1'};{'m2'};{'m2'};{'m1'};{'m2'}})
     verifyEqual(testCase,kcatListLightFuzzy.eccodes, {'1.1.1.1';'1.1.1.1';'1.1.1.1';'1.1.1.1';'1.1.2.1';'1.1.1.3'})
     verifyEqual(testCase,kcatListLightFuzzy.wildcardLvl, [0;0;0;0;1;1])
-    verifyEqual(testCase,kcatListLightFuzzy.origin, [1;1;2;2;1;2])
+    verifyEqual(testCase,kcatListLightFuzzy.origin, [1;1;2;2;3;3])
     %Some rxns, full model
     ecModel = makeEcModel(model, false, adapter);
     ecModel = getECfromGEM(ecModel);
@@ -272,14 +272,14 @@ function testfuzzyKcatMatching_tc0010(testCase)
     ecModel = makeEcModel(model, true, adapter);
     ecModel = getECfromGEM(ecModel);
     kcatListLightFuzzy = fuzzyKcatMatching(ecModel, [], adapter);
-    expKcats = [1;1;100;10;10;10];%substrate is more important than organism, and wildcard comes last
+    expKcats = [1;1;100;1;10;10];%substrate is more important than organism, and wildcard comes last
     verifyEqual(testCase,kcatListLightFuzzy.kcats, expKcats)
     expEcRxns = {'001_R2';'002_R2';'001_R3';'001_R5';'001_R2_REV';'002_R2_REV'};
     verifyEqual(testCase,kcatListLightFuzzy.rxns, expEcRxns)
     verifyEqual(testCase,kcatListLightFuzzy.substrates, {{'m1'};{'m1'};{'m1'};{'m2'};{'m2'};{'m2'}})
     verifyEqual(testCase,kcatListLightFuzzy.eccodes, {'1.1.1.1';'1.1.1.1';'1.1.2.1';'1.1.1.3';'1.1.1.1';'1.1.1.1'})
     verifyEqual(testCase,kcatListLightFuzzy.wildcardLvl, [0;0;1;1;0;0])
-    verifyEqual(testCase,kcatListLightFuzzy.origin, [1;1;1;2;2;2])
+    verifyEqual(testCase,kcatListLightFuzzy.origin, [1;1;3;3;2;2])
     
     %some rxns, light model
     ecModel = makeEcModel(model, true, adapter);
@@ -355,7 +355,7 @@ function testKcats_tc0011(testCase)
     verifyEqual(testCase,mergedList.kcats, [1;1;10;10;100;1007;1008;1009;1010;1011])
     verifyEqual(testCase,mergedList.eccodes, {'1.1.1.1';'1.1.1.1';'1.1.1.1';'1.1.1.1';'1.1.2.1';[];[];[];[];[]})
     verifyEqual(testCase,mergedList.wildcardLvl, [0;0;0;0;1;NaN;NaN;NaN;NaN;NaN])
-    verifyEqual(testCase,mergedList.origin, [1;1;2;2;1;NaN;NaN;NaN;NaN;NaN])%origin is 2 for testus falsus, 1 for the wildcard match which matches well on species and substrate
+    verifyEqual(testCase,mergedList.origin, [1;1;2;2;3;NaN;NaN;NaN;NaN;NaN])%origin is 2 for testus falsus, 1 for the wildcard match which matches well on species and substrate
 
     %now test select
     %we expect the highest kcat value to be chosen in the R2a_EXP_1 case, i.e., use 1008, discard 1007
@@ -498,12 +498,12 @@ function testProteomcisIntegration_tc0013(testCase)
     % test that usage protein are correctly constraint
     [~, usageRxnIdx] = ismember(strcat('usage_prot_', ecModel.ec.enzymes), ecModel.rxns);
     ecModel = constrainProtConcs(ecModel);
-    verifyEqual(testCase,ecModel.ub(usageRxnIdx),ecModel.ec.concs)
+    verifyEqual(testCase,ecModel.lb(usageRxnIdx),-ecModel.ec.concs)
 
     % test that usage protein are correctly constraint. Sol.f give 0.1127,
     % increse objective up to 0.5
     [ecModel, flexProt] =  flexibilizeProtConcs(ecModel, 0.4,[],[],[],false);
     [~, usageRxnIdx] = ismember(strcat('usage_prot_', flexProt.uniprotIDs), ecModel.rxns);
-    verifyEqual(testCase,ecModel.ub(usageRxnIdx),flexProt.flexConcs)
+    verifyEqual(testCase,ecModel.lb(usageRxnIdx),-flexProt.flexConcs)
 end
 

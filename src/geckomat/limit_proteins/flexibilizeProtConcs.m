@@ -48,7 +48,7 @@ if nargin < 4 || isempty(iterPerEnzyme)
 end
 
 if nargin < 3 || isempty(foldChange)
-    foldChange = 0.5;
+    foldChange = 2;
 end
 
 if nargin < 2 || isempty(expGrowth)
@@ -98,14 +98,14 @@ if any(protConcs)
             protUsageIdx = strcmpi(model.rxns, strcat('usage_prot_', proteins(maxIdx)));
 
             % replace the UB
-            model.ub(protUsageIdx) = model.ec.concs(protConcs(maxIdx)) * (1+increase);
+            model.lb(protUsageIdx) = -(model.ec.concs(protConcs(maxIdx)) * (1+increase));
 
             % Get the new growth rate
             sol = solveLP(model,0,[],hs);
             predGrowth = abs(sol.f);
 
             if verbose
-                disp(['Protein ' proteins{maxIdx} ' UB adjusted. Grow: ' num2str(predGrowth)])
+                disp(['Protein ' proteins{maxIdx} ' LB adjusted. Grow: ' num2str(predGrowth)])
             end
         else
             disp(['Limit has been reached. Protein '  proteins{maxIdx} ' seems to be problematic. Consider changing the kcat '])
@@ -129,11 +129,11 @@ if flexBreak == false
     modelTemp       = setParam(modelTemp,'obj','prot_pool_exchange',-1);
     sol             = solveLP(modelTemp,1,[],hs);
     % Check which concentrations can remain unchanged
-    newConcs        = sol.x(protUsageIdx);
+    newConcs        = abs(sol.x(protUsageIdx));
     keepOld         = newConcs<oldConcs;
     % Set UBs
-    model.ub(protUsageIdx(keepOld))  = oldConcs(keepOld);
-    model.ub(protUsageIdx(~keepOld)) = newConcs(~keepOld);
+    model.lb(protUsageIdx(keepOld))  = -oldConcs(keepOld);
+    model.lb(protUsageIdx(~keepOld)) = -newConcs(~keepOld);
     % Output structure
     protFlex(keepOld) = [];
     oldConcs(keepOld) = [];
@@ -151,6 +151,6 @@ else
 
     flexProt.uniprotIDs = protFlex;
     flexProt.oldConcs   = model.ec.concs(ecProtId);
-    flexProt.flexConcs  = model.ub(protUsageIdx);
+    flexProt.flexConcs  = abs(model.lb(protUsageIdx));
     flexProt.frequence  = frequence(frequence>0);
 end

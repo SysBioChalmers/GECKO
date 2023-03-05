@@ -1,4 +1,4 @@
-function model = findMetSmiles(model, modelAdapter, verbose)
+function [model,noSMILES] = findMetSmiles(model, modelAdapter, verbose)
 % findMetSMILES
 %   Queries PubChem by metabolite names to obtain SMILES. Matches will also
 %   be stored in userData/***/data/smilesDB.tsv, that will also be queried
@@ -14,6 +14,7 @@ function model = findMetSmiles(model, modelAdapter, verbose)
 %                default true)
 % Ouput:
 %   model       Output model with model.metSmiles specified.
+%   noSMILES    metabolite names for which no SMILES could be found.
 %
 if nargin < 3 || isempty(verbose)
     verbose = true;
@@ -32,7 +33,7 @@ protMets = startsWith(uniqueNames,'prot_');
 metMatch = false(length(uniqueNames),1);
 if verbose; fprintf('Check for local SMILES database... '); end
 smilesDBfile = (fullfile(params.path,'data','smilesDB.tsv'));
-if exist(smilesDBfile,'file')
+if exist(smilesDBfile,'file')==2
     fID = fopen(smilesDBfile,'r');
     raw = textscan(fID,'%s %s','Delimiter','\t','HeaderLines',0);
     fclose(fID);
@@ -51,7 +52,7 @@ if any(~metMatch & ~protMets)
     webOptions = weboptions('Timeout', 30);
     for i = 1:numel(uniqueNames)
         if metMatch(i) || protMets(i)
-            break;
+            continue;
         end
         if verbose && rem(i-1,floor(numUnique/100+1)) == 0
             progress = num2str(floor(100*(i/numUnique)));
@@ -77,11 +78,12 @@ if any(~metMatch & ~protMets)
             catch exception
                 %Sometimes the call fails, for example since the server is busy. In those cases
                 %we will try 10 times. Some errors however are because the metabolite
-                %name doesn't exist in the database (404) or some other error (the metabolite contains
-                %a slash or similar, 400) - in those cases we need to give up, otherwise the function
-                %will enter an infinite loop.
+                %name does no exist in the database (404) or some other error (the metabolite contains
+                %a slash or similar, 400 or 500). In those cases we can
+                %immediately give up.
                 if (strcmp(exception.identifier, 'MATLAB:webservices:HTTP404StatusCodeError') || ...
-                        strcmp(exception.identifier, 'MATLAB:webservices:HTTP400StatusCodeError'))
+                    strcmp(exception.identifier, 'MATLAB:webservices:HTTP400StatusCodeError') || ...
+                    strcmp(exception.identifier, 'MATLAB:webservices:HTTP500StatusCodeError'))  
                     break
                 else
                     retry = retry + 1;
@@ -93,6 +95,11 @@ if any(~metMatch & ~protMets)
     if verbose; fprintf('\b\b\b\b\b\b\b\b\b\b\b\b\bdone.\n'); end
 end
 newSmiles = uniqueSmiles(uniqueIdx);
+noSMILES = cellfun(@isempty,uniqueSmiles);
+successRatio = numel(find(noSMILES))/numel(uniqueSmiles);
+fprintf('SMILES could be found for %s%% of the unique metabolite names.\n',num2str(successRatio*100,'%.0f'))
+noSMILES = uniqueNames(noSMILES);
+
 if ~isfield(model,'metSmiles') || all(cellfun(@isempty,model.metSmiles))
     model.metSmiles = newSmiles;
 else

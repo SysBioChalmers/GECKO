@@ -137,7 +137,7 @@ if any(conflictId)
            'or ''prot_pool'', or end with ''_REV'' or ''_EXP_[digit]''.'])
 end
 
-uniprotDB = loadDatabases('uniprot', modelAdapter);
+uniprotDB = loadDatabases('both', modelAdapter);
 uniprotDB = uniprotDB.uniprot;
 
 %1: Remove gene rules from pseudoreactions (if any):
@@ -242,6 +242,12 @@ end
 %7: Gather enzyme information via UniprotDB
 uniprotCompatibleGenes = modelAdapter.getUniprotCompatibleGenes(model.genes);
 [Lia,Locb] = ismember(uniprotCompatibleGenes,uniprotDB.genes);
+
+uniprot = modelAdapter.getUniprotIDsFromTable(uniprotCompatibleGenes);
+if ~isequal(uniprot,uniprotCompatibleGenes)
+    uniprot(cellfun(@isempty,uniprot)) = {''};
+    [Lia,Locb] = ismember(uniprot,uniprotDB.ID);
+end
 noUniprot  = uniprotCompatibleGenes(~Lia);
 if ~isempty(noUniprot)
     warning(['The ' num2str(numel(noUniprot)) ' gene(s) reported in noUniprot cannot '...
@@ -338,10 +344,11 @@ if ~geckoLight
     usageRxns.mets            = cell(numel(usageRxns.rxns),1);
     usageRxns.stoichCoeffs    = cell(numel(usageRxns.rxns),1);
     for i=1:numel(usageRxns.mets)
-        usageRxns.mets{i}         = {'prot_pool',proteinMets.mets{i}};
+        usageRxns.mets{i}         = {proteinMets.mets{i}, 'prot_pool'};
         usageRxns.stoichCoeffs{i} = [-1,1];
     end
-    usageRxns.lb              = zeros(numel(usageRxns.rxns),1);
+    usageRxns.lb              = zeros(numel(usageRxns.rxns),1) - 1000;
+    usageRxns.ub              = zeros(numel(usageRxns.rxns),1);
     usageRxns.grRules         = ec.genes(uniprotSortId);
     model = addRxns(model,usageRxns);
 end
@@ -350,8 +357,9 @@ end
 poolRxn.rxns            = 'prot_pool_exchange';
 poolRxn.rxnNames        = poolRxn.rxns;
 poolRxn.mets            = {'prot_pool'};
-poolRxn.stoichCoeffs    = {1};
-poolRxn.lb              = 0;
+poolRxn.stoichCoeffs    = {-1};
+poolRxn.lb              = -1000;
+poolRxn.ub              = 0;
 model = addRxns(model,poolRxn);
 
 model.ec=ec;

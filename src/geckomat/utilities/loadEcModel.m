@@ -1,7 +1,7 @@
 function model=loadEcModel(filename, modelAdapter)
 % loadEcModel
 %   Loads the ecModel that matches the modelAdapter. By default, it loads
-%   the models/ecModel.xml in the directory specified as param.path in
+%   the models/ecModel.yml in the directory specified as param.path in
 %   the modelAdapter. Alternative files in the same folder can be loaded by
 %   providing the appropriate filename. If loading models from other
 %   locations, one can directly use readYAMLmodel.
@@ -35,6 +35,10 @@ if ~endsWith(filename,{'yml','yaml'})
            'this as any other genome-scale model.'])
 end
 
-filename = fullfile(params.path,'models',filename);    
-model = readYAMLmodel(filename);
+filename = fullfile(params.path,'models',filename); 
+if endsWith(filename,{'yml','yaml'})
+    model = readYAMLmodel(filename);
+elseif endsWith(filename,{'xml','sbml'})
+    model = importModel(filename);
+end
 end

@@ -42,6 +42,9 @@ end
 
 warning('off', 'MATLAB:MKDIR:DirectoryExists');
 
+databases.uniprot = [];
+databases.kegg = [];
+
 %% Uniprot
 if any(strcmp(selectDatabase,{'uniprot','both'}))
     uniprotPath = fullfile(filePath,'uniprot.tsv');
@@ -125,7 +128,7 @@ for i = 1:queries
     while retry
         try
             retry = false;
-            out   = webread(url,options);
+            out   = webread(url,webOptions);
         catch
             retry = true;
         end

@@ -26,6 +26,18 @@ end
 
 rxnIdxs = getIndexes(model,rxnNames,'rxns');
 
+% Check if eccodes are valid
+eccodes = model.eccodes;
+noEcCodes = cellfun(@isempty, eccodes);
+eccodes = eccodes(~noEcCodes);
+rxns = model.rxns(~noEcCodes);
+invalidEc = regexprep(eccodes,'(\d\.(\w|-)+\.(\w|-)+\.(\w|-)+)(;\w+\.(\w|-)+\.(\w|-)+\.(\w|-)+)*(.*)','$3');
+invalidEc = ~cellfun(@isempty,invalidEc);
+if any(invalidEc)
+    fprintf(['The following reactions have invalid/incomplete EC numbers, correct them in model.eccodes and rerun getECfromGEM:\n%s\n'], ...
+         strjoin(rxns(invalidEc),'\n'))
+    return
+end
 if nargin<2 || all(ecRxns)
     model.ec.eccodes = model.eccodes(rxnIdxs);
 else

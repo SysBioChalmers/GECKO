@@ -184,3 +184,20 @@ sol = solveLP(modelY)
 [ecModelFlex, flexProt] = flexibilizeProtConcs(ecModelProtFlux,0.08885,10);
 
 % Growth is reached!
+%ecModelProtFlux = bayesianSensitivityTuning(ecModelProtFlux);
+
+%% Perform simulations
+% Constrain with the same conditions to model and ecModel
+% We know that growth can only reach 0.088
+fluxData.grRate(1) = 0.088;
+ecModelProtFlux = constrainFluxData(ecModelFlex,fluxData,1,'min',5);
+solEC = solveLP(ecModelProtFlux,1)
+modelY = constrainFluxData(modelY,fluxData,1,'min',5);
+sol = solveLP(modelY,1)
+[mappedFlux, enzUsageFlux, usageEnz] = mapRxnsToConv(ecModelProtFlux, modelY, solEC.x);
+
+printFluxes(modelY,[sol.x mappedFlux])
+
+% Perform FVA
+[minFlux, maxFlux] = ecFVA(ecModelProtFlux, modelY);
+
