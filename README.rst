@@ -8,7 +8,7 @@ About GECKO 3
 
 The **GECKO** toolbox is able to enhance a **G**\ enome-scale model to account for **E**\ nzyme **C**\ onstraints, using **K**\ inetics and **O**\ mics. The resulting enzyme-constrained model (**ecModel**) can be used to perform simulations where enzyme allocation is either drawn from a total protein pool, or constrained by measured protein levels from proteomics data.
 
-**Note:** Regarding code and model compatibility with earlier GECKO versions (before 3.0), see `Notes on GECKO 1 and 2`_.
+**Note:** Regarding code and model compatibility with earlier GECKO versions, see `GECKO 1 and 2`_.
 
 **Citation**
 
@@ -65,10 +65,11 @@ In the GECKO folder, ``protocols.m`` contains instructions on how to reconstruct
 
 Notes on GECKO 1 and 2
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Due to significant refactoring of the code, GECKO version 3 is generally not backwards compatible with earlier versions.
+Due to significant refactoring of the code, GECKO version 3 is generally not backwards compatible with earlier GECKO versions.
 
-- Most notably, GECKO 3 ecModels have a `.ec` structure containing all enzyme and kcat information.
-- In addition, enzymes are incorporated as MW/kcat in GECKO 3, while this was 1/kcat in GECKO 1 and 2.
+- Most notably, GECKO 3 ecModels have an `.ec` structure containing all enzyme and kcat information.
+- In addition, in GECKO 3 enzymes are incorporated in the S-matrix as MW/kcat, while in GECKO 1 and 2 this was 1/kcat (where the MW was instead considered in the protein exchange reactions).
+- GECKO 3 ecModels can be stored in YAML file format that retains all model content.
 - Most functions in GECKO 3 do not work on ecModels generated with GECKO versions 1 or 2.
 - ecModels generated in GECKO 3 do not work with functions from GECKO versions 1 or 2.
 - At this moment, there are no Python functions to work with GECKO 3 formatted ecModels.
@@ -89,5 +90,3 @@ Contributions are always welcome! Please read the `contributing guidelines <http
    :target: https://gitter.im/SysBioChalmers/GECKO?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
 .. |Zenodo| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.7699818.svg
    :target: https://doi.org/10.5281/zenodo.7699818
-   
-Notes regarding 
