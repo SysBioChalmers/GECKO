@@ -1,10 +1,3 @@
-%% This script sketches the blueprint for the GECKO3 protocol.
-% At a later stage, it can likely be converted into a script that is
-% referenced in the protocol paper. Right now, this script might contain
-% comments and clarifications that should rather be included in the
-% protocol than in here, while other comments might be best kept in this
-% script. At the moment it is just a sketchbook.
-
 %% Prepare for ec model reconstruction
 % - Prepare a folder in userData, or select another path whether all model-
 %   specific files and scripts will be kept
@@ -31,17 +24,7 @@ GECKOInstaller.install % Adds the appropriate folders to MATLAB
 % - Modify the ModelAdapter file in the appropriate userData subfolder 
 %   with some of the above information and more.
 
-%% Summary
-% The pipeline can look different dependent on user preferences. Getting an
-% all-DLKcat model would look something like:
-% makeEcModel -> findMetSmiles -> writeDLKcatInput -> readDLKcatOutput ->
-% selectKcatValue -> applyKcatConstraints -> ...
-% while a fuzzy matching to BRENDA approach looks like:
-% makeEcModel -> getECfromDatabase -> fuzzyMatching -> applyKcatConstraints
-% -> ...
-
 %% Initiate model reconstruction
-
 % Set the ModelAdapter correctly. This loads the ModelAdapter file that is
 % in userData/ecYeastGEM/.
 ModelAdapterManager.setDefaultAdapterFromPath(fullfile(findGECKOroot,'userData','ecYeastGEM'), 'true'); 
@@ -184,7 +167,6 @@ sol = solveLP(modelY)
 [ecModelFlex, flexProt] = flexibilizeProtConcs(ecModelProtFlux,0.08885,10);
 
 % Growth is reached!
-%ecModelProtFlux = bayesianSensitivityTuning(ecModelProtFlux);
 
 %% Perform simulations
 % Constrain with the same conditions to model and ecModel
@@ -200,4 +182,3 @@ printFluxes(modelY,[sol.x mappedFlux])
 
 % Perform FVA
 [minFlux, maxFlux] = ecFVA(ecModelProtFlux, modelY);
-
