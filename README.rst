@@ -6,14 +6,9 @@
 About GECKO
 -----------
 
-The **GECKO** toolbox is able to enhance a **G**\ enome-scale model to account
-for **E**\ nzyme **C**\ onstraints, using **K**\ inetics and **O**\ mics. The resulting enzyme-constrained model
-(**ecModel**) can be used to perform simulations where enzyme allocation is either drawn from a total protein pool, or
-constrained by measured protein levels from proteomics data.
+The **GECKO** toolbox is able to enhance a **G**\ enome-scale model to account for **E**\ nzyme **C**\ onstraints, using **K**\ inetics and **O**\ mics. The resulting enzyme-constrained model (**ecModel**) can be used to perform simulations where enzyme allocation is either drawn from a total protein pool, or constrained by measured protein levels from proteomics data.
 
-**Note:** Due to significant refactoring of the code, ecModels generated with GECKO versions 1 or 2 are not compatible
-with GECKO 3, and *vice versa*. The latest GECKO 2 release is available `here <https://github.com/SysBioChalmers/GECKO/releases/tag/v2.0.3>`_,
-while the ``gecko2`` branch is retained.
+**Note:** Due to significant refactoring of the code, ecModels generated with GECKO versions 1 or 2 are not compatible with GECKO 3, and *vice versa*. The latest GECKO 2 release is available `here <https://github.com/SysBioChalmers/GECKO/releases/tag/v2.0.3>`_, while the ``gecko2`` branch is retained.
 
 **Citation**
 
@@ -68,8 +63,7 @@ Installation
 Getting started
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In the GECKO folder, ``protocols.m`` contains instructions on how to reconstruct 
-and analyze an ecModel for *S. cerevisiae*.
+In the GECKO folder, ``protocols.m`` contains instructions on how to reconstruct and analyze an ecModel for *S. cerevisiae*.
 
 Contributing
 ------------
