@@ -1,4 +1,4 @@
-.. image:: GECKO.png
+.. image:: docs/GECKO.png
    :align: center
 
 |Current Version| |Tests passing| |Gitter| |Zenodo|
@@ -63,7 +63,7 @@ Getting started
 
 In the GECKO folder, ``protocols.m`` contains instructions on how to reconstruct and analyze an ecModel for *S. cerevisiae*.
 
-Notes on GECKO 1 and 2
+GECKO 1 and 2
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Due to significant refactoring of the code, GECKO version 3 is generally not backwards compatible with earlier GECKO versions.
 
