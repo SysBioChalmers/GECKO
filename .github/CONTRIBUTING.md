@@ -69,7 +69,7 @@ Note that steps 3, 4, 5 and 7 can be done, if you prefer, with any git client, s
 
 Try to keep pull requests relatively small: they should ideally provide one new feature or fix one bug. A few small bug-fixes maybe combined, but avoid packing pull requests with too many diverse and somewhat unrelated development. Smaller pull requests reduce reviewing time and make sure that code updates will make it into new releases faster.
 
-Finally, and for larger features that you want to work on collaboratively, you may consider to first request to join our development team to get write access to the repository so that you can create a branch directly in the main repository (or simply ask the administrator to create a branch for you). Once you have a new branch, you can push your changes directly to the main repository and when finished, submit a pull request from that branch to `devel`. [See below](#development-team-guidelines) for more details.
+Finally, and for larger features that you want to work on collaboratively, you may consider to first request to join our development team to get write access to the repository so that you can create a branch directly in the main repository. On this new branch, you can push your changes directly to the main repository and when finished, submit a pull request from that branch to `devel`. [See below](#development-team-guidelines) for more details.
 
 Thank you very much for contributing to GECKO!
 
@@ -169,7 +169,7 @@ When releasing, please follow these steps:
    - Specify the intended version in the title, e.g. `GECKO 3.0.1`
    - Indicating all new features/fixes/etc. and referencing every previous pull request included (examples [here](https://github.com/SysBioChalmers/GECKO/releases)).
    - If any [issue](https://github.com/SysBioChalmers/GECKO/issues) gets solved in the release, write in the pull request description "Closes #X", where "X" is the issue number. That way the issue will be automatically closed after merge.
-2. Wait at least a day + 1 approval + passing GitHub Actions.
+2. Wait at least a day for at least one  approval. The GitHub Actions must also pass successfully.
 3. Merge the pull request from `devel` to `main`.
 4. Make the [new release](https://github.com/SysBioChalmers/GECKO/releases/new) at GitHub:
    - Define a new tag with the version, prefixed by `v`: e.g. `v3.0.1`.
