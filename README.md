@@ -63,7 +63,7 @@ Due to significant refactoring of the code, GECKO version 3 is largely not backw
 - Most functions in GECKO 3 do not work on ecModels generated with GECKO versions 1 or 2.
 - ecModels generated in GECKO 3 do not work with functions from GECKO versions 1 or 2.
 - At this moment, there are no Python functions to work with GECKO 3 formatted ecModels.
-- The last GECKO 2 release (2.0.3) is available `here <https://github.com/SysBioChalmers/GECKO/releases/tag/v2.0.3>`.
+- The last GECKO 2 release (2.0.3) is available [here](https://github.com/SysBioChalmers/GECKO/releases/tag/v2.0.3).
 - The `gecko2` branch remains available for any potential fixes.
 
 ## Contributing
