@@ -28,7 +28,11 @@ function model = getECfromDatabase(model, ecRxns, action, modelAdapter)
 % Usage:
 %   model = getECfromDatabase(model, ecRxns, action, modelAdapter)
 
-if nargin < 2
+if nargin < 2 || isempty(ecRxns)
+    ecRnxs = true(numel(model.ec.rxns),1);
+end
+
+if nargin < 3 || isempty(action)
     action = 'display';
 end
 
