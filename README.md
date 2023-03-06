@@ -22,7 +22,6 @@ _**Note:** Regarding code and model compatibility with earlier GECKO versions, s
 
 - MATLAB version 2019b or later, no additional MathWorks toolboxes are required.
 - [RAVEN Toolbox](https://github.com/SysBioChalmers/RAVEN) version 2.7.12 or later. The RAVEN Toolbox Wiki contains [installation instructions for both RAVEN](https://github.com/SysBioChalmers/RAVEN/wiki/Installation) and [Gurobi](https://github.com/SysBioChalmers/RAVEN/wiki/Installation#solvers). Briefly, RAVEN is either downloaded via `git clone`, as ZIP-archive from GitHub, or installed as a [MATLAB AddOn](https://se.mathworks.com/matlabcentral/fileexchange/112330-raven-toolbox). After finishing all installation instructions, the user should run installation checks in MATLAB with: `checkInstallation`.
-
 - [Gurobi Optimizer](https://www.gurobi.com/solutions/gurobi-optimizer/) is recommended for simulations (free academic license available). Alternatively, the open-source [GNU Linear Programming Kit](https://www.gnu.org/software/glpk/) (distributed with RAVEN) or SoPlex as part of the [SCIP Optimization Suite](https://scipopt.org/) can be used.
 - [Docker](https://www.docker.com/) for running DLKcat. Installation instructions are available at https://docs.docker.com/get-docker .
 
