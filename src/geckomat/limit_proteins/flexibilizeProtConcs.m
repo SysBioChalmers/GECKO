@@ -83,34 +83,44 @@ if any(protConcs)
         % Get the control coefficients
         [~, controlCoeffs] = getConcControlCoeffs(model, proteins, foldChange, 0.75);
 
-        % Find the maximum coefficient index
-        [~,maxIdx] = max(controlCoeffs);
+        % Stop looking for limiting proteins all coeffs are zero
+        if any(controlCoeffs)
 
-        % Increase +1 the frequence
-        frequence(maxIdx) = frequence(maxIdx) + 1;
+            % Find the maximum coefficient index
+            [~,maxIdx] = max(controlCoeffs);
 
-        % Allow to increase the UB maximum five times
-        if frequence(maxIdx) <= iterPerEnzyme
+            % Increase +1 the frequence
+            frequence(maxIdx) = frequence(maxIdx) + 1;
 
-            % Set how much will increase the UB
-            increase = foldChange*frequence(maxIdx);
+            % Allow to increase the UB maximum five times
+            if frequence(maxIdx) <= iterPerEnzyme
 
-            % Get usage rxn for the highest coeff
-            protUsageIdx = strcmpi(model.rxns, strcat('usage_prot_', proteins(maxIdx)));
+                % Set how much will increase the UB
+                increase = foldChange*frequence(maxIdx);
 
-            % replace the UB
-            model.lb(protUsageIdx) = -(model.ec.concs(protConcs(maxIdx)) * (1+increase));
+                % Get usage rxn for the highest coeff
+                protUsageIdx = strcmpi(model.rxns, strcat('usage_prot_', proteins(maxIdx)));
 
-            % Get the new growth rate
-            sol = solveLP(model,0,[],hs);
-            predGrowth = abs(sol.f);
+                % replace the UB
+                model.lb(protUsageIdx) = -(model.ec.concs(protConcs(maxIdx)) * (1+increase));
 
-            if verbose
-                disp(['Protein ' proteins{maxIdx} ' LB adjusted. Grow: ' num2str(predGrowth)])
+                % Get the new growth rate
+                sol = solveLP(model,0,[],hs);
+                predGrowth = abs(sol.f);
+
+                if verbose
+                    disp(['Protein ' proteins{maxIdx} ' LB adjusted. Grow: ' num2str(predGrowth)])
+                end
+            else
+                disp(['Limit has been reached. Protein '  proteins{maxIdx} ' seems to be problematic. Consider changing the kcat '])
+                flexBreak=true;
+                break
             end
         else
-            disp(['Limit has been reached. Protein '  proteins{maxIdx} ' seems to be problematic. Consider changing the kcat '])
-            flexBreak=true;
+            disp(['No limiting proteins have been found. Growth rate will be set to: ' num2str(predGrowth)])
+            % To return an usable model with these conditions, set the
+            % highest growth rate reached as the experimental value
+            expGrowth = predGrowth;
             break
         end
     end
