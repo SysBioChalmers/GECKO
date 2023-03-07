@@ -10,6 +10,8 @@ The **GECKO** toolbox enhances a **G**enome-scale model to account for **E**nzym
 
 _**Note:** Regarding code and model compatibility with earlier GECKO versions, see [Previous versions: GECKO 1 and 2](#previous-versions-gecko-1-and-2)_.
 
+💡 In the GECKO folder, `protocol.m` contains instructions on how to reconstruct and analyze an ecModel for _S. cerevisiae_. This demonstrates how many of GECKO's functions can be used.
+
 ### Citation
 
 - A GECKO 3 publication is currently under consideration, citation information will appear here in due course.
@@ -49,8 +51,6 @@ git clone --depth=1 https://github.com/SysBioChalmers/GECKO
 ```
 
 All set! 🚀
-
-In the GECKO folder, `protocols.m` contains instructions on how to reconstruct and analyze an ecModel for _S. cerevisiae_.
 
 ## Previous versions: GECKO 1 and 2
 
