@@ -8,15 +8,15 @@
 
 The **GECKO** toolbox enhances a **G**enome-scale model to account for **E**nzyme **C**onstraints, using **K**inetics and **O**mics. The resulting enzyme-constrained model (**ecModel**) can be used to perform simulations where enzyme allocation is either drawn from a total protein pool, or constrained by measured protein levels from proteomics data.
 
-_**Note:** Regarding code and model compatibility with earlier GECKO versions, see [Previous versions: GECKO 1 and 2](#previous-versions-gecko-1-and-2)_.
-
 💡 In the GECKO folder, `protocol.m` contains instructions on how to reconstruct and analyze an ecModel for _S. cerevisiae_. This demonstrates how many of GECKO's functions can be used.
+
+_**Note:** Regarding code and model compatibility with earlier GECKO versions, see [Previous versions: GECKO 1 and 2](#previous-versions-gecko-1-and-2)_.
 
 ### Citation
 
 - A GECKO 3 publication is currently under consideration, citation information will appear here in due course.
-- For GECKO release 2, please cite [Domenzain et al. (2022) https://doi.org/10.1038/s41467-022-31421-1](https://doi.org/10.1038/s41467-022-31421-1).
-- For GECKO release 1, please cite [Sánchez et al. (2017) https://doi.org/10.15252/msb.20167411](https://doi.org/10.15252/msb.20167411).
+- For GECKO release 2, please cite [Domenzain et al. (2022) doi:10.1038/s41467-022-31421-1](https://doi.org/10.1038/s41467-022-31421-1).
+- For GECKO release 1, please cite [Sánchez et al. (2017) doi:10.15252/msb.20167411](https://doi.org/10.15252/msb.20167411).
 
 ### Getting started
 
@@ -67,4 +67,4 @@ Due to significant refactoring of the code, GECKO version 3 is largely not backw
 
 ## Contributing
 
-Contributions are always welcome! Please read the `contributing guidelines <https://github.com/SysBioChalmers/GECKO/blob/main/.github/CONTRIBUTING.md>` to get started.
+Contributions are always welcome! Please read the [contributing guidelines](https://github.com/SysBioChalmers/GECKO/blob/main/.github/CONTRIBUTING.md) to get started.
