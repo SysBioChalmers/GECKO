@@ -120,7 +120,7 @@ Follow all other steps in the same way. Also, when creating your pull request (o
 
 Every pull request must be approved by at least one reviewer before it can be merged. When reviewing someone else's pull request, keep in mind the following aspects:
 
-* **Functionality:** The automated tests that are run as GitHub Actions should pass without any problems. Have you written a new function? Make sure that it is also tested in `tests/unittests/
+* **Functionality:** The automated tests that are run as GitHub Actions should pass without any problems. Have you written a new function? Make sure that it is also tested in `tests/unit_tests/geckoCoreFunctionTests.m`.
 * **Documentation:** The reasoning for each modification should be provided, as documentation or as a comment in the pull request.
 * **Reproducibility:** If there are any added scripts, make sure that if you run them, they achieve the desired purpose.
 * **Style:** Ensure that changes to the codebase have a compliant style, and new datasets (if any) are straight-forward to understand.
