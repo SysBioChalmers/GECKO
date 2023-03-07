@@ -3,6 +3,14 @@ function [model, flexProt] = flexibilizeProtConcs(model, expGrowth, foldChange, 
 %   Flexibilize protein concentration of an ecModel with constrained with
 %   proteomics data. The upper bound of the protein usage reaction is
 %   changed, while the concentrations in ecModel.ec.concs remain unchanged.
+%   If no (more) limiting enzyme concentrations can be found, an attempt
+%   will be made to relax the protein pool exchange reaction. If this does
+%   increase the growth rate, it is encouraged to set the protein pool
+%   exchange unconstrained before running flexibilizeProtConcs. If relaxing
+%   the protein pool exchange does not increase the growth rate, then this
+%   is not due to enzyme constraints, but rather an issue with the
+%   metabolic network itself, or the set nutrient exchange is not
+%   sufficient.
 %
 % Input:
 %   model           an ecModel in GECKO 3 format (with ecModel.ec structure)
@@ -61,6 +69,17 @@ if iterPerEnzyme == 0
     iterPerEnzyme = inf;
 end
 
+bioRxnIdx = getIndexes(model,params.bioRxn,'rxns');
+if model.ub(bioRxnIdx) < expGrowth
+    fprintf(['The upper bound of the biomass reaction was %s, while expGrowth '...
+             'is %s. The upper bound has been set to expGrowth.'],...
+             num2str(model.ub(bioRxnIdx)), num2str(expGrowth))
+    model.ub(bioRxnIdx) = expGrowth;
+end
+
+% Keep track if protein pool will be flexibilized
+changedProtPool = false;
+
 % In case the model have not been protein constrained
 % model = constrainProtConcs(model);
 
@@ -112,12 +131,36 @@ if any(protConcs)
                     disp(['Protein ' proteins{maxIdx} ' LB adjusted. Grow: ' num2str(predGrowth)])
                 end
             else
-                disp(['Limit has been reached. Protein '  proteins{maxIdx} ' seems to be problematic. Consider changing the kcat '])
+                disp(['Limit has been reached. Protein '  proteins{maxIdx} ' seems to be problematic. Consider changing the kcat.'])
                 flexBreak=true;
                 break
             end
         else
-            disp(['No limiting proteins have been found. Growth rate will be set to: ' num2str(predGrowth)])
+            disp('No (more) limiting proteins have been found. Attempt to increase protein pool exchange.')
+            protPoolIdx = getIndexes(model,'prot_pool_exchange','rxns');
+            oldProtPool = -model.lb(protPoolIdx);
+            tempModel = setParam(model,'lb',protPoolIdx,-1000);
+            tempModel = setParam(tempModel,'ub',bioRxnIdx,expGrowth);
+            sol = solveLP(tempModel);
+            if (abs(sol.f)-predGrowth)>1e-10 % There is improvement in growth rate
+                % Find new protein pool constraint
+                predGrowth = abs(sol.f);
+                tempModel = setParam(tempModel,'lb',bioRxnIdx,predGrowth);
+                tempModel = setParam(tempModel,'obj',protPoolIdx,1);
+                sol = solveLP(tempModel);
+                newProtPool = abs(sol.f);
+                model.lb(protPoolIdx) = -newProtPool;
+                fprintf(['Changing the lower bound of protein pool exchange from %s ',...
+                         'to %s enabled a\ngrowth rate of %s. It can be helpful to set ', ...
+                         'the lower bound of protein\npool exchange to -1000 before ',...
+                         'running flexibilizeProtConcs.\n'],num2str(-oldProtPool), ...
+                         num2str(-newProtPool),num2str(predGrowth));
+                changedProtPool = true;
+            else
+                fprintf(['Protein pool exchange not limiting. Inability to reach growth ',...
+                        'rate is not\nrelated to enzyme constraints. Maximum growth rate ',...
+                        'is %s.\n'], num2str(predGrowth))
+            end
             % To return an usable model with these conditions, set the
             % highest growth rate reached as the experimental value
             expGrowth = predGrowth;
@@ -133,12 +176,12 @@ protUsageIdx    = find(ismember(model.rxns, strcat('usage_prot_', protFlex)));
 ecProtId        = find(ismember(model.ec.enzymes,protFlex));
 oldConcs        = model.ec.concs(ecProtId);
 
-if flexBreak == false
+if flexBreak == false && ~isempty(protFlex)
     % Not all flexibilized proteins require flexibilization in the end
     % Test flux distribution with minimum prot_pool usage
-    modelTemp       = setParam(model,'eq',params.bioRxn,expGrowth);
-    modelTemp       = setParam(modelTemp,'obj','prot_pool_exchange',-1);
-    sol             = solveLP(modelTemp,1,[],hs);
+    modelTemp       = setParam(model,'var',params.bioRxn,expGrowth,0.5);
+    modelTemp       = setParam(modelTemp,'obj','prot_pool_exchange',1);
+    sol             = solveLP(modelTemp,1);
     % Check which concentrations can remain unchanged
     newConcs        = abs(sol.x(protUsageIdx));
     keepOld         = newConcs<oldConcs;
@@ -164,4 +207,11 @@ else
     flexProt.oldConcs   = model.ec.concs(ecProtId);
     flexProt.flexConcs  = abs(model.lb(protUsageIdx));
     flexProt.frequence  = frequence(frequence>0);
+end
+if changedProtPool
+    flexProt.uniprotIDs(end+1) = {'prot_pool'};
+    flexProt.oldConcs(end+1)   = oldProtPool;
+    flexProt.flexConcs(end+1)  = newProtPool;
+    flexProt.frequence(end+1)  = 1;
+end
 end
