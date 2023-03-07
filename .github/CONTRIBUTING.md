@@ -22,7 +22,7 @@ When creating the issue, please make sure:
 * You provide any necessary files/links needed for understanding the issue.
 * You checked that a similar issue does not exist already
 
-Feel free to also comment on any of the [open issues](https://github.com/SysBioChalmers/GECKO/issues). When doing so, please comply with our [code of conduct](https://github.com/SysBioChalmers/GECKO/blob/zzzzzzz/.github/CODE_OF_CONDUCT.md).
+Feel free to also comment on any of the [open issues](https://github.com/SysBioChalmers/GECKO/issues). When doing so, please comply with our [code of conduct](https://github.com/SysBioChalmers/GECKO/blob/main/.github/CODE_OF_CONDUCT.md).
 
 Finally, if you like GECKO please remember to 'star' our Github page (click on the star at top right corner), that way we also have an idea of who is using GECKO!
 
