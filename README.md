@@ -67,4 +67,4 @@ Due to significant refactoring of the code, GECKO version 3 is largely not backw
 
 ## Contributing
 
-Contributions are always welcome! Please read the `contributing guidelines <https://github.com/SysBioChalmers/GECKO/blob/devel/.github/CONTRIBUTING.md>` to get started.
+Contributions are always welcome! Please read the `contributing guidelines <https://github.com/SysBioChalmers/GECKO/blob/main/.github/CONTRIBUTING.md>` to get started.
