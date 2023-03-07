@@ -41,5 +41,5 @@ if PdiffEnz > 0
 else
     error('The total measured protein mass exceeds the total protein content.')
 end
-newPtot = PdiffEnz / 1000 / params.f
+newPtot = PdiffEnz / 1000 / params.f;
 end
