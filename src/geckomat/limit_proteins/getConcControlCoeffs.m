@@ -65,9 +65,9 @@ for i = 1:numel(proteins)
         [tempSol,hs] = solveLP(tempModel,0,[],hs);
         tempGrowth = abs(tempSol.f);
         
-        % Calculate the coeff only if new growth rate is higher than
-        % initial value
-        if tempGrowth > initialGrowth
+        % Calculate the coeff only if new growth rate is significantly
+        % higher than initial value
+        if (tempGrowth-initialGrowth)>1e-10
             controlCoeffs(i) = (tempGrowth-initialGrowth)/(prevConc-newConc);
         end
     end
