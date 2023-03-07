@@ -6,4 +6,4 @@
 
 **I hereby confirm that I have:**
 <!-- Note: replace [ ] with [X] to check the box -->
-- [ ] Selected `devel` as a target branch (top left drop-down menu)
+- [ ] Selected `develop` as a target branch (top left drop-down menu)
