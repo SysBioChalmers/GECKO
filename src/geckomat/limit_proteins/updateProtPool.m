@@ -25,6 +25,7 @@ params = modelAdapter.params;
 
 if nargin < 2 || isempty(Ptot)
     Ptot = params.Ptot;
+    disp(['Total protein content used: ' num2str(Ptot) ' [g protein/gDw]'])
 end
 
 originalLB = model.lb(strcmp(model.rxns,'prot_pool_exchange'));
