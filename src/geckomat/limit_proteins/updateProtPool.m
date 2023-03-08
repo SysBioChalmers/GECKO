@@ -29,17 +29,18 @@ end
 
 originalLB = model.lb(strcmp(model.rxns,'prot_pool_exchange'));
 PmeasEnz = sum(model.ec.concs,'omitnan');
-PtotEnz = Ptot * 1000 * params.f;
+params.f = PmeasEnz / (Ptot * 1000); % Update f, as the fraction of proteins with conc in the model
+PtotEnz = Ptot * 1000;
 PdiffEnz = PtotEnz - PmeasEnz;
 if PdiffEnz > 0
-    Pdiff = (PdiffEnz / params.f)/1000; % Convert back to g protein/gDCW
+    Pdiff = PdiffEnz / 1000; % Convert back to g protein/gDCW
     model = setProtPoolSize(model, Pdiff, params.f, params.sigma, modelAdapter);
     sol = solveLP(model);
     if isempty(sol.x)
-        error(['Changing protein pool to ' num2str(Pdiff*params.f, params.sigma) ' resuls in a non-functional model'])
+        error(['Changing protein pool to ' num2str(Pdiff * params.f, params.sigma) ' resuls in a non-functional model'])
     end
 else
     error('The total measured protein mass exceeds the total protein content.')
 end
-newPtot = PdiffEnz / 1000 / params.f;
+newPtot = PdiffEnz / 1000;
 end
