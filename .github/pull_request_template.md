@@ -1,8 +1,9 @@
 ### Main improvements in this PR:
-
-
+<!-- Pointwise mention what changes were made in what function. Examples: 
+- fix bug where `functionName` failed to do function X
+- updated all documentation 
+- resolves issue #12345 -->
 
 **I hereby confirm that I have:**
-
-- [ ] Tested my code with [all requirements](https://github.com/SysBioChalmers/GECKO) for running GECKO
-- [ ] Selected `devel` as a target branch (top left drop-down menu)
+<!-- Note: replace [ ] with [X] to check the box -->
+- [ ] Selected `develop` as a target branch (top left drop-down menu)
