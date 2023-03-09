@@ -73,11 +73,11 @@ if ~model.ec.geckoLight
     end
     newKcats(kcatLast+1:end,:)=[];
     
-    sel = newKcats(:,4) ~= 0; %assign zero cost instead of inf when kcat == 0
+    sel = newKcats(:,4) > 0; %Only apply to non-zero kcat
     newKcats(sel,4) = newKcats(sel,4) * 3600; %per second -> per hour
     newKcats(sel,4) = newKcats(sel,5) ./ newKcats(sel,4); %MW/kcat
     newKcats(sel,4) = newKcats(sel,3) .* newKcats(sel,4); %Multicopy subunits.
-    newKcats(~sel,4) = 0;
+    newKcats(~sel,4) = 0; %Results in zero-cost
     
     %Replace rxns and enzymes with their location in model
     [~,newKcats(:,1)] = ismember(model.ec.rxns(newKcats(:,1)),model.rxns);
