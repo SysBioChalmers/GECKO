@@ -45,7 +45,7 @@ fclose(fID);
 [rxns, genes, subs, kcats] = deal(DLKcatOutput{[1,2,3,6]});
 
 % Check if it contains any kcat values
-if all(cellfun(@isempty,kcats))
+if all(cellfun(@isempty,kcats)) || all(strcmpi(kcats,'NA'))
     error('DLKcat file does not contain any kcat values, please run runDLKcat() first.')
 end
 
@@ -53,13 +53,14 @@ end
 if ~all(ismember(subs,model.metNames))
     error('Not all substrates from DLKcat output can be found in model.metNames')
 end
+
 % Check that all reactions are in model.ec.rxns
 if ~all(ismember(rxns,model.ec.rxns))
     error('Not all reactions from DLKcat output can be found in model.ec.rxns')
 end
 
-% Filter out entries with no kcat value
-noOutput        = strcmp(kcats,'None');
+% Filter out entries with no numeric value
+noOutput        = cellfun(@isempty,regexpi(kcats,'[0-9]'));
 kcats           = str2double(kcats(~noOutput));
 rxns(noOutput)  = [];
 genes(noOutput) = [];
