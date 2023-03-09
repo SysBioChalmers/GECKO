@@ -99,7 +99,7 @@ ecModel = findMetSmiles(ecModel);
 % DLKcat, while the output file is read back into MATLAB.
 writeDLKcatInput(ecModel);
 % runDLKcat will run the DLKcat algorithm via a Docker image
-%runDLKcat();
+runDLKcat();
 kcatList_DLKcat = readDLKcatOutput(ecModel);
 
 % STEP 8 Combine kcat from BRENDA and DLKcat
@@ -204,7 +204,7 @@ saveEcModel(ecModel,ModelAdapter,'yml','ecYeastGEMfull');
 
 %% STAGE 5: simulation and analysis
 % If starting from here, load some basic assets
-ecModel = loadEcModel('ecYeastGEMfull.yml',ModelAdapter);
+ecModel = loadEcModel('ecYeastGEMfull.yml');
 modelY = loadConventionalGEM();
 fluxData = loadFluxData;
 
