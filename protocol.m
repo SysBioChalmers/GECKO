@@ -70,7 +70,9 @@ doc makeEcModel
 % (https://www.ebi.ac.uk/complexportal/), its data is included in
 % ecYeastGEM.
 complexInfo = getComplexData(); % No need to run, as data is already in adapter folder
-[ecModel, foundComplex, proposedComplex] = applyComplexData(ecModel, complexInfo);
+[ecModel, foundComplex, proposedComplex] = applyComplexData(ecModel);
+% complexInfo can be given as second input, but not needed here, as it will
+% read the file that was written by getComplexData
 
 % STEP 5 Store model in YAML format
 saveEcModel(ecModel,ModelAdapter,'yml','ecYeastGEMfull');
