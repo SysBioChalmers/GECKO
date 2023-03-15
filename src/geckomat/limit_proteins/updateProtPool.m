@@ -35,7 +35,6 @@ if nargin < 2 || isempty(measuredProt)
     disp(['Measured protein assumed: ' num2str(measuredProt/1000) ' [g protein/gDw]'])
 end
 
-originalLB = model.lb(strcmp(model.rxns,'prot_pool_exchange'));
 % Convert ptot to mg/gDW
 PtotEnz = Ptot * 1000;
 
