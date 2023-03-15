@@ -132,7 +132,7 @@ if strcmpi(action,'display') && ~isempty(conflicts{1})
     displayErrorMessage(conflicts,uniprot,kegg)
 end
 
-if nargin < 3 || isempty(ecRxns) || all(ecRxns)
+if nargin < 2 || isempty(ecRxns) || all(ecRxns)
     model.ec.eccodes = eccodes;
 else
     if ~isfield(model.ec,'eccodes')
