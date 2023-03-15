@@ -117,7 +117,13 @@ ecModel  = selectKcatValue(ecModel, kcatList_merged);
 % summarized under /data/customKcats.tsv, and applied here.
 [ecModel, rxnUpdated, notMatch] = applyCustomKcats(ecModel);
 % To modify the S-matrix, to actually implement the kcat/MW constraints,
-% you run applyKcatConstraints.
+% applyKcatConstraints should be run. This takes the values from
+% ecModel.ec.kcat, considers any complex/subunit data that is tracked in
+% ecModel.ec.rxnEnzMat, together with the MW in ecModel.ec.mw, and uses
+% this to modify the enzyme usage coefficients directly in ecModel.S. Any
+% time a change is made to the .kcat, .rxnEnzMat or .mw fields, the
+% applyKcatConstraints function should be run again to reapply the new
+% constraints onto the metabolic model.
 ecModel  = applyKcatConstraints(ecModel);
 
 % STEP 11 Get kcat values across isoenzymes
@@ -128,9 +134,9 @@ ecModel = getKcatAcrossIsoenzymes(ecModel);
 % exchange, transport and pseudoreactions)
 [ecModel, rxnsMissingGPR, standardMW, standardKcat] = getStandardKcat(ecModel);
 
-% STEP 13 Apply kcat constraints from ecModel.ec.kcats to ecModel.S
-% This function can be run at any point to re-apply the kcat contraints on
-% the model. It also considers the complex data 
+% STEP 13 Apply kcat constraints from ecModel.ec.kcat to ecModel.S
+% As the above functions have modified ecModel.ec.kcat,
+% applyKcatConstraints is rerun as explained in step 11.
 ecModel = applyKcatConstraints(ecModel);
 
 % STEP 14 Set upper bound of protein pool
