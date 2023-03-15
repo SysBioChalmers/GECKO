@@ -101,8 +101,6 @@ m                     = size(abundances,1);
 filtAbund             = nan(m,numel(replPerCond));
 
 if filterData
-    m          = size(abundances,1);
-    filtAbund  = nan(m,numel(replPerCond));
     for i=1:numel(replPerCond)
         condAbund    = abundances(:,1:replPerCond(i));
         if i<numel(replPerCond)
