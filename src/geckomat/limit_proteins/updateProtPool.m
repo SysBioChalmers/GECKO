@@ -1,18 +1,23 @@
-function [model, newPtot]  = updateProtPool(model, measuredProt, Ptot, modelAdapter)
+function [model, PdiffEnz, f]  = updateProtPool(model, measuredProt, Ptot, modelAdapter)
 % updateProtPool
 %   Updates the protein pool to compensate for measured proteomics data (in
 %   model.ec.concs).
 %
 % Input:
 %   model           an ecModel in GECKO 3 format (with ecModel.ec structure)
-%   measuredProt    average sum of total protein in proteomics.tsv in mg/gDW
-%   Ptot            total protein content, overwrites modelAdapter value
-%   modelAdapter    a loaded model adapter (Optional,
-%
+%   measuredProt    average sum of total measured protein in proteomics.tsv
+%                   in mg/gDW, reported as protData.measuredProt by
+%                   loadProtData
+%   Ptot            total protein content, overwrites modelAdapter value.
+%                   If specified, condition-specific fluxData.Ptot from
+%                   loadFluxData can be used.
+%   modelAdapter    a loaded model adapter (Optional, will otherwise use the
+%                   default model adapter).
 % Output:
 %   model           an ecModel where model.ec.concs is populated with
 %                   protein concentrations
-%   newPtot         new Ptot
+%   PdiffEnz        non-measured enzyme content, in mg/gDCW
+%   f               f-factor as determined from proteomics data
 % Usage:
 %   [model, newPtot]  = updateProtPool(model, measuredProt, Ptot, modelAdapter)
 
@@ -61,5 +66,5 @@ if PdiffEnz > 0
 else
     error('The total measured protein mass exceeds the total protein content.')
 end
-newPtot = PdiffEnz / 1000;
+PdiffEnz = PdiffEnz / 1000;
 end
