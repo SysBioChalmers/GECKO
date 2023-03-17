@@ -140,11 +140,26 @@ ecModel = getKcatAcrossIsoenzymes(ecModel);
 ecModel = applyKcatConstraints(ecModel);
 
 % STEP 14 Set upper bound of protein pool
-% Calculate f-factor (how much proteins are enzymes), based on paxDB.tsv
-% that is provided for the model. Other proteomics data can also be used,
-% while an alternative approximation of 0.5 is typically quite realistic.
-f = calculateFfactor(ecModel);
-ecModel = setProtPoolSize(ecModel,[],f);
+% The protein pool exchange is constraint by the total protein content
+% (Ptot), multiplied by the f-factor (ratio of enzymes/proteins) and the
+% sigma-factor (how saturated enzymes are on average: how close to their
+% Vmax to they function based on e.g. metabolite concentrations). In 
+% modelAdapter Ptot, f- and sigma-factors can all be specified (as rough
+% estimates, 0.5 for each of the three parameters is reasonable).
+Ptot  = obj.params.Ptot;
+f     = obj.params.f;
+sigma = obj.params.sigma;
+% But these values can also be defined separately. The f-factor can be 
+% calculated from quantitative proteomics data, for instance with data that
+% is available via PAXdb (https://pax-db.org/). calculateFfactor can be used to estimate the f-factor.
+%f = calculateFfactor(ecModel); % Optional
+
+ecModel = setProtPoolSize(ecModel,Ptot,f,sigma);
+
+% Note that at a later stage (after stage 3), the sigma factor be further
+% adjusted with sigmaFitter, to get a model that is able to reach a
+% particular maximum growth rate. This will not be done here, as we first
+% need to tune the kcat values in Stage 3.
 
 %% STAGE 3: model tuning
 % Test whether the model is able to reach maximum growth if glucose uptake
