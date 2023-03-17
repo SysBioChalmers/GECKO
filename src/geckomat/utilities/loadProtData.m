@@ -1,15 +1,17 @@
 function protData = loadProtData(replPerCond, protDataFile, filterData, modelAdapter, minVal, maxRSD, maxMissing, cutLowest, addStdevs)
 % loadProtData
-%   Function that loads absolute proteomics data and returns mean values
-%   across replicates for each condition in the data file. By default it
-%   also filters the data by various criteria (see input parameters).
+%   Function that loads absolute proteomics data (in mg/gDCW) and returns
+%   mean values across replicates for each condition in the data file. By
+%   default it also filters the data by various criteria, to remove
+%   uncertain data (see input parameters).
 %
 % Input:
 %   replPerCond     vector with number of replicates for each condition in
 %                   the dataset. Example: [3, 2] if first conditions has
 %                   triplicates and second condition has duplicates.
-%   protDataFile    path to file with proteomics data. (Optional, default
-%                   reads data/proteomics.tsv as specified in modelAdapter)
+%   protDataFile    path to file with proteomics data, where protein levels
+%                   are in mg/gDCW (Optional, default reads 
+%                   data/proteomics.tsv as specified in modelAdapter)
 %                   Alternatively, protDataFile can be a protData structure
 %                   that was previously made by loadProtdata.
 %   filterData      logical whether abundances should be filtered. If
