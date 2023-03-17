@@ -39,12 +39,25 @@ if nargin < 2 || isempty(measuredProt)
     measuredProt = Ptot * params.f * 1000;
     disp(['Measured protein assumed: ' num2str(measuredProt/1000) ' [g protein/gDw]'])
 end
+         
+% Ptot      the "real" total protein content in the cell
+% Pmeas     the measured protein content (sum of proteomics data). Is lower
+%           than Ptot, as not all protein are measured in a proteomics
+%           experiment. Equals protData.measuredProt from loadProtData.
+% f         the ratio enzyme/protein: how many of proteins are enzymes
+% m         the ratio measured/total protein: how much is measured
+% PtotEnz   the "real" total enzyme content in the cell. Equals f * Ptot
+% PmeasEnz  the measured enzyme content. Equals f * Pmeas, also equals
+%           sum(ecModel.ec.concs)
+% PdiffEnz  the non-measured enzyme content. Equals PtotEnz - PmeasEnz.
+%
+% Without proteomics, protein pool is constraint by PtotEnz (= f * Ptot).
+% With proteomics, protein pool should be constraint by PdiffEnz.
+% [And the above two constraints are both multiplied by sigma-factor, which
+% is unrelated to the adjustments made here]
 
 % Convert ptot to mg/gDW
-PtotEnz = Ptot * 1000;
-
-% New f factor
-f = measuredProt / PtotEnz;
+Ptot = Ptot * 1000;
 
 % Calculate the protein in the model
 PmeasEnz = sum(model.ec.concs,'omitnan');
@@ -53,8 +66,13 @@ if PmeasEnz == 0
     error('The model have not been constrained with proteomics')
 end
 
+% New f factor
+f = PmeasEnz / measuredProt;
+% Total enzyme when extrapolating from this dataset
+PtotEnz = Ptot * f;
+
 % Draw the protein in model from the measured proteins
-PdiffEnz = measuredProt - PmeasEnz;
+PdiffEnz = PtotEnz - PmeasEnz;
 
 if PdiffEnz > 0
     Pdiff = PdiffEnz / 1000; % Convert back to g protein/gDCW
