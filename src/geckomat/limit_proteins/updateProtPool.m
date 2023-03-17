@@ -79,7 +79,15 @@ if PdiffEnz > 0
     model = setProtPoolSize(model, Pdiff, f, params.sigma, modelAdapter);
     sol = solveLP(model);
     if isempty(sol.x)
-        error(['Changing protein pool to ' num2str(Pdiff * f, params.sigma) ' resuls in a non-functional model'])
+        % Try relaxing sigma-factor
+        model = setProtPoolSize(model, Pdiff, f, 1, modelAdapter);
+        if isempty(sol.x)
+            error(['Changing protein pool to ' num2str(Pdiff * f * params.sigma) ' results in a non-functional model'])
+        else
+            fprintf(['Relaxing of sigma-factor was required to yield a functional model.\n' ...
+                     'The sigma-factor is now set to 1, run ''sigmaFitter'' using the PdiffEnz\n' ...
+                     'and f outputs from updateProtPool to reduce the sigma-factor.'])
+        end
     end
 else
     error('The total measured protein mass exceeds the total protein content.')
