@@ -304,7 +304,7 @@ usageReport = reportEnzymeUsage(ecModel,usageData,0.90);
 [minFluxY, maxFluxY] = ecFVA(modelY, modelY);
 
 % Write results to output file
-output = [modelY.rxns, modelY.rxnNames, num2cell([minFluxY, maxFluxY, minFlux, maxFlux])]';
+output = [modelY.rxns, modelY.rxnNames, num2cell([minFluxY, maxFluxY, minFluxEc, maxFluxEc])]';
 fID = fopen(fullfile(params.path,'output','ecFVA.tsv'),'w');
 fprintf(fID,'%s %s %s %s %s %s\n','rxnIDs', 'rxnNames', 'minFlux', ...
             'maxFlux', 'ec-minFlux', 'ec-maxFlux');
@@ -312,7 +312,7 @@ fprintf(fID,'%s %s %g %g %g %g\n',output{:});
 fclose(fID);
 
 % Look at flux ranges to indicate reaction-level variability
-fluxRange = maxFlux - minFlux;
+fluxRange = maxFluxEc - minFluxEc;
 fluxRangeY = maxFluxY - minFluxY;
 
 % Plot variability distributions of both models in 1 plot
