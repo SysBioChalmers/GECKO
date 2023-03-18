@@ -146,9 +146,9 @@ ecModel = applyKcatConstraints(ecModel);
 % Vmax to they function based on e.g. metabolite concentrations). In 
 % modelAdapter Ptot, f- and sigma-factors can all be specified (as rough
 % estimates, 0.5 for each of the three parameters is reasonable).
-Ptot  = obj.params.Ptot;
-f     = obj.params.f;
-sigma = obj.params.sigma;
+Ptot  = params.Ptot;
+f     = params.f;
+sigma = params.sigma;
 % But these values can also be defined separately. The f-factor can be 
 % calculated from quantitative proteomics data, for instance with data that
 % is available via PAXdb (https://pax-db.org/). calculateFfactor can be used to estimate the f-factor.
