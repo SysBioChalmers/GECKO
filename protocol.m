@@ -140,7 +140,7 @@ ecModel = getKcatAcrossIsoenzymes(ecModel);
 ecModel = applyKcatConstraints(ecModel);
 
 % STEP 14 Set upper bound of protein pool
-% The protein pool exchange is constraint by the total protein content
+% The protein pool exchange is constrained by the total protein content
 % (Ptot), multiplied by the f-factor (ratio of enzymes/proteins) and the
 % sigma-factor (how saturated enzymes are on average: how close to their
 % Vmax to they function based on e.g. metabolite concentrations). In 

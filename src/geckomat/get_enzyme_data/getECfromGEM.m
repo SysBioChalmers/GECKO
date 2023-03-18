@@ -3,7 +3,8 @@ function [model, invalidEC, invalidECpos] = getECfromGEM(model, ecRxns)
 %   Use the model.eccodes to populates the model.ec.eccodes field. EC
 %   numbers that are not formatted as four numbers separated by periods,
 %   possibly with trailing wildcards. Examples: 1.2.3.4 or 1.2.3.- while
-%   invalid EC numbers are 1.2.3 or 1_2_3_4.
+%   invalid EC numbers are 1.2.3 or 1_2_3_4. Multiple EC numbers are
+%   separated by ; for instance 1.2.3.4;1.2.3.5 not 1.2.3.4|1.2.3.5.
 %
 % Input:
 %   model           an ecModel in GECKO 3 format (with ecModel.ec structure)
