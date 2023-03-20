@@ -497,7 +497,9 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function org_index = find_inKEGG(org_name,names)
 org_index      = find(strcmpi(org_name,names));
-if isempty(org_index)
+if numel(org_index)>1
+    org_index = org_index(1);
+elseif isempty(org_index)
     i=1;
     while isempty(org_index) && i<length(names)
         str = names{i};
