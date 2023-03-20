@@ -268,8 +268,11 @@ disp(['Minimum protein pool usage: ' num2str(abs(sol.f)) ' ug/gDCW'])
 % We know that growth can only reach 0.088, so use this instead of 0.1.
 fluxData.grRate(1) = 0.088;
 ecModel = constrainFluxData(ecModel,fluxData,1,'min',5);
-% Minimize protein pool usage.
-ecModel = setParam(ecModel,'obj','prot_pool_exchange',-1);
+% Minimize protein pool usage. As protein pool exchange is defined in the
+% reverse direction (with negative flux), minimization of protein pool
+% usage is computationally represented by maximizing the prot_pool_exchange
+% reaction.
+ecModel = setParam(ecModel,'obj','prot_pool_exchange',1);
 solEC = solveLP(ecModel,1)
 
 % Apply (almost) the same to non-ecModel. Same constraints on fluxes, but
