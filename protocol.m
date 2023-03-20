@@ -259,7 +259,7 @@ disp(['Growth rate reached: ' num2str(abs(sol.f))])
 ecModel = setParam(ecModel,'lb',params.bioRxn,0.99*abs(sol.f));
 ecModel = setParam(ecModel,'obj','prot_pool_exchange',-1);
 sol = solveLP(ecModel)
-disp(['Minimum protein pool usage: ' num2str(abs(sol.f)) ' ug/gDCW'])
+disp(['Minimum protein pool usage: ' num2str(abs(sol.f)) ' mg/gDCW'])
 
 % STEP 23 Compare fluxes from ecModel and starting model
 % Constrain with the same conditions to model and ecModel. We now fix the
