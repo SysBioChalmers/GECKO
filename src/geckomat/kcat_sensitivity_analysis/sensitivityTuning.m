@@ -4,7 +4,7 @@ function [model, tunedKcats] = sensitivityTuning(model, desiredGrowthRate, model
 %    is reached. The function will update kcats in model.ec.kcat.
 %
 % Input:
-%   model               an ecModel in GECKO 3 format (with ecModel.ec structure)
+%   model              an ecModel in GECKO 3 format (with ecModel.ec structure)
 %   desiredGrowthRate  kcats will be relaxed until this growth rate is reached
 %   modelAdapter       a loaded model adapter (Optional, will otherwise use the
 %                      default model adapter).
@@ -49,7 +49,10 @@ kcatList = [];
 m = model;
 m.c = double(strcmp(m.rxns, params.bioRxn));% Make sure that growth is maximized
 
-[~,hs] = solveLP(m);
+[res,hs] = solveLP(m);
+if isempty(res.x)
+    error('FBA of input model gives no valid result. Reduce protein pool constraint with setProtPoolSize and/or check if exchange constraints are correctly defined.')
+end
 lastGrowth = 0;
 if ~m.ec.geckoLight
     %for the full model, we first find the draw reaction with the most flux

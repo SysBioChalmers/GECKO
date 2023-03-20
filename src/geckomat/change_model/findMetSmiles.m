@@ -66,14 +66,7 @@ if any(~metMatch & ~protMets)
                 %keep the first suggestion.
                 smileResult       = regexp(smileResult,'(^\S*)\n','once','tokens');
                 uniqueSmiles{i,1} = smileResult{1,1};
-                % Append one line each time, in case internet connection is lost
-                % halfway. Open & close file each time to avoid leaving the file
-                % open when breaking the function.
-                out = [uniqueNames(i), uniqueSmiles(i)];
-                fID = fopen(smilesDBfile,'a');
-                fprintf(fID,'%s\t%s\n',out{:});
-                fclose(fID);
-                break % success? look at next metabolite
+                retry = 15; % success: no retry
             catch exception
                 %Sometimes the call fails, for example since the server is busy. In those cases
                 %we will try 10 times. Some errors however are because the metabolite
@@ -81,17 +74,27 @@ if any(~metMatch & ~protMets)
                 %a slash or similar, 400 or 500). In those cases we can
                 %immediately give up.
                 if (strcmp(exception.identifier, 'MATLAB:webservices:HTTP404StatusCodeError') || ...
-                    strcmp(exception.identifier, 'MATLAB:webservices:HTTP400StatusCodeError') || ...
-                    strcmp(exception.identifier, 'MATLAB:webservices:HTTP500StatusCodeError'))  
-                    break
+                        strcmp(exception.identifier, 'MATLAB:webservices:HTTP400StatusCodeError') || ...
+                        strcmp(exception.identifier, 'MATLAB:webservices:HTTP500StatusCodeError'))
+                    uniqueSmiles(i) = {''};
+                    retry = 15;
                 else
                     retry = retry + 1;
                 end
             end
+        if retry == 10
             error('Cannot reach PubChem. Check your internet connection and try again.')
         end
+        end
+        % Append one line each time, in case internet connection is lost
+        % halfway. Open & close file each time to avoid leaving the file
+        % open when breaking the function.
+        out = [uniqueNames(i), uniqueSmiles(i)];
+        fID = fopen(smilesDBfile,'a');
+        fprintf(fID,'%s\t%s\n',out{:});
+        fclose(fID);
     end
-    if verbose;
+    if verbose
         fprintf('\b\b\b\b\b\b\b\b\b\b\b\b\bdone.\n');
         fprintf('Model-specific SMILES database stored at %s\n',smilesDBfile);
     end
