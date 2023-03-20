@@ -6,6 +6,10 @@ function [model, rxnsMissingGPR, standardMW, standardKcat, rxnsNoKcat] = getStan
 %   pseudoenzyme with the standard MW (median of all proteins in the organism)
 %   and standard kcat (media from all kcat, or subsystem specific kcat).
 %
+%   Exchange, transport and pseudoreactions are filtered out, plus any
+%   reaction identifiers specified in /data/nonEnzymeRxns.tsv in the model
+%   adapter folder.
+%
 %   In addition, reactions that are annotated with an enzyme (and therefore
 %   already in model.ec), but not assigned any reaction-specific kcat value
 %   (their model.ec.kcat entry is either 0 or NaN), can be assigned standard
@@ -46,6 +50,7 @@ if nargin < 2 || isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
     end
 end
+params = modelAdapter.getParameters();
 
 if nargin < 3 || isempty(threshold)
     threshold = 10;
@@ -55,10 +60,9 @@ if nargin < 4 || isempty(fillZeroKcat)
     fillZeroKcat = true;
 end
 
-% Maybe this can be an input ???
 databases = loadDatabases('uniprot', modelAdapter);
 
-% An stardard MW is defined for all the rxns which does not have a GPR
+% An standard MW is defined for all the rxns which does not have a GPR
 % rule defined. This is based in all the proteins reported for the specific
 % organism in uniprot
 standardMW = median(databases.uniprot.MW, 'omitnan');
@@ -126,6 +130,18 @@ end
 % Find reactions without GPR
 rxnsMissingGPR = find(cellfun(@isempty, model.grRules));
 
+% Get custom list of reaction IDs to ignore, if existing. First column
+% contains reaction IDs, second column contains reaction names for
+% reference only.
+if exist(fullfile(params.path,'data','nonEnzymeRxns.tsv'),'file')
+    fID        = fopen(fullfile(params.path,'data','nonEnzymeRxns.tsv'));
+    fileData   = textscan(fID,'%s %s','delimiter','\t');
+    fclose(fID);
+    customRxns = fileData{1};
+    customRxns = find(strcmp(customRxns,model.rxns));
+else
+    customRxns = [];
+end
 % Get and remove exchange, transport, spontaneous and pseudo reactions
 [~, exchangeRxns]  = getExchangeRxns(model);
 transportRxns = getTransportRxns(model);

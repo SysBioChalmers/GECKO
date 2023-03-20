@@ -105,14 +105,12 @@ if nargin < 3 || isempty(modelAdapter)
     end
 end
 params = modelAdapter.getParameters();
-compartmentID = params.enzyme_comp;
 compartmentID = strcmp(model.compNames,params.enzyme_comp);
 if ~any(compartmentID)
     error(['Compartment ' params.enzyme_comp ' (specified in params.enzyme_comp) '...
            'cannot be found in model.compNames'])
 end
 compartmentID = model.comps(compartmentID);
-
 
 if geckoLight
     ec.geckoLight=true;
