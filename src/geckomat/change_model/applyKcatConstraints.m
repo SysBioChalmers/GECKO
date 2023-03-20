@@ -36,7 +36,11 @@ elseif iscellstr(updateRxns) || ischar(updateRxns) || isstring(updateRxns)
     updateRxnsIds = convertCharArray(updateRxns);
     updateRxns = ismember(rxns,updateRxnsIds);
 end
-    
+ 
+if isempty(find(updateRxns, 1)) || isempty(updateRxns)
+     errro('No reaction to update or updateRxns is logical but without any true value')
+end
+
 if ~isfield(model,'ec')
     error(['No model.ec structure could be found: the provided model is'...
            ' not a valid GECKO3 ecModel. First run makeEcModel(model).'])

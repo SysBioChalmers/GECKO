@@ -165,7 +165,11 @@ if ~model.ec.geckoLight
     end
 
     % Apply the new kcat values to the model
-    model = applyKcatConstraints(model, rxnToUpdate);
+    if ~isempty(find(rxnToUpdate, 1))
+        model = applyKcatConstraints(model, rxnToUpdate);
+    else
+        disp('No matches found. Consider checking the IDs or proteins in customKcats.')
+    end
 
     rxnUpdated = model.ec.rxns(find(rxnToUpdate));
 
