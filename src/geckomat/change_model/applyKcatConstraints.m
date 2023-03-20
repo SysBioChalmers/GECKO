@@ -38,7 +38,7 @@ elseif iscellstr(updateRxns) || ischar(updateRxns) || isstring(updateRxns)
 end
  
 if isempty(find(updateRxns, 1)) || isempty(updateRxns)
-     errro('No reaction to update or updateRxns is logical but without any true value')
+     error('No reaction to update or updateRxns is logical but without any true value')
 end
 
 if ~isfield(model,'ec')

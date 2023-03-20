@@ -130,8 +130,25 @@ ecModel  = applyKcatConstraints(ecModel);
 ecModel = getKcatAcrossIsoenzymes(ecModel);
 
 % STEP 12 Get standard kcat
-% Assign an enzyme cost to reactions without gene assocation (except
-% exchange, transport and pseudoreactions)
+% Assign an enzyme cost to reactions without gene assocation. These
+% reactions are identified as those with empty entry in ecModel.grRules.
+% The following reactions are exempted:
+% A Exchange reactions: exchanging a metabolite across the model boundary,
+%   not representing a real enzymatic reaction.
+% B Transport reactions: transporting a metabolite with the same name from
+%   one compartment to another. Real transport reactions should already be
+%   annotated with grRules, so that the remaining non-annotated reactions
+%   are mostly representing diffusion or pseudotransport processes such as
+%   vesicles moving from ER to Golgi. While proteins are involved in such
+%   processes, they are not catalyzed by enzymes.
+% C Pseudoreactions: any other reaction that should be considered to be
+%   catalyzed by an enzyme. getStandardKcat recognizes these from the
+%   reaction name contaning "pseudoreaction".
+% D Custom list of non-enzyme reactions: if the above approaches does not
+%   correctly identify all non-enzyme reactions that should be ignored by
+%   getStandardKcat, /data/pseudoRxns.tsv can be specified in adapter
+%   folder.
+
 [ecModel, rxnsMissingGPR, standardMW, standardKcat] = getStandardKcat(ecModel);
 
 % STEP 13 Apply kcat constraints from ecModel.ec.kcat to ecModel.S
@@ -239,7 +256,7 @@ fluxData = loadFluxData;
 % % Set the objective function to maximize reaction biomassRxn
 % ecModel = setParam(ecModel,'obj','r_4041',1);
 % % Set the objective function to minimize protein usage
-% ecModel = setParam(ecModel,'obj','prot_pool_exchange',-1);
+% ecModel = setParam(ecModel,'obj','prot_pool_exchange',1);
 % % Perform flux balance analysis (FBA)
 % sol = solveLP(ecModel);
 % % Perform parsimonious FBA (minimum total flux)
@@ -257,7 +274,11 @@ sol = solveLP(ecModel)
 disp(['Growth rate reached: ' num2str(abs(sol.f))])
 % Set growth lower bound to 99% of the previous value
 ecModel = setParam(ecModel,'lb',params.bioRxn,0.99*abs(sol.f));
-ecModel = setParam(ecModel,'obj','prot_pool_exchange',-1);
+% Minimize protein pool usage. As protein pool exchange is defined in the
+% reverse direction (with negative flux), minimization of protein pool
+% usage is computationally represented by maximizing the prot_pool_exchange
+% reaction.
+ecModel = setParam(ecModel,'obj','prot_pool_exchange',1);
 sol = solveLP(ecModel)
 disp(['Minimum protein pool usage: ' num2str(abs(sol.f)) ' mg/gDCW'])
 
@@ -268,10 +289,7 @@ disp(['Minimum protein pool usage: ' num2str(abs(sol.f)) ' mg/gDCW'])
 % We know that growth can only reach 0.088, so use this instead of 0.1.
 fluxData.grRate(1) = 0.088;
 ecModel = constrainFluxData(ecModel,fluxData,1,'min',5);
-% Minimize protein pool usage. As protein pool exchange is defined in the
-% reverse direction (with negative flux), minimization of protein pool
-% usage is computationally represented by maximizing the prot_pool_exchange
-% reaction.
+% Minimize protein pool usage. 
 ecModel = setParam(ecModel,'obj','prot_pool_exchange',1);
 solEC = solveLP(ecModel,1)
 
