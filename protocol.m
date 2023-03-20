@@ -146,8 +146,8 @@ ecModel = getKcatAcrossIsoenzymes(ecModel);
 %   reaction name contaning "pseudoreaction".
 % D Custom list of non-enzyme reactions: if the above approaches does not
 %   correctly identify all non-enzyme reactions that should be ignored by
-%   getStandardKcat, a nonEnzymeRxns.tsv can be specified in the data
-%   subfolder.
+%   getStandardKcat, /data/pseudoRxns.tsv can be specified in adapter
+%   folder.
 
 [ecModel, rxnsMissingGPR, standardMW, standardKcat] = getStandardKcat(ecModel);
 

@@ -7,7 +7,7 @@ function [model, rxnsMissingGPR, standardMW, standardKcat, rxnsNoKcat] = getStan
 %   and standard kcat (media from all kcat, or subsystem specific kcat).
 %
 %   Exchange, transport and pseudoreactions are filtered out, plus any
-%   reaction identifiers specified in /data/nonEnzymeRxns.tsv in the model
+%   reaction identifiers specified in /data/pseudoRxns.tsv in the model
 %   adapter folder.
 %
 %   In addition, reactions that are annotated with an enzyme (and therefore
@@ -136,8 +136,8 @@ rxnsMissingGPR = find(cellfun(@isempty, model.grRules));
 % Get custom list of reaction IDs to ignore, if existing. First column
 % contains reaction IDs, second column contains reaction names for
 % reference only.
-if exist(fullfile(params.path,'data','nonEnzymeRxns.tsv'),'file')
-    fID        = fopen(fullfile(params.path,'data','nonEnzymeRxns.tsv'));
+if exist(fullfile(params.path,'data','pseudoRxns.tsv'),'file')
+    fID        = fopen(fullfile(params.path,'data','pseudoRxns.tsv'));
     fileData   = textscan(fID,'%s %s','delimiter','\t');
     fclose(fID);
     customRxns = fileData{1};
