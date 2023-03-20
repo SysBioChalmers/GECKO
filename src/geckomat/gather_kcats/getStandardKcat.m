@@ -239,7 +239,8 @@ rxnsMissingGPR = model.rxns(rxnsMissingGPR);
 
 if fillZeroKcat
     zeroKcat = model.ec.kcat == 0 | isnan(model.ec.kcat);
-    model.ec.kcat(zeroKcat) = standardKcat;
+    model.ec.kcat(zeroKcat)     = standardKcat;
+    model.ec.source(zeroKcat)   = {'standard'};
     rxnsNoKcat = model.ec.rxns(zeroKcat);
 else
     rxnsNoKcat = [];
