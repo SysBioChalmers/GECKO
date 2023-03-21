@@ -130,7 +130,7 @@ ecModel  = applyKcatConstraints(ecModel);
 ecModel = getKcatAcrossIsoenzymes(ecModel);
 
 % STEP 12 Get standard kcat
-% Assign an enzyme cost to reactions without gene assocation. These
+% Assign a protein cost to reactions without gene assocation. These
 % reactions are identified as those with empty entry in ecModel.grRules.
 % The following reactions are exempted:
 % A Exchange reactions: exchanging a metabolite across the model boundary,
@@ -141,13 +141,13 @@ ecModel = getKcatAcrossIsoenzymes(ecModel);
 %   are mostly representing diffusion or pseudotransport processes such as
 %   vesicles moving from ER to Golgi. While proteins are involved in such
 %   processes, they are not catalyzed by enzymes.
-% C Pseudoreactions: any other reaction that should be considered to be
+% C Pseudoreactions: any other reaction that should not be considered to be
 %   catalyzed by an enzyme. getStandardKcat recognizes these from the
 %   reaction name contaning "pseudoreaction".
 % D Custom list of non-enzyme reactions: if the above approaches does not
 %   correctly identify all non-enzyme reactions that should be ignored by
-%   getStandardKcat, /data/pseudoRxns.tsv can be specified in adapter
-%   folder.
+%   getStandardKcat, /data/pseudoRxns.tsv can be specified in the adapter
+%   folder, containing the relevant reaction identifiers.
 
 [ecModel, rxnsMissingGPR, standardMW, standardKcat] = getStandardKcat(ecModel);
 
