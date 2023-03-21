@@ -75,7 +75,8 @@ PtotEnz = Ptot * f;
 PdiffEnz = PtotEnz - PmeasEnz;
 
 if PdiffEnz > 0
-    Pdiff = PdiffEnz / 1000; % Convert back to g protein/gDCW
+    PdiffEnz = PdiffEnz / 1000; % Convert to g enzyme/gDCW
+    Pdiff = PdiffEnz / f; % Convert to g/gDCW
     model = setProtPoolSize(model, Pdiff, f, params.sigma, modelAdapter);
     sol = solveLP(model);
     if isempty(sol.x)
