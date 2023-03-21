@@ -142,7 +142,7 @@ if filterData
 else
     for i=1:numel(replPerCond)
         condAbund    = abundances(:,1:replPerCond(i));
-        measuredProt(i) = mean(sum(condAbund,1));
+        measuredProt(i) = mean(sum(condAbund,1,'omitnan'));
         if i<numel(replPerCond)
             abundances = abundances(:,replPerCond(i)+1:end);
         end
