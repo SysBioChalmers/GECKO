@@ -214,9 +214,19 @@ ecModel = fillProtConcs(ecModel,protData);
 ecModel = constrainProtConcs(ecModel);
 
 % STEP 18 Update protein pool
-ecModel = updateProtPool(ecModel);
+% Take into consideration the amount of measured protein and the total
+% cellular protein content, the protein pool exchange reaction will be
+% constraint by what is estimated to be the amount of unmeasured enzyme.
+% The condition-specific total protein content is stored together with the
+% flux data that otherwise will be used in Step 19.
+fluxData = loadFluxData();
+ecModel = updateProtPool(ecModel,protData.measuredProt(1),fluxData.Ptot(1));
 
 % STEP 19 Load flux data
+% Matching the proteomics sample(s), condition-specific flux data needs to
+% be loaded to constrain the model. This was already loaded in Step 18 for
+% gathering Ptot, but is repeated here nonetheless. Flux data is read from
+% /data/fluxData.tsv.
 fluxData = loadFluxData();
 ecModel = constrainFluxData(ecModel,fluxData,1,'max','loose'); % Use first condition
 sol = solveLP(ecModel); % To observe if growth was reached
@@ -225,8 +235,9 @@ disp(['Growth rate that is reached: ' num2str(abs(sol.f))])
 % concentrations
 
 % STEP 20 Protein concentrations are flexibilized (increased), until the
-% intended growth rate is reached.
-[ecModel, flexProt] = flexibilizeProtConcs(ecModel,0.1,10);
+% intended growth rate is reached. This is condition-specific, so the
+% intended growth rate is gathered from the fluxData structure.
+[ecModel, flexProt] = flexibilizeProtConcs(ecModel,fluxData.grRate(1),10);
 
 % Neither individual protein levels nor total protein pool are limiting
 % growth. Test whether the starting model is able to reach 0.1.
