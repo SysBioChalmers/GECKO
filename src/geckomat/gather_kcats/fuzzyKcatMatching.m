@@ -2,9 +2,13 @@ function kcatList = fuzzyKcatMatching(model, ecRxns, modelAdapter, forceWClvl)
 % fuzzyKcatMatching
 %   Matchs the model EC numbers and substrates to the BRENDA database, to
 %   return the corresponding kcats for each reaction. If no exact match is
-%   found, less specific kcat values are found from (a) closely related
-%   organism; (b) different substrate; (c) calculated from specific
-%   activities; (d) wildcards in the EC number.
+%   found, less specific kcat values are found from (a) evolutionary
+%   closely related organism; (b) different substrate; (c) calculated from
+%   specific activities; (d) wildcards in the EC number. The model organism
+%   is provided in the model adapter as obj.params.org_name, and
+%   evolutionary distance to other organisms is determined via KEGG
+%   phylogeny. If an organism name occurs multiple times in KEGG, the first
+%   instance will be used when determining evolutionary distance.
 %
 % Input:
 %   model        an ecModel in GECKO 3 format (with ecModel.ec structure)

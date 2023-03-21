@@ -141,7 +141,7 @@ if exist(fullfile(params.path,'data','pseudoRxns.tsv'),'file')
     fileData   = textscan(fID,'%s %s','delimiter','\t');
     fclose(fID);
     customRxns = fileData{1};
-    customRxns = find(strcmp(customRxns,model.rxns));
+    customRxns = find(ismember(model.rxns,customRxns));
 else
     customRxns = [];
 end
