@@ -70,7 +70,9 @@ doc makeEcModel
 % (https://www.ebi.ac.uk/complexportal/), its data is included in
 % ecYeastGEM.
 complexInfo = getComplexData(); % No need to run, as data is already in adapter folder
-[ecModel, foundComplex, proposedComplex] = applyComplexData(ecModel, complexInfo);
+[ecModel, foundComplex, proposedComplex] = applyComplexData(ecModel);
+% complexInfo can be given as second input, but not needed here, as it will
+% read the file that was written by getComplexData
 
 % STEP 5 Store model in YAML format
 saveEcModel(ecModel,ModelAdapter,'yml','ecYeastGEMfull');
@@ -99,7 +101,7 @@ ecModel = findMetSmiles(ecModel);
 % DLKcat, while the output file is read back into MATLAB.
 writeDLKcatInput(ecModel);
 % runDLKcat will run the DLKcat algorithm via a Docker image
-%runDLKcat();
+runDLKcat();
 kcatList_DLKcat = readDLKcatOutput(ecModel);
 
 % STEP 8 Combine kcat from BRENDA and DLKcat
@@ -115,28 +117,66 @@ ecModel  = selectKcatValue(ecModel, kcatList_merged);
 % summarized under /data/customKcats.tsv, and applied here.
 [ecModel, rxnUpdated, notMatch] = applyCustomKcats(ecModel);
 % To modify the S-matrix, to actually implement the kcat/MW constraints,
-% you run applyKcatConstraints.
+% applyKcatConstraints should be run. This takes the values from
+% ecModel.ec.kcat, considers any complex/subunit data that is tracked in
+% ecModel.ec.rxnEnzMat, together with the MW in ecModel.ec.mw, and uses
+% this to modify the enzyme usage coefficients directly in ecModel.S. Any
+% time a change is made to the .kcat, .rxnEnzMat or .mw fields, the
+% applyKcatConstraints function should be run again to reapply the new
+% constraints onto the metabolic model.
 ecModel  = applyKcatConstraints(ecModel);
 
 % STEP 11 Get kcat values across isoenzymes
 ecModel = getKcatAcrossIsoenzymes(ecModel);
 
 % STEP 12 Get standard kcat
-% Assign an enzyme cost to reactions without gene assocation (except
-% exchange, transport and pseudoreactions)
+% Assign a protein cost to reactions without gene assocation. These
+% reactions are identified as those with empty entry in ecModel.grRules.
+% The following reactions are exempted:
+% A Exchange reactions: exchanging a metabolite across the model boundary,
+%   not representing a real enzymatic reaction.
+% B Transport reactions: transporting a metabolite with the same name from
+%   one compartment to another. Real transport reactions should already be
+%   annotated with grRules, so that the remaining non-annotated reactions
+%   are mostly representing diffusion or pseudotransport processes such as
+%   vesicles moving from ER to Golgi. While proteins are involved in such
+%   processes, they are not catalyzed by enzymes.
+% C Pseudoreactions: any other reaction that should not be considered to be
+%   catalyzed by an enzyme. getStandardKcat recognizes these from the
+%   reaction name contaning "pseudoreaction".
+% D Custom list of non-enzyme reactions: if the above approaches does not
+%   correctly identify all non-enzyme reactions that should be ignored by
+%   getStandardKcat, /data/pseudoRxns.tsv can be specified in the adapter
+%   folder, containing the relevant reaction identifiers.
+
 [ecModel, rxnsMissingGPR, standardMW, standardKcat] = getStandardKcat(ecModel);
 
-% STEP 13 Apply kcat constraints from ecModel.ec.kcats to ecModel.S
-% This function can be run at any point to re-apply the kcat contraints on
-% the model. It also considers the complex data 
+% STEP 13 Apply kcat constraints from ecModel.ec.kcat to ecModel.S
+% As the above functions have modified ecModel.ec.kcat,
+% applyKcatConstraints is rerun as explained in step 11.
 ecModel = applyKcatConstraints(ecModel);
 
 % STEP 14 Set upper bound of protein pool
-% Calculate f-factor (how much proteins are enzymes), based on paxDB.tsv
-% that is provided for the model. Other proteomics data can also be used,
-% while an alternative approximation of 0.5 is typically quite realistic.
-f = calculateFfactor(ecModel);
-ecModel = setProtPoolSize(ecModel,[],f);
+% The protein pool exchange is constrained by the total protein content
+% (Ptot), multiplied by the f-factor (ratio of enzymes/proteins) and the
+% sigma-factor (how saturated enzymes are on average: how close to their
+% Vmax to they function based on e.g. metabolite concentrations). In 
+% modelAdapter Ptot, f- and sigma-factors can all be specified (as rough
+% estimates, 0.5 for each of the three parameters is reasonable).
+Ptot  = params.Ptot;
+f     = params.f;
+sigma = params.sigma;
+% But these values can also be defined separately. The f-factor can be 
+% calculated from quantitative proteomics data, for instance with data that
+% is available via PAXdb (https://pax-db.org/). calculateFfactor can be used to estimate the f-factor.
+%f = calculateFfactor(ecModel); % Optional
+
+ecModel = setProtPoolSize(ecModel,Ptot,f,sigma);
+
+% Note that at a later stage (after stage 3), the sigma factor be further
+% adjusted with sigmaFitter, to get a model that is able to reach a
+% particular maximum growth rate. This will not be done here, as we first
+% need to tune the kcat values in Stage 3.
 
 %% STAGE 3: model tuning
 % Test whether the model is able to reach maximum growth if glucose uptake
@@ -204,7 +244,7 @@ saveEcModel(ecModel,ModelAdapter,'yml','ecYeastGEMfull');
 
 %% STAGE 5: simulation and analysis
 % If starting from here, load some basic assets
-ecModel = loadEcModel('ecYeastGEMfull.yml',ModelAdapter);
+ecModel = loadEcModel('ecYeastGEMfull.yml');
 modelY = loadConventionalGEM();
 fluxData = loadFluxData;
 
@@ -216,7 +256,7 @@ fluxData = loadFluxData;
 % % Set the objective function to maximize reaction biomassRxn
 % ecModel = setParam(ecModel,'obj','r_4041',1);
 % % Set the objective function to minimize protein usage
-% ecModel = setParam(ecModel,'obj','prot_pool_exchange',-1);
+% ecModel = setParam(ecModel,'obj','prot_pool_exchange',1);
 % % Perform flux balance analysis (FBA)
 % sol = solveLP(ecModel);
 % % Perform parsimonious FBA (minimum total flux)
@@ -234,9 +274,13 @@ sol = solveLP(ecModel)
 disp(['Growth rate reached: ' num2str(abs(sol.f))])
 % Set growth lower bound to 99% of the previous value
 ecModel = setParam(ecModel,'lb',params.bioRxn,0.99*abs(sol.f));
-ecModel = setParam(ecModel,'obj','prot_pool_exchange',-1);
+% Minimize protein pool usage. As protein pool exchange is defined in the
+% reverse direction (with negative flux), minimization of protein pool
+% usage is computationally represented by maximizing the prot_pool_exchange
+% reaction.
+ecModel = setParam(ecModel,'obj','prot_pool_exchange',1);
 sol = solveLP(ecModel)
-disp(['Minimum protein pool usage: ' num2str(abs(sol.f)) ' ug/gDCW'])
+disp(['Minimum protein pool usage: ' num2str(abs(sol.f)) ' mg/gDCW'])
 
 % STEP 23 Compare fluxes from ecModel and starting model
 % Constrain with the same conditions to model and ecModel. We now fix the
@@ -245,8 +289,8 @@ disp(['Minimum protein pool usage: ' num2str(abs(sol.f)) ' ug/gDCW'])
 % We know that growth can only reach 0.088, so use this instead of 0.1.
 fluxData.grRate(1) = 0.088;
 ecModel = constrainFluxData(ecModel,fluxData,1,'min',5);
-% Minimize protein pool usage.
-ecModel = setParam(ecModel,'obj','prot_pool_exchange',-1);
+% Minimize protein pool usage. 
+ecModel = setParam(ecModel,'obj','prot_pool_exchange',1);
 solEC = solveLP(ecModel,1)
 
 % Apply (almost) the same to non-ecModel. Same constraints on fluxes, but
@@ -281,7 +325,7 @@ usageReport = reportEnzymeUsage(ecModel,usageData,0.90);
 [minFluxY, maxFluxY] = ecFVA(modelY, modelY);
 
 % Write results to output file
-output = [modelY.rxns, modelY.rxnNames, num2cell([minFluxY, maxFluxY, minFlux, maxFlux])]';
+output = [modelY.rxns, modelY.rxnNames, num2cell([minFluxY, maxFluxY, minFluxEc, maxFluxEc])]';
 fID = fopen(fullfile(params.path,'output','ecFVA.tsv'),'w');
 fprintf(fID,'%s %s %s %s %s %s\n','rxnIDs', 'rxnNames', 'minFlux', ...
             'maxFlux', 'ec-minFlux', 'ec-maxFlux');
@@ -289,7 +333,7 @@ fprintf(fID,'%s %s %g %g %g %g\n',output{:});
 fclose(fID);
 
 % Look at flux ranges to indicate reaction-level variability
-fluxRange = maxFlux - minFlux;
+fluxRange = maxFluxEc - minFluxEc;
 fluxRangeY = maxFluxY - minFluxY;
 
 % Plot variability distributions of both models in 1 plot

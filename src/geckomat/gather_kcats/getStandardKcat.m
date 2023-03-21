@@ -6,12 +6,19 @@ function [model, rxnsMissingGPR, standardMW, standardKcat, rxnsNoKcat] = getStan
 %   pseudoenzyme with the standard MW (median of all proteins in the organism)
 %   and standard kcat (media from all kcat, or subsystem specific kcat).
 %
+%   Exchange, transport and pseudoreactions are filtered out, plus any
+%   reaction identifiers specified in /data/pseudoRxns.tsv in the model
+%   adapter folder.
+%
 %   In addition, reactions that are annotated with an enzyme (and therefore
 %   already in model.ec), but not assigned any reaction-specific kcat value
 %   (their model.ec.kcat entry is either 0 or NaN), can be assigned standard
 %   kcat values by a similar approach. However, those reactions will not be
 %   linked to the "standard" pseudoenzyme, but will use the enzyme that they had
 %   already been associated with.
+%
+%   Any pre-existing standard kcat assignments (identified by 'standard'
+%   entires in model.ec.source) are removed when applying this function.
 %
 % Input:
 %   model           an ecModel in GECKO 3 format (with ecModel.ec structure)
@@ -46,6 +53,7 @@ if nargin < 2 || isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
     end
 end
+params = modelAdapter.getParameters();
 
 if nargin < 3 || isempty(threshold)
     threshold = 10;
@@ -55,10 +63,9 @@ if nargin < 4 || isempty(fillZeroKcat)
     fillZeroKcat = true;
 end
 
-% Maybe this can be an input ???
 databases = loadDatabases('uniprot', modelAdapter);
 
-% An stardard MW is defined for all the rxns which does not have a GPR
+% An standard MW is defined for all the rxns which does not have a GPR
 % rule defined. This is based in all the proteins reported for the specific
 % organism in uniprot
 standardMW = median(databases.uniprot.MW, 'omitnan');
@@ -126,68 +133,87 @@ end
 % Find reactions without GPR
 rxnsMissingGPR = find(cellfun(@isempty, model.grRules));
 
+% Get custom list of reaction IDs to ignore, if existing. First column
+% contains reaction IDs, second column contains reaction names for
+% reference only.
+if exist(fullfile(params.path,'data','pseudoRxns.tsv'),'file')
+    fID        = fopen(fullfile(params.path,'data','pseudoRxns.tsv'));
+    fileData   = textscan(fID,'%s %s','delimiter','\t');
+    fclose(fID);
+    customRxns = fileData{1};
+    customRxns = find(ismember(model.rxns,customRxns));
+else
+    customRxns = [];
+end
 % Get and remove exchange, transport, spontaneous and pseudo reactions
 [~, exchangeRxns]  = getExchangeRxns(model);
 transportRxns = getTransportRxns(model);
 [spontaneousRxns, ~] = modelAdapter.getSpontaneousReactions(model);
 pseudoRxns = contains(model.rxnNames,'pseudoreaction');
 slimeRxns = contains(model.rxnNames,'SLIME rxn');
+rxnsToIgnore = [customRxns; exchangeRxns; find(transportRxns); ...
+                find(spontaneousRxns); find(pseudoRxns); find(slimeRxns)];
+rxnsMissingGPR(ismember(rxnsMissingGPR, rxnsToIgnore)) = [];
 
-rxnsMissingGPR(ismember(rxnsMissingGPR, exchangeRxns)) = [];
-rxnsMissingGPR(ismember(rxnsMissingGPR, find(transportRxns))) = [];
-rxnsMissingGPR(ismember(rxnsMissingGPR, find(spontaneousRxns))) = [];
-rxnsMissingGPR(ismember(rxnsMissingGPR, find(pseudoRxns))) = [];
-rxnsMissingGPR(ismember(rxnsMissingGPR, find(slimeRxns))) = [];
-
-% Add a new metabolite named prot_standard if not a light version
-if ~model.ec.geckoLight
-    proteinStdMets.mets         = 'prot_standard';
-    proteinStdMets.metNames     = proteinStdMets.mets;
-    proteinStdMets.compartments = 'c';
-    if isfield(model,'metNotes')
-        proteinStdMets.metNotes     = 'Standard enzyme-usage pseudometabolite';
+% Only add if not geckoLight & getStandardKcat was not run earlier
+if ~any(strcmp(model.mets,'prot_standard'))
+    % Add a new gene to be consistent with ec field named standard
+    proteinStdGenes.genes = 'standard';
+    if isfield(model,'geneShortNames')
+        proteinStdGenes.geneShortNames = 'std';
     end
+    model = addGenesRaven(model, proteinStdGenes);
 
-    model = addMets(model, proteinStdMets);
+    if ~model.ec.geckoLight
+        % Add a new metabolite named prot_standard
+        proteinStdMets.mets         = 'prot_standard';
+        proteinStdMets.metNames     = proteinStdMets.mets;
+        proteinStdMets.compartments = 'c';
+        if isfield(model,'metNotes')
+            proteinStdMets.metNotes = 'Standard enzyme-usage pseudometabolite';
+        end
+        model = addMets(model, proteinStdMets);
+
+        % Add a protein usage reaction if not a light version
+        proteinStdUsageRxn.rxns         = {'usage_prot_standard'};
+        proteinStdUsageRxn.rxnNames     = proteinStdUsageRxn.rxns;
+        proteinStdUsageRxn.mets         = {proteinStdMets.mets, 'prot_pool'};
+        proteinStdUsageRxn.stoichCoeffs = [-1, 1];
+        proteinStdUsageRxn.lb           = -1000;
+        proteinStdUsageRxn.ub           = 0;
+        proteinStdUsageRxn.grRules      = proteinStdGenes.genes;
+
+        model = addRxns(model, proteinStdUsageRxn);
+
+        % Update .ec structure in model
+        model.ec.genes(end+1)      = {'standard'};
+        model.ec.enzymes(end+1)    = {'standard'};
+        model.ec.mw(end+1)         = standardMW;
+        model.ec.sequence(end+1)   = {''};
+        % Additional info
+        if isfield(model.ec,'concs')
+            model.ec.concs(end+1)  = nan();
+        end
+
+        % Expand the enzyme rxns matrix
+        model.ec.rxnEnzMat =  [model.ec.rxnEnzMat, zeros(length(model.ec.rxns), 1)]; % 1 new enzyme
+        model.ec.rxnEnzMat =  [model.ec.rxnEnzMat; zeros(length(rxnsMissingGPR), length(model.ec.enzymes))]; % new rxns
+    end
 end
-
-% Add a new gene to be consistent with ec field named standard
-proteinStdGenes.genes = 'standard';
-if isfield(model,'geneShortNames')
-    proteinStdGenes.geneShortNames = 'std';
-end
-
-model = addGenesRaven(model, proteinStdGenes);
-
-% Add a protein usage reaction if not a light version
-if ~model.ec.geckoLight
-    proteinStdUsageRxn.rxns            = {'usage_prot_standard'};
-    proteinStdUsageRxn.rxnNames        = proteinStdUsageRxn.rxns;
-    proteinStdUsageRxn.mets         = {proteinStdMets.mets, 'prot_pool'};
-    proteinStdUsageRxn.stoichCoeffs = [-1, 1];
-    proteinStdUsageRxn.lb              = -1000;
-    proteinStdUsageRxn.ub              = 0;
-    proteinStdUsageRxn.grRules         = proteinStdGenes.genes;
-
-    model = addRxns(model, proteinStdUsageRxn);
-end
-
-% Update .ec structure in model
-model.ec.genes(end+1)      = {'standard'};
-model.ec.enzymes(end+1)    = {'standard'};
-model.ec.mw(end+1)         = standardMW;
-model.ec.sequence(end+1)   = {''};
-% Additional info
-if isfield(model.ec,'concs')
-    model.ec.concs(end+1)  = nan();
-end
-
-% Expand the enzyme rxns matrix
-model.ec.rxnEnzMat =  [model.ec.rxnEnzMat, zeros(length(model.ec.rxns), 1)]; % 1 new enzyme
-model.ec.rxnEnzMat =  [model.ec.rxnEnzMat; zeros(length(rxnsMissingGPR), length(model.ec.enzymes))]; % new rxns
 
 numRxns = length(model.ec.rxns);
 stdMetIdx = find(strcmpi(model.ec.enzymes, 'standard'));
+
+% Remove previous standard kcat assignment
+oldStandardEnz = find(strcmp(model.ec.source,'standard'));
+if ~isempty(oldStandardEnz)
+    model.ec.rxns(oldStandardEnz)        = [];
+    model.ec.kcat(oldStandardEnz)        = [];
+    model.ec.source(oldStandardEnz)      = [];
+    model.ec.notes(oldStandardEnz)       = [];
+    model.ec.eccodes(oldStandardEnz)     = [];
+    model.ec.rxnEnzMat(oldStandardEnz,:) = [];
+end
 
 for i = 1:numel(rxnsMissingGPR)
     rxnIdx = rxnsMissingGPR(i);
@@ -223,10 +249,10 @@ rxnsMissingGPR = model.rxns(rxnsMissingGPR);
 
 if fillZeroKcat
     zeroKcat = model.ec.kcat == 0 | isnan(model.ec.kcat);
-    model.ec.kcat(zeroKcat) = standardKcat;
+    model.ec.kcat(zeroKcat)     = standardKcat;
+    model.ec.source(zeroKcat)   = {'standard'};
     rxnsNoKcat = model.ec.rxns(zeroKcat);
 else
     rxnsNoKcat = [];
 end
-
 end
