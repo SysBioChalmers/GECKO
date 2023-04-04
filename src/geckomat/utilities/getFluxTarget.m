@@ -1,83 +1,74 @@
-function flux = simulateGrowth(model,target,C_source,objCoeff,alpha,tol)
-%simulateGrowth
+function [minFlux, maxFlux] = getFluxTarget(ecModel,target,cSource,alpha,tolerance,modelAdapter)
+% getFluxTarget
 %
 %   Function that performs a series of LP optimizations on an ecModel,
 %   by first maximizing biomass, then fixing a suboptimal value and 
-%   proceeding to maximize a given production target reaction, last 
-%   a protein pool minimization is performed subject to the optimal 
-%   production level.
-%   
-%       model     (struct) ecModel with total protein pool constraint.
-%                 the model should come with growth pseudoreaction as 
-%                 an objective to maximize.
-%       target    (string) Rxn ID for the objective reaction.
-%       cSource   (string) Rxn ID for the main carbon source uptake 
-%                 reaction
-%       objCoeff  (integer) Coefficient for the target reaction in the
-%                 objective function
-%       alpha     (dobule) scalling factor for desired suboptimal growth
-%       tol       (double) numerical tolerance for fixing bounds
+%   proceeding to protein pool minimization, last a minimization and
+%   maximization of a given production target reaction is performed
+%   subject to the optimal production level.
 %
-% Usage: flux = simulateGrowth(model,target,C_source,alpha,tol)
+% Input:
+%   ecModel         an ecModel in GECKO 3 format (with ecModel.ec structure).
+%	target          rxn ID for the production target reaction, a exchange
+%                   reaction is recommended.
+%	cSource	        rxn ID for the main carbon source uptake reaction.
+%   alpha           scalling factor for desired suboptimal growth.
+%                   (Optional, defaul 1)
+%   tolerance       numerical tolerance for fixing bounds
+%                   (Optional, defaul 1E-8)
+%   modelAdapter    a loaded model adapter. (Optional, will otherwise use
+%                   the default model adapter)
 %
+% Output:
+%   minFlux         vector of minimum flux rates at minimum target production,
+%                   corresponding to model.rxns
+%   maxFlux         vector of maximum flux rates at maximum target production,
+%                   corresponding to model.rxns
+%
+% Usage:
+%   [minFlux, maxFlux] = simulateGrowth(model,target,C_source,alpha,tol)
 
-if nargin<6
-    tol = 1E-6;
-    if nargin<5
-        alpha = 1;
-        if nargin<4
-            objCoeff = 1;
-        end
+if nargin < 6 || isempty(modelAdapter)
+    modelAdapter = ModelAdapterManager.getDefaultAdapter();
+    if isempty(modelAdapter)
+        error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
     end
 end
-%Fix a unit main carbon source uptake
-cSource_indx           = find(strcmpi(model.rxns,C_source));
-model.lb(cSource_indx) = (1-tol);
-model.ub(cSource_indx) = (1+tol);
-%Position of target rxn:
-posP      = strcmpi(model.rxns,target);
-growthPos = find(model.c);
-%Max growth:
-sol = solveLP(model);
-%Fix growth suboptimal and then max product:
-model.lb(growthPos) = sol.x(growthPos)*(1-tol)*alpha;
-flux                = optModel(model,posP,objCoeff,tol,sol.x);
+params = modelAdapter.getParameters();
+
+if nargin < 5 || isempty(tolerance)
+    tolerance = 1E-8;
 end
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function sol = optModel(model,pos,c,tol,base_sol)
-%Find reversible reaction for the production target, if available 
-if any(pos)
-    rxn_code = model.rxns{pos};
-    if endsWith(rxn_code,'_REV')
-        rev_pos = strcmp(model.rxns,rxn_code(1:end-4));
-    else
-        rev_pos = strcmp(model.rxns,[rxn_code '_REV']);
-    end
-    %Block reversible production target reaction
-    model.lb(rev_pos) = 0;
-    model.ub(rev_pos) = 0;
+
+if nargin < 4 || isempty(alpha)
+    alpha = 1;
 end
-%Optimize for a given objective
-model.c      = zeros(size(model.rxns));
-model.c(pos) = c;
-sol          = solveLP(model);
-%If not successful then relax reversible rxn bounds with values
-%from the basal distribution
-if isempty(sol.x) && ~isempty(base_sol)
-    model.lb(rev_pos) = base_sol(rev_pos);
-    model.ub(rev_pos) = base_sol(rev_pos);
-    sol               = solveLP(model);
-end
-%Now fix optimal value for objective and minimize unmeasured proteins
-%usage
-if ~isempty(sol.x)
-    model.lb(pos)    = (1-tol)*sol.x(pos);
-    protPos          = contains(model.rxnNames,'prot_pool_');
-    model.c(:)       = 0;
-    model.c(protPos) = -1;
-    sol              = solveLP(model,1);
-    sol              = sol.x;
-else
-    sol = zeros(length(model.rxns),1);
-end
+
+% Fix carbon source uptake
+cSourceIdx = strcmpi(ecModel.rxns,cSource);
+uptake = ecModel.lb(cSourceIdx);
+ecModel = setParam(ecModel, 'var', cSource, uptake, tolerance);
+
+% Max growth and fix growth suboptimal
+ecModel = setParam(ecModel, 'obj', params.bioRxn, 1);
+sol = solveLP(ecModel);
+bioRxnIdx = strcmpi(ecModel.rxns, params.bioRxn);
+ecModel = setParam(ecModel, 'lb', params.bioRxn, sol.x(bioRxnIdx) * (1-tolerance) * alpha);
+
+% Minimize prot_pool_exchange and fix
+poolIdx = strcmpi(ecModel.rxns, 'prot_pool_exchange');
+ecModel = setParam(ecModel, 'obj', 'prot_pool_exchange', 1);
+sol = solveLP(ecModel, 1);
+ecModel = setParam(ecModel, 'lb', params.bioRxn, sol.x(poolIdx));
+
+% Minimize target
+ecModel = setParam(ecModel, 'obj', target, -1);
+sol = solveLP(ecModel);
+minFlux = sol.x;
+
+% Maximize target
+ecModel = setParam(ecModel, 'obj', target, 1);
+sol = solveLP(ecModel);
+maxFlux = sol.x;
+
 end
