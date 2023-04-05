@@ -73,8 +73,8 @@ ecModel = setParam(ecModel, 'lb', params.bioRxn, sol.x(bioRxnIdx) * (1-tolerance
 % Minimize prot_pool_exchange and fix
 poolIdx = strcmpi(ecModel.rxns, 'prot_pool_exchange');
 ecModel = setParam(ecModel, 'obj', 'prot_pool_exchange', 1);
-sol = solveLP(ecModel, 1);
-ecModel = setParam(ecModel, 'lb', 'prot_pool_exchange', sol.x(poolIdx));
+sol = solveLP(ecModel);
+ecModel = setParam(ecModel, 'lb', 'prot_pool_exchange', sol.x(poolIdx) * (1+tolerance));
 
 % Minimize target
 ecModel = setParam(ecModel, 'obj', target, -1);
