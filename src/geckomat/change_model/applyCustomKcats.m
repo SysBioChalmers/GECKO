@@ -54,7 +54,8 @@ params = modelAdapter.params;
 
 if nargin<2 || isempty(customKcats)
     customKcats = fullfile(params.path,'data','customKcats.tsv');
-elseif isstruct(customKcats)
+end
+if isstruct(customKcats)
     if ~all(strcmp(fieldnames(customKcats),{'proteins','kcat','notes','stoicho'}))
         error('The customKcats structure does not have all essential fields.');
     end
