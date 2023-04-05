@@ -17,7 +17,7 @@ function FC = ecFlux_scanning(ecModel,target,cSource,alpha,tolerance,filterG)
 % Usage:
 %   FC = ecFlux_scanning(model,target,cSource,alpha,tolerance,filterG)
 
-if nargin < 6 || isempty(filerG)
+if nargin < 6 || isempty(filterG)
 	filterG = false;
 end
 

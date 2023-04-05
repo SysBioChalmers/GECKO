@@ -10,7 +10,7 @@ function results = run_ecFSEOF(ecModel,rxnTarget,cSource,alphaLims,Nsteps,file_g
 %                   reaction is recommended.
 %	cSource	        rxn ID for the main carbon source uptake reaction.
 % 	alphaLims       vector of Minimum and maximum biomass yield [gDW/mmol Csource]
-%			        for enforced objective limits (e.g. [0.5 2])
+%			        for enforced objective limits (e.g. [0.5 1]). Max value: 1.
 %   Nsteps          number of steps for suboptimal objective in FSEOF.
 %                   (Optional, default 16)
 %	file_genes 	    file name for results output at the genes level.
