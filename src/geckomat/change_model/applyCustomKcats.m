@@ -54,13 +54,11 @@ params = modelAdapter.params;
 
 if nargin<2 || isempty(customKcats)
     customKcats = fullfile(params.path,'data','customKcats.tsv');
-end
-
-if ~exist(customKcats, 'file')
-   error(['Custom kcats cannot be applied because of missing expected file: ' customKcats]);
-end
-
-if isfile(customKcats)
+elseif isstruct(customKcats)
+    if ~all(strcmp(fieldnames(customKcats),{'proteins','kcat','notes','stoicho'}))
+        error('The customKcats structure does not have all essential fields.');
+    end
+elseif isfile(customKcats)
     fID = fopen(customKcats, 'r');
     fileContent = textscan(fID, '%s %s %s %f %q %s %s', 'Delimiter', '\t', 'HeaderLines', 1);
     fclose(fID);
@@ -72,8 +70,8 @@ if isfile(customKcats)
     customKcats.rxns        = fileContent{5};
     customKcats.notes       = fileContent{6};
     customKcats.stoicho     = fileContent{7};
-elseif ~all(strcmp(fieldnames(customKcats),{'proteins','kcat','notes','stoicho'}))
-    error(['The customKcats file at ' customKcats ' does not have all the required fields in the header.']);
+else
+    error(['Cannot find file: ' customKcats]);
 end
 
 rxnToUpdate = false(length(model.ec.rxns),1);
