@@ -65,8 +65,8 @@ k_matrix(isnan(k_matrix)) = 1;
 k_matrix(k_matrix>1000) = 1000;
 
 % Filter out values that are inconsistent at different alphas:
-always_down  = sum(k_matrix <= (1-tolerance),2) == length(alpha);
-always_up    = sum(k_matrix >= (1+tolerance),2) == length(alpha);
+always_down  = sum(k_matrix <= 1,2) == length(alpha);
+always_up    = sum(k_matrix >= 1,2) == length(alpha);
 
 % Identify those reactions with mixed patterns
 incons_rxns  = always_down + always_up == 0;
