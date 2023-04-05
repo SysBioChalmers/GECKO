@@ -37,11 +37,11 @@ end
 params = modelAdapter.getParameters();
 
 if nargin < 7 || isempty(file_rxns)
-	file_rxns = fullfile(params.path,'output','ecFSEOF_rxns.tsv');;
+	file_rxns = fullfile(params.path,'output','ecFSEOF_rxns.tsv');
 end
 
 if nargin < 6 || isempty(file_genes)
-    file_genes = fullfile(params.path,'output','ecFSEOF_genes.tsv');;
+    file_genes = fullfile(params.path,'output','ecFSEOF_genes.tsv');
 end
 
 if nargin < 5 || isempty(Nsteps)
@@ -80,16 +80,18 @@ results.rxnsTable(:,5) = results.rxns(toKeep,4);
 writetable(cell2table(results.geneTable, ...
     'VariableNames', {'gene_IDs' 'gene_names' 'K_score'}), ...
     file_genes, ...
+    'FileType', 'text', ...
     'Delimiter', '\t', ...
     'QuoteStrings', false);
 
 writetable(cell2table(results.rxnsTable, ...
     'VariableNames', {'rxn_IDs' 'rxnNames' 'K_score' 'grRules' 'rxn_formula'}), ...
     file_rxns, ...
+    'FileType', 'text', ...
     'Delimiter', '\t', ...
     'QuoteStrings', false);
 
-disp('ecFSEOF results stored at %s\n',fileparts(file_genes));
+disp(['ecFSEOF results stored at: ' newline fileparts(file_genes)]);
 
 % Remove redundant output fields
 results = rmfield(results,'k_rxns');
