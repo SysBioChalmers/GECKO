@@ -1,5 +1,5 @@
 function [minFlux, maxFlux] = getFluxTarget(ecModel,target,cSource,alpha,tolerance,modelAdapter)
-% getFluxTarget
+%getFluxTarget
 %
 %   Function that performs a series of LP optimizations on an ecModel,
 %   by first maximizing biomass, then fixing a suboptimal value and 
@@ -9,9 +9,9 @@ function [minFlux, maxFlux] = getFluxTarget(ecModel,target,cSource,alpha,toleran
 %
 % Input:
 %   ecModel         an ecModel in GECKO 3 format (with ecModel.ec structure).
-%	target          rxn ID for the production target reaction, a exchange
+%   target          rxn ID for the production target reaction, a exchange
 %                   reaction is recommended.
-%	cSource	        rxn ID for the main carbon source uptake reaction.
+%   cSource         rxn ID for the main carbon source uptake reaction.
 %   alpha           scalling factor for desired suboptimal growth.
 %                   (Optional, defaul 1)
 %   tolerance       numerical tolerance for fixing bounds

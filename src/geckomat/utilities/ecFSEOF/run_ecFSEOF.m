@@ -1,23 +1,23 @@
 function results = run_ecFSEOF(ecModel,rxnTarget,cSource,alphaLims,Nsteps,file_genes,file_rxns,modelAdapter)
-% run_ecFSEOF
+%run_ecFSEOF
 %
-% 	Function that runs Flux-scanning with Enforced Objective Function
-% 	for a specified production target.
+% Function that runs Flux-scanning with Enforced Objective Function
+% for a specified production target.
 %
 % Input:
 %   ecModel         an ecModel in GECKO 3 format (with ecModel.ec structure).
-%	rxnTarget       rxn ID for the production target reaction, a exchange
+%   rxnTarget       rxn ID for the production target reaction, a exchange
 %                   reaction is recommended.
-%	cSource	        rxn ID for the main carbon source uptake reaction.
-% 	alphaLims       vector of Minimum and maximum biomass yield [gDW/mmol Csource]
-%			        for enforced objective limits (e.g. [0.5 1]). Max value: 1.
+%   cSource         rxn ID for the main carbon source uptake reaction.
+%   alphaLims       vector of Minimum and maximum biomass yield [gDW/mmol Csource]
+%                   for enforced objective limits (e.g. [0.5 1]). Max value: 1.
 %   Nsteps          number of steps for suboptimal objective in FSEOF.
 %                   (Optional, default 16)
-%	file_genes 	    file name for results output at the genes level.
+%   file_genes      file name for results output at the genes level.
 %                   (Optional, default output in the model-specific 'output'
 %                   sub-folder taken from modelAdapter,
 %                   e.g. GECKO/userData/ecYeastGEM/output/ecFSEOF_genes.tsv)
-%	file_rxns 	    file name for results output at the reactions level.
+%   file_rxns       file name for results output at the reactions level.
 %                   (Optional, default output in the model-specific 'output'
 %                   sub-folder taken from modelAdapter,
 %                   e.g. GECKO/userData/ecYeastGEM/output/ecFSEOF_rxns.tsv)
@@ -37,7 +37,7 @@ end
 params = modelAdapter.getParameters();
 
 if nargin < 7 || isempty(file_rxns)
-	file_rxns = fullfile(params.path,'output','ecFSEOF_rxns.tsv');
+    file_rxns = fullfile(params.path,'output','ecFSEOF_rxns.tsv');
 end
 
 if nargin < 6 || isempty(file_genes)

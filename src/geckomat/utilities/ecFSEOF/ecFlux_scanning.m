@@ -1,24 +1,24 @@
 function FC = ecFlux_scanning(ecModel,target,cSource,alpha,tolerance,filterG)
-% ecFlux_scanning
+%ecFlux_scanning
 %
 % Input:
 %   ecModel         an ecModel in GECKO 3 format (with ecModel.ec structure).
-%	rxnTarget       rxn ID for the production target reaction, a exchange
+%   rxnTarget       rxn ID for the production target reaction, a exchange
 %                   reaction is recommended.
-%	cSource	        rxn ID for the main carbon source uptake reaction.
+%  cSource          rxn ID for the main carbon source uptake reaction.
 %   alpha           scalling factor for production yield for enforced objective
 %                   limits
 %   tolerance       numerical tolerance for fixing bounds.
 %                   (Optional, defaul 1E-4)
-%   filterG	        logical value. TRUE if genes K_scores results should be
-%		            filtered according to the alpha vector distribution
+%   filterG         logical value. TRUE if genes K_scores results should be
+%                   filtered according to the alpha vector distribution
 %                   (Optional, defaul false)
 %
 % Usage:
 %   FC = ecFlux_scanning(model,target,cSource,alpha,tolerance,filterG)
 
 if nargin < 6 || isempty(filterG)
-	filterG = false;
+    filterG = false;
 end
 
 if nargin < 5 || isempty(tolerance)
@@ -104,8 +104,8 @@ cons_genes   = false(size(FC.genes));
 rxnGeneM     = rxnGeneM(:,sum(rxnGeneM,1) > 0);
 
 for i = 1:length(FC.genes)
-	% Extract all the K_scores (from rxns across alphas) conected to
-	% each remaining gene
+    % Extract all the K_scores (from rxns across alphas) conected to
+    % each remaining gene
     k_set         = FC.k_rxns(rxnGeneM(:,i) > 0);
     % Check the kind of control that gene i-th exerts over its reactions
     always_down   = sum(k_set <= (1-tolerance)) == length(k_set);
@@ -122,11 +122,11 @@ FC.k_genes   = FC.k_genes(cons_genes);
 rxnGeneM     = rxnGeneM(:,cons_genes);
 
 if filterG
-	% Filter any value between mean(alpha) and 1:
-	unchanged    = (FC.k_genes >= mean(alpha) - tolerance) + (FC.k_genes <= 1 + tolerance) == 2;
-	FC.genes     = FC.genes(~unchanged);
-	FC.geneNames = FC.geneNames(~unchanged);
-	FC.k_genes   = FC.k_genes(~unchanged);
+    % Filter any value between mean(alpha) and 1:
+    unchanged    = (FC.k_genes >= mean(alpha) - tolerance) + (FC.k_genes <= 1 + tolerance) == 2;
+    FC.genes     = FC.genes(~unchanged);
+    FC.geneNames = FC.geneNames(~unchanged);
+    FC.k_genes   = FC.k_genes(~unchanged);
     rxnGeneM     = rxnGeneM(:,~unchanged);
     % Update results for rxns-related fields (remove remaining reactions
     % without any associated gene in rxnGeneM)
