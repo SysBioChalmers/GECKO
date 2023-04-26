@@ -4,7 +4,12 @@ function [model, rxnsMissingGPR, standardMW, standardKcat, rxnsNoKcat] = getStan
 %   used to apply enzyme constraints to reactions without any associated genes.
 %   This is done by adding those reactions to model.ec, assign a "standard"
 %   pseudoenzyme with the standard MW (median of all proteins in the organism)
-%   and standard kcat (media from all kcat, or subsystem specific kcat).
+%   and standard kcat (median from all kcat, or subsystem specific kcat).
+%
+%   A reaction is assigned a subSystem specific kcat values if the model
+%   has a subSystems field and the reaction is annotated with a subSystem.
+%   Only the first subSystem will be considered if multiple are annotated
+%   to the same reaction.
 %
 %   Exchange, transport and pseudoreactions are filtered out, plus any
 %   reaction identifiers specified in /data/pseudoRxns.tsv in the model
@@ -84,7 +89,7 @@ rxnsKcatZero = model.ec.kcat > 0;
 standardKcat = median(model.ec.kcat(rxnsKcatZero), 'omitnan');
 
 % If the model have subSystems assigned calculate kcat based on subSystem
-if isfield(model,'subSystems') & ~isempty([model.subSystems{~cellfun(@isempty, model.subSystems)}])
+if isfield(model,'subSystems') && ~all(cellfun(@isempty, model.subSystems))
 
     standard = false;
     enzSubSystems = cell(numel(model.ec.rxns), 1);
@@ -108,7 +113,7 @@ if isfield(model,'subSystems') & ~isempty([model.subSystems{~cellfun(@isempty, m
 
     % if reactions in model.ec.rxns have a susbSystem assigned, else assign
     % standard value
-    if ~isempty([enzSubSystems{~cellfun(@isempty, enzSubSystems)}])
+    if ~all(cellfun(@isempty, enzSubSystems))
         % Determine the subSystems in model.ec
         [enzSubSystem_group, enzSubSystem_names] = findgroups(enzSubSystems(rxnsKcatZero));
 
@@ -227,7 +232,7 @@ for i = 1:numel(rxnsMissingGPR)
     end
 
     if ~standard
-        kcatSubSystemIdx =  strcmpi(enzSubSystem_names, model.subSystems{rxnIdx});
+        kcatSubSystemIdx = strcmpi(enzSubSystem_names, model.subSystems{rxnIdx}(1));
         if all(kcatSubSystemIdx)
             model.ec.kcat(end+1) = kcatSubSystem(kcatSubSystemIdx);
         else
