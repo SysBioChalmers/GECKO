@@ -18,7 +18,7 @@ else
     end
     
     %Load chemostat data:
-    fid = fopen([parameters.userDataPath '/data/chemostatData.tsv'],'r');
+    fid = fopen([parameters.tutorialsPath '/data/chemostatData.tsv'],'r');
     exp_data = textscan(fid,'%f32 %f32 %f32 %f32','Delimiter','\t','HeaderLines',1);
     exp_data = [exp_data{1} exp_data{2} exp_data{3} exp_data{4}];
     fclose(fid);
@@ -92,7 +92,7 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function mod_data = simulateChemostat(model,exp_data,GAM,parameters)
 %Modify GAM withouth changing the protein content:
-cd([parameters.userDataPath '/scripts'])
+cd([parameters.tutorialsPath '/scripts'])
 Pbase = sumProtein(model);
 model = scaleBioMass(model,Pbase,parameters,GAM,false);
 
