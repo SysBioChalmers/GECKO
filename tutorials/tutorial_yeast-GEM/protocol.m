@@ -4,61 +4,61 @@ checkInstallation
 
 %% STAGE 1: expansion from a starting metabolic model to an ecModel structure
 
-% STEP 1 Set modelAdapter
+disp('STEP 1 Set modelAdapter');
 geckoRoot = findGECKOroot;
 ModelAdapterManager.setDefaultAdapterFromPath(fullfile(geckoRoot,'tutorials', 'tutorial_yeast-GEM', 'YeastGEMAdapter.m')); 
 ModelAdapter = ModelAdapterManager.getDefaultAdapter();
 params = ModelAdapter.getParameters();
 
-% STEP 2 Load conventional GEM
+disp('STEP 2 Load conventional GEM');
 modelY = loadConventionalGEM();
 
-% STEP 3 Prepare ecModel
+disp('STEP 3 Prepare ecModel');
 [ecModelFull, noUniprot] = makeEcModel(modelY,false);
 [ecModelLight, noUniprot] = makeEcModel(modelY,true);
 ecModel = ecModelFull;
 doc makeEcModel
 
-% STEP 4 Annotate with complex data
+disp('STEP 4 Annotate with complex data');
 complexInfo = getComplexData(); % No need to run, as data is already in adapter folder
 [ecModel, foundComplex, proposedComplex] = applyComplexData(ecModel);
 
-% STEP 5 Store model in YAML format
+disp('STEP 5 Store model in YAML format');
 saveEcModel(ecModel,ModelAdapter,'yml','ecYeastGEMfull');
 ecModel=loadEcModel('ecYeastGEMfull.yml');
 
 %% STAGE 2: integration of kcat into the ecModel structure
 
-% STEP 6 Fuzzy matching with BRENDA
+disp('STEP 6 Fuzzy matching with BRENDA');
 ecModel         = getECfromGEM(ecModel);
 noEC = cellfun(@isempty, ecModel.ec.eccodes);
 ecModel         = getECfromDatabase(ecModel,noEC);
 kcatList_fuzzy  = fuzzyKcatMatching(ecModel);
 
-% STEP 7 DLKcat prediction through machine learning
+disp('STEP 7 DLKcat prediction through machine learning');
 runDLKcat();
 kcatList_DLKcat = readDLKcatOutput(ecModel);
 
-% STEP 8 Combine kcat from BRENDA and DLKcat
+disp('STEP 8 Combine kcat from BRENDA and DLKcat');
 kcatList_merged = mergeDLKcatAndFuzzyKcats(kcatList_DLKcat, kcatList_fuzzy);
 
-% STEP 9 Take kcatList and populate edModel.ec.kcat
+disp('STEP 9 Take kcatList and populate edModel.ec.kcat');
 ecModel  = selectKcatValue(ecModel, kcatList_merged);
 
-% STEP 10 Apply custom kcat values
+disp('STEP 10 Apply custom kcat values');
 [ecModel, rxnUpdated, notMatch] = applyCustomKcats(ecModel);
 ecModel  = applyKcatConstraints(ecModel);
 
-% STEP 11 Get kcat values across isoenzymes
+disp('STEP 11 Get kcat values across isoenzymes');
 ecModel = getKcatAcrossIsoenzymes(ecModel);
 
-% STEP 12 Get standard kcat
+disp('STEP 12 Get standard kcat');
 [ecModel, rxnsMissingGPR, standardMW, standardKcat] = getStandardKcat(ecModel);
 
-% STEP 13 Apply kcat constraints from ecModel.ec.kcat to ecModel.S
+disp('STEP 13 Apply kcat constraints from ecModel.ec.kcat to ecModel.S');
 ecModel = applyKcatConstraints(ecModel);
 
-% STEP 14 Set upper bound of protein pool
+disp('STEP 14 Set upper bound of protein pool');
 Ptot  = params.Ptot;
 f     = params.f;
 sigma = params.sigma;
@@ -70,13 +70,13 @@ ecModel = setParam(ecModel,'lb','r_1714',-1000);
 sol = solveLP(ecModel,1)
 printFluxes(ecModel, sol.x)
 
-% STEP 15 Relax protein pool constraint
+disp('STEP 15 Relax protein pool constraint');
 protPoolIdx = strcmp(ecModel.rxns, 'prot_pool_exchange');
 ecModel.lb(protPoolIdx) = -1000;
 sol = solveLP(ecModel,1)
 ecModel.lb(protPoolIdx) = sol.x(protPoolIdx);
 
-% STEP 16 Sensitivity tuning
+disp('STEP 16 Sensitivity tuning');
 ecModel = setProtPoolSize(ecModel);
 [ecModel, tunedKcats] = sensitivityTuning(ecModel);
 
@@ -121,10 +121,10 @@ ecModel = loadEcModel('ecYeastGEMfull.yml');
 modelY = loadConventionalGEM();
 fluxData = loadFluxData;
 
-% STEP 21 Example of various useful RAVEN functions
+disp('STEP 21 Example of various useful RAVEN functions');
 % skipped here
 
-% STEP 22 Selecting objective functions
+disp('STEP 22 Selecting objective functions');
 ecModel = setParam(ecModel,'obj',params.bioRxn,1);
 sol = solveLP(ecModel)
 disp(['Growth rate reached: ' num2str(abs(sol.f))])
@@ -133,7 +133,7 @@ ecModel = setParam(ecModel,'obj','prot_pool_exchange',1);
 sol = solveLP(ecModel)
 disp(['Minimum protein pool usage: ' num2str(abs(sol.f)) ' mg/gDCW'])
 
-% STEP 23 Compare fluxes from ecModel and starting model
+disp('STEP 23 Compare fluxes from ecModel and starting model');
 fluxData.grRate(1) = 0.088;
 ecModel = constrainFluxData(ecModel,fluxData,1,'min',5);
 ecModel = setParam(ecModel,'obj','prot_pool_exchange',1);
@@ -150,11 +150,11 @@ ratioFlux = mappedFlux ./ sol.x;
 ratioFlux(isnan(ratioFlux)) = 0; % Divisions by zero give NaN, reset to zero.
 printFluxes(modelY,ratioFlux,false)
 
-% STEP 24 Inspect enzyme usage
+disp('STEP 24 Inspect enzyme usage');
 usageData = enzymeUsage(ecModel,solEC.x);
 usageReport = reportEnzymeUsage(ecModel,usageData,0.90);
 
-% STEP 25 Perform (ec)FVA
+disp('STEP 25 Perform (ec)FVA');
 [minFluxEc, maxFluxEc] = ecFVA(ecModel, modelY);
 [minFluxY, maxFluxY] = ecFVA(modelY, modelY);
 
