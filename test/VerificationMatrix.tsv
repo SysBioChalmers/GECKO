@@ -43,12 +43,12 @@ utilities/*	Not explicitly tested - The code has existed for a long time. There 
 utilities/loadConventionalGEM.m	tc0009	
 utilities/loadEcModel.m	tc0009	
 utilities/saveEcModel.m	tc0009	
-userdata/ecHumanGEM/HumanGEMAdapter.m	tcm0002 - does not test all aspects of the adapter, but some.	
-userdata/ecYeastGEM/YeastGEMAdapter.m	tcm0001 - does not test all aspects of the adapter, but some.	
-userdata/ecYeastGEM/code/changeMedia_batch.m	Not explicitly tested - The code has existed for a long time	
-userdata/ecYeastGEM/code/getModelParameters_obsolete.m	Deprecated	
-userdata/ecYeastGEM/code/manualModifications.m	Deprecated	
-userdata/ecYeastGEM/code/removeIncorrectPathways.m	Not explicitly tested - The code has existed for a long time	
-userdata/ecYeastGEM/code/scaleBioMass.m	Not explicitly tested - The code has existed for a long time	
-userdata/ecYeastGEM/code/sumBioMass.m	Not explicitly tested - The code has existed for a long time	
-userdata/ecYeastGEM/code/sumProtein.m	Not explicitly tested - The code has existed for a long time	
+tutorials/tutorial_Human-GEM/HumanGEMAdapter.m	tcm0002 - does not test all aspects of the adapter, but some.	
+tutorials/tutorial_yeast-GEM/YeastGEMAdapter.m	tcm0001 - does not test all aspects of the adapter, but some.	
+tutorials/tutorial_yeast-GEM/code/changeMedia_batch.m	Not explicitly tested - The code has existed for a long time	
+tutorials/tutorial_yeast-GEM/code/getModelParameters_obsolete.m	Deprecated	
+tutorials/tutorial_yeast-GEM/code/manualModifications.m	Deprecated	
+tutorials/tutorial_yeast-GEM/code/removeIncorrectPathways.m	Not explicitly tested - The code has existed for a long time	
+tutorials/tutorial_yeast-GEM/code/scaleBioMass.m	Not explicitly tested - The code has existed for a long time	
+tutorials/tutorial_yeast-GEM/code/sumBioMass.m	Not explicitly tested - The code has existed for a long time	
+tutorials/tutorial_yeast-GEM/code/sumProtein.m	Not explicitly tested - The code has existed for a long time	

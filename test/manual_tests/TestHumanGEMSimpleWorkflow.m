@@ -2,7 +2,7 @@
 
 GECKORoot = findGECKOroot();
 
-humanAdapter = ModelAdapterManager.getAdapterFromPath(fullfile(GECKORoot, 'userData', 'ecHumanGEM'));
+humanAdapter = ModelAdapterManager.getAdapterFromPath(fullfile(GECKORoot, 'tutorials', 'tutorial_Human-GEM'));
 HumanGEMRoot = HumanGEMAdapter.getHumanGEMRootPath();
 
 ihuman = load(fullfile(HumanGEMRoot, 'model', 'Human-GEM.mat')).ihuman;
@@ -84,11 +84,11 @@ lightECModelMerged = setProtPoolSize(lightECModelMerged, [], [], [], humanAdapte
 
 GECKORoot = findGECKOroot();
 
-humanAdapter = ModelAdapterManager.getAdapterFromPath(fullfile(GECKORoot, 'userData', 'ecHumanGEM'));
+humanAdapter = ModelAdapterManager.getAdapterFromPath(fullfile(GECKORoot, 'tutorials', 'tutorial_Human-GEM'));
 
 %test that the path stuff works
-%humanAdapterTemp = ModelAdapterManager.getAdapterFromPath(fullfile(GECKORoot, 'userData', 'ecHumanGEMTemp'), false); %should give warning + error
-%humanAdapterTemp = ModelAdapterManager.getAdapterFromPath(fullfile(GECKORoot, 'userData', 'ecHumanGEMTemp'), true);
+%humanAdapterTemp = ModelAdapterManager.getAdapterFromPath(fullfile(GECKORoot, 'tutorials', 'tutorial_Human-GEMTemp'), false); %should give warning + error
+%humanAdapterTemp = ModelAdapterManager.getAdapterFromPath(fullfile(GECKORoot, 'tutorials', 'tutorial_Human-GEMTemp'), true);
 %humanAdapterTemp.getParameters
 HumanGEMRoot = HumanGEMAdapter.getHumanGEMRootPath();
 

@@ -1,7 +1,7 @@
 function [model,noSMILES] = findMetSmiles(model, modelAdapter, verbose)
 % findMetSMILES
 %   Queries PubChem by metabolite names to obtain SMILES. Matches will also
-%   be stored in userData/***/data/smilesDB.tsv, that will also be queried
+%   be stored in tutorials/***/data/smilesDB.tsv, that will also be queried
 %   first next time the function is run. If the model already has a
 %   metSmiles field, then non-empty entries will not be overwritten.
 %

@@ -2,7 +2,7 @@
 
 GECKORoot = findGECKOroot();
 
-yeastAdapter = ModelAdapterManager.getAdapterFromPath(fullfile(GECKORoot, 'userData', 'ecYeastGEM'));
+yeastAdapter = ModelAdapterManager.getAdapterFromPath(fullfile(GECKORoot, 'tutorials', 'tutorial_yeast-GEM'));
 yeastGEM = importModel(fullfile(yeastAdapter.getParameters().path,'models','yeast-GEM.xml'));
 
 %Full model

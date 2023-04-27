@@ -93,16 +93,16 @@ ecModel.ec.kcat = kcats;
 
 end
 %code for generating data files from the .mat files in dlkcat
-%x = load('C:/Code/Components/GECKO/Gecko3/GECKO/userData/ecYeastGEM/data/Saccharomyces_cerevisiae_dl.mat')
+%x = load('C:/Code/Components/GECKO/Gecko3/GECKO/tutorials/tutorial_yeast-GEM/data/Saccharomyces_cerevisiae_dl.mat')
 %growthrates = x.growthrates;
 %growthrates(strcmp(growthrates(:,1),'Saccharomyces_cerevisiae'),:)
 %size(growthrates)
 %T = cell2table(growthrates(strcmp(growthrates(:,1),'Saccharomyces_cerevisiae'),:),'VariableNames',{'Species','Substrate','Uptake','sub','ace','eth','gly','pyr','ethyl_acetate','co2','o2','Unused1','Unused2','OxAvail','Unused3','Media'});
-%writetable(T,'C:/Code/Components/GECKO/Gecko3/GECKO/userData/ecYeastGEM/data/BayesianGrowthRates.csv');
+%writetable(T,'C:/Code/Components/GECKO/Gecko3/GECKO/tutorials/tutorial_yeast-GEM/data/BayesianGrowthRates.csv');
 %maxGrowth = cell2table(x.max_growth, 'VariableNames', {'Species','Substrate','Uptake','sub','ace','eth','gly','pyr','ethyl_acetate','co2','o2','Unused1','Unused2','OxAvail','Unused3','Media'});
-%writetable(maxGrowth, 'C:/Code/Components/GECKO/Gecko3/GECKO/userData/ecYeastGEM/data/BayesianMaxGrowth.csv')
+%writetable(maxGrowth, 'C:/Code/Components/GECKO/Gecko3/GECKO/tutorials/tutorial_yeast-GEM/data/BayesianMaxGrowth.csv')
 %rxn2block = x.rxn2block;
 %T = cell2table(rxn2block,'VariableNames',{'Rxns'});
-%writetable(T,'C:/Code/Components/GECKO/Gecko3/GECKO/userData/ecYeastGEM/data/BayesianRxn2Block.csv');
+%writetable(T,'C:/Code/Components/GECKO/Gecko3/GECKO/tutorials/tutorial_yeast-GEM/data/BayesianRxn2Block.csv');
 
 

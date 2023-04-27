@@ -3,7 +3,7 @@ function runDLKcat(modelAdapter)
 %   Runs DLKcat to predict kcat values from a Docker image. Once DLKcat is succesfully
 %   run, the DLKcatFile will be overwritten with the DLKcat
 %   output in the model-specific 'data' sub-folder taken from modelAdapter
-%   (e.g. GECKO/userData/ecYeastGEM/data/DLKcat.tsv)
+%   (e.g. GECKO/tutorials/tutorial_yeast-GEM/data/DLKcat.tsv)
 %
 % Input
 %   modelAdapter    a loaded model adapter. (Optional, will otherwise use
