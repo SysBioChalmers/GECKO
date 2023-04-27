@@ -17,7 +17,6 @@ disp('STEP 3 Prepare ecModel');
 [ecModelFull, noUniprot] = makeEcModel(modelY,false);
 [ecModelLight, noUniprot] = makeEcModel(modelY,true);
 ecModel = ecModelFull;
-doc makeEcModel
 
 disp('STEP 4 Annotate with complex data');
 complexInfo = getComplexData(); % No need to run, as data is already in adapter folder
