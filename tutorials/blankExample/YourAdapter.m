@@ -7,7 +7,7 @@ classdef YourAdapter < ModelAdapter
             % Is assumed to follow the GECKO-defined folder structure. The
             % code below refers to tutorials/ecHumanGEM in the GECKO path.
             geckoPath = findGECKOroot;
-            obj.params.path = fullfile(geckoPath,'toturails','blankExample');
+            obj.params.path = fullfile(geckoPath,'tutorials','blankExample');
 
 			% Path to the conventional GEM that this ecModel will be based on.
 			obj.params.convGEM = fullfile(HumanGEMAdapter.getHumanGEMRootPath(),'model','yourModel.xml');
