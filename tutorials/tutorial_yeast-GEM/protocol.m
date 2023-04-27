@@ -6,7 +6,7 @@ checkInstallation
 
 % STEP 1 Set modelAdapter
 geckoRoot = findGECKOroot;
-ModelAdapterManager.setDefaultAdapterFromPath(fullfile(geckoRoot,'tutorials','ecYeastGEM')); 
+ModelAdapterManager.setDefaultAdapterFromPath(fullfile(geckoRoot,'tutorials', 'tutorial_yeast-GEM', 'YeastGEMAdapter.m')); 
 ModelAdapter = ModelAdapterManager.getDefaultAdapter();
 params = ModelAdapter.getParameters();
 

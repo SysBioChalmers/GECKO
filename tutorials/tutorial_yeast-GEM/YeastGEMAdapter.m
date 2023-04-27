@@ -1,7 +1,7 @@
 classdef YeastGEMAdapter < ModelAdapter 
 	methods
 		function obj = YeastGEMAdapter()
-			obj.params.path = fullfile(findGECKOroot,'tutorials','tutorial_yeastGEM');
+			obj.params.path = fullfile(findGECKOroot,'tutorials','tutorial_yeast-GEM');
 
 			obj.params.convGEM = fullfile(obj.params.path,'models','yeast-GEM.xml');
 
