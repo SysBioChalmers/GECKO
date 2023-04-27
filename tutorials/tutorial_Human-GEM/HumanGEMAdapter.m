@@ -2,7 +2,7 @@ classdef HumanGEMAdapter < ModelAdapter
     methods
         function obj = HumanGEMAdapter()
             geckoPath = findGECKOroot;
-            obj.params.path = fullfile(geckoPath,'tutorials','ecHumanGEM');
+            obj.params.path = fullfile(geckoPath,'tutorials','tutorial_HumanGEM');
 
 			obj.params.convGEM = fullfile(HumanGEMAdapter.getHumanGEMRootPath(),'model','Human-GEM.xml');
 
