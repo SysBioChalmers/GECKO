@@ -56,7 +56,7 @@ if nargin<2 || isempty(customKcats)
     customKcats = fullfile(params.path,'data','customKcats.tsv');
 end
 if isstruct(customKcats)
-    if ~all(strcmp(fieldnames(customKcats),{'proteins','kcat','notes','stoicho'}))
+    if ~all(ismember({'proteins','kcat','notes','stoicho'},fieldnames(customKcats)))
         error('The customKcats structure does not have all essential fields.');
     end
 elseif isfile(customKcats)
