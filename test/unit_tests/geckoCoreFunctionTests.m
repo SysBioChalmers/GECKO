@@ -322,7 +322,7 @@ function testKcats_tc0011(testCase)
       delete(filepath);
     end
     verifyTrue(testCase,~(exist(filepath, 'file')==2))
-    writtenTable = writeDLKcatInput(ecModel, [], adapter, false, filepath);
+    [~, writtenTable] = evalc('writeDLKcatInput(ecModel, [], adapter, false, filepath)');
     verifyTrue(testCase,exist(filepath, 'file')==2) %check that we write a file, we don't check the contents
     if exist(filepath, 'file')==2 %clean up
       delete(filepath);
@@ -405,6 +405,18 @@ function testKcats_tc0011(testCase)
     ecModel=getKcatAcrossIsoenzymes(ecModel);
     verifyEqual(testCase,ecModel.ec.kcat, [1;1;10;10;1008;1009;1010;100;1011])
 
+    %Check applyCustomKcats
+    test = applyCustomKcats(ecModel, [], adapter);
+    verifyEqual(testCase,test.ec.kcat, [100;200;50;50;100;200;1010;100;50])
+
+    customKcats.proteins = {'P3'; 'P1 + P2'; ''};
+    customKcats.kcat     = [200; 100; 50];
+    customKcats.rxns     = {'';'';'R2_REV, R5'};
+
+    test = applyCustomKcats(ecModel, customKcats, adapter);
+    verifyEqual(testCase,test.ec.kcat, [100;200;50;50;100;200;1010;100;50])
+
+
     %now apply for light
     %%%%%%%%%%%%%%%%%%%
     
@@ -468,7 +480,7 @@ function testfindMetSmiles_tc0012(testCase)
     adapter = ModelAdapterManager.getAdapterFromPath(fullfile(geckoPath,'test','unit_tests','ecTestGEM'));
     model = getGeckoTestModel();
     ecModel = makeEcModel(model, false, adapter);
-    ecModel = findMetSmiles(ecModel, adapter, false);
+    [~, ecModel] = evalc("findMetSmiles(ecModel, adapter, false)");
 
     verifyEqual(testCase,ecModel.metSmiles,{'C(C1C)O';'C1C(=NC2)';'C(C1C)O';'C1C(=NC2)';'';'';'';'';'';''})
 end
@@ -502,7 +514,7 @@ function testProteomcisIntegration_tc0013(testCase)
 
     % test that usage protein are correctly constraint. Sol.f give 0.1127,
     % increse objective up to 0.5
-    [ecModel, flexProt] =  flexibilizeProtConcs(ecModel, 0.4,[],[],[],false);
+    [~, ecModel, flexProt] =  evalc("flexibilizeProtConcs(ecModel, 0.4,[],[],[],false)");
     [~, usageRxnIdx] = ismember(strcat('usage_prot_', flexProt.uniprotIDs), ecModel.rxns);
     verifyEqual(testCase,ecModel.lb(usageRxnIdx),-flexProt.flexConcs)
 end
