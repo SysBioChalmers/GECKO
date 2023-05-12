@@ -406,14 +406,14 @@ function testKcats_tc0011(testCase)
     verifyEqual(testCase,ecModel.ec.kcat, [1;1;10;10;1008;1009;1010;100;1011])
 
     %Check applyCustomKcats
-    test = applyCustomKcats(ecModel);
+    test = applyCustomKcats(ecModel, [], adapter);
     verifyEqual(testCase,test.ec.kcat, [100;200;50;50;100;200;1010;100;50])
 
     customKcats.proteins = {'P3'; 'P1 + P2'; ''};
     customKcats.kcat     = [200; 100; 50];
     customKcats.rxns     = {'';'';'R2_REV, R5'};
 
-    test = applyCustomKcats(ecModel, customKcats);
+    test = applyCustomKcats(ecModel, customKcats, adapter);
     verifyEqual(testCase,test.ec.kcat, [100;200;50;50;100;200;1010;100;50])
 
 
