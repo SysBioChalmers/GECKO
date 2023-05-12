@@ -29,16 +29,32 @@ function [model, rxnUpdated, notMatch] = applyCustomKcats(model, customKcats, mo
 %   - gene_name   short gene name (optional, not used in matching)
 %   - kcat        new kcat value (one per entry)
 %   - rxns        reaction identifiers, multiple for the same kcat are
-%                 separated by ',' (optional, see below)
+%                 separated by ',' (see further explanation below)
 %   - notes       will be appended to model.ec.notes (optional)
 %   - stoicho     complex stoichiometry, separated by ' + ' (examples: '1'
 %                 or '3 + 1'), matching the order in proteins field
 %   
-%   Either all reactions matching the set of proteins will have their kcat
-%   updated. Alternatively, a set of reactions can be defined for specific
-%   changes (e.g. r_0001). Reaction identifiers should be comma separated
-%   (e.g. r_0001, r_0002), and not contain the _REV and/or _EXP_1 suffices
-%   that makeEcModel introduces.
+%   Matching order:
+%   (1) reactions are identified by .proteins and .rxns
+%   (2) reactions are identified by .proteins only (empty .rxns entry)
+%       no additional checks are made: is a reaction annotated with these
+%       proteins? => its kcat will be updated, irrespective of the exact
+%       reaction, direction, substrate, etc.
+%   (3) reactions are identified by .rxns only (empty .proteins entry)
+%       no additional checks are made: is a reaction derived from the
+%       original reaction identifier => its kcat will be updated,
+%       irrespective of the annotated protein
+%
+%   customKcats.rxns field:
+%   The reaction identifiers are from the ORIGINAL model, before _EXP_
+%   suffixes were added by makeEcModel. Reaction directionality IS however
+%   specified, with a _REV suffix.
+%   Example entries:
+%   'r_0001'     will match r_0001, r_0001_EXP_1, r_0001_EXP_2 etc., but
+%                not r_0001_REV, r_0001_EXP_1_REV etc.
+%   'r_0001_REV' will match r_0001_REV, r_0001_EXP_1_REV, r_0001_EXP_2_REV,
+%                etc., but not r_0001, r_0001_EXP_1 etc.
+%   Multiple identifiers should be comma separated (e.g. r_0001, r_0002)
 %
 % Usage:
 %   [model, rxnUpdated, notMatch] = applyCustomKcats(model, customKcats, modelAdapter);
@@ -56,7 +72,7 @@ if nargin<2 || isempty(customKcats)
     customKcats = fullfile(params.path,'data','customKcats.tsv');
 end
 if isstruct(customKcats)
-    if ~all(ismember({'proteins','kcat','notes','stoicho'},fieldnames(customKcats)))
+    if ~all(isfield(customKcats,{'proteins','kcat','rxns'}))
         error('The customKcats structure does not have all essential fields.');
     end
 elseif isfile(customKcats)
@@ -88,7 +104,7 @@ if ~model.ec.geckoLight
             %If only reaction ID(s) is/are specified (and no proteins),
             %then apply the kcat to all isoenzymic reactions
             rxns    = strtrim(strsplit(customKcats.rxns{i}, ','));
-            rxnIdxs = contains(ecRxnNoSuffix,rxns);
+            rxnIdxs = ismember(ecRxnNoSuffix,rxns);
             rxnToUpdate(rxnIdxs) = 1;
             model.ec.kcat(rxnIdxs) = customKcats.kcat(i);
         else
@@ -148,10 +164,12 @@ if ~model.ec.geckoLight
 
                         % Add note mentioning manual kcat change
                         model.ec.source{rxnIdxs(j),1} = 'custom';
-                        if  isempty(model.ec.notes{rxnIdxs(j), 1}) && isfield(customKcats,'notes') && ~isempty(customKcats.notes{i})
-                            model.ec.notes{rxnIdxs(j), 1} = customKcats.notes{i};
-                        else
-                            model.ec.notes{rxnIdxs(j), 1} = [model.ec.notes{rxnIdxs(j), 1} ', ' customKcats.notes{i}];
+                        if isfield(customKcats,'notes')
+                            if isempty(model.ec.notes{rxnIdxs(j), 1}) && ~isempty(customKcats.notes{i})
+                                model.ec.notes{rxnIdxs(j), 1} = customKcats.notes{i};
+                            else
+                                model.ec.notes{rxnIdxs(j), 1} = [model.ec.notes{rxnIdxs(j), 1} ', ' customKcats.notes{i}];
+                            end
                         end
                     elseif match >= 0.5 && match < 1
                         rxnNotMatch(rxnIdxs(j)) = 1;
