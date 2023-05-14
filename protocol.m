@@ -214,13 +214,13 @@ ecModel = fillProtConcs(ecModel,protData);
 ecModel = constrainProtConcs(ecModel);
 
 % STEP 18 Update protein pool
-% Take into consideration the amount of measured protein and the total
-% cellular protein content, the protein pool exchange reaction will be
-% constraint by what is estimated to be the amount of unmeasured enzyme.
-% The condition-specific total protein content is stored together with the
-% flux data that otherwise will be used in Step 19.
+% The protein pool reaction will be constraint by the remaining, unmeasured
+% enzyme content. This is calculated by subtracting the sum of 
+% ecModel.ec.concs from the condition-specific total protein content. The
+% latter is stored together with the flux data that otherwise will be used
+% in Step 19.
 fluxData = loadFluxData();
-ecModel = updateProtPool(ecModel,protData.measuredProt(1),fluxData.Ptot(1));
+ecModel = updateProtPool(ecModel,fluxData.Ptot(1));
 
 % STEP 19 Load flux data
 % Matching the proteomics sample(s), condition-specific flux data needs to
