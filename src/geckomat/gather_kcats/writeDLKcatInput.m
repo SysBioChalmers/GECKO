@@ -84,11 +84,14 @@ fileData   = textscan(fID,'%s %s','delimiter','\t');
 fclose(fID);
 [ignoreMets, ignoreSmiles] = deal(fileData{[1,2]});
 ignoreMets = lower(regexprep(ignoreMets,'[^0-9a-zA-Z]+',''));
+ignoreSmiles(cellfun(@isempty,ignoreSmiles)) = [];
 
 ignoreMetsIdx  = logical(ismember(metsNoSpecialChars,ignoreMets));
 if isfield(model,'metSmiles')
     ignoreMetsIdx = ignoreMetsIdx | logical(ismember(model.metSmiles,ignoreSmiles));
 end
+% Also leave out protein-usage pseudometabolites
+ignoreMetsIdx = ignoreMetsIdx | startsWith(model.mets,'prot_');
 reducedS = model.S;
 reducedS(ignoreMetsIdx,:) = 0;
 
@@ -100,23 +103,22 @@ if exist(fullfile(params.path,'data','DLKcatCurrencyMets.tsv'),'file')
 else
     fID = fopen(fullfile(geckoPath,'databases','DLKcatCurrencyMets.tsv'));
 end
-fileData = textscan(fID,'%s %s %s %s','delimiter','\t');
+fileData = textscan(fID,'%s %s','delimiter','\t');
 fclose(fID);
-[currencyMets(:,1), currencyMets(:,2), currSmiles(:,1), currSmiles(:,2)] = deal(fileData{[1,3,2,4]});
 [currencyMets(:,1), currencyMets(:,2)] = deal(fileData{[1,2]});
 currencyMets = lower(regexprep(currencyMets,'[^0-9a-zA-Z]+',''));
 
 for i=1:size(currencyMets,1)
     subs = strcmp(currencyMets(i,1),metsNoSpecialChars);
     prod = strcmp(currencyMets(i,2),metsNoSpecialChars);
-    if isfield(model,'metSmiles')
-        subs = subs | logical(ismember(model.metSmiles,currSmiles(i,1)));
-        prod = prod | logical(ismember(model.metSmiles,currSmiles(i,2)));
-    end
     [~,subsRxns]=find(reducedS(subs,:));
     [~,prodRxns]=find(reducedS(prod,:));
     pairRxns = intersect(subsRxns,prodRxns);
-    reducedS([subs;prod],pairRxns) = 0;
+    tempRedS=reducedS;
+    tempRedS([find(subs);find(prod)],pairRxns) = 0;
+    % Do not remove currency mets if no substrate remains
+    rxnsWithRemainingSubstrates = any(tempRedS(:,pairRxns) < 0,1);
+    reducedS([find(subs);find(prod)],intersect(pairRxns,pairRxns(rxnsWithRemainingSubstrates))) = 0;
 end
 
 %filter out the reactions we're not interested in - will solve the problem for both full and light
