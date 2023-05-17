@@ -34,6 +34,8 @@ if ~exist(fullPath, 'dir')
     dir = {'code', 'data', 'models', 'output'};
     for i = 1:length(dir)
         status = mkdir(fullPath, dir{i});
+        fid = fopen(fullfile(fullPath, dir{i}, '.keep'), 'w');
+        fclose(fid);
     end
 
     % Read the template adapter class
