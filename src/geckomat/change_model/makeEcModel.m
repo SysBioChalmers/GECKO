@@ -151,8 +151,8 @@ if exist(fullfile(params.path,'data','pseudoRxns.tsv'),'file')
 else
     pseudoRxns = false(numel(model.rxns),1);
 end
-pseudoRxns = pseudoRxns | contains(model.rxnNames,'pseudoreaction');
-model.grRules{pseudoRxns}       = '';
+pseudoRxns = find(pseudoRxns | contains(model.rxnNames,'pseudoreaction'));
+model.grRules(pseudoRxns)       = {''};
 model.rxnGeneMat(pseudoRxns,:)  = zeros(numel(pseudoRxns), numel(model.genes));
 
 %2: Swap direction of reactions that are defined to only carry negative flux
