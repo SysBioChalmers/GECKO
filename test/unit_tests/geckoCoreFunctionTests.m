@@ -212,12 +212,10 @@ function testModelAdapterManager_tc0008(testCase)
     geckoPath = findGECKOroot;
     adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
     verifyTrue(testCase,~isempty(adapter))
-    ModelAdapterManager.setDefault(adapter);
+    ModelAdapterManager.setDefault(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
     verifyTrue(testCase,~isempty(ModelAdapterManager.getDefault()))
     ModelAdapterManager.setDefault([]);
     verifyTrue(testCase,isempty(ModelAdapterManager.getDefault()))
-    ModelAdapterManager.setDefault(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
-    verifyTrue(testCase,~isempty(ModelAdapterManager.getDefault()))
 end
 
 function testsaveECModel_tc0009(testCase)
@@ -226,8 +224,8 @@ function testsaveECModel_tc0009(testCase)
     adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
     model = getGeckoTestModel();
     ecModel = makeEcModel(model, false, adapter);
-    saveEcModel(ecModel);
-    loadedEcModel = loadEcModel();
+    saveEcModel(ecModel, adapter);
+    loadedEcModel = loadEcModel([],adapter);
     delete(fullfile(adapter.params.path,'models','ecModel.yml'));
     verifyEqual(testCase, ecModel, loadedEcModel)
 
@@ -496,10 +494,10 @@ function testProteomcisIntegration_tc0013(testCase)
     kcatListFuzzy = fuzzyKcatMatching(ecModel, [], adapter);
     ecModel  = selectKcatValue(ecModel, kcatListFuzzy);
     ecModel  = applyKcatConstraints(ecModel);
-    ecModel  = setProtPoolSize(ecModel);
+    ecModel  = setProtPoolSize(ecModel,[],[],[],adapter);
 
     % test that proteomics data is correct loaded into protData
-    protData = loadProtData(1);
+    protData = loadProtData(1,[],[],adapter);
     verifyEqual(testCase,protData.abundances,[0.7292388;0.03692241;0.318175;5.1959184;0.15647268])
     verifyEqual(testCase,protData.uniprotIDs,{'P1';'P2';'P3';'P4';'P5'})
 
@@ -514,7 +512,7 @@ function testProteomcisIntegration_tc0013(testCase)
 
     % test that usage protein are correctly constraint. Sol.f give 0.1127,
     % increse objective up to 0.5
-    [~, ecModel, flexProt] =  evalc("flexibilizeProtConcs(ecModel, 0.4,[],[],[],false)");
+    [~, ecModel, flexProt] =  evalc("flexibilizeProtConcs(ecModel, 0.4,[],[],adapter,false)");
     [~, usageRxnIdx] = ismember(strcat('usage_prot_', flexProt.uniprotIDs), ecModel.rxns);
     verifyEqual(testCase,ecModel.lb(usageRxnIdx),-flexProt.flexConcs)
 end
