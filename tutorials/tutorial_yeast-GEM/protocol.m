@@ -47,13 +47,11 @@ ModelAdapter = ModelAdapterManager.setDefault(adapterLocation);
 % With the above line, we set the YeastGEMAdapter as the default adapter
 % from here onwards, which means that any GECKO function that requires a
 % model adapter as input will use YeastGEMAdapter. This is until you have
-% set a new default adapter, or closed MATLAB.
-% 
-% The content of the adapter is also available as ModelAdapter, however, if
-% you want to make a change to the adapter, you should rerun 
-% ModelIf you explicitly want to set the ModelAdapter as input parameter for
-% many of the GECKO functions, you can get the ModelAdapter structure with
-% the following command that should be run after the above command.
+% set a new default adapter, or closed MATLAB. To clarify: making a change
+% in ModelAdapter in the Workspace has no effect (unless the ModelAdapter
+% is explicitly provided as a function input), rather you should make the
+% change in the adapter file and run anew ModelAdapterManager.setDefault().
+
 % Make it easy to check what value the parameters are.
 params = ModelAdapter.getParameters();
 
@@ -85,6 +83,7 @@ doc makeEcModel
 % tutorial_yeast-GEM/data folder.
 %complexInfo = getComplexData();
 [ecModel, foundComplex, proposedComplex] = applyComplexData(ecModel);
+
 % complexInfo can be given as second input, but not needed here, as it will
 % read the file that was written by getComplexData
 
