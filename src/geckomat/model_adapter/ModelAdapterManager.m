@@ -38,6 +38,10 @@ classdef ModelAdapterManager
         end
         
         function adapter = setDefault(adapterPath, addToMatlabPath)
+            if nargin < 1 || isempty(adapterPath)
+                adapter = ModelAdapterManager.setGetDefault(adapterPath);
+                return
+            end
             if nargin < 2
                 addToMatlabPath = true;
             end
