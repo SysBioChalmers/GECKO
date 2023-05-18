@@ -5,8 +5,8 @@ checkInstallation
 
 % STEP 1 Set modelAdapter
 geckoRoot = findGECKOroot;
-ModelAdapterManager.setDefaultAdapterFromPath(fullfile(geckoRoot,'tutorials','ecYeastGEM')); 
-ModelAdapter = ModelAdapterManager.getDefaultAdapter();
+ModelAdapterManager.setDefault(fullfile(geckoRoot,'tutorials','ecYeastGEM')); 
+ModelAdapter = ModelAdapterManager.getDefault();
 params = ModelAdapter.getParameters();
 
 % STEP 2 Load conventional GEM

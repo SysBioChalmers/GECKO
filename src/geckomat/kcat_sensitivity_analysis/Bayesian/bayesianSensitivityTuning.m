@@ -20,7 +20,7 @@ if nargin < 3
 end
 
 if nargin < 2 || isempty(modelAdapter)
-    modelAdapter = ModelAdapterManager.getDefaultAdapter();
+    modelAdapter = ModelAdapterManager.getDefault();
     if isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default ecModel adapter in the ModelAdapterManager.')
     end

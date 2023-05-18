@@ -33,7 +33,7 @@ function complexInfo = getComplexData(organism, modelAdapter)
 %   complexInfo = getComplexData(organism, modelAdapter);
 
 if nargin < 2 || isempty(modelAdapter)
-    modelAdapter = ModelAdapterManager.getDefaultAdapter();
+    modelAdapter = ModelAdapterManager.getDefault();
     if isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
     end

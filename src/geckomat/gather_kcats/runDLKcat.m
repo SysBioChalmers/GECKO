@@ -13,7 +13,7 @@ function runDLKcat(modelAdapter)
 %         2. Runtime will depend on whether the image is to be downloaded or not.
 
 if nargin < 1 || isempty(modelAdapter)
-    modelAdapter = ModelAdapterManager.getDefaultAdapter();
+    modelAdapter = ModelAdapterManager.getDefault();
     if isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
     end

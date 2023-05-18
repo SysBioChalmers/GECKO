@@ -1,7 +1,7 @@
 %Abstract Base class for adapters for different species
 classdef ModelAdapterManager 
 	methods(Static)
-        function adapter = getAdapterFromPath(adapterPath, addToMatlabPath)
+        function adapter = getAdapter(adapterPath, addToMatlabPath)
             if nargin < 2
                 addToMatlabPath = true;
             end
@@ -33,25 +33,21 @@ classdef ModelAdapterManager
             adapter = feval(adapterClassName);
         end
         
-        function setDefaultAdapter(val)
-            ModelAdapterManager.setGetDefaultAdapter(val);
+        function out = getDefault()
+            out = ModelAdapterManager.setGetDefault();
         end
         
-        function out = getDefaultAdapter()
-            out = ModelAdapterManager.setGetDefaultAdapter();
-        end
-        
-        function setDefaultAdapterFromPath(adapterPath, addToMatlabPath)
+        function adapter = setDefault(adapterPath, addToMatlabPath)
             if nargin < 2
                 addToMatlabPath = true;
             end
-            ModelAdapterManager.setDefaultAdapter(ModelAdapterManager.getAdapterFromPath(adapterPath, addToMatlabPath));
+            adapter = ModelAdapterManager.setGetDefault(ModelAdapterManager.getAdapter(adapterPath, addToMatlabPath));
         end
         
     end
 	methods(Static,Access = private)
         % This is how they recommend defining static variables in Matlab
-        function out = setGetDefaultAdapter(val)
+        function out = setGetDefault(val)
             persistent defaultAdapter; %will be empty initially
             if nargin
                 defaultAdapter = val;
