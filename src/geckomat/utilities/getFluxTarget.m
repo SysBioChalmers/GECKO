@@ -15,7 +15,7 @@ function [minFlux, maxFlux] = getFluxTarget(ecModel,target,cSource,alpha,toleran
 %   alpha           scalling factor for desired suboptimal growth.
 %                   (Optional, defaul 1)
 %   tolerance       numerical tolerance for fixing bounds
-%                   (Optional, defaul 1E-8)
+%                   (Optional, defaul 1E-6)
 %   modelAdapter    a loaded model adapter. (Optional, will otherwise use
 %                   the default model adapter)
 %
@@ -37,7 +37,7 @@ end
 params = modelAdapter.getParameters();
 
 if nargin < 5 || isempty(tolerance)
-    tolerance = 1E-8;
+    tolerance = 1E-6;
 end
 
 if nargin < 4 || isempty(alpha)
