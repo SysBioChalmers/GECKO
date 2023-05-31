@@ -45,7 +45,7 @@ end
 withGR   = ~cellfun(@isempty,ecModel.grRules);
 
 % Generate rxn equations:
-rxnEqs   = constructEquations(ecModel,ecModel.rxns(withGR),true);
+rxnEqs   = constructEquations(ecModel,withGR,true);
 v_matrix = v_matrix(withGR,:);
 k_matrix = k_matrix(withGR,:);
 rxnGeneM = ecModel.rxnGeneMat(withGR,:);
