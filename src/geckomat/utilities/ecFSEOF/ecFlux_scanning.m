@@ -5,7 +5,7 @@ function FC = ecFlux_scanning(ecModel,target,cSource,alpha,tolerance,filterG)
 %   ecModel         an ecModel in GECKO 3 format (with ecModel.ec structure).
 %   rxnTarget       rxn ID for the production target reaction, a exchange
 %                   reaction is recommended.
-%  cSource          rxn ID for the main carbon source uptake reaction.
+%   cSource         rxn ID for the main carbon source uptake reaction.
 %   alpha           scalling factor for production yield for enforced objective
 %                   limits
 %   tolerance       numerical tolerance for fixing bounds.
