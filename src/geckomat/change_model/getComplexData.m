@@ -33,7 +33,7 @@ function complexInfo = getComplexData(organism, modelAdapter)
 %   complexInfo = getComplexData(organism, modelAdapter);
 
 if nargin < 2 || isempty(modelAdapter)
-    modelAdapter = ModelAdapterManager.getDefaultAdapter();
+    modelAdapter = ModelAdapterManager.getDefault();
     if isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
     end
@@ -73,12 +73,14 @@ catch ME
 end
 
 complexData = cell(data.size,7);
+
+fprintf('Retrieving information for complexes: ');
 for i = 1:data.size
 
     url2 = 'https://www.ebi.ac.uk/intact/complex-ws/complex/';
     complexID = data.elements(i,1).complexAC;
 
-    disp(['Retrieving information for ' complexID '. Complex ' int2str(i) ' of ' int2str(data.size)]);
+    fprintf('%s (%d of %d), ', complexID, i, data.size);
 
     try
         temp = webread([url2 complexID],webOptions);
@@ -143,6 +145,8 @@ for i = 1:data.size
         complexData(i,7) = {0};
     end
 end
+fprintf('\n');
+
 % Expand complexes of complexes
 complexComplex = find([complexData{:,7}]==2);
 if ~isempty(complexComplex)

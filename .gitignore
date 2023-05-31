@@ -17,6 +17,8 @@ geckopy/geckopy/data_files/*.xml
 *.ppt*
 # Only allowed .mat file
 !phylDist.mat
+# Ignore intermediate model files
+*_stage*.yml
 
 # Packages #
 ############

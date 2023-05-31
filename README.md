@@ -10,6 +10,8 @@ The **GECKO** toolbox enhances a **G**enome-scale model to account for **E**nzym
 
 💡 In the GECKO folder, `protocol.m` contains instructions on how to reconstruct and analyze an ecModel for _S. cerevisiae_. This demonstrates how many of GECKO's functions can be used.
 
+💡 In the `GECKO/tutorials` folder there are examples of how GECKO can be applied to GEMs. Each `protocol.m` contains instructions on how to reconstruct and analyze an ecModel, demonstrating how many of GECKO's functions can be used.
+
 _**Note:** Regarding code and model compatibility with earlier GECKO versions, see [Previous versions: GECKO 1 and 2](#previous-versions-gecko-1-and-2)_.
 
 ### Citation
