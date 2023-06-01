@@ -1,4 +1,4 @@
-function results = run_ecFSEOF(ecModel,rxnTarget,cSource,alphaLims,Nsteps,file_genes,file_rxns,modelAdapter)
+function results = run_ecFSEOF(ecModel,targetRxn,csRxn,alphaLims,nSteps,file_genes,file_rxns,modelAdapter)
 %run_ecFSEOF
 %
 % Function that runs Flux-scanning with Enforced Objective Function
@@ -6,12 +6,12 @@ function results = run_ecFSEOF(ecModel,rxnTarget,cSource,alphaLims,Nsteps,file_g
 %
 % Input:
 %   ecModel         an ecModel in GECKO 3 format (with ecModel.ec structure).
-%   rxnTarget       rxn ID for the production target reaction, a exchange
+%   targetRxn       rxn ID for the production target reaction, a exchange
 %                   reaction is recommended.
-%   cSource         rxn ID for the main carbon source uptake reaction.
+%   csRxn           rxn ID for the main carbon source uptake reaction.
 %   alphaLims       vector of Minimum and maximum biomass scalling factors for
 %                   enforced objective limits (e.g. [0.5 1]). Max value: 1.
-%   Nsteps          number of steps for suboptimal objective in FSEOF.
+%   nSteps          number of steps for suboptimal objective in FSEOF.
 %                   (Optional, default 16)
 %   file_genes      file name for results output at the genes level.
 %                   (Optional, default output in the model-specific 'output'
@@ -25,7 +25,7 @@ function results = run_ecFSEOF(ecModel,rxnTarget,cSource,alphaLims,Nsteps,file_g
 %                   the default model adapter)
 %
 % Usage:
-%   results = run_ecFSEOF(ecModel,rxnTarget,cSource,alphaLims)
+%   results = run_ecFSEOF(ecModel,targetRxn,csRxn,alphaLims)
 %
 
 if nargin < 8 || isempty(modelAdapter)
@@ -44,12 +44,12 @@ if nargin < 6 || isempty(file_genes)
     file_genes = fullfile(params.path,'output','ecFSEOF_genes.tsv');
 end
 
-if nargin < 5 || isempty(Nsteps)
-    Nsteps = 16;
+if nargin < 5 || isempty(nSteps)
+    nSteps = 16;
 end
 
 % Define alpha vector for suboptimal enforced objective values
-alphaV  = alphaLims(1):((alphaLims(2)-alphaLims(1))/(Nsteps-1)):alphaLims(2);
+alphaV  = alphaLims(1):((alphaLims(2)-alphaLims(1))/(nSteps-1)):alphaLims(2);
 
 % Standardize grRules and rxnGeneMat in model
 [grRules,rxnGeneMat] = standardizeGrRules(ecModel,true);
@@ -57,7 +57,7 @@ ecModel.grRules      = grRules;
 ecModel.rxnGeneMat   = rxnGeneMat;
 
 % run FSEOF analysis
-results = ecFlux_scanning(ecModel,rxnTarget,cSource,alphaV,1E-4,true);
+results = ecFlux_scanning(ecModel,targetRxn,csRxn,alphaV,1E-4,true);
 
 % Create gene table:
 results.geneTable      = cell(length(results.genes),3);

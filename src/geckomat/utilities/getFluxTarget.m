@@ -1,4 +1,4 @@
-function [minFlux, maxFlux] = getFluxTarget(ecModel,target,cSource,alpha,tolerance,modelAdapter)
+function [minFlux, maxFlux] = getFluxTarget(ecModel,targetRxn,csRxn,alpha,tolerance,modelAdapter)
 %getFluxTarget
 %
 %   Function that performs a series of LP optimizations on an ecModel,
@@ -9,9 +9,9 @@ function [minFlux, maxFlux] = getFluxTarget(ecModel,target,cSource,alpha,toleran
 %
 % Input:
 %   ecModel         an ecModel in GECKO 3 format (with ecModel.ec structure).
-%   target          rxn ID for the production target reaction, a exchange
+%   targetRxn       rxn ID for the production target reaction, a exchange
 %                   reaction is recommended.
-%   cSource         rxn ID for the main carbon source uptake reaction.
+%   csRxn           rxn ID for the main carbon source uptake reaction.
 %   alpha           scalling factor for desired suboptimal growth.
 %                   (Optional, defaul 1)
 %   tolerance       numerical tolerance for fixing bounds
@@ -26,7 +26,7 @@ function [minFlux, maxFlux] = getFluxTarget(ecModel,target,cSource,alpha,toleran
 %                   corresponding to model.rxns
 %
 % Usage:
-%   [minFlux, maxFlux] = simulateGrowth(model,target,C_source,alpha,tol)
+%   [minFlux, maxFlux] = simulateGrowth(ecModel,targetRxn,csRxn,alpha,tol)
 
 if nargin < 6 || isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefaultAdapter();
@@ -45,12 +45,12 @@ if nargin < 4 || isempty(alpha)
 end
 
 % Fix carbon source uptake
-cSourceIdx = strcmpi(ecModel.rxns,cSource);
-uptake = ecModel.lb(cSourceIdx);
+csRxnIdx = strcmpi(ecModel.rxns,csRxn);
+uptake = ecModel.lb(csRxnIdx);
 
 % Check if a carbon source uptake rate have been defined
 if uptake ~= -1000
-    ecModel = setParam(ecModel, 'var', cSource, uptake, tolerance);
+    ecModel = setParam(ecModel, 'var', csRxn, uptake, tolerance);
     
     % Maximize growth
     ecModel = setParam(ecModel, 'obj', params.bioRxn, 1);
@@ -60,10 +60,10 @@ else
     ecModel = setParam(ecModel, 'obj', params.bioRxn, 1);
     sol = solveLP(ecModel, 1);
 
-    ecModel = setParam(ecModel, 'var', cSource, sol.x(cSourceIdx), tolerance);
+    ecModel = setParam(ecModel, 'var', csRxn, sol.x(csRxnIdx), tolerance);
     
     warning(['The maximum uptake rate for the carbon source is -1000. ' ...
-        num2str(abs(sol.x(cSourceIdx))) ' [mmol/gDW/h] was used instead'])
+        num2str(abs(sol.x(csRxnIdx))) ' [mmol/gDW/h] was used instead'])
 end
 
 % Fix growth suboptimal
@@ -77,12 +77,12 @@ sol = solveLP(ecModel);
 ecModel = setParam(ecModel, 'lb', 'prot_pool_exchange', sol.x(poolIdx) * (1+tolerance));
 
 % Minimize target
-ecModel = setParam(ecModel, 'obj', target, -1);
+ecModel = setParam(ecModel, 'obj', targetRxn, -1);
 sol = solveLP(ecModel);
 minFlux = sol.x;
 
 % Maximize target
-ecModel = setParam(ecModel, 'obj', target, 1);
+ecModel = setParam(ecModel, 'obj', targetRxn, 1);
 sol = solveLP(ecModel);
 maxFlux = sol.x;
 
