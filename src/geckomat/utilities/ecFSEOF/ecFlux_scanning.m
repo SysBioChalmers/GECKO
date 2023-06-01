@@ -28,6 +28,9 @@ end
 % Simulate WT (100% growth):
 [~, FC.flux_WT] = getFluxTarget(ecModel,targetRxn,csRxn);
 
+% Set to zero values which are under solver tolerance
+FC.flux_WT(abs(FC.flux_WT) < 1e-8) = 0; 
+
 % Simulate forced (X% growth and the rest towards product) based on yield:
 FC.alpha = alpha;
 
@@ -37,6 +40,8 @@ k_matrix = zeros(length(ecModel.rxns),length(alpha));
 for i = 1:length(alpha)
     %disp(['Iteration #' num2str(i)])
     [~, FC.flux_MAX] = getFluxTarget(ecModel,targetRxn,csRxn,alpha(i));
+    % Set to zero values which are under solver tolerance
+    FC.flux_MAX(abs(FC.flux_MAX) < 1e-8) = 0;
     v_matrix(:,i) = FC.flux_MAX;
     k_matrix(:,i) = FC.flux_MAX./FC.flux_WT;
 end
@@ -63,6 +68,7 @@ k_matrix(isnan(k_matrix)) = 1;
 
 % Replace any Inf value with 1000 (maximum value is ~700):
 k_matrix(k_matrix>1000) = 1000;
+k_matrix(k_matrix<-1000) = 1000;
 
 % Filter out values that are inconsistent at different alphas:
 always_down  = sum(k_matrix <= 1,2) == length(alpha);
