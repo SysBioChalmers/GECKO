@@ -29,7 +29,7 @@ function results = run_ecFSEOF(ecModel,targetRxn,csRxn,alphaLims,nSteps,file_gen
 %
 
 if nargin < 8 || isempty(modelAdapter)
-    modelAdapter = ModelAdapterManager.getDefaultAdapter();
+    modelAdapter = ModelAdapterManager.getDefault();
     if isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
     end
