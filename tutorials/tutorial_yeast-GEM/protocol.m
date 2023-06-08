@@ -294,10 +294,6 @@ saveEcModel(ecModel,ModelAdapter,'yml','ecYeastGEM_stage4');
 %% STAGE 5: simulation and analysis
 %ecModel=loadEcModel('ecYeastGEM_stage4.yml'); % Uncomment if you want to reload model
 
-% If starting from here, load some basic assets
-model = loadConventionalGEM();
-fluxData = loadFluxData;
-
 % STEP 21 Example of various useful RAVEN functions
 % % Set the upper bound of reaction r_0001 to 10.
 % ecModel = setParam(ecModel,'ub','r_0001',10);
@@ -317,6 +313,49 @@ fluxData = loadFluxData;
 % printFluxes(ecModel,sol.x,false)
 % % Export to Excel file (will not contain potential model.ec content)
 % exportToExcelFormat(ecModel,'filename.xlsx');
+
+% NEW STEP Simulate Crabtree effect with protein pool
+ecModel = loadEcModel('ecYeastGEM.yml');
+currentFolder = pwd;
+cd(fullfile(ModelAdapter.params.path,'code'))
+[fluxes, gRate] = plotCrabtree(ecModel);
+saveas(gcf,fullfile(ModelAdapter.params.path,'output','crabtree1.jpg'))
+
+% While we see the right behaviour, it seems that it becomes limiting a bit
+% too early. Let's look at what is the most limiting enzyme at gRate 0.25.
+
+% At which position in the fluxes vector is gRate 0.25?
+find(round(gRate,3) == 0.25)
+% Gather usage data
+usageData = enzymeUsage(ecModel, fluxes(:,11));
+% Prepare usage report
+usageReport = reportEnzymeUsage(ecModel,usageData);
+% Inspect the topAbsUsage table, with the top-10 absolute usages. The
+% highCapUsage table is empty, as no proteomics is integrated and no
+% capacity usages can be calculated.
+
+usageReport.topAbsUsage
+% ADP/ATP transporter, given standard kcat of 11. Here in Figure 3 they
+% give a Vmax of 4.7 mmol/min/mg protein:
+% https://pubs.acs.org/doi/full/10.1021/bi960668j.
+% Conversion gives 2569 sec-1.
+
+ecModel2=setKcatForReactions(ecModel2,'r_1110',2569);
+ecModel2=setKcatForReactions(ecModel2,'r_1110_REV',2569);
+ecModel2=applyKcatConstraints(ecModel2);
+
+[fluxes]=plotCrabtree(ecModel2);
+usageData = enzymeUsage(ecModel2, fluxes(:,11));
+usageReport = reportEnzymeUsage(ecModel2,usageData);
+
+% Remaining: phospahte transporter and water diffusion.
+
+
+
+% If starting from here, load some basic assets
+model = loadConventionalGEM();
+fluxData = loadFluxData;
+
 
 % STEP 22 Selecting objective functions
 ecModel = setParam(ecModel,'obj',params.bioRxn,1);
