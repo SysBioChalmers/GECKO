@@ -9,6 +9,21 @@ classdef GECKOInstaller
         function install
             sourceDir = fileparts(which(mfilename));
             paths = GECKOInstaller.GetFilteredSubPaths(sourceDir, GECKOInstaller.FILE_FILTER);
+            
+            % Check unique function names
+            if ~exist("checkFunctionUniqueness.m")
+                error(['Cannot find RAVEN Toolbox in the MATLAB path. Make ' ...
+                       'sure you have installed RAVEN in accordance to the ' ...
+                       'following instructions, including running ''checkInstallation()'': ' ...
+                       'https://github.com/SysBioChalmers/RAVEN/wiki/Installation'])
+            else
+                status=checkFunctionUniqueness(paths);
+                if ~status
+                    error(['You might have multiple GECKO installations in your ' ...
+                           'MATLAB path. Rerun GECKOInstaller.install after ' ...
+                           'resolving the conflicting functions.'])
+                end
+            end
             addpath(paths);
             savepath;
         end
@@ -40,11 +55,11 @@ classdef GECKOInstaller
             matches = regexp(splitPaths, filter_, 'match');
             okPaths = cellfun(@isempty, matches);
             pathsLeft = splitPaths(1,okPaths);
-            newPaths = strcat(char(join(pathsLeft, pathSep)), pathSep);
+            newPaths = char(join(pathsLeft, pathSep));
         end
     end
     
     properties (Constant)
-      FILE_FILTER = '.*\.git|.idea|tutorials.*';
+      FILE_FILTER = '.*\.git|.idea|tutorials.*|.github|_MACOSX';
    end
 end

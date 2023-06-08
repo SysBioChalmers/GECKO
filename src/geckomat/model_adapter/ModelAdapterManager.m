@@ -17,7 +17,6 @@ classdef ModelAdapterManager
                 if ~onPath
                     if addToMatlabPath
                         addpath(adapterFolder);
-                        savepath();
                     else
                         warning(['The adapter will not be on the MATLAB path, since ' ...
                                 'addToMatlabPath is false and it is not currently on ' ...
@@ -31,6 +30,13 @@ classdef ModelAdapterManager
 
             end
             adapter = feval(adapterClassName);
+%             pathsToAdd = GECKOInstaller.GetFilteredSubPaths(fullfile(adapter.params.path,'code'),'');
+%             status=checkFunctionUniqueness(pathsToAdd);
+%             if ~status
+%                 error(['Either remove the duplicate function(s) (from MATLAB path), '...
+%                        'or rename the respective function(s) in the adapter code folder.'])
+%             end
+%             addpath(pathsToAdd)
         end
         
         function out = getDefault()
