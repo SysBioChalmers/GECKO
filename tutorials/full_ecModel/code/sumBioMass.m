@@ -13,7 +13,7 @@
 % Ivan Domenzain.   Last update: 2019-07-13
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function [X,P,C,R,D,L] = sumBioMass(model)
+function [X,P,C,R,D,L] = sumBioMass(model,parameters)
 %Components of biomass:
 %        id         MW [g/mol]  class     name
 comps = {'s_0404'	89.09       'P'     % A     Alanine         ala
@@ -60,8 +60,7 @@ comps = {'s_0404'	89.09       'P'     % A     Alanine         ala
 [R,X] = getFraction(model,comps,'R',X);
 [D,X] = getFraction(model,comps,'D',X);
 [L,X] = getFraction(model,comps,'L',X);
-%Get biomass pseudoreaction ID
-parameters = getModelParameters;
+
 %Add up any remaining components:
 bioPos = strcmp(model.rxns,parameters.bioRxn);
 for i = 1:length(model.mets)

@@ -18,7 +18,7 @@ else
     end
     
     %Load chemostat data:
-    fid = fopen([parameters.tutorialsPath '/data/chemostatData.tsv'],'r');
+    fid = fopen([parameters.path '/data/chemostatData.tsv'],'r');
     exp_data = textscan(fid,'%f32 %f32 %f32 %f32','Delimiter','\t','HeaderLines',1);
     exp_data = [exp_data{1} exp_data{2} exp_data{3} exp_data{4}];
     fclose(fid);
@@ -70,7 +70,7 @@ fitting = ones(size(GAM))*1000;
 for i = 1:length(GAM)
     %Simulate model and calculate fitting:
     mod_data   = simulateChemostat(model,exp_data,GAM(i),parameters);
-    R          = (mod_data - exp_data)./exp_data;
+    R          = (abs(mod_data) - abs(exp_data))./exp_data;
     fitting(i) = sqrt(sum(sum(R.^2)));
     if verbose
         fprintf(['\nGAM = ' num2str(GAM(i)) ' -> Error = ' num2str(fitting(i)) '\n'])
@@ -92,8 +92,8 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function mod_data = simulateChemostat(model,exp_data,GAM,parameters)
 %Modify GAM withouth changing the protein content:
-cd([parameters.tutorialsPath '/scripts'])
-Pbase = sumProtein(model);
+cd([parameters.path '/code'])
+Pbase = sumProtein(model,parameters);
 model = scaleBioMass(model,Pbase,parameters,GAM,false);
 
 %Relevant positions:
@@ -108,8 +108,8 @@ mod_data = zeros(size(exp_data));
 for i = 1:length(exp_data(:,1))
     %Fix biomass and minimize glucose
     model = setParam(model,'lb',model.rxns(pos(1)),exp_data(i,1));
-    model = setParam(model,'ub',model.rxns(pos(2)),+10);
-    model = setParam(model,'obj',model.rxns(pos(2)),-1);
+    model = setParam(model,'ub',model.rxns(pos(2)),-10);
+    model = setParam(model,'obj',model.rxns(pos(2)),1);
     sol   = solveLP(model,1);
     %Store relevant variables:
     mod_data(i,:) = sol.x(pos)';

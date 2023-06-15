@@ -41,19 +41,22 @@ checkInstallation % Confirm that RAVEN is functional, should be 2.7.12 or later.
 
 %% STAGE 1: expansion from a starting metabolic model to an ecModel structure
 % STEP 1 Set modelAdapter
-adapterLocation = fullfile(findGECKOroot,'tutorials','tutorial_yeast-GEM','YeastGEMAdapter.m');
-ModelAdapter = ModelAdapterManager.setDefault(adapterLocation); 
+adapterLocation = fullfile(findGECKOroot,'tutorials','full_ecModel','YeastGEMAdapter.m');
+ModelAdapterManager.setDefault(adapterLocation); 
 
 % With the above line, we set the YeastGEMAdapter as the default adapter
 % from here onwards, which means that any GECKO function that requires a
 % model adapter as input will use YeastGEMAdapter. This is until you have
-% set a new default adapter, or closed MATLAB. To clarify: making a change
-% in ModelAdapter in the Workspace has no effect (unless the ModelAdapter
+% set a new default adapter, or closed MATLAB.
+
+% We can also load the ModelAdapter into the MATLAB Workspace, so that you
+% can quickly see its content, for instance the parameters.
+ModelAdapter = ModelAdapterManager.getDefault();
+params = ModelAdapter.getParameters();
+% However, changes should not be made in this structure. Making a change in
+% ModelAdapter in the Workspace has no effect (unless the ModelAdapter
 % is explicitly provided as a function input), rather you should make the
 % change in the adapter file and run anew ModelAdapterManager.setDefault().
-
-% Make it easy to check what value the parameters are.
-params = ModelAdapter.getParameters();
 
 % STEP 2 Load conventional yeast-GEM
 % If the location to the conventional GEM was already set in the modelAdapter,
@@ -238,6 +241,61 @@ ecModel.lb(protPoolIdx) = sol.x(protPoolIdx);
 ecModel = setProtPoolSize(ecModel);
 [ecModel, tunedKcats] = sensitivityTuning(ecModel);
 
+% Inspect the tunedKcats structure in table format
+struct2table(tunedKcats)
+
+% As example, the kcat of 5'-phosphoribosylformyl glycinamidine synthetase
+% (reaction r_0079) was increased from 0.05 to 5. Inspecting the kcat
+% source might help to determine if this is reasonable. 
+rxnIdx = find(strcmp(kcatList_merged.rxns,'r_1055'));
+doc fuzzyKcatMatching % To check the meaning of wildcardLvl and origin
+kcatList_merged.wildcardLvl(rxnIdx) % 0: no EC number wildcard
+kcatList_merged.origin(rxnIdx) % 4: any organism, any substrate, kcat
+kcatList_merged.eccodes(rxnIdx) % EC number 6.3.5.3
+
+% On BRENDA https://www.brenda-enzymes.org/enzyme.php?ecno=6.3.5.3#TURNOVER%20NUMBER%20[1/s]
+% The kcat value is from E. coli with NH4+ as substrate. The reaction
+% normally uses glutamine, so this kcat value might be misleading.
+% Inspecting the abstract of the paper that is reporting this value https://pubmed.ncbi.nlm.nih.gov/2659070/
+% actually states "and NH3 can replace glutamine as a nitrogen donor with a
+% Km = 1 M and a turnover of 3 min-1 (2% glutamine turnover)". The paper
+% also reports a specific activity that can be used instead:
+% https://www.brenda-enzymes.org/enzyme.php?ecno=6.3.5.3#SPECIFIC%20ACTIVITY%20[%C2%B5mol/min/mg]
+
+% Convert specific activity of 2.15 umol/min/mg protein, where the protein
+% has a molecular weight of 148905 Da, to kcat in /sec:
+
+enzMW = ecModel.ec.mw(strcmp(ecModel.ec.enzymes,'P38972')); % Get MW of the enzyme
+convKcat = 2.15; % umol/min/mg protein, same as mmol/min/g protein
+convKcat = convKcat / 1000; % mol/min/g protein
+convKcat = convKcat / 60; % mol/sec/g protein
+convKcat = convKcat * enzMW % mol/sec/mol protein, same as 1/sec.
+
+% New kcat is 5.3358, which is not far away from the tuned kcat of 5.
+
+% Another kcat that drastically changed is tryptophan synthase (r_1055),
+% with kcat increased from 0.023 to 2.3. Again, check what the source was:
+rxnIdx = find(strcmp(kcatList_merged.rxns,'r_1055'));
+kcatList_merged.wildcardLvl(rxnIdx) % 0: no EC number wildcard
+kcatList_merged.eccodes(rxnIdx) % EC number 4.2.1.20
+kcatList_merged.origin(rxnIdx) % 2: any organism, correct substrate, kcat
+% Searching for the EC number in GECKO/databases/max_KCAT.txt, it appears
+% that the kcat value from Zea mays was taken, as this was the most closely
+% related organism with reported kcat. However, corn is not that close to
+% yeast, while at the same time there is a S. cerevisiae specific activity
+% reported on BRENDA: https://www.brenda-enzymes.org/enzyme.php?ecno=4.2.1.20&organism%5B%5D=Saccharomyces+cerevisiae#SPECIFIC%20ACTIVITY%20[%C2%B5mol/min/mg]
+
+% Again convert this specific activity of 1.69 umol/min/mg protein, with
+% protein weight of 76626 Da, to kcat in /sec:
+
+convKcat = 1.69; % umol/min/mg protein, same as mmol/min/g protein
+convKcat = convKcat / 1000; % mol/min/g protein
+convKcat = convKcat / 60; % mol/sec/g protein
+convKcat = convKcat * 76626 % mol/sec/mol protein, same as 1/sec.
+
+% New kcat is 2.16, which is not too far from what sensitivity tuning
+% suggested at 2.23.
+
 saveEcModel(ecModel,ModelAdapter,'yml','ecYeastGEM_stage3');
 
 % This functional ecModel will also be kept in the GECKO GitHub
@@ -315,18 +373,42 @@ saveEcModel(ecModel,ModelAdapter,'yml','ecYeastGEM_stage4');
 % exportToExcelFormat(ecModel,'filename.xlsx');
 
 % NEW STEP Simulate Crabtree effect with protein pool
+% (Re)load the ecModel without proteomics integration
 ecModel = loadEcModel('ecYeastGEM.yml');
+% We will soon run a custom plotCrabtree function that is kept in the code
+% subfolder. To run this function we will need to navigate into the folder
+% where it is stored, but we will navigate back to the current folder
+% afterwards.
 currentFolder = pwd;
 cd(fullfile(ModelAdapter.params.path,'code'))
 [fluxes, gRate] = plotCrabtree(ecModel);
+% fluxes has all the predicted fluxes, while gRate is a vector with the
+% corresponding growth rates that were simulated, as visualized on the
+% x-axis in the graph.
+% The plot will also be saved in the output subfolder.
 saveas(gcf,fullfile(ModelAdapter.params.path,'output','crabtree1.jpg'))
+cd(currentFolder)
 
-% While we see the right behaviour, it seems that it becomes limiting a bit
-% too early. Let's look at what is the most limiting enzyme at gRate 0.25.
+% The two graphs show (left:) exchange fluxes from simulations (lines) and
+% experiments (circles, from doi:10.1128/AEM.64.11.4226-4233.1998); and
+% (right:) the fraction of protein pool that is used by enzymes. In the
+% left graph, the y-axis indicates absolute fluxes, so that glucose uptake
+% and CO2 excretion both have positive numbers. The model simulation
+% demonstrates the Crabtree-effect: at increasing growth rates yeast
+% switches from respiration to fermentation, and this occurs when the
+% protein pool becomes fully used and thereby limiting. The shift away from
+% respiration is most clearly shown by reduced oxygen uptake and increased
+% ethanol excretion. While the model simulations show the same overall
+% trend as the experimental data, the protein pool seems to become limiting
+% too early. The slope of the predicted glucose uptake rate starts to go up
+% after a growth rate of 0.2, while in the experimental data it seems like
+% this should happen around 0.28 instead. To see why the protein pool is
+% becoming limiting too early, we can look at the most limiting enzyme at
+% growth rate 0.25.
 
-% At which position in the fluxes vector is gRate 0.25?
-find(round(gRate,3) == 0.25)
-% Gather usage data
+% At which position in the fluxes vector is growth rate 0.25?
+find(round(gRate,3) == 0.225)
+% Gather enzyme usage data at growth rate 0.25
 usageData = enzymeUsage(ecModel, fluxes(:,11));
 % Prepare usage report
 usageReport = reportEnzymeUsage(ecModel,usageData);
@@ -335,20 +417,34 @@ usageReport = reportEnzymeUsage(ecModel,usageData);
 % capacity usages can be calculated.
 
 usageReport.topAbsUsage
-% ADP/ATP transporter, given standard kcat of 11. Here in Figure 3 they
-% give a Vmax of 4.7 mmol/min/mg protein:
+% The top used enzyme is the ADP/ATP transporter, using 12% of the total
+% available protein pool. The kcat of this reaction was estimated by the
+% standardKcat function, and assigned a value of 11. This is most likely a
+% too-low value: resulting in too-high enzyme demand. Instead of the
+% standard kcat, we can look into literature to find more realistic
+% estimates. In https://pubs.acs.org/doi/full/10.1021/bi960668j, Figure 3A,
+% a Vmax of 4.7 mmol/min/mg protein is reported for the translocation of
+% ADP/ATP by the wild-type S. cerevisiae transporter.: Conversion from
+% specific activity to kcat gives: 
 % https://pubs.acs.org/doi/full/10.1021/bi960668j.
 % Conversion gives 2569 sec-1.
 
-ecModel2=setKcatForReactions(ecModel2,'r_1110',2569);
-ecModel2=setKcatForReactions(ecModel2,'r_1110_REV',2569);
+AAt = 8.3*2;          % mmol/min/g protein
+AAt = AAt / 1000;   % mol/min/g protein
+AAt = AAt / 60;     % mol/sec/g protein
+AAt = AAt * 33313;  % 1/sec (as MW of the transporter is 34121 Da [g/mol])
+
+ecModel2 = setKcatForReactions(ecModel,'r_1110',AAt);
+ecModel2=setKcatForReactions(ecModel2,'r_1110_REV',AAt);
 ecModel2=applyKcatConstraints(ecModel2);
 
 [fluxes]=plotCrabtree(ecModel2);
 usageData = enzymeUsage(ecModel2, fluxes(:,11));
 usageReport = reportEnzymeUsage(ecModel2,usageData);
-
+usageReport.topAbsUsage
 % Remaining: phospahte transporter and water diffusion.
+ecModel2=setKcatForReactions(ecModel2,'r_0015',11920);
+ecModel2=applyKcatConstraints(ecModel2);
 
 
 

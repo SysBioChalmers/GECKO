@@ -5,9 +5,9 @@
 % Benjamin Sanchez. Last update: 2018-10-27
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function P = sumProtein(model)
+function P = sumProtein(model,parameters)
 
-[~,P,~,~,~,~] = sumBioMass(model);
+[~,P,~,~,~,~] = sumBioMass(model,parameters);
 
 end
 

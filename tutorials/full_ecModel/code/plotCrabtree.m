@@ -17,7 +17,7 @@ for i=1:numel(gRate)
 end
 
 % Gather experimental data
-expData = readtable(fullfile(findGECKOroot,'tutorials','tutorial_yeast-GEM','data','vanHoek1998.csv'));
+expData = readtable(fullfile(findGECKOroot,'tutorials','full_ecModel','data','vanHoek1998.csv'));
 fluxToPlot = table2array(expData(:,2:end));
 
 % Get reaction indices in the model

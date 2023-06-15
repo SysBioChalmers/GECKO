@@ -34,12 +34,9 @@ model.lb(gPos) = 0.99*Drate;
 model.ub(gPos) = 1.01*Drate;
 model.c(:)     = 0;
 %Set minimization of carbon source uptake as an objective function
-if ecFlag
-	model.c(cSource)  = -1;
-else
     model.c(cSource)  = 1;
     model.lb(cSource) = -1000;
-end
+
 %Run optimization
 solution = solveLP(model,1);
 solution = solution.x;

@@ -17,7 +17,7 @@ end
 %Compute carbohydrate and lipid new amounts, based on:
 %1. Total mass remains constant, i.e. Pbase+Cbase+Lbase = Ptot+Ctot+Ltot
 %2. Difference in mass is distributed proportionally, i.e. Ctot/Ltot = Cbase/Lbase
-[~,Pbase,Cbase,R,D,Lbase] = sumBioMass(model);
+[~,Pbase,Cbase,R,D,Lbase] = sumBioMass(model,parameters);
 Ctot = Cbase + (Pbase - Ptot)*Cbase/(Lbase+Cbase);
 Ltot = Lbase + (Pbase - Ptot)*Lbase/(Lbase+Cbase);
 %Compute rescaling fractions:
