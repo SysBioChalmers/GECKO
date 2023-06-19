@@ -1,4 +1,4 @@
-function model = fillProtConcs(model, protData)
+function model = fillProtConcs(model, protData, dataCol)
 % fillProtConcs
 %   Uses the protein concentrations from protData to fill model.ec.concs.
 %   Protein levels should be provided in mg/gDCW. If no data is provided
@@ -11,6 +11,11 @@ function model = fillProtConcs(model, protData)
 %               uniprotIDs      cell arrray with Uniprot IDs matching
 %                               protData.abundances
 %               abundances      matrix of proteomics data
+%   dataCol     number indicating the column in protData.abundances that
+%               contains the relevant protein concentrations (protData may
+%               contain data from multiple conditions/samples/experiments,
+%               each with their own column in protData.abundances.
+%               Optional, default = 1.
 %
 % Output:
 %   model       an ecModel where model.ec.concs is populated with protein
@@ -22,8 +27,12 @@ function model = fillProtConcs(model, protData)
 % Usage:
 %   model = fillProtConcs(model, protData)
 
+if nargin < 3 || isempty(dataCol)
+    dataCol = 1;
+end
+
 uniprotIDs = protData.uniprotIDs;
-abundances = protData.abundances;
+abundances = protData.abundances(:,dataCol);
 
 %Redefine an empty model.ec.concs vector
 model.ec.concs=nan(numel(model.ec.enzymes),1);
