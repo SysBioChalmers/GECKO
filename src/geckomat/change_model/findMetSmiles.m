@@ -46,17 +46,12 @@ else
 end
 
 if any(~metMatch & ~protMets)
-    if verbose; fprintf('Querying PubChem for SMILES by metabolite names...   0%% complete'); end
+    progressbar('Querying PubChem for SMILES by metabolite names')
     numUnique = numel(uniqueNames);
     webOptions = weboptions('Timeout', 30);
     for i = 1:numel(uniqueNames)
         if metMatch(i) || protMets(i)
             continue;
-        end
-        if verbose && rem(i-1,floor(numUnique/100+1)) == 0
-            progress = num2str(floor(100*(i/numUnique)));
-            progress = pad(progress,3,'left');
-            fprintf('\b\b\b\b\b\b\b\b\b\b\b\b\b%s%% complete',progress);
         end
         retry = 0;
         while retry < 10
@@ -93,9 +88,9 @@ if any(~metMatch & ~protMets)
         fID = fopen(smilesDBfile,'a');
         fprintf(fID,'%s\t%s\n',out{:});
         fclose(fID);
+        progressbar(i/numel(uniqueNames))
     end
     if verbose
-        fprintf('\b\b\b\b\b\b\b\b\b\b\b\b\bdone.\n');
         fprintf('Model-specific SMILES database stored at %s\n',smilesDBfile);
     end
 end

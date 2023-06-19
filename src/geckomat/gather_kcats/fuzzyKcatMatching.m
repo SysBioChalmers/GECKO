@@ -25,7 +25,7 @@ function kcatList = fuzzyKcatMatching(model, ecRxns, modelAdapter, forceWClvl)
 %               source      'brenda'           
 %               rxns        reaction identifiers
 %               substrate   substrate names
-%               kcat        predicted kcat value in /sec
+%               kcat        proposed kcat value in /sec
 %               eccodes     as used to query BRENDA
 %               wildCardLvl which level of EC wild-card was necessary to
 %                           find a match
@@ -166,6 +166,7 @@ if forceWClvl == 1
     eccodes = regexprep(eccodes,'.*','-\.-\.-\.-');
 end
 
+progressbar('Gathering kcat values by fuzzy matching to BRENDA database')
 %Main loop:
 for i = 1:mM
     %Match:
@@ -179,10 +180,7 @@ for i = 1:mM
                 phylDistStruct,org_index,SAcell,ECIndexIds,EcIndexIndices);
         end
     end
-    %Display progress:
-    if rem(i,500) == 0 || i == mM
-        fprintf('.')
-    end
+    progressbar(i/mM)
 end
 
 kcatList.source      = 'brenda';
@@ -198,8 +196,6 @@ origin = [kcatInfo.info.org_s kcatInfo.info.rest_s kcatInfo.info.org_ns kcatInfo
 for i=1:6
     kcatList.origin(find(origin(:,i))) = i;
 end
-
-fprintf('\n')
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function [kcat,dir,tot] =iterativeMatch(EC,subs,substrCoeff,i,KCATcell,dir,tot,...
