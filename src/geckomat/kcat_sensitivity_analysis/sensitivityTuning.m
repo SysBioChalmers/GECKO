@@ -148,6 +148,7 @@ for i=1:numel(rxnIdx)
 end
 tunedKcats.oldKcat  = model.ec.kcat(rxnIdx);
 tunedKcats.newKcat  = m.ec.kcat(rxnIdx);
+tunedKcats.source   = model.ec.source(rxnIdx);
 
 model = m;
 end
