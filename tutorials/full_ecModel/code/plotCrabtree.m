@@ -4,6 +4,7 @@ gRate = [0:0.025:0.4];
 outV  = zeros(numel(ecModel.rxns),numel(gRate));
 glcEx = getIndexes(ecModel,'r_1714','rxns');
 ecModel = setParam(ecModel,'obj','r_1714',1);
+totP  = -ecModel.lb(strcmp(ecModel.rxns,'prot_pool_exchange'));
 
 for i=1:numel(gRate)
     tmpModel = setParam(ecModel,'lb','r_2111',gRate(i));
@@ -18,27 +19,31 @@ end
 
 % Gather experimental data
 expData = readtable(fullfile(findGECKOroot,'tutorials','full_ecModel','data','vanHoek1998.csv'));
-fluxToPlot = table2array(expData(:,2:end));
+fluxToPlot = table2array(expData(:,2:5));
 
 % Get reaction indices in the model
-rxnsToPlot = getIndexes(ecModel,{expData.Properties.VariableNames{2:end}},'rxns');
+rxnsToPlot = getIndexes(ecModel,{'r_1992','r_1672','r_1714','r_1761'},'rxns');
 
 % Make two plots
 tiledlayout(1,2)
+dataColor = [0 0.4470 0.7410; 0.8500 0.3250 0.0980; 0.9290 0.6940 0.1250; 0.4940 0.1840 0.5560];
 % Plot fluxes
 nexttile
-plot(gRate,abs(outV(rxnsToPlot,:)))
+plot(gRate,abs(outV(rxnsToPlot,:)));
 hold on
-scatter(expData.r_2111,fluxToPlot)
-legend(ecModel.rxnNames(rxnsToPlot))
+scatter(expData.r_2111,fluxToPlot,[],dataColor)
+legend(ecModel.rxnNames(rxnsToPlot),'Location','northwest')
 xlabel('Growth rate (/hour)')
-ylabel('Absolute flux (mmol/gDCW/h)')
+ylim([0 20])
+ylabel('Absolute flux (mmol/gDCWh)')
 hold off
 
 % Plot total protein usage
 nexttile
 poolRxn = getIndexes(ecModel,'prot_pool_exchange','rxns');
-plot(gRate,abs(outV(poolRxn,:))/125)
+plot(gRate,abs(outV(poolRxn,:))/totP)
 xlabel('Growth rate (/hour)')
 ylabel('Fraction of protein pool used')
+fig=gcf;
+fig.Position(3:4) = [700 300];
 end
