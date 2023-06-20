@@ -3,11 +3,17 @@ function [model, flexProt] = flexibilizeProtConcs(model, expGrowth, foldChange, 
 %   Flexibilize protein concentration of an ecModel with constrained with
 %   proteomics data. The upper bound of the protein usage reaction is
 %   changed, while the concentrations in ecModel.ec.concs remain unchanged.
-%   If no (more) limiting enzyme concentrations can be found, an attempt
-%   will be made to relax the protein pool exchange reaction. If this does
-%   increase the growth rate, it is encouraged to set the protein pool
-%   exchange unconstrained before running flexibilizeProtConcs. If relaxing
-%   the protein pool exchange does not increase the growth rate, then this
+%
+%   If no (more) limiting enzyme concentrations can be found, it might be
+%   the protein pool exchange that is limiting growth. In that case, an
+%   attempt will be made to relax the protein pool exchange reaction, and
+%   if the growth rate indeed increases, it is suggested to set the protein
+%   pool exchange unconstrained (lb=-1000) before again running
+%   flexibilizeProtConcs. Such situations, where a proteomics integrated
+%   ecModel is overconstrained, may occur if the ecModel should be able to
+%   simulate maximum growth rate (from e.g. batch cultivation). 
+%   
+%   If relaxing the protein pool exchange does not increase the growth rate, then this
 %   is not due to enzyme constraints, but rather an issue with the
 %   metabolic network itself, or the set nutrient exchange is not
 %   sufficient.
@@ -45,7 +51,7 @@ if nargin < 6 || isempty(verbose)
     verbose = true;
 end
 if nargin < 5 || isempty(modelAdapter)
-    modelAdapter = ModelAdapterManager.getDefaultAdapter();
+    modelAdapter = ModelAdapterManager.getDefault();
     if isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
     end

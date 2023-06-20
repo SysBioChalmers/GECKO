@@ -99,7 +99,7 @@ elseif ~islogical(geckoLight) && ~(geckoLight == 0) && ~(geckoLight == 1)
 end
 
 if nargin < 3 || isempty(modelAdapter)
-    modelAdapter = ModelAdapterManager.getDefaultAdapter();
+    modelAdapter = ModelAdapterManager.getDefault();
     if isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
     end
@@ -142,12 +142,18 @@ uniprotDB = loadDatabases('both', modelAdapter);
 uniprotDB = uniprotDB.uniprot;
 
 %1: Remove gene rules from pseudoreactions (if any):
-for i = 1:length(model.rxns)
-    if endsWith(model.rxnNames{i},' pseudoreaction')
-        model.grRules{i}      = '';
-        model.rxnGeneMat(i,:) = zeros(1,length(model.genes));
-    end
+if exist(fullfile(params.path,'data','pseudoRxns.tsv'),'file')
+    fID        = fopen(fullfile(params.path,'data','pseudoRxns.tsv'));
+    fileData   = textscan(fID,'%s %s','delimiter','\t');
+    fclose(fID);
+    pseudoRxns = fileData{1};
+    pseudoRxns = ismember(model.rxns,pseudoRxns);
+else
+    pseudoRxns = false(numel(model.rxns),1);
 end
+pseudoRxns = find(pseudoRxns | contains(model.rxnNames,'pseudoreaction'));
+model.grRules(pseudoRxns)       = {''};
+model.rxnGeneMat(pseudoRxns,:)  = zeros(numel(pseudoRxns), numel(model.genes));
 
 %2: Swap direction of reactions that are defined to only carry negative flux
 to_swap=model.lb < 0 & model.ub == 0;

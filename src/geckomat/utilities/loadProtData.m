@@ -68,7 +68,7 @@ if nargin < 5 || isempty(minVal)
 end
 
 if nargin < 4 || isempty(modelAdapter)
-    modelAdapter = ModelAdapterManager.getDefaultAdapter();
+    modelAdapter = ModelAdapterManager.getDefault();
     if isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
     end
@@ -142,7 +142,7 @@ if filterData
 else
     for i=1:numel(replPerCond)
         condAbund    = abundances(:,1:replPerCond(i));
-        measuredProt(i) = mean(sum(condAbund,1));
+        measuredProt(i) = mean(sum(condAbund,1,'omitnan'));
         if i<numel(replPerCond)
             abundances = abundances(:,replPerCond(i)+1:end);
         end

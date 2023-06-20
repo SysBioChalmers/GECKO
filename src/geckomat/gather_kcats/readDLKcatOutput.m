@@ -26,7 +26,7 @@ function kcatList = readDLKcatOutput(model, outFile, modelAdapter)
 %   kcatList = readDLKcatOutput(model, outFile, modelAdapter)
 
 if nargin < 3 || isempty(modelAdapter)
-    modelAdapter = ModelAdapterManager.getDefaultAdapter();
+    modelAdapter = ModelAdapterManager.getDefault();
     if isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
     end
