@@ -44,9 +44,6 @@ function protData = loadProtData(replPerCond, protDataFile, filterData, modelAda
 %                   abundances  matrix of proteomics data, where each
 %                               column contains mean abundances per
 %                               condition
-%                   measuredProt  array with measured proteins, where each
-%                               column contains mean of unfiltered total
-%                               abundances sum per condition in mg/gDW.
 %
 % Usage:
 %   protData = loadProtData(replPerCond, protDataFile, filterData, modelAdapter, minVal, maxRSD, maxMissing, cutLowest, addStdevs)
@@ -104,12 +101,10 @@ uniprotIDs(remData,:) = [];
 abundances(remData,:) = [];
 m                     = size(abundances,1);
 filtAbund             = nan(m,numel(replPerCond));
-measuredProt          = zeros(1,numel(replPerCond));
 
 if filterData
     for i=1:numel(replPerCond)
         condAbund    = abundances(:,1:replPerCond(i));
-        measuredProt(i) = mean(sum(condAbund,1));
         if i<numel(replPerCond)
             abundances   = abundances(:,replPerCond(i)+1:end);
         end
@@ -142,7 +137,6 @@ if filterData
 else
     for i=1:numel(replPerCond)
         condAbund    = abundances(:,1:replPerCond(i));
-        measuredProt(i) = mean(sum(condAbund,1,'omitnan'));
         if i<numel(replPerCond)
             abundances = abundances(:,replPerCond(i)+1:end);
         end
@@ -152,6 +146,5 @@ end
 notAllNan = logical(sum(~isnan(filtAbund),2));
 protData.abundances = filtAbund(notAllNan,:);
 protData.uniprotIDs = uniprotIDs(notAllNan);
-protData.measuredProt = measuredProt;
 end
 
