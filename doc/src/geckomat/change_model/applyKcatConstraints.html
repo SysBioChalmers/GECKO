@@ -1,0 +1,198 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of applyKcatConstraints</title>
+  <meta name="keywords" content="applyKcatConstraints">
+  <meta name="description" content="applyKcatConstraints">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../../index.html">Home</a> &gt;  <a href="#">src</a> &gt; <a href="#">geckomat</a> &gt; <a href="index.html">change_model</a> &gt; applyKcatConstraints.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../../index.html"><img alt="<" border="0" src="../../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for src/geckomat/change_model&nbsp;<img alt=">" border="0" src="../../../right.png"></a></td></tr></table>-->
+
+<h1>applyKcatConstraints
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>applyKcatConstraints</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>function model = applyKcatConstraints(model,updateRxns) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> applyKcatConstraints
+   Applies kcat-derived enzyme constraints to an ecModel. Existing enzyme
+   constraints are first removed (unless updateRxns is provided), and new
+   constraints are defined based on the content of model.ec.kcat.
+
+ Input:
+   model       an ecModel in GECKO 3 format (with ecModel.ec structure)
+   updateRxns  if not all enzyme constraints should be updated, this can
+               be given as either a logical vector of length
+               model.ec.rxns, a vector of model.ec.rxns indices, or a
+               (cell array of) string(s) with model.ec.rxns identifiers.
+               For light models, these reactions should match model.rxns.
+
+ Output:
+   model       ecModel where reactions are constrained by enzyme usage
+               if a kcat value was provided for the reaction-enzyme pair
+               in model.ec.kcat
+
+ Usage: model = applyKcatConstraints(model,updateRxns);</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+<li><a href="applyCustomKcats.html" class="code" title="function [model, rxnUpdated, notMatch] = applyCustomKcats(model, customKcats, modelAdapter)">applyCustomKcats</a>	applyCustomKcats</li></ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function model = applyKcatConstraints(model,updateRxns)</a>
+0002 <span class="comment">% applyKcatConstraints</span>
+0003 <span class="comment">%   Applies kcat-derived enzyme constraints to an ecModel. Existing enzyme</span>
+0004 <span class="comment">%   constraints are first removed (unless updateRxns is provided), and new</span>
+0005 <span class="comment">%   constraints are defined based on the content of model.ec.kcat.</span>
+0006 <span class="comment">%</span>
+0007 <span class="comment">% Input:</span>
+0008 <span class="comment">%   model       an ecModel in GECKO 3 format (with ecModel.ec structure)</span>
+0009 <span class="comment">%   updateRxns  if not all enzyme constraints should be updated, this can</span>
+0010 <span class="comment">%               be given as either a logical vector of length</span>
+0011 <span class="comment">%               model.ec.rxns, a vector of model.ec.rxns indices, or a</span>
+0012 <span class="comment">%               (cell array of) string(s) with model.ec.rxns identifiers.</span>
+0013 <span class="comment">%               For light models, these reactions should match model.rxns.</span>
+0014 <span class="comment">%</span>
+0015 <span class="comment">% Output:</span>
+0016 <span class="comment">%   model       ecModel where reactions are constrained by enzyme usage</span>
+0017 <span class="comment">%               if a kcat value was provided for the reaction-enzyme pair</span>
+0018 <span class="comment">%               in model.ec.kcat</span>
+0019 <span class="comment">%</span>
+0020 <span class="comment">% Usage: model = applyKcatConstraints(model,updateRxns);</span>
+0021 
+0022 <span class="comment">%these lines are for the nargin lines below only</span>
+0023 <span class="keyword">if</span> (model.ec.geckoLight)
+0024     rxns = model.rxns;
+0025 <span class="keyword">else</span>
+0026     rxns = model.ec.rxns;
+0027 <span class="keyword">end</span>
+0028 
+0029 <span class="keyword">if</span> nargin&lt;2
+0030     updateRxns = true(numel(rxns),1);
+0031 <span class="keyword">elseif</span> isnumeric(updateRxns)
+0032     updateRxnsLog = false(numel(rxns),1);
+0033     updateRxnsLog(updateRxns) = true;
+0034     updateRxns = updateRxnsLog;
+0035 <span class="keyword">elseif</span> iscellstr(updateRxns) || ischar(updateRxns) || isstring(updateRxns)
+0036     updateRxnsIds = convertCharArray(updateRxns);
+0037     updateRxns = ismember(rxns,updateRxnsIds);
+0038 <span class="keyword">end</span>
+0039  
+0040 <span class="keyword">if</span> isempty(find(updateRxns, 1)) || isempty(updateRxns)
+0041      error(<span class="string">'No reaction to update or updateRxns is logical but without any true value'</span>)
+0042 <span class="keyword">end</span>
+0043 
+0044 <span class="keyword">if</span> ~isfield(model,<span class="string">'ec'</span>)
+0045     error([<span class="string">'No model.ec structure could be found: the provided model is'</span><span class="keyword">...</span>
+0046            <span class="string">' not a valid GECKO3 ecModel. First run makeEcModel(model).'</span>])
+0047 <span class="keyword">end</span>
+0048 <span class="keyword">if</span> all(model.ec.kcat==0)
+0049     warning(<span class="string">'No kcat values are provided in model.ec.kcat, model remains unchanged.'</span>)
+0050     <span class="keyword">return</span>
+0051 <span class="keyword">end</span>
+0052 
+0053 <span class="comment">%Clear existing incorporation of enzyme usage</span>
+0054 <span class="keyword">if</span> ~model.ec.geckoLight
+0055     protMetIdx = startsWith(model.mets,<span class="string">'prot_'</span>) &amp; ~strcmp(model.mets,<span class="string">'prot_pool'</span>);
+0056     metabolRxn = unique(model.ec.rxns(updateRxns));
+0057     metabolRxn = ismember(model.rxns,metabolRxn);
+0058     model.S(protMetIdx,metabolRxn) = 0;
+0059 <span class="keyword">end</span> <span class="comment">%no clearing needed for GECKO Light, will be overwritten below</span>
+0060 <span class="comment">%For normal GECKO formulation (full model), where each enzyme is explicitly considered</span>
+0061 <span class="keyword">if</span> ~model.ec.geckoLight 
+0062     <span class="comment">%Column 1 = rxn idx; 2 = enzyme idx; 3 = subunit copies; 4 = kcat; 5 = MW</span>
+0063     newKcats=zeros(numel(updateRxns)*10,5);
+0064     updateRxns=find(updateRxns);
+0065     kcatFirst=0;
+0066     <span class="keyword">for</span> i=1:numel(updateRxns)
+0067         j=updateRxns(i);
+0068         enzymes   = find(model.ec.rxnEnzMat(j,:));
+0069         kcatLast  = kcatFirst+numel(enzymes);
+0070         kcatFirst = kcatFirst+1;
+0071         newKcats(kcatFirst:kcatLast,1) = j;
+0072         newKcats(kcatFirst:kcatLast,2) = enzymes;
+0073         newKcats(kcatFirst:kcatLast,3) = model.ec.rxnEnzMat(j,enzymes);
+0074         newKcats(kcatFirst:kcatLast,4) = model.ec.kcat(j);
+0075         newKcats(kcatFirst:kcatLast,5) = model.ec.mw(enzymes);
+0076         kcatFirst = kcatLast;
+0077     <span class="keyword">end</span>
+0078     newKcats(kcatLast+1:<span class="keyword">end</span>,:)=[];
+0079     
+0080     sel = newKcats(:,4) &gt; 0; <span class="comment">%Only apply to non-zero kcat</span>
+0081     newKcats(sel,4) = newKcats(sel,4) * 3600; <span class="comment">%per second -&gt; per hour</span>
+0082     newKcats(sel,4) = newKcats(sel,5) ./ newKcats(sel,4); <span class="comment">%MW/kcat</span>
+0083     newKcats(sel,4) = newKcats(sel,3) .* newKcats(sel,4); <span class="comment">%Multicopy subunits.</span>
+0084     newKcats(~sel,4) = 0; <span class="comment">%Results in zero-cost</span>
+0085     
+0086     <span class="comment">%Replace rxns and enzymes with their location in model</span>
+0087     [~,newKcats(:,1)] = ismember(model.ec.rxns(newKcats(:,1)),model.rxns);
+0088     [~,newKcats(:,2)] = ismember(strcat(<span class="string">'prot_'</span>,model.ec.enzymes(newKcats(:,2))),model.mets);
+0089     linearIndices     = sub2ind(size(model.S),newKcats(:,2),newKcats(:,1));
+0090     model.S(linearIndices) = -newKcats(:,4); <span class="comment">%Substrate = negative</span>
+0091     
+0092 <span class="keyword">else</span> <span class="comment">%GECKO light formulation, where prot_pool represents all usages</span>
+0093     nextIndex = 1;
+0094     prot_pool_idx = find(ismember(model.mets,<span class="string">'prot_pool'</span>));
+0095     <span class="comment">%first remove the prefix of all rxns</span>
+0096     modRxns = extractAfter(model.ec.rxns,4);
+0097     <span class="keyword">for</span> i = 1:numel(model.rxns)
+0098         <span class="keyword">if</span> nextIndex &lt;= length(model.ec.rxns) &amp;&amp; strcmp(model.rxns(i), modRxns(nextIndex))
+0099             updated = false;
+0100             newMWKcats=[];
+0101             <span class="comment">%Reactions with isozymes will have several rows in ec.rxns etc.</span>
+0102             <span class="comment">%Loop through all reactions, and for each reaction look at all isozymes</span>
+0103             <span class="comment">%Then use the lowest MW/kcat among the isozymes - when optimizing, that</span>
+0104             <span class="comment">%is the one that will be used anyway.</span>
+0105             <span class="keyword">while</span> true
+0106                 <span class="keyword">if</span> updateRxns(i)
+0107                     updated = true;
+0108                 <span class="keyword">end</span>
+0109                 enzymes = find(model.ec.rxnEnzMat(nextIndex,:));
+0110                 <span class="keyword">if</span> model.ec.kcat(nextIndex) == 0
+0111                     <span class="comment">%newMWKcats = [newMWKcats 0]; - if some are missing, just ignore those</span>
+0112                 <span class="keyword">else</span>
+0113                     MW = sum(model.ec.mw(enzymes) .* model.ec.rxnEnzMat(nextIndex,enzymes).'); <span class="comment">%multiply MW with number of subunits</span>
+0114                     newMWKcats = [newMWKcats MW/model.ec.kcat(nextIndex)]; <span class="comment">%Light model: protein usage is MW/kcat</span>
+0115                 <span class="keyword">end</span>                
+0116                 nextIndex = nextIndex + 1;
+0117                 <span class="keyword">if</span>  nextIndex &gt; length(model.ec.rxns) || ~strcmp(model.rxns(i), modRxns(nextIndex))
+0118                     <span class="keyword">break</span>;
+0119                 <span class="keyword">end</span>
+0120             <span class="keyword">end</span>
+0121             <span class="keyword">if</span> (updated)
+0122                 <span class="keyword">if</span> isempty(newMWKcats)
+0123                     newMWKcats = 0; <span class="comment">%no cost</span>
+0124                 <span class="keyword">end</span>
+0125                 <span class="comment">%Light model: always use the &quot;cheapest&quot; isozyme, that is what the</span>
+0126                 <span class="comment">%optimization will choose anyway unless isozymes are individually constrained.</span>
+0127                 model.S(prot_pool_idx, i) = -min(newMWKcats)/3600; <span class="comment">% 3600: per second -&gt; per hour</span>
+0128             <span class="keyword">end</span>
+0129         <span class="keyword">end</span>
+0130     <span class="keyword">end</span>
+0131 <span class="keyword">end</span>
+0132 <span class="keyword">end</span>
+0133</pre></div>
+<hr><address>Generated by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

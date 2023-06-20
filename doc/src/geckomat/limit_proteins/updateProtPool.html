@@ -1,0 +1,163 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of updateProtPool</title>
+  <meta name="keywords" content="updateProtPool">
+  <meta name="description" content="updateProtPool">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../../index.html">Home</a> &gt;  <a href="#">src</a> &gt; <a href="#">geckomat</a> &gt; <a href="index.html">limit_proteins</a> &gt; updateProtPool.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../../index.html"><img alt="<" border="0" src="../../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for src/geckomat/limit_proteins&nbsp;<img alt=">" border="0" src="../../../right.png"></a></td></tr></table>-->
+
+<h1>updateProtPool
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>updateProtPool</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>function [model, PdiffEnz, f]  = updateProtPool(model, measuredProt, Ptot, modelAdapter) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> updateProtPool
+   Updates the protein pool to compensate for measured proteomics data (in
+   model.ec.concs).
+
+ Input:
+   model           an ecModel in GECKO 3 format (with ecModel.ec structure)
+   measuredProt    average sum of total measured protein in proteomics.tsv
+                   in mg/gDW, reported as protData.measuredProt by
+                   loadProtData
+   Ptot            total protein content, overwrites modelAdapter value.
+                   If specified, condition-specific fluxData.Ptot from
+                   loadFluxData can be used.
+   modelAdapter    a loaded model adapter (Optional, will otherwise use the
+                   default model adapter).
+ Output:
+   model           an ecModel where model.ec.concs is populated with
+                   protein concentrations
+   PdiffEnz        non-measured enzyme content, in mg/gDCW
+   f               f-factor as determined from proteomics data
+ Usage:
+   [model, newPtot]  = updateProtPool(model, measuredProt, Ptot, modelAdapter)</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function [model, PdiffEnz, f]  = updateProtPool(model, measuredProt, Ptot, modelAdapter)</a>
+0002 <span class="comment">% updateProtPool</span>
+0003 <span class="comment">%   Updates the protein pool to compensate for measured proteomics data (in</span>
+0004 <span class="comment">%   model.ec.concs).</span>
+0005 <span class="comment">%</span>
+0006 <span class="comment">% Input:</span>
+0007 <span class="comment">%   model           an ecModel in GECKO 3 format (with ecModel.ec structure)</span>
+0008 <span class="comment">%   measuredProt    average sum of total measured protein in proteomics.tsv</span>
+0009 <span class="comment">%                   in mg/gDW, reported as protData.measuredProt by</span>
+0010 <span class="comment">%                   loadProtData</span>
+0011 <span class="comment">%   Ptot            total protein content, overwrites modelAdapter value.</span>
+0012 <span class="comment">%                   If specified, condition-specific fluxData.Ptot from</span>
+0013 <span class="comment">%                   loadFluxData can be used.</span>
+0014 <span class="comment">%   modelAdapter    a loaded model adapter (Optional, will otherwise use the</span>
+0015 <span class="comment">%                   default model adapter).</span>
+0016 <span class="comment">% Output:</span>
+0017 <span class="comment">%   model           an ecModel where model.ec.concs is populated with</span>
+0018 <span class="comment">%                   protein concentrations</span>
+0019 <span class="comment">%   PdiffEnz        non-measured enzyme content, in mg/gDCW</span>
+0020 <span class="comment">%   f               f-factor as determined from proteomics data</span>
+0021 <span class="comment">% Usage:</span>
+0022 <span class="comment">%   [model, newPtot]  = updateProtPool(model, measuredProt, Ptot, modelAdapter)</span>
+0023 
+0024 <span class="keyword">if</span> nargin &lt; 4 || isempty(modelAdapter)
+0025     modelAdapter = ModelAdapterManager.getDefaultAdapter();
+0026     <span class="keyword">if</span> isempty(modelAdapter)
+0027         error(<span class="string">'Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.'</span>)
+0028     <span class="keyword">end</span>
+0029 <span class="keyword">end</span>
+0030 params = modelAdapter.params;
+0031 
+0032 <span class="keyword">if</span> nargin &lt; 3 || isempty(Ptot)
+0033     Ptot = params.Ptot;
+0034     disp([<span class="string">'Total protein content used: '</span> num2str(Ptot) <span class="string">' [g protein/gDw]'</span>])
+0035 <span class="keyword">end</span>
+0036 
+0037 <span class="keyword">if</span> nargin &lt; 2 || isempty(measuredProt)
+0038     <span class="comment">% assumes not measured protein</span>
+0039     measuredProt = Ptot * params.f * 1000;
+0040     disp([<span class="string">'Measured protein assumed: '</span> num2str(measuredProt/1000) <span class="string">' [g protein/gDw]'</span>])
+0041 <span class="keyword">end</span>
+0042          
+0043 <span class="comment">% Ptot      the &quot;real&quot; total protein content in the cell</span>
+0044 <span class="comment">% Pmeas     the measured protein content (sum of proteomics data). Is lower</span>
+0045 <span class="comment">%           than Ptot, as not all protein are measured in a proteomics</span>
+0046 <span class="comment">%           experiment. Equals protData.measuredProt from loadProtData.</span>
+0047 <span class="comment">% f         the ratio enzyme/protein: how many of proteins are enzymes</span>
+0048 <span class="comment">% m         the ratio measured/total protein: how much is measured</span>
+0049 <span class="comment">% PtotEnz   the &quot;real&quot; total enzyme content in the cell. Equals f * Ptot</span>
+0050 <span class="comment">% PmeasEnz  the measured enzyme content. Equals f * Pmeas, also equals</span>
+0051 <span class="comment">%           sum(ecModel.ec.concs)</span>
+0052 <span class="comment">% PdiffEnz  the non-measured enzyme content. Equals PtotEnz - PmeasEnz.</span>
+0053 <span class="comment">%</span>
+0054 <span class="comment">% Without proteomics, protein pool is constraint by PtotEnz (= f * Ptot).</span>
+0055 <span class="comment">% With proteomics, protein pool should be constraint by PdiffEnz.</span>
+0056 <span class="comment">% [And the above two constraints are both multiplied by sigma-factor, which</span>
+0057 <span class="comment">% is unrelated to the adjustments made here]</span>
+0058 
+0059 <span class="comment">% Convert ptot to mg/gDW</span>
+0060 Ptot = Ptot * 1000;
+0061 
+0062 <span class="comment">% Calculate the protein in the model</span>
+0063 PmeasEnz = sum(model.ec.concs,<span class="string">'omitnan'</span>);
+0064 
+0065 <span class="keyword">if</span> PmeasEnz == 0
+0066     error(<span class="string">'The model have not been constrained with proteomics'</span>)
+0067 <span class="keyword">end</span>
+0068 
+0069 <span class="comment">% New f factor</span>
+0070 f = PmeasEnz / measuredProt;
+0071 <span class="comment">% Total enzyme when extrapolating from this dataset</span>
+0072 PtotEnz = Ptot * f;
+0073 
+0074 <span class="comment">% Draw the protein in model from the measured proteins</span>
+0075 PdiffEnz = PtotEnz - PmeasEnz;
+0076 
+0077 <span class="keyword">if</span> PdiffEnz &gt; 0
+0078     Pdiff = PdiffEnz / 1000; <span class="comment">% Convert back to g protein/gDCW</span>
+0079     model = setProtPoolSize(model, Pdiff, f, params.sigma, modelAdapter);
+0080     sol = solveLP(model);
+0081     <span class="keyword">if</span> isempty(sol.x)
+0082         <span class="comment">% Try relaxing sigma-factor</span>
+0083         model = setProtPoolSize(model, Pdiff, f, 1, modelAdapter);
+0084         <span class="keyword">if</span> isempty(sol.x)
+0085             error([<span class="string">'Changing protein pool to '</span> num2str(Pdiff * f * params.sigma) <span class="string">' results in a non-functional model'</span>])
+0086         <span class="keyword">else</span>
+0087             fprintf([<span class="string">'Relaxing of sigma-factor was required to yield a functional model.\n'</span> <span class="keyword">...</span>
+0088                      <span class="string">'The sigma-factor is now set to 1, run ''sigmaFitter'' using the PdiffEnz\n'</span> <span class="keyword">...</span>
+0089                      <span class="string">'and f outputs from updateProtPool to reduce the sigma-factor.'</span>])
+0090         <span class="keyword">end</span>
+0091     <span class="keyword">end</span>
+0092 <span class="keyword">else</span>
+0093     error(<span class="string">'The total measured protein mass exceeds the total protein content.'</span>)
+0094 <span class="keyword">end</span>
+0095 PdiffEnz = PdiffEnz / 1000;
+0096 <span class="keyword">end</span></pre></div>
+<hr><address>Generated by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>
