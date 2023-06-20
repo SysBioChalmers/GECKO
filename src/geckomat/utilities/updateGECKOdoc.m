@@ -9,7 +9,7 @@ function updateGECKOdoc()
 geckoDir=findGECKOroot();
 
 %Remove old doc directory
-rmdir(fullfile(ravenDir,'doc'),'s');
+rmdir(fullfile(geckoDir,'doc'),'s');
 
 %Get a non-redundant list of GECKO subdirectories containing MATLAB
 %functions. Absolute paths are not compatible with M2HTML, so convert them

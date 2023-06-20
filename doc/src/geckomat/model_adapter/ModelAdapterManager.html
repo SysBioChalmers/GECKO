@@ -15,7 +15,7 @@
 <div><a href="../../../index.html">Home</a> &gt;  <a href="#">src</a> &gt; <a href="#">geckomat</a> &gt; <a href="index.html">model_adapter</a> &gt; ModelAdapterManager.m</div>
 
 <!--<table width="100%"><tr><td align="left"><a href="../../../index.html"><img alt="<" border="0" src="../../../left.png">&nbsp;Master index</a></td>
-<td align="right"><a href="index.html">Index for src/geckomat/model_adapter&nbsp;<img alt=">" border="0" src="../../../right.png"></a></td></tr></table>-->
+<td align="right"><a href="index.html">Index for src\geckomat\model_adapter&nbsp;<img alt=">" border="0" src="../../../right.png"></a></td></tr></table>-->
 
 <h1>ModelAdapterManager
 </h1>
@@ -41,79 +41,71 @@ This function is called by:
 
 <h2><a name="_subfunctions"></a>SUBFUNCTIONS <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
 <ul style="list-style-image:url(../../../matlabicon.gif)">
-<li><a href="#_sub1" class="code">function adapter = getAdapterFromPath(adapterPath, addToMatlabPath)</a></li><li><a href="#_sub2" class="code">function setDefaultAdapter(val)</a></li><li><a href="#_sub3" class="code">function out = getDefaultAdapter()</a></li><li><a href="#_sub4" class="code">function setDefaultAdapterFromPath(adapterPath, addToMatlabPath)</a></li><li><a href="#_sub5" class="code">function out = setGetDefaultAdapter(val)</a></li></ul>
+<li><a href="#_sub1" class="code">function adapter = getAdapter(adapterPath, addToMatlabPath)</a></li><li><a href="#_sub2" class="code">function out = getDefault()</a></li><li><a href="#_sub3" class="code">function adapter = setDefault(adapterPath, addToMatlabPath)</a></li><li><a href="#_sub4" class="code">function out = setGetDefault(val)</a></li></ul>
 
 <h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
 <div class="fragment"><pre>0001 <span class="comment">%Abstract Base class for adapters for different species</span>
 0002 classdef <a href="ModelAdapterManager.html" class="code" title="">ModelAdapterManager</a> 
 0003     methods(Static)
-0004         <span class="comment">%not really needed, we could access it directly. Not very nice, but practical</span>
-0005         <a name="_sub0" href="#_subfunctions" class="code">function adapter = getAdapterFromPath(adapterPath, addToMatlabPath)</a>
-0006             <span class="keyword">if</span> nargin &lt; 2
-0007                 addToMatlabPath = true;
-0008             <span class="keyword">end</span>
-0009             
-0010             <span class="keyword">if</span> endsWith(adapterPath,<span class="string">'.m'</span>) <span class="comment">% Assume it is the adapter file, not path</span>
-0011                 adapter = feval(adapterPath(1:end-2));
-0012                 <span class="keyword">return</span>
-0013             <span class="keyword">end</span>
-0014             potentialAdapterFiles = dir(fullfile(adapterPath,<span class="string">'*.m'</span>));
-0015 
-0016             <span class="comment">%Check that there is only one .m file</span>
-0017             <span class="keyword">if</span> length(potentialAdapterFiles) ~= 1
-0018                 error(<span class="string">'getAdapterFromPath: One, and only one .m file is expected in the folder. This file is expected to contain a ModelAdapter.'</span>);
-0019             <span class="keyword">end</span>
-0020             <span class="comment">%Check if the folder is on the path</span>
-0021             s = pathsep;
-0022             pathStr = [s, path, s];
-0023             onPath = contains(pathStr, [s, adapterPath, s], <span class="string">'IgnoreCase'</span>, ispc);
-0024             
-0025             <span class="keyword">if</span> ~onPath <span class="comment">%otherwise do nothing</span>
-0026                <span class="keyword">if</span> addToMatlabPath
-0027                    addpath(adapterPath);
-0028                    savepath();
-0029                <span class="keyword">else</span>
-0030                    warning([<span class="string">'The adapter will not be on the MATLAB path, since '</span> <span class="keyword">...</span>
-0031                            <span class="string">'addToMatlabPath is false and it is not currently on '</span> <span class="keyword">...</span>
-0032                            <span class="string">'the path. Either set addToMatlabPath to true, fix this'</span> <span class="keyword">...</span>
-0033                            <span class="string">'manually before calling this function or make sure it '</span> <span class="keyword">...</span>
-0034                            <span class="string">'is in current directory (not recommended). If the '</span> <span class="keyword">...</span>
-0035                            <span class="string">'class is not reachable throughout the entire GECKO use '</span> <span class="keyword">...</span>
-0036                            <span class="string">'there will be an error.'</span>]);
-0037                <span class="keyword">end</span>
-0038             <span class="keyword">end</span>
-0039             
-0040             adapterClassName = extractBefore(potentialAdapterFiles.name,length(potentialAdapterFiles.name)-1);
-0041             adapter = feval(adapterClassName);
-0042         <span class="keyword">end</span>
-0043         
-0044         <a name="_sub1" href="#_subfunctions" class="code">function setDefaultAdapter(val)</a>
-0045             ModelAdapterManager.setGetDefaultAdapter(val);
-0046         <span class="keyword">end</span>
-0047         
-0048         <a name="_sub2" href="#_subfunctions" class="code">function out = getDefaultAdapter()</a>
-0049             out = ModelAdapterManager.setGetDefaultAdapter();
-0050         <span class="keyword">end</span>
-0051         
-0052         <a name="_sub3" href="#_subfunctions" class="code">function setDefaultAdapterFromPath(adapterPath, addToMatlabPath)</a>
-0053             <span class="keyword">if</span> nargin &lt; 2
-0054                 addToMatlabPath = [];
-0055             <span class="keyword">end</span>
-0056             ModelAdapterManager.setDefaultAdapter(ModelAdapterManager.getAdapterFromPath(adapterPath, addToMatlabPath));
-0057         <span class="keyword">end</span>
-0058         
-0059     <span class="keyword">end</span>
-0060     methods(Static,Access = private)
-0061         <span class="comment">%This is how they recommend defining static variables in matlab. Strange, but works</span>
-0062         <a name="_sub4" href="#_subfunctions" class="code">function out = setGetDefaultAdapter(val)</a>
-0063             <span class="keyword">persistent</span> defaultAdapter; <span class="comment">%will be empty initially</span>
-0064             <span class="keyword">if</span> nargin
-0065                 defaultAdapter = val;
-0066             <span class="keyword">end</span>
-0067             out = defaultAdapter;
-0068         <span class="keyword">end</span>
-0069     <span class="keyword">end</span>
-0070 <span class="keyword">end</span></pre></div>
+0004         <a name="_sub0" href="#_subfunctions" class="code">function adapter = getAdapter(adapterPath, addToMatlabPath)</a>
+0005             <span class="keyword">if</span> nargin &lt; 2
+0006                 addToMatlabPath = true;
+0007             <span class="keyword">end</span>
+0008             
+0009             [adapterFolder, adapterClassName, extension] = fileparts(adapterPath);
+0010             <span class="keyword">if</span> ~strcmp(extension, <span class="string">'.m'</span>)
+0011                 error(<span class="string">'Please provide the full path to the adapter file, including the file extension.'</span>);
+0012             <span class="keyword">else</span>
+0013                 s = pathsep;
+0014                 pathStr = [s, path, s];
+0015                 onPath = contains(pathStr, [s, adapterFolder, s], <span class="string">'IgnoreCase'</span>, ispc);
+0016                 <span class="comment">% Check if the folder is on the path</span>
+0017                 <span class="keyword">if</span> ~onPath
+0018                     <span class="keyword">if</span> addToMatlabPath
+0019                         addpath(adapterFolder);
+0020                         savepath();
+0021                     <span class="keyword">else</span>
+0022                         warning([<span class="string">'The adapter will not be on the MATLAB path, since '</span> <span class="keyword">...</span>
+0023                                 <span class="string">'addToMatlabPath is false and it is not currently on '</span> <span class="keyword">...</span>
+0024                                 <span class="string">'the path. Either set addToMatlabPath to true, fix this'</span> <span class="keyword">...</span>
+0025                                 <span class="string">'manually before calling this function or make sure it '</span> <span class="keyword">...</span>
+0026                                 <span class="string">'is in current directory (not recommended). If the '</span> <span class="keyword">...</span>
+0027                                 <span class="string">'class is not reachable throughout the entire GECKO use '</span> <span class="keyword">...</span>
+0028                                 <span class="string">'there will be an error.'</span>]);
+0029                     <span class="keyword">end</span>
+0030                 <span class="keyword">end</span>
+0031 
+0032             <span class="keyword">end</span>
+0033             adapter = feval(adapterClassName);
+0034         <span class="keyword">end</span>
+0035         
+0036         <a name="_sub1" href="#_subfunctions" class="code">function out = getDefault()</a>
+0037             out = ModelAdapterManager.setGetDefault();
+0038         <span class="keyword">end</span>
+0039         
+0040         <a name="_sub2" href="#_subfunctions" class="code">function adapter = setDefault(adapterPath, addToMatlabPath)</a>
+0041             <span class="keyword">if</span> nargin &lt; 1 || isempty(adapterPath)
+0042                 adapter = ModelAdapterManager.setGetDefault(adapterPath);
+0043                 <span class="keyword">return</span>
+0044             <span class="keyword">end</span>
+0045             <span class="keyword">if</span> nargin &lt; 2
+0046                 addToMatlabPath = true;
+0047             <span class="keyword">end</span>
+0048             adapter = ModelAdapterManager.setGetDefault(ModelAdapterManager.getAdapter(adapterPath, addToMatlabPath));
+0049         <span class="keyword">end</span>
+0050         
+0051     <span class="keyword">end</span>
+0052     methods(Static,Access = private)
+0053         <span class="comment">% This is how they recommend defining static variables in Matlab</span>
+0054         <a name="_sub3" href="#_subfunctions" class="code">function out = setGetDefault(val)</a>
+0055             <span class="keyword">persistent</span> defaultAdapter; <span class="comment">%will be empty initially</span>
+0056             <span class="keyword">if</span> nargin
+0057                 defaultAdapter = val;
+0058             <span class="keyword">end</span>
+0059             out = defaultAdapter;
+0060         <span class="keyword">end</span>
+0061     <span class="keyword">end</span>
+0062 <span class="keyword">end</span></pre></div>
 <hr><address>Generated by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

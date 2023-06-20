@@ -4,7 +4,7 @@
 <head>
   <title>Description of run_ecFSEOF</title>
   <meta name="keywords" content="run_ecFSEOF">
-  <meta name="description" content="">
+  <meta name="description" content="run_ecFSEOF">
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
   <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
   <meta name="robots" content="index, follow">
@@ -15,46 +15,51 @@
 <div><a href="../../../../index.html">Home</a> &gt;  <a href="#">src</a> &gt; <a href="#">geckomat</a> &gt; <a href="../index.html">utilities</a> &gt; <a href="index.html">ecFSEOF</a> &gt; run_ecFSEOF.m</div>
 
 <!--<table width="100%"><tr><td align="left"><a href="../../../../index.html"><img alt="<" border="0" src="../../../../left.png">&nbsp;Master index</a></td>
-<td align="right"><a href="index.html">Index for src/geckomat/utilities/ecFSEOF&nbsp;<img alt=">" border="0" src="../../../../right.png"></a></td></tr></table>-->
+<td align="right"><a href="index.html">Index for src\geckomat\utilities\ecFSEOF&nbsp;<img alt=">" border="0" src="../../../../right.png"></a></td></tr></table>-->
 
 <h1>run_ecFSEOF
 </h1>
 
 <h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
-<div class="box"><strong></strong></div>
+<div class="box"><strong>run_ecFSEOF</strong></div>
 
 <h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
-<div class="box"><strong>function results = run_ecFSEOF(model,rxnTarget,cSource,alphaLims,Nsteps,file1,file2) </strong></div>
+<div class="box"><strong>function results = run_ecFSEOF(ecModel,rxnTarget,cSource,alphaLims,Nsteps,file_genes,file_rxns,modelAdapter) </strong></div>
 
 <h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
-<div class="fragment"><pre class="comment"> 
- run_ecFSEOF
+<div class="fragment"><pre class="comment">run_ecFSEOF
 
-     Function that runs Flux-scanning with Enforced Objective Function
-     for a specified production target.
-   
-        model     (struct) ecModel with total protein pool constraint.
-        rxnTarget (string) Rxn ID for the production target reaction, 
-                   a exchange reaction is recommended.
-        cSource      (string) Rxn ID for the main carbon source uptake 
-                  reaction (make sure that the correct directionality is
-                  indicated).
-         alphaLims (vector) Minimum and maximum biomass yield [gDw/mmol Csource] 
-                  for enforced objective limits
-       Nsteps    (integer) Number of steps for suboptimal objective 
-                 in FSEOF
-        file1       (string) opt, file name for an output .txt tab-separated 
-                   file for the results at the genes level
-        file2       (string) opt, file name for an output .txt tab-separated 
-                   file for the results at the reactions level        
+ Function that runs Flux-scanning with Enforced Objective Function
+ for a specified production target.
 
- Usage: run_ecFSEOF(ecModel,rxnTarget,cSource,alphaLims,Nsteps)</pre></div>
+ Input:
+   ecModel         an ecModel in GECKO 3 format (with ecModel.ec structure).
+   rxnTarget       rxn ID for the production target reaction, a exchange
+                   reaction is recommended.
+   cSource         rxn ID for the main carbon source uptake reaction.
+   alphaLims       vector of Minimum and maximum biomass scalling factors for
+                   enforced objective limits (e.g. [0.5 1]). Max value: 1.
+   Nsteps          number of steps for suboptimal objective in FSEOF.
+                   (Optional, default 16)
+   file_genes      file name for results output at the genes level.
+                   (Optional, default output in the model-specific 'output'
+                   sub-folder taken from modelAdapter,
+                   e.g. GECKO/userData/ecYeastGEM/output/ecFSEOF_genes.tsv)
+   file_rxns       file name for results output at the reactions level.
+                   (Optional, default output in the model-specific 'output'
+                   sub-folder taken from modelAdapter,
+                   e.g. GECKO/userData/ecYeastGEM/output/ecFSEOF_rxns.tsv)
+   modelAdapter    a loaded model adapter. (Optional, will otherwise use
+                   the default model adapter)
+
+ Usage:
+   results = run_ecFSEOF(ecModel,rxnTarget,cSource,alphaLims)</pre></div>
 
 <!-- crossreference -->
 <h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
 This function calls:
 <ul style="list-style-image:url(../../../../matlabicon.gif)">
-<li><a href="ecFlux_scanning.html" class="code" title="function FC = ecFlux_scanning(model,target,C_source,alpha,tol,filterG)">ecFlux_scanning</a>	ecFlux_scanning</li></ul>
+<li><a href="ecFlux_scanning.html" class="code" title="function FC = ecFlux_scanning(ecModel,target,cSource,alpha,tolerance,filterG)">ecFlux_scanning</a>	ecFlux_scanning</li></ul>
 This function is called by:
 <ul style="list-style-image:url(../../../../matlabicon.gif)">
 </ul>
@@ -63,86 +68,108 @@ This function is called by:
 
 
 <h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
-<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function results = run_ecFSEOF(model,rxnTarget,cSource,alphaLims,Nsteps,file1,file2)</a>
-0002 <span class="comment">%</span>
-0003 <span class="comment">% run_ecFSEOF</span>
-0004 <span class="comment">%</span>
-0005 <span class="comment">%     Function that runs Flux-scanning with Enforced Objective Function</span>
-0006 <span class="comment">%     for a specified production target.</span>
-0007 <span class="comment">%</span>
-0008 <span class="comment">%        model     (struct) ecModel with total protein pool constraint.</span>
-0009 <span class="comment">%        rxnTarget (string) Rxn ID for the production target reaction,</span>
-0010 <span class="comment">%                   a exchange reaction is recommended.</span>
-0011 <span class="comment">%        cSource      (string) Rxn ID for the main carbon source uptake</span>
-0012 <span class="comment">%                  reaction (make sure that the correct directionality is</span>
-0013 <span class="comment">%                  indicated).</span>
-0014 <span class="comment">%         alphaLims (vector) Minimum and maximum biomass yield [gDw/mmol Csource]</span>
-0015 <span class="comment">%                  for enforced objective limits</span>
-0016 <span class="comment">%       Nsteps    (integer) Number of steps for suboptimal objective</span>
-0017 <span class="comment">%                 in FSEOF</span>
-0018 <span class="comment">%        file1       (string) opt, file name for an output .txt tab-separated</span>
-0019 <span class="comment">%                   file for the results at the genes level</span>
-0020 <span class="comment">%        file2       (string) opt, file name for an output .txt tab-separated</span>
-0021 <span class="comment">%                   file for the results at the reactions level</span>
-0022 <span class="comment">%</span>
-0023 <span class="comment">% Usage: run_ecFSEOF(ecModel,rxnTarget,cSource,alphaLims,Nsteps)</span>
-0024 <span class="comment">%</span>
-0025 
-0026 <span class="keyword">if</span> nargin &lt; 7
-0027     file2 = [];
-0028     <span class="keyword">if</span> nargin &lt; 6
-0029         file1 = [];
-0030     <span class="keyword">end</span>
-0031 <span class="keyword">end</span>
-0032 <span class="comment">%Check model format, if COBRA model then convert to RAVEN format</span>
-0033 <span class="keyword">if</span> isfield(<span class="string">'model'</span>,<span class="string">'rules'</span>) &amp;&amp; ~isfield(<span class="string">'model'</span>,<span class="string">'metComps'</span>)
-0034     model = ravenCobraWrapper(model);
-0035 <span class="keyword">end</span>
-0036 <span class="comment">%Define alpha vector for suboptimal enforced objective values</span>
-0037 alphaV  = alphaLims(1):((alphaLims(2)-alphaLims(1))/(Nsteps-1)):alphaLims(2);
-0038 <span class="comment">%Standardize grRules and rxnGeneMat in model</span>
-0039 [grRules,rxnGeneMat] = standardizeGrRules(model,true);
-0040 model.grRules        = grRules;
-0041 model.rxnGeneMat     = rxnGeneMat;
-0042 <span class="comment">%run FSEOF analysis</span>
-0043 results = <a href="ecFlux_scanning.html" class="code" title="function FC = ecFlux_scanning(model,target,C_source,alpha,tol,filterG)">ecFlux_scanning</a>(model,rxnTarget,cSource,alphaV,1E-4,true);
-0044 <span class="comment">%Create gene table:</span>
-0045 results.geneTable      = cell(length(results.genes),3);
-0046 results.geneTable(:,1) = results.genes;
-0047 results.geneTable(:,2) = results.geneNames;
-0048 results.geneTable(:,3) = num2cell(results.k_genes);
-0049 <span class="comment">%Create rxns table (exclude enzyme usage reactions):</span>
-0050 toKeep                 = find(~startsWith(results.rxns(:,1),<span class="string">'draw_prot_'</span>));
-0051 results.k_rxns         = results.k_rxns(toKeep);
-0052 results.k_matrix       = results.k_matrix(toKeep,:);
-0053 results.v_matrix       = results.v_matrix(toKeep,:);
-0054 results.rxnsTable      = cell(length(results.k_rxns),5);
-0055 results.rxnsTable(:,1) = results.rxns(toKeep,1);
-0056 results.rxnsTable(:,2) = results.rxns(toKeep,2);
-0057 results.rxnsTable(:,3) = num2cell(results.k_rxns);
-0058 results.rxnsTable(:,4) = results.rxns(toKeep,3);
-0059 results.rxnsTable(:,5) = results.rxns(toKeep,4);
-0060 <span class="keyword">try</span>
-0061     <span class="keyword">if</span> ~isempty(file1)
-0062         varNames = {<span class="string">'gene_IDs'</span> <span class="string">'gene_names'</span> <span class="string">'K_score'</span>}; 
-0063         T        = cell2table(results.geneTable,<span class="string">'VariableNames'</span>,varNames);
-0064         writetable(T,file1,<span class="string">'Delimiter'</span>,<span class="string">'\t'</span>,<span class="string">'QuoteStrings'</span>,false) 
-0065     <span class="keyword">end</span>
-0066     <span class="keyword">if</span> ~isempty(file2)
-0067         varNames = {<span class="string">'rxn_IDs'</span> <span class="string">'rxnNames'</span> <span class="string">'K_score'</span> <span class="string">'grRules'</span> <span class="string">'rxn_formula'</span>};
-0068         T        = cell2table(results.rxnsTable,<span class="string">'VariableNames'</span>,varNames);
-0069         writetable(T,file2,<span class="string">'Delimiter'</span>,<span class="string">'\t'</span>,<span class="string">'QuoteStrings'</span>,false) 
-0070     <span class="keyword">end</span>
-0071 <span class="keyword">catch</span>
-0072     warning(<span class="string">'Output files directory not found'</span>);
-0073 <span class="keyword">end</span>
-0074 <span class="comment">%Remove redundant output fields</span>
-0075 results = rmfield(results,<span class="string">'k_rxns'</span>);
-0076 results = rmfield(results,<span class="string">'rxns'</span>);
-0077 results = rmfield(results,<span class="string">'genes'</span>);
-0078 results = rmfield(results,<span class="string">'geneNames'</span>);
-0079 results = rmfield(results,<span class="string">'k_genes'</span>);
-0080 <span class="keyword">end</span></pre></div>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function results = run_ecFSEOF(ecModel,rxnTarget,cSource,alphaLims,Nsteps,file_genes,file_rxns,modelAdapter)</a>
+0002 <span class="comment">%run_ecFSEOF</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">% Function that runs Flux-scanning with Enforced Objective Function</span>
+0005 <span class="comment">% for a specified production target.</span>
+0006 <span class="comment">%</span>
+0007 <span class="comment">% Input:</span>
+0008 <span class="comment">%   ecModel         an ecModel in GECKO 3 format (with ecModel.ec structure).</span>
+0009 <span class="comment">%   rxnTarget       rxn ID for the production target reaction, a exchange</span>
+0010 <span class="comment">%                   reaction is recommended.</span>
+0011 <span class="comment">%   cSource         rxn ID for the main carbon source uptake reaction.</span>
+0012 <span class="comment">%   alphaLims       vector of Minimum and maximum biomass scalling factors for</span>
+0013 <span class="comment">%                   enforced objective limits (e.g. [0.5 1]). Max value: 1.</span>
+0014 <span class="comment">%   Nsteps          number of steps for suboptimal objective in FSEOF.</span>
+0015 <span class="comment">%                   (Optional, default 16)</span>
+0016 <span class="comment">%   file_genes      file name for results output at the genes level.</span>
+0017 <span class="comment">%                   (Optional, default output in the model-specific 'output'</span>
+0018 <span class="comment">%                   sub-folder taken from modelAdapter,</span>
+0019 <span class="comment">%                   e.g. GECKO/userData/ecYeastGEM/output/ecFSEOF_genes.tsv)</span>
+0020 <span class="comment">%   file_rxns       file name for results output at the reactions level.</span>
+0021 <span class="comment">%                   (Optional, default output in the model-specific 'output'</span>
+0022 <span class="comment">%                   sub-folder taken from modelAdapter,</span>
+0023 <span class="comment">%                   e.g. GECKO/userData/ecYeastGEM/output/ecFSEOF_rxns.tsv)</span>
+0024 <span class="comment">%   modelAdapter    a loaded model adapter. (Optional, will otherwise use</span>
+0025 <span class="comment">%                   the default model adapter)</span>
+0026 <span class="comment">%</span>
+0027 <span class="comment">% Usage:</span>
+0028 <span class="comment">%   results = run_ecFSEOF(ecModel,rxnTarget,cSource,alphaLims)</span>
+0029 <span class="comment">%</span>
+0030 
+0031 <span class="keyword">if</span> nargin &lt; 8 || isempty(modelAdapter)
+0032     modelAdapter = ModelAdapterManager.getDefault();
+0033     <span class="keyword">if</span> isempty(modelAdapter)
+0034         error(<span class="string">'Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.'</span>)
+0035     <span class="keyword">end</span>
+0036 <span class="keyword">end</span>
+0037 params = modelAdapter.getParameters();
+0038 
+0039 <span class="keyword">if</span> nargin &lt; 7 || isempty(file_rxns)
+0040     file_rxns = fullfile(params.path,<span class="string">'output'</span>,<span class="string">'ecFSEOF_rxns.tsv'</span>);
+0041 <span class="keyword">end</span>
+0042 
+0043 <span class="keyword">if</span> nargin &lt; 6 || isempty(file_genes)
+0044     file_genes = fullfile(params.path,<span class="string">'output'</span>,<span class="string">'ecFSEOF_genes.tsv'</span>);
+0045 <span class="keyword">end</span>
+0046 
+0047 <span class="keyword">if</span> nargin &lt; 5 || isempty(Nsteps)
+0048     Nsteps = 16;
+0049 <span class="keyword">end</span>
+0050 
+0051 <span class="comment">% Define alpha vector for suboptimal enforced objective values</span>
+0052 alphaV  = alphaLims(1):((alphaLims(2)-alphaLims(1))/(Nsteps-1)):alphaLims(2);
+0053 
+0054 <span class="comment">% Standardize grRules and rxnGeneMat in model</span>
+0055 [grRules,rxnGeneMat] = standardizeGrRules(ecModel,true);
+0056 ecModel.grRules      = grRules;
+0057 ecModel.rxnGeneMat   = rxnGeneMat;
+0058 
+0059 <span class="comment">% run FSEOF analysis</span>
+0060 results = <a href="ecFlux_scanning.html" class="code" title="function FC = ecFlux_scanning(ecModel,target,cSource,alpha,tolerance,filterG)">ecFlux_scanning</a>(ecModel,rxnTarget,cSource,alphaV,1E-4,true);
+0061 
+0062 <span class="comment">% Create gene table:</span>
+0063 results.geneTable      = cell(length(results.genes),3);
+0064 results.geneTable(:,1) = results.genes;
+0065 results.geneTable(:,2) = results.geneNames;
+0066 results.geneTable(:,3) = num2cell(results.k_genes);
+0067 
+0068 <span class="comment">% Create rxns table (exclude enzyme usage reactions):</span>
+0069 toKeep                 = find(~startsWith(results.rxns(:,1),<span class="string">'usage_prot_'</span>));
+0070 results.k_rxns         = results.k_rxns(toKeep);
+0071 results.k_matrix       = results.k_matrix(toKeep,:);
+0072 results.v_matrix       = results.v_matrix(toKeep,:);
+0073 results.rxnsTable      = cell(length(results.k_rxns),5);
+0074 results.rxnsTable(:,1) = results.rxns(toKeep,1);
+0075 results.rxnsTable(:,2) = results.rxns(toKeep,2);
+0076 results.rxnsTable(:,3) = num2cell(results.k_rxns);
+0077 results.rxnsTable(:,4) = results.rxns(toKeep,3);
+0078 results.rxnsTable(:,5) = results.rxns(toKeep,4);
+0079 
+0080 writetable(cell2table(results.geneTable, <span class="keyword">...</span>
+0081     <span class="string">'VariableNames'</span>, {<span class="string">'gene_IDs'</span> <span class="string">'gene_names'</span> <span class="string">'K_score'</span>}), <span class="keyword">...</span>
+0082     file_genes, <span class="keyword">...</span>
+0083     <span class="string">'FileType'</span>, <span class="string">'text'</span>, <span class="keyword">...</span>
+0084     <span class="string">'Delimiter'</span>, <span class="string">'\t'</span>, <span class="keyword">...</span>
+0085     <span class="string">'QuoteStrings'</span>, false);
+0086 
+0087 writetable(cell2table(results.rxnsTable, <span class="keyword">...</span>
+0088     <span class="string">'VariableNames'</span>, {<span class="string">'rxn_IDs'</span> <span class="string">'rxnNames'</span> <span class="string">'K_score'</span> <span class="string">'grRules'</span> <span class="string">'rxn_formula'</span>}), <span class="keyword">...</span>
+0089     file_rxns, <span class="keyword">...</span>
+0090     <span class="string">'FileType'</span>, <span class="string">'text'</span>, <span class="keyword">...</span>
+0091     <span class="string">'Delimiter'</span>, <span class="string">'\t'</span>, <span class="keyword">...</span>
+0092     <span class="string">'QuoteStrings'</span>, false);
+0093 
+0094 disp([<span class="string">'ecFSEOF results stored at: '</span> newline fileparts(file_genes)]);
+0095 
+0096 <span class="comment">% Remove redundant output fields</span>
+0097 results = rmfield(results,<span class="string">'k_rxns'</span>);
+0098 results = rmfield(results,<span class="string">'rxns'</span>);
+0099 results = rmfield(results,<span class="string">'genes'</span>);
+0100 results = rmfield(results,<span class="string">'geneNames'</span>);
+0101 results = rmfield(results,<span class="string">'k_genes'</span>);
+0102 <span class="keyword">end</span></pre></div>
 <hr><address>Generated by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

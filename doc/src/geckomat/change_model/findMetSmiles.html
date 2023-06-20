@@ -15,7 +15,7 @@
 <div><a href="../../../index.html">Home</a> &gt;  <a href="#">src</a> &gt; <a href="#">geckomat</a> &gt; <a href="index.html">change_model</a> &gt; findMetSmiles.m</div>
 
 <!--<table width="100%"><tr><td align="left"><a href="../../../index.html"><img alt="<" border="0" src="../../../left.png">&nbsp;Master index</a></td>
-<td align="right"><a href="index.html">Index for src/geckomat/change_model&nbsp;<img alt=">" border="0" src="../../../right.png"></a></td></tr></table>-->
+<td align="right"><a href="index.html">Index for src\geckomat\change_model&nbsp;<img alt=">" border="0" src="../../../right.png"></a></td></tr></table>-->
 
 <h1>findMetSmiles
 </h1>
@@ -29,7 +29,7 @@
 <h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
 <div class="fragment"><pre class="comment"> findMetSMILES
    Queries PubChem by metabolite names to obtain SMILES. Matches will also
-   be stored in userData/***/data/smilesDB.tsv, that will also be queried
+   be stored in tutorials/***/data/smilesDB.tsv, that will also be queried
    first next time the function is run. If the model already has a
    metSmiles field, then non-empty entries will not be overwritten.
 
@@ -59,7 +59,7 @@ This function is called by:
 <div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function [model,noSMILES] = findMetSmiles(model, modelAdapter, verbose)</a>
 0002 <span class="comment">% findMetSMILES</span>
 0003 <span class="comment">%   Queries PubChem by metabolite names to obtain SMILES. Matches will also</span>
-0004 <span class="comment">%   be stored in userData/***/data/smilesDB.tsv, that will also be queried</span>
+0004 <span class="comment">%   be stored in tutorials/***/data/smilesDB.tsv, that will also be queried</span>
 0005 <span class="comment">%   first next time the function is run. If the model already has a</span>
 0006 <span class="comment">%   metSmiles field, then non-empty entries will not be overwritten.</span>
 0007 <span class="comment">%</span>
@@ -77,7 +77,7 @@ This function is called by:
 0019     verbose = true;
 0020 <span class="keyword">end</span>
 0021 <span class="keyword">if</span> nargin &lt; 2 || isempty(modelAdapter)
-0022     modelAdapter = ModelAdapterManager.getDefaultAdapter();
+0022     modelAdapter = ModelAdapterManager.getDefault();
 0023     <span class="keyword">if</span> isempty(modelAdapter)
 0024         error(<span class="string">'Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.'</span>)
 0025     <span class="keyword">end</span>

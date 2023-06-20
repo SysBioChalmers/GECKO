@@ -15,7 +15,7 @@
 <div><a href="../../../index.html">Home</a> &gt;  <a href="#">src</a> &gt; <a href="#">geckomat</a> &gt; <a href="index.html">change_model</a> &gt; setProtPoolSize.m</div>
 
 <!--<table width="100%"><tr><td align="left"><a href="../../../index.html"><img alt="<" border="0" src="../../../left.png">&nbsp;Master index</a></td>
-<td align="right"><a href="index.html">Index for src/geckomat/change_model&nbsp;<img alt=">" border="0" src="../../../right.png"></a></td></tr></table>-->
+<td align="right"><a href="index.html">Index for src\geckomat\change_model&nbsp;<img alt=">" border="0" src="../../../right.png"></a></td></tr></table>-->
 
 <h1>setProtPoolSize
 </h1>
@@ -90,7 +90,7 @@ This function is called by:
 0024 <span class="comment">% Usage: model = setProtPoolSize(model, Ptot, f, sigma, modelAdapter)</span>
 0025 
 0026 <span class="keyword">if</span> nargin &lt; 5 || isempty(modelAdapter)
-0027     modelAdapter = ModelAdapterManager.getDefaultAdapter();
+0027     modelAdapter = ModelAdapterManager.getDefault();
 0028     <span class="keyword">if</span> isempty(modelAdapter) &amp;&amp; (nargin&lt;2 || isempty(Ptot) || isempty(f) || isempty(sigma))
 0029         error(<span class="string">'Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.'</span>)
 0030     <span class="keyword">end</span>

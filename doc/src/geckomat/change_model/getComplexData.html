@@ -15,7 +15,7 @@
 <div><a href="../../../index.html">Home</a> &gt;  <a href="#">src</a> &gt; <a href="#">geckomat</a> &gt; <a href="index.html">change_model</a> &gt; getComplexData.m</div>
 
 <!--<table width="100%"><tr><td align="left"><a href="../../../index.html"><img alt="<" border="0" src="../../../left.png">&nbsp;Master index</a></td>
-<td align="right"><a href="index.html">Index for src/geckomat/change_model&nbsp;<img alt=">" border="0" src="../../../right.png"></a></td></tr></table>-->
+<td align="right"><a href="index.html">Index for src\geckomat\change_model&nbsp;<img alt=">" border="0" src="../../../right.png"></a></td></tr></table>-->
 
 <h1>getComplexData
 </h1>
@@ -108,7 +108,7 @@ This function is called by:
 0033 <span class="comment">%   complexInfo = getComplexData(organism, modelAdapter);</span>
 0034 
 0035 <span class="keyword">if</span> nargin &lt; 2 || isempty(modelAdapter)
-0036     modelAdapter = ModelAdapterManager.getDefaultAdapter();
+0036     modelAdapter = ModelAdapterManager.getDefault();
 0037     <span class="keyword">if</span> isempty(modelAdapter)
 0038         error(<span class="string">'Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.'</span>)
 0039     <span class="keyword">end</span>
@@ -148,111 +148,115 @@ This function is called by:
 0073 <span class="keyword">end</span>
 0074 
 0075 complexData = cell(data.size,7);
-0076 <span class="keyword">for</span> i = 1:data.size
-0077 
-0078     url2 = <span class="string">'https://www.ebi.ac.uk/intact/complex-ws/complex/'</span>;
-0079     complexID = data.elements(i,1).complexAC;
-0080 
-0081     disp([<span class="string">'Retrieving information for '</span> complexID <span class="string">'. Complex '</span> int2str(i) <span class="string">' of '</span> int2str(data.size)]);
+0076 
+0077 fprintf(<span class="string">'Retrieving information for complexes: '</span>);
+0078 <span class="keyword">for</span> i = 1:data.size
+0079 
+0080     url2 = <span class="string">'https://www.ebi.ac.uk/intact/complex-ws/complex/'</span>;
+0081     complexID = data.elements(i,1).complexAC;
 0082 
-0083     <span class="keyword">try</span>
-0084         temp = webread([url2 complexID],webOptions);
-0085     <span class="keyword">catch</span> ME
-0086         <span class="keyword">if</span> (strcmp(ME.identifier,<span class="string">'MATLAB:webservices:HTTP404StatusCodeError'</span>))
-0087             warning([<span class="string">'Cannot retrieve the information for '</span> complexID]);
-0088         <span class="keyword">end</span>
-0089         temp = [];
-0090     <span class="keyword">end</span>
-0091 
-0092 
-0093     <span class="keyword">if</span> ~isempty(temp)
-0094         complexData(i,1) = {temp.complexAc};
-0095         complexData(i,2) = {temp.name};
-0096         complexData(i,3) = {temp.species};
-0097 
-0098         idxIntType = find(strcmpi({temp.participants.interactorType}, <span class="string">'protein'</span>));
+0083     fprintf(<span class="string">'%s (%d of %d), '</span>, complexID, i, data.size);
+0084 
+0085     <span class="keyword">try</span>
+0086         temp = webread([url2 complexID],webOptions);
+0087     <span class="keyword">catch</span> ME
+0088         <span class="keyword">if</span> (strcmp(ME.identifier,<span class="string">'MATLAB:webservices:HTTP404StatusCodeError'</span>))
+0089             warning([<span class="string">'Cannot retrieve the information for '</span> complexID]);
+0090         <span class="keyword">end</span>
+0091         temp = [];
+0092     <span class="keyword">end</span>
+0093 
+0094 
+0095     <span class="keyword">if</span> ~isempty(temp)
+0096         complexData(i,1) = {temp.complexAc};
+0097         complexData(i,2) = {temp.name};
+0098         complexData(i,3) = {temp.species};
 0099 
-0100         <span class="comment">% Some complex reported are 'stable complex', then, save the id</span>
-0101         <span class="comment">% complex and but set the genes and protein to a empty string.</span>
-0102         <span class="keyword">if</span> numel(idxIntType) &gt; 0
-0103             complexData(i,4) = {{temp.participants(idxIntType).name}};
-0104             complexData(i,5) = {{temp.participants(idxIntType).identifier}};
-0105         <span class="keyword">else</span>
-0106             complexData(i,4) = {{temp.participants.name}};
-0107             complexData(i,5) = {{temp.participants.identifier}};
-0108         <span class="keyword">end</span>
-0109 
-0110         <span class="comment">% Portal complex has two stochiometry values, a minimum and</span>
-0111         <span class="comment">% maximum value. Only minimum will be store. In some cases,</span>
-0112         <span class="comment">% some complex does not have stochiometry coefficient, then, it</span>
-0113         <span class="comment">% will be fill with zeros</span>
-0114         <span class="keyword">if</span> ~cellfun(<span class="string">'isempty'</span>,{temp.participants.stochiometry})
-0115             <span class="comment">% For some reason, if there is only one protein in the complex</span>
-0116             <span class="comment">% split function does nor return a cell nx2, instead is 2x1,</span>
-0117             <span class="comment">% then assign an incorrect stochiometry</span>
-0118             <span class="keyword">switch</span> numel(idxIntType)
-0119                 <span class="keyword">case</span> 0 <span class="comment">% Contains complexes</span>
-0120                     stochiometry = split({temp.participants.stochiometry}.', <span class="string">','</span>);
-0121                     complexData(i,7) = {2};
-0122                 <span class="keyword">case</span> 1 <span class="comment">% Contains one protein</span>
-0123                     stochiometry = split({temp.participants(idxIntType).stochiometry}.', <span class="string">','</span>).';
-0124                     complexData(i,7) = {1};
-0125                 <span class="keyword">otherwise</span>
-0126                     stochiometry = split({temp.participants(idxIntType).stochiometry}.', <span class="string">','</span>);
-0127                     complexData(i,7) = {1};
-0128             <span class="keyword">end</span>
-0129             values = str2double(erase(stochiometry(:,1),&quot;minValue: &quot;)).';
-0130             complexData(i,6) = {values};
-0131         <span class="keyword">else</span>
-0132             complexData(i,6) = {repelem(0,numel(complexData{i,4}))};
-0133             complexData(i,7) = {0};
-0134         <span class="keyword">end</span>
-0135     <span class="keyword">else</span>
-0136         <span class="comment">%</span>
-0137         complexData(i,1) = {complexID};
-0138         complexData(i,2) = {<span class="string">' '</span>};
-0139         complexData(i,3) = {<span class="string">' '</span>};
-0140         complexData(i,4) = {<span class="string">' '</span>};
-0141         complexData(i,5) = {<span class="string">' '</span>};
-0142         complexData(i,6) = {0};
-0143         complexData(i,7) = {0};
-0144     <span class="keyword">end</span>
-0145 <span class="keyword">end</span>
-0146 <span class="comment">% Expand complexes of complexes</span>
-0147 complexComplex = find([complexData{:,7}]==2);
-0148 <span class="keyword">if</span> ~isempty(complexComplex)
-0149     <span class="keyword">for</span> i=1:numel(complexComplex)
-0150         subComplex    = complexData{complexComplex(i),5};
-0151         subComplexS   = complexData{complexComplex(i),6};
-0152         subComplexIdx = find(ismember(complexData(:,1),subComplex));
-0153         allGenes = horzcat(complexData{subComplexIdx,4});
-0154         allProts = horzcat(complexData{subComplexIdx,5});
-0155         allStoch = {complexData{subComplexIdx,6}};
-0156         <span class="keyword">for</span> j=1:numel(subComplex)
-0157             allStoch{j}=allStoch{j}*subComplexS(j);
-0158         <span class="keyword">end</span>
-0159         allStoch = horzcat(allStoch{:});
-0160         [allGenes,ia,ic] = unique(allGenes,<span class="string">'stable'</span>);
-0161         allProts = allProts(ia);
-0162         allStoch = splitapply(@sum, allStoch', ic);
-0163         complexData{complexComplex(i),4} = allGenes;
-0164         complexData{complexComplex(i),5} = allProts;
-0165         complexData{complexComplex(i),6} = allStoch;
-0166     <span class="keyword">end</span>
-0167 <span class="keyword">end</span>
-0168 
-0169 rowHeadings = {<span class="string">'complexID'</span>,<span class="string">'name'</span>,<span class="string">'species'</span>,<span class="string">'geneName'</span>,<span class="string">'protID'</span>,<span class="string">'stochiometry'</span>,<span class="string">'defined'</span>};
-0170 
-0171 complexInfo = cell2struct(complexData, rowHeadings, 2);
+0100         idxIntType = find(strcmpi({temp.participants.interactorType}, <span class="string">'protein'</span>));
+0101 
+0102         <span class="comment">% Some complex reported are 'stable complex', then, save the id</span>
+0103         <span class="comment">% complex and but set the genes and protein to a empty string.</span>
+0104         <span class="keyword">if</span> numel(idxIntType) &gt; 0
+0105             complexData(i,4) = {{temp.participants(idxIntType).name}};
+0106             complexData(i,5) = {{temp.participants(idxIntType).identifier}};
+0107         <span class="keyword">else</span>
+0108             complexData(i,4) = {{temp.participants.name}};
+0109             complexData(i,5) = {{temp.participants.identifier}};
+0110         <span class="keyword">end</span>
+0111 
+0112         <span class="comment">% Portal complex has two stochiometry values, a minimum and</span>
+0113         <span class="comment">% maximum value. Only minimum will be store. In some cases,</span>
+0114         <span class="comment">% some complex does not have stochiometry coefficient, then, it</span>
+0115         <span class="comment">% will be fill with zeros</span>
+0116         <span class="keyword">if</span> ~cellfun(<span class="string">'isempty'</span>,{temp.participants.stochiometry})
+0117             <span class="comment">% For some reason, if there is only one protein in the complex</span>
+0118             <span class="comment">% split function does nor return a cell nx2, instead is 2x1,</span>
+0119             <span class="comment">% then assign an incorrect stochiometry</span>
+0120             <span class="keyword">switch</span> numel(idxIntType)
+0121                 <span class="keyword">case</span> 0 <span class="comment">% Contains complexes</span>
+0122                     stochiometry = split({temp.participants.stochiometry}.', <span class="string">','</span>);
+0123                     complexData(i,7) = {2};
+0124                 <span class="keyword">case</span> 1 <span class="comment">% Contains one protein</span>
+0125                     stochiometry = split({temp.participants(idxIntType).stochiometry}.', <span class="string">','</span>).';
+0126                     complexData(i,7) = {1};
+0127                 <span class="keyword">otherwise</span>
+0128                     stochiometry = split({temp.participants(idxIntType).stochiometry}.', <span class="string">','</span>);
+0129                     complexData(i,7) = {1};
+0130             <span class="keyword">end</span>
+0131             values = str2double(erase(stochiometry(:,1),&quot;minValue: &quot;)).';
+0132             complexData(i,6) = {values};
+0133         <span class="keyword">else</span>
+0134             complexData(i,6) = {repelem(0,numel(complexData{i,4}))};
+0135             complexData(i,7) = {0};
+0136         <span class="keyword">end</span>
+0137     <span class="keyword">else</span>
+0138         <span class="comment">%</span>
+0139         complexData(i,1) = {complexID};
+0140         complexData(i,2) = {<span class="string">' '</span>};
+0141         complexData(i,3) = {<span class="string">' '</span>};
+0142         complexData(i,4) = {<span class="string">' '</span>};
+0143         complexData(i,5) = {<span class="string">' '</span>};
+0144         complexData(i,6) = {0};
+0145         complexData(i,7) = {0};
+0146     <span class="keyword">end</span>
+0147 <span class="keyword">end</span>
+0148 fprintf(<span class="string">'\n'</span>);
+0149 
+0150 <span class="comment">% Expand complexes of complexes</span>
+0151 complexComplex = find([complexData{:,7}]==2);
+0152 <span class="keyword">if</span> ~isempty(complexComplex)
+0153     <span class="keyword">for</span> i=1:numel(complexComplex)
+0154         subComplex    = complexData{complexComplex(i),5};
+0155         subComplexS   = complexData{complexComplex(i),6};
+0156         subComplexIdx = find(ismember(complexData(:,1),subComplex));
+0157         allGenes = horzcat(complexData{subComplexIdx,4});
+0158         allProts = horzcat(complexData{subComplexIdx,5});
+0159         allStoch = {complexData{subComplexIdx,6}};
+0160         <span class="keyword">for</span> j=1:numel(subComplex)
+0161             allStoch{j}=allStoch{j}*subComplexS(j);
+0162         <span class="keyword">end</span>
+0163         allStoch = horzcat(allStoch{:});
+0164         [allGenes,ia,ic] = unique(allGenes,<span class="string">'stable'</span>);
+0165         allProts = allProts(ia);
+0166         allStoch = splitapply(@sum, allStoch', ic);
+0167         complexData{complexComplex(i),4} = allGenes;
+0168         complexData{complexComplex(i),5} = allProts;
+0169         complexData{complexComplex(i),6} = allStoch;
+0170     <span class="keyword">end</span>
+0171 <span class="keyword">end</span>
 0172 
-0173 <span class="comment">% Convert to a JSON file</span>
-0174 jsontxt = jsonencode(cell2table(complexData, <span class="string">'VariableNames'</span>, rowHeadings));
-0175 <span class="comment">% Write to a JSON file</span>
-0176 fid = fopen(fullfile(params.path,<span class="string">'data'</span>,<span class="string">'ComplexPortal.json'</span>), <span class="string">'w'</span>);
-0177 fprintf(fid, <span class="string">'%s'</span>, jsontxt);
-0178 fclose(fid);
-0179 fprintf(<span class="string">'Model-specific ComplexPortal database stored at %s\n'</span>,fullfile(params.path,<span class="string">'data'</span>,<span class="string">'ComplexPortal.json'</span>));
-0180 <span class="keyword">end</span></pre></div>
+0173 rowHeadings = {<span class="string">'complexID'</span>,<span class="string">'name'</span>,<span class="string">'species'</span>,<span class="string">'geneName'</span>,<span class="string">'protID'</span>,<span class="string">'stochiometry'</span>,<span class="string">'defined'</span>};
+0174 
+0175 complexInfo = cell2struct(complexData, rowHeadings, 2);
+0176 
+0177 <span class="comment">% Convert to a JSON file</span>
+0178 jsontxt = jsonencode(cell2table(complexData, <span class="string">'VariableNames'</span>, rowHeadings));
+0179 <span class="comment">% Write to a JSON file</span>
+0180 fid = fopen(fullfile(params.path,<span class="string">'data'</span>,<span class="string">'ComplexPortal.json'</span>), <span class="string">'w'</span>);
+0181 fprintf(fid, <span class="string">'%s'</span>, jsontxt);
+0182 fclose(fid);
+0183 fprintf(<span class="string">'Model-specific ComplexPortal database stored at %s\n'</span>,fullfile(params.path,<span class="string">'data'</span>,<span class="string">'ComplexPortal.json'</span>));
+0184 <span class="keyword">end</span></pre></div>
 <hr><address>Generated by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

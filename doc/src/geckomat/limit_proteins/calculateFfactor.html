@@ -15,7 +15,7 @@
 <div><a href="../../../index.html">Home</a> &gt;  <a href="#">src</a> &gt; <a href="#">geckomat</a> &gt; <a href="index.html">limit_proteins</a> &gt; calculateFfactor.m</div>
 
 <!--<table width="100%"><tr><td align="left"><a href="../../../index.html"><img alt="<" border="0" src="../../../left.png">&nbsp;Master index</a></td>
-<td align="right"><a href="index.html">Index for src/geckomat/limit_proteins&nbsp;<img alt=">" border="0" src="../../../right.png"></a></td></tr></table>-->
+<td align="right"><a href="index.html">Index for src\geckomat\limit_proteins&nbsp;<img alt=">" border="0" src="../../../right.png"></a></td></tr></table>-->
 
 <h1>calculateFfactor
 </h1>
@@ -78,7 +78,7 @@ This function is called by:
 0018 <span class="comment">%   f = calculateFfactor(model, protData, enzymes, modelAdapter)</span>
 0019 
 0020 <span class="keyword">if</span> nargin &lt; 4 || isempty(modelAdapter)
-0021     modelAdapter = ModelAdapterManager.getDefaultAdapter();
+0021     modelAdapter = ModelAdapterManager.getDefault();
 0022     <span class="keyword">if</span> isempty(modelAdapter)
 0023         error(<span class="string">'Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.'</span>)
 0024     <span class="keyword">end</span>
