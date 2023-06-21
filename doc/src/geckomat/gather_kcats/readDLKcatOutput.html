@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of readDLKcatOutput</title>
+  <meta name="keywords" content="readDLKcatOutput">
+  <meta name="description" content="readDLKcatOutput">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../../index.html">Home</a> &gt;  <a href="#">src</a> &gt; <a href="#">geckomat</a> &gt; <a href="index.html">gather_kcats</a> &gt; readDLKcatOutput.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../../index.html"><img alt="<" border="0" src="../../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for src\geckomat\gather_kcats&nbsp;<img alt=">" border="0" src="../../../right.png"></a></td></tr></table>-->
+
+<h1>readDLKcatOutput
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>readDLKcatOutput</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>function kcatList = readDLKcatOutput(model, outFile, modelAdapter) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> readDLKcatOutput
+   Reads the DLKcat output file and constructs a kcatList structure, that
+   can be used by selectKcatValue() to populate the ecModel with kcat
+   values.
+
+ Input:
+   model           an ecModel in GECKO 3 format (with ecModel.ec structure)
+   outFile         name and path of the DLKcat output file. If nothing is
+                   provided, an attempt will be made to read
+                   data/DLKcat.tsv from the obj.params.path folder
+                   specified in the modelAdapter.
+   modelAdapter    a loaded model adapter (Optional, will otherwise use the
+                   default model adapter).
+
+ Output:
+   kcatList    structure array with list of DLKcat derived kcat values,
+               with separate entries for each kcat value
+               source      'DLKcat'           
+               rxns        reaction identifiers
+               genes       gene identifiers
+               substrate   substrate names
+               kcat        predicted kcat value in /sec
+
+ Usage:
+   kcatList = readDLKcatOutput(model, outFile, modelAdapter)</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function kcatList = readDLKcatOutput(model, outFile, modelAdapter)</a>
+0002 <span class="comment">% readDLKcatOutput</span>
+0003 <span class="comment">%   Reads the DLKcat output file and constructs a kcatList structure, that</span>
+0004 <span class="comment">%   can be used by selectKcatValue() to populate the ecModel with kcat</span>
+0005 <span class="comment">%   values.</span>
+0006 <span class="comment">%</span>
+0007 <span class="comment">% Input:</span>
+0008 <span class="comment">%   model           an ecModel in GECKO 3 format (with ecModel.ec structure)</span>
+0009 <span class="comment">%   outFile         name and path of the DLKcat output file. If nothing is</span>
+0010 <span class="comment">%                   provided, an attempt will be made to read</span>
+0011 <span class="comment">%                   data/DLKcat.tsv from the obj.params.path folder</span>
+0012 <span class="comment">%                   specified in the modelAdapter.</span>
+0013 <span class="comment">%   modelAdapter    a loaded model adapter (Optional, will otherwise use the</span>
+0014 <span class="comment">%                   default model adapter).</span>
+0015 <span class="comment">%</span>
+0016 <span class="comment">% Output:</span>
+0017 <span class="comment">%   kcatList    structure array with list of DLKcat derived kcat values,</span>
+0018 <span class="comment">%               with separate entries for each kcat value</span>
+0019 <span class="comment">%               source      'DLKcat'</span>
+0020 <span class="comment">%               rxns        reaction identifiers</span>
+0021 <span class="comment">%               genes       gene identifiers</span>
+0022 <span class="comment">%               substrate   substrate names</span>
+0023 <span class="comment">%               kcat        predicted kcat value in /sec</span>
+0024 <span class="comment">%</span>
+0025 <span class="comment">% Usage:</span>
+0026 <span class="comment">%   kcatList = readDLKcatOutput(model, outFile, modelAdapter)</span>
+0027 
+0028 <span class="keyword">if</span> nargin &lt; 3 || isempty(modelAdapter)
+0029     modelAdapter = ModelAdapterManager.getDefault();
+0030     <span class="keyword">if</span> isempty(modelAdapter)
+0031         error(<span class="string">'Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.'</span>)
+0032     <span class="keyword">end</span>
+0033 <span class="keyword">end</span>
+0034 params = modelAdapter.params;
+0035 
+0036 <span class="keyword">if</span> nargin&lt;2 || isempty(outFile)
+0037     fID      = fopen(fullfile(params.path,<span class="string">'data'</span>,<span class="string">'DLKcat.tsv'</span>),<span class="string">'r'</span>);
+0038 <span class="keyword">else</span>
+0039     fID      = fopen(outFile);
+0040 <span class="keyword">end</span>
+0041 DLKcatOutput = textscan(fID,<span class="string">'%s %s %s %s %s %s'</span>,<span class="string">'Delimiter'</span>,<span class="string">'\t'</span>,<span class="string">'HeaderLines'</span>,1);
+0042 fclose(fID);
+0043 
+0044 <span class="comment">% Check that DLKcat output file and model match (not fool proof, but good enough)</span>
+0045 [rxns, genes, subs, kcats] = deal(DLKcatOutput{[1,2,3,6]});
+0046 
+0047 <span class="comment">% Check if it contains any kcat values</span>
+0048 <span class="keyword">if</span> all(cellfun(@isempty,kcats)) || all(strcmpi(kcats,<span class="string">'NA'</span>))
+0049     error(<span class="string">'DLKcat file does not contain any kcat values, please run runDLKcat() first.'</span>)
+0050 <span class="keyword">end</span>
+0051 
+0052 <span class="comment">% Check that all substrates are in the model</span>
+0053 <span class="keyword">if</span> ~all(ismember(subs,model.metNames))
+0054     error(<span class="string">'Not all substrates from DLKcat output can be found in model.metNames. DLKcat was likely run with an input file that was generated from another ecModel.'</span>)
+0055 <span class="keyword">end</span>
+0056 
+0057 <span class="comment">% Check that all reactions are in model.ec.rxns</span>
+0058 <span class="keyword">if</span> ~all(ismember(rxns,model.ec.rxns))
+0059     error(<span class="string">'Not all reactions from DLKcat output can be found in model.ec.rxns. DLKcat was likely run with an input file that was generated from another ecModel.'</span>)
+0060 <span class="keyword">end</span>
+0061 
+0062 <span class="comment">% Filter out entries with no numeric value</span>
+0063 noOutput        = cellfun(@isempty,regexpi(kcats,<span class="string">'[0-9]'</span>));
+0064 kcats           = str2double(kcats(~noOutput));
+0065 rxns(noOutput)  = [];
+0066 genes(noOutput) = [];
+0067 subs(noOutput)  = [];
+0068 
+0069 <span class="comment">% Make kcatList structure</span>
+0070 kcatList.source     = <span class="string">'DLKcat'</span>;
+0071 kcatList.rxns       = rxns;
+0072 kcatList.genes      = genes;
+0073 kcatList.substrates = subs;
+0074 kcatList.kcats      = kcats;
+0075 <span class="keyword">end</span></pre></div>
+<hr><address>Generated by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

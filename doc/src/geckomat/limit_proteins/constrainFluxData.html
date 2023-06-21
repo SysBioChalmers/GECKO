@@ -1,0 +1,194 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of constrainFluxData</title>
+  <meta name="keywords" content="constrainFluxData">
+  <meta name="description" content="constrainFluxData">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../../index.html">Home</a> &gt;  <a href="#">src</a> &gt; <a href="#">geckomat</a> &gt; <a href="index.html">limit_proteins</a> &gt; constrainFluxData.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../../index.html"><img alt="<" border="0" src="../../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for src\geckomat\limit_proteins&nbsp;<img alt=">" border="0" src="../../../right.png"></a></td></tr></table>-->
+
+<h1>constrainFluxData
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>constrainFluxData</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>function model = constrainFluxData(model, fluxData, condition, maxMinGrowth, looseStrictFlux, modelAdapter) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> constrainFluxData
+   Constrains fluxes
+
+ Input:
+   model           an ecModel in GECKO 3 format (with ecModel.ec structure)
+   fluxData        structure with flux data
+                   conds       sampling condition
+                   Ptot        total protein (g/gDCW)
+                   grRate      growth rate (1/h)
+                   exchFluxes  exchange fluxes (mmol/gDCWh)
+                   exchMets    exchanged metabolites, matching exchFluxes
+                   exchRxnIDs  exchange reaction IDs, matching exchMets
+   condition       either index number or name of the sample condition in
+                   fluxData.conds (Optional, default = 1)
+   maxMinGrowth    'max' if the provided growth rate should be set as
+                   maximum growth rate (= upper bound), or 'min' if it
+                   should be set as minimum growth rate (= lower bound).
+                   The latter option is suitable if minimization of
+                   prot_pool_exchange is used as objective function. (Opt,
+                   default = 'max')
+   looseStrictFlux how strictly constrained the exchange fluxes should be,
+                   optional, default = 'loose'
+                   'loose' if the exchange fluxes should be constraint
+                           only by the &quot;outer bounds&quot;. If exchFluxes(i)
+                           &gt; 0, LB = 0 and UB = exchFluxes(i). If
+                           exchFluxes(i) &lt; 0, LB = exchFluxes(i) and
+                           UB = 0
+                   0-100   LB and UB constraints are set with a specified
+                           percentage of variance around exchFluxes. If 10
+                           is specified, LB = exchFluxes*0.95 and UB =
+                           exchFluxes*1.05. This allows for 10% variance
+                           around the exchFluxes values, but strictly
+                           forces a flux through the exchRxns.
+   modelAdapter    a loaded model adapter (Optional, will otherwise use
+                   the default model adapter)
+
+
+ Output:
+   model           an ecModel where fluxes are constraint
+
+ Usage:
+   model = constrainFluxData(model, fluxData, condition, maxMinGrowth, looseStrictFlux, modelAdapter)</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function model = constrainFluxData(model, fluxData, condition, maxMinGrowth, looseStrictFlux, modelAdapter)</a>
+0002 <span class="comment">% constrainFluxData</span>
+0003 <span class="comment">%   Constrains fluxes</span>
+0004 <span class="comment">%</span>
+0005 <span class="comment">% Input:</span>
+0006 <span class="comment">%   model           an ecModel in GECKO 3 format (with ecModel.ec structure)</span>
+0007 <span class="comment">%   fluxData        structure with flux data</span>
+0008 <span class="comment">%                   conds       sampling condition</span>
+0009 <span class="comment">%                   Ptot        total protein (g/gDCW)</span>
+0010 <span class="comment">%                   grRate      growth rate (1/h)</span>
+0011 <span class="comment">%                   exchFluxes  exchange fluxes (mmol/gDCWh)</span>
+0012 <span class="comment">%                   exchMets    exchanged metabolites, matching exchFluxes</span>
+0013 <span class="comment">%                   exchRxnIDs  exchange reaction IDs, matching exchMets</span>
+0014 <span class="comment">%   condition       either index number or name of the sample condition in</span>
+0015 <span class="comment">%                   fluxData.conds (Optional, default = 1)</span>
+0016 <span class="comment">%   maxMinGrowth    'max' if the provided growth rate should be set as</span>
+0017 <span class="comment">%                   maximum growth rate (= upper bound), or 'min' if it</span>
+0018 <span class="comment">%                   should be set as minimum growth rate (= lower bound).</span>
+0019 <span class="comment">%                   The latter option is suitable if minimization of</span>
+0020 <span class="comment">%                   prot_pool_exchange is used as objective function. (Opt,</span>
+0021 <span class="comment">%                   default = 'max')</span>
+0022 <span class="comment">%   looseStrictFlux how strictly constrained the exchange fluxes should be,</span>
+0023 <span class="comment">%                   optional, default = 'loose'</span>
+0024 <span class="comment">%                   'loose' if the exchange fluxes should be constraint</span>
+0025 <span class="comment">%                           only by the &quot;outer bounds&quot;. If exchFluxes(i)</span>
+0026 <span class="comment">%                           &gt; 0, LB = 0 and UB = exchFluxes(i). If</span>
+0027 <span class="comment">%                           exchFluxes(i) &lt; 0, LB = exchFluxes(i) and</span>
+0028 <span class="comment">%                           UB = 0</span>
+0029 <span class="comment">%                   0-100   LB and UB constraints are set with a specified</span>
+0030 <span class="comment">%                           percentage of variance around exchFluxes. If 10</span>
+0031 <span class="comment">%                           is specified, LB = exchFluxes*0.95 and UB =</span>
+0032 <span class="comment">%                           exchFluxes*1.05. This allows for 10% variance</span>
+0033 <span class="comment">%                           around the exchFluxes values, but strictly</span>
+0034 <span class="comment">%                           forces a flux through the exchRxns.</span>
+0035 <span class="comment">%   modelAdapter    a loaded model adapter (Optional, will otherwise use</span>
+0036 <span class="comment">%                   the default model adapter)</span>
+0037 <span class="comment">%</span>
+0038 <span class="comment">%</span>
+0039 <span class="comment">% Output:</span>
+0040 <span class="comment">%   model           an ecModel where fluxes are constraint</span>
+0041 <span class="comment">%</span>
+0042 <span class="comment">% Usage:</span>
+0043 <span class="comment">%   model = constrainFluxData(model, fluxData, condition, maxMinGrowth, looseStrictFlux, modelAdapter)</span>
+0044 
+0045 <span class="keyword">if</span> nargin &lt; 6 || isempty(modelAdapter)
+0046     modelAdapter = ModelAdapterManager.getDefault();
+0047     <span class="keyword">if</span> isempty(modelAdapter)
+0048         error(<span class="string">'Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.'</span>)
+0049     <span class="keyword">end</span>
+0050 <span class="keyword">end</span>
+0051 params = modelAdapter.getParameters();
+0052 
+0053 <span class="keyword">if</span> nargin &lt; 5 || isempty(looseStrictFlux)
+0054     looseStrictFlux = <span class="string">'loose'</span>;
+0055 <span class="keyword">end</span>
+0056 
+0057 <span class="keyword">if</span> nargin &lt; 4 || isempty(maxMinGrowth)
+0058     maxMinGrowth = <span class="string">'max'</span>;
+0059 <span class="keyword">end</span>
+0060 
+0061 <span class="keyword">if</span> nargin &lt; 2 || isempty(fluxData)
+0062     fluxData = loadFluxData(fullfile(params.path,<span class="string">'data'</span>,<span class="string">'fluxData.tsv'</span>),modelAdapter);
+0063 <span class="keyword">end</span>
+0064 
+0065 <span class="keyword">if</span> nargin &lt; 3 || isempty(condition)
+0066     condition = 1;
+0067 <span class="keyword">elseif</span> ~isnumeric(condition)
+0068     idx = find(strcmp(fluxData.conds,condition));
+0069     <span class="keyword">if</span> isempty(condition)
+0070         error([<span class="string">'Condition '</span> condition <span class="string">' cannot be found in fluxData'</span>])
+0071     <span class="keyword">else</span>
+0072         condition = idx;
+0073     <span class="keyword">end</span>
+0074 <span class="keyword">end</span>
+0075 
+0076 <span class="comment">% Select the exchange fluxes of specified condition</span>
+0077 fluxData.exchFluxes = fluxData.exchFluxes(condition,:);
+0078 
+0079 <span class="comment">%Set original c-source to zero</span>
+0080 model = setParam(model,<span class="string">'eq'</span>,params.c_source,0);
+0081 <span class="comment">%Set growth</span>
+0082 <span class="keyword">switch</span> maxMinGrowth
+0083     <span class="keyword">case</span> <span class="string">'max'</span>
+0084         model = setParam(model,<span class="string">'lb'</span>,params.bioRxn,0);
+0085         model = setParam(model,<span class="string">'ub'</span>,params.bioRxn,fluxData.grRate(condition));
+0086     <span class="keyword">case</span> <span class="string">'min'</span>
+0087         model = setParam(model,<span class="string">'lb'</span>,params.bioRxn,fluxData.grRate(condition));
+0088         model = setParam(model,<span class="string">'ub'</span>,params.bioRxn,1000);
+0089 <span class="keyword">end</span>
+0090 
+0091 negFlux = lt(fluxData.exchFluxes,0); <span class="comment">% less than 0</span>
+0092 ub = fluxData.exchFluxes(~negFlux);
+0093 posFlux = fluxData.exchRxnIDs(~negFlux);
+0094 lb = fluxData.exchFluxes(negFlux);
+0095 negFlux = fluxData.exchRxnIDs(negFlux);
+0096 
+0097 <span class="keyword">switch</span> looseStrictFlux
+0098     <span class="keyword">case</span> <span class="string">'loose'</span>
+0099         model = setParam(model,<span class="string">'lb'</span>,negFlux,lb);
+0100         model = setParam(model,<span class="string">'ub'</span>,negFlux,0);
+0101         model = setParam(model,<span class="string">'lb'</span>,posFlux,0);
+0102         model = setParam(model,<span class="string">'ub'</span>,posFlux,ub);
+0103     <span class="keyword">otherwise</span>
+0104         model = setParam(model,<span class="string">'var'</span>,fluxData.exchRxnIDs,fluxData.exchFluxes,looseStrictFlux);
+0105 <span class="keyword">end</span>
+0106 <span class="keyword">end</span></pre></div>
+<hr><address>Generated by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

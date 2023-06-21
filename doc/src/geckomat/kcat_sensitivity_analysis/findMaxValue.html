@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of findMaxValue</title>
+  <meta name="keywords" content="findMaxValue">
+  <meta name="description" content="%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../../index.html">Home</a> &gt;  <a href="#">src</a> &gt; <a href="#">geckomat</a> &gt; <a href="index.html">kcat_sensitivity_analysis</a> &gt; findMaxValue.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../../index.html"><img alt="<" border="0" src="../../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for src\geckomat\kcat_sensitivity_analysis&nbsp;<img alt=">" border="0" src="../../../right.png"></a></td></tr></table>-->
+
+<h1>findMaxValue
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>function [value,organism,parameter] = findMaxValue(EC_cell,BRENDA,SA_cell) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function [value,organism,parameter] = findMaxValue(EC_cell,BRENDA, SA_cell)
+
+ Function that gets the maximum kinetic parameter (Kcat or S.A.*Mw) from 
+ the BRENDA files for the specified set of EC numbers. The algorithm also 
+ returns the organism and the parameter type (Kcat or S.A.) of the query.
+
+ Ivan Domenzain    Last edited. 2018-02-06
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Looks for the maximum turnover number available for the EC# associated
+with the uniprot code</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0002 <span class="comment">%function [value,organism,parameter] = findMaxValue(EC_cell,BRENDA, SA_cell)</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">% Function that gets the maximum kinetic parameter (Kcat or S.A.*Mw) from</span>
+0005 <span class="comment">% the BRENDA files for the specified set of EC numbers. The algorithm also</span>
+0006 <span class="comment">% returns the organism and the parameter type (Kcat or S.A.) of the query.</span>
+0007 <span class="comment">%</span>
+0008 <span class="comment">% Ivan Domenzain    Last edited. 2018-02-06</span>
+0009 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0010 <a name="_sub0" href="#_subfunctions" class="code">function [value,organism,parameter] = findMaxValue(EC_cell,BRENDA,SA_cell)</a>
+0011     <span class="comment">%Looks for the maximum turnover number available for the EC# associated</span>
+0012     <span class="comment">%with the uniprot code</span>
+0013     EC_cell    = strsplit(EC_cell,<span class="string">' '</span>);
+0014     value      = [];
+0015     organism   = [];
+0016     parameter  = [];
+0017     <span class="keyword">for</span> i=1:length(EC_cell)
+0018         find_flag  = false;
+0019         <span class="comment">%In case that wild cards are present in the EC number the search on</span>
+0020         <span class="comment">%the BRENDA file will be relaxed.</span>
+0021         <span class="keyword">if</span> ~isempty(strfind(EC_cell{i},<span class="string">'-'</span>))
+0022              EC_cell{i} = EC_cell{i}(strfind(EC_cell{i},<span class="string">'-'</span>)-1:end);
+0023              find_flag  = true;
+0024         <span class="keyword">end</span>    
+0025         ECnumber = [<span class="string">'EC'</span> EC_cell{i}];
+0026         Kcat     = 0; orgK = <span class="string">''</span>;
+0027         <span class="keyword">if</span> find_flag == true
+0028             matching = find(~cellfun(@isempty,strfind(BRENDA{1},ECnumber)));
+0029         <span class="keyword">else</span>
+0030             <span class="comment">% If no wild cards are present the EC number search in the</span>
+0031             <span class="comment">% BRENDA file will look for an exact match</span>
+0032             matching = find(strcmpi(ECnumber,BRENDA{1}));
+0033         <span class="keyword">end</span>
+0034         <span class="comment">%Gets the maximum Kcat value for the queried EC#</span>
+0035         <span class="keyword">if</span> ~isempty(matching)
+0036             [Kcat, maxIndx] = max(BRENDA{4}(matching));
+0037             orgK            = BRENDA{3}(matching(maxIndx));
+0038         <span class="keyword">end</span>        
+0039         <span class="comment">% Looks for the maximum SA*Mw value available for the EC number</span>
+0040         SA_Mw = 0; orgS = <span class="string">''</span>;
+0041         <span class="keyword">if</span> find_flag == true
+0042             matching = find(~cellfun(@isempty,strfind(SA_cell{1},ECnumber)));
+0043         <span class="keyword">else</span>
+0044             matching = find(strcmpi(ECnumber,SA_cell{1}));
+0045         <span class="keyword">end</span>
+0046         <span class="comment">%Gets the maximum SA*Mw value for the queried EC#</span>
+0047         <span class="keyword">if</span> ~isempty(matching)
+0048             [SA_Mw, maxIndx] = max(SA_cell{3}(matching));
+0049             SA_Mw            = SA_Mw; <span class="comment">%[1/hr]</span>
+0050             orgS             = SA_cell{2}(matching(maxIndx));
+0051         <span class="keyword">end</span>        
+0052         <span class="comment">%Choose the maximal available value as a turnover number for the EC</span>
+0053         value  = [value; max(Kcat,SA_Mw)]; 
+0054 
+0055         <span class="keyword">if</span> Kcat&gt;SA_Mw
+0056             organism  = [organism; {orgK}];
+0057             parameter = [parameter; {<span class="string">'K_cat'</span>}];
+0058         <span class="keyword">else</span>
+0059             organism  = [organism; {orgS}];
+0060             parameter = [parameter; {<span class="string">'SA*Mw'</span>}];
+0061         <span class="keyword">end</span>   
+0062     <span class="keyword">end</span>
+0063     [value, maxIndx] = max(value);
+0064     organism         = organism(maxIndx);
+0065     parameter        = parameter(maxIndx);
+0066 <span class="keyword">end</span>
+0067 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span></pre></div>
+<hr><address>Generated by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

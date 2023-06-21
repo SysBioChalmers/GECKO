@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of getrSample</title>
+  <meta name="keywords" content="getrSample">
+  <meta name="description" content="getrSample">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../../../index.html">Home</a> &gt;  <a href="#">src</a> &gt; <a href="#">geckomat</a> &gt; <a href="../index.html">kcat_sensitivity_analysis</a> &gt; <a href="index.html">Bayesian</a> &gt; getrSample.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../../../index.html"><img alt="<" border="0" src="../../../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for src\geckomat\kcat_sensitivity_analysis\Bayesian&nbsp;<img alt=">" border="0" src="../../../../right.png"></a></td></tr></table>-->
+
+<h1>getrSample
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="box"><strong>getrSample</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="box"><strong>function r = getrSample(mu,sigma,step,method) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> getrSample
+   Samples random kcats from a distribution.
+
+ Input:
+   mu              Mean of distribution (data is logged to get a normal distr)
+   sigma           Std deviation of the distribution
+   step            Number of kcats to sample
+   method          shape of distribution: 'normal' or 'uniform'. 
+                   (Optional, default is 'normal')
+ Output:
+   r               The sampled kcats</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../../../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../../../../matlabicon.gif)">
+<li><a href="bayesianSensitivityTuning.html" class="code" title="function ecModel = bayesianSensitivityTuning(ecModel,modelAdapter,maxIterations)">bayesianSensitivityTuning</a>	bayesianSensitivityTuning</li></ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function r = getrSample(mu,sigma,step,method)</a>
+0002 <span class="comment">% getrSample</span>
+0003 <span class="comment">%   Samples random kcats from a distribution.</span>
+0004 <span class="comment">%</span>
+0005 <span class="comment">% Input:</span>
+0006 <span class="comment">%   mu              Mean of distribution (data is logged to get a normal distr)</span>
+0007 <span class="comment">%   sigma           Std deviation of the distribution</span>
+0008 <span class="comment">%   step            Number of kcats to sample</span>
+0009 <span class="comment">%   method          shape of distribution: 'normal' or 'uniform'.</span>
+0010 <span class="comment">%                   (Optional, default is 'normal')</span>
+0011 <span class="comment">% Output:</span>
+0012 <span class="comment">%   r               The sampled kcats</span>
+0013 <span class="comment">%</span>
+0014 <span class="keyword">if</span> nargin &lt; 4
+0015     method = <span class="string">'normal'</span>;
+0016 <span class="keyword">end</span>
+0017 <span class="keyword">if</span> mu == 0
+0018     r = zeros(1,step);
+0019 <span class="keyword">elseif</span> strcmp(method,<span class="string">'normal'</span>)
+0020     mutmp = log10(mu/3600);
+0021     <span class="comment">%sigmatmp = log10(sigma/3600);</span>
+0022     sigmatmp = sigma;
+0023     pd = makedist(<span class="string">'normal'</span>,<span class="string">'mu'</span>,mutmp,<span class="string">'sigma'</span>,sigmatmp);
+0024     <span class="comment">%t = truncate(pd,-3,8);</span>
+0025     r = random(pd,1,step);
+0026     r = 10.^(r).*3600;
+0027 <span class="keyword">elseif</span> strcmp(method,<span class="string">'uniform'</span>)
+0028     mutmp = log10(mu/3600);
+0029     sigmatmp = sigma;
+0030     pd = makedist(<span class="string">'uniform'</span>,<span class="string">'lower'</span>,mutmp-sigmatmp,<span class="string">'upper'</span>,mutmp + sigmatmp);
+0031     t = truncate(pd,-2,8);
+0032     r = random(t,1,step);
+0033     r = 10.^(r).*3600;
+0034 <span class="keyword">end</span>
+0035 
+0036 r(r&lt;0) = 0;
+0037 
+0038 <span class="keyword">end</span></pre></div>
+<hr><address>Generated by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>
