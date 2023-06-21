@@ -189,23 +189,21 @@ if ~any(strcmp(model.mets,'prot_standard'))
         proteinStdUsageRxn.grRules      = proteinStdGenes.genes;
 
         model = addRxns(model, proteinStdUsageRxn);
-
-        % Update .ec structure in model
-        model.ec.genes(end+1)      = {'standard'};
-        model.ec.enzymes(end+1)    = {'standard'};
-        model.ec.mw(end+1)         = standardMW;
-        model.ec.sequence(end+1)   = {''};
-        % Additional info
-        if isfield(model.ec,'concs')
-            model.ec.concs(end+1)  = nan();
-        end
-
-        % Expand the enzyme rxns matrix
-        model.ec.rxnEnzMat =  [model.ec.rxnEnzMat, zeros(length(model.ec.rxns), 1)]; % 1 new enzyme
-        model.ec.rxnEnzMat =  [model.ec.rxnEnzMat; zeros(length(rxnsMissingGPR), length(model.ec.enzymes))]; % new rxns
     end
-end
+    % Update .ec structure in model
+    model.ec.genes(end+1)      = {'standard'};
+    model.ec.enzymes(end+1)    = {'standard'};
+    model.ec.mw(end+1)         = standardMW;
+    model.ec.sequence(end+1)   = {''};
+    % Additional info
+    if isfield(model.ec,'concs')
+        model.ec.concs(end+1)  = nan();
+    end
 
+    % Expand the enzyme rxns matrix
+    model.ec.rxnEnzMat =  [model.ec.rxnEnzMat, zeros(length(model.ec.rxns), 1)]; % 1 new enzyme
+    model.ec.rxnEnzMat =  [model.ec.rxnEnzMat; zeros(length(rxnsMissingGPR), length(model.ec.enzymes))]; % new rxns
+end
 numRxns = length(model.ec.rxns);
 stdMetIdx = find(strcmpi(model.ec.enzymes, 'standard'));
 
