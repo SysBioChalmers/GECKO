@@ -1,0 +1,262 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of getECfromDatabase</title>
+  <meta name="keywords" content="getECfromDatabase">
+  <meta name="description" content="getECfromDatabase">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../../index.html">Home</a> &gt;  <a href="#">src</a> &gt; <a href="#">geckomat</a> &gt; <a href="index.html">get_enzyme_data</a> &gt; getECfromDatabase.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../../index.html"><img alt="<" border="0" src="../../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for src\geckomat\get_enzyme_data&nbsp;<img alt=">" border="0" src="../../../right.png"></a></td></tr></table>-->
+
+<h1>getECfromDatabase
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>getECfromDatabase</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>function model = getECfromDatabase(model, ecRxns, action, modelAdapter) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> getECfromDatabase
+   Populates the model.ec.eccodes field with enzyme codes that are
+   extracted from UniProt and KEGG databases, as assigned to the proteins
+   that catalyze the specific reactions.
+
+ Input:
+   model           an ecModel in GECKO 3 format (with ecModel.ec structure)
+   ecRxns          logical of length model.ec.rxns that specifies for
+                   which reactions the existing model.ec.eccodes entry
+                   should be kept and not modified by this function
+                   (optional, by default all model.ec.eccodes entries
+                   are populated by this function)
+   action          response action if multiple proteins with different EC
+                   numbers are found for a given gene in a metabolic
+                   reaction (optional, default 'display')
+                   - 'display' displays all found multiplicities
+                   - 'ignore'  ignore multiplicities and use the protein
+                               with the lowest index in the database.
+                   - 'add'     adds all the multiple proteins as
+                               isoenzymes for the given reaction
+   modelAdapter    a loaded model adapter (Optional, will otherwise use the
+                   default model adapter).
+
+ Output:
+   model           ecModel with populated model.ec.eccodes
+
+ Usage:
+   model = getECfromDatabase(model, ecRxns, action, modelAdapter)</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+<li><a href="findECInDB.html" class="code" title="function [EC,conflicts] = findECInDB(gene_set, DBecNum, DBMW, geneIndex, geneHashMap)">findECInDB</a>	findECInDB</li><li><a href="loadDatabases.html" class="code" title="function databases = loadDatabases(selectDatabase,modelAdapter)">loadDatabases</a>	loadDatabases</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+<h2><a name="_subfunctions"></a>SUBFUNCTIONS <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+<li><a href="#_sub1" class="code">function displayErrorMessage(conflicts,uniprot,kegg)</a></li><li><a href="#_sub2" class="code">function [geneIndex,geneHashMap]=hashGeneToProt(proteinDB)</a></li></ul>
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function model = getECfromDatabase(model, ecRxns, action, modelAdapter)</a>
+0002 <span class="comment">% getECfromDatabase</span>
+0003 <span class="comment">%   Populates the model.ec.eccodes field with enzyme codes that are</span>
+0004 <span class="comment">%   extracted from UniProt and KEGG databases, as assigned to the proteins</span>
+0005 <span class="comment">%   that catalyze the specific reactions.</span>
+0006 <span class="comment">%</span>
+0007 <span class="comment">% Input:</span>
+0008 <span class="comment">%   model           an ecModel in GECKO 3 format (with ecModel.ec structure)</span>
+0009 <span class="comment">%   ecRxns          logical of length model.ec.rxns that specifies for</span>
+0010 <span class="comment">%                   which reactions the existing model.ec.eccodes entry</span>
+0011 <span class="comment">%                   should be kept and not modified by this function</span>
+0012 <span class="comment">%                   (optional, by default all model.ec.eccodes entries</span>
+0013 <span class="comment">%                   are populated by this function)</span>
+0014 <span class="comment">%   action          response action if multiple proteins with different EC</span>
+0015 <span class="comment">%                   numbers are found for a given gene in a metabolic</span>
+0016 <span class="comment">%                   reaction (optional, default 'display')</span>
+0017 <span class="comment">%                   - 'display' displays all found multiplicities</span>
+0018 <span class="comment">%                   - 'ignore'  ignore multiplicities and use the protein</span>
+0019 <span class="comment">%                               with the lowest index in the database.</span>
+0020 <span class="comment">%                   - 'add'     adds all the multiple proteins as</span>
+0021 <span class="comment">%                               isoenzymes for the given reaction</span>
+0022 <span class="comment">%   modelAdapter    a loaded model adapter (Optional, will otherwise use the</span>
+0023 <span class="comment">%                   default model adapter).</span>
+0024 <span class="comment">%</span>
+0025 <span class="comment">% Output:</span>
+0026 <span class="comment">%   model           ecModel with populated model.ec.eccodes</span>
+0027 <span class="comment">%</span>
+0028 <span class="comment">% Usage:</span>
+0029 <span class="comment">%   model = getECfromDatabase(model, ecRxns, action, modelAdapter)</span>
+0030 
+0031 <span class="keyword">if</span> nargin &lt; 2 || isempty(ecRxns)
+0032     ecRnxs = true(numel(model.ec.rxns),1);
+0033 <span class="keyword">end</span>
+0034 
+0035 <span class="keyword">if</span> nargin &lt; 3 || isempty(action)
+0036     action = <span class="string">'display'</span>;
+0037 <span class="keyword">end</span>
+0038 
+0039 <span class="keyword">if</span> nargin &lt; 4 || isempty(modelAdapter)
+0040     modelAdapter = ModelAdapterManager.getDefault();
+0041     <span class="keyword">if</span> isempty(modelAdapter)
+0042         error(<span class="string">'Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.'</span>)
+0043     <span class="keyword">end</span>
+0044 <span class="keyword">end</span>
+0045 params = modelAdapter.getParameters();
+0046 
+0047 rxnEnzMat = model.ec.rxnEnzMat;
+0048 genes = modelAdapter.getUniprotCompatibleGenes(model.ec.genes);
+0049 
+0050 data    = <a href="loadDatabases.html" class="code" title="function databases = loadDatabases(selectDatabase,modelAdapter)">loadDatabases</a>(<span class="string">'both'</span>, modelAdapter);
+0051 uniprot = data.uniprot;
+0052 kegg    = data.kegg;
+0053 
+0054 modelGenes = modelAdapter.getUniprotIDsFromTable(model.genes);
+0055 DBgenesUniprot  = data.uniprot.genes;
+0056 <span class="keyword">if</span> ~isequal(modelGenes,model.genes)
+0057     [Lia,Locb] = ismember(modelGenes,uniprot.ID);
+0058     DBgenesUniprot(Locb(Lia)) = model.genes(Lia);
+0059     keepEntry = unique(Locb(Lia));
+0060     DBgenesUniprot = DBgenesUniprot(keepEntry);
+0061 <span class="keyword">else</span>
+0062     keepEntry = true(numel(DBgenesUniprot),1);
+0063 <span class="keyword">end</span>
+0064 DBecNumUniprot  = data.uniprot.eccodes(keepEntry);
+0065 DBMWUniprot     = data.uniprot.MW(keepEntry);
+0066 <span class="comment">%Build an index from gene to prot for faster processing later</span>
+0067 [geneIndexUniprot,geneHashMapUniprot] = <a href="#_sub2" class="code" title="subfunction [geneIndex,geneHashMap]=hashGeneToProt(proteinDB)">hashGeneToProt</a>(DBgenesUniprot);
+0068 
+0069 <span class="keyword">if</span> ~isempty(kegg)
+0070     DBgenesKEGG     = data.kegg.genes;
+0071     DBecNumKEGG     = data.kegg.eccodes;
+0072     DBMWKEGG        = data.kegg.MW;
+0073     [geneIndexKEGG,geneHashMapKEGG]       = <a href="#_sub2" class="code" title="subfunction [geneIndex,geneHashMap]=hashGeneToProt(proteinDB)">hashGeneToProt</a>(DBgenesKEGG);
+0074 <span class="keyword">end</span>
+0075 n = size(rxnEnzMat,1);
+0076 
+0077 eccodes   = cell(n,1);
+0078 eccodes(:)= {<span class="string">''</span>};
+0079 conflicts = cell(1,4);
+0080 
+0081 rxnEnzMat = logical(rxnEnzMat);
+0082 
+0083 <span class="keyword">for</span> i = 1:n
+0084     gns = genes(rxnEnzMat(i,:).');
+0085     <span class="keyword">if</span> ~isempty(gns)
+0086         <span class="comment">%Find match in Uniprot:</span>
+0087         [new_EC,multGenes] = <a href="findECInDB.html" class="code" title="function [EC,conflicts] = findECInDB(gene_set, DBecNum, DBMW, geneIndex, geneHashMap)">findECInDB</a>(gns,DBecNumUniprot,DBMWUniprot,geneIndexUniprot,geneHashMapUniprot);
+0088         <span class="keyword">if</span> ~isempty(new_EC)
+0089             DBase    = <span class="string">'uniprot'</span>;
+0090             <span class="keyword">if</span> ~isempty(multGenes{1})
+0091                 multGenes{3} = DBase;
+0092             <span class="keyword">end</span>
+0093         <span class="keyword">end</span>
+0094         <span class="keyword">if</span> ~isempty(kegg) &amp;&amp; (isempty(new_EC) || endsWith(new_EC,<span class="string">'-'</span>))
+0095             <span class="comment">%Find match in KEGG</span>
+0096             [new_EC_kegg,multGenes] = <a href="findECInDB.html" class="code" title="function [EC,conflicts] = findECInDB(gene_set, DBecNum, DBMW, geneIndex, geneHashMap)">findECInDB</a>(gns,DBecNumKEGG,DBMWKEGG,geneIndexKEGG,geneHashMapKEGG);
+0097             <span class="keyword">if</span> ~isempty(new_EC_kegg)
+0098                 DBase    = <span class="string">'kegg'</span>;
+0099                 <span class="keyword">if</span> ~isempty(multGenes{1})
+0100                     multGenes{3} = DBase;
+0101                 <span class="keyword">end</span>
+0102                 new_EC=new_EC_kegg;
+0103             <span class="keyword">end</span>
+0104         <span class="keyword">end</span>
+0105         eccodes{i} = new_EC;
+0106 
+0107         <span class="keyword">if</span> ~isempty(multGenes{1})
+0108             <span class="comment">%Rxn index</span>
+0109             conflicts{1} = [conflicts{1};i];
+0110             <span class="comment">%Gene IDs</span>
+0111             conflicts{2} = [conflicts{2};multGenes{1}];
+0112             <span class="comment">%Indexes in DB</span>
+0113             conflicts{3} = [conflicts{3};multGenes{2}];
+0114             <span class="comment">%DB name</span>
+0115             conflicts{4} = [conflicts{4};{multGenes{3}}];
+0116 
+0117             <span class="comment">%{ I don't understand the purpose of this, let's skip it for now</span>
+0118             <span class="comment">%if strcmpi(action,'add')</span>
+0119             <span class="comment">%    if strcmpi(DBase,'swissprot')</span>
+0120             <span class="comment">%        [uni,EC,MW,Genes] = addMultipleMatches(uni,EC,MW,Genes,multGenes,swissprot);</span>
+0121             <span class="comment">%    elseif strcmpi(DBase,'KEGG')</span>
+0122             <span class="comment">%        [uni,EC,MW,Genes] = addMultipleMatches(uni,EC,MW,Genes,multGenes,kegg);</span>
+0123             <span class="comment">%    end</span>
+0124             <span class="comment">%end</span>
+0125             <span class="comment">%}</span>
+0126         <span class="keyword">end</span>
+0127     <span class="keyword">end</span>
+0128 <span class="keyword">end</span>
+0129 
+0130 <span class="comment">%Display error message with the multiple gene-protein matches found</span>
+0131 <span class="keyword">if</span> strcmpi(action,<span class="string">'display'</span>) &amp;&amp; ~isempty(conflicts{1})
+0132     <a href="#_sub1" class="code" title="subfunction displayErrorMessage(conflicts,uniprot,kegg)">displayErrorMessage</a>(conflicts,uniprot,kegg)
+0133 <span class="keyword">end</span>
+0134 
+0135 <span class="keyword">if</span> nargin &lt; 2 || isempty(ecRxns) || all(ecRxns)
+0136     model.ec.eccodes = eccodes;
+0137 <span class="keyword">else</span>
+0138     <span class="keyword">if</span> ~isfield(model.ec,<span class="string">'eccodes'</span>)
+0139         model.ec.eccodes(1:numel(model.ec.rxns),1) = {<span class="string">''</span>};
+0140     <span class="keyword">end</span>
+0141     <span class="comment">%Probably faster to subset with ecRxns in the beginning of the script,</span>
+0142     <span class="comment">%but this was at the moment simpler to implement.</span>
+0143     model.ec.eccodes(ecRxns) = eccodes(ecRxns);
+0144 <span class="keyword">end</span>
+0145 
+0146 <a name="_sub1" href="#_subfunctions" class="code">function displayErrorMessage(conflicts,uniprot,kegg)</a>
+0147 STR = [<span class="string">'\n '</span> num2str(length(conflicts{1})) <span class="string">' genes with multiple associated proteins were found, please'</span>];
+0148 STR = [STR, <span class="string">' revise case by case in the uniprot and kegg files:\n\n'</span>];
+0149 <span class="keyword">for</span> i=1:length(conflicts{1})
+0150     <span class="keyword">if</span> strcmpi(conflicts{4}{i},<span class="string">'uniprot'</span>)
+0151         DB = uniprot.ID;
+0152     <span class="keyword">else</span>
+0153         DB = kegg.uniprot;
+0154     <span class="keyword">end</span>
+0155     proteins = DB(conflicts{3}{i});
+0156     STR = [STR, <span class="string">'- gene: '</span> conflicts{2}{i} <span class="string">'  Proteins: '</span> strjoin(proteins) <span class="string">'\n'</span>];
+0157 <span class="keyword">end</span>
+0158 STR = [STR, <span class="string">'\nIf a wrongly annotated case was found then call the '</span>];
+0159 STR = [STR, <span class="string">'getECfromDatabase.m function again with the option action'</span>];
+0160 STR = [STR, <span class="string">'= ignore\n\n'</span>];
+0161 STR = [STR, <span class="string">'If the conflicting proteins are desired to be kept as isoenzymes'</span>];
+0162 STR = [STR, <span class="string">' then call the getECfromDatabase.m function'</span>];
+0163 STR = [STR, <span class="string">' again with the option action = add\n'</span>];
+0164 error(sprintf(STR))
+0165 <span class="keyword">end</span>
+0166 
+0167 <a name="_sub2" href="#_subfunctions" class="code">function [geneIndex,geneHashMap]=hashGeneToProt(proteinDB)</a>
+0168 
+0169 [x,y] = size(proteinDB);
+0170 genesForIndex = reshape(proteinDB, x*y, 1);
+0171 genesForIndex = genesForIndex(~cellfun(@isempty, genesForIndex));
+0172 genesForIndex = unique(genesForIndex);
+0173 geneIndex = cell(length(genesForIndex),1);
+0174 geneHashMap = containers.Map(genesForIndex,1:length(genesForIndex));
+0175 protIndices = 1:length(proteinDB(:,1));
+0176 <span class="keyword">for</span> i = 1:y
+0177     tmp1 = proteinDB(:,i);
+0178     sel = ~cellfun(@isempty, tmp1);
+0179     indices = cell2mat(values(geneHashMap,tmp1(sel)));
+0180     protIndicesSel = protIndices(sel);
+0181     <span class="keyword">for</span> j = 1:length(indices)
+0182         geneIndex{indices(j)} = [geneIndex{indices(j)};protIndicesSel(j)];
+0183     <span class="keyword">end</span>
+0184 <span class="keyword">end</span>
+0185 <span class="keyword">end</span>
+0186 <span class="keyword">end</span></pre></div>
+<hr><address>Generated by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

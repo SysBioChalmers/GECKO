@@ -1,0 +1,199 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of mergeDLKcatAndFuzzyKcats</title>
+  <meta name="keywords" content="mergeDLKcatAndFuzzyKcats">
+  <meta name="description" content="mergeDlkcatAndFuzzyKcats">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../../index.html">Home</a> &gt;  <a href="#">src</a> &gt; <a href="#">geckomat</a> &gt; <a href="index.html">gather_kcats</a> &gt; mergeDLKcatAndFuzzyKcats.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../../index.html"><img alt="<" border="0" src="../../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for src\geckomat\gather_kcats&nbsp;<img alt=">" border="0" src="../../../right.png"></a></td></tr></table>-->
+
+<h1>mergeDLKcatAndFuzzyKcats
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>mergeDlkcatAndFuzzyKcats</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>function mergedKcatList = mergeDLKcatAndFuzzyKcats(kcatListDLKcat, kcatListFuzzy, topOriginLimit, bottomOriginLimit, wildcardLimit) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> mergeDlkcatAndFuzzyKcats
+   Merges the results from DLKcat and fuzzy matching to BRENDA database.
+   Order of preference:
+   1: BRENDA match with correct E.C. number, with origin (see below) not
+      lower than the specified topOriginLimit
+   2: DLKcat match
+   3: BRENDA match with correct E.C. number, with origin below
+      topOriginLimit but not lower than the bottomOriginLimit
+   4: BRENDA match with wildcards in the E.C. number, with not more
+      wildcards than wildcardLimit, and origin not lower than the
+      bottomOriginLimit
+
+ Input:
+   kcatListDLKcat      kcatList derived from readDLKcatOutput
+   kcatListFuzzy       kcatList derived from fuzzyKcatMatching
+   topOriginLimit      origin limit for prioritized BRENDA matches. Origin
+                       is explained in more detail below. (Optional,
+                       default 6)
+   bottomOriginLimit   origin limit for low priority BRENDA matches.
+                       Origin is explained in more detail below.
+                       (Optional, default 6)
+   wildcardLimit       maximum number of wildcards in E.C. number of
+                       BRENDA matches (Optional, default 3)
+
+ Output:
+   mergedKcatList  The merged list of kcats
+   
+ The origin parameter:
+   1: correct organism, correct substrate, kcat
+   2: any organism, correct substrate, kcat
+   3: correct organism, any substrate, kcat
+   4: any organism, any substrate, kcat
+   5: correct organism, specific activity
+   6: any organism, specific activity
+
+ Example of wildcards in E.C. number:
+   0: 1.1.1.3      glycerol-3-phosphate dehydrogenase (NAD+)
+   1: 1.1.1.-      oxidoreductase, acting on the CH-OH group of donors,
+                   with NAD+ or NADP+ as acceptor
+   2: 1.1.-.-      oxidoreductase, acting on the CH-OH group of donors
+   3: 1.-.-.-      oxidoreductase
+
+ Usage:
+   mergedKcatList = mergeDLKcatAndFuzzyKcats(kcatListDLKcat, kcatListFuzzy, topOriginLimit, bottomOriginLimit, wildcardLimit)</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function mergedKcatList = mergeDLKcatAndFuzzyKcats(kcatListDLKcat, kcatListFuzzy, topOriginLimit, bottomOriginLimit, wildcardLimit)</a>
+0002 <span class="comment">% mergeDlkcatAndFuzzyKcats</span>
+0003 <span class="comment">%   Merges the results from DLKcat and fuzzy matching to BRENDA database.</span>
+0004 <span class="comment">%   Order of preference:</span>
+0005 <span class="comment">%   1: BRENDA match with correct E.C. number, with origin (see below) not</span>
+0006 <span class="comment">%      lower than the specified topOriginLimit</span>
+0007 <span class="comment">%   2: DLKcat match</span>
+0008 <span class="comment">%   3: BRENDA match with correct E.C. number, with origin below</span>
+0009 <span class="comment">%      topOriginLimit but not lower than the bottomOriginLimit</span>
+0010 <span class="comment">%   4: BRENDA match with wildcards in the E.C. number, with not more</span>
+0011 <span class="comment">%      wildcards than wildcardLimit, and origin not lower than the</span>
+0012 <span class="comment">%      bottomOriginLimit</span>
+0013 <span class="comment">%</span>
+0014 <span class="comment">% Input:</span>
+0015 <span class="comment">%   kcatListDLKcat      kcatList derived from readDLKcatOutput</span>
+0016 <span class="comment">%   kcatListFuzzy       kcatList derived from fuzzyKcatMatching</span>
+0017 <span class="comment">%   topOriginLimit      origin limit for prioritized BRENDA matches. Origin</span>
+0018 <span class="comment">%                       is explained in more detail below. (Optional,</span>
+0019 <span class="comment">%                       default 6)</span>
+0020 <span class="comment">%   bottomOriginLimit   origin limit for low priority BRENDA matches.</span>
+0021 <span class="comment">%                       Origin is explained in more detail below.</span>
+0022 <span class="comment">%                       (Optional, default 6)</span>
+0023 <span class="comment">%   wildcardLimit       maximum number of wildcards in E.C. number of</span>
+0024 <span class="comment">%                       BRENDA matches (Optional, default 3)</span>
+0025 <span class="comment">%</span>
+0026 <span class="comment">% Output:</span>
+0027 <span class="comment">%   mergedKcatList  The merged list of kcats</span>
+0028 <span class="comment">%</span>
+0029 <span class="comment">% The origin parameter:</span>
+0030 <span class="comment">%   1: correct organism, correct substrate, kcat</span>
+0031 <span class="comment">%   2: any organism, correct substrate, kcat</span>
+0032 <span class="comment">%   3: correct organism, any substrate, kcat</span>
+0033 <span class="comment">%   4: any organism, any substrate, kcat</span>
+0034 <span class="comment">%   5: correct organism, specific activity</span>
+0035 <span class="comment">%   6: any organism, specific activity</span>
+0036 <span class="comment">%</span>
+0037 <span class="comment">% Example of wildcards in E.C. number:</span>
+0038 <span class="comment">%   0: 1.1.1.3      glycerol-3-phosphate dehydrogenase (NAD+)</span>
+0039 <span class="comment">%   1: 1.1.1.-      oxidoreductase, acting on the CH-OH group of donors,</span>
+0040 <span class="comment">%                   with NAD+ or NADP+ as acceptor</span>
+0041 <span class="comment">%   2: 1.1.-.-      oxidoreductase, acting on the CH-OH group of donors</span>
+0042 <span class="comment">%   3: 1.-.-.-      oxidoreductase</span>
+0043 <span class="comment">%</span>
+0044 <span class="comment">% Usage:</span>
+0045 <span class="comment">%   mergedKcatList = mergeDLKcatAndFuzzyKcats(kcatListDLKcat, kcatListFuzzy, topOriginLimit, bottomOriginLimit, wildcardLimit)</span>
+0046 
+0047 <span class="keyword">if</span> nargin &lt; 5
+0048     wildcardLimit = 3;
+0049 <span class="keyword">end</span>
+0050 
+0051 <span class="keyword">if</span> nargin &lt; 4
+0052     bottomOriginLimit = 6;
+0053 <span class="keyword">end</span>
+0054 
+0055 <span class="keyword">if</span> nargin &lt; 3
+0056     topOriginLimit = 6;
+0057 <span class="keyword">end</span>
+0058 
+0059 <span class="keyword">if</span> (topOriginLimit &lt; 1) || (topOriginLimit &gt; 6)
+0060     error(<span class="string">'topPrioOriginLimit should be between 1 and 6.'</span>);
+0061 <span class="keyword">end</span>
+0062 
+0063 <span class="keyword">if</span> (bottomOriginLimit &lt; 1) || (bottomOriginLimit &gt; 6)
+0064     error(<span class="string">'originCutLevel should be between 1 and 6.'</span>);
+0065 <span class="keyword">end</span>
+0066 
+0067 <span class="keyword">if</span> (wildcardLimit &lt; 0) || (wildcardLimit &gt; 3)
+0068     error(<span class="string">'wildcardCutLevel should be between 0 and 3.'</span>);
+0069 <span class="keyword">end</span>
+0070 
+0071 wc = kcatListFuzzy.wildcardLvl;
+0072 wc(isnan(wc)) = 1000; <span class="comment">%large wildcard</span>
+0073 
+0074 origin = kcatListFuzzy.origin;
+0075 origin(isnan(origin)) = 1000; <span class="comment">%large origin</span>
+0076 
+0077 prio1 = (wc == 0) &amp; (origin &lt;= topOriginLimit);
+0078 
+0079 rxnsWithPrio1 = unique(kcatListFuzzy.rxns(prio1));
+0080 
+0081 <span class="comment">%Things get a bit complicated since not all reactions are in the kcatLists and</span>
+0082 <span class="comment">%some reactions may appear multiple times</span>
+0083 prio2 = true(length(kcatListDLKcat.rxns),1);
+0084 prio2(ismember(kcatListDLKcat.rxns, rxnsWithPrio1)) = false;
+0085 prio2Rxns = unique(kcatListDLKcat.rxns(prio2));
+0086 
+0087 <span class="comment">%The prioritization between wildcards and origin is already done in fuzzy matching,</span>
+0088 <span class="comment">%so we can join them here</span>
+0089 prio3 = ((wc == 0) &amp; (origin &gt; topOriginLimit) &amp; (origin &lt;= bottomOriginLimit)) | <span class="keyword">...</span>
+0090         ((wc &gt; 0) &amp; (wc &lt;= wildcardLimit) &amp; (origin &lt;= bottomOriginLimit));
+0091 prio3(ismember(kcatListFuzzy.rxns, prio2Rxns)) = false;
+0092 
+0093 fuzzyRxns = prio1 | prio3;
+0094 
+0095 <span class="comment">%Now build the merged list, fuzzy followed by dlkcat</span>
+0096 <span class="comment">%The order of the reactions is therefore not preserved.</span>
+0097 mergedKcatList               = struct();
+0098 mergedKcatList.source        = <span class="string">'Merged DLKcat and fuzzy'</span>;
+0099 [fuzzySrc{1:sum(fuzzyRxns)}] = deal(kcatListFuzzy.source);
+0100 [dlkcatSrc{1:sum(prio2)}]    = deal(kcatListDLKcat.source);
+0101 mergedKcatList.kcatSource    = [fuzzySrc.';dlkcatSrc.'];
+0102 mergedKcatList.rxns          = [kcatListFuzzy.rxns(fuzzyRxns);kcatListDLKcat.rxns(prio2)];
+0103 mergedKcatList.genes         = [cell(sum(fuzzyRxns),1);kcatListDLKcat.genes(prio2)];
+0104 mergedKcatList.substrates    = [kcatListFuzzy.substrates(fuzzyRxns);kcatListDLKcat.substrates(prio2)];
+0105 mergedKcatList.kcats         = [kcatListFuzzy.kcats(fuzzyRxns);kcatListDLKcat.kcats(prio2)];
+0106 mergedKcatList.eccodes       = [kcatListFuzzy.eccodes(fuzzyRxns);cell(sum(prio2),1)];
+0107 mergedKcatList.wildcardLvl   = [kcatListFuzzy.wildcardLvl(fuzzyRxns);nan(sum(prio2),1)];
+0108 mergedKcatList.origin        = [kcatListFuzzy.origin(fuzzyRxns);nan(sum(prio2),1)];
+0109 <span class="keyword">end</span></pre></div>
+<hr><address>Generated by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

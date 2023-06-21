@@ -1,0 +1,233 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of writeDLKcatInput</title>
+  <meta name="keywords" content="writeDLKcatInput">
+  <meta name="description" content="writeDLKcatInput">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../../index.html">Home</a> &gt;  <a href="#">src</a> &gt; <a href="#">geckomat</a> &gt; <a href="index.html">gather_kcats</a> &gt; writeDLKcatInput.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../../index.html"><img alt="<" border="0" src="../../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for src\geckomat\gather_kcats&nbsp;<img alt=">" border="0" src="../../../right.png"></a></td></tr></table>-->
+
+<h1>writeDLKcatInput
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>writeDLKcatInput</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>function writtenTable = writeDLKcatInput(model, ecRxns, modelAdapter, onlyWithSmiles, filename, overwrite) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> writeDLKcatInput
+   Prepares the input for DLKcat, and writes it to data/DLKcat.tsv
+   in the obj.params.path specified in the ModelAdapter.
+
+ Input:
+   model           an ecModel in GECKO 3 format (with ecModel.ec structure)
+   ecRxns          for which reactions (from model.ec.rxns) DLKcat should
+                   predict kcat values, provided as logical vector with
+                   same length as model.ec.rxns. (Opt, default is all
+                   reactions)
+   modelAdapter    a loaded model adapter (Optional, will otherwise use the
+                   default model adapter).
+   onlyWithSmiles  logical whether to only include metabolites with SMILES
+                   (optional, default true)
+   filename        Filename (Optional). Normally this parameter should not be 
+                   supplied, but it is useful for test cases.
+   overwrite       logical whether existing file should be overwritten.
+                   (Optional, default false, to prevent overwriting file
+                   that already contains DLKcat-predicted kcat values).
+
+ Output:
+   writtenTable    The table written, mainly to be used for testing purposes.
+
+ Usage:
+   writtenTable = writeDLKcatInput(model, ecRxns, modelAdapter, onlyWithSmiles, filename, overwrite)</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function writtenTable = writeDLKcatInput(model, ecRxns, modelAdapter, onlyWithSmiles, filename, overwrite)</a>
+0002 <span class="comment">% writeDLKcatInput</span>
+0003 <span class="comment">%   Prepares the input for DLKcat, and writes it to data/DLKcat.tsv</span>
+0004 <span class="comment">%   in the obj.params.path specified in the ModelAdapter.</span>
+0005 <span class="comment">%</span>
+0006 <span class="comment">% Input:</span>
+0007 <span class="comment">%   model           an ecModel in GECKO 3 format (with ecModel.ec structure)</span>
+0008 <span class="comment">%   ecRxns          for which reactions (from model.ec.rxns) DLKcat should</span>
+0009 <span class="comment">%                   predict kcat values, provided as logical vector with</span>
+0010 <span class="comment">%                   same length as model.ec.rxns. (Opt, default is all</span>
+0011 <span class="comment">%                   reactions)</span>
+0012 <span class="comment">%   modelAdapter    a loaded model adapter (Optional, will otherwise use the</span>
+0013 <span class="comment">%                   default model adapter).</span>
+0014 <span class="comment">%   onlyWithSmiles  logical whether to only include metabolites with SMILES</span>
+0015 <span class="comment">%                   (optional, default true)</span>
+0016 <span class="comment">%   filename        Filename (Optional). Normally this parameter should not be</span>
+0017 <span class="comment">%                   supplied, but it is useful for test cases.</span>
+0018 <span class="comment">%   overwrite       logical whether existing file should be overwritten.</span>
+0019 <span class="comment">%                   (Optional, default false, to prevent overwriting file</span>
+0020 <span class="comment">%                   that already contains DLKcat-predicted kcat values).</span>
+0021 <span class="comment">%</span>
+0022 <span class="comment">% Output:</span>
+0023 <span class="comment">%   writtenTable    The table written, mainly to be used for testing purposes.</span>
+0024 <span class="comment">%</span>
+0025 <span class="comment">% Usage:</span>
+0026 <span class="comment">%   writtenTable = writeDLKcatInput(model, ecRxns, modelAdapter, onlyWithSmiles, filename, overwrite)</span>
+0027 
+0028 [geckoPath, ~] = findGECKOroot();
+0029 
+0030 <span class="keyword">if</span> nargin&lt;2 || isempty(ecRxns)
+0031     ecRxns = true(numel(model.ec.rxns),1);
+0032 <span class="keyword">elseif</span> ~logical(ecRxns)
+0033     error(<span class="string">'ecRxns should be provided as logical vector'</span>)
+0034 <span class="keyword">elseif</span> numel(ecRxns)~=numel(model.ec.rxns)
+0035     error(<span class="string">'Length of ecRxns is not the same as model.ec.rxns'</span>)
+0036 <span class="keyword">end</span>
+0037 ecRxns = find(ecRxns); <span class="comment">% Change to indices</span>
+0038 
+0039 <span class="keyword">if</span> nargin &lt; 3 || isempty(modelAdapter)
+0040     modelAdapter = ModelAdapterManager.getDefault();
+0041     <span class="keyword">if</span> isempty(modelAdapter)
+0042         error(<span class="string">'Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.'</span>)
+0043     <span class="keyword">end</span>
+0044 <span class="keyword">end</span>
+0045 params = modelAdapter.params;
+0046 
+0047 <span class="keyword">if</span> nargin&lt;4 || isempty(onlyWithSmiles)
+0048     onlyWithSmiles=true;
+0049 <span class="keyword">end</span>
+0050 
+0051 <span class="keyword">if</span> nargin&lt;5 || isempty(filename)
+0052     filename = fullfile(params.path,<span class="string">'data'</span>,<span class="string">'DLKcat.tsv'</span>);
+0053 <span class="keyword">end</span>
+0054 
+0055 <span class="keyword">if</span> nargin&lt;6 || isempty(overwrite) || ~overwrite <span class="comment">% If is true</span>
+0056     <span class="keyword">if</span> exist(filename,<span class="string">'file'</span>)
+0057         error([filename <span class="string">' already exists, either delete it first, or set the overwrite input argument as true'</span>])
+0058     <span class="keyword">end</span>
+0059 <span class="keyword">end</span>
+0060 
+0061 <span class="keyword">if</span> ~model.ec.geckoLight
+0062    origRxns = model.ec.rxns;
+0063 <span class="keyword">else</span>
+0064    origRxns = extractAfter(model.ec.rxns,4);
+0065 <span class="keyword">end</span>
+0066 origRxnsToInclude = origRxns(ecRxns);
+0067 
+0068 <span class="comment">% Map back to original reactions, to extract substrates</span>
+0069 [sanityCheck,origRxnIdxs] = ismember(origRxnsToInclude,model.rxns);
+0070 <span class="keyword">if</span> ~all(sanityCheck)
+0071     error(<span class="string">'Not all reactions in model.ec.rxns are found in model.rxns'</span>)
+0072 <span class="keyword">end</span>
+0073 
+0074 <span class="comment">% Ignore selected metabolites (metal ions, proteins etc.). First check by</span>
+0075 <span class="comment">% name (case insensitive, without white spaces and special characters),</span>
+0076 <span class="comment">% then also try to match with metSmiles (if available).</span>
+0077 metsNoSpecialChars = lower(regexprep(model.metNames,<span class="string">'[^0-9a-zA-Z]+'</span>,<span class="string">''</span>));
+0078 <span class="keyword">if</span> exist(fullfile(params.path,<span class="string">'data'</span>,<span class="string">'DLKcatIgnoreMets.tsv'</span>),<span class="string">'file'</span>)
+0079     fID        = fopen(fullfile(params.path,<span class="string">'data'</span>,<span class="string">'DLKcatIgnoreMets.tsv'</span>));
+0080 <span class="keyword">else</span>
+0081     fID        = fopen(fullfile(geckoPath,<span class="string">'databases'</span>,<span class="string">'DLKcatIgnoreMets.tsv'</span>));
+0082 <span class="keyword">end</span>
+0083 fileData   = textscan(fID,<span class="string">'%s %s'</span>,<span class="string">'delimiter'</span>,<span class="string">'\t'</span>);
+0084 fclose(fID);
+0085 [ignoreMets, ignoreSmiles] = deal(fileData{[1,2]});
+0086 ignoreMets = lower(regexprep(ignoreMets,<span class="string">'[^0-9a-zA-Z]+'</span>,<span class="string">''</span>));
+0087 ignoreSmiles(cellfun(@isempty,ignoreSmiles)) = [];
+0088 
+0089 ignoreMetsIdx  = logical(ismember(metsNoSpecialChars,ignoreMets));
+0090 <span class="keyword">if</span> isfield(model,<span class="string">'metSmiles'</span>)
+0091     ignoreMetsIdx = ignoreMetsIdx | logical(ismember(model.metSmiles,ignoreSmiles));
+0092 <span class="keyword">end</span>
+0093 <span class="comment">% Also leave out protein-usage pseudometabolites</span>
+0094 ignoreMetsIdx = ignoreMetsIdx | startsWith(model.mets,<span class="string">'prot_'</span>);
+0095 reducedS = model.S;
+0096 reducedS(ignoreMetsIdx,:) = 0;
+0097 
+0098 <span class="comment">% Ignore currency metabolites if they occur in pairs. First check by</span>
+0099 <span class="comment">% name (case insensitive, without white spaces and special characters),</span>
+0100 <span class="comment">% then also try to match with metSmiles (if available).</span>
+0101 <span class="keyword">if</span> exist(fullfile(params.path,<span class="string">'data'</span>,<span class="string">'DLKcatCurrencyMets.tsv'</span>),<span class="string">'file'</span>)
+0102     fID = fopen(fullfile(params.path,<span class="string">'data'</span>,<span class="string">'DLKcatCurrencyMets.tsv'</span>));
+0103 <span class="keyword">else</span>
+0104     fID = fopen(fullfile(geckoPath,<span class="string">'databases'</span>,<span class="string">'DLKcatCurrencyMets.tsv'</span>));
+0105 <span class="keyword">end</span>
+0106 fileData = textscan(fID,<span class="string">'%s %s'</span>,<span class="string">'delimiter'</span>,<span class="string">'\t'</span>);
+0107 fclose(fID);
+0108 [currencyMets(:,1), currencyMets(:,2)] = deal(fileData{[1,2]});
+0109 currencyMets = lower(regexprep(currencyMets,<span class="string">'[^0-9a-zA-Z]+'</span>,<span class="string">''</span>));
+0110 
+0111 <span class="keyword">for</span> i=1:size(currencyMets,1)
+0112     subs = strcmp(currencyMets(i,1),metsNoSpecialChars);
+0113     prod = strcmp(currencyMets(i,2),metsNoSpecialChars);
+0114     [~,subsRxns]=find(reducedS(subs,:));
+0115     [~,prodRxns]=find(reducedS(prod,:));
+0116     pairRxns = intersect(subsRxns,prodRxns);
+0117     tempRedS=reducedS;
+0118     tempRedS([find(subs);find(prod)],pairRxns) = 0;
+0119     <span class="comment">% Do not remove currency mets if no substrate remains</span>
+0120     rxnsWithRemainingSubstrates = any(tempRedS(:,pairRxns) &lt; 0,1);
+0121     reducedS([find(subs);find(prod)],intersect(pairRxns,pairRxns(rxnsWithRemainingSubstrates))) = 0;
+0122 <span class="keyword">end</span>
+0123 
+0124 <span class="comment">%filter out the reactions we're not interested in - will solve the problem for both full and light</span>
+0125 clearedRedS = reducedS(:,origRxnIdxs);
+0126 rxnsToClear = true(length(origRxnIdxs),1);
+0127 rxnsToClear(ecRxns) = false;
+0128 clearedRedS(:,rxnsToClear) = 0;
+0129 
+0130 <span class="comment">% Enumerate all substrates for each reaction</span>
+0131 [substrates, reactions] = find(clearedRedS&lt;0); <span class="comment">%the reactions here are in model.ec.rxns space</span>
+0132 
+0133 <span class="comment">% Enumerate all proteins for each reaction</span>
+0134 [proteins, ecRxns] = find(transpose(model.ec.rxnEnzMat(reactions,:)));
+0135 
+0136 <span class="comment">% Prepare output</span>
+0137 out(1,:) = model.ec.rxns(reactions(ecRxns));
+0138 out(2,:) = model.ec.genes(proteins);
+0139 out(3,:) = model.metNames(substrates(ecRxns));
+0140 <span class="keyword">if</span> isfield(model,<span class="string">'metSmiles'</span>)
+0141     out(4,:) = model.metSmiles(substrates(ecRxns));
+0142 <span class="keyword">else</span>
+0143     out(4,:) = cell(numel(substrates(ecRxns)),1);
+0144 <span class="keyword">end</span>
+0145 
+0146 out(5,:) = model.ec.sequence(proteins);
+0147 <span class="keyword">if</span> onlyWithSmiles
+0148     out(:,cellfun(@isempty,out(4,:))) = [];
+0149 <span class="keyword">else</span>
+0150     out(4,cellfun(@isempty,out(4,:))) = {<span class="string">'None'</span>};
+0151 <span class="keyword">end</span>
+0152 out(6,:) = cell(numel(out(1,:)),1);
+0153 out(6,:) = {<span class="string">'NA'</span>};
+0154 
+0155 <span class="comment">% Write file</span>
+0156 fID = fopen(filename,<span class="string">'w'</span>);
+0157 fprintf(fID,<span class="string">'%s\t%s\t%s\t%s\t%s\t%s\n'</span>,out{:});
+0158 fclose(fID);
+0159 fprintf(<span class="string">'Model-specific DLKcat input stored at %s\n'</span>,filename);
+0160 
+0161 writtenTable = out;
+0162 <span class="keyword">end</span></pre></div>
+<hr><address>Generated by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

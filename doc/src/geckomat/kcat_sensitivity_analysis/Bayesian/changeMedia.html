@@ -1,0 +1,218 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of changeMedia</title>
+  <meta name="keywords" content="changeMedia">
+  <meta name="description" content="changeMedia">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../../../index.html">Home</a> &gt;  <a href="#">src</a> &gt; <a href="#">geckomat</a> &gt; <a href="../index.html">kcat_sensitivity_analysis</a> &gt; <a href="index.html">Bayesian</a> &gt; changeMedia.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../../../index.html"><img alt="<" border="0" src="../../../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for src\geckomat\kcat_sensitivity_analysis\Bayesian&nbsp;<img alt=">" border="0" src="../../../../right.png"></a></td></tr></table>-->
+
+<h1>changeMedia
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="box"><strong>changeMedia</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="box"><strong>function [model,pos] = changeMedia(model,c_source,media,anox,flux) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="fragment"><pre class="comment">changeMedia
+
+ Function that modifies the ecModel and makes it suitable for batch growth
+ simulations on different carbon sources.
+
+ INPUT:
+   - model:  An enzyme constrained model
+   - media:  Media type ('YEP' for complex, 
+                         'MAA' minimal with Aminoacids,
+                         'MIN' for minimal media,
+                         'MIN+His' for minimal media with his
+                         'MIN+Arg' for minimal media with arg
+                         'MIN+Citrate' for minimal media with Citrate)
+   - anox:   (optional) TRUE if anaerobic conditions are desired, DEFAULT=
+             FALSE
+   - flux:   (Optional) A cell array with measured uptake fluxes in mmol/gDwh
+
+ OUTPUT:
+   - model: The ECmodel with the specified medium constraints
+
+ Ivan Domenzain        2020-01-17
+ Feiran Li             2020-11-10</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../../../matlabicon.gif)">
+<li><a href="anaerobicModel.html" class="code" title="function model = anaerobicModel(model)">anaerobicModel</a>	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../../../matlabicon.gif)">
+<li><a href="abc_max.html" class="code" title="function [rmse_final,exp,simulated,growthdata,max_growth]=abc_max(ecModel,kcat_random_all,growthdata,max_growth,proc,sample_generation,j,rxn2block)">abc_max</a>	setProtPoolSize</li></ul>
+<!-- crossreference -->
+
+<h2><a name="_subfunctions"></a>SUBFUNCTIONS <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<ul style="list-style-image:url(../../../../matlabicon.gif)">
+<li><a href="#_sub1" class="code">function pos = getComponentIndexes(model,c_source)</a></li></ul>
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function [model,pos] = changeMedia(model,c_source,media,anox,flux)</a>
+0002 <span class="comment">%changeMedia</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">% Function that modifies the ecModel and makes it suitable for batch growth</span>
+0005 <span class="comment">% simulations on different carbon sources.</span>
+0006 <span class="comment">%</span>
+0007 <span class="comment">% INPUT:</span>
+0008 <span class="comment">%   - model:  An enzyme constrained model</span>
+0009 <span class="comment">%   - media:  Media type ('YEP' for complex,</span>
+0010 <span class="comment">%                         'MAA' minimal with Aminoacids,</span>
+0011 <span class="comment">%                         'MIN' for minimal media,</span>
+0012 <span class="comment">%                         'MIN+His' for minimal media with his</span>
+0013 <span class="comment">%                         'MIN+Arg' for minimal media with arg</span>
+0014 <span class="comment">%                         'MIN+Citrate' for minimal media with Citrate)</span>
+0015 <span class="comment">%   - anox:   (optional) TRUE if anaerobic conditions are desired, DEFAULT=</span>
+0016 <span class="comment">%             FALSE</span>
+0017 <span class="comment">%   - flux:   (Optional) A cell array with measured uptake fluxes in mmol/gDwh</span>
+0018 <span class="comment">%</span>
+0019 <span class="comment">% OUTPUT:</span>
+0020 <span class="comment">%   - model: The ECmodel with the specified medium constraints</span>
+0021 <span class="comment">%</span>
+0022 <span class="comment">% Ivan Domenzain        2020-01-17</span>
+0023 <span class="comment">% Feiran Li             2020-11-10</span>
+0024 
+0025 <span class="keyword">if</span> nargin&lt;4
+0026     anox = false;
+0027     <span class="keyword">if</span> nargin&lt;3
+0028         media = <span class="string">'MIN'</span>;
+0029     <span class="keyword">end</span>
+0030 <span class="keyword">end</span>
+0031 <span class="comment">% Give the carbon source (c_source) input variable with the following</span>
+0032 <span class="comment">% format: c_source  = 'D-glucose exchange'</span>
+0033 c_source = [c_source,<span class="string">' exchange'</span>];
+0034 <span class="comment">%first block any uptake</span>
+0035 rxnidx = contains(model.rxnNames,<span class="string">'exchange (reversible)'</span>);
+0036 model = setParam(model,<span class="string">'eq'</span>,model.rxns(rxnidx),0);
+0037 
+0038 [~,exchange]  = getExchangeRxns(model);
+0039 [~,idx] = ismember(<span class="string">'EX_protein_pool'</span>,model.rxnNames);
+0040 exchange = setdiff(exchange,idx);
+0041 model.lb(exchange) = 0;
+0042 pos = <a href="#_sub1" class="code" title="subfunction pos = getComponentIndexes(model,c_source)">getComponentIndexes</a>(model,c_source);
+0043 
+0044 
+0045 <span class="comment">% %For growth on fructose and mannose the transport takes place in a passive</span>
+0046 <span class="comment">% %way. [Boles &amp; Hollenberg, 2006]</span>
+0047 <span class="comment">% if strcmp(c_source,'D-fructose exchange')</span>
+0048 <span class="comment">%     model.S(strcmp(model.mets,'s_0796'),strcmp(model.rxns,'r_1134')) = 0;</span>
+0049 <span class="comment">%     model.S(strcmp(model.mets,'s_0794'),strcmp(model.rxns,'r_1134')) = 0;</span>
+0050 <span class="comment">% elseif strcmp(c_source,'D-mannose exchange')</span>
+0051 <span class="comment">%     model.S(strcmp(model.mets,'s_0796'),strcmp(model.rxns,'r_1139')) = 0;</span>
+0052 <span class="comment">%     model.S(strcmp(model.mets,'s_0794'),strcmp(model.rxns,'r_1139')) = 0;</span>
+0053 <span class="comment">% end</span>
+0054 <span class="comment">%The media will define which rxns to fix:</span>
+0055 <span class="keyword">if</span> strcmpi(media,<span class="string">'YEP'</span>)
+0056     N = 25;     <span class="comment">%Aminoacids + Nucleotides</span>
+0057 <span class="keyword">elseif</span> strcmpi(media,<span class="string">'MAA'</span>)
+0058     N = 21;     <span class="comment">%Aminoacids</span>
+0059 <span class="keyword">elseif</span> strcmpi(media,<span class="string">'MIN'</span>)
+0060     N = 1;      <span class="comment">%Only the carbon source</span>
+0061 <span class="keyword">elseif</span> strcmpi(media,<span class="string">'MIN+His'</span>)
+0062     N = 1;      <span class="comment">%Only the carbon source</span>
+0063     model = changeRxnBounds(model,<span class="string">'r_1893'</span>,-0.08,<span class="string">'l'</span>);    <span class="comment">%Histidine exchange</span>
+0064 <span class="keyword">elseif</span> strcmpi(media,<span class="string">'MIN+Arg'</span>)
+0065     N = 1;      <span class="comment">%Only the carbon source</span>
+0066     model = changeRxnBounds(model,<span class="string">'r_1879'</span>,-0.08,<span class="string">'l'</span>);    <span class="comment">%L-arginine exchange</span>
+0067 <span class="keyword">elseif</span> strcmpi(media,<span class="string">'MIN+Citrate'</span>)
+0068     N = 1;      <span class="comment">%Only the carbon source</span>
+0069     model = changeRxnBounds(model,<span class="string">'r_1687'</span>,-0.08,<span class="string">'l'</span>);    <span class="comment">%citrate exchange</span>
+0070 <span class="keyword">end</span>
+0071 <span class="comment">%LB parameter (manually optimized for glucose on Min+AA):</span>
+0072 b = -0.08;
+0073 <span class="comment">%LB parameter (manually optimized for glucose complex media):</span>
+0074 c = -2;
+0075 <span class="comment">%Define fluxes in case of ec model:</span>
+0076 <span class="keyword">if</span> nargin &lt; 5   <span class="comment">%Limited protein</span>
+0077     <span class="keyword">if</span> N&gt;1
+0078        flux    = b*ones(1,N);
+0079        <span class="keyword">if</span> N&gt;21
+0080            flux(22:25) = c;
+0081        <span class="keyword">end</span>
+0082     <span class="keyword">end</span>
+0083     flux(1) = -1000;
+0084 <span class="keyword">end</span>
+0085 <span class="comment">%Fix values as LBs:</span>
+0086 <span class="keyword">for</span> i = 1:N
+0087     model.lb(pos(i)) = flux(i);
+0088 <span class="keyword">end</span>
+0089 <span class="comment">%Allow uptake of essential components</span>
+0090 model = setParam(model, <span class="string">'lb'</span>, <span class="string">'r_1654'</span>, -Inf); <span class="comment">% 'ammonium exchange';</span>
+0091 model = setParam(model, <span class="string">'lb'</span>, <span class="string">'r_2100'</span>, -Inf); <span class="comment">% 'water exchange' ;</span>
+0092 model = setParam(model, <span class="string">'lb'</span>, <span class="string">'r_1861'</span>, -Inf); <span class="comment">% 'iron(2+) exchange';</span>
+0093 model = setParam(model, <span class="string">'lb'</span>, <span class="string">'r_1992'</span>, -Inf); <span class="comment">% 'oxygen exchange';</span>
+0094 model = setParam(model, <span class="string">'lb'</span>, <span class="string">'r_2005'</span>, -Inf); <span class="comment">% 'phosphate exchange';</span>
+0095 model = setParam(model, <span class="string">'lb'</span>, <span class="string">'r_2060'</span>, -Inf); <span class="comment">% 'sulphate exchange';</span>
+0096 model = setParam(model, <span class="string">'lb'</span>, <span class="string">'r_1832'</span>, -Inf); <span class="comment">% 'H+ exchange' ;</span>
+0097 model = setParam(model, <span class="string">'lb'</span>, <span class="string">'r_4593'</span>, -Inf); <span class="comment">% 'chloride exchange' ;</span>
+0098 model = setParam(model, <span class="string">'lb'</span>, <span class="string">'r_4595'</span>, -Inf); <span class="comment">% Mn(2+) exchange</span>
+0099 model = setParam(model, <span class="string">'lb'</span>, <span class="string">'r_4596'</span>, -Inf); <span class="comment">% Zn(2+ exchange</span>
+0100 model = setParam(model, <span class="string">'lb'</span>, <span class="string">'r_4597'</span>, -Inf); <span class="comment">% Mg(2+) exchange</span>
+0101 model = setParam(model, <span class="string">'lb'</span>, <span class="string">'r_2049'</span>, -Inf); <span class="comment">% sodium exchange</span>
+0102 model = setParam(model, <span class="string">'lb'</span>, <span class="string">'r_4594'</span>, -Inf); <span class="comment">% Cu(2+) exchange</span>
+0103 model = setParam(model, <span class="string">'lb'</span>, <span class="string">'r_4600'</span>, -Inf); <span class="comment">% Ca(2+) exchange</span>
+0104 model = setParam(model, <span class="string">'lb'</span>, <span class="string">'r_2020'</span>, -Inf); <span class="comment">% potassium exchange</span>
+0105 <span class="comment">%Block some production fluxes</span>
+0106 model = setParam(model, <span class="string">'ub'</span>, <span class="string">'r_1663'</span>, 0); <span class="comment">% bicarbonate exchange</span>
+0107 model = setParam(model, <span class="string">'ub'</span>, <span class="string">'r_4062'</span>, 0); <span class="comment">% lipid backbone exchange</span>
+0108 model = setParam(model, <span class="string">'ub'</span>, <span class="string">'r_4064'</span>, 0); <span class="comment">% lipid chain exchange</span>
+0109 
+0110 <span class="comment">%Allow biomass production</span>
+0111 model = setParam(model, <span class="string">'ub'</span>, <span class="string">'r_2111'</span>, Inf); <span class="comment">% growth</span>
+0112 
+0113 <span class="comment">% change aeerobic or anaerobic</span>
+0114 <span class="keyword">if</span> strcmp(anox,<span class="string">'anaerobic'</span>)
+0115     1
+0116     model = <a href="anaerobicModel.html" class="code" title="function model = anaerobicModel(model)">anaerobicModel</a>(model);
+0117 <span class="keyword">end</span>
+0118 <span class="keyword">end</span>
+0119 
+0120 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0121 <a name="_sub1" href="#_subfunctions" class="code">function pos = getComponentIndexes(model,c_source)</a>
+0122     pos(1)  = find(strcmpi(model.rxnNames,c_source));
+0123     pos(2)  = find(strcmpi(model.rxnNames,<span class="string">'L-alanine exchange'</span>));
+0124     pos(3)  = find(strcmpi(model.rxnNames,<span class="string">'L-arginine exchange'</span>));
+0125     pos(4)  = find(strcmpi(model.rxnNames,<span class="string">'L-asparagine exchange'</span>));
+0126     pos(5)  = find(strcmpi(model.rxnNames,<span class="string">'L-aspartate exchange'</span>));
+0127     pos(6)  = find(strcmpi(model.rxnNames,<span class="string">'L-cysteine exchange'</span>));
+0128     pos(7)  = find(strcmpi(model.rxnNames,<span class="string">'L-glutamine exchange'</span>));
+0129     pos(8)  = find(strcmpi(model.rxnNames,<span class="string">'L-glutamate exchange'</span>));
+0130     pos(9)  = find(strcmpi(model.rxnNames,<span class="string">'L-glycine exchange'</span>));
+0131     pos(10) = find(strcmpi(model.rxnNames,<span class="string">'L-histidine exchange'</span>));
+0132     pos(11) = find(strcmpi(model.rxnNames,<span class="string">'L-isoleucine exchange'</span>));
+0133     pos(12) = find(strcmpi(model.rxnNames,<span class="string">'L-leucine exchange'</span>));
+0134     pos(13) = find(strcmpi(model.rxnNames,<span class="string">'L-lysine exchange'</span>));
+0135     pos(14) = find(strcmpi(model.rxnNames,<span class="string">'L-methionine exchange'</span>));
+0136     pos(15) = find(strcmpi(model.rxnNames,<span class="string">'L-phenylalanine exchange'</span>));
+0137     pos(16) = find(strcmpi(model.rxnNames,<span class="string">'L-proline exchange'</span>));
+0138     pos(17) = find(strcmpi(model.rxnNames,<span class="string">'L-serine exchange'</span>));
+0139     pos(18) = find(strcmpi(model.rxnNames,<span class="string">'L-threonine exchange'</span>));
+0140     pos(19) = find(strcmpi(model.rxnNames,<span class="string">'L-tryptophan exchange'</span>));
+0141     pos(20) = find(strcmpi(model.rxnNames,<span class="string">'L-tyrosine exchange'</span>));
+0142     pos(21) = find(strcmpi(model.rxnNames,<span class="string">'L-valine exchange'</span>));
+0143     pos(22) = find(strcmpi(model.rxnNames,<span class="string">'2''-deoxyadenosine exchange'</span>));
+0144     pos(23) = find(strcmpi(model.rxnNames,<span class="string">'2''-deoxyguanosine exchange'</span>));
+0145     pos(24) = find(strcmpi(model.rxnNames,<span class="string">'thymidine exchange'</span>));
+0146     pos(25) = find(strcmpi(model.rxnNames,<span class="string">'deoxycytidine exchange'</span>));
+0147     pos(26) = find(strcmpi(model.rxnNames,<span class="string">'D-glucose exchange'</span>));
+0148 <span class="keyword">end</span></pre></div>
+<hr><address>Generated by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

@@ -6,7 +6,8 @@
 
 ## About GECKO 3
 
-The **GECKO** toolbox enhances a **G**enome-scale model to account for **E**nzyme **C**onstraints, using **K**inetics and **O**mics. The resulting enzyme-constrained model (**ecModel**) can be used to perform simulations where enzyme allocation is either drawn from a total protein pool, or constrained by measured protein levels from proteomics data.
+The **GECKO** toolbox enhances a **G**enome-scale model to account for **E**nzyme **C**onstraints, using **K**inetics and **O**mics. The resulting enzyme-constrained model (**ecModel**) can be used to perform simulations where enzyme allocation is either drawn from a total protein pool, or constrained by measured protein levels from proteomics data. The source code documentation is also available
+[online](http://sysbiochalmers.github.io/GECKO/doc/).
 
 💡 In the GECKO folder, `protocol.m` contains instructions on how to reconstruct and analyze an ecModel for _S. cerevisiae_. This demonstrates how many of GECKO's functions can be used.
 

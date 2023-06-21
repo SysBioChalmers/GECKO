@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of setProtPoolSize</title>
+  <meta name="keywords" content="setProtPoolSize">
+  <meta name="description" content="setProtPoolSize">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../../index.html">Home</a> &gt;  <a href="#">src</a> &gt; <a href="#">geckomat</a> &gt; <a href="index.html">change_model</a> &gt; setProtPoolSize.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../../index.html"><img alt="<" border="0" src="../../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for src\geckomat\change_model&nbsp;<img alt=">" border="0" src="../../../right.png"></a></td></tr></table>-->
+
+<h1>setProtPoolSize
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>setProtPoolSize</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>function model = setProtPoolSize(model, Ptot, f, sigma, modelAdapter) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> setProtPoolSize
+   Sets the limit of the total protein usage in the model.
+
+ Input:
+   model           an ecModel in GECKO 3 format (with ecModel.ec structure)
+   Ptot            Total cellular protein content in g/gDCW. If not
+                   specified, the value will be read from the model
+                   adapter. If not specified in model adapter, 0.5 g/gDCW
+                   is assumed.
+   f               Estimated fraction of enzymes in the model. If not
+                   specified, the value will be read from the model
+                   adapter. If not specified in model adapter, 0.5 is
+                   assumed.
+   sigma           Estimated saturation factor. If not specified, the
+                   value will be read from the model adapter. If not
+                   specified in model adapter, 0.5 is assumed.
+   modelAdapter    a loaded model adapter (Optional, will otherwise use the
+                   default model adapter).
+
+ Output:
+   model           ecModel with protein pool constraint set
+
+ Usage: model = setProtPoolSize(model, Ptot, f, sigma, modelAdapter)</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function model = setProtPoolSize(model, Ptot, f, sigma, modelAdapter)</a>
+0002 <span class="comment">% setProtPoolSize</span>
+0003 <span class="comment">%   Sets the limit of the total protein usage in the model.</span>
+0004 <span class="comment">%</span>
+0005 <span class="comment">% Input:</span>
+0006 <span class="comment">%   model           an ecModel in GECKO 3 format (with ecModel.ec structure)</span>
+0007 <span class="comment">%   Ptot            Total cellular protein content in g/gDCW. If not</span>
+0008 <span class="comment">%                   specified, the value will be read from the model</span>
+0009 <span class="comment">%                   adapter. If not specified in model adapter, 0.5 g/gDCW</span>
+0010 <span class="comment">%                   is assumed.</span>
+0011 <span class="comment">%   f               Estimated fraction of enzymes in the model. If not</span>
+0012 <span class="comment">%                   specified, the value will be read from the model</span>
+0013 <span class="comment">%                   adapter. If not specified in model adapter, 0.5 is</span>
+0014 <span class="comment">%                   assumed.</span>
+0015 <span class="comment">%   sigma           Estimated saturation factor. If not specified, the</span>
+0016 <span class="comment">%                   value will be read from the model adapter. If not</span>
+0017 <span class="comment">%                   specified in model adapter, 0.5 is assumed.</span>
+0018 <span class="comment">%   modelAdapter    a loaded model adapter (Optional, will otherwise use the</span>
+0019 <span class="comment">%                   default model adapter).</span>
+0020 <span class="comment">%</span>
+0021 <span class="comment">% Output:</span>
+0022 <span class="comment">%   model           ecModel with protein pool constraint set</span>
+0023 <span class="comment">%</span>
+0024 <span class="comment">% Usage: model = setProtPoolSize(model, Ptot, f, sigma, modelAdapter)</span>
+0025 
+0026 <span class="keyword">if</span> nargin &lt; 5 || isempty(modelAdapter)
+0027     modelAdapter = ModelAdapterManager.getDefault();
+0028     <span class="keyword">if</span> isempty(modelAdapter) &amp;&amp; (nargin&lt;2 || isempty(Ptot) || isempty(f) || isempty(sigma))
+0029         error(<span class="string">'Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.'</span>)
+0030     <span class="keyword">end</span>
+0031 <span class="keyword">end</span>
+0032 
+0033 <span class="keyword">if</span> nargin&lt;4 || isempty(sigma)
+0034     sigma = modelAdapter.getParameters().sigma;
+0035 <span class="keyword">end</span>
+0036 <span class="keyword">if</span> nargin&lt;3 || isempty(f)
+0037     f = modelAdapter.getParameters().f;
+0038 <span class="keyword">end</span>
+0039 <span class="keyword">if</span> nargin&lt;2 || isempty(Ptot)
+0040     Ptot = modelAdapter.getParameters().Ptot;
+0041 <span class="keyword">end</span>
+0042 
+0043 model.lb(strcmp(model.rxns, <span class="string">'prot_pool_exchange'</span>)) = -(Ptot*f*sigma*1000);
+0044 <span class="keyword">end</span>
+0045</pre></div>
+<hr><address>Generated by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

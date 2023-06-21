@@ -1,0 +1,229 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of sensitivityTuning</title>
+  <meta name="keywords" content="sensitivityTuning">
+  <meta name="description" content="sensitivityTuning">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../../index.html">Home</a> &gt;  <a href="#">src</a> &gt; <a href="#">geckomat</a> &gt; <a href="index.html">kcat_sensitivity_analysis</a> &gt; sensitivityTuning.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../../index.html"><img alt="<" border="0" src="../../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for src\geckomat\kcat_sensitivity_analysis&nbsp;<img alt=">" border="0" src="../../../right.png"></a></td></tr></table>-->
+
+<h1>sensitivityTuning
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>sensitivityTuning</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>function [model, tunedKcats] = sensitivityTuning(model, desiredGrowthRate, modelAdapter, foldChange, protToIgnore, verbose) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> sensitivityTuning
+    Function that relaxes the most limiting kcats until a certain growth rate
+    is reached. The function will update kcats in model.ec.kcat.
+
+ Input:
+   model              an ecModel in GECKO 3 format (with ecModel.ec structure)
+   desiredGrowthRate  kcats will be relaxed until this growth rate is reached
+   modelAdapter       a loaded model adapter (Optional, will otherwise use the
+                      default model adapter).
+   foldChange         kcat values will be increased by this fold-change.
+                      (Opt, default 10)
+   protToIgnore       vector of protein ids to be ignore in tuned kcats.
+                      e.g. {'P38122', 'Q99271'} (Optional, default = [])
+   verbose            logical whether progress should be reported (Optional,
+                      default true)
+
+ Output:
+   model              ecModel with updated model.ec.kcat
+   tunedKcats         structure with information on tuned kcat values
+                      rxns     identifiers of reactions with tuned kcat
+                               values
+                      rxnNames names of the reactions in tunedKcats.rxns
+                      enzymes  enzymes that catalyze the reactions in
+                               tunedKcats.rxns, whose kcat value has been
+                               tuned.
+                      oldKcat  kcat values in the input model
+                      newKcat  kcat values in the output model, after tuning
+
+ Usage:
+   [model, tunedKcats] = sensitivityTuning(model, desiredGrowthRate, modelAdapter, foldChange, protToIgnore, verbose)</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function [model, tunedKcats] = sensitivityTuning(model, desiredGrowthRate, modelAdapter, foldChange, protToIgnore, verbose)</a>
+0002 <span class="comment">% sensitivityTuning</span>
+0003 <span class="comment">%    Function that relaxes the most limiting kcats until a certain growth rate</span>
+0004 <span class="comment">%    is reached. The function will update kcats in model.ec.kcat.</span>
+0005 <span class="comment">%</span>
+0006 <span class="comment">% Input:</span>
+0007 <span class="comment">%   model              an ecModel in GECKO 3 format (with ecModel.ec structure)</span>
+0008 <span class="comment">%   desiredGrowthRate  kcats will be relaxed until this growth rate is reached</span>
+0009 <span class="comment">%   modelAdapter       a loaded model adapter (Optional, will otherwise use the</span>
+0010 <span class="comment">%                      default model adapter).</span>
+0011 <span class="comment">%   foldChange         kcat values will be increased by this fold-change.</span>
+0012 <span class="comment">%                      (Opt, default 10)</span>
+0013 <span class="comment">%   protToIgnore       vector of protein ids to be ignore in tuned kcats.</span>
+0014 <span class="comment">%                      e.g. {'P38122', 'Q99271'} (Optional, default = [])</span>
+0015 <span class="comment">%   verbose            logical whether progress should be reported (Optional,</span>
+0016 <span class="comment">%                      default true)</span>
+0017 <span class="comment">%</span>
+0018 <span class="comment">% Output:</span>
+0019 <span class="comment">%   model              ecModel with updated model.ec.kcat</span>
+0020 <span class="comment">%   tunedKcats         structure with information on tuned kcat values</span>
+0021 <span class="comment">%                      rxns     identifiers of reactions with tuned kcat</span>
+0022 <span class="comment">%                               values</span>
+0023 <span class="comment">%                      rxnNames names of the reactions in tunedKcats.rxns</span>
+0024 <span class="comment">%                      enzymes  enzymes that catalyze the reactions in</span>
+0025 <span class="comment">%                               tunedKcats.rxns, whose kcat value has been</span>
+0026 <span class="comment">%                               tuned.</span>
+0027 <span class="comment">%                      oldKcat  kcat values in the input model</span>
+0028 <span class="comment">%                      newKcat  kcat values in the output model, after tuning</span>
+0029 <span class="comment">%</span>
+0030 <span class="comment">% Usage:</span>
+0031 <span class="comment">%   [model, tunedKcats] = sensitivityTuning(model, desiredGrowthRate, modelAdapter, foldChange, protToIgnore, verbose)</span>
+0032 
+0033 <span class="keyword">if</span> nargin &lt; 6 || isempty(verbose)
+0034     verbose = true;
+0035 <span class="keyword">end</span>
+0036 <span class="keyword">if</span> nargin &lt; 5 || isempty(protToIgnore)
+0037     protToIgnore = {};
+0038 <span class="keyword">end</span>
+0039 <span class="keyword">if</span> nargin &lt; 4 || isempty(foldChange)
+0040     foldChange = 10;
+0041 <span class="keyword">end</span>
+0042 <span class="keyword">if</span> nargin &lt; 3 || isempty(modelAdapter)
+0043     modelAdapter = ModelAdapterManager.getDefault();
+0044     <span class="keyword">if</span> isempty(modelAdapter)
+0045         error(<span class="string">'Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.'</span>)
+0046     <span class="keyword">end</span>
+0047 <span class="keyword">end</span>
+0048 params = modelAdapter.params;
+0049 <span class="keyword">if</span> nargin &lt; 2 || isempty(desiredGrowthRate)
+0050     desiredGrowthRate = params.gR_exp;
+0051 <span class="keyword">end</span>
+0052 
+0053 kcatList = [];
+0054 m = model;
+0055 m.c = double(strcmp(m.rxns, params.bioRxn));<span class="comment">% Make sure that growth is maximized</span>
+0056 
+0057 [res,hs] = solveLP(m);
+0058 <span class="keyword">if</span> isempty(res.x)
+0059     error(<span class="string">'FBA of input model gives no valid result. Reduce protein pool constraint with setProtPoolSize and/or check if exchange constraints are correctly defined.'</span>)
+0060 <span class="keyword">end</span>
+0061 lastGrowth = 0;
+0062 <span class="keyword">if</span> ~m.ec.geckoLight
+0063     <span class="comment">%for the full model, we first find the draw reaction with the most flux</span>
+0064     drawRxns = startsWith(m.rxns, <span class="string">'usage_prot_'</span>);
+0065     idxToIgnore = cellfun(@(x) find(strcmpi(model.rxns, [<span class="string">'usage_prot_'</span> x])), protToIgnore);
+0066     iteration = 1;
+0067     <span class="keyword">while</span> true
+0068         [res,hs] = solveLP(m,0,[],hs); <span class="comment">%skip parsimonius, only takes time</span>
+0069         <span class="keyword">if</span> (lastGrowth == -res.f)
+0070             disp(<span class="string">'No growth increase from increased kcats - check if the constraints on the uptake reactions are too tight!'</span>)
+0071             <span class="keyword">break</span>;
+0072         <span class="keyword">end</span>
+0073         lastGrowth = -res.f;
+0074         <span class="keyword">if</span> (lastGrowth &gt;= desiredGrowthRate)
+0075             <span class="keyword">break</span>;
+0076         <span class="keyword">end</span>
+0077         <span class="comment">%If you get an error here, it is likely due to numerical issues in the solver</span>
+0078         <span class="comment">%The trick where we don't allow low kcats is to fix that, but maybe</span>
+0079         <span class="comment">%it is not enough.</span>
+0080         <span class="keyword">if</span> verbose; disp([<span class="string">'Iteration '</span> num2str(iteration) <span class="string">': Growth: '</span> num2str(lastGrowth)]); <span class="keyword">end</span>
+0081         iteration            = iteration + 1;
+0082         <span class="comment">%find the highest draw_prot rxn flux</span>
+0083         drawFluxes           = zeros(length(drawRxns),1);
+0084         drawFluxes(drawRxns) = res.x(drawRxns);
+0085         <span class="comment">% Remove from the list user defined proteins</span>
+0086         drawFluxes(idxToIgnore) = 0;
+0087         [~,sel]              = min(drawFluxes); <span class="comment">% since bounds -1000 to 0</span>
+0088         <span class="comment">%Now get the metabolite</span>
+0089         metSel               = m.S(:,sel) &lt; 0; <span class="comment">% negative coeff</span>
+0090         <span class="comment">%now find the reaction with the largest consumption of this protein</span>
+0091         protFluxes           = m.S(metSel,:).' .* res.x; <span class="comment">%negative</span>
+0092         [~,rxnSel]           = min(protFluxes);
+0093         kcatList             = [kcatList, rxnSel];
+0094         rxn                  = m.rxns(rxnSel);
+0095         targetSubRxn         = strcmp(m.ec.rxns, rxn);
+0096         m.ec.kcat(targetSubRxn) = m.ec.kcat(targetSubRxn) .* foldChange;
+0097         m                    = applyKcatConstraints(m,targetSubRxn);
+0098     <span class="keyword">end</span>
+0099 
+0100 <span class="keyword">else</span>
+0101     origRxns = extractAfter(m.ec.rxns,4);
+0102     <span class="comment">%find the reactions involved in proteins to be ignored</span>
+0103     idxToIgnore = cellfun(@(x) find(m.ec.rxnEnzMat(:, strcmpi(m.ec.enzymes, x))), protToIgnore, <span class="string">'UniformOutput'</span>, false);
+0104     <span class="comment">%create an unique vector</span>
+0105     idxToIgnore = unique(cat(1, idxToIgnore{:}));
+0106     <span class="comment">%get the correct idx in model.rxns</span>
+0107     idxToIgnore = cellfun(@(x) find(strcmpi(m.rxns, x)), origRxns(idxToIgnore));
+0108     iteration = 1;
+0109     <span class="keyword">while</span> true
+0110         res = solveLP(m,0); <span class="comment">%skip parsimonius, only takes time</span>
+0111         <span class="keyword">if</span> (lastGrowth == -res.f)
+0112             disp(<span class="string">'No growth increase from increased kcats - check if the constraints on the uptake reactions are too tight!'</span>)
+0113             <span class="keyword">break</span>;
+0114         <span class="keyword">end</span>
+0115         lastGrowth = -res.f;
+0116         <span class="keyword">if</span> (lastGrowth &gt;= desiredGrowthRate)
+0117             <span class="keyword">break</span>;
+0118         <span class="keyword">end</span>
+0119         <span class="comment">%If you get an error here, it is likely due to numerical issues in the solver</span>
+0120         <span class="comment">%The trick where we don't allow low kcats is to fix that, but maybe</span>
+0121         <span class="comment">%it is not enough.</span>
+0122         <span class="keyword">if</span> verbose; disp([<span class="string">'Iteration '</span> num2str(iteration) <span class="string">': Growth: '</span> num2str(lastGrowth)]); <span class="keyword">end</span>
+0123         iteration       = iteration + 1;
+0124         <span class="comment">%find the highest protein usage flux</span>
+0125         protPoolStoich  = m.S(strcmp(m.mets, <span class="string">'prot_pool'</span>),:).';
+0126         protPoolStoich(idxToIgnore) = 0;
+0127         [~,sel]         = min(res.x .* protPoolStoich); <span class="comment">%max consumption</span>
+0128         kcatList        = [kcatList, sel];
+0129         rxn             = m.rxns(sel.');
+0130         targetSubRxns   = strcmp(origRxns, rxn);
+0131         m.ec.kcat(targetSubRxns) = m.ec.kcat(targetSubRxns) .* foldChange;
+0132         m               = applyKcatConstraints(m,rxn);
+0133     <span class="keyword">end</span>
+0134 <span class="keyword">end</span>
+0135 
+0136 kcatList        = unique(kcatList);
+0137 tunedKcats.rxns = m.rxns(kcatList);
+0138 tunedKcats.rxnNames = m.rxnNames(kcatList);
+0139 <span class="keyword">if</span> ~model.ec.geckoLight
+0140     [~, rxnIdx]     = ismember(tunedKcats.rxns,m.ec.rxns);
+0141 <span class="keyword">else</span>
+0142     [~, rxnIdx]     = ismember(tunedKcats.rxns,origRxns);
+0143 <span class="keyword">end</span>
+0144 tunedKcats.enzymes  = cell(numel(kcatList),1);
+0145 <span class="keyword">for</span> i=1:numel(rxnIdx)
+0146     [~, metIdx]     = find(m.ec.rxnEnzMat(rxnIdx(i),:));
+0147     tunedKcats.enzymes{i}   = strjoin(m.ec.enzymes(metIdx),<span class="string">';'</span>);
+0148 <span class="keyword">end</span>
+0149 tunedKcats.oldKcat  = model.ec.kcat(rxnIdx);
+0150 tunedKcats.newKcat  = m.ec.kcat(rxnIdx);
+0151 
+0152 model = m;
+0153 <span class="keyword">end</span></pre></div>
+<hr><address>Generated by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>
