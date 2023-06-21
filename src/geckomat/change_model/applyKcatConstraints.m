@@ -104,6 +104,8 @@ else %GECKO light formulation, where prot_pool represents all usages
         % summed per reaction), and divide by their kcat, to get a vector
         % of MW/kcat values.
         MWkcat = (model.ec.rxnEnzMat(ecIdx,:) * model.ec.mw) ./ model.ec.kcat(ecIdx);
+        % If kcat was zero, MWkcat is Inf. Correct back to zero
+        MWkcat(abs(MWkcat)==Inf)=0;
         % Select the lowest MW/kcat (= most efficient), and convert to /hour
         model.S(prot_pool_idx, hasEc(i)) = -min(MWkcat/3600);
     end
