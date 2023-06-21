@@ -132,82 +132,82 @@ This function is called by:
 0063     rxnNames = extractAfter(model.ec.rxns,4);
 0064 <span class="keyword">end</span>
 0065 
-0066 <span class="keyword">for</span> i = 1:numel(rxnNames)
-0067     bestComplexIdx = 0;
-0068     bestMatch = 0;
-0069     protIdsComplex = [];
-0070 
-0071     <span class="comment">%if numel(genes) &gt; 1</span>
-0072     idxProts = model.ec.rxnEnzMat(i,:) ~= 0;
-0073 
-0074     <span class="keyword">if</span> any(idxProts)
-0075         protIdsModel = model.ec.enzymes(idxProts);
-0076 
-0077         <span class="keyword">for</span> j = 1:size(complexData, 1)
-0078 
-0079             protIdsComplex = complexData(j).protID;
-0080 
-0081             C = intersect(protIdsModel, protIdsComplex);
-0082 
-0083             <span class="comment">% Determine the match percentage bewteen the proteins in the</span>
-0084             <span class="comment">% model and the proteins in complex data</span>
-0085             <span class="keyword">if</span> numel(C) == numel(protIdsModel) &amp;&amp; numel(C) == numel(protIdsComplex)
-0086                 match = 1;
-0087             <span class="keyword">else</span>
-0088                 <span class="keyword">if</span> numel(protIdsModel) &lt; numel(protIdsComplex)
-0089                     match = numel(C) / numel(protIdsComplex);
-0090                 <span class="keyword">else</span>
-0091                     match = numel(C) / numel(protIdsModel);
-0092                 <span class="keyword">end</span>
-0093             <span class="keyword">end</span>
-0094 
-0095             <span class="comment">% Check if the protID match with the complex data based on match % higher than</span>
-0096             <span class="comment">% 75%. Pick the highest match.</span>
-0097             <span class="keyword">if</span> match &gt;= 0.75 &amp;&amp; match &gt; bestMatch
-0098                 bestComplexIdx = j;
-0099                 bestMatch = match*100;
-0100                 <span class="comment">% In some cases all the model proteins are in the</span>
-0101                 <span class="comment">% complex data, but they are less than those in the</span>
-0102                 <span class="comment">% complex data.</span>
-0103                 <span class="keyword">if</span> match == 1 &amp;&amp; numel(protIdsModel) == numel(protIdsComplex)
-0104                     <span class="keyword">break</span>
-0105                 <span class="keyword">end</span>
-0106             <span class="keyword">end</span>
-0107         <span class="keyword">end</span>
-0108 
-0109         <span class="keyword">if</span> bestMatch &gt;= 75
-0110             <span class="comment">% Only get data with full match in the model and the</span>
-0111             <span class="comment">% complex data. In some cases all the model proteins are in</span>
-0112             <span class="comment">% the complex data, but they are less than those in complex data</span>
-0113             <span class="keyword">if</span> bestMatch == 100 &amp;&amp; numel(complexData(bestComplexIdx).protID) == numel(protIdsComplex)
-0114                 foundComplex(end+1,1) = {model.ec.rxns{i}};
-0115                 foundComplex(<span class="keyword">end</span>,2) = {complexData(bestComplexIdx).complexID};
-0116                 foundComplex(<span class="keyword">end</span>,3) = {complexData(bestComplexIdx).name};
-0117                 foundComplex(<span class="keyword">end</span>,4) = {complexData(bestComplexIdx).geneName};
-0118                 foundComplex(<span class="keyword">end</span>,5) = {protIdsModel};
-0119                 foundComplex(<span class="keyword">end</span>,6) = {complexData(bestComplexIdx).protID};
-0120                 foundComplex(<span class="keyword">end</span>,7) = {complexData(bestComplexIdx).stochiometry};
-0121 
-0122                 <span class="comment">% Some complex match in 100% but there is not stochiometry</span>
-0123                 <span class="comment">% reported. In this case, assign a value of 1.</span>
-0124                 assignS = [complexData(bestComplexIdx).stochiometry];
-0125                 assignS(assignS == 0) = 1;
-0126                 model.ec.rxnEnzMat(i,idxProts) = assignS;
-0127             <span class="keyword">else</span>
-0128                 proposedComplex(end+1,1) = {model.ec.rxns{i}};
-0129                 proposedComplex(<span class="keyword">end</span>,2) = {complexData(bestComplexIdx).complexID};
-0130                 proposedComplex(<span class="keyword">end</span>,3) = {complexData(bestComplexIdx).name};
-0131                 proposedComplex(<span class="keyword">end</span>,4) = {complexData(bestComplexIdx).geneName};
-0132                 proposedComplex(<span class="keyword">end</span>,5) = {protIdsModel};
-0133                 proposedComplex(<span class="keyword">end</span>,6) = {complexData(bestComplexIdx).protID};
-0134                 proposedComplex(<span class="keyword">end</span>,7) = {complexData(bestComplexIdx).stochiometry};
-0135                 proposedComplex(<span class="keyword">end</span>,8) = {bestMatch};
-0136             <span class="keyword">end</span>
-0137 
-0138         <span class="keyword">end</span>
-0139     <span class="keyword">end</span>
-0140 <span class="comment">%    end</span>
-0141     
+0066 progressbar(<span class="string">'Assign complexes to reactions'</span>)
+0067 <span class="keyword">for</span> i = 1:numel(rxnNames)
+0068     bestComplexIdx = 0;
+0069     bestMatch = 0;
+0070     protIdsComplex = [];
+0071 
+0072     <span class="comment">%if numel(genes) &gt; 1</span>
+0073     idxProts = model.ec.rxnEnzMat(i,:) ~= 0;
+0074 
+0075     <span class="keyword">if</span> any(idxProts)
+0076         protIdsModel = model.ec.enzymes(idxProts);
+0077 
+0078         <span class="keyword">for</span> j = 1:size(complexData, 1)
+0079 
+0080             protIdsComplex = complexData(j).protID;
+0081 
+0082             C = intersect(protIdsModel, protIdsComplex);
+0083 
+0084             <span class="comment">% Determine the match percentage bewteen the proteins in the</span>
+0085             <span class="comment">% model and the proteins in complex data</span>
+0086             <span class="keyword">if</span> numel(C) == numel(protIdsModel) &amp;&amp; numel(C) == numel(protIdsComplex)
+0087                 match = 1;
+0088             <span class="keyword">else</span>
+0089                 <span class="keyword">if</span> numel(protIdsModel) &lt; numel(protIdsComplex)
+0090                     match = numel(C) / numel(protIdsComplex);
+0091                 <span class="keyword">else</span>
+0092                     match = numel(C) / numel(protIdsModel);
+0093                 <span class="keyword">end</span>
+0094             <span class="keyword">end</span>
+0095 
+0096             <span class="comment">% Check if the protID match with the complex data based on match % higher than</span>
+0097             <span class="comment">% 75%. Pick the highest match.</span>
+0098             <span class="keyword">if</span> match &gt;= 0.75 &amp;&amp; match &gt; bestMatch
+0099                 bestComplexIdx = j;
+0100                 bestMatch = match*100;
+0101                 <span class="comment">% In some cases all the model proteins are in the</span>
+0102                 <span class="comment">% complex data, but they are less than those in the</span>
+0103                 <span class="comment">% complex data.</span>
+0104                 <span class="keyword">if</span> match == 1 &amp;&amp; numel(protIdsModel) == numel(protIdsComplex)
+0105                     <span class="keyword">break</span>
+0106                 <span class="keyword">end</span>
+0107             <span class="keyword">end</span>
+0108         <span class="keyword">end</span>
+0109 
+0110         <span class="keyword">if</span> bestMatch &gt;= 75
+0111             <span class="comment">% Only get data with full match in the model and the</span>
+0112             <span class="comment">% complex data. In some cases all the model proteins are in</span>
+0113             <span class="comment">% the complex data, but they are less than those in complex data</span>
+0114             <span class="keyword">if</span> bestMatch == 100 &amp;&amp; numel(complexData(bestComplexIdx).protID) == numel(protIdsComplex)
+0115                 foundComplex(end+1,1) = {model.ec.rxns{i}};
+0116                 foundComplex(<span class="keyword">end</span>,2) = {complexData(bestComplexIdx).complexID};
+0117                 foundComplex(<span class="keyword">end</span>,3) = {complexData(bestComplexIdx).name};
+0118                 foundComplex(<span class="keyword">end</span>,4) = {complexData(bestComplexIdx).geneName};
+0119                 foundComplex(<span class="keyword">end</span>,5) = {protIdsModel};
+0120                 foundComplex(<span class="keyword">end</span>,6) = {complexData(bestComplexIdx).protID};
+0121                 foundComplex(<span class="keyword">end</span>,7) = {complexData(bestComplexIdx).stochiometry};
+0122 
+0123                 <span class="comment">% Some complex match in 100% but there is not stochiometry</span>
+0124                 <span class="comment">% reported. In this case, assign a value of 1.</span>
+0125                 assignS = [complexData(bestComplexIdx).stochiometry];
+0126                 assignS(assignS == 0) = 1;
+0127                 model.ec.rxnEnzMat(i,idxProts) = assignS;
+0128             <span class="keyword">else</span>
+0129                 proposedComplex(end+1,1) = {model.ec.rxns{i}};
+0130                 proposedComplex(<span class="keyword">end</span>,2) = {complexData(bestComplexIdx).complexID};
+0131                 proposedComplex(<span class="keyword">end</span>,3) = {complexData(bestComplexIdx).name};
+0132                 proposedComplex(<span class="keyword">end</span>,4) = {complexData(bestComplexIdx).geneName};
+0133                 proposedComplex(<span class="keyword">end</span>,5) = {protIdsModel};
+0134                 proposedComplex(<span class="keyword">end</span>,6) = {complexData(bestComplexIdx).protID};
+0135                 proposedComplex(<span class="keyword">end</span>,7) = {complexData(bestComplexIdx).stochiometry};
+0136                 proposedComplex(<span class="keyword">end</span>,8) = {bestMatch};
+0137             <span class="keyword">end</span>
+0138 
+0139         <span class="keyword">end</span>
+0140     <span class="keyword">end</span>
+0141     progressbar(i/numel(rxnNames))
 0142 <span class="keyword">end</span>
 0143 
 0144 rowHeadings = {<span class="string">'rxn'</span>, <span class="string">'complexID'</span>,<span class="string">'name'</span>,<span class="string">'genes'</span>,<span class="string">'protID_model'</span>,<span class="string">'protID_complex'</span>,<span class="string">'stochiometry'</span>};

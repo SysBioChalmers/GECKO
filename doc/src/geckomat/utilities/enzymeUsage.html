@@ -113,11 +113,11 @@ This function is called by:
 0040 [~,rxnIdx] = ismember(strcat(<span class="string">'usage_prot_'</span>,ecModel.ec.enzymes),ecModel.rxns);
 0041 
 0042 usageData.LB          = ecModel.lb(rxnIdx);
-0043 usageData.absUsage    = fluxes(rxnIdx);
-0044 usageData.capUsage    = usageData.absUsage./usageData.LB;
+0043 usageData.absUsage    = abs(fluxes(rxnIdx));
+0044 usageData.capUsage    = abs(usageData.absUsage./usageData.LB);
 0045 
 0046 <span class="keyword">if</span> ~zero
-0047     nonzero     = usageData.absUsage&lt;0;
+0047     nonzero               = usageData.absUsage&lt;0;
 0048     usageData.absUsage    = usageData.absUsage(nonzero);
 0049     usageData.capUsage    = usageData.capUsage(nonzero);
 0050     usageData.LB          = usageData.LB(nonzero);

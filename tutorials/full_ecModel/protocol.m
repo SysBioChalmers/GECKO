@@ -483,6 +483,8 @@ disp(['Growth rate reached: ' num2str(abs(sol.f))])
 model = loadConventionalGEM();
 fluxData = loadFluxData;
 
+%% === FROM HERE NOT FULLY TESTED/UPDATED YET ===
+
 % STEP 24 Selecting objective functions
 ecModel = setParam(ecModel,'obj',params.bioRxn,1);
 sol = solveLP(ecModel)
