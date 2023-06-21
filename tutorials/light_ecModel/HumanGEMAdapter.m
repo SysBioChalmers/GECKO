@@ -2,9 +2,21 @@ classdef HumanGEMAdapter < ModelAdapter
     methods
         function obj = HumanGEMAdapter()
             geckoPath = findGECKOroot;
-            obj.params.path = fullfile(geckoPath,'tutorials','tutorial_HumanGEM');
+            obj.params.path = fullfile(geckoPath,'tutorials','light_ecModel');
 
-			obj.params.convGEM = fullfile(HumanGEMAdapter.getHumanGEMRootPath(),'model','Human-GEM.xml');
+			% The model distributed with the light_ecModel tutorial is Human-GEM
+            % is version 1.3.0, matching the version from this publication:
+            % https://www.science.org/doi/full/10.1126/scisignal.aaz1482
+            % https://github.com/SysBioChalmers/Human-GEM/releases/tag/v1.3.0
+            % In addition, the following lines were run to reduce its size
+            % before storing it in this GECKO tutorial:
+            % ihuman = simplifyModel(ihuman,false,false,true,true);
+            % [ihuman.grRules,skipped] = simplifyGrRules(ihuman.grRules,true);
+            % ihuman = deleteUnusedGenes(ihuman);
+            % ihuman = rmfield(ihuman,{'unconstrained','rxnReferences','rxnFrom','metFrom','rxnConfidenceScores'});
+            % ihuman.name = ihuman.id;
+            % writeYAMLmodel(ihuman,'humanGEM.yml')
+            obj.params.convGEM = fullfile(obj.params.path,'models','human-GEM.yml');
 
 			obj.params.sigma = 0.1; %This was changed to a low number to give a reasonable growth rate - this should be investigated more
 
@@ -43,33 +55,18 @@ classdef HumanGEMAdapter < ModelAdapter
         end
 		
 		function [spont,spontRxnNames] = getSpontaneousReactions(obj,model)
-			rxns_tsv = importTsvFile(strcat(HumanGEMAdapter.getHumanGEMRootPath(),'model/reactions.tsv'));
-			spont = rxns_tsv.spontaneous;
-			spontRxnNames = rxns_tsv.rxns;
-        end
-		
-        % Ensembl gene ids are not available in uniprot (ensembl returns transcripts, not genes)
-        % Therefore, we collect gene symbols from uniprot, and need to convert the ensembl genes
-        % here to gene symbols as well
-        function genes = getUniprotCompatibleGenes(obj,inGenes)
-            % Get the path
-            tmpfile = fullfile(HumanGEMAdapter.getHumanGEMRootPath(),'model','genes.tsv');
-
-            % Import as structure, convert to table, and extract header
-            tmp = struct2table(importTsvFile(tmpfile));
-            conv_key = table2array(tmp);
-            clear tmp
-
-            % Convert genes
-            genes = inGenes;
-            [~,ia,ib] = intersect(genes, conv_key(:,1));
-            genes(ia) = conv_key(ib,5);
-            
-            % A special canse - GGT2 is not found in uniprot - however GGT2P is
-            % This is supposed to be a pseudogene, but I suspect the sequence is very similar, so let's use that
-            genes{strcmp(genes, 'GGT2')} = 'GGT2P';
-            % Also replace empty strings with something else to avoid matches on empty strings in uniprot
-            genes(strcmp(genes, '')) = {'<<<EMPTY>>>'};
+            fID=fopen(fullfile(obj.params.path,'data','spontaneousReactions.tsv'),'r');
+            rxns_tsv = textscan(fID,'%q %q','Delimiter','\t','HeaderLines',1);
+            fclose(fID);
+            % The above file is derived from the reactions.tsv that is available
+            % in the Human-GEM repository, matching version 1.15.0 of the model.
+            % https://github.com/SysBioChalmers/Human-GEM/blob/194ebe5431c83e25f78df61caacad2fa485b5cb4/model/reactions.tsv
+            % Only the columns with reaction identifiers and assignment of
+            % spontaneous reactions were kept in spontaneousReactions.tsv.
+            spont = logical(str2double(cell2mat(rxns_tsv{2})));
+			spontRxnNames = rxns_tsv{1};
+            [spont,~] = ismember(model.rxns,spontRxnNames(spont));
+            spontRxnNames = model.rxns(spont);
         end
     end
     
