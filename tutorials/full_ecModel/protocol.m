@@ -1,10 +1,11 @@
 % This file accompanies the GECKO3 Nature Protocols paper (DOI TO BE ADDED).
 %
 % The function of this script is to demonstrate the reconstruction and
-% analysis of an ecModel. As example, it here uses the yeast-GEM model of
-% Saccharomyces cerevisiae as starting point. However, this script does not
-% claim to construct THE definitive ecYeastGEM model: dependent on how you
-% intend to use the ecModel it may require additional curation and evaluation.
+% analysis of a "full" ecModel. As example, it here uses the yeast-GEM
+% model of Saccharomyces cerevisiae as starting point. However, this script
+% does not claim to construct THE definitive ecYeastGEM model: dependent on
+% how you intend to use the ecModel it may require additional curation and
+% evaluation.
 %
 % In comparison to the published GECKO3 Nature Protocols paper, this script
 % might have more up-to-date descriptions about the capabilities and
@@ -29,7 +30,7 @@ checkInstallation % Confirm that RAVEN is functional, should be 2.7.12 or later.
 % - Initiate a basic structure of files and folders for your intended
 %   project. This includes a copy of the template adapter.
 %   The next line is commented out as the project structure is already
-%   available in GECKO/tutorials/tutorial_yeast-GEM.
+%   available in GECKO/tutorials/full_ecModel.
 %startGECKOproject()
 
 % - Find a high-quality GEM of your species of interest. ecYeastGEM is
@@ -42,7 +43,7 @@ checkInstallation % Confirm that RAVEN is functional, should be 2.7.12 or later.
 %% STAGE 1: expansion from a starting metabolic model to an ecModel structure
 % STEP 1 Set modelAdapter
 adapterLocation = fullfile(findGECKOroot,'tutorials','full_ecModel','YeastGEMAdapter.m');
-ModelAdapterManager.setDefault(adapterLocation); 
+ModelAdapterManager.setDefault(adapterLocation);
 
 % With the above line, we set the YeastGEMAdapter as the default adapter
 % from here onwards, which means that any GECKO function that requires a
@@ -65,11 +66,11 @@ params = ModelAdapter.getParameters();
 % you can also use RAVEN's importModel(). In that case you will never use
 % loadConventionalGEM and the obj.param.convGEM never has to be specified.
 model = loadConventionalGEM();
-% model = importModel(fullfile(geckoRoot,'tutorials','tutorial_yeast','models','yeast-GEM.xml'));
+% model = importModel(fullfile(geckoRoot,'tutorials','full_ecModel','models','yeast-GEM.xml'));
 
 % STEP 3 Prepare ecModel
 % We will make a full GECKO ecModel. For an example of reconstructing a 
-% light GECKO ecModel, see tutorial_human-GEM.
+% light GECKO ecModel, see tutorials/light_ecModel
 [ecModel, noUniprot] = makeEcModel(model,false);
 % Note that noUniprot is empty: for all genes a match could be find in the
 % Uniprot dataset
@@ -83,7 +84,7 @@ doc makeEcModel
 % (https://www.ebi.ac.uk/complexportal/), its data is included in
 % ecYeastGEM.
 % The next line is commented out, as the data is already available in the
-% tutorial_yeast-GEM/data folder.
+% full_ecModel/data folder.
 %complexInfo = getComplexData();
 [ecModel, foundComplex, proposedComplex] = applyComplexData(ecModel);
 
@@ -244,10 +245,11 @@ ecModel = setProtPoolSize(ecModel);
 % Inspect the tunedKcats structure in table format
 struct2table(tunedKcats)
 
+% STEP 17 Curate kcat values based on kcat tuning
 % As example, the kcat of 5'-phosphoribosylformyl glycinamidine synthetase
 % (reaction r_0079) was increased from 0.05 to 5. Inspecting the kcat
 % source might help to determine if this is reasonable. 
-rxnIdx = find(strcmp(kcatList_merged.rxns,'r_1055'));
+rxnIdx = find(strcmp(kcatList_merged.rxns,'r_0079'));
 doc fuzzyKcatMatching % To check the meaning of wildcardLvl and origin
 kcatList_merged.wildcardLvl(rxnIdx) % 0: no EC number wildcard
 kcatList_merged.origin(rxnIdx) % 4: any organism, any substrate, kcat
@@ -296,29 +298,29 @@ convKcat = convKcat * 76626 % mol/sec/mol protein, same as 1/sec.
 % New kcat is 2.16, which is not too far from what sensitivity tuning
 % suggested at 2.23.
 
-saveEcModel(ecModel,ModelAdapter,'yml','ecYeastGEM_stage3');
+saveEcModel(ecModel,[],'yml','ecYeastGEM_stage3');
 
 % This functional ecModel will also be kept in the GECKO GitHub
-saveEcModel(ecModel,ModelAdapter,'yml','ecYeastGEM');
+saveEcModel(ecModel,[],'yml','ecYeastGEM');
 
 %% STAGE 4 integration of proteomics data into the ecModel
 %ecModel=loadEcModel('ecYeastGEM_stage3.yml'); % Uncomment if you want to reload model
 
-% STEP 17 Load proteomics data and constrain ecModel 
+% STEP 18 Load proteomics data and constrain ecModel 
 protData = loadProtData(3); %Number of replicates
 ecModel = fillProtConcs(ecModel,protData);
 ecModel = constrainProtConcs(ecModel);
 
-% STEP 18 Update protein pool
+% STEP 19 Update protein pool
 % The protein pool reaction will be constraint by the remaining, unmeasured
 % enzyme content. This is calculated by subtracting the sum of 
 % ecModel.ec.concs from the condition-specific total protein content. The
 % latter is stored together with the flux data that otherwise will be used
-% in Step 19.
+% in Step 20.
 fluxData = loadFluxData();
 ecModel = updateProtPool(ecModel,fluxData.Ptot(1));
 
-% STEP 19 Load flux data
+% STEP 20 Load flux data
 % Matching the proteomics sample(s), condition-specific flux data needs to
 % be loaded to constrain the model. This was already loaded in Step 18 for
 % gathering Ptot, but is repeated here nonetheless. Flux data is read from
@@ -330,7 +332,7 @@ disp(['Growth rate that is reached: ' num2str(abs(sol.f))])
 % Growth rate of 0.1 is by far not reached, flexibilize protein
 % concentrations
 
-% STEP 20 Protein concentrations are flexibilized (increased), until the
+% STEP 21 Protein concentrations are flexibilized (increased), until the
 % intended growth rate is reached. This is condition-specific, so the
 % intended growth rate is gathered from the fluxData structure.
 [ecModel, flexProt] = flexibilizeProtConcs(ecModel,fluxData.grRate(1),10);
@@ -346,13 +348,18 @@ sol = solveLP(model)
 % reach about 0.0889, which will be fine for now.
 sol = solveLP(ecModel)
 
+% Inspect the flexibilized proteins
+struct2table(flexProt)
+% Inspect which proteins have theri amount changed the most
+protChange = flexProt.flexConcs./flexProt.oldConcs;
+[ratio, index] = max(protChange)
+flexProt.uniprotIDs(index)
+
 % Growth is reached! Let's make sure we store this functional model
 saveEcModel(ecModel,ModelAdapter,'yml','ecYeastGEM_stage4');
 
 %% STAGE 5: simulation and analysis
-%ecModel=loadEcModel('ecYeastGEM_stage4.yml'); % Uncomment if you want to reload model
-
-% STEP 21 Example of various useful RAVEN functions
+% STEP 22 Example of various useful RAVEN functions
 % % Set the upper bound of reaction r_0001 to 10.
 % ecModel = setParam(ecModel,'ub','r_0001',10);
 % % Set the lower bound of reaction r_0001 to 0.
@@ -372,7 +379,8 @@ saveEcModel(ecModel,ModelAdapter,'yml','ecYeastGEM_stage4');
 % % Export to Excel file (will not contain potential model.ec content)
 % exportToExcelFormat(ecModel,'filename.xlsx');
 
-% NEW STEP Simulate Crabtree effect with protein pool
+% STEP 23 Simulate Crabtree effect with protein pool
+
 % (Re)load the ecModel without proteomics integration
 ecModel = loadEcModel('ecYeastGEM.yml');
 % We will soon run a custom plotCrabtree function that is kept in the code
@@ -386,8 +394,19 @@ cd(fullfile(ModelAdapter.params.path,'code'))
 % corresponding growth rates that were simulated, as visualized on the
 % x-axis in the graph.
 % The plot will also be saved in the output subfolder.
-saveas(gcf,fullfile(ModelAdapter.params.path,'output','crabtree1.jpg'))
-cd(currentFolder)
+saveas(gcf,fullfile(ModelAdapter.params.path,'output','crabtree.svg'))
+
+% Set protein pool to infinite, to mimic a conventional GEM
+ecModel_infProt=setProtPoolSize(ecModel,Inf);
+[fluxes, gRate] = plotCrabtree(ecModel_infProt);
+saveas(gcf,fullfile(ModelAdapter.params.path,'output','crabtree_infProt.svg'))
+
+% Perform the Crabtree simulation on the pre-Step 16 ecModel (where kcat
+% sensitivity tuning has not yet been applied).
+ecModel_preTuning = loadEcModel('ecYeastGEM_stage2.yml');
+ecModel_preTuning = setParam(ecModel_preTuning,'lb','r_1714',-1000);
+[fluxes, gRate] = plotCrabtree(ecModel_preTuning);
+saveas(gcf,fullfile(ModelAdapter.params.path,'output','crabtree_preStep16.svg'))
 
 % The two graphs show (left:) exchange fluxes from simulations (lines) and
 % experiments (circles, from doi:10.1128/AEM.64.11.4226-4233.1998); and
@@ -407,9 +426,9 @@ cd(currentFolder)
 % growth rate 0.25.
 
 % At which position in the fluxes vector is growth rate 0.25?
-find(round(gRate,3) == 0.225)
+find(round(gRate,3) == 0.4)
 % Gather enzyme usage data at growth rate 0.25
-usageData = enzymeUsage(ecModel, fluxes(:,11));
+usageData = enzymeUsage(ecModel, fluxes(:,17));
 % Prepare usage report
 usageReport = reportEnzymeUsage(ecModel,usageData);
 % Inspect the topAbsUsage table, with the top-10 absolute usages. The
@@ -423,37 +442,40 @@ usageReport.topAbsUsage
 % too-low value: resulting in too-high enzyme demand. Instead of the
 % standard kcat, we can look into literature to find more realistic
 % estimates. In https://pubs.acs.org/doi/full/10.1021/bi960668j, Figure 3A,
-% a Vmax of 4.7 mmol/min/mg protein is reported for the translocation of
-% ADP/ATP by the wild-type S. cerevisiae transporter.: Conversion from
-% specific activity to kcat gives: 
-% https://pubs.acs.org/doi/full/10.1021/bi960668j.
-% Conversion gives 2569 sec-1.
-
-AAt = 8.3*2;          % mmol/min/g protein
+% a maximum transport activity of 8.3 mmol/min/g protein is reported, while
+% elsewhere in the article is noted that the purity of the enzyme
+% preparation was around 50%. Conversion from specific activity to kcat
+% gives: 9.2166 /sec.
+AAt = 8.3*2;        % mmol/min/g protein
 AAt = AAt / 1000;   % mol/min/g protein
 AAt = AAt / 60;     % mol/sec/g protein
-AAt = AAt * 33313;  % 1/sec (as MW of the transporter is 34121 Da [g/mol])
+AAt = AAt * 33313;  % 1/sec (as MW of the transporter is 33313 Da [g/mol])
 
-ecModel2 = setKcatForReactions(ecModel,'r_1110',AAt);
-ecModel2=setKcatForReactions(ecModel2,'r_1110_REV',AAt);
-ecModel2=applyKcatConstraints(ecModel2);
+% Set this kcat value for the reaction in both directions
+ecModel = setKcatForReactions(ecModel,'r_1110',AAt);
+ecModel = setKcatForReactions(ecModel,'r_1110_REV',AAt);
+ecModel = applyKcatConstraints(ecModel);
 
-[fluxes]=plotCrabtree(ecModel2);
-usageData = enzymeUsage(ecModel2, fluxes(:,11));
-usageReport = reportEnzymeUsage(ecModel2,usageData);
-usageReport.topAbsUsage
-% Remaining: phospahte transporter and water diffusion.
-ecModel2=setKcatForReactions(ecModel2,'r_0015',11920);
-ecModel2=applyKcatConstraints(ecModel2);
+% Inspect the new Crabtree plot: not much difference
+plotCrabtree(ecModel);
+saveas(gcf,fullfile(ModelAdapter.params.path,'output','crabtree2.tiff'))
 
+% Instead, fit the sigma factor
+[ecModel,sigma,RMSE] = sigmaFitterCrabtree(ecModel);
+fprintf('New sigma factor: %.2f\n', sigma)
+plotCrabtree(ecModel);
+saveas(gcf,fullfile(ModelAdapter.params.path,'output','crabtree3.tiff'))
 
+% Inspect maximum growth rate
+ecModel = setParam(ecModel,'obj','r_2111',1);
+sol=solveLP(ecModel);
+disp(['Growth rate reached: ' num2str(abs(sol.f))])
 
 % If starting from here, load some basic assets
 model = loadConventionalGEM();
 fluxData = loadFluxData;
 
-
-% STEP 22 Selecting objective functions
+% STEP 23 Selecting objective functions
 ecModel = setParam(ecModel,'obj',params.bioRxn,1);
 sol = solveLP(ecModel)
 disp(['Growth rate reached: ' num2str(abs(sol.f))])
