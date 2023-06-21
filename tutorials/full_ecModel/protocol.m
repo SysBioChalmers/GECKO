@@ -1,11 +1,13 @@
 % This file accompanies the GECKO3 Nature Protocols paper (DOI TO BE ADDED).
 %
 % The function of this script is to demonstrate the reconstruction and
-% analysis of a "full" ecModel. As example, it here uses the yeast-GEM
+% analysis of a *full* ecModel. As example, it here uses the yeast-GEM
 % model of Saccharomyces cerevisiae as starting point. However, this script
-% does not claim to construct THE definitive ecYeastGEM model: dependent on
-% how you intend to use the ecModel it may require additional curation and
-% evaluation.
+% does not claim to construct a "production-ready" ecYeastGEM model:
+% dependent on how you intend to use the ecModel it may require additional
+% curation and evaluation.
+%
+% DO NOT USE THE ECMODEL GENERATED HERE OUTSIDE OF THIS TUTORIAL.
 %
 % In comparison to the published GECKO3 Nature Protocols paper, this script
 % might have more up-to-date descriptions about the capabilities and
@@ -43,7 +45,7 @@ checkInstallation % Confirm that RAVEN is functional, should be 2.7.12 or later.
 %% STAGE 1: expansion from a starting metabolic model to an ecModel structure
 % STEP 1 Set modelAdapter
 adapterLocation = fullfile(findGECKOroot,'tutorials','full_ecModel','YeastGEMAdapter.m');
-ModelAdapterManager.setDefault(adapterLocation);
+ModelAdapter = ModelAdapterManager.setDefault(adapterLocation);
 
 % With the above line, we set the YeastGEMAdapter as the default adapter
 % from here onwards, which means that any GECKO function that requires a
@@ -197,7 +199,8 @@ sigma = params.sigma;
 
 % But these values can also be defined separately. The f-factor can be 
 % calculated from quantitative proteomics data, for instance with data that
-% is available via PAXdb (https://pax-db.org/). calculateFfactor can be used to estimate the f-factor.
+% is available via PAXdb (https://pax-db.org/).
+% calculateFfactor can be used to estimate the f-factor.
 %f = calculateFfactor(ecModel); % Optional
 ecModel = setProtPoolSize(ecModel,Ptot,f,sigma);
 
@@ -394,19 +397,7 @@ cd(fullfile(ModelAdapter.params.path,'code'))
 % corresponding growth rates that were simulated, as visualized on the
 % x-axis in the graph.
 % The plot will also be saved in the output subfolder.
-saveas(gcf,fullfile(ModelAdapter.params.path,'output','crabtree.svg'))
-
-% Set protein pool to infinite, to mimic a conventional GEM
-ecModel_infProt=setProtPoolSize(ecModel,Inf);
-[fluxes, gRate] = plotCrabtree(ecModel_infProt);
-saveas(gcf,fullfile(ModelAdapter.params.path,'output','crabtree_infProt.svg'))
-
-% Perform the Crabtree simulation on the pre-Step 16 ecModel (where kcat
-% sensitivity tuning has not yet been applied).
-ecModel_preTuning = loadEcModel('ecYeastGEM_stage2.yml');
-ecModel_preTuning = setParam(ecModel_preTuning,'lb','r_1714',-1000);
-[fluxes, gRate] = plotCrabtree(ecModel_preTuning);
-saveas(gcf,fullfile(ModelAdapter.params.path,'output','crabtree_preStep16.svg'))
+saveas(gcf,fullfile(ModelAdapter.params.path,'output','crabtree.tiff'))
 
 % The two graphs show (left:) exchange fluxes from simulations (lines) and
 % experiments (circles, from doi:10.1128/AEM.64.11.4226-4233.1998); and
@@ -417,18 +408,37 @@ saveas(gcf,fullfile(ModelAdapter.params.path,'output','crabtree_preStep16.svg'))
 % switches from respiration to fermentation, and this occurs when the
 % protein pool becomes fully used and thereby limiting. The shift away from
 % respiration is most clearly shown by reduced oxygen uptake and increased
-% ethanol excretion. While the model simulations show the same overall
-% trend as the experimental data, the protein pool seems to become limiting
-% too early. The slope of the predicted glucose uptake rate starts to go up
-% after a growth rate of 0.2, while in the experimental data it seems like
-% this should happen around 0.28 instead. To see why the protein pool is
-% becoming limiting too early, we can look at the most limiting enzyme at
-% growth rate 0.25.
+% ethanol excretion.
+
+% For comparison, make a similar Crabtree plot for a conventional GEM
+% Set protein pool to infinite, to mimic a conventional GEM
+ecModel_infProt=setProtPoolSize(ecModel,Inf);
+plotCrabtree(ecModel_infProt);
+saveas(gcf,fullfile(ModelAdapter.params.path,'output','crabtree_infProt.tiff'))
+% It is obvious that no total protein constraint is reached, and Crabtree
+% effect is not observed.
+
+% Perform the Crabtree simulation on the pre-Step 16 ecModel (where kcat
+% sensitivity tuning has not yet been applied).
+ecModel_preTuning = loadEcModel('ecYeastGEM_stage2.yml');
+ecModel_preTuning = setParam(ecModel_preTuning,'lb','r_1714',-1000);
+plotCrabtree(ecModel_preTuning);
+saveas(gcf,fullfile(ModelAdapter.params.path,'output','crabtree_preStep16.tiff'))
+% Without kcat tuning, the model gets constrained too early (at too low
+% growth rates), which means that no solutions exist at high growth rates.
+
+% Going back to the Crabtree-effect in the post-sensitivity tuning model.
+% While the plot shows the same overall trend as the experimental data,
+% the protein pool seems to become limiting too early. The slope of the
+% predicted glucose uptake rate starts to go up after a growth rate of 0.2,
+% while in the experimental data it seems like this should happen around
+% 0.28 instead. To see why the protein pool is becoming limiting too early,
+% we can look at the most limiting enzyme at growth rate 0.25.
 
 % At which position in the fluxes vector is growth rate 0.25?
-find(round(gRate,3) == 0.4)
+find(round(gRate,3) == 0.25)
 % Gather enzyme usage data at growth rate 0.25
-usageData = enzymeUsage(ecModel, fluxes(:,17));
+usageData = enzymeUsage(ecModel, fluxes(:,11));
 % Prepare usage report
 usageReport = reportEnzymeUsage(ecModel,usageData);
 % Inspect the topAbsUsage table, with the top-10 absolute usages. The
@@ -458,13 +468,11 @@ ecModel = applyKcatConstraints(ecModel);
 
 % Inspect the new Crabtree plot: not much difference
 plotCrabtree(ecModel);
-saveas(gcf,fullfile(ModelAdapter.params.path,'output','crabtree2.tiff'))
 
 % Instead, fit the sigma factor
 [ecModel,sigma,RMSE] = sigmaFitterCrabtree(ecModel);
 fprintf('New sigma factor: %.2f\n', sigma)
 plotCrabtree(ecModel);
-saveas(gcf,fullfile(ModelAdapter.params.path,'output','crabtree3.tiff'))
 
 % Inspect maximum growth rate
 ecModel = setParam(ecModel,'obj','r_2111',1);
@@ -475,7 +483,7 @@ disp(['Growth rate reached: ' num2str(abs(sol.f))])
 model = loadConventionalGEM();
 fluxData = loadFluxData;
 
-% STEP 23 Selecting objective functions
+% STEP 24 Selecting objective functions
 ecModel = setParam(ecModel,'obj',params.bioRxn,1);
 sol = solveLP(ecModel)
 disp(['Growth rate reached: ' num2str(abs(sol.f))])
@@ -489,7 +497,7 @@ ecModel = setParam(ecModel,'obj','prot_pool_exchange',1);
 sol = solveLP(ecModel)
 disp(['Minimum protein pool usage: ' num2str(abs(sol.f)) ' mg/gDCW'])
 
-% STEP 23 Compare fluxes from ecModel and starting model
+% STEP 25 Compare fluxes from ecModel and starting model
 % Constrain with the same conditions to model and ecModel. We now fix the
 % observed growth as lower bound ('min' in constrainFluxData) and allow 5%
 % variability around the other measured fluxes.
@@ -520,7 +528,7 @@ ratioFlux = mappedFlux ./ sol.x;
 ratioFlux(isnan(ratioFlux)) = 0; % Divisions by zero give NaN, reset to zero.
 printFluxes(model,ratioFlux,false)
 
-% STEP 24 Inspect enzyme usage
+% STEP 26 Inspect enzyme usage
 % Show the result from the earlier simulation, without mapping to
 % non-ecModel.
 usageData = enzymeUsage(ecModel,solEC.x);

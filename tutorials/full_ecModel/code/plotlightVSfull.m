@@ -30,7 +30,7 @@ ecFull   = setProtPoolSize(ecFull);
 
 %
 disp('Make light ecModel')
-ecLight  = makeEcModel(model,false);
+ecLight  = makeEcModel(model,true);
 ecLight  = getECfromGEM(ecLight);
 kcatList = fuzzyKcatMatching(ecLight);
 ecLight  = selectKcatValue(ecLight,kcatList);
@@ -48,8 +48,8 @@ fprintf('full ecModel:  %f \nlight ecModel: %f\n', abs(solFull.f) , abs(solLight
 
 %
 disp('Map reaction rates back to conventional GEM')
-solFx=mapRxnsToConv(ecFull,model,solFull.x);
-solLx=mapRxnsToConv(ecLight,model,solLight.x);
+solFx = mapRxnsToConv(ecFull,model,solFull.x);
+solLx = mapRxnsToConv(ecLight,model,solLight.x);
 
 %
 disp('Prepare and save plot')
