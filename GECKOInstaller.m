@@ -1,27 +1,29 @@
 classdef GECKOInstaller
-% GECKOInstaller
-%   Support for installing and uninstalling
-%   Run GECKOInstaller.install to install (will set up the path in MATLAB)
-%   Run GECKOInstaller.uninstall to clear the path from MATLAB
-%   To install, you first need to cd to the GECKO root.
+    % GECKOInstaller
+    %   Support for installing and uninstalling
+    %   Run GECKOInstaller.install to install (will set up the path in MATLAB)
+    %   Run GECKOInstaller.uninstall to clear the path from MATLAB
+    %   To install, you first need to cd to the GECKO root.
 
     methods (Static)
         function install
             sourceDir = fileparts(which(mfilename));
             paths = GECKOInstaller.GetFilteredSubPaths(sourceDir, GECKOInstaller.FILE_FILTER);
-            
+
+            GECKOInstaller.checkRAVENversion('2.8.2'); % Minimum RAVEN version
+
             % Check unique function names
             if ~exist("checkFunctionUniqueness.m")
                 error(['Cannot find RAVEN Toolbox in the MATLAB path. Make ' ...
-                       'sure you have installed RAVEN in accordance to the ' ...
-                       'following instructions, including running ''checkInstallation()'': ' ...
-                       'https://github.com/SysBioChalmers/RAVEN/wiki/Installation'])
+                    'sure you have installed RAVEN in accordance to the ' ...
+                    'following instructions, including running ''checkInstallation()'': ' ...
+                    'https://github.com/SysBioChalmers/RAVEN/wiki/Installation'])
             else
                 status=checkFunctionUniqueness(paths);
                 if ~status
                     error(['You might have multiple GECKO installations in your ' ...
-                           'MATLAB path. Rerun GECKOInstaller.install after ' ...
-                           'resolving the conflicting functions.'])
+                        'MATLAB path. Rerun GECKOInstaller.install after ' ...
+                        'resolving the conflicting functions.'])
                 end
             end
             addpath(paths);
@@ -34,20 +36,20 @@ classdef GECKOInstaller
             savepath;
         end
         function path = getGECKOMainPath()
-			path = fileparts(which(mfilename));
-			path = strrep(path, '\', '/'); %get rid of backslashes in Windows
-			if ~endsWith(path, '/')
-				path = strcat(path,'/');
-			end
-		end
+            path = fileparts(which(mfilename));
+            path = strrep(path, '\', '/'); %get rid of backslashes in Windows
+            if ~endsWith(path, '/')
+                path = strcat(path,'/');
+            end
+        end
 
         function newPaths = GetFilteredSubPaths(path_, filter_)
             pathSep = pathsep();
-			%Check that there are no separators in the path - that will cause 
+            %Check that there are no separators in the path - that will cause
             %problems since the separator is used to separate paths in a string
-			if contains(path_, pathSep)
-				error('The path in which GECKO resides may not contain semicolons for this installation to work!');
-			end
+            if contains(path_, pathSep)
+                error('The path in which GECKO resides may not contain semicolons for this installation to work!');
+            end
             paths = genpath(path_);
             splitPaths = strsplit(paths, pathSep);
             %remove the last, it is empty
@@ -57,9 +59,31 @@ classdef GECKOInstaller
             pathsLeft = splitPaths(1,okPaths);
             newPaths = char(join(pathsLeft, pathSep));
         end
+        function checkRAVENversion(minmVer)
+            try
+                currVer = checkInstallation('versionOnly');
+                if strcmp(currVer,'develop')
+                    disp('Cannot determine your RAVEN version as it is in a development branch.')
+                else
+                    currVerNum = str2double(strsplit(currVer,'.'));
+                    minmVerNum = str2double(strsplit(minmVer,'.'));
+                    for i=1:3
+                        if currVerNum(i)<minmVerNum(i)
+                            error('Installed RAVEN version is %s, while the minimum is %s.',currVer,minmVer)
+                        end
+                    end
+                end
+            catch
+                warning(['Cannot find RAVEN Toolbox in the MATLAB path, or the version ' ...
+                    'is too old (before v2.8.2). Make sure you have installed RAVEN in ' ...
+                    'accordance to the following instructions, including running ' ...
+                    '''checkInstallation()'': https://github.com/SysBioChalmers/RAVEN/wiki/Installation'])
+            end
+
+        end
     end
-    
+
     properties (Constant)
-      FILE_FILTER = '.*\.git|.idea|tutorials.*|.github|_MACOSX';
-   end
+        FILE_FILTER = '.*\.git|.idea|tutorials.*|.github|_MACOSX';
+    end
 end
