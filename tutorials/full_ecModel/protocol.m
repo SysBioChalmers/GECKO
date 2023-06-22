@@ -213,33 +213,35 @@ saveEcModel(ecModel,ModelAdapter,'yml','ecYeastGEM_stage2');
 %% STAGE 3: model tuning
 %ecModel=loadEcModel('ecYeastGEM_stage2.yml'); % Uncomment if you want to reload model
 
+% STEP 15 Test maximum growth rate
 % Test whether the model is able to reach maximum growth if glucose uptake
 % is unlimited. First set glucose uptake unconstraint
 ecModel = setParam(ecModel,'lb','r_1714',-1000);
-
 % And set growth maximization as the objective function:
-ecModel = setParam(ecModel,'obj','r_2111',1);
-
+ecModel = setParam(ecModel,'obj','r_4041',1);
 % Run FBA
-sol = solveLP(ecModel,1)
+sol = solveLP(ecModel,1);
+bioRxnIdx = getIndexes(ecModel,ModelAdapter.params.bioRxn,'rxns');
+fprintf('Growth rate: %f /hour\n', sol.x(bioRxnIdx))
+% The growth rate is far below 0.41 (the maximum growth rate of
+% S. cerevisiae, that is entered in the model adapter as obj.params.gR_exp.
 
-% It reaches growth rate 0.0877, while it should be able to reach 0.41 (the
-% maximum growth rate of S. cerevisiae, that is entered in the model
-% adapter as obj.params.gR_exp. We can also look at the exchange fluxes,
-% but it does not inform use too much at this point. Interesting to see
-% that there is quite some ethanol fermentation going on.
-printFluxes(ecModel, sol.x)
-
-% STEP 15 Relax protein pool constraint
+% STEP 16 Relax protein pool constraint
 % As a simplistic way to ensure the model to reach the growth rate, the
 % upper bound of the protein pool exchange reaction can be increased to
-% whatever is required. This works, but STEP 16 is preferred.
+% whatever is required. This works, but STEP 17 is preferred.
+ecModel = setParam(ecModel, 'lb', 'r_4041', 0.41);
 protPoolIdx = strcmp(ecModel.rxns, 'prot_pool_exchange');
-ecModel.lb(protPoolIdx) = -1000;
+ecModel = setParam(ecModel, 'lb', protPoolIdx, -1000);
+ecModel = setParam(ecModel, 'obj', protPoolIdx, 1);
+sol = solveLP(ecModel);
 
-% Important to perform parsimonious FBA by setting minFlux to 1:
-sol = solveLP(ecModel,1)
-ecModel.lb(protPoolIdx) = sol.x(protPoolIdx);
+fprintf('Protein pool usage is: %.0f mg/gDCWh.\n', abs(sol.x(protPoolIdx)))
+ecModel = setParam(ecModel,'lb',protPoolIdx,sol.x(protPoolIdx));
+
+% Revert back growth constraint and objective function
+setParam(ecModel,'lb','r_4041',0);
+setParam(ecModel,'obj','r_4041',1);
 
 % STEP 16 Sensitivity tuning
 % First reset the protein pool constraint to a more realistic value,
