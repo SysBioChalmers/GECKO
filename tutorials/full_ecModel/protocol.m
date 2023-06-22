@@ -45,7 +45,7 @@ checkInstallation % Confirm that RAVEN is functional, should be 2.7.12 or later.
 %% STAGE 1: expansion from a starting metabolic model to an ecModel structure
 % STEP 1 Set modelAdapter
 adapterLocation = fullfile(findGECKOroot,'tutorials','full_ecModel','YeastGEMAdapter.m');
-ModelAdapter = ModelAdapterManager.setDefault(adapterLocation);
+ModelAdapterManager.setDefault(adapterLocation);
 
 % With the above line, we set the YeastGEMAdapter as the default adapter
 % from here onwards, which means that any GECKO function that requires a
@@ -200,8 +200,7 @@ sigma = params.sigma;
 % But these values can also be defined separately. The f-factor can be 
 % calculated from quantitative proteomics data, for instance with data that
 % is available via PAXdb (https://pax-db.org/).
-% calculateFfactor can be used to estimate the f-factor.
-%f = calculateFfactor(ecModel); % Optional
+f = calculateFfactor(ecModel); % Optional
 ecModel = setProtPoolSize(ecModel,Ptot,f,sigma);
 
 % Note that at a later stage (after stage 3), the sigma factor be further
@@ -217,6 +216,9 @@ saveEcModel(ecModel,ModelAdapter,'yml','ecYeastGEM_stage2');
 % Test whether the model is able to reach maximum growth if glucose uptake
 % is unlimited. First set glucose uptake unconstraint
 ecModel = setParam(ecModel,'lb','r_1714',-1000);
+
+% And set growth maximization as the objective function:
+ecModel = setParam(ecModel,'obj','r_2111',1);
 
 % Run FBA
 sol = solveLP(ecModel,1)
