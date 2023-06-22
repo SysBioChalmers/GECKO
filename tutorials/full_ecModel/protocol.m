@@ -17,17 +17,21 @@
 % the most recent GECKO3 release.
 
 %% Preparation stage for ecModel reconstruction
-% - Install GECKO & RAVEN
+% - Install RAVEN & GECKO
+%   - Install RAVEN by following the installation instructions:
+%     https://github.com/SysBioChalmers/RAVEN/wiki/Installation
+%   - Simplest, RAVEN can be installed as MATLAB Add-On:
+%     https://se.mathworks.com/help/matlab/matlab_env/get-add-ons.html
+%   - The installation of Gurobi as LP solver is highly recommended
+checkInstallation % Confirm that RAVEN is functional, should be 2.8.3 or later.
+
 %   - GECKO can be installed via cloning or direct download of ZIP file.
 %     See installation instructions in the README.md:
 %     https://github.com/SysBioChalmers/GECKO/tree/main#installation
+%   - Alternatively, GECKO can be installed as MATLAB Add-On:
+%     https://se.mathworks.com/help/matlab/matlab_env/get-add-ons.html
 %   - Add the appropriate GECKO (sub)folders to MATLAB path:
 GECKOInstaller.install
-
-%   - Install RAVEN by following the installation instructions:
-%     https://github.com/SysBioChalmers/RAVEN/wiki/Installation
-%   - The installation of Gurobi as LP solver is highly recommended
-checkInstallation % Confirm that RAVEN is functional, should be 2.7.12 or later.
 
 % - Initiate a basic structure of files and folders for your intended
 %   project. This includes a copy of the template adapter.
