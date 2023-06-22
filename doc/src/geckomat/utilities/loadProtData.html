@@ -1,0 +1,254 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of loadProtData</title>
+  <meta name="keywords" content="loadProtData">
+  <meta name="description" content="loadProtData">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../../index.html">Home</a> &gt;  <a href="#">src</a> &gt; <a href="#">geckomat</a> &gt; <a href="index.html">utilities</a> &gt; loadProtData.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../../index.html"><img alt="<" border="0" src="../../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for src\geckomat\utilities&nbsp;<img alt=">" border="0" src="../../../right.png"></a></td></tr></table>-->
+
+<h1>loadProtData
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>loadProtData</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>function protData = loadProtData(replPerCond, protDataFile, filterData, modelAdapter, minVal, maxRSD, maxMissing, cutLowest, addStdevs) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> loadProtData
+   Function that loads absolute proteomics data (in mg/gDCW) and returns
+   mean values across replicates for each condition in the data file. By
+   default it also filters the data by various criteria, to remove
+   uncertain data (see input parameters).
+
+ Input:
+   replPerCond     vector with number of replicates for each condition in
+                   the dataset. Example: [3, 2] if first conditions has
+                   triplicates and second condition has duplicates.
+   protDataFile    path to file with proteomics data, where protein levels
+                   are in mg/gDCW (Optional, default reads 
+                   data/proteomics.tsv as specified in modelAdapter)
+                   Alternatively, protDataFile can be a protData structure
+                   that was previously made by loadProtdata.
+   filterData      logical whether abundances should be filtered. If
+                   false, minVal, maxRSD, maxMissing and addStdevs are not
+                   considered. (Optional, default true)
+   modelAdapter    a loaded model adapter (Optional, will otherwise use
+                   the default model adapter)
+   minVal          threshold of mean protein measurement per condition.
+                   (Optional, default = 0)
+   maxRSD          maximum relative standard per condition. (Optional,
+                   default = 1)
+   maxMissing      ratio of replicates for which a protein level might be
+                   missing. (Optional, default = 1/3 (or 1/2 if number of
+                   replicates = 2))
+                   If conditions have different number of replicates (as
+                   indicated in replPerCond), maxMissing can also be a
+                   vector of the same length as replPerCond, with
+                   individual maxMissing parameters for each replicate.
+   cutLowest       percentage of lowest mean values per condition to be
+                   discared (not considering NaN values). (Optional, default 5)
+   addStdevs       how many standard deviations should be added to the mean
+                   value of each protein measurement across replicates,
+                   broadening the confidence interval. (Optional,
+                   default = 1)
+
+ Output:
+   protData        structure with (filtered) proteome data
+                   uniprotIDs  cell arrray with Uniprot IDs matching
+                               protData.abundances
+                   abundances  matrix of proteomics data, where each
+                               column contains mean abundances per
+                               condition
+                   measuredProt  array with measured proteins, where each
+                               column contains mean of unfiltered total
+                               abundances sum per condition in mg/gDW.
+
+ Usage:
+   protData = loadProtData(replPerCond, protDataFile, filterData, modelAdapter, minVal, maxRSD, maxMissing, cutLowest, addStdevs)</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function protData = loadProtData(replPerCond, protDataFile, filterData, modelAdapter, minVal, maxRSD, maxMissing, cutLowest, addStdevs)</a>
+0002 <span class="comment">% loadProtData</span>
+0003 <span class="comment">%   Function that loads absolute proteomics data (in mg/gDCW) and returns</span>
+0004 <span class="comment">%   mean values across replicates for each condition in the data file. By</span>
+0005 <span class="comment">%   default it also filters the data by various criteria, to remove</span>
+0006 <span class="comment">%   uncertain data (see input parameters).</span>
+0007 <span class="comment">%</span>
+0008 <span class="comment">% Input:</span>
+0009 <span class="comment">%   replPerCond     vector with number of replicates for each condition in</span>
+0010 <span class="comment">%                   the dataset. Example: [3, 2] if first conditions has</span>
+0011 <span class="comment">%                   triplicates and second condition has duplicates.</span>
+0012 <span class="comment">%   protDataFile    path to file with proteomics data, where protein levels</span>
+0013 <span class="comment">%                   are in mg/gDCW (Optional, default reads</span>
+0014 <span class="comment">%                   data/proteomics.tsv as specified in modelAdapter)</span>
+0015 <span class="comment">%                   Alternatively, protDataFile can be a protData structure</span>
+0016 <span class="comment">%                   that was previously made by loadProtdata.</span>
+0017 <span class="comment">%   filterData      logical whether abundances should be filtered. If</span>
+0018 <span class="comment">%                   false, minVal, maxRSD, maxMissing and addStdevs are not</span>
+0019 <span class="comment">%                   considered. (Optional, default true)</span>
+0020 <span class="comment">%   modelAdapter    a loaded model adapter (Optional, will otherwise use</span>
+0021 <span class="comment">%                   the default model adapter)</span>
+0022 <span class="comment">%   minVal          threshold of mean protein measurement per condition.</span>
+0023 <span class="comment">%                   (Optional, default = 0)</span>
+0024 <span class="comment">%   maxRSD          maximum relative standard per condition. (Optional,</span>
+0025 <span class="comment">%                   default = 1)</span>
+0026 <span class="comment">%   maxMissing      ratio of replicates for which a protein level might be</span>
+0027 <span class="comment">%                   missing. (Optional, default = 1/3 (or 1/2 if number of</span>
+0028 <span class="comment">%                   replicates = 2))</span>
+0029 <span class="comment">%                   If conditions have different number of replicates (as</span>
+0030 <span class="comment">%                   indicated in replPerCond), maxMissing can also be a</span>
+0031 <span class="comment">%                   vector of the same length as replPerCond, with</span>
+0032 <span class="comment">%                   individual maxMissing parameters for each replicate.</span>
+0033 <span class="comment">%   cutLowest       percentage of lowest mean values per condition to be</span>
+0034 <span class="comment">%                   discared (not considering NaN values). (Optional, default 5)</span>
+0035 <span class="comment">%   addStdevs       how many standard deviations should be added to the mean</span>
+0036 <span class="comment">%                   value of each protein measurement across replicates,</span>
+0037 <span class="comment">%                   broadening the confidence interval. (Optional,</span>
+0038 <span class="comment">%                   default = 1)</span>
+0039 <span class="comment">%</span>
+0040 <span class="comment">% Output:</span>
+0041 <span class="comment">%   protData        structure with (filtered) proteome data</span>
+0042 <span class="comment">%                   uniprotIDs  cell arrray with Uniprot IDs matching</span>
+0043 <span class="comment">%                               protData.abundances</span>
+0044 <span class="comment">%                   abundances  matrix of proteomics data, where each</span>
+0045 <span class="comment">%                               column contains mean abundances per</span>
+0046 <span class="comment">%                               condition</span>
+0047 <span class="comment">%                   measuredProt  array with measured proteins, where each</span>
+0048 <span class="comment">%                               column contains mean of unfiltered total</span>
+0049 <span class="comment">%                               abundances sum per condition in mg/gDW.</span>
+0050 <span class="comment">%</span>
+0051 <span class="comment">% Usage:</span>
+0052 <span class="comment">%   protData = loadProtData(replPerCond, protDataFile, filterData, modelAdapter, minVal, maxRSD, maxMissing, cutLowest, addStdevs)</span>
+0053 
+0054 <span class="keyword">if</span> nargin &lt; 8 || isempty(addStdevs)
+0055     addStdevs = 1;
+0056 <span class="keyword">end</span>
+0057 
+0058 <span class="keyword">if</span> nargin &lt; 7 || isempty(maxMissing)
+0059     maxMissing = 2/3;
+0060 <span class="keyword">end</span>
+0061 
+0062 <span class="keyword">if</span> nargin &lt; 6 || isempty(maxRSD)
+0063     maxRSD = 1;
+0064 <span class="keyword">end</span>
+0065 
+0066 <span class="keyword">if</span> nargin &lt; 5 || isempty(minVal)
+0067     minVal = 0;
+0068 <span class="keyword">end</span>
+0069 
+0070 <span class="keyword">if</span> nargin &lt; 4 || isempty(modelAdapter)
+0071     modelAdapter = ModelAdapterManager.getDefault();
+0072     <span class="keyword">if</span> isempty(modelAdapter)
+0073         error(<span class="string">'Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.'</span>)
+0074     <span class="keyword">end</span>
+0075 <span class="keyword">end</span>
+0076 params = modelAdapter.getParameters();
+0077 
+0078 <span class="keyword">if</span> nargin &lt; 3 || isempty(filterData)
+0079     filterData = true;
+0080 <span class="keyword">end</span>
+0081 
+0082 <span class="keyword">if</span> nargin &lt; 2 || isempty(protDataFile)
+0083     protDataFile = fullfile(params.path,<span class="string">'data'</span>,<span class="string">'proteomics.tsv'</span>);
+0084 <span class="keyword">end</span>
+0085 
+0086 format = <span class="string">'%s'</span>;
+0087 <span class="keyword">for</span> i=1:sum(replPerCond)
+0088     format = [format <span class="string">' %f'</span>];
+0089 <span class="keyword">end</span>
+0090 <span class="keyword">if</span> ~isstruct(protDataFile)
+0091     fID         = fopen(protDataFile);
+0092     protDataRaw = textscan(fID,format,<span class="string">'Delimiter'</span>,<span class="string">'\t'</span>,<span class="string">'HeaderLines'</span>,1,<span class="string">'TreatAsEmpty'</span>,{<span class="string">'NA'</span>,<span class="string">'na'</span>,<span class="string">'NaN'</span>,<span class="string">'#VALUE!'</span>});
+0093     uniprotIDs  = protDataRaw{1};
+0094     abundances  = cell2mat(protDataRaw(2:end));
+0095     fclose(fID);
+0096 <span class="keyword">else</span>
+0097     uniprotIDs  = protDataFile.uniprotIDs;
+0098     abundances  = protDataFile.abundances;
+0099 <span class="keyword">end</span>
+0100 
+0101 <span class="comment">%Remove entriew without ID</span>
+0102 remData = cellfun(@isempty,uniprotIDs);
+0103 uniprotIDs(remData,:) = [];
+0104 abundances(remData,:) = [];
+0105 m                     = size(abundances,1);
+0106 filtAbund             = nan(m,numel(replPerCond));
+0107 measuredProt          = zeros(1,numel(replPerCond));
+0108 
+0109 <span class="keyword">if</span> filterData
+0110     <span class="keyword">for</span> i=1:numel(replPerCond)
+0111         condAbund    = abundances(:,1:replPerCond(i));
+0112         measuredProt(i) = mean(sum(condAbund,1));
+0113         <span class="keyword">if</span> i&lt;numel(replPerCond)
+0114             abundances   = abundances(:,replPerCond(i)+1:end);
+0115         <span class="keyword">end</span>
+0116         <span class="comment">% First filter maxMissing</span>
+0117         <span class="keyword">if</span> size(condAbund,2) &gt; 1
+0118             <span class="keyword">if</span> numel(maxMissing)&gt;1
+0119                 maxMisRepl = maxMissing(i);
+0120             <span class="keyword">else</span>
+0121                 maxMisRepl = maxMissing;
+0122             <span class="keyword">end</span>
+0123             remData = sum(condAbund&gt;0,2)&lt;maxMisRepl*size(condAbund,2);
+0124             condAbund(remData,:) = nan;
+0125         <span class="keyword">end</span>
+0126         <span class="comment">% Filter by RSD</span>
+0127         remData = (std(condAbund,0,2,<span class="string">'omitnan'</span>)./mean(condAbund,2,<span class="string">'omitnan'</span>))&gt;maxRSD;
+0128         condAbund(remData) = nan;
+0129         <span class="comment">% Add stdevs</span>
+0130         condAbund = mean(condAbund,2,<span class="string">'omitnan'</span>)+(addStdevs*std(condAbund,0,2,<span class="string">'omitnan'</span>));
+0131         <span class="comment">% Filter by minVal</span>
+0132         remData = mean(condAbund,2,<span class="string">'omitnan'</span>)&lt;minVal;
+0133         condAbund(remData) = nan;
+0134         <span class="comment">% Remove bottom 5%</span>
+0135         numData  = find(~isnan(condAbund));
+0136         [~,sortData] = sort(condAbund);
+0137         lowCutoff = floor(numel(numData)*0.05);
+0138         condAbund(sortData(1:lowCutoff)) = nan;
+0139         <span class="comment">% Combine conditions</span>
+0140         filtAbund(:,i) = condAbund;
+0141     <span class="keyword">end</span>
+0142 <span class="keyword">else</span>
+0143     <span class="keyword">for</span> i=1:numel(replPerCond)
+0144         condAbund    = abundances(:,1:replPerCond(i));
+0145         measuredProt(i) = mean(sum(condAbund,1,<span class="string">'omitnan'</span>));
+0146         <span class="keyword">if</span> i&lt;numel(replPerCond)
+0147             abundances = abundances(:,replPerCond(i)+1:end);
+0148         <span class="keyword">end</span>
+0149         filtAbund(:,i) = mean(condAbund,2,<span class="string">'omitnan'</span>);
+0150     <span class="keyword">end</span>
+0151 <span class="keyword">end</span>
+0152 notAllNan = logical(sum(~isnan(filtAbund),2));
+0153 protData.abundances = filtAbund(notAllNan,:);
+0154 protData.uniprotIDs = uniprotIDs(notAllNan);
+0155 protData.measuredProt = measuredProt;
+0156 <span class="keyword">end</span>
+0157</pre></div>
+<hr><address>Generated by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

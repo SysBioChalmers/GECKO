@@ -90,43 +90,24 @@ if ~model.ec.geckoLight
     model.S(linearIndices) = -newKcats(:,4); %Substrate = negative
     
 else %GECKO light formulation, where prot_pool represents all usages
-    nextIndex = 1;
     prot_pool_idx = find(ismember(model.mets,'prot_pool'));
     %first remove the prefix of all rxns
-    modRxns = extractAfter(model.ec.rxns,4);
-    for i = 1:numel(model.rxns)
-        if nextIndex <= length(model.ec.rxns) && strcmp(model.rxns(i), modRxns(nextIndex))
-            updated = false;
-            newMWKcats=[];
-            %Reactions with isozymes will have several rows in ec.rxns etc.
-            %Loop through all reactions, and for each reaction look at all isozymes
-            %Then use the lowest MW/kcat among the isozymes - when optimizing, that
-            %is the one that will be used anyway.
-            while true
-                if updateRxns(i)
-                    updated = true;
-                end
-                enzymes = find(model.ec.rxnEnzMat(nextIndex,:));
-                if model.ec.kcat(nextIndex) == 0
-                    %newMWKcats = [newMWKcats 0]; - if some are missing, just ignore those
-                else
-                    MW = sum(model.ec.mw(enzymes) .* model.ec.rxnEnzMat(nextIndex,enzymes).'); %multiply MW with number of subunits
-                    newMWKcats = [newMWKcats MW/model.ec.kcat(nextIndex)]; %Light model: protein usage is MW/kcat
-                end                
-                nextIndex = nextIndex + 1;
-                if  nextIndex > length(model.ec.rxns) || ~strcmp(model.rxns(i), modRxns(nextIndex))
-                    break;
-                end
-            end
-            if (updated)
-                if isempty(newMWKcats)
-                    newMWKcats = 0; %no cost
-                end
-                %Light model: always use the "cheapest" isozyme, that is what the 
-                %optimization will choose anyway unless isozymes are individually constrained.
-                model.S(prot_pool_idx, i) = -min(newMWKcats)/3600; % 3600: per second -> per hour
-            end
-        end
+    modRxns     = extractAfter(model.ec.rxns,4);
+    % Map ec-reactions to model.rxns
+    [hasEc,~]   = ismember(model.rxns,modRxns);
+    [~,rxnIdx]  = ismember(modRxns,model.rxns);
+    hasEc = find(hasEc & updateRxns);
+    for i = 1:numel(hasEc)
+        % Get all isoenzymes per reaction
+        ecIdx = find(rxnIdx == hasEc(i));
+        % Multiply enzymes with their MW (they are then automatically
+        % summed per reaction), and divide by their kcat, to get a vector
+        % of MW/kcat values.
+        MWkcat = (model.ec.rxnEnzMat(ecIdx,:) * model.ec.mw) ./ model.ec.kcat(ecIdx);
+        % If kcat was zero, MWkcat is Inf. Correct back to zero
+        MWkcat(abs(MWkcat)==Inf)=0;
+        % Select the lowest MW/kcat (= most efficient), and convert to /hour
+        model.S(prot_pool_idx, hasEc(i)) = -min(MWkcat/3600);
     end
 end
 end

@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of mapRxnsToConv</title>
+  <meta name="keywords" content="mapRxnsToConv">
+  <meta name="description" content="mapRxnsToConv">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../../index.html">Home</a> &gt;  <a href="#">src</a> &gt; <a href="#">geckomat</a> &gt; <a href="index.html">utilities</a> &gt; mapRxnsToConv.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../../index.html"><img alt="<" border="0" src="../../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for src\geckomat\utilities&nbsp;<img alt=">" border="0" src="../../../right.png"></a></td></tr></table>-->
+
+<h1>mapRxnsToConv
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>mapRxnsToConv</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>function [mappedFlux, enzUsageFlux, usageEnz] = mapRxnsToConv(ecModel, model, fluxVect) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> mapRxnsToConv
+   A vector (or matrix) of fluxes is mapped to the reactions in the
+   conventional starting model that was used to construct the ecModel. It
+   is essential that the provided conventional model is indeed the model
+   that was used to initate ecModel reconstruction.
+
+ Input:
+   ecModel         an ecModel in GECKO 3 format (with ecModel.ec structure),
+                   that was used to obtain fluxVect
+   model           the starting model for ecModel, to which the reactions
+                   should be mapped
+   fluxVect        vector or matrix of flux values, matching ecModel.rxns
+
+ Output:
+   mappedFlux      vector or matrix of flux values, matching model.rxns
+   enzUsageFlux    vector or matrix of flux values from enzyme usage
+                   reactions, as these are absent from mappedFlux
+   usageEnz        cell array with protein IDs, matching enzUsageFlux
+
+ Usage:
+   [mappedFlux, enzUsageFlux, usageEnz] = mapRxnsToConv(ecModel, model, fluxVect)</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+<li><a href="ecFVA.html" class="code" title="function [minFlux, maxFlux] = ecFVA(ecModel, model)">ecFVA</a>	ecFVA</li></ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function [mappedFlux, enzUsageFlux, usageEnz] = mapRxnsToConv(ecModel, model, fluxVect)</a>
+0002 <span class="comment">% mapRxnsToConv</span>
+0003 <span class="comment">%   A vector (or matrix) of fluxes is mapped to the reactions in the</span>
+0004 <span class="comment">%   conventional starting model that was used to construct the ecModel. It</span>
+0005 <span class="comment">%   is essential that the provided conventional model is indeed the model</span>
+0006 <span class="comment">%   that was used to initate ecModel reconstruction.</span>
+0007 <span class="comment">%</span>
+0008 <span class="comment">% Input:</span>
+0009 <span class="comment">%   ecModel         an ecModel in GECKO 3 format (with ecModel.ec structure),</span>
+0010 <span class="comment">%                   that was used to obtain fluxVect</span>
+0011 <span class="comment">%   model           the starting model for ecModel, to which the reactions</span>
+0012 <span class="comment">%                   should be mapped</span>
+0013 <span class="comment">%   fluxVect        vector or matrix of flux values, matching ecModel.rxns</span>
+0014 <span class="comment">%</span>
+0015 <span class="comment">% Output:</span>
+0016 <span class="comment">%   mappedFlux      vector or matrix of flux values, matching model.rxns</span>
+0017 <span class="comment">%   enzUsageFlux    vector or matrix of flux values from enzyme usage</span>
+0018 <span class="comment">%                   reactions, as these are absent from mappedFlux</span>
+0019 <span class="comment">%   usageEnz        cell array with protein IDs, matching enzUsageFlux</span>
+0020 <span class="comment">%</span>
+0021 <span class="comment">% Usage:</span>
+0022 <span class="comment">%   [mappedFlux, enzUsageFlux, usageEnz] = mapRxnsToConv(ecModel, model, fluxVect)</span>
+0023 
+0024 fluxes = fluxVect;
+0025 rxnIDs = ecModel.rxns;
+0026 
+0027 <span class="comment">% Invert flux of _REV reactions</span>
+0028 revRxns = endsWith(rxnIDs,<span class="string">'_REV'</span>) | contains(rxnIDs,<span class="string">'_REV_EXP_'</span>);
+0029 fluxes(revRxns,:) = -fluxes(revRxns,:);
+0030 rxnIDs(revRxns) = replace(rxnIDs(revRxns),<span class="string">'_REV'</span>,<span class="string">''</span>);
+0031 <span class="comment">% Remove _EXP_. suffixes</span>
+0032 rxnIDs = regexprep(rxnIDs,<span class="string">'_EXP_\d+'</span>,<span class="string">''</span>);
+0033 
+0034 <span class="comment">% Map and sum fluxes to converted reaction IDs</span>
+0035 [rxnIDmap, convRxnID] = findgroups(rxnIDs);
+0036 newVect = splitapply(@(x){sum(x,1)}, fluxes, rxnIDmap);
+0037 newVect = cell2mat(newVect);
+0038 
+0039 <span class="comment">% Place in same order as in original model</span>
+0040 [mapCheck,origIdx] = ismember(model.rxns,convRxnID);
+0041 <span class="keyword">if</span> ~all(mapCheck)
+0042     error(<span class="string">'Not all reactions from model.rxns can be found in the ecModel. Are you sure that ecModel is derived from model?'</span>)
+0043 <span class="keyword">end</span>
+0044 mappedFlux=newVect(origIdx,:);
+0045 
+0046 <span class="comment">% Separately report enzyme usages</span>
+0047 usageEnz = startsWith(ecModel.rxns,{<span class="string">'usage_prot_'</span>,<span class="string">'prot_pool_exchange'</span>});
+0048 enzUsageFlux = fluxVect(usageEnz,:);
+0049 usageEnz = regexprep(ecModel.rxns(usageEnz),<span class="string">'usage_prot_'</span>,<span class="string">''</span>);
+0050 usageEnz = regexprep(usageEnz,<span class="string">'prot_pool_exchange'</span>,<span class="string">'pool'</span>);
+0051 <span class="keyword">end</span></pre></div>
+<hr><address>Generated by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>
