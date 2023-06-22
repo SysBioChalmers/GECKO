@@ -13,9 +13,9 @@ function [minFlux, maxFlux] = getFluxTarget(ecModel,targetRxn,csRxn,alpha,tolera
 %                   reaction is recommended.
 %   csRxn           rxn ID for the main carbon source uptake reaction.
 %   alpha           scalling factor for desired suboptimal growth.
-%                   (Optional, defaul 1)
+%                   (Optional, default 1)
 %   tolerance       numerical tolerance for fixing bounds
-%                   (Optional, defaul 1E-6)
+%                   (Optional, default 1E-6)
 %   modelAdapter    a loaded model adapter. (Optional, will otherwise use
 %                   the default model adapter)
 %

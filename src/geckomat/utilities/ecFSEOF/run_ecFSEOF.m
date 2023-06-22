@@ -48,6 +48,10 @@ if nargin < 5 || isempty(nSteps)
     nSteps = 16;
 end
 
+if numel(alphaLims) ~= 2
+    error('alphaLims parameter should be a vector of two values')
+end
+
 % Define alpha vector for suboptimal enforced objective values
 alphaV  = alphaLims(1):((alphaLims(2)-alphaLims(1))/(nSteps-1)):alphaLims(2);
 
