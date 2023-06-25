@@ -128,7 +128,7 @@ kcatList_fuzzy  = fuzzyKcatMatching(ecModel);
 
 % STEP 7 DLKcat prediction through machine learning
 % Requires metabolite SMILES, which are gathered from PubChem
-ecModel = findMetSmiles(ecModel);
+[ecModel, noSmiles] = findMetSmiles(ecModel);
 
 % DLKcat runs in Python. An input file is written, which is then used by
 % DLKcat, while the output file is read back into MATLAB.
@@ -247,7 +247,7 @@ ecModel = setParam(ecModel,'lb',protPoolIdx,sol.x(protPoolIdx));
 setParam(ecModel,'lb','r_4041',0);
 setParam(ecModel,'obj','r_4041',1);
 
-% STEP 16 Sensitivity tuning
+% STEP 17 Sensitivity tuning
 % First reset the protein pool constraint to a more realistic value,
 % reverting STEP 16.
 ecModel = setProtPoolSize(ecModel);
@@ -256,7 +256,7 @@ ecModel = setProtPoolSize(ecModel);
 % Inspect the tunedKcats structure in table format
 struct2table(tunedKcats)
 
-% STEP 17 Curate kcat values based on kcat tuning
+% STEP 18 Curate kcat values based on kcat tuning
 % As example, the kcat of 5'-phosphoribosylformyl glycinamidine synthetase
 % (reaction r_0079) was increased from 0.05 to 5. Inspecting the kcat
 % source might help to determine if this is reasonable. 
@@ -285,6 +285,11 @@ convKcat = convKcat / 60; % mol/sec/g protein
 convKcat = convKcat * enzMW % mol/sec/mol protein, same as 1/sec.
 
 % New kcat is 5.3358, which is not far away from the tuned kcat of 5.
+
+% This can be applied to the ecModel directly, or (preferred) should be
+% included in the data/customKcat.tsv file.
+ecModel = setKcatForReactions(ecModel,'r_0079',5.34);
+ecModel = applyKcatConstraints(ecModel);
 
 % Another kcat that drastically changed is tryptophan synthase (r_1055),
 % with kcat increased from 0.023 to 2.3. Again, check what the source was:
@@ -317,37 +322,35 @@ saveEcModel(ecModel,[],'yml','ecYeastGEM');
 %% STAGE 4 integration of proteomics data into the ecModel
 %ecModel=loadEcModel('ecYeastGEM_stage3.yml'); % Uncomment if you want to reload model
 
-% STEP 18 Load proteomics data and constrain ecModel 
-protData = loadProtData(3); %Number of replicates
+% STEP 19 Load proteomics data and constrain ecModel 
+protData = loadProtData(3); %Number of replicates, only one experiment
 ecModel = fillProtConcs(ecModel,protData);
 ecModel = constrainProtConcs(ecModel);
 
-% STEP 19 Update protein pool
+% STEP 20 Update protein pool
 % The protein pool reaction will be constraint by the remaining, unmeasured
 % enzyme content. This is calculated by subtracting the sum of 
 % ecModel.ec.concs from the condition-specific total protein content. The
 % latter is stored together with the flux data that otherwise will be used
-% in Step 20.
+% in Step 21.
 fluxData = loadFluxData();
 ecModel = updateProtPool(ecModel,fluxData.Ptot(1));
 
-% STEP 20 Load flux data
+% STEP 21 Load flux data
 % Matching the proteomics sample(s), condition-specific flux data needs to
-% be loaded to constrain the model. This was already loaded in Step 18 for
+% be loaded to constrain the model. This was already loaded in Step 20 for
 % gathering Ptot, but is repeated here nonetheless. Flux data is read from
 % /data/fluxData.tsv.
 fluxData = loadFluxData();
 ecModel = constrainFluxData(ecModel,fluxData,1,'max','loose'); % Use first condition
 sol = solveLP(ecModel); % To observe if growth was reached
-disp(['Growth rate that is reached: ' num2str(abs(sol.f))])
+fprintf('Growth rate that is reached: %f /hour\n', abs(sol.f))
 % Growth rate of 0.1 is by far not reached, flexibilize protein
 % concentrations
 
-% STEP 21 Protein concentrations are flexibilized (increased), until the
+% STEP 22 Protein concentrations are flexibilized (increased), until the
 % intended growth rate is reached. This is condition-specific, so the
 % intended growth rate is gathered from the fluxData structure.
-[ecModel, flexProt] = flexibilizeProtConcs(ecModel,fluxData.grRate(1),10);
-
 % Neither individual protein levels nor total protein pool are limiting
 % growth. Test whether the starting model is able to reach 0.1.
 model = constrainFluxData(model,fluxData);
@@ -370,7 +373,7 @@ flexProt.uniprotIDs(index)
 saveEcModel(ecModel,ModelAdapter,'yml','ecYeastGEM_stage4');
 
 %% STAGE 5: simulation and analysis
-% STEP 22 Example of various useful RAVEN functions
+% STEP 23 Example of various useful RAVEN functions
 % % Set the upper bound of reaction r_0001 to 10.
 % ecModel = setParam(ecModel,'ub','r_0001',10);
 % % Set the lower bound of reaction r_0001 to 0.
@@ -390,10 +393,13 @@ saveEcModel(ecModel,ModelAdapter,'yml','ecYeastGEM_stage4');
 % % Export to Excel file (will not contain potential model.ec content)
 % exportToExcelFormat(ecModel,'filename.xlsx');
 
-% STEP 23 Simulate Crabtree effect with protein pool
+% STEP 24 Simulate Crabtree effect with protein pool
 
 % (Re)load the ecModel without proteomics integration
 ecModel = loadEcModel('ecYeastGEM.yml');
+% Or reset the enzyme concentrations:
+ecModel.ec.concs(:) = NaN;
+ecModel = constrainProtConcs(ecModel);
 % We will soon run a custom plotCrabtree function that is kept in the code
 % subfolder. To run this function we will need to navigate into the folder
 % where it is stored, but we will navigate back to the current folder
@@ -426,74 +432,18 @@ saveas(gcf,fullfile(ModelAdapter.params.path,'output','crabtree_infProt.tiff'))
 % It is obvious that no total protein constraint is reached, and Crabtree
 % effect is not observed.
 
-% Perform the Crabtree simulation on the pre-Step 16 ecModel (where kcat
+% Perform the Crabtree simulation on the pre-Step 17 ecModel (where kcat
 % sensitivity tuning has not yet been applied).
 ecModel_preTuning = loadEcModel('ecYeastGEM_stage2.yml');
 ecModel_preTuning = setParam(ecModel_preTuning,'lb','r_1714',-1000);
 plotCrabtree(ecModel_preTuning);
-saveas(gcf,fullfile(ModelAdapter.params.path,'output','crabtree_preStep16.tiff'))
+saveas(gcf,fullfile(ModelAdapter.params.path,'output','crabtree_preStep17.tiff'))
 % Without kcat tuning, the model gets constrained too early (at too low
 % growth rates), which means that no solutions exist at high growth rates.
 
-% Going back to the Crabtree-effect in the post-sensitivity tuning model.
-% While the plot shows the same overall trend as the experimental data,
-% the protein pool seems to become limiting too early. The slope of the
-% predicted glucose uptake rate starts to go up after a growth rate of 0.2,
-% while in the experimental data it seems like this should happen around
-% 0.28 instead. To see why the protein pool is becoming limiting too early,
-% we can look at the most limiting enzyme at growth rate 0.25.
-
-% At which position in the fluxes vector is growth rate 0.25?
-find(round(gRate,3) == 0.25)
-% Gather enzyme usage data at growth rate 0.25
-usageData = enzymeUsage(ecModel, fluxes(:,11));
-% Prepare usage report
-usageReport = reportEnzymeUsage(ecModel,usageData);
-% Inspect the topAbsUsage table, with the top-10 absolute usages. The
-% highCapUsage table is empty, as no proteomics is integrated and no
-% capacity usages can be calculated.
-
-usageReport.topAbsUsage
-% The top used enzyme is the ADP/ATP transporter, using 12% of the total
-% available protein pool. The kcat of this reaction was estimated by the
-% standardKcat function, and assigned a value of 11. This is most likely a
-% too-low value: resulting in too-high enzyme demand. Instead of the
-% standard kcat, we can look into literature to find more realistic
-% estimates. In https://pubs.acs.org/doi/full/10.1021/bi960668j, Figure 3A,
-% a maximum transport activity of 8.3 mmol/min/g protein is reported, while
-% elsewhere in the article is noted that the purity of the enzyme
-% preparation was around 50%. Conversion from specific activity to kcat
-% gives: 9.2166 /sec.
-AAt = 8.3*2;        % mmol/min/g protein
-AAt = AAt / 1000;   % mol/min/g protein
-AAt = AAt / 60;     % mol/sec/g protein
-AAt = AAt * 33313;  % 1/sec (as MW of the transporter is 33313 Da [g/mol])
-
-% Set this kcat value for the reaction in both directions
-ecModel = setKcatForReactions(ecModel,'r_1110',AAt);
-ecModel = setKcatForReactions(ecModel,'r_1110_REV',AAt);
-ecModel = applyKcatConstraints(ecModel);
-
-% Inspect the new Crabtree plot: not much difference
-plotCrabtree(ecModel);
-
-% Instead, fit the sigma factor
-[ecModel,sigma,RMSE] = sigmaFitterCrabtree(ecModel);
-fprintf('New sigma factor: %.2f\n', sigma)
-plotCrabtree(ecModel);
-
-% Inspect maximum growth rate
-ecModel = setParam(ecModel,'obj','r_2111',1);
-sol=solveLP(ecModel);
-disp(['Growth rate reached: ' num2str(abs(sol.f))])
-
-% If starting from here, load some basic assets
-model = loadConventionalGEM();
-fluxData = loadFluxData;
-
 %% === FROM HERE NOT FULLY TESTED/UPDATED YET ===
 
-% STEP 24 Selecting objective functions
+% STEP 25 Selecting objective functions
 ecModel = setParam(ecModel,'obj',params.bioRxn,1);
 sol = solveLP(ecModel)
 disp(['Growth rate reached: ' num2str(abs(sol.f))])
@@ -507,7 +457,7 @@ ecModel = setParam(ecModel,'obj','prot_pool_exchange',1);
 sol = solveLP(ecModel)
 disp(['Minimum protein pool usage: ' num2str(abs(sol.f)) ' mg/gDCW'])
 
-% STEP 25 Compare fluxes from ecModel and starting model
+% STEP 26 Compare fluxes from ecModel and starting model
 % Constrain with the same conditions to model and ecModel. We now fix the
 % observed growth as lower bound ('min' in constrainFluxData) and allow 5%
 % variability around the other measured fluxes.
@@ -538,13 +488,13 @@ ratioFlux = mappedFlux ./ sol.x;
 ratioFlux(isnan(ratioFlux)) = 0; % Divisions by zero give NaN, reset to zero.
 printFluxes(model,ratioFlux,false)
 
-% STEP 26 Inspect enzyme usage
+% STEP 27 Inspect enzyme usage
 % Show the result from the earlier simulation, without mapping to
 % non-ecModel.
 usageData = enzymeUsage(ecModel,solEC.x);
 usageReport = reportEnzymeUsage(ecModel,usageData,0.90);
 
-% STEP 25 Perform (ec)FVA
+% STEP 28 Perform (ec)FVA
 % Perform FVA
 [minFluxEc, maxFluxEc] = ecFVA(ecModel, model);
 [minFluxY, maxFluxY] = ecFVA(model, model);

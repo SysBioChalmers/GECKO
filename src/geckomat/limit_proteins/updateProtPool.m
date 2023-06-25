@@ -7,7 +7,8 @@ function ecModel  = updateProtPool(ecModel, Ptot, modelAdapter)
 %   ecModel         an ecModel in GECKO 3 format (with ecModel.ec structure)
 %   Ptot            total protein content in g/gDCW, overwrites the value
 %                   from modelAdapter. For instance, condition-specific
-%                   fluxData.Ptot from loadFluxData can be used.
+%                   fluxData.Ptot from loadFluxData can be used. If nothing
+%                   is provided, the modelAdapter value is used.
 %   modelAdapter    a loaded model adapter (Optional, will otherwise use the
 %                   default model adapter).
 % Output:
