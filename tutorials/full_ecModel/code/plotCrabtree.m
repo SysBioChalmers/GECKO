@@ -12,7 +12,7 @@ for i=1:numel(gRate)
     if ~isempty(sol.x)
         tmpModel = setParam(tmpModel,'lb','r_1714',sol.x(glcEx)*1.01);
         tmpModel = setParam(tmpModel,'obj','prot_pool_exchange',1);
-        sol=solveLP(tmpModel,1);
+        sol=solveLP(tmpModel);
         outV(:,i) = sol.x;
     end
 end
