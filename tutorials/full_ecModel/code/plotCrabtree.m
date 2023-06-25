@@ -18,8 +18,11 @@ for i=1:numel(gRate)
 end
 
 % Gather experimental data
-expData = readtable(fullfile(findGECKOroot,'tutorials','full_ecModel','data','vanHoek1998.csv'));
-fluxToPlot = table2array(expData(:,2:5));
+fID = fopen(fullfile(findGECKOroot,'tutorials','full_ecModel','data','vanHoek1998.tsv'),'r');
+expData = textscan(fID,'%f %f %f %f %f %f %f %f','Delimiter',';','HeaderLines',2);
+fclose(fID);
+
+fluxToPlot = [expData{2} expData{3} expData{4} expData{5}];
 
 % Get reaction indices in the model
 rxnsToPlot = getIndexes(ecModel,{'r_1992','r_1672','r_1714','r_1761'},'rxns');
@@ -31,7 +34,7 @@ dataColor = [0 0.4470 0.7410; 0.8500 0.3250 0.0980; 0.9290 0.6940 0.1250; 0.4940
 nexttile
 plot(gRate,abs(outV(rxnsToPlot,:)));
 hold on
-scatter(expData.r_2111,fluxToPlot,[],dataColor)
+scatter(expData{1},fluxToPlot,[],dataColor)
 legend(ecModel.rxnNames(rxnsToPlot),'Location','northwest')
 xlabel('Growth rate (/hour)')
 ylim([0 20])

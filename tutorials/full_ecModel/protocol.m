@@ -49,7 +49,7 @@ GECKOInstaller.install
 %% STAGE 1: expansion from a starting metabolic model to an ecModel structure
 % STEP 1 Set modelAdapter
 adapterLocation = fullfile(findGECKOroot,'tutorials','full_ecModel','YeastGEMAdapter.m');
-ModelAdapterManager.setDefault(adapterLocation);
+ModelAdapter = ModelAdapterManager.setDefault(adapterLocation);
 
 % With the above line, we set the YeastGEMAdapter as the default adapter
 % from here onwards, which means that any GECKO function that requires a
@@ -244,8 +244,8 @@ fprintf('Protein pool usage is: %.0f mg/gDCW.\n', abs(sol.x(protPoolIdx)))
 ecModel = setParam(ecModel,'lb',protPoolIdx,sol.x(protPoolIdx));
 
 % Revert back growth constraint and objective function
-setParam(ecModel,'lb','r_4041',0);
-setParam(ecModel,'obj','r_4041',1);
+ecModel = setParam(ecModel,'lb','r_4041',0);
+ecModel = setParam(ecModel,'obj','r_4041',1);
 
 % STEP 17 Sensitivity tuning
 % First reset the protein pool constraint to a more realistic value,
