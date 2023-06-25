@@ -1,11 +1,11 @@
-function FC = ecFlux_scanning(ecModel,target,cSource,alpha,tolerance,filterG)
+function FC = ecFlux_scanning(ecModel,targetRxn,csRxn,alpha,tolerance,filterG)
 %ecFlux_scanning
 %
 % Input:
 %   ecModel         an ecModel in GECKO 3 format (with ecModel.ec structure).
-%   rxnTarget       rxn ID for the production target reaction, a exchange
+%   targetRxn       rxn ID for the production target reaction, a exchange
 %                   reaction is recommended.
-%  cSource          rxn ID for the main carbon source uptake reaction.
+%   csRxn           rxn ID for the main carbon source uptake reaction.
 %   alpha           scalling factor for production yield for enforced objective
 %                   limits
 %   tolerance       numerical tolerance for fixing bounds.
@@ -15,7 +15,7 @@ function FC = ecFlux_scanning(ecModel,target,cSource,alpha,tolerance,filterG)
 %                   (Optional, defaul false)
 %
 % Usage:
-%   FC = ecFlux_scanning(model,target,cSource,alpha,tolerance,filterG)
+%   FC = ecFlux_scanning(model,targetRxn,csRxn,alpha,tolerance,filterG)
 
 if nargin < 6 || isempty(filterG)
     filterG = false;
@@ -26,7 +26,10 @@ if nargin < 5 || isempty(tolerance)
 end
 
 % Simulate WT (100% growth):
-[~, FC.flux_WT] = getFluxTarget(ecModel,target,cSource);
+[~, FC.flux_WT] = getFluxTarget(ecModel,targetRxn,csRxn);
+
+% Set to zero values which are under solver tolerance
+FC.flux_WT(abs(FC.flux_WT) < 1e-8) = 0; 
 
 % Simulate forced (X% growth and the rest towards product) based on yield:
 FC.alpha = alpha;
@@ -36,7 +39,9 @@ v_matrix = zeros(length(ecModel.rxns),length(alpha));
 k_matrix = zeros(length(ecModel.rxns),length(alpha));
 for i = 1:length(alpha)
     %disp(['Iteration #' num2str(i)])
-    [~, FC.flux_MAX] = getFluxTarget(ecModel,target,cSource,alpha(i));
+    [~, FC.flux_MAX] = getFluxTarget(ecModel,targetRxn,csRxn,alpha(i));
+    % Set to zero values which are under solver tolerance
+    FC.flux_MAX(abs(FC.flux_MAX) < 1e-8) = 0;
     v_matrix(:,i) = FC.flux_MAX;
     k_matrix(:,i) = FC.flux_MAX./FC.flux_WT;
 end
@@ -45,7 +50,7 @@ end
 withGR   = ~cellfun(@isempty,ecModel.grRules);
 
 % Generate rxn equations:
-rxnEqs   = constructEquations(ecModel,ecModel.rxns(withGR),true);
+rxnEqs   = constructEquations(ecModel,withGR,true);
 v_matrix = v_matrix(withGR,:);
 k_matrix = k_matrix(withGR,:);
 rxnGeneM = ecModel.rxnGeneMat(withGR,:);
@@ -63,6 +68,7 @@ k_matrix(isnan(k_matrix)) = 1;
 
 % Replace any Inf value with 1000 (maximum value is ~700):
 k_matrix(k_matrix>1000) = 1000;
+k_matrix(k_matrix<-1000) = 1000;
 
 % Filter out values that are inconsistent at different alphas:
 always_down  = sum(k_matrix <= 1,2) == length(alpha);
