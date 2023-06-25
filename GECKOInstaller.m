@@ -10,7 +10,7 @@ classdef GECKOInstaller
             sourceDir = fileparts(which(mfilename));
             paths = GECKOInstaller.GetFilteredSubPaths(sourceDir, GECKOInstaller.FILE_FILTER);
 
-            GECKOInstaller.checkRAVENversion('2.8.2'); % Minimum RAVEN version
+            GECKOInstaller.checkRAVENversion('2.8.3'); % Minimum RAVEN version
 
             % Check unique function names
             if ~exist("checkFunctionUniqueness.m")
@@ -75,7 +75,7 @@ classdef GECKOInstaller
                 end
             catch
                 warning(['Cannot find RAVEN Toolbox in the MATLAB path, or the version ' ...
-                    'is too old (before v2.8.2). Make sure you have installed RAVEN in ' ...
+                    'is too old (before v' minmVer '). Make sure you have installed RAVEN in ' ...
                     'accordance to the following instructions, including running ' ...
                     '''checkInstallation()'': https://github.com/SysBioChalmers/RAVEN/wiki/Installation'])
             end
