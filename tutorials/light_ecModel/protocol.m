@@ -16,6 +16,7 @@
 % Prepare software and model adapter
 GECKOInstaller.install
 checkInstallation
+setRavenSolver('gurobi')
 
 % STEP 1
 adapterLocation = fullfile(findGECKOroot,'tutorials','light_ecModel','HumanGEMAdapter.m');
@@ -37,6 +38,10 @@ model = loadConventionalGEM();
 % generated
 [ecModel, noUniprot] = makeEcModel(model,true);
 
+% The above command generates a warning regarding potentially problematic
+% gene associations in various grRules. This is an expected output here and
+% can safely be ignored.
+
 % noUniprot contains 6 genes that could not be mapped, so the genes.tsv
 % from Human-GEM was not sufficient and additional curation should be done.
 % This will be skipped for now, as 6 genes is not too many.
@@ -52,7 +57,7 @@ kcatList_fuzzy  = fuzzyKcatMatching(ecModel);
 ecModel         = findMetSmiles(ecModel);
 % DLKcat.tsv files are ecModel-type specific and cannot be interchanged
 % between full and light ecModels. This is due to a difference in how
-% reactions are represented in the ecModel.ec structure (isoenzymic
+% reactions are represented in the ecModel.ec structure (isoenzymatic
 % reactions are split in full ecModels, and a suffix (e.g. _EXP_1) is
 % attached to reaction identifiers; while in light models such reactions
 % are not split and a counting prefix (e.g. 001_) is attached to reaction
@@ -87,11 +92,11 @@ ecModel = selectKcatValue(ecModel,kcatList_merged);
 [ecModel, rxnsMissingGPR, standardMW, standardKcat] = getStandardKcat(ecModel);
 
 % STEP 13
-% Also in light ecModels are the kcat values kept in ecModels.ec.kcat, and
+% In light ecModels the kcat values are also kept in ecModels.ec.kcat, and
 % only after running applyKcatConstraints are these introduced in the
 % ecModel.S matrix. In constrast to full ecModels, the applyKcatConstraints
 % function checks across isoenzymes which is the most efficient enzyme
-% (lowest MW/kcat value), and this value is used to introduce
+% (lowest MW/kcat value), and uses this value.
 ecModel = applyKcatConstraints(ecModel);
 
 % STEP 14
@@ -120,11 +125,11 @@ saveEcModel(ecModel);
 % uptake), constraining the ecModel with the objective value that was
 % reached, followed by a second optimization where the total enzyme usage
 % is minimized, yielding the most efficient enzyme allocation.
-ecModel = setParam(ecModel,'obj',params.bioRxn,1);
+ecModel = setParam(ecModel,'obj',adapter.params.bioRxn,1);
 sol = solveLP(ecModel)
 disp(['Growth rate reached: ' num2str(abs(sol.f))])
 % Set growth lower bound to 99% of the previous value
-ecModel = setParam(ecModel,'lb',params.bioRxn,0.99*abs(sol.f));
+ecModel = setParam(ecModel,'lb',adapter.params.bioRxn,0.99*abs(sol.f));
 % Minimize protein pool usage. As protein pool exchange is defined in the
 % reverse direction (with negative flux), minimization of protein pool
 % usage is computationally represented by maximizing the prot_pool_exchange

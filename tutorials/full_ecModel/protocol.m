@@ -240,7 +240,7 @@ ecModel = setParam(ecModel, 'lb', protPoolIdx, -1000);
 ecModel = setParam(ecModel, 'obj', protPoolIdx, 1);
 sol = solveLP(ecModel);
 
-fprintf('Protein pool usage is: %.0f mg/gDCWh.\n', abs(sol.x(protPoolIdx)))
+fprintf('Protein pool usage is: %.0f mg/gDCW.\n', abs(sol.x(protPoolIdx)))
 ecModel = setParam(ecModel,'lb',protPoolIdx,sol.x(protPoolIdx));
 
 % Revert back growth constraint and objective function
@@ -364,7 +364,7 @@ sol = solveLP(ecModel)
 
 % Inspect the flexibilized proteins
 struct2table(flexProt)
-% Inspect which proteins have theri amount changed the most
+% Inspect which proteins have their amount changed the most
 protChange = flexProt.flexConcs./flexProt.oldConcs;
 [ratio, index] = max(protChange)
 flexProt.uniprotIDs(index)
@@ -397,9 +397,7 @@ saveEcModel(ecModel,ModelAdapter,'yml','ecYeastGEM_stage4');
 
 % (Re)load the ecModel without proteomics integration
 ecModel = loadEcModel('ecYeastGEM.yml');
-% Or reset the enzyme concentrations:
-ecModel.ec.concs(:) = NaN;
-ecModel = constrainProtConcs(ecModel);
+
 % We will soon run a custom plotCrabtree function that is kept in the code
 % subfolder. To run this function we will need to navigate into the folder
 % where it is stored, but we will navigate back to the current folder

@@ -4,9 +4,8 @@ classdef HumanGEMAdapter < ModelAdapter
             geckoPath = findGECKOroot;
             obj.params.path = fullfile(geckoPath,'tutorials','light_ecModel');
 
-			% The model distributed with the light_ecModel tutorial is Human-GEM
-            % is version 1.3.0, matching the version from this publication:
-            % https://www.science.org/doi/full/10.1126/scisignal.aaz1482
+            % The model distributed with the light_ecModel tutorial is Human-GEM
+            % is version 1.15.0, available from
             % https://github.com/SysBioChalmers/Human-GEM/releases/tag/v1.3.0
             % In addition, the following lines were run to reduce its size
             % before storing it in this GECKO tutorial:
@@ -15,7 +14,7 @@ classdef HumanGEMAdapter < ModelAdapter
             % ihuman = deleteUnusedGenes(ihuman);
             % ihuman = rmfield(ihuman,{'unconstrained','rxnReferences','rxnFrom','metFrom','rxnConfidenceScores'});
             % ihuman.name = ihuman.id;
-            % writeYAMLmodel(ihuman,'humanGEM.yml')
+            % writeYAMLmodel(ihuman,'human-GEM.yml')
             obj.params.convGEM = fullfile(obj.params.path,'models','human-GEM.yml');
 
 			obj.params.sigma = 0.1; %This was changed to a low number to give a reasonable growth rate - this should be investigated more
