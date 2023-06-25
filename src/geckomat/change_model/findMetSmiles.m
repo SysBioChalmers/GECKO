@@ -26,10 +26,10 @@ if nargin < 2 || isempty(modelAdapter)
 end
 params = modelAdapter.params;
 
-[uniqueNames, ~, uniqueIdx] = unique(model.metNames);
+[uniqueNames, ~, uniqueIdx] = unique(regexprep(model.metNames,'^prot_.*',''));
 uniqueSmiles(1:numel(uniqueNames),1) = {''};
-protMets = startsWith(uniqueNames,'prot_');
 metMatch = false(length(uniqueNames),1);
+metMatch(strcmp(uniqueNames,'')) = 1; % No need trying to match empty fields
 if verbose; fprintf('Check for local SMILES database... '); end
 smilesDBfile = (fullfile(params.path,'data','smilesDB.tsv'));
 if exist(smilesDBfile,'file')==2
@@ -45,12 +45,11 @@ else
     if verbose; fprintf('not found.\n'); end
 end
 
-if any(~metMatch & ~protMets)
+if any(~metMatch)
     progressbar('Querying PubChem for SMILES by metabolite names')
-    numUnique = numel(uniqueNames);
     webOptions = weboptions('Timeout', 30);
     for i = 1:numel(uniqueNames)
-        if metMatch(i) || protMets(i)
+        if metMatch(i)
             continue;
         end
         retry = 0;
@@ -96,7 +95,7 @@ if any(~metMatch & ~protMets)
 end
 newSmiles = uniqueSmiles(uniqueIdx);
 noSMILES = cellfun(@isempty,uniqueSmiles);
-successRatio = numel(find(noSMILES))/numel(uniqueSmiles);
+successRatio = 1-(numel(find(noSMILES))/numel(uniqueSmiles));
 fprintf('SMILES could be found for %s%% of the unique metabolite names.\n',num2str(successRatio*100,'%.0f'))
 noSMILES = uniqueNames(noSMILES);
 
