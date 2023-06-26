@@ -42,9 +42,7 @@
                    saved in one format, e.g. 'yaml', or cell array if
                    multiple formats {'yaml','sbml'}. (Optional, default
                    'yaml').
-   filename        overwrites whatever path is specified in modelAdapter,
-                   or if no modelAdapter is specified. Otherwise, the file
-                   is stored as ecModel in param.path.
+   filename        file name, 'ecModel' by default.
 
  Usage:
    saveECmodel(model,modelAdapter,format,filename)</pre></div>
@@ -78,61 +76,59 @@ This function is called by:
 0014 <span class="comment">%                   saved in one format, e.g. 'yaml', or cell array if</span>
 0015 <span class="comment">%                   multiple formats {'yaml','sbml'}. (Optional, default</span>
 0016 <span class="comment">%                   'yaml').</span>
-0017 <span class="comment">%   filename        overwrites whatever path is specified in modelAdapter,</span>
-0018 <span class="comment">%                   or if no modelAdapter is specified. Otherwise, the file</span>
-0019 <span class="comment">%                   is stored as ecModel in param.path.</span>
-0020 <span class="comment">%</span>
-0021 <span class="comment">% Usage:</span>
-0022 <span class="comment">%   saveECmodel(model,modelAdapter,format,filename)</span>
-0023 
-0024 
-0025 <span class="keyword">if</span> nargin &lt; 2 || isempty(modelAdapter)
-0026     modelAdapter = ModelAdapterManager.getDefault();
-0027     <span class="keyword">if</span> isempty(modelAdapter)
-0028         error(<span class="string">'Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.'</span>)
-0029     <span class="keyword">end</span>
-0030 <span class="keyword">end</span>
-0031 params = modelAdapter.getParameters();
-0032 <span class="keyword">if</span> nargin &lt; 3 || isempty(format)
-0033     format = <span class="string">'yaml'</span>;
-0034 <span class="keyword">end</span>
-0035 <span class="keyword">if</span> nargin &lt; 4 || isempty (format)
-0036     filename = <span class="string">'ecModel'</span>;
-0037 <span class="keyword">end</span>
-0038 filename = fullfile(params.path,<span class="string">'models'</span>,filename);
-0039 
-0040 <span class="comment">%Model description:</span>
-0041 model.description = [<span class="string">'Enzyme-constrained model of '</span> model.id];
-0042 
-0043 <span class="keyword">if</span> contains(format,{<span class="string">'yaml'</span>,<span class="string">'yml'</span>})
-0044     writeYAMLmodel(model,[filename <span class="string">'.yml'</span>]);
-0045 <span class="keyword">end</span>
-0046 
-0047 <span class="keyword">if</span> contains(format,{<span class="string">'xml'</span>,<span class="string">'sbml'</span>})
-0048     exportModel(model,[filename <span class="string">'.xml'</span>]);
-0049     <span class="comment">%Convert notation &quot;e-005&quot; to &quot;e-05 &quot; in stoich. coeffs. to avoid</span>
-0050     <span class="comment">%inconsistencies between Windows and MAC:</span>
-0051     copyfile([filename <span class="string">'.xml'</span>],<span class="string">'backup.xml'</span>)
-0052     fin  = fopen(<span class="string">'backup.xml'</span>, <span class="string">'r'</span>);
-0053     fout = fopen([filename <span class="string">'.xml'</span>], <span class="string">'w'</span>);
-0054     still_reading = true;
-0055     <span class="keyword">while</span> still_reading
-0056         inline = fgets(fin);
-0057         <span class="keyword">if</span> ~ischar(inline)
-0058             still_reading = false;
-0059         <span class="keyword">else</span>
-0060             <span class="keyword">if</span> ~isempty(regexp(inline,<span class="string">'-00[0-9]'</span>,<span class="string">'once'</span>))
-0061                 inline = strrep(inline,<span class="string">'-00'</span>,<span class="string">'-0'</span>);
-0062             <span class="keyword">elseif</span> ~isempty(regexp(inline,<span class="string">'-01[0-9]'</span>,<span class="string">'once'</span>))
-0063                 inline = strrep(inline,<span class="string">'-01'</span>,<span class="string">'-1'</span>);
-0064             <span class="keyword">end</span>
-0065             fwrite(fout, inline);
-0066         <span class="keyword">end</span>
-0067     <span class="keyword">end</span>
-0068     fclose(<span class="string">'all'</span>);
-0069     delete(<span class="string">'backup.xml'</span>);
-0070 <span class="keyword">end</span>
-0071 <span class="keyword">end</span></pre></div>
+0017 <span class="comment">%   filename        file name, 'ecModel' by default.</span>
+0018 <span class="comment">%</span>
+0019 <span class="comment">% Usage:</span>
+0020 <span class="comment">%   saveECmodel(model,modelAdapter,format,filename)</span>
+0021 
+0022 
+0023 <span class="keyword">if</span> nargin &lt; 2 || isempty(modelAdapter)
+0024     modelAdapter = ModelAdapterManager.getDefault();
+0025     <span class="keyword">if</span> isempty(modelAdapter)
+0026         error(<span class="string">'Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.'</span>)
+0027     <span class="keyword">end</span>
+0028 <span class="keyword">end</span>
+0029 params = modelAdapter.getParameters();
+0030 <span class="keyword">if</span> nargin &lt; 3 || isempty(format)
+0031     format = <span class="string">'yaml'</span>;
+0032 <span class="keyword">end</span>
+0033 <span class="keyword">if</span> nargin &lt; 4 || isempty (format)
+0034     filename = <span class="string">'ecModel'</span>;
+0035 <span class="keyword">end</span>
+0036 filename = fullfile(params.path,<span class="string">'models'</span>,filename);
+0037 
+0038 <span class="comment">%Model description:</span>
+0039 model.description = [<span class="string">'Enzyme-constrained model of '</span> model.id];
+0040 
+0041 <span class="keyword">if</span> contains(format,{<span class="string">'yaml'</span>,<span class="string">'yml'</span>})
+0042     writeYAMLmodel(model,[filename <span class="string">'.yml'</span>]);
+0043 <span class="keyword">end</span>
+0044 
+0045 <span class="keyword">if</span> contains(format,{<span class="string">'xml'</span>,<span class="string">'sbml'</span>})
+0046     exportModel(model,[filename <span class="string">'.xml'</span>]);
+0047     <span class="comment">%Convert notation &quot;e-005&quot; to &quot;e-05 &quot; in stoich. coeffs. to avoid</span>
+0048     <span class="comment">%inconsistencies between Windows and MAC:</span>
+0049     copyfile([filename <span class="string">'.xml'</span>],<span class="string">'backup.xml'</span>)
+0050     fin  = fopen(<span class="string">'backup.xml'</span>, <span class="string">'r'</span>);
+0051     fout = fopen([filename <span class="string">'.xml'</span>], <span class="string">'w'</span>);
+0052     still_reading = true;
+0053     <span class="keyword">while</span> still_reading
+0054         inline = fgets(fin);
+0055         <span class="keyword">if</span> ~ischar(inline)
+0056             still_reading = false;
+0057         <span class="keyword">else</span>
+0058             <span class="keyword">if</span> ~isempty(regexp(inline,<span class="string">'-00[0-9]'</span>,<span class="string">'once'</span>))
+0059                 inline = strrep(inline,<span class="string">'-00'</span>,<span class="string">'-0'</span>);
+0060             <span class="keyword">elseif</span> ~isempty(regexp(inline,<span class="string">'-01[0-9]'</span>,<span class="string">'once'</span>))
+0061                 inline = strrep(inline,<span class="string">'-01'</span>,<span class="string">'-1'</span>);
+0062             <span class="keyword">end</span>
+0063             fwrite(fout, inline);
+0064         <span class="keyword">end</span>
+0065     <span class="keyword">end</span>
+0066     fclose(<span class="string">'all'</span>);
+0067     delete(<span class="string">'backup.xml'</span>);
+0068 <span class="keyword">end</span>
+0069 <span class="keyword">end</span></pre></div>
 <hr><address>Generated by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

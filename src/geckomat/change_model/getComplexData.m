@@ -74,14 +74,11 @@ end
 
 complexData = cell(data.size,7);
 
-fprintf('Retrieving information for complexes: ');
+progressbar('Retrieving information for complexes');
 for i = 1:data.size
-
+    progressbar(i/data.size) % Update progress bar
     url2 = 'https://www.ebi.ac.uk/intact/complex-ws/complex/';
     complexID = data.elements(i,1).complexAC;
-
-    fprintf('%s (%d of %d), ', complexID, i, data.size);
-
     try
         temp = webread([url2 complexID],webOptions);
     catch ME

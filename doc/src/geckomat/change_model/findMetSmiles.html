@@ -104,72 +104,67 @@ This function is called by:
 0046 <span class="keyword">end</span>
 0047 
 0048 <span class="keyword">if</span> any(~metMatch &amp; ~protMets)
-0049     <span class="keyword">if</span> verbose; fprintf(<span class="string">'Querying PubChem for SMILES by metabolite names...   0%% complete'</span>); <span class="keyword">end</span>
+0049     progressbar(<span class="string">'Querying PubChem for SMILES by metabolite names'</span>)
 0050     numUnique = numel(uniqueNames);
 0051     webOptions = weboptions(<span class="string">'Timeout'</span>, 30);
 0052     <span class="keyword">for</span> i = 1:numel(uniqueNames)
 0053         <span class="keyword">if</span> metMatch(i) || protMets(i)
 0054             <span class="keyword">continue</span>;
 0055         <span class="keyword">end</span>
-0056         <span class="keyword">if</span> verbose &amp;&amp; rem(i-1,floor(numUnique/100+1)) == 0
-0057             progress = num2str(floor(100*(i/numUnique)));
-0058             progress = pad(progress,3,<span class="string">'left'</span>);
-0059             fprintf(<span class="string">'\b\b\b\b\b\b\b\b\b\b\b\b\b%s%% complete'</span>,progress);
-0060         <span class="keyword">end</span>
-0061         retry = 0;
-0062         <span class="keyword">while</span> retry &lt; 10
-0063             <span class="keyword">try</span>
-0064                 smileResult       = webread([<span class="string">'https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/'</span> uniqueNames{i} <span class="string">'/property/CanonicalSMILES/TXT'</span>], webOptions);
-0065                 <span class="comment">%Sometimes multiple lines are given, with alternative SMILES. Only</span>
-0066                 <span class="comment">%keep the first suggestion.</span>
-0067                 smileResult       = regexp(smileResult,<span class="string">'(^\S*)\n'</span>,<span class="string">'once'</span>,<span class="string">'tokens'</span>);
-0068                 uniqueSmiles{i,1} = smileResult{1,1};
-0069                 retry = 15; <span class="comment">% success: no retry</span>
-0070             <span class="keyword">catch</span> exception
-0071                 <span class="comment">%Sometimes the call fails, for example since the server is busy. In those cases</span>
-0072                 <span class="comment">%we will try 10 times. Some errors however are because the metabolite</span>
-0073                 <span class="comment">%name does no exist in the database (404) or some other error (the metabolite contains</span>
-0074                 <span class="comment">%a slash or similar, 400 or 500). In those cases we can</span>
-0075                 <span class="comment">%immediately give up.</span>
-0076                 <span class="keyword">if</span> (strcmp(exception.identifier, <span class="string">'MATLAB:webservices:HTTP404StatusCodeError'</span>) || <span class="keyword">...</span>
-0077                         strcmp(exception.identifier, <span class="string">'MATLAB:webservices:HTTP400StatusCodeError'</span>) || <span class="keyword">...</span>
-0078                         strcmp(exception.identifier, <span class="string">'MATLAB:webservices:HTTP500StatusCodeError'</span>))
-0079                     uniqueSmiles(i) = {<span class="string">''</span>};
-0080                     retry = 15;
-0081                 <span class="keyword">else</span>
-0082                     retry = retry + 1;
-0083                 <span class="keyword">end</span>
-0084             <span class="keyword">end</span>
-0085         <span class="keyword">if</span> retry == 10
-0086             error(<span class="string">'Cannot reach PubChem. Check your internet connection and try again.'</span>)
-0087         <span class="keyword">end</span>
-0088         <span class="keyword">end</span>
-0089         <span class="comment">% Append one line each time, in case internet connection is lost</span>
-0090         <span class="comment">% halfway. Open &amp; close file each time to avoid leaving the file</span>
-0091         <span class="comment">% open when breaking the function.</span>
-0092         out = [uniqueNames(i), uniqueSmiles(i)];
-0093         fID = fopen(smilesDBfile,<span class="string">'a'</span>);
-0094         fprintf(fID,<span class="string">'%s\t%s\n'</span>,out{:});
-0095         fclose(fID);
-0096     <span class="keyword">end</span>
-0097     <span class="keyword">if</span> verbose
-0098         fprintf(<span class="string">'\b\b\b\b\b\b\b\b\b\b\b\b\bdone.\n'</span>);
-0099         fprintf(<span class="string">'Model-specific SMILES database stored at %s\n'</span>,smilesDBfile);
-0100     <span class="keyword">end</span>
-0101 <span class="keyword">end</span>
-0102 newSmiles = uniqueSmiles(uniqueIdx);
-0103 noSMILES = cellfun(@isempty,uniqueSmiles);
-0104 successRatio = numel(find(noSMILES))/numel(uniqueSmiles);
-0105 fprintf(<span class="string">'SMILES could be found for %s%% of the unique metabolite names.\n'</span>,num2str(successRatio*100,<span class="string">'%.0f'</span>))
-0106 noSMILES = uniqueNames(noSMILES);
-0107 
-0108 <span class="keyword">if</span> ~isfield(model,<span class="string">'metSmiles'</span>) || all(cellfun(@isempty,model.metSmiles))
-0109     model.metSmiles = newSmiles;
-0110 <span class="keyword">else</span>
-0111     emptySmiles = cellfun(@isempty,model.metSmiles);
-0112     model.metSmiles(emptySmiles) = newSmiles(emptySmiles);
-0113 <span class="keyword">end</span>
-0114 <span class="keyword">end</span></pre></div>
+0056         retry = 0;
+0057         <span class="keyword">while</span> retry &lt; 10
+0058             <span class="keyword">try</span>
+0059                 smileResult       = webread([<span class="string">'https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/'</span> uniqueNames{i} <span class="string">'/property/CanonicalSMILES/TXT'</span>], webOptions);
+0060                 <span class="comment">%Sometimes multiple lines are given, with alternative SMILES. Only</span>
+0061                 <span class="comment">%keep the first suggestion.</span>
+0062                 smileResult       = regexp(smileResult,<span class="string">'(^\S*)\n'</span>,<span class="string">'once'</span>,<span class="string">'tokens'</span>);
+0063                 uniqueSmiles{i,1} = smileResult{1,1};
+0064                 retry = 15; <span class="comment">% success: no retry</span>
+0065             <span class="keyword">catch</span> exception
+0066                 <span class="comment">%Sometimes the call fails, for example since the server is busy. In those cases</span>
+0067                 <span class="comment">%we will try 10 times. Some errors however are because the metabolite</span>
+0068                 <span class="comment">%name does no exist in the database (404) or some other error (the metabolite contains</span>
+0069                 <span class="comment">%a slash or similar, 400 or 500). In those cases we can</span>
+0070                 <span class="comment">%immediately give up.</span>
+0071                 <span class="keyword">if</span> (strcmp(exception.identifier, <span class="string">'MATLAB:webservices:HTTP404StatusCodeError'</span>) || <span class="keyword">...</span>
+0072                         strcmp(exception.identifier, <span class="string">'MATLAB:webservices:HTTP400StatusCodeError'</span>) || <span class="keyword">...</span>
+0073                         strcmp(exception.identifier, <span class="string">'MATLAB:webservices:HTTP500StatusCodeError'</span>))
+0074                     uniqueSmiles(i) = {<span class="string">''</span>};
+0075                     retry = 15;
+0076                 <span class="keyword">else</span>
+0077                     retry = retry + 1;
+0078                 <span class="keyword">end</span>
+0079             <span class="keyword">end</span>
+0080         <span class="keyword">if</span> retry == 10
+0081             error(<span class="string">'Cannot reach PubChem. Check your internet connection and try again.'</span>)
+0082         <span class="keyword">end</span>
+0083         <span class="keyword">end</span>
+0084         <span class="comment">% Append one line each time, in case internet connection is lost</span>
+0085         <span class="comment">% halfway. Open &amp; close file each time to avoid leaving the file</span>
+0086         <span class="comment">% open when breaking the function.</span>
+0087         out = [uniqueNames(i), uniqueSmiles(i)];
+0088         fID = fopen(smilesDBfile,<span class="string">'a'</span>);
+0089         fprintf(fID,<span class="string">'%s\t%s\n'</span>,out{:});
+0090         fclose(fID);
+0091         progressbar(i/numel(uniqueNames))
+0092     <span class="keyword">end</span>
+0093     <span class="keyword">if</span> verbose
+0094         fprintf(<span class="string">'Model-specific SMILES database stored at %s\n'</span>,smilesDBfile);
+0095     <span class="keyword">end</span>
+0096 <span class="keyword">end</span>
+0097 newSmiles = uniqueSmiles(uniqueIdx);
+0098 noSMILES = cellfun(@isempty,uniqueSmiles);
+0099 successRatio = numel(find(noSMILES))/numel(uniqueSmiles);
+0100 fprintf(<span class="string">'SMILES could be found for %s%% of the unique metabolite names.\n'</span>,num2str(successRatio*100,<span class="string">'%.0f'</span>))
+0101 noSMILES = uniqueNames(noSMILES);
+0102 
+0103 <span class="keyword">if</span> ~isfield(model,<span class="string">'metSmiles'</span>) || all(cellfun(@isempty,model.metSmiles))
+0104     model.metSmiles = newSmiles;
+0105 <span class="keyword">else</span>
+0106     emptySmiles = cellfun(@isempty,model.metSmiles);
+0107     model.metSmiles(emptySmiles) = newSmiles(emptySmiles);
+0108 <span class="keyword">end</span>
+0109 <span class="keyword">end</span></pre></div>
 <hr><address>Generated by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

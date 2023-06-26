@@ -34,5 +34,8 @@ else
     filename = fullfile(params.path,'models',[filename, '.xml'])
 end
 
-model = importModel(filename);
+if endsWith(filename,'.xml')
+    model = importModel(filename);
+elseif endsWith(filename,'.yml')
+    model = readYAMLmodel(filename);
 end

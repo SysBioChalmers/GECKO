@@ -41,6 +41,8 @@ function [model, flexProt] = flexibilizeProtConcs(model, expGrowth, foldChange, 
 %                   oldConcs    original concentrations, from mode.ec.concs
 %                   flexConcs   flexibilized concentrations, new UB in
 %                               model
+%                   ratioIncr   ratio by which the concentration increased,
+%                               the enzymes will be sorted by this field
 %                   frequence   numeric how often the enzyme has been
 %                               step-wise flexibilized
 %
@@ -220,4 +222,12 @@ if changedProtPool
     flexProt.flexConcs(end+1)  = newProtPool;
     flexProt.frequence(end+1)  = 1;
 end
+% Sort by biggest ratio increase
+flexProt.ratioIncr  = flexProt.flexConcs./flexProt.oldConcs;
+[~,b] = sort(flexProt.ratioIncr,'descend');
+flexProt.ratioIncr  = flexProt.ratioIncr(b);
+flexProt.uniprotIDs = flexProt.uniprotIDs(b);
+flexProt.oldConcs   = flexProt.oldConcs(b);
+flexProt.flexConcs  = flexProt.flexConcs(b);
+flexProt.frequence  = flexProt.frequence(b);
 end

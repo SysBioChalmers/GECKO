@@ -72,9 +72,6 @@
                    abundances  matrix of proteomics data, where each
                                column contains mean abundances per
                                condition
-                   measuredProt  array with measured proteins, where each
-                               column contains mean of unfiltered total
-                               abundances sum per condition in mg/gDW.
 
  Usage:
    protData = loadProtData(replPerCond, protDataFile, filterData, modelAdapter, minVal, maxRSD, maxMissing, cutLowest, addStdevs)</pre></div>
@@ -138,117 +135,110 @@ This function is called by:
 0044 <span class="comment">%                   abundances  matrix of proteomics data, where each</span>
 0045 <span class="comment">%                               column contains mean abundances per</span>
 0046 <span class="comment">%                               condition</span>
-0047 <span class="comment">%                   measuredProt  array with measured proteins, where each</span>
-0048 <span class="comment">%                               column contains mean of unfiltered total</span>
-0049 <span class="comment">%                               abundances sum per condition in mg/gDW.</span>
-0050 <span class="comment">%</span>
-0051 <span class="comment">% Usage:</span>
-0052 <span class="comment">%   protData = loadProtData(replPerCond, protDataFile, filterData, modelAdapter, minVal, maxRSD, maxMissing, cutLowest, addStdevs)</span>
-0053 
-0054 <span class="keyword">if</span> nargin &lt; 8 || isempty(addStdevs)
-0055     addStdevs = 1;
-0056 <span class="keyword">end</span>
-0057 
-0058 <span class="keyword">if</span> nargin &lt; 7 || isempty(maxMissing)
-0059     maxMissing = 2/3;
-0060 <span class="keyword">end</span>
-0061 
-0062 <span class="keyword">if</span> nargin &lt; 6 || isempty(maxRSD)
-0063     maxRSD = 1;
-0064 <span class="keyword">end</span>
-0065 
-0066 <span class="keyword">if</span> nargin &lt; 5 || isempty(minVal)
-0067     minVal = 0;
-0068 <span class="keyword">end</span>
-0069 
-0070 <span class="keyword">if</span> nargin &lt; 4 || isempty(modelAdapter)
-0071     modelAdapter = ModelAdapterManager.getDefault();
-0072     <span class="keyword">if</span> isempty(modelAdapter)
-0073         error(<span class="string">'Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.'</span>)
-0074     <span class="keyword">end</span>
-0075 <span class="keyword">end</span>
-0076 params = modelAdapter.getParameters();
-0077 
-0078 <span class="keyword">if</span> nargin &lt; 3 || isempty(filterData)
-0079     filterData = true;
-0080 <span class="keyword">end</span>
-0081 
-0082 <span class="keyword">if</span> nargin &lt; 2 || isempty(protDataFile)
-0083     protDataFile = fullfile(params.path,<span class="string">'data'</span>,<span class="string">'proteomics.tsv'</span>);
-0084 <span class="keyword">end</span>
-0085 
-0086 format = <span class="string">'%s'</span>;
-0087 <span class="keyword">for</span> i=1:sum(replPerCond)
-0088     format = [format <span class="string">' %f'</span>];
-0089 <span class="keyword">end</span>
-0090 <span class="keyword">if</span> ~isstruct(protDataFile)
-0091     fID         = fopen(protDataFile);
-0092     protDataRaw = textscan(fID,format,<span class="string">'Delimiter'</span>,<span class="string">'\t'</span>,<span class="string">'HeaderLines'</span>,1,<span class="string">'TreatAsEmpty'</span>,{<span class="string">'NA'</span>,<span class="string">'na'</span>,<span class="string">'NaN'</span>,<span class="string">'#VALUE!'</span>});
-0093     uniprotIDs  = protDataRaw{1};
-0094     abundances  = cell2mat(protDataRaw(2:end));
-0095     fclose(fID);
-0096 <span class="keyword">else</span>
-0097     uniprotIDs  = protDataFile.uniprotIDs;
-0098     abundances  = protDataFile.abundances;
-0099 <span class="keyword">end</span>
-0100 
-0101 <span class="comment">%Remove entriew without ID</span>
-0102 remData = cellfun(@isempty,uniprotIDs);
-0103 uniprotIDs(remData,:) = [];
-0104 abundances(remData,:) = [];
-0105 m                     = size(abundances,1);
-0106 filtAbund             = nan(m,numel(replPerCond));
-0107 measuredProt          = zeros(1,numel(replPerCond));
-0108 
-0109 <span class="keyword">if</span> filterData
-0110     <span class="keyword">for</span> i=1:numel(replPerCond)
-0111         condAbund    = abundances(:,1:replPerCond(i));
-0112         measuredProt(i) = mean(sum(condAbund,1));
-0113         <span class="keyword">if</span> i&lt;numel(replPerCond)
-0114             abundances   = abundances(:,replPerCond(i)+1:end);
-0115         <span class="keyword">end</span>
-0116         <span class="comment">% First filter maxMissing</span>
-0117         <span class="keyword">if</span> size(condAbund,2) &gt; 1
-0118             <span class="keyword">if</span> numel(maxMissing)&gt;1
-0119                 maxMisRepl = maxMissing(i);
-0120             <span class="keyword">else</span>
-0121                 maxMisRepl = maxMissing;
-0122             <span class="keyword">end</span>
-0123             remData = sum(condAbund&gt;0,2)&lt;maxMisRepl*size(condAbund,2);
-0124             condAbund(remData,:) = nan;
-0125         <span class="keyword">end</span>
-0126         <span class="comment">% Filter by RSD</span>
-0127         remData = (std(condAbund,0,2,<span class="string">'omitnan'</span>)./mean(condAbund,2,<span class="string">'omitnan'</span>))&gt;maxRSD;
+0047 <span class="comment">%</span>
+0048 <span class="comment">% Usage:</span>
+0049 <span class="comment">%   protData = loadProtData(replPerCond, protDataFile, filterData, modelAdapter, minVal, maxRSD, maxMissing, cutLowest, addStdevs)</span>
+0050 
+0051 <span class="keyword">if</span> nargin &lt; 8 || isempty(addStdevs)
+0052     addStdevs = 1;
+0053 <span class="keyword">end</span>
+0054 
+0055 <span class="keyword">if</span> nargin &lt; 7 || isempty(maxMissing)
+0056     maxMissing = 2/3;
+0057 <span class="keyword">end</span>
+0058 
+0059 <span class="keyword">if</span> nargin &lt; 6 || isempty(maxRSD)
+0060     maxRSD = 1;
+0061 <span class="keyword">end</span>
+0062 
+0063 <span class="keyword">if</span> nargin &lt; 5 || isempty(minVal)
+0064     minVal = 0;
+0065 <span class="keyword">end</span>
+0066 
+0067 <span class="keyword">if</span> nargin &lt; 4 || isempty(modelAdapter)
+0068     modelAdapter = ModelAdapterManager.getDefault();
+0069     <span class="keyword">if</span> isempty(modelAdapter)
+0070         error(<span class="string">'Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.'</span>)
+0071     <span class="keyword">end</span>
+0072 <span class="keyword">end</span>
+0073 params = modelAdapter.getParameters();
+0074 
+0075 <span class="keyword">if</span> nargin &lt; 3 || isempty(filterData)
+0076     filterData = true;
+0077 <span class="keyword">end</span>
+0078 
+0079 <span class="keyword">if</span> nargin &lt; 2 || isempty(protDataFile)
+0080     protDataFile = fullfile(params.path,<span class="string">'data'</span>,<span class="string">'proteomics.tsv'</span>);
+0081 <span class="keyword">end</span>
+0082 
+0083 format = <span class="string">'%s'</span>;
+0084 <span class="keyword">for</span> i=1:sum(replPerCond)
+0085     format = [format <span class="string">' %f'</span>];
+0086 <span class="keyword">end</span>
+0087 <span class="keyword">if</span> ~isstruct(protDataFile)
+0088     fID         = fopen(protDataFile);
+0089     protDataRaw = textscan(fID,format,<span class="string">'Delimiter'</span>,<span class="string">'\t'</span>,<span class="string">'HeaderLines'</span>,1,<span class="string">'TreatAsEmpty'</span>,{<span class="string">'NA'</span>,<span class="string">'na'</span>,<span class="string">'NaN'</span>,<span class="string">'#VALUE!'</span>});
+0090     uniprotIDs  = protDataRaw{1};
+0091     abundances  = cell2mat(protDataRaw(2:end));
+0092     fclose(fID);
+0093 <span class="keyword">else</span>
+0094     uniprotIDs  = protDataFile.uniprotIDs;
+0095     abundances  = protDataFile.abundances;
+0096 <span class="keyword">end</span>
+0097 
+0098 <span class="comment">%Remove entriew without ID</span>
+0099 remData = cellfun(@isempty,uniprotIDs);
+0100 uniprotIDs(remData,:) = [];
+0101 abundances(remData,:) = [];
+0102 m                     = size(abundances,1);
+0103 filtAbund             = nan(m,numel(replPerCond));
+0104 
+0105 <span class="keyword">if</span> filterData
+0106     <span class="keyword">for</span> i=1:numel(replPerCond)
+0107         condAbund    = abundances(:,1:replPerCond(i));
+0108         <span class="keyword">if</span> i&lt;numel(replPerCond)
+0109             abundances   = abundances(:,replPerCond(i)+1:end);
+0110         <span class="keyword">end</span>
+0111         <span class="comment">% First filter maxMissing</span>
+0112         <span class="keyword">if</span> size(condAbund,2) &gt; 1
+0113             <span class="keyword">if</span> numel(maxMissing)&gt;1
+0114                 maxMisRepl = maxMissing(i);
+0115             <span class="keyword">else</span>
+0116                 maxMisRepl = maxMissing;
+0117             <span class="keyword">end</span>
+0118             remData = sum(condAbund&gt;0,2)&lt;maxMisRepl*size(condAbund,2);
+0119             condAbund(remData,:) = nan;
+0120         <span class="keyword">end</span>
+0121         <span class="comment">% Filter by RSD</span>
+0122         remData = (std(condAbund,0,2,<span class="string">'omitnan'</span>)./mean(condAbund,2,<span class="string">'omitnan'</span>))&gt;maxRSD;
+0123         condAbund(remData) = nan;
+0124         <span class="comment">% Add stdevs</span>
+0125         condAbund = mean(condAbund,2,<span class="string">'omitnan'</span>)+(addStdevs*std(condAbund,0,2,<span class="string">'omitnan'</span>));
+0126         <span class="comment">% Filter by minVal</span>
+0127         remData = mean(condAbund,2,<span class="string">'omitnan'</span>)&lt;minVal;
 0128         condAbund(remData) = nan;
-0129         <span class="comment">% Add stdevs</span>
-0130         condAbund = mean(condAbund,2,<span class="string">'omitnan'</span>)+(addStdevs*std(condAbund,0,2,<span class="string">'omitnan'</span>));
-0131         <span class="comment">% Filter by minVal</span>
-0132         remData = mean(condAbund,2,<span class="string">'omitnan'</span>)&lt;minVal;
-0133         condAbund(remData) = nan;
-0134         <span class="comment">% Remove bottom 5%</span>
-0135         numData  = find(~isnan(condAbund));
-0136         [~,sortData] = sort(condAbund);
-0137         lowCutoff = floor(numel(numData)*0.05);
-0138         condAbund(sortData(1:lowCutoff)) = nan;
-0139         <span class="comment">% Combine conditions</span>
-0140         filtAbund(:,i) = condAbund;
-0141     <span class="keyword">end</span>
-0142 <span class="keyword">else</span>
-0143     <span class="keyword">for</span> i=1:numel(replPerCond)
-0144         condAbund    = abundances(:,1:replPerCond(i));
-0145         measuredProt(i) = mean(sum(condAbund,1,<span class="string">'omitnan'</span>));
-0146         <span class="keyword">if</span> i&lt;numel(replPerCond)
-0147             abundances = abundances(:,replPerCond(i)+1:end);
-0148         <span class="keyword">end</span>
-0149         filtAbund(:,i) = mean(condAbund,2,<span class="string">'omitnan'</span>);
-0150     <span class="keyword">end</span>
-0151 <span class="keyword">end</span>
-0152 notAllNan = logical(sum(~isnan(filtAbund),2));
-0153 protData.abundances = filtAbund(notAllNan,:);
-0154 protData.uniprotIDs = uniprotIDs(notAllNan);
-0155 protData.measuredProt = measuredProt;
-0156 <span class="keyword">end</span>
-0157</pre></div>
+0129         <span class="comment">% Remove bottom 5%</span>
+0130         numData  = find(~isnan(condAbund));
+0131         [~,sortData] = sort(condAbund);
+0132         lowCutoff = floor(numel(numData)*0.05);
+0133         condAbund(sortData(1:lowCutoff)) = nan;
+0134         <span class="comment">% Combine conditions</span>
+0135         filtAbund(:,i) = condAbund;
+0136     <span class="keyword">end</span>
+0137 <span class="keyword">else</span>
+0138     <span class="keyword">for</span> i=1:numel(replPerCond)
+0139         condAbund    = abundances(:,1:replPerCond(i));
+0140         <span class="keyword">if</span> i&lt;numel(replPerCond)
+0141             abundances = abundances(:,replPerCond(i)+1:end);
+0142         <span class="keyword">end</span>
+0143         filtAbund(:,i) = mean(condAbund,2,<span class="string">'omitnan'</span>);
+0144     <span class="keyword">end</span>
+0145 <span class="keyword">end</span>
+0146 notAllNan = logical(sum(~isnan(filtAbund),2));
+0147 protData.abundances = filtAbund(notAllNan,:);
+0148 protData.uniprotIDs = uniprotIDs(notAllNan);
+0149 <span class="keyword">end</span>
+0150</pre></div>
 <hr><address>Generated by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

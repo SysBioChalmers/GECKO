@@ -63,6 +63,7 @@ else
     rxnNames = extractAfter(model.ec.rxns,4);
 end
 
+progressbar('Assign complexes to reactions')
 for i = 1:numel(rxnNames)
     bestComplexIdx = 0;
     bestMatch = 0;
@@ -137,8 +138,7 @@ for i = 1:numel(rxnNames)
 
         end
     end
-%    end
-    
+    progressbar(i/numel(rxnNames))
 end
 
 rowHeadings = {'rxn', 'complexID','name','genes','protID_model','protID_complex','stochiometry'};

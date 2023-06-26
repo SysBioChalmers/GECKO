@@ -14,9 +14,7 @@ function saveECmodel(model,modelAdapter,format,filename)
 %                   saved in one format, e.g. 'yaml', or cell array if
 %                   multiple formats {'yaml','sbml'}. (Optional, default
 %                   'yaml').
-%   filename        overwrites whatever path is specified in modelAdapter,
-%                   or if no modelAdapter is specified. Otherwise, the file
-%                   is stored as ecModel in param.path.
+%   filename        file name, 'ecModel' by default.
 %
 % Usage:
 %   saveECmodel(model,modelAdapter,format,filename)

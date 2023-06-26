@@ -17,7 +17,6 @@ classdef ModelAdapterManager
                 if ~onPath
                     if addToMatlabPath
                         addpath(adapterFolder);
-                        savepath();
                     else
                         warning(['The adapter will not be on the MATLAB path, since ' ...
                                 'addToMatlabPath is false and it is not currently on ' ...
