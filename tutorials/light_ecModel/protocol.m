@@ -105,7 +105,7 @@ sol=solveLP(ecModel,1)
 printFluxes(ecModel,sol.x)
 saveEcModel(ecModel);
 
-% STEP 16
+% STEP 15-18
 % sensitivityTuning also works on light ecModels. However, in this tutorial
 % an ecModel for the generic Human-GEM model is generated. This model is
 % not directly suitable for simulations, as it does not represent a
@@ -114,10 +114,10 @@ saveEcModel(ecModel);
 % cells, or otherwise the natural environment]), and what maximum growth
 % rate should be reached.
 
-% STEP 18-21
+% STEP 19-22
 % Proteomics integration is NOT possible with light ecModels.
 
-% STEP 23
+% STEP 25
 % Simulating fluxes in light ecModels would follow a similar strategy as
 % would be suitable for simulating full ecModels without proteomics
 % integration. E.g. first optimization of a "classical" objective function
@@ -125,19 +125,25 @@ saveEcModel(ecModel);
 % uptake), constraining the ecModel with the objective value that was
 % reached, followed by a second optimization where the total enzyme usage
 % is minimized, yielding the most efficient enzyme allocation.
+ecModel = loadEcModel();
 ecModel = setParam(ecModel,'obj',adapter.params.bioRxn,1);
 sol = solveLP(ecModel)
 disp(['Growth rate reached: ' num2str(abs(sol.f))])
 % Set growth lower bound to 99% of the previous value
 ecModel = setParam(ecModel,'lb',adapter.params.bioRxn,0.99*abs(sol.f));
-% Minimize protein pool usage. As protein pool exchange is defined in the
-% reverse direction (with negative flux), minimization of protein pool
-% usage is computationally represented by maximizing the prot_pool_exchange
-% reaction.
+% Minimize protein pool usage.
 ecModel = setParam(ecModel,'obj','prot_pool_exchange',1);
 sol = solveLP(ecModel)
 disp(['Minimum protein pool usage: ' num2str(abs(sol.f)) ' mg/gDCW'])
 
+% STEP 26
+% Individual enzyme usages cannot be investigated in light ecModels, as
+% these are not explicitly included in the S-matrix.
 
-% TODO: LAST FEW STEPS
+% STEP 27-28
+% Mapping fluxes to the conventional GEM works identical as for full
+% ecModels. Due to enzymes not being explicitly included in the S-matrix,
+% the enzUsageFlux only includes the protein pool exchange.
+[mappedFlux, enzUsageFlux, usageEnz] = mapRxnsToConv(ecModel, model, sol.x);
 
+% STEP 29
