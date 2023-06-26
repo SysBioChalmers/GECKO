@@ -84,6 +84,6 @@ classdef GECKOInstaller
     end
 
     properties (Constant)
-        FILE_FILTER = '.*\.git|.idea|tutorials.*|.github|_MACOSX';
+        FILE_FILTER = '.*\.git|.idea|tutorials.*|.github|_MACOSX|doc';
     end
 end
