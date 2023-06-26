@@ -225,7 +225,7 @@ ecModel = setParam(ecModel,'lb','r_1714',-1000);
 ecModel = setParam(ecModel,'obj','r_4041',1);
 % Run FBA
 sol = solveLP(ecModel,1);
-bioRxnIdx = getIndexes(ecModel,ModelAdapter.params.bioRxn,'rxns');
+bioRxnIdx = getIndexes(ecModel,params.bioRxn,'rxns');
 fprintf('Growth rate: %f /hour\n', sol.x(bioRxnIdx))
 % The growth rate is far below 0.41 (the maximum growth rate of
 % S. cerevisiae, that is entered in the model adapter as obj.params.gR_exp.
@@ -235,11 +235,11 @@ fprintf('Growth rate: %f /hour\n', sol.x(bioRxnIdx))
 % upper bound of the protein pool exchange reaction can be increased to
 % whatever is required. This works, but STEP 17 is preferred.
 ecModel = setParam(ecModel, 'lb', 'r_4041', 0.41);
-protPoolIdx = strcmp(ecModel.rxns, 'prot_pool_exchange');
-ecModel = setParam(ecModel, 'lb', protPoolIdx, -1000);
-ecModel = setParam(ecModel, 'obj', protPoolIdx, 1);
+ecModel = setParam(ecModel, 'lb', 'prot_pool_exchange', -1000);
+ecModel = setParam(ecModel, 'obj', 'prot_pool_exchange', 1);
 sol = solveLP(ecModel);
 
+protPoolIdx = strcmp(ecModel.rxns, 'prot_pool_exchange');
 fprintf('Protein pool usage is: %.0f mg/gDCW.\n', abs(sol.x(protPoolIdx)))
 ecModel = setParam(ecModel,'lb',protPoolIdx,sol.x(protPoolIdx));
 
@@ -351,6 +351,8 @@ fprintf('Growth rate that is reached: %f /hour\n', abs(sol.f))
 % STEP 22 Protein concentrations are flexibilized (increased), until the
 % intended growth rate is reached. This is condition-specific, so the
 % intended growth rate is gathered from the fluxData structure.
+[ecModel, flexProt] = flexibilizeProtConcs(ecModel,fluxData.grRate(1),10);
+
 % Neither individual protein levels nor total protein pool are limiting
 % growth. Test whether the starting model is able to reach 0.1.
 model = constrainFluxData(model,fluxData);
@@ -403,13 +405,13 @@ ecModel = loadEcModel('ecYeastGEM.yml');
 % where it is stored, but we will navigate back to the current folder
 % afterwards.
 currentFolder = pwd;
-cd(fullfile(ModelAdapter.params.path,'code'))
+cd(fullfile(params.path,'code'))
 [fluxes, gRate] = plotCrabtree(ecModel);
 % fluxes has all the predicted fluxes, while gRate is a vector with the
 % corresponding growth rates that were simulated, as visualized on the
 % x-axis in the graph.
 % The plot will also be saved in the output subfolder.
-saveas(gcf,fullfile(ModelAdapter.params.path,'output','crabtree.tiff'))
+saveas(gcf,fullfile(params.path,'output','crabtree.tiff'))
 
 % The two graphs show (left:) exchange fluxes from simulations (lines) and
 % experiments (circles, from doi:10.1128/AEM.64.11.4226-4233.1998); and
@@ -426,7 +428,7 @@ saveas(gcf,fullfile(ModelAdapter.params.path,'output','crabtree.tiff'))
 % Set protein pool to infinite, to mimic a conventional GEM
 ecModel_infProt=setProtPoolSize(ecModel,Inf);
 plotCrabtree(ecModel_infProt);
-saveas(gcf,fullfile(ModelAdapter.params.path,'output','crabtree_infProt.tiff'))
+saveas(gcf,fullfile(params.path,'output','crabtree_infProt.tiff'))
 % It is obvious that no total protein constraint is reached, and Crabtree
 % effect is not observed.
 
@@ -435,16 +437,14 @@ saveas(gcf,fullfile(ModelAdapter.params.path,'output','crabtree_infProt.tiff'))
 ecModel_preTuning = loadEcModel('ecYeastGEM_stage2.yml');
 ecModel_preTuning = setParam(ecModel_preTuning,'lb','r_1714',-1000);
 plotCrabtree(ecModel_preTuning);
-saveas(gcf,fullfile(ModelAdapter.params.path,'output','crabtree_preStep17.tiff'))
+saveas(gcf,fullfile(params.path,'output','crabtree_preStep17.tiff'))
 % Without kcat tuning, the model gets constrained too early (at too low
 % growth rates), which means that no solutions exist at high growth rates.
-
-%% === FROM HERE NOT FULLY TESTED/UPDATED YET ===
 
 % STEP 25 Selecting objective functions
 ecModel = setParam(ecModel,'obj',params.bioRxn,1);
 sol = solveLP(ecModel)
-disp(['Growth rate reached: ' num2str(abs(sol.f))])
+fprintf('Growth rate that is reached: %.4f /hour\n', abs(sol.f))
 % Set growth lower bound to 99% of the previous value
 ecModel = setParam(ecModel,'lb',params.bioRxn,0.99*abs(sol.f));
 % Minimize protein pool usage. As protein pool exchange is defined in the
@@ -453,72 +453,49 @@ ecModel = setParam(ecModel,'lb',params.bioRxn,0.99*abs(sol.f));
 % reaction.
 ecModel = setParam(ecModel,'obj','prot_pool_exchange',1);
 sol = solveLP(ecModel)
-disp(['Minimum protein pool usage: ' num2str(abs(sol.f)) ' mg/gDCW'])
+fprintf('Minimum protein pool usage: %.2f mg/gDCW\n', abs(sol.f))
 
-% STEP 26 Compare fluxes from ecModel and starting model
-% Constrain with the same conditions to model and ecModel. We now fix the
-% observed growth as lower bound ('min' in constrainFluxData) and allow 5%
-% variability around the other measured fluxes.
-% We know that growth can only reach 0.088, so use this instead of 0.1.
-fluxData.grRate(1) = 0.088;
-ecModel = constrainFluxData(ecModel,fluxData,1,'min',5);
-% Minimize protein pool usage. 
-ecModel = setParam(ecModel,'obj','prot_pool_exchange',1);
-solEC = solveLP(ecModel,1)
-
-% Apply (almost) the same to non-ecModel. Same constraints on fluxes, but
-% objective function remains growth (cannot minimize protein usage).
-model = constrainFluxData(model,fluxData,1,'min',5);
-sol = solveLP(model,1)
-% Note that with the 5% of variability, the model can reach higher growth
-% rate than 0.0885, as it is allowed to take up a little bit more glucose
-% this time.
-
-% Map the ecModel fluxes back to the non-ecModel
-[mappedFlux, enzUsageFlux, usageEnz] = mapRxnsToConv(ecModel, model, solEC.x);
-
-% Print the fluxes next to each other, showing only exchange reactions
-printFluxes(model,[sol.x mappedFlux])
-% Print the fluxes next to each other, showing all reactions
-printFluxes(model,[sol.x mappedFlux],false)
-% Look at ratio of ecModel / non-ecModel
-ratioFlux = mappedFlux ./ sol.x;
-ratioFlux(isnan(ratioFlux)) = 0; % Divisions by zero give NaN, reset to zero.
-printFluxes(model,ratioFlux,false)
-
-% STEP 27 Inspect enzyme usage
+% STEP 26 Inspect enzyme usage
 % Show the result from the earlier simulation, without mapping to
 % non-ecModel.
-usageData = enzymeUsage(ecModel,solEC.x);
-usageReport = reportEnzymeUsage(ecModel,usageData,0.90);
+ecModel = setParam(ecModel, 'obj', 'r_1714', 1);
+ecModel = setParam(ecModel, 'lb', params.bioRxn, 0.25);
+sol = solveLP(ecModel, 1);
+usageData = enzymeUsage(ecModel, sol.x);
+usageReport = reportEnzymeUsage(ecModel,usageData);
+usageReport.topAbsUsage
+
+% STEP 27 Compare fluxes from ecModel and conventional GEM
+sol = solveLP(ecModel);
+% Map the ecModel fluxes back to the conventional GEM
+[mappedFlux, enzUsageFlux, usageEnz] = mapRxnsToConv(ecModel, model, solEC.x);
 
 % STEP 28 Perform (ec)FVA
-% Perform FVA
-[minFluxEc, maxFluxEc] = ecFVA(ecModel, model);
-[minFluxY, maxFluxY] = ecFVA(model, model);
+% Perform FVA on a conventional GEM, ecModel, and ecModel plus proteomics
+% integration, all under similar exchange flux constraints.
+% First make sure that the correct models are loaded
+model = loadConventionalGEM();
+ecModel = loadEcModel('ecYeastGEM.yml');
+ecModelProt = loadEcModel('ecYeastGEM_stage4.yml');
 
-% Write results to output file
-output = [model.rxns, model.rxnNames, num2cell([minFluxY, maxFluxY, minFluxEc, maxFluxEc])]';
-fID = fopen(fullfile(params.path,'output','ecFVA.tsv'),'w');
-fprintf(fID,'%s %s %s %s %s %s\n','rxnIDs', 'rxnNames', 'minFlux', ...
-            'maxFlux', 'ec-minFlux', 'ec-maxFlux');
-fprintf(fID,'%s %s %g %g %g %g\n',output{:});
-fclose(fID);
+% As protein model can maximum reach 0.088, also set this as constrain for
+% all models.
+fluxData.grRate(1) = 0.0880;
 
-% Look at flux ranges to indicate reaction-level variability
-fluxRange = maxFluxEc - minFluxEc;
-fluxRangeY = maxFluxY - minFluxY;
+% Apply same constraints on exchange fluxes
+model = constrainFluxData(model,fluxData,1,'min',5);
+ecModel = constrainFluxData(ecModel,fluxData,1,'min',5);
+ecModelProt = constrainFluxData(ecModelProt,fluxData,1,'min',5);
 
-% Plot variability distributions of both models in 1 plot
-hold on
-cdfplot(fluxRange)
-cdfplot(fluxRangeY)
-set(gca, 'XScale', 'log', 'Xlim', [1e-8 1e4])
-set(findall(gca, 'Type', 'Line'), 'LineWidth', 2)
-legend(['ecYeastGEM (mean: ' num2str(mean(fluxRange)) ')'],...
-        ['yeast-GEM (mean: ' num2str(mean(fluxRangeY)) ')'],...
-        'Location','northwest')
-title('Flux variability (cumulative distribution)');
-xlabel('Variability range [mmol/gDw h]');
-ylabel('Cumulative distribution');
+% Prepare output structure
+minFlux = zeros(numel(model.rxns),3);
+maxFlux = minFlux;
+
+% Run ecFVA for each model
+[minFlux(:,1), maxFlux(:,1)] = ecFVA(model, model);
+[minFlux(:,2), maxFlux(:,2)] = ecFVA(ecModel, model);
+[minFlux(:,3), maxFlux(:,3)] = ecFVA(ecModelProt, model);
+
+% Plot ecFVA results and store in output/.
+plotEcFVA(minFlux, maxFlux);
 saveas(gca, fullfile(params.path,'output','ecFVA.pdf'))
