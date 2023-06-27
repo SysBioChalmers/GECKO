@@ -411,7 +411,7 @@ cd(fullfile(params.path,'code'))
 % corresponding growth rates that were simulated, as visualized on the
 % x-axis in the graph.
 % The plot will also be saved in the output subfolder.
-saveas(gcf,fullfile(params.path,'output','crabtree.tiff'))
+saveas(gcf,fullfile(params.path,'output','crabtree.pdf'))
 
 % The two graphs show (left:) exchange fluxes from simulations (lines) and
 % experiments (circles, from doi:10.1128/AEM.64.11.4226-4233.1998); and
@@ -428,7 +428,7 @@ saveas(gcf,fullfile(params.path,'output','crabtree.tiff'))
 % Set protein pool to infinite, to mimic a conventional GEM
 ecModel_infProt=setProtPoolSize(ecModel,Inf);
 plotCrabtree(ecModel_infProt);
-saveas(gcf,fullfile(params.path,'output','crabtree_infProt.tiff'))
+saveas(gcf,fullfile(params.path,'output','crabtree_infProt.pdf'))
 % It is obvious that no total protein constraint is reached, and Crabtree
 % effect is not observed.
 
@@ -437,7 +437,7 @@ saveas(gcf,fullfile(params.path,'output','crabtree_infProt.tiff'))
 ecModel_preTuning = loadEcModel('ecYeastGEM_stage2.yml');
 ecModel_preTuning = setParam(ecModel_preTuning,'lb','r_1714',-1000);
 plotCrabtree(ecModel_preTuning);
-saveas(gcf,fullfile(params.path,'output','crabtree_preStep17.tiff'))
+saveas(gcf,fullfile(params.path,'output','crabtree_preStep17.pdf'))
 % Without kcat tuning, the model gets constrained too early (at too low
 % growth rates), which means that no solutions exist at high growth rates.
 
