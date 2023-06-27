@@ -15,7 +15,7 @@
 
 % Prepare software and model adapter
 GECKOInstaller.install
-checkInstallation
+checkInstallation;
 setRavenSolver('gurobi')
 
 % STEP 1
@@ -147,3 +147,10 @@ disp(['Minimum protein pool usage: ' num2str(abs(sol.f)) ' mg/gDCW'])
 [mappedFlux, enzUsageFlux, usageEnz] = mapRxnsToConv(ecModel, model, sol.x);
 
 % STEP 29
+% To exemplify the construction of a context-specific ecModel, a
+% conventional GEM of HT-29 cell line is loaded
+HT29 = readYAMLmodel(fullfile(adapter.params.path,'models','HT29-GEM.yml'));
+
+% Make a context-specific ecModel based on the generic Human-GEM
+ecModel = loadEcModel();
+ecHT29 = getSubsetEcModel(ecModel,HT29);
