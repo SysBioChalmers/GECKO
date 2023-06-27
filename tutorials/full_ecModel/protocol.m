@@ -23,7 +23,7 @@
 %   - Simplest, RAVEN can be installed as MATLAB Add-On:
 %     https://se.mathworks.com/help/matlab/matlab_env/get-add-ons.html
 %   - The installation of Gurobi as LP solver is highly recommended
-checkInstallation % Confirm that RAVEN is functional, should be 2.8.3 or later.
+checkInstallation; % Confirm that RAVEN is functional, should be 2.8.3 or later.
 
 %   - GECKO can be installed via cloning or direct download of ZIP file.
 %     See installation instructions in the README.md:
@@ -101,7 +101,7 @@ doc makeEcModel
 % In this script there is code at the end of each stage to store a copy of
 % the ecModel. However, only the stage 3 ecModel is kept and distributed
 % together with GECKO (as is shown at the end of stage 3).
-saveEcModel(ecModel,ModelAdapter,'yml','ecYeastGEM_stage1');
+saveEcModel(ecModel,'ecYeastGEM_stage1.yml');
 
 %% STAGE 2: integration of kcat into the ecModel structure
 %ecModel=loadEcModel('ecYeastGEM_stage1.yml'); % Uncomment if you want to reload model
@@ -212,7 +212,7 @@ ecModel = setProtPoolSize(ecModel,Ptot,f,sigma);
 % particular maximum growth rate. This will not be done here, as we first
 % need to tune the kcat values in Stage 3.
 
-saveEcModel(ecModel,ModelAdapter,'yml','ecYeastGEM_stage2');
+saveEcModel(ecModel,'ecYeastGEM_stage2.yml');
 
 %% STAGE 3: model tuning
 %ecModel=loadEcModel('ecYeastGEM_stage2.yml'); % Uncomment if you want to reload model
@@ -314,10 +314,10 @@ convKcat = convKcat * 76626 % mol/sec/mol protein, same as 1/sec.
 % New kcat is 2.16, which is not too far from what sensitivity tuning
 % suggested at 2.23.
 
-saveEcModel(ecModel,[],'yml','ecYeastGEM_stage3');
+saveEcModel(ecModel,'ecYeastGEM_stage3.yml');
 
 % This functional ecModel will also be kept in the GECKO GitHub
-saveEcModel(ecModel,[],'yml','ecYeastGEM');
+saveEcModel(ecModel,'ecYeastGEM.yml');
 
 %% STAGE 4 integration of proteomics data into the ecModel
 %ecModel=loadEcModel('ecYeastGEM_stage3.yml'); % Uncomment if you want to reload model
@@ -372,7 +372,7 @@ protChange = flexProt.flexConcs./flexProt.oldConcs;
 flexProt.uniprotIDs(index)
 
 % Growth is reached! Let's make sure we store this functional model
-saveEcModel(ecModel,ModelAdapter,'yml','ecYeastGEM_stage4');
+saveEcModel(ecModel,'ecYeastGEM_stage4');
 
 %% STAGE 5: simulation and analysis
 % STEP 23 Example of various useful RAVEN functions
@@ -499,3 +499,6 @@ maxFlux = minFlux;
 % Plot ecFVA results and store in output/.
 plotEcFVA(minFlux, maxFlux);
 saveas(gca, fullfile(params.path,'output','ecFVA.pdf'))
+
+% STEP 29
+% This step is exemplified in tutorials/light_ecModel/protocol.m.
