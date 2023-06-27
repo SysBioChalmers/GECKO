@@ -154,87 +154,96 @@ This function is called by:
 0085 <span class="comment">% Remove excess space</span>
 0086 complexMatrix(:,lastProt+1:end) = [];
 0087 complexProts(lastProt+1:end) = [];
-0088 
+0088 progressbar(<span class="string">'Assign complexes to reactions'</span>)
 0089 <span class="keyword">for</span> i = 1:numel(rxnNames)
-0090     modelProts = model.ec.enzymes(find(model.ec.rxnEnzMat(i,:)));
-0091     [protsInMat, protsIdx] = ismember(modelProts,complexProts);
-0092     <span class="keyword">if</span> ~any(protsInMat)
-0093         <span class="keyword">continue</span>
-0094     <span class="keyword">end</span>
-0095     [potComplex,~] = find(complexMatrix(:,protsIdx(protsInMat)));
-0096     potComplex = unique(potComplex);
-0097     matchComplexUnits = sum(logical(complexMatrix(potComplex,protsIdx(protsInMat))),2);
-0098     totalComplexUnits = sum(logical(complexMatrix(potComplex,:)),2);
-0099     modComplexUnits = numel(modelProts);
-0100     percMatch  = matchComplexUnits/modComplexUnits;
-0101     totalMatch = totalComplexUnits/modComplexUnits;
-0102     <span class="keyword">if</span> any(percMatch == 1 &amp; totalMatch == 1)
-0103         <span class="comment">% Exact match</span>
-0104         complexMatch = find(percMatch == 1 &amp; totalMatch == 1);
-0105         <span class="keyword">if</span> numel(complexMatch)&gt;1 <span class="comment">% If more than one match, take first match</span>
-0106             complexMatch = complexMatch(1);
-0107         <span class="keyword">end</span>
-0108         complexMatch = potComplex(complexMatch);
-0109         foundComplexCount = foundComplexCount + 1;
-0110         foundComplex{foundComplexCount,1} = model.ec.rxns{i};
-0111         foundComplex{foundComplexCount,2} = complexData(complexMatch).complexID;
-0112         foundComplex{foundComplexCount,3} = complexData(complexMatch).name;
-0113         foundComplex{foundComplexCount,4} = complexData(complexMatch).geneName;
-0114         foundComplex{foundComplexCount,5} = modelProts;
-0115         foundComplex{foundComplexCount,6} = complexData(complexMatch).protID;
-0116         foundComplex{foundComplexCount,7} = complexData(complexMatch).stochiometry;
-0117 
-0118         <span class="comment">% Apply in rxnEnzMat</span>
-0119         [~, modelProtsIdx] = ismember(modelProts, model.ec.enzymes);
-0120         model.ec.rxnEnzMat(i,modelProtsIdx) = complexData(complexMatch).stochiometry;
-0121     <span class="keyword">elseif</span> modComplexUnits &gt; 1
-0122         moreUnitsInData = find(percMatch == 1 &amp; totalMatch &gt; 1);
-0123         <span class="keyword">if</span> any(moreUnitsInData)
-0124             <span class="comment">% All ecModel subunits match, but Complex Portal has more subunits</span>
-0125             [~,propComplex] = min(totalMatch(moreUnitsInData));
-0126             propComplex     = moreUnitsInData(propComplex);
-0127             selectComplex   = potComplex(propComplex);
-0128             proposedComplexCount = proposedComplexCount + 1;
-0129             proposedComplex{proposedComplexCount,1} = model.ec.rxns{i};
-0130             proposedComplex{proposedComplexCount,2} = complexData(selectComplex).complexID;
-0131             proposedComplex{proposedComplexCount,3} = complexData(selectComplex).name;
-0132             proposedComplex{proposedComplexCount,4} = complexData(selectComplex).geneName;
-0133             proposedComplex{proposedComplexCount,5} = modelProts;
-0134             proposedComplex{proposedComplexCount,6} = complexData(selectComplex).protID;
-0135             proposedComplex{proposedComplexCount,7} = complexData(selectComplex).stochiometry;
-0136             proposedComplex{proposedComplexCount,8} = totalMatch(propComplex)*100;
-0137         <span class="keyword">end</span>
-0138         otherUnits = find(percMatch &gt;= 0.75 &amp; percMatch &lt; 1 &amp; totalMatch &lt;= 1);
-0139         <span class="keyword">if</span> any(otherUnits)
-0140             <span class="comment">% At least 75% of ecModels subunits match, Complex Portal has less subunits</span>
-0141             [~,propComplex] = max(percMatch(otherUnits));
-0142             propComplex     = otherUnits(propComplex);
-0143             selectComplex   = potComplex(propComplex);
-0144             proposedComplexCount = proposedComplexCount + 1;
-0145             proposedComplex{proposedComplexCount,1} = model.ec.rxns{i};
-0146             proposedComplex{proposedComplexCount,2} = complexData(selectComplex).complexID;
-0147             proposedComplex{proposedComplexCount,3} = complexData(selectComplex).name;
-0148             proposedComplex{proposedComplexCount,4} = complexData(selectComplex).geneName;
-0149             proposedComplex{proposedComplexCount,5} = modelProts;
-0150             proposedComplex{proposedComplexCount,6} = complexData(selectComplex).protID;
-0151             proposedComplex{proposedComplexCount,7} = complexData(selectComplex).stochiometry;
-0152             proposedComplex{proposedComplexCount,8} = percMatch(propComplex)*100;
-0153         <span class="keyword">end</span>
-0154     <span class="keyword">end</span>
-0155 <span class="keyword">end</span>
-0156 
-0157 foundComplex(foundComplexCount+1:<span class="keyword">end</span>,:) = [];
-0158 proposedComplex(proposedComplexCount+1:<span class="keyword">end</span>,:) = [];
-0159 
-0160 rowHeadings = {<span class="string">'rxn'</span>, <span class="string">'complexID'</span>,<span class="string">'name'</span>,<span class="string">'genes'</span>,<span class="string">'protID_model'</span>,<span class="string">'protID_complex'</span>,<span class="string">'stochiometry'</span>};
-0161 
-0162 foundComplex = cell2table(foundComplex, <span class="string">'VariableNames'</span>, rowHeadings);
-0163 
-0164 proposedComplex = cell2table(proposedComplex, <span class="string">'VariableNames'</span>, [rowHeadings <span class="string">'match'</span>]);
-0165 <span class="keyword">if</span> verbose
-0166     disp([<span class="string">'A total of '</span> int2str(numel(foundComplex(:,1))) <span class="string">' complex have full match, and '</span> int2str(numel(proposedComplex(:,1))) <span class="string">' proposed.'</span>])
-0167 <span class="keyword">end</span>
-0168 <span class="keyword">end</span></pre></div>
+0090     <span class="comment">% Get the proteins from the model</span>
+0091     modelProts = model.ec.enzymes(find(model.ec.rxnEnzMat(i,:)));
+0092     [protsInMat, protsIdx] = ismember(modelProts,complexProts);
+0093     <span class="keyword">if</span> ~any(protsInMat)
+0094         <span class="keyword">continue</span>
+0095     <span class="keyword">end</span>
+0096     <span class="comment">% Find complexes that includes the model proteins</span>
+0097     [potComplex,~] = find(complexMatrix(:,protsIdx(protsInMat)));
+0098     potComplex = unique(potComplex);
+0099     <span class="comment">% Some stats on number of subunits, percentage match etc.</span>
+0100     matchComplexUnits = sum(logical(complexMatrix(potComplex,protsIdx(protsInMat))),2);
+0101     totalComplexUnits = sum(logical(complexMatrix(potComplex,:)),2);
+0102     modComplexUnits = numel(modelProts);
+0103     percMatch  = matchComplexUnits/modComplexUnits;
+0104     totalMatch = totalComplexUnits/modComplexUnits;
+0105     <span class="keyword">if</span> any(percMatch == 1 &amp; totalMatch == 1)
+0106         <span class="comment">% Exact match</span>
+0107         complexMatch = find(percMatch == 1 &amp; totalMatch == 1);
+0108         <span class="keyword">if</span> numel(complexMatch)&gt;1 <span class="comment">% If more than one match, take first match</span>
+0109             complexMatch = complexMatch(1);
+0110         <span class="keyword">end</span>
+0111         complexMatch = potComplex(complexMatch);
+0112         foundComplexCount = foundComplexCount + 1;
+0113         foundComplex{foundComplexCount,1} = model.ec.rxns{i};
+0114         foundComplex{foundComplexCount,2} = complexData(complexMatch).complexID;
+0115         foundComplex{foundComplexCount,3} = complexData(complexMatch).name;
+0116         foundComplex{foundComplexCount,4} = complexData(complexMatch).geneName;
+0117         foundComplex{foundComplexCount,5} = modelProts;
+0118         foundComplex{foundComplexCount,6} = complexData(complexMatch).protID;
+0119         foundComplex{foundComplexCount,7} = complexData(complexMatch).stochiometry;
+0120 
+0121         <span class="comment">% Apply in rxnEnzMat</span>
+0122         [~, modelProtsIdx] = ismember(modelProts, model.ec.enzymes);
+0123         model.ec.rxnEnzMat(i,modelProtsIdx) = complexData(complexMatch).stochiometry;
+0124     
+0125     <span class="keyword">elseif</span> modComplexUnits &gt; 1 <span class="comment">% Only suggest potential complex if grRule &gt; 1 protein</span>
+0126         moreUnitsInData = find(percMatch == 1 &amp; totalMatch &gt; 1);
+0127         <span class="keyword">if</span> any(moreUnitsInData)
+0128             <span class="comment">% All ecModel subunits match, but Complex Portal has more subunits</span>
+0129             <span class="comment">% Take the complex with the minimum number of extra subunits</span>
+0130             [~,propComplex] = min(totalMatch(moreUnitsInData));
+0131             propComplex     = moreUnitsInData(propComplex);
+0132             selectComplex   = potComplex(propComplex);
+0133             proposedComplexCount = proposedComplexCount + 1;
+0134             proposedComplex{proposedComplexCount,1} = model.ec.rxns{i};
+0135             proposedComplex{proposedComplexCount,2} = complexData(selectComplex).complexID;
+0136             proposedComplex{proposedComplexCount,3} = complexData(selectComplex).name;
+0137             proposedComplex{proposedComplexCount,4} = complexData(selectComplex).geneName;
+0138             proposedComplex{proposedComplexCount,5} = modelProts;
+0139             proposedComplex{proposedComplexCount,6} = complexData(selectComplex).protID;
+0140             proposedComplex{proposedComplexCount,7} = complexData(selectComplex).stochiometry;
+0141             proposedComplex{proposedComplexCount,8} = totalMatch(propComplex)*100;
+0142         <span class="keyword">end</span>
+0143         otherUnits = find(percMatch &gt;= 0.75 &amp; percMatch &lt; 1 &amp; totalMatch &lt;= 1);
+0144         <span class="keyword">if</span> any(otherUnits)
+0145             <span class="comment">% At least 75% of ecModels subunits match, Complex Portal maybe have less or different subunits</span>
+0146             <span class="comment">% Take the complex with highest % match.</span>
+0147             [~,propComplex] = max(percMatch(otherUnits));
+0148             propComplex     = otherUnits(propComplex);
+0149             selectComplex   = potComplex(propComplex);
+0150             proposedComplexCount = proposedComplexCount + 1;
+0151             proposedComplex{proposedComplexCount,1} = model.ec.rxns{i};
+0152             proposedComplex{proposedComplexCount,2} = complexData(selectComplex).complexID;
+0153             proposedComplex{proposedComplexCount,3} = complexData(selectComplex).name;
+0154             proposedComplex{proposedComplexCount,4} = complexData(selectComplex).geneName;
+0155             proposedComplex{proposedComplexCount,5} = modelProts;
+0156             proposedComplex{proposedComplexCount,6} = complexData(selectComplex).protID;
+0157             proposedComplex{proposedComplexCount,7} = complexData(selectComplex).stochiometry;
+0158             proposedComplex{proposedComplexCount,8} = percMatch(propComplex)*100;
+0159         <span class="keyword">end</span>
+0160     <span class="keyword">end</span>
+0161     progressbar(i/numel(rxnNames))    
+0162 <span class="keyword">end</span>
+0163 progressbar(1) <span class="comment">% Make sure it closes</span>
+0164 
+0165 <span class="comment">% Remove empty space</span>
+0166 foundComplex(foundComplexCount+1:<span class="keyword">end</span>,:) = [];
+0167 proposedComplex(proposedComplexCount+1:<span class="keyword">end</span>,:) = [];
+0168 
+0169 rowHeadings = {<span class="string">'rxn'</span>, <span class="string">'complexID'</span>,<span class="string">'name'</span>,<span class="string">'genes'</span>,<span class="string">'protID_model'</span>,<span class="string">'protID_complex'</span>,<span class="string">'stochiometry'</span>};
+0170 
+0171 foundComplex = cell2table(foundComplex, <span class="string">'VariableNames'</span>, rowHeadings);
+0172 
+0173 proposedComplex = cell2table(proposedComplex, <span class="string">'VariableNames'</span>, [rowHeadings <span class="string">'match'</span>]);
+0174 <span class="keyword">if</span> verbose
+0175     disp([<span class="string">'A total of '</span> int2str(numel(foundComplex(:,1))) <span class="string">' complex have full match, and '</span> int2str(numel(proposedComplex(:,1))) <span class="string">' proposed.'</span>])
+0176 <span class="keyword">end</span>
+0177 <span class="keyword">end</span></pre></div>
 <hr><address>Generated by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

@@ -85,15 +85,18 @@ end
 % Remove excess space
 complexMatrix(:,lastProt+1:end) = [];
 complexProts(lastProt+1:end) = [];
-
+progressbar('Assign complexes to reactions')
 for i = 1:numel(rxnNames)
+    % Get the proteins from the model
     modelProts = model.ec.enzymes(find(model.ec.rxnEnzMat(i,:)));
     [protsInMat, protsIdx] = ismember(modelProts,complexProts);
     if ~any(protsInMat)
         continue
     end
+    % Find complexes that includes the model proteins
     [potComplex,~] = find(complexMatrix(:,protsIdx(protsInMat)));
     potComplex = unique(potComplex);
+    % Some stats on number of subunits, percentage match etc.
     matchComplexUnits = sum(logical(complexMatrix(potComplex,protsIdx(protsInMat))),2);
     totalComplexUnits = sum(logical(complexMatrix(potComplex,:)),2);
     modComplexUnits = numel(modelProts);
@@ -118,10 +121,12 @@ for i = 1:numel(rxnNames)
         % Apply in rxnEnzMat
         [~, modelProtsIdx] = ismember(modelProts, model.ec.enzymes);
         model.ec.rxnEnzMat(i,modelProtsIdx) = complexData(complexMatch).stochiometry;
-    elseif modComplexUnits > 1
+    
+    elseif modComplexUnits > 1 % Only suggest potential complex if grRule > 1 protein
         moreUnitsInData = find(percMatch == 1 & totalMatch > 1);
         if any(moreUnitsInData)
             % All ecModel subunits match, but Complex Portal has more subunits
+            % Take the complex with the minimum number of extra subunits
             [~,propComplex] = min(totalMatch(moreUnitsInData));
             propComplex     = moreUnitsInData(propComplex);
             selectComplex   = potComplex(propComplex);
@@ -137,7 +142,8 @@ for i = 1:numel(rxnNames)
         end
         otherUnits = find(percMatch >= 0.75 & percMatch < 1 & totalMatch <= 1);
         if any(otherUnits)
-            % At least 75% of ecModels subunits match, Complex Portal has less subunits
+            % At least 75% of ecModels subunits match, Complex Portal maybe have less or different subunits
+            % Take the complex with highest % match.
             [~,propComplex] = max(percMatch(otherUnits));
             propComplex     = otherUnits(propComplex);
             selectComplex   = potComplex(propComplex);
@@ -152,8 +158,11 @@ for i = 1:numel(rxnNames)
             proposedComplex{proposedComplexCount,8} = percMatch(propComplex)*100;
         end
     end
+    progressbar(i/numel(rxnNames))    
 end
+progressbar(1) % Make sure it closes  
 
+% Remove empty space
 foundComplex(foundComplexCount+1:end,:) = [];
 proposedComplex(proposedComplexCount+1:end,:) = [];
 
