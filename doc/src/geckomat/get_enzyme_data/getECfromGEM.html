@@ -98,7 +98,7 @@ This function is called by:
 0033     rxnNames = extractAfter(model.ec.rxns, 4);
 0034 <span class="keyword">end</span>
 0035 
-0036 rxnIdxs = getIndexes(model,rxnNames,<span class="string">'rxns'</span>);
+0036 [~,rxnIdxs] = ismember(rxnNames,model.rxns);
 0037 
 0038 <span class="comment">% Check if eccodes are valid</span>
 0039 eccodes = model.eccodes;
