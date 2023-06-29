@@ -356,6 +356,7 @@ if ~geckoLight
     end
     usageRxns.lb              = zeros(numel(usageRxns.rxns),1) - 1000;
     usageRxns.ub              = zeros(numel(usageRxns.rxns),1);
+    usageRxns.rev             = ones(numel(usageRxns.rxns),1);
     usageRxns.grRules         = ec.genes(uniprotSortId);
     model = addRxns(model,usageRxns);
 end
@@ -367,6 +368,7 @@ poolRxn.mets            = {'prot_pool'};
 poolRxn.stoichCoeffs    = {-1};
 poolRxn.lb              = -1000;
 poolRxn.ub              = 0;
+poolRxn.rev             = 1;
 model = addRxns(model,poolRxn);
 
 model.ec=ec;

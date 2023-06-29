@@ -1,69 +1,68 @@
-function saveECmodel(model,modelAdapter,format,filename)
+function saveEcModel(ecModel,filename,modelAdapter)
 % saveECmodel
-%   Saves the model in either YAML format (= default and preferred, as all
-%   model content is reserved) and/or SBML format (= more widely compatible
-%   with other constraint-based modelling tools, can be used for running
-%   simulations like FBA etc., but this model cannot be loaded back into
-%   MATLAB for applying further GECKO functions, as model.ec is lost).
+%   Saves the ecModel in either YAML format (= default and preferred, as
+%   all ecModel content is reserved) and/or SBML format (= more widely
+%   compatible with other constraint-based modelling tools, can be used for
+%   running simulations like FBA etc., but this model cannot be loaded back
+%   into MATLAB for applying further GECKO functions, as model.ec is lost).
+%
+%   The ecModel is saved to the ecModel-specific models/ subfolder. For
+%   saving to other locations, writeYAMLmodel or exportModel are more
+%   suitable.
 %
 % Input:
-%   model           an ecModel in GECKO 3 format (with ecModel.ec structure)
+%   ecModel         an ecModel in GECKO 3 format (with ecModel.ec structure)
+%   filename        ending with either .yml or .xml, specifying if the
+%                   ecModel should be saved in YAML or SBML file format. If
+%                   no file extension is given, the ecModel will be saved
+%                   in YAML format. If no filename is given, 'ecModel.yml'
+%                   is used.
 %   modelAdapter    a loaded model adapter, from where the model folder is
 %                   read (Optional, will otherwise use the default model adapter).
-%   format          file format, either as string if the model should be
-%                   saved in one format, e.g. 'yaml', or cell array if
-%                   multiple formats {'yaml','sbml'}. (Optional, default
-%                   'yaml').
-%   filename        file name, 'ecModel' by default.
 %
 % Usage:
-%   saveECmodel(model,modelAdapter,format,filename)
+%   saveECmodel(ecModel,filename,modelAdapter)
 
 
-if nargin < 2 || isempty(modelAdapter)
+if nargin < 3 || isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefault();
     if isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
     end
 end
 params = modelAdapter.getParameters();
-if nargin < 3 || isempty(format)
-    format = 'yaml';
-end
-if nargin < 4 || isempty (format)
+if nargin < 2 || isempty(filename)
     filename = 'ecModel';
 end
 filename = fullfile(params.path,'models',filename);
 
-%Model description:
-model.description = ['Enzyme-constrained model of ' model.id];
+ecModel.description = ['Enzyme-constrained model of ' ecModel.id];
 
-if contains(format,{'yaml','yml'})
-    writeYAMLmodel(model,[filename '.yml']);
-end
-
-if contains(format,{'xml','sbml'})
-    exportModel(model,[filename '.xml']);
-    %Convert notation "e-005" to "e-05 " in stoich. coeffs. to avoid
-    %inconsistencies between Windows and MAC:
-    copyfile([filename '.xml'],'backup.xml')
-    fin  = fopen('backup.xml', 'r');
-    fout = fopen([filename '.xml'], 'w');
-    still_reading = true;
-    while still_reading
-        inline = fgets(fin);
-        if ~ischar(inline)
-            still_reading = false;
-        else
-            if ~isempty(regexp(inline,'-00[0-9]','once'))
-                inline = strrep(inline,'-00','-0');
-            elseif ~isempty(regexp(inline,'-01[0-9]','once'))
-                inline = strrep(inline,'-01','-1');
+switch filename(end-3:end)
+    case {'.xml','sbml'}
+        exportModel(ecModel,[filename '.xml']);
+        %Convert notation "e-005" to "e-05 " in stoich. coeffs. to avoid
+        %inconsistencies between Windows and MAC:
+        copyfile([filename '.xml'],'backup.xml')
+        fin  = fopen('backup.xml', 'r');
+        fout = fopen([filename '.xml'], 'w');
+        still_reading = true;
+        while still_reading
+            inline = fgets(fin);
+            if ~ischar(inline)
+                still_reading = false;
+            else
+                if ~isempty(regexp(inline,'-00[0-9]','once'))
+                    inline = strrep(inline,'-00','-0');
+                elseif ~isempty(regexp(inline,'-01[0-9]','once'))
+                    inline = strrep(inline,'-01','-1');
+                end
+                fwrite(fout, inline);
             end
-            fwrite(fout, inline);
         end
-    end
-    fclose('all');
-    delete('backup.xml');
+        fclose('all');
+        delete('backup.xml');
+    otherwise % Assume YAML
+        writeYAMLmodel(ecModel,filename);
 end
 end
