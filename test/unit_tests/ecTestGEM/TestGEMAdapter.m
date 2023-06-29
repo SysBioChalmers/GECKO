@@ -24,7 +24,7 @@ classdef TestGEMAdapter < ModelAdapter
 			obj.params.org_name = 'testus testus';
             
             %Matching name for Complex Portal
-            obj.params.complex_org_name = 'Testus testus';
+            obj.params.complex.org_name = 'Testus testus';
 
 			%Provide your organism KEGG ID, selected at
 			%https://www.genome.jp/kegg/catalog/org_list.html

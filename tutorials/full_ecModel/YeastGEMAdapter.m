@@ -15,7 +15,7 @@ classdef YeastGEMAdapter < ModelAdapter
 
 			obj.params.org_name = 'saccharomyces cerevisiae';
 			
-			obj.params.complex_org_name = 'Saccharomyces cerevisiae';
+			obj.params.complex.org_name = 'Saccharomyces cerevisiae';
 
 			obj.params.kegg.ID = 'sce';
 

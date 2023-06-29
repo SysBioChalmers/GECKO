@@ -40,7 +40,7 @@ if nargin < 2 || isempty(modelAdapter)
 end
 
 if nargin<1 || isempty(organism)
-    organism = modelAdapter.getParameters().complex_org_name;
+    organism = modelAdapter.getParameters().complex.org_name;
 end
 
 params = modelAdapter.params;

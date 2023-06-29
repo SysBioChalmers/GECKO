@@ -29,7 +29,7 @@ classdef HumanGEMAdapter < ModelAdapter
             
 			obj.params.org_name = 'homo sapiens';
             
-            obj.params.complex_org_name = 'Homo sapiens';
+            obj.params.complex.org_name = 'Homo sapiens';
 
 			obj.params.kegg.ID = 'hsa';
 
