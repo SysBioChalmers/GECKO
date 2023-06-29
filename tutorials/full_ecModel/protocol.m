@@ -42,8 +42,8 @@ GECKOInstaller.install
 % - Find a high-quality GEM of your species of interest. ecYeastGEM is
 %   based on yeast-GEM https://github.com/SysBioChalmers/yeast-GEM/releases
 % - Release v8.6.2 of yeast-GEM is also distributed with GECKO at 
-%   userData/ecYeastGEM/model/yeast-GEM.xml
-% - Modify the model adapter (at userData/ecYeastGEM/ecYeastGEMadapter.m)
+%   tutorials/full_ecModel/models/yeast-GEM.yml
+% - Modify the model adapter (e.g. tutorials/full_ecModel/ecYeastGEMadapter.m)
 %   to contain organism- and model-specific parameters.
 
 %% STAGE 1: expansion from a starting metabolic model to an ecModel structure
@@ -72,7 +72,7 @@ params = ModelAdapter.getParameters();
 % you can also use RAVEN's importModel(). In that case you will never use
 % loadConventionalGEM and the obj.param.convGEM never has to be specified.
 model = loadConventionalGEM();
-% model = importModel(fullfile(geckoRoot,'tutorials','full_ecModel','models','yeast-GEM.xml'));
+% model = importModel(fullfile(geckoRoot,'tutorials','full_ecModel','models','yeast-GEM.yml'));
 
 % STEP 3 Prepare ecModel
 % We will make a full GECKO ecModel. For an example of reconstructing a 

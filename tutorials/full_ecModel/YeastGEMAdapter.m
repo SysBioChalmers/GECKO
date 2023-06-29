@@ -3,7 +3,7 @@ classdef YeastGEMAdapter < ModelAdapter
 		function obj = YeastGEMAdapter()
 			obj.params.path = fullfile(findGECKOroot,'tutorials','full_ecModel');
 
-			obj.params.convGEM = fullfile(obj.params.path,'models','yeast-GEM.xml');
+			obj.params.convGEM = fullfile(obj.params.path,'models','yeast-GEM.yml');
 
 			obj.params.sigma = 0.5;
 
@@ -21,9 +21,9 @@ classdef YeastGEMAdapter < ModelAdapter
 
 			obj.params.kegg.geneID = 'kegg';
 
-			obj.params.uniprot.type = 'taxonomy';
+			obj.params.uniprot.type = 'proteome';
 
-			obj.params.uniprot.ID = '559292';
+			obj.params.uniprot.ID = 'UP000002311';
 
 			obj.params.uniprot.geneIDfield = 'gene_oln';
 

@@ -105,4 +105,5 @@ else
     emptySmiles = cellfun(@isempty,model.metSmiles);
     model.metSmiles(emptySmiles) = newSmiles(emptySmiles);
 end
+progressbar(1) % Make sure it closes
 end

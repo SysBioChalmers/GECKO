@@ -14,13 +14,11 @@ function results = run_ecFSEOF(ecModel,targetRxn,csRxn,alphaLims,nSteps,file_gen
 %   nSteps          number of steps for suboptimal objective in FSEOF.
 %                   (Optional, default 16)
 %   file_genes      file name for results output at the genes level.
-%                   (Optional, default output in the model-specific 'output'
-%                   sub-folder taken from modelAdapter,
-%                   e.g. GECKO/userData/ecYeastGEM/output/ecFSEOF_genes.tsv)
+%                   (Optional, default in the 'output' sub-folder taken from
+%                   modelAdapter, e.g. output/ecFSEOF_genes.tsv
 %   file_rxns       file name for results output at the reactions level.
-%                   (Optional, default output in the model-specific 'output'
-%                   sub-folder taken from modelAdapter,
-%                   e.g. GECKO/userData/ecYeastGEM/output/ecFSEOF_rxns.tsv)
+%                   (Optional, default in the 'output' sub-folder taken from
+%                   modelAdapter, e.g. output/ecFSEOF_rxns.tsv)
 %   modelAdapter    a loaded model adapter. (Optional, will otherwise use
 %                   the default model adapter)
 %
