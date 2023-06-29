@@ -63,9 +63,6 @@ classdef KEY_CLASSNAME < ModelAdapter
 			% Reaction ID for biomass pseudoreaction
 			obj.params.bioRxn = 'r_4041';
 
-			% Reaction ID for non-growth associated maitenance pseudoreaction
-			obj.params.NGAM = 'r_4046';
-
 			% Compartment name in which the added enzymes should be located
 			obj.params.enzyme_comp = 'cytoplasm';
         end

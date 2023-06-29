@@ -47,8 +47,6 @@ classdef HumanGEMAdapter < ModelAdapter
 
 			obj.params.bioRxn = 'MAR13082';
 
-			obj.params.NGAM = 'MAR09931'; %This is not used
-
 			obj.params.enzyme_comp = 'Cytosol';
             
         end

@@ -53,9 +53,6 @@ classdef TestGEMAdapter < ModelAdapter
 			%Rxn Id for biomass pseudoreaction
 			obj.params.bioRxn = 'R4'; %Not relevant
 
-			%Rxn Id for non-growth associated maitenance pseudoreaction
-			obj.params.NGAM = 'R4'; %Not relevant
-
 			%Compartment name in which the added enzymes should be located
 			obj.params.enzyme_comp = 'c';
 
