@@ -13,7 +13,7 @@ classdef TestGEMAdapter < ModelAdapter
 
 			obj.params.org_name = 'testus testus';
             
-            obj.params.complex.org_name = 'Testus testus';
+            obj.params.complex.taxonomicID = 123456;
 
 			obj.params.kegg.ID = 'tst'; %This will not work and will not be used
 

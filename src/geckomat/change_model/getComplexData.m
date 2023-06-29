@@ -1,18 +1,17 @@
-function complexInfo = getComplexData(organism, modelAdapter)
+function complexInfo = getComplexData(taxonomicID, modelAdapter)
 % getComplexData
 %   Download curated complex stochiometries from the EMBL-EBI Complex
 %   Portal database. Writes data/ComplexPortal.json in the obj.params.path
 %   specified in the model adapter.
 %
 % Input:
-%   organism        the organism for which complex information should be
-%                   downloaded, e.g.:
-%                   - 'all' for all data in Complex Portal (default)
-%                   - 'Homo sapiens'
-%                   - 'Mus musculus'
-%                   - 'Saccharomyces cerevisiae'
-%                   See a list of all available organisms here:
+%   taxonomicID     taxonomic identifier for which complex data should be
+%                   downloaded. Only taxonomic identifiers allowed are
+%                   those included on Complex Portal:
 %                   https://www.ebi.ac.uk/complexportal/complex/organisms
+%                   If empty, no complex data is downloaded, if 0 (zero),
+%                   complex data from all organisms in Complex Portal is
+%                   downloaded.
 %   modelAdapter    a loaded model adapter (Optional, will otherwise use the
 %                   default model adapter).
 % Output:
@@ -39,39 +38,33 @@ if nargin < 2 || isempty(modelAdapter)
     end
 end
 
-if nargin<1 || isempty(organism)
-    organism = modelAdapter.getParameters().complex.org_name;
+if nargin<1 || isempty(taxonomicID)
+    taxonomicID = modelAdapter.getParameters().complex.taxonomicID;
 end
 
 params = modelAdapter.params;
-switch organism
-    case 'all'
-        organism = [];
-        % Below: switch to a valid name in complex portal
-    case {'Saccharomyces cerevisiae','sce'}
-        organism = 'Saccharomyces cerevisiae (strain ATCC 204508 / S288c)';
-    case {'Schizosaccharomyces pombe','spo'}
-        organism = 'Schizosaccharomyces pombe (strain 972 / ATCC 24843)';
-    case {'Escherichia coli','eco'}
-        organism = 'Escherichia coli (strain K12)';
+if isempty(taxonomicID) % Can be empty when gathered from model adapter
+    disp('No taxonomicID specified.')
+    return
+elseif taxonomicID == 0
+    taxonomicID = [];
 end
 
-
 webOptions = weboptions('Timeout', 30);
-
 try
     url1 = 'https://www.ebi.ac.uk/intact/complex-ws/search/*';
-    if ~isempty(organism)
-        url1 = [url1 '?facets=species_f&filters=species_f:("' organism '")'];
+    if ~isempty(taxonomicID)
+        url1 = [url1 '?facets=species&filters=species:("' num2str(taxonomicID) '")'];
     end
-
     data = webread(url1,webOptions);
 catch ME
     if (strcmp(ME.identifier,'MATLAB:webservices:HTTP404StatusCodeError'))
         error('Cannot connect to the Complex Portal, perhaps the server is not responding');
     end
 end
-
+if data.size == 0
+    error('No data could be gathered from Complex Portal for the specified taxonomicID.')
+end
 complexData = cell(data.size,7);
 
 progressbar('Retrieving information for complexes');
@@ -87,7 +80,6 @@ for i = 1:data.size
         end
         temp = [];
     end
-
 
     if ~isempty(temp)
         complexData(i,1) = {temp.complexAc};

@@ -4,8 +4,7 @@ classdef KEY_CLASSNAME < ModelAdapter
             % Set initial values of the obj.params - they can be changed by the user
             
             % Directory where all model-specific files and scripts are kept.
-            % Is assumed to follow the GECKO-defined folder structure. The
-            % code below refers to userData/yourModel in the GECKO path.
+            % Is assumed to follow the GECKO-defined folder structure.
             obj.params.path = fullfile('KEY_PATH', 'KEY_NAME');
 
 			% Path to the conventional GEM that this ecModel will be based on.
@@ -25,10 +24,10 @@ classdef KEY_CLASSNAME < ModelAdapter
 			obj.params.gR_exp = 0.41;
 
 			% Provide your organism scientific name
-			obj.params.org_name = 'saccharomyces cerevisiae';
+			obj.params.org_name = 'genus species';
             
-            % Matching name for Complex Portal
-            obj.params.complex.org_name = 'Saccharomyces cerevisiae';
+            % Taxonomic identifier for Complex Portal
+            obj.params.complex.taxonomicID = [];
 
 			% Provide your organism KEGG ID, selected at
 			% https://www.genome.jp/kegg/catalog/org_list.html
