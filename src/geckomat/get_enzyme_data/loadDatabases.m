@@ -2,7 +2,7 @@ function databases = loadDatabases(selectDatabase,modelAdapter)
 % loadDatabases
 %   Loads (and downloads if necessary) the organism-specific KEGG and
 %   UniProt databases that are required to extract protein information. The
-%   uniprotID and keggID are taken from the ModelAdapter.
+%   uniprotID and kegg.ID are taken from the ModelAdapter.
 %
 % Input:
 %   selectDatabase  which databases should be loaded, either 'uniprot',
@@ -29,12 +29,12 @@ if nargin < 2 || isempty(modelAdapter)
 end
 
 params      = modelAdapter.getParameters();
-keggID      = params.keggID;
+kegg.ID      = params.kegg.ID;
 uniprotID   = params.uniprotID;
 filePath    = fullfile(params.path,'data');
 uniprotGeneIdField = params.uniprotGeneIdField;
 uniprotIDtype = params.uniprotIDtype;
-keggGeneIdentifier = params.keggGeneIdentifier;
+kegg.geneID = params.kegg.geneID;
 if params.uniprotReviewed
     uniprotRev = 'reviewed:true+AND+';
 else
@@ -82,10 +82,10 @@ end
 if any(strcmp(selectDatabase,{'kegg','both'}))
     keggPath = fullfile(filePath,'kegg.tsv');
     if ~exist(keggPath,'file')
-        if isempty(keggID)
-            warning('No keggID is specified, unable to download KEGG DB')
+        if isempty(kegg.ID)
+            warning('No kegg.ID is specified, unable to download KEGG DB')
         else
-            downloadKEGG(keggID,keggPath,keggGeneIdentifier);
+            downloadKEGG(kegg.ID,keggPath,kegg.geneID);
         end
     end
     if exist(keggPath,'file')
@@ -105,13 +105,13 @@ if any(strcmp(selectDatabase,{'kegg','both'}))
 end
 end
 
-function downloadKEGG(keggID, filePath, keggGeneIdentifier)
+function downloadKEGG(kegg.ID, filePath, kegg.geneID)
 %% Download gene information
-fprintf('Downloading KEGG data for organism code %s...   0%% complete',keggID);
+fprintf('Downloading KEGG data for organism code %s...   0%% complete',kegg.ID);
 webOptions = weboptions('Timeout',30);
-gene_list = webread(['http://rest.kegg.jp/list/' keggID],webOptions);
+gene_list = webread(['http://rest.kegg.jp/list/' kegg.ID],webOptions);
 gene_list = regexpi(gene_list, '[^\n]+','match')';
-gene_id   = regexpi(gene_list,['(?<=' keggID ':)\S+'],'match');
+gene_id   = regexpi(gene_list,['(?<=' kegg.ID ':)\S+'],'match');
 
 % Retrieve information for every gene in the list, 10 genes per query
 genesPerQuery = 10;
@@ -128,7 +128,7 @@ for i = 1:queries
     if lastIdx > numel(gene_id) % Last query has probably less genes
         lastIdx = numel(gene_id);
     end
-    url      = ['http://rest.kegg.jp/get/' keggID ':' strjoin([gene_id{firstIdx:lastIdx}],['+' keggID ':'])];
+    url      = ['http://rest.kegg.jp/get/' kegg.ID ':' strjoin([gene_id{firstIdx:lastIdx}],['+' kegg.ID ':'])];
 
     retry = true;
     while retry
@@ -158,16 +158,16 @@ sequence(noProt | noUni)  = [];
 sequence  = regexprep(sequence,'\s*','');
 keggGene  = regexprep(keggData,'ENTRY\s+(\S+?)\s.+','$1');
 
-switch keggGeneIdentifier
+switch kegg.geneID
     case {'kegg',''}
         gene_name = keggGene;
     otherwise
         % In case there are special characters:
-        keggGeneIdentifierT = regexptranslate('escape',keggGeneIdentifier);
-        gene_name = regexprep(keggData,['.+' keggGeneIdentifierT ': (\S+?)\n.+'],'$1');
-        noID = ~contains(keggData,keggGeneIdentifierT);
+        kegg.geneIDT = regexptranslate('escape',kegg.geneID);
+        gene_name = regexprep(keggData,['.+' kegg.geneIDT ': (\S+?)\n.+'],'$1');
+        noID = ~contains(keggData,kegg.geneIDT);
         if all(noID)
-            error(['None of the KEGG entries are annotated with ' keggGeneIdentifier])
+            error(['None of the KEGG entries are annotated with ' kegg.geneID])
         else
             gene_name(noID)= [];
             keggData(noID) = [];
@@ -189,7 +189,7 @@ end
 
 pathway   = regexprep(keggData,'.*PATHWAY\s+(.*?)(BRITE|MODULE).*','$1');
 pathway(startsWith(pathway,'ENTRY ')) = {''};
-pathway   = strrep(pathway,[keggID '01100  Metabolic pathways'],'');
+pathway   = strrep(pathway,[kegg.ID '01100  Metabolic pathways'],'');
 pathway   = regexprep(pathway,'\n','');
 pathway   = regexprep(pathway,'           ','');
 

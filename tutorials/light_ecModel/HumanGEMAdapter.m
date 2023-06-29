@@ -31,9 +31,9 @@ classdef HumanGEMAdapter < ModelAdapter
             
             obj.params.complex_org_name = 'Homo sapiens';
 
-			obj.params.keggID = 'hsa';
+			obj.params.kegg.ID = 'hsa';
 
-            obj.params.keggGeneIdentifier = 'Ensembl';
+            obj.params.kegg.geneID = 'Ensembl';
 
             obj.params.uniprotIDtype = 'proteome';
 

@@ -28,8 +28,8 @@ classdef TestGEMAdapter < ModelAdapter
 
 			%Provide your organism KEGG ID, selected at
 			%https://www.genome.jp/kegg/catalog/org_list.html
-			obj.params.keggID = 'tst'; %This will not work and will not be used
-            obj.params.keggGeneIdentifier = 'kegg';
+			obj.params.kegg.ID = 'tst'; %This will not work and will not be used
+            obj.params.kegg.geneID = 'kegg';
 
 			%Provide what identifier should be used to query UniProt.
             %Select proteome IDs at https://www.uniprot.org/proteomes/

@@ -32,7 +32,7 @@ classdef KEY_CLASSNAME < ModelAdapter
 
 			% Provide your organism KEGG ID, selected at
 			% https://www.genome.jp/kegg/catalog/org_list.html
-			obj.params.keggID = 'sce';
+			obj.params.kegg.ID = 'sce';
             % Field for KEGG gene identifier; should match the gene
             % identifiers used in the model. With 'kegg', it takes the
             % default KEGG Entry identifier (for example YER023W here:
@@ -41,7 +41,7 @@ classdef KEY_CLASSNAME < ModelAdapter
             % of the KEGG page can be selected. For example "NCBI-GeneID",
             % "UniProt", or "Ensembl". Not all DB entries are available for
             % all organisms and/or genes.
-            obj.params.keggGeneIdentifier = 'kegg';
+            obj.params.kegg.geneID = 'kegg';
 
 			% Provide what identifier should be used to query UniProt.
             % Select proteome IDs at https://www.uniprot.org/proteomes/
