@@ -85,7 +85,7 @@ if ~model.ec.geckoLight
 else
     rxnNames = extractAfter(model.ec.rxns, 4);
 end
-originalRxns = getIndexes(model,rxnNames(ecRxns),'rxns');
+[~,originalRxns] = ismember(rxnNames(ecRxns),model.rxns);
 for i = 1:length(ecRxns)
     sel = find(model.S(:,originalRxns(i)) < 0);
     substrates{i}  = model.metNames(sel); 
