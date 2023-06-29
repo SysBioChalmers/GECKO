@@ -34,6 +34,9 @@ uniprot.ID   = params.uniprot.ID;
 filePath    = fullfile(params.path,'data');
 uniprot.geneIDfield = params.uniprot.geneIDfield;
 uniprot.type = params.uniprot.type;
+if strcmp(uniprot.type,'taxonomy')
+    uniprot.type = 'taxonomy_id';
+end
 kegg.geneID = params.kegg.geneID;
 if params.uniprot.reviewed
     uniprotRev = 'reviewed:true+AND+';

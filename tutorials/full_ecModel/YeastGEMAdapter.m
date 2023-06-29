@@ -21,7 +21,7 @@ classdef YeastGEMAdapter < ModelAdapter
 
 			obj.params.kegg.geneID = 'kegg';
 
-			obj.params.uniprot.type = 'taxonomy_id';
+			obj.params.uniprot.type = 'taxonomy';
 
 			obj.params.uniprot.ID = '559292';
 

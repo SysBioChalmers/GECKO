@@ -46,7 +46,7 @@ classdef KEY_CLASSNAME < ModelAdapter
 			% Provide what identifier should be used to query UniProt.
             % Select proteome IDs at https://www.uniprot.org/proteomes/
             % or taxonomy IDs at https://www.uniprot.org/taxonomy.
-            obj.params.uniprot.type = 'taxonomy_id'; % 'proteome' or 'taxonomy_id'
+            obj.params.uniprot.type = 'taxonomy'; % 'proteome' or 'taxonomy'
 			obj.params.uniprot.ID = '559292'; % should match the ID type
             % Field for Uniprot gene ID - should match the gene ids used in the 
             % model. It should be one of the "Returned Field" entries under
