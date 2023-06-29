@@ -21,13 +21,13 @@ classdef YeastGEMAdapter < ModelAdapter
 
 			obj.params.kegg.geneID = 'kegg';
 
-			obj.params.uniprotIDtype = 'taxonomy_id';
+			obj.params.uniprot.type = 'taxonomy_id';
 
-			obj.params.uniprotID = '559292';
+			obj.params.uniprot.ID = '559292';
 
-			obj.params.uniprotGeneIdField = 'gene_oln';
+			obj.params.uniprot.geneIDfield = 'gene_oln';
 
-			obj.params.uniprotReviewed = true;
+			obj.params.uniprot.reviewed = true;
 
 			obj.params.c_source = 'r_1714'; 
 

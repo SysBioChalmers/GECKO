@@ -34,18 +34,18 @@ classdef TestGEMAdapter < ModelAdapter
 			%Provide what identifier should be used to query UniProt.
             %Select proteome IDs at https://www.uniprot.org/proteomes/
             %or taxonomy IDs at https://www.uniprot.org/taxonomy.
-            obj.params.uniprotIDtype = 'taxonomy_id'; % 'proteome' or 'taxonomy_id' - will not be used
-			obj.params.uniprotID = 'TE00000000'; %This will not work and will not be used
+            obj.params.uniprot.type = 'taxonomy_id'; % 'proteome' or 'taxonomy_id' - will not be used
+			obj.params.uniprot.ID = 'TE00000000'; %This will not work and will not be used
             
             %Field for Uniprot gene id - should match the gene ids used in the 
             %GPRs. Note that this is a field in the web request to uniprot - 
             %it has to match one of the fields there
-            obj.params.uniprotGeneIdField = 'gene_tst';%This will not work and will not be used
+            obj.params.uniprot.geneIDfield = 'gene_tst';%This will not work and will not be used
 
             %Whether only reviewed data from UniProt should be considered.
             %Reviewed data has highest confidence, but coverage might be (very)
             %low for non-model organisms
-            obj.params.uniprotReviewed = true;			
+            obj.params.uniprot.reviewed = true;			
 
 			%The name of the exchange reaction that supplies the model with carbon (rxnNames)
 			obj.params.c_source = 'E1'; 

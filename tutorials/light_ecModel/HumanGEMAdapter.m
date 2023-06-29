@@ -35,13 +35,13 @@ classdef HumanGEMAdapter < ModelAdapter
 
             obj.params.kegg.geneID = 'Ensembl';
 
-            obj.params.uniprotIDtype = 'proteome';
+            obj.params.uniprot.type = 'proteome';
 
-			obj.params.uniprotID = 'UP000005640';
+			obj.params.uniprot.ID = 'UP000005640';
 
-            obj.params.uniprotGeneIdField = 'gene_primary';
+            obj.params.uniprot.geneIDfield = 'gene_primary';
 
-            obj.params.uniprotReviewed = true;
+            obj.params.uniprot.reviewed = true;
             
 			obj.params.c_source = 'MAR09034'; 
 

@@ -46,16 +46,16 @@ classdef KEY_CLASSNAME < ModelAdapter
 			% Provide what identifier should be used to query UniProt.
             % Select proteome IDs at https://www.uniprot.org/proteomes/
             % or taxonomy IDs at https://www.uniprot.org/taxonomy.
-            obj.params.uniprotIDtype = 'taxonomy_id'; % 'proteome' or 'taxonomy_id'
-			obj.params.uniprotID = '559292'; % should match the ID type
+            obj.params.uniprot.type = 'taxonomy_id'; % 'proteome' or 'taxonomy_id'
+			obj.params.uniprot.ID = '559292'; % should match the ID type
             % Field for Uniprot gene ID - should match the gene ids used in the 
             % model. It should be one of the "Returned Field" entries under
             % "Names & Taxonomy" at this page: https://www.uniprot.org/help/return_fields
-            obj.params.uniprotGeneIdField = 'gene_oln';
+            obj.params.uniprot.geneIDfield = 'gene_oln';
             % Whether only reviewed data from UniProt should be considered.
             % Reviewed data has highest confidence, but coverage might be (very)
             % low for non-model organisms
-            obj.params.uniprotReviewed = true;
+            obj.params.uniprot.reviewed = true;
 
 			% Reaction ID for glucose exchange reaction (or other preferred carbon source)
 			obj.params.c_source = 'r_1714'; 

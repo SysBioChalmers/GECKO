@@ -2,7 +2,7 @@ function databases = loadDatabases(selectDatabase,modelAdapter)
 % loadDatabases
 %   Loads (and downloads if necessary) the organism-specific KEGG and
 %   UniProt databases that are required to extract protein information. The
-%   uniprotID and kegg.ID are taken from the ModelAdapter.
+%   uniprot.ID and kegg.ID are taken from the ModelAdapter.
 %
 % Input:
 %   selectDatabase  which databases should be loaded, either 'uniprot',
@@ -30,12 +30,12 @@ end
 
 params      = modelAdapter.getParameters();
 kegg.ID      = params.kegg.ID;
-uniprotID   = params.uniprotID;
+uniprot.ID   = params.uniprot.ID;
 filePath    = fullfile(params.path,'data');
-uniprotGeneIdField = params.uniprotGeneIdField;
-uniprotIDtype = params.uniprotIDtype;
+uniprot.geneIDfield = params.uniprot.geneIDfield;
+uniprot.type = params.uniprot.type;
 kegg.geneID = params.kegg.geneID;
-if params.uniprotReviewed
+if params.uniprot.reviewed
     uniprotRev = 'reviewed:true+AND+';
 else
     uniprotRev = '';
@@ -50,12 +50,12 @@ databases.kegg = [];
 if any(strcmp(selectDatabase,{'uniprot','both'}))
     uniprotPath = fullfile(filePath,'uniprot.tsv');
     if ~exist(uniprotPath,'file')
-        if isempty(uniprotID)
-            warning('No uniprotID is specified, unable to download UniProt DB')
+        if isempty(uniprot.ID)
+            warning('No uniprot.ID is specified, unable to download UniProt DB')
         end
-        disp(['Downloading Uniprot data for ' uniprotIDtype ' ' uniprotID '. This can take a few minutes.'])
+        disp(['Downloading Uniprot data for ' uniprot.type ' ' uniprot.ID '. This can take a few minutes.'])
         url = ['https://rest.uniprot.org/uniprotkb/stream?query=' uniprotRev ...
-               uniprotIDtype ':' num2str(uniprotID) '&fields=accession%2C' uniprotGeneIdField ...
+               uniprot.type ':' num2str(uniprot.ID) '&fields=accession%2C' uniprot.geneIDfield ...
             '%2Cec%2Cmass%2Csequence&format=tsv&compressed=false&sort=protein_name%20asc'];
         try
             urlwrite(url,uniprotPath,'Timeout',30);
