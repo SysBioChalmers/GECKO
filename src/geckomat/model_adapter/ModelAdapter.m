@@ -43,15 +43,13 @@ classdef (Abstract) ModelAdapter
             end
         end
 
-
         function folder = getBrendaDBFolder(obj)
             folder = fullfile(findGECKOroot(),'databases');
         end
 
         function x = getPhylDistStructPath(obj)
-            x =  fullfile(findGECKOroot(),'databases','PhylDist.mat');
+            x =  fullfile(findRAVENroot(),'external','kegg','keggPhylDist.mat');
         end
-
     end
 
     %To have the params public is a bit "ugly", but very practical
