@@ -468,7 +468,7 @@ usageReport.topAbsUsage
 % STEP 27 Compare fluxes from ecModel and conventional GEM
 sol = solveLP(ecModel);
 % Map the ecModel fluxes back to the conventional GEM
-[mappedFlux, enzUsageFlux, usageEnz] = mapRxnsToConv(ecModel, model, solEC.x);
+[mappedFlux, enzUsageFlux, usageEnz] = mapRxnsToConv(ecModel, model, sol.x);
 
 % STEP 28 Perform (ec)FVA
 % Perform FVA on a conventional GEM, ecModel, and ecModel plus proteomics
