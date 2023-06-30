@@ -62,7 +62,13 @@ ecModel         = findMetSmiles(ecModel);
 % attached to reaction identifiers; while in light models such reactions
 % are not split and a counting prefix (e.g. 001_) is attached to reaction
 % identifiers.
-writeDLKcatInput(ecModel);
+
+% The light_ecModel tutorial already comes with a DLKcat.tsv file populated
+% with kcat values. If this file should be regenerated, the line below
+% should be uncommented. Note that this overwrites the existing files,
+% thereby discarding existing kcat predictions.
+%writeDLKcatInput(ecModel,[],[],[],[],true);
+
 runDLKcat();
 kcatList_DLKcat = readDLKcatOutput(ecModel);
 
