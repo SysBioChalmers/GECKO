@@ -29,25 +29,23 @@ classdef HumanGEMAdapter < ModelAdapter
             
 			obj.params.org_name = 'homo sapiens';
             
-            obj.params.complex_org_name = 'Homo sapiens';
+            obj.params.complex.taxonomicID = 9606;
 
-			obj.params.keggID = 'hsa';
+			obj.params.kegg.ID = 'hsa';
 
-            obj.params.keggGeneIdentifier = 'Ensembl';
+            obj.params.kegg.geneID = 'Ensembl';
 
-            obj.params.uniprotIDtype = 'proteome';
+            obj.params.uniprot.type = 'proteome';
 
-			obj.params.uniprotID = 'UP000005640';
+			obj.params.uniprot.ID = 'UP000005640';
 
-            obj.params.uniprotGeneIdField = 'gene_primary';
+            obj.params.uniprot.geneIDfield = 'gene_primary';
 
-            obj.params.uniprotReviewed = true;
+            obj.params.uniprot.reviewed = true;
             
 			obj.params.c_source = 'MAR09034'; 
 
 			obj.params.bioRxn = 'MAR13082';
-
-			obj.params.NGAM = 'MAR09931'; %This is not used
 
 			obj.params.enzyme_comp = 'Cytosol';
             

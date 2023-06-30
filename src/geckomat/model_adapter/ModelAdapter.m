@@ -15,10 +15,7 @@ classdef (Abstract) ModelAdapter
         %    obj.mParams = parameters;
         %end
 
-        function model = manualModifications(obj,model) %default is to do nothing
-        end
-
-        %The genes returned here should match the gene id set in the parameter params.uniprotGeneIdField
+        %The genes returned here should match the gene id set in the parameter params.uniprot.geneIDfield
         function genes = getUniprotCompatibleGenes(obj,inGenes)
             genes = inGenes;
         end
@@ -43,15 +40,13 @@ classdef (Abstract) ModelAdapter
             end
         end
 
-
         function folder = getBrendaDBFolder(obj)
             folder = fullfile(findGECKOroot(),'databases');
         end
 
         function x = getPhylDistStructPath(obj)
-            x =  fullfile(findGECKOroot(),'databases','PhylDist.mat');
+            x =  fullfile(findRAVENroot(),'external','kegg','keggPhylDist.mat');
         end
-
     end
 
     %To have the params public is a bit "ugly", but very practical
