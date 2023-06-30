@@ -181,7 +181,7 @@ This function is called by:
 0085 <span class="keyword">else</span>
 0086     rxnNames = extractAfter(model.ec.rxns, 4);
 0087 <span class="keyword">end</span>
-0088 originalRxns = getIndexes(model,rxnNames(ecRxns),<span class="string">'rxns'</span>);
+0088 [~,originalRxns] = ismember(rxnNames(ecRxns),model.rxns);
 0089 <span class="keyword">for</span> i = 1:length(ecRxns)
 0090     sel = find(model.S(:,originalRxns(i)) &lt; 0);
 0091     substrates{i}  = model.metNames(sel); 

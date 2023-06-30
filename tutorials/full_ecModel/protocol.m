@@ -131,10 +131,15 @@ kcatList_fuzzy  = fuzzyKcatMatching(ecModel);
 [ecModel, noSmiles] = findMetSmiles(ecModel);
 
 % DLKcat runs in Python. An input file is written, which is then used by
-% DLKcat, while the output file is read back into MATLAB.
-writeDLKcatInput(ecModel);
+% DLKcat, while the output file is read back into MATLAB. The full_ecModel
+% tutorial already comes with a DLKcat.tsv file populated with kcat values.
+% If this file should be regenerated, the line below should be uncommented.
+% Note that this overwrites the existing files, thereby discarding existing
+% kcat predictions.
+%writeDLKcatInput(ecModel,[],[],[],[],true);
 
-% runDLKcat will run the DLKcat algorithm via a Docker image
+% runDLKcat will run the DLKcat algorithm via a Docker image. If the
+% DLKcat.tsv file already has kcat values, these will all be overwritten.
 runDLKcat();
 kcatList_DLKcat = readDLKcatOutput(ecModel);
 
