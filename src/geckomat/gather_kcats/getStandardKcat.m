@@ -150,13 +150,14 @@ rxnsMissingGPR(ismember(rxnsMissingGPR, rxnsToIgnore)) = [];
 
 % Only add if not geckoLight & getStandardKcat was not run earlier
 if ~any(strcmp(model.mets,'prot_standard'))
+    % Add a new gene to be consistent with ec field named standard
+    proteinStdGenes.genes = 'standard';
+    if isfield(model,'geneShortNames')
+        proteinStdGenes.geneShortNames = 'std';
+    end
+    model = addGenesRaven(model, proteinStdGenes);
+
     if ~model.ec.geckoLight
-        % Add a new gene to be consistent with ec field named standard
-        proteinStdGenes.genes = 'standard';
-        if isfield(model,'geneShortNames')
-            proteinStdGenes.geneShortNames = 'std';
-        end
-        model = addGenesRaven(model, proteinStdGenes);
         % Add a new metabolite named prot_standard
         proteinStdMets.mets         = 'prot_standard';
         proteinStdMets.metNames     = proteinStdMets.mets;
