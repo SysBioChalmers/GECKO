@@ -806,7 +806,7 @@ chitosan	COC(=O)NC1C(C(C(OC1OC2C(OC(C(C2O)N)OC3C(OC(C(C3O)N)O)CO)CO)CO)OC4C(C(C(
 chloride	[Cl-]
 cholesterol	CC(C)CCCC(C)C1CCC2C1(CCC3C2CC=C4C3(CCC(C4)O)C)C
 choline	C[N+](C)(C)CCO
-choline phosphate	C[N+](C)(C)CCOP(=O)(O)O
+choline phosphate	C[N+](C)(C)CCOP(=O)(O)O.[Cl-]
 chorismate	C=C(C(=O)O)OC1C=C(C=CC1O)C(=O)O
 cis-3-Chloroacrylic acid	C(=CCl)C(=O)O
 cis-3-Chloroallyl aldehyde	C(=CCl)C=O
@@ -836,7 +836,7 @@ dCTP	C1C(C(OC1N2C=CC(=NC2=O)N)COP(=O)(O)OP(=O)(O)OP(=O)(O)O)O
 dGDP	C1C(C(OC1N2C=NC3=C2N=C(NC3=O)N)COP(=O)(O)OP(=O)(O)O)O
 dGMP	C1C(C(OC1N2C=NC3=C2N=C(NC3=O)N)COP(=O)(O)O)O
 dGTP	C1C(C(OC1N2C=NC3=C2N=C(NC3=O)N)COP(=O)(O)OP(=O)(O)OP(=O)(O)O)O
-dIDP	C1C(C(OC1N2C=NC3=C2N=CNC3=O)COP(=O)(O)OP(=O)(O)O)O
+dIDP	
 dITP	C1C(C(OC1N2C=NC3=C2N=CNC3=O)COP(=O)(O)OP(=O)(O)OP(=O)(O)O)O
 dTDP	CC1=CN(C(=O)NC1=O)C2CC(C(O2)COP(=O)(O)OP(=O)(O)O)O
 dTMP	CC1=CN(C(=O)NC1=O)C2CC(C(O2)COP(=O)(O)O)O
@@ -866,7 +866,7 @@ dihydrofolic acid	C1C(=NC2=C(N1)N=C(NC2=O)N)CNC3=CC=C(C=C3)C(=O)NC(CCC(=O)O)C(=O
 dihydrolipoamide	C(CCC(=O)N)CC(CCS)S
 dihydrolipoylprotein	
 dihydroxyacetone phosphate	C(C(=O)COP(=O)(O)O)O
-diphosphate	
+diphosphate	[O-]P(=O)([O-])OP(=O)([O-])[O-]
 docosanoyl-CoA	CCCCCCCCCCCCCCCCCCCCCC(=O)SCCNC(=O)CCNC(=O)C(C(C)(C)COP(=O)(O)OP(=O)(O)OCC1C(C(C(O1)N2C=NC3=C(N=CN=C32)N)O)OP(=O)(O)O)O
 docosaprenyl diphosphate	CC(=CCCC(=CCCC(=CCCC(=CCCC(=CCCC(=CCCC(=CCCC(=CCCC(=CCCC(=CCCC(=CCCC(=CCCC(=CCCC(=CCCC(=CCCC(=CCCC(=CCCC(=CCCC(=CCCC(=CCCC(=CCCC(=CCOP(=O)(O)OP(=O)(O)O)C)C)C)C)C)C)C)C)C)C)C)C)C)C)C)C)C)C)C)C)C)C
 dodecaprenyl diphosphate	CC(=CCCC(=CCCC(=CCCC(=CCCC(=CCCC(=CCCC(=CCCC(=CCCC(=CCCC(=CCCC(=CCCC(=CCOP(=O)(O)OP(=O)(O)O)C)C)C)C)C)C)C)C)C)C)C)C
@@ -898,8 +898,8 @@ fatty acid backbone
 fecosterol	CC(C)C(=C)CCC(C)C1CCC2C1(CCC3=C2CCC4C3(CCC(C4)O)C)C
 fecosteryl oleate	CCCCCCCCC=CCCCCCCCC(=O)OC1CCC2(C(C1)CCC3=C2CCC4(C3CCC4C(C)CCC(=C)C(C)C)C)C
 fecosteryl palmitoleate	CCCCCCC=CCCCCCCCC(=O)OC1CCC2(C(C1)CCC3=C2CCC4(C3CCC4C(C)CCC(=C)C(C)C)C)C
-ferricytochrome c	
-ferrocytochrome c	
+ferricytochrome c	CC1=C(C2=CC3=NC(=CC4=C(C(=C([N-]4)C=C5C(=C(C(=N5)C=C1[N-]2)C(C)SCC(C(=O)NC)N)C)C(C)SCC(C(=O)NC)N)C)C(=C3CCC(=O)O)C)CCC(=O)O.[Fe+2]
+ferrocytochrome c	CC1=C(C2=CC3=NC(=CC4=C(C(=C([N-]4)C=C5C(=C(C(=N5)C=C1[N-]2)C(C)SCC(C(=O)NC)N)C)C(C)SCC(C(=O)NC)N)C)C(=C3CCC(=O)O)C)CCC(=O)O.[Fe+2]
 ferroheme b	CC1=C(C2=CC3=NC(=CC4=C(C(=C([N-]4)C=C5C(=C(C(=N5)C=C1[N-]2)C=C)C)C=C)C)C(=C3CCC(=O)O)C)CCC(=O)O.[Fe]
 folate	C1=CC(=CC=C1C(=O)NC(CCC(=O)O)C(=O)O)NCC2=CN=C3C(=N2)C(=O)NC(=N3)N
 formaldehyde	C=O
@@ -1251,7 +1251,7 @@ tetrathionate	[O-]S(=O)(=O)SSS(=O)(=O)[O-]
 thiamine	CC1=C(SC=[N+]1CC2=CN=C(N=C2N)C)CCO
 thiamine(1+) triphosphate(4-)	CC1=C(SC=[N+]1CC2=CN=C(N=C2N)C)CCOP(=O)([O-])OP(=O)([O-])OP(=O)([O-])[O-]
 thiocyanate	C(#N)[S-]
-thiosulfate	
+thiosulfate	[O-]S(=O)(=S)[O-]
 thymidine	CC1=CN(C(=O)NC1=O)C2CC(C(O2)CO)O
 thymidine 3'-monophosphate	CC1=CN(C(=O)NC1=O)C2CC(C(O2)CO)OP(=O)(O)O
 thymidine 5'-monophosphate	CC1=CN(C(=O)NC1=O)C2CC(C(O2)COP(=O)(O)O)O
@@ -1347,3 +1347,4 @@ zymosterol intermediate 1c	CC(CCC=C(C)C)C1CCC2C1(CCC3=C2CCC4C3(CCC(C4C(=O)C)O)C)
 zymosterol intermediate 2	CC(CCC=C(C)C)C1CCC2C1(CCC3=C2CCC4C3(CCC(=O)C4)C)C
 zymosteryl oleate	CCCCCCCCC=CCCCCCCCC(=O)OC1CCC2(C(C1)CCC3=C2CCC4(C3CCC4C(C)CCC=C(C)C)C)C
 zymosteryl palmitoleate	CCCCCCC=CCCCCCCCC(=O)OC1CCC2(C(C1)CCC3=C2CCC4(C3CCC4C(C)CCC=C(C)C)C)C
+	

@@ -72,5 +72,3 @@ progressbar(p/N);
 p = p + 1;
 end
 end
-
-

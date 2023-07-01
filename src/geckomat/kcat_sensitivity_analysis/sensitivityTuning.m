@@ -71,13 +71,13 @@ if ~m.ec.geckoLight
             break;
         end
         lastGrowth = -res.f;
+        if verbose; disp(['Iteration ' num2str(iteration) ': Growth: ' num2str(lastGrowth)]); end
         if (lastGrowth >= desiredGrowthRate)
             break;
         end
         %If you get an error here, it is likely due to numerical issues in the solver
         %The trick where we don't allow low kcats is to fix that, but maybe
         %it is not enough.
-        if verbose; disp(['Iteration ' num2str(iteration) ': Growth: ' num2str(lastGrowth)]); end
         iteration            = iteration + 1;
         %find the highest draw_prot rxn flux
         drawFluxes           = zeros(length(drawRxns),1);
