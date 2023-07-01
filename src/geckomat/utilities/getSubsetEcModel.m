@@ -49,7 +49,5 @@ smallEcModel.ec.source(ecRxnsToRemove)      = [];
 smallEcModel.ec.notes(ecRxnsToRemove)       = [];
 smallEcModel.ec.eccodes(ecRxnsToRemove)     = [];
 smallEcModel.ec.rxnEnzMat(ecRxnsToRemove,:) = [];
-
-smallEcModel = removeReactions(smallEcModel,~keepRxns, true, true, true);
 end
  
