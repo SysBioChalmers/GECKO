@@ -506,5 +506,5 @@ cd(fullfile(findGECKOroot,'tutorials','full_ecModel','code'))
 
 % The flux ratio 
 fluxRatio = fluxFull ./ fluxLight;
-changedFlux = abs(fluxRatio – 1) > 0.001;
+changedFlux = abs(fluxRatio-1) > 0.001;
 model.rxnNames(changedFlux)
