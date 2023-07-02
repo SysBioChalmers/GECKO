@@ -24,7 +24,7 @@
 <div class="box"><strong>getComplexData</strong></div>
 
 <h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
-<div class="box"><strong>function complexInfo = getComplexData(organism, modelAdapter) </strong></div>
+<div class="box"><strong>function complexInfo = getComplexData(taxonomicID, modelAdapter) </strong></div>
 
 <h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
 <div class="fragment"><pre class="comment"> getComplexData
@@ -33,14 +33,13 @@
    specified in the model adapter.
 
  Input:
-   organism        the organism for which complex information should be
-                   downloaded, e.g.:
-                   - 'all' for all data in Complex Portal (default)
-                   - 'Homo sapiens'
-                   - 'Mus musculus'
-                   - 'Saccharomyces cerevisiae'
-                   See a list of all available organisms here:
+   taxonomicID     taxonomic identifier for which complex data should be
+                   downloaded. Only taxonomic identifiers allowed are
+                   those included on Complex Portal:
                    https://www.ebi.ac.uk/complexportal/complex/organisms
+                   If empty, no complex data is downloaded, if 0 (zero),
+                   complex data from all organisms in Complex Portal is
+                   downloaded.
    modelAdapter    a loaded model adapter (Optional, will otherwise use the
                    default model adapter).
  Output:
@@ -73,187 +72,179 @@ This function is called by:
 
 
 <h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
-<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function complexInfo = getComplexData(organism, modelAdapter)</a>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function complexInfo = getComplexData(taxonomicID, modelAdapter)</a>
 0002 <span class="comment">% getComplexData</span>
 0003 <span class="comment">%   Download curated complex stochiometries from the EMBL-EBI Complex</span>
 0004 <span class="comment">%   Portal database. Writes data/ComplexPortal.json in the obj.params.path</span>
 0005 <span class="comment">%   specified in the model adapter.</span>
 0006 <span class="comment">%</span>
 0007 <span class="comment">% Input:</span>
-0008 <span class="comment">%   organism        the organism for which complex information should be</span>
-0009 <span class="comment">%                   downloaded, e.g.:</span>
-0010 <span class="comment">%                   - 'all' for all data in Complex Portal (default)</span>
-0011 <span class="comment">%                   - 'Homo sapiens'</span>
-0012 <span class="comment">%                   - 'Mus musculus'</span>
-0013 <span class="comment">%                   - 'Saccharomyces cerevisiae'</span>
-0014 <span class="comment">%                   See a list of all available organisms here:</span>
-0015 <span class="comment">%                   https://www.ebi.ac.uk/complexportal/complex/organisms</span>
-0016 <span class="comment">%   modelAdapter    a loaded model adapter (Optional, will otherwise use the</span>
-0017 <span class="comment">%                   default model adapter).</span>
-0018 <span class="comment">% Output:</span>
-0019 <span class="comment">%   complexInfo     structure with data downloaded from Complex Portal.</span>
-0020 <span class="comment">%                   Contains the following fields:</span>
-0021 <span class="comment">%                   - complexID: id of the complex on Complex Portal</span>
-0022 <span class="comment">%                   - name: name of the complex on Complex Portal</span>
-0023 <span class="comment">%                   - species: organism containing the complex</span>
-0024 <span class="comment">%                   - geneName: names of the genes in the complex</span>
-0025 <span class="comment">%                   - protID: Uniprot IDs of the proteins in the complex</span>
-0026 <span class="comment">%                   - stochiometry: the complex stochiometry given in the same</span>
-0027 <span class="comment">%                     order as the genes and proteins in geneName and protID</span>
-0028 <span class="comment">%                   - defined:  0 if Complex Portal has no defined stochiometry</span>
-0029 <span class="comment">%                               1 if defined subunit stochiometry is given</span>
-0030 <span class="comment">%                               2 if complex consists of sub-complexes, whose</span>
-0031 <span class="comment">%                                 subunit stochiometries are given</span>
-0032 <span class="comment">% Usage</span>
-0033 <span class="comment">%   complexInfo = getComplexData(organism, modelAdapter);</span>
-0034 
-0035 <span class="keyword">if</span> nargin &lt; 2 || isempty(modelAdapter)
-0036     modelAdapter = ModelAdapterManager.getDefault();
-0037     <span class="keyword">if</span> isempty(modelAdapter)
-0038         error(<span class="string">'Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.'</span>)
-0039     <span class="keyword">end</span>
-0040 <span class="keyword">end</span>
-0041 
-0042 <span class="keyword">if</span> nargin&lt;1 || isempty(organism)
-0043     organism = modelAdapter.getParameters().complex_org_name;
-0044 <span class="keyword">end</span>
-0045 
-0046 params = modelAdapter.params;
-0047 <span class="keyword">switch</span> organism
-0048     <span class="keyword">case</span> <span class="string">'all'</span>
-0049         organism = [];
-0050         <span class="comment">% Below: switch to a valid name in complex portal</span>
-0051     <span class="keyword">case</span> {<span class="string">'Saccharomyces cerevisiae'</span>,<span class="string">'sce'</span>}
-0052         organism = <span class="string">'Saccharomyces cerevisiae (strain ATCC 204508 / S288c)'</span>;
-0053     <span class="keyword">case</span> {<span class="string">'Schizosaccharomyces pombe'</span>,<span class="string">'spo'</span>}
-0054         organism = <span class="string">'Schizosaccharomyces pombe (strain 972 / ATCC 24843)'</span>;
-0055     <span class="keyword">case</span> {<span class="string">'Escherichia coli'</span>,<span class="string">'eco'</span>}
-0056         organism = <span class="string">'Escherichia coli (strain K12)'</span>;
-0057 <span class="keyword">end</span>
-0058 
-0059 
-0060 webOptions = weboptions(<span class="string">'Timeout'</span>, 30);
-0061 
-0062 <span class="keyword">try</span>
-0063     url1 = <span class="string">'https://www.ebi.ac.uk/intact/complex-ws/search/*'</span>;
-0064     <span class="keyword">if</span> ~isempty(organism)
-0065         url1 = [url1 <span class="string">'?facets=species_f&amp;filters=species_f:(&quot;'</span> organism <span class="string">'&quot;)'</span>];
-0066     <span class="keyword">end</span>
-0067 
-0068     data = webread(url1,webOptions);
-0069 <span class="keyword">catch</span> ME
-0070     <span class="keyword">if</span> (strcmp(ME.identifier,<span class="string">'MATLAB:webservices:HTTP404StatusCodeError'</span>))
-0071         error(<span class="string">'Cannot connect to the Complex Portal, perhaps the server is not responding'</span>);
-0072     <span class="keyword">end</span>
-0073 <span class="keyword">end</span>
-0074 
-0075 complexData = cell(data.size,7);
-0076 
-0077 progressbar(<span class="string">'Retrieving information for complexes'</span>);
-0078 <span class="keyword">for</span> i = 1:data.size
-0079     progressbar(i/data.size) <span class="comment">% Update progress bar</span>
-0080     url2 = <span class="string">'https://www.ebi.ac.uk/intact/complex-ws/complex/'</span>;
-0081     complexID = data.elements(i,1).complexAC;
-0082     <span class="keyword">try</span>
-0083         temp = webread([url2 complexID],webOptions);
-0084     <span class="keyword">catch</span> ME
-0085         <span class="keyword">if</span> (strcmp(ME.identifier,<span class="string">'MATLAB:webservices:HTTP404StatusCodeError'</span>))
-0086             warning([<span class="string">'Cannot retrieve the information for '</span> complexID]);
-0087         <span class="keyword">end</span>
-0088         temp = [];
-0089     <span class="keyword">end</span>
+0008 <span class="comment">%   taxonomicID     taxonomic identifier for which complex data should be</span>
+0009 <span class="comment">%                   downloaded. Only taxonomic identifiers allowed are</span>
+0010 <span class="comment">%                   those included on Complex Portal:</span>
+0011 <span class="comment">%                   https://www.ebi.ac.uk/complexportal/complex/organisms</span>
+0012 <span class="comment">%                   If empty, no complex data is downloaded, if 0 (zero),</span>
+0013 <span class="comment">%                   complex data from all organisms in Complex Portal is</span>
+0014 <span class="comment">%                   downloaded.</span>
+0015 <span class="comment">%   modelAdapter    a loaded model adapter (Optional, will otherwise use the</span>
+0016 <span class="comment">%                   default model adapter).</span>
+0017 <span class="comment">% Output:</span>
+0018 <span class="comment">%   complexInfo     structure with data downloaded from Complex Portal.</span>
+0019 <span class="comment">%                   Contains the following fields:</span>
+0020 <span class="comment">%                   - complexID: id of the complex on Complex Portal</span>
+0021 <span class="comment">%                   - name: name of the complex on Complex Portal</span>
+0022 <span class="comment">%                   - species: organism containing the complex</span>
+0023 <span class="comment">%                   - geneName: names of the genes in the complex</span>
+0024 <span class="comment">%                   - protID: Uniprot IDs of the proteins in the complex</span>
+0025 <span class="comment">%                   - stochiometry: the complex stochiometry given in the same</span>
+0026 <span class="comment">%                     order as the genes and proteins in geneName and protID</span>
+0027 <span class="comment">%                   - defined:  0 if Complex Portal has no defined stochiometry</span>
+0028 <span class="comment">%                               1 if defined subunit stochiometry is given</span>
+0029 <span class="comment">%                               2 if complex consists of sub-complexes, whose</span>
+0030 <span class="comment">%                                 subunit stochiometries are given</span>
+0031 <span class="comment">% Usage</span>
+0032 <span class="comment">%   complexInfo = getComplexData(organism, modelAdapter);</span>
+0033 
+0034 <span class="keyword">if</span> nargin &lt; 2 || isempty(modelAdapter)
+0035     modelAdapter = ModelAdapterManager.getDefault();
+0036     <span class="keyword">if</span> isempty(modelAdapter)
+0037         error(<span class="string">'Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.'</span>)
+0038     <span class="keyword">end</span>
+0039 <span class="keyword">end</span>
+0040 
+0041 <span class="keyword">if</span> nargin&lt;1 || isempty(taxonomicID)
+0042     taxonomicID = modelAdapter.getParameters().complex.taxonomicID;
+0043 <span class="keyword">end</span>
+0044 
+0045 params = modelAdapter.params;
+0046 <span class="keyword">if</span> isempty(taxonomicID) <span class="comment">% Can be empty when gathered from model adapter</span>
+0047     disp(<span class="string">'No taxonomicID specified.'</span>)
+0048     <span class="keyword">return</span>
+0049 <span class="keyword">elseif</span> taxonomicID == 0
+0050     taxonomicID = [];
+0051 <span class="keyword">end</span>
+0052 
+0053 webOptions = weboptions(<span class="string">'Timeout'</span>, 30);
+0054 <span class="keyword">try</span>
+0055     url1 = <span class="string">'https://www.ebi.ac.uk/intact/complex-ws/search/*'</span>;
+0056     <span class="keyword">if</span> ~isempty(taxonomicID)
+0057         url1 = [url1 <span class="string">'?facets=species&amp;filters=species:(&quot;'</span> num2str(taxonomicID) <span class="string">'&quot;)'</span>];
+0058     <span class="keyword">end</span>
+0059     data = webread(url1,webOptions);
+0060 <span class="keyword">catch</span> ME
+0061     <span class="keyword">if</span> (strcmp(ME.identifier,<span class="string">'MATLAB:webservices:HTTP404StatusCodeError'</span>))
+0062         error(<span class="string">'Cannot connect to the Complex Portal, perhaps the server is not responding'</span>);
+0063     <span class="keyword">end</span>
+0064 <span class="keyword">end</span>
+0065 <span class="keyword">if</span> data.size == 0
+0066     error(<span class="string">'No data could be gathered from Complex Portal for the specified taxonomicID.'</span>)
+0067 <span class="keyword">end</span>
+0068 complexData = cell(data.size,7);
+0069 
+0070 progressbar(<span class="string">'Retrieving information for complexes'</span>);
+0071 <span class="keyword">for</span> i = 1:data.size
+0072     progressbar(i/data.size) <span class="comment">% Update progress bar</span>
+0073     url2 = <span class="string">'https://www.ebi.ac.uk/intact/complex-ws/complex/'</span>;
+0074     complexID = data.elements(i,1).complexAC;
+0075     <span class="keyword">try</span>
+0076         temp = webread([url2 complexID],webOptions);
+0077     <span class="keyword">catch</span> ME
+0078         <span class="keyword">if</span> (strcmp(ME.identifier,<span class="string">'MATLAB:webservices:HTTP404StatusCodeError'</span>))
+0079             warning([<span class="string">'Cannot retrieve the information for '</span> complexID]);
+0080         <span class="keyword">end</span>
+0081         temp = [];
+0082     <span class="keyword">end</span>
+0083 
+0084     <span class="keyword">if</span> ~isempty(temp)
+0085         complexData(i,1) = {temp.complexAc};
+0086         complexData(i,2) = {temp.name};
+0087         complexData(i,3) = {temp.species};
+0088 
+0089         idxIntType = find(strcmpi({temp.participants.interactorType}, <span class="string">'protein'</span>));
 0090 
-0091 
-0092     <span class="keyword">if</span> ~isempty(temp)
-0093         complexData(i,1) = {temp.complexAc};
-0094         complexData(i,2) = {temp.name};
-0095         complexData(i,3) = {temp.species};
-0096 
-0097         idxIntType = find(strcmpi({temp.participants.interactorType}, <span class="string">'protein'</span>));
-0098 
-0099         <span class="comment">% Some complex reported are 'stable complex', then, save the id</span>
-0100         <span class="comment">% complex and but set the genes and protein to a empty string.</span>
-0101         <span class="keyword">if</span> numel(idxIntType) &gt; 0
-0102             complexData(i,4) = {{temp.participants(idxIntType).name}};
-0103             complexData(i,5) = {{temp.participants(idxIntType).identifier}};
-0104         <span class="keyword">else</span>
-0105             complexData(i,4) = {{temp.participants.name}};
-0106             complexData(i,5) = {{temp.participants.identifier}};
-0107         <span class="keyword">end</span>
-0108 
-0109         <span class="comment">% Portal complex has two stochiometry values, a minimum and</span>
-0110         <span class="comment">% maximum value. Only minimum will be store. In some cases,</span>
-0111         <span class="comment">% some complex does not have stochiometry coefficient, then, it</span>
-0112         <span class="comment">% will be fill with zeros</span>
-0113         <span class="keyword">if</span> ~cellfun(<span class="string">'isempty'</span>,{temp.participants.stochiometry})
-0114             <span class="comment">% For some reason, if there is only one protein in the complex</span>
-0115             <span class="comment">% split function does nor return a cell nx2, instead is 2x1,</span>
-0116             <span class="comment">% then assign an incorrect stochiometry</span>
-0117             <span class="keyword">switch</span> numel(idxIntType)
-0118                 <span class="keyword">case</span> 0 <span class="comment">% Contains complexes</span>
-0119                     stochiometry = split({temp.participants.stochiometry}.', <span class="string">','</span>);
-0120                     complexData(i,7) = {2};
-0121                 <span class="keyword">case</span> 1 <span class="comment">% Contains one protein</span>
-0122                     stochiometry = split({temp.participants(idxIntType).stochiometry}.', <span class="string">','</span>).';
-0123                     complexData(i,7) = {1};
-0124                 <span class="keyword">otherwise</span>
-0125                     stochiometry = split({temp.participants(idxIntType).stochiometry}.', <span class="string">','</span>);
-0126                     complexData(i,7) = {1};
-0127             <span class="keyword">end</span>
-0128             values = str2double(erase(stochiometry(:,1),&quot;minValue: &quot;)).';
-0129             complexData(i,6) = {values};
-0130         <span class="keyword">else</span>
-0131             complexData(i,6) = {repelem(0,numel(complexData{i,4}))};
-0132             complexData(i,7) = {0};
-0133         <span class="keyword">end</span>
-0134     <span class="keyword">else</span>
-0135         <span class="comment">%</span>
-0136         complexData(i,1) = {complexID};
-0137         complexData(i,2) = {<span class="string">' '</span>};
-0138         complexData(i,3) = {<span class="string">' '</span>};
-0139         complexData(i,4) = {<span class="string">' '</span>};
-0140         complexData(i,5) = {<span class="string">' '</span>};
-0141         complexData(i,6) = {0};
-0142         complexData(i,7) = {0};
-0143     <span class="keyword">end</span>
-0144 <span class="keyword">end</span>
-0145 fprintf(<span class="string">'\n'</span>);
-0146 
-0147 <span class="comment">% Expand complexes of complexes</span>
-0148 complexComplex = find([complexData{:,7}]==2);
-0149 <span class="keyword">if</span> ~isempty(complexComplex)
-0150     <span class="keyword">for</span> i=1:numel(complexComplex)
-0151         subComplex    = complexData{complexComplex(i),5};
-0152         subComplexS   = complexData{complexComplex(i),6};
-0153         subComplexIdx = find(ismember(complexData(:,1),subComplex));
-0154         allGenes = horzcat(complexData{subComplexIdx,4});
-0155         allProts = horzcat(complexData{subComplexIdx,5});
-0156         allStoch = {complexData{subComplexIdx,6}};
-0157         <span class="keyword">for</span> j=1:numel(subComplex)
-0158             allStoch{j}=allStoch{j}*subComplexS(j);
-0159         <span class="keyword">end</span>
-0160         allStoch = horzcat(allStoch{:});
-0161         [allGenes,ia,ic] = unique(allGenes,<span class="string">'stable'</span>);
-0162         allProts = allProts(ia);
-0163         allStoch = splitapply(@sum, allStoch', ic);
-0164         complexData{complexComplex(i),4} = allGenes;
-0165         complexData{complexComplex(i),5} = allProts;
-0166         complexData{complexComplex(i),6} = allStoch;
-0167     <span class="keyword">end</span>
-0168 <span class="keyword">end</span>
-0169 
-0170 rowHeadings = {<span class="string">'complexID'</span>,<span class="string">'name'</span>,<span class="string">'species'</span>,<span class="string">'geneName'</span>,<span class="string">'protID'</span>,<span class="string">'stochiometry'</span>,<span class="string">'defined'</span>};
-0171 
-0172 complexInfo = cell2struct(complexData, rowHeadings, 2);
-0173 
-0174 <span class="comment">% Convert to a JSON file</span>
-0175 jsontxt = jsonencode(cell2table(complexData, <span class="string">'VariableNames'</span>, rowHeadings));
-0176 <span class="comment">% Write to a JSON file</span>
-0177 fid = fopen(fullfile(params.path,<span class="string">'data'</span>,<span class="string">'ComplexPortal.json'</span>), <span class="string">'w'</span>);
-0178 fprintf(fid, <span class="string">'%s'</span>, jsontxt);
-0179 fclose(fid);
-0180 fprintf(<span class="string">'Model-specific ComplexPortal database stored at %s\n'</span>,fullfile(params.path,<span class="string">'data'</span>,<span class="string">'ComplexPortal.json'</span>));
-0181 <span class="keyword">end</span></pre></div>
+0091         <span class="comment">% Some complex reported are 'stable complex', then, save the id</span>
+0092         <span class="comment">% complex and but set the genes and protein to a empty string.</span>
+0093         <span class="keyword">if</span> numel(idxIntType) &gt; 0
+0094             complexData(i,4) = {{temp.participants(idxIntType).name}};
+0095             complexData(i,5) = {{temp.participants(idxIntType).identifier}};
+0096         <span class="keyword">else</span>
+0097             complexData(i,4) = {{temp.participants.name}};
+0098             complexData(i,5) = {{temp.participants.identifier}};
+0099         <span class="keyword">end</span>
+0100 
+0101         <span class="comment">% Portal complex has two stochiometry values, a minimum and</span>
+0102         <span class="comment">% maximum value. Only minimum will be store. In some cases,</span>
+0103         <span class="comment">% some complex does not have stochiometry coefficient, then, it</span>
+0104         <span class="comment">% will be fill with zeros</span>
+0105         <span class="keyword">if</span> ~cellfun(<span class="string">'isempty'</span>,{temp.participants.stochiometry})
+0106             <span class="comment">% For some reason, if there is only one protein in the complex</span>
+0107             <span class="comment">% split function does nor return a cell nx2, instead is 2x1,</span>
+0108             <span class="comment">% then assign an incorrect stochiometry</span>
+0109             <span class="keyword">switch</span> numel(idxIntType)
+0110                 <span class="keyword">case</span> 0 <span class="comment">% Contains complexes</span>
+0111                     stochiometry = split({temp.participants.stochiometry}.', <span class="string">','</span>);
+0112                     complexData(i,7) = {2};
+0113                 <span class="keyword">case</span> 1 <span class="comment">% Contains one protein</span>
+0114                     stochiometry = split({temp.participants(idxIntType).stochiometry}.', <span class="string">','</span>).';
+0115                     complexData(i,7) = {1};
+0116                 <span class="keyword">otherwise</span>
+0117                     stochiometry = split({temp.participants(idxIntType).stochiometry}.', <span class="string">','</span>);
+0118                     complexData(i,7) = {1};
+0119             <span class="keyword">end</span>
+0120             values = str2double(erase(stochiometry(:,1),&quot;minValue: &quot;)).';
+0121             complexData(i,6) = {values};
+0122         <span class="keyword">else</span>
+0123             complexData(i,6) = {repelem(0,numel(complexData{i,4}))};
+0124             complexData(i,7) = {0};
+0125         <span class="keyword">end</span>
+0126     <span class="keyword">else</span>
+0127         <span class="comment">%</span>
+0128         complexData(i,1) = {complexID};
+0129         complexData(i,2) = {<span class="string">' '</span>};
+0130         complexData(i,3) = {<span class="string">' '</span>};
+0131         complexData(i,4) = {<span class="string">' '</span>};
+0132         complexData(i,5) = {<span class="string">' '</span>};
+0133         complexData(i,6) = {0};
+0134         complexData(i,7) = {0};
+0135     <span class="keyword">end</span>
+0136 <span class="keyword">end</span>
+0137 fprintf(<span class="string">'\n'</span>);
+0138 
+0139 <span class="comment">% Expand complexes of complexes</span>
+0140 complexComplex = find([complexData{:,7}]==2);
+0141 <span class="keyword">if</span> ~isempty(complexComplex)
+0142     <span class="keyword">for</span> i=1:numel(complexComplex)
+0143         subComplex    = complexData{complexComplex(i),5};
+0144         subComplexS   = complexData{complexComplex(i),6};
+0145         subComplexIdx = find(ismember(complexData(:,1),subComplex));
+0146         allGenes = horzcat(complexData{subComplexIdx,4});
+0147         allProts = horzcat(complexData{subComplexIdx,5});
+0148         allStoch = {complexData{subComplexIdx,6}};
+0149         <span class="keyword">for</span> j=1:numel(subComplex)
+0150             allStoch{j}=allStoch{j}*subComplexS(j);
+0151         <span class="keyword">end</span>
+0152         allStoch = horzcat(allStoch{:});
+0153         [allGenes,ia,ic] = unique(allGenes,<span class="string">'stable'</span>);
+0154         allProts = allProts(ia);
+0155         allStoch = splitapply(@sum, allStoch', ic);
+0156         complexData{complexComplex(i),4} = allGenes;
+0157         complexData{complexComplex(i),5} = allProts;
+0158         complexData{complexComplex(i),6} = allStoch;
+0159     <span class="keyword">end</span>
+0160 <span class="keyword">end</span>
+0161 
+0162 rowHeadings = {<span class="string">'complexID'</span>,<span class="string">'name'</span>,<span class="string">'species'</span>,<span class="string">'geneName'</span>,<span class="string">'protID'</span>,<span class="string">'stochiometry'</span>,<span class="string">'defined'</span>};
+0163 
+0164 complexInfo = cell2struct(complexData, rowHeadings, 2);
+0165 
+0166 <span class="comment">% Convert to a JSON file</span>
+0167 jsontxt = jsonencode(cell2table(complexData, <span class="string">'VariableNames'</span>, rowHeadings));
+0168 <span class="comment">% Write to a JSON file</span>
+0169 fid = fopen(fullfile(params.path,<span class="string">'data'</span>,<span class="string">'ComplexPortal.json'</span>), <span class="string">'w'</span>);
+0170 fprintf(fid, <span class="string">'%s'</span>, jsontxt);
+0171 fclose(fid);
+0172 fprintf(<span class="string">'Model-specific ComplexPortal database stored at %s\n'</span>,fullfile(params.path,<span class="string">'data'</span>,<span class="string">'ComplexPortal.json'</span>));
+0173 <span class="keyword">end</span></pre></div>
 <hr><address>Generated by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

@@ -46,7 +46,7 @@
                    - 'ignore'  ignore multiplicities and use the protein
                                with the lowest index in the database.
                    - 'add'     adds all the multiple proteins as
-                               isoenzymes for the given reaction
+                               isozymes for the given reaction
    modelAdapter    a loaded model adapter (Optional, will otherwise use the
                    default model adapter).
 
@@ -91,7 +91,7 @@ This function is called by:
 0018 <span class="comment">%                   - 'ignore'  ignore multiplicities and use the protein</span>
 0019 <span class="comment">%                               with the lowest index in the database.</span>
 0020 <span class="comment">%                   - 'add'     adds all the multiple proteins as</span>
-0021 <span class="comment">%                               isoenzymes for the given reaction</span>
+0021 <span class="comment">%                               isozymes for the given reaction</span>
 0022 <span class="comment">%   modelAdapter    a loaded model adapter (Optional, will otherwise use the</span>
 0023 <span class="comment">%                   default model adapter).</span>
 0024 <span class="comment">%</span>
@@ -232,7 +232,7 @@ This function is called by:
 0159 STR = [STR, <span class="string">'\nIf a wrongly annotated case was found then call the '</span>];
 0160 STR = [STR, <span class="string">'getECfromDatabase.m function again with the option action'</span>];
 0161 STR = [STR, <span class="string">'= ignore\n\n'</span>];
-0162 STR = [STR, <span class="string">'If the conflicting proteins are desired to be kept as isoenzymes'</span>];
+0162 STR = [STR, <span class="string">'If the conflicting proteins are desired to be kept as isozymes'</span>];
 0163 STR = [STR, <span class="string">' then call the getECfromDatabase.m function'</span>];
 0164 STR = [STR, <span class="string">' again with the option action = add\n'</span>];
 0165 error(sprintf(STR))

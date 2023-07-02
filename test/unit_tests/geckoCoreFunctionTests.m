@@ -224,7 +224,7 @@ function testsaveECModel_tc0009(testCase)
     adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
     model = getGeckoTestModel();
     ecModel = makeEcModel(model, false, adapter);
-    saveEcModel(ecModel, adapter);
+    saveEcModel(ecModel, [], adapter);
     loadedEcModel = loadEcModel([],adapter);
     delete(fullfile(adapter.params.path,'models','ecModel.yml'));
     verifyEqual(testCase, ecModel, loadedEcModel)

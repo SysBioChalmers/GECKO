@@ -58,7 +58,7 @@
 <h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
 This function calls:
 <ul style="list-style-image:url(../../../matlabicon.gif)">
-<li><a href="getComplexData.html" class="code" title="function complexInfo = getComplexData(organism, modelAdapter)">getComplexData</a>	getComplexData</li></ul>
+<li><a href="getComplexData.html" class="code" title="function complexInfo = getComplexData(taxonomicID, modelAdapter)">getComplexData</a>	getComplexData</li></ul>
 This function is called by:
 <ul style="list-style-image:url(../../../matlabicon.gif)">
 </ul>
@@ -110,7 +110,7 @@ This function is called by:
 0041 <span class="keyword">if</span> nargin&lt;2 || isempty(complexInfo)
 0042     complexInfo = fullfile(params.path,<span class="string">'data'</span>,<span class="string">'ComplexPortal.json'</span>);
 0043     <span class="keyword">if</span> ~isfile(complexInfo)
-0044         complexInfo = <a href="getComplexData.html" class="code" title="function complexInfo = getComplexData(organism, modelAdapter)">getComplexData</a>([], modelAdapter);
+0044         complexInfo = <a href="getComplexData.html" class="code" title="function complexInfo = getComplexData(taxonomicID, modelAdapter)">getComplexData</a>([], modelAdapter);
 0045     <span class="keyword">end</span>
 0046 <span class="keyword">end</span>
 0047 

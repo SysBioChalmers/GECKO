@@ -204,7 +204,7 @@ This function is called by:
 0102     <span class="keyword">for</span> i = 1:numel(customKcats.proteins)
 0103         <span class="keyword">if</span> isempty(customKcats.proteins{i})
 0104             <span class="comment">%If only reaction ID(s) is/are specified (and no proteins),</span>
-0105             <span class="comment">%then apply the kcat to all isoenzymic reactions</span>
+0105             <span class="comment">%then apply the kcat to all isozymic reactions</span>
 0106             rxns    = strtrim(strsplit(customKcats.rxns{i}, <span class="string">','</span>));
 0107             rxnIdxs = ismember(ecRxnNoSuffix,rxns);
 0108             rxnToUpdate(rxnIdxs) = 1;

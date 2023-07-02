@@ -160,7 +160,7 @@ This function is called by:
 0098     [~,rxnIdx]  = ismember(modRxns,model.rxns);
 0099     hasEc = find(hasEc &amp; updateRxns);
 0100     <span class="keyword">for</span> i = 1:numel(hasEc)
-0101         <span class="comment">% Get all isoenzymes per reaction</span>
+0101         <span class="comment">% Get all isozymes per reaction</span>
 0102         ecIdx = find(rxnIdx == hasEc(i));
 0103         <span class="comment">% Multiply enzymes with their MW (they are then automatically</span>
 0104         <span class="comment">% summed per reaction), and divide by their kcat, to get a vector</span>

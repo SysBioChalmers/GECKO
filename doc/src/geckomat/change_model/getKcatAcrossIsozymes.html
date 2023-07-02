@@ -2,9 +2,9 @@
                 "http://www.w3.org/TR/REC-html40/loose.dtd">
 <html>
 <head>
-  <title>Description of getKcatAcrossIsoenzymes</title>
-  <meta name="keywords" content="getKcatAcrossIsoenzymes">
-  <meta name="description" content="getKcatAcrossIsoenzymes">
+  <title>Description of getKcatAcrossIsozymes</title>
+  <meta name="keywords" content="getKcatAcrossIsozymes">
+  <meta name="description" content="getKcatAcrossIsozymes">
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
   <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
   <meta name="robots" content="index, follow">
@@ -12,25 +12,25 @@
 </head>
 <body>
 <a name="_top"></a>
-<div><a href="../../../index.html">Home</a> &gt;  <a href="#">src</a> &gt; <a href="#">geckomat</a> &gt; <a href="index.html">change_model</a> &gt; getKcatAcrossIsoenzymes.m</div>
+<div><a href="../../../index.html">Home</a> &gt;  <a href="#">src</a> &gt; <a href="#">geckomat</a> &gt; <a href="index.html">change_model</a> &gt; getKcatAcrossIsozymes.m</div>
 
 <!--<table width="100%"><tr><td align="left"><a href="../../../index.html"><img alt="<" border="0" src="../../../left.png">&nbsp;Master index</a></td>
 <td align="right"><a href="index.html">Index for src\geckomat\change_model&nbsp;<img alt=">" border="0" src="../../../right.png"></a></td></tr></table>-->
 
-<h1>getKcatAcrossIsoenzymes
+<h1>getKcatAcrossIsozymes
 </h1>
 
 <h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
-<div class="box"><strong>getKcatAcrossIsoenzymes</strong></div>
+<div class="box"><strong>getKcatAcrossIsozymes</strong></div>
 
 <h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
-<div class="box"><strong>function model = getKcatAcrossIsoenzymes(model) </strong></div>
+<div class="box"><strong>function model = getKcatAcrossIsozymes(model) </strong></div>
 
 <h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
-<div class="fragment"><pre class="comment"> getKcatAcrossIsoenzymes
-   For reactions without kcat value (0 in model.ec.kcat), isoenzymes are
+<div class="fragment"><pre class="comment"> getKcatAcrossIsozymes
+   For reactions without kcat value (0 in model.ec.kcat), isozymes are
    found (being based on the same reaction in the conventional GEM), that
-   do have a kcat value assigned. The mean kcat value of these isoenzymes
+   do have a kcat value assigned. The mean kcat value of these isozymes
    is then used to fill in model.ec.kcat.
 
  Input:
@@ -38,9 +38,9 @@
                not GECKO light
 
  Output:
-   model       an ecModel with kcat values assigned to isoenzymes in model.ec.kcat
+   model       an ecModel with kcat values assigned to isozymes in model.ec.kcat
 
- Usage: model = getKcatAcrossIsoenzymes(model);</pre></div>
+ Usage: model = getKcatAcrossIsozymes(model);</pre></div>
 
 <!-- crossreference -->
 <h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
@@ -55,11 +55,11 @@ This function is called by:
 
 
 <h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
-<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function model = getKcatAcrossIsoenzymes(model)</a>
-0002 <span class="comment">% getKcatAcrossIsoenzymes</span>
-0003 <span class="comment">%   For reactions without kcat value (0 in model.ec.kcat), isoenzymes are</span>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function model = getKcatAcrossIsozymes(model)</a>
+0002 <span class="comment">% getKcatAcrossIsozymes</span>
+0003 <span class="comment">%   For reactions without kcat value (0 in model.ec.kcat), isozymes are</span>
 0004 <span class="comment">%   found (being based on the same reaction in the conventional GEM), that</span>
-0005 <span class="comment">%   do have a kcat value assigned. The mean kcat value of these isoenzymes</span>
+0005 <span class="comment">%   do have a kcat value assigned. The mean kcat value of these isozymes</span>
 0006 <span class="comment">%   is then used to fill in model.ec.kcat.</span>
 0007 <span class="comment">%</span>
 0008 <span class="comment">% Input:</span>
@@ -67,9 +67,9 @@ This function is called by:
 0010 <span class="comment">%               not GECKO light</span>
 0011 <span class="comment">%</span>
 0012 <span class="comment">% Output:</span>
-0013 <span class="comment">%   model       an ecModel with kcat values assigned to isoenzymes in model.ec.kcat</span>
+0013 <span class="comment">%   model       an ecModel with kcat values assigned to isozymes in model.ec.kcat</span>
 0014 <span class="comment">%</span>
-0015 <span class="comment">% Usage: model = getKcatAcrossIsoenzymes(model);</span>
+0015 <span class="comment">% Usage: model = getKcatAcrossIsozymes(model);</span>
 0016 
 0017 <span class="keyword">if</span> model.ec.geckoLight
 0018     error(<span class="string">'Provided model is a GECKO light version, this function is not relevant for such models'</span>)
