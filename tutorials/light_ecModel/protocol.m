@@ -57,7 +57,7 @@ kcatList_fuzzy  = fuzzyKcatMatching(ecModel);
 ecModel         = findMetSmiles(ecModel);
 % DLKcat.tsv files are ecModel-type specific and cannot be interchanged
 % between full and light ecModels. This is due to a difference in how
-% reactions are represented in the ecModel.ec structure (isoenzymatic
+% reactions are represented in the ecModel.ec structure (isozymatic
 % reactions are split in full ecModels, and a suffix (e.g. _EXP_1) is
 % attached to reaction identifiers; while in light models such reactions
 % are not split and a counting prefix (e.g. 001_) is attached to reaction
@@ -84,7 +84,7 @@ ecModel = selectKcatValue(ecModel,kcatList_merged);
 % in this tutorial.
 
 % STEP 11
-% getKcatAcrossIsoenzymes cannot be run on light ecModels.
+% getKcatAcrossIsozymes cannot be run on light ecModels.
 
 % STEP 12
 % getStandardKcat can be run on light ecModels in a similar way as for full
@@ -101,7 +101,7 @@ ecModel = selectKcatValue(ecModel,kcatList_merged);
 % In light ecModels the kcat values are also kept in ecModels.ec.kcat, and
 % only after running applyKcatConstraints are these introduced in the
 % ecModel.S matrix. In constrast to full ecModels, the applyKcatConstraints
-% function checks across isoenzymes which is the most efficient enzyme
+% function checks across isozymes which is the most efficient enzyme
 % (lowest MW/kcat value), and uses this value.
 ecModel = applyKcatConstraints(ecModel);
 

@@ -32,7 +32,7 @@ function [model, noUniprot] = makeEcModel(model, geckoLight, modelAdapter)
 %       'OR' in grRules (each reaction is then catalyzed by one enzyme
 %       (complex).
 %   6.  Make empty model.ec structure, that will contain enzyme and kcat
-%       information. One entry per reaction, where isoenzymes have multiple
+%       information. One entry per reaction, where isozymes have multiple
 %       entries. This model.ec structure will later be populated with kcat
 %       values. For geckoLight the structure is different, where each
 %       reaction can have multiple isozymes.
@@ -176,12 +176,12 @@ nonExchRxns = model.rxns;
 nonExchRxns(exchRxns) = [];
 model=convertToIrrev(model, nonExchRxns);
 
-%5: Expand model, to separate isoenzymes (appends _EXP_* to reaction IDs to
+%5: Expand model, to separate isozymes (appends _EXP_* to reaction IDs to
 %indicate duplication)
 if ~geckoLight
     model=expandModel(model);
 end
-% Sort reactions, so that reversible and isoenzymic reactions are kept near
+% Sort reactions, so that reversible and isozymic reactions are kept near
 if ~geckoLight
     model=sortIdentifiers(model);
 end
@@ -403,7 +403,7 @@ if ~isempty(indexes2check)
             STR = [STR '  - grRule #' model.rxns{index} ': ' grRules{index} '\n'];
         end
         STR = [STR,'\n This kind of relationships should only be present '];
-        STR = [STR,'in  reactions catalysed by complexes of isoenzymes e'];
+        STR = [STR,'in  reactions catalysed by complexes of isozymes e'];
         STR = [STR,'.g.\n\n  - (G1 or G2) and (G3 or G4)\n\n For these c'];
         STR = [STR,'ases modify the grRules manually, writing all the po'];
         STR = [STR,'ssible combinations e.g.\n\n  - (G1 and G3) or (G1 a'];

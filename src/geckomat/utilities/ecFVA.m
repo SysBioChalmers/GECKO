@@ -1,6 +1,6 @@
 function [minFlux, maxFlux] = ecFVA(ecModel, model)
 % ecFVA
-%   Flux variability analysis is performed on the ecModel, and isoenzymic
+%   Flux variability analysis is performed on the ecModel, and isozymic
 %   reactions are combined to construct ouput minFlux and maxFlux vectors,
 %   which follow the same order of model.rxns. The output from this
 %   function does not include enzyme usage reactions, to observe these, on

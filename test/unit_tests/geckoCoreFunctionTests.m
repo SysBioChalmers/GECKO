@@ -398,9 +398,9 @@ function testKcats_tc0011(testCase)
     verifyEqual(testCase,full(ecModel.S(ismember(ecModel.mets, {'prot_P1';'prot_P2';'prot_P3';'prot_P4';'prot_P5'}),strcmp(ecModel.rxns, 'S1'))), [0;0;0;0;0],"AbsTol",10^-10)
     verifyEqual(testCase,full(ecModel.S(ismember(ecModel.mets, {'prot_P1';'prot_P2';'prot_P3';'prot_P4';'prot_P5'}),strcmp(ecModel.rxns, 'S2'))), [0;0;0;0;0],"AbsTol",10^-10)
 
-    %Check getKcatAcrossIsoenzymes
+    %Check getKcatAcrossIsozymes
     ecModel.ec.kcat(2)=0;
-    ecModel=getKcatAcrossIsoenzymes(ecModel);
+    ecModel=getKcatAcrossIsozymes(ecModel);
     verifyEqual(testCase,ecModel.ec.kcat, [1;1;10;10;1008;1009;1010;100;1011])
 
     %Check applyCustomKcats

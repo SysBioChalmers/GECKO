@@ -18,7 +18,7 @@ function model = getECfromDatabase(model, ecRxns, action, modelAdapter)
 %                   - 'ignore'  ignore multiplicities and use the protein
 %                               with the lowest index in the database.
 %                   - 'add'     adds all the multiple proteins as
-%                               isoenzymes for the given reaction
+%                               isozymes for the given reaction
 %   modelAdapter    a loaded model adapter (Optional, will otherwise use the
 %                   default model adapter).
 %
@@ -159,7 +159,7 @@ end
 STR = [STR, '\nIf a wrongly annotated case was found then call the '];
 STR = [STR, 'getECfromDatabase.m function again with the option action'];
 STR = [STR, '= ignore\n\n'];
-STR = [STR, 'If the conflicting proteins are desired to be kept as isoenzymes'];
+STR = [STR, 'If the conflicting proteins are desired to be kept as isozymes'];
 STR = [STR, ' then call the getECfromDatabase.m function'];
 STR = [STR, ' again with the option action = add\n'];
 error(sprintf(STR))

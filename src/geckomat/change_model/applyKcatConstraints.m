@@ -98,7 +98,7 @@ else %GECKO light formulation, where prot_pool represents all usages
     [~,rxnIdx]  = ismember(modRxns,model.rxns);
     hasEc = find(hasEc & updateRxns);
     for i = 1:numel(hasEc)
-        % Get all isoenzymes per reaction
+        % Get all isozymes per reaction
         ecIdx = find(rxnIdx == hasEc(i));
         % Multiply enzymes with their MW (they are then automatically
         % summed per reaction), and divide by their kcat, to get a vector

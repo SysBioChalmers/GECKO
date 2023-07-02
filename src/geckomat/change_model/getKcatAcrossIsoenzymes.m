@@ -1,8 +1,8 @@
-function model = getKcatAcrossIsoenzymes(model)
-% getKcatAcrossIsoenzymes
-%   For reactions without kcat value (0 in model.ec.kcat), isoenzymes are
+function model = getKcatAcrossIsozymes(model)
+% getKcatAcrossIsozymes
+%   For reactions without kcat value (0 in model.ec.kcat), isozymes are
 %   found (being based on the same reaction in the conventional GEM), that
-%   do have a kcat value assigned. The mean kcat value of these isoenzymes
+%   do have a kcat value assigned. The mean kcat value of these isozymes
 %   is then used to fill in model.ec.kcat.
 %
 % Input:
@@ -10,9 +10,9 @@ function model = getKcatAcrossIsoenzymes(model)
 %               not GECKO light
 %
 % Output:
-%   model       an ecModel with kcat values assigned to isoenzymes in model.ec.kcat
+%   model       an ecModel with kcat values assigned to isozymes in model.ec.kcat
 %
-% Usage: model = getKcatAcrossIsoenzymes(model);
+% Usage: model = getKcatAcrossIsozymes(model);
 
 if model.ec.geckoLight
     error('Provided model is a GECKO light version, this function is not relevant for such models')

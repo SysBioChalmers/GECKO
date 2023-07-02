@@ -102,7 +102,7 @@ if ~model.ec.geckoLight
     for i = 1:numel(customKcats.proteins)
         if isempty(customKcats.proteins{i})
             %If only reaction ID(s) is/are specified (and no proteins),
-            %then apply the kcat to all isoenzymic reactions
+            %then apply the kcat to all isozymic reactions
             rxns    = strtrim(strsplit(customKcats.rxns{i}, ','));
             rxnIdxs = ismember(ecRxnNoSuffix,rxns);
             rxnToUpdate(rxnIdxs) = 1;
