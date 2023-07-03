@@ -58,8 +58,8 @@ fprintf('Mapping fluxes: %.0f%% (%.3f vs %.3f seconds)\n', (lightTime/fullTime)*
 fprintf('Growth rate that is reached: %.4f vs %.4f\n', abs(solFull.f) , abs(solLight.f))
 
 %
-solF(abs(solF)<1e-10) = 0;
-solL(abs(solL)<1e-10) = 0;
+solF(abs(solF)<1e-8) = 0;
+solL(abs(solL)<1e-8) = 0;
 
 scatter(abs(solF),abs(solL))
 xlabel('Full ecModel')
