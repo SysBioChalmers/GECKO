@@ -32,7 +32,7 @@ function [model, noUniprot] = makeEcModel(model, geckoLight, modelAdapter)
 %       'OR' in grRules (each reaction is then catalyzed by one enzyme
 %       (complex).
 %   6.  Make empty model.ec structure, that will contain enzyme and kcat
-%       information. One entry per reaction, where isoenzymes have multiple
+%       information. One entry per reaction, where isozymes have multiple
 %       entries. This model.ec structure will later be populated with kcat
 %       values. For geckoLight the structure is different, where each
 %       reaction can have multiple isozymes.
@@ -99,7 +99,7 @@ elseif ~islogical(geckoLight) && ~(geckoLight == 0) && ~(geckoLight == 1)
 end
 
 if nargin < 3 || isempty(modelAdapter)
-    modelAdapter = ModelAdapterManager.getDefaultAdapter();
+    modelAdapter = ModelAdapterManager.getDefault();
     if isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
     end
@@ -142,12 +142,18 @@ uniprotDB = loadDatabases('both', modelAdapter);
 uniprotDB = uniprotDB.uniprot;
 
 %1: Remove gene rules from pseudoreactions (if any):
-for i = 1:length(model.rxns)
-    if endsWith(model.rxnNames{i},' pseudoreaction')
-        model.grRules{i}      = '';
-        model.rxnGeneMat(i,:) = zeros(1,length(model.genes));
-    end
+if exist(fullfile(params.path,'data','pseudoRxns.tsv'),'file')
+    fID        = fopen(fullfile(params.path,'data','pseudoRxns.tsv'));
+    fileData   = textscan(fID,'%s %s','delimiter','\t');
+    fclose(fID);
+    pseudoRxns = fileData{1};
+    pseudoRxns = ismember(model.rxns,pseudoRxns);
+else
+    pseudoRxns = false(numel(model.rxns),1);
 end
+pseudoRxns = find(pseudoRxns | contains(model.rxnNames,'pseudoreaction'));
+model.grRules(pseudoRxns)       = {''};
+model.rxnGeneMat(pseudoRxns,:)  = zeros(numel(pseudoRxns), numel(model.genes));
 
 %2: Swap direction of reactions that are defined to only carry negative flux
 to_swap=model.lb < 0 & model.ub == 0;
@@ -170,12 +176,12 @@ nonExchRxns = model.rxns;
 nonExchRxns(exchRxns) = [];
 model=convertToIrrev(model, nonExchRxns);
 
-%5: Expand model, to separate isoenzymes (appends _EXP_* to reaction IDs to
+%5: Expand model, to separate isozymes (appends _EXP_* to reaction IDs to
 %indicate duplication)
 if ~geckoLight
     model=expandModel(model);
 end
-% Sort reactions, so that reversible and isoenzymic reactions are kept near
+% Sort reactions, so that reversible and isozymic reactions are kept near
 if ~geckoLight
     model=sortIdentifiers(model);
 end
@@ -251,10 +257,9 @@ if ~isequal(uniprot,uniprotCompatibleGenes)
 end
 noUniprot  = uniprotCompatibleGenes(~Lia);
 if ~isempty(noUniprot)
-    warning(['The ' num2str(numel(noUniprot)) ' gene(s) reported in noUniprot cannot '...
-          'be found in data/uniprot.tsv, these will not be enzyme-constrained. '...
-          'If you intend to use different Uniprot data (e.g. from a different proteome '...
-          'identifier), make sure you first delete the existing data/uniprot.tsv file.'])
+    printOrange(['WARNING: The ' num2str(numel(noUniprot)) ' gene(s) reported in noUniprot cannot be found in data/uniprot.tsv, these will\n' ...
+             'not be enzyme-constrained. If you intend to use different Uniprot data (e.g. from a\n'...
+             'different proteome, make sure you first delete the existing data/uniprot.tsv file.\n'])
 end
 ec.genes        = model.genes(Lia); %Will often be duplicate of model.genes, but is done here to prevent issues when it is not.
 ec.enzymes      = uniprotDB.ID(Locb(Lia));
@@ -279,9 +284,10 @@ else
     nextIndex = 1;
     %For full model generation, the GPRs are controlled in expandModel, but 
     %here we need to make an explicit format check
-    indexes2check = findPotentialErrors(model.grRules,false,model);
+    indexes2check = findPotentialErrors(model.grRules,model);
     if ~isempty(indexes2check) 
-        disp('For Human-GEM, these reactions can be corrected using simplifyGrRules.');
+        printOrange('Run standardizeGrRules(model) for a more detailed warning.\n')
+        printOrange('For Human-GEM, these reactions can be corrected using simplifyGrRules.\n');
     end
     
     for i=1:prevNumRxns
@@ -327,6 +333,9 @@ if ~geckoLight
     if isfield(model,'metMiriams')
         proteinMets.metMiriams   = repmat({struct('name',{{'sbo'}},'value',{{'SBO:0000252'}})},numel(proteinMets.mets),1);
     end
+    if isfield(model,'metCharges')
+        proteinMets.metCharges   = zeros(numel(proteinMets.mets),1);
+    end
     proteinMets.metNotes     = repmat({'Enzyme-usage pseudometabolite'},numel(proteinMets.mets),1);
     model = addMets(model,proteinMets);
 end
@@ -350,6 +359,7 @@ if ~geckoLight
     end
     usageRxns.lb              = zeros(numel(usageRxns.rxns),1) - 1000;
     usageRxns.ub              = zeros(numel(usageRxns.rxns),1);
+    usageRxns.rev             = ones(numel(usageRxns.rxns),1);
     usageRxns.grRules         = ec.genes(uniprotSortId);
     model = addRxns(model,usageRxns);
 end
@@ -361,6 +371,7 @@ poolRxn.mets            = {'prot_pool'};
 poolRxn.stoichCoeffs    = {-1};
 poolRxn.lb              = -1000;
 poolRxn.ub              = 0;
+poolRxn.rev             = 1;
 model = addRxns(model,poolRxn);
 
 model.ec=ec;
@@ -372,7 +383,7 @@ end
 %Copied from standardizeGrRules
 % TODO: Make this an accessible function in a separate file in RAVEN and remove this
 %implementation.
-function indexes2check = findPotentialErrors(grRules,embedded,model)
+function indexes2check = findPotentialErrors(grRules,model)
 indxs_l       = find(~cellfun(@isempty,strfind(grRules,') and (')));
 indxs_l_L     = find(~cellfun(@isempty,strfind(grRules,') and')));
 indxs_l_R     = find(~cellfun(@isempty,strfind(grRules,'and (')));
@@ -380,33 +391,10 @@ indexes2check = vertcat(indxs_l,indxs_l_L,indxs_l_R);
 indexes2check = unique(indexes2check);
 
 if ~isempty(indexes2check)
-    
-    if embedded
-        EM = 'Potentially problematic ") AND (" in the grRules for reaction(s): ';
-        dispEM(EM,false,model.rxns(indexes2check),true)
-    else
-        STR = 'Potentially problematic ") AND (", ") AND" or "AND ("relat';
-        STR = [STR,'ionships found in\n\n'];
-        for i=1:length(indexes2check)
-            index = indexes2check(i);
-            STR = [STR '  - grRule #' model.rxns{index} ': ' grRules{index} '\n'];
-        end
-        STR = [STR,'\n This kind of relationships should only be present '];
-        STR = [STR,'in  reactions catalysed by complexes of isoenzymes e'];
-        STR = [STR,'.g.\n\n  - (G1 or G2) and (G3 or G4)\n\n For these c'];
-        STR = [STR,'ases modify the grRules manually, writing all the po'];
-        STR = [STR,'ssible combinations e.g.\n\n  - (G1 and G3) or (G1 a'];
-        STR = [STR,'nd G4) or (G2 and G3) or (G2 and G4)\n\n For other c'];
-        STR = [STR,'ases modify the correspondent grRules avoiding:\n\n '];
-        STR = [STR,' 1) Overall container brackets, e.g.\n        "(G1 a'];
-        STR = [STR,'nd G2)" should be "G1 and G2"\n\n  2) Single unit en'];
-        STR = [STR,'zymes enclosed into brackets, e.g.\n        "(G1)" s'];
-        STR = [STR,'hould be "G1"\n\n  3) The use of uppercases for logi'];
-        STR = [STR,'cal operators, e.g.\n        "G1 OR G2" should be "G'];
-        STR = [STR,'1 or G2"\n\n  4) Unbalanced brackets, e.g.\n        '];
-        STR = [STR,'"((G1 and G2) or G3" should be "(G1 and G2) or G3"\n'];
-        warning(sprintf(STR))
+    textToPrint = 'WARNING: Potentially problematic ") AND (" in the grRules for reaction(s):\n';
+    for i=1:numel(indexes2check)
+        textToPrint=[textToPrint '\t' model.rxns{indexes2check(i)} '\n'];
     end
+    printOrange(textToPrint);
 end
 end
-

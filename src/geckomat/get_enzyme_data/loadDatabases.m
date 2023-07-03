@@ -2,7 +2,7 @@ function databases = loadDatabases(selectDatabase,modelAdapter)
 % loadDatabases
 %   Loads (and downloads if necessary) the organism-specific KEGG and
 %   UniProt databases that are required to extract protein information. The
-%   uniprotID and keggID are taken from the ModelAdapter.
+%   uniprot.ID and kegg.ID are taken from the ModelAdapter.
 %
 % Input:
 %   selectDatabase  which databases should be loaded, either 'uniprot',
@@ -22,20 +22,23 @@ if nargin<1
 end
 
 if nargin < 2 || isempty(modelAdapter)
-    modelAdapter = ModelAdapterManager.getDefaultAdapter();
+    modelAdapter = ModelAdapterManager.getDefault();
     if isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
     end
 end
 
 params      = modelAdapter.getParameters();
-keggID      = params.keggID;
-uniprotID   = params.uniprotID;
+kegg.ID      = params.kegg.ID;
+uniprot.ID   = params.uniprot.ID;
 filePath    = fullfile(params.path,'data');
-uniprotGeneIdField = params.uniprotGeneIdField;
-uniprotIDtype = params.uniprotIDtype;
-keggGeneIdentifier = params.keggGeneIdentifier;
-if params.uniprotReviewed
+uniprot.geneIDfield = params.uniprot.geneIDfield;
+uniprot.type = params.uniprot.type;
+if strcmp(uniprot.type,'taxonomy')
+    uniprot.type = 'taxonomy_id';
+end
+kegg.geneID = params.kegg.geneID;
+if params.uniprot.reviewed
     uniprotRev = 'reviewed:true+AND+';
 else
     uniprotRev = '';
@@ -50,12 +53,12 @@ databases.kegg = [];
 if any(strcmp(selectDatabase,{'uniprot','both'}))
     uniprotPath = fullfile(filePath,'uniprot.tsv');
     if ~exist(uniprotPath,'file')
-        if isempty(uniprotID)
-            warning('No uniprotID is specified, unable to download UniProt DB')
+        if isempty(uniprot.ID)
+            printOrange('WARNING: No uniprot.ID is specified, unable to download UniProt DB.\n')
         end
-        disp(['Downloading Uniprot data for ' uniprotIDtype ' ' uniprotID '. This can take a few minutes.'])
+        disp(['Downloading Uniprot data for ' uniprot.type ' ' uniprot.ID '. This can take a few minutes.'])
         url = ['https://rest.uniprot.org/uniprotkb/stream?query=' uniprotRev ...
-               uniprotIDtype ':' num2str(uniprotID) '&fields=accession%2C' uniprotGeneIdField ...
+               uniprot.type ':' num2str(uniprot.ID) '&fields=accession%2C' uniprot.geneIDfield ...
             '%2Cec%2Cmass%2Csequence&format=tsv&compressed=false&sort=protein_name%20asc'];
         try
             urlwrite(url,uniprotPath,'Timeout',30);
@@ -82,10 +85,10 @@ end
 if any(strcmp(selectDatabase,{'kegg','both'}))
     keggPath = fullfile(filePath,'kegg.tsv');
     if ~exist(keggPath,'file')
-        if isempty(keggID)
-            warning('No keggID is specified, unable to download KEGG DB')
+        if isempty(kegg.ID)
+            printOrange('WARNING: No kegg.ID is specified, unable to download KEGG DB.\n')
         else
-            downloadKEGG(keggID,keggPath,keggGeneIdentifier);
+            downloadKEGG(kegg.ID,keggPath,kegg.geneID);
         end
     end
     if exist(keggPath,'file')
@@ -105,11 +108,18 @@ if any(strcmp(selectDatabase,{'kegg','both'}))
 end
 end
 
-function downloadKEGG(keggID, filePath, keggGeneIdentifier)
+function downloadKEGG(keggID, filePath, keggGeneID)
 %% Download gene information
-fprintf('Downloading KEGG data for organism code %s...   0%% complete',keggID);
+progressbar(['Downloading KEGG data for organism code ' keggID])
 webOptions = weboptions('Timeout',30);
-gene_list = webread(['http://rest.kegg.jp/list/' keggID],webOptions);
+try
+    gene_list = webread(['http://rest.kegg.jp/list/' keggID],webOptions);
+catch ME
+    switch ME.identifier
+        case 'MATLAB:webservices:HTTP400StatusCodeError'
+            error(['Unable to download data form KEGG with a potentially invalid ID: ' keggID ])
+    end
+end
 gene_list = regexpi(gene_list, '[^\n]+','match')';
 gene_id   = regexpi(gene_list,['(?<=' keggID ':)\S+'],'match');
 
@@ -118,10 +128,6 @@ genesPerQuery = 10;
 queries = ceil(numel(gene_id)/genesPerQuery);
 keggData  = cell(numel(gene_id),1);
 for i = 1:queries
-    % Report progress
-    progress=num2str(floor(100*i/queries));
-    progress=pad(progress,3,'left');
-    fprintf('\b\b\b\b\b\b\b\b\b\b\b\b\b%s%% complete',progress);
     % Download batches of genes
     firstIdx = i*genesPerQuery-(genesPerQuery-1);
     lastIdx  = i*genesPerQuery;
@@ -144,6 +150,7 @@ for i = 1:queries
         error('KEGG returns less genes per query') %Reduce genesPerQuery
     end
     keggData(firstIdx:lastIdx) = outSplit(1:end-1);
+    progressbar(i/queries)
 end
 
 %% Parsing of info to keggDB format
@@ -158,16 +165,16 @@ sequence(noProt | noUni)  = [];
 sequence  = regexprep(sequence,'\s*','');
 keggGene  = regexprep(keggData,'ENTRY\s+(\S+?)\s.+','$1');
 
-switch keggGeneIdentifier
+switch keggGeneID
     case {'kegg',''}
         gene_name = keggGene;
     otherwise
         % In case there are special characters:
-        keggGeneIdentifierT = regexptranslate('escape',keggGeneIdentifier);
-        gene_name = regexprep(keggData,['.+' keggGeneIdentifierT ': (\S+?)\n.+'],'$1');
-        noID = ~contains(keggData,keggGeneIdentifierT);
+        keggGeneIDT = regexptranslate('escape',keggGeneID);
+        gene_name = regexprep(keggData,['.+' keggGeneIDT ': (\S+?)\n.+'],'$1');
+        noID = ~contains(keggData,keggGeneIDT);
         if all(noID)
-            error(['None of the KEGG entries are annotated with ' keggGeneIdentifier])
+            error(['None of the KEGG entries are annotated with the gene identifier ' keggGeneID])
         else
             gene_name(noID)= [];
             keggData(noID) = [];
@@ -197,6 +204,5 @@ out = [uni, gene_name, keggGene, EC_names, MW, pathway, sequence];
 out = cell2table(out);
 
 writetable(out, filePath, 'FileType', 'text', 'WriteVariableNames',false);
-fprintf('\b\b\b\b\b\b\b\b\b\b\b\b\b100%% complete\n');
 fprintf('Model-specific KEGG database stored at %s\n',filePath);
 end

@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of loadBRENDAdata</title>
+  <meta name="keywords" content="loadBRENDAdata">
+  <meta name="description" content="%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../../index.html">Home</a> &gt;  <a href="#">src</a> &gt; <a href="#">geckomat</a> &gt; <a href="index.html">get_enzyme_data</a> &gt; loadBRENDAdata.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../../index.html"><img alt="<" border="0" src="../../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for src\geckomat\get_enzyme_data&nbsp;<img alt=">" border="0" src="../../../right.png"></a></td></tr></table>-->
+
+<h1>loadBRENDAdata
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>function [KCATcell, SAcell] = loadBRENDAdata(modelAdapter) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+<h2><a name="_subfunctions"></a>SUBFUNCTIONS <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+<li><a href="#_sub1" class="code">function data_cell = openDataFile(fileName,scalingFactor)</a></li></ul>
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0002 <a name="_sub0" href="#_subfunctions" class="code">function [KCATcell, SAcell] = loadBRENDAdata(modelAdapter)</a>
+0003 
+0004 <span class="keyword">if</span> nargin &lt; 1 || isempty(modelAdapter)
+0005     modelAdapter = ModelAdapterManager.getDefault();
+0006     <span class="keyword">if</span> isempty(modelAdapter)
+0007         error(<span class="string">'Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.'</span>)
+0008     <span class="keyword">end</span>
+0009 <span class="keyword">end</span>
+0010 
+0011 basePath      = modelAdapter.getBrendaDBFolder();
+0012 KCAT_file      = fullfile(basePath,<span class="string">'max_KCAT.txt'</span>);
+0013 SA_file        = fullfile(basePath,<span class="string">'max_SA.txt'</span>);
+0014 MW_file        = fullfile(basePath,<span class="string">'max_MW.txt'</span>);
+0015 
+0016 <span class="comment">%Extract BRENDA DATA from files information</span>
+0017 KCATcell       = <a href="#_sub1" class="code" title="subfunction data_cell = openDataFile(fileName,scalingFactor)">openDataFile</a>(KCAT_file,1);
+0018 scalingFactor = 1/60;    <span class="comment">%[umol/min/mg] -&gt; [mmol/s/g]    Old: 60 [umol/min/mg] -&gt; [mmol/h/g]</span>
+0019 SA            = <a href="#_sub1" class="code" title="subfunction data_cell = openDataFile(fileName,scalingFactor)">openDataFile</a>(SA_file,scalingFactor);
+0020 scalingFactor = 1/1000;  <span class="comment">%[g/mol] -&gt; [g/mmol]</span>
+0021 MW            = <a href="#_sub1" class="code" title="subfunction data_cell = openDataFile(fileName,scalingFactor)">openDataFile</a>(MW_file,scalingFactor);
+0022 
+0023 <span class="keyword">for</span> i=1:4
+0024     SAcell{i} = [];
+0025 <span class="keyword">end</span>
+0026 previousEC = []; EC_indexes = [];
+0027 
+0028 <span class="comment">%build an index on MW{1} to speed things up a bit</span>
+0029 <span class="comment">%first just extract the genus (i.e. the first part of the name)</span>
+0030 MWECNum = upper(unique(MW{1}));
+0031 MWECNumIndices = cell(length(MWECNum),1);
+0032 MWECNumHashMap = containers.Map(MWECNum,1:length(MWECNum));
+0033 <span class="keyword">for</span> i = 1:length(MW{1})
+0034     matchInd = cell2mat(values(MWECNumHashMap, MW{1}(i)));
+0035     MWECNumIndices{matchInd} = [MWECNumIndices{matchInd};i];
+0036 <span class="keyword">end</span>
+0037 
+0038 
+0039 <span class="keyword">for</span> i=1:length(SA{1})
+0040     <span class="comment">%Gets the indexes of the EC repetitions in the MW cell for every</span>
+0041     <span class="comment">%new (different) EC</span>
+0042     <span class="keyword">if</span> ~strcmpi(SA{1}(i), previousEC)
+0043         key = upper(SA{1}(i));
+0044         <span class="keyword">if</span> isKey(MWECNumHashMap,key) <span class="comment">%annoyingly, this seems to be needed</span>
+0045             matchInd = cell2mat(values(MWECNumHashMap,key));
+0046             EC_indexes = MWECNumIndices{matchInd};
+0047         <span class="keyword">else</span>
+0048             EC_indexes = [];
+0049         <span class="keyword">end</span>
+0050     <span class="keyword">end</span>
+0051     mwEC{1} = MW{3}(EC_indexes); mwEC{2} = MW{4}(EC_indexes);
+0052     <span class="comment">% just looks for the first match because just the maximal value for</span>
+0053     <span class="comment">% each EC# / Orgaism is reported on the file</span>
+0054     org_index = find(strcmpi(SA{3}(i),mwEC{1}),1);
+0055     <span class="keyword">if</span> ~isempty(org_index)
+0056         SAcell{1} = [SAcell{1};SA{1}(i)];
+0057         SAcell{2} = [SAcell{2};SA{3}(i)];
+0058         SAcell{3} = [SAcell{3}; SA{4}(i)*mwEC{2}(org_index)]; <span class="comment">%[1/hr]</span>
+0059         SAcell{4} = [SAcell{4}; mwEC{2}(org_index)];
+0060     <span class="keyword">end</span>
+0061     previousEC = SA{1}(i);
+0062 <span class="keyword">end</span>
+0063 
+0064 <span class="comment">%remove EC in front of all the EC numbers</span>
+0065 <span class="keyword">if</span> ~isempty(KCATcell{1})
+0066     KCATcell{1} = extractAfter(KCATcell{1},2);
+0067 <span class="keyword">end</span>
+0068 <span class="keyword">if</span> ~isempty(SAcell{1})
+0069     SAcell{1} = extractAfter(SAcell{1},2);
+0070 <span class="keyword">end</span>
+0071 
+0072 <a name="_sub1" href="#_subfunctions" class="code">function data_cell = openDataFile(fileName,scalingFactor)</a>
+0073 fID          = fopen(fileName);
+0074 data_cell    = textscan(fID,<span class="string">'%q %q %q %f %q'</span>,<span class="string">'delimiter'</span>,<span class="string">'\t'</span>);
+0075 fclose(fID);
+0076 data_cell{4} = data_cell{4}*scalingFactor;
+0077 <span class="comment">%Split string for each organism in the BRENDA data</span>
+0078 <span class="comment">%{name, taxonomy, KEGG code}</span>
+0079 data_cell{3}  = regexprep(data_cell{3},<span class="string">'\/\/.*'</span>,<span class="string">''</span>);
+0080 <span class="keyword">end</span>
+0081 <span class="keyword">end</span></pre></div>
+<hr><address>Generated by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

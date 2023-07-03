@@ -31,7 +31,7 @@ if nargin < 4 || isempty(verbose)
 end
 
 if nargin < 3 || isempty(modelAdapter)
-    modelAdapter = ModelAdapterManager.getDefaultAdapter();
+    modelAdapter = ModelAdapterManager.getDefault();
     if isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
     end
@@ -52,10 +52,6 @@ else
     complexData = complexInfo;
 end
 
-
-foundComplex = cell(0,7);
-proposedComplex = cell(0,8);
-
 %Remove prefixes on rxn names for gecko light
 if ~model.ec.geckoLight
     rxnNames = model.ec.rxns;
@@ -63,83 +59,112 @@ else
     rxnNames = extractAfter(model.ec.rxns,4);
 end
 
+foundComplex = cell(numel(rxnNames),7);
+foundComplexCount = 0;
+proposedComplex = cell(numel(rxnNames)*2,8); % Might propose more
+proposedComplexCount = 0;
+
+complexProts = repmat({''}, numel({complexData.complexID})*10, 1);
+complexMatrix = zeros(numel({complexData.complexID}),numel(complexProts));
+lastProt = 0;
+for i=1:size(complexMatrix,1)
+    % Locate proteins (and add if new)
+    protIDs     = complexData(i).protID;
+    [isOld, protMatIdx] = ismember(protIDs,complexProts);
+    newProts    = protIDs(~isOld);
+    complexProts(lastProt+1:lastProt+numel(newProts))=newProts;
+    protMatIdx(~isOld)  = lastProt+1 : lastProt+numel(newProts);
+    lastProt = lastProt + numel(newProts);
+    % Add subunit numbers
+    if all(complexData(i).stochiometry == 0)
+        complexData(i).stochiometry(:) = 1;
+    end
+    complexMatrix(i,protMatIdx) = complexData(i).stochiometry;
+end
+
+% Remove excess space
+complexMatrix(:,lastProt+1:end) = [];
+complexProts(lastProt+1:end) = [];
+progressbar('Assign complexes to reactions')
 for i = 1:numel(rxnNames)
-    bestComplexIdx = 0;
-    bestMatch = 0;
-    protIdsComplex = [];
-
-    %if numel(genes) > 1
-    idxProts = model.ec.rxnEnzMat(i,:) ~= 0;
-
-    if any(idxProts)
-        protIdsModel = model.ec.enzymes(idxProts);
-
-        for j = 1:size(complexData, 1)
-
-            protIdsComplex = complexData(j).protID;
-
-            C = intersect(protIdsModel, protIdsComplex);
-
-            % Determine the match percentage bewteen the proteins in the
-            % model and the proteins in complex data
-            if numel(C) == numel(protIdsModel) && numel(C) == numel(protIdsComplex)
-                match = 1;
-            else
-                if numel(protIdsModel) < numel(protIdsComplex)
-                    match = numel(C) / numel(protIdsComplex);
-                else
-                    match = numel(C) / numel(protIdsModel);
-                end
-            end
-
-            % Check if the protID match with the complex data based on match % higher than
-            % 75%. Pick the highest match.
-            if match >= 0.75 && match > bestMatch
-                bestComplexIdx = j;
-                bestMatch = match*100;
-                % In some cases all the model proteins are in the
-                % complex data, but they are less than those in the
-                % complex data.
-                if match == 1 && numel(protIdsModel) == numel(protIdsComplex)
-                    break
-                end
-            end
+    % Get the proteins from the model
+    modelProts = model.ec.enzymes(find(model.ec.rxnEnzMat(i,:)));
+    [protsInMat, protsIdx] = ismember(modelProts,complexProts);
+    if ~any(protsInMat)
+        continue
+    end
+    % Find complexes that includes the model proteins
+    [potComplex,~] = find(complexMatrix(:,protsIdx(protsInMat)));
+    potComplex = unique(potComplex);
+    % Some stats on number of subunits, percentage match etc.
+    matchComplexUnits = sum(logical(complexMatrix(potComplex,protsIdx(protsInMat))),2);
+    totalComplexUnits = sum(logical(complexMatrix(potComplex,:)),2);
+    modComplexUnits = numel(modelProts);
+    percMatch  = matchComplexUnits/modComplexUnits;
+    totalMatch = totalComplexUnits/modComplexUnits;
+    if any(percMatch == 1 & totalMatch == 1)
+        % Exact match
+        complexMatch = find(percMatch == 1 & totalMatch == 1);
+        if numel(complexMatch)>1 % If more than one match, take first match
+            complexMatch = complexMatch(1);
         end
+        complexMatch = potComplex(complexMatch);
+        foundComplexCount = foundComplexCount + 1;
+        foundComplex{foundComplexCount,1} = model.ec.rxns{i};
+        foundComplex{foundComplexCount,2} = complexData(complexMatch).complexID;
+        foundComplex{foundComplexCount,3} = complexData(complexMatch).name;
+        foundComplex{foundComplexCount,4} = complexData(complexMatch).geneName;
+        foundComplex{foundComplexCount,5} = modelProts;
+        foundComplex{foundComplexCount,6} = complexData(complexMatch).protID;
+        foundComplex{foundComplexCount,7} = complexData(complexMatch).stochiometry;
 
-        if bestMatch >= 75
-            % Only get data with full match in the model and the
-            % complex data. In some cases all the model proteins are in
-            % the complex data, but they are less than those in complex data
-            if bestMatch == 100 && numel(complexData(bestComplexIdx).protID) == numel(protIdsComplex)
-                foundComplex(end+1,1) = {model.ec.rxns{i}};
-                foundComplex(end,2) = {complexData(bestComplexIdx).complexID};
-                foundComplex(end,3) = {complexData(bestComplexIdx).name};
-                foundComplex(end,4) = {complexData(bestComplexIdx).geneName};
-                foundComplex(end,5) = {protIdsModel};
-                foundComplex(end,6) = {complexData(bestComplexIdx).protID};
-                foundComplex(end,7) = {complexData(bestComplexIdx).stochiometry};
-
-                % Some complex match in 100% but there is not stochiometry
-                % reported. In this case, assign a value of 1.
-                assignS = [complexData(bestComplexIdx).stochiometry];
-                assignS(assignS == 0) = 1;
-                model.ec.rxnEnzMat(i,idxProts) = assignS;
-            else
-                proposedComplex(end+1,1) = {model.ec.rxns{i}};
-                proposedComplex(end,2) = {complexData(bestComplexIdx).complexID};
-                proposedComplex(end,3) = {complexData(bestComplexIdx).name};
-                proposedComplex(end,4) = {complexData(bestComplexIdx).geneName};
-                proposedComplex(end,5) = {protIdsModel};
-                proposedComplex(end,6) = {complexData(bestComplexIdx).protID};
-                proposedComplex(end,7) = {complexData(bestComplexIdx).stochiometry};
-                proposedComplex(end,8) = {bestMatch};
-            end
-
+        % Apply in rxnEnzMat
+        [~, modelProtsIdx] = ismember(modelProts, model.ec.enzymes);
+        model.ec.rxnEnzMat(i,modelProtsIdx) = complexData(complexMatch).stochiometry;
+    
+    elseif modComplexUnits > 1 % Only suggest potential complex if grRule > 1 protein
+        moreUnitsInData = find(percMatch == 1 & totalMatch > 1);
+        if any(moreUnitsInData)
+            % All ecModel subunits match, but Complex Portal has more subunits
+            % Take the complex with the minimum number of extra subunits
+            [~,propComplex] = min(totalMatch(moreUnitsInData));
+            propComplex     = moreUnitsInData(propComplex);
+            selectComplex   = potComplex(propComplex);
+            proposedComplexCount = proposedComplexCount + 1;
+            proposedComplex{proposedComplexCount,1} = model.ec.rxns{i};
+            proposedComplex{proposedComplexCount,2} = complexData(selectComplex).complexID;
+            proposedComplex{proposedComplexCount,3} = complexData(selectComplex).name;
+            proposedComplex{proposedComplexCount,4} = complexData(selectComplex).geneName;
+            proposedComplex{proposedComplexCount,5} = modelProts;
+            proposedComplex{proposedComplexCount,6} = complexData(selectComplex).protID;
+            proposedComplex{proposedComplexCount,7} = complexData(selectComplex).stochiometry;
+            proposedComplex{proposedComplexCount,8} = totalMatch(propComplex)*100;
+        end
+        otherUnits = find(percMatch >= 0.75 & percMatch < 1 & totalMatch <= 1);
+        if any(otherUnits)
+            % At least 75% of ecModels subunits match, Complex Portal maybe have less or different subunits
+            % Take the complex with highest % match.
+            [~,propComplex] = max(percMatch(otherUnits));
+            propComplex     = otherUnits(propComplex);
+            selectComplex   = potComplex(propComplex);
+            proposedComplexCount = proposedComplexCount + 1;
+            proposedComplex{proposedComplexCount,1} = model.ec.rxns{i};
+            proposedComplex{proposedComplexCount,2} = complexData(selectComplex).complexID;
+            proposedComplex{proposedComplexCount,3} = complexData(selectComplex).name;
+            proposedComplex{proposedComplexCount,4} = complexData(selectComplex).geneName;
+            proposedComplex{proposedComplexCount,5} = modelProts;
+            proposedComplex{proposedComplexCount,6} = complexData(selectComplex).protID;
+            proposedComplex{proposedComplexCount,7} = complexData(selectComplex).stochiometry;
+            proposedComplex{proposedComplexCount,8} = percMatch(propComplex)*100;
         end
     end
-%    end
-    
+    progressbar(i/numel(rxnNames))    
 end
+progressbar(1) % Make sure it closes  
+
+% Remove empty space
+foundComplex(foundComplexCount+1:end,:) = [];
+proposedComplex(proposedComplexCount+1:end,:) = [];
 
 rowHeadings = {'rxn', 'complexID','name','genes','protID_model','protID_complex','stochiometry'};
 

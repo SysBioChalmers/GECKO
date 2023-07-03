@@ -33,7 +33,7 @@ else
     rxnNames = extractAfter(model.ec.rxns, 4);
 end
 
-rxnIdxs = getIndexes(model,rxnNames,'rxns');
+[~,rxnIdxs] = ismember(rxnNames,model.rxns);
 
 % Check if eccodes are valid
 eccodes = model.eccodes;

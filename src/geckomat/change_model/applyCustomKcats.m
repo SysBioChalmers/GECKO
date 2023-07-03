@@ -29,22 +29,38 @@ function [model, rxnUpdated, notMatch] = applyCustomKcats(model, customKcats, mo
 %   - gene_name   short gene name (optional, not used in matching)
 %   - kcat        new kcat value (one per entry)
 %   - rxns        reaction identifiers, multiple for the same kcat are
-%                 separated by ',' (optional, see below)
+%                 separated by ',' (see further explanation below)
 %   - notes       will be appended to model.ec.notes (optional)
 %   - stoicho     complex stoichiometry, separated by ' + ' (examples: '1'
 %                 or '3 + 1'), matching the order in proteins field
 %   
-%   Either all reactions matching the set of proteins will have their kcat
-%   updated. Alternatively, a set of reactions can be defined for specific
-%   changes (e.g. r_0001). Reaction identifiers should be comma separated
-%   (e.g. r_0001, r_0002), and not contain the _REV and/or _EXP_1 suffices
-%   that makeEcModel introduces.
+%   Matching order:
+%   (1) reactions are identified by .proteins and .rxns
+%   (2) reactions are identified by .proteins only (empty .rxns entry)
+%       no additional checks are made: is a reaction annotated with these
+%       proteins? => its kcat will be updated, irrespective of the exact
+%       reaction, direction, substrate, etc.
+%   (3) reactions are identified by .rxns only (empty .proteins entry)
+%       no additional checks are made: is a reaction derived from the
+%       original reaction identifier => its kcat will be updated,
+%       irrespective of the annotated protein
+%
+%   customKcats.rxns field:
+%   The reaction identifiers are from the ORIGINAL model, before _EXP_
+%   suffixes were added by makeEcModel. Reaction directionality IS however
+%   specified, with a _REV suffix.
+%   Example entries:
+%   'r_0001'     will match r_0001, r_0001_EXP_1, r_0001_EXP_2 etc., but
+%                not r_0001_REV, r_0001_EXP_1_REV etc.
+%   'r_0001_REV' will match r_0001_REV, r_0001_EXP_1_REV, r_0001_EXP_2_REV,
+%                etc., but not r_0001, r_0001_EXP_1 etc.
+%   Multiple identifiers should be comma separated (e.g. r_0001, r_0002)
 %
 % Usage:
 %   [model, rxnUpdated, notMatch] = applyCustomKcats(model, customKcats, modelAdapter);
 
 if nargin < 3 || isempty(modelAdapter)
-    modelAdapter = ModelAdapterManager.getDefaultAdapter();
+    modelAdapter = ModelAdapterManager.getDefault();
     if isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
     end
@@ -55,12 +71,11 @@ params = modelAdapter.params;
 if nargin<2 || isempty(customKcats)
     customKcats = fullfile(params.path,'data','customKcats.tsv');
 end
-
-if ~exist(customKcats, 'file')
-   error(['Custom kcats cannot be applied because of missing expected file: ' customKcats]);
-end
-
-if isfile(customKcats)
+if isstruct(customKcats)
+    if ~all(isfield(customKcats,{'proteins','kcat','rxns'}))
+        error('The customKcats structure does not have all essential fields.');
+    end
+elseif isfile(customKcats)
     fID = fopen(customKcats, 'r');
     fileContent = textscan(fID, '%s %s %s %f %q %s %s', 'Delimiter', '\t', 'HeaderLines', 1);
     fclose(fID);
@@ -72,8 +87,8 @@ if isfile(customKcats)
     customKcats.rxns        = fileContent{5};
     customKcats.notes       = fileContent{6};
     customKcats.stoicho     = fileContent{7};
-elseif ~all(strcmp(fieldnames(customKcats),{'proteins','kcat','notes','stoicho'}))
-    error(['The customKcats file at ' customKcats ' does not have all the required fields in the header.']);
+else
+    error(['Cannot find file: ' customKcats]);
 end
 
 rxnToUpdate = false(length(model.ec.rxns),1);
@@ -87,9 +102,9 @@ if ~model.ec.geckoLight
     for i = 1:numel(customKcats.proteins)
         if isempty(customKcats.proteins{i})
             %If only reaction ID(s) is/are specified (and no proteins),
-            %then apply the kcat to all isoenzymic reactions
+            %then apply the kcat to all isozymic reactions
             rxns    = strtrim(strsplit(customKcats.rxns{i}, ','));
-            rxnIdxs = contains(ecRxnNoSuffix,rxns);
+            rxnIdxs = ismember(ecRxnNoSuffix,rxns);
             rxnToUpdate(rxnIdxs) = 1;
             model.ec.kcat(rxnIdxs) = customKcats.kcat(i);
         else
@@ -101,7 +116,7 @@ if ~model.ec.geckoLight
                 enzIdx = cellfun(@(x) find(strcmpi(model.ec.enzymes, x)), prots);
             catch
                 enzIdx = [];
-                disp( ['Protein(s) ' customKcats.proteins{i} ' were not found in the model.']);
+                printOrange(['WARNING: Protein(s) ' customKcats.proteins{i} ' were not found in the model.']);
             end
 
             % if not specific reactions are defined, find all the reaction
@@ -149,10 +164,12 @@ if ~model.ec.geckoLight
 
                         % Add note mentioning manual kcat change
                         model.ec.source{rxnIdxs(j),1} = 'custom';
-                        if  isempty(model.ec.notes{rxnIdxs(j), 1}) && isfield(customKcats,'notes') && ~isempty(customKcats.notes{i})
-                            model.ec.notes{rxnIdxs(j), 1} = customKcats.notes{i};
-                        else
-                            model.ec.notes{rxnIdxs(j), 1} = [model.ec.notes{rxnIdxs(j), 1} ', ' customKcats.notes{i}];
+                        if isfield(customKcats,'notes')
+                            if isempty(model.ec.notes{rxnIdxs(j), 1}) && ~isempty(customKcats.notes{i})
+                                model.ec.notes{rxnIdxs(j), 1} = customKcats.notes{i};
+                            else
+                                model.ec.notes{rxnIdxs(j), 1} = [model.ec.notes{rxnIdxs(j), 1} ', ' customKcats.notes{i}];
+                            end
                         end
                     elseif match >= 0.5 && match < 1
                         rxnNotMatch(rxnIdxs(j)) = 1;
@@ -168,7 +185,7 @@ if ~model.ec.geckoLight
     if ~isempty(find(rxnToUpdate, 1))
         model = applyKcatConstraints(model, rxnToUpdate);
     else
-        disp('No matches found. Consider checking the IDs or proteins in customKcats.')
+        printOrange('WARNING: No matches found. Consider checking the IDs or proteins in customKcats.')
     end
 
     rxnUpdated = model.ec.rxns(find(rxnToUpdate));

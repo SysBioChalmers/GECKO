@@ -4,7 +4,12 @@ function [model, rxnsMissingGPR, standardMW, standardKcat, rxnsNoKcat] = getStan
 %   used to apply enzyme constraints to reactions without any associated genes.
 %   This is done by adding those reactions to model.ec, assign a "standard"
 %   pseudoenzyme with the standard MW (median of all proteins in the organism)
-%   and standard kcat (media from all kcat, or subsystem specific kcat).
+%   and standard kcat (median from all kcat, or subsystem specific kcat).
+%
+%   A reaction is assigned a subSystem specific kcat values if the model
+%   has a subSystems field and the reaction is annotated with a subSystem.
+%   Only the first subSystem will be considered if multiple are annotated
+%   to the same reaction.
 %
 %   Exchange, transport and pseudoreactions are filtered out, plus any
 %   reaction identifiers specified in /data/pseudoRxns.tsv in the model
@@ -48,7 +53,7 @@ function [model, rxnsMissingGPR, standardMW, standardKcat, rxnsNoKcat] = getStan
 %    [model, rxnsMissingGPR, standardMW, standardKcat, rxnsNoKcat] = getStandardKcat(model, modelAdapter, threshold, fillZeroKcat);
 
 if nargin < 2 || isempty(modelAdapter)
-    modelAdapter = ModelAdapterManager.getDefaultAdapter();
+    modelAdapter = ModelAdapterManager.getDefault();
     if isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
     end
@@ -84,50 +89,38 @@ rxnsKcatZero = model.ec.kcat > 0;
 standardKcat = median(model.ec.kcat(rxnsKcatZero), 'omitnan');
 
 % If the model have subSystems assigned calculate kcat based on subSystem
-if isfield(model,'subSystems') & ~isempty([model.subSystems{~cellfun(@isempty, model.subSystems)}])
-
+if isfield(model,'subSystems') && ~all(cellfun(@isempty, model.subSystems))
     standard = false;
-    enzSubSystems = cell(numel(model.ec.rxns), 1);
-
-    % Get the subSystem for the rxns with a GPR
-    for i = 1:numel(model.ec.rxns)
-        if ~model.ec.geckoLight
-            idx = strcmpi(model.rxns, model.ec.rxns{i});
-        else
-            % Remove prefix
-            rxnId = model.ec.rxns{i}(5:end);
-            idx = strcmpi(model.rxns, rxnId);
-        end
-        % In case there is more than one subSystem select the first one
-        if length(model.subSystems{idx}) > 1
-            enzSubSystems(i,1) = model.subSystems{idx}(1);
-        else
-            enzSubSystems(i,1) = model.subSystems{idx};
-        end
+    if model.ec.geckoLight
+        modRxns = extractAfter(model.ec.rxns,4);
+    else
+        modRxns = model.ec.rxns;
     end
+    % Map ec-rxns to model.rxns
+    [~,rxnIdx]  = ismember(modRxns,model.rxns);
+    % Choose first subSystem
+    enzSubSystems = flattenCell(model.subSystems(rxnIdx));
+    enzSubSystems = enzSubSystems(:,1);
+    if ~all(cellfun(@isempty, enzSubSystems))
 
-    % if reactions in model.ec.rxns have a susbSystem assigned, else assign
-    % standard value
-    if ~isempty([enzSubSystems{~cellfun(@isempty, enzSubSystems)}])
-        % Determine the subSystems in model.ec
-        [enzSubSystem_group, enzSubSystem_names] = findgroups(enzSubSystems(rxnsKcatZero));
-
-        % Calculate the mean kcat value for each subSystem in model.ec
-        kcatSubSystem = splitapply(@mean, model.ec.kcat(rxnsKcatZero), enzSubSystem_group);
-
-        % Calculate the number of reactions for each subSystem in model.ec
-        numRxnsSubSystem = splitapply(@numel, model.ec.rxns(rxnsKcatZero), enzSubSystem_group);
-
-        % Find subSystems which contains < threshold rxns and assign a standard value
-        lowerThanTresh = numRxnsSubSystem < threshold;
-        kcatSubSystem(lowerThanTresh) = standardKcat;
+    % Make list of unique subsystems, and which rxns are linked to them
+    [enzSubSystem_names, ~, rxnToSub] = unique(enzSubSystems);
+    % Make matrix of ec-rxns vs. unique subsystem index
+    ind = sub2ind([numel(enzSubSystem_names) numel(enzSubSystems)],rxnToSub',1:numel(rxnToSub));
+    kcatSubSystem = false([numel(enzSubSystem_names) numel(enzSubSystems)]);
+    kcatSubSystem(ind) = true;
+    % Number of kcats per subSystem
+    kcatsPerSubSystem = sum(kcatSubSystem,2);
+    % Calculate average kcat values per subSystem
+    kcatSubSystem = (kcatSubSystem*model.ec.kcat)./kcatsPerSubSystem;
+    kcatSubSystem(kcatsPerSubSystem < threshold) = standardKcat;
     else
         standard = true;
-        disp('No subSystem-specific kcat values can be calculated')
+        printOrange('WARNING: No subSystem-specific kcat values can be calculated')
     end
 else
     standard = true;
-    disp('No subSystem-specific kcat values can be calculated')
+    printOrange('WARNING: No subSystem-specific kcat values can be calculated')
 end
 
 % Find reactions without GPR
@@ -184,23 +177,21 @@ if ~any(strcmp(model.mets,'prot_standard'))
         proteinStdUsageRxn.grRules      = proteinStdGenes.genes;
 
         model = addRxns(model, proteinStdUsageRxn);
-
-        % Update .ec structure in model
-        model.ec.genes(end+1)      = {'standard'};
-        model.ec.enzymes(end+1)    = {'standard'};
-        model.ec.mw(end+1)         = standardMW;
-        model.ec.sequence(end+1)   = {''};
-        % Additional info
-        if isfield(model.ec,'concs')
-            model.ec.concs(end+1)  = nan();
-        end
-
-        % Expand the enzyme rxns matrix
-        model.ec.rxnEnzMat =  [model.ec.rxnEnzMat, zeros(length(model.ec.rxns), 1)]; % 1 new enzyme
-        model.ec.rxnEnzMat =  [model.ec.rxnEnzMat; zeros(length(rxnsMissingGPR), length(model.ec.enzymes))]; % new rxns
     end
-end
+    % Update .ec structure in model
+    model.ec.genes(end+1)      = {'standard'};
+    model.ec.enzymes(end+1)    = {'standard'};
+    model.ec.mw(end+1)         = standardMW;
+    model.ec.sequence(end+1)   = {''};
+    % Additional info
+    if isfield(model.ec,'concs')
+        model.ec.concs(end+1)  = nan();
+    end
 
+    % Expand the enzyme rxns matrix
+    model.ec.rxnEnzMat =  [model.ec.rxnEnzMat, zeros(length(model.ec.rxns), 1)]; % 1 new enzyme
+    model.ec.rxnEnzMat =  [model.ec.rxnEnzMat; zeros(length(rxnsMissingGPR), length(model.ec.enzymes))]; % new rxns
+end
 numRxns = length(model.ec.rxns);
 stdMetIdx = find(strcmpi(model.ec.enzymes, 'standard'));
 
@@ -227,7 +218,7 @@ for i = 1:numel(rxnsMissingGPR)
     end
 
     if ~standard
-        kcatSubSystemIdx =  strcmpi(enzSubSystem_names, model.subSystems{rxnIdx});
+        kcatSubSystemIdx = strcmpi(enzSubSystem_names, model.subSystems{rxnIdx}(1));
         if all(kcatSubSystemIdx)
             model.ec.kcat(end+1) = kcatSubSystem(kcatSubSystemIdx);
         else
@@ -254,5 +245,42 @@ if fillZeroKcat
     rxnsNoKcat = model.ec.rxns(zeroKcat);
 else
     rxnsNoKcat = [];
+end
+end
+
+function Cflat = flattenCell(C,strFlag)
+%FLATTENCELL  Flatten a nested column cell array into a matrix cell array.
+%
+% CFLAT = FLATTENCELL(C) takes a column cell array in which one or more
+% entries is a nested cell array, and flattens it into a 2D matrix cell
+% array, where the nested entries are spread across new columns.
+%
+% CFLAT = FLATTENCELL(C,STRFLAG) if STRFLAG is TRUE, empty entries in the
+% resulting CFLAT will be replaced with empty strings {''}. Default = FALSE
+if nargin < 2
+    strFlag = false;
+end
+
+% determine which entries are cells
+cells = cellfun(@iscell,C);
+
+% determine number of elements in each nested cell
+cellsizes = cellfun(@numel,C);
+cellsizes(~cells) = 1;  % ignore non-cell entries
+
+% flatten single-entry cells
+Cflat = C;
+Cflat(cells & (cellsizes == 1)) = cellfun(@(x) x{1},Cflat(cells & (cellsizes == 1)),'UniformOutput',false);
+
+% iterate through multi-entry cells
+multiCells = find(cellsizes > 1);
+for i = 1:length(multiCells)
+    cellContents = Cflat{multiCells(i)};
+    Cflat(multiCells(i),1:length(cellContents)) = cellContents;
+end
+
+% change empty elements to strings, if specified
+if ( strFlag )
+    Cflat(cellfun(@isempty,Cflat)) = {''};
 end
 end

@@ -25,7 +25,7 @@ function kcatList = fuzzyKcatMatching(model, ecRxns, modelAdapter, forceWClvl)
 %               source      'brenda'           
 %               rxns        reaction identifiers
 %               substrate   substrate names
-%               kcat        predicted kcat value in /sec
+%               kcat        proposed kcat value in /sec
 %               eccodes     as used to query BRENDA
 %               wildCardLvl which level of EC wild-card was necessary to
 %                           find a match
@@ -33,7 +33,6 @@ function kcatList = fuzzyKcatMatching(model, ecRxns, modelAdapter, forceWClvl)
 %                           1: w.x.y.-
 %                           2: w.x.-.-
 %                           3: w.-.-.-
-%                           4: -.-.-.-
 %               origin      which level of specificity was necessary to
 %                           find a match
 %                           1: correct organism, correct substrate, kcat
@@ -61,7 +60,7 @@ end
 ecRxns=find(ecRxns); % Get indices instead of logical
 
 if nargin < 3 || isempty(modelAdapter)
-    modelAdapter = ModelAdapterManager.getDefaultAdapter();
+    modelAdapter = ModelAdapterManager.getDefault();
     if isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
     end
@@ -85,7 +84,7 @@ if ~model.ec.geckoLight
 else
     rxnNames = extractAfter(model.ec.rxns, 4);
 end
-originalRxns = getIndexes(model,rxnNames(ecRxns),'rxns');
+[~,originalRxns] = ismember(rxnNames(ecRxns),model.rxns);
 for i = 1:length(ecRxns)
     sel = find(model.S(:,originalRxns(i)) < 0);
     substrates{i}  = model.metNames(sel); 
@@ -166,6 +165,7 @@ if forceWClvl == 1
     eccodes = regexprep(eccodes,'.*','-\.-\.-\.-');
 end
 
+progressbar('Gathering kcat values by fuzzy matching to BRENDA database')
 %Main loop:
 for i = 1:mM
     %Match:
@@ -179,10 +179,7 @@ for i = 1:mM
                 phylDistStruct,org_index,SAcell,ECIndexIds,EcIndexIndices);
         end
     end
-    %Display progress:
-    if rem(i,500) == 0 || i == mM
-        fprintf('.')
-    end
+    progressbar(i/mM)
 end
 
 kcatList.source      = 'brenda';
@@ -198,8 +195,6 @@ origin = [kcatInfo.info.org_s kcatInfo.info.rest_s kcatInfo.info.org_ns kcatInfo
 for i=1:6
     kcatList.origin(find(origin(:,i))) = i;
 end
-
-fprintf('\n')
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function [kcat,dir,tot] =iterativeMatch(EC,subs,substrCoeff,i,KCATcell,dir,tot,...

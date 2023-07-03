@@ -1,4 +1,4 @@
-function [model, tunedKcats] = sensitivityTuning(model, desiredGrowthRate, modelAdapter, foldChange, verbose)
+function [model, tunedKcats] = sensitivityTuning(model, desiredGrowthRate, modelAdapter, foldChange, protToIgnore, verbose)
 % sensitivityTuning
 %    Function that relaxes the most limiting kcats until a certain growth rate
 %    is reached. The function will update kcats in model.ec.kcat.
@@ -10,6 +10,8 @@ function [model, tunedKcats] = sensitivityTuning(model, desiredGrowthRate, model
 %                      default model adapter).
 %   foldChange         kcat values will be increased by this fold-change.
 %                      (Opt, default 10)
+%   protToIgnore       vector of protein ids to be ignore in tuned kcats.
+%                      e.g. {'P38122', 'Q99271'} (Optional, default = [])
 %   verbose            logical whether progress should be reported (Optional,
 %                      default true)
 %
@@ -26,16 +28,19 @@ function [model, tunedKcats] = sensitivityTuning(model, desiredGrowthRate, model
 %                      newKcat  kcat values in the output model, after tuning
 %
 % Usage:
-%   [model, tunedKcats] = sensitivityTuning(model, desiredGrowthRate, modelAdapter, foldChange, verbose)
+%   [model, tunedKcats] = sensitivityTuning(model, desiredGrowthRate, modelAdapter, foldChange, protToIgnore, verbose)
 
-if nargin < 5 || isempty(verbose)
+if nargin < 6 || isempty(verbose)
     verbose = true;
+end
+if nargin < 5 || isempty(protToIgnore)
+    protToIgnore = {};
 end
 if nargin < 4 || isempty(foldChange)
     foldChange = 10;
 end
 if nargin < 3 || isempty(modelAdapter)
-    modelAdapter = ModelAdapterManager.getDefaultAdapter();
+    modelAdapter = ModelAdapterManager.getDefault();
     if isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
     end
@@ -57,25 +62,28 @@ lastGrowth = 0;
 if ~m.ec.geckoLight
     %for the full model, we first find the draw reaction with the most flux
     drawRxns = startsWith(m.rxns, 'usage_prot_');
+    idxToIgnore = cellfun(@(x) find(strcmpi(model.rxns, ['usage_prot_' x])), protToIgnore);
     iteration = 1;
     while true
         [res,hs] = solveLP(m,0,[],hs); %skip parsimonius, only takes time
         if (lastGrowth == -res.f)
-            disp('No growth increase from increased kcats - check if the constraints on the uptake reactions are too tight!')
+            printOrange('WARNING: No growth increase from increased kcats - check if the constraints on the uptake reactions are too tight.\n')
             break;
         end
         lastGrowth = -res.f;
+        if verbose; disp(['Iteration ' num2str(iteration) ': Growth: ' num2str(lastGrowth)]); end
         if (lastGrowth >= desiredGrowthRate)
             break;
         end
         %If you get an error here, it is likely due to numerical issues in the solver
         %The trick where we don't allow low kcats is to fix that, but maybe
         %it is not enough.
-        if verbose; disp(['Iteration ' num2str(iteration) ': Growth: ' num2str(lastGrowth)]); end
         iteration            = iteration + 1;
         %find the highest draw_prot rxn flux
         drawFluxes           = zeros(length(drawRxns),1);
         drawFluxes(drawRxns) = res.x(drawRxns);
+        % Remove from the list user defined proteins
+        drawFluxes(idxToIgnore) = 0;
         [~,sel]              = min(drawFluxes); % since bounds -1000 to 0
         %Now get the metabolite
         metSel               = m.S(:,sel) < 0; % negative coeff
@@ -91,11 +99,17 @@ if ~m.ec.geckoLight
 
 else
     origRxns = extractAfter(m.ec.rxns,4);
+    %find the reactions involved in proteins to be ignored
+    idxToIgnore = cellfun(@(x) find(m.ec.rxnEnzMat(:, strcmpi(m.ec.enzymes, x))), protToIgnore, 'UniformOutput', false);
+    %create an unique vector
+    idxToIgnore = unique(cat(1, idxToIgnore{:}));
+    %get the correct idx in model.rxns
+    idxToIgnore = cellfun(@(x) find(strcmpi(m.rxns, x)), origRxns(idxToIgnore));
     iteration = 1;
     while true
         res = solveLP(m,0); %skip parsimonius, only takes time
         if (lastGrowth == -res.f)
-            disp('No growth increase from increased kcats - check if the constraints on the uptake reactions are too tight!')
+            printOrange('No growth increase from increased kcats - check if the constraints on the uptake reactions are too tight.\n')
             break;
         end
         lastGrowth = -res.f;
@@ -109,6 +123,7 @@ else
         iteration       = iteration + 1;
         %find the highest protein usage flux
         protPoolStoich  = m.S(strcmp(m.mets, 'prot_pool'),:).';
+        protPoolStoich(idxToIgnore) = 0;
         [~,sel]         = min(res.x .* protPoolStoich); %max consumption
         kcatList        = [kcatList, sel];
         rxn             = m.rxns(sel.');
@@ -133,6 +148,7 @@ for i=1:numel(rxnIdx)
 end
 tunedKcats.oldKcat  = model.ec.kcat(rxnIdx);
 tunedKcats.newKcat  = m.ec.kcat(rxnIdx);
+tunedKcats.source   = model.ec.source(rxnIdx);
 
 model = m;
 end

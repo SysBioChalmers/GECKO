@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of startGECKOproject</title>
+  <meta name="keywords" content="startGECKOproject">
+  <meta name="description" content="startGECKOproject">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../../index.html">Home</a> &gt;  <a href="#">src</a> &gt; <a href="#">geckomat</a> &gt; <a href="index.html">utilities</a> &gt; startGECKOproject.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../../index.html"><img alt="<" border="0" src="../../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for src\geckomat\utilities&nbsp;<img alt=">" border="0" src="../../../right.png"></a></td></tr></table>-->
+
+<h1>startGECKOproject
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>startGECKOproject</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>function startGECKOproject(name, path) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> startGECKOproject
+   Function that create a basic project structure for GECKO. If a project
+   with the same name exits, the project will not be created
+
+ Input:
+   name               an name for the folder struture used in GECKO. Also
+                      creates a basic adapter class, which must be manually
+                      adjusted. If not defined, a dialog box will appear.
+   path               a path where to create the folder. If not defined, a
+                      dialog box will appear.
+
+ Usage:
+   startGECKOproject(name, path)</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+<li><a href="findGECKOroot.html" class="code" title="function [geckoPath, prevDir] = findGECKOroot()">findGECKOroot</a>	findGECKOroot</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function startGECKOproject(name, path)</a>
+0002 <span class="comment">% startGECKOproject</span>
+0003 <span class="comment">%   Function that create a basic project structure for GECKO. If a project</span>
+0004 <span class="comment">%   with the same name exits, the project will not be created</span>
+0005 <span class="comment">%</span>
+0006 <span class="comment">% Input:</span>
+0007 <span class="comment">%   name               an name for the folder struture used in GECKO. Also</span>
+0008 <span class="comment">%                      creates a basic adapter class, which must be manually</span>
+0009 <span class="comment">%                      adjusted. If not defined, a dialog box will appear.</span>
+0010 <span class="comment">%   path               a path where to create the folder. If not defined, a</span>
+0011 <span class="comment">%                      dialog box will appear.</span>
+0012 <span class="comment">%</span>
+0013 <span class="comment">% Usage:</span>
+0014 <span class="comment">%   startGECKOproject(name, path)</span>
+0015 
+0016 <span class="keyword">if</span> nargin &lt; 1 || isempty(name)
+0017     prompt = {<span class="string">'Please provide a project name (e.g. ecYeastGEM)'</span>};
+0018     dlgtitle = <span class="string">'Project name'</span>;
+0019     dims = [1 100];
+0020     definput = {<span class="string">'ecModelGEM'</span>};
+0021     opts.Interpreter = <span class="string">'tex'</span>;
+0022     name = inputdlg(prompt,dlgtitle,dims,definput,opts);
+0023     name = char(name);
+0024 <span class="keyword">end</span>
+0025 
+0026 <span class="keyword">if</span> nargin &lt; 2 || isempty(path)
+0027     path = uigetdir(<span class="string">'Project Folder path'</span>);
+0028 <span class="keyword">end</span>
+0029 
+0030 fullPath = fullfile(path, name);
+0031 <span class="comment">% Validate if the project does not exits</span>
+0032 <span class="keyword">if</span> ~exist(fullPath, <span class="string">'dir'</span>)
+0033     <span class="comment">% Create the subfolder</span>
+0034     dir = {<span class="string">'code'</span>, <span class="string">'data'</span>, <span class="string">'models'</span>, <span class="string">'output'</span>};
+0035     <span class="keyword">for</span> i = 1:length(dir)
+0036         status = mkdir(fullPath, dir{i});
+0037         fid = fopen(fullfile(fullPath, dir{i}, <span class="string">'.keep'</span>), <span class="string">'w'</span>);
+0038         fclose(fid);
+0039     <span class="keyword">end</span>
+0040 
+0041     <span class="comment">% Read the template adapter class</span>
+0042     fid = fopen(fullfile(<a href="findGECKOroot.html" class="code" title="function [geckoPath, prevDir] = findGECKOroot()">findGECKOroot</a>, <span class="string">'src'</span>, <span class="string">'geckomat'</span>, <span class="keyword">...</span>
+0043         <span class="string">'model_adapter'</span>, <span class="string">'adapterTemplate.m'</span>));
+0044     f = fread(fid, <span class="string">'*char'</span>)';
+0045     fclose(fid);
+0046 
+0047     <span class="comment">% Replace key values</span>
+0048     f = strrep(f, <span class="string">'KEY_CLASSNAME'</span>, [name <span class="string">'Adapter'</span>]);
+0049     f = strrep(f, <span class="string">'KEY_PATH'</span>, path);
+0050     f = strrep(f, <span class="string">'KEY_NAME'</span>, name);
+0051 
+0052     <span class="comment">% Save the class file</span>
+0053     filename = fullfile(path, name, [name <span class="string">'Adapter.m'</span>]);
+0054     fid = fopen(filename, <span class="string">'w'</span>);
+0055     fwrite(fid, f);
+0056     fclose(fid);
+0057 <span class="keyword">else</span>
+0058     printOrange(<span class="string">'WARNING: A project with the same name exits at the same location. The project was not created.\n'</span>)
+0059 <span class="keyword">end</span>
+0060 <span class="keyword">end</span></pre></div>
+<hr><address>Generated by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

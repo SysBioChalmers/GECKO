@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of ModelAdapter</title>
+  <meta name="keywords" content="ModelAdapter">
+  <meta name="description" content="Abstract Base class for adapters for different species">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../../index.html">Home</a> &gt;  <a href="#">src</a> &gt; <a href="#">geckomat</a> &gt; <a href="index.html">model_adapter</a> &gt; ModelAdapter.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../../index.html"><img alt="<" border="0" src="../../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for src\geckomat\model_adapter&nbsp;<img alt=">" border="0" src="../../../right.png"></a></td></tr></table>-->
+
+<h1>ModelAdapter
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>Abstract Base class for adapters for different species</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>This is a script file. </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre class="comment">Abstract Base class for adapters for different species</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+<li><a href="ModelAdapter.html" class="code" title="">ModelAdapter</a>	Abstract Base class for adapters for different species</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+<li><a href="ModelAdapter.html" class="code" title="">ModelAdapter</a>	Abstract Base class for adapters for different species</li><li><a href="adapterTemplate.html" class="code" title="">adapterTemplate</a>	</li></ul>
+<!-- crossreference -->
+
+<h2><a name="_subfunctions"></a>SUBFUNCTIONS <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+<li><a href="#_sub1" class="code">function parameters = getParameters(obj)</a></li><li><a href="#_sub2" class="code">function genes = getUniprotCompatibleGenes(obj,inGenes)</a></li><li><a href="#_sub3" class="code">function uniprotIDs = getUniprotIDsFromTable(obj,modelGenes)</a></li><li><a href="#_sub4" class="code">function folder = getBrendaDBFolder(obj)</a></li><li><a href="#_sub5" class="code">function x = getPhylDistStructPath(obj)</a></li></ul>
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <span class="comment">%Abstract Base class for adapters for different species</span>
+0002 classdef (Abstract) <a href="ModelAdapter.html" class="code" title="">ModelAdapter</a>
+0003     methods (Abstract)
+0004         [spont,spontRxnNames] = getSpontaneousReactions(obj,model);
+0005     <span class="keyword">end</span>
+0006     methods
+0007         <span class="comment">%not really needed, we could access it directly. Not very nice, but practical</span>
+0008         <a name="_sub0" href="#_subfunctions" class="code">function parameters = getParameters(obj)</a>
+0009             parameters = obj.params;
+0010         <span class="keyword">end</span>
+0011 
+0012         <span class="comment">%This allows for changing parameters in an adapter without</span>
+0013         <span class="comment">%creating a new class. May be convenient, although less clean</span>
+0014         <span class="comment">%function obj = setParameters(obj, parameters)</span>
+0015         <span class="comment">%    obj.mParams = parameters;</span>
+0016         <span class="comment">%end</span>
+0017 
+0018         <span class="comment">%The genes returned here should match the gene id set in the parameter params.uniprot.geneIDfield</span>
+0019         <a name="_sub1" href="#_subfunctions" class="code">function genes = getUniprotCompatibleGenes(obj,inGenes)</a>
+0020             genes = inGenes;
+0021         <span class="keyword">end</span>
+0022 
+0023         <a name="_sub2" href="#_subfunctions" class="code">function uniprotIDs = getUniprotIDsFromTable(obj,modelGenes)</a>
+0024             conversionTable = fullfile(obj.params.path,<span class="string">'data'</span>,<span class="string">'uniprotConversion.tsv'</span>);
+0025             <span class="keyword">if</span> exist(conversionTable,<span class="string">'file'</span>)
+0026                 fID=fopen(conversionTable,<span class="string">'r'</span>);
+0027                 conversionTable = textscan(fID,<span class="string">'%q %q'</span>,<span class="string">'Delimiter'</span>,<span class="string">'\t'</span>,<span class="string">'HeaderLines'</span>,1);
+0028                 fclose(fID);
+0029 
+0030                 modelIDs    = conversionTable{1,1};
+0031                 uniprots    = conversionTable{1,2};
+0032 
+0033                 [a,b] = ismember(modelGenes,modelIDs);
+0034 
+0035                 uniprotIDs  = strings(numel(modelGenes),1);
+0036                 uniprotIDs(a)  = uniprots(b(a));
+0037                 disp(<span class="string">'The model genes are matched to Uniprot via the table at data/uniprotConversion.tsv.'</span>)
+0038             <span class="keyword">else</span>
+0039                 uniprotIDs = modelGenes;
+0040             <span class="keyword">end</span>
+0041         <span class="keyword">end</span>
+0042 
+0043         <a name="_sub3" href="#_subfunctions" class="code">function folder = getBrendaDBFolder(obj)</a>
+0044             folder = fullfile(findGECKOroot(),<span class="string">'databases'</span>);
+0045         <span class="keyword">end</span>
+0046 
+0047         <a name="_sub4" href="#_subfunctions" class="code">function x = getPhylDistStructPath(obj)</a>
+0048             x =  fullfile(findRAVENroot(),<span class="string">'external'</span>,<span class="string">'kegg'</span>,<span class="string">'keggPhylDist.mat'</span>);
+0049         <span class="keyword">end</span>
+0050     <span class="keyword">end</span>
+0051 
+0052     <span class="comment">%To have the params public is a bit &quot;ugly&quot;, but very practical</span>
+0053     <span class="comment">%if we want to change a parameter</span>
+0054     properties (Access = public)
+0055         params;
+0056     <span class="keyword">end</span>
+0057 <span class="keyword">end</span></pre></div>
+<hr><address>Generated by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

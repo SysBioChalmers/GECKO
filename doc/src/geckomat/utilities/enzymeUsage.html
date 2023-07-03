@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of enzymeUsage</title>
+  <meta name="keywords" content="enzymeUsage">
+  <meta name="description" content="enzymeUsage">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../../index.html">Home</a> &gt;  <a href="#">src</a> &gt; <a href="#">geckomat</a> &gt; <a href="index.html">utilities</a> &gt; enzymeUsage.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../../index.html"><img alt="<" border="0" src="../../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for src\geckomat\utilities&nbsp;<img alt=">" border="0" src="../../../right.png"></a></td></tr></table>-->
+
+<h1>enzymeUsage
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>enzymeUsage</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>function usageData = enzymeUsage(ecModel,fluxes,zero) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> enzymeUsage
+   Gives enzyme usages based on a provided flux distribution, as obtained
+   from a full GECKO model. It can give:
+   1)  absolute usage: the specific enzyme usage in ug/gDCW/h, which can
+       be given for enzymes with- and without concentration information;
+   2)  capacity usage: the ratio of available enzyme that is used, calcuted
+       by (absUsage/UB) (note that capacity usage is 0 if an enzyme
+       concentration was not constrained in the model);
+   3)  UB: the upper bound of each enzyme exchange reaction, which may not
+       be the same as the enzyme concentration, if it has been
+       flexibilized
+   4)  protID: the protein identifiers for each enzyme (if the model has an
+       enzymes field than this order is used, otherwise it is given
+       alphabetically.
+
+ Input:
+   ecModel     an ecModel in GECKO 3 format (with ecModel.ec structure)
+   fluxes      vector of fluxes, for instance sol.x
+   zero        logical whether also enzymes with zero absolute usage
+               should be included (Optional, default true)
+
+ Output:
+   usageData   structure with enzyme usage data
+               capUsage    vector of enzyme capacity usages
+               absUsage    vector of absolute enzyme usages
+               UB          vector of enzyme exchange reaction upper bounds
+               protID      string array of matching protein IDs
+
+ Usage:
+   usageData = enzymeUsage(ecModel,fluxes,zero)</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function usageData = enzymeUsage(ecModel,fluxes,zero)</a>
+0002 <span class="comment">% enzymeUsage</span>
+0003 <span class="comment">%   Gives enzyme usages based on a provided flux distribution, as obtained</span>
+0004 <span class="comment">%   from a full GECKO model. It can give:</span>
+0005 <span class="comment">%   1)  absolute usage: the specific enzyme usage in ug/gDCW/h, which can</span>
+0006 <span class="comment">%       be given for enzymes with- and without concentration information;</span>
+0007 <span class="comment">%   2)  capacity usage: the ratio of available enzyme that is used, calcuted</span>
+0008 <span class="comment">%       by (absUsage/UB) (note that capacity usage is 0 if an enzyme</span>
+0009 <span class="comment">%       concentration was not constrained in the model);</span>
+0010 <span class="comment">%   3)  UB: the upper bound of each enzyme exchange reaction, which may not</span>
+0011 <span class="comment">%       be the same as the enzyme concentration, if it has been</span>
+0012 <span class="comment">%       flexibilized</span>
+0013 <span class="comment">%   4)  protID: the protein identifiers for each enzyme (if the model has an</span>
+0014 <span class="comment">%       enzymes field than this order is used, otherwise it is given</span>
+0015 <span class="comment">%       alphabetically.</span>
+0016 <span class="comment">%</span>
+0017 <span class="comment">% Input:</span>
+0018 <span class="comment">%   ecModel     an ecModel in GECKO 3 format (with ecModel.ec structure)</span>
+0019 <span class="comment">%   fluxes      vector of fluxes, for instance sol.x</span>
+0020 <span class="comment">%   zero        logical whether also enzymes with zero absolute usage</span>
+0021 <span class="comment">%               should be included (Optional, default true)</span>
+0022 <span class="comment">%</span>
+0023 <span class="comment">% Output:</span>
+0024 <span class="comment">%   usageData   structure with enzyme usage data</span>
+0025 <span class="comment">%               capUsage    vector of enzyme capacity usages</span>
+0026 <span class="comment">%               absUsage    vector of absolute enzyme usages</span>
+0027 <span class="comment">%               UB          vector of enzyme exchange reaction upper bounds</span>
+0028 <span class="comment">%               protID      string array of matching protein IDs</span>
+0029 <span class="comment">%</span>
+0030 <span class="comment">% Usage:</span>
+0031 <span class="comment">%   usageData = enzymeUsage(ecModel,fluxes,zero)</span>
+0032 
+0033 <span class="keyword">if</span> nargin&lt;3
+0034     zero=true;
+0035 <span class="keyword">end</span>
+0036 <span class="keyword">if</span> ecModel.ec.geckoLight
+0037     error(<span class="string">'This function does not work on GECKO light models.'</span>)
+0038 <span class="keyword">end</span>
+0039 usageData.protID      = ecModel.ec.enzymes;
+0040 [~,rxnIdx] = ismember(strcat(<span class="string">'usage_prot_'</span>,ecModel.ec.enzymes),ecModel.rxns);
+0041 
+0042 usageData.LB          = ecModel.lb(rxnIdx);
+0043 usageData.absUsage    = abs(fluxes(rxnIdx));
+0044 usageData.capUsage    = abs(usageData.absUsage./usageData.LB);
+0045 
+0046 <span class="keyword">if</span> ~zero
+0047     nonzero               = usageData.absUsage&lt;0;
+0048     usageData.absUsage    = usageData.absUsage(nonzero);
+0049     usageData.capUsage    = usageData.capUsage(nonzero);
+0050     usageData.LB          = usageData.LB(nonzero);
+0051     usageData.protID      = usageData.protID(nonzero);
+0052 <span class="keyword">end</span>
+0053 <span class="keyword">end</span></pre></div>
+<hr><address>Generated by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

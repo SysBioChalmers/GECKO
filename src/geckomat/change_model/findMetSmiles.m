@@ -1,7 +1,7 @@
 function [model,noSMILES] = findMetSmiles(model, modelAdapter, verbose)
 % findMetSMILES
 %   Queries PubChem by metabolite names to obtain SMILES. Matches will also
-%   be stored in userData/***/data/smilesDB.tsv, that will also be queried
+%   be stored in tutorials/***/data/smilesDB.tsv, that will also be queried
 %   first next time the function is run. If the model already has a
 %   metSmiles field, then non-empty entries will not be overwritten.
 %
@@ -19,17 +19,17 @@ if nargin < 3 || isempty(verbose)
     verbose = true;
 end
 if nargin < 2 || isempty(modelAdapter)
-    modelAdapter = ModelAdapterManager.getDefaultAdapter();
+    modelAdapter = ModelAdapterManager.getDefault();
     if isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
     end
 end
 params = modelAdapter.params;
 
-[uniqueNames, ~, uniqueIdx] = unique(model.metNames);
+[uniqueNames, ~, uniqueIdx] = unique(regexprep(model.metNames,'^prot_.*',''));
 uniqueSmiles(1:numel(uniqueNames),1) = {''};
-protMets = startsWith(uniqueNames,'prot_');
 metMatch = false(length(uniqueNames),1);
+metMatch(strcmp(uniqueNames,'')) = 1; % No need trying to match empty fields
 if verbose; fprintf('Check for local SMILES database... '); end
 smilesDBfile = (fullfile(params.path,'data','smilesDB.tsv'));
 if exist(smilesDBfile,'file')==2
@@ -45,18 +45,12 @@ else
     if verbose; fprintf('not found.\n'); end
 end
 
-if any(~metMatch & ~protMets)
-    if verbose; fprintf('Querying PubChem for SMILES by metabolite names...   0%% complete'); end
-    numUnique = numel(uniqueNames);
+if any(~metMatch)
+    progressbar('Querying PubChem for SMILES by metabolite names')
     webOptions = weboptions('Timeout', 30);
     for i = 1:numel(uniqueNames)
-        if metMatch(i) || protMets(i)
+        if metMatch(i)
             continue;
-        end
-        if verbose && rem(i-1,floor(numUnique/100+1)) == 0
-            progress = num2str(floor(100*(i/numUnique)));
-            progress = pad(progress,3,'left');
-            fprintf('\b\b\b\b\b\b\b\b\b\b\b\b\b%s%% complete',progress);
         end
         retry = 0;
         while retry < 10
@@ -93,15 +87,15 @@ if any(~metMatch & ~protMets)
         fID = fopen(smilesDBfile,'a');
         fprintf(fID,'%s\t%s\n',out{:});
         fclose(fID);
+        progressbar(i/numel(uniqueNames))
     end
     if verbose
-        fprintf('\b\b\b\b\b\b\b\b\b\b\b\b\bdone.\n');
         fprintf('Model-specific SMILES database stored at %s\n',smilesDBfile);
     end
 end
 newSmiles = uniqueSmiles(uniqueIdx);
 noSMILES = cellfun(@isempty,uniqueSmiles);
-successRatio = numel(find(noSMILES))/numel(uniqueSmiles);
+successRatio = 1-(numel(find(noSMILES))/numel(uniqueSmiles));
 fprintf('SMILES could be found for %s%% of the unique metabolite names.\n',num2str(successRatio*100,'%.0f'))
 noSMILES = uniqueNames(noSMILES);
 
@@ -111,4 +105,5 @@ else
     emptySmiles = cellfun(@isempty,model.metSmiles);
     model.metSmiles(emptySmiles) = newSmiles(emptySmiles);
 end
+progressbar(1) % Make sure it closes
 end

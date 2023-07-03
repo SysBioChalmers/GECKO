@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of calculateMW</title>
+  <meta name="keywords" content="calculateMW">
+  <meta name="description" content="%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../../index.html">Home</a> &gt;  <a href="#">src</a> &gt; <a href="#">geckomat</a> &gt; <a href="index.html">get_enzyme_data</a> &gt; calculateMW.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../../index.html"><img alt="<" border="0" src="../../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for src\geckomat\get_enzyme_data&nbsp;<img alt=">" border="0" src="../../../right.png"></a></td></tr></table>-->
+
+<h1>calculateMW
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>function MW = calculateMW(sequence) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ MW = calculateMW(sequence)
+ Calculates de molecular weight of a protein.
+ 
+ INPUT: Sequence (can include extra things such as spaces or numbers).
+ OUTPUT: Molecular weight number
+ 
+ Benjamín Sánchez. Last edited: 2015-04-13
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+<li><a href="loadDatabases.html" class="code" title="function databases = loadDatabases(selectDatabase,modelAdapter)">loadDatabases</a>	loadDatabases</li></ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre>0001 
+0002 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0003 <span class="comment">% MW = calculateMW(sequence)</span>
+0004 <span class="comment">% Calculates de molecular weight of a protein.</span>
+0005 <span class="comment">%</span>
+0006 <span class="comment">% INPUT: Sequence (can include extra things such as spaces or numbers).</span>
+0007 <span class="comment">% OUTPUT: Molecular weight number</span>
+0008 <span class="comment">%</span>
+0009 <span class="comment">% Benjamín Sánchez. Last edited: 2015-04-13</span>
+0010 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0011 
+0012 <a name="_sub0" href="#_subfunctions" class="code">function MW = calculateMW(sequence)</a>
+0013 
+0014 <span class="comment">% A    Alanine</span>
+0015 <span class="comment">% B    Aspartic acid or Asparagine</span>
+0016 <span class="comment">% C    Cysteine</span>
+0017 <span class="comment">% D    Aspartic acid</span>
+0018 <span class="comment">% E    Glutamic acid</span>
+0019 <span class="comment">% F    Phenylalanine</span>
+0020 <span class="comment">% G    Glycine</span>
+0021 <span class="comment">% H    Histidine</span>
+0022 <span class="comment">% I    Isoleucine</span>
+0023 <span class="comment">% J    Leucine or Isoleucine</span>
+0024 <span class="comment">% K    Lysine</span>
+0025 <span class="comment">% L    Leucine</span>
+0026 <span class="comment">% M    Methionine</span>
+0027 <span class="comment">% N    Asparagine</span>
+0028 <span class="comment">% O    Pyrrolysine</span>
+0029 <span class="comment">% P    Proline</span>
+0030 <span class="comment">% Q    Glutamine</span>
+0031 <span class="comment">% R    Arginine</span>
+0032 <span class="comment">% S    Serine</span>
+0033 <span class="comment">% T    Threonine</span>
+0034 <span class="comment">% U    Selenocysteine</span>
+0035 <span class="comment">% V    Valine</span>
+0036 <span class="comment">% W    Tryptophan</span>
+0037 <span class="comment">% X    any</span>
+0038 <span class="comment">% Y    Tyrosine</span>
+0039 <span class="comment">% Z    Glutamic acid or Glutamine</span>
+0040 
+0041 aa_codes = {<span class="string">'A'</span>,<span class="string">'B'</span>,<span class="string">'C'</span>,<span class="string">'D'</span>,<span class="string">'E'</span>,<span class="string">'F'</span>,<span class="string">'G'</span>,<span class="string">'H'</span>,<span class="string">'I'</span>,<span class="string">'J'</span>,<span class="string">'K'</span>,<span class="string">'L'</span>,<span class="string">'M'</span>,<span class="string">'N'</span>, <span class="keyword">...</span>
+0042             <span class="string">'O'</span>,<span class="string">'P'</span>,<span class="string">'Q'</span>,<span class="string">'R'</span>,<span class="string">'S'</span>,<span class="string">'T'</span>,<span class="string">'U'</span>,<span class="string">'V'</span>,<span class="string">'W'</span>,<span class="string">'X'</span>,<span class="string">'Y'</span>,<span class="string">'Z'</span>};
+0043 aa_MWs   = [71.08 114.60 103.14 115.09 129.11 147.17 57.05 137.14 <span class="keyword">...</span>
+0044             113.16 113.16 128.17 113.16 131.20 114.10 255.31 97.12 <span class="keyword">...</span>
+0045             128.13 156.19 87.08 101.10 150.04 99.13 186.21 126.50 <span class="keyword">...</span>
+0046             163.17 128.62];
+0047 
+0048 MW = 18;
+0049 <span class="keyword">for</span> i = 1:length(aa_codes)
+0050     count = length(strfind(sequence,aa_codes{i}));
+0051     MW = MW + count*aa_MWs(i);
+0052 <span class="keyword">end</span>
+0053 
+0054 <span class="keyword">end</span>
+0055 
+0056 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span></pre></div>
+<hr><address>Generated by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

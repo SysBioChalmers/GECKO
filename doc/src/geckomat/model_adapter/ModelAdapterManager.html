@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of ModelAdapterManager</title>
+  <meta name="keywords" content="ModelAdapterManager">
+  <meta name="description" content="Abstract Base class for adapters for different species">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../../index.html">Home</a> &gt;  <a href="#">src</a> &gt; <a href="#">geckomat</a> &gt; <a href="index.html">model_adapter</a> &gt; ModelAdapterManager.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../../index.html"><img alt="<" border="0" src="../../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for src\geckomat\model_adapter&nbsp;<img alt=">" border="0" src="../../../right.png"></a></td></tr></table>-->
+
+<h1>ModelAdapterManager
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>Abstract Base class for adapters for different species</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>This is a script file. </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre class="comment">Abstract Base class for adapters for different species</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+<li><a href="ModelAdapterManager.html" class="code" title="">ModelAdapterManager</a>	Abstract Base class for adapters for different species</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+<li><a href="ModelAdapterManager.html" class="code" title="">ModelAdapterManager</a>	Abstract Base class for adapters for different species</li></ul>
+<!-- crossreference -->
+
+<h2><a name="_subfunctions"></a>SUBFUNCTIONS <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+<li><a href="#_sub1" class="code">function adapter = getAdapter(adapterPath, addToMatlabPath)</a></li><li><a href="#_sub2" class="code">function out = getDefault()</a></li><li><a href="#_sub3" class="code">function adapter = setDefault(adapterPath, addToMatlabPath)</a></li><li><a href="#_sub4" class="code">function out = setGetDefault(val)</a></li></ul>
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <span class="comment">%Abstract Base class for adapters for different species</span>
+0002 classdef <a href="ModelAdapterManager.html" class="code" title="">ModelAdapterManager</a> 
+0003     methods(Static)
+0004         <a name="_sub0" href="#_subfunctions" class="code">function adapter = getAdapter(adapterPath, addToMatlabPath)</a>
+0005             <span class="keyword">if</span> nargin &lt; 2
+0006                 addToMatlabPath = true;
+0007             <span class="keyword">end</span>
+0008             
+0009             [adapterFolder, adapterClassName, extension] = fileparts(adapterPath);
+0010             <span class="keyword">if</span> ~strcmp(extension, <span class="string">'.m'</span>)
+0011                 error(<span class="string">'Please provide the full path to the adapter file, including the file extension.'</span>);
+0012             <span class="keyword">else</span>
+0013                 s = pathsep;
+0014                 pathStr = [s, path, s];
+0015                 onPath = contains(pathStr, [s, adapterFolder, s], <span class="string">'IgnoreCase'</span>, ispc);
+0016                 <span class="comment">% Check if the folder is on the path</span>
+0017                 <span class="keyword">if</span> ~onPath
+0018                     <span class="keyword">if</span> addToMatlabPath
+0019                         addpath(adapterFolder);
+0020                     <span class="keyword">else</span>
+0021                         printOrange([<span class="string">'WARNING: The adapter will not be on the MATLAB path, since addToMatlabPath is false\n'</span> <span class="keyword">...</span>
+0022                                      <span class="string">'and it is not currently on the path. Either set addToMatlabPath to true, fix this\n'</span><span class="keyword">...</span>
+0023                                      <span class="string">'manually before calling this function or make sure it is in current directory (not\n'</span><span class="keyword">...</span>
+0024                                      <span class="string">'recommended). If the class is not reachable throughout the entire GECKO use there will\n'</span><span class="keyword">...</span>
+0025                                      <span class="string">'be errors throughout.\n'</span>]);
+0026                     <span class="keyword">end</span>
+0027                 <span class="keyword">end</span>
+0028 
+0029             <span class="keyword">end</span>
+0030             adapter = feval(adapterClassName);
+0031         <span class="keyword">end</span>
+0032         
+0033         <a name="_sub1" href="#_subfunctions" class="code">function out = getDefault()</a>
+0034             out = ModelAdapterManager.setGetDefault();
+0035         <span class="keyword">end</span>
+0036         
+0037         <a name="_sub2" href="#_subfunctions" class="code">function adapter = setDefault(adapterPath, addToMatlabPath)</a>
+0038             <span class="keyword">if</span> nargin &lt; 1 || isempty(adapterPath)
+0039                 adapter = ModelAdapterManager.setGetDefault(adapterPath);
+0040                 <span class="keyword">return</span>
+0041             <span class="keyword">end</span>
+0042             <span class="keyword">if</span> nargin &lt; 2
+0043                 addToMatlabPath = true;
+0044             <span class="keyword">end</span>
+0045             adapter = ModelAdapterManager.setGetDefault(ModelAdapterManager.getAdapter(adapterPath, addToMatlabPath));
+0046         <span class="keyword">end</span>
+0047         
+0048     <span class="keyword">end</span>
+0049     methods(Static,Access = private)
+0050         <span class="comment">% This is how they recommend defining static variables in Matlab</span>
+0051         <a name="_sub3" href="#_subfunctions" class="code">function out = setGetDefault(val)</a>
+0052             <span class="keyword">persistent</span> defaultAdapter; <span class="comment">%will be empty initially</span>
+0053             <span class="keyword">if</span> nargin
+0054                 defaultAdapter = val;
+0055             <span class="keyword">end</span>
+0056             out = defaultAdapter;
+0057         <span class="keyword">end</span>
+0058     <span class="keyword">end</span>
+0059 <span class="keyword">end</span></pre></div>
+<hr><address>Generated by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

@@ -10,6 +10,9 @@ The **GECKO** toolbox enhances a **G**enome-scale model to account for **E**nzym
 
 💡 In the GECKO folder, `protocol.m` contains instructions on how to reconstruct and analyze an ecModel for _S. cerevisiae_. This demonstrates how many of GECKO's functions can be used.
 
+💡 In the [`GECKO/tutorials`](https://github.com/SysBioChalmers/GECKO/tree/main/tutorials) folder there are examples of how GECKO can be applied to GEMs, in either of its _full_ or _light_ forms. Each `protocol.m` contains instructions on how to reconstruct and analyze an ecModel, demonstrating how different fuctions in GECKO can be used. The source code documentation is also available
+[online](http://sysbiochalmers.github.io/GECKO/doc/).
+
 _**Note:** Regarding code and model compatibility with earlier GECKO versions, see [Previous versions: GECKO 1 and 2](#previous-versions-gecko-1-and-2)_.
 
 ### Citation
@@ -23,7 +26,7 @@ _**Note:** Regarding code and model compatibility with earlier GECKO versions, s
 #### Required software
 
 - MATLAB version 2019b or later, no additional MathWorks toolboxes are required.
-- [RAVEN Toolbox](https://github.com/SysBioChalmers/RAVEN) version 2.7.12 or later. The RAVEN Toolbox Wiki contains [installation instructions for both RAVEN](https://github.com/SysBioChalmers/RAVEN/wiki/Installation) and [Gurobi](https://github.com/SysBioChalmers/RAVEN/wiki/Installation#solvers). Briefly, RAVEN is either downloaded via `git clone`, as ZIP-archive from GitHub, or installed as a [MATLAB AddOn](https://se.mathworks.com/matlabcentral/fileexchange/112330-raven-toolbox). After finishing all installation instructions, the user should run installation checks in MATLAB with: `checkInstallation`.
+- [RAVEN Toolbox](https://github.com/SysBioChalmers/RAVEN). The RAVEN Toolbox Wiki contains [installation instructions for both RAVEN](https://github.com/SysBioChalmers/RAVEN/wiki/Installation) and [Gurobi](https://github.com/SysBioChalmers/RAVEN/wiki/Installation#solvers). Briefly, RAVEN is either downloaded via `git clone`, as ZIP-archive from GitHub, or installed as a [MATLAB AddOn](https://se.mathworks.com/matlabcentral/fileexchange/112330-raven-toolbox). After finishing all installation instructions, the user should run installation checks in MATLAB with: `checkInstallation`.
 - [Gurobi Optimizer](https://www.gurobi.com/solutions/gurobi-optimizer/) is recommended for simulations (free academic license available). Alternatively, the open-source [GNU Linear Programming Kit](https://www.gnu.org/software/glpk/) (distributed with RAVEN) or SoPlex as part of the [SCIP Optimization Suite](https://scipopt.org/) can be used.
 - [Docker](https://www.docker.com/) for running DLKcat. Installation instructions are available at https://docs.docker.com/get-docker .
 

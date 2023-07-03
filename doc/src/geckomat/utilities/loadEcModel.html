@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of loadEcModel</title>
+  <meta name="keywords" content="loadEcModel">
+  <meta name="description" content="loadEcModel">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../../index.html">Home</a> &gt;  <a href="#">src</a> &gt; <a href="#">geckomat</a> &gt; <a href="index.html">utilities</a> &gt; loadEcModel.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../../index.html"><img alt="<" border="0" src="../../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for src\geckomat\utilities&nbsp;<img alt=">" border="0" src="../../../right.png"></a></td></tr></table>-->
+
+<h1>loadEcModel
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>loadEcModel</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>function model = loadEcModel(filename, modelAdapter) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> loadEcModel
+   Loads the ecModel that matches the modelAdapter. By default, it loads
+   the models/ecModel.yml in the directory specified as param.path in
+   the modelAdapter. Alternative files in the same folder can be loaded by
+   providing the appropriate filename. If loading models from other
+   locations, one can directly use readYAMLmodel.
+
+ Input:
+   filename        name of the ecModel file (Optional, default 'ecModel.yml').
+                   Fill should be located in the models/ subfolder of
+                   param.path as specified in the modelAdapter.
+   modelAdapter    a loaded model adapter, from where the model folder is
+                   read (Optional, will otherwise use the default model adapter).
+
+ Output:
+   model           an ecModel in GECKO 3 format (with ecModel.ec structure)
+
+ Usage:
+   model = loadEcModel(filename, modelAdapter)</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function model = loadEcModel(filename, modelAdapter)</a>
+0002 <span class="comment">% loadEcModel</span>
+0003 <span class="comment">%   Loads the ecModel that matches the modelAdapter. By default, it loads</span>
+0004 <span class="comment">%   the models/ecModel.yml in the directory specified as param.path in</span>
+0005 <span class="comment">%   the modelAdapter. Alternative files in the same folder can be loaded by</span>
+0006 <span class="comment">%   providing the appropriate filename. If loading models from other</span>
+0007 <span class="comment">%   locations, one can directly use readYAMLmodel.</span>
+0008 <span class="comment">%</span>
+0009 <span class="comment">% Input:</span>
+0010 <span class="comment">%   filename        name of the ecModel file (Optional, default 'ecModel.yml').</span>
+0011 <span class="comment">%                   Fill should be located in the models/ subfolder of</span>
+0012 <span class="comment">%                   param.path as specified in the modelAdapter.</span>
+0013 <span class="comment">%   modelAdapter    a loaded model adapter, from where the model folder is</span>
+0014 <span class="comment">%                   read (Optional, will otherwise use the default model adapter).</span>
+0015 <span class="comment">%</span>
+0016 <span class="comment">% Output:</span>
+0017 <span class="comment">%   model           an ecModel in GECKO 3 format (with ecModel.ec structure)</span>
+0018 <span class="comment">%</span>
+0019 <span class="comment">% Usage:</span>
+0020 <span class="comment">%   model = loadEcModel(filename, modelAdapter)</span>
+0021 
+0022 <span class="keyword">if</span> nargin &lt; 2 || isempty(modelAdapter)
+0023     modelAdapter = ModelAdapterManager.getDefault();
+0024     <span class="keyword">if</span> isempty(modelAdapter)
+0025         error(<span class="string">'Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.'</span>)
+0026     <span class="keyword">end</span>
+0027 <span class="keyword">end</span>
+0028 params = modelAdapter.getParameters();
+0029 <span class="keyword">if</span> nargin &lt; 1 || isempty(filename)
+0030     filename = <span class="string">'ecModel.yml'</span>;
+0031 <span class="keyword">else</span>
+0032 <span class="keyword">end</span>
+0033 
+0034 <span class="keyword">if</span> ~endsWith(filename,{<span class="string">'yml'</span>,<span class="string">'yaml'</span>})
+0035     error([<span class="string">'ecModels should preferably be distributed in YAML file format, '</span>, <span class="keyword">...</span>
+0036            <span class="string">'as otherwise model content will be lost. If the model is in '</span>, <span class="keyword">...</span>
+0037            <span class="string">'SBML format, you can use the usual importModel function to load '</span>, <span class="keyword">...</span>
+0038            <span class="string">'this as any other genome-scale model.'</span>])
+0039 <span class="keyword">end</span>
+0040 
+0041 filename = fullfile(params.path,<span class="string">'models'</span>,filename); 
+0042 <span class="keyword">if</span> endsWith(filename,{<span class="string">'yml'</span>,<span class="string">'yaml'</span>})
+0043     model = readYAMLmodel(filename);
+0044 <span class="keyword">elseif</span> endsWith(filename,{<span class="string">'xml'</span>,<span class="string">'sbml'</span>})
+0045     model = importModel(filename);
+0046 <span class="keyword">end</span>
+0047 <span class="keyword">end</span></pre></div>
+<hr><address>Generated by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

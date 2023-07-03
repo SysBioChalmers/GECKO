@@ -18,7 +18,7 @@ function f = calculateFfactor(model, protData, enzymes, modelAdapter)
 %   f = calculateFfactor(model, protData, enzymes, modelAdapter)
 
 if nargin < 4 || isempty(modelAdapter)
-    modelAdapter = ModelAdapterManager.getDefaultAdapter();
+    modelAdapter = ModelAdapterManager.getDefault();
     if isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
     end
@@ -34,7 +34,7 @@ if nargin < 2 || isempty(protData)
     if exist(fullfile(params.path,'data','paxDB.tsv'),'file')
         protData = fullfile(params.path,'data','paxDB.tsv');
     else
-        disp('No proteomics data is provided or can be found. Default f value of 0.5 is returned.')
+        printOrange('WARNING: No proteomics data is provided or can be found. Default f value of 0.5 is returned.\n')
         f = 0.5;
     end
 end

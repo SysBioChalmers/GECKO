@@ -15,7 +15,7 @@ end
 
 function testmakeEcModelFullModel_tc0001(testCase)
     geckoPath = findGECKOroot;
-    adapter = ModelAdapterManager.getAdapterFromPath(fullfile(geckoPath,'test','unit_tests','ecTestGEM'));
+    adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
     model = getGeckoTestModel();
     ecModel = makeEcModel(model, false, adapter);
     
@@ -59,7 +59,7 @@ end
 
 function testmakeEcModelLightModel_tc0002(testCase)
     geckoPath = findGECKOroot;
-    adapter = ModelAdapterManager.getAdapterFromPath(fullfile(geckoPath,'test','unit_tests','ecTestGEM'));
+    adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
     model = getGeckoTestModel();
     ecModel = makeEcModel(model, true, adapter);
     
@@ -105,7 +105,7 @@ end
 
 function testapplyComplexDataFullModel_tc0003(testCase)
     geckoPath = findGECKOroot;
-    adapter = ModelAdapterManager.getAdapterFromPath(fullfile(geckoPath,'test','unit_tests','ecTestGEM'));
+    adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
     model = getGeckoTestModel();
     ecModel = makeEcModel(model, false, adapter);
     ecModel = applyComplexData(ecModel, [], adapter, false);
@@ -122,7 +122,7 @@ end
 
 function testapplyComplexDataLightModel_tc0004(testCase)
     geckoPath = findGECKOroot;
-    adapter = ModelAdapterManager.getAdapterFromPath(fullfile(geckoPath,'test','unit_tests','ecTestGEM'));
+    adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
     model = getGeckoTestModel();
     ecModel = makeEcModel(model, true, adapter);
     ecModel = applyComplexData(ecModel, [], adapter, false);
@@ -140,7 +140,7 @@ end
 %For both full and light
 function testsetProtPoolSize_tc0005(testCase)
     geckoPath = findGECKOroot;
-    adapter = ModelAdapterManager.getAdapterFromPath(fullfile(geckoPath,'test','unit_tests','ecTestGEM'));
+    adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
     model = getGeckoTestModel();
     ecModel = makeEcModel(model, false, adapter);
     ecModel = setProtPoolSize(ecModel, [], [], [], adapter);
@@ -160,7 +160,7 @@ end
 function testgetECfromGEM_tc0006(testCase)
     %full
     geckoPath = findGECKOroot;
-    adapter = ModelAdapterManager.getAdapterFromPath(fullfile(geckoPath,'test','unit_tests','ecTestGEM'));
+    adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
     model = getGeckoTestModel();
     ecModel = makeEcModel(model, false, adapter);
     ecModel2 = getECfromGEM(ecModel);
@@ -186,7 +186,7 @@ end
 function testgetECfromDatabase_tc0007(testCase)
     %full
     geckoPath = findGECKOroot;
-    adapter = ModelAdapterManager.getAdapterFromPath(fullfile(geckoPath,'test','unit_tests','ecTestGEM'));
+    adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
     model = getGeckoTestModel();
     ecModel = makeEcModel(model, false, adapter);
     ecModel2 = getECfromDatabase(ecModel, [], 'display', adapter);
@@ -210,24 +210,22 @@ end
 
 function testModelAdapterManager_tc0008(testCase)
     geckoPath = findGECKOroot;
-    adapter = ModelAdapterManager.getAdapterFromPath(fullfile(geckoPath,'test','unit_tests','ecTestGEM'));
+    adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
     verifyTrue(testCase,~isempty(adapter))
-    ModelAdapterManager.setDefaultAdapter(adapter);
-    verifyTrue(testCase,~isempty(ModelAdapterManager.getDefaultAdapter()))
-    ModelAdapterManager.setDefaultAdapter([]);
-    verifyTrue(testCase,isempty(ModelAdapterManager.getDefaultAdapter()))
-    ModelAdapterManager.setDefaultAdapterFromPath(fullfile(geckoPath,'test','unit_tests','ecTestGEM'));
-    verifyTrue(testCase,~isempty(ModelAdapterManager.getDefaultAdapter()))
+    ModelAdapterManager.setDefault(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
+    verifyTrue(testCase,~isempty(ModelAdapterManager.getDefault()))
+    ModelAdapterManager.setDefault([]);
+    verifyTrue(testCase,isempty(ModelAdapterManager.getDefault()))
 end
 
 function testsaveECModel_tc0009(testCase)
     % Test a round of model saving and loading
     geckoPath = findGECKOroot;
-    adapter = ModelAdapterManager.getAdapterFromPath(fullfile(geckoPath,'test','unit_tests','ecTestGEM'));
+    adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
     model = getGeckoTestModel();
     ecModel = makeEcModel(model, false, adapter);
-    saveEcModel(ecModel);
-    loadedEcModel = loadEcModel();
+    saveEcModel(ecModel, [], adapter);
+    loadedEcModel = loadEcModel([],adapter);
     delete(fullfile(adapter.params.path,'models','ecModel.yml'));
     verifyEqual(testCase, ecModel, loadedEcModel)
 
@@ -241,7 +239,7 @@ end
 function testfuzzyKcatMatching_tc0010(testCase)
     %full
     geckoPath = findGECKOroot;
-    adapter = ModelAdapterManager.getAdapterFromPath(fullfile(geckoPath,'test','unit_tests','ecTestGEM'));
+    adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
     model = getGeckoTestModel();
     %First all rxns, full model
     ecModel = makeEcModel(model, false, adapter);
@@ -300,7 +298,7 @@ end
 %In addition it tests that the small test model has the same growth rate for both full and light
 function testKcats_tc0011(testCase)
     geckoPath = findGECKOroot;
-    adapter = ModelAdapterManager.getAdapterFromPath(fullfile(geckoPath,'test','unit_tests','ecTestGEM'));
+    adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
     model = getGeckoTestModel();
     %add an extra R3 reaction to be able to check that wildcards go in if there is no kcat in the dlkcat list
     rxnsToAdd = struct();
@@ -322,7 +320,7 @@ function testKcats_tc0011(testCase)
       delete(filepath);
     end
     verifyTrue(testCase,~(exist(filepath, 'file')==2))
-    writtenTable = writeDLKcatInput(ecModel, [], adapter, false, filepath);
+    [~, writtenTable] = evalc('writeDLKcatInput(ecModel, [], adapter, false, filepath)');
     verifyTrue(testCase,exist(filepath, 'file')==2) %check that we write a file, we don't check the contents
     if exist(filepath, 'file')==2 %clean up
       delete(filepath);
@@ -400,10 +398,22 @@ function testKcats_tc0011(testCase)
     verifyEqual(testCase,full(ecModel.S(ismember(ecModel.mets, {'prot_P1';'prot_P2';'prot_P3';'prot_P4';'prot_P5'}),strcmp(ecModel.rxns, 'S1'))), [0;0;0;0;0],"AbsTol",10^-10)
     verifyEqual(testCase,full(ecModel.S(ismember(ecModel.mets, {'prot_P1';'prot_P2';'prot_P3';'prot_P4';'prot_P5'}),strcmp(ecModel.rxns, 'S2'))), [0;0;0;0;0],"AbsTol",10^-10)
 
-    %Check getKcatAcrossIsoenzymes
+    %Check getKcatAcrossIsozymes
     ecModel.ec.kcat(2)=0;
-    ecModel=getKcatAcrossIsoenzymes(ecModel);
+    ecModel=getKcatAcrossIsozymes(ecModel);
     verifyEqual(testCase,ecModel.ec.kcat, [1;1;10;10;1008;1009;1010;100;1011])
+
+    %Check applyCustomKcats
+    test = applyCustomKcats(ecModel, [], adapter);
+    verifyEqual(testCase,test.ec.kcat, [100;200;50;50;100;200;1010;100;50])
+
+    customKcats.proteins = {'P3'; 'P1 + P2'; ''};
+    customKcats.kcat     = [200; 100; 50];
+    customKcats.rxns     = {'';'';'R2_REV, R5'};
+
+    test = applyCustomKcats(ecModel, customKcats, adapter);
+    verifyEqual(testCase,test.ec.kcat, [100;200;50;50;100;200;1010;100;50])
+
 
     %now apply for light
     %%%%%%%%%%%%%%%%%%%
@@ -465,10 +475,10 @@ end
 %Does not test the data download, only operates from a stored file
 function testfindMetSmiles_tc0012(testCase)
     geckoPath = findGECKOroot;
-    adapter = ModelAdapterManager.getAdapterFromPath(fullfile(geckoPath,'test','unit_tests','ecTestGEM'));
+    adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
     model = getGeckoTestModel();
     ecModel = makeEcModel(model, false, adapter);
-    ecModel = findMetSmiles(ecModel, adapter, false);
+    [~, ecModel] = evalc("findMetSmiles(ecModel, adapter, false)");
 
     verifyEqual(testCase,ecModel.metSmiles,{'C(C1C)O';'C1C(=NC2)';'C(C1C)O';'C1C(=NC2)';'';'';'';'';'';''})
 end
@@ -476,7 +486,7 @@ end
 %Tests readProteomics, constrainProtConcs, flexibilizeProtConcs, and getConcControlCoeffs.
 function testProteomcisIntegration_tc0013(testCase)
     geckoPath = findGECKOroot;
-    adapter = ModelAdapterManager.getAdapterFromPath(fullfile(geckoPath,'test','unit_tests','ecTestGEM'));
+    adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
     model = getGeckoTestModel();
     ecModel = makeEcModel(model, false, adapter);
     ecModel = getECfromGEM(ecModel);
@@ -484,10 +494,10 @@ function testProteomcisIntegration_tc0013(testCase)
     kcatListFuzzy = fuzzyKcatMatching(ecModel, [], adapter);
     ecModel  = selectKcatValue(ecModel, kcatListFuzzy);
     ecModel  = applyKcatConstraints(ecModel);
-    ecModel  = setProtPoolSize(ecModel);
+    ecModel  = setProtPoolSize(ecModel,[],[],[],adapter);
 
     % test that proteomics data is correct loaded into protData
-    protData = loadProtData(1);
+    protData = loadProtData(1,[],[],adapter);
     verifyEqual(testCase,protData.abundances,[0.7292388;0.03692241;0.318175;5.1959184;0.15647268])
     verifyEqual(testCase,protData.uniprotIDs,{'P1';'P2';'P3';'P4';'P5'})
 
@@ -502,7 +512,7 @@ function testProteomcisIntegration_tc0013(testCase)
 
     % test that usage protein are correctly constraint. Sol.f give 0.1127,
     % increse objective up to 0.5
-    [ecModel, flexProt] =  flexibilizeProtConcs(ecModel, 0.4,[],[],[],false);
+    [~, ecModel, flexProt] =  evalc("flexibilizeProtConcs(ecModel, 0.4,[],[],adapter,false)");
     [~, usageRxnIdx] = ismember(strcat('usage_prot_', flexProt.uniprotIDs), ecModel.rxns);
     verifyEqual(testCase,ecModel.lb(usageRxnIdx),-flexProt.flexConcs)
 end

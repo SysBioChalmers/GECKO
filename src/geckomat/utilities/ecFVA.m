@@ -1,6 +1,6 @@
 function [minFlux, maxFlux] = ecFVA(ecModel, model)
 % ecFVA
-%   Flux variability analysis is performed on the ecModel, and isoenzymic
+%   Flux variability analysis is performed on the ecModel, and isozymic
 %   reactions are combined to construct ouput minFlux and maxFlux vectors,
 %   which follow the same order of model.rxns. The output from this
 %   function does not include enzyme usage reactions, to observe these, on
@@ -19,14 +19,19 @@ function [minFlux, maxFlux] = ecFVA(ecModel, model)
 rxnIDs = regexprep(ecModel.rxns,'(_REV)?(_EXP_\d+)?','');
 [rxnIDmap, convRxnID] = findgroups(rxnIDs);
 
-solMaxAll = zeros(numel(ecModel.rxns),numel(convRxnID));
+solMaxAll = nan(numel(ecModel.rxns),numel(convRxnID));
 solMinAll = solMaxAll;
 
-D = parallel.pool.DataQueue;
-h = waitbar(0, 'Please wait ...');
-afterEach(D, @nUpdateWaitbar);
+pool = gcp('nocreate');
+if isempty(pool)
+    parpool;
+end
 
-N = numel(rxnIDmap);
+D = parallel.pool.DataQueue;
+progressbar('Running ecFVA');
+afterEach(D, @nUpdateProgressbar);
+
+N = numel(convRxnID);
 p = 1;
 
 parfor i=1:N
@@ -42,27 +47,28 @@ parfor i=1:N
     tmpModel.c(rxnsToMax) = 1;
     tmpModel.c(rxnsToMin) = -1;
     solMax=solveLP(tmpModel);
-    solMaxAll(:,i)=solMax.x;
+    if ~isempty(solMax.x)
+        solMaxAll(:,i)=solMax.x;
+    end
     tmpModel.c(rxnsToMax) = -1;
     tmpModel.c(rxnsToMin) = 1;
     solMin=solveLP(tmpModel);
-    solMinAll(:,i)=solMin.x;
+    if ~isempty(solMin.x)
+        solMinAll(:,i)=solMin.x;
+    end    
     send(D, i);
 end
 
-minFlux=min(solMinAll,[],2);
-maxFlux=max(solMaxAll,[],2);
+minFlux=min(solMinAll,[],2,'omitnan');
+maxFlux=max(solMaxAll,[],2,'omitnan');
 
 mappedFlux = mapRxnsToConv(ecModel,model,[minFlux maxFlux]);
 
 minFlux=mappedFlux(:,1);
 maxFlux=mappedFlux(:,2);
-close(h)
 
-function nUpdateWaitbar(~)
-waitbar(p/N, h);
+function nUpdateProgressbar(~)
+progressbar(p/N);
 p = p + 1;
 end
 end
-
-

@@ -18,7 +18,7 @@ function model = getECfromDatabase(model, ecRxns, action, modelAdapter)
 %                   - 'ignore'  ignore multiplicities and use the protein
 %                               with the lowest index in the database.
 %                   - 'add'     adds all the multiple proteins as
-%                               isoenzymes for the given reaction
+%                               isozymes for the given reaction
 %   modelAdapter    a loaded model adapter (Optional, will otherwise use the
 %                   default model adapter).
 %
@@ -37,7 +37,7 @@ if nargin < 3 || isempty(action)
 end
 
 if nargin < 4 || isempty(modelAdapter)
-    modelAdapter = ModelAdapterManager.getDefaultAdapter();
+    modelAdapter = ModelAdapterManager.getDefault();
     if isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
     end
@@ -79,7 +79,7 @@ eccodes(:)= {''};
 conflicts = cell(1,4);
 
 rxnEnzMat = logical(rxnEnzMat);
-
+progressbar('Assigning EC numbers from database')
 for i = 1:n
     gns = genes(rxnEnzMat(i,:).');
     if ~isempty(gns)
@@ -125,6 +125,7 @@ for i = 1:n
             %}
         end
     end
+    progressbar(i/n)
 end
 
 %Display error message with the multiple gene-protein matches found
@@ -158,7 +159,7 @@ end
 STR = [STR, '\nIf a wrongly annotated case was found then call the '];
 STR = [STR, 'getECfromDatabase.m function again with the option action'];
 STR = [STR, '= ignore\n\n'];
-STR = [STR, 'If the conflicting proteins are desired to be kept as isoenzymes'];
+STR = [STR, 'If the conflicting proteins are desired to be kept as isozymes'];
 STR = [STR, ' then call the getECfromDatabase.m function'];
 STR = [STR, ' again with the option action = add\n'];
 error(sprintf(STR))

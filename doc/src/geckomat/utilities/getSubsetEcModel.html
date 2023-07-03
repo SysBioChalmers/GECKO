@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of getSubsetEcModel</title>
+  <meta name="keywords" content="getSubsetEcModel">
+  <meta name="description" content="getSubset_ecModel">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../../index.html">Home</a> &gt;  <a href="#">src</a> &gt; <a href="#">geckomat</a> &gt; <a href="index.html">utilities</a> &gt; getSubsetEcModel.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../../index.html"><img alt="<" border="0" src="../../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for src\geckomat\utilities&nbsp;<img alt=">" border="0" src="../../../right.png"></a></td></tr></table>-->
+
+<h1>getSubsetEcModel
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>getSubset_ecModel</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>function smallEcModel = getSubsetEcModel(bigEcModel,smallGEM) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> getSubset_ecModel
+   Generate a context-specific ecModel (strain/cell-line/tissue) by
+   mapping reactions and genes from a conventional context-specific GEM to
+   a general ecModel (bigEcModel), to yield a context-specific ecModel.
+ 
+ Input:
+   bigEcModel  enzyme-constrained version of conventional model of
+                  metabolism for a given species
+   smallGEM       Reduced model (subset of the general model) for a
+                  specific strain (microbes) or cell-line/tissues (mammals)
+ 
+ Output:
+   smallEcModel  Enzyme-constrained version of the context-specific model
+ 
+ Usage: smallEcModel = getSubsetEcModel(smallGEM,bigEcModel)</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function smallEcModel = getSubsetEcModel(bigEcModel,smallGEM)</a>
+0002 <span class="comment">% getSubset_ecModel</span>
+0003 <span class="comment">%   Generate a context-specific ecModel (strain/cell-line/tissue) by</span>
+0004 <span class="comment">%   mapping reactions and genes from a conventional context-specific GEM to</span>
+0005 <span class="comment">%   a general ecModel (bigEcModel), to yield a context-specific ecModel.</span>
+0006 <span class="comment">%</span>
+0007 <span class="comment">% Input:</span>
+0008 <span class="comment">%   bigEcModel  enzyme-constrained version of conventional model of</span>
+0009 <span class="comment">%                  metabolism for a given species</span>
+0010 <span class="comment">%   smallGEM       Reduced model (subset of the general model) for a</span>
+0011 <span class="comment">%                  specific strain (microbes) or cell-line/tissues (mammals)</span>
+0012 <span class="comment">%</span>
+0013 <span class="comment">% Output:</span>
+0014 <span class="comment">%   smallEcModel  Enzyme-constrained version of the context-specific model</span>
+0015 <span class="comment">%</span>
+0016 <span class="comment">% Usage: smallEcModel = getSubsetEcModel(smallGEM,bigEcModel)</span>
+0017 
+0018 <span class="comment">% Check if original bigEcModel contains context-dependent protein constraints</span>
+0019 <span class="keyword">if</span> any(bigEcModel.lb(startsWith(bigEcModel.rxns,<span class="string">'usage_prot_'</span>)) ~= -1000)
+0020     printOrange([<span class="string">'WARNING: The bigEcModel is constraint by protein concentrations that are\n'</span> <span class="keyword">...</span>
+0021                  <span class="string">'likely not relevant in the constructed smallEcModel.\n'</span>])
+0022 <span class="keyword">end</span>
+0023 
+0024 <span class="comment">% Remove genes (and associated reactions) that are absent in smallGEM</span>
+0025 genesToRemove  = setdiff(bigEcModel.genes,smallGEM.genes);
+0026 smallEcModel = removeGenes(bigEcModel,genesToRemove,true,true,false);
+0027 
+0028 <span class="comment">% Remove genes from ec-structure</span>
+0029 enzToRemove = ismember(smallEcModel.ec.genes,genesToRemove);
+0030 smallEcModel.ec.genes(enzToRemove)       = [];
+0031 smallEcModel.ec.enzymes(enzToRemove)     = [];
+0032 smallEcModel.ec.concs(enzToRemove)       = [];
+0033 smallEcModel.ec.mw(enzToRemove)          = [];
+0034 smallEcModel.ec.sequence(enzToRemove)    = [];
+0035 smallEcModel.ec.rxnEnzMat(:,enzToRemove) = [];
+0036 
+0037 <span class="comment">% Remove any reaction (except prot_ associated) that is absent from smallGEM</span>
+0038 trimRxns = regexprep(smallEcModel.rxns,<span class="string">'_REV|_EXP_\d+'</span>,<span class="string">''</span>);
+0039 protRxns = startsWith(smallEcModel.rxns,{<span class="string">'usage_prot_'</span>,<span class="string">'prot_pool_exchange'</span>});
+0040 keepRxns = ismember(trimRxns,smallGEM.rxns) | protRxns;
+0041 smallEcModel = removeReactions(smallEcModel,~keepRxns, true, true, true);
+0042 
+0043 <span class="comment">% Remove reactions from ec-structure</span>
+0044 ecRxnsToRemove = ~ismember(smallEcModel.ec.rxns,smallEcModel.rxns);
+0045 
+0046 smallEcModel.ec.rxns(ecRxnsToRemove)        = [];
+0047 smallEcModel.ec.kcat(ecRxnsToRemove)        = [];
+0048 smallEcModel.ec.source(ecRxnsToRemove)      = [];
+0049 smallEcModel.ec.notes(ecRxnsToRemove)       = [];
+0050 smallEcModel.ec.eccodes(ecRxnsToRemove)     = [];
+0051 smallEcModel.ec.rxnEnzMat(ecRxnsToRemove,:) = [];
+0052 <span class="keyword">end</span>
+0053</pre></div>
+<hr><address>Generated by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>
