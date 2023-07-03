@@ -34,7 +34,7 @@ if checks.docker.status ~= 0
     error('Cannot find Docker. Make sure it is installed.')
 end
 
-disp('Running DLKcat prediction, this may take many minutes')
+disp('Running DLKcat prediction, this may take many minutes, especially the first time.')
 status = system(['docker run --rm -v ' fullfile(params.path,'/data') ':/data ghcr.io/sysbiochalmers/dlkcat-gecko:0.1 /bin/bash -c "python DLKcat.py /data/DLKcat.tsv /data/DLKcatOutput.tsv"']);
 
 if status == 0 && exist(fullfile(params.path,'data/DLKcatOutput.tsv'))

@@ -46,7 +46,7 @@ if ~isfield(model,'ec')
            ' not a valid GECKO3 ecModel. First run makeEcModel(model).'])
 end
 if all(model.ec.kcat==0)
-    warning('No kcat values are provided in model.ec.kcat, model remains unchanged.')
+    printOrange('WARNING: No kcat values are provided in model.ec.kcat, model remains unchanged.\n')
     return
 end
 
@@ -98,7 +98,7 @@ else %GECKO light formulation, where prot_pool represents all usages
     [~,rxnIdx]  = ismember(modRxns,model.rxns);
     hasEc = find(hasEc & updateRxns);
     for i = 1:numel(hasEc)
-        % Get all isoenzymes per reaction
+        % Get all isozymes per reaction
         ecIdx = find(rxnIdx == hasEc(i));
         % Multiply enzymes with their MW (they are then automatically
         % summed per reaction), and divide by their kcat, to get a vector

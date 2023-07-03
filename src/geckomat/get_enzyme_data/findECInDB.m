@@ -87,7 +87,7 @@ else
     EC_set = int_EC;
 end
 
-%Add new codes as new possible isoenzymes and remove the initial "EC" text:
+%Add new codes as new possible isozymes and remove the initial "EC" text:
 
 for i = 1:length(EC_set)
    if ~isempty(EC_set{i}) 

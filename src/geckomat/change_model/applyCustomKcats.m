@@ -102,7 +102,7 @@ if ~model.ec.geckoLight
     for i = 1:numel(customKcats.proteins)
         if isempty(customKcats.proteins{i})
             %If only reaction ID(s) is/are specified (and no proteins),
-            %then apply the kcat to all isoenzymic reactions
+            %then apply the kcat to all isozymic reactions
             rxns    = strtrim(strsplit(customKcats.rxns{i}, ','));
             rxnIdxs = ismember(ecRxnNoSuffix,rxns);
             rxnToUpdate(rxnIdxs) = 1;
@@ -116,7 +116,7 @@ if ~model.ec.geckoLight
                 enzIdx = cellfun(@(x) find(strcmpi(model.ec.enzymes, x)), prots);
             catch
                 enzIdx = [];
-                disp( ['Protein(s) ' customKcats.proteins{i} ' were not found in the model.']);
+                printOrange(['WARNING: Protein(s) ' customKcats.proteins{i} ' were not found in the model.']);
             end
 
             % if not specific reactions are defined, find all the reaction
@@ -185,7 +185,7 @@ if ~model.ec.geckoLight
     if ~isempty(find(rxnToUpdate, 1))
         model = applyKcatConstraints(model, rxnToUpdate);
     else
-        disp('No matches found. Consider checking the IDs or proteins in customKcats.')
+        printOrange('WARNING: No matches found. Consider checking the IDs or proteins in customKcats.')
     end
 
     rxnUpdated = model.ec.rxns(find(rxnToUpdate));

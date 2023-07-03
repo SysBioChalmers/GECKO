@@ -213,11 +213,11 @@ This function is called by:
 0116     kcatSubSystem(kcatsPerSubSystem &lt; threshold) = standardKcat;
 0117     <span class="keyword">else</span>
 0118         standard = true;
-0119         disp(<span class="string">'No subSystem-specific kcat values can be calculated'</span>)
+0119         printOrange(<span class="string">'WARNING: No subSystem-specific kcat values can be calculated'</span>)
 0120     <span class="keyword">end</span>
 0121 <span class="keyword">else</span>
 0122     standard = true;
-0123     disp(<span class="string">'No subSystem-specific kcat values can be calculated'</span>)
+0123     printOrange(<span class="string">'WARNING: No subSystem-specific kcat values can be calculated'</span>)
 0124 <span class="keyword">end</span>
 0125 
 0126 <span class="comment">% Find reactions without GPR</span>

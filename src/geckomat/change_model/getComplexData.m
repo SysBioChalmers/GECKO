@@ -44,7 +44,7 @@ end
 
 params = modelAdapter.params;
 if isempty(taxonomicID) % Can be empty when gathered from model adapter
-    disp('No taxonomicID specified.')
+    printOrange('WARNING: No taxonomicID specified.')
     return
 elseif taxonomicID == 0
     taxonomicID = [];
@@ -76,7 +76,7 @@ for i = 1:data.size
         temp = webread([url2 complexID],webOptions);
     catch ME
         if (strcmp(ME.identifier,'MATLAB:webservices:HTTP404StatusCodeError'))
-            warning(['Cannot retrieve the information for ' complexID]);
+            printOrange(['WARNING: Cannot retrieve the information for ' complexID '.\n']);
         end
         temp = [];
     end

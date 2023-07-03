@@ -204,7 +204,7 @@ This function is called by:
 0102     <span class="keyword">for</span> i = 1:numel(customKcats.proteins)
 0103         <span class="keyword">if</span> isempty(customKcats.proteins{i})
 0104             <span class="comment">%If only reaction ID(s) is/are specified (and no proteins),</span>
-0105             <span class="comment">%then apply the kcat to all isoenzymic reactions</span>
+0105             <span class="comment">%then apply the kcat to all isozymic reactions</span>
 0106             rxns    = strtrim(strsplit(customKcats.rxns{i}, <span class="string">','</span>));
 0107             rxnIdxs = ismember(ecRxnNoSuffix,rxns);
 0108             rxnToUpdate(rxnIdxs) = 1;
@@ -218,7 +218,7 @@ This function is called by:
 0116                 enzIdx = cellfun(@(x) find(strcmpi(model.ec.enzymes, x)), prots);
 0117             <span class="keyword">catch</span>
 0118                 enzIdx = [];
-0119                 disp( [<span class="string">'Protein(s) '</span> customKcats.proteins{i} <span class="string">' were not found in the model.'</span>]);
+0119                 printOrange([<span class="string">'WARNING: Protein(s) '</span> customKcats.proteins{i} <span class="string">' were not found in the model.'</span>]);
 0120             <span class="keyword">end</span>
 0121 
 0122             <span class="comment">% if not specific reactions are defined, find all the reaction</span>
@@ -287,7 +287,7 @@ This function is called by:
 0185     <span class="keyword">if</span> ~isempty(find(rxnToUpdate, 1))
 0186         model = <a href="applyKcatConstraints.html" class="code" title="function model = applyKcatConstraints(model,updateRxns)">applyKcatConstraints</a>(model, rxnToUpdate);
 0187     <span class="keyword">else</span>
-0188         disp(<span class="string">'No matches found. Consider checking the IDs or proteins in customKcats.'</span>)
+0188         printOrange(<span class="string">'WARNING: No matches found. Consider checking the IDs or proteins in customKcats.'</span>)
 0189     <span class="keyword">end</span>
 0190 
 0191     rxnUpdated = model.ec.rxns(find(rxnToUpdate));

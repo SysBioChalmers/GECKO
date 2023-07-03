@@ -57,7 +57,7 @@ kcatList_fuzzy  = fuzzyKcatMatching(ecModel);
 ecModel         = findMetSmiles(ecModel);
 % DLKcat.tsv files are ecModel-type specific and cannot be interchanged
 % between full and light ecModels. This is due to a difference in how
-% reactions are represented in the ecModel.ec structure (isoenzymatic
+% reactions are represented in the ecModel.ec structure (isozymatic
 % reactions are split in full ecModels, and a suffix (e.g. _EXP_1) is
 % attached to reaction identifiers; while in light models such reactions
 % are not split and a counting prefix (e.g. 001_) is attached to reaction
@@ -84,12 +84,12 @@ ecModel = selectKcatValue(ecModel,kcatList_merged);
 % in this tutorial.
 
 % STEP 11
-% getKcatAcrossIsoenzymes cannot be run on light ecModels
+% getKcatAcrossIsozymes cannot be run on light ecModels.
 
 % STEP 12
 % getStandardKcat can be run on light ecModels in a similar way as for full
 % ecModels. But due to the different model structure, no "standard"
-% pseudo-enzyme is included 
+% pseudo-enzyme is included.
 % 
 % Instead of introducing a "standard" pseudo-enzyme, the new
 % standard enzyme usage constraints follow the light ecModel structure,
@@ -101,7 +101,7 @@ ecModel = selectKcatValue(ecModel,kcatList_merged);
 % In light ecModels the kcat values are also kept in ecModels.ec.kcat, and
 % only after running applyKcatConstraints are these introduced in the
 % ecModel.S matrix. In constrast to full ecModels, the applyKcatConstraints
-% function checks across isoenzymes which is the most efficient enzyme
+% function checks across isozymes which is the most efficient enzyme
 % (lowest MW/kcat value), and uses this value.
 ecModel = applyKcatConstraints(ecModel);
 
@@ -134,13 +134,13 @@ saveEcModel(ecModel);
 ecModel = loadEcModel();
 ecModel = setParam(ecModel,'obj',adapter.params.bioRxn,1);
 sol = solveLP(ecModel)
-disp(['Growth rate reached: ' num2str(abs(sol.f))])
-% Set growth lower bound to 99% of the previous value
+fprintf('Growth rate reached: %g /hour.\n', abs(sol.f))
+% Set growth lower bound to 99% of the previous value.
 ecModel = setParam(ecModel,'lb',adapter.params.bioRxn,0.99*abs(sol.f));
 % Minimize protein pool usage.
 ecModel = setParam(ecModel,'obj','prot_pool_exchange',1);
 sol = solveLP(ecModel)
-disp(['Minimum protein pool usage: ' num2str(abs(sol.f)) ' mg/gDCW'])
+fprintf('Minimum protein pool usage: %g mg/gDCW.\n', abs(sol.f))
 
 % STEP 26
 % Individual enzyme usages cannot be investigated in light ecModels, as
@@ -153,10 +153,24 @@ disp(['Minimum protein pool usage: ' num2str(abs(sol.f)) ' mg/gDCW'])
 [mappedFlux, enzUsageFlux, usageEnz] = mapRxnsToConv(ecModel, model, sol.x);
 
 % STEP 29
+% The comparison between full and light ecModel is demonstrated with a
+% custom function in tutorials/full_ecModel/code/plotlightVSfull.m.
+
+% STEP 30
 % To exemplify the construction of a context-specific ecModel, a
-% conventional GEM of HT-29 cell line is loaded
+% conventional GEM of HT-29 cell line is loaded.
 HT29 = readYAMLmodel(fullfile(adapter.params.path,'models','HT29-GEM.yml'));
 
-% Make a context-specific ecModel based on the generic Human-GEM
+% Make a context-specific ecModel based on the generic Human-GEM.
 ecModel = loadEcModel();
 ecHT29 = getSubsetEcModel(ecModel,HT29);
+
+% Without detailed inspection of all differences between the three models, 
+% it is clear that both the enzyme constraints and contextualization have
+% had its impact as the maximum growth rate is affected:
+sol = solveLP(HT29);
+fprintf('Growth rate in HT29-GEM: %.3f /hour.\n', abs(sol.f))
+sol = solveLP(ecModel);
+fprintf('Growth rate in ecHuman-GEM: %.3f /hour.\n', abs(sol.f))
+sol = solveLP(ecHT29);
+fprintf('Growth rate in ecHT29-GEM: %.3f /hour.\n', abs(sol.f))

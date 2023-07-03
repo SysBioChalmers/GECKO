@@ -94,7 +94,7 @@ This function is called by:
 0034     <span class="keyword">if</span> exist(fullfile(params.path,<span class="string">'data'</span>,<span class="string">'paxDB.tsv'</span>),<span class="string">'file'</span>)
 0035         protData = fullfile(params.path,<span class="string">'data'</span>,<span class="string">'paxDB.tsv'</span>);
 0036     <span class="keyword">else</span>
-0037         disp(<span class="string">'No proteomics data is provided or can be found. Default f value of 0.5 is returned.'</span>)
+0037         printOrange(<span class="string">'WARNING: No proteomics data is provided or can be found. Default f value of 0.5 is returned.\n'</span>)
 0038         f = 0.5;
 0039     <span class="keyword">end</span>
 0040 <span class="keyword">end</span>

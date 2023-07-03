@@ -89,7 +89,7 @@ This function is called by:
 0034     error(<span class="string">'Cannot find Docker. Make sure it is installed.'</span>)
 0035 <span class="keyword">end</span>
 0036 
-0037 disp(<span class="string">'Running DLKcat prediction, this may take many minutes'</span>)
+0037 disp(<span class="string">'Running DLKcat prediction, this may take many minutes, especially the first time.'</span>)
 0038 status = system([<span class="string">'docker run --rm -v '</span> fullfile(params.path,<span class="string">'/data'</span>) <span class="string">':/data ghcr.io/sysbiochalmers/dlkcat-gecko:0.1 /bin/bash -c &quot;python DLKcat.py /data/DLKcat.tsv /data/DLKcatOutput.tsv&quot;'</span>]);
 0039 
 0040 <span class="keyword">if</span> status == 0 &amp;&amp; exist(fullfile(params.path,<span class="string">'data/DLKcatOutput.tsv'</span>))

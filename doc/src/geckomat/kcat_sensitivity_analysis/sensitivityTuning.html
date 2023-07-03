@@ -140,17 +140,17 @@ This function is called by:
 0067     <span class="keyword">while</span> true
 0068         [res,hs] = solveLP(m,0,[],hs); <span class="comment">%skip parsimonius, only takes time</span>
 0069         <span class="keyword">if</span> (lastGrowth == -res.f)
-0070             disp(<span class="string">'No growth increase from increased kcats - check if the constraints on the uptake reactions are too tight!'</span>)
+0070             printOrange(<span class="string">'WARNING: No growth increase from increased kcats - check if the constraints on the uptake reactions are too tight.\n'</span>)
 0071             <span class="keyword">break</span>;
 0072         <span class="keyword">end</span>
 0073         lastGrowth = -res.f;
-0074         <span class="keyword">if</span> (lastGrowth &gt;= desiredGrowthRate)
-0075             <span class="keyword">break</span>;
-0076         <span class="keyword">end</span>
-0077         <span class="comment">%If you get an error here, it is likely due to numerical issues in the solver</span>
-0078         <span class="comment">%The trick where we don't allow low kcats is to fix that, but maybe</span>
-0079         <span class="comment">%it is not enough.</span>
-0080         <span class="keyword">if</span> verbose; disp([<span class="string">'Iteration '</span> num2str(iteration) <span class="string">': Growth: '</span> num2str(lastGrowth)]); <span class="keyword">end</span>
+0074         <span class="keyword">if</span> verbose; disp([<span class="string">'Iteration '</span> num2str(iteration) <span class="string">': Growth: '</span> num2str(lastGrowth)]); <span class="keyword">end</span>
+0075         <span class="keyword">if</span> (lastGrowth &gt;= desiredGrowthRate)
+0076             <span class="keyword">break</span>;
+0077         <span class="keyword">end</span>
+0078         <span class="comment">%If you get an error here, it is likely due to numerical issues in the solver</span>
+0079         <span class="comment">%The trick where we don't allow low kcats is to fix that, but maybe</span>
+0080         <span class="comment">%it is not enough.</span>
 0081         iteration            = iteration + 1;
 0082         <span class="comment">%find the highest draw_prot rxn flux</span>
 0083         drawFluxes           = zeros(length(drawRxns),1);
@@ -182,7 +182,7 @@ This function is called by:
 0109     <span class="keyword">while</span> true
 0110         res = solveLP(m,0); <span class="comment">%skip parsimonius, only takes time</span>
 0111         <span class="keyword">if</span> (lastGrowth == -res.f)
-0112             disp(<span class="string">'No growth increase from increased kcats - check if the constraints on the uptake reactions are too tight!'</span>)
+0112             printOrange(<span class="string">'No growth increase from increased kcats - check if the constraints on the uptake reactions are too tight.\n'</span>)
 0113             <span class="keyword">break</span>;
 0114         <span class="keyword">end</span>
 0115         lastGrowth = -res.f;

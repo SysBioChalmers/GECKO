@@ -54,7 +54,7 @@ if any(strcmp(selectDatabase,{'uniprot','both'}))
     uniprotPath = fullfile(filePath,'uniprot.tsv');
     if ~exist(uniprotPath,'file')
         if isempty(uniprot.ID)
-            warning('No uniprot.ID is specified, unable to download UniProt DB')
+            printOrange('WARNING: No uniprot.ID is specified, unable to download UniProt DB.\n')
         end
         disp(['Downloading Uniprot data for ' uniprot.type ' ' uniprot.ID '. This can take a few minutes.'])
         url = ['https://rest.uniprot.org/uniprotkb/stream?query=' uniprotRev ...
@@ -86,7 +86,7 @@ if any(strcmp(selectDatabase,{'kegg','both'}))
     keggPath = fullfile(filePath,'kegg.tsv');
     if ~exist(keggPath,'file')
         if isempty(kegg.ID)
-            warning('No kegg.ID is specified, unable to download KEGG DB')
+            printOrange('WARNING: No kegg.ID is specified, unable to download KEGG DB.\n')
         else
             downloadKEGG(kegg.ID,keggPath,kegg.geneID);
         end

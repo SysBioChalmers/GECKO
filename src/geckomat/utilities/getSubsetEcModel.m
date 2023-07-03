@@ -17,8 +17,8 @@ function smallEcModel = getSubsetEcModel(bigEcModel,smallGEM)
 
 % Check if original bigEcModel contains context-dependent protein constraints
 if any(bigEcModel.lb(startsWith(bigEcModel.rxns,'usage_prot_')) ~= -1000)
-    disp(['The bigEcModel is constraint by protein concentrations that are ' ...
-             'likely not relevant in the constructed smallEcModel.'])
+    printOrange(['WARNING: The bigEcModel is constraint by protein concentrations that are\n' ...
+                 'likely not relevant in the constructed smallEcModel.\n'])
 end
 
 % Remove genes (and associated reactions) that are absent in smallGEM
@@ -49,7 +49,5 @@ smallEcModel.ec.source(ecRxnsToRemove)      = [];
 smallEcModel.ec.notes(ecRxnsToRemove)       = [];
 smallEcModel.ec.eccodes(ecRxnsToRemove)     = [];
 smallEcModel.ec.rxnEnzMat(ecRxnsToRemove,:) = [];
-
-smallEcModel = removeReactions(smallEcModel,~keepRxns, true, true, true);
 end
  

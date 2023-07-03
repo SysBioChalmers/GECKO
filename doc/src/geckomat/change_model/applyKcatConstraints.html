@@ -108,7 +108,7 @@ This function is called by:
 0046            <span class="string">' not a valid GECKO3 ecModel. First run makeEcModel(model).'</span>])
 0047 <span class="keyword">end</span>
 0048 <span class="keyword">if</span> all(model.ec.kcat==0)
-0049     warning(<span class="string">'No kcat values are provided in model.ec.kcat, model remains unchanged.'</span>)
+0049     printOrange(<span class="string">'WARNING: No kcat values are provided in model.ec.kcat, model remains unchanged.\n'</span>)
 0050     <span class="keyword">return</span>
 0051 <span class="keyword">end</span>
 0052 
@@ -160,7 +160,7 @@ This function is called by:
 0098     [~,rxnIdx]  = ismember(modRxns,model.rxns);
 0099     hasEc = find(hasEc &amp; updateRxns);
 0100     <span class="keyword">for</span> i = 1:numel(hasEc)
-0101         <span class="comment">% Get all isoenzymes per reaction</span>
+0101         <span class="comment">% Get all isozymes per reaction</span>
 0102         ecIdx = find(rxnIdx == hasEc(i));
 0103         <span class="comment">% Multiply enzymes with their MW (they are then automatically</span>
 0104         <span class="comment">% summed per reaction), and divide by their kcat, to get a vector</span>

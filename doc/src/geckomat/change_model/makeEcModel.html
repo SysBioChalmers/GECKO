@@ -60,7 +60,7 @@
        'OR' in grRules (each reaction is then catalyzed by one enzyme
        (complex).
    6.  Make empty model.ec structure, that will contain enzyme and kcat
-       information. One entry per reaction, where isoenzymes have multiple
+       information. One entry per reaction, where isozymes have multiple
        entries. This model.ec structure will later be populated with kcat
        values. For geckoLight the structure is different, where each
        reaction can have multiple isozymes.
@@ -132,7 +132,7 @@ This function is called by:
 
 <h2><a name="_subfunctions"></a>SUBFUNCTIONS <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
 <ul style="list-style-image:url(../../../matlabicon.gif)">
-<li><a href="#_sub1" class="code">function indexes2check = findPotentialErrors(grRules,embedded,model)</a></li></ul>
+<li><a href="#_sub1" class="code">function indexes2check = findPotentialErrors(grRules,model)</a></li></ul>
 
 <h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
 <div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function [model, noUniprot] = makeEcModel(model, geckoLight, modelAdapter)</a>
@@ -169,7 +169,7 @@ This function is called by:
 0032 <span class="comment">%       'OR' in grRules (each reaction is then catalyzed by one enzyme</span>
 0033 <span class="comment">%       (complex).</span>
 0034 <span class="comment">%   6.  Make empty model.ec structure, that will contain enzyme and kcat</span>
-0035 <span class="comment">%       information. One entry per reaction, where isoenzymes have multiple</span>
+0035 <span class="comment">%       information. One entry per reaction, where isozymes have multiple</span>
 0036 <span class="comment">%       entries. This model.ec structure will later be populated with kcat</span>
 0037 <span class="comment">%       values. For geckoLight the structure is different, where each</span>
 0038 <span class="comment">%       reaction can have multiple isozymes.</span>
@@ -313,12 +313,12 @@ This function is called by:
 0176 nonExchRxns(exchRxns) = [];
 0177 model=convertToIrrev(model, nonExchRxns);
 0178 
-0179 <span class="comment">%5: Expand model, to separate isoenzymes (appends _EXP_* to reaction IDs to</span>
+0179 <span class="comment">%5: Expand model, to separate isozymes (appends _EXP_* to reaction IDs to</span>
 0180 <span class="comment">%indicate duplication)</span>
 0181 <span class="keyword">if</span> ~geckoLight
 0182     model=expandModel(model);
 0183 <span class="keyword">end</span>
-0184 <span class="comment">% Sort reactions, so that reversible and isoenzymic reactions are kept near</span>
+0184 <span class="comment">% Sort reactions, so that reversible and isozymic reactions are kept near</span>
 0185 <span class="keyword">if</span> ~geckoLight
 0186     model=sortIdentifiers(model);
 0187 <span class="keyword">end</span>
@@ -394,37 +394,37 @@ This function is called by:
 0257 <span class="keyword">end</span>
 0258 noUniprot  = uniprotCompatibleGenes(~Lia);
 0259 <span class="keyword">if</span> ~isempty(noUniprot)
-0260     warning([<span class="string">'The '</span> num2str(numel(noUniprot)) <span class="string">' gene(s) reported in noUniprot cannot '</span><span class="keyword">...</span>
-0261           <span class="string">'be found in data/uniprot.tsv, these will not be enzyme-constrained. '</span><span class="keyword">...</span>
-0262           <span class="string">'If you intend to use different Uniprot data (e.g. from a different proteome '</span><span class="keyword">...</span>
-0263           <span class="string">'identifier), make sure you first delete the existing data/uniprot.tsv file.'</span>])
-0264 <span class="keyword">end</span>
-0265 ec.genes        = model.genes(Lia); <span class="comment">%Will often be duplicate of model.genes, but is done here to prevent issues when it is not.</span>
-0266 ec.enzymes      = uniprotDB.ID(Locb(Lia));
-0267 ec.mw           = uniprotDB.MW(Locb(Lia));
-0268 ec.sequence     = uniprotDB.seq(Locb(Lia));
-0269 <span class="comment">%Additional info</span>
-0270 ec.concs        = nan(numel(ec.genes),1); <span class="comment">% To be filled with proteomics data when available</span>
-0271 
-0272 <span class="comment">%8: Only parse rxns associated to genes</span>
-0273 <span class="keyword">if</span> ~geckoLight
-0274     ec.rxnEnzMat = zeros(numel(rxnWithGene),numel(ec.genes)); <span class="comment">% Non-zeros will indicate the number of subunits</span>
-0275     <span class="keyword">for</span> r=1:numel(rxnWithGene)
-0276         rxnGenes   = model.genes(find(model.rxnGeneMat(rxnWithGene(r),:)));
-0277         [~,locEnz] = ismember(rxnGenes,ec.genes); <span class="comment">% Could also parse directly from rxnGeneMat, but some genes might be missing from Uniprot DB</span>
-0278         <span class="keyword">if</span> locEnz ~= 0
-0279             ec.rxnEnzMat(r,locEnz) = 1; <span class="comment">%Assume 1 copy per subunit or enzyme, can be modified later</span>
-0280         <span class="keyword">end</span>
-0281     <span class="keyword">end</span>
-0282 <span class="keyword">else</span>
-0283     <span class="comment">%For light models, we need to split up all GPRs</span>
-0284     ec.rxnEnzMat = zeros(numel(ec.rxns),numel(ec.genes)); <span class="comment">% Non-zeros will indicate the number of subunits</span>
-0285     nextIndex = 1;
-0286     <span class="comment">%For full model generation, the GPRs are controlled in expandModel, but</span>
-0287     <span class="comment">%here we need to make an explicit format check</span>
-0288     indexes2check = <a href="#_sub1" class="code" title="subfunction indexes2check = findPotentialErrors(grRules,embedded,model)">findPotentialErrors</a>(model.grRules,false,model);
-0289     <span class="keyword">if</span> ~isempty(indexes2check) 
-0290         disp(<span class="string">'For Human-GEM, these reactions can be corrected using simplifyGrRules.'</span>);
+0260     printOrange([<span class="string">'WARNING: The '</span> num2str(numel(noUniprot)) <span class="string">' gene(s) reported in noUniprot cannot be found in data/uniprot.tsv, these will\n'</span> <span class="keyword">...</span>
+0261              <span class="string">'not be enzyme-constrained. If you intend to use different Uniprot data (e.g. from a\n'</span><span class="keyword">...</span>
+0262              <span class="string">'different proteome, make sure you first delete the existing data/uniprot.tsv file.\n'</span>])
+0263 <span class="keyword">end</span>
+0264 ec.genes        = model.genes(Lia); <span class="comment">%Will often be duplicate of model.genes, but is done here to prevent issues when it is not.</span>
+0265 ec.enzymes      = uniprotDB.ID(Locb(Lia));
+0266 ec.mw           = uniprotDB.MW(Locb(Lia));
+0267 ec.sequence     = uniprotDB.seq(Locb(Lia));
+0268 <span class="comment">%Additional info</span>
+0269 ec.concs        = nan(numel(ec.genes),1); <span class="comment">% To be filled with proteomics data when available</span>
+0270 
+0271 <span class="comment">%8: Only parse rxns associated to genes</span>
+0272 <span class="keyword">if</span> ~geckoLight
+0273     ec.rxnEnzMat = zeros(numel(rxnWithGene),numel(ec.genes)); <span class="comment">% Non-zeros will indicate the number of subunits</span>
+0274     <span class="keyword">for</span> r=1:numel(rxnWithGene)
+0275         rxnGenes   = model.genes(find(model.rxnGeneMat(rxnWithGene(r),:)));
+0276         [~,locEnz] = ismember(rxnGenes,ec.genes); <span class="comment">% Could also parse directly from rxnGeneMat, but some genes might be missing from Uniprot DB</span>
+0277         <span class="keyword">if</span> locEnz ~= 0
+0278             ec.rxnEnzMat(r,locEnz) = 1; <span class="comment">%Assume 1 copy per subunit or enzyme, can be modified later</span>
+0279         <span class="keyword">end</span>
+0280     <span class="keyword">end</span>
+0281 <span class="keyword">else</span>
+0282     <span class="comment">%For light models, we need to split up all GPRs</span>
+0283     ec.rxnEnzMat = zeros(numel(ec.rxns),numel(ec.genes)); <span class="comment">% Non-zeros will indicate the number of subunits</span>
+0284     nextIndex = 1;
+0285     <span class="comment">%For full model generation, the GPRs are controlled in expandModel, but</span>
+0286     <span class="comment">%here we need to make an explicit format check</span>
+0287     indexes2check = <a href="#_sub1" class="code" title="subfunction indexes2check = findPotentialErrors(grRules,model)">findPotentialErrors</a>(model.grRules,model);
+0288     <span class="keyword">if</span> ~isempty(indexes2check) 
+0289         printOrange(<span class="string">'Run standardizeGrRules(model) for a more detailed warning.\n'</span>)
+0290         printOrange(<span class="string">'For Human-GEM, these reactions can be corrected using simplifyGrRules.\n'</span>);
 0291     <span class="keyword">end</span>
 0292     
 0293     <span class="keyword">for</span> i=1:prevNumRxns
@@ -470,91 +470,71 @@ This function is called by:
 0333     <span class="keyword">if</span> isfield(model,<span class="string">'metMiriams'</span>)
 0334         proteinMets.metMiriams   = repmat({struct(<span class="string">'name'</span>,{{<span class="string">'sbo'</span>}},<span class="string">'value'</span>,{{<span class="string">'SBO:0000252'</span>}})},numel(proteinMets.mets),1);
 0335     <span class="keyword">end</span>
-0336     proteinMets.metNotes     = repmat({<span class="string">'Enzyme-usage pseudometabolite'</span>},numel(proteinMets.mets),1);
-0337     model = addMets(model,proteinMets);
-0338 <span class="keyword">end</span>
-0339 
-0340 <span class="comment">%10: Add protein pool pseudometabolite</span>
-0341 pool.mets         = <span class="string">'prot_pool'</span>;
-0342 pool.metNames     = pool.mets;
-0343 pool.compartments = compartmentID;
-0344 pool.metNotes     = <span class="string">'Enzyme-usage protein pool'</span>;
-0345 model = addMets(model,pool);
-0346 
-0347 <span class="comment">%11: Add protein usage reactions.</span>
-0348 <span class="keyword">if</span> ~geckoLight
-0349     usageRxns.rxns            = strcat(<span class="string">'usage_'</span>,proteinMets.mets);
-0350     usageRxns.rxnNames        = usageRxns.rxns;
-0351     usageRxns.mets            = cell(numel(usageRxns.rxns),1);
-0352     usageRxns.stoichCoeffs    = cell(numel(usageRxns.rxns),1);
-0353     <span class="keyword">for</span> i=1:numel(usageRxns.mets)
-0354         usageRxns.mets{i}         = {proteinMets.mets{i}, <span class="string">'prot_pool'</span>};
-0355         usageRxns.stoichCoeffs{i} = [-1,1];
-0356     <span class="keyword">end</span>
-0357     usageRxns.lb              = zeros(numel(usageRxns.rxns),1) - 1000;
-0358     usageRxns.ub              = zeros(numel(usageRxns.rxns),1);
-0359     usageRxns.rev             = ones(numel(usageRxns.rxns),1);
-0360     usageRxns.grRules         = ec.genes(uniprotSortId);
-0361     model = addRxns(model,usageRxns);
-0362 <span class="keyword">end</span>
-0363 
-0364 <span class="comment">%12: Add protein pool reaction (with open UB)</span>
-0365 poolRxn.rxns            = <span class="string">'prot_pool_exchange'</span>;
-0366 poolRxn.rxnNames        = poolRxn.rxns;
-0367 poolRxn.mets            = {<span class="string">'prot_pool'</span>};
-0368 poolRxn.stoichCoeffs    = {-1};
-0369 poolRxn.lb              = -1000;
-0370 poolRxn.ub              = 0;
-0371 poolRxn.rev             = 1;
-0372 model = addRxns(model,poolRxn);
-0373 
-0374 model.ec=ec;
-0375 <span class="keyword">end</span>
+0336     <span class="keyword">if</span> isfield(model,<span class="string">'metCharges'</span>)
+0337         proteinMets.metCharges   = zeros(numel(proteinMets.mets),1);
+0338     <span class="keyword">end</span>
+0339     proteinMets.metNotes     = repmat({<span class="string">'Enzyme-usage pseudometabolite'</span>},numel(proteinMets.mets),1);
+0340     model = addMets(model,proteinMets);
+0341 <span class="keyword">end</span>
+0342 
+0343 <span class="comment">%10: Add protein pool pseudometabolite</span>
+0344 pool.mets         = <span class="string">'prot_pool'</span>;
+0345 pool.metNames     = pool.mets;
+0346 pool.compartments = compartmentID;
+0347 pool.metNotes     = <span class="string">'Enzyme-usage protein pool'</span>;
+0348 model = addMets(model,pool);
+0349 
+0350 <span class="comment">%11: Add protein usage reactions.</span>
+0351 <span class="keyword">if</span> ~geckoLight
+0352     usageRxns.rxns            = strcat(<span class="string">'usage_'</span>,proteinMets.mets);
+0353     usageRxns.rxnNames        = usageRxns.rxns;
+0354     usageRxns.mets            = cell(numel(usageRxns.rxns),1);
+0355     usageRxns.stoichCoeffs    = cell(numel(usageRxns.rxns),1);
+0356     <span class="keyword">for</span> i=1:numel(usageRxns.mets)
+0357         usageRxns.mets{i}         = {proteinMets.mets{i}, <span class="string">'prot_pool'</span>};
+0358         usageRxns.stoichCoeffs{i} = [-1,1];
+0359     <span class="keyword">end</span>
+0360     usageRxns.lb              = zeros(numel(usageRxns.rxns),1) - 1000;
+0361     usageRxns.ub              = zeros(numel(usageRxns.rxns),1);
+0362     usageRxns.rev             = ones(numel(usageRxns.rxns),1);
+0363     usageRxns.grRules         = ec.genes(uniprotSortId);
+0364     model = addRxns(model,usageRxns);
+0365 <span class="keyword">end</span>
+0366 
+0367 <span class="comment">%12: Add protein pool reaction (with open UB)</span>
+0368 poolRxn.rxns            = <span class="string">'prot_pool_exchange'</span>;
+0369 poolRxn.rxnNames        = poolRxn.rxns;
+0370 poolRxn.mets            = {<span class="string">'prot_pool'</span>};
+0371 poolRxn.stoichCoeffs    = {-1};
+0372 poolRxn.lb              = -1000;
+0373 poolRxn.ub              = 0;
+0374 poolRxn.rev             = 1;
+0375 model = addRxns(model,poolRxn);
 0376 
-0377 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-0378 <span class="comment">%Function that gets the model field grRules and returns the indexes of the</span>
-0379 <span class="comment">%rules in which the pattern &quot;) and (&quot; is present.</span>
-0380 <span class="comment">%Copied from standardizeGrRules</span>
-0381 <span class="comment">% TODO: Make this an accessible function in a separate file in RAVEN and remove this</span>
-0382 <span class="comment">%implementation.</span>
-0383 <a name="_sub1" href="#_subfunctions" class="code">function indexes2check = findPotentialErrors(grRules,embedded,model)</a>
-0384 indxs_l       = find(~cellfun(@isempty,strfind(grRules,<span class="string">') and ('</span>)));
-0385 indxs_l_L     = find(~cellfun(@isempty,strfind(grRules,<span class="string">') and'</span>)));
-0386 indxs_l_R     = find(~cellfun(@isempty,strfind(grRules,<span class="string">'and ('</span>)));
-0387 indexes2check = vertcat(indxs_l,indxs_l_L,indxs_l_R);
-0388 indexes2check = unique(indexes2check);
-0389 
-0390 <span class="keyword">if</span> ~isempty(indexes2check)
-0391     
-0392     <span class="keyword">if</span> embedded
-0393         EM = <span class="string">'Potentially problematic &quot;) AND (&quot; in the grRules for reaction(s): '</span>;
-0394         dispEM(EM,false,model.rxns(indexes2check),true)
-0395     <span class="keyword">else</span>
-0396         STR = <span class="string">'Potentially problematic &quot;) AND (&quot;, &quot;) AND&quot; or &quot;AND (&quot;relat'</span>;
-0397         STR = [STR,<span class="string">'ionships found in\n\n'</span>];
-0398         <span class="keyword">for</span> i=1:length(indexes2check)
-0399             index = indexes2check(i);
-0400             STR = [STR <span class="string">'  - grRule #'</span> model.rxns{index} <span class="string">': '</span> grRules{index} <span class="string">'\n'</span>];
-0401         <span class="keyword">end</span>
-0402         STR = [STR,<span class="string">'\n This kind of relationships should only be present '</span>];
-0403         STR = [STR,<span class="string">'in  reactions catalysed by complexes of isoenzymes e'</span>];
-0404         STR = [STR,<span class="string">'.g.\n\n  - (G1 or G2) and (G3 or G4)\n\n For these c'</span>];
-0405         STR = [STR,<span class="string">'ases modify the grRules manually, writing all the po'</span>];
-0406         STR = [STR,<span class="string">'ssible combinations e.g.\n\n  - (G1 and G3) or (G1 a'</span>];
-0407         STR = [STR,<span class="string">'nd G4) or (G2 and G3) or (G2 and G4)\n\n For other c'</span>];
-0408         STR = [STR,<span class="string">'ases modify the correspondent grRules avoiding:\n\n '</span>];
-0409         STR = [STR,<span class="string">' 1) Overall container brackets, e.g.\n        &quot;(G1 a'</span>];
-0410         STR = [STR,<span class="string">'nd G2)&quot; should be &quot;G1 and G2&quot;\n\n  2) Single unit en'</span>];
-0411         STR = [STR,<span class="string">'zymes enclosed into brackets, e.g.\n        &quot;(G1)&quot; s'</span>];
-0412         STR = [STR,<span class="string">'hould be &quot;G1&quot;\n\n  3) The use of uppercases for logi'</span>];
-0413         STR = [STR,<span class="string">'cal operators, e.g.\n        &quot;G1 OR G2&quot; should be &quot;G'</span>];
-0414         STR = [STR,<span class="string">'1 or G2&quot;\n\n  4) Unbalanced brackets, e.g.\n        '</span>];
-0415         STR = [STR,<span class="string">'&quot;((G1 and G2) or G3&quot; should be &quot;(G1 and G2) or G3&quot;\n'</span>];
-0416         warning(sprintf(STR))
-0417     <span class="keyword">end</span>
-0418 <span class="keyword">end</span>
-0419 <span class="keyword">end</span>
-0420</pre></div>
+0377 model.ec=ec;
+0378 <span class="keyword">end</span>
+0379 
+0380 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0381 <span class="comment">%Function that gets the model field grRules and returns the indexes of the</span>
+0382 <span class="comment">%rules in which the pattern &quot;) and (&quot; is present.</span>
+0383 <span class="comment">%Copied from standardizeGrRules</span>
+0384 <span class="comment">% TODO: Make this an accessible function in a separate file in RAVEN and remove this</span>
+0385 <span class="comment">%implementation.</span>
+0386 <a name="_sub1" href="#_subfunctions" class="code">function indexes2check = findPotentialErrors(grRules,model)</a>
+0387 indxs_l       = find(~cellfun(@isempty,strfind(grRules,<span class="string">') and ('</span>)));
+0388 indxs_l_L     = find(~cellfun(@isempty,strfind(grRules,<span class="string">') and'</span>)));
+0389 indxs_l_R     = find(~cellfun(@isempty,strfind(grRules,<span class="string">'and ('</span>)));
+0390 indexes2check = vertcat(indxs_l,indxs_l_L,indxs_l_R);
+0391 indexes2check = unique(indexes2check);
+0392 
+0393 <span class="keyword">if</span> ~isempty(indexes2check)
+0394     textToPrint = <span class="string">'WARNING: Potentially problematic &quot;) AND (&quot; in the grRules for reaction(s):\n'</span>;
+0395     <span class="keyword">for</span> i=1:numel(indexes2check)
+0396         textToPrint=[textToPrint <span class="string">'\t'</span> model.rxns{indexes2check(i)} <span class="string">'\n'</span>];
+0397     <span class="keyword">end</span>
+0398     printOrange(textToPrint);
+0399 <span class="keyword">end</span>
+0400 <span class="keyword">end</span></pre></div>
 <hr><address>Generated by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

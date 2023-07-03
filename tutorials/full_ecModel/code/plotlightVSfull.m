@@ -58,12 +58,15 @@ fprintf('Mapping fluxes: %.0f%% (%.3f vs %.3f seconds)\n', (lightTime/fullTime)*
 fprintf('Growth rate that is reached: %.4f vs %.4f\n', abs(solFull.f) , abs(solLight.f))
 
 %
+solF(abs(solF)<1e-8) = 0;
+solL(abs(solL)<1e-8) = 0;
+
 scatter(abs(solF),abs(solL))
 xlabel('Full ecModel')
 ylabel('Light ecModel')
 title('Absolute fluxes (mmol/gDCWh)')
-set(gca,'yscale','log','YminorTick','on')
-set(gca,'xscale','log','XminorTick','on')
+set(gca,'yscale','log','YminorTick','on','YLim',[1e-8 1e2])
+set(gca,'xscale','log','XminorTick','on','XLim',[1e-8 1e2])
 set(gca,'FontSize',11)
 text(1e-7,3,'Growth rate(/hour)','FontSize',11)
 text(1e-7,0.5,'full:','FontSize',11)

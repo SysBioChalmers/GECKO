@@ -160,8 +160,8 @@ ecModel  = selectKcatValue(ecModel, kcatList_merged);
 % To modify the S-matrix, to actually implement the kcat/MW constraints,
 % applyKcatConstraints should be run. This is done in STEP 13.
 
-% STEP 11 Get kcat values across isoenzymes
-ecModel = getKcatAcrossIsoenzymes(ecModel);
+% STEP 11 Get kcat values across isozymes
+ecModel = getKcatAcrossIsozymes(ecModel);
 
 % STEP 12 Get standard kcat
 % Assign a protein cost to reactions without gene assocation. These

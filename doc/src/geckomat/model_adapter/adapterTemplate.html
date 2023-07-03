@@ -50,80 +50,76 @@ This function is called by:
 0004             <span class="comment">% Set initial values of the obj.params - they can be changed by the user</span>
 0005             
 0006             <span class="comment">% Directory where all model-specific files and scripts are kept.</span>
-0007             <span class="comment">% Is assumed to follow the GECKO-defined folder structure. The</span>
-0008             <span class="comment">% code below refers to userData/yourModel in the GECKO path.</span>
-0009             obj.params.path = fullfile(<span class="string">'KEY_PATH'</span>, <span class="string">'KEY_NAME'</span>);
-0010 
-0011             <span class="comment">% Path to the conventional GEM that this ecModel will be based on.</span>
-0012             obj.params.convGEM = fullfile(obj.params.path,<span class="string">'models'</span>,<span class="string">'yourModel.xml'</span>);
-0013 
-0014             <span class="comment">% Average enzyme saturation factor</span>
-0015             obj.params.sigma = 0.5;
-0016 
-0017             <span class="comment">% Total protein content in the cell [g protein/gDw]</span>
-0018             obj.params.Ptot = 0.5;
-0019 
-0020             <span class="comment">% Fraction of enzymes in the model [g enzyme/g protein]</span>
-0021             obj.params.f = 0.5;
-0022             
-0023             <span class="comment">% Growth rate the model should be able to reach when not</span>
-0024             <span class="comment">% constraint by nutrient uptake (e.g. max growth rate) [1/h]</span>
-0025             obj.params.gR_exp = 0.41;
-0026 
-0027             <span class="comment">% Provide your organism scientific name</span>
-0028             obj.params.org_name = <span class="string">'saccharomyces cerevisiae'</span>;
-0029             
-0030             <span class="comment">% Matching name for Complex Portal</span>
-0031             obj.params.complex_org_name = <span class="string">'Saccharomyces cerevisiae'</span>;
-0032 
-0033             <span class="comment">% Provide your organism KEGG ID, selected at</span>
-0034             <span class="comment">% https://www.genome.jp/kegg/catalog/org_list.html</span>
-0035             obj.params.keggID = <span class="string">'sce'</span>;
-0036             <span class="comment">% Field for KEGG gene identifier; should match the gene</span>
-0037             <span class="comment">% identifiers used in the model. With 'kegg', it takes the</span>
-0038             <span class="comment">% default KEGG Entry identifier (for example YER023W here:</span>
-0039             <span class="comment">% https://www.genome.jp/dbget-bin/www_bget?sce:YER023W).</span>
-0040             <span class="comment">% Alternatively, gene identifiers from the &quot;Other DBs&quot; section</span>
-0041             <span class="comment">% of the KEGG page can be selected. For example &quot;NCBI-GeneID&quot;,</span>
-0042             <span class="comment">% &quot;UniProt&quot;, or &quot;Ensembl&quot;. Not all DB entries are available for</span>
-0043             <span class="comment">% all organisms and/or genes.</span>
-0044             obj.params.keggGeneIdentifier = <span class="string">'kegg'</span>;
-0045 
-0046             <span class="comment">% Provide what identifier should be used to query UniProt.</span>
-0047             <span class="comment">% Select proteome IDs at https://www.uniprot.org/proteomes/</span>
-0048             <span class="comment">% or taxonomy IDs at https://www.uniprot.org/taxonomy.</span>
-0049             obj.params.uniprotIDtype = <span class="string">'taxonomy_id'</span>; <span class="comment">% 'proteome' or 'taxonomy_id'</span>
-0050             obj.params.uniprotID = <span class="string">'559292'</span>; <span class="comment">% should match the ID type</span>
-0051             <span class="comment">% Field for Uniprot gene ID - should match the gene ids used in the</span>
-0052             <span class="comment">% model. It should be one of the &quot;Returned Field&quot; entries under</span>
-0053             <span class="comment">% &quot;Names &amp; Taxonomy&quot; at this page: https://www.uniprot.org/help/return_fields</span>
-0054             obj.params.uniprotGeneIdField = <span class="string">'gene_oln'</span>;
-0055             <span class="comment">% Whether only reviewed data from UniProt should be considered.</span>
-0056             <span class="comment">% Reviewed data has highest confidence, but coverage might be (very)</span>
-0057             <span class="comment">% low for non-model organisms</span>
-0058             obj.params.uniprotReviewed = true;
-0059 
-0060             <span class="comment">% Reaction ID for glucose exchange reaction (or other preferred carbon source)</span>
-0061             obj.params.c_source = <span class="string">'r_1714'</span>; 
-0062 
-0063             <span class="comment">% Reaction ID for biomass pseudoreaction</span>
-0064             obj.params.bioRxn = <span class="string">'r_4041'</span>;
-0065 
-0066             <span class="comment">% Reaction ID for non-growth associated maitenance pseudoreaction</span>
-0067             obj.params.NGAM = <span class="string">'r_4046'</span>;
-0068 
-0069             <span class="comment">% Compartment name in which the added enzymes should be located</span>
-0070             obj.params.enzyme_comp = <span class="string">'cytoplasm'</span>;
-0071         <span class="keyword">end</span>
-0072         
-0073         <a name="_sub1" href="#_subfunctions" class="code">function [spont,spontRxnNames] = getSpontaneousReactions(obj,model)</a>
-0074             <span class="comment">% Indicates how spontaneous reactions are identified. Here it</span>
-0075             <span class="comment">% is done by the reaction have 'spontaneous' in its name.</span>
-0076             spont = contains(model.rxnNames,<span class="string">'spontaneous'</span>);
-0077             spontRxnNames = model.rxnNames(spont);
-0078         <span class="keyword">end</span>
-0079     <span class="keyword">end</span>
-0080 <span class="keyword">end</span></pre></div>
+0007             <span class="comment">% Is assumed to follow the GECKO-defined folder structure.</span>
+0008             obj.params.path = fullfile(<span class="string">'KEY_PATH'</span>, <span class="string">'KEY_NAME'</span>);
+0009 
+0010             <span class="comment">% Path to the conventional GEM that this ecModel will be based on.</span>
+0011             obj.params.convGEM = fullfile(obj.params.path,<span class="string">'models'</span>,<span class="string">'yourModel.xml'</span>);
+0012 
+0013             <span class="comment">% Average enzyme saturation factor</span>
+0014             obj.params.sigma = 0.5;
+0015 
+0016             <span class="comment">% Total protein content in the cell [g protein/gDw]</span>
+0017             obj.params.Ptot = 0.5;
+0018 
+0019             <span class="comment">% Fraction of enzymes in the model [g enzyme/g protein]</span>
+0020             obj.params.f = 0.5;
+0021             
+0022             <span class="comment">% Growth rate the model should be able to reach when not</span>
+0023             <span class="comment">% constraint by nutrient uptake (e.g. max growth rate) [1/h]</span>
+0024             obj.params.gR_exp = 0.41;
+0025 
+0026             <span class="comment">% Provide your organism scientific name</span>
+0027             obj.params.org_name = <span class="string">'genus species'</span>;
+0028             
+0029             <span class="comment">% Taxonomic identifier for Complex Portal</span>
+0030             obj.params.complex.taxonomicID = [];
+0031 
+0032             <span class="comment">% Provide your organism KEGG ID, selected at</span>
+0033             <span class="comment">% https://www.genome.jp/kegg/catalog/org_list.html</span>
+0034             obj.params.kegg.ID = <span class="string">'sce'</span>;
+0035             <span class="comment">% Field for KEGG gene identifier; should match the gene</span>
+0036             <span class="comment">% identifiers used in the model. With 'kegg', it takes the</span>
+0037             <span class="comment">% default KEGG Entry identifier (for example YER023W here:</span>
+0038             <span class="comment">% https://www.genome.jp/dbget-bin/www_bget?sce:YER023W).</span>
+0039             <span class="comment">% Alternatively, gene identifiers from the &quot;Other DBs&quot; section</span>
+0040             <span class="comment">% of the KEGG page can be selected. For example &quot;NCBI-GeneID&quot;,</span>
+0041             <span class="comment">% &quot;UniProt&quot;, or &quot;Ensembl&quot;. Not all DB entries are available for</span>
+0042             <span class="comment">% all organisms and/or genes.</span>
+0043             obj.params.kegg.geneID = <span class="string">'kegg'</span>;
+0044 
+0045             <span class="comment">% Provide what identifier should be used to query UniProt.</span>
+0046             <span class="comment">% Select proteome IDs at https://www.uniprot.org/proteomes/</span>
+0047             <span class="comment">% or taxonomy IDs at https://www.uniprot.org/taxonomy.</span>
+0048             obj.params.uniprot.type = <span class="string">'taxonomy'</span>; <span class="comment">% 'proteome' or 'taxonomy'</span>
+0049             obj.params.uniprot.ID = <span class="string">'559292'</span>; <span class="comment">% should match the ID type</span>
+0050             <span class="comment">% Field for Uniprot gene ID - should match the gene ids used in the</span>
+0051             <span class="comment">% model. It should be one of the &quot;Returned Field&quot; entries under</span>
+0052             <span class="comment">% &quot;Names &amp; Taxonomy&quot; at this page: https://www.uniprot.org/help/return_fields</span>
+0053             obj.params.uniprot.geneIDfield = <span class="string">'gene_oln'</span>;
+0054             <span class="comment">% Whether only reviewed data from UniProt should be considered.</span>
+0055             <span class="comment">% Reviewed data has highest confidence, but coverage might be (very)</span>
+0056             <span class="comment">% low for non-model organisms</span>
+0057             obj.params.uniprot.reviewed = true;
+0058 
+0059             <span class="comment">% Reaction ID for glucose exchange reaction (or other preferred carbon source)</span>
+0060             obj.params.c_source = <span class="string">'r_1714'</span>; 
+0061 
+0062             <span class="comment">% Reaction ID for biomass pseudoreaction</span>
+0063             obj.params.bioRxn = <span class="string">'r_4041'</span>;
+0064 
+0065             <span class="comment">% Compartment name in which the added enzymes should be located</span>
+0066             obj.params.enzyme_comp = <span class="string">'cytoplasm'</span>;
+0067         <span class="keyword">end</span>
+0068         
+0069         <a name="_sub1" href="#_subfunctions" class="code">function [spont,spontRxnNames] = getSpontaneousReactions(obj,model)</a>
+0070             <span class="comment">% Indicates how spontaneous reactions are identified. Here it</span>
+0071             <span class="comment">% is done by the reaction have 'spontaneous' in its name.</span>
+0072             spont = contains(model.rxnNames,<span class="string">'spontaneous'</span>);
+0073             spontRxnNames = model.rxnNames(spont);
+0074         <span class="keyword">end</span>
+0075     <span class="keyword">end</span>
+0076 <span class="keyword">end</span></pre></div>
 <hr><address>Generated by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>
