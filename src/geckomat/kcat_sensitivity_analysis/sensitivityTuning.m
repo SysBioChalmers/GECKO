@@ -67,7 +67,7 @@ if ~m.ec.geckoLight
     while true
         [res,hs] = solveLP(m,0,[],hs); %skip parsimonius, only takes time
         if (lastGrowth == -res.f)
-            disp('No growth increase from increased kcats - check if the constraints on the uptake reactions are too tight!')
+            printOrange('WARNING: No growth increase from increased kcats - check if the constraints on the uptake reactions are too tight.\n')
             break;
         end
         lastGrowth = -res.f;
@@ -109,7 +109,7 @@ else
     while true
         res = solveLP(m,0); %skip parsimonius, only takes time
         if (lastGrowth == -res.f)
-            disp('No growth increase from increased kcats - check if the constraints on the uptake reactions are too tight!')
+            printOrange('No growth increase from increased kcats - check if the constraints on the uptake reactions are too tight.\n')
             break;
         end
         lastGrowth = -res.f;

@@ -108,7 +108,7 @@ This function is called by:
 0046            <span class="string">' not a valid GECKO3 ecModel. First run makeEcModel(model).'</span>])
 0047 <span class="keyword">end</span>
 0048 <span class="keyword">if</span> all(model.ec.kcat==0)
-0049     warning(<span class="string">'No kcat values are provided in model.ec.kcat, model remains unchanged.'</span>)
+0049     printOrange(<span class="string">'WARNING: No kcat values are provided in model.ec.kcat, model remains unchanged.\n'</span>)
 0050     <span class="keyword">return</span>
 0051 <span class="keyword">end</span>
 0052 

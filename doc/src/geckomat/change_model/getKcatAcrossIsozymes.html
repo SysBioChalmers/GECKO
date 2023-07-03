@@ -75,7 +75,7 @@ This function is called by:
 0018     error(<span class="string">'Provided model is a GECKO light version, this function is not relevant for such models'</span>)
 0019 <span class="keyword">end</span>
 0020 <span class="keyword">if</span> all(model.ec.kcat==0)
-0021     warning(<span class="string">'No kcat values are provided in model.ec.kcat, model remains unchanged.'</span>)
+0021     printOrange(<span class="string">'WARNING: No kcat values are provided in model.ec.kcat, model remains unchanged.\n'</span>)
 0022     <span class="keyword">return</span>
 0023 <span class="keyword">end</span>
 0024 

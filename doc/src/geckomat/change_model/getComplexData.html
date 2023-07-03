@@ -118,7 +118,7 @@ This function is called by:
 0044 
 0045 params = modelAdapter.params;
 0046 <span class="keyword">if</span> isempty(taxonomicID) <span class="comment">% Can be empty when gathered from model adapter</span>
-0047     disp(<span class="string">'No taxonomicID specified.'</span>)
+0047     printOrange(<span class="string">'WARNING: No taxonomicID specified.'</span>)
 0048     <span class="keyword">return</span>
 0049 <span class="keyword">elseif</span> taxonomicID == 0
 0050     taxonomicID = [];
@@ -150,7 +150,7 @@ This function is called by:
 0076         temp = webread([url2 complexID],webOptions);
 0077     <span class="keyword">catch</span> ME
 0078         <span class="keyword">if</span> (strcmp(ME.identifier,<span class="string">'MATLAB:webservices:HTTP404StatusCodeError'</span>))
-0079             warning([<span class="string">'Cannot retrieve the information for '</span> complexID]);
+0079             printOrange([<span class="string">'WARNING: Cannot retrieve the information for '</span> complexID <span class="string">'.\n'</span>]);
 0080         <span class="keyword">end</span>
 0081         temp = [];
 0082     <span class="keyword">end</span>

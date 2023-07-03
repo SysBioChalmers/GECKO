@@ -257,10 +257,9 @@ if ~isequal(uniprot,uniprotCompatibleGenes)
 end
 noUniprot  = uniprotCompatibleGenes(~Lia);
 if ~isempty(noUniprot)
-    warning(['The ' num2str(numel(noUniprot)) ' gene(s) reported in noUniprot cannot '...
-          'be found in data/uniprot.tsv, these will not be enzyme-constrained. '...
-          'If you intend to use different Uniprot data (e.g. from a different proteome '...
-          'identifier), make sure you first delete the existing data/uniprot.tsv file.'])
+    printOrange(['WARNING: The ' num2str(numel(noUniprot)) ' gene(s) reported in noUniprot cannot be found in data/uniprot.tsv, these will\n' ...
+             'not be enzyme-constrained. If you intend to use different Uniprot data (e.g. from a\n'...
+             'different proteome, make sure you first delete the existing data/uniprot.tsv file.\n'])
 end
 ec.genes        = model.genes(Lia); %Will often be duplicate of model.genes, but is done here to prevent issues when it is not.
 ec.enzymes      = uniprotDB.ID(Locb(Lia));
@@ -285,9 +284,10 @@ else
     nextIndex = 1;
     %For full model generation, the GPRs are controlled in expandModel, but 
     %here we need to make an explicit format check
-    indexes2check = findPotentialErrors(model.grRules,false,model);
+    indexes2check = findPotentialErrors(model.grRules,model);
     if ~isempty(indexes2check) 
-        disp('For Human-GEM, these reactions can be corrected using simplifyGrRules.');
+        printOrange('Run standardizeGrRules(model) for a more detailed warning.\n')
+        printOrange('For Human-GEM, these reactions can be corrected using simplifyGrRules.\n');
     end
     
     for i=1:prevNumRxns
@@ -383,7 +383,7 @@ end
 %Copied from standardizeGrRules
 % TODO: Make this an accessible function in a separate file in RAVEN and remove this
 %implementation.
-function indexes2check = findPotentialErrors(grRules,embedded,model)
+function indexes2check = findPotentialErrors(grRules,model)
 indxs_l       = find(~cellfun(@isempty,strfind(grRules,') and (')));
 indxs_l_L     = find(~cellfun(@isempty,strfind(grRules,') and')));
 indxs_l_R     = find(~cellfun(@isempty,strfind(grRules,'and (')));
@@ -391,33 +391,10 @@ indexes2check = vertcat(indxs_l,indxs_l_L,indxs_l_R);
 indexes2check = unique(indexes2check);
 
 if ~isempty(indexes2check)
-    
-    if embedded
-        EM = 'Potentially problematic ") AND (" in the grRules for reaction(s): ';
-        dispEM(EM,false,model.rxns(indexes2check),true)
-    else
-        STR = 'Potentially problematic ") AND (", ") AND" or "AND ("relat';
-        STR = [STR,'ionships found in\n\n'];
-        for i=1:length(indexes2check)
-            index = indexes2check(i);
-            STR = [STR '  - grRule #' model.rxns{index} ': ' grRules{index} '\n'];
-        end
-        STR = [STR,'\n This kind of relationships should only be present '];
-        STR = [STR,'in  reactions catalysed by complexes of isozymes e'];
-        STR = [STR,'.g.\n\n  - (G1 or G2) and (G3 or G4)\n\n For these c'];
-        STR = [STR,'ases modify the grRules manually, writing all the po'];
-        STR = [STR,'ssible combinations e.g.\n\n  - (G1 and G3) or (G1 a'];
-        STR = [STR,'nd G4) or (G2 and G3) or (G2 and G4)\n\n For other c'];
-        STR = [STR,'ases modify the correspondent grRules avoiding:\n\n '];
-        STR = [STR,' 1) Overall container brackets, e.g.\n        "(G1 a'];
-        STR = [STR,'nd G2)" should be "G1 and G2"\n\n  2) Single unit en'];
-        STR = [STR,'zymes enclosed into brackets, e.g.\n        "(G1)" s'];
-        STR = [STR,'hould be "G1"\n\n  3) The use of uppercases for logi'];
-        STR = [STR,'cal operators, e.g.\n        "G1 OR G2" should be "G'];
-        STR = [STR,'1 or G2"\n\n  4) Unbalanced brackets, e.g.\n        '];
-        STR = [STR,'"((G1 and G2) or G3" should be "(G1 and G2) or G3"\n'];
-        warning(sprintf(STR))
+    textToPrint = 'WARNING: Potentially problematic ") AND (" in the grRules for reaction(s):\n';
+    for i=1:numel(indexes2check)
+        textToPrint=[textToPrint '\t' model.rxns{indexes2check(i)} '\n'];
     end
+    printOrange(textToPrint);
 end
 end
-

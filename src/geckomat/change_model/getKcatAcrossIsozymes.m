@@ -18,7 +18,7 @@ if model.ec.geckoLight
     error('Provided model is a GECKO light version, this function is not relevant for such models')
 end
 if all(model.ec.kcat==0)
-    warning('No kcat values are provided in model.ec.kcat, model remains unchanged.')
+    printOrange('WARNING: No kcat values are provided in model.ec.kcat, model remains unchanged.\n')
     return
 end
 

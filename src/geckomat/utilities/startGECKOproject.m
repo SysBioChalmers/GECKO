@@ -55,7 +55,6 @@ if ~exist(fullPath, 'dir')
     fwrite(fid, f);
     fclose(fid);
 else
-    warning('A project with the same name exits at the same location. The project was not created')
+    printOrange('WARNING: A project with the same name exits at the same location. The project was not created.\n')
 end
-
 end
