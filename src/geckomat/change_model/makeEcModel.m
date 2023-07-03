@@ -334,7 +334,7 @@ if ~geckoLight
         proteinMets.metMiriams   = repmat({struct('name',{{'sbo'}},'value',{{'SBO:0000252'}})},numel(proteinMets.mets),1);
     end
     if isfield(model,'metCharges')
-        proteinMets.metCharges   = 0;
+        proteinMets.metCharges   = zeros(numel(proteinMets.mets),1);
     end
     proteinMets.metNotes     = repmat({'Enzyme-usage pseudometabolite'},numel(proteinMets.mets),1);
     model = addMets(model,proteinMets);

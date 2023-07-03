@@ -76,10 +76,10 @@ model = loadConventionalGEM();
 
 % STEP 3 Prepare ecModel
 % We will make a full GECKO ecModel. For an example of reconstructing a 
-% light GECKO ecModel, see tutorials/light_ecModel
+% light GECKO ecModel, see tutorials/light_ecModel.
 [ecModel, noUniprot] = makeEcModel(model,false);
 % Note that noUniprot is empty: for all genes a match could be find in the
-% Uniprot dataset
+% Uniprot dataset.
 
 % It can be helpful to read the function documentation: to read its
 % function and what is the order of inputs and outputs.
@@ -95,7 +95,7 @@ doc makeEcModel
 [ecModel, foundComplex, proposedComplex] = applyComplexData(ecModel);
 
 % complexInfo can be given as second input, but not needed here, as it will
-% read the file that was written by getComplexData
+% read the file that was written by getComplexData.
 
 % STEP 5 Store model in YAML format
 % In this script there is code at the end of each stage to store a copy of
@@ -104,7 +104,8 @@ doc makeEcModel
 saveEcModel(ecModel,'ecYeastGEM_stage1.yml');
 
 %% STAGE 2: integration of kcat into the ecModel structure
-%ecModel=loadEcModel('ecYeastGEM_stage1.yml'); % Uncomment if you want to reload model
+%ecModel=loadEcModel('ecYeastGEM_stage1.yml'); % Uncomment if you want to
+%reload model.
 
 % Decide which kcat source to use. In the steps below, all options are
 % shown. Not all are required, it is up to the user to decide which ones
@@ -121,13 +122,13 @@ ecModel         = getECfromDatabase(ecModel,noEC);
 % reactions.
 ecModel         = getECfromDatabase(ecModel);
 
-% Do the actual fuzzy matching with BRENDA
+% Do the actual fuzzy matching with BRENDA.
 kcatList_fuzzy  = fuzzyKcatMatching(ecModel);
 % Now we have a kcatList, which will be used to update ecModel in a later
 % step.
 
 % STEP 7 DLKcat prediction through machine learning
-% Requires metabolite SMILES, which are gathered from PubChem
+% Requires metabolite SMILES, which are gathered from PubChem.
 [ecModel, noSmiles] = findMetSmiles(ecModel);
 
 % DLKcat runs in Python. An input file is written, which is then used by
@@ -220,18 +221,19 @@ ecModel = setProtPoolSize(ecModel,Ptot,f,sigma);
 saveEcModel(ecModel,'ecYeastGEM_stage2.yml');
 
 %% STAGE 3: model tuning
-%ecModel=loadEcModel('ecYeastGEM_stage2.yml'); % Uncomment if you want to reload model
+%ecModel=loadEcModel('ecYeastGEM_stage2.yml'); % Uncomment if you want to
+%reload model.
 
 % STEP 15 Test maximum growth rate
 % Test whether the model is able to reach maximum growth if glucose uptake
-% is unlimited. First set glucose uptake unconstraint
+% is unlimited. First set glucose uptake unconstraint.
 ecModel = setParam(ecModel,'lb','r_1714',-1000);
-% And set growth maximization as the objective function:
+% And set growth maximization as the objective function.
 ecModel = setParam(ecModel,'obj','r_4041',1);
-% Run FBA
+% Run FBA.
 sol = solveLP(ecModel,1);
 bioRxnIdx = getIndexes(ecModel,params.bioRxn,'rxns');
-fprintf('Growth rate: %f /hour\n', sol.x(bioRxnIdx))
+fprintf('Growth rate: %f /hour.\n', sol.x(bioRxnIdx))
 % The growth rate is far below 0.41 (the maximum growth rate of
 % S. cerevisiae, that is entered in the model adapter as obj.params.gR_exp.
 
@@ -248,7 +250,7 @@ protPoolIdx = strcmp(ecModel.rxns, 'prot_pool_exchange');
 fprintf('Protein pool usage is: %.0f mg/gDCW.\n', abs(sol.x(protPoolIdx)))
 ecModel = setParam(ecModel,'lb',protPoolIdx,sol.x(protPoolIdx));
 
-% Revert back growth constraint and objective function
+% Revert back growth constraint and objective function.
 ecModel = setParam(ecModel,'lb','r_4041',0);
 ecModel = setParam(ecModel,'obj','r_4041',1);
 
@@ -258,7 +260,7 @@ ecModel = setParam(ecModel,'obj','r_4041',1);
 ecModel = setProtPoolSize(ecModel);
 [ecModel, tunedKcats] = sensitivityTuning(ecModel);
 
-% Inspect the tunedKcats structure in table format
+% Inspect the tunedKcats structure in table format.
 struct2table(tunedKcats)
 
 % STEP 18 Curate kcat values based on kcat tuning
@@ -266,10 +268,10 @@ struct2table(tunedKcats)
 % (reaction r_0079) was increased from 0.05 to 5. Inspecting the kcat
 % source might help to determine if this is reasonable. 
 rxnIdx = find(strcmp(kcatList_merged.rxns,'r_0079'));
-doc fuzzyKcatMatching % To check the meaning of wildcardLvl and origin
-kcatList_merged.wildcardLvl(rxnIdx) % 0: no EC number wildcard
-kcatList_merged.origin(rxnIdx) % 4: any organism, any substrate, kcat
-kcatList_merged.eccodes(rxnIdx) % EC number 6.3.5.3
+doc fuzzyKcatMatching % To check the meaning of wildcardLvl and origin.
+kcatList_merged.wildcardLvl(rxnIdx) % 0: no EC number wildcard.
+kcatList_merged.origin(rxnIdx) % 4: any organism, any substrate, kcat.
+kcatList_merged.eccodes(rxnIdx) % EC number 6.3.5.3.
 
 % On BRENDA https://www.brenda-enzymes.org/enzyme.php?ecno=6.3.5.3#TURNOVER%20NUMBER%20[1/s]
 % The kcat value is from E. coli with NH4+ as substrate. The reaction
@@ -283,52 +285,30 @@ kcatList_merged.eccodes(rxnIdx) % EC number 6.3.5.3
 % Convert specific activity of 2.15 umol/min/mg protein, where the protein
 % has a molecular weight of 148905 Da, to kcat in /sec:
 
-enzMW = ecModel.ec.mw(strcmp(ecModel.ec.enzymes,'P38972')); % Get MW of the enzyme
-convKcat = 2.15; % umol/min/mg protein, same as mmol/min/g protein
-convKcat = convKcat / 1000; % mol/min/g protein
-convKcat = convKcat / 60; % mol/sec/g protein
+enzMW = ecModel.ec.mw(strcmp(ecModel.ec.enzymes,'P38972')); % Get MW of the enzyme.
+convKcat = 2.15; % umol/min/mg protein, same as mmol/min/g protein.
+convKcat = convKcat / 1000; % mol/min/g protein.
+convKcat = convKcat / 60; % mol/sec/g protein.
 convKcat = convKcat * enzMW % mol/sec/mol protein, same as 1/sec.
 
 % New kcat is 5.3358, which is not far away from the tuned kcat of 5.
 
 % This can be applied to the ecModel directly, or (preferred) should be
 % included in the data/customKcat.tsv file.
-ecModel = setKcatForReactions(ecModel,'r_0079',5.34);
+ecModel = setKcatForReactions(ecModel,'r_0079',convKcat);
 ecModel = applyKcatConstraints(ecModel);
-
-% Another kcat that drastically changed is tryptophan synthase (r_1055),
-% with kcat increased from 0.023 to 2.3. Again, check what the source was:
-rxnIdx = find(strcmp(kcatList_merged.rxns,'r_1055'));
-kcatList_merged.wildcardLvl(rxnIdx) % 0: no EC number wildcard
-kcatList_merged.eccodes(rxnIdx) % EC number 4.2.1.20
-kcatList_merged.origin(rxnIdx) % 2: any organism, correct substrate, kcat
-% Searching for the EC number in GECKO/databases/max_KCAT.txt, it appears
-% that the kcat value from Zea mays was taken, as this was the most closely
-% related organism with reported kcat. However, corn is not that close to
-% yeast, while at the same time there is a S. cerevisiae specific activity
-% reported on BRENDA: https://www.brenda-enzymes.org/enzyme.php?ecno=4.2.1.20&organism%5B%5D=Saccharomyces+cerevisiae#SPECIFIC%20ACTIVITY%20[%C2%B5mol/min/mg]
-
-% Again convert this specific activity of 1.69 umol/min/mg protein, with
-% protein weight of 76626 Da, to kcat in /sec:
-
-convKcat = 1.69; % umol/min/mg protein, same as mmol/min/g protein
-convKcat = convKcat / 1000; % mol/min/g protein
-convKcat = convKcat / 60; % mol/sec/g protein
-convKcat = convKcat * 76626 % mol/sec/mol protein, same as 1/sec.
-
-% New kcat is 2.16, which is not too far from what sensitivity tuning
-% suggested at 2.23.
 
 saveEcModel(ecModel,'ecYeastGEM_stage3.yml');
 
-% This functional ecModel will also be kept in the GECKO GitHub
+% This functional ecModel will also be kept in the GECKO GitHub.
 saveEcModel(ecModel,'ecYeastGEM.yml');
 
-%% STAGE 4 integration of proteomics data into the ecModel
-%ecModel=loadEcModel('ecYeastGEM_stage3.yml'); % Uncomment if you want to reload model
+%% STAGE 4 integration of proteomics data into the ecModel.
+%ecModel=loadEcModel('ecYeastGEM_stage3.yml'); % Uncomment if you want to
+%reload model.
 
-% STEP 19 Load proteomics data and constrain ecModel 
-protData = loadProtData(3); %Number of replicates, only one experiment
+% STEP 19 Load proteomics data and constrain ecModel
+protData = loadProtData(3); %Number of replicates, only one experiment.
 ecModel = fillProtConcs(ecModel,protData);
 ecModel = constrainProtConcs(ecModel);
 
@@ -347,11 +327,11 @@ ecModel = updateProtPool(ecModel,fluxData.Ptot(1));
 % gathering Ptot, but is repeated here nonetheless. Flux data is read from
 % /data/fluxData.tsv.
 fluxData = loadFluxData();
-ecModel = constrainFluxData(ecModel,fluxData,1,'max','loose'); % Use first condition
-sol = solveLP(ecModel); % To observe if growth was reached
-fprintf('Growth rate that is reached: %f /hour\n', abs(sol.f))
+ecModel = constrainFluxData(ecModel,fluxData,1,'max','loose'); % Use first condition.
+sol = solveLP(ecModel); % To observe if growth was reached.
+fprintf('Growth rate that is reached: %f /hour.\n', abs(sol.f))
 % Growth rate of 0.1 is by far not reached, flexibilize protein
-% concentrations
+% concentrations.
 
 % STEP 22 Protein concentrations are flexibilized (increased), until the
 % intended growth rate is reached. This is condition-specific, so the
@@ -369,14 +349,10 @@ sol = solveLP(model)
 % reach about 0.0889, which will be fine for now.
 sol = solveLP(ecModel)
 
-% Inspect the flexibilized proteins
+% Inspect the flexibilized proteins.
 struct2table(flexProt)
-% Inspect which proteins have their amount changed the most
-protChange = flexProt.flexConcs./flexProt.oldConcs;
-[ratio, index] = max(protChange)
-flexProt.uniprotIDs(index)
 
-% Growth is reached! Let's make sure we store this functional model
+% Growth is reached! Let's make sure we store this functional model.
 saveEcModel(ecModel,'ecYeastGEM_stage4');
 
 %% STAGE 5: simulation and analysis
@@ -385,24 +361,24 @@ saveEcModel(ecModel,'ecYeastGEM_stage4');
 % ecModel = setParam(ecModel,'ub','r_0001',10);
 % % Set the lower bound of reaction r_0001 to 0.
 % ecModel = setParam(ecModel,'lb','r_0001',0);
-% % Set the objective function to maximize reaction biomassRxn
+% % Set the objective function to maximize reaction 'r_4041'.
 % ecModel = setParam(ecModel,'obj','r_4041',1);
-% % Set the objective function to minimize protein usage
+% % Set the objective function to minimize protein usage.
 % ecModel = setParam(ecModel,'obj','prot_pool_exchange',1);
-% % Perform flux balance analysis (FBA)
+% % Perform flux balance analysis (FBA).
 % sol = solveLP(ecModel);
-% % Perform parsimonious FBA (minimum total flux)
+% % Perform parsimonious FBA (minimum total flux).
 % sol = solveLP(ecModel,1);
-% % Inspect exchange fluxes from FBA solution
+% % Inspect exchange fluxes from FBA solution.
 % printFluxes(ecModel,sol.x)
-% % Inspect all (non-zero) fluxes from FBA solution
+% % Inspect all (non-zero) fluxes from FBA solution.
 % printFluxes(ecModel,sol.x,false)
-% % Export to Excel file (will not contain potential model.ec content)
+% % Export to Excel file (will not contain potential model.ec content).
 % exportToExcelFormat(ecModel,'filename.xlsx');
 
 % STEP 24 Simulate Crabtree effect with protein pool
 
-% (Re)load the ecModel without proteomics integration
+% (Re)load the ecModel without proteomics integration.
 ecModel = loadEcModel('ecYeastGEM.yml');
 
 % We will soon run a custom plotCrabtree function that is kept in the code
@@ -429,8 +405,8 @@ saveas(gcf,fullfile(params.path,'output','crabtree.pdf'))
 % respiration is most clearly shown by reduced oxygen uptake and increased
 % ethanol excretion.
 
-% For comparison, make a similar Crabtree plot for a conventional GEM
-% Set protein pool to infinite, to mimic a conventional GEM
+% For comparison, make a similar Crabtree plot for a conventional GEM.
+% Set protein pool to infinite, to mimic a conventional GEM.
 ecModel_infProt=setProtPoolSize(ecModel,Inf);
 plotCrabtree(ecModel_infProt);
 saveas(gcf,fullfile(params.path,'output','crabtree_infProt.pdf'))
@@ -449,8 +425,8 @@ saveas(gcf,fullfile(params.path,'output','crabtree_preStep17.pdf'))
 % STEP 25 Selecting objective functions
 ecModel = setParam(ecModel,'obj',params.bioRxn,1);
 sol = solveLP(ecModel)
-fprintf('Growth rate that is reached: %.4f /hour\n', abs(sol.f))
-% Set growth lower bound to 99% of the previous value
+fprintf('Growth rate that is reached: %f /hour.\n', abs(sol.f))
+% Set growth lower bound to 99% of the previous value.
 ecModel = setParam(ecModel,'lb',params.bioRxn,0.99*abs(sol.f));
 % Minimize protein pool usage. As protein pool exchange is defined in the
 % reverse direction (with negative flux), minimization of protein pool
@@ -458,7 +434,7 @@ ecModel = setParam(ecModel,'lb',params.bioRxn,0.99*abs(sol.f));
 % reaction.
 ecModel = setParam(ecModel,'obj','prot_pool_exchange',1);
 sol = solveLP(ecModel)
-fprintf('Minimum protein pool usage: %.2f mg/gDCW\n', abs(sol.f))
+fprintf('Minimum protein pool usage: %.2f mg/gDCW.\n', abs(sol.f))
 
 % STEP 26 Inspect enzyme usage
 % Show the result from the earlier simulation, without mapping to
@@ -472,13 +448,16 @@ usageReport.topAbsUsage
 
 % STEP 27 Compare fluxes from ecModel and conventional GEM
 sol = solveLP(ecModel);
-% Map the ecModel fluxes back to the conventional GEM
+% Map the ecModel fluxes back to the conventional GEM.
 [mappedFlux, enzUsageFlux, usageEnz] = mapRxnsToConv(ecModel, model, sol.x);
+% Confirm that mappedFlux is of the same length as model.rxns.
+numel(mappedFlux)
+numel(model.rxns)
 
 % STEP 28 Perform (ec)FVA
 % Perform FVA on a conventional GEM, ecModel, and ecModel plus proteomics
 % integration, all under similar exchange flux constraints.
-% First make sure that the correct models are loaded
+% First make sure that the correct models are loaded.
 model = loadConventionalGEM();
 ecModel = loadEcModel('ecYeastGEM.yml');
 ecModelProt = loadEcModel('ecYeastGEM_stage4.yml');
@@ -488,22 +467,48 @@ ecModelProt = loadEcModel('ecYeastGEM_stage4.yml');
 fluxData.grRate(1) = 0.0880;
 
 % Apply same constraints on exchange fluxes
-model = constrainFluxData(model,fluxData,1,'min',5);
-ecModel = constrainFluxData(ecModel,fluxData,1,'min',5);
-ecModelProt = constrainFluxData(ecModelProt,fluxData,1,'min',5);
+model = constrainFluxData(model,fluxData,1,'max','loose');
+ecModel = constrainFluxData(ecModel,fluxData,1,'max','loose');
+ecModelProt = constrainFluxData(ecModelProt,fluxData,1,'max','loose');
 
-% Prepare output structure
+solveLP(model)
+solveLP(ecModel)
+solveLP(ecModelProt)
+
+% Prepare output structure.
 minFlux = zeros(numel(model.rxns),3);
 maxFlux = minFlux;
 
-% Run ecFVA for each model
+% Run ecFVA for each model.
 [minFlux(:,1), maxFlux(:,1)] = ecFVA(model, model);
 [minFlux(:,2), maxFlux(:,2)] = ecFVA(ecModel, model);
 [minFlux(:,3), maxFlux(:,3)] = ecFVA(ecModelProt, model);
+
+% Write results to output file.
+output = [model.rxns, model.rxnNames, num2cell([minFlux(:,1), maxFlux(:,1), ...
+    minFlux(:,2), maxFlux(:,2), minFlux(:,3), maxFlux(:,3)])]';
+fID = fopen(fullfile(params.path,'output','ecFVA.tsv'),'w');
+fprintf(fID,'%s %s %s %s %s %s %s %s\n','rxnIDs', 'rxnNames', 'minFlux', ...
+            'maxFlux', 'ec-minFlux', 'ec-maxFlux', 'ecP-minFlux', 'ecP-maxFlux');
+fprintf(fID,'%s %s %g %g %g %g %g %g\n',output{:});
+fclose(fID);
 
 % Plot ecFVA results and store in output/.
 plotEcFVA(minFlux, maxFlux);
 saveas(gca, fullfile(params.path,'output','ecFVA.pdf'))
 
-% STEP 29
+% STEP 29 Compare light and full ecModels
+% For a fair comparison of the two types of ecModels, the custom 
+% plotlightVSfull function makes a light and full ecModel for yeast-GEM and
+% compares their flux distributions at maximum growth rate.
+cd(fullfile(findGECKOroot,'tutorials','full_ecModel','code'))
+[fluxLight, fluxFull] = plotlightVSfull();
+
+% The ratio between the two ecModel results indicates which reactions have
+% a flux that deviates > 0.1% across light vs. full ecModels.
+fluxRatio = fluxFull ./ fluxLight;
+changedFlux = abs(fluxRatio-1) > 0.001;
+model.rxnNames(changedFlux)
+
+% STEP 30 Contextualize ecModels
 % This step is exemplified in tutorials/light_ecModel/protocol.m.

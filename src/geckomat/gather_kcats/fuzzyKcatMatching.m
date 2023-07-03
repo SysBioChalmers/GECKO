@@ -33,7 +33,6 @@ function kcatList = fuzzyKcatMatching(model, ecRxns, modelAdapter, forceWClvl)
 %                           1: w.x.y.-
 %                           2: w.x.-.-
 %                           3: w.-.-.-
-%                           4: -.-.-.-
 %               origin      which level of specificity was necessary to
 %                           find a match
 %                           1: correct organism, correct substrate, kcat
