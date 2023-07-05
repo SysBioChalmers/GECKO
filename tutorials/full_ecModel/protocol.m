@@ -336,7 +336,7 @@ fprintf('Growth rate that is reached: %f /hour.\n', abs(sol.f))
 % STEP 22 Protein concentrations are flexibilized (increased), until the
 % intended growth rate is reached. This is condition-specific, so the
 % intended growth rate is gathered from the fluxData structure.
-[ecModel, flexProt] = flexibilizeProtConcs(ecModel,fluxData.grRate(1),10);
+[ecModel, flexEnz] = flexibilizeEnzConcs(ecModel,fluxData.grRate(1),10);
 
 % Neither individual protein levels nor total protein pool are limiting
 % growth. Test whether the starting model is able to reach 0.1.
@@ -350,7 +350,7 @@ sol = solveLP(model)
 sol = solveLP(ecModel)
 
 % Inspect the flexibilized proteins.
-struct2table(flexProt)
+struct2table(flexEnz)
 
 % Growth is reached! Let's make sure we store this functional model.
 saveEcModel(ecModel,'ecYeastGEM_stage4');

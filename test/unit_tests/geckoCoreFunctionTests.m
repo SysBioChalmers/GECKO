@@ -483,7 +483,7 @@ function testfindMetSmiles_tc0012(testCase)
     verifyEqual(testCase,ecModel.metSmiles,{'C(C1C)O';'C1C(=NC2)';'C(C1C)O';'C1C(=NC2)';'';'';'';'';'';''})
 end
 
-%Tests readProteomics, constrainProtConcs, flexibilizeProtConcs, and getConcControlCoeffs.
+%Tests readProteomics, constrainProtConcs, flexibilizeEnzConcs, and getConcControlCoeffs.
 function testProteomcisIntegration_tc0013(testCase)
     geckoPath = findGECKOroot;
     adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
@@ -512,8 +512,8 @@ function testProteomcisIntegration_tc0013(testCase)
 
     % test that usage protein are correctly constraint. Sol.f give 0.1127,
     % increse objective up to 0.5
-    [~, ecModel, flexProt] =  evalc("flexibilizeProtConcs(ecModel, 0.4,[],[],adapter,false)");
-    [~, usageRxnIdx] = ismember(strcat('usage_prot_', flexProt.uniprotIDs), ecModel.rxns);
-    verifyEqual(testCase,ecModel.lb(usageRxnIdx),-flexProt.flexConcs)
+    [~, ecModel, flexEnz] =  evalc("flexibilizeEnzConcs(ecModel, 0.4,[],[],adapter,false)");
+    [~, usageRxnIdx] = ismember(strcat('usage_prot_', flexEnz.uniprotIDs), ecModel.rxns);
+    verifyEqual(testCase,ecModel.lb(usageRxnIdx),-flexEnz.flexConcs)
 end
 
