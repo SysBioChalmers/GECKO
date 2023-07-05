@@ -305,8 +305,8 @@ saveEcModel(ecModel,'ecYeastGEM_stage3.yml');
 saveEcModel(ecModel,'ecYeastGEM.yml');
 
 %% STAGE 4 integration of proteomics data into the ecModel.
-%ecModel=loadEcModel('ecYeastGEM_stage3.yml'); % Uncomment if you want to
-%reload model.
+% Uncomment the line below if you want to reload the model.
+%ecModel=loadEcModel('ecYeastGEM_stage3.yml'); 
 
 % STEP 19 Load proteomics data and constrain ecModel
 protData = loadProtData(3); %Number of replicates, only one experiment.
@@ -343,20 +343,24 @@ fprintf('Growth rate that is reached: %f /hour.\n', abs(sol.f))
 
 % Neither individual protein levels nor total protein pool are limiting
 % growth. Test whether the starting model is able to reach 0.1.
+% If needed, uncomment the next line to reload the starting model
+%model = loadConventionalGEM();
 model = constrainFluxData(model,fluxData);
 sol = solveLP(model)
+fprintf('Growth rate that is reached: %f /hour.\n', abs(sol.f))
 
-% It also only reaches 0.0889! So the metabolic network would not be able
-% to adhere to all measured constraints. Perhaps there is something
-% incorrect with the measurements? Regardless, the ecModel is now able to
-% reach about 0.0889, which will be fine for now.
+% The starting model reaches a similar growth rate as the ecModel after
+% flexibilizing enzyme concentrations. So the metabolic network would not
+% be able to adhere to all measured constraints. Perhaps there is something
+% incorrect with the measurements? Regardless, the ecModel is able to reach
+% the same growth rate as the starting model, which will be fine for now.
 sol = solveLP(ecModel)
 
-% Inspect the flexibilized proteins.
+% To inspect the flexibilized proteins, we can look at the flexProt
+% structure. The proteins are ordered by the ratio of increase, from high
+% to low.
 struct2table(flexProt)
 
-% Growth is reached! Let's make sure we store this functional model, as it
-% be used in subsequent steps.
 saveEcModel(ecModel,'ecYeastGEM_stage4');
 
 %% STAGE 5: simulation and analysis

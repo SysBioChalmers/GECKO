@@ -14,8 +14,8 @@
 % tutorials/full_ecModel/protocol.m.
 
 % Prepare software and model adapter
-GECKOInstaller.install
 checkInstallation;
+GECKOInstaller.install
 setRavenSolver('gurobi')
 
 % STEP 1
