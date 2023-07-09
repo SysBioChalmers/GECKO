@@ -32,9 +32,9 @@ model = loadConventionalGEM();
 % exactly matches that format, a custom uniprotConversion.tsv is generated
 % based on the genes.tsv that is distributed with Human-GEM:
 % https://github.com/SysBioChalmers/Human-GEM/blob/194ebe5431c83e25f78df61caacad2fa485b5cb4/model/genes.tsv
-% of which the first and the fourth column are kept to make data/uniprotConversion.tsv.
-% The second parameter (true) here signifies that a light ecModel will be
-% generated
+% of which the first and the fourth column are kept to make
+% data/uniprotConversion.tsv. The second parameter (true) here signifies
+% that a light ecModel will be generated.
 [ecModel, noUniprot] = makeEcModel(model,true);
 
 % The above command generates a warning regarding potentially problematic

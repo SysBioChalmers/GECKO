@@ -132,12 +132,11 @@ kcatList_fuzzy  = fuzzyKcatMatching(ecModel);
 % Requires metabolite SMILES, which are gathered from PubChem.
 [ecModel, noSmiles] = findMetSmiles(ecModel);
 
-% An input file is written, which is then used by
-% DLKcat, while the output file is read back into MATLAB. The full_ecModel
-% tutorial already comes with a DLKcat.tsv file populated with kcat values.
-% If this file should be regenerated, the line below should be uncommented.
-% Note that this overwrites the existing files, thereby discarding existing
-% kcat predictions.
+% An input file is written, which is then used by DLKcat, while the output
+% file is read back into MATLAB. The full_ecModel tutorial already comes
+% with a DLKcat.tsv file populated with kcat values. If this file should be
+% regenerated, the line below should be uncommented. Note that this
+% overwrites the existing files, thereby discarding existing kcat predictions.
 %writeDLKcatInput(ecModel,[],[],[],[],true);
 
 % runDLKcat will run the DLKcat algorithm via a Docker image. If the
@@ -166,8 +165,8 @@ ecModel = getKcatAcrossIsozymes(ecModel);
 
 % STEP 12 Get standard kcat
 % Assign a protein cost to reactions without gene assocation. These
-% reactions are identified as those without a corresponding entry in ecModel.grRules.
-% The following reactions are exempted:
+% reactions are identified as those without a corresponding entry in
+% ecModel.grRules. The following reactions are exempted:
 % A Exchange reactions: exchanging a metabolite across the model boundary,
 %   not representing a real enzymatic reaction.
 % B Transport reactions: transporting a metabolite with the same name from
@@ -277,10 +276,11 @@ kcatList_merged.eccodes(rxnIdx) % EC number 6.3.5.3.
 % On BRENDA https://www.brenda-enzymes.org/enzyme.php?ecno=6.3.5.3#TURNOVER%20NUMBER%20[1/s]
 % the kcat value is from E. coli with NH4+ as substrate. The reaction
 % normally uses glutamine, so this kcat value might be misleading.
-% Inspecting the abstract of the paper that is reporting this value https://pubmed.ncbi.nlm.nih.gov/2659070/
-% actually states "and NH3 can replace glutamine as a nitrogen donor with a
-% Km = 1 M and a turnover of 3 min-1 (2% glutamine turnover)". The paper
-% also reports a specific activity that can be used instead:
+% Inspecting the abstract of the paper that is reporting this value
+% https://pubmed.ncbi.nlm.nih.gov/2659070/ actually states "and NH3 can
+% replace glutamine as a nitrogen donor with a Km = 1 M and a turnover of
+% 3 min-1 (2% glutamine turnover)". The paper also reports a specific
+% activity that can be used instead:
 % https://www.brenda-enzymes.org/enzyme.php?ecno=6.3.5.3#SPECIFIC%20ACTIVITY%20[%C2%B5mol/min/mg]
 
 % Convert specific activity of 2.15 umol/min/mg protein, where the protein
@@ -333,15 +333,15 @@ ecModel = constrainFluxData(ecModel,fluxData,1,'max','loose');
 % Observe if the intended growth rate was reached.
 sol = solveLP(ecModel);
 fprintf('Growth rate that is reached: %f /hour.\n', abs(sol.f))
-% The growth rate of 0.1 is far from being reached. Therefore, the next step
-% is to flexibilize protein concentrations.
+% The growth rate of 0.1 is far from being reached. Therefore, the next
+% step is to flexibilize enzyme concentrations.
 
-% STEP 22 Protein concentrations are flexibilized (increased), until the
+% STEP 22 Enzyme concentrations are flexibilized (increased), until the
 % intended growth rate is reached. This is condition-specific, so the
 % intended growth rate is gathered from the fluxData structure.
 [ecModel, flexEnz] = flexibilizeEnzConcs(ecModel,fluxData.grRate(1),10);
 
-% Neither individual protein levels nor total protein pool are limiting
+% Neither individual enzyme levels nor total protein pool are limiting
 % growth. Test whether the starting model is able to reach 0.1.
 % If needed, uncomment the next line to reload the starting model
 %model = loadConventionalGEM();
@@ -356,10 +356,10 @@ fprintf('Growth rate that is reached: %f /hour.\n', abs(sol.f))
 % the same growth rate as the starting model, which will be fine for now.
 sol = solveLP(ecModel)
 
-% To inspect the flexibilized proteins, we can look at the flexEnz
+% To inspect the flexibilized enzymes, we can look at the flexEnz
 % structure. The enzymes are ordered by the ratio of increase, from high
 % to low.
-struct2table(flexProt)
+struct2table(flexEnz)
 
 saveEcModel(ecModel,'ecYeastGEM_stage4');
 
@@ -464,8 +464,8 @@ numel(model.rxns)
 
 % STEP 28 Perform (ec)FVA
 % Perform FVA on a conventional GEM, ecModel, and ecModel plus proteomics
-% integration, all under similar exchange flux constraints.
-% First make sure that the correct models are loaded.
+% integration, all under similar exchange flux constraints. First make sure
+% that the correct models are loaded.
 model = loadConventionalGEM();
 ecModel = loadEcModel('ecYeastGEM.yml');
 ecModelProt = loadEcModel('ecYeastGEM_stage4.yml');
