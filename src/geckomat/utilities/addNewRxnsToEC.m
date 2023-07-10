@@ -63,7 +63,24 @@ end
 
 if ~model.ec.geckoLight
 
-    % 1. Add new Enzyme-usage pseudometabolite
+    % 1. Add new genes
+
+    % Check if the new proteins does not exits in the model
+    [~,newEnz] = ismember(newEnzymes.enzymes, model.ec.enzymes);
+    [~,newGenes] = ismember(newEnzymes.genes, model.ec.genes);
+    if isempty(newEnz)
+        if isempty(newEnz)
+            genesToAdd.genes = newEnzymes.genes;
+            genesToAdd.geneShortNames = genesToAdd.genes;
+            model = addGenesRaven(model, genesToAdd);
+        else
+            error(['Genes ' strjoin(model.ec.genes(newGenes),', ') ' asociated to the new proteins already exists in the model. Please check new enzymes input'])
+        end
+    else
+        error(['Enzymes ' strjoin(model.ec.enzymes(newEnz),', ') ' already exists in the model. Please check new enzymes input'])
+    end
+
+    % 2. Add new Enzyme-usage pseudometabolite
 
     % Validate compartment to add protein pseudoreactions
     compartmentID = strcmp(model.compNames,params.enzyme_comp);
@@ -84,11 +101,6 @@ if ~model.ec.geckoLight
     end
     proteinMets.metNotes = repmat({'Enzyme-usage pseudometabolite'},numel(proteinMets.mets),1);
     model = addMets(model,proteinMets);
-
-    % 2. Add new genes
-    genesToAdd.genes = newEnzymes.genes;
-    genesToAdd.geneShortNames = genesToAdd.genes;
-    model = addGenesRaven(model, genesToAdd);
 
     % 3. Add new reactions
 
