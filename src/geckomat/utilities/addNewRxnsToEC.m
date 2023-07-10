@@ -1,4 +1,4 @@
-function [model, rxnsAdded] = addNewRxnsToEC(model, newRxns, newEnzymes, modelAdapter)
+function [model, rxnsAdded, enzAdded] = addNewRxnsToEC(model, newRxns, newEnzymes, modelAdapter)
 % addNewRxnsToEC
 %   Add new reaction to an enzyme-constrained model. This function is 
 %   useful to simulate metabolic manipulations done to an organism such as
@@ -46,7 +46,7 @@ function [model, rxnsAdded] = addNewRxnsToEC(model, newRxns, newEnzymes, modelAd
 %   rxnsAdded       cell array with the reactions added
 %
 % Usage:
-%   [model, rxnsAdded] = addNewRxnsToEC(ecModel, newRxns, newEnzymes, modelAdapter);
+%   [model, rxnsAdded, enzAdded] = addNewRxnsToEC(ecModel, newRxns, newEnzymes, modelAdapter);
 
 if nargin < 4 || isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefault();
@@ -56,6 +56,10 @@ if nargin < 4 || isempty(modelAdapter)
 end
 params = modelAdapter.getParameters();
 
+if nargin < 3 || isempty(newEnzymes)
+    newEnzymes = [];
+end
+
 % Validate if GECKO version 3
 if ~isfield(model, 'ec')
     error('Input model is not an ecModel in GECKO 3 format (with ecModel.ec structure)')
@@ -63,46 +67,64 @@ end
 
 if ~model.ec.geckoLight
 
-    % 1. Add new genes
+    % Check if the new proteins are not already present in the model
+    if ~isempty(newEnzymes)
+        [toRemove,~] = ismember(newEnzymes.enzymes, model.ec.enzymes);
 
-    % Check if the new proteins does not exits in the model
-    [~,newEnz] = ismember(newEnzymes.enzymes, model.ec.enzymes);
-    [~,newGenes] = ismember(newEnzymes.genes, model.ec.genes);
-    if ~any(newEnz)
-        if ~any(newGenes)
+        % Remove from the list those enzymes that already present
+        if any(toRemove)
+            printOrange(['WARNING: Enzymes ' strjoin(newEnzymes.enzymes(toRemove),', ') ' are already present in the model and will not be added.\n'])
+            newEnzymes.enzymes(toRemove) = [];
+            newEnzymes.genes(toRemove) = [];
+            newEnzymes.mw(toRemove) = [];
+        end
+
+        if ~isempty(newEnzymes.enzymes)
+            
+            % 1. Add new genes
             genesToAdd.genes = newEnzymes.genes;
             genesToAdd.geneShortNames = genesToAdd.genes;
             model = addGenesRaven(model, genesToAdd);
-        else
-            error(['Genes ' strjoin(model.ec.genes(newGenes),', ') ' asociated to the new proteins already exists in the model. Please check newEnzymes input'])
+
+            % 2. Add new Enzyme-usage pseudometabolite
+
+            % Validate compartment to add protein pseudoreactions
+            compartmentID = strcmp(model.compNames,params.enzyme_comp);
+            if ~any(compartmentID)
+                error(['Compartment ' params.enzyme_comp ' (specified in params.enzyme_comp) '...
+                    'cannot be found in model.compNames'])
+            end
+            compartmentID = model.comps(compartmentID);
+
+            proteinMets.mets         = strcat('prot_', newEnzymes.enzymes);
+            proteinMets.metNames     = proteinMets.mets;
+            proteinMets.compartments = compartmentID;
+            if isfield(model,'metMiriams')
+                proteinMets.metMiriams = repmat({struct('name',{{'sbo'}},'value',{{'SBO:0000252'}})},numel(proteinMets.mets),1);
+            end
+            if isfield(model,'metCharges')
+                proteinMets.metCharges = zeros(numel(proteinMets.mets),1);
+            end
+            proteinMets.metNotes = repmat({'Enzyme-usage pseudometabolite'},numel(proteinMets.mets),1);
+            model = addMets(model,proteinMets);
         end
-    else
-        error(['Enzymes ' strjoin(model.ec.enzymes(newEnz),', ') ' already exists in the model. Please check newEnzymes input'])
+        enzAdded = newEnzymes.enzymes(:);  
     end
-
-    % 2. Add new Enzyme-usage pseudometabolite
-
-    % Validate compartment to add protein pseudoreactions
-    compartmentID = strcmp(model.compNames,params.enzyme_comp);
-    if ~any(compartmentID)
-        error(['Compartment ' params.enzyme_comp ' (specified in params.enzyme_comp) '...
-            'cannot be found in model.compNames'])
-    end
-    compartmentID = model.comps(compartmentID);
-
-    proteinMets.mets         = strcat('prot_', newEnzymes.enzymes);
-    proteinMets.metNames     = proteinMets.mets;
-    proteinMets.compartments = compartmentID;
-    if isfield(model,'metMiriams')
-        proteinMets.metMiriams = repmat({struct('name',{{'sbo'}},'value',{{'SBO:0000252'}})},numel(proteinMets.mets),1);
-    end
-    if isfield(model,'metCharges')
-        proteinMets.metCharges = zeros(numel(proteinMets.mets),1);
-    end
-    proteinMets.metNotes = repmat({'Enzyme-usage pseudometabolite'},numel(proteinMets.mets),1);
-    model = addMets(model,proteinMets);
 
     % 3. Add new reactions
+
+    % Before add the reactions validate that all the genes in grRules are
+    % present in the model.
+    genesInRules = strjoin(convertCharArray(newRxns.grRules));
+    genesInRules = regexp(genesInRules,' |)|(|and|or','split'); % Remove all grRule punctuation
+    genesInRules = genesInRules(~cellfun(@isempty,genesInRules));  % Remove spaces and empty genes
+    genesInRules = setdiff(unique(genesInRules),model.genes); % Only keep new genes
+
+    % If there is any gene which is not present, as to be pass as
+    % newEnzymes input
+    if ~isempty(genesInRules)
+        error(['Genes ' strjoin(genesInRules,', ') ' are not present in the model. Please pass them as newEnzymes input'])
+    end
 
     % Get reversible reactions to split
     toIrrev = find(cellfun(@(x) contains(x,'<=>'),newRxns.equations));
