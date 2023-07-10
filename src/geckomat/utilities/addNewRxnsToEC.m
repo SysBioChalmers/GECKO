@@ -1,4 +1,4 @@
-function model = addNewRxnsToEC(model, newRxns, newEnzymes, modelAdapter)
+function [model, rxnsAdded] = addNewRxnsToEC(model, newRxns, newEnzymes, modelAdapter)
 % getEngineeredModel
 %   Add new reaction to an enzyme-constrained model
 %
@@ -35,9 +35,10 @@ function model = addNewRxnsToEC(model, newRxns, newEnzymes, modelAdapter)
 %
 % Output:
 %   model           ecModel whit new reactions
+%   rxnsAdded       cell array with the reactions added
 %
 % Usage:
-%   ecModel = getEngineeredModel(ecModel, newRxns, newEnzymes, modelAdapter);
+%   [model, rxnsAdded] = getEngineeredModel(ecModel, newRxns, newEnzymes, modelAdapter);
 
 if nargin < 4 || isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefault();
@@ -179,6 +180,8 @@ if ~model.ec.geckoLight
         % Update the enzyme rxns matrix
         model.ec.rxnEnzMat(numRxns+i, enzIdx) = 1;
     end
+    
+    rxnsAdded = newRxns.rxns(:);
 end
 
 end
