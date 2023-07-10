@@ -1,6 +1,8 @@
 function [model, rxnsAdded] = addNewRxnsToEC(model, newRxns, newEnzymes, modelAdapter)
-% getEngineeredModel
-%   Add new reaction to an enzyme-constrained model
+% addNewRxnsToEC
+%   Add new reaction to an enzyme-constrained model. This function is 
+%   useful to simulate metabolic manipulations done to an organism such as
+%   integration of new genes that add a new reaction/pathway.
 %
 % Input:
 %   model           an ecModel in GECKO 3 format (with ecModel.ec structure)
@@ -27,18 +29,24 @@ function [model, rxnsAdded] = addNewRxnsToEC(model, newRxns, newEnzymes, modelAd
 %   modelAdapter    a loaded model adapter (Optional, will otherwise use the
 %                   default model adapter).
 %
-%   NOTE: Write equations as follows:
+%   NOTE: 
+%    
+%     (i) Write equations as follows:
 %               'xylitol[c] + NAD[c] => D-xylulose[c] + NADH[c] + H+[c]'
 %         Note that the reversibility defined in the equation will be used
 %         to split to construct irreversible reactions (add _REV) and the
-%         rules defined will be used to expand the model (add _EXP_n) 
+%         rules defined will be used to expand the model (add _EXP_n).
+%        
+%     (2) After add the new reactions, setKcatForReactions should be run 
+%         to add the kcat to the reactions, and subsequently 
+%         applyKcatConstraints.
 %
 % Output:
 %   model           ecModel whit new reactions
 %   rxnsAdded       cell array with the reactions added
 %
 % Usage:
-%   [model, rxnsAdded] = getEngineeredModel(ecModel, newRxns, newEnzymes, modelAdapter);
+%   [model, rxnsAdded] = addNewRxnsToEC(ecModel, newRxns, newEnzymes, modelAdapter);
 
 if nargin < 4 || isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefault();
