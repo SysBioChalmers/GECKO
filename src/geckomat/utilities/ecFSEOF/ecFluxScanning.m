@@ -2,17 +2,17 @@ function FC = ecFluxScanning(ecModel,targetRxn,csRxn,alpha,tolerance,filterG)
 % ecFluxScanning
 %
 % Input:
-%   ecModel         an ecModel in GECKO 3 format (with ecModel.ec structure).
-%   targetRxn       rxn ID for the production target reaction, a exchange
-%                   reaction is recommended.
-%   csRxn           rxn ID for the main carbon source uptake reaction.
-%   alpha           scalling factor for production yield for enforced objective
-%                   limits
-%   tolerance       numerical tolerance for fixing bounds.
-%                   (Optional, defaul 1s-4)
-%   filterG         logical value. TRUE if genes K_scores results should be
-%                   filtered according to the alpha vector distribution
-%                   (Optional, defaul false)
+%   ecModel       an ecModel in GECKO 3 format (with ecModel.ec structure).
+%   targetRxn     rxn ID for the production target reaction, a exchange
+%                 reaction is recommended.
+%   csRxn         rxn ID for the main carbon source uptake reaction.
+%   alpha         scalling factor for production yield for enforced 
+%                 objective limits
+%   tolerance     numerical tolerance for fixing bounds.
+%                 (Optional, default 1e-4)
+%   filterG       logical value. TRUE if genes K_scores results should be
+%                 filtered according to the alpha vector distribution
+%                 (Optional, default false)
 %
 % Usage:
 %   FC = ecFluxScanning(model,targetRxn,csRxn,alpha,tolerance,filterG)
