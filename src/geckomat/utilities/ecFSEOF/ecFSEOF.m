@@ -58,6 +58,15 @@ alphaV  = alphaLims(1):((alphaLims(2)-alphaLims(1))/(nSteps-1)):alphaLims(2);
 ecModel.grRules      = grRules;
 ecModel.rxnGeneMat   = rxnGeneMat;
 
+% Check carbon source uptake rate and LB
+ecModel = setParam(ecModel, 'obj', params.bioRxn, 1);
+sol = solveLP(ecModel, 1);
+csRxnIdx = strcmpi(ecModel.rxns,csRxn);
+
+if sol.x(csRxnIdx) < ecModel.lb(csRxnIdx)
+    printOrange('WARNING: Carbon source LB and uptake rate are not equal.')
+end
+
 % run FSEOF analysis
 results = ecFluxScanning(ecModel,targetRxn,csRxn,alphaV,1e-4,true);
 
