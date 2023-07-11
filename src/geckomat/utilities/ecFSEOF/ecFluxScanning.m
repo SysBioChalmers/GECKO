@@ -37,6 +37,7 @@ FC.alpha = alpha;
 % Initialize fluxes and K_scores matrices
 v_matrix = zeros(length(ecModel.rxns),length(alpha));
 k_matrix = zeros(length(ecModel.rxns),length(alpha));
+progressbar('Flux Scanning with Enforced Objective Function')
 for i = 1:length(alpha)
     %disp(['Iteration #' num2str(i)])
     [~, FC.flux_MAX] = getFluxTarget(ecModel,targetRxn,csRxn,alpha(i));
@@ -44,7 +45,9 @@ for i = 1:length(alpha)
     FC.flux_MAX(abs(FC.flux_MAX) < 1e-8) = 0;
     v_matrix(:,i) = FC.flux_MAX;
     k_matrix(:,i) = FC.flux_MAX./FC.flux_WT;
+    progressbar(i/length(alpha))
 end
+progressbar(1) % Make sure it closes 
 
 % Take out rxns with no grRule:
 withGR   = ~cellfun(@isempty,ecModel.grRules);
@@ -68,7 +71,7 @@ k_matrix(isnan(k_matrix)) = 1;
 
 % Replace any Inf value with 1000 (maximum value is ~700):
 k_matrix(k_matrix>1000) = 1000;
-k_matrix(k_matrix<-1000) = 1000;
+k_matrix(k_matrix<-1000) = 100;
 
 % Filter out values that are inconsistent at different alphas:
 always_down  = sum(k_matrix <= 1,2) == length(alpha);
