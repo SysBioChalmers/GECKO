@@ -1,5 +1,5 @@
-function results = run_ecFSEOF(ecModel,targetRxn,csRxn,alphaLims,nSteps,file_genes,file_rxns,modelAdapter)
-%run_ecFSEOF
+function results = ecFSEOF(ecModel,targetRxn,csRxn,alphaLims,nSteps,file_genes,file_rxns,modelAdapter)
+% ecFSEOF
 %
 % Function that runs Flux-scanning with Enforced Objective Function
 % for a specified production target.
@@ -23,7 +23,7 @@ function results = run_ecFSEOF(ecModel,targetRxn,csRxn,alphaLims,nSteps,file_gen
 %                   the default model adapter)
 %
 % Usage:
-%   results = run_ecFSEOF(ecModel,targetRxn,csRxn,alphaLims)
+%   results = ecFSEOF(ecModel,targetRxn,csRxn,alphaLims)
 %
 
 if nargin < 8 || isempty(modelAdapter)
@@ -59,7 +59,7 @@ ecModel.grRules      = grRules;
 ecModel.rxnGeneMat   = rxnGeneMat;
 
 % run FSEOF analysis
-results = ecFlux_scanning(ecModel,targetRxn,csRxn,alphaV,1E-4,true);
+results = ecFluxScanning(ecModel,targetRxn,csRxn,alphaV,1e-4,true);
 
 % Create gene table:
 results.geneTable      = cell(length(results.genes),3);

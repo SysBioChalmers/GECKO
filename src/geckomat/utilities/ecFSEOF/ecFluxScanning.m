@@ -1,5 +1,5 @@
-function FC = ecFlux_scanning(ecModel,targetRxn,csRxn,alpha,tolerance,filterG)
-%ecFlux_scanning
+function FC = ecFluxScanning(ecModel,targetRxn,csRxn,alpha,tolerance,filterG)
+% ecFluxScanning
 %
 % Input:
 %   ecModel         an ecModel in GECKO 3 format (with ecModel.ec structure).
@@ -9,20 +9,20 @@ function FC = ecFlux_scanning(ecModel,targetRxn,csRxn,alpha,tolerance,filterG)
 %   alpha           scalling factor for production yield for enforced objective
 %                   limits
 %   tolerance       numerical tolerance for fixing bounds.
-%                   (Optional, defaul 1E-4)
+%                   (Optional, defaul 1s-4)
 %   filterG         logical value. TRUE if genes K_scores results should be
 %                   filtered according to the alpha vector distribution
 %                   (Optional, defaul false)
 %
 % Usage:
-%   FC = ecFlux_scanning(model,targetRxn,csRxn,alpha,tolerance,filterG)
+%   FC = ecFluxScanning(model,targetRxn,csRxn,alpha,tolerance,filterG)
 
 if nargin < 6 || isempty(filterG)
     filterG = false;
 end
 
 if nargin < 5 || isempty(tolerance)
-    tolerance = 1E-4;
+    tolerance = 1e-4;
 end
 
 % Simulate WT (100% growth):
