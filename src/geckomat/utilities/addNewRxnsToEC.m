@@ -37,9 +37,9 @@ function [model, rxnsAdded, enzAdded] = addNewRxnsToEC(model, newRxns, newEnzyme
 %         to split to construct irreversible reactions (add _REV) and the
 %         rules defined will be used to expand the model (add _EXP_n).
 %        
-%     (2) After add the new reactions, setKcatForReactions should be run 
-%         to add the kcat to the reactions, and subsequently 
-%         applyKcatConstraints.
+%     (2) After add the new reactions, setKcatForReactions or
+%         applyCustomKcats should be run to add the kcat to the reactions,
+%         and subsequently applyKcatConstraints.
 %
 % Output:
 %   model           ecModel whit new reactions
