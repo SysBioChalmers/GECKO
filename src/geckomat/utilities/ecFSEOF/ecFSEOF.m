@@ -10,7 +10,8 @@ function results = ecFSEOF(ecModel,targetRxn,csRxn,alphaLims,nSteps,file_genes,f
 %                   reaction is recommended.
 %   csRxn           rxn ID for the main carbon source uptake reaction.
 %   alphaLims       vector of Minimum and maximum biomass scalling factors for
-%                   enforced objective limits (e.g. [0.5 1]). Max value: 1.
+%                   enforced objective limits (e.g. [0.5 0.75]). Max value: 1.
+%                   Max value recomended 0.9 (Optional, default [0.5 0.75])
 %   nSteps          number of steps for suboptimal objective in FSEOF.
 %                   (Optional, default 16)
 %   file_genes      file name for results output at the genes level.
@@ -44,6 +45,10 @@ end
 
 if nargin < 5 || isempty(nSteps)
     nSteps = 16;
+end
+
+if nargin < 4 || isempty(alphaLims)
+    alphaLims = [0.5 0.75];
 end
 
 if numel(alphaLims) ~= 2

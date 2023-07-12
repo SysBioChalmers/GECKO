@@ -13,9 +13,9 @@ function [minFlux, maxFlux] = getFluxTarget(ecModel,targetRxn,csRxn,alpha,tolera
 %                   reaction is recommended.
 %   csRxn           rxn ID for the main carbon source uptake reaction.
 %   alpha           scalling factor for desired suboptimal growth.
-%                   (Optional, default 1)
+%                   (Optional, default 0.9)
 %   tolerance       numerical tolerance for fixing bounds
-%                   (Optional, default 1E-6)
+%                   (Optional, default 1e-6)
 %   modelAdapter    a loaded model adapter. (Optional, will otherwise use
 %                   the default model adapter)
 %
@@ -41,7 +41,7 @@ if nargin < 5 || isempty(tolerance)
 end
 
 if nargin < 4 || isempty(alpha)
-    alpha = 1 - tolerance;
+    alpha = 0.9;
 end
 
 % Maximize growth
@@ -64,12 +64,12 @@ ecModel = setParam(ecModel, 'lb', 'prot_pool_exchange', sol.x(poolIdx) * 1.01);
 
 % Minimize target
 ecModel = setParam(ecModel, 'obj', targetRxn, -1);
-sol = solveLP(ecModel);
-minFlux = sol.x;
+minSol = solveLP(ecModel);
+minFlux = minSol.x;
 
 % Maximize target
 ecModel = setParam(ecModel, 'obj', targetRxn, 1);
-sol = solveLP(ecModel);
-maxFlux = sol.x;
+maxSol = solveLP(ecModel);
+maxFlux = maxSol.x;
 
 end
