@@ -365,10 +365,10 @@ saveEcModel(ecModel,'ecYeastGEM_stage4');
 
 %% STAGE 5: simulation and analysis
 % STEP 23 Example of various useful RAVEN functions
-% % Set the upper bound of reaction r_0001 to 10.
-% ecModel = setParam(ecModel,'ub','r_0001',10);
-% % Set the lower bound of reaction r_0001 to 0.
-% ecModel = setParam(ecModel,'lb','r_0001',0);
+% % Set the upper bound of reaction r_0003 to 10.
+% ecModel = setParam(ecModel,'ub','r_0003',10);
+% % Set the lower bound of reaction r_0003 to 0.
+% ecModel = setParam(ecModel,'lb','r_0003',0);
 % % Set the objective function to maximize reaction 'r_4041'.
 % ecModel = setParam(ecModel,'obj','r_4041',1);
 % % Set the objective function to minimize protein usage.

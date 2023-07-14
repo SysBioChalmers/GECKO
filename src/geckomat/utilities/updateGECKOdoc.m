@@ -5,6 +5,10 @@ function updateGECKOdoc()
 %
 % Usage: updateGECKOdoc()
 
+%Make sure that RAVEN-provided m2html is used
+ravenDir=findRAVENroot();
+path(fullfile(ravenDir,'software','m2html'),path);
+
 %Get the GECKO path
 geckoDir=findGECKOroot();
 
