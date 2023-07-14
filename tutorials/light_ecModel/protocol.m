@@ -14,8 +14,8 @@
 % tutorials/full_ecModel/protocol.m.
 
 % Prepare software and model adapter
-GECKOInstaller.install
 checkInstallation;
+GECKOInstaller.install
 setRavenSolver('gurobi')
 
 % STEP 1
@@ -29,13 +29,12 @@ model = loadConventionalGEM();
 % STEP 3
 % Because Human-GEM contains gene identifiers in ENSEMBL format without
 % trailing version identifier, and there is no field in Uniprot that
-% exactly matches that format, a custom uniprotConversion.tsv is generated.
-% Based on the genes.tsv that is distributed with Human-GEM:
+% exactly matches that format, a custom uniprotConversion.tsv is generated
+% based on the genes.tsv that is distributed with Human-GEM:
 % https://github.com/SysBioChalmers/Human-GEM/blob/194ebe5431c83e25f78df61caacad2fa485b5cb4/model/genes.tsv
-% of which the first and the fourth column are kept to make data/uniprotConversion.tsv.
-
-% The second parameter (true) here signifies that a light ecModel will be
-% generated
+% of which the first and the fourth column are kept to make
+% data/uniprotConversion.tsv. The second parameter (true) here signifies
+% that a light ecModel will be generated.
 [ecModel, noUniprot] = makeEcModel(model,true);
 
 % The above command generates a warning regarding potentially problematic
@@ -64,12 +63,12 @@ ecModel         = findMetSmiles(ecModel);
 % identifiers.
 
 % The light_ecModel tutorial already comes with a DLKcat.tsv file populated
-% with kcat values. If this file should be regenerated, the line below
+% with kcat values. If this file should be regenerated, the lines below
 % should be uncommented. Note that this overwrites the existing files,
 % thereby discarding existing kcat predictions.
 %writeDLKcatInput(ecModel,[],[],[],[],true);
+%runDLKcat();
 
-runDLKcat();
 kcatList_DLKcat = readDLKcatOutput(ecModel);
 
 % STEP 8
