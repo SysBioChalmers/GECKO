@@ -1,5 +1,5 @@
-function model = fillProtConcs(model, protData, dataCol)
-% fillProtConcs
+function model = fillEnzConcs(model, protData, dataCol)
+% fillEnzConcs
 %   Uses the protein concentrations from protData to fill model.ec.concs.
 %   Protein levels should be provided in mg/gDCW. If no data is provided
 %   a particular protein, its level is NaN. Existing entries in
@@ -22,10 +22,10 @@ function model = fillProtConcs(model, protData, dataCol)
 %               concentrations.
 %
 % Note: to also constrain the model with the content of model.ec.concs, you
-% should run constrainProtConcs.
+% should run constrainEnzConcs.
 %
 % Usage:
-%   model = fillProtConcs(model, protData)
+%   model = fillEnzConcs(model, protData)
 
 if nargin < 3 || isempty(dataCol)
     dataCol = 1;

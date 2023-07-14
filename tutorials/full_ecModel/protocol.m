@@ -310,8 +310,8 @@ saveEcModel(ecModel,'ecYeastGEM.yml');
 
 % STEP 19 Load proteomics data and constrain ecModel
 protData = loadProtData(3); %Number of replicates, only one experiment.
-ecModel = fillProtConcs(ecModel,protData);
-ecModel = constrainProtConcs(ecModel);
+ecModel = fillEnzConcs(ecModel,protData);
+ecModel = constrainEnzConcs(ecModel);
 
 % STEP 20 Update protein pool
 % The protein pool reaction will be constraint by the remaining, unmeasured
