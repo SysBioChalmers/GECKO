@@ -46,37 +46,33 @@ end
 
 % Get relevant rxn indexes
 targetRxnIdx = getIndexes(model, targetRxn,'rxns');
-csRxnIdx = getIndexes(model, csRxn,'rxns');
-bioRxnIdx = getIndexes(model, params.bioRxn,'rxns');
+csRxnIdx     = getIndexes(model, csRxn,'rxns');
+bioRxnIdx    = getIndexes(model, params.bioRxn,'rxns');
+poolIdx      = strcmpi(model.rxns, 'prot_pool_exchange');
 
-% Maximize growth and fix carbon source and suboptimal growth 
+% Maximize growth and fix carbon source and suboptimal growth
 model = setParam(model, 'obj', params.bioRxn, 1);
-sol = solveLP(model);
-model = setParam(model, 'var', csRxn, sol.x(csRxnIdx), tolerance);
+sol   = solveLP(model);
 model = setParam(model, 'lb', params.bioRxn, sol.x(bioRxnIdx) * (1-tolerance) * alpha);
+model = setParam(model, 'lb', csRxn, sol.x(csRxnIdx));
+
+% Minimize prot_pool_exchange and fix
+model = setParam(model, 'obj', 'prot_pool_exchange', 1);
+sol   = solveLP(model);
+model = setParam(model, 'lb', 'prot_pool_exchange', sol.x(poolIdx) * 1.01);
 
 % If minimum fluxes are required get them
 minFlux = [];
 if nargout == 2
     % Minimize target
     model = setParam(model, 'obj', targetRxn, -1);
-    sol = solveLP(model);
-
-    % Now fix min value for target and minimize proteins usage
-    model.lb(targetRxnIdx) = sol.x(targetRxnIdx) * (1-tolerance);
-    model = setParam(model, 'obj', 'prot_pool_exchange', 1);
     minSol = solveLP(model,1);
     minFlux = minSol.x;
 end
 
 % Maximize target
 model = setParam(model, 'obj', targetRxn, 1);
-sol = solveLP(model);
-
-% Now fix max value for target and minimize proteins usage
-model.lb(targetRxnIdx) = sol.x(targetRxnIdx) * (1-tolerance);
-model = setParam(model, 'obj', 'prot_pool_exchange', 1);
-maxSol = solveLP(model);
+maxSol = solveLP(model,1);
 maxFlux = maxSol.x;
 
 end
