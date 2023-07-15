@@ -1,10 +1,9 @@
 ---
 name: New feature
-about: You would like GECKO to do something it does not yet do.
+about: You can propose a new or modified features if you would like GECKO to do something it is not yet able to do.
 title: New feature
 labels: enhancement
 assignees: ''
-
 ---
 
 ### Description of the new feature:
@@ -14,6 +13,7 @@ assignees: ''
 - Do you have an idea on how to implement this feature?
 - Will you implement this feature yourself (in that case, you can Assign yourself in the top right corner) or need help with this? We will gladly support you in this! -->
 
-**I hereby confirm that I have:**
-- [ ] Done this analysis in the `main` branch of the repository
-- [ ] Checked that a similar issue does not exist already
+#### I hereby confirm that:
+<!-- Replace [ ] with [X] to check the box:-->
+- [ ] The new feature is not already in the `main` branch of the repository.
+- [ ] A similar [issue](https://github.com/SysBioChalmers/GECKO/issues) does not already exist.
