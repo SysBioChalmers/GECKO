@@ -2,9 +2,9 @@
                 "http://www.w3.org/TR/REC-html40/loose.dtd">
 <html>
 <head>
-  <title>Description of constrainProtConcs</title>
-  <meta name="keywords" content="constrainProtConcs">
-  <meta name="description" content="constrainProtConcs">
+  <title>Description of constrainEnzConcs</title>
+  <meta name="keywords" content="constrainEnzConcs">
+  <meta name="description" content="constrainEnzConcs">
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
   <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
   <meta name="robots" content="index, follow">
@@ -12,22 +12,22 @@
 </head>
 <body>
 <a name="_top"></a>
-<div><a href="../../../index.html">Home</a> &gt;  <a href="#">src</a> &gt; <a href="#">geckomat</a> &gt; <a href="index.html">limit_proteins</a> &gt; constrainProtConcs.m</div>
+<div><a href="../../../index.html">Home</a> &gt;  <a href="#">src</a> &gt; <a href="#">geckomat</a> &gt; <a href="index.html">limit_proteins</a> &gt; constrainEnzConcs.m</div>
 
 <!--<table width="100%"><tr><td align="left"><a href="../../../index.html"><img alt="<" border="0" src="../../../left.png">&nbsp;Master index</a></td>
 <td align="right"><a href="index.html">Index for src\geckomat\limit_proteins&nbsp;<img alt=">" border="0" src="../../../right.png"></a></td></tr></table>-->
 
-<h1>constrainProtConcs
+<h1>constrainEnzConcs
 </h1>
 
 <h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
-<div class="box"><strong>constrainProtConcs</strong></div>
+<div class="box"><strong>constrainEnzConcs</strong></div>
 
 <h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
-<div class="box"><strong>function model = constrainProtConcs(model) </strong></div>
+<div class="box"><strong>function model = constrainEnzConcs(model) </strong></div>
 
 <h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
-<div class="fragment"><pre class="comment"> constrainProtConcs
+<div class="fragment"><pre class="comment"> constrainEnzConcs
    Constrain enzyme usages by their concentration as provided in
    model.ec.concs. For enzymes with non-NaN entries in model.ec.concs,
    their enzyme usage reaction will no longer draw from the protein pool,
@@ -43,7 +43,7 @@
  Note: to populate model.ec.concs you should run getProteomics.
 
  Usage:
-   model = constrainProtConcs(model)</pre></div>
+   model = constrainEnzConcs(model)</pre></div>
 
 <!-- crossreference -->
 <h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
@@ -58,8 +58,8 @@ This function is called by:
 
 
 <h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
-<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function model = constrainProtConcs(model)</a>
-0002 <span class="comment">% constrainProtConcs</span>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function model = constrainEnzConcs(model)</a>
+0002 <span class="comment">% constrainEnzConcs</span>
 0003 <span class="comment">%   Constrain enzyme usages by their concentration as provided in</span>
 0004 <span class="comment">%   model.ec.concs. For enzymes with non-NaN entries in model.ec.concs,</span>
 0005 <span class="comment">%   their enzyme usage reaction will no longer draw from the protein pool,</span>
@@ -75,7 +75,7 @@ This function is called by:
 0015 <span class="comment">% Note: to populate model.ec.concs you should run getProteomics.</span>
 0016 <span class="comment">%</span>
 0017 <span class="comment">% Usage:</span>
-0018 <span class="comment">%   model = constrainProtConcs(model)</span>
+0018 <span class="comment">%   model = constrainEnzConcs(model)</span>
 0019 
 0020 <span class="comment">%Enzyme with NaN entry in model.ec.concs =&gt; draw from prot_pool</span>
 0021 <span class="comment">%Enzyme with numeric entry in model.ec.concs =&gt; exchange reaction with</span>

@@ -92,7 +92,7 @@ end
 changedProtPool = false;
 
 % In case the model have not been protein constrained
-% model = constrainProtConcs(model);
+% model = constrainEnzConcs(model);
 
 [sol,hs] = solveLP(model);
 predGrowth = abs(sol.f);
@@ -179,7 +179,7 @@ if any(protConcs)
         end
     end
 else
-    error('Protein concentrations have not been defined. Please run readProteomics and constrainProtConcs')
+    error('Protein concentrations have not been defined. Please run readProteomics and constrainEnzConcs')
 end
 
 protFlex        = proteins(frequence>0);

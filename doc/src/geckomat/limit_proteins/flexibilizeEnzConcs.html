@@ -187,7 +187,7 @@ This function is called by:
 0092 changedProtPool = false;
 0093 
 0094 <span class="comment">% In case the model have not been protein constrained</span>
-0095 <span class="comment">% model = constrainProtConcs(model);</span>
+0095 <span class="comment">% model = constrainEnzConcs(model);</span>
 0096 
 0097 [sol,hs] = solveLP(model);
 0098 predGrowth = abs(sol.f);
@@ -274,7 +274,7 @@ This function is called by:
 0179         <span class="keyword">end</span>
 0180     <span class="keyword">end</span>
 0181 <span class="keyword">else</span>
-0182     error(<span class="string">'Protein concentrations have not been defined. Please run readProteomics and constrainProtConcs'</span>)
+0182     error(<span class="string">'Protein concentrations have not been defined. Please run readProteomics and constrainEnzConcs'</span>)
 0183 <span class="keyword">end</span>
 0184 
 0185 protFlex        = proteins(frequence&gt;0);

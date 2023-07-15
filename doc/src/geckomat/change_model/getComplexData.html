@@ -197,54 +197,45 @@ This function is called by:
 0123             complexData(i,6) = {repelem(0,numel(complexData{i,4}))};
 0124             complexData(i,7) = {0};
 0125         <span class="keyword">end</span>
-0126     <span class="keyword">else</span>
-0127         <span class="comment">%</span>
-0128         complexData(i,1) = {complexID};
-0129         complexData(i,2) = {<span class="string">' '</span>};
-0130         complexData(i,3) = {<span class="string">' '</span>};
-0131         complexData(i,4) = {<span class="string">' '</span>};
-0132         complexData(i,5) = {<span class="string">' '</span>};
-0133         complexData(i,6) = {0};
-0134         complexData(i,7) = {0};
-0135     <span class="keyword">end</span>
-0136 <span class="keyword">end</span>
-0137 fprintf(<span class="string">'\n'</span>);
-0138 
-0139 <span class="comment">% Expand complexes of complexes</span>
-0140 complexComplex = find([complexData{:,7}]==2);
-0141 <span class="keyword">if</span> ~isempty(complexComplex)
-0142     <span class="keyword">for</span> i=1:numel(complexComplex)
-0143         subComplex    = complexData{complexComplex(i),5};
-0144         subComplexS   = complexData{complexComplex(i),6};
-0145         subComplexIdx = find(ismember(complexData(:,1),subComplex));
-0146         allGenes = horzcat(complexData{subComplexIdx,4});
-0147         allProts = horzcat(complexData{subComplexIdx,5});
-0148         allStoch = {complexData{subComplexIdx,6}};
-0149         <span class="keyword">for</span> j=1:numel(subComplex)
-0150             allStoch{j}=allStoch{j}*subComplexS(j);
-0151         <span class="keyword">end</span>
-0152         allStoch = horzcat(allStoch{:});
-0153         [allGenes,ia,ic] = unique(allGenes,<span class="string">'stable'</span>);
-0154         allProts = allProts(ia);
-0155         allStoch = splitapply(@sum, allStoch', ic);
-0156         complexData{complexComplex(i),4} = allGenes;
-0157         complexData{complexComplex(i),5} = allProts;
-0158         complexData{complexComplex(i),6} = allStoch;
-0159     <span class="keyword">end</span>
-0160 <span class="keyword">end</span>
-0161 
-0162 rowHeadings = {<span class="string">'complexID'</span>,<span class="string">'name'</span>,<span class="string">'species'</span>,<span class="string">'geneName'</span>,<span class="string">'protID'</span>,<span class="string">'stochiometry'</span>,<span class="string">'defined'</span>};
-0163 
-0164 complexInfo = cell2struct(complexData, rowHeadings, 2);
-0165 
-0166 <span class="comment">% Convert to a JSON file</span>
-0167 jsontxt = jsonencode(cell2table(complexData, <span class="string">'VariableNames'</span>, rowHeadings));
-0168 <span class="comment">% Write to a JSON file</span>
-0169 fid = fopen(fullfile(params.path,<span class="string">'data'</span>,<span class="string">'ComplexPortal.json'</span>), <span class="string">'w'</span>);
-0170 fprintf(fid, <span class="string">'%s'</span>, jsontxt);
-0171 fclose(fid);
-0172 fprintf(<span class="string">'Model-specific ComplexPortal database stored at %s\n'</span>,fullfile(params.path,<span class="string">'data'</span>,<span class="string">'ComplexPortal.json'</span>));
-0173 <span class="keyword">end</span></pre></div>
+0126     <span class="keyword">end</span>
+0127 <span class="keyword">end</span>
+0128 fprintf(<span class="string">'\n'</span>);
+0129 
+0130 <span class="comment">% Expand complexes of complexes</span>
+0131 complexComplex = find([complexData{:,7}]==2);
+0132 <span class="keyword">if</span> ~isempty(complexComplex)
+0133     <span class="keyword">for</span> i=1:numel(complexComplex)
+0134         subComplex    = complexData{complexComplex(i),5};
+0135         subComplexS   = complexData{complexComplex(i),6};
+0136         subComplexIdx = find(ismember(complexData(:,1),subComplex));
+0137         allGenes = horzcat(complexData{subComplexIdx,4});
+0138         allProts = horzcat(complexData{subComplexIdx,5});
+0139         allStoch = {complexData{subComplexIdx,6}};
+0140         <span class="keyword">for</span> j=1:numel(subComplex)
+0141             allStoch{j}=allStoch{j}*subComplexS(j);
+0142         <span class="keyword">end</span>
+0143         allStoch = horzcat(allStoch{:});
+0144         [allGenes,ia,ic] = unique(allGenes,<span class="string">'stable'</span>);
+0145         allProts = allProts(ia);
+0146         allStoch = splitapply(@sum, allStoch', ic);
+0147         complexData{complexComplex(i),4} = allGenes;
+0148         complexData{complexComplex(i),5} = allProts;
+0149         complexData{complexComplex(i),6} = allStoch;
+0150     <span class="keyword">end</span>
+0151 <span class="keyword">end</span>
+0152 
+0153 rowHeadings = {<span class="string">'complexID'</span>,<span class="string">'name'</span>,<span class="string">'species'</span>,<span class="string">'geneName'</span>,<span class="string">'protID'</span>,<span class="string">'stochiometry'</span>,<span class="string">'defined'</span>};
+0154 
+0155 complexInfo = cell2struct(complexData, rowHeadings, 2);
+0156 
+0157 <span class="comment">% Convert to a JSON file</span>
+0158 jsontxt = jsonencode(cell2table(complexData, <span class="string">'VariableNames'</span>, rowHeadings));
+0159 <span class="comment">% Write to a JSON file</span>
+0160 fid = fopen(fullfile(params.path,<span class="string">'data'</span>,<span class="string">'ComplexPortal.json'</span>), <span class="string">'w'</span>);
+0161 fprintf(fid, <span class="string">'%s'</span>, jsontxt);
+0162 fclose(fid);
+0163 fprintf(<span class="string">'Model-specific ComplexPortal database stored at %s\n'</span>,fullfile(params.path,<span class="string">'data'</span>,<span class="string">'ComplexPortal.json'</span>));
+0164 <span class="keyword">end</span></pre></div>
 <hr><address>Generated by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

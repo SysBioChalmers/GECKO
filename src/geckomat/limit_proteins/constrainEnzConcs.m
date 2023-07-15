@@ -1,5 +1,5 @@
-function model = constrainProtConcs(model)
-% constrainProtConcs
+function model = constrainEnzConcs(model)
+% constrainEnzConcs
 %   Constrain enzyme usages by their concentration as provided in
 %   model.ec.concs. For enzymes with non-NaN entries in model.ec.concs,
 %   their enzyme usage reaction will no longer draw from the protein pool,
@@ -15,7 +15,7 @@ function model = constrainProtConcs(model)
 % Note: to populate model.ec.concs you should run getProteomics.
 %
 % Usage:
-%   model = constrainProtConcs(model)
+%   model = constrainEnzConcs(model)
 
 %Enzyme with NaN entry in model.ec.concs => draw from prot_pool
 %Enzyme with numeric entry in model.ec.concs => exchange reaction with
