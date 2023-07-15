@@ -7,14 +7,14 @@ function [model, rxnsAdded, enzAdded] = addNewRxnsToEC(model, newRxns, newEnzyme
 % Input:
 %   model           an ecModel in GECKO 3 format (with ecModel.ec structure)
 %   newRxns         structure with the new reaction information as follow:
-%            rxns               cell array with unique strings that
+%                   rxns        cell array with unique strings that
 %                               identifies each reaction
-%            rxnNames           cell array with the names of each reaction
-%            equations          cell array with equation strings. Decimal
+%                   rxnNames    cell array with the names of each reaction
+%                   equations   cell array with equation strings. Decimal
 %                               coefficients are expressed as "1.2".
 %                               Reversibility is indicated by "<=>" or
 %                               "=>".
-%            grRules            cell array with the gene-reaction
+%                   grRules     cell array with the gene-reaction
 %                               relationship for each reaction. For example
 %                               "(A and B) or (C)" means that the reaction
 %                               could be catalyzed by a complex between
@@ -23,14 +23,17 @@ function [model, rxnsAdded, enzAdded] = addNewRxnsToEC(model, newRxns, newEnzyme
 %                               genes with addGenesRaven before calling
 %                               this function if needed (opt, default '')
 %   newEnzymes      structure with the new enzymes information as follow:
-%            enzymes            cell array with uniprot id
-%            genes              cell array with the respective gene
-%            mw                 cell array with the MW
+%                   enzymes     cell array with uniprot id
+%                   genes       cell array with the respective gene
+%                   mw          cell array with the MW
 %   modelAdapter    a loaded model adapter (Optional, will otherwise use the
 %                   default model adapter).
 %
-%   NOTE: 
-%    
+% Output:
+%   model           ecModel whit new reactions
+%   rxnsAdded       cell array with the reactions added
+%
+% Notes:
 %     (i) Write equations as follows:
 %               'xylitol[c] + NAD[c] => D-xylulose[c] + NADH[c] + H+[c]'
 %         Note that the reversibility defined in the equation will be used
@@ -41,12 +44,8 @@ function [model, rxnsAdded, enzAdded] = addNewRxnsToEC(model, newRxns, newEnzyme
 %         applyCustomKcats should be run to add the kcat to the reactions,
 %         and subsequently applyKcatConstraints.
 %
-% Output:
-%   model           ecModel whit new reactions
-%   rxnsAdded       cell array with the reactions added
-%
 % Usage:
-%   [model, rxnsAdded, enzAdded] = addNewRxnsToEC(ecModel, newRxns, newEnzymes, modelAdapter);
+%   [model, rxnsAdded, enzAdded] = addNewRxnsToEC(model, newRxns, newEnzymes, modelAdapter);
 
 if nargin < 4 || isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefault();
@@ -65,8 +64,9 @@ if ~isfield(model, 'ec')
     error('Input model is not an ecModel in GECKO 3 format (with ecModel.ec structure)')
 end
 
-if ~model.ec.geckoLight
-
+if model.ec.geckoLight
+    error('addNewRxnsToEC only works on non-light ecModels')
+else
     % Check if the new proteins are not already present in the model
     if ~isempty(newEnzymes)
         [toRemove,~] = ismember(newEnzymes.enzymes, model.ec.enzymes);
@@ -123,7 +123,8 @@ if ~model.ec.geckoLight
     % If there is any gene which is not present, as to be pass as
     % newEnzymes input
     if ~isempty(genesInRules)
-        error(['Genes ' strjoin(genesInRules,', ') ' are not present in the model. Please pass them as newEnzymes input'])
+        errorText = 'The following genes from grRules are not present in the model, add them as newEnzymes input:';
+        dispEM(errorText,true,genesInRules,false)
     end
 
     % Get reversible reactions to split
@@ -225,5 +226,4 @@ if ~model.ec.geckoLight
     
     rxnsAdded = newRxns.rxns(:);
 end
-
 end

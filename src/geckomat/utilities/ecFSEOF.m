@@ -1,8 +1,7 @@
 function FC = ecFSEOF(ecModel,targetRxn,csRxn,alphaLims,nSteps,filePath,filterG,modelAdapter)
 % ecFSEOF
-%
-% Function that runs Flux-Scanning with Enforced Objective Function (FSEOF)
-% for a specified production target.
+%   Function that runs Flux-Scanning with Enforced Objective Function (FSEOF)
+%   for a specified production target.
 %
 % Input:
 %   ecModel         an ecModel in GECKO 3 format (with ecModel.ec structure).

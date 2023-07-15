@@ -1,0 +1,322 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of addNewRxnsToEC</title>
+  <meta name="keywords" content="addNewRxnsToEC">
+  <meta name="description" content="addNewRxnsToEC">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../../index.html">Home</a> &gt;  <a href="#">src</a> &gt; <a href="#">geckomat</a> &gt; <a href="index.html">utilities</a> &gt; addNewRxnsToEC.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../../index.html"><img alt="<" border="0" src="../../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for src\geckomat\utilities&nbsp;<img alt=">" border="0" src="../../../right.png"></a></td></tr></table>-->
+
+<h1>addNewRxnsToEC
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>addNewRxnsToEC</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>function [model, rxnsAdded, enzAdded] = addNewRxnsToEC(model, newRxns, newEnzymes, modelAdapter) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> addNewRxnsToEC
+   Add new reaction to an enzyme-constrained model. This function is 
+   useful to simulate metabolic manipulations done to an organism such as
+   integration of new genes that add a new reaction/pathway.
+
+ Input:
+   model           an ecModel in GECKO 3 format (with ecModel.ec structure)
+   newRxns         structure with the new reaction information as follow:
+                   rxns        cell array with unique strings that
+                               identifies each reaction
+                   rxnNames    cell array with the names of each reaction
+                   equations   cell array with equation strings. Decimal
+                               coefficients are expressed as &quot;1.2&quot;.
+                               Reversibility is indicated by &quot;&lt;=&gt;&quot; or
+                               &quot;=&gt;&quot;.
+                   grRules     cell array with the gene-reaction
+                               relationship for each reaction. For example
+                               &quot;(A and B) or (C)&quot; means that the reaction
+                               could be catalyzed by a complex between
+                               A &amp; B or by C on its own. All the genes
+                               have to be present in model.genes. Add
+                               genes with addGenesRaven before calling
+                               this function if needed (opt, default '')
+   newEnzymes      structure with the new enzymes information as follow:
+                   enzymes     cell array with uniprot id
+                   genes       cell array with the respective gene
+                   mw          cell array with the MW
+   modelAdapter    a loaded model adapter (Optional, will otherwise use the
+                   default model adapter).
+
+ Output:
+   model           ecModel whit new reactions
+   rxnsAdded       cell array with the reactions added
+
+ Notes:
+     (i) Write equations as follows:
+               'xylitol[c] + NAD[c] =&gt; D-xylulose[c] + NADH[c] + H+[c]'
+         Note that the reversibility defined in the equation will be used
+         to split to construct irreversible reactions (add _REV) and the
+         rules defined will be used to expand the model (add _EXP_n).
+        
+     (2) After add the new reactions, setKcatForReactions or
+         applyCustomKcats should be run to add the kcat to the reactions,
+         and subsequently applyKcatConstraints.
+
+ Usage:
+   [model, rxnsAdded, enzAdded] = addNewRxnsToEC(model, newRxns, newEnzymes, modelAdapter);</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function [model, rxnsAdded, enzAdded] = addNewRxnsToEC(model, newRxns, newEnzymes, modelAdapter)</a>
+0002 <span class="comment">% addNewRxnsToEC</span>
+0003 <span class="comment">%   Add new reaction to an enzyme-constrained model. This function is</span>
+0004 <span class="comment">%   useful to simulate metabolic manipulations done to an organism such as</span>
+0005 <span class="comment">%   integration of new genes that add a new reaction/pathway.</span>
+0006 <span class="comment">%</span>
+0007 <span class="comment">% Input:</span>
+0008 <span class="comment">%   model           an ecModel in GECKO 3 format (with ecModel.ec structure)</span>
+0009 <span class="comment">%   newRxns         structure with the new reaction information as follow:</span>
+0010 <span class="comment">%                   rxns        cell array with unique strings that</span>
+0011 <span class="comment">%                               identifies each reaction</span>
+0012 <span class="comment">%                   rxnNames    cell array with the names of each reaction</span>
+0013 <span class="comment">%                   equations   cell array with equation strings. Decimal</span>
+0014 <span class="comment">%                               coefficients are expressed as &quot;1.2&quot;.</span>
+0015 <span class="comment">%                               Reversibility is indicated by &quot;&lt;=&gt;&quot; or</span>
+0016 <span class="comment">%                               &quot;=&gt;&quot;.</span>
+0017 <span class="comment">%                   grRules     cell array with the gene-reaction</span>
+0018 <span class="comment">%                               relationship for each reaction. For example</span>
+0019 <span class="comment">%                               &quot;(A and B) or (C)&quot; means that the reaction</span>
+0020 <span class="comment">%                               could be catalyzed by a complex between</span>
+0021 <span class="comment">%                               A &amp; B or by C on its own. All the genes</span>
+0022 <span class="comment">%                               have to be present in model.genes. Add</span>
+0023 <span class="comment">%                               genes with addGenesRaven before calling</span>
+0024 <span class="comment">%                               this function if needed (opt, default '')</span>
+0025 <span class="comment">%   newEnzymes      structure with the new enzymes information as follow:</span>
+0026 <span class="comment">%                   enzymes     cell array with uniprot id</span>
+0027 <span class="comment">%                   genes       cell array with the respective gene</span>
+0028 <span class="comment">%                   mw          cell array with the MW</span>
+0029 <span class="comment">%   modelAdapter    a loaded model adapter (Optional, will otherwise use the</span>
+0030 <span class="comment">%                   default model adapter).</span>
+0031 <span class="comment">%</span>
+0032 <span class="comment">% Output:</span>
+0033 <span class="comment">%   model           ecModel whit new reactions</span>
+0034 <span class="comment">%   rxnsAdded       cell array with the reactions added</span>
+0035 <span class="comment">%</span>
+0036 <span class="comment">% Notes:</span>
+0037 <span class="comment">%     (i) Write equations as follows:</span>
+0038 <span class="comment">%               'xylitol[c] + NAD[c] =&gt; D-xylulose[c] + NADH[c] + H+[c]'</span>
+0039 <span class="comment">%         Note that the reversibility defined in the equation will be used</span>
+0040 <span class="comment">%         to split to construct irreversible reactions (add _REV) and the</span>
+0041 <span class="comment">%         rules defined will be used to expand the model (add _EXP_n).</span>
+0042 <span class="comment">%</span>
+0043 <span class="comment">%     (2) After add the new reactions, setKcatForReactions or</span>
+0044 <span class="comment">%         applyCustomKcats should be run to add the kcat to the reactions,</span>
+0045 <span class="comment">%         and subsequently applyKcatConstraints.</span>
+0046 <span class="comment">%</span>
+0047 <span class="comment">% Usage:</span>
+0048 <span class="comment">%   [model, rxnsAdded, enzAdded] = addNewRxnsToEC(model, newRxns, newEnzymes, modelAdapter);</span>
+0049 
+0050 <span class="keyword">if</span> nargin &lt; 4 || isempty(modelAdapter)
+0051     modelAdapter = ModelAdapterManager.getDefault();
+0052     <span class="keyword">if</span> isempty(modelAdapter)
+0053         error(<span class="string">'Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.'</span>)
+0054     <span class="keyword">end</span>
+0055 <span class="keyword">end</span>
+0056 params = modelAdapter.getParameters();
+0057 
+0058 <span class="keyword">if</span> nargin &lt; 3 || isempty(newEnzymes)
+0059     newEnzymes = [];
+0060 <span class="keyword">end</span>
+0061 
+0062 <span class="comment">% Validate if GECKO version 3</span>
+0063 <span class="keyword">if</span> ~isfield(model, <span class="string">'ec'</span>)
+0064     error(<span class="string">'Input model is not an ecModel in GECKO 3 format (with ecModel.ec structure)'</span>)
+0065 <span class="keyword">end</span>
+0066 
+0067 <span class="keyword">if</span> model.ec.geckoLight
+0068     error(<span class="string">'addNewRxnsToEC only works on non-light ecModels'</span>)
+0069 <span class="keyword">else</span>
+0070     <span class="comment">% Check if the new proteins are not already present in the model</span>
+0071     <span class="keyword">if</span> ~isempty(newEnzymes)
+0072         [toRemove,~] = ismember(newEnzymes.enzymes, model.ec.enzymes);
+0073 
+0074         <span class="comment">% Remove from the list those enzymes that already present</span>
+0075         <span class="keyword">if</span> any(toRemove)
+0076             printOrange([<span class="string">'WARNING: Enzymes '</span> strjoin(newEnzymes.enzymes(toRemove),<span class="string">', '</span>) <span class="string">' are already present in the model and will not be added.\n'</span>])
+0077             newEnzymes.enzymes(toRemove) = [];
+0078             newEnzymes.genes(toRemove) = [];
+0079             newEnzymes.mw(toRemove) = [];
+0080         <span class="keyword">end</span>
+0081 
+0082         <span class="keyword">if</span> ~isempty(newEnzymes.enzymes)
+0083             
+0084             <span class="comment">% 1. Add new genes</span>
+0085             genesToAdd.genes = newEnzymes.genes;
+0086             genesToAdd.geneShortNames = genesToAdd.genes;
+0087             model = addGenesRaven(model, genesToAdd);
+0088 
+0089             <span class="comment">% 2. Add new Enzyme-usage pseudometabolite</span>
+0090 
+0091             <span class="comment">% Validate compartment to add protein pseudoreactions</span>
+0092             compartmentID = strcmp(model.compNames,params.enzyme_comp);
+0093             <span class="keyword">if</span> ~any(compartmentID)
+0094                 error([<span class="string">'Compartment '</span> params.enzyme_comp <span class="string">' (specified in params.enzyme_comp) '</span><span class="keyword">...</span>
+0095                     <span class="string">'cannot be found in model.compNames'</span>])
+0096             <span class="keyword">end</span>
+0097             compartmentID = model.comps(compartmentID);
+0098 
+0099             proteinMets.mets         = strcat(<span class="string">'prot_'</span>, newEnzymes.enzymes);
+0100             proteinMets.metNames     = proteinMets.mets;
+0101             proteinMets.compartments = compartmentID;
+0102             <span class="keyword">if</span> isfield(model,<span class="string">'metMiriams'</span>)
+0103                 proteinMets.metMiriams = repmat({struct(<span class="string">'name'</span>,{{<span class="string">'sbo'</span>}},<span class="string">'value'</span>,{{<span class="string">'SBO:0000252'</span>}})},numel(proteinMets.mets),1);
+0104             <span class="keyword">end</span>
+0105             <span class="keyword">if</span> isfield(model,<span class="string">'metCharges'</span>)
+0106                 proteinMets.metCharges = zeros(numel(proteinMets.mets),1);
+0107             <span class="keyword">end</span>
+0108             proteinMets.metNotes = repmat({<span class="string">'Enzyme-usage pseudometabolite'</span>},numel(proteinMets.mets),1);
+0109             model = addMets(model,proteinMets);
+0110         <span class="keyword">end</span>
+0111         enzAdded = newEnzymes.enzymes(:);  
+0112     <span class="keyword">end</span>
+0113 
+0114     <span class="comment">% 3. Add new reactions</span>
+0115 
+0116     <span class="comment">% Before add the reactions validate that all the genes in grRules are</span>
+0117     <span class="comment">% present in the model.</span>
+0118     genesInRules = strjoin(convertCharArray(newRxns.grRules));
+0119     genesInRules = regexp(genesInRules,<span class="string">' |)|(|and|or'</span>,<span class="string">'split'</span>); <span class="comment">% Remove all grRule punctuation</span>
+0120     genesInRules = genesInRules(~cellfun(@isempty,genesInRules));  <span class="comment">% Remove spaces and empty genes</span>
+0121     genesInRules = setdiff(unique(genesInRules),model.genes); <span class="comment">% Only keep new genes</span>
+0122 
+0123     <span class="comment">% If there is any gene which is not present, as to be pass as</span>
+0124     <span class="comment">% newEnzymes input</span>
+0125     <span class="keyword">if</span> ~isempty(genesInRules)
+0126         errorText = <span class="string">'The following genes from grRules are not present in the model, add them as newEnzymes input:'</span>;
+0127         dispEM(errorText,true,genesInRules,false)
+0128     <span class="keyword">end</span>
+0129 
+0130     <span class="comment">% Get reversible reactions to split</span>
+0131     toIrrev = find(cellfun(@(x) contains(x,<span class="string">'&lt;=&gt;'</span>),newRxns.equations));
+0132     <span class="keyword">if</span> ~isempty(toIrrev)
+0133         <span class="keyword">for</span> i=1:numel(toIrrev)
+0134             idx = toIrrev(i);
+0135             newEquation = split(newRxns.equations(idx),<span class="string">'&lt;=&gt;'</span>);
+0136             <span class="comment">% Remove directionality</span>
+0137             newRxns.equations(idx) = erase(newRxns.equations(idx), <span class="string">'&lt;'</span>);
+0138 
+0139             <span class="comment">% Add a new reaction to the list to be added</span>
+0140             newRxns.rxns{end+1} = [newRxns.rxns{idx} <span class="string">'_REV'</span>];
+0141             newRxns.rxnNames{end+1} = [newRxns.rxnNames{idx} <span class="string">' (reversible)'</span>];
+0142             newRxns.equations{end+1} = [strtrim(newEquation{2, 1}) <span class="string">' =&gt; '</span> strtrim(newEquation{1, 1})];
+0143             newRxns.grRules{end+1} = newRxns.grRules{idx};
+0144         <span class="keyword">end</span>
+0145     <span class="keyword">end</span>
+0146 
+0147     <span class="comment">% Get reactions to separate isozymes</span>
+0148     toSplit = find(cellfun(@(x) contains(x,<span class="string">'or'</span>),newRxns.grRules));
+0149     <span class="keyword">if</span> ~isempty(toSplit)
+0150         <span class="keyword">for</span> i=1:numel(toSplit)
+0151             idx = toSplit(i);
+0152             newRules = split(newRxns.grRules(idx),<span class="string">'or'</span>);
+0153             newRules = strtrim(erase(newRules, {<span class="string">'('</span> <span class="string">')'</span>}));
+0154 
+0155             <span class="keyword">for</span> j=1:numel(newRules)
+0156                 newRxns.rxns{end+1} = [newRxns.rxns{idx} <span class="string">'_EXP_'</span> num2str(j)];
+0157                 newRxns.rxnNames(end+1) = newRxns.rxnNames(idx);
+0158                 newRxns.equations(end+1) = newRxns.equations(idx);
+0159                 newRxns.grRules(end+1) = newRules(j);
+0160             <span class="keyword">end</span>
+0161 
+0162             <span class="comment">% Remove the original one</span>
+0163             newRxns.rxns(idx) = [];
+0164             newRxns.rxnNames(idx) = [];
+0165             newRxns.equations(idx) = [];
+0166             newRxns.grRules(idx) = [];
+0167         <span class="keyword">end</span>
+0168     <span class="keyword">end</span>
+0169 
+0170     newRxns.lb = zeros(length(newRxns.rxns),1);
+0171     newRxns.ub = zeros(length(newRxns.rxns),1) + 1000;
+0172 
+0173     model = addRxns(model, newRxns, 3, <span class="string">''</span>, true, true);
+0174 
+0175     <span class="comment">% 4. Add protein usage reactions.</span>
+0176     usageRxns.rxns            = strcat(<span class="string">'usage_'</span>,proteinMets.mets);
+0177     usageRxns.rxnNames        = usageRxns.rxns;
+0178     usageRxns.mets            = cell(numel(usageRxns.rxns),1);
+0179     usageRxns.stoichCoeffs    = cell(numel(usageRxns.rxns),1);
+0180     <span class="keyword">for</span> i=1:numel(usageRxns.mets)
+0181         usageRxns.mets{i}         = {proteinMets.mets{i}, <span class="string">'prot_pool'</span>};
+0182         usageRxns.stoichCoeffs{i} = [-1,1];
+0183     <span class="keyword">end</span>
+0184     usageRxns.lb              = zeros(numel(usageRxns.rxns),1) - 1000;
+0185     usageRxns.ub              = zeros(numel(usageRxns.rxns),1);
+0186     usageRxns.rev             = ones(numel(usageRxns.rxns),1);
+0187     usageRxns.grRules         = newEnzymes.genes;
+0188     model = addRxns(model,usageRxns);
+0189 
+0190     <span class="comment">% 5. Update .ec field with enzyme data</span>
+0191     model.ec.enzymes    = [model.ec.enzymes; newEnzymes.enzymes(:)];
+0192     model.ec.genes      = [model.ec.genes; newEnzymes.genes(:)];
+0193     model.ec.mw         = [model.ec.mw; newEnzymes.mw(:)];
+0194     model.ec.sequence   = [model.ec.sequence; repmat({<span class="string">''</span>},numel(newEnzymes.enzymes),1)]; 
+0195     <span class="keyword">if</span> isfield(model.ec,<span class="string">'concs'</span>)
+0196         model.ec.concs  = [model.ec.concs; NaN(numel(newEnzymes.enzymes),1)];
+0197     <span class="keyword">end</span>
+0198 
+0199     <span class="comment">% 6. Expand the enzyme rxns matrix</span>
+0200     rxnWithRule = find(~cellfun(<span class="string">'isempty'</span>,newRxns.grRules));
+0201 
+0202     model.ec.rxnEnzMat =  [model.ec.rxnEnzMat, zeros(length(model.ec.rxns), length(newEnzymes.enzymes))]; <span class="comment">% add n new enzymes</span>
+0203     model.ec.rxnEnzMat =  [model.ec.rxnEnzMat; zeros(length(rxnWithRule), length(model.ec.enzymes))]; <span class="comment">% add n new rxns</span>
+0204 
+0205     <span class="comment">% 7. Update .ec field with rxn data</span>
+0206 
+0207     <span class="comment">% Get reactions to add</span>
+0208     numRxns = length(model.ec.rxns);
+0209     <span class="keyword">for</span> i = 1:numel(rxnWithRule)
+0210         rxnIdx = rxnWithRule(i);
+0211 
+0212         model.ec.rxns(end+1)    = newRxns.rxns(rxnIdx);
+0213         model.ec.kcat(end+1)    = 0;
+0214         model.ec.source(end+1)  = {<span class="string">''</span>};
+0215         model.ec.notes(end+1)   = {<span class="string">''</span>};
+0216         model.ec.eccodes(end+1) = {<span class="string">''</span>};
+0217 
+0218         <span class="comment">% Get rules</span>
+0219         genes = newRxns.grRules(rxnIdx);
+0220         genes = strtrim(erase(split(genes,<span class="string">'and'</span>), {<span class="string">'('</span> <span class="string">')'</span>}));
+0221         [~,enzIdx] = ismember(genes, model.ec.genes);
+0222 
+0223         <span class="comment">% Update the enzyme rxns matrix</span>
+0224         model.ec.rxnEnzMat(numRxns+i, enzIdx) = 1;
+0225     <span class="keyword">end</span>
+0226     
+0227     rxnsAdded = newRxns.rxns(:);
+0228 <span class="keyword">end</span>
+0229 <span class="keyword">end</span></pre></div>
+<hr><address>Generated by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>
