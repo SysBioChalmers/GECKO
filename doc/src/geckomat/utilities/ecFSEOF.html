@@ -77,7 +77,7 @@
 <h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
 This function calls:
 <ul style="list-style-image:url(../../../matlabicon.gif)">
-<li><a href="getFluxTarget.html" class="code" title="function [maxFlux, minFlux] = getFluxTarget(model,targetRxn,csRxn,alpha,tolerance,modelAdapter)">getFluxTarget</a>	getFluxTarget</li></ul>
+<li><a href="getFluxTarget.html" class="code" title="function [maxFlux, minFlux] = getFluxTarget(model,bioRxn,targetRxn,alpha)">getFluxTarget</a>	getFluxTarget</li></ul>
 This function is called by:
 <ul style="list-style-image:url(../../../matlabicon.gif)">
 </ul>
@@ -186,7 +186,7 @@ This function is called by:
 0098 tolerance = 1e-4;
 0099 
 0100 <span class="comment">% Simulate WT (100% growth) and forced (X% growth and the rest towards product):</span>
-0101 flux_WT = <a href="getFluxTarget.html" class="code" title="function [maxFlux, minFlux] = getFluxTarget(model,targetRxn,csRxn,alpha,tolerance,modelAdapter)">getFluxTarget</a>(ecModel,targetRxn,csRxn);
+0101 flux_WT = <a href="getFluxTarget.html" class="code" title="function [maxFlux, minFlux] = getFluxTarget(model,bioRxn,targetRxn,alpha)">getFluxTarget</a>(ecModel,params.bioRxn,targetRxn,1);
 0102 
 0103 <span class="comment">% Set values which are under solver tolerance</span>
 0104 flux_WT(flux_WT &lt; 0 &amp; ~enzRxns) = 0;
@@ -194,7 +194,7 @@ This function is called by:
 0106 
 0107 progressbar(<span class="string">'Flux Scanning with Enforced Objective Function'</span>)
 0108 <span class="keyword">for</span> i = 1:length(alpha)
-0109     flux_MAX = <a href="getFluxTarget.html" class="code" title="function [maxFlux, minFlux] = getFluxTarget(model,targetRxn,csRxn,alpha,tolerance,modelAdapter)">getFluxTarget</a>(ecModel,targetRxn,csRxn,alpha(i));
+0109     flux_MAX = <a href="getFluxTarget.html" class="code" title="function [maxFlux, minFlux] = getFluxTarget(model,bioRxn,targetRxn,alpha)">getFluxTarget</a>(ecModel,params.bioRxn,targetRxn,alpha(i));
 0110     <span class="comment">% Set values which are under solver tolerance</span>
 0111     flux_MAX(flux_MAX &lt; 0 &amp; ~enzRxns) = 0;
 0112     flux_MAX(flux_MAX &gt; 0 &amp; enzRxns) = 0;

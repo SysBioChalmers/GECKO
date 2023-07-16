@@ -24,7 +24,7 @@
 <div class="box"><strong>getFluxTarget</strong></div>
 
 <h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
-<div class="box"><strong>function [maxFlux, minFlux] = getFluxTarget(model,targetRxn,csRxn,alpha,tolerance,modelAdapter) </strong></div>
+<div class="box"><strong>function [maxFlux, minFlux] = getFluxTarget(model,bioRxn,targetRxn,alpha) </strong></div>
 
 <h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
 <div class="fragment"><pre class="comment"> getFluxTarget
@@ -37,15 +37,11 @@
 
  Input:
    model           an ecModel in GECKO 3 format (with ecModel.ec structure).
+   bioRxn          rxn ID for the biomass reaction.
    targetRxn       rxn ID for the production target reaction, a exchange
                    reaction is recommended.
-   csRxn           rxn ID for the main carbon source uptake reaction.
    alpha           scalling factor for desired suboptimal growth.
                    (Optional, default 0.95)
-   tolerance       numerical tolerance for fixing bounds
-                   (Optional, default 1e-4)
-   modelAdapter    a loaded model adapter. (Optional, will otherwise use
-                   the default model adapter)
 
  Output:
    minFlux         vector of minimum flux rates at minimum target production,
@@ -54,7 +50,7 @@
                    corresponding to model.rxns
 
  Usage:
-   [maxFlux, minFlux] = simulateGrowth(ecModel,targetRxn,csRxn,alpha,tol)</pre></div>
+   [maxFlux, minFlux] = getFluxTarget(ecModel,bioRxn,targetRxn,alpha)</pre></div>
 
 <!-- crossreference -->
 <h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
@@ -69,7 +65,7 @@ This function is called by:
 
 
 <h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
-<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function [maxFlux, minFlux] = getFluxTarget(model,targetRxn,csRxn,alpha,tolerance,modelAdapter)</a>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function [maxFlux, minFlux] = getFluxTarget(model,bioRxn,targetRxn,alpha)</a>
 0002 <span class="comment">% getFluxTarget</span>
 0003 <span class="comment">%</span>
 0004 <span class="comment">%   Function that performs a series of LP optimizations on an ecModel,</span>
@@ -80,77 +76,58 @@ This function is called by:
 0009 <span class="comment">%</span>
 0010 <span class="comment">% Input:</span>
 0011 <span class="comment">%   model           an ecModel in GECKO 3 format (with ecModel.ec structure).</span>
-0012 <span class="comment">%   targetRxn       rxn ID for the production target reaction, a exchange</span>
-0013 <span class="comment">%                   reaction is recommended.</span>
-0014 <span class="comment">%   csRxn           rxn ID for the main carbon source uptake reaction.</span>
+0012 <span class="comment">%   bioRxn          rxn ID for the biomass reaction.</span>
+0013 <span class="comment">%   targetRxn       rxn ID for the production target reaction, a exchange</span>
+0014 <span class="comment">%                   reaction is recommended.</span>
 0015 <span class="comment">%   alpha           scalling factor for desired suboptimal growth.</span>
 0016 <span class="comment">%                   (Optional, default 0.95)</span>
-0017 <span class="comment">%   tolerance       numerical tolerance for fixing bounds</span>
-0018 <span class="comment">%                   (Optional, default 1e-4)</span>
-0019 <span class="comment">%   modelAdapter    a loaded model adapter. (Optional, will otherwise use</span>
-0020 <span class="comment">%                   the default model adapter)</span>
-0021 <span class="comment">%</span>
-0022 <span class="comment">% Output:</span>
-0023 <span class="comment">%   minFlux         vector of minimum flux rates at minimum target production,</span>
-0024 <span class="comment">%                   corresponding to model.rxns</span>
-0025 <span class="comment">%   maxFlux         vector of maximum flux rates at maximum target production,</span>
-0026 <span class="comment">%                   corresponding to model.rxns</span>
-0027 <span class="comment">%</span>
-0028 <span class="comment">% Usage:</span>
-0029 <span class="comment">%   [maxFlux, minFlux] = simulateGrowth(ecModel,targetRxn,csRxn,alpha,tol)</span>
+0017 <span class="comment">%</span>
+0018 <span class="comment">% Output:</span>
+0019 <span class="comment">%   minFlux         vector of minimum flux rates at minimum target production,</span>
+0020 <span class="comment">%                   corresponding to model.rxns</span>
+0021 <span class="comment">%   maxFlux         vector of maximum flux rates at maximum target production,</span>
+0022 <span class="comment">%                   corresponding to model.rxns</span>
+0023 <span class="comment">%</span>
+0024 <span class="comment">% Usage:</span>
+0025 <span class="comment">%   [maxFlux, minFlux] = getFluxTarget(ecModel,bioRxn,targetRxn,alpha)</span>
+0026 
+0027 <span class="keyword">if</span> nargin &lt; 4 || isempty(alpha)
+0028     alpha = 0.95;
+0029 <span class="keyword">end</span>
 0030 
-0031 <span class="keyword">if</span> nargin &lt; 6 || isempty(modelAdapter)
-0032     modelAdapter = ModelAdapterManager.getDefault();
-0033     <span class="keyword">if</span> isempty(modelAdapter)
-0034         error(<span class="string">'Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.'</span>)
-0035     <span class="keyword">end</span>
-0036 <span class="keyword">end</span>
-0037 params = modelAdapter.getParameters();
-0038 
-0039 <span class="keyword">if</span> nargin &lt; 5 || isempty(tolerance)
-0040     tolerance = 1e-4;
-0041 <span class="keyword">end</span>
-0042 
-0043 <span class="keyword">if</span> nargin &lt; 4 || isempty(alpha)
-0044     alpha = 0.95;
-0045 <span class="keyword">end</span>
-0046 
-0047 <span class="comment">% Get relevant rxn indexes</span>
-0048 targetRxnIdx = getIndexes(model, targetRxn,<span class="string">'rxns'</span>);
-0049 csRxnIdx = getIndexes(model, csRxn,<span class="string">'rxns'</span>);
-0050 bioRxnIdx = getIndexes(model, params.bioRxn,<span class="string">'rxns'</span>);
-0051 
-0052 <span class="comment">% Maximize growth and fix carbon source and suboptimal growth</span>
-0053 model = setParam(model, <span class="string">'obj'</span>, params.bioRxn, 1);
-0054 sol = solveLP(model);
-0055 model = setParam(model, <span class="string">'var'</span>, csRxn, sol.x(csRxnIdx), tolerance);
-0056 model = setParam(model, <span class="string">'lb'</span>, params.bioRxn, sol.x(bioRxnIdx) * (1-tolerance) * alpha);
-0057 
-0058 <span class="comment">% If minimum fluxes are required get them</span>
-0059 minFlux = [];
-0060 <span class="keyword">if</span> nargout == 2
-0061     <span class="comment">% Minimize target</span>
-0062     model = setParam(model, <span class="string">'obj'</span>, targetRxn, -1);
-0063     sol = solveLP(model);
-0064 
-0065     <span class="comment">% Now fix min value for target and minimize proteins usage</span>
-0066     model.lb(targetRxnIdx) = sol.x(targetRxnIdx) * (1-tolerance);
-0067     model = setParam(model, <span class="string">'obj'</span>, <span class="string">'prot_pool_exchange'</span>, 1);
-0068     minSol = solveLP(model,1);
-0069     minFlux = minSol.x;
-0070 <span class="keyword">end</span>
-0071 
-0072 <span class="comment">% Maximize target</span>
-0073 model = setParam(model, <span class="string">'obj'</span>, targetRxn, 1);
-0074 sol = solveLP(model);
-0075 
-0076 <span class="comment">% Now fix max value for target and minimize proteins usage</span>
-0077 model.lb(targetRxnIdx) = sol.x(targetRxnIdx) * (1-tolerance);
-0078 model = setParam(model, <span class="string">'obj'</span>, <span class="string">'prot_pool_exchange'</span>, 1);
-0079 maxSol = solveLP(model);
-0080 maxFlux = maxSol.x;
-0081 
-0082 <span class="keyword">end</span></pre></div>
+0031 <span class="comment">% Fix a suboptimal alpha if equal to 1</span>
+0032 <span class="keyword">if</span> alpha == 1
+0033     alpha = 0.99;
+0034 <span class="keyword">end</span>
+0035 
+0036 <span class="comment">% Get relevant rxn indexes</span>
+0037 bioRxnIdx    = getIndexes(model, bioRxn,<span class="string">'rxns'</span>);
+0038 poolIdx      = strcmpi(model.rxns, <span class="string">'prot_pool_exchange'</span>);
+0039 
+0040 <span class="comment">% Maximize growth and fix carbon source and suboptimal growth</span>
+0041 model = setParam(model, <span class="string">'obj'</span>, bioRxn, 1);
+0042 sol   = solveLP(model);
+0043 model = setParam(model, <span class="string">'lb'</span>, bioRxn, sol.x(bioRxnIdx) * alpha);
+0044 
+0045 <span class="comment">% Minimize prot_pool_exchange and fix</span>
+0046 model = setParam(model, <span class="string">'obj'</span>, <span class="string">'prot_pool_exchange'</span>, 1);
+0047 sol   = solveLP(model);
+0048 model = setParam(model, <span class="string">'lb'</span>, <span class="string">'prot_pool_exchange'</span>, sol.x(poolIdx) * 1.01);
+0049 
+0050 <span class="comment">% If minimum fluxes are required get them</span>
+0051 minFlux = [];
+0052 <span class="keyword">if</span> nargout == 2
+0053     <span class="comment">% Minimize target</span>
+0054     model = setParam(model, <span class="string">'obj'</span>, targetRxn, -1);
+0055     minSol = solveLP(model);
+0056     minFlux = minSol.x;
+0057 <span class="keyword">end</span>
+0058 
+0059 <span class="comment">% Maximize target</span>
+0060 model = setParam(model, <span class="string">'obj'</span>, targetRxn, 1);
+0061 maxSol = solveLP(model);
+0062 maxFlux = maxSol.x;
+0063 <span class="keyword">end</span></pre></div>
 <hr><address>Generated by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

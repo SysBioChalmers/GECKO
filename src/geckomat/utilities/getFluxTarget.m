@@ -60,5 +60,4 @@ end
 model = setParam(model, 'obj', targetRxn, 1);
 maxSol = solveLP(model);
 maxFlux = maxSol.x;
-
 end
