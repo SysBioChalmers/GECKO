@@ -13,7 +13,7 @@
 % might have more up-to-date descriptions about the capabilities and
 % functions, which were introduced after the Nature Protocols paper was
 % published. This script will have additional commands and analyses that
-% not included as such in the paper. This script should always work with
+% are not included in the paper as such. This script should always work with
 % the most recent GECKO3 release.
 
 %% Preparation stage for ecModel reconstruction
@@ -63,7 +63,8 @@ params = ModelAdapter.getParameters();
 % However, changes should not be made in this structure. Making a change in
 % ModelAdapter in the Workspace has no effect (unless the ModelAdapter
 % is explicitly provided as a function input), rather you should make the
-% change in the adapter file and run anew ModelAdapterManager.setDefault().
+% change in the adapter file and run again the command
+% ModelAdapterManager.setDefault()
 
 % STEP 2 Load conventional yeast-GEM
 % If the location to the conventional GEM was already set in the modelAdapter,
@@ -104,8 +105,8 @@ doc makeEcModel
 saveEcModel(ecModel,'ecYeastGEM_stage1.yml');
 
 %% STAGE 2: integration of kcat into the ecModel structure
-%ecModel=loadEcModel('ecYeastGEM_stage1.yml'); % Uncomment if you want to
-%reload model.
+% Uncomment the line below if you want to reload the model.
+%ecModel=loadEcModel('ecYeastGEM_stage1.yml'); 
 
 % Decide which kcat source to use. In the steps below, all options are
 % shown. Not all are required, it is up to the user to decide which ones
@@ -131,17 +132,16 @@ kcatList_fuzzy  = fuzzyKcatMatching(ecModel);
 % Requires metabolite SMILES, which are gathered from PubChem.
 [ecModel, noSmiles] = findMetSmiles(ecModel);
 
-% DLKcat runs in Python. An input file is written, which is then used by
-% DLKcat, while the output file is read back into MATLAB. The full_ecModel
-% tutorial already comes with a DLKcat.tsv file populated with kcat values.
-% If this file should be regenerated, the line below should be uncommented.
-% Note that this overwrites the existing files, thereby discarding existing
-% kcat predictions.
+% An input file is written, which is then used by DLKcat, while the output
+% file is read back into MATLAB. The full_ecModel tutorial already comes
+% with a DLKcat.tsv file populated with kcat values. If this file should be
+% regenerated, the line below should be uncommented. Note that this
+% overwrites the existing files, thereby discarding existing kcat predictions.
 %writeDLKcatInput(ecModel,[],[],[],[],true);
 
 % runDLKcat will run the DLKcat algorithm via a Docker image. If the
 % DLKcat.tsv file already has kcat values, these will all be overwritten.
-runDLKcat();
+%runDLKcat();
 kcatList_DLKcat = readDLKcatOutput(ecModel);
 
 % STEP 8 Combine kcat from BRENDA and DLKcat
@@ -165,8 +165,8 @@ ecModel = getKcatAcrossIsozymes(ecModel);
 
 % STEP 12 Get standard kcat
 % Assign a protein cost to reactions without gene assocation. These
-% reactions are identified as those with empty entry in ecModel.grRules.
-% The following reactions are exempted:
+% reactions are identified as those without a corresponding entry in
+% ecModel.grRules. The following reactions are exempted:
 % A Exchange reactions: exchanging a metabolite across the model boundary,
 %   not representing a real enzymatic reaction.
 % B Transport reactions: transporting a metabolite with the same name from
@@ -201,13 +201,13 @@ ecModel = applyKcatConstraints(ecModel);
 % (Ptot), multiplied by the f-factor (ratio of enzymes/proteins) and the
 % sigma-factor (how saturated enzymes are on average: how close to their
 % Vmax to they function based on e.g. metabolite concentrations). In 
-% modelAdapter Ptot, f- and sigma-factors can all be specified (as rough
+% modelAdapter Ptot, f- and sigma-factors are specified (as rough
 % estimates, 0.5 for each of the three parameters is reasonable).
 Ptot  = params.Ptot;
 f     = params.f;
 sigma = params.sigma;
 
-% But these values can also be defined separately. The f-factor can be 
+% However, these values can also be defined separately. The f-factor can be 
 % calculated from quantitative proteomics data, for instance with data that
 % is available via PAXdb (https://pax-db.org/).
 f = calculateFfactor(ecModel); % Optional
@@ -221,8 +221,8 @@ ecModel = setProtPoolSize(ecModel,Ptot,f,sigma);
 saveEcModel(ecModel,'ecYeastGEM_stage2.yml');
 
 %% STAGE 3: model tuning
-%ecModel=loadEcModel('ecYeastGEM_stage2.yml'); % Uncomment if you want to
-%reload model.
+% Uncomment the line below if you want to reload the model.
+%ecModel=loadEcModel('ecYeastGEM_stage2.yml');
 
 % STEP 15 Test maximum growth rate
 % Test whether the model is able to reach maximum growth if glucose uptake
@@ -274,12 +274,13 @@ kcatList_merged.origin(rxnIdx) % 4: any organism, any substrate, kcat.
 kcatList_merged.eccodes(rxnIdx) % EC number 6.3.5.3.
 
 % On BRENDA https://www.brenda-enzymes.org/enzyme.php?ecno=6.3.5.3#TURNOVER%20NUMBER%20[1/s]
-% The kcat value is from E. coli with NH4+ as substrate. The reaction
+% the kcat value is from E. coli with NH4+ as substrate. The reaction
 % normally uses glutamine, so this kcat value might be misleading.
-% Inspecting the abstract of the paper that is reporting this value https://pubmed.ncbi.nlm.nih.gov/2659070/
-% actually states "and NH3 can replace glutamine as a nitrogen donor with a
-% Km = 1 M and a turnover of 3 min-1 (2% glutamine turnover)". The paper
-% also reports a specific activity that can be used instead:
+% Inspecting the abstract of the paper that is reporting this value
+% https://pubmed.ncbi.nlm.nih.gov/2659070/ actually states "and NH3 can
+% replace glutamine as a nitrogen donor with a Km = 1 M and a turnover of
+% 3 min-1 (2% glutamine turnover)". The paper also reports a specific
+% activity that can be used instead:
 % https://www.brenda-enzymes.org/enzyme.php?ecno=6.3.5.3#SPECIFIC%20ACTIVITY%20[%C2%B5mol/min/mg]
 
 % Convert specific activity of 2.15 umol/min/mg protein, where the protein
@@ -293,7 +294,7 @@ convKcat = convKcat * enzMW % mol/sec/mol protein, same as 1/sec.
 
 % New kcat is 5.3358, which is not far away from the tuned kcat of 5.
 
-% This can be applied to the ecModel directly, or (preferred) should be
+% This can be applied to the ecModel directly, or preferrably it should be
 % included in the data/customKcat.tsv file.
 ecModel = setKcatForReactions(ecModel,'r_0079',convKcat);
 ecModel = applyKcatConstraints(ecModel);
@@ -304,13 +305,13 @@ saveEcModel(ecModel,'ecYeastGEM_stage3.yml');
 saveEcModel(ecModel,'ecYeastGEM.yml');
 
 %% STAGE 4 integration of proteomics data into the ecModel.
-%ecModel=loadEcModel('ecYeastGEM_stage3.yml'); % Uncomment if you want to
-%reload model.
+% Uncomment the line below if you want to reload the model.
+%ecModel=loadEcModel('ecYeastGEM_stage3.yml'); 
 
 % STEP 19 Load proteomics data and constrain ecModel
 protData = loadProtData(3); %Number of replicates, only one experiment.
-ecModel = fillProtConcs(ecModel,protData);
-ecModel = constrainProtConcs(ecModel);
+ecModel = fillEnzConcs(ecModel,protData);
+ecModel = constrainEnzConcs(ecModel);
 
 % STEP 20 Update protein pool
 % The protein pool reaction will be constraint by the remaining, unmeasured
@@ -327,40 +328,47 @@ ecModel = updateProtPool(ecModel,fluxData.Ptot(1));
 % gathering Ptot, but is repeated here nonetheless. Flux data is read from
 % /data/fluxData.tsv.
 fluxData = loadFluxData();
-ecModel = constrainFluxData(ecModel,fluxData,1,'max','loose'); % Use first condition.
-sol = solveLP(ecModel); % To observe if growth was reached.
+% Use first condition.
+ecModel = constrainFluxData(ecModel,fluxData,1,'max','loose');
+% Observe if the intended growth rate was reached.
+sol = solveLP(ecModel);
 fprintf('Growth rate that is reached: %f /hour.\n', abs(sol.f))
-% Growth rate of 0.1 is by far not reached, flexibilize protein
-% concentrations.
+% The growth rate of 0.1 is far from being reached. Therefore, the next
+% step is to flexibilize enzyme concentrations.
 
-% STEP 22 Protein concentrations are flexibilized (increased), until the
+% STEP 22 Enzyme concentrations are flexibilized (increased), until the
 % intended growth rate is reached. This is condition-specific, so the
 % intended growth rate is gathered from the fluxData structure.
-[ecModel, flexProt] = flexibilizeProtConcs(ecModel,fluxData.grRate(1),10);
+[ecModel, flexEnz] = flexibilizeEnzConcs(ecModel,fluxData.grRate(1),10);
 
-% Neither individual protein levels nor total protein pool are limiting
+% Neither individual enzyme levels nor total protein pool are limiting
 % growth. Test whether the starting model is able to reach 0.1.
+% If needed, uncomment the next line to reload the starting model
+%model = loadConventionalGEM();
 model = constrainFluxData(model,fluxData);
 sol = solveLP(model)
+fprintf('Growth rate that is reached: %f /hour.\n', abs(sol.f))
 
-% It also only reaches 0.0889! So the metabolic network would not be able
-% to adhere to all measured constraints. Perhaps there is something
-% incorrect with the measurements? Regardless, the ecModel is now able to
-% reach about 0.0889, which will be fine for now.
+% The starting model reaches a similar growth rate as the ecModel after
+% flexibilizing enzyme concentrations. So the metabolic network would not
+% be able to adhere to all measured constraints. Perhaps there is something
+% incorrect with the measurements? Regardless, the ecModel is able to reach
+% the same growth rate as the starting model, which will be fine for now.
 sol = solveLP(ecModel)
 
-% Inspect the flexibilized proteins.
-struct2table(flexProt)
+% To inspect the flexibilized enzymes, we can look at the flexEnz
+% structure. The enzymes are ordered by the ratio of increase, from high
+% to low.
+struct2table(flexEnz)
 
-% Growth is reached! Let's make sure we store this functional model.
 saveEcModel(ecModel,'ecYeastGEM_stage4');
 
 %% STAGE 5: simulation and analysis
 % STEP 23 Example of various useful RAVEN functions
-% % Set the upper bound of reaction r_0001 to 10.
-% ecModel = setParam(ecModel,'ub','r_0001',10);
-% % Set the lower bound of reaction r_0001 to 0.
-% ecModel = setParam(ecModel,'lb','r_0001',0);
+% % Set the upper bound of reaction r_0003 to 10.
+% ecModel = setParam(ecModel,'ub','r_0003',10);
+% % Set the lower bound of reaction r_0003 to 0.
+% ecModel = setParam(ecModel,'lb','r_0003',0);
 % % Set the objective function to maximize reaction 'r_4041'.
 % ecModel = setParam(ecModel,'obj','r_4041',1);
 % % Set the objective function to minimize protein usage.
@@ -456,8 +464,8 @@ numel(model.rxns)
 
 % STEP 28 Perform (ec)FVA
 % Perform FVA on a conventional GEM, ecModel, and ecModel plus proteomics
-% integration, all under similar exchange flux constraints.
-% First make sure that the correct models are loaded.
+% integration, all under similar exchange flux constraints. First make sure
+% that the correct models are loaded.
 model = loadConventionalGEM();
 ecModel = loadEcModel('ecYeastGEM.yml');
 ecModelProt = loadEcModel('ecYeastGEM_stage4.yml');

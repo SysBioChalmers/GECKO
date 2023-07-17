@@ -1,5 +1,5 @@
-function [minFlux, maxFlux] = getFluxTarget(ecModel,targetRxn,csRxn,alpha,tolerance,modelAdapter)
-%getFluxTarget
+function [maxFlux, minFlux] = getFluxTarget(model,bioRxn,targetRxn,alpha)
+% getFluxTarget
 %
 %   Function that performs a series of LP optimizations on an ecModel,
 %   by first maximizing biomass, then fixing a suboptimal value and 
@@ -8,16 +8,12 @@ function [minFlux, maxFlux] = getFluxTarget(ecModel,targetRxn,csRxn,alpha,tolera
 %   subject to the optimal production level.
 %
 % Input:
-%   ecModel         an ecModel in GECKO 3 format (with ecModel.ec structure).
+%   model           an ecModel in GECKO 3 format (with ecModel.ec structure).
+%   bioRxn          rxn ID for the biomass reaction.
 %   targetRxn       rxn ID for the production target reaction, a exchange
 %                   reaction is recommended.
-%   csRxn           rxn ID for the main carbon source uptake reaction.
 %   alpha           scalling factor for desired suboptimal growth.
-%                   (Optional, default 1)
-%   tolerance       numerical tolerance for fixing bounds
-%                   (Optional, default 1E-6)
-%   modelAdapter    a loaded model adapter. (Optional, will otherwise use
-%                   the default model adapter)
+%                   (Optional, default 0.95)
 %
 % Output:
 %   minFlux         vector of minimum flux rates at minimum target production,
@@ -26,64 +22,42 @@ function [minFlux, maxFlux] = getFluxTarget(ecModel,targetRxn,csRxn,alpha,tolera
 %                   corresponding to model.rxns
 %
 % Usage:
-%   [minFlux, maxFlux] = simulateGrowth(ecModel,targetRxn,csRxn,alpha,tol)
-
-if nargin < 6 || isempty(modelAdapter)
-    modelAdapter = ModelAdapterManager.getDefault();
-    if isempty(modelAdapter)
-        error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
-    end
-end
-params = modelAdapter.getParameters();
-
-if nargin < 5 || isempty(tolerance)
-    tolerance = 1E-6;
-end
+%   [maxFlux, minFlux] = getFluxTarget(ecModel,bioRxn,targetRxn,alpha)
 
 if nargin < 4 || isempty(alpha)
-    alpha = 1;
+    alpha = 0.95;
 end
 
-% Fix carbon source uptake
-csRxnIdx = strcmpi(ecModel.rxns,csRxn);
-uptake = ecModel.lb(csRxnIdx);
-
-% Check if a carbon source uptake rate have been defined
-if uptake ~= -1000
-    ecModel = setParam(ecModel, 'var', csRxn, uptake, tolerance);
-    
-    % Maximize growth
-    ecModel = setParam(ecModel, 'obj', params.bioRxn, 1);
-    sol = solveLP(ecModel);
-else
-    % Maximize growth an use the uptake rate predicted to constraint carbon source
-    ecModel = setParam(ecModel, 'obj', params.bioRxn, 1);
-    sol = solveLP(ecModel, 1);
-
-    ecModel = setParam(ecModel, 'var', csRxn, sol.x(csRxnIdx), tolerance);
-    
-    warning(['The maximum uptake rate for the carbon source is -1000. ' ...
-        num2str(abs(sol.x(csRxnIdx))) ' [mmol/gDW/h] was used instead'])
+% Fix a suboptimal alpha if equal to 1
+if alpha == 1
+	alpha = 0.99;
 end
 
-% Fix growth suboptimal
-bioRxnIdx = strcmpi(ecModel.rxns, params.bioRxn);
-ecModel = setParam(ecModel, 'lb', params.bioRxn, sol.x(bioRxnIdx) * (1-tolerance) * alpha);
+% Get relevant rxn indexes
+bioRxnIdx    = getIndexes(model, bioRxn,'rxns');
+poolIdx      = strcmpi(model.rxns, 'prot_pool_exchange');
+
+% Maximize growth and fix carbon source and suboptimal growth
+model = setParam(model, 'obj', bioRxn, 1);
+sol   = solveLP(model);
+model = setParam(model, 'lb', bioRxn, sol.x(bioRxnIdx) * alpha);
 
 % Minimize prot_pool_exchange and fix
-poolIdx = strcmpi(ecModel.rxns, 'prot_pool_exchange');
-ecModel = setParam(ecModel, 'obj', 'prot_pool_exchange', 1);
-sol = solveLP(ecModel);
-ecModel = setParam(ecModel, 'lb', 'prot_pool_exchange', sol.x(poolIdx) * (1+tolerance));
+model = setParam(model, 'obj', 'prot_pool_exchange', 1);
+sol   = solveLP(model);
+model = setParam(model, 'lb', 'prot_pool_exchange', sol.x(poolIdx) * 1.01);
 
-% Minimize target
-ecModel = setParam(ecModel, 'obj', targetRxn, -1);
-sol = solveLP(ecModel);
-minFlux = sol.x;
+% If minimum fluxes are required get them
+minFlux = [];
+if nargout == 2
+    % Minimize target
+    model = setParam(model, 'obj', targetRxn, -1);
+    minSol = solveLP(model);
+    minFlux = minSol.x;
+end
 
 % Maximize target
-ecModel = setParam(ecModel, 'obj', targetRxn, 1);
-sol = solveLP(ecModel);
-maxFlux = sol.x;
-
+model = setParam(model, 'obj', targetRxn, 1);
+maxSol = solveLP(model);
+maxFlux = maxSol.x;
 end

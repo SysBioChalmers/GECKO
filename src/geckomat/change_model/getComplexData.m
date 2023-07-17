@@ -123,15 +123,6 @@ for i = 1:data.size
             complexData(i,6) = {repelem(0,numel(complexData{i,4}))};
             complexData(i,7) = {0};
         end
-    else
-        %
-        complexData(i,1) = {complexID};
-        complexData(i,2) = {' '};
-        complexData(i,3) = {' '};
-        complexData(i,4) = {' '};
-        complexData(i,5) = {' '};
-        complexData(i,6) = {0};
-        complexData(i,7) = {0};
     end
 end
 fprintf('\n');

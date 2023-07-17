@@ -21,6 +21,10 @@ function [mappedFlux, enzUsageFlux, usageEnz] = mapRxnsToConv(ecModel, model, fl
 % Usage:
 %   [mappedFlux, enzUsageFlux, usageEnz] = mapRxnsToConv(ecModel, model, fluxVect)
 
+if isempty(fluxVect)
+    error('No or empty flux vector provided')
+end
+
 fluxes = fluxVect;
 rxnIDs = ecModel.rxns;
 

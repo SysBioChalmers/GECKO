@@ -1,0 +1,339 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of ecFSEOF</title>
+  <meta name="keywords" content="ecFSEOF">
+  <meta name="description" content="ecFSEOF">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../../index.html">Home</a> &gt;  <a href="#">src</a> &gt; <a href="#">geckomat</a> &gt; <a href="index.html">utilities</a> &gt; ecFSEOF.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../../index.html"><img alt="<" border="0" src="../../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for src\geckomat\utilities&nbsp;<img alt=">" border="0" src="../../../right.png"></a></td></tr></table>-->
+
+<h1>ecFSEOF
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>ecFSEOF</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>function FC = ecFSEOF(ecModel,targetRxn,csRxn,alphaLims,nSteps,filePath,filterG,modelAdapter) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> ecFSEOF
+   Function that runs Flux-Scanning with Enforced Objective Function (FSEOF)
+   for a specified production target.
+
+ Input:
+   ecModel         an ecModel in GECKO 3 format (with ecModel.ec structure).
+   targetRxn       rxn ID for the production target reaction, a exchange
+                   reaction is recommended.
+   csRxn           rxn ID for the main carbon source uptake reaction.
+   alphaLims       vector of Minimum and maximum biomass scalling factors for
+                   enforced objective limits (e.g. [0.5 0.75]). Max value: 1.
+                   Max value recomended 0.9 (Optional, default [0.5 0.75])
+   nSteps          number of steps for suboptimal objective in FSEOF.
+                   (Optional, default 16)
+   filePath        file path for results output. It will store two files:
+                   - at the genes level, ecFSEOF_genes.tsv
+                   - at the reactions level, ecFSEOF_rxns.tsv
+                   (Optional, default in the 'output' sub-folder taken from
+                   modelAdapter, e.g. output/ecFSEOF_rxns.tsv)
+   filterG         logical value. TRUE if genes K_scores results should be
+                   filtered according to the alpha vector distribution
+                   (Optional, default true)
+   modelAdapter    a loaded model adapter. (Optional, will otherwise use
+                   the default model adapter)
+
+ Output:
+   FC           structure with all results. Contains the following fields:
+                - flux_WT:   flux distribution for the WT strain (100% of
+                             carbon towards growth).
+                - alpha:     scalling factors used for enforced objetive
+                             limits
+                - v_matrix:  fluxes for each reaction in rxnsTable.rxns
+                             and each alpha.
+                - k_matrix:  fold changes for each reaction in
+                             rxnsTable.rxns and each alpha.
+                - rxnsTable: a list with all reactions with fluxes that
+                             change consistently as target production 
+                             increases.
+                             Contains: ID, name, k_score, gene rule, equation
+                - geneTable: a list with all selected targets that
+                             increase production.
+                             Contains: gene, shortName, k_score
+
+ Usage:
+   FC = ecFSEOF(ecModel,targetRxn,csRxn,alphaLims,nSteps,filePath,filterG,modelAdapter)</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+<li><a href="getFluxTarget.html" class="code" title="function [maxFlux, minFlux] = getFluxTarget(model,bioRxn,targetRxn,alpha)">getFluxTarget</a>	getFluxTarget</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function FC = ecFSEOF(ecModel,targetRxn,csRxn,alphaLims,nSteps,filePath,filterG,modelAdapter)</a>
+0002 <span class="comment">% ecFSEOF</span>
+0003 <span class="comment">%   Function that runs Flux-Scanning with Enforced Objective Function (FSEOF)</span>
+0004 <span class="comment">%   for a specified production target.</span>
+0005 <span class="comment">%</span>
+0006 <span class="comment">% Input:</span>
+0007 <span class="comment">%   ecModel         an ecModel in GECKO 3 format (with ecModel.ec structure).</span>
+0008 <span class="comment">%   targetRxn       rxn ID for the production target reaction, a exchange</span>
+0009 <span class="comment">%                   reaction is recommended.</span>
+0010 <span class="comment">%   csRxn           rxn ID for the main carbon source uptake reaction.</span>
+0011 <span class="comment">%   alphaLims       vector of Minimum and maximum biomass scalling factors for</span>
+0012 <span class="comment">%                   enforced objective limits (e.g. [0.5 0.75]). Max value: 1.</span>
+0013 <span class="comment">%                   Max value recomended 0.9 (Optional, default [0.5 0.75])</span>
+0014 <span class="comment">%   nSteps          number of steps for suboptimal objective in FSEOF.</span>
+0015 <span class="comment">%                   (Optional, default 16)</span>
+0016 <span class="comment">%   filePath        file path for results output. It will store two files:</span>
+0017 <span class="comment">%                   - at the genes level, ecFSEOF_genes.tsv</span>
+0018 <span class="comment">%                   - at the reactions level, ecFSEOF_rxns.tsv</span>
+0019 <span class="comment">%                   (Optional, default in the 'output' sub-folder taken from</span>
+0020 <span class="comment">%                   modelAdapter, e.g. output/ecFSEOF_rxns.tsv)</span>
+0021 <span class="comment">%   filterG         logical value. TRUE if genes K_scores results should be</span>
+0022 <span class="comment">%                   filtered according to the alpha vector distribution</span>
+0023 <span class="comment">%                   (Optional, default true)</span>
+0024 <span class="comment">%   modelAdapter    a loaded model adapter. (Optional, will otherwise use</span>
+0025 <span class="comment">%                   the default model adapter)</span>
+0026 <span class="comment">%</span>
+0027 <span class="comment">% Output:</span>
+0028 <span class="comment">%   FC           structure with all results. Contains the following fields:</span>
+0029 <span class="comment">%                - flux_WT:   flux distribution for the WT strain (100% of</span>
+0030 <span class="comment">%                             carbon towards growth).</span>
+0031 <span class="comment">%                - alpha:     scalling factors used for enforced objetive</span>
+0032 <span class="comment">%                             limits</span>
+0033 <span class="comment">%                - v_matrix:  fluxes for each reaction in rxnsTable.rxns</span>
+0034 <span class="comment">%                             and each alpha.</span>
+0035 <span class="comment">%                - k_matrix:  fold changes for each reaction in</span>
+0036 <span class="comment">%                             rxnsTable.rxns and each alpha.</span>
+0037 <span class="comment">%                - rxnsTable: a list with all reactions with fluxes that</span>
+0038 <span class="comment">%                             change consistently as target production</span>
+0039 <span class="comment">%                             increases.</span>
+0040 <span class="comment">%                             Contains: ID, name, k_score, gene rule, equation</span>
+0041 <span class="comment">%                - geneTable: a list with all selected targets that</span>
+0042 <span class="comment">%                             increase production.</span>
+0043 <span class="comment">%                             Contains: gene, shortName, k_score</span>
+0044 <span class="comment">%</span>
+0045 <span class="comment">% Usage:</span>
+0046 <span class="comment">%   FC = ecFSEOF(ecModel,targetRxn,csRxn,alphaLims,nSteps,filePath,filterG,modelAdapter)</span>
+0047 
+0048 <span class="keyword">if</span> nargin &lt; 8 || isempty(modelAdapter)
+0049     modelAdapter = ModelAdapterManager.getDefault();
+0050     <span class="keyword">if</span> isempty(modelAdapter)
+0051         error(<span class="string">'Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.'</span>)
+0052     <span class="keyword">end</span>
+0053 <span class="keyword">end</span>
+0054 params = modelAdapter.getParameters();
+0055 
+0056 <span class="keyword">if</span> nargin &lt; 7 || isempty(filterG)
+0057     filterG = true;
+0058 <span class="keyword">end</span>
+0059 
+0060 <span class="keyword">if</span> nargin &lt; 6 || isempty(filePath)
+0061     filePath = fullfile(params.path,<span class="string">'output'</span>);
+0062 <span class="keyword">end</span>
+0063 
+0064 <span class="keyword">if</span> nargin &lt; 5 || isempty(nSteps)
+0065     nSteps = 16;
+0066 <span class="keyword">end</span>
+0067 
+0068 <span class="keyword">if</span> nargin &lt; 4 || isempty(alphaLims)
+0069     alphaLims = [0.5 0.75];
+0070 <span class="keyword">end</span>
+0071 
+0072 <span class="keyword">if</span> numel(alphaLims) ~= 2
+0073     error(<span class="string">'alphaLims parameter should be a vector of two values'</span>)
+0074 <span class="keyword">end</span>
+0075 
+0076 <span class="comment">% Standardize grRules and rxnGeneMat in model</span>
+0077 [grRules,rxnGeneMat] = standardizeGrRules(ecModel,true);
+0078 ecModel.grRules      = grRules;
+0079 ecModel.rxnGeneMat   = rxnGeneMat;
+0080 
+0081 <span class="comment">% Check carbon source uptake rate and LB</span>
+0082 ecModel = setParam(ecModel, <span class="string">'obj'</span>, params.bioRxn, 1);
+0083 sol = solveLP(ecModel, 1);
+0084 csRxnIdx = strcmpi(ecModel.rxns,csRxn);
+0085 
+0086 <span class="keyword">if</span> sol.x(csRxnIdx) &lt; ecModel.lb(csRxnIdx)
+0087     printOrange(<span class="string">'WARNING: Carbon source LB and uptake rate are not equal.'</span>)
+0088 <span class="keyword">end</span>
+0089 
+0090 <span class="comment">% run FSEOF analysis</span>
+0091 
+0092 <span class="comment">% Define alpha vector for suboptimal enforced objective values and</span>
+0093 <span class="comment">% initialize fluxes and K_scores matrices</span>
+0094 alpha = alphaLims(1):((alphaLims(2)-alphaLims(1))/(nSteps-1)):alphaLims(2);
+0095 v_matrix = zeros(length(ecModel.rxns),length(alpha));
+0096 k_matrix = zeros(length(ecModel.rxns),length(alpha));
+0097 enzRxns  = contains(ecModel.rxns,<span class="string">'usage_prot_'</span>);
+0098 tolerance = 1e-4;
+0099 
+0100 <span class="comment">% Simulate WT (100% growth) and forced (X% growth and the rest towards product):</span>
+0101 flux_WT = <a href="getFluxTarget.html" class="code" title="function [maxFlux, minFlux] = getFluxTarget(model,bioRxn,targetRxn,alpha)">getFluxTarget</a>(ecModel,params.bioRxn,targetRxn,1);
+0102 
+0103 <span class="comment">% Set values which are under solver tolerance</span>
+0104 flux_WT(flux_WT &lt; 0 &amp; ~enzRxns) = 0;
+0105 flux_WT(flux_WT &gt; 0 &amp; enzRxns) = 0;
+0106 
+0107 progressbar(<span class="string">'Flux Scanning with Enforced Objective Function'</span>)
+0108 <span class="keyword">for</span> i = 1:length(alpha)
+0109     flux_MAX = <a href="getFluxTarget.html" class="code" title="function [maxFlux, minFlux] = getFluxTarget(model,bioRxn,targetRxn,alpha)">getFluxTarget</a>(ecModel,params.bioRxn,targetRxn,alpha(i));
+0110     <span class="comment">% Set values which are under solver tolerance</span>
+0111     flux_MAX(flux_MAX &lt; 0 &amp; ~enzRxns) = 0;
+0112     flux_MAX(flux_MAX &gt; 0 &amp; enzRxns) = 0;
+0113     v_matrix(:,i) = flux_MAX;
+0114     k_matrix(:,i) = flux_MAX./flux_WT;
+0115     progressbar(i/length(alpha))
+0116 <span class="keyword">end</span>
+0117 progressbar(1) <span class="comment">% Make sure it closes</span>
+0118 
+0119 <span class="comment">% take out rxns with no grRule and standard gene</span>
+0120 withGR   = ~cellfun(@isempty,ecModel.grRules);
+0121 stdPos   = contains(ecModel.grRules,<span class="string">'standard'</span>);
+0122 withGR(stdPos) = 0;
+0123 rxns     = ecModel.rxns(withGR);
+0124 v_matrix = v_matrix(withGR,:);
+0125 k_matrix = k_matrix(withGR,:);
+0126 rxnGeneM = ecModel.rxnGeneMat(withGR,:);
+0127 
+0128 <span class="comment">% Filter out rxns that are always zero -&gt; k=0/0=NaN:</span>
+0129 non_nan  = sum(~isnan(k_matrix),2) &gt; 0;
+0130 rxns     = rxns(non_nan,:);
+0131 v_matrix = v_matrix(non_nan,:);
+0132 k_matrix = k_matrix(non_nan,:);
+0133 rxnGeneM = rxnGeneM(non_nan,:);
+0134 
+0135 <span class="comment">% Replace remaining NaNs with 1s:</span>
+0136 k_matrix(isnan(k_matrix)) = 1;
+0137 
+0138 <span class="comment">% Replace any Inf value with 1000 (maximum value is ~700):</span>
+0139 k_matrix(k_matrix &gt; 1000)  = 1000;
+0140 <span class="comment">% k_matrix(k_matrix &lt; -1000) = 2;</span>
+0141 
+0142 <span class="comment">% Filter out values that are inconsistent at different alphas:</span>
+0143 always_down = sum(k_matrix &lt;= 1,2) == length(alpha);
+0144 always_up   = sum(k_matrix &gt;= 1,2) == length(alpha);
+0145 
+0146 <span class="comment">% Identify those reactions with mixed patterns</span>
+0147 incons_rxns  = always_down + always_up == 0;
+0148 
+0149 <span class="comment">% Identify genes that are linked to &quot;inconsistent rxns&quot;</span>
+0150 incons_genes = sum(rxnGeneM(incons_rxns,:),1) &gt; 0;
+0151 
+0152 <span class="comment">% Finally, inconsistent reactions are those that are not conected</span>
+0153 <span class="comment">% to &quot;inconsistent genes&quot; from the original &quot;inconsistent rxns&quot; set</span>
+0154 incons_rxns  = sum(rxnGeneM(:,incons_genes),2) &gt; 0;
+0155 
+0156 <span class="comment">% Keep results for the consistent rxns exclusively</span>
+0157 rxns     = rxns(~incons_rxns,:);
+0158 v_matrix = v_matrix(~incons_rxns,:);
+0159 k_matrix = k_matrix(~incons_rxns,:);
+0160 rxnGeneM = rxnGeneM(~incons_rxns,:);
+0161 
+0162 <span class="comment">% Get median k-score across steps and order from highest to lowest</span>
+0163 k_rxns    = mean(k_matrix,2);
+0164 [~,order] = sort(k_rxns,<span class="string">'descend'</span>);
+0165 rxns      = rxns(order,:);
+0166 v_matrix  = v_matrix(order,:);
+0167 k_matrix  = k_matrix(order,:);
+0168 rxnGeneM  = rxnGeneM(order,:);
+0169 k_rxns    = k_rxns(order,:);
+0170 
+0171 <span class="comment">% Create list of remaining genes and filter out any inconsistent score:</span>
+0172 <span class="comment">% Just those genes that are connected to the remaining rxns are</span>
+0173 genes      = ecModel.genes(sum(rxnGeneM,1) &gt; 0);
+0174 k_genes    = zeros(size(genes));
+0175 cons_genes = false(size(genes));
+0176 rxnGeneM   = rxnGeneM(:,sum(rxnGeneM,1) &gt; 0);
+0177 
+0178 <span class="keyword">for</span> i = 1:length(genes)
+0179     <span class="comment">% Extract all the K_scores (from rxns across alphas) conected to</span>
+0180     <span class="comment">% each remaining gene</span>
+0181     k_set         = k_rxns(rxnGeneM(:,i) &gt; 0);
+0182     <span class="comment">% Check the kind of control that gene i-th exerts over its reactions</span>
+0183     always_down   = sum(k_set &lt;= (1-tolerance)) == length(k_set);
+0184     always_up     = sum(k_set &gt;= (1+tolerance)) == length(k_set);
+0185     <span class="comment">% Evaluate if gene is always exerting either a positive or negative</span>
+0186     <span class="comment">% control</span>
+0187     cons_genes(i) = always_down + always_up == 1;
+0188     k_genes(i)    = mean(k_set);
+0189 <span class="keyword">end</span>
+0190 
+0191 <span class="comment">% Keep &quot;consistent genes&quot;</span>
+0192 genes    = genes(cons_genes);
+0193 k_genes  = k_genes(cons_genes);
+0194 rxnGeneM = rxnGeneM(:,cons_genes);
+0195 
+0196 <span class="keyword">if</span> filterG
+0197     <span class="comment">% Filter any value between mean(alpha) and 1:</span>
+0198     unchanged = (k_genes &gt;= mean(alpha) - tolerance) + (k_genes &lt;= 1 + tolerance) == 2;
+0199     genes     = genes(~unchanged);
+0200     k_genes   = k_genes(~unchanged);
+0201     rxnGeneM  = rxnGeneM(:,~unchanged);
+0202     <span class="comment">% Update results for rxns-related fields (remove remaining reactions</span>
+0203     <span class="comment">% without any associated gene in rxnGeneM)</span>
+0204     toKeep   = (sum(rxnGeneM,2) &gt; 0);
+0205     rxns     = rxns(toKeep,:);
+0206     v_matrix = v_matrix(toKeep,:);
+0207     k_matrix = k_matrix(toKeep,:);
+0208     k_rxns   = k_rxns(toKeep,:);
+0209 <span class="keyword">end</span>
+0210 
+0211 <span class="comment">% Order genes from highest to lowest k:</span>
+0212 [~,order] = sort(k_genes,<span class="string">'descend'</span>);
+0213 genes     = genes(order,:);
+0214 k_genes   = k_genes(order,:);
+0215 
+0216 <span class="comment">% Create output (exclude enzyme usage reactions):</span>
+0217 toKeep                 = ~startsWith(rxns,<span class="string">'usage_prot_'</span>);
+0218 rxnIdx                 = getIndexes(ecModel,rxns(toKeep),<span class="string">'rxns'</span>);
+0219 geneIdx                = cellfun(@(x) find(strcmpi(ecModel.genes,x)),genes);
+0220 FC.flux_WT             = flux_WT;
+0221 FC.alpha               = alpha;
+0222 FC.v_matrix            = v_matrix(toKeep,:);
+0223 FC.k_matrix            = k_matrix(toKeep,:);
+0224 FC.rxnsTable(:,1)      = ecModel.rxns(rxnIdx);
+0225 FC.rxnsTable(:,2)      = ecModel.rxnNames(rxnIdx);
+0226 FC.rxnsTable(:,3)      = num2cell(k_rxns(toKeep));
+0227 FC.rxnsTable(:,4)      = ecModel.grRules(rxnIdx);
+0228 FC.rxnsTable(:,5)      = constructEquations(ecModel,rxnIdx);
+0229 FC.geneTable(:,1)      = genes;
+0230 FC.geneTable(:,2)      = ecModel.geneShortNames(geneIdx);
+0231 FC.geneTable(:,3)      = num2cell(k_genes);
+0232 
+0233 writetable(cell2table(FC.geneTable, <span class="keyword">...</span>
+0234     <span class="string">'VariableNames'</span>, {<span class="string">'gene_IDs'</span> <span class="string">'gene_names'</span> <span class="string">'K_score'</span>}), <span class="keyword">...</span>
+0235     fullfile(filePath, <span class="string">'ecFSEOF_genes.tsv'</span>), <span class="keyword">...</span>
+0236     <span class="string">'FileType'</span>, <span class="string">'text'</span>, <span class="keyword">...</span>
+0237     <span class="string">'Delimiter'</span>, <span class="string">'\t'</span>, <span class="keyword">...</span>
+0238     <span class="string">'QuoteStrings'</span>, false);
+0239 
+0240 writetable(cell2table(FC.rxnsTable, <span class="keyword">...</span>
+0241     <span class="string">'VariableNames'</span>, {<span class="string">'rxn_IDs'</span> <span class="string">'rxnNames'</span> <span class="string">'K_score'</span> <span class="string">'grRules'</span> <span class="string">'rxn_formula'</span>}), <span class="keyword">...</span>
+0242     fullfile(filePath, <span class="string">'ecFSEOF_rxns.tsv'</span>), <span class="keyword">...</span>
+0243     <span class="string">'FileType'</span>, <span class="string">'text'</span>, <span class="keyword">...</span>
+0244     <span class="string">'Delimiter'</span>, <span class="string">'\t'</span>, <span class="keyword">...</span>
+0245     <span class="string">'QuoteStrings'</span>, false);
+0246 
+0247 disp([<span class="string">'ecFSEOF results stored at: '</span> newline filePath]);
+0248 <span class="keyword">end</span></pre></div>
+<hr><address>Generated by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

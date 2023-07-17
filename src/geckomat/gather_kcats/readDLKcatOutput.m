@@ -50,13 +50,17 @@ if all(cellfun(@isempty,kcats)) || all(strcmpi(kcats,'NA'))
 end
 
 % Check that all substrates are in the model
-if ~all(ismember(subs,model.metNames))
-    error('Not all substrates from DLKcat output can be found in model.metNames. DLKcat was likely run with an input file that was generated from another ecModel.')
+matchMets = ismember(subs,model.metNames);
+if ~all(matchMets)
+    errorText = 'DLKcat was likely run with an input file that was generated from another ecModel, as the following substrates from DLKcat output cannot be found in model.metNames:';
+    dispEM(errorText,true,subs(~matchMets),false)
 end
 
 % Check that all reactions are in model.ec.rxns
-if ~all(ismember(rxns,model.ec.rxns))
-    error('Not all reactions from DLKcat output can be found in model.ec.rxns. DLKcat was likely run with an input file that was generated from another ecModel.')
+matchRxns = ismember(rxns,model.ec.rxns);
+if ~all(matchRxns)
+    errorText = 'DLKcat was likely run with an input file that was generated from another ecModel, as the following reactions from DLKcat output cannot be found in model.metNames:';
+    dispEM(errorText,true,rxns(~matchRxns),false)
 end
 
 % Filter out entries with no numeric value

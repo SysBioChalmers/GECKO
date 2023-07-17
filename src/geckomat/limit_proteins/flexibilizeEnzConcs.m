@@ -1,6 +1,6 @@
-function [model, flexProt] = flexibilizeProtConcs(model, expGrowth, foldChange, iterPerEnzyme, modelAdapter, verbose)
-% flexibilizeProtConcs
-%   Flexibilize protein concentration of an ecModel with constrained with
+function [model, flexEnz] = flexibilizeEnzConcs(model, expGrowth, foldChange, iterPerEnzyme, modelAdapter, verbose)
+% flexibilizeEnzConcs
+%   Flexibilize enzyme concentration of an ecModel with constrained with
 %   proteomics data. The upper bound of the protein usage reaction is
 %   changed, while the concentrations in ecModel.ec.concs remain unchanged.
 %
@@ -9,24 +9,24 @@ function [model, flexProt] = flexibilizeProtConcs(model, expGrowth, foldChange, 
 %   attempt will be made to relax the protein pool exchange reaction, and
 %   if the growth rate indeed increases, it is suggested to set the protein
 %   pool exchange unconstrained (lb=-1000) before again running
-%   flexibilizeProtConcs. Such situations, where a proteomics integrated
+%   flexibilizeEnzConcs. Such situations, where a proteomics integrated
 %   ecModel is overconstrained, may occur if the ecModel should be able to
 %   simulate maximum growth rate (from e.g. batch cultivation). 
 %   
-%   If relaxing the protein pool exchange does not increase the growth rate, then this
-%   is not due to enzyme constraints, but rather an issue with the
-%   metabolic network itself, or the set nutrient exchange is not
+%   If relaxing the protein pool exchange does not increase the growth
+%   rate, then this is not due to enzyme constraints, but rather an issue
+%   with the metabolic network itself, or the set nutrient exchange is not
 %   sufficient.
 %
 % Input:
 %   model           an ecModel in GECKO 3 format (with ecModel.ec structure)
 %   expGrowth       estimated experimental growth rate. If not specified,
 %                   the value will be read from the model adapter
-%   foldChange      a value how much increase the protein concentration
+%   foldChange      a value how much increase the enzyme concentration
 %                   (Optional, default = 2)
 %   iterPerEnzyme   the number of iterations that an enzyme can be increased.
 %                   A zero number can be defined. if zero is defined no limit
-%                   will be set, and it will increase the protein concentration
+%                   will be set, and it will increase the enzyme concentration
 %                   until reach de defined growth rate (Optional, default = 5)
 %   modelAdapter    a loaded model adapter (Optional, will otherwise use the
 %                   default model adapter)
@@ -34,9 +34,12 @@ function [model, flexProt] = flexibilizeProtConcs(model, expGrowth, foldChange, 
 %                   default true)
 %
 % Output:
-%   model           ecModel where the UB of measured protein have been increased
-%                   to allow reach a defined growth rate
-%   flexProt        array with information about flexibilized proteins
+%   model           ecModel where the constraint of measured enzyme
+%                   concentrations have been flexibilized (=relaxed) in the
+%                   S-matrix, to allow the model to reach the growth rate
+%                   defined in expGrowth, while the values in
+%                   ecModel.ec.concs have remained untouched.
+%   flexEnz         array with information about flexibilized proteins
 %                   uniprotIDs  enzymes whose usage UB was flexibilized
 %                   oldConcs    original concentrations, from mode.ec.concs
 %                   flexConcs   flexibilized concentrations, new UB in
@@ -47,7 +50,7 @@ function [model, flexProt] = flexibilizeProtConcs(model, expGrowth, foldChange, 
 %                               step-wise flexibilized
 %
 % Usage:
-%   [model, flexProt] = flexibilizeProtConcs(model, expGrowth, foldChange, iterPerEnzyme, modelAdapter, verbose)
+%   [model, flexEnz] = flexibilizeEnzConcs(model, expGrowth, foldChange, iterPerEnzyme, modelAdapter, verbose)
 
 if nargin < 6 || isempty(verbose)
     verbose = true;
@@ -89,7 +92,7 @@ end
 changedProtPool = false;
 
 % In case the model have not been protein constrained
-% model = constrainProtConcs(model);
+% model = constrainEnzConcs(model);
 
 [sol,hs] = solveLP(model);
 predGrowth = abs(sol.f);
@@ -144,7 +147,7 @@ if any(protConcs)
                 break
             end
         else
-            disp('No (more) limiting proteins have been found. Attempt to increase protein pool exchange.')
+            disp('No (more) limiting enzymes have been found. Attempting to increase protein pool exchange...')
             protPoolIdx = getIndexes(model,'prot_pool_exchange','rxns');
             oldProtPool = -model.lb(protPoolIdx);
             tempModel = setParam(model,'lb',protPoolIdx,-1000);
@@ -161,11 +164,11 @@ if any(protConcs)
                 fprintf(['Changing the lower bound of protein pool exchange from %s ',...
                          'to %s enabled a\ngrowth rate of %s. It can be helpful to set ', ...
                          'the lower bound of protein\npool exchange to -1000 before ',...
-                         'running flexibilizeProtConcs.\n'],num2str(-oldProtPool), ...
+                         'running flexibilizeEnzConcs.\n'],num2str(-oldProtPool), ...
                          num2str(-newProtPool),num2str(predGrowth));
                 changedProtPool = true;
             else
-                fprintf(['Protein pool exchange not limiting. Inability to reach growth ',...
+                fprintf(['Protein pool exchange was also not limiting. Inability to reach growth ',...
                         'rate is not related to\nenzyme constraints. Maximum growth rate ',...
                         'is %s.\n'], num2str(predGrowth))
             end
@@ -176,7 +179,7 @@ if any(protConcs)
         end
     end
 else
-    error('Protein concentrations have not been defined. Please run readProteomics and constrainProtConcs')
+    error('Protein concentrations have not been defined. Please run readProteomics and constrainEnzConcs')
 end
 
 protFlex        = proteins(frequence>0);
@@ -203,31 +206,31 @@ if flexBreak == false && ~isempty(protFlex)
     frequence=frequence(frequence>0);
     frequence(keepOld) = [];
     
-    flexProt.uniprotIDs = protFlex;
-    flexProt.oldConcs   = oldConcs;
-    flexProt.flexConcs  = newConcs;
-    flexProt.frequence  = frequence(frequence>0);
+    flexEnz.uniprotIDs = protFlex;
+    flexEnz.oldConcs   = oldConcs;
+    flexEnz.flexConcs  = newConcs;
+    flexEnz.frequence  = frequence(frequence>0);
 else
     protFlex        = proteins(frequence>0);
     protUsageIdx    = find(ismember(model.rxns, strcat('usage_prot_', protFlex)));
 
-    flexProt.uniprotIDs = protFlex;
-    flexProt.oldConcs   = model.ec.concs(ecProtId);
-    flexProt.flexConcs  = abs(model.lb(protUsageIdx));
-    flexProt.frequence  = frequence(frequence>0);
+    flexEnz.uniprotIDs = protFlex;
+    flexEnz.oldConcs   = model.ec.concs(ecProtId);
+    flexEnz.flexConcs  = abs(model.lb(protUsageIdx));
+    flexEnz.frequence  = frequence(frequence>0);
 end
 if changedProtPool
-    flexProt.uniprotIDs(end+1) = {'prot_pool'};
-    flexProt.oldConcs(end+1)   = oldProtPool;
-    flexProt.flexConcs(end+1)  = newProtPool;
-    flexProt.frequence(end+1)  = 1;
+    flexEnz.uniprotIDs(end+1) = {'prot_pool'};
+    flexEnz.oldConcs(end+1)   = oldProtPool;
+    flexEnz.flexConcs(end+1)  = newProtPool;
+    flexEnz.frequence(end+1)  = 1;
 end
 % Sort by biggest ratio increase
-flexProt.ratioIncr  = flexProt.flexConcs./flexProt.oldConcs;
-[~,b] = sort(flexProt.ratioIncr,'descend');
-flexProt.ratioIncr  = flexProt.ratioIncr(b);
-flexProt.uniprotIDs = flexProt.uniprotIDs(b);
-flexProt.oldConcs   = flexProt.oldConcs(b);
-flexProt.flexConcs  = flexProt.flexConcs(b);
-flexProt.frequence  = flexProt.frequence(b);
+flexEnz.ratioIncr  = flexEnz.flexConcs./flexEnz.oldConcs;
+[~,b] = sort(flexEnz.ratioIncr,'descend');
+flexEnz.ratioIncr  = flexEnz.ratioIncr(b);
+flexEnz.uniprotIDs = flexEnz.uniprotIDs(b);
+flexEnz.oldConcs   = flexEnz.oldConcs(b);
+flexEnz.flexConcs  = flexEnz.flexConcs(b);
+flexEnz.frequence  = flexEnz.frequence(b);
 end

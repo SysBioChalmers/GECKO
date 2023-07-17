@@ -145,6 +145,7 @@ The following points should be considered when merging branches to `develop`:
 
 * Make sure the branch gets accepted by at least one developer with writing access.
 * Wait at least a day before merging, to allow other developers to inspect the pull request.
+* To simplify the git history, use "Squash and merge" in pull requests to `develop` (but **never** use this option when merging to `main`, see also below).
 * As soon as the branch is merged, confirm that `develop` is still possible to merge to `main` (this can be checked [here](https://github.com/SysBioChalmers/GECKO/compare/develop)). If conflicts appear, fix the conflict _locally_ as soon as possible in `develop` and then push it (note, **DO NOT** pull any other changes from `main` to `develop`, just the single file that is creating the conflict).
 
 ### Releasing a new version
@@ -169,8 +170,9 @@ When releasing, please follow these steps:
    - Specify the intended version in the title, e.g. `GECKO 3.0.1`
    - Indicating all new features/fixes/etc. and referencing every previous pull request included (examples [here](https://github.com/SysBioChalmers/GECKO/releases)).
    - If any [issue](https://github.com/SysBioChalmers/GECKO/issues) gets solved in the release, write in the pull request description "Closes #X", where "X" is the issue number. That way the issue will be automatically closed after merge.
-2. Wait at least a day for at least one  approval. The GitHub Actions must also pass successfully.
-3. Merge the pull request from `develop` to `main`.
-4. Make the [new release](https://github.com/SysBioChalmers/GECKO/releases/new) at GitHub:
+2. Wait at least a day for at least one approval. The GitHub Actions must also pass successfully.
+3. Merge the pull request from `develop` to `main` with the option "Create a merge commit", **not** "Squash and merge".
+4. Edit the `version.txt` in the `main` branch directly [link](https://github.com/SysBioChalmers/GECKO/edit/main/version.txt) to refer to the new version number. Commit the change directly to the `main` branch.
+5. Make the [new release](https://github.com/SysBioChalmers/GECKO/releases/new) at GitHub:
    - Define a new tag with the version, prefixed by `v`: e.g. `v3.0.1`.
    - Copy the description from the corresponding PR from step 1.
