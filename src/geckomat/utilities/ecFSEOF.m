@@ -98,7 +98,7 @@ enzRxns  = contains(ecModel.rxns,'usage_prot_');
 tolerance = 1e-4;
 
 % Simulate WT (100% growth) and forced (X% growth and the rest towards product):
-flux_WT = getFluxTarget(ecModel,targetRxn,csRxn);
+flux_WT = getFluxTarget(ecModel,params.bioRxn,targetRxn,1);
 
 % Set values which are under solver tolerance
 flux_WT(flux_WT < 0 & ~enzRxns) = 0;
@@ -106,7 +106,7 @@ flux_WT(flux_WT > 0 & enzRxns) = 0;
 
 progressbar('Flux Scanning with Enforced Objective Function')
 for i = 1:length(alpha)
-    flux_MAX = getFluxTarget(ecModel,targetRxn,csRxn,alpha(i));
+    flux_MAX = getFluxTarget(ecModel,params.bioRxn,targetRxn,alpha(i));
     % Set values which are under solver tolerance
     flux_MAX(flux_MAX < 0 & ~enzRxns) = 0;
     flux_MAX(flux_MAX > 0 & enzRxns) = 0;
