@@ -114,7 +114,7 @@ This function is called by:
 0054     fileContent = textscan(fID,<span class="string">'%s %s %f'</span>,<span class="string">'delimiter'</span>,<span class="string">'\t'</span>,<span class="string">'HeaderLines'</span>,headerLines);
 0055     genes       = fileContent{2};
 0056     <span class="comment">%Remove internal geneIDs modifiers</span>
-0057     genes       = regexprep(genes,<span class="string">'(\d{4}).'</span>,<span class="string">''</span>);
+0057     genes       = regexprep(genes,<span class="string">'^\d+\.'</span>,<span class="string">''</span>);
 0058     level       = fileContent{3};
 0059     fclose(fID);
 0060     [a,b]       = ismember(genes,uniprotDB.genes);
