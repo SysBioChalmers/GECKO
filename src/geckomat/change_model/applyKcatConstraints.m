@@ -95,17 +95,19 @@ else %GECKO light formulation, where prot_pool represents all usages
     modRxns     = extractAfter(model.ec.rxns,4);
     % Map ec-reactions to model.rxns
     [hasEc,~]   = ismember(model.rxns,modRxns);
-    [~,rxnIdx]  = ismember(modRxns,model.rxns);
-    hasEc = find(hasEc & updateRxns);
+    hasEc       = find(hasEc & updateRxns);
+    [~,rxnIdx]   = ismember(modRxns,model.rxns);
     for i = 1:numel(hasEc)
         % Get all isozymes per reaction
         ecIdx = find(rxnIdx == hasEc(i));
+        % ecIdx = strcmp(model.rxns(hasEc(i)),modRxns);
         % Multiply enzymes with their MW (they are then automatically
         % summed per reaction), and divide by their kcat, to get a vector
         % of MW/kcat values.
         MWkcat = (model.ec.rxnEnzMat(ecIdx,:) * model.ec.mw) ./ model.ec.kcat(ecIdx);
-        % If kcat was zero, MWkcat is Inf. Correct back to zero
-        MWkcat(abs(MWkcat)==Inf)=0;
+        % If kcat was zero, MWkcat is Inf. If no enzyme info was found,
+        % MWkcat is NaN. Correct both back to zero
+        MWkcat(isinf(MWkcat) | isnan(MWkcat)) = 0;
         % Select the lowest MW/kcat (= most efficient), and convert to /hour
         model.S(prot_pool_idx, hasEc(i)) = -min(MWkcat/3600);
     end
