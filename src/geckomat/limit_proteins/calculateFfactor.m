@@ -54,7 +54,7 @@ if ischar(protData) && endsWith(protData,'paxDB.tsv')
     fileContent = textscan(fID,'%s %s %f','delimiter','\t','HeaderLines',headerLines);
     genes       = fileContent{2};
     %Remove internal geneIDs modifiers
-    genes       = regexprep(genes,'(\d{4}).','');
+    genes       = regexprep(genes,'^\d+\.','');
     level       = fileContent{3};
     fclose(fID);
     [a,b]       = ismember(genes,uniprotDB.genes);
