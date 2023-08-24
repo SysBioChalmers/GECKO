@@ -90,7 +90,7 @@ This function is called by:
 0035 <span class="keyword">end</span>
 0036 
 0037 disp(<span class="string">'Running DLKcat prediction, this may take many minutes, especially the first time.'</span>)
-0038 status = system([<span class="string">'docker run --rm -v '</span> fullfile(params.path,<span class="string">'/data'</span>) <span class="string">':/data ghcr.io/sysbiochalmers/dlkcat-gecko:0.1 /bin/bash -c &quot;python DLKcat.py /data/DLKcat.tsv /data/DLKcatOutput.tsv&quot;'</span>]);
+0038 status = system([<span class="string">'docker run --rm -v &quot;'</span> fullfile(params.path,<span class="string">'/data'</span>) <span class="string">'&quot;:/data ghcr.io/sysbiochalmers/dlkcat-gecko:0.1 /bin/bash -c &quot;python DLKcat.py /data/DLKcat.tsv /data/DLKcatOutput.tsv&quot;'</span>]);
 0039 
 0040 <span class="keyword">if</span> status == 0 &amp;&amp; exist(fullfile(params.path,<span class="string">'data/DLKcatOutput.tsv'</span>))
 0041     delete(fullfile(params.path,<span class="string">'/data/DLKcat.tsv'</span>));
