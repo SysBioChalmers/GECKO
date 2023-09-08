@@ -34,30 +34,36 @@ if alpha == 1
 end
 
 % Get relevant rxn indexes
-bioRxnIdx    = getIndexes(model, bioRxn,'rxns');
-poolIdx      = strcmpi(model.rxns, 'prot_pool_exchange');
+bioRxnIdx    = getIndexes(model, bioRxn, 'rxns');
+targetRxnIdx = getIndexes(model, targetRxn, 'rxns');
 
 % Maximize growth and fix carbon source and suboptimal growth
 model = setParam(model, 'obj', bioRxn, 1);
 sol   = solveLP(model);
 model = setParam(model, 'lb', bioRxn, sol.x(bioRxnIdx) * alpha);
 
-% Minimize prot_pool_exchange and fix
-model = setParam(model, 'obj', 'prot_pool_exchange', 1);
-sol   = solveLP(model);
-model = setParam(model, 'lb', 'prot_pool_exchange', sol.x(poolIdx) * 1.01);
-
 % If minimum fluxes are required get them
 minFlux = [];
 if nargout == 2
     % Minimize target
-    model = setParam(model, 'obj', targetRxn, -1);
-    minSol = solveLP(model);
-    minFlux = minSol.x;
+    model   = setParam(model, 'obj', targetRxn, -1);
+    minSol  = solveLP(model);
+    % Fix ub to minimum attainable product
+    model.ub(targetRxnIdx) = minSol.x(targetRxnIdx) * 1.1;
+    % Minimize prot_pool_exchange
+    model = setParam(model, 'obj', 'prot_pool_exchange', 1);
+    minUsage = solveLP(model);
+    minFlux  = minUsage.x;
 end
 
 % Maximize target
 model = setParam(model, 'obj', targetRxn, 1);
 maxSol = solveLP(model);
-maxFlux = maxSol.x;
+% Fix lb to 90% of the maximum attainable product. Based on
+% https://doi.org/10.1128/AEM.00115-10
+model.lb(targetRxnIdx) = maxSol.x(targetRxnIdx) * 0.90;
+% Minimize prot_pool_exchange
+model = setParam(model, 'obj', 'prot_pool_exchange', 1);
+maxUsage = solveLP(model);
+maxFlux = maxUsage.x;
 end
