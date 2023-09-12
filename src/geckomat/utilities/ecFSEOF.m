@@ -1,10 +1,10 @@
-function FC = ecFSEOF(ecModel,targetRxn,csRxn,alphaLims,nSteps,filePath,filterG,modelAdapter)
+function FC = ecFSEOF(model,targetRxn,csRxn,nSteps,outputFile,filePath,filterG,modelAdapter)
 % ecFSEOF
 %   Function that runs Flux-Scanning with Enforced Objective Function (FSEOF)
 %   for a specified production target.
 %
 % Input:
-%   ecModel         an ecModel in GECKO 3 format (with ecModel.ec structure).
+%   model         an ecModel in GECKO 3 format (with ecModel.ec structure).
 %   targetRxn       rxn ID for the production target reaction, a exchange
 %                   reaction is recommended.
 %   csRxn           rxn ID for the main carbon source uptake reaction.
@@ -61,69 +61,94 @@ if nargin < 6 || isempty(filePath)
     filePath = fullfile(params.path,'output');
 end
 
-if nargin < 5 || isempty(nSteps)
-    nSteps = 16;
+if nargin < 5 || isempty(outputFile)
+    outputFile = true;
 end
 
-if nargin < 4 || isempty(alphaLims)
-    alphaLims = [0.5 0.75];
+if nargin < 4 || isempty(nSteps)
+    nSteps = 16;
 end
 
 if numel(alphaLims) ~= 2
     error('alphaLims parameter should be a vector of two values')
 end
 
+% Get relevant rxn indexes
+targetRxnIdx = getIndexes(model, targetRxn,'rxns');
+csRxnIdx     = getIndexes(model, csRxn,'rxns');
+bioRxnIdx    = getIndexes(model, params.bioRxn,'rxns');
+
 % Standardize grRules and rxnGeneMat in model
-[grRules,rxnGeneMat] = standardizeGrRules(ecModel,true);
-ecModel.grRules      = grRules;
-ecModel.rxnGeneMat   = rxnGeneMat;
+[grRules,rxnGeneMat] = standardizeGrRules(model,true);
+model.grRules        = grRules;
+model.rxnGeneMat     = rxnGeneMat;
 
-% Check carbon source uptake rate and LB
-ecModel = setParam(ecModel, 'obj', params.bioRxn, 1);
-sol = solveLP(ecModel, 1);
-csRxnIdx = strcmpi(ecModel.rxns,csRxn);
-
-if sol.x(csRxnIdx) < ecModel.lb(csRxnIdx)
-    printOrange('WARNING: Carbon source LB and uptake rate are not equal.')
+% Check carbon source uptake rate and LB defined
+model = setParam(model, 'obj', params.bioRxn, 1);
+sol   = solveLP(model);
+if model.lb(csRxnIdx) < sol.x(csRxnIdx)
+    printOrange(['WARNING: Carbon source lower bound was set to ' num2str(model.lb(csRxnIdx)) ...
+        ', but the uptake rate after model optimization is ' num2str(sol.x(csRxnIdx)) '.\n'])
 end
 
 % run FSEOF analysis
 
-% Define alpha vector for suboptimal enforced objective values and
-% initialize fluxes and K_scores matrices
-alpha = alphaLims(1):((alphaLims(2)-alphaLims(1))/(nSteps-1)):alphaLims(2);
-v_matrix = zeros(length(ecModel.rxns),length(alpha));
-k_matrix = zeros(length(ecModel.rxns),length(alpha));
-enzRxns  = contains(ecModel.rxns,'usage_prot_');
+% Find out the maximum theoretical yield of target reaction.
+model     = setParam(model,'obj',targetRxn,1);
+sol       = solveLP(model,1);
+maxTarget = sol.x(targetRxnIdx);
+
+% Define alpha vector for suboptimal enforced objective values between 10%%
+% and 100%% of the maximum theoretical yield, initialize fluxes, K_scores 
+% matrices and other variables
+alpha     = 0.1:(0.9/(nSteps-1)):1;
+v_matrix  = zeros(length(model.rxns),length(alpha));
+k_matrix  = zeros(length(model.rxns),length(alpha));
+enzRxns   = contains(model.rxns,'usage_prot_');
 tolerance = 1e-4;
 
-% Simulate WT (100% growth) and forced (X% growth and the rest towards product):
-flux_WT = getFluxTarget(ecModel,params.bioRxn,targetRxn,1);
+fseof.results = zeros(length(model.rxns),nSteps);
+fseof.target  = zeros(length(model.rxns),1);
+rxnDirection  = zeros(length(model.rxns),1);
 
-% Set values which are under solver tolerance
-flux_WT(flux_WT < 0 & ~enzRxns) = 0;
-flux_WT(flux_WT > 0 & enzRxns) = 0;
-
+% Enforce objective flux iteratively
 progressbar('Flux Scanning with Enforced Objective Function')
+
+% Get WT flux distribution
+model.lb(bioRxnIdx) = sol.x(bioRxnIdx) * 0.99;
+model = setParam(model, 'obj', 'prot_pool_exchange', 1);
+solWT = solveLP(model,1);
 for i = 1:length(alpha)
-    flux_MAX = getFluxTarget(ecModel,params.bioRxn,targetRxn,alpha(i));
-    % Set values which are under solver tolerance
-    flux_MAX(flux_MAX < 0 & ~enzRxns) = 0;
-    flux_MAX(flux_MAX > 0 & enzRxns) = 0;
-    v_matrix(:,i) = flux_MAX;
-    k_matrix(:,i) = flux_MAX./flux_WT;
+    % Restore minimum biomass lb to zero and set it as objective
+    model.lb(bioRxnIdx) = 0;
+    model = setParam(model,'obj',params.bioRxn,1);
+
+    % Set to 90%% based on https://doi.org/10.1128/AEM.00115-10
+    model.lb(targetRxnIdx) = maxTarget * alpha(i) * 0.9;
+    sol = solveLP(model);
+
+    % Relax target lb, fix biomass and minimize protein usage
+    model.lb(targetRxnIdx) = model.lb(targetRxnIdx) * 0.99;
+    model.lb(bioRxnIdx) = sol.x(bioRxnIdx);
+    model = setParam(model, 'obj', 'prot_pool_exchange', 1);
+    sol = solveLP(model);
+  
+    % Store flux distribution
+    v_matrix(:,i) = sol.x;
+    k_matrix(:,i) = v_matrix(:,i)./solWT.x;
+
     progressbar(i/length(alpha))
 end
 progressbar(1) % Make sure it closes 
 
 % take out rxns with no grRule and standard gene 
-withGR   = ~cellfun(@isempty,ecModel.grRules);
-stdPos   = contains(ecModel.grRules,'standard');
+withGR   = ~cellfun(@isempty,model.grRules);
+stdPos   = contains(model.grRules,'standard');
 withGR(stdPos) = 0;
-rxns     = ecModel.rxns(withGR);
+rxns     = model.rxns(withGR);
 v_matrix = v_matrix(withGR,:);
 k_matrix = k_matrix(withGR,:);
-rxnGeneM = ecModel.rxnGeneMat(withGR,:);
+rxnGeneM = model.rxnGeneMat(withGR,:);
 
 % Filter out rxns that are always zero -> k=0/0=NaN:
 non_nan  = sum(~isnan(k_matrix),2) > 0;
@@ -170,7 +195,7 @@ k_rxns    = k_rxns(order,:);
 
 % Create list of remaining genes and filter out any inconsistent score:
 % Just those genes that are connected to the remaining rxns are
-genes      = ecModel.genes(sum(rxnGeneM,1) > 0);
+genes      = model.genes(sum(rxnGeneM,1) > 0);
 k_genes    = zeros(size(genes));
 cons_genes = false(size(genes));
 rxnGeneM   = rxnGeneM(:,sum(rxnGeneM,1) > 0);
@@ -215,34 +240,39 @@ k_genes   = k_genes(order,:);
 
 % Create output (exclude enzyme usage reactions):
 toKeep                 = ~startsWith(rxns,'usage_prot_');
-rxnIdx                 = getIndexes(ecModel,rxns(toKeep),'rxns');
-geneIdx                = cellfun(@(x) find(strcmpi(ecModel.genes,x)),genes);
-FC.flux_WT             = flux_WT;
+rxnIdx                 = getIndexes(model,rxns(toKeep),'rxns');
+geneIdx                = cellfun(@(x) find(strcmpi(model.genes,x)),genes);
+FC.flux_WT             = solWT.x;
 FC.alpha               = alpha;
 FC.v_matrix            = v_matrix(toKeep,:);
 FC.k_matrix            = k_matrix(toKeep,:);
-FC.rxnsTable(:,1)      = ecModel.rxns(rxnIdx);
-FC.rxnsTable(:,2)      = ecModel.rxnNames(rxnIdx);
+FC.rxnsTable(:,1)      = model.rxns(rxnIdx);
+FC.rxnsTable(:,2)      = model.rxnNames(rxnIdx);
 FC.rxnsTable(:,3)      = num2cell(k_rxns(toKeep));
-FC.rxnsTable(:,4)      = ecModel.grRules(rxnIdx);
-FC.rxnsTable(:,5)      = constructEquations(ecModel,rxnIdx);
+FC.rxnsTable(:,4)      = model.grRules(rxnIdx);
+FC.rxnsTable(:,5)      = constructEquations(model,rxnIdx);
 FC.geneTable(:,1)      = genes;
-FC.geneTable(:,2)      = ecModel.geneShortNames(geneIdx);
+FC.geneTable(:,2)      = model.geneShortNames(geneIdx);
 FC.geneTable(:,3)      = num2cell(k_genes);
 
-writetable(cell2table(FC.geneTable, ...
-    'VariableNames', {'gene_IDs' 'gene_names' 'K_score'}), ...
-    fullfile(filePath, 'ecFSEOF_genes.tsv'), ...
-    'FileType', 'text', ...
-    'Delimiter', '\t', ...
-    'QuoteStrings', false);
+if outputFile
+    % Write file with gene targets
+    writetable(cell2table(FC.geneTable, ...
+        'VariableNames', {'gene_IDs' 'gene_names' 'K_score'}), ...
+        fullfile(filePath, 'ecFSEOF_genes.tsv'), ...
+        'FileType', 'text', ...
+        'Delimiter', '\t', ...
+        'QuoteStrings', false);
 
-writetable(cell2table(FC.rxnsTable, ...
-    'VariableNames', {'rxn_IDs' 'rxnNames' 'K_score' 'grRules' 'rxn_formula'}), ...
-    fullfile(filePath, 'ecFSEOF_rxns.tsv'), ...
-    'FileType', 'text', ...
-    'Delimiter', '\t', ...
-    'QuoteStrings', false);
+    % Write file with rxn targets
+    writetable(cell2table(FC.rxnsTable, ...
+        'VariableNames', {'rxn_IDs' 'rxnNames' 'K_score' 'grRules' 'rxn_formula'}), ...
+        fullfile(filePath, 'ecFSEOF_rxns.tsv'), ...
+        'FileType', 'text', ...
+        'Delimiter', '\t', ...
+        'QuoteStrings', false);
 
-disp(['ecFSEOF results stored at: ' newline filePath]);
+    disp(['ecFSEOF results stored at: ' newline filePath]);
+end
+
 end
