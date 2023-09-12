@@ -1,18 +1,17 @@
-function FC = ecFSEOF(model,targetRxn,csRxn,nSteps,outputFile,filePath,filterG,modelAdapter)
+function fseof = ecFSEOF(model,targetRxn,csRxn,nSteps,outputFile,filePath,filterG,modelAdapter)
 % ecFSEOF
 %   Function that runs Flux-Scanning with Enforced Objective Function (FSEOF)
 %   for a specified production target.
 %
 % Input:
-%   model         an ecModel in GECKO 3 format (with ecModel.ec structure).
+%   model           an ecModel in GECKO 3 format (with ecModel.ec structure).
 %   targetRxn       rxn ID for the production target reaction, a exchange
 %                   reaction is recommended.
 %   csRxn           rxn ID for the main carbon source uptake reaction.
-%   alphaLims       vector of Minimum and maximum biomass scalling factors for
-%                   enforced objective limits (e.g. [0.5 0.75]). Max value: 1.
-%                   Max value recomended 0.9 (Optional, default [0.5 0.75])
 %   nSteps          number of steps for suboptimal objective in FSEOF.
 %                   (Optional, default 16)
+%   outputFile      bolean option to save results in a file. (Optional, 
+%                   default false)
 %   filePath        file path for results output. It will store two files:
 %                   - at the genes level, ecFSEOF_genes.tsv
 %                   - at the reactions level, ecFSEOF_rxns.tsv
@@ -25,7 +24,7 @@ function FC = ecFSEOF(model,targetRxn,csRxn,nSteps,outputFile,filePath,filterG,m
 %                   the default model adapter)
 %
 % Output:
-%   FC           structure with all results. Contains the following fields:
+%   fseof        structure with all results. Contains the following fields:
 %                - flux_WT:   flux distribution for the WT strain (100% of
 %                             carbon towards growth).
 %                - alpha:     scalling factors used for enforced objetive
@@ -43,7 +42,7 @@ function FC = ecFSEOF(model,targetRxn,csRxn,nSteps,outputFile,filePath,filterG,m
 %                             Contains: gene, shortName, k_score
 %
 % Usage:
-%   FC = ecFSEOF(ecModel,targetRxn,csRxn,alphaLims,nSteps,filePath,filterG,modelAdapter)
+%   fseof = ecFSEOF(model,targetRxn,csRxn,nSteps,outputFile,filePath,filterG,modelAdapter)
 
 if nargin < 8 || isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefault();
@@ -62,7 +61,7 @@ if nargin < 6 || isempty(filePath)
 end
 
 if nargin < 5 || isempty(outputFile)
-    outputFile = true;
+    outputFile = false;
 end
 
 if nargin < 4 || isempty(nSteps)
@@ -242,22 +241,22 @@ k_genes   = k_genes(order,:);
 toKeep                 = ~startsWith(rxns,'usage_prot_');
 rxnIdx                 = getIndexes(model,rxns(toKeep),'rxns');
 geneIdx                = cellfun(@(x) find(strcmpi(model.genes,x)),genes);
-FC.flux_WT             = solWT.x;
-FC.alpha               = alpha;
-FC.v_matrix            = v_matrix(toKeep,:);
-FC.k_matrix            = k_matrix(toKeep,:);
-FC.rxnsTable(:,1)      = model.rxns(rxnIdx);
-FC.rxnsTable(:,2)      = model.rxnNames(rxnIdx);
-FC.rxnsTable(:,3)      = num2cell(k_rxns(toKeep));
-FC.rxnsTable(:,4)      = model.grRules(rxnIdx);
-FC.rxnsTable(:,5)      = constructEquations(model,rxnIdx);
-FC.geneTable(:,1)      = genes;
-FC.geneTable(:,2)      = model.geneShortNames(geneIdx);
-FC.geneTable(:,3)      = num2cell(k_genes);
+fseof.flux_WT             = solWT.x;
+fseof.alpha               = alpha;
+fseof.v_matrix            = v_matrix(toKeep,:);
+fseof.k_matrix            = k_matrix(toKeep,:);
+fseof.rxnsTable(:,1)      = model.rxns(rxnIdx);
+fseof.rxnsTable(:,2)      = model.rxnNames(rxnIdx);
+fseof.rxnsTable(:,3)      = num2cell(k_rxns(toKeep));
+fseof.rxnsTable(:,4)      = model.grRules(rxnIdx);
+fseof.rxnsTable(:,5)      = constructEquations(model,rxnIdx);
+fseof.geneTable(:,1)      = genes;
+fseof.geneTable(:,2)      = model.geneShortNames(geneIdx);
+fseof.geneTable(:,3)      = num2cell(k_genes);
 
 if outputFile
     % Write file with gene targets
-    writetable(cell2table(FC.geneTable, ...
+    writetable(cell2table(fseof.geneTable, ...
         'VariableNames', {'gene_IDs' 'gene_names' 'K_score'}), ...
         fullfile(filePath, 'ecFSEOF_genes.tsv'), ...
         'FileType', 'text', ...
@@ -265,7 +264,7 @@ if outputFile
         'QuoteStrings', false);
 
     % Write file with rxn targets
-    writetable(cell2table(FC.rxnsTable, ...
+    writetable(cell2table(fseof.rxnsTable, ...
         'VariableNames', {'rxn_IDs' 'rxnNames' 'K_score' 'grRules' 'rxn_formula'}), ...
         fullfile(filePath, 'ecFSEOF_rxns.tsv'), ...
         'FileType', 'text', ...
