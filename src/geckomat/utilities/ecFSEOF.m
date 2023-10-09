@@ -1,11 +1,11 @@
-function fseof = ecFSEOF(model,targetRxn,csRxn,nSteps,outputFile,filePath,modelAdapter)
+function fseof = ecFSEOF(model,prodTargetRxn,csRxn,nSteps,outputFile,filePath,modelAdapter)
 % ecFSEOF
 %   Function that runs Flux-Scanning with Enforced Objective Function (FSEOF)
 %   for a specified production target.
 %
 % Input:
 %   model           an ecModel in GECKO 3 format (with ecModel.ec structure).
-%   targetRxn       rxn ID for the production target reaction, a exchange
+%   prodTargetRxn   rxn ID for the production target reaction, a exchange
 %                   reaction is recommended.
 %   csRxn           rxn ID for the main carbon source uptake reaction.
 %   nSteps          number of steps for suboptimal objective in FSEOF.
@@ -57,9 +57,9 @@ if nargin < 4 || isempty(nSteps)
 end
 
 % Get relevant rxn indexes
-targetRxnIdx = getIndexes(model, targetRxn,'rxns');
-csRxnIdx     = getIndexes(model, csRxn,'rxns');
-bioRxnIdx    = getIndexes(model, params.bioRxn,'rxns');
+prodTargetRxnIdx = getIndexes(model, prodTargetRxn,'rxns');
+csRxnIdx         = getIndexes(model, csRxn,'rxns');
+bioRxnIdx        = getIndexes(model, params.bioRxn,'rxns');
 
 % Standardize grRules and rxnGeneMat in model
 [grRules,rxnGeneMat] = standardizeGrRules(model,true);
@@ -77,13 +77,13 @@ end
 % run FSEOF analysis
 
 % Find out the initial target production.
-iniTarget = sol.x(targetRxnIdx);
+iniTarget = sol.x(prodTargetRxnIdx);
 
 % Find out the maximum theoretical yield of target reaction.
-model     = setParam(model,'obj',targetRxn,1);
+model     = setParam(model,'obj',prodTargetRxn,1);
 sol       = solveLP(model,1);
 % Set to 90%% based on https://doi.org/10.1128/AEM.00115-10
-maxTarget = sol.x(targetRxnIdx) * 0.9;
+maxTarget = sol.x(prodTargetRxnIdx) * 0.9;
 
 % Define alpha vector for suboptimal enforced objective values between
 % minimal production and 90%% of the maximum theoretical yield, initialize
@@ -95,7 +95,7 @@ v_matrix = zeros(length(model.rxns),length(alpha));
 progressbar('Flux Scanning with Enforced Objective Function')
 for i = 1:nSteps
     % Enforce the objetive flux of product formation
-    model = setParam(model,'eq',targetRxnIdx,alpha(i));
+    model = setParam(model,'eq',prodTargetRxnIdx,alpha(i));
 
     % Restore minimum biomass lb to zero and set it as objective
     model.lb(bioRxnIdx) = 0;
@@ -110,18 +110,18 @@ end
 progressbar(1) % Make sure it closes
 
 % Take out rxns with no grRule and standard gene
-withGR   = ~cellfun(@isempty,model.grRules);
-stdIdx   = contains(model.grRules,'standard');
+withGR         = ~cellfun(@isempty,model.grRules);
+stdIdx         = contains(model.grRules,'standard');
 withGR(stdIdx) = 0;
-rxns     = model.rxns(withGR);
-v_matrix = v_matrix(withGR,:);
-rxnGeneM = model.rxnGeneMat(withGR,:);
+target_rxns    = model.rxns(withGR);
+v_matrix       = v_matrix(withGR,:);
+rxnGeneM       = model.rxnGeneMat(withGR,:);
 
 % Filter out rxns that are always zero
-zero_flux = ~all(abs(v_matrix(:,1:nSteps))<=1e-2,2);
-rxns      = rxns(zero_flux,:);
-v_matrix  = v_matrix(zero_flux,:);
-rxnGeneM  = rxnGeneM(zero_flux,:);
+zero_flux   = ~all(abs(v_matrix(:,1:nSteps))<=1e-2,2);
+target_rxns = target_rxns(zero_flux,:);
+v_matrix    = v_matrix(zero_flux,:);
+rxnGeneM    = rxnGeneM(zero_flux,:);
 
 % Identify those rxns that always increase or decrease, and calculate the
 % slope as the difference in the flux when enforce objetive target 
@@ -129,14 +129,14 @@ rxnGeneM  = rxnGeneM(zero_flux,:);
 % << v_matrix(i,nSteps-1) >> and the flux when the enforce objetive target
 % production is set to the minimum << v_matrix(i,1) >> for the reaction i, 
 % divided by maxTarget-maxTarget/nSteps-1.
-slope_rxns  = zeros(size(rxns));
-target_rxns = logical(size(rxns));
-target_type = cell(size(rxns));
-for i = 1:length(rxns)
+slope_rxns  = zeros(size(target_rxns));
+targets     = logical(size(target_rxns));
+target_type = cell(size(target_rxns));
+for i = 1:length(target_rxns)
     if issorted(abs(v_matrix(i,1:nSteps)),'strictascend')
         % Those reactions that always increase while enforcing target
         % production are suggested for Over Expression
-        target_rxns(i) = true;
+        targets(i) = true;
         slope_rxns(i)  = abs(v_matrix(i,nSteps-1)-v_matrix(i,1))/abs(maxTarget-maxTarget/nSteps-1);
         target_type(i) = {'OE'};
     elseif issorted(abs(v_matrix(i,1:nSteps)),'strictdescend')
@@ -144,7 +144,7 @@ for i = 1:length(rxns)
         % production are suggested for KnockDown or KnockOut. KO are those
         % reactions which have zero flux when enforcing target production 
         % to 90%% of the maximum theoretical yield. 
-        target_rxns(i) = true;
+        targets(i) = true;
         slope_rxns(i)  = abs(v_matrix(i,nSteps-1)-v_matrix(i,1))/abs(maxTarget-maxTarget/nSteps-1);
         if v_matrix(i,nSteps) == 0
             target_type(i) = {'KO'};
@@ -155,15 +155,15 @@ for i = 1:length(rxns)
 end
 
 % Only keep those reaction that shows an increase or decrease pattern.
-rxns        = rxns(target_rxns);
-v_matrix    = v_matrix(target_rxns,:);
-rxnGeneM    = rxnGeneM(target_rxns,:);
-slope_rxns  = slope_rxns(target_rxns);
-target_type = target_type(target_rxns);
+target_rxns = target_rxns(targets);
+v_matrix    = v_matrix(targets,:);
+rxnGeneM    = rxnGeneM(targets,:);
+slope_rxns  = slope_rxns(targets);
+target_type = target_type(targets);
 
 % Order from highest to lowest slope
 [~,order]   = sort(slope_rxns,'descend');
-rxns        = rxns(order);
+target_rxns = target_rxns(order);
 v_matrix    = v_matrix(order,:);
 rxnGeneM    = rxnGeneM(order,:);
 slope_rxns  = slope_rxns(order);
@@ -171,7 +171,7 @@ target_type = target_type(order);
 
 % Filter out reactions with slope = 0
 non_zero_slope  = slope_rxns > 0;
-rxns            = rxns(non_zero_slope);
+target_rxns     = target_rxns(non_zero_slope);
 v_matrix        = v_matrix(non_zero_slope,:);
 rxnGeneM        = rxnGeneM(non_zero_slope,:);
 slope_rxns      = slope_rxns(non_zero_slope);
@@ -182,27 +182,62 @@ genes             = model.genes(sum(rxnGeneM,1) > 0);
 slope_genes       = zeros(size(genes));
 rxnGeneM          = rxnGeneM(:,sum(rxnGeneM,1) > 0);
 target_type_genes = cell(size(genes));
+essentiality      = cell(size(genes));
 
-for i = 1:length(genes)
+% Validate for gene essentiality
+progressbar('Checking for gene essentiality')
+for i = 1:numel(genes)
+    % Get reaction index, in targets set, for each gene
+    rxns_for_gene = find(rxnGeneM(:,i) > 0);
+   
+    % Block protein usage to KO al the reactions associated to it.
+    usage_rxn = startsWith(target_rxns(rxns_for_gene), 'usage_prot_');
+    usage_rxn = target_rxns(rxns_for_gene(usage_rxn));
+    tempModel = setParam(model, 'eq', usage_rxn, 0);
+    solKO     = solveLP(tempModel);
+    % Check if no feasible solution was found
+    if solKO.stat == -1
+        essentiality(i) = {'essential'};
+    end
+
+    % Since a gene can be involved in multiple reactions, multiple
+    % engineering manipulations can be suggested for the same gene
+    % e.g. (OE and KD). So, reconcilie them, and report only one.
+    actions = unique(target_type(rxns_for_gene));
+    if numel(actions) > 1
+        % If any OE is suggested give the highest priority over KD or KO
+        if any(startsWith(actions, 'OE'))
+            target_type_genes(i) = {'OE'};
+            % Otherwise change to KO if not essential
+        elseif ~any(startsWith(actions, 'OE')) && solKO.stat ~= -1
+            target_type_genes(i) = {'KO'};
+        else
+            target_type_genes(i) = {'KD'};
+        end
+    else
+        target_type_genes(i) = actions;
+    end
     % Extract all the slope (from rxns across alphas) conected to
     % each remaining gene
-    slope_set            = slope_rxns(rxnGeneM(:,i) > 0);
-    slope_genes(i)       = mean(slope_set);
-    % Since a gene can be involved in multiple reactions, multiple
-    % engineering manipulations can be suggested for the same gene.
-    % e.g. (OE and KD). So, report all of them.
-    target_type_genes(i) = join(unique(target_type(rxnGeneM(:,i) > 0)),', ');
+    slope_set      = slope_rxns(rxns_for_gene);
+    slope_genes(i) = mean(slope_set);
+
+    % target_type_genes(i) 
+
+    progressbar(i/numel(genes))
 end
+progressbar(1) % Make sure it closes
 
 % Order genes from highest to lowest slope:
 [~,order]         = sort(slope_genes,'descend');
 genes             = genes(order,:);
 slope_genes       = slope_genes(order,:);
 target_type_genes = target_type_genes(order,:);
+essentiality      = essentiality(order,:);
 
 % Create output (exclude enzyme usage reactions):
-toKeep                 = ~startsWith(rxns,'usage_prot_');
-rxnIdx                 = getIndexes(model,rxns(toKeep),'rxns');
+toKeep                 = ~startsWith(target_rxns,'usage_prot_');
+rxnIdx                 = getIndexes(model,target_rxns(toKeep),'rxns');
 geneIdx                = cellfun(@(x) find(strcmpi(model.genes,x)),genes);
 fseof.alpha            = alpha;
 fseof.v_matrix         = v_matrix(toKeep,:);
@@ -215,6 +250,7 @@ fseof.geneTable(:,1)   = genes;
 fseof.geneTable(:,2)   = model.geneShortNames(geneIdx);
 fseof.geneTable(:,3)   = num2cell(slope_genes);
 fseof.geneTable(:,4)   = target_type_genes;
+fseof.geneTable(:,5)   = essentiality;
 
 % Save results in a file if defined
 if outputFile
