@@ -120,7 +120,7 @@ v_matrix       = v_matrix(withGR,:);
 rxnGeneM       = model.rxnGeneMat(withGR,:);
 
 % Filter out rxns that are always zero
-zero_flux   = ~all(abs(v_matrix(:,1:nSteps))<=1e-2,2);
+zero_flux   = ~all(abs(v_matrix(:,1:nSteps))==0,2);
 target_rxns = target_rxns(zero_flux,:);
 v_matrix    = v_matrix(zero_flux,:);
 rxnGeneM    = rxnGeneM(zero_flux,:);
@@ -171,8 +171,8 @@ rxnGeneM    = rxnGeneM(order,:);
 slope_rxns  = slope_rxns(order);
 target_type = target_type(order);
 
-% Filter out reactions with slope = 0
-non_zero_slope  = slope_rxns > 0;
+% Filter out reactions with slope < quantile
+non_zero_slope  = slope_rxns > quantile(slope_rxns,0.75);
 target_rxns     = target_rxns(non_zero_slope);
 v_matrix        = v_matrix(non_zero_slope,:);
 rxnGeneM        = rxnGeneM(non_zero_slope,:);
