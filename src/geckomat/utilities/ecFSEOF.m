@@ -22,7 +22,7 @@ function fseof = ecFSEOF(model,prodTargetRxn,csRxn,nSteps,outputFile,filePath,mo
 %
 % Output:
 %   fseof        structure with all results. Contains the following fields:
-%                - alpha:     scalling factors used for enforced objetive
+%                - alpha:     target production used for enforced objetive
 %                             limits (from minimum to maximum production)
 %                - v_matrix:  fluxes for each reaction in rxnsTable.rxns
 %                             and each alpha.
@@ -32,10 +32,11 @@ function fseof = ecFSEOF(model,prodTargetRxn,csRxn,nSteps,outputFile,filePath,mo
 %                             Contains: ID, name, slope, gene rule, equation
 %                - geneTable: a list with all selected targets that
 %                             increase production.
-%                             Contains: gene, shortName, slope
+%                             Contains: gene, shortName, slope, action, and
+%                             essentiality
 %
 % Usage:
-%   fseof = ecFSEOF(model,targetRxn,csRxn,nSteps,outputFile,filePath,filterG,modelAdapter)
+%   fseof = ecFSEOF(model,prodTargetRxn,csRxn,nSteps,outputFile,filePath,filterG,modelAdapter)
 
 if nargin < 7 || isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefault();
@@ -47,9 +48,10 @@ params = modelAdapter.getParameters();
 
 if nargin < 5 || isempty(outputFile)
     outputFile = false;
-    if nargin < 6 || isempty(filePath)
-        filePath = fullfile(params.path,'output');
-    end
+end
+
+if nargin < 6 || isempty(filePath)
+    filePath = fullfile(params.path,'output');
 end
 
 if nargin < 4 || isempty(nSteps)
@@ -222,8 +224,6 @@ for i = 1:numel(genes)
     slope_set      = slope_rxns(rxns_for_gene);
     slope_genes(i) = mean(slope_set);
 
-    % target_type_genes(i) 
-
     progressbar(i/numel(genes))
 end
 progressbar(1) % Make sure it closes
@@ -236,27 +236,27 @@ target_type_genes = target_type_genes(order,:);
 essentiality      = essentiality(order,:);
 
 % Create output (exclude enzyme usage reactions):
-toKeep                 = ~startsWith(target_rxns,'usage_prot_');
-rxnIdx                 = getIndexes(model,target_rxns(toKeep),'rxns');
-geneIdx                = cellfun(@(x) find(strcmpi(model.genes,x)),genes);
-fseof.alpha            = alpha;
-fseof.v_matrix         = v_matrix(toKeep,:);
-fseof.rxnsTable(:,1)   = model.rxns(rxnIdx);
-fseof.rxnsTable(:,2)   = model.rxnNames(rxnIdx);
-fseof.rxnsTable(:,3)   = num2cell(slope_rxns(toKeep));
-fseof.rxnsTable(:,4)   = model.grRules(rxnIdx);
-fseof.rxnsTable(:,5)   = constructEquations(model,rxnIdx);
-fseof.geneTable(:,1)   = genes;
-fseof.geneTable(:,2)   = model.geneShortNames(geneIdx);
-fseof.geneTable(:,3)   = num2cell(slope_genes);
-fseof.geneTable(:,4)   = target_type_genes;
-fseof.geneTable(:,5)   = essentiality;
+toKeep               = ~startsWith(target_rxns,'usage_prot_');
+rxnIdx               = getIndexes(model,target_rxns(toKeep),'rxns');
+geneIdx              = cellfun(@(x) find(strcmpi(model.genes,x)),genes);
+fseof.alpha          = alpha;
+fseof.v_matrix       = v_matrix(toKeep,:);
+fseof.rxnsTable(:,1) = model.rxns(rxnIdx);
+fseof.rxnsTable(:,2) = model.rxnNames(rxnIdx);
+fseof.rxnsTable(:,3) = num2cell(slope_rxns(toKeep));
+fseof.rxnsTable(:,4) = model.grRules(rxnIdx);
+fseof.rxnsTable(:,5) = constructEquations(model,rxnIdx);
+fseof.geneTable(:,1) = genes;
+fseof.geneTable(:,2) = model.geneShortNames(geneIdx);
+fseof.geneTable(:,3) = num2cell(slope_genes);
+fseof.geneTable(:,4) = target_type_genes;
+fseof.geneTable(:,5) = essentiality;
 
 % Save results in a file if defined
 if outputFile
     % Write file with gene targets
     writetable(cell2table(fseof.geneTable, ...
-        'VariableNames', {'gene_IDs' 'gene_names' 'K_score'}), ...
+        'VariableNames', {'gene_IDs' 'gene_names' 'slope' 'action' 'essentiality'}), ...
         fullfile(filePath, 'ecFSEOF_genes.tsv'), ...
         'FileType', 'text', ...
         'Delimiter', '\t', ...
@@ -264,7 +264,7 @@ if outputFile
 
     % Write file with rxn targets
     writetable(cell2table(fseof.rxnsTable, ...
-        'VariableNames', {'rxn_IDs' 'rxnNames' 'K_score' 'grRules' 'rxn_formula'}), ...
+        'VariableNames', {'rxn_IDs' 'rxnNames' 'slope' 'grRules' 'rxn_formula'}), ...
         fullfile(filePath, 'ecFSEOF_rxns.tsv'), ...
         'FileType', 'text', ...
         'Delimiter', '\t', ...
