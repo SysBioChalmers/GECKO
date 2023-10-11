@@ -4,36 +4,43 @@ function fseof = ecFSEOF(model,prodTargetRxn,csRxn,nSteps,outputFile,filePath,mo
 %   for a specified production target.
 %
 % Input:
-%   model           an ecModel in GECKO 3 format (with ecModel.ec structure).
-%   prodTargetRxn   rxn ID for the production target reaction, a exchange
-%                   reaction is recommended.
-%   csRxn           rxn ID for the main carbon source uptake reaction.
-%   nSteps          number of steps for suboptimal objective in FSEOF.
-%                   (Optional, default 16)
-%   outputFile      bolean option to save results in a file. (Optional,
-%                   default false)
-%   filePath        file path for results output. It will store two files:
-%                   - at the genes level, ecFSEOF_genes.tsv
-%                   - at the reactions level, ecFSEOF_rxns.tsv
-%                   (Optional, default in the 'output' sub-folder taken from
-%                   modelAdapter, e.g. output/ecFSEOF_rxns.tsv)
-%   modelAdapter    a loaded model adapter. (Optional, will otherwise use
-%                   the default model adapter)
+%   model          an ecModel in GECKO 3 format (with ecModel.ec structure).
+%   prodTargetRxn  rxn ID for the production target reaction, a exchange
+%                  reaction is recommended.
+%   csRxn          rxn ID for the main carbon source uptake reaction.
+%   nSteps         number of steps for suboptimal objective in FSEOF.
+%                  (Optional, default 16)
+%   outputFile     bolean option to save results in a file. (Optional,
+%                  default false)
+%   filePath       file path for results output. It will store two files:
+%                  - at the genes level, ecFSEOF_genes.tsv
+%                  - at the reactions level, ecFSEOF_rxns.tsv
+%                  (Optional, default in the 'output' sub-folder taken from
+%                  modelAdapter, e.g. output/ecFSEOF_rxns.tsv)
+%   modelAdapter   a loaded model adapter. (Optional, will otherwise use
+%                  the default model adapter)
 %
 % Output:
-%   fseof        structure with all results. Contains the following fields:
-%                - alpha:     target production used for enforced objetive
-%                             limits (from minimum to maximum production)
-%                - v_matrix:  fluxes for each reaction in rxnsTable.rxns
-%                             and each alpha.
-%                - rxnsTable: a list with all reactions with fluxes that
-%                             change consistently as target production
-%                             increases.
-%                             Contains: ID, name, slope, gene rule, equation
-%                - geneTable: a list with all selected targets that
-%                             increase production.
-%                             Contains: gene, shortName, slope, action, and
-%                             essentiality
+%   fseof   an structure with all results. Contains the following fields:
+%           - alpha:             target production used for enforced 
+%                                objetive limits (from minimum to maximum 
+%                                production)
+%           - v_matrix:          fluxes for each target reaction predicted
+%                                and each alpha.
+%           - rxnTargets:        a list with all reactions with fluxes that
+%                                change consistently as target production
+%                                increases.
+%                                Contains: ID, name, slope, gene rule, and
+%                                equation
+%           - transportTargets:  a list with all transport reactions with
+%                                fluxes that change consistently as target
+%                                production increases.
+%                                Contains: ID, name, slope, gene rule, and
+%                                equation
+%           - geneTargets:       a list with all selected targets that
+%                                increase production.
+%                                Contains: gene, shortName, slope, action,
+%                                and essentiality
 %
 % Usage:
 %   fseof = ecFSEOF(model,prodTargetRxn,csRxn,nSteps,outputFile,filePath,filterG,modelAdapter)
@@ -235,27 +242,54 @@ slope_genes       = slope_genes(order,:);
 target_type_genes = target_type_genes(order,:);
 essentiality      = essentiality(order,:);
 
-% Create output (exclude enzyme usage reactions):
-toKeep               = ~startsWith(target_rxns,'usage_prot_');
-rxnIdx               = getIndexes(model,target_rxns(toKeep),'rxns');
+% Create output:
+
+% Report values used to enforce objective target production
+fseof.alpha = alpha;
+
+% Exclude enzyme usage reactions
+toKeep = ~startsWith(target_rxns,'usage_prot_');
+rxnIdx = getIndexes(model,target_rxns(toKeep),'rxns');
+
+% Report the fluxes at each alpha
+fseof.v_matrix = array2table(v_matrix(toKeep,:), ...
+    'VariableNames', string(alpha), 'RowNames', model.rxns(rxnIdx));
+
+% Report reaction targets
+fseof.rxnTargets(:,1) = model.rxns(rxnIdx);
+fseof.rxnTargets(:,2) = model.rxnNames(rxnIdx);
+fseof.rxnTargets(:,3) = num2cell(slope_rxns(toKeep));
+fseof.rxnTargets(:,4) = model.grRules(rxnIdx);
+fseof.rxnTargets(:,5) = constructEquations(model,rxnIdx);
+
+% Identify transport reactions; defined as reactions involving (at least) 
+% one metabolite name in more than one compartment. 
+transportRxns = false(numel(rxnIdx),1);
+for i = 1:numel(rxnIdx)
+    % Get the involved metabolites in each reaction
+    mets = model.metNames(model.S(:,rxnIdx(i))~=0);
+    % Remove enzyme metabolite
+    mets(startsWith(mets,'prot_')) = [];
+    % Validate if it is a transport reaciton
+    transportRxns(i) = numel(mets) ~= numel(unique(mets));
+end
+
+% Create separate table for transport reactions
+fseof.transportTargets = fseof.rxnTargets(transportRxns,:);
+fseof.rxnTargets(transportRxns,:) = [];
+
+% Report gene targets
 geneIdx              = cellfun(@(x) find(strcmpi(model.genes,x)),genes);
-fseof.alpha          = alpha;
-fseof.v_matrix       = v_matrix(toKeep,:);
-fseof.rxnsTable(:,1) = model.rxns(rxnIdx);
-fseof.rxnsTable(:,2) = model.rxnNames(rxnIdx);
-fseof.rxnsTable(:,3) = num2cell(slope_rxns(toKeep));
-fseof.rxnsTable(:,4) = model.grRules(rxnIdx);
-fseof.rxnsTable(:,5) = constructEquations(model,rxnIdx);
-fseof.geneTable(:,1) = genes;
-fseof.geneTable(:,2) = model.geneShortNames(geneIdx);
-fseof.geneTable(:,3) = num2cell(slope_genes);
-fseof.geneTable(:,4) = target_type_genes;
-fseof.geneTable(:,5) = essentiality;
+fseof.geneTargets(:,1) = genes;
+fseof.geneTargets(:,2) = model.geneShortNames(geneIdx);
+fseof.geneTargets(:,3) = num2cell(slope_genes);
+fseof.geneTargets(:,4) = target_type_genes;
+fseof.geneTargets(:,5) = essentiality;
 
 % Save results in a file if defined
 if outputFile
     % Write file with gene targets
-    writetable(cell2table(fseof.geneTable, ...
+    writetable(cell2table(fseof.geneTargets, ...
         'VariableNames', {'gene_IDs' 'gene_names' 'slope' 'action' 'essentiality'}), ...
         fullfile(filePath, 'ecFSEOF_genes.tsv'), ...
         'FileType', 'text', ...
@@ -263,9 +297,17 @@ if outputFile
         'QuoteStrings', false);
 
     % Write file with rxn targets
-    writetable(cell2table(fseof.rxnsTable, ...
+    writetable(cell2table(fseof.rxnTargets, ...
         'VariableNames', {'rxn_IDs' 'rxnNames' 'slope' 'grRules' 'rxn_formula'}), ...
         fullfile(filePath, 'ecFSEOF_rxns.tsv'), ...
+        'FileType', 'text', ...
+        'Delimiter', '\t', ...
+        'QuoteStrings', false);
+
+    % Write file with transport targets
+    writetable(cell2table(fseof.transportTargets, ...
+        'VariableNames', {'rxn_IDs' 'rxnNames' 'slope' 'grRules' 'rxn_formula'}), ...
+        fullfile(filePath, 'ecFSEOF_transporter.tsv'), ...
         'FileType', 'text', ...
         'Delimiter', '\t', ...
         'QuoteStrings', false);
