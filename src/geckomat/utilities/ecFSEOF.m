@@ -205,7 +205,7 @@ for i = 1:numel(genes)
     tempModel = setParam(model, 'eq', usage_rxn, 0);
     solKO     = solveLP(tempModel);
     % Check if no feasible solution was found
-    if solKO.stat == -1
+    if solKO.stat == -1 || solKO.x(bioRxnIdx) < 1e-8
         essentiality(i) = {'essential'};
     end
 
@@ -218,7 +218,7 @@ for i = 1:numel(genes)
         if any(startsWith(actions, 'OE'))
             target_type_genes(i) = {'OE'};
             % Otherwise change to KO if not essential
-        elseif ~any(startsWith(actions, 'OE')) && solKO.stat ~= -1
+        elseif ~any(startsWith(actions, 'OE')) && ~isequal(essentiality(i),{'essential'})
             target_type_genes(i) = {'KO'};
         else
             target_type_genes(i) = {'KD'};
