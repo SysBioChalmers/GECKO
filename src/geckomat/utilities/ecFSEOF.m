@@ -196,12 +196,10 @@ essentiality      = cell(size(genes));
 % Validate for gene essentiality
 progressbar('Checking for gene essentiality')
 for i = 1:numel(genes)
-    % Get reaction index, in targets set, for each gene
-    rxns_for_gene = find(rxnGeneM(:,i) > 0);
-   
+
     % Block protein usage to KO al the reactions associated to it.
-    usage_rxn = startsWith(target_rxns(rxns_for_gene), 'usage_prot_');
-    usage_rxn = target_rxns(rxns_for_gene(usage_rxn));
+    usage_rxn_idx = strcmpi(model.ec.genes, genes{i});
+    usage_rxn = strcat('usage_prot_', model.ec.enzymes(usage_rxn_idx));
     tempModel = setParam(model, 'eq', usage_rxn, 0);
     solKO     = solveLP(tempModel);
     % Check if no feasible solution was found
@@ -212,6 +210,9 @@ for i = 1:numel(genes)
     % Since a gene can be involved in multiple reactions, multiple
     % engineering manipulations can be suggested for the same gene
     % e.g. (OE and KD). So, reconcilie them, and report only one.
+    
+    % Get reaction index, in targets set, for each gene
+    rxns_for_gene = find(rxnGeneM(:,i) > 0);
     actions = unique(target_type(rxns_for_gene));
     if numel(actions) > 1
         % If any OE is suggested give the highest priority over KD or KO
