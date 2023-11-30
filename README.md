@@ -1,7 +1,7 @@
 <img src="./GECKO.png" width="200px">
 
 ![Current version](https://badge.fury.io/gh/sysbiochalmers%2Fgecko.svg)
-[![Gitter](https://badges.gitter.im/SysBioChalmers/GECKO.svg)](https://gitter.im/SysBioChalmers/GECKO)
+[![GitHub Discussions](https://img.shields.io/github/discussions-search?query=repo%3Asysbiochalmers%2Fgecko&label=GitHub%20Discussions)](https://github.com/SysBioChalmers/GECKO/discussions)
 [![Zenodo](https://zenodo.org/badge/DOI/10.5281/zenodo.7699818.svg)](https://doi.org/10.5281/zenodo.7699818)
 
 ## About GECKO 3
