@@ -15,8 +15,8 @@ _**Note:** Regarding code and model compatibility with earlier GECKO versions, s
 
 
 ## Documentation
-Installation instructions and other information is available in the [Wiki](https://github.com/SysBioChalmers/GECKO/wiki). The source code documentation is also available 
-[online](http://sysbiochalmers.github.io/GECKO/doc/). Use [GitHub Discussions](https://github.com/SysBioChalmers/GECKO/discussions) to ask questions.
+**Installation instructions** and other information is available in the **[Wiki](https://github.com/SysBioChalmers/GECKO/wiki)**. The source code documentation is also available 
+[online](http://sysbiochalmers.github.io/GECKO/doc/). Use [GitHub Discussions](https://github.com/SysBioChalmers/GECKO/discussions) for support, to ask questions or leave comments.
 
 ## Citation
 

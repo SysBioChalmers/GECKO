@@ -102,7 +102,7 @@ classdef GECKOInstaller
                             if ~hasGit
                                 fprintf('\nRun git pull in your favourite git client to update GECKO\n');
                             else
-                                fprintf('\nInstructions on how to upgrade <a href="https://github.com/SysBioChalmers/GECKO/wiki/Installation#upgrade">here</a>\n');
+                                fprintf('\nInstructions on how to upgrade <a href="https://github.com/SysBioChalmers/GECKO/wiki/Installation-and-upgrade#installation">here</a>\n');
                             end
                             break
                         elseif i==3
