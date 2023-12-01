@@ -6,7 +6,7 @@ classdef HumanGEMAdapter < ModelAdapter
 
             % The model distributed with the light_ecModel tutorial is Human-GEM
             % is version 1.15.0, available from
-            % https://github.com/SysBioChalmers/Human-GEM/releases/tag/v1.3.0
+            % https://github.com/SysBioChalmers/Human-GEM/releases/tag/v1.15.0
             % In addition, the following lines were run to reduce its size
             % before storing it in this GECKO tutorial:
             % ihuman = simplifyModel(ihuman,false,false,true,true);

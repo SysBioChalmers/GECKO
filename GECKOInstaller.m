@@ -28,6 +28,7 @@ classdef GECKOInstaller
             end
             addpath(paths);
             savepath;
+            GECKOInstaller.checkGECKOversion;
         end
         function uninstall
             sourceDir = fileparts(which(mfilename));
@@ -59,6 +60,7 @@ classdef GECKOInstaller
             pathsLeft = splitPaths(1,okPaths);
             newPaths = char(join(pathsLeft, pathSep));
         end
+
         function checkRAVENversion(minmVer)
             try
                 currVer = checkInstallation('versionOnly');
@@ -80,6 +82,39 @@ classdef GECKOInstaller
                     '''checkInstallation()'': https://github.com/SysBioChalmers/RAVEN/wiki/Installation'])
             end
 
+        end
+
+        function checkGECKOversion
+            sourceDir = fileparts(which(mfilename));
+            hasGit=isfolder(fullfile(sourceDir,'.git'));
+            
+            if exist(fullfile(sourceDir,'version.txt'), 'file') == 2
+                currVer = fgetl(fopen(fullfile(sourceDir,'version.txt')));
+                fclose('all');
+                fprintf('GECKO version %s installed',currVer)
+                try
+                    newVer=strtrim(webread('https://raw.githubusercontent.com/SysBioChalmers/GECKO/main/version.txt'));
+                    newVerNum=str2double(strsplit(newVer,'.'));
+                    currVerNum=str2double(strsplit(currVer,'.'));
+                    for i=1:3
+                        if currVerNum(i)<newVerNum(i)
+                            fprintf(', newer version %s is available',newVer)
+                            if ~hasGit
+                                fprintf('\nRun git pull in your favourite git client to update GECKO\n');
+                            else
+                                fprintf('\nInstructions on how to upgrade <a href="https://github.com/SysBioChalmers/GECKO/wiki/Installation-and-upgrade#installation">here</a>\n');
+                            end
+                            break
+                        elseif i==3
+                            fprintf('\n');
+                        end
+                    end
+                catch
+                    fprintf('\n');
+                end
+            else
+                fprintf('GECKO installed, unknown version (cannot find version.txt)\n')
+            end
         end
     end
 

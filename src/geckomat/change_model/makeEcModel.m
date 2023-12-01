@@ -326,7 +326,7 @@ end
 
 %9: Add proteins as pseudometabolites
 if ~geckoLight
-    [proteinMets.mets, uniprotSortId] = sort(ec.enzymes);
+    [proteinMets.mets, uniprotSortId] = unique(ec.enzymes);
     proteinMets.mets         = strcat('prot_',proteinMets.mets);
     proteinMets.metNames     = proteinMets.mets;
     proteinMets.compartments = compartmentID;
