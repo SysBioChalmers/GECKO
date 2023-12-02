@@ -79,6 +79,15 @@ if any(strcmp(selectDatabase,{'uniprot','both'}))
     else
         databases.uniprot = [];
     end
+    if ~isempty(databases.uniprot)
+        [uniqueIDs,uniqueIdx] = unique(databases.uniprot.ID,'stable');
+        if numel(uniqueIDs) < numel(databases.uniprot.ID)
+            duplID = setdiff(1:numel(databases.uniprot.ID),uniqueIdx);
+            dispEM(['Duplicate entries are found for the following proteins. '...
+                    'Manually curate the ''uniprot.tsv'' file, or adjust the uniprot parameters '...
+                    'in the model adapter:'],true,databases.uniprot.ID(duplID));
+        end
+    end
 end
 
 %% KEGG

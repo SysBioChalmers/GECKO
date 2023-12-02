@@ -1,16 +1,17 @@
 % This file accompanies the GECKO3 Nature Protocols paper (DOI TO BE ADDED).
 %
 % The function of this script is to demonstrate the reconstruction and
-% analysis of a *light* ecModel. As example, it here uses the human-GEM
-% model of Homo sapiens as starting point. However, this script does not
-% claim to construct a "production-ready" ecHumanGEM model: dependent on
-% how you intend to use the ecModel it may require additional curation and
-% evaluation.
+% analysis of a *full* ecModel. As example, it here uses the yeast-GEM
+% model of Saccharomyces cerevisiae as starting point. However, this script
+% does not claim to construct a "production-ready" ecYeastGEM model:
+% dependent on how you intend to use the ecModel it may require additional
+% curation and evaluation.
 %
-% DO NOT USE THE ECMODEL GENERATED HERE OUTSIDE OF THIS TUTORIAL.
+% DO NOT DIRECTLY USE THE ECMODEL GENERATED HERE OUTSIDE OF THIS TUTORIAL.
 %
 % This script has limited comments and explanations of how the various
-% functions work, more detailed descriptions can be found in
+% functions work and only the STEPs essential for this script are shown. For 
+% more detailed descriptions and examples of the other STEPs, see
 % tutorials/full_ecModel/protocol.m.
 
 % Prepare software and model adapter
@@ -18,15 +19,14 @@ checkInstallation;
 GECKOInstaller.install
 setRavenSolver('gurobi')
 
-% STEP 1
+% STEP 8 Load the appropriate model adapter
 adapterLocation = fullfile(findGECKOroot,'tutorials','light_ecModel','HumanGEMAdapter.m');
 adapter = ModelAdapterManager.setDefault(adapterLocation); 
 
-%% Reconstruct light ecModel
-% STEP 2
+% STEP 9 Load the starting human-GEM model
 model = loadConventionalGEM();
 
-% STEP 3
+% STEP 10-11 Reconstruct light ecModel
 % Because Human-GEM contains gene identifiers in ENSEMBL format without
 % trailing version identifier, and there is no field in Uniprot that
 % exactly matches that format, a custom uniprotConversion.tsv is generated
@@ -45,14 +45,14 @@ model = loadConventionalGEM();
 % from Human-GEM was not sufficient and additional curation should be done.
 % This will be skipped for now, as 6 genes is not too many.
 
-% STEP 4
+% STEP 12-13 Apply complex data
 [ecModel, foundComplex, proposedComplex] = applyComplexData(ecModel);
 
-% STEP 6
+% STEP 16-19 Search for kcat values in BRENDA
 ecModel         = getECfromGEM(ecModel);
 kcatList_fuzzy  = fuzzyKcatMatching(ecModel);
 
-% STEP 7
+% STEP 20-25 Predict kcat values with DLKcat
 ecModel         = findMetSmiles(ecModel);
 % DLKcat.tsv files are ecModel-type specific and cannot be interchanged
 % between full and light ecModels. This is due to a difference in how
@@ -71,21 +71,21 @@ ecModel         = findMetSmiles(ecModel);
 
 kcatList_DLKcat = readDLKcatOutput(ecModel);
 
-% STEP 8
+% STEP 26 Merge BRENDA and DLKcat derived values
 kcatList_merged = mergeDLKcatAndFuzzyKcats(kcatList_DLKcat, kcatList_fuzzy);
 
-% STEP 9
+% STEP 27 Implement kcat avlues into model.ec.kcat
 ecModel = selectKcatValue(ecModel,kcatList_merged);
 
-% STEP 10
+% STEP 28
 % applyCustomKcats can be run on light ecModels in a similar way as for
 % full ecModels. However, no custom kcat values are defined for the ecModel
 % in this tutorial.
 
-% STEP 11
+% STEP 29
 % getKcatAcrossIsozymes cannot be run on light ecModels.
 
-% STEP 12
+% STEP 30
 % getStandardKcat can be run on light ecModels in a similar way as for full
 % ecModels. But due to the different model structure, no "standard"
 % pseudo-enzyme is included.
@@ -96,7 +96,7 @@ ecModel = selectKcatValue(ecModel,kcatList_merged);
 % -standardMW/standardKcat as the stoiciometric coefficient.
 [ecModel, rxnsMissingGPR, standardMW, standardKcat] = getStandardKcat(ecModel);
 
-% STEP 13
+% STEP 31 Apply kcat avlues to S-matrix
 % In light ecModels the kcat values are also kept in ecModels.ec.kcat, and
 % only after running applyKcatConstraints are these introduced in the
 % ecModel.S matrix. In constrast to full ecModels, the applyKcatConstraints
@@ -104,13 +104,13 @@ ecModel = selectKcatValue(ecModel,kcatList_merged);
 % (lowest MW/kcat value), and uses this value.
 ecModel = applyKcatConstraints(ecModel);
 
-% STEP 14
+% STEP 32 Constrain with total protein pool
 ecModel = setProtPoolSize(ecModel);
 sol=solveLP(ecModel,1)
 printFluxes(ecModel,sol.x)
 saveEcModel(ecModel);
 
-% STEP 15-18
+% STEP 43-44
 % sensitivityTuning also works on light ecModels. However, in this tutorial
 % an ecModel for the generic Human-GEM model is generated. This model is
 % not directly suitable for simulations, as it does not represent a
@@ -119,10 +119,10 @@ saveEcModel(ecModel);
 % cells, or otherwise the natural environment]), and what maximum growth
 % rate should be reached.
 
-% STEP 19-22
+% STEP 53-57, 64-65
 % Proteomics integration is NOT possible with light ecModels.
 
-% STEP 25
+% STEP 69-70
 % Simulating fluxes in light ecModels would follow a similar strategy as
 % would be suitable for simulating full ecModels without proteomics
 % integration. E.g. first optimization of a "classical" objective function
@@ -141,21 +141,21 @@ ecModel = setParam(ecModel,'obj','prot_pool_exchange',1);
 sol = solveLP(ecModel)
 fprintf('Minimum protein pool usage: %g mg/gDCW.\n', abs(sol.f))
 
-% STEP 26
+% STEP 71
 % Individual enzyme usages cannot be investigated in light ecModels, as
 % these are not explicitly included in the S-matrix.
 
-% STEP 27-28
+% STEP 72
 % Mapping fluxes to the conventional GEM works identical as for full
 % ecModels. Due to enzymes not being explicitly included in the S-matrix,
 % the enzUsageFlux only includes the protein pool exchange.
 [mappedFlux, enzUsageFlux, usageEnz] = mapRxnsToConv(ecModel, model, sol.x);
 
-% STEP 29
+% STEP 76-77
 % The comparison between full and light ecModel is demonstrated with a
 % custom function in tutorials/full_ecModel/code/plotlightVSfull.m.
 
-% STEP 30
+% STEP 78 Make context-specific ecModel by subsetting from a general model
 % To exemplify the construction of a context-specific ecModel, a
 % conventional GEM of HT-29 cell line is loaded.
 HT29 = readYAMLmodel(fullfile(adapter.params.path,'models','HT29-GEM.yml'));
@@ -164,6 +164,7 @@ HT29 = readYAMLmodel(fullfile(adapter.params.path,'models','HT29-GEM.yml'));
 ecModel = loadEcModel();
 ecHT29 = getSubsetEcModel(ecModel,HT29);
 
+% STEP 79 Compare results from generic and context-specific models
 % Without detailed inspection of all differences between the three models, 
 % it is clear that both the enzyme constraints and contextualization have
 % had its impact as the maximum growth rate is affected:

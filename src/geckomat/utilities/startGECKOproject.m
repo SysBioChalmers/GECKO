@@ -57,4 +57,5 @@ if ~exist(fullPath, 'dir')
 else
     printOrange('WARNING: A project with the same name exits at the same location. The project was not created.\n')
 end
+cd(fullPath)
 end
