@@ -74,7 +74,7 @@ kcatList_DLKcat = readDLKcatOutput(ecModel);
 % STEP 26 Merge BRENDA and DLKcat derived values
 kcatList_merged = mergeDLKcatAndFuzzyKcats(kcatList_DLKcat, kcatList_fuzzy);
 
-% STEP 27 Implement kcat avlues into model.ec.kcat
+% STEP 27 Implement kcat values into model.ec.kcat
 ecModel = selectKcatValue(ecModel,kcatList_merged);
 
 % STEP 28
@@ -96,7 +96,7 @@ ecModel = selectKcatValue(ecModel,kcatList_merged);
 % -standardMW/standardKcat as the stoiciometric coefficient.
 [ecModel, rxnsMissingGPR, standardMW, standardKcat] = getStandardKcat(ecModel);
 
-% STEP 31 Apply kcat avlues to S-matrix
+% STEP 31 Apply kcat values to S-matrix
 % In light ecModels the kcat values are also kept in ecModels.ec.kcat, and
 % only after running applyKcatConstraints are these introduced in the
 % ecModel.S matrix. In constrast to full ecModels, the applyKcatConstraints
