@@ -40,12 +40,12 @@ ecModel.description = ['Enzyme-constrained model of ' ecModel.id];
 
 switch filename(end-3:end)
     case {'.xml','sbml'}
-        exportModel(ecModel,[filename '.xml']);
+        exportModel(ecModel, filename);
         %Convert notation "e-005" to "e-05 " in stoich. coeffs. to avoid
         %inconsistencies between Windows and MAC:
-        copyfile([filename '.xml'],'backup.xml')
+        copyfile(filename,'backup.xml')
         fin  = fopen('backup.xml', 'r');
-        fout = fopen([filename '.xml'], 'w');
+        fout = fopen(filename, 'w');
         still_reading = true;
         while still_reading
             inline = fgets(fin);
