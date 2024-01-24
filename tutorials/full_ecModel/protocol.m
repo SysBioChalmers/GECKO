@@ -1,4 +1,4 @@
-% This file accompanies the GECKO3 Nature Protocols paper (DOI TO BE ADDED).
+% This file accompanies the GECKO 3 Nature Protocols paper https://doi.org/10.1038/s41596-023-00931-7.
 %
 % The function of this script is to demonstrate the reconstruction and
 % analysis of a *full* ecModel. As example, it here uses the yeast-GEM
