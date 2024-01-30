@@ -31,7 +31,7 @@ end
 % Check if Docker is installed
 [checks.docker.status, checks.docker.out] = system('docker --version');
 if checks.docker.status ~= 0
-    error('Cannot find Docker. Make sure it is installed.')
+    error('Cannot find Docker, make sure it is installed. If it is, it might be required to start Matlab from the command-line instead of the launcher in order for Docker to be detected and used.')
 end
 
 disp('Running DLKcat prediction, this may take many minutes, especially the first time.')
