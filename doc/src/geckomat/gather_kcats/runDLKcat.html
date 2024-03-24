@@ -86,7 +86,7 @@ This function is called by:
 0031 <span class="comment">% Check if Docker is installed</span>
 0032 [checks.docker.status, checks.docker.out] = system(<span class="string">'docker --version'</span>);
 0033 <span class="keyword">if</span> checks.docker.status ~= 0
-0034     error(<span class="string">'Cannot find Docker. Make sure it is installed.'</span>)
+0034     error(<span class="string">'Cannot find Docker, make sure it is installed. If it is, it might be required to start Matlab from the command-line instead of the launcher in order for Docker to be detected and used.'</span>)
 0035 <span class="keyword">end</span>
 0036 
 0037 disp(<span class="string">'Running DLKcat prediction, this may take many minutes, especially the first time.'</span>)
