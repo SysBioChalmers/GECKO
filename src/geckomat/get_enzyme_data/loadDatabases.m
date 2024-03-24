@@ -62,9 +62,10 @@ if any(strcmp(selectDatabase,{'uniprot','both'}))
             '%2Cec%2Cmass%2Csequence&format=tsv&compressed=false&sort=protein_name%20asc'];
         try
             urlwrite(url,uniprotPath,'Timeout',30);
-            fprintf('Model-specific KEGG database stored at %s\n',uniprotPath);
+            fprintf('Model-specific UniProt database stored at %s\n',uniprotPath);
         catch
-            error(['Download failed, check your internet connection and try again, or manually download: ' url])
+            error(['Download failed, check your internet connection and try again, or manually download: ' url ...
+                ' After downloading, store the file as ' uniprotPath])
         end
     end
     if exist(uniprotPath,'file')
