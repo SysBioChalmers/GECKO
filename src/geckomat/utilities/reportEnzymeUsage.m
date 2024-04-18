@@ -61,7 +61,29 @@ topUsage.rxnID      = {};
 topUsage.rxnNames   = {};
 topUsage.grRules    = {};
 
-protPool = -ecModel.lb(strcmp(ecModel.rxns,'prot_pool_exchange'))/100;
+% Calculate the protein pool flux from the 'prot_pool_exchange' reaction
+protPoolExchangeFlux = -ecModel.lb(strcmp(ecModel.rxns,'prot_pool_exchange'));
+
+% Obtain the fluxes
+sol = solveLP(ecModel);
+if isempty(sol.x)
+    error('No solution found.');
+end
+fluxValues = sol.x;
+
+% Sum fluxes for all 'usage_prot_' reactions, excluding the 'usage_prot_standard'
+usageProtIndices = startsWith(ecModel.rxns, 'usage_prot_') & ...
+                   ~contains(ecModel.rxns, 'standard');
+
+% Sum the absolute values of the usage fluxes
+totalUsageProtFlux = sum(abs(fluxValues(usageProtIndices)));
+
+% Define the new protein pool as the sum of prot_pool_exchange flux and total usage_prot fluxes
+protPool = (protPoolExchangeFlux + totalUsageProtFlux)/100;
+
+fprintf('Total Protein Pool Flux: %f\n', protPoolExchangeFlux);
+fprintf('total UsageProt Flux: %f\n', totalUsageProtFlux);
+
 
 for i=1:numel(topEnzyme)
     [rxns, kcat, idx, rxnNames, grRules] = getReactionsFromEnzyme(ecModel,topEnzyme{i});
