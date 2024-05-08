@@ -46,7 +46,7 @@ uniprotDB = uniprotDB.uniprot;
 if ischar(protData) && endsWith(protData,'paxDB.tsv')
     fID         = fopen(fullfile(protData),'r');
     fileContent = textscan(fID,'%s','delimiter','\n');
-    headerLines = sum(startsWith(fileContent{1},'#'));
+    headerLines = find(startsWith(fileContent{1},'#'),1,'last');
     fclose(fID);
 
     %Read data file, excluding headerlines
