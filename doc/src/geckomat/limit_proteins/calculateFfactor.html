@@ -106,7 +106,7 @@ This function is called by:
 0046 <span class="keyword">if</span> ischar(protData) &amp;&amp; endsWith(protData,<span class="string">'paxDB.tsv'</span>)
 0047     fID         = fopen(fullfile(protData),<span class="string">'r'</span>);
 0048     fileContent = textscan(fID,<span class="string">'%s'</span>,<span class="string">'delimiter'</span>,<span class="string">'\n'</span>);
-0049     headerLines = sum(startsWith(fileContent{1},<span class="string">'#'</span>));
+0049     headerLines = find(startsWith(fileContent{1},<span class="string">'#'</span>),1,<span class="string">'last'</span>);
 0050     fclose(fID);
 0051 
 0052     <span class="comment">%Read data file, excluding headerlines</span>
