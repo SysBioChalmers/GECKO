@@ -1,10 +1,10 @@
-function usageReport = topEnzymeUsage(ecModel, usageData, highCapUsage, topAbsUsage)
+function usageReport = reportEnzymeUsage(ecModel, usageData, highCapUsage, topAbsUsage)
 % reportEnzymeUsage
 %   Summarizes the results from enzymeUsage.
 %
 %  Input:
 %   ecModel         a GECKO3 ecModel
-%   usageData       output from reportEnzymeUsage
+%   usageData       output from enzymeUsage
 %   highCapUsage    minimum ratio of enzyme capacity usage to be considered
 %                   as high usage (Optional, default 0.9, refering to a 
 %                   minimum of 90% capacity usage)
@@ -61,7 +61,20 @@ topUsage.rxnID      = {};
 topUsage.rxnNames   = {};
 topUsage.grRules    = {};
 
-protPool = -ecModel.lb(strcmp(ecModel.rxns,'prot_pool_exchange'))/100;
+% Calculate the protein pool flux from the 'prot_pool_exchange' reaction
+protPoolExchangeFlux = -ecModel.lb(strcmp(ecModel.rxns,'prot_pool_exchange'));
+
+fluxValues = usageData.fluxes;
+
+% Sum fluxes for all 'usage_prot_' reactions, excluding the 'usage_prot_standard'
+usageProtIndices = startsWith(ecModel.rxns, 'usage_prot_') & ...
+                   ~contains(ecModel.rxns, 'standard');
+
+% Sum the absolute values of the usage fluxes
+totalUsageProtFlux = sum(abs(fluxValues(usageProtIndices)));
+
+% Define the new protein pool as the sum of prot_pool_exchange flux and total usage_prot fluxes
+protPool = (protPoolExchangeFlux + totalUsageProtFlux)/100;
 
 for i=1:numel(topEnzyme)
     [rxns, kcat, idx, rxnNames, grRules] = getReactionsFromEnzyme(ecModel,topEnzyme{i});
@@ -76,5 +89,7 @@ for i=1:numel(topEnzyme)
     topUsage.rxnNames(end+1:end+rxnNumber,1)    = rxnNames;
     topUsage.grRules(end+1:end+rxnNumber,1)     = grRules;
 end
-usageReport.topAbsUsage = struct2table(topUsage);
+usageReport.topAbsUsage     = struct2table(topUsage);
+usageReport.totalProtPool   = protPoolExchangeFlux;
+usageReport.totalUsageFlux  = totalUsageProtFlux;
 end
