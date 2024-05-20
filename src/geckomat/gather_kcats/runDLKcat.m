@@ -20,6 +20,9 @@ if nargin < 1 || isempty(modelAdapter)
 end
 
 params = modelAdapter.params;
+% Make sure path is full, not relative
+[~, params.path] = fileattrib(params.path);
+params.path=params.path.Name;
 
 %% Check and install requirements
 % On macOS, Docker might not be properly loaded if MATLAB is started via
