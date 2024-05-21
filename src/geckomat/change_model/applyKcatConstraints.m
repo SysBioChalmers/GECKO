@@ -65,30 +65,33 @@ if ~model.ec.geckoLight
     kcatFirst=0;
     for i=1:numel(updateRxns)
         j=updateRxns(i);
-        enzymes   = find(model.ec.rxnEnzMat(j,:));
-        kcatLast  = kcatFirst+numel(enzymes);
-        kcatFirst = kcatFirst+1;
-        newKcats(kcatFirst:kcatLast,1) = j;
-        newKcats(kcatFirst:kcatLast,2) = enzymes;
-        newKcats(kcatFirst:kcatLast,3) = model.ec.rxnEnzMat(j,enzymes);
-        newKcats(kcatFirst:kcatLast,4) = model.ec.kcat(j);
-        newKcats(kcatFirst:kcatLast,5) = model.ec.mw(enzymes);
-        kcatFirst = kcatLast;
+        if model.ec.kcat(j) ~= 0
+            enzymes   = find(model.ec.rxnEnzMat(j,:));
+            kcatLast  = kcatFirst+numel(enzymes);
+            kcatFirst = kcatFirst+1;
+            newKcats(kcatFirst:kcatLast,1) = j;
+            newKcats(kcatFirst:kcatLast,2) = enzymes;
+            newKcats(kcatFirst:kcatLast,3) = model.ec.rxnEnzMat(j,enzymes);
+            newKcats(kcatFirst:kcatLast,4) = model.ec.kcat(j);
+            newKcats(kcatFirst:kcatLast,5) = model.ec.mw(enzymes);
+            kcatFirst = kcatLast;
+        end
     end
-    newKcats(kcatLast+1:end,:)=[];
-    
-    sel = newKcats(:,4) > 0; %Only apply to non-zero kcat
-    newKcats(sel,4) = newKcats(sel,4) * 3600; %per second -> per hour
-    newKcats(sel,4) = newKcats(sel,5) ./ newKcats(sel,4); %MW/kcat
-    newKcats(sel,4) = newKcats(sel,3) .* newKcats(sel,4); %Multicopy subunits.
-    newKcats(~sel,4) = 0; %Results in zero-cost
-    
-    %Replace rxns and enzymes with their location in model
-    [~,newKcats(:,1)] = ismember(model.ec.rxns(newKcats(:,1)),model.rxns);
-    [~,newKcats(:,2)] = ismember(strcat('prot_',model.ec.enzymes(newKcats(:,2))),model.mets);
-    linearIndices     = sub2ind(size(model.S),newKcats(:,2),newKcats(:,1));
-    model.S(linearIndices) = -newKcats(:,4); %Substrate = negative
-    
+    if exist('kcatLast','var') % If it does not, then no kcats are found
+        newKcats(kcatLast+1:end,:)=[];
+
+        sel = newKcats(:,4) > 0; %Only apply to non-zero kcat
+        newKcats(sel,4) = newKcats(sel,4) * 3600; %per second -> per hour
+        newKcats(sel,4) = newKcats(sel,5) ./ newKcats(sel,4); %MW/kcat
+        newKcats(sel,4) = newKcats(sel,3) .* newKcats(sel,4); %Multicopy subunits.
+        newKcats(~sel,4) = 0; %Results in zero-cost
+
+        %Replace rxns and enzymes with their location in model
+        [~,newKcats(:,1)] = ismember(model.ec.rxns(newKcats(:,1)),model.rxns);
+        [~,newKcats(:,2)] = ismember(strcat('prot_',model.ec.enzymes(newKcats(:,2))),model.mets);
+        linearIndices     = sub2ind(size(model.S),newKcats(:,2),newKcats(:,1));
+        model.S(linearIndices) = -newKcats(:,4); %Substrate = negative
+    end
 else %GECKO light formulation, where prot_pool represents all usages
     prot_pool_idx = find(ismember(model.mets,'prot_pool'));
     %first remove the prefix of all rxns
