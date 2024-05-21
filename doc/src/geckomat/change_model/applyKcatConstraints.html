@@ -127,55 +127,58 @@ This function is called by:
 0065     kcatFirst=0;
 0066     <span class="keyword">for</span> i=1:numel(updateRxns)
 0067         j=updateRxns(i);
-0068         enzymes   = find(model.ec.rxnEnzMat(j,:));
-0069         kcatLast  = kcatFirst+numel(enzymes);
-0070         kcatFirst = kcatFirst+1;
-0071         newKcats(kcatFirst:kcatLast,1) = j;
-0072         newKcats(kcatFirst:kcatLast,2) = enzymes;
-0073         newKcats(kcatFirst:kcatLast,3) = model.ec.rxnEnzMat(j,enzymes);
-0074         newKcats(kcatFirst:kcatLast,4) = model.ec.kcat(j);
-0075         newKcats(kcatFirst:kcatLast,5) = model.ec.mw(enzymes);
-0076         kcatFirst = kcatLast;
-0077     <span class="keyword">end</span>
-0078     newKcats(kcatLast+1:<span class="keyword">end</span>,:)=[];
-0079     
-0080     sel = newKcats(:,4) &gt; 0; <span class="comment">%Only apply to non-zero kcat</span>
-0081     newKcats(sel,4) = newKcats(sel,4) * 3600; <span class="comment">%per second -&gt; per hour</span>
-0082     newKcats(sel,4) = newKcats(sel,5) ./ newKcats(sel,4); <span class="comment">%MW/kcat</span>
-0083     newKcats(sel,4) = newKcats(sel,3) .* newKcats(sel,4); <span class="comment">%Multicopy subunits.</span>
-0084     newKcats(~sel,4) = 0; <span class="comment">%Results in zero-cost</span>
-0085     
-0086     <span class="comment">%Replace rxns and enzymes with their location in model</span>
-0087     [~,newKcats(:,1)] = ismember(model.ec.rxns(newKcats(:,1)),model.rxns);
-0088     [~,newKcats(:,2)] = ismember(strcat(<span class="string">'prot_'</span>,model.ec.enzymes(newKcats(:,2))),model.mets);
-0089     linearIndices     = sub2ind(size(model.S),newKcats(:,2),newKcats(:,1));
-0090     model.S(linearIndices) = -newKcats(:,4); <span class="comment">%Substrate = negative</span>
-0091     
-0092 <span class="keyword">else</span> <span class="comment">%GECKO light formulation, where prot_pool represents all usages</span>
-0093     prot_pool_idx = find(ismember(model.mets,<span class="string">'prot_pool'</span>));
-0094     <span class="comment">%first remove the prefix of all rxns</span>
-0095     modRxns     = extractAfter(model.ec.rxns,4);
-0096     <span class="comment">% Map ec-reactions to model.rxns</span>
-0097     [hasEc,~]   = ismember(model.rxns,modRxns);
-0098     hasEc       = find(hasEc &amp; updateRxns);
-0099     [~,rxnIdx]   = ismember(modRxns,model.rxns);
-0100     <span class="keyword">for</span> i = 1:numel(hasEc)
-0101         <span class="comment">% Get all isozymes per reaction</span>
-0102         ecIdx = find(rxnIdx == hasEc(i));
-0103         <span class="comment">% ecIdx = strcmp(model.rxns(hasEc(i)),modRxns);</span>
-0104         <span class="comment">% Multiply enzymes with their MW (they are then automatically</span>
-0105         <span class="comment">% summed per reaction), and divide by their kcat, to get a vector</span>
-0106         <span class="comment">% of MW/kcat values.</span>
-0107         MWkcat = (model.ec.rxnEnzMat(ecIdx,:) * model.ec.mw) ./ model.ec.kcat(ecIdx);
-0108         <span class="comment">% If kcat was zero, MWkcat is Inf. If no enzyme info was found,</span>
-0109         <span class="comment">% MWkcat is NaN. Correct both back to zero</span>
-0110         MWkcat(isinf(MWkcat) | isnan(MWkcat)) = 0;
-0111         <span class="comment">% Select the lowest MW/kcat (= most efficient), and convert to /hour</span>
-0112         model.S(prot_pool_idx, hasEc(i)) = -min(MWkcat/3600);
-0113     <span class="keyword">end</span>
-0114 <span class="keyword">end</span>
-0115 <span class="keyword">end</span>
-0116</pre></div>
+0068         <span class="keyword">if</span> model.ec.kcat(j) ~= 0
+0069             enzymes   = find(model.ec.rxnEnzMat(j,:));
+0070             kcatLast  = kcatFirst+numel(enzymes);
+0071             kcatFirst = kcatFirst+1;
+0072             newKcats(kcatFirst:kcatLast,1) = j;
+0073             newKcats(kcatFirst:kcatLast,2) = enzymes;
+0074             newKcats(kcatFirst:kcatLast,3) = model.ec.rxnEnzMat(j,enzymes);
+0075             newKcats(kcatFirst:kcatLast,4) = model.ec.kcat(j);
+0076             newKcats(kcatFirst:kcatLast,5) = model.ec.mw(enzymes);
+0077             kcatFirst = kcatLast;
+0078         <span class="keyword">end</span>
+0079     <span class="keyword">end</span>
+0080     <span class="keyword">if</span> exist(<span class="string">'kcatLast'</span>,<span class="string">'var'</span>) <span class="comment">% If it does not, then no kcats are found</span>
+0081         newKcats(kcatLast+1:<span class="keyword">end</span>,:)=[];
+0082 
+0083         sel = newKcats(:,4) &gt; 0; <span class="comment">%Only apply to non-zero kcat</span>
+0084         newKcats(sel,4) = newKcats(sel,4) * 3600; <span class="comment">%per second -&gt; per hour</span>
+0085         newKcats(sel,4) = newKcats(sel,5) ./ newKcats(sel,4); <span class="comment">%MW/kcat</span>
+0086         newKcats(sel,4) = newKcats(sel,3) .* newKcats(sel,4); <span class="comment">%Multicopy subunits.</span>
+0087         newKcats(~sel,4) = 0; <span class="comment">%Results in zero-cost</span>
+0088 
+0089         <span class="comment">%Replace rxns and enzymes with their location in model</span>
+0090         [~,newKcats(:,1)] = ismember(model.ec.rxns(newKcats(:,1)),model.rxns);
+0091         [~,newKcats(:,2)] = ismember(strcat(<span class="string">'prot_'</span>,model.ec.enzymes(newKcats(:,2))),model.mets);
+0092         linearIndices     = sub2ind(size(model.S),newKcats(:,2),newKcats(:,1));
+0093         model.S(linearIndices) = -newKcats(:,4); <span class="comment">%Substrate = negative</span>
+0094     <span class="keyword">end</span>
+0095 <span class="keyword">else</span> <span class="comment">%GECKO light formulation, where prot_pool represents all usages</span>
+0096     prot_pool_idx = find(ismember(model.mets,<span class="string">'prot_pool'</span>));
+0097     <span class="comment">%first remove the prefix of all rxns</span>
+0098     modRxns     = extractAfter(model.ec.rxns,4);
+0099     <span class="comment">% Map ec-reactions to model.rxns</span>
+0100     [hasEc,~]   = ismember(model.rxns,modRxns);
+0101     hasEc       = find(hasEc &amp; updateRxns);
+0102     [~,rxnIdx]   = ismember(modRxns,model.rxns);
+0103     <span class="keyword">for</span> i = 1:numel(hasEc)
+0104         <span class="comment">% Get all isozymes per reaction</span>
+0105         ecIdx = find(rxnIdx == hasEc(i));
+0106         <span class="comment">% ecIdx = strcmp(model.rxns(hasEc(i)),modRxns);</span>
+0107         <span class="comment">% Multiply enzymes with their MW (they are then automatically</span>
+0108         <span class="comment">% summed per reaction), and divide by their kcat, to get a vector</span>
+0109         <span class="comment">% of MW/kcat values.</span>
+0110         MWkcat = (model.ec.rxnEnzMat(ecIdx,:) * model.ec.mw) ./ model.ec.kcat(ecIdx);
+0111         <span class="comment">% If kcat was zero, MWkcat is Inf. If no enzyme info was found,</span>
+0112         <span class="comment">% MWkcat is NaN. Correct both back to zero</span>
+0113         MWkcat(isinf(MWkcat) | isnan(MWkcat)) = 0;
+0114         <span class="comment">% Select the lowest MW/kcat (= most efficient), and convert to /hour</span>
+0115         model.S(prot_pool_idx, hasEc(i)) = -min(MWkcat/3600);
+0116     <span class="keyword">end</span>
+0117 <span class="keyword">end</span>
+0118 <span class="keyword">end</span>
+0119</pre></div>
 <hr><address>Generated by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>
