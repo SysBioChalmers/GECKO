@@ -2,7 +2,7 @@ function usageData = enzymeUsage(ecModel,fluxes,zero)
 % enzymeUsage
 %   Gives enzyme usages based on a provided flux distribution, as obtained
 %   from a full GECKO model. It can give:
-%   1)  absolute usage: the specific enzyme usage in ug/gDCW/h, which can
+%   1)  absolute usage: the specific enzyme usage in mg/gDCW, which can
 %       be given for enzymes with- and without concentration information;
 %   2)  capacity usage: the ratio of available enzyme that is used, calcuted
 %       by (absUsage/UB) (note that capacity usage is 0 if an enzyme
