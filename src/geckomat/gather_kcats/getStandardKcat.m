@@ -1,10 +1,14 @@
 function [model, rxnsMissingGPR, standardMW, standardKcat, rxnsNoKcat] = getStandardKcat(model, modelAdapter, threshold, fillZeroKcat)
 % getStandardKcat
-%   Calculate an standard kcat and standard molecular weight (MW) that can be
-%   used to apply enzyme constraints to reactions without any associated genes.
-%   This is done by adding those reactions to model.ec, assign a "standard"
-%   pseudoenzyme with the standard MW (median of all proteins in the organism)
-%   and standard kcat (median from all kcat, or subsystem specific kcat).
+%   Calculate an standard kcat and standard molecular weight (MW) that can
+%   be used to apply enzyme constraints to reactions without any associated
+%   enzymes. Such reactions have either an empty model.grRules field, or
+%   they have no match in model.ec.rxns (which can be the case if the genes
+%   in the model.grRules field could not be mapped to enzymes). This is
+%   done by adding those reactions to model.ec, assign a "standard"
+%   pseudoenzyme with the standard MW (median of all proteins in the
+%   organism) and standard kcat (median from all kcat, or subsystem
+%   specific kcat).
 %
 %   A reaction is assigned a subSystem specific kcat values if the model
 %   has a subSystems field and the reaction is annotated with a subSystem.
@@ -17,25 +21,26 @@ function [model, rxnsMissingGPR, standardMW, standardKcat, rxnsNoKcat] = getStan
 %
 %   In addition, reactions that are annotated with an enzyme (and therefore
 %   already in model.ec), but not assigned any reaction-specific kcat value
-%   (their model.ec.kcat entry is either 0 or NaN), can be assigned standard
-%   kcat values by a similar approach. However, those reactions will not be
-%   linked to the "standard" pseudoenzyme, but will use the enzyme that they had
-%   already been associated with.
+%   (their model.ec.kcat entry is either 0 or NaN), can be assigned
+%   standard kcat values by a similar approach. However, those reactions
+%   will not be linked to the "standard" pseudoenzyme, but will use the
+%   enzyme that they had already been associated with.
 %
 %   Any pre-existing standard kcat assignments (identified by 'standard'
 %   entires in model.ec.source) are removed when applying this function.
 %
 % Input:
 %   model           an ecModel in GECKO 3 format (with ecModel.ec structure)
-%   modelAdapter    a loaded model adapter (Optional, will otherwise use the
-%                   default model adapter).
+%   modelAdapter    a loaded model adapter (Optional, will otherwise use
+%                   the default model adapter).
 %   threshold       a threshold to determine when use a kcat value based on
 %                   the mean kcat of the reactions in the same subSystem or
 %                   based on the median value of all the kcat in the model.
 %                   Second option is used when the number of reactions in a
-%                   determined subSystem is < threshold. (Optional, default = 10)
-%   fillZeroKcat    logical whether zero kcat values should be replaced with
-%                   standard kcat values. (Optional, default = true).
+%                   determined subSystem is < threshold. (Optional, default
+%                   = 10)
+%   fillZeroKcat    logical whether zero kcat values should be replaced
+%                   with standard kcat values. (Optional, default = true).
 %
 % Output:
 %   model           ecModel where model.ec is expanded with a standard
@@ -43,11 +48,11 @@ function [model, rxnsMissingGPR, standardMW, standardKcat, rxnsNoKcat] = getStan
 %                   reactions without gene associations.
 %   rxnsMissingGPR  a list of updated rxns identifiers with a standard value
 %   standardMW      the standard MW value calculated
-%   standardKcat    the standard Kcat value calculated
+%   standardKcat    the standard Kcat value calculated 
 %   rxnsNoKcat      a list of rxns identifiers whose zero kcat has been replaced
 %
-%   While model.ec.kcat is populated, applyKcatConstraints would still need to
-%   be run to apply the new constraints to the S-matrix.
+%   While model.ec.kcat is populated, applyKcatConstraints would still need
+%   to be run to apply the new constraints to the S-matrix.
 %
 % Usage:
 %    [model, rxnsMissingGPR, standardMW, standardKcat, rxnsNoKcat] = getStandardKcat(model, modelAdapter, threshold, fillZeroKcat);
@@ -125,6 +130,12 @@ end
 
 % Find reactions without GPR
 rxnsMissingGPR = find(cellfun(@isempty, model.grRules));
+
+% Find reactions with GPR but without model.ec entry (for instance due to
+% no protein matching)
+rxnsMissingEnzyme = find(~cellfun(@isempty, model.grRules));
+rxnsMissingEnzyme = find(and(~ismember(model.rxns(rxnsMissingEnzyme),model.ec.rxns), ~contains(model.rxns(rxnsMissingEnzyme),'usage_prot_')));
+rxnsMissingGPR = [rxnsMissingGPR;rxnsMissingEnzyme];
 
 % Get custom list of reaction IDs to ignore, if existing. First column
 % contains reaction IDs, second column contains reaction names for

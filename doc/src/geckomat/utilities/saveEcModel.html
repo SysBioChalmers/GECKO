@@ -106,12 +106,12 @@ This function is called by:
 0040 
 0041 <span class="keyword">switch</span> filename(end-3:end)
 0042     <span class="keyword">case</span> {<span class="string">'.xml'</span>,<span class="string">'sbml'</span>}
-0043         exportModel(ecModel,[filename <span class="string">'.xml'</span>]);
+0043         exportModel(ecModel, filename);
 0044         <span class="comment">%Convert notation &quot;e-005&quot; to &quot;e-05 &quot; in stoich. coeffs. to avoid</span>
 0045         <span class="comment">%inconsistencies between Windows and MAC:</span>
-0046         copyfile([filename <span class="string">'.xml'</span>],<span class="string">'backup.xml'</span>)
+0046         copyfile(filename,<span class="string">'backup.xml'</span>)
 0047         fin  = fopen(<span class="string">'backup.xml'</span>, <span class="string">'r'</span>);
-0048         fout = fopen([filename <span class="string">'.xml'</span>], <span class="string">'w'</span>);
+0048         fout = fopen(filename, <span class="string">'w'</span>);
 0049         still_reading = true;
 0050         <span class="keyword">while</span> still_reading
 0051             inline = fgets(fin);

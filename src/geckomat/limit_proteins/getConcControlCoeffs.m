@@ -35,7 +35,7 @@ enz = false(length(proteins),1);
 controlCoeffs = zeros(length(proteins),1);
 
 [sol,hs] = solveLP(model);
-initialGrowth = abs(sol.f);
+initialGrowth = sol.f;
 
 % Get enzyme index
 [~, protIdx] = ismember(proteins, model.ec.enzymes);
@@ -63,7 +63,7 @@ for i = 1:numel(proteins)
 
         % Get the new growth rate after the adjustment
         [tempSol,hs] = solveLP(tempModel,0,[],hs);
-        tempGrowth = abs(tempSol.f);
+        tempGrowth = tempSol.f;
         
         % Calculate the coeff only if new growth rate is significantly
         % higher than initial value
