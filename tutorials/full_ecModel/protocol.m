@@ -24,7 +24,7 @@
 %   - Simplest, RAVEN can be installed as MATLAB Add-On:
 %     https://se.mathworks.com/help/matlab/matlab_env/get-add-ons.html
 %   - The installation of Gurobi as LP solver is highly recommended
-checkInstallation; % Confirm that RAVEN is functional, should be 2.8.3 or later.
+checkInstallation; % Confirm that RAVEN is functional, should be 2.9.1 or later.
 
 %   - Install GECKO by following the installation instructions:
 %     https://github.com/SysBioChalmers/GECKO/wiki/Installation-and-upgrade
@@ -343,7 +343,7 @@ fluxData = loadFluxData();
 ecModel = constrainFluxData(ecModel,fluxData,1,'max','loose');
 % Observe if the intended growth rate was reached.
 sol = solveLP(ecModel);
-fprintf('Growth rate that is reached: %f /hour.\n', abs(sol.f))
+fprintf('Growth rate that is reached: %f /hour.\n', sol.f)
 % The growth rate of 0.1 is far from being reached. Therefore, the next
 % step is to flexibilize enzyme concentrations.
 
@@ -358,7 +358,7 @@ fprintf('Growth rate that is reached: %f /hour.\n', abs(sol.f))
 %model = loadConventionalGEM();
 model = constrainFluxData(model,fluxData);
 sol = solveLP(model)
-fprintf('Growth rate that is reached: %f /hour.\n', abs(sol.f))
+fprintf('Growth rate that is reached: %f /hour.\n', sol.f)
 
 % The starting model reaches a similar growth rate as the ecModel after
 % flexibilizing enzyme concentrations. So the metabolic network would not
@@ -423,16 +423,16 @@ saveas(gcf,fullfile(params.path,'output','crabtree_preStep33.pdf'))
 % STEP 69-70 Selecting objective functions
 ecModel = setParam(ecModel,'obj',params.bioRxn,1);
 sol = solveLP(ecModel)
-fprintf('Growth rate that is reached: %f /hour.\n', abs(sol.f))
+fprintf('Growth rate that is reached: %f /hour.\n', sol.f)
 % Set growth lower bound to 99% of the previous value.
-ecModel = setParam(ecModel,'lb',params.bioRxn,0.99*abs(sol.f));
+ecModel = setParam(ecModel,'lb',params.bioRxn,0.99*sol.f);
 % Minimize protein pool usage. As protein pool exchange is defined in the
 % reverse direction (with negative flux), minimization of protein pool
 % usage is computationally represented by maximizing the prot_pool_exchange
 % reaction.
 ecModel = setParam(ecModel,'obj','prot_pool_exchange',1);
 sol = solveLP(ecModel)
-fprintf('Minimum protein pool usage: %.2f mg/gDCW.\n', abs(sol.f))
+fprintf('Minimum protein pool usage: %.2f mg/gDCW.\n', sol.f)
 
 % STEP 71 Inspect enzyme usage
 % Show the result from the earlier simulation, without mapping to

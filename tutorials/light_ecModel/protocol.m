@@ -133,13 +133,13 @@ saveEcModel(ecModel);
 ecModel = loadEcModel();
 ecModel = setParam(ecModel,'obj',adapter.params.bioRxn,1);
 sol = solveLP(ecModel)
-fprintf('Growth rate reached: %g /hour.\n', abs(sol.f))
+fprintf('Growth rate reached: %g /hour.\n', sol.f)
 % Set growth lower bound to 99% of the previous value.
-ecModel = setParam(ecModel,'lb',adapter.params.bioRxn,0.99*abs(sol.f));
+ecModel = setParam(ecModel,'lb',adapter.params.bioRxn,0.99*sol.f);
 % Minimize protein pool usage.
 ecModel = setParam(ecModel,'obj','prot_pool_exchange',1);
 sol = solveLP(ecModel)
-fprintf('Minimum protein pool usage: %g mg/gDCW.\n', abs(sol.f))
+fprintf('Minimum protein pool usage: %g mg/gDCW.\n', sol.f)
 
 % STEP 71
 % Individual enzyme usages cannot be investigated in light ecModels, as
@@ -169,8 +169,8 @@ ecHT29 = getSubsetEcModel(ecModel,HT29);
 % it is clear that both the enzyme constraints and contextualization have
 % had its impact as the maximum growth rate is affected:
 sol = solveLP(HT29);
-fprintf('Growth rate in HT29-GEM: %.3f /hour.\n', abs(sol.f))
+fprintf('Growth rate in HT29-GEM: %.3f /hour.\n', sol.f)
 sol = solveLP(ecModel);
-fprintf('Growth rate in ecHuman-GEM: %.3f /hour.\n', abs(sol.f))
+fprintf('Growth rate in ecHuman-GEM: %.3f /hour.\n', sol.f)
 sol = solveLP(ecHT29);
-fprintf('Growth rate in ecHT29-GEM: %.3f /hour.\n', abs(sol.f))
+fprintf('Growth rate in ecHT29-GEM: %.3f /hour.\n', sol.f)

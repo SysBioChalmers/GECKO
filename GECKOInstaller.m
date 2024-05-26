@@ -10,7 +10,7 @@ classdef GECKOInstaller
             sourceDir = fileparts(which(mfilename));
             paths = GECKOInstaller.GetFilteredSubPaths(sourceDir, GECKOInstaller.FILE_FILTER);
 
-            GECKOInstaller.checkRAVENversion('2.8.3'); % Minimum RAVEN version
+            GECKOInstaller.checkRAVENversion('2.9.1'); % Minimum RAVEN version
 
             % Check unique function names
             if ~exist("checkFunctionUniqueness.m")
@@ -62,26 +62,42 @@ classdef GECKOInstaller
         end
 
         function checkRAVENversion(minmVer)
+            wrongVersion = false;
             try
-                currVer = checkInstallation('versionOnly');
+                [currVer, installType] = checkInstallation('versionOnly');
                 if strcmp(currVer,'develop')
                     printOrange('WARNING: Cannot determine your RAVEN version as it is in a development branch.\n')
-                else
+                else                
                     currVerNum = str2double(strsplit(currVer,'.'));
                     minmVerNum = str2double(strsplit(minmVer,'.'));
                     for i=1:3
                         if currVerNum(i)<minmVerNum(i)
-                            error('Installed RAVEN version is %s, while the minimum is %s.',currVer,minmVer)
+                            wrongVersion = true;
                         end
                     end
                 end
             catch
                 warning(['Cannot find RAVEN Toolbox in the MATLAB path, or the version ' ...
-                    'is too old (before v' minmVer '). Make sure you have installed RAVEN in ' ...
-                    'accordance to the following instructions, including running ' ...
-                    '''checkInstallation()'': https://github.com/SysBioChalmers/RAVEN/wiki/Installation'])
+                    'is too old for this GECKO version (RAVEN ' minmVer ' is required). ' ...
+                    'Make sure you have installed RAVEN following the instructions available '...
+                    '<a href="https://github.com/SysBioChalmers/RAVEN/wiki/Installation#installation-instructions">here</a>, '...
+                    'including running ''checkInstallation()''.'])
             end
-
+            if wrongVersion
+                switch installType
+                    case 0
+                        installType = 'advanced';
+                    case 1
+                        installType = 'easy';
+                    case 2
+                        installType = 'medium';
+                end
+                error(['Installed RAVEN version is %s, while the minimum is %s. '...
+                    'Upgrade RAVEN by following the instructions available ' ...
+                    '<a href="https://github.com/SysBioChalmers/RAVEN/wiki/Installation#upgrade-raven-after-' ...
+                    installType '-installation">here</a>. Do not attempt to run GECKO before upgrading.'], ...
+                    currVer,minmVer)
+            end
         end
 
         function checkGECKOversion
@@ -113,7 +129,7 @@ classdef GECKOInstaller
                     fprintf('\n');
                 end
             else
-                fprintf('GECKO installed, unknown version (cannot find version.txt)\n')
+                fprintf('GECKO installed, unknown version (cannot find version.txt).\n')
             end
         end
     end

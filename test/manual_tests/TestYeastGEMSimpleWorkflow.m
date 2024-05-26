@@ -35,10 +35,10 @@ fullECModelMerged.lb(fullECModelMerged.lb == -1) = -1000;
 fullECModelMerged.lb(fullECModelMerged.lb == -10) = -1000;
 fullECModelMerged.ub(fullECModelMerged.ub == 1) = 1000;
 sol = solveLP(fullECModelMerged, 1);
-growthBef = -sol.f;
+growthBef = sol.f;
 fullECModelTuned = sensitivityTuning(fullECModelMerged, 0.4, yeastAdapter);
 sol = solveLP(fullECModelTuned, 1);
-growthAfter = -sol.f;
+growthAfter = sol.f;
 disp(['Growth before: ' num2str(growthBef) ', Growth after: ' num2str(growthAfter)])
 
 %Light model
@@ -70,9 +70,9 @@ lightECModelMerged.lb(lightECModelMerged.lb == -1) = -1000;
 lightECModelMerged.lb(lightECModelMerged.lb == -10) = -1000;
 lightECModelMerged.ub(lightECModelMerged.ub == 1) = 1000;
 sol = solveLP(lightECModelMerged, 1);
-growthBef = -sol.f;
+growthBef = sol.f;
 lightECModelTuned = sensitivityTuning(lightECModelMerged, 0.4, yeastAdapter);
 sol = solveLP(lightECModelTuned, 1);
-growthAfter = -sol.f;
+growthAfter = sol.f;
 disp(['Growth before: ' num2str(growthBef) ', Growth after: ' num2str(growthAfter)])
 

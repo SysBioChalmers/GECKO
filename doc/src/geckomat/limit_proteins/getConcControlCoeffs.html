@@ -96,7 +96,7 @@ This function is called by:
 0035 controlCoeffs = zeros(length(proteins),1);
 0036 
 0037 [sol,hs] = solveLP(model);
-0038 initialGrowth = abs(sol.f);
+0038 initialGrowth = sol.f;
 0039 
 0040 <span class="comment">% Get enzyme index</span>
 0041 [~, protIdx] = ismember(proteins, model.ec.enzymes);
@@ -124,7 +124,7 @@ This function is called by:
 0063 
 0064         <span class="comment">% Get the new growth rate after the adjustment</span>
 0065         [tempSol,hs] = solveLP(tempModel,0,[],hs);
-0066         tempGrowth = abs(tempSol.f);
+0066         tempGrowth = tempSol.f;
 0067         
 0068         <span class="comment">% Calculate the coeff only if new growth rate is significantly</span>
 0069         <span class="comment">% higher than initial value</span>
