@@ -43,7 +43,7 @@ model.lb(usageRxnsIdx(protCons)) = -1000;
 
 %If non-NaN in model.ec.concs, then constrain by UB
 if any(protCons)
-    model.S(protPoolIdx, usageRxnsIdx(protCons)) = 0;
+%    model.S(protPoolIdx, usageRxnsIdx(protCons)) = 0; % Since GECKO 3.2.0
     model.lb(usageRxnsIdx(protCons)) = -model.ec.concs(protCons);
 end
 end
