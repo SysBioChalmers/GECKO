@@ -55,7 +55,7 @@ lightTime = toc;
 fprintf('Mapping fluxes: %.0f%% (%.3f vs %.3f seconds)\n', (lightTime/fullTime)*100, lightTime, fullTime);
 
 %
-fprintf('Growth rate that is reached: %.4f vs %.4f\n', abs(solFull.f) , abs(solLight.f))
+fprintf('Growth rate that is reached: %.4f vs %.4f\n', solFull.f , solLight.f)
 
 %
 solF(abs(solF)<1e-8) = 0;
@@ -70,7 +70,7 @@ set(gca,'xscale','log','XminorTick','on','XLim',[1e-8 1e2])
 set(gca,'FontSize',11)
 text(1e-7,3,'Growth rate(/hour)','FontSize',11)
 text(1e-7,0.5,'full:','FontSize',11)
-text(1.e-6,0.5,num2str(abs(solFull.f)),'FontSize',11)
+text(1.e-6,0.5,num2str(solFull.f),'FontSize',11)
 text(1e-7,0.1,'light:','FontSize',11)
-text(1.e-6,0.1,num2str(abs(solLight.f)),'FontSize',11)
+text(1.e-6,0.1,num2str(solLight.f),'FontSize',11)
 saveas(gca, fullfile(findGECKOroot,'tutorials','full_ecModel','output','lightVSfull.pdf'))

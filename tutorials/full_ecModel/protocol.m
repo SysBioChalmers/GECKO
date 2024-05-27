@@ -24,7 +24,7 @@
 %   - Simplest, RAVEN can be installed as MATLAB Add-On:
 %     https://se.mathworks.com/help/matlab/matlab_env/get-add-ons.html
 %   - The installation of Gurobi as LP solver is highly recommended
-checkInstallation; % Confirm that RAVEN is functional, should be 2.8.3 or later.
+checkInstallation; % Confirm that RAVEN is functional, should be 2.9.1 or later.
 
 %   - Install GECKO by following the installation instructions:
 %     https://github.com/SysBioChalmers/GECKO/wiki/Installation-and-upgrade
@@ -250,7 +250,7 @@ fprintf('Growth rate: %f /hour.\n', sol.x(bioRxnIdx))
 % STEP 39-42 Relax protein pool constraint
 % As a simplistic way to ensure the model to reach the growth rate, the
 % upper bound of the protein pool exchange reaction can be increased to
-% whatever is required. This works, but STEP 17 is preferred.
+% whatever is required. This works, but STEP 43 is preferred.
 ecModel = setParam(ecModel, 'lb', 'r_4041', 0.41);
 ecModel = setParam(ecModel, 'lb', 'prot_pool_exchange', -1000);
 ecModel = setParam(ecModel, 'obj', 'prot_pool_exchange', 1);
@@ -266,7 +266,7 @@ ecModel = setParam(ecModel,'obj','r_4041',1);
 
 % STEP 43-44 Sensitivity tuning
 % First reset the protein pool constraint to a more realistic value,
-% reverting STEP 16.
+% reverting STEP 42.
 ecModel = setProtPoolSize(ecModel);
 [ecModel, tunedKcats] = sensitivityTuning(ecModel);
 
@@ -325,17 +325,35 @@ ecModel = fillEnzConcs(ecModel,protData);
 ecModel = constrainEnzConcs(ecModel);
 
 % STEP 58 Update protein pool
-% The protein pool reaction will be constraint by the remaining, unmeasured
-% enzyme content. This is calculated by subtracting the sum of 
-% ecModel.ec.concs from the condition-specific total protein content. The
-% latter is stored together with the flux data that otherwise will be used
-% in Step 21.
+%
+% ==> Since GECKO 3.2.0:
+%     All protein usage reactions draw from the protein pool, both for
+%     proteins with and without concentration constraints. As a
+%     consequence, updateProtPool has become obsolete. To set the protein
+%     pool exchange with condition-specific total protein content, use
+%     setProtPoolSize instead. For more explanation, see
+%     https://github.com/SysBioChalmers/GECKO/issues/375
+%
+%     See STEP 32 for considerations about the f-factor. Here, we can
+%     recalculate the f-factor based on the proteomics dataset.
+
+f = calculateFfactor(ecModel,protData);
 fluxData = loadFluxData();
-ecModel = updateProtPool(ecModel,fluxData.Ptot(1));
+ecModel = setProtPoolSize(ecModel,fluxData.Ptot(1),f);
+
+% ==> Before GECKO 3.2.0:
+%     The legacy code is still shown here, but should not be run.
+        % The protein pool reaction will be constraint by the remaining, unmeasured
+        % enzyme content. This is calculated by subtracting the sum of 
+        % ecModel.ec.concs from the condition-specific total protein content. The
+        % latter is stored together with the flux data that otherwise will be used
+        % in STEP 59.
+        % fluxData = loadFluxData();
+        % ecModel = updateProtPool(ecModel,fluxData.Ptot(1));
 
 % STEP 59-63 Load flux data
 % Matching the proteomics sample(s), condition-specific flux data needs to
-% be loaded to constrain the model. This was already loaded in Step 20 for
+% be loaded to constrain the model. This was already loaded in STEP 58 for
 % gathering Ptot, but is repeated here nonetheless. Flux data is read from
 % /data/fluxData.tsv.
 fluxData = loadFluxData();
@@ -343,7 +361,7 @@ fluxData = loadFluxData();
 ecModel = constrainFluxData(ecModel,fluxData,1,'max','loose');
 % Observe if the intended growth rate was reached.
 sol = solveLP(ecModel);
-fprintf('Growth rate that is reached: %f /hour.\n', abs(sol.f))
+fprintf('Growth rate that is reached: %f /hour.\n', sol.f)
 % The growth rate of 0.1 is far from being reached. Therefore, the next
 % step is to flexibilize enzyme concentrations.
 
@@ -358,7 +376,7 @@ fprintf('Growth rate that is reached: %f /hour.\n', abs(sol.f))
 %model = loadConventionalGEM();
 model = constrainFluxData(model,fluxData);
 sol = solveLP(model)
-fprintf('Growth rate that is reached: %f /hour.\n', abs(sol.f))
+fprintf('Growth rate that is reached: %f /hour.\n', sol.f)
 
 % The starting model reaches a similar growth rate as the ecModel after
 % flexibilizing enzyme concentrations. So the metabolic network would not
@@ -411,7 +429,7 @@ saveas(gcf,fullfile(params.path,'output','crabtree_infProt.pdf'))
 % It is obvious that no total protein constraint is reached, and Crabtree
 % effect is not observed.
 
-% Perform the Crabtree simulation on the pre-Step 33 ecModel (where kcat
+% Perform the Crabtree simulation on the pre-STEP 33 ecModel (where kcat
 % sensitivity tuning has not yet been applied).
 ecModel_preTuning = loadEcModel('ecYeastGEM_stage2.yml');
 ecModel_preTuning = setParam(ecModel_preTuning,'lb','r_1714',-1000);
@@ -423,16 +441,16 @@ saveas(gcf,fullfile(params.path,'output','crabtree_preStep33.pdf'))
 % STEP 69-70 Selecting objective functions
 ecModel = setParam(ecModel,'obj',params.bioRxn,1);
 sol = solveLP(ecModel)
-fprintf('Growth rate that is reached: %f /hour.\n', abs(sol.f))
+fprintf('Growth rate that is reached: %f /hour.\n', sol.f)
 % Set growth lower bound to 99% of the previous value.
-ecModel = setParam(ecModel,'lb',params.bioRxn,0.99*abs(sol.f));
+ecModel = setParam(ecModel,'lb',params.bioRxn,0.99*sol.f);
 % Minimize protein pool usage. As protein pool exchange is defined in the
 % reverse direction (with negative flux), minimization of protein pool
 % usage is computationally represented by maximizing the prot_pool_exchange
 % reaction.
 ecModel = setParam(ecModel,'obj','prot_pool_exchange',1);
 sol = solveLP(ecModel)
-fprintf('Minimum protein pool usage: %.2f mg/gDCW.\n', abs(sol.f))
+fprintf('Minimum protein pool usage: %.2f mg/gDCW.\n', sol.f)
 
 % STEP 71 Inspect enzyme usage
 % Show the result from the earlier simulation, without mapping to

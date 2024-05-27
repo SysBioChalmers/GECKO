@@ -1,5 +1,10 @@
 name: Tests
 
+permissions:
+      contents: write
+      pull-requests: write
+      repository-projects: write
+
 on: [pull_request]
 
 jobs:
@@ -8,10 +13,10 @@ jobs:
 
     steps:
       - name: Fetch GECKO
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Fetch RAVEN
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           repository: "SysBioChalmers/RAVEN"
           path: "RAVEN"

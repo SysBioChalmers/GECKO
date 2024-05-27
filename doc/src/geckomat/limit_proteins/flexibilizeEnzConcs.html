@@ -190,7 +190,7 @@ This function is called by:
 0095 <span class="comment">% model = constrainEnzConcs(model);</span>
 0096 
 0097 [sol,hs] = solveLP(model);
-0098 predGrowth = abs(sol.f);
+0098 predGrowth = sol.f;
 0099 
 0100 <span class="comment">% Get those proteins with a concentration defined</span>
 0101 protConcs = find(~isnan(model.ec.concs));
@@ -231,7 +231,7 @@ This function is called by:
 0136 
 0137                 <span class="comment">% Get the new growth rate</span>
 0138                 sol = solveLP(model,0,[],hs);
-0139                 predGrowth = abs(sol.f);
+0139                 predGrowth = sol.f;
 0140 
 0141                 <span class="keyword">if</span> verbose
 0142                     disp([<span class="string">'Protein '</span> proteins{maxIdx} <span class="string">' LB adjusted. Grow: '</span> num2str(predGrowth)])
@@ -248,13 +248,13 @@ This function is called by:
 0153             tempModel = setParam(model,<span class="string">'lb'</span>,protPoolIdx,-1000);
 0154             tempModel = setParam(tempModel,<span class="string">'ub'</span>,bioRxnIdx,expGrowth);
 0155             sol = solveLP(tempModel);
-0156             <span class="keyword">if</span> (abs(sol.f)-predGrowth)&gt;1e-10 <span class="comment">% There is improvement in growth rate</span>
+0156             <span class="keyword">if</span> (sol.f-predGrowth)&gt;1e-10 <span class="comment">% There is improvement in growth rate</span>
 0157                 <span class="comment">% Find new protein pool constraint</span>
-0158                 predGrowth = abs(sol.f);
+0158                 predGrowth = sol.f;
 0159                 tempModel = setParam(tempModel,<span class="string">'lb'</span>,bioRxnIdx,predGrowth);
 0160                 tempModel = setParam(tempModel,<span class="string">'obj'</span>,protPoolIdx,1);
 0161                 sol = solveLP(tempModel);
-0162                 newProtPool = abs(sol.f);
+0162                 newProtPool = sol.f;
 0163                 model.lb(protPoolIdx) = -newProtPool;
 0164                 fprintf([<span class="string">'Changing the lower bound of protein pool exchange from %s '</span>,<span class="keyword">...</span>
 0165                          <span class="string">'to %s enabled a\ngrowth rate of %s. It can be helpful to set '</span>, <span class="keyword">...</span>

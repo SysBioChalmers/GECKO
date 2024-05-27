@@ -124,159 +124,160 @@ This function is called by:
 0062             <span class="string">'%2Cec%2Cmass%2Csequence&amp;format=tsv&amp;compressed=false&amp;sort=protein_name%20asc'</span>];
 0063         <span class="keyword">try</span>
 0064             urlwrite(url,uniprotPath,<span class="string">'Timeout'</span>,30);
-0065             fprintf(<span class="string">'Model-specific KEGG database stored at %s\n'</span>,uniprotPath);
+0065             fprintf(<span class="string">'Model-specific UniProt database stored at %s\n'</span>,uniprotPath);
 0066         <span class="keyword">catch</span>
-0067             error([<span class="string">'Download failed, check your internet connection and try again, or manually download: '</span> url])
-0068         <span class="keyword">end</span>
-0069     <span class="keyword">end</span>
-0070     <span class="keyword">if</span> exist(uniprotPath,<span class="string">'file'</span>)
-0071         fid         = fopen(uniprotPath,<span class="string">'r'</span>);
-0072         fileContent = textscan(fid,<span class="string">'%q %q %q %q %q'</span>,<span class="string">'Delimiter'</span>,<span class="string">'\t'</span>,<span class="string">'HeaderLines'</span>,1);
-0073         fclose(fid);
-0074         databases.uniprot.ID      = fileContent{1};
-0075         databases.uniprot.genes   = fileContent{2};
-0076         databases.uniprot.eccodes = fileContent{3};
-0077         databases.uniprot.MW      = str2double(fileContent{4});
-0078         databases.uniprot.seq     = fileContent{5};
-0079     <span class="keyword">else</span>
-0080         databases.uniprot = [];
-0081     <span class="keyword">end</span>
-0082     <span class="keyword">if</span> ~isempty(databases.uniprot)
-0083         [uniqueIDs,uniqueIdx] = unique(databases.uniprot.ID,<span class="string">'stable'</span>);
-0084         <span class="keyword">if</span> numel(uniqueIDs) &lt; numel(databases.uniprot.ID)
-0085             duplID = setdiff(1:numel(databases.uniprot.ID),uniqueIdx);
-0086             dispEM([<span class="string">'Duplicate entries are found for the following proteins. '</span><span class="keyword">...</span>
-0087                     <span class="string">'Manually curate the ''uniprot.tsv'' file, or adjust the uniprot parameters '</span><span class="keyword">...</span>
-0088                     <span class="string">'in the model adapter:'</span>],true,databases.uniprot.ID(duplID));
-0089         <span class="keyword">end</span>
-0090     <span class="keyword">end</span>
-0091 <span class="keyword">end</span>
-0092 
-0093 <span class="comment">%% KEGG</span>
-0094 <span class="keyword">if</span> any(strcmp(selectDatabase,{<span class="string">'kegg'</span>,<span class="string">'both'</span>}))
-0095     keggPath = fullfile(filePath,<span class="string">'kegg.tsv'</span>);
-0096     <span class="keyword">if</span> ~exist(keggPath,<span class="string">'file'</span>)
-0097         <span class="keyword">if</span> isempty(kegg.ID)
-0098             printOrange(<span class="string">'WARNING: No kegg.ID is specified, unable to download KEGG DB.\n'</span>)
-0099         <span class="keyword">else</span>
-0100             <a href="#_sub1" class="code" title="subfunction downloadKEGG(keggID, filePath, keggGeneID)">downloadKEGG</a>(kegg.ID,keggPath,kegg.geneID);
-0101         <span class="keyword">end</span>
-0102     <span class="keyword">end</span>
-0103     <span class="keyword">if</span> exist(keggPath,<span class="string">'file'</span>)
-0104         fid         = fopen(keggPath,<span class="string">'r'</span>);
-0105         fileContent = textscan(fid,<span class="string">'%q %q %q %q %q %q %q'</span>,<span class="string">'Delimiter'</span>,<span class="string">','</span>,<span class="string">'HeaderLines'</span>,0);
-0106         fclose(fid);
-0107         databases.kegg.uniprot    = fileContent{1};
-0108         databases.kegg.genes      = fileContent{2};
-0109         databases.kegg.keggGene   = fileContent{3};
-0110         databases.kegg.eccodes    = fileContent{4};
-0111         databases.kegg.MW         = str2double(fileContent{5});
-0112         databases.kegg.pathway    = fileContent{6};
-0113         databases.kegg.seq        = fileContent{7};
-0114     <span class="keyword">else</span>
-0115         databases.kegg = [];
-0116     <span class="keyword">end</span>
-0117 <span class="keyword">end</span>
+0067             error([<span class="string">'Download failed, check your internet connection and try again, or manually download: '</span> url <span class="keyword">...</span>
+0068                 <span class="string">' After downloading, store the file as '</span> uniprotPath])
+0069         <span class="keyword">end</span>
+0070     <span class="keyword">end</span>
+0071     <span class="keyword">if</span> exist(uniprotPath,<span class="string">'file'</span>)
+0072         fid         = fopen(uniprotPath,<span class="string">'r'</span>);
+0073         fileContent = textscan(fid,<span class="string">'%q %q %q %q %q'</span>,<span class="string">'Delimiter'</span>,<span class="string">'\t'</span>,<span class="string">'HeaderLines'</span>,1);
+0074         fclose(fid);
+0075         databases.uniprot.ID      = fileContent{1};
+0076         databases.uniprot.genes   = fileContent{2};
+0077         databases.uniprot.eccodes = fileContent{3};
+0078         databases.uniprot.MW      = str2double(fileContent{4});
+0079         databases.uniprot.seq     = fileContent{5};
+0080     <span class="keyword">else</span>
+0081         databases.uniprot = [];
+0082     <span class="keyword">end</span>
+0083     <span class="keyword">if</span> ~isempty(databases.uniprot)
+0084         [uniqueIDs,uniqueIdx] = unique(databases.uniprot.ID,<span class="string">'stable'</span>);
+0085         <span class="keyword">if</span> numel(uniqueIDs) &lt; numel(databases.uniprot.ID)
+0086             duplID = setdiff(1:numel(databases.uniprot.ID),uniqueIdx);
+0087             dispEM([<span class="string">'Duplicate entries are found for the following proteins. '</span><span class="keyword">...</span>
+0088                     <span class="string">'Manually curate the ''uniprot.tsv'' file, or adjust the uniprot parameters '</span><span class="keyword">...</span>
+0089                     <span class="string">'in the model adapter:'</span>],true,databases.uniprot.ID(duplID));
+0090         <span class="keyword">end</span>
+0091     <span class="keyword">end</span>
+0092 <span class="keyword">end</span>
+0093 
+0094 <span class="comment">%% KEGG</span>
+0095 <span class="keyword">if</span> any(strcmp(selectDatabase,{<span class="string">'kegg'</span>,<span class="string">'both'</span>}))
+0096     keggPath = fullfile(filePath,<span class="string">'kegg.tsv'</span>);
+0097     <span class="keyword">if</span> ~exist(keggPath,<span class="string">'file'</span>)
+0098         <span class="keyword">if</span> isempty(kegg.ID)
+0099             printOrange(<span class="string">'WARNING: No kegg.ID is specified, unable to download KEGG DB.\n'</span>)
+0100         <span class="keyword">else</span>
+0101             <a href="#_sub1" class="code" title="subfunction downloadKEGG(keggID, filePath, keggGeneID)">downloadKEGG</a>(kegg.ID,keggPath,kegg.geneID);
+0102         <span class="keyword">end</span>
+0103     <span class="keyword">end</span>
+0104     <span class="keyword">if</span> exist(keggPath,<span class="string">'file'</span>)
+0105         fid         = fopen(keggPath,<span class="string">'r'</span>);
+0106         fileContent = textscan(fid,<span class="string">'%q %q %q %q %q %q %q'</span>,<span class="string">'Delimiter'</span>,<span class="string">','</span>,<span class="string">'HeaderLines'</span>,0);
+0107         fclose(fid);
+0108         databases.kegg.uniprot    = fileContent{1};
+0109         databases.kegg.genes      = fileContent{2};
+0110         databases.kegg.keggGene   = fileContent{3};
+0111         databases.kegg.eccodes    = fileContent{4};
+0112         databases.kegg.MW         = str2double(fileContent{5});
+0113         databases.kegg.pathway    = fileContent{6};
+0114         databases.kegg.seq        = fileContent{7};
+0115     <span class="keyword">else</span>
+0116         databases.kegg = [];
+0117     <span class="keyword">end</span>
 0118 <span class="keyword">end</span>
-0119 
-0120 <a name="_sub1" href="#_subfunctions" class="code">function downloadKEGG(keggID, filePath, keggGeneID)</a>
-0121 <span class="comment">%% Download gene information</span>
-0122 progressbar([<span class="string">'Downloading KEGG data for organism code '</span> keggID])
-0123 webOptions = weboptions(<span class="string">'Timeout'</span>,30);
-0124 <span class="keyword">try</span>
-0125     gene_list = webread([<span class="string">'http://rest.kegg.jp/list/'</span> keggID],webOptions);
-0126 <span class="keyword">catch</span> ME
-0127     <span class="keyword">switch</span> ME.identifier
-0128         <span class="keyword">case</span> <span class="string">'MATLAB:webservices:HTTP400StatusCodeError'</span>
-0129             error([<span class="string">'Unable to download data form KEGG with a potentially invalid ID: '</span> keggID ])
-0130     <span class="keyword">end</span>
-0131 <span class="keyword">end</span>
-0132 gene_list = regexpi(gene_list, <span class="string">'[^\n]+'</span>,<span class="string">'match'</span>)';
-0133 gene_id   = regexpi(gene_list,[<span class="string">'(?&lt;='</span> keggID <span class="string">':)\S+'</span>],<span class="string">'match'</span>);
-0134 
-0135 <span class="comment">% Retrieve information for every gene in the list, 10 genes per query</span>
-0136 genesPerQuery = 10;
-0137 queries = ceil(numel(gene_id)/genesPerQuery);
-0138 keggData  = cell(numel(gene_id),1);
-0139 <span class="keyword">for</span> i = 1:queries
-0140     <span class="comment">% Download batches of genes</span>
-0141     firstIdx = i*genesPerQuery-(genesPerQuery-1);
-0142     lastIdx  = i*genesPerQuery;
-0143     <span class="keyword">if</span> lastIdx &gt; numel(gene_id) <span class="comment">% Last query has probably less genes</span>
-0144         lastIdx = numel(gene_id);
-0145     <span class="keyword">end</span>
-0146     url      = [<span class="string">'http://rest.kegg.jp/get/'</span> keggID <span class="string">':'</span> strjoin([gene_id{firstIdx:lastIdx}],[<span class="string">'+'</span> keggID <span class="string">':'</span>])];
-0147 
-0148     retry = true;
-0149     <span class="keyword">while</span> retry
-0150         <span class="keyword">try</span>
-0151             retry = false;
-0152             out   = webread(url,webOptions);
-0153         <span class="keyword">catch</span>
-0154             retry = true;
-0155         <span class="keyword">end</span>
-0156     <span class="keyword">end</span>
-0157     outSplit = strsplit(out,[<span class="string">'///'</span> 10]); <span class="comment">%10 is new line character</span>
-0158     <span class="keyword">if</span> numel(outSplit) &lt; lastIdx-firstIdx+2
-0159         error(<span class="string">'KEGG returns less genes per query'</span>) <span class="comment">%Reduce genesPerQuery</span>
-0160     <span class="keyword">end</span>
-0161     keggData(firstIdx:lastIdx) = outSplit(1:end-1);
-0162     progressbar(i/queries)
-0163 <span class="keyword">end</span>
-0164 
-0165 <span class="comment">%% Parsing of info to keggDB format</span>
-0166 sequence  = regexprep(keggData,<span class="string">'.*AASEQ\s+\d+\s+([A-Z\s])+?\s+NTSEQ.*'</span>,<span class="string">'$1'</span>);
-0167 <span class="comment">%No AASEQ -&gt; no protein -&gt; not of interest</span>
-0168 noProt    = startsWith(sequence,<span class="string">'ENTRY '</span>);
-0169 uni       = regexprep(keggData,<span class="string">'.*UniProt: (\S+?)\s.*'</span>,<span class="string">'$1'</span>);
-0170 noUni     = startsWith(uni,<span class="string">'ENTRY '</span>);
-0171 uni(noProt | noUni)       = [];
-0172 keggData(noProt | noUni) = [];
-0173 sequence(noProt | noUni)  = [];
-0174 sequence  = regexprep(sequence,<span class="string">'\s*'</span>,<span class="string">''</span>);
-0175 keggGene  = regexprep(keggData,<span class="string">'ENTRY\s+(\S+?)\s.+'</span>,<span class="string">'$1'</span>);
-0176 
-0177 <span class="keyword">switch</span> keggGeneID
-0178     <span class="keyword">case</span> {<span class="string">'kegg'</span>,<span class="string">''</span>}
-0179         gene_name = keggGene;
-0180     <span class="keyword">otherwise</span>
-0181         <span class="comment">% In case there are special characters:</span>
-0182         keggGeneIDT = regexptranslate(<span class="string">'escape'</span>,keggGeneID);
-0183         gene_name = regexprep(keggData,[<span class="string">'.+'</span> keggGeneIDT <span class="string">': (\S+?)\n.+'</span>],<span class="string">'$1'</span>);
-0184         noID = ~contains(keggData,keggGeneIDT);
-0185         <span class="keyword">if</span> all(noID)
-0186             error([<span class="string">'None of the KEGG entries are annotated with the gene identifier '</span> keggGeneID])
-0187         <span class="keyword">else</span>
-0188             gene_name(noID)= [];
-0189             keggData(noID) = [];
-0190             keggGene(noID) = [];
-0191             sequence(noID) = [];
-0192             uni(noID)      = [];
-0193         <span class="keyword">end</span>
-0194 <span class="keyword">end</span>
-0195 
-0196 EC_names  = regexprep(keggData,<span class="string">'.*ORTHOLOGY.*\[EC:(.*?)\].*'</span>,<span class="string">'$1'</span>);
-0197 EC_names(startsWith(EC_names,<span class="string">'ENTRY '</span>)) = {<span class="string">''</span>};
-0198 
-0199 MW = cell(numel(sequence),1);
-0200 <span class="keyword">for</span> i=1:numel(sequence)
-0201     <span class="keyword">if</span> ~isempty(sequence{i})
-0202         MW{i} = num2str(round(<a href="calculateMW.html" class="code" title="function MW = calculateMW(sequence)">calculateMW</a>(sequence{i})));
-0203     <span class="keyword">end</span>
-0204 <span class="keyword">end</span>
-0205 
-0206 pathway   = regexprep(keggData,<span class="string">'.*PATHWAY\s+(.*?)(BRITE|MODULE).*'</span>,<span class="string">'$1'</span>);
-0207 pathway(startsWith(pathway,<span class="string">'ENTRY '</span>)) = {<span class="string">''</span>};
-0208 pathway   = strrep(pathway,[keggID <span class="string">'01100  Metabolic pathways'</span>],<span class="string">''</span>);
-0209 pathway   = regexprep(pathway,<span class="string">'\n'</span>,<span class="string">''</span>);
-0210 pathway   = regexprep(pathway,<span class="string">'           '</span>,<span class="string">''</span>);
-0211 
-0212 out = [uni, gene_name, keggGene, EC_names, MW, pathway, sequence];
-0213 out = cell2table(out);
-0214 
-0215 writetable(out, filePath, <span class="string">'FileType'</span>, <span class="string">'text'</span>, <span class="string">'WriteVariableNames'</span>,false);
-0216 fprintf(<span class="string">'Model-specific KEGG database stored at %s\n'</span>,filePath);
-0217 <span class="keyword">end</span></pre></div>
+0119 <span class="keyword">end</span>
+0120 
+0121 <a name="_sub1" href="#_subfunctions" class="code">function downloadKEGG(keggID, filePath, keggGeneID)</a>
+0122 <span class="comment">%% Download gene information</span>
+0123 progressbar([<span class="string">'Downloading KEGG data for organism code '</span> keggID])
+0124 webOptions = weboptions(<span class="string">'Timeout'</span>,30);
+0125 <span class="keyword">try</span>
+0126     gene_list = webread([<span class="string">'http://rest.kegg.jp/list/'</span> keggID],webOptions);
+0127 <span class="keyword">catch</span> ME
+0128     <span class="keyword">switch</span> ME.identifier
+0129         <span class="keyword">case</span> <span class="string">'MATLAB:webservices:HTTP400StatusCodeError'</span>
+0130             error([<span class="string">'Unable to download data form KEGG with a potentially invalid ID: '</span> keggID ])
+0131     <span class="keyword">end</span>
+0132 <span class="keyword">end</span>
+0133 gene_list = regexpi(gene_list, <span class="string">'[^\n]+'</span>,<span class="string">'match'</span>)';
+0134 gene_id   = regexpi(gene_list,[<span class="string">'(?&lt;='</span> keggID <span class="string">':)\S+'</span>],<span class="string">'match'</span>);
+0135 
+0136 <span class="comment">% Retrieve information for every gene in the list, 10 genes per query</span>
+0137 genesPerQuery = 10;
+0138 queries = ceil(numel(gene_id)/genesPerQuery);
+0139 keggData  = cell(numel(gene_id),1);
+0140 <span class="keyword">for</span> i = 1:queries
+0141     <span class="comment">% Download batches of genes</span>
+0142     firstIdx = i*genesPerQuery-(genesPerQuery-1);
+0143     lastIdx  = i*genesPerQuery;
+0144     <span class="keyword">if</span> lastIdx &gt; numel(gene_id) <span class="comment">% Last query has probably less genes</span>
+0145         lastIdx = numel(gene_id);
+0146     <span class="keyword">end</span>
+0147     url      = [<span class="string">'http://rest.kegg.jp/get/'</span> keggID <span class="string">':'</span> strjoin([gene_id{firstIdx:lastIdx}],[<span class="string">'+'</span> keggID <span class="string">':'</span>])];
+0148 
+0149     retry = true;
+0150     <span class="keyword">while</span> retry
+0151         <span class="keyword">try</span>
+0152             retry = false;
+0153             out   = webread(url,webOptions);
+0154         <span class="keyword">catch</span>
+0155             retry = true;
+0156         <span class="keyword">end</span>
+0157     <span class="keyword">end</span>
+0158     outSplit = strsplit(out,[<span class="string">'///'</span> 10]); <span class="comment">%10 is new line character</span>
+0159     <span class="keyword">if</span> numel(outSplit) &lt; lastIdx-firstIdx+2
+0160         error(<span class="string">'KEGG returns less genes per query'</span>) <span class="comment">%Reduce genesPerQuery</span>
+0161     <span class="keyword">end</span>
+0162     keggData(firstIdx:lastIdx) = outSplit(1:end-1);
+0163     progressbar(i/queries)
+0164 <span class="keyword">end</span>
+0165 
+0166 <span class="comment">%% Parsing of info to keggDB format</span>
+0167 sequence  = regexprep(keggData,<span class="string">'.*AASEQ\s+\d+\s+([A-Z\s])+?\s+NTSEQ.*'</span>,<span class="string">'$1'</span>);
+0168 <span class="comment">%No AASEQ -&gt; no protein -&gt; not of interest</span>
+0169 noProt    = startsWith(sequence,<span class="string">'ENTRY '</span>);
+0170 uni       = regexprep(keggData,<span class="string">'.*UniProt: (\S+?)\s.*'</span>,<span class="string">'$1'</span>);
+0171 noUni     = startsWith(uni,<span class="string">'ENTRY '</span>);
+0172 uni(noProt | noUni)       = [];
+0173 keggData(noProt | noUni) = [];
+0174 sequence(noProt | noUni)  = [];
+0175 sequence  = regexprep(sequence,<span class="string">'\s*'</span>,<span class="string">''</span>);
+0176 keggGene  = regexprep(keggData,<span class="string">'ENTRY\s+(\S+?)\s.+'</span>,<span class="string">'$1'</span>);
+0177 
+0178 <span class="keyword">switch</span> keggGeneID
+0179     <span class="keyword">case</span> {<span class="string">'kegg'</span>,<span class="string">''</span>}
+0180         gene_name = keggGene;
+0181     <span class="keyword">otherwise</span>
+0182         <span class="comment">% In case there are special characters:</span>
+0183         keggGeneIDT = regexptranslate(<span class="string">'escape'</span>,keggGeneID);
+0184         gene_name = regexprep(keggData,[<span class="string">'.+'</span> keggGeneIDT <span class="string">': (\S+?)\n.+'</span>],<span class="string">'$1'</span>);
+0185         noID = ~contains(keggData,keggGeneIDT);
+0186         <span class="keyword">if</span> all(noID)
+0187             error([<span class="string">'None of the KEGG entries are annotated with the gene identifier '</span> keggGeneID])
+0188         <span class="keyword">else</span>
+0189             gene_name(noID)= [];
+0190             keggData(noID) = [];
+0191             keggGene(noID) = [];
+0192             sequence(noID) = [];
+0193             uni(noID)      = [];
+0194         <span class="keyword">end</span>
+0195 <span class="keyword">end</span>
+0196 
+0197 EC_names  = regexprep(keggData,<span class="string">'.*ORTHOLOGY.*\[EC:(.*?)\].*'</span>,<span class="string">'$1'</span>);
+0198 EC_names(startsWith(EC_names,<span class="string">'ENTRY '</span>)) = {<span class="string">''</span>};
+0199 
+0200 MW = cell(numel(sequence),1);
+0201 <span class="keyword">for</span> i=1:numel(sequence)
+0202     <span class="keyword">if</span> ~isempty(sequence{i})
+0203         MW{i} = num2str(round(<a href="calculateMW.html" class="code" title="function MW = calculateMW(sequence)">calculateMW</a>(sequence{i})));
+0204     <span class="keyword">end</span>
+0205 <span class="keyword">end</span>
+0206 
+0207 pathway   = regexprep(keggData,<span class="string">'.*PATHWAY\s+(.*?)(BRITE|MODULE).*'</span>,<span class="string">'$1'</span>);
+0208 pathway(startsWith(pathway,<span class="string">'ENTRY '</span>)) = {<span class="string">''</span>};
+0209 pathway   = strrep(pathway,[keggID <span class="string">'01100  Metabolic pathways'</span>],<span class="string">''</span>);
+0210 pathway   = regexprep(pathway,<span class="string">'\n'</span>,<span class="string">''</span>);
+0211 pathway   = regexprep(pathway,<span class="string">'           '</span>,<span class="string">''</span>);
+0212 
+0213 out = [uni, gene_name, keggGene, EC_names, MW, pathway, sequence];
+0214 out = cell2table(out);
+0215 
+0216 writetable(out, filePath, <span class="string">'FileType'</span>, <span class="string">'text'</span>, <span class="string">'WriteVariableNames'</span>,false);
+0217 fprintf(<span class="string">'Model-specific KEGG database stored at %s\n'</span>,filePath);
+0218 <span class="keyword">end</span></pre></div>
 <hr><address>Generated by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

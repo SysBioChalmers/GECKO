@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of removeStandardKcat</title>
+  <meta name="keywords" content="removeStandardKcat">
+  <meta name="description" content="removeStandardKcat">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../../index.html">Home</a> &gt;  <a href="#">src</a> &gt; <a href="#">geckomat</a> &gt; <a href="index.html">gather_kcats</a> &gt; removeStandardKcat.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../../index.html"><img alt="<" border="0" src="../../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for src\geckomat\gather_kcats&nbsp;<img alt=">" border="0" src="../../../right.png"></a></td></tr></table>-->
+
+<h1>removeStandardKcat
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>removeStandardKcat</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>function model = removeStandardKcat(model) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> removeStandardKcat
+   Remove the &quot;standard&quot; pseudoenzyme and standard kcat and MW values, as
+   they were introduced by getStandardKcat. Also standard kcat values that
+   were assigned by getStandardKcat if fillZeroKcat was set to true are
+   removed from model.ec.kcat. Both the model.ec and model.S structures
+   are modified.
+
+ Input:
+   model           an ecModel in GECKO 3 format (with ecModel.ec structure)
+                   that has standard kcat values implemented by
+                   getStandardKcat.
+
+ Output:
+   model           ecModel without standard pseudoprotein and standard
+                   kcat values
+
+ Usage:
+    model = removeStandardKcat(model);</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function model = removeStandardKcat(model)</a>
+0002 <span class="comment">% removeStandardKcat</span>
+0003 <span class="comment">%   Remove the &quot;standard&quot; pseudoenzyme and standard kcat and MW values, as</span>
+0004 <span class="comment">%   they were introduced by getStandardKcat. Also standard kcat values that</span>
+0005 <span class="comment">%   were assigned by getStandardKcat if fillZeroKcat was set to true are</span>
+0006 <span class="comment">%   removed from model.ec.kcat. Both the model.ec and model.S structures</span>
+0007 <span class="comment">%   are modified.</span>
+0008 <span class="comment">%</span>
+0009 <span class="comment">% Input:</span>
+0010 <span class="comment">%   model           an ecModel in GECKO 3 format (with ecModel.ec structure)</span>
+0011 <span class="comment">%                   that has standard kcat values implemented by</span>
+0012 <span class="comment">%                   getStandardKcat.</span>
+0013 <span class="comment">%</span>
+0014 <span class="comment">% Output:</span>
+0015 <span class="comment">%   model           ecModel without standard pseudoprotein and standard</span>
+0016 <span class="comment">%                   kcat values</span>
+0017 <span class="comment">%</span>
+0018 <span class="comment">% Usage:</span>
+0019 <span class="comment">%    model = removeStandardKcat(model);</span>
+0020 
+0021 <span class="comment">% Remove standard enzyme from ec structure</span>
+0022 stdEnzIdx = find(strcmpi(model.ec.enzymes, <span class="string">'standard'</span>));
+0023 <span class="keyword">if</span> ~isempty(stdEnzIdx)
+0024     model.ec.genes(stdEnzIdx)       = [];
+0025     model.ec.enzymes(stdEnzIdx)     = [];
+0026     model.ec.mw(stdEnzIdx)          = [];
+0027     model.ec.sequence(stdEnzIdx)    = [];
+0028     <span class="keyword">if</span> isfield(model.ec,<span class="string">'concs'</span>)
+0029         model.ec.concs(stdEnzIdx)   = [];
+0030     <span class="keyword">end</span>
+0031     rxnEnzIdx = find(model.ec.rxnEnzMat(:,stdEnzIdx));
+0032     model.ec.rxns(rxnEnzIdx)        = [];
+0033     model.ec.kcat(rxnEnzIdx)        = [];
+0034     model.ec.source(rxnEnzIdx)      = [];
+0035     model.ec.notes(rxnEnzIdx)       = [];
+0036     model.ec.eccodes(rxnEnzIdx)     = [];
+0037     model.ec.rxnEnzMat(:,stdEnzIdx) = [];
+0038     model.ec.rxnEnzMat(rxnEnzIdx,:) = [];
+0039 <span class="keyword">end</span>
+0040 
+0041 <span class="comment">% Remove standard kcat values and reapply kcat constraints for those</span>
+0042 <span class="comment">% specific reactions</span>
+0043 stdKcatIdx = find(strcmpi(model.ec.source, <span class="string">'standard'</span>));
+0044 <span class="keyword">if</span> ~isempty(stdKcatIdx)
+0045     model.ec.source(stdKcatIdx)     = {<span class="string">''</span>};
+0046     model.ec.kcat(stdKcatIdx)       = 0;
+0047     model = applyKcatConstraints(model,stdKcatIdx);
+0048 <span class="keyword">end</span>
+0049 
+0050 <span class="comment">% Remove standard protein, usage and gene from model structure</span>
+0051 stdMetIdx = find(strcmpi(model.mets, <span class="string">'prot_standard'</span>));
+0052 <span class="keyword">if</span> ~isempty(stdMetIdx)
+0053     model       = removeMets(model,stdMetIdx,false,false,false,false);
+0054 <span class="keyword">end</span>
+0055 stdProtEx = find(strcmpi(model.rxns, <span class="string">'usage_prot_standard'</span>));
+0056 <span class="keyword">if</span> ~isempty(stdProtEx)
+0057     model       = removeReactions(model,stdProtEx,false,false,false);
+0058 <span class="keyword">end</span>
+0059 stdProtGene = find(strcmpi(model.genes, <span class="string">'standard'</span>));
+0060 <span class="keyword">if</span> ~isempty(stdProtGene)
+0061     model       = removeGenes(model,stdProtGene,false,false,false);
+0062 <span class="keyword">end</span>
+0063 <span class="keyword">end</span></pre></div>
+<hr><address>Generated by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

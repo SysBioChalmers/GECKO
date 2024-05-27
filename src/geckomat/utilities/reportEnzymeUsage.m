@@ -1,10 +1,10 @@
-function usageReport = topEnzymeUsage(ecModel, usageData, highCapUsage, topAbsUsage)
+function usageReport = reportEnzymeUsage(ecModel, usageData, highCapUsage, topAbsUsage)
 % reportEnzymeUsage
 %   Summarizes the results from enzymeUsage.
 %
 %  Input:
 %   ecModel         a GECKO3 ecModel
-%   usageData       output from reportEnzymeUsage
+%   usageData       output from enzymeUsage
 %   highCapUsage    minimum ratio of enzyme capacity usage to be considered
 %                   as high usage (Optional, default 0.9, refering to a 
 %                   minimum of 90% capacity usage)
@@ -76,5 +76,6 @@ for i=1:numel(topEnzyme)
     topUsage.rxnNames(end+1:end+rxnNumber,1)    = rxnNames;
     topUsage.grRules(end+1:end+rxnNumber,1)     = grRules;
 end
-usageReport.topAbsUsage = struct2table(topUsage);
+usageReport.topAbsUsage     = struct2table(topUsage);
+usageReport.totalUsageFlux  = protPool;
 end

@@ -95,7 +95,7 @@ changedProtPool = false;
 % model = constrainEnzConcs(model);
 
 [sol,hs] = solveLP(model);
-predGrowth = abs(sol.f);
+predGrowth = sol.f;
 
 % Get those proteins with a concentration defined
 protConcs = find(~isnan(model.ec.concs));
@@ -136,7 +136,7 @@ if any(protConcs)
 
                 % Get the new growth rate
                 sol = solveLP(model,0,[],hs);
-                predGrowth = abs(sol.f);
+                predGrowth = sol.f;
 
                 if verbose
                     disp(['Protein ' proteins{maxIdx} ' LB adjusted. Grow: ' num2str(predGrowth)])
@@ -153,13 +153,13 @@ if any(protConcs)
             tempModel = setParam(model,'lb',protPoolIdx,-1000);
             tempModel = setParam(tempModel,'ub',bioRxnIdx,expGrowth);
             sol = solveLP(tempModel);
-            if (abs(sol.f)-predGrowth)>1e-10 % There is improvement in growth rate
+            if (sol.f-predGrowth)>1e-10 % There is improvement in growth rate
                 % Find new protein pool constraint
-                predGrowth = abs(sol.f);
+                predGrowth = sol.f;
                 tempModel = setParam(tempModel,'lb',bioRxnIdx,predGrowth);
                 tempModel = setParam(tempModel,'obj',protPoolIdx,1);
                 sol = solveLP(tempModel);
-                newProtPool = abs(sol.f);
+                newProtPool = sol.f;
                 model.lb(protPoolIdx) = -newProtPool;
                 fprintf(['Changing the lower bound of protein pool exchange from %s ',...
                          'to %s enabled a\ngrowth rate of %s. It can be helpful to set ', ...
