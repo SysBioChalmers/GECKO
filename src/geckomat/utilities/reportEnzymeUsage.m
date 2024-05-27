@@ -76,5 +76,6 @@ for i=1:numel(topEnzyme)
     topUsage.rxnNames(end+1:end+rxnNumber,1)    = rxnNames;
     topUsage.grRules(end+1:end+rxnNumber,1)     = grRules;
 end
-usageReport.topAbsUsage = struct2table(topUsage);
+usageReport.topAbsUsage     = struct2table(topUsage);
+usageReport.totalUsageFlux  = protPool;
 end
