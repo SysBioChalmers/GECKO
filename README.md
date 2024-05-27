@@ -10,6 +10,9 @@ The **GECKO** toolbox enhances a **G**enome-scale model to account for **E**nzym
 
 💡 In the [`GECKO/tutorials`](https://github.com/SysBioChalmers/GECKO/tree/main/tutorials) folder there are examples of how GECKO can be applied to GEMs, in either of its _full_ or _light_ forms. Each `protocol.m` contains instructions on how to reconstruct and analyze an ecModel, demonstrating how different fuctions in GECKO can be used. These two scripts complement the [protocols paper](#citation).
 
+### Significant changes since protocol publication
+- GECKO **3.2.0**: all protein usage reactions draw from the protein pool, even if they are constrained by proteomics data. This affects **Step 58** in the protocol, changing behaviour of `constrainEnzConcs` and making `updateProtPool` obsolete, `tutorials/full_ecModel/protocol.m` is updated to reflect this change. See [#357](https://github.com/SysBioChalmers/GECKO/issues/375) for more details.  
+  
 _**Note:** Regarding code and model compatibility with earlier GECKO versions, see [Previous versions: GECKO 1 and 2](https://github.com/SysBioChalmers/GECKO/wiki/Previous-versions:-GECKO-1-and-2)_.
 
 ## Cite us

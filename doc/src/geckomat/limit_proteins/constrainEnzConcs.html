@@ -103,7 +103,7 @@ This function is called by:
 0043 
 0044 <span class="comment">%If non-NaN in model.ec.concs, then constrain by UB</span>
 0045 <span class="keyword">if</span> any(protCons)
-0046     model.S(protPoolIdx, usageRxnsIdx(protCons)) = 0;
+0046 <span class="comment">%    model.S(protPoolIdx, usageRxnsIdx(protCons)) = 0; % Since GECKO 3.2.0</span>
 0047     model.lb(usageRxnsIdx(protCons)) = -model.ec.concs(protCons);
 0048 <span class="keyword">end</span>
 0049 <span class="keyword">end</span></pre></div>

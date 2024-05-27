@@ -28,8 +28,13 @@
 
 <h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
 <div class="fragment"><pre class="comment"> updateProtPool
-   Updates the protein pool to compensate for measured proteomics data (in
-   model.ec.concs).
+   Obsolete since GECKO 3.2.0, as all (measured and unmeasured) enzymes
+   are drawn from the protein pool. Instead, use setProtPoolSize. See
+   https://github.com/SysBioChalmers/GECKO/issues/375 for explanation.
+
+   Before GECKO 3.2.0: updates the protein pool to compensate for measured
+   proteomics data (in model.ec.concs), as only the unmeasured enzymes
+   draw from the protein pool.
 
  Input:
    ecModel         an ecModel in GECKO 3 format (with ecModel.ec structure)
@@ -39,6 +44,7 @@
                    is provided, the modelAdapter value is used.
    modelAdapter    a loaded model adapter (Optional, will otherwise use the
                    default model adapter).
+
  Output:
    model           an ecModel where model.ec.concs is populated with
                    protein concentrations
@@ -60,62 +66,86 @@ This function is called by:
 <h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
 <div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function ecModel  = updateProtPool(ecModel, Ptot, modelAdapter)</a>
 0002 <span class="comment">% updateProtPool</span>
-0003 <span class="comment">%   Updates the protein pool to compensate for measured proteomics data (in</span>
-0004 <span class="comment">%   model.ec.concs).</span>
-0005 <span class="comment">%</span>
-0006 <span class="comment">% Input:</span>
-0007 <span class="comment">%   ecModel         an ecModel in GECKO 3 format (with ecModel.ec structure)</span>
-0008 <span class="comment">%   Ptot            total protein content in g/gDCW, overwrites the value</span>
-0009 <span class="comment">%                   from modelAdapter. For instance, condition-specific</span>
-0010 <span class="comment">%                   fluxData.Ptot from loadFluxData can be used. If nothing</span>
-0011 <span class="comment">%                   is provided, the modelAdapter value is used.</span>
-0012 <span class="comment">%   modelAdapter    a loaded model adapter (Optional, will otherwise use the</span>
-0013 <span class="comment">%                   default model adapter).</span>
-0014 <span class="comment">% Output:</span>
-0015 <span class="comment">%   model           an ecModel where model.ec.concs is populated with</span>
-0016 <span class="comment">%                   protein concentrations</span>
-0017 <span class="comment">% Usage:</span>
-0018 <span class="comment">%   ecModel  = updateProtPool(ecModel, Ptot, modelAdapter)</span>
-0019 
-0020 <span class="keyword">if</span> nargin &lt; 3 || isempty(modelAdapter)
-0021     modelAdapter = ModelAdapterManager.getDefault();
-0022     <span class="keyword">if</span> isempty(modelAdapter)
-0023         error(<span class="string">'Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.'</span>)
-0024     <span class="keyword">end</span>
-0025 <span class="keyword">end</span>
-0026 params = modelAdapter.params;
-0027 
-0028 <span class="keyword">if</span> nargin &lt; 2 || isempty(Ptot)
-0029     Ptot = params.Ptot;
-0030     disp([<span class="string">'Total protein content used: '</span> num2str(Ptot) <span class="string">' [g protein/gDw]'</span>])
-0031 <span class="keyword">end</span>
-0032 
-0033 <span class="comment">% Convert Ptot to mg/gDW if provided in g/gDCW (which is default)</span>
-0034 <span class="keyword">if</span> Ptot &lt; 1
-0035     Ptot = Ptot * 1000;
-0036 <span class="keyword">end</span>
-0037 
-0038 Pmeas = sum(ecModel.ec.concs,<span class="string">'omitnan'</span>);
-0039 <span class="keyword">if</span> Pmeas == 0
-0040     error(<span class="string">'The model has not yet been constrained with proteomics, as ecModel.ec.concs is empty.'</span>)
-0041 <span class="keyword">end</span>
-0042 
-0043 Pnew = (Ptot - Pmeas) * params.f;
-0044 
-0045 <span class="keyword">if</span> Pnew &gt; 0
-0046     PoolRxnIdx = strcmp(ecModel.rxns,<span class="string">'prot_pool_exchange'</span>);
-0047     ecModel.lb(PoolRxnIdx) = -Pnew*params.sigma;
-0048     sol = solveLP(ecModel);
-0049     <span class="keyword">if</span> isempty(sol.x)
-0050         error([<span class="string">'Estimating the remaining protein pool by subtracting the '</span> <span class="keyword">...</span>
-0051                <span class="string">'sum of measured enzyme concentrations (in ecModel.ec.concs) '</span> <span class="keyword">...</span>
-0052                <span class="string">'from the total protein pool (Ptot) does not yield a functional '</span> <span class="keyword">...</span>
-0053                <span class="string">'model.'</span>])
-0054     <span class="keyword">end</span>
-0055 <span class="keyword">else</span>
-0056     error(<span class="string">'The total measured protein mass exceeds the total protein content.'</span>)
-0057 <span class="keyword">end</span>
-0058 <span class="keyword">end</span></pre></div>
+0003 <span class="comment">%   Obsolete since GECKO 3.2.0, as all (measured and unmeasured) enzymes</span>
+0004 <span class="comment">%   are drawn from the protein pool. Instead, use setProtPoolSize. See</span>
+0005 <span class="comment">%   https://github.com/SysBioChalmers/GECKO/issues/375 for explanation.</span>
+0006 <span class="comment">%</span>
+0007 <span class="comment">%   Before GECKO 3.2.0: updates the protein pool to compensate for measured</span>
+0008 <span class="comment">%   proteomics data (in model.ec.concs), as only the unmeasured enzymes</span>
+0009 <span class="comment">%   draw from the protein pool.</span>
+0010 <span class="comment">%</span>
+0011 <span class="comment">% Input:</span>
+0012 <span class="comment">%   ecModel         an ecModel in GECKO 3 format (with ecModel.ec structure)</span>
+0013 <span class="comment">%   Ptot            total protein content in g/gDCW, overwrites the value</span>
+0014 <span class="comment">%                   from modelAdapter. For instance, condition-specific</span>
+0015 <span class="comment">%                   fluxData.Ptot from loadFluxData can be used. If nothing</span>
+0016 <span class="comment">%                   is provided, the modelAdapter value is used.</span>
+0017 <span class="comment">%   modelAdapter    a loaded model adapter (Optional, will otherwise use the</span>
+0018 <span class="comment">%                   default model adapter).</span>
+0019 <span class="comment">%</span>
+0020 <span class="comment">% Output:</span>
+0021 <span class="comment">%   model           an ecModel where model.ec.concs is populated with</span>
+0022 <span class="comment">%                   protein concentrations</span>
+0023 <span class="comment">% Usage:</span>
+0024 <span class="comment">%   ecModel  = updateProtPool(ecModel, Ptot, modelAdapter)</span>
+0025 
+0026 <span class="comment">% Do not run from GECKO version 3.2.0 onwards. This can be recognized by</span>
+0027 <span class="comment">% prot_usage reactions that are constrained by proteomics and still draw</span>
+0028 <span class="comment">% from the protein pool</span>
+0029 protRxns = find(startsWith(ecModel.rxns,<span class="string">'usage_prot_'</span>));
+0030 poolMetIdx = find(strcmp(ecModel.mets,<span class="string">'prot_pool'</span>));
+0031 <span class="comment">% Selected proteins with proteomics constraints</span>
+0032 constProtRxns = ~(ecModel.lb(protRxns)==-1000);
+0033 <span class="comment">% Are any still drawing from prot_pool? This is introduced in GECKO 3.2.0.</span>
+0034 <span class="keyword">if</span> any(full(ecModel.S(poolMetIdx,protRxns(constProtRxns))))
+0035     error([<span class="string">'In the provided ecModel, all protein usage reactions, both with '</span> <span class="keyword">...</span>
+0036         <span class="string">'and without concentration constraints, draw from the protein pool. '</span> <span class="keyword">...</span>
+0037         <span class="string">'This was introduced with GECKO 3.2.0. Since then, updateProtPool '</span> <span class="keyword">...</span>
+0038         <span class="string">'has become obsolete, use setProtPoolSize instead to constrain the '</span> <span class="keyword">...</span>
+0039         <span class="string">'total protein pool with  condition-specific total protein content. See '</span><span class="keyword">...</span>
+0040         <span class="string">'&lt;a href=&quot;https://github.com/SysBioChalmers/GECKO/issues/375&quot;&gt;here&lt;/a&gt; '</span> <span class="keyword">...</span>
+0041         <span class="string">'for more explanation.'</span>])
+0042 <span class="keyword">end</span>
+0043 
+0044 <span class="keyword">if</span> nargin &lt; 3 || isempty(modelAdapter)
+0045     modelAdapter = ModelAdapterManager.getDefault();
+0046     <span class="keyword">if</span> isempty(modelAdapter)
+0047         error(<span class="string">'Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.'</span>)
+0048     <span class="keyword">end</span>
+0049 <span class="keyword">end</span>
+0050 params = modelAdapter.params;
+0051 
+0052 <span class="keyword">if</span> nargin &lt; 2 || isempty(Ptot)
+0053     Ptot = params.Ptot;
+0054     disp([<span class="string">'Total protein content used: '</span> num2str(Ptot) <span class="string">' [g protein/gDw]'</span>])
+0055 <span class="keyword">end</span>
+0056 
+0057 <span class="comment">% Convert Ptot to mg/gDW if provided in g/gDCW (which is default)</span>
+0058 <span class="keyword">if</span> Ptot &lt; 1
+0059     Ptot = Ptot * 1000;
+0060 <span class="keyword">end</span>
+0061 
+0062 Pmeas = sum(ecModel.ec.concs,<span class="string">'omitnan'</span>);
+0063 <span class="keyword">if</span> Pmeas == 0
+0064     error(<span class="string">'The model has not yet been populated with proteomics, as ecModel.ec.concs is empty.'</span>)
+0065 <span class="keyword">end</span>
+0066 
+0067 Pnew = (Ptot - Pmeas) * params.f;
+0068 
+0069 <span class="keyword">if</span> Pnew &gt; 0
+0070     PoolRxnIdx = strcmp(ecModel.rxns,<span class="string">'prot_pool_exchange'</span>);
+0071     ecModel.lb(PoolRxnIdx) = -Pnew*params.sigma;
+0072     sol = solveLP(ecModel);
+0073     <span class="keyword">if</span> isempty(sol.x)
+0074         error([<span class="string">'Estimating the remaining protein pool by subtracting the '</span> <span class="keyword">...</span>
+0075                <span class="string">'sum of measured enzyme concentrations (in ecModel.ec.concs) '</span> <span class="keyword">...</span>
+0076                <span class="string">'from the total protein pool (Ptot) does not yield a functional '</span> <span class="keyword">...</span>
+0077                <span class="string">'model.'</span>])
+0078     <span class="keyword">end</span>
+0079 <span class="keyword">else</span>
+0080     error(<span class="string">'The total measured protein mass exceeds the total protein content.'</span>)
+0081 <span class="keyword">end</span>
+0082 <span class="keyword">end</span></pre></div>
 <hr><address>Generated by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

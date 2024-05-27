@@ -61,20 +61,19 @@ if ischar(protData) && endsWith(protData,'paxDB.tsv')
     uniprot     = uniprotDB.ID(b(a));
     level(~a)   = [];
     clear protData
-    protData.uniprot = uniprot;
+    protData.uniprotIDs = uniprot;
     protData.level   = level;
+    % Get MW and abundance (unit does not matter, f is fraction)
+    [~,idx] = ismember(protData.uniprotIDs,uniprotDB.ID);
+    protData.MW = uniprotDB.MW(idx);
+    protData.abundances = protData.level .* protData.MW;
 end
 
-% Get MW and abundance (unit does not matter, f is fraction)
-[~,idx] = ismember(protData.uniprot,uniprotDB.ID);
-protData.MW = uniprotDB.MW(idx);
-protData.abundance = protData.level .* protData.MW;
-
-totalProt = sum(protData.abundance);
+totalProt = sum(protData.abundances);
 
 % Get enzymes in model
-enzymesInModel = ismember(protData.uniprot,enzymes);
-totalEnz = sum(protData.abundance(enzymesInModel));
+enzymesInModel = ismember(protData.uniprotIDs,enzymes);
+totalEnz = sum(protData.abundances(enzymesInModel));
 
 f = totalEnz/totalProt;
 end
