@@ -6,11 +6,12 @@ function model = getECfromDatabase(model, ecRxns, action, modelAdapter)
 %
 % Input:
 %   model           an ecModel in GECKO 3 format (with ecModel.ec structure)
-%   ecRxns          logical of length model.ec.rxns that specifies for
-%                   which reactions the existing model.ec.eccodes entry
-%                   should be kept and not modified by this function
-%                   (optional, by default all model.ec.eccodes entries
-%                   are populated by this function)
+%   ecRxns          logical of length model.ec.rxns that specifies which
+%                   model.ec.eccodes entries should be queried. Exiting
+%                   values in model.ec.eccodes will be wiped. Entries that
+%                   are indicated by false will be kept and not modified by
+%                   this function (optional, by default all model.ec.eccodes
+%                   entries are populated by this function)
 %   action          response action if multiple proteins with different EC
 %                   numbers are found for a given gene in a metabolic
 %                   reaction (optional, default 'display')
