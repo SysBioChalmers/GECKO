@@ -24,7 +24,7 @@ function mergedKcatList = mergeDLKcatAndFuzzyKcats(kcatListDLKcat, kcatListFuzzy
 %                       BRENDA matches (Optional, default 3)
 %
 % Output:
-%   mergedKcatList  The merged list of kcats
+%   mergedKcatList      merged list of kcats
 %   
 % The origin parameter:
 %   1: correct organism, correct substrate, kcat
