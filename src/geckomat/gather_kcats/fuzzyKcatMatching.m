@@ -42,7 +42,7 @@ function kcatList = fuzzyKcatMatching(model, ecRxns, modelAdapter, forceWClvl)
 %                           5: correct organism, specific activity
 %                           6: any organism, specific activity
 %
-%   Note that if a wildcard is used, origin levels 1 and 2 are ignored. The
+%   Note: If a wildcard is used, origin levels 1 and 2 are ignored. The
 %   last digits in the E.C. number indicate the substrate specificity, so
 %   if this should be ignored, then correct substrate matches should not be
 %   prioritized.
@@ -158,7 +158,7 @@ end
 
 %Apply force wildcard level
 while forceWClvl > 0
-    eccodes=regexprep(eccodes,['(.)*(\.\d+)(\.-)*$'],'$1\.-$3');
+    eccodes=regexprep(eccodes,'(.)*(\.\d+)(\.-)*$','$1\.-$3');
     forceWClvl = forceWClvl - 1;
 end
 if forceWClvl == 1
@@ -501,6 +501,7 @@ if numel(org_index)>1
 elseif isempty(org_index)
     i=1;
     while isempty(org_index) && i<length(names)
+        % TODO: refactor with regexprep, keeping only first word.
         str = names{i};
         if strcmpi(org_name(1:strfind(org_name,' ')-1),...
                 str(1:strfind(str,' ')-1))
@@ -517,6 +518,7 @@ load(phylpath)
 phylDistStruct.ids   = transpose(phylDistStruct.ids);
 phylDistStruct.names = transpose(phylDistStruct.names);
 
+%phylDistStruct.names = regexprep(phylDistStruct.names,'\s*\(.*','');
 for i=1:length(phylDistStruct.names)
     pos = strfind(phylDistStruct.names{i}, ' (');
     if ~isempty(pos)
