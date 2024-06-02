@@ -209,12 +209,17 @@ stdMetIdx = find(strcmpi(model.ec.enzymes, 'standard'));
 % Remove previous standard kcat assignment
 oldStandardEnz = find(strcmp(model.ec.source,'standard'));
 if ~isempty(oldStandardEnz)
-    model.ec.rxns(oldStandardEnz)        = [];
-    model.ec.kcat(oldStandardEnz)        = [];
-    model.ec.source(oldStandardEnz)      = [];
-    model.ec.notes(oldStandardEnz)       = [];
-    model.ec.eccodes(oldStandardEnz)     = [];
-    model.ec.rxnEnzMat(oldStandardEnz,:) = [];
+    oldStandardProt = logical(model.ec.rxnEnzMat(oldStandardEnz,stdMetIdx));
+    % If annotated with real enzyme => set kcat to zero
+    model.ec.kcat(oldStandardEnz(~oldStandardProt))        = 0;
+    model.ec.source(oldStandardEnz(~oldStandardProt))      = {''};
+    % If annotated with standard protein => remove entry
+    model.ec.rxns(oldStandardEnz(oldStandardProt))        = [];
+    model.ec.kcat(oldStandardEnz(oldStandardProt))        = [];
+    model.ec.source(oldStandardEnz(oldStandardProt))      = [];
+    model.ec.notes(oldStandardEnz(oldStandardProt))       = [];
+    model.ec.eccodes(oldStandardEnz(oldStandardProt))     = [];
+    model.ec.rxnEnzMat(oldStandardEnz(oldStandardProt),:) = [];
 end
 
 for i = 1:numel(rxnsMissingGPR)
