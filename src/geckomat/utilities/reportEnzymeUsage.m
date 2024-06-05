@@ -61,20 +61,52 @@ topUsage.rxnID      = {};
 topUsage.rxnNames   = {};
 topUsage.grRules    = {};
 
-protPool = -ecModel.lb(strcmp(ecModel.rxns,'prot_pool_exchange'))/100;
+protPool = -ecModel.lb(strcmp(ecModel.rxns,'prot_pool_exchange'));
 
 for i=1:numel(topEnzyme)
     [rxns, kcat, idx, rxnNames, grRules] = getReactionsFromEnzyme(ecModel,topEnzyme{i});
     rxnNumber = numel(rxns);
-    topUsage.protID(end+1:end+rxnNumber,1)      = topEnzyme(i);
-    topUsage.geneID(end+1:end+rxnNumber,1)      = geneIDs(i);
-    topUsage.absUsage(end+1:end+rxnNumber,1)    = usageData.absUsage(topUse(i));
-    topUsage.percUsage(end+1:end+rxnNumber,1)   = topUsage.absUsage(end-(rxnNumber-1):end,1)/protPool;
-    topUsage.kcat(end+1:end+rxnNumber,1)        = kcat;
-    topUsage.source(end+1:end+rxnNumber,1)      = ecModel.ec.source(idx);
-    topUsage.rxnID(end+1:end+rxnNumber,1)       = rxns;
-    topUsage.rxnNames(end+1:end+rxnNumber,1)    = rxnNames;
-    topUsage.grRules(end+1:end+rxnNumber,1)     = grRules;
+    % See if all reactions carried flux
+    [~,rIdx] = ismember(rxns,ecModel.rxns);
+    carriedFlux = usageData.fluxes(rIdx) > 1e-7;
+    if isscalar(find(carriedFlux))
+        topUsage.protID(end+1,1)      = topEnzyme(i);
+        topUsage.geneID(end+1,1)      = geneIDs(i);
+        topUsage.absUsage(end+1,1)    = usageData.absUsage(topUse(i));
+        topUsage.percUsage(end+1,1)   = topUsage.absUsage(end,1)/protPool;
+        topUsage.kcat(end+1,1)        = kcat(carriedFlux);
+        topUsage.source(end+1,1)      = ecModel.ec.source(idx(carriedFlux));
+        topUsage.rxnID(end+1,1)       = rxns(carriedFlux);
+        topUsage.rxnNames(end+1,1)    = rxnNames(carriedFlux);
+        topUsage.grRules(end+1,1)     = grRules(carriedFlux);
+    else
+        % Add one entry for combined usage
+        topUsage.protID(end+1,1)      = topEnzyme(i);
+        topUsage.geneID(end+1,1)      = geneIDs(i);
+        topUsage.absUsage(end+1,1)    = usageData.absUsage(topUse(i));
+        topUsage.percUsage(end+1,1)   = topUsage.absUsage(end,1)/protPool*100;
+        topUsage.kcat(end+1,1)        = nan;
+        topUsage.source{end+1,1}      = '===';
+        topUsage.rxnID{end+1,1}       = '===';
+        topUsage.rxnNames{end+1,1}    = 'involved in multiple rxns, usage combined';
+        topUsage.grRules{end+1,1}     = '';
+        % Recalculate reaction-specific usage
+        rIdx = rIdx(carriedFlux);
+        enzFlux = usageData.fluxes(rIdx);
+        enzMet = strcat('prot_',topEnzyme{i});
+        [~, enzIdx] = ismember(enzMet,ecModel.mets);
+        indUse = full(transpose(-ecModel.S(enzIdx,rIdx)).*enzFlux);
+        rxnNumber = length(rIdx);
+        topUsage.protID(end+1:end+rxnNumber,1)      = topEnzyme(i);
+        topUsage.geneID(end+1:end+rxnNumber,1)      = geneIDs(i);
+        topUsage.absUsage(end+1:end+rxnNumber,1)    = indUse;
+        topUsage.percUsage(end+1:end+rxnNumber,1)   = topUsage.absUsage(end-(rxnNumber-1):end,1)/protPool*100;
+        topUsage.kcat(end+1:end+rxnNumber,1)        = kcat(carriedFlux);
+        topUsage.source(end+1:end+rxnNumber,1)      = ecModel.ec.source(idx(carriedFlux));
+        topUsage.rxnID(end+1:end+rxnNumber,1)       = rxns(carriedFlux);
+        topUsage.rxnNames(end+1:end+rxnNumber,1)    = rxnNames(carriedFlux);
+        topUsage.grRules(end+1:end+rxnNumber,1)     = grRules(carriedFlux);
+    end
 end
 usageReport.topAbsUsage     = struct2table(topUsage);
 usageReport.totalUsageFlux  = protPool;

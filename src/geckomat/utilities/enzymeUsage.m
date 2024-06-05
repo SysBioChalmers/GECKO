@@ -26,6 +26,7 @@ function usageData = enzymeUsage(ecModel,fluxes,zero)
 %               absUsage    vector of absolute enzyme usages
 %               UB          vector of enzyme exchange reaction upper bounds
 %               protID      string array of matching protein IDs
+%               fluxes      vector of fluxes, copy of input fluxes
 %
 % Usage:
 %   usageData = enzymeUsage(ecModel,fluxes,zero)
@@ -42,6 +43,7 @@ usageData.protID      = ecModel.ec.enzymes;
 usageData.LB          = ecModel.lb(rxnIdx);
 usageData.absUsage    = abs(fluxes(rxnIdx));
 usageData.capUsage    = abs(usageData.absUsage./usageData.LB);
+usageData.fluxes      = fluxes;
 
 if ~zero
     nonzero               = usageData.absUsage<0;
