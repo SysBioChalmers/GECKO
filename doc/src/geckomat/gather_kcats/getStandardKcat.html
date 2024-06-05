@@ -305,98 +305,103 @@ This function is called by:
 0203     model.ec.rxnEnzMat =  [model.ec.rxnEnzMat, zeros(length(model.ec.rxns), 1)]; <span class="comment">% 1 new enzyme</span>
 0204     model.ec.rxnEnzMat =  [model.ec.rxnEnzMat; zeros(length(rxnsMissingGPR), length(model.ec.enzymes))]; <span class="comment">% new rxns</span>
 0205 <span class="keyword">end</span>
-0206 numRxns = length(model.ec.rxns);
-0207 stdMetIdx = find(strcmpi(model.ec.enzymes, <span class="string">'standard'</span>));
-0208 
-0209 <span class="comment">% Remove previous standard kcat assignment</span>
-0210 oldStandardEnz = find(strcmp(model.ec.source,<span class="string">'standard'</span>));
-0211 <span class="keyword">if</span> ~isempty(oldStandardEnz)
-0212     model.ec.rxns(oldStandardEnz)        = [];
-0213     model.ec.kcat(oldStandardEnz)        = [];
-0214     model.ec.source(oldStandardEnz)      = [];
-0215     model.ec.notes(oldStandardEnz)       = [];
-0216     model.ec.eccodes(oldStandardEnz)     = [];
-0217     model.ec.rxnEnzMat(oldStandardEnz,:) = [];
-0218 <span class="keyword">end</span>
-0219 
-0220 <span class="keyword">for</span> i = 1:numel(rxnsMissingGPR)
-0221     rxnIdx = rxnsMissingGPR(i);
-0222 
-0223     <span class="comment">% Update .ec structure in model</span>
-0224     <span class="keyword">if</span> ~model.ec.geckoLight
-0225         model.ec.rxns(end+1)     = model.rxns(rxnIdx);
-0226         <span class="comment">% Add prefix in case is light version</span>
-0227     <span class="keyword">else</span>
-0228         model.ec.rxns{end+1}     = [<span class="string">'001_'</span> model.rxns{rxnIdx}];
-0229     <span class="keyword">end</span>
-0230 
-0231     <span class="keyword">if</span> ~standard
-0232         kcatSubSystemIdx = strcmpi(enzSubSystem_names, model.subSystems{rxnIdx}(1));
-0233         <span class="keyword">if</span> all(kcatSubSystemIdx)
-0234             model.ec.kcat(end+1) = kcatSubSystem(kcatSubSystemIdx);
-0235         <span class="keyword">else</span>
-0236             model.ec.kcat(end+1) = standardKcat;
-0237         <span class="keyword">end</span>
-0238     <span class="keyword">else</span>
-0239         model.ec.kcat(end+1) = standardKcat;
-0240     <span class="keyword">end</span>
-0241 
-0242     model.ec.source(end+1)   = {<span class="string">'standard'</span>};
-0243     model.ec.notes(end+1)    = {<span class="string">''</span>};
-0244     model.ec.eccodes(end+1)  = {<span class="string">''</span>};
-0245 
-0246     <span class="comment">% Update the enzyme rxns matrix</span>
-0247     model.ec.rxnEnzMat(numRxns+i, stdMetIdx) = 1;
-0248 <span class="keyword">end</span>
-0249 <span class="comment">% Get the rxns identifiers of the updated rxns</span>
-0250 rxnsMissingGPR = model.rxns(rxnsMissingGPR);
-0251 
-0252 <span class="keyword">if</span> fillZeroKcat
-0253     zeroKcat = model.ec.kcat == 0 | isnan(model.ec.kcat);
-0254     model.ec.kcat(zeroKcat)     = standardKcat;
-0255     model.ec.source(zeroKcat)   = {<span class="string">'standard'</span>};
-0256     rxnsNoKcat = model.ec.rxns(zeroKcat);
-0257 <span class="keyword">else</span>
-0258     rxnsNoKcat = [];
-0259 <span class="keyword">end</span>
-0260 <span class="keyword">end</span>
-0261 
-0262 <a name="_sub1" href="#_subfunctions" class="code">function Cflat = flattenCell(C,strFlag)</a>
-0263 <span class="comment">%FLATTENCELL  Flatten a nested column cell array into a matrix cell array.</span>
-0264 <span class="comment">%</span>
-0265 <span class="comment">% CFLAT = FLATTENCELL(C) takes a column cell array in which one or more</span>
-0266 <span class="comment">% entries is a nested cell array, and flattens it into a 2D matrix cell</span>
-0267 <span class="comment">% array, where the nested entries are spread across new columns.</span>
-0268 <span class="comment">%</span>
-0269 <span class="comment">% CFLAT = FLATTENCELL(C,STRFLAG) if STRFLAG is TRUE, empty entries in the</span>
-0270 <span class="comment">% resulting CFLAT will be replaced with empty strings {''}. Default = FALSE</span>
-0271 <span class="keyword">if</span> nargin &lt; 2
-0272     strFlag = false;
-0273 <span class="keyword">end</span>
-0274 
-0275 <span class="comment">% determine which entries are cells</span>
-0276 cells = cellfun(@iscell,C);
-0277 
-0278 <span class="comment">% determine number of elements in each nested cell</span>
-0279 cellsizes = cellfun(@numel,C);
-0280 cellsizes(~cells) = 1;  <span class="comment">% ignore non-cell entries</span>
-0281 
-0282 <span class="comment">% flatten single-entry cells</span>
-0283 Cflat = C;
-0284 Cflat(cells &amp; (cellsizes == 1)) = cellfun(@(x) x{1},Cflat(cells &amp; (cellsizes == 1)),<span class="string">'UniformOutput'</span>,false);
-0285 
-0286 <span class="comment">% iterate through multi-entry cells</span>
-0287 multiCells = find(cellsizes &gt; 1);
-0288 <span class="keyword">for</span> i = 1:length(multiCells)
-0289     cellContents = Cflat{multiCells(i)};
-0290     Cflat(multiCells(i),1:length(cellContents)) = cellContents;
-0291 <span class="keyword">end</span>
-0292 
-0293 <span class="comment">% change empty elements to strings, if specified</span>
-0294 <span class="keyword">if</span> ( strFlag )
-0295     Cflat(cellfun(@isempty,Cflat)) = {<span class="string">''</span>};
+0206 stdMetIdx = find(strcmpi(model.ec.enzymes, <span class="string">'standard'</span>));
+0207 
+0208 <span class="comment">% Remove previous standard kcat assignment</span>
+0209 oldStandardEnz = find(strcmp(model.ec.source,<span class="string">'standard'</span>));
+0210 <span class="keyword">if</span> ~isempty(oldStandardEnz)
+0211     oldStandardProt = logical(model.ec.rxnEnzMat(oldStandardEnz,stdMetIdx));
+0212     <span class="comment">% If annotated with real enzyme =&gt; set kcat to zero</span>
+0213     model.ec.kcat(oldStandardEnz(~oldStandardProt))        = 0;
+0214     model.ec.source(oldStandardEnz(~oldStandardProt))      = {<span class="string">''</span>};
+0215     <span class="comment">% If annotated with standard protein =&gt; remove entry</span>
+0216     model.ec.rxns(oldStandardEnz(oldStandardProt))        = [];
+0217     model.ec.kcat(oldStandardEnz(oldStandardProt))        = [];
+0218     model.ec.source(oldStandardEnz(oldStandardProt))      = [];
+0219     model.ec.notes(oldStandardEnz(oldStandardProt))       = [];
+0220     model.ec.eccodes(oldStandardEnz(oldStandardProt))     = [];
+0221     model.ec.rxnEnzMat(oldStandardEnz(oldStandardProt),:) = [];
+0222 <span class="keyword">end</span>
+0223 
+0224 numRxns = length(model.ec.rxns);
+0225 <span class="keyword">for</span> i = 1:numel(rxnsMissingGPR)
+0226     rxnIdx = rxnsMissingGPR(i);
+0227 
+0228     <span class="comment">% Update .ec structure in model</span>
+0229     <span class="keyword">if</span> ~model.ec.geckoLight
+0230         model.ec.rxns(end+1)     = model.rxns(rxnIdx);
+0231         <span class="comment">% Add prefix in case is light version</span>
+0232     <span class="keyword">else</span>
+0233         model.ec.rxns{end+1}     = [<span class="string">'001_'</span> model.rxns{rxnIdx}];
+0234     <span class="keyword">end</span>
+0235 
+0236     <span class="keyword">if</span> ~standard
+0237         kcatSubSystemIdx = strcmpi(enzSubSystem_names, model.subSystems{rxnIdx}(1));
+0238         <span class="keyword">if</span> all(kcatSubSystemIdx)
+0239             model.ec.kcat(end+1) = kcatSubSystem(kcatSubSystemIdx);
+0240         <span class="keyword">else</span>
+0241             model.ec.kcat(end+1) = standardKcat;
+0242         <span class="keyword">end</span>
+0243     <span class="keyword">else</span>
+0244         model.ec.kcat(end+1) = standardKcat;
+0245     <span class="keyword">end</span>
+0246 
+0247     model.ec.source(end+1)   = {<span class="string">'standard'</span>};
+0248     model.ec.notes(end+1)    = {<span class="string">''</span>};
+0249     model.ec.eccodes(end+1)  = {<span class="string">''</span>};
+0250 
+0251     <span class="comment">% Update the enzyme rxns matrix</span>
+0252     model.ec.rxnEnzMat(numRxns+i, stdMetIdx) = 1;
+0253 <span class="keyword">end</span>
+0254 <span class="comment">% Get the rxns identifiers of the updated rxns</span>
+0255 rxnsMissingGPR = model.rxns(rxnsMissingGPR);
+0256 
+0257 <span class="keyword">if</span> fillZeroKcat
+0258     zeroKcat = model.ec.kcat == 0 | isnan(model.ec.kcat);
+0259     model.ec.kcat(zeroKcat)     = standardKcat;
+0260     model.ec.source(zeroKcat)   = {<span class="string">'standard'</span>};
+0261     rxnsNoKcat = model.ec.rxns(zeroKcat);
+0262 <span class="keyword">else</span>
+0263     rxnsNoKcat = [];
+0264 <span class="keyword">end</span>
+0265 <span class="keyword">end</span>
+0266 
+0267 <a name="_sub1" href="#_subfunctions" class="code">function Cflat = flattenCell(C,strFlag)</a>
+0268 <span class="comment">%FLATTENCELL  Flatten a nested column cell array into a matrix cell array.</span>
+0269 <span class="comment">%</span>
+0270 <span class="comment">% CFLAT = FLATTENCELL(C) takes a column cell array in which one or more</span>
+0271 <span class="comment">% entries is a nested cell array, and flattens it into a 2D matrix cell</span>
+0272 <span class="comment">% array, where the nested entries are spread across new columns.</span>
+0273 <span class="comment">%</span>
+0274 <span class="comment">% CFLAT = FLATTENCELL(C,STRFLAG) if STRFLAG is TRUE, empty entries in the</span>
+0275 <span class="comment">% resulting CFLAT will be replaced with empty strings {''}. Default = FALSE</span>
+0276 <span class="keyword">if</span> nargin &lt; 2
+0277     strFlag = false;
+0278 <span class="keyword">end</span>
+0279 
+0280 <span class="comment">% determine which entries are cells</span>
+0281 cells = cellfun(@iscell,C);
+0282 
+0283 <span class="comment">% determine number of elements in each nested cell</span>
+0284 cellsizes = cellfun(@numel,C);
+0285 cellsizes(~cells) = 1;  <span class="comment">% ignore non-cell entries</span>
+0286 
+0287 <span class="comment">% flatten single-entry cells</span>
+0288 Cflat = C;
+0289 Cflat(cells &amp; (cellsizes == 1)) = cellfun(@(x) x{1},Cflat(cells &amp; (cellsizes == 1)),<span class="string">'UniformOutput'</span>,false);
+0290 
+0291 <span class="comment">% iterate through multi-entry cells</span>
+0292 multiCells = find(cellsizes &gt; 1);
+0293 <span class="keyword">for</span> i = 1:length(multiCells)
+0294     cellContents = Cflat{multiCells(i)};
+0295     Cflat(multiCells(i),1:length(cellContents)) = cellContents;
 0296 <span class="keyword">end</span>
-0297 <span class="keyword">end</span></pre></div>
+0297 
+0298 <span class="comment">% change empty elements to strings, if specified</span>
+0299 <span class="keyword">if</span> ( strFlag )
+0300     Cflat(cellfun(@isempty,Cflat)) = {<span class="string">''</span>};
+0301 <span class="keyword">end</span>
+0302 <span class="keyword">end</span></pre></div>
 <hr><address>Generated by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>
