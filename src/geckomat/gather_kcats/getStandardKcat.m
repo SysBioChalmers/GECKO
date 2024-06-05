@@ -203,7 +203,6 @@ if ~any(strcmp(model.mets,'prot_standard'))
     model.ec.rxnEnzMat =  [model.ec.rxnEnzMat, zeros(length(model.ec.rxns), 1)]; % 1 new enzyme
     model.ec.rxnEnzMat =  [model.ec.rxnEnzMat; zeros(length(rxnsMissingGPR), length(model.ec.enzymes))]; % new rxns
 end
-numRxns = length(model.ec.rxns);
 stdMetIdx = find(strcmpi(model.ec.enzymes, 'standard'));
 
 % Remove previous standard kcat assignment
@@ -222,6 +221,7 @@ if ~isempty(oldStandardEnz)
     model.ec.rxnEnzMat(oldStandardEnz(oldStandardProt),:) = [];
 end
 
+numRxns = length(model.ec.rxns);
 for i = 1:numel(rxnsMissingGPR)
     rxnIdx = rxnsMissingGPR(i);
 
