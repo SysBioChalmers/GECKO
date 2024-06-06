@@ -50,8 +50,8 @@ else
 end
 
 %Set all reactions to draw from prot_pool
-model.S(protPoolIdx, usageRxnsIdx(~protCons)) = 1;
-model.lb(usageRxnsIdx(protCons)) = -1000;
+model.S(protPoolIdx, usageRxnsIdx) = 1;
+model.lb(usageRxnsIdx) = -1000;
 
 %If non-NaN in model.ec.concs, then constrain by UB
 if any(protCons)
