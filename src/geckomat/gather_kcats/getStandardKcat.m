@@ -134,7 +134,12 @@ rxnsMissingGPR = find(cellfun(@isempty, model.grRules));
 % Find reactions with GPR but without model.ec entry (for instance due to
 % no protein matching)
 rxnsMissingEnzyme = find(~cellfun(@isempty, model.grRules));
-rxnsMissingEnzyme = find(and(~ismember(model.rxns(rxnsMissingEnzyme),model.ec.rxns), ~contains(model.rxns(rxnsMissingEnzyme),'usage_prot_')));
+if model.ec.geckoLight
+    ecRxnsList = unique(extractAfter(model.ec.rxns,4));
+else
+    ecRxnsList = model.ec.rxns;
+end
+rxnsMissingEnzyme = find(and(~ismember(model.rxns(rxnsMissingEnzyme),ecRxnsList), ~contains(model.rxns(rxnsMissingEnzyme),'usage_prot_')));
 rxnsMissingGPR = [rxnsMissingGPR;rxnsMissingEnzyme];
 
 % Get custom list of reaction IDs to ignore, if existing. First column
