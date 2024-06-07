@@ -69,11 +69,12 @@ if ischar(protData) && endsWith(protData,'paxDB.tsv')
     protData.abundances = protData.level .* protData.MW;
 end
 
-totalProt = sum(protData.abundances);
+avgAbundances = mean(protData.abundances,2);
+totalProt = sum(avgAbundances,'omitnan');
 
 % Get enzymes in model
 enzymesInModel = ismember(protData.uniprotIDs,enzymes);
-totalEnz = sum(protData.abundances(enzymesInModel));
+totalEnz = sum(avgAbundances(enzymesInModel),'omitnan');
 
 f = totalEnz/totalProt;
 end

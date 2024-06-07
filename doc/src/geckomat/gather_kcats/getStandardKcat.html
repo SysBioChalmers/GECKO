@@ -236,167 +236,177 @@ This function is called by:
 0134 <span class="comment">% Find reactions with GPR but without model.ec entry (for instance due to</span>
 0135 <span class="comment">% no protein matching)</span>
 0136 rxnsMissingEnzyme = find(~cellfun(@isempty, model.grRules));
-0137 rxnsMissingEnzyme = find(and(~ismember(model.rxns(rxnsMissingEnzyme),model.ec.rxns), ~contains(model.rxns(rxnsMissingEnzyme),<span class="string">'usage_prot_'</span>)));
-0138 rxnsMissingGPR = [rxnsMissingGPR;rxnsMissingEnzyme];
-0139 
-0140 <span class="comment">% Get custom list of reaction IDs to ignore, if existing. First column</span>
-0141 <span class="comment">% contains reaction IDs, second column contains reaction names for</span>
-0142 <span class="comment">% reference only.</span>
-0143 <span class="keyword">if</span> exist(fullfile(params.path,<span class="string">'data'</span>,<span class="string">'pseudoRxns.tsv'</span>),<span class="string">'file'</span>)
-0144     fID        = fopen(fullfile(params.path,<span class="string">'data'</span>,<span class="string">'pseudoRxns.tsv'</span>));
-0145     fileData   = textscan(fID,<span class="string">'%s %s'</span>,<span class="string">'delimiter'</span>,<span class="string">'\t'</span>);
-0146     fclose(fID);
-0147     customRxns = fileData{1};
-0148     customRxns = find(ismember(model.rxns,customRxns));
-0149 <span class="keyword">else</span>
-0150     customRxns = [];
-0151 <span class="keyword">end</span>
-0152 <span class="comment">% Get and remove exchange, transport, spontaneous and pseudo reactions</span>
-0153 [~, exchangeRxns]  = getExchangeRxns(model);
-0154 transportRxns = getTransportRxns(model);
-0155 [spontaneousRxns, ~] = modelAdapter.getSpontaneousReactions(model);
-0156 pseudoRxns = contains(model.rxnNames,<span class="string">'pseudoreaction'</span>);
-0157 slimeRxns = contains(model.rxnNames,<span class="string">'SLIME rxn'</span>);
-0158 rxnsToIgnore = [customRxns; exchangeRxns; find(transportRxns); <span class="keyword">...</span>
-0159                 find(spontaneousRxns); find(pseudoRxns); find(slimeRxns)];
-0160 rxnsMissingGPR(ismember(rxnsMissingGPR, rxnsToIgnore)) = [];
-0161 
-0162 <span class="comment">% Only add if not geckoLight &amp; getStandardKcat was not run earlier</span>
-0163 <span class="keyword">if</span> ~any(strcmp(model.mets,<span class="string">'prot_standard'</span>))
-0164     <span class="comment">% Add a new gene to be consistent with ec field named standard</span>
-0165     proteinStdGenes.genes = <span class="string">'standard'</span>;
-0166     <span class="keyword">if</span> isfield(model,<span class="string">'geneShortNames'</span>)
-0167         proteinStdGenes.geneShortNames = <span class="string">'std'</span>;
-0168     <span class="keyword">end</span>
-0169     model = addGenesRaven(model, proteinStdGenes);
-0170 
-0171     <span class="keyword">if</span> ~model.ec.geckoLight
-0172         <span class="comment">% Add a new metabolite named prot_standard</span>
-0173         proteinStdMets.mets         = <span class="string">'prot_standard'</span>;
-0174         proteinStdMets.metNames     = proteinStdMets.mets;
-0175         proteinStdMets.compartments = <span class="string">'c'</span>;
-0176         <span class="keyword">if</span> isfield(model,<span class="string">'metNotes'</span>)
-0177             proteinStdMets.metNotes = <span class="string">'Standard enzyme-usage pseudometabolite'</span>;
-0178         <span class="keyword">end</span>
-0179         model = addMets(model, proteinStdMets);
-0180 
-0181         <span class="comment">% Add a protein usage reaction if not a light version</span>
-0182         proteinStdUsageRxn.rxns         = {<span class="string">'usage_prot_standard'</span>};
-0183         proteinStdUsageRxn.rxnNames     = proteinStdUsageRxn.rxns;
-0184         proteinStdUsageRxn.mets         = {proteinStdMets.mets, <span class="string">'prot_pool'</span>};
-0185         proteinStdUsageRxn.stoichCoeffs = [-1, 1];
-0186         proteinStdUsageRxn.lb           = -1000;
-0187         proteinStdUsageRxn.ub           = 0;
-0188         proteinStdUsageRxn.grRules      = proteinStdGenes.genes;
-0189 
-0190         model = addRxns(model, proteinStdUsageRxn);
-0191     <span class="keyword">end</span>
-0192     <span class="comment">% Update .ec structure in model</span>
-0193     model.ec.genes(end+1)      = {<span class="string">'standard'</span>};
-0194     model.ec.enzymes(end+1)    = {<span class="string">'standard'</span>};
-0195     model.ec.mw(end+1)         = standardMW;
-0196     model.ec.sequence(end+1)   = {<span class="string">''</span>};
-0197     <span class="comment">% Additional info</span>
-0198     <span class="keyword">if</span> isfield(model.ec,<span class="string">'concs'</span>)
-0199         model.ec.concs(end+1)  = nan();
-0200     <span class="keyword">end</span>
-0201 
-0202     <span class="comment">% Expand the enzyme rxns matrix</span>
-0203     model.ec.rxnEnzMat =  [model.ec.rxnEnzMat, zeros(length(model.ec.rxns), 1)]; <span class="comment">% 1 new enzyme</span>
-0204     model.ec.rxnEnzMat =  [model.ec.rxnEnzMat; zeros(length(rxnsMissingGPR), length(model.ec.enzymes))]; <span class="comment">% new rxns</span>
-0205 <span class="keyword">end</span>
-0206 numRxns = length(model.ec.rxns);
-0207 stdMetIdx = find(strcmpi(model.ec.enzymes, <span class="string">'standard'</span>));
-0208 
-0209 <span class="comment">% Remove previous standard kcat assignment</span>
-0210 oldStandardEnz = find(strcmp(model.ec.source,<span class="string">'standard'</span>));
-0211 <span class="keyword">if</span> ~isempty(oldStandardEnz)
-0212     model.ec.rxns(oldStandardEnz)        = [];
-0213     model.ec.kcat(oldStandardEnz)        = [];
-0214     model.ec.source(oldStandardEnz)      = [];
-0215     model.ec.notes(oldStandardEnz)       = [];
-0216     model.ec.eccodes(oldStandardEnz)     = [];
-0217     model.ec.rxnEnzMat(oldStandardEnz,:) = [];
-0218 <span class="keyword">end</span>
-0219 
-0220 <span class="keyword">for</span> i = 1:numel(rxnsMissingGPR)
-0221     rxnIdx = rxnsMissingGPR(i);
-0222 
-0223     <span class="comment">% Update .ec structure in model</span>
-0224     <span class="keyword">if</span> ~model.ec.geckoLight
-0225         model.ec.rxns(end+1)     = model.rxns(rxnIdx);
-0226         <span class="comment">% Add prefix in case is light version</span>
-0227     <span class="keyword">else</span>
-0228         model.ec.rxns{end+1}     = [<span class="string">'001_'</span> model.rxns{rxnIdx}];
-0229     <span class="keyword">end</span>
-0230 
-0231     <span class="keyword">if</span> ~standard
-0232         kcatSubSystemIdx = strcmpi(enzSubSystem_names, model.subSystems{rxnIdx}(1));
-0233         <span class="keyword">if</span> all(kcatSubSystemIdx)
-0234             model.ec.kcat(end+1) = kcatSubSystem(kcatSubSystemIdx);
-0235         <span class="keyword">else</span>
-0236             model.ec.kcat(end+1) = standardKcat;
-0237         <span class="keyword">end</span>
-0238     <span class="keyword">else</span>
-0239         model.ec.kcat(end+1) = standardKcat;
-0240     <span class="keyword">end</span>
-0241 
-0242     model.ec.source(end+1)   = {<span class="string">'standard'</span>};
-0243     model.ec.notes(end+1)    = {<span class="string">''</span>};
-0244     model.ec.eccodes(end+1)  = {<span class="string">''</span>};
-0245 
-0246     <span class="comment">% Update the enzyme rxns matrix</span>
-0247     model.ec.rxnEnzMat(numRxns+i, stdMetIdx) = 1;
-0248 <span class="keyword">end</span>
-0249 <span class="comment">% Get the rxns identifiers of the updated rxns</span>
-0250 rxnsMissingGPR = model.rxns(rxnsMissingGPR);
+0137 <span class="keyword">if</span> model.ec.geckoLight
+0138     ecRxnsList = unique(extractAfter(model.ec.rxns,4));
+0139 <span class="keyword">else</span>
+0140     ecRxnsList = model.ec.rxns;
+0141 <span class="keyword">end</span>
+0142 rxnsMissingEnzyme = find(and(~ismember(model.rxns(rxnsMissingEnzyme),ecRxnsList), ~contains(model.rxns(rxnsMissingEnzyme),<span class="string">'usage_prot_'</span>)));
+0143 rxnsMissingGPR = [rxnsMissingGPR;rxnsMissingEnzyme];
+0144 
+0145 <span class="comment">% Get custom list of reaction IDs to ignore, if existing. First column</span>
+0146 <span class="comment">% contains reaction IDs, second column contains reaction names for</span>
+0147 <span class="comment">% reference only.</span>
+0148 <span class="keyword">if</span> exist(fullfile(params.path,<span class="string">'data'</span>,<span class="string">'pseudoRxns.tsv'</span>),<span class="string">'file'</span>)
+0149     fID        = fopen(fullfile(params.path,<span class="string">'data'</span>,<span class="string">'pseudoRxns.tsv'</span>));
+0150     fileData   = textscan(fID,<span class="string">'%s %s'</span>,<span class="string">'delimiter'</span>,<span class="string">'\t'</span>);
+0151     fclose(fID);
+0152     customRxns = fileData{1};
+0153     customRxns = find(ismember(model.rxns,customRxns));
+0154 <span class="keyword">else</span>
+0155     customRxns = [];
+0156 <span class="keyword">end</span>
+0157 <span class="comment">% Get and remove exchange, transport, spontaneous and pseudo reactions</span>
+0158 [~, exchangeRxns]  = getExchangeRxns(model);
+0159 transportRxns = getTransportRxns(model);
+0160 [spontaneousRxns, ~] = modelAdapter.getSpontaneousReactions(model);
+0161 pseudoRxns = contains(model.rxnNames,<span class="string">'pseudoreaction'</span>);
+0162 slimeRxns = contains(model.rxnNames,<span class="string">'SLIME rxn'</span>);
+0163 rxnsToIgnore = [customRxns; exchangeRxns; find(transportRxns); <span class="keyword">...</span>
+0164                 find(spontaneousRxns); find(pseudoRxns); find(slimeRxns)];
+0165 rxnsMissingGPR(ismember(rxnsMissingGPR, rxnsToIgnore)) = [];
+0166 
+0167 <span class="comment">% Only add if not geckoLight &amp; getStandardKcat was not run earlier</span>
+0168 <span class="keyword">if</span> ~any(strcmp(model.mets,<span class="string">'prot_standard'</span>))
+0169     <span class="comment">% Add a new gene to be consistent with ec field named standard</span>
+0170     proteinStdGenes.genes = <span class="string">'standard'</span>;
+0171     <span class="keyword">if</span> isfield(model,<span class="string">'geneShortNames'</span>)
+0172         proteinStdGenes.geneShortNames = <span class="string">'std'</span>;
+0173     <span class="keyword">end</span>
+0174     model = addGenesRaven(model, proteinStdGenes);
+0175 
+0176     <span class="keyword">if</span> ~model.ec.geckoLight
+0177         <span class="comment">% Add a new metabolite named prot_standard</span>
+0178         proteinStdMets.mets         = <span class="string">'prot_standard'</span>;
+0179         proteinStdMets.metNames     = proteinStdMets.mets;
+0180         proteinStdMets.compartments = <span class="string">'c'</span>;
+0181         <span class="keyword">if</span> isfield(model,<span class="string">'metNotes'</span>)
+0182             proteinStdMets.metNotes = <span class="string">'Standard enzyme-usage pseudometabolite'</span>;
+0183         <span class="keyword">end</span>
+0184         model = addMets(model, proteinStdMets);
+0185 
+0186         <span class="comment">% Add a protein usage reaction if not a light version</span>
+0187         proteinStdUsageRxn.rxns         = {<span class="string">'usage_prot_standard'</span>};
+0188         proteinStdUsageRxn.rxnNames     = proteinStdUsageRxn.rxns;
+0189         proteinStdUsageRxn.mets         = {proteinStdMets.mets, <span class="string">'prot_pool'</span>};
+0190         proteinStdUsageRxn.stoichCoeffs = [-1, 1];
+0191         proteinStdUsageRxn.lb           = -1000;
+0192         proteinStdUsageRxn.ub           = 0;
+0193         proteinStdUsageRxn.grRules      = proteinStdGenes.genes;
+0194 
+0195         model = addRxns(model, proteinStdUsageRxn);
+0196     <span class="keyword">end</span>
+0197     <span class="comment">% Update .ec structure in model</span>
+0198     model.ec.genes(end+1)      = {<span class="string">'standard'</span>};
+0199     model.ec.enzymes(end+1)    = {<span class="string">'standard'</span>};
+0200     model.ec.mw(end+1)         = standardMW;
+0201     model.ec.sequence(end+1)   = {<span class="string">''</span>};
+0202     <span class="comment">% Additional info</span>
+0203     <span class="keyword">if</span> isfield(model.ec,<span class="string">'concs'</span>)
+0204         model.ec.concs(end+1)  = nan();
+0205     <span class="keyword">end</span>
+0206 
+0207     <span class="comment">% Expand the enzyme rxns matrix</span>
+0208     model.ec.rxnEnzMat =  [model.ec.rxnEnzMat, zeros(length(model.ec.rxns), 1)]; <span class="comment">% 1 new enzyme</span>
+0209     model.ec.rxnEnzMat =  [model.ec.rxnEnzMat; zeros(length(rxnsMissingGPR), length(model.ec.enzymes))]; <span class="comment">% new rxns</span>
+0210 <span class="keyword">end</span>
+0211 stdMetIdx = find(strcmpi(model.ec.enzymes, <span class="string">'standard'</span>));
+0212 
+0213 <span class="comment">% Remove previous standard kcat assignment</span>
+0214 oldStandardEnz = find(strcmp(model.ec.source,<span class="string">'standard'</span>));
+0215 <span class="keyword">if</span> ~isempty(oldStandardEnz)
+0216     oldStandardProt = logical(model.ec.rxnEnzMat(oldStandardEnz,stdMetIdx));
+0217     <span class="comment">% If annotated with real enzyme =&gt; set kcat to zero</span>
+0218     model.ec.kcat(oldStandardEnz(~oldStandardProt))        = 0;
+0219     model.ec.source(oldStandardEnz(~oldStandardProt))      = {<span class="string">''</span>};
+0220     <span class="comment">% If annotated with standard protein =&gt; remove entry</span>
+0221     model.ec.rxns(oldStandardEnz(oldStandardProt))        = [];
+0222     model.ec.kcat(oldStandardEnz(oldStandardProt))        = [];
+0223     model.ec.source(oldStandardEnz(oldStandardProt))      = [];
+0224     model.ec.notes(oldStandardEnz(oldStandardProt))       = [];
+0225     model.ec.eccodes(oldStandardEnz(oldStandardProt))     = [];
+0226     model.ec.rxnEnzMat(oldStandardEnz(oldStandardProt),:) = [];
+0227 <span class="keyword">end</span>
+0228 
+0229 numRxns = length(model.ec.rxns);
+0230 <span class="keyword">for</span> i = 1:numel(rxnsMissingGPR)
+0231     rxnIdx = rxnsMissingGPR(i);
+0232 
+0233     <span class="comment">% Update .ec structure in model</span>
+0234     <span class="keyword">if</span> ~model.ec.geckoLight
+0235         model.ec.rxns(end+1)     = model.rxns(rxnIdx);
+0236         <span class="comment">% Add prefix in case is light version</span>
+0237     <span class="keyword">else</span>
+0238         model.ec.rxns{end+1}     = [<span class="string">'001_'</span> model.rxns{rxnIdx}];
+0239     <span class="keyword">end</span>
+0240 
+0241     <span class="keyword">if</span> ~standard
+0242         kcatSubSystemIdx = strcmpi(enzSubSystem_names, model.subSystems{rxnIdx}(1));
+0243         <span class="keyword">if</span> all(kcatSubSystemIdx)
+0244             model.ec.kcat(end+1) = kcatSubSystem(kcatSubSystemIdx);
+0245         <span class="keyword">else</span>
+0246             model.ec.kcat(end+1) = standardKcat;
+0247         <span class="keyword">end</span>
+0248     <span class="keyword">else</span>
+0249         model.ec.kcat(end+1) = standardKcat;
+0250     <span class="keyword">end</span>
 0251 
-0252 <span class="keyword">if</span> fillZeroKcat
-0253     zeroKcat = model.ec.kcat == 0 | isnan(model.ec.kcat);
-0254     model.ec.kcat(zeroKcat)     = standardKcat;
-0255     model.ec.source(zeroKcat)   = {<span class="string">'standard'</span>};
-0256     rxnsNoKcat = model.ec.rxns(zeroKcat);
-0257 <span class="keyword">else</span>
-0258     rxnsNoKcat = [];
-0259 <span class="keyword">end</span>
-0260 <span class="keyword">end</span>
+0252     model.ec.source(end+1)   = {<span class="string">'standard'</span>};
+0253     model.ec.notes(end+1)    = {<span class="string">''</span>};
+0254     model.ec.eccodes(end+1)  = {<span class="string">''</span>};
+0255 
+0256     <span class="comment">% Update the enzyme rxns matrix</span>
+0257     model.ec.rxnEnzMat(numRxns+i, stdMetIdx) = 1;
+0258 <span class="keyword">end</span>
+0259 <span class="comment">% Get the rxns identifiers of the updated rxns</span>
+0260 rxnsMissingGPR = model.rxns(rxnsMissingGPR);
 0261 
-0262 <a name="_sub1" href="#_subfunctions" class="code">function Cflat = flattenCell(C,strFlag)</a>
-0263 <span class="comment">%FLATTENCELL  Flatten a nested column cell array into a matrix cell array.</span>
-0264 <span class="comment">%</span>
-0265 <span class="comment">% CFLAT = FLATTENCELL(C) takes a column cell array in which one or more</span>
-0266 <span class="comment">% entries is a nested cell array, and flattens it into a 2D matrix cell</span>
-0267 <span class="comment">% array, where the nested entries are spread across new columns.</span>
-0268 <span class="comment">%</span>
-0269 <span class="comment">% CFLAT = FLATTENCELL(C,STRFLAG) if STRFLAG is TRUE, empty entries in the</span>
-0270 <span class="comment">% resulting CFLAT will be replaced with empty strings {''}. Default = FALSE</span>
-0271 <span class="keyword">if</span> nargin &lt; 2
-0272     strFlag = false;
-0273 <span class="keyword">end</span>
-0274 
-0275 <span class="comment">% determine which entries are cells</span>
-0276 cells = cellfun(@iscell,C);
-0277 
-0278 <span class="comment">% determine number of elements in each nested cell</span>
-0279 cellsizes = cellfun(@numel,C);
-0280 cellsizes(~cells) = 1;  <span class="comment">% ignore non-cell entries</span>
-0281 
-0282 <span class="comment">% flatten single-entry cells</span>
-0283 Cflat = C;
-0284 Cflat(cells &amp; (cellsizes == 1)) = cellfun(@(x) x{1},Cflat(cells &amp; (cellsizes == 1)),<span class="string">'UniformOutput'</span>,false);
-0285 
-0286 <span class="comment">% iterate through multi-entry cells</span>
-0287 multiCells = find(cellsizes &gt; 1);
-0288 <span class="keyword">for</span> i = 1:length(multiCells)
-0289     cellContents = Cflat{multiCells(i)};
-0290     Cflat(multiCells(i),1:length(cellContents)) = cellContents;
-0291 <span class="keyword">end</span>
-0292 
-0293 <span class="comment">% change empty elements to strings, if specified</span>
-0294 <span class="keyword">if</span> ( strFlag )
-0295     Cflat(cellfun(@isempty,Cflat)) = {<span class="string">''</span>};
-0296 <span class="keyword">end</span>
-0297 <span class="keyword">end</span></pre></div>
+0262 <span class="keyword">if</span> fillZeroKcat
+0263     zeroKcat = model.ec.kcat == 0 | isnan(model.ec.kcat);
+0264     model.ec.kcat(zeroKcat)     = standardKcat;
+0265     model.ec.source(zeroKcat)   = {<span class="string">'standard'</span>};
+0266     rxnsNoKcat = model.ec.rxns(zeroKcat);
+0267 <span class="keyword">else</span>
+0268     rxnsNoKcat = [];
+0269 <span class="keyword">end</span>
+0270 <span class="keyword">end</span>
+0271 
+0272 <a name="_sub1" href="#_subfunctions" class="code">function Cflat = flattenCell(C,strFlag)</a>
+0273 <span class="comment">%FLATTENCELL  Flatten a nested column cell array into a matrix cell array.</span>
+0274 <span class="comment">%</span>
+0275 <span class="comment">% CFLAT = FLATTENCELL(C) takes a column cell array in which one or more</span>
+0276 <span class="comment">% entries is a nested cell array, and flattens it into a 2D matrix cell</span>
+0277 <span class="comment">% array, where the nested entries are spread across new columns.</span>
+0278 <span class="comment">%</span>
+0279 <span class="comment">% CFLAT = FLATTENCELL(C,STRFLAG) if STRFLAG is TRUE, empty entries in the</span>
+0280 <span class="comment">% resulting CFLAT will be replaced with empty strings {''}. Default = FALSE</span>
+0281 <span class="keyword">if</span> nargin &lt; 2
+0282     strFlag = false;
+0283 <span class="keyword">end</span>
+0284 
+0285 <span class="comment">% determine which entries are cells</span>
+0286 cells = cellfun(@iscell,C);
+0287 
+0288 <span class="comment">% determine number of elements in each nested cell</span>
+0289 cellsizes = cellfun(@numel,C);
+0290 cellsizes(~cells) = 1;  <span class="comment">% ignore non-cell entries</span>
+0291 
+0292 <span class="comment">% flatten single-entry cells</span>
+0293 Cflat = C;
+0294 Cflat(cells &amp; (cellsizes == 1)) = cellfun(@(x) x{1},Cflat(cells &amp; (cellsizes == 1)),<span class="string">'UniformOutput'</span>,false);
+0295 
+0296 <span class="comment">% iterate through multi-entry cells</span>
+0297 multiCells = find(cellsizes &gt; 1);
+0298 <span class="keyword">for</span> i = 1:length(multiCells)
+0299     cellContents = Cflat{multiCells(i)};
+0300     Cflat(multiCells(i),1:length(cellContents)) = cellContents;
+0301 <span class="keyword">end</span>
+0302 
+0303 <span class="comment">% change empty elements to strings, if specified</span>
+0304 <span class="keyword">if</span> ( strFlag )
+0305     Cflat(cellfun(@isempty,Cflat)) = {<span class="string">''</span>};
+0306 <span class="keyword">end</span>
+0307 <span class="keyword">end</span></pre></div>
 <hr><address>Generated by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

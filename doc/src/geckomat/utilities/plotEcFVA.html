@@ -47,7 +47,9 @@ This function is called by:
 </ul>
 <!-- crossreference -->
 
-
+<h2><a name="_subfunctions"></a>SUBFUNCTIONS <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+<li><a href="#_sub1" class="code">function cdfplot(X)</a></li></ul>
 
 <h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
 <div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function plotEcFVA(minFlux, maxFlux)</a>
@@ -62,30 +64,77 @@ This function is called by:
 0010 <span class="comment">%   maxFlux     vector of maximum flux values, matching minFlux.</span>
 0011 
 0012 numMods = size(minFlux,2);
-0013 
+0013 fluxRanges = cell(3,1);
 0014 <span class="comment">% Ignore zero flux reactions</span>
 0015 <span class="keyword">for</span> i=1:numMods
 0016     zeroFlux = abs(minFlux(:,i)) &lt; 1e-10 &amp; abs(maxFlux(:,i)) &lt; 1e-10;
 0017     minFlux(zeroFlux,i) = NaN;
 0018     maxFlux(zeroFlux,i) = NaN;
-0019 <span class="keyword">end</span>
-0020 
-0021 <span class="comment">% Calculate flux ranges</span>
-0022 fluxRange = maxFlux - minFlux;
+0019     fluxRange = maxFlux(:,i) - minFlux(:,i);
+0020     fluxRange(isnan(fluxRange)) = [];
+0021     fluxRanges{i} = fluxRange;
+0022 <span class="keyword">end</span>
 0023 
 0024 <span class="comment">% Plot all together</span>
 0025 hold on
 0026 legendText = cell(1,numel(numMods));
 0027 <span class="keyword">for</span> i=1:numMods
-0028     cdfplot(fluxRange(:,i))
-0029     legendText{i} = ([<span class="string">'Model #'</span> num2str(i) <span class="string">' (median: '</span> num2str(median(fluxRange(:,i),<span class="string">'omitnan'</span>)) <span class="string">')'</span>]);
-0030 <span class="keyword">end</span>
-0031 set(gca, <span class="string">'XScale'</span>, <span class="string">'log'</span>, <span class="string">'Xlim'</span>, [1e-7 1e4])
-0032 set(findall(gca, <span class="string">'Type'</span>, <span class="string">'Line'</span>), <span class="string">'LineWidth'</span>, 2)
-0033 legend(legendText,  <span class="string">'Location'</span>,<span class="string">'northwest'</span>)
-0034 title(<span class="string">'Flux variability (cumulative distribution)'</span>);
-0035 xlabel(<span class="string">'Variability range (mmol/gDCWh)'</span>);
-0036 ylabel(<span class="string">'Cumulative distribution'</span>);</pre></div>
+0028     fluxRange = fluxRanges{i};
+0029     <a href="#_sub1" class="code" title="subfunction cdfplot(X)">cdfplot</a>(fluxRange)
+0030     legendText{i} = ([<span class="string">'Model #'</span> num2str(i) <span class="string">' (median: '</span> num2str(median(fluxRange,<span class="string">'omitnan'</span>)) <span class="string">')'</span>]);
+0031 <span class="keyword">end</span>
+0032 set(gca, <span class="string">'XScale'</span>, <span class="string">'log'</span>, <span class="string">'Xlim'</span>, [1e-7 1e4])
+0033 set(findall(gca, <span class="string">'Type'</span>, <span class="string">'Line'</span>), <span class="string">'LineWidth'</span>, 2)
+0034 legend(legendText,  <span class="string">'Location'</span>,<span class="string">'northwest'</span>)
+0035 title(<span class="string">'Flux variability (cumulative distribution)'</span>);
+0036 xlabel(<span class="string">'Variability range (mmol/gDCWh)'</span>);
+0037 ylabel(<span class="string">'Cumulative distribution'</span>);
+0038 hold off
+0039 <span class="keyword">end</span>
+0040 
+0041 <a name="_sub1" href="#_subfunctions" class="code">function cdfplot(X)</a>
+0042 <span class="comment">% cdfplot(X)</span>
+0043 <span class="comment">% displays a plot of the Empirical Cumulative Distribution Function</span>
+0044 <span class="comment">% (CDF) of the input array X in the current figure. The empirical</span>
+0045 <span class="comment">% CDF y=F(x) is defined as the proportion of X values less than or equal to x.</span>
+0046 <span class="comment">% If input X is a matrix, then cdfplot(X) parses it to the vector and</span>
+0047 <span class="comment">% displays CDF of all values.</span>
+0048 <span class="comment">%</span>
+0049 <span class="comment">% EXAMPLE:</span>
+0050 <span class="comment">% figure;</span>
+0051 <span class="comment">% cdfplot(randn(1,100));</span>
+0052 <span class="comment">% hold on;</span>
+0053 <span class="comment">% cdfplot(-log(1-rand(1,100)));</span>
+0054 <span class="comment">% cdfplot(sqrt(randn(1,100).^2 + randn(1,100).^2))</span>
+0055 <span class="comment">% legend('Normal(0,1) CDF', 'Exponential(1) CDF', 'Rayleigh(1) CDF', 4)</span>
+0056 
+0057 <span class="comment">% Version 1.0</span>
+0058 <span class="comment">% Alex Podgaetsky, September 2003</span>
+0059 <span class="comment">% alex@wavion.co.il</span>
+0060 <span class="comment">%</span>
+0061 <span class="comment">% Revisions:</span>
+0062 <span class="comment">%       Version 1.0 -   initial version</span>
+0063 
+0064 tmp = sort(reshape(X,prod(size(X)),1));
+0065 Xplot = reshape([tmp tmp].',2*length(tmp),1);
+0066 
+0067 tmp = [1:length(X)].'/length(X);
+0068 Yplot = reshape([tmp tmp].',2*length(tmp),1);
+0069 Yplot = [0; Yplot(1:(end-1))];
+0070 
+0071 figure(gcf);
+0072 hp = plot(Xplot, Yplot);
+0073 
+0074 ColOrd = get(gca, <span class="string">'ColorOrder'</span>); 
+0075 ord = mod(length(get(gca,<span class="string">'Children'</span>)), size(ColOrd,1)); 
+0076 set(hp, <span class="string">'Color'</span>, ColOrd((ord==0) + (ord&gt;0)*ord, :));
+0077 <span class="keyword">if</span> ~ishold
+0078      xlabel(<span class="string">'X'</span>, <span class="string">'FontWeight'</span>,<span class="string">'b'</span>,<span class="string">'FontSize'</span>,12);
+0079      ylabel(<span class="string">'F(X)'</span>, <span class="string">'FontWeight'</span>,<span class="string">'b'</span>,<span class="string">'FontSize'</span>,12);
+0080      title(<span class="string">'Empirical CDF'</span>, <span class="string">'FontWeight'</span>,<span class="string">'b'</span>,<span class="string">'FontSize'</span>,12);
+0081      grid on;
+0082 <span class="keyword">end</span>
+0083 <span class="keyword">end</span></pre></div>
 <hr><address>Generated by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

@@ -42,7 +42,7 @@ function kcatList = fuzzyKcatMatching(model, ecRxns, modelAdapter, forceWClvl)
 %                           5: correct organism, specific activity
 %                           6: any organism, specific activity
 %
-%   Note that if a wildcard is used, origin levels 1 and 2 are ignored. The
+%   Note: If a wildcard is used, origin levels 1 and 2 are ignored. The
 %   last digits in the E.C. number indicate the substrate specificity, so
 %   if this should be ignored, then correct substrate matches should not be
 %   prioritized.
@@ -102,11 +102,7 @@ org_name       = params.org_name;
 org_index      = find_inKEGG(org_name,phylDistStruct.names);
 %build an index for genus in the phyl dist struct
 %first just extract the genus (i.e. the first part of the name)
-phylDistStruct.genus = cell(length(phylDistStruct.names),1);
-for i = 1:length(phylDistStruct.genus)
-    name = phylDistStruct.names{i};
-    phylDistStruct.genus{i} = lower(name(1:(strfind(name,' ')-1))); %convert all to lower case to avoid problems with case
-end
+phylDistStruct.genus = lower(regexprep(phylDistStruct.names,'\s.*',''));
 %create a map for the genuses
 phylDistStruct.uniqueGenusList = unique(phylDistStruct.genus);
 phylDistStruct.genusHashMap = containers.Map(phylDistStruct.uniqueGenusList,1:length(phylDistStruct.uniqueGenusList));
@@ -158,7 +154,7 @@ end
 
 %Apply force wildcard level
 while forceWClvl > 0
-    eccodes=regexprep(eccodes,['(.)*(\.\d+)(\.-)*$'],'$1\.-$3');
+    eccodes=regexprep(eccodes,'(.)*(\.\d+)(\.-)*$','$1\.-$3');
     forceWClvl = forceWClvl - 1;
 end
 if forceWClvl == 1
@@ -473,7 +469,7 @@ elseif org_index~='*' %&& org_index~=''
             %look for KEGG code for the first organism with the same genus
         else
             org = orgs_cell{EC_indexes(j)};
-            orgGenus = lower(org(1:(strfind(org,' ')-1)));
+            orgGenus = lower(regexprep(org,'\s.*',''));
             if isKey(phylDist.genusHashMap,orgGenus) %annoyingly, this seems to be needed
                 matchInd = cell2mat(values(phylDist.genusHashMap,{orgGenus}));
                 matches = phylDist.uniqueGenusIndices{matchInd};
@@ -499,16 +495,13 @@ org_index      = find(strcmpi(org_name,names));
 if numel(org_index)>1
     org_index = org_index(1);
 elseif isempty(org_index)
-    i=1;
-    while isempty(org_index) && i<length(names)
-        str = names{i};
-        if strcmpi(org_name(1:strfind(org_name,' ')-1),...
-                str(1:strfind(str,' ')-1))
-            org_index = i;
-        end
-        i = i+1;
+    org_name    = regexprep(org_name,'\s.*','');
+    org_index   = find(strcmpi(org_name,names));
+    if numel(org_index)>1
+        org_index = org_index(1);
+    elseif isempty(org_index)
+        org_index = '*';
     end
-    if isempty(org_index);org_index = '*';end
 end
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -516,11 +509,5 @@ function phylDistStruct =  KEGG_struct(phylpath)
 load(phylpath)
 phylDistStruct.ids   = transpose(phylDistStruct.ids);
 phylDistStruct.names = transpose(phylDistStruct.names);
-
-for i=1:length(phylDistStruct.names)
-    pos = strfind(phylDistStruct.names{i}, ' (');
-    if ~isempty(pos)
-        phylDistStruct.names{i} = phylDistStruct.names{i}(1:pos-1);
-    end
-end
+phylDistStruct.names = regexprep(phylDistStruct.names,'\s*\(.*','');
 end

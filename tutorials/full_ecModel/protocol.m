@@ -24,7 +24,7 @@
 %   - Simplest, RAVEN can be installed as MATLAB Add-On:
 %     https://se.mathworks.com/help/matlab/matlab_env/get-add-ons.html
 %   - The installation of Gurobi as LP solver is highly recommended
-checkInstallation; % Confirm that RAVEN is functional, should be 2.9.1 or later.
+checkInstallation; % Confirm that RAVEN is functional, should be 2.9.2 or later.
 
 %   - Install GECKO by following the installation instructions:
 %     https://github.com/SysBioChalmers/GECKO/wiki/Installation-and-upgrade
@@ -51,7 +51,7 @@ GECKOInstaller.install
 % model-specific parameters in the model adapter, which for this tutorial is
 % located at tutorials/full_ecModel/ecYeastGEMadapter.m.
 
-%% STAGE 1: expansion from a starting metabolic model to an ecModel structure
+%% STAGE 1: Expansion from a starting metabolic model to an ecModel structure
 % STEP 8 Set modelAdapter
 adapterLocation = fullfile(findGECKOroot,'tutorials','full_ecModel','YeastGEMAdapter.m');
 ModelAdapter = ModelAdapterManager.setDefault(adapterLocation);

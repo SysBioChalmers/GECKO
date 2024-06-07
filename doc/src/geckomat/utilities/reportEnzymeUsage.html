@@ -92,55 +92,134 @@ This function is called by:
 0030 
 0031 <span class="comment">% Highest capacity usage</span>
 0032 highUsageProt = find(usageData.capUsage &gt; highCapUsage);
-0033 [~,enzIdx] = ismember(usageData.protID(highUsageProt),ecModel.ec.enzymes);
-0034 [row, col] = find(ecModel.ec.rxnEnzMat(:,enzIdx));
-0035 [row, ordered] = sort(row);
-0036 highUsage.rxnID     = ecModel.ec.rxns(row);
-0037 [~, rxnIdx] = ismember(highUsage.rxnID,ecModel.rxns);
-0038 highUsage.rxnName   = ecModel.rxnNames(rxnIdx);
-0039 protID = highUsageProt(col);
-0040 geneID = ecModel.ec.genes(enzIdx(col));
-0041 highUsage.protID    = usageData.protID(protID(ordered));
-0042 highUsage.geneID    = geneID(ordered);
-0043 highUsage.grRules   = ecModel.grRules(rxnIdx);
-0044 highUsage.capUsage  = usageData.capUsage(protID(ordered));
-0045 highUsage.absUsage  = usageData.absUsage(protID(ordered));
+0033 highEnzyme    = usageData.protID(highUsageProt);
+0034 [~,enzIdx]    = ismember(highEnzyme,ecModel.ec.enzymes);
+0035 geneIDs       = ecModel.ec.genes(enzIdx);
+0036 
+0037 highUsage.protID     = {};
+0038 highUsage.geneID     = {};
+0039 highUsage.absUsage   = [];
+0040 highUsage.capUsage   = [];
+0041 highUsage.kcat       = [];
+0042 highUsage.source     = {};
+0043 highUsage.rxnID      = {};
+0044 highUsage.rxnNames   = {};
+0045 highUsage.grRules    = {};
 0046 
-0047 usageReport.highCapUsage = struct2table(highUsage);
-0048 
-0049 <span class="comment">% Highest absolute usage</span>
-0050 [~,topUse]          = sort(usageData.absUsage,<span class="string">'descend'</span>);
-0051 topEnzyme           = usageData.protID(topUse(1:topAbsUsage));
-0052 [~,b]       = ismember(topEnzyme,ecModel.ec.enzymes);
-0053 geneIDs     = ecModel.ec.genes(b);
-0054 topUsage.protID     = {};
-0055 topUsage.geneID     = {};
-0056 topUsage.absUsage   = [];
-0057 topUsage.percUsage  = [];
-0058 topUsage.kcat       = [];
-0059 topUsage.source     = {};
-0060 topUsage.rxnID      = {};
-0061 topUsage.rxnNames   = {};
-0062 topUsage.grRules    = {};
-0063 
-0064 protPool = -ecModel.lb(strcmp(ecModel.rxns,<span class="string">'prot_pool_exchange'</span>))/100;
-0065 
-0066 <span class="keyword">for</span> i=1:numel(topEnzyme)
-0067     [rxns, kcat, idx, rxnNames, grRules] = getReactionsFromEnzyme(ecModel,topEnzyme{i});
-0068     rxnNumber = numel(rxns);
-0069     topUsage.protID(end+1:end+rxnNumber,1)      = topEnzyme(i);
-0070     topUsage.geneID(end+1:end+rxnNumber,1)      = geneIDs(i);
-0071     topUsage.absUsage(end+1:end+rxnNumber,1)    = usageData.absUsage(topUse(i));
-0072     topUsage.percUsage(end+1:end+rxnNumber,1)   = topUsage.absUsage(end-(rxnNumber-1):<span class="keyword">end</span>,1)/protPool;
-0073     topUsage.kcat(end+1:end+rxnNumber,1)        = kcat;
-0074     topUsage.source(end+1:end+rxnNumber,1)      = ecModel.ec.source(idx);
-0075     topUsage.rxnID(end+1:end+rxnNumber,1)       = rxns;
-0076     topUsage.rxnNames(end+1:end+rxnNumber,1)    = rxnNames;
-0077     topUsage.grRules(end+1:end+rxnNumber,1)     = grRules;
-0078 <span class="keyword">end</span>
-0079 usageReport.topAbsUsage     = struct2table(topUsage);
-0080 usageReport.totalUsageFlux  = protPool;
-0081 <span class="keyword">end</span></pre></div>
+0047 <span class="keyword">for</span> i=1:numel(enzIdx)
+0048     [rxns, kcat, idx, rxnNames, grRules] = getReactionsFromEnzyme(ecModel,ecModel.ec.enzymes(enzIdx(i)));
+0049     <span class="comment">% See if all reactions carried flux</span>
+0050     [~,rIdx] = ismember(rxns,ecModel.rxns);
+0051     carriedFlux = usageData.fluxes(rIdx) &gt; 1e-7;
+0052     <span class="keyword">if</span> isscalar(find(carriedFlux))
+0053         highUsage.protID(end+1,1)      = highEnzyme(i);
+0054         highUsage.geneID(end+1,1)      = geneIDs(i);
+0055         highUsage.absUsage(end+1,1)    = usageData.absUsage(enzIdx(i));
+0056         highUsage.capUsage(end+1,1)    = usageData.capUsage(enzIdx(i));
+0057         highUsage.kcat(end+1,1)        = kcat(carriedFlux);
+0058         highUsage.source(end+1,1)      = ecModel.ec.source(idx(carriedFlux));
+0059         highUsage.rxnID(end+1,1)       = rxns(carriedFlux);
+0060         highUsage.rxnNames(end+1,1)    = rxnNames(carriedFlux);
+0061         highUsage.grRules(end+1,1)     = grRules(carriedFlux);
+0062     <span class="keyword">else</span>
+0063         <span class="comment">% Add one entry for combined usage</span>
+0064         highUsage.protID(end+1,1)      = highEnzyme(i);
+0065         highUsage.geneID(end+1,1)      = geneIDs(i);
+0066         highUsage.absUsage(end+1,1)    = usageData.absUsage(enzIdx(i));
+0067         highUsage.capUsage(end+1,1)    = usageData.capUsage(enzIdx(i));
+0068         highUsage.kcat(end+1,1)        = nan;
+0069         highUsage.source{end+1,1}      = <span class="string">'==='</span>;
+0070         highUsage.rxnID{end+1,1}       = <span class="string">'==='</span>;
+0071         highUsage.rxnNames{end+1,1}    = <span class="string">'involved in multiple rxns, usage combined, individual rxns below'</span>;
+0072         highUsage.grRules{end+1,1}     = <span class="string">'==='</span>;
+0073         <span class="comment">% Recalculate reaction-specific usage</span>
+0074 
+0075         rIdx = rIdx(carriedFlux);
+0076         enzFlux = usageData.fluxes(rIdx);
+0077         enzMet = strcat(<span class="string">'prot_'</span>,highEnzyme{i});
+0078         [~, enzEcIdx] = ismember(enzMet,ecModel.mets);
+0079         indAbsUse = full(transpose(-ecModel.S(enzEcIdx,rIdx)).*enzFlux);
+0080         indCapUse = (indAbsUse /sum(indAbsUse)) * usageData.capUsage(enzIdx(i));
+0081 
+0082         rxnNumber = length(rIdx);
+0083         highUsage.protID(end+1:end+rxnNumber,1)      = highEnzyme(i);
+0084         highUsage.geneID(end+1:end+rxnNumber,1)      = geneIDs(i);
+0085         highUsage.absUsage(end+1:end+rxnNumber,1)    = indAbsUse;
+0086         highUsage.capUsage(end+1:end+rxnNumber,1)    = indCapUse;
+0087         highUsage.kcat(end+1:end+rxnNumber,1)        = kcat(carriedFlux);
+0088         highUsage.source(end+1:end+rxnNumber,1)      = ecModel.ec.source(idx(carriedFlux));
+0089         highUsage.rxnID(end+1:end+rxnNumber,1)       = rxns(carriedFlux);
+0090         highUsage.rxnNames(end+1:end+rxnNumber,1)    = rxnNames(carriedFlux);
+0091         highUsage.grRules(end+1:end+rxnNumber,1)     = grRules(carriedFlux);
+0092     <span class="keyword">end</span>    
+0093 <span class="keyword">end</span>
+0094 
+0095 usageReport.highCapUsage = struct2table(highUsage);
+0096 
+0097 <span class="comment">% Highest absolute usage</span>
+0098 [~,topUse]          = sort(usageData.absUsage,<span class="string">'descend'</span>);
+0099 topEnzyme           = usageData.protID(topUse(1:topAbsUsage));
+0100 [~,b]       = ismember(topEnzyme,ecModel.ec.enzymes);
+0101 geneIDs     = ecModel.ec.genes(b);
+0102 topUsage.protID     = {};
+0103 topUsage.geneID     = {};
+0104 topUsage.absUsage   = [];
+0105 topUsage.percUsage  = [];
+0106 topUsage.kcat       = [];
+0107 topUsage.source     = {};
+0108 topUsage.rxnID      = {};
+0109 topUsage.rxnNames   = {};
+0110 topUsage.grRules    = {};
+0111 
+0112 protPool = -ecModel.lb(strcmp(ecModel.rxns,<span class="string">'prot_pool_exchange'</span>));
+0113 
+0114 <span class="keyword">for</span> i=1:numel(topEnzyme)
+0115     [rxns, kcat, idx, rxnNames, grRules] = getReactionsFromEnzyme(ecModel,topEnzyme{i});
+0116     <span class="comment">% See if all reactions carried flux</span>
+0117     [~,rIdx] = ismember(rxns,ecModel.rxns);
+0118     carriedFlux = usageData.fluxes(rIdx) &gt; 1e-7;
+0119     <span class="keyword">if</span> isscalar(find(carriedFlux))
+0120         topUsage.protID(end+1,1)      = topEnzyme(i);
+0121         topUsage.geneID(end+1,1)      = geneIDs(i);
+0122         topUsage.absUsage(end+1,1)    = usageData.absUsage(topUse(i));
+0123         topUsage.percUsage(end+1,1)   = topUsage.absUsage(<span class="keyword">end</span>,1)/protPool*100;
+0124         topUsage.kcat(end+1,1)        = kcat(carriedFlux);
+0125         topUsage.source(end+1,1)      = ecModel.ec.source(idx(carriedFlux));
+0126         topUsage.rxnID(end+1,1)       = rxns(carriedFlux);
+0127         topUsage.rxnNames(end+1,1)    = rxnNames(carriedFlux);
+0128         topUsage.grRules(end+1,1)     = grRules(carriedFlux);
+0129     <span class="keyword">else</span>
+0130         <span class="comment">% Add one entry for combined usage</span>
+0131         topUsage.protID(end+1,1)      = topEnzyme(i);
+0132         topUsage.geneID(end+1,1)      = geneIDs(i);
+0133         topUsage.absUsage(end+1,1)    = usageData.absUsage(topUse(i));
+0134         topUsage.percUsage(end+1,1)   = topUsage.absUsage(<span class="keyword">end</span>,1)/protPool*100;
+0135         topUsage.kcat(end+1,1)        = nan;
+0136         topUsage.source{end+1,1}      = <span class="string">'==='</span>;
+0137         topUsage.rxnID{end+1,1}       = <span class="string">'==='</span>;
+0138         topUsage.rxnNames{end+1,1}    = <span class="string">'involved in multiple rxns, usage combined, individual rxns below'</span>;
+0139         topUsage.grRules{end+1,1}     = <span class="string">'==='</span>;
+0140         <span class="comment">% Recalculate reaction-specific usage</span>
+0141         rIdx = rIdx(carriedFlux);
+0142         enzFlux = usageData.fluxes(rIdx);
+0143         enzMet = strcat(<span class="string">'prot_'</span>,topEnzyme{i});
+0144         [~, enzIdx] = ismember(enzMet,ecModel.mets);
+0145         indUse = full(transpose(-ecModel.S(enzIdx,rIdx)).*enzFlux);
+0146         rxnNumber = length(rIdx);
+0147         topUsage.protID(end+1:end+rxnNumber,1)      = topEnzyme(i);
+0148         topUsage.geneID(end+1:end+rxnNumber,1)      = geneIDs(i);
+0149         topUsage.absUsage(end+1:end+rxnNumber,1)    = indUse;
+0150         topUsage.percUsage(end+1:end+rxnNumber,1)   = topUsage.absUsage(end-(rxnNumber-1):<span class="keyword">end</span>,1)/protPool*100;
+0151         topUsage.kcat(end+1:end+rxnNumber,1)        = kcat(carriedFlux);
+0152         topUsage.source(end+1:end+rxnNumber,1)      = ecModel.ec.source(idx(carriedFlux));
+0153         topUsage.rxnID(end+1:end+rxnNumber,1)       = rxns(carriedFlux);
+0154         topUsage.rxnNames(end+1:end+rxnNumber,1)    = rxnNames(carriedFlux);
+0155         topUsage.grRules(end+1:end+rxnNumber,1)     = grRules(carriedFlux);
+0156     <span class="keyword">end</span>
+0157 <span class="keyword">end</span>
+0158 usageReport.topAbsUsage     = struct2table(topUsage);
+0159 usageReport.totalUsageFlux  = protPool;
+0160 <span class="keyword">end</span></pre></div>
 <hr><address>Generated by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

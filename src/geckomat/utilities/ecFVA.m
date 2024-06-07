@@ -67,6 +67,14 @@ mappedFlux = mapRxnsToConv(ecModel,model,[minFlux maxFlux]);
 minFlux=mappedFlux(:,1);
 maxFlux=mappedFlux(:,2);
 
+% Mapped flux might have swapped directionality: min/max might be swapped
+swapDir = minFlux > maxFlux;
+if any(swapDir)
+    tmpFlux = minFlux(swapDir);
+    minFlux(swapDir) = maxFlux(swapDir);
+    maxFlux(swapDir) = tmpFlux;
+end
+
 function nUpdateProgressbar(~)
 progressbar(p/N);
 p = p + 1;

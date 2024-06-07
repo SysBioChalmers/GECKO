@@ -22,9 +22,6 @@ function ecModel = setKcatForReactions(ecModel,rxnIds,kcat)
 %               changed reactions will read 'from setKcatForReactions'
 %
 % Usage: ecModel = setKcatForReactions(ecModel,rxnIds,kcat)
-if numel(kcat)>1
-    error('Provide one kcat')
-end
 rxnIds = convertCharArray(rxnIds);
 
 hasExp       = ~cellfun(@isempty,regexp(rxnIds,'_EXP_\d+$'));
@@ -38,7 +35,17 @@ for i=1:numel(hasExp)
         rxnsToChange = [rxnsToChange; find(strcmpi(nonExpRxns,nonExpRxn))];
     end
 end
-
+if isscalar(rxnsToChange)
+    if length(kcat) ~= 1
+        error('Found one reaction whose kcat should change, you should provide one kcat value only.')
+    end
+else
+    if isscalar(kcat)
+        % Is fine, all reactions get the same kcat
+    elseif length(kcat) ~= length(rxnsToChange)
+        error('Found %d reactions whose kcat should change, the new kcat should be either a single value, or a vector of length %d.', length(rxnsToChange), length(rxnsToChange))
+    end
+end
 ecModel.ec.kcat(rxnsToChange)   = kcat;
 ecModel.ec.source(rxnsToChange) = {'from setKcatForReactions'};
 end

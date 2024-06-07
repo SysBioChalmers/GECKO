@@ -256,7 +256,9 @@ if ~isequal(uniprot,uniprotCompatibleGenes)
     [Lia,Locb] = ismember(uniprot,uniprotDB.ID);
 end
 noUniprot  = uniprotCompatibleGenes(~Lia);
-if ~isempty(noUniprot)
+if all(~Lia)
+    error('None of the proteins in uniprot.tsv match the genes in the model. Changes to the obj.params.uniprot parameters are likely required.')
+elseif ~isempty(noUniprot)
     printOrange(['WARNING: The ' num2str(numel(noUniprot)) ' gene(s) reported in noUniprot cannot be found in data/uniprot.tsv, these will\n' ...
              'not be enzyme-constrained. If you intend to use different Uniprot data (e.g. from a\n'...
              'different proteome, make sure you first delete the existing data/uniprot.tsv file.\n'])
