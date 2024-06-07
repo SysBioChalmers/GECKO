@@ -1,6 +1,7 @@
 function model = constrainFluxData(model, fluxData, condition, maxMinGrowth, looseStrictFlux, modelAdapter)
 % constrainFluxData
-%   Constrains fluxes
+%   Constrains fluxes to the data that is provided in the fluxData
+%   structure, which itself is read by loadFluxData from data/fluxData.tsv.
 %
 % Input:
 %   model           an ecModel in GECKO 3 format (with ecModel.ec structure)
@@ -35,9 +36,13 @@ function model = constrainFluxData(model, fluxData, condition, maxMinGrowth, loo
 %   modelAdapter    a loaded model adapter (Optional, will otherwise use
 %                   the default model adapter)
 %
-%
 % Output:
 %   model           an ecModel where fluxes are constraint
+%
+% Note: If a provided constraint is either -1000 or 1000, then the function
+% will update the reaction lower and upper bound to either allow uptake or
+% excretion, irrespective of what option is given as the looseStrictFlux
+% parameter.
 %
 % Usage:
 %   model = constrainFluxData(model, fluxData, condition, maxMinGrowth, looseStrictFlux, modelAdapter)
@@ -102,5 +107,17 @@ switch looseStrictFlux
         model = setParam(model,'ub',posFlux,ub);
     otherwise
         model = setParam(model,'var',fluxData.exchRxnIDs,fluxData.exchFluxes,looseStrictFlux);
+end
+extremeFlux = find(abs(fluxData.exchFluxes)==1000);
+if any(extremeFlux)
+    exchFlux = fluxData.exchFluxes(extremeFlux);
+    if any(exchFlux==-1000)
+        model = setParam(model,'lb',fluxData.exchRxnIDs(extremeFlux(exchFlux==-1000)),-1000);
+        model = setParam(model,'ub',fluxData.exchRxnIDs(extremeFlux(exchFlux==-1000)),0);
+    end
+    if any(exchFlux==1000)
+        model = setParam(model,'lb',fluxData.exchRxnIDs(extremeFlux(exchFlux==1000)),0);
+        model = setParam(model,'ub',fluxData.exchRxnIDs(extremeFlux(exchFlux==1000)),1000);
+    end
 end
 end

@@ -134,7 +134,12 @@ rxnsMissingGPR = find(cellfun(@isempty, model.grRules));
 % Find reactions with GPR but without model.ec entry (for instance due to
 % no protein matching)
 rxnsMissingEnzyme = find(~cellfun(@isempty, model.grRules));
-rxnsMissingEnzyme = find(and(~ismember(model.rxns(rxnsMissingEnzyme),model.ec.rxns), ~contains(model.rxns(rxnsMissingEnzyme),'usage_prot_')));
+if model.ec.geckoLight
+    ecRxnsList = unique(extractAfter(model.ec.rxns,4));
+else
+    ecRxnsList = model.ec.rxns;
+end
+rxnsMissingEnzyme = find(and(~ismember(model.rxns(rxnsMissingEnzyme),ecRxnsList), ~contains(model.rxns(rxnsMissingEnzyme),'usage_prot_')));
 rxnsMissingGPR = [rxnsMissingGPR;rxnsMissingEnzyme];
 
 % Get custom list of reaction IDs to ignore, if existing. First column
@@ -203,20 +208,25 @@ if ~any(strcmp(model.mets,'prot_standard'))
     model.ec.rxnEnzMat =  [model.ec.rxnEnzMat, zeros(length(model.ec.rxns), 1)]; % 1 new enzyme
     model.ec.rxnEnzMat =  [model.ec.rxnEnzMat; zeros(length(rxnsMissingGPR), length(model.ec.enzymes))]; % new rxns
 end
-numRxns = length(model.ec.rxns);
 stdMetIdx = find(strcmpi(model.ec.enzymes, 'standard'));
 
 % Remove previous standard kcat assignment
 oldStandardEnz = find(strcmp(model.ec.source,'standard'));
 if ~isempty(oldStandardEnz)
-    model.ec.rxns(oldStandardEnz)        = [];
-    model.ec.kcat(oldStandardEnz)        = [];
-    model.ec.source(oldStandardEnz)      = [];
-    model.ec.notes(oldStandardEnz)       = [];
-    model.ec.eccodes(oldStandardEnz)     = [];
-    model.ec.rxnEnzMat(oldStandardEnz,:) = [];
+    oldStandardProt = logical(model.ec.rxnEnzMat(oldStandardEnz,stdMetIdx));
+    % If annotated with real enzyme => set kcat to zero
+    model.ec.kcat(oldStandardEnz(~oldStandardProt))        = 0;
+    model.ec.source(oldStandardEnz(~oldStandardProt))      = {''};
+    % If annotated with standard protein => remove entry
+    model.ec.rxns(oldStandardEnz(oldStandardProt))        = [];
+    model.ec.kcat(oldStandardEnz(oldStandardProt))        = [];
+    model.ec.source(oldStandardEnz(oldStandardProt))      = [];
+    model.ec.notes(oldStandardEnz(oldStandardProt))       = [];
+    model.ec.eccodes(oldStandardEnz(oldStandardProt))     = [];
+    model.ec.rxnEnzMat(oldStandardEnz(oldStandardProt),:) = [];
 end
 
+numRxns = length(model.ec.rxns);
 for i = 1:numel(rxnsMissingGPR)
     rxnIdx = rxnsMissingGPR(i);
 
