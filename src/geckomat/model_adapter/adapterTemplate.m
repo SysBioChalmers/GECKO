@@ -62,7 +62,10 @@ classdef KEY_CLASSNAME < ModelAdapter
 			% Reaction ID for biomass pseudoreaction
 			obj.params.bioRxn = 'r_4041';
 
-			% Compartment name in which the added enzymes should be located
+			% Name of the compartment where the protein pseudometabolites
+            % should be located (all be located in the same compartment,
+            % this does not interfere with them catalyzing reactions in
+            % different compartments). Typically, cytoplasm is chosen.
 			obj.params.enzyme_comp = 'cytoplasm';
         end
 		
