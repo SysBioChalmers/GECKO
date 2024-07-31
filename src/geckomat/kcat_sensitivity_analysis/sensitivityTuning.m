@@ -27,6 +27,10 @@ function [model, tunedKcats] = sensitivityTuning(model, desiredGrowthRate, model
 %                      oldKcat  kcat values in the input model
 %                      newKcat  kcat values in the output model, after tuning
 %
+% Note: The model.ec.notes field will contain the original kcat value and
+% source, unless the kcat has previously been set by sensitivityTuning, in
+% which case the notes field remains unchanged.
+%
 % Usage:
 %   [model, tunedKcats] = sensitivityTuning(model, desiredGrowthRate, modelAdapter, foldChange, protToIgnore, verbose)
 
@@ -93,7 +97,16 @@ if ~m.ec.geckoLight
         kcatList             = [kcatList, rxnSel];
         rxn                  = m.rxns(rxnSel);
         targetSubRxn         = strcmp(m.ec.rxns, rxn);
-        m.ec.kcat(targetSubRxn) = m.ec.kcat(targetSubRxn) .* foldChange;
+        if ~strcmp(m.ec.source(targetSubRxn),'sensitivityTuning')
+            oldNote          = m.ec.notes{targetSubRxn};
+            newNote          = ['preTuneKcat=' num2str(m.ec.kcat(targetSubRxn)) ' | source:' m.ec.source{targetSubRxn}];
+            if ~isempty(oldNote)
+                newNote      = [oldNote '; ' newNote];
+            end
+            m.ec.notes{targetSubRxn}    = newNote;
+        end
+        m.ec.kcat(targetSubRxn)     = m.ec.kcat(targetSubRxn) .* foldChange;
+        m.ec.source(targetSubRxn)   = {'sensitivityTuning'};
         m                    = applyKcatConstraints(m,targetSubRxn);
     end
 

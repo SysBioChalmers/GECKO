@@ -116,4 +116,3 @@ else %GECKO light formulation, where prot_pool represents all usages
     end
 end
 end
-

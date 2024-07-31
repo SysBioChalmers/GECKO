@@ -47,5 +47,5 @@ else
     end
 end
 ecModel.ec.kcat(rxnsToChange)   = kcat;
-ecModel.ec.source(rxnsToChange) = {'from setKcatForReactions'};
+ecModel.ec.source(rxnsToChange) = {'setKcatForReactions'};
 end
