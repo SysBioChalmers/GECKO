@@ -1,12 +1,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% anaerobicModel.m
+% anaerobicModel_GECKO.m
 % Converts model to anaerobic
 %
 % Benjamin J. Sanchez
 % Feiran Li - 2019-09-24
 % Feiran Li - Last update: 2019-10-02 modify the order of changes
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function model = anaerobicModel(model)
+function model = anaerobicModel_GECKO(model)
 
 %1th change: Refit GAM and NGAM to exp. data, change biomass composition
 GAM   = 58.1988;  %Data from Nissen et al. 1997
