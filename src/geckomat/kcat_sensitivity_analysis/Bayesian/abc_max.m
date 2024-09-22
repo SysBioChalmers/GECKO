@@ -85,7 +85,7 @@ function [rmse,exp,simulated] = rmsecal(ecModel,data,constrain,objective,rxn2blo
         model_tmp = changeRxnBounds(model_tmp,'r_1631',0,'b');
 
         if strcmp(data(i,14),'anaerobic') ||strcmp(data(i,14),'limited') 
-            model_tmp = anaerobicModel(model_tmp);
+            model_tmp = anaerobicModel_GECKO(model_tmp);
         end
         if strcmp(data(i,14),'limited') 
              model_tmp.lb(strcmp(model_tmp.rxnNames,'oxygen exchange')) = -5;%TODO: Currently hard-coded for yeast

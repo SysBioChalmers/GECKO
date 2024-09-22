@@ -54,7 +54,7 @@
 <h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
 This function calls:
 <ul style="list-style-image:url(../../../../matlabicon.gif)">
-<li><a href="addCarbonNum.html" class="code" title="function model = addCarbonNum(model)">addCarbonNum</a>	addCarbonNum</li><li><a href="anaerobicModel.html" class="code" title="function model = anaerobicModel(model)">anaerobicModel</a>	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</li><li><a href="changeMedia.html" class="code" title="function [model,pos] = changeMedia(model,c_source,media,anox,flux)">changeMedia</a>	changeMedia</li></ul>
+<li><a href="addCarbonNum.html" class="code" title="function model = addCarbonNum(model)">addCarbonNum</a>	addCarbonNum</li><li><a href="anaerobicModel_GECKO.html" class="code" title="function model = anaerobicModel_GECKO(model)">anaerobicModel_GECKO</a>	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</li><li><a href="changeMedia.html" class="code" title="function [model,pos] = changeMedia(model,c_source,media,anox,flux)">changeMedia</a>	changeMedia</li></ul>
 This function is called by:
 <ul style="list-style-image:url(../../../../matlabicon.gif)">
 <li><a href="bayesianSensitivityTuning.html" class="code" title="function ecModel = bayesianSensitivityTuning(ecModel,modelAdapter,maxIterations)">bayesianSensitivityTuning</a>	bayesianSensitivityTuning</li></ul>
@@ -152,7 +152,7 @@ This function is called by:
 0085         model_tmp = changeRxnBounds(model_tmp,<span class="string">'r_1631'</span>,0,<span class="string">'b'</span>);
 0086 
 0087         <span class="keyword">if</span> strcmp(data(i,14),<span class="string">'anaerobic'</span>) ||strcmp(data(i,14),<span class="string">'limited'</span>) 
-0088             model_tmp = <a href="anaerobicModel.html" class="code" title="function model = anaerobicModel(model)">anaerobicModel</a>(model_tmp);
+0088             model_tmp = <a href="anaerobicModel_GECKO.html" class="code" title="function model = anaerobicModel_GECKO(model)">anaerobicModel_GECKO</a>(model_tmp);
 0089         <span class="keyword">end</span>
 0090         <span class="keyword">if</span> strcmp(data(i,14),<span class="string">'limited'</span>) 
 0091              model_tmp.lb(strcmp(model_tmp.rxnNames,<span class="string">'oxygen exchange'</span>)) = -5;<span class="comment">%TODO: Currently hard-coded for yeast</span>

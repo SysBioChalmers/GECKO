@@ -1,8 +1,8 @@
 function testModel = getGeckoTestModel()
 
 testModel = struct();
-testModel.name = 'testModel';
 testModel.id = 'testModel';
+testModel.name = 'testModel';
 testModel.annotation.defaultLB = -Inf;
 testModel.annotation.defaultUB = Inf;
 testModel.date = datestr(now,29);
