@@ -261,7 +261,7 @@ if all(~Lia)
 elseif ~isempty(noUniprot)
     printOrange(['WARNING: The ' num2str(numel(noUniprot)) ' gene(s) reported in noUniprot cannot be found in data/uniprot.tsv, these will\n' ...
              'not be enzyme-constrained. If you intend to use different Uniprot data (e.g. from a\n'...
-             'different proteome, make sure you first delete the existing data/uniprot.tsv file.\n'])
+             'different proteome, make sure you first delete the existing data/uniprot.tsv file.\n']);
 end
 ec.genes        = model.genes(Lia); %Will often be duplicate of model.genes, but is done here to prevent issues when it is not.
 ec.enzymes      = uniprotDB.ID(Locb(Lia));
@@ -288,7 +288,7 @@ else
     %here we need to make an explicit format check
     indexes2check = findPotentialErrors(model.grRules,model);
     if ~isempty(indexes2check) 
-        printOrange('Run standardizeGrRules(model) for a more detailed warning.\n')
+        printOrange('Run standardizeGrRules(model) for a more detailed warning.\n');
         printOrange('For Human-GEM, these reactions can be corrected using simplifyGrRules.\n');
     end
     

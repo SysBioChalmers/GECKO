@@ -44,7 +44,7 @@ end
 
 params = modelAdapter.params;
 if isempty(taxonomicID) % Can be empty when gathered from model adapter
-    printOrange('WARNING: No taxonomicID specified.')
+    printOrange('WARNING: No taxonomicID specified.');
     return
 elseif taxonomicID == 0
     taxonomicID = [];

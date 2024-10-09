@@ -121,11 +121,11 @@ if isfield(model,'subSystems') && ~all(cellfun(@isempty, model.subSystems))
     kcatSubSystem(kcatsPerSubSystem < threshold) = standardKcat;
     else
         standard = true;
-        printOrange('WARNING: No subSystem-specific kcat values can be calculated')
+        printOrange('WARNING: No subSystem-specific kcat values can be calculated');
     end
 else
     standard = true;
-    printOrange('WARNING: No subSystem-specific kcat values can be calculated')
+    printOrange('WARNING: No subSystem-specific kcat values can be calculated');
 end
 
 % Find reactions without GPR

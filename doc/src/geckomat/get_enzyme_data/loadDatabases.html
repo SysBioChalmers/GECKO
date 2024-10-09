@@ -116,7 +116,7 @@ This function is called by:
 0054     uniprotPath = fullfile(filePath,<span class="string">'uniprot.tsv'</span>);
 0055     <span class="keyword">if</span> ~exist(uniprotPath,<span class="string">'file'</span>)
 0056         <span class="keyword">if</span> isempty(uniprot.ID)
-0057             printOrange(<span class="string">'WARNING: No uniprot.ID is specified, unable to download UniProt DB.\n'</span>)
+0057             printOrange(<span class="string">'WARNING: No uniprot.ID is specified, unable to download UniProt DB.\n'</span>);
 0058         <span class="keyword">end</span>
 0059         disp([<span class="string">'Downloading Uniprot data for '</span> uniprot.type <span class="string">' '</span> uniprot.ID <span class="string">'. This can take a few minutes.'</span>])
 0060         url = [<span class="string">'https://rest.uniprot.org/uniprotkb/stream?query='</span> uniprotRev <span class="keyword">...</span>
@@ -158,7 +158,7 @@ This function is called by:
 0096     keggPath = fullfile(filePath,<span class="string">'kegg.tsv'</span>);
 0097     <span class="keyword">if</span> ~exist(keggPath,<span class="string">'file'</span>)
 0098         <span class="keyword">if</span> isempty(kegg.ID)
-0099             printOrange(<span class="string">'WARNING: No kegg.ID is specified, unable to download KEGG DB.\n'</span>)
+0099             printOrange(<span class="string">'WARNING: No kegg.ID is specified, unable to download KEGG DB.\n'</span>);
 0100         <span class="keyword">else</span>
 0101             <a href="#_sub1" class="code" title="subfunction downloadKEGG(keggID, filePath, keggGeneID)">downloadKEGG</a>(kegg.ID,keggPath,kegg.geneID);
 0102         <span class="keyword">end</span>

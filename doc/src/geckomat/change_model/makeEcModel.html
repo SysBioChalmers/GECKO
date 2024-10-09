@@ -398,7 +398,7 @@ This function is called by:
 0261 <span class="keyword">elseif</span> ~isempty(noUniprot)
 0262     printOrange([<span class="string">'WARNING: The '</span> num2str(numel(noUniprot)) <span class="string">' gene(s) reported in noUniprot cannot be found in data/uniprot.tsv, these will\n'</span> <span class="keyword">...</span>
 0263              <span class="string">'not be enzyme-constrained. If you intend to use different Uniprot data (e.g. from a\n'</span><span class="keyword">...</span>
-0264              <span class="string">'different proteome, make sure you first delete the existing data/uniprot.tsv file.\n'</span>])
+0264              <span class="string">'different proteome, make sure you first delete the existing data/uniprot.tsv file.\n'</span>]);
 0265 <span class="keyword">end</span>
 0266 ec.genes        = model.genes(Lia); <span class="comment">%Will often be duplicate of model.genes, but is done here to prevent issues when it is not.</span>
 0267 ec.enzymes      = uniprotDB.ID(Locb(Lia));
@@ -425,7 +425,7 @@ This function is called by:
 0288     <span class="comment">%here we need to make an explicit format check</span>
 0289     indexes2check = <a href="#_sub1" class="code" title="subfunction indexes2check = findPotentialErrors(grRules,model)">findPotentialErrors</a>(model.grRules,model);
 0290     <span class="keyword">if</span> ~isempty(indexes2check) 
-0291         printOrange(<span class="string">'Run standardizeGrRules(model) for a more detailed warning.\n'</span>)
+0291         printOrange(<span class="string">'Run standardizeGrRules(model) for a more detailed warning.\n'</span>);
 0292         printOrange(<span class="string">'For Human-GEM, these reactions can be corrected using simplifyGrRules.\n'</span>);
 0293     <span class="keyword">end</span>
 0294     

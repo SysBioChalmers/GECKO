@@ -80,7 +80,7 @@ model = setParam(model, 'obj', params.bioRxn, 1);
 sol   = solveLP(model);
 if model.lb(csRxnIdx) < sol.x(csRxnIdx)
     printOrange(['WARNING: Carbon source lower bound was set to ' num2str(model.lb(csRxnIdx)) ...
-        ', but the uptake rate after model optimization is ' num2str(sol.x(csRxnIdx)) '.\n'])
+        ', but the uptake rate after model optimization is ' num2str(sol.x(csRxnIdx)) '.\n']);
 end
 
 % run FSEOF analysis

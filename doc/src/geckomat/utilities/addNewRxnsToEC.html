@@ -163,7 +163,7 @@ This function is called by:
 0073 
 0074         <span class="comment">% Remove from the list those enzymes that already present</span>
 0075         <span class="keyword">if</span> any(toRemove)
-0076             printOrange([<span class="string">'WARNING: Enzymes '</span> strjoin(newEnzymes.enzymes(toRemove),<span class="string">', '</span>) <span class="string">' are already present in the model and will not be added.\n'</span>])
+0076             printOrange([<span class="string">'WARNING: Enzymes '</span> strjoin(newEnzymes.enzymes(toRemove),<span class="string">', '</span>) <span class="string">' are already present in the model and will not be added.\n'</span>]);
 0077             newEnzymes.enzymes(toRemove) = [];
 0078             newEnzymes.genes(toRemove) = [];
 0079             newEnzymes.mw(toRemove) = [];
