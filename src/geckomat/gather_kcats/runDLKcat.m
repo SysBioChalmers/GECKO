@@ -1,4 +1,4 @@
-function runDLKcat(modelAdapter)
+function runDLKcat(modelAdapter,filePath)
 % runDLKcat
 %   Runs DLKcat to predict kcat values from a Docker image. Once DLKcat is succesfully
 %   run, the DLKcatFile will be overwritten with the DLKcat
@@ -8,6 +8,8 @@ function runDLKcat(modelAdapter)
 % Input
 %   modelAdapter    a loaded model adapter. (Optional, will otherwise use
 %                   the default model adapter)
+%   filePath        path to the DLKcat.tsv file. (Optional, will otherwise
+%                   assume data/DLKcat.tsv)
 %
 %   NOTE: 1. Requires Docker to be installed, and Docker Desktop running. Visit "https://www.docker.com"
 %         2. Runtime will depend on whether the image is to be downloaded or not.
@@ -18,11 +20,20 @@ if nargin < 1 || isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
     end
 end
-
 params = modelAdapter.params;
 % Make sure path is full, not relative
 [~, params.path] = fileattrib(params.path);
 params.path=params.path.Name;
+
+if nargin < 2 || isempty(filePath)
+    filePath = fullfile(params.path,'data','DLKcat.tsv');
+elseif strcmp(filePath(end),{'\','/'})
+    filePath = fullfile(filePath,'DLKcat.tsv');
+end
+filePath = checkFileExistence(filePath,1);
+
+copyfile(filePath, fullfile(params.path,'data','tempDLKcat.tsv'));
+    
 
 %% Check and install requirements
 % On macOS, Docker might not be properly loaded if MATLAB is started via
@@ -38,11 +49,11 @@ if checks.docker.status ~= 0
 end
 
 disp('Running DLKcat prediction, this may take many minutes, especially the first time.')
-status = system(['docker run --rm -v "' fullfile(params.path,'/data') '":/data ghcr.io/sysbiochalmers/dlkcat-gecko:0.1 /bin/bash -c "python DLKcat.py /data/DLKcat.tsv /data/DLKcatOutput.tsv"']);
+status = system(['docker run --rm -v "' fullfile(params.path,'/data') '":/data ghcr.io/sysbiochalmers/dlkcat-gecko:0.1 /bin/bash -c "python DLKcat.py /data/tempDLKcat.tsv /data/tempDLKcatOutput.tsv"']);
+delete(fullfile(params.path,'/data/tempDLKcat.tsv'));
 
-if status == 0 && exist(fullfile(params.path,'data/DLKcatOutput.tsv'))
-    delete(fullfile(params.path,'/data/DLKcat.tsv'));
-    movefile(fullfile(params.path,'/data/DLKcatOutput.tsv'), fullfile(params.path,'/data/DLKcat.tsv'));
+if status == 0 && exist(fullfile(params.path,'data/tempDLKcatOutput.tsv'))
+    movefile(fullfile(params.path,'/data/tempDLKcatOutput.tsv'), filePath);
     disp('DKLcat prediction completed.');
 else    
     error('DLKcat encountered an error or it did not create any output file.')

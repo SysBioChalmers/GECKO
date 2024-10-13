@@ -13,8 +13,9 @@ function writtenTable = writeDLKcatInput(model, ecRxns, modelAdapter, onlyWithSm
 %                   default model adapter).
 %   onlyWithSmiles  logical whether to only include metabolites with SMILES
 %                   (optional, default true)
-%   filename        Filename (Optional). Normally this parameter should not be 
-%                   supplied, but it is useful for test cases.
+%   filename        path to the input file, including the filename and .tsv
+%                   extension (Optional, default is data/DLKcat.tsv from
+%                   the obj.params.path folder specified in the modelAdapter)
 %   overwrite       logical whether existing file should be overwritten.
 %                   (Optional, default false, to prevent overwriting file
 %                   that already contains DLKcat-predicted kcat values).
@@ -50,6 +51,8 @@ end
 
 if nargin<5 || isempty(filename)
     filename = fullfile(params.path,'data','DLKcat.tsv');
+elseif ~endsWith(filename,'.tsv')
+    error('If filename is provided, it should include the .tsv extension.')
 end
 
 if nargin<6 || isempty(overwrite) || ~overwrite % If is true

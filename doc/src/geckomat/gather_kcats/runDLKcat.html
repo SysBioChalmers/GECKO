@@ -24,7 +24,7 @@
 <div class="box"><strong>runDLKcat</strong></div>
 
 <h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
-<div class="box"><strong>function runDLKcat(modelAdapter) </strong></div>
+<div class="box"><strong>function runDLKcat(modelAdapter,filePath) </strong></div>
 
 <h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
 <div class="fragment"><pre class="comment"> runDLKcat
@@ -36,6 +36,8 @@
  Input
    modelAdapter    a loaded model adapter. (Optional, will otherwise use
                    the default model adapter)
+   filePath        path to the DLKcat.tsv file. (Optional, will otherwise
+                   assume data/DLKcat.tsv)
 
    NOTE: 1. Requires Docker to be installed, and Docker Desktop running. Visit &quot;https://www.docker.com&quot;
          2. Runtime will depend on whether the image is to be downloaded or not.</pre></div>
@@ -53,7 +55,7 @@ This function is called by:
 
 
 <h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
-<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function runDLKcat(modelAdapter)</a>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function runDLKcat(modelAdapter,filePath)</a>
 0002 <span class="comment">% runDLKcat</span>
 0003 <span class="comment">%   Runs DLKcat to predict kcat values from a Docker image. Once DLKcat is succesfully</span>
 0004 <span class="comment">%   run, the DLKcatFile will be overwritten with the DLKcat</span>
@@ -63,46 +65,57 @@ This function is called by:
 0008 <span class="comment">% Input</span>
 0009 <span class="comment">%   modelAdapter    a loaded model adapter. (Optional, will otherwise use</span>
 0010 <span class="comment">%                   the default model adapter)</span>
-0011 <span class="comment">%</span>
-0012 <span class="comment">%   NOTE: 1. Requires Docker to be installed, and Docker Desktop running. Visit &quot;https://www.docker.com&quot;</span>
-0013 <span class="comment">%         2. Runtime will depend on whether the image is to be downloaded or not.</span>
-0014 
-0015 <span class="keyword">if</span> nargin &lt; 1 || isempty(modelAdapter)
-0016     modelAdapter = ModelAdapterManager.getDefault();
-0017     <span class="keyword">if</span> isempty(modelAdapter)
-0018         error(<span class="string">'Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.'</span>)
-0019     <span class="keyword">end</span>
-0020 <span class="keyword">end</span>
-0021 
-0022 params = modelAdapter.params;
-0023 <span class="comment">% Make sure path is full, not relative</span>
-0024 [~, params.path] = fileattrib(params.path);
-0025 params.path=params.path.Name;
-0026 
-0027 <span class="comment">%% Check and install requirements</span>
-0028 <span class="comment">% On macOS, Docker might not be properly loaded if MATLAB is started via</span>
-0029 <span class="comment">% launcher and not terminal.</span>
-0030 <span class="keyword">if</span> ismac
-0031     setenv(<span class="string">'PATH'</span>, strcat(<span class="string">'/usr/local/bin'</span>, <span class="string">':'</span>, getenv(&quot;PATH&quot;)));
+0011 <span class="comment">%   filePath        path to the DLKcat.tsv file. (Optional, will otherwise</span>
+0012 <span class="comment">%                   assume data/DLKcat.tsv)</span>
+0013 <span class="comment">%</span>
+0014 <span class="comment">%   NOTE: 1. Requires Docker to be installed, and Docker Desktop running. Visit &quot;https://www.docker.com&quot;</span>
+0015 <span class="comment">%         2. Runtime will depend on whether the image is to be downloaded or not.</span>
+0016 
+0017 <span class="keyword">if</span> nargin &lt; 1 || isempty(modelAdapter)
+0018     modelAdapter = ModelAdapterManager.getDefault();
+0019     <span class="keyword">if</span> isempty(modelAdapter)
+0020         error(<span class="string">'Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.'</span>)
+0021     <span class="keyword">end</span>
+0022 <span class="keyword">end</span>
+0023 params = modelAdapter.params;
+0024 <span class="comment">% Make sure path is full, not relative</span>
+0025 [~, params.path] = fileattrib(params.path);
+0026 params.path=params.path.Name;
+0027 
+0028 <span class="keyword">if</span> nargin &lt; 2 || isempty(filePath)
+0029     filePath = fullfile(params.path,<span class="string">'data'</span>,<span class="string">'DLKcat.tsv'</span>);
+0030 <span class="keyword">elseif</span> strcmp(filePath(end),{<span class="string">'\'</span>,<span class="string">'/'</span>})
+0031     filePath = fullfile(filePath,<span class="string">'DLKcat.tsv'</span>);
 0032 <span class="keyword">end</span>
-0033 
-0034 <span class="comment">% Check if Docker is installed</span>
-0035 [checks.docker.status, checks.docker.out] = system(<span class="string">'docker --version'</span>);
-0036 <span class="keyword">if</span> checks.docker.status ~= 0
-0037     error(<span class="string">'Cannot find Docker, make sure it is installed. If it is, it might be required to start Matlab from the command-line instead of the launcher in order for Docker to be detected and used.'</span>)
-0038 <span class="keyword">end</span>
-0039 
-0040 disp(<span class="string">'Running DLKcat prediction, this may take many minutes, especially the first time.'</span>)
-0041 status = system([<span class="string">'docker run --rm -v &quot;'</span> fullfile(params.path,<span class="string">'/data'</span>) <span class="string">'&quot;:/data ghcr.io/sysbiochalmers/dlkcat-gecko:0.1 /bin/bash -c &quot;python DLKcat.py /data/DLKcat.tsv /data/DLKcatOutput.tsv&quot;'</span>]);
-0042 
-0043 <span class="keyword">if</span> status == 0 &amp;&amp; exist(fullfile(params.path,<span class="string">'data/DLKcatOutput.tsv'</span>))
-0044     delete(fullfile(params.path,<span class="string">'/data/DLKcat.tsv'</span>));
-0045     movefile(fullfile(params.path,<span class="string">'/data/DLKcatOutput.tsv'</span>), fullfile(params.path,<span class="string">'/data/DLKcat.tsv'</span>));
-0046     disp(<span class="string">'DKLcat prediction completed.'</span>);
-0047 <span class="keyword">else</span>    
-0048     error(<span class="string">'DLKcat encountered an error or it did not create any output file.'</span>)
+0033 filePath = checkFileExistence(filePath,1);
+0034 
+0035 copyfile(filePath, fullfile(params.path,<span class="string">'data'</span>,<span class="string">'tempDLKcat.tsv'</span>));
+0036     
+0037 
+0038 <span class="comment">%% Check and install requirements</span>
+0039 <span class="comment">% On macOS, Docker might not be properly loaded if MATLAB is started via</span>
+0040 <span class="comment">% launcher and not terminal.</span>
+0041 <span class="keyword">if</span> ismac
+0042     setenv(<span class="string">'PATH'</span>, strcat(<span class="string">'/usr/local/bin'</span>, <span class="string">':'</span>, getenv(&quot;PATH&quot;)));
+0043 <span class="keyword">end</span>
+0044 
+0045 <span class="comment">% Check if Docker is installed</span>
+0046 [checks.docker.status, checks.docker.out] = system(<span class="string">'docker --version'</span>);
+0047 <span class="keyword">if</span> checks.docker.status ~= 0
+0048     error(<span class="string">'Cannot find Docker, make sure it is installed. If it is, it might be required to start Matlab from the command-line instead of the launcher in order for Docker to be detected and used.'</span>)
 0049 <span class="keyword">end</span>
-0050</pre></div>
+0050 
+0051 disp(<span class="string">'Running DLKcat prediction, this may take many minutes, especially the first time.'</span>)
+0052 status = system([<span class="string">'docker run --rm -v &quot;'</span> fullfile(params.path,<span class="string">'/data'</span>) <span class="string">'&quot;:/data ghcr.io/sysbiochalmers/dlkcat-gecko:0.1 /bin/bash -c &quot;python DLKcat.py /data/tempDLKcat.tsv /data/tempDLKcatOutput.tsv&quot;'</span>]);
+0053 delete(fullfile(params.path,<span class="string">'/data/tempDLKcat.tsv'</span>));
+0054 
+0055 <span class="keyword">if</span> status == 0 &amp;&amp; exist(fullfile(params.path,<span class="string">'data/tempDLKcatOutput.tsv'</span>))
+0056     movefile(fullfile(params.path,<span class="string">'/data/tempDLKcatOutput.tsv'</span>), filePath);
+0057     disp(<span class="string">'DKLcat prediction completed.'</span>);
+0058 <span class="keyword">else</span>    
+0059     error(<span class="string">'DLKcat encountered an error or it did not create any output file.'</span>)
+0060 <span class="keyword">end</span>
+0061</pre></div>
 <hr><address>Generated by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>
