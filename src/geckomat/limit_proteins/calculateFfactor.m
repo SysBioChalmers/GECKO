@@ -34,7 +34,7 @@ if nargin < 2 || isempty(protData)
     if exist(fullfile(params.path,'data','paxDB.tsv'),'file')
         protData = fullfile(params.path,'data','paxDB.tsv');
     else
-        printOrange('WARNING: No proteomics data is provided or can be found. Default f value of 0.5 is returned.\n')
+        printOrange('WARNING: No proteomics data is provided or can be found. Default f value of 0.5 is returned.\n');
         f = 0.5;
     end
 end

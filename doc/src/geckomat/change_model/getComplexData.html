@@ -118,7 +118,7 @@ This function is called by:
 0044 
 0045 params = modelAdapter.params;
 0046 <span class="keyword">if</span> isempty(taxonomicID) <span class="comment">% Can be empty when gathered from model adapter</span>
-0047     printOrange(<span class="string">'WARNING: No taxonomicID specified.'</span>)
+0047     printOrange(<span class="string">'WARNING: No taxonomicID specified.'</span>);
 0048     <span class="keyword">return</span>
 0049 <span class="keyword">elseif</span> taxonomicID == 0
 0050     taxonomicID = [];

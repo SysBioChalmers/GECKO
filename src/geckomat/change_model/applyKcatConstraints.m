@@ -46,7 +46,7 @@ if ~isfield(model,'ec')
            ' not a valid GECKO3 ecModel. First run makeEcModel(model).'])
 end
 if all(model.ec.kcat==0)
-    printOrange('WARNING: No kcat values are provided in model.ec.kcat, model remains unchanged.\n')
+    printOrange('WARNING: No kcat values are provided in model.ec.kcat, model remains unchanged.\n');
     return
 end
 

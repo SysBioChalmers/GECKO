@@ -6,10 +6,9 @@ function kcatList = readDLKcatOutput(model, outFile, modelAdapter)
 %
 % Input:
 %   model           an ecModel in GECKO 3 format (with ecModel.ec structure)
-%   outFile         name and path of the DLKcat output file. If nothing is
-%                   provided, an attempt will be made to read
-%                   data/DLKcat.tsv from the obj.params.path folder
-%                   specified in the modelAdapter.
+%   outFile         name and path of the DLKcat output file. (Optional,
+%                   default is data/DLKcat.tsv from the obj.params.path
+%                   folder specified in the modelAdapter)
 %   modelAdapter    a loaded model adapter (Optional, will otherwise use the
 %                   default model adapter).
 %

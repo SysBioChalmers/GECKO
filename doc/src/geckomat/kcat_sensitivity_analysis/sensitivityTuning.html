@@ -148,7 +148,7 @@ This function is called by:
 0071     <span class="keyword">while</span> true
 0072         [res,hs] = solveLP(m,0,[],hs); <span class="comment">%skip parsimonius, only takes time</span>
 0073         <span class="keyword">if</span> (lastGrowth == res.f)
-0074             printOrange(<span class="string">'WARNING: No growth increase from increased kcats - check if the constraints on the uptake reactions are too tight.\n'</span>)
+0074             printOrange(<span class="string">'WARNING: No growth increase from increased kcats - check if the constraints on the uptake reactions are too tight.\n'</span>);
 0075             <span class="keyword">break</span>;
 0076         <span class="keyword">end</span>
 0077         lastGrowth = res.f;
@@ -199,7 +199,7 @@ This function is called by:
 0122     <span class="keyword">while</span> true
 0123         res = solveLP(m,0); <span class="comment">%skip parsimonius, only takes time</span>
 0124         <span class="keyword">if</span> (lastGrowth == res.f)
-0125             printOrange(<span class="string">'No growth increase from increased kcats - check if the constraints on the uptake reactions are too tight.\n'</span>)
+0125             printOrange(<span class="string">'No growth increase from increased kcats - check if the constraints on the uptake reactions are too tight.\n'</span>);
 0126             <span class="keyword">break</span>;
 0127         <span class="keyword">end</span>
 0128         lastGrowth = res.f;

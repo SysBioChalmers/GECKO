@@ -13,7 +13,7 @@ You can contribute in 2 main ways: by creating issues, and by sending pull reque
 * Lacking documentation.
 * Any type of feedback.
 
-If you are unsure about the issue, consider asking first in our [Gitter chat room](https://gitter.im/SysBioChalmers/GECKO).
+If you are unsure about the issue, consider asking first in the [GitHub Discussions page](https://github.com/SysBioChalmers/GECKO/discussions).
 
 When creating the issue, please make sure:
 
