@@ -113,7 +113,7 @@ model = setParam(model, 'ub', 'r_2111', Inf); % growth
 % change aeerobic or anaerobic
 if strcmp(anox,'anaerobic')
     1
-    model = anaerobicModel(model);
+    model = anaerobicModel_GECKO(model);
 end
 end
 

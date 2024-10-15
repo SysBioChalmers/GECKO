@@ -66,14 +66,22 @@ classdef GECKOInstaller
             try
                 [currVer, installType] = checkInstallation('versionOnly');
                 if strcmp(currVer,'develop')
-                    printOrange('WARNING: Cannot determine your RAVEN version as it is in a development branch.\n')
+                    printOrange('WARNING: Cannot determine your RAVEN version as it is in a development branch.\n');
                 else                
                     currVerNum = str2double(strsplit(currVer,'.'));
                     minmVerNum = str2double(strsplit(minmVer,'.'));
-                    for i=1:3
-                        if currVerNum(i)<minmVerNum(i)
-                            wrongVersion = true;
-                        end
+                    if currVerNum(1) < minmVerNum(1)
+                        wrongVersion = true;
+                    elseif currVerNum(1) > minmVerNum(1)
+                        wrongVersion = false;
+                    elseif currVerNum(2) < minmVerNum(2)
+                        wrongVersion = true;
+                    elseif currVerNum(2) > minmVerNum(2)
+                        wrongVersion = false;
+                    elseif currVerNum(3) < minmVerNum(3)
+                        wrongVersion = true;
+                    elseif currVerNum(3) >= minmVerNum(3)
+                        wrongVersion = false;
                     end
                 end
             catch

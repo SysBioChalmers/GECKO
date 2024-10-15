@@ -168,7 +168,7 @@ This function is called by:
 0080 sol   = solveLP(model);
 0081 <span class="keyword">if</span> model.lb(csRxnIdx) &lt; sol.x(csRxnIdx)
 0082     printOrange([<span class="string">'WARNING: Carbon source lower bound was set to '</span> num2str(model.lb(csRxnIdx)) <span class="keyword">...</span>
-0083         <span class="string">', but the uptake rate after model optimization is '</span> num2str(sol.x(csRxnIdx)) <span class="string">'.\n'</span>])
+0083         <span class="string">', but the uptake rate after model optimization is '</span> num2str(sol.x(csRxnIdx)) <span class="string">'.\n'</span>]);
 0084 <span class="keyword">end</span>
 0085 
 0086 <span class="comment">% run FSEOF analysis</span>

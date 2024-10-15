@@ -33,6 +33,10 @@ classdef YeastGEMAdapter < ModelAdapter
 
 			obj.params.bioRxn = 'r_4041';
 
+            % Name of the compartment where the protein pseudometabolites
+            % should be located (all be located in the same compartment,
+            % this does not interfere with them catalyzing reactions in
+            % different compartments). Typically, cytoplasm is chosen.
 			obj.params.enzyme_comp = 'cytoplasm';			
 		end
 	

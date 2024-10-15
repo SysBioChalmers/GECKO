@@ -1,21 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" xmlns:fbc="http://www.sbml.org/sbml/level3/version1/fbc/version2" level="3" version="1" fbc:required="false">
   <model metaid="testModel" id="testModel" name="testModel" fbc:strict="true">
-    <annotation>
-      <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-        <rdf:Description rdf:about="#testModel">
-          <dcterms:creator>
-            <rdf:Bag/>
-          </dcterms:creator>
-          <dcterms:created rdf:parseType="Resource">
-            <dcterms:W3CDTF>2023-02-20T21:53:00Z</dcterms:W3CDTF>
-          </dcterms:created>
-          <dcterms:modified rdf:parseType="Resource">
-            <dcterms:W3CDTF>2023-02-20T21:53:00Z</dcterms:W3CDTF>
-          </dcterms:modified>
-        </rdf:Description>
-      </rdf:RDF>
-    </annotation>
     <listOfUnitDefinitions>
       <unitDefinition id="mmol_per_gDW_per_hr">
         <listOfUnits>
@@ -30,10 +15,10 @@
       <compartment metaid="c" sboTerm="SBO:0000290" id="c" name="c" spatialDimensions="3" size="1" constant="true"/>
     </listOfCompartments>
     <listOfSpecies>
-      <species metaid="M_e1e" sboTerm="SBO:0000247" id="M_e1e" name="e1" compartment="e" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species metaid="M_e2e" sboTerm="SBO:0000247" id="M_e2e" name="e2" compartment="e" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species metaid="M_m1c" sboTerm="SBO:0000247" id="M_m1c" name="m1" compartment="c" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species metaid="M_m2c" sboTerm="SBO:0000247" id="M_m2c" name="m2" compartment="c" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species metaid="e1e" sboTerm="SBO:0000247" id="e1e" name="e1" compartment="e" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species metaid="e2e" sboTerm="SBO:0000247" id="e2e" name="e2" compartment="e" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species metaid="m1c" sboTerm="SBO:0000247" id="m1c" name="m1" compartment="c" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species metaid="m2c" sboTerm="SBO:0000247" id="m2c" name="m2" compartment="c" initialConcentration="0" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
     </listOfSpecies>
     <listOfParameters>
       <parameter id="FB1NInf" value="-INF" constant="true"/>
@@ -41,23 +26,23 @@
       <parameter id="FB3NInf" value="INF" constant="true"/>
     </listOfParameters>
     <listOfReactions>
-      <reaction metaid="R_S1" sboTerm="SBO:0000176" id="R_S1" name="S1" reversible="true" fast="false" fbc:lowerFluxBound="FB1NInf" fbc:upperFluxBound="FB3NInf">
+      <reaction metaid="S1" sboTerm="SBO:0000176" id="S1" name="S1" reversible="true" fast="false" fbc:lowerFluxBound="FB1NInf" fbc:upperFluxBound="FB3NInf">
         <listOfReactants>
-          <speciesReference species="M_e1e" stoichiometry="1" constant="true"/>
+          <speciesReference species="e1e" stoichiometry="1" constant="true"/>
         </listOfReactants>
       </reaction>
-      <reaction metaid="R_R1" sboTerm="SBO:0000176" id="R_R1" name="R1" reversible="true" fast="false" fbc:lowerFluxBound="FB1NInf" fbc:upperFluxBound="FB3NInf">
+      <reaction metaid="R1" sboTerm="SBO:0000176" id="R1" name="R1" reversible="true" fast="false" fbc:lowerFluxBound="FB1NInf" fbc:upperFluxBound="FB3NInf">
         <listOfReactants>
-          <speciesReference species="M_e1e" stoichiometry="1" constant="true"/>
+          <speciesReference species="e1e" stoichiometry="1" constant="true"/>
         </listOfReactants>
         <listOfProducts>
-          <speciesReference species="M_m1c" stoichiometry="1" constant="true"/>
+          <speciesReference species="m1c" stoichiometry="1" constant="true"/>
         </listOfProducts>
       </reaction>
-      <reaction metaid="R_R2" sboTerm="SBO:0000176" id="R_R2" name="R2" reversible="true" fast="false" fbc:lowerFluxBound="FB1NInf" fbc:upperFluxBound="FB3NInf">
+      <reaction metaid="R2" sboTerm="SBO:0000176" id="R2" name="R2" reversible="true" fast="false" fbc:lowerFluxBound="FB1NInf" fbc:upperFluxBound="FB3NInf">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#R_R2">
+            <rdf:Description rdf:about="#R2">
               <bqbiol:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="https://identifiers.org/ec-code/1.1.1.1"/>
@@ -67,10 +52,10 @@
           </rdf:RDF>
         </annotation>
         <listOfReactants>
-          <speciesReference species="M_m1c" stoichiometry="1" constant="true"/>
+          <speciesReference species="m1c" stoichiometry="1" constant="true"/>
         </listOfReactants>
         <listOfProducts>
-          <speciesReference species="M_m2c" stoichiometry="1" constant="true"/>
+          <speciesReference species="m2c" stoichiometry="1" constant="true"/>
         </listOfProducts>
         <fbc:geneProductAssociation>
           <fbc:or>
@@ -82,10 +67,10 @@
           </fbc:or>
         </fbc:geneProductAssociation>
       </reaction>
-      <reaction metaid="R_R3" sboTerm="SBO:0000176" id="R_R3" name="R3" reversible="false" fast="false" fbc:lowerFluxBound="FB2N0" fbc:upperFluxBound="FB3NInf">
+      <reaction metaid="R3" sboTerm="SBO:0000176" id="R3" name="R3" reversible="false" fast="false" fbc:lowerFluxBound="FB2N0" fbc:upperFluxBound="FB3NInf">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#R_R3">
+            <rdf:Description rdf:about="#R3">
               <bqbiol:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="https://identifiers.org/ec-code/1.1.2.1"/>
@@ -95,27 +80,27 @@
           </rdf:RDF>
         </annotation>
         <listOfReactants>
-          <speciesReference species="M_m1c" stoichiometry="1" constant="true"/>
+          <speciesReference species="m1c" stoichiometry="1" constant="true"/>
         </listOfReactants>
         <listOfProducts>
-          <speciesReference species="M_m2c" stoichiometry="1" constant="true"/>
+          <speciesReference species="m2c" stoichiometry="1" constant="true"/>
         </listOfProducts>
         <fbc:geneProductAssociation>
           <fbc:geneProductRef fbc:geneProduct="G4"/>
         </fbc:geneProductAssociation>
       </reaction>
-      <reaction metaid="R_R4" sboTerm="SBO:0000176" id="R_R4" name="R4" reversible="false" fast="false" fbc:lowerFluxBound="FB2N0" fbc:upperFluxBound="FB3NInf">
+      <reaction metaid="R4" sboTerm="SBO:0000176" id="R4" name="R4" reversible="false" fast="false" fbc:lowerFluxBound="FB2N0" fbc:upperFluxBound="FB3NInf">
         <listOfReactants>
-          <speciesReference species="M_m1c" stoichiometry="1" constant="true"/>
+          <speciesReference species="m1c" stoichiometry="1" constant="true"/>
         </listOfReactants>
         <listOfProducts>
-          <speciesReference species="M_m2c" stoichiometry="1" constant="true"/>
+          <speciesReference species="m2c" stoichiometry="1" constant="true"/>
         </listOfProducts>
       </reaction>
-      <reaction metaid="R_R5" sboTerm="SBO:0000176" id="R_R5" name="R5" reversible="false" fast="false" fbc:lowerFluxBound="FB2N0" fbc:upperFluxBound="FB3NInf">
+      <reaction metaid="R5" sboTerm="SBO:0000176" id="R5" name="R5" reversible="false" fast="false" fbc:lowerFluxBound="FB2N0" fbc:upperFluxBound="FB3NInf">
         <annotation>
           <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:vCard="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:vCard4="http://www.w3.org/2006/vcard/ns#" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
-            <rdf:Description rdf:about="#R_R5">
+            <rdf:Description rdf:about="#R5">
               <bqbiol:is>
                 <rdf:Bag>
                   <rdf:li rdf:resource="https://identifiers.org/ec-code/1.1.1.3"/>
@@ -125,25 +110,25 @@
           </rdf:RDF>
         </annotation>
         <listOfReactants>
-          <speciesReference species="M_m2c" stoichiometry="1" constant="true"/>
+          <speciesReference species="m2c" stoichiometry="1" constant="true"/>
         </listOfReactants>
         <listOfProducts>
-          <speciesReference species="M_e2e" stoichiometry="1" constant="true"/>
+          <speciesReference species="e2e" stoichiometry="1" constant="true"/>
         </listOfProducts>
         <fbc:geneProductAssociation>
           <fbc:geneProductRef fbc:geneProduct="G5"/>
         </fbc:geneProductAssociation>
       </reaction>
-      <reaction metaid="R_S2" sboTerm="SBO:0000176" id="R_S2" name="S2" reversible="true" fast="false" fbc:lowerFluxBound="FB1NInf" fbc:upperFluxBound="FB3NInf">
+      <reaction metaid="S2" sboTerm="SBO:0000176" id="S2" name="S2" reversible="true" fast="false" fbc:lowerFluxBound="FB1NInf" fbc:upperFluxBound="FB3NInf">
         <listOfReactants>
-          <speciesReference species="M_e2e" stoichiometry="1" constant="true"/>
+          <speciesReference species="e2e" stoichiometry="1" constant="true"/>
         </listOfReactants>
       </reaction>
     </listOfReactions>
     <fbc:listOfObjectives fbc:activeObjective="obj">
       <fbc:objective fbc:id="obj" fbc:type="maximize">
         <fbc:listOfFluxObjectives>
-          <fbc:fluxObjective fbc:reaction="R_R5" fbc:coefficient="1"/>
+          <fbc:fluxObjective fbc:reaction="R5" fbc:coefficient="1"/>
         </fbc:listOfFluxObjectives>
       </fbc:objective>
     </fbc:listOfObjectives>

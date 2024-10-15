@@ -96,7 +96,7 @@ This function is called by:
 0032 <span class="comment">% Check if original bigEcModel contains context-dependent protein constraints</span>
 0033 <span class="keyword">if</span> any(bigEcModel.lb(startsWith(bigEcModel.rxns,<span class="string">'usage_prot_'</span>)) ~= -1000)
 0034     printOrange([<span class="string">'WARNING: The bigEcModel is constraint by protein concentrations that are\n'</span> <span class="keyword">...</span>
-0035                  <span class="string">'likely not relevant in the constructed smallEcModel.\n'</span>])
+0035                  <span class="string">'likely not relevant in the constructed smallEcModel.\n'</span>]);
 0036 <span class="keyword">end</span>
 0037 
 0038 <span class="comment">% Remove genes (and associated reactions) that are absent in smallGEM</span>

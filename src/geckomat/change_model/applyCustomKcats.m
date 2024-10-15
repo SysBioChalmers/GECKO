@@ -185,7 +185,7 @@ if ~model.ec.geckoLight
     if ~isempty(find(rxnToUpdate, 1))
         model = applyKcatConstraints(model, rxnToUpdate);
     else
-        printOrange('WARNING: No matches found. Consider checking the IDs or proteins in customKcats.')
+        printOrange('WARNING: No matches found. Consider checking the IDs or proteins in customKcats.');
     end
 
     rxnUpdated = model.ec.rxns(find(rxnToUpdate));

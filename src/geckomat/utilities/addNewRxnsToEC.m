@@ -73,7 +73,7 @@ else
 
         % Remove from the list those enzymes that already present
         if any(toRemove)
-            printOrange(['WARNING: Enzymes ' strjoin(newEnzymes.enzymes(toRemove),', ') ' are already present in the model and will not be added.\n'])
+            printOrange(['WARNING: Enzymes ' strjoin(newEnzymes.enzymes(toRemove),', ') ' are already present in the model and will not be added.\n']);
             newEnzymes.enzymes(toRemove) = [];
             newEnzymes.genes(toRemove) = [];
             newEnzymes.mw(toRemove) = [];
