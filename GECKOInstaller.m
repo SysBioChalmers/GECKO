@@ -72,15 +72,11 @@ classdef GECKOInstaller
                     minmVerNum = str2double(strsplit(minmVer,'.'));
                     if currVerNum(1) < minmVerNum(1)
                         wrongVersion = true;
-                    elseif currVerNum(1) > minmVerNum(1)
-                        wrongVersion = false;
                     elseif currVerNum(2) < minmVerNum(2)
                         wrongVersion = true;
-                    elseif currVerNum(2) > minmVerNum(2)
-                        wrongVersion = false;
                     elseif currVerNum(3) < minmVerNum(3)
                         wrongVersion = true;
-                    elseif currVerNum(3) >= minmVerNum(3)
+                    else
                         wrongVersion = false;
                     end
                 end
