@@ -182,10 +182,11 @@ else
     error('Protein concentrations have not been defined. Please run readProteomics and constrainEnzConcs')
 end
 
-protFlex        = proteins(frequence>0);
-protUsageIdx    = find(ismember(model.rxns, strcat('usage_prot_', protFlex)));
-ecProtId        = find(ismember(model.ec.enzymes,protFlex));
-oldConcs        = model.ec.concs(ecProtId);
+protFlex         = proteins(frequence>0);
+[~,protUsageIdx] = ismember(strcat('usage_prot_', protFlex), model.rxns);
+[~,ecProtId]     = ismember(protFlex, model.ec.enzymes);
+oldConcs         = model.ec.concs(ecProtId);
+%frequence        = frequence(ecProtId);
 
 if flexBreak == false && ~isempty(protFlex)
     % Not all flexibilized proteins require flexibilization in the end
@@ -211,8 +212,8 @@ if flexBreak == false && ~isempty(protFlex)
     flexEnz.flexConcs  = newConcs;
     flexEnz.frequence  = frequence(frequence>0);
 else
-    protFlex        = proteins(frequence>0);
-    protUsageIdx    = find(ismember(model.rxns, strcat('usage_prot_', protFlex)));
+    protFlex           = proteins(frequence>0);
+    [~, protUsageIdx]  = ismember(strcat('usage_prot_', protFlex), model.rxns);
 
     flexEnz.uniprotIDs = protFlex;
     flexEnz.oldConcs   = model.ec.concs(ecProtId);
