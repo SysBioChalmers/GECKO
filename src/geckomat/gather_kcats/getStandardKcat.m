@@ -177,7 +177,14 @@ if ~any(strcmp(model.mets,'prot_standard'))
         % Add a new metabolite named prot_standard
         proteinStdMets.mets         = 'prot_standard';
         proteinStdMets.metNames     = proteinStdMets.mets;
-        proteinStdMets.compartments = 'c';
+        % Validate compartment
+        proteinStdMets.compartments = strcmp(model.compNames,params.enzyme_comp);
+        if ~any(proteinStdMets.compartments)
+            error(['Compartment ' params.enzyme_comp ' (specified in params.enzyme_comp) '...
+                'cannot be found in model.compNames'])
+        end
+        proteinStdMets.compartments = model.comps(compartmentID);
+
         if isfield(model,'metNotes')
             proteinStdMets.metNotes = 'Standard enzyme-usage pseudometabolite';
         end
