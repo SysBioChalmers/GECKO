@@ -277,58 +277,59 @@ This function is called by:
 0182     error(<span class="string">'Protein concentrations have not been defined. Please run readProteomics and constrainEnzConcs'</span>)
 0183 <span class="keyword">end</span>
 0184 
-0185 protFlex        = proteins(frequence&gt;0);
-0186 protUsageIdx    = find(ismember(model.rxns, strcat(<span class="string">'usage_prot_'</span>, protFlex)));
-0187 ecProtId        = find(ismember(model.ec.enzymes,protFlex));
-0188 oldConcs        = model.ec.concs(ecProtId);
-0189 
-0190 <span class="keyword">if</span> flexBreak == false &amp;&amp; ~isempty(protFlex)
-0191     <span class="comment">% Not all flexibilized proteins require flexibilization in the end</span>
-0192     <span class="comment">% Test flux distribution with minimum prot_pool usage</span>
-0193     modelTemp       = setParam(model,<span class="string">'var'</span>,params.bioRxn,expGrowth,0.5);
-0194     modelTemp       = setParam(modelTemp,<span class="string">'obj'</span>,<span class="string">'prot_pool_exchange'</span>,1);
-0195     sol             = solveLP(modelTemp,1);
-0196     <span class="comment">% Check which concentrations can remain unchanged</span>
-0197     newConcs        = abs(sol.x(protUsageIdx));
-0198     keepOld         = newConcs&lt;oldConcs;
-0199     <span class="comment">% Set UBs</span>
-0200     model.lb(protUsageIdx(keepOld))  = -oldConcs(keepOld);
-0201     model.lb(protUsageIdx(~keepOld)) = -newConcs(~keepOld);
-0202     <span class="comment">% Output structure</span>
-0203     protFlex(keepOld) = [];
-0204     oldConcs(keepOld) = [];
-0205     newConcs(keepOld) = [];
-0206     frequence=frequence(frequence&gt;0);
-0207     frequence(keepOld) = [];
-0208     
-0209     flexEnz.uniprotIDs = protFlex;
-0210     flexEnz.oldConcs   = oldConcs;
-0211     flexEnz.flexConcs  = newConcs;
-0212     flexEnz.frequence  = frequence(frequence&gt;0);
-0213 <span class="keyword">else</span>
-0214     protFlex        = proteins(frequence&gt;0);
-0215     protUsageIdx    = find(ismember(model.rxns, strcat(<span class="string">'usage_prot_'</span>, protFlex)));
-0216 
-0217     flexEnz.uniprotIDs = protFlex;
-0218     flexEnz.oldConcs   = model.ec.concs(ecProtId);
-0219     flexEnz.flexConcs  = abs(model.lb(protUsageIdx));
-0220     flexEnz.frequence  = frequence(frequence&gt;0);
-0221 <span class="keyword">end</span>
-0222 <span class="keyword">if</span> changedProtPool
-0223     flexEnz.uniprotIDs(end+1) = {<span class="string">'prot_pool'</span>};
-0224     flexEnz.oldConcs(end+1)   = oldProtPool;
-0225     flexEnz.flexConcs(end+1)  = newProtPool;
-0226     flexEnz.frequence(end+1)  = 1;
-0227 <span class="keyword">end</span>
-0228 <span class="comment">% Sort by biggest ratio increase</span>
-0229 flexEnz.ratioIncr  = flexEnz.flexConcs./flexEnz.oldConcs;
-0230 [~,b] = sort(flexEnz.ratioIncr,<span class="string">'descend'</span>);
-0231 flexEnz.ratioIncr  = flexEnz.ratioIncr(b);
-0232 flexEnz.uniprotIDs = flexEnz.uniprotIDs(b);
-0233 flexEnz.oldConcs   = flexEnz.oldConcs(b);
-0234 flexEnz.flexConcs  = flexEnz.flexConcs(b);
-0235 flexEnz.frequence  = flexEnz.frequence(b);
-0236 <span class="keyword">end</span></pre></div>
+0185 protFlex         = proteins(frequence&gt;0);
+0186 [~,protUsageIdx] = ismember(strcat(<span class="string">'usage_prot_'</span>, protFlex), model.rxns);
+0187 [~,ecProtId]     = ismember(protFlex, model.ec.enzymes);
+0188 oldConcs         = model.ec.concs(ecProtId);
+0189 <span class="comment">%frequence        = frequence(ecProtId);</span>
+0190 
+0191 <span class="keyword">if</span> flexBreak == false &amp;&amp; ~isempty(protFlex)
+0192     <span class="comment">% Not all flexibilized proteins require flexibilization in the end</span>
+0193     <span class="comment">% Test flux distribution with minimum prot_pool usage</span>
+0194     modelTemp       = setParam(model,<span class="string">'var'</span>,params.bioRxn,expGrowth,0.5);
+0195     modelTemp       = setParam(modelTemp,<span class="string">'obj'</span>,<span class="string">'prot_pool_exchange'</span>,1);
+0196     sol             = solveLP(modelTemp,1);
+0197     <span class="comment">% Check which concentrations can remain unchanged</span>
+0198     newConcs        = abs(sol.x(protUsageIdx));
+0199     keepOld         = newConcs&lt;oldConcs;
+0200     <span class="comment">% Set UBs</span>
+0201     model.lb(protUsageIdx(keepOld))  = -oldConcs(keepOld);
+0202     model.lb(protUsageIdx(~keepOld)) = -newConcs(~keepOld);
+0203     <span class="comment">% Output structure</span>
+0204     protFlex(keepOld) = [];
+0205     oldConcs(keepOld) = [];
+0206     newConcs(keepOld) = [];
+0207     frequence=frequence(frequence&gt;0);
+0208     frequence(keepOld) = [];
+0209     
+0210     flexEnz.uniprotIDs = protFlex;
+0211     flexEnz.oldConcs   = oldConcs;
+0212     flexEnz.flexConcs  = newConcs;
+0213     flexEnz.frequence  = frequence(frequence&gt;0);
+0214 <span class="keyword">else</span>
+0215     protFlex           = proteins(frequence&gt;0);
+0216     [~, protUsageIdx]  = ismember(strcat(<span class="string">'usage_prot_'</span>, protFlex), model.rxns);
+0217 
+0218     flexEnz.uniprotIDs = protFlex;
+0219     flexEnz.oldConcs   = model.ec.concs(ecProtId);
+0220     flexEnz.flexConcs  = abs(model.lb(protUsageIdx));
+0221     flexEnz.frequence  = frequence(frequence&gt;0);
+0222 <span class="keyword">end</span>
+0223 <span class="keyword">if</span> changedProtPool
+0224     flexEnz.uniprotIDs(end+1) = {<span class="string">'prot_pool'</span>};
+0225     flexEnz.oldConcs(end+1)   = oldProtPool;
+0226     flexEnz.flexConcs(end+1)  = newProtPool;
+0227     flexEnz.frequence(end+1)  = 1;
+0228 <span class="keyword">end</span>
+0229 <span class="comment">% Sort by biggest ratio increase</span>
+0230 flexEnz.ratioIncr  = flexEnz.flexConcs./flexEnz.oldConcs;
+0231 [~,b] = sort(flexEnz.ratioIncr,<span class="string">'descend'</span>);
+0232 flexEnz.ratioIncr  = flexEnz.ratioIncr(b);
+0233 flexEnz.uniprotIDs = flexEnz.uniprotIDs(b);
+0234 flexEnz.oldConcs   = flexEnz.oldConcs(b);
+0235 flexEnz.flexConcs  = flexEnz.flexConcs(b);
+0236 flexEnz.frequence  = flexEnz.frequence(b);
+0237 <span class="keyword">end</span></pre></div>
 <hr><address>Generated by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>
