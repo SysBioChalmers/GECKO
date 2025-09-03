@@ -38,6 +38,10 @@ end
 
 % Remove genes (and associated reactions) that are absent in smallGEM
 genesToRemove  = setdiff(bigEcModel.genes,smallGEM.genes);
+% If genesToRemove contains "standard", then remove this entry
+if ismember('standard', genesToRemove)
+    genesToRemove(strcmp(genesToRemove, 'standard')) = [];
+end
 smallEcModel = removeGenes(bigEcModel,genesToRemove,true,true,false);
 
 % Remove genes from ec-structure
