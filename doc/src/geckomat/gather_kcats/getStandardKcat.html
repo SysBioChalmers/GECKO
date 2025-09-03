@@ -280,8 +280,8 @@ This function is called by:
 0178         proteinStdMets.mets         = <span class="string">'prot_standard'</span>;
 0179         proteinStdMets.metNames     = proteinStdMets.mets;
 0180         <span class="comment">% Validate compartment</span>
-0181         proteinStdMets.compartments = strcmp(model.compNames,params.enzyme_comp);
-0182         <span class="keyword">if</span> ~any(proteinStdMets.compartments)
+0181         compartmentID = strcmp(model.compNames,params.enzyme_comp);
+0182         <span class="keyword">if</span> ~any(compartmentID)
 0183             error([<span class="string">'Compartment '</span> params.enzyme_comp <span class="string">' (specified in params.enzyme_comp) '</span><span class="keyword">...</span>
 0184                 <span class="string">'cannot be found in model.compNames'</span>])
 0185         <span class="keyword">end</span>
