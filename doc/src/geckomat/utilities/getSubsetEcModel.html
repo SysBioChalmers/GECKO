@@ -86,49 +86,54 @@ This function is called by:
 0022 <span class="comment">% Usage: smallEcModel = getSubsetEcModel(smallGEM,bigEcModel)</span>
 0023 
 0024 <span class="comment">% Check if models were derived from the same starting GEM</span>
-0025 rxnsDiff = find(~ismember(smallGEM.rxns,bigEcModel.rxns));
-0026 <span class="keyword">if</span> numel(rxnsDiff) &gt; 0
-0027     dispEM([<span class="string">'While both models should have derived from the same starting '</span>,<span class="keyword">...</span>
-0028             <span class="string">'GEM, the following reactions from smallGEM could not be found '</span>,<span class="keyword">...</span>
-0029             <span class="string">'in bigEcModel:'</span>],true,smallGEM.rxns(rxnsDiff),false);
-0030 <span class="keyword">end</span>
-0031 
-0032 <span class="comment">% Check if original bigEcModel contains context-dependent protein constraints</span>
-0033 <span class="keyword">if</span> any(bigEcModel.lb(startsWith(bigEcModel.rxns,<span class="string">'usage_prot_'</span>)) ~= -1000)
-0034     printOrange([<span class="string">'WARNING: The bigEcModel is constraint by protein concentrations that are\n'</span> <span class="keyword">...</span>
-0035                  <span class="string">'likely not relevant in the constructed smallEcModel.\n'</span>]);
-0036 <span class="keyword">end</span>
-0037 
-0038 <span class="comment">% Remove genes (and associated reactions) that are absent in smallGEM</span>
-0039 genesToRemove  = setdiff(bigEcModel.genes,smallGEM.genes);
-0040 smallEcModel = removeGenes(bigEcModel,genesToRemove,true,true,false);
-0041 
-0042 <span class="comment">% Remove genes from ec-structure</span>
-0043 enzToRemove = ismember(smallEcModel.ec.genes,genesToRemove);
-0044 smallEcModel.ec.genes(enzToRemove)       = [];
-0045 smallEcModel.ec.enzymes(enzToRemove)     = [];
-0046 smallEcModel.ec.concs(enzToRemove)       = [];
-0047 smallEcModel.ec.mw(enzToRemove)          = [];
-0048 smallEcModel.ec.sequence(enzToRemove)    = [];
-0049 smallEcModel.ec.rxnEnzMat(:,enzToRemove) = [];
-0050 
-0051 <span class="comment">% Remove any reaction (except prot_ associated) that is absent from smallGEM</span>
-0052 trimRxns = regexprep(smallEcModel.rxns,<span class="string">'_REV|_EXP_\d+'</span>,<span class="string">''</span>);
-0053 protRxns = startsWith(smallEcModel.rxns,{<span class="string">'usage_prot_'</span>,<span class="string">'prot_pool_exchange'</span>});
-0054 keepRxns = ismember(trimRxns,smallGEM.rxns) | protRxns;
-0055 smallEcModel = removeReactions(smallEcModel,~keepRxns, true, true, true);
-0056 
-0057 <span class="comment">% Remove reactions from ec-structure</span>
-0058 ecRxnsToRemove = ~ismember(smallEcModel.ec.rxns,smallEcModel.rxns);
-0059 
-0060 smallEcModel.ec.rxns(ecRxnsToRemove)        = [];
-0061 smallEcModel.ec.kcat(ecRxnsToRemove)        = [];
-0062 smallEcModel.ec.source(ecRxnsToRemove)      = [];
-0063 smallEcModel.ec.notes(ecRxnsToRemove)       = [];
-0064 smallEcModel.ec.eccodes(ecRxnsToRemove)     = [];
-0065 smallEcModel.ec.rxnEnzMat(ecRxnsToRemove,:) = [];
-0066 <span class="keyword">end</span>
-0067</pre></div>
+0025 Rxn_format = regexprep(bigEcModel.rxns,<span class="string">'_REV|_EXP_\d+'</span>,<span class="string">''</span>);
+0026 rxnsDiff = find(~ismember(smallGEM.rxns,Rxn_format));
+0027 <span class="keyword">if</span> numel(rxnsDiff) &gt; 0
+0028     dispEM([<span class="string">'While both models should have derived from the same starting '</span>,<span class="keyword">...</span>
+0029             <span class="string">'GEM, the following reactions from smallGEM could not be found '</span>,<span class="keyword">...</span>
+0030             <span class="string">'in bigEcModel:'</span>],true,smallGEM.rxns(rxnsDiff),false);
+0031 <span class="keyword">end</span>
+0032 
+0033 <span class="comment">% Check if original bigEcModel contains context-dependent protein constraints</span>
+0034 <span class="keyword">if</span> any(bigEcModel.lb(startsWith(bigEcModel.rxns,<span class="string">'usage_prot_'</span>)) ~= -1000)
+0035     printOrange([<span class="string">'WARNING: The bigEcModel is constraint by protein concentrations that are\n'</span> <span class="keyword">...</span>
+0036                  <span class="string">'likely not relevant in the constructed smallEcModel.\n'</span>]);
+0037 <span class="keyword">end</span>
+0038 
+0039 <span class="comment">% Remove genes (and associated reactions) that are absent in smallGEM</span>
+0040 genesToRemove  = setdiff(bigEcModel.genes,smallGEM.genes);
+0041 <span class="comment">% If genesToRemove contains &quot;standard&quot;, then remove this entry</span>
+0042 <span class="keyword">if</span> ismember(<span class="string">'standard'</span>, genesToRemove)
+0043     genesToRemove(strcmp(genesToRemove, <span class="string">'standard'</span>)) = [];
+0044 <span class="keyword">end</span>
+0045 smallEcModel = removeGenes(bigEcModel,genesToRemove,true,true,false);
+0046 
+0047 <span class="comment">% Remove genes from ec-structure</span>
+0048 enzToRemove = ismember(smallEcModel.ec.genes,genesToRemove);
+0049 smallEcModel.ec.genes(enzToRemove)       = [];
+0050 smallEcModel.ec.enzymes(enzToRemove)     = [];
+0051 smallEcModel.ec.concs(enzToRemove)       = [];
+0052 smallEcModel.ec.mw(enzToRemove)          = [];
+0053 smallEcModel.ec.sequence(enzToRemove)    = [];
+0054 smallEcModel.ec.rxnEnzMat(:,enzToRemove) = [];
+0055 
+0056 <span class="comment">% Remove any reaction (except prot_ associated) that is absent from smallGEM</span>
+0057 trimRxns = regexprep(smallEcModel.rxns,<span class="string">'_REV|_EXP_\d+'</span>,<span class="string">''</span>);
+0058 protRxns = startsWith(smallEcModel.rxns,{<span class="string">'usage_prot_'</span>,<span class="string">'prot_pool_exchange'</span>});
+0059 keepRxns = ismember(trimRxns,smallGEM.rxns) | protRxns;
+0060 smallEcModel = removeReactions(smallEcModel,~keepRxns, true, true, true);
+0061 
+0062 <span class="comment">% Remove reactions from ec-structure</span>
+0063 ecRxnsToRemove = ~ismember(smallEcModel.ec.rxns,smallEcModel.rxns);
+0064 
+0065 smallEcModel.ec.rxns(ecRxnsToRemove)        = [];
+0066 smallEcModel.ec.kcat(ecRxnsToRemove)        = [];
+0067 smallEcModel.ec.source(ecRxnsToRemove)      = [];
+0068 smallEcModel.ec.notes(ecRxnsToRemove)       = [];
+0069 smallEcModel.ec.eccodes(ecRxnsToRemove)     = [];
+0070 smallEcModel.ec.rxnEnzMat(ecRxnsToRemove,:) = [];
+0071 <span class="keyword">end</span>
+0072</pre></div>
 <hr><address>Generated by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>
