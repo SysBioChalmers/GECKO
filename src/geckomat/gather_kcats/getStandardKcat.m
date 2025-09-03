@@ -178,8 +178,8 @@ if ~any(strcmp(model.mets,'prot_standard'))
         proteinStdMets.mets         = 'prot_standard';
         proteinStdMets.metNames     = proteinStdMets.mets;
         % Validate compartment
-        proteinStdMets.compartments = strcmp(model.compNames,params.enzyme_comp);
-        if ~any(proteinStdMets.compartments)
+        compartmentID = strcmp(model.compNames,params.enzyme_comp);
+        if ~any(compartmentID)
             error(['Compartment ' params.enzyme_comp ' (specified in params.enzyme_comp) '...
                 'cannot be found in model.compNames'])
         end
