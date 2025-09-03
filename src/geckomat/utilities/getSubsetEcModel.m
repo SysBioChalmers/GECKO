@@ -22,7 +22,8 @@ function smallEcModel = getSubsetEcModel(bigEcModel,smallGEM)
 % Usage: smallEcModel = getSubsetEcModel(smallGEM,bigEcModel)
 
 % Check if models were derived from the same starting GEM
-rxnsDiff = find(~ismember(smallGEM.rxns,bigEcModel.rxns));
+Rxn_format = regexprep(bigEcModel.rxns,'_REV|_EXP_\d+','');
+rxnsDiff = find(~ismember(smallGEM.rxns,Rxn_format));
 if numel(rxnsDiff) > 0
     dispEM(['While both models should have derived from the same starting ',...
             'GEM, the following reactions from smallGEM could not be found ',...
