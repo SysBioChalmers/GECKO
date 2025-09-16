@@ -31,14 +31,16 @@ end
 % Give the carbon source (c_source) input variable with the following
 % format: c_source  = 'D-glucose exchange'
 c_source = [c_source,' exchange'];
-%first block any uptake
-rxnidx = contains(model.rxnNames,'exchange (reversible)');
-model = setParam(model,'eq',model.rxns(rxnidx),0);
-
-[~,exchange]  = getExchangeRxns(model);
-[~,idx] = ismember('EX_protein_pool',model.rxnNames);
+% First block all uptake reactions
+[~,exchange]  = getExchangeRxns(model,'out');
+% But make exception for protein pool exchange
+[~,idx] = ismember('prot_pool_exchange',model.rxnNames);
 exchange = setdiff(exchange,idx);
-model.lb(exchange) = 0;
+model = setParam(model,'lb',exchange,0);
+% Also block uptake if reactions are defined in the opposite direction
+[~,exchange]  = getExchangeRxns(model,'in');
+model = setParam(model,'ub',exchange,0);
+
 pos = getComponentIndexes(model,c_source);
 
 
@@ -52,21 +54,22 @@ pos = getComponentIndexes(model,c_source);
 %     model.S(strcmp(model.mets,'s_0794'),strcmp(model.rxns,'r_1139')) = 0;
 % end
 %The media will define which rxns to fix:
-if strcmpi(media,'YEP')
-    N = 25;     %Aminoacids + Nucleotides
-elseif strcmpi(media,'MAA')
-    N = 21;     %Aminoacids
-elseif strcmpi(media,'MIN')
-    N = 1;      %Only the carbon source
-elseif strcmpi(media,'MIN+His')
-    N = 1;      %Only the carbon source
-    model = changeRxnBounds(model,'r_1893',-0.08,'l');	%Histidine exchange
-elseif strcmpi(media,'MIN+Arg')
-    N = 1;      %Only the carbon source
-    model = changeRxnBounds(model,'r_1879',-0.08,'l');	%L-arginine exchange
-elseif strcmpi(media,'MIN+Citrate')
-    N = 1;      %Only the carbon source
-    model = changeRxnBounds(model,'r_1687',-0.08,'l');	%citrate exchange   
+switch media
+    case 'YEP'
+        N = 25;     %Aminoacids + Nucleotides
+    case 'MAA'
+        N = 21;     %Aminoacids
+    case 'MIN'
+        N = 1;      %Only the carbon source
+    case 'MIN+His'
+        N = 1;      %Only the carbon source
+        model = setParam(model,'lb','r_1893',-0.08);	%Histidine exchange
+    case 'MIN+Arg'
+        N = 1;      %Only the carbon source
+        model = setParam(model,'lb','r_1879',-0.08);	%L-arginine exchange
+    case 'MIN+Citrate'
+        N = 1;      %Only the carbon source
+        model = setParam(model,'lb','r_1687',-0.08);	%citrate exchange   
 end
 %LB parameter (manually optimized for glucose on Min+AA):
 b = -0.08;
@@ -112,7 +115,6 @@ model = setParam(model, 'ub', 'r_2111', Inf); % growth
 
 % change aeerobic or anaerobic
 if strcmp(anox,'anaerobic')
-    1
     model = anaerobicModel_GECKO(model);
 end
 end
@@ -145,4 +147,5 @@ function pos = getComponentIndexes(model,c_source)
     pos(24) = find(strcmpi(model.rxnNames,'thymidine exchange'));
     pos(25) = find(strcmpi(model.rxnNames,'deoxycytidine exchange'));
     pos(26) = find(strcmpi(model.rxnNames,'D-glucose exchange'));
+    pos = transpose(pos);
 end

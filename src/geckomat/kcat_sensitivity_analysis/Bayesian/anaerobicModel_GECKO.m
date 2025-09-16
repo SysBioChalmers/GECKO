@@ -53,7 +53,7 @@ anaerobic = {'Sugiyamaella_lignohabitans';'Dekkera_bruxellensis';'yHMPu500003462
 species_intersect = intersect(species_onlyura9,anaerobic);
 
 if ismember(strain,species_intersect)
-    model = changeRxnBounds(model,'r_2090',-1000,'l');% uracil uptake
+    model = setParam(model,'lb','r_2090',-1000);% uracil uptake
 end
 end
 %4rd change: Blocked pathways for proper glycerol production
@@ -75,12 +75,13 @@ model.ub(strcmp(model.rxns,'r_0472_fwd')) = 0;
 %Block oxaloacetate-malate shuttle (not present in anaerobic conditions)
 idx = regexp(cellstr(model.rxns),'r_0713[\w*]rvs');
 idx = find(cellfun(@isempty,idx)==0);
-model = changeRxnBounds(model,model.rxns(idx),0,'b'); 
+
+model = setParam(model,'eq',model.rxns(idx),0); 
 model.lb(strcmp(model.rxns,'r_0713')) = 0; %Mithocondria % in case this one does not have any grRule
 
 idx = regexp(cellstr(model.rxns),'r_0714[\w*]rvs');
 idx = find(cellfun(@isempty,idx)==0);
-model = changeRxnBounds(model,model.rxns(idx),0,'b'); 
+model = setParam(model,'eq',model.rxns(idx),0); 
 model.lb(strcmp(model.rxns,'r_0714')) = 0; %Cytoplasm
 
 %Block glycerol dehydroginase (only acts in microaerobic conditions)
@@ -88,7 +89,7 @@ model.lb(strcmp(model.rxns,'r_0714')) = 0; %Cytoplasm
 
 %Block 2-oxoglutarate + L-glutamine -> 2 L-glutamate (alternative pathway)
 idx = find(startsWith(model.rxns,'r_0472_'));
-model = changeRxnBounds(model,model.rxns(idx),0,'b');
+model = setParam(model,'eq',model.rxns(idx),0);
 model.ub(strcmp(model.rxns,'r_0472')) = 0;
 
 end
