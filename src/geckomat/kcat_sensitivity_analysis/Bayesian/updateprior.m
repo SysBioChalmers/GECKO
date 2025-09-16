@@ -11,7 +11,7 @@ function [a,b] = updateprior(x)
 x = x{:};
 x(x == 0) = []; %remove zeros - they cannot be handled in the log transform below
 if length(x) == 0
-    %we don't have much choice in the two first cases - just set sigma to 1 - same as in the initial prior
+    %we do not have much choice in the two first cases - just set sigma to 1 - same as in the initial prior
     a = 0;
     b = 1;
 elseif length(x) == 1
@@ -22,5 +22,4 @@ else
     a = 10^(pd.mu)*3600;
     b = pd.sigma;
 end
-
 end
