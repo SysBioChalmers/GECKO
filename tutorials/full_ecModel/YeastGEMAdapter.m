@@ -37,13 +37,20 @@ classdef YeastGEMAdapter < ModelAdapter
             % should be located (all be located in the same compartment,
             % this does not interfere with them catalyzing reactions in
             % different compartments). Typically, cytoplasm is chosen.
-			obj.params.enzyme_comp = 'cytoplasm';			
+			obj.params.enzyme_comp = 'cytoplasm';		
+
+            % Parameters for Bayesian kcat fitting
+            obj.params.bayesian.samplesPerGen       = 150;
+            obj.params.bayesian.samplesFirstGen     = 200;
+            obj.params.bayesian.bestSamplesToKeep   = 25;
+            obj.params.bayesian.rmseThreshold       = 0.2;
+            obj.params.bayesian.maxGenerations      = 100;
+
 		end
 	
 		function [spont,spontRxnNames] = getSpontaneousReactions(obj,model)
 			spont = contains(model.rxnNames,'spontaneous');
 			spontRxnNames = model.rxnNames(spont);
 		end
-		
 	end
 end

@@ -268,10 +268,38 @@ ecModel = setParam(ecModel,'obj','r_4041',1);
 % First reset the protein pool constraint to a more realistic value,
 % reverting STEP 42.
 ecModel = setProtPoolSize(ecModel);
-[ecModel, tunedKcats] = sensitivityTuning(ecModel);
 
-% Inspect the tunedKcats structure in table format.
-struct2table(tunedKcats)
+% ===>  Since GECKO 3.3.0
+%       The Bayesian kcat tuning function as introduced in the DLKcat paper
+%       has been curated, and this is now selected as the default approach
+%       to kcat tuning for yeast-GEM. For legacy purposes, the code for
+%       step-wise sensitivity tuning is still shown here, but the results
+%       are not used. 
+        [ecModel_notUsed, tunedKcats] = sensitivityTuning(ecModel);
+
+        % Inspect the tunedKcats structure in table format.
+        struct2table(tunedKcats)
+
+% Bayesian kcat tuning
+% TODO: Describe the idea Bayesian kcat tuning
+% TODO: Describe the input files
+% 
+
+modelAdapter.params.bayesian.samplesPerIter     = 150: % Number of models with randomly selected kcat values to simulate in each iteration
+modelAdapter.params.bayesian.samplesFirstIter   = 200; % Number of models in first iteration (slightly higher as distribution is larger)
+modelAdapter.params.bayesian.bestSamplesToKeep  = 100; % Number of best-performing kcat samples to keep in each iteration
+modelAdapter.params.bayesian.maxTheta           = 0.5; % Threshold of theta-value for worst-performing kcat sample in the distribution.
+modelAdapter.params.bayesian.minThetaDiff       = 0.2; % Threshold of difference in theta-value between best- and worst-performing kcat samples in the distribution.
+
+
+% There are currently two types of simulations that are used to query the
+% performance of an ecModel. (a): comparison of exchange flux predictions
+% with experimental measurements; (b) comparison of maximum growth
+% prediction with experimental measurement. For (a), experimental
+% cultivation data is gathered in data/bayesianFluxData.tsv, which as many
+% experimental flux data as possible. For (b), experimental maximum growth
+% rates at different 
+
 
 % STEP 45-51 Curate kcat values based on kcat tuning
 % As example, the kcat of 5'-phosphoribosylformyl glycinamidine synthetase

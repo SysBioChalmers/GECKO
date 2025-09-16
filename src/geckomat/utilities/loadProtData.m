@@ -85,6 +85,7 @@ for i=1:sum(replPerCond)
     format = [format ' %f'];
 end
 if ~isstruct(protDataFile)
+    checkFileExistence(protDataFile);
     fID         = fopen(protDataFile);
     protDataRaw = textscan(fID,format,'Delimiter','\t','HeaderLines',1,'TreatAsEmpty',{'NA','na','NaN','#VALUE!'});
     uniprotIDs  = protDataRaw{1};

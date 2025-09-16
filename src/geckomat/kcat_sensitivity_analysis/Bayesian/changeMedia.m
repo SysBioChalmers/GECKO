@@ -121,31 +121,14 @@ end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function pos = getComponentIndexes(model,c_source)
-    pos(1)  = find(strcmpi(model.rxnNames,c_source));
-    pos(2)  = find(strcmpi(model.rxnNames,'L-alanine exchange'));
-    pos(3)  = find(strcmpi(model.rxnNames,'L-arginine exchange'));
-    pos(4)  = find(strcmpi(model.rxnNames,'L-asparagine exchange'));
-    pos(5)  = find(strcmpi(model.rxnNames,'L-aspartate exchange'));
-    pos(6)  = find(strcmpi(model.rxnNames,'L-cysteine exchange'));
-    pos(7)  = find(strcmpi(model.rxnNames,'L-glutamine exchange'));
-    pos(8)  = find(strcmpi(model.rxnNames,'L-glutamate exchange'));
-    pos(9)  = find(strcmpi(model.rxnNames,'L-glycine exchange'));
-    pos(10) = find(strcmpi(model.rxnNames,'L-histidine exchange'));
-    pos(11) = find(strcmpi(model.rxnNames,'L-isoleucine exchange'));
-    pos(12) = find(strcmpi(model.rxnNames,'L-leucine exchange'));
-    pos(13) = find(strcmpi(model.rxnNames,'L-lysine exchange'));
-    pos(14) = find(strcmpi(model.rxnNames,'L-methionine exchange'));
-    pos(15) = find(strcmpi(model.rxnNames,'L-phenylalanine exchange'));
-    pos(16) = find(strcmpi(model.rxnNames,'L-proline exchange'));
-    pos(17) = find(strcmpi(model.rxnNames,'L-serine exchange'));
-    pos(18) = find(strcmpi(model.rxnNames,'L-threonine exchange'));
-    pos(19) = find(strcmpi(model.rxnNames,'L-tryptophan exchange'));
-    pos(20) = find(strcmpi(model.rxnNames,'L-tyrosine exchange'));
-    pos(21) = find(strcmpi(model.rxnNames,'L-valine exchange'));
-    pos(22) = find(strcmpi(model.rxnNames,'2''-deoxyadenosine exchange'));
-    pos(23) = find(strcmpi(model.rxnNames,'2''-deoxyguanosine exchange'));
-    pos(24) = find(strcmpi(model.rxnNames,'thymidine exchange'));
-    pos(25) = find(strcmpi(model.rxnNames,'deoxycytidine exchange'));
-    pos(26) = find(strcmpi(model.rxnNames,'D-glucose exchange'));
-    pos = transpose(pos);
+    componentList = {c_source,'L-alanine exchange','L-arginine exchange',...
+        'L-asparagine exchange','L-aspartate exchange','L-cysteine exchange',...
+        'L-glutamine exchange','L-glutamate exchange','L-glycine exchange',...
+        'L-histidine exchange','L-isoleucine exchange','L-leucine exchange',...
+        'L-lysine exchange','L-methionine exchange','L-phenylalanine exchange',...
+        'L-proline exchange','L-serine exchange','L-threonine exchange',...
+        'L-tryptophan exchange','L-tyrosine exchange','L-valine exchange',...
+        '2''-deoxyadenosine exchange','2''-deoxyguanosine exchange',...
+        'thymidine exchange','deoxycytidine exchange','D-glucose exchange'};
+    [~,pos] = ismember(componentList,model.rxnNames);
 end
