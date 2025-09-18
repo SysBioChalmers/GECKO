@@ -40,8 +40,8 @@ classdef YeastGEMAdapter < ModelAdapter
 			obj.params.enzyme_comp = 'cytoplasm';		
 
             % Parameters for Bayesian kcat fitting
-            obj.params.bayesian.samplesPerGen       = 150;
-            obj.params.bayesian.samplesFirstGen     = 200;
+            obj.params.bayesian.samplesPerGen       = 100;
+            obj.params.bayesian.samplesFirstGen     = 100;
             obj.params.bayesian.bestSamplesToKeep   = 25;
             obj.params.bayesian.rmseThreshold       = 0.2;
             obj.params.bayesian.maxGenerations      = 100;

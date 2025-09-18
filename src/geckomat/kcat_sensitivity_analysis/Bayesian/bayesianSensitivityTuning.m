@@ -35,7 +35,7 @@ basePath = params.path;
 % zeroFlux = data.zeroFlux; % List of exchange reactions that should not carry any flux, as these metabolites are widely assumed not to be excreted
 % maxGrate = data.maxGrate; % Maximum growth rates
 
-fluxData = table2cell(readtable(fullfile(basePath,'data','BayesianGrowthRates.csv')));
+fluxData = table2cell(readtable(fullfile(basePath,'data','BayesianGrowthRatesOverFlow.csv')));
 maxGrate = table2cell(readtable(fullfile(basePath,'data','BayesianMaxGrowth.csv')));
 zeroFlux = table2cell(readtable(fullfile(basePath,'data','BayesianRxn2Block.csv'), 'Delimiter', ','));
 
@@ -61,6 +61,7 @@ kcatTop     = kcats;
 
 rmseTrace   = rmse;
 kcatTrace   = kcats;
+varTrace    = kcatVar;
 
 PB1 = ProgressBar2(maxGenerations,['Run through ' num2str(maxGenerations) ' generations'],'gui');
 
@@ -71,16 +72,16 @@ while rmse > rmseThreshold
         count(PB1)
         fprintf('Running iteration %d of %d. ', generation, maxGenerations)
 
-        prevRmse    = rmseTop;
-        prevKcat    = kcatTop;
-        newRmse     = [];
-
         % First generation take more samples
         if generation == 1
             numberOfSamples = samplesFirstGen;
         else
             numberOfSamples = samplesPerGen;
         end
+
+        prevRmse    = rmseTop;
+        prevKcat    = kcatTop;
+        newRmse     = zeros(numberOfSamples,1);
 
         % generate sample of kcats
         randomKcats = arrayfun(@getrSample,kcats,kcatVar,repmat(numberOfSamples,length(kcats),1),'UniformOutput',false);
@@ -96,6 +97,12 @@ while rmse > rmseThreshold
             count(PB2)
         end
 
+        % Leave out zero rmse results: model was unsolvable
+        zeroRmse                = newRmse == 0;
+        newRmse(zeroRmse)       = [];
+        randomKcats(:,zeroRmse) = [];
+
+        % Combine with results from previous generation
         rmse = [newRmse,prevRmse];
         kcat = [randomKcats,prevKcat];
 
@@ -110,15 +117,15 @@ while rmse > rmseThreshold
         kcats       = a';
         kcatVar     = b';
 
-        ecModelIter = ecModel;
-        ecModelIter.ec.kcat = kcats;
-        ecModelIter = applyKcatConstraints(ecModelIter);
-        rmse        = abc_max(ecModelIter,fluxData,maxGrate,zeroFlux);
-
-        rmseTrace   = [rmseTrace, rmse];
+        % Keep track of 
+        rmseTrace   = [rmseTrace, rmseTop(1)];
         kcatTrace   = [kcatTrace, kcats];
+        varTrace    = [varTrace, kcatVar];
 
-        fprintf('Posterior RMSE: %.2f (based on kcat distribution with RMSE: %.2f - %.2f).\n',rmse, rmseTop(1), rmseTop(end))
+        ecModel.ec.kcat = kcatTop(:,1);
+        ecModel = applyKcatConstraints(ecModel);
+
+        fprintf('Average RMSE of top 25 models: %.2f / RMSE of top model: %.2f.\n',mean(rmseTop), rmseTop(1))
         
         generation  = generation + 1;
     else
@@ -126,6 +133,7 @@ while rmse > rmseThreshold
         break
     end
 end
-
-fprintf('Final RMSE: %.2f.\n',rmse)
+ecModel.ec.kcat = kcatTop(:,1);
+ecModel = applyKcatConstraints(ecModel);
+fprintf('Final RMSE: %.2f.\n',rmseTop(1))
 end
