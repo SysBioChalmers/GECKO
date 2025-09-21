@@ -35,7 +35,7 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function rmse = rmsecal(ecModel,data,constrain,rxn2block)
 
-for i = 1:length(data(:,1))
+parfor i = 1:length(data(:,1))
 
     exp = cell2mat(data(i,3:11)); % u sub ace eth gly pyr ethyl_acetate co2 o2
     exp = (exp.*[1,-1,1,1,1,1,1,1,-1])';
@@ -68,19 +68,18 @@ for i = 1:length(data(:,1))
         end
     end
 
-     sol_tmp = solveLP(model_tmp);
-    if checkSolution(sol_tmp)
-        sol(:,i) = sol_tmp.x;
+    sol = solveLP(model_tmp);
+    if checkSolution(sol)
 
         tmp = ~isnan(exp);
         excarbon = ecModel.excarbon(idx);
         excarbon(excarbon == 0) = 1;
         exp_tmp = exp(tmp).*excarbon(tmp);
-        simulated_tmp = sol(idx(tmp),i).*excarbon(tmp); % normalize the growth rate issue by factor 10
+        simulated_tmp = sol.x(idx(tmp)).*excarbon(tmp); % normalize the growth rate issue by factor 10
 
         % all zeros for blocked exchange mets exchange
         rxnblockidx = ismember(model_tmp.rxns,setdiff(rxn2block,model_tmp.rxns(idx(2))));
-        simulated_block = sol(rxnblockidx,i).* ecModel.excarbon(rxnblockidx); %
+        simulated_block = sol.x(rxnblockidx).* ecModel.excarbon(rxnblockidx); %
         simulated_block = simulated_block(simulated_block~=0);
         exp_block = zeros(numel(simulated_block),1);
         if constrain
@@ -99,8 +98,4 @@ for i = 1:length(data(:,1))
 end
 rmse_tmp(isnan(rmse_tmp)) = []; %we just skip any case without solution, they are pretty rare, but exist
 rmse = sum(rmse_tmp)/length(data(:,1));
-
-    function err = mse(y,x)
-        err = (norm(x(:)-y(:),2).^2)/numel(x);
-    end
 end

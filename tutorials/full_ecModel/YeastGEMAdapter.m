@@ -41,10 +41,10 @@ classdef YeastGEMAdapter < ModelAdapter
 
             % Parameters for Bayesian kcat fitting
             obj.params.bayesian.samplesPerGen       = 100;
-            obj.params.bayesian.samplesFirstGen     = 100;
-            obj.params.bayesian.bestSamplesToKeep   = 25;
+            obj.params.bayesian.samplesFirstGen     = 200;
+            obj.params.bayesian.bestSamplesToKeep   = 80;
             obj.params.bayesian.rmseThreshold       = 0.2;
-            obj.params.bayesian.maxGenerations      = 100;
+            obj.params.bayesian.maxGenerations      = 150;
 
 		end
 	
