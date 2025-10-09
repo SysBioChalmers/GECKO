@@ -45,6 +45,9 @@ for i=1:length(data{1})
     row      = row(1:end);
     fluxDataRaw = [fluxDataRaw; row]; 
 end
+if size(fluxDataRaw,2) == 0
+    error('The input file %s is likely not tab-delimited.', fluxDataFile)
+end
 %Extract observed byProduct names from file
 exchRxns = fluxDataRaw(1,4:end);
 exchMets = strtrim(regexprep(exchRxns,'(.*)\(.*\)$','$1'));
