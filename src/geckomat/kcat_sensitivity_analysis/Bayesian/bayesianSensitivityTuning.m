@@ -1,4 +1,4 @@
-function [ecModel, rmseTrace, kcatTrace, varTrace] = bayesianSensitivityTuning(ecModel,modelAdapter)
+function [ecModel, rmseTrace, kcatTrace, varTrace] = bayesianSensitivityTuning(ecModel,kcatVar,modelAdapter)
 % bayesianSensitivityTuning
 %   Modifies kcats to better fit experimental data. Currently only works with 
 %   light models.
@@ -13,6 +13,9 @@ function [ecModel, rmseTrace, kcatTrace, varTrace] = bayesianSensitivityTuning(e
 % Output:
 %   model           ecModel with new kcats, not applied.
 %
+if nargin < 2 || isempty(kcatVar)
+    kcatVar     = ones(length(ecModel.ec.kcat),1);
+end
 
 if nargin < 3 || isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefault();
@@ -33,18 +36,16 @@ basePath = params.path;
 % zeroFlux = data.zeroFlux; % List of exchange reactions that should not carry any flux, as these metabolites are widely assumed not to be excreted
 % maxGrate = data.maxGrate; % Maximum growth rates
 
-fluxData = loadFluxData(fullfile(basePath,'data','BayesianGrowthRates.tsv'));
-maxGrate = table2cell(readtable(fullfile(basePath,'data','BayesianMaxGrowth.csv')));
-zeroFlux = table2cell(readtable(fullfile(basePath,'data','BayesianRxn2Block.csv'), 'Delimiter', ','));
+fluxData = loadFluxData(fullfile(basePath,'data','bayesianFluxData.tsv'));
+fluxData.biomass = modelAdapter.params.bioRxn;
+maxGrate = loadFluxData(fullfile(basePath,'data','bayesianMaxGrowth.tsv'));
+maxGrate.biomass = modelAdapter.params.bioRxn;
+zeroFlux = table2cell(readtable(fullfile(basePath,'data','bayesianZeroExch.tsv'), 'Delimiter', '\t', 'FileType','delimitedtext'));
 
 % get carbonnum for each exchange rxn to further calculation of error
 if ~isfield(ecModel,'excarbon')
     ecModel = addCarbonNum(ecModel);
-end
-
-% get carbonnum for each exchange rxn to further calculation of error
-if ~isfield(ecModel,'excarbon')
-    ecModel = addCarbonNum(ecModel);
+    ecModel.excarbon(ecModel.excarbon == 0) = 1;
 end
 
 %these will be updated in the loop below

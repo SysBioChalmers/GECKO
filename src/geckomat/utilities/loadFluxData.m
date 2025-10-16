@@ -58,7 +58,7 @@ fluxData.conds      = fluxDataRaw(2:end,1);
 fluxData.Ptot       = str2double(fluxDataRaw(2:end,2));
 fluxData.grRate     = str2double(fluxDataRaw(2:end,3));
 fluxData.exchFluxes = str2double(fluxDataRaw(2:end,4:end));
-fluxData.exchFluxes(isnan(fluxData.exchFluxes)) = 0;
+%fluxData.exchFluxes(isnan(fluxData.exchFluxes)) = 0;
 fluxData.exchMets   = exchMets;
 fluxData.exchRxnIDs = exchRxns;
 end

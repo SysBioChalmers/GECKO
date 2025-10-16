@@ -35,67 +35,57 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function rmse = rmsecal(ecModel,data,constrain,rxn2block)
 
-parfor i = 1:length(data(:,1))
+rmseList = zeros(length(data.conds),1);
+parfor i = 1:length(data.conds)
 
-    exp = cell2mat(data(i,3:11)); % u sub ace eth gly pyr ethyl_acetate co2 o2
-    exp = (exp.*[1,-1,1,1,1,1,1,1,-1])';
-    ex_mets = {'growth',[data{i,2},' exchange'],'acetate exchange','ethanol exchange','glycerol exchange','pyruvate exchange','ethyl acetate exchange','carbon dioxide exchange','oxygen exchange'};
-    [~,idx] = ismember(ex_mets,ecModel.rxnNames);
-    model_tmp = ecModel;
+    % Set carbon source
+    [~,exchIdx] = ismember(data.conds,data.exchMets);
+    % Set all other carbon sources to zero
+    model_tmp = setParam(ecModel,'lb',data.exchRxnIDs(unique(exchIdx)),0);
+    % Only allow condition-specific carbon source
+    if constrain % If RMSE is calculated from flux data, then constrain carbon uptake
+        model_tmp = setParam(model_tmp,'lb',data.exchRxnIDs(exchIdx(i)),data.exchFluxes(i));
+    else % If RMSE is calculated from max growth, then do not constrain carbon uptake
+        model_tmp = setParam(model_tmp,'lb',data.exchRxnIDs(exchIdx(i)),-1000);
+    end
 
-    model_tmp = changeMedia(model_tmp,'D-glucose',data{i,16});%TODO: These are currently hard-coded for yeast-GEM, add to adapter
-    %Stop import/export of acetate and acetaldehyde
-    model_tmp = setParam(model_tmp,'eq','r_1634',0); %TODO: These are currently hard-coded for yeast-GEM, add to adapter
-    model_tmp = setParam(model_tmp,'eq','r_1631',0); %TODO: These are currently hard-coded for yeast-GEM, add to adapter
-
-    if strcmp(data(i,14),'anaerobic') ||strcmp(data(i,14),'limited')
+    % Make anaerobic if relevant
+    o2Flux = data.exchFluxes(i,strcmp('oxygen',data.exchMets));
+    if o2Flux == 0
         model_tmp = anaerobicModel_GECKO(model_tmp);
     end
-    if strcmp(data(i,14),'limited')
-        model_tmp.lb(strcmp(model_tmp.rxnNames,'oxygen exchange')) = -5;%TODO: Currently hard-coded for yeast
-    end
-    if ~constrain
-        %No export of glucose
-        model_tmp.lb(strcmp(model_tmp.rxns,'r_1714')) = 0; %TODO: Currently hard-coded for yeast
-        model_tmp.lb(strcmp(model_tmp.rxns,ecModel.rxns(idx(2)))) = -1000; % not constrain the substrate usage
-    else
-        %No export of glucose
-        model_tmp.lb(strcmp(model_tmp.rxns,'r_1714')) = 0;%TODO: Currently hard-coded for yeast
-        if isnan(exp(2))
-            model_tmp.lb(idx(2)) = -1000;
-        else
-            model_tmp.lb(idx(2)) = exp(2);
-        end
-    end
-
+    
+    
     sol = solveLP(model_tmp);
     if checkSolution(sol)
+        bioRxn          = getIndexes(model_tmp,data.biomass,'rxns');
+        % Increase growth rates 10-fold to make them more important for
+        % RMSE calculation
+        bioMeas         = data.grRate(i) * 10;
+        bioSim          = sol.x(bioRxn) * 10;
 
-        tmp = ~isnan(exp);
-        excarbon = ecModel.excarbon(idx);
-        excarbon(excarbon == 0) = 1;
-        exp_tmp = exp(tmp).*excarbon(tmp);
-        simulated_tmp = sol.x(idx(tmp)).*excarbon(tmp); % normalize the growth rate issue by factor 10
-
-        % all zeros for blocked exchange mets exchange
-        rxnblockidx = ismember(model_tmp.rxns,setdiff(rxn2block,model_tmp.rxns(idx(2))));
-        simulated_block = sol.x(rxnblockidx).* ecModel.excarbon(rxnblockidx); %
-        simulated_block = simulated_block(simulated_block~=0);
-        exp_block = zeros(numel(simulated_block),1);
         if constrain
-            rmse_tmp(i) = sqrt(mse([exp_tmp;exp_block], [simulated_tmp;simulated_block]));
-        else
-            if length(exp_tmp) >= 2
-                rmse_tmp(i) = sqrt(mse(exp_tmp(1:2), simulated_tmp(1:2)));
-            else
-                rmse_tmp(i) = sqrt(mse(exp_tmp(1), simulated_tmp(1)));
-            end
+            fluxToCheck     = ~isnan(data.exchFluxes(i,:));
+            fluxRxnIdx      = getIndexes(model_tmp,data.exchRxnIDs(fluxToCheck),'rxns');
+            cNormMeasFlux   = model_tmp.excarbon(fluxRxnIdx) .* transpose(data.exchFluxes(i,fluxToCheck));
+            cNormSimFlux    = model_tmp.excarbon(fluxRxnIdx) .* sol.x(fluxRxnIdx);
 
+            % Make sure that selected exchange reactions have zero flux
+            blockRxnIdx     = getIndexes(model_tmp,rxn2block,'rxns');
+            blockSim        = sol.x(blockRxnIdx) .* model_tmp.excarbon(blockRxnIdx);
+            blockMeas       = zeros(numel(blockSim),1);
+
+            measured    = [cNormMeasFlux; bioMeas; blockMeas];
+            simulated   = [cNormSimFlux; bioSim; blockSim];
+        else
+            measured    = bioMeas;
+            simulated   = bioSim;
         end
+        rmseList(i) = sqrt(mse(measured,simulated));
     else
-        rmse_tmp(i) = NaN;
+        rmseList(i) = NaN;
     end
 end
-rmse_tmp(isnan(rmse_tmp)) = []; %we just skip any case without solution, they are pretty rare, but exist
-rmse = sum(rmse_tmp)/length(data(:,1));
+rmseList(isnan(rmseList)) = []; %we just skip any case without solution, they are pretty rare, but exist
+rmse = mean(rmseList);
 end
