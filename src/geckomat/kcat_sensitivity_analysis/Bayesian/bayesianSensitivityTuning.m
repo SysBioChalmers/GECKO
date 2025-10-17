@@ -50,7 +50,7 @@ end
 
 %these will be updated in the loop below
 kcats       = ecModel.ec.kcat;
-kcatVar     = ones(length(ecModel.ec.kcat),1);
+%kcatVar     = ones(length(ecModel.ec.kcat),1);
 
 rmse        = abc_max(ecModel,fluxData,maxGrate,zeroFlux);
 fprintf('RMSE with prior kcats: %.2f.\n',rmse)
@@ -63,6 +63,9 @@ kcatTrace   = kcats;
 varTrace    = kcatVar;
 
 PB1 = ProgressBar2(maxGenerations,['Run through ' num2str(maxGenerations) ' generations'],'gui');
+
+% Switch off default carbon source, will be set in each sample
+tmpModel = setParam(ecModel,'lb',modelAdapter.params.c_source,0);
 
 generation = 1;
 while rmse > rmseThreshold
@@ -89,7 +92,7 @@ while rmse > rmseThreshold
         % simulate and measure RMSE
         PB2 = ProgressBar2(numberOfSamples,['Simulate ' num2str(numberOfSamples) ' models with random kcats'],'gui');
         parfor j = 1:numberOfSamples
-            ecModelIter         = ecModel;
+            ecModelIter         = tmpModel;
             ecModelIter.ec.kcat = randomKcats(:,j);
             ecModelIter         = applyKcatConstraints(ecModelIter);
             newRmse(j)          = abc_max(ecModelIter,fluxData,maxGrate,zeroFlux);
@@ -121,10 +124,10 @@ while rmse > rmseThreshold
         kcatTrace   = [kcatTrace, kcats];
         varTrace    = [varTrace, kcatVar];
 
-        ecModel.ec.kcat = kcatTop(:,1);
-        ecModel = applyKcatConstraints(ecModel);
+        tmpModel.ec.kcat = kcatTop(:,1);
+        tmpModel = applyKcatConstraints(tmpModel);
 
-        fprintf('Average RMSE of top 25 models: %.2f / RMSE of top model: %.2f.\n',mean(rmseTop), rmseTop(1))
+        fprintf('Average RMSE of top %d models: %.2f / RMSE of top model: %.2f.\n',bestSamplesToKeep,mean(rmseTop), rmseTop(1))
         
         generation  = generation + 1;
     else

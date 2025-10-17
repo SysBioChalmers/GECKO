@@ -43,7 +43,7 @@ This function calls:
 </ul>
 This function is called by:
 <ul style="list-style-image:url(../../../../matlabicon.gif)">
-<li><a href="abc_max.html" class="code" title="function [rmse_final,exp,simulated,growthdata,max_growth]=abc_max(ecModel,kcat_random_all,growthdata,max_growth,proc,sample_generation,j,rxn2block)">abc_max</a>	setProtPoolSize</li><li><a href="changeMedia.html" class="code" title="function [model,pos] = changeMedia(model,c_source,media,anox,flux)">changeMedia</a>	changeMedia</li></ul>
+<li><a href="abc_max.html" class="code" title="function rmse = abc_max(ecModel,fluxData,maxGrowth,rxn2block)">abc_max</a>	abc_max</li></ul>
 <!-- crossreference -->
 
 <h2><a name="_subfunctions"></a>SUBFUNCTIONS <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
@@ -106,7 +106,7 @@ This function is called by:
 0053 species_intersect = intersect(species_onlyura9,anaerobic);
 0054 
 0055 <span class="keyword">if</span> ismember(strain,species_intersect)
-0056     model = changeRxnBounds(model,<span class="string">'r_2090'</span>,-1000,<span class="string">'l'</span>);<span class="comment">% uracil uptake</span>
+0056     model = setParam(model,<span class="string">'lb'</span>,<span class="string">'r_2090'</span>,-1000);<span class="comment">% uracil uptake</span>
 0057 <span class="keyword">end</span>
 0058 <span class="keyword">end</span>
 0059 <span class="comment">%4rd change: Blocked pathways for proper glycerol production</span>
@@ -128,47 +128,48 @@ This function is called by:
 0075 <span class="comment">%Block oxaloacetate-malate shuttle (not present in anaerobic conditions)</span>
 0076 idx = regexp(cellstr(model.rxns),<span class="string">'r_0713[\w*]rvs'</span>);
 0077 idx = find(cellfun(@isempty,idx)==0);
-0078 model = changeRxnBounds(model,model.rxns(idx),0,<span class="string">'b'</span>); 
-0079 model.lb(strcmp(model.rxns,<span class="string">'r_0713'</span>)) = 0; <span class="comment">%Mithocondria % in case this one does not have any grRule</span>
-0080 
-0081 idx = regexp(cellstr(model.rxns),<span class="string">'r_0714[\w*]rvs'</span>);
-0082 idx = find(cellfun(@isempty,idx)==0);
-0083 model = changeRxnBounds(model,model.rxns(idx),0,<span class="string">'b'</span>); 
-0084 model.lb(strcmp(model.rxns,<span class="string">'r_0714'</span>)) = 0; <span class="comment">%Cytoplasm</span>
-0085 
-0086 <span class="comment">%Block glycerol dehydroginase (only acts in microaerobic conditions)</span>
-0087 <span class="comment">% model.ub(strcmp(model.rxns,'r_0487')) = 0; is blocked in blockrxns</span>
-0088 
-0089 <span class="comment">%Block 2-oxoglutarate + L-glutamine -&gt; 2 L-glutamate (alternative pathway)</span>
-0090 idx = find(startsWith(model.rxns,<span class="string">'r_0472_'</span>));
-0091 model = changeRxnBounds(model,model.rxns(idx),0,<span class="string">'b'</span>);
-0092 model.ub(strcmp(model.rxns,<span class="string">'r_0472'</span>)) = 0;
-0093 
-0094 <span class="keyword">end</span>
-0095 
-0096 <span class="comment">%%</span>
-0097 
-0098 <a name="_sub1" href="#_subfunctions" class="code">function model = changeGAM(model,GAM,NGAM)</a>
-0099 
-0100 bioPos = strcmp(model.rxnNames,<span class="string">'biomass pseudoreaction'</span>);
-0101 <span class="keyword">for</span> i = 1:length(model.mets)
-0102     S_ix  = model.S(i,bioPos);
-0103     isGAM = sum(strcmp({<span class="string">'ATP [cytoplasm]'</span>,<span class="string">'ADP [cytoplasm]'</span>,<span class="string">'H2O [cytoplasm]'</span>, <span class="keyword">...</span>
-0104         <span class="string">'H+ [cytoplasm]'</span>,<span class="string">'phosphate [cytoplasm]'</span>},model.metNames{i})) == 1;
-0105     <span class="keyword">if</span> S_ix ~= 0 &amp;&amp; isGAM
-0106         model.S(i,bioPos) = sign(S_ix)*GAM;
-0107     <span class="keyword">end</span>
-0108 <span class="keyword">end</span>
-0109 
-0110 <span class="keyword">if</span> nargin &gt;1
-0111     pos = strcmp(model.rxnNames,<span class="string">'non-growth associated maintenance reaction'</span>);<span class="comment">%NGAM</span>
-0112     <span class="comment">%model = setParam(model,'eq',model.rxns(pos),NGAM);% set both lb and ub to be mu</span>
-0113     model.lb(pos) = NGAM;
-0114     model.ub(pos) = NGAM;
-0115     
-0116 <span class="keyword">end</span>
-0117 
-0118 <span class="keyword">end</span></pre></div>
+0078 
+0079 model = setParam(model,<span class="string">'eq'</span>,model.rxns(idx),0); 
+0080 model.lb(strcmp(model.rxns,<span class="string">'r_0713'</span>)) = 0; <span class="comment">%Mithocondria % in case this one does not have any grRule</span>
+0081 
+0082 idx = regexp(cellstr(model.rxns),<span class="string">'r_0714[\w*]rvs'</span>);
+0083 idx = find(cellfun(@isempty,idx)==0);
+0084 model = setParam(model,<span class="string">'eq'</span>,model.rxns(idx),0); 
+0085 model.lb(strcmp(model.rxns,<span class="string">'r_0714'</span>)) = 0; <span class="comment">%Cytoplasm</span>
+0086 
+0087 <span class="comment">%Block glycerol dehydroginase (only acts in microaerobic conditions)</span>
+0088 <span class="comment">% model.ub(strcmp(model.rxns,'r_0487')) = 0; is blocked in blockrxns</span>
+0089 
+0090 <span class="comment">%Block 2-oxoglutarate + L-glutamine -&gt; 2 L-glutamate (alternative pathway)</span>
+0091 idx = find(startsWith(model.rxns,<span class="string">'r_0472_'</span>));
+0092 model = setParam(model,<span class="string">'eq'</span>,model.rxns(idx),0);
+0093 model.ub(strcmp(model.rxns,<span class="string">'r_0472'</span>)) = 0;
+0094 
+0095 <span class="keyword">end</span>
+0096 
+0097 <span class="comment">%%</span>
+0098 
+0099 <a name="_sub1" href="#_subfunctions" class="code">function model = changeGAM(model,GAM,NGAM)</a>
+0100 
+0101 bioPos = strcmp(model.rxnNames,<span class="string">'biomass pseudoreaction'</span>);
+0102 <span class="keyword">for</span> i = 1:length(model.mets)
+0103     S_ix  = model.S(i,bioPos);
+0104     isGAM = sum(strcmp({<span class="string">'ATP [cytoplasm]'</span>,<span class="string">'ADP [cytoplasm]'</span>,<span class="string">'H2O [cytoplasm]'</span>, <span class="keyword">...</span>
+0105         <span class="string">'H+ [cytoplasm]'</span>,<span class="string">'phosphate [cytoplasm]'</span>},model.metNames{i})) == 1;
+0106     <span class="keyword">if</span> S_ix ~= 0 &amp;&amp; isGAM
+0107         model.S(i,bioPos) = sign(S_ix)*GAM;
+0108     <span class="keyword">end</span>
+0109 <span class="keyword">end</span>
+0110 
+0111 <span class="keyword">if</span> nargin &gt;1
+0112     pos = strcmp(model.rxnNames,<span class="string">'non-growth associated maintenance reaction'</span>);<span class="comment">%NGAM</span>
+0113     <span class="comment">%model = setParam(model,'eq',model.rxns(pos),NGAM);% set both lb and ub to be mu</span>
+0114     model.lb(pos) = NGAM;
+0115     model.ub(pos) = NGAM;
+0116     
+0117 <span class="keyword">end</span>
+0118 
+0119 <span class="keyword">end</span></pre></div>
 <hr><address>Generated by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

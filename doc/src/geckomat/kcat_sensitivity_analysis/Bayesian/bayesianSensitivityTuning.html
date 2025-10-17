@@ -24,7 +24,7 @@
 <div class="box"><strong>bayesianSensitivityTuning</strong></div>
 
 <h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
-<div class="box"><strong>function ecModel = bayesianSensitivityTuning(ecModel,modelAdapter,maxIterations) </strong></div>
+<div class="box"><strong>function [ecModel, rmseTrace, kcatTrace, varTrace] = bayesianSensitivityTuning(ecModel,kcatVar,modelAdapter) </strong></div>
 
 <h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
 <div class="fragment"><pre class="comment"> bayesianSensitivityTuning
@@ -37,7 +37,6 @@
                    earlier GECKO versions (pre 3.0).
    modelAdapter    a loaded model adapter (Optional, will otherwise use the
                    default model adapter).
-   maxIterations   The maximum number of iterations to run (Optional, default 150)
 
  Output:
    model           ecModel with new kcats, not applied.</pre></div>
@@ -46,7 +45,7 @@
 <h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
 This function calls:
 <ul style="list-style-image:url(../../../../matlabicon.gif)">
-<li><a href="abc_max.html" class="code" title="function [rmse_final,exp,simulated,growthdata,max_growth]=abc_max(ecModel,kcat_random_all,growthdata,max_growth,proc,sample_generation,j,rxn2block)">abc_max</a>	setProtPoolSize</li><li><a href="getrSample.html" class="code" title="function r = getrSample(mu,sigma,step,method)">getrSample</a>	getrSample</li><li><a href="updateprior.html" class="code" title="function [a,b] = updateprior(x)">updateprior</a>	updateprior</li></ul>
+<li><a href="abc_max.html" class="code" title="function rmse = abc_max(ecModel,fluxData,maxGrowth,rxn2block)">abc_max</a>	abc_max</li><li><a href="addCarbonNum.html" class="code" title="function model = addCarbonNum(model)">addCarbonNum</a>	addCarbonNum</li><li><a href="getrSample.html" class="code" title="function r = getrSample(mu,sigma,step,method)">getrSample</a>	getrSample</li><li><a href="updateprior.html" class="code" title="function [a,b] = updateprior(x)">updateprior</a>	updateprior</li></ul>
 This function is called by:
 <ul style="list-style-image:url(../../../../matlabicon.gif)">
 </ul>
@@ -55,7 +54,7 @@ This function is called by:
 
 
 <h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
-<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function ecModel = bayesianSensitivityTuning(ecModel,modelAdapter,maxIterations)</a>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function [ecModel, rmseTrace, kcatTrace, varTrace] = bayesianSensitivityTuning(ecModel,kcatVar,modelAdapter)</a>
 0002 <span class="comment">% bayesianSensitivityTuning</span>
 0003 <span class="comment">%   Modifies kcats to better fit experimental data. Currently only works with</span>
 0004 <span class="comment">%   light models.</span>
@@ -66,103 +65,136 @@ This function is called by:
 0009 <span class="comment">%                   earlier GECKO versions (pre 3.0).</span>
 0010 <span class="comment">%   modelAdapter    a loaded model adapter (Optional, will otherwise use the</span>
 0011 <span class="comment">%                   default model adapter).</span>
-0012 <span class="comment">%   maxIterations   The maximum number of iterations to run (Optional, default 150)</span>
-0013 <span class="comment">%</span>
-0014 <span class="comment">% Output:</span>
-0015 <span class="comment">%   model           ecModel with new kcats, not applied.</span>
-0016 <span class="comment">%</span>
-0017 
-0018 <span class="keyword">if</span> nargin &lt; 3
-0019     maxIterations = 150;
-0020 <span class="keyword">end</span>
-0021 
-0022 <span class="keyword">if</span> nargin &lt; 2 || isempty(modelAdapter)
-0023     modelAdapter = ModelAdapterManager.getDefault();
-0024     <span class="keyword">if</span> isempty(modelAdapter)
-0025         error(<span class="string">'Either send in a modelAdapter or set the default ecModel adapter in the ModelAdapterManager.'</span>)
-0026     <span class="keyword">end</span>
-0027 <span class="keyword">end</span>
-0028 
-0029 basePath = modelAdapter.getParameters().path;
-0030 
-0031 growthdata = table2cell(readtable(fullfile(basePath,<span class="string">'data'</span>,<span class="string">'BayesianGrowthRates.csv'</span>)));
-0032 max_growth = table2cell(readtable(fullfile(basePath,<span class="string">'data'</span>,<span class="string">'BayesianMaxGrowth.csv'</span>)));
-0033 rxn2block = table2cell(readtable(fullfile(basePath,<span class="string">'data'</span>,<span class="string">'BayesianRxn2Block.csv'</span>), <span class="string">'Delimiter'</span>, <span class="string">','</span>));
+0012 <span class="comment">%</span>
+0013 <span class="comment">% Output:</span>
+0014 <span class="comment">%   model           ecModel with new kcats, not applied.</span>
+0015 <span class="comment">%</span>
+0016 <span class="keyword">if</span> nargin &lt; 2 || isempty(kcatVar)
+0017     kcatVar     = ones(length(ecModel.ec.kcat),1);
+0018 <span class="keyword">end</span>
+0019 
+0020 <span class="keyword">if</span> nargin &lt; 3 || isempty(modelAdapter)
+0021     modelAdapter = ModelAdapterManager.getDefault();
+0022     <span class="keyword">if</span> isempty(modelAdapter)
+0023         error(<span class="string">'Either send in a modelAdapter or set the default ecModel adapter in the ModelAdapterManager.'</span>)
+0024     <span class="keyword">end</span>
+0025 <span class="keyword">end</span>
+0026 
+0027 params = modelAdapter.params;
+0028 samplesPerGen       = params.bayesian.samplesPerGen; <span class="comment">% Number of models in each generation</span>
+0029 samplesFirstGen     = params.bayesian.samplesFirstGen; <span class="comment">% Number of models in first generation</span>
+0030 bestSamplesToKeep   = params.bayesian.bestSamplesToKeep; <span class="comment">% Number of best-performing kcat samples to define posterior kcats</span>
+0031 rmseThreshold       = params.bayesian.rmseThreshold; <span class="comment">% RMSE threshold to halt and output best posterior kcats</span>
+0032 maxGenerations      = params.bayesian.maxGenerations; <span class="comment">% Maximum number of generations before returning best posterior kcats</span>
+0033 basePath = params.path;
 0034 
-0035 proc = 18;
-0036 numPerGeneration = 126;
-0037 rejectnum = 0.2;
+0035 <span class="comment">% fluxData = data.fluxData; % Cultivation data</span>
+0036 <span class="comment">% zeroFlux = data.zeroFlux; % List of exchange reactions that should not carry any flux, as these metabolites are widely assumed not to be excreted</span>
+0037 <span class="comment">% maxGrate = data.maxGrate; % Maximum growth rates</span>
 0038 
-0039 <span class="comment">%these will be updated in the loop below</span>
-0040 kcats = ecModel.ec.kcat;
-0041 kcat_var = ones(length(ecModel.ec.kcat),1);
-0042 
-0043 D = <a href="abc_max.html" class="code" title="function [rmse_final,exp,simulated,growthdata,max_growth]=abc_max(ecModel,kcat_random_all,growthdata,max_growth,proc,sample_generation,j,rxn2block)">abc_max</a>(ecModel,kcats,growthdata,max_growth,1,1,1,rxn2block);
-0044 D_100 = D;
-0045 theta_100 = [];
-0046 kcat_100 = [];
-0047 sampledgeneration = 1;
-0048 <span class="keyword">while</span> D &gt; rejectnum &amp;&amp; D_100 &gt; 0.5 <span class="comment">% range for D_1 to D_100 is within 0.3 and D_100 should &lt; 0.5</span>
-0049     <span class="keyword">if</span> sampledgeneration &lt;= maxIterations
-0050         disp([<span class="string">'Running '</span> num2str(sampledgeneration) <span class="string">' of '</span> num2str(maxIterations) <span class="string">': D = '</span> num2str(D) <span class="string">' D_100 = '</span> num2str(D_100)])
-0051         old = theta_100;
-0052         kcat_old_100 = kcat_100;
-0053 
-0054         <span class="keyword">if</span> sampledgeneration == 1
-0055             sample_generation = 144;
-0056         <span class="keyword">else</span>
-0057             sample_generation = numPerGeneration;
-0058         <span class="keyword">end</span>
-0059         <span class="comment">% generate one maxIterations sample of kcats</span>
-0060         kcat_random_all = arrayfun(@<a href="getrSample.html" class="code" title="function r = getrSample(mu,sigma,step,method)">getrSample</a>, kcats, kcat_var,repmat(sample_generation,length(kcats),1),<span class="string">'UniformOutput'</span>,false);
-0061         kcat_random_all = cell2mat(kcat_random_all);
-0062         <span class="comment">%Simulate and measure RMSE</span>
-0063         parfor j = 1:proc
-0064             rmse_final = <a href="abc_max.html" class="code" title="function [rmse_final,exp,simulated,growthdata,max_growth]=abc_max(ecModel,kcat_random_all,growthdata,max_growth,proc,sample_generation,j,rxn2block)">abc_max</a>(ecModel,kcat_random_all,growthdata,max_growth,proc,sample_generation,j,rxn2block)
-0065             new_tmp{j} = rmse_final;
-0066         <span class="keyword">end</span>
-0067         
-0068         new = cell2mat(new_tmp);
-0069         theta = [new,old];
-0070         kcat = [kcat_random_all,kcat_old_100];
-0071 
-0072         <span class="comment">% Initialize an empty set to store the best 100  after each step</span>
-0073         [~,D_idx]= sort(theta,<span class="string">'ascend'</span>);
-0074         theta_100 = theta(D_idx(1:100));
-0075         D = abs(theta_100(100)-theta_100(1)); <span class="comment">% the largest one theta - smallest theta</span>
-0076         D_100 = theta_100(100);
-0077         kcat_100 = kcat(:,D_idx(1:100));
-0078         <span class="comment">%writematrix([kcat_100;repmat(tot_prot_weight,1,length(theta_100));theta_100],['kcat_genra',num2str(sampledgeneration),'.txt'])</span>
-0079 
-0080         <span class="comment">% recalculate the sigma and mu</span>
-0081         ss = num2cell(kcat_100',1);
-0082         [a,b] = arrayfun(@<a href="updateprior.html" class="code" title="function [a,b] = updateprior(x)">updateprior</a>,ss);
-0083         kcats = a';
-0084         kcat_var = b';
-0085         sampledgeneration = sampledgeneration + 1;
-0086     <span class="keyword">else</span>
-0087         D = rejectnum;
-0088         D_100 = D;
-0089     <span class="keyword">end</span>
-0090 <span class="keyword">end</span>
-0091 
-0092 ecModel.ec.kcat = kcats;
-0093 
-0094 <span class="keyword">end</span>
-0095 <span class="comment">%code for generating data files from the .mat files in dlkcat</span>
-0096 <span class="comment">%x = load('C:/Code/Components/GECKO/Gecko3/GECKO/tutorials/tutorial_yeast-GEM/data/Saccharomyces_cerevisiae_dl.mat')</span>
-0097 <span class="comment">%growthrates = x.growthrates;</span>
-0098 <span class="comment">%growthrates(strcmp(growthrates(:,1),'Saccharomyces_cerevisiae'),:)</span>
-0099 <span class="comment">%size(growthrates)</span>
-0100 <span class="comment">%T = cell2table(growthrates(strcmp(growthrates(:,1),'Saccharomyces_cerevisiae'),:),'VariableNames',{'Species','Substrate','Uptake','sub','ace','eth','gly','pyr','ethyl_acetate','co2','o2','Unused1','Unused2','OxAvail','Unused3','Media'});</span>
-0101 <span class="comment">%writetable(T,'C:/Code/Components/GECKO/Gecko3/GECKO/tutorials/tutorial_yeast-GEM/data/BayesianGrowthRates.csv');</span>
-0102 <span class="comment">%maxGrowth = cell2table(x.max_growth, 'VariableNames', {'Species','Substrate','Uptake','sub','ace','eth','gly','pyr','ethyl_acetate','co2','o2','Unused1','Unused2','OxAvail','Unused3','Media'});</span>
-0103 <span class="comment">%writetable(maxGrowth, 'C:/Code/Components/GECKO/Gecko3/GECKO/tutorials/tutorial_yeast-GEM/data/BayesianMaxGrowth.csv')</span>
-0104 <span class="comment">%rxn2block = x.rxn2block;</span>
-0105 <span class="comment">%T = cell2table(rxn2block,'VariableNames',{'Rxns'});</span>
-0106 <span class="comment">%writetable(T,'C:/Code/Components/GECKO/Gecko3/GECKO/tutorials/tutorial_yeast-GEM/data/BayesianRxn2Block.csv');</span>
-0107 
-0108</pre></div>
+0039 fluxData = loadFluxData(fullfile(basePath,<span class="string">'data'</span>,<span class="string">'bayesianFluxData.tsv'</span>));
+0040 fluxData.biomass = modelAdapter.params.bioRxn;
+0041 maxGrate = loadFluxData(fullfile(basePath,<span class="string">'data'</span>,<span class="string">'bayesianMaxGrowth.tsv'</span>));
+0042 maxGrate.biomass = modelAdapter.params.bioRxn;
+0043 zeroFlux = table2cell(readtable(fullfile(basePath,<span class="string">'data'</span>,<span class="string">'bayesianZeroExch.tsv'</span>), <span class="string">'Delimiter'</span>, <span class="string">'\t'</span>, <span class="string">'FileType'</span>,<span class="string">'delimitedtext'</span>));
+0044 
+0045 <span class="comment">% get carbonnum for each exchange rxn to further calculation of error</span>
+0046 <span class="keyword">if</span> ~isfield(ecModel,<span class="string">'excarbon'</span>)
+0047     ecModel = <a href="addCarbonNum.html" class="code" title="function model = addCarbonNum(model)">addCarbonNum</a>(ecModel);
+0048     ecModel.excarbon(ecModel.excarbon == 0) = 1;
+0049 <span class="keyword">end</span>
+0050 
+0051 <span class="comment">%these will be updated in the loop below</span>
+0052 kcats       = ecModel.ec.kcat;
+0053 <span class="comment">%kcatVar     = ones(length(ecModel.ec.kcat),1);</span>
+0054 
+0055 rmse        = <a href="abc_max.html" class="code" title="function rmse = abc_max(ecModel,fluxData,maxGrowth,rxn2block)">abc_max</a>(ecModel,fluxData,maxGrate,zeroFlux);
+0056 fprintf(<span class="string">'RMSE with prior kcats: %.2f.\n'</span>,rmse)
+0057 
+0058 rmseTop     = rmse;
+0059 kcatTop     = kcats;
+0060 
+0061 rmseTrace   = rmse;
+0062 kcatTrace   = kcats;
+0063 varTrace    = kcatVar;
+0064 
+0065 PB1 = ProgressBar2(maxGenerations,[<span class="string">'Run through '</span> num2str(maxGenerations) <span class="string">' generations'</span>],<span class="string">'gui'</span>);
+0066 
+0067 <span class="comment">% Switch off default carbon source, will be set in each sample</span>
+0068 tmpModel = setParam(ecModel,<span class="string">'lb'</span>,modelAdapter.params.c_source,0);
+0069 
+0070 generation = 1;
+0071 <span class="keyword">while</span> rmse &gt; rmseThreshold
+0072 
+0073     <span class="keyword">if</span> generation &lt;= maxGenerations
+0074         count(PB1)
+0075         fprintf(<span class="string">'Running iteration %d of %d. '</span>, generation, maxGenerations)
+0076 
+0077         <span class="comment">% First generation take more samples</span>
+0078         <span class="keyword">if</span> generation == 1
+0079             numberOfSamples = samplesFirstGen;
+0080         <span class="keyword">else</span>
+0081             numberOfSamples = samplesPerGen;
+0082         <span class="keyword">end</span>
+0083 
+0084         prevRmse    = rmseTop;
+0085         prevKcat    = kcatTop;
+0086         newRmse     = zeros(numberOfSamples,1);
+0087 
+0088         <span class="comment">% generate sample of kcats</span>
+0089         randomKcats = arrayfun(@<a href="getrSample.html" class="code" title="function r = getrSample(mu,sigma,step,method)">getrSample</a>,kcats,kcatVar,repmat(numberOfSamples,length(kcats),1),<span class="string">'UniformOutput'</span>,false);
+0090         randomKcats = cell2mat(randomKcats);
+0091         
+0092         <span class="comment">% simulate and measure RMSE</span>
+0093         PB2 = ProgressBar2(numberOfSamples,[<span class="string">'Simulate '</span> num2str(numberOfSamples) <span class="string">' models with random kcats'</span>],<span class="string">'gui'</span>);
+0094         parfor j = 1:numberOfSamples
+0095             ecModelIter         = tmpModel;
+0096             ecModelIter.ec.kcat = randomKcats(:,j);
+0097             ecModelIter         = applyKcatConstraints(ecModelIter);
+0098             newRmse(j)          = <a href="abc_max.html" class="code" title="function rmse = abc_max(ecModel,fluxData,maxGrowth,rxn2block)">abc_max</a>(ecModelIter,fluxData,maxGrate,zeroFlux);
+0099             count(PB2)
+0100         <span class="keyword">end</span>
+0101 
+0102         <span class="comment">% Leave out zero rmse results: model was unsolvable</span>
+0103         zeroRmse                = newRmse == 0;
+0104         newRmse(zeroRmse)       = [];
+0105         randomKcats(:,zeroRmse) = [];
+0106 
+0107         <span class="comment">% Combine with results from previous generation</span>
+0108         rmse = [newRmse;prevRmse];
+0109         kcat = [randomKcats,prevKcat];
+0110 
+0111         <span class="comment">% Select the kcat sets with lowest RMSE values</span>
+0112         [~,idx]     = sort(rmse,<span class="string">'ascend'</span>);
+0113         rmseTop     = rmse(idx(1:bestSamplesToKeep));
+0114         kcatTop     = kcat(:,idx(1:bestSamplesToKeep));
+0115 
+0116         <span class="comment">% recalculate the mean and standard deviation</span>
+0117         ss          = num2cell(kcatTop',1);
+0118         [a,b]       = arrayfun(@<a href="updateprior.html" class="code" title="function [a,b] = updateprior(x)">updateprior</a>,ss);
+0119         kcats       = a';
+0120         kcatVar     = b';
+0121 
+0122         <span class="comment">% Keep track of</span>
+0123         rmseTrace   = [rmseTrace, rmseTop(1)];
+0124         kcatTrace   = [kcatTrace, kcats];
+0125         varTrace    = [varTrace, kcatVar];
+0126 
+0127         tmpModel.ec.kcat = kcatTop(:,1);
+0128         tmpModel = applyKcatConstraints(tmpModel);
+0129 
+0130         fprintf(<span class="string">'Average RMSE of top %d models: %.2f / RMSE of top model: %.2f.\n'</span>,bestSamplesToKeep,mean(rmseTop), rmseTop(1))
+0131         
+0132         generation  = generation + 1;
+0133     <span class="keyword">else</span>
+0134         fprintf(<span class="string">'Halted due to reaching maximum generation limit. Returning best posterior kcats.\n'</span>)
+0135         <span class="keyword">break</span>
+0136     <span class="keyword">end</span>
+0137 <span class="keyword">end</span>
+0138 ecModel.ec.kcat = kcatTop(:,1);
+0139 ecModel = applyKcatConstraints(ecModel);
+0140 fprintf(<span class="string">'Final RMSE: %.2f.\n'</span>,rmseTop(1))
+0141 <span class="keyword">end</span></pre></div>
 <hr><address>Generated by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>
