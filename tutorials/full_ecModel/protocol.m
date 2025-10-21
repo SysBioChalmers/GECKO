@@ -281,11 +281,48 @@ ecModel = setProtPoolSize(ecModel);
         struct2table(tunedKcats)
 
 % Bayesian kcat tuning
+% 
+% First introduced in the DLKcat paper (doi:10.1038/s41929-022-00798-z),
+% this is an SMC-ABC (sequential Monte Carlo approximate Bayesian
+% computation) approach where a prior probability distribution is defined
+% for each kcat value. A collection of models are sampled, each with unique
+% (random) kcat values in accordance to the prior distribution. Each of
+% these models undergo a series of simulations, where the output is
+% compared to experimental data. Each model is assigned an error metric
+% (RMSE) that quantifies the deviation of the model results from the
+% experimental data. The models with the lowest RMSE values are kept, and
+% their kcat values are used to define posterior distributions for each
+% kcat value. These distributions are then used again in another generation
+% of sampling, until a kcat distribution is reached that has an RMSE below
+% a certain threshold, or a maximum generation number is reached. Example
+% output: https://www.nature.com/articles/s41929-022-00798-z/figures/4
+%
+% NOTE: This approach is computationally expensive. Dependent on the hyper-
+% parameters and the amount of experimental data, this function may run for
+% >12 hours on a standard computer when using Gurobi as solver.
+% 
+% The GECKO code is based on various DLKcat functions available from:
+% https://github.com/SysBioChalmers/DLKcat/tree/7c15d0d4a7ac029f9d75564d9f2a93874aeaaec7/BayesianApproach/Code/ecGEMconstruction/Corefunction
+% In contrast to the DLKcat implementation of this algorithm, a few changes
+% have been applied to the algorithm:
+% - The various hyperparameters can be set in the ModelAdapter file, under
+%   obj.params.bayesian.
+% - The various experimental data are provided in three files, named
+%   /data/bayesian[...].tsv, whose content is described below.
+% - Refactored how kcat values are sampled from a log-normal distribution
+%   (in getrSample.m and updateprior.m)
+% Logic by which kcat values are sampled from the distribution is
+%   changed (in getrSample.m), to more closely reflect the calculated mean
+%   and standard deviation.
+% - 
+
+
+
 % TODO: Describe the idea Bayesian kcat tuning
 % TODO: Describe the input files
 % 
 
-modelAdapter.params.bayesian.samplesPerIter     = 150: % Number of models with randomly selected kcat values to simulate in each iteration
+modelAdapter.params.bayesian.samplesPerIter     = 150; % Number of models with randomly selected kcat values to simulate in each iteration
 modelAdapter.params.bayesian.samplesFirstIter   = 200; % Number of models in first iteration (slightly higher as distribution is larger)
 modelAdapter.params.bayesian.bestSamplesToKeep  = 100; % Number of best-performing kcat samples to keep in each iteration
 modelAdapter.params.bayesian.maxTheta           = 0.5; % Threshold of theta-value for worst-performing kcat sample in the distribution.
@@ -297,9 +334,56 @@ modelAdapter.params.bayesian.minThetaDiff       = 0.2; % Threshold of difference
 % with experimental measurements; (b) comparison of maximum growth
 % prediction with experimental measurement. For (a), experimental
 % cultivation data is gathered in data/bayesianFluxData.tsv, which as many
-% experimental flux data as possible. For (b), experimental maximum growth
-% rates at different 
-
+% experimental flux data as possible, while data/bayesianZeroExch.tsv
+% contains a list of exchange reaction identifiers that should carry a zero
+% flux in all simulations (non-zero fluxes will be taken into consideration
+% for the RMSE calculation).* For (b), experimental maximum growth
+% rates are given in data/bayestianMaxGrowth.tsv.
+%
+% data/bayesianFluxData.tsv: each row is data from one experiment, while
+% the different columns refer to:
+% - Condition       name of the carbon source used in this simulation,
+%                   should match one of the metabolite names in the
+%                   exchange flux columns.
+% - Ptot            currently not used.
+% - grRate          growth rate in /h.
+% - metabolite name (reaction id)
+%                   exchange flux values for at least one exchange
+%                   metabolite (i.e. the carbon source, should have the
+%                   same name as specified in Condition) in mmol/gDCW/h. If
+%                   a flux is known to be zero, it should read 0. If the
+%                   flux is unknown, it should read NaN. The reaction
+%                   identifier of the relevant exchange reaction is
+%                   included in brackets.
+%
+% data/bayesianZeroExch.tsv: list of reaction identifiers of exchange
+% reactions that should carry zero flux.
+%
+% data/bayesianMaxGrowth.tsv: each row is contains maximum growth rate for
+% one carbon source, while the different columns refer to:
+% - Condition       name of the carbon source used in this simulation,
+%                   should match one of the metabolite names in the
+%                   exchange flux columns.
+% - Ptot            currently not used.
+% - grRate          maximum growth rate for each respective carbon source,
+%                   in /h.
+% - metabolite name (reaction id)
+%                   a value of -1000 should be provided for the relevant
+%                   carbon source, with NaN for all other carbon sources.
+%                   The reaction identifier of the relevant exchange
+%                   reaction is included in brackets.
+%
+% Additional considerations regarding the algorithm:
+% - The bayesianSensitivityTuning function uses ecModel.ec.kcat / 2 from in
+%   the input model as the initial standard deviation. This can be
+%   overwritten by providing kcatStd (see documentation of the function).
+% - When calculating the RMSE value, the carbon number of each exchange
+%   metabolite is taken into consideration: a deviation of glucose exchange
+%   will contribute 6x more to the RMSE than a deviation in CO2 exchange.
+%   Biomass is assumed to have 41 mmol C p gDCW, as rough estimate.
+% - In each generation, the sampled models are compared together with the
+%   best models from the previous iteration.
+% - 
 
 % STEP 45-51 Curate kcat values based on kcat tuning
 % As example, the kcat of 5'-phosphoribosylformyl glycinamidine synthetase

@@ -61,8 +61,8 @@ parfor i = 1:length(data.conds)
         bioRxn          = getIndexes(model_tmp,data.biomass,'rxns');
         % Increase growth rates 10-fold to make them more important for
         % RMSE calculation
-        bioMeas         = data.grRate(i) * 10;
-        bioSim          = sol.x(bioRxn) * 10;
+        bioMeas         = data.grRate(i);% * 10;
+        bioSim          = sol.x(bioRxn);% * 10;
 
         if constrain
             fluxToCheck     = ~isnan(data.exchFluxes(i,:));
@@ -86,6 +86,6 @@ parfor i = 1:length(data.conds)
         rmseList(i) = NaN;
     end
 end
-rmseList(isnan(rmseList)) = []; %we just skip any case without solution, they are pretty rare, but exist
+rmseList(isnan(rmseList)) = 99; % High penalty for models that failed
 rmse = mean(rmseList);
 end

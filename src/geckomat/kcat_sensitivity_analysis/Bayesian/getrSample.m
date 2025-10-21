@@ -1,38 +1,32 @@
-function r = getrSample(mu,sigma,step,method)
+function r = getrSample(mu,sigma,n,method)
 % getrSample
-%   Samples random kcats from a distribution.
+%   Sample random kcat values from a distribution.
 %
 % Input:
-%   mu              Mean of distribution (data is logged to get a normal distr)
-%   sigma           Std deviation of the distribution
-%   step            Number of kcats to sample
-%   method          shape of distribution: 'normal' or 'uniform'. 
-%                   (Optional, default is 'normal')
-% Output:
-%   r               The sampled kcats
+%   mu      mean of distribution
+%   sigma   standard deviation of distribution
+%   n       number of kcat values to sample
+%   method  shape of distribution: 'lognormal' or 'uniform'. (optional,
+%           default is 'lognormal'). If 'lognormal' is selected, mu and
+%           sigma are automatically converted into log-space
 %
+% Output:
+%   r       sample of kcat values
+
 if nargin < 4
-    method = 'normal';
+    method = 'lognormal';
 end
 if mu == 0
-    r = zeros(1,step);
-elseif strcmp(method,'normal')
-    mutmp = log10(mu/3600);
-    %sigmatmp = log10(sigma/3600);
-    sigmatmp = sigma;
-    pd = makedist('normal','mu',mutmp,'sigma',sigmatmp);
-    %t = truncate(pd,-3,8);
-    r = random(pd,1,step);
-    r = 10.^(r).*3600;
+    r = zeros(1,n);
+elseif strcmp(method,'lognormal')
+    % Convert mu and sigma to log-space
+    muLog       = log(mu^2/sqrt(sigma+mu^2));
+    sigmaLog    = sqrt(log(1+sigma^2/mu^2));
+    % Take random samples from lognormal distribution
+    r = lognrnd(muLog,sigmaLog,[1,n]);
 elseif strcmp(method,'uniform')
-    mutmp = log10(mu/3600);
-    sigmatmp = sigma;
-    pd = makedist('uniform','lower',mutmp-sigmatmp,'upper',mutmp + sigmatmp);
-    t = truncate(pd,-2,8);
-    r = random(t,1,step);
-    r = 10.^(r).*3600;
+    pd = makedist('uniform','lower',mu - sigma,'upper',mu + sigma);
+    t = truncate(pd,0,inf);
+    r = random(t,1,n);
 end
-
-r(r<0) = 0;
-
 end
