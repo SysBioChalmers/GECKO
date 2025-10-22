@@ -36,7 +36,7 @@ end
 function rmse = rmsecal(ecModel,data,constrain,rxn2block)
 
 rmseList = zeros(length(data.conds),1);
-parfor i = 1:length(data.conds)
+for i = 1:length(data.conds)
 
     % Set carbon source
     [~,exchIdx] = ismember(data.conds,data.exchMets);
@@ -48,6 +48,10 @@ parfor i = 1:length(data.conds)
     else % If RMSE is calculated from max growth, then do not constrain carbon uptake
         model_tmp = setParam(model_tmp,'lb',data.exchRxnIDs(exchIdx(i)),-1000);
     end
+    
+    % Remove carbon source exchange from rxn2block
+    rxn2blockIter = rxn2block;
+    rxn2blockIter(strcmp(rxn2blockIter,data.exchRxnIDs(exchIdx(i)))) = [];
 
     % Make anaerobic if relevant
     o2Flux = data.exchFluxes(i,strcmp('oxygen',data.exchMets));
@@ -55,14 +59,12 @@ parfor i = 1:length(data.conds)
         model_tmp = anaerobicModel_GECKO(model_tmp);
     end
     
-    
     sol = solveLP(model_tmp);
     if checkSolution(sol)
         bioRxn          = getIndexes(model_tmp,data.biomass,'rxns');
-        % Increase growth rates 10-fold to make them more important for
-        % RMSE calculation
-        bioMeas         = data.grRate(i);% * 10;
-        bioSim          = sol.x(bioRxn);% * 10;
+        % Assume that biomass contains 41 Cmmol/gDCW
+        bioMeas         = data.grRate(i) * 41;
+        bioSim          = sol.x(bioRxn) * 41;
 
         if constrain
             fluxToCheck     = ~isnan(data.exchFluxes(i,:));
@@ -71,7 +73,7 @@ parfor i = 1:length(data.conds)
             cNormSimFlux    = model_tmp.excarbon(fluxRxnIdx) .* sol.x(fluxRxnIdx);
 
             % Make sure that selected exchange reactions have zero flux
-            blockRxnIdx     = getIndexes(model_tmp,rxn2block,'rxns');
+            blockRxnIdx     = getIndexes(model_tmp,rxn2blockIter,'rxns');
             blockSim        = sol.x(blockRxnIdx) .* model_tmp.excarbon(blockRxnIdx);
             blockMeas       = zeros(numel(blockSim),1);
 
