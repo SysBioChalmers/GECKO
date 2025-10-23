@@ -44,15 +44,11 @@ basePath = params.path;
 % zeroFlux = data.zeroFlux; % List of exchange reactions that should not carry any flux, as these metabolites are widely assumed not to be excreted
 % maxGrate = data.maxGrate; % Maximum growth rates
 
-fluxData = table2cell(readtable(fullfile(basePath,'data','BayesianGrowthRates.csv')));
-maxGrate = table2cell(readtable(fullfile(basePath,'data','BayesianMaxGrowth.csv')));
-zeroFlux = table2cell(readtable(fullfile(basePath,'data','BayesianRxn2Block.csv'), 'Delimiter', ','));
-
-%fluxData = loadFluxData(fullfile(basePath,'data','bayesianFluxData.tsv'));
-%fluxData.biomass = modelAdapter.params.bioRxn;
-%maxGrate = loadFluxData(fullfile(basePath,'data','bayesianMaxGrowth.tsv'));
-%maxGrate.biomass = modelAdapter.params.bioRxn;
-%zeroFlux = table2cell(readtable(fullfile(basePath,'data','bayesianZeroExch.tsv'), 'Delimiter', '\t', 'FileType','delimitedtext'));
+fluxData = loadFluxData(fullfile(basePath,'data','bayesianFluxData.tsv'));
+fluxData.biomass = modelAdapter.params.bioRxn;
+maxGrate = loadFluxData(fullfile(basePath,'data','bayesianMaxGrowth.tsv'));
+maxGrate.biomass = modelAdapter.params.bioRxn;
+zeroFlux = table2cell(readtable(fullfile(basePath,'data','bayesianZeroExch.tsv'), 'Delimiter', '\t', 'FileType','delimitedtext'));
 
 % get carbonnum for each exchange rxn to further calculation of error
 if ~isfield(ecModel,'excarbon')

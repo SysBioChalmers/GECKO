@@ -1,30 +1,14 @@
-Aerobic	Media	gRate	Substrate	Uptake	acetate (r_1634)	ethanol (r_1761)	glycerol (r_1808)	pyruvate (r_2033)	ethyl acetate (r_1765)	CO2 (r_1672)	oxygen (r_1992)	Ref
-Yes	MIN	0.36	D-glucose (r_1714)	13.33333333	NaN	19.82608696	0.38	0	0	NaN	NaN	10.1007/s10482-013-0030-2
-Yes	MIN	0.39	D-glucose (r_1714)	15.44444444	NaN	22.4068323	0.37	0	0	NaN	NaN	10.1007/s10482-013-0030-2
-Yes	MIN	0.37	D-glucose (r_1714)	19.55555556	NaN	NaN	NaN	0	0	NaN	NaN	10.1128/JB.183.4.1441-1451.2001
-Yes	MIN	0.37	D-glucose (r_1714)	14.8	0.4	22	1.1	0	0	NaN	NaN	10.1111/j.1567-1364.2001.tb00025.x
-Yes	MIN	0.38	D-glucose (r_1714)	15.05555556	NaN	NaN	NaN	0	0	NaN	NaN	10.1128/JB.182.17.4730-4737.2000
-Yes	MIN	0.35	D-glucose (r_1714)	17.66666667	NaN	23.51778656	0.34	0	0	NaN	NaN	10.1007/s10482-013-0030-2
-Yes	MIN	0.37	D-glucose (r_1714)	11.2	0.43	15.74	0.12	0	0	19.58	NaN	10.1002/yea.1136
-Yes	MIN	0.37	D-glucose (r_1714)	13.66666667	NaN	NaN	NaN	0	0	NaN	NaN	10.1128/JB.182.17.4730-4737.2000
-Yes	MIN	0.38	D-glucose (r_1714)	17.55555556	NaN	28.22463768	0.41	0	0	NaN	NaN	10.1007/s10482-013-0030-2
-Limited	MIN	0.32	D-glucose (r_1714)	25.38888889	NaN	42.73291925	0.43	0	0	NaN	NaN	10.1007/BF00250500
-No	MIN	0.1	D-fructose (r_1709)	6.888888889	NaN	11.14130435	0.41	0	0	NaN	0	repositorio.ufgd.edu.br/jspui/handle/prefix/506
-No	MIN	0.25	D-fructose (r_1709)	12.44444444	NaN	20.256917	0.41	0	0	NaN	0	repositorio.ufgd.edu.br/jspui/handle/prefix/506
-No	MIN	0.32	sucrose (r_2058)	6.076541046	NaN	19.94202899	NaN	0	0	NaN	0	repositorio.ufgd.edu.br/jspui/handle/prefix/506
-Yes	MIN	0.025	D-glucose (r_1714)	0.3	0	0	0	0	0	0.75198	0.73102	
-Yes	MIN	0.05	D-glucose (r_1714)	0.6	0	0	0	0	0	1.3697	1.3251	
-Yes	MIN	0.1	D-glucose (r_1714)	1.1	0	0	0	0	0	2.4007	2.3167	
-Yes	MIN	0.15	D-glucose (r_1714)	1.7	0	0	0	0	0	3.6379	3.5066	
-Yes	MIN	0.2	D-glucose (r_1714)	2.3	0	0	0	0	0	4.8751	4.6966	
-Yes	MIN	0.25	D-glucose (r_1714)	2.8	0	0	0	0	0	5.906	5.6881	
-Yes	MIN	0.28	D-glucose (r_1714)	3.4	0.08	0.11	0	0	0	7.0413	6.6773	
-Yes	MIN	0.3	D-glucose (r_1714)	4.5	0.41	2.3	0	0	0	8.5667	6.012	
-Yes	MIN	0.35	D-glucose (r_1714)	8.6	0.62	9.5	0.05	0	0	15.2091	5.3809	
-Yes	MIN	0.4	D-glucose (r_1714)	11.1	0.6	13.9	0.15	0	0	19.3207	5.0171	
-No	MIN	0.1	D-glucose (r_1714)	5.771599115	0	9.52813144	0.703426334	0	0	9.91	0	
-No	MIN	0.2	D-glucose (r_1714)	11.94488345	0	18.2168	1.6502	0	0	19.19	0	
-No	MIN	0.3	D-glucose (r_1714)	17.38	0	27.4696	2.6743	0	0	29.05	0	
-No	MIN	0.4	D-glucose (r_1714)	23.65408269	0	37.2195	3.8483	0	0	39.52	0	
-Yes	MIN	0.4	D-glucose (r_1714)	20.2	1	30	1.9	0	0	34.4	NaN	
-Yes	MIN	0.41	D-glucose (r_1714)	14.22222222	NaN	25.625	0.46	0	0	NaN	NaN	
+Condition	Ptot	grRate	glucose (r_1714)	fructose (r_1709)	sucrose (r_2058)	CO2 (r_1672)	oxygen (r_1992)	pyruvate (r_2033)	ethyl acetate (r_1765)	glycerol (r_1808)	acetate (r_1634)	ethanol (r_1761)
+glucose	NaN	0.36	-13.33333333	0	0	NaN	NaN	0	0	0.38	NaN	19.82608696
+glucose	NaN	0.39	-15.44444444	0	0	NaN	NaN	0	0	0.37	NaN	22.4068323
+glucose	NaN	0.37	-19.55555556	0	0	NaN	NaN	0	0	NaN	NaN	NaN
+glucose	NaN	0.37	-14.8	0	0	NaN	NaN	0	0	1.1	0.4	22
+glucose	NaN	0.38	-15.05555556	0	0	NaN	NaN	0	0	NaN	NaN	NaN
+glucose	NaN	0.35	-17.66666667	0	0	NaN	NaN	0	0	0.34	NaN	23.51778656
+glucose	NaN	0.37	-11.2	0	0	19.58	NaN	0	0	0.12	0.43	15.74
+glucose	NaN	0.37	-13.66666667	0	0	NaN	NaN	0	0	NaN	NaN	NaN
+glucose	NaN	0.38	-17.55555556	0	0	NaN	NaN	0	0	0.41	NaN	28.22463768
+glucose	NaN	0.32	-25.38888889	0	0	NaN	NaN	0	0	0.43	NaN	42.73291925
+fructose	NaN	0.1	0	-6.888888889	0	NaN	0	0	0	0.41	NaN	11.14130435
+fructose	NaN	0.25	0	-12.44444444	0	NaN	0	0	0	0.41	NaN	20.256917
+sucrose	NaN	0.32	0	0	-6.076541046	NaN	0	0	0	NaN	NaN	19.94202899
