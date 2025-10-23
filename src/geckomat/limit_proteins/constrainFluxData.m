@@ -93,11 +93,12 @@ switch maxMinGrowth
         model = setParam(model,'ub',params.bioRxn,1000);
 end
 
+naFlux = isnan(fluxData.exchFluxes);
 negFlux = lt(fluxData.exchFluxes,0); % less than 0
-ub = fluxData.exchFluxes(~negFlux);
-posFlux = fluxData.exchRxnIDs(~negFlux);
-lb = fluxData.exchFluxes(negFlux);
-negFlux = fluxData.exchRxnIDs(negFlux);
+ub = fluxData.exchFluxes(~(negFlux | naFlux));
+posFlux = fluxData.exchRxnIDs(~(negFlux | naFlux));
+lb = fluxData.exchFluxes(negFlux & ~naFlux);
+negFlux = fluxData.exchRxnIDs(negFlux & ~naFlux);
 
 switch looseStrictFlux
     case 'loose'
