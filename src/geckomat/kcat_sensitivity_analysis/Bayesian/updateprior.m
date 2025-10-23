@@ -1,25 +1,25 @@
-function [a,b] = updateprior(x)
+function [mu,sigma] = updateprior(x)
 % updateprior
-%   Calculates a new distribution from the selected kcat values
+%   Calculates a new distribution from the provided kcat values
 %
 % Input:
-%   x               kcats
+%   x       kcat values
+%
 % Output:
-%   a               Mean
-%   b               Std dev
+%   mu      mean
+%   sigma   standard deviation
 
 x = x{:};
-x(x == 0) = []; %remove zeros - they cannot be handled in the log transform below
-if length(x) == 0
-    %we do not have much choice in the two first cases - just set sigma to 1 - same as in the initial prior
-    a = 0;
-    b = 1;
-elseif length(x) == 1
-    a = x;
-    b = 1;
+%x(x == 0) = []; %remove zeros - they cannot be handled in the log transform below
+if isempty(x)
+    error('x cannot be empty')
+elseif isscalar(x)
+    % By default set sigma at 25% of mu
+    mu      = x;
+    sigma   = x/4;
 else
-    pd = fitdist(log10(x./3600),'Normal');
-    a = 10^(pd.mu)*3600;
-    b = pd.sigma;
+    pd      = fitdist(log(x),'normal');
+    mu      = exp(pd.mu);
+    sigma   = mu * sqrt(exp(pd.sigma^2) - 1);
 end
 end
