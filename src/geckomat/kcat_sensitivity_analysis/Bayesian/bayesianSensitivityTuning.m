@@ -1,4 +1,4 @@
-function [ecModel, rmseTrace, kcatTrace, varTrace] = bayesianSensitivityTuning(ecModel,kcatStd,modelAdapter)
+function [ecModel, rmseTrace, kcatTrace, stdTrace] = bayesianSensitivityTuning(ecModel,kcatStd,modelAdapter)
 % bayesianSensitivityTuning
 %   Modifies kcats to better fit experimental data. Currently only works with 
 %   light models.
@@ -9,8 +9,8 @@ function [ecModel, rmseTrace, kcatTrace, varTrace] = bayesianSensitivityTuning(e
 %                   earlier GECKO versions (pre 3.0).
 %   kcatStd         vector of same length as ecModel.ec.kcat, with the
 %                   initial standard deviations (SD) for the kcat values.
-%                   By default, kcatStd is set at half the kcat values 
-%                   (as ecModel.ec.kcat./2). It might make sense to provide
+%                   By default, kcatStd is set at 25% of the kcat values 
+%                   (as ecModel.ec.kcat./4). It might make sense to provide
 %                   kcat-specific kcatStd, for instance based on the source
 %                   of the kcat (if a source is more reliable, kcatStd
 %                   should possibly be smaller).
@@ -21,8 +21,8 @@ function [ecModel, rmseTrace, kcatTrace, varTrace] = bayesianSensitivityTuning(e
 %   model           ecModel with new kcats, not applied.
 %
 if nargin < 2 || isempty(kcatStd)
-    %kcatStd     = ecModel.ec.kcat*10;%./4;
-    kcatStd     = ones(length(ecModel.ec.kcat),1);
+    kcatStd     = ecModel.ec.kcat./4; % or maybe .*10 ?
+    %kcatStd     = ones(length(ecModel.ec.kcat),1);
 end
 
 if nargin < 3 || isempty(modelAdapter)
@@ -67,7 +67,7 @@ kcatTop     = kcats;
 
 rmseTrace   = rmse;
 kcatTrace   = kcats;
-varTrace    = kcatStd;
+stdTrace    = kcatStd;
 
 PB1 = ProgressBar2(maxGenerations,['Run through ' num2str(maxGenerations) ' generations'],'gui');
 
@@ -125,8 +125,7 @@ while rmse > rmseThreshold
         kcatTop     = kcat(:,idx(1:bestSamplesToKeep));
 
         % Recalculate the mean and standard deviation to follow a
-        % log-normal distribution. Note that the standard deviation is kept
-        % in the log-scale, while the kcat value is reported after antilog.
+        % log-normal distribution.
         ss              = num2cell(kcatTop',1);
         [a,b]           = arrayfun(@updateprior,ss);
         kcats           = transpose(a);
@@ -135,7 +134,7 @@ while rmse > rmseThreshold
         % Keep track of 
         rmseTrace   = [rmseTrace, rmseTop(1)];
         kcatTrace   = [kcatTrace, kcats];
-        varTrace    = [varTrace, kcatStd];
+        stdTrace    = [stdTrace, kcatStd];
 
         tmpModel.ec.kcat = kcatTop(:,1);
         tmpModel = applyKcatConstraints(tmpModel);

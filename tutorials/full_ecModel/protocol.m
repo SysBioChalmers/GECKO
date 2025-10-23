@@ -280,7 +280,7 @@ ecModel = setProtPoolSize(ecModel);
         % Inspect the tunedKcats structure in table format.
         struct2table(tunedKcats)
 
-% Bayesian kcat tuning
+% NEW: Bayesian kcat tuning
 % 
 % First introduced in the DLKcat paper (doi:10.1038/s41929-022-00798-z),
 % this is an SMC-ABC (sequential Monte Carlo approximate Bayesian
@@ -311,24 +311,10 @@ ecModel = setProtPoolSize(ecModel);
 %   /data/bayesian[...].tsv, whose content is described below.
 % - Refactored how kcat values are sampled from a log-normal distribution
 %   (in getrSample.m and updateprior.m)
-% Logic by which kcat values are sampled from the distribution is
+% - Logic by which kcat values are sampled from the distribution is
 %   changed (in getrSample.m), to more closely reflect the calculated mean
 %   and standard deviation.
-% - 
-
-
-
-% TODO: Describe the idea Bayesian kcat tuning
-% TODO: Describe the input files
-% 
-
-modelAdapter.params.bayesian.samplesPerIter     = 150; % Number of models with randomly selected kcat values to simulate in each iteration
-modelAdapter.params.bayesian.samplesFirstIter   = 200; % Number of models in first iteration (slightly higher as distribution is larger)
-modelAdapter.params.bayesian.bestSamplesToKeep  = 100; % Number of best-performing kcat samples to keep in each iteration
-modelAdapter.params.bayesian.maxTheta           = 0.5; % Threshold of theta-value for worst-performing kcat sample in the distribution.
-modelAdapter.params.bayesian.minThetaDiff       = 0.2; % Threshold of difference in theta-value between best- and worst-performing kcat samples in the distribution.
-
-
+%
 % There are currently two types of simulations that are used to query the
 % performance of an ecModel. (a): comparison of exchange flux predictions
 % with experimental measurements; (b) comparison of maximum growth
@@ -337,8 +323,8 @@ modelAdapter.params.bayesian.minThetaDiff       = 0.2; % Threshold of difference
 % experimental flux data as possible, while data/bayesianZeroExch.tsv
 % contains a list of exchange reaction identifiers that should carry a zero
 % flux in all simulations (non-zero fluxes will be taken into consideration
-% for the RMSE calculation).* For (b), experimental maximum growth
-% rates are given in data/bayestianMaxGrowth.tsv.
+% for the RMSE calculation). For (b), experimental maximum growth rates
+% are given in data/bayestianMaxGrowth.tsv.
 %
 % data/bayesianFluxData.tsv: each row is data from one experiment, while
 % the different columns refer to:
@@ -374,16 +360,28 @@ modelAdapter.params.bayesian.minThetaDiff       = 0.2; % Threshold of difference
 %                   reaction is included in brackets.
 %
 % Additional considerations regarding the algorithm:
-% - The bayesianSensitivityTuning function uses ecModel.ec.kcat / 2 from in
+% - The bayesianSensitivityTuning function uses ecModel.ec.kcat / 4 from in
 %   the input model as the initial standard deviation. This can be
 %   overwritten by providing kcatStd (see documentation of the function).
 % - When calculating the RMSE value, the carbon number of each exchange
 %   metabolite is taken into consideration: a deviation of glucose exchange
 %   will contribute 6x more to the RMSE than a deviation in CO2 exchange.
 %   Biomass is assumed to have 41 mmol C p gDCW, as rough estimate.
-% - In each generation, the sampled models are compared together with the
-%   best models from the previous iteration.
-% - 
+% - In each generation, bayesianSensitivityTuning constructs 100 models
+%   with kcat values from a prior distribution (except in the first
+%   generation, when 200 models are sampled).
+% - The 80 best performing models (by RMSE, from this generation and the
+%   previous generation) are kept to define new posterior kcat.
+% - Many of these parameters are defined in the modelAdapter file
+%   (as opt.param.bayesian.[...]).
+
+% UNSURE:
+% - What should be used as starting standard deviation of kcat values?
+% - If kcatStd = 0 for a particular kcat, will this kcat indeed be kept
+%   untouched?
+% - What should be the ideal (or at least reasonable) number of models
+%   per (first) generation, number of models to be used to define
+%   posterior kcat distributions, etc.
 
 % STEP 45-51 Curate kcat values based on kcat tuning
 % As example, the kcat of 5'-phosphoribosylformyl glycinamidine synthetase
