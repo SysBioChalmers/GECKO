@@ -53,7 +53,7 @@ for i = 1:length(data.conds)
     model_tmp = setParam(ecModel,'lb',data.exchRxnIDs(unique(exchIdx)),0);
     % Only allow condition-specific carbon source
     if constrain % If RMSE is calculated from flux data, then constrain carbon uptake
-        model_tmp = setParam(model_tmp,'lb',data.exchRxnIDs(exchIdx(i)),data.exchFluxes(i));
+        model_tmp = setParam(model_tmp,'lb',data.exchRxnIDs(exchIdx(i)),data.exchFluxes(i,exchIdx(i)));
     else % If RMSE is calculated from max growth, then do not constrain carbon uptake
         model_tmp = setParam(model_tmp,'lb',data.exchRxnIDs(exchIdx(i)),-1000);
     end
