@@ -41,6 +41,10 @@ for i = 1:length(data.conds)
 
     % Set carbon source
     [~,exchIdx] = ismember(data.conds,data.exchMets);
+    if any(exchIdx == 0)
+        missingMets = strjoin(unique(data.conds(exchIdx == 0 )), '; ');
+        error('Carbon source(s) "%s" in the provided fluxData or maxGrowth cannot be matched by name with an exchange reaction.', missingMets);
+    end
     % Set all other carbon sources to zero
     model_tmp = setParam(ecModel,'lb',data.exchRxnIDs(unique(exchIdx)),0);
     % Only allow condition-specific carbon source
