@@ -300,6 +300,9 @@ modelAdapter.params.bayesian.minThetaDiff       = 0.2; % Threshold of difference
 % experimental flux data as possible. For (b), experimental maximum growth
 % rates at different 
 
+ecModel = changeMedia(ecModel,'D-glucose','MIN');
+ecModel = setParam(ecModel,'eq','r_1634',0);
+ecModel = setParam(ecModel,'eq','r_1631',0);
 
 % STEP 45-51 Curate kcat values based on kcat tuning
 % As example, the kcat of 5'-phosphoribosylformyl glycinamidine synthetase
