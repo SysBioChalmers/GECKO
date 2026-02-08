@@ -19,9 +19,11 @@ end
 if mu == 0
     r = zeros(1,n);
 elseif strcmp(method,'lognormal')
-    % Convert mu and sigma to log-space
-    muLog       = log(mu^2/sqrt(sigma+mu^2));
-    sigmaLog    = sqrt(log(1+sigma^2/mu^2));
+    % Convert to log-space
+    varLog      = log(1 + (sigma/mu)^2);
+    sigmaLog    = sqrt(varLog);
+    muLog       = log(mu) - 0.5 * varLog;
+
     % Take random samples from lognormal distribution
     r = lognrnd(muLog,sigmaLog,[1,n]);
 elseif strcmp(method,'uniform')

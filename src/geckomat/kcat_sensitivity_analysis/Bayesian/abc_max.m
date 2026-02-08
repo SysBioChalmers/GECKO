@@ -34,16 +34,8 @@ end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function rmse = rmsecal(ecModel,data,constrain,rxn2block)
-constrainedModels.lb = zeros(length(ecModel.rxns),length(data.conds));
-constrainedModels.ub = constrainedModels.lb;
-constrainedModels.id = cell(length(data.conds),1);
-constrainedModels.rmse = zeros(length(data.conds),1);
+
 rmseList = zeros(length(data.conds),1);
-
-
-ecModel = setParam(ecModel,'eq','r_1634',0); %TODO: These are currently hard-coded for yeast-GEM, add to adapter
-ecModel = setParam(ecModel,'eq','r_1631',0);
-ecModel = changeMedia(ecModel,'D-glucose','MIN');
 
 for i = 1:length(data.conds)
 
@@ -67,10 +59,7 @@ for i = 1:length(data.conds)
     if o2Flux == 0
         model_tmp = anaerobicModel_GECKO(model_tmp);
     end
-    
-   % constrainedModels.lb(:,i) = model_tmp.lb;
-   % constrainedModels.ub(:,i) = model_tmp.ub;
-   % constrainedModels.id{i} = [data.conds{i} '_' num2str(data.grRate(i))];
+
     sol = solveLP(model_tmp);
     if checkSolution(sol)
         bioRxn          = getIndexes(model_tmp,data.biomass,'rxns');
@@ -101,7 +90,6 @@ for i = 1:length(data.conds)
     else
         rmseList(i) = NaN;
     end
-        %constrainedModels.rmse(i) = rmseList(i);
 end
 rmseList(isnan(rmseList)) = 99; % High penalty for models that failed
 rmse = mean(rmseList);
