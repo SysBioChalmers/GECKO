@@ -144,29 +144,25 @@ while rmse > rmseThreshold
         rmse = [newRmse; prevRmse];
         kcat = [randomKcats, prevKcat];
 
-        
-        % % Select the kcat sets with lowest RMSE values
-        % [~,idx]     = sort(rmse,'ascend');
-        % rmseTop     = rmse(idx(1:bestSamplesToKeep));
-        % kcatTop     = kcat(:,idx(1:bestSamplesToKeep));
-
         % Accept by epsilon (percentile)
         epsilon = prctile(rmse, targetAccept);
         acc_idx = find(rmse <= epsilon);
 
         % Ensure a reasonable number of accepted samples
-        if numel(acc_idx) < minKeep
+        minCount = max(1, floor(minKeep * numel(rmse)));
+        maxCount = max(1, floor(maxKeep * numel(rmse)));
+        if numel(acc_idx) < minCount
             % Relax epsilon slightly until min_keep is reached or capped attempts
             relaxFactor = 1.05; attempts = 0; maxAttempts = 20;
-            while numel(acc_idx) < minKeep && attempts < maxAttempts
+            while numel(acc_idx) < minCount && attempts < maxAttempts
                 epsilon = epsilon * relaxFactor;
                 acc_idx = find(rmse <= epsilon);
                 attempts = attempts + 1;
             end
         end
-        if numel(acc_idx) > maxKeep
+        if numel(acc_idx) > maxCount
             [~,ord] = sort(rmse(acc_idx), 'ascend');
-            acc_idx = acc_idx(ord(1:maxKeep));
+            acc_idx = acc_idx(ord(1:maxCount));
         end
 
         % Subset accepted
