@@ -24,20 +24,22 @@
 <div class="box"><strong>getrSample</strong></div>
 
 <h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
-<div class="box"><strong>function r = getrSample(mu,sigma,step,method) </strong></div>
+<div class="box"><strong>function r = getrSample(mu,sigma,n,method) </strong></div>
 
 <h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
 <div class="fragment"><pre class="comment"> getrSample
-   Samples random kcats from a distribution.
+   Sample random kcat values from a distribution.
 
  Input:
-   mu              Mean of distribution (data is logged to get a normal distr)
-   sigma           Std deviation of the distribution
-   step            Number of kcats to sample
-   method          shape of distribution: 'normal' or 'uniform'. 
-                   (Optional, default is 'normal')
+   mu      mean of distribution
+   sigma   standard deviation of distribution
+   n       number of kcat values to sample
+   method  shape of distribution: 'lognormal' or 'uniform'. (optional,
+           default is 'lognormal'). If 'lognormal' is selected, mu and
+           sigma are automatically converted into log-space
+
  Output:
-   r               The sampled kcats</pre></div>
+   r       sample of kcat values</pre></div>
 
 <!-- crossreference -->
 <h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
@@ -46,50 +48,46 @@ This function calls:
 </ul>
 This function is called by:
 <ul style="list-style-image:url(../../../../matlabicon.gif)">
-<li><a href="bayesianSensitivityTuning.html" class="code" title="function ecModel = bayesianSensitivityTuning(ecModel,modelAdapter,maxIterations)">bayesianSensitivityTuning</a>	bayesianSensitivityTuning</li></ul>
+<li><a href="bayesianSensitivityTuning.html" class="code" title="function [ecModel, rmseTrace, kcatTrace, stdTrace] = bayesianSensitivityTuning(ecModel,kcatStd,modelAdapter)">bayesianSensitivityTuning</a>	bayesianSensitivityTuning</li></ul>
 <!-- crossreference -->
 
 
 
 <h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
-<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function r = getrSample(mu,sigma,step,method)</a>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function r = getrSample(mu,sigma,n,method)</a>
 0002 <span class="comment">% getrSample</span>
-0003 <span class="comment">%   Samples random kcats from a distribution.</span>
+0003 <span class="comment">%   Sample random kcat values from a distribution.</span>
 0004 <span class="comment">%</span>
 0005 <span class="comment">% Input:</span>
-0006 <span class="comment">%   mu              Mean of distribution (data is logged to get a normal distr)</span>
-0007 <span class="comment">%   sigma           Std deviation of the distribution</span>
-0008 <span class="comment">%   step            Number of kcats to sample</span>
-0009 <span class="comment">%   method          shape of distribution: 'normal' or 'uniform'.</span>
-0010 <span class="comment">%                   (Optional, default is 'normal')</span>
-0011 <span class="comment">% Output:</span>
-0012 <span class="comment">%   r               The sampled kcats</span>
-0013 <span class="comment">%</span>
-0014 <span class="keyword">if</span> nargin &lt; 4
-0015     method = <span class="string">'normal'</span>;
-0016 <span class="keyword">end</span>
-0017 <span class="keyword">if</span> mu == 0
-0018     r = zeros(1,step);
-0019 <span class="keyword">elseif</span> strcmp(method,<span class="string">'normal'</span>)
-0020     mutmp = log10(mu/3600);
-0021     <span class="comment">%sigmatmp = log10(sigma/3600);</span>
-0022     sigmatmp = sigma;
-0023     pd = makedist(<span class="string">'normal'</span>,<span class="string">'mu'</span>,mutmp,<span class="string">'sigma'</span>,sigmatmp);
-0024     <span class="comment">%t = truncate(pd,-3,8);</span>
-0025     r = random(pd,1,step);
-0026     r = 10.^(r).*3600;
-0027 <span class="keyword">elseif</span> strcmp(method,<span class="string">'uniform'</span>)
-0028     mutmp = log10(mu/3600);
-0029     sigmatmp = sigma;
-0030     pd = makedist(<span class="string">'uniform'</span>,<span class="string">'lower'</span>,mutmp-sigmatmp,<span class="string">'upper'</span>,mutmp + sigmatmp);
-0031     t = truncate(pd,-2,8);
-0032     r = random(t,1,step);
-0033     r = 10.^(r).*3600;
-0034 <span class="keyword">end</span>
-0035 
-0036 r(r&lt;0) = 0;
-0037 
-0038 <span class="keyword">end</span></pre></div>
+0006 <span class="comment">%   mu      mean of distribution</span>
+0007 <span class="comment">%   sigma   standard deviation of distribution</span>
+0008 <span class="comment">%   n       number of kcat values to sample</span>
+0009 <span class="comment">%   method  shape of distribution: 'lognormal' or 'uniform'. (optional,</span>
+0010 <span class="comment">%           default is 'lognormal'). If 'lognormal' is selected, mu and</span>
+0011 <span class="comment">%           sigma are automatically converted into log-space</span>
+0012 <span class="comment">%</span>
+0013 <span class="comment">% Output:</span>
+0014 <span class="comment">%   r       sample of kcat values</span>
+0015 
+0016 <span class="keyword">if</span> nargin &lt; 4
+0017     method = <span class="string">'lognormal'</span>;
+0018 <span class="keyword">end</span>
+0019 <span class="keyword">if</span> mu == 0
+0020     r = zeros(1,n);
+0021 <span class="keyword">elseif</span> strcmp(method,<span class="string">'lognormal'</span>)
+0022     <span class="comment">% Convert to log-space</span>
+0023     varLog      = log(1 + (sigma/mu)^2);
+0024     sigmaLog    = sqrt(varLog);
+0025     muLog       = log(mu) - 0.5 * varLog;
+0026 
+0027     <span class="comment">% Take random samples from lognormal distribution</span>
+0028     r = lognrnd(muLog,sigmaLog,[1,n]);
+0029 <span class="keyword">elseif</span> strcmp(method,<span class="string">'uniform'</span>)
+0030     pd = makedist(<span class="string">'uniform'</span>,<span class="string">'lower'</span>,mu - sigma,<span class="string">'upper'</span>,mu + sigma);
+0031     t = truncate(pd,0,inf);
+0032     r = random(t,1,n);
+0033 <span class="keyword">end</span>
+0034 <span class="keyword">end</span></pre></div>
 <hr><address>Generated by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>
