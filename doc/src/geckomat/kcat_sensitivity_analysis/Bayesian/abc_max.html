@@ -100,59 +100,63 @@ This function is called by:
 0041 
 0042     <span class="comment">% Set carbon source</span>
 0043     [~,exchIdx] = ismember(data.conds,data.exchMets);
-0044     <span class="comment">% Set all other carbon sources to zero</span>
-0045     model_tmp = setParam(ecModel,<span class="string">'lb'</span>,data.exchRxnIDs(unique(exchIdx)),0);
-0046     <span class="comment">% Only allow condition-specific carbon source</span>
-0047     <span class="keyword">if</span> constrain <span class="comment">% If RMSE is calculated from flux data, then constrain carbon uptake</span>
-0048         model_tmp = setParam(model_tmp,<span class="string">'lb'</span>,data.exchRxnIDs(exchIdx(i)),data.exchFluxes(i,exchIdx(i)));
-0049     <span class="keyword">else</span> <span class="comment">% If RMSE is calculated from max growth, then do not constrain carbon uptake</span>
-0050         model_tmp = setParam(model_tmp,<span class="string">'lb'</span>,data.exchRxnIDs(exchIdx(i)),-1000);
-0051     <span class="keyword">end</span>
-0052     
-0053     <span class="comment">% Remove carbon source exchange from rxn2block</span>
-0054     rxn2blockIter = rxn2block;
-0055     rxn2blockIter(strcmp(rxn2blockIter,data.exchRxnIDs(exchIdx(i)))) = [];
-0056 
-0057     <span class="comment">% Make anaerobic if relevant</span>
-0058     o2Flux = data.exchFluxes(i,strcmp(<span class="string">'oxygen'</span>,data.exchMets));
-0059     <span class="keyword">if</span> o2Flux == 0
-0060         model_tmp = <a href="anaerobicModel_GECKO.html" class="code" title="function model = anaerobicModel_GECKO(model)">anaerobicModel_GECKO</a>(model_tmp);
-0061     <span class="keyword">end</span>
-0062 
-0063     sol = solveLP(model_tmp);
-0064     <span class="keyword">if</span> checkSolution(sol)
-0065         bioRxn          = getIndexes(model_tmp,data.biomass,<span class="string">'rxns'</span>);
-0066         <span class="comment">% Assume that biomass contains 41 Cmmol/gDCW</span>
-0067         bioMeas         = data.grRate(i) * 41;
-0068         bioSim          = sol.x(bioRxn) * 41;
-0069 
-0070         <span class="keyword">if</span> constrain
-0071             fluxToCheck     = ~isnan(data.exchFluxes(i,:));
-0072             fluxRxnIdx      = getIndexes(model_tmp,data.exchRxnIDs(fluxToCheck),<span class="string">'rxns'</span>);
-0073             cNormMeasFlux   = model_tmp.excarbon(fluxRxnIdx) .* transpose(data.exchFluxes(i,fluxToCheck));
-0074             cNormSimFlux    = model_tmp.excarbon(fluxRxnIdx) .* sol.x(fluxRxnIdx);
-0075 
-0076             <span class="comment">% Make sure that selected exchange reactions have zero flux</span>
-0077             blockRxnIdx     = getIndexes(model_tmp,rxn2blockIter,<span class="string">'rxns'</span>);
-0078             blockSim        = sol.x(blockRxnIdx) .* model_tmp.excarbon(blockRxnIdx);
-0079             zeroFlux        = blockSim == 0;
-0080             blockSim(zeroFlux) = [];
-0081             blockMeas       = zeros(numel(blockSim),1);
-0082 
-0083             measured    = [cNormMeasFlux; bioMeas; blockMeas];
-0084             simulated   = [cNormSimFlux; bioSim; blockSim];
-0085         <span class="keyword">else</span>
-0086             measured    = bioMeas;
-0087             simulated   = bioSim;
-0088         <span class="keyword">end</span>
-0089         rmseList(i) = sqrt(<a href="mse.html" class="code" title="function err = mse(y,x)">mse</a>(measured,simulated));
-0090     <span class="keyword">else</span>
-0091         rmseList(i) = NaN;
-0092     <span class="keyword">end</span>
-0093 <span class="keyword">end</span>
-0094 rmseList(isnan(rmseList)) = 99; <span class="comment">% High penalty for models that failed</span>
-0095 rmse = mean(rmseList);
-0096 <span class="keyword">end</span></pre></div>
+0044     <span class="keyword">if</span> any(exchIdx == 0)
+0045         missingMets = strjoin(unique(data.conds(exchIdx == 0 )), <span class="string">'; '</span>);
+0046         error(<span class="string">'Carbon source(s) &quot;%s&quot; in the provided fluxData or maxGrowth cannot be matched by name with an exchange reaction.'</span>, missingMets);
+0047     <span class="keyword">end</span>
+0048     <span class="comment">% Set all other carbon sources to zero</span>
+0049     model_tmp = setParam(ecModel,<span class="string">'lb'</span>,data.exchRxnIDs(unique(exchIdx)),0);
+0050     <span class="comment">% Only allow condition-specific carbon source</span>
+0051     <span class="keyword">if</span> constrain <span class="comment">% If RMSE is calculated from flux data, then constrain carbon uptake</span>
+0052         model_tmp = setParam(model_tmp,<span class="string">'lb'</span>,data.exchRxnIDs(exchIdx(i)),data.exchFluxes(i,exchIdx(i)));
+0053     <span class="keyword">else</span> <span class="comment">% If RMSE is calculated from max growth, then do not constrain carbon uptake</span>
+0054         model_tmp = setParam(model_tmp,<span class="string">'lb'</span>,data.exchRxnIDs(exchIdx(i)),-1000);
+0055     <span class="keyword">end</span>
+0056     
+0057     <span class="comment">% Remove carbon source exchange from rxn2block</span>
+0058     rxn2blockIter = rxn2block;
+0059     rxn2blockIter(strcmp(rxn2blockIter,data.exchRxnIDs(exchIdx(i)))) = [];
+0060 
+0061     <span class="comment">% Make anaerobic if relevant</span>
+0062     o2Flux = data.exchFluxes(i,strcmp(<span class="string">'oxygen'</span>,data.exchMets));
+0063     <span class="keyword">if</span> o2Flux == 0
+0064         model_tmp = <a href="anaerobicModel_GECKO.html" class="code" title="function model = anaerobicModel_GECKO(model)">anaerobicModel_GECKO</a>(model_tmp);
+0065     <span class="keyword">end</span>
+0066 
+0067     sol = solveLP(model_tmp);
+0068     <span class="keyword">if</span> checkSolution(sol)
+0069         bioRxn          = getIndexes(model_tmp,data.biomass,<span class="string">'rxns'</span>);
+0070         <span class="comment">% Assume that biomass contains 41 Cmmol/gDCW</span>
+0071         bioMeas         = data.grRate(i) * 41;
+0072         bioSim          = sol.x(bioRxn) * 41;
+0073 
+0074         <span class="keyword">if</span> constrain
+0075             fluxToCheck     = ~isnan(data.exchFluxes(i,:));
+0076             fluxRxnIdx      = getIndexes(model_tmp,data.exchRxnIDs(fluxToCheck),<span class="string">'rxns'</span>);
+0077             cNormMeasFlux   = model_tmp.excarbon(fluxRxnIdx) .* transpose(data.exchFluxes(i,fluxToCheck));
+0078             cNormSimFlux    = model_tmp.excarbon(fluxRxnIdx) .* sol.x(fluxRxnIdx);
+0079 
+0080             <span class="comment">% Make sure that selected exchange reactions have zero flux</span>
+0081             blockRxnIdx     = getIndexes(model_tmp,rxn2blockIter,<span class="string">'rxns'</span>);
+0082             blockSim        = sol.x(blockRxnIdx) .* model_tmp.excarbon(blockRxnIdx);
+0083             zeroFlux        = blockSim == 0;
+0084             blockSim(zeroFlux) = [];
+0085             blockMeas       = zeros(numel(blockSim),1);
+0086 
+0087             measured    = [cNormMeasFlux; bioMeas; blockMeas];
+0088             simulated   = [cNormSimFlux; bioSim; blockSim];
+0089         <span class="keyword">else</span>
+0090             measured    = bioMeas;
+0091             simulated   = bioSim;
+0092         <span class="keyword">end</span>
+0093         rmseList(i) = sqrt(<a href="mse.html" class="code" title="function err = mse(y,x)">mse</a>(measured,simulated));
+0094     <span class="keyword">else</span>
+0095         rmseList(i) = NaN;
+0096     <span class="keyword">end</span>
+0097 <span class="keyword">end</span>
+0098 rmseList(isnan(rmseList)) = 99; <span class="comment">% High penalty for models that failed</span>
+0099 rmse = mean(rmseList);
+0100 <span class="keyword">end</span></pre></div>
 <hr><address>Generated by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

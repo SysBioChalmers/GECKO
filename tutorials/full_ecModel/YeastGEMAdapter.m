@@ -40,12 +40,19 @@ classdef YeastGEMAdapter < ModelAdapter
 			obj.params.enzyme_comp = 'cytoplasm';		
 
             % Parameters for Bayesian kcat fitting
-            obj.params.bayesian.samplesPerGen       = 100;
-            obj.params.bayesian.samplesFirstGen     = 125;
-            obj.params.bayesian.bestSamplesToKeep   = 80;
+            obj.params.bayesian.samplesPerGen       = 150;
+            obj.params.bayesian.samplesFirstGen     = 200;
+            obj.params.bayesian.targetAccept        = 10; % RMSE percentile to accept in each iteration
+            obj.params.bayesian.minKeep             = 0.3; % Minimum fraction of samples to keep
+            obj.params.bayesian.maxKeep             = 0.6; % Maximum fraction of samples to keep
+            obj.params.bayesian.alpha               = 0.7; % Exploit fraction
+            obj.params.bayesian.cExpl               = 3.0; % Exploration inflation
+            obj.params.bayesian.freezeStage         = 4; % Start freezing scale after this generation
+            obj.params.bayesian.sigmaFloorFrac      = 0.10; % Keep ≥10% of initial multiplicative uncertainty
+            obj.params.bayesian.rMax                = 150; % Cap PCA rank
+            obj.params.bayesian.tauResidual         = 0.10; % Residual variance outside PCA subspace
             obj.params.bayesian.rmseThreshold       = 0.2;
-            obj.params.bayesian.maxGenerations      = 100;
-
+            obj.params.bayesian.maxGenerations      = 200;
 		end
 	
 		function [spont,spontRxnNames] = getSpontaneousReactions(obj,model)
