@@ -95,7 +95,7 @@ tmpModel = setParam(ecModel,'lb',modelAdapter.params.c_source,0);
 U_r = [];              % D×r PCA basis
 sqrtLambda_r = [];     % r×r diagonal matrix with sqrt eigenvalues (inflated)
 rEff = 0;              % effective rank
-useLowRankKernel = false;
+useLowRankKernel = true;
 
 %% MAIN ABC-SMC LOOP
 generation = 1;
@@ -109,18 +109,18 @@ while rmse > rmseThreshold
             % Define randomKcats via lognormal sampling around priors
             N = samples1;
             targetAccept = targetAcccept1;
-            randomKcats = arrayfun(@getrSample, kcats, kcatStd, repmat(N, length(kcats), 1), 'UniformOutput', false);
-            randomKcats = cell2mat(randomKcats);
+            % randomKcats = arrayfun(@getrSample, kcats, kcatStd, repmat(N, length(kcats), 1), 'UniformOutput', false);
+            % randomKcats = cell2mat(randomKcats);
 
-            % % Space‑filling first generation (better coverage than i.i.d. lognormal)
-            % % Replace purely i.i.d. lognormal draws with a Sobol (or LHS) design in log‑space, then map by exp.
-            % p = sobolset(D,'Skip',1e3,'Leap',1e2);
-            % U = net(p,N)';
-            % % Transform each dimension by the lognormal CDF inverse with (mu, sigma_log)
-            % mu_log    = log(max(kcats, eps));
-            % sigma_log = sqrt(log(1 + (kcatStd ./ max(kcats, eps)).^2));
-            % thetaProp = mu_log + sigma_log .* erfinv(2*U-1) * sqrt(2);
-            % randomKcats = exp(thetaProp);
+            % Space‑filling first generation (better coverage than i.i.d. lognormal)
+            % Replace purely i.i.d. lognormal draws with a Sobol (or LHS) design in log‑space, then map by exp.
+            p = sobolset(D,'Skip',1e3,'Leap',1e2);
+            U = net(p,N)';
+            % Transform each dimension by the lognormal CDF inverse with (mu, sigma_log)
+            mu_log    = log(max(kcats, eps));
+            sigma_log = sqrt(log(1 + (kcatStd ./ max(kcats, eps)).^2));
+            thetaProp = mu_log + sigma_log .* erfinv(2*U-1) * sqrt(2);
+            randomKcats = exp(thetaProp);
 
         else
             if generation < 6
