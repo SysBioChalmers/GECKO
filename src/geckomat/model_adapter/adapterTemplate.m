@@ -6,6 +6,7 @@ classdef KEY_CLASSNAME < ModelAdapter
             % Directory where all model-specific files and scripts are kept.
             % Is assumed to follow the GECKO-defined folder structure.
             obj.params.path = fullfile('KEY_PATH', 'KEY_NAME');
+            addpath(fullfile(obj.params.path,'code'));
 
 			% Path to the conventional GEM that this ecModel will be based on.
 			obj.params.convGEM = fullfile(obj.params.path,'models','yourModel.xml');
@@ -66,10 +67,20 @@ classdef KEY_CLASSNAME < ModelAdapter
             % should be located (all be located in the same compartment,
             % this does not interfere with them catalyzing reactions in
             % different compartments). Typically, cytoplasm is chosen.
-			obj.params.enzyme_comp = 'cytoplasm';
+            obj.params.enzyme_comp = 'cytoplasm';
         end
-		
-		function [spont,spontRxnNames] = getSpontaneousReactions(obj,model)
+
+        % function ecModel = makeModelAnaerobic(ecModel)
+        %     % Define a model-specific function in the 'code' subfolder,
+        %     % that can constrain the model to anaerobic conditions, and
+        %     % include the name of this function here. This is used by
+        %     % bayesianSensitivityTuning.m (via abc_max.m) if the fluxData
+        %     % has anaerobic conditions.
+        %     addpath(fullfile(obj.params.path,'code'));
+        %     ecModel = nameOfModelSpecificFunction(ecModel);
+        % end
+
+        function [spont,spontRxnNames] = getSpontaneousReactions(obj,model)
             % Indicates how spontaneous reactions are identified. Here it
             % is done by the reaction have 'spontaneous' in its name.
 			spont = contains(model.rxnNames,'spontaneous');

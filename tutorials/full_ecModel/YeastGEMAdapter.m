@@ -2,6 +2,7 @@ classdef YeastGEMAdapter < ModelAdapter
 	methods
 		function obj = YeastGEMAdapter()
 			obj.params.path = fullfile(findGECKOroot,'tutorials','full_ecModel');
+            addpath(fullfile(obj.params.path,'code'));
 
 			obj.params.convGEM = fullfile(obj.params.path,'models','yeast-GEM.yml');
 
@@ -53,7 +54,12 @@ classdef YeastGEMAdapter < ModelAdapter
             obj.params.bayesian.tauResidual         = 0.10; % Residual variance outside PCA subspace
             obj.params.bayesian.rmseThreshold       = 0.2;
             obj.params.bayesian.maxGenerations      = 200;
-		end
+        end
+
+        function ecModel = makeModelAnaerobic(ecModel)
+            % Taken from yeast-GEM 9.0.2
+            model = anaerobicModel_GECKO(model);
+        end
 	
 		function [spont,spontRxnNames] = getSpontaneousReactions(obj,model)
 			spont = contains(model.rxnNames,'spontaneous');
