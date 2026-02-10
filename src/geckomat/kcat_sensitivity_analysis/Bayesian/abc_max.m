@@ -23,13 +23,13 @@ end
 
 %% First test with flux data
 if ~isempty(fluxData)
-    rmse_1 = rmsecal(ecModel,fluxData,true,rxn2block);
+    rmse_1 = rmsecal(ecModel,fluxData,true,rxn2block,modelAdapter);
 else
     rmse_1 = [];
 end
 %% Second test with maximum growth on various carbon sources
 if ~isempty(maxGrowth)  % simulate the maximal growth rate
-    rmse_2 = rmsecal(ecModel,maxGrowth,false,rxn2block);
+    rmse_2 = rmsecal(ecModel,maxGrowth,false,rxn2block,modelAdapter);
 else
     rmse_2 = [];
 end

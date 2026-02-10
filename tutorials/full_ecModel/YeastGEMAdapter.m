@@ -59,7 +59,7 @@ classdef YeastGEMAdapter < ModelAdapter
             obj.params.bayesian.maxGenerations      = 200; % Maximum number of generations before returning best posterior kcats
         end
 
-        function ecModel = makeModelAnaerobic(ecModel)
+        function ecModel = makeModelAnaerobic(obj,ecModel)
             % Taken from yeast-GEM 9.0.2
             ecModel = anaerobicModel_GECKO(ecModel);
         end
