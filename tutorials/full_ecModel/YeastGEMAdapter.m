@@ -41,19 +41,19 @@ classdef YeastGEMAdapter < ModelAdapter
 			obj.params.enzyme_comp = 'cytoplasm';		
 
             % Parameters for Bayesian kcat fitting
-            obj.params.bayesian.samplesPerGen       = 600;
-            obj.params.bayesian.samplesFirstGen     = 1000;
-            obj.params.bayesian.targetAccept        = 5; % RMSE percentile to accept in each iteration
+            obj.params.bayesian.initSDmultiplDef    = 1.5; % Default multiplier to define kcat standard deviation (kcat * initSDmultiplDef)
+            obj.params.bayesian.kcatSources         = {'brenda','dlkcat'}; % kcat sources for which alternative multipliers are defined
+            obj.params.bayesian.initSDmultipl       = [0.15; 0.6]; % Multipliers that overwrite initSDmultplDef, matching kcatSources
+            obj.params.bayesian.samples1            = 1500; % Number of kcat samples in generation 1
+            obj.params.bayesian.samples2_5          = 500; % Number of kcat samples in generation 2-5
+            obj.params.bayesian.samples6_end        = 250; % Number of kcat samples in generation 6 onwards
+            obj.params.bayesian.targetAccept1       = 45; % RMSE percentile to accept in generation 1
+            obj.params.bayesian.targetAccept2_5     = 35; % RMSE percentile to accept in generation 2-5
+            obj.params.bayesian.targetAccept6_end   = 25; % RMSE percentile to accept in generation 6 onwards
             obj.params.bayesian.minKeep             = 0.05; % Minimum fraction of samples to keep
-            obj.params.bayesian.maxKeep             = 0.2; % Maximum fraction of samples to keep
-            obj.params.bayesian.alpha               = 0.7; % Exploit fraction
-            obj.params.bayesian.cExpl               = 3.0; % Exploration inflation
-            obj.params.bayesian.freezeStage         = 4; % Start freezing scale after this generation
-            obj.params.bayesian.sigmaFloorFrac      = 0.10; % Keep ≥10% of initial multiplicative uncertainty
-            obj.params.bayesian.rMax                = 150; % Cap PCA rank
-            obj.params.bayesian.tauResidual         = 0.10; % Residual variance outside PCA subspace
-            obj.params.bayesian.rmseThreshold       = 0.2;
-            obj.params.bayesian.maxGenerations      = 200;
+            obj.params.bayesian.maxKeep             = 0.30; % Maximum fraction of samples to keep
+            obj.params.bayesian.rmseThreshold       = 0.2; % RMSE threshold to halt and output best posterior kcats
+            obj.params.bayesian.maxGenerations      = 200; % Maximum number of generations before returning best posterior kcats
         end
 
         function ecModel = makeModelAnaerobic(ecModel)
