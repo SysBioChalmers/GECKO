@@ -1,4 +1,4 @@
-function rmse = abc_max(ecModel,fluxData,maxGrowth,rxn2block)
+function rmse = abc_max(ecModel,fluxData,maxGrowth,rxn2block,modelAdapter)
 % abc_max
 %   Internal function in BayesianSensitivityTuning. Gets the average RMSE for
 %   a certain set of growth data and kcats.
@@ -14,6 +14,12 @@ function rmse = abc_max(ecModel,fluxData,maxGrowth,rxn2block)
 % Output:
 %   rmse          The average RMSE
 
+if nargin < 5 || isempty(modelAdapter)
+    modelAdapter = ModelAdapterManager.getDefault();
+    if isempty(modelAdapter)
+        error('Either send in a modelAdapter or set the default ecModel adapter in the ModelAdapterManager.')
+    end
+end
 
 %% First test with flux data
 if ~isempty(fluxData)
@@ -33,7 +39,7 @@ rmse        = mean([rmse_1,rmse_2],'omitnan');
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function rmse = rmsecal(ecModel,data,constrain,rxn2block)
+function rmse = rmsecal(ecModel,data,constrain,rxn2block,modelAdapter)
 
 rmseList = zeros(length(data.conds),1);
 
@@ -61,7 +67,7 @@ for i = 1:length(data.conds)
     % Make anaerobic if relevant
     o2Flux = data.exchFluxes(i,strcmp('oxygen',data.exchMets));
     if o2Flux == 0
-        model_tmp = makeModelAnaerobic(model_tmp);
+        model_tmp = modelAdapter.makeModelAnaerobic(model_tmp);
     end
 
     sol = solveLP(model_tmp);

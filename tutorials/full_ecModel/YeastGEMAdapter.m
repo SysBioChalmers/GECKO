@@ -61,7 +61,7 @@ classdef YeastGEMAdapter < ModelAdapter
 
         function ecModel = makeModelAnaerobic(ecModel)
             % Taken from yeast-GEM 9.0.2
-            model = anaerobicModel_GECKO(model);
+            ecModel = anaerobicModel_GECKO(ecModel);
         end
 	
 		function [spont,spontRxnNames] = getSpontaneousReactions(obj,model)
