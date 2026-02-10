@@ -52,6 +52,9 @@ classdef YeastGEMAdapter < ModelAdapter
             obj.params.bayesian.targetAccept6_end   = 25; % RMSE percentile to accept in generation 6 onwards
             obj.params.bayesian.minKeep             = 0.05; % Minimum fraction of samples to keep
             obj.params.bayesian.maxKeep             = 0.30; % Maximum fraction of samples to keep
+            obj.params.bayesian.rMax                = 200; % Hard cap on PCA rank (20–300 typical)
+            obj.params.bayesian.cExpl               = 1.25; % inflate subspace std for exploration (1.1–1.5)
+            obj.params.bayesian.tauResidual         = 1e-3; % residual (isotropic) variance in log-space (1e-4–1e-2
             obj.params.bayesian.rmseThreshold       = 0.2; % RMSE threshold to halt and output best posterior kcats
             obj.params.bayesian.maxGenerations      = 200; % Maximum number of generations before returning best posterior kcats
         end
