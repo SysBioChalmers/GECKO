@@ -40,11 +40,11 @@ classdef YeastGEMAdapter < ModelAdapter
 			obj.params.enzyme_comp = 'cytoplasm';		
 
             % Parameters for Bayesian kcat fitting
-            obj.params.bayesian.samplesPerGen       = 150;
-            obj.params.bayesian.samplesFirstGen     = 200;
-            obj.params.bayesian.targetAccept        = 10; % RMSE percentile to accept in each iteration
-            obj.params.bayesian.minKeep             = 0.3; % Minimum fraction of samples to keep
-            obj.params.bayesian.maxKeep             = 0.6; % Maximum fraction of samples to keep
+            obj.params.bayesian.samplesPerGen       = 600;
+            obj.params.bayesian.samplesFirstGen     = 1000;
+            obj.params.bayesian.targetAccept        = 5; % RMSE percentile to accept in each iteration
+            obj.params.bayesian.minKeep             = 0.05; % Minimum fraction of samples to keep
+            obj.params.bayesian.maxKeep             = 0.2; % Maximum fraction of samples to keep
             obj.params.bayesian.alpha               = 0.7; % Exploit fraction
             obj.params.bayesian.cExpl               = 3.0; % Exploration inflation
             obj.params.bayesian.freezeStage         = 4; % Start freezing scale after this generation
