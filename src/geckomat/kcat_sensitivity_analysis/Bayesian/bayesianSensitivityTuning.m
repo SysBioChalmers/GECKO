@@ -108,7 +108,7 @@ while rmse > rmseThreshold
         if generation == 1
             % Define randomKcats via lognormal sampling around priors
             N = samples1;
-            targetAccept = targetAcccept1;
+            targetAccept = targetAccept1;
             randomKcats = arrayfun(@getrSample, kcats, kcatStd, repmat(N, length(kcats), 1), 'UniformOutput', false);
             randomKcats = cell2mat(randomKcats);
 
@@ -125,10 +125,10 @@ while rmse > rmseThreshold
         else
             if generation < 6
                 N = samples2_5;
-                targetAccept = targetAcccept2_5;
+                targetAccept = targetAccept2_5;
             else
                 N = samples6_end;
-                targetAccept = targetAcccept6_end;
+                targetAccept = targetAccept6_end;
             end
 
             % Define randomKcats by sampling around previous accepted
