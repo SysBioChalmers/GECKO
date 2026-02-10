@@ -77,7 +77,7 @@ end
 kcats = ecModel.ec.kcat;
 D     = numel(kcats);
 
-rmse = abc_max(ecModel,fluxData,maxGrate,zeroFlux);
+rmse = abc_max(ecModel,fluxData,maxGrate,zeroFlux,modelAdapter);
 fprintf('RMSE with prior kcats: %.2f.\n', rmse)
 
 rmseTop   = rmse;
@@ -175,7 +175,7 @@ while rmse > rmseThreshold
             ecModelIter         = tmpModel;
             ecModelIter.ec.kcat = randomKcats(:,j);
             ecModelIter         = applyKcatConstraints(ecModelIter);
-            newRmse(j)          = abc_max(ecModelIter,fluxData,maxGrate,zeroFlux);
+            newRmse(j)          = abc_max(ecModelIter,fluxData,maxGrate,zeroFlux,modelAdapter);
             count(PB2)
         end
 
