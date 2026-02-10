@@ -112,15 +112,17 @@ while rmse > rmseThreshold
             % randomKcats = arrayfun(@getrSample, kcats, kcatStd, repmat(N, length(kcats), 1), 'UniformOutput', false);
             % randomKcats = cell2mat(randomKcats);
 
-            % Space‑filling first generation (better coverage than i.i.d. lognormal)
-            % Replace purely i.i.d. lognormal draws with a Sobol (or LHS) design in log‑space, then map by exp.
-            p = sobolset(D,'Skip',1e3,'Leap',1e2);
-            U = net(p,N)';
-            % Transform each dimension by the lognormal CDF inverse with (mu, sigma_log)
+            % Convert your linear-space priors (kcats, kcatStd) to lognormal (mu_log, sigma_log)
             mu_log    = log(max(kcats, eps));
             sigma_log = sqrt(log(1 + (kcatStd ./ max(kcats, eps)).^2));
-            thetaProp = mu_log + sigma_log .* erfinv(2*U-1) * sqrt(2);
+
+            % Latin Hypercube in [0,1]^D (N samples). Returns N×D, so transpose to D×N.
+            U = lhsdesign(N, D, 'criterion','maximin','iterations',50)';  % D×N
+
+            % Map U ~ U(0,1) to Normal via inverse CDF, then to log‑space around priors
+            thetaProp = mu_log + sigma_log .* (sqrt(2) .* erfinv(2*U - 1));   % D×N
             randomKcats = exp(thetaProp);
+
 
         else
             if generation < 6
