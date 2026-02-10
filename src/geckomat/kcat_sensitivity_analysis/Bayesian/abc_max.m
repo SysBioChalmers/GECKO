@@ -61,7 +61,7 @@ for i = 1:length(data.conds)
     % Make anaerobic if relevant
     o2Flux = data.exchFluxes(i,strcmp('oxygen',data.exchMets));
     if o2Flux == 0
-        model_tmp = anaerobicModel_GECKO(model_tmp);
+        model_tmp = makeModelAnaerobic(model_tmp);
     end
 
     sol = solveLP(model_tmp);

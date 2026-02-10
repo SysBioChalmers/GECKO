@@ -47,6 +47,15 @@ classdef (Abstract) ModelAdapter
         function x = getPhylDistStructPath(obj)
             x =  fullfile(findRAVENroot(),'external','kegg','keggPhylDist.mat');
         end
+
+        % Define a model-specific function in the 'code' subfolder of the
+        % project folder, that can constrain the model to anaerobic
+        % conditions, and refer to this function in the modelAdapter. This
+        % function is used when running bayesianSensitivityTuning.m (via
+        % abc_max.m) if the fluxData has anaerobic conditions.
+        function ecModel = makeModelAnaerobic(ecModel)
+            ecModel = ecModel;
+        end
     end
 
     %To have the params public is a bit "ugly", but very practical
