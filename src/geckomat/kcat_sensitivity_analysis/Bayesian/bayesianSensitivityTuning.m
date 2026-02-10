@@ -9,21 +9,17 @@ function [ecModel, rmseTrace, kcatTrace, stdTrace] = bayesianSensitivityTuning(e
 %                   earlier GECKO versions (pre 3.0).
 %   kcatStd         vector of same length as ecModel.ec.kcat, with the
 %                   initial standard deviations (SD) for the kcat values.
-%                   By default, kcatStd is set at 10% of the kcat values 
-%                   (as ecModel.ec.kcat./10). It might make sense to provide
-%                   kcat-specific kcatStd, for instance based on the source
-%                   of the kcat (if a source is more reliable, kcatStd
-%                   should possibly be smaller).
+%                   By default, kcatStd is set by multiplying kcat values 
+%                   with params.bayesian.initSDmultiplDef, or by source-
+%                   specific multipliers specified in params.bayesian.
+%                   kcatSources and params.bayesian.initSDmultipl. Instead,
+%                   it is also possible to provide a custom kcatStd vector.
 %   modelAdapter    a loaded model adapter (Optional, will otherwise use the
 %                   default model adapter).
 %
 % Output:
 %   model           ecModel with new kcats, not applied.
 %
-if nargin < 2 || isempty(kcatStd)
-    kcatStd     = ecModel.ec.kcat./3;
-end
-
 if nargin < 3 || isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefault();
     if isempty(modelAdapter)
@@ -33,20 +29,29 @@ end
 
 %% Load hyperparameters
 params = modelAdapter.params;
-samplesPerGen       = params.bayesian.samplesPerGen; % Number of models in each generation
-samplesFirstGen     = params.bayesian.samplesFirstGen; % Number of models in first generation
-targetAccept        = params.bayesian.targetAccept; % RMSE percentile to accept in each iteration
-minKeep             = params.bayesian.minKeep; % Minimum samples to keep
-maxKeep             = params.bayesian.maxKeep; % Maximum samples to keep
-alpha               = params.bayesian.alpha;             % exploit fraction
-cExpl               = params.bayesian.cExpl;             % exploration inflation
-freezeStage         = params.bayesian.freezeStage;       % freeze scale after this gen
-sigmaFloorFrac      = params.bayesian.sigmaFloorFrac; % >=10% of initial
-rMax                = params.bayesian.rMax;              % max PCA rank (field name fixed)
-tauResidual         = params.bayesian.tauResidual;       % residual floor outside PCA subspace
-rmseThreshold       = params.bayesian.rmseThreshold; % RMSE threshold to halt and output best posterior kcats
-maxGenerations      = params.bayesian.maxGenerations; % Maximum number of generations before returning best posterior kcats
+initSDmultiplDef    = params.bayesian.initSDmultiplDef;
+kcatSources         = params.bayesian.kcatSources;
+initSDmultipl       = params.bayesian.initSDmultipl;
+samples1            = params.bayesian.samples1;
+samples2_5          = params.bayesian.samples2_5;
+samples6_end        = params.bayesian.samples6_end;
+targetAccept1       = params.bayesian.targetAccept1;
+targetAccept2_5     = params.bayesian.targetAccept2_5;
+targetAccept6_end   = params.bayesian.targetAccept6_end;
+minKeep             = params.bayesian.minKeep;
+maxKeep             = params.bayesian.maxKeep;
+rmseThreshold       = params.bayesian.rmseThreshold;
+maxGenerations      = params.bayesian.maxGenerations;
 basePath            = params.path;
+
+%% Define initial kcat distributions
+if nargin < 2 || isempty(kcatStd)
+    kcatStd     = ecModel.ec.kcat .* initSDmultiplDef;
+    for i = 1:numel(kcatSources)
+        selKcats            = strcmpi(ecModel.ec.source,kcatSources{i});
+        kcatStd(selKcats)   = ecModel.ec.kcat(selKcats) .* initSDmultipl(i);
+    end
+end
 
 %% Load data
 % fluxData = data.fluxData; % Cultivation data
@@ -67,6 +72,7 @@ end
 
 %these will be updated in the loop below
 kcats = ecModel.ec.kcat;
+D     = numel(kcats);
 
 rmse = abc_max(ecModel,fluxData,maxGrate,zeroFlux);
 fprintf('RMSE with prior kcats: %.2f.\n', rmse)
@@ -82,53 +88,56 @@ PB1 = ProgressBar2(maxGenerations, ['Run through ' num2str(maxGenerations) ' gen
 % Switch off default carbon source, will be set in each sample
 tmpModel = setParam(ecModel,'lb',modelAdapter.params.c_source,0);
 
-%% Proposal state initialization
-D           = numel(kcats);
-kcats0      = kcats(:);         % baseline mean kcats (linear)
-kcatStd0    = kcatStd(:);
-% initial log-space std from linear (mu,sigma) assuming lognormal
-
-sigma0_log  = sqrt(log(1 + (kcatStd0 ./ max(kcats0, eps)).^2));  % [D x 1]
-havePropStats = false;        % set true after 1st accepted-set update
-U = []; Lambda = [];          % low-rank PCA basis for exploit kernel
-
 %% MAIN ABC-SMC LOOP
-
 generation = 1;
 while rmse > rmseThreshold
     if generation <= maxGenerations
         count(PB1)
         fprintf('Running iteration %d of %d. ', generation, maxGenerations)
 
-        % First generation take more samples
-        if generation == 1
-            N = samplesFirstGen;
-        else
-            N = samplesPerGen;
-        end
-
-        prevRmse = rmseTop;
-        prevKcat = kcatTop;
-
         % Sampling
-        if generation == 1 || ~havePropStats
-            % First generation → use lognormal sampling around priors
+        if generation == 1
+            % Define randomKcats via lognormal sampling around priors
+            N = samples1;
+            targetAccept = targetAcccept1;
             randomKcats = arrayfun(@getrSample, kcats, kcatStd, repmat(N, length(kcats), 1), 'UniformOutput', false);
             randomKcats = cell2mat(randomKcats);
+
+            % % Space‑filling first generation (better coverage than i.i.d. lognormal)
+            % % Replace purely i.i.d. lognormal draws with a Sobol (or LHS) design in log‑space, then map by exp.
+            % p = sobolset(D,'Skip',1e3,'Leap',1e2);
+            % U = net(p,N)';
+            % % Transform each dimension by the lognormal CDF inverse with (mu, sigma_log)
+            % mu_log    = log(max(kcats, eps));
+            % sigma_log = sqrt(log(1 + (kcatStd ./ max(kcats, eps)).^2));
+            % thetaProp = mu_log + sigma_log .* erfinv(2*U-1) * sqrt(2);
+            % randomKcats = exp(thetaProp);
+
+
         else
-            % Later generations → full-covariance ABC-PMC kernel
-            % Proposal kernel:
-            %     θ_new = exp( log(θ_parent) + L * N(0, I) )
-            % where Σ = shrinkage covariance in log-space
+            if generation < 6
+                N = samples2_5;
+                targetAccept = targetAcccept2_5;
+            else
+                N = samples6_end;
+                targetAccept = targetAcccept6_end;
+            end
+
+            % Define randomKcats by sampling around previous accepted
+            % solutions using a full-covariance Guassian kernel in log
+            % space, ABC-PMC
+            % Randomly pick N columns with accepted kcat values
             parent_idx = randi(size(kcatTop,2), [1 N]);
             parents = log(kcatTop(:, parent_idx));
 
-            % Cholesky factor (Σ must be PSD)
-            L = chol(SigmaLog + 1e-12*eye(D), 'lower');
+            % Compute Cholesky factor of the log-space covariance SigmaLog
+            % Stabilize with 1e-12*I
+            L = chol(SigmaLog + 1e-12*eye(D), 'lower'); 
+            % Draw normal noise for each proposal and correlate via L
+            Z = randn(D, N); 
+            thetaProp = parents + L * Z; %
 
-            Z = randn(D, N);
-            thetaProp = parents + L * Z;
-
+            % Map back to linear space
             randomKcats = exp(thetaProp);
         end
 
@@ -155,10 +164,11 @@ while rmse > rmseThreshold
         randomKcats(:,zeroIdx) = [];
 
         % Combine with results from previous generation
-        rmse = [newRmse; prevRmse];
-        kcat = [randomKcats, prevKcat];
+        rmse = [newRmse; rmseTop];
+        kcat = [randomKcats, kcatTop];
 
-        % Accept by epsilon (percentile)
+        % Accept samples based on targetAccept percentile of the RMSE
+        % distribution (epsilon)
         epsilon = prctile(rmse, targetAccept);
         acc_idx = find(rmse <= epsilon);
 
@@ -184,30 +194,33 @@ while rmse > rmseThreshold
         rmseTop = rmse(acc_idx);
         kcatTop = kcat(:, acc_idx);
 
-        %% Posterior moment update
+        %% Define means and standard deviations from accepted samples
         ss      = num2cell(kcatTop', 1);
         [a,b]   = arrayfun(@updateprior, ss);
         kcats   = transpose(a);
         kcatStd = transpose(b);
 
-        %% Build NEW covariance matrix in log-space
+        %% Build new covariance matrix in log-space, to be used for next sampling
         thetaAcc = log(kcatTop);
 
-        % Remove outliers (robustification)
-        % Compute z-scores per dimension
+        % Remove outliers, by filtering out samples whose z-scores had a
+        % Median Absolute Deviation (MAD) of 6 or more
         z = abs(thetaAcc - median(thetaAcc,2)) ./ (mad(thetaAcc,1,2) + 1e-12);
-        keepMask = all(z < 6,1);         % keep columns where all dims < 6 MAD
+        keepMask = median(z,1) < 6;
+        % Fallback if everything gets filtered away
+        if ~any(keepMask)
+            warning('MAD filter removed all samples; disabling filtering this generation.');
+            keepMask = true(1, size(thetaAcc,2));
+        end
         thetaClean = thetaAcc(:, keepMask);
 
-        % Empirical covariance
+        % Determine empirical covariance of samples who were retained
         Cemp = cov(thetaClean');
 
-        % Ledoit-Wolf shrinkage toward diagonal (very stable)
+        % Reduce noise in Cemp, through Ledoit-Wolf shrinkage towards a
+        % diagonal covariance
         alphaLW = 0.1;
         SigmaLog = (1 - alphaLW) * Cemp + alphaLW * diag(diag(Cemp));
-
-        % Mark we have proposal stats from now on
-        havePropStats = true;
 
         %% Track progress (use best, not first)
         [bestRMSE, bestIdx] = min(rmseTop);
@@ -234,4 +247,41 @@ end
 ecModel.ec.kcat = kcatTop(:, bestIdx);
 ecModel = applyKcatConstraints(ecModel);
 fprintf('Final RMSE: %.2f.\n', rmseTop(bestIdx))
+end
+
+function [mu,sigma] = updateprior(x,defaultCV)
+% updateprior
+%   Calculates a new distribution from the provided kcat values
+%
+% Input:
+%   x       kcat values
+%
+% Output:
+%   mu      mean
+%   sigma   standard deviation
+
+if nargin<2
+    defaultCV = 0.25;
+end
+
+if iscell(x), x = x{:}; end
+
+% Remove non-positive values—they cannot be logged
+n_before = numel(x);
+x = x(x > 0);
+if isempty(x)
+    error('x cannot be empty or contain only non-positive values.');
+end
+if numel(x) < n_before
+    warning('Removed %d non-positive values before fitting.', n_before - numel(x));
+end
+
+if isscalar(x)
+    mu      = x;
+    sigma   = x * defaultCV;
+else
+    pd      = fitdist(log(x),'normal');
+    mu    = exp(pd.mu + 0.5 * pd.sigma^2);
+    sigma = sqrt( (exp(pd.sigma^2) - 1) * exp(2*pd.mu + pd.sigma^2) );
+end
 end
