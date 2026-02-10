@@ -31,6 +31,7 @@ if nargin < 3 || isempty(modelAdapter)
     end
 end
 
+%% Load hyperparameters
 params = modelAdapter.params;
 samplesPerGen       = params.bayesian.samplesPerGen; % Number of models in each generation
 samplesFirstGen     = params.bayesian.samplesFirstGen; % Number of models in first generation
@@ -47,6 +48,7 @@ rmseThreshold       = params.bayesian.rmseThreshold; % RMSE threshold to halt an
 maxGenerations      = params.bayesian.maxGenerations; % Maximum number of generations before returning best posterior kcats
 basePath            = params.path;
 
+%% Load data
 % fluxData = data.fluxData; % Cultivation data
 % zeroFlux = data.zeroFlux; % List of exchange reactions that should not carry any flux, as these metabolites are widely assumed not to be excreted
 % maxGrate = data.maxGrate; % Maximum growth rates
@@ -80,14 +82,17 @@ PB1 = ProgressBar2(maxGenerations, ['Run through ' num2str(maxGenerations) ' gen
 % Switch off default carbon source, will be set in each sample
 tmpModel = setParam(ecModel,'lb',modelAdapter.params.c_source,0);
 
-% --- Proposal state (log-space) ---
+%% Proposal state initialization
 D           = numel(kcats);
 kcats0      = kcats(:);         % baseline mean kcats (linear)
 kcatStd0    = kcatStd(:);
 % initial log-space std from linear (mu,sigma) assuming lognormal
+
 sigma0_log  = sqrt(log(1 + (kcatStd0 ./ max(kcats0, eps)).^2));  % [D x 1]
 havePropStats = false;        % set true after 1st accepted-set update
 U = []; Lambda = [];          % low-rank PCA basis for exploit kernel
+
+%% MAIN ABC-SMC LOOP
 
 generation = 1;
 while rmse > rmseThreshold
@@ -97,27 +102,34 @@ while rmse > rmseThreshold
 
         % First generation take more samples
         if generation == 1
-            numberOfSamples = samplesFirstGen;
+            N = samplesFirstGen;
         else
-            numberOfSamples = samplesPerGen;
+            N = samplesPerGen;
         end
 
         prevRmse = rmseTop;
         prevKcat = kcatTop;
-        newRmse  = zeros(numberOfSamples,1);
 
         % Sampling
         if generation == 1 || ~havePropStats
-            % Per-parameter lognormal sampling around current mean
-            randomKcats = arrayfun(@getrSample, kcats, kcatStd, repmat(numberOfSamples, length(kcats), 1), 'UniformOutput', false);
+            % First generation → use lognormal sampling around priors
+            randomKcats = arrayfun(@getrSample, kcats, kcatStd, repmat(N, length(kcats), 1), 'UniformOutput', false);
             randomKcats = cell2mat(randomKcats);
         else
-            % Low-rank mixture proposal in log-space, centered on accepted parents
-            parent_idx = randi(size(kcatTop, 2), 1, numberOfSamples); % uniform resampling
-            parents    = kcatTop(:, parent_idx);         % [D x Nprop]
+            % Later generations → full-covariance ABC-PMC kernel
+            % Proposal kernel:
+            %     θ_new = exp( log(θ_parent) + L * N(0, I) )
+            % where Σ = shrinkage covariance in log-space
+            parent_idx = randi(size(kcatTop,2), [1 N]);
+            parents = log(kcatTop(:, parent_idx));
 
-            % Propose without forming full covariances:
-            randomKcats = proposeLowRankMixture(parents, U, Lambda, sigmaProp_log, sigma0_log, tauResidual, alpha, cExpl);
+            % Cholesky factor (Σ must be PSD)
+            L = chol(SigmaLog + 1e-12*eye(D), 'lower');
+
+            Z = randn(D, N);
+            thetaProp = parents + L * Z;
+
+            randomKcats = exp(thetaProp);
         end
 
         if any(randomKcats <= 0, 'all')
@@ -125,9 +137,11 @@ while rmse > rmseThreshold
             randomKcats = max(randomKcats, realmin);
         end
 
-        % simulate and measure RMSE
-        PB2 = ProgressBar2(numberOfSamples, ['Simulate ' num2str(numberOfSamples) ' models with random kcats'], 'gui');
-        parfor j = 1:numberOfSamples
+        %% Evaluate RMSE for each proposed sample
+        newRmse  = zeros(N,1);
+        PB2 = ProgressBar2(N, ['Simulate ' num2str(N) ' models with random kcats'], 'gui');
+        
+        parfor j = 1:N
             ecModelIter         = tmpModel;
             ecModelIter.ec.kcat = randomKcats(:,j);
             ecModelIter         = applyKcatConstraints(ecModelIter);
@@ -136,9 +150,9 @@ while rmse > rmseThreshold
         end
 
         % Leave out zero rmse results: model was unsolvable
-        zeroRmse                = newRmse == 0;
-        newRmse(zeroRmse)       = [];
-        randomKcats(:,zeroRmse) = [];
+        zeroIdx = (newRmse == 0);
+        newRmse(zeroIdx) = [];
+        randomKcats(:,zeroIdx) = [];
 
         % Combine with results from previous generation
         rmse = [newRmse; prevRmse];
@@ -151,10 +165,11 @@ while rmse > rmseThreshold
         % Ensure a reasonable number of accepted samples
         minCount = max(1, floor(minKeep * numel(rmse)));
         maxCount = max(1, floor(maxKeep * numel(rmse)));
+
         if numel(acc_idx) < minCount
             % Relax epsilon slightly until min_keep is reached or capped attempts
-            relaxFactor = 1.05; attempts = 0; maxAttempts = 20;
-            while numel(acc_idx) < minCount && attempts < maxAttempts
+            relaxFactor = 1.05; attempts = 0;
+            while numel(acc_idx) < minCount && attempts < 20
                 epsilon = epsilon * relaxFactor;
                 acc_idx = find(rmse <= epsilon);
                 attempts = attempts + 1;
@@ -169,44 +184,32 @@ while rmse > rmseThreshold
         rmseTop = rmse(acc_idx);
         kcatTop = kcat(:, acc_idx);
 
-        % Reporting posterior (linear mean/std)
+        %% Posterior moment update
         ss      = num2cell(kcatTop', 1);
         [a,b]   = arrayfun(@updateprior, ss);
         kcats   = transpose(a);
         kcatStd = transpose(b);
 
-        % Build low-rank proposal (log-space) & freeze scale (sampling std)
-        thetaAcc = log(kcatTop);                    % [D x Nacc]
-        Xc       = thetaAcc - mean(thetaAcc,2);
+        %% Build NEW covariance matrix in log-space
+        thetaAcc = log(kcatTop);
 
-        if size(Xc,2) >= 2
-            [Ufull, S, ~] = svd(Xc / sqrt(max(size(Xc,2)-1,1)), 'econ');
-            rAvail        = size(Ufull,2);
-            rUse          = min([rAvail, rMax, max(size(Xc,2)-1,1)]);
-            if rUse >= 1
-                U      = Ufull(:, 1:rUse);
-                Lambda = (diag(S(1:rUse,1:rUse))).^2;  % eigenvalues in log-space
-            else
-                U = zeros(D,0); Lambda = zeros(0,1);
-            end
-        else
-            U = zeros(D,0); Lambda = zeros(0,1);
-        end
+        % Remove outliers (robustification)
+        % Compute z-scores per dimension
+        z = abs(thetaAcc - median(thetaAcc,2)) ./ (mad(thetaAcc,1,2) + 1e-12);
+        keepMask = all(z < 6,1);         % keep columns where all dims < 6 MAD
+        thetaClean = thetaAcc(:, keepMask);
 
-        stds_obs = std(thetaAcc, 1, 2);            % [D x 1]
-        if generation <= freezeStage
-            adaptFrac     = 0.5; % limited adaptation early
-            sigmaProp_log = max(adaptFrac*stds_obs + (1 - adaptFrac)*sigma0_log, ...
-                                sigmaFloorFrac * sigma0_log);
-        else
-            % Freeze: keep baseline multiplicative scale; learn only directions via U, Lambda
-            sigmaProp_log = max(sigma0_log, sigmaFloorFrac * sigma0_log);
-        end
+        % Empirical covariance
+        Cemp = cov(thetaClean');
+
+        % Ledoit-Wolf shrinkage toward diagonal (very stable)
+        alphaLW = 0.1;
+        SigmaLog = (1 - alphaLW) * Cemp + alphaLW * diag(diag(Cemp));
 
         % Mark we have proposal stats from now on
         havePropStats = true;
 
-        % Track progress (use best, not first)
+        %% Track progress (use best, not first)
         [bestRMSE, bestIdx] = min(rmseTop);
         rmseTrace = [rmseTrace, bestRMSE];
         kcatTrace = [kcatTrace, kcats];
@@ -231,52 +234,4 @@ end
 ecModel.ec.kcat = kcatTop(:, bestIdx);
 ecModel = applyKcatConstraints(ecModel);
 fprintf('Final RMSE: %.2f.\n', rmseTop(bestIdx))
-end
-
-% ===================== Helper =====================
-
-function proposals = proposeLowRankMixture(parents, U, Lambda, sigmaProp_log, sigma0_log, tau, alpha, cExpl)
-% proposeLowRankMixture
-%   Sample proposals in log-space using a mixture kernel:
-%   Exploit: low-rank PCA shape + residual floor, with per-dim scale sigmaProp_log
-%   Explore: inflated baseline diagonal (sigma0_log)
-%   Both are centered on the parent in log-space.
-
-[D, Nprop] = size(parents);
-r = size(U, 2);
-
-useExploit = rand(1, Nprop) < alpha;
-
-% Exploit steps: (sqrt(tau)*E) + U*diag(sqrt(Lambda))*Z  then per-dim scale
-nE = sum(useExploit);
-if nE > 0
-    Zr = randn(r, nE);
-    Er = randn(D, nE);
-    if r > 0
-        y_exploit = bsxfun(@times, sqrt(tau), Er) + U * (bsxfun(@times, sqrt(Lambda), Zr));
-    else
-        y_exploit = bsxfun(@times, sqrt(tau), Er);
-    end
-    steps_exploit = bsxfun(@times, sigmaProp_log, y_exploit);
-else
-    steps_exploit = zeros(D,0);
-end
-
-% Explore steps: broad diagonal baseline
-nX = sum(~useExploit);
-if nX > 0
-    Ee = randn(D, nX);
-    steps_explore = bsxfun(@times, cExpl * sigma0_log, Ee);
-else
-    steps_explore = zeros(D,0);
-end
-
-% Assemble in original column order
-steps = zeros(D, Nprop);
-if nE > 0, steps(:,  useExploit) = steps_exploit; end
-if nX > 0, steps(:, ~useExploit) = steps_explore; end
-
-% Parent-centered in log-space, then back to linear space
-proposals = exp(log(max(parents, realmin)) + steps);
-proposals = max(proposals, realmin);
 end
