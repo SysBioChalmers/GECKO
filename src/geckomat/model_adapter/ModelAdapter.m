@@ -53,7 +53,7 @@ classdef (Abstract) ModelAdapter
         % conditions, and refer to this function in the modelAdapter. This
         % function is used when running bayesianSensitivityTuning.m (via
         % abc_max.m) if the fluxData has anaerobic conditions.
-        function ecModel = makeModelAnaerobic(ecModel)
+        function ecModel = makeModelAnaerobic(obj,ecModel)
             ecModel = ecModel;
         end
     end
