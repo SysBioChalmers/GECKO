@@ -95,7 +95,7 @@ tmpModel = setParam(ecModel,'lb',modelAdapter.params.c_source,0);
 U_r = [];              % D×r PCA basis
 sqrtLambda_r = [];     % r×r diagonal matrix with sqrt eigenvalues (inflated)
 rEff = 0;              % effective rank
-useLowRankKernel = true;
+useLowRankKernel = true; varFrac = 0.95;
 
 %% MAIN ABC-SMC LOOP
 generation = 1;
