@@ -35,14 +35,6 @@ initSDmultipl       = params.bayesian.initSDmultipl;
 samples1            = params.bayesian.samples1;
 samples2_5          = params.bayesian.samples2_5;
 samples6_end        = params.bayesian.samples6_end;
-targetAccept1       = params.bayesian.targetAccept1;
-targetAccept2_5     = params.bayesian.targetAccept2_5;
-targetAccept6_end   = params.bayesian.targetAccept6_end;
-minKeep             = params.bayesian.minKeep;
-maxKeep             = params.bayesian.maxKeep;
-rMax                = params.bayesian.rMax;
-cExpl               = params.bayesian.cExpl;
-tauResidual         = params.bayesian.tauResidual;
 rmseThreshold       = params.bayesian.rmseThreshold;
 maxGenerations      = params.bayesian.maxGenerations;
 basePath            = params.path;
@@ -91,12 +83,6 @@ PB1 = ProgressBar2(maxGenerations, ['Run through ' num2str(maxGenerations) ' gen
 % Switch off default carbon source, will be set in each sample
 tmpModel = setParam(ecModel,'lb',modelAdapter.params.c_source,0);
 
-% Prepare for low-rank + residual proposal kernel
-U_r = [];              % D×r PCA basis
-sqrtLambda_r = [];     % r×r diagonal matrix with sqrt eigenvalues (inflated)
-rEff = 0;              % effective rank
-useLowRankKernel = false; varFrac = 0.95;
-
 %% MAIN ABC-SMC LOOP
 generation = 1;
 while rmse > rmseThreshold
@@ -107,28 +93,29 @@ while rmse > rmseThreshold
         % Sampling
         if generation == 1
             % Define randomKcats via lognormal sampling around priors
-            N = samples1;
-            targetAccept = targetAccept1;
-            randomKcats = arrayfun(@getrSample, kcats, kcatStd, repmat(N, length(kcats), 1), 'UniformOutput', false);
-            randomKcats = cell2mat(randomKcats);
+            N = 1200;
+            % randomKcats = arrayfun(@getrSample, kcats, kcatStd, repmat(N, length(kcats), 1), 'UniformOutput', false);
+            % randomKcats = cell2mat(randomKcats);
 
-            % % Space‑filling first generation (better coverage than i.i.d. lognormal)
-            % % Replace purely i.i.d. lognormal draws with a Sobol (or LHS) design in log‑space, then map by exp.
-            % p = sobolset(D,'Skip',1e3,'Leap',1e2);
-            % U = net(p,N)';
-            % % Transform each dimension by the lognormal CDF inverse with (mu, sigma_log)
-            % mu_log    = log(max(kcats, eps));
-            % sigma_log = sqrt(log(1 + (kcatStd ./ max(kcats, eps)).^2));
-            % thetaProp = mu_log + sigma_log .* erfinv(2*U-1) * sqrt(2);
-            % randomKcats = exp(thetaProp);
+            % Convert your linear-space priors (kcats, kcatStd) to lognormal (mu_log, sigma_log)
+            mu_log    = log(max(kcats, eps));
+            sigma_log = sqrt(log(1 + (kcatStd ./ max(kcats, eps)).^2));
 
+            % Latin Hypercube in [0,1]^D (N samples). Returns N×D, so transpose to D×N.
+            U = lhsdesign(N, D, 'criterion','maximin','iterations',50)';  % D×N
+
+            % Map U ~ U(0,1) to Normal via inverse CDF, then to log‑space around priors
+            thetaProp = mu_log + sigma_log .* (sqrt(2) .* erfinv(2*U - 1));   % D×N
+            randomKcats = exp(thetaProp);
         else
-            if generation < 6
-                N = samples2_5;
-                targetAccept = targetAccept2_5;
+            if generation < 3
+                N = 1200;
+            elseif generation < 9
+                N = 500;
+            elseif generation < 16
+                N = 250;
             else
-                N = samples6_end;
-                targetAccept = targetAccept6_end;
+                N = 200;
             end
 
             % Define randomKcats by sampling around previous accepted
@@ -138,25 +125,13 @@ while rmse > rmseThreshold
             parent_idx = randi(size(kcatTop,2), [1 N]);
             parents = log(kcatTop(:, parent_idx));
 
-            if useLowRankKernel && rEff > 0
-                % Low-rank kernel + residual proposal
-                % Subspace noise (correlated along learned PCs)
-                Zr = randn(rEff, N);                 % r×N
-                % Residual isotropic noise to keep exploration outside the subspace
-                E  = randn(D, N);                    % D×N
 
-                % θ_new = log(θ_parent) + U_r * sqrtΛ_r * N(0, I_r) + sqrt(τ) * N(0, I_D)
-                thetaProp = parents + U_r * (sqrtLambda_r * Zr) + sqrt(tauResidual) * E;
-
-                % Map back to linear space
-            else
-                % Fallback: Compute Cholesky factor of the log-space
-                % covariance SigmaLog, Stabilize with 1e-12*i
-                L = chol(SigmaLog + 1e-12*eye(D), 'lower');
-                % Draw normal noise for each proposal and correlate via L
-                Z = randn(D, N);
-                thetaProp = parents + L * Z;
-            end
+            % Compute Cholesky factor of the log-space covariance SigmaLog,
+            % stabilize with 1e-12*i
+            L = chol(SigmaLog + 1e-12*eye(D), 'lower');
+            % Draw normal noise for each proposal and correlate via L
+            Z = randn(D, N);
+            thetaProp = parents + L * Z;
 
             % Map back to linear space
             randomKcats = exp(thetaProp);
@@ -188,32 +163,47 @@ while rmse > rmseThreshold
         rmse = [newRmse; rmseTop];
         kcat = [randomKcats, kcatTop];
 
-        % Accept samples based on targetAccept percentile of the RMSE
-        % distribution (epsilon)
-        epsilon = prctile(rmse, targetAccept);
-        acc_idx = find(rmse <= epsilon);
+        % Desired acceptance fraction schedule:
+        if generation <= 3
+            targetFrac = 0.4;
+        elseif generation <= 8
+            targetFrac = 0.15;
+        elseif generation <= 15
+            targetFrac = 0.10;
+        else
+            targetFrac = 0.05;
+        end
 
-        % Ensure a reasonable number of accepted samples
-        minCount = max(1, floor(minKeep * numel(rmse)));
-        maxCount = max(1, floor(maxKeep * numel(rmse)));
+        % Suggested number of accepted samples
+        targetCount = max(1, round(targetFrac * numel(rmse)));
 
-        if numel(acc_idx) < minCount
-            % Relax epsilon slightly until min_keep is reached or capped attempts
-            relaxFactor = 1.05; attempts = 0;
-            while numel(acc_idx) < minCount && attempts < 20
-                epsilon = epsilon * relaxFactor;
-                acc_idx = find(rmse <= epsilon);
-                attempts = attempts + 1;
+        % Sort RMSE ascending (best first)
+        [~, ord] = sort(rmse, 'ascend');
+
+        % Soft guard: check if RMSE curve is flat → soften selection
+        if generation > 5
+            win = 5;
+            if numel(rmseTrace) >= win
+                lastWindow = rmseTrace(end-win+1:end);
+                if max(lastWindow) - min(lastWindow) < 1e-6
+                    % Plateau detected → relax selection slightly
+                    targetCount = round(targetCount * 1.3);
+                end
             end
         end
-        if numel(acc_idx) > maxCount
-            [~,ord] = sort(rmse(acc_idx), 'ascend');
-            acc_idx = acc_idx(ord(1:maxCount));
-        end
 
-        % Subset accepted
+        % Clamp between minimal and maximal acceptance to avoid degenerate cases
+        minKeepCount = max(5, round(0.03 * numel(rmse)));  % never accept <3%
+        maxKeepCount = max(10, round(0.50 * numel(rmse))); % never accept >50%
+        targetCount  = min(max(targetCount, minKeepCount), maxKeepCount);
+
+        % Final accepted indices
+        acc_idx = ord(1:targetCount);
+
+        % Subset accepted samples
         rmseTop = rmse(acc_idx);
         kcatTop = kcat(:, acc_idx);
+
 
         %% Define means and standard deviations from accepted samples
         ss      = num2cell(kcatTop', 1);
@@ -242,53 +232,6 @@ while rmse > rmseThreshold
         % diagonal covariance
         alphaLW = 0.1;
         SigmaLog = (1 - alphaLW) * Cemp + alphaLW * diag(diag(Cemp));
-
-        if useLowRankKernel
-            Kacc = size(thetaClean, 2);
-            if Kacc >= 5   % need at least a handful of accepted samples
-                % Center columns
-                muLog = mean(thetaClean, 2);
-                Xc = thetaClean - muLog;
-
-                % Econ SVD gives principal directions of the sample covariance
-                % cov = (Xc*Xc')/(Kacc-1) -> U * diag(sing) * U' where sing are eigenvalues
-                [U, S, ~] = svd(Xc, 'econ');
-
-                if ~isempty(S)
-                    % Eigenvalues of covariance
-                    sing = diag(S).^2 / max(1, (Kacc - 1));  % vector length = rank(Xc)
-
-                    % Choose rank by variance fraction and rMax
-                    cume = cumsum(sing) / max(eps, sum(sing));
-                    rVar = find(cume >= varFrac, 1, 'first');
-                    if isempty(rVar), rVar = length(sing); end
-                    rEff = min([rVar, rMax, length(sing)]);
-
-                    if rEff >= 1
-                        U_r = U(:, 1:rEff);
-                        % sqrt of eigenvalues for subspace sampling, with exploration inflation
-                        sqrtLambda_r = diag( sqrt( cExpl * sing(1:rEff) ) );
-
-                        % Optional: adapt residual variance to average discarded spectrum
-                        if rEff < length(sing)
-                            tauAdapt = mean(sing(rEff+1:end));
-                        else
-                            tauAdapt = 0;
-                        end
-                        % Keep at least the configured floor
-                        tauResidual = max(tauResidual, 0.1 * tauAdapt);
-                    else
-                        % No informative subspace → disable low-rank this generation
-                        U_r = []; sqrtLambda_r = []; rEff = 0;
-                    end
-                else
-                    U_r = []; sqrtLambda_r = []; rEff = 0;
-                end
-            else
-                % Too few accepted → fallback on LW+chol next generation
-                U_r = []; sqrtLambda_r = []; rEff = 0;
-            end
-        end
 
         %% Track progress (use best, not first)
         [bestRMSE, bestIdx] = min(rmseTop);
