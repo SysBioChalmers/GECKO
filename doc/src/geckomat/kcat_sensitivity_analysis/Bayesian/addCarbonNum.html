@@ -41,10 +41,10 @@
 <h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
 This function calls:
 <ul style="list-style-image:url(../../../../matlabicon.gif)">
-<li><a href="getcarbonnum.html" class="code" title="function [CarbonNum,EXfors,changedmets] = getcarbonnum(model,exrxn)">getcarbonnum</a>	getcarbonnum</li></ul>
+</ul>
 This function is called by:
 <ul style="list-style-image:url(../../../../matlabicon.gif)">
-<li><a href="bayesianSensitivityTuning.html" class="code" title="function [ecModel, rmseTrace, kcatTrace, stdTrace] = bayesianSensitivityTuning(ecModel,kcatStd,modelAdapter)">bayesianSensitivityTuning</a>	bayesianSensitivityTuning</li></ul>
+<li><a href="abc_max.html" class="code" title="function [rmse,rmseList] = abc_max(ecModel,fluxData,maxGrowth,rxn2block,modelAdapter)">abc_max</a>	abc_max</li><li><a href="bayesianSensitivityTuning.html" class="code" title="function [ecModel, rmseTrace, kcatTrace, stdTrace] = bayesianSensitivityTuning(ecModel,kcatStd,modelAdapter)">bayesianSensitivityTuning</a>	bayesianSensitivityTuning</li></ul>
 <!-- crossreference -->
 
 <h2><a name="_subfunctions"></a>SUBFUNCTIONS <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
@@ -67,7 +67,7 @@ This function is called by:
 0013 <span class="comment">% get carbonnum for each exchange rxn to further calculation of error</span>
 0014 model.excarbon = zeros(length(model.rxns),1);
 0015 [EXrxn, EXrxnIdx] = getExchangeRxns(model);
-0016 [CarbonNum,EXfors] = <a href="getcarbonnum.html" class="code" title="function [CarbonNum,EXfors,changedmets] = getcarbonnum(model,exrxn)">getcarbonnum</a>(model,EXrxn);
+0016 [CarbonNum,EXfors] = <a href="#_sub1" class="code" title="subfunction [CarbonNum,EXfors,changedmets] = getcarbonnum(model,exrxn)">getcarbonnum</a>(model,EXrxn);
 0017 model.excarbon(EXrxnIdx) = CarbonNum;
 0018 model.excarbon(strcmp(model.rxnNames,<span class="string">'growth'</span>)) = 41;
 0019 
