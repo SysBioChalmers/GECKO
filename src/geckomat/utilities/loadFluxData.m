@@ -10,13 +10,17 @@ function fluxData = loadFluxData(fluxDataFile, modelAdapter)
 %                   the default model adapter)
 %
 % Output:
-%   fluxData        structure with flux data
-%                   conds       sampling condition
-%                   Ptot        total protein (g/gDCW)
-%                   grRate      growth rate (1/h)
-%                   exchFluxes  exchange fluxes (mmol/gDCWh)
-%                   exchMets    exchanged metabolites, matching exchFluxes
-%                   exchRxnIDs  exchange reaction IDs, matching exchMets
+%   fluxData                structure with flux data
+%       conds               sampling condition
+%       Ptot                total protein (g/gDCW)
+%       grRate              growth rate (1/h)
+%       exchFluxes          exchange fluxes (mmol/gDCWh)
+%       exchMets            exchanged metabolites, matching exchFluxes
+%       exchRxnIDs          exchange reaction IDs, matching exchMets
+%       bayesianRMSEweight  if column existed in fluxData.tsv, weights for
+%                           RMSE calculation in Bayesian kcat tuning
+%       source              if column existed in fluxData.tsv, description
+%                           where the data comes from
 %
 % Usage:
 %   fluxData = loadFluxData(fluxDataFile, modelAdapter)
@@ -48,12 +52,28 @@ end
 if size(fluxDataRaw,2) == 0
     error('The input file %s is likely not tab-delimited.', fluxDataFile)
 end
+fluxData            = [];
+
+%Find additional fields
+extraFieldNames     = {'bayesianRMSEweight','source'};
+extraFieldNumeric   = [true,false];      
+[~, extraFields]    = ismember(extraFieldNames,fluxDataRaw(1,:));
+for i=1:numel(extraFields)
+    if extraFields(1) ~= 0
+        if extraFieldNumeric(i)
+            fluxData.(extraFieldNames{i}) = str2double(fluxDataRaw(2:end,extraFields(i)));
+        else
+            fluxData.(extraFieldNames{i}) = fluxDataRaw(2:end,extraFields(i));
+        end
+    end
+end
+fluxDataRaw(:,extraFields) = [];
+
 %Extract observed byProduct names from file
 exchRxns = fluxDataRaw(1,4:end);
 exchMets = strtrim(regexprep(exchRxns,'(.*)\(.*\)$','$1'));
 exchRxns = regexprep(exchRxns,'.*\((.*)\)$','$1');
 
-fluxData            = [];
 fluxData.conds      = fluxDataRaw(2:end,1);
 fluxData.Ptot       = str2double(fluxDataRaw(2:end,2));
 fluxData.grRate     = str2double(fluxDataRaw(2:end,3));
