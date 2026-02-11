@@ -38,13 +38,17 @@
                    the default model adapter)
 
  Output:
-   fluxData        structure with flux data
-                   conds       sampling condition
-                   Ptot        total protein (g/gDCW)
-                   grRate      growth rate (1/h)
-                   exchFluxes  exchange fluxes (mmol/gDCWh)
-                   exchMets    exchanged metabolites, matching exchFluxes
-                   exchRxnIDs  exchange reaction IDs, matching exchMets
+   fluxData                structure with flux data
+       conds               sampling condition
+       Ptot                total protein (g/gDCW)
+       grRate              growth rate (1/h)
+       exchFluxes          exchange fluxes (mmol/gDCWh)
+       exchMets            exchanged metabolites, matching exchFluxes
+       exchRxnIDs          exchange reaction IDs, matching exchMets
+       bayesianRMSEweight  if column existed in fluxData.tsv, weights for
+                           RMSE calculation in Bayesian kcat tuning
+       source              if column existed in fluxData.tsv, description
+                           where the data comes from
 
  Usage:
    fluxData = loadFluxData(fluxDataFile, modelAdapter)</pre></div>
@@ -74,58 +78,78 @@ This function is called by:
 0010 <span class="comment">%                   the default model adapter)</span>
 0011 <span class="comment">%</span>
 0012 <span class="comment">% Output:</span>
-0013 <span class="comment">%   fluxData        structure with flux data</span>
-0014 <span class="comment">%                   conds       sampling condition</span>
-0015 <span class="comment">%                   Ptot        total protein (g/gDCW)</span>
-0016 <span class="comment">%                   grRate      growth rate (1/h)</span>
-0017 <span class="comment">%                   exchFluxes  exchange fluxes (mmol/gDCWh)</span>
-0018 <span class="comment">%                   exchMets    exchanged metabolites, matching exchFluxes</span>
-0019 <span class="comment">%                   exchRxnIDs  exchange reaction IDs, matching exchMets</span>
-0020 <span class="comment">%</span>
-0021 <span class="comment">% Usage:</span>
-0022 <span class="comment">%   fluxData = loadFluxData(fluxDataFile, modelAdapter)</span>
-0023 
-0024 <span class="keyword">if</span> nargin &lt; 2 || isempty(modelAdapter)
-0025     modelAdapter = ModelAdapterManager.getDefault();
-0026     <span class="keyword">if</span> isempty(modelAdapter)
-0027         error(<span class="string">'Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.'</span>)
-0028     <span class="keyword">end</span>
-0029 <span class="keyword">end</span>
-0030 params = modelAdapter.getParameters();
-0031 
-0032 <span class="keyword">if</span> nargin &lt; 1 || isempty(fluxDataFile)
-0033     fluxDataFile = fullfile(params.path,<span class="string">'data'</span>,<span class="string">'fluxData.tsv'</span>);
-0034 <span class="keyword">end</span>
+0013 <span class="comment">%   fluxData                structure with flux data</span>
+0014 <span class="comment">%       conds               sampling condition</span>
+0015 <span class="comment">%       Ptot                total protein (g/gDCW)</span>
+0016 <span class="comment">%       grRate              growth rate (1/h)</span>
+0017 <span class="comment">%       exchFluxes          exchange fluxes (mmol/gDCWh)</span>
+0018 <span class="comment">%       exchMets            exchanged metabolites, matching exchFluxes</span>
+0019 <span class="comment">%       exchRxnIDs          exchange reaction IDs, matching exchMets</span>
+0020 <span class="comment">%       bayesianRMSEweight  if column existed in fluxData.tsv, weights for</span>
+0021 <span class="comment">%                           RMSE calculation in Bayesian kcat tuning</span>
+0022 <span class="comment">%       source              if column existed in fluxData.tsv, description</span>
+0023 <span class="comment">%                           where the data comes from</span>
+0024 <span class="comment">%</span>
+0025 <span class="comment">% Usage:</span>
+0026 <span class="comment">%   fluxData = loadFluxData(fluxDataFile, modelAdapter)</span>
+0027 
+0028 <span class="keyword">if</span> nargin &lt; 2 || isempty(modelAdapter)
+0029     modelAdapter = ModelAdapterManager.getDefault();
+0030     <span class="keyword">if</span> isempty(modelAdapter)
+0031         error(<span class="string">'Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.'</span>)
+0032     <span class="keyword">end</span>
+0033 <span class="keyword">end</span>
+0034 params = modelAdapter.getParameters();
 0035 
-0036 <span class="comment">%Load total protein content and flux data</span>
-0037 fID       = fopen(fluxDataFile);
-0038 formatStr = <span class="string">'%s'</span>;
-0039 data      = textscan(fID,formatStr,<span class="string">'Delimiter'</span>,<span class="string">'\n'</span>);
-0040 fclose(fID);
-0041 fluxDataRaw  = [];
-0042 <span class="keyword">for</span> i=1:length(data{1})
-0043     row      = data{1}(i);
-0044     row      = strsplit(row{1},<span class="string">'\t'</span>);
-0045     row      = row(1:end);
-0046     fluxDataRaw = [fluxDataRaw; row]; 
-0047 <span class="keyword">end</span>
-0048 <span class="keyword">if</span> size(fluxDataRaw,2) == 0
-0049     error(<span class="string">'The input file %s is likely not tab-delimited.'</span>, fluxDataFile)
-0050 <span class="keyword">end</span>
-0051 <span class="comment">%Extract observed byProduct names from file</span>
-0052 exchRxns = fluxDataRaw(1,4:end);
-0053 exchMets = strtrim(regexprep(exchRxns,<span class="string">'(.*)\(.*\)$'</span>,<span class="string">'$1'</span>));
-0054 exchRxns = regexprep(exchRxns,<span class="string">'.*\((.*)\)$'</span>,<span class="string">'$1'</span>);
-0055 
-0056 fluxData            = [];
-0057 fluxData.conds      = fluxDataRaw(2:<span class="keyword">end</span>,1);
-0058 fluxData.Ptot       = str2double(fluxDataRaw(2:<span class="keyword">end</span>,2));
-0059 fluxData.grRate     = str2double(fluxDataRaw(2:<span class="keyword">end</span>,3));
-0060 fluxData.exchFluxes = str2double(fluxDataRaw(2:<span class="keyword">end</span>,4:end));
-0061 <span class="comment">%fluxData.exchFluxes(isnan(fluxData.exchFluxes)) = 0;</span>
-0062 fluxData.exchMets   = exchMets;
-0063 fluxData.exchRxnIDs = exchRxns;
-0064 <span class="keyword">end</span></pre></div>
+0036 <span class="keyword">if</span> nargin &lt; 1 || isempty(fluxDataFile)
+0037     fluxDataFile = fullfile(params.path,<span class="string">'data'</span>,<span class="string">'fluxData.tsv'</span>);
+0038 <span class="keyword">end</span>
+0039 
+0040 <span class="comment">%Load total protein content and flux data</span>
+0041 fID       = fopen(fluxDataFile);
+0042 formatStr = <span class="string">'%s'</span>;
+0043 data      = textscan(fID,formatStr,<span class="string">'Delimiter'</span>,<span class="string">'\n'</span>);
+0044 fclose(fID);
+0045 fluxDataRaw  = [];
+0046 <span class="keyword">for</span> i=1:length(data{1})
+0047     row      = data{1}(i);
+0048     row      = strsplit(row{1},<span class="string">'\t'</span>);
+0049     row      = row(1:end);
+0050     fluxDataRaw = [fluxDataRaw; row]; 
+0051 <span class="keyword">end</span>
+0052 <span class="keyword">if</span> size(fluxDataRaw,2) == 0
+0053     error(<span class="string">'The input file %s is likely not tab-delimited.'</span>, fluxDataFile)
+0054 <span class="keyword">end</span>
+0055 fluxData            = [];
+0056 
+0057 <span class="comment">%Find additional fields</span>
+0058 extraFieldNames     = {<span class="string">'bayesianRMSEweight'</span>,<span class="string">'source'</span>};
+0059 extraFieldNumeric   = [true,false];      
+0060 [~, extraFields]    = ismember(extraFieldNames,fluxDataRaw(1,:));
+0061 <span class="keyword">for</span> i=1:numel(extraFields)
+0062     <span class="keyword">if</span> extraFields(1) ~= 0
+0063         <span class="keyword">if</span> extraFieldNumeric(i)
+0064             fluxData.(extraFieldNames{i}) = str2double(fluxDataRaw(2:<span class="keyword">end</span>,extraFields(i)));
+0065         <span class="keyword">else</span>
+0066             fluxData.(extraFieldNames{i}) = fluxDataRaw(2:<span class="keyword">end</span>,extraFields(i));
+0067         <span class="keyword">end</span>
+0068     <span class="keyword">end</span>
+0069 <span class="keyword">end</span>
+0070 fluxDataRaw(:,extraFields) = [];
+0071 
+0072 <span class="comment">%Extract observed byProduct names from file</span>
+0073 exchRxns = fluxDataRaw(1,4:end);
+0074 exchMets = strtrim(regexprep(exchRxns,<span class="string">'(.*)\(.*\)$'</span>,<span class="string">'$1'</span>));
+0075 exchRxns = regexprep(exchRxns,<span class="string">'.*\((.*)\)$'</span>,<span class="string">'$1'</span>);
+0076 
+0077 fluxData.conds      = fluxDataRaw(2:<span class="keyword">end</span>,1);
+0078 fluxData.Ptot       = str2double(fluxDataRaw(2:<span class="keyword">end</span>,2));
+0079 fluxData.grRate     = str2double(fluxDataRaw(2:<span class="keyword">end</span>,3));
+0080 fluxData.exchFluxes = str2double(fluxDataRaw(2:<span class="keyword">end</span>,4:end));
+0081 <span class="comment">%fluxData.exchFluxes(isnan(fluxData.exchFluxes)) = 0;</span>
+0082 fluxData.exchMets   = exchMets;
+0083 fluxData.exchRxnIDs = exchRxns;
+0084 <span class="keyword">end</span></pre></div>
 <hr><address>Generated by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

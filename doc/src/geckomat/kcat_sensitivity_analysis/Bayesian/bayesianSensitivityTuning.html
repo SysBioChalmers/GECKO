@@ -28,7 +28,7 @@
 
 <h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
 <div class="fragment"><pre class="comment"> bayesianSensitivityTuning
-   Modifies kcats to better fit experimental data. Currently only works with 
+   Modifies kcats to better fit experimental data. Currently only works with
    light models.
 
  Input:
@@ -37,11 +37,11 @@
                    earlier GECKO versions (pre 3.0).
    kcatStd         vector of same length as ecModel.ec.kcat, with the
                    initial standard deviations (SD) for the kcat values.
-                   By default, kcatStd is set at 10% of the kcat values 
-                   (as ecModel.ec.kcat./10). It might make sense to provide
-                   kcat-specific kcatStd, for instance based on the source
-                   of the kcat (if a source is more reliable, kcatStd
-                   should possibly be smaller).
+                   By default, kcatStd is set by multiplying kcat values
+                   with params.bayesian.initSDmultiplDef, or by source-
+                   specific multipliers specified in params.bayesian.
+                   kcatSources and params.bayesian.initSDmultipl. Instead,
+                   it is also possible to provide a custom kcatStd vector.
    modelAdapter    a loaded model adapter (Optional, will otherwise use the
                    default model adapter).
 
@@ -52,15 +52,13 @@
 <h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
 This function calls:
 <ul style="list-style-image:url(../../../../matlabicon.gif)">
-<li><a href="abc_max.html" class="code" title="function rmse = abc_max(ecModel,fluxData,maxGrowth,rxn2block)">abc_max</a>	abc_max</li><li><a href="addCarbonNum.html" class="code" title="function model = addCarbonNum(model)">addCarbonNum</a>	addCarbonNum</li><li><a href="getrSample.html" class="code" title="function r = getrSample(mu,sigma,n,method)">getrSample</a>	getrSample</li><li><a href="updateprior.html" class="code" title="function [mu,sigma] = updateprior(x,defaultCV)">updateprior</a>	updateprior</li></ul>
+<li><a href="abc_max.html" class="code" title="function [rmse,rmseList] = abc_max(ecModel,fluxData,maxGrowth,rxn2block,modelAdapter)">abc_max</a>	abc_max</li><li><a href="addCarbonNum.html" class="code" title="function model = addCarbonNum(model)">addCarbonNum</a>	addCarbonNum</li><li><a href="getrSample.html" class="code" title="function r = getrSample(mu,sigma,n,method)">getrSample</a>	getrSample</li><li><a href="loadBayesianData.html" class="code" title="function [fluxData, maxGrate, zeroFlux] = loadBayesianData(modelAdapter)">loadBayesianData</a>	</li><li><a href="updateprior.html" class="code" title="function [mu,sigma] = updateprior(x,defaultCV)">updateprior</a>	updateprior</li></ul>
 This function is called by:
 <ul style="list-style-image:url(../../../../matlabicon.gif)">
 </ul>
 <!-- crossreference -->
 
-<h2><a name="_subfunctions"></a>SUBFUNCTIONS <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
-<ul style="list-style-image:url(../../../../matlabicon.gif)">
-<li><a href="#_sub1" class="code">function proposals = proposeLowRankMixture(parents, U, Lambda, sigmaProp_log, sigma0_log, tau, alpha, cExpl)</a></li></ul>
+
 
 <h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
 <div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function [ecModel, rmseTrace, kcatTrace, stdTrace] = bayesianSensitivityTuning(ecModel,kcatStd,modelAdapter)</a>
@@ -74,281 +72,214 @@ This function is called by:
 0009 <span class="comment">%                   earlier GECKO versions (pre 3.0).</span>
 0010 <span class="comment">%   kcatStd         vector of same length as ecModel.ec.kcat, with the</span>
 0011 <span class="comment">%                   initial standard deviations (SD) for the kcat values.</span>
-0012 <span class="comment">%                   By default, kcatStd is set at 10% of the kcat values</span>
-0013 <span class="comment">%                   (as ecModel.ec.kcat./10). It might make sense to provide</span>
-0014 <span class="comment">%                   kcat-specific kcatStd, for instance based on the source</span>
-0015 <span class="comment">%                   of the kcat (if a source is more reliable, kcatStd</span>
-0016 <span class="comment">%                   should possibly be smaller).</span>
+0012 <span class="comment">%                   By default, kcatStd is set by multiplying kcat values</span>
+0013 <span class="comment">%                   with params.bayesian.initSDmultiplDef, or by source-</span>
+0014 <span class="comment">%                   specific multipliers specified in params.bayesian.</span>
+0015 <span class="comment">%                   kcatSources and params.bayesian.initSDmultipl. Instead,</span>
+0016 <span class="comment">%                   it is also possible to provide a custom kcatStd vector.</span>
 0017 <span class="comment">%   modelAdapter    a loaded model adapter (Optional, will otherwise use the</span>
 0018 <span class="comment">%                   default model adapter).</span>
 0019 <span class="comment">%</span>
 0020 <span class="comment">% Output:</span>
 0021 <span class="comment">%   model           ecModel with new kcats, not applied.</span>
 0022 <span class="comment">%</span>
-0023 <span class="keyword">if</span> nargin &lt; 2 || isempty(kcatStd)
-0024     kcatStd     = ecModel.ec.kcat./3;
-0025 <span class="keyword">end</span>
-0026 
-0027 <span class="keyword">if</span> nargin &lt; 3 || isempty(modelAdapter)
-0028     modelAdapter = ModelAdapterManager.getDefault();
-0029     <span class="keyword">if</span> isempty(modelAdapter)
-0030         error(<span class="string">'Either send in a modelAdapter or set the default ecModel adapter in the ModelAdapterManager.'</span>)
-0031     <span class="keyword">end</span>
-0032 <span class="keyword">end</span>
-0033 
-0034 params = modelAdapter.params;
-0035 samplesPerGen       = params.bayesian.samplesPerGen; <span class="comment">% Number of models in each generation</span>
-0036 samplesFirstGen     = params.bayesian.samplesFirstGen; <span class="comment">% Number of models in first generation</span>
-0037 targetAccept        = params.bayesian.targetAccept; <span class="comment">% RMSE percentile to accept in each iteration</span>
-0038 minKeep             = params.bayesian.minKeep; <span class="comment">% Minimum samples to keep</span>
-0039 maxKeep             = params.bayesian.maxKeep; <span class="comment">% Maximum samples to keep</span>
-0040 alpha               = params.bayesian.alpha;             <span class="comment">% exploit fraction</span>
-0041 cExpl               = params.bayesian.cExpl;             <span class="comment">% exploration inflation</span>
-0042 freezeStage         = params.bayesian.freezeStage;       <span class="comment">% freeze scale after this gen</span>
-0043 sigmaFloorFrac      = params.bayesian.sigmaFloorFrac; <span class="comment">% &gt;=10% of initial</span>
-0044 rMax                = params.bayesian.rMax;              <span class="comment">% max PCA rank (field name fixed)</span>
-0045 tauResidual         = params.bayesian.tauResidual;       <span class="comment">% residual floor outside PCA subspace</span>
-0046 rmseThreshold       = params.bayesian.rmseThreshold; <span class="comment">% RMSE threshold to halt and output best posterior kcats</span>
-0047 maxGenerations      = params.bayesian.maxGenerations; <span class="comment">% Maximum number of generations before returning best posterior kcats</span>
-0048 basePath            = params.path;
-0049 
-0050 <span class="comment">% fluxData = data.fluxData; % Cultivation data</span>
-0051 <span class="comment">% zeroFlux = data.zeroFlux; % List of exchange reactions that should not carry any flux, as these metabolites are widely assumed not to be excreted</span>
-0052 <span class="comment">% maxGrate = data.maxGrate; % Maximum growth rates</span>
-0053 
-0054 fluxData = loadFluxData(fullfile(basePath,<span class="string">'data'</span>,<span class="string">'bayesianFluxData.tsv'</span>));
-0055 fluxData.biomass = modelAdapter.params.bioRxn;
-0056 maxGrate = loadFluxData(fullfile(basePath,<span class="string">'data'</span>,<span class="string">'bayesianMaxGrowth.tsv'</span>));
-0057 maxGrate.biomass = modelAdapter.params.bioRxn;
-0058 zeroFlux = table2cell(readtable(fullfile(basePath,<span class="string">'data'</span>,<span class="string">'bayesianZeroExch.tsv'</span>), <span class="string">'Delimiter'</span>, <span class="string">'\t'</span>, <span class="string">'FileType'</span>,<span class="string">'delimitedtext'</span>));
-0059 
-0060 <span class="comment">% get carbonnum for each exchange rxn to further calculation of error</span>
-0061 <span class="keyword">if</span> ~isfield(ecModel,<span class="string">'excarbon'</span>)
-0062     ecModel = <a href="addCarbonNum.html" class="code" title="function model = addCarbonNum(model)">addCarbonNum</a>(ecModel);
-0063     ecModel.excarbon(ecModel.excarbon == 0) = 1;
-0064 <span class="keyword">end</span>
-0065 
-0066 <span class="comment">%these will be updated in the loop below</span>
-0067 kcats = ecModel.ec.kcat;
-0068 
-0069 rmse = <a href="abc_max.html" class="code" title="function rmse = abc_max(ecModel,fluxData,maxGrowth,rxn2block)">abc_max</a>(ecModel,fluxData,maxGrate,zeroFlux);
-0070 fprintf(<span class="string">'RMSE with prior kcats: %.2f.\n'</span>, rmse)
-0071 
-0072 rmseTop   = rmse;
-0073 kcatTop   = kcats;
-0074 rmseTrace = rmse;
-0075 kcatTrace = kcats;
-0076 stdTrace  = kcatStd;
-0077 
-0078 PB1 = ProgressBar2(maxGenerations, [<span class="string">'Run through '</span> num2str(maxGenerations) <span class="string">' generations'</span>], <span class="string">'gui'</span>);
-0079 
-0080 <span class="comment">% Switch off default carbon source, will be set in each sample</span>
-0081 tmpModel = setParam(ecModel,<span class="string">'lb'</span>,modelAdapter.params.c_source,0);
-0082 
-0083 <span class="comment">% --- Proposal state (log-space) ---</span>
-0084 D           = numel(kcats);
-0085 kcats0      = kcats(:);         <span class="comment">% baseline mean kcats (linear)</span>
-0086 kcatStd0    = kcatStd(:);
-0087 <span class="comment">% initial log-space std from linear (mu,sigma) assuming lognormal</span>
-0088 sigma0_log  = sqrt(log(1 + (kcatStd0 ./ max(kcats0, eps)).^2));  <span class="comment">% [D x 1]</span>
-0089 havePropStats = false;        <span class="comment">% set true after 1st accepted-set update</span>
-0090 U = []; Lambda = [];          <span class="comment">% low-rank PCA basis for exploit kernel</span>
-0091 
-0092 generation = 1;
-0093 <span class="keyword">while</span> rmse &gt; rmseThreshold
-0094     <span class="keyword">if</span> generation &lt;= maxGenerations
-0095         count(PB1)
-0096         fprintf(<span class="string">'Running iteration %d of %d. '</span>, generation, maxGenerations)
-0097 
-0098         <span class="comment">% First generation take more samples</span>
-0099         <span class="keyword">if</span> generation == 1
-0100             numberOfSamples = samplesFirstGen;
-0101         <span class="keyword">else</span>
-0102             numberOfSamples = samplesPerGen;
-0103         <span class="keyword">end</span>
-0104 
-0105         prevRmse = rmseTop;
-0106         prevKcat = kcatTop;
-0107         newRmse  = zeros(numberOfSamples,1);
-0108 
-0109         <span class="comment">% Sampling</span>
-0110         <span class="keyword">if</span> generation == 1 || ~havePropStats
-0111             <span class="comment">% Per-parameter lognormal sampling around current mean</span>
-0112             randomKcats = arrayfun(@<a href="getrSample.html" class="code" title="function r = getrSample(mu,sigma,n,method)">getrSample</a>, kcats, kcatStd, repmat(numberOfSamples, length(kcats), 1), <span class="string">'UniformOutput'</span>, false);
-0113             randomKcats = cell2mat(randomKcats);
-0114         <span class="keyword">else</span>
-0115             <span class="comment">% Low-rank mixture proposal in log-space, centered on accepted parents</span>
-0116             parent_idx = randi(size(kcatTop, 2), 1, numberOfSamples); <span class="comment">% uniform resampling</span>
-0117             parents    = kcatTop(:, parent_idx);         <span class="comment">% [D x Nprop]</span>
+0023 <span class="keyword">if</span> nargin &lt; 3 || isempty(modelAdapter)
+0024     modelAdapter = ModelAdapterManager.getDefault();
+0025     <span class="keyword">if</span> isempty(modelAdapter)
+0026         error(<span class="string">'Either send in a modelAdapter or set the default ecModel adapter in the ModelAdapterManager.'</span>)
+0027     <span class="keyword">end</span>
+0028 <span class="keyword">end</span>
+0029 
+0030 <span class="comment">%% Load hyperparameters</span>
+0031 params = modelAdapter.params;
+0032 initSDmultiplDef    = params.bayesian.initSDmultiplDef;
+0033 kcatSources         = params.bayesian.kcatSources;
+0034 initSDmultipl       = params.bayesian.initSDmultipl;
+0035 scheduleGenerations = params.bayesian.scheduleGenerations;
+0036 scheduleSamples     = params.bayesian.scheduleSamples;
+0037 scheduleTarget      = params.bayesian.scheduleTarget;
+0038 minKeep             = params.bayesian.minKeep;
+0039 rmseThreshold       = params.bayesian.rmseThreshold;
+0040 maxGenerations      = params.bayesian.maxGenerations;
+0041 basePath            = params.path;
+0042 
+0043 <span class="comment">%% Define initial kcat distributions</span>
+0044 <span class="keyword">if</span> nargin &lt; 2 || isempty(kcatStd)
+0045     kcatStd     = ecModel.ec.kcat .* initSDmultiplDef;
+0046     <span class="keyword">for</span> i = 1:numel(kcatSources)
+0047         selKcats            = strcmpi(ecModel.ec.source,kcatSources{i});
+0048         kcatStd(selKcats)   = ecModel.ec.kcat(selKcats) .* initSDmultipl(i);
+0049     <span class="keyword">end</span>
+0050 <span class="keyword">end</span>
+0051 
+0052 <span class="comment">%% Load data</span>
+0053 [fluxData, maxGrate, zeroFlux] = <a href="loadBayesianData.html" class="code" title="function [fluxData, maxGrate, zeroFlux] = loadBayesianData(modelAdapter)">loadBayesianData</a>(modelAdapter);
+0054 
+0055 <span class="comment">% get carbonnum for each exchange rxn to further calculation of error</span>
+0056 <span class="keyword">if</span> ~isfield(ecModel,<span class="string">'excarbon'</span>)
+0057     ecModel = <a href="addCarbonNum.html" class="code" title="function model = addCarbonNum(model)">addCarbonNum</a>(ecModel);
+0058     ecModel.excarbon(ecModel.excarbon == 0) = 1;
+0059 <span class="keyword">end</span>
+0060 
+0061 <span class="comment">%these will be updated in the loop below</span>
+0062 kcats = ecModel.ec.kcat;
+0063 D     = numel(kcats);
+0064 
+0065 rmse = <a href="abc_max.html" class="code" title="function [rmse,rmseList] = abc_max(ecModel,fluxData,maxGrowth,rxn2block,modelAdapter)">abc_max</a>(ecModel,fluxData,maxGrate,zeroFlux,modelAdapter);
+0066 fprintf(<span class="string">'RMSE with prior kcats: %.2f.\n'</span>, rmse)
+0067 
+0068 rmseTop   = rmse;
+0069 kcatTop   = kcats;
+0070 rmseTrace = rmse;
+0071 kcatTrace = kcats;
+0072 stdTrace  = kcatStd;
+0073 
+0074 PB1 = ProgressBar2(maxGenerations, [<span class="string">'Run through '</span> num2str(maxGenerations) <span class="string">' generations'</span>], <span class="string">'gui'</span>);
+0075 
+0076 <span class="comment">% Switch off default carbon source, will be set in each sample</span>
+0077 tmpModel = setParam(ecModel,<span class="string">'lb'</span>,modelAdapter.params.c_source,0);
+0078 
+0079 <span class="comment">%% MAIN ABC-SMC LOOP</span>
+0080 generation = 1;
+0081 <span class="keyword">while</span> rmse &gt; rmseThreshold
+0082     <span class="keyword">if</span> generation &lt;= maxGenerations
+0083         fprintf(<span class="string">'Running iteration %d of %d. '</span>, generation, maxGenerations)
+0084 
+0085         <span class="comment">% Define N and targetFrac dependent on the generation</span>
+0086         schedulePos = find(generation &gt;= scheduleGenerations, 1, <span class="string">'last'</span>);
+0087         N           = scheduleSamples(schedulePos);
+0088         targetFrac  = scheduleTarget(schedulePos); <span class="comment">% Acceptance fraction</span>
+0089 
+0090         <span class="comment">% Sampling</span>
+0091         <span class="keyword">if</span> generation == 1
+0092             <span class="comment">% Define randomKcats via lognormal sampling around priors</span>
+0093             randomKcats = arrayfun(@<a href="getrSample.html" class="code" title="function r = getrSample(mu,sigma,n,method)">getrSample</a>, kcats, kcatStd, repmat(N, length(kcats), 1), <span class="string">'UniformOutput'</span>, false);
+0094             randomKcats = cell2mat(randomKcats);
+0095         <span class="keyword">else</span>
+0096             <span class="comment">% Define randomKcats by sampling around previous accepted</span>
+0097             <span class="comment">% solutions using a full-covariance Guassian kernel in log</span>
+0098             <span class="comment">% space, ABC-PMC</span>
+0099             <span class="comment">% Randomly pick N columns with accepted kcat values</span>
+0100             parent_idx = randi(size(kcatTop,2), [1 N]);
+0101             parents = log(kcatTop(:, parent_idx));
+0102 
+0103             <span class="comment">% Compute Cholesky factor of the log-space covariance SigmaLog,</span>
+0104             <span class="comment">% stabilize with 1e-12*i</span>
+0105             L = chol(SigmaLog + 1e-12*eye(D), <span class="string">'lower'</span>);
+0106             <span class="comment">% Draw normal noise for each proposal and correlate via L</span>
+0107             Z = randn(D, N);
+0108             thetaProp = parents + L * Z;
+0109 
+0110             <span class="comment">% Map back to linear space</span>
+0111             randomKcats = exp(thetaProp);
+0112         <span class="keyword">end</span>
+0113 
+0114         <span class="keyword">if</span> any(randomKcats &lt;= 0, <span class="string">'all'</span>)
+0115             warning(<span class="string">'randomKcats contains non-positive values after sampling; enforcing floor.'</span>)
+0116             randomKcats = max(randomKcats, realmin);
+0117         <span class="keyword">end</span>
 0118 
-0119             <span class="comment">% Propose without forming full covariances:</span>
-0120             randomKcats = <a href="#_sub1" class="code" title="subfunction proposals = proposeLowRankMixture(parents, U, Lambda, sigmaProp_log, sigma0_log, tau, alpha, cExpl)">proposeLowRankMixture</a>(parents, U, Lambda, sigmaProp_log, sigma0_log, tauResidual, alpha, cExpl);
-0121         <span class="keyword">end</span>
+0119         <span class="comment">%% Evaluate RMSE for each proposed sample</span>
+0120         newRmse  = zeros(N,1);
+0121         PB2 = ProgressBar2(N, [<span class="string">'Simulate '</span> num2str(N) <span class="string">' models with random kcats'</span>], <span class="string">'gui'</span>);
 0122 
-0123         <span class="keyword">if</span> any(randomKcats &lt;= 0, <span class="string">'all'</span>)
-0124             warning(<span class="string">'randomKcats contains non-positive values after sampling; enforcing floor.'</span>)
-0125             randomKcats = max(randomKcats, realmin);
-0126         <span class="keyword">end</span>
-0127 
-0128         <span class="comment">% simulate and measure RMSE</span>
-0129         PB2 = ProgressBar2(numberOfSamples, [<span class="string">'Simulate '</span> num2str(numberOfSamples) <span class="string">' models with random kcats'</span>], <span class="string">'gui'</span>);
-0130         parfor j = 1:numberOfSamples
-0131             ecModelIter         = tmpModel;
-0132             ecModelIter.ec.kcat = randomKcats(:,j);
-0133             ecModelIter         = applyKcatConstraints(ecModelIter);
-0134             newRmse(j)          = <a href="abc_max.html" class="code" title="function rmse = abc_max(ecModel,fluxData,maxGrowth,rxn2block)">abc_max</a>(ecModelIter,fluxData,maxGrate,zeroFlux);
-0135             count(PB2)
-0136         <span class="keyword">end</span>
-0137 
-0138         <span class="comment">% Leave out zero rmse results: model was unsolvable</span>
-0139         zeroRmse                = newRmse == 0;
-0140         newRmse(zeroRmse)       = [];
-0141         randomKcats(:,zeroRmse) = [];
+0123         parfor j = 1:N
+0124             ecModelIter         = tmpModel;
+0125             ecModelIter.ec.kcat = randomKcats(:,j);
+0126             ecModelIter         = applyKcatConstraints(ecModelIter);
+0127             newRmse(j)          = <a href="abc_max.html" class="code" title="function [rmse,rmseList] = abc_max(ecModel,fluxData,maxGrowth,rxn2block,modelAdapter)">abc_max</a>(ecModelIter,fluxData,maxGrate,zeroFlux,modelAdapter);
+0128             count(PB2)
+0129         <span class="keyword">end</span>
+0130 
+0131         <span class="comment">% Leave out zero rmse results: model was unsolvable</span>
+0132         zeroIdx = (newRmse == 0);
+0133         newRmse(zeroIdx) = [];
+0134         randomKcats(:,zeroIdx) = [];
+0135 
+0136         <span class="comment">% Combine with results from previous generation</span>
+0137         rmse = [newRmse; rmseTop];
+0138         kcat = [randomKcats, kcatTop];
+0139 
+0140         <span class="comment">% Suggested number of accepted samples</span>
+0141         targetCount = max(1, round(targetFrac * numel(rmse)));
 0142 
-0143         <span class="comment">% Combine with results from previous generation</span>
-0144         rmse = [newRmse; prevRmse];
-0145         kcat = [randomKcats, prevKcat];
-0146 
-0147         
-0148         <span class="comment">% % Select the kcat sets with lowest RMSE values</span>
-0149         <span class="comment">% [~,idx]     = sort(rmse,'ascend');</span>
-0150         <span class="comment">% rmseTop     = rmse(idx(1:bestSamplesToKeep));</span>
-0151         <span class="comment">% kcatTop     = kcat(:,idx(1:bestSamplesToKeep));</span>
-0152 
-0153         <span class="comment">% Accept by epsilon (percentile)</span>
-0154         epsilon = prctile(rmse, targetAccept);
-0155         acc_idx = find(rmse &lt;= epsilon);
-0156 
-0157         <span class="comment">% Ensure a reasonable number of accepted samples</span>
-0158         <span class="keyword">if</span> numel(acc_idx) &lt; minKeep
-0159             <span class="comment">% Relax epsilon slightly until min_keep is reached or capped attempts</span>
-0160             relaxFactor = 1.05; attempts = 0; maxAttempts = 20;
-0161             <span class="keyword">while</span> numel(acc_idx) &lt; minKeep &amp;&amp; attempts &lt; maxAttempts
-0162                 epsilon = epsilon * relaxFactor;
-0163                 acc_idx = find(rmse &lt;= epsilon);
-0164                 attempts = attempts + 1;
-0165             <span class="keyword">end</span>
-0166         <span class="keyword">end</span>
-0167         <span class="keyword">if</span> numel(acc_idx) &gt; maxKeep
-0168             [~,ord] = sort(rmse(acc_idx), <span class="string">'ascend'</span>);
-0169             acc_idx = acc_idx(ord(1:maxKeep));
-0170         <span class="keyword">end</span>
-0171 
-0172         <span class="comment">% Subset accepted</span>
-0173         rmseTop = rmse(acc_idx);
-0174         kcatTop = kcat(:, acc_idx);
-0175 
-0176         <span class="comment">% Reporting posterior (linear mean/std)</span>
-0177         ss      = num2cell(kcatTop', 1);
-0178         [a,b]   = arrayfun(@<a href="updateprior.html" class="code" title="function [mu,sigma] = updateprior(x,defaultCV)">updateprior</a>, ss);
-0179         kcats   = transpose(a);
-0180         kcatStd = transpose(b);
-0181 
-0182         <span class="comment">% Build low-rank proposal (log-space) &amp; freeze scale (sampling std)</span>
-0183         thetaAcc = log(kcatTop);                    <span class="comment">% [D x Nacc]</span>
-0184         Xc       = thetaAcc - mean(thetaAcc,2);
-0185 
-0186         <span class="keyword">if</span> size(Xc,2) &gt;= 2
-0187             [Ufull, S, ~] = svd(Xc / sqrt(max(size(Xc,2)-1,1)), <span class="string">'econ'</span>);
-0188             rAvail        = size(Ufull,2);
-0189             rUse          = min([rAvail, rMax, max(size(Xc,2)-1,1)]);
-0190             <span class="keyword">if</span> rUse &gt;= 1
-0191                 U      = Ufull(:, 1:rUse);
-0192                 Lambda = (diag(S(1:rUse,1:rUse))).^2;  <span class="comment">% eigenvalues in log-space</span>
-0193             <span class="keyword">else</span>
-0194                 U = zeros(D,0); Lambda = zeros(0,1);
-0195             <span class="keyword">end</span>
-0196         <span class="keyword">else</span>
-0197             U = zeros(D,0); Lambda = zeros(0,1);
-0198         <span class="keyword">end</span>
-0199 
-0200         stds_obs = std(thetaAcc, 1, 2);            <span class="comment">% [D x 1]</span>
-0201         <span class="keyword">if</span> generation &lt;= freezeStage
-0202             adaptFrac     = 0.5; <span class="comment">% limited adaptation early</span>
-0203             sigmaProp_log = max(adaptFrac*stds_obs + (1 - adaptFrac)*sigma0_log, <span class="keyword">...</span>
-0204                                 sigmaFloorFrac * sigma0_log);
-0205         <span class="keyword">else</span>
-0206             <span class="comment">% Freeze: keep baseline multiplicative scale; learn only directions via U, Lambda</span>
-0207             sigmaProp_log = max(sigma0_log, sigmaFloorFrac * sigma0_log);
-0208         <span class="keyword">end</span>
-0209 
-0210         <span class="comment">% Mark we have proposal stats from now on</span>
-0211         havePropStats = true;
-0212 
-0213         <span class="comment">% Track progress (use best, not first)</span>
-0214         [bestRMSE, bestIdx] = min(rmseTop);
-0215         rmseTrace = [rmseTrace, bestRMSE];
-0216         kcatTrace = [kcatTrace, kcats];
-0217         stdTrace  = [stdTrace,  kcatStd];
-0218 
-0219         <span class="comment">% Set a feasible/best point for next iteration's model baseline</span>
-0220         tmpModel.ec.kcat = kcatTop(:, bestIdx);
-0221         tmpModel = applyKcatConstraints(tmpModel);
-0222 
-0223         fprintf(<span class="string">'Accepted %d / %d, avg RMSE (accepted): %.2f, best: %.2f.\n'</span>, <span class="keyword">...</span>
-0224                 numel(rmseTop), numel(rmse), mean(rmseTop), bestRMSE)
-0225 
-0226         generation = generation + 1;
-0227     <span class="keyword">else</span>
-0228         fprintf(<span class="string">'Halted due to reaching maximum generation limit. Returning best posterior kcats.\n'</span>)
-0229         <span class="keyword">break</span>
-0230     <span class="keyword">end</span>
-0231 <span class="keyword">end</span>
-0232 
-0233 <span class="comment">% Return best posterior kcats (best among last accepted)</span>
-0234 [~, bestIdx] = min(rmseTop);
-0235 ecModel.ec.kcat = kcatTop(:, bestIdx);
-0236 ecModel = applyKcatConstraints(ecModel);
-0237 fprintf(<span class="string">'Final RMSE: %.2f.\n'</span>, rmseTop(bestIdx))
-0238 <span class="keyword">end</span>
-0239 
-0240 <span class="comment">% ===================== Helper =====================</span>
-0241 
-0242 <a name="_sub1" href="#_subfunctions" class="code">function proposals = proposeLowRankMixture(parents, U, Lambda, sigmaProp_log, sigma0_log, tau, alpha, cExpl)</a>
-0243 <span class="comment">% proposeLowRankMixture</span>
-0244 <span class="comment">%   Sample proposals in log-space using a mixture kernel:</span>
-0245 <span class="comment">%   Exploit: low-rank PCA shape + residual floor, with per-dim scale sigmaProp_log</span>
-0246 <span class="comment">%   Explore: inflated baseline diagonal (sigma0_log)</span>
-0247 <span class="comment">%   Both are centered on the parent in log-space.</span>
-0248 
-0249 [D, Nprop] = size(parents);
-0250 r = size(U, 2);
-0251 
-0252 useExploit = rand(1, Nprop) &lt; alpha;
-0253 
-0254 <span class="comment">% Exploit steps: (sqrt(tau)*E) + U*diag(sqrt(Lambda))*Z  then per-dim scale</span>
-0255 nE = sum(useExploit);
-0256 <span class="keyword">if</span> nE &gt; 0
-0257     Zr = randn(r, nE);
-0258     Er = randn(D, nE);
-0259     <span class="keyword">if</span> r &gt; 0
-0260         y_exploit = bsxfun(@times, sqrt(tau), Er) + U * (bsxfun(@times, sqrt(Lambda), Zr));
-0261     <span class="keyword">else</span>
-0262         y_exploit = bsxfun(@times, sqrt(tau), Er);
-0263     <span class="keyword">end</span>
-0264     steps_exploit = bsxfun(@times, sigmaProp_log, y_exploit);
-0265 <span class="keyword">else</span>
-0266     steps_exploit = zeros(D,0);
-0267 <span class="keyword">end</span>
-0268 
-0269 <span class="comment">% Explore steps: broad diagonal baseline</span>
-0270 nX = sum(~useExploit);
-0271 <span class="keyword">if</span> nX &gt; 0
-0272     Ee = randn(D, nX);
-0273     steps_explore = bsxfun(@times, cExpl * sigma0_log, Ee);
-0274 <span class="keyword">else</span>
-0275     steps_explore = zeros(D,0);
-0276 <span class="keyword">end</span>
-0277 
-0278 <span class="comment">% Assemble in original column order</span>
-0279 steps = zeros(D, Nprop);
-0280 <span class="keyword">if</span> nE &gt; 0, steps(:,  useExploit) = steps_exploit; <span class="keyword">end</span>
-0281 <span class="keyword">if</span> nX &gt; 0, steps(:, ~useExploit) = steps_explore; <span class="keyword">end</span>
-0282 
-0283 <span class="comment">% Parent-centered in log-space, then back to linear space</span>
-0284 proposals = exp(log(max(parents, realmin)) + steps);
-0285 proposals = max(proposals, realmin);
-0286 <span class="keyword">end</span></pre></div>
+0143         <span class="comment">% Sort RMSE ascending (best first)</span>
+0144         [~, ord] = sort(rmse, <span class="string">'ascend'</span>);
+0145 
+0146         <span class="comment">% Soft guard: check if RMSE curve is flat → soften selection</span>
+0147         <span class="keyword">if</span> generation &gt; 5
+0148             lastWindow = rmseTrace(end-4:end); <span class="comment">% Check last 5 RMSE</span>
+0149             <span class="keyword">if</span> max(lastWindow) - min(lastWindow) &lt; 1e-6
+0150                 <span class="comment">% Plateau detected → relax selection slightly</span>
+0151                 targetCount = round(targetCount * 1.3);
+0152             <span class="keyword">end</span>
+0153         <span class="keyword">end</span>
+0154 
+0155         <span class="comment">% At least keep minKeep samples</span>
+0156         targetCount  = max(targetCount, minKeep);
+0157 
+0158         <span class="comment">% Final accepted indices</span>
+0159         acc_idx = ord(1:targetCount);
+0160 
+0161         <span class="comment">% Subset accepted samples</span>
+0162         rmseTop = rmse(acc_idx);
+0163         kcatTop = kcat(:, acc_idx);
+0164 
+0165         <span class="comment">%% Define means and standard deviations from accepted samples</span>
+0166         ss      = num2cell(kcatTop', 1);
+0167         [a,b]   = arrayfun(@<a href="updateprior.html" class="code" title="function [mu,sigma] = updateprior(x,defaultCV)">updateprior</a>, ss);
+0168         kcats   = transpose(a);
+0169         kcatStd = transpose(b);
+0170 
+0171         <span class="comment">%% Build new covariance matrix in log-space, to be used for next sampling</span>
+0172         thetaAcc = log(kcatTop);
+0173 
+0174         <span class="comment">% Remove outliers, by filtering out samples whose z-scores had a</span>
+0175         <span class="comment">% Median Absolute Deviation (MAD) of 6 or more</span>
+0176         z = abs(thetaAcc - median(thetaAcc,2)) ./ (mad(thetaAcc,1,2) + 1e-12);
+0177         keepMask = median(z,1) &lt; 6;
+0178         <span class="comment">% Fallback if everything gets filtered away</span>
+0179         <span class="keyword">if</span> ~any(keepMask)
+0180             warning(<span class="string">'MAD filter removed all samples; disabling filtering this generation.'</span>);
+0181             keepMask = true(1, size(thetaAcc,2));
+0182         <span class="keyword">end</span>
+0183         thetaClean = thetaAcc(:, keepMask);
+0184 
+0185         <span class="comment">% Determine empirical covariance of samples who were retained</span>
+0186         Cemp = cov(thetaClean');
+0187 
+0188         <span class="comment">% Reduce noise in Cemp, through Ledoit-Wolf shrinkage towards a</span>
+0189         <span class="comment">% diagonal covariance</span>
+0190         alphaLW = 0.1;
+0191         SigmaLog = (1 - alphaLW) * Cemp + alphaLW * diag(diag(Cemp));
+0192 
+0193         <span class="comment">%% Track progress (use best, not first)</span>
+0194         [bestRMSE, bestIdx] = min(rmseTop);
+0195         rmseTrace = [rmseTrace, bestRMSE];
+0196         kcatTrace = [kcatTrace, kcats];
+0197         stdTrace  = [stdTrace,  kcatStd];
+0198 
+0199         <span class="comment">% Set a feasible/best point for next iteration's model baseline</span>
+0200         tmpModel.ec.kcat = kcatTop(:, bestIdx);
+0201         tmpModel = applyKcatConstraints(tmpModel);
+0202 
+0203         fprintf(<span class="string">'Accepted %d / %d, avg RMSE (accepted): %.2f, best: %.2f.\n'</span>, <span class="keyword">...</span>
+0204             numel(rmseTop), numel(rmse), mean(rmseTop), bestRMSE)
+0205 
+0206         generation = generation + 1;
+0207     <span class="keyword">else</span>
+0208         fprintf(<span class="string">'Halted due to reaching maximum generation limit. Returning best posterior kcats.\n'</span>)
+0209         <span class="keyword">break</span>
+0210     <span class="keyword">end</span>
+0211     count(PB1)
+0212 <span class="keyword">end</span>
+0213 
+0214 <span class="comment">% Return best posterior kcats (best among last accepted)</span>
+0215 [~, bestIdx] = min(rmseTop);
+0216 ecModel.ec.kcat = kcatTop(:, bestIdx);
+0217 ecModel = applyKcatConstraints(ecModel);
+0218 fprintf(<span class="string">'Final RMSE: %.2f.\n'</span>, rmseTop(bestIdx))
+0219 <span class="keyword">end</span></pre></div>
 <hr><address>Generated by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

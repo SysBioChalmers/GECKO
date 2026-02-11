@@ -24,7 +24,7 @@
 <div class="box"><strong>abc_max</strong></div>
 
 <h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
-<div class="box"><strong>function rmse = abc_max(ecModel,fluxData,maxGrowth,rxn2block) </strong></div>
+<div class="box"><strong>function [rmse,rmseList] = abc_max(ecModel,fluxData,maxGrowth,rxn2block,modelAdapter) </strong></div>
 
 <h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
 <div class="fragment"><pre class="comment"> abc_max
@@ -46,7 +46,7 @@
 <h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
 This function calls:
 <ul style="list-style-image:url(../../../../matlabicon.gif)">
-<li><a href="anaerobicModel_GECKO.html" class="code" title="function model = anaerobicModel_GECKO(model)">anaerobicModel_GECKO</a>	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</li><li><a href="mse.html" class="code" title="function err = mse(y,x)">mse</a>	</li></ul>
+<li><a href="addCarbonNum.html" class="code" title="function model = addCarbonNum(model)">addCarbonNum</a>	addCarbonNum</li><li><a href="mse.html" class="code" title="function err = mse(y,x)">mse</a>	</li></ul>
 This function is called by:
 <ul style="list-style-image:url(../../../../matlabicon.gif)">
 <li><a href="bayesianSensitivityTuning.html" class="code" title="function [ecModel, rmseTrace, kcatTrace, stdTrace] = bayesianSensitivityTuning(ecModel,kcatStd,modelAdapter)">bayesianSensitivityTuning</a>	bayesianSensitivityTuning</li></ul>
@@ -54,10 +54,10 @@ This function is called by:
 
 <h2><a name="_subfunctions"></a>SUBFUNCTIONS <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
 <ul style="list-style-image:url(../../../../matlabicon.gif)">
-<li><a href="#_sub1" class="code">function rmse = rmsecal(ecModel,data,constrain,rxn2block)</a></li></ul>
+<li><a href="#_sub1" class="code">function [rmse, rmseList] = rmsecal(ecModel,data,constrain,rxn2block,modelAdapter)</a></li></ul>
 
 <h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
-<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function rmse = abc_max(ecModel,fluxData,maxGrowth,rxn2block)</a>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function [rmse,rmseList] = abc_max(ecModel,fluxData,maxGrowth,rxn2block,modelAdapter)</a>
 0002 <span class="comment">% abc_max</span>
 0003 <span class="comment">%   Internal function in BayesianSensitivityTuning. Gets the average RMSE for</span>
 0004 <span class="comment">%   a certain set of growth data and kcats.</span>
@@ -73,90 +73,104 @@ This function is called by:
 0014 <span class="comment">% Output:</span>
 0015 <span class="comment">%   rmse          The average RMSE</span>
 0016 
-0017 
-0018 <span class="comment">%% First test with flux data</span>
-0019 <span class="keyword">if</span> ~isempty(fluxData)
-0020     rmse_1 = <a href="#_sub1" class="code" title="subfunction rmse = rmsecal(ecModel,data,constrain,rxn2block)">rmsecal</a>(ecModel,fluxData,true,rxn2block);
-0021 <span class="keyword">else</span>
-0022     rmse_1 = [];
-0023 <span class="keyword">end</span>
-0024 <span class="comment">%% Second test with maximum growth on various carbon sources</span>
-0025 <span class="keyword">if</span> ~isempty(maxGrowth)  <span class="comment">% simulate the maximal growth rate</span>
-0026     rmse_2 = <a href="#_sub1" class="code" title="subfunction rmse = rmsecal(ecModel,data,constrain,rxn2block)">rmsecal</a>(ecModel,maxGrowth,false,rxn2block);
-0027 <span class="keyword">else</span>
-0028     rmse_2 = [];
-0029 <span class="keyword">end</span>
-0030     
-0031 <span class="comment">%% Combine results</span>
-0032 rmse        = mean([rmse_1,rmse_2],<span class="string">'omitnan'</span>);
-0033 <span class="keyword">end</span>
-0034 
-0035 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-0036 <a name="_sub1" href="#_subfunctions" class="code">function rmse = rmsecal(ecModel,data,constrain,rxn2block)</a>
-0037 
-0038 rmseList = zeros(length(data.conds),1);
-0039 
-0040 <span class="keyword">for</span> i = 1:length(data.conds)
-0041 
-0042     <span class="comment">% Set carbon source</span>
-0043     [~,exchIdx] = ismember(data.conds,data.exchMets);
-0044     <span class="keyword">if</span> any(exchIdx == 0)
-0045         missingMets = strjoin(unique(data.conds(exchIdx == 0 )), <span class="string">'; '</span>);
-0046         error(<span class="string">'Carbon source(s) &quot;%s&quot; in the provided fluxData or maxGrowth cannot be matched by name with an exchange reaction.'</span>, missingMets);
-0047     <span class="keyword">end</span>
-0048     <span class="comment">% Set all other carbon sources to zero</span>
-0049     model_tmp = setParam(ecModel,<span class="string">'lb'</span>,data.exchRxnIDs(unique(exchIdx)),0);
-0050     <span class="comment">% Only allow condition-specific carbon source</span>
-0051     <span class="keyword">if</span> constrain <span class="comment">% If RMSE is calculated from flux data, then constrain carbon uptake</span>
-0052         model_tmp = setParam(model_tmp,<span class="string">'lb'</span>,data.exchRxnIDs(exchIdx(i)),data.exchFluxes(i,exchIdx(i)));
-0053     <span class="keyword">else</span> <span class="comment">% If RMSE is calculated from max growth, then do not constrain carbon uptake</span>
-0054         model_tmp = setParam(model_tmp,<span class="string">'lb'</span>,data.exchRxnIDs(exchIdx(i)),-1000);
-0055     <span class="keyword">end</span>
-0056     
-0057     <span class="comment">% Remove carbon source exchange from rxn2block</span>
-0058     rxn2blockIter = rxn2block;
-0059     rxn2blockIter(strcmp(rxn2blockIter,data.exchRxnIDs(exchIdx(i)))) = [];
-0060 
-0061     <span class="comment">% Make anaerobic if relevant</span>
-0062     o2Flux = data.exchFluxes(i,strcmp(<span class="string">'oxygen'</span>,data.exchMets));
-0063     <span class="keyword">if</span> o2Flux == 0
-0064         model_tmp = <a href="anaerobicModel_GECKO.html" class="code" title="function model = anaerobicModel_GECKO(model)">anaerobicModel_GECKO</a>(model_tmp);
-0065     <span class="keyword">end</span>
-0066 
-0067     sol = solveLP(model_tmp);
-0068     <span class="keyword">if</span> checkSolution(sol)
-0069         bioRxn          = getIndexes(model_tmp,data.biomass,<span class="string">'rxns'</span>);
-0070         <span class="comment">% Assume that biomass contains 41 Cmmol/gDCW</span>
-0071         bioMeas         = data.grRate(i) * 41;
-0072         bioSim          = sol.x(bioRxn) * 41;
-0073 
-0074         <span class="keyword">if</span> constrain
-0075             fluxToCheck     = ~isnan(data.exchFluxes(i,:));
-0076             fluxRxnIdx      = getIndexes(model_tmp,data.exchRxnIDs(fluxToCheck),<span class="string">'rxns'</span>);
-0077             cNormMeasFlux   = model_tmp.excarbon(fluxRxnIdx) .* transpose(data.exchFluxes(i,fluxToCheck));
-0078             cNormSimFlux    = model_tmp.excarbon(fluxRxnIdx) .* sol.x(fluxRxnIdx);
-0079 
-0080             <span class="comment">% Make sure that selected exchange reactions have zero flux</span>
-0081             blockRxnIdx     = getIndexes(model_tmp,rxn2blockIter,<span class="string">'rxns'</span>);
-0082             blockSim        = sol.x(blockRxnIdx) .* model_tmp.excarbon(blockRxnIdx);
-0083             zeroFlux        = blockSim == 0;
-0084             blockSim(zeroFlux) = [];
-0085             blockMeas       = zeros(numel(blockSim),1);
-0086 
-0087             measured    = [cNormMeasFlux; bioMeas; blockMeas];
-0088             simulated   = [cNormSimFlux; bioSim; blockSim];
-0089         <span class="keyword">else</span>
-0090             measured    = bioMeas;
-0091             simulated   = bioSim;
-0092         <span class="keyword">end</span>
-0093         rmseList(i) = sqrt(<a href="mse.html" class="code" title="function err = mse(y,x)">mse</a>(measured,simulated));
-0094     <span class="keyword">else</span>
-0095         rmseList(i) = NaN;
-0096     <span class="keyword">end</span>
-0097 <span class="keyword">end</span>
-0098 rmseList(isnan(rmseList)) = 99; <span class="comment">% High penalty for models that failed</span>
-0099 rmse = mean(rmseList);
-0100 <span class="keyword">end</span></pre></div>
+0017 <span class="keyword">if</span> nargin &lt; 5 || isempty(modelAdapter)
+0018     modelAdapter = ModelAdapterManager.getDefault();
+0019     <span class="keyword">if</span> isempty(modelAdapter)
+0020         error(<span class="string">'Either send in a modelAdapter or set the default ecModel adapter in the ModelAdapterManager.'</span>)
+0021     <span class="keyword">end</span>
+0022 <span class="keyword">end</span>
+0023 rmse_1 = []; rmseList1 = []; rmse_2 = []; rmseList2 = [];
+0024 
+0025 <span class="keyword">if</span> ~isfield(ecModel,<span class="string">'excarbon'</span>)
+0026     ecModel = <a href="addCarbonNum.html" class="code" title="function model = addCarbonNum(model)">addCarbonNum</a>(ecModel);
+0027     ecModel.excarbon(ecModel.excarbon == 0) = 1;
+0028 <span class="keyword">end</span>
+0029 
+0030 <span class="comment">%% First test with flux data</span>
+0031 <span class="keyword">if</span> ~isempty(fluxData)
+0032     [rmse_1, rmseList1] = <a href="#_sub1" class="code" title="subfunction [rmse, rmseList] = rmsecal(ecModel,data,constrain,rxn2block,modelAdapter)">rmsecal</a>(ecModel,fluxData,true,rxn2block,modelAdapter);
+0033     rmseList1 = [cellstr(&quot;fluxData_&quot; + string(1:numel(rmseList1)))',num2cell(rmseList1)];
+0034 <span class="keyword">end</span>
+0035 <span class="comment">%% Second test with maximum growth on various carbon sources</span>
+0036 <span class="keyword">if</span> ~isempty(maxGrowth)  <span class="comment">% simulate the maximal growth rate</span>
+0037     [rmse_2, rmseList2] = <a href="#_sub1" class="code" title="subfunction [rmse, rmseList] = rmsecal(ecModel,data,constrain,rxn2block,modelAdapter)">rmsecal</a>(ecModel,maxGrowth,false,rxn2block,modelAdapter);
+0038     rmseList2 = [cellstr(&quot;maxGrowth_&quot; + string(1:numel(rmseList2)))',num2cell(rmseList2)];
+0039 <span class="keyword">end</span>
+0040     
+0041 <span class="comment">%% Combine results</span>
+0042 rmse        = mean([rmse_1,rmse_2],<span class="string">'omitnan'</span>);
+0043 rmseList    = [rmseList1;rmseList2];
+0044 <span class="keyword">end</span>
+0045 
+0046 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0047 <a name="_sub1" href="#_subfunctions" class="code">function [rmse, rmseList] = rmsecal(ecModel,data,constrain,rxn2block,modelAdapter)</a>
+0048 
+0049 rmseList = zeros(length(data.conds),1);
+0050 
+0051 <span class="keyword">for</span> i = 1:length(data.conds)
+0052 
+0053     <span class="comment">% Set carbon source</span>
+0054     [~,exchIdx] = ismember(data.conds,data.exchMets);
+0055     <span class="keyword">if</span> any(exchIdx == 0)
+0056         missingMets = strjoin(unique(data.conds(exchIdx == 0 )), <span class="string">'; '</span>);
+0057         error(<span class="string">'Carbon source(s) &quot;%s&quot; in the provided fluxData or maxGrowth cannot be matched by name with an exchange reaction.'</span>, missingMets);
+0058     <span class="keyword">end</span>
+0059     <span class="comment">% Set all other carbon sources to zero</span>
+0060     model_tmp = setParam(ecModel,<span class="string">'lb'</span>,data.exchRxnIDs(unique(exchIdx)),0);
+0061     <span class="comment">% Only allow condition-specific carbon source</span>
+0062     <span class="keyword">if</span> constrain <span class="comment">% If RMSE is calculated from flux data, then constrain carbon uptake</span>
+0063         model_tmp = setParam(model_tmp,<span class="string">'lb'</span>,data.exchRxnIDs(exchIdx(i)),data.exchFluxes(i,exchIdx(i)));
+0064     <span class="keyword">else</span> <span class="comment">% If RMSE is calculated from max growth, then do not constrain carbon uptake</span>
+0065         model_tmp = setParam(model_tmp,<span class="string">'lb'</span>,data.exchRxnIDs(exchIdx(i)),-1000);
+0066     <span class="keyword">end</span>
+0067     
+0068     <span class="comment">% Remove carbon source exchange from rxn2block</span>
+0069     rxn2blockIter = rxn2block;
+0070     rxn2blockIter(strcmp(rxn2blockIter,data.exchRxnIDs(exchIdx(i)))) = [];
+0071 
+0072     <span class="comment">% Make anaerobic if relevant</span>
+0073     o2Flux = data.exchFluxes(i,strcmp(<span class="string">'oxygen'</span>,data.exchMets));
+0074     <span class="keyword">if</span> o2Flux == 0
+0075         model_tmp = modelAdapter.makeModelAnaerobic(model_tmp);
+0076     <span class="keyword">end</span>
+0077 
+0078     sol = solveLP(model_tmp);
+0079     <span class="keyword">if</span> checkSolution(sol)
+0080         bioRxn          = getIndexes(model_tmp,data.biomass,<span class="string">'rxns'</span>);
+0081         <span class="comment">% Assume that biomass contains 41 Cmmol/gDCW</span>
+0082         bioMeas         = data.grRate(i) * 41;
+0083         bioSim          = sol.x(bioRxn) * 41;
+0084 
+0085         <span class="keyword">if</span> constrain
+0086             fluxToCheck     = ~isnan(data.exchFluxes(i,:));
+0087             fluxRxnIdx      = getIndexes(model_tmp,data.exchRxnIDs(fluxToCheck),<span class="string">'rxns'</span>);
+0088             cNormMeasFlux   = model_tmp.excarbon(fluxRxnIdx) .* transpose(data.exchFluxes(i,fluxToCheck));
+0089             cNormSimFlux    = model_tmp.excarbon(fluxRxnIdx) .* sol.x(fluxRxnIdx);
+0090 
+0091             <span class="comment">% Make sure that selected exchange reactions have zero flux</span>
+0092             blockRxnIdx     = getIndexes(model_tmp,rxn2blockIter,<span class="string">'rxns'</span>);
+0093             blockSim        = sol.x(blockRxnIdx) .* model_tmp.excarbon(blockRxnIdx);
+0094             zeroFlux        = blockSim == 0;
+0095             blockSim(zeroFlux) = [];
+0096             blockMeas       = zeros(numel(blockSim),1);
+0097 
+0098             measured    = [cNormMeasFlux; bioMeas; blockMeas];
+0099             simulated   = [cNormSimFlux; bioSim; blockSim];
+0100         <span class="keyword">else</span>
+0101             measured    = bioMeas;
+0102             simulated   = bioSim;
+0103         <span class="keyword">end</span>
+0104         rmseList(i) = sqrt(<a href="mse.html" class="code" title="function err = mse(y,x)">mse</a>(measured,simulated));
+0105     <span class="keyword">else</span>
+0106         rmseList(i) = NaN;
+0107     <span class="keyword">end</span>
+0108 <span class="keyword">end</span>
+0109 rmseList(isnan(rmseList)) = 99; <span class="comment">% High penalty for models that failed</span>
+0110 <span class="keyword">if</span> isfield(data,<span class="string">'bayesianRMSEweight'</span>)
+0111     rmseList = rmseList .* data.bayesianRMSEweight;
+0112 <span class="keyword">end</span>
+0113 rmse = mean(rmseList);
+0114 <span class="keyword">end</span></pre></div>
 <hr><address>Generated by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>
