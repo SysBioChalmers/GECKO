@@ -22,6 +22,11 @@ if nargin < 5 || isempty(modelAdapter)
 end
 rmse_1 = []; rmseList1 = []; rmse_2 = []; rmseList2 = [];
 
+if ~isfield(ecModel,'excarbon')
+    ecModel = addCarbonNum(ecModel);
+    ecModel.excarbon(ecModel.excarbon == 0) = 1;
+end
+
 %% First test with flux data
 if ~isempty(fluxData)
     [rmse_1, rmseList1] = rmsecal(ecModel,fluxData,true,rxn2block,modelAdapter);
@@ -102,5 +107,8 @@ for i = 1:length(data.conds)
     end
 end
 rmseList(isnan(rmseList)) = 99; % High penalty for models that failed
+if isfield(data,'bayesianRMSEweight')
+    rmseList = rmseList .* data.bayesianRMSEweight;
+end
 rmse = mean(rmseList);
 end
