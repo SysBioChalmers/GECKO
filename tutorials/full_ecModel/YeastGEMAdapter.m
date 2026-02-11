@@ -44,17 +44,10 @@ classdef YeastGEMAdapter < ModelAdapter
             obj.params.bayesian.initSDmultiplDef    = 1.5; % Default multiplier to define kcat standard deviation (kcat * initSDmultiplDef)
             obj.params.bayesian.kcatSources         = {'brenda','dlkcat'}; % kcat sources for which alternative multipliers are defined
             obj.params.bayesian.initSDmultipl       = [0.15; 0.6]; % Multipliers that overwrite initSDmultplDef, matching kcatSources
-            obj.params.bayesian.samples1            = 1500; % Number of kcat samples in generation 1
-            obj.params.bayesian.samples2_5          = 500; % Number of kcat samples in generation 2-5
-            obj.params.bayesian.samples6_end        = 250; % Number of kcat samples in generation 6 onwards
-            obj.params.bayesian.targetAccept1       = 45; % RMSE percentile to accept in generation 1
-            obj.params.bayesian.targetAccept2_5     = 35; % RMSE percentile to accept in generation 2-5
-            obj.params.bayesian.targetAccept6_end   = 25; % RMSE percentile to accept in generation 6 onwards
-            obj.params.bayesian.minKeep             = 0.05; % Minimum fraction of samples to keep
-            obj.params.bayesian.maxKeep             = 0.30; % Maximum fraction of samples to keep
-            obj.params.bayesian.rMax                = 200; % Hard cap on PCA rank (20–300 typical)
-            obj.params.bayesian.cExpl               = 1.25; % inflate subspace std for exploration (1.1–1.5)
-            obj.params.bayesian.tauResidual         = 1e-3; % residual (isotropic) variance in log-space (1e-4–1e-2
+            obj.params.bayesian.scheduleGenerations = [1, 2, 9, 15]; % Schedule by which generation the sample number and target should be changed
+            obj.params.bayesian.scheduleSamples     = [1500, 500, 300, 200]; % Schedule of sample numbers (matching scheduleGenerations)
+            obj.params.bayesian.scheduleTarget      = [0.4, 0.2, 0.1, 0.05]; % Schedule of target acceptance fractions (matching scheduleGenerations)
+            obj.params.bayesian.minKeep             = 10; % Minimum number of samples to keep
             obj.params.bayesian.rmseThreshold       = 0.2; % RMSE threshold to halt and output best posterior kcats
             obj.params.bayesian.maxGenerations      = 200; % Maximum number of generations before returning best posterior kcats
         end

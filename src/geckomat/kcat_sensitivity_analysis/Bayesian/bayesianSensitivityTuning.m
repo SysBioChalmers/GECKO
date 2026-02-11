@@ -32,9 +32,10 @@ params = modelAdapter.params;
 initSDmultiplDef    = params.bayesian.initSDmultiplDef;
 kcatSources         = params.bayesian.kcatSources;
 initSDmultipl       = params.bayesian.initSDmultipl;
-samples1            = params.bayesian.samples1;
-samples2_5          = params.bayesian.samples2_5;
-samples6_end        = params.bayesian.samples6_end;
+scheduleGenerations = params.bayesian.scheduleGenerations;
+scheduleSamples     = params.bayesian.scheduleSamples;
+scheduleTarget      = params.bayesian.scheduleTarget;
+minKeep             = params.bayesian.minKeep;
 rmseThreshold       = params.bayesian.rmseThreshold;
 maxGenerations      = params.bayesian.maxGenerations;
 basePath            = params.path;
@@ -87,13 +88,16 @@ tmpModel = setParam(ecModel,'lb',modelAdapter.params.c_source,0);
 generation = 1;
 while rmse > rmseThreshold
     if generation <= maxGenerations
-        count(PB1)
         fprintf('Running iteration %d of %d. ', generation, maxGenerations)
+
+        % Define N and targetFrac dependent on the generation
+        schedulePos = find(generation >= scheduleGenerations, 1, 'last');
+        N           = scheduleSamples(schedulePos);
+        targetFrac  = scheduleTarget(schedulePos); % Acceptance fraction
 
         % Sampling
         if generation == 1
             % Define randomKcats via lognormal sampling around priors
-            N = 1200;
             % randomKcats = arrayfun(@getrSample, kcats, kcatStd, repmat(N, length(kcats), 1), 'UniformOutput', false);
             % randomKcats = cell2mat(randomKcats);
 
@@ -108,23 +112,12 @@ while rmse > rmseThreshold
             thetaProp = mu_log + sigma_log .* (sqrt(2) .* erfinv(2*U - 1));   % D×N
             randomKcats = exp(thetaProp);
         else
-            if generation < 3
-                N = 1200;
-            elseif generation < 9
-                N = 500;
-            elseif generation < 16
-                N = 250;
-            else
-                N = 200;
-            end
-
             % Define randomKcats by sampling around previous accepted
             % solutions using a full-covariance Guassian kernel in log
             % space, ABC-PMC
             % Randomly pick N columns with accepted kcat values
             parent_idx = randi(size(kcatTop,2), [1 N]);
             parents = log(kcatTop(:, parent_idx));
-
 
             % Compute Cholesky factor of the log-space covariance SigmaLog,
             % stabilize with 1e-12*i
@@ -163,17 +156,6 @@ while rmse > rmseThreshold
         rmse = [newRmse; rmseTop];
         kcat = [randomKcats, kcatTop];
 
-        % Desired acceptance fraction schedule:
-        if generation <= 3
-            targetFrac = 0.4;
-        elseif generation <= 8
-            targetFrac = 0.15;
-        elseif generation <= 15
-            targetFrac = 0.10;
-        else
-            targetFrac = 0.05;
-        end
-
         % Suggested number of accepted samples
         targetCount = max(1, round(targetFrac * numel(rmse)));
 
@@ -182,20 +164,15 @@ while rmse > rmseThreshold
 
         % Soft guard: check if RMSE curve is flat → soften selection
         if generation > 5
-            win = 5;
-            if numel(rmseTrace) >= win
-                lastWindow = rmseTrace(end-win+1:end);
-                if max(lastWindow) - min(lastWindow) < 1e-6
-                    % Plateau detected → relax selection slightly
-                    targetCount = round(targetCount * 1.3);
-                end
+            lastWindow = rmseTrace(end-4:end); % Check last 5 RMSE
+            if max(lastWindow) - min(lastWindow) < 1e-6
+                % Plateau detected → relax selection slightly
+                targetCount = round(targetCount * 1.3);
             end
         end
 
-        % Clamp between minimal and maximal acceptance to avoid degenerate cases
-        minKeepCount = max(5, round(0.03 * numel(rmse)));  % never accept <3%
-        maxKeepCount = max(10, round(0.50 * numel(rmse))); % never accept >50%
-        targetCount  = min(max(targetCount, minKeepCount), maxKeepCount);
+        % At least keep minKeep samples
+        targetCount  = max(targetCount, minKeep);
 
         % Final accepted indices
         acc_idx = ord(1:targetCount);
@@ -203,7 +180,6 @@ while rmse > rmseThreshold
         % Subset accepted samples
         rmseTop = rmse(acc_idx);
         kcatTop = kcat(:, acc_idx);
-
 
         %% Define means and standard deviations from accepted samples
         ss      = num2cell(kcatTop', 1);
@@ -251,6 +227,7 @@ while rmse > rmseThreshold
         fprintf('Halted due to reaching maximum generation limit. Returning best posterior kcats.\n')
         break
     end
+    count(PB1)
 end
 
 % Return best posterior kcats (best among last accepted)
