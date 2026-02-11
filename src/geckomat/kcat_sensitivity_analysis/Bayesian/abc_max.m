@@ -1,4 +1,4 @@
-function rmse = abc_max(ecModel,fluxData,maxGrowth,rxn2block,modelAdapter)
+function [rmse,rmseList] = abc_max(ecModel,fluxData,maxGrowth,rxn2block,modelAdapter)
 % abc_max
 %   Internal function in BayesianSensitivityTuning. Gets the average RMSE for
 %   a certain set of growth data and kcats.
@@ -20,26 +20,26 @@ if nargin < 5 || isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default ecModel adapter in the ModelAdapterManager.')
     end
 end
+rmse_1 = []; rmseList1 = []; rmse_2 = []; rmseList2 = [];
 
 %% First test with flux data
 if ~isempty(fluxData)
-    rmse_1 = rmsecal(ecModel,fluxData,true,rxn2block,modelAdapter);
-else
-    rmse_1 = [];
+    [rmse_1, rmseList1] = rmsecal(ecModel,fluxData,true,rxn2block,modelAdapter);
+    rmseList1 = [cellstr("fluxData_" + string(1:numel(rmseList1)))',num2cell(rmseList1)];
 end
 %% Second test with maximum growth on various carbon sources
 if ~isempty(maxGrowth)  % simulate the maximal growth rate
-    rmse_2 = rmsecal(ecModel,maxGrowth,false,rxn2block,modelAdapter);
-else
-    rmse_2 = [];
+    [rmse_2, rmseList2] = rmsecal(ecModel,maxGrowth,false,rxn2block,modelAdapter);
+    rmseList2 = [cellstr("maxGrowth_" + string(1:numel(rmseList2)))',num2cell(rmseList2)];
 end
     
 %% Combine results
 rmse        = mean([rmse_1,rmse_2],'omitnan');
+rmseList    = [rmseList1;rmseList2];
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function rmse = rmsecal(ecModel,data,constrain,rxn2block,modelAdapter)
+function [rmse, rmseList] = rmsecal(ecModel,data,constrain,rxn2block,modelAdapter)
 
 rmseList = zeros(length(data.conds),1);
 

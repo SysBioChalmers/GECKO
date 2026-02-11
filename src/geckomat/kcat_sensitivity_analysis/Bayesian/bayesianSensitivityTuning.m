@@ -50,15 +50,7 @@ if nargin < 2 || isempty(kcatStd)
 end
 
 %% Load data
-% fluxData = data.fluxData; % Cultivation data
-% zeroFlux = data.zeroFlux; % List of exchange reactions that should not carry any flux, as these metabolites are widely assumed not to be excreted
-% maxGrate = data.maxGrate; % Maximum growth rates
-
-fluxData = loadFluxData(fullfile(basePath,'data','bayesianFluxData.tsv'));
-fluxData.biomass = modelAdapter.params.bioRxn;
-maxGrate = loadFluxData(fullfile(basePath,'data','bayesianMaxGrowth.tsv'));
-maxGrate.biomass = modelAdapter.params.bioRxn;
-zeroFlux = table2cell(readtable(fullfile(basePath,'data','bayesianZeroExch.tsv'), 'Delimiter', '\t', 'FileType','delimitedtext'));
+[fluxData, maxGrate, zeroFlux] = loadBayesianData(modelAdapter);
 
 % get carbonnum for each exchange rxn to further calculation of error
 if ~isfield(ecModel,'excarbon')
@@ -98,19 +90,8 @@ while rmse > rmseThreshold
         % Sampling
         if generation == 1
             % Define randomKcats via lognormal sampling around priors
-            % randomKcats = arrayfun(@getrSample, kcats, kcatStd, repmat(N, length(kcats), 1), 'UniformOutput', false);
-            % randomKcats = cell2mat(randomKcats);
-
-            % Convert your linear-space priors (kcats, kcatStd) to lognormal (mu_log, sigma_log)
-            mu_log    = log(max(kcats, eps));
-            sigma_log = sqrt(log(1 + (kcatStd ./ max(kcats, eps)).^2));
-
-            % Latin Hypercube in [0,1]^D (N samples). Returns N×D, so transpose to D×N.
-            U = lhsdesign(N, D, 'criterion','maximin','iterations',50)';  % D×N
-
-            % Map U ~ U(0,1) to Normal via inverse CDF, then to log‑space around priors
-            thetaProp = mu_log + sigma_log .* (sqrt(2) .* erfinv(2*U - 1));   % D×N
-            randomKcats = exp(thetaProp);
+            randomKcats = arrayfun(@getrSample, kcats, kcatStd, repmat(N, length(kcats), 1), 'UniformOutput', false);
+            randomKcats = cell2mat(randomKcats);
         else
             % Define randomKcats by sampling around previous accepted
             % solutions using a full-covariance Guassian kernel in log
@@ -235,41 +216,4 @@ end
 ecModel.ec.kcat = kcatTop(:, bestIdx);
 ecModel = applyKcatConstraints(ecModel);
 fprintf('Final RMSE: %.2f.\n', rmseTop(bestIdx))
-end
-
-function [mu,sigma] = updateprior(x,defaultCV)
-% updateprior
-%   Calculates a new distribution from the provided kcat values
-%
-% Input:
-%   x       kcat values
-%
-% Output:
-%   mu      mean
-%   sigma   standard deviation
-
-if nargin<2
-    defaultCV = 0.25;
-end
-
-if iscell(x), x = x{:}; end
-
-% Remove non-positive values—they cannot be logged
-n_before = numel(x);
-x = x(x > 0);
-if isempty(x)
-    error('x cannot be empty or contain only non-positive values.');
-end
-if numel(x) < n_before
-    warning('Removed %d non-positive values before fitting.', n_before - numel(x));
-end
-
-if isscalar(x)
-    mu      = x;
-    sigma   = x * defaultCV;
-else
-    pd      = fitdist(log(x),'normal');
-    mu    = exp(pd.mu + 0.5 * pd.sigma^2);
-    sigma = sqrt( (exp(pd.sigma^2) - 1) * exp(2*pd.mu + pd.sigma^2) );
-end
 end
