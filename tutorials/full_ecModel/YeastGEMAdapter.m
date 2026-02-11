@@ -48,6 +48,12 @@ classdef YeastGEMAdapter < ModelAdapter
             obj.params.bayesian.scheduleSamples     = [1500, 500, 300, 200]; % Schedule of sample numbers (matching scheduleGenerations)
             obj.params.bayesian.scheduleTarget      = [0.4, 0.2, 0.1, 0.05]; % Schedule of target acceptance fractions (matching scheduleGenerations)
             obj.params.bayesian.minKeep             = 10; % Minimum number of samples to keep
+            obj.params.bayesian.scheduleSamples     = [500, 400, 300, 200]; % Schedule of sample numbers (matching scheduleGenerations)
+            obj.params.bayesian.plateauWindow       = 5;      % generations to inspect for plateau
+            obj.params.bayesian.plateauRelax        = 1.05;   % relax epsilon by 5% if plateau detected
+            obj.params.bayesian.keepMinFrac         = 0.10;   % at least 10% of N
+            obj.params.bayesian.keepMaxFrac         = 0.35;   % at most 35% of N
+            obj.params.bayesian.keepMinAbs          = 80;     % absolute minimim to keep, irrespective of keepMinFrac
             obj.params.bayesian.rmseThreshold       = 0.2; % RMSE threshold to halt and output best posterior kcats
             obj.params.bayesian.maxGenerations      = 200; % Maximum number of generations before returning best posterior kcats
         end
