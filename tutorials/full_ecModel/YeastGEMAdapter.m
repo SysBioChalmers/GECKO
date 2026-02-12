@@ -41,9 +41,9 @@ classdef YeastGEMAdapter < ModelAdapter
 			obj.params.enzyme_comp = 'cytoplasm';		
 
             % Parameters for Bayesian kcat fitting
-            obj.params.bayesian.initSDmultiplDef    = 1.5; % Default multiplier to define kcat standard deviation (kcat * initSDmultiplDef)
+            obj.params.bayesian.initSDmultiplDef    = 0.3; % Default multiplier to define kcat standard deviation (kcat * initSDmultiplDef)
             obj.params.bayesian.kcatSources         = {'brenda','dlkcat'}; % kcat sources for which alternative multipliers are defined
-            obj.params.bayesian.initSDmultipl       = [0.15; 0.6]; % Multipliers that overwrite initSDmultplDef, matching kcatSources
+            obj.params.bayesian.initSDmultipl       = [0.3; 0.3]; % Multipliers that overwrite initSDmultplDef, matching kcatSources
             obj.params.bayesian.scheduleGenerations = [1, 2, 9, 15]; % Schedule by which generation the sample number and target should be changed
             obj.params.bayesian.scheduleSamples     = [1500, 500, 300, 200]; % Schedule of sample numbers (matching scheduleGenerations)
             obj.params.bayesian.scheduleTarget      = [0.4, 0.2, 0.1, 0.05]; % Schedule of target acceptance fractions (matching scheduleGenerations)
@@ -54,6 +54,9 @@ classdef YeastGEMAdapter < ModelAdapter
             obj.params.bayesian.keepMinFrac         = 0.10;   % at least 10% of N
             obj.params.bayesian.keepMaxFrac         = 0.35;   % at most 35% of N
             obj.params.bayesian.keepMinAbs          = 80;     % absolute minimim to keep, irrespective of keepMinFrac
+            obj.params.bayesian.rMax                = 200; % Hard cap on PCA rank (20–300 typical)
+            obj.params.bayesian.cExpl               = 1.25; % inflate subspace std for exploration (1.1–1.5)
+            obj.params.bayesian.tauResidual         = 1e-3; % residual (isotropic) variance in log-space (1e-4–1e-2
             obj.params.bayesian.rmseThreshold       = 0.2; % RMSE threshold to halt and output best posterior kcats
             obj.params.bayesian.maxGenerations      = 200; % Maximum number of generations before returning best posterior kcats
         end
