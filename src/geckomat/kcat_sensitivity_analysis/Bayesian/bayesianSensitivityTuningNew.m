@@ -86,6 +86,7 @@ D           = numel(kcats);
 % initial log-space std from linear (mu,sigma) assuming lognormal
 sigma0_log  = sqrt(log(1 + (kcatStd ./ max(kcats, eps)).^2));  % [D x 1]
 U_r = []; Lambda = [];          % low-rank PCA basis for exploit kernel
+U = [];
 % sqrtLambda = []; rEff = 0; U = [];
 sampleMethod = 'lowRankFunc'; %{'lowRankFunc','lowRankSnipp','cholsky'};
 generation = 1;
@@ -100,25 +101,25 @@ while rmse > rmseThreshold
 
         prevRmse = rmseTop;
         prevKcat = kcatTop;
-        newRmse  = zeros(numberOfSamples,1);
+        newRmse  = zeros(N,1);
 
         % Sampling
         if generation == 1
             % Per-parameter lognormal sampling around current mean
-            randomKcats = arrayfun(@getrSample, kcats, kcatStd, repmat(numberOfSamples, length(kcats), 1), 'UniformOutput', false);
+            randomKcats = arrayfun(@getrSample, kcats, kcatStd, repmat(N, length(kcats), 1), 'UniformOutput', false);
             randomKcats = cell2mat(randomKcats);
         else
             switch sampleMethod
-                case lowRankFunc
+                case 'lowRankFunc'
 
                     % Low-rank mixture proposal in log-space, centered on accepted parents
-                    parent_idx = randi(size(kcatTop, 2), 1, numberOfSamples); % uniform resampling
+                    parent_idx = randi(size(kcatTop, 2), 1, N); % uniform resampling
                     parents    = kcatTop(:, parent_idx);         % [D x Nprop]
 
                     % Propose without forming full covariances:
                     randomKcats = proposeLowRankMixture(parents, U, Lambda, sigmaProp_log, sigma0_log, tauResidual, alpha, cExpl);
 
-                case lowRankSnipp
+                case 'lowRankSnipp'
 
                     % Low-rank kernel + residual proposal
                     % Subspace noise (correlated along learned PCs)
@@ -131,7 +132,7 @@ while rmse > rmseThreshold
 
                     % Map back to linear space
                     randomKcats = exp(thetaProp);
-                case cholsky
+                case 'cholsky'
 
                     % Fallback: Compute Cholesky factor of the log-space
                     % covariance SigmaLog, Stabilize with 1e-12*i
@@ -150,8 +151,8 @@ while rmse > rmseThreshold
         end
 
         %% Evaluate RMSE for each proposed sample
-        PB2 = ProgressBar2(numberOfSamples, ['Simulate ' num2str(numberOfSamples) ' models with random kcats'], 'gui');
-        parfor j = 1:numberOfSamples
+        PB2 = ProgressBar2(N, ['Simulate ' num2str(N) ' models with random kcats'], 'gui');
+        parfor j = 1:N
             ecModelIter         = tmpModel;
             ecModelIter.ec.kcat = randomKcats(:,j);
             ecModelIter         = applyKcatConstraints(ecModelIter);
@@ -173,18 +174,20 @@ while rmse > rmseThreshold
         acc_idx = find(rmse <= epsilon);
 
         % Ensure a reasonable number of accepted samples
-        if numel(acc_idx) < minKeep
+        minCount = max(1, floor(minKeep * numel(rmse)));
+        maxCount = max(1, floor(maxKeep * numel(rmse)));
+        if numel(acc_idx) < minCount
             % Relax epsilon slightly until min_keep is reached or capped attempts
             relaxFactor = 1.05; attempts = 0; maxAttempts = 20;
-            while numel(acc_idx) < minKeep && attempts < maxAttempts
+            while numel(acc_idx) < minCount && attempts < maxAttempts
                 epsilon = epsilon * relaxFactor;
                 acc_idx = find(rmse <= epsilon);
                 attempts = attempts + 1;
             end
         end
-        if numel(acc_idx) > maxKeep
+        if numel(acc_idx) > maxCount
             [~,ord] = sort(rmse(acc_idx), 'ascend');
-            acc_idx = acc_idx(ord(1:maxKeep));
+            acc_idx = acc_idx(ord(1:maxCount));
         end
 
         % Subset accepted
@@ -198,7 +201,7 @@ while rmse > rmseThreshold
         kcatStd = transpose(b);
 
         switch sampleMethod
-            case lowRankFunc
+            case 'lowRankFunc'
 
                 % Build low-rank proposal (log-space) & freeze scale (sampling std)
                 thetaAcc = log(kcatTop);                    % [D x Nacc]
@@ -227,7 +230,7 @@ while rmse > rmseThreshold
                     % Freeze: keep baseline multiplicative scale; learn only directions via U, Lambda
                     sigmaProp_log = max(sigma0_log, sigmaFloorFrac * sigma0_log);
                 end
-            case lowRankSnipp
+            case 'lowRankSnipp'
                 thetaAcc = log(kcatTop);
 
                 % Remove outliers, by filtering out samples whose z-scores had a
@@ -284,7 +287,7 @@ while rmse > rmseThreshold
                     % Too few accepted → fallback on LW+chol next generation
                     U_r = []; sqrtLambda_r = []; rEff = 0;
                 end
-            case cholsky
+            case 'cholsky'
                 thetaAcc = log(kcatTop);
 
                 % Remove outliers, by filtering out samples whose z-scores had a
