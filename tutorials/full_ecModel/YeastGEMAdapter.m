@@ -47,7 +47,8 @@ classdef YeastGEMAdapter < ModelAdapter
             obj.params.bayesian.scheduleGenerations = [1, 2, 9, 15]; % Schedule by which generation the sample number and target should be changed
             obj.params.bayesian.scheduleSamples     = [1500, 500, 300, 200]; % Schedule of sample numbers (matching scheduleGenerations)
             obj.params.bayesian.scheduleTarget      = [0.4, 0.2, 0.1, 0.05]; % Schedule of target acceptance fractions (matching scheduleGenerations)
-            obj.params.bayesian.minKeep             = 10; % Minimum number of samples to keep
+            obj.params.bayesian.targetAccept        = 10; % Schedule of target acceptance fractions (matching scheduleGenerations)
+            obj.params.bayesian.minKeep             = 0.3; % Minimum number of samples to keep
             obj.params.bayesian.scheduleSamples     = [500, 400, 300, 200]; % Schedule of sample numbers (matching scheduleGenerations)
             obj.params.bayesian.plateauWindow       = 5;      % generations to inspect for plateau
             obj.params.bayesian.plateauRelax        = 1.05;   % relax epsilon by 5% if plateau detected
