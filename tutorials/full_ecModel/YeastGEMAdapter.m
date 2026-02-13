@@ -54,9 +54,13 @@ classdef YeastGEMAdapter < ModelAdapter
             obj.params.bayesian.keepMinFrac         = 0.10;   % at least 10% of N
             obj.params.bayesian.keepMaxFrac         = 0.35;   % at most 35% of N
             obj.params.bayesian.keepMinAbs          = 80;     % absolute minimim to keep, irrespective of keepMinFrac
-            obj.params.bayesian.rMax                = 200; % Hard cap on PCA rank (20–300 typical)
-            obj.params.bayesian.cExpl               = 1.25; % inflate subspace std for exploration (1.1–1.5)
-            obj.params.bayesian.tauResidual         = 1e-3; % residual (isotropic) variance in log-space (1e-4–1e-2
+            obj.params.bayesian.rMax                = 150; % Hard cap on PCA rank (20–300 typical)
+            obj.params.bayesian.cExpl               = 3; % inflate subspace std for exploration (1.1–1.5)
+            obj.params.bayesian.tauResidual         = 0.1; % residual (isotropic) variance in log-space (1e-4–1e-2
+            obj.params.bayesian.maxKeep             = 0.6; % Maximum fraction of samples to keep
+            obj.params.bayesian.alpha               = 0.7; % Exploit fraction
+            obj.params.bayesian.freezeStage         = 4; % Start freezing scale after this generation
+            obj.params.bayesian.sigmaFloorFrac      = 0.10; % Keep ≥10% of initial multiplicative uncertainty
             obj.params.bayesian.rmseThreshold       = 0.2; % RMSE threshold to halt and output best posterior kcats
             obj.params.bayesian.maxGenerations      = 200; % Maximum number of generations before returning best posterior kcats
         end
