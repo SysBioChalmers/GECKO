@@ -371,7 +371,7 @@ function [U, Lambda, sigmaProp_log] = buildLowRankLogProposal( ...
 %   sigmaProp_log   [D x 1] per-parameter proposal std in log-space. Early on,
 %                   a blend of observed std and baseline; after freeze, baseline.
 %
-[D, Nacc] = size(samples);
+[D, Nacc] = size(thetaAcc);
 
 % Basic checks
 if ~isscalar(rMax) || rMax < 0 || ~isfinite(rMax)
