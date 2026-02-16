@@ -43,13 +43,13 @@ classdef YeastGEMAdapter < ModelAdapter
 
             %% Hyperparameters for Bayesian kcat fitting
             % Define initial kcat distributions (kcat * initSDmultiplDef = SD)
-            obj.params.bayesian.initSDmultiplDef    = 1.5;                  % Default initial SD 
+            obj.params.bayesian.sigma0logDefault = 2;                  % Default initial stdev of the kcat log-normal distribution
             obj.params.bayesian.kcatSources         = {'brenda','dlkcat'};  % List of annotation sources with custom SD multipliers
-            obj.params.bayesian.initSDmultipl       = [0.15; 0.5];          % Multipliers that overwrite initSDmultplDef, matching kcatSources
+            obj.params.bayesian.sigma0logSelect        = [0.5; 1];          % Alterantive initial stdev of the kcat log-normal distribution
 
             % Number of samples per generation
             obj.params.bayesian.scheduleGenerations = [1, 2, 9, 15];         % Schedule by which generation the sample number and target should be changed
-            obj.params.bayesian.scheduleSamples     = [1500, 500, 300, 200]; % Sample counts numbers corresponding to scheduleGenerations
+            obj.params.bayesian.scheduleSamples     = [2, 2, 100, 100]; % Sample counts numbers corresponding to scheduleGenerations
 
             % Which sampled models should be selected
             obj.params.bayesian.targetAccept        = 10;  % RMSE percentile threshold (epsilon) for ABC acceptance
