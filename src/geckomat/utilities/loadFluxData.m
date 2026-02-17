@@ -57,17 +57,20 @@ fluxData            = [];
 %Find additional fields
 extraFieldNames     = {'bayesianRMSEweight','source'};
 extraFieldNumeric   = [true,false];      
-[~, extraFields]    = ismember(extraFieldNames,fluxDataRaw(1,:));
-for i=1:numel(extraFields)
-    if extraFields(1) ~= 0
+[logicalExtra, extraFields]    = ismember(extraFieldNames,fluxDataRaw(1,:));
+extraFields(~logicalExtra) = [];
+extraFieldNames(~logicalExtra) = [];
+extraFieldNumeric(~logicalExtra) = [];
+if any(extraFields)
+    for i=1:numel(extraFields)
         if extraFieldNumeric(i)
             fluxData.(extraFieldNames{i}) = str2double(fluxDataRaw(2:end,extraFields(i)));
         else
             fluxData.(extraFieldNames{i}) = fluxDataRaw(2:end,extraFields(i));
         end
     end
+    fluxDataRaw(:,extraFields) = [];
 end
-fluxDataRaw(:,extraFields) = [];
 
 %Extract observed byProduct names from file
 exchRxns = fluxDataRaw(1,4:end);
