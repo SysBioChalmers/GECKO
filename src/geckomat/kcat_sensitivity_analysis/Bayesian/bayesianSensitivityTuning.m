@@ -56,12 +56,9 @@ maxKeep             = params.bayesian.maxKeep;             % Max fraction of sam
 % Low-rank proposal sampling parameters
 alpha               = params.bayesian.alpha;               % Mixture weight: exploit vs explore proposal
 cExpl               = params.bayesian.cExpl;               % Exploration inflation factor
-freezeStage         = params.bayesian.freezeStage;         % After this gen, proposal magnitudes (stds) stop adapting
 sigmaFloorFrac      = params.bayesian.sigmaFloorFrac;      % Smallest allowed std fraction relative to initial
 adaptFracEarly      = params.bayesian.adaptFracEarly;      % Blend factor for early adaptation of marginal scales
-rMax                = params.bayesian.rMax;                % Maximum PCA rank in low‑rank proposal
 tauResidual         = params.bayesian.tauResidual;         % Residual isotropic noise outside low‑rank space
-resampleThreshold   = params.bayesian.resampleThreshold;   % Resample if ESS < 50% of the population size
 
 rmseThreshold       = params.bayesian.rmseThreshold;       % Stop when RMSE reaches this level
 maxGenerations      = params.bayesian.maxGenerations;      % Hard cap on the number of ABC–SMC generations
@@ -75,7 +72,6 @@ if nargin < 2 || isempty(kcatSigmaLog)
     end
 end
 
-% sigma0log = sigma0logDefault;
 % kcatLambdas = zeros(size(ecModel.ec.kcat));
 % for i = 1:numel(lambdaSources)
 %     selKcats = strcmpi(ecModel.ec.source, kcatSources{i});
@@ -164,8 +160,8 @@ while rmse > rmseThreshold
             newRmse(j)          = abc_max(ecModelIter, fluxData, maxGrate, ...
                                   zeroFlux, modelAdapter);
             % % Regularization: penalty for drifting from prior values
-            % logDev              = (log(randomKcats(:,j)) - log(kcat0)) ./ sigma0
-            % rmsePrior           = sqrt(sum(kcatLambdas .* logDev .^2) / sum(kcatLambdas)
+            % logDev              = (log(randomKcats(:,j)) - log(kcat0)) ./ sigma0log;
+            % rmsePrior           = sqrt(sum(kcatLambdas .* logDev .^2) / sum(kcatLambdas);
             % 
             % newRmse(j)          = newRmse(j) + rmsePrior;
             count(PB2)
@@ -181,35 +177,6 @@ while rmse > rmseThreshold
         kcat = [randomKcats, kcatTop];
 
         %% Acceptance step: ABC–SMC epsilon thresholding
-        % Define epsilon schedule (decreasing sequence)
-        % if generation == 1
-        %     % Use the quantiles of first generation to set realistic schedule
-        %     epsilon_q90 = prctile(rmse, 90);
-        %     epsilon_q50 = prctile(rmse, 50);
-        %     epsilon_q10 = prctile(rmse, 10);
-        % 
-        %     % Three-phase schedule
-        %     phase1 = linspace(epsilon_q90, epsilon_q50, floor(maxGenerations/3));
-        %     phase2 = linspace(epsilon_q50, epsilon_q10, floor(maxGenerations/3));
-        %     phase3 = linspace(epsilon_q10, rmseThreshold, maxGenerations - 2*floor(maxGenerations/3));
-        % 
-        %     epsilonSchedule = [phase1, phase2, phase3];
-        %     fprintf('Epsilon schedule initialized: q90=%.2f → q50=%.2f → q10=%.2f → target=%.2f\n', ...
-        %         epsilon_q90, epsilon_q50, epsilon_q10, rmseThreshold);
-        % 
-        %     epsilon = prctile(rmse, targetAccept);
-        % end
-        % 
-        % % Define epsilon
-        % if generation > 1
-        %     epsilon_scheduled = epsilonSchedule(generation);
-        %     epsilon_adaptive = prctile(rmse, targetAccept);
-        %     epsilon = min(epsilon_scheduled, epsilon_adaptive);
-        % else
-        %     % First generation: use only adaptive
-        %     epsilon = prctile(rmse, targetAccept);
-        % end
-        
         epsilon = prctile(rmse, targetAccept);
 
         % Selected acceptable samples
@@ -235,48 +202,19 @@ while rmse > rmseThreshold
         rmseTop = rmse(acc_idx);
         kcatTop = kcat(:, acc_idx);
 
-        %% Importance weight calculation, ESS (effective sample size)
-        Nacc = numel(rmseTop);
-        if generation == 1
-            % First generation: all weights equal (sampling from prior)
-            weights = ones(1, Nacc) / Nacc;
-            ESS = Nacc;
-        else
-            % Compute importance weights: prior / proposal
-            % For uniform resampling from previous population, weights ∝ 1
-            % But need to account for ABC acceptance
-            [D, Nacc] = size(kcatTop);
-            logKcatTop = log(kcatTop);
-            logKcatPrior = log(kcatPrior);
-
-            
-            weights = computeImportanceWeights(kcatTop, kcatPrior, sigma0log, ...
-                                               generation, epsilon);
-            %TODO: computeImportanceWeights function
-            % Normalize
-            weights = weights / sum(weights);
-            
-            % Effective sample size
-            ESS = 1 / sum(weights.^2);
-        end
-        acceptRate = Nacc / numel(rmse);
-        fprintf('Accepted %d / %d (%.1f%%), ESS: %.1f / %d (%.1f%%)\n', ...
-                Nacc, numel(rmse), 100*acceptRate, ESS, Nacc, 100*ESS/Nacc);
-
-        %% Handle population degeneracy (LOW ESS)
-        if ESS < resampleThreshold * Nacc && generation > 1
-            fprintf('⚠ Degeneracy detected (ESS=%.1f < %.1f). Taking corrective action...\n', ...
-                    ESS, resampleThreshold * Nacc);
-            
-            % Increase exploration for next generation
-            % Make proposals broader to increase diversity
-            cExpl_orig = cExpl;
-            cExpl = min(cExpl * 1.5, 5.0);  % cap at 5x baseline
-            fprintf('  → Increased exploration: cExpl %.2f → %.2f\n', cExpl_orig, cExpl);
-        else
-            % Healthy ESS: gradually reduce exploration if it was increased
-            if cExpl > params.bayesian.cExpl
-                cExpl = max(cExpl * 0.95, params.bayesian.cExpl);
+        %% Diversity check, otherwise increase exploration
+        if generation >1
+            kcatRanges = max(log(kcatTop), [], 2) - min(log(kcatTop), [], 2);
+            lowDiversity = sum(kcatRanges < 0.1 * sigma0log) / numel(kcatRanges);
+            if lowDiversity > 0.5
+                fprintf('⚠ Low diversity detected (%.0f%% of kcats collapsed)\n', 100*lowDiversity);
+                % Increase exploration
+                cExpl = min(cExpl * 1.3, 5.0);
+            else
+                % Healthy diversity: gradually reduce exploration if it was increased
+                if cExpl > params.bayesian.cExpl
+                    cExpl = max(cExpl * 0.95, params.bayesian.cExpl);
+                end
             end
         end
 
@@ -289,8 +227,7 @@ while rmse > rmseThreshold
         %% Learn proposal covariance structure from accepted samples
         % For use in next sampling round
         [U, Lambda, sigmaProp_log] = buildLowRankLogProposal(log(kcatTop), ...
-                                     rMax, generation, freezeStage, ...
-                                     sigma0log, sigmaFloorFrac, adaptFracEarly);
+                                     generation, sigma0log, sigmaFloorFrac, adaptFracEarly);
 
         % Track trace of progress and posterior contraction
         [bestRMSE, bestIdx] = min(rmseTop);
@@ -436,29 +373,23 @@ proposals = max(min(proposals, 1e8), 1e-3);
 end
 
 function [U, Lambda, sigmaProp_log] = buildLowRankLogProposal( ...
-    thetaAcc, rMax, generation, freezeStage, sigma0log, sigmaFloorFrac, ...
-    adaptFracEarly)
+    thetaAcc, generation, sigma0log, sigmaFloorFrac, adaptFracEarly)
 % buildLowRankLogProposal  Low-rank structure + scale for a log-space proposal.
 %
 % This function extracts dominant directions (a low-rank subspace) from the
 % log-space accepted samples and computes a per-parameter sampling scale
-% (std) for a proposal distribution. It supports "early adaptation" (blend
-% of observed variability and baseline) and a "freeze stage" (fix scale).
+% (std) for a proposal distribution. It uses continuous adaptation with
+% decay.
 %
 % The SVD of mean-centered samples estimates principal directions of
 % posterior variability; using only the top directions yields a robust
 % low-rank approximation.
 % 
-% Early in sampling, we adapt cautiously (blend observed std with a
-% baseline). Later, we "freeze" scales to ensure stability.
-%
 % INPUTS
 %   samples         [D x Nacc] matrix of accepted samples.
 %                   If inputIsLog=false, these must be > 0 (we take log).
 %   rMax            Maximum rank used for the low-rank subspace.
 %   generation      Current generation/iteration index (integer).
-%   freezeStage     Adaptation freeze threshold; if generation > freezeStage
-%                   we stop adapting the marginal scales.
 %   sigma0log      [D x 1] baseline (initial) std in log-space per parameter.
 %   sigmaFloorFrac  Scalar >= 0; per-parameter floor as a fraction of sigma0log.
 %   adaptFracEarly  (optional) in [0,1]; weight on observed std during early
@@ -469,8 +400,7 @@ function [U, Lambda, sigmaProp_log] = buildLowRankLogProposal( ...
 %                   of variability in log-space (low-rank basis). Empty if rank=0.
 %   Lambda          [rUse x 1] eigenvalues (variances) along columns of U in log-space.
 %                   Empty if rank=0.
-%   sigmaProp_log   [D x 1] per-parameter proposal std in log-space. Early on,
-%                   a blend of observed std and baseline; after freeze, baseline.
+%   sigmaProp_log   [D x 1] per-parameter proposal std in log-space.
 %
 [D, Nacc] = size(thetaAcc);
 
@@ -478,8 +408,8 @@ function [U, Lambda, sigmaProp_log] = buildLowRankLogProposal( ...
 if ~isscalar(rMax) || rMax < 0 || ~isfinite(rMax)
     error('rMax must be a nonnegative finite scalar.');
 end
-if ~isscalar(generation) || ~isscalar(freezeStage)
-    error('generation and freezeStage must be scalars.');
+if ~isscalar(generation)
+    error('generationmust be scalar.');
 end
 if ~isvector(sigma0log) || numel(sigma0log) ~= D
     error('sigma0log must be a [D x 1] vector matching size(samples,1).');
@@ -494,6 +424,9 @@ end
 
 % Mean-center the accepted samples in log-space
 Xc = thetaAcc - mean(thetaAcc, 2);
+
+% Adapt rMax to 80% of samples or 50, whichever is smaller
+rMax = min(floor(size(thetaAcc,2) * 0.8), 50);
 
 % Low-rank structure via SVD of the (scaled) centered matrix. Keep up to
 % rMax (and available rank) to form a robust low-rank basis
@@ -516,16 +449,10 @@ else
 end
 
 % Marginal proposal scales (per parameter) in log-space
-%   - Early (generation <= freezeStage): blend observed std with baseline
-%   - After freeze: keep baseline scale (with a safety floor)
 stds_obs = std(thetaAcc, 1, 2);  % population std across samples, [D x 1]
-if generation <= freezeStage
-    % Limited adaptation early: convex combination of observed stds and baseline
-    sigmaProp_log = adaptFracEarly .* stds_obs + (1 - adaptFracEarly) .* sigma0log;
-    % Apply per-parameter floor to avoid collapsing steps
-    sigmaProp_log = max(sigmaProp_log, sigmaFloorFrac .* sigma0log);
-else
-    % Freeze magnitude: keep baseline scale; still use learned directions U,Lambda
-    sigmaProp_log = max(sigma0log, sigmaFloorFrac .* sigma0log);
-end
+% Continuous adaptation with decay (more robust):
+decay_factor = exp(-0.05 * generation);  % gradual decay, not hard freeze
+sigmaProp_log = (adaptFracEarly * decay_factor) .* stds_obs + ...
+                (1 - adaptFracEarly * decay_factor) .* sigma0log;
+sigmaProp_log = max(sigmaProp_log, sigmaFloorFrac .* sigma0log);
 end
