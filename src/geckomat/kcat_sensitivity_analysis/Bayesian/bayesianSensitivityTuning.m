@@ -157,11 +157,11 @@ while rmse > rmseThreshold
             ecModelIter         = applyKcatConstraints(ecModelIter);
             newRmse(j)          = abc_max(ecModelIter, fluxData, maxGrate, ...
                                   zeroFlux, modelAdapter);
-            % % Regularization: penalty for drifting from prior values
-            % logDev              = (log(randomKcats(:,j)) - log(kcat0)) ./ sigma0log;
-            % rmsePrior           = sqrt(sum(kcatLambdas .* logDev .^2) / sum(kcatLambdas));
-            % 
-            % newRmse(j)          = newRmse(j) + rmsePrior;
+            % Regularization: penalty for drifting from prior values
+            logDev              = (log(randomKcats(:,j)) - log(kcat0)) ./ sigma0log;
+            rmsePrior           = sqrt(sum(kcatLambdas .* logDev .^2) / sum(kcatLambdas));
+
+            newRmse(j)          = newRmse(j) + rmsePrior;
             count(PB2)
         end
         
