@@ -40,6 +40,9 @@ end
 %% Load hyperparameters
 params = modelAdapter.params;
 % Define initial kcat distributions
+lambdaSources       = params.bayesian.lambdaSources;
+lambdaValues        = params.bayesian.lambdaValues;
+
 sigma0logDefault    = params.bayesian.sigma0logDefault;    % Default initial relative SD for kcat
 kcatSources         = params.bayesian.kcatSources;         % List of annotation sources with custom SD multipliers
 sigma0logSelect     = params.bayesian.sigma0logSelect;     % Per-source SD multipliers
@@ -58,6 +61,7 @@ sigmaFloorFrac      = params.bayesian.sigmaFloorFrac;      % Smallest allowed st
 adaptFracEarly      = params.bayesian.adaptFracEarly;      % Blend factor for early adaptation of marginal scales
 rMax                = params.bayesian.rMax;                % Maximum PCA rank in low‑rank proposal
 tauResidual         = params.bayesian.tauResidual;         % Residual isotropic noise outside low‑rank space
+resampleThreshold   = params.bayesian.resampleThreshold;   % Resample if ESS < 50% of the population size
 
 rmseThreshold       = params.bayesian.rmseThreshold;       % Stop when RMSE reaches this level
 maxGenerations      = params.bayesian.maxGenerations;      % Hard cap on the number of ABC–SMC generations
@@ -70,6 +74,13 @@ if nargin < 2 || isempty(kcatSigmaLog)
         sigma0log(selKcats) = sigma0logSelect(i);
     end
 end
+
+% sigma0log = sigma0logDefault;
+% kcatLambdas = zeros(size(ecModel.ec.kcat));
+% for i = 1:numel(lambdaSources)
+%     selKcats = strcmpi(ecModel.ec.source, kcatSources{i});
+%     kcatLambdas(selKcats) = lambdaValues(i);
+% end
 
 %% Load experimental data and pre-computed indicators
 [fluxData, maxGrate, zeroFlux] = loadBayesianData(modelAdapter);
@@ -85,9 +96,13 @@ end
 %  - Initialize accepted samples with prior values
 %  - Preallocate traces for diagnostics and convergence plots
 kcats = ecModel.ec.kcat;
+kcat0 = kcats;
 
 rmse = abc_max(ecModel, fluxData, maxGrate, zeroFlux, modelAdapter);
 fprintf('RMSE with prior kcats: %.2f.\n', rmse)
+
+% Define exponential decay schedule for epsilon
+epsilonSchedule = rmse * exp(-linspace(0, log(rmse / rmseThreshold), maxGenerations));
 
 rmseTop   = rmse;      % Best RMSE so far (accepted)
 kcatTop   = kcats;     % Accepted kcat samples
@@ -148,6 +163,11 @@ while rmse > rmseThreshold
             ecModelIter         = applyKcatConstraints(ecModelIter);
             newRmse(j)          = abc_max(ecModelIter, fluxData, maxGrate, ...
                                   zeroFlux, modelAdapter);
+            % % Regularization: penalty for drifting from prior values
+            % logDev              = (log(randomKcats(:,j)) - log(kcat0)) ./ sigma0
+            % rmsePrior           = sqrt(sum(kcatLambdas .* logDev .^2) / sum(kcatLambdas)
+            % 
+            % newRmse(j)          = newRmse(j) + rmsePrior;
             count(PB2)
         end
         
@@ -161,14 +181,43 @@ while rmse > rmseThreshold
         kcat = [randomKcats, kcatTop];
 
         %% Acceptance step: ABC–SMC epsilon thresholding
-        %  Adjust epsilon slightly if too few or too many samples are accepted
+        % Define epsilon schedule (decreasing sequence)
+        % if generation == 1
+        %     % Use the quantiles of first generation to set realistic schedule
+        %     epsilon_q90 = prctile(rmse, 90);
+        %     epsilon_q50 = prctile(rmse, 50);
+        %     epsilon_q10 = prctile(rmse, 10);
+        % 
+        %     % Three-phase schedule
+        %     phase1 = linspace(epsilon_q90, epsilon_q50, floor(maxGenerations/3));
+        %     phase2 = linspace(epsilon_q50, epsilon_q10, floor(maxGenerations/3));
+        %     phase3 = linspace(epsilon_q10, rmseThreshold, maxGenerations - 2*floor(maxGenerations/3));
+        % 
+        %     epsilonSchedule = [phase1, phase2, phase3];
+        %     fprintf('Epsilon schedule initialized: q90=%.2f → q50=%.2f → q10=%.2f → target=%.2f\n', ...
+        %         epsilon_q90, epsilon_q50, epsilon_q10, rmseThreshold);
+        % 
+        %     epsilon = prctile(rmse, targetAccept);
+        % end
+        % 
+        % % Define epsilon
+        % if generation > 1
+        %     epsilon_scheduled = epsilonSchedule(generation);
+        %     epsilon_adaptive = prctile(rmse, targetAccept);
+        %     epsilon = min(epsilon_scheduled, epsilon_adaptive);
+        % else
+        %     % First generation: use only adaptive
+        %     epsilon = prctile(rmse, targetAccept);
+        % end
+        
         epsilon = prctile(rmse, targetAccept);
+
+        % Selected acceptable samples
         acc_idx = find(rmse <= epsilon);
 
         % Ensure at least minKeep and at most maxKeep of samples survive
         minCount = max(1, floor(minKeep * numel(rmse)));
         maxCount = max(1, floor(maxKeep * numel(rmse)));
-
         if numel(acc_idx) < minCount
             relaxFactor = 1.05; attempts = 0; maxAttempts = 20;
             while numel(acc_idx) < minCount && attempts < maxAttempts
@@ -177,7 +226,6 @@ while rmse > rmseThreshold
                 attempts = attempts + 1;
             end
         end
-
         if numel(acc_idx) > maxCount
             [~,ord] = sort(rmse(acc_idx), 'ascend');
             acc_idx = acc_idx(ord(1:maxCount));
@@ -187,12 +235,57 @@ while rmse > rmseThreshold
         rmseTop = rmse(acc_idx);
         kcatTop = kcat(:, acc_idx);
 
+        %% Importance weight calculation, ESS (effective sample size)
+        Nacc = numel(rmseTop);
+        if generation == 1
+            % First generation: all weights equal (sampling from prior)
+            weights = ones(1, Nacc) / Nacc;
+            ESS = Nacc;
+        else
+            % Compute importance weights: prior / proposal
+            % For uniform resampling from previous population, weights ∝ 1
+            % But need to account for ABC acceptance
+            [D, Nacc] = size(kcatTop);
+            logKcatTop = log(kcatTop);
+            logKcatPrior = log(kcatPrior);
+
+            
+            weights = computeImportanceWeights(kcatTop, kcatPrior, sigma0log, ...
+                                               generation, epsilon);
+            %TODO: computeImportanceWeights function
+            % Normalize
+            weights = weights / sum(weights);
+            
+            % Effective sample size
+            ESS = 1 / sum(weights.^2);
+        end
+        acceptRate = Nacc / numel(rmse);
+        fprintf('Accepted %d / %d (%.1f%%), ESS: %.1f / %d (%.1f%%)\n', ...
+                Nacc, numel(rmse), 100*acceptRate, ESS, Nacc, 100*ESS/Nacc);
+
+        %% Handle population degeneracy (LOW ESS)
+        if ESS < resampleThreshold * Nacc && generation > 1
+            fprintf('⚠ Degeneracy detected (ESS=%.1f < %.1f). Taking corrective action...\n', ...
+                    ESS, resampleThreshold * Nacc);
+            
+            % Increase exploration for next generation
+            % Make proposals broader to increase diversity
+            cExpl_orig = cExpl;
+            cExpl = min(cExpl * 1.5, 5.0);  % cap at 5x baseline
+            fprintf('  → Increased exploration: cExpl %.2f → %.2f\n', cExpl_orig, cExpl);
+        else
+            % Healthy ESS: gradually reduce exploration if it was increased
+            if cExpl > params.bayesian.cExpl
+                cExpl = max(cExpl * 0.95, params.bayesian.cExpl);
+            end
+        end
+
         %% Update posterior kcat and sigmaLog
         logKcatTop      = log(kcatTop);
         muLog           = mean(logKcatTop, 2);
         kcatSigmaLog    = std(logKcatTop, 1, 2);
-        kcats           = exp(muLog + 0.5 .* (kcatSigmaLog .^2));
-        
+        kcats           = exp(muLog);
+
         %% Learn proposal covariance structure from accepted samples
         % For use in next sampling round
         [U, Lambda, sigmaProp_log] = buildLowRankLogProposal(log(kcatTop), ...
@@ -210,7 +303,7 @@ while rmse > rmseThreshold
         tmpModel = applyKcatConstraints(tmpModel);
 
         fprintf('Accepted %d / %d, avg RMSE (accepted): %.2f, best: %.2f.\n', ...
-                numel(rmseTop), numel(rmse), mean(rmseTop), bestRMSE)
+                numel(rmseTop), numel(rmse), Nacc, bestRMSE)
 
         generation = generation + 1;
         count(PB1)
@@ -336,6 +429,10 @@ if nX > 0, steps(:, ~useExploit) = steps_explore; end
 parents_pos = max(parents, realmin);         % ensure strictly positive
 proposals   = exp(log(parents_pos) + steps); % apply additive step in log-space
 proposals   = max(proposals, realmin);       % clamp against underflow to 0
+
+% Truncate by realistic bounds
+% 1e-2 = restriction endonucleases / 4e7 = catalase
+proposals = max(min(proposals, 1e8), 1e-3);
 end
 
 function [U, Lambda, sigmaProp_log] = buildLowRankLogProposal( ...
