@@ -54,14 +54,16 @@ targetAccept        = params.bayesian.targetAccept;        % RMSE percentile thr
 minKeep             = params.bayesian.minKeep;             % Min fraction of samples kept each generation
 maxKeep             = params.bayesian.maxKeep;             % Max fraction of samples kept each generation
 % Low-rank proposal sampling parameters
-alpha               = params.bayesian.alpha;               % Mixture weight: exploit vs explore proposal
 cExpl               = params.bayesian.cExpl;               % Exploration inflation factor
-sigmaFloorFrac      = params.bayesian.sigmaFloorFrac;      % Smallest allowed std fraction relative to initial
-adaptFracEarly      = params.bayesian.adaptFracEarly;      % Blend factor for early adaptation of marginal scales
-tauResidual         = params.bayesian.tauResidual;         % Residual isotropic noise outside low‑rank space
 
 rmseThreshold       = params.bayesian.rmseThreshold;       % Stop when RMSE reaches this level
 maxGenerations      = params.bayesian.maxGenerations;      % Hard cap on the number of ABC–SMC generations
+
+% Fixed parameters
+alpha           = 0.65;
+tauResidual     = 0.2;
+sigmaFloorFrac  = 0.15;
+adaptFracEarly  = 0.5;
 
 %%  Construct initial kcat variances based on annotation confidence
 if nargin < 2 || isempty(kcatSigmaLog)
@@ -72,11 +74,11 @@ if nargin < 2 || isempty(kcatSigmaLog)
     end
 end
 
-% kcatLambdas = zeros(size(ecModel.ec.kcat));
-% for i = 1:numel(lambdaSources)
-%     selKcats = strcmpi(ecModel.ec.source, kcatSources{i});
-%     kcatLambdas(selKcats) = lambdaValues(i);
-% end
+kcatLambdas = zeros(size(ecModel.ec.kcat));
+for i = 1:numel(lambdaSources)
+    selKcats = strcmpi(ecModel.ec.source, kcatSources{i});
+    kcatLambdas(selKcats) = lambdaValues(i);
+end
 
 %% Load experimental data and pre-computed indicators
 [fluxData, maxGrate, zeroFlux] = loadBayesianData(modelAdapter);
@@ -92,13 +94,9 @@ end
 %  - Initialize accepted samples with prior values
 %  - Preallocate traces for diagnostics and convergence plots
 kcats = ecModel.ec.kcat;
-kcat0 = kcats;
 
 rmse = abc_max(ecModel, fluxData, maxGrate, zeroFlux, modelAdapter);
 fprintf('RMSE with prior kcats: %.2f.\n', rmse)
-
-% Define exponential decay schedule for epsilon
-epsilonSchedule = rmse * exp(-linspace(0, log(rmse / rmseThreshold), maxGenerations));
 
 rmseTop   = rmse;      % Best RMSE so far (accepted)
 kcatTop   = kcats;     % Accepted kcat samples
@@ -161,7 +159,7 @@ while rmse > rmseThreshold
                                   zeroFlux, modelAdapter);
             % % Regularization: penalty for drifting from prior values
             % logDev              = (log(randomKcats(:,j)) - log(kcat0)) ./ sigma0log;
-            % rmsePrior           = sqrt(sum(kcatLambdas .* logDev .^2) / sum(kcatLambdas);
+            % rmsePrior           = sqrt(sum(kcatLambdas .* logDev .^2) / sum(kcatLambdas));
             % 
             % newRmse(j)          = newRmse(j) + rmsePrior;
             count(PB2)
@@ -203,21 +201,32 @@ while rmse > rmseThreshold
         kcatTop = kcat(:, acc_idx);
 
         %% Diversity check, otherwise increase exploration
-        if generation >1
+        if generation > 1
+            % Diagnostics
             kcatRanges = max(log(kcatTop), [], 2) - min(log(kcatTop), [], 2);
             lowDiversity = sum(kcatRanges < 0.1 * sigma0log) / numel(kcatRanges);
-            if lowDiversity > 0.5
-                fprintf('⚠ Low diversity detected (%.0f%% of kcats collapsed)\n', 100*lowDiversity);
-                % Increase exploration
-                cExpl = min(cExpl * 1.3, 5.0);
-            else
-                % Healthy diversity: gradually reduce exploration if it was increased
-                if cExpl > params.bayesian.cExpl
-                    cExpl = max(cExpl * 0.95, params.bayesian.cExpl);
-                end
-            end
-        end
+            acceptRate = numel(acc_idx) / numel(rmse);
 
+            % PRIMARY: Diversity-based adaptation (most important)
+            if lowDiversity > 0.5
+                % CRISIS: Parameters collapsed
+                cExpl = min(cExpl * 1.5, 5.0);  % aggressive increase
+                fprintf('⚠ Low diversity (%.0f%% collapsed) → cExpl=%.2f\n', ...
+                    100*lowDiversity, cExpl);
+
+            elseif lowDiversity < 0.2 && acceptRate < 0.15
+                % Good diversity BUT low acceptance: proposals too aggressive
+                cExpl = max(cExpl * 0.9, 2.0);
+                fprintf('  Good diversity but low acceptance → cExpl=%.2f\n', cExpl);
+
+            elseif lowDiversity < 0.1 && acceptRate > 0.4
+                % Excellent diversity AND high acceptance: can exploit more
+                cExpl = max(cExpl * 0.95, 2.5);
+                fprintf('  Excellent diversity, reducing exploration → cExpl=%.2f\n', cExpl);
+            end
+            % Otherwise: no adjustment (diversity OK, acceptance OK)
+        end
+        
         %% Update posterior kcat and sigmaLog
         logKcatTop      = log(kcatTop);
         muLog           = mean(logKcatTop, 2);
@@ -239,8 +248,8 @@ while rmse > rmseThreshold
         tmpModel.ec.kcat = kcatTop(:, bestIdx);
         tmpModel = applyKcatConstraints(tmpModel);
 
-        fprintf('Accepted %d / %d, avg RMSE (accepted): %.2f, best: %.2f.\n', ...
-                numel(rmseTop), numel(rmse), Nacc, bestRMSE)
+        fprintf('Accepted %d / %d, mean RMSE (accepted): %.2f, best: %.2f.\n', ...
+                numel(rmseTop), numel(rmse), mean(rmseTop), bestRMSE)
 
         generation = generation + 1;
         count(PB1)
@@ -386,9 +395,8 @@ function [U, Lambda, sigmaProp_log] = buildLowRankLogProposal( ...
 % low-rank approximation.
 % 
 % INPUTS
-%   samples         [D x Nacc] matrix of accepted samples.
+%   thetaAcc         [D x Nacc] matrix of accepted samples.
 %                   If inputIsLog=false, these must be > 0 (we take log).
-%   rMax            Maximum rank used for the low-rank subspace.
 %   generation      Current generation/iteration index (integer).
 %   sigma0log      [D x 1] baseline (initial) std in log-space per parameter.
 %   sigmaFloorFrac  Scalar >= 0; per-parameter floor as a fraction of sigma0log.
@@ -403,24 +411,6 @@ function [U, Lambda, sigmaProp_log] = buildLowRankLogProposal( ...
 %   sigmaProp_log   [D x 1] per-parameter proposal std in log-space.
 %
 [D, Nacc] = size(thetaAcc);
-
-% Basic checks
-if ~isscalar(rMax) || rMax < 0 || ~isfinite(rMax)
-    error('rMax must be a nonnegative finite scalar.');
-end
-if ~isscalar(generation)
-    error('generationmust be scalar.');
-end
-if ~isvector(sigma0log) || numel(sigma0log) ~= D
-    error('sigma0log must be a [D x 1] vector matching size(samples,1).');
-end
-sigma0log = sigma0log(:); % ensure column
-if ~isscalar(sigmaFloorFrac) || sigmaFloorFrac < 0
-    error('sigmaFloorFrac must be a nonnegative scalar.');
-end
-if adaptFracEarly < 0 || adaptFracEarly > 1
-    error('adaptFracEarly must be in [0, 1].');
-end
 
 % Mean-center the accepted samples in log-space
 Xc = thetaAcc - mean(thetaAcc, 2);
@@ -450,9 +440,8 @@ end
 
 % Marginal proposal scales (per parameter) in log-space
 stds_obs = std(thetaAcc, 1, 2);  % population std across samples, [D x 1]
-% Continuous adaptation with decay (more robust):
-decay_factor = exp(-0.05 * generation);  % gradual decay, not hard freeze
-sigmaProp_log = (adaptFracEarly * decay_factor) .* stds_obs + ...
-                (1 - adaptFracEarly * decay_factor) .* sigma0log;
+% Continuous adaptation with decay
+decay_factor = adaptFracEarly*exp(-0.05 * generation);  % gradual decay
+sigmaProp_log = decay_factor .* stds_obs + (1 - decay_factor) .* sigma0log;
 sigmaProp_log = max(sigmaProp_log, sigmaFloorFrac .* sigma0log);
 end

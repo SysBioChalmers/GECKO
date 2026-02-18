@@ -43,9 +43,9 @@ classdef YeastGEMAdapter < ModelAdapter
 
             %% Hyperparameters for Bayesian kcat fitting
             % Define initial kcat distributions (kcat * initSDmultiplDef = SD)
-            obj.params.bayesian.sigma0logDefault    = 2;                    % Default initial stdev of the kcat log-normal distribution
+            obj.params.bayesian.sigma0logDefault    = 0.5;                    % Default initial stdev of the kcat log-normal distribution
             obj.params.bayesian.kcatSources         = {'brenda','dlkcat'};  % List of annotation sources with custom SD multipliers
-            obj.params.bayesian.sigma0logSelect     = [0.5; 1];             % Alterantive initial stdev of the kcat log-normal distribution
+            obj.params.bayesian.sigma0logSelect     = [0.2; 0.4];             % Alterantive initial stdev of the kcat log-normal distribution
             obj.params.bayesian.lambdaSources       = {'brenda','dlkcat'};  % List of annotation sources with custom lambda
             obj.params.bayesian.lambdaValues        =  [log(2),log(4)];     % Penalty for deviating from prior kcat value
             
@@ -59,14 +59,7 @@ classdef YeastGEMAdapter < ModelAdapter
             obj.params.bayesian.maxKeep             = 0.6; % Max fraction of samples kept each generation
 
             % Low-rank proposal sampling parameters
-            obj.params.bayesian.alpha               = 0.7; % Mixture weight: exploit vs explore proposal
             obj.params.bayesian.cExpl               = 3;   % Exploration inflation factor
-            obj.params.bayesian.freezeStage         = 4;   % After this gen, proposal magnitudes (stds) stop adapting
-            obj.params.bayesian.sigmaFloorFrac      = 0.1; % Smallest allowed std fraction relative to initial
-            obj.params.bayesian.adaptFracEarly      = 0.5; % Blend factor for early adaptation of marginal scales
-            obj.params.bayesian.rMax                = 150; % Maximum PCA rank in low‑rank proposal
-            obj.params.bayesian.tauResidual         = 0.1; % Residual isotropic noise outside low‑rank space
-            obj.params.bayesian.resampleThreshold   = 0.5; % Resample if ESS < 50% of population size
             % Halting criteria
             obj.params.bayesian.rmseThreshold       = 0.2; % Stop when RMSE reaches this level% RMSE threshold to halt and output best posterior kcats
             obj.params.bayesian.maxGenerations      = 50;  % Hard cap on the number of ABC–SMC generations% Maximum number of generations before returning best posterior kcats
