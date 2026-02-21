@@ -69,7 +69,10 @@ classdef YeastGEMAdapter < ModelAdapter
             % Taken from yeast-GEM 9.0.2
             ecModel = anaerobicModel_GECKO(ecModel);
         end
-	
+	    function ecModel = changeProteinBiomass(obj,ecModel,Ptot)
+            % Taken from yeast-GEM 9.0.2
+            ecModel = scaleBioMass_GECKO(ecModel,'protein',Ptot,'carbohydrate',false);
+        end
 		function [spont,spontRxnNames] = getSpontaneousReactions(obj,model)
 			spont = contains(model.rxnNames,'spontaneous');
 			spontRxnNames = model.rxnNames(spont);
