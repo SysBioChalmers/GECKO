@@ -81,7 +81,7 @@ for i = 1:numel(lambdaSources)
 end
 
 %% Load experimental data and pre-computed indicators
-[fluxData, maxGrate, zeroFlux] = loadBayesianData(modelAdapter);
+bayData = loadBayesianData(modelAdapter);
 
 % Add carbon counts for exchange reactions if missing (used for RMSE weighting)
 if ~isfield(ecModel,'excarbon')
@@ -95,7 +95,7 @@ end
 %  - Preallocate traces for diagnostics and convergence plots
 kcats = ecModel.ec.kcat;
 
-rmse = abc_max(ecModel, fluxData, maxGrate, zeroFlux, modelAdapter);
+rmse = abc_max(ecModel, bayData, modelAdapter);
 fprintf('RMSE with prior kcats: %.2f.\n', rmse)
 
 rmseTop   = rmse;      % Best RMSE so far (accepted)
@@ -155,8 +155,7 @@ while rmse > rmseThreshold
             ecModelIter         = tmpModel;
             ecModelIter.ec.kcat = randomKcats(:,j);
             ecModelIter         = applyKcatConstraints(ecModelIter);
-            newRmse(j)          = abc_max(ecModelIter, fluxData, maxGrate, ...
-                                  zeroFlux, modelAdapter);
+            newRmse(j)          = abc_max(ecModelIter, bayData, modelAdapter);
             % Regularization: penalty for drifting from prior values
             logDev              = (log(randomKcats(:,j)) - log(kcat0)) ./ sigma0log;
             rmsePrior           = sqrt(sum(kcatLambdas .* logDev .^2) / sum(kcatLambdas));

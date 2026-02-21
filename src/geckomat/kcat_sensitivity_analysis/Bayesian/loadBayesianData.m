@@ -1,4 +1,4 @@
-function [fluxData, maxGrate, zeroFlux] = loadBayesianData(modelAdapter)
+function bayData = loadBayesianData(modelAdapter)
 
 if nargin < 1 || isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefault();
@@ -8,9 +8,9 @@ if nargin < 1 || isempty(modelAdapter)
 end
 
 basePath            = modelAdapter.params.path;
-fluxData = loadFluxData(fullfile(basePath,'data','bayesianFluxData.tsv'));
-fluxData.biomass = modelAdapter.params.bioRxn;
-maxGrate = loadFluxData(fullfile(basePath,'data','bayesianMaxGrowth.tsv'));
-maxGrate.biomass = modelAdapter.params.bioRxn;
-zeroFlux = table2cell(readtable(fullfile(basePath,'data','bayesianZeroExch.tsv'), 'Delimiter', '\t', 'FileType','delimitedtext'));
+bayData.fluxData = loadFluxData(fullfile(basePath,'data','bayesianFluxData.tsv'));
+bayData.fluxData.biomass = modelAdapter.params.bioRxn;
+bayData.maxGrate = loadFluxData(fullfile(basePath,'data','bayesianMaxGrowth.tsv'));
+bayData.maxGrate.biomass = modelAdapter.params.bioRxn;
+bayData.zeroFlux = table2cell(readtable(fullfile(basePath,'data','bayesianZeroExch.tsv'), 'Delimiter', '\t', 'FileType','delimitedtext'));
 end
