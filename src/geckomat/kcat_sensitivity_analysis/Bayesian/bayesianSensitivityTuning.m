@@ -249,10 +249,12 @@ while rmse > rmseThreshold
 end
 
 %% Return best posterior parameters from the last accepted population
-[~, bestIdx] = min(rmseTop);
+[~, bestIdx]    = min(rmseTop);
 ecModel.ec.kcat = kcatTop(:, bestIdx);
-ecModel = applyKcatConstraints(ecModel);
-fprintf('Final RMSE: %.2f.\n', rmseTop(bestIdx))
+ecModel         = applyKcatConstraints(ecModel);
+logDev          = (log(ecModel.ec.kcat) - log(kcat0)) ./ sigma0log;
+rmsePrior       = sqrt(sum(kcatLambdas .* logDev.^2) / sum(kcatLambdas));
+fprintf('Final RMSE: %.2f, of which regularization contributes: %.2f.\n', rmseTop(bestIdx), rmsePrior)
 end
 
 %% Helpers

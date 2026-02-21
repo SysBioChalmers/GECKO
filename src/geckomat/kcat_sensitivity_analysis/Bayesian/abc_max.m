@@ -31,12 +31,12 @@ if ~isfield(ecModel,'excarbon')
 end
 
 %% First test with flux data
-if ~isempty(data.fluxData)
+if ~isempty(bayData.fluxData)
     [rmse_1, rmseList1] = rmsecal(ecModel,bayData.fluxData,true,bayData.zeroFlux,modelAdapter);
     rmseList1 = [cellstr("fluxData_" + string(1:numel(rmseList1)))',num2cell(rmseList1)];
 end
 %% Second test with maximum growth on various carbon sources
-if ~isempty(data.maxGrate)  % simulate the maximal growth rate
+if ~isempty(bayData.maxGrate)  % simulate the maximal growth rate
     [rmse_2, rmseList2] = rmsecal(ecModel,bayData.maxGrate,false,bayData.zeroFlux,modelAdapter);
     rmseList2 = [cellstr("maxGrowth_" + string(1:numel(rmseList2)))',num2cell(rmseList2)];
 end
