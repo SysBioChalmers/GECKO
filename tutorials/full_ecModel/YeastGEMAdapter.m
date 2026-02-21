@@ -47,7 +47,7 @@ classdef YeastGEMAdapter < ModelAdapter
             obj.params.bayesian.kcatSources         = {'brenda','dlkcat'};  % List of annotation sources with custom SD multipliers
             obj.params.bayesian.sigma0logSelect     = [0.2; 0.4];             % Alterantive initial stdev of the kcat log-normal distribution
             obj.params.bayesian.lambdaSources       = {'brenda','dlkcat'};  % List of annotation sources with custom lambda
-            obj.params.bayesian.lambdaValues        =  [log(2),log(4)];     % Penalty for deviating from prior kcat value
+            obj.params.bayesian.lambdaValues        = [0.15,0.05];     % Penalty for deviating from prior kcat value
             
             % Number of samples per generation
             obj.params.bayesian.scheduleGenerations = [1, 2, 9, 15];        % Schedule by which generation the sample number and target should be changed
