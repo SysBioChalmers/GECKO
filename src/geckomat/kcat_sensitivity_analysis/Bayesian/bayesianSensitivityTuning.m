@@ -53,8 +53,6 @@ scheduleSamples     = params.bayesian.scheduleSamples;     % Sample counts corre
 targetAccept        = params.bayesian.targetAccept;        % RMSE percentile threshold (epsilon) for ABC acceptance
 minKeep             = params.bayesian.minKeep;             % Min fraction of samples kept each generation
 maxKeep             = params.bayesian.maxKeep;             % Max fraction of samples kept each generation
-% Low-rank proposal sampling parameters
-cExpl               = params.bayesian.cExpl;               % Exploration inflation factor
 
 rmseThreshold       = params.bayesian.rmseThreshold;       % Stop when RMSE reaches this level
 maxGenerations      = params.bayesian.maxGenerations;      % Hard cap on the number of ABC–SMC generations
@@ -64,6 +62,7 @@ alpha           = 0.65;
 tauResidual     = 0.2;
 sigmaFloorFrac  = 0.15;
 adaptFracEarly  = 0.5;
+cExpl           = 3;
 
 %%  Construct initial kcat variances based on annotation confidence
 if nargin < 2 || isempty(kcatSigmaLog)
@@ -93,7 +92,7 @@ end
 %  - Compute RMSE of prior parameters (baseline)
 %  - Initialize accepted samples with prior values
 %  - Preallocate traces for diagnostics and convergence plots
-kcats = ecModel.ec.kcat;
+kcats = ecModel.ec.kcat; kcat0 = kcats;
 
 rmse = abc_max(ecModel, bayData, modelAdapter);
 fprintf('RMSE with prior kcats: %.2f.\n', rmse)
@@ -110,7 +109,7 @@ PB1 = ProgressBar2(maxGenerations, ['Run through ' num2str(maxGenerations) ' gen
 tmpModel = setParam(ecModel,'lb',modelAdapter.params.c_source,0);
 
 %% Proposal initialization (log-space)
-Lambda = []; U = [];        % No low-rank information for generation 1
+eigVals = []; U = [];        % No low-rank information for generation 1
 
 %% ABC–SMC LOOP
 %  Each generation narrows the discrepancy threshold (epsilon), focusing the
@@ -139,7 +138,7 @@ while rmse > rmseThreshold
             parent_idx  = randi(size(kcatTop, 2), 1, N);
             parents     = kcatTop(:, parent_idx);
 
-            randomKcats = proposeLowRankMixture(parents, U, Lambda, ...
+            randomKcats = proposeLowRankMixture(parents, U, eigVals, ...
                           sigmaProp_log, sigma0log, tauResidual, alpha, cExpl);
         end
 
@@ -152,6 +151,8 @@ while rmse > rmseThreshold
         %% Evaluate RMSE for each proposal (forward simulations)
         PB2 = ProgressBar2(N, ['Simulate ' num2str(N) ' models with random kcats'], 'gui');
         parfor j = 1:N
+            %Uncomment for Vera, remove before release
+            %addpath('/apps/Arch/software/Gurobi/11.0.2-GCCcore-12.3.0/matlab/')
             ecModelIter         = tmpModel;
             ecModelIter.ec.kcat = randomKcats(:,j);
             ecModelIter         = applyKcatConstraints(ecModelIter);
@@ -201,29 +202,18 @@ while rmse > rmseThreshold
 
         %% Diversity check, otherwise increase exploration
         if generation > 1
-            % Diagnostics
             kcatRanges = max(log(kcatTop), [], 2) - min(log(kcatTop), [], 2);
             lowDiversity = sum(kcatRanges < 0.1 * sigma0log) / numel(kcatRanges);
-            acceptRate = numel(acc_idx) / numel(rmse);
-
-            % PRIMARY: Diversity-based adaptation (most important)
             if lowDiversity > 0.5
-                % CRISIS: Parameters collapsed
-                cExpl = min(cExpl * 1.5, 5.0);  % aggressive increase
+                % Parameters collapsed, increase exploration
+                cExpl = min(cExpl * 1.4, 5.0);
                 fprintf('⚠ Low diversity (%.0f%% collapsed) → cExpl=%.2f\n', ...
                     100*lowDiversity, cExpl);
-
-            elseif lowDiversity < 0.2 && acceptRate < 0.15
-                % Good diversity BUT low acceptance: proposals too aggressive
-                cExpl = max(cExpl * 0.9, 2.0);
-                fprintf('  Good diversity but low acceptance → cExpl=%.2f\n', cExpl);
-
-            elseif lowDiversity < 0.1 && acceptRate > 0.4
-                % Excellent diversity AND high acceptance: can exploit more
+            elseif lowDiversity < 0.1
+                % Excellent diversity, gradually reduce exploration
                 cExpl = max(cExpl * 0.95, 2.5);
                 fprintf('  Excellent diversity, reducing exploration → cExpl=%.2f\n', cExpl);
             end
-            % Otherwise: no adjustment (diversity OK, acceptance OK)
         end
         
         %% Update posterior kcat and sigmaLog
@@ -234,7 +224,7 @@ while rmse > rmseThreshold
 
         %% Learn proposal covariance structure from accepted samples
         % For use in next sampling round
-        [U, Lambda, sigmaProp_log] = buildLowRankLogProposal(log(kcatTop), ...
+        [U, eigVals, sigmaProp_log] = buildLowRankLogProposal(log(kcatTop), ...
                                      generation, sigma0log, sigmaFloorFrac, adaptFracEarly);
 
         % Track trace of progress and posterior contraction
@@ -266,12 +256,12 @@ fprintf('Final RMSE: %.2f.\n', rmseTop(bestIdx))
 end
 
 %% Helpers
-function proposals = proposeLowRankMixture(parents, U, Lambda, sigmaProp_log, sigma0log, tau, alpha, cExpl)
+function proposals = proposeLowRankMixture(parents, U, eigVals, sigmaProp_log, sigma0log, tau, alpha, cExpl)
 % proposeLowRankMixture
 %   Draw proposals in log-space using a *mixture* of two kernels:
 %
 %   1) Exploit (probability alpha):
-%      - Uses a learned *low-rank* structure (U, Lambda) that captures the
+%      - Uses a learned *low-rank* structure (U, eigVals) that captures the
 %        dominant posterior directions (from PCA/SVD in log-space).
 %      - Adds an isotropic residual component scaled by sqrt(tau) to avoid
 %        moving only along the low-rank subspace.
@@ -289,7 +279,7 @@ function proposals = proposeLowRankMixture(parents, U, Lambda, sigmaProp_log, si
 %   parents        [D x Nprop] current points to branch from; strictly positive
 %                   parameters (we transform via log for proposals).
 %   U              [D x r] orthonormal columns (low-rank basis) learned in log-space.
-%   Lambda         [r x 1] variances along columns of U in log-space.
+%   eigVals         [r x 1] variances along columns of U in log-space.
 %   sigmaProp_log  [D x 1] per-parameter proposal stds in log-space for the
 %                   exploit kernel (often adapted early, then frozen).
 %   sigma0log     [D x 1] baseline per-parameter stds in log-space for explore kernel.
@@ -304,7 +294,7 @@ function proposals = proposeLowRankMixture(parents, U, Lambda, sigmaProp_log, si
 %
 % RATIONALE (Bayesian/MCMC intuition)
 %   - The exploit kernel proposes along the principal directions of posterior
-%     variability (U, Lambda), encouraging efficient moves with good acceptance.
+%     variability (U, eigVals), encouraging efficient moves with good acceptance.
 %   - The explore kernel ensures global mixing: occasional broader, unstructured
 %     jumps reduce the risk of getting stuck (multi-modality, narrow valleys).
 %   - Mixing the two (with alpha) balances local efficiency and global robustness.
@@ -319,11 +309,11 @@ r = size(U, 2);               % r: low-rank dimensionality (can be zero)
 useExploit = rand(1, Nprop) < alpha;
 
 % ============================= EXPLOIT KERNEL ============================
-% Form:  step_log = diag(sigmaProp_log) * ( sqrt(tau)*E  +  U*diag(sqrt(Lambda))*Z )
+% Form:  step_log = diag(sigmaProp_log) * ( sqrt(tau)*E  +  U*diag(sqrt(eigVals))*Z )
 % where E ~ N(0, I_D), Z ~ N(0, I_r), independent.
 %
 % Interpretation:
-%   - U*diag(sqrt(Lambda))*Z: structured move in principal directions (low-rank).
+%   - U*diag(sqrt(eigVals))*Z: structured move in principal directions (low-rank).
 %   - sqrt(tau)*E: residual white noise (prevents sticking strictly to U's subspace).
 %   - diag(sigmaProp_log): per-parameter scaling in log-space (adapted/frozen magnitude).
 
@@ -335,8 +325,8 @@ if nE > 0
 
     % Structured + residual direction (before per-parameter scaling)
     if r > 0
-        % U * (sqrt(Lambda) .* Zr): project random vector in low-rank basis
-        y_exploit = bsxfun(@times, sqrt(tau), Er) + U * (bsxfun(@times, sqrt(Lambda), Zr));
+        % U * (sqrt(eigVals) .* Zr): project random vector in low-rank basis
+        y_exploit = bsxfun(@times, sqrt(tau), Er) + U * (bsxfun(@times, sqrt(eigVals), Zr));
     else
         % If no learned directions yet, rely only on residual term
         y_exploit = bsxfun(@times, sqrt(tau), Er);
@@ -380,7 +370,7 @@ proposals   = max(proposals, realmin);       % clamp against underflow to 0
 proposals = max(min(proposals, 1e8), 1e-3);
 end
 
-function [U, Lambda, sigmaProp_log] = buildLowRankLogProposal( ...
+function [U, eigVals, sigmaProp_log] = buildLowRankLogProposal( ...
     thetaAcc, generation, sigma0log, sigmaFloorFrac, adaptFracEarly)
 % buildLowRankLogProposal  Low-rank structure + scale for a log-space proposal.
 %
@@ -405,7 +395,7 @@ function [U, Lambda, sigmaProp_log] = buildLowRankLogProposal( ...
 % OUTPUTS
 %   U               [D x rUse] orthonormal columns spanning dominant directions
 %                   of variability in log-space (low-rank basis). Empty if rank=0.
-%   Lambda          [rUse x 1] eigenvalues (variances) along columns of U in log-space.
+%   eigVals          [rUse x 1] eigenvalues (variances) along columns of U in log-space.
 %                   Empty if rank=0.
 %   sigmaProp_log   [D x 1] per-parameter proposal std in log-space.
 %
@@ -426,15 +416,15 @@ if Nacc >= 2
     rUse   = min([rAvail, rMax, max(Nacc - 1, 1)]);
     if rUse >= 1
         U      = Ufull(:, 1:rUse);                  % dominant directions
-        Lambda = (diag(S(1:rUse, 1:rUse))).^2;      % variances along U (log-space)
+        eigVals = (diag(S(1:rUse, 1:rUse))).^2;      % variances along U (log-space)
     else
         U = zeros(D, 0);
-        Lambda = zeros(0, 1);
+        eigVals = zeros(0, 1);
     end
 else
     % Not enough samples to learn directions
     U = zeros(D, 0);
-    Lambda = zeros(0, 1);
+    eigVals = zeros(0, 1);
 end
 
 % Marginal proposal scales (per parameter) in log-space

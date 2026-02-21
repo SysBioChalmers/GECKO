@@ -58,8 +58,6 @@ classdef YeastGEMAdapter < ModelAdapter
             obj.params.bayesian.minKeep             = 0.3; % Min fraction of samples kept each generation
             obj.params.bayesian.maxKeep             = 0.6; % Max fraction of samples kept each generation
 
-            % Low-rank proposal sampling parameters
-            obj.params.bayesian.cExpl               = 3;   % Exploration inflation factor
             % Halting criteria
             obj.params.bayesian.rmseThreshold       = 0.2; % Stop when RMSE reaches this level% RMSE threshold to halt and output best posterior kcats
             obj.params.bayesian.maxGenerations      = 50;  % Hard cap on the number of ABC–SMC generations% Maximum number of generations before returning best posterior kcats
