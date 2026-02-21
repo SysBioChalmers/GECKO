@@ -17,7 +17,7 @@ function [rmse,rmseList] = abc_max(ecModel,bayData,modelAdapter)
 % Output:
 %   rmse          The average RMSE
 
-if nargin < 5 || isempty(modelAdapter)
+if nargin < 3 || isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefault();
     if isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default ecModel adapter in the ModelAdapterManager.')
@@ -31,12 +31,12 @@ if ~isfield(ecModel,'excarbon')
 end
 
 %% First test with flux data
-if ~isempty(fluxData)
+if ~isempty(data.fluxData)
     [rmse_1, rmseList1] = rmsecal(ecModel,bayData.fluxData,true,bayData.zeroFlux,modelAdapter);
     rmseList1 = [cellstr("fluxData_" + string(1:numel(rmseList1)))',num2cell(rmseList1)];
 end
 %% Second test with maximum growth on various carbon sources
-if ~isempty(maxGrate)  % simulate the maximal growth rate
+if ~isempty(data.maxGrate)  % simulate the maximal growth rate
     [rmse_2, rmseList2] = rmsecal(ecModel,bayData.maxGrate,false,bayData.zeroFlux,modelAdapter);
     rmseList2 = [cellstr("maxGrowth_" + string(1:numel(rmseList2)))',num2cell(rmseList2)];
 end
@@ -78,8 +78,8 @@ for i = 1:length(data.conds)
         model_tmp = modelAdapter.makeModelAnaerobic(model_tmp);
     end
     % Change protein content if relevant
-    if ~(isnan(Ptot(i)) || Ptot(i) == 0)
-        model_tmp = modelAdapter.changeProteinBiomass(model_tmp,Ptot(i));
+    if ~(isnan(data.Ptot(i)) || data.Ptot(i) == 0)
+        model_tmp = modelAdapter.changeProteinBiomass(model_tmp,data.Ptot(i));
     end
 
     sol = solveLP(model_tmp);

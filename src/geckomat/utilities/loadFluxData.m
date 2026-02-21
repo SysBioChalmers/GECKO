@@ -38,10 +38,16 @@ if nargin < 1 || isempty(fluxDataFile)
 end
 
 %Load total protein content and flux data
-fID       = fopen(fluxDataFile);
-formatStr = '%s';
-data      = textscan(fID,formatStr,'Delimiter','\n');
-fclose(fID);
+try
+    fID       = fopen(fluxDataFile);
+    formatStr = '%s';
+    data      = textscan(fID,formatStr,'Delimiter','\n');
+    fclose(fID);
+catch
+    warning('Failed to load %s.',fluxDataFile);
+    fluxData = [];
+    return
+end
 fluxDataRaw  = [];
 for i=1:length(data{1})
     row      = data{1}(i);
