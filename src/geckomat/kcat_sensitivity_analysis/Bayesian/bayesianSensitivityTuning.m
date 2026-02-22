@@ -40,6 +40,8 @@ end
 %% Load hyperparameters
 params = modelAdapter.params;
 % Define initial kcat distributions
+lambdaSources       = params.bayesian.lambdaSources;
+lambdaValues        = params.bayesian.lambdaValues;
 sigma0logDefault    = params.bayesian.sigma0logDefault;    % Default initial relative SD for kcat
 kcatSources         = params.bayesian.kcatSources;         % List of annotation sources with custom SD multipliers
 sigma0logSelect     = params.bayesian.sigma0logSelect;     % Per-source SD multipliers
@@ -72,6 +74,11 @@ if nargin < 2 || isempty(kcatSigmaLog)
     end
 end
 
+kcatLambdas = zeros(size(ecModel.ec.kcat));
+for i = 1:numel(lambdaSources)
+    selKcats = strcmpi(ecModel.ec.source, kcatSources{i});
+    kcatLambdas(selKcats) = lambdaValues(i);
+end
 %% Load experimental data and pre-computed indicators
 bayData = loadBayesianData(modelAdapter);
 
@@ -150,6 +157,11 @@ while rmse > rmseThreshold
             ecModelIter.ec.kcat = randomKcats(:,j);
             ecModelIter         = applyKcatConstraints(ecModelIter);
             newRmse(j)          = abc_max(ecModelIter, bayData, modelAdapter);
+            % Regularization: penalty for drifting from prior values
+            logDev              = (log(randomKcats(:,j)) - log(kcat0)) ./ sigma0log;
+            rmsePrior           = sqrt(sum(kcatLambdas .* logDev .^2) / sum(kcatLambdas));
+
+            newRmse(j)          = newRmse(j) + rmsePrior;
             count(PB2)
         end
         
@@ -224,9 +236,11 @@ while rmse > rmseThreshold
         % Use best accepted sample as center point for next generation
         tmpModel.ec.kcat = kcatTop(:, bestIdx);
         tmpModel = applyKcatConstraints(tmpModel);
+        logDev              = (log(tmpModel.ec.kcat) - log(kcat0)) ./ sigma0log;
+        rmsePrior           = sqrt(sum(kcatLambdas .* logDev .^2) / sum(kcatLambdas));
 
-        fprintf('Accepted %d / %d, mean RMSE (accepted): %.2f, best: %.2f.\n', ...
-                numel(rmseTop), numel(rmse), mean(rmseTop), bestRMSE)
+        fprintf('Accepted %d / %d, mean RMSE (accepted): %.2f, best: %.2f, regul. contrib: %.2f..\n', ...
+                numel(rmseTop), numel(rmse), mean(rmseTop), bestRMSE,rmsePrior)
 
         generation = generation + 1;
         count(PB1)
@@ -240,7 +254,7 @@ end
 [~, bestIdx]    = min(rmseTop);
 ecModel.ec.kcat = kcatTop(:, bestIdx);
 ecModel         = applyKcatConstraints(ecModel);
-fprintf('Final RMSE: %.2f.\n', rmseTop(bestIdx))
+fprintf('Final RMSE: %.2f, of which regularization contributes: %.2f.\n', rmseTop(bestIdx), rmsePrior)
 end
 
 %% Helpers
@@ -423,17 +437,13 @@ end
 %   - Early (generation <= freezeStage): blend observed std with baseline
 %   - After freeze: keep baseline scale (with a safety floor)
 stds_obs = std(thetaAcc, 1, 2);  % population std across samples, [D x 1]
-% if generation <= freezeStage
-%     % Limited adaptation early: convex combination of observed stds and baseline
-%     sigmaProp_log = adaptFracEarly .* stds_obs + (1 - adaptFracEarly) .* sigma0log;
-%     % Apply per-parameter floor to avoid collapsing steps
-%     sigmaProp_log = max(sigmaProp_log, sigmaFloorFrac .* sigma0log);
-% else
-%     % Freeze magnitude: keep baseline scale; still use learned directions U,Lambda
-%     sigmaProp_log = max(sigma0log, sigmaFloorFrac .* sigma0log);
-% end
-decay_factor = exp(-0.05 * generation);  % gradual decay, not hard freeze
-sigmaProp_log = (adaptFracEarly * decay_factor) .* stds_obs + ...
-                (1 - adaptFracEarly * decay_factor) .* sigma0log;
-sigmaProp_log = max(sigmaProp_log, sigmaFloorFrac .* sigma0log);
+if generation <= freezeStage
+    % Limited adaptation early: convex combination of observed stds and baseline
+    sigmaProp_log = adaptFracEarly .* stds_obs + (1 - adaptFracEarly) .* sigma0log;
+    % Apply per-parameter floor to avoid collapsing steps
+    sigmaProp_log = max(sigmaProp_log, sigmaFloorFrac .* sigma0log);
+else
+    % Freeze magnitude: keep baseline scale; still use learned directions U,Lambda
+    sigmaProp_log = max(sigma0log, sigmaFloorFrac .* sigma0log);
+end
 end

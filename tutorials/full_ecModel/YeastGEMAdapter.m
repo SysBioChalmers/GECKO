@@ -48,6 +48,10 @@ classdef YeastGEMAdapter < ModelAdapter
             % specific kcat sources
             obj.params.bayesian.kcatSources         = {'brenda','dlkcat','custom'}; 
             obj.params.bayesian.sigma0logSelect     = [0.2; 0.4; 0.5];
+            % If penalties should be calculated for deviation from specific
+            % kcat sources. Others are not penalized.
+            obj.params.bayesian.lambdaSources       = {'brenda','dlkcat','custom'};
+            obj.params.bayesian.lambdaValues        = [0.03,0.01,0.05];
             
             % Number of samples per generation
             obj.params.bayesian.scheduleGenerations = [1, 2, 9, 15];        % Schedule by which generation the sample number and target should be changed
