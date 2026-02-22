@@ -55,6 +55,15 @@ classdef (Abstract) ModelAdapter
         % abc_max.m) if the fluxData has anaerobic conditions.
         function ecModel = makeModelAnaerobic(obj,ecModel)
             ecModel = ecModel;
+            % Example from full_tutorial:
+            % ecModel = anaerobicModel_GECKO(ecModel);
+        end
+        % Similarly, define a function that can change protein content in
+        % the biomass composition
+        function ecModel = changeProteinBiomass(obj,ecModel,Ptot)
+            ecModel = ecModel;
+            % Example from full_tutorial:
+            % ecModel = scaleBioMass(ecModel,'protein',Ptot,'carbohydrate',false);
         end
     end
 
