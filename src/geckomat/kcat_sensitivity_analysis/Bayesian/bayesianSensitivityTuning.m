@@ -59,7 +59,7 @@ alpha           = 0.65;
 tauResidual     = 0.2;
 sigmaFloorFrac  = 0.15;
 adaptFracEarly  = 0.5;
-cExpl           = 3;
+cExpl           = 3; cExpl0 = cExpl;
 rMax            = 150;
 freezeStage     = 4;
 
@@ -188,21 +188,21 @@ while rmse > rmseThreshold
         rmseTop = rmse(acc_idx);
         kcatTop = kcat(:, acc_idx);
 
-        % %% Diversity check, otherwise increase exploration
-        % if generation > 1
-        %     kcatRanges = max(log(kcatTop), [], 2) - min(log(kcatTop), [], 2);
-        %     lowDiversity = sum(kcatRanges < 0.1 * sigma0log) / numel(kcatRanges);
-        %     if lowDiversity > 0.5
-        %         % Parameters collapsed, increase exploration
-        %         cExpl = min(cExpl * 1.4, 5.0);
-        %         fprintf('⚠ Low diversity (%.0f%% collapsed) → cExpl=%.2f\n', ...
-        %             100*lowDiversity, cExpl);
-        %     elseif cExpl > params.bayesian.cExpl
-        %         % Excellent diversity, gradually reduce exploration
-        %         cExpl = max(cExpl * 0.95, 2.5);
-        %         fprintf('  Excellent diversity, reducing exploration → cExpl=%.2f\n', cExpl);
-        %     end
-        % end
+        %% Diversity check, otherwise increase exploration
+        if generation > 1
+            kcatRanges = max(log(kcatTop), [], 2) - min(log(kcatTop), [], 2);
+            lowDiversity = sum(kcatRanges < 0.1 * sigma0log) / numel(kcatRanges);
+            if lowDiversity > 0.5
+                % Parameters collapsed, increase exploration
+                cExpl = min(cExpl * 1.4, 5.0);
+                fprintf('⚠ Low diversity (%.0f%% collapsed) → cExpl=%.2f\n', ...
+                    100*lowDiversity, cExpl);
+            elseif cExpl > cExpl0
+                % Excellent diversity, gradually reduce exploration
+                cExpl = max(cExpl * 0.95, 2.5);
+                fprintf('  Excellent diversity, reducing exploration → cExpl=%.2f\n', cExpl);
+            end
+        end
         
         %% Update posterior kcat and sigmaLog
         logKcatTop      = log(kcatTop);
@@ -423,13 +423,17 @@ end
 %   - Early (generation <= freezeStage): blend observed std with baseline
 %   - After freeze: keep baseline scale (with a safety floor)
 stds_obs = std(thetaAcc, 1, 2);  % population std across samples, [D x 1]
-if generation <= freezeStage
-    % Limited adaptation early: convex combination of observed stds and baseline
-    sigmaProp_log = adaptFracEarly .* stds_obs + (1 - adaptFracEarly) .* sigma0log;
-    % Apply per-parameter floor to avoid collapsing steps
-    sigmaProp_log = max(sigmaProp_log, sigmaFloorFrac .* sigma0log);
-else
-    % Freeze magnitude: keep baseline scale; still use learned directions U,Lambda
-    sigmaProp_log = max(sigma0log, sigmaFloorFrac .* sigma0log);
-end
+% if generation <= freezeStage
+%     % Limited adaptation early: convex combination of observed stds and baseline
+%     sigmaProp_log = adaptFracEarly .* stds_obs + (1 - adaptFracEarly) .* sigma0log;
+%     % Apply per-parameter floor to avoid collapsing steps
+%     sigmaProp_log = max(sigmaProp_log, sigmaFloorFrac .* sigma0log);
+% else
+%     % Freeze magnitude: keep baseline scale; still use learned directions U,Lambda
+%     sigmaProp_log = max(sigma0log, sigmaFloorFrac .* sigma0log);
+% end
+decay_factor = exp(-0.05 * generation);  % gradual decay, not hard freeze
+sigmaProp_log = (adaptFracEarly * decay_factor) .* stds_obs + ...
+                (1 - adaptFracEarly * decay_factor) .* sigma0log;
+sigmaProp_log = max(sigmaProp_log, sigmaFloorFrac .* sigma0log);
 end
