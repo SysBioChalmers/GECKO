@@ -107,7 +107,8 @@ switch looseStrictFlux
         model = setParam(model,'lb',posFlux,0);
         model = setParam(model,'ub',posFlux,ub);
     otherwise
-        model = setParam(model,'var',fluxData.exchRxnIDs,fluxData.exchFluxes,looseStrictFlux);
+        model = setParam(model,'var',negFlux,lb,looseStrictFlux);
+        model = setParam(model,'var',posFlux,ub,looseStrictFlux);
 end
 extremeFlux = find(abs(fluxData.exchFluxes)==1000);
 if any(extremeFlux)

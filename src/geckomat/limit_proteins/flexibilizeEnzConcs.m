@@ -153,7 +153,7 @@ if any(protConcs)
             tempModel = setParam(model,'lb',protPoolIdx,-1000);
             tempModel = setParam(tempModel,'ub',bioRxnIdx,expGrowth);
             sol = solveLP(tempModel);
-            if (sol.f-predGrowth)>1e-10 % There is improvement in growth rate
+            if (sol.f-predGrowth)>1e-3 % There is improvement in growth rate
                 % Find new protein pool constraint
                 predGrowth = sol.f;
                 tempModel = setParam(tempModel,'lb',bioRxnIdx,predGrowth);
