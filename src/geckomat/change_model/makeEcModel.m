@@ -353,18 +353,22 @@ model = addMets(model,pool);
 
 %11: Add protein usage reactions.
 if ~geckoLight
+    rxnNum                    = numel(proteinMets.mets);
     usageRxns.rxns            = strcat('usage_',proteinMets.mets);
     usageRxns.rxnNames        = usageRxns.rxns;
-    usageRxns.mets            = cell(numel(usageRxns.rxns),1);
-    usageRxns.stoichCoeffs    = cell(numel(usageRxns.rxns),1);
+    usageRxns.mets            = cell(rxnNum,1);
+    usageRxns.stoichCoeffs    = cell(rxnNum,1);
     for i=1:numel(usageRxns.mets)
         usageRxns.mets{i}         = {proteinMets.mets{i}, 'prot_pool'};
         usageRxns.stoichCoeffs{i} = [-1,1];
     end
-    usageRxns.lb              = zeros(numel(usageRxns.rxns),1) - 1000;
-    usageRxns.ub              = zeros(numel(usageRxns.rxns),1);
-    usageRxns.rev             = ones(numel(usageRxns.rxns),1);
+    usageRxns.lb              = zeros(rxnNum,1) - 1000;
+    usageRxns.ub              = zeros(rxnNum,1);
+    usageRxns.rev             = ones(rxnNum,1);
     usageRxns.grRules         = ec.genes(uniprotSortId);
+    if isfield(model,'subSystems')
+        usageRxns.subSystems  = repmat({'Protein usage'}, rxnNum, 1);
+    end
     model = addRxns(model,usageRxns);
 end
 
@@ -376,6 +380,9 @@ poolRxn.stoichCoeffs    = {-1};
 poolRxn.lb              = -1000;
 poolRxn.ub              = 0;
 poolRxn.rev             = 1;
+if isfield(model,'subSystems')
+    poolRxn.subSystems  = 'Protein usage';
+end
 model = addRxns(model,poolRxn);
 
 model.ec=ec;
