@@ -269,6 +269,8 @@ ecModel = setParam(ecModel,'obj','r_4041',1);
 % reverting STEP 42.
 ecModel = setProtPoolSize(ecModel);
 
+[ecModel,rmseTrace,kcatTrace,sigmaLogTrace] = bayesianSensitivityTuning(ecModel);
+
 % ===>  Since GECKO 3.3.0
 %       The Bayesian kcat tuning function as introduced in the DLKcat paper
 %       has been curated, and this is now selected as the default approach
