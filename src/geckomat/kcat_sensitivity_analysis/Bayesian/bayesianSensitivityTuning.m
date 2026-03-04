@@ -65,6 +65,13 @@ cExpl           = 3; cExpl0 = cExpl;
 rMax            = 150;
 freezeStage     = 4;
 
+adaptiveSubset_startGen          = 5;    % Start after initial exploration
+adaptiveSubset_reassessEvery     = 5;    % Reassess every N generations
+adaptiveSubset_deviationThresh   = 0.3;  % Changed >0.3 sigma = active
+adaptiveSubset_varianceThresh    = 1.5;  % Post var > 1.5x prior = active
+adaptiveSubset_inactiveSigmaFrac = 0.05; % Inactive: 5% of prior sigma
+adaptiveSubset_minActiveSize     = 100;  % Always keep at least 100 active
+
 %%  Construct initial kcat variances based on annotation confidence
 if nargin < 2 || isempty(kcatSigmaLog)
     sigma0log = sigma0logDefault * ones(size(ecModel.ec.kcat));
@@ -111,6 +118,12 @@ tmpModel = setParam(ecModel,'lb',modelAdapter.params.c_source,0);
 %% Proposal initialization (log-space)
 eigVals = []; U = [];        % No low-rank information for generation 1
 
+%% Initialize active set tracking
+D                        = numel(kcats);
+is_active                = true(D, 1);     % All parameters start active
+generation_last_assessed = 0;              % Track when last assessed
+sigma0log_original       = sigma0log;      % Store original for reference
+
 %% ABC–SMC LOOP
 %  Each generation narrows the discrepancy threshold (epsilon), focusing the
 %  posterior while simultaneously adapting the proposal to match the shape
@@ -137,9 +150,9 @@ while rmse > rmseThreshold
             % Draw parents uniformly from accepted samples
             parent_idx  = randi(size(kcatTop, 2), 1, N);
             parents     = kcatTop(:, parent_idx);
-
+            % Use adjusted sigma (tight for inactive params)
             randomKcats = proposeLowRankMixture(parents, U, eigVals, ...
-                          sigmaProp_log, sigma0log, tauResidual, alpha, cExpl);
+                          sigmaProp_log, sigma0log_adjusted, tauResidual, alpha, cExpl);
         end
 
         % Guarantee positivity (log-space sampling can underflow)
@@ -216,6 +229,85 @@ while rmse > rmseThreshold
             end
         end
         
+        %% Adaptive subset assessment
+        if generation >= adaptiveSubset_startGen && ...
+           generation - generation_last_assessed >= adaptiveSubset_reassessEvery
+            
+            fprintf('\n  === ADAPTIVE SUBSET ASSESSMENT (Gen %d) ===\n', generation);
+            
+            % Compute current kcats for assessment
+            logKcatTop_temp = log(kcatTop);
+            muLog_temp = mean(logKcatTop_temp, 2);
+            kcatSigmaLog_temp = std(logKcatTop_temp, 1, 2);
+            
+            % Criterion 1: Deviation from prior
+            deviation = abs(muLog_temp - log(kcat0)) ./ sigma0log_original;
+            is_deviated = deviation > adaptiveSubset_deviationThresh;
+            
+            % Criterion 2: High posterior variance
+            variance_ratio = kcatSigmaLog_temp ./ sigma0log_original;
+            is_variable = variance_ratio > adaptiveSubset_varianceThresh;
+            
+            % Criterion 3: Contributes to low-rank structure (if available)
+            if ~isempty(U) && size(U, 2) > 0
+                loadings = sum(abs(U), 2);
+                loading_threshold = prctile(loadings, 70);
+                is_important = loadings > loading_threshold;
+            else
+                is_important = false(D, 1);
+            end
+            
+            % Combine (OR logic)
+            is_active_new = is_deviated | is_variable | is_important;
+            
+            % Ensure minimum active set size
+            if sum(is_active_new) < adaptiveSubset_minActiveSize
+                combined_score = deviation + variance_ratio;
+                [~, sort_idx] = sort(combined_score, 'descend');
+                is_active_new(sort_idx(1:adaptiveSubset_minActiveSize)) = true;
+            end
+            
+            % Report
+            newly_activated = sum(is_active_new & ~is_active);
+            newly_frozen = sum(~is_active_new & is_active);
+            
+            fprintf('  Active set: %d → %d parameters (%.1f%%)\n', ...
+                    sum(is_active), sum(is_active_new), 100*sum(is_active_new)/D);
+            fprintf('    Newly activated: %d, Newly frozen: %d\n', ...
+                    newly_activated, newly_frozen);
+            
+            % Per-source breakdown
+            for i = 1:numel(kcatSources)
+                idx = strcmpi(ecModel.ec.source, kcatSources{i});
+                if any(idx)
+                    pct_active = 100 * sum(is_active_new(idx)) / sum(idx);
+                    fprintf('    %s: %.0f%% active (%d / %d)\n', ...
+                            kcatSources{i}, pct_active, sum(is_active_new(idx)), sum(idx));
+                end
+            end
+            
+            % Update
+            is_active = is_active_new;
+            generation_last_assessed = generation;
+            
+            fprintf('  =======================================\n\n');
+        end
+        
+        % Apply sigma adjustment based on active set
+        sigma0log_adjusted = sigma0log;
+        sigma0log_adjusted(~is_active) = sigma0log_original(~is_active) * ...
+                                          adaptiveSubset_inactiveSigmaFrac;
+        
+        if adaptiveSubset_enabled && generation >= adaptiveSubset_startGen
+            n_inactive = sum(~is_active);
+            if n_inactive > 0
+                fprintf('  Inactive params: %d (sigma reduced to %.0f%% of prior)\n', ...
+                        n_inactive, 100*adaptiveSubset_inactiveSigmaFrac);
+            end
+        end
+        % ============================================================
+
+
         %% Update posterior kcat and sigmaLog
         logKcatTop      = log(kcatTop);
         muLog           = mean(logKcatTop, 2);
@@ -236,6 +328,15 @@ while rmse > rmseThreshold
         % Bayesian update: blend observed and prior variance
         kcatSigmaLog = shrinkWeight .* kcatSigmaLog + (1 - shrinkWeight) .* sigma0log;
         kcats = exp(shrinkWeight .* muLog + (1 - shrinkWeight) .* log(kcat0));
+
+        % Force inactive params to stay tight
+        if generation >= adaptiveSubset_startGen
+            % Inactive params: force to stay very tight
+            kcatSigmaLog(~is_active) = sigma0log_original(~is_active) * ...
+                                        adaptiveSubset_inactiveSigmaFrac;
+            % Inactive params: force means to stay near prior
+            kcats(~is_active) = kcat0(~is_active);
+        end
 
         % Diagnostic
         fprintf('  Shrinkage distribution: <0.3: %d, 0.3-0.7: %d, >0.7: %d\n', ...
@@ -269,7 +370,7 @@ while rmse > rmseThreshold
         %% Learn proposal covariance structure from accepted samples
         % For use in next sampling round
         [U, eigVals, sigmaProp_log] = buildLowRankLogProposal(log(kcatTop), rMax, ...
-                                     generation, freezeStage, sigma0log, sigmaFloorFrac, adaptFracEarly);
+                                     generation, freezeStage, sigma0log_adjusted, sigmaFloorFrac, adaptFracEarly);
 
         % Track trace of progress and posterior contraction
         [bestRMSE, bestIdx] = min(rmseTop);
