@@ -92,7 +92,7 @@ end
 %  - Compute RMSE of prior parameters (baseline)
 %  - Initialize accepted samples with prior values
 %  - Preallocate traces for diagnostics and convergence plots
-kcats = ecModel.ec.kcat;
+kcats = ecModel.ec.kcat; kcat0 = kcats;
 
 rmse = abc_max(ecModel, bayData, modelAdapter);
 fprintf('RMSE with prior kcats: %.2f.\n', rmse)
@@ -157,11 +157,11 @@ while rmse > rmseThreshold
             ecModelIter.ec.kcat = randomKcats(:,j);
             ecModelIter         = applyKcatConstraints(ecModelIter);
             newRmse(j)          = abc_max(ecModelIter, bayData, modelAdapter);
-            % Regularization: penalty for drifting from prior values
-            logDev              = (log(randomKcats(:,j)) - log(kcat0)) ./ sigma0log;
-            rmsePrior           = sqrt(sum(kcatLambdas .* logDev .^2) / sum(kcatLambdas));
-
-            newRmse(j)          = newRmse(j) + rmsePrior;
+            % % Regularization: penalty for drifting from prior values
+            % logDev              = (log(randomKcats(:,j)) - log(kcat0)) ./ sigma0log;
+            % rmsePrior           = 0.01*sqrt(sum(kcatLambdas .* logDev .^2) / sum(kcatLambdas));
+            % 
+            % newRmse(j)          = newRmse(j) + rmsePrior;
             count(PB2)
         end
         
@@ -199,7 +199,7 @@ while rmse > rmseThreshold
         % Keep only accepted samples
         rmseTop = rmse(acc_idx);
         kcatTop = kcat(:, acc_idx);
-
+      
         %% Diversity check, otherwise increase exploration
         if generation > 1
             kcatRanges = max(log(kcatTop), [], 2) - min(log(kcatTop), [], 2);
@@ -220,7 +220,51 @@ while rmse > rmseThreshold
         logKcatTop      = log(kcatTop);
         muLog           = mean(logKcatTop, 2);
         kcatSigmaLog    = std(logKcatTop, 1, 2);
-        kcats           = exp(muLog);
+
+        % Criterion 1: deviation of mean from prior
+        devFromPrior = abs(muLog - log(kcat0)) ./ sigma0log;
+        % Shrinkage: kcat with low information stay near prior
+        shrinkDev    = min(devFromPrior / 2, 1);
+
+        % Criterion 2: is variance reasonable, avoid random walk
+        varRatio     = kcatSigmaLog ./ sigma0log;
+        shrinkVar    = 1 ./ (1 + (varRatio -1) .^2);
+
+        % Combine shrinkage weight, minimum = most conservative
+        shrinkWeight = min(shrinkDev,shrinkVar);
+
+        % Bayesian update: blend observed and prior variance
+        kcatSigmaLog = shrinkWeight .* kcatSigmaLog + (1 - shrinkWeight) .* sigma0log;
+        kcats = exp(shrinkWeight .* muLog + (1 - shrinkWeight) .* log(kcat0));
+
+        % Diagnostic
+        fprintf('  Shrinkage distribution: <0.3: %d, 0.3-0.7: %d, >0.7: %d\n', ...
+            sum(shrinkWeight < 0.3), ...
+            sum(shrinkWeight >= 0.3 & shrinkWeight < 0.7), ...
+            sum(shrinkWeight >= 0.7));
+
+        if mod(generation, 5) == 0
+            fprintf('\n  === POSTERIOR VARIANCE DIAGNOSTIC (Gen %d) ===\n', generation);
+            % By source
+            for i = 1:numel(kcatSources)
+                idx = strcmpi(ecModel.ec.source, kcatSources{i});
+                if any(idx)
+                    fprintf('  %s:\n', kcatSources{i});
+                    fprintf('    Prior sigma:     mean=%.3f, range=[%.3f, %.3f]\n', ...
+                        mean(sigma0log(idx)), ...
+                        min(sigma0log(idx)), max(sigma0log(idx)));
+                    fprintf('    Posterior sigma: mean=%.3f, range=[%.3f, %.3f]\n', ...
+                        mean(kcatSigmaLog(idx)), ...
+                        min(kcatSigmaLog(idx)), max(kcatSigmaLog(idx)));
+
+                    % How many stayed near prior?
+                    near_prior = sum(abs(kcatSigmaLog(idx) - sigma0log(idx)) < 0.1);
+                    fprintf('    Near prior: %d / %d (%.0f%%)\n', ...
+                        near_prior, sum(idx), 100*near_prior/sum(idx));
+                end
+            end
+            fprintf('  ==========================================\n\n');
+        end
 
         %% Learn proposal covariance structure from accepted samples
         % For use in next sampling round
@@ -236,11 +280,25 @@ while rmse > rmseThreshold
         % Use best accepted sample as center point for next generation
         tmpModel.ec.kcat = kcatTop(:, bestIdx);
         tmpModel = applyKcatConstraints(tmpModel);
-        logDev              = (log(tmpModel.ec.kcat) - log(kcat0)) ./ sigma0log;
-        rmsePrior           = sqrt(sum(kcatLambdas .* logDev .^2) / sum(kcatLambdas));
+        % logDev              = (log(tmpModel.ec.kcat) - log(kcat0)) ./ sigma0log;
+        % rmsePrior           = 0.01*sqrt(sum(kcatLambdas .* logDev .^2) / sum(kcatLambdas));
 
-        fprintf('Accepted %d / %d, mean RMSE (accepted): %.2f, best: %.2f, regul. contrib: %.2f..\n', ...
-                numel(rmseTop), numel(rmse), mean(rmseTop), bestRMSE,rmsePrior)
+        % fprintf('Accepted %d / %d, mean RMSE (accepted): %.2f, best: %.2f, regul. contrib: %.2f.\n', ...
+        %         numel(rmseTop), numel(rmse), mean(rmseTop), bestRMSE,rmsePrior)
+        fprintf('Accepted %d / %d, mean RMSE (accepted): %.2f, best: %.2f.\n', ...
+                numel(rmseTop), numel(rmse), mean(rmseTop), bestRMSE)
+
+        % if generation > 5
+        %     recent_improvement = (rmseTrace(end-3) - rmseTrace(end)) / rmseTrace(end-3);
+        % 
+        %     if recent_improvement < 0.05
+        %         % Squeeze both sigma and epsilon
+        %         sigma0log = sigma0log * 0.90;
+        %         targetAccept = targetAccept * 0.90;
+        %         targetAccept = max(targetAccept, 5);
+        %         fprintf('  Convergence mode: sigma×0.9, epsilon → top %.0f%%\n', targetAccept);
+        %     end
+        % end
 
         generation = generation + 1;
         count(PB1)
@@ -254,7 +312,7 @@ end
 [~, bestIdx]    = min(rmseTop);
 ecModel.ec.kcat = kcatTop(:, bestIdx);
 ecModel         = applyKcatConstraints(ecModel);
-fprintf('Final RMSE: %.2f, of which regularization contributes: %.2f.\n', rmseTop(bestIdx), rmsePrior)
+fprintf('Final RMSE: %.2f.\n', rmseTop(bestIdx))
 end
 
 %% Helpers
@@ -437,13 +495,17 @@ end
 %   - Early (generation <= freezeStage): blend observed std with baseline
 %   - After freeze: keep baseline scale (with a safety floor)
 stds_obs = std(thetaAcc, 1, 2);  % population std across samples, [D x 1]
-if generation <= freezeStage
-    % Limited adaptation early: convex combination of observed stds and baseline
-    sigmaProp_log = adaptFracEarly .* stds_obs + (1 - adaptFracEarly) .* sigma0log;
-    % Apply per-parameter floor to avoid collapsing steps
-    sigmaProp_log = max(sigmaProp_log, sigmaFloorFrac .* sigma0log);
-else
-    % Freeze magnitude: keep baseline scale; still use learned directions U,Lambda
-    sigmaProp_log = max(sigma0log, sigmaFloorFrac .* sigma0log);
-end
+decay = exp(-0.02 * generation);
+sigmaProp_log = adaptFracEarly .* stds_obs + (1 - adaptFracEarly) .* sigma0log;
+sigmaProp_log = sigmaProp_log * decay;
+
+% if generation <= freezeStage
+%     % Limited adaptation early: convex combination of observed stds and baseline
+%     sigmaProp_log = adaptFracEarly .* stds_obs + (1 - adaptFracEarly) .* sigma0log;
+%     % Apply per-parameter floor to avoid collapsing steps
+%     sigmaProp_log = max(sigmaProp_log, sigmaFloorFrac .* sigma0log);
+% else
+%     % Freeze magnitude: keep baseline scale; still use learned directions U,Lambda
+%     sigmaProp_log = max(sigma0log, sigmaFloorFrac .* sigma0log);
+% end
 end
