@@ -1,4 +1,4 @@
-function [ecModel, rmseTrace, kcatTrace, sigmaLogTrace] = bayesianSensitivityTuning(ecModel,kcatSigmaLog,modelAdapter)
+function [ecModel, rmseTrace, kcatTrace, sigmaLogTrace, diagnostics] = bayesianSensitivityTuning(ecModel,kcatSigmaLog,modelAdapter)
 % bayesianSensitivityTuning
 %   Performs an iterative ABC-SMC Bayesian parameter‑estimation procedure
 %   that searches for kcat values which allow an ecModel to match
@@ -18,7 +18,7 @@ function [ecModel, rmseTrace, kcatTrace, sigmaLogTrace] = bayesianSensitivityTun
 %                   initial **log-space standard deviations** (sigmaLog)
 %                   for kcats. By default, kcatSigmaLog is set from params.
 %                   bayesian.initSigmaLogDefault and optionally overridden
-%                   per source by params.bayesian.initSigmaLog (a vector of 
+%                   per source by params.bayesian.initSigmaLog (a vector of
 %                   sigmaLog values aligned with params.bayesian.
 %                   kcatSources). A custom kcatSigmaLog may also be
 %                   provided.
@@ -31,7 +31,7 @@ function [ecModel, rmseTrace, kcatTrace, sigmaLogTrace] = bayesianSensitivityTun
 %   kcatTrace       history of posterior kcat means
 %   sigmaLogTrace   history of posterior sigmaLog per generation
 %
-if nargin < 3 | isempty(modelAdapter)
+if nargin < 3 || isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefault();
     if isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default ecModel adapter in the ModelAdapterManager.')
@@ -40,11 +40,13 @@ end
 %% Load hyperparameters
 params = modelAdapter.params;
 % Define initial kcat distributions
-lambdaSources       = params.bayesian.lambdaSources;
-lambdaValues        = params.bayesian.lambdaValues;
 sigma0logDefault    = params.bayesian.sigma0logDefault;    % Default initial relative SD for kcat
 kcatSources         = params.bayesian.kcatSources;         % List of annotation sources with custom SD multipliers
-sigma0logSelect     = params.bayesian.sigma0logSelect;     % Per-source SD multipliers
+sigma0logSource     = params.bayesian.sigma0logSource;     % Per-source SD multipliers
+shrinkThrDefault    = params.bayesian.shrinkThrDefault;
+shrinkThrSource     = params.bayesian.shrinkThrSource;
+varianceCapDefault  = params.bayesian.varianceCapDefault;
+varianceCapSource   = params.bayesian.varianceCapSource;
 % Number of samples per generation
 scheduleGenerations = params.bayesian.scheduleGenerations; % Increasing generations at which sample size changes
 scheduleSamples     = params.bayesian.scheduleSamples;     % Sample counts corresponding to scheduleGenerations
@@ -61,31 +63,27 @@ alpha           = 0.65;
 tauResidual     = 0.2;
 sigmaFloorFrac  = 0.15;
 adaptFracEarly  = 0.5;
-cExpl           = 3; cExpl0 = cExpl;
+cExpl           = 3;
 rMax            = 150;
-freezeStage     = 4;
+sparsityThr     = 0.5;  % Sparsity threshold - if parameter did not move
+% much, keep it at prior. Default .5σ, alternatives
+% 0.3 (more sparse) to 0.7 (less sparse).
 
-adaptiveSubset_startGen          = 5;    % Start after initial exploration
-adaptiveSubset_reassessEvery     = 5;    % Reassess every N generations
-adaptiveSubset_deviationThresh   = 0.3;  % Changed >0.3 sigma = active
-adaptiveSubset_varianceThresh    = 1.5;  % Post var > 1.5x prior = active
-adaptiveSubset_inactiveSigmaFrac = 0.05; % Inactive: 5% of prior sigma
-adaptiveSubset_minActiveSize     = 100;  % Always keep at least 100 active
+% Keep track of the kcat source
+kcatSourceIdx = zeros(size(ecModel.ec.kcat));
+for i   = 1:numel(kcatSources)
+    idx = strcmpi(ecModel.ec.source, kcatSources{i});
+    kcatSourceIdx(idx) = i;
+end
+uniqKcatParams = find(kcatSourceIdx);
+noKcatSource   = find(kcatSourceIdx == 0);
 
 %%  Construct initial kcat variances based on annotation confidence
 if nargin < 2 || isempty(kcatSigmaLog)
-    sigma0log = sigma0logDefault * ones(size(ecModel.ec.kcat));
-    for i = 1:numel(kcatSources)
-        selKcats = strcmpi(ecModel.ec.source, kcatSources{i});
-        sigma0log(selKcats) = sigma0logSelect(i);
-    end
+    sigma0log                 = sigma0logDefault * ones(size(ecModel.ec.kcat));
+    sigma0log(uniqKcatParams) = sigma0logSource(kcatSourceIdx(uniqKcatParams));
 end
 
-kcatLambdas = zeros(size(ecModel.ec.kcat));
-for i = 1:numel(lambdaSources)
-    selKcats = strcmpi(ecModel.ec.source, kcatSources{i});
-    kcatLambdas(selKcats) = lambdaValues(i);
-end
 %% Load experimental data and pre-computed indicators
 bayData = loadBayesianData(modelAdapter);
 
@@ -94,6 +92,35 @@ if ~isfield(ecModel,'excarbon')
     ecModel = addCarbonNum(ecModel);
     ecModel.excarbon(ecModel.excarbon == 0) = 1;
 end
+
+%% Initialize diagnostic tracking
+diagnostics = struct(); D = numel(ecModel.ec.kcat);
+
+% Pre-allocate traces
+diagnostics.shrinkageTrace = zeros(D, maxGenerations);           % Per-param shrinkage weights
+diagnostics.acceptanceRateTrace = zeros(1, maxGenerations);      % Fraction accepted each gen
+diagnostics.epsilonTrace = zeros(1, maxGenerations);             % ABC threshold
+diagnostics.nSamplesTrace = zeros(1, maxGenerations);            % N proposals per gen
+diagnostics.nAcceptedTrace = zeros(1, maxGenerations);           % N accepted per gen
+
+% Per-source metrics
+diagnostics.activeBySource = zeros(numel(kcatSources)+1, maxGenerations);  % Active params by source
+diagnostics.nearPriorBySource = zeros(numel(kcatSources)+1, maxGenerations); % Near prior by source
+diagnostics.meanDeviationBySource = zeros(numel(kcatSources)+1, maxGenerations); % Mean deviation
+diagnostics.varianceRatioBySource = zeros(numel(kcatSources)+1, maxGenerations); % Posterior/prior var
+
+% Sparsity metrics
+diagnostics.sparsityCountTrace = zeros(1, maxGenerations);       % N params forced to prior
+diagnostics.sparsityFractionTrace = zeros(1, maxGenerations);    % Fraction forced to prior
+
+% Diversity metrics
+diagnostics.diversityTrace = zeros(1, maxGenerations);           % Parameter space spread
+diagnostics.meanAcceptedRMSE = zeros(1, maxGenerations);         % Mean of accepted (not just best)
+diagnostics.medianAcceptedRMSE = zeros(1, maxGenerations);       % Median of accepted
+
+% Proposal adaptation metrics
+diagnostics.proposalWidthTrace = zeros(1, maxGenerations);       % Mean proposal sigma
+diagnostics.lowRankDimTrace = zeros(1, maxGenerations);          % Rank of covariance structure
 
 %% Prepare for ABC–SMC
 %  - Compute RMSE of prior parameters (baseline)
@@ -117,12 +144,6 @@ tmpModel = setParam(ecModel,'lb',modelAdapter.params.c_source,0);
 
 %% Proposal initialization (log-space)
 eigVals = []; U = [];        % No low-rank information for generation 1
-
-%% Initialize active set tracking
-D                        = numel(kcats);
-is_active                = true(D, 1);     % All parameters start active
-generation_last_assessed = 0;              % Track when last assessed
-sigma0log_original       = sigma0log;      % Store original for reference
 
 %% ABC–SMC LOOP
 %  Each generation narrows the discrepancy threshold (epsilon), focusing the
@@ -150,9 +171,9 @@ while rmse > rmseThreshold
             % Draw parents uniformly from accepted samples
             parent_idx  = randi(size(kcatTop, 2), 1, N);
             parents     = kcatTop(:, parent_idx);
-            % Use adjusted sigma (tight for inactive params)
+
             randomKcats = proposeLowRankMixture(parents, U, eigVals, ...
-                          sigmaProp_log, sigma0log_adjusted, tauResidual, alpha, cExpl);
+                sigmaProp_log, sigma0log, tauResidual, alpha, cExpl);
         end
 
         % Guarantee positivity (log-space sampling can underflow)
@@ -165,19 +186,14 @@ while rmse > rmseThreshold
         PB2 = ProgressBar2(N, ['Simulate ' num2str(N) ' models with random kcats'], 'gui');
         parfor j = 1:N
             %Uncomment for Vera, remove before release
-            %addpath('/apps/Arch/software/Gurobi/11.0.2-GCCcore-12.3.0/matlab/')
+            addpath('/apps/Arch/software/Gurobi/11.0.2-GCCcore-12.3.0/matlab/')
             ecModelIter         = tmpModel;
             ecModelIter.ec.kcat = randomKcats(:,j);
             ecModelIter         = applyKcatConstraints(ecModelIter);
             newRmse(j)          = abc_max(ecModelIter, bayData, modelAdapter);
-            % % Regularization: penalty for drifting from prior values
-            % logDev              = (log(randomKcats(:,j)) - log(kcat0)) ./ sigma0log;
-            % rmsePrior           = 0.01*sqrt(sum(kcatLambdas .* logDev .^2) / sum(kcatLambdas));
-            % 
-            % newRmse(j)          = newRmse(j) + rmsePrior;
             count(PB2)
         end
-        
+
         % Remove unsolvable models (RMSE = 0 often signals infeasibility)
         zeroRmse                = newRmse == 0;
         newRmse(zeroRmse)       = [];
@@ -189,22 +205,16 @@ while rmse > rmseThreshold
 
         %% Acceptance step: ABC–SMC epsilon thresholding
         epsilon = prctile(rmse, targetAccept);
-
-        % Selected acceptable samples
-        acc_idx = find(rmse <= epsilon);
+        acc_idx = find(rmse <= epsilon); % Selected acceptable samples
 
         % Ensure at least minKeep and at most maxKeep of samples survive
         minCount = max(1, floor(minKeep * numel(rmse)));
         maxCount = max(1, floor(maxKeep * numel(rmse)));
         if numel(acc_idx) < minCount
-            relaxFactor = 1.05; attempts = 0; maxAttempts = 20;
-            while numel(acc_idx) < minCount && attempts < maxAttempts
-                epsilon = epsilon * relaxFactor;
-                acc_idx = find(rmse <= epsilon);
-                attempts = attempts + 1;
-            end
-        end
-        if numel(acc_idx) > maxCount
+            [~, ord] = sort(rmse, 'ascend');
+            acc_idx = ord(1:minCount);
+            epsilon = rmse(acc_idx(end));  % Update epsilon to actual threshold
+        elseif numel(acc_idx) > maxCount
             [~,ord] = sort(rmse(acc_idx), 'ascend');
             acc_idx = acc_idx(ord(1:maxCount));
         end
@@ -212,165 +222,45 @@ while rmse > rmseThreshold
         % Keep only accepted samples
         rmseTop = rmse(acc_idx);
         kcatTop = kcat(:, acc_idx);
-      
-        %% Diversity check, otherwise increase exploration
-        if generation > 1
-            kcatRanges = max(log(kcatTop), [], 2) - min(log(kcatTop), [], 2);
-            lowDiversity = sum(kcatRanges < 0.1 * sigma0log) / numel(kcatRanges);
-            if lowDiversity > 0.5
-                % Parameters collapsed, increase exploration
-                cExpl = min(cExpl * 1.4, 5.0);
-                fprintf('⚠ Low diversity (%.0f%% collapsed) → cExpl=%.2f\n', ...
-                    100*lowDiversity, cExpl);
-            elseif cExpl > cExpl0
-                % Excellent diversity, gradually reduce exploration
-                cExpl = max(cExpl * 0.95, 2.5);
-                fprintf('  Excellent diversity, reducing exploration → cExpl=%.2f\n', cExpl);
-            end
-        end
-        
-        %% Adaptive subset assessment
-        if generation >= adaptiveSubset_startGen && ...
-           generation - generation_last_assessed >= adaptiveSubset_reassessEvery
-            
-            fprintf('\n  === ADAPTIVE SUBSET ASSESSMENT (Gen %d) ===\n', generation);
-            
-            % Compute current kcats for assessment
-            logKcatTop_temp = log(kcatTop);
-            muLog_temp = mean(logKcatTop_temp, 2);
-            kcatSigmaLog_temp = std(logKcatTop_temp, 1, 2);
-            
-            % Criterion 1: Deviation from prior
-            deviation = abs(muLog_temp - log(kcat0)) ./ sigma0log_original;
-            is_deviated = deviation > adaptiveSubset_deviationThresh;
-            
-            % Criterion 2: High posterior variance
-            variance_ratio = kcatSigmaLog_temp ./ sigma0log_original;
-            is_variable = variance_ratio > adaptiveSubset_varianceThresh;
-            
-            % Criterion 3: Contributes to low-rank structure (if available)
-            if ~isempty(U) && size(U, 2) > 0
-                loadings = sum(abs(U), 2);
-                loading_threshold = prctile(loadings, 70);
-                is_important = loadings > loading_threshold;
-            else
-                is_important = false(D, 1);
-            end
-            
-            % Combine (OR logic)
-            is_active_new = is_deviated | is_variable | is_important;
-            
-            % Ensure minimum active set size
-            if sum(is_active_new) < adaptiveSubset_minActiveSize
-                combined_score = deviation + variance_ratio;
-                [~, sort_idx] = sort(combined_score, 'descend');
-                is_active_new(sort_idx(1:adaptiveSubset_minActiveSize)) = true;
-            end
-            
-            % Report
-            newly_activated = sum(is_active_new & ~is_active);
-            newly_frozen = sum(~is_active_new & is_active);
-            
-            fprintf('  Active set: %d → %d parameters (%.1f%%)\n', ...
-                    sum(is_active), sum(is_active_new), 100*sum(is_active_new)/D);
-            fprintf('    Newly activated: %d, Newly frozen: %d\n', ...
-                    newly_activated, newly_frozen);
-            
-            % Per-source breakdown
-            for i = 1:numel(kcatSources)
-                idx = strcmpi(ecModel.ec.source, kcatSources{i});
-                if any(idx)
-                    pct_active = 100 * sum(is_active_new(idx)) / sum(idx);
-                    fprintf('    %s: %.0f%% active (%d / %d)\n', ...
-                            kcatSources{i}, pct_active, sum(is_active_new(idx)), sum(idx));
-                end
-            end
-            
-            % Update
-            is_active = is_active_new;
-            generation_last_assessed = generation;
-            
-            fprintf('  =======================================\n\n');
-        end
-        
-        % Apply sigma adjustment based on active set
-        sigma0log_adjusted = sigma0log;
-        sigma0log_adjusted(~is_active) = sigma0log_original(~is_active) * ...
-                                          adaptiveSubset_inactiveSigmaFrac;
-        
-        if adaptiveSubset_enabled && generation >= adaptiveSubset_startGen
-            n_inactive = sum(~is_active);
-            if n_inactive > 0
-                fprintf('  Inactive params: %d (sigma reduced to %.0f%% of prior)\n', ...
-                        n_inactive, 100*adaptiveSubset_inactiveSigmaFrac);
-            end
-        end
-        % ============================================================
-
 
         %% Update posterior kcat and sigmaLog
         logKcatTop      = log(kcatTop);
         muLog           = mean(logKcatTop, 2);
         kcatSigmaLog    = std(logKcatTop, 1, 2);
 
-        % Criterion 1: deviation of mean from prior
+        % Compute deviation from prior
         devFromPrior = abs(muLog - log(kcat0)) ./ sigma0log;
-        % Shrinkage: kcat with low information stay near prior
-        shrinkDev    = min(devFromPrior / 2, 1);
 
-        % Criterion 2: is variance reasonable, avoid random walk
-        varRatio     = kcatSigmaLog ./ sigma0log;
-        shrinkVar    = 1 ./ (1 + (varRatio -1) .^2);
-
-        % Combine shrinkage weight, minimum = most conservative
-        shrinkWeight = min(shrinkDev,shrinkVar);
-
-        % Bayesian update: blend observed and prior variance
-        kcatSigmaLog = shrinkWeight .* kcatSigmaLog + (1 - shrinkWeight) .* sigma0log;
-        kcats = exp(shrinkWeight .* muLog + (1 - shrinkWeight) .* log(kcat0));
-
-        % Force inactive params to stay tight
-        if generation >= adaptiveSubset_startGen
-            % Inactive params: force to stay very tight
-            kcatSigmaLog(~is_active) = sigma0log_original(~is_active) * ...
-                                        adaptiveSubset_inactiveSigmaFrac;
-            % Inactive params: force means to stay near prior
-            kcats(~is_active) = kcat0(~is_active);
+        % Source-specific shrinkage thresholds
+        shrinkWeight = min(devFromPrior / shrinkThrDefault, 1);
+        for i = 1:numel(kcatSources)
+            sourceIdx = kcatSourceIdx == i;
+            shrinkWeight(sourceIdx) = min(devFromPrior(sourceIdx) / shrinkThrSource(i), 1);
         end
 
-        % Diagnostic
-        fprintf('  Shrinkage distribution: <0.3: %d, 0.3-0.7: %d, >0.7: %d\n', ...
-            sum(shrinkWeight < 0.3), ...
-            sum(shrinkWeight >= 0.3 & shrinkWeight < 0.7), ...
-            sum(shrinkWeight >= 0.7));
+        % Bayesian update
+        kcatSigmaLog_raw = shrinkWeight .* kcatSigmaLog + (1 - shrinkWeight) .* sigma0log;
+        kcats_raw = exp(shrinkWeight .* muLog + (1 - shrinkWeight) .* log(kcat0));
 
-        if mod(generation, 5) == 0
-            fprintf('\n  === POSTERIOR VARIANCE DIAGNOSTIC (Gen %d) ===\n', generation);
-            % By source
-            for i = 1:numel(kcatSources)
-                idx = strcmpi(ecModel.ec.source, kcatSources{i});
-                if any(idx)
-                    fprintf('  %s:\n', kcatSources{i});
-                    fprintf('    Prior sigma:     mean=%.3f, range=[%.3f, %.3f]\n', ...
-                        mean(sigma0log(idx)), ...
-                        min(sigma0log(idx)), max(sigma0log(idx)));
-                    fprintf('    Posterior sigma: mean=%.3f, range=[%.3f, %.3f]\n', ...
-                        mean(kcatSigmaLog(idx)), ...
-                        min(kcatSigmaLog(idx)), max(kcatSigmaLog(idx)));
+        % Sparsity enforcement: force small changes back to prior
+        smalldiff        = abs(log(kcats_raw) - log(kcat0)) < sparsityThr * sigma0log;
+        kcats            = kcats_raw;
+        kcats(smalldiff) = kcat0(smalldiff);
 
-                    % How many stayed near prior?
-                    near_prior = sum(abs(kcatSigmaLog(idx) - sigma0log(idx)) < 0.1);
-                    fprintf('    Near prior: %d / %d (%.0f%%)\n', ...
-                        near_prior, sum(idx), 100*near_prior/sum(idx));
-                end
-            end
-            fprintf('  ==========================================\n\n');
+        kcatSigmaLog = kcatSigmaLog_raw;
+        kcatSigmaLog(smalldiff) = sigma0log(smalldiff);
+
+        % Cap variance growth by source to prevent random walk
+        for i = 1:numel(kcatSources)
+            sourceIdx = kcatSourceIdx == i;
+            kcatSigmaLog(sourceIdx) = min(kcatSigmaLog(sourceIdx), sigma0log(sourceIdx) * varianceCapSource(i));
         end
+        kcatSigmaLog(noKcatSource)  = min(kcatSigmaLog(noKcatSource), sigma0log(noKcatSource) * varianceCapDefault);
 
         %% Learn proposal covariance structure from accepted samples
         % For use in next sampling round
         [U, eigVals, sigmaProp_log] = buildLowRankLogProposal(log(kcatTop), rMax, ...
-                                     generation, freezeStage, sigma0log_adjusted, sigmaFloorFrac, adaptFracEarly);
+            sigma0log, sigmaFloorFrac, adaptFracEarly);
 
         % Track trace of progress and posterior contraction
         [bestRMSE, bestIdx] = min(rmseTop);
@@ -381,26 +271,41 @@ while rmse > rmseThreshold
         % Use best accepted sample as center point for next generation
         tmpModel.ec.kcat = kcatTop(:, bestIdx);
         tmpModel = applyKcatConstraints(tmpModel);
-        % logDev              = (log(tmpModel.ec.kcat) - log(kcat0)) ./ sigma0log;
-        % rmsePrior           = 0.01*sqrt(sum(kcatLambdas .* logDev .^2) / sum(kcatLambdas));
 
-        % fprintf('Accepted %d / %d, mean RMSE (accepted): %.2f, best: %.2f, regul. contrib: %.2f.\n', ...
-        %         numel(rmseTop), numel(rmse), mean(rmseTop), bestRMSE,rmsePrior)
-        fprintf('Accepted %d / %d, mean RMSE (accepted): %.2f, best: %.2f.\n', ...
-                numel(rmseTop), numel(rmse), mean(rmseTop), bestRMSE)
+        %% Store diagnostics
+        % Store shrinkage weights
+        diagnostics.shrinkageTrace(:, generation) = shrinkWeight;
 
-        % if generation > 5
-        %     recent_improvement = (rmseTrace(end-3) - rmseTrace(end)) / rmseTrace(end-3);
-        % 
-        %     if recent_improvement < 0.05
-        %         % Squeeze both sigma and epsilon
-        %         sigma0log = sigma0log * 0.90;
-        %         targetAccept = targetAccept * 0.90;
-        %         targetAccept = max(targetAccept, 5);
-        %         fprintf('  Convergence mode: sigma×0.9, epsilon → top %.0f%%\n', targetAccept);
-        %     end
-        % end
+        % Store acceptance metrics
+        diagnostics.acceptanceRateTrace(generation) = numel(rmseTop) / numel(rmse);
+        diagnostics.epsilonTrace(generation)        = epsilon;
+        diagnostics.nSamplesTrace(generation)       = N;
+        diagnostics.nAcceptedTrace(generation)      = numel(rmseTop);
 
+        % Store RMSE statistics
+        diagnostics.meanAcceptedRMSE(generation)    = mean(rmseTop);
+        diagnostics.medianAcceptedRMSE(generation)  = median(rmseTop);
+
+        % Store sparsity metrics
+        diagnostics.sparsityCountTrace(generation)  = sum(smalldiff);  % From sparsity code
+        diagnostics.sparsityFractionTrace(generation) = sum(smalldiff) / D;
+
+        diagnostics = storeSourceMetrics(diagnostics, generation, shrinkWeight, ...
+            kcatSigmaLog, kcats, kcat0, sigma0log, kcatSourceIdx, ...
+            kcatSources, noKcatSource);
+
+        % Store diversity metric (spread in log parameter space)
+        logKcatRanges = max(log(kcatTop), [], 2) - min(log(kcatTop), [], 2);
+        diagnostics.diversityTrace(generation) = mean(logKcatRanges);
+
+        % Store proposal width
+        diagnostics.proposalWidthTrace(generation) = mean(sigmaProp_log);
+
+        % Store low-rank dimension
+        diagnostics.lowRankDimTrace(generation) = size(U, 2);
+        printGenerationSummary(generation, maxGenerations, rmseTrace, ...
+            shrinkWeight, rmseTop, rmse, sum(smalldiff), D, ...
+            ecModel, kcatSigmaLog, sigma0log, kcatSources)
         generation = generation + 1;
         count(PB1)
     else
@@ -408,6 +313,11 @@ while rmse > rmseThreshold
         break
     end
 end
+
+%% Add summary statistics
+diagnostics.finalGeneration = generation;
+diagnostics.converged       = rmseTrace(end) < rmseThreshold;
+diagnostics.sourceLabels    = [kcatSources; {'unlabelled'}];
 
 %% Return best posterior parameters from the last accepted population
 [~, bestIdx]    = min(rmseTop);
@@ -532,18 +442,17 @@ proposals = max(min(proposals, 1e8), 1e-3);
 end
 
 function [U, eigVals, sigmaProp_log] = buildLowRankLogProposal( ...
-    thetaAcc, rMax, generation, freezeStage, sigma0log, sigmaFloorFrac, adaptFracEarly)
+    thetaAcc, rMax, sigma0log, sigmaFloorFrac, adaptFracEarly)
 % buildLowRankLogProposal  Low-rank structure + scale for a log-space proposal.
 %
 % This function extracts dominant directions (a low-rank subspace) from the
 % log-space accepted samples and computes a per-parameter sampling scale
-% (std) for a proposal distribution. It supports "early adaptation" (blend
-% of observed variability and baseline) and a "freeze stage" (fix scale).
+% (std) for a proposal distribution.
 %
 % The SVD of mean-centered samples estimates principal directions of
 % posterior variability; using only the top directions yields a robust
 % low-rank approximation.
-% 
+%
 % Early in sampling, we adapt cautiously (blend observed std with a
 % baseline). Later, we "freeze" scales to ensure stability.
 %
@@ -551,9 +460,6 @@ function [U, eigVals, sigmaProp_log] = buildLowRankLogProposal( ...
 %   thetaAcc         [D x Nacc] matrix of accepted samples.
 %                   If inputIsLog=false, these must be > 0 (we take log).
 %   rMax            Maximum rank used for the low-rank subspace.
-%   generation      Current generation/iteration index (integer).
-%   freezeStage     Adaptation freeze threshold; if generation > freezeStage
-%                   we stop adapting the marginal scales.
 %   sigma0log      [D x 1] baseline (initial) std in log-space per parameter.
 %   sigmaFloorFrac  Scalar >= 0; per-parameter floor as a fraction of sigma0log.
 %   adaptFracEarly  (optional) in [0,1]; weight on observed std during early
@@ -592,21 +498,96 @@ else
     eigVals = zeros(0, 1);
 end
 
-% Marginal proposal scales (per parameter) in log-space
-%   - Early (generation <= freezeStage): blend observed std with baseline
-%   - After freeze: keep baseline scale (with a safety floor)
-stds_obs = std(thetaAcc, 1, 2);  % population std across samples, [D x 1]
-decay = exp(-0.02 * generation);
+% Marginal proposal scales (per parameter) in log-space, blend observed std with baseline
+stds_obs = std(thetaAcc, 1, 2);
 sigmaProp_log = adaptFracEarly .* stds_obs + (1 - adaptFracEarly) .* sigma0log;
-sigmaProp_log = sigmaProp_log * decay;
+sigmaProp_log = max(sigmaProp_log, sigmaFloorFrac .* sigma0log);
+end
 
-% if generation <= freezeStage
-%     % Limited adaptation early: convex combination of observed stds and baseline
-%     sigmaProp_log = adaptFracEarly .* stds_obs + (1 - adaptFracEarly) .* sigma0log;
-%     % Apply per-parameter floor to avoid collapsing steps
-%     sigmaProp_log = max(sigmaProp_log, sigmaFloorFrac .* sigma0log);
-% else
-%     % Freeze magnitude: keep baseline scale; still use learned directions U,Lambda
-%     sigmaProp_log = max(sigma0log, sigmaFloorFrac .* sigma0log);
-% end
+function diagnostics = storeSourceMetrics(diagnostics, gen, shrinkWeight, ...
+    kcatSigmaLog, kcats, kcat0, sigma0log, kcatSourceIdx, ...
+    kcatSources, noKcatSource)
+    
+    % Per-source metrics
+    for i = 1:numel(kcatSources)
+        idx = (kcatSourceIdx == i);  % Faster than strcmpi
+        if any(idx)
+            diagnostics.activeBySource(i, gen) = sum(shrinkWeight(idx) > 0.3);
+            diagnostics.nearPriorBySource(i, gen) = sum(abs(kcatSigmaLog(idx) - sigma0log(idx)) < 0.1);
+            diagnostics.meanDeviationBySource(i, gen) = mean(abs(log(kcats(idx)) - log(kcat0(idx))) ./ sigma0log(idx));
+            diagnostics.varianceRatioBySource(i, gen) = mean(kcatSigmaLog(idx) ./ sigma0log(idx));
+        end
+    end
+    
+    % "Other" category (last row)
+    otherIdx = numel(kcatSources) + 1;
+    diagnostics.activeBySource(otherIdx, gen) = sum(shrinkWeight(noKcatSource) > 0.3);
+    diagnostics.nearPriorBySource(otherIdx, gen) = sum(abs(kcatSigmaLog(noKcatSource) - sigma0log(noKcatSource)) < 0.1);
+    diagnostics.meanDeviationBySource(otherIdx, gen) = mean(abs(log(kcats(noKcatSource)) - log(kcat0(noKcatSource))) ./ sigma0log(noKcatSource));
+    diagnostics.varianceRatioBySource(otherIdx, gen) = mean(kcatSigmaLog(noKcatSource) ./ sigma0log(noKcatSource));
+end
+
+function printGenerationSummary(generation, maxGenerations, rmseTrace, ...
+    shrinkWeight, rmseTop, rmse, n_forced_prior, D, ...
+    ecModel, kcatSigmaLog, sigma0log, kcatSources)
+
+acceptRate = numel(rmseTop) / numel(rmse);
+numel_rmseTop = numel(rmseTop);
+numel_rmse = numel(rmse);
+
+% Compact one-liner
+fprintf('Gen %2d/%2d │ RMSE: %5.2f→%5.2f (Δ%4.1f%%) │ Accept: %3d/%3d (%2.0f%%) │ Active: %4d (%2.0f%%) │ Sparse: %4d', ...
+    generation, maxGenerations, ...
+    rmseTrace(max(1, end-1)), rmseTrace(end), ...
+    100 * (rmseTrace(max(1, end-1)) - rmseTrace(end)) / rmseTrace(max(1, end-1)), ...
+    numel_rmseTop, numel_rmse, 100 * acceptRate, ...
+    sum(shrinkWeight > 0.3), 100 * sum(shrinkWeight > 0.3) / D, ...
+    n_forced_prior);
+
+% Inline warnings
+warnings = {};
+if acceptRate > 0.5, warnings{end+1} = '⚠️ACC↑'; end
+if acceptRate < 0.08, warnings{end+1} = '⚠️ACC↓'; end
+if generation >= 5
+    improvement = (rmseTrace(end-4) - rmseTrace(end)) / rmseTrace(end-4);
+    if improvement < 0.02, warnings{end+1} = '⚠️PLAT'; end
+end
+if ~isempty(warnings)
+    fprintf(' │ %s', strjoin(warnings, ' '));
+end
+fprintf('\n');
+
+% Detailed every 10 gens
+if mod(generation, 10) == 0
+    fprintf('├─────────────────────────────────────────────────────────────────────────────\n');
+    fprintf('│ SOURCE BREAKDOWN:\n');
+    
+    for i = 1:numel(kcatSources)
+        idx = strcmpi(ecModel.ec.source, kcatSources{i});
+        if any(idx)
+            n_total = sum(idx);
+            n_active = sum(shrinkWeight(idx) > 0.3);
+            n_near_prior = sum(abs(kcatSigmaLog(idx) - sigma0log(idx)) < 0.1);
+            mean_var = mean(kcatSigmaLog(idx) ./ sigma0log(idx));
+            
+            fprintf('│   %-8s: %4d active (%2.0f%%) │ %4d near prior (%2.0f%%) │ σ: %.1fx  ', ...
+                upper(kcatSources{i}), n_active, 100*n_active/n_total, ...
+                n_near_prior, 100*n_near_prior/n_total, mean_var);
+            
+            if (i == 1 && n_near_prior/n_total > 0.5) || ...
+               (i == 2 && n_active/n_total > 0.3) || ...
+               (i == 3 && n_near_prior/n_total > 0.7)
+                fprintf('✓\n');
+            else
+                fprintf('⚠️\n');
+            end
+        end
+    end
+    
+    if generation >= 10
+        imp10 = 100 * (rmseTrace(end-9) - rmseTrace(end)) / rmseTrace(end-9);
+        fprintf('│ 10-gen improvement: %.1f%%\n', imp10);
+    end
+    fprintf('└─────────────────────────────────────────────────────────────────────────────\n');
+end
 end
