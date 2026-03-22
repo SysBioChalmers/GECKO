@@ -68,7 +68,10 @@ alpha           = 0.65;
 tauResidual     = 0.2;
 sigmaFloorFrac  = 0.15;
 adaptFracEarly  = 0.5;
-cExpl           = 3;
+cExpl_base      = 3;    cExpl_boost = 6;
+boostThreshold  = 0.01;
+plateau_trigger = 8;    plateau_duration = 5;
+plateau_count   = 0;    boost_count = 0;
 rMax            = 150;
 
 % Keep track of the kcat source
@@ -310,6 +313,26 @@ while rmse > rmseThreshold
         % Use median of accepted samples as center point for next generation
         tmpModel.ec.kcat = median(kcatTop, 2);
         tmpModel = applyKcatConstraints(tmpModel);
+
+        %% Boost exploration
+        if generation > 1
+            % Count stagnant generations
+            if (rmseTrace(end-1) - rmseTrace(end)) / rmseTrace(end-1) < boostThreshold
+                plateau_count = plateau_count + 1;
+            else
+                plateau_count = 0;
+            end
+
+            % Boost if stuck for 10 gens
+            if plateau_count >= plateau_trigger && boost_count == 0
+                boost_count = plateau_duration;
+                fprintf('    ⚡ Boosting exploration\n');
+            end
+
+            % Apply boost
+            cExpl = (boost_count > 0) * cExpl_boost + (boost_count == 0) * cExpl_base;
+            boost_count = max(0, boost_count - 1);
+        end
 
         %% Store diagnostics
         % Store shrinkage weights

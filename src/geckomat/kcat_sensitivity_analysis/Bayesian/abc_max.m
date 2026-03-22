@@ -77,10 +77,10 @@ for i = 1:length(data.conds)
     if o2Flux == 0
         model_tmp = modelAdapter.makeModelAnaerobic(model_tmp);
     end
-    % Change protein content if relevant
-    if ~(isnan(data.Ptot(i)) || data.Ptot(i) == 0)
-        model_tmp = modelAdapter.changeProteinBiomass(model_tmp,data.Ptot(i));
-    end
+    % % Change protein content if relevant
+    % if ~(isnan(data.Ptot(i)) || data.Ptot(i) == 0)
+    %     model_tmp = modelAdapter.changeProteinBiomass(model_tmp,data.Ptot(i));
+    % end
 
     sol = solveLP(model_tmp);
     if checkSolution(sol)

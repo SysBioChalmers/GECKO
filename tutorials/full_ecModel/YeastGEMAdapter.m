@@ -50,17 +50,27 @@ classdef YeastGEMAdapter < ModelAdapter
             % Shrinkage threshold: how many standard deviations a kcat should
             % deviate from its prior value to be fully updated to the posterior.
             % Higher values will make kcats "stickier" to their prior value.
-            obj.params.bayesian.shrinkThrDefault    = 1; % Default value
-            obj.params.bayesian.shrinkThrSource     = [1, 3, 4]; % Matches order in kcatSources
-            % Maximum ratio of posterior-to-prior standard deviation
-            % allowed, lower values keep kcats closer to their original
-            % value.
-            obj.params.bayesian.varianceCapDefault  = 5;
-            obj.params.bayesian.varianceCapSource   = [5,1.5,1.5];
+            % This controls the update rate.
+            obj.params.bayesian.shrinkThrDefault    = 1.5; % Default value
+            obj.params.bayesian.shrinkThrSource     = [1.5, 3.5, 5.5]; % Matches order in kcatSources
+            % Maximum ratio of posterior-to-prior standard deviation allowed,
+            % lower values keep kcats closer to their original value. This
+            % prevents random walk.
+            obj.params.bayesian.varianceCapDefault  = 10;
+            obj.params.bayesian.varianceCapSource   = [10,4,2];
+            % If deviation < this, snap to EXACT prior. Keep certain values
+            % at their starting value unless they have large impact.
+            obj.params.bayesian.forcePriorThrDefault = -1; % Never force
+            obj.params.bayesian.forcePriorThrSource  = [-1, 4, 8];
+
+            % Sparsity threshold - if parameter did not move
+            % much, keep it at prior. Default .5σ, alternatives
+            % 0.3 (more sparse) to 0.7 (less sparse).
+            obj.params.bayesian.sparsityThreshold   = 0.3;
 
             % Number of samples per generation
             obj.params.bayesian.scheduleGenerations = [1, 2, 9, 15];        % Schedule by which generation the sample number and target should be changed
-            obj.params.bayesian.scheduleSamples     = [1000, 800, 600, 500]; % Sample counts numbers corresponding to scheduleGenerations
+            obj.params.bayesian.scheduleSamples     = [500, 400, 300, 200]; % Sample counts numbers corresponding to scheduleGenerations
 
             % Which sampled models should be selected
             obj.params.bayesian.targetAccept        = 10;  % RMSE percentile threshold (epsilon) for ABC acceptance
@@ -69,7 +79,7 @@ classdef YeastGEMAdapter < ModelAdapter
 
             % Halting criteria
             obj.params.bayesian.rmseThreshold       = 0.2; % Stop when RMSE reaches this level% RMSE threshold to halt and output best posterior kcats
-            obj.params.bayesian.maxGenerations      = 100;  % Hard cap on the number of ABC–SMC generations% Maximum number of generations before returning best posterior kcats
+            obj.params.bayesian.maxGenerations      = 150;  % Hard cap on the number of ABC–SMC generations% Maximum number of generations before returning best posterior kcats
    end
 
         function ecModel = makeModelAnaerobic(obj,ecModel)
