@@ -40,20 +40,25 @@ end
 %% Load hyperparameters
 params = modelAdapter.params;
 % Define initial kcat distributions
-sigma0logDefault    = params.bayesian.sigma0logDefault;    % Default initial relative SD for kcat
-kcatSources         = params.bayesian.kcatSources;         % List of annotation sources with custom SD multipliers
-sigma0logSource     = params.bayesian.sigma0logSource;     % Per-source SD multipliers
-shrinkThrDefault    = params.bayesian.shrinkThrDefault;
-shrinkThrSource     = params.bayesian.shrinkThrSource;
-varianceCapDefault  = params.bayesian.varianceCapDefault;
-varianceCapSource   = params.bayesian.varianceCapSource;
+sigma0logDefault     = params.bayesian.sigma0logDefault;    % Default initial relative SD for kcat
+kcatSources          = params.bayesian.kcatSources;         % List of annotation sources with custom SD multipliers
+sigma0logSource      = params.bayesian.sigma0logSource;     % Per-source SD multipliers
+shrinkThrDefault     = params.bayesian.shrinkThrDefault;
+shrinkThrSource      = params.bayesian.shrinkThrSource;
+varianceCapDefault   = params.bayesian.varianceCapDefault;
+varianceCapSource    = params.bayesian.varianceCapSource;
+forcePriorThrDefault = params.bayesian.forcePriorThrDefault;
+forcePriorThrSource  = params.bayesian.forcePriorThrSource;
+
+sparsityThr          = params.bayesian.sparsityThreshold;  % Sparsity threshold
+
 % Number of samples per generation
-scheduleGenerations = params.bayesian.scheduleGenerations; % Increasing generations at which sample size changes
-scheduleSamples     = params.bayesian.scheduleSamples;     % Sample counts corresponding to scheduleGenerations
+scheduleGenerations  = params.bayesian.scheduleGenerations; % Increasing generations at which sample size changes
+scheduleSamples      = params.bayesian.scheduleSamples;     % Sample counts corresponding to scheduleGenerations
 % Which sampled models should be selected
-targetAccept        = params.bayesian.targetAccept;        % RMSE percentile threshold (epsilon) for ABC acceptance
-minKeep             = params.bayesian.minKeep;             % Min fraction of samples kept each generation
-maxKeep             = params.bayesian.maxKeep;             % Max fraction of samples kept each generation
+targetAccept         = params.bayesian.targetAccept;        % RMSE percentile threshold (epsilon) for ABC acceptance
+minKeep              = params.bayesian.minKeep;             % Min fraction of samples kept each generation
+maxKeep              = params.bayesian.maxKeep;             % Max fraction of samples kept each generation 
 
 rmseThreshold       = params.bayesian.rmseThreshold;       % Stop when RMSE reaches this level
 maxGenerations      = params.bayesian.maxGenerations;      % Hard cap on the number of ABC–SMC generations
@@ -65,9 +70,6 @@ sigmaFloorFrac  = 0.15;
 adaptFracEarly  = 0.5;
 cExpl           = 3;
 rMax            = 150;
-sparsityThr     = 0.5;  % Sparsity threshold - if parameter did not move
-% much, keep it at prior. Default .5σ, alternatives
-% 0.3 (more sparse) to 0.7 (less sparse).
 
 % Keep track of the kcat source
 kcatSourceIdx = zeros(size(ecModel.ec.kcat));
@@ -168,10 +170,28 @@ while rmse > rmseThreshold
             sigMat = repmat(sigma0log, 1, N);
             randomKcats = lognrnd(muMat, sigMat);
         else
-            % Draw parents uniformly from accepted samples
-            parent_idx  = randi(size(kcatTop, 2), 1, N);
-            parents     = kcatTop(:, parent_idx);
+            % Draw parents with minimal duplication
+            nParents = size(kcatTop, 2);
 
+            if N <= nParents
+                % We have more parents than needed → sample without replacement
+                parent_idx = randperm(nParents, N);
+            else
+                % We need more samples than parents → use each parent at least once
+                % then sample remainder uniformly
+                nReps = floor(N / nParents);       % How many times to use each parent
+                nRemainder = N - nReps * nParents; % How many extra samples needed
+
+                % Use each parent nReps times, then sample nRemainder more
+                base_idx = repmat(1:nParents, 1, nReps);
+                extra_idx = randperm(nParents, nRemainder);
+                parent_idx = [base_idx, extra_idx];
+
+                % Shuffle to avoid any ordering bias
+                parent_idx = parent_idx(randperm(N));
+            end
+
+            parents = kcatTop(:, parent_idx);
             randomKcats = proposeLowRankMixture(parents, U, eigVals, ...
                 sigmaProp_log, sigma0log, tauResidual, alpha, cExpl);
         end
@@ -238,6 +258,25 @@ while rmse > rmseThreshold
             shrinkWeight(sourceIdx) = min(devFromPrior(sourceIdx) / shrinkThrSource(i), 1);
         end
 
+        forceToExactPrior = false(size(devFromPrior));
+
+        % Apply source-specific force-to-prior thresholds
+        for i = 1:numel(kcatSources)
+            sourceIdx = (kcatSourceIdx == i);
+            if any(sourceIdx) && forcePriorThrSource(i) > 0 % Only apply if threshold is positive
+                % If deviation < threshold, mark for forcing to prior
+                forceToExactPrior(sourceIdx) = (devFromPrior(sourceIdx) < forcePriorThrSource(i));
+            end
+        end
+
+        % Apply default threshold to unlabeled sources
+        if any(noKcatSource) && forcePriorThrDefault > 0
+            forceToExactPrior(noKcatSource) = (devFromPrior(noKcatSource) < forcePriorThrDefault);
+        end
+
+        % Override shrinkWeight to 0 for forced parameters (= 100% prior, 0% posterior)
+        shrinkWeight(forceToExactPrior) = 0;
+
         % Bayesian update
         kcatSigmaLog_raw = shrinkWeight .* kcatSigmaLog + (1 - shrinkWeight) .* sigma0log;
         kcats_raw = exp(shrinkWeight .* muLog + (1 - shrinkWeight) .* log(kcat0));
@@ -263,13 +302,13 @@ while rmse > rmseThreshold
             sigma0log, sigmaFloorFrac, adaptFracEarly);
 
         % Track trace of progress and posterior contraction
-        [bestRMSE, bestIdx] = min(rmseTop);
-        rmseTrace = [rmseTrace, bestRMSE];
-        kcatTrace = [kcatTrace, kcats];
+        medianRMSE = median(rmseTop);
+        rmseTrace  = [rmseTrace, medianRMSE];
+        kcatTrace  = [kcatTrace, kcats];
         sigmaLogTrace  = [sigmaLogTrace,  kcatSigmaLog];
 
-        % Use best accepted sample as center point for next generation
-        tmpModel.ec.kcat = kcatTop(:, bestIdx);
+        % Use median of accepted samples as center point for next generation
+        tmpModel.ec.kcat = median(kcatTop, 2);
         tmpModel = applyKcatConstraints(tmpModel);
 
         %% Store diagnostics
@@ -319,11 +358,15 @@ diagnostics.finalGeneration = generation;
 diagnostics.converged       = rmseTrace(end) < rmseThreshold;
 diagnostics.sourceLabels    = [kcatSources; {'unlabelled'}];
 
-%% Return best posterior parameters from the last accepted population
-[~, bestIdx]    = min(rmseTop);
-ecModel.ec.kcat = kcatTop(:, bestIdx);
-ecModel         = applyKcatConstraints(ecModel);
-fprintf('Final RMSE: %.2f.\n', rmseTop(bestIdx))
+%% Return median posterior parameters from the last accepted population
+medianKcats_final = median(kcatTop, 2);  % Element-wise median across all accepted samples
+ecModel.ec.kcat   = medianKcats_final;
+ecModel           = applyKcatConstraints(ecModel);
+
+% Report median RMSE of accepted samples
+medianRMSE_final = median(rmseTop);
+fprintf('Final median RMSE: %.2f (range: %.2f - %.2f from %d samples).\n', ...
+    medianRMSE_final, min(rmseTop), max(rmseTop), numel(rmseTop))
 end
 
 %% Helpers
@@ -536,7 +579,7 @@ numel_rmseTop = numel(rmseTop);
 numel_rmse = numel(rmse);
 
 % Compact one-liner
-fprintf('Gen %2d/%2d │ RMSE: %5.2f→%5.2f (Δ%4.1f%%) │ Accept: %3d/%3d (%2.0f%%) │ Active: %4d (%2.0f%%) │ Sparse: %4d', ...
+fprintf('Gen %2d/%2d │ RMSE: %5.2f →%5.2f (Δ%4.1f%%) │ Accept: %3d/%3d (%2.0f%%) │ Active: %4d (%2.0f%%) │ Sparse: %4d', ...
     generation, maxGenerations, ...
     rmseTrace(max(1, end-1)), rmseTrace(end), ...
     100 * (rmseTrace(max(1, end-1)) - rmseTrace(end)) / rmseTrace(max(1, end-1)), ...
@@ -562,8 +605,15 @@ if mod(generation, 10) == 0
     fprintf('├─────────────────────────────────────────────────────────────────────────────\n');
     fprintf('│ SOURCE BREAKDOWN:\n');
     
-    for i = 1:numel(kcatSources)
-        idx = strcmpi(ecModel.ec.source, kcatSources{i});
+    for i = 1:numel(kcatSources)+1
+        if i>numel(kcatSources)
+            idx = ~ismember(ecModel.ec.source, kcatSources);
+            sourceName = 'OTHERS';
+        else
+            idx = strcmpi(ecModel.ec.source, kcatSources{i});
+            sourceName = upper(kcatSources{i});
+        end
+
         if any(idx)
             n_total = sum(idx);
             n_active = sum(shrinkWeight(idx) > 0.3);
@@ -571,7 +621,7 @@ if mod(generation, 10) == 0
             mean_var = mean(kcatSigmaLog(idx) ./ sigma0log(idx));
             
             fprintf('│   %-8s: %4d active (%2.0f%%) │ %4d near prior (%2.0f%%) │ σ: %.1fx  ', ...
-                upper(kcatSources{i}), n_active, 100*n_active/n_total, ...
+                sourceName, n_active, 100*n_active/n_total, ...
                 n_near_prior, 100*n_near_prior/n_total, mean_var);
             
             if (i == 1 && n_near_prior/n_total > 0.5) || ...
