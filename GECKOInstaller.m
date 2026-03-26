@@ -70,14 +70,12 @@ classdef GECKOInstaller
                 else                
                     currVerNum = str2double(strsplit(currVer,'.'));
                     minmVerNum = str2double(strsplit(minmVer,'.'));
-                    if currVerNum(1) < minmVerNum(1)
-                        wrongVersion = true;
-                    elseif currVerNum(2) < minmVerNum(2)
-                        wrongVersion = true;
-                    elseif currVerNum(3) < minmVerNum(3)
-                        wrongVersion = true;
+                    if currVerNum(1) ~= minmVerNum(1)
+                        wrongVersion = currVerNum(1) < minmVerNum(1);
+                    elseif currVerNum(2) ~= minmVerNum(2)
+                        wrongVersion = currVerNum(2) < minmVerNum(2);
                     else
-                        wrongVersion = false;
+                        wrongVersion = currVerNum(3) < minmVerNum(3);
                     end
                 end
             catch
