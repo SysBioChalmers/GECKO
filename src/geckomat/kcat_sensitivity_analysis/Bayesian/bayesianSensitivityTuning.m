@@ -68,10 +68,7 @@ alpha           = 0.65;
 tauResidual     = 0.2;
 sigmaFloorFrac  = 0.15;
 adaptFracEarly  = 0.5;
-cExpl_base      = 3;    cExpl_boost = 6;
-boostThreshold  = 0.01;
-plateau_trigger = 8;    plateau_duration = 5;
-plateau_count   = 0;    boost_count = 0;
+cExpl           = 3;
 rMax            = 150;
 
 % Keep track of the kcat source
@@ -305,34 +302,14 @@ while rmse > rmseThreshold
             sigma0log, sigmaFloorFrac, adaptFracEarly);
 
         % Track trace of progress and posterior contraction
-        medianRMSE = median(rmseTop);
-        rmseTrace  = [rmseTrace, medianRMSE];
-        kcatTrace  = [kcatTrace, kcats];
+        [bestRMSE, bestIdx] = min(rmseTop);
+        rmseTrace = [rmseTrace, bestRMSE];
+        kcatTrace = [kcatTrace, kcats];
         sigmaLogTrace  = [sigmaLogTrace,  kcatSigmaLog];
 
-        % Use median of accepted samples as center point for next generation
-        tmpModel.ec.kcat = median(kcatTop, 2);
+        % Use best accepted sample as center point for next generation
+        tmpModel.ec.kcat = kcatTop(:, bestIdx);
         tmpModel = applyKcatConstraints(tmpModel);
-
-        %% Boost exploration
-        if generation > 1
-            % Count stagnant generations
-            if (rmseTrace(end-1) - rmseTrace(end)) / rmseTrace(end-1) < boostThreshold
-                plateau_count = plateau_count + 1;
-            else
-                plateau_count = 0;
-            end
-
-            % Boost if stuck for 10 gens
-            if plateau_count >= plateau_trigger && boost_count == 0
-                boost_count = plateau_duration;
-                fprintf('    ⚡ Boosting exploration\n');
-            end
-
-            % Apply boost
-            cExpl = (boost_count > 0) * cExpl_boost + (boost_count == 0) * cExpl_base;
-            boost_count = max(0, boost_count - 1);
-        end
 
         %% Store diagnostics
         % Store shrinkage weights
@@ -379,17 +356,13 @@ end
 %% Add summary statistics
 diagnostics.finalGeneration = generation;
 diagnostics.converged       = rmseTrace(end) < rmseThreshold;
-diagnostics.sourceLabels    = [kcatSources; {'unlabelled'}];
+diagnostics.sourceLabels    = [kcatSources, {'unlabelled'}];
 
-%% Return median posterior parameters from the last accepted population
-medianKcats_final = median(kcatTop, 2);  % Element-wise median across all accepted samples
-ecModel.ec.kcat   = medianKcats_final;
-ecModel           = applyKcatConstraints(ecModel);
-
-% Report median RMSE of accepted samples
-medianRMSE_final = median(rmseTop);
-fprintf('Final median RMSE: %.2f (range: %.2f - %.2f from %d samples).\n', ...
-    medianRMSE_final, min(rmseTop), max(rmseTop), numel(rmseTop))
+%% Return best posterior parameters from the last accepted population
+[~, bestIdx]    = min(rmseTop);
+ecModel.ec.kcat = kcatTop(:, bestIdx);
+ecModel         = applyKcatConstraints(ecModel);
+fprintf('Final RMSE: %.2f.\n', rmseTop(bestIdx))
 end
 
 %% Helpers
@@ -602,8 +575,7 @@ numel_rmseTop = numel(rmseTop);
 numel_rmse = numel(rmse);
 
 % Compact one-liner
-fprintf('Gen %2d/%2d │ RMSE: %5.2f →%5.2f (Δ%4.1f%%) │ Accept: %3d/%3d (%2.0f%%) │ Active: %4d (%2.0f%%) │ Sparse: %4d', ...
-    generation, maxGenerations, ...
+fprintf('│ RMSE: %5.2f →%5.2f (Δ%4.1f%%) │ Accept: %3d/%3d (%2.0f%%) │ Active: %4d (%2.0f%%) │ Sparse: %4d', ...
     rmseTrace(max(1, end-1)), rmseTrace(end), ...
     100 * (rmseTrace(max(1, end-1)) - rmseTrace(end)) / rmseTrace(max(1, end-1)), ...
     numel_rmseTop, numel_rmse, 100 * acceptRate, ...
