@@ -1,4 +1,4 @@
-function [ecModel, rmseTrace, kcatTrace, sigmaLogTrace, diagnostics, posteriorSamples] = bayesianSensitivityTuning(ecModel,kcatSigmaLog,modelAdapter)
+function [ecModel, rmseTrace, kcatTrace, sigmaLogTrace, diagnostics, posteriorSamples, prunedModel] = bayesianSensitivityTuning(ecModel,kcatSigmaLog,modelAdapter)
 % bayesianSensitivityTuning
 %   Performs an iterative ABC-SMC Bayesian parameter‑estimation procedure
 %   that searches for kcat values which allow an ecModel to match
@@ -367,6 +367,21 @@ posteriorSamples = struct();
 posteriorSamples.kcats      = kcatTop;
 posteriorSamples.rmse       = rmseTop;
 
+%% Post-optimization pruning (if enabled)
+if isfield(params.bayesian, 'enablePruning') && params.bayesian.enablePruning
+    rmseTolerancePruning = params.bayesian.pruningRMSETolerance;
+    minDeviationPruning = params.bayesian.pruningMinDeviation;
+    
+    [prunedModel, pruningReport] = pruneInsignificantKcats(ecModel, kcat0, sigma0log, ...
+        bayData, modelAdapter, rmseTolerancePruning, minDeviationPruning);
+    
+    % Add pruning report to diagnostics
+    diagnostics.pruningReport = pruningReport;
+else
+    prunedModel = [];  % Not performed
+    fprintf('Note: Post-optimization pruning disabled. Enable with params.bayesian.enablePruning = true\n');
+end
+
 %% Return best posterior parameters from the last accepted population
 [~, bestIdx]    = min(rmseTop);
 ecModel.ec.kcat = kcatTop(:, bestIdx);
@@ -644,4 +659,134 @@ if mod(generation, 10) == 0
     end
     fprintf('└─────────────────────────────────────────────────────────────────────────────\n');
 end
+end
+
+function [prunedModel, pruningReport] = pruneInsignificantKcats(ecModel, kcat0, sigma0log, ...
+    bayData, modelAdapter, rmseThreshold, minDeviation)
+% pruneInsignificantKcats
+%   Post-hoc sensitivity analysis: identify kcats that don't significantly
+%   contribute to RMSE and snap them back to their prior values.
+%
+%   Strategy: One-at-a-time perturbation test. For each changed parameter,
+%   temporarily set it back to prior and check if RMSE increases beyond
+%   tolerance. If not, the parameter is "insignificant" and can be pruned.
+%
+% INPUTS
+%   ecModel         Final optimized ecModel
+%   kcat0           Prior kcat values
+%   sigma0log       Prior standard deviations (log-space)
+%   bayData         Experimental data for RMSE calculation
+%   modelAdapter    Model adapter with parameters
+%   rmseThreshold   Max acceptable RMSE increase (relative, e.g., 0.02 = 2%)
+%   minDeviation    Only test params that moved >minDeviation σ from prior
+%
+% OUTPUTS
+%   prunedModel     ecModel with insignificant kcats snapped back to prior
+%   pruningReport   Struct with detailed pruning results
+
+fprintf('\n=== Post-Optimization Sensitivity Analysis ===\n');
+
+% Get current (optimized) kcats and baseline RMSE
+kcatOpt = ecModel.ec.kcat;
+rmseBaseline = abc_max(ecModel, bayData, modelAdapter);
+fprintf('Baseline RMSE (optimized): %.4f\n', rmseBaseline);
+
+% Identify changed parameters (deviation from prior in log-space)
+deviation = abs(log(kcatOpt) - log(kcat0)) ./ sigma0log;
+changedIdx = find(deviation > minDeviation);
+nChanged = length(changedIdx);
+
+fprintf('Testing %d parameters that moved >%.1fσ from prior...\n', nChanged, minDeviation);
+
+% Track which parameters can be pruned
+canPrune = false(size(kcatOpt));
+rmseIfPruned = zeros(size(kcatOpt));
+deviationValues = deviation;
+
+% Test each changed parameter one-at-a-time
+fprintf('Progress: ');
+for i = 1:nChanged
+    idx = changedIdx(i);
+    
+    % Create test model with this parameter set back to prior
+    testModel = ecModel;
+    testModel.ec.kcat(idx) = kcat0(idx);
+    testModel = applyKcatConstraints(testModel);
+    
+    % Compute RMSE with this parameter at prior
+    rmseTest = abc_max(testModel, bayData, modelAdapter);
+    rmseIfPruned(idx) = rmseTest;
+    
+    % Check if RMSE increase is within tolerance
+    relativeIncrease = (rmseTest - rmseBaseline) / rmseBaseline;
+    
+    if relativeIncrease <= rmseThreshold
+        canPrune(idx) = true;
+    end
+    
+    % Progress indicator
+    if mod(i, max(1, floor(nChanged/20))) == 0
+        fprintf('.');
+    end
+end
+fprintf(' Done!\n');
+
+% Apply pruning: snap insignificant parameters back to prior
+prunedModel = ecModel;
+prunedModel.ec.kcat(canPrune) = kcat0(canPrune);
+prunedModel = applyKcatConstraints(prunedModel);
+
+% Compute final RMSE after pruning
+rmsePruned = abc_max(prunedModel, bayData, modelAdapter);
+
+% Count by source
+kcatSources = modelAdapter.params.bayesian.kcatSources;
+prunedBySource = zeros(length(kcatSources) + 1, 1);
+keptBySource = zeros(length(kcatSources) + 1, 1);
+
+for i = 1:length(kcatSources)
+    sourceIdx = strcmpi(ecModel.ec.source, kcatSources{i});
+    prunedBySource(i) = sum(canPrune & sourceIdx);
+    keptBySource(i) = sum(~canPrune & sourceIdx & deviation > minDeviation);
+end
+
+% "Others" category
+otherIdx = ~ismember(ecModel.ec.source, kcatSources);
+prunedBySource(end) = sum(canPrune & otherIdx);
+keptBySource(end) = sum(~canPrune & otherIdx & deviation > minDeviation);
+
+% Summary report
+fprintf('\n--- Pruning Summary ---\n');
+fprintf('Parameters tested:  %d\n', nChanged);
+fprintf('Parameters pruned:  %d (%.1f%%)\n', sum(canPrune), 100*sum(canPrune)/nChanged);
+fprintf('Parameters kept:    %d (%.1f%%)\n', nChanged - sum(canPrune), 100*(nChanged-sum(canPrune))/nChanged);
+fprintf('\nRMSE baseline:      %.4f\n', rmseBaseline);
+fprintf('RMSE after pruning: %.4f (Δ%.2f%%)\n', rmsePruned, 100*(rmsePruned-rmseBaseline)/rmseBaseline);
+
+fprintf('\nBy source:\n');
+sourceLabels = [kcatSources; {'Others'}];
+for i = 1:length(sourceLabels)
+    if prunedBySource(i) + keptBySource(i) > 0
+        fprintf('  %-8s: %3d pruned, %3d kept\n', upper(sourceLabels{i}), ...
+            prunedBySource(i), keptBySource(i));
+    end
+end
+
+% Create detailed report structure
+pruningReport = struct();
+pruningReport.nTested = nChanged;
+pruningReport.nPruned = sum(canPrune);
+pruningReport.nKept = nChanged - sum(canPrune);
+pruningReport.prunedIdx = find(canPrune);
+pruningReport.keptIdx = find(~canPrune & deviation > minDeviation);
+pruningReport.rmseBaseline = rmseBaseline;
+pruningReport.rmsePruned = rmsePruned;
+pruningReport.rmseIncrease = rmsePruned - rmseBaseline;
+pruningReport.rmseIncreasePercent = 100 * (rmsePruned - rmseBaseline) / rmseBaseline;
+pruningReport.prunedBySource = prunedBySource;
+pruningReport.keptBySource = keptBySource;
+pruningReport.deviationBeforePruning = deviation;
+pruningReport.rmseIfPruned = rmseIfPruned;  % RMSE if each param individually pruned
+
+fprintf('\n===========================================\n\n');
 end
