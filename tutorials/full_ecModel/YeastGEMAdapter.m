@@ -79,7 +79,12 @@ classdef YeastGEMAdapter < ModelAdapter
 
             % Halting criteria
             obj.params.bayesian.rmseThreshold       = 0.2; % Stop when RMSE reaches this level% RMSE threshold to halt and output best posterior kcats
-            obj.params.bayesian.maxGenerations      = 150;  % Hard cap on the number of ABC–SMC generations% Maximum number of generations before returning best posterior kcats
+            obj.params.bayesian.maxGenerations      = 150; % Hard cap on the number of ABC–SMC generations% Maximum number of generations before returning best posterior kcats
+
+            % Post-optimization pruning
+            obj.params.bayesian.enablePruning       = true; % Enable post-hoc sensitivity analysis
+            obj.params.bayesian.prunRMSEtol         = 0.02; % Max acceptable RMSE increase (e.g., 2%)
+            obj.params.bayesian.prunMinDev          = 1.0;  % Only test params that moved >1σ from prior
    end
 
         function ecModel = makeModelAnaerobic(obj,ecModel)
