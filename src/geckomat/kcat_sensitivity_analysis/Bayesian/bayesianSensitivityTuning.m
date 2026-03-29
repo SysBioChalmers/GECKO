@@ -1,4 +1,4 @@
-function [ecModel, rmseTrace, kcatTrace, sigmaLogTrace, diagnostics] = bayesianSensitivityTuning(ecModel,kcatSigmaLog,modelAdapter)
+function [ecModel, rmseTrace, kcatTrace, sigmaLogTrace, diagnostics, posteriorSamples] = bayesianSensitivityTuning(ecModel,kcatSigmaLog,modelAdapter)
 % bayesianSensitivityTuning
 %   Performs an iterative ABC-SMC Bayesian parameter‑estimation procedure
 %   that searches for kcat values which allow an ecModel to match
@@ -26,10 +26,14 @@ function [ecModel, rmseTrace, kcatTrace, sigmaLogTrace, diagnostics] = bayesianS
 %                   default model adapter).
 %
 % Output:
-%   model           ecModel with new kcats, not applied.
-%   rmseTrace       history of best RMSE
-%   kcatTrace       history of posterior kcat means
-%   sigmaLogTrace   history of posterior sigmaLog per generation
+%   ecModel           ecModel with best kcat values applied
+%   rmseTrace         history of best RMSE per generation
+%   kcatTrace         history of posterior kcat means per generation
+%   sigmaLogTrace     history of posterior sigmaLog per generation
+%   diagnostics       detailed diagnostics structure
+%   posteriorSamples  final generation's accepted samples (struct):
+%                     - kcats: matrix of all accepted kcat sets
+%                     - rmse: vector of corresponding RMSE values
 %
 if nargin < 3 || isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefault();
@@ -357,6 +361,11 @@ end
 diagnostics.finalGeneration = generation;
 diagnostics.converged       = rmseTrace(end) < rmseThreshold;
 diagnostics.sourceLabels    = [kcatSources, {'unlabelled'}];
+
+%% Assemble final posterior samples
+posteriorSamples = struct();
+posteriorSamples.kcats      = kcatTop;
+posteriorSamples.rmse       = rmseTop;
 
 %% Return best posterior parameters from the last accepted population
 [~, bestIdx]    = min(rmseTop);
