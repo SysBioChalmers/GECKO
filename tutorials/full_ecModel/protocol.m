@@ -9,13 +9,18 @@
 %
 % DO NOT DIRECTLY USE THE ECMODEL GENERATED HERE OUTSIDE OF THIS TUTORIAL.
 %
+% IF YOU LOOK FOR AN ECMODEL FOR S. CEREVISIAE, THESE ARE DISTRIBUTED VIA
+% THE YEAST-GEM REPOSITORY SINCE RELEASE 9.2.0, WHICH HAVE SEEN MORE
+% CURATION, BETTER SENSITIVITY TUNING AND KCATS PREDICTED BY CATAPRO.
+% HTTPS://GITHUB.COM/SYSBIOCHALMERS/YEAST-GEM
+%
 % In comparison to the published GECKO3 Nature Protocols paper, this script
 % might have more up-to-date descriptions about the capabilities and
 % functions, which were introduced after the Nature Protocols paper was
 % published. This script will have additional commands and analyses that
-% are not included in the paper as such. This script should always work with
-% the most recent GECKO3 release. The STAGE and STEP numbers match those in the
-% Nature Protocols paper.
+% are not included in the paper as such. This script should always work
+% with the most recent GECKO3 release. The STAGE and STEP numbers match
+% those in the Nature Protocols paper.
 
 %% Installation
 % - Install RAVEN & GECKO
@@ -47,9 +52,9 @@ GECKOInstaller.install
 %   tutorials/full_ecModel/models/yeast-GEM.yml
 
 % STEP 3-7 Modify the model adapter
-% In the Nature Protocols paper is explained how to decide on the organism- and
-% model-specific parameters in the model adapter, which for this tutorial is
-% located at tutorials/full_ecModel/ecYeastGEMadapter.m.
+% In the Nature Protocols paper is explained how to decide on the organism-
+% and model-specific parameters in the model adapter, which for this
+% tutorial is located at tutorials/full_ecModel/ecYeastGEMadapter.m.
 
 %% STAGE 1: Expansion from a starting metabolic model to an ecModel structure
 % STEP 8 Set modelAdapter
@@ -72,11 +77,12 @@ params = ModelAdapter.getParameters();
 % ModelAdapterManager.setDefault()
 
 % STEP 9 Load conventional yeast-GEM
-% If the location to the conventional GEM was already set in the modelAdapter,
-% as obj.param.convGEM, then loadConventionalGEM can directly be used. If
-% the model is stored somewhere else (and not specified in obj.param.convGEM),
-% you can also use RAVEN's importModel(). In that case you will never use
-% loadConventionalGEM and the obj.param.convGEM never has to be specified.
+% If the location to the conventional GEM was already set in the
+% modelAdapter, as obj.param.convGEM, then loadConventionalGEM can directly
+% be used. If the model is stored somewhere else (and not specified in
+% obj.param.convGEM), you can also use RAVEN's importModel(). In that case
+% you will never use loadConventionalGEM and the obj.param.convGEM never
+% has to be specified.
 model = loadConventionalGEM();
 % model = importModel(fullfile(geckoRoot,'tutorials','full_ecModel','models','yeast-GEM.yml'));
 
@@ -143,7 +149,8 @@ kcatList_fuzzy  = fuzzyKcatMatching(ecModel);
 % file is read back into MATLAB.The full_ecModel tutorial already comes
 % with a DLKcat.tsv file populated with kcat values. If this file should be
 % regenerated, the line below should be uncommented. Note that this
-% overwrites the existing files, thereby discarding existing kcat predictions.
+% overwrites the existing files, thereby discarding existing kcat
+% predictions.
 %writeDLKcatInput(ecModel,[],[],[],[],true);
 
 % STEP 24 Run DLKcat
@@ -195,15 +202,16 @@ ecModel = getKcatAcrossIsozymes(ecModel);
 [ecModel, rxnsMissingGPR, standardMW, standardKcat] = getStandardKcat(ecModel);
 
 % STEP 31 Apply kcat constraints from ecModel.ec.kcat to ecModel.S
-% While STEP 27-30 add or modify values in ecModel.ec.kcat, these contraints
-% are not yet applied to the S-matrix: the enzyme is not yet set as pseudo-
-% substrate with the -MW/kcat stoichiometry. Now, applyKcatConstraints will
-% take the values from ecModel.ec.kcat, considers any complex/subunit data
-% that is tracked in ecModel.ec.rxnEnzMat, together with the MW in
-% ecModel.ec.mw, and uses this to modify the enzyme usage coefficients
-% directly in ecModel.S. Any time a change is made to the .kcat, .rxnEnzMat
-% or .mw fields, the applyKcatConstraints function should be run again to
-% reapply the new constraints onto the metabolic model.
+% While STEP 27-30 add or modify values in ecModel.ec.kcat, these
+% contraints are not yet applied to the S-matrix: the enzyme is not yet set
+% as pseudo- substrate with the -MW/kcat stoichiometry. Now,
+% applyKcatConstraints will take the values from ecModel.ec.kcat, considers
+% any complex/subunit data that is tracked in ecModel.ec.rxnEnzMat,
+% together with the MW in ecModel.ec.mw, and uses this to modify the enzyme
+% usage coefficients directly in ecModel.S. Any time a change is made to
+% the .kcat, .rxnEnzMat or .mw fields, the applyKcatConstraints function
+% should be run again to reapply the new constraints onto the metabolic
+% model.
 ecModel = applyKcatConstraints(ecModel);
 
 % STEP 32 Set upper bound of protein pool
@@ -269,42 +277,49 @@ ecModel = setParam(ecModel,'obj','r_4041',1);
 % reverting STEP 42.
 ecModel = setProtPoolSize(ecModel);
 
-[ecModel,rmseTrace,kcatTrace,sigmaLogTrace] = bayesianSensitivityTuning(ecModel);
-
+[ecModel_notUsed, tunedKcats] = sensitivityTuning(ecModel);
 % ===>  Since GECKO 3.3.0
 %       The Bayesian kcat tuning function as introduced in the DLKcat paper
-%       has been curated, and this is now selected as the default approach
-%       to kcat tuning for yeast-GEM. For legacy purposes, the code for
-%       step-wise sensitivity tuning is still shown here, but the results
-%       are not used. 
-        [ecModel_notUsed, tunedKcats] = sensitivityTuning(ecModel);
-
-        % Inspect the tunedKcats structure in table format.
-        struct2table(tunedKcats)
-
-% Bayesian kcat tuning
-% TODO: Describe the idea Bayesian kcat tuning
-% TODO: Describe the input files
+%       has been refactored for GECKO. For legacy purposes, the code for
+%       step-wise sensitivity tuning is still shown here as part of the
+%       tutorial, but you are encouraged to try out the Bayesian ABC-SMC
+%       functionality. 
+%
+%       The bayesianSensitivityTuning function estimates kcat values
+%       using Approximate Bayesian Computation Sequential Monte Carlo
+%       (ABC-SMC). At each generation, candidate kcat sets are sampled from
+%       distributions centered on the current best values and evaluated by
+%       computing RMSE between model predictions and experimental data from
+%       literature: (a) maximum growth rate and (b) exchange fluxes
+%       (substrate uptake and metabolite secretion rates).
 % 
-
-modelAdapter.params.bayesian.samplesPerIter     = 150: % Number of models with randomly selected kcat values to simulate in each iteration
-modelAdapter.params.bayesian.samplesFirstIter   = 200; % Number of models in first iteration (slightly higher as distribution is larger)
-modelAdapter.params.bayesian.bestSamplesToKeep  = 100; % Number of best-performing kcat samples to keep in each iteration
-modelAdapter.params.bayesian.maxTheta           = 0.5; % Threshold of theta-value for worst-performing kcat sample in the distribution.
-modelAdapter.params.bayesian.minThetaDiff       = 0.2; % Threshold of difference in theta-value between best- and worst-performing kcat samples in the distribution.
-
-
-% There are currently two types of simulations that are used to query the
-% performance of an ecModel. (a): comparison of exchange flux predictions
-% with experimental measurements; (b) comparison of maximum growth
-% prediction with experimental measurement. For (a), experimental
-% cultivation data is gathered in data/bayesianFluxData.tsv, which as many
-% experimental flux data as possible. For (b), experimental maximum growth
-% rates at different 
-
-ecModel = changeMedia(ecModel,'D-glucose','MIN');
-ecModel = setParam(ecModel,'eq','r_1634',0);
-ecModel = setParam(ecModel,'eq','r_1631',0);
+%       The best-performing samples are retained and used to guide
+%       subsequent sampling. Over ~50-150 generations, the algorithm
+%       converges on a posterior distribution of kcat values that
+%       accurately reproduce experimental phenotypes while respecting prior
+%       knowledge from databases (BRENDA, DLKcat) and user-defined
+%       constraints. Source-specific regularization ensures high-confidence
+%       measurements remain close to their prior values unless strong
+%       evidence warrants change, while uncertain predictions are allowed
+%       greater flexibility. The algorithm returns the optimal kcat set and
+%       the full posterior distribution for uncertainty quantification.
+%
+%       The function is not further demonstrated in this tutorial. Instead,
+%       you are referred to the yeast-GEM repository, where since release
+%       9.2.0 an updated ecYeastGEM is distributed. There, the
+%       BayesianSensitivityTuning function is used.
+%
+%       Note that the function requires a rich set of hyperparameters, for
+%       which default settings are defined in the ModelAdapter. However,
+%       each model may require extensive hyperparameter tuning, dependent
+%       on the model itself, the certainty of its kcat predictions, the
+%       quantity and diversity of experimental data to evaluate against,
+%       etc.
+%
+%       [ecModel,rmseTrace,kcatTrace,sigmaLogTrace] = bayesianSensitivityTuning(ecModel);
+%
+%       The remainder of this tutorial assumes that
+%       bayesianSensitivityTuning was *not* run.
 
 % STEP 45-51 Curate kcat values based on kcat tuning
 % As example, the kcat of 5'-phosphoribosylformyl glycinamidine synthetase
@@ -375,14 +390,15 @@ fluxData = loadFluxData();
 ecModel = setProtPoolSize(ecModel,fluxData.Ptot(1),f);
 
 % ==> Before GECKO 3.2.0:
-%     The legacy code is still shown here, but should not be run.
-        % The protein pool reaction will be constraint by the remaining, unmeasured
-        % enzyme content. This is calculated by subtracting the sum of 
-        % ecModel.ec.concs from the condition-specific total protein content. The
-        % latter is stored together with the flux data that otherwise will be used
-        % in STEP 59.
-        % fluxData = loadFluxData();
-        % ecModel = updateProtPool(ecModel,fluxData.Ptot(1));
+%     The legacy code is still shown here, but should not be run. The
+%     protein pool reaction will be constraint by the remaining, unmeasured
+%     enzyme content. This is calculated by subtracting the sum of
+%     ecModel.ec.concs from the condition-specific total protein content.
+%     The latter is stored together with the flux data that otherwise will
+%     be used in STEP 59.
+%
+%     fluxData = loadFluxData();
+%     ecModel = updateProtPool(ecModel,fluxData.Ptot(1));
 
 % STEP 59-63 Load flux data
 % Matching the proteomics sample(s), condition-specific flux data needs to
