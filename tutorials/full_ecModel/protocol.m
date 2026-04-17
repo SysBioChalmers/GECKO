@@ -306,7 +306,7 @@ ecModel = setProtPoolSize(ecModel);
 %
 %       The function is not further demonstrated in this tutorial. Instead,
 %       you are referred to the yeast-GEM repository, where since release
-%       9.2.0 an updated ecYeastGEM is distributed. There, the
+%       9.1.0 an updated ecYeastGEM is distributed. There, the
 %       BayesianSensitivityTuning function is used.
 %
 %       Note that the function requires a rich set of hyperparameters, for
