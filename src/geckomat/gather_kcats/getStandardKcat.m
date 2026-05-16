@@ -247,7 +247,7 @@ for i = 1:numel(rxnsMissingGPR)
 
     if ~standard
         kcatSubSystemIdx = strcmpi(enzSubSystem_names, model.subSystems{rxnIdx}(1));
-        if all(kcatSubSystemIdx)
+        if any(kcatSubSystemIdx)
             model.ec.kcat(end+1) = kcatSubSystem(kcatSubSystemIdx);
         else
             model.ec.kcat(end+1) = standardKcat;
