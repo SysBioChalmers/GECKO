@@ -31,7 +31,7 @@ if numel(rxnsDiff) > 0
 end
 
 % Check if original bigEcModel contains context-dependent protein constraints
-if any(bigEcModel.lb(startsWith(bigEcModel.rxns,'usage_prot_')) ~= -1000)
+if any(bigEcModel.ub(startsWith(bigEcModel.rxns,'usage_prot_')) ~= 1000)
     printOrange(['WARNING: The bigEcModel is constraint by protein concentrations that are\n' ...
                  'likely not relevant in the constructed smallEcModel.\n']);
 end

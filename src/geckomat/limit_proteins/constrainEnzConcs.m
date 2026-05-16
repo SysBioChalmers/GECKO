@@ -49,13 +49,14 @@ else
     protCons = ~isnan(model.ec.concs);
 end
 
-%Set all reactions to draw from prot_pool
-model.S(protPoolIdx, usageRxnsIdx) = 1;
-model.lb(usageRxnsIdx) = -1000;
+%Set all reactions to draw from prot_pool (forward direction: stoich on
+%prot_pool is -1, ub = 1000 = unconstrained)
+model.S(protPoolIdx, usageRxnsIdx) = -1;
+model.ub(usageRxnsIdx) = 1000;
 
 %If non-NaN in model.ec.concs, then constrain by UB
 if any(protCons)
 %    model.S(protPoolIdx, usageRxnsIdx(protCons)) = 0; % Since GECKO 3.2.0
-    model.lb(usageRxnsIdx(protCons)) = -model.ec.concs(protCons);
+    model.ub(usageRxnsIdx(protCons)) = model.ec.concs(protCons);
 end
 end

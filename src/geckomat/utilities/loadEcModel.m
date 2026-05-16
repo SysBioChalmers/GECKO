@@ -38,10 +38,40 @@ if ~endsWith(filename,{'yml','yaml'})
            'this as any other genome-scale model.'])
 end
 
-filename = fullfile(params.path,'models',filename); 
+filename = fullfile(params.path,'models',filename);
 if endsWith(filename,{'yml','yaml'})
     model = readYAMLmodel(filename);
 elseif endsWith(filename,{'xml','sbml'})
     model = importModel(filename);
+end
+
+% Backwards-compat: ecModels written before the forward-direction switch
+% (mid-2026) stored usage_prot_* and prot_pool_exchange in the reverse
+% direction (lb<0, stoich flipped). Detect and migrate transparently so
+% downstream code never sees the legacy layout.
+model = flipLegacyProtDirection(model);
+end
+
+function model = flipLegacyProtDirection(model)
+%Reverse-direction signature: any usage_prot_* reaction with lb < 0, or
+%prot_pool_exchange with lb < 0. When detected, flip the stoichiometry
+%signs on those columns and swap each reaction's bounds.
+usageIdx = find(startsWith(model.rxns,'usage_prot_'));
+poolIdx  = find(strcmp(model.rxns,'prot_pool_exchange'));
+flipIdx  = [usageIdx; poolIdx];
+flipIdx  = flipIdx(model.lb(flipIdx) < -1e-9);
+if isempty(flipIdx)
+    return
+end
+printOrange(['INFO: detected legacy (reverse-direction) protein usage / pool ' ...
+             'reactions; migrating to forward direction.\n']);
+model.S(:,flipIdx) = -model.S(:,flipIdx);
+oldLb = model.lb(flipIdx);
+oldUb = model.ub(flipIdx);
+model.lb(flipIdx) = -oldUb;
+model.ub(flipIdx) = -oldLb;
+if isfield(model,'rev')
+    %Forward-only reactions: lb>=0 means rev=0.
+    model.rev(flipIdx(model.lb(flipIdx) >= -1e-9)) = 0;
 end
 end

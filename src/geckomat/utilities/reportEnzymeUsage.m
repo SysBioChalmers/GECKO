@@ -109,7 +109,7 @@ topUsage.rxnID      = {};
 topUsage.rxnNames   = {};
 topUsage.grRules    = {};
 
-protPool = -ecModel.lb(strcmp(ecModel.rxns,'prot_pool_exchange'));
+protPool = ecModel.ub(strcmp(ecModel.rxns,'prot_pool_exchange'));
 
 for i=1:numel(topEnzyme)
     [rxns, kcat, idx, rxnNames, grRules] = getReactionsFromEnzyme(ecModel,topEnzyme{i});

@@ -7,9 +7,8 @@ function usageData = enzymeUsage(ecModel,fluxes,zero)
 %   2)  capacity usage: the ratio of available enzyme that is used, calcuted
 %       by (absUsage/UB) (note that capacity usage is 0 if an enzyme
 %       concentration was not constrained in the model);
-%   3)  UB: the upper bound of each enzyme exchange reaction, which may not
-%       be the same as the enzyme concentration, if it has been
-%       flexibilized
+%   3)  UB: the upper bound of each protein usage reaction, which equals
+%       the enzyme concentration unless it has been flexibilized
 %   4)  protID: the protein identifiers for each enzyme (if the model has an
 %       enzymes field than this order is used, otherwise it is given
 %       alphabetically.
@@ -40,16 +39,16 @@ end
 usageData.protID      = ecModel.ec.enzymes;
 [~,rxnIdx] = ismember(strcat('usage_prot_',ecModel.ec.enzymes),ecModel.rxns);
 
-usageData.LB          = ecModel.lb(rxnIdx);
-usageData.absUsage    = abs(fluxes(rxnIdx));
-usageData.capUsage    = abs(usageData.absUsage./usageData.LB);
+usageData.UB          = ecModel.ub(rxnIdx);
+usageData.absUsage    = fluxes(rxnIdx);
+usageData.capUsage    = usageData.absUsage./usageData.UB;
 usageData.fluxes      = fluxes;
 
 if ~zero
-    nonzero               = usageData.absUsage<0;
+    nonzero               = usageData.absUsage>0;
     usageData.absUsage    = usageData.absUsage(nonzero);
     usageData.capUsage    = usageData.capUsage(nonzero);
-    usageData.LB          = usageData.LB(nonzero);
+    usageData.UB          = usageData.UB(nonzero);
     usageData.protID      = usageData.protID(nonzero);
 end
 end

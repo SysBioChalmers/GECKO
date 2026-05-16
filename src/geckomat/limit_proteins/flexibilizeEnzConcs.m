@@ -132,14 +132,14 @@ if any(protConcs)
                 protUsageIdx = strcmpi(model.rxns, strcat('usage_prot_', proteins(maxIdx)));
 
                 % replace the UB
-                model.lb(protUsageIdx) = -(model.ec.concs(protConcs(maxIdx)) * (1+increase));
+                model.ub(protUsageIdx) = model.ec.concs(protConcs(maxIdx)) * (1+increase);
 
                 % Get the new growth rate
                 sol = solveLP(model,0,[],hs);
                 predGrowth = sol.f;
 
                 if verbose
-                    disp(['Protein ' proteins{maxIdx} ' LB adjusted. Grow: ' num2str(predGrowth)])
+                    disp(['Protein ' proteins{maxIdx} ' UB adjusted. Grow: ' num2str(predGrowth)])
                 end
             else
                 printOrange(['WARNING: Limit has been reached. Protein '  proteins{maxIdx} ' seems to be problematic. Consider changing the kcat.\n']);
@@ -149,22 +149,22 @@ if any(protConcs)
         else
             disp('No (more) limiting enzymes have been found. Attempting to increase protein pool exchange...')
             protPoolIdx = getIndexes(model,'prot_pool_exchange','rxns');
-            oldProtPool = -model.lb(protPoolIdx);
-            tempModel = setParam(model,'lb',protPoolIdx,-1000);
+            oldProtPool = model.ub(protPoolIdx);
+            tempModel = setParam(model,'ub',protPoolIdx,1000);
             tempModel = setParam(tempModel,'ub',bioRxnIdx,expGrowth);
             sol = solveLP(tempModel);
             if (sol.f-predGrowth)>1e-3 % There is improvement in growth rate
                 % Find new protein pool constraint
                 predGrowth = sol.f;
                 tempModel = setParam(tempModel,'lb',bioRxnIdx,predGrowth);
-                tempModel = setParam(tempModel,'obj',protPoolIdx,1);
+                tempModel = setParam(tempModel,'obj',protPoolIdx,-1);
                 sol = solveLP(tempModel);
-                newProtPool = sol.f;
-                model.lb(protPoolIdx) = newProtPool;
-                fprintf(['Changing the lower bound of protein pool exchange from %s ',...
+                newProtPool = -sol.f;
+                model.ub(protPoolIdx) = newProtPool;
+                fprintf(['Changing the upper bound of protein pool exchange from %s ',...
                          'to %s enabled a\ngrowth rate of %s. It can be helpful to set ', ...
-                         'the lower bound of protein\npool exchange to -1000 before ',...
-                         'running flexibilizeEnzConcs.\n'],num2str(-oldProtPool), ...
+                         'the upper bound of protein\npool exchange to 1000 before ',...
+                         'running flexibilizeEnzConcs.\n'],num2str(oldProtPool), ...
                          num2str(newProtPool),num2str(predGrowth));
                 changedProtPool = true;
             else
@@ -190,16 +190,17 @@ oldConcs         = model.ec.concs(ecProtId);
 
 if flexBreak == false && ~isempty(protFlex)
     % Not all flexibilized proteins require flexibilization in the end
-    % Test flux distribution with minimum prot_pool usage
+    % Test flux distribution with minimum prot_pool usage (forward
+    % direction: minimize positive flux via obj=-1, maximise -flux).
     modelTemp       = setParam(model,'var',params.bioRxn,expGrowth,0.5);
-    modelTemp       = setParam(modelTemp,'obj','prot_pool_exchange',1);
+    modelTemp       = setParam(modelTemp,'obj','prot_pool_exchange',-1);
     sol             = solveLP(modelTemp,1);
     % Check which concentrations can remain unchanged
-    newConcs        = abs(sol.x(protUsageIdx));
+    newConcs        = sol.x(protUsageIdx);
     keepOld         = newConcs<oldConcs;
     % Set UBs
-    model.lb(protUsageIdx(keepOld))  = -oldConcs(keepOld);
-    model.lb(protUsageIdx(~keepOld)) = -newConcs(~keepOld);
+    model.ub(protUsageIdx(keepOld))  = oldConcs(keepOld);
+    model.ub(protUsageIdx(~keepOld)) = newConcs(~keepOld);
     % Output structure
     protFlex(keepOld) = [];
     oldConcs(keepOld) = [];
@@ -217,7 +218,7 @@ else
 
     flexEnz.uniprotIDs = protFlex;
     flexEnz.oldConcs   = model.ec.concs(ecProtId);
-    flexEnz.flexConcs  = abs(model.lb(protUsageIdx));
+    flexEnz.flexConcs  = model.ub(protUsageIdx);
     flexEnz.frequence  = frequence(frequence>0);
 end
 if changedProtPool

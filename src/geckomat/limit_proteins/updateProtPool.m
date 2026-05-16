@@ -29,7 +29,7 @@ function ecModel  = updateProtPool(ecModel, Ptot, modelAdapter)
 protRxns = find(startsWith(ecModel.rxns,'usage_prot_'));
 poolMetIdx = find(strcmp(ecModel.mets,'prot_pool'));
 % Selected proteins with proteomics constraints
-constProtRxns = ~(ecModel.lb(protRxns)==-1000);
+constProtRxns = ~(ecModel.ub(protRxns)==1000);
 % Are any still drawing from prot_pool? This is introduced in GECKO 3.2.0.
 if any(full(ecModel.S(poolMetIdx,protRxns(constProtRxns))))
     error(['In the provided ecModel, all protein usage reactions, both with ' ...
@@ -68,7 +68,7 @@ Pnew = (Ptot - Pmeas) * params.f;
 
 if Pnew > 0
     PoolRxnIdx = strcmp(ecModel.rxns,'prot_pool_exchange');
-    ecModel.lb(PoolRxnIdx) = -Pnew*params.sigma;
+    ecModel.ub(PoolRxnIdx) = Pnew*params.sigma;
     sol = solveLP(ecModel);
     if isempty(sol.x)
         error(['Estimating the remaining protein pool by subtracting the ' ...

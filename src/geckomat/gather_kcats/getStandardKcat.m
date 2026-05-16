@@ -194,9 +194,9 @@ if ~any(strcmp(model.mets,'prot_standard'))
         proteinStdUsageRxn.rxns         = {'usage_prot_standard'};
         proteinStdUsageRxn.rxnNames     = proteinStdUsageRxn.rxns;
         proteinStdUsageRxn.mets         = {proteinStdMets.mets, 'prot_pool'};
-        proteinStdUsageRxn.stoichCoeffs = [-1, 1];
-        proteinStdUsageRxn.lb           = -1000;
-        proteinStdUsageRxn.ub           = 0;
+        proteinStdUsageRxn.stoichCoeffs = [1, -1];
+        proteinStdUsageRxn.lb           = 0;
+        proteinStdUsageRxn.ub           = 1000;
         proteinStdUsageRxn.grRules      = proteinStdGenes.genes;
 
         model = addRxns(model, proteinStdUsageRxn);
