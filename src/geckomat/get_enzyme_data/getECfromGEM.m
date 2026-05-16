@@ -35,9 +35,12 @@ end
 
 [~,rxnIdxs] = ismember(rxnNames,model.rxns);
 
-% Check if eccodes are valid
+% Check if eccodes are valid. Each EC token must be four dot-separated
+% components, each either a positive integer or `-` (wildcard). The regex
+% strips every valid token; whatever's left in the trailing capture ($9)
+% is the non-conforming remainder, which marks the entry as invalid.
 eccodes = model.eccodes;
-invalidEC = regexprep(eccodes,'(\d\.(\w|-)+\.(\w|-)+\.(\w|-)+)(;\w+\.(\w|-)+\.(\w|-)+\.(\w|-)+)*(.*)','$3');
+invalidEC = regexprep(eccodes,'(\d+\.(\d+|-)\.(\d+|-)\.(\d+|-))(;\d+\.(\d+|-)\.(\d+|-)\.(\d+|-))*(.*)','$9');
 invalidEC = ~cellfun(@isempty,invalidEC);
 invalidECpos = find(invalidEC);
 if any(invalidECpos)
