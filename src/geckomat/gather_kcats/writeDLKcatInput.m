@@ -124,11 +124,13 @@ for i=1:size(currencyMets,1)
     reducedS([find(subs);find(prod)],intersect(pairRxns,pairRxns(rxnsWithRemainingSubstrates))) = 0;
 end
 
-%filter out the reactions we're not interested in - will solve the problem for both full and light
+%Take only the reactions of interest (already filtered via ecRxns into
+%origRxnIdxs). The previous over-write step that zeroed "uninteresting"
+%columns was redundant and out-of-bounds: it allocated rxnsToClear with
+%length(origRxnIdxs) but indexed with ecRxns (positions in
+%model.ec.rxns, often larger), which silently auto-extended the mask
+%past the column count of clearedRedS.
 clearedRedS = reducedS(:,origRxnIdxs);
-rxnsToClear = true(length(origRxnIdxs),1);
-rxnsToClear(ecRxns) = false;
-clearedRedS(:,rxnsToClear) = 0;
 
 % Enumerate all substrates for each reaction
 [substrates, reactions] = find(clearedRedS<0); %the reactions here are in model.ec.rxns space
