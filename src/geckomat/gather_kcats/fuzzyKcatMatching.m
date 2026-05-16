@@ -215,8 +215,15 @@ for k = 1:length(EC)
             success   = true;
             wc_num(k) = sum(EC{k}=='-');
         else
-            dot_pos  = [2 strfind(EC{k},'.')];
             wild_num = sum(EC{k}=='-');
+            %Already fully wildcarded (or beyond) and still no match -- give
+            %up rather than escalating into an out-of-range dot_pos(4-wild_num)
+            %lookup, which would either crash or loop forever.
+            if wild_num >= 4 || isempty(EC{k})
+                wc_num(k) = wild_num;
+                break
+            end
+            dot_pos  = [2 strfind(EC{k},'.')];
             wc_text  = '-.-.-.-';
             EC{k}    = [EC{k}(1:dot_pos(4-wild_num)) wc_text(1:2*wild_num+1)];
         end
