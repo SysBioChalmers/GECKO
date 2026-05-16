@@ -17,11 +17,14 @@ function [value,organism,parameter] = findMaxValue(EC_cell,BRENDA,SA_cell)
     for i=1:length(EC_cell)
         find_flag  = false;
         %In case that wild cards are present in the EC number the search on
-        %the BRENDA file will be relaxed.
-        if ~isempty(strfind(EC_cell{i},'-'))
-             EC_cell{i} = EC_cell{i}(strfind(EC_cell{i},'-')-1:end);
+        %the BRENDA file will be relaxed: keep the prefix before the first
+        %dash so the downstream strfind matches any EC that starts with it
+        %(e.g. "1.2.3.-" -> "1.2.3." matches EC1.2.3.1, EC1.2.3.2, ...).
+        dashPos = strfind(EC_cell{i},'-');
+        if ~isempty(dashPos)
+             EC_cell{i} = EC_cell{i}(1:dashPos(1)-1);
              find_flag  = true;
-        end    
+        end
         ECnumber = ['EC' EC_cell{i}];
         Kcat     = 0; orgK = '';
         if find_flag == true
