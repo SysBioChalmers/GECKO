@@ -37,10 +37,13 @@ end
 
 % Check if eccodes are valid. Each EC token must be four dot-separated
 % components, each either a positive integer or `-` (wildcard). The regex
-% strips every valid token; whatever's left in the trailing capture ($9)
-% is the non-conforming remainder, which marks the entry as invalid.
+% strips every valid token; whatever's left in the trailing capture is
+% the non-conforming remainder, which marks the entry as invalid.
+% MATLAB's regex engine only counts outer capture groups (nested groups
+% don't get a $N), so the three outer captures here are: $1 = first EC,
+% $2 = optional ";extraEC" tail, $3 = trailing garbage.
 eccodes = model.eccodes;
-invalidEC = regexprep(eccodes,'(\d+\.(\d+|-)\.(\d+|-)\.(\d+|-))(;\d+\.(\d+|-)\.(\d+|-)\.(\d+|-))*(.*)','$9');
+invalidEC = regexprep(eccodes,'(\d+\.(\d+|-)\.(\d+|-)\.(\d+|-))(;\d+\.(\d+|-)\.(\d+|-)\.(\d+|-))*(.*)','$3');
 invalidEC = ~cellfun(@isempty,invalidEC);
 invalidECpos = find(invalidEC);
 if any(invalidECpos)
