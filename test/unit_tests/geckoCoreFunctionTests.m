@@ -72,8 +72,9 @@ function testmakeEcModelLightModel_tc0002(testCase)
     %check mets
     expMetNames = [model.metNames;'prot_pool'];
     verifyEqual(testCase,ecModel.metNames,expMetNames)
-    %check S matrix
-    expS = [model.S model.S(:,2:3)*-1 sparse(length(model.mets),1);sparse(1,length(ecModel.rxns)-1) -1];
+    %check S matrix (forward-direction prot_pool_exchange: stoich on
+    %prot_pool is +1, i.e. positive flux supplies the pool)
+    expS = [model.S model.S(:,2:3)*-1 sparse(length(model.mets),1);sparse(1,length(ecModel.rxns)-1) 1];
     verifyEqual(testCase,ecModel.S,expS)
     
     %2) Check the ec structure
@@ -139,21 +140,23 @@ end
 
 %For both full and light
 function testsetProtPoolSize_tc0005(testCase)
+    %Forward-direction prot_pool_exchange: budget lives on ub (positive
+    %value), not lb. setProtPoolSize writes Ptot*f*sigma*1000 to ub.
     geckoPath = findGECKOroot;
     adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
     model = getGeckoTestModel();
     ecModel = makeEcModel(model, false, adapter);
     ecModel = setProtPoolSize(ecModel, [], [], [], adapter);
-    verifyEqual(testCase,ecModel.lb(length(ecModel.rxns)),-1000)
+    verifyEqual(testCase,ecModel.ub(length(ecModel.rxns)),1000)
     ecModel = setProtPoolSize(ecModel, 1, 5, 1);
-    verifyEqual(testCase,ecModel.lb(length(ecModel.rxns)),-5000)
+    verifyEqual(testCase,ecModel.ub(length(ecModel.rxns)),5000)
 
     %light
     ecModel = makeEcModel(model, true, adapter);
     ecModel = setProtPoolSize(ecModel, [], [], [], adapter);
-    verifyEqual(testCase,ecModel.lb(length(ecModel.rxns)),-1000)
+    verifyEqual(testCase,ecModel.ub(length(ecModel.rxns)),1000)
     ecModel = setProtPoolSize(ecModel, 1, 5, 1);
-    verifyEqual(testCase,ecModel.lb(length(ecModel.rxns)),-5000)
+    verifyEqual(testCase,ecModel.ub(length(ecModel.rxns)),5000)
 end
 
 %For both full and light
@@ -505,15 +508,16 @@ function testProteomcisIntegration_tc0013(testCase)
     ecModel = fillEnzConcs(ecModel,protData);
     verifyEqual(testCase,ecModel.ec.concs,[0.7292388;0.03692241;0.318175;5.1959184;0.15647268])
 
-    % test that usage protein are correctly constraint
+    % test that usage protein are correctly constraint (forward direction:
+    % constraint lives on ub as the positive concentration, not on lb).
     [~, usageRxnIdx] = ismember(strcat('usage_prot_', ecModel.ec.enzymes), ecModel.rxns);
     ecModel = constrainEnzConcs(ecModel);
-    verifyEqual(testCase,ecModel.lb(usageRxnIdx),-ecModel.ec.concs)
+    verifyEqual(testCase,ecModel.ub(usageRxnIdx),ecModel.ec.concs)
 
     % test that usage protein are correctly constraint. Sol.f give 0.1127,
     % increse objective up to 0.5
     [~, ecModel, flexEnz] =  evalc("flexibilizeEnzConcs(ecModel, 0.4,[],[],adapter,false)");
     [~, usageRxnIdx] = ismember(strcat('usage_prot_', flexEnz.uniprotIDs), ecModel.rxns);
-    verifyEqual(testCase,ecModel.lb(usageRxnIdx),-flexEnz.flexConcs)
+    verifyEqual(testCase,ecModel.ub(usageRxnIdx),flexEnz.flexConcs)
 end
 

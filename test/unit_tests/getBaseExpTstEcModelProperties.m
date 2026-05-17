@@ -24,16 +24,19 @@ function [expRxns, expMetNames, expS] = getBaseExpTstEcModelProperties()
     expS(2,9) = 1;
     expS(1,10) = -1;%E1
     expS(2,11) = -1;%E2
-    %Now add the protein reactions
-    expS(10,12) = 1;%P1
-    expS(5,12) = -1;
-    expS(10,13) = 1;%P2
-    expS(6,13) = -1;
-    expS(10,14) = 1;%P3
-    expS(7,14) = -1;
-    expS(10,15) = 1;%P4
-    expS(8,15) = -1;
-    expS(10,16) = 1;%P5
-    expS(9,16) = -1;
-    expS(10,17) = -1;%prot pool
+    %Now add the protein reactions. Forward direction: usage_prot_*
+    %produces the protein (stoich +1) and consumes prot_pool (stoich -1);
+    %prot_pool_exchange has stoich +1 on prot_pool (positive flux supplies
+    %the pool).
+    expS(10,12) = -1;%P1
+    expS(5,12) = 1;
+    expS(10,13) = -1;%P2
+    expS(6,13) = 1;
+    expS(10,14) = -1;%P3
+    expS(7,14) = 1;
+    expS(10,15) = -1;%P4
+    expS(8,15) = 1;
+    expS(10,16) = -1;%P5
+    expS(9,16) = 1;
+    expS(10,17) = 1;%prot pool
 end
