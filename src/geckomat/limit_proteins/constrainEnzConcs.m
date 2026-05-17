@@ -49,8 +49,8 @@ else
     protCons = ~isnan(model.ec.concs);
 end
 
-%Set all reactions to draw from prot_pool (forward direction: stoich on
-%prot_pool is -1, ub = 1000 = unconstrained)
+%Set all enzyme usage reactions to draw from prot_pool, with the upper
+%bound left wide open (1000 = effectively unconstrained).
 model.S(protPoolIdx, usageRxnsIdx) = -1;
 model.ub(usageRxnsIdx) = 1000;
 

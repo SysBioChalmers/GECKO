@@ -83,16 +83,17 @@ if ~m.ec.geckoLight
         %The trick where we don't allow low kcats is to fix that, but maybe
         %it is not enough.
         iteration            = iteration + 1;
-        %find the highest draw_prot rxn flux (forward direction: positive flux)
+        %find the protein-usage reaction with the highest flux
         drawFluxes           = zeros(length(drawRxns),1);
         drawFluxes(drawRxns) = res.x(drawRxns);
         % Remove from the list user defined proteins
         drawFluxes(idxToIgnore) = 0;
-        [~,sel]              = max(drawFluxes); % usage_prot bounds 0 to 1000
-        %Now get the protein pseudometabolite produced by this usage rxn
-        metSel               = m.S(:,sel) > 0; % positive coeff after direction flip
-        %now find the catalytic reaction with the largest consumption of this protein
-        protFluxes           = m.S(metSel,:).' .* res.x; %negative for consumers
+        [~,sel]              = max(drawFluxes);
+        %Identify the protein pseudo-metabolite produced by that usage reaction.
+        metSel               = m.S(:,sel) > 0;
+        %Of all reactions that consume this protein, pick the one with
+        %the largest consumption (most negative flux*stoichiometry).
+        protFluxes           = m.S(metSel,:).' .* res.x;
         [~,rxnSel]           = min(protFluxes);
         kcatList             = [kcatList, rxnSel];
         rxn                  = m.rxns(rxnSel);

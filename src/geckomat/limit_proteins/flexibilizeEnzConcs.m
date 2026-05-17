@@ -189,9 +189,9 @@ oldConcs         = model.ec.concs(ecProtId);
 %frequence        = frequence(ecProtId);
 
 if flexBreak == false && ~isempty(protFlex)
-    % Not all flexibilized proteins require flexibilization in the end
-    % Test flux distribution with minimum prot_pool usage (forward
-    % direction: minimize positive flux via obj=-1, maximise -flux).
+    % Not all flexibilized proteins really needed to be flexibilized.
+    % Re-solve while minimising total protein usage: setParam('obj',...,-1)
+    % flips the sense from "maximise" to "minimise" for that reaction.
     modelTemp       = setParam(model,'var',params.bioRxn,expGrowth,0.5);
     modelTemp       = setParam(modelTemp,'obj','prot_pool_exchange',-1);
     sol             = solveLP(modelTemp,1);

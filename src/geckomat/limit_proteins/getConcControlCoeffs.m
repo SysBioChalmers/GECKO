@@ -45,7 +45,7 @@ protUsageRxns = strcat('usage_prot_', model.ec.enzymes(protIdx));
 [~, protUsageRxnIdx] = ismember(protUsageRxns, model.rxns);
 
 for i = 1:numel(proteins)
-    % Get the previous concentration (forward direction: ub is the usage cap)
+    % Read the current usage cap, which is the reaction's upper bound.
     prevConc = model.ub(protUsageRxnIdx(i));
 
     % Only consider those with a usage close the UB

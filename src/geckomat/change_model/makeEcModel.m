@@ -372,8 +372,8 @@ if ~geckoLight
     model = addRxns(model,usageRxns);
 end
 
-%12: Add protein pool reaction (forward direction: positive flux produces
-%pool, ub gives the available protein budget)
+%12: Add the protein pool reaction. It produces prot_pool when run
+%forward, and its upper bound sets the total protein budget.
 poolRxn.rxns            = 'prot_pool_exchange';
 poolRxn.rxnNames        = poolRxn.rxns;
 poolRxn.mets            = {'prot_pool'};

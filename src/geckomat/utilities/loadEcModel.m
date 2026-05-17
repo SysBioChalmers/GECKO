@@ -45,17 +45,21 @@ elseif endsWith(filename,{'xml','sbml'})
     model = importModel(filename);
 end
 
-% Backwards-compat: ecModels written before the forward-direction switch
-% (mid-2026) stored usage_prot_* and prot_pool_exchange in the reverse
-% direction (lb<0, stoich flipped). Detect and migrate transparently so
-% downstream code never sees the legacy layout.
+% Older ecModels (built before this version of GECKO) had their
+% protein usage and protein pool reactions defined as "reverse"
+% reactions: their flux was negative, with the usual stoichiometry
+% signs swapped accordingly. Newer GECKO builds them as ordinary
+% forward reactions (positive flux). Detect the older convention
+% when loading and flip those reactions in place, so the rest of
+% the GECKO functions always see the same shape.
 model = flipLegacyProtDirection(model);
 end
 
 function model = flipLegacyProtDirection(model)
-%Reverse-direction signature: any usage_prot_* reaction with lb < 0, or
-%prot_pool_exchange with lb < 0. When detected, flip the stoichiometry
-%signs on those columns and swap each reaction's bounds.
+%Detect whether the protein-related reactions in `model` follow the
+%older "reverse direction" convention, and flip them to the current
+%forward convention if so. The check looks for any usage_prot_* or
+%prot_pool_exchange reaction whose lower bound is negative.
 usageIdx = find(startsWith(model.rxns,'usage_prot_'));
 poolIdx  = find(strcmp(model.rxns,'prot_pool_exchange'));
 flipIdx  = [usageIdx; poolIdx];
@@ -63,15 +67,19 @@ flipIdx  = flipIdx(model.lb(flipIdx) < -1e-9);
 if isempty(flipIdx)
     return
 end
-printOrange(['INFO: detected legacy (reverse-direction) protein usage / pool ' ...
-             'reactions; migrating to forward direction.\n']);
+printOrange(['INFO: ecModel uses the older reverse-direction convention ' ...
+             'for protein usage / pool reactions. Flipping them to the ' ...
+             'current forward convention.\n']);
+%Flip the stoichiometry signs and swap the bounds for the affected
+%reactions, so what was a reverse reaction becomes the equivalent
+%forward one.
 model.S(:,flipIdx) = -model.S(:,flipIdx);
 oldLb = model.lb(flipIdx);
 oldUb = model.ub(flipIdx);
 model.lb(flipIdx) = -oldUb;
 model.ub(flipIdx) = -oldLb;
 if isfield(model,'rev')
-    %Forward-only reactions: lb>=0 means rev=0.
+    %Flux-only-forward reactions (lb >= 0) get rev=0.
     model.rev(flipIdx(model.lb(flipIdx) >= -1e-9)) = 0;
 end
 end
