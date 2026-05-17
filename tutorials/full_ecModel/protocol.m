@@ -260,13 +260,15 @@ fprintf('Growth rate: %f /hour.\n', sol.x(bioRxnIdx))
 % upper bound of the protein pool exchange reaction can be increased to
 % whatever is required. This works, but STEP 43 is preferred.
 ecModel = setParam(ecModel, 'lb', 'r_4041', 0.41);
-ecModel = setParam(ecModel, 'lb', 'prot_pool_exchange', -1000);
-ecModel = setParam(ecModel, 'obj', 'prot_pool_exchange', 1);
+ecModel = setParam(ecModel, 'ub', 'prot_pool_exchange', 1000);
+% Minimise protein usage. setParam('obj',...,-1) tells solveLP to
+% minimise this reaction's flux instead of the default maximisation.
+ecModel = setParam(ecModel, 'obj', 'prot_pool_exchange', -1);
 sol = solveLP(ecModel);
 
 protPoolIdx = strcmp(ecModel.rxns, 'prot_pool_exchange');
-fprintf('Protein pool usage is: %.0f mg/gDCW.\n', abs(sol.x(protPoolIdx)))
-ecModel = setParam(ecModel,'lb',protPoolIdx,sol.x(protPoolIdx));
+fprintf('Protein pool usage is: %.0f mg/gDCW.\n', sol.x(protPoolIdx))
+ecModel = setParam(ecModel,'ub',protPoolIdx,sol.x(protPoolIdx));
 
 % Revert back growth constraint and objective function.
 ecModel = setParam(ecModel,'lb','r_4041',0);
@@ -493,13 +495,11 @@ sol = solveLP(ecModel)
 fprintf('Growth rate that is reached: %f /hour.\n', sol.f)
 % Set growth lower bound to 99% of the previous value.
 ecModel = setParam(ecModel,'lb',params.bioRxn,0.99*sol.f);
-% Minimize protein pool usage. As protein pool exchange is defined in the
-% reverse direction (with negative flux), minimization of protein pool
-% usage is computationally represented by maximizing the prot_pool_exchange
-% reaction.
-ecModel = setParam(ecModel,'obj','prot_pool_exchange',1);
+% Minimize protein pool usage. setParam('obj',...,-1) flips the sense
+% of solveLP from maximisation to minimisation for this reaction.
+ecModel = setParam(ecModel,'obj','prot_pool_exchange',-1);
 sol = solveLP(ecModel)
-fprintf('Minimum protein pool usage: %.2f mg/gDCW.\n', sol.f)
+fprintf('Minimum protein pool usage: %.2f mg/gDCW.\n', -sol.f)
 
 % STEP 71 Inspect enzyme usage
 % Show the result from the earlier simulation, without mapping to
