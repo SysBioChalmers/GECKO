@@ -21,10 +21,10 @@ function [model, rxnsMissingGPR, standardMW, standardKcat, rxnsNoKcat] = getStan
 %
 %   In addition, reactions that are annotated with an enzyme (and therefore
 %   already in model.ec), but not assigned any reaction-specific kcat value
-%   (their model.ec.kcat entry is either 0 or NaN), can be assigned
-%   standard kcat values by a similar approach. However, those reactions
-%   will not be linked to the "standard" pseudoenzyme, but will use the
-%   enzyme that they had already been associated with.
+%   (their model.ec.kcat entry is 0), can be assigned standard kcat values
+%   by a similar approach. However, those reactions will not be linked to
+%   the "standard" pseudoenzyme, but will use the enzyme that they had
+%   already been associated with.
 %
 %   Any pre-existing standard kcat assignments (identified by 'standard'
 %   entires in model.ec.source) are removed when applying this function.
@@ -267,7 +267,7 @@ end
 rxnsMissingGPR = model.rxns(rxnsMissingGPR);
 
 if fillZeroKcat
-    zeroKcat = model.ec.kcat == 0 | isnan(model.ec.kcat);
+    zeroKcat = model.ec.kcat == 0;
     model.ec.kcat(zeroKcat)     = standardKcat;
     model.ec.source(zeroKcat)   = {'standard'};
     rxnsNoKcat = model.ec.rxns(zeroKcat);
