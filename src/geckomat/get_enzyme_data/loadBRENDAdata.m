@@ -9,9 +9,9 @@ if nargin < 1 || isempty(modelAdapter)
 end
 
 basePath      = modelAdapter.getBrendaDBFolder();
-KCAT_file      = fullfile(basePath,'max_KCAT.txt');
-SA_file        = fullfile(basePath,'max_SA.txt');
-MW_file        = fullfile(basePath,'max_MW.txt');
+KCAT_file      = fullfile(basePath,'max_kcat.tsv');
+SA_file        = fullfile(basePath,'max_sa.tsv');
+MW_file        = fullfile(basePath,'max_mw.tsv');
 
 %Extract BRENDA DATA from files information
 KCATcell       = openDataFile(KCAT_file,1);
@@ -61,21 +61,10 @@ for i=1:length(SA{1})
     previousEC = SA{1}(i);
 end
 
-%remove EC in front of all the EC numbers
-if ~isempty(KCATcell{1})
-    KCATcell{1} = extractAfter(KCATcell{1},2);
-end
-if ~isempty(SAcell{1})
-    SAcell{1} = extractAfter(SAcell{1},2);
-end
-
 function data_cell = openDataFile(fileName,scalingFactor)
 fID          = fopen(fileName);
-data_cell    = textscan(fID,'%q %q %q %f %q','delimiter','\t');
+data_cell    = textscan(fID,'%q %q %q %f %q','delimiter','\t','CommentStyle','#');
 fclose(fID);
 data_cell{4} = data_cell{4}*scalingFactor;
-%Split string for each organism in the BRENDA data
-%{name, taxonomy, KEGG code}
-data_cell{3}  = regexprep(data_cell{3},'\/\/.*','');
 end
 end
