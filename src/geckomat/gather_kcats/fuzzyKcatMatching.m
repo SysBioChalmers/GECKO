@@ -157,9 +157,6 @@ while forceWClvl > 0
     eccodes=regexprep(eccodes,'(.)*(\.\d+)(\.-)*$','$1\.-$3');
     forceWClvl = forceWClvl - 1;
 end
-if forceWClvl == 1
-    eccodes = regexprep(eccodes,'.*','-\.-\.-\.-');
-end
 
 progressbar('Gathering kcat values by fuzzy matching to BRENDA database')
 %Main loop:
@@ -514,7 +511,6 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function phylDistStruct =  KEGG_struct(phylpath)
 load(phylpath)
-phylDistStruct.ids   = transpose(phylDistStruct.ids);
 phylDistStruct.names = transpose(phylDistStruct.names);
 phylDistStruct.names = regexprep(phylDistStruct.names,'\s*\(.*','');
 end

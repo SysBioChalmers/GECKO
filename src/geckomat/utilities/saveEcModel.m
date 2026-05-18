@@ -32,7 +32,7 @@ if nargin < 3 || isempty(modelAdapter)
 end
 params = modelAdapter.getParameters();
 if nargin < 2 || isempty(filename)
-    filename = 'ecModel';
+    filename = 'ecModel.yml';
 end
 filename = fullfile(params.path,'models',filename);
 

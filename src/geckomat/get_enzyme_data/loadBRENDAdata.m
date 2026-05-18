@@ -55,7 +55,7 @@ for i=1:length(SA{1})
     if ~isempty(org_index)
         SAcell{1} = [SAcell{1};SA{1}(i)];
         SAcell{2} = [SAcell{2};SA{3}(i)];
-        SAcell{3} = [SAcell{3}; SA{4}(i)*mwEC{2}(org_index)]; %[1/hr]
+        SAcell{3} = [SAcell{3}; SA{4}(i)*mwEC{2}(org_index)]; %[1/s]
         SAcell{4} = [SAcell{4}; mwEC{2}(org_index)];
     end
     previousEC = SA{1}(i);

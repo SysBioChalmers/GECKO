@@ -265,10 +265,13 @@ elseif ~isempty(noUniprot)
         'data (e.g. from a different proteome, make sure you first delete '...
         'the existing data/uniprot.tsv file.\n']);
 end
-ec.genes        = model.genes(Lia); %Will often be duplicate of model.genes, but is done here to prevent issues when it is not.
-ec.enzymes      = uniprotDB.ID(Locb(Lia));
-ec.mw           = uniprotDB.MW(Locb(Lia));
-ec.sequence     = uniprotDB.seq(Locb(Lia));
+%Sort alphabetically so ec.genes has a stable order across runs.
+[ec.genes,sIdx] = sort(model.genes(Lia));
+LocbSorted      = Locb(Lia);
+LocbSorted      = LocbSorted(sIdx);
+ec.enzymes      = uniprotDB.ID(LocbSorted);
+ec.mw           = uniprotDB.MW(LocbSorted);
+ec.sequence     = uniprotDB.seq(LocbSorted);
 %Additional info
 ec.concs        = nan(numel(ec.genes),1); % To be filled with proteomics data when available
 
