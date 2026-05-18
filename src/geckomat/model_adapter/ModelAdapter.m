@@ -20,6 +20,13 @@ classdef (Abstract) ModelAdapter
             genes = inGenes;
         end
 
+        %The genes returned here should match the gene id stored in column
+        %2 (databases.kegg.genes) of kegg.tsv. Override when the model
+        %uses identifiers that need transformation before KEGG lookup.
+        function genes = getKeggCompatibleGenes(obj,inGenes)
+            genes = inGenes;
+        end
+
         function uniprotIDs = getUniprotIDsFromTable(obj,modelGenes)
             conversionTable = fullfile(obj.params.path,'data','uniprotConversion.tsv');
             if exist(conversionTable,'file')

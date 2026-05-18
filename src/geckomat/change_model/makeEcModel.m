@@ -138,8 +138,9 @@ if any(conflictId)
            'or ''prot_pool'', or end with ''_REV'' or ''_EXP_[digit]''.'])
 end
 
-uniprotDB = loadDatabases('both', modelAdapter);
-uniprotDB = uniprotDB.uniprot;
+databases = loadDatabases('both', modelAdapter);
+uniprotDB = databases.uniprot;
+keggDB    = databases.kegg;
 
 %1: Remove gene rules from pseudoreactions (if any):
 if exist(fullfile(params.path,'data','pseudoRxns.tsv'),'file')
@@ -246,7 +247,7 @@ else
     ec.concs     = emptyVect;
 end
     
-%7: Gather enzyme information via UniprotDB
+%7: Gather enzyme information via UniprotDB (with optional KEGG fallback)
 uniprotCompatibleGenes = modelAdapter.getUniprotCompatibleGenes(model.genes);
 [Lia,Locb] = ismember(uniprotCompatibleGenes,uniprotDB.genes);
 
@@ -255,23 +256,81 @@ if ~isequal(uniprot,uniprotCompatibleGenes)
     uniprot(cellfun(@isempty,uniprot)) = {''};
     [Lia,Locb] = ismember(uniprot,uniprotDB.ID);
 end
-noUniprot  = uniprotCompatibleGenes(~Lia);
-if all(~Lia)
-    error('None of the proteins in uniprot.tsv match the genes in the model. Changes to the obj.params.uniprot parameters, or a data/uniprotConversion.tsv file are likely required.')
+
+%KEGG fallback for genes UniProt could not match.
+keggMatched = false(numel(model.genes),1);
+keggIdx     = zeros(numel(model.genes),1);
+if ~isempty(keggDB) && any(~Lia)
+    notLia              = find(~Lia);
+    keggCompatibleGenes = modelAdapter.getKeggCompatibleGenes(model.genes(notLia));
+    [keggHit, kLocb]    = ismember(keggCompatibleGenes,keggDB.genes);
+    keggMatched(notLia(keggHit)) = true;
+    keggIdx(notLia(keggHit))     = kLocb(keggHit);
+end
+
+%noUniprot is now: gene unmatched in both UniProt and KEGG.
+noUniprot = uniprotCompatibleGenes(~Lia & ~keggMatched);
+if all(~Lia & ~keggMatched)
+    error('None of the proteins in uniprot.tsv or kegg.tsv match the genes in the model. Changes to the obj.params.uniprot / obj.params.kegg parameters, or a data/uniprotConversion.tsv file are likely required.')
 elseif ~isempty(noUniprot)
     printOrange(['WARNING: The ' num2str(numel(noUniprot)) ' gene(s) reported '...
-        'in "noUniprot" cannot be found in data/uniprot.tsv, these will ' ...
+        'in "noUniprot" cannot be found in data/uniprot.tsv or data/kegg.tsv, these will ' ...
         'not be enzyme-constrained. If you intend to use different Uniprot '...
         'data (e.g. from a different proteome, make sure you first delete '...
         'the existing data/uniprot.tsv file.\n']);
 end
-%Sort alphabetically so ec.genes has a stable order across runs.
-[ec.genes,sIdx] = sort(model.genes(Lia));
-LocbSorted      = Locb(Lia);
-LocbSorted      = LocbSorted(sIdx);
-ec.enzymes      = uniprotDB.ID(LocbSorted);
-ec.mw           = uniprotDB.MW(LocbSorted);
-ec.sequence     = uniprotDB.seq(LocbSorted);
+
+%Build the per-gene enzyme/MW/sequence arrays in two passes:
+%(a) UniProt-matched, (b) KEGG-fallback-matched. Then concatenate and
+%sort alphabetically so ec.genes has a stable order across runs.
+ecGenesUni    = model.genes(Lia);
+LocbUni       = Locb(Lia);
+enzUni        = uniprotDB.ID(LocbUni);
+mwUni         = uniprotDB.MW(LocbUni);
+seqUni        = uniprotDB.seq(LocbUni);
+
+ecGenesKegg   = model.genes(keggMatched);
+LocbKegg      = keggIdx(keggMatched);
+if isempty(LocbKegg)
+    enzKegg = {};
+    mwKegg  = [];
+    seqKegg = {};
+else
+    %ec.enzymes gets the UniProt accession stored on the KEGG row; if
+    %that is empty, fall back to the bare KEGG gene id.
+    enzKegg = keggDB.uniprot(LocbKegg);
+    keggFallback = cellfun(@isempty,enzKegg);
+    enzKegg(keggFallback) = keggDB.keggGene(LocbKegg(keggFallback));
+    mwKegg  = keggDB.MW(LocbKegg);
+    seqKegg = keggDB.seq(LocbKegg);
+    if any(keggFallback)
+        fallbackGenes = ecGenesKegg(keggFallback);
+        fallbackIDs   = enzKegg(keggFallback);
+        previewN = min(numel(fallbackGenes),10);
+        previewParts = cell(1,previewN);
+        for ii = 1:previewN
+            previewParts{ii} = [fallbackGenes{ii} '->' fallbackIDs{ii}];
+        end
+        more = '';
+        if numel(fallbackGenes) > 10
+            more = [' (and ' num2str(numel(fallbackGenes)-10) ' more)'];
+        end
+        printOrange(['WARNING: ' num2str(numel(fallbackGenes)) ...
+            ' KEGG-resolved gene(s) had no UniProt accession on the KEGG '...
+            'row; the bare KEGG gene id is used in ec.enzymes instead: '...
+            strjoin(previewParts,', ') more '\n']);
+    end
+end
+
+allGenes   = [ecGenesUni; ecGenesKegg];
+allEnzymes = [enzUni; enzKegg];
+allMW      = [mwUni; mwKegg];
+allSeq     = [seqUni; seqKegg];
+
+[ec.genes,sIdx] = sort(allGenes);
+ec.enzymes      = allEnzymes(sIdx);
+ec.mw           = allMW(sIdx);
+ec.sequence     = allSeq(sIdx);
 %Additional info
 ec.concs        = nan(numel(ec.genes),1); % To be filled with proteomics data when available
 
