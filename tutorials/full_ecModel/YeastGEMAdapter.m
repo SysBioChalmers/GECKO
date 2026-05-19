@@ -42,32 +42,40 @@ classdef YeastGEMAdapter < ModelAdapter
 
             %% Hyperparameters for Bayesian kcat fitting
             % Default initial uncertainty (standard deviation in log-space) for kcat values
-            obj.params.bayesian.sigma0logDefault    = 0.5;
+            obj.params.bayesian.sigma0logDefault    = 0.3;
             % Data sources for kcat values, ordered from least to most trusted
             obj.params.bayesian.kcatSources         = {'dlkcat','brenda','custom'};
             % Initial uncertainty for each source (lower = more trusted data)
             obj.params.bayesian.sigma0logSource     = [0.4; 0.2; 0.1];
 
             % Default shrinkage threshold: standard deviations required for full posterior update
-            obj.params.bayesian.shrinkThrDefault    = 1.5;
+            obj.params.bayesian.shrinkThrDefault    = 3;
             % Source-specific shrinkage thresholds (higher = more resistant to change)
-            obj.params.bayesian.shrinkThrSource     = [1.5, 3.5, 5.5];
+            obj.params.bayesian.shrinkThrSource     = [5, 10, 12];
             % Default maximum posterior/prior variance ratio (prevents runaway uncertainty)
-            obj.params.bayesian.varianceCapDefault  = 10;
+            obj.params.bayesian.varianceCapDefault  = 1.5;
             % Source-specific variance caps (tighter for more trusted sources)
-            obj.params.bayesian.varianceCapSource   = [10,4,2];
+            obj.params.bayesian.varianceCapSource   = [1.5,1.1,1.05];
 
             % Default threshold below which kcat is locked to prior (-1 = never lock)
-            obj.params.bayesian.forcePriorThrDefault = -1;
+            obj.params.bayesian.forcePriorThrDefault = 3.5;
             % Source-specific thresholds for locking to prior (higher = easier to lock)
-            obj.params.bayesian.forcePriorThrSource  = [-1, 4, 8];
+            obj.params.bayesian.forcePriorThrSource  = [5.5, 11, 13];
             % Minimum deviation (in σ units) required for parameter update (promotes sparsity)
             obj.params.bayesian.sparsityThreshold   = 0.3;
+
 
             % Generations at which to adjust sampling strategy
             obj.params.bayesian.scheduleGenerations = [1, 2, 9, 15];
             % Number of samples to draw at each scheduled generation (decreases over time)
             obj.params.bayesian.scheduleSamples     = [1000, 800, 600, 400];
+
+            % Generation at which to switch from exploration to refinement
+            obj.params.bayesian.paramTighteningGen = 30;  
+            % Shrinkage threshold multiplier after tightening generation
+            obj.params.bayesian.shrinkThrDefTight = 1.8 * obj.params.bayesian.shrinkThrDefault;  
+            % Force-to-prior threshold multiplier after tightening generation
+            obj.params.bayesian.forcePriorThrDefTight = 1.8 * obj.params.bayesian.forcePriorThrDefault;  
 
             % RMSE percentile threshold for accepting samples (lower = stricter selection)
             obj.params.bayesian.targetAccept        = 10;
@@ -79,11 +87,13 @@ classdef YeastGEMAdapter < ModelAdapter
             % Stop optimization when RMSE falls below this threshold
             obj.params.bayesian.rmseThreshold       = 0.2;
             % Maximum number of ABC-SMC generations before termination
-            obj.params.bayesian.maxGenerations      = 150;
-            % Post-optimization pruning
-            obj.params.bayesian.enablePruning       = true; % Enable post-hoc sensitivity analysis
-            obj.params.bayesian.prunRMSEtol         = 0.02; % Max acceptable RMSE increase (e.g., 2%)
-            obj.params.bayesian.prunMinDev          = 1.0;  % Only test params that moved >1σ from prior
+            obj.params.bayesian.maxGenerations      = 50;
+            % Maximum number of generations without RMSE improvement
+            obj.params.bayesian.maxRMSEplateau      = 10;
+
+            % Relative weight for max growth RMSE (flux data weight = 1)
+            obj.params.bayesian.maxGrowthWeight     = 2;     
+            
    end
 
         function ecModel = makeModelAnaerobic(obj,ecModel)

@@ -130,6 +130,7 @@ maxKeep             = params.bayesian.maxKeep;             % Max fraction of sam
 % STOPPING CRITERIA
 rmseThreshold       = params.bayesian.rmseThreshold;       % Target RMSE to achieve
 maxGenerations      = params.bayesian.maxGenerations;      % Hard limit on generations
+maxRMSEplateau      = params.bayesian.maxRMSEplateau;      % Maximum generations without RMSE improvement
 
 % FIXED ALGORITHM PARAMETERS (rarely changed)
 alpha           = 0.65;        % Exploit vs explore mixture weight (higher = more exploitation)
@@ -219,7 +220,7 @@ eigVals = []; U = [];        % No low-rank information for generation 1
 %  Each generation narrows the discrepancy threshold (epsilon), focusing the
 %  posterior while simultaneously adapting the proposal to match the shape
 %  of accepted samples (low-rank covariance structure).
-generation = 1;
+generation = 1; plateauCount = 0;
 while rmse > rmseThreshold
     if generation <= maxGenerations
         fprintf('Running iteration %d of %d. ', generation, maxGenerations)
@@ -262,8 +263,23 @@ while rmse > rmseThreshold
             parents = kcatTop(:, parent_idx);
             randomKcats = proposeLowRankMixture(parents, U, eigVals, ...
                 sigmaProp_log, sigma0log, tauResidual, alpha, cExpl);
-        end
 
+            % Truncate by realistic bounds
+            % 1e-2 = restriction endonucleases / 4e7 = catalase
+
+            for i = 1:size(randomKcats, 1)  % Loop over parameters (rows)
+                prior_kcat = ecModel.ec.kcat(i);
+
+                if prior_kcat > 1e4
+                    % Prior is already exceptional (e.g., catalase at 4e7)
+                    % Allow it to stay exceptional
+                    randomKcats(i, :) = max(min(randomKcats(i, :), 1e8), prior_kcat / 100);
+                else
+                    % Prior is typical - use conservative bound
+                    randomKcats(i, :) = max(min(randomKcats(i, :), 1e4), 1e-2);
+                end
+            end
+        end
         % Guarantee positivity (log-space sampling can underflow)
         if any(randomKcats <= 0, 'all')
             warning('randomKcats contains non-positive values after sampling; enforcing floor.')
@@ -374,6 +390,23 @@ while rmse > rmseThreshold
         rmseTrace = [rmseTrace, bestRMSE];
         kcatTrace = [kcatTrace, kcats];
         sigmaLogTrace  = [sigmaLogTrace,  kcatSigmaLog];
+
+        if generation >= 2
+            improvement = abs(rmseTrace(end) - rmseTrace(end-1)) / rmseTrace(end-1);
+            if improvement < 0.01
+                plateauCount = plateauCount + 1;
+            else
+                plateauCount = 0;
+            end
+
+            if plateauCount >= maxRMSEplateau
+                fprintf('├─────────────────────────────────────────────────────────────────────────────\n');
+                fprintf('│ EARLY STOP: RMSE converged (plateau for %d generations)\n', plateauCount);
+                fprintf('│ Final generation: %d │ Final RMSE: %.2f\n', generation, rmseTrace(end));
+                fprintf('└─────────────────────────────────────────────────────────────────────────────\n');
+                break;  % Exit the while loop
+            end
+        end
 
         % Use best accepted sample as center point for next generation
         tmpModel.ec.kcat = kcatTop(:, bestIdx);
@@ -562,10 +595,6 @@ if nX > 0, steps(:, ~useExploit) = steps_explore; end
 parents_pos = max(parents, realmin);         % ensure strictly positive
 proposals   = exp(log(parents_pos) + steps); % apply additive step in log-space
 proposals   = max(proposals, realmin);       % clamp against underflow to 0
-
-% Truncate by realistic bounds
-% 1e-2 = restriction endonucleases / 4e7 = catalase
-proposals = max(min(proposals, 1e8), 1e-3);
 end
 
 function [U, eigVals, sigmaProp_log] = buildLowRankLogProposal( ...
