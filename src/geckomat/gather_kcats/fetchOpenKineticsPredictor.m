@@ -1,9 +1,13 @@
-function [done, kcatList] = fetchOpenKineticsPredictor(model, useStored, modelAdapter, jobId, wait, pollInterval)
+function [done, kcatList] = fetchOpenKineticsPredictor(model, useStored, jobId, wait, pollInterval, modelAdapter)
 % fetchOpenKineticsPredictor
 %   Checks the status of an OpenKineticsPredictor job and, when it has
 %   finished, downloads the result to data/OKP_output.csv and parses it
 %   into a kcatList (consumable by selectKcatValue). Replaces the manual
 %   download + readOpenKineticsPredictorOutput step.
+%
+%   The API key (only needed when useStored=false) is resolved from the
+%   OKP_API_KEY environment variable or data/okpApiKey.txt; see
+%   submitOpenKineticsPredictor for how to obtain and store a key.
 %
 % Input:
 %   model           ecModel in GECKO 3 format (with ecModel.ec structure;
@@ -11,13 +15,13 @@ function [done, kcatList] = fetchOpenKineticsPredictor(model, useStored, modelAd
 %   useStored       logical (Optional, default false). If true, skip the
 %                   API entirely and parse the already-downloaded
 %                   data/OKP_output.csv. If false, query the API.
-%   modelAdapter    loaded model adapter (Optional, uses default if empty)
 %   jobId           OKP job id (Optional). If empty, read from
 %                   data/OKP_job.txt (written by submitOpenKineticsPredictor).
 %   wait            logical (Optional, default false). If true, poll until
 %                   the job finishes; if false, report once and return.
 %   pollInterval    seconds between polls when wait=true (Optional,
 %                   default 30).
+%   modelAdapter    loaded model adapter (Optional, uses default if empty)
 %
 % Output:
 %   done            logical, true if a result was obtained (downloaded or
@@ -30,20 +34,20 @@ function [done, kcatList] = fetchOpenKineticsPredictor(model, useStored, modelAd
 %                   source (the most frequent of those, as a scalar label)
 %
 % Usage:
-%   [done, kcatList] = fetchOpenKineticsPredictor(model);            % check once
-%   [done, kcatList] = fetchOpenKineticsPredictor(model, false, [], [], true); % poll
-%   [done, kcatList] = fetchOpenKineticsPredictor(model, true);      % parse stored file
+%   [done, kcatList] = fetchOpenKineticsPredictor(model);                  % check once
+%   [done, kcatList] = fetchOpenKineticsPredictor(model, false, [], true); % poll
+%   [done, kcatList] = fetchOpenKineticsPredictor(model, true);            % parse stored file
 
 if nargin < 2 || isempty(useStored); useStored = false; end
-if nargin < 3 || isempty(modelAdapter)
+if nargin < 6 || isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefault();
     if isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
     end
 end
 params  = modelAdapter.params;
-if nargin < 5 || isempty(wait); wait = false; end
-if nargin < 6 || isempty(pollInterval); pollInterval = 30; end
+if nargin < 4 || isempty(wait); wait = false; end
+if nargin < 5 || isempty(pollInterval); pollInterval = 30; end
 
 outFile = fullfile(params.path,'data','OKP_output.csv');
 
@@ -60,7 +64,7 @@ end
 %% API mode
 apiKey = resolveOkpApiKey('', params.path);
 
-if nargin < 4 || isempty(jobId)
+if nargin < 3 || isempty(jobId)
     jobId = readJobIdFromMeta(fullfile(params.path,'data','OKP_job.txt'));
 end
 

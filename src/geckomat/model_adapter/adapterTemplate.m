@@ -77,8 +77,6 @@ classdef KEY_CLASSNAME < ModelAdapter
             % Predictor method. One of: CataPro, CatPred, DLKcat, EITLEM,
             % KinForm-H, KinForm-L, UniKP (see GET /api/v1/methods/).
             obj.params.okp.method                   = 'CataPro';
-            % Kinetic parameter(s) to predict. geckopy/GECKO use kcat.
-            obj.params.okp.targets                  = {'kcat'};
             % How to handle sequences exceeding a method's max length.
             obj.params.okp.handleLongSequences      = 'truncate';
             % Append per-row similarity-to-training-data columns to output.

@@ -1,44 +1,56 @@
-function jobId = submitOpenKineticsPredictor(model, ecRxns, modelAdapter, method, apiKey, overwrite)
+function jobId = submitOpenKineticsPredictor(model, overwrite, apiKey, method, ecRxns, modelAdapter)
 % submitOpenKineticsPredictor
 %   Builds the OpenKineticsPredictor input (protein sequences + single-
-%   substrate SMILES) and submits a prediction job directly to the OKP
-%   REST API (https://predictor.openkinetics.org/), replacing the manual
-%   upload step. The returned job id is also stored in data/OKP_job.txt,
-%   so fetchOpenKineticsPredictor can pick it up later.
+%   substrate SMILES) and submits a kcat prediction job directly to the
+%   OKP REST API (https://predictor.openkinetics.org/), replacing the
+%   manual upload step. The returned job id is also stored in
+%   data/OKP_job.txt, so fetchOpenKineticsPredictor can pick it up later.
 %
 %   Predictors available via OKP: CataPro, CatPred, DLKcat, EITLEM,
 %   KinForm-H, KinForm-L, UniKP (see GET /api/v1/methods/).
 %
+% Obtaining an API key:
+%   The OKP API requires a personal Bearer key (looks like 'ak_...').
+%   Keys are free and need no registration:
+%     1. Open https://predictor.openkinetics.org/api-docs in a browser.
+%     2. In the "API key generator" section, click "Generate".
+%     3. Copy the key shown (it is displayed only once). If you lose it,
+%        revoke it on the same page and generate a new one.
+%   Keys are tied to your IP and carry a daily prediction quota that
+%   resets at midnight UTC.
+%
+%   The key is a secret; do NOT put it in the model adapter (which is
+%   shared/committed). Provide it in one of three ways, checked in this
+%   order:
+%     1. the apiKey input argument to this function, or
+%     2. the OKP_API_KEY environment variable (setenv('OKP_API_KEY',...)),
+%        or
+%     3. a plain-text file data/okpApiKey.txt in the model's data folder
+%        (this name is git-ignored by GECKO).
+%
 % Input:
 %   model           ecModel in GECKO 3 format (with ecModel.ec structure)
+%   overwrite       logical, rebuild data/OKP.csv even if it exists
+%                   (Optional, default: false; an existing file is reused).
+%   apiKey          OKP API key (Optional). If omitted/empty, resolved
+%                   from OKP_API_KEY or data/okpApiKey.txt (see above).
+%   method          predictor to use (Optional). Resolved as: this arg ->
+%                   params.okp.method -> 'CataPro'.
 %   ecRxns          logical vector indicating which reactions to include
 %                   (Optional, default: all reactions)
 %   modelAdapter    loaded model adapter (Optional, uses default if empty)
-%   method          predictor to use (Optional). Resolved as: this arg ->
-%                   params.okp.method -> 'CataPro'.
-%   apiKey          OKP API key (Optional). Resolved as: this arg ->
-%                   environment variable OKP_API_KEY -> data/okpApiKey.txt.
-%                   Generate a key at https://predictor.openkinetics.org/.
-%   overwrite       logical, rebuild data/OKP.csv even if it exists
-%                   (Optional, default: false; an existing file is reused).
 %
 % Output:
 %   jobId           the OKP job identifier (also written to data/OKP_job.txt)
 %
 % Usage:
 %   jobId = submitOpenKineticsPredictor(model);
-%   jobId = submitOpenKineticsPredictor(model, ecRxns, modelAdapter, 'DLKcat');
+%   jobId = submitOpenKineticsPredictor(model, true, 'ak_...', 'DLKcat');
 
 [geckoPath, ~] = findGECKOroot();
 
 %% Parse inputs
-if nargin<2 || isempty(ecRxns)
-    ecRxns = true(numel(model.ec.rxns),1);
-elseif ~islogical(ecRxns) || numel(ecRxns) ~= numel(model.ec.rxns)
-    error('ecRxns should be a logical vector with length equal to model.ec.rxns')
-end
-
-if nargin < 3 || isempty(modelAdapter)
+if nargin < 6 || isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefault();
     if isempty(modelAdapter)
         error('Either provide a modelAdapter or set the default in ModelAdapterManager.')
@@ -46,8 +58,15 @@ if nargin < 3 || isempty(modelAdapter)
 end
 params = modelAdapter.params;
 
-% Resolve OKP settings: function arg -> params.okp.* -> built-in default
-okp = struct('method','CataPro','targets',{{'kcat'}}, ...
+if nargin < 2 || isempty(overwrite)
+    overwrite = false;
+end
+
+if nargin < 3; apiKey = ''; end
+apiKey = resolveOkpApiKey(apiKey, params.path);
+
+% Resolve predictor method: function arg -> params.okp.method -> default
+okp = struct('method','CataPro', ...
              'handleLongSequences','truncate', ...
              'includeSimilarityColumns',true,'canonicalizeSubstrates',true);
 if isfield(params,'okp')
@@ -58,11 +77,10 @@ if nargin >= 4 && ~isempty(method)
     okp.method = method;
 end
 
-if nargin < 5; apiKey = ''; end
-apiKey = resolveOkpApiKey(apiKey, params.path);
-
-if nargin<6 || isempty(overwrite)
-    overwrite = false;
+if nargin < 5 || isempty(ecRxns)
+    ecRxns = true(numel(model.ec.rxns),1);
+elseif ~islogical(ecRxns) || numel(ecRxns) ~= numel(model.ec.rxns)
+    error('ecRxns should be a logical vector with length equal to model.ec.rxns')
 end
 
 %% Build (or reuse) the input CSV
@@ -74,10 +92,11 @@ else
 end
 
 %% Submit via the OKP REST API
+% GECKO only ever predicts kcat.
 url = 'https://predictor.openkinetics.org/api/v1/submit/';
 
-targetsJson = ['["' strjoin(cellstr(okp.targets),'","') '"]'];
-methodsJson = ['{"' strjoin(cellstr(okp.targets),['":"' okp.method '","']) '":"' okp.method '"}'];
+targetsJson = '["kcat"]';
+methodsJson = ['{"kcat":"' okp.method '"}'];
 
 import matlab.net.http.*
 import matlab.net.http.io.*
@@ -107,7 +126,6 @@ metaFile = fullfile(params.path,'data','OKP_job.txt');
 fID = fopen(metaFile,'w');
 fprintf(fID,'jobId: %s\n', jobId);
 fprintf(fID,'method: %s\n', okp.method);
-fprintf(fID,'targets: %s\n', strjoin(cellstr(okp.targets),','));
 fprintf(fID,'submittedAt: %s\n', char(datetime('now','TimeZone','UTC','Format','yyyy-MM-dd''T''HH:mm:ss''Z''')));
 fclose(fID);
 
