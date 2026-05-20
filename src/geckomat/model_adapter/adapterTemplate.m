@@ -69,6 +69,23 @@ classdef KEY_CLASSNAME < ModelAdapter
             % different compartments). Typically, cytoplasm is chosen.
             obj.params.enzyme_comp = 'cytoplasm';
 
+            %% OpenKineticsPredictor settings (used by submit/fetchOpenKineticsPredictor)
+            % These are optional; the functions fall back to these same
+            % defaults if the okp block is absent. The API key is NOT set
+            % here (it is a secret): provide it as a function argument, the
+            % OKP_API_KEY environment variable, or data/okpApiKey.txt.
+            % Predictor method. One of: CataPro, CatPred, DLKcat, EITLEM,
+            % KinForm-H, KinForm-L, UniKP (see GET /api/v1/methods/).
+            obj.params.okp.method                   = 'CataPro';
+            % Kinetic parameter(s) to predict. geckopy/GECKO use kcat.
+            obj.params.okp.targets                  = {'kcat'};
+            % How to handle sequences exceeding a method's max length.
+            obj.params.okp.handleLongSequences      = 'truncate';
+            % Append per-row similarity-to-training-data columns to output.
+            obj.params.okp.includeSimilarityColumns = true;
+            % Canonicalize substrate SMILES server-side before prediction.
+            obj.params.okp.canonicalizeSubstrates   = true;
+
             %% Hyperparameters for Bayesian kcat fitting
             % Default initial uncertainty (standard deviation in log-space) for kcat values
             obj.params.bayesian.sigma0logDefault    = 0.5;

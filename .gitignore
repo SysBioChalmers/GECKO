@@ -20,6 +20,14 @@ geckopy/geckopy/data_files/*.xml
 # Ignore intermediate model files
 *_stage*.yml
 
+# OpenKineticsPredictor job artifacts and secrets #
+###################################################
+# API key (secret — never commit)
+okpApiKey.txt
+# Per-run job metadata and downloaded results
+OKP_job.txt
+OKP_output.csv
+
 # Packages #
 ############
 # it's better to unpack these files and commit the raw source
