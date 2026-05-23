@@ -143,7 +143,7 @@ rMax            = 150;         % Max rank for low-rank covariance structure
 % Keep track of the kcat source
 kcatSourceIdx = zeros(size(ecModel.ec.kcat));
 for i   = 1:numel(kcatSources)
-    idx = strcmpi(ecModel.ec.source, kcatSources{i});
+    idx = strcmpi(regexprep(ecModel.ec.source, '\s*\(.*$', ''), kcatSources{i});
     kcatSourceIdx(idx) = i;
 end
 uniqKcatParams = find(kcatSourceIdx);
@@ -719,10 +719,10 @@ if mod(generation, 10) == 0
     
     for i = 1:numel(kcatSources)+1
         if i>numel(kcatSources)
-            idx = ~ismember(ecModel.ec.source, kcatSources);
+            idx = ~ismember(regexprep(ecModel.ec.source, '\s*\(.*$', ''), kcatSources);
             sourceName = 'OTHERS';
         else
-            idx = strcmpi(ecModel.ec.source, kcatSources{i});
+            idx = strcmpi(regexprep(ecModel.ec.source, '\s*\(.*$', ''), kcatSources{i});
             sourceName = upper(kcatSources{i});
         end
 
@@ -838,13 +838,13 @@ prunedBySource = zeros(length(kcatSources) + 1, 1);
 keptBySource = zeros(length(kcatSources) + 1, 1);
 
 for i = 1:length(kcatSources)
-    sourceIdx = strcmpi(ecModel.ec.source, kcatSources{i});
+    sourceIdx = strcmpi(regexprep(ecModel.ec.source, '\s*\(.*$', ''), kcatSources{i});
     prunedBySource(i) = sum(canPrune & sourceIdx);
     keptBySource(i) = sum(~canPrune & sourceIdx & deviation > minDeviation);
 end
 
 % "Others" category
-otherIdx = ~ismember(ecModel.ec.source, kcatSources);
+otherIdx = ~ismember(regexprep(ecModel.ec.source, '\s*\(.*$', ''), kcatSources);
 prunedBySource(end) = sum(canPrune & otherIdx);
 keptBySource(end) = sum(~canPrune & otherIdx & deviation > minDeviation);
 

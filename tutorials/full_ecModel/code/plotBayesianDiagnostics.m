@@ -59,7 +59,7 @@ colors = lines(nSources);
 kcatSourceIdx = zeros(size(ecModel.ec.kcat));
 if isfield(ecModel, 'ec') && isfield(ecModel.ec, 'source')
     for i = 1:nSources-1
-        idx = strcmpi(ecModel.ec.source, sourceLabels{i});
+        idx = strcmpi(regexprep(ecModel.ec.source, '\s*\(.*$', ''), sourceLabels{i});
         kcatSourceIdx(idx) = i;
     end
 end

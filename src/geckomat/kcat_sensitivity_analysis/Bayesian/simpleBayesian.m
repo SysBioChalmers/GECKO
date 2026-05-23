@@ -72,7 +72,7 @@ maxRMSEplateau      = params.bayesian.maxRMSEplateau;
 % Get source indices
 kcatSourceIdx = zeros(size(ecModel.ec.kcat));
 for i = 1:numel(kcatSources)
-    idx = strcmpi(ecModel.ec.source, kcatSources{i});
+    idx = strcmpi(regexprep(ecModel.ec.source, '\s*\(.*$', ''), kcatSources{i});
     kcatSourceIdx(idx) = i;
 end
 uniqKcatParams = find(kcatSourceIdx);
@@ -459,10 +459,10 @@ function printGenerationSummary(generation, rmseTrace, ...
         
         for i = 1:numel(kcatSources)+1
             if i > numel(kcatSources)
-                idx = ~ismember(ecModel.ec.source, kcatSources);
+                idx = ~ismember(regexprep(ecModel.ec.source, '\s*\(.*$', ''), kcatSources);
                 sourceName = 'OTHERS';
             else
-                idx = strcmpi(ecModel.ec.source, kcatSources{i});
+                idx = strcmpi(regexprep(ecModel.ec.source, '\s*\(.*$', ''), kcatSources{i});
                 sourceName = upper(kcatSources{i});
             end
 

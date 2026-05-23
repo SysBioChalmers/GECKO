@@ -24,7 +24,14 @@ function [model, rxnIdx] = selectKcatValue(model,kcatList,criteria,overwrite)
 %               default 'true')
 %
 % Output:
-%   model       ecModel with updated model.ec.kcat and model.ec.source
+%   model       ecModel with updated model.ec.kcat and model.ec.source.
+%               model.ec.source is written as a lowercase string whose
+%               first token is the source; for a fuzzy BRENDA match the
+%               bracketed detail records its wildcard level and origin,
+%               e.g. 'brenda (wc=0, origin=1)'. This gives Bayesian
+%               sensitivity tuning a direct read on per-kcat uncertainty.
+%               Code that groups by source should match on the leading
+%               token (strip the ' (...)' suffix).
 %   rxnIdx      list of reaction indices (matching model.ec.rxns), to
 %               indicate which kcat values have been changed.
 % Usage:
@@ -43,10 +50,20 @@ if nargin < 3
     criteria = 'max';
 end
 
-% Remove zero kcat values. Only adjusting fields that are used later.
+% Remove zero kcat values. Keep the per-row provenance fields aligned so
+% the wildcard/origin detail can be attributed to the winning row.
 removeZero                      = kcatList.kcats == 0;
 kcatList.kcats(removeZero)      = [];
 kcatList.rxns(removeZero)       = [];
+if isfield(kcatList,'kcatSource') && numel(kcatList.kcatSource)==numel(removeZero)
+    kcatList.kcatSource(removeZero) = [];
+end
+if isfield(kcatList,'wildcardLvl') && numel(kcatList.wildcardLvl)==numel(removeZero)
+    kcatList.wildcardLvl(removeZero) = [];
+end
+if isfield(kcatList,'origin') && numel(kcatList.origin)==numel(removeZero)
+    kcatList.origin(removeZero) = [];
+end
 
 % Map to model.ec.rxns
 [sanityCheck,idxInModel] = ismember(kcatList.rxns,model.ec.rxns);
@@ -61,6 +78,7 @@ if ~isfield(kcatList,'kcatSource')
     kcatList.kcatSource = cell(numel(kcatList.kcats),1);
     kcatList.kcatSource(:) = {kcatList.source};
 end
+hasMeta = isfield(kcatList,'wildcardLvl') && isfield(kcatList,'origin');
 for i=1:numel(idxInModelUnique)
     ind = idxInModelUnique(i);
     idxMatch = find(idxInModel == ind);
@@ -77,7 +95,13 @@ for i=1:numel(idxInModelUnique)
         otherwise
             error('Invalid criteria specified')
     end
-    selectedSource(i)    = kcatList.kcatSource(idxMatch(j));
+    if hasMeta
+        wcj = kcatList.wildcardLvl(idxMatch(j));
+        orj = kcatList.origin(idxMatch(j));
+    else
+        wcj = NaN; orj = NaN;
+    end
+    selectedSource{i} = formatKcatSource(kcatList.kcatSource{idxMatch(j)}, wcj, orj);
 end
 
 % Populate model.ec.kcat
@@ -102,4 +126,20 @@ switch overwrite
         error('Invalid overwrite flag specified')
 end
 rxnIdx = idxInModelUnique;
+end
+
+% ------------------------------------------------------------------------- %
+function s = formatKcatSource(rawSource, wildcardLvl, origin)
+% Build the provenance string written to model.ec.source: a lowercase
+% source token plus, for a fuzzy BRENDA match, its wildcard/origin detail.
+token = lower(strtrim(char(rawSource)));
+token = regexprep(token, '[^0-9a-z]+', '_');
+token = regexprep(token, '^_+|_+$', '');
+if ~isnan(wildcardLvl) && ~isnan(origin)
+    s = sprintf('%s (wc=%d, origin=%d)', token, wildcardLvl, origin);
+elseif ~isnan(wildcardLvl)
+    s = sprintf('%s (wc=%d)', token, wildcardLvl);
+else
+    s = token;
+end
 end
