@@ -4,9 +4,8 @@ function databases = loadDatabases(selectDatabase,modelAdapter)
 %   UniProt databases that are required to extract protein information. The
 %   uniprot.ID and kegg.ID are taken from the ModelAdapter.
 %
-%   Downloads, when triggered, are dispatched to the standalone helpers
-%   downloadKEGG.m and downloadUniProt.m so the same logic is reusable
-%   without going through this loader.
+%   Downloads, when triggered, are dispatched to the helpers
+%   downloadKEGG.m and downloadUniProt.m.
 %
 % Input:
 %   selectDatabase  which databases should be loaded, either 'uniprot',

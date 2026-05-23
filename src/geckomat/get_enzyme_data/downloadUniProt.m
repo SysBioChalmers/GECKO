@@ -5,8 +5,7 @@ function downloadUniProt(uniprotID, filePath, idType, geneIDfield, reviewed)
 %   loadDatabases.m:
 %       Entry, <geneIDfield>, EC number, Mass, Sequence
 %
-%   Extracted from loadDatabases.m so the download step is callable
-%   directly (parallels downloadKEGG).
+%   Can be called directly to refresh uniprot.tsv, or via loadDatabases.m.
 %
 % Input:
 %   uniprotID    UniProt query identifier (e.g. NCBI taxonomy id 559292

@@ -73,8 +73,8 @@ for i=1:100
 end
 [~, minIndx] = min(errors);
 sigma     = sigParam(minIndx);
-%The loop mutated model in-place with the last tested sigma (=1.00); re-
-%apply the optimal one so the returned ecModel matches the docstring.
+%The loop leaves the model constrained with the last tested sigma (=1.00),
+%so re-apply the optimal sigma before returning the ecModel.
 model     = setProtPoolSize(model, Ptot, f, sigma, modelAdapter);
 if makePlot
     figure

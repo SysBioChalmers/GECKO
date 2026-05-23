@@ -15,7 +15,7 @@ MW_file        = fullfile(basePath,'max_mw.tsv');
 
 %Extract BRENDA DATA from files information
 KCATcell       = openDataFile(KCAT_file,1);
-scalingFactor = 1/60;    %[umol/min/mg] -> [mmol/s/g]    Old: 60 [umol/min/mg] -> [mmol/h/g]
+scalingFactor = 1/60;    %[umol/min/mg] -> [mmol/s/g]
 SA            = openDataFile(SA_file,scalingFactor);
 scalingFactor = 1/1000;  %[g/mol] -> [g/mmol]
 MW            = openDataFile(MW_file,scalingFactor);

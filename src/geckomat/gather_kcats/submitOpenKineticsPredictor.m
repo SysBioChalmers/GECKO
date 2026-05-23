@@ -1,10 +1,10 @@
 function jobId = submitOpenKineticsPredictor(model, overwrite, apiKey, method, ecRxns, modelAdapter)
 % submitOpenKineticsPredictor
 %   Builds the OpenKineticsPredictor input (protein sequences + single-
-%   substrate SMILES) and submits a kcat prediction job directly to the
-%   OKP REST API (https://predictor.openkinetics.org/), replacing the
-%   manual upload step. The returned job id is also stored in
-%   data/OKP_job.txt, so fetchOpenKineticsPredictor can pick it up later.
+%   substrate SMILES) and submits a kcat prediction job to the
+%   OKP REST API (https://predictor.openkinetics.org/). The returned job
+%   id is also stored in data/OKP_job.txt, so fetchOpenKineticsPredictor
+%   can pick it up later.
 %
 %   Predictors available via OKP: CataPro, CatPred, DLKcat, EITLEM,
 %   KinForm-H, KinForm-L, UniKP (see GET /api/v1/methods/).
@@ -137,7 +137,6 @@ end
 function buildOkpInput(model, ecRxns, params, geckoPath, filename)
 % Build data/OKP.csv with header 'Protein Sequence,Substrate', one row
 % per (enzyme sequence, substrate SMILES) pair for the selected reactions.
-% (Former writeOpenKineticsPredictorInput logic.)
 
 if model.ec.geckoLight
    origRxns = extractAfter(model.ec.rxns, 4);

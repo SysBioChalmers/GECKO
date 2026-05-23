@@ -5,9 +5,7 @@ function downloadKEGG(keggID, filePath, keggGeneID)
 %   schema consumed by loadDatabases.m:
 %       uniprot, gene_name, kegg_gene, ec, mw, pathway, sequence
 %
-%   Extracted from loadDatabases.m (was a local function); now also
-%   callable directly to refresh kegg.tsv without going through
-%   loadDatabases.
+%   Can be called directly to refresh kegg.tsv, or via loadDatabases.m.
 %
 % Input:
 %   keggID       KEGG organism code (e.g. 'sce')

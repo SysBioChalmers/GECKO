@@ -2,8 +2,7 @@ function [done, kcatList] = fetchOpenKineticsPredictor(model, useStored, jobId, 
 % fetchOpenKineticsPredictor
 %   Checks the status of an OpenKineticsPredictor job and, when it has
 %   finished, downloads the result to data/OKP_output.csv and parses it
-%   into a kcatList (consumable by selectKcatValue). Replaces the manual
-%   download + readOpenKineticsPredictorOutput step.
+%   into a kcatList (consumable by selectKcatValue).
 %
 %   The API key (only needed when useStored=false) is resolved from the
 %   OKP_API_KEY environment variable or data/okpApiKey.txt; see
@@ -133,8 +132,7 @@ end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function kcatList = parseOkpOutput(model, outFile)
-% Parse the OKP result CSV into a kcatList. (Former
-% readOpenKineticsPredictorOutput logic.) Result columns:
+% Parse the OKP result CSV into a kcatList. Result columns:
 % kcat (1/s), Source kcat, Extra Info kcat, Protein Sequence, Substrate
 % [, mean/max similarity ...]. Only columns 1,2,4,5 are used.
 
@@ -243,7 +241,7 @@ kcatSource = regexprep(sourceOut, '^Prediction from\s+', '');
 
 % Scalar source label: the most frequent provenance among the entries
 % (e.g. 'CataPro' for a typical run). selectKcatValue only uses this as a
-% fallback when kcatSource is absent, which it is not here.
+% fallback when the per-entry kcatSource is absent.
 uniqueSources = unique(kcatSource);
 srcCounts     = cellfun(@(s) sum(strcmp(kcatSource, s)), uniqueSources);
 [~, mostIdx]  = max(srcCounts);

@@ -118,9 +118,8 @@ end
 kcats = zeros(length(eccodes),1);
 mM = length(eccodes);
 
-%Create empty kcatInfo
-%Legacy, no longer given as output, rather used to construct
-%kcatList.wildcardLvl and kcatList.origin.
+%Create empty kcatInfo. This is an internal accumulator used to construct
+%kcatList.wildcardLvl and kcatList.origin; it is not returned.
 kcatInfo.info.org_s   = zeros(mM,1);
 kcatInfo.info.rest_s  = zeros(mM,1);
 kcatInfo.info.org_ns  = zeros(mM,1);

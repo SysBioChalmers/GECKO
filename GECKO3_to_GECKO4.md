@@ -11,10 +11,9 @@ affect your code or results are listed first.
 GECKO 4 reads GECKO 3 ecModels. You do not need to convert anything by
 hand:
 
-- **YAML.** RAVEN's `readYAMLmodel` still reads the old
-  `---` / `!!omap` files. `writeYAMLmodel` now emits the new canonical
-  format (see below), so **loading an old model and saving it upgrades
-  it automatically**.
+- **YAML.** RAVEN's `readYAMLmodel` still reads GECKO 3 YAML files.
+  `writeYAMLmodel` writes the current format (see below), so **loading
+  an old model and saving it upgrades it automatically**.
 - **Protein direction.** `loadEcModel` detects the old reverse-direction
   protein reactions and flips them to the new forward convention on load
   (`flipLegacyProtDirection`). Saving then writes them in the forward
@@ -120,11 +119,10 @@ struct differs from GECKO 3.
 
 ## YAML format details
 
-GECKO 4 / RAVEN write the canonical, cobrapy-compatible YAML: a flat
-mapping (no outer `---` sequence, no `!!omap` tags) with the
-GECKO-specific data under top-level keys. RAVEN still reads the old
-format, so nothing breaks. The benefit: ecModels now exchange directly
-between GECKO 4 (MATLAB) and geckopy (Python) with no conversion step.
+GECKO 4 / RAVEN write cobrapy-compatible YAML, with the GECKO-specific
+data under extra top-level keys that cobrapy ignores. GECKO 3 YAML
+files still load. The benefit: ecModels now exchange directly between
+GECKO 4 (MATLAB) and geckopy (Python) with no conversion step.
 
 ## Moving to Python?
 
