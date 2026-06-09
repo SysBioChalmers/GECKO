@@ -1,17 +1,22 @@
 function startGECKOproject(name, path)
-% startGECKOproject
-%   Function that create a basic project structure for GECKO. If a project
-%   with the same name exits, the project will not be created
+% startGECKOproject  Create a basic project structure for GECKO.
 %
-% Input:
-%   name               an name for the folder struture used in GECKO. Also
-%                      creates a basic adapter class, which must be manually
-%                      adjusted. If not defined, a dialog box will appear.
-%   path               a path where to create the folder. If not defined, a
-%                      dialog box will appear.
+% Creates a basic project structure for GECKO. If a project with the same
+% name exists, the project will not be created.
 %
-% Usage:
-%   startGECKOproject(name, path)
+% Parameters
+% ----------
+% name : char, optional
+%     a name for the folder structure used in GECKO. Also creates a basic
+%     adapter class, which must be manually adjusted. If not defined, a
+%     dialog box will appear.
+% path : char, optional
+%     a path where to create the folder. If not defined, a dialog box will
+%     appear.
+%
+% Examples
+% --------
+%     startGECKOproject(name, path);
 
 if nargin < 1 || isempty(name)
     prompt = {'Please provide a project name (e.g. ecYeastGEM)'};

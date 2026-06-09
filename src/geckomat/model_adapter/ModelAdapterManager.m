@@ -1,4 +1,17 @@
-%Abstract Base class for adapters for different species
+% ModelAdapterManager  Resolve and cache the active ModelAdapter.
+%
+% Static helper class that loads a model adapter from a file path and
+% stores a process-wide default adapter, so that GECKO functions can
+% retrieve the active adapter without it being passed explicitly.
+%
+% Notes
+% -----
+% All methods are static. The default adapter is held in a persistent
+% variable and shared across the whole GECKO session.
+%
+% See also
+% --------
+% ModelAdapter
 classdef ModelAdapterManager 
 	methods(Static)
         function adapter = getAdapter(adapterPath, addToMatlabPath)

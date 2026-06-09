@@ -1,30 +1,41 @@
 function writtenTable = writeDLKcatInput(model, ecRxns, modelAdapter, onlyWithSmiles, filename, overwrite)
-% writeDLKcatInput
-%   Prepares the input for DLKcat, and writes it to data/DLKcat.tsv
-%   in the obj.params.path specified in the ModelAdapter.
+% writeDLKcatInput  Prepare and write the input file for DLKcat.
 %
-% Input:
-%   model           an ecModel in GECKO 3 format (with ecModel.ec structure)
-%   ecRxns          for which reactions (from model.ec.rxns) DLKcat should
-%                   predict kcat values, provided as logical vector with
-%                   same length as model.ec.rxns. (Opt, default is all
-%                   reactions)
-%   modelAdapter    a loaded model adapter (Optional, will otherwise use the
-%                   default model adapter).
-%   onlyWithSmiles  logical whether to only include metabolites with SMILES
-%                   (optional, default true)
-%   filename        path to the input file, including the filename and .tsv
-%                   extension (Optional, default is data/DLKcat.tsv from
-%                   the obj.params.path folder specified in the modelAdapter)
-%   overwrite       logical whether existing file should be overwritten.
-%                   (Optional, default false, to prevent overwriting file
-%                   that already contains DLKcat-predicted kcat values).
+% Prepares the input for DLKcat, and writes it to data/DLKcat.tsv in the
+% obj.params.path specified in the ModelAdapter.
 %
-% Output:
-%   writtenTable    The table written, mainly to be used for testing purposes.
+% Parameters
+% ----------
+% model : struct
+%     an ecModel in GECKO 3 format (with ecModel.ec structure).
+% ecRxns : logical, optional
+%     for which reactions (from model.ec.rxns) DLKcat should predict kcat
+%     values, provided as logical vector with same length as model.ec.rxns
+%     (default: all reactions).
+% modelAdapter : ModelAdapter, optional
+%     a loaded model adapter (default: the current default model adapter).
+% onlyWithSmiles : logical, optional
+%     whether to only include metabolites with SMILES (default true).
+% filename : char, optional
+%     path to the input file, including the filename and .tsv extension
+%     (default: data/DLKcat.tsv from the obj.params.path folder specified in
+%     the modelAdapter).
+% overwrite : logical, optional
+%     whether existing file should be overwritten (default false, to prevent
+%     overwriting a file that already contains DLKcat-predicted kcat values).
 %
-% Usage:
-%   writtenTable = writeDLKcatInput(model, ecRxns, modelAdapter, onlyWithSmiles, filename, overwrite)
+% Returns
+% -------
+% writtenTable : cell
+%     the table written, mainly to be used for testing purposes.
+%
+% Examples
+% --------
+%     writtenTable = writeDLKcatInput(model, ecRxns, modelAdapter, onlyWithSmiles, filename, overwrite);
+%
+% See also
+% --------
+% runDLKcat, readDLKcatOutput
 
 [geckoPath, ~] = findGECKOroot();
 

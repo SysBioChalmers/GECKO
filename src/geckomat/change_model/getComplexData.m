@@ -1,35 +1,46 @@
 function complexInfo = getComplexData(taxonomicID, modelAdapter)
-% getComplexData
-%   Download curated complex stochiometries from the EMBL-EBI Complex
-%   Portal database. Writes data/ComplexPortal.json in the obj.params.path
-%   specified in the model adapter.
+% getComplexData  Download curated complex stochiometries from Complex Portal.
 %
-% Input:
-%   taxonomicID     taxonomic identifier for which complex data should be
-%                   downloaded. Only taxonomic identifiers allowed are
-%                   those included on Complex Portal:
-%                   https://www.ebi.ac.uk/complexportal/complex/organisms
-%                   If empty, no complex data is downloaded, if 0 (zero),
-%                   complex data from all organisms in Complex Portal is
-%                   downloaded.
-%   modelAdapter    a loaded model adapter (Optional, will otherwise use the
-%                   default model adapter).
-% Output:
-%   complexInfo     structure with data downloaded from Complex Portal.
-%                   Contains the following fields:
-%                   - complexID: id of the complex on Complex Portal
-%                   - name: name of the complex on Complex Portal
-%                   - species: organism containing the complex
-%                   - geneName: names of the genes in the complex
-%                   - protID: Uniprot IDs of the proteins in the complex
-%                   - stochiometry: the complex stochiometry given in the same
-%                     order as the genes and proteins in geneName and protID
-%                   - defined:  0 if Complex Portal has no defined stochiometry
-%                               1 if defined subunit stochiometry is given
-%                               2 if complex consists of sub-complexes, whose
-%                                 subunit stochiometries are given
-% Usage
-%   complexInfo = getComplexData(organism, modelAdapter);
+% Downloads curated complex stochiometries from the EMBL-EBI Complex Portal
+% database. Writes data/ComplexPortal.json in the obj.params.path specified
+% in the model adapter.
+%
+% Parameters
+% ----------
+% taxonomicID : double
+%     taxonomic identifier for which complex data should be downloaded. Only
+%     taxonomic identifiers allowed are those included on Complex Portal:
+%     https://www.ebi.ac.uk/complexportal/complex/organisms. If empty, no
+%     complex data is downloaded; if 0 (zero), complex data from all
+%     organisms in Complex Portal is downloaded.
+% modelAdapter : ModelAdapter, optional
+%     a loaded model adapter (default: the current default model adapter).
+%
+% Returns
+% -------
+% complexInfo : struct
+%     structure with data downloaded from Complex Portal (fields described
+%     under Notes).
+%
+% Notes
+% -----
+% The complexInfo structure has the following fields:
+%
+% - complexID : id of the complex on Complex Portal.
+% - name : name of the complex on Complex Portal.
+% - species : organism containing the complex.
+% - geneName : names of the genes in the complex.
+% - protID : Uniprot IDs of the proteins in the complex.
+% - stochiometry : the complex stochiometry given in the same order as the genes and proteins in geneName and protID.
+% - defined : 0 if Complex Portal has no defined stochiometry, 1 if defined subunit stochiometry is given, 2 if complex consists of sub-complexes, whose subunit stochiometries are given.
+%
+% Examples
+% --------
+%     complexInfo = getComplexData(organism, modelAdapter);
+%
+% See also
+% --------
+% applyComplexData, makeEcModel
 
 if nargin < 2 || isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefault();

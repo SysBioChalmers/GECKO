@@ -1,23 +1,34 @@
 function model = applyKcatConstraints(model,updateRxns)
-% applyKcatConstraints
-%   Applies kcat-derived enzyme constraints to an ecModel. Existing enzyme
-%   constraints are first removed (unless updateRxns is provided), and new
-%   constraints are defined based on the content of model.ec.kcat.
+% applyKcatConstraints  Apply kcat-derived enzyme constraints to an ecModel.
 %
-% Input:
-%   model       an ecModel in GECKO 3 format (with ecModel.ec structure)
-%   updateRxns  if not all enzyme constraints should be updated, this can
-%               be given as either a logical vector of length
-%               model.ec.rxns, a vector of model.ec.rxns indices, or a
-%               (cell array of) string(s) with model.ec.rxns identifiers.
-%               For light models, these reactions should match model.rxns.
+% Existing enzyme constraints are first removed (unless updateRxns is
+% provided), and new constraints are defined based on the content of
+% model.ec.kcat.
 %
-% Output:
-%   model       ecModel where reactions are constrained by enzyme usage
-%               if a kcat value was provided for the reaction-enzyme pair
-%               in model.ec.kcat
+% Parameters
+% ----------
+% model : struct
+%     an ecModel in GECKO 3 format (with ecModel.ec structure).
+% updateRxns : logical or double or cell or char or string, optional
+%     if not all enzyme constraints should be updated, this can be given as
+%     either a logical vector of length model.ec.rxns, a vector of
+%     model.ec.rxns indices, or a (cell array of) string(s) with
+%     model.ec.rxns identifiers. For light models, these reactions should
+%     match model.rxns.
 %
-% Usage: model = applyKcatConstraints(model,updateRxns);
+% Returns
+% -------
+% model : struct
+%     ecModel where reactions are constrained by enzyme usage if a kcat
+%     value was provided for the reaction-enzyme pair in model.ec.kcat.
+%
+% Examples
+% --------
+%     model = applyKcatConstraints(model, updateRxns);
+%
+% See also
+% --------
+% makeEcModel, getKcatAcrossIsozymes, setKcatForReactions
 
 %these lines are for the nargin lines below only
 if (model.ec.geckoLight)

@@ -1,23 +1,34 @@
 function model = loadEcModel(filename, modelAdapter)
-% loadEcModel
-%   Loads the ecModel that matches the modelAdapter. By default, it loads
-%   the models/ecModel.yml in the directory specified as param.path in
-%   the modelAdapter. Alternative files in the same folder can be loaded by
-%   providing the appropriate filename. If loading models from other
-%   locations, one can directly use readYAMLmodel.
+% loadEcModel  Load the ecModel that matches the modelAdapter.
 %
-% Input:
-%   filename        name of the ecModel file (Optional, default 'ecModel.yml').
-%                   Fill should be located in the models/ subfolder of
-%                   param.path as specified in the modelAdapter.
-%   modelAdapter    a loaded model adapter, from where the model folder is
-%                   read (Optional, will otherwise use the default model adapter).
+% Loads the ecModel that matches the modelAdapter. By default, it loads the
+% models/ecModel.yml in the directory specified as param.path in the
+% modelAdapter. Alternative files in the same folder can be loaded by
+% providing the appropriate filename. If loading models from other
+% locations, one can directly use readYAMLmodel.
 %
-% Output:
-%   model           an ecModel in GECKO 3 format (with ecModel.ec structure)
+% Parameters
+% ----------
+% filename : char, optional
+%     name of the ecModel file (default 'ecModel.yml'). File should be
+%     located in the models/ subfolder of param.path as specified in the
+%     modelAdapter.
+% modelAdapter : ModelAdapter, optional
+%     a loaded model adapter, from where the model folder is read (default:
+%     the current default model adapter).
 %
-% Usage:
-%   model = loadEcModel(filename, modelAdapter)
+% Returns
+% -------
+% model : struct
+%     an ecModel in GECKO 3 format (with ecModel.ec structure).
+%
+% Examples
+% --------
+%     model = loadEcModel(filename, modelAdapter);
+%
+% See also
+% --------
+% loadConventionalGEM, saveEcModel
 
 if nargin < 2 || isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefault();

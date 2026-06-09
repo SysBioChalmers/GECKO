@@ -1,34 +1,49 @@
 function [model, rxnIdx] = selectKcatValue(model,kcatList,criteria,overwrite)
-% selectKcatValue
-%   From a kcatList with predicted or suggested kcat values, where each
-%   reaction may have multiple entries, one kcat value is selected and
-%   written to model.ec.kcat. Zero values are discarded from the start. By
-%   default, the maximum value is chosen, but alternatives are available.
-%   The kcatList structure is an output of e.g. readDLKcatOutput,
-%   readGotEnzymesOutput, readManualKcatList.
+% selectKcatValue  Select one kcat value per reaction and write to model.ec.
 %
-% Input:
-%   model       an ecModel in GECKO 3 format (with ecModel.ec structure)
-%   kcatList    structure array with separate entries for each kcat value
-%               source      e.g. 'DLKcat' or 'gotenzymes'           
-%               rxns        reaction identifiers, matching model.rxns
-%               genes       gene identifiers, matching model.genes
-%               substrate   substrates, matching model.mets
-%               kcat        predicted kcat value in /sec
-%   criteria    which kcat value should be selected if multiple values are
-%               provided. Options: 'max', 'min', 'median', 'mean'. (Opt,
-%               default 'max')
-%   overwrite   whether existing kcat values should be overwritten.
-%               Options: 'true', 'false', 'ifHigher'. The last option will
-%               overwrite only if the new kcat value is higher. (Opt,
-%               default 'true')
+% From a kcatList with predicted or suggested kcat values, where each
+% reaction may have multiple entries, one kcat value is selected and written
+% to model.ec.kcat. Zero values are discarded from the start. By default,
+% the maximum value is chosen, but alternatives are available. The kcatList
+% structure is an output of e.g. readDLKcatOutput, readGotEnzymesOutput,
+% readManualKcatList.
 %
-% Output:
-%   model       ecModel with updated model.ec.kcat and model.ec.source
-%   rxnIdx      list of reaction indices (matching model.ec.rxns), to
-%               indicate which kcat values have been changed.
-% Usage:
-%   [model, rxnIdx] = selectKcatValue(model,kcatList,criteria,overwrite)
+% Parameters
+% ----------
+% model : struct
+%     an ecModel in GECKO 3 format (with ecModel.ec structure).
+% kcatList : struct
+%     structure array with separate entries for each kcat value, with the
+%     following fields:
+%
+%     - source : e.g. 'DLKcat' or 'gotenzymes'.
+%     - rxns : reaction identifiers, matching model.rxns.
+%     - genes : gene identifiers, matching model.genes.
+%     - substrate : substrates, matching model.mets.
+%     - kcat : predicted kcat value in /sec.
+% criteria : char, optional
+%     which kcat value should be selected if multiple values are provided.
+%     Options: 'max', 'min', 'median', 'mean' (default 'max').
+% overwrite : char, optional
+%     whether existing kcat values should be overwritten. Options: 'true',
+%     'false', 'ifHigher'. The last option will overwrite only if the new
+%     kcat value is higher (default 'true').
+%
+% Returns
+% -------
+% model : struct
+%     ecModel with updated model.ec.kcat and model.ec.source.
+% rxnIdx : double
+%     list of reaction indices (matching model.ec.rxns), to indicate which
+%     kcat values have been changed.
+%
+% Examples
+% --------
+%     [model, rxnIdx] = selectKcatValue(model, kcatList, criteria, overwrite);
+%
+% See also
+% --------
+% readDLKcatOutput, mergeDLKcatAndFuzzyKcats, applyKcatConstraints
 
 if nargin < 4
     overwrite = 'true';

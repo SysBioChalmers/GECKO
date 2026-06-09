@@ -1,33 +1,44 @@
 function model = getECfromDatabase(model, ecRxns, action, modelAdapter)
-% getECfromDatabase
-%   Populates the model.ec.eccodes field with enzyme codes that are
-%   extracted from UniProt and KEGG databases, as assigned to the proteins
-%   that catalyze the specific reactions.
+% getECfromDatabase  Populate model.ec.eccodes from UniProt and KEGG databases.
 %
-% Input:
-%   model           an ecModel in GECKO 3 format (with ecModel.ec structure)
-%   ecRxns          logical of length model.ec.rxns that specifies which
-%                   model.ec.eccodes entries should be queried. Exiting
-%                   values in model.ec.eccodes will be wiped. Entries that
-%                   are indicated by false will be kept and not modified by
-%                   this function (optional, by default all model.ec.eccodes
-%                   entries are populated by this function)
-%   action          response action if multiple proteins with different EC
-%                   numbers are found for a given gene in a metabolic
-%                   reaction (optional, default 'display')
-%                   - 'display' displays all found multiplicities
-%                   - 'ignore'  ignore multiplicities and use the protein
-%                               with the lowest index in the database.
-%                   - 'add'     adds all the multiple proteins as
-%                               isozymes for the given reaction
-%   modelAdapter    a loaded model adapter (Optional, will otherwise use the
-%                   default model adapter).
+% Populates the model.ec.eccodes field with enzyme codes that are extracted
+% from UniProt and KEGG databases, as assigned to the proteins that catalyze
+% the specific reactions.
 %
-% Output:
-%   model           ecModel with populated model.ec.eccodes
+% Parameters
+% ----------
+% model : struct
+%     an ecModel in GECKO 3 format (with ecModel.ec structure).
+% ecRxns : logical, optional
+%     of length model.ec.rxns that specifies which model.ec.eccodes entries
+%     should be queried. Existing values in model.ec.eccodes will be wiped.
+%     Entries that are indicated by false will be kept and not modified by
+%     this function (by default all model.ec.eccodes entries are populated
+%     by this function).
+% action : char, optional
+%     response action if multiple proteins with different EC numbers are
+%     found for a given gene in a metabolic reaction (default 'display'):
 %
-% Usage:
-%   model = getECfromDatabase(model, ecRxns, action, modelAdapter)
+%     - 'display' displays all found multiplicities.
+%     - 'ignore' ignore multiplicities and use the protein with the lowest
+%       index in the database.
+%     - 'add' adds all the multiple proteins as isozymes for the given
+%       reaction.
+% modelAdapter : ModelAdapter, optional
+%     a loaded model adapter (default: the current default model adapter).
+%
+% Returns
+% -------
+% model : struct
+%     ecModel with populated model.ec.eccodes.
+%
+% Examples
+% --------
+%     model = getECfromDatabase(model, ecRxns, action, modelAdapter);
+%
+% See also
+% --------
+% getECfromGEM, findECInDB, loadDatabases
 
 if nargin < 2 || isempty(ecRxns)
     ecRnxs = true(numel(model.ec.rxns),1);

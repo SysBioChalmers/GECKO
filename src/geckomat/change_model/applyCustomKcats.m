@@ -1,63 +1,73 @@
 function [model, rxnUpdated, notMatch] = applyCustomKcats(model, customKcats, modelAdapter)
-% applyCustomKcats
-%   Apply user defined kcats.  Reads data/customKcats.tsv in the obj.params.path
-%   specified in the model adapter. Alternatively, a customKcats structure can
-%   provided, as specified below.
+% applyCustomKcats  Apply user-defined kcats to an ecModel.
 %
-% Input:
-%   model           an ecModel in GECKO 3 format (with ecModel.ec structure)
-%   customKcats     structure with custom kcat information. If nothing
-%                   is provided, an attempt will be made to read
-%                   data/customKcats.tsv from the obj.params.path folder
-%                   specified in the modelAdapter.
-%   modelAdapter    a loaded model adapter (Optional, will otherwise use the
-%                   default model adapter).
+% Reads data/customKcats.tsv in the obj.params.path specified in the model
+% adapter. Alternatively, a customKcats structure can be provided, as
+% specified below.
 %
-% Output:
-%   model           ecModel where kcats for defined proteins have been
-%                   changed
-%   rxnUpdated      ids list of updated reactions, new kcats were applied
-%   notMatch        table with the list of reactions which the custom
-%                   information provided does not have full match (> 50%)
-%                   based on GPR rules. Then, they are suggested to be
-%                   curated by the user
+% Parameters
+% ----------
+% model : struct
+%     an ecModel in GECKO 3 format (with ecModel.ec structure).
+% customKcats : struct, optional
+%     structure with custom kcat information (fields described under Notes).
+%     If nothing is provided, an attempt will be made to read
+%     data/customKcats.tsv from the obj.params.path folder specified in the
+%     modelAdapter.
+% modelAdapter : ModelAdapter, optional
+%     a loaded model adapter (default: the current default model adapter).
 %
-%   customKcats structure:
-%   - proteins    protein identifiers, multiple for the same kcat (in case
-%                 of a protein complex) are separated by ' + '
-%   - genes       gene identifiers (optional, not used in matching)
-%   - gene_name   short gene name (optional, not used in matching)
-%   - kcat        new kcat value (one per entry)
-%   - rxns        reaction identifiers, multiple for the same kcat are
-%                 separated by ',' (see further explanation below)
-%   - notes       will be appended to model.ec.notes (optional)
-%   - stoicho     complex stoichiometry, separated by ' + ' (examples: '1'
-%                 or '3 + 1'), matching the order in proteins field
-%   
-%   Matching order:
-%   (1) reactions are identified by .proteins and .rxns
-%   (2) reactions are identified by .proteins only (empty .rxns entry)
-%       no additional checks are made: is a reaction annotated with these
-%       proteins? => its kcat will be updated, irrespective of the exact
-%       reaction, direction, substrate, etc.
-%   (3) reactions are identified by .rxns only (empty .proteins entry)
-%       no additional checks are made: is a reaction derived from the
-%       original reaction identifier => its kcat will be updated,
-%       irrespective of the annotated protein
+% Returns
+% -------
+% model : struct
+%     ecModel where kcats for defined proteins have been changed.
+% rxnUpdated : cell
+%     ids list of updated reactions, where new kcats were applied.
+% notMatch : table
+%     table with the list of reactions for which the custom information
+%     provided does not have full match (> 50%) based on GPR rules. These
+%     are suggested to be curated by the user.
 %
-%   customKcats.rxns field:
-%   The reaction identifiers are from the ORIGINAL model, before _EXP_
-%   suffixes were added by makeEcModel. Reaction directionality IS however
-%   specified, with a _REV suffix.
-%   Example entries:
-%   'r_0001'     will match r_0001, r_0001_EXP_1, r_0001_EXP_2 etc., but
-%                not r_0001_REV, r_0001_EXP_1_REV etc.
-%   'r_0001_REV' will match r_0001_REV, r_0001_EXP_1_REV, r_0001_EXP_2_REV,
-%                etc., but not r_0001, r_0001_EXP_1 etc.
-%   Multiple identifiers should be comma separated (e.g. r_0001, r_0002)
+% Notes
+% -----
+% The customKcats structure has the following fields:
 %
-% Usage:
-%   [model, rxnUpdated, notMatch] = applyCustomKcats(model, customKcats, modelAdapter);
+% - proteins : protein identifiers, multiple for the same kcat (in case of a protein complex) are separated by ' + '.
+% - genes : gene identifiers (optional, not used in matching).
+% - gene_name : short gene name (optional, not used in matching).
+% - kcat : new kcat value (one per entry).
+% - rxns : reaction identifiers, multiple for the same kcat are separated by ',' (see further explanation below).
+% - notes : will be appended to model.ec.notes (optional).
+% - stoicho : complex stoichiometry, separated by ' + ' (examples: '1' or '3 + 1'), matching the order in proteins field.
+%
+% Matching order:
+%
+% 1. reactions are identified by .proteins and .rxns.
+% 2. reactions are identified by .proteins only (empty .rxns entry); no
+%    additional checks are made: is a reaction annotated with these
+%    proteins? => its kcat will be updated, irrespective of the exact
+%    reaction, direction, substrate, etc.
+% 3. reactions are identified by .rxns only (empty .proteins entry); no
+%    additional checks are made: is a reaction derived from the original
+%    reaction identifier => its kcat will be updated, irrespective of the
+%    annotated protein.
+%
+% The customKcats.rxns field reaction identifiers are from the ORIGINAL
+% model, before _EXP_ suffixes were added by makeEcModel. Reaction
+% directionality IS however specified, with a _REV suffix. Example entries:
+%
+% - 'r_0001' will match r_0001, r_0001_EXP_1, r_0001_EXP_2 etc., but not r_0001_REV, r_0001_EXP_1_REV etc.
+% - 'r_0001_REV' will match r_0001_REV, r_0001_EXP_1_REV, r_0001_EXP_2_REV, etc., but not r_0001, r_0001_EXP_1 etc.
+%
+% Multiple identifiers should be comma separated (e.g. r_0001, r_0002).
+%
+% Examples
+% --------
+%     [model, rxnUpdated, notMatch] = applyCustomKcats(model, customKcats, modelAdapter);
+%
+% See also
+% --------
+% applyKcatConstraints, makeEcModel
 
 if nargin < 3 || isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefault();

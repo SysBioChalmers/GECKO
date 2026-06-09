@@ -1,21 +1,32 @@
 function databases = loadDatabases(selectDatabase,modelAdapter)
-% loadDatabases
-%   Loads (and downloads if necessary) the organism-specific KEGG and
-%   UniProt databases that are required to extract protein information. The
-%   uniprot.ID and kegg.ID are taken from the ModelAdapter.
+% loadDatabases  Load the organism-specific KEGG and UniProt databases.
 %
-% Input:
-%   selectDatabase  which databases should be loaded, either 'uniprot',
-%                   'kegg' or 'both' (optional, default 'both')
-%   modelAdapter    Model adapter. Optional, default will use the default 
-%                   model adapter (send in [] for default).
+% Loads (and downloads if necessary) the organism-specific KEGG and UniProt
+% databases that are required to extract protein information. The uniprot.ID
+% and kegg.ID are taken from the ModelAdapter.
 %
-% Output:
-%   databases       contains .uniprot and .kegg structures, dependent on
-%                   which databases were selected.
+% Parameters
+% ----------
+% selectDatabase : char, optional
+%     which databases should be loaded, either 'uniprot', 'kegg' or 'both'
+%     (default 'both').
+% modelAdapter : ModelAdapter, optional
+%     a loaded model adapter (default: the current default model adapter;
+%     send in [] for default).
 %
-% Usage:
-%   databases = loadDatabases(selectDatabase,modelAdapter)
+% Returns
+% -------
+% databases : struct
+%     contains .uniprot and .kegg structures, dependent on which databases
+%     were selected.
+%
+% Examples
+% --------
+%     databases = loadDatabases(selectDatabase, modelAdapter);
+%
+% See also
+% --------
+% getECfromDatabase, loadBRENDAdata
 
 if nargin<1
     selectDatabase = 'both';

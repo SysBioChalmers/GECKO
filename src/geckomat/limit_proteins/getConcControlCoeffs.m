@@ -1,22 +1,35 @@
 function [enz, controlCoeffs] = getConcControlCoeffs(model, proteins, foldChange, limit)
-% getConcControlCoeffs
-%   Calculate an control coefficients of protein usage.
+% getConcControlCoeffs  Calculate control coefficients of protein usage.
 %
-% Input:
-%   model           an ecModel in GECKO 3 format (with ecModel.ec structure)
-%   proteins        a list of proteins to calculate the coefficients. (Optional,
-%                   default = model.ec.enzymes)
-%   foldChange      a value how much increase the protein concentration.
-%                   (Optional, default = 2)
-%   limit           a value to determine limiting protein usage reactions.
-%                   Calculate as usage/concentration (Optional, default = 0)
+% Calculate control coefficients of protein usage.
 %
-% Output:
-%   enz             a logical vector of enzymes analyzed
-%   controlCoeffs   a vector array with the coefficients
+% Parameters
+% ----------
+% model : struct
+%     an ecModel in GECKO 3 format (with ecModel.ec structure).
+% proteins : cell, optional
+%     a list of proteins to calculate the coefficients (default
+%     model.ec.enzymes).
+% foldChange : double, optional
+%     a value how much to increase the protein concentration (default 2).
+% limit : double, optional
+%     a value to determine limiting protein usage reactions, calculated as
+%     usage/concentration (default 0).
 %
-% Usage:
-%    [enz, controlCoeffs] = getConcControlCoeffs(model, proteins, foldChange, limit);
+% Returns
+% -------
+% enz : logical
+%     a logical vector of enzymes analyzed.
+% controlCoeffs : double
+%     a vector array with the coefficients.
+%
+% Examples
+% --------
+%     [enz, controlCoeffs] = getConcControlCoeffs(model, proteins, foldChange, limit);
+%
+% See also
+% --------
+% flexibilizeEnzConcs
 
 if nargin < 4 || isempty(limit)
     limit = 0;

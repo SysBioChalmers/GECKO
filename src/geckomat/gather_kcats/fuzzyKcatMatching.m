@@ -1,54 +1,63 @@
 function kcatList = fuzzyKcatMatching(model, ecRxns, modelAdapter, forceWClvl)
-% fuzzyKcatMatching
-%   Matchs the model EC numbers and substrates to the BRENDA database, to
-%   return the corresponding kcats for each reaction. If no exact match is
-%   found, less specific kcat values are found from (a) evolutionary
-%   closely related organism; (b) different substrate; (c) calculated from
-%   specific activities; (d) wildcards in the EC number. The model organism
-%   is provided in the model adapter as obj.params.org_name, and
-%   evolutionary distance to other organisms is determined via KEGG
-%   phylogeny. If an organism name occurs multiple times in KEGG, the first
-%   instance will be used when determining evolutionary distance.
+% fuzzyKcatMatching  Match model EC numbers and substrates to BRENDA kcats.
 %
-% Input:
-%   model        an ecModel in GECKO 3 format (with ecModel.ec structure)
-%   ecRxns       for which reactions (from model.ec.rxns) kcat values should
-%                be found, provided as logical vector with same length as
-%                model.ec.rxns. (Opt, default is all reactions)
-%   modelAdapter a loaded model adapter (Optional, will otherwise use the
-%                default model adapter).
-%   forceWClvl   force a minimum wildcard level (Optional, default 0). 
+% Matches the model EC numbers and substrates to the BRENDA database, to
+% return the corresponding kcats for each reaction. If no exact match is
+% found, less specific kcat values are found from (a) evolutionary closely
+% related organism; (b) different substrate; (c) calculated from specific
+% activities; (d) wildcards in the EC number. The model organism is provided
+% in the model adapter as obj.params.org_name, and evolutionary distance to
+% other organisms is determined via KEGG phylogeny. If an organism name
+% occurs multiple times in KEGG, the first instance will be used when
+% determining evolutionary distance.
 %
-% Output:
-%   kcatList    structure array with list of BRENDA derived kcat values,
-%               with separate entries for each kcat value
-%               source      'brenda'           
-%               rxns        reaction identifiers
-%               substrate   substrate names
-%               kcat        proposed kcat value in /sec
-%               eccodes     as used to query BRENDA
-%               wildCardLvl which level of EC wild-card was necessary to
-%                           find a match
-%                           0: w.x.y.z
-%                           1: w.x.y.-
-%                           2: w.x.-.-
-%                           3: w.-.-.-
-%               origin      which level of specificity was necessary to
-%                           find a match
-%                           1: correct organism, correct substrate, kcat
-%                           2: any organism, correct substrate, kcat
-%                           3: correct organism, any substrate, kcat
-%                           4: any organism, any substrate, kcat
-%                           5: correct organism, specific activity
-%                           6: any organism, specific activity
+% Parameters
+% ----------
+% model : struct
+%     an ecModel in GECKO 3 format (with ecModel.ec structure).
+% ecRxns : logical, optional
+%     for which reactions (from model.ec.rxns) kcat values should be found,
+%     provided as logical vector with same length as model.ec.rxns
+%     (default: all reactions).
+% modelAdapter : ModelAdapter, optional
+%     a loaded model adapter (default: the current default model adapter).
+% forceWClvl : double, optional
+%     force a minimum wildcard level (default 0).
 %
-%   Note: If a wildcard is used, origin levels 1 and 2 are ignored. The
-%   last digits in the E.C. number indicate the substrate specificity, so
-%   if this should be ignored, then correct substrate matches should not be
-%   prioritized.
+% Returns
+% -------
+% kcatList : struct
+%     structure array with list of BRENDA derived kcat values, with separate
+%     entries for each kcat value.
 %
-% Usage:
-%   kcatList = fuzzyKcatMatching(model, ecRxns, modelAdapter, forceWClvl)
+% Notes
+% -----
+% The kcatList structure has the following fields:
+%
+% - source : 'brenda'.
+% - rxns : reaction identifiers.
+% - substrate : substrate names.
+% - kcat : proposed kcat value in /sec.
+% - eccodes : as used to query BRENDA.
+% - wildCardLvl : which level of EC wild-card was necessary to find a match
+%   (0: w.x.y.z; 1: w.x.y.-; 2: w.x.-.-; 3: w.-.-.-).
+% - origin : which level of specificity was necessary to find a match
+%   (1: correct organism, correct substrate, kcat; 2: any organism, correct
+%   substrate, kcat; 3: correct organism, any substrate, kcat; 4: any
+%   organism, any substrate, kcat; 5: correct organism, specific activity;
+%   6: any organism, specific activity).
+%
+% If a wildcard is used, origin levels 1 and 2 are ignored. The last digits
+% in the E.C. number indicate the substrate specificity, so if this should
+% be ignored, then correct substrate matches should not be prioritized.
+%
+% Examples
+% --------
+%     kcatList = fuzzyKcatMatching(model, ecRxns, modelAdapter, forceWClvl);
+%
+% See also
+% --------
+% mergeDLKcatAndFuzzyKcats, selectKcatValue
 
 if nargin<2 || isempty(ecRxns)
     ecRxns = true(numel(model.ec.rxns),1);

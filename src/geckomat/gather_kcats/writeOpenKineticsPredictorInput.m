@@ -1,25 +1,37 @@
 function writeOpenKineticsPredictorInput(model, ecRxns, modelAdapter, onlyWithSmiles, overwrite)
-% writeOpenKineticsPredictorInput
-%   Prepares input for OpenKineticsPredictor: protein sequences and single-
-%   substrate SMILES, which allows the use of the following predictors:
-%   DLKcat; EITLEM; UniKP; KinForm-H; KinForm-L; CataPro; CatPred.
-% 
-%   The function writes OKP.csv, that can be used as input file at
-%   https://predictor.openkinetics.org/
+% writeOpenKineticsPredictorInput  Write input file for OpenKineticsPredictor.
 %
-%   The OpenKineticsPrecitor output file can be used to generate a kcatList
-%   through readOpenKineticsPredictorOutput.
+% Prepares input for OpenKineticsPredictor: protein sequences and single-
+% substrate SMILES, which allows the use of the following predictors: DLKcat;
+% EITLEM; UniKP; KinForm-H; KinForm-L; CataPro; CatPred.
 %
-% Input:
-%   model           ecModel in GECKO 3 format (with ecModel.ec structure)
-%   ecRxns          logical vector indicating which reactions to include
-%                   (Optional, default: all reactions)
-%   modelAdapter    loaded model adapter (Optional, uses default if empty)
-%   onlyWithSmiles  logical, only include entries with SMILES (Optional, default: true)
-%   overwrite       logical, overwrite existing file (Optional, default: false)
+% The function writes OKP.csv, that can be used as input file at
+% https://predictor.openkinetics.org/
 %
-% Usage:
-%   writeOpenKineticsPredictorInput(model, ecRxns)
+% The OpenKineticsPredictor output file can be used to generate a kcatList
+% through readOpenKineticsPredictorOutput.
+%
+% Parameters
+% ----------
+% model : struct
+%     ecModel in GECKO 3 format (with ecModel.ec structure).
+% ecRxns : logical, optional
+%     logical vector indicating which reactions to include (default: all
+%     reactions).
+% modelAdapter : ModelAdapter, optional
+%     a loaded model adapter (default: the current default model adapter).
+% onlyWithSmiles : logical, optional
+%     only include entries with SMILES (default true).
+% overwrite : logical, optional
+%     overwrite existing file (default false).
+%
+% Examples
+% --------
+%     writeOpenKineticsPredictorInput(model, ecRxns);
+%
+% See also
+% --------
+% readOpenKineticsPredictorOutput, writeDLKcatInput
 
 [geckoPath, ~] = findGECKOroot();
 

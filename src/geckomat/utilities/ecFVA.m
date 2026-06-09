@@ -1,20 +1,34 @@
 function [minFlux, maxFlux] = ecFVA(ecModel, model)
-% ecFVA
-%   Flux variability analysis is performed on the ecModel, and isozymic
-%   reactions are combined to construct ouput minFlux and maxFlux vectors,
-%   which follow the same order of model.rxns. The output from this
-%   function does not include enzyme usage reactions, to observe these, on
-%   could consider running flux variability directly on the ecModel.
+% ecFVA  Run flux variability analysis on an ecModel.
 %
-% Input:
-%   ecModel     an ecModel in GECKO 3 format (with ecModel.ec structure)
-%   model       non-ecModel variant of the ecModel, to which the minFlux
-%               and maxFlux will be mapped
-% Output:
-%   minFlux     vector of minimum flux rates, corresponding to model.rxns
-%   maxFlux     vector of maximum flux rates, corresponding to model.rxns
+% Flux variability analysis is performed on the ecModel, and isozymic
+% reactions are combined to construct output minFlux and maxFlux vectors,
+% which follow the same order of model.rxns. The output from this function
+% does not include enzyme usage reactions; to observe these, one could
+% consider running flux variability directly on the ecModel.
 %
-% Usage: [minFlux, maxFlux] = ecFVA(ecModel, model)
+% Parameters
+% ----------
+% ecModel : struct
+%     an ecModel in GECKO 3 format (with ecModel.ec structure).
+% model : struct
+%     non-ecModel variant of the ecModel, to which the minFlux and maxFlux
+%     will be mapped.
+%
+% Returns
+% -------
+% minFlux : double
+%     vector of minimum flux rates, corresponding to model.rxns.
+% maxFlux : double
+%     vector of maximum flux rates, corresponding to model.rxns.
+%
+% Examples
+% --------
+%     [minFlux, maxFlux] = ecFVA(ecModel, model);
+%
+% See also
+% --------
+% mapRxnsToConv, plotEcFVA
 
 rxnIDs = regexprep(ecModel.rxns,'(_REV)?(_EXP_\d+)?','');
 [rxnIDmap, convRxnID] = findgroups(rxnIDs);

@@ -1,48 +1,64 @@
 function mergedKcatList = mergeDLKcatAndFuzzyKcats(kcatListDLKcat, kcatListFuzzy, topOriginLimit, bottomOriginLimit, wildcardLimit)
-% mergeDlkcatAndFuzzyKcats
-%   Merges the results from DLKcat and fuzzy matching to BRENDA database.
-%   Order of preference:
-%   1: BRENDA match with correct E.C. number, with origin (see below) not
-%      lower than the specified topOriginLimit
-%   2: DLKcat match
-%   3: BRENDA match with correct E.C. number, with origin below
-%      topOriginLimit but not lower than the bottomOriginLimit
-%   4: BRENDA match with wildcards in the E.C. number, with not more
-%      wildcards than wildcardLimit, and origin not lower than the
-%      bottomOriginLimit
+% mergeDLKcatAndFuzzyKcats  Merge DLKcat and BRENDA fuzzy matching results.
 %
-% Input:
-%   kcatListDLKcat      kcatList derived from readDLKcatOutput
-%   kcatListFuzzy       kcatList derived from fuzzyKcatMatching
-%   topOriginLimit      origin limit for prioritized BRENDA matches. Origin
-%                       is explained in more detail below. (Optional,
-%                       default 6)
-%   bottomOriginLimit   origin limit for low priority BRENDA matches.
-%                       Origin is explained in more detail below.
-%                       (Optional, default 6)
-%   wildcardLimit       maximum number of wildcards in E.C. number of
-%                       BRENDA matches (Optional, default 3)
+% Merges the results from DLKcat and fuzzy matching to the BRENDA database.
+% Order of preference:
 %
-% Output:
-%   mergedKcatList      merged list of kcats
-%   
+% 1. BRENDA match with correct E.C. number, with origin (see below) not
+%    lower than the specified topOriginLimit.
+% 2. DLKcat match.
+% 3. BRENDA match with correct E.C. number, with origin below topOriginLimit
+%    but not lower than the bottomOriginLimit.
+% 4. BRENDA match with wildcards in the E.C. number, with not more wildcards
+%    than wildcardLimit, and origin not lower than the bottomOriginLimit.
+%
+% Parameters
+% ----------
+% kcatListDLKcat : struct
+%     kcatList derived from readDLKcatOutput.
+% kcatListFuzzy : struct
+%     kcatList derived from fuzzyKcatMatching.
+% topOriginLimit : double, optional
+%     origin limit for prioritized BRENDA matches. Origin is explained in
+%     more detail below (default 6).
+% bottomOriginLimit : double, optional
+%     origin limit for low priority BRENDA matches. Origin is explained in
+%     more detail below (default 6).
+% wildcardLimit : double, optional
+%     maximum number of wildcards in E.C. number of BRENDA matches
+%     (default 3).
+%
+% Returns
+% -------
+% mergedKcatList : struct
+%     merged list of kcats.
+%
+% Notes
+% -----
 % The origin parameter:
-%   1: correct organism, correct substrate, kcat
-%   2: any organism, correct substrate, kcat
-%   3: correct organism, any substrate, kcat
-%   4: any organism, any substrate, kcat
-%   5: correct organism, specific activity
-%   6: any organism, specific activity
+%
+% - 1 : correct organism, correct substrate, kcat.
+% - 2 : any organism, correct substrate, kcat.
+% - 3 : correct organism, any substrate, kcat.
+% - 4 : any organism, any substrate, kcat.
+% - 5 : correct organism, specific activity.
+% - 6 : any organism, specific activity.
 %
 % Example of wildcards in E.C. number:
-%   0: 1.1.1.3      glycerol-3-phosphate dehydrogenase (NAD+)
-%   1: 1.1.1.-      oxidoreductase, acting on the CH-OH group of donors,
-%                   with NAD+ or NADP+ as acceptor
-%   2: 1.1.-.-      oxidoreductase, acting on the CH-OH group of donors
-%   3: 1.-.-.-      oxidoreductase
 %
-% Usage:
-%   mergedKcatList = mergeDLKcatAndFuzzyKcats(kcatListDLKcat, kcatListFuzzy, topOriginLimit, bottomOriginLimit, wildcardLimit)
+% - 0 : 1.1.1.3   glycerol-3-phosphate dehydrogenase (NAD+).
+% - 1 : 1.1.1.-   oxidoreductase, acting on the CH-OH group of donors, with
+%   NAD+ or NADP+ as acceptor.
+% - 2 : 1.1.-.-   oxidoreductase, acting on the CH-OH group of donors.
+% - 3 : 1.-.-.-   oxidoreductase.
+%
+% Examples
+% --------
+%     mergedKcatList = mergeDLKcatAndFuzzyKcats(kcatListDLKcat, kcatListFuzzy, topOriginLimit, bottomOriginLimit, wildcardLimit);
+%
+% See also
+% --------
+% readDLKcatOutput, fuzzyKcatMatching, selectKcatValue
 
 if nargin < 5
     wildcardLimit = 3;

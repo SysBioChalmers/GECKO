@@ -1,19 +1,26 @@
 function [model,noSMILES] = findMetSmiles(model, modelAdapter, verbose)
-% findMetSMILES
-%   Queries PubChem by metabolite names to obtain SMILES. Matches will also
-%   be stored in tutorials/***/data/smilesDB.tsv, that will also be queried
-%   first next time the function is run. If the model already has a
-%   metSmiles field, then non-empty entries will not be overwritten.
+% findMetSmiles  Query PubChem by metabolite names to obtain SMILES.
 %
-% Input:
-%   model        a model whose metNames field is used to find the relevant SMILES
-%   modelAdapter a loaded model adapter (Optional, will otherwise use the
-%                default model adapter).
-%   verbose      logical whether progress should be reported (Optional,
-%                default true)
-% Ouput:
-%   model        model with model.metSmiles specified.
-%   noSMILES     metabolite names for which no SMILES could be found.
+% Queries PubChem by metabolite names to obtain SMILES. Matches will also
+% be stored in tutorials/***/data/smilesDB.tsv, that will also be queried
+% first next time the function is run. If the model already has a metSmiles
+% field, then non-empty entries will not be overwritten.
+%
+% Parameters
+% ----------
+% model : struct
+%     a model whose metNames field is used to find the relevant SMILES.
+% modelAdapter : ModelAdapter, optional
+%     a loaded model adapter (default: the current default model adapter).
+% verbose : logical, optional
+%     whether progress should be reported (default true).
+%
+% Returns
+% -------
+% model : struct
+%     model with model.metSmiles specified.
+% noSMILES : cell
+%     metabolite names for which no SMILES could be found.
 %
 if nargin < 3 || isempty(verbose)
     verbose = true;

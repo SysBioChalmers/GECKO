@@ -1,51 +1,63 @@
 function [model, rxnsAdded, enzAdded] = addNewRxnsToEC(model, newRxns, newEnzymes, modelAdapter)
-% addNewRxnsToEC
-%   Add new reaction to an enzyme-constrained model. This function is 
-%   useful to simulate metabolic manipulations done to an organism such as
-%   integration of new genes that add a new reaction/pathway.
+% addNewRxnsToEC  Add new reactions to an enzyme-constrained model.
 %
-% Input:
-%   model           an ecModel in GECKO 3 format (with ecModel.ec structure)
-%   newRxns         structure with the new reaction information as follow:
-%                   rxns        cell array with unique strings that
-%                               identifies each reaction
-%                   rxnNames    cell array with the names of each reaction
-%                   equations   cell array with equation strings. Decimal
-%                               coefficients are expressed as "1.2".
-%                               Reversibility is indicated by "<=>" or
-%                               "=>".
-%                   grRules     cell array with the gene-reaction
-%                               relationship for each reaction. For example
-%                               "(A and B) or (C)" means that the reaction
-%                               could be catalyzed by a complex between
-%                               A & B or by C on its own. All the genes
-%                               have to be present in model.genes. Add
-%                               genes with addGenesRaven before calling
-%                               this function if needed (opt, default '')
-%   newEnzymes      structure with the new enzymes information as follow:
-%                   enzymes     cell array with uniprot id
-%                   genes       cell array with the respective gene
-%                   mw          cell array with the MW
-%   modelAdapter    a loaded model adapter (Optional, will otherwise use the
-%                   default model adapter).
+% Adds new reactions to an enzyme-constrained model. This function is
+% useful to simulate metabolic manipulations done to an organism such as
+% integration of new genes that add a new reaction/pathway.
 %
-% Output:
-%   model           ecModel whit new reactions
-%   rxnsAdded       cell array with the reactions added
+% Parameters
+% ----------
+% model : struct
+%     an ecModel in GECKO 3 format (with ecModel.ec structure).
+% newRxns : struct
+%     structure with the new reaction information (see Notes for fields).
+% newEnzymes : struct
+%     structure with the new enzymes information (see Notes for fields).
+% modelAdapter : ModelAdapter, optional
+%     a loaded model adapter (default: the current default model adapter).
 %
-% Notes:
-%     (i) Write equations as follows:
-%               'xylitol[c] + NAD[c] => D-xylulose[c] + NADH[c] + H+[c]'
-%         Note that the reversibility defined in the equation will be used
-%         to split to construct irreversible reactions (add _REV) and the
-%         rules defined will be used to expand the model (add _EXP_n).
-%        
-%     (2) After add the new reactions, setKcatForReactions or
-%         applyCustomKcats should be run to add the kcat to the reactions,
-%         and subsequently applyKcatConstraints.
+% Returns
+% -------
+% model : struct
+%     ecModel with new reactions.
+% rxnsAdded : cell
+%     cell array with the reactions added.
+% enzAdded : cell
+%     cell array with the enzymes added.
 %
-% Usage:
-%   [model, rxnsAdded, enzAdded] = addNewRxnsToEC(model, newRxns, newEnzymes, modelAdapter);
+% Notes
+% -----
+% The newRxns structure has the following fields:
+%
+% - rxns : cell array with unique strings that identifies each reaction.
+% - rxnNames : cell array with the names of each reaction.
+% - equations : cell array with equation strings. Decimal coefficients are expressed as "1.2". Reversibility is indicated by "<=>" or "=>".
+% - grRules : cell array with the gene-reaction relationship for each reaction. For example "(A and B) or (C)" means that the reaction could be catalyzed by a complex between A & B or by C on its own. All the genes have to be present in model.genes. Add genes with addGenesRaven before calling this function if needed (opt, default '').
+%
+% The newEnzymes structure has the following fields:
+%
+% - enzymes : cell array with uniprot id.
+% - genes : cell array with the respective gene.
+% - mw : cell array with the MW.
+%
+% Additional usage notes:
+%
+% 1. Write equations as follows:
+%        'xylitol[c] + NAD[c] => D-xylulose[c] + NADH[c] + H+[c]'
+%    Note that the reversibility defined in the equation will be used to
+%    split to construct irreversible reactions (add _REV) and the rules
+%    defined will be used to expand the model (add _EXP_n).
+% 2. After adding the new reactions, setKcatForReactions or
+%    applyCustomKcats should be run to add the kcat to the reactions, and
+%    subsequently applyKcatConstraints.
+%
+% Examples
+% --------
+%     [model, rxnsAdded, enzAdded] = addNewRxnsToEC(model, newRxns, newEnzymes, modelAdapter);
+%
+% See also
+% --------
+% applyKcatConstraints, applyCustomKcats
 
 if nargin < 4 || isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefault();

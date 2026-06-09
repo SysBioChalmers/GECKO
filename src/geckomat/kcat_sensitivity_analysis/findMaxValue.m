@@ -1,13 +1,30 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%function [value,organism,parameter] = findMaxValue(EC_cell,BRENDA, SA_cell)
-%
-% Function that gets the maximum kinetic parameter (Kcat or S.A.*Mw) from 
-% the BRENDA files for the specified set of EC numbers. The algorithm also 
-% returns the organism and the parameter type (Kcat or S.A.) of the query.
-%
-% Ivan Domenzain    Last edited. 2018-02-06
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function [value,organism,parameter] = findMaxValue(EC_cell,BRENDA,SA_cell)
+% findMaxValue  Get the maximum kinetic parameter for a set of EC numbers.
+%
+% Gets the maximum kinetic parameter (Kcat or S.A.*Mw) from the BRENDA files
+% for the specified set of EC numbers. The algorithm also returns the
+% organism and the parameter type (Kcat or S.A.) of the query.
+%
+% Parameters
+% ----------
+% EC_cell : char
+%     EC number(s) to query, as a space-separated string. Wild cards ('-')
+%     relax the BRENDA search to a partial match.
+% BRENDA : cell
+%     BRENDA kcat data, where column 1 holds EC numbers, column 3 the
+%     organisms and column 4 the kcat values.
+% SA_cell : cell
+%     BRENDA specific-activity data, where column 1 holds EC numbers, column
+%     2 the organisms and column 3 the S.A.*Mw values.
+%
+% Returns
+% -------
+% value : double
+%     the maximum turnover number found across the queried EC numbers.
+% organism : cell
+%     the organism associated with the maximum value.
+% parameter : cell
+%     the parameter type of the maximum value, either 'K_cat' or 'SA*Mw'.
     %Looks for the maximum turnover number available for the EC# associated
     %with the uniprot code
     EC_cell    = strsplit(EC_cell,' ');

@@ -1,56 +1,67 @@
 function [model, flexEnz] = flexibilizeEnzConcs(model, expGrowth, foldChange, iterPerEnzyme, modelAdapter, verbose)
-% flexibilizeEnzConcs
-%   Flexibilize enzyme concentration of an ecModel with constrained with
-%   proteomics data. The upper bound of the protein usage reaction is
-%   changed, while the concentrations in ecModel.ec.concs remain unchanged.
+% flexibilizeEnzConcs  Flexibilize enzyme concentrations of an ecModel.
 %
-%   If no (more) limiting enzyme concentrations can be found, it might be
-%   the protein pool exchange that is limiting growth. In that case, an
-%   attempt will be made to relax the protein pool exchange reaction, and
-%   if the growth rate indeed increases, it is suggested to set the protein
-%   pool exchange unconstrained (lb=-1000) before again running
-%   flexibilizeEnzConcs. Such situations, where a proteomics integrated
-%   ecModel is overconstrained, may occur if the ecModel should be able to
-%   simulate maximum growth rate (from e.g. batch cultivation). 
-%   
-%   If relaxing the protein pool exchange does not increase the growth
-%   rate, then this is not due to enzyme constraints, but rather an issue
-%   with the metabolic network itself, or the set nutrient exchange is not
-%   sufficient.
+% Flexibilize enzyme concentration of an ecModel constrained with proteomics
+% data. The upper bound of the protein usage reaction is changed, while the
+% concentrations in ecModel.ec.concs remain unchanged.
 %
-% Input:
-%   model           an ecModel in GECKO 3 format (with ecModel.ec structure)
-%   expGrowth       estimated experimental growth rate. If not specified,
-%                   the value will be read from the model adapter
-%   foldChange      a value how much increase the enzyme concentration
-%                   (Optional, default = 2)
-%   iterPerEnzyme   the number of iterations that an enzyme can be increased.
-%                   A zero number can be defined. if zero is defined no limit
-%                   will be set, and it will increase the enzyme concentration
-%                   until reach de defined growth rate (Optional, default = 5)
-%   modelAdapter    a loaded model adapter (Optional, will otherwise use the
-%                   default model adapter)
-%   verbose         logical whether progress should be reported (Optional,
-%                   default true)
+% If no (more) limiting enzyme concentrations can be found, it might be the
+% protein pool exchange that is limiting growth. In that case, an attempt
+% will be made to relax the protein pool exchange reaction, and if the growth
+% rate indeed increases, it is suggested to set the protein pool exchange
+% unconstrained (lb=-1000) before again running flexibilizeEnzConcs. Such
+% situations, where a proteomics integrated ecModel is overconstrained, may
+% occur if the ecModel should be able to simulate maximum growth rate (from
+% e.g. batch cultivation).
 %
-% Output:
-%   model           ecModel where the constraint of measured enzyme
-%                   concentrations have been flexibilized (=relaxed) in the
-%                   S-matrix, to allow the model to reach the growth rate
-%                   defined in expGrowth, while the values in
-%                   ecModel.ec.concs have remained untouched.
-%   flexEnz         array with information about flexibilized proteins
-%                   uniprotIDs  enzymes whose usage UB was flexibilized
-%                   oldConcs    original concentrations, from mode.ec.concs
-%                   flexConcs   flexibilized concentrations, new UB in
-%                               model
-%                   ratioIncr   ratio by which the concentration increased,
-%                               the enzymes will be sorted by this field
-%                   frequence   numeric how often the enzyme has been
-%                               step-wise flexibilized
+% If relaxing the protein pool exchange does not increase the growth rate,
+% then this is not due to enzyme constraints, but rather an issue with the
+% metabolic network itself, or the set nutrient exchange is not sufficient.
 %
-% Usage:
-%   [model, flexEnz] = flexibilizeEnzConcs(model, expGrowth, foldChange, iterPerEnzyme, modelAdapter, verbose)
+% Parameters
+% ----------
+% model : struct
+%     an ecModel in GECKO 3 format (with ecModel.ec structure).
+% expGrowth : double, optional
+%     estimated experimental growth rate. If not specified, the value will be
+%     read from the model adapter.
+% foldChange : double, optional
+%     a value how much to increase the enzyme concentration (default 2).
+% iterPerEnzyme : double, optional
+%     the number of iterations that an enzyme can be increased. A zero number
+%     can be defined; if zero is defined no limit will be set, and it will
+%     increase the enzyme concentration until it reaches the defined growth
+%     rate (default 5).
+% modelAdapter : ModelAdapter, optional
+%     a loaded model adapter (default: the current default model adapter).
+% verbose : logical, optional
+%     whether progress should be reported (default true).
+%
+% Returns
+% -------
+% model : struct
+%     ecModel where the constraint of measured enzyme concentrations have
+%     been flexibilized (=relaxed) in the S-matrix, to allow the model to
+%     reach the growth rate defined in expGrowth, while the values in
+%     ecModel.ec.concs have remained untouched.
+% flexEnz : struct
+%     array with information about flexibilized proteins, with the fields:
+%
+%     - uniprotIDs : enzymes whose usage UB was flexibilized.
+%     - oldConcs : original concentrations, from model.ec.concs.
+%     - flexConcs : flexibilized concentrations, new UB in model.
+%     - ratioIncr : ratio by which the concentration increased; the enzymes
+%       will be sorted by this field.
+%     - frequence : numeric how often the enzyme has been step-wise
+%       flexibilized.
+%
+% Examples
+% --------
+%     [model, flexEnz] = flexibilizeEnzConcs(model, expGrowth, foldChange, iterPerEnzyme, modelAdapter, verbose);
+%
+% See also
+% --------
+% constrainEnzConcs, getConcControlCoeffs
 
 if nargin < 6 || isempty(verbose)
     verbose = true;

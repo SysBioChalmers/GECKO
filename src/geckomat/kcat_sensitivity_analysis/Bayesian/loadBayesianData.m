@@ -1,4 +1,33 @@
 function bayData = loadBayesianData(modelAdapter)
+% loadBayesianData  Load experimental data for Bayesian kcat tuning.
+%
+% Reads the experimental data files used by bayesianSensitivityTuning from
+% the data subfolder of the model directory defined by the model adapter.
+%
+% Parameters
+% ----------
+% modelAdapter : ModelAdapter, optional
+%     a loaded model adapter (default: the current default model adapter).
+%
+% Returns
+% -------
+% bayData : struct
+%     structure with the loaded experimental data.
+%
+% Notes
+% -----
+% The bayData structure has the following fields:
+%
+% - fluxData : flux data loaded from bayesianFluxData.tsv, with the biomass
+%   reaction id stored in fluxData.biomass.
+% - maxGrate : maximum growth-rate data loaded from bayesianMaxGrowth.tsv,
+%   with the biomass reaction id stored in maxGrate.biomass.
+% - zeroFlux : exchange reactions assumed to carry zero flux, loaded from
+%   bayesianZeroExch.tsv.
+%
+% See also
+% --------
+% bayesianSensitivityTuning, abc_max
 
 if nargin < 1 || isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefault();

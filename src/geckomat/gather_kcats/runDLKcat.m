@@ -1,18 +1,27 @@
 function runDLKcat(modelAdapter,filePath)
-% runDLKcat
-%   Runs DLKcat to predict kcat values from a Docker image. Once DLKcat is succesfully
-%   run, the DLKcatFile will be overwritten with the DLKcat
-%   output in the model-specific 'data' sub-folder taken from modelAdapter
-%   (e.g. GECKO/tutorials/tutorial_yeast-GEM/data/DLKcat.tsv)
+% runDLKcat  Run DLKcat to predict kcat values from a Docker image.
 %
-% Input
-%   modelAdapter    a loaded model adapter. (Optional, will otherwise use
-%                   the default model adapter)
-%   filePath        path to the DLKcat.tsv file. (Optional, will otherwise
-%                   assume data/DLKcat.tsv)
+% Runs DLKcat to predict kcat values from a Docker image. Once DLKcat is
+% successfully run, the DLKcat file will be overwritten with the DLKcat
+% output in the model-specific 'data' sub-folder taken from modelAdapter
+% (e.g. GECKO/tutorials/tutorial_yeast-GEM/data/DLKcat.tsv).
 %
-%   NOTE: 1. Requires Docker to be installed, and Docker Desktop running. Visit "https://www.docker.com"
-%         2. Runtime will depend on whether the image is to be downloaded or not.
+% Parameters
+% ----------
+% modelAdapter : ModelAdapter, optional
+%     a loaded model adapter (default: the current default model adapter).
+% filePath : char, optional
+%     path to the DLKcat.tsv file (default: data/DLKcat.tsv).
+%
+% Notes
+% -----
+% 1. Requires Docker to be installed, and Docker Desktop running. Visit
+%    "https://www.docker.com".
+% 2. Runtime will depend on whether the image is to be downloaded or not.
+%
+% See also
+% --------
+% writeDLKcatInput, readDLKcatOutput
 
 if nargin < 1 || isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefault();

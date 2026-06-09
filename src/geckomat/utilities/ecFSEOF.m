@@ -1,49 +1,49 @@
 function fseof = ecFSEOF(model,prodTargetRxn,csRxn,nSteps,outputFile,filePath,modelAdapter)
-% ecFSEOF
-%   Function that runs Flux-Scanning with Enforced Objective Function (FSEOF)
-%   for a specified production target.
+% ecFSEOF  Run Flux-Scanning with Enforced Objective Function for a target.
 %
-% Input:
-%   model          an ecModel in GECKO 3 format (with ecModel.ec structure).
-%   prodTargetRxn  rxn ID for the production target reaction, a exchange
-%                  reaction is recommended.
-%   csRxn          rxn ID for the main carbon source uptake reaction.
-%   nSteps         number of steps for suboptimal objective in FSEOF.
-%                  (Optional, default 16)
-%   outputFile     bolean option to save results in a file. (Optional,
-%                  default false)
-%   filePath       file path for results output. It will store two files:
-%                  - at the genes level, ecFSEOF_genes.tsv
-%                  - at the reactions level, ecFSEOF_rxns.tsv
-%                  (Optional, default in the 'output' sub-folder taken from
-%                  modelAdapter, e.g. output/ecFSEOF_rxns.tsv)
-%   modelAdapter   a loaded model adapter. (Optional, will otherwise use
-%                  the default model adapter)
+% Runs Flux-Scanning with Enforced Objective Function (FSEOF) for a
+% specified production target, to identify reaction and gene targets for
+% metabolic engineering.
 %
-% Output:
-%   fseof   an structure with all results. Contains the following fields:
-%           - alpha:             target production used for enforced 
-%                                objetive limits (from minimum to maximum 
-%                                production)
-%           - v_matrix:          fluxes for each target reaction predicted
-%                                and each alpha.
-%           - rxnTargets:        a list with all reactions with fluxes that
-%                                change consistently as target production
-%                                increases.
-%                                Contains: ID, name, slope, gene rule, and
-%                                equation
-%           - transportTargets:  a list with all transport reactions with
-%                                fluxes that change consistently as target
-%                                production increases.
-%                                Contains: ID, name, slope, gene rule, and
-%                                equation
-%           - geneTargets:       a list with all selected targets that
-%                                increase production.
-%                                Contains: gene, shortName, slope, action,
-%                                and essentiality
+% Parameters
+% ----------
+% model : struct
+%     an ecModel in GECKO 3 format (with ecModel.ec structure).
+% prodTargetRxn : char
+%     rxn ID for the production target reaction, an exchange reaction is
+%     recommended.
+% csRxn : char
+%     rxn ID for the main carbon source uptake reaction.
+% nSteps : double, optional
+%     number of steps for suboptimal objective in FSEOF (default 16).
+% outputFile : logical, optional
+%     boolean option to save results in a file (default false).
+% filePath : char, optional
+%     file path for results output. It will store two files: at the genes
+%     level, ecFSEOF_genes.tsv; and at the reactions level,
+%     ecFSEOF_rxns.tsv (default: the 'output' sub-folder taken from
+%     modelAdapter, e.g. output/ecFSEOF_rxns.tsv).
+% modelAdapter : ModelAdapter, optional
+%     a loaded model adapter (default: the current default model adapter).
 %
-% Usage:
-%   fseof = ecFSEOF(model,prodTargetRxn,csRxn,nSteps,outputFile,filePath,filterG,modelAdapter)
+% Returns
+% -------
+% fseof : struct
+%     a structure with all results.
+%
+% Notes
+% -----
+% The fseof structure has the following fields:
+%
+% - alpha : target production used for enforced objective limits (from minimum to maximum production).
+% - v_matrix : fluxes for each target reaction predicted and each alpha.
+% - rxnTargets : a list with all reactions with fluxes that change consistently as target production increases. Contains ID, name, slope, gene rule, and equation.
+% - transportTargets : a list with all transport reactions with fluxes that change consistently as target production increases. Contains ID, name, slope, gene rule, and equation.
+% - geneTargets : a list with all selected targets that increase production. Contains gene, shortName, slope, action, and essentiality.
+%
+% Examples
+% --------
+%     fseof = ecFSEOF(model,prodTargetRxn,csRxn,nSteps,outputFile,filePath,modelAdapter);
 
 if nargin < 7 || isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefault();
