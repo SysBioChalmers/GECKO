@@ -23,6 +23,9 @@ if nargin < 3 || isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default ecModel adapter in the ModelAdapterManager.')
     end
 end
+% Weight factor for max growth vs flux data RMSE
+maxGrowthWeight = modelAdapter.params.bayesian.maxGrowthWeight;
+
 rmse_1 = []; rmseList1 = []; rmse_2 = []; rmseList2 = [];
 
 if ~isfield(ecModel,'excarbon')
@@ -41,9 +44,12 @@ if ~isempty(bayData.maxGrate)  % simulate the maximal growth rate
     rmseList2 = [cellstr("maxGrowth_" + string(1:numel(rmseList2)))',num2cell(rmseList2)];
 end
     
-%% Combine results
-rmse        = mean([rmse_1,rmse_2],'omitnan');
-rmseList    = [rmseList1;rmseList2];
+%% Combine results, possibly increase weight of maximum growth RMSE
+weights  = [maxGrowthWeight, 1];
+values   = [rmse_1, rmse_2];
+validIdx = ~isnan(values);
+rmse     = sum(values(validIdx) .* weights(validIdx)) / sum(weights(validIdx));
+rmseList = [rmseList1;rmseList2];
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

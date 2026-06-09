@@ -161,6 +161,15 @@ kcatList_fuzzy  = fuzzyKcatMatching(ecModel);
 % STEP 25 Load DLKcat output
 kcatList_DLKcat = readDLKcatOutput(ecModel);
 
+% ===>  Since GECKO 3.4.0
+%       Functionality has been introduced that can read results from
+%       OpenKineticsPredictor (OKP). First an OKP input file is generated,
+%       which can be be used at https://predictor.openkinetics.org. The
+%       output file has to be downloaded from the feil
+writeOpenKineticsPredictorInput
+kcatList_OKP = readOpenKineticsPredictorOutput(ecModel,fullfile(params.path,'data','job-ujtqpgn-output.csv'));
+kcatList_merged = mergeDLKcatAndFuzzyKcats(kcatList_OKP, kcatList_fuzzy);
+
 % STEP 26 Combine kcat from BRENDA and DLKcat
 kcatList_merged = mergeDLKcatAndFuzzyKcats(kcatList_DLKcat, kcatList_fuzzy);
 
