@@ -1,4 +1,18 @@
-%Abstract Base class for adapters for different species
+% ModelAdapter  Abstract base class for species-specific model adapters.
+%
+% Defines the interface that every species adapter must implement and
+% provides shared default behaviour for retrieving GECKO parameters,
+% mapping model genes to UniProt, and locating reference databases.
+% Concrete subclasses override these methods for a particular organism.
+%
+% Notes
+% -----
+% - params : struct of model-specific GECKO parameters (public property).
+% - getSpontaneousReactions : abstract method that subclasses must define.
+%
+% See also
+% --------
+% ModelAdapterManager
 classdef (Abstract) ModelAdapter
     methods (Abstract)
         [spont,spontRxnNames] = getSpontaneousReactions(obj,model);

@@ -1,29 +1,42 @@
 function fluxData = loadFluxData(fluxDataFile, modelAdapter)
-% loadFluxData
-%   Function that loads total protein measurements and flux data (exchange
-%   fluxes for carbon source,  O2, CO2, etc.)
+% loadFluxData  Load total protein measurements and exchange flux data.
 %
-% Input:
-%   fluxDataFile    path to file with flux data. (Optional, default
-%                   reads data/fluxData.tsv as specified in modelAdapter)
-%   modelAdapter    a loaded model adapter (Optional, will otherwise use
-%                   the default model adapter)
+% Loads total protein measurements and flux data (exchange fluxes for
+% carbon source, O2, CO2, etc.).
 %
-% Output:
-%   fluxData                structure with flux data
-%       conds               sampling condition
-%       Ptot                total protein (g/gDCW)
-%       grRate              growth rate (1/h)
-%       exchFluxes          exchange fluxes (mmol/gDCWh)
-%       exchMets            exchanged metabolites, matching exchFluxes
-%       exchRxnIDs          exchange reaction IDs, matching exchMets
-%       bayesianRMSEweight  if column existed in fluxData.tsv, weights for
-%                           RMSE calculation in Bayesian kcat tuning
-%       source              if column existed in fluxData.tsv, description
-%                           where the data comes from
+% Parameters
+% ----------
+% fluxDataFile : char, optional
+%     path to file with flux data (default reads data/fluxData.tsv as
+%     specified in modelAdapter).
+% modelAdapter : ModelAdapter, optional
+%     a loaded model adapter (default: the current default model adapter).
 %
-% Usage:
-%   fluxData = loadFluxData(fluxDataFile, modelAdapter)
+% Returns
+% -------
+% fluxData : struct
+%     structure with flux data.
+%
+% Notes
+% -----
+% The fluxData structure has the following fields:
+%
+% - conds : sampling condition.
+% - Ptot : total protein (g/gDCW).
+% - grRate : growth rate (1/h).
+% - exchFluxes : exchange fluxes (mmol/gDCWh).
+% - exchMets : exchanged metabolites, matching exchFluxes.
+% - exchRxnIDs : exchange reaction IDs, matching exchMets.
+% - bayesianRMSEweight : if column existed in fluxData.tsv, weights for RMSE calculation in Bayesian kcat tuning.
+% - source : if column existed in fluxData.tsv, description where the data comes from.
+%
+% Examples
+% --------
+%     fluxData = loadFluxData(fluxDataFile, modelAdapter);
+%
+% See also
+% --------
+% loadProtData
 
 if nargin < 2 || isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefault();

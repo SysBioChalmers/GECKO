@@ -1,21 +1,33 @@
 function f = calculateFfactor(model, protData, enzymes, modelAdapter)
-% calculateFfactor
-%   Computes the f factor, as a proxy to the mass fraction of proteins
-%   accounted for in an ecModel out of the total protein content in cells.
+% calculateFfactor  Compute the f factor for an ecModel.
 %
-% Input:
-%   model        an ecModel in GECKO 3 format (with ecModel.ec structure)
-%   protData     structure with proteome data, from loadProtData (Optional,
-%                by default it instead attempts to load data/paxDB.tsv)
-%   enzymes      list of enzymes (Optional, default model.ec.enzymes)
-%   modelAdapter a loaded model adapter (Optional, will otherwise use the
-%                default model adapter).
+% Computes the f factor, as a proxy to the mass fraction of proteins
+% accounted for in an ecModel out of the total protein content in cells.
 %
-% Output:
-%   f            f-factor
+% Parameters
+% ----------
+% model : struct
+%     an ecModel in GECKO 3 format (with ecModel.ec structure).
+% protData : struct, optional
+%     structure with proteome data, from loadProtData (by default it instead
+%     attempts to load data/paxDB.tsv).
+% enzymes : cell, optional
+%     list of enzymes (default model.ec.enzymes).
+% modelAdapter : ModelAdapter, optional
+%     a loaded model adapter (default: the current default model adapter).
 %
-% Usage:
-%   f = calculateFfactor(model, protData, enzymes, modelAdapter)
+% Returns
+% -------
+% f : double
+%     f-factor.
+%
+% Examples
+% --------
+%     f = calculateFfactor(model, protData, enzymes, modelAdapter);
+%
+% See also
+% --------
+% loadProtData, getProtFromProteomics
 
 if nargin < 4 || isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefault();

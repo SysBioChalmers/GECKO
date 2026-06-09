@@ -1,13 +1,25 @@
 function [mu,sigma] = updateprior(x,defaultCV)
-% updateprior
-%   Calculates a new distribution from the provided kcat values
+% updateprior  Calculate a new distribution from the provided kcat values.
 %
-% Input:
-%   x       kcat values
+% Fits a lognormal distribution to the positive kcat values and returns its
+% mean and standard deviation in linear space. Non-positive values are
+% removed before fitting. For a single value, the mean equals that value and
+% the standard deviation is the value times defaultCV.
 %
-% Output:
-%   mu      mean
-%   sigma   standard deviation
+% Parameters
+% ----------
+% x : double
+%     kcat values.
+% defaultCV : double, optional
+%     coefficient of variation used to set sigma when x is a single value
+%     (default 0.25).
+%
+% Returns
+% -------
+% mu : double
+%     mean.
+% sigma : double
+%     standard deviation.
 
 if nargin<2
     defaultCV = 0.25;

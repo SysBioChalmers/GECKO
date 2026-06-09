@@ -1,25 +1,36 @@
 function model = constrainEnzConcs(model, removeConstraints)
-% constrainEnzConcs
-%   Constrain enzyme usages by their concentration as provided in
-%   model.ec.concs. For enzymes with non-NaN entries in model.ec.concs,
-%   their enzyme usage reaction will no longer draw from the protein pool,
-%   but is rather constraint by the measured protein abundance.
+% constrainEnzConcs  Constrain enzyme usages by their concentration.
 %
-% Input:
-%   model               an ecModel in GECKO 3 format (with ecModel.ec
-%                       structure) with enzyme concentrations in
-%                       model.ec.concs
-%   removeConstraints   logical, whether enzyme concentration
-%                       constraints should be removed (model.ec.concs
-%                       will remain unchanged). (optional, default false)
+% Constrain enzyme usages by their concentration as provided in
+% model.ec.concs. For enzymes with non-NaN entries in model.ec.concs, their
+% enzyme usage reaction will no longer draw from the protein pool, but is
+% rather constraint by the measured protein abundance.
 %
-% Output:
-%   model   an ecModel constraint with available enzyme concentrations
+% Parameters
+% ----------
+% model : struct
+%     an ecModel in GECKO 3 format (with ecModel.ec structure) with enzyme
+%     concentrations in model.ec.concs.
+% removeConstraints : logical, optional
+%     whether enzyme concentration constraints should be removed
+%     (model.ec.concs will remain unchanged) (default false).
 %
-% Note: To populate model.ec.concs you should run fillEnzConcs.
+% Returns
+% -------
+% model : struct
+%     an ecModel constraint with available enzyme concentrations.
 %
-% Usage:
-%   model = constrainEnzConcs(model, removeConstraints)
+% Notes
+% -----
+% To populate model.ec.concs you should run fillEnzConcs.
+%
+% Examples
+% --------
+%     model = constrainEnzConcs(model, removeConstraints);
+%
+% See also
+% --------
+% fillEnzConcs
 
 %Enzyme with NaN entry in model.ec.concs => draw from prot_pool
 %Enzyme with numeric entry in model.ec.concs => exchange reaction with

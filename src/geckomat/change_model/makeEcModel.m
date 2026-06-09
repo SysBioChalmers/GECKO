@@ -1,96 +1,104 @@
 function [model, noUniprot] = makeEcModel(model, geckoLight, modelAdapter)
-% makeEcModel
-%   Expands a conventional genome-scale model (in RAVEN format) with enzyme
-%   information and prepares the reactions for integration of enzyme usage
-%   coefficients. This function contains all the steps that need to be done
-%   to get a basic ecModel, without incorporating any kcat values or
-%   constraints yet. This function should only have to be run once for a
-%   model.
+% makeEcModel  Expand a conventional GEM into a basic ecModel.
 %
-% Input:
-%   model        a model in RAVEN format
-%   geckoLight   true if a simplified GECKO light model should be generated.
-%                (Optional, default is false).
-%   modelAdapter a loaded model adapter (Optional, will otherwise use the
-%                default model adapter).
+% Expands a conventional genome-scale model (in RAVEN format) with enzyme
+% information and prepares the reactions for integration of enzyme usage
+% coefficients. This function contains all the steps that need to be done to
+% get a basic ecModel, without incorporating any kcat values or constraints
+% yet. This function should only have to be run once for a model.
 %
-% Ouput:
-%   model        an ecModel in GECKO 3 format, with a model.ec structure where
-%                enzyme and kcat information are stored. Protein pseudo-
-%                metabolites and their draw reactions are added to the model,
-%                but their usage is not yet implemented (due to absent kcat
-%                values at this stage).
-%   noUniprot    genes for which no information could be found in the
-%                Uniprot database
+% Parameters
+% ----------
+% model : struct
+%     a model in RAVEN format.
+% geckoLight : logical, optional
+%     true if a simplified GECKO light model should be generated (default
+%     false).
+% modelAdapter : ModelAdapter, optional
+%     a loaded model adapter (default: the current default model adapter).
 %
+% Returns
+% -------
+% model : struct
+%     an ecModel in GECKO 3 format, with a model.ec structure where enzyme
+%     and kcat information are stored. Protein pseudometabolites and their
+%     draw reactions are added to the model, but their usage is not yet
+%     implemented (due to absent kcat values at this stage).
+% noUniprot : cell
+%     genes for which no information could be found in the Uniprot database.
+%
+% Notes
+% -----
 % The function goes through the following steps:
-%   1.  Remove gene associations from pseudoreactions.
-%   2.  Invert irreversible backwards reactions.
-%   3.  Correct 'rev' vector to match lb and ub vectors.
-%   4.  Convert to irreversible model (splits reversible reactions).
-%   5.  [Skipped with geckoLight:] Expand model to split reactions with
-%       'OR' in grRules (each reaction is then catalyzed by one enzyme
-%       (complex).
-%   6.  Make empty model.ec structure, that will contain enzyme and kcat
-%       information. One entry per reaction, where isozymes have multiple
-%       entries. This model.ec structure will later be populated with kcat
-%       values. For geckoLight the structure is different, where each
-%       reaction can have multiple isozymes.
-%   7.  Add enzyme information fields to model.ec structure: MW, sequence.
-%   8.  Populate model.ec structure with information from each reaction.
-%   9.  [Skipped with geckoLight:] Add proteins as pseudometabolites.
-%   10. Add prot_pool pseudometabolite.
-%   11. [Skipped with geckoLight:] Add usage reactions for the protein
-%       pseudometabolites, replenishing from the protein pool (default, can
-%       be changed to consider proteomics data at later stage)
-%   12. Add protein pool reaction, without upper bound.
 %
-%   Note that while protein pseudometabolites, draw & pool reactions might
-%   be added to the model, the enzyme usage is not yet incorporated in each
-%   metabolic reaction, so enzymes will not be used. applyKcatConstraints
-%   incorporates protein pseudometabolites in reactions as enzyme usages by
-%   applying the specified kcats as constraints.
+% 1.  Remove gene associations from pseudoreactions.
+% 2.  Invert irreversible backwards reactions.
+% 3.  Correct 'rev' vector to match lb and ub vectors.
+% 4.  Convert to irreversible model (splits reversible reactions).
+% 5.  [Skipped with geckoLight:] Expand model to split reactions with 'OR'
+%     in grRules (each reaction is then catalyzed by one enzyme (complex)).
+% 6.  Make empty model.ec structure, that will contain enzyme and kcat
+%     information. One entry per reaction, where isozymes have multiple
+%     entries. This model.ec structure will later be populated with kcat
+%     values. For geckoLight the structure is different, where each reaction
+%     can have multiple isozymes.
+% 7.  Add enzyme information fields to model.ec structure: MW, sequence.
+% 8.  Populate model.ec structure with information from each reaction.
+% 9.  [Skipped with geckoLight:] Add proteins as pseudometabolites.
+% 10. Add prot_pool pseudometabolite.
+% 11. [Skipped with geckoLight:] Add usage reactions for the protein
+%     pseudometabolites, replenishing from the protein pool (default, can be
+%     changed to consider proteomics data at later stage).
+% 12. Add protein pool reaction, without upper bound.
 %
-%The EC structure looks as follows
-% Attributes:
-%   geckoLight: 0 if full model, 1 if light
-%         rxns: reaction identifiers that correspond to model.rxns
-%         kcat: kcat values - not set here
-%       source: specifies where the kcats come from - not set here
-%        notes: notes that can be set by downstream functions - not set
-%               here
-%      eccodes: enzyme codes for each enzyme - not set here
-%        genes: the genes involved in the kcats - not necessarily the
-%               same as model.genes, since some genes may not be found in
-%               databases etc.
-%      enzymes: Uniprot protein identifiers for the genes
-%           mw: molecular weights of the enzymes
-%     sequence: sequence of the genes/enzymes
-%        concs: concentrations of the enzymes - not set here
-%    rxnEnzMat: matrix of enzymes and rxns
+% Note that while protein pseudometabolites, draw & pool reactions might be
+% added to the model, the enzyme usage is not yet incorporated in each
+% metabolic reaction, so enzymes will not be used. applyKcatConstraints
+% incorporates protein pseudometabolites in reactions as enzyme usages by
+% applying the specified kcats as constraints.
 %
-% The full model is split on all ORs in the GPRs, meaning that the
-% reactions will be duplicated for each isozyme. Only the rxns with genes
-% are added. The fields rxns, eccodes, kcat, source and notes will
-% therefore have one entry per reaction. The fields genes, enzymes, mw,
-% sequence and concs will have one entry per gene. The rxnEnzMat is a
-% matrix with reactions and genes, mapping which genes are connected to
-% which reaction (where isozymes have different reactions).
+% The model.ec structure has the following fields:
+%
+% - geckoLight : 0 if full model, 1 if light.
+% - rxns : reaction identifiers that correspond to model.rxns.
+% - kcat : kcat values - not set here.
+% - source : specifies where the kcats come from - not set here.
+% - notes : notes that can be set by downstream functions - not set here.
+% - eccodes : enzyme codes for each enzyme - not set here.
+% - genes : the genes involved in the kcats - not necessarily the same as model.genes, since some genes may not be found in databases etc.
+% - enzymes : Uniprot protein identifiers for the genes.
+% - mw : molecular weights of the enzymes.
+% - sequence : sequence of the genes/enzymes.
+% - concs : concentrations of the enzymes - not set here.
+% - rxnEnzMat : matrix of enzymes and rxns.
+%
+% The full model is split on all ORs in the GPRs, meaning that the reactions
+% will be duplicated for each isozyme. Only the rxns with genes are added.
+% The fields rxns, eccodes, kcat, source and notes will therefore have one
+% entry per reaction. The fields genes, enzymes, mw, sequence and concs will
+% have one entry per gene. The rxnEnzMat is a matrix with reactions and
+% genes, mapping which genes are connected to which reaction (where isozymes
+% have different reactions).
 %
 % The light model works a bit differently. The model has the same number of
 % rxns as the original model, but expanded since it is reversible + one the
 % extra prot maintenance rxn and one extra prot_pool rxn. However, the ec
 % fields rxns, eccodes, kcat, source and notes are duplicated for each
-% isozyme, sorted the same way as model.rxns. So, in model.ec.rxns, the
-% same reaction will appear several times after one another, one entry per
+% isozyme, sorted the same way as model.rxns. So, in model.ec.rxns, the same
+% reaction will appear several times after one another, one entry per
 % izozyme, with corresponding values for that isozyme. These fields
 % therefore have the same length as for the full model. The fields genes,
 % enzymes, mw, sequence and concs are the same here as in the full model.
 % The rxnEnzMat maps the model.ec.rxns entries to genes and is therefore of
 % the same size as for the full model.
 %
-% Usage:
-%   [model, noUniprot] = makeEcModel(model, geckoLight, modelAdapter)
+% Examples
+% --------
+%     [model, noUniprot] = makeEcModel(model, geckoLight, modelAdapter);
+%
+% See also
+% --------
+% applyKcatConstraints, applyComplexData
 
 if nargin<2
     geckoLight=false;

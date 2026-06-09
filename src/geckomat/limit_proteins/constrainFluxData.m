@@ -1,51 +1,63 @@
 function model = constrainFluxData(model, fluxData, condition, maxMinGrowth, looseStrictFlux, modelAdapter)
-% constrainFluxData
-%   Constrains fluxes to the data that is provided in the fluxData
-%   structure, which itself is read by loadFluxData from data/fluxData.tsv.
+% constrainFluxData  Constrain ecModel fluxes to provided flux data.
 %
-% Input:
-%   model           an ecModel in GECKO 3 format (with ecModel.ec structure)
-%   fluxData        structure with flux data
-%                   conds       sampling condition
-%                   Ptot        total protein (g/gDCW)
-%                   grRate      growth rate (1/h)
-%                   exchFluxes  exchange fluxes (mmol/gDCWh)
-%                   exchMets    exchanged metabolites, matching exchFluxes
-%                   exchRxnIDs  exchange reaction IDs, matching exchMets
-%   condition       either index number or name of the sample condition in
-%                   fluxData.conds (Optional, default = 1)
-%   maxMinGrowth    'max' if the provided growth rate should be set as
-%                   maximum growth rate (= upper bound), or 'min' if it
-%                   should be set as minimum growth rate (= lower bound).
-%                   The latter option is suitable if minimization of
-%                   prot_pool_exchange is used as objective function. (Opt,
-%                   default = 'max')
-%   looseStrictFlux how strictly constrained the exchange fluxes should be,
-%                   optional, default = 'loose'
-%                   'loose' if the exchange fluxes should be constraint
-%                           only by the "outer bounds". If exchFluxes(i)
-%                           > 0, LB = 0 and UB = exchFluxes(i). If
-%                           exchFluxes(i) < 0, LB = exchFluxes(i) and
-%                           UB = 0
-%                   0-100   LB and UB constraints are set with a specified
-%                           percentage of variance around exchFluxes. If 10
-%                           is specified, LB = exchFluxes*0.95 and UB =
-%                           exchFluxes*1.05. This allows for 10% variance
-%                           around the exchFluxes values, but strictly
-%                           forces a flux through the exchRxns.
-%   modelAdapter    a loaded model adapter (Optional, will otherwise use
-%                   the default model adapter)
+% Constrains fluxes to the data that is provided in the fluxData structure,
+% which itself is read by loadFluxData from data/fluxData.tsv.
 %
-% Output:
-%   model           an ecModel where fluxes are constraint
+% Parameters
+% ----------
+% model : struct
+%     an ecModel in GECKO 3 format (with ecModel.ec structure).
+% fluxData : struct
+%     structure with flux data, with the fields:
 %
-% Note: If a provided constraint is either -1000 or 1000, then the function
-% will update the reaction lower and upper bound to either allow uptake or
+%     - conds : sampling condition.
+%     - Ptot : total protein (g/gDCW).
+%     - grRate : growth rate (1/h).
+%     - exchFluxes : exchange fluxes (mmol/gDCWh).
+%     - exchMets : exchanged metabolites, matching exchFluxes.
+%     - exchRxnIDs : exchange reaction IDs, matching exchMets.
+% condition : double or char, optional
+%     either index number or name of the sample condition in fluxData.conds
+%     (default 1).
+% maxMinGrowth : char, optional
+%     'max' if the provided growth rate should be set as maximum growth rate
+%     (= upper bound), or 'min' if it should be set as minimum growth rate
+%     (= lower bound). The latter option is suitable if minimization of
+%     prot_pool_exchange is used as objective function (default 'max').
+% looseStrictFlux : char or double, optional
+%     how strictly constrained the exchange fluxes should be (default
+%     'loose'):
+%
+%     - 'loose' : the exchange fluxes are constraint only by the "outer
+%       bounds". If exchFluxes(i) > 0, LB = 0 and UB = exchFluxes(i). If
+%       exchFluxes(i) < 0, LB = exchFluxes(i) and UB = 0.
+%     - 0-100 : LB and UB constraints are set with a specified percentage of
+%       variance around exchFluxes. If 10 is specified, LB = exchFluxes*0.95
+%       and UB = exchFluxes*1.05. This allows for 10% variance around the
+%       exchFluxes values, but strictly forces a flux through the exchRxns.
+% modelAdapter : ModelAdapter, optional
+%     a loaded model adapter (default: the current default model adapter).
+%
+% Returns
+% -------
+% model : struct
+%     an ecModel where fluxes are constraint.
+%
+% Notes
+% -----
+% If a provided constraint is either -1000 or 1000, then the function will
+% update the reaction lower and upper bound to either allow uptake or
 % excretion, irrespective of what option is given as the looseStrictFlux
 % parameter.
 %
-% Usage:
-%   model = constrainFluxData(model, fluxData, condition, maxMinGrowth, looseStrictFlux, modelAdapter)
+% Examples
+% --------
+%     model = constrainFluxData(model, fluxData, condition, maxMinGrowth, looseStrictFlux, modelAdapter);
+%
+% See also
+% --------
+% loadFluxData
 
 if nargin < 6 || isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefault();

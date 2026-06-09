@@ -1,22 +1,30 @@
 function model = removeStandardKcat(model)
-% removeStandardKcat
-%   Remove the "standard" pseudoenzyme and standard kcat and MW values, as
-%   they were introduced by getStandardKcat. Also standard kcat values that
-%   were assigned by getStandardKcat if fillZeroKcat was set to true are
-%   removed from model.ec.kcat. Both the model.ec and model.S structures
-%   are modified.
+% removeStandardKcat  Remove the standard pseudoenzyme and standard kcats.
 %
-% Input:
-%   model           an ecModel in GECKO 3 format (with ecModel.ec structure)
-%                   that has standard kcat values implemented by
-%                   getStandardKcat.
+% Removes the "standard" pseudoenzyme and standard kcat and MW values, as
+% they were introduced by getStandardKcat. Also standard kcat values that
+% were assigned by getStandardKcat if fillZeroKcat was set to true are
+% removed from model.ec.kcat. Both the model.ec and model.S structures are
+% modified.
 %
-% Output:
-%   model           ecModel without standard pseudoprotein and standard
-%                   kcat values
+% Parameters
+% ----------
+% model : struct
+%     an ecModel in GECKO 3 format (with ecModel.ec structure) that has
+%     standard kcat values implemented by getStandardKcat.
 %
-% Usage:
-%    model = removeStandardKcat(model);
+% Returns
+% -------
+% model : struct
+%     ecModel without standard pseudoprotein and standard kcat values.
+%
+% Examples
+% --------
+%     model = removeStandardKcat(model);
+%
+% See also
+% --------
+% getStandardKcat, applyKcatConstraints
 
 % Remove standard enzyme from ec structure
 stdEnzIdx = find(strcmpi(model.ec.enzymes, 'standard'));

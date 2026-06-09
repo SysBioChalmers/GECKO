@@ -1,24 +1,33 @@
 function model = loadConventionalGEM(filename, modelAdapter)
-% loadConventionalGEM
-%   Loads the conventional GEM (non-ecModel) from the location specified in
-%   the modelAdapter. By default, it looks in the models/ subdirectory of 
-%   the param.path specified in the modelAdapter. When loading
-%   conventional GEMs from other locations, one can directly use importModel.
+% loadConventionalGEM  Load the conventional GEM (non-ecModel).
 %
-% Input:
-%   filename        name of the model file, located in the the models/
-%                   subfolder of param.path as specified in the
-%                   modelAdapter (Optional, will otherwise use the
-%                   value specified as param.convGEM in the
-%                   modelAdapter)
-%   modelAdapter    a loaded model adapter, from where the model folder is
-%                   read (Optional, will otherwise use the default model adapter).
+% Loads the conventional GEM (non-ecModel) from the location specified in
+% the modelAdapter. By default, it looks in the models/ subdirectory of the
+% param.path specified in the modelAdapter. When loading conventional GEMs
+% from other locations, one can directly use importModel.
 %
-% Output:
-%   model           model in RAVEN format
+% Parameters
+% ----------
+% filename : char, optional
+%     name of the model file, located in the models/ subfolder of
+%     param.path as specified in the modelAdapter (default: the value
+%     specified as param.convGEM in the modelAdapter).
+% modelAdapter : ModelAdapter, optional
+%     a loaded model adapter, from where the model folder is read (default:
+%     the current default model adapter).
 %
-% Usage:
-%   model = loadConventionalGEM(filename, modelAdapter)
+% Returns
+% -------
+% model : struct
+%     model in RAVEN format.
+%
+% Examples
+% --------
+%     model = loadConventionalGEM(filename, modelAdapter);
+%
+% See also
+% --------
+% loadEcModel
 
 
 if nargin < 2 || isempty(modelAdapter)

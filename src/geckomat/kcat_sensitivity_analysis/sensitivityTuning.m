@@ -1,38 +1,50 @@
 function [model, tunedKcats] = sensitivityTuning(model, desiredGrowthRate, modelAdapter, foldChange, protToIgnore, verbose)
-% sensitivityTuning
-%    Function that relaxes the most limiting kcats until a certain growth rate
-%    is reached. The function will update kcats in model.ec.kcat.
+% sensitivityTuning  Relax the most limiting kcats to reach a growth rate.
 %
-% Input:
-%   model              an ecModel in GECKO 3 format (with ecModel.ec structure)
-%   desiredGrowthRate  kcats will be relaxed until this growth rate is reached
-%   modelAdapter       a loaded model adapter (Optional, will otherwise use the
-%                      default model adapter).
-%   foldChange         kcat values will be increased by this fold-change.
-%                      (Opt, default 10)
-%   protToIgnore       vector of protein ids to be ignore in tuned kcats.
-%                      e.g. {'P38122', 'Q99271'} (Optional, default = [])
-%   verbose            logical whether progress should be reported (Optional,
-%                      default true)
+% Relaxes the most limiting kcats until a certain growth rate is reached. The
+% function will update kcats in model.ec.kcat.
 %
-% Output:
-%   model              ecModel with updated model.ec.kcat
-%   tunedKcats         structure with information on tuned kcat values
-%                      rxns     identifiers of reactions with tuned kcat
-%                               values
-%                      rxnNames names of the reactions in tunedKcats.rxns
-%                      enzymes  enzymes that catalyze the reactions in
-%                               tunedKcats.rxns, whose kcat value has been
-%                               tuned.
-%                      oldKcat  kcat values in the input model
-%                      newKcat  kcat values in the output model, after tuning
+% Parameters
+% ----------
+% model : struct
+%     an ecModel in GECKO 3 format (with ecModel.ec structure).
+% desiredGrowthRate : double
+%     kcats will be relaxed until this growth rate is reached.
+% modelAdapter : ModelAdapter, optional
+%     a loaded model adapter (default: the current default model adapter).
+% foldChange : double, optional
+%     kcat values will be increased by this fold-change (default 10).
+% protToIgnore : cell, optional
+%     vector of protein ids to be ignored in tuned kcats, e.g. {'P38122',
+%     'Q99271'} (default []).
+% verbose : logical, optional
+%     whether progress should be reported (default true).
 %
-% Note: The model.ec.notes field will contain the original kcat value and
-% source, unless the kcat has previously been set by sensitivityTuning, in
-% which case the notes field remains unchanged.
+% Returns
+% -------
+% model : struct
+%     ecModel with updated model.ec.kcat.
+% tunedKcats : struct
+%     structure with information on tuned kcat values.
 %
-% Usage:
-%   [model, tunedKcats] = sensitivityTuning(model, desiredGrowthRate, modelAdapter, foldChange, protToIgnore, verbose)
+% Notes
+% -----
+% The tunedKcats structure has the following fields:
+%
+% - rxns : identifiers of reactions with tuned kcat values.
+% - rxnNames : names of the reactions in tunedKcats.rxns.
+% - enzymes : enzymes that catalyze the reactions in tunedKcats.rxns, whose
+%   kcat value has been tuned.
+% - oldKcat : kcat values in the input model.
+% - newKcat : kcat values in the output model, after tuning.
+%
+% The model.ec.notes field will contain the original kcat value and source,
+% unless the kcat has previously been set by sensitivityTuning, in which case
+% the notes field remains unchanged.
+%
+% Examples
+% --------
+%     [model, tunedKcats] = sensitivityTuning(model, desiredGrowthRate, modelAdapter, foldChange, protToIgnore, verbose);
 
 if nargin < 6 || isempty(verbose)
     verbose = true;

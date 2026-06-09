@@ -1,27 +1,39 @@
 function ecModel = setKcatForReactions(ecModel,rxnIds,kcat)
-% setKcatForReactions
-%   Change the kcat value in ecModel.ec.kcat for selected reactions.
-%   applyKcatConstraints needs to be run afterwards to transfer the kcat
-%   values into the S-matrix.
+% setKcatForReactions  Change the kcat value for selected reactions.
 %
-% Input:
-%   ecModel     an ecModel in GECKO 3 format (with ecModel.ec structure)
-%   rxnIds      reaction identifier matching ecModel.ec.rxns. If the _EXP_.
-%               suffix is not included, and there are multiple expanded
-%               (isozymic) reactions, then all off those will have their
-%               kcat changed. If rxnIds includes a _EXP_ suffix, then only
-%               that specific reaction will have its kcat changed. If
-%               multiple rxnIds are provided as a cell array, then the
-%               above applies to each rxnIds individual.
-%   kcat        the new kcat value
+% Changes the kcat value in ecModel.ec.kcat for selected reactions.
+% applyKcatConstraints needs to be run afterwards to transfer the kcat
+% values into the S-matrix.
 %
-% Output:
-%   ecModel     ecModel where selected kcat values in ecModel.ec.kcat are
-%               changed, but not yet applied to the S-matrix (will require
-%               to run applyKcatConstraints). ecModel.ec.source for the
-%               changed reactions will read 'from setKcatForReactions'
+% Parameters
+% ----------
+% ecModel : struct
+%     an ecModel in GECKO 3 format (with ecModel.ec structure).
+% rxnIds : char or cell
+%     reaction identifier matching ecModel.ec.rxns. If the _EXP_ suffix is
+%     not included, and there are multiple expanded (isozymic) reactions,
+%     then all of those will have their kcat changed. If rxnIds includes a
+%     _EXP_ suffix, then only that specific reaction will have its kcat
+%     changed. If multiple rxnIds are provided as a cell array, then the
+%     above applies to each rxnIds individually.
+% kcat : double
+%     the new kcat value.
 %
-% Usage: ecModel = setKcatForReactions(ecModel,rxnIds,kcat)
+% Returns
+% -------
+% ecModel : struct
+%     ecModel where selected kcat values in ecModel.ec.kcat are changed, but
+%     not yet applied to the S-matrix (will require to run
+%     applyKcatConstraints). ecModel.ec.source for the changed reactions
+%     will read 'from setKcatForReactions'.
+%
+% Examples
+% --------
+%     ecModel = setKcatForReactions(ecModel, rxnIds, kcat);
+%
+% See also
+% --------
+% applyKcatConstraints, getKcatAcrossIsozymes
 rxnIds = convertCharArray(rxnIds);
 
 hasExp       = ~cellfun(@isempty,regexp(rxnIds,'_EXP_\d+$'));

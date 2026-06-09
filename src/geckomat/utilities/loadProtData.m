@@ -1,52 +1,64 @@
 function protData = loadProtData(replPerCond, protDataFile, filterData, modelAdapter, minVal, maxRSD, maxMissing, cutLowest, addStdevs)
-% loadProtData
-%   Function that loads absolute proteomics data (in mg/gDCW) and returns
-%   mean values across replicates for each condition in the data file. By
-%   default it also filters the data by various criteria, to remove
-%   uncertain data (see input parameters).
+% loadProtData  Load absolute proteomics data and average over replicates.
 %
-% Input:
-%   replPerCond     vector with number of replicates for each condition in
-%                   the dataset. Example: [3, 2] if first conditions has
-%                   triplicates and second condition has duplicates.
-%   protDataFile    path to file with proteomics data, where protein levels
-%                   are in mg/gDCW (Optional, default reads 
-%                   data/proteomics.tsv as specified in modelAdapter)
-%                   Alternatively, protDataFile can be a protData structure
-%                   that was previously made by loadProtdata.
-%   filterData      logical whether abundances should be filtered. If
-%                   false, minVal, maxRSD, maxMissing and addStdevs are not
-%                   considered. (Optional, default true)
-%   modelAdapter    a loaded model adapter (Optional, will otherwise use
-%                   the default model adapter)
-%   minVal          threshold of mean protein measurement per condition.
-%                   (Optional, default = 0)
-%   maxRSD          maximum relative standard per condition. (Optional,
-%                   default = 1)
-%   maxMissing      ratio of replicates for which a protein level might be
-%                   missing. (Optional, default = 1/3 (or 1/2 if number of
-%                   replicates = 2))
-%                   If conditions have different number of replicates (as
-%                   indicated in replPerCond), maxMissing can also be a
-%                   vector of the same length as replPerCond, with
-%                   individual maxMissing parameters for each replicate.
-%   cutLowest       percentage of lowest mean values per condition to be
-%                   discared (not considering NaN values). (Optional, default 5)
-%   addStdevs       how many standard deviations should be added to the mean
-%                   value of each protein measurement across replicates,
-%                   broadening the confidence interval. (Optional,
-%                   default = 1)
+% Loads absolute proteomics data (in mg/gDCW) and returns mean values
+% across replicates for each condition in the data file. By default it also
+% filters the data by various criteria, to remove uncertain data (see input
+% parameters).
 %
-% Output:
-%   protData        structure with (filtered) proteome data
-%                   uniprotIDs  cell arrray with Uniprot IDs matching
-%                               protData.abundances
-%                   abundances  matrix of proteomics data, where each
-%                               column contains mean abundances per
-%                               condition
+% Parameters
+% ----------
+% replPerCond : double
+%     vector with number of replicates for each condition in the dataset.
+%     Example: [3, 2] if first condition has triplicates and second
+%     condition has duplicates.
+% protDataFile : char, optional
+%     path to file with proteomics data, where protein levels are in
+%     mg/gDCW (default reads data/proteomics.tsv as specified in
+%     modelAdapter). Alternatively, protDataFile can be a protData structure
+%     that was previously made by loadProtData.
+% filterData : logical, optional
+%     whether abundances should be filtered. If false, minVal, maxRSD,
+%     maxMissing and addStdevs are not considered (default true).
+% modelAdapter : ModelAdapter, optional
+%     a loaded model adapter (default: the current default model adapter).
+% minVal : double, optional
+%     threshold of mean protein measurement per condition (default 0).
+% maxRSD : double, optional
+%     maximum relative standard per condition (default 1).
+% maxMissing : double, optional
+%     ratio of replicates for which a protein level might be missing
+%     (default 1/3, or 1/2 if number of replicates = 2). If conditions have
+%     different number of replicates (as indicated in replPerCond),
+%     maxMissing can also be a vector of the same length as replPerCond,
+%     with individual maxMissing parameters for each replicate.
+% cutLowest : double, optional
+%     percentage of lowest mean values per condition to be discarded (not
+%     considering NaN values) (default 5).
+% addStdevs : double, optional
+%     how many standard deviations should be added to the mean value of
+%     each protein measurement across replicates, broadening the confidence
+%     interval (default 1).
 %
-% Usage:
-%   protData = loadProtData(replPerCond, protDataFile, filterData, modelAdapter, minVal, maxRSD, maxMissing, cutLowest, addStdevs)
+% Returns
+% -------
+% protData : struct
+%     structure with (filtered) proteome data.
+%
+% Notes
+% -----
+% The protData structure has the following fields:
+%
+% - uniprotIDs : cell array with Uniprot IDs matching protData.abundances.
+% - abundances : matrix of proteomics data, where each column contains mean abundances per condition.
+%
+% Examples
+% --------
+%     protData = loadProtData(replPerCond, protDataFile, filterData, modelAdapter, minVal, maxRSD, maxMissing, cutLowest, addStdevs);
+%
+% See also
+% --------
+% loadFluxData
 
 if nargin < 8 || isempty(addStdevs)
     addStdevs = 1;

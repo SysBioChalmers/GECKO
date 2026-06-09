@@ -1,28 +1,42 @@
 function kcatList = readDLKcatOutput(model, outFile, modelAdapter)
-% readDLKcatOutput
-%   Reads the DLKcat output file and constructs a kcatList structure, that
-%   can be used by selectKcatValue() to populate the ecModel with kcat
-%   values.
+% readDLKcatOutput  Read the DLKcat output file into a kcatList structure.
 %
-% Input:
-%   model           an ecModel in GECKO 3 format (with ecModel.ec structure)
-%   outFile         name and path of the DLKcat output file. (Optional,
-%                   default is data/DLKcat.tsv from the obj.params.path
-%                   folder specified in the modelAdapter)
-%   modelAdapter    a loaded model adapter (Optional, will otherwise use the
-%                   default model adapter).
+% Reads the DLKcat output file and constructs a kcatList structure, that can
+% be used by selectKcatValue() to populate the ecModel with kcat values.
 %
-% Output:
-%   kcatList    structure array with list of DLKcat derived kcat values,
-%               with separate entries for each kcat value
-%               source      'DLKcat'           
-%               rxns        reaction identifiers
-%               genes       gene identifiers
-%               substrate   substrate names
-%               kcat        predicted kcat value in /sec
+% Parameters
+% ----------
+% model : struct
+%     an ecModel in GECKO 3 format (with ecModel.ec structure).
+% outFile : char, optional
+%     name and path of the DLKcat output file (default: data/DLKcat.tsv from
+%     the obj.params.path folder specified in the modelAdapter).
+% modelAdapter : ModelAdapter, optional
+%     a loaded model adapter (default: the current default model adapter).
 %
-% Usage:
-%   kcatList = readDLKcatOutput(model, outFile, modelAdapter)
+% Returns
+% -------
+% kcatList : struct
+%     structure array with list of DLKcat derived kcat values, with separate
+%     entries for each kcat value.
+%
+% Notes
+% -----
+% The kcatList structure has the following fields:
+%
+% - source : 'DLKcat'.
+% - rxns : reaction identifiers.
+% - genes : gene identifiers.
+% - substrate : substrate names.
+% - kcat : predicted kcat value in /sec.
+%
+% Examples
+% --------
+%     kcatList = readDLKcatOutput(model, outFile, modelAdapter);
+%
+% See also
+% --------
+% runDLKcat, writeDLKcatInput, selectKcatValue
 
 if nargin < 3 || isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefault();

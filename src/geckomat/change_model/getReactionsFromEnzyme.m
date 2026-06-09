@@ -1,19 +1,29 @@
 function [rxns, kcat, idx, rxnNames, grRules] = getReactionsFromEnzyme(ecModel,proteinId)
-% getReactionsFromEnzyme
-%   Get all reactions that are annotated to a particular enzyme.
+% getReactionsFromEnzyme  Get all reactions annotated to a particular enzyme.
 %
-% Input:
-%   ecModel     an ecModel in GECKO 3 format (with ecModel.ec structure)
-%   proteinId   protein identifier, matching ecModel.ec.enzymes.
+% Parameters
+% ----------
+% ecModel : struct
+%     an ecModel in GECKO 3 format (with ecModel.ec structure).
+% proteinId : char
+%     protein identifier, matching ecModel.ec.enzymes.
 %
-% Output:
-%   rxns        reactions that are associated with this enzyme
-%   kcat        kcat values of the corresponding reactions
-%   idx         index of the reactions in ecModel.ec.rxns
-%   rxnNames    names of the reactions
-%   grRules     grRules of the reactions
+% Returns
+% -------
+% rxns : cell
+%     reactions that are associated with this enzyme.
+% kcat : double
+%     kcat values of the corresponding reactions.
+% idx : double
+%     index of the reactions in ecModel.ec.rxns.
+% rxnNames : cell
+%     names of the reactions.
+% grRules : cell
+%     grRules of the reactions.
 %
-% Usage: [rxns, kcat, idx, rxnNames, grRules] = getReactionsFromEnzyme(ecModel,proteinId)
+% Examples
+% --------
+%     [rxns, kcat, idx, rxnNames, grRules] = getReactionsFromEnzyme(ecModel, proteinId);
 
 protIdx     = find(strcmpi(ecModel.ec.enzymes,proteinId));
 ecRxnIdx    = find(ecModel.ec.rxnEnzMat(:,protIdx));

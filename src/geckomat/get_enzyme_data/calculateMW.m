@@ -1,15 +1,18 @@
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% MW = calculateMW(sequence)
-% Calculates de molecular weight of a protein.
-% 
-% INPUT: Sequence (can include extra things such as spaces or numbers).
-% OUTPUT: Molecular weight number
-% 
-% Benjamín Sánchez. Last edited: 2015-04-13
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 function MW = calculateMW(sequence)
+% calculateMW  Calculate the molecular weight of a protein.
+%
+% Calculates the molecular weight of a protein from its amino acid sequence.
+%
+% Parameters
+% ----------
+% sequence : char
+%     the amino acid sequence (can include extra things such as spaces or
+%     numbers, which are ignored).
+%
+% Returns
+% -------
+% MW : double
+%     the molecular weight number.
 
 % A	Alanine
 % B	Aspartic acid or Asparagine

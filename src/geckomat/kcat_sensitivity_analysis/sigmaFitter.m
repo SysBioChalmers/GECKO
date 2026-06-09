@@ -1,33 +1,39 @@
 function [model, sigma] = sigmaFitter(model, growthRate, Ptot, f, makePlot, modelAdapter)
-% sigmaFitter
-%   Function that fits the average enzyme saturation factor in an ecModel
-%   according to a provided experimentally measured value for the objective
-%   function (i.e. growth rate at specified conditions)
+% sigmaFitter  Fit the average enzyme saturation factor of an ecModel.
 %
-% INPUTS:
-%   model           an ecModel in GECKO 3 format (with ecModel.ec structure)
-%   growthRate      growth rate that should be reached. If not
-%                   specified, the value will be read from the model
-%                   adapter.
-%   Ptot            Total cellular protein content in g/gDCW. If not
-%                   specified, the value will be read from the model
-%                   adapter. If not specified in model adapter, 0.5 g/gDCW
-%                   is assumed.
-%   f               Estimated fraction of enzymes in the model. If not
-%                   specified, the value will be read from the model
-%                   adapter. If not specified in model adapter, 0.5 is
-%                   assumed.
-%   makePlot        Logical whether a plot should be made. Default true.
-%   modelAdapter    a loaded model adapter (Optional, will otherwise use the
-%                   default model adapter).
+% Fits the average enzyme saturation factor in an ecModel according to a
+% provided experimentally measured value for the objective function (i.e.
+% growth rate at specified conditions).
 %
-% Output:
-%   model           ecModel with protein pool exchange upper bound adapted
-%                   to the optimal sigma-factor
-%   sigma           optimal sigma-factor
+% Parameters
+% ----------
+% model : struct
+%     an ecModel in GECKO 3 format (with ecModel.ec structure).
+% growthRate : double, optional
+%     growth rate that should be reached (default: read from the model
+%     adapter).
+% Ptot : double, optional
+%     total cellular protein content in g/gDCW (default: read from the model
+%     adapter; if not specified there, 0.5 g/gDCW is assumed).
+% f : double, optional
+%     estimated fraction of enzymes in the model (default: read from the
+%     model adapter; if not specified there, 0.5 is assumed).
+% makePlot : logical, optional
+%     whether a plot should be made (default true).
+% modelAdapter : ModelAdapter, optional
+%     a loaded model adapter (default: the current default model adapter).
 %
-% Usage:
-%   [model, sigma] = sigmaFitter(model, growthRate, Ptot, f, makePlot, modelAdapter)
+% Returns
+% -------
+% model : struct
+%     ecModel with protein pool exchange upper bound adapted to the optimal
+%     sigma-factor.
+% sigma : double
+%     optimal sigma-factor.
+%
+% Examples
+% --------
+%     [model, sigma] = sigmaFitter(model, growthRate, Ptot, f, makePlot, modelAdapter);
 
 if nargin < 6 || isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefault();

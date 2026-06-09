@@ -1,13 +1,21 @@
 function plotEcFVA(minFlux, maxFlux)
-% plotEcFVA
-%   Plots cumulative distribution functions of ecFVA results from one or
-%   model ecModel(s) and/or GEM(s).
+% plotEcFVA  Plot cumulative distribution functions of ecFVA results.
 %
-% Input:
-%   minFlux     vector of minimum flux values, coming from ecFVA. If
-%               multiple ecModels/GEMs are to be visualized, then each
-%               column represents a separate model.
-%   maxFlux     vector of maximum flux values, matching minFlux.
+% Plots cumulative distribution functions of ecFVA results from one or
+% more ecModel(s) and/or GEM(s).
+%
+% Parameters
+% ----------
+% minFlux : double
+%     vector of minimum flux values, coming from ecFVA. If multiple
+%     ecModels/GEMs are to be visualized, then each column represents a
+%     separate model.
+% maxFlux : double
+%     vector of maximum flux values, matching minFlux.
+%
+% See also
+% --------
+% ecFVA
 
 numMods = size(minFlux,2);
 fluxRanges = cell(3,1);

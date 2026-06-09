@@ -1,8 +1,25 @@
+% KEY_CLASSNAME  Template ModelAdapter to copy and adapt per organism.
+%
+% Starting point for a species-specific adapter. Copy this file, rename
+% the class, and edit the parameter values set in the constructor and the
+% getSpontaneousReactions method to match the target organism and model.
+%
+% See also
+% --------
+% ModelAdapter, ModelAdapterManager
 classdef KEY_CLASSNAME < ModelAdapter
     methods
         function obj = KEY_CLASSNAME()
-            % Set initial values of the obj.params - they can be changed by the user
-            
+            % KEY_CLASSNAME  Construct the adapter and set default parameters.
+            %
+            % Sets initial values of obj.params; they can be changed by
+            % the user after construction.
+            %
+            % Returns
+            % -------
+            % obj : ModelAdapter
+            %     the constructed adapter instance.
+
             % Directory where all model-specific files and scripts are kept.
             % Is assumed to follow the GECKO-defined folder structure.
             obj.params.path = fullfile('KEY_PATH', 'KEY_NAME');
@@ -121,8 +138,22 @@ classdef KEY_CLASSNAME < ModelAdapter
         % end
 
         function [spont,spontRxnNames] = getSpontaneousReactions(obj,model)
+            % getSpontaneousReactions  Identify spontaneous reactions in the model.
+            %
             % Indicates how spontaneous reactions are identified. Here it
-            % is done by the reaction have 'spontaneous' in its name.
+            % is done by the reaction having 'spontaneous' in its name.
+            %
+            % Parameters
+            % ----------
+            % model : struct
+            %     a model in RAVEN format.
+            %
+            % Returns
+            % -------
+            % spont : logical
+            %     true for each reaction identified as spontaneous.
+            % spontRxnNames : cell
+            %     names of the reactions identified as spontaneous.
 			spont = contains(model.rxnNames,'spontaneous');
 			spontRxnNames = model.rxnNames(spont);
 		end

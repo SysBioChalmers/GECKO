@@ -1,27 +1,36 @@
 function saveEcModel(ecModel,filename,modelAdapter)
-% saveECmodel
-%   Saves the ecModel in either YAML format (= default and preferred, as
-%   all ecModel content is reserved) and/or SBML format (= more widely
-%   compatible with other constraint-based modelling tools, can be used for
-%   running simulations like FBA etc., but this model cannot be loaded back
-%   into MATLAB for applying further GECKO functions, as model.ec is lost).
+% saveEcModel  Save an ecModel in YAML and/or SBML format.
 %
-%   The ecModel is saved to the ecModel-specific models/ subfolder. For
-%   saving to other locations, writeYAMLmodel or exportModel are more
-%   suitable.
+% Saves the ecModel in either YAML format (= default and preferred, as all
+% ecModel content is reserved) and/or SBML format (= more widely compatible
+% with other constraint-based modelling tools, can be used for running
+% simulations like FBA etc., but this model cannot be loaded back into
+% MATLAB for applying further GECKO functions, as model.ec is lost).
 %
-% Input:
-%   ecModel         an ecModel in GECKO 3 format (with ecModel.ec structure)
-%   filename        ending with either .yml or .xml, specifying if the
-%                   ecModel should be saved in YAML or SBML file format. If
-%                   no file extension is given, the ecModel will be saved
-%                   in YAML format. If no filename is given, 'ecModel.yml'
-%                   is used.
-%   modelAdapter    a loaded model adapter, from where the model folder is
-%                   read (Optional, will otherwise use the default model adapter).
+% The ecModel is saved to the ecModel-specific models/ subfolder. For
+% saving to other locations, writeYAMLmodel or exportModel are more
+% suitable.
 %
-% Usage:
-%   saveECmodel(ecModel,filename,modelAdapter)
+% Parameters
+% ----------
+% ecModel : struct
+%     an ecModel in GECKO 3 format (with ecModel.ec structure).
+% filename : char
+%     ending with either .yml or .xml, specifying if the ecModel should be
+%     saved in YAML or SBML file format. If no file extension is given, the
+%     ecModel will be saved in YAML format. If no filename is given,
+%     'ecModel.yml' is used.
+% modelAdapter : ModelAdapter, optional
+%     a loaded model adapter, from where the model folder is read (default:
+%     the current default model adapter).
+%
+% Examples
+% --------
+%     saveEcModel(ecModel,filename,modelAdapter);
+%
+% See also
+% --------
+% loadEcModel
 
 
 if nargin < 3 || isempty(modelAdapter)

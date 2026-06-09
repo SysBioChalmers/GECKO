@@ -1,17 +1,26 @@
 function r = getrSample(mu,sigma,n,method)
-% getrSample
-%   Sample random kcat values from a distribution.
+% getrSample  Sample random kcat values from a distribution.
 %
-% Input:
-%   mu      mean of distribution
-%   sigma   standard deviation of distribution
-%   n       number of kcat values to sample
-%   method  shape of distribution: 'lognormal' or 'uniform'. (optional,
-%           default is 'lognormal'). If 'lognormal' is selected, mu and
-%           sigma are automatically converted into log-space
+% Draws n random kcat values from a distribution defined by a mean and
+% standard deviation. If mu is zero, a vector of zeros is returned.
 %
-% Output:
-%   r       sample of kcat values
+% Parameters
+% ----------
+% mu : double
+%     mean of the distribution.
+% sigma : double
+%     standard deviation of the distribution.
+% n : double
+%     number of kcat values to sample.
+% method : char, optional
+%     shape of the distribution, 'lognormal' or 'uniform' (default
+%     'lognormal'). If 'lognormal' is selected, mu and sigma are
+%     automatically converted into log-space.
+%
+% Returns
+% -------
+% r : double
+%     sample of kcat values.
 
 if nargin < 4
     method = 'lognormal';

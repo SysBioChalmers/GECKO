@@ -1,25 +1,39 @@
 function [mappedFlux, enzUsageFlux, usageEnz] = mapRxnsToConv(ecModel, model, fluxVect)
-% mapRxnsToConv
-%   A vector (or matrix) of fluxes is mapped to the reactions in the
-%   conventional starting model that was used to construct the ecModel. It
-%   is essential that the provided conventional model is indeed the model
-%   that was used to initate ecModel reconstruction.
+% mapRxnsToConv  Map ecModel fluxes back to the conventional starting model.
 %
-% Input:
-%   ecModel         an ecModel in GECKO 3 format (with ecModel.ec structure),
-%                   that was used to obtain fluxVect
-%   model           the starting model for ecModel, to which the reactions
-%                   should be mapped
-%   fluxVect        vector or matrix of flux values, matching ecModel.rxns
+% A vector (or matrix) of fluxes is mapped to the reactions in the
+% conventional starting model that was used to construct the ecModel. It is
+% essential that the provided conventional model is indeed the model that
+% was used to initiate ecModel reconstruction.
 %
-% Output:
-%   mappedFlux      vector or matrix of flux values, matching model.rxns
-%   enzUsageFlux    vector or matrix of flux values from enzyme usage
-%                   reactions, as these are absent from mappedFlux
-%   usageEnz        cell array with protein IDs, matching enzUsageFlux
+% Parameters
+% ----------
+% ecModel : struct
+%     an ecModel in GECKO 3 format (with ecModel.ec structure), that was
+%     used to obtain fluxVect.
+% model : struct
+%     the starting model for ecModel, to which the reactions should be
+%     mapped.
+% fluxVect : double
+%     vector or matrix of flux values, matching ecModel.rxns.
 %
-% Usage:
-%   [mappedFlux, enzUsageFlux, usageEnz] = mapRxnsToConv(ecModel, model, fluxVect)
+% Returns
+% -------
+% mappedFlux : double
+%     vector or matrix of flux values, matching model.rxns.
+% enzUsageFlux : double
+%     vector or matrix of flux values from enzyme usage reactions, as these
+%     are absent from mappedFlux.
+% usageEnz : cell
+%     cell array with protein IDs, matching enzUsageFlux.
+%
+% Examples
+% --------
+%     [mappedFlux, enzUsageFlux, usageEnz] = mapRxnsToConv(ecModel, model, fluxVect);
+%
+% See also
+% --------
+% ecFVA
 
 if isempty(fluxVect)
     error('No or empty flux vector provided')

@@ -1,5 +1,29 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function [KCATcell, SAcell] = loadBRENDAdata(modelAdapter)
+% loadBRENDAdata  Load kcat and specific activity data from BRENDA files.
+%
+% Reads the BRENDA data files (max_KCAT.txt, max_SA.txt and max_MW.txt) from
+% the BRENDA database folder defined by the model adapter, and returns the
+% kcat values and specific activities (the latter converted to kcat values
+% using the molecular weights).
+%
+% Parameters
+% ----------
+% modelAdapter : ModelAdapter, optional
+%     a loaded model adapter (default: the current default model adapter).
+%
+% Returns
+% -------
+% KCATcell : cell
+%     kcat data extracted from BRENDA, with the leading "EC" removed from
+%     the EC numbers.
+% SAcell : cell
+%     specific activity data extracted from BRENDA, with the leading "EC"
+%     removed from the EC numbers.
+%
+% See also
+% --------
+% loadDatabases, getECfromDatabase
 
 if nargin < 1 || isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefault();

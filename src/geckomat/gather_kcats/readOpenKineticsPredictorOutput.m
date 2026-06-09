@@ -1,38 +1,51 @@
 function kcatList = readOpenKineticsPredictorOutput(model, outFile, modelAdapter)
-% readOpenKineticsPredictorOutput
-%   Reads the OpenKineticsPredictor output file (job-*-output.csv with
-%   columns: kcat (1/s), Source kcat, Extra Info kcat, Protein Sequence,
-%   Substrate) and constructs a kcatList structure, that can be used by
-%   selectKcatValue() to populate the ecModel with kcat values.
+% readOpenKineticsPredictorOutput  Read OpenKineticsPredictor output to kcatList.
 %
-%   The per-entry `Source kcat` column (e.g. 'Prediction from CatPred',
-%   'BRENDA', 'Sabio-RK', 'UniProt') is preserved in kcatList.kcatSource
-%   so that selectKcatValue() records the actual provenance of each value.
+% Reads the OpenKineticsPredictor output file (job-*-output.csv with columns:
+% kcat (1/s), Source kcat, Extra Info kcat, Protein Sequence, Substrate) and
+% constructs a kcatList structure, that can be used by selectKcatValue() to
+% populate the ecModel with kcat values.
 %
-% Input:
-%   model           an ecModel in GECKO 3 format (with ecModel.ec structure)
-%   outFile         name and path of the OpenKineticsPredictor output CSV.
-%                   (Optional; if omitted, a file selection dialog is
-%                   opened, starting in the data/ folder specified by the
-%                   modelAdapter)
-%   modelAdapter    a loaded model adapter (Optional, will otherwise use the
-%                   default model adapter).
+% The per-entry `Source kcat` column (e.g. 'Prediction from CatPred',
+% 'BRENDA', 'Sabio-RK', 'UniProt') is preserved in kcatList.kcatSource so
+% that selectKcatValue() records the actual provenance of each value.
 %
-% Output:
-%   kcatList    structure array with list of kcat values from
-%               OpenKineticsPredictor, with separate entries for each kcat
-%               value
-%               source      'OpenKineticsPredictor'
-%               rxns        reaction identifiers, matching model.ec.rxns
-%               genes       gene identifiers, matching model.ec.genes
-%               substrates  substrate names, matching model.metNames
-%               kcats       kcat values in /sec
-%               kcatSource  per-entry source as reported by OKP, prefixed
-%                           with 'OKP-' (e.g. 'OKP-CatPred', 'OKP-BRENDA',
-%                           'OKP-Sabio-RK', 'OKP-UniProt')
+% Parameters
+% ----------
+% model : struct
+%     an ecModel in GECKO 3 format (with ecModel.ec structure).
+% outFile : char, optional
+%     name and path of the OpenKineticsPredictor output CSV. If omitted, a
+%     file selection dialog is opened, starting in the data/ folder specified
+%     by the modelAdapter.
+% modelAdapter : ModelAdapter, optional
+%     a loaded model adapter (default: the current default model adapter).
 %
-% Usage:
-%   kcatList = readOpenKineticsPredictorOutput(model, outFile, modelAdapter)
+% Returns
+% -------
+% kcatList : struct
+%     structure array with list of kcat values from OpenKineticsPredictor,
+%     with separate entries for each kcat value.
+%
+% Notes
+% -----
+% The kcatList structure has the following fields:
+%
+% - source : 'OpenKineticsPredictor'.
+% - rxns : reaction identifiers, matching model.ec.rxns.
+% - genes : gene identifiers, matching model.ec.genes.
+% - substrates : substrate names, matching model.metNames.
+% - kcats : kcat values in /sec.
+% - kcatSource : per-entry source as reported by OKP, prefixed with 'OKP-'
+%   (e.g. 'OKP-CatPred', 'OKP-BRENDA', 'OKP-Sabio-RK', 'OKP-UniProt').
+%
+% Examples
+% --------
+%     kcatList = readOpenKineticsPredictorOutput(model, outFile, modelAdapter);
+%
+% See also
+% --------
+% writeOpenKineticsPredictorInput, selectKcatValue
 
 if nargin < 3 || isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefault();

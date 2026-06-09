@@ -1,23 +1,34 @@
 function usageReport = reportEnzymeUsage(ecModel, usageData, highCapUsage, topAbsUsage)
-% reportEnzymeUsage
-%   Summarizes the results from enzymeUsage.
+% reportEnzymeUsage  Summarize the results from enzymeUsage.
 %
-%  Input:
-%   ecModel         a GECKO3 ecModel
-%   usageData       output from enzymeUsage
-%   highCapUsage    minimum ratio of enzyme capacity usage to be considered
-%                   as high usage (Optional, default 0.9, refering to a 
-%                   minimum of 90% capacity usage)
-%   topAbsUsage     number of top enzymes with highest absolute usage
-%                   (Optional, default 10, returning the top 10 enzymes
-%                   with highest absolute usage. With Inf or 0, all enzymes
-%                   are returned)
+% Summarizes the results from enzymeUsage.
 %
-%  Output:
-%   usageReport     table with summary information
+% Parameters
+% ----------
+% ecModel : struct
+%     a GECKO3 ecModel.
+% usageData : struct
+%     output from enzymeUsage.
+% highCapUsage : double, optional
+%     minimum ratio of enzyme capacity usage to be considered as high usage
+%     (default 0.9, referring to a minimum of 90% capacity usage).
+% topAbsUsage : double, optional
+%     number of top enzymes with highest absolute usage (default 10,
+%     returning the top 10 enzymes with highest absolute usage. With Inf or
+%     0, all enzymes are returned).
 %
-% Usage:
-%   usageReport = reportEnzymeUsage(ecModel, usageData, highCapUsage)
+% Returns
+% -------
+% usageReport : table
+%     table with summary information.
+%
+% Examples
+% --------
+%     usageReport = reportEnzymeUsage(ecModel, usageData, highCapUsage, topAbsUsage);
+%
+% See also
+% --------
+% enzymeUsage
 
 if nargin < 3 || isempty(highCapUsage)
     highCapUsage = 0.9;

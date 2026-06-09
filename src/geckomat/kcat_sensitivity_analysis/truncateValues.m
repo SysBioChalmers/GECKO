@@ -1,13 +1,21 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% table = truncateValues(table,cols)
-%   table   cell array or table where some columns have values that should
-%           be truncated
-%   cols    index or indices of columns with values to be truncated
-%
-% Benjamin Sanchez    Last edited: 2018-05-25
-% Eduard Kerkhoven    Last edited: 2018-12-05
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function table = truncateValues(table,cols)
+% truncateValues  Round values in selected columns to six significant digits.
+%
+% Rounds the values in the specified columns of a cell array or table,
+% keeping six significant digits per value based on its order of magnitude.
+%
+% Parameters
+% ----------
+% table : cell or table
+%     a cell array or table where some columns have values that should be
+%     truncated.
+% cols : double
+%     index or indices of columns with values to be truncated.
+%
+% Returns
+% -------
+% table : cell or table
+%     the input with the selected columns rounded.
 
 [m,n] = size(table);
 for i = 1:m

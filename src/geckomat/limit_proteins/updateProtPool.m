@@ -1,27 +1,39 @@
 function ecModel  = updateProtPool(ecModel, Ptot, modelAdapter)
-% updateProtPool
-%   Obsolete since GECKO 3.2.0, as all (measured and unmeasured) enzymes
-%   are drawn from the protein pool. Instead, use setProtPoolSize. See
-%   https://github.com/SysBioChalmers/GECKO/issues/375 for explanation.
+% updateProtPool  Update the protein pool to compensate for proteomics.
 %
-%   Before GECKO 3.2.0: updates the protein pool to compensate for measured
-%   proteomics data (in model.ec.concs), as only the unmeasured enzymes
-%   draw from the protein pool.
+% Obsolete since GECKO 3.2.0, as all (measured and unmeasured) enzymes are
+% drawn from the protein pool. Instead, use setProtPoolSize. See
+% https://github.com/SysBioChalmers/GECKO/issues/375 for explanation.
 %
-% Input:
-%   ecModel         an ecModel in GECKO 3 format (with ecModel.ec structure)
-%   Ptot            total protein content in g/gDCW, overwrites the value
-%                   from modelAdapter. For instance, condition-specific
-%                   fluxData.Ptot from loadFluxData can be used. If nothing
-%                   is provided, the modelAdapter value is used.
-%   modelAdapter    a loaded model adapter (Optional, will otherwise use the
-%                   default model adapter).
+% Before GECKO 3.2.0: updates the protein pool to compensate for measured
+% proteomics data (in model.ec.concs), as only the unmeasured enzymes draw
+% from the protein pool.
 %
-% Output:
-%   model           an ecModel where model.ec.concs is populated with
-%                   protein concentrations
-% Usage:
-%   ecModel  = updateProtPool(ecModel, Ptot, modelAdapter)
+% Parameters
+% ----------
+% ecModel : struct
+%     an ecModel in GECKO 3 format (with ecModel.ec structure).
+% Ptot : double, optional
+%     total protein content in g/gDCW, overwrites the value from
+%     modelAdapter. For instance, condition-specific fluxData.Ptot from
+%     loadFluxData can be used. If nothing is provided, the modelAdapter
+%     value is used.
+% modelAdapter : ModelAdapter, optional
+%     a loaded model adapter (default: the current default model adapter).
+%
+% Returns
+% -------
+% ecModel : struct
+%     an ecModel where model.ec.concs is populated with protein
+%     concentrations.
+%
+% Examples
+% --------
+%     ecModel = updateProtPool(ecModel, Ptot, modelAdapter);
+%
+% See also
+% --------
+% setProtPoolSize, loadFluxData
 
 % Do not run from GECKO version 3.2.0 onwards. This can be recognized by
 % prot_usage reactions that are constrained by proteomics and still draw
