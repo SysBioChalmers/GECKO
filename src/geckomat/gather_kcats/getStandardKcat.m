@@ -198,6 +198,7 @@ if ~any(strcmp(model.mets,'prot_standard'))
         proteinStdUsageRxn.lb           = -1000;
         proteinStdUsageRxn.ub           = 0;
         proteinStdUsageRxn.grRules      = proteinStdGenes.genes;
+        proteinStdUsageRxn.subSystems   = 'Protein usage';
 
         model = addRxns(model, proteinStdUsageRxn);
     end
