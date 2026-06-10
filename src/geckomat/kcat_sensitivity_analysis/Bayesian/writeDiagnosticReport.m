@@ -19,13 +19,18 @@ function writeDiagnosticReport(diagnostics, rmseTrace, kcatTrace, ecModel, model
 %
 % Example:
 %   writeDiagnosticReport(diagnostics, rmseTrace, kcatTrace, ecModel, modelAdapter);
-
+if nargin < 5 || isempty(modelAdapter)
+    modelAdapter = ModelAdapterManager.getDefault();
+    if isempty(modelAdapter)
+        error('Either send in a modelAdapter or set the default ecModel adapter in the ModelAdapterManager.')
+    end
+end
+params = modelAdapter.params;
 if nargin < 6 || isempty(outputPath)
-    outputPath = '/mnt/user-data/outputs/bayesian_diagnostic_report.md';
+    outputPath = fullfile(params.path,'output','bayesian_diagnostic_report.md');
 end
 
 %% Extract key information
-params = modelAdapter.params;
 nGen = diagnostics.finalGeneration - 1;
 sourceLabels = diagnostics.sourceLabels;
 nSources = length(sourceLabels);

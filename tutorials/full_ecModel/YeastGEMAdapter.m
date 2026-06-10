@@ -49,7 +49,7 @@ classdef YeastGEMAdapter < ModelAdapter
             obj.params.bayesian.sigma0logSource     = [0.25; 0.2; 0.1];
 
             % Default shrinkage threshold: standard deviations required for full posterior update
-            obj.params.bayesian.shrinkThrDefault    = 3;
+            obj.params.bayesian.shrinkThrDefault    = 5;
             % Source-specific shrinkage thresholds (higher = more resistant to change)
             obj.params.bayesian.shrinkThrSource     = [3, 10, 12];
             % Default maximum posterior/prior variance ratio (prevents runaway uncertainty)
@@ -80,7 +80,7 @@ classdef YeastGEMAdapter < ModelAdapter
             % RMSE percentile threshold for accepting samples (lower = stricter selection)
             obj.params.bayesian.targetAccept        = 10;
             % Minimum fraction of samples to retain each generation
-            obj.params.bayesian.minKeep             = 0.2;
+            obj.params.bayesian.minKeep             = 0.3;
             % Maximum fraction of samples to retain each generation
             obj.params.bayesian.maxKeep             = 0.6;
             
