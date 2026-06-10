@@ -161,19 +161,23 @@ kcatList_fuzzy  = fuzzyKcatMatching(ecModel);
 % STEP 25 Load DLKcat output
 kcatList_DLKcat = readDLKcatOutput(ecModel);
 
-% ===>  Since GECKO 3.4.0
-%       Functionality has been introduced that can read results from
-%       OpenKineticsPredictor (OKP). First an OKP input file is generated,
-%       which can be be used at https://predictor.openkinetics.org. The
-%       output file has to be downloaded from the feil
-writeOpenKineticsPredictorInput
-kcatList_OKP = readOpenKineticsPredictorOutput(ecModel,fullfile(params.path,'data','job-ujtqpgn-output.csv'));
-kcatList_merged = mergeDLKcatAndFuzzyKcats(kcatList_OKP, kcatList_fuzzy);
-
 % STEP 26 Combine kcat from BRENDA and DLKcat
 kcatList_merged = mergeDLKcatAndFuzzyKcats(kcatList_DLKcat, kcatList_fuzzy);
 
-% STEP 27 Take kcatList and populate edModel.ec.kcat
+% ===>  Since GECKO 3.3.0
+%       Functionality has been introduced that facilitates kcat prediction 
+%       via OpenKineticsPredictor (OKP,https://predictor.openkinetics.org).
+%       First an OKP input file is generated that can be uploaded to the
+%       OKP website. Once finished, the output file can be downloaded and
+%       loaded into GECKO.
+%
+%       The remainder of this protocol assumes that you use OKP-derived
+%       kcat values, where CatPred was used as kcat prediction algorithm.
+%writeOpenKineticsPredictorInput(ecModel);
+kcatList_OKP = readOpenKineticsPredictorOutput(ecModel,fullfile(params.path,'data','job-ujtqpgn-output.csv'));
+kcatList_merged = mergeDLKcatAndFuzzyKcats(kcatList_OKP, kcatList_fuzzy);
+
+% STEP 27 Take kcatList and populate ecModel.ec.kcat
 ecModel  = selectKcatValue(ecModel, kcatList_merged);
 
 % STEP 28 Apply custom kcat values
@@ -286,7 +290,7 @@ ecModel = setParam(ecModel,'obj','r_4041',1);
 % reverting STEP 42.
 ecModel = setProtPoolSize(ecModel);
 
-[ecModel_notUsed, tunedKcats] = sensitivityTuning(ecModel);
+%  [ecModel_notUsed, tunedKcats] = sensitivityTuning(ecModel);
 % ===>  Since GECKO 3.3.0
 %       The Bayesian kcat tuning function as introduced in the DLKcat paper
 %       has been refactored for GECKO. For legacy purposes, the code for
@@ -324,47 +328,66 @@ ecModel = setProtPoolSize(ecModel);
 %       on the model itself, the certainty of its kcat predictions, the
 %       quantity and diversity of experimental data to evaluate against,
 %       etc.
+[ecModel,rmseTrace,kcatTrace,sigmaLogTrace] = bayesianSensitivityTuning(ecModel);
+exportBayesianResults(sigmaLogTrace, kcatTrace, rmseTrace, diagnostics, posteriorSamples, ModelAdapter, ecModel)
 %
-%       [ecModel,rmseTrace,kcatTrace,sigmaLogTrace] = bayesianSensitivityTuning(ecModel);
-%
-%       The remainder of this tutorial assumes that
-%       bayesianSensitivityTuning was *not* run.
+%       To aid the hyperparameter tuning, a diagnostic report can be
+%       generated that can be used to prompt an LLM (e.g. Claude) that has
+%       also been given access to the GECKO code for context. Note that
+%       there is no assurance that the LLM-suggested hyperparameters are
+%       optimal, it should only be used as aid together with a critical
+%       look at the kcat tuning results.
+writeDiagnosticReport(diagnostics, rmseTrace, kcatTrace, ecModel, ModelAdapter);
+%       
+%       In addition, a set of figures can be generated that are informative
+%       on the progress of the ABC-SMC-based kcat tuning. It for instance
+%       shows in which generation source-specific kcat values changes, or
+%       how the source-specific kcat distributions changed. This can be
+%       used in hyperparameter tuning.
+plotBayesianDiagnostics(rmseTrace, kcatTrace, sigmaLogTrace, diagnostics, ecModel, ModelAdapter)
 
 % STEP 45-51 Curate kcat values based on kcat tuning
-% As example, the kcat of 5'-phosphoribosylformyl glycinamidine synthetase
-% (reaction r_0079) was increased from 0.05 to 5. Inspecting the kcat
-% source might help to determine if this is reasonable. 
-rxnIdx = find(strcmp(kcatList_merged.rxns,'r_0079'));
-doc fuzzyKcatMatching % To check the meaning of wildcardLvl and origin.
-kcatList_merged.wildcardLvl(rxnIdx) % 0: no EC number wildcard.
-kcatList_merged.origin(rxnIdx) % 4: any organism, any substrate, kcat.
-kcatList_merged.eccodes(rxnIdx) % EC number 6.3.5.3.
-
-% On BRENDA https://www.brenda-enzymes.org/enzyme.php?ecno=6.3.5.3#TURNOVER%20NUMBER%20[1/s]
-% the kcat value is from E. coli with NH4+ as substrate. The reaction
-% normally uses glutamine, so this kcat value might be misleading.
-% Inspecting the abstract of the paper that is reporting this value
-% https://pubmed.ncbi.nlm.nih.gov/2659070/ actually states "and NH3 can
-% replace glutamine as a nitrogen donor with a Km = 1 M and a turnover of
-% 3 min-1 (2% glutamine turnover)". The paper also reports a specific
-% activity that can be used instead:
-% https://www.brenda-enzymes.org/enzyme.php?ecno=6.3.5.3#SPECIFIC%20ACTIVITY%20[%C2%B5mol/min/mg]
-
-% Convert specific activity of 2.15 umol/min/mg protein, where the protein
-% has a molecular weight of 148905 Da, to kcat in /sec:
-
-enzMW = ecModel.ec.mw(strcmp(ecModel.ec.enzymes,'P38972')); % Get MW of the enzyme.
-convKcat = 2.15; % umol/min/mg protein, same as mmol/min/g protein.
-convKcat = convKcat / 1000; % mol/min/g protein.
-convKcat = convKcat / 60; % mol/sec/g protein.
-convKcat = convKcat * enzMW % mol/sec/mol protein, same as 1/sec.
-
-% New kcat is 5.3358, which is not far away from the tuned kcat of 5.
-
-% This can be applied to the ecModel directly, or preferrably it should be
-% included in the data/customKcat.tsv file.
-ecModel = setKcatForReactions(ecModel,'r_0079',convKcat);
-ecModel = applyKcatConstraints(ecModel);
+% ===>  Since GECKO 3.3.0
+%       These steps have become much less important when using the ABC-SMC-
+%       based kcat tuning, as this approach is not focused on tuning
+%       individual kcat values one-by-one. Therefore, this code is
+%       commented at for now, but kept for reference as you may still want
+%       to curate or change individual kcat values.
+% 
+% % As example, the kcat of 5'-phosphoribosylformyl glycinamidine synthetase
+% % (reaction r_0079) was increased from 0.05 to 5. Inspecting the kcat
+% % source might help to determine if this is reasonable. 
+% rxnIdx = find(strcmp(kcatList_merged.rxns,'r_0079'));
+% doc fuzzyKcatMatching % To check the meaning of wildcardLvl and origin.
+% kcatList_merged.wildcardLvl(rxnIdx) % 0: no EC number wildcard.
+% kcatList_merged.origin(rxnIdx) % 4: any organism, any substrate, kcat.
+% kcatList_merged.eccodes(rxnIdx) % EC number 6.3.5.3.
+% 
+% % On BRENDA https://www.brenda-enzymes.org/enzyme.php?ecno=6.3.5.3#TURNOVER%20NUMBER%20[1/s]
+% % the kcat value is from E. coli with NH4+ as substrate. The reaction
+% % normally uses glutamine, so this kcat value might be misleading.
+% % Inspecting the abstract of the paper that is reporting this value
+% % https://pubmed.ncbi.nlm.nih.gov/2659070/ actually states "and NH3 can
+% % replace glutamine as a nitrogen donor with a Km = 1 M and a turnover of
+% % 3 min-1 (2% glutamine turnover)". The paper also reports a specific
+% % activity that can be used instead:
+% % https://www.brenda-enzymes.org/enzyme.php?ecno=6.3.5.3#SPECIFIC%20ACTIVITY%20[%C2%B5mol/min/mg]
+% 
+% % Convert specific activity of 2.15 umol/min/mg protein, where the protein
+% % has a molecular weight of 148905 Da, to kcat in /sec:
+% 
+% enzMW = ecModel.ec.mw(strcmp(ecModel.ec.enzymes,'P38972')); % Get MW of the enzyme.
+% convKcat = 2.15; % umol/min/mg protein, same as mmol/min/g protein.
+% convKcat = convKcat / 1000; % mol/min/g protein.
+% convKcat = convKcat / 60; % mol/sec/g protein.
+% convKcat = convKcat * enzMW % mol/sec/mol protein, same as 1/sec.
+% 
+% % New kcat is 5.3358, which is not far away from the tuned kcat of 5.
+% 
+% % This can be applied to the ecModel directly, or preferrably it should be
+% % included in the data/customKcat.tsv file.
+% ecModel = setKcatForReactions(ecModel,'r_0079',convKcat);
+% ecModel = applyKcatConstraints(ecModel);
 
 saveEcModel(ecModel,'ecYeastGEM_stage3.yml');
 
@@ -374,7 +397,7 @@ saveEcModel(ecModel,'ecYeastGEM.yml');
 
 %% STAGE 4 integration of proteomics data into the ecModel.
 % Uncomment the line below if you want to reload the model.
-%ecModel=loadEcModel('ecYeastGEM_stage3.yml'); 
+ecModel=loadEcModel('ecYeastGEM_stage3.yml'); 
 
 % STEP 53-57 Load proteomics data and constrain ecModel
 protData = loadProtData(3); %Number of replicates, only one experiment.
@@ -420,13 +443,13 @@ ecModel = constrainFluxData(ecModel,fluxData,1,'max','loose');
 % Observe if the intended growth rate was reached.
 sol = solveLP(ecModel);
 fprintf('Growth rate that is reached: %f /hour.\n', sol.f)
-% The growth rate of 0.1 is far from being reached. Therefore, the next
+% The growth rate is far from being reached. Therefore, the next
 % step is to flexibilize enzyme concentrations.
 
 % STEP 64-65 Enzyme concentrations are flexibilized (increased), until the
 % intended growth rate is reached. This is condition-specific, so the
 % intended growth rate is gathered from the fluxData structure.
-[ecModel, flexEnz] = flexibilizeEnzConcs(ecModel,fluxData.grRate(1),10);
+[ecModel, flexEnz] = flexibilizeEnzConcs(ecModel,fluxData.grRate(1),100);
 
 % Neither individual enzyme levels nor total protein pool are limiting
 % growth. Test whether the starting model is able to reach 0.1.
@@ -536,9 +559,9 @@ model = loadConventionalGEM();
 ecModel = loadEcModel('ecYeastGEM.yml');
 ecModelProt = loadEcModel('ecYeastGEM_stage4.yml');
 
-% As protein model can maximum reach 0.088, also set this as constrain for
+% As protein model can maximum reach 0.0878, also set this as constrain for
 % all models.
-fluxData.grRate(1) = 0.0880;
+fluxData.grRate(1) = 0.0878;
 
 % Apply same constraints on exchange fluxes
 model = constrainFluxData(model,fluxData,1,'max','loose');

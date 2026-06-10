@@ -1,0 +1,12 @@
+bayesianSensitivityTuning export
+generated	2026-06-11 01:14:25
+n_parameters	4834
+n_trace_columns	33 (generation 0..32; column 1 = prior)
+n_generations_diagnostics	31
+final_generation	32
+converged	0
+initial_rmse	8.6000519
+final_rmse	0.87147457
+n_accepted_samples	171
+source_labels	OpenKineticsPredictor, brenda, custom, unlabelled
+files_written	rmse_trace.tsv, kcat_trace.tsv, sigmalog_trace.tsv, shrinkage_trace.tsv, diagnostics_pergeneration.tsv, diagnostics_bysource.tsv, posterior_kcats.tsv, posterior_rmse.tsv
