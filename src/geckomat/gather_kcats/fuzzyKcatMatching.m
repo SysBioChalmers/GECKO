@@ -1,4 +1,4 @@
-function kcatList = fuzzyKcatMatching(model, ecRxns, modelAdapter, forceWClvl)
+function kcatList = fuzzyKcatMatching(model, varargin)
 % fuzzyKcatMatching  Match model EC numbers and substrates to BRENDA kcats.
 %
 % Matches the model EC numbers and substrates to the BRENDA database, to
@@ -15,13 +15,16 @@ function kcatList = fuzzyKcatMatching(model, ecRxns, modelAdapter, forceWClvl)
 % ----------
 % model : struct
 %     an ecModel in GECKO 3 format (with ecModel.ec structure).
-% ecRxns : logical, optional
+%
+% Name-Value Arguments
+% --------------------
+% ecRxns : logical
 %     for which reactions (from model.ec.rxns) kcat values should be found,
 %     provided as logical vector with same length as model.ec.rxns
 %     (default: all reactions).
-% modelAdapter : ModelAdapter, optional
+% modelAdapter : ModelAdapter
 %     a loaded model adapter (default: the current default model adapter).
-% forceWClvl : double, optional
+% forceWClvl : double
 %     force a minimum wildcard level (default 0).
 %
 % Returns
@@ -53,13 +56,23 @@ function kcatList = fuzzyKcatMatching(model, ecRxns, modelAdapter, forceWClvl)
 %
 % Examples
 % --------
-%     kcatList = fuzzyKcatMatching(model, ecRxns, modelAdapter, forceWClvl);
+%     % optional arguments may be given positionally or as name-value pairs:
+%     kcatList = fuzzyKcatMatching(model);
+%     kcatList = fuzzyKcatMatching(model, 'forceWClvl', 1);
 %
 % See also
 % --------
 % mergeDLKcatAndFuzzyKcats, selectKcatValue
 
-if nargin<2 || isempty(ecRxns)
+p = parseGECKOargs(varargin, { ...
+    'ecRxns',       []; ...
+    'modelAdapter', []; ...
+    'forceWClvl',   []});
+ecRxns       = p.ecRxns;
+modelAdapter = p.modelAdapter;
+forceWClvl   = p.forceWClvl;
+
+if isempty(ecRxns)
     ecRxns = true(numel(model.ec.rxns),1);
 elseif isnumeric(ecRxns)
     ecRxnsVec = false(numel(model.ec.rxns),1);
@@ -68,7 +81,7 @@ elseif isnumeric(ecRxns)
 end
 ecRxns=find(ecRxns); % Get indices instead of logical
 
-if nargin < 3 || isempty(modelAdapter)
+if isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefault();
     if isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
@@ -76,7 +89,7 @@ if nargin < 3 || isempty(modelAdapter)
 end
 params = modelAdapter.params;
 
-if nargin < 4 || isempty(forceWClvl)
+if isempty(forceWClvl)
     forceWClvl = 0;
 end
 

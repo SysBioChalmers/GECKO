@@ -1,4 +1,4 @@
-function model = constrainEnzConcs(model, removeConstraints)
+function model = constrainEnzConcs(model, varargin)
 % constrainEnzConcs  Constrain enzyme usages by their concentration.
 %
 % Constrain enzyme usages by their concentration as provided in
@@ -11,7 +11,10 @@ function model = constrainEnzConcs(model, removeConstraints)
 % model : struct
 %     an ecModel in GECKO 3 format (with ecModel.ec structure) with enzyme
 %     concentrations in model.ec.concs.
-% removeConstraints : logical, optional
+%
+% Name-Value Arguments
+% --------------------
+% removeConstraints : logical
 %     whether enzyme concentration constraints should be removed
 %     (model.ec.concs will remain unchanged) (default false).
 %
@@ -26,7 +29,9 @@ function model = constrainEnzConcs(model, removeConstraints)
 %
 % Examples
 % --------
-%     model = constrainEnzConcs(model, removeConstraints);
+%     % optional arguments may be given positionally or as name-value pairs:
+%     model = constrainEnzConcs(model);
+%     model = constrainEnzConcs(model, 'removeConstraints', true);
 %
 % See also
 % --------
@@ -36,9 +41,9 @@ function model = constrainEnzConcs(model, removeConstraints)
 %Enzyme with numeric entry in model.ec.concs => exchange reaction with
 %enzyme level as UB
 
-if nargin<2
-    removeConstraints = false;
-end
+p = parseGECKOargs(varargin, { ...
+    'removeConstraints', false});
+removeConstraints = p.removeConstraints;
 
 %Get indices of usage reactions 
 usageRxns = strcat('usage_prot_',model.ec.enzymes);

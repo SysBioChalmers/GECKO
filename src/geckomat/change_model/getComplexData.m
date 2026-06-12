@@ -1,19 +1,19 @@
-function complexInfo = getComplexData(taxonomicID, modelAdapter)
+function complexInfo = getComplexData(varargin)
 % getComplexData  Download curated complex stochiometries from Complex Portal.
 %
 % Downloads curated complex stochiometries from the EMBL-EBI Complex Portal
 % database. Writes data/ComplexPortal.json in the obj.params.path specified
 % in the model adapter.
 %
-% Parameters
-% ----------
+% Name-Value Arguments
+% --------------------
 % taxonomicID : double
 %     taxonomic identifier for which complex data should be downloaded. Only
 %     taxonomic identifiers allowed are those included on Complex Portal:
 %     https://www.ebi.ac.uk/complexportal/complex/organisms. If empty, no
 %     complex data is downloaded; if 0 (zero), complex data from all
 %     organisms in Complex Portal is downloaded.
-% modelAdapter : ModelAdapter, optional
+% modelAdapter : ModelAdapter
 %     a loaded model adapter (default: the current default model adapter).
 %
 % Returns
@@ -36,20 +36,28 @@ function complexInfo = getComplexData(taxonomicID, modelAdapter)
 %
 % Examples
 % --------
+%     % optional arguments may be given positionally or as name-value pairs:
 %     complexInfo = getComplexData(organism, modelAdapter);
+%     complexInfo = getComplexData('taxonomicID', organism);
 %
 % See also
 % --------
 % applyComplexData, makeEcModel
 
-if nargin < 2 || isempty(modelAdapter)
+p = parseGECKOargs(varargin, { ...
+    'taxonomicID',  []; ...
+    'modelAdapter', []});
+taxonomicID  = p.taxonomicID;
+modelAdapter = p.modelAdapter;
+
+if isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefault();
     if isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
     end
 end
 
-if nargin<1 || isempty(taxonomicID)
+if isempty(taxonomicID)
     taxonomicID = modelAdapter.getParameters().complex.taxonomicID;
 end
 

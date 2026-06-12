@@ -1,4 +1,4 @@
-function usageData = enzymeUsage(ecModel,fluxes,zero)
+function usageData = enzymeUsage(ecModel,fluxes,varargin)
 % enzymeUsage  Compute enzyme usages from a provided flux distribution.
 %
 % Gives enzyme usages based on a provided flux distribution, as obtained
@@ -21,7 +21,10 @@ function usageData = enzymeUsage(ecModel,fluxes,zero)
 %     an ecModel in GECKO 3 format (with ecModel.ec structure).
 % fluxes : double
 %     vector of fluxes, for instance sol.x.
-% zero : logical, optional
+%
+% Name-Value Arguments
+% --------------------
+% zero : logical
 %     whether also enzymes with zero absolute usage should be included
 %     (default true).
 %
@@ -42,15 +45,17 @@ function usageData = enzymeUsage(ecModel,fluxes,zero)
 %
 % Examples
 % --------
+%     % optional arguments may be given positionally or as name-value pairs:
 %     usageData = enzymeUsage(ecModel,fluxes,zero);
+%     usageData = enzymeUsage(ecModel,fluxes,'zero',false);
 %
 % See also
 % --------
 % reportEnzymeUsage
 
-if nargin<3
-    zero=true;
-end
+p = parseGECKOargs(varargin, { ...
+    'zero', true});
+zero = p.zero;
 if ecModel.ec.geckoLight
     error('This function does not work on GECKO light models.')
 end

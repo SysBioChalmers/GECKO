@@ -1,4 +1,4 @@
-function [rmse,rmseList] = abc_max(ecModel,bayData,modelAdapter)
+function [rmse,rmseList] = abc_max(ecModel,bayData,varargin)
 % abc_max  Average RMSE for a set of growth data and kcats.
 %
 % Internal function in bayesianSensitivityTuning. Gets the average RMSE for a
@@ -11,7 +11,10 @@ function [rmse,rmseList] = abc_max(ecModel,bayData,modelAdapter)
 %     run.
 % bayData : struct
 %     structure with experimental data to be used.
-% modelAdapter : ModelAdapter, optional
+%
+% Name-Value Arguments
+% --------------------
+% modelAdapter : ModelAdapter
 %     a loaded model adapter (default: the current default model adapter).
 %
 % Returns
@@ -35,7 +38,11 @@ function [rmse,rmseList] = abc_max(ecModel,bayData,modelAdapter)
 % --------
 % bayesianSensitivityTuning, loadBayesianData
 
-if nargin < 3 || isempty(modelAdapter)
+p = parseGECKOargs(varargin, { ...
+    'modelAdapter', []});
+modelAdapter = p.modelAdapter;
+
+if isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefault();
     if isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default ecModel adapter in the ModelAdapterManager.')

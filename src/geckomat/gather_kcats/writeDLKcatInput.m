@@ -1,4 +1,4 @@
-function writtenTable = writeDLKcatInput(model, ecRxns, modelAdapter, onlyWithSmiles, filename, overwrite)
+function writtenTable = writeDLKcatInput(model, varargin)
 % writeDLKcatInput  Prepare and write the input file for DLKcat.
 %
 % Prepares the input for DLKcat, and writes it to data/DLKcat.tsv in the
@@ -8,19 +8,22 @@ function writtenTable = writeDLKcatInput(model, ecRxns, modelAdapter, onlyWithSm
 % ----------
 % model : struct
 %     an ecModel in GECKO 3 format (with ecModel.ec structure).
-% ecRxns : logical, optional
+%
+% Name-Value Arguments
+% --------------------
+% ecRxns : logical
 %     for which reactions (from model.ec.rxns) DLKcat should predict kcat
 %     values, provided as logical vector with same length as model.ec.rxns
 %     (default: all reactions).
-% modelAdapter : ModelAdapter, optional
+% modelAdapter : ModelAdapter
 %     a loaded model adapter (default: the current default model adapter).
-% onlyWithSmiles : logical, optional
+% onlyWithSmiles : logical
 %     whether to only include metabolites with SMILES (default true).
-% filename : char, optional
+% filename : char
 %     path to the input file, including the filename and .tsv extension
 %     (default: data/DLKcat.tsv from the obj.params.path folder specified in
 %     the modelAdapter).
-% overwrite : logical, optional
+% overwrite : logical
 %     whether existing file should be overwritten (default false, to prevent
 %     overwriting a file that already contains DLKcat-predicted kcat values).
 %
@@ -31,7 +34,9 @@ function writtenTable = writeDLKcatInput(model, ecRxns, modelAdapter, onlyWithSm
 %
 % Examples
 % --------
-%     writtenTable = writeDLKcatInput(model, ecRxns, modelAdapter, onlyWithSmiles, filename, overwrite);
+%     % optional arguments may be given positionally or as name-value pairs:
+%     writtenTable = writeDLKcatInput(model);
+%     writtenTable = writeDLKcatInput(model, 'onlyWithSmiles', false);
 %
 % See also
 % --------
@@ -39,7 +44,19 @@ function writtenTable = writeDLKcatInput(model, ecRxns, modelAdapter, onlyWithSm
 
 [geckoPath, ~] = findGECKOroot();
 
-if nargin<2 || isempty(ecRxns)
+p = parseGECKOargs(varargin, { ...
+    'ecRxns',         []; ...
+    'modelAdapter',   []; ...
+    'onlyWithSmiles', []; ...
+    'filename',       []; ...
+    'overwrite',      []});
+ecRxns         = p.ecRxns;
+modelAdapter   = p.modelAdapter;
+onlyWithSmiles = p.onlyWithSmiles;
+filename       = p.filename;
+overwrite      = p.overwrite;
+
+if isempty(ecRxns)
     ecRxns = true(numel(model.ec.rxns),1);
 elseif ~logical(ecRxns)
     error('ecRxns should be provided as logical vector')
@@ -48,7 +65,7 @@ elseif numel(ecRxns)~=numel(model.ec.rxns)
 end
 ecRxns = find(ecRxns); % Change to indices
 
-if nargin < 3 || isempty(modelAdapter)
+if isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefault();
     if isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
@@ -56,17 +73,17 @@ if nargin < 3 || isempty(modelAdapter)
 end
 params = modelAdapter.params;
 
-if nargin<4 || isempty(onlyWithSmiles)
+if isempty(onlyWithSmiles)
     onlyWithSmiles=true;
 end
 
-if nargin<5 || isempty(filename)
+if isempty(filename)
     filename = fullfile(params.path,'data','DLKcat.tsv');
 elseif ~endsWith(filename,'.tsv')
     error('If filename is provided, it should include the .tsv extension.')
 end
 
-if nargin<6 || isempty(overwrite) || ~overwrite % If is true
+if isempty(overwrite) || ~overwrite % If is true
     if exist(filename,'file')
         error([filename ' already exists, either delete it first, or set the overwrite input argument as true'])
     end

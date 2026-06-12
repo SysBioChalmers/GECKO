@@ -1,4 +1,4 @@
-function model = constrainFluxData(model, fluxData, condition, maxMinGrowth, looseStrictFlux, modelAdapter)
+function model = constrainFluxData(model, varargin)
 % constrainFluxData  Constrain ecModel fluxes to provided flux data.
 %
 % Constrains fluxes to the data that is provided in the fluxData structure,
@@ -8,6 +8,9 @@ function model = constrainFluxData(model, fluxData, condition, maxMinGrowth, loo
 % ----------
 % model : struct
 %     an ecModel in GECKO 3 format (with ecModel.ec structure).
+%
+% Name-Value Arguments
+% --------------------
 % fluxData : struct
 %     structure with flux data, with the fields:
 %
@@ -17,15 +20,15 @@ function model = constrainFluxData(model, fluxData, condition, maxMinGrowth, loo
 %     - exchFluxes : exchange fluxes (mmol/gDCWh).
 %     - exchMets : exchanged metabolites, matching exchFluxes.
 %     - exchRxnIDs : exchange reaction IDs, matching exchMets.
-% condition : double or char, optional
+% condition : double or char
 %     either index number or name of the sample condition in fluxData.conds
 %     (default 1).
-% maxMinGrowth : char, optional
+% maxMinGrowth : char
 %     'max' if the provided growth rate should be set as maximum growth rate
 %     (= upper bound), or 'min' if it should be set as minimum growth rate
 %     (= lower bound). The latter option is suitable if minimization of
 %     prot_pool_exchange is used as objective function (default 'max').
-% looseStrictFlux : char or double, optional
+% looseStrictFlux : char or double
 %     how strictly constrained the exchange fluxes should be (default
 %     'loose'):
 %
@@ -36,7 +39,7 @@ function model = constrainFluxData(model, fluxData, condition, maxMinGrowth, loo
 %       variance around exchFluxes. If 10 is specified, LB = exchFluxes*0.95
 %       and UB = exchFluxes*1.05. This allows for 10% variance around the
 %       exchFluxes values, but strictly forces a flux through the exchRxns.
-% modelAdapter : ModelAdapter, optional
+% modelAdapter : ModelAdapter
 %     a loaded model adapter (default: the current default model adapter).
 %
 % Returns
@@ -53,13 +56,27 @@ function model = constrainFluxData(model, fluxData, condition, maxMinGrowth, loo
 %
 % Examples
 % --------
-%     model = constrainFluxData(model, fluxData, condition, maxMinGrowth, looseStrictFlux, modelAdapter);
+%     % optional arguments may be given positionally or as name-value pairs:
+%     model = constrainFluxData(model);
+%     model = constrainFluxData(model, 'condition', 2);
 %
 % See also
 % --------
 % loadFluxData
 
-if nargin < 6 || isempty(modelAdapter)
+p = parseGECKOargs(varargin, { ...
+    'fluxData',        []; ...
+    'condition',       []; ...
+    'maxMinGrowth',    []; ...
+    'looseStrictFlux', []; ...
+    'modelAdapter',    []});
+fluxData        = p.fluxData;
+condition       = p.condition;
+maxMinGrowth    = p.maxMinGrowth;
+looseStrictFlux = p.looseStrictFlux;
+modelAdapter    = p.modelAdapter;
+
+if isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefault();
     if isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
@@ -67,19 +84,19 @@ if nargin < 6 || isempty(modelAdapter)
 end
 params = modelAdapter.getParameters();
 
-if nargin < 5 || isempty(looseStrictFlux)
+if isempty(looseStrictFlux)
     looseStrictFlux = 'loose';
 end
 
-if nargin < 4 || isempty(maxMinGrowth)
+if isempty(maxMinGrowth)
     maxMinGrowth = 'max';
 end
 
-if nargin < 2 || isempty(fluxData)
+if isempty(fluxData)
     fluxData = loadFluxData(fullfile(params.path,'data','fluxData.tsv'),modelAdapter);
 end
 
-if nargin < 3 || isempty(condition)
+if isempty(condition)
     condition = 1;
 elseif ~isnumeric(condition)
     idx = find(strcmp(fluxData.conds,condition));

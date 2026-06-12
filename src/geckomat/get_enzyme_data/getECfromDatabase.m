@@ -1,4 +1,4 @@
-function model = getECfromDatabase(model, ecRxns, action, modelAdapter)
+function model = getECfromDatabase(model, varargin)
 % getECfromDatabase  Populate model.ec.eccodes from UniProt and KEGG databases.
 %
 % Populates the model.ec.eccodes field with enzyme codes that are extracted
@@ -9,13 +9,16 @@ function model = getECfromDatabase(model, ecRxns, action, modelAdapter)
 % ----------
 % model : struct
 %     an ecModel in GECKO 3 format (with ecModel.ec structure).
-% ecRxns : logical, optional
+%
+% Name-Value Arguments
+% --------------------
+% ecRxns : logical
 %     of length model.ec.rxns that specifies which model.ec.eccodes entries
 %     should be queried. Existing values in model.ec.eccodes will be wiped.
 %     Entries that are indicated by false will be kept and not modified by
 %     this function (by default all model.ec.eccodes entries are populated
 %     by this function).
-% action : char, optional
+% action : char
 %     response action if multiple proteins with different EC numbers are
 %     found for a given gene in a metabolic reaction (default 'display'):
 %
@@ -24,7 +27,7 @@ function model = getECfromDatabase(model, ecRxns, action, modelAdapter)
 %       index in the database.
 %     - 'add' adds all the multiple proteins as isozymes for the given
 %       reaction.
-% modelAdapter : ModelAdapter, optional
+% modelAdapter : ModelAdapter
 %     a loaded model adapter (default: the current default model adapter).
 %
 % Returns
@@ -34,21 +37,23 @@ function model = getECfromDatabase(model, ecRxns, action, modelAdapter)
 %
 % Examples
 % --------
+%     % optional arguments may be given positionally or as name-value pairs:
 %     model = getECfromDatabase(model, ecRxns, action, modelAdapter);
+%     model = getECfromDatabase(model, 'action', 'ignore');
 %
 % See also
 % --------
 % getECfromGEM, findECInDB, loadDatabases
 
-if nargin < 2 || isempty(ecRxns)
-    ecRnxs = true(numel(model.ec.rxns),1);
-end
+p = parseGECKOargs(varargin, { ...
+    'ecRxns',       []; ...
+    'action',       'display'; ...
+    'modelAdapter', []});
+ecRxns       = p.ecRxns;
+action       = p.action;
+modelAdapter = p.modelAdapter;
 
-if nargin < 3 || isempty(action)
-    action = 'display';
-end
-
-if nargin < 4 || isempty(modelAdapter)
+if isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefault();
     if isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
@@ -145,7 +150,7 @@ if strcmpi(action,'display') && ~isempty(conflicts{1})
     displayErrorMessage(conflicts,uniprot,kegg)
 end
 
-if nargin < 2 || isempty(ecRxns) || all(ecRxns)
+if isempty(ecRxns) || all(ecRxns)
     model.ec.eccodes = eccodes;
 else
     if ~isfield(model.ec,'eccodes')

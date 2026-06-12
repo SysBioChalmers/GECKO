@@ -1,4 +1,4 @@
-function kcatList = readDLKcatOutput(model, outFile, modelAdapter)
+function kcatList = readDLKcatOutput(model, varargin)
 % readDLKcatOutput  Read the DLKcat output file into a kcatList structure.
 %
 % Reads the DLKcat output file and constructs a kcatList structure, that can
@@ -8,10 +8,13 @@ function kcatList = readDLKcatOutput(model, outFile, modelAdapter)
 % ----------
 % model : struct
 %     an ecModel in GECKO 3 format (with ecModel.ec structure).
-% outFile : char, optional
+%
+% Name-Value Arguments
+% --------------------
+% outFile : char
 %     name and path of the DLKcat output file (default: data/DLKcat.tsv from
 %     the obj.params.path folder specified in the modelAdapter).
-% modelAdapter : ModelAdapter, optional
+% modelAdapter : ModelAdapter
 %     a loaded model adapter (default: the current default model adapter).
 %
 % Returns
@@ -32,13 +35,21 @@ function kcatList = readDLKcatOutput(model, outFile, modelAdapter)
 %
 % Examples
 % --------
-%     kcatList = readDLKcatOutput(model, outFile, modelAdapter);
+%     % optional arguments may be given positionally or as name-value pairs:
+%     kcatList = readDLKcatOutput(model);
+%     kcatList = readDLKcatOutput(model, 'outFile', 'myDLKcat.tsv');
 %
 % See also
 % --------
 % runDLKcat, writeDLKcatInput, selectKcatValue
 
-if nargin < 3 || isempty(modelAdapter)
+p = parseGECKOargs(varargin, { ...
+    'outFile',      []; ...
+    'modelAdapter', []});
+outFile      = p.outFile;
+modelAdapter = p.modelAdapter;
+
+if isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefault();
     if isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
@@ -46,7 +57,7 @@ if nargin < 3 || isempty(modelAdapter)
 end
 params = modelAdapter.params;
 
-if nargin<2 || isempty(outFile)
+if isempty(outFile)
     fID      = fopen(fullfile(params.path,'data','DLKcat.tsv'),'r');
 else
     fID      = fopen(outFile);

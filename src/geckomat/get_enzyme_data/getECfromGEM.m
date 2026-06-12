@@ -1,4 +1,4 @@
-function [model, invalidEC, invalidECpos] = getECfromGEM(model, ecRxns)
+function [model, invalidEC, invalidECpos] = getECfromGEM(model, varargin)
 % getECfromGEM  Populate model.ec.eccodes from the model.eccodes field.
 %
 % Uses the model.eccodes to populate the model.ec.eccodes field. EC numbers
@@ -9,7 +9,10 @@ function [model, invalidEC, invalidECpos] = getECfromGEM(model, ecRxns)
 % ----------
 % model : struct
 %     an ecModel in GECKO 3 format (with ecModel.ec structure).
-% ecRxns : logical, optional
+%
+% Name-Value Arguments
+% --------------------
+% ecRxns : logical
 %     of length model.ec.rxns that specifies for which reactions the
 %     existing model.ec.eccodes entry should be kept and not modified by
 %     this function (by default all model.ec.eccodes entries are populated
@@ -32,11 +35,17 @@ function [model, invalidEC, invalidECpos] = getECfromGEM(model, ecRxns)
 %
 % Examples
 % --------
+%     % optional arguments may be given positionally or as name-value pairs:
 %     [model, invalidEC, invalidECpos] = getECfromGEM(model, ecRxns);
+%     [model, invalidEC, invalidECpos] = getECfromGEM(model, 'ecRxns', ecRxns);
 %
 % See also
 % --------
 % getECfromDatabase, copyECtoGEM
+
+p = parseGECKOargs(varargin, { ...
+    'ecRxns', []});
+ecRxns = p.ecRxns;
 
 if ~isfield(model,'eccodes')
     error('The model has no model.eccodes field.')
@@ -67,7 +76,7 @@ if any(invalidECpos)
 else
     invalidEC = [];
 end
-if nargin<2 || all(ecRxns)
+if isempty(ecRxns) || all(ecRxns)
     model.ec.eccodes = eccodes(rxnIdxs);
 else
     if ~isfield(model.ec,'eccodes')

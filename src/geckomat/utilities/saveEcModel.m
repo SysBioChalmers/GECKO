@@ -1,4 +1,4 @@
-function saveEcModel(ecModel,filename,modelAdapter)
+function saveEcModel(ecModel,varargin)
 % saveEcModel  Save an ecModel in YAML and/or SBML format.
 %
 % Saves the ecModel in either YAML format (= default and preferred, as all
@@ -15,32 +15,42 @@ function saveEcModel(ecModel,filename,modelAdapter)
 % ----------
 % ecModel : struct
 %     an ecModel in GECKO 3 format (with ecModel.ec structure).
+%
+% Name-Value Arguments
+% --------------------
 % filename : char
 %     ending with either .yml or .xml, specifying if the ecModel should be
 %     saved in YAML or SBML file format. If no file extension is given, the
 %     ecModel will be saved in YAML format. If no filename is given,
 %     'ecModel.yml' is used.
-% modelAdapter : ModelAdapter, optional
+% modelAdapter : ModelAdapter
 %     a loaded model adapter, from where the model folder is read (default:
 %     the current default model adapter).
 %
 % Examples
 % --------
+%     % optional arguments may be given positionally or as name-value pairs:
 %     saveEcModel(ecModel,filename,modelAdapter);
+%     saveEcModel(ecModel,'filename',filename);
 %
 % See also
 % --------
 % loadEcModel
 
+p = parseGECKOargs(varargin, { ...
+    'filename',     []; ...
+    'modelAdapter', []});
+filename     = p.filename;
+modelAdapter = p.modelAdapter;
 
-if nargin < 3 || isempty(modelAdapter)
+if isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefault();
     if isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
     end
 end
 params = modelAdapter.getParameters();
-if nargin < 2 || isempty(filename)
+if isempty(filename)
     filename = 'ecModel';
 end
 filename = fullfile(params.path,'models',filename);

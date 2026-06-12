@@ -1,4 +1,4 @@
-function writeOpenKineticsPredictorInput(model, ecRxns, modelAdapter, onlyWithSmiles, overwrite)
+function writeOpenKineticsPredictorInput(model, varargin)
 % writeOpenKineticsPredictorInput  Write input file for OpenKineticsPredictor.
 %
 % Prepares input for OpenKineticsPredictor: protein sequences and single-
@@ -15,19 +15,24 @@ function writeOpenKineticsPredictorInput(model, ecRxns, modelAdapter, onlyWithSm
 % ----------
 % model : struct
 %     ecModel in GECKO 3 format (with ecModel.ec structure).
-% ecRxns : logical, optional
+%
+% Name-Value Arguments
+% --------------------
+% ecRxns : logical
 %     logical vector indicating which reactions to include (default: all
 %     reactions).
-% modelAdapter : ModelAdapter, optional
+% modelAdapter : ModelAdapter
 %     a loaded model adapter (default: the current default model adapter).
-% onlyWithSmiles : logical, optional
+% onlyWithSmiles : logical
 %     only include entries with SMILES (default true).
-% overwrite : logical, optional
+% overwrite : logical
 %     overwrite existing file (default false).
 %
 % Examples
 % --------
+%     % optional arguments may be given positionally or as name-value pairs:
 %     writeOpenKineticsPredictorInput(model, ecRxns);
+%     writeOpenKineticsPredictorInput(model, 'onlyWithSmiles', false);
 %
 % See also
 % --------
@@ -36,13 +41,23 @@ function writeOpenKineticsPredictorInput(model, ecRxns, modelAdapter, onlyWithSm
 [geckoPath, ~] = findGECKOroot();
 
 %% Parse inputs
-if nargin<2 || isempty(ecRxns)
+p = parseGECKOargs(varargin, { ...
+    'ecRxns',         []; ...
+    'modelAdapter',   []; ...
+    'onlyWithSmiles', []; ...
+    'overwrite',      []});
+ecRxns         = p.ecRxns;
+modelAdapter   = p.modelAdapter;
+onlyWithSmiles = p.onlyWithSmiles;
+overwrite      = p.overwrite;
+
+if isempty(ecRxns)
     ecRxns = true(numel(model.ec.rxns),1);
 elseif ~islogical(ecRxns) || numel(ecRxns) ~= numel(model.ec.rxns)
     error('ecRxns should be a logical vector with length equal to model.ec.rxns')
 end
 
-if nargin < 3 || isempty(modelAdapter)
+if isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefault();
     if isempty(modelAdapter)
         error('Either provide a modelAdapter or set the default in ModelAdapterManager.')
@@ -50,11 +65,11 @@ if nargin < 3 || isempty(modelAdapter)
 end
 params = modelAdapter.params;
 
-if nargin<4 || isempty(onlyWithSmiles)
+if isempty(onlyWithSmiles)
     onlyWithSmiles = true;
 end
 
-if nargin<5 || isempty(overwrite)
+if isempty(overwrite)
     overwrite = false;
 end
 

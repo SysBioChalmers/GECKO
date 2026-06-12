@@ -1,4 +1,4 @@
-function usageReport = reportEnzymeUsage(ecModel, usageData, highCapUsage, topAbsUsage)
+function usageReport = reportEnzymeUsage(ecModel, usageData, varargin)
 % reportEnzymeUsage  Summarize the results from enzymeUsage.
 %
 % Summarizes the results from enzymeUsage.
@@ -9,10 +9,13 @@ function usageReport = reportEnzymeUsage(ecModel, usageData, highCapUsage, topAb
 %     a GECKO3 ecModel.
 % usageData : struct
 %     output from enzymeUsage.
-% highCapUsage : double, optional
+%
+% Name-Value Arguments
+% --------------------
+% highCapUsage : double
 %     minimum ratio of enzyme capacity usage to be considered as high usage
 %     (default 0.9, referring to a minimum of 90% capacity usage).
-% topAbsUsage : double, optional
+% topAbsUsage : double
 %     number of top enzymes with highest absolute usage (default 10,
 %     returning the top 10 enzymes with highest absolute usage. With Inf or
 %     0, all enzymes are returned).
@@ -24,18 +27,21 @@ function usageReport = reportEnzymeUsage(ecModel, usageData, highCapUsage, topAb
 %
 % Examples
 % --------
+%     % optional arguments may be given positionally or as name-value pairs:
 %     usageReport = reportEnzymeUsage(ecModel, usageData, highCapUsage, topAbsUsage);
+%     usageReport = reportEnzymeUsage(ecModel, usageData, 'topAbsUsage', 20);
 %
 % See also
 % --------
 % enzymeUsage
 
-if nargin < 3 || isempty(highCapUsage)
-    highCapUsage = 0.9;
-end
-if nargin < 4 || isempty(topAbsUsage)
-    topAbsUsage = 10;
-end
+p = parseGECKOargs(varargin, { ...
+    'highCapUsage', []; ...
+    'topAbsUsage',  []});
+highCapUsage = p.highCapUsage;
+topAbsUsage  = p.topAbsUsage;
+if isempty(highCapUsage); highCapUsage = 0.9; end
+if isempty(topAbsUsage);  topAbsUsage  = 10;  end
 
 usageReport = {};
 

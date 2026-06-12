@@ -1,4 +1,4 @@
-function [model, rxnIdx] = selectKcatValue(model,kcatList,criteria,overwrite)
+function [model, rxnIdx] = selectKcatValue(model,kcatList,varargin)
 % selectKcatValue  Select one kcat value per reaction and write to model.ec.
 %
 % From a kcatList with predicted or suggested kcat values, where each
@@ -21,10 +21,13 @@ function [model, rxnIdx] = selectKcatValue(model,kcatList,criteria,overwrite)
 %     - genes : gene identifiers, matching model.genes.
 %     - substrate : substrates, matching model.mets.
 %     - kcat : predicted kcat value in /sec.
-% criteria : char, optional
+%
+% Name-Value Arguments
+% --------------------
+% criteria : char
 %     which kcat value should be selected if multiple values are provided.
 %     Options: 'max', 'min', 'median', 'mean' (default 'max').
-% overwrite : char, optional
+% overwrite : char
 %     whether existing kcat values should be overwritten. Options: 'true',
 %     'false', 'ifHigher'. The last option will overwrite only if the new
 %     kcat value is higher (default 'true').
@@ -39,13 +42,21 @@ function [model, rxnIdx] = selectKcatValue(model,kcatList,criteria,overwrite)
 %
 % Examples
 % --------
-%     [model, rxnIdx] = selectKcatValue(model, kcatList, criteria, overwrite);
+%     % optional arguments may be given positionally or as name-value pairs:
+%     [model, rxnIdx] = selectKcatValue(model, kcatList);
+%     [model, rxnIdx] = selectKcatValue(model, kcatList, 'criteria', 'mean');
 %
 % See also
 % --------
 % readDLKcatOutput, mergeDLKcatAndFuzzyKcats, applyKcatConstraints
 
-if nargin < 4
+p = parseGECKOargs(varargin, { ...
+    'criteria',  []; ...
+    'overwrite', []});
+criteria  = p.criteria;
+overwrite = p.overwrite;
+
+if isempty(overwrite)
     overwrite = 'true';
 elseif islogical(overwrite)
     if overwrite
@@ -54,7 +65,7 @@ elseif islogical(overwrite)
         overwrite = 'false';
     end
 end
-if nargin < 3
+if isempty(criteria)
     criteria = 'max';
 end
 

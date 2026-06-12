@@ -1,4 +1,4 @@
-function [model, noUniprot] = makeEcModel(model, geckoLight, modelAdapter)
+function [model, noUniprot] = makeEcModel(model, varargin)
 % makeEcModel  Expand a conventional GEM into a basic ecModel.
 %
 % Expands a conventional genome-scale model (in RAVEN format) with enzyme
@@ -11,10 +11,13 @@ function [model, noUniprot] = makeEcModel(model, geckoLight, modelAdapter)
 % ----------
 % model : struct
 %     a model in RAVEN format.
-% geckoLight : logical, optional
+%
+% Name-Value Arguments
+% --------------------
+% geckoLight : logical
 %     true if a simplified GECKO light model should be generated (default
 %     false).
-% modelAdapter : ModelAdapter, optional
+% modelAdapter : ModelAdapter
 %     a loaded model adapter (default: the current default model adapter).
 %
 % Returns
@@ -94,19 +97,25 @@ function [model, noUniprot] = makeEcModel(model, geckoLight, modelAdapter)
 %
 % Examples
 % --------
-%     [model, noUniprot] = makeEcModel(model, geckoLight, modelAdapter);
+%     % optional arguments may be given positionally or as name-value pairs:
+%     [model, noUniprot] = makeEcModel(model);
+%     [model, noUniprot] = makeEcModel(model, 'geckoLight', true);
 %
 % See also
 % --------
 % applyKcatConstraints, applyComplexData
 
-if nargin<2
-    geckoLight=false;
-elseif ~islogical(geckoLight) && ~(geckoLight == 0) && ~(geckoLight == 1)
+p = parseGECKOargs(varargin, { ...
+    'geckoLight',   false; ...
+    'modelAdapter', []});
+geckoLight   = p.geckoLight;
+modelAdapter = p.modelAdapter;
+
+if ~islogical(geckoLight) && ~(geckoLight == 0) && ~(geckoLight == 1)
     error('geckoLight should be either true or false')
 end
 
-if nargin < 3 || isempty(modelAdapter)
+if isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefault();
     if isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')

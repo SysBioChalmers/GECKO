@@ -1,4 +1,4 @@
-function [model, rxnsAdded, enzAdded] = addNewRxnsToEC(model, newRxns, newEnzymes, modelAdapter)
+function [model, rxnsAdded, enzAdded] = addNewRxnsToEC(model, newRxns, varargin)
 % addNewRxnsToEC  Add new reactions to an enzyme-constrained model.
 %
 % Adds new reactions to an enzyme-constrained model. This function is
@@ -11,9 +11,12 @@ function [model, rxnsAdded, enzAdded] = addNewRxnsToEC(model, newRxns, newEnzyme
 %     an ecModel in GECKO 3 format (with ecModel.ec structure).
 % newRxns : struct
 %     structure with the new reaction information (see Notes for fields).
+%
+% Name-Value Arguments
+% --------------------
 % newEnzymes : struct
 %     structure with the new enzymes information (see Notes for fields).
-% modelAdapter : ModelAdapter, optional
+% modelAdapter : ModelAdapter
 %     a loaded model adapter (default: the current default model adapter).
 %
 % Returns
@@ -53,13 +56,21 @@ function [model, rxnsAdded, enzAdded] = addNewRxnsToEC(model, newRxns, newEnzyme
 %
 % Examples
 % --------
+%     % optional arguments may be given positionally or as name-value pairs:
 %     [model, rxnsAdded, enzAdded] = addNewRxnsToEC(model, newRxns, newEnzymes, modelAdapter);
+%     [model, rxnsAdded, enzAdded] = addNewRxnsToEC(model, newRxns, 'newEnzymes', newEnzymes);
 %
 % See also
 % --------
 % applyKcatConstraints, applyCustomKcats
 
-if nargin < 4 || isempty(modelAdapter)
+p = parseGECKOargs(varargin, { ...
+    'newEnzymes',   []; ...
+    'modelAdapter', []});
+newEnzymes   = p.newEnzymes;
+modelAdapter = p.modelAdapter;
+
+if isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefault();
     if isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
@@ -67,7 +78,7 @@ if nargin < 4 || isempty(modelAdapter)
 end
 params = modelAdapter.getParameters();
 
-if nargin < 3 || isempty(newEnzymes)
+if isempty(newEnzymes)
     newEnzymes = [];
 end
 

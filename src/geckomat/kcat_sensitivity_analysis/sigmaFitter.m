@@ -1,4 +1,4 @@
-function [model, sigma] = sigmaFitter(model, growthRate, Ptot, f, makePlot, modelAdapter)
+function [model, sigma] = sigmaFitter(model, varargin)
 % sigmaFitter  Fit the average enzyme saturation factor of an ecModel.
 %
 % Fits the average enzyme saturation factor in an ecModel according to a
@@ -9,18 +9,21 @@ function [model, sigma] = sigmaFitter(model, growthRate, Ptot, f, makePlot, mode
 % ----------
 % model : struct
 %     an ecModel in GECKO 3 format (with ecModel.ec structure).
-% growthRate : double, optional
+%
+% Name-Value Arguments
+% --------------------
+% growthRate : double
 %     growth rate that should be reached (default: read from the model
 %     adapter).
-% Ptot : double, optional
+% Ptot : double
 %     total cellular protein content in g/gDCW (default: read from the model
 %     adapter; if not specified there, 0.5 g/gDCW is assumed).
-% f : double, optional
+% f : double
 %     estimated fraction of enzymes in the model (default: read from the
 %     model adapter; if not specified there, 0.5 is assumed).
-% makePlot : logical, optional
+% makePlot : logical
 %     whether a plot should be made (default true).
-% modelAdapter : ModelAdapter, optional
+% modelAdapter : ModelAdapter
 %     a loaded model adapter (default: the current default model adapter).
 %
 % Returns
@@ -33,25 +36,40 @@ function [model, sigma] = sigmaFitter(model, growthRate, Ptot, f, makePlot, mode
 %
 % Examples
 % --------
+%     % optional arguments may be given positionally or as name-value pairs:
+%     [model, sigma] = sigmaFitter(model);
+%     [model, sigma] = sigmaFitter(model, 'makePlot', false);
 %     [model, sigma] = sigmaFitter(model, growthRate, Ptot, f, makePlot, modelAdapter);
 
-if nargin < 6 || isempty(modelAdapter)
+p = parseGECKOargs(varargin, { ...
+    'growthRate',   []; ...
+    'Ptot',         []; ...
+    'f',            []; ...
+    'makePlot',     true; ...
+    'modelAdapter', []});
+growthRate   = p.growthRate;
+Ptot         = p.Ptot;
+f            = p.f;
+makePlot     = p.makePlot;
+modelAdapter = p.modelAdapter;
+
+if isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefault();
     if isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
     end
 end
 
-if nargin<5 || isempty(makePlot)
+if isempty(makePlot)
     makePlot = true;
 end
-if nargin<4 || isempty(f)
+if isempty(f)
     f = modelAdapter.getParameters().f;
 end
-if nargin<3 || isempty(Ptot)
+if isempty(Ptot)
     Ptot = modelAdapter.getParameters().Ptot;
 end
-if nargin<2 || isempty(growthRate)
+if isempty(growthRate)
     growthRate = modelAdapter.getParameters().gR_exp;
 end
 

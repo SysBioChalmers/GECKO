@@ -1,4 +1,4 @@
-function ecModel = copyECtoGEM(ecModel, overwrite)
+function ecModel = copyECtoGEM(ecModel, varargin)
 % copyECtoGEM  Copy EC numbers from ecModel.ec.eccodes to ecModel.eccodes.
 %
 % Copies the EC numbers stored in the ecModel.ec structure across to the
@@ -8,7 +8,10 @@ function ecModel = copyECtoGEM(ecModel, overwrite)
 % ----------
 % ecModel : struct
 %     an ecModel in GECKO 3 format (with ecModel.ec structure).
-% overwrite : logical, optional
+%
+% Name-Value Arguments
+% --------------------
+% overwrite : logical
 %     whether existing (non-empty) ecModel.eccodes entries should be
 %     overwritten. Empty ecModel.eccodes entries are always overwritten if
 %     possible (default false).
@@ -20,11 +23,14 @@ function ecModel = copyECtoGEM(ecModel, overwrite)
 %
 % Examples
 % --------
-%     ecModel = copyECtoGEM(ecModel, overwrite);
+%     % optional arguments may be given positionally or as name-value pairs:
+%     ecModel = copyECtoGEM(ecModel, true);
+%     ecModel = copyECtoGEM(ecModel, 'overwrite', true);
 
-if nargin < 2 || isempty(overwrite)
-    overwrite = false;
-end
+p = parseGECKOargs(varargin, { ...
+    'overwrite', false});
+overwrite = p.overwrite;
+
 if ~isfield(ecModel.ec,'eccodes')
     error('ecModel.ec.eccodes does not exist')
 end

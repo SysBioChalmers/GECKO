@@ -1,24 +1,32 @@
-function startGECKOproject(name, path)
+function startGECKOproject(varargin)
 % startGECKOproject  Create a basic project structure for GECKO.
 %
 % Creates a basic project structure for GECKO. If a project with the same
 % name exists, the project will not be created.
 %
-% Parameters
-% ----------
-% name : char, optional
+% Name-Value Arguments
+% --------------------
+% name : char
 %     a name for the folder structure used in GECKO. Also creates a basic
 %     adapter class, which must be manually adjusted. If not defined, a
 %     dialog box will appear.
-% path : char, optional
+% path : char
 %     a path where to create the folder. If not defined, a dialog box will
 %     appear.
 %
 % Examples
 % --------
+%     % optional arguments may be given positionally or as name-value pairs:
 %     startGECKOproject(name, path);
+%     startGECKOproject('name', name);
 
-if nargin < 1 || isempty(name)
+p = parseGECKOargs(varargin, { ...
+    'name', []; ...
+    'path', []});
+name = p.name;
+path = p.path;
+
+if isempty(name)
     prompt = {'Please provide a project name (e.g. ecYeastGEM)'};
     dlgtitle = 'Project name';
     dims = [1 100];
@@ -28,7 +36,7 @@ if nargin < 1 || isempty(name)
     name = char(name);
 end
 
-if nargin < 2 || isempty(path)
+if isempty(path)
     path = uigetdir('Project Folder path');
 end
 

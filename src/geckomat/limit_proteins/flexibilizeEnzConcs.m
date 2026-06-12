@@ -1,4 +1,4 @@
-function [model, flexEnz] = flexibilizeEnzConcs(model, expGrowth, foldChange, iterPerEnzyme, modelAdapter, verbose)
+function [model, flexEnz] = flexibilizeEnzConcs(model, varargin)
 % flexibilizeEnzConcs  Flexibilize enzyme concentrations of an ecModel.
 %
 % Flexibilize enzyme concentration of an ecModel constrained with proteomics
@@ -22,19 +22,22 @@ function [model, flexEnz] = flexibilizeEnzConcs(model, expGrowth, foldChange, it
 % ----------
 % model : struct
 %     an ecModel in GECKO 3 format (with ecModel.ec structure).
-% expGrowth : double, optional
+%
+% Name-Value Arguments
+% --------------------
+% expGrowth : double
 %     estimated experimental growth rate. If not specified, the value will be
 %     read from the model adapter.
-% foldChange : double, optional
+% foldChange : double
 %     a value how much to increase the enzyme concentration (default 2).
-% iterPerEnzyme : double, optional
+% iterPerEnzyme : double
 %     the number of iterations that an enzyme can be increased. A zero number
 %     can be defined; if zero is defined no limit will be set, and it will
 %     increase the enzyme concentration until it reaches the defined growth
 %     rate (default 5).
-% modelAdapter : ModelAdapter, optional
+% modelAdapter : ModelAdapter
 %     a loaded model adapter (default: the current default model adapter).
-% verbose : logical, optional
+% verbose : logical
 %     whether progress should be reported (default true).
 %
 % Returns
@@ -57,16 +60,30 @@ function [model, flexEnz] = flexibilizeEnzConcs(model, expGrowth, foldChange, it
 %
 % Examples
 % --------
-%     [model, flexEnz] = flexibilizeEnzConcs(model, expGrowth, foldChange, iterPerEnzyme, modelAdapter, verbose);
+%     % optional arguments may be given positionally or as name-value pairs:
+%     [model, flexEnz] = flexibilizeEnzConcs(model);
+%     [model, flexEnz] = flexibilizeEnzConcs(model, 'foldChange', 3);
 %
 % See also
 % --------
 % constrainEnzConcs, getConcControlCoeffs
 
-if nargin < 6 || isempty(verbose)
+p = parseGECKOargs(varargin, { ...
+    'expGrowth',     []; ...
+    'foldChange',    []; ...
+    'iterPerEnzyme', []; ...
+    'modelAdapter',  []; ...
+    'verbose',       []});
+expGrowth     = p.expGrowth;
+foldChange    = p.foldChange;
+iterPerEnzyme = p.iterPerEnzyme;
+modelAdapter  = p.modelAdapter;
+verbose       = p.verbose;
+
+if isempty(verbose)
     verbose = true;
 end
-if nargin < 5 || isempty(modelAdapter)
+if isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefault();
     if isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
@@ -74,15 +91,15 @@ if nargin < 5 || isempty(modelAdapter)
 end
 params = modelAdapter.getParameters();
 
-if nargin < 4 || isempty(iterPerEnzyme)
+if isempty(iterPerEnzyme)
     iterPerEnzyme = 5;
 end
 
-if nargin < 3 || isempty(foldChange)
+if isempty(foldChange)
     foldChange = 2;
 end
 
-if nargin < 2 || isempty(expGrowth)
+if isempty(expGrowth)
     expGrowth = modelAdapter.getParameters().gR_exp;
 end
 

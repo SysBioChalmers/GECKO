@@ -1,4 +1,4 @@
-function [model, rxnsMissingGPR, standardMW, standardKcat, rxnsNoKcat] = getStandardKcat(model, modelAdapter, threshold, fillZeroKcat)
+function [model, rxnsMissingGPR, standardMW, standardKcat, rxnsNoKcat] = getStandardKcat(model, varargin)
 % getStandardKcat  Assign standard kcat and MW to reactions without enzymes.
 %
 % Calculates a standard kcat and standard molecular weight (MW) that can be
@@ -33,15 +33,18 @@ function [model, rxnsMissingGPR, standardMW, standardKcat, rxnsNoKcat] = getStan
 % ----------
 % model : struct
 %     an ecModel in GECKO 3 format (with ecModel.ec structure).
-% modelAdapter : ModelAdapter, optional
+%
+% Name-Value Arguments
+% --------------------
+% modelAdapter : ModelAdapter
 %     a loaded model adapter (default: the current default model adapter).
-% threshold : double, optional
+% threshold : double
 %     a threshold to determine whether to use a kcat value based on the mean
 %     kcat of the reactions in the same subSystem or based on the median
 %     value of all the kcat in the model. The second option is used when the
 %     number of reactions in a determined subSystem is < threshold
 %     (default 10).
-% fillZeroKcat : logical, optional
+% fillZeroKcat : logical
 %     whether zero kcat values should be replaced with standard kcat values
 %     (default true).
 %
@@ -67,13 +70,23 @@ function [model, rxnsMissingGPR, standardMW, standardKcat, rxnsNoKcat] = getStan
 %
 % Examples
 % --------
-%     [model, rxnsMissingGPR, standardMW, standardKcat, rxnsNoKcat] = getStandardKcat(model, modelAdapter, threshold, fillZeroKcat);
+%     % optional arguments may be given positionally or as name-value pairs:
+%     [model, rxnsMissingGPR, standardMW, standardKcat, rxnsNoKcat] = getStandardKcat(model);
+%     [model, rxnsMissingGPR, standardMW, standardKcat, rxnsNoKcat] = getStandardKcat(model, 'threshold', 20);
 %
 % See also
 % --------
 % removeStandardKcat, applyKcatConstraints
 
-if nargin < 2 || isempty(modelAdapter)
+p = parseGECKOargs(varargin, { ...
+    'modelAdapter', []; ...
+    'threshold',    []; ...
+    'fillZeroKcat', []});
+modelAdapter = p.modelAdapter;
+threshold    = p.threshold;
+fillZeroKcat = p.fillZeroKcat;
+
+if isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefault();
     if isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
@@ -81,11 +94,11 @@ if nargin < 2 || isempty(modelAdapter)
 end
 params = modelAdapter.getParameters();
 
-if nargin < 3 || isempty(threshold)
+if isempty(threshold)
     threshold = 10;
 end
 
-if nargin < 4 || isempty(fillZeroKcat)
+if isempty(fillZeroKcat)
     fillZeroKcat = true;
 end
 

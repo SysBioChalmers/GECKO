@@ -1,4 +1,4 @@
-function fseof = ecFSEOF(model,prodTargetRxn,csRxn,nSteps,outputFile,filePath,modelAdapter)
+function fseof = ecFSEOF(model,prodTargetRxn,csRxn,varargin)
 % ecFSEOF  Run Flux-Scanning with Enforced Objective Function for a target.
 %
 % Runs Flux-Scanning with Enforced Objective Function (FSEOF) for a
@@ -14,16 +14,19 @@ function fseof = ecFSEOF(model,prodTargetRxn,csRxn,nSteps,outputFile,filePath,mo
 %     recommended.
 % csRxn : char
 %     rxn ID for the main carbon source uptake reaction.
-% nSteps : double, optional
+%
+% Name-Value Arguments
+% --------------------
+% nSteps : double
 %     number of steps for suboptimal objective in FSEOF (default 16).
-% outputFile : logical, optional
+% outputFile : logical
 %     boolean option to save results in a file (default false).
-% filePath : char, optional
+% filePath : char
 %     file path for results output. It will store two files: at the genes
 %     level, ecFSEOF_genes.tsv; and at the reactions level,
 %     ecFSEOF_rxns.tsv (default: the 'output' sub-folder taken from
 %     modelAdapter, e.g. output/ecFSEOF_rxns.tsv).
-% modelAdapter : ModelAdapter, optional
+% modelAdapter : ModelAdapter
 %     a loaded model adapter (default: the current default model adapter).
 %
 % Returns
@@ -43,9 +46,21 @@ function fseof = ecFSEOF(model,prodTargetRxn,csRxn,nSteps,outputFile,filePath,mo
 %
 % Examples
 % --------
+%     % optional arguments may be given positionally or as name-value pairs:
 %     fseof = ecFSEOF(model,prodTargetRxn,csRxn,nSteps,outputFile,filePath,modelAdapter);
+%     fseof = ecFSEOF(model,prodTargetRxn,csRxn,'nSteps',32);
 
-if nargin < 7 || isempty(modelAdapter)
+p = parseGECKOargs(varargin, { ...
+    'nSteps',       16; ...
+    'outputFile',   false; ...
+    'filePath',     []; ...
+    'modelAdapter', []});
+nSteps       = p.nSteps;
+outputFile   = p.outputFile;
+filePath     = p.filePath;
+modelAdapter = p.modelAdapter;
+
+if isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefault();
     if isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
@@ -53,16 +68,8 @@ if nargin < 7 || isempty(modelAdapter)
 end
 params = modelAdapter.getParameters();
 
-if nargin < 5 || isempty(outputFile)
-    outputFile = false;
-end
-
-if nargin < 6 || isempty(filePath)
+if isempty(filePath)
     filePath = fullfile(params.path,'output');
-end
-
-if nargin < 4 || isempty(nSteps)
-    nSteps = 16;
 end
 
 % Get relevant rxn indexes

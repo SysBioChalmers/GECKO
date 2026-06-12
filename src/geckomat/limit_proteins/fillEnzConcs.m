@@ -1,4 +1,4 @@
-function model = fillEnzConcs(model, protData, dataCol)
+function model = fillEnzConcs(model, protData, varargin)
 % fillEnzConcs  Populate model.ec.concs from proteome data.
 %
 % Uses the protein concentrations from protData to fill model.ec.concs.
@@ -15,7 +15,10 @@ function model = fillEnzConcs(model, protData, dataCol)
 %
 %     - uniprotIDs : cell array with Uniprot IDs matching protData.abundances.
 %     - abundances : matrix of proteomics data.
-% dataCol : double, optional
+%
+% Name-Value Arguments
+% --------------------
+% dataCol : double
 %     number indicating the column in protData.abundances that contains the
 %     relevant protein concentrations. protData may contain data from
 %     multiple conditions/samples/experiments, each with their own column in
@@ -34,15 +37,18 @@ function model = fillEnzConcs(model, protData, dataCol)
 %
 % Examples
 % --------
+%     % optional arguments may be given positionally or as name-value pairs:
 %     model = fillEnzConcs(model, protData);
+%     model = fillEnzConcs(model, protData, 'dataCol', 2);
 %
 % See also
 % --------
 % constrainEnzConcs, loadProtFluxData
 
-if nargin < 3 || isempty(dataCol)
-    dataCol = 1;
-end
+p = parseGECKOargs(varargin, { ...
+    'dataCol', 1});
+dataCol = p.dataCol;
+if isempty(dataCol); dataCol = 1; end
 
 uniprotIDs = protData.uniprotIDs;
 abundances = protData.abundances(:,dataCol);
