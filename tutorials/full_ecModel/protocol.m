@@ -87,9 +87,13 @@ model = loadConventionalGEM();
 % model = importModel(fullfile(geckoRoot,'tutorials','full_ecModel','models','yeast-GEM.yml'));
 
 % STEP 10-11 Prepare ecModel
-% We will make a full GECKO ecModel. For an example of reconstructing a 
+% We will make a full GECKO ecModel. For an example of reconstructing a
 % light GECKO ecModel, see tutorials/light_ecModel.
-[ecModel, noUniprot] = makeEcModel(model,false);
+% Optional arguments can be given either positionally (as before) or as
+% name-value pairs. This protocol uses the name-value form for optional
+% arguments, e.g. 'geckoLight' below: it is self-documenting and lets you skip
+% earlier optionals without passing []. Positional calls remain fully supported.
+[ecModel, noUniprot] = makeEcModel(model,'geckoLight',false);
 % Note that noUniprot is empty: for all genes a match could be find in the
 % Uniprot dataset.
 
@@ -129,7 +133,7 @@ saveEcModel(ecModel,'ecYeastGEM_stage1.yml');
 % with the missing ones taken from Uniprot & KEGG databases.
 ecModel         = getECfromGEM(ecModel);
 noEC = cellfun(@isempty, ecModel.ec.eccodes);
-ecModel         = getECfromDatabase(ecModel,noEC);
+ecModel         = getECfromDatabase(ecModel,'ecRxns',noEC);
 % However, the EC numbers in the yeast-GEM model have not been thoroughly
 % curated. Instead, we will take database-derived EC numbers for all
 % reactions.
@@ -151,7 +155,7 @@ kcatList_fuzzy  = fuzzyKcatMatching(ecModel);
 % regenerated, the line below should be uncommented. Note that this
 % overwrites the existing files, thereby discarding existing kcat
 % predictions.
-%writeDLKcatInput(ecModel,[],[],[],[],true);
+%writeDLKcatInput(ecModel,'overwrite',true);
 
 % STEP 24 Run DLKcat
 % runDLKcat will run the DLKcat algorithm via a Docker image. If the
@@ -229,7 +233,7 @@ sigma = params.sigma;
 % calculated from quantitative proteomics data, for instance with data that
 % is available via PAXdb (https://pax-db.org/).
 f = calculateFfactor(ecModel); % Optional
-ecModel = setProtPoolSize(ecModel,Ptot,f,sigma);
+ecModel = setProtPoolSize(ecModel,'Ptot',Ptot,'f',f,'sigma',sigma);
 
 % Note that at a later stage (after stage 3), the sigma factor be further
 % adjusted with sigmaFitter, to get a model that is able to reach a
@@ -385,9 +389,9 @@ ecModel = constrainEnzConcs(ecModel);
 %     See STEP 32 for considerations about the f-factor. Here, we can
 %     recalculate the f-factor based on the proteomics dataset.
 
-f = calculateFfactor(ecModel,protData);
+f = calculateFfactor(ecModel,'protData',protData);
 fluxData = loadFluxData();
-ecModel = setProtPoolSize(ecModel,fluxData.Ptot(1),f);
+ecModel = setProtPoolSize(ecModel,'Ptot',fluxData.Ptot(1),'f',f);
 
 % ==> Before GECKO 3.2.0:
 %     The legacy code is still shown here, but should not be run. The
@@ -407,7 +411,7 @@ ecModel = setProtPoolSize(ecModel,fluxData.Ptot(1),f);
 % /data/fluxData.tsv.
 fluxData = loadFluxData();
 % Use first condition.
-ecModel = constrainFluxData(ecModel,fluxData,1,'max','loose');
+ecModel = constrainFluxData(ecModel,'fluxData',fluxData,'condition',1,'maxMinGrowth','max','looseStrictFlux','loose');
 % Observe if the intended growth rate was reached.
 sol = solveLP(ecModel);
 fprintf('Growth rate that is reached: %f /hour.\n', sol.f)
@@ -417,13 +421,13 @@ fprintf('Growth rate that is reached: %f /hour.\n', sol.f)
 % STEP 64-65 Enzyme concentrations are flexibilized (increased), until the
 % intended growth rate is reached. This is condition-specific, so the
 % intended growth rate is gathered from the fluxData structure.
-[ecModel, flexEnz] = flexibilizeEnzConcs(ecModel,fluxData.grRate(1),10);
+[ecModel, flexEnz] = flexibilizeEnzConcs(ecModel,'expGrowth',fluxData.grRate(1),'foldChange',10);
 
 % Neither individual enzyme levels nor total protein pool are limiting
 % growth. Test whether the starting model is able to reach 0.1.
 % If needed, uncomment the next line to reload the starting model
 %model = loadConventionalGEM();
-model = constrainFluxData(model,fluxData);
+model = constrainFluxData(model,'fluxData',fluxData);
 sol = solveLP(model)
 fprintf('Growth rate that is reached: %f /hour.\n', sol.f)
 
@@ -472,7 +476,7 @@ saveas(gcf,fullfile(params.path,'output','crabtree.pdf'))
 
 % For comparison, make a similar Crabtree plot for a conventional GEM.
 % Set protein pool to infinite, to mimic a conventional GEM.
-ecModel_infProt=setProtPoolSize(ecModel,Inf);
+ecModel_infProt=setProtPoolSize(ecModel,'Ptot',Inf);
 plotCrabtree(ecModel_infProt);
 saveas(gcf,fullfile(params.path,'output','crabtree_infProt.pdf'))
 % It is obvious that no total protein constraint is reached, and Crabtree
@@ -532,9 +536,9 @@ ecModelProt = loadEcModel('ecYeastGEM_stage4.yml');
 fluxData.grRate(1) = 0.0880;
 
 % Apply same constraints on exchange fluxes
-model = constrainFluxData(model,fluxData,1,'max','loose');
-ecModel = constrainFluxData(ecModel,fluxData,1,'max','loose');
-ecModelProt = constrainFluxData(ecModelProt,fluxData,1,'max','loose');
+model = constrainFluxData(model,'fluxData',fluxData,'condition',1,'maxMinGrowth','max','looseStrictFlux','loose');
+ecModel = constrainFluxData(ecModel,'fluxData',fluxData,'condition',1,'maxMinGrowth','max','looseStrictFlux','loose');
+ecModelProt = constrainFluxData(ecModelProt,'fluxData',fluxData,'condition',1,'maxMinGrowth','max','looseStrictFlux','loose');
 
 solveLP(model)
 solveLP(ecModel)
