@@ -1,4 +1,4 @@
-function kcatList = readOpenKineticsPredictorOutput(model, outFile, modelAdapter)
+function kcatList = readOpenKineticsPredictorOutput(model, varargin)
 % readOpenKineticsPredictorOutput  Read OpenKineticsPredictor output to kcatList.
 %
 % Reads the OpenKineticsPredictor output file (job-*-output.csv with columns:
@@ -14,11 +14,14 @@ function kcatList = readOpenKineticsPredictorOutput(model, outFile, modelAdapter
 % ----------
 % model : struct
 %     an ecModel in GECKO 3 format (with ecModel.ec structure).
-% outFile : char, optional
+%
+% Name-Value Arguments
+% --------------------
+% outFile : char
 %     name and path of the OpenKineticsPredictor output CSV. If omitted, a
 %     file selection dialog is opened, starting in the data/ folder specified
 %     by the modelAdapter.
-% modelAdapter : ModelAdapter, optional
+% modelAdapter : ModelAdapter
 %     a loaded model adapter (default: the current default model adapter).
 %
 % Returns
@@ -41,13 +44,21 @@ function kcatList = readOpenKineticsPredictorOutput(model, outFile, modelAdapter
 %
 % Examples
 % --------
-%     kcatList = readOpenKineticsPredictorOutput(model, outFile, modelAdapter);
+%     % optional arguments may be given positionally or as name-value pairs:
+%     kcatList = readOpenKineticsPredictorOutput(model);
+%     kcatList = readOpenKineticsPredictorOutput(model, 'outFile', 'job-output.csv');
 %
 % See also
 % --------
 % writeOpenKineticsPredictorInput, selectKcatValue
 
-if nargin < 3 || isempty(modelAdapter)
+p = parseGECKOargs(varargin, { ...
+    'outFile',      []; ...
+    'modelAdapter', []});
+outFile      = p.outFile;
+modelAdapter = p.modelAdapter;
+
+if isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefault();
     if isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
@@ -55,7 +66,7 @@ if nargin < 3 || isempty(modelAdapter)
 end
 params = modelAdapter.params;
 
-if nargin < 2 || isempty(outFile)
+if isempty(outFile)
     startDir = fullfile(params.path,'data');
     if ~exist(startDir,'dir')
         startDir = params.path;

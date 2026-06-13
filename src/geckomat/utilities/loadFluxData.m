@@ -1,15 +1,15 @@
-function fluxData = loadFluxData(fluxDataFile, modelAdapter)
+function fluxData = loadFluxData(varargin)
 % loadFluxData  Load total protein measurements and exchange flux data.
 %
 % Loads total protein measurements and flux data (exchange fluxes for
 % carbon source, O2, CO2, etc.).
 %
-% Parameters
-% ----------
-% fluxDataFile : char, optional
+% Name-Value Arguments
+% --------------------
+% fluxDataFile : char
 %     path to file with flux data (default reads data/fluxData.tsv as
 %     specified in modelAdapter).
-% modelAdapter : ModelAdapter, optional
+% modelAdapter : ModelAdapter
 %     a loaded model adapter (default: the current default model adapter).
 %
 % Returns
@@ -32,13 +32,21 @@ function fluxData = loadFluxData(fluxDataFile, modelAdapter)
 %
 % Examples
 % --------
+%     % optional arguments may be given positionally or as name-value pairs:
 %     fluxData = loadFluxData(fluxDataFile, modelAdapter);
+%     fluxData = loadFluxData('fluxDataFile', fluxDataFile);
 %
 % See also
 % --------
 % loadProtData
 
-if nargin < 2 || isempty(modelAdapter)
+p = parseGECKOargs(varargin, { ...
+    'fluxDataFile', []; ...
+    'modelAdapter', []});
+fluxDataFile = p.fluxDataFile;
+modelAdapter = p.modelAdapter;
+
+if isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefault();
     if isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
@@ -46,7 +54,7 @@ if nargin < 2 || isempty(modelAdapter)
 end
 params = modelAdapter.getParameters();
 
-if nargin < 1 || isempty(fluxDataFile)
+if isempty(fluxDataFile)
     fluxDataFile = fullfile(params.path,'data','fluxData.tsv');
 end
 

@@ -1,4 +1,4 @@
-function model = applyKcatConstraints(model,updateRxns)
+function model = applyKcatConstraints(model,varargin)
 % applyKcatConstraints  Apply kcat-derived enzyme constraints to an ecModel.
 %
 % Existing enzyme constraints are first removed (unless updateRxns is
@@ -9,7 +9,10 @@ function model = applyKcatConstraints(model,updateRxns)
 % ----------
 % model : struct
 %     an ecModel in GECKO 3 format (with ecModel.ec structure).
-% updateRxns : logical or double or cell or char or string, optional
+%
+% Name-Value Arguments
+% --------------------
+% updateRxns : logical or double or cell or char or string
 %     if not all enzyme constraints should be updated, this can be given as
 %     either a logical vector of length model.ec.rxns, a vector of
 %     model.ec.rxns indices, or a (cell array of) string(s) with
@@ -24,20 +27,26 @@ function model = applyKcatConstraints(model,updateRxns)
 %
 % Examples
 % --------
+%     % optional arguments may be given positionally or as name-value pairs:
 %     model = applyKcatConstraints(model, updateRxns);
+%     model = applyKcatConstraints(model, 'updateRxns', updateRxns);
 %
 % See also
 % --------
 % makeEcModel, getKcatAcrossIsozymes, setKcatForReactions
 
-%these lines are for the nargin lines below only
+p = parseGECKOargs(varargin, { ...
+    'updateRxns', []});
+updateRxns = p.updateRxns;
+
+%these lines are for the updateRxns handling below only
 if (model.ec.geckoLight)
     rxns = model.rxns;
 else
     rxns = model.ec.rxns;
 end
 
-if nargin<2
+if isempty(updateRxns)
     updateRxns = true(numel(rxns),1);
 elseif isnumeric(updateRxns)
     updateRxnsLog = false(numel(rxns),1);

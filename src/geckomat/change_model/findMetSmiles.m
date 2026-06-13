@@ -1,4 +1,4 @@
-function [model,noSMILES] = findMetSmiles(model, modelAdapter, verbose)
+function [model,noSMILES] = findMetSmiles(model, varargin)
 % findMetSmiles  Query PubChem by metabolite names to obtain SMILES.
 %
 % Queries PubChem by metabolite names to obtain SMILES. Matches will also
@@ -10,9 +10,12 @@ function [model,noSMILES] = findMetSmiles(model, modelAdapter, verbose)
 % ----------
 % model : struct
 %     a model whose metNames field is used to find the relevant SMILES.
-% modelAdapter : ModelAdapter, optional
+%
+% Name-Value Arguments
+% --------------------
+% modelAdapter : ModelAdapter
 %     a loaded model adapter (default: the current default model adapter).
-% verbose : logical, optional
+% verbose : logical
 %     whether progress should be reported (default true).
 %
 % Returns
@@ -22,10 +25,14 @@ function [model,noSMILES] = findMetSmiles(model, modelAdapter, verbose)
 % noSMILES : cell
 %     metabolite names for which no SMILES could be found.
 %
-if nargin < 3 || isempty(verbose)
-    verbose = true;
-end
-if nargin < 2 || isempty(modelAdapter)
+p = parseGECKOargs(varargin, { ...
+    'modelAdapter', []; ...
+    'verbose',      true});
+modelAdapter = p.modelAdapter;
+verbose      = p.verbose;
+if isempty(verbose); verbose = true; end
+
+if isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefault();
     if isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')

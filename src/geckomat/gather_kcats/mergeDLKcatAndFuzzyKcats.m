@@ -1,4 +1,4 @@
-function mergedKcatList = mergeDLKcatAndFuzzyKcats(kcatListDLKcat, kcatListFuzzy, topOriginLimit, bottomOriginLimit, wildcardLimit)
+function mergedKcatList = mergeDLKcatAndFuzzyKcats(kcatListDLKcat, kcatListFuzzy, varargin)
 % mergeDLKcatAndFuzzyKcats  Merge DLKcat and BRENDA fuzzy matching results.
 %
 % Merges the results from DLKcat and fuzzy matching to the BRENDA database.
@@ -18,13 +18,16 @@ function mergedKcatList = mergeDLKcatAndFuzzyKcats(kcatListDLKcat, kcatListFuzzy
 %     kcatList derived from readDLKcatOutput.
 % kcatListFuzzy : struct
 %     kcatList derived from fuzzyKcatMatching.
-% topOriginLimit : double, optional
+%
+% Name-Value Arguments
+% --------------------
+% topOriginLimit : double
 %     origin limit for prioritized BRENDA matches. Origin is explained in
 %     more detail below (default 6).
-% bottomOriginLimit : double, optional
+% bottomOriginLimit : double
 %     origin limit for low priority BRENDA matches. Origin is explained in
 %     more detail below (default 6).
-% wildcardLimit : double, optional
+% wildcardLimit : double
 %     maximum number of wildcards in E.C. number of BRENDA matches
 %     (default 3).
 %
@@ -54,23 +57,21 @@ function mergedKcatList = mergeDLKcatAndFuzzyKcats(kcatListDLKcat, kcatListFuzzy
 %
 % Examples
 % --------
-%     mergedKcatList = mergeDLKcatAndFuzzyKcats(kcatListDLKcat, kcatListFuzzy, topOriginLimit, bottomOriginLimit, wildcardLimit);
+%     % optional arguments may be given positionally or as name-value pairs:
+%     mergedKcatList = mergeDLKcatAndFuzzyKcats(kcatListDLKcat, kcatListFuzzy);
+%     mergedKcatList = mergeDLKcatAndFuzzyKcats(kcatListDLKcat, kcatListFuzzy, 'wildcardLimit', 2);
 %
 % See also
 % --------
 % readDLKcatOutput, fuzzyKcatMatching, selectKcatValue
 
-if nargin < 5
-    wildcardLimit = 3;
-end
-
-if nargin < 4
-    bottomOriginLimit = 6;
-end
-
-if nargin < 3
-    topOriginLimit = 6;
-end
+p = parseGECKOargs(varargin, { ...
+    'topOriginLimit',    6; ...
+    'bottomOriginLimit', 6; ...
+    'wildcardLimit',     3});
+topOriginLimit    = p.topOriginLimit;
+bottomOriginLimit = p.bottomOriginLimit;
+wildcardLimit     = p.wildcardLimit;
 
 if (topOriginLimit < 1) || (topOriginLimit > 6)
     error('topPrioOriginLimit should be between 1 and 6.');

@@ -1,4 +1,4 @@
-function model = loadEcModel(filename, modelAdapter)
+function model = loadEcModel(varargin)
 % loadEcModel  Load the ecModel that matches the modelAdapter.
 %
 % Loads the ecModel that matches the modelAdapter. By default, it loads the
@@ -7,13 +7,13 @@ function model = loadEcModel(filename, modelAdapter)
 % providing the appropriate filename. If loading models from other
 % locations, one can directly use readYAMLmodel.
 %
-% Parameters
-% ----------
-% filename : char, optional
+% Name-Value Arguments
+% --------------------
+% filename : char
 %     name of the ecModel file (default 'ecModel.yml'). File should be
 %     located in the models/ subfolder of param.path as specified in the
 %     modelAdapter.
-% modelAdapter : ModelAdapter, optional
+% modelAdapter : ModelAdapter
 %     a loaded model adapter, from where the model folder is read (default:
 %     the current default model adapter).
 %
@@ -24,20 +24,28 @@ function model = loadEcModel(filename, modelAdapter)
 %
 % Examples
 % --------
+%     % optional arguments may be given positionally or as name-value pairs:
 %     model = loadEcModel(filename, modelAdapter);
+%     model = loadEcModel('filename', filename);
 %
 % See also
 % --------
 % loadConventionalGEM, saveEcModel
 
-if nargin < 2 || isempty(modelAdapter)
+p = parseGECKOargs(varargin, { ...
+    'filename',     []; ...
+    'modelAdapter', []});
+filename     = p.filename;
+modelAdapter = p.modelAdapter;
+
+if isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefault();
     if isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
     end
 end
 params = modelAdapter.getParameters();
-if nargin < 1 || isempty(filename)
+if isempty(filename)
     filename = 'ecModel.yml';
 else
 end

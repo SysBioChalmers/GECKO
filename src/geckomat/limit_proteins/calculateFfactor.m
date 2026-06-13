@@ -1,4 +1,4 @@
-function f = calculateFfactor(model, protData, enzymes, modelAdapter)
+function f = calculateFfactor(model, varargin)
 % calculateFfactor  Compute the f factor for an ecModel.
 %
 % Computes the f factor, as a proxy to the mass fraction of proteins
@@ -8,12 +8,15 @@ function f = calculateFfactor(model, protData, enzymes, modelAdapter)
 % ----------
 % model : struct
 %     an ecModel in GECKO 3 format (with ecModel.ec structure).
-% protData : struct, optional
+%
+% Name-Value Arguments
+% --------------------
+% protData : struct
 %     structure with proteome data, from loadProtData (by default it instead
 %     attempts to load data/paxDB.tsv).
-% enzymes : cell, optional
+% enzymes : cell
 %     list of enzymes (default model.ec.enzymes).
-% modelAdapter : ModelAdapter, optional
+% modelAdapter : ModelAdapter
 %     a loaded model adapter (default: the current default model adapter).
 %
 % Returns
@@ -23,13 +26,23 @@ function f = calculateFfactor(model, protData, enzymes, modelAdapter)
 %
 % Examples
 % --------
-%     f = calculateFfactor(model, protData, enzymes, modelAdapter);
+%     % optional arguments may be given positionally or as name-value pairs:
+%     f = calculateFfactor(model);
+%     f = calculateFfactor(model, 'enzymes', enzymes);
 %
 % See also
 % --------
 % loadProtData, getProtFromProteomics
 
-if nargin < 4 || isempty(modelAdapter)
+p = parseGECKOargs(varargin, { ...
+    'protData',     []; ...
+    'enzymes',      []; ...
+    'modelAdapter', []});
+protData     = p.protData;
+enzymes      = p.enzymes;
+modelAdapter = p.modelAdapter;
+
+if isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefault();
     if isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
@@ -37,12 +50,12 @@ if nargin < 4 || isempty(modelAdapter)
 end
 params = modelAdapter.getParameters();
 
-if nargin < 3 || isempty(enzymes)
+if isempty(enzymes)
     enzymes = model.ec.enzymes;
 end
 
 % Gather proteome data in protData structure
-if nargin < 2 || isempty(protData)
+if isempty(protData)
     if exist(fullfile(params.path,'data','paxDB.tsv'),'file')
         protData = fullfile(params.path,'data','paxDB.tsv');
     else

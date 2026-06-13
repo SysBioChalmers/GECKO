@@ -1,16 +1,16 @@
-function databases = loadDatabases(selectDatabase,modelAdapter)
+function databases = loadDatabases(varargin)
 % loadDatabases  Load the organism-specific KEGG and UniProt databases.
 %
 % Loads (and downloads if necessary) the organism-specific KEGG and UniProt
 % databases that are required to extract protein information. The uniprot.ID
 % and kegg.ID are taken from the ModelAdapter.
 %
-% Parameters
-% ----------
-% selectDatabase : char, optional
+% Name-Value Arguments
+% --------------------
+% selectDatabase : char
 %     which databases should be loaded, either 'uniprot', 'kegg' or 'both'
 %     (default 'both').
-% modelAdapter : ModelAdapter, optional
+% modelAdapter : ModelAdapter
 %     a loaded model adapter (default: the current default model adapter;
 %     send in [] for default).
 %
@@ -22,17 +22,21 @@ function databases = loadDatabases(selectDatabase,modelAdapter)
 %
 % Examples
 % --------
-%     databases = loadDatabases(selectDatabase, modelAdapter);
+%     % optional arguments may be given positionally or as name-value pairs:
+%     databases = loadDatabases('both', adapter);
+%     databases = loadDatabases('selectDatabase', 'both');
 %
 % See also
 % --------
 % getECfromDatabase, loadBRENDAdata
 
-if nargin<1
-    selectDatabase = 'both';
-end
+p = parseGECKOargs(varargin, { ...
+    'selectDatabase', 'both'; ...
+    'modelAdapter',   []});
+selectDatabase = p.selectDatabase;
+modelAdapter   = p.modelAdapter;
 
-if nargin < 2 || isempty(modelAdapter)
+if isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefault();
     if isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')

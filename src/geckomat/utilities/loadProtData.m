@@ -1,4 +1,4 @@
-function protData = loadProtData(replPerCond, protDataFile, filterData, modelAdapter, minVal, maxRSD, maxMissing, cutLowest, addStdevs)
+function protData = loadProtData(replPerCond, varargin)
 % loadProtData  Load absolute proteomics data and average over replicates.
 %
 % Loads absolute proteomics data (in mg/gDCW) and returns mean values
@@ -12,30 +12,33 @@ function protData = loadProtData(replPerCond, protDataFile, filterData, modelAda
 %     vector with number of replicates for each condition in the dataset.
 %     Example: [3, 2] if first condition has triplicates and second
 %     condition has duplicates.
-% protDataFile : char, optional
+%
+% Name-Value Arguments
+% --------------------
+% protDataFile : char
 %     path to file with proteomics data, where protein levels are in
 %     mg/gDCW (default reads data/proteomics.tsv as specified in
 %     modelAdapter). Alternatively, protDataFile can be a protData structure
 %     that was previously made by loadProtData.
-% filterData : logical, optional
+% filterData : logical
 %     whether abundances should be filtered. If false, minVal, maxRSD,
 %     maxMissing and addStdevs are not considered (default true).
-% modelAdapter : ModelAdapter, optional
+% modelAdapter : ModelAdapter
 %     a loaded model adapter (default: the current default model adapter).
-% minVal : double, optional
+% minVal : double
 %     threshold of mean protein measurement per condition (default 0).
-% maxRSD : double, optional
+% maxRSD : double
 %     maximum relative standard per condition (default 1).
-% maxMissing : double, optional
+% maxMissing : double
 %     ratio of replicates for which a protein level might be missing
 %     (default 1/3, or 1/2 if number of replicates = 2). If conditions have
 %     different number of replicates (as indicated in replPerCond),
 %     maxMissing can also be a vector of the same length as replPerCond,
 %     with individual maxMissing parameters for each replicate.
-% cutLowest : double, optional
+% cutLowest : double
 %     percentage of lowest mean values per condition to be discarded (not
 %     considering NaN values) (default 5).
-% addStdevs : double, optional
+% addStdevs : double
 %     how many standard deviations should be added to the mean value of
 %     each protein measurement across replicates, broadening the confidence
 %     interval (default 1).
@@ -54,29 +57,33 @@ function protData = loadProtData(replPerCond, protDataFile, filterData, modelAda
 %
 % Examples
 % --------
+%     % optional arguments may be given positionally or as name-value pairs:
 %     protData = loadProtData(replPerCond, protDataFile, filterData, modelAdapter, minVal, maxRSD, maxMissing, cutLowest, addStdevs);
+%     protData = loadProtData(replPerCond, 'filterData', false);
 %
 % See also
 % --------
 % loadFluxData
 
-if nargin < 8 || isempty(addStdevs)
-    addStdevs = 1;
-end
+p = parseGECKOargs(varargin, { ...
+    'protDataFile', []; ...
+    'filterData',   true; ...
+    'modelAdapter', []; ...
+    'minVal',       0; ...
+    'maxRSD',       1; ...
+    'maxMissing',   2/3; ...
+    'cutLowest',    5; ...
+    'addStdevs',    1});
+protDataFile = p.protDataFile;
+filterData   = p.filterData;
+modelAdapter = p.modelAdapter;
+minVal       = p.minVal;
+maxRSD       = p.maxRSD;
+maxMissing   = p.maxMissing;
+cutLowest    = p.cutLowest;
+addStdevs    = p.addStdevs;
 
-if nargin < 7 || isempty(maxMissing)
-    maxMissing = 2/3;
-end
-
-if nargin < 6 || isempty(maxRSD)
-    maxRSD = 1;
-end
-
-if nargin < 5 || isempty(minVal)
-    minVal = 0;
-end
-
-if nargin < 4 || isempty(modelAdapter)
+if isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefault();
     if isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
@@ -84,11 +91,7 @@ if nargin < 4 || isempty(modelAdapter)
 end
 params = modelAdapter.getParameters();
 
-if nargin < 3 || isempty(filterData)
-    filterData = true;
-end
-
-if nargin < 2 || isempty(protDataFile)
+if isempty(protDataFile)
     protDataFile = fullfile(params.path,'data','proteomics.tsv');
 end
 

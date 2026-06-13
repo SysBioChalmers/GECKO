@@ -33,9 +33,10 @@ model = loadConventionalGEM();
 % based on the genes.tsv that is distributed with Human-GEM:
 % https://github.com/SysBioChalmers/Human-GEM/blob/194ebe5431c83e25f78df61caacad2fa485b5cb4/model/genes.tsv
 % of which the first and the fourth column are kept to make
-% data/uniprotConversion.tsv. The second parameter (true) here signifies
-% that a light ecModel will be generated.
-[ecModel, noUniprot] = makeEcModel(model,true);
+% data/uniprotConversion.tsv. The 'geckoLight' argument (true) here signifies
+% that a light ecModel will be generated. Optional arguments accept either the
+% positional or the name-value form; the name-value form is used here.
+[ecModel, noUniprot] = makeEcModel(model,'geckoLight',true);
 
 % The above command generates a warning regarding potentially problematic
 % gene associations in various grRules. This is an expected output here and
@@ -66,7 +67,7 @@ ecModel         = findMetSmiles(ecModel);
 % with kcat values. If this file should be regenerated, the lines below
 % should be uncommented. Note that this overwrites the existing files,
 % thereby discarding existing kcat predictions.
-%writeDLKcatInput(ecModel,[],[],[],[],true);
+%writeDLKcatInput(ecModel,'overwrite',true);
 %runDLKcat();
 
 kcatList_DLKcat = readDLKcatOutput(ecModel);

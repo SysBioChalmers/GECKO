@@ -1,4 +1,4 @@
-function [model, tunedKcats] = sensitivityTuning(model, desiredGrowthRate, modelAdapter, foldChange, protToIgnore, verbose)
+function [model, tunedKcats] = sensitivityTuning(model, varargin)
 % sensitivityTuning  Relax the most limiting kcats to reach a growth rate.
 %
 % Relaxes the most limiting kcats until a certain growth rate is reached. The
@@ -8,16 +8,20 @@ function [model, tunedKcats] = sensitivityTuning(model, desiredGrowthRate, model
 % ----------
 % model : struct
 %     an ecModel in GECKO 3 format (with ecModel.ec structure).
+%
+% Name-Value Arguments
+% --------------------
 % desiredGrowthRate : double
-%     kcats will be relaxed until this growth rate is reached.
-% modelAdapter : ModelAdapter, optional
+%     kcats will be relaxed until this growth rate is reached (default: the
+%     experimental growth rate params.gR_exp from the model adapter).
+% modelAdapter : ModelAdapter
 %     a loaded model adapter (default: the current default model adapter).
-% foldChange : double, optional
+% foldChange : double
 %     kcat values will be increased by this fold-change (default 10).
-% protToIgnore : cell, optional
+% protToIgnore : cell
 %     vector of protein ids to be ignored in tuned kcats, e.g. {'P38122',
 %     'Q99271'} (default []).
-% verbose : logical, optional
+% verbose : logical
 %     whether progress should be reported (default true).
 %
 % Returns
@@ -44,25 +48,31 @@ function [model, tunedKcats] = sensitivityTuning(model, desiredGrowthRate, model
 %
 % Examples
 % --------
+%     % optional arguments may be given positionally or as name-value pairs:
+%     [model, tunedKcats] = sensitivityTuning(model);
+%     [model, tunedKcats] = sensitivityTuning(model, 'foldChange', 10);
 %     [model, tunedKcats] = sensitivityTuning(model, desiredGrowthRate, modelAdapter, foldChange, protToIgnore, verbose);
 
-if nargin < 6 || isempty(verbose)
-    verbose = true;
-end
-if nargin < 5 || isempty(protToIgnore)
-    protToIgnore = {};
-end
-if nargin < 4 || isempty(foldChange)
-    foldChange = 10;
-end
-if nargin < 3 || isempty(modelAdapter)
+p = parseGECKOargs(varargin, { ...
+    'desiredGrowthRate', []; ...
+    'modelAdapter',      []; ...
+    'foldChange',        10; ...
+    'protToIgnore',      {}; ...
+    'verbose',           true});
+desiredGrowthRate = p.desiredGrowthRate;
+modelAdapter      = p.modelAdapter;
+foldChange        = p.foldChange;
+protToIgnore      = p.protToIgnore;
+verbose           = p.verbose;
+
+if isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefault();
     if isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
     end
 end
 params = modelAdapter.params;
-if nargin < 2 || isempty(desiredGrowthRate)
+if isempty(desiredGrowthRate)
     desiredGrowthRate = params.gR_exp;
 end
 

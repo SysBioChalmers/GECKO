@@ -1,4 +1,4 @@
-function [enz, controlCoeffs] = getConcControlCoeffs(model, proteins, foldChange, limit)
+function [enz, controlCoeffs] = getConcControlCoeffs(model, varargin)
 % getConcControlCoeffs  Calculate control coefficients of protein usage.
 %
 % Calculate control coefficients of protein usage.
@@ -7,12 +7,15 @@ function [enz, controlCoeffs] = getConcControlCoeffs(model, proteins, foldChange
 % ----------
 % model : struct
 %     an ecModel in GECKO 3 format (with ecModel.ec structure).
-% proteins : cell, optional
+%
+% Name-Value Arguments
+% --------------------
+% proteins : cell
 %     a list of proteins to calculate the coefficients (default
 %     model.ec.enzymes).
-% foldChange : double, optional
+% foldChange : double
 %     a value how much to increase the protein concentration (default 2).
-% limit : double, optional
+% limit : double
 %     a value to determine limiting protein usage reactions, calculated as
 %     usage/concentration (default 0).
 %
@@ -25,21 +28,31 @@ function [enz, controlCoeffs] = getConcControlCoeffs(model, proteins, foldChange
 %
 % Examples
 % --------
-%     [enz, controlCoeffs] = getConcControlCoeffs(model, proteins, foldChange, limit);
+%     % optional arguments may be given positionally or as name-value pairs:
+%     [enz, controlCoeffs] = getConcControlCoeffs(model);
+%     [enz, controlCoeffs] = getConcControlCoeffs(model, 'foldChange', 3);
 %
 % See also
 % --------
 % flexibilizeEnzConcs
 
-if nargin < 4 || isempty(limit)
+p = parseGECKOargs(varargin, { ...
+    'proteins',   []; ...
+    'foldChange', []; ...
+    'limit',      []});
+proteins   = p.proteins;
+foldChange = p.foldChange;
+limit      = p.limit;
+
+if isempty(limit)
     limit = 0;
 end
 
-if nargin < 3 || isempty(foldChange)
+if isempty(foldChange)
     foldChange = 2;
 end
 
-if nargin < 2 || isempty(proteins)
+if isempty(proteins)
     proteins = model.ec.enzymes;
 end
 

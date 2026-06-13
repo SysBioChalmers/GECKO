@@ -1,4 +1,4 @@
-function [mu,sigma] = updateprior(x,defaultCV)
+function [mu,sigma] = updateprior(x,varargin)
 % updateprior  Calculate a new distribution from the provided kcat values.
 %
 % Fits a lognormal distribution to the positive kcat values and returns its
@@ -10,7 +10,10 @@ function [mu,sigma] = updateprior(x,defaultCV)
 % ----------
 % x : double
 %     kcat values.
-% defaultCV : double, optional
+%
+% Name-Value Arguments
+% --------------------
+% defaultCV : double
 %     coefficient of variation used to set sigma when x is a single value
 %     (default 0.25).
 %
@@ -20,10 +23,17 @@ function [mu,sigma] = updateprior(x,defaultCV)
 %     mean.
 % sigma : double
 %     standard deviation.
+%
+% Examples
+% --------
+%     % the optional argument may be given positionally or as a name-value pair:
+%     [mu, sigma] = updateprior(x);
+%     [mu, sigma] = updateprior(x, 'defaultCV', 0.25);
+%     [mu, sigma] = updateprior(x, 0.25);
 
-if nargin<2
-    defaultCV = 0.25;
-end
+p = parseGECKOargs(varargin, { ...
+    'defaultCV', 0.25});
+defaultCV = p.defaultCV;
 
 if iscell(x), x = x{:}; end
 

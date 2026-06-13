@@ -1,4 +1,4 @@
-function ecModel  = updateProtPool(ecModel, Ptot, modelAdapter)
+function ecModel  = updateProtPool(ecModel, varargin)
 % updateProtPool  Update the protein pool to compensate for proteomics.
 %
 % Obsolete since GECKO 3.2.0, as all (measured and unmeasured) enzymes are
@@ -13,12 +13,15 @@ function ecModel  = updateProtPool(ecModel, Ptot, modelAdapter)
 % ----------
 % ecModel : struct
 %     an ecModel in GECKO 3 format (with ecModel.ec structure).
-% Ptot : double, optional
+%
+% Name-Value Arguments
+% --------------------
+% Ptot : double
 %     total protein content in g/gDCW, overwrites the value from
 %     modelAdapter. For instance, condition-specific fluxData.Ptot from
 %     loadFluxData can be used. If nothing is provided, the modelAdapter
 %     value is used.
-% modelAdapter : ModelAdapter, optional
+% modelAdapter : ModelAdapter
 %     a loaded model adapter (default: the current default model adapter).
 %
 % Returns
@@ -29,11 +32,19 @@ function ecModel  = updateProtPool(ecModel, Ptot, modelAdapter)
 %
 % Examples
 % --------
-%     ecModel = updateProtPool(ecModel, Ptot, modelAdapter);
+%     % optional arguments may be given positionally or as name-value pairs:
+%     ecModel = updateProtPool(ecModel);
+%     ecModel = updateProtPool(ecModel, 'Ptot', 0.5);
 %
 % See also
 % --------
 % setProtPoolSize, loadFluxData
+
+p = parseGECKOargs(varargin, { ...
+    'Ptot',         []; ...
+    'modelAdapter', []});
+Ptot         = p.Ptot;
+modelAdapter = p.modelAdapter;
 
 % Do not run from GECKO version 3.2.0 onwards. This can be recognized by
 % prot_usage reactions that are constrained by proteomics and still draw
@@ -53,7 +64,7 @@ if any(full(ecModel.S(poolMetIdx,protRxns(constProtRxns))))
         'for more explanation.'])
 end
 
-if nargin < 3 || isempty(modelAdapter)
+if isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefault();
     if isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
@@ -61,7 +72,7 @@ if nargin < 3 || isempty(modelAdapter)
 end
 params = modelAdapter.params;
 
-if nargin < 2 || isempty(Ptot)
+if isempty(Ptot)
     Ptot = params.Ptot;
     disp(['Total protein content used: ' num2str(Ptot) ' [g protein/gDw]'])
 end

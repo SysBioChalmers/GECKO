@@ -1,12 +1,12 @@
-function bayData = loadBayesianData(modelAdapter)
+function bayData = loadBayesianData(varargin)
 % loadBayesianData  Load experimental data for Bayesian kcat tuning.
 %
 % Reads the experimental data files used by bayesianSensitivityTuning from
 % the data subfolder of the model directory defined by the model adapter.
 %
-% Parameters
-% ----------
-% modelAdapter : ModelAdapter, optional
+% Name-Value Arguments
+% --------------------
+% modelAdapter : ModelAdapter
 %     a loaded model adapter (default: the current default model adapter).
 %
 % Returns
@@ -29,7 +29,11 @@ function bayData = loadBayesianData(modelAdapter)
 % --------
 % bayesianSensitivityTuning, abc_max
 
-if nargin < 1 || isempty(modelAdapter)
+p = parseGECKOargs(varargin, { ...
+    'modelAdapter', []});
+modelAdapter = p.modelAdapter;
+
+if isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefault();
     if isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default ecModel adapter in the ModelAdapterManager.')

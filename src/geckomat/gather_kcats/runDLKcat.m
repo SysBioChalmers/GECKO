@@ -1,4 +1,4 @@
-function runDLKcat(modelAdapter,filePath)
+function runDLKcat(varargin)
 % runDLKcat  Run DLKcat to predict kcat values from a Docker image.
 %
 % Runs DLKcat to predict kcat values from a Docker image. Once DLKcat is
@@ -6,11 +6,11 @@ function runDLKcat(modelAdapter,filePath)
 % output in the model-specific 'data' sub-folder taken from modelAdapter
 % (e.g. GECKO/tutorials/tutorial_yeast-GEM/data/DLKcat.tsv).
 %
-% Parameters
-% ----------
-% modelAdapter : ModelAdapter, optional
+% Name-Value Arguments
+% --------------------
+% modelAdapter : ModelAdapter
 %     a loaded model adapter (default: the current default model adapter).
-% filePath : char, optional
+% filePath : char
 %     path to the DLKcat.tsv file (default: data/DLKcat.tsv).
 %
 % Notes
@@ -23,7 +23,13 @@ function runDLKcat(modelAdapter,filePath)
 % --------
 % writeDLKcatInput, readDLKcatOutput
 
-if nargin < 1 || isempty(modelAdapter)
+p = parseGECKOargs(varargin, { ...
+    'modelAdapter', []; ...
+    'filePath',     []});
+modelAdapter = p.modelAdapter;
+filePath     = p.filePath;
+
+if isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefault();
     if isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
@@ -34,7 +40,7 @@ params = modelAdapter.params;
 [~, params.path] = fileattrib(params.path);
 params.path=params.path.Name;
 
-if nargin < 2 || isempty(filePath)
+if isempty(filePath)
     filePath = fullfile(params.path,'data','DLKcat.tsv');
 elseif strcmp(filePath(end),{'\','/'})
     filePath = fullfile(filePath,'DLKcat.tsv');

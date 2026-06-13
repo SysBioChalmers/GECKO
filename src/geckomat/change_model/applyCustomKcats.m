@@ -1,4 +1,4 @@
-function [model, rxnUpdated, notMatch] = applyCustomKcats(model, customKcats, modelAdapter)
+function [model, rxnUpdated, notMatch] = applyCustomKcats(model, varargin)
 % applyCustomKcats  Apply user-defined kcats to an ecModel.
 %
 % Reads data/customKcats.tsv in the obj.params.path specified in the model
@@ -9,12 +9,15 @@ function [model, rxnUpdated, notMatch] = applyCustomKcats(model, customKcats, mo
 % ----------
 % model : struct
 %     an ecModel in GECKO 3 format (with ecModel.ec structure).
-% customKcats : struct, optional
+%
+% Name-Value Arguments
+% --------------------
+% customKcats : struct
 %     structure with custom kcat information (fields described under Notes).
 %     If nothing is provided, an attempt will be made to read
 %     data/customKcats.tsv from the obj.params.path folder specified in the
 %     modelAdapter.
-% modelAdapter : ModelAdapter, optional
+% modelAdapter : ModelAdapter
 %     a loaded model adapter (default: the current default model adapter).
 %
 % Returns
@@ -63,13 +66,21 @@ function [model, rxnUpdated, notMatch] = applyCustomKcats(model, customKcats, mo
 %
 % Examples
 % --------
+%     % optional arguments may be given positionally or as name-value pairs:
 %     [model, rxnUpdated, notMatch] = applyCustomKcats(model, customKcats, modelAdapter);
+%     [model, rxnUpdated, notMatch] = applyCustomKcats(model, 'customKcats', customKcats);
 %
 % See also
 % --------
 % applyKcatConstraints, makeEcModel
 
-if nargin < 3 || isempty(modelAdapter)
+p = parseGECKOargs(varargin, { ...
+    'customKcats',  []; ...
+    'modelAdapter', []});
+customKcats  = p.customKcats;
+modelAdapter = p.modelAdapter;
+
+if isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefault();
     if isempty(modelAdapter)
         error('Either send in a modelAdapter or set the default model adapter in the ModelAdapterManager.')
@@ -78,7 +89,7 @@ end
 
 params = modelAdapter.params;
 
-if nargin<2 || isempty(customKcats)
+if isempty(customKcats)
     customKcats = fullfile(params.path,'data','customKcats.tsv');
 end
 if isstruct(customKcats)
