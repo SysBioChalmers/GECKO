@@ -110,9 +110,9 @@ if ~m.ec.geckoLight
         drawFluxes(drawRxns) = res.x(drawRxns);
         % Remove from the list user defined proteins
         drawFluxes(idxToIgnore) = 0;
-        [~,sel]              = min(drawFluxes); % since bounds -1000 to 0
+        [~,sel]              = max(drawFluxes); % since bounds 0 to 1000
         %Now get the metabolite
-        metSel               = m.S(:,sel) < 0; % negative coeff
+        metSel               = m.S(:,sel) > 0; % positive coeff (forward usage)
         %now find the reaction with the largest consumption of this protein
         protFluxes           = m.S(metSel,:).' .* res.x; %negative
         [~,rxnSel]           = min(protFluxes);

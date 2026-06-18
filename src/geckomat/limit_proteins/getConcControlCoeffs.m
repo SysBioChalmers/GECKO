@@ -72,7 +72,7 @@ protUsageRxns = strcat('usage_prot_', model.ec.enzymes(protIdx));
 
 for i = 1:numel(proteins)
     % Get the previous concentration
-    prevConc = model.lb(protUsageRxnIdx(i));
+    prevConc = model.ub(protUsageRxnIdx(i));
 
     % Only consider those with a usage close the UB
     if (sol.x(protUsageRxnIdx(i))/prevConc) > limit
@@ -85,7 +85,7 @@ for i = 1:numel(proteins)
         tempModel = model;
         % Increase the concentration by flexfactor
         newConc = prevConc*(foldChange);
-        tempModel.lb(protUsageRxnIdx(i)) = newConc;
+        tempModel.ub(protUsageRxnIdx(i)) = newConc;
 
         % Get the new growth rate after the adjustment
         [tempSol,hs] = solveLP(tempModel,0,[],hs);
@@ -94,7 +94,7 @@ for i = 1:numel(proteins)
         % Calculate the coeff only if new growth rate is significantly
         % higher than initial value
         if (tempGrowth-initialGrowth)>1e-10
-            controlCoeffs(i) = (tempGrowth-initialGrowth)/(prevConc-newConc);
+            controlCoeffs(i) = (tempGrowth-initialGrowth)/(newConc-prevConc);
         end
     end
 

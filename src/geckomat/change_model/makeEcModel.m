@@ -377,10 +377,10 @@ if ~geckoLight
     usageRxns.stoichCoeffs    = cell(rxnNum,1);
     for i=1:numel(usageRxns.mets)
         usageRxns.mets{i}         = {proteinMets.mets{i}, 'prot_pool'};
-        usageRxns.stoichCoeffs{i} = [-1,1];
+        usageRxns.stoichCoeffs{i} = [1,-1];
     end
-    usageRxns.lb              = zeros(rxnNum,1) - 1000;
-    usageRxns.ub              = zeros(rxnNum,1);
+    usageRxns.lb              = zeros(rxnNum,1);
+    usageRxns.ub              = zeros(rxnNum,1) + 1000;
     usageRxns.rev             = ones(rxnNum,1);
     usageRxns.grRules         = ec.genes(uniprotSortId);
     if isfield(model,'subSystems')
@@ -389,13 +389,13 @@ if ~geckoLight
     model = addRxns(model,usageRxns);
 end
 
-%12: Add protein pool reaction (with open UB)
+%12: Add protein pool reaction (forward: -> prot_pool; UB set by setProtPoolSize)
 poolRxn.rxns            = 'prot_pool_exchange';
 poolRxn.rxnNames        = poolRxn.rxns;
 poolRxn.mets            = {'prot_pool'};
-poolRxn.stoichCoeffs    = {-1};
-poolRxn.lb              = -1000;
-poolRxn.ub              = 0;
+poolRxn.stoichCoeffs    = {1};
+poolRxn.lb              = 0;
+poolRxn.ub              = 1000;
 poolRxn.rev             = 1;
 if isfield(model,'subSystems')
     poolRxn.subSystems  = 'Protein usage';
