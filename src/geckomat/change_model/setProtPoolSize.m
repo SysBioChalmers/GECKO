@@ -65,6 +65,6 @@ if isempty(Ptot)
     Ptot = modelAdapter.getParameters().Ptot;
 end
 
-model.lb(strcmp(model.rxns, 'prot_pool_exchange')) = -(Ptot*f*sigma*1000);
+model.ub(strcmp(model.rxns, 'prot_pool_exchange')) = Ptot*f*sigma*1000;
 end
 

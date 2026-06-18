@@ -62,16 +62,16 @@ end
 usageData.protID      = ecModel.ec.enzymes;
 [~,rxnIdx] = ismember(strcat('usage_prot_',ecModel.ec.enzymes),ecModel.rxns);
 
-usageData.LB          = ecModel.lb(rxnIdx);
+usageData.UB          = ecModel.ub(rxnIdx);
 usageData.absUsage    = abs(fluxes(rxnIdx));
-usageData.capUsage    = abs(usageData.absUsage./usageData.LB);
+usageData.capUsage    = abs(usageData.absUsage./usageData.UB);
 usageData.fluxes      = fluxes;
 
 if ~zero
-    nonzero               = usageData.absUsage<0;
+    nonzero               = usageData.absUsage>0;
     usageData.absUsage    = usageData.absUsage(nonzero);
     usageData.capUsage    = usageData.capUsage(nonzero);
-    usageData.LB          = usageData.LB(nonzero);
+    usageData.UB          = usageData.UB(nonzero);
     usageData.protID      = usageData.protID(nonzero);
 end
 end

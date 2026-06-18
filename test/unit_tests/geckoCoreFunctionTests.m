@@ -72,8 +72,8 @@ function testmakeEcModelLightModel_tc0002(testCase)
     %check mets
     expMetNames = [model.metNames;'prot_pool'];
     verifyEqual(testCase,ecModel.metNames,expMetNames)
-    %check S matrix
-    expS = [model.S model.S(:,2:3)*-1 sparse(length(model.mets),1);sparse(1,length(ecModel.rxns)-1) -1];
+    %check S matrix (forward prot_pool_exchange: -> prot_pool, coeff +1)
+    expS = [model.S model.S(:,2:3)*-1 sparse(length(model.mets),1);sparse(1,length(ecModel.rxns)-1) 1];
     verifyEqual(testCase,ecModel.S,expS)
     
     %2) Check the ec structure
@@ -144,16 +144,16 @@ function testsetProtPoolSize_tc0005(testCase)
     model = getGeckoTestModel();
     ecModel = makeEcModel(model, false, adapter);
     ecModel = setProtPoolSize(ecModel, [], [], [], adapter);
-    verifyEqual(testCase,ecModel.lb(length(ecModel.rxns)),-1000)
+    verifyEqual(testCase,ecModel.ub(length(ecModel.rxns)),1000)
     ecModel = setProtPoolSize(ecModel, 1, 5, 1);
-    verifyEqual(testCase,ecModel.lb(length(ecModel.rxns)),-5000)
+    verifyEqual(testCase,ecModel.ub(length(ecModel.rxns)),5000)
 
     %light
     ecModel = makeEcModel(model, true, adapter);
     ecModel = setProtPoolSize(ecModel, [], [], [], adapter);
-    verifyEqual(testCase,ecModel.lb(length(ecModel.rxns)),-1000)
+    verifyEqual(testCase,ecModel.ub(length(ecModel.rxns)),1000)
     ecModel = setProtPoolSize(ecModel, 1, 5, 1);
-    verifyEqual(testCase,ecModel.lb(length(ecModel.rxns)),-5000)
+    verifyEqual(testCase,ecModel.ub(length(ecModel.rxns)),5000)
 end
 
 %For both full and light

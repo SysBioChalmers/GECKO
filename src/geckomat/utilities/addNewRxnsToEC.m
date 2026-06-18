@@ -202,10 +202,10 @@ else
     usageRxns.stoichCoeffs    = cell(numel(usageRxns.rxns),1);
     for i=1:numel(usageRxns.mets)
         usageRxns.mets{i}         = {proteinMets.mets{i}, 'prot_pool'};
-        usageRxns.stoichCoeffs{i} = [-1,1];
+        usageRxns.stoichCoeffs{i} = [1,-1];
     end
-    usageRxns.lb              = zeros(numel(usageRxns.rxns),1) - 1000;
-    usageRxns.ub              = zeros(numel(usageRxns.rxns),1);
+    usageRxns.lb              = zeros(numel(usageRxns.rxns),1);
+    usageRxns.ub              = zeros(numel(usageRxns.rxns),1) + 1000;
     usageRxns.rev             = ones(numel(usageRxns.rxns),1);
     usageRxns.grRules         = newEnzymes.genes;
     model = addRxns(model,usageRxns);
