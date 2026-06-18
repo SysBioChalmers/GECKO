@@ -43,6 +43,7 @@ jobs:
             root = pwd;
             addpath(genpath(fullfile(root, 'RAVEN')));
             GECKOInstaller.install;
+            setRavenSolver('glpk');
             resultsDir = fullfile(root, 'test-results');
             if ~isfolder(resultsDir); mkdir(resultsDir); end
             import matlab.unittest.TestRunner
