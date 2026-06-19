@@ -508,12 +508,12 @@ function testProteomcisIntegration_tc0013(testCase)
     % test that usage protein are correctly constraint
     [~, usageRxnIdx] = ismember(strcat('usage_prot_', ecModel.ec.enzymes), ecModel.rxns);
     ecModel = constrainEnzConcs(ecModel);
-    verifyEqual(testCase,ecModel.lb(usageRxnIdx),-ecModel.ec.concs)
+    verifyEqual(testCase,ecModel.ub(usageRxnIdx),ecModel.ec.concs)
 
     % test that usage protein are correctly constraint. Sol.f give 0.1127,
     % increse objective up to 0.5
     [~, ecModel, flexEnz] =  evalc("flexibilizeEnzConcs(ecModel, 0.4,[],[],adapter,false)");
     [~, usageRxnIdx] = ismember(strcat('usage_prot_', flexEnz.uniprotIDs), ecModel.rxns);
-    verifyEqual(testCase,ecModel.lb(usageRxnIdx),-flexEnz.flexConcs)
+    verifyEqual(testCase,ecModel.ub(usageRxnIdx),flexEnz.flexConcs)
 end
 
