@@ -164,6 +164,13 @@ for i = 1:queries
 end
 
 %% Parsing of info to keggDB format
+
+% Remove leading/trailing whitespace (KEGG entries can have a stray
+% newline before ENTRY after the '///' split), otherwise downstream
+% startsWith(...,'ENTRY ') checks fail to filter genes without
+% AASEQ/UniProt fields
+keggData = strtrim(keggData);
+
 sequence  = regexprep(keggData,'.*AASEQ\s+\d+\s+([A-Z\s])+?\s+NTSEQ.*','$1');
 %No AASEQ -> no protein -> not of interest
 noProt    = startsWith(sequence,'ENTRY ');
