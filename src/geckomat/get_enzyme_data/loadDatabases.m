@@ -146,13 +146,22 @@ for i = 1:queries
     end
     url      = ['http://rest.kegg.jp/get/' keggID ':' strjoin([gene_id{firstIdx:lastIdx}],['+' keggID ':'])];
 
-    retry = true;
-    while retry
+    maxRetries = 5;
+    attempt    = 0;
+    success    = false;
+    while ~success
+        attempt = attempt + 1;
         try
-            retry = false;
-            out   = webread(url,webOptions);
-        catch
-            retry = true;
+            out     = webread(url,webOptions);
+            success = true;
+        catch ME
+            if attempt >= maxRetries
+                error(['Unable to download KEGG data after %d attempts.\n' ...
+                       'URL: %s\n' ...
+                       'Check your internet connection or KEGG status, and try again.\n' ...
+                       'Original error: %s'], maxRetries, url, ME.message);
+            end
+            pause(2); % wait before retry
         end
     end
     outSplit = strsplit(out,['///' 10]); %10 is new line character
