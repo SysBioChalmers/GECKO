@@ -188,7 +188,7 @@ noUni     = startsWith(uni,'ENTRY ');
 uni(noProt | noUni)       = [];
 keggData(noProt | noUni) = [];
 sequence(noProt | noUni)  = [];
-sequence  = regexprep(sequence,'\s*','');
+sequence = regexprep(sequence,'\s+','');
 keggGene  = regexprep(keggData,'ENTRY\s+(\S+?)\s.+','$1');
 
 switch keggGeneID
