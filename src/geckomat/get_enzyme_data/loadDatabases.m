@@ -161,13 +161,24 @@ for i = 1:queries
     end
     url      = ['http://rest.kegg.jp/get/' keggID ':' strjoin([gene_id{firstIdx:lastIdx}],['+' keggID ':'])];
 
-    retry = true;
-    while retry
+    % KEGG may be temporarily unresponsive, retry with exponential backoff
+    maxRetries = 5;
+    for attempt = 1:maxRetries
         try
-            retry = false;
-            out   = webread(url,webOptions);
-        catch
-            retry = true;
+            out = webread(url,webOptions);
+            break
+        catch ME
+            % A malformed or non-existing query will not succeed on retry
+            noRetry = ismember(ME.identifier,{'MATLAB:webservices:HTTP400StatusCodeError', ...
+                                              'MATLAB:webservices:HTTP404StatusCodeError'});
+            if noRetry || attempt == maxRetries
+                error(['Unable to download KEGG data (attempt %d of %d).\n' ...
+                       'URL: %s\n' ...
+                       'Check your internet connection and the status of the KEGG ' ...
+                       'REST API, then try again.\nOriginal error: %s'], ...
+                       attempt, maxRetries, url, ME.message);
+            end
+            pause(min(2^attempt,30)) % Wait 2, 4, 8 and 16 seconds before retrying
         end
     end
     outSplit = strsplit(out,['///' 10]); %10 is new line character
@@ -179,6 +190,12 @@ for i = 1:queries
 end
 
 %% Parsing of info to keggDB format
+% Entries returned by KEGG are separated by '///' followed by an empty line,
+% leaving a stray newline at the start of each entry after splitting. This
+% would break the startsWith(...,'ENTRY ') checks below, which detect entries
+% where the regular expression did not match and returned the entry unchanged
+keggData  = strtrim(keggData);
+
 sequence  = regexprep(keggData,'.*AASEQ\s+\d+\s+([A-Z\s])+?\s+NTSEQ.*','$1');
 %No AASEQ -> no protein -> not of interest
 noProt    = startsWith(sequence,'ENTRY ');
@@ -187,7 +204,7 @@ noUni     = startsWith(uni,'ENTRY ');
 uni(noProt | noUni)       = [];
 keggData(noProt | noUni) = [];
 sequence(noProt | noUni)  = [];
-sequence  = regexprep(sequence,'\s*','');
+sequence  = regexprep(sequence,'\s+','');
 keggGene  = regexprep(keggData,'ENTRY\s+(\S+?)\s.+','$1');
 
 switch keggGeneID
