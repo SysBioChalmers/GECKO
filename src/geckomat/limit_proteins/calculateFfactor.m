@@ -61,14 +61,19 @@ if isempty(protData)
     else
         printOrange('WARNING: No proteomics data is provided or can be found. Default f value of 0.5 is returned.\n');
         f = 0.5;
+        return
     end
 end
 
-% Gather Uniprot database for finding MW
-uniprotDB = loadDatabases('uniprot', modelAdapter);
-uniprotDB = uniprotDB.uniprot;
-
 if ischar(protData) && endsWith(protData,'paxDB.tsv')
+    % Gather Uniprot database for finding MW. Only needed here, to map paxDB.tsv's gene
+    % identifiers onto UniProt IDs and molecular weights --- a protData struct supplied by
+    % the caller already carries UniProt IDs and needs no lookup, so this stays inside the
+    % branch that actually uses it rather than running (and potentially downloading or
+    % reading UniProt data) on every call.
+    uniprotDB = loadDatabases('uniprot', modelAdapter);
+    uniprotDB = uniprotDB.uniprot;
+
     fID         = fopen(fullfile(protData),'r');
     fileContent = textscan(fID,'%s','delimiter','\n');
     headerLines = find(startsWith(fileContent{1},'#'),1,'last');
