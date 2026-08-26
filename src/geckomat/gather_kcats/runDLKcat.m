@@ -53,7 +53,7 @@ status = system(['docker run --rm -v "' fullfile(params.path,'/data') '":/data g
 delete(fullfile(params.path,'/data/tempDLKcat.tsv'));
 
 if status == 0 && exist(fullfile(params.path,'data/tempDLKcatOutput.tsv'))
-    movefile(fullfile(params.path,'/data/tempDLKcatOutput.tsv'), filePath);
+    movefile(fullfile(params.path,'/data/tempDLKcatOutput.tsv'), filePath, 'f');
     disp('DKLcat prediction completed.');
 else    
     error('DLKcat encountered an error or it did not create any output file.')
