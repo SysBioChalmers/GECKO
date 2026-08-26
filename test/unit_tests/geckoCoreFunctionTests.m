@@ -517,3 +517,17 @@ function testProteomcisIntegration_tc0013(testCase)
     verifyEqual(testCase,ecModel.ub(usageRxnIdx),flexEnz.flexConcs)
 end
 
+function testCalculateFfactor_tc0014(testCase)
+    geckoPath = findGECKOroot;
+    adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
+    model = getGeckoTestModel();
+    ecModel = makeEcModel(model, false, adapter);
+
+    % ecTestGEM ships no data/paxDB.tsv, so with no protData supplied calculateFfactor must
+    % fall back to its documented default of 0.5 --- previously this crashed instead,
+    % since execution fell through past the default-0.5 branch and went on to index into
+    % protData as though it were the struct that branch never produced.
+    [~, f] = evalc("calculateFfactor(ecModel, [], [], adapter)");
+    verifyEqual(testCase,f,0.5)
+end
+
