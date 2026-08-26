@@ -20,10 +20,15 @@ jobs:
       - name: Checkout GECKO
         uses: actions/checkout@v5
 
+      # develop3, not RAVEN's default branch. GECKO 4 is developed against
+      # RAVEN's develop3 line, and taking the default meant testing against
+      # main --- which is why the removal of progressbar went unnoticed here
+      # while breaking every user on develop3.
       - name: Checkout RAVEN
         uses: actions/checkout@v5
         with:
           repository: SysBioChalmers/RAVEN
+          ref: develop3
           path: RAVEN
 
       - name: Set up MATLAB
