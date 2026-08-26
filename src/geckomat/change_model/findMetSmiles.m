@@ -60,9 +60,10 @@ else
 end
 
 if any(~metMatch)
-    progressbar('Querying PubChem for SMILES by metabolite names')
+    PB = progressReport(numel(uniqueNames), 'Querying PubChem for SMILES by metabolite names');
     webOptions = weboptions('Timeout', 30);
     for i = 1:numel(uniqueNames)
+        PB.count;
         if metMatch(i)
             continue;
         end
@@ -101,8 +102,8 @@ if any(~metMatch)
         fID = fopen(smilesDBfile,'a');
         fprintf(fID,'%s\t%s\n',out{:});
         fclose(fID);
-        progressbar(i/numel(uniqueNames))
     end
+    PB.done;
     if verbose
         fprintf('Model-specific SMILES database stored at %s\n',smilesDBfile);
     end
@@ -119,5 +120,4 @@ else
     emptySmiles = cellfun(@isempty,model.metSmiles);
     model.metSmiles(emptySmiles) = newSmiles(emptySmiles);
 end
-progressbar(1) % Make sure it closes
 end

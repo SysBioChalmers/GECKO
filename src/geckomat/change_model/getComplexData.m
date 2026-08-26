@@ -86,9 +86,9 @@ if data.size == 0
 end
 complexData = cell(data.size,7);
 
-progressbar('Retrieving information for complexes');
+PB = progressReport(data.size, 'Retrieving information for complexes');
 for i = 1:data.size
-    progressbar(i/data.size) % Update progress bar
+    PB.count;
     url2 = 'https://www.ebi.ac.uk/intact/complex-ws/complex/';
     complexID = data.elements(i,1).complexAC;
     try

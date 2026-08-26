@@ -183,9 +183,10 @@ if forceWClvl == 1
     eccodes = regexprep(eccodes,'.*','-\.-\.-\.-');
 end
 
-progressbar('Gathering kcat values by fuzzy matching to BRENDA database')
+PB = progressReport(mM, 'Gathering kcat values by fuzzy matching to BRENDA database');
 %Main loop:
 for i = 1:mM
+    PB.count;
     %Match:
     EC = eccodes{i};
     if ~isempty(EC)
@@ -197,7 +198,6 @@ for i = 1:mM
                 phylDistStruct,org_index,SAcell,ECIndexIds,EcIndexIndices);
         end
     end
-    progressbar(i/mM)
 end
 
 kcatList.source      = 'brenda';

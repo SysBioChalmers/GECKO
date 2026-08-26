@@ -41,12 +41,8 @@ if isempty(pool)
     parpool;
 end
 
-D = parallel.pool.DataQueue;
-progressbar('Running ecFVA');
-afterEach(D, @nUpdateProgressbar);
-
 N = numel(convRxnID);
-p = 1;
+PB = progressReport(N, 'Running ecFVA');
 
 parfor i=1:N
     tmpModel = ecModel;
@@ -70,8 +66,9 @@ parfor i=1:N
     if ~isempty(solMin.x)
         solMinAll(:,i)=solMin.x;
     end    
-    send(D, i);
+    count(PB);
 end
+PB.done;
 
 minFlux=min(solMinAll,[],2,'omitnan');
 maxFlux=max(solMaxAll,[],2,'omitnan');
@@ -89,8 +86,4 @@ if any(swapDir)
     maxFlux(swapDir) = tmpFlux;
 end
 
-function nUpdateProgressbar(~)
-progressbar(p/N);
-p = p + 1;
-end
 end
