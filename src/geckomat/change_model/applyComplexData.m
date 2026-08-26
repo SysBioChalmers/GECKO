@@ -107,8 +107,9 @@ end
 % Remove excess space
 complexMatrix(:,lastProt+1:end) = [];
 complexProts(lastProt+1:end) = [];
-progressbar('Assign complexes to reactions')
+PB = progressReport(numel(rxnNames), 'Assign complexes to reactions');
 for i = 1:numel(rxnNames)
+    PB.count;
     % Get the proteins from the model
     modelProts = model.ec.enzymes(find(model.ec.rxnEnzMat(i,:)));
     [protsInMat, protsIdx] = ismember(modelProts,complexProts);
@@ -180,9 +181,8 @@ for i = 1:numel(rxnNames)
             proposedComplex{proposedComplexCount,8} = percMatch(propComplex)*100;
         end
     end
-    progressbar(i/numel(rxnNames))    
 end
-progressbar(1) % Make sure it closes  
+PB.done;
 
 % Remove empty space
 foundComplex(foundComplexCount+1:end,:) = [];

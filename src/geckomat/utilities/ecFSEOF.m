@@ -108,8 +108,9 @@ alpha    = iniTarget:((maxTarget-iniTarget)/(nSteps-1)):maxTarget;
 v_matrix = zeros(length(model.rxns),length(alpha));
 
 % Enforce objective flux iteratively
-progressbar('Flux Scanning with Enforced Objective Function')
+PB = progressReport(nSteps, 'Flux Scanning with Enforced Objective Function');
 for i = 1:nSteps
+    PB.count;
     % Enforce the objetive flux of product formation
     model = setParam(model,'eq',prodTargetRxnIdx,alpha(i));
 
@@ -121,9 +122,8 @@ for i = 1:nSteps
     % Store flux distribution
     v_matrix(:,i) = sol.x;
 
-    progressbar(i/nSteps)
 end
-progressbar(1) % Make sure it closes
+PB.done;
 
 % Take out rxns with no grRule and standard gene
 withGR         = ~cellfun(@isempty,model.grRules);
@@ -201,8 +201,9 @@ target_type_genes = cell(size(genes));
 essentiality      = cell(size(genes));
 
 % Validate for gene essentiality
-progressbar('Checking for gene essentiality')
+PB = progressReport(numel(genes), 'Checking for gene essentiality');
 for i = 1:numel(genes)
+    PB.count;
 
     % Block protein usage to KO al the reactions associated to it.
     usage_rxn_idx = strcmpi(model.ec.genes, genes{i});
@@ -239,9 +240,8 @@ for i = 1:numel(genes)
     slope_set      = slope_rxns(rxns_for_gene);
     slope_genes(i) = mean(slope_set);
 
-    progressbar(i/numel(genes))
 end
-progressbar(1) % Make sure it closes
+PB.done;
 
 % Order genes from highest to lowest slope:
 [~,order]         = sort(slope_genes,'descend');

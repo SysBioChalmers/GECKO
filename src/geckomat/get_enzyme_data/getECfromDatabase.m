@@ -96,8 +96,9 @@ eccodes(:)= {''};
 conflicts = cell(1,4);
 
 rxnEnzMat = logical(rxnEnzMat);
-progressbar('Assigning EC numbers from database')
+PB = progressReport(n, 'Assigning EC numbers from database');
 for i = 1:n
+    PB.count;
     gns = genes(rxnEnzMat(i,:).');
     if ~isempty(gns)
         %Find match in Uniprot:
@@ -142,7 +143,6 @@ for i = 1:n
             %}
         end
     end
-    progressbar(i/n)
 end
 
 %Display error message with the multiple gene-protein matches found

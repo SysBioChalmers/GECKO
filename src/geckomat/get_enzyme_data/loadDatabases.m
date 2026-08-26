@@ -135,7 +135,6 @@ end
 
 function downloadKEGG(keggID, filePath, keggGeneID)
 %% Download gene information
-progressbar(['Downloading KEGG data for organism code ' keggID])
 webOptions = weboptions('Timeout',30);
 try
     gene_list = webread(['http://rest.kegg.jp/list/' keggID],webOptions);
@@ -152,7 +151,9 @@ gene_id   = regexpi(gene_list,['(?<=' keggID ':)\S+'],'match');
 genesPerQuery = 10;
 queries = ceil(numel(gene_id)/genesPerQuery);
 keggData  = cell(numel(gene_id),1);
+PB = progressReport(queries, ['Downloading KEGG data for organism code ' keggID]);
 for i = 1:queries
+    PB.count;
     % Download batches of genes
     firstIdx = i*genesPerQuery-(genesPerQuery-1);
     lastIdx  = i*genesPerQuery;
@@ -175,7 +176,6 @@ for i = 1:queries
         error('KEGG returns less genes per query') %Reduce genesPerQuery
     end
     keggData(firstIdx:lastIdx) = outSplit(1:end-1);
-    progressbar(i/queries)
 end
 
 %% Parsing of info to keggDB format
