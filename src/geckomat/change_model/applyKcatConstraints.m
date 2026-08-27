@@ -110,7 +110,14 @@ if ~model.ec.geckoLight
         [~,newKcats(:,1)] = ismember(model.ec.rxns(newKcats(:,1)),model.rxns);
         [~,newKcats(:,2)] = ismember(strcat('prot_',model.ec.enzymes(newKcats(:,2))),model.mets);
         linearIndices     = sub2ind(size(model.S),newKcats(:,2),newKcats(:,1));
-        model.S(linearIndices) = -newKcats(:,4); %Substrate = negative
+        %Two enzyme rows can map to the same prot_<accession> metabolite (distinct
+        %genes sharing one UniProt entry), giving a repeated linear index here. A
+        %plain indexed assignment on a repeated index keeps only the last value
+        %written, silently dropping the other enzyme's contribution instead of
+        %adding it, so accumulate per unique index instead.
+        [uniqueIndices,~,linearIndicesToUnique] = unique(linearIndices);
+        summedValues = accumarray(linearIndicesToUnique,-newKcats(:,4));
+        model.S(uniqueIndices) = summedValues; %Substrate = negative
     end
 else %GECKO light formulation, where prot_pool represents all usages
     prot_pool_idx = find(ismember(model.mets,'prot_pool'));
