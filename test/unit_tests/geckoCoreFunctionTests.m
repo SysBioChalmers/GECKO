@@ -870,3 +870,55 @@ function testFuzzyKcatMatchingTieBreakRespectsWildcardCount_tc0022(testCase)
     verifyEqual(testCase, kcatList.wildcardLvl, 0)
 end
 
+
+function testWriteOpenKineticsPredictorInputReactionSubsetIndex_tc0023(testCase)
+    % writeOpenKineticsPredictorInput restricts its work to the requested ecRxns
+    % subset by first building clearedS = reducedS(:, origRxnIdxs), then finding
+    % substrates with reactionIdxs = find(clearedS < 0) -- reactionIdxs is a
+    % *column position within that subset* (1..numel(ecRxnsIdx)), not an absolute
+    % index into model.ec.rxns. The next line indexed model.ec.rxnEnzMat directly
+    % with reactionIdxs, silently picking the wrong ec.rxns row (or the wrong
+    % protein set entirely) whenever the requested subset excludes any earlier
+    % ec.rxns entry -- which shifts every later entry's subset-position below its
+    % absolute position.
+    %
+    % ecTestGEM's R2 has two isozymes (G1+G2 complex, and G3 alone), each
+    % expanded to its own ec.rxns row (R2_EXP_1, R2_EXP_2) plus a reverse copy
+    % (R2_REV_EXP_1, R2_REV_EXP_2) -- ec.rxns order is [R2_EXP_1, R2_EXP_2,
+    % R2_REV_EXP_1, R2_REV_EXP_2, R3, R5]. Requesting ecRxns={R2_EXP_1, R2_EXP_2,
+    % R3} excludes the two REV entries in between, so R3's subset position (3)
+    % no longer equals its absolute ec.rxns position (5): the bug reads
+    % rxnEnzMat row 3 (R2_REV_EXP_1's genes, G1+G2) instead of row 5 (R3's own
+    % gene, G4), so R3/G4 never appears in the output and G1/G2 appear twice.
+    geckoPath = findGECKOroot;
+    adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
+    model = getGeckoTestModel();
+    ecModel = makeEcModel(model, false, adapter);
+    ecModel = getECfromGEM(ecModel);
+
+    % Self-contained SMILES: only m1c (R2/R3's shared substrate) needs one for
+    % this test, so skip findMetSmiles/PubChem entirely.
+    ecModel.metSmiles = repmat({''}, numel(ecModel.mets), 1);
+    ecModel.metSmiles(strcmp(ecModel.mets,'m1c')) = {'C(C1C)O'};
+
+    scratchDir = fullfile(tempname);
+    mkdir(fullfile(scratchDir,'data'));
+    cleanupDir = onCleanup(@() rmdir(scratchDir, 's'));
+    % writeOpenKineticsPredictorInput resolves its own output path through
+    % params.path/data --- value-class copy, same redirect pattern as every
+    % other scenario/test in this file that writes a file.
+    writeAdapter = adapter;
+    writeAdapter.params.path = scratchDir;
+
+    writeOpenKineticsPredictorInput(ecModel, 'ecRxns', ismember(ecModel.ec.rxns, {'R2_EXP_1','R2_EXP_2','R3'}), ...
+        'modelAdapter', writeAdapter, 'onlyWithSmiles', true, 'overwrite', true);
+
+    fID = fopen(fullfile(scratchDir,'data','OKP.csv'));
+    raw = textscan(fID, '%s %s', 'Delimiter', ',', 'HeaderLines', 1);
+    fclose(fID);
+    rows = sort(strcat(raw{1}, ',', raw{2}));
+
+    expected = sort({'MRAL,C(C1C)O'; 'MNTD,C(C1C)O'; 'MSYN,C(C1C)O'; 'MDFM,C(C1C)O'});
+    verifyEqual(testCase, rows, expected)
+end
+
