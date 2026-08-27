@@ -97,6 +97,12 @@ for i=1:100
 end
 [~, minIndx] = min(errors);
 sigma     = sigParam(minIndx);
+% The loop above leaves the protein pool sized for the *last* sigma tried
+% (i=100, i.e. sigma=1), not the best-fitting one found by the search --
+% re-apply it here so the returned model actually matches the returned
+% sigma, per this function's own documented contract ("ecModel with
+% protein pool exchange upper bound adapted to the optimal sigma-factor").
+model = setProtPoolSize(model, Ptot, f, sigma, modelAdapter);
 if makePlot
     figure
     plot(sigParam,errors,'LineWidth',5)
