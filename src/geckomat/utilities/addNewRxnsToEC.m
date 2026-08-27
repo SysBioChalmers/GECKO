@@ -170,24 +170,34 @@ else
     % Get reactions to separate isozymes
     toSplit = find(cellfun(@(x) contains(x,'or'),newRxns.grRules));
     if ~isempty(toSplit)
+        splitRxns = {}; splitRxnNames = {}; splitEquations = {}; splitGrRules = {};
         for i=1:numel(toSplit)
             idx = toSplit(i);
             newRules = split(newRxns.grRules(idx),'or');
             newRules = strtrim(erase(newRules, {'(' ')'}));
 
             for j=1:numel(newRules)
-                newRxns.rxns{end+1} = [newRxns.rxns{idx} '_EXP_' num2str(j)];
-                newRxns.rxnNames(end+1) = newRxns.rxnNames(idx);
-                newRxns.equations(end+1) = newRxns.equations(idx);
-                newRxns.grRules(end+1) = newRules(j);
+                splitRxns{end+1} = [newRxns.rxns{idx} '_EXP_' num2str(j)];
+                splitRxnNames(end+1) = newRxns.rxnNames(idx);
+                splitEquations(end+1) = newRxns.equations(idx);
+                splitGrRules(end+1) = newRules(j);
             end
-
-            % Remove the original one
-            newRxns.rxns(idx) = [];
-            newRxns.rxnNames(idx) = [];
-            newRxns.equations(idx) = [];
-            newRxns.grRules(idx) = [];
         end
+
+        % Remove every original that was split, in one indexed operation, then append
+        % the replacements. Removing (or appending) one at a time while iterating a list
+        % of indices computed up front lets each removal shift the indices of everything
+        % after it, so a second (or later) original silently gets read from the wrong
+        % position once more than one reaction needs splitting in the same call.
+        newRxns.rxns(toSplit) = [];
+        newRxns.rxnNames(toSplit) = [];
+        newRxns.equations(toSplit) = [];
+        newRxns.grRules(toSplit) = [];
+
+        newRxns.rxns = [newRxns.rxns(:); splitRxns(:)];
+        newRxns.rxnNames = [newRxns.rxnNames(:); splitRxnNames(:)];
+        newRxns.equations = [newRxns.equations(:); splitEquations(:)];
+        newRxns.grRules = [newRxns.grRules(:); splitGrRules(:)];
     end
 
     newRxns.lb = zeros(length(newRxns.rxns),1);

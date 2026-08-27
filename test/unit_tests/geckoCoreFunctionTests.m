@@ -531,7 +531,6 @@ function testCalculateFfactor_tc0014(testCase)
     verifyEqual(testCase,f,0.5)
 end
 
-
 function testWriteDLKcatInputSubset_tc0015(testCase)
     geckoPath = findGECKOroot;
     adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
@@ -620,5 +619,62 @@ function testApplyKcatConstraintsDuplicateAccession_tc0017(testCase)
     model = applyKcatConstraints(model);
     expected = -(10000+20000)/100/3600; %summed, not just the second row's -20000/100/3600
     verifyEqual(testCase,full(model.S(1,1)),expected,'AbsTol',1e-12)
+end
+
+
+function testAddNewRxnsToEC_tc0018(testCase)
+    geckoPath = findGECKOroot;
+    adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
+    model = getGeckoTestModel();
+    ecModel = makeEcModel(model, false, adapter);
+
+    % Two new reactions, each with its own isozyme (OR) grRule, added in the same call.
+    % Regression test: addNewRxnsToEC used to lose track of which reaction it was
+    % splitting once more than one needed splitting. It removed (and appended) one entry
+    % at a time while iterating a list of indices computed before any removal, so each
+    % removal shifted the positions of every later entry --- the second (and any further)
+    % reaction's grRule was then read from whatever had shifted into its old position,
+    % rather than its own.
+    newRxns.rxns      = {'RNEWA'; 'RNEWB'};
+    newRxns.rxnNames  = {'RNEWA'; 'RNEWB'};
+    newRxns.equations = {'m1[c] => e2[e]'; 'm2[c] => e1[e]'};
+    newRxns.grRules   = {'GNEW1 or GNEW2'; 'GNEW3 or GNEW4'};
+
+    newEnzymes.enzymes = {'ENEW1'; 'ENEW2'; 'ENEW3'; 'ENEW4'};
+    newEnzymes.genes   = {'GNEW1'; 'GNEW2'; 'GNEW3'; 'GNEW4'};
+    newEnzymes.mw      = [15000; 25000; 35000; 45000];
+
+    [ecModel, rxnsAdded, enzAdded] = addNewRxnsToEC(ecModel, newRxns, newEnzymes, adapter);
+
+    expRxnsAdded = {'RNEWA_EXP_1'; 'RNEWA_EXP_2'; 'RNEWB_EXP_1'; 'RNEWB_EXP_2'};
+    verifyEqual(testCase, sort(rxnsAdded), sort(expRxnsAdded))
+    verifyEqual(testCase, sort(enzAdded), sort(newEnzymes.enzymes))
+
+    % Each split reaction must carry exactly the one gene it was split from --- not the
+    % unsplit "X or Y" string the bug left on the second (and later) reaction, nor a
+    % double-suffixed id from re-splitting an already-split entry.
+    [~, idxA1] = ismember('RNEWA_EXP_1', ecModel.rxns);
+    [~, idxA2] = ismember('RNEWA_EXP_2', ecModel.rxns);
+    [~, idxB1] = ismember('RNEWB_EXP_1', ecModel.rxns);
+    [~, idxB2] = ismember('RNEWB_EXP_2', ecModel.rxns);
+    verifyEqual(testCase, ecModel.grRules{idxA1}, 'GNEW1')
+    verifyEqual(testCase, ecModel.grRules{idxA2}, 'GNEW2')
+    verifyEqual(testCase, ecModel.grRules{idxB1}, 'GNEW3')
+    verifyEqual(testCase, ecModel.grRules{idxB2}, 'GNEW4')
+
+    % And the enzyme-coupling matrix must reflect the same one-gene-per-split-reaction
+    % mapping.
+    [~, ecA1] = ismember('RNEWA_EXP_1', ecModel.ec.rxns);
+    [~, ecA2] = ismember('RNEWA_EXP_2', ecModel.ec.rxns);
+    [~, ecB1] = ismember('RNEWB_EXP_1', ecModel.ec.rxns);
+    [~, ecB2] = ismember('RNEWB_EXP_2', ecModel.ec.rxns);
+    [~, enz1] = ismember('ENEW1', ecModel.ec.enzymes);
+    [~, enz2] = ismember('ENEW2', ecModel.ec.enzymes);
+    [~, enz3] = ismember('ENEW3', ecModel.ec.enzymes);
+    [~, enz4] = ismember('ENEW4', ecModel.ec.enzymes);
+    verifyEqual(testCase, ecModel.ec.rxnEnzMat(ecA1, enz1), 1)
+    verifyEqual(testCase, ecModel.ec.rxnEnzMat(ecA2, enz2), 1)
+    verifyEqual(testCase, ecModel.ec.rxnEnzMat(ecB1, enz3), 1)
+    verifyEqual(testCase, ecModel.ec.rxnEnzMat(ecB2, enz4), 1)
 end
 
