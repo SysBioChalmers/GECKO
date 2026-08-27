@@ -678,3 +678,38 @@ function testAddNewRxnsToEC_tc0018(testCase)
     verifyEqual(testCase, ecModel.ec.rxnEnzMat(ecB2, enz4), 1)
 end
 
+
+function testReportEnzymeUsageTopAbsUsageOutOfBounds_tc0019(testCase)
+    % reportEnzymeUsage's default topAbsUsage (10) used to reach
+    % usageData.protID(topUse(1:topAbsUsage)) unclamped: on any model with fewer
+    % than 10 enzymes -- ecTestGEM has 5 -- that indexed past the end of topUse
+    % and crashed. Regression test for the default call, plus the two other
+    % "all enzymes" spellings the docstring promises (0 and Inf), plus an
+    % ordinary in-range value left unaffected.
+    geckoPath = findGECKOroot;
+    adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
+    model = getGeckoTestModel();
+    ecModel = makeEcModel(model, false, adapter);
+    ecModel = getECfromGEM(ecModel);
+    ecModel.ec.kcat(:) = 100;
+    ecModel.ec.source(:) = {'manual'};
+    ecModel = applyKcatConstraints(ecModel);
+    ecModel = setProtPoolSize(ecModel, [], [], [], adapter);
+
+    fluxes = zeros(numel(ecModel.rxns),1);
+    usageData = enzymeUsage(ecModel, fluxes);
+    nEnz = numel(usageData.protID);
+
+    report = reportEnzymeUsage(ecModel, usageData);
+    verifyEqual(testCase, height(report.topAbsUsage), nEnz)
+
+    report = reportEnzymeUsage(ecModel, usageData, 'topAbsUsage', 0);
+    verifyEqual(testCase, height(report.topAbsUsage), nEnz)
+
+    report = reportEnzymeUsage(ecModel, usageData, 'topAbsUsage', Inf);
+    verifyEqual(testCase, height(report.topAbsUsage), nEnz)
+
+    report = reportEnzymeUsage(ecModel, usageData, 'topAbsUsage', 2);
+    verifyEqual(testCase, height(report.topAbsUsage), 2)
+end
+
