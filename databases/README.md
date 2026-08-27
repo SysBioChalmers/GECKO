@@ -10,15 +10,15 @@
 
 ### Maximum k<sub>cat</sub> values from BREndA
 
-`max_KCAT.txt` is a collation of maximum kcat values per organism, reaction and substrate, as gathered from BRENDA database by `/src/geckopy/brenda_parser`.
+`max_KCAT.txt` is a collation of maximum kcat values per organism, reaction and substrate, as gathered from the BRENDA database. For actively maintained BRENDA-parsing tooling, see the [geckopy](https://github.com/SysBioChalmers/geckopy) Python package.
 
 ### Maximum molecular weights
 
-`max_MW.txt` is a collation of maximum molecular weights per organism and reaction (without explicitly referring to an protein identifier), as gathered from BRENDA database by `/src/geckopy/brenda_parser`.
+`max_MW.txt` is a collation of maximum molecular weights per organism and reaction (without explicitly referring to an protein identifier), as gathered from the BRENDA database. For actively maintained BRENDA-parsing tooling, see the [geckopy](https://github.com/SysBioChalmers/geckopy) Python package.
 
 ### Specific activities from BRENDA
 
-`max_SA.txt` is a collation of maximum specific activities per organism, reaction and substrate, as gathered from BRENDA database by `/src/geckopy/brenda_parser`.
+`max_SA.txt` is a collation of maximum specific activities per organism, reaction and substrate, as gathered from the BRENDA database. For actively maintained BRENDA-parsing tooling, see the [geckopy](https://github.com/SysBioChalmers/geckopy) Python package.
 
 ### Taxonomic tree
 
