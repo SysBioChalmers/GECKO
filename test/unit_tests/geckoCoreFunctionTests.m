@@ -571,3 +571,29 @@ function testWriteDLKcatInputSubset_tc0015(testCase)
     verifyEqual(testCase,writtenTable(3,:), {'m1','m1','m1'})
 end
 
+
+function testTestGEMAdapterSpontaneousReactions_tc0016(testCase)
+    geckoPath = findGECKOroot;
+    adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
+
+    % getSpontaneousReactions used to reference an undefined variable
+    % (rxns_tsv.rxns) and crash unconditionally whenever called -- this is the
+    % only method that ever calls it (from getStandardKcat.m), so
+    % getStandardKcat could never run against TestGEMAdapter at all.
+    model = getGeckoTestModel();
+    [spont, spontRxnNames] = adapter.getSpontaneousReactions(model);
+    verifyEqual(testCase,find(spont),5)
+    verifyEqual(testCase,spontRxnNames,{'R4'})
+
+    % Fixing the undefined variable alone was not enough: the position it set
+    % (spont(5) = true) is only valid for this 7-reaction conventional model.
+    % getStandardKcat's only real caller passes the already-expanded ecModel,
+    % where R4's position among model.rxns has moved -- matching by reaction
+    % id instead of position (mirroring geckopy's own TestGEMAdapter port)
+    % survives that.
+    ecModel = makeEcModel(model, false, adapter);
+    [spontEc, spontRxnNamesEc] = adapter.getSpontaneousReactions(ecModel);
+    verifyEqual(testCase,find(spontEc),find(strcmp(ecModel.rxns,'R4')))
+    verifyEqual(testCase,spontRxnNamesEc,{'R4'})
+end
+
