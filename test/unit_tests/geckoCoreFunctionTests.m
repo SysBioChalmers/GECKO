@@ -714,6 +714,39 @@ function testReportEnzymeUsageTopAbsUsageOutOfBounds_tc0019(testCase)
 end
 
 
+function testSigmaFitterModelMatchesReturnedSigma_tc0020(testCase)
+    % sigmaFitter's own docstring promises the returned model has its protein
+    % pool "adapted to the optimal sigma-factor" -- but the grid-search loop
+    % left `model` sized for whichever sigma the loop tried *last* (i=100,
+    % i.e. sigma=1), not the best-fitting one `sigma` reports. Regression test:
+    % the returned model's protein-pool upper bound must equal Ptot*f*sigma*1000
+    % at the *returned* sigma, not at sigma=1 (unless they happen to coincide).
+    geckoPath = findGECKOroot;
+    adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
+    model = getGeckoTestModel();
+    ecModel = makeEcModel(model, false, adapter);
+    ecModel = getECfromGEM(ecModel);
+    ecModel.ec.kcat(strcmp(ecModel.ec.rxns,'R3')) = 5;
+    ecModel.ec.kcat(strcmp(ecModel.ec.rxns,'R5')) = 200;
+    ecModel.ec.source(:) = {'manual'};
+    ecModel.c = double(strcmp(ecModel.rxns, 'R5'));
+    ecModel = applyKcatConstraints(ecModel);
+    ecModel = setProtPoolSize(ecModel, [], [], [], adapter);
+
+    [fittedModel, sigma] = sigmaFitter(ecModel, 'growthRate', 100, 'Ptot', 0.5, ...
+        'f', 4, 'makePlot', false, 'modelAdapter', adapter);
+
+    % This growth target does not resolve to sigma=1 on this fixture, so a model
+    % left at the loop's last trial is a real, detectable mismatch, not a
+    % coincidental pass.
+    verifyNotEqual(testCase, sigma, 1)
+
+    poolIdx = strcmp(fittedModel.rxns, 'prot_pool_exchange');
+    expected = 0.5 * 4 * sigma * 1000;
+    verifyEqual(testCase, fittedModel.ub(poolIdx), expected, 'AbsTol', 1e-9)
+end
+
+
 function testFuzzyKcatMatchingWildcardIsPrefixNotSubstring_tc0021(testCase)
     % fuzzyKcatMatching's wildcard escalation truncates an EC code to a prefix (e.g.
     % '1.1.1.1' -> '1.-.-.-' -> truncated query '1.') and searches BRENDA's EC column
