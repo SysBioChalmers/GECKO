@@ -597,3 +597,28 @@ function testTestGEMAdapterSpontaneousReactions_tc0016(testCase)
     verifyEqual(testCase,spontRxnNamesEc,{'R4'})
 end
 
+
+function testApplyKcatConstraintsDuplicateAccession_tc0017(testCase)
+    % Two ec.enzymes rows can map to the same prot_<accession> metabolite --
+    % distinct genes sharing one UniProt entry. applyKcatConstraints used to
+    % write model.S(linearIndices) = -newKcats(:,4) directly: a plain indexed
+    % assignment on a repeated linear index keeps only the last value written,
+    % silently dropping one enzyme's contribution instead of adding it to the
+    % other's.
+    clear model
+    model.rxns = {'R1'};
+    model.mets = {'prot_P1'};
+    model.S = sparse(1,1);
+    model.lb = -1000; model.ub = 1000;
+    model.ec.geckoLight = false;
+    model.ec.rxns = {'R1'};
+    model.ec.kcat = 100;
+    model.ec.enzymes = {'P1'; 'P1'};
+    model.ec.mw = [10000; 20000];
+    model.ec.rxnEnzMat = sparse([1 1]);
+
+    model = applyKcatConstraints(model);
+    expected = -(10000+20000)/100/3600; %summed, not just the second row's -20000/100/3600
+    verifyEqual(testCase,full(model.S(1,1)),expected,'AbsTol',1e-12)
+end
+
