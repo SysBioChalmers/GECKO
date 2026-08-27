@@ -416,7 +416,14 @@ EC_indexes = [];
 EC_indexesOld = [];
 if wild
     if (~isempty(ECIndexIds)) %In some cases the EC_cell is not from KCatCell
-        X = find(contains(ECIndexIds, EC));
+        % startsWith, not contains: EC is a truncated prefix like '1.' (everything
+        % before the first wildcard dash), and an anchored match is what the
+        % non-optimized branch below already does (strfind(...)==1). contains()
+        % matches that same '1.' substring anywhere in the string, not just at the
+        % start -- '4.2.1.1' contains '1.' between its third and fourth levels, so a
+        % '1.-.-.-' wildcard query for enzyme class 1 was also matching entries from
+        % unrelated classes whose EC code happened to contain the same two characters.
+        X = find(startsWith(ECIndexIds, EC));
         for j = 1:length(X)
             EC_indexes = [EC_indexes,EcIndexIndices{X(j)}];
         end

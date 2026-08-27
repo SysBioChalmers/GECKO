@@ -746,3 +746,60 @@ function testSigmaFitterModelMatchesReturnedSigma_tc0020(testCase)
     verifyEqual(testCase, fittedModel.ub(poolIdx), expected, 'AbsTol', 1e-9)
 end
 
+
+function testFuzzyKcatMatchingWildcardIsPrefixNotSubstring_tc0021(testCase)
+    % fuzzyKcatMatching's wildcard escalation truncates an EC code to a prefix (e.g.
+    % '1.1.1.1' -> '1.-.-.-' -> truncated query '1.') and searches BRENDA's EC column
+    % for it via extract_string_matches. The optimized path (used whenever the
+    % ECIndexIds/EcIndexIndices index is available, i.e. always, from within
+    % fuzzyKcatMatching itself) used contains(...) instead of an anchored prefix
+    % match, so a query for enzyme class 1 ('1.') could also match an EC code from an
+    % unrelated class that merely happens to contain the same two characters
+    % somewhere else in its string -- '4.2.1.1' contains '1.' between its third and
+    % fourth levels.
+    %
+    % The fixture has one legitimate class-1 entry (a real wildcard match, giving the
+    % escalation loop something to succeed on and stop at) and one unrelated
+    % '4.2.1.1' entry with a deliberately *larger* kcat: mainMatch takes the max
+    % among same-level matches, so the bug (matching both) picks the larger, wrong
+    % value; the fix (matching only the real class-1 entry) picks the smaller, correct
+    % one.
+    geckoPath = findGECKOroot;
+    adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
+    model = getGeckoTestModel();
+    ecModel = makeEcModel(model, false, adapter);
+    ecModel = getECfromGEM(ecModel);
+
+    scratchDir = fullfile(tempname);
+    brendaDir = fullfile(scratchDir, 'data');
+    mkdir(brendaDir);
+    cleanupDir = onCleanup(@() rmdir(scratchDir, 's'));
+    % Organism matches TestGEMAdapter's own org_name exactly, so the "any organism"
+    % match tier resolves trivially instead of falling through phylDist's
+    % KEGG/genus lookup (which a fabricated organism name cannot resolve, causing
+    % every candidate to be filtered out regardless of the EC match itself).
+    fid = fopen(fullfile(brendaDir, 'max_KCAT.txt'), 'w');
+    fprintf(fid, 'EC1.9.9.9\tm1\ttestus testus//*//*\t42\t*\n');
+    fprintf(fid, 'EC4.2.1.1\tm1\ttestus testus//*//*\t500\t*\n');
+    fclose(fid);
+    fid = fopen(fullfile(brendaDir, 'max_MW.txt'), 'w');
+    fprintf(fid, 'EC0.0.0.0\t*\tplaceholder//*//*\t1\t*\n');
+    fclose(fid);
+    fid = fopen(fullfile(brendaDir, 'max_SA.txt'), 'w');
+    fprintf(fid, 'EC0.0.0.0\t*\tplaceholder//*//*\t1\t*\n');
+    fclose(fid);
+    % getPhylDistStructPath also resolves under params.path/data; reuse ecTestGEM's
+    % own real fixture rather than fabricating a second one.
+    copyfile(fullfile(geckoPath,'test','unit_tests','ecTestGEM','data','PhylDist.mat'), ...
+        fullfile(brendaDir, 'PhylDist.mat'));
+
+    % TestGEMAdapter.getBrendaDBFolder resolves to <params.path>/data --- value class,
+    % so redirecting a copy cannot affect the original (same pattern kcat_chain_ectestgem
+    % and other scenarios use for scenario-specific data).
+    fuzzyAdapter = adapter;
+    fuzzyAdapter.params.path = scratchDir;
+
+    kcatList = fuzzyKcatMatching(ecModel, ismember(ecModel.ec.rxns,{'R2_EXP_1'}), fuzzyAdapter);
+    verifyEqual(testCase, kcatList.kcats, 42)
+end
+
