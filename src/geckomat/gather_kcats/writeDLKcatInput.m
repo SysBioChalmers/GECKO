@@ -50,20 +50,20 @@ p = parseGECKOargs(varargin, { ...
     'onlyWithSmiles', []; ...
     'filename',       []; ...
     'overwrite',      []});
-ecRxns         = p.ecRxns;
+ecRxnsSel      = p.ecRxns;
 modelAdapter   = p.modelAdapter;
 onlyWithSmiles = p.onlyWithSmiles;
 filename       = p.filename;
 overwrite      = p.overwrite;
 
-if isempty(ecRxns)
-    ecRxns = true(numel(model.ec.rxns),1);
-elseif ~logical(ecRxns)
+if isempty(ecRxnsSel)
+    ecRxnsSel = true(numel(model.ec.rxns),1);
+elseif ~logical(ecRxnsSel)
     error('ecRxns should be provided as logical vector')
-elseif numel(ecRxns)~=numel(model.ec.rxns)
+elseif numel(ecRxnsSel)~=numel(model.ec.rxns)
     error('Length of ecRxns is not the same as model.ec.rxns')
 end
-ecRxns = find(ecRxns); % Change to indices
+ecRxnsSel = find(ecRxnsSel); % Change to indices, into the full model.ec.rxns
 
 if isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefault();
@@ -94,7 +94,7 @@ if ~model.ec.geckoLight
 else
    origRxns = extractAfter(model.ec.rxns,4);
 end
-origRxnsToInclude = origRxns(ecRxns);
+origRxnsToInclude = origRxns(ecRxnsSel);
 
 % Map back to original reactions, to extract substrates
 [sanityCheck,origRxnIdxs] = ismember(origRxnsToInclude,model.rxns);
@@ -152,26 +152,29 @@ for i=1:size(currencyMets,1)
     reducedS([find(subs);find(prod)],intersect(pairRxns,pairRxns(rxnsWithRemainingSubstrates))) = 0;
 end
 
-%filter out the reactions we're not interested in - will solve the problem for both full and light
+% origRxnIdxs already selects exactly the model.rxns columns for the requested
+% ecRxns subset (one column per requested reaction, via origRxns(ecRxns) above), so
+% clearedRedS needs no further filtering here.
 clearedRedS = reducedS(:,origRxnIdxs);
-rxnsToClear = true(length(origRxnIdxs),1);
-rxnsToClear(ecRxns) = false;
-clearedRedS(:,rxnsToClear) = 0;
 
-% Enumerate all substrates for each reaction
-[substrates, reactions] = find(clearedRedS<0); %the reactions here are in model.ec.rxns space
+% Enumerate all substrates for each reaction. clearedRedS has one column per entry
+% of ecRxnsSel, in that same order, so `reactions` here indexes *that subset*, not
+% model.ec.rxns directly --- translate back to a real model.ec.rxns index before
+% using it against model.ec.rxns / model.ec.rxnEnzMat, which are always full-length.
+[substrates, reactions] = find(clearedRedS<0);
+globalEcRxns = ecRxnsSel(reactions);
 
 % Enumerate all proteins for each reaction
-[proteins, ecRxns] = find(transpose(model.ec.rxnEnzMat(reactions,:)));
+[proteins, enzRows] = find(transpose(model.ec.rxnEnzMat(globalEcRxns,:)));
 
 % Prepare output
-out(1,:) = model.ec.rxns(reactions(ecRxns));
+out(1,:) = model.ec.rxns(globalEcRxns(enzRows));
 out(2,:) = model.ec.genes(proteins);
-out(3,:) = model.metNames(substrates(ecRxns));
+out(3,:) = model.metNames(substrates(enzRows));
 if isfield(model,'metSmiles')
-    out(4,:) = model.metSmiles(substrates(ecRxns));
+    out(4,:) = model.metSmiles(substrates(enzRows));
 else
-    out(4,:) = cell(numel(substrates(ecRxns)),1);
+    out(4,:) = cell(numel(substrates(enzRows)),1);
 end
 
 out(5,:) = model.ec.sequence(proteins);

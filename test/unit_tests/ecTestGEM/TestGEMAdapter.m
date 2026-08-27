@@ -38,9 +38,12 @@ classdef TestGEMAdapter < ModelAdapter
         end
 		
 		function [spont,spontRxnNames] = getSpontaneousReactions(obj,model)
-			spont = false(length(model.rxns), 1);
-			spontRxnNames = rxns_tsv.rxns;
-			spont(5) = true; %R4 is spontaneous
+			% Matched by reaction id rather than a hardcoded position: this is
+			% called with the ecModel (already expanded into isozyme/reversibility
+			% variants) by getStandardKcat, not the plain 7-reaction conventional
+			% model, and R4's position among model.rxns is not the same in both.
+			spont = strcmp(model.rxns, 'R4');
+			spontRxnNames = model.rxnNames(spont);
         end
         
         function folder = getBrendaDBFolder(obj)

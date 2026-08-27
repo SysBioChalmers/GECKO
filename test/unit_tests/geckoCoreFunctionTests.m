@@ -531,7 +531,98 @@ function testCalculateFfactor_tc0014(testCase)
     verifyEqual(testCase,f,0.5)
 end
 
-function testAddNewRxnsToEC_tc0015(testCase)
+function testWriteDLKcatInputSubset_tc0015(testCase)
+    geckoPath = findGECKOroot;
+    adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
+    model = getGeckoTestModel();
+    rxnsToAdd = struct();
+    rxnsToAdd.rxns = {'R2a'};
+    rxnsToAdd.grRules = {'G1 and G2 or G3'};
+    rxnsToAdd.equations = {'m1[c] <=> m2[c]'};
+    model = addRxns(model,rxnsToAdd, 3); %no eccode for R2a, so it never gets a fuzzy match
+
+    ecModel = makeEcModel(model, false, adapter);
+    ecModel = getECfromGEM(ecModel);
+
+    % A non-trivial ecRxns subset --- neither "all reactions" (ecRxns=[]) nor a subset
+    % that happens to start at index 1 --- is the ordinary, documented way to call
+    % writeDLKcatInput (e.g. "only the reactions fuzzy matching couldn't find a kcat
+    % for"), but was never exercised by any existing test: every prior call site here
+    % and in the manual tests either omits ecRxns or passes a full-length mask. With
+    % R2a_EXP_1/R2a_EXP_2 in the middle of ec.rxns rather than at its start, this used
+    % to silently write zero rows (an internal filtering step re-used already-consumed
+    % indices from ec.rxns space to index into the already-filtered, subset-length
+    % array, clearing every row it should have kept), and after a first, incomplete fix
+    % it wrote the right *number* of rows but attributed them to the wrong reactions
+    % (the same re-used-index mistake, one step further down).
+    ecRxns = ismember(ecModel.ec.rxns, {'R2a_EXP_1','R2a_EXP_2'});
+    filepath = fullfile(adapter.getParameters().path,'data','DLKcat_input_subset_test.tsv');
+    if exist(filepath, 'file')==2
+      delete(filepath);
+    end
+    writtenTable = writeDLKcatInput(ecModel, 'ecRxns', ecRxns, 'modelAdapter', adapter, ...
+        'onlyWithSmiles', false, 'filename', filepath, 'overwrite', true);
+    if exist(filepath, 'file')==2 %clean up
+      delete(filepath);
+    end
+    verifyEqual(testCase,writtenTable(1,:), {'R2a_EXP_1','R2a_EXP_1','R2a_EXP_2'})
+    verifyEqual(testCase,writtenTable(2,:), {'G1','G2','G3'})
+    verifyEqual(testCase,writtenTable(3,:), {'m1','m1','m1'})
+end
+
+
+function testTestGEMAdapterSpontaneousReactions_tc0016(testCase)
+    geckoPath = findGECKOroot;
+    adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
+
+    % getSpontaneousReactions used to reference an undefined variable
+    % (rxns_tsv.rxns) and crash unconditionally whenever called -- this is the
+    % only method that ever calls it (from getStandardKcat.m), so
+    % getStandardKcat could never run against TestGEMAdapter at all.
+    model = getGeckoTestModel();
+    [spont, spontRxnNames] = adapter.getSpontaneousReactions(model);
+    verifyEqual(testCase,find(spont),5)
+    verifyEqual(testCase,spontRxnNames,{'R4'})
+
+    % Fixing the undefined variable alone was not enough: the position it set
+    % (spont(5) = true) is only valid for this 7-reaction conventional model.
+    % getStandardKcat's only real caller passes the already-expanded ecModel,
+    % where R4's position among model.rxns has moved -- matching by reaction
+    % id instead of position (mirroring geckopy's own TestGEMAdapter port)
+    % survives that.
+    ecModel = makeEcModel(model, false, adapter);
+    [spontEc, spontRxnNamesEc] = adapter.getSpontaneousReactions(ecModel);
+    verifyEqual(testCase,find(spontEc),find(strcmp(ecModel.rxns,'R4')))
+    verifyEqual(testCase,spontRxnNamesEc,{'R4'})
+end
+
+
+function testApplyKcatConstraintsDuplicateAccession_tc0017(testCase)
+    % Two ec.enzymes rows can map to the same prot_<accession> metabolite --
+    % distinct genes sharing one UniProt entry. applyKcatConstraints used to
+    % write model.S(linearIndices) = -newKcats(:,4) directly: a plain indexed
+    % assignment on a repeated linear index keeps only the last value written,
+    % silently dropping one enzyme's contribution instead of adding it to the
+    % other's.
+    clear model
+    model.rxns = {'R1'};
+    model.mets = {'prot_P1'};
+    model.S = sparse(1,1);
+    model.lb = -1000; model.ub = 1000;
+    model.ec.geckoLight = false;
+    model.ec.rxns = {'R1'};
+    model.ec.kcat = 100;
+    model.ec.enzymes = {'P1'; 'P1'};
+    model.ec.mw = [10000; 20000];
+    model.ec.rxnEnzMat = sparse([1 1]);
+
+    model = applyKcatConstraints(model);
+    expected = -(10000+20000)/100/3600; %summed, not just the second row's -20000/100/3600
+    verifyEqual(testCase,full(model.S(1,1)),expected,'AbsTol',1e-12)
+end
+
+
+function testAddNewRxnsToEC_tc0018(testCase)
     geckoPath = findGECKOroot;
     adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
     model = getGeckoTestModel();
