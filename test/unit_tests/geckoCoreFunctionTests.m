@@ -746,3 +746,70 @@ function testSigmaFitterModelMatchesReturnedSigma_tc0020(testCase)
     verifyEqual(testCase, fittedModel.ub(poolIdx), expected, 'AbsTol', 1e-9)
 end
 
+
+function testFuzzyKcatMatchingTieBreakRespectsWildcardCount_tc0022(testCase)
+    % iterativeMatch's cross-EC-token tie-break is supposed to (1) keep only the EC
+    % tokens that matched with the fewest wildcards, (2) among those keep the ones
+    % with the best (lowest) origin, then (3) take the largest kcat. Step 2's
+    % `best_pos = (origin == min(new_origin(new_origin~=0)))` re-evaluates
+    % `origin == ...` against the *full*, unfiltered origin vector instead of the
+    % wildcard-filtered subset from step 1 -- so any EC token that matched at a
+    % *worse* (higher) wildcard level, but happens to share the same origin value,
+    % is let back in. Step 3 then maximises kcat across that too-permissive set, so
+    % a less-specific, more-wildcarded match can silently win over a fully-specific
+    % one whenever it happens to report a bigger kcat.
+    %
+    % The fixture gives R2_EXP_1 two EC tokens: '9.9.9.1' matches BRENDA directly
+    % (0 wildcards, kcat 42); '9.9.8.-' only matches after escalating twice more (2
+    % wildcards, kcat 500) -- both land on origin 3 (organism matches, substrate
+    % deliberately does not, so origin 1/2 are skipped). The correct answer is the
+    % 0-wildcard match (42); the bug picks the 2-wildcard one (500) because both
+    % share origin 3.
+    %
+    % Found while running the kcat-gathering pipeline against real BRENDA data and
+    % yeast-GEM at genome scale in raven-gecko-parity: ~119 reactions got a kcat
+    % that genuinely differed (not just missing) between the MATLAB and Python
+    % implementations even after two other confirmed bugs were fixed; this
+    % tie-break scoping bug, triggered whenever a multi-EC-code reaction's tokens
+    % match at different wildcard levels but the same origin, accounts for at
+    % least some of those.
+    geckoPath = findGECKOroot;
+    adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
+    model = getGeckoTestModel();
+    ecModel = makeEcModel(model, false, adapter);
+    ecModel = getECfromGEM(ecModel);
+    ecModel.ec.eccodes{strcmp(ecModel.ec.rxns, 'R2_EXP_1')} = '9.9.9.1;9.9.8.-';
+
+    scratchDir = fullfile(tempname);
+    brendaDir = fullfile(scratchDir, 'data');
+    mkdir(brendaDir);
+    cleanupDir = onCleanup(@() rmdir(scratchDir, 's'));
+    % Substrate deliberately does not match the model's actual substrate (m1), so
+    % origin 1/2 (which require a substrate match) are skipped and both tokens are
+    % forced to resolve at origin 3, isolating the wildcard-count tie-break.
+    fid = fopen(fullfile(brendaDir, 'max_KCAT.txt'), 'w');
+    fprintf(fid, 'EC9.9.9.1\tunrelatedsubstrate\ttestus testus//*//*\t42\t*\n');
+    fprintf(fid, 'EC9.9.7.5\tunrelatedsubstrate\ttestus testus//*//*\t500\t*\n');
+    fclose(fid);
+    fid = fopen(fullfile(brendaDir, 'max_MW.txt'), 'w');
+    fprintf(fid, 'EC0.0.0.0\t*\tplaceholder//*//*\t1\t*\n');
+    fclose(fid);
+    fid = fopen(fullfile(brendaDir, 'max_SA.txt'), 'w');
+    fprintf(fid, 'EC0.0.0.0\t*\tplaceholder//*//*\t1\t*\n');
+    fclose(fid);
+    % getPhylDistStructPath also resolves under params.path/data; reuse ecTestGEM's
+    % own real fixture rather than fabricating a second one.
+    copyfile(fullfile(geckoPath,'test','unit_tests','ecTestGEM','data','PhylDist.mat'), ...
+        fullfile(brendaDir, 'PhylDist.mat'));
+
+    % TestGEMAdapter.getBrendaDBFolder resolves to <params.path>/data --- value class,
+    % so redirecting a copy cannot affect the original (same pattern kcat_chain_ectestgem
+    % and other scenarios use for scenario-specific data).
+    fuzzyAdapter = adapter;
+    fuzzyAdapter.params.path = scratchDir;
+
+    kcatList = fuzzyKcatMatching(ecModel, ismember(ecModel.ec.rxns,{'R2_EXP_1'}), fuzzyAdapter);
+    verifyEqual(testCase, kcatList.kcats, 42)
+    verifyEqual(testCase, kcatList.wildcardLvl, 0)
+end
+
