@@ -531,3 +531,43 @@ function testCalculateFfactor_tc0014(testCase)
     verifyEqual(testCase,f,0.5)
 end
 
+
+function testWriteDLKcatInputSubset_tc0015(testCase)
+    geckoPath = findGECKOroot;
+    adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
+    model = getGeckoTestModel();
+    rxnsToAdd = struct();
+    rxnsToAdd.rxns = {'R2a'};
+    rxnsToAdd.grRules = {'G1 and G2 or G3'};
+    rxnsToAdd.equations = {'m1[c] <=> m2[c]'};
+    model = addRxns(model,rxnsToAdd, 3); %no eccode for R2a, so it never gets a fuzzy match
+
+    ecModel = makeEcModel(model, false, adapter);
+    ecModel = getECfromGEM(ecModel);
+
+    % A non-trivial ecRxns subset --- neither "all reactions" (ecRxns=[]) nor a subset
+    % that happens to start at index 1 --- is the ordinary, documented way to call
+    % writeDLKcatInput (e.g. "only the reactions fuzzy matching couldn't find a kcat
+    % for"), but was never exercised by any existing test: every prior call site here
+    % and in the manual tests either omits ecRxns or passes a full-length mask. With
+    % R2a_EXP_1/R2a_EXP_2 in the middle of ec.rxns rather than at its start, this used
+    % to silently write zero rows (an internal filtering step re-used already-consumed
+    % indices from ec.rxns space to index into the already-filtered, subset-length
+    % array, clearing every row it should have kept), and after a first, incomplete fix
+    % it wrote the right *number* of rows but attributed them to the wrong reactions
+    % (the same re-used-index mistake, one step further down).
+    ecRxns = ismember(ecModel.ec.rxns, {'R2a_EXP_1','R2a_EXP_2'});
+    filepath = fullfile(adapter.getParameters().path,'data','DLKcat_input_subset_test.tsv');
+    if exist(filepath, 'file')==2
+      delete(filepath);
+    end
+    writtenTable = writeDLKcatInput(ecModel, 'ecRxns', ecRxns, 'modelAdapter', adapter, ...
+        'onlyWithSmiles', false, 'filename', filepath, 'overwrite', true);
+    if exist(filepath, 'file')==2 %clean up
+      delete(filepath);
+    end
+    verifyEqual(testCase,writtenTable(1,:), {'R2a_EXP_1','R2a_EXP_1','R2a_EXP_2'})
+    verifyEqual(testCase,writtenTable(2,:), {'G1','G2','G3'})
+    verifyEqual(testCase,writtenTable(3,:), {'m1','m1','m1'})
+end
+
