@@ -248,9 +248,14 @@ end
 if sum(origin) > 0
     %For more than one EC: Choose the maximum value among the ones with the
     %less amount of wildcards and the better origin:
-    best_pos   = (wc_num == min(wc_num));
-    new_origin = origin(best_pos);
-    best_pos   = (origin == min(new_origin(new_origin~=0)));
+    best_pos    = (wc_num == min(wc_num));
+    new_origin  = origin(best_pos);
+    best_origin = min(new_origin(new_origin~=0));
+    %Intersect with the wildcard filter above -- comparing origin==best_origin
+    %against the full (unfiltered) origin vector would let an EC with a worse
+    %(higher) wildcard count back in whenever it happens to share best_origin,
+    %defeating the wildcard-count filter entirely.
+    best_pos    = best_pos & (origin == best_origin);
     max_pos    = find(kcat == max(kcat(best_pos)));
     wc_num     = wc_num(max_pos(1));
     origin     = origin(max_pos(1));
