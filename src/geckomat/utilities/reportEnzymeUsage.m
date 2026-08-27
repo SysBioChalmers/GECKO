@@ -42,6 +42,14 @@ highCapUsage = p.highCapUsage;
 topAbsUsage  = p.topAbsUsage;
 if isempty(highCapUsage); highCapUsage = 0.9; end
 if isempty(topAbsUsage);  topAbsUsage  = 10;  end
+% 0 or Inf means "all enzymes", per the docstring above -- and any topAbsUsage at or
+% above the enzyme count means the same thing in practice, but unlike those two special
+% values it used to reach the indexing below unclamped: usageData.protID(topUse(1:N))
+% with N > numel(topUse) is an out-of-bounds index, so any model with fewer than 10
+% enzymes (ecTestGEM has 5) crashed on the default call.
+if topAbsUsage == 0 || isinf(topAbsUsage) || topAbsUsage > numel(usageData.protID)
+    topAbsUsage = numel(usageData.protID);
+end
 
 usageReport = {};
 
