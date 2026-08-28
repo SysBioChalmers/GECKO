@@ -923,10 +923,125 @@ function testWriteOpenKineticsPredictorInputReactionSubsetIndex_tc0023(testCase)
 end
 
 
+function testGetEnzymeBottlenecksRanksByShadowPrice_tc0024(testCase)
+    % getEnzymeBottlenecks: solves the model, ranks enzymes by |shadow price| of
+    % their prot_<id> mass-balance constraint, returns the top N.
+    %
+    % R2 and R4 are blocked, leaving R3 as the sole route from m1c to m2c ---
+    % the same fix enzyme_usage_ectestgem's own fixture already needed for this
+    % exact LP: R4 is spontaneous (no enzyme, no cost), so leaving it open makes
+    % the entire R2/R3 enzyme requirement optional, and the shadow price of an
+    % enzyme nobody needs is genuinely LP-dual-degenerate (solver-path-dependent,
+    % confirmed to vary run to run: P1.. P4 traded places with each other across
+    % repeated solves of the byte-identical unfixed LP). With R2/R4 blocked, P4
+    % and P5 are both genuinely, non-degenerately required (m1c->m2c->e2e in
+    % series), and P1/P2/P3 (R2's now-fully-blocked enzymes) are unambiguously
+    % unused.
+    %
+    % Cross-verified against geckopy's get_enzyme_bottlenecks on the identical
+    % (now non-degenerate) fixture: both sides agree exactly on the objective
+    % (50) and on P4/P5's shadowPrice/flux/capUsage/upperBound. One confirmed,
+    % asserted divergence: for the three genuinely-unused enzymes, MATLAB's
+    % gurobi interface reports a true 0 shadow price, while geckopy's
+    % gurobipy-via-cobra stack instead propagates the shared pool's own -0.4
+    % dual uniformly to every prot_<id> row regardless of usage. Both are valid
+    % dual solutions to the same degenerate LP; this is a solver-interface
+    % difference, not a bug in either port, and only affects enzymes that
+    % carry no flux (never the true bottleneck).
+    geckoPath = findGECKOroot;
+    adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
+    model = getGeckoTestModel();
+    model.lb(strcmp(model.rxns,'R2')) = 0; model.ub(strcmp(model.rxns,'R2')) = 0;
+    model.lb(strcmp(model.rxns,'R4')) = 0; model.ub(strcmp(model.rxns,'R4')) = 0;
+    ecModel = makeEcModel(model, false, adapter);
+    ecModel = getECfromGEM(ecModel);
+    ecModel.ec.kcat(:) = 10;
+    ecModel.ec.source(:) = {'manual'};
+    ecModel = applyKcatConstraints(ecModel);
+    ecModel = setProtPoolSize(ecModel, 0.5, 0.5, 0.5, adapter);
+
+    sol = solveLP(ecModel);
+    verifyEqual(testCase, sol.stat, 1)
+    verifyEqual(testCase, sol.f, 50, 'AbsTol', 1e-9)
+
+    bottlenecks = getEnzymeBottlenecks(ecModel);
+    verifyEqual(testCase, height(bottlenecks), 5)
+    [~, order] = ismember({'P1','P2','P3','P4','P5'}, bottlenecks.uniprot);
+    % P1/P2/P3: unused, MATLAB-specific 0 (see the divergence note above) ---
+    % not compared against geckopy's own -0.4 for these three.
+    verifyEqual(testCase, bottlenecks.shadowPrice(order(1:3)), [0;0;0], 'AbsTol', 1e-9)
+    % P4/P5: genuinely required, agrees with geckopy exactly.
+    verifyEqual(testCase, bottlenecks.shadowPrice(order(4:5)), [-0.4;-0.4], 'AbsTol', 1e-9)
+    verifyEqual(testCase, bottlenecks.flux(order), [0;0;0;55.555555555556;69.444444444444], 'AbsTol', 1e-9)
+    verifyEqual(testCase, bottlenecks.capUsage(order), [0;0;0;0.055555555555556;0.069444444444444], 'AbsTol', 1e-9)
+    verifyEqual(testCase, bottlenecks.upperBound(order), repmat(1000, 5, 1), 'AbsTol', 1e-9)
+
+    % Only P4 and P5 are unambiguously the top bottlenecks (|-0.4| > |0|);
+    % both sides rank them there, whatever they report for the rest.
+    top2 = getEnzymeBottlenecks(ecModel, 'top', 2);
+    verifyEqual(testCase, top2.uniprot, {'P4';'P5'})
+end
+
+
+function testPfbaEnzymesMinimisesEnzymeUsage_tc0025(testCase)
+    % pfbaEnzymes: fixes the current objective (growth, via R5) as a constraint,
+    % then minimises total usage_prot_* flux. Cross-verified against geckopy's
+    % pfba_enzymes on the identical fixture (uniform kcat=10, protein pool
+    % Ptot=0.5/f=0.5/sigma=0.5): geckopy reports growth=90 exactly and
+    % enzyme_usage=125 exactly at the enzyme-minimising solution, using only
+    % usage_prot_P5 (every other usage reaction at 0). pfbaEnzymes.m reproduces
+    % the same solution up to the ~1e-6 relative safety margin it borrows from
+    % solveLP's own minFlux=1 "fake metabolite" technique (see solveLP.m) ---
+    % a deliberate, documented difference from geckopy's exact constraint, not
+    % a divergence in the algorithm itself.
+    geckoPath = findGECKOroot;
+    adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
+    model = getGeckoTestModel();
+    ecModel = makeEcModel(model, false, adapter);
+    ecModel = getECfromGEM(ecModel);
+    ecModel.ec.kcat(:) = 10;
+    ecModel.ec.source(:) = {'manual'};
+    ecModel = applyKcatConstraints(ecModel);
+    ecModel = setProtPoolSize(ecModel, 0.5, 0.5, 0.5, adapter);
+
+    solution = pfbaEnzymes(ecModel);
+    verifyEqual(testCase, solution.stat, 1)
+    verifyEqual(testCase, solution.objectiveValue, 90, 'RelTol', 1e-5)
+    verifyEqual(testCase, solution.enzymeUsage, 125, 'RelTol', 1e-5)
+
+    usageIdx = find(startsWith(ecModel.rxns, 'usage_prot_'));
+    usageFlux = solution.x(usageIdx);
+    [~, order] = ismember(strcat('usage_prot_', {'P1','P2','P3','P4','P5'}), ecModel.rxns(usageIdx));
+    verifyEqual(testCase, usageFlux(order), [0;0;0;0;125], 'AbsTol', 1e-3)
+
+    % fractionOfOptimum halves both the fixed growth target and, on this
+    % fixture, the enzyme usage needed to reach it.
+    solutionHalf = pfbaEnzymes(ecModel, 'fractionOfOptimum', 0.5);
+    verifyEqual(testCase, solutionHalf.objectiveValue, 45, 'RelTol', 1e-5)
+    verifyEqual(testCase, solutionHalf.enzymeUsage, 62.5, 'RelTol', 1e-5)
+
+    % rxnId overrides which reaction is fixed as the objective before
+    % minimising enzyme usage, without erroring.
+    solutionR3 = pfbaEnzymes(ecModel, 'rxnId', 'R3');
+    verifyEqual(testCase, solutionR3.stat, 1)
+
+    % gecko-light guard: no usage_prot_<id> machinery to minimise over.
+    lightModel = makeEcModel(model, true, adapter);
+    lightModel = getECfromGEM(lightModel);
+    try
+        pfbaEnzymes(lightModel);
+        raised = false;
+    catch
+        raised = true;
+    end
+    verifyTrue(testCase, raised)
+end
+
+
 function ecModel = fixtureForRelaxProteomicsGreedy()
 % Shared fixture: uniform kcat=10, protein pool sized via Ptot=0.5/f=0.5/
 % sigma=0.5 (unconstrained growth 90, matching testGetEnzymeBottlenecksRanksByShadowPrice_tc0024
-% and testPfbaEnzymesMinimisesEnzymeUsage_tc0024's own fixture). P5 is R5's
+% and testPfbaEnzymesMinimisesEnzymeUsage_tc0025's own fixture). P5 is R5's
 % sole catalyst and the true bottleneck (confirmed by direct execution: R2/R3's
 % own enzymes never carry flux on this fixture); P4 catalyses R3, which is
 % never on the critical path, so constraining it never affects growth.
@@ -948,7 +1063,7 @@ ecModel = constrainEnzConcs(ecModel);
 end
 
 
-function testRelaxProteomicsGreedyConverges_tc0024(testCase)
+function testRelaxProteomicsGreedyConverges_tc0026(testCase)
     % relaxProteomicsGreedy: greedily relaxes the most-shadow-priced
     % proteomics-constrained enzyme each round until minimalGrowth is
     % reached. Cross-verified against geckopy's relax_proteomics_greedy on
@@ -975,7 +1090,7 @@ function testRelaxProteomicsGreedyConverges_tc0024(testCase)
 end
 
 
-function testRelaxProteomicsGreedyExhaustsCandidates_tc0025(testCase)
+function testRelaxProteomicsGreedyExhaustsCandidates_tc0027(testCase)
     % An unreachable minimalGrowth relaxes every eligible enzyme (P5 then
     % P4, in shadow-price order) and returns normally with converged=false
     % once candidates run out --- distinct from the maxIterations case
@@ -989,7 +1104,7 @@ function testRelaxProteomicsGreedyExhaustsCandidates_tc0025(testCase)
 end
 
 
-function testRelaxProteomicsGreedyMaxIterationsRaises_tc0026(testCase)
+function testRelaxProteomicsGreedyMaxIterationsRaises_tc0028(testCase)
     % maxIterations=1 stops after relaxing only P5 (growth=90, still below
     % the unreachable target) with one eligible candidate (P4) still
     % remaining --- geckopy raises RuntimeError in exactly this situation;
