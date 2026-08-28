@@ -275,8 +275,13 @@ for i = 1:numel(rxnsMissingGPR)
     end
 
     if ~standard
+        % kcatSubSystemIdx is a one-hot vector (the reaction's first subSystem
+        % matched against every subSystem that has a computed kcat); any(), not
+        % all(), is the right test -- all() only ever succeeds when the model
+        % has exactly one subSystem in total, silently falling back to the
+        % model-wide standardKcat for every reaction otherwise.
         kcatSubSystemIdx = strcmpi(enzSubSystem_names, model.subSystems{rxnIdx}(1));
-        if all(kcatSubSystemIdx)
+        if any(kcatSubSystemIdx)
             model.ec.kcat(end+1) = kcatSubSystem(kcatSubSystemIdx);
         else
             model.ec.kcat(end+1) = standardKcat;

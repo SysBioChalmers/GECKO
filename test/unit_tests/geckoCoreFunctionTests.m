@@ -1202,3 +1202,130 @@ function testFetchOpenKineticsPredictorUseStoredMatchesReader_tc0030(testCase)
     verifyEqual(testCase, viaFetch.source, 'OpenKineticsPredictor')
 end
 
+
+function testGetECfromGEMRejectsMalformedComponents_tc0031(testCase)
+    % getECfromGEM's validity regex used \w (any word character) instead of
+    % \d+ for each of the four EC components, so malformed strings containing
+    % letters or underscores -- e.g. '1.1.1.n12' (a real BRENDA "undefined
+    % subclass"-style code) or '1_2_3_4' -- passed validation and were kept
+    % instead of being rejected. geckopy's fill_eccodes_from_gem already
+    % requires each component to be purely digits or the wildcard '-'; this
+    % brings MATLAB's validation in line, and closes an already-documented
+    % divergence (raven-gecko-parity's ledgers/gecko.yml, getECfromGEM row).
+    clear model
+    model.rxns = {'R1';'R2';'R3';'R4'};
+    model.eccodes = {'1.1.1.1'; '1.1.1.n12'; '1_2_3_4'; '1.2.3.-'};
+    model.ec.rxns = model.rxns;
+    model.ec.geckoLight = false;
+
+    ecModel = getECfromGEM(model);
+    expected = {'1.1.1.1'; ''; ''; '1.2.3.-'};
+    verifyEqual(testCase, ecModel.ec.eccodes, expected)
+end
+
+
+function testFindECInDBIntersectionDedupesWildcardPair_tc0032(testCase)
+    % findECInDB's private intersection() helper does not dedupe its output:
+    % when prev_EC contains both a specific EC code and its own wildcard
+    % parent (e.g. '1.1.1.1' and '1.1.1.-'), both independently pair-match
+    % the same entry in new_EC, and the inner loop appends the resolved code
+    % twice -- e.g. producing '1.1.1.1;1.1.1.1' instead of '1.1.1.1'.
+    %
+    % Gene 1 maps to a single protein annotated with two EC tokens,
+    % '1.1.1.1' and its own wildcard parent '1.1.1.-' (space-separated, the
+    % format getECstring expects for one protein's multiple activities);
+    % gene 2 maps to a single protein annotated with just '1.1.1.1'.
+    % Reconciling across the two genes (an AND-complex) via intersection
+    % must return the code once, not twice.
+    geneHashMap = containers.Map({'G1','G2'}, {1,2});
+    geneIndex = {1; 2};
+    DBecNum = {'1.1.1.1 1.1.1.-'; '1.1.1.1'};
+    DBMW = [10000; 20000];
+
+    EC = findECInDB({'G1','G2'}, DBecNum, DBMW, geneIndex, geneHashMap);
+    verifyEqual(testCase, EC, '1.1.1.1')
+end
+
+
+function testFuzzyKcatMatchingWildcardExhaustionDoesNotCrash_tc0033(testCase)
+    % iterativeMatch's wildcard-escalation loop had no termination guard: once
+    % an EC token is escalated to fully wildcarded ('-.-.-.-') and still finds
+    % no BRENDA match, the next escalation attempt computed
+    % dot_pos(4-wild_num) with wild_num==4 -- dot_pos(0), an invalid index --
+    % and errored instead of reporting "no match". Reachable for any EC class
+    % with zero BRENDA coverage even at the broadest wildcard level.
+    geckoPath = findGECKOroot;
+    adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
+    model = getGeckoTestModel();
+    ecModel = makeEcModel(model, false, adapter);
+    ecModel = getECfromGEM(ecModel);
+    % An EC class unrelated, at every wildcard level, to anything in the
+    % fixture BRENDA file below.
+    ecModel.ec.eccodes{strcmp(ecModel.ec.rxns, 'R2_EXP_1')} = '9.9.9.9';
+
+    scratchDir = fullfile(tempname);
+    brendaDir = fullfile(scratchDir, 'data');
+    mkdir(brendaDir);
+    cleanupDir = onCleanup(@() rmdir(scratchDir, 's'));
+    % Deliberately unrelated to '9.9.9.9' at every wildcard level, so the
+    % escalation loop runs out of levels without ever matching.
+    fid = fopen(fullfile(brendaDir, 'max_KCAT.txt'), 'w');
+    fprintf(fid, 'EC5.5.5.5\tm1\ttestus testus//*//*\t42\t*\n');
+    fclose(fid);
+    fid = fopen(fullfile(brendaDir, 'max_MW.txt'), 'w');
+    fprintf(fid, 'EC0.0.0.0\t*\tplaceholder//*//*\t1\t*\n');
+    fclose(fid);
+    fid = fopen(fullfile(brendaDir, 'max_SA.txt'), 'w');
+    fprintf(fid, 'EC0.0.0.0\t*\tplaceholder//*//*\t1\t*\n');
+    fclose(fid);
+    % getPhylDistStructPath also resolves under params.path/data; reuse
+    % ecTestGEM's own real fixture rather than fabricating a second one.
+    copyfile(fullfile(geckoPath,'test','unit_tests','ecTestGEM','data','PhylDist.mat'), ...
+        fullfile(brendaDir, 'PhylDist.mat'));
+
+    fuzzyAdapter = adapter;
+    fuzzyAdapter.params.path = scratchDir;
+
+    % Must complete without erroring, and report a clean "no match" rather
+    % than crashing or leaving a garbled value.
+    kcatList = fuzzyKcatMatching(ecModel, ismember(ecModel.ec.rxns,{'R2_EXP_1'}), fuzzyAdapter);
+    verifyEqual(testCase, kcatList.kcats, 0)
+    verifyTrue(testCase, isnan(kcatList.origin))
+end
+
+
+function testGetStandardKcatUsesSubsystemKcatWheneverAnyMatches_tc0034(testCase)
+    % kcatSubSystemIdx is a one-hot vector produced by comparing a reaction's
+    % first subSystem against every subSystem that has a computed kcat;
+    % all(kcatSubSystemIdx) only ever succeeds for a model with exactly one
+    % subSystem in total. With more than one subSystem, that branch never
+    % fires and every reaction silently falls back to the model-wide
+    % standardKcat, masking the subsystem-specific kcat this code path
+    % exists to apply.
+    %
+    % R1 has no GPR and shares subSystem 'SubA' with R3 (kcat 50); R5 sits in
+    % a different subSystem 'SubB' (kcat 999, deliberately large so it would
+    % skew the model-wide median standardKcat fallback if picked by
+    % mistake). With two distinct subSystems in play, R1 must be assigned
+    % SubA's kcat (50), not the fallback.
+    geckoPath = findGECKOroot;
+    adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
+    model = getGeckoTestModel();
+    ecModel = makeEcModel(model, false, adapter);
+    ecModel = getECfromGEM(ecModel);
+    ecModel.ec.kcat(:) = 0;
+    ecModel.ec.kcat(strcmp(ecModel.ec.rxns,'R3')) = 50;
+    ecModel.ec.kcat(strcmp(ecModel.ec.rxns,'R5')) = 999;
+    ecModel.ec.source(:) = {'manual'};
+
+    ecModel.subSystems = repmat({{''}}, size(ecModel.rxns));
+    ecModel.subSystems(strcmp(ecModel.rxns,'R1')) = {{'SubA'}};
+    ecModel.subSystems(strcmp(ecModel.rxns,'R3')) = {{'SubA'}};
+    ecModel.subSystems(strcmp(ecModel.rxns,'R5')) = {{'SubB'}};
+
+    ecModel = getStandardKcat(ecModel, 'modelAdapter', adapter, 'threshold', 1, 'fillZeroKcat', false);
+
+    r1kcat = ecModel.ec.kcat(strcmp(ecModel.ec.rxns,'R1'));
+    verifyEqual(testCase, r1kcat, 50)
+end
+
