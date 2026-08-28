@@ -1120,3 +1120,85 @@ function testRelaxProteomicsGreedyMaxIterationsRaises_tc0028(testCase)
     verifyTrue(testCase, raised)
 end
 
+
+function testResolveOkpApiKeyResolutionOrder_tc0029(testCase)
+    % resolveOkpApiKey: argKey beats the OKP_API_KEY environment variable,
+    % which beats data/okpApiKey.txt, which beats erroring when none are set.
+    % Shared by submitOpenKineticsPredictor and fetchOpenKineticsPredictor;
+    % tested directly since neither caller can be run end-to-end without a
+    % live API key (same reasoning runDLKcat's own Docker dependency keeps
+    % it out of this suite --- external-service calls aren't unit tested
+    % here, only the logic that doesn't need one).
+    scratchDir = fullfile(tempname);
+    mkdir(fullfile(scratchDir,'data'));
+    cleanupDir = onCleanup(@() rmdir(scratchDir, 's'));
+
+    oldEnv = getenv('OKP_API_KEY');
+    cleanupEnv = onCleanup(@() setenv('OKP_API_KEY', oldEnv));
+
+    % Nothing set anywhere: errors.
+    setenv('OKP_API_KEY', '');
+    try
+        resolveOkpApiKey('', scratchDir);
+        raised = false;
+    catch
+        raised = true;
+    end
+    verifyTrue(testCase, raised)
+
+    % File only.
+    fID = fopen(fullfile(scratchDir,'data','okpApiKey.txt'), 'w');
+    fprintf(fID, 'ak_from_file');
+    fclose(fID);
+    verifyEqual(testCase, resolveOkpApiKey('', scratchDir), 'ak_from_file')
+
+    % Env beats file.
+    setenv('OKP_API_KEY', 'ak_from_env');
+    verifyEqual(testCase, resolveOkpApiKey('', scratchDir), 'ak_from_env')
+
+    % Explicit arg beats both.
+    verifyEqual(testCase, resolveOkpApiKey('ak_from_arg', scratchDir), 'ak_from_arg')
+end
+
+
+function testFetchOpenKineticsPredictorUseStoredMatchesReader_tc0030(testCase)
+    % fetchOpenKineticsPredictor's useStored path is the one code path that
+    % needs no live API call (parse an already-downloaded result file), so
+    % it's the one directly testable here. It now delegates to
+    % readOpenKineticsPredictorOutput instead of its own separate parsing
+    % subfunction (the pre-port version of this file duplicated ~90 lines of
+    % that parsing logic, which had drifted: it never added the 'OKP-'
+    % prefix readOpenKineticsPredictorOutput.m puts on kcatSource, and it
+    % computed kcatList.source as "the most frequent provenance" instead of
+    % the constant 'OpenKineticsPredictor' every other kcat-gathering
+    % function uses). Confirms the two entry points now produce identical
+    % kcatList structs from the same result file.
+    geckoPath = findGECKOroot;
+    adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
+    model = getGeckoTestModel();
+    ecModel = makeEcModel(model, false, adapter);
+    ecModel = getECfromGEM(ecModel);
+    ecModel.metSmiles = repmat({''}, numel(ecModel.mets), 1);
+    ecModel.metSmiles(strcmp(ecModel.mets,'m1c')) = {'C(C1C)O'};
+
+    scratchDir = fullfile(tempname);
+    mkdir(fullfile(scratchDir,'data'));
+    cleanupDir = onCleanup(@() rmdir(scratchDir, 's'));
+    fetchAdapter = adapter;
+    fetchAdapter.params.path = scratchDir;
+
+    resultFile = fullfile(scratchDir,'data','OKP_output.csv');
+    fid = fopen(resultFile,'w');
+    fprintf(fid,'kcat (1/s),Source kcat,Extra Info kcat,Protein Sequence,Substrate\n');
+    fprintf(fid,'12.5,Prediction from CataPro,,MRAL,C(C1C)O\n');
+    fclose(fid);
+
+    [done, viaFetch] = fetchOpenKineticsPredictor(ecModel, 'useStored', true, 'modelAdapter', fetchAdapter);
+    verifyTrue(testCase, done)
+
+    viaReader = readOpenKineticsPredictorOutput(ecModel, 'outFile', resultFile, 'modelAdapter', fetchAdapter);
+    verifyEqual(testCase, viaFetch, viaReader)
+    verifyEqual(testCase, viaFetch.kcatSource, {'OKP-CataPro'})
+    verifyEqual(testCase, viaFetch.source, 'OpenKineticsPredictor')
+end
+
