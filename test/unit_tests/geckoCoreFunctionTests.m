@@ -922,3 +922,38 @@ function testWriteOpenKineticsPredictorInputReactionSubsetIndex_tc0023(testCase)
     verifyEqual(testCase, rows, expected)
 end
 
+
+function testGetEnzymeBottlenecksRanksByShadowPrice_tc0024(testCase)
+    % getEnzymeBottlenecks: solves the model, ranks enzymes by |shadow price| of
+    % their prot_<id> mass-balance constraint, returns the top N. Cross-verified
+    % against geckopy's get_enzyme_bottlenecks on the identical fixture (uniform
+    % kcat=10 across every ec.rxns row, prot pool sized via Ptot=0.5/f=0.5/
+    % sigma=0.5): both sides agree exactly on the objective (90), every column
+    % (shadowPrice=-0.72 for all five enzymes, flux/capUsage/upperBound), and the
+    % top-3 selection (P1/P2/P3, tied at -0.72, in original ec.enzymes order).
+    geckoPath = findGECKOroot;
+    adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
+    model = getGeckoTestModel();
+    ecModel = makeEcModel(model, false, adapter);
+    ecModel = getECfromGEM(ecModel);
+    ecModel.ec.kcat(:) = 10;
+    ecModel.ec.source(:) = {'manual'};
+    ecModel = applyKcatConstraints(ecModel);
+    ecModel = setProtPoolSize(ecModel, 0.5, 0.5, 0.5, adapter);
+
+    sol = solveLP(ecModel);
+    verifyEqual(testCase, sol.stat, 1)
+    verifyEqual(testCase, sol.f, 90, 'AbsTol', 1e-9)
+
+    bottlenecks = getEnzymeBottlenecks(ecModel);
+    verifyEqual(testCase, height(bottlenecks), 5)
+    verifyEqual(testCase, bottlenecks.shadowPrice, repmat(-0.72, 5, 1), 'AbsTol', 1e-9)
+    [~, order] = ismember({'P1','P2','P3','P4','P5'}, bottlenecks.uniprot);
+    verifyEqual(testCase, bottlenecks.flux(order), [0;0;0;0;125], 'AbsTol', 1e-9)
+    verifyEqual(testCase, bottlenecks.capUsage(order), [0;0;0;0;0.125], 'AbsTol', 1e-9)
+    verifyEqual(testCase, bottlenecks.upperBound(order), repmat(1000, 5, 1), 'AbsTol', 1e-9)
+
+    top3 = getEnzymeBottlenecks(ecModel, 'top', 3);
+    verifyEqual(testCase, top3.uniprot, {'P1';'P2';'P3'})
+end
+
