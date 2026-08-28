@@ -33,9 +33,9 @@ function smallEcModel = getSubsetEcModel(bigEcModel,smallGEM)
 Rxn_format = regexprep(bigEcModel.rxns,'_REV|_EXP_\d+','');
 rxnsDiff = find(~ismember(smallGEM.rxns,Rxn_format));
 if numel(rxnsDiff) > 0
-    dispEM(['While both models should have derived from the same starting ',...
+    error('%s', ravenList(['While both models should have derived from the same starting ',...
             'GEM, the following reactions from smallGEM could not be found ',...
-            'in bigEcModel:'],true,smallGEM.rxns(rxnsDiff),false);
+            'in bigEcModel:'],smallGEM.rxns(rxnsDiff),false));
 end
 
 % Check if original bigEcModel contains context-dependent protein constraints
