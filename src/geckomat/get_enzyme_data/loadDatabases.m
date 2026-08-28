@@ -28,7 +28,7 @@ function databases = loadDatabases(varargin)
 %
 % See also
 % --------
-% getECfromDatabase, loadBRENDAdata
+% getECfromDatabase, loadBRENDAdata, downloadKEGG, downloadUniProt
 
 p = parseGECKOargs(varargin, { ...
     'selectDatabase', 'both'; ...
@@ -49,15 +49,7 @@ uniprot.ID   = params.uniprot.ID;
 filePath    = fullfile(params.path,'data');
 uniprot.geneIDfield = params.uniprot.geneIDfield;
 uniprot.type = params.uniprot.type;
-if strcmp(uniprot.type,'taxonomy')
-    uniprot.type = 'taxonomy_id';
-end
 kegg.geneID = params.kegg.geneID;
-if params.uniprot.reviewed
-    uniprotRev = 'reviewed:true+AND+';
-else
-    uniprotRev = '';
-end
 
 warning('off', 'MATLAB:MKDIR:DirectoryExists');
 
@@ -71,17 +63,7 @@ if any(strcmp(selectDatabase,{'uniprot','both'}))
         if isempty(uniprot.ID)
             printOrange('WARNING: No uniprot.ID is specified, unable to download UniProt DB.\n');
         end
-        disp(['Downloading Uniprot data for ' uniprot.type ' ' uniprot.ID '. This can take a few minutes.'])
-        url = ['https://rest.uniprot.org/uniprotkb/stream?query=' uniprotRev ...
-               uniprot.type ':' num2str(uniprot.ID) '&fields=accession%2C' uniprot.geneIDfield ...
-            '%2Cec%2Cmass%2Csequence&format=tsv&compressed=false&sort=protein_name%20asc'];
-        try
-            urlwrite(url,uniprotPath,'Timeout',30);
-            fprintf('Model-specific UniProt database stored at %s\n',uniprotPath);
-        catch
-            error(['Download failed, check your internet connection and try again, or manually download: ' url ...
-                ' After downloading, store the file as ' uniprotPath])
-        end
+        downloadUniProt(uniprot.ID, uniprotPath, uniprot.geneIDfield, uniprot.type, params.uniprot.reviewed);
     end
     if exist(uniprotPath,'file')
         fid         = fopen(uniprotPath,'r');
@@ -131,120 +113,4 @@ if any(strcmp(selectDatabase,{'kegg','both'}))
         databases.kegg = [];
     end
 end
-end
-
-function downloadKEGG(keggID, filePath, keggGeneID)
-%% Download gene information
-webOptions = weboptions('Timeout',30);
-try
-    gene_list = webread(['http://rest.kegg.jp/list/' keggID],webOptions);
-catch ME
-    switch ME.identifier
-        case 'MATLAB:webservices:HTTP400StatusCodeError'
-            error(['Unable to download data form KEGG with a potentially invalid ID: ' keggID ])
-    end
-end
-gene_list = regexpi(gene_list, '[^\n]+','match')';
-gene_id   = regexpi(gene_list,['(?<=' keggID ':)\S+'],'match');
-
-% Retrieve information for every gene in the list, 10 genes per query
-genesPerQuery = 10;
-queries = ceil(numel(gene_id)/genesPerQuery);
-keggData  = cell(numel(gene_id),1);
-PB = progressReport(queries, ['Downloading KEGG data for organism code ' keggID]);
-for i = 1:queries
-    PB.count;
-    % Download batches of genes
-    firstIdx = i*genesPerQuery-(genesPerQuery-1);
-    lastIdx  = i*genesPerQuery;
-    if lastIdx > numel(gene_id) % Last query has probably less genes
-        lastIdx = numel(gene_id);
-    end
-    url      = ['http://rest.kegg.jp/get/' keggID ':' strjoin([gene_id{firstIdx:lastIdx}],['+' keggID ':'])];
-
-    % KEGG may be temporarily unresponsive, retry with exponential backoff
-    maxRetries = 5;
-    for attempt = 1:maxRetries
-        try
-            out = webread(url,webOptions);
-            break
-        catch ME
-            % A malformed or non-existing query will not succeed on retry
-            noRetry = ismember(ME.identifier,{'MATLAB:webservices:HTTP400StatusCodeError', ...
-                                              'MATLAB:webservices:HTTP404StatusCodeError'});
-            if noRetry || attempt == maxRetries
-                error(['Unable to download KEGG data (attempt %d of %d).\n' ...
-                       'URL: %s\n' ...
-                       'Check your internet connection and the status of the KEGG ' ...
-                       'REST API, then try again.\nOriginal error: %s'], ...
-                       attempt, maxRetries, url, ME.message);
-            end
-            pause(min(2^attempt,30)) % Wait 2, 4, 8 and 16 seconds before retrying
-        end
-    end
-    outSplit = strsplit(out,['///' 10]); %10 is new line character
-    if numel(outSplit) < lastIdx-firstIdx+2
-        error('KEGG returns less genes per query') %Reduce genesPerQuery
-    end
-    keggData(firstIdx:lastIdx) = outSplit(1:end-1);
-end
-
-%% Parsing of info to keggDB format
-% Entries returned by KEGG are separated by '///' followed by an empty line,
-% leaving a stray newline at the start of each entry after splitting. This
-% would break the startsWith(...,'ENTRY ') checks below, which detect entries
-% where the regular expression did not match and returned the entry unchanged
-keggData  = strtrim(keggData);
-
-sequence  = regexprep(keggData,'.*AASEQ\s+\d+\s+([A-Z\s])+?\s+NTSEQ.*','$1');
-%No AASEQ -> no protein -> not of interest
-noProt    = startsWith(sequence,'ENTRY ');
-uni       = regexprep(keggData,'.*UniProt: (\S+?)\s.*','$1');
-noUni     = startsWith(uni,'ENTRY ');
-uni(noProt | noUni)       = [];
-keggData(noProt | noUni) = [];
-sequence(noProt | noUni)  = [];
-sequence  = regexprep(sequence,'\s+','');
-keggGene  = regexprep(keggData,'ENTRY\s+(\S+?)\s.+','$1');
-
-switch keggGeneID
-    case {'kegg',''}
-        gene_name = keggGene;
-    otherwise
-        % In case there are special characters:
-        keggGeneIDT = regexptranslate('escape',keggGeneID);
-        gene_name = regexprep(keggData,['.+' keggGeneIDT ': (\S+?)\n.+'],'$1');
-        noID = ~contains(keggData,keggGeneIDT);
-        if all(noID)
-            error(['None of the KEGG entries are annotated with the gene identifier ' keggGeneID])
-        else
-            gene_name(noID)= [];
-            keggData(noID) = [];
-            keggGene(noID) = [];
-            sequence(noID) = [];
-            uni(noID)      = [];
-        end
-end
-
-EC_names  = regexprep(keggData,'.*ORTHOLOGY.*\[EC:(.*?)\].*','$1');
-EC_names(startsWith(EC_names,'ENTRY ')) = {''};
-
-MW = cell(numel(sequence),1);
-for i=1:numel(sequence)
-    if ~isempty(sequence{i})
-        MW{i} = num2str(round(calculateMW(sequence{i})));
-    end
-end
-
-pathway   = regexprep(keggData,'.*PATHWAY\s+(.*?)(BRITE|MODULE).*','$1');
-pathway(startsWith(pathway,'ENTRY ')) = {''};
-pathway   = strrep(pathway,[keggID '01100  Metabolic pathways'],'');
-pathway   = regexprep(pathway,'\n','');
-pathway   = regexprep(pathway,'           ','');
-
-out = [uni, gene_name, keggGene, EC_names, MW, pathway, sequence];
-out = cell2table(out);
-
-writetable(out, filePath, 'FileType', 'text', 'WriteVariableNames',false);
-fprintf('Model-specific KEGG database stored at %s\n',filePath);
 end
