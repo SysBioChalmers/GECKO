@@ -1,6 +1,11 @@
 function mergedKcatList = mergeDLKcatAndFuzzyKcats(kcatListDLKcat, kcatListFuzzy, varargin)
 % mergeDLKcatAndFuzzyKcats  Merge DLKcat and BRENDA fuzzy matching results.
 %
+% Deprecated thin wrapper around mergeKcats, kept for the common DLKcat +
+% fuzzy-BRENDA case. New code should call mergeKcats directly, which also
+% handles a single list that mixes several sources (e.g. an
+% OpenKineticsPredictor result with BRENDA/Sabio-RK/CataPro rows).
+%
 % Merges the results from DLKcat and fuzzy matching to the BRENDA database.
 % Order of preference:
 %
@@ -63,7 +68,7 @@ function mergedKcatList = mergeDLKcatAndFuzzyKcats(kcatListDLKcat, kcatListFuzzy
 %
 % See also
 % --------
-% readDLKcatOutput, fuzzyKcatMatching, selectKcatValue
+% mergeKcats, readDLKcatOutput, fuzzyKcatMatching, selectKcatValue
 
 p = parseGECKOargs(varargin, { ...
     'topOriginLimit',    6; ...
@@ -73,54 +78,14 @@ topOriginLimit    = p.topOriginLimit;
 bottomOriginLimit = p.bottomOriginLimit;
 wildcardLimit     = p.wildcardLimit;
 
-if (topOriginLimit < 1) || (topOriginLimit > 6)
-    error('topPrioOriginLimit should be between 1 and 6.');
-end
+warning(['mergeDLKcatAndFuzzyKcats is deprecated; use mergeKcats instead. ' ...
+    'The old name will be removed in a future release.']);
 
-if (bottomOriginLimit < 1) || (bottomOriginLimit > 6)
-    error('originCutLevel should be between 1 and 6.');
-end
-
-if (wildcardLimit < 0) || (wildcardLimit > 3)
-    error('wildcardCutLevel should be between 0 and 3.');
-end
-
-wc = kcatListFuzzy.wildcardLvl;
-wc(isnan(wc)) = 1000; %large wildcard
-
-origin = kcatListFuzzy.origin;
-origin(isnan(origin)) = 1000; %large origin
-
-prio1 = (wc == 0) & (origin <= topOriginLimit);
-
-rxnsWithPrio1 = unique(kcatListFuzzy.rxns(prio1));
-
-%Things get a bit complicated since not all reactions are in the kcatLists and
-%some reactions may appear multiple times
-prio2 = true(length(kcatListDLKcat.rxns),1);
-prio2(ismember(kcatListDLKcat.rxns, rxnsWithPrio1)) = false;
-prio2Rxns = unique(kcatListDLKcat.rxns(prio2));
-
-%The prioritization between wildcards and origin is already done in fuzzy matching,
-%so we can join them here
-prio3 = ((wc == 0) & (origin > topOriginLimit) & (origin <= bottomOriginLimit)) | ...
-        ((wc > 0) & (wc <= wildcardLimit) & (origin <= bottomOriginLimit));
-prio3(ismember(kcatListFuzzy.rxns, prio2Rxns)) = false;
-
-fuzzyRxns = prio1 | prio3;
-
-%Now build the merged list, fuzzy followed by dlkcat
-%The order of the reactions is therefore not preserved.
-mergedKcatList               = struct();
-mergedKcatList.source        = 'Merged DLKcat and fuzzy';
-[fuzzySrc{1:sum(fuzzyRxns)}] = deal(kcatListFuzzy.source);
-[dlkcatSrc{1:sum(prio2)}]    = deal(kcatListDLKcat.source);
-mergedKcatList.kcatSource    = [fuzzySrc.';dlkcatSrc.'];
-mergedKcatList.rxns          = [kcatListFuzzy.rxns(fuzzyRxns);kcatListDLKcat.rxns(prio2)];
-mergedKcatList.genes         = [cell(sum(fuzzyRxns),1);kcatListDLKcat.genes(prio2)];
-mergedKcatList.substrates    = [kcatListFuzzy.substrates(fuzzyRxns);kcatListDLKcat.substrates(prio2)];
-mergedKcatList.kcats         = [kcatListFuzzy.kcats(fuzzyRxns);kcatListDLKcat.kcats(prio2)];
-mergedKcatList.eccodes       = [kcatListFuzzy.eccodes(fuzzyRxns);cell(sum(prio2),1)];
-mergedKcatList.wildcardLvl   = [kcatListFuzzy.wildcardLvl(fuzzyRxns);nan(sum(prio2),1)];
-mergedKcatList.origin        = [kcatListFuzzy.origin(fuzzyRxns);nan(sum(prio2),1)];
+% Fuzzy list first, then DLKcat, so surviving rows keep the legacy order
+% (fuzzy block followed by DLKcat block).
+mergedKcatList = mergeKcats({kcatListFuzzy, kcatListDLKcat}, ...
+    {'database_top', 'dlkcat', 'database_bottom'}, ...
+    'topOriginLimit', topOriginLimit, ...
+    'bottomOriginLimit', bottomOriginLimit, ...
+    'wildcardLimit', wildcardLimit);
 end
