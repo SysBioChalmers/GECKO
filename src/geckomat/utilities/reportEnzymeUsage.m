@@ -141,7 +141,12 @@ for i=1:numel(topEnzyme)
     % See if all reactions carried flux
     [~,rIdx] = ismember(rxns,ecModel.rxns);
     carriedFlux = usageData.fluxes(rIdx) > 1e-7;
-    if isscalar(find(carriedFlux))
+    if ~any(carriedFlux)
+        % None of this enzyme's reactions carry flux -- skip it rather than
+        % padding the table with a placeholder row for an enzyme that is not
+        % actually active.
+        continue
+    elseif isscalar(find(carriedFlux))
         topUsage.protID(end+1,1)      = topEnzyme(i);
         topUsage.geneID(end+1,1)      = geneIDs(i);
         topUsage.absUsage(end+1,1)    = usageData.absUsage(topUse(i));
