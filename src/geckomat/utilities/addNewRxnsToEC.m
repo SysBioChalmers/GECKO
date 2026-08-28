@@ -147,7 +147,7 @@ else
     % newEnzymes input
     if ~isempty(genesInRules)
         errorText = 'The following genes from grRules are not present in the model, add them as newEnzymes input:';
-        dispEM(errorText,true,genesInRules,false)
+        error('%s', ravenList(errorText,genesInRules,false))
     end
 
     % Get reversible reactions to split

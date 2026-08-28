@@ -1384,3 +1384,124 @@ function testMakeEcModelSortsEcGenes_tc0036(testCase)
     verifyEqual(testCase,ecModel.ec.sequence,expSequence);
 end
 
+
+function testReadDLKcatOutputUnrecognizedSubstrateErrorsCleanly_tc0037(testCase)
+    % dispEM (a RAVEN utility) was removed from RAVEN in RAVEN#659 and replaced with
+    % native warning/error + ravenList; readDLKcatOutput.m still called the now-nonexistent
+    % dispEM, so reporting a genuinely unrecognized substrate crashed with "Undefined
+    % function 'dispEM'" instead of the intended, informative error.
+    geckoPath = findGECKOroot;
+    adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
+    model = getGeckoTestModel();
+    ecModel = makeEcModel(model, false, adapter);
+    ecModel = getECfromGEM(ecModel);
+
+    scratchDir = fullfile(tempname);
+    cleanupDir = onCleanup(@() rmdir(scratchDir, 's'));
+    mkdir(scratchDir);
+    outFile = fullfile(scratchDir,'DLKcat_output_test.tsv');
+    fid = fopen(outFile,'w');
+    fprintf(fid,'rxns\tgenes\tsubstrates\tsmiles\tsequence\tkcat\n');
+    fprintf(fid,'R2_EXP_1\tG1\tNOTAREALMETABOLITE\tsmiles\tseq\t12.5\n');
+    fclose(fid);
+
+    try
+        readDLKcatOutput(ecModel, 'outFile', outFile, 'modelAdapter', adapter);
+        errored = false;
+        msg = '';
+    catch ME
+        errored = true;
+        msg = ME.message;
+    end
+    verifyTrue(testCase, errored)
+    verifyFalse(testCase, contains(msg, 'dispEM'))
+    verifyTrue(testCase, contains(msg, 'NOTAREALMETABOLITE'))
+end
+
+
+function testLoadDatabasesDuplicateUniprotEntriesErrorsCleanly_tc0038(testCase)
+    % Same dispEM removal as tc0037, a different caller: loadDatabases.m's duplicate-entry
+    % check crashed with "Undefined function 'dispEM'" instead of reporting the duplicates.
+    geckoPath = findGECKOroot;
+    adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
+
+    scratchDir = fullfile(tempname);
+    cleanupDir = onCleanup(@() rmdir(scratchDir, 's'));
+    mkdir(fullfile(scratchDir,'data'));
+    fid = fopen(fullfile(scratchDir,'data','uniprot.tsv'),'w');
+    fprintf(fid,'Entry\tGene Names (ordered locus)\tEC number\tMass\tSequence\n');
+    fprintf(fid,'P1\tG1\t1.1.1.1\t10000\tMRAL\n');
+    fprintf(fid,'P1\tG1\t1.1.1.1\t10000\tMRAL\n');
+    fclose(fid);
+
+    dbAdapter = adapter;
+    dbAdapter.params.path = scratchDir;
+
+    try
+        loadDatabases('uniprot', dbAdapter);
+        errored = false;
+        msg = '';
+    catch ME
+        errored = true;
+        msg = ME.message;
+    end
+    verifyTrue(testCase, errored)
+    verifyFalse(testCase, contains(msg, 'dispEM'))
+    verifyTrue(testCase, contains(msg, 'Duplicate entries'))
+end
+
+
+function testAddNewRxnsToECMissingGeneErrorsCleanly_tc0039(testCase)
+    % Same dispEM removal as tc0037, a different caller: addNewRxnsToEC.m's
+    % missing-gene check crashed with "Undefined function 'dispEM'" instead of naming
+    % the gene that needed to be passed as newEnzymes input.
+    geckoPath = findGECKOroot;
+    adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
+    model = getGeckoTestModel();
+    ecModel = makeEcModel(model, false, adapter);
+
+    newRxns.rxns      = {'RNEWA'};
+    newRxns.rxnNames  = {'RNEWA'};
+    newRxns.equations = {'m1[c] => e2[e]'};
+    newRxns.grRules   = {'GNEW1 or GNEW2'};
+
+    % GNEW2 is referenced in grRules but deliberately left out of newEnzymes below.
+    newEnzymes.enzymes = {'ENEW1'};
+    newEnzymes.genes   = {'GNEW1'};
+    newEnzymes.mw      = 15000;
+
+    try
+        addNewRxnsToEC(ecModel, newRxns, newEnzymes, adapter);
+        errored = false;
+        msg = '';
+    catch ME
+        errored = true;
+        msg = ME.message;
+    end
+    verifyTrue(testCase, errored)
+    verifyFalse(testCase, contains(msg, 'dispEM'))
+    verifyTrue(testCase, contains(msg, 'GNEW2'))
+end
+
+
+function testGetSubsetEcModelMismatchedReactionsErrorsCleanly_tc0040(testCase)
+    % Same dispEM removal as tc0037, a different caller: getSubsetEcModel.m's
+    % same-starting-GEM check crashed with "Undefined function 'dispEM'" instead of
+    % naming the reactions that could not be matched.
+    clear bigEcModel smallGEM
+    bigEcModel.rxns = {'R1';'R2_EXP_1'};
+    smallGEM.rxns   = {'R1';'R3'};
+
+    try
+        getSubsetEcModel(bigEcModel, smallGEM);
+        errored = false;
+        msg = '';
+    catch ME
+        errored = true;
+        msg = ME.message;
+    end
+    verifyTrue(testCase, errored)
+    verifyFalse(testCase, contains(msg, 'dispEM'))
+    verifyTrue(testCase, contains(msg, 'R3'))
+end
+

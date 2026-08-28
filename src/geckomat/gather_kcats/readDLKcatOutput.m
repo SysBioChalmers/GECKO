@@ -79,14 +79,14 @@ end
 matchMets = ismember(lower(subs),lower(model.metNames));
 if ~all(matchMets)
     errorText = 'DLKcat was likely run with an input file that was generated from another ecModel, as the following substrates from DLKcat output cannot be found in model.metNames:';
-    dispEM(errorText,true,subs(~matchMets),false)
+    error('%s', ravenList(errorText,subs(~matchMets),false))
 end
 
 % Check that all reactions are in model.ec.rxns
 matchRxns = ismember(rxns,model.ec.rxns);
 if ~all(matchRxns)
     errorText = 'DLKcat was likely run with an input file that was generated from another ecModel, as the following reactions from DLKcat output cannot be found in model.metNames:';
-    dispEM(errorText,true,rxns(~matchRxns),false)
+    error('%s', ravenList(errorText,rxns(~matchRxns),false))
 end
 
 % Filter out entries with no numeric value
