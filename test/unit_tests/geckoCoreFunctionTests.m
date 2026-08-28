@@ -922,3 +922,85 @@ function testWriteOpenKineticsPredictorInputReactionSubsetIndex_tc0023(testCase)
     verifyEqual(testCase, rows, expected)
 end
 
+
+function ecModel = fixtureForRelaxProteomicsGreedy()
+% Shared fixture: uniform kcat=10, protein pool sized via Ptot=0.5/f=0.5/
+% sigma=0.5 (unconstrained growth 90, matching testGetEnzymeBottlenecksRanksByShadowPrice_tc0024
+% and testPfbaEnzymesMinimisesEnzymeUsage_tc0024's own fixture). P5 is R5's
+% sole catalyst and the true bottleneck (confirmed by direct execution: R2/R3's
+% own enzymes never carry flux on this fixture); P4 catalyses R3, which is
+% never on the critical path, so constraining it never affects growth.
+% Constraining P5 to 10 and P4 to 5 drops growth to 7.2 = 90*(10/125).
+geckoPath = findGECKOroot;
+adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
+model = getGeckoTestModel();
+ecModel = makeEcModel(model, false, adapter);
+ecModel = getECfromGEM(ecModel);
+ecModel.ec.kcat(:) = 10;
+ecModel.ec.source(:) = {'manual'};
+ecModel = applyKcatConstraints(ecModel);
+ecModel = setProtPoolSize(ecModel, 0.5, 0.5, 0.5, adapter);
+
+ecModel.ec.concs(:) = NaN;
+ecModel.ec.concs(strcmp(ecModel.ec.enzymes,'P5')) = 10;
+ecModel.ec.concs(strcmp(ecModel.ec.enzymes,'P4')) = 5;
+ecModel = constrainEnzConcs(ecModel);
+end
+
+
+function testRelaxProteomicsGreedyConverges_tc0024(testCase)
+    % relaxProteomicsGreedy: greedily relaxes the most-shadow-priced
+    % proteomics-constrained enzyme each round until minimalGrowth is
+    % reached. Cross-verified against geckopy's relax_proteomics_greedy on
+    % the identical fixture: both sides converge in exactly one step,
+    % relaxing only P5 (the true bottleneck; P4's shadow price is 0, since
+    % R3 is never on the critical path here) straight to growth=90, with the
+    % same trace values (before=7.2, after=90, shadowPrice=-0.72).
+    ecModel = fixtureForRelaxProteomicsGreedy();
+
+    solBefore = solveLP(ecModel);
+    verifyEqual(testCase, solBefore.f, 7.2, 'AbsTol', 1e-9)
+
+    result = relaxProteomicsGreedy(ecModel, 'minimalGrowth', 50);
+    verifyTrue(testCase, result.converged)
+    verifyEqual(testCase, result.finalGrowth, 90, 'AbsTol', 1e-9)
+    verifyEqual(testCase, fieldnames(result.relaxed), {'P5'})
+    verifyEqual(testCase, result.relaxed.P5, 10, 'AbsTol', 1e-9)
+    verifyEqual(testCase, numel(result.trace), 1)
+    verifyEqual(testCase, result.trace(1).iteration, 0)
+    verifyEqual(testCase, result.trace(1).relaxedUniprot, 'P5')
+    verifyEqual(testCase, result.trace(1).growthBefore, 7.2, 'AbsTol', 1e-9)
+    verifyEqual(testCase, result.trace(1).growthAfter, 90, 'AbsTol', 1e-9)
+    verifyEqual(testCase, result.trace(1).shadowPrice, -0.72, 'AbsTol', 1e-9)
+end
+
+
+function testRelaxProteomicsGreedyExhaustsCandidates_tc0025(testCase)
+    % An unreachable minimalGrowth relaxes every eligible enzyme (P5 then
+    % P4, in shadow-price order) and returns normally with converged=false
+    % once candidates run out --- distinct from the maxIterations case
+    % below, which raises instead. Cross-verified against geckopy: both
+    % relax {P5: 10, P4: 5} and report converged=False, finalGrowth=90.
+    ecModel = fixtureForRelaxProteomicsGreedy();
+    result = relaxProteomicsGreedy(ecModel, 'minimalGrowth', 1000);
+    verifyFalse(testCase, result.converged)
+    verifyEqual(testCase, result.finalGrowth, 90, 'AbsTol', 1e-9)
+    verifyEqual(testCase, sort(fieldnames(result.relaxed)), sort({'P5';'P4'}))
+end
+
+
+function testRelaxProteomicsGreedyMaxIterationsRaises_tc0026(testCase)
+    % maxIterations=1 stops after relaxing only P5 (growth=90, still below
+    % the unreachable target) with one eligible candidate (P4) still
+    % remaining --- geckopy raises RuntimeError in exactly this situation;
+    % this errors too, rather than returning as if converged or exhausted.
+    ecModel = fixtureForRelaxProteomicsGreedy();
+    try
+        relaxProteomicsGreedy(ecModel, 'minimalGrowth', 1000, 'maxIterations', 1);
+        raised = false;
+    catch
+        raised = true;
+    end
+    verifyTrue(testCase, raised)
+end
+
