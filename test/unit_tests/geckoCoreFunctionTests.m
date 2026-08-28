@@ -1330,7 +1330,62 @@ function testGetStandardKcatUsesSubsystemKcatWheneverAnyMatches_tc0034(testCase)
 end
 
 
-function testReadDLKcatOutputUnrecognizedSubstrateErrorsCleanly_tc0035(testCase)
+function testReadDLKcatOutputSubstrateMatchIsCaseInsensitive_tc0035(testCase)
+    % readDLKcatOutput's substrate-name check against model.metNames used ismember's
+    % default case-sensitive comparison, so a DLKcat output file whose substrate names
+    % differ only in case from model.metNames -- e.g. an SBML loader that normalises
+    % capitalisation differently than whatever produced the DLKcat input -- was reported
+    % as "substrate not found" even though the same metabolite is genuinely present.
+    geckoPath = findGECKOroot;
+    adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
+    model = getGeckoTestModel();
+    ecModel = makeEcModel(model, false, adapter);
+    ecModel = getECfromGEM(ecModel);
+
+    scratchDir = fullfile(tempname);
+    cleanupDir = onCleanup(@() rmdir(scratchDir, 's'));
+    mkdir(scratchDir);
+    outFile = fullfile(scratchDir,'DLKcat_output_test.tsv');
+    fid = fopen(outFile,'w');
+    fprintf(fid,'rxns\tgenes\tsubstrates\tsmiles\tsequence\tkcat\n');
+    % 'M1' (uppercase) against the model's own lowercase 'm1' -- must still match.
+    fprintf(fid,'R2_EXP_1\tG1\tM1\tsmiles\tseq\t12.5\n');
+    fclose(fid);
+
+    kcatList = readDLKcatOutput(ecModel, 'outFile', outFile, 'modelAdapter', adapter);
+    verifyEqual(testCase, kcatList.kcats, 12.5)
+    verifyEqual(testCase, kcatList.substrates, {'M1'})
+end
+
+
+function testMakeEcModelSortsEcGenes_tc0036(testCase)
+    % makeEcModel's ec.genes (and ec.enzymes/ec.mw/ec.sequence, permuted in lockstep) used
+    % to keep model.genes' own array order -- whatever order genes happened to be declared
+    % in, not necessarily alphabetical or reproducible across independently-built models of
+    % the same organism. ecTestGEM's genes (G1..G5) already happen to be declared
+    % alphabetically, so the existing makeEcModel tests don't exercise this: reorder them
+    % here so a passing test actually proves the sort, not an already-sorted pass-through.
+    geckoPath = findGECKOroot;
+    adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
+    model = getGeckoTestModel();
+    newOrder = [5 3 1 4 2];
+    model.genes = model.genes(newOrder);
+    model.rxnGeneMat = model.rxnGeneMat(:,newOrder);
+
+    ecModel = makeEcModel(model, false, adapter);
+
+    expEcGenes = {'G1';'G2';'G3';'G4';'G5'};
+    verifyEqual(testCase,ecModel.ec.genes,expEcGenes)
+    expEnzymes = {'P1';'P2';'P3';'P4';'P5'};
+    verifyEqual(testCase,ecModel.ec.enzymes,expEnzymes)
+    expMW = [10000;20000;30000;40000;50000];
+    verifyEqual(testCase,ecModel.ec.mw,expMW)
+    expSequence = {'MRAL';'MNTD';'MSYN';'MDFM';'MLFK'};
+    verifyEqual(testCase,ecModel.ec.sequence,expSequence);
+end
+
+
+function testReadDLKcatOutputUnrecognizedSubstrateErrorsCleanly_tc0037(testCase)
     % dispEM (a RAVEN utility) was removed from RAVEN in RAVEN#659 and replaced with
     % native warning/error + ravenList; readDLKcatOutput.m still called the now-nonexistent
     % dispEM, so reporting a genuinely unrecognized substrate crashed with "Undefined
@@ -1364,8 +1419,8 @@ function testReadDLKcatOutputUnrecognizedSubstrateErrorsCleanly_tc0035(testCase)
 end
 
 
-function testLoadDatabasesDuplicateUniprotEntriesErrorsCleanly_tc0036(testCase)
-    % Same dispEM removal as tc0035, a different caller: loadDatabases.m's duplicate-entry
+function testLoadDatabasesDuplicateUniprotEntriesErrorsCleanly_tc0038(testCase)
+    % Same dispEM removal as tc0037, a different caller: loadDatabases.m's duplicate-entry
     % check crashed with "Undefined function 'dispEM'" instead of reporting the duplicates.
     geckoPath = findGECKOroot;
     adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
@@ -1396,8 +1451,8 @@ function testLoadDatabasesDuplicateUniprotEntriesErrorsCleanly_tc0036(testCase)
 end
 
 
-function testAddNewRxnsToECMissingGeneErrorsCleanly_tc0037(testCase)
-    % Same dispEM removal as tc0035, a different caller: addNewRxnsToEC.m's
+function testAddNewRxnsToECMissingGeneErrorsCleanly_tc0039(testCase)
+    % Same dispEM removal as tc0037, a different caller: addNewRxnsToEC.m's
     % missing-gene check crashed with "Undefined function 'dispEM'" instead of naming
     % the gene that needed to be passed as newEnzymes input.
     geckoPath = findGECKOroot;
@@ -1429,8 +1484,8 @@ function testAddNewRxnsToECMissingGeneErrorsCleanly_tc0037(testCase)
 end
 
 
-function testGetSubsetEcModelMismatchedReactionsErrorsCleanly_tc0038(testCase)
-    % Same dispEM removal as tc0035, a different caller: getSubsetEcModel.m's
+function testGetSubsetEcModelMismatchedReactionsErrorsCleanly_tc0040(testCase)
+    % Same dispEM removal as tc0037, a different caller: getSubsetEcModel.m's
     % same-starting-GEM check crashed with "Undefined function 'dispEM'" instead of
     % naming the reactions that could not be matched.
     clear bigEcModel smallGEM
