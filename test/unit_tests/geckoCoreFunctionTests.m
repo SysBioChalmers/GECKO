@@ -922,3 +922,58 @@ function testWriteOpenKineticsPredictorInputReactionSubsetIndex_tc0023(testCase)
     verifyEqual(testCase, rows, expected)
 end
 
+
+function testPfbaEnzymesMinimisesEnzymeUsage_tc0024(testCase)
+    % pfbaEnzymes: fixes the current objective (growth, via R5) as a constraint,
+    % then minimises total usage_prot_* flux. Cross-verified against geckopy's
+    % pfba_enzymes on the identical fixture (uniform kcat=10, protein pool
+    % Ptot=0.5/f=0.5/sigma=0.5): geckopy reports growth=90 exactly and
+    % enzyme_usage=125 exactly at the enzyme-minimising solution, using only
+    % usage_prot_P5 (every other usage reaction at 0). pfbaEnzymes.m reproduces
+    % the same solution up to the ~1e-6 relative safety margin it borrows from
+    % solveLP's own minFlux=1 "fake metabolite" technique (see solveLP.m) ---
+    % a deliberate, documented difference from geckopy's exact constraint, not
+    % a divergence in the algorithm itself.
+    geckoPath = findGECKOroot;
+    adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
+    model = getGeckoTestModel();
+    ecModel = makeEcModel(model, false, adapter);
+    ecModel = getECfromGEM(ecModel);
+    ecModel.ec.kcat(:) = 10;
+    ecModel.ec.source(:) = {'manual'};
+    ecModel = applyKcatConstraints(ecModel);
+    ecModel = setProtPoolSize(ecModel, 0.5, 0.5, 0.5, adapter);
+
+    solution = pfbaEnzymes(ecModel);
+    verifyEqual(testCase, solution.stat, 1)
+    verifyEqual(testCase, solution.objectiveValue, 90, 'RelTol', 1e-5)
+    verifyEqual(testCase, solution.enzymeUsage, 125, 'RelTol', 1e-5)
+
+    usageIdx = find(startsWith(ecModel.rxns, 'usage_prot_'));
+    usageFlux = solution.x(usageIdx);
+    [~, order] = ismember(strcat('usage_prot_', {'P1','P2','P3','P4','P5'}), ecModel.rxns(usageIdx));
+    verifyEqual(testCase, usageFlux(order), [0;0;0;0;125], 'AbsTol', 1e-3)
+
+    % fractionOfOptimum halves both the fixed growth target and, on this
+    % fixture, the enzyme usage needed to reach it.
+    solutionHalf = pfbaEnzymes(ecModel, 'fractionOfOptimum', 0.5);
+    verifyEqual(testCase, solutionHalf.objectiveValue, 45, 'RelTol', 1e-5)
+    verifyEqual(testCase, solutionHalf.enzymeUsage, 62.5, 'RelTol', 1e-5)
+
+    % rxnId overrides which reaction is fixed as the objective before
+    % minimising enzyme usage, without erroring.
+    solutionR3 = pfbaEnzymes(ecModel, 'rxnId', 'R3');
+    verifyEqual(testCase, solutionR3.stat, 1)
+
+    % gecko-light guard: no usage_prot_<id> machinery to minimise over.
+    lightModel = makeEcModel(model, true, adapter);
+    lightModel = getECfromGEM(lightModel);
+    try
+        pfbaEnzymes(lightModel);
+        raised = false;
+    catch
+        raised = true;
+    end
+    verifyTrue(testCase, raised)
+end
+
