@@ -1505,3 +1505,48 @@ function testGetSubsetEcModelMismatchedReactionsErrorsCleanly_tc0040(testCase)
     verifyTrue(testCase, contains(msg, 'R3'))
 end
 
+
+function testMakeEcModelFallsBackToKeggForUnmatchedGenes_tc0041(testCase)
+    % makeEcModel's stage 7 used to leave a UniProt-unmatched gene with no enzyme
+    % data at all (MW, sequence, accession all missing -- the gene is dropped from
+    % ec.genes entirely and only shows up in the noUniprot warning). It now
+    % consults databases.kegg for any such gene: ec.enzymes gets the UniProt
+    % accession carried on the KEGG row, or -- when that column is itself empty,
+    % as tested here -- the bare KEGG gene id as a fallback identifier, with
+    % ec.mw/ec.sequence still coming from the KEGG row either way.
+    geckoPath = findGECKOroot;
+    adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
+    model = getGeckoTestModel();
+
+    scratchDir = fullfile(tempname);
+    cleanupDir = onCleanup(@() rmdir(scratchDir, 's'));
+    mkdir(fullfile(scratchDir,'data'));
+    % G5 is deliberately absent from uniprot.tsv (only G1-G4 are UniProt-matched)
+    % but present in kegg.tsv with an empty UniProt-accession column (col 1),
+    % forcing the bare-KEGG-gene-id fallback rather than the more common
+    % KEGG-row-carries-a-UniProt-accession case.
+    fid = fopen(fullfile(scratchDir,'data','uniprot.tsv'), 'w');
+    fprintf(fid, 'Entry\tGene Names (ordered locus)\tEC number\tMass\tSequence\n');
+    fprintf(fid, 'P1\tG1\t1.1.1.1\t10000\tMRAL\n');
+    fprintf(fid, 'P2\tG2\t1.1.1.1\t20000\tMNTD\n');
+    fprintf(fid, 'P3\tG3\t1.1.1.1\t30000\tMSYN\n');
+    fprintf(fid, 'P4\tG4\t1.1.2.1\t40000\tMDFM\n');
+    fclose(fid);
+    fid = fopen(fullfile(scratchDir,'data','kegg.tsv'), 'w');
+    fprintf(fid, ',G5,G5,1.1.1.3,50000,"",MLFK\n');
+    fclose(fid);
+
+    keggAdapter = adapter;
+    keggAdapter.params.path = scratchDir;
+
+    [ecModel, noUniprot] = makeEcModel(model, false, keggAdapter);
+
+    g5 = strcmp(ecModel.ec.genes,'G5');
+    verifyTrue(testCase, any(g5))
+    verifyEqual(testCase, ecModel.ec.enzymes{g5}, 'G5') % bare KEGG gene id, no UniProt accession on the row
+    verifyEqual(testCase, ecModel.ec.mw(g5), 50000)
+    verifyEqual(testCase, ecModel.ec.sequence{g5}, 'MLFK')
+    % G5 was resolved (via KEGG), so it must not appear in noUniprot.
+    verifyEqual(testCase, sum(strcmp(noUniprot,'G5')), 0)
+end
+
