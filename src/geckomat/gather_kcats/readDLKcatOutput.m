@@ -73,8 +73,10 @@ if all(cellfun(@isempty,kcats)) || all(strcmpi(kcats,'NA'))
     error('DLKcat file does not contain any kcat values, please run runDLKcat() first.')
 end
 
-% Check that all substrates are in the model
-matchMets = ismember(subs,model.metNames);
+% Check that all substrates are in the model (case-insensitive: an SBML loader can
+% normalise metabolite-name capitalisation differently than whatever produced the
+% DLKcat input, and that must not read as a genuinely missing substrate).
+matchMets = ismember(lower(subs),lower(model.metNames));
 if ~all(matchMets)
     errorText = 'DLKcat was likely run with an input file that was generated from another ecModel, as the following substrates from DLKcat output cannot be found in model.metNames:';
     dispEM(errorText,true,subs(~matchMets),false)

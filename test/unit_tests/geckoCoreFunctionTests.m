@@ -1329,3 +1329,58 @@ function testGetStandardKcatUsesSubsystemKcatWheneverAnyMatches_tc0034(testCase)
     verifyEqual(testCase, r1kcat, 50)
 end
 
+
+function testReadDLKcatOutputSubstrateMatchIsCaseInsensitive_tc0035(testCase)
+    % readDLKcatOutput's substrate-name check against model.metNames used ismember's
+    % default case-sensitive comparison, so a DLKcat output file whose substrate names
+    % differ only in case from model.metNames -- e.g. an SBML loader that normalises
+    % capitalisation differently than whatever produced the DLKcat input -- was reported
+    % as "substrate not found" even though the same metabolite is genuinely present.
+    geckoPath = findGECKOroot;
+    adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
+    model = getGeckoTestModel();
+    ecModel = makeEcModel(model, false, adapter);
+    ecModel = getECfromGEM(ecModel);
+
+    scratchDir = fullfile(tempname);
+    cleanupDir = onCleanup(@() rmdir(scratchDir, 's'));
+    mkdir(scratchDir);
+    outFile = fullfile(scratchDir,'DLKcat_output_test.tsv');
+    fid = fopen(outFile,'w');
+    fprintf(fid,'rxns\tgenes\tsubstrates\tsmiles\tsequence\tkcat\n');
+    % 'M1' (uppercase) against the model's own lowercase 'm1' -- must still match.
+    fprintf(fid,'R2_EXP_1\tG1\tM1\tsmiles\tseq\t12.5\n');
+    fclose(fid);
+
+    kcatList = readDLKcatOutput(ecModel, 'outFile', outFile, 'modelAdapter', adapter);
+    verifyEqual(testCase, kcatList.kcats, 12.5)
+    verifyEqual(testCase, kcatList.substrates, {'M1'})
+end
+
+
+function testMakeEcModelSortsEcGenes_tc0036(testCase)
+    % makeEcModel's ec.genes (and ec.enzymes/ec.mw/ec.sequence, permuted in lockstep) used
+    % to keep model.genes' own array order -- whatever order genes happened to be declared
+    % in, not necessarily alphabetical or reproducible across independently-built models of
+    % the same organism. ecTestGEM's genes (G1..G5) already happen to be declared
+    % alphabetically, so the existing makeEcModel tests don't exercise this: reorder them
+    % here so a passing test actually proves the sort, not an already-sorted pass-through.
+    geckoPath = findGECKOroot;
+    adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
+    model = getGeckoTestModel();
+    newOrder = [5 3 1 4 2];
+    model.genes = model.genes(newOrder);
+    model.rxnGeneMat = model.rxnGeneMat(:,newOrder);
+
+    ecModel = makeEcModel(model, false, adapter);
+
+    expEcGenes = {'G1';'G2';'G3';'G4';'G5'};
+    verifyEqual(testCase,ecModel.ec.genes,expEcGenes)
+    expEnzymes = {'P1';'P2';'P3';'P4';'P5'};
+    verifyEqual(testCase,ecModel.ec.enzymes,expEnzymes)
+    expMW = [10000;20000;30000;40000;50000];
+    verifyEqual(testCase,ecModel.ec.mw,expMW)
+    expSequence = {'MRAL';'MNTD';'MSYN';'MDFM';'MLFK'};
+    verifyEqual(testCase,ecModel.ec.sequence,expSequence);
+end
+
