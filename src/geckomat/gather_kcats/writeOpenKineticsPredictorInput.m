@@ -150,8 +150,10 @@ clearedS = reducedS(:, origRxnIdxs);
 % Find all substrates (negative stoichiometry)
 [substrateIdxs, reactionIdxs] = find(clearedS < 0);
 
-% Find proteins catalyzing each reaction
-[proteinIdxs, rxnEnzIdxs] = find(model.ec.rxnEnzMat(reactionIdxs,:)');
+% Find proteins catalyzing each reaction. reactionIdxs indexes clearedS's
+% columns, i.e. positions within the requested ecRxnsIdx subset -- map back
+% through ecRxnsIdx to the absolute model.ec.rxnEnzMat row before indexing it.
+[proteinIdxs, rxnEnzIdxs] = find(model.ec.rxnEnzMat(ecRxnsIdx(reactionIdxs),:)');
 
 %% Build output: sequence and SMILES
 sequences = model.ec.sequence(proteinIdxs);
