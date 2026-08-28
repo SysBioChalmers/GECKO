@@ -8,17 +8,17 @@
 
 `DLKcatIgnoreMets.tsv` is a table of small metabolites/ions that `writeDLKcatInput` filters out as DLKcat does not predict kcat values for such substrates. This can either be in this folder (and a pull request to the GitHub repository will make this more widely available to other users), or by keeping a copy of this file in the `data` subfolder of the model adapter folder.
 
-### Maximum k<sub>cat</sub> values from BREndA
+### k<sub>cat</sub> values from BRENDA
 
-`max_KCAT.txt` is a collation of maximum kcat values per organism, reaction and substrate, as gathered from the BRENDA database. For actively maintained BRENDA-parsing tooling, see the [geckopy](https://github.com/SysBioChalmers/geckopy) Python package.
+`kcat.tsv` collates kcat values per organism, reaction and substrate, as gathered from the BRENDA database. Both a per-triple maximum (`kcat_max`) and median (`kcat_median`) are recorded; `loadBRENDAdata` currently uses `kcat_max` only. Produced by the `geckopy brenda-refresh` CLI in the [geckopy](https://github.com/SysBioChalmers/geckopy) Python package, which maintains the actively updated BRENDA-parsing tooling for both toolboxes; `mw.tsv` and `sa.tsv` below come from the same tool and share its `#`-prefixed release-version header line.
 
-### Maximum molecular weights
+### Molecular weights
 
-`max_MW.txt` is a collation of maximum molecular weights per organism and reaction (without explicitly referring to an protein identifier), as gathered from the BRENDA database. For actively maintained BRENDA-parsing tooling, see the [geckopy](https://github.com/SysBioChalmers/geckopy) Python package.
+`mw.tsv` is a collation of molecular weights per organism and reaction (without explicitly referring to a protein identifier), as gathered from the BRENDA database.
 
 ### Specific activities from BRENDA
 
-`max_SA.txt` is a collation of maximum specific activities per organism, reaction and substrate, as gathered from the BRENDA database. For actively maintained BRENDA-parsing tooling, see the [geckopy](https://github.com/SysBioChalmers/geckopy) Python package.
+`sa.tsv` collates specific activities per organism, reaction and substrate, as gathered from the BRENDA database. Like `kcat.tsv`, both a maximum (`sa_max`) and median (`sa_median`) are recorded; `loadBRENDAdata` currently uses `sa_max` only.
 
 ### Taxonomic tree
 

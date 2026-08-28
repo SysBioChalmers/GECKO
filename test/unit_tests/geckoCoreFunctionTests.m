@@ -778,15 +778,21 @@ function testFuzzyKcatMatchingWildcardIsPrefixNotSubstring_tc0021(testCase)
     % match tier resolves trivially instead of falling through phylDist's
     % KEGG/genus lookup (which a fabricated organism name cannot resolve, causing
     % every candidate to be filtered out regardless of the EC match itself).
-    fid = fopen(fullfile(brendaDir, 'max_KCAT.txt'), 'w');
-    fprintf(fid, 'EC1.9.9.9\tm1\ttestus testus//*//*\t42\t*\n');
-    fprintf(fid, 'EC4.2.1.1\tm1\ttestus testus//*//*\t500\t*\n');
+    fid = fopen(fullfile(brendaDir, 'kcat.tsv'), 'w');
+    fprintf(fid, '# BRENDA release test-fixture - kcat in 1/s\n');
+    fprintf(fid, 'ec_code\tsubstrate\torganism\tkcat_max\tkcat_median\tn\treferences\n');
+    fprintf(fid, '1.9.9.9\tm1\ttestus testus\t42\t42\t1\t*\n');
+    fprintf(fid, '4.2.1.1\tm1\ttestus testus\t500\t500\t1\t*\n');
     fclose(fid);
-    fid = fopen(fullfile(brendaDir, 'max_MW.txt'), 'w');
-    fprintf(fid, 'EC0.0.0.0\t*\tplaceholder//*//*\t1\t*\n');
+    fid = fopen(fullfile(brendaDir, 'mw.tsv'), 'w');
+    fprintf(fid, '# BRENDA release test-fixture - molecular weight in g/mol\n');
+    fprintf(fid, 'ec_code\tsubstrate\torganism\tmw\tn\treferences\n');
+    fprintf(fid, '0.0.0.0\t*\tplaceholder\t1\t1\t*\n');
     fclose(fid);
-    fid = fopen(fullfile(brendaDir, 'max_SA.txt'), 'w');
-    fprintf(fid, 'EC0.0.0.0\t*\tplaceholder//*//*\t1\t*\n');
+    fid = fopen(fullfile(brendaDir, 'sa.tsv'), 'w');
+    fprintf(fid, '# BRENDA release test-fixture - specific activity in umol/min/mg\n');
+    fprintf(fid, 'ec_code\tsubstrate\torganism\tsa_max\tsa_median\tn\treferences\n');
+    fprintf(fid, '0.0.0.0\t*\tplaceholder\t1\t1\t1\t*\n');
     fclose(fid);
     % getPhylDistStructPath also resolves under params.path/data; reuse ecTestGEM's
     % own real fixture rather than fabricating a second one.
@@ -844,15 +850,21 @@ function testFuzzyKcatMatchingTieBreakRespectsWildcardCount_tc0022(testCase)
     % Substrate deliberately does not match the model's actual substrate (m1), so
     % origin 1/2 (which require a substrate match) are skipped and both tokens are
     % forced to resolve at origin 3, isolating the wildcard-count tie-break.
-    fid = fopen(fullfile(brendaDir, 'max_KCAT.txt'), 'w');
-    fprintf(fid, 'EC9.9.9.1\tunrelatedsubstrate\ttestus testus//*//*\t42\t*\n');
-    fprintf(fid, 'EC9.9.7.5\tunrelatedsubstrate\ttestus testus//*//*\t500\t*\n');
+    fid = fopen(fullfile(brendaDir, 'kcat.tsv'), 'w');
+    fprintf(fid, '# BRENDA release test-fixture - kcat in 1/s\n');
+    fprintf(fid, 'ec_code\tsubstrate\torganism\tkcat_max\tkcat_median\tn\treferences\n');
+    fprintf(fid, '9.9.9.1\tunrelatedsubstrate\ttestus testus\t42\t42\t1\t*\n');
+    fprintf(fid, '9.9.7.5\tunrelatedsubstrate\ttestus testus\t500\t500\t1\t*\n');
     fclose(fid);
-    fid = fopen(fullfile(brendaDir, 'max_MW.txt'), 'w');
-    fprintf(fid, 'EC0.0.0.0\t*\tplaceholder//*//*\t1\t*\n');
+    fid = fopen(fullfile(brendaDir, 'mw.tsv'), 'w');
+    fprintf(fid, '# BRENDA release test-fixture - molecular weight in g/mol\n');
+    fprintf(fid, 'ec_code\tsubstrate\torganism\tmw\tn\treferences\n');
+    fprintf(fid, '0.0.0.0\t*\tplaceholder\t1\t1\t*\n');
     fclose(fid);
-    fid = fopen(fullfile(brendaDir, 'max_SA.txt'), 'w');
-    fprintf(fid, 'EC0.0.0.0\t*\tplaceholder//*//*\t1\t*\n');
+    fid = fopen(fullfile(brendaDir, 'sa.tsv'), 'w');
+    fprintf(fid, '# BRENDA release test-fixture - specific activity in umol/min/mg\n');
+    fprintf(fid, 'ec_code\tsubstrate\torganism\tsa_max\tsa_median\tn\treferences\n');
+    fprintf(fid, '0.0.0.0\t*\tplaceholder\t1\t1\t1\t*\n');
     fclose(fid);
     % getPhylDistStructPath also resolves under params.path/data; reuse ecTestGEM's
     % own real fixture rather than fabricating a second one.
@@ -1269,14 +1281,20 @@ function testFuzzyKcatMatchingWildcardExhaustionDoesNotCrash_tc0033(testCase)
     cleanupDir = onCleanup(@() rmdir(scratchDir, 's'));
     % Deliberately unrelated to '9.9.9.9' at every wildcard level, so the
     % escalation loop runs out of levels without ever matching.
-    fid = fopen(fullfile(brendaDir, 'max_KCAT.txt'), 'w');
-    fprintf(fid, 'EC5.5.5.5\tm1\ttestus testus//*//*\t42\t*\n');
+    fid = fopen(fullfile(brendaDir, 'kcat.tsv'), 'w');
+    fprintf(fid, '# BRENDA release test-fixture - kcat in 1/s\n');
+    fprintf(fid, 'ec_code\tsubstrate\torganism\tkcat_max\tkcat_median\tn\treferences\n');
+    fprintf(fid, '5.5.5.5\tm1\ttestus testus\t42\t42\t1\t*\n');
     fclose(fid);
-    fid = fopen(fullfile(brendaDir, 'max_MW.txt'), 'w');
-    fprintf(fid, 'EC0.0.0.0\t*\tplaceholder//*//*\t1\t*\n');
+    fid = fopen(fullfile(brendaDir, 'mw.tsv'), 'w');
+    fprintf(fid, '# BRENDA release test-fixture - molecular weight in g/mol\n');
+    fprintf(fid, 'ec_code\tsubstrate\torganism\tmw\tn\treferences\n');
+    fprintf(fid, '0.0.0.0\t*\tplaceholder\t1\t1\t*\n');
     fclose(fid);
-    fid = fopen(fullfile(brendaDir, 'max_SA.txt'), 'w');
-    fprintf(fid, 'EC0.0.0.0\t*\tplaceholder//*//*\t1\t*\n');
+    fid = fopen(fullfile(brendaDir, 'sa.tsv'), 'w');
+    fprintf(fid, '# BRENDA release test-fixture - specific activity in umol/min/mg\n');
+    fprintf(fid, 'ec_code\tsubstrate\torganism\tsa_max\tsa_median\tn\treferences\n');
+    fprintf(fid, '0.0.0.0\t*\tplaceholder\t1\t1\t1\t*\n');
     fclose(fid);
     % getPhylDistStructPath also resolves under params.path/data; reuse
     % ecTestGEM's own real fixture rather than fabricating a second one.
@@ -1503,5 +1521,54 @@ function testGetSubsetEcModelMismatchedReactionsErrorsCleanly_tc0040(testCase)
     verifyTrue(testCase, errored)
     verifyFalse(testCase, contains(msg, 'dispEM'))
     verifyTrue(testCase, contains(msg, 'R3'))
+end
+
+
+function testLoadBRENDAdataParsesNewTsvFormat_tc0041(testCase)
+    % loadBRENDAdata migrated from the old headerless max_KCAT.txt/max_MW.txt/max_SA.txt
+    % (EC-prefixed, //-suffixed organism) to kcat.tsv/mw.tsv/sa.tsv, the format produced by
+    % the geckopy brenda-refresh CLI: a `#`-prefixed release line, a tab-delimited column
+    % header, bare EC codes, plain organism strings, and (for kcat/sa) both a _max and
+    % _median aggregate per row. Confirms the new shape parses correctly and that the max
+    % column -- not median -- is the one used, matching this function's previous,
+    % single-aggregate behaviour.
+    geckoPath = findGECKOroot;
+    adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
+
+    scratchDir = fullfile(tempname);
+    cleanupDir = onCleanup(@() rmdir(scratchDir, 's'));
+    mkdir(fullfile(scratchDir,'data'));
+    fid = fopen(fullfile(scratchDir,'data','kcat.tsv'), 'w');
+    fprintf(fid, '# BRENDA release 2026.1 generated 2026-05-28 - CC BY 4.0 - kcat in 1/s\n');
+    fprintf(fid, 'ec_code\tsubstrate\torganism\tkcat_max\tkcat_median\tn\treferences\n');
+    fprintf(fid, '1.2.3.4\tm1\ttestorg\t99\t5\t3\tPMID:1\n');
+    fclose(fid);
+    fid = fopen(fullfile(scratchDir,'data','mw.tsv'), 'w');
+    fprintf(fid, '# BRENDA release 2026.1 generated 2026-05-28 - CC BY 4.0 - molecular weight in g/mol\n');
+    fprintf(fid, 'ec_code\tsubstrate\torganism\tmw\tn\treferences\n');
+    fprintf(fid, '1.2.3.4\t*\ttestorg\t60000\t1\t*\n');
+    fclose(fid);
+    fid = fopen(fullfile(scratchDir,'data','sa.tsv'), 'w');
+    fprintf(fid, '# BRENDA release 2026.1 generated 2026-05-28 - CC BY 4.0 - specific activity in umol/min/mg\n');
+    fprintf(fid, 'ec_code\tsubstrate\torganism\tsa_max\tsa_median\tn\treferences\n');
+    fprintf(fid, '1.2.3.4\t*\ttestorg\t120\t7\t2\tPMID:2\n');
+    fclose(fid);
+
+    brendaAdapter = adapter;
+    brendaAdapter.params.path = scratchDir;
+
+    [KCATcell, SAcell] = loadBRENDAdata('modelAdapter', brendaAdapter);
+
+    verifyEqual(testCase, KCATcell{1}, {'1.2.3.4'})
+    verifyEqual(testCase, KCATcell{2}, {'m1'})
+    verifyEqual(testCase, KCATcell{3}, {'testorg'})
+    verifyEqual(testCase, KCATcell{4}, 99, 'AbsTol', 1e-9) % kcat_max, not kcat_median (5)
+
+    verifyEqual(testCase, SAcell{1}, {'1.2.3.4'})
+    verifyEqual(testCase, SAcell{2}, {'testorg'})
+    % sa_max [umol/min/mg -> mmol/s/g] (x1/60) times mw [g/mol -> g/mmol] (x1/1000)
+    expectedKcat = (120/60) * (60000/1000);
+    verifyEqual(testCase, SAcell{3}, expectedKcat, 'AbsTol', 1e-9)
+    verifyEqual(testCase, SAcell{4}, 60000/1000, 'AbsTol', 1e-9)
 end
 
