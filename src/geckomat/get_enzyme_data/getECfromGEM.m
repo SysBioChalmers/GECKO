@@ -60,9 +60,12 @@ end
 
 [~,rxnIdxs] = ismember(rxnNames,model.rxns);
 
-% Check if eccodes are valid
+% Check if eccodes are valid. Each of the four dot-separated components must
+% be either a run of digits or the wildcard '-'; \w (the previous class) also
+% matches letters and underscores, so malformed codes such as '1.1.1.n12' or
+% '1_2_3_4' were incorrectly accepted.
 eccodes = model.eccodes;
-invalidEC = regexprep(eccodes,'(\d\.(\w|-)+\.(\w|-)+\.(\w|-)+)(;\w+\.(\w|-)+\.(\w|-)+\.(\w|-)+)*(.*)','$3');
+invalidEC = regexprep(eccodes,'(\d+\.(\d+|-)\.(\d+|-)\.(\d+|-))(;\d+\.(\d+|-)\.(\d+|-)\.(\d+|-))*(.*)','$3');
 invalidEC = ~cellfun(@isempty,invalidEC);
 invalidECpos = find(invalidEC);
 if any(invalidECpos)

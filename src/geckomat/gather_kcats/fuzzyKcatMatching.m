@@ -237,10 +237,18 @@ for k = 1:length(EC)
             success   = true;
             wc_num(k) = sum(EC{k}=='-');
         else
-            dot_pos  = [2 strfind(EC{k},'.')];
             wild_num = sum(EC{k}=='-');
-            wc_text  = '-.-.-.-';
-            EC{k}    = [EC{k}(1:dot_pos(4-wild_num)) wc_text(1:2*wild_num+1)];
+            if wild_num >= 4
+                %Already fully wildcarded ('-.-.-.-') and still no match --
+                %stop here instead of computing dot_pos(4-wild_num) with
+                %wild_num==4, an out-of-range index. kcat(k)/origin(k) keep
+                %their zero-initialised "no match" values.
+                success = true;
+            else
+                dot_pos  = [2 strfind(EC{k},'.')];
+                wc_text  = '-.-.-.-';
+                EC{k}    = [EC{k}(1:dot_pos(4-wild_num)) wc_text(1:2*wild_num+1)];
+            end
         end
     end
 end

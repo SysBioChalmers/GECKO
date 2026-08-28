@@ -133,6 +133,10 @@ for i = 1:length(prev_EC)
         end
     end
 end
+%When prev_EC carries both a code and its own wildcard parent (e.g.
+%'EC1.1.1.1' and 'EC1.1.1.-'), both independently pair-match the same
+%new_EC entry above and the loop appends the resolved code twice; dedupe.
+int_EC = unique(int_EC,'stable');
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function int_EC = compare_wild(EC)
