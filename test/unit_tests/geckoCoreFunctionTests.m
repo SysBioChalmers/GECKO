@@ -1505,3 +1505,94 @@ function testGetSubsetEcModelMismatchedReactionsErrorsCleanly_tc0040(testCase)
     verifyTrue(testCase, contains(msg, 'R3'))
 end
 
+
+function testMergeKcatsGeneralizesToNSourcesWithExactTier_tc0041(testCase)
+    % mergeKcats generalizes mergeDLKcatAndFuzzyKcats (kept as a thin,
+    % deprecated wrapper around it) from two fixed inputs to any number of
+    % kcatLists, each of which may itself mix several sources via a per-row
+    % kcatSource field -- e.g. fetchOpenKineticsPredictor's own output,
+    % modelled here as okpList, carrying both an exact BRENDA hit (no
+    % wildcard/origin metadata at all) and a CataPro prediction.
+    fuzzyList.rxns        = {'R1'; 'R2'};
+    fuzzyList.kcats       = [5; 8];
+    fuzzyList.genes       = {{}; {}};
+    fuzzyList.substrates  = {{}; {}};
+    fuzzyList.eccodes     = {'1.1.1.1'; '1.1.1.2'};
+    fuzzyList.wildcardLvl = [0; 0];
+    fuzzyList.origin      = [1; 1];
+    fuzzyList.source      = 'brenda';
+
+    dlkcatList.rxns       = {'R1'; 'R3'};
+    dlkcatList.kcats      = [50; 30];
+    dlkcatList.genes      = {'G1'; 'G3'};
+    dlkcatList.substrates = {'m1'; 'm3'};
+    dlkcatList.source     = 'DLKcat';
+
+    okpList.rxns       = {'R1'; 'R4'};
+    okpList.kcats      = [99; 15];
+    okpList.genes      = {[]; []};
+    okpList.substrates = {[]; []};
+    okpList.kcatSource = {'BRENDA'; 'CataPro'};
+
+    mergedKcatList = mergeKcats({fuzzyList, dlkcatList, okpList}, ...
+        {'database_exact', 'database_top', 'dlkcat'});
+
+    % R1: fuzzy gives 'database_top' (wc=0, origin=1); OKP's BRENDA row has
+    % no wildcard/origin metadata at all, so it is an exact hit --
+    % 'database_exact' outranks 'database_top', so OKP's 99 wins, not
+    % fuzzy's 5 or DLKcat's 50 (DLKcat is never even reached for R1).
+    r1 = strcmp(mergedKcatList.rxns, 'R1');
+    verifyEqual(testCase, sum(r1), 1)
+    verifyEqual(testCase, mergedKcatList.kcats(r1), 99)
+
+    % R2: only in fuzzy ('database_top') -- kept.
+    r2 = strcmp(mergedKcatList.rxns, 'R2');
+    verifyEqual(testCase, mergedKcatList.kcats(r2), 8)
+
+    % R3: only in DLKcat -- kept via the 'dlkcat' tier.
+    r3 = strcmp(mergedKcatList.rxns, 'R3');
+    verifyEqual(testCase, mergedKcatList.kcats(r3), 30)
+
+    % R4: only in OKP as 'CataPro', a source not listed in sourcePriority --
+    % dropped, not present in the merged output at all.
+    verifyEqual(testCase, sum(strcmp(mergedKcatList.rxns, 'R4')), 0)
+end
+
+
+function testMergeDLKcatAndFuzzyKcatsDelegatesToMergeKcats_tc0042(testCase)
+    % mergeDLKcatAndFuzzyKcats is now a thin wrapper around mergeKcats;
+    % confirms its own three-tier priority order (database_top > dlkcat >
+    % database_bottom) still resolves exactly as before the split, using the
+    % same style of fixture testKcats_tc0011 already established for this
+    % function (kept as a positional call, since that is still this
+    % function's own documented calling convention).
+    fuzzyList.rxns        = {'R1'; 'R2'; 'R3'};
+    fuzzyList.kcats       = [5; 8; 2];
+    fuzzyList.genes       = {{}; {}; {}};
+    fuzzyList.substrates  = {{}; {}; {}};
+    fuzzyList.eccodes     = {'1.1.1.1'; '1.1.1.2'; '1.1.1.3'};
+    % R1: origin 1, top-tier match. R2: no BRENDA row at all (DLKcat only).
+    % R3: wildcardLvl 1, only within the bottom tier's wildcard allowance.
+    fuzzyList.wildcardLvl = [0; NaN; 1];
+    fuzzyList.origin      = [1; NaN; 6];
+    fuzzyList.source      = 'brenda';
+
+    dlkcatList.rxns       = {'R1'; 'R2'};
+    dlkcatList.kcats      = [50; 80];
+    dlkcatList.genes      = {'G1'; 'G2'};
+    dlkcatList.substrates = {'m1'; 'm2'};
+    dlkcatList.source     = 'DLKcat';
+
+    mergedKcatList = mergeDLKcatAndFuzzyKcats(dlkcatList, fuzzyList);
+
+    % R1: BRENDA top-tier match (5) wins over DLKcat (50).
+    r1 = strcmp(mergedKcatList.rxns, 'R1');
+    verifyEqual(testCase, mergedKcatList.kcats(r1), 5)
+    % R2: no BRENDA row -- DLKcat (80) is the only candidate.
+    r2 = strcmp(mergedKcatList.rxns, 'R2');
+    verifyEqual(testCase, mergedKcatList.kcats(r2), 80)
+    % R3: BRENDA bottom-tier wildcard match (2), no DLKcat row to compete.
+    r3 = strcmp(mergedKcatList.rxns, 'R3');
+    verifyEqual(testCase, mergedKcatList.kcats(r3), 2)
+end
+
