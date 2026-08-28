@@ -179,9 +179,6 @@ while forceWClvl > 0
     eccodes=regexprep(eccodes,'(.)*(\.\d+)(\.-)*$','$1\.-$3');
     forceWClvl = forceWClvl - 1;
 end
-if forceWClvl == 1
-    eccodes = regexprep(eccodes,'.*','-\.-\.-\.-');
-end
 
 PB = progressReport(mM, 'Gathering kcat values by fuzzy matching to BRENDA database');
 %Main loop:
