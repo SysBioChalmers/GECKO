@@ -2,10 +2,18 @@
 function [KCATcell, SAcell] = loadBRENDAdata(varargin)
 % loadBRENDAdata  Load kcat and specific activity data from BRENDA files.
 %
-% Reads the BRENDA data files (max_KCAT.txt, max_SA.txt and max_MW.txt) from
-% the BRENDA database folder defined by the model adapter, and returns the
-% kcat values and specific activities (the latter converted to kcat values
-% using the molecular weights).
+% Reads the BRENDA data files (kcat.tsv, sa.tsv and mw.tsv) from the BRENDA
+% database folder defined by the model adapter, and returns the kcat values
+% and specific activities (the latter converted to kcat values using the
+% molecular weights).
+%
+% kcat.tsv and sa.tsv each carry both a max and a median aggregate per
+% (EC, substrate, organism) triple; only the max column is used here,
+% matching this function's previous, single-aggregate behaviour. The three
+% files are produced by the `geckopy brenda-refresh` CLI (see geckopy's
+% databases.brenda_loader for the Python-side reader of the same files) and
+% each starts with a `#`-prefixed release-version line followed by a
+% tab-delimited column header, both skipped on read.
 %
 % Name-Value Arguments
 % --------------------
@@ -15,11 +23,9 @@ function [KCATcell, SAcell] = loadBRENDAdata(varargin)
 % Returns
 % -------
 % KCATcell : cell
-%     kcat data extracted from BRENDA, with the leading "EC" removed from
-%     the EC numbers.
+%     kcat data extracted from BRENDA.
 % SAcell : cell
-%     specific activity data extracted from BRENDA, with the leading "EC"
-%     removed from the EC numbers.
+%     specific activity data extracted from BRENDA.
 %
 % Examples
 % --------
@@ -43,16 +49,20 @@ if isempty(modelAdapter)
 end
 
 basePath      = modelAdapter.getBrendaDBFolder();
-KCAT_file      = fullfile(basePath,'max_KCAT.txt');
-SA_file        = fullfile(basePath,'max_SA.txt');
-MW_file        = fullfile(basePath,'max_MW.txt');
+KCAT_file      = fullfile(basePath,'kcat.tsv');
+SA_file        = fullfile(basePath,'sa.tsv');
+MW_file        = fullfile(basePath,'mw.tsv');
 
-%Extract BRENDA DATA from files information
-KCATcell       = openDataFile(KCAT_file,1);
+%Extract BRENDA DATA from files information. kcat.tsv/sa.tsv are seven
+%columns (ec_code, substrate, organism, value_max, value_median, n,
+%references); the max column (4) is used. mw.tsv is six columns (no
+%substrate-level aggregation choice): ec_code, substrate, organism, value,
+%n, references.
+KCATcell      = openDataFile(KCAT_file,1,'%q %q %q %f %f %f %q',4);
 scalingFactor = 1/60;    %[umol/min/mg] -> [mmol/s/g]    Old: 60 [umol/min/mg] -> [mmol/h/g]
-SA            = openDataFile(SA_file,scalingFactor);
+SA            = openDataFile(SA_file,scalingFactor,'%q %q %q %f %f %f %q',4);
 scalingFactor = 1/1000;  %[g/mol] -> [g/mmol]
-MW            = openDataFile(MW_file,scalingFactor);
+MW            = openDataFile(MW_file,scalingFactor,'%q %q %q %f %f %q',4);
 
 for i=1:4
     SAcell{i} = [];
@@ -95,21 +105,10 @@ for i=1:length(SA{1})
     previousEC = SA{1}(i);
 end
 
-%remove EC in front of all the EC numbers
-if ~isempty(KCATcell{1})
-    KCATcell{1} = extractAfter(KCATcell{1},2);
-end
-if ~isempty(SAcell{1})
-    SAcell{1} = extractAfter(SAcell{1},2);
-end
-
-function data_cell = openDataFile(fileName,scalingFactor)
+function data_cell = openDataFile(fileName,scalingFactor,formatSpec,valueCol)
 fID          = fopen(fileName);
-data_cell    = textscan(fID,'%q %q %q %f %q','delimiter','\t');
+raw          = textscan(fID,formatSpec,'delimiter','\t','HeaderLines',2);
 fclose(fID);
-data_cell{4} = data_cell{4}*scalingFactor;
-%Split string for each organism in the BRENDA data
-%{name, taxonomy, KEGG code}
-data_cell{3}  = regexprep(data_cell{3},'\/\/.*','');
+data_cell    = {raw{1}, raw{2}, raw{3}, raw{valueCol}*scalingFactor};
 end
 end
