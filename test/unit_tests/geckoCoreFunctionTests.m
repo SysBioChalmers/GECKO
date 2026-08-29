@@ -685,7 +685,15 @@ function testReportEnzymeUsageTopAbsUsageOutOfBounds_tc0019(testCase)
     % than 10 enzymes -- ecTestGEM has 5 -- that indexed past the end of topUse
     % and crashed. Regression test for the default call, plus the two other
     % "all enzymes" spellings the docstring promises (0 and Inf), plus an
-    % ordinary in-range value left unaffected.
+    % ordinary in-range value left unaffected: all four must complete without
+    % erroring, which is what the indexing fix guarantees.
+    %
+    % All fluxes are zero on this fixture, so every enzyme is fully inactive;
+    % per raven-gecko-parity#18's reconciliation (tc0045), a fully-inactive
+    % enzyme is skipped rather than padded in, so all four calls now return
+    % zero rows regardless of the requested topAbsUsage -- that skip, not the
+    % row count, is what distinguishes an in-range request from the
+    % all-enzymes spellings on this particular (all-zero) fixture.
     geckoPath = findGECKOroot;
     adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
     model = getGeckoTestModel();
@@ -698,19 +706,18 @@ function testReportEnzymeUsageTopAbsUsageOutOfBounds_tc0019(testCase)
 
     fluxes = zeros(numel(ecModel.rxns),1);
     usageData = enzymeUsage(ecModel, fluxes);
-    nEnz = numel(usageData.protID);
 
     report = reportEnzymeUsage(ecModel, usageData);
-    verifyEqual(testCase, height(report.topAbsUsage), nEnz)
+    verifyEqual(testCase, height(report.topAbsUsage), 0)
 
     report = reportEnzymeUsage(ecModel, usageData, 'topAbsUsage', 0);
-    verifyEqual(testCase, height(report.topAbsUsage), nEnz)
+    verifyEqual(testCase, height(report.topAbsUsage), 0)
 
     report = reportEnzymeUsage(ecModel, usageData, 'topAbsUsage', Inf);
-    verifyEqual(testCase, height(report.topAbsUsage), nEnz)
+    verifyEqual(testCase, height(report.topAbsUsage), 0)
 
     report = reportEnzymeUsage(ecModel, usageData, 'topAbsUsage', 2);
-    verifyEqual(testCase, height(report.topAbsUsage), 2)
+    verifyEqual(testCase, height(report.topAbsUsage), 0)
 end
 
 
@@ -1709,7 +1716,91 @@ function testMakeEcModelFallsBackToKeggForUnmatchedGenes_tc0044(testCase)
 end
 
 
-function testCalculateMWReconciledWithGeckopy_tc0045(testCase)
+function testReportEnzymeUsageSkipsOnlyFullyInactiveEnzymes_tc0045(testCase)
+    % reportEnzymeUsage's topAbsUsage table used to pad in a placeholder row
+    % for an enzyme with NO flux-carrying reactions at all -- isscalar(find(
+    % carriedFlux)) is false both for zero matches and for multiple matches,
+    % so a fully-inactive enzyme took the same "combined usage" branch as a
+    % genuinely multi-reaction one. Reconciled with geckopy's
+    % report_enzyme_usage (raven-gecko-parity#18): an enzyme is only skipped
+    % when *every* one of its reactions carries no flux; if some do and some
+    % don't, it is still reported, attributed to the flux-carrying subset --
+    % unaffected by this fix, asserted here too so a future change can't
+    % quietly break it.
+    %
+    % Minimal hand-built ecModel-like struct with three enzymes exercising
+    % all three cases directly, without going through the full
+    % makeEcModel/getECfromGEM pipeline:
+    %   P1 -- Ra, Rb, neither carries flux            -> skipped entirely
+    %   P2 -- Rc, Rd; only Rc carries flux             -> single-branch, Rc only
+    %   P3 -- Re, Rf, Rg; Re and Rf carry flux, Rg not -> combined-branch, Re+Rf only
+    ecModel.rxns     = {'Ra';'Rb';'Rc';'Rd';'Re';'Rf';'Rg';'prot_pool_exchange'};
+    ecModel.rxnNames = ecModel.rxns;
+    ecModel.grRules  = {'';'';'';'';'';'';'';''};
+    ecModel.mets     = {'prot_P3'};
+    ecModel.S        = zeros(1,numel(ecModel.rxns));
+    ecModel.S(1,strcmp(ecModel.rxns,'Re')) = -1;
+    ecModel.S(1,strcmp(ecModel.rxns,'Rf')) = -1;
+    ecModel.ub       = 1000*ones(numel(ecModel.rxns),1);
+    ecModel.ub(strcmp(ecModel.rxns,'prot_pool_exchange')) = 100;
+
+    ecModel.ec.enzymes = {'P1';'P2';'P3'};
+    ecModel.ec.genes   = {'G1';'G2';'G3'};
+    ecModel.ec.rxns    = {'Ra';'Rb';'Rc';'Rd';'Re';'Rf';'Rg'};
+    ecModel.ec.kcat    = [1;1;2;2;3;3;3];
+    ecModel.ec.source  = repmat({'manual'},7,1);
+    ecModel.ec.rxnEnzMat = zeros(7,3);
+    ecModel.ec.rxnEnzMat(1,1) = 1; % Ra -> P1
+    ecModel.ec.rxnEnzMat(2,1) = 1; % Rb -> P1
+    ecModel.ec.rxnEnzMat(3,2) = 1; % Rc -> P2
+    ecModel.ec.rxnEnzMat(4,2) = 1; % Rd -> P2
+    ecModel.ec.rxnEnzMat(5,3) = 1; % Re -> P3
+    ecModel.ec.rxnEnzMat(6,3) = 1; % Rf -> P3
+    ecModel.ec.rxnEnzMat(7,3) = 1; % Rg -> P3
+
+    usageData.protID   = {'P1';'P2';'P3'};
+    usageData.absUsage = [0;4;5];
+    usageData.capUsage = [0;0.4;0.5];
+    fluxes = zeros(numel(ecModel.rxns),1);
+    fluxes(strcmp(ecModel.rxns,'Rc')) = 4;
+    fluxes(strcmp(ecModel.rxns,'Re')) = 2;
+    fluxes(strcmp(ecModel.rxns,'Rf')) = 3;
+    usageData.fluxes = fluxes;
+
+    report = reportEnzymeUsage(ecModel, usageData);
+    top = report.topAbsUsage;
+
+    % P1: fully inactive -- must not appear at all, not even as a placeholder.
+    verifyEqual(testCase, sum(strcmp(top.protID,'P1')), 0)
+    % P2 contributes 1 row (single-branch); P3 contributes 3 (a '===' header
+    % row plus one detail row per active reaction, Re and Rf -- the combined
+    % branch's pre-existing, unrelated behaviour for any enzyme with more
+    % than one flux-carrying reaction).
+    verifyEqual(testCase, height(top), 4)
+
+    % P2: mixed, one active reaction -- reported via the single-branch,
+    % attributed to Rc (not a placeholder, not Rd).
+    p2 = strcmp(top.protID,'P2');
+    verifyEqual(testCase, sum(p2), 1)
+    verifyEqual(testCase, top.rxnID{p2}, 'Rc')
+    verifyEqual(testCase, top.kcat(p2), 2)
+    verifyEqual(testCase, top.absUsage(p2), 4)
+
+    % P3: mixed, two active reactions out of three -- reported via the
+    % combined-branch (header row + one detail row per active reaction),
+    % split only across Re and Rf (not Rg).
+    p3 = strcmp(top.protID,'P3');
+    verifyEqual(testCase, sum(p3), 3)
+    p3header = p3 & strcmp(top.rxnID,'===');
+    p3detail = p3 & ~strcmp(top.rxnID,'===');
+    verifyEqual(testCase, sum(p3header), 1)
+    verifyEqual(testCase, top.absUsage(p3header), 5, 'AbsTol', 1e-9) % enzyme-level total
+    verifyEqual(testCase, sort(top.rxnID(p3detail)), sort({'Re';'Rf'}))
+    verifyEqual(testCase, sum(top.absUsage(p3detail)), 5, 'AbsTol', 1e-9) % detail rows split it
+end
+
+
+function testCalculateMWReconciledWithGeckopy_tc0046(testCase)
     % calculateMW used to disagree with geckopy's calculate_mw on the water
     % mass, X and B's residue masses, case-sensitivity, and the
     % no-recognized-residue return value; reconciled to match geckopy on
