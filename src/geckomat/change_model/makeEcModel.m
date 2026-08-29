@@ -28,7 +28,8 @@ function [model, noUniprot] = makeEcModel(model, varargin)
 %     draw reactions are added to the model, but their usage is not yet
 %     implemented (due to absent kcat values at this stage).
 % noUniprot : cell
-%     genes for which no information could be found in the Uniprot database.
+%     genes for which no information could be found in either the Uniprot
+%     or, as fallback, the KEGG database.
 %
 % Notes
 % -----
@@ -46,6 +47,8 @@ function [model, noUniprot] = makeEcModel(model, varargin)
 %     values. For geckoLight the structure is different, where each reaction
 %     can have multiple isozymes.
 % 7.  Add enzyme information fields to model.ec structure: MW, sequence.
+%     Data is gathered from UniProt, with KEGG used as a fallback for genes
+%     that UniProt does not match.
 % 8.  Populate model.ec structure with information from each reaction.
 % 9.  [Skipped with geckoLight:] Add proteins as pseudometabolites.
 % 10. Add prot_pool pseudometabolite.
@@ -69,7 +72,9 @@ function [model, noUniprot] = makeEcModel(model, varargin)
 % - notes : notes that can be set by downstream functions - not set here.
 % - eccodes : enzyme codes for each enzyme - not set here.
 % - genes : the genes involved in the kcats - not necessarily the same as model.genes, since some genes may not be found in databases etc.
-% - enzymes : Uniprot protein identifiers for the genes.
+% - enzymes : Uniprot protein identifiers for the genes; for a gene that
+%   was only matched via the KEGG fallback and has no UniProt accession on
+%   its KEGG entry, the bare KEGG gene identifier is used instead.
 % - mw : molecular weights of the enzymes.
 % - sequence : sequence of the genes/enzymes.
 % - concs : concentrations of the enzymes - not set here.

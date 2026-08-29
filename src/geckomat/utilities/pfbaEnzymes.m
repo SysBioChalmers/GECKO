@@ -39,22 +39,10 @@ function solution = pfbaEnzymes(model, varargin)
 %
 % Notes
 % -----
-% Ported from geckopy's pfba_enzymes (utilities/pfba_enzymes.py), itself
-% ported from the legacy geckopy package (Carrasco et al., 2023,
-% https://doi.org/10.1128/spectrum.01705-23), geckopy/flux_analysis.py:342-386
-% (pfba_protein).
-%
-% Fixes the objective as a constraint the same way solveLP's own minFlux=1
-% option does internally: a "fake metabolite" produced by each reaction
-% with the stoichiometry it has in the objective, constrained to at least
-% the target value (with the same 1e-6 relative safety margin solveLP
-% itself applies, to avoid spurious infeasibility from solver tolerance).
-%
-% usage_prot_<id> reactions are forward-only (lb=0) in the standard GECKO 3
-% layout. If any has lb<0 (reverse flux enabled), minimising its raw flux
-% would not minimise |flux| for that reaction, unlike geckopy's cobra-based
-% forward/reverse variable split --- this function errors in that case
-% rather than silently building an incorrect objective.
+% usage_prot_<id> reactions must be forward-only (lb=0), the standard
+% GECKO 3 layout; if any has a negative lower bound (reverse flux enabled),
+% pfbaEnzymes errors instead of building an objective that would fail to
+% minimise |flux| for that reaction.
 %
 % See also
 % --------

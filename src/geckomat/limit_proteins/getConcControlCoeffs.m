@@ -1,7 +1,12 @@
 function [enz, controlCoeffs] = getConcControlCoeffs(model, varargin)
 % getConcControlCoeffs  Calculate control coefficients of protein usage.
 %
-% Calculate control coefficients of protein usage.
+% For each candidate protein whose usage reaction is running above the
+% given limit fraction of its upper bound, temporarily increases that
+% protein's usage upper bound by foldChange, re-solves, and expresses the
+% resulting growth-rate increase per unit of concentration increase as a
+% control coefficient. Proteins below the limit, or whose increase does
+% not measurably raise growth, get a coefficient of zero.
 %
 % Parameters
 % ----------
@@ -16,15 +21,19 @@ function [enz, controlCoeffs] = getConcControlCoeffs(model, varargin)
 % foldChange : double
 %     a value how much to increase the protein concentration (default 2).
 % limit : double
-%     a value to determine limiting protein usage reactions, calculated as
-%     usage/concentration (default 0).
+%     threshold on the usage/concentration ratio (how saturated a
+%     protein's usage upper bound already is); only proteins with a ratio
+%     above this value are evaluated for a control coefficient (default
+%     0, i.e. any nonzero usage is evaluated).
 %
 % Returns
 % -------
 % enz : logical
-%     a logical vector of enzymes analyzed.
+%     flags which of the input proteins had a usage/concentration ratio
+%     above limit and were evaluated for a control coefficient.
 % controlCoeffs : double
-%     a vector array with the coefficients.
+%     control coefficient per input protein (0 for proteins not evaluated
+%     or whose increase did not measurably raise growth).
 %
 % Examples
 % --------

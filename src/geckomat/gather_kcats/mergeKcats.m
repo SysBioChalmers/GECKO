@@ -45,14 +45,26 @@ function mergedKcatList = mergeKcats(kcatLists, sourcePriority, varargin)
 % Returns
 % -------
 % mergedKcatList : struct
-%     merged kcatList. Per-row provenance is preserved verbatim in the
-%     kcatSource field; the scalar source field is set to 'merged'. Row
-%     order follows the order of the input lists (each list's surviving
-%     rows, in turn), so a two-list call behaves like the legacy
-%     mergeDLKcatAndFuzzyKcats.
+%     merged kcatList, keeping only the winning rows per reaction; see
+%     Notes below for its fields. Row order follows the order of the input
+%     lists (each list's surviving rows, in turn), so a two-list call
+%     behaves like the legacy mergeDLKcatAndFuzzyKcats.
 %
 % Notes
 % -----
+% The mergedKcatList structure has the following fields:
+%
+% - source : 'merged'.
+% - kcatSource : per-row provenance, preserved verbatim from the input
+%   lists.
+% - rxns : reaction identifiers.
+% - genes : gene identifiers (where provided by the input lists).
+% - substrates : substrate names (where provided by the input lists).
+% - kcats : selected kcat value in /sec.
+% - eccodes : as used to query BRENDA (where applicable).
+% - wildcardLvl : wildcard level of the source match (where applicable).
+% - origin : specificity level of the source match (where applicable).
+%
 % The origin parameter:
 %
 % - 1 : correct organism, correct substrate, kcat.

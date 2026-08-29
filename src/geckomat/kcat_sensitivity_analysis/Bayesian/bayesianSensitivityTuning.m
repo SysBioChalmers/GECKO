@@ -1,14 +1,16 @@
 function [ecModel, rmseTrace, kcatTrace, sigmaLogTrace, diagnostics, posteriorSamples, prunedModel] = bayesianSensitivityTuning(ecModel,varargin)
 % bayesianSensitivityTuning  ABC-SMC Bayesian tuning of ecModel kcat values.
 %
-% Performs an iterative ABC-SMC Bayesian parameter-estimation procedure that
-% searches for kcat values which allow an ecModel to match experimental flux
-% data. It repeatedly proposes new sets of kcats, simulates the ecModel with
-% each set, measures the discrepancy (RMSE) between predicted and observed
-% growth/fluxes, and then keeps only the best-performing samples. Over
-% generations, it gradually narrows the acceptable region and adapts the
-% proposal distribution - learning correlations between kcats - until it
-% converges on a posterior distribution of plausible kcat values.
+% Performs an iterative ABC-SMC (Approximate Bayesian Computation Sequential
+% Monte Carlo) procedure that searches for kcat values which let an ecModel
+% match experimental growth rates and exchange fluxes. Each generation
+% samples new kcat sets, simulates the ecModel with FBA, scores each set by
+% RMSE against the experimental data, and keeps only the best-performing
+% samples to guide the next generation's sampling. Kcats from high-confidence
+% sources (e.g. BRENDA) are shrunk back toward their prior unless the data
+% strongly supports a change, while kcats from more uncertain sources (e.g.
+% DLKcat) are allowed to move further. The procedure stops once the best
+% RMSE drops below rmseThreshold or maxGenerations is reached.
 %
 % Parameters
 % ----------
@@ -40,7 +42,10 @@ function [ecModel, rmseTrace, kcatTrace, sigmaLogTrace, diagnostics, posteriorSa
 % sigmaLogTrace : double
 %     history of posterior sigmaLog per generation.
 % diagnostics : struct
-%     detailed diagnostics structure.
+%     per-generation diagnostics for inspecting convergence, including
+%     acceptance rates, shrinkage weights, RMSE and parameter-diversity
+%     statistics, per-source breakdowns, and (when pruning is enabled) a
+%     pruning report.
 % posteriorSamples : struct
 %     final generation's accepted samples.
 % prunedModel : struct
@@ -49,50 +54,10 @@ function [ecModel, rmseTrace, kcatTrace, sigmaLogTrace, diagnostics, posteriorSa
 %
 % Notes
 % -----
-% How it works:
-%
-% 1. INITIALIZATION: Starts with prior kcat values from databases (BRENDA,
-%    DLKcat) or user-defined values, each with an associated uncertainty.
-% 2. SAMPLING: At each generation, proposes new kcat sets by sampling from
-%    distributions centered on the current best values. Early generations
-%    explore broadly; later generations refine around high-quality solutions.
-% 3. EVALUATION: For each proposed kcat set, runs flux balance analysis (FBA)
-%    to simulate the model and computes RMSE against experimental data:
-%    (a) maximum growth rates from literature; (b) exchange fluxes
-%    (uptake/secretion rates) from literature.
-% 4. SELECTION: Accepts the best-performing samples (lowest RMSE) and uses
-%    them to guide the next generation's sampling. Poor samples are discarded.
-% 5. CONVERGENCE: Over generations (~50-100), the algorithm narrows the
-%    search space around parameter values that fit data well, learns
-%    correlations between parameters (low-rank covariance structure), applies
-%    source-specific constraints (e.g. trusted BRENDA values stay closer to
-%    prior than uncertain DLKcat predictions), and enforces sparsity
-%    (parameters with weak evidence snap back to prior).
-% 6. OUTPUT: Returns the best kcat set, plus the full posterior distribution
-%    for uncertainty quantification and an optional pruned model where
-%    insignificant parameter changes are reverted to prior values.
-%
 % The posteriorSamples structure has the following fields:
 %
 % - kcats : matrix of all accepted kcat sets.
 % - rmse : vector of corresponding RMSE values.
-%
-% Biological validation: the algorithm finds kcat values that allow the model
-% to accurately predict organism growth rate under specific media conditions
-% and carbon source utilization and metabolite secretion patterns. These
-% predictions are validated against independent experimental measurements
-% from the literature, ensuring the model reflects real biological behavior.
-%
-% Key features:
-%
-% - Respects prior knowledge: parameters with high-confidence priors (BRENDA
-%   measurements, user-validated values) change only with strong evidence.
-% - Handles uncertainty: uncertain predictions (DLKcat) are allowed to
-%   deviate more freely to match experimental data.
-% - Avoids overfitting: sparsity constraints and variance caps prevent
-%   excessive parameter changes that don't improve model fit.
-% - Provides uncertainty: returns full posterior distribution, not just point
-%   estimates, enabling ensemble predictions and confidence intervals.
 %
 % Examples
 % --------
@@ -766,7 +731,9 @@ function [prunedModel, pruningReport] = pruneInsignificantKcats(ecModel, kcat0, 
 %
 % OUTPUTS
 %   prunedModel     ecModel with insignificant kcats snapped back to prior
-%   pruningReport   Struct with detailed pruning results
+%   pruningReport   Struct summarizing which kcats were pruned vs. kept
+%                   (counts and indices, overall and by source), and the
+%                   RMSE before and after pruning
 
 fprintf('\n=== Post-Optimization Sensitivity Analysis ===\n');
 

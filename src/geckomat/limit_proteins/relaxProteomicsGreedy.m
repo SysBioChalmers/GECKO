@@ -44,22 +44,16 @@ function result = relaxProteomicsGreedy(model, varargin)
 %
 % Notes
 % -----
-% Ported from geckopy's relax_proteomics_greedy
-% (limit_proteins/relax_proteomics_greedy.py), itself ported from the
-% legacy geckopy package (Carrasco et al., 2023,
-% https://doi.org/10.1128/spectrum.01705-23),
-% geckopy/experimental/relaxation.py.
-%
 % Different relaxation strategy from flexibilizeEnzConcs: this one is
 % shadow-price-ordered (one solve per step) and often converges in fewer
 % iterations when one or two enzymes dominate the infeasibility. The
 % trade-off is that it fully unconstrains each picked enzyme with no
 % tighten-back pass, so the result is looser (less proteomics-faithful).
 %
-% Two distinct non-convergence outcomes, matching the Python side exactly:
-% running out of eligible candidates before reaching minimalGrowth returns
-% normally with converged=false; exhausting maxIterations while candidates
-% still remained raises an error instead.
+% There are two distinct non-convergence outcomes: running out of
+% eligible candidates before reaching minimalGrowth returns normally with
+% converged=false; exhausting maxIterations while candidates still
+% remained raises an error instead.
 %
 % See also
 % --------

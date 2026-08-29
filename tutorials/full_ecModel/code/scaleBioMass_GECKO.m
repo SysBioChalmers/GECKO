@@ -12,8 +12,9 @@ function model = scaleBioMass_GECKO(model,component,new_value,balance_out,dispOu
 %   balance_out     (string, optional) biomass component that will be used
 %                   to balance out the biomass composition, so that the
 %                   total mass adds up to 1 g/gDCW. This is highly
-%                   recommended (default = empty, no scaling takes place)
-%   dispOutput      (bool, optional) displayed outoupt (default = true)
+%                   recommended (default = empty, no balancing takes place)
+%   dispOutput      (bool, optional) whether to print the resulting biomass
+%                   composition to the command window (default = true)
 %
 % Output:
 %   model          (struct) modified yeast-GEM model

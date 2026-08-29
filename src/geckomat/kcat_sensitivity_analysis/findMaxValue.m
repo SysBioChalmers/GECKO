@@ -1,9 +1,9 @@
 function [value,organism,parameter] = findMaxValue(EC_cell,BRENDA,SA_cell)
 % findMaxValue  Get the maximum kinetic parameter for a set of EC numbers.
 %
-% Gets the maximum kinetic parameter (Kcat or S.A.*Mw) from the BRENDA files
-% for the specified set of EC numbers. The algorithm also returns the
-% organism and the parameter type (Kcat or S.A.) of the query.
+% Searches the BRENDA kcat and specific-activity (S.A.*Mw) data for the given
+% EC numbers and returns the largest value found, together with the organism
+% it came from and which parameter type (Kcat or S.A.) it is.
 %
 % Parameters
 % ----------

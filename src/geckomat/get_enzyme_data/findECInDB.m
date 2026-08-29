@@ -1,7 +1,13 @@
 function [EC,conflicts] = findECInDB(gene_set, DBecNum, DBMW, geneIndex, geneHashMap)
-% findECInDB  Collect enzyme codes for genes from the UniProt or KEGG database.
+% findECInDB  Look up EC numbers for a reaction's gene set in a UniProt or KEGG index.
 %
-% Collects enzyme codes for genes from the UniProt or KEGG database.
+% For each gene, finds its matching database entries and takes the EC number
+% of the lightest-weight matching protein when a single EC number applies to
+% that gene; genes with several distinct EC numbers among their matches are
+% also reported as conflicts (the first match is still used for EC). When
+% gene_set has more than one gene (an enzyme complex), the numbers found for
+% each gene are combined by intersection where they share a match (wildcards
+% such as "-" are accounted for), otherwise by union.
 %
 % Parameters
 % ----------
@@ -19,7 +25,8 @@ function [EC,conflicts] = findECInDB(gene_set, DBecNum, DBMW, geneIndex, geneHas
 % Returns
 % -------
 % EC : char
-%     all EC numbers found for the genes in gene_set.
+%     EC numbers that apply to gene_set, each prefixed with "EC" and
+%     separated by ";" (e.g. "EC1.1.1.1;EC1.1.1.2").
 % conflicts : cell
 %     genes with multiple protein matches.
 %

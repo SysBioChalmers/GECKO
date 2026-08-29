@@ -8,9 +8,8 @@ function [KCATcell, SAcell] = loadBRENDAdata(varargin)
 % molecular weights).
 %
 % kcat.tsv and sa.tsv each carry both a max and a median aggregate per
-% (EC, substrate, organism) triple; only the max column is used here,
-% matching this function's previous, single-aggregate behaviour. The three
-% files are produced by the `geckopy brenda-refresh` CLI (see geckopy's
+% (EC, substrate, organism) triple; only the max column is used here. The
+% three files are produced by the `geckopy brenda-refresh` CLI (see geckopy's
 % databases.brenda_loader for the Python-side reader of the same files) and
 % each starts with a `#`-prefixed release-version line followed by a
 % tab-delimited column header, both skipped on read.

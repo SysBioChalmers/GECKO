@@ -27,11 +27,23 @@ function [model, foundComplex, proposedComplex] = applyComplexData(model, vararg
 %     ecModel where model.ec.rxnEnzMat is populated with subunit
 %     stochiometries.
 % foundComplex : table
-%     complexes that fully matched between the model and the complex data.
+%     complexes that fully matched between the model and the complex data
+%     (columns described under Notes).
 % proposedComplex : table
 %     complexes where the model contained >75% but <100% of the proteins
 %     indicated by Complex Portal, or where the model contained more
-%     proteins than indicated for that complex in Complex Portal.
+%     proteins than indicated for that complex in Complex Portal (same
+%     columns as foundComplex, plus a percentage match column).
+%
+% Notes
+% -----
+% foundComplex and proposedComplex share the following columns: rxn
+% (reaction identifier), complexID and name (Complex Portal identifiers),
+% genes (gene names of the complex subunits), protID_model (matched protein
+% IDs from the model), protID_complex (protein IDs listed by Complex
+% Portal), and stochiometry (subunit stoichiometry from Complex Portal).
+% proposedComplex has an additional match column with the percentage match
+% between the model proteins and the proposed complex.
 %
 % Examples
 % --------

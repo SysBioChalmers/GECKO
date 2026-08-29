@@ -10,6 +10,12 @@ function [solL, solF] = plotlightVSfull()
 % 3. The flux distributions are mapped back to the conventional GEM to
 % allow for comparison.
 % 4. A plot is made and stored in ../output/lightVSfull.pdf.
+%
+% Output:
+%   solL    flux distribution of the light ecModel at maximum growth rate,
+%           mapped onto the conventional (non-ec) GEM reactions
+%   solF    flux distribution of the full ecModel at maximum growth rate,
+%           mapped onto the conventional (non-ec) GEM reactions
 
 %
 adapterLocation = fullfile(findGECKOroot,'tutorials','full_ecModel','YeastGEMAdapter.m');
