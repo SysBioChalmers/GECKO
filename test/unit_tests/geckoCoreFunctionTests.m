@@ -1799,3 +1799,26 @@ function testReportEnzymeUsageSkipsOnlyFullyInactiveEnzymes_tc0045(testCase)
     verifyEqual(testCase, sum(top.absUsage(p3detail)), 5, 'AbsTol', 1e-9) % detail rows split it
 end
 
+
+function testCalculateMWReconciledWithGeckopy_tc0046(testCase)
+    % calculateMW used to disagree with geckopy's calculate_mw on the water
+    % mass, X and B's residue masses, case-sensitivity, and the
+    % no-recognized-residue return value; reconciled to match geckopy on
+    % all four (raven-gecko-parity#11): water 18.01528 (was 18); X and B
+    % computed as the mean of their possible standard residues (was
+    % pre-rounded constants 126.50/114.60); case-insensitive (was
+    % case-sensitive, silently ignoring lowercase); NaN, not 18, when no
+    % residue is recognized.
+    verifyTrue(testCase, isnan(calculateMW('')))
+    verifyTrue(testCase, isnan(calculateMW('123 ---')))
+    % X: mean of the 20 standard residues (118.885) + water.
+    verifyEqual(testCase, calculateMW('X'), 136.90028, 'AbsTol', 1e-9)
+    % B: mean(D,N) = 114.595 + water.
+    verifyEqual(testCase, calculateMW('B'), 132.61028, 'AbsTol', 1e-9)
+    % Case-insensitive: all four letters count as 'A', not just the two
+    % uppercase ones.
+    verifyEqual(testCase, calculateMW('AaAa'), 302.33528, 'AbsTol', 1e-9)
+    % The 20 standard residues once each, plus the water constant only.
+    verifyEqual(testCase, calculateMW('ACDEFGHIKLMNPQRSTVWY'), 2395.71528, 'AbsTol', 1e-9)
+end
+
