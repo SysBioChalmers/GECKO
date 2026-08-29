@@ -15,7 +15,7 @@ function MW = calculateMW(sequence)
 % Returns
 % -------
 % MW : double
-%     the molecular weight number, or NaN if no residue was recognized.
+%     the molecular weight in Da, or NaN if no residue was recognized.
 
 % A	Alanine
 % B	Aspartic acid or Asparagine

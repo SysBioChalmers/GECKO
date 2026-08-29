@@ -1,7 +1,8 @@
 function usageReport = reportEnzymeUsage(ecModel, usageData, varargin)
 % reportEnzymeUsage  Summarize the results from enzymeUsage.
 %
-% Summarizes the results from enzymeUsage.
+% Ranks the enzymes from enzymeUsage into two tables: those with the
+% highest capacity usage, and those with the highest absolute usage.
 %
 % Parameters
 % ----------
@@ -13,17 +14,23 @@ function usageReport = reportEnzymeUsage(ecModel, usageData, varargin)
 % Name-Value Arguments
 % --------------------
 % highCapUsage : double
-%     minimum ratio of enzyme capacity usage to be considered as high usage
-%     (default 0.9, referring to a minimum of 90% capacity usage).
+%     minimum fraction of enzyme capacity usage to be listed as high usage
+%     (default 0.9, i.e. at least 90% capacity usage).
 % topAbsUsage : double
-%     number of top enzymes with highest absolute usage (default 10,
-%     returning the top 10 enzymes with highest absolute usage. With Inf or
-%     0, all enzymes are returned).
+%     how many top enzymes by absolute usage to list (default 10). Use 0
+%     or Inf to list all enzymes instead. Enzymes whose reactions carry no
+%     flux are never listed here, as they do not contribute to the
+%     solution.
 %
 % Returns
 % -------
-% usageReport : table
-%     table with summary information.
+% usageReport : struct
+%     highCapUsage : table
+%         enzymes at or above the highCapUsage threshold.
+%     topAbsUsage : table
+%         the topAbsUsage enzymes with the highest absolute usage.
+%     totalUsageFlux : double
+%         total protein pool used, i.e. the upper bound of prot_pool_exchange.
 %
 % Examples
 % --------
