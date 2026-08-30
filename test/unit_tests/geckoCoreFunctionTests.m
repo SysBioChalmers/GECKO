@@ -1820,3 +1820,39 @@ function testCopyECtoGEMOverwriteFalseStillFillsEmptyEntries_tc0050(testCase)
     verifyEqual(testCase,result.eccodes{2},'3.3.3.3') % filled in
 end
 
+function testMakeEcModelSubSystemsMatchModelConvention_tc0051(testCase)
+    % GECKO#412: usage_prot_* and prot_pool_exchange always assigned a
+    % bare-char subSystems entry ('Protein usage'), regardless of whether
+    % the rest of the model used that convention or the nested
+    % cell-array-of-cell-arrays one (the common case for a real GEM).
+    % Reported against a RAVEN release whose addRxns did not reconcile a
+    % resulting bare-char/nested mix, so checkModelStruct rejected it at
+    % save time ("the subSystems field must be a cell array"). Current
+    % RAVEN's addRxns reconciles that mismatch on its own, so this test
+    % cannot reproduce the save-time crash directly; it instead pins down
+    % that makeEcModel itself now always emits a value matching the
+    % model's own convention, rather than relying on addRxns to paper
+    % over a mismatch.
+    geckoPath = findGECKOroot;
+    adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
+    model = getGeckoTestModel();
+    model.subSystems = repmat({{''}}, size(model.rxns));
+    model.subSystems(strcmp(model.rxns,'R2')) = {{'Metabolism'}};
+
+    ecModel = makeEcModel(model, false, adapter);
+
+    isNested  = cellfun(@iscell, ecModel.subSystems);
+    isCellStr = cellfun(@ischar, ecModel.subSystems);
+    verifyTrue(testCase, all(isNested) || all(isCellStr), ...
+        'ecModel.subSystems mixes bare chars with nested cells')
+
+    usageIdx = find(startsWith(ecModel.rxns,'usage_prot_'));
+    verifyGreaterThan(testCase, numel(usageIdx), 0)
+    for i = 1:numel(usageIdx)
+        verifyEqual(testCase, ecModel.subSystems{usageIdx(i)}, {'Protein usage'})
+    end
+
+    poolIdx = find(strcmp(ecModel.rxns,'prot_pool_exchange'));
+    verifyEqual(testCase, ecModel.subSystems{poolIdx}, {'Protein usage'})
+end
+

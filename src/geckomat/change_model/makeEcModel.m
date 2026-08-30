@@ -436,6 +436,18 @@ pool.metNotes     = 'Enzyme-usage protein pool';
 model = addMets(model,pool);
 
 %11: Add protein usage reactions.
+% Match the model's own subSystems convention (a cell array of chars, or a
+% cell array of cell arrays of chars -- RAVEN's checkModelStruct requires
+% the whole field to be consistently one or the other) rather than always
+% assuming one shape: mixing the two here is what left new ecModels unable
+% to be saved once RAVEN's own reconciliation in addRxns stopped papering
+% over the mismatch.
+if isfield(model,'subSystems') && ~isempty(model.subSystems) && ...
+        ~any(cellfun(@iscell,model.subSystems))
+    protUsageSubSystem = {'Protein usage'};
+else
+    protUsageSubSystem = {{'Protein usage'}};
+end
 if ~geckoLight
     rxnNum                    = numel(proteinMets.mets);
     usageRxns.rxns            = strcat('usage_',proteinMets.mets);
@@ -451,7 +463,7 @@ if ~geckoLight
     usageRxns.rev             = ones(rxnNum,1);
     usageRxns.grRules         = ec.genes(uniprotSortId);
     if isfield(model,'subSystems')
-        usageRxns.subSystems  = repmat({'Protein usage'}, rxnNum, 1);
+        usageRxns.subSystems  = repmat(protUsageSubSystem, rxnNum, 1);
     end
     model = addRxns(model,usageRxns);
 end
@@ -465,7 +477,7 @@ poolRxn.lb              = 0;
 poolRxn.ub              = 1000;
 poolRxn.rev             = 1;
 if isfield(model,'subSystems')
-    poolRxn.subSystems  = 'Protein usage';
+    poolRxn.subSystems  = protUsageSubSystem;
 end
 model = addRxns(model,poolRxn);
 
