@@ -17,10 +17,10 @@ function [model, rxnIdx] = selectKcatValue(model,kcatList,varargin)
 %     following fields:
 %
 %     - source : e.g. 'DLKcat' or 'gotenzymes'.
-%     - rxns : reaction identifiers, matching model.rxns.
-%     - genes : gene identifiers, matching model.genes.
-%     - substrate : substrates, matching model.mets.
-%     - kcat : predicted kcat value in /sec.
+%     - rxns : reaction identifiers, matching model.ec.rxns.
+%     - genes : gene identifiers, matching model.ec.genes.
+%     - substrates : substrate names, matching model.metNames.
+%     - kcats : predicted kcat value in /sec.
 %
 % Name-Value Arguments
 % --------------------

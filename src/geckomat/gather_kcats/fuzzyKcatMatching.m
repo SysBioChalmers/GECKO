@@ -39,10 +39,10 @@ function kcatList = fuzzyKcatMatching(model, varargin)
 %
 % - source : 'brenda'.
 % - rxns : reaction identifiers.
-% - substrate : substrate names.
-% - kcat : proposed kcat value in /sec.
+% - substrates : substrate names.
+% - kcats : proposed kcat value in /sec.
 % - eccodes : as used to query BRENDA.
-% - wildCardLvl : which level of EC wild-card was necessary to find a match
+% - wildcardLvl : which level of EC wild-card was necessary to find a match
 %   (0: w.x.y.z; 1: w.x.y.-; 2: w.x.-.-; 3: w.-.-.-).
 % - origin : which level of specificity was necessary to find a match
 %   (1: correct organism, correct substrate, kcat; 2: any organism, correct
@@ -366,7 +366,7 @@ function [kcat,matches] = matchKcat(EC,subs,substrCoeff,KCATcell,organism,...
     org_index,SAcell,KCATcellMatches,SAcellMatches)
 
 %Will go through BRENDA and will record any match. Afterwards, it will
-%return the average value and the number of matches attained.
+%return the maximum value and the number of matches attained.
 kcat    = [];
 matches = 0;
 

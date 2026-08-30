@@ -1,9 +1,9 @@
 % This file accompanies the GECKO 3 Nature Protocols paper https://doi.org/10.1038/s41596-023-00931-7.
 %
 % The function of this script is to demonstrate the reconstruction and
-% analysis of a *full* ecModel. As example, it here uses the yeast-GEM
-% model of Saccharomyces cerevisiae as starting point. However, this script
-% does not claim to construct a "production-ready" ecYeastGEM model:
+% analysis of a *light* ecModel. As example, it here uses the Human-GEM
+% model of Homo sapiens as starting point. However, this script
+% does not claim to construct a "production-ready" ecHumanGEM model:
 % dependent on how you intend to use the ecModel it may require additional
 % curation and evaluation.
 %

@@ -1,13 +1,15 @@
 function ecModel  = updateProtPool(ecModel, varargin)
 % updateProtPool  Update the protein pool to compensate for proteomics.
 %
-% Obsolete since GECKO 3.2.0, as all (measured and unmeasured) enzymes are
-% drawn from the protein pool. Instead, use setProtPoolSize. See
-% https://github.com/SysBioChalmers/GECKO/issues/375 for explanation.
-%
-% Before GECKO 3.2.0: updates the protein pool to compensate for measured
-% proteomics data (in model.ec.concs), as only the unmeasured enzymes draw
-% from the protein pool.
+% Only applicable to ecModels where unmeasured enzymes draw from the
+% protein pool while measured enzymes (constrained via model.ec.concs) do
+% not: shrinks the protein pool exchange upper bound so it represents only
+% the remaining, unmeasured protein content (total protein content Ptot
+% minus the measured protein mass). For ecModels generated with GECKO
+% 3.2.0 or later, where all enzymes draw from the protein pool regardless
+% of whether they are measured, this function raises an error instead;
+% use setProtPoolSize (see
+% https://github.com/SysBioChalmers/GECKO/issues/375).
 %
 % Parameters
 % ----------
@@ -27,8 +29,8 @@ function ecModel  = updateProtPool(ecModel, varargin)
 % Returns
 % -------
 % ecModel : struct
-%     an ecModel where model.ec.concs is populated with protein
-%     concentrations.
+%     an ecModel where the protein pool exchange reaction's upper bound
+%     has been reduced to reflect only the unmeasured protein content.
 %
 % Examples
 % --------

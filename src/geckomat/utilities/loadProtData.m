@@ -22,19 +22,26 @@ function protData = loadProtData(replPerCond, varargin)
 %     that was previously made by loadProtData.
 % filterData : logical
 %     whether abundances should be filtered. If false, minVal, maxRSD,
-%     maxMissing and addStdevs are not considered (default true).
+%     maxMissing, cutLowest and addStdevs are not considered (default true).
 % modelAdapter : ModelAdapter
 %     a loaded model adapter (default: the current default model adapter).
 % minVal : double
-%     threshold of mean protein measurement per condition (default 0).
+%     minimum mean protein measurement per condition; proteins with a lower
+%     mean abundance are discarded (set to NaN) for that condition (default
+%     0, i.e. no lower threshold).
 % maxRSD : double
-%     maximum relative standard per condition (default 1).
+%     maximum relative standard deviation (RSD, the standard deviation
+%     across replicates divided by their mean) allowed per condition;
+%     proteins exceeding it are discarded (set to NaN) for that condition
+%     (default 1, i.e. RSD up to 100%).
 % maxMissing : double
-%     ratio of replicates for which a protein level might be missing
-%     (default 1/3, or 1/2 if number of replicates = 2). If conditions have
-%     different number of replicates (as indicated in replPerCond),
-%     maxMissing can also be a vector of the same length as replPerCond,
-%     with individual maxMissing parameters for each replicate.
+%     minimum fraction of replicates within a condition that must have a
+%     measured value; proteins with fewer present replicates than this
+%     fraction requires are discarded (set to NaN) for that condition
+%     (default 2/3, i.e. at least two of three replicates must have a
+%     value). If conditions have different number of replicates (as
+%     indicated in replPerCond), maxMissing can also be a vector of the
+%     same length as replPerCond, with individual values per condition.
 % cutLowest : double
 %     percentage of lowest mean values per condition to be discarded (not
 %     considering NaN values) (default 5).

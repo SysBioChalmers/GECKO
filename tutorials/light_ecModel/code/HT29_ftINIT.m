@@ -1,7 +1,7 @@
 % For reference, code is provided here that was used to make a cell-line
 % specific (HT-29) model of human-GEM with the ftINIT function of RAVEN.
 % This model, stored at tutorials/light_ecModel/models/HT-29-GEM.yml, is
-% for demontration purposes only. The intention of the code in this file is
+% for demonstration purposes only. The intention of the code in this file is
 % not to routinely regenerate this model file, but merely as reference how
 % the HT-29-GEM was constructed.
 

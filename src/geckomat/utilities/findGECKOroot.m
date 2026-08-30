@@ -2,9 +2,9 @@ function [geckoPath, prevDir] = findGECKOroot()
 % findGECKOroot  Find the root of the GECKO directory.
 %
 % Finds the root of the GECKO directory, by searching for the path to
-% GECKO.png. Can also record the current directory, in case a function will
-% use the geckoPath to navigate to a precise folder, and it should return to
-% the previous directory afterwards.
+% GECKOInstaller.m. Can also record the current directory, in case a function
+% will use the geckoPath to navigate to a precise folder, and it should
+% return to the previous directory afterwards.
 %
 % Returns
 % -------

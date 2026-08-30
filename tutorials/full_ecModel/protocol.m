@@ -14,13 +14,11 @@
 % CURATION, BETTER SENSITIVITY TUNING AND KCATS PREDICTED BY CATAPRO.
 % HTTPS://GITHUB.COM/SYSBIOCHALMERS/YEAST-GEM
 %
-% In comparison to the published GECKO3 Nature Protocols paper, this script
-% might have more up-to-date descriptions about the capabilities and
-% functions, which were introduced after the Nature Protocols paper was
-% published. This script will have additional commands and analyses that
-% are not included in the paper as such. This script should always work
-% with the most recent GECKO3 release. The STAGE and STEP numbers match
-% those in the Nature Protocols paper.
+% This script is kept up to date with the most recent GECKO3 release, and
+% may include more detailed descriptions, additional commands, and
+% analyses beyond what is shown in the published GECKO3 Nature Protocols
+% paper. The STAGE and STEP numbers match those in the Nature Protocols
+% paper.
 
 %% Installation
 % - Install RAVEN & GECKO

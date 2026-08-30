@@ -1,10 +1,10 @@
 function runDLKcat(varargin)
 % runDLKcat  Run DLKcat to predict kcat values from a Docker image.
 %
-% Runs DLKcat to predict kcat values from a Docker image. Once DLKcat is
-% successfully run, the DLKcat file will be overwritten with the DLKcat
-% output in the model-specific 'data' sub-folder taken from modelAdapter
-% (e.g. GECKO/tutorials/tutorial_yeast-GEM/data/DLKcat.tsv).
+% Runs DLKcat via a Docker image; once it completes successfully, the
+% DLKcat file is overwritten with the predicted output, in the model-
+% specific 'data' sub-folder taken from modelAdapter (e.g.
+% GECKO/tutorials/tutorial_yeast-GEM/data/DLKcat.tsv).
 %
 % Name-Value Arguments
 % --------------------

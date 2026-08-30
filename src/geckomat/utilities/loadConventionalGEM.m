@@ -9,9 +9,10 @@ function model = loadConventionalGEM(varargin)
 % Name-Value Arguments
 % --------------------
 % filename : char
-%     name of the model file, located in the models/ subfolder of
-%     param.path as specified in the modelAdapter (default: the value
-%     specified as param.convGEM in the modelAdapter).
+%     name of the model file, without extension, located in the models/
+%     subfolder of param.path as specified in the modelAdapter; it is
+%     loaded as SBML (.xml) (default: the value specified as param.convGEM
+%     in the modelAdapter, which may instead point to a YAML file).
 % modelAdapter : ModelAdapter
 %     a loaded model adapter, from where the model folder is read (default:
 %     the current default model adapter).

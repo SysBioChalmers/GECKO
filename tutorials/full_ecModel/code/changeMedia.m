@@ -5,19 +5,29 @@ function [model,pos] = changeMedia(model,c_source,media,anox,flux)
 % simulations on different carbon sources.
 %
 % INPUT:
-%   - model:  An enzyme constrained model
-%   - media:  Media type ('YEP' for complex, 
+%   - model:     An enzyme constrained model
+%   - c_source:  Name of the carbon source exchange reaction (e.g.
+%                'D-glucose'); the ' exchange' suffix is appended internally
+%   - media:  Media type ('YEP' for complex,
 %                         'MAA' minimal with Aminoacids,
 %                         'MIN' for minimal media,
 %                         'MIN+His' for minimal media with his
 %                         'MIN+Arg' for minimal media with arg
 %                         'MIN+Citrate' for minimal media with Citrate)
-%   - anox:   (optional) TRUE if anaerobic conditions are desired, DEFAULT=
-%             FALSE
-%   - flux:   (Optional) A cell array with measured uptake fluxes in mmol/gDwh
+%   - anox:   (optional) the string 'anaerobic' to additionally constrain
+%             the model to anaerobic conditions (via anaerobicModel_GECKO);
+%             any other value keeps the model aerobic. DEFAULT= FALSE
+%             (aerobic)
+%   - flux:   (Optional) A numeric vector with measured uptake fluxes (in
+%             mmol/gDWh), one value per exchange reaction in the same
+%             order as c_source followed by the amino acids/nucleotides
+%             fixed for the chosen media
 %
 % OUTPUT:
 %   - model: The ECmodel with the specified medium constraints
+%   - pos:   Indices (into model.rxns) of the carbon source and amino
+%            acid/nucleotide exchange reactions used to define the medium,
+%            in the same fixed order across all media types
 %
 % Ivan Domenzain        2020-01-17
 % Feiran Li             2020-11-10

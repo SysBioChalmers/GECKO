@@ -6,8 +6,6 @@ function model = anaerobicModel(model)
 %   intracellular reactions are enabled/disabled to yield a model that is
 %   able to reach similar exchange rates as measured.
 %
-%   This function was updated as part of release v9.1.0.
-%
 % Input:
 %   model           yeast-GEM model structure, which is aerobic by default
 %

@@ -39,7 +39,10 @@ function mergedKcatList = mergeDLKcatAndFuzzyKcats(kcatListDLKcat, kcatListFuzzy
 % Returns
 % -------
 % mergedKcatList : struct
-%     merged list of kcats.
+%     merged kcatList with the same field layout produced by mergeKcats
+%     (source, kcatSource, rxns, genes, substrates, kcats, eccodes,
+%     wildcardLvl, origin), keeping only the rows selected by the order of
+%     preference above.
 %
 % Notes
 % -----

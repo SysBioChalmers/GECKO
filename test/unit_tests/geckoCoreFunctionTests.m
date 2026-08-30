@@ -158,7 +158,11 @@ end
 
 %For both full and light
 function testgetECfromGEM_tc0006(testCase)
-    %full
+    % Verifies getECfromGEM copies EC codes from the conventional GEM's
+    % model.eccodes into ecModel.ec.eccodes, for both the full and light
+    % ecModel variants, either for every ec.rxns entry (ecRxns omitted) or
+    % only for a caller-supplied logical/index subset (ecRxns given), with
+    % all excluded entries left empty.
     geckoPath = findGECKOroot;
     adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
     model = getGeckoTestModel();
@@ -184,7 +188,12 @@ end
 
 %For both full and light
 function testgetECfromDatabase_tc0007(testCase)
-    %full
+    % Verifies getECfromDatabase looks up EC codes from KEGG/UniProt data
+    % (via loadDatabases, in 'display' mode so results are not written back
+    % to model files) and stores them in ecModel.ec.eccodes, for both the
+    % full and light ecModel variants, either for every ec.rxns entry
+    % (ecRxns omitted) or only for a caller-supplied logical/index subset
+    % (ecRxns given), with all excluded entries left empty.
     geckoPath = findGECKOroot;
     adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
     model = getGeckoTestModel();
@@ -219,7 +228,11 @@ function testModelAdapterManager_tc0008(testCase)
 end
 
 function testsaveECModel_tc0009(testCase)
-    % Test a round of model saving and loading
+    % Round-trips an ecModel through saveEcModel/loadEcModel and verifies the
+    % reloaded model matches the original, then verifies loadConventionalGEM
+    % reproduces the underlying conventional GEM, aside from the
+    % annotation/date/description/version fields it does not restore and the
+    % geneShortNames field it adds.
     geckoPath = findGECKOroot;
     adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
     model = getGeckoTestModel();
@@ -237,7 +250,13 @@ function testsaveECModel_tc0009(testCase)
 end
 
 function testfuzzyKcatMatching_tc0010(testCase)
-    %full
+    % Verifies fuzzyKcatMatching against ecTestGEM's fixture BRENDA data, for
+    % both the full and light ecModel variants and for both the complete
+    % ec.rxns set (ecRxns omitted) and a caller-supplied subset (ecRxns
+    % given). Checks the returned kcats, substrates, eccodes, wildcardLvl and
+    % origin fields, confirming that a substrate match is preferred over an
+    % organism match and that a wildcarded EC match is used only as a last
+    % resort.
     geckoPath = findGECKOroot;
     adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
     model = getGeckoTestModel();
@@ -598,12 +617,10 @@ end
 
 
 function testApplyKcatConstraintsDuplicateAccession_tc0017(testCase)
-    % Two ec.enzymes rows can map to the same prot_<accession> metabolite --
-    % distinct genes sharing one UniProt entry. applyKcatConstraints used to
-    % write model.S(linearIndices) = -newKcats(:,4) directly: a plain indexed
-    % assignment on a repeated linear index keeps only the last value written,
-    % silently dropping one enzyme's contribution instead of adding it to the
-    % other's.
+    % Verifies that when two ec.enzymes rows map to the same prot_<accession>
+    % metabolite (distinct genes sharing one UniProt entry), applyKcatConstraints
+    % sums both enzymes' protein-cost contributions into that metabolite's S
+    % matrix entry, instead of only keeping the last one written.
     clear model
     model.rxns = {'R1'};
     model.mets = {'prot_P1'};
@@ -680,20 +697,11 @@ end
 
 
 function testReportEnzymeUsageTopAbsUsageOutOfBounds_tc0019(testCase)
-    % reportEnzymeUsage's default topAbsUsage (10) used to reach
-    % usageData.protID(topUse(1:topAbsUsage)) unclamped: on any model with fewer
-    % than 10 enzymes -- ecTestGEM has 5 -- that indexed past the end of topUse
-    % and crashed. Regression test for the default call, plus the two other
-    % "all enzymes" spellings the docstring promises (0 and Inf), plus an
-    % ordinary in-range value left unaffected: all four must complete without
-    % erroring, which is what the indexing fix guarantees.
-    %
-    % All fluxes are zero on this fixture, so every enzyme is fully inactive;
-    % per raven-gecko-parity#18's reconciliation (tc0045), a fully-inactive
-    % enzyme is skipped rather than padded in, so all four calls now return
-    % zero rows regardless of the requested topAbsUsage -- that skip, not the
-    % row count, is what distinguishes an in-range request from the
-    % all-enzymes spellings on this particular (all-zero) fixture.
+    % Verifies reportEnzymeUsage's 'topAbsUsage' Name-Value argument does not
+    % error when the model has fewer enzymes than requested: the default (10)
+    % on ecTestGEM's 5-enzyme model, the two "report all enzymes" sentinel
+    % values (0 and Inf), and an ordinary in-range value (2) must all
+    % complete without indexing past the available rows.
     geckoPath = findGECKOroot;
     adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
     model = getGeckoTestModel();
@@ -722,12 +730,11 @@ end
 
 
 function testSigmaFitterModelMatchesReturnedSigma_tc0020(testCase)
-    % sigmaFitter's own docstring promises the returned model has its protein
-    % pool "adapted to the optimal sigma-factor" -- but the grid-search loop
-    % left `model` sized for whichever sigma the loop tried *last* (i=100,
-    % i.e. sigma=1), not the best-fitting one `sigma` reports. Regression test:
-    % the returned model's protein-pool upper bound must equal Ptot*f*sigma*1000
-    % at the *returned* sigma, not at sigma=1 (unless they happen to coincide).
+    % Verifies that the model sigmaFitter returns has its protein-pool
+    % upper bound sized to the sigma value it also returns: the
+    % prot_pool_exchange upper bound must equal Ptot*f*sigma*1000 at that
+    % returned sigma, not at whichever sigma the internal grid search
+    % happened to try last.
     geckoPath = findGECKOroot;
     adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
     model = getGeckoTestModel();
@@ -755,22 +762,13 @@ end
 
 
 function testFuzzyKcatMatchingWildcardIsPrefixNotSubstring_tc0021(testCase)
-    % fuzzyKcatMatching's wildcard escalation truncates an EC code to a prefix (e.g.
-    % '1.1.1.1' -> '1.-.-.-' -> truncated query '1.') and searches BRENDA's EC column
-    % for it via extract_string_matches. The optimized path (used whenever the
-    % ECIndexIds/EcIndexIndices index is available, i.e. always, from within
-    % fuzzyKcatMatching itself) used contains(...) instead of an anchored prefix
-    % match, so a query for enzyme class 1 ('1.') could also match an EC code from an
-    % unrelated class that merely happens to contain the same two characters
-    % somewhere else in its string -- '4.2.1.1' contains '1.' between its third and
-    % fourth levels.
-    %
-    % The fixture has one legitimate class-1 entry (a real wildcard match, giving the
-    % escalation loop something to succeed on and stop at) and one unrelated
-    % '4.2.1.1' entry with a deliberately *larger* kcat: mainMatch takes the max
-    % among same-level matches, so the bug (matching both) picks the larger, wrong
-    % value; the fix (matching only the real class-1 entry) picks the smaller, correct
-    % one.
+    % Verifies that fuzzyKcatMatching's wildcard escalation matches BRENDA EC
+    % codes by prefix, not by substring: escalating '1.1.1.1' to the
+    % broadest wildcard level searches for EC codes starting with '1.', so an
+    % unrelated code that merely contains '1.' elsewhere (e.g. '4.2.1.1')
+    % must not match. The fixture pairs one genuine class-1 BRENDA entry with
+    % one such unrelated, larger-kcat entry; the returned kcat must come from
+    % the genuine prefix match, not the larger unrelated value.
     geckoPath = findGECKOroot;
     adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
     model = getGeckoTestModel();
@@ -818,31 +816,14 @@ end
 
 
 function testFuzzyKcatMatchingTieBreakRespectsWildcardCount_tc0022(testCase)
-    % iterativeMatch's cross-EC-token tie-break is supposed to (1) keep only the EC
-    % tokens that matched with the fewest wildcards, (2) among those keep the ones
-    % with the best (lowest) origin, then (3) take the largest kcat. Step 2's
-    % `best_pos = (origin == min(new_origin(new_origin~=0)))` re-evaluates
-    % `origin == ...` against the *full*, unfiltered origin vector instead of the
-    % wildcard-filtered subset from step 1 -- so any EC token that matched at a
-    % *worse* (higher) wildcard level, but happens to share the same origin value,
-    % is let back in. Step 3 then maximises kcat across that too-permissive set, so
-    % a less-specific, more-wildcarded match can silently win over a fully-specific
-    % one whenever it happens to report a bigger kcat.
-    %
-    % The fixture gives R2_EXP_1 two EC tokens: '9.9.9.1' matches BRENDA directly
-    % (0 wildcards, kcat 42); '9.9.8.-' only matches after escalating twice more (2
-    % wildcards, kcat 500) -- both land on origin 3 (organism matches, substrate
-    % deliberately does not, so origin 1/2 are skipped). The correct answer is the
-    % 0-wildcard match (42); the bug picks the 2-wildcard one (500) because both
-    % share origin 3.
-    %
-    % Found while running the kcat-gathering pipeline against real BRENDA data and
-    % yeast-GEM at genome scale in raven-gecko-parity: ~119 reactions got a kcat
-    % that genuinely differed (not just missing) between the MATLAB and Python
-    % implementations even after two other confirmed bugs were fixed; this
-    % tie-break scoping bug, triggered whenever a multi-EC-code reaction's tokens
-    % match at different wildcard levels but the same origin, accounts for at
-    % least some of those.
+    % Verifies fuzzyKcatMatching's cross-EC-token tie-break: when a
+    % reaction's multiple EC tokens match BRENDA at the same origin (organism
+    % tier) but different wildcard levels, the token matched with fewer
+    % wildcards must win, even if a more-wildcarded token happens to carry a
+    % larger kcat. The fixture gives one reaction two EC tokens that both
+    % resolve at the same origin -- one an exact (0-wildcard) match with a
+    % small kcat, the other a 2-wildcard match with a larger kcat -- and
+    % expects the exact match's kcat and wildcardLvl to be returned.
     geckoPath = findGECKOroot;
     adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
     model = getGeckoTestModel();
@@ -891,24 +872,13 @@ end
 
 
 function testWriteOpenKineticsPredictorInputReactionSubsetIndex_tc0023(testCase)
-    % writeOpenKineticsPredictorInput restricts its work to the requested ecRxns
-    % subset by first building clearedS = reducedS(:, origRxnIdxs), then finding
-    % substrates with reactionIdxs = find(clearedS < 0) -- reactionIdxs is a
-    % *column position within that subset* (1..numel(ecRxnsIdx)), not an absolute
-    % index into model.ec.rxns. The next line indexed model.ec.rxnEnzMat directly
-    % with reactionIdxs, silently picking the wrong ec.rxns row (or the wrong
-    % protein set entirely) whenever the requested subset excludes any earlier
-    % ec.rxns entry -- which shifts every later entry's subset-position below its
-    % absolute position.
-    %
-    % ecTestGEM's R2 has two isozymes (G1+G2 complex, and G3 alone), each
-    % expanded to its own ec.rxns row (R2_EXP_1, R2_EXP_2) plus a reverse copy
-    % (R2_REV_EXP_1, R2_REV_EXP_2) -- ec.rxns order is [R2_EXP_1, R2_EXP_2,
-    % R2_REV_EXP_1, R2_REV_EXP_2, R3, R5]. Requesting ecRxns={R2_EXP_1, R2_EXP_2,
-    % R3} excludes the two REV entries in between, so R3's subset position (3)
-    % no longer equals its absolute ec.rxns position (5): the bug reads
-    % rxnEnzMat row 3 (R2_REV_EXP_1's genes, G1+G2) instead of row 5 (R3's own
-    % gene, G4), so R3/G4 never appears in the output and G1/G2 appear twice.
+    % Verifies writeOpenKineticsPredictorInput correctly maps a
+    % caller-supplied ecRxns subset back to the right ec.rxns rows even when
+    % that subset excludes entries that fall between the requested reactions
+    % in ec.rxns order: requesting a subset whose reactions are not
+    % contiguous in ec.rxns (excluding two entries in between) must still
+    % write the substrate/gene-sequence pairs belonging to the requested
+    % reactions, not those of the skipped-over entries.
     geckoPath = findGECKOroot;
     adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
     model = getGeckoTestModel();
@@ -943,30 +913,14 @@ end
 
 
 function testGetEnzymeBottlenecksRanksByShadowPrice_tc0024(testCase)
-    % getEnzymeBottlenecks: solves the model, ranks enzymes by |shadow price| of
-    % their prot_<id> mass-balance constraint, returns the top N.
-    %
-    % An enzyme that carries zero flux at the optimum has a genuinely
-    % LP-dual-degenerate shadow price: confirmed across three independent
-    % environments (this repo's own local Windows run; geckopy's Python/gurobipy
-    % run; this exact test on GitHub Actions' Linux runner) that which value a
-    % zero-flux enzyme's row reports --- an exact 0, or the shared protein pool's
-    % own nonzero dual propagated uniformly to it --- depends on the solver
-    % build/platform/presolve path, not on the calling language, the fixture, or
-    % this function's own logic. All three environments solve the byte-identical
-    % LP; none of them are "wrong". R2 and R4 are still blocked below (leaving R3
-    % as the sole route m1c->m2c, the same fix enzyme_usage_ectestgem's own
-    % fixture needed for this exact model) so that at least the *primal* solution
-    % --- which enzymes carry flux, and how much --- is unique and stable; the
-    % *dual* (shadow price) for whichever enzymes end up at zero flux (P1/P2/P3
-    % here, since R2 is fully blocked) is not asserted to a specific value for
-    % that reason, on either side.
-    %
-    % What is asserted, and confirmed stable everywhere above: the objective
-    % value; every primal-derived column (flux, capUsage, upperBound); that the
-    % result is sorted by non-increasing |shadowPrice|; and that `top` limits
-    % the row count. Cross-verified against geckopy's get_enzyme_bottlenecks on
-    % the identical fixture for all of these.
+    % Verifies getEnzymeBottlenecks solves the model, ranks enzymes by the
+    % absolute shadow price of their prot_<id> mass-balance constraint, and
+    % returns the top N rows. Checks the primal-derived columns (flux,
+    % capUsage, upperBound) exactly, that rows are sorted by non-increasing
+    % |shadowPrice|, and that 'top' limits the row count -- but not the exact
+    % shadow-price value for an enzyme carrying zero flux at the optimum,
+    % since that value is LP-dual-degenerate and can vary with the solver's
+    % platform/presolve path.
     geckoPath = findGECKOroot;
     adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
     model = getGeckoTestModel();
@@ -1004,16 +958,15 @@ end
 
 
 function testPfbaEnzymesMinimisesEnzymeUsage_tc0025(testCase)
-    % pfbaEnzymes: fixes the current objective (growth, via R5) as a constraint,
-    % then minimises total usage_prot_* flux. Cross-verified against geckopy's
-    % pfba_enzymes on the identical fixture (uniform kcat=10, protein pool
-    % Ptot=0.5/f=0.5/sigma=0.5): geckopy reports growth=90 exactly and
-    % enzyme_usage=125 exactly at the enzyme-minimising solution, using only
-    % usage_prot_P5 (every other usage reaction at 0). pfbaEnzymes.m reproduces
-    % the same solution up to the ~1e-6 relative safety margin it borrows from
-    % solveLP's own minFlux=1 "fake metabolite" technique (see solveLP.m) ---
-    % a deliberate, documented difference from geckopy's exact constraint, not
-    % a divergence in the algorithm itself.
+    % Verifies pfbaEnzymes fixes the current objective (growth, via R5) as a
+    % constraint and then minimises total usage_prot_* flux, reaching
+    % growth=90 and enzyme_usage=125 using only usage_prot_P5 (every other
+    % usage reaction at 0), within the ~1e-6 relative tolerance solveLP's own
+    % minFlux=1 constraint introduces. Also checks that 'fractionOfOptimum'
+    % scales both the fixed growth target and the resulting enzyme usage,
+    % that 'rxnId' can override which reaction is fixed as the objective, and
+    % that calling it on a gecko-light model (no usage_prot_* reactions to
+    % minimise over) raises an error.
     geckoPath = findGECKOroot;
     adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
     model = getGeckoTestModel();
@@ -1059,13 +1012,13 @@ end
 
 
 function ecModel = fixtureForRelaxProteomicsGreedy()
-% Shared fixture: uniform kcat=10, protein pool sized via Ptot=0.5/f=0.5/
-% sigma=0.5 (unconstrained growth 90, matching testGetEnzymeBottlenecksRanksByShadowPrice_tc0024
-% and testPfbaEnzymesMinimisesEnzymeUsage_tc0025's own fixture). P5 is R5's
-% sole catalyst and the true bottleneck (confirmed by direct execution: R2/R3's
-% own enzymes never carry flux on this fixture); P4 catalyses R3, which is
-% never on the critical path, so constraining it never affects growth.
-% Constraining P5 to 10 and P4 to 5 drops growth to 7.2 = 90*(10/125).
+% Builds the shared fixture used by the relaxProteomicsGreedy tests below:
+% ecTestGEM with uniform kcat=10 and protein pool sized via
+% Ptot=0.5/f=0.5/sigma=0.5, giving unconstrained growth of 90. P5 is R5's
+% sole catalyst and the true bottleneck (R2/R3's own enzymes never carry
+% flux on this fixture); P4 catalyses R3, which is never on the critical
+% path. Concentrations are constrained to P5=10 and P4=5, which drops growth
+% to 7.2 = 90*(10/125).
 geckoPath = findGECKOroot;
 adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
 model = getGeckoTestModel();
@@ -1084,13 +1037,12 @@ end
 
 
 function testRelaxProteomicsGreedyConverges_tc0026(testCase)
-    % relaxProteomicsGreedy: greedily relaxes the most-shadow-priced
+    % Verifies relaxProteomicsGreedy greedily relaxes the most-shadow-priced
     % proteomics-constrained enzyme each round until minimalGrowth is
-    % reached. Cross-verified against geckopy's relax_proteomics_greedy on
-    % the identical fixture: both sides converge in exactly one step,
-    % relaxing only P5 (the true bottleneck; P4's shadow price is 0, since
-    % R3 is never on the critical path here) straight to growth=90, with the
-    % same trace values (before=7.2, after=90, shadowPrice=-0.72).
+    % reached. On this fixture it converges in exactly one step, relaxing
+    % only P5 (the true bottleneck; P4's shadow price is 0 since R3 is never
+    % on the critical path) straight to growth=90, and records that step's
+    % trace (before=7.2, after=90, shadowPrice=-0.72).
     ecModel = fixtureForRelaxProteomicsGreedy();
 
     solBefore = solveLP(ecModel);
@@ -1111,11 +1063,11 @@ end
 
 
 function testRelaxProteomicsGreedyExhaustsCandidates_tc0027(testCase)
-    % An unreachable minimalGrowth relaxes every eligible enzyme (P5 then
-    % P4, in shadow-price order) and returns normally with converged=false
-    % once candidates run out --- distinct from the maxIterations case
-    % below, which raises instead. Cross-verified against geckopy: both
-    % relax {P5: 10, P4: 5} and report converged=False, finalGrowth=90.
+    % Verifies that when minimalGrowth is unreachable, relaxProteomicsGreedy
+    % relaxes every eligible enzyme (P5 then P4, in shadow-price order) and
+    % returns normally with converged=false, reporting finalGrowth=90, once
+    % candidates run out -- distinct from the maxIterations case below,
+    % which raises an error instead.
     ecModel = fixtureForRelaxProteomicsGreedy();
     result = relaxProteomicsGreedy(ecModel, 'minimalGrowth', 1000);
     verifyFalse(testCase, result.converged)
@@ -1125,10 +1077,10 @@ end
 
 
 function testRelaxProteomicsGreedyMaxIterationsRaises_tc0028(testCase)
-    % maxIterations=1 stops after relaxing only P5 (growth=90, still below
-    % the unreachable target) with one eligible candidate (P4) still
-    % remaining --- geckopy raises RuntimeError in exactly this situation;
-    % this errors too, rather than returning as if converged or exhausted.
+    % Verifies that maxIterations=1 stops relaxProteomicsGreedy after
+    % relaxing only P5 (growth=90, still below the unreachable target) while
+    % an eligible candidate (P4) remains: this raises an error rather than
+    % returning as if converged or exhausted.
     ecModel = fixtureForRelaxProteomicsGreedy();
     try
         relaxProteomicsGreedy(ecModel, 'minimalGrowth', 1000, 'maxIterations', 1);
@@ -1181,17 +1133,12 @@ end
 
 
 function testFetchOpenKineticsPredictorUseStoredMatchesReader_tc0030(testCase)
-    % fetchOpenKineticsPredictor's useStored path is the one code path that
-    % needs no live API call (parse an already-downloaded result file), so
-    % it's the one directly testable here. It now delegates to
-    % readOpenKineticsPredictorOutput instead of its own separate parsing
-    % subfunction (the pre-port version of this file duplicated ~90 lines of
-    % that parsing logic, which had drifted: it never added the 'OKP-'
-    % prefix readOpenKineticsPredictorOutput.m puts on kcatSource, and it
-    % computed kcatList.source as "the most frequent provenance" instead of
-    % the constant 'OpenKineticsPredictor' every other kcat-gathering
-    % function uses). Confirms the two entry points now produce identical
-    % kcatList structs from the same result file.
+    % Verifies fetchOpenKineticsPredictor's 'useStored' path (parsing an
+    % already-downloaded result file, the only path testable without a live
+    % API call) delegates to readOpenKineticsPredictorOutput and produces an
+    % identical kcatList struct: the 'OKP-' prefix on kcatSource, and the
+    % constant source 'OpenKineticsPredictor' used by every kcat-gathering
+    % function.
     geckoPath = findGECKOroot;
     adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
     model = getGeckoTestModel();
@@ -1223,14 +1170,11 @@ end
 
 
 function testGetECfromGEMRejectsMalformedComponents_tc0031(testCase)
-    % getECfromGEM's validity regex used \w (any word character) instead of
-    % \d+ for each of the four EC components, so malformed strings containing
-    % letters or underscores -- e.g. '1.1.1.n12' (a real BRENDA "undefined
-    % subclass"-style code) or '1_2_3_4' -- passed validation and were kept
-    % instead of being rejected. geckopy's fill_eccodes_from_gem already
-    % requires each component to be purely digits or the wildcard '-'; this
-    % brings MATLAB's validation in line, and closes an already-documented
-    % divergence (raven-gecko-parity's ledgers/gecko.yml, getECfromGEM row).
+    % Verifies getECfromGEM only accepts an EC code whose four
+    % dot-separated components are each purely digits or the wildcard '-':
+    % a malformed component containing letters or underscores (e.g.
+    % '1.1.1.n12' or '1_2_3_4') is rejected and left empty, while a
+    % well-formed wildcarded code (e.g. '1.2.3.-') is kept.
     clear model
     model.rxns = {'R1';'R2';'R3';'R4'};
     model.eccodes = {'1.1.1.1'; '1.1.1.n12'; '1_2_3_4'; '1.2.3.-'};
@@ -1244,18 +1188,13 @@ end
 
 
 function testFindECInDBIntersectionDedupesWildcardPair_tc0032(testCase)
-    % findECInDB's private intersection() helper does not dedupe its output:
-    % when prev_EC contains both a specific EC code and its own wildcard
-    % parent (e.g. '1.1.1.1' and '1.1.1.-'), both independently pair-match
-    % the same entry in new_EC, and the inner loop appends the resolved code
-    % twice -- e.g. producing '1.1.1.1;1.1.1.1' instead of '1.1.1.1'.
-    %
-    % Gene 1 maps to a single protein annotated with two EC tokens,
+    % Verifies that reconciling EC annotations across an AND-complex's genes
+    % via findECInDB de-duplicates a code that matches via both itself and
+    % its own wildcard parent. Gene 1's protein carries two EC tokens,
     % '1.1.1.1' and its own wildcard parent '1.1.1.-' (space-separated, the
     % format getECstring expects for one protein's multiple activities);
-    % gene 2 maps to a single protein annotated with just '1.1.1.1'.
-    % Reconciling across the two genes (an AND-complex) via intersection
-    % must return the code once, not twice.
+    % gene 2's protein carries just '1.1.1.1'. The intersection across both
+    % genes must return '1.1.1.1' once, not twice.
     geneHashMap = containers.Map({'G1','G2'}, {1,2});
     geneIndex = {1; 2};
     DBecNum = {'1.1.1.1 1.1.1.-'; '1.1.1.1'};
@@ -1267,12 +1206,10 @@ end
 
 
 function testFuzzyKcatMatchingWildcardExhaustionDoesNotCrash_tc0033(testCase)
-    % iterativeMatch's wildcard-escalation loop had no termination guard: once
-    % an EC token is escalated to fully wildcarded ('-.-.-.-') and still finds
-    % no BRENDA match, the next escalation attempt computed
-    % dot_pos(4-wild_num) with wild_num==4 -- dot_pos(0), an invalid index --
-    % and errored instead of reporting "no match". Reachable for any EC class
-    % with zero BRENDA coverage even at the broadest wildcard level.
+    % Verifies that when an EC code has no BRENDA match at any wildcard
+    % level, including the fully wildcarded '-.-.-.-', fuzzyKcatMatching's
+    % escalation loop terminates cleanly and reports "no match" (kcat 0,
+    % origin NaN) instead of erroring.
     geckoPath = findGECKOroot;
     adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
     model = getGeckoTestModel();
@@ -1320,19 +1257,13 @@ end
 
 
 function testGetStandardKcatUsesSubsystemKcatWheneverAnyMatches_tc0034(testCase)
-    % kcatSubSystemIdx is a one-hot vector produced by comparing a reaction's
-    % first subSystem against every subSystem that has a computed kcat;
-    % all(kcatSubSystemIdx) only ever succeeds for a model with exactly one
-    % subSystem in total. With more than one subSystem, that branch never
-    % fires and every reaction silently falls back to the model-wide
-    % standardKcat, masking the subsystem-specific kcat this code path
-    % exists to apply.
-    %
-    % R1 has no GPR and shares subSystem 'SubA' with R3 (kcat 50); R5 sits in
-    % a different subSystem 'SubB' (kcat 999, deliberately large so it would
-    % skew the model-wide median standardKcat fallback if picked by
-    % mistake). With two distinct subSystems in play, R1 must be assigned
-    % SubA's kcat (50), not the fallback.
+    % Verifies that getStandardKcat assigns a GPR-less reaction its own
+    % subsystem's kcat whenever any subsystem has a computed kcat, even when
+    % the model has more than one distinct subsystem. R1 has no GPR and
+    % shares subSystem 'SubA' with R3 (kcat 50); R5 sits in a different
+    % subSystem 'SubB' (kcat 999, deliberately large so it would skew the
+    % model-wide fallback if picked by mistake). R1 must be assigned SubA's
+    % kcat (50), not the model-wide standardKcat fallback.
     geckoPath = findGECKOroot;
     adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
     model = getGeckoTestModel();
@@ -1356,11 +1287,11 @@ end
 
 
 function testReadDLKcatOutputSubstrateMatchIsCaseInsensitive_tc0035(testCase)
-    % readDLKcatOutput's substrate-name check against model.metNames used ismember's
-    % default case-sensitive comparison, so a DLKcat output file whose substrate names
-    % differ only in case from model.metNames -- e.g. an SBML loader that normalises
-    % capitalisation differently than whatever produced the DLKcat input -- was reported
-    % as "substrate not found" even though the same metabolite is genuinely present.
+    % Verifies readDLKcatOutput matches a DLKcat output file's substrate
+    % names against model.metNames case-insensitively, so an output file
+    % whose substrate names differ only in case from model.metNames (e.g.
+    % 'M1' vs. 'm1') is still recognized rather than reported as
+    % "substrate not found".
     geckoPath = findGECKOroot;
     adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
     model = getGeckoTestModel();
@@ -1384,12 +1315,12 @@ end
 
 
 function testMakeEcModelSortsEcGenes_tc0036(testCase)
-    % makeEcModel's ec.genes (and ec.enzymes/ec.mw/ec.sequence, permuted in lockstep) used
-    % to keep model.genes' own array order -- whatever order genes happened to be declared
-    % in, not necessarily alphabetical or reproducible across independently-built models of
-    % the same organism. ecTestGEM's genes (G1..G5) already happen to be declared
-    % alphabetically, so the existing makeEcModel tests don't exercise this: reorder them
-    % here so a passing test actually proves the sort, not an already-sorted pass-through.
+    % Verifies makeEcModel sorts ec.genes alphabetically (permuting
+    % ec.enzymes/ec.mw/ec.sequence in lockstep), regardless of the order
+    % genes are declared in model.genes. Reorders ecTestGEM's genes (which
+    % are otherwise already alphabetical) before building the ecModel, so
+    % the test actually exercises the sort rather than an already-sorted
+    % pass-through.
     geckoPath = findGECKOroot;
     adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
     model = getGeckoTestModel();
@@ -1411,10 +1342,9 @@ end
 
 
 function testReadDLKcatOutputUnrecognizedSubstrateErrorsCleanly_tc0037(testCase)
-    % dispEM (a RAVEN utility) was removed from RAVEN in RAVEN#659 and replaced with
-    % native warning/error + ravenList; readDLKcatOutput.m still called the now-nonexistent
-    % dispEM, so reporting a genuinely unrecognized substrate crashed with "Undefined
-    % function 'dispEM'" instead of the intended, informative error.
+    % Verifies that readDLKcatOutput reports a genuinely unrecognized
+    % substrate with a clean error naming the substrate, rather than
+    % crashing.
     geckoPath = findGECKOroot;
     adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
     model = getGeckoTestModel();
@@ -1445,8 +1375,8 @@ end
 
 
 function testLoadDatabasesDuplicateUniprotEntriesErrorsCleanly_tc0038(testCase)
-    % Same dispEM removal as tc0037, a different caller: loadDatabases.m's duplicate-entry
-    % check crashed with "Undefined function 'dispEM'" instead of reporting the duplicates.
+    % Verifies that loadDatabases reports duplicate UniProt entries with a
+    % clean error, rather than crashing.
     geckoPath = findGECKOroot;
     adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
 
@@ -1477,9 +1407,9 @@ end
 
 
 function testAddNewRxnsToECMissingGeneErrorsCleanly_tc0039(testCase)
-    % Same dispEM removal as tc0037, a different caller: addNewRxnsToEC.m's
-    % missing-gene check crashed with "Undefined function 'dispEM'" instead of naming
-    % the gene that needed to be passed as newEnzymes input.
+    % Verifies that addNewRxnsToEC reports a gene referenced in grRules but
+    % missing from newEnzymes with a clean error naming that gene, rather
+    % than crashing.
     geckoPath = findGECKOroot;
     adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
     model = getGeckoTestModel();
@@ -1510,9 +1440,9 @@ end
 
 
 function testGetSubsetEcModelMismatchedReactionsErrorsCleanly_tc0040(testCase)
-    % Same dispEM removal as tc0037, a different caller: getSubsetEcModel.m's
-    % same-starting-GEM check crashed with "Undefined function 'dispEM'" instead of
-    % naming the reactions that could not be matched.
+    % Verifies that getSubsetEcModel reports reactions in smallGEM that
+    % cannot be matched to bigEcModel with a clean error naming those
+    % reactions, rather than crashing.
     clear bigEcModel smallGEM
     bigEcModel.rxns = {'R1';'R2_EXP_1'};
     smallGEM.rxns   = {'R1';'R3'};
@@ -1585,12 +1515,10 @@ end
 
 
 function testMergeDLKcatAndFuzzyKcatsDelegatesToMergeKcats_tc0042(testCase)
-    % mergeDLKcatAndFuzzyKcats is now a thin wrapper around mergeKcats;
-    % confirms its own three-tier priority order (database_top > dlkcat >
-    % database_bottom) still resolves exactly as before the split, using the
-    % same style of fixture testKcats_tc0011 already established for this
-    % function (kept as a positional call, since that is still this
-    % function's own documented calling convention).
+    % Verifies mergeDLKcatAndFuzzyKcats, called positionally, delegates to
+    % mergeKcats using a fixed three-tier priority order (database_top >
+    % dlkcat > database_bottom), using the same style of fixture
+    % testKcats_tc0011 already established for this function.
     fuzzyList.rxns        = {'R1'; 'R2'; 'R3'};
     fuzzyList.kcats       = [5; 8; 2];
     fuzzyList.genes       = {{}; {}; {}};
@@ -1623,13 +1551,11 @@ end
 
 
 function testLoadBRENDAdataParsesNewTsvFormat_tc0043(testCase)
-    % loadBRENDAdata migrated from the old headerless max_KCAT.txt/max_MW.txt/max_SA.txt
-    % (EC-prefixed, //-suffixed organism) to kcat.tsv/mw.tsv/sa.tsv, the format produced by
-    % the geckopy brenda-refresh CLI: a `#`-prefixed release line, a tab-delimited column
-    % header, bare EC codes, plain organism strings, and (for kcat/sa) both a _max and
-    % _median aggregate per row. Confirms the new shape parses correctly and that the max
-    % column -- not median -- is the one used, matching this function's previous,
-    % single-aggregate behaviour.
+    % Verifies loadBRENDAdata parses kcat.tsv/mw.tsv/sa.tsv files (a
+    % `#`-prefixed release line, a tab-delimited column header, bare EC
+    % codes, plain organism strings, and, for kcat/sa, both a _max and
+    % _median aggregate per row), and that the _max column -- not _median --
+    % is the value used.
     geckoPath = findGECKOroot;
     adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
 
@@ -1672,13 +1598,12 @@ end
 
 
 function testMakeEcModelFallsBackToKeggForUnmatchedGenes_tc0044(testCase)
-    % makeEcModel's stage 7 used to leave a UniProt-unmatched gene with no enzyme
-    % data at all (MW, sequence, accession all missing -- the gene is dropped from
-    % ec.genes entirely and only shows up in the noUniprot warning). It now
-    % consults databases.kegg for any such gene: ec.enzymes gets the UniProt
-    % accession carried on the KEGG row, or -- when that column is itself empty,
-    % as tested here -- the bare KEGG gene id as a fallback identifier, with
-    % ec.mw/ec.sequence still coming from the KEGG row either way.
+    % Verifies that makeEcModel falls back to databases.kegg for a gene with
+    % no UniProt match: ec.mw and ec.sequence are filled from the KEGG row,
+    % and ec.enzymes gets the UniProt accession carried on that row, or --
+    % when that column is itself empty, as tested here -- the bare KEGG gene
+    % id as a fallback identifier. Such a gene must not appear in the
+    % noUniprot output.
     geckoPath = findGECKOroot;
     adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
     model = getGeckoTestModel();
@@ -1717,20 +1642,11 @@ end
 
 
 function testReportEnzymeUsageSkipsOnlyFullyInactiveEnzymes_tc0045(testCase)
-    % reportEnzymeUsage's topAbsUsage table used to pad in a placeholder row
-    % for an enzyme with NO flux-carrying reactions at all -- isscalar(find(
-    % carriedFlux)) is false both for zero matches and for multiple matches,
-    % so a fully-inactive enzyme took the same "combined usage" branch as a
-    % genuinely multi-reaction one. Reconciled with geckopy's
-    % report_enzyme_usage (raven-gecko-parity#18): an enzyme is only skipped
-    % when *every* one of its reactions carries no flux; if some do and some
-    % don't, it is still reported, attributed to the flux-carrying subset --
-    % unaffected by this fix, asserted here too so a future change can't
-    % quietly break it.
-    %
-    % Minimal hand-built ecModel-like struct with three enzymes exercising
-    % all three cases directly, without going through the full
-    % makeEcModel/getECfromGEM pipeline:
+    % Verifies reportEnzymeUsage's topAbsUsage table skips an enzyme only
+    % when every one of its reactions carries no flux; an enzyme with some
+    % flux-carrying and some inactive reactions is still reported, attributed
+    % only to the flux-carrying subset. Uses a minimal hand-built
+    % ecModel-like struct with three enzymes covering all three cases:
     %   P1 -- Ra, Rb, neither carries flux            -> skipped entirely
     %   P2 -- Rc, Rd; only Rc carries flux             -> single-branch, Rc only
     %   P3 -- Re, Rf, Rg; Re and Rf carry flux, Rg not -> combined-branch, Re+Rf only
@@ -1801,14 +1717,11 @@ end
 
 
 function testCalculateMWReconciledWithGeckopy_tc0046(testCase)
-    % calculateMW used to disagree with geckopy's calculate_mw on the water
-    % mass, X and B's residue masses, case-sensitivity, and the
-    % no-recognized-residue return value; reconciled to match geckopy on
-    % all four (raven-gecko-parity#11): water 18.01528 (was 18); X and B
-    % computed as the mean of their possible standard residues (was
-    % pre-rounded constants 126.50/114.60); case-insensitive (was
-    % case-sensitive, silently ignoring lowercase); NaN, not 18, when no
-    % residue is recognized.
+    % Verifies calculateMW's residue-mass handling: the water constant is
+    % 18.01528; ambiguous residues X and B are computed as the mean of their
+    % possible standard residues rather than a fixed constant; residue
+    % letters are matched case-insensitively; and a sequence with no
+    % recognized residue returns NaN rather than just the water mass.
     verifyTrue(testCase, isnan(calculateMW('')))
     verifyTrue(testCase, isnan(calculateMW('123 ---')))
     % X: mean of the 20 standard residues (118.885) + water.

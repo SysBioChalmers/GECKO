@@ -1,8 +1,9 @@
 function [model, tunedKcats] = sensitivityTuning(model, varargin)
 % sensitivityTuning  Relax the most limiting kcats to reach a growth rate.
 %
-% Relaxes the most limiting kcats until a certain growth rate is reached. The
-% function will update kcats in model.ec.kcat.
+% Iteratively increases the kcat of whichever enzyme currently limits growth
+% the most, until the model reaches the desired growth rate, updating the
+% tuned values in model.ec.kcat.
 %
 % Parameters
 % ----------
@@ -41,6 +42,8 @@ function [model, tunedKcats] = sensitivityTuning(model, varargin)
 %   kcat value has been tuned.
 % - oldKcat : kcat values in the input model.
 % - newKcat : kcat values in the output model, after tuning.
+% - source : source label of each kcat, taken from the input model before
+%   tuning.
 %
 % The model.ec.notes field will contain the original kcat value and source,
 % unless the kcat has previously been set by sensitivityTuning, in which case

@@ -38,10 +38,11 @@ classdef TestGEMAdapter < ModelAdapter
         end
 		
 		function [spont,spontRxnNames] = getSpontaneousReactions(obj,model)
-			% Matched by reaction id rather than a hardcoded position: this is
-			% called with the ecModel (already expanded into isozyme/reversibility
-			% variants) by getStandardKcat, not the plain 7-reaction conventional
-			% model, and R4's position among model.rxns is not the same in both.
+			% Flags which reactions in model are spontaneous (test reaction R4) and
+			% returns their names. Matches by reaction id rather than by position,
+			% so it still resolves correctly when model is an expanded ecModel (as
+			% passed by getStandardKcat) rather than the plain conventional model,
+			% where R4's position among model.rxns differs.
 			spont = strcmp(model.rxns, 'R4');
 			spontRxnNames = model.rxnNames(spont);
         end

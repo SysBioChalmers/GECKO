@@ -11,9 +11,8 @@ function usageData = enzymeUsage(ecModel,fluxes,varargin)
 %    concentration was not constrained in the model);
 % 3. UB: the upper bound of each enzyme exchange reaction, which may not be
 %    the same as the enzyme concentration, if it has been flexibilized;
-% 4. protID: the protein identifiers for each enzyme (if the model has an
-%    enzymes field then this order is used, otherwise it is given
-%    alphabetically).
+% 4. protID: the protein identifiers for each enzyme, in the same order as
+%    ecModel.ec.enzymes.
 %
 % Parameters
 % ----------

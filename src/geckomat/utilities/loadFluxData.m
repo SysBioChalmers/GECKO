@@ -1,8 +1,8 @@
 function fluxData = loadFluxData(varargin)
 % loadFluxData  Load total protein measurements and exchange flux data.
 %
-% Loads total protein measurements and flux data (exchange fluxes for
-% carbon source, O2, CO2, etc.).
+% Loads total protein content and exchange flux data (e.g. carbon source,
+% O2, CO2) from a tab-delimited file.
 %
 % Name-Value Arguments
 % --------------------

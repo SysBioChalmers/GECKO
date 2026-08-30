@@ -28,13 +28,6 @@ function bottlenecks = getEnzymeBottlenecks(model, varargin)
 % --------
 %     bottlenecks = getEnzymeBottlenecks(ecModel);
 %     bottlenecks = getEnzymeBottlenecks(ecModel, 'top', 5);
-%
-% Notes
-% -----
-% Ported from geckopy's get_enzyme_bottlenecks (utilities/bottlenecks.py),
-% itself ported from the legacy geckopy package (Carrasco et al., 2023,
-% https://doi.org/10.1128/spectrum.01705-23), geckopy/flux_analysis.py:275-281
-% (get_protein_bottlenecks).
 
 p = parseGECKOargs(varargin, {'top', []});
 top = p.top;

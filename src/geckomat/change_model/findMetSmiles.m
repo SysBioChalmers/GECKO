@@ -1,10 +1,9 @@
 function [model,noSMILES] = findMetSmiles(model, varargin)
 % findMetSmiles  Query PubChem by metabolite names to obtain SMILES.
 %
-% Queries PubChem by metabolite names to obtain SMILES. Matches will also
-% be stored in tutorials/***/data/smilesDB.tsv, that will also be queried
-% first next time the function is run. If the model already has a metSmiles
-% field, then non-empty entries will not be overwritten.
+% Matches are cached in tutorials/***/data/smilesDB.tsv, which is checked
+% first on subsequent runs so repeated queries are avoided. If the model
+% already has a metSmiles field, non-empty entries are left unchanged.
 %
 % Parameters
 % ----------

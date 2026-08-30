@@ -87,11 +87,15 @@ classdef YeastGEMAdapter < ModelAdapter
    end
 
         function ecModel = makeModelAnaerobic(obj,ecModel)
-            % Taken from yeast-GEM 9.0.2
+            % Constrains ecModel to anaerobic growth conditions (blocked
+            % oxygen uptake, enabled sterol/fatty acid exchanges, and other
+            % curations), as implemented in anaerobicModel_GECKO.
             ecModel = anaerobicModel_GECKO(ecModel);
         end
 	    function ecModel = changeProteinBiomass(obj,ecModel,Ptot)
-            % Skip this step for now
+            % Currently a no-op: returns ecModel unchanged. Intended to
+            % rescale the biomass reaction's protein content to Ptot (as
+            % scaleBioMass_GECKO would), but this step is disabled for now.
             ecModel = ecModel;
             % Taken from yeast-GEM 9.0.2
             %ecModel = scaleBioMass_GECKO(ecModel,'protein',Ptot,'carbohydrate',false);

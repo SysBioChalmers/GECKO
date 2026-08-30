@@ -1,8 +1,8 @@
 function [rmse,rmseList] = abc_max(ecModel,bayData,varargin)
 % abc_max  Average RMSE for a set of growth data and kcats.
 %
-% Internal function in bayesianSensitivityTuning. Gets the average RMSE for a
-% certain set of growth data and kcats.
+% Internal helper used by bayesianSensitivityTuning to score one ecModel
+% (with a given set of kcats) against the experimental growth and flux data.
 %
 % Parameters
 % ----------

@@ -1,8 +1,8 @@
 function table = truncateValues(table,cols)
 % truncateValues  Round values in selected columns to six significant digits.
 %
-% Rounds the values in the specified columns of a cell array or table,
-% keeping six significant digits per value based on its order of magnitude.
+% Rounds each value in the given columns of a cell array or table to six
+% significant digits, based on the value's order of magnitude.
 %
 % Parameters
 % ----------

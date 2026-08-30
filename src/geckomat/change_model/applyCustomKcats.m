@@ -27,9 +27,12 @@ function [model, rxnUpdated, notMatch] = applyCustomKcats(model, varargin)
 % rxnUpdated : cell
 %     ids list of updated reactions, where new kcats were applied.
 % notMatch : table
-%     table with the list of reactions for which the custom information
-%     provided does not have full match (> 50%) based on GPR rules. These
-%     are suggested to be curated by the user.
+%     reactions for which the custom information provided has a partial
+%     match (at least 50%, but not 100%) with the reaction's GPR rule, for
+%     the user to curate manually. Columns: rxns and name (reaction
+%     identifier and name), custom enzymes (the proteins specified in
+%     customKcats), enzymes in model (the enzymes annotated to the reaction
+%     in the model), and rules (the reaction's GPR rule).
 %
 % Notes
 % -----

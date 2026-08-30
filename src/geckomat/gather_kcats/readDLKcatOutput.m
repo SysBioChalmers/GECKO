@@ -30,8 +30,8 @@ function kcatList = readDLKcatOutput(model, varargin)
 % - source : 'DLKcat'.
 % - rxns : reaction identifiers.
 % - genes : gene identifiers.
-% - substrate : substrate names.
-% - kcat : predicted kcat value in /sec.
+% - substrates : substrate names.
+% - kcats : predicted kcat value in /sec.
 %
 % Examples
 % --------
