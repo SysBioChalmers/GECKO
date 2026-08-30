@@ -1822,3 +1822,88 @@ function testCalculateMWReconciledWithGeckopy_tc0046(testCase)
     verifyEqual(testCase, calculateMW('ACDEFGHIKLMNPQRSTVWY'), 2395.71528, 'AbsTol', 1e-9)
 end
 
+function testApplyKcatConstraintsLightSkipsUnassignedIsozyme_tc0047(testCase)
+    % raven-gecko-parity#57: in the light formulation, when one isozyme of
+    % a reaction has no kcat assigned (kcat==0, i.e. an Inf MW/kcat) and
+    % another isozyme does, applyKcatConstraints used to correct the
+    % unassigned isozyme's Inf cost to 0 *before* taking min() across
+    % isozymes, so that fabricated zero always won -- silently leaving
+    % the reaction unconstrained by enzyme usage even though a real kcat
+    % was available on another isozyme. Fixed to drop isozymes with no
+    % usable kcat before selecting the cheapest one, matching geckopy's
+    % apply_kcat_constraints.
+    geckoPath = findGECKOroot;
+    adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
+    model = getGeckoTestModel();
+    lecModel = makeEcModel(model, true, adapter);
+    lecModel = getECfromGEM(lecModel);
+    lecModel = applyComplexData(lecModel, [], adapter, false);
+
+    % R2's two isozymes: 001_R2 (complex G1+G2), 002_R2 (single G3, MW 30000).
+    complexIdx = find(strcmp(lecModel.ec.rxns,'001_R2'));
+    singleIdx  = find(strcmp(lecModel.ec.rxns,'002_R2'));
+    lecModel.ec.kcat(complexIdx) = 0; % unassigned
+    lecModel.ec.kcat(singleIdx)  = 7; % real kcat
+
+    lecModel = applyKcatConstraints(lecModel);
+
+    % Only the single-gene isozyme has a usable kcat, so its cost must be
+    % the one written -- not the fabricated zero from the unassigned
+    % complex.
+    expected = -30000/7/3600;
+    verifyEqual(testCase,full(lecModel.S(strcmp(lecModel.mets, 'prot_pool'),strcmp(lecModel.rxns, 'R2'))),expected,"AbsTol",10^-10)
+end
+
+function testApplyKcatConstraintsLightNoValidIsozymeUncosted_tc0048(testCase)
+    % Companion to tc0047: when *every* isozyme of a reaction lacks a
+    % usable kcat, the reaction is left unconstrained (S coefficient 0),
+    % same as before the raven-gecko-parity#57 fix.
+    geckoPath = findGECKOroot;
+    adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
+    model = getGeckoTestModel();
+    lecModel = makeEcModel(model, true, adapter);
+    lecModel = getECfromGEM(lecModel);
+    lecModel = applyComplexData(lecModel, [], adapter, false);
+
+    lecModel = applyKcatConstraints(lecModel); % default kcat==0 everywhere
+
+    verifyEqual(testCase,full(lecModel.S(strcmp(lecModel.mets, 'prot_pool'),strcmp(lecModel.rxns, 'R2'))),0,"AbsTol",10^-10)
+end
+
+function testCopyECtoGEMOverwriteNeverErasesWithEmptySource_tc0049(testCase)
+    % raven-gecko-parity#79: overwrite=true used to copy ec.eccodes
+    % verbatim, including empty entries -- so a reaction with a real,
+    % populated eccodes annotation could be silently erased just because
+    % the ec-structure's entry for the same reaction happened to be
+    % empty. Fixed so an empty ec.eccodes source is never copied,
+    % matching geckopy's copy_ec_to_gem.
+    ecModel = struct();
+    ecModel.rxns = {'R1';'R2';'R3'};
+    ecModel.eccodes = {'1.1.1.1';'';'2.2.2.2'}; % R1, R3 already populated
+    ecModel.ec = struct();
+    ecModel.ec.rxns = {'R1';'R2';'R3'};
+    ecModel.ec.eccodes = {'';'3.3.3.3';''}; % R1, R3 have no new info; R2 does
+
+    result = copyECtoGEM(ecModel, 'overwrite', true);
+    % R1's and R3's real annotations must survive an empty ec.eccodes source.
+    verifyEqual(testCase,result.eccodes{1},'1.1.1.1')
+    verifyEqual(testCase,result.eccodes{3},'2.2.2.2')
+    % R2 had nothing before and gets the new, non-empty value.
+    verifyEqual(testCase,result.eccodes{2},'3.3.3.3')
+end
+
+function testCopyECtoGEMOverwriteFalseStillFillsEmptyEntries_tc0050(testCase)
+    % Sanity check that the overwrite=false path (unchanged by
+    % raven-gecko-parity#79) still fills only empty entries.
+    ecModel = struct();
+    ecModel.rxns = {'R1';'R2'};
+    ecModel.eccodes = {'1.1.1.1';''};
+    ecModel.ec = struct();
+    ecModel.ec.rxns = {'R1';'R2'};
+    ecModel.ec.eccodes = {'9.9.9.9';'3.3.3.3'};
+
+    result = copyECtoGEM(ecModel); % overwrite defaults to false
+    verifyEqual(testCase,result.eccodes{1},'1.1.1.1') % untouched
+    verifyEqual(testCase,result.eccodes{2},'3.3.3.3') % filled in
+end
+
