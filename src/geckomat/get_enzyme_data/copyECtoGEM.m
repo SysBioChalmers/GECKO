@@ -13,8 +13,10 @@ function ecModel = copyECtoGEM(ecModel, varargin)
 % --------------------
 % overwrite : logical
 %     whether existing (non-empty) ecModel.eccodes entries should be
-%     overwritten. Empty ecModel.eccodes entries are always overwritten if
-%     possible (default false).
+%     overwritten by a non-empty ecModel.ec.eccodes entry. Empty
+%     ecModel.eccodes entries are always overwritten if possible (default
+%     false). An empty ecModel.ec.eccodes source entry is never copied, so
+%     it can never erase an existing annotation.
 %
 % Returns
 % -------
@@ -41,6 +43,12 @@ if ~isfield(ecModel,'eccodes')
 end
 
 if overwrite
+    % Never overwrite an existing eccodes entry with an empty source: an
+    % unset ec.eccodes value means "no info to copy", not "clear the
+    % annotation".
+    nonEmptySource = false(size(a));
+    nonEmptySource(a) = ~cellfun(@isempty, ecModel.ec.eccodes(b(a)));
+    a = a & nonEmptySource;
     ecModel.eccodes(a) = ecModel.ec.eccodes(b(a));
 else % Only replace emptyEcCodes
     emptyEcCodes = cellfun(@isempty, ecModel.eccodes);
