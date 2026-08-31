@@ -1,4 +1,4 @@
-function [minFlux, maxFlux] = ecFVA(ecModel, model)
+function [minFlux, maxFlux] = ecFVA(ecModel, model, varargin)
 % ecFVA  Run flux variability analysis on an ecModel.
 %
 % Flux variability analysis is performed on the ecModel, and isozymic
@@ -15,6 +15,14 @@ function [minFlux, maxFlux] = ecFVA(ecModel, model)
 %     non-ecModel variant of the ecModel, to which the minFlux and maxFlux
 %     will be mapped.
 %
+% Name-Value Arguments
+% --------------------
+% runParallel : logical
+%     speed up calculations by parallel processing. Requires the MATLAB
+%     Parallel Computing Toolbox. If this is not installed, the
+%     calculations will not be parallelized, regardless of what is
+%     indicated as runParallel (default true).
+%
 % Returns
 % -------
 % minFlux : double
@@ -30,6 +38,10 @@ function [minFlux, maxFlux] = ecFVA(ecModel, model)
 % --------
 % mapRxnsToConv, plotEcFVA
 
+p = parseGECKOargs(varargin, { ...
+    'runParallel', true});
+runParallel = p.runParallel;
+
 rxnIDs = regexprep(ecModel.rxns,'(_REV)?(_EXP_\d+)?','');
 [rxnIDmap, convRxnID] = findgroups(rxnIDs);
 
@@ -37,14 +49,15 @@ N = numel(convRxnID);
 maxFluxByGroup = nan(N,1);
 minFluxByGroup = nan(N,1);
 
-pool = gcp('nocreate');
-if isempty(pool)
-    parpool;
-end
+% nW == 0 forces parfor to run as a plain for loop (no pool required or
+% created); nW == Inf lets Parallel Computing Toolbox manage the pool.
+% Falls back to serial automatically when the toolbox isn't installed,
+% rather than erroring the way an unconditional gcp/parpool call would.
+nW = parallelWorkersRAVEN(runParallel);
 
 PB = progressReport(N, 'Running ecFVA');
 
-parfor i=1:N
+parfor (i=1:N, nW)
     tmpModel = ecModel;
     tmpModel.c = zeros(numel(tmpModel.rxns),1);
 
