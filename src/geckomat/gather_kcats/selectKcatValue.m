@@ -26,7 +26,11 @@ function [model, rxnIdx] = selectKcatValue(model,kcatList,varargin)
 % --------------------
 % criteria : char
 %     which kcat value should be selected if multiple values are provided.
-%     Options: 'max', 'min', 'median', 'mean' (default 'max').
+%     Options: 'max', 'min', 'median', 'mean' (default 'max'). The written
+%     model.ec.source is taken from the matching entry for 'max'/'min'; for
+%     'median'/'mean', where the selected value need not equal any single
+%     input, it is taken from the first entry instead (arbitrary but
+%     deterministic, since an aggregate has no single "winning" source).
 % overwrite : char
 %     whether existing kcat values should be overwritten. Options: 'true',
 %     'false', 'ifHigher'. The last option will overwrite only if the new
@@ -97,9 +101,11 @@ for i=1:numel(idxInModelUnique)
         case 'min'
             [selectedKcats(i),j] = min(kcatList.kcats(idxMatch));
         case 'median'
-            [selectedKcats(i),j] = median(kcatList.kcats(idxMatch));
+            selectedKcats(i) = median(kcatList.kcats(idxMatch));
+            j = 1;
         case 'mean'
-            [selectedKcats(i),j] = mean(kcatList.kcats(idxMatch));
+            selectedKcats(i) = mean(kcatList.kcats(idxMatch));
+            j = 1;
         otherwise
             error('Invalid criteria specified')
     end

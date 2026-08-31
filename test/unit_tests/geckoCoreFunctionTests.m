@@ -1907,3 +1907,32 @@ function testEcFVAIsozymeSplitReactionUsesExactDiagonalBound_tc0052(testCase)
     verifyEqual(testCase, maxFlux(r2), 12, 'AbsTol', 1e-6)
 end
 
+function testSelectKcatValueMedianAndMeanCompute_tc0053(testCase)
+    % raven-gecko-parity#73: criteria='median'/'mean' used to request a
+    % second output from median()/mean(), which -- unlike max()/min() --
+    % are single-output-only builtins; every call crashed with "Too many
+    % output arguments" the moment the loop reached a reaction using
+    % either criteria, including the function's own docstring example.
+    % Fixed to compute the aggregate directly and attribute model.ec.source
+    % to the first matching kcatList row, matching geckopy's
+    % apply_kcat_list (there is no single "winning" row for an aggregate
+    % value, so this is an arbitrary but deterministic convention shared
+    % by both implementations).
+    model.ec.rxns   = {'r1'};
+    model.ec.kcat   = 0;
+    model.ec.source = {''};
+
+    kcatList.rxns       = {'r1'; 'r1'; 'r1'};
+    kcatList.kcats      = [1; 3; 5];
+    kcatList.kcatSource = {'src_first'; 'src_middle'; 'src_last'};
+    medianModel = selectKcatValue(model, kcatList, 'criteria', 'median');
+    verifyEqual(testCase, medianModel.ec.kcat, 3)
+    verifyEqual(testCase, medianModel.ec.source, {'src_first'})
+
+    kcatList.kcats      = [2; 4; 6];
+    kcatList.kcatSource = {'a'; 'b'; 'c'};
+    meanModel = selectKcatValue(model, kcatList, 'criteria', 'mean');
+    verifyEqual(testCase, meanModel.ec.kcat, 4)
+    verifyEqual(testCase, meanModel.ec.source, {'a'})
+end
+
