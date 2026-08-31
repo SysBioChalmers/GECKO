@@ -1,4 +1,4 @@
-function [minFlux, maxFlux] = ecFVA(ecModel, model)
+function [minFlux, maxFlux] = ecFVA(ecModel, model, varargin)
 % ecFVA  Run flux variability analysis on an ecModel.
 %
 % Flux variability analysis is performed on the ecModel, and isozymic
@@ -15,6 +15,14 @@ function [minFlux, maxFlux] = ecFVA(ecModel, model)
 %     non-ecModel variant of the ecModel, to which the minFlux and maxFlux
 %     will be mapped.
 %
+% Name-Value Arguments
+% --------------------
+% runParallel : logical
+%     speed up calculations by parallel processing. Requires the MATLAB
+%     Parallel Computing Toolbox. If this is not installed, the
+%     calculations will not be parallelized, regardless of what is
+%     indicated as runParallel (default true).
+%
 % Returns
 % -------
 % minFlux : double
@@ -30,21 +38,26 @@ function [minFlux, maxFlux] = ecFVA(ecModel, model)
 % --------
 % mapRxnsToConv, plotEcFVA
 
+p = parseGECKOargs(varargin, { ...
+    'runParallel', true});
+runParallel = p.runParallel;
+
 rxnIDs = regexprep(ecModel.rxns,'(_REV)?(_EXP_\d+)?','');
 [rxnIDmap, convRxnID] = findgroups(rxnIDs);
 
-solMaxAll = nan(numel(ecModel.rxns),numel(convRxnID));
-solMinAll = solMaxAll;
-
-pool = gcp('nocreate');
-if isempty(pool)
-    parpool;
-end
-
 N = numel(convRxnID);
+maxFluxByGroup = nan(N,1);
+minFluxByGroup = nan(N,1);
+
+% nW == 0 forces parfor to run as a plain for loop (no pool required or
+% created); nW == Inf lets Parallel Computing Toolbox manage the pool.
+% Falls back to serial automatically when the toolbox isn't installed,
+% rather than erroring the way an unconditional gcp/parpool call would.
+nW = parallelWorkersRAVEN(runParallel);
+
 PB = progressReport(N, 'Running ecFVA');
 
-parfor i=1:N
+parfor (i=1:N, nW)
     tmpModel = ecModel;
     tmpModel.c = zeros(numel(tmpModel.rxns),1);
 
@@ -58,32 +71,34 @@ parfor i=1:N
     tmpModel.c(rxnsToMin) = -1;
     solMax=solveLP(tmpModel);
     if ~isempty(solMax.x)
-        solMaxAll(:,i)=solMax.x;
+        % Exact bound for this canonical reaction, read directly off this
+        % group's own solve (the "diagonal"): forward minus reverse
+        % variants from the one LP that jointly optimised them, not the
+        % best value each variant happened to reach in whichever group's
+        % solve maximised it -- an "envelope" that can combine values from
+        % different, not necessarily jointly feasible, flux distributions.
+        maxFluxByGroup(i) = sum(solMax.x(rxnsToMax)) - sum(solMax.x(rxnsToMin));
     end
     tmpModel.c(rxnsToMax) = -1;
     tmpModel.c(rxnsToMin) = 1;
     solMin=solveLP(tmpModel);
     if ~isempty(solMin.x)
-        solMinAll(:,i)=solMin.x;
-    end    
+        minFluxByGroup(i) = sum(solMin.x(rxnsToMax)) - sum(solMin.x(rxnsToMin));
+    end
     count(PB);
 end
 PB.done;
 
-minFlux=min(solMinAll,[],2,'omitnan');
-maxFlux=max(solMaxAll,[],2,'omitnan');
-
-mappedFlux = mapRxnsToConv(ecModel,model,[minFlux maxFlux]);
-
-minFlux=mappedFlux(:,1);
-maxFlux=mappedFlux(:,2);
-
-% Mapped flux might have swapped directionality: min/max might be swapped
-swapDir = minFlux > maxFlux;
-if any(swapDir)
-    tmpFlux = minFlux(swapDir);
-    minFlux(swapDir) = maxFlux(swapDir);
-    maxFlux(swapDir) = tmpFlux;
+% Reorder from canonical-id order to model.rxns order. No min/max swap
+% correction is needed here (unlike a row-reduced envelope): both bounds
+% come from the same group's LP over the same feasible region with only
+% the objective direction flipped, so minFluxByGroup(i) <= maxFluxByGroup(i)
+% always holds whenever both solves succeeded.
+[mapCheck, origIdx] = ismember(model.rxns, convRxnID);
+if ~all(mapCheck)
+    error('Not all reactions from model.rxns can be found in the ecModel. Are you sure that ecModel is derived from model?')
 end
+minFlux = minFluxByGroup(origIdx);
+maxFlux = maxFluxByGroup(origIdx);
 
 end

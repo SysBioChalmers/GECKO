@@ -1856,3 +1856,54 @@ function testMakeEcModelSubSystemsMatchModelConvention_tc0051(testCase)
     verifyEqual(testCase, ecModel.subSystems{poolIdx}, {'Protein usage'})
 end
 
+function testEcFVAIsozymeSplitReactionUsesExactDiagonalBound_tc0052(testCase)
+    % raven-gecko-parity#72: for a canonical reaction split across isozyme
+    % variants that compete for a shared limiting resource, ecFVA used to
+    % read each variant's row-wise max/min across *every* canonical
+    % group's solve before summing forward and subtracting reverse
+    % variants -- an "envelope" that can combine values from different,
+    % not-necessarily-jointly-feasible flux distributions. Confirmed
+    % empirically here, not just argued from code: R2's two isozymes
+    % (G1+G2 complex, G3 single) share one upstream supply (R1, capped at
+    % 12, the only route to R2 since R3/R4 are blocked); each isozyme can
+    % reach 12 alone, but never jointly past 12. The unfixed ecFVA reports
+    % maxFlux(R2) = 24 -- double what any feasible flux distribution can
+    % attain -- because some *other* canonical group's solve happens to
+    % report R2_EXP_1 near its own max as a non-objective side effect, and
+    % a different group's solve does the same for R2_EXP_2, and the
+    % row-wise reduction sums the two independently. The fixed version
+    % reads each canonical reaction's bound only from its own group's
+    % solve (the "diagonal"), matching geckopy's ec_fva.
+    geckoPath = findGECKOroot;
+    adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
+    model = getGeckoTestModel();
+
+    % Force all m1->m2 flux through R2's two isozymes.
+    model.lb(strcmp(model.rxns,'R3')) = 0; model.ub(strcmp(model.rxns,'R3')) = 0;
+    model.lb(strcmp(model.rxns,'R4')) = 0; model.ub(strcmp(model.rxns,'R4')) = 0;
+    % Shared upstream supply, tightly capped: the two isozymes must
+    % compete for it.
+    model.lb(strcmp(model.rxns,'R1')) = 0; model.ub(strcmp(model.rxns,'R1')) = 12;
+    % Forward-only: R2's reverse direction would let a futile
+    % R2_EXP_1/R2_REV_EXP_1 cycle inflate R2_EXP_1's own flux with no net
+    % mass-balance effect, unrelated to what this test is exercising.
+    model.lb(strcmp(model.rxns,'R2')) = 0;
+
+    ecModel = makeEcModel(model, false, adapter);
+    ecModel = getECfromGEM(ecModel);
+    % Generous kcat everywhere: the shared R1 supply must be the binding
+    % constraint, not enzyme cost.
+    ecModel.ec.kcat(:) = 1000;
+    ecModel = applyKcatConstraints(ecModel);
+    ecModel = setProtPoolSize(ecModel, [], [], [], adapter);
+    ecModel.ub(strcmp(ecModel.rxns,'prot_pool_exchange')) = 1e6;
+
+    % runParallel=false: exercises the plain-for-loop path directly and
+    % keeps this test independent of whether Parallel Computing Toolbox
+    % happens to be installed wherever it runs (raven-gecko-parity#72's
+    % follow-up: ecFVA no longer requires it at all).
+    [~, maxFlux] = ecFVA(ecModel, model, 'runParallel', false);
+    r2 = strcmp(model.rxns, 'R2');
+    verifyEqual(testCase, maxFlux(r2), 12, 'AbsTol', 1e-6)
+end
+
