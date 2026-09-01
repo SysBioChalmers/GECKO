@@ -1939,9 +1939,8 @@ function testDeprecatedAliasesWarnAndForward_tc0055(testCase)
     % is destructive and slow to run as part of this suite. Its wrapper
     % follows the identical template as the other 7, verified below.
     %
-    % updateprior/updatePrior's check runs only when the Statistics and
-    % Machine Learning Toolbox is available (see below); to be resolved
-    % in a future PR.
+    % updateprior/updatePrior's check runs only when fitdist is actually
+    % available (see below); to be resolved in a future PR.
     geckoPath = findGECKOroot;
     adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
     model = getGeckoTestModel();
@@ -2032,10 +2031,12 @@ function testDeprecatedAliasesWarnAndForward_tc0055(testCase)
     verifyEqual(testCase, carbonOld.excarbon, carbonNew.excarbon)
 
     % updateprior -> updatePrior
-    % Skipped when the Statistics and Machine Learning Toolbox isn't
-    % available: updatePrior calls fitdist, which needs it. To be
-    % resolved in a future PR.
-    if license('test','Statistics_Toolbox')
+    % Skipped when fitdist isn't actually available: updatePrior calls
+    % it, and it's part of the Statistics and Machine Learning Toolbox.
+    % license('test',...) alone is not a reliable check here -- it can
+    % report the toolbox licensed even when its functions aren't
+    % actually installed on the runner. To be resolved in a future PR.
+    if exist('fitdist', 'file') == 2
         lastwarn('','');
         [muOld, sigmaOld] = updateprior([2;4;6]);
         [~,warnId] = lastwarn();
