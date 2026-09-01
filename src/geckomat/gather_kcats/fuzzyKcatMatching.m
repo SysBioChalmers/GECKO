@@ -62,7 +62,7 @@ function kcatList = fuzzyKcatMatching(model, varargin)
 %
 % See also
 % --------
-% mergeDLKcatAndFuzzyKcats, selectKcatValue
+% mergeDLKcatAndFuzzyKcats, assignKcatValues
 
 p = parseGECKOargs(varargin, { ...
     'ecRxns',       []; ...

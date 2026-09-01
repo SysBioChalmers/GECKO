@@ -3,12 +3,12 @@ function kcatList = readOpenKineticsPredictorOutput(model, varargin)
 %
 % Reads the OpenKineticsPredictor output file (job-*-output.csv with columns:
 % kcat (1/s), Source kcat, Extra Info kcat, Protein Sequence, Substrate) and
-% constructs a kcatList structure, that can be used by selectKcatValue() to
+% constructs a kcatList structure, that can be used by assignKcatValues() to
 % populate the ecModel with kcat values.
 %
 % The per-entry `Source kcat` column (e.g. 'Prediction from CatPred',
 % 'BRENDA', 'Sabio-RK', 'UniProt') is preserved in kcatList.kcatSource so
-% that selectKcatValue() records the actual provenance of each value.
+% that assignKcatValues() records the actual provenance of each value.
 %
 % Parameters
 % ----------
@@ -50,7 +50,7 @@ function kcatList = readOpenKineticsPredictorOutput(model, varargin)
 %
 % See also
 % --------
-% writeOpenKineticsPredictorInput, selectKcatValue
+% writeOpenKineticsPredictorInput, assignKcatValues
 
 p = parseGECKOargs(varargin, { ...
     'outFile',      []; ...
@@ -117,7 +117,7 @@ sequences     = normalizeCellStrings(sequences);
 smiles        = normalizeCellStrings(smiles);
 
 %% Filter out entries with no numeric kcat value (NaN). Zero values are
-% retained here and filtered downstream by selectKcatValue.
+% retained here and filtered downstream by assignKcatValues.
 valid = ~isnan(kcats);
 kcats         = kcats(valid);
 sequences     = sequences(valid);

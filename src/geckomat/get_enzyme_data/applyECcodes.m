@@ -1,5 +1,5 @@
-function ecModel = copyECtoGEM(ecModel, varargin)
-% copyECtoGEM  Copy EC numbers from ecModel.ec.eccodes to ecModel.eccodes.
+function ecModel = applyECcodes(ecModel, varargin)
+% applyECcodes  Copy EC numbers from ecModel.ec.eccodes to ecModel.eccodes.
 %
 % Copies the EC numbers stored in the ecModel.ec structure across to the
 % top-level ecModel.eccodes field.
@@ -26,8 +26,8 @@ function ecModel = copyECtoGEM(ecModel, varargin)
 % Examples
 % --------
 %     % optional arguments may be given positionally or as name-value pairs:
-%     ecModel = copyECtoGEM(ecModel, true);
-%     ecModel = copyECtoGEM(ecModel, 'overwrite', true);
+%     ecModel = applyECcodes(ecModel, true);
+%     ecModel = applyECcodes(ecModel, 'overwrite', true);
 
 p = parseGECKOargs(varargin, { ...
     'overwrite', false});

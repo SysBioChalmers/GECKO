@@ -24,7 +24,7 @@ kcatListFullFuzzy = fuzzyKcatMatching(fullECModel, [], yeastAdapter);
 
 mergedKcatListFull = mergeDLKcatAndFuzzyKcats(kcatListFullDlKcat, kcatListFullFuzzy);
 
-fullECModelMerged = selectKcatValue(fullECModel,mergedKcatListFull);
+fullECModelMerged = assignKcatValues(fullECModel,mergedKcatListFull);
 fullECModelMerged = applyKcatConstraints(fullECModelMerged);
 %set protein pool constraint
 fullECModelMerged = setProtPoolSize(fullECModelMerged, [], [], [], yeastAdapter);
@@ -59,7 +59,7 @@ kcatListLightFuzzy = fuzzyKcatMatching(lightECModel, [], yeastAdapter);
 
 mergedKcatListLight = mergeDLKcatAndFuzzyKcats(kcatListLightDlKcat, kcatListLightFuzzy);
 
-lightECModelMerged = selectKcatValue(lightECModel, mergedKcatListLight);
+lightECModelMerged = assignKcatValues(lightECModel, mergedKcatListLight);
 lightECModelMerged = applyKcatConstraints(lightECModelMerged);
 %set protein pool constraint
 lightECModelMerged = setProtPoolSize(lightECModelMerged, [], [], [], yeastAdapter);

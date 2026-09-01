@@ -1,12 +1,12 @@
-function updateGECKOdoc()
-% updateGECKOdoc  Update HTML documentation for all geckomat functions.
+function buildGECKOdoc()
+% buildGECKOdoc  Update HTML documentation for all geckomat functions.
 %
 % Updates HTML documentation files for all geckomat GECKO functions. Uses
 % the m2html functions that are provided with RAVEN.
 %
 % Examples
 % --------
-%     updateGECKOdoc();
+%     buildGECKOdoc();
 
 %Make sure that RAVEN-provided m2html is used
 ravenDir=findRAVENroot();

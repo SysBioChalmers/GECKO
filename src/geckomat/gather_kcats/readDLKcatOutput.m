@@ -2,7 +2,7 @@ function kcatList = readDLKcatOutput(model, varargin)
 % readDLKcatOutput  Read the DLKcat output file into a kcatList structure.
 %
 % Reads the DLKcat output file and constructs a kcatList structure, that can
-% be used by selectKcatValue() to populate the ecModel with kcat values.
+% be used by assignKcatValues() to populate the ecModel with kcat values.
 %
 % Parameters
 % ----------
@@ -41,7 +41,7 @@ function kcatList = readDLKcatOutput(model, varargin)
 %
 % See also
 % --------
-% runDLKcat, writeDLKcatInput, selectKcatValue
+% runDLKcat, writeDLKcatInput, assignKcatValues
 
 p = parseGECKOargs(varargin, { ...
     'outFile',      []; ...

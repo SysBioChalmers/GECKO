@@ -1,5 +1,5 @@
-function [model, rxnIdx] = selectKcatValue(model,kcatList,varargin)
-% selectKcatValue  Select one kcat value per reaction and write to model.ec.
+function [model, rxnIdx] = assignKcatValues(model,kcatList,varargin)
+% assignKcatValues  Select one kcat value per reaction and write to model.ec.
 %
 % From a kcatList with predicted or suggested kcat values, where each
 % reaction may have multiple entries, one kcat value is selected and written
@@ -47,8 +47,8 @@ function [model, rxnIdx] = selectKcatValue(model,kcatList,varargin)
 % Examples
 % --------
 %     % optional arguments may be given positionally or as name-value pairs:
-%     [model, rxnIdx] = selectKcatValue(model, kcatList);
-%     [model, rxnIdx] = selectKcatValue(model, kcatList, 'criteria', 'mean');
+%     [model, rxnIdx] = assignKcatValues(model, kcatList);
+%     [model, rxnIdx] = assignKcatValues(model, kcatList, 'criteria', 'mean');
 %
 % See also
 % --------
