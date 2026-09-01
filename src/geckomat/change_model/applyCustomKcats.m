@@ -131,6 +131,19 @@ if ~model.ec.geckoLight
             rxnIdxs = ismember(ecRxnNoSuffix,rxns);
             rxnToUpdate(rxnIdxs) = 1;
             model.ec.kcat(rxnIdxs) = customKcats.kcat(i);
+
+            % Add note mentioning manual kcat change
+            model.ec.source(rxnIdxs) = {'custom'};
+            if isfield(customKcats,'notes')
+                matchedIdxs = find(rxnIdxs);
+                for j = 1:numel(matchedIdxs)
+                    if isempty(model.ec.notes{matchedIdxs(j), 1}) && ~isempty(customKcats.notes{i})
+                        model.ec.notes{matchedIdxs(j), 1} = customKcats.notes{i};
+                    else
+                        model.ec.notes{matchedIdxs(j), 1} = [model.ec.notes{matchedIdxs(j), 1} ', ' customKcats.notes{i}];
+                    end
+                end
+            end
         else
             prots = strtrim(strsplit(customKcats.proteins{i}, '+'));
 

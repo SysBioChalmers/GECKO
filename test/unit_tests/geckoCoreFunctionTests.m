@@ -1936,3 +1936,36 @@ function testSelectKcatValueMedianAndMeanCompute_tc0053(testCase)
     verifyEqual(testCase, meanModel.ec.source, {'a'})
 end
 
+function testApplyCustomKcatsModeAWritesSourceAndNotes_tc0054(testCase)
+    % raven-gecko-parity#51: a mode-A customKcats row (reaction id only,
+    % no protein) updated ec.kcat but left ec.source/ec.notes untouched --
+    % a curator-supplied note was silently discarded, not just left
+    % unset, since customKcats.notes{i} was never even read on that
+    % branch. Fixed to write ec.source='custom' and append ec.notes for
+    % every reaction a mode-A row matches, mirroring the mode-B/C branch
+    % just below it and geckopy's apply_custom_kcats, which already did
+    % this unconditionally.
+    geckoPath = findGECKOroot;
+    adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
+    model = getGeckoTestModel();
+    ecModel = makeEcModel(model, false, adapter);
+    ecModel = getECfromGEM(ecModel);
+
+    % R3 already carries a real, non-custom kcat, as it would after
+    % selectKcatValue picked a BRENDA-derived value earlier in the
+    % pipeline.
+    r3 = strcmp(ecModel.ec.rxns, 'R3');
+    ecModel.ec.kcat(r3) = 46.5;
+    ecModel.ec.source{r3} = 'brenda';
+
+    customKcats.proteins = {''};
+    customKcats.kcat     = 999;
+    customKcats.rxns     = {'R3'};
+    customKcats.notes    = {'override'};
+
+    test = applyCustomKcats(ecModel, customKcats, adapter);
+    verifyEqual(testCase, test.ec.kcat(r3), 999)
+    verifyEqual(testCase, test.ec.source(r3), {'custom'})
+    verifyEqual(testCase, test.ec.notes(r3), {'override'})
+end
+
