@@ -542,10 +542,8 @@ function testCalculateFfactor_tc0014(testCase)
     model = getGeckoTestModel();
     ecModel = makeEcModel(model, false, adapter);
 
-    % ecTestGEM ships no data/paxDB.tsv, so with no protData supplied calculateFfactor must
-    % fall back to its documented default of 0.5 --- previously this crashed instead,
-    % since execution fell through past the default-0.5 branch and went on to index into
-    % protData as though it were the struct that branch never produced.
+    % ecTestGEM ships no data/paxDB.tsv, so with no protData supplied
+    % calculateFfactor must fall back to its documented default of 0.5.
     [~, f] = evalc("calculateFfactor(ecModel, [], [], adapter)");
     verifyEqual(testCase,f,0.5)
 end
@@ -594,21 +592,18 @@ function testTestGEMAdapterSpontaneousReactions_tc0016(testCase)
     geckoPath = findGECKOroot;
     adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
 
-    % getSpontaneousReactions used to reference an undefined variable
-    % (rxns_tsv.rxns) and crash unconditionally whenever called -- this is the
-    % only method that ever calls it (from getStandardKcat.m), so
-    % getStandardKcat could never run against TestGEMAdapter at all.
+    % getStandardKcat.m is the only caller of getSpontaneousReactions; this
+    % verifies it correctly identifies the spontaneous reaction (R4) for the
+    % conventional model.
     model = getGeckoTestModel();
     [spont, spontRxnNames] = adapter.getSpontaneousReactions(model);
     verifyEqual(testCase,find(spont),5)
     verifyEqual(testCase,spontRxnNames,{'R4'})
 
-    % Fixing the undefined variable alone was not enough: the position it set
-    % (spont(5) = true) is only valid for this 7-reaction conventional model.
-    % getStandardKcat's only real caller passes the already-expanded ecModel,
-    % where R4's position among model.rxns has moved -- matching by reaction
-    % id instead of position (mirroring geckopy's own TestGEMAdapter port)
-    % survives that.
+    % getStandardKcat's caller passes the already-expanded ecModel, where
+    % R4's position among model.rxns differs from the conventional model.
+    % getSpontaneousReactions matches by reaction id rather than list
+    % position, so it still correctly identifies R4 here.
     ecModel = makeEcModel(model, false, adapter);
     [spontEc, spontRxnNamesEc] = adapter.getSpontaneousReactions(ecModel);
     verifyEqual(testCase,find(spontEc),find(strcmp(ecModel.rxns,'R4')))
@@ -646,12 +641,8 @@ function testAddNewRxnsToEC_tc0018(testCase)
     ecModel = makeEcModel(model, false, adapter);
 
     % Two new reactions, each with its own isozyme (OR) grRule, added in the same call.
-    % Regression test: addNewRxnsToEC used to lose track of which reaction it was
-    % splitting once more than one needed splitting. It removed (and appended) one entry
-    % at a time while iterating a list of indices computed before any removal, so each
-    % removal shifted the positions of every later entry --- the second (and any further)
-    % reaction's grRule was then read from whatever had shifted into its old position,
-    % rather than its own.
+    % Verifies that each reaction's grRule is matched by reaction id rather
+    % than list position when splitting multiple isozyme reactions in one call.
     newRxns.rxns      = {'RNEWA'; 'RNEWB'};
     newRxns.rxnNames  = {'RNEWA'; 'RNEWB'};
     newRxns.equations = {'m1[c] => e2[e]'; 'm2[c] => e1[e]'};
@@ -1716,7 +1707,7 @@ function testReportEnzymeUsageSkipsOnlyFullyInactiveEnzymes_tc0045(testCase)
 end
 
 
-function testCalculateMWReconciledWithGeckopy_tc0046(testCase)
+function testCalculateMWResidueMassHandling_tc0046(testCase)
     % Verifies calculateMW's residue-mass handling: the water constant is
     % 18.01528; ambiguous residues X and B are computed as the mean of their
     % possible standard residues rather than a fixed constant; residue
@@ -1736,15 +1727,11 @@ function testCalculateMWReconciledWithGeckopy_tc0046(testCase)
 end
 
 function testApplyKcatConstraintsLightSkipsUnassignedIsozyme_tc0047(testCase)
-    % raven-gecko-parity#57: in the light formulation, when one isozyme of
-    % a reaction has no kcat assigned (kcat==0, i.e. an Inf MW/kcat) and
-    % another isozyme does, applyKcatConstraints used to correct the
-    % unassigned isozyme's Inf cost to 0 *before* taking min() across
-    % isozymes, so that fabricated zero always won -- silently leaving
-    % the reaction unconstrained by enzyme usage even though a real kcat
-    % was available on another isozyme. Fixed to drop isozymes with no
-    % usable kcat before selecting the cheapest one, matching geckopy's
-    % apply_kcat_constraints.
+    % In the light formulation, when one isozyme of a reaction has no kcat
+    % assigned (kcat==0, i.e. an Inf MW/kcat) and another isozyme does,
+    % applyKcatConstraints drops the isozyme with no usable kcat before
+    % taking min() across isozymes, so the reaction's enzyme-usage cost is
+    % set by the isozyme that actually has a kcat.
     geckoPath = findGECKOroot;
     adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
     model = getGeckoTestModel();
@@ -1769,8 +1756,7 @@ end
 
 function testApplyKcatConstraintsLightNoValidIsozymeUncosted_tc0048(testCase)
     % Companion to tc0047: when *every* isozyme of a reaction lacks a
-    % usable kcat, the reaction is left unconstrained (S coefficient 0),
-    % same as before the raven-gecko-parity#57 fix.
+    % usable kcat, the reaction is left unconstrained (S coefficient 0).
     geckoPath = findGECKOroot;
     adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
     model = getGeckoTestModel();
@@ -1784,12 +1770,10 @@ function testApplyKcatConstraintsLightNoValidIsozymeUncosted_tc0048(testCase)
 end
 
 function testCopyECtoGEMOverwriteNeverErasesWithEmptySource_tc0049(testCase)
-    % raven-gecko-parity#79: overwrite=true used to copy ec.eccodes
-    % verbatim, including empty entries -- so a reaction with a real,
-    % populated eccodes annotation could be silently erased just because
-    % the ec-structure's entry for the same reaction happened to be
-    % empty. Fixed so an empty ec.eccodes source is never copied,
-    % matching geckopy's copy_ec_to_gem.
+    % With overwrite=true, an empty ec.eccodes source entry is never
+    % copied, so a reaction with a real, populated eccodes annotation is
+    % not erased just because the ec-structure's entry for the same
+    % reaction happens to be empty.
     ecModel = struct();
     ecModel.rxns = {'R1';'R2';'R3'};
     ecModel.eccodes = {'1.1.1.1';'';'2.2.2.2'}; % R1, R3 already populated
@@ -1806,8 +1790,7 @@ function testCopyECtoGEMOverwriteNeverErasesWithEmptySource_tc0049(testCase)
 end
 
 function testCopyECtoGEMOverwriteFalseStillFillsEmptyEntries_tc0050(testCase)
-    % Sanity check that the overwrite=false path (unchanged by
-    % raven-gecko-parity#79) still fills only empty entries.
+    % Sanity check that the overwrite=false path fills only empty entries.
     ecModel = struct();
     ecModel.rxns = {'R1';'R2'};
     ecModel.eccodes = {'1.1.1.1';''};
@@ -1821,18 +1804,11 @@ function testCopyECtoGEMOverwriteFalseStillFillsEmptyEntries_tc0050(testCase)
 end
 
 function testMakeEcModelSubSystemsMatchModelConvention_tc0051(testCase)
-    % GECKO#412: usage_prot_* and prot_pool_exchange always assigned a
-    % bare-char subSystems entry ('Protein usage'), regardless of whether
-    % the rest of the model used that convention or the nested
-    % cell-array-of-cell-arrays one (the common case for a real GEM).
-    % Reported against a RAVEN release whose addRxns did not reconcile a
-    % resulting bare-char/nested mix, so checkModelStruct rejected it at
-    % save time ("the subSystems field must be a cell array"). Current
-    % RAVEN's addRxns reconciles that mismatch on its own, so this test
-    % cannot reproduce the save-time crash directly; it instead pins down
-    % that makeEcModel itself now always emits a value matching the
-    % model's own convention, rather than relying on addRxns to paper
-    % over a mismatch.
+    % model.subSystems entries can be represented either as a bare char
+    % ('Protein usage') or as a nested cell-array-of-cell-arrays (the
+    % common case for a real GEM). Verifies that makeEcModel assigns
+    % usage_prot_* and prot_pool_exchange a subSystems value matching
+    % whichever convention the rest of the model uses.
     geckoPath = findGECKOroot;
     adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
     model = getGeckoTestModel();
@@ -1857,23 +1833,15 @@ function testMakeEcModelSubSystemsMatchModelConvention_tc0051(testCase)
 end
 
 function testEcFVAIsozymeSplitReactionUsesExactDiagonalBound_tc0052(testCase)
-    % raven-gecko-parity#72: for a canonical reaction split across isozyme
-    % variants that compete for a shared limiting resource, ecFVA used to
-    % read each variant's row-wise max/min across *every* canonical
-    % group's solve before summing forward and subtracting reverse
-    % variants -- an "envelope" that can combine values from different,
-    % not-necessarily-jointly-feasible flux distributions. Confirmed
-    % empirically here, not just argued from code: R2's two isozymes
-    % (G1+G2 complex, G3 single) share one upstream supply (R1, capped at
-    % 12, the only route to R2 since R3/R4 are blocked); each isozyme can
-    % reach 12 alone, but never jointly past 12. The unfixed ecFVA reports
-    % maxFlux(R2) = 24 -- double what any feasible flux distribution can
-    % attain -- because some *other* canonical group's solve happens to
-    % report R2_EXP_1 near its own max as a non-objective side effect, and
-    % a different group's solve does the same for R2_EXP_2, and the
-    % row-wise reduction sums the two independently. The fixed version
-    % reads each canonical reaction's bound only from its own group's
-    % solve (the "diagonal"), matching geckopy's ec_fva.
+    % For a canonical reaction split across isozyme variants that compete
+    % for a shared limiting resource, ecFVA reads each canonical
+    % reaction's bound only from its own group's solve (the "diagonal"),
+    % rather than combining row-wise max/min values across every
+    % canonical group's solve, which need not be jointly feasible.
+    % R2's two isozymes (G1+G2 complex, G3 single) share one upstream
+    % supply (R1, capped at 12, the only route to R2 since R3/R4 are
+    % blocked); each isozyme can reach 12 alone, but never jointly past
+    % 12, so maxFlux(R2) must be exactly 12.
     geckoPath = findGECKOroot;
     adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
     model = getGeckoTestModel();
@@ -1900,24 +1868,17 @@ function testEcFVAIsozymeSplitReactionUsesExactDiagonalBound_tc0052(testCase)
 
     % runParallel=false: exercises the plain-for-loop path directly and
     % keeps this test independent of whether Parallel Computing Toolbox
-    % happens to be installed wherever it runs (raven-gecko-parity#72's
-    % follow-up: ecFVA no longer requires it at all).
+    % happens to be installed wherever it runs; ecFVA does not require it.
     [~, maxFlux] = ecFVA(ecModel, model, 'runParallel', false);
     r2 = strcmp(model.rxns, 'R2');
     verifyEqual(testCase, maxFlux(r2), 12, 'AbsTol', 1e-6)
 end
 
 function testSelectKcatValueMedianAndMeanCompute_tc0053(testCase)
-    % raven-gecko-parity#73: criteria='median'/'mean' used to request a
-    % second output from median()/mean(), which -- unlike max()/min() --
-    % are single-output-only builtins; every call crashed with "Too many
-    % output arguments" the moment the loop reached a reaction using
-    % either criteria, including the function's own docstring example.
-    % Fixed to compute the aggregate directly and attribute model.ec.source
-    % to the first matching kcatList row, matching geckopy's
-    % apply_kcat_list (there is no single "winning" row for an aggregate
-    % value, so this is an arbitrary but deterministic convention shared
-    % by both implementations).
+    % criteria='median'/'mean' compute the aggregate of the matching
+    % kcatList rows directly, and attribute model.ec.source to the first
+    % matching row -- there is no single "winning" row for an aggregate
+    % value, so this is an arbitrary but deterministic convention.
     model.ec.rxns   = {'r1'};
     model.ec.kcat   = 0;
     model.ec.source = {''};
@@ -1937,14 +1898,9 @@ function testSelectKcatValueMedianAndMeanCompute_tc0053(testCase)
 end
 
 function testApplyCustomKcatsModeAWritesSourceAndNotes_tc0054(testCase)
-    % raven-gecko-parity#51: a mode-A customKcats row (reaction id only,
-    % no protein) updated ec.kcat but left ec.source/ec.notes untouched --
-    % a curator-supplied note was silently discarded, not just left
-    % unset, since customKcats.notes{i} was never even read on that
-    % branch. Fixed to write ec.source='custom' and append ec.notes for
-    % every reaction a mode-A row matches, mirroring the mode-B/C branch
-    % just below it and geckopy's apply_custom_kcats, which already did
-    % this unconditionally.
+    % A mode-A customKcats row (reaction id only, no protein) writes
+    % ec.source='custom' and appends ec.notes for every reaction it
+    % matches, mirroring the mode-B/C branch just below it.
     geckoPath = findGECKOroot;
     adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
     model = getGeckoTestModel();
