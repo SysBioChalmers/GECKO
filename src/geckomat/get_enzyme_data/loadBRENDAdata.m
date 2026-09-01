@@ -8,10 +8,8 @@ function [KCATcell, SAcell] = loadBRENDAdata(varargin)
 % molecular weights).
 %
 % kcat.tsv and sa.tsv each carry both a max and a median aggregate per
-% (EC, substrate, organism) triple; only the max column is used here. The
-% three files are produced by the `geckopy brenda-refresh` CLI (see geckopy's
-% databases.brenda_loader for the Python-side reader of the same files) and
-% each starts with a `#`-prefixed release-version line followed by a
+% (EC, substrate, organism) triple; only the max column is used here. Each
+% file starts with a `#`-prefixed release-version line followed by a
 % tab-delimited column header, both skipped on read.
 %
 % Name-Value Arguments
@@ -58,7 +56,7 @@ MW_file        = fullfile(basePath,'mw.tsv');
 %substrate-level aggregation choice): ec_code, substrate, organism, value,
 %n, references.
 KCATcell      = openDataFile(KCAT_file,1,'%q %q %q %f %f %f %q',4);
-scalingFactor = 1/60;    %[umol/min/mg] -> [mmol/s/g]    Old: 60 [umol/min/mg] -> [mmol/h/g]
+scalingFactor = 1/60;    %[umol/min/mg] -> [mmol/s/g]
 SA            = openDataFile(SA_file,scalingFactor,'%q %q %q %f %f %f %q',4);
 scalingFactor = 1/1000;  %[g/mol] -> [g/mmol]
 MW            = openDataFile(MW_file,scalingFactor,'%q %q %q %f %f %q',4);
