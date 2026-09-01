@@ -1928,7 +1928,7 @@ end
 function testDeprecatedAliasesWarnAndForward_tc0055(testCase)
     % Smoke test for the 8 GECKO4 renames (raven-gecko-parity naming
     % proposal): each pre-GECKO4 name now lives under
-    % src/geckomat/deprecated/ as a thin wrapper that warns with ID
+    % src/deprecated/ as a thin wrapper that warns with ID
     % 'GECKO:deprecatedName' and forwards to the new name. Checks both
     % that the warning fires and that the old name's result matches
     % calling the new name directly.

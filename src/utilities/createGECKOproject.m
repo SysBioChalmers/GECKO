@@ -52,7 +52,7 @@ if ~exist(fullPath, 'dir')
     end
 
     % Read the template adapter class
-    fid = fopen(fullfile(findGECKOroot, 'src', 'geckomat', ...
+    fid = fopen(fullfile(findGECKOroot, 'src', ...
         'model_adapter', 'adapterTemplate.m'));
     f = fread(fid, '*char')';
     fclose(fid);
