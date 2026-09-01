@@ -30,7 +30,7 @@ kcatListFullFuzzy = fuzzyKcatMatching(fullECModel, [], humanAdapter);
 
 mergedKcatListFull = mergeDLKcatAndFuzzyKcats(kcatListFullDlKcat, kcatListFullFuzzy);
 
-fullECModelMerged = selectKcatValue(fullECModel,mergedKcatListFull);
+fullECModelMerged = assignKcatValues(fullECModel,mergedKcatListFull);
 fullECModelMerged = applyKcatConstraints(fullECModelMerged);
 %set protein pool constraint
 fullECModelMerged = setProtPoolSize(fullECModelMerged, [], [], [], humanAdapter);
@@ -55,7 +55,7 @@ kcatListLightFuzzy = fuzzyKcatMatching(lightECModel, [], humanAdapter);
 
 mergedKcatListLight = mergeDLKcatAndFuzzyKcats(kcatListLightDlKcat, kcatListLightFuzzy);
 
-lightECModelMerged = selectKcatValue(lightECModel, mergedKcatListLight);
+lightECModelMerged = assignKcatValues(lightECModel, mergedKcatListLight);
 lightECModelMerged = applyKcatConstraints(lightECModelMerged);
 %set protein pool constraint
 lightECModelMerged = setProtPoolSize(lightECModelMerged, [], [], [], humanAdapter);
@@ -134,7 +134,7 @@ toc %Elapsed time is 62.289315 seconds - a bit slow, should be easy to optimize 
 
 
 kcatListLightFuzzy = fuzzyKcatMatching(lightECModel, [], humanAdapter);
-%lightECModel = selectKcatValue(lightECModel,kcatList);
+%lightECModel = assignKcatValues(lightECModel,kcatList);
 %lightECModel = applyKcatConstraints(lightECModel);
 %constructEquations(lightECModel)
 %hmm, look at the prot_pool usage
@@ -164,7 +164,7 @@ kcatListLightDlKcat = readDLKcatOutput(lightECModel, [], humanAdapter);
 
 %now join the fuzzy and dlkcat ckats for light
 mergedKcatListLight = mergeDlkcatAndFuzzyKcats(kcatListLightDlKcat, kcatListLightFuzzy);
-lightECModelMerged  = selectKcatValue(lightECModel,mergedKcatListLight);
+lightECModelMerged  = assignKcatValues(lightECModel,mergedKcatListLight);
 lightECModelMerged = applyKcatConstraints(lightECModelMerged);
 
 % plot the coefficients
@@ -184,7 +184,7 @@ lightECModelTuned = sensitivityTuning(lightECModel, 0.07, humanAdapter);
 kcatListFullFuzzy = fuzzyKcatMatching(fullECModel, [], humanAdapter);
 mergedKcatListFull = mergeDlkcatAndFuzzyKcats(kcatListFullDlKcat, kcatListFullFuzzy);
 
-fullECModelMerged = selectKcatValue(fullECModel,mergedKcatListFull);
+fullECModelMerged = assignKcatValues(fullECModel,mergedKcatListFull);
 fullECModelMerged = applyKcatConstraints(fullECModelMerged);
 
 % set protein pool constraint
@@ -195,7 +195,7 @@ fullECModelMerged = setProtPoolSize(fullECModelMerged, [], humanAdapter);
 
 % Now merge the kcats from dlkcat and fuzzy
 mergedKcatList = mergeDlkcatAndFuzzyKcats(kcatListFullDlKcat, kcatListFullFuzzy);
-fullECModelMerged  = selectKcatValue(fullECModelMerged,mergedKcatList);
+fullECModelMerged  = assignKcatValues(fullECModelMerged,mergedKcatList);
 fullECModelMerged = applyKcatConstraints(fullECModelMerged);
 
 fullECModelMerged = setProtPoolSize(fullECModelMerged, [], humanAdapter);

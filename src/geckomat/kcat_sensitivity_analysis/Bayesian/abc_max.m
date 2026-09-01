@@ -51,7 +51,7 @@ end
 rmse_1 = []; rmseList1 = []; rmse_2 = []; rmseList2 = [];
 
 if ~isfield(ecModel,'excarbon')
-    ecModel = addCarbonNum(ecModel);
+    ecModel = fillCarbonNum(ecModel);
     ecModel.excarbon(ecModel.excarbon == 0) = 1;
 end
 

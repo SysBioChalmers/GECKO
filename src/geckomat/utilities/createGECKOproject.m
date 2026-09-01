@@ -1,5 +1,5 @@
-function startGECKOproject(varargin)
-% startGECKOproject  Create a basic project structure for GECKO.
+function createGECKOproject(varargin)
+% createGECKOproject  Create a basic project structure for GECKO.
 %
 % Creates a basic project structure for GECKO. If a project with the same
 % name exists, the project will not be created.
@@ -17,8 +17,8 @@ function startGECKOproject(varargin)
 % Examples
 % --------
 %     % optional arguments may be given positionally or as name-value pairs:
-%     startGECKOproject(name, path);
-%     startGECKOproject('name', name);
+%     createGECKOproject(name, path);
+%     createGECKOproject('name', name);
 
 p = parseGECKOargs(varargin, { ...
     'name', []; ...

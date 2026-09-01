@@ -4,7 +4,7 @@ function [done, kcatList] = fetchOpenKineticsPredictor(model, varargin)
 % Checks the status of an OpenKineticsPredictor job and, when it has
 % finished, downloads the result to data/OKP_output.csv and parses it (via
 % readOpenKineticsPredictorOutput) into a kcatList consumable by
-% selectKcatValue.
+% assignKcatValues.
 %
 % The API key (only needed when useStored=false) is resolved from the
 % OKP_API_KEY environment variable or data/okpApiKey.txt; see

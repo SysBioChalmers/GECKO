@@ -68,7 +68,7 @@ function [ecModel, rmseTrace, kcatTrace, sigmaLogTrace, diagnostics, posteriorSa
 %
 % See also
 % --------
-% abc_max, loadBayesianData, addCarbonNum
+% abc_max, loadBayesianData, fillCarbonNum
 %
 p = parseGECKOargs(varargin, { ...
     'kcatSigmaLog', []; ...
@@ -144,7 +144,7 @@ bayData = loadBayesianData(modelAdapter);
 
 % Add carbon counts for exchange reactions if missing (used for RMSE weighting)
 if ~isfield(ecModel,'excarbon')
-    ecModel = addCarbonNum(ecModel);
+    ecModel = fillCarbonNum(ecModel);
     ecModel.excarbon(ecModel.excarbon == 0) = 1;
 end
 

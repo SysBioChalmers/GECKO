@@ -41,7 +41,7 @@ function [model, invalidEC, invalidECpos] = getECfromGEM(model, varargin)
 %
 % See also
 % --------
-% getECfromDatabase, copyECtoGEM
+% getECfromDatabase, applyECcodes
 
 p = parseGECKOargs(varargin, { ...
     'ecRxns', []});

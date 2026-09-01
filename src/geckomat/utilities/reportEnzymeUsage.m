@@ -1,7 +1,7 @@
 function usageReport = reportEnzymeUsage(ecModel, usageData, varargin)
-% reportEnzymeUsage  Summarize the results from enzymeUsage.
+% reportEnzymeUsage  Summarize the results from getEnzymeUsage.
 %
-% Ranks the enzymes from enzymeUsage into two tables: those with the
+% Ranks the enzymes from getEnzymeUsage into two tables: those with the
 % highest capacity usage, and those with the highest absolute usage.
 %
 % Parameters
@@ -9,7 +9,7 @@ function usageReport = reportEnzymeUsage(ecModel, usageData, varargin)
 % ecModel : struct
 %     a GECKO3 ecModel.
 % usageData : struct
-%     output from enzymeUsage.
+%     output from getEnzymeUsage.
 %
 % Name-Value Arguments
 % --------------------
@@ -40,7 +40,7 @@ function usageReport = reportEnzymeUsage(ecModel, usageData, varargin)
 %
 % See also
 % --------
-% enzymeUsage
+% getEnzymeUsage
 
 p = parseGECKOargs(varargin, { ...
     'highCapUsage', []; ...

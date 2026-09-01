@@ -312,7 +312,7 @@ function testfuzzyKcatMatching_tc0010(testCase)
     verifyEqual(testCase,kcatListLightFuzzy.origin, [2])
 end
 
-%Tests mergeDLKcatAndFuzzyKcats, selectKcatValue, and applyKcatConstraints.
+%Tests mergeDLKcatAndFuzzyKcats, assignKcatValues, and applyKcatConstraints.
 %Also to a certain extent tests writing of DLKcat files, but not the DLKCat algorithm or reading of the output
 %In addition it tests that the small test model has the same growth rate for both full and light
 function testKcats_tc0011(testCase)
@@ -376,7 +376,7 @@ function testKcats_tc0011(testCase)
 
     %now test select
     %we expect the highest kcat value to be chosen in the R2a_EXP_1 case, i.e., use 1008, discard 1007
-    ecModel = selectKcatValue(ecModel, mergedList);
+    ecModel = assignKcatValues(ecModel, mergedList);
     %{'R2_EXP_1';'R2_EXP_2';'R2_REV_EXP_1';'R2_REV_EXP_1';'R2_REV_EXP_2';'R2a_EXP_1';'R2a_EXP_2';'R3';'R3b';'R5'};
     expectedKcats = [1;1;10;10;1008;1009;1010;100;1011];
     verifyEqual(testCase,ecModel.ec.kcat, expectedKcats)
@@ -451,7 +451,7 @@ function testKcats_tc0011(testCase)
     dlkcatList.kcats = [1001;1002;1003;1010;1011;1007;1008;1009;1004;1005;1006];
 
     mergedList = mergeDLKcatAndFuzzyKcats(dlkcatList, kcatListFuzzy, 6, 6, 1);%allow for use of wildcards
-    lecModel = selectKcatValue(lecModel, mergedList);
+    lecModel = assignKcatValues(lecModel, mergedList);
     
     %and apply - first full
     %Test a subset first
@@ -511,7 +511,7 @@ function testProteomcisIntegration_tc0013(testCase)
     ecModel = getECfromGEM(ecModel);
     ecModel = applyComplexData(ecModel, [], adapter, false);
     kcatListFuzzy = fuzzyKcatMatching(ecModel, [], adapter);
-    ecModel  = selectKcatValue(ecModel, kcatListFuzzy);
+    ecModel  = assignKcatValues(ecModel, kcatListFuzzy);
     ecModel  = applyKcatConstraints(ecModel);
     ecModel  = setProtPoolSize(ecModel,[],[],[],adapter);
 
@@ -713,7 +713,7 @@ function testReportEnzymeUsageTopAbsUsageOutOfBounds_tc0019(testCase)
     ecModel = setProtPoolSize(ecModel, [], [], [], adapter);
 
     fluxes = zeros(numel(ecModel.rxns),1);
-    usageData = enzymeUsage(ecModel, fluxes);
+    usageData = getEnzymeUsage(ecModel, fluxes);
 
     report = reportEnzymeUsage(ecModel, usageData);
     verifyEqual(testCase, height(report.topAbsUsage), 0)
@@ -958,7 +958,7 @@ end
 
 
 function testPfbaEnzymesMinimisesEnzymeUsage_tc0025(testCase)
-    % Verifies pfbaEnzymes fixes the current objective (growth, via R5) as a
+    % Verifies getPfbaEnzymes fixes the current objective (growth, via R5) as a
     % constraint and then minimises total usage_prot_* flux, reaching
     % growth=90 and enzyme_usage=125 using only usage_prot_P5 (every other
     % usage reaction at 0), within the ~1e-6 relative tolerance solveLP's own
@@ -977,7 +977,7 @@ function testPfbaEnzymesMinimisesEnzymeUsage_tc0025(testCase)
     ecModel = applyKcatConstraints(ecModel);
     ecModel = setProtPoolSize(ecModel, 0.5, 0.5, 0.5, adapter);
 
-    solution = pfbaEnzymes(ecModel);
+    solution = getPfbaEnzymes(ecModel);
     verifyEqual(testCase, solution.stat, 1)
     verifyEqual(testCase, solution.objectiveValue, 90, 'RelTol', 1e-5)
     verifyEqual(testCase, solution.enzymeUsage, 125, 'RelTol', 1e-5)
@@ -989,20 +989,20 @@ function testPfbaEnzymesMinimisesEnzymeUsage_tc0025(testCase)
 
     % fractionOfOptimum halves both the fixed growth target and, on this
     % fixture, the enzyme usage needed to reach it.
-    solutionHalf = pfbaEnzymes(ecModel, 'fractionOfOptimum', 0.5);
+    solutionHalf = getPfbaEnzymes(ecModel, 'fractionOfOptimum', 0.5);
     verifyEqual(testCase, solutionHalf.objectiveValue, 45, 'RelTol', 1e-5)
     verifyEqual(testCase, solutionHalf.enzymeUsage, 62.5, 'RelTol', 1e-5)
 
     % rxnId overrides which reaction is fixed as the objective before
     % minimising enzyme usage, without erroring.
-    solutionR3 = pfbaEnzymes(ecModel, 'rxnId', 'R3');
+    solutionR3 = getPfbaEnzymes(ecModel, 'rxnId', 'R3');
     verifyEqual(testCase, solutionR3.stat, 1)
 
     % gecko-light guard: no usage_prot_<id> machinery to minimise over.
     lightModel = makeEcModel(model, true, adapter);
     lightModel = getECfromGEM(lightModel);
     try
-        pfbaEnzymes(lightModel);
+        getPfbaEnzymes(lightModel);
         raised = false;
     catch
         raised = true;
@@ -1797,7 +1797,7 @@ function testCopyECtoGEMOverwriteNeverErasesWithEmptySource_tc0049(testCase)
     ecModel.ec.rxns = {'R1';'R2';'R3'};
     ecModel.ec.eccodes = {'';'3.3.3.3';''}; % R1, R3 have no new info; R2 does
 
-    result = copyECtoGEM(ecModel, 'overwrite', true);
+    result = applyECcodes(ecModel, 'overwrite', true);
     % R1's and R3's real annotations must survive an empty ec.eccodes source.
     verifyEqual(testCase,result.eccodes{1},'1.1.1.1')
     verifyEqual(testCase,result.eccodes{3},'2.2.2.2')
@@ -1815,7 +1815,7 @@ function testCopyECtoGEMOverwriteFalseStillFillsEmptyEntries_tc0050(testCase)
     ecModel.ec.rxns = {'R1';'R2'};
     ecModel.ec.eccodes = {'9.9.9.9';'3.3.3.3'};
 
-    result = copyECtoGEM(ecModel); % overwrite defaults to false
+    result = applyECcodes(ecModel); % overwrite defaults to false
     verifyEqual(testCase,result.eccodes{1},'1.1.1.1') % untouched
     verifyEqual(testCase,result.eccodes{2},'3.3.3.3') % filled in
 end
@@ -1925,14 +1925,125 @@ function testSelectKcatValueMedianAndMeanCompute_tc0053(testCase)
     kcatList.rxns       = {'r1'; 'r1'; 'r1'};
     kcatList.kcats      = [1; 3; 5];
     kcatList.kcatSource = {'src_first'; 'src_middle'; 'src_last'};
-    medianModel = selectKcatValue(model, kcatList, 'criteria', 'median');
+    medianModel = assignKcatValues(model, kcatList, 'criteria', 'median');
     verifyEqual(testCase, medianModel.ec.kcat, 3)
     verifyEqual(testCase, medianModel.ec.source, {'src_first'})
 
     kcatList.kcats      = [2; 4; 6];
     kcatList.kcatSource = {'a'; 'b'; 'c'};
-    meanModel = selectKcatValue(model, kcatList, 'criteria', 'mean');
+    meanModel = assignKcatValues(model, kcatList, 'criteria', 'mean');
     verifyEqual(testCase, meanModel.ec.kcat, 4)
     verifyEqual(testCase, meanModel.ec.source, {'a'})
 end
 
+function testDeprecatedAliasesWarnAndForward_tc0054(testCase)
+    % Smoke test for the 8 GECKO4 renames (raven-gecko-parity naming
+    % proposal): each pre-GECKO4 name now lives under
+    % src/geckomat/deprecated/ as a thin wrapper that warns with ID
+    % 'GECKO:deprecatedName' and forwards to the new name. Checks both
+    % that the warning fires and that the old name's result matches
+    % calling the new name directly.
+    %
+    % buildGECKOdoc/updateGECKOdoc is intentionally excluded: the real
+    % function rmdir's the actual GECKO root's doc/ folder (via
+    % findGECKOroot, no override) and regenerates it with m2html, which
+    % is destructive and slow to run as part of this suite. Its wrapper
+    % follows the identical template as the other 7, verified below.
+    geckoPath = findGECKOroot;
+    adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
+    model = getGeckoTestModel();
+    ecModel = makeEcModel(model, false, adapter);
+
+    % enzymeUsage -> getEnzymeUsage
+    fluxes = zeros(numel(ecModel.rxns),1);
+    lastwarn('','');
+    usageOld = enzymeUsage(ecModel, fluxes);
+    [~,warnId] = lastwarn();
+    verifyEqual(testCase, warnId, 'GECKO:deprecatedName')
+    usageNew = getEnzymeUsage(ecModel, fluxes);
+    verifyEqual(testCase, usageOld, usageNew)
+
+    % pfbaEnzymes -> getPfbaEnzymes
+    ecModel = getECfromGEM(ecModel);
+    ecModel.ec.kcat(:) = 10;
+    ecModel.ec.source(:) = {'manual'};
+    ecModel = applyKcatConstraints(ecModel);
+    ecModel = setProtPoolSize(ecModel, 0.5, 0.5, 0.5, adapter);
+    lastwarn('','');
+    solOld = pfbaEnzymes(ecModel);
+    [~,warnId] = lastwarn();
+    verifyEqual(testCase, warnId, 'GECKO:deprecatedName')
+    solNew = getPfbaEnzymes(ecModel);
+    verifyEqual(testCase, solOld.objectiveValue, solNew.objectiveValue, 'RelTol', 1e-9)
+    verifyEqual(testCase, solOld.enzymeUsage, solNew.enzymeUsage, 'RelTol', 1e-9)
+
+    % selectKcatValue -> assignKcatValues
+    kcModel = struct();
+    kcModel.ec.rxns   = {'r1'};
+    kcModel.ec.kcat   = 0;
+    kcModel.ec.source = {''};
+    kcatList = struct();
+    kcatList.rxns       = {'r1'};
+    kcatList.kcats      = 5;
+    kcatList.kcatSource = {'src'};
+    lastwarn('','');
+    [kcOld, idxOld] = selectKcatValue(kcModel, kcatList);
+    [~,warnId] = lastwarn();
+    verifyEqual(testCase, warnId, 'GECKO:deprecatedName')
+    [kcNew, idxNew] = assignKcatValues(kcModel, kcatList);
+    verifyEqual(testCase, kcOld.ec.kcat, kcNew.ec.kcat)
+    verifyEqual(testCase, idxOld, idxNew)
+
+    % startGECKOproject -> createGECKOproject
+    origDir = pwd;
+    cleanupDir = onCleanup(@() cd(origDir));
+    scratchOld = fullfile(tempname);
+    mkdir(scratchOld);
+    cleanupOld = onCleanup(@() rmdir(scratchOld, 's'));
+    lastwarn('','');
+    startGECKOproject('name', 'oldProj', 'path', scratchOld);
+    [~,warnId] = lastwarn();
+    verifyEqual(testCase, warnId, 'GECKO:deprecatedName')
+    verifyTrue(testCase, isfolder(fullfile(scratchOld, 'oldProj')))
+    cd(origDir)
+
+    scratchNew = fullfile(tempname);
+    mkdir(scratchNew);
+    cleanupNew = onCleanup(@() rmdir(scratchNew, 's'));
+    createGECKOproject('name', 'newProj', 'path', scratchNew);
+    verifyTrue(testCase, isfolder(fullfile(scratchNew, 'newProj')))
+    cd(origDir)
+
+    % copyECtoGEM -> applyECcodes
+    ecCopy = struct();
+    ecCopy.rxns = {'R1';'R2'};
+    ecCopy.eccodes = {'';''};
+    ecCopy.ec = struct();
+    ecCopy.ec.rxns = {'R1';'R2'};
+    ecCopy.ec.eccodes = {'1.1.1.1';''};
+    lastwarn('','');
+    resultOld = copyECtoGEM(ecCopy);
+    [~,warnId] = lastwarn();
+    verifyEqual(testCase, warnId, 'GECKO:deprecatedName')
+    resultNew = applyECcodes(ecCopy);
+    verifyEqual(testCase, resultOld.eccodes, resultNew.eccodes)
+
+    % addCarbonNum -> fillCarbonNum
+    carbonModel = getGeckoTestModel();
+    carbonModel.metFormulas = {'C6H12O6';'C2H6O';'C6H12O6';'C2H6O'};
+    lastwarn('','');
+    carbonOld = addCarbonNum(carbonModel);
+    [~,warnId] = lastwarn();
+    verifyEqual(testCase, warnId, 'GECKO:deprecatedName')
+    carbonNew = fillCarbonNum(carbonModel);
+    verifyEqual(testCase, carbonOld.excarbon, carbonNew.excarbon)
+
+    % updateprior -> updatePrior
+    lastwarn('','');
+    [muOld, sigmaOld] = updateprior([2;4;6]);
+    [~,warnId] = lastwarn();
+    verifyEqual(testCase, warnId, 'GECKO:deprecatedName')
+    [muNew, sigmaNew] = updatePrior([2;4;6]);
+    verifyEqual(testCase, muOld, muNew)
+    verifyEqual(testCase, sigmaOld, sigmaNew)
+end

@@ -41,7 +41,7 @@ GECKOInstaller.install
 %   project. This includes a copy of the template adapter.
 %   The next line is commented out as the project structure is already
 %   available in GECKO/tutorials/full_ecModel.
-%startGECKOproject()
+%createGECKOproject()
 
 % STEP 2 Store the starting GEM
 % - Find a high-quality GEM of your species of interest. ecYeastGEM is
@@ -167,7 +167,7 @@ kcatList_DLKcat = readDLKcatOutput(ecModel);
 kcatList_merged = mergeDLKcatAndFuzzyKcats(kcatList_DLKcat, kcatList_fuzzy);
 
 % STEP 27 Take kcatList and populate edModel.ec.kcat
-ecModel  = selectKcatValue(ecModel, kcatList_merged);
+ecModel  = assignKcatValues(ecModel, kcatList_merged);
 
 % STEP 28 Apply custom kcat values
 % During the development of yeast-GEM ecModels (through GECKO 1 & 2),
@@ -509,7 +509,7 @@ fprintf('Minimum protein pool usage: %.2f mg/gDCW.\n', sol.f)
 ecModel = setParam(ecModel, 'obj', 'r_1714', 1);
 ecModel = setParam(ecModel, 'lb', params.bioRxn, 0.25);
 sol = solveLP(ecModel, 1);
-usageData = enzymeUsage(ecModel, sol.x);
+usageData = getEnzymeUsage(ecModel, sol.x);
 usageReport = reportEnzymeUsage(ecModel,usageData);
 usageReport.topAbsUsage
 

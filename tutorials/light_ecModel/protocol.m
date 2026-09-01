@@ -76,7 +76,7 @@ kcatList_DLKcat = readDLKcatOutput(ecModel);
 kcatList_merged = mergeDLKcatAndFuzzyKcats(kcatList_DLKcat, kcatList_fuzzy);
 
 % STEP 27 Implement kcat values into model.ec.kcat
-ecModel = selectKcatValue(ecModel,kcatList_merged);
+ecModel = assignKcatValues(ecModel,kcatList_merged);
 
 % STEP 28
 % applyCustomKcats can be run on light ecModels in a similar way as for

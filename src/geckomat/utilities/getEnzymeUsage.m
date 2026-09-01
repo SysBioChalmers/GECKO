@@ -1,5 +1,5 @@
-function usageData = enzymeUsage(ecModel,fluxes,varargin)
-% enzymeUsage  Compute enzyme usages from a provided flux distribution.
+function usageData = getEnzymeUsage(ecModel,fluxes,varargin)
+% getEnzymeUsage  Compute enzyme usages from a provided flux distribution.
 %
 % Gives enzyme usages based on a provided flux distribution, as obtained
 % from a full GECKO model. It can give:
@@ -45,8 +45,8 @@ function usageData = enzymeUsage(ecModel,fluxes,varargin)
 % Examples
 % --------
 %     % optional arguments may be given positionally or as name-value pairs:
-%     usageData = enzymeUsage(ecModel,fluxes,zero);
-%     usageData = enzymeUsage(ecModel,fluxes,'zero',false);
+%     usageData = getEnzymeUsage(ecModel,fluxes,zero);
+%     usageData = getEnzymeUsage(ecModel,fluxes,'zero',false);
 %
 % See also
 % --------
