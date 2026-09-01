@@ -280,11 +280,12 @@ ecModel = setParam(ecModel,'obj','r_4041',1);
 ecModel = setProtPoolSize(ecModel);
 
 [ecModel_notUsed, tunedKcats] = sensitivityTuning(ecModel);
-% ===>  The Bayesian kcat tuning function, based on the approach introduced
-%       in the DLKcat paper, is the recommended alternative to the
-%       step-wise sensitivity tuning shown below; the step-wise code is
-%       kept here for the tutorial, but you are encouraged to try out the
-%       Bayesian ABC-SMC functionality.
+% ===>  Since GECKO 3.3.0
+%       The Bayesian kcat tuning function as introduced in the DLKcat paper
+%       has been refactored for GECKO. For legacy purposes, the code for
+%       step-wise sensitivity tuning is still shown here as part of the
+%       tutorial, but you are encouraged to try out the Bayesian ABC-SMC
+%       functionality. 
 %
 %       The bayesianSensitivityTuning function estimates kcat values
 %       using Approximate Bayesian Computation Sequential Monte Carlo
@@ -375,17 +376,31 @@ ecModel = constrainEnzConcs(ecModel);
 
 % STEP 58 Update protein pool
 %
-% ==>  All protein usage reactions draw from the protein pool, both for
-%      proteins with and without concentration constraints. Use
-%      setProtPoolSize to set the protein pool exchange with
-%      condition-specific total protein content.
+% ==> Since GECKO 3.2.0:
+%     All protein usage reactions draw from the protein pool, both for
+%     proteins with and without concentration constraints. As a
+%     consequence, updateProtPool has become obsolete. To set the protein
+%     pool exchange with condition-specific total protein content, use
+%     setProtPoolSize instead. For more explanation, see
+%     https://github.com/SysBioChalmers/GECKO/issues/375
 %
-%      See STEP 32 for considerations about the f-factor. Here, we can
-%      recalculate the f-factor based on the proteomics dataset.
+%     See STEP 32 for considerations about the f-factor. Here, we can
+%     recalculate the f-factor based on the proteomics dataset.
 
 f = calculateFfactor(ecModel,'protData',protData);
 fluxData = loadFluxData();
 ecModel = setProtPoolSize(ecModel,'Ptot',fluxData.Ptot(1),'f',f);
+
+% ==> Before GECKO 3.2.0:
+%     The legacy code is still shown here, but should not be run. The
+%     protein pool reaction will be constraint by the remaining, unmeasured
+%     enzyme content. This is calculated by subtracting the sum of
+%     ecModel.ec.concs from the condition-specific total protein content.
+%     The latter is stored together with the flux data that otherwise will
+%     be used in STEP 59.
+%
+%     fluxData = loadFluxData();
+%     ecModel = updateProtPool(ecModel,fluxData.Ptot(1));
 
 % STEP 59-63 Load flux data
 % Matching the proteomics sample(s), condition-specific flux data needs to
