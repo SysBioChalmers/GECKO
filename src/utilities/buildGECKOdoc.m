@@ -1,7 +1,7 @@
 function buildGECKOdoc()
-% buildGECKOdoc  Update HTML documentation for all geckomat functions.
+% buildGECKOdoc  Update HTML documentation for all GECKO MATLAB functions.
 %
-% Updates HTML documentation files for all geckomat GECKO functions. Uses
+% Updates HTML documentation files for all GECKO MATLAB functions. Uses
 % the m2html functions that are provided with RAVEN.
 %
 % Examples
@@ -21,7 +21,7 @@ rmdir(fullfile(geckoDir,'doc'),'s');
 %Get a non-redundant list of GECKO subdirectories containing MATLAB
 %functions. Absolute paths are not compatible with M2HTML, so convert them
 %to the relative paths instead.
-geckoDirs=dir(fullfile(geckoDir,'src','geckomat','**/*.m'));
+geckoDirs=dir(fullfile(geckoDir,'src','**/*.m'));
 geckoDirs=unique({geckoDirs.folder})';
 
 %Make relative path
