@@ -6,7 +6,7 @@ function [rxns, kcat, idx, rxnNames, grRules] = getReactionsFromEnzyme(ecModel,p
 % ecModel : struct
 %     an ecModel in GECKO 3 format (with ecModel.ec structure).
 % proteinId : char
-%     protein identifier, matching ecModel.ec.enzymes.
+%     protein identifier, matching ecModel.ec.enzymes case-insensitively.
 %
 % Returns
 % -------
@@ -20,6 +20,13 @@ function [rxns, kcat, idx, rxnNames, grRules] = getReactionsFromEnzyme(ecModel,p
 %     names of the reactions.
 % grRules : cell
 %     grRules of the reactions.
+%
+% Notes
+% -----
+% An unmatched proteinId is not an error: all five outputs are returned
+% empty, with no warning. geckopy's get_reactions_from_enzyme matches
+% this function's case-insensitive matching, but deliberately raises
+% instead of returning empty on an unmatched id.
 %
 % Examples
 % --------
