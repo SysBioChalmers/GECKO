@@ -25,7 +25,7 @@ function ecModel = setKcatForReactions(ecModel,rxnIds,kcat)
 %     ecModel where selected kcat values in ecModel.ec.kcat are changed, but
 %     not yet applied to the S-matrix (will require to run
 %     applyKcatConstraints). ecModel.ec.source for the changed reactions
-%     will read 'from setKcatForReactions'.
+%     will read 'setKcatForReactions'.
 %
 % Examples
 % --------
