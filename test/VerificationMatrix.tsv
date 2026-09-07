@@ -31,7 +31,6 @@ kcat_tuning/sensitivityTuning.m	tcm0001
 kcat_tuning/sigmaFitter.m	Not explicitly tested - The code has existed for a long time
 kcat_tuning/topUsedEnzymes.m	Not explicitly tested - The code has existed for a long time	Not sure this works anymore - written for the old model structure?
 kcat_tuning/truncateValues.m	Not explicitly tested - The code has existed for a long time
-kcat_tuning/updatePrior.m	tc0055 (deprecated-alias check only, not a real usage test)
 limit_proteins/constrainProtConcs.m	tc0013	
 limit_proteins/findLimitingUBs.m	Not explicitly tested - The code has existed for a long time	Probably not relevant anymore, remove?
 limit_proteins/fitGAM.m		
