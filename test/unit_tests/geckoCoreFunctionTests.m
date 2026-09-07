@@ -2106,3 +2106,19 @@ function testGetStandardKcatSubsystemThresholdIgnoresUnsetKcats_tc0057(testCase)
     verifyEqual(testCase, r1kcat, standardKcat)
     verifyEqual(testCase, standardKcat, 549.5)
 end
+
+
+function testModelAdapterManagerGECKO4NoticeShownOncePerSession_tc0058(testCase)
+    % ModelAdapterManager.getAdapter prints the GECKO 4
+    % backward-compatibility notice on its first call in a session, and
+    % stays silent (guarded by a persistent flag) on later calls.
+    geckoPath = findGECKOroot;
+    adapterPath = fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m');
+    clear ModelAdapterManager
+
+    firstOutput = evalc('ModelAdapterManager.getAdapter(adapterPath);');
+    verifyTrue(testCase, contains(firstOutput, 'GECKO 4'))
+
+    secondOutput = evalc('ModelAdapterManager.getAdapter(adapterPath);');
+    verifyEmpty(testCase, secondOutput)
+end

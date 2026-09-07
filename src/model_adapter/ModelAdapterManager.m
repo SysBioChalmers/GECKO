@@ -18,7 +18,8 @@ classdef ModelAdapterManager
             if nargin < 2
                 addToMatlabPath = true;
             end
-            
+            ModelAdapterManager.showGECKO4Notice();
+
             [adapterFolder, adapterClassName, extension] = fileparts(adapterPath);
             if ~strcmp(extension, '.m')
                 error('Please provide the full path to the adapter file, including the file extension.');
@@ -67,6 +68,19 @@ classdef ModelAdapterManager
                 defaultAdapter = val;
             end
             out = defaultAdapter;
+        end
+
+        function showGECKO4Notice()
+            % Remove this method (and its call in getAdapter) in a future
+            % GECKO 4.x release, once users have had time to notice the
+            % backward-incompatible changes from GECKO 3.
+            persistent shown;
+            if isempty(shown)
+                printOrange(['NOTE: This is GECKO 4, which is not fully backward-compatible\n' ...
+                    'with GECKO 3. See https://gecko-docs.readthedocs.io/en/latest/migration/\n' ...
+                    'for what changed and how to stay on GECKO 3 (v3.2.5) if needed.\n']);
+                shown = true;
+            end
         end
     end
 end
