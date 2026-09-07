@@ -2046,3 +2046,63 @@ function testDeprecatedAliasesWarnAndForward_tc0055(testCase)
         verifyEqual(testCase, sigmaOld, sigmaNew)
     end
 end
+
+function testGetStandardKcatSubsystemValueIsMedianNotMean_tc0056(testCase)
+    % A subsystem's kcat is the median of its reactions' real kcats, not
+    % the arithmetic mean: R2's two isozymes (kcat 1 each) share subSystem
+    % 'SubA' with R5 (kcat 100, deliberately an outlier). GPR-less R1 also
+    % sits in SubA. The mean of [1,1,100] is 34; the median is 1 -- R1
+    % must be assigned 1.
+    geckoPath = findGECKOroot;
+    adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
+    model = getGeckoTestModel();
+    ecModel = makeEcModel(model, false, adapter);
+    ecModel = getECfromGEM(ecModel);
+    ecModel.ec.kcat(strcmp(ecModel.ec.rxns,'R2_EXP_1')) = 1;
+    ecModel.ec.kcat(strcmp(ecModel.ec.rxns,'R2_EXP_2')) = 1;
+    ecModel.ec.kcat(strcmp(ecModel.ec.rxns,'R5')) = 100;
+    ecModel.ec.source(:) = {'manual'};
+
+    ecModel.subSystems = repmat({{''}}, size(ecModel.rxns));
+    ecModel.subSystems(strcmp(ecModel.rxns,'R1')) = {{'SubA'}};
+    ecModel.subSystems(strcmp(ecModel.rxns,'R2_EXP_1')) = {{'SubA'}};
+    ecModel.subSystems(strcmp(ecModel.rxns,'R2_EXP_2')) = {{'SubA'}};
+    ecModel.subSystems(strcmp(ecModel.rxns,'R5')) = {{'SubA'}};
+
+    ecModel = getStandardKcat(ecModel, 'modelAdapter', adapter, 'threshold', 3, 'fillZeroKcat', false);
+
+    r1kcat = ecModel.ec.kcat(strcmp(ecModel.ec.rxns,'R1'));
+    verifyEqual(testCase, r1kcat, 1)
+end
+
+
+function testGetStandardKcatSubsystemThresholdIgnoresUnsetKcats_tc0057(testCase)
+    % A subsystem's eligibility for the threshold (subsystem-specific vs.
+    % model-wide fallback) only counts reactions with a real, already-set
+    % kcat: R2's two isozymes, one with kcat 100 and one still 0 (unset),
+    % both sit in 'SubB', but only the 100 counts. With threshold 2, that
+    % leaves 1 real kcat < 2, so GPR-less R1 (also in SubB) must fall back
+    % to the model-wide standardKcat, not a value blending in the unset
+    % zero.
+    geckoPath = findGECKOroot;
+    adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
+    model = getGeckoTestModel();
+    ecModel = makeEcModel(model, false, adapter);
+    ecModel = getECfromGEM(ecModel);
+    ecModel.ec.kcat(strcmp(ecModel.ec.rxns,'R2_EXP_1')) = 100;
+    ecModel.ec.kcat(strcmp(ecModel.ec.rxns,'R2_EXP_2')) = 0;
+    ecModel.ec.kcat(strcmp(ecModel.ec.rxns,'R5')) = 999;
+    ecModel.ec.source(:) = {'manual'};
+
+    ecModel.subSystems = repmat({{''}}, size(ecModel.rxns));
+    ecModel.subSystems(strcmp(ecModel.rxns,'R1')) = {{'SubB'}};
+    ecModel.subSystems(strcmp(ecModel.rxns,'R2_EXP_1')) = {{'SubB'}};
+    ecModel.subSystems(strcmp(ecModel.rxns,'R2_EXP_2')) = {{'SubB'}};
+    ecModel.subSystems(strcmp(ecModel.rxns,'R5')) = {{'SubC'}};
+
+    [ecModel, ~, ~, standardKcat] = getStandardKcat(ecModel, 'modelAdapter', adapter, 'threshold', 2, 'fillZeroKcat', false);
+
+    r1kcat = ecModel.ec.kcat(strcmp(ecModel.ec.rxns,'R1'));
+    verifyEqual(testCase, r1kcat, standardKcat)
+    verifyEqual(testCase, standardKcat, 549.5)
+end

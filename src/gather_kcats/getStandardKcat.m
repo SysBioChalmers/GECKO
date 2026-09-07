@@ -39,11 +39,11 @@ function [model, rxnsMissingGPR, standardMW, standardKcat, rxnsNoKcat] = getStan
 % modelAdapter : ModelAdapter
 %     a loaded model adapter (default: the current default model adapter).
 % threshold : double
-%     a threshold to determine whether to use a kcat value based on the mean
-%     kcat of the reactions in the same subSystem or based on the median
-%     value of all the kcat in the model. The second option is used when the
-%     number of reactions in a determined subSystem is < threshold
-%     (default 10).
+%     a threshold to determine whether to use a kcat value based on the
+%     median kcat of the reactions in the same subSystem or based on the
+%     median value of all the kcat in the model. The second option is used
+%     when the number of reactions in a determined subSystem with a real
+%     (nonzero, non-NaN) kcat value is < threshold (default 10).
 % fillZeroKcat : logical
 %     whether zero kcat values should be replaced with standard kcat values
 %     (default true).
@@ -111,10 +111,11 @@ standardMW = median(databases.uniprot.MW, 'omitnan');
 
 % An standard Kcat is defined for all the rxns which does not have a GPR
 % rule defined. In this case, the kcat value for a particular reaction is
-% defined as the mean of the kcat values of the reactions involved in the
-% same subsystem in which the given reaction is involved. Nevertheless, if
-% a subSystem have a number of reactions lower than a treshold, the kcat
-% value will be the median of the kcat in all the reactions of the model.
+% defined as the median of the kcat values of the reactions (with a real,
+% nonzero, non-NaN kcat) involved in the same subsystem in which the given
+% reaction is involved. Nevertheless, if a subSystem have a number of such
+% reactions lower than a treshold, the kcat value will be the median of the
+% kcat in all the reactions of the model.
 
 % Remove from the list those with kcat zero
 rxnsKcatZero = model.ec.kcat > 0;
@@ -139,15 +140,23 @@ if isfield(model,'subSystems') && ~all(cellfun(@isempty, model.subSystems))
 
     % Make list of unique subsystems, and which rxns are linked to them
     [enzSubSystem_names, ~, rxnToSub] = unique(enzSubSystems);
-    % Make matrix of ec-rxns vs. unique subsystem index
-    ind = sub2ind([numel(enzSubSystem_names) numel(enzSubSystems)],rxnToSub',1:numel(rxnToSub));
-    kcatSubSystem = false([numel(enzSubSystem_names) numel(enzSubSystems)]);
-    kcatSubSystem(ind) = true;
-    % Number of kcats per subSystem
-    kcatsPerSubSystem = sum(kcatSubSystem,2);
-    % Calculate average kcat values per subSystem
-    kcatSubSystem = (kcatSubSystem*model.ec.kcat)./kcatsPerSubSystem;
-    kcatSubSystem(kcatsPerSubSystem < threshold) = standardKcat;
+    % Calculate the median kcat per subSystem, counting only reactions
+    % with a real (nonzero, non-NaN) kcat toward both the median itself
+    % and the threshold that decides whether a subSystem-specific value
+    % is used at all.
+    numSubSystem = numel(enzSubSystem_names);
+    kcatsPerSubSystem = zeros(numSubSystem,1);
+    kcatSubSystem = zeros(numSubSystem,1);
+    for i = 1:numSubSystem
+        subKcat = model.ec.kcat(rxnToSub == i);
+        subKcat = subKcat(subKcat ~= 0 & ~isnan(subKcat));
+        kcatsPerSubSystem(i) = numel(subKcat);
+        if kcatsPerSubSystem(i) >= threshold
+            kcatSubSystem(i) = median(subKcat);
+        else
+            kcatSubSystem(i) = standardKcat;
+        end
+    end
     else
         standard = true;
         printOrange('WARNING: No subSystem-specific kcat values can be calculated');
