@@ -1,8 +1,8 @@
-function model = fillCarbonNum(model)
+﻿function model = fillCarbonNum(model)
 % fillCarbonNum  Add a carbon number field to the model.
 %
 % Adds a model.excarbon field with the carbon number of each exchange
-% reaction, used to weight the RMSE during Bayesian kcat tuning.
+% reaction, used to weight the RMSE during evotune kcat tuning.
 %
 % Parameters
 % ----------

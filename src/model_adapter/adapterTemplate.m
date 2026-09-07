@@ -86,52 +86,37 @@ classdef KEY_CLASSNAME < ModelAdapter
             % different compartments). Typically, cytoplasm is chosen.
             obj.params.enzyme_comp = 'cytoplasm';
 
-            %% Hyperparameters for Bayesian kcat fitting
+            %% Hyperparameters for evotune (CMA-ES) kcat fitting
             % Default initial uncertainty (standard deviation in log-space) for kcat values
-            obj.params.bayesian.sigma0logDefault    = 0.5;
+            obj.params.evotune.sigma0logDefault    = 0.5;
             % Data sources for kcat values, ordered from least to most trusted
-            obj.params.bayesian.kcatSources         = {'dlkcat','brenda','custom'};
+            obj.params.evotune.kcatSources         = {'dlkcat','brenda','custom'};
             % Initial uncertainty for each source (lower = more trusted data)
-            obj.params.bayesian.sigma0logSource     = [0.4; 0.2; 0.1];
+            obj.params.evotune.sigma0logSource     = [0.4; 0.2; 0.1];
 
-            % Default shrinkage threshold: standard deviations required for full posterior update
-            obj.params.bayesian.shrinkThrDefault    = 1.5;
-            % Source-specific shrinkage thresholds (higher = more resistant to change)
-            obj.params.bayesian.shrinkThrSource     = [1.5, 3.5, 5.5];
-            % Default maximum posterior/prior variance ratio (prevents runaway uncertainty)
-            obj.params.bayesian.varianceCapDefault  = 10;
-            % Source-specific variance caps (tighter for more trusted sources)
-            obj.params.bayesian.varianceCapSource   = [10,4,2];
+            % Weight on the max-growth RMSE against the flux RMSE:
+            % (rmseFlux + w*rmseMaxGrowth) / (w+1). At 1 both count equally.
+            obj.params.evotune.maxGrowthWeight     = 1.0;
+            % Weight on a prior term in the search objective,
+            % rmse + w*mean((log(k/k0)/sigma0log)^2). Keeps large corrections
+            % reproducible across seeds; 0 scores on RMSE alone.
+            obj.params.evotune.priorPenaltyWeight  = 0.03;
+            % Give isozyme copies of one reaction (sharing a prior value and
+            % a source) a single shared kcat, so the search cannot invent a
+            % distinction the kcat assignment never made.
+            obj.params.evotune.tieIsozymes         = true;
 
-            % Default threshold below which kcat is locked to prior (-1 = never lock)
-            obj.params.bayesian.forcePriorThrDefault = -1;
-            % Source-specific thresholds for locking to prior (higher = easier to lock)
-            obj.params.bayesian.forcePriorThrSource  = [-1, 4, 8];
-            % Minimum deviation (in σ units) required for parameter update (promotes sparsity)
-            obj.params.bayesian.sparsityThreshold   = 0.3;
-
-            % Generations at which to adjust sampling strategy
-            obj.params.bayesian.scheduleGenerations = [1, 2, 9, 15];
-            % Number of samples to draw at each scheduled generation (decreases over time)
-            obj.params.bayesian.scheduleSamples     = [1000, 800, 600, 400];
-
-            % RMSE percentile threshold for accepting samples (lower = stricter selection)
-            obj.params.bayesian.targetAccept        = 10;
-            % Minimum fraction of samples to retain each generation
-            obj.params.bayesian.minKeep             = 0.3;
-            % Maximum fraction of samples to retain each generation
-            obj.params.bayesian.maxKeep             = 0.6;
             % Stop optimization when RMSE falls below this threshold
-            obj.params.bayesian.rmseThreshold       = 0.2;
-            % Maximum number of ABC-SMC generations before termination
-            obj.params.bayesian.maxGenerations      = 150;
+            obj.params.evotune.rmseThreshold       = 0.2;
+            % Maximum number of CMA-ES generations before termination
+            obj.params.evotune.maxGenerations      = 150;
         end
 
         % function ecModel = makeModelAnaerobic(ecModel)
         %     % Define a model-specific function in the 'code' subfolder,
         %     % that can constrain the model to anaerobic conditions, and
         %     % include the name of this function here. This is used by
-        %     % bayesianSensitivityTuning.m (via abc_max.m) if the fluxData
+        %     % cmaesKcatTuning.m (via evotuneScore.m) if the fluxData
         %     % has anaerobic conditions.
         %     addpath(fullfile(obj.params.path,'code'));
         %     ecModel = nameOfModelSpecificFunction(ecModel);

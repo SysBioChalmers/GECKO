@@ -27,7 +27,7 @@ function fluxData = loadFluxData(varargin)
 % - exchFluxes : exchange fluxes (mmol/gDCWh).
 % - exchMets : exchanged metabolites, matching exchFluxes.
 % - exchRxnIDs : exchange reaction IDs, matching exchMets.
-% - bayesianRMSEweight : if column existed in fluxData.tsv, weights for RMSE calculation in Bayesian kcat tuning.
+% - evotuneRMSEweight : if column existed in fluxData.tsv, weights for RMSE calculation in evotune kcat tuning.
 % - source : if column existed in fluxData.tsv, description where the data comes from.
 %
 % Examples
@@ -82,7 +82,7 @@ end
 fluxData            = [];
 
 %Find additional fields
-extraFieldNames     = {'bayesianRMSEweight','source'};
+extraFieldNames     = {'evotuneRMSEweight','source'};
 extraFieldNumeric   = [true,false];      
 [logicalExtra, extraFields]    = ismember(extraFieldNames,fluxDataRaw(1,:));
 extraFields(~logicalExtra) = [];

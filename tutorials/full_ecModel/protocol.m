@@ -281,35 +281,30 @@ ecModel = setProtPoolSize(ecModel);
 
 [ecModel_notUsed, tunedKcats] = sensitivityTuning(ecModel);
 % ===>  Since GECKO 3.3.0
-%       The Bayesian kcat tuning function as introduced in the DLKcat paper
-%       has been refactored for GECKO. For legacy purposes, the code for
-%       step-wise sensitivity tuning is still shown here as part of the
-%       tutorial, but you are encouraged to try out the Bayesian ABC-SMC
-%       functionality. 
+%       An evotune kcat tuning function is also available. For legacy
+%       purposes, the code for step-wise sensitivity tuning is still shown
+%       here as part of the tutorial, but you are encouraged to try out the
+%       evotune functionality instead.
 %
-%       The bayesianSensitivityTuning function estimates kcat values
-%       using Approximate Bayesian Computation Sequential Monte Carlo
-%       (ABC-SMC). At each generation, candidate kcat sets are sampled from
-%       distributions centered on the current best values and evaluated by
-%       computing RMSE between model predictions and experimental data from
-%       literature: (a) maximum growth rate and (b) exchange fluxes
-%       (substrate uptake and metabolite secretion rates).
-% 
-%       The best-performing samples are retained and used to guide
-%       subsequent sampling. Over ~50-150 generations, the algorithm
-%       converges on a posterior distribution of kcat values that
-%       accurately reproduce experimental phenotypes while respecting prior
-%       knowledge from databases (BRENDA, DLKcat) and user-defined
-%       constraints. Source-specific regularization ensures high-confidence
-%       measurements remain close to their prior values unless strong
-%       evidence warrants change, while uncertain predictions are allowed
-%       greater flexibility. The algorithm returns the optimal kcat set and
-%       the full posterior distribution for uncertainty quantification.
+%       cmaesKcatTuning fits kcat values to experimental data with CMA-ES
+%       (a black-box evolutionary optimiser), scored by carbon-weighted RMSE
+%       against experimental data from literature: (a) maximum growth rate
+%       and (b) exchange fluxes (substrate uptake and metabolite secretion
+%       rates).
+%
+%       Two preparatory steps typically come first: screenKcatLeverage
+%       reports which kcats the data can actually speak to (no optimisation
+%       involved), and selectTunableMask turns that report into the set of
+%       kcats the search should actually vary. Over up to maxGenerations
+%       generations, cmaesKcatTuning then searches that set for the kcat
+%       vector that best matches the data, weighted by how much each kcat's
+%       source is trusted (kcatSources/sigma0logSource) and regularised by
+%       priorPenaltyWeight to keep large corrections reproducible across
+%       seeds.
 %
 %       The function is not further demonstrated in this tutorial. Instead,
 %       you are referred to the yeast-GEM repository, where since release
-%       9.1.0 an updated ecYeastGEM is distributed. There, the
-%       BayesianSensitivityTuning function is used.
+%       9.1.0 an updated ecYeastGEM is distributed.
 %
 %       Note that the function requires a rich set of hyperparameters, for
 %       which default settings are defined in the ModelAdapter. However,
@@ -318,10 +313,12 @@ ecModel = setProtPoolSize(ecModel);
 %       quantity and diversity of experimental data to evaluate against,
 %       etc.
 %
-%       [ecModel,rmseTrace,kcatTrace,sigmaLogTrace] = bayesianSensitivityTuning(ecModel);
+%       screen = screenKcatLeverage(ecModel);
+%       mask = selectTunableMask(ecModel, screen);
+%       [ecModel,rmseTrace] = cmaesKcatTuning(ecModel, 'tunableMask', mask);
 %
 %       The remainder of this tutorial assumes that
-%       bayesianSensitivityTuning was *not* run.
+%       cmaesKcatTuning was *not* run.
 
 % STEP 45-51 Curate kcat values based on kcat tuning
 % As example, the kcat of 5'-phosphoribosylformyl glycinamidine synthetase
