@@ -72,8 +72,8 @@ classdef (Abstract) ModelAdapter
         % Define a model-specific function in the 'code' subfolder of the
         % project folder, that can constrain the model to anaerobic
         % conditions, and refer to this function in the modelAdapter. This
-        % function is used when running bayesianSensitivityTuning.m (via
-        % abc_max.m) if the fluxData has anaerobic conditions.
+        % function is used when running cmaesKcatTuning.m (via
+        % evotuneScore.m) if the fluxData has anaerobic conditions.
         function ecModel = makeModelAnaerobic(obj,ecModel)
             ecModel = ecModel;
             % Example from full_tutorial:

@@ -14,7 +14,9 @@ gather_kcats/mergeDlkcatAndFuzzyKcats.m	tc0011
 gather_kcats/readDLKcatOutput.m	tcm0001, tcm0002 - The test doesn't really check the function, only that some output is read	
 gather_kcats/runDLKcat.m	tcm0001, tcm0002 - The test doesn't really check the function, only that we get something
 gather_kcats/assignKcatValues.m	tc0011 - we did not test all possible parameterizations here
-gather_kcats/writeDLKcatInput.m	partly by tc0011	
+gather_kcats/writeDLKcatInput.m	partly by tc0011
+gather_kcats/reviewKcatAssignment.m	Has only been tested by running it manually, not tested by test cases
+gather_kcats/ecStatsFromBrenda.m	Not verified against real BRENDA data in this environment -- see its own TODO comment
 get_enzyme_data/calculateMW.m	Not explicitly tested - The code has existed for a long time	
 get_enzyme_data/findECInDB.m	Called from getECfromDatabase - tested when that function is tested.	
 get_enzyme_data/getECfromDatabase.m	tc0007 - does not test download of the databases - this is tested in the manual workflows for Yeast-GEM and Human-GEM	
@@ -22,7 +24,7 @@ get_enzyme_data/getECfromGEM.m	tc0006
 get_enzyme_data/getECstring.m	Called from findECInDB - tested when that function is tested.	
 download_databases/loadBRENDAdata.m	Called from fuzzyKcatMatching - tested when that function is tested.
 download_databases/loadDatabases.m	Called from getECfromDatabase - tested when that function is tested.
-kcat_tuning/Bayesian/*	Has only been tested by running it manually, not tested by test cases
+kcat_tuning/evotune/*	Has only been tested by running it manually, not tested by test cases
 kcat_tuning/findTopLimitations.m	Not explicitly tested - The code has existed for a long time
 kcat_tuning/sensitivityTuning.m	tcm0001
 kcat_tuning/sigmaFitter.m	Not explicitly tested - The code has existed for a long time
