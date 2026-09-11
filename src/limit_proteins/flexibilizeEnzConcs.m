@@ -167,7 +167,7 @@ if any(protConcs)
                 predGrowth = sol.f;
 
                 if verbose
-                    disp(['Protein ' proteins{maxIdx} ' LB adjusted. Grow: ' num2str(predGrowth)])
+                    disp(['Protein ' proteins{maxIdx} ' UB adjusted. Grow: ' num2str(predGrowth)])
                 end
             else
                 printOrange(['WARNING: Limit has been reached. Protein '  proteins{maxIdx} ' seems to be problematic. Consider changing the kcat.\n']);
