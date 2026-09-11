@@ -10,11 +10,11 @@
 % DO NOT DIRECTLY USE THE ECMODEL GENERATED HERE OUTSIDE OF THIS TUTORIAL.
 %
 % IF YOU LOOK FOR AN ECMODEL FOR S. CEREVISIAE, THESE ARE DISTRIBUTED VIA
-% THE YEAST-GEM REPOSITORY SINCE RELEASE 9.2.0, WHICH HAVE SEEN MORE
+% THE YEAST-GEM REPOSITORY SINCE RELEASE 9.1.0, WHICH HAVE SEEN MORE
 % CURATION, BETTER SENSITIVITY TUNING AND KCATS PREDICTED BY CATAPRO.
 % HTTPS://GITHUB.COM/SYSBIOCHALMERS/YEAST-GEM
 %
-% This script is kept up to date with the most recent GECKO3 release, and
+% This script is kept up to date with the most recent GECKO release, and
 % may include more detailed descriptions, additional commands, and
 % analyses beyond what is shown in the published GECKO3 Nature Protocols
 % paper. The STAGE and STEP numbers match those in the Nature Protocols
@@ -27,12 +27,14 @@
 %   - Simplest, RAVEN can be installed as MATLAB Add-On:
 %     https://se.mathworks.com/help/matlab/matlab_env/get-add-ons.html
 %   - The installation of Gurobi as LP solver is highly recommended
-checkInstallation; % Confirm that RAVEN is functional, should be 2.9.2 or later.
+checkRaven; % Confirm that RAVEN is functional. On RAVEN 2, run checkInstallation.
 
 %   - Install GECKO by following the installation instructions:
 %     https://github.com/SysBioChalmers/GECKO/wiki/Installation-and-upgrade
 %   - As RAVEN, GECKO can also be installed as MATLAB Add-On (link above)
-%   - Add the appropriate GECKO (sub)folders to MATLAB path:
+%   - Add the appropriate GECKO (sub)folders to MATLAB path. GECKOInstaller
+%     is located in the GECKO root folder: navigate there first if it is
+%     not yet on the MATLAB path.
 GECKOInstaller.install
 
 %% STAGE 0: Preparation stage for ecModel reconstruction
@@ -52,7 +54,7 @@ GECKOInstaller.install
 % STEP 3-7 Modify the model adapter
 % In the Nature Protocols paper is explained how to decide on the organism-
 % and model-specific parameters in the model adapter, which for this
-% tutorial is located at tutorials/full_ecModel/ecYeastGEMadapter.m.
+% tutorial is located at tutorials/full_ecModel/YeastGEMAdapter.m.
 
 %% STAGE 1: Expansion from a starting metabolic model to an ecModel structure
 % STEP 8 Set modelAdapter
@@ -82,7 +84,7 @@ params = ModelAdapter.getParameters();
 % you will never use loadConventionalGEM and the obj.param.convGEM never
 % has to be specified.
 model = loadConventionalGEM();
-% model = importModel(fullfile(geckoRoot,'tutorials','full_ecModel','models','yeast-GEM.yml'));
+% model = importModel(fullfile(findGECKOroot,'tutorials','full_ecModel','models','yeast-GEM.yml'));
 
 % STEP 10-11 Prepare ecModel
 % We will make a full GECKO ecModel. For an example of reconstructing a
@@ -164,7 +166,12 @@ kcatList_fuzzy  = fuzzyKcatMatching(ecModel);
 kcatList_DLKcat = readDLKcatOutput(ecModel);
 
 % STEP 26 Combine kcat from BRENDA and DLKcat
-kcatList_merged = mergeDLKcatAndFuzzyKcats(kcatList_DLKcat, kcatList_fuzzy);
+% For each reaction, the first source in the priority list that has a kcat
+% is used: BRENDA matches without EC wildcard and with origin up to 6
+% ('database_top'), then DLKcat, then any remaining BRENDA match
+% ('database_bottom'). See doc mergeKcats for the tier definitions.
+kcatList_merged = mergeKcats({kcatList_fuzzy, kcatList_DLKcat}, ...
+    {'database_top', 'dlkcat', 'database_bottom'});
 
 % STEP 27 Take kcatList and populate edModel.ec.kcat
 ecModel  = assignKcatValues(ecModel, kcatList_merged);
@@ -262,13 +269,15 @@ fprintf('Growth rate: %f /hour.\n', sol.x(bioRxnIdx))
 % upper bound of the protein pool exchange reaction can be increased to
 % whatever is required. This works, but STEP 43 is preferred.
 ecModel = setParam(ecModel, 'lb', 'r_4041', 0.41);
-ecModel = setParam(ecModel, 'lb', 'prot_pool_exchange', -1000);
-ecModel = setParam(ecModel, 'obj', 'prot_pool_exchange', 1);
+ecModel = setParam(ecModel, 'ub', 'prot_pool_exchange', 1000);
+% Minimise protein usage. setParam('obj',...,-1) tells solveLP to
+% minimise this reaction's flux instead of the default maximisation.
+ecModel = setParam(ecModel, 'obj', 'prot_pool_exchange', -1);
 sol = solveLP(ecModel);
 
 protPoolIdx = strcmp(ecModel.rxns, 'prot_pool_exchange');
-fprintf('Protein pool usage is: %.0f mg/gDCW.\n', abs(sol.x(protPoolIdx)))
-ecModel = setParam(ecModel,'lb',protPoolIdx,sol.x(protPoolIdx));
+fprintf('Protein pool usage is: %.0f mg/gDCW.\n', sol.x(protPoolIdx))
+ecModel = setParam(ecModel,'ub',protPoolIdx,sol.x(protPoolIdx));
 
 % Revert back growth constraint and objective function.
 ecModel = setParam(ecModel,'lb','r_4041',0);
@@ -279,8 +288,10 @@ ecModel = setParam(ecModel,'obj','r_4041',1);
 % reverting STEP 42.
 ecModel = setProtPoolSize(ecModel);
 
-[ecModel_notUsed, tunedKcats] = sensitivityTuning(ecModel);
-% ===>  Since GECKO 3.3.0
+[ecModel, tunedKcats] = sensitivityTuning(ecModel);
+% Inspect the tunedKcats structure in table format.
+struct2table(tunedKcats)
+% ===>  Since GECKO 4.0.0
 %       An evotune kcat tuning function is also available. For legacy
 %       purposes, the code for step-wise sensitivity tuning is still shown
 %       here as part of the tutorial, but you are encouraged to try out the
@@ -322,8 +333,8 @@ ecModel = setProtPoolSize(ecModel);
 
 % STEP 45-51 Curate kcat values based on kcat tuning
 % As example, the kcat of 5'-phosphoribosylformyl glycinamidine synthetase
-% (reaction r_0079) was increased from 0.05 to 5. Inspecting the kcat
-% source might help to determine if this is reasonable. 
+% (reaction r_0079) was increased from 0.05 to 0.5 by sensitivityTuning.
+% Inspecting the kcat source might help to determine if this is reasonable.
 rxnIdx = find(strcmp(kcatList_merged.rxns,'r_0079'));
 doc fuzzyKcatMatching % To check the meaning of wildcardLvl and origin.
 kcatList_merged.wildcardLvl(rxnIdx) % 0: no EC number wildcard.
@@ -349,7 +360,7 @@ convKcat = convKcat / 1000; % mol/min/g protein.
 convKcat = convKcat / 60; % mol/sec/g protein.
 convKcat = convKcat * enzMW % mol/sec/mol protein, same as 1/sec.
 
-% New kcat is 5.3358, which is not far away from the tuned kcat of 5.
+% New kcat is 5.3358, confirming that the original kcat of 0.05 was too low.
 
 % This can be applied to the ecModel directly, or preferrably it should be
 % included in the data/customKcat.tsv file.
@@ -446,11 +457,7 @@ ecModel = loadEcModel('ecYeastGEM.yml');
 
 % STEP 67-68 Simulate Crabtree effect with protein pool
 % We will below run a custom plotCrabtree function that is kept in the code
-% subfolder. To run this function we will need to navigate into the folder
-% where it is stored, but we will navigate back to the current folder
-% afterwards.
-currentFolder = pwd;
-cd(fullfile(params.path,'code'))
+% subfolder, which YeastGEMAdapter adds to the MATLAB path.
 [fluxes, gRate] = plotCrabtree(ecModel);
 % fluxes has all the predicted fluxes, while gRate is a vector with the
 % corresponding growth rates that were simulated, as visualized on the
@@ -492,13 +499,11 @@ sol = solveLP(ecModel)
 fprintf('Growth rate that is reached: %f /hour.\n', sol.f)
 % Set growth lower bound to 99% of the previous value.
 ecModel = setParam(ecModel,'lb',params.bioRxn,0.99*sol.f);
-% Minimize protein pool usage. As protein pool exchange is defined in the
-% reverse direction (with negative flux), minimization of protein pool
-% usage is computationally represented by maximizing the prot_pool_exchange
-% reaction.
-ecModel = setParam(ecModel,'obj','prot_pool_exchange',1);
+% Minimize protein pool usage. setParam('obj',...,-1) flips the sense
+% of solveLP from maximisation to minimisation for this reaction.
+ecModel = setParam(ecModel,'obj','prot_pool_exchange',-1);
 sol = solveLP(ecModel)
-fprintf('Minimum protein pool usage: %.2f mg/gDCW.\n', sol.f)
+fprintf('Minimum protein pool usage: %.2f mg/gDCW.\n', -sol.f)
 
 % STEP 71 Inspect enzyme usage
 % Show the result from the earlier simulation, without mapping to
@@ -552,9 +557,9 @@ maxFlux = minFlux;
 output = [model.rxns, model.rxnNames, num2cell([minFlux(:,1), maxFlux(:,1), ...
     minFlux(:,2), maxFlux(:,2), minFlux(:,3), maxFlux(:,3)])]';
 fID = fopen(fullfile(params.path,'output','ecFVA.tsv'),'w');
-fprintf(fID,'%s %s %s %s %s %s %s %s\n','rxnIDs', 'rxnNames', 'minFlux', ...
+fprintf(fID,'%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n','rxnIDs', 'rxnNames', 'minFlux', ...
             'maxFlux', 'ec-minFlux', 'ec-maxFlux', 'ecP-minFlux', 'ecP-maxFlux');
-fprintf(fID,'%s %s %g %g %g %g %g %g\n',output{:});
+fprintf(fID,'%s\t%s\t%g\t%g\t%g\t%g\t%g\t%g\n',output{:});
 fclose(fID);
 
 % Plot ecFVA results and store in output/.
@@ -565,7 +570,6 @@ saveas(gca, fullfile(params.path,'output','ecFVA.pdf'))
 % For a fair comparison of the two types of ecModels, the custom 
 % plotlightVSfull function makes a light and full ecModel for yeast-GEM and
 % compares their flux distributions at maximum growth rate.
-cd(fullfile(findGECKOroot,'tutorials','full_ecModel','code'))
 [fluxLight, fluxFull] = plotlightVSfull();
 
 % The ratio between the two ecModel results indicates which reactions have
