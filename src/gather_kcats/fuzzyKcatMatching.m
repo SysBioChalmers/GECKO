@@ -48,7 +48,11 @@ function kcatList = fuzzyKcatMatching(model, varargin)
 %   (1: correct organism, correct substrate, kcat; 2: any organism, correct
 %   substrate, kcat; 3: correct organism, any substrate, kcat; 4: any
 %   organism, any substrate, kcat; 5: correct organism, specific activity;
-%   6: any organism, specific activity).
+%   6: any organism, specific activity). Levels are tried in the order
+%   1, 2, 3, 5, 4, 6: a specific activity from the correct organism is
+%   preferred over a kcat from any organism with any substrate. When a
+%   reaction has multiple EC numbers, the EC with the fewest wildcards and
+%   the earliest-tried level is selected, and among those the highest kcat.
 %
 % If a wildcard is used, origin levels 1 and 2 are ignored. The last digits
 % in the E.C. number indicate the substrate specificity, so if this should

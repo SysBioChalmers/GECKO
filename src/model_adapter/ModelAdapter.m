@@ -66,7 +66,13 @@ classdef (Abstract) ModelAdapter
         end
 
         function x = getPhylDistStructPath(obj)
-            x =  fullfile(findRAVENroot(),'external','kegg','keggPhylDist.mat');
+            % RAVEN 3 keeps keggPhylDist.mat under reconstruction/kegg,
+            % RAVEN 2 under external/kegg.
+            ravenRoot = findRAVENroot();
+            x = fullfile(ravenRoot,'reconstruction','kegg','keggPhylDist.mat');
+            if ~isfile(x)
+                x = fullfile(ravenRoot,'external','kegg','keggPhylDist.mat');
+            end
         end
 
         % Define a model-specific function in the 'code' subfolder of the

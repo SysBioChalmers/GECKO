@@ -137,10 +137,11 @@ sol = solveLP(ecModel)
 fprintf('Growth rate reached: %g /hour.\n', sol.f)
 % Set growth lower bound to 99% of the previous value.
 ecModel = setParam(ecModel,'lb',adapter.params.bioRxn,0.99*sol.f);
-% Minimize protein pool usage.
-ecModel = setParam(ecModel,'obj','prot_pool_exchange',1);
+% Minimize protein pool usage. setParam('obj',...,-1) flips the sense
+% of solveLP from maximisation to minimisation for this reaction.
+ecModel = setParam(ecModel,'obj','prot_pool_exchange',-1);
 sol = solveLP(ecModel)
-fprintf('Minimum protein pool usage: %g mg/gDCW.\n', sol.f)
+fprintf('Minimum protein pool usage: %g mg/gDCW.\n', -sol.f)
 
 % STEP 71
 % Individual enzyme usages cannot be investigated in light ecModels, as
