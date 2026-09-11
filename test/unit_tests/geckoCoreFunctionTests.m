@@ -2099,7 +2099,24 @@ function testModelAdapterManagerGECKO4NoticeShownOncePerSession_tc0058(testCase)
 
     firstOutput = evalc('ModelAdapterManager.getAdapter(adapterPath);');
     verifyTrue(testCase, contains(firstOutput, 'GECKO 4'))
+    verifyTrue(testCase, contains(firstOutput, ...
+        'https://gecko-docs.readthedocs.io/en/latest/gecko3-to-gecko4.html'))
 
     secondOutput = evalc('ModelAdapterManager.getAdapter(adapterPath);');
     verifyEmpty(testCase, secondOutput)
+end
+
+function testGECKOInstallerIsOlderVersion_tc0059(testCase)
+    % Versions compare from major down to the first number that differs;
+    % a pre-release ranks before its release.
+    older = @GECKOInstaller.isOlderVersion;
+    verifyTrue(testCase, older('3.2.5', '3.2.6'))
+    verifyTrue(testCase, older('3.2.6', '4.0.0'))
+    verifyTrue(testCase, older('2.9.3', '3.0.0b1'))
+    verifyTrue(testCase, older('4.0.0b1', '4.0.0'))
+    verifyFalse(testCase, older('4.0.0b1', '3.2.6'))
+    verifyFalse(testCase, older('3.0.0b1', '2.9.1'))
+    verifyFalse(testCase, older('3.2.6', '3.2.6'))
+    verifyFalse(testCase, older('4.0.0', '4.0.0b1'))
+    verifyFalse(testCase, older('4.0.0b1', '4.0.0b2'))
 end
