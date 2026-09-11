@@ -64,7 +64,11 @@ classdef GECKOInstaller
         function checkRAVENversion(minmVer)
             wrongVersion = false;
             try
-                [currVer, installType] = checkInstallation('versionOnly');
+                if exist('checkRaven','file') == 2
+                    [currVer, installType] = checkRaven('versionOnly');
+                else
+                    [currVer, installType] = checkInstallation('versionOnly');
+                end
                 if strcmp(currVer,'develop')
                     printOrange('WARNING: Cannot determine your RAVEN version as it is in a development branch.\n');
                 else                
