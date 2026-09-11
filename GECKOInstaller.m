@@ -67,16 +67,8 @@ classdef GECKOInstaller
                 [currVer, installType] = checkInstallation('versionOnly');
                 if strcmp(currVer,'develop')
                     printOrange('WARNING: Cannot determine your RAVEN version as it is in a development branch.\n');
-                else                
-                    currVerNum = str2double(strsplit(currVer,'.'));
-                    minmVerNum = str2double(strsplit(minmVer,'.'));
-                    if currVerNum(1) ~= minmVerNum(1)
-                        wrongVersion = currVerNum(1) < minmVerNum(1);
-                    elseif currVerNum(2) ~= minmVerNum(2)
-                        wrongVersion = currVerNum(2) < minmVerNum(2);
-                    else
-                        wrongVersion = currVerNum(3) < minmVerNum(3);
-                    end
+                else
+                    wrongVersion = GECKOInstaller.isOlderVersion(currVer, minmVer);
                 end
             catch
                 warning(['Cannot find RAVEN Toolbox in the MATLAB path, or the version ' ...
@@ -112,20 +104,15 @@ classdef GECKOInstaller
                 fprintf('GECKO version %s installed',currVer)
                 try
                     newVer=strtrim(webread('https://raw.githubusercontent.com/SysBioChalmers/GECKO/main/version.txt'));
-                    newVerNum=str2double(strsplit(newVer,'.'));
-                    currVerNum=str2double(strsplit(currVer,'.'));
-                    for i=1:3
-                        if currVerNum(i)<newVerNum(i)
-                            fprintf(', newer version %s is available',newVer)
-                            if ~hasGit
-                                fprintf('\nRun git pull in your favourite git client to update GECKO\n');
-                            else
-                                fprintf('\nInstructions on how to upgrade <a href="https://github.com/SysBioChalmers/GECKO/wiki/Installation-and-upgrade#installation">here</a>\n');
-                            end
-                            break
-                        elseif i==3
-                            fprintf('\n');
+                    if GECKOInstaller.isOlderVersion(currVer, newVer)
+                        fprintf(', newer version %s is available',newVer)
+                        if ~hasGit
+                            fprintf('\nRun git pull in your favourite git client to update GECKO\n');
+                        else
+                            fprintf('\nInstructions on how to upgrade <a href="https://github.com/SysBioChalmers/GECKO/wiki/Installation-and-upgrade#installation">here</a>\n');
                         end
+                    else
+                        fprintf('\n');
                     end
                 catch
                     fprintf('\n');
@@ -133,6 +120,39 @@ classdef GECKOInstaller
             else
                 fprintf('GECKO installed, unknown version (cannot find version.txt).\n')
             end
+        end
+    end
+
+    methods (Static, Hidden)
+        function older = isOlderVersion(ver, refVer)
+            % isOlderVersion  True if version string ver precedes refVer.
+            % Compares major.minor.patch numerically, from major down to
+            % the first number that differs. A pre-release suffix on the
+            % patch number (e.g. 4.0.0b1) ranks before the release itself
+            % (4.0.0); two pre-releases of one release compare as equal.
+            [verNum, verPre] = GECKOInstaller.parseVersion(ver);
+            [refNum, refPre] = GECKOInstaller.parseVersion(refVer);
+            firstDiff = find(verNum ~= refNum, 1);
+            if isempty(firstDiff)
+                older = verPre && ~refPre;
+            else
+                older = verNum(firstDiff) < refNum(firstDiff);
+            end
+        end
+
+        function [num, isPre] = parseVersion(ver)
+            % parseVersion  Leading numbers of major.minor.patch, and
+            % whether the patch number carries a pre-release suffix.
+            parts = strsplit(strtrim(char(ver)), '.');
+            parts(end+1:3) = {'0'};
+            num = zeros(1,3);
+            for i = 1:3
+                lead = regexp(parts{i}, '^\d+', 'match', 'once');
+                if ~isempty(lead)
+                    num(i) = str2double(lead);
+                end
+            end
+            isPre = ~isempty(regexp(parts{3}, '^\d*[^\d]', 'once'));
         end
     end
 
