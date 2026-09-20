@@ -398,7 +398,7 @@ else
                 %l = logical(strcmpi(model.metNames,subs{k}).*(model.S(:,i)~=0)); %I don't understand the .* (model.S(:,i)~=0) part, it shouldn't be needed?/JG;
                 if ~isempty(subs{k}) && strcmpi(subs{k},KCATcell{2}(indx))
                     if KCATcell{4}(indx) > 0
-                        coeff = min(substrCoeff);
+                        coeff = substrCoeff(k);
                         kCatTmp = KCATcell{4}(indx);
                         kcat  = [kcat;kCatTmp/coeff];
                     end
