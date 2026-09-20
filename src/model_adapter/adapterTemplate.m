@@ -43,6 +43,13 @@ classdef KEY_CLASSNAME < ModelAdapter
 
 			% Provide your organism scientific name
 			obj.params.org_name = 'genus species';
+
+            % Which BRENDA aggregate fuzzyKcatMatching reads for each
+            % (EC, substrate, organism) triple: 'max' (the highest
+            % turnover reported) or 'median' (the middle one). Can also
+            % be given per call as
+            % fuzzyKcatMatching(model,'kcatAggregation','median').
+            obj.params.kcatAggregation = 'max';
             
             % Taxonomic identifier for Complex Portal
             obj.params.complex.taxonomicID = [];

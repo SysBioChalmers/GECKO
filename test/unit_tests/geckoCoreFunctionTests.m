@@ -249,6 +249,46 @@ function testsaveECModel_tc0009(testCase)
     verifyEqual(testCase, model, loadedModel)
 end
 
+function testfuzzyKcatMatchingMedian_tc0060(testCase)
+    % Verifies that kcatAggregation selects which BRENDA aggregate is used.
+    % The fixture records a different median from the max for every triple,
+    % so a median run must return the median column throughout, while the
+    % matching itself -- which triple is chosen, at which wildcard level and
+    % origin -- is unchanged.
+    geckoPath = findGECKOroot;
+    adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
+    model = getGeckoTestModel();
+    ecModel = makeEcModel(model, false, adapter);
+    ecModel = getECfromGEM(ecModel);
+
+    kcatListMax = fuzzyKcatMatching(ecModel, [], adapter);
+    verifyEqual(testCase, kcatListMax.kcats, [1;1;10;10;100;1])
+
+    kcatListMedian = fuzzyKcatMatching(ecModel, 'ecRxns', [], ...
+        'modelAdapter', adapter, 'kcatAggregation', 'median');
+    verifyEqual(testCase, kcatListMedian.kcats, [0.5;0.5;4;4;40;0.5])
+
+    % Only the values change; the matching does not.
+    verifyEqual(testCase, kcatListMedian.rxns, kcatListMax.rxns)
+    verifyEqual(testCase, kcatListMedian.eccodes, kcatListMax.eccodes)
+    verifyEqual(testCase, kcatListMedian.wildcardLvl, kcatListMax.wildcardLvl)
+    verifyEqual(testCase, kcatListMedian.origin, kcatListMax.origin)
+
+    % 'max' is the default, and an unknown value is refused.
+    kcatListExplicitMax = fuzzyKcatMatching(ecModel, 'ecRxns', [], ...
+        'modelAdapter', adapter, 'kcatAggregation', 'max');
+    verifyEqual(testCase, kcatListExplicitMax.kcats, kcatListMax.kcats)
+    verifyError(testCase, @() fuzzyKcatMatching(ecModel, 'ecRxns', [], ...
+        'modelAdapter', adapter, 'kcatAggregation', 'mean'), ...
+        'fuzzyKcatMatching:invalidKcatAggregation')
+
+    % Mixing positional and name-value arguments puts a name where a
+    % value belongs; that has to fail rather than quietly wildcard every
+    % EC number, which is what an unvalidated forceWClvl would do.
+    verifyError(testCase, @() fuzzyKcatMatching(ecModel, [], adapter, ...
+        'kcatAggregation', 'median'), 'fuzzyKcatMatching:invalidForceWClvl')
+end
+
 function testfuzzyKcatMatching_tc0010(testCase)
     % Verifies fuzzyKcatMatching against ecTestGEM's fixture BRENDA data, for
     % both the full and light ecModel variants and for both the complete

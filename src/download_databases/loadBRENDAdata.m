@@ -8,14 +8,19 @@ function [KCATcell, SAcell] = loadBRENDAdata(varargin)
 % molecular weights).
 %
 % kcat.tsv and sa.tsv each carry both a max and a median aggregate per
-% (EC, substrate, organism) triple; only the max column is used here. Each
-% file starts with a `#`-prefixed release-version line followed by a
-% tab-delimited column header, both skipped on read.
+% (EC, substrate, organism) triple; kcatAggregation selects which of the
+% two is read. Each file starts with a `#`-prefixed release-version line
+% followed by a tab-delimited column header, both skipped on read.
 %
 % Name-Value Arguments
 % --------------------
 % modelAdapter : ModelAdapter
 %     a loaded model adapter (default: the current default model adapter).
+% kcatAggregation : char
+%     which aggregate to read from kcat.tsv and sa.tsv, 'max' or
+%     'median' (default: params.kcatAggregation from the model adapter,
+%     or 'max' if the adapter does not set it). A triple's max is the
+%     highest turnover reported for it; its median is the middle one.
 %
 % Returns
 % -------
@@ -29,14 +34,22 @@ function [KCATcell, SAcell] = loadBRENDAdata(varargin)
 %     % optional arguments may be given positionally or as name-value pairs:
 %     [KCATcell, SAcell] = loadBRENDAdata();
 %     [KCATcell, SAcell] = loadBRENDAdata('modelAdapter', adapter);
+%     [KCATcell, SAcell] = loadBRENDAdata('kcatAggregation', 'median');
 %
 % See also
 % --------
 % loadDatabases, getECfromDatabase
 
 p = parseGECKOargs(varargin, { ...
-    'modelAdapter', []});
-modelAdapter = p.modelAdapter;
+    'modelAdapter',    [], @(x) assert(isempty(x) || isa(x,'ModelAdapter'), ...
+                                'loadBRENDAdata:invalidModelAdapter', ...
+                                'modelAdapter must be a ModelAdapter.'); ...
+    'kcatAggregation', [], @(x) assert(isempty(x) || any(strcmpi(x, ...
+                                {'max','median'})), ...
+                                'loadBRENDAdata:invalidKcatAggregation', ...
+                                'kcatAggregation must be ''max'' or ''median''.')});
+modelAdapter    = p.modelAdapter;
+kcatAggregation = p.kcatAggregation;
 
 if isempty(modelAdapter)
     modelAdapter = ModelAdapterManager.getDefault();
@@ -45,6 +58,10 @@ if isempty(modelAdapter)
     end
 end
 
+kcatAggregation = resolveKcatAggregation(kcatAggregation, modelAdapter);
+%Column 4 holds the per-triple maximum and column 5 the median.
+valueCol = 4 + strcmpi(kcatAggregation,'median');
+
 basePath      = modelAdapter.getBrendaDBFolder();
 KCAT_file      = fullfile(basePath,'kcat.tsv');
 SA_file        = fullfile(basePath,'sa.tsv');
@@ -52,12 +69,12 @@ MW_file        = fullfile(basePath,'mw.tsv');
 
 %Extract BRENDA DATA from files information. kcat.tsv/sa.tsv are seven
 %columns (ec_code, substrate, organism, value_max, value_median, n,
-%references); the max column (4) is used. mw.tsv is six columns (no
+%references); valueCol picks max or median. mw.tsv is six columns (no
 %substrate-level aggregation choice): ec_code, substrate, organism, value,
 %n, references.
-KCATcell      = openDataFile(KCAT_file,1,'%q %q %q %f %f %f %q',4);
+KCATcell      = openDataFile(KCAT_file,1,'%q %q %q %f %f %f %q',valueCol);
 scalingFactor = 1/60;    %[umol/min/mg] -> [mmol/s/g]
-SA            = openDataFile(SA_file,scalingFactor,'%q %q %q %f %f %f %q',4);
+SA            = openDataFile(SA_file,scalingFactor,'%q %q %q %f %f %f %q',valueCol);
 scalingFactor = 1/1000;  %[g/mol] -> [g/mmol]
 MW            = openDataFile(MW_file,scalingFactor,'%q %q %q %f %f %q',4);
 
