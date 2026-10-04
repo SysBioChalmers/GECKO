@@ -68,13 +68,30 @@ function kcatList = fuzzyKcatMatching(model, varargin)
 % --------
 % mergeDLKcatAndFuzzyKcats, assignKcatValues
 
+% Validators reject a name that landed in a positional slot, which
+% happens when positional and name-value arguments are mixed. Without
+% them `while forceWClvl > 0` on a char array is all-true and silently
+% wildcards every EC number.
 p = parseGECKOargs(varargin, { ...
-    'ecRxns',       []; ...
-    'modelAdapter', []; ...
-    'forceWClvl',   []});
-ecRxns       = p.ecRxns;
-modelAdapter = p.modelAdapter;
-forceWClvl   = p.forceWClvl;
+    'ecRxns',          [], @(x) assert(isempty(x) || isnumeric(x) || ...
+                                islogical(x), ...
+                                'fuzzyKcatMatching:invalidEcRxns', ...
+                                'ecRxns must be numeric or logical.'); ...
+    'modelAdapter',    [], @(x) assert(isempty(x) || isa(x,'ModelAdapter'), ...
+                                'fuzzyKcatMatching:invalidModelAdapter', ...
+                                'modelAdapter must be a ModelAdapter.'); ...
+    'forceWClvl',      [], @(x) assert(isempty(x) || (isnumeric(x) && ...
+                                isscalar(x) && x >= 0), ...
+                                'fuzzyKcatMatching:invalidForceWClvl', ...
+                                'forceWClvl must be a nonnegative scalar.'); ...
+    'kcatAggregation', [], @(x) assert(isempty(x) || any(strcmpi(x, ...
+                                {'max','median'})), ...
+                                'fuzzyKcatMatching:invalidKcatAggregation', ...
+                                'kcatAggregation must be ''max'' or ''median''.')});
+ecRxns          = p.ecRxns;
+modelAdapter    = p.modelAdapter;
+forceWClvl      = p.forceWClvl;
+kcatAggregation = p.kcatAggregation;
 
 if isempty(ecRxns)
     ecRxns = true(numel(model.ec.rxns),1);
@@ -118,7 +135,9 @@ for i = 1:length(ecRxns)
 end
 
 %Load BRENDA data:
-[KCATcell, SAcell] = loadBRENDAdata(modelAdapter);
+kcatAggregation = resolveKcatAggregation(kcatAggregation, modelAdapter);
+[KCATcell, SAcell] = loadBRENDAdata('modelAdapter', modelAdapter, ...
+    'kcatAggregation', kcatAggregation);
 
 %Creates a Structure with KEGG codes for organisms, names and taxonomical
 %distance matrix and extract the organism index in the KEGG struct
@@ -196,7 +215,7 @@ for i = 1:mM
         if ~isempty(substrates{i})
             [kcats(i), kcatInfo.info,kcatInfo.stats] = iterativeMatch(EC,substrates{i},substrCoeffs{i},i,KCATcell,...
                 kcatInfo.info,kcatInfo.stats,org_name,...
-                phylDistStruct,org_index,SAcell,ECIndexIds,EcIndexIndices);
+                phylDistStruct,org_index,SAcell,ECIndexIds,EcIndexIndices,kcatAggregation);
         end
     end
 end
@@ -217,7 +236,7 @@ end
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function [kcat,dir,tot] =iterativeMatch(EC,subs,substrCoeff,i,KCATcell,dir,tot,...
-    name,phylDist,org_index,SAcell,ECIndexIds,EcIndexIndices)
+    name,phylDist,org_index,SAcell,ECIndexIds,EcIndexIndices,kcatAggregation)
 %Will iteratively try to match the EC number to some registry in BRENDA,
 %using each time one additional wildcard.
 
@@ -231,7 +250,7 @@ for k = 1:length(EC)
         %Atempt match:
         [kcat(k),origin(k),matches(k)] = mainMatch(EC{k},subs,substrCoeff,KCATcell,...
             name,phylDist,...
-            org_index,SAcell,ECIndexIds,EcIndexIndices);
+            org_index,SAcell,ECIndexIds,EcIndexIndices,kcatAggregation);
         %If any match found, ends. If not, introduces one extra wild card and
         %tries again:
         if origin(k) > 0
@@ -298,7 +317,7 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function [kcat,origin,matches] = mainMatch(EC,subs,substrCoeff,KCATcell,...
-    name,phylDist,org_index,SAcell,ECIndexIds,EcIndexIndices)
+    name,phylDist,org_index,SAcell,ECIndexIds,EcIndexIndices,kcatAggregation)
 
 %First make the string matching. This takes time, so we only want to do
 %this once:
@@ -317,19 +336,19 @@ stringMatchesEC_cell = extract_string_matches(EC,KCATcell{1},wild,ECIndexIds,EcI
 origin = 0;
 %First try to match organism and substrate:
 [kcat,matches] = matchKcat(EC,subs,substrCoeff,KCATcell,name,true,false,...
-    phylDist,org_index,SAcell,stringMatchesEC_cell,[]);
+    phylDist,org_index,SAcell,stringMatchesEC_cell,[],kcatAggregation);
 if matches > 0 && ~wild % If wildcard, ignore substrate match
     origin = 1;
     %If no match, try the closest organism but match the substrate:
 else
     [kcat,matches] = matchKcat(EC,subs,substrCoeff,KCATcell,'',true,false,...
-        phylDist,org_index,SAcell,stringMatchesEC_cell,[]);
+        phylDist,org_index,SAcell,stringMatchesEC_cell,[],kcatAggregation);
     if matches > 0 && ~wild % If wildcard, ignore substrate match
         origin = 2;
         %If no match, try to match organism but with any substrate:
     else
         [kcat,matches] = matchKcat(EC,subs,substrCoeff,KCATcell,name,false,false,...
-            phylDist,org_index,SAcell,stringMatchesEC_cell,[]);
+            phylDist,org_index,SAcell,stringMatchesEC_cell,[],kcatAggregation);
         if matches > 0
             origin = 3;
             %If no match, try to match organism but for any substrate (SA*MW):
@@ -339,21 +358,21 @@ else
 
             [kcat,matches] = matchKcat(EC,subs,substrCoeff,KCATcell,name,false,...
                 true,phylDist,org_index,...
-                SAcell,stringMatchesEC_cell,stringMatchesSA);
+                SAcell,stringMatchesEC_cell,stringMatchesSA,kcatAggregation);
             if matches > 0
                 origin = 4;
                 %If no match, try any organism and any substrate:
             else
                 [kcat,matches] = matchKcat(EC,subs,substrCoeff,KCATcell,'',false,...
                     false,phylDist,...
-                    org_index,SAcell,stringMatchesEC_cell,stringMatchesSA);
+                    org_index,SAcell,stringMatchesEC_cell,stringMatchesSA,kcatAggregation);
                 if matches > 0
                     origin = 5;
                     %Again if no match, look for any org and SA*MW
                 else
                     [kcat,matches] = matchKcat(EC,subs,substrCoeff,KCATcell,'',...
                         false,true,phylDist,...
-                        org_index,SAcell,stringMatchesEC_cell,stringMatchesSA);
+                        org_index,SAcell,stringMatchesEC_cell,stringMatchesSA,kcatAggregation);
                     if matches > 0
                         origin = 6;
                     end
@@ -367,7 +386,7 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function [kcat,matches] = matchKcat(EC,subs,substrCoeff,KCATcell,organism,...
     substrate,SA,phylDist,...
-    org_index,SAcell,KCATcellMatches,SAcellMatches)
+    org_index,SAcell,KCATcellMatches,SAcellMatches,kcatAggregation)
 
 %Will go through BRENDA and will record any match. Afterwards, it will
 %return the maximum value and the number of matches attained.
@@ -409,12 +428,16 @@ else
         kcat = KCATcell{4}(EC_indexes);
     end
 end
-%Return maximum value:
+%Collapse the matched entries to one value, by the chosen aggregation:
 if isempty(kcat)
     kcat = 0;
 else
-    matches        = length(kcat);
-    [kcat,MaxIndx] = max(kcat);
+    matches = length(kcat);
+    if strcmpi(kcatAggregation,'median')
+        kcat = median(kcat);
+    else
+        kcat = max(kcat);
+    end
 end
 %Avoid SA*Mw values over the diffusion limit rate  [Bar-Even et al. 2011]
 if kcat>(1E7)

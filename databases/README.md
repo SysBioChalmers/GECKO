@@ -10,7 +10,7 @@
 
 ### k<sub>cat</sub> values from BRENDA
 
-`kcat.tsv` collates kcat values per organism, reaction and substrate, as gathered from the BRENDA database. Both a per-triple maximum (`kcat_max`) and median (`kcat_median`) are recorded; `loadBRENDAdata` currently uses `kcat_max` only. Produced by the `geckopy brenda-refresh` CLI in the [geckopy](https://github.com/SysBioChalmers/geckopy) Python package, which maintains the actively updated BRENDA-parsing tooling for both toolboxes; `mw.tsv` and `sa.tsv` below come from the same tool and share its `#`-prefixed release-version header line.
+`kcat.tsv` collates kcat values per organism, reaction and substrate, as gathered from the BRENDA database. Both a per-triple maximum (`kcat_max`) and median (`kcat_median`) are recorded. Which one is used is set by `params.kcatAggregation` on the model adapter, or per call with `fuzzyKcatMatching(model,'kcatAggregation','median')`; the default is `max`. Produced by the `geckopy brenda-refresh` CLI in the [geckopy](https://github.com/SysBioChalmers/geckopy) Python package, which maintains the actively updated BRENDA-parsing tooling for both toolboxes; `mw.tsv` and `sa.tsv` below come from the same tool and share its `#`-prefixed release-version header line.
 
 ### Molecular weights
 
