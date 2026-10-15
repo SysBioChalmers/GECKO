@@ -7,8 +7,10 @@ function jobId = submitOpenKineticsPredictor(model, varargin)
 % job id is also stored in data/OKP_job.txt, so fetchOpenKineticsPredictor can
 % pick it up later.
 %
-% Predictors available via OKP: CataPro, CatPred, DLKcat, EITLEM, KinForm-H,
-% KinForm-L, UniKP (see GET /api/v1/methods/).
+% Predictors available via OKP: CataPro, CatPred, CatRange, DLKcat, EITLEM,
+% KinForm-H, KinForm-L, OmniESI, OmniESI-O2DENet, TurNuP, UniKP (see GET
+% /api/v1/methods/). CatRange predicts a class of kcat values;
+% readOpenKineticsPredictorOutput uses its geometric midpoint.
 %
 % Obtaining an API key:
 %   The OKP API requires a personal Bearer key (looks like 'ak_...'). Keys

@@ -6,6 +6,10 @@ function kcatList = readOpenKineticsPredictorOutput(model, varargin)
 % constructs a kcatList structure, that can be used by assignKcatValues() to
 % populate the ecModel with kcat values.
 %
+% CatRange predicts a class of kcat values, which OKP returns as its range
+% (for instance '10 to 100 s^-1'). It is read as the geometric midpoint of
+% the range, or half the upper bound for the class starting at 0.
+%
 % The per-entry `Source kcat` column (e.g. 'Prediction from CatPred',
 % 'BRENDA', 'Sabio-RK', 'UniProt') is preserved in kcatList.kcatSource so
 % that assignKcatValues() records the actual provenance of each value.
@@ -108,7 +112,7 @@ for i = 1:numel(kcatsCol)
     if isnumeric(v)
         kcats(i) = v;
     elseif ischar(v) || isstring(v)
-        kcats(i) = str2double(v);
+        kcats(i) = kcatFromText(char(v));
     end
 end
 
@@ -253,5 +257,27 @@ for i = 1:numel(c)
     elseif ~ischar(v)
         c{i} = char(string(v));
     end
+end
+end
+
+function kcat = kcatFromText(v)
+% A number, or a CatRange class range '<low> to <high> s^-1' as its
+% geometric midpoint (half the upper bound when the class starts at 0).
+kcat = str2double(v);
+if ~isnan(kcat)
+    return
+end
+bounds = regexp(strtrim(v), '^([0-9.eE+-]+)\s+to\s+([0-9.eE+-]+)(\s*s\^-1)?$', 'tokens', 'once');
+if isempty(bounds)
+    return
+end
+low = str2double(bounds{1});
+high = str2double(bounds{2});
+if isnan(low) || isnan(high)
+    return
+elseif low > 0
+    kcat = sqrt(low * high);
+else
+    kcat = high / 2;
 end
 end

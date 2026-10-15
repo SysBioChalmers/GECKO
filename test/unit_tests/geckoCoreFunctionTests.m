@@ -1163,6 +1163,35 @@ function testResolveOkpApiKeyResolutionOrder_tc0029(testCase)
 end
 
 
+function testReadOpenKineticsPredictorCatRange_tc0069(testCase)
+    % CatRange's prediction is a class range ('10 to 100 s^-1'), read as its
+    % geometric midpoint, or half the upper bound for the class from 0.
+    geckoPath = findGECKOroot;
+    adapter = ModelAdapterManager.getAdapter(fullfile(geckoPath,'test','unit_tests','ecTestGEM', 'TestGEMAdapter.m'));
+    model = getGeckoTestModel();
+    ecModel = makeEcModel(model, false, adapter);
+    ecModel = getECfromGEM(ecModel);
+    ecModel.metSmiles = repmat({''}, numel(ecModel.mets), 1);
+    ecModel.metSmiles(strcmp(ecModel.mets,'m1c')) = {'C(C1C)O'};
+
+    resultFile = [tempname '.csv'];
+    fid = fopen(resultFile,'w');
+    fprintf(fid,'Predicted kcat range: kcat (1/s),Source kcat,Extra Info kcat,Protein Sequence,Substrate\n');
+    fprintf(fid,'10 to 100 s^-1,Prediction from CatRange,Predicted range: 10 to 100 s^-1,MRAL,C(C1C)O\n');
+    fclose(fid);
+    cleanupFile = onCleanup(@() delete(resultFile));
+    kcatList = readOpenKineticsPredictorOutput(ecModel, 'outFile', resultFile, 'modelAdapter', adapter);
+    verifyEqual(testCase, kcatList.kcats, 10^1.5, 'RelTol', 1e-12)
+    verifyEqual(testCase, kcatList.kcatSource, {'OKP-CatRange'})
+
+    fid = fopen(resultFile,'w');
+    fprintf(fid,'Predicted kcat range: kcat (1/s),Source kcat,Extra Info kcat,Protein Sequence,Substrate\n');
+    fprintf(fid,'0 to 1e-08 s^-1,Prediction from CatRange,,MRAL,C(C1C)O\n');
+    fclose(fid);
+    kcatList = readOpenKineticsPredictorOutput(ecModel, 'outFile', resultFile, 'modelAdapter', adapter);
+    verifyEqual(testCase, kcatList.kcats, 5e-9, 'RelTol', 1e-12)
+end
+
 function testFetchOpenKineticsPredictorUseStoredMatchesReader_tc0030(testCase)
     % Verifies fetchOpenKineticsPredictor's 'useStored' path (parsing an
     % already-downloaded result file, the only path testable without a live
