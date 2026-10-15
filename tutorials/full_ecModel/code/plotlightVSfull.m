@@ -18,7 +18,7 @@ function [solL, solF] = plotlightVSfull()
 %           mapped onto the conventional (non-ec) GEM reactions
 
 %
-adapterLocation = fullfile(findGECKOroot,'tutorials','full_ecModel','YeastGEMAdapter.m');
+adapterLocation = fullfile(findGECKOroot,'tutorials','full_ecModel');
 ModelAdapterManager.setDefault(adapterLocation);
 model = loadConventionalGEM();
 model = setParam(model,'lb','r_1714',-1000);

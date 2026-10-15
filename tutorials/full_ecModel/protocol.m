@@ -54,17 +54,19 @@ GECKOInstaller.install
 % STEP 3-7 Modify the model adapter
 % In the Nature Protocols paper is explained how to decide on the organism-
 % and model-specific parameters in the model adapter, which for this
-% tutorial is located at tutorials/full_ecModel/YeastGEMAdapter.m.
+% tutorial is located at tutorials/full_ecModel/model_adapter.toml. The
+% same file configures geckopy, the Python version of GECKO.
 
 %% STAGE 1: Expansion from a starting metabolic model to an ecModel structure
 % STEP 8 Set modelAdapter
-adapterLocation = fullfile(findGECKOroot,'tutorials','full_ecModel','YeastGEMAdapter.m');
+adapterLocation = fullfile(findGECKOroot,'tutorials','full_ecModel');
 ModelAdapter = ModelAdapterManager.setDefault(adapterLocation);
 
-% With the above line, we set the YeastGEMAdapter as the default adapter
-% from here onwards, which means that any GECKO function that requires a
-% model adapter as input will use YeastGEMAdapter. This is until you have
-% set a new default adapter, or closed MATLAB.
+% With the above line, we set the model adapter of this project folder,
+% read from its model_adapter.toml, as the default adapter from here
+% onwards, which means that any GECKO function that requires a model
+% adapter as input will use it. This is until you have set a new default
+% adapter, or closed MATLAB.
 
 % We can also load the ModelAdapter into the MATLAB Workspace, so that you
 % can quickly see its content, for instance the parameters.
@@ -457,7 +459,7 @@ ecModel = loadEcModel('ecYeastGEM.yml');
 
 % STEP 67-68 Simulate Crabtree effect with protein pool
 % We will below run a custom plotCrabtree function that is kept in the code
-% subfolder, which YeastGEMAdapter adds to the MATLAB path.
+% subfolder, which the model adapter adds to the MATLAB path.
 [fluxes, gRate] = plotCrabtree(ecModel);
 % fluxes has all the predicted fluxes, while gRate is a vector with the
 % corresponding growth rates that were simulated, as visualized on the

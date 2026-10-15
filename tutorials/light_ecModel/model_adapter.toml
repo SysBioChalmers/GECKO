@@ -1,0 +1,58 @@
+# Model adapter for the light_ecModel tutorial (Human-GEM).
+# Read by GECKO through HumanGEMAdapter, which adds custom code, and by
+# geckopy (ModelAdapter.from_folder). Paths are relative to this folder.
+# Every key, its MATLAB name and its default are listed in GECKO's
+# src/model_adapter/adapterParameters.tsv.
+
+# Human-GEM 1.15.0
+# (https://github.com/SysBioChalmers/Human-GEM/releases/tag/v1.15.0),
+# reduced in size before it was stored in this tutorial:
+#   ihuman = simplifyModel(ihuman,false,false,true,true);
+#   [ihuman.grRules,skipped] = simplifyGrRules(ihuman.grRules,true);
+#   ihuman = deleteUnusedGenes(ihuman);
+#   ihuman = rmfield(ihuman,{'unconstrained','rxnReferences','rxnFrom','metFrom','rxnConfidenceScores'});
+#   ihuman.name = ihuman.id;
+#   writeYAMLmodel(ihuman,'human-GEM.yml')
+conv_gem = "models/human-GEM.yml"
+
+org_name = "homo sapiens"
+
+# Set low to give a reasonable growth rate; this should be investigated
+# further.
+sigma = 0.1
+# Average across NCI60 cell lines [g protein/gDW].
+p_tot = 0.505717472
+# Estimated as TPM of model genes / all genes in GTEx.
+f = 0.412
+# Average across NCI60 cell lines [1/h].
+gr_exp = 0.020663429
+
+c_source = "MAR09034"
+bio_rxn = "MAR13082"
+# Compartment of the protein pseudometabolites. They can all sit in one
+# compartment, whichever compartments the enzymes act in; typically the
+# cytoplasm.
+enzyme_comp = "Cytosol"
+
+[kegg]
+id = "hsa"
+gene_id = "Ensembl"
+
+[uniprot]
+type = "proteome"
+id = "UP000005640"
+gene_id_field = "gene_primary"
+reviewed = true
+
+[complex]
+taxonomic_id = 9606
+
+# Derived from reactions.tsv of Human-GEM 1.15.0
+# (https://github.com/SysBioChalmers/Human-GEM/blob/194ebe5431c83e25f78df61caacad2fa485b5cb4/model/reactions.tsv),
+# keeping the reaction identifiers and the spontaneous column.
+[spontaneous]
+file = "data/spontaneousReactions.tsv"
+
+[matlab.params]
+# Glucose uptake, average across NCI60 cell lines [mmol/gDW/h].
+c_UptakeExp = 0.641339301
