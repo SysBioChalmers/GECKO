@@ -15,6 +15,13 @@ gather_kcats/readDLKcatOutput.m	tcm0001, tcm0002 - The test doesn't really check
 gather_kcats/runDLKcat.m	tcm0001, tcm0002 - The test doesn't really check the function, only that we get something
 gather_kcats/assignKcatValues.m	tc0011 - we did not test all possible parameterizations here
 gather_kcats/writeDLKcatInput.m	partly by tc0011
+gather_kcats/getEcRxnKeys.m	tc0070, tc0076	
+gather_kcats/saveKcatSource.m	tc0071, tc0073, tc0076, tc0078	
+gather_kcats/readKcatSource.m	tc0071, tc0077	
+gather_kcats/loadKcatSource.m	tc0071, tc0072, tc0073, tc0076, tc0077, tc0078	
+gather_kcats/kcatsFromBrenda.m	tc0074, tc0078	
+gather_kcats/kcatsFromDLKcat.m	tc0074, tc0078 - reads an existing DLKcat output; running DLKcat needs Docker	
+gather_kcats/kcatsFromOKP.m	tc0075 - reads a stored result; submitting needs the OKP service	
 gather_kcats/reviewKcatAssignment.m	Has only been tested by running it manually, not tested by test cases
 gather_kcats/ecStatsFromBrenda.m	Not verified against real BRENDA data in this environment -- see its own TODO comment
 get_enzyme_data/calculateMW.m	Not explicitly tested - The code has existed for a long time	

@@ -29,6 +29,9 @@ function [done, kcatList] = fetchOpenKineticsPredictor(model, varargin)
 %     return (default false).
 % pollInterval : double
 %     seconds between polls when wait=true (default 30).
+% outFile : char
+%     where the result is stored, and read from with useStored=true
+%     (default: data/OKP_output.csv).
 % modelAdapter : ModelAdapter
 %     a loaded model adapter (default: the current default model adapter).
 %
@@ -56,7 +59,8 @@ p = parseGECKOargs(varargin, { ...
     'jobId',        []; ...
     'wait',         []; ...
     'pollInterval', []; ...
-    'modelAdapter', []});
+    'modelAdapter', []; ...
+    'outFile',      []});
 useStored    = p.useStored;
 jobId        = p.jobId;
 wait         = p.wait;
@@ -74,7 +78,10 @@ params = modelAdapter.params;
 if isempty(wait); wait = false; end
 if isempty(pollInterval); pollInterval = 30; end
 
-outFile = fullfile(params.path,'data','OKP_output.csv');
+outFile = p.outFile;
+if isempty(outFile)
+    outFile = fullfile(params.path,'data','OKP_output.csv');
+end
 
 %% Stored-result mode: parse the saved file, no API call
 if useStored

@@ -1,0 +1,16 @@
+﻿# source: fixture
+# generator: hand-written
+"# parameters: {""aggregation"":""median""}"
+# kind: curated
+
+rxn	enzymes	substrate	kcat	log10_sd	source	detail	ec_code	note
+R2	P2 + P1	m1	12.5	0.3	brenda	wc=0; origin=1	1.1.1.1	enzymes in another order
+# a comment between rows
+R3	P4	"2,3-bisphospho-D-glycerate"	1e-05		custom			quoted substrate
+
+R5	P5	m2	5,5		custom			decimal comma: invalid
+R2_REV		m2	7		custom			reaction only
+	P3		3		custom			enzymes only
+R9	X1		-1		custom			negative: invalid
+R9	X1		4		custom			unmatched
+								

@@ -1,2 +1,5 @@
 *.pickle filter=lfs diff=lfs merge=lfs -text
 *.npy filter=lfs diff=lfs merge=lfs -text
+
+# A fixture that must keep its byte-order mark and CRLF line endings.
+test/unit_tests/ecTestGEM/data/kcatSourceFixture.tsv -text
