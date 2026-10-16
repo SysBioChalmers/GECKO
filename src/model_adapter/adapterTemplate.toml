@@ -104,6 +104,20 @@ dlkcat = 0.4
 brenda = 0.2
 custom = 0.1
 
+# How kcats are assigned from the kcat source files in data/kcats (see
+# collectKcats and assignKcats): a preset, or [[kcat_assignment.stage]]
+# tables instead. gecko_median orders custom kcats, BRENDA without
+# wildcards, DLKcat, then the other BRENDA matches, using the BRENDA median;
+# gecko_classic does the same with the BRENDA maximum, as GECKO 3.
+[kcat_assignment]
+preset = "gecko_median"
+isozymes = true
+standard = true
+
+# Settings per kcat source, used by updateKcatSources, for example:
+# [kcat_sources.okp_catapro]
+# method = "CataPro"
+
 # Read by GECKO only. Names of MATLAB functions, for instance in the code
 # folder, used during kcat tuning: one that constrains the ecModel to
 # anaerobic growth, and one that changes the protein content of the

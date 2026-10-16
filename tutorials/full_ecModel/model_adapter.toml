@@ -79,6 +79,12 @@ dlkcat = 0.4
 brenda = 0.2
 custom = 0.1
 
+# Kcats are assigned as in the GECKO 3 tutorial: custom kcats, BRENDA
+# without wildcards, DLKcat, then the other BRENDA matches, using the BRENDA
+# maximum (see collectKcats).
+[kcat_assignment]
+preset = "gecko_classic"
+
 # Read by GECKO only. During kcat tuning, anaerobic conditions are set by
 # anaerobicModel_GECKO in the code folder, which GECKO adds to the path.
 [matlab]

@@ -22,6 +22,9 @@ gather_kcats/loadKcatSource.m	tc0071, tc0072, tc0073, tc0076, tc0077, tc0078
 gather_kcats/kcatsFromBrenda.m	tc0074, tc0078	
 gather_kcats/kcatsFromDLKcat.m	tc0074, tc0078 - reads an existing DLKcat output; running DLKcat needs Docker	
 gather_kcats/kcatsFromOKP.m	tc0075 - reads a stored result; submitting needs the OKP service	
+gather_kcats/collectKcats.m	tc0079, tc0080, tc0081	
+gather_kcats/assignKcats.m	tc0079	
+gather_kcats/updateKcatSources.m	tc0082	
 gather_kcats/reviewKcatAssignment.m	Has only been tested by running it manually, not tested by test cases
 gather_kcats/ecStatsFromBrenda.m	Not verified against real BRENDA data in this environment -- see its own TODO comment
 get_enzyme_data/calculateMW.m	Not explicitly tested - The code has existed for a long time	

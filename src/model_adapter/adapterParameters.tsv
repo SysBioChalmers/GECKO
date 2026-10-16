@@ -32,5 +32,10 @@ okp.method	okp.method	"CataPro"	OpenKineticsPredictor method
 okp.handle_long_sequences	okp.handleLongSequences	"truncate"	How OpenKineticsPredictor handles sequences that are too long
 okp.include_similarity_columns	okp.includeSimilarityColumns	true	Return similarity to the method's training data
 okp.canonicalize_substrates	okp.canonicalizeSubstrates	true	Canonicalize substrate SMILES before prediction
+kcat_assignment.preset			Kcat assignment preset: gecko_classic (used when neither preset nor stages are given) or gecko_median
+kcat_assignment.isozymes		true	Fill reactions without a kcat from their isozymes after the stages
+kcat_assignment.standard		true	Give the remaining reactions the standard kcat
+kcat_assignment.stage			Stages instead of a preset: action, sources, criteria and BRENDA limits ([[kcat_assignment.stage]])
+kcat_sources			Settings per kcat source file, e.g. [kcat_sources.brenda] aggregation
 matlab.make_model_anaerobic	matlab.makeModelAnaerobic		MATLAB function that constrains the ecModel to anaerobic growth
 matlab.change_protein_biomass	matlab.changeProteinBiomass		MATLAB function that changes the protein content of the biomass
