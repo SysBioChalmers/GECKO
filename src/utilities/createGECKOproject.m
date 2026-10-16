@@ -8,23 +8,30 @@ function createGECKOproject(varargin)
 % --------------------
 % name : char
 %     a name for the folder structure used in GECKO. Also creates a basic
-%     adapter class, which must be manually adjusted. If not defined, a
+%     model adapter, which must be manually adjusted. If not defined, a
 %     dialog box will appear.
 % path : char
 %     a path where to create the folder. If not defined, a dialog box will
 %     appear.
+% adapterFormat : char
+%     'toml' (default) writes model_adapter.toml, which GECKO and geckopy
+%     both read (see TomlAdapter); 'class' writes an adapter class
+%     <name>Adapter.m instead.
 %
 % Examples
 % --------
 %     % optional arguments may be given positionally or as name-value pairs:
 %     createGECKOproject(name, path);
 %     createGECKOproject('name', name);
+%     createGECKOproject('name', name, 'adapterFormat', 'class');
 
 p = parseGECKOargs(varargin, { ...
     'name', []; ...
-    'path', []});
+    'path', []; ...
+    'adapterFormat', 'toml'});
 name = p.name;
 path = p.path;
+adapterFormat = validatestring(p.adapterFormat, {'toml','class'});
 
 if isempty(name)
     prompt = {'Please provide a project name (e.g. ecYeastGEM)'};
@@ -51,9 +58,15 @@ if ~exist(fullPath, 'dir')
         fclose(fid);
     end
 
-    % Read the template adapter class
-    fid = fopen(fullfile(findGECKOroot, 'src', ...
-        'model_adapter', 'adapterTemplate.m'));
+    % Read the template adapter
+    if strcmp(adapterFormat, 'toml')
+        template = 'adapterTemplate.toml';
+        filename = fullfile(path, name, 'model_adapter.toml');
+    else
+        template = 'adapterTemplate.m';
+        filename = fullfile(path, name, [name 'Adapter.m']);
+    end
+    fid = fopen(fullfile(findGECKOroot, 'src', 'model_adapter', template));
     f = fread(fid, '*char')';
     fclose(fid);
 
@@ -62,8 +75,7 @@ if ~exist(fullPath, 'dir')
     f = strrep(f, 'KEY_PATH', path);
     f = strrep(f, 'KEY_NAME', name);
 
-    % Save the class file
-    filename = fullfile(path, name, [name 'Adapter.m']);
+    % Save the adapter
     fid = fopen(filename, 'w');
     fwrite(fid, f);
     fclose(fid);

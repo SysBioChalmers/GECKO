@@ -1,0 +1,85 @@
+# Model adapter for the full_ecModel tutorial (yeast-GEM).
+# Read by GECKO (ModelAdapterManager.setDefault on this folder) and by
+# geckopy (ModelAdapter.from_folder). Paths are relative to this folder.
+# Every key, its MATLAB name and its default are listed in GECKO's
+# src/model_adapter/adapterParameters.tsv.
+
+# Conventional GEM that the ecModel is built from.
+conv_gem = "models/yeast-GEM.yml"
+
+org_name = "saccharomyces cerevisiae"
+
+# Average enzyme saturation factor.
+sigma = 0.5
+# Total protein content [g protein/gDW].
+p_tot = 0.5
+# Fraction of enzymes in the model [g enzyme/g protein].
+f = 0.5
+# Growth rate the model should reach when not limited by nutrient uptake [1/h].
+gr_exp = 0.41
+
+c_source = "r_1714"
+bio_rxn = "r_4041"
+# Compartment of the protein pseudometabolites. They can all sit in one
+# compartment, whichever compartments the enzymes act in; typically the
+# cytoplasm.
+enzyme_comp = "cytoplasm"
+
+[kegg]
+id = "sce"
+gene_id = "kegg"
+
+[uniprot]
+type = "proteome"
+id = "UP000002311"
+gene_id_field = "gene_oln"
+reviewed = true
+
+[complex]
+taxonomic_id = 559292
+
+# Reactions with "spontaneous" in their name have no enzyme.
+[spontaneous]
+name_contains = "spontaneous"
+
+# Hyperparameters for evotune (CMA-ES) kcat tuning.
+[evotune]
+# Prior standard deviation (log) for kcats whose source is in no group.
+sigma0_log_default = 0.5
+# Weight on the max-growth RMSE against the flux RMSE:
+# (rmse_flux + w * rmse_max_growth) / (w + 1). At 2 the max-growth
+# conditions count double against the flux conditions.
+max_growth_weight = 2.0
+# Weight on a prior term in the search objective,
+# rmse + w * mean((log(k/k0) / sigma0_log)^2). Keeps large corrections
+# reproducible across seeds; 0 scores on RMSE alone.
+prior_penalty_weight = 0.03
+# Give isozyme copies of one reaction (sharing a prior value and a source)
+# a single shared kcat, so the search cannot invent a distinction the kcat
+# assignment never made.
+tie_isozymes = true
+# Stop when the RMSE falls below this.
+rmse_threshold = 0.2
+# Maximum number of CMA-ES generations.
+max_generations = 212
+
+# Kcat sources, from least to most trusted, each with its prior width
+# (lower is more trusted).
+[evotune.source_groups.dlkcat]
+sources = ["dlkcat"]
+
+[evotune.source_groups.brenda]
+sources = ["brenda"]
+
+[evotune.source_groups.custom]
+sources = ["custom"]
+
+[evotune.sigma0_log_source]
+dlkcat = 0.4
+brenda = 0.2
+custom = 0.1
+
+# Read by GECKO only. During kcat tuning, anaerobic conditions are set by
+# anaerobicModel_GECKO in the code folder, which GECKO adds to the path.
+[matlab]
+make_model_anaerobic = "anaerobicModel_GECKO"

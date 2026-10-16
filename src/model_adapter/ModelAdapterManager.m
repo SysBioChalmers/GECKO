@@ -4,6 +4,10 @@
 % stores a process-wide default adapter, so that GECKO functions can
 % retrieve the active adapter without it being passed explicitly.
 %
+% An adapter is loaded from model_adapter.toml (give the file or the
+% project folder; see TomlAdapter) or from an adapter class (give its .m
+% file).
+%
 % Notes
 % -----
 % All methods are static. The default adapter is held in a persistent
@@ -20,9 +24,22 @@ classdef ModelAdapterManager
             end
             ModelAdapterManager.showGECKO4Notice();
 
+            adapterPath = char(adapterPath);
+            if isfolder(adapterPath)
+                tomlFile = fullfile(adapterPath, 'model_adapter.toml');
+                if ~isfile(tomlFile)
+                    error('No model_adapter.toml found in %s.', adapterPath);
+                end
+                adapter = TomlAdapter(tomlFile);
+                return
+            end
             [adapterFolder, adapterClassName, extension] = fileparts(adapterPath);
-            if ~strcmp(extension, '.m')
-                error('Please provide the full path to the adapter file, including the file extension.');
+            if strcmp(extension, '.toml')
+                adapter = TomlAdapter(adapterPath);
+                return
+            elseif ~strcmp(extension, '.m')
+                error(['Please provide the project folder, its model_adapter.toml, or the ' ...
+                    'full path to the adapter class file, including the .m extension.']);
             else
                 s = pathsep;
                 pathStr = [s, path, s];

@@ -1,0 +1,36 @@
+toml_key	matlab_field	default	description
+conv_gem	convGEM		Path to the conventional GEM, relative to the project folder
+org_name	org_name		Scientific name of the organism
+sigma	sigma	0.5	Average enzyme saturation factor
+p_tot	Ptot	0.5	Total protein content [g protein/gDW]
+f	f	0.5	Fraction of enzymes in the model [g enzyme/g protein]
+gr_exp	gR_exp	0.41	Growth rate the model should reach when not limited by nutrient uptake [1/h]
+c_source	c_source	""	Exchange reaction of the main carbon source
+bio_rxn	bioRxn	""	Biomass pseudoreaction
+enzyme_comp	enzyme_comp	"cytoplasm"	Compartment of the protein pseudometabolites
+kcat_aggregate_brenda	kcatAggregation	"max"	BRENDA aggregate read by fuzzyKcatMatching: max or median
+kcat_aggregate_candidates		"max"	Aggregation of several candidate kcats for one reaction (geckopy)
+kcat_aggregate_isozymes		"mean"	Aggregation of isozyme kcats when filling a missing value (geckopy)
+kegg.id	kegg.ID	"sce"	KEGG organism code
+kegg.gene_id	kegg.geneID	"kegg"	Field in the KEGG entry that matches model gene identifiers
+uniprot.type	uniprot.type	"taxonomy"	Whether uniprot.id is a taxonomy or a proteome identifier
+uniprot.id	uniprot.ID	"559292"	Taxonomy or proteome identifier
+uniprot.gene_id_field	uniprot.geneIDfield	"gene_oln"	UniProt field that matches model gene identifiers
+uniprot.reviewed	uniprot.reviewed	false	Use only reviewed (Swiss-Prot) entries
+complex.taxonomic_id	complex.taxonomicID		Taxonomy identifier for Complex Portal
+spontaneous.name_contains	spontaneous.name_contains		Reactions whose name contains this text are spontaneous
+spontaneous.file	spontaneous.file		TSV of spontaneous reactions, relative to the project folder: reaction identifiers, optionally a 0/1 column
+evotune.sigma0_log_default	evotune.sigma0logDefault	0.5	Prior standard deviation (log) for kcats whose source is in no group
+evotune.source_groups	evotune.kcatSources		Trust tiers: group name to the ec.source values it covers
+evotune.sigma0_log_source	evotune.sigma0logSource		Prior standard deviation (log) per group
+evotune.rmse_threshold	evotune.rmseThreshold	0.2	Stop when the best RMSE reaches this
+evotune.max_generations	evotune.maxGenerations	150	Maximum number of CMA-ES generations
+evotune.max_growth_weight	evotune.maxGrowthWeight	1.0	Weight of the maximum-growth RMSE against the flux RMSE
+evotune.prior_penalty_weight	evotune.priorPenaltyWeight	0.03	Weight of the prior term in the search objective
+evotune.tie_isozymes	evotune.tieIsozymes	true	Give isozyme copies of one reaction a single kcat
+okp.method	okp.method	"CataPro"	OpenKineticsPredictor method
+okp.handle_long_sequences	okp.handleLongSequences	"truncate"	How OpenKineticsPredictor handles sequences that are too long
+okp.include_similarity_columns	okp.includeSimilarityColumns	true	Return similarity to the method's training data
+okp.canonicalize_substrates	okp.canonicalizeSubstrates	true	Canonicalize substrate SMILES before prediction
+matlab.make_model_anaerobic	matlab.makeModelAnaerobic		MATLAB function that constrains the ecModel to anaerobic growth
+matlab.change_protein_biomass	matlab.changeProteinBiomass		MATLAB function that changes the protein content of the biomass

@@ -1,0 +1,113 @@
+# Model adapter for KEY_NAME.
+# Read by GECKO (ModelAdapterManager.setDefault on the project folder) and
+# by geckopy (ModelAdapter.from_folder). Paths are relative to the project
+# folder. Keys that are left out get the default listed, with their MATLAB
+# names, in GECKO's src/model_adapter/adapterParameters.tsv.
+
+# Conventional GEM that this ecModel is built from.
+conv_gem = "models/yourModel.xml"
+
+# Scientific name of the organism.
+org_name = "genus species"
+
+# Average enzyme saturation factor.
+sigma = 0.5
+# Total protein content in the cell [g protein/gDW].
+p_tot = 0.5
+# Fraction of enzymes in the model [g enzyme/g protein].
+f = 0.5
+# Growth rate the model should reach when not limited by nutrient uptake,
+# for example the maximum growth rate [1/h].
+gr_exp = 0.41
+
+# Exchange reaction of glucose, or another preferred carbon source.
+c_source = "r_1714"
+# Biomass pseudoreaction.
+bio_rxn = "r_4041"
+# Compartment of the protein pseudometabolites. They can all sit in one
+# compartment, whichever compartments the enzymes act in; typically the
+# cytoplasm.
+enzyme_comp = "cytoplasm"
+
+# Which BRENDA aggregate fuzzyKcatMatching reads for each (EC, substrate,
+# organism): "max" (the highest turnover reported) or "median".
+kcat_aggregate_brenda = "max"
+
+[kegg]
+# KEGG organism code, from https://www.genome.jp/kegg/catalog/org_list.html
+id = "sce"
+# Field for the KEGG gene identifier; it should match the gene identifiers
+# of the model. "kegg" takes the KEGG entry identifier (for example
+# YER023W: https://www.genome.jp/dbget-bin/www_bget?sce:YER023W). Gene
+# identifiers from the "Other DBs" section of the KEGG page can also be
+# used, for example "NCBI-GeneID", "UniProt" or "Ensembl"; not all are
+# available for every organism and gene.
+gene_id = "kegg"
+
+[uniprot]
+# "proteome" (https://www.uniprot.org/proteomes/) or "taxonomy"
+# (https://www.uniprot.org/taxonomy), and the matching identifier.
+type = "taxonomy"
+id = "559292"
+# UniProt field that matches the gene identifiers of the model: one of the
+# "Returned Field" entries under "Names & Taxonomy" at
+# https://www.uniprot.org/help/return_fields
+gene_id_field = "gene_oln"
+# Use only reviewed (Swiss-Prot) entries. They have the highest confidence,
+# but coverage can be (very) low for non-model organisms.
+reviewed = false
+
+[complex]
+# Taxonomy identifier for Complex Portal; leave out to skip it.
+# taxonomic_id = 559292
+
+# Reactions without an enzyme: those whose name contains name_contains,
+# and those listed in file (a TSV with a header row, reaction identifiers
+# in the first column and optionally a 0/1 column).
+[spontaneous]
+name_contains = "spontaneous"
+# file = "data/spontaneousReactions.tsv"
+
+# Hyperparameters for evotune (CMA-ES) kcat tuning.
+[evotune]
+# Prior standard deviation (log) for kcats whose source is in no group.
+sigma0_log_default = 0.5
+# Weight on the max-growth RMSE against the flux RMSE:
+# (rmse_flux + w * rmse_max_growth) / (w + 1). At 1 both count equally.
+max_growth_weight = 1.0
+# Weight on a prior term in the search objective,
+# rmse + w * mean((log(k/k0) / sigma0_log)^2). Keeps large corrections
+# reproducible across seeds; 0 scores on RMSE alone.
+prior_penalty_weight = 0.03
+# Give isozyme copies of one reaction (sharing a prior value and a source)
+# a single shared kcat, so the search cannot invent a distinction the kcat
+# assignment never made.
+tie_isozymes = true
+# Stop when the RMSE falls below this.
+rmse_threshold = 0.2
+# Maximum number of CMA-ES generations.
+max_generations = 150
+
+# Kcat sources, from least to most trusted, each with its prior width
+# (lower is more trusted).
+[evotune.source_groups.dlkcat]
+sources = ["dlkcat"]
+
+[evotune.source_groups.brenda]
+sources = ["brenda"]
+
+[evotune.source_groups.custom]
+sources = ["custom"]
+
+[evotune.sigma0_log_source]
+dlkcat = 0.4
+brenda = 0.2
+custom = 0.1
+
+# Read by GECKO only. Names of MATLAB functions, for instance in the code
+# folder, used during kcat tuning: one that constrains the ecModel to
+# anaerobic growth, and one that changes the protein content of the
+# biomass (it receives the ecModel and the protein content).
+[matlab]
+# make_model_anaerobic = "anaerobicModel"
+# change_protein_biomass = "scaleBiomassProtein"
